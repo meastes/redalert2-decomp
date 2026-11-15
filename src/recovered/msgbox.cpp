@@ -1,3 +1,9 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+// Parameter names from mischa85/RedAlert2 392e904 src/msgbox.cpp where both define the function (names only).
+
 // msgbox.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -17,16 +23,16 @@
 // Shows the message box dialog (0xCE, 0x120 with a second, 0x121 with a
 // third button), waits for a button and restores the mouse hide count.
 
-int WWMessageBox::Process(unsigned short const *text, unsigned short const *button1,
-                          unsigned short const *button2, unsigned short const *button3, bool unknown5)
+int WWMessageBox::Process(unsigned short const *msg, unsigned short const *b1txt,
+                          unsigned short const *b2txt, unsigned short const *b3txt, bool preserve)
 {
     int result = -1;
     int buttons = 0;
     int state = WWMouse->Get_Mouse_State();
-    bool has_text = text != 0 && *text != 0;
-    bool has_button1 = button1 != 0 && *button1 != 0;
-    bool has_button2 = button2 != 0 && *button2 != 0;
-    bool has_button3 = button3 != 0 && *button3 != 0;
+    bool has_text = msg != 0 && *msg != 0;
+    bool has_button1 = b1txt != 0 && *b1txt != 0;
+    bool has_button2 = b2txt != 0 && *b2txt != 0;
+    bool has_button3 = b3txt != 0 && *b3txt != 0;
     unknown_5159b0(0, true);
 
     int resource = 0xCE;
@@ -40,21 +46,21 @@ int WWMessageBox::Process(unsigned short const *text, unsigned short const *butt
         SetWindowLongA(dialog, 8, (LONG)&result);
         if (has_text) {
             HWND control = GetDlgItem(dialog, 0x5B0);
-            SendMessageA(control, 0x4B2, 0, (LPARAM)text);
+            SendMessageA(control, 0x4B2, 0, (LPARAM)msg);
         }
         if (has_button1) {
             HWND control = GetDlgItem(dialog, 0x5AE);
-            SendMessageA(control, 0x4B2, 0, (LPARAM)button1);
+            SendMessageA(control, 0x4B2, 0, (LPARAM)b1txt);
             buttons = 1;
         }
         if (has_button2) {
             HWND control = GetDlgItem(dialog, 2);
-            SendMessageA(control, 0x4B2, 0, (LPARAM)button2);
+            SendMessageA(control, 0x4B2, 0, (LPARAM)b2txt);
             buttons = 2;
         }
         if (has_button3) {
             HWND control = GetDlgItem(dialog, 0x5AF);
-            SendMessageA(control, 0x4B2, 0, (LPARAM)button3);
+            SendMessageA(control, 0x4B2, 0, (LPARAM)b3txt);
             buttons = 3;
         }
         unknown_dialog_5ff7c0(dialog);

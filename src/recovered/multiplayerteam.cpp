@@ -1,3 +1,9 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+// Parameter names from mischa85/RedAlert2 392e904 src/multiplayerteam.cpp where both define the function (names only).
+
 // multiplayerteam.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -68,7 +74,7 @@
 
 WIN32_IMPORT long __stdcall SendMessageA(HWND window, unsigned int message, unsigned int wparam, long lparam);
 
-MultiplayerTeam::MultiplayerTeam(WideString const &name, int number) : Name(name), Number(number)
+MultiplayerTeam::MultiplayerTeam(WideString const &title, int index) : Name(title), Number(index)
 {
 }
 
@@ -83,9 +89,9 @@ MultiplayerTeam::~MultiplayerTeam()
 // bool MultiplayerTeam::IsTeamIncluded(int player) -- 0x005B9B60
 // Slot 1: true for a valid index into the player list (0x00A3FA7C).
 
-bool MultiplayerTeam::IsTeamIncluded(int player)
+bool MultiplayerTeam::IsTeamIncluded(int index)
 {
-    if (player < 0 || player >= unknown_players_a3fa7c.Count()) {
+    if (index < 0 || index >= unknown_players_a3fa7c.Count()) {
         return false;
     }
     return true;
@@ -124,10 +130,10 @@ int MultiplayerTeam::CountMembers() const
 // Adds the team name to a combo box (CB_ADDSTRING) with the team number as
 // the item data (CB_SETITEMDATA); returns the new item's index.
 
-int MultiplayerTeam::AddToList(HWND combo)
+int MultiplayerTeam::AddToList(HWND list)
 {
-    int item = SendMessageA(combo, 0x143, 0, (LPARAM)Name.unknown_text_770430());   // CB_ADDSTRING
-    SendMessageA(combo, 0x151, item, Number);                                     // CB_SETITEMDATA
+    int item = SendMessageA(list, 0x143, 0, (LPARAM)Name.unknown_text_770430());   // CB_ADDSTRING
+    SendMessageA(list, 0x151, item, Number);                                     // CB_SETITEMDATA
     return item;
 }
 

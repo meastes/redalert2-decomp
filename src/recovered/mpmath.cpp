@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/mpmath.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/mpmath.cpp where both define the function (names only).
 
 // mpmath.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -358,9 +359,9 @@ int __fastcall XMP_Fetch_Prime_Size()
 // (0x005A7550)
 // Whether the number equals a small non-negative value.
 
-int __fastcall XMP_Test_Eq_Int(digit const *number, int value, int precision)
+int __fastcall XMP_Test_Eq_Int(digit const *r, int i, int p)
 {
-    return (*number == (digit)value) && XMP_Significance(number, precision) <= 1;
+    return (*r == (digit)i) && XMP_Significance(r, p) <= 1;
 }
 
 
@@ -1190,19 +1191,19 @@ void __fastcall XMP_Move(digit *dest, digit const *source, int precision)
 // (0x005A7D40)
 // Unsigned comparison: -1, 0 or 1.
 
-int __fastcall XMP_Compare(digit const *left, digit const *right, int precision)
+int __fastcall XMP_Compare(digit const *left_number, digit const *right_number, int precision)
 {
-    left += (precision - 1);
-    right += (precision - 1);
+    left_number += (precision - 1);
+    right_number += (precision - 1);
     do {
-        if (*left < *right) {
+        if (*left_number < *right_number) {
             return -1;
         }
-        if (*left > *right) {
+        if (*left_number > *right_number) {
             return 1;
         }
-        left--;
-        right--;
+        left_number--;
+        right_number--;
     } while (--precision);
     return 0;
 }
@@ -1236,15 +1237,15 @@ int __fastcall XMP_Compare(digit const *left, digit const *right, int precision)
 // (0x005A7D90)
 // result = left + right + carry; returns the carry out.
 
-bool __fastcall XMP_Add(digit *result, digit const *left, digit const *right, bool carry, int precision)
+bool __fastcall XMP_Add(digit *result, digit const *left_number, digit const *right_number, bool carry, int precision)
 {
     while (precision--) {
-        digit term = *left + *right;
+        digit term = *left_number + *right_number;
         digit final = term + carry;
-        carry = (term < *left || (carry && final == 0));
+        carry = (term < *left_number || (carry && final == 0));
 
-        right++;
-        left++;
+        right_number++;
+        left_number++;
         *result++ = final;
     }
     return carry;
@@ -1280,15 +1281,15 @@ bool __fastcall XMP_Add(digit *result, digit const *left, digit const *right, bo
  *=============================================================================================*/
 // (0x005A7E00)
 
-bool __fastcall XMP_Add_Int(digit *result, digit const *left, digit right, bool carry, int precision)
+bool __fastcall XMP_Add_Int(digit *result, digit const *left_number, digit right_number, bool carry, int precision)
 {
     while (precision--) {
-        digit term = *left + right;
+        digit term = *left_number + right_number;
         digit final = term + carry;
-        carry = (term < *left || (carry && final == 0));
+        carry = (term < *left_number || (carry && final == 0));
 
-        right = 0;
-        left++;
+        right_number = 0;
+        left_number++;
         *result++ = final;
     }
     return carry;
@@ -1324,10 +1325,10 @@ bool __fastcall XMP_Add_Int(digit *result, digit const *left, digit right, bool 
 // (0x005A7E60)
 // result = left - right - borrow in 16-bit steps; returns the borrow out.
 
-bool __fastcall XMP_Sub(digit *result, digit const *left, digit const *right, bool borrow, int precision)
+bool __fastcall XMP_Sub(digit *result, digit const *left_number, digit const *right_number, bool borrow, int precision)
 {
-    unsigned short const *left_ptr = (unsigned short const *)left;
-    unsigned short const *right_ptr = (unsigned short const *)right;
+    unsigned short const *left_ptr = (unsigned short const *)left_number;
+    unsigned short const *right_ptr = (unsigned short const *)right_number;
     unsigned short *result_ptr = (unsigned short *)result;
 
     precision *= 2;
@@ -1369,18 +1370,18 @@ bool __fastcall XMP_Sub(digit *result, digit const *left, digit const *right, bo
  *=============================================================================================*/
 // (0x005A7EC0)
 
-bool __fastcall XMP_Sub_Int(digit *result, digit const *left, unsigned short right, bool borrow, int precision)
+bool __fastcall XMP_Sub_Int(digit *result, digit const *left_number, unsigned short right_number, bool borrow, int precision)
 {
-    unsigned short const *left_ptr = (unsigned short const *)left;
+    unsigned short const *left_ptr = (unsigned short const *)left_number;
     unsigned short *result_ptr = (unsigned short *)result;
 
     precision *= 2;
     while (precision--) {
-        digit x = (digit)*left_ptr - (digit)right - (digit)borrow;
+        digit x = (digit)*left_ptr - (digit)right_number - (digit)borrow;
         left_ptr++;
         *result_ptr++ = (unsigned short)x;
         borrow = (((1L << 16) & x) != 0L);
-        right = 0;
+        right_number = 0;
     }
     return borrow;
 }
@@ -1412,9 +1413,9 @@ bool __fastcall XMP_Sub_Int(digit *result, digit const *left, unsigned short rig
 // XMP_Unsigned_Mult(digit *product, digit const *multiplicand, digit const *multiplier, int precision) (0x005A7F20)
 // Shift-and-add multiplication; returns 0.
 
-int __fastcall XMP_Unsigned_Mult(digit *product, digit const *multiplicand, digit const *multiplier, int precision)
+int __fastcall XMP_Unsigned_Mult(digit *prod, digit const *multiplicand, digit const *multiplier, int precision)
 {
-    XMP_Init(product, 0, precision);
+    XMP_Init(prod, 0, precision);
 
     if (XMP_Test_Eq_Int(multiplicand, 0, precision)) {
         return 0;
@@ -1432,9 +1433,9 @@ int __fastcall XMP_Unsigned_Mult(digit *product, digit const *multiplicand, digi
     multiplier += digits;
 
     for (int remaining = bits; remaining != 0; remaining--) {
-        XMP_Shift_Left_Bits(product, 1, precision);
+        XMP_Shift_Left_Bits(prod, 1, precision);
         if ((*(multiplier - 1)) & bitmask) {
-            XMP_Add(product, product, multiplicand, 0, precision);
+            XMP_Add(prod, prod, multiplicand, 0, precision);
         }
         bitmask >>= 1;
         if (!bitmask) {
@@ -1469,10 +1470,10 @@ int __fastcall XMP_Unsigned_Mult(digit *product, digit const *multiplicand, digi
 // (0x005A80F0)
 // Multiplies by a 16-bit value in 16-bit steps; returns 0.
 
-int __fastcall XMP_Unsigned_Mult_Int(digit *product, digit const *multiplicand, short multiplier, int precision)
+int __fastcall XMP_Unsigned_Mult_Int(digit *prod, digit const *multiplicand, short multiplier, int precision)
 {
     unsigned short const *m2 = (unsigned short const *)multiplicand;
-    unsigned short *pr = (unsigned short *)product;
+    unsigned short *pr = (unsigned short *)prod;
     unsigned long carry = 0;
     for (int i = 0; i < precision * 2; i++) {
         unsigned long p = (((unsigned long)multiplier) * *m2) + carry;
@@ -1509,7 +1510,7 @@ int __fastcall XMP_Unsigned_Mult_Int(digit *product, digit const *multiplicand, 
 // (0x005A8130)
 // Signed multiplication by a 16-bit value; returns 0.
 
-int __fastcall XMP_Signed_Mult_Int(digit *product, digit const *multiplicand, signed short multiplier, int precision)
+int __fastcall XMP_Signed_Mult_Int(digit *prod, digit const *multiplicand, signed short multiplier, int precision)
 {
     if (XMP_Is_Negative(multiplicand, precision)) {
         digit abs_multiplicand[MAX_UNIT_PRECISION];
@@ -1518,18 +1519,18 @@ int __fastcall XMP_Signed_Mult_Int(digit *product, digit const *multiplicand, si
 
         if (multiplier < 0) {
             multiplier = (signed short)-multiplier;
-            XMP_Unsigned_Mult_Int(product, abs_multiplicand, multiplier, precision);
+            XMP_Unsigned_Mult_Int(prod, abs_multiplicand, multiplier, precision);
         } else {
-            XMP_Unsigned_Mult_Int(product, abs_multiplicand, multiplier, precision);
-            XMP_Neg(product, precision);
+            XMP_Unsigned_Mult_Int(prod, abs_multiplicand, multiplier, precision);
+            XMP_Neg(prod, precision);
         }
     } else {
         if (multiplier < 0) {
             multiplier = (signed short)-multiplier;
-            XMP_Unsigned_Mult_Int(product, multiplicand, multiplier, precision);
-            XMP_Neg(product, precision);
+            XMP_Unsigned_Mult_Int(prod, multiplicand, multiplier, precision);
+            XMP_Neg(prod, precision);
         } else {
-            XMP_Unsigned_Mult_Int(product, multiplicand, multiplier, precision);
+            XMP_Unsigned_Mult_Int(prod, multiplicand, multiplier, precision);
         }
     }
     return 0;
@@ -2080,9 +2081,9 @@ digit upton_mpdbuf[MAX_UNIT_PRECISION * 2 + 2];  // double-length product
 int upton_mshift;                                // quotient-digit normalising shift
 digit upton_dmi[4];                              // top 64 bits of the modulus
 
-int __fastcall XMP_Prepare_Modulus(digit const *modulus, int precision)
+int __fastcall XMP_Prepare_Modulus(digit const *n_modulus, int precision)
 {
-    XMP_Move(upton_modulus, modulus, precision);
+    XMP_Move(upton_modulus, n_modulus, precision);
     upton_nbits = XMP_Count_Bits(upton_modulus, precision);
     upton_munits = (upton_nbits + 15) / 16;
 
@@ -2422,12 +2423,12 @@ void __fastcall memrev(char *buffer, unsigned int length)
 // (0x005A9BF0)
 // Compares two prime-table entries (for the binary search).
 
-int __fastcall pfunc(void const *key, void const *element)
+int __fastcall pfunc(void const *pkey, void const *base)
 {
-    if (*(unsigned short const *)key < *(unsigned short const *)element) {
+    if (*(unsigned short const *)pkey < *(unsigned short const *)base) {
         return -1;
     }
-    return *(unsigned short const *)key > *(unsigned short const *)element;
+    return *(unsigned short const *)pkey > *(unsigned short const *)base;
 }
 
 
@@ -2523,17 +2524,17 @@ bool __fastcall XMP_Small_Divisors_Test(digit const *candidate, int precision)
 // XMP_Fermat_Test(digit const *candidate, unsigned rounds, int precision) (0x005A9CE0)
 // Fermat test with the first rounds small primes as witnesses.
 
-bool __fastcall XMP_Fermat_Test(digit const *candidate, unsigned rounds, int precision)
+bool __fastcall XMP_Fermat_Test(digit const *candidate_prime, unsigned rounds, int precision)
 {
     digit term[MAX_UNIT_PRECISION];
-    XMP_Move(term, candidate, precision);
+    XMP_Move(term, candidate_prime, precision);
     XMP_Dec(term, precision);
 
     for (unsigned i = 0; i < rounds; i++) {
         digit result[MAX_UNIT_PRECISION];
         digit small[MAX_UNIT_PRECISION];
         XMP_Init(small, primeTable[i], precision);
-        XMP_Exponent_Mod(result, small, term, candidate, precision);
+        XMP_Exponent_Mod(result, small, term, candidate_prime, precision);
         if (!XMP_Test_Eq_Int(result, 1, precision)) {
             return false;
         }
@@ -2729,11 +2730,11 @@ digit term[MAX_UNIT_PRECISION];
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-bool __fastcall XMP_Is_Prime(digit const *number,int precision)
+bool __fastcall XMP_Is_Prime(digit const *prime,int precision)
 {
-    if (!(*number & 1)) return false;
-    if (XMP_Is_Small_Prime(number,precision)) return true;
-    if (!XMP_Small_Divisors_Test(number,precision)) return false;
-    if (!Test_Fermat_Witness_Range(number,primeTable,&primeTable[2],precision)) return false;
+    if (!(*prime & 1)) return false;
+    if (XMP_Is_Small_Prime(prime,precision)) return true;
+    if (!XMP_Small_Divisors_Test(prime,precision)) return false;
+    if (!Test_Fermat_Witness_Range(prime,primeTable,&primeTable[2],precision)) return false;
     return true;
 }

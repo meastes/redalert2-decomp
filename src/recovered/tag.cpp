@@ -7,6 +7,7 @@
  * See LICENSE.md for applicable additional terms and warranty disclaimers.
  ******************************************************************************/
 // From mischa85/RedAlert2 392e904 src/tag.cpp (matching RA2 1.006 decomp; TibSun tag.cpp): global names and
+// Parameter names from mischa85/RedAlert2 392e904 src/tag.cpp where both define the function (names only).
 // function comments; modified (our module form and header state, Route A unit map
 // manifests/original_target/modules/tag.json).
 
@@ -393,9 +394,9 @@ void TagClass::Clear_All()
 /// <param name="global">The global flag that just changed.</param>
 // (0x006B3FD0)
 
-void TagClass::Timer_Global_Reset(int value)
+void TagClass::Timer_Global_Reset(int global)
 {
-    Trigger->Reset_Global_Linked_Timed_Events(value);
+    Trigger->Reset_Global_Linked_Timed_Events(global);
 }
 
 
@@ -405,9 +406,9 @@ void TagClass::Timer_Global_Reset(int value)
 /// <param name="local">The local variable that just changed.</param>
 // (0x006B3FE0)
 
-void TagClass::Timer_Local_Reset(int value)
+void TagClass::Timer_Local_Reset(int local)
 {
-    Trigger->Reset_Local_Linked_Timed_Events(value);
+    Trigger->Reset_Local_Linked_Timed_Events(local);
 }
 
 
@@ -484,12 +485,12 @@ void TagClass::Detach(AbstractClass *target, bool all)
 // (0x006B40D0)
 #include "shared/tag.hpp"
 
-HRESULT __stdcall TagClass::GetClassID(GUID *clsid)
+HRESULT __stdcall TagClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_TagClass;
+    *retval = CLSID_TagClass;
     return S_OK;
 }
 
@@ -545,9 +546,9 @@ HRESULT __stdcall TagClass::Load(IStream *stream)
 /// <returns>Returns with the result code of the save attempt.</returns>
 // (0x006B41D0)
 
-HRESULT __stdcall TagClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall TagClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }
@@ -584,10 +585,10 @@ bool TagClass::Is_To_Inherit() const
 /// <param name="global">The global flag that just changed.</param>
 // (0x006B4220)
 
-void __fastcall TagClass::All_Timer_Global_Reset(int value)
+void __fastcall TagClass::All_Timer_Global_Reset(int global)
 {
     for (int index = 0; index < Tags.Count(); index++) {
-        Tags[index]->Trigger->Reset_Global_Linked_Timed_Events(value);
+        Tags[index]->Trigger->Reset_Global_Linked_Timed_Events(global);
     }
 }
 
@@ -600,10 +601,10 @@ void __fastcall TagClass::All_Timer_Global_Reset(int value)
 /// <param name="local">The local variable that just changed.</param>
 // (0x006B4250)
 
-void __fastcall TagClass::All_Timer_Local_Reset(int value)
+void __fastcall TagClass::All_Timer_Local_Reset(int local)
 {
     for (int index = 0; index < Tags.Count(); index++) {
-        Tags[index]->Trigger->Reset_Local_Linked_Timed_Events(value);
+        Tags[index]->Trigger->Reset_Local_Linked_Timed_Events(local);
     }
 }
 

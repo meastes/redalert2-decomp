@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/airctype.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/airctype.cpp where both define the function (names only).
 
 // airctype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -409,9 +410,9 @@ HRESULT __stdcall AircraftTypeClass::Load(IStream *stream)
 /// <returns>Returns with S_OK, or the failure code reported by the base class.</returns>
 // (0x0041C1F0)
 
-HRESULT __stdcall AircraftTypeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall AircraftTypeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = TechnoTypeClass::Save(stream, clear_dirty);
+    HRESULT result = TechnoTypeClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }
@@ -428,12 +429,12 @@ HRESULT __stdcall AircraftTypeClass::Save(IStream *stream, BOOL clear_dirty)
 /// <returns>Returns with S_OK, or E_POINTER if there was nowhere to put the answer.</returns>
 // (0x0041C210)
 
-HRESULT __stdcall AircraftTypeClass::GetClassID(GUID *clsid)
+HRESULT __stdcall AircraftTypeClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = unknown_clsid_aircraft_type_7a1b20;
+    *retval = unknown_clsid_aircraft_type_7a1b20;
     return S_OK;
 }
 

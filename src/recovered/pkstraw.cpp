@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/pkstraw.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/pkstraw.cpp where both define the function (names only).
 
 // pkstraw.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -164,10 +165,10 @@ void PKStraw::Key(PKey const *key)
 // first, then data drawn through the Blowfish stage. Returns the bytes
 // delivered (0 if the encrypted key could not be read).
 
-int PKStraw::Get(void *buffer, int length)
+int PKStraw::Get(void *source, int length)
 {
-    if (buffer == 0 || length < 1 || CipherKey == 0) {
-        return Straw::Get(buffer, length);
+    if (source == 0 || length < 1 || CipherKey == 0) {
+        return Straw::Get(source, length);
     }
 
     int total = 0;
@@ -195,14 +196,14 @@ int PKStraw::Get(void *buffer, int length)
 
     if (BytesLeft > 0) {
         int count = (length < BytesLeft) ? length : BytesLeft;
-        memmove(buffer, &Buffer[Counter - BytesLeft], count);
-        buffer = (char *)buffer + count;
+        memmove(source, &Buffer[Counter - BytesLeft], count);
+        source = (char *)source + count;
         BytesLeft -= count;
         length -= count;
         total += count;
     }
 
-    total += Straw::Get(buffer, length);
+    total += Straw::Get(source, length);
     return total;
 }
 

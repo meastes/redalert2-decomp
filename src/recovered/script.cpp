@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/script.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/script.cpp where both define the function (names only).
 
 // script.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -213,12 +214,12 @@ bool ScriptClass::Has_Mission() const
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x00668960)
 
-HRESULT __stdcall ScriptClass::GetClassID(GUID *clsid)
+HRESULT __stdcall ScriptClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_ScriptClass;
+    *retval = CLSID_ScriptClass;
     return S_OK;
 }
 
@@ -255,9 +256,9 @@ HRESULT __stdcall ScriptClass::Load(IStream *stream)
 /// the base class.</returns>
 // (0x00668A00)
 
-HRESULT __stdcall ScriptClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall ScriptClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }
@@ -274,8 +275,8 @@ HRESULT __stdcall ScriptClass::Save(IStream *stream, BOOL clear_dirty)
 // (0x00668A20)
 // An empty script type, registered in ScriptTypes; ArrayIndex is its index.
 
-ScriptTypeClass::ScriptTypeClass(char const *ini_name) :
-    AbstractTypeClass(ini_name),
+ScriptTypeClass::ScriptTypeClass(char const *name) :
+    AbstractTypeClass(name),
     IsGlobal(0),
     MissionCount(0)
 {
@@ -457,12 +458,12 @@ ScriptTypeClass *__fastcall ScriptTypeClass::Find_Or_Make(char const *name)
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x006690C0)
 
-HRESULT __stdcall ScriptTypeClass::GetClassID(GUID *clsid)
+HRESULT __stdcall ScriptTypeClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_ScriptTypeClass;
+    *retval = CLSID_ScriptTypeClass;
     return S_OK;
 }
 
@@ -498,9 +499,9 @@ HRESULT __stdcall ScriptTypeClass::Load(IStream *stream)
 /// from the base class.</returns>
 // (0x00669150)
 
-HRESULT __stdcall ScriptTypeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall ScriptTypeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }

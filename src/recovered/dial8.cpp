@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/dial8.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/dial8.cpp where both define the function (names only).
 
 // dial8.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -44,46 +45,46 @@
  * HISTORY:                                                                *
  *   11/16/1994 BR : Created.                                              *
  *=========================================================================*/
-Dial8Class::Dial8Class(unsigned id, int x, int y, int width, int height, unsigned direction)
- : ControlClass(id, x, y, width, height, 7, true)
+Dial8Class::Dial8Class(unsigned id, int x, int y, int w, int h, unsigned dir)
+ : ControlClass(id, x, y, w, h, 7, true)
 {
     Center.X = Width / 2 + X;
     Center.Y = Height / 2 + Y;
-    Direction = direction;
-    Selected = Dir_To_8(UnknownFacingDir((unsigned short)(direction << 8)));
+    Direction = dir;
+    Selected = Dir_To_8(UnknownFacingDir((unsigned short)(dir << 8)));
     Previous = Selected;
     OuterPoints[0].X = Center.X;
-    OuterPoints[0].Y = Center.Y - height * 8 / 2 / 10;
-    OuterPoints[1].X = Center.X + width * 56 / 2 / 100;
-    OuterPoints[1].Y = Center.Y - height * 56 / 2 / 100;
-    OuterPoints[2].X = Center.X + width * 8 / 2 / 10;
+    OuterPoints[0].Y = Center.Y - h * 8 / 2 / 10;
+    OuterPoints[1].X = Center.X + w * 56 / 2 / 100;
+    OuterPoints[1].Y = Center.Y - h * 56 / 2 / 100;
+    OuterPoints[2].X = Center.X + w * 8 / 2 / 10;
     OuterPoints[2].Y = Center.Y;
-    OuterPoints[3].X = Center.X + width * 56 / 2 / 100;
-    OuterPoints[3].Y = Center.Y + height * 56 / 2 / 100;
+    OuterPoints[3].X = Center.X + w * 56 / 2 / 100;
+    OuterPoints[3].Y = Center.Y + h * 56 / 2 / 100;
     OuterPoints[4].X = Center.X;
-    OuterPoints[4].Y = Center.Y + height * 8 / 2 / 10;
-    OuterPoints[5].X = Center.X - width * 56 / 2 / 100;
-    OuterPoints[5].Y = Center.Y + height * 56 / 2 / 100;
-    OuterPoints[6].X = Center.X - width * 8 / 2 / 10;
+    OuterPoints[4].Y = Center.Y + h * 8 / 2 / 10;
+    OuterPoints[5].X = Center.X - w * 56 / 2 / 100;
+    OuterPoints[5].Y = Center.Y + h * 56 / 2 / 100;
+    OuterPoints[6].X = Center.X - w * 8 / 2 / 10;
     OuterPoints[6].Y = Center.Y;
-    OuterPoints[7].X = Center.X - width * 56 / 2 / 100;
-    OuterPoints[7].Y = Center.Y - height * 56 / 2 / 100;
+    OuterPoints[7].X = Center.X - w * 56 / 2 / 100;
+    OuterPoints[7].Y = Center.Y - h * 56 / 2 / 100;
     InnerPoints[0].X = Center.X;
-    InnerPoints[0].Y = Center.Y - height * 6 / 2 / 10;
-    InnerPoints[1].X = Center.X + width * 42 / 2 / 100;
-    InnerPoints[1].Y = Center.Y - height * 42 / 2 / 100;
-    InnerPoints[2].X = Center.X + width * 6 / 2 / 10;
+    InnerPoints[0].Y = Center.Y - h * 6 / 2 / 10;
+    InnerPoints[1].X = Center.X + w * 42 / 2 / 100;
+    InnerPoints[1].Y = Center.Y - h * 42 / 2 / 100;
+    InnerPoints[2].X = Center.X + w * 6 / 2 / 10;
     InnerPoints[2].Y = Center.Y;
-    InnerPoints[3].X = Center.X + width * 42 / 2 / 100;
-    InnerPoints[3].Y = Center.Y + height * 42 / 2 / 100;
+    InnerPoints[3].X = Center.X + w * 42 / 2 / 100;
+    InnerPoints[3].Y = Center.Y + h * 42 / 2 / 100;
     InnerPoints[4].X = Center.X;
-    InnerPoints[4].Y = Center.Y + height * 6 / 2 / 10;
-    InnerPoints[5].X = Center.X - width * 42 / 2 / 100;
-    InnerPoints[5].Y = Center.Y + height * 42 / 2 / 100;
-    InnerPoints[6].X = Center.X - width * 6 / 2 / 10;
+    InnerPoints[4].Y = Center.Y + h * 6 / 2 / 10;
+    InnerPoints[5].X = Center.X - w * 42 / 2 / 100;
+    InnerPoints[5].Y = Center.Y + h * 42 / 2 / 100;
+    InnerPoints[6].X = Center.X - w * 6 / 2 / 10;
     InnerPoints[6].Y = Center.Y;
-    InnerPoints[7].X = Center.X - width * 42 / 2 / 100;
-    InnerPoints[7].Y = Center.Y - height * 42 / 2 / 100;
+    InnerPoints[7].X = Center.X - w * 42 / 2 / 100;
+    InnerPoints[7].Y = Center.Y - h * 42 / 2 / 100;
 }
 
 
@@ -186,9 +187,9 @@ int Dial8Class::Draw_Me(int forced)
  * HISTORY:                                                                *
  *   11/17/1994 BR : Created.                                              *
  *=========================================================================*/
-void Dial8Class::Set_Direction(unsigned direction)
+void Dial8Class::Set_Direction(unsigned dir)
 {
-    Update_Direction(direction);
+    Update_Direction(dir);
     Previous = Selected;
     Flag_To_Redraw();
 }

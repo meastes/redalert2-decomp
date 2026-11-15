@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/xstraw.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/xstraw.cpp where both define the function (names only).
 
 // xstraw.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -45,9 +46,9 @@
 // Reads from the file, opening it for reading first if it is closed (and
 // remembering to close it later). Returns the bytes read, 0 on failure.
 
-int FileStraw::Get(void *buffer, int length)
+int FileStraw::Get(void *source, int slen)
 {
-    if (Valid_File() && buffer && length > 0) {
+    if (Valid_File() && source && slen > 0) {
         if (!File->Is_Open()) {
             HasOpened = true;
             if (!File->Is_Available()) {
@@ -57,7 +58,7 @@ int FileStraw::Get(void *buffer, int length)
                 return 0;
             }
         }
-        return File->Read(buffer, length);
+        return File->Read(source, slen);
     }
     return 0;
 }

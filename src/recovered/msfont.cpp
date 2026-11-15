@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/msfont.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/msfont.cpp where both define the function (names only).
 
 // msfont.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -40,9 +41,9 @@ MSFontSlot unknown_font_slots_a71860[3];
 // Clears the colour (RGBClass's default constructor), loads the shared font
 // data and counts the instance.
 
-MSFont::MSFont(bool sidebar)
+MSFont::MSFont(bool use_side_palette)
 {
-    Load(sidebar);
+    Load(use_side_palette);
     unknown_font_count_a71858++;
 }
 

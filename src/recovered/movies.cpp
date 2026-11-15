@@ -1,3 +1,9 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+// Parameter names from mischa85/RedAlert2 392e904 src/movies.cpp where both define the function (names only).
+
 // movies.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -169,7 +175,7 @@ inline Rect Intersect_Rects(Rect const &rect1, Rect const &rect2)
     return Intersect(rect1, rect2, (int *)0, (int *)0);
 }
 
-VQAMovie *__fastcall Movie_Create(char const *name, Surface *surface, Rect source, Rect dest, int volume,
+VQAMovie *__fastcall Movie_Create(char const *name, Surface *surface, Rect rect1, Rect rect2, int volume,
                                           bool fullscreen)
 {
     void (*callback)() = 0;
@@ -218,19 +224,19 @@ VQAMovie *__fastcall Movie_Create(char const *name, Surface *surface, Rect sourc
             cmode = 1;
         }
 
-        if (source == Rect(0, 0, 0, 0)) {
-            source = Rect(0, 0, width, height);
+        if (rect1 == Rect(0, 0, 0, 0)) {
+            rect1 = Rect(0, 0, width, height);
         }
 
-        if (dest == Rect(0, 0, 0, 0)) {
-            dest = Rect((surface->Get_Width() - width) / 2, (surface->Get_Height() - height) / 2, width, height);
+        if (rect2 == Rect(0, 0, 0, 0)) {
+            rect2 = Rect((surface->Get_Width() - width) / 2, (surface->Get_Height() - height) / 2, width, height);
         }
 
         Rect irect1(0, 0, width, height);
         Rect irect2(0, 0, surface->Get_Width(), surface->Get_Height());
 
-        movie->Source = Intersect_Rects(source, irect1);
-        movie->Dest = Intersect_Rects(dest, irect2);
+        movie->Source = Intersect_Rects(rect1, irect1);
+        movie->Dest = Intersect_Rects(rect2, irect2);
 
         if (cmode == 1 || cmode == 4) {
             movie->Player->Set_Primary_Color_Mode(Get_Unknown_7d6290());
@@ -338,13 +344,13 @@ void __fastcall VQA_Movie_Play(VQAMovie *movie, bool hide, int theme, bool unkno
 // Runs one player step (0x0071CFC0) as the current movie unless another
 // movie is playing.
 
-bool __fastcall Movie_Advance_Frame(VQAMovie *movie, bool *unknown)
+bool __fastcall Movie_Advance_Frame(VQAMovie *handle, bool *finished)
 {
     if (CurrentVQAMovie) {
         return false;
     }
-    CurrentVQAMovie = movie;
-    bool result = movie->Player->Advance_Frame(unknown);
+    CurrentVQAMovie = handle;
+    bool result = handle->Player->Advance_Frame(finished);
     CurrentVQAMovie = 0;
     return result;
 }
@@ -442,10 +448,10 @@ VQAMovie::~VQAMovie()
 // VQMovieHandle::VQMovieHandle(VQAMovie *movie) (0x005A17B0)
 // Wraps an opened VQA movie and takes its frame size from the player.
 
-VQMovieHandle::VQMovieHandle(VQAMovie *movie) :
+VQMovieHandle::VQMovieHandle(VQAMovie *player) :
     Finished(false)
 {
-    Movie = movie;
+    Movie = player;
     Width = Movie->Player->Get_VQA_Width();
     Height = Movie->Player->Get_VQA_Height();
 }
@@ -562,9 +568,9 @@ VQMovieHandle::~VQMovieHandle()
 
 // BinkMovieHandle::BinkMovieHandle(BinkClass *bink) (0x005A1A80)
 
-BinkMovieHandle::BinkMovieHandle(BinkClass *bink)
+BinkMovieHandle::BinkMovieHandle(BinkClass *player)
 {
-    Bink = bink;
+    Bink = player;
     Width = Bink->Handle->Width;
     Height = Bink->Handle->Height;
 }
@@ -682,7 +688,7 @@ MovieHandle::~MovieHandle()
 // Cuts the name at its extension, unlocks the movie in the options, then looks for "<name>.BIK" and, failing
 // that, "<name>.VQA"; copies the name found into found when given.
 
-bool __fastcall Find_Movie_File(char const *name, char *found, int unused)
+bool __fastcall Find_Movie_File(char const *name, char *out, int unused)
 {
     char filename[200];
 
@@ -696,15 +702,15 @@ bool __fastcall Find_Movie_File(char const *name, char *found, int unused)
 
     strcpy(extension, ".BIK");
     if (CCFileClass(filename).Is_Available()) {
-        if (found != 0) {
-            strcpy(found, filename);
+        if (out != 0) {
+            strcpy(out, filename);
         }
         return true;
     }
     strcpy(extension, ".VQA");
     if (CCFileClass(filename).Is_Available()) {
-        if (found != 0) {
-            strcpy(found, filename);
+        if (out != 0) {
+            strcpy(out, filename);
         }
         return true;
     }

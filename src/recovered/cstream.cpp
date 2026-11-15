@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/cstream.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/cstream.cpp where both define the function (names only).
 
 // cstream.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -96,14 +97,14 @@ extern "C" GUID const IID_ILinkStream_7a1aa0;
 /// <param name="riid">The identifier of the interface being asked for.</param>
 /// <param name="ppvObject">Pointer to the interface pointer to fill in.</param>
 /// <returns>Returns with S_OK, or E_NOINTERFACE if the interface is not supported.</returns>
-HRESULT __stdcall CStreamClass::QueryInterface(GUID const &iid, void **object)
+HRESULT __stdcall CStreamClass::QueryInterface(GUID const &riid, void **ppvObject)
 {
-    if (!object) return E_POINTER;
-    *object = 0;
-    if (iid == IID_IUnknown_7afce0) *object = static_cast<IStream *>(this);
-    if (iid == IID_IStream_7afd40) *object = static_cast<IStream *>(this);
-    if (iid == IID_ILinkStream_7a1aa0) *object = static_cast<ILinkStream *>(this);
-    if (!*object) return E_NOINTERFACE;
+    if (!ppvObject) return E_POINTER;
+    *ppvObject = 0;
+    if (riid == IID_IUnknown_7afce0) *ppvObject = static_cast<IStream *>(this);
+    if (riid == IID_IStream_7afd40) *ppvObject = static_cast<IStream *>(this);
+    if (riid == IID_ILinkStream_7a1aa0) *ppvObject = static_cast<ILinkStream *>(this);
+    if (!*ppvObject) return E_NOINTERFACE;
     AddRef();
     return S_OK;
 }
@@ -162,20 +163,20 @@ HRESULT __stdcall CStreamClass::Unlink_Stream(IUnknown **stream)
 /// count is not wanted.</param>
 /// <returns>Returns with S_OK, or an error code if the data could not be read.</returns>
 /// <remarks>A stream that is being written cannot also be read.</remarks>
-HRESULT __stdcall CStreamClass::Read(void *buffer, unsigned long size, unsigned long *read)
+HRESULT __stdcall CStreamClass::Read(void *pv, unsigned long cb, unsigned long *pcbRead)
 {
-    int remaining = size;
-    if (!buffer) return E_POINTER;
-    if ((long)size < 0) return (HRESULT)0x80070057L;
+    int remaining = cb;
+    if (!pv) return E_POINTER;
+    if ((long)cb < 0) return (HRESULT)0x80070057L;
     if (!Stream) return E_FAIL;
     if (unknown_11) return E_FAIL;
     unknown_10 = true;
-    if (read) *read = 0;
+    if (pcbRead) *pcbRead = 0;
     while (remaining > 0) {
         if (unknown_14 > 0) {
             int count = remaining < unknown_14 ? remaining : unknown_14;
-            memmove(buffer, (char *)unknown_18 + unknown_28 - unknown_14, count);
-            buffer = (char *)buffer + count;
+            memmove(pv, (char *)unknown_18 + unknown_28 - unknown_14, count);
+            pv = (char *)pv + count;
             remaining -= count;
             unknown_14 -= count;
         }
@@ -191,7 +192,7 @@ HRESULT __stdcall CStreamClass::Read(void *buffer, unsigned long size, unsigned 
         lzo1x_decompress((unsigned char const *)unknown_1c, unknown_24, (unsigned char *)unknown_18, &decompressed_size, 0);
         unknown_14 = unknown_28;
     }
-    if (read) *read = size;
+    if (pcbRead) *pcbRead = cb;
     return S_OK;
 }
 
@@ -209,23 +210,23 @@ HRESULT __stdcall CStreamClass::Read(void *buffer, unsigned long size, unsigned 
 /// <returns>Returns with S_OK, or an error code if the data could not be written.</returns>
 /// <remarks>A stream that is being read cannot also be written. The trailing partial
 /// block does not reach the storage stream until the object is flushed or unlinked.</remarks>
-HRESULT __stdcall CStreamClass::Write(void const *buffer, unsigned long size, unsigned long *written)
+HRESULT __stdcall CStreamClass::Write(void const *pv, unsigned long cb, unsigned long *pcbWritten)
 {
-    char const *input = (char const *)buffer;
-    int remaining = size;
+    char const *input = (char const *)pv;
+    int remaining = cb;
     if (!input) return E_POINTER;
-    if ((long)size < 0) return (HRESULT)0x80070057L;
+    if ((long)cb < 0) return (HRESULT)0x80070057L;
     if (!Stream) return E_FAIL;
     if (unknown_10) return E_FAIL;
     unknown_11 = true;
-    if (size != 0) {
-        if (written) *written = 0;
+    if (cb != 0) {
+        if (pcbWritten) *pcbWritten = 0;
         if (unknown_14 > 0) {
-            int count = (int)size < 65536 - unknown_14 ? size : 65536 - unknown_14;
+            int count = (int)cb < 65536 - unknown_14 ? cb : 65536 - unknown_14;
             memmove((char *)unknown_18 + unknown_14, input, count);
             int buffered = unknown_14 + count;
             input += count;
-            remaining = size - count;
+            remaining = cb - count;
             unknown_14 = buffered;
             if (unknown_14 == 65536) {
                 HRESULT result = unknown_flush_495000(unknown_18, 65536);
@@ -242,7 +243,7 @@ HRESULT __stdcall CStreamClass::Write(void const *buffer, unsigned long size, un
             memmove(unknown_18, input, remaining);
             unknown_14 = remaining;
         }
-        if (written) *written = size;
+        if (pcbWritten) *pcbWritten = cb;
     }
     return S_OK;
 }
@@ -258,12 +259,12 @@ HRESULT __stdcall CStreamClass::Write(void const *buffer, unsigned long size, un
 // IStream slot 5: refused (E_FAIL) while either state flag is set,
 // otherwise forwarded to the inner stream.
 
-HRESULT __stdcall CStreamClass::Seek(LARGE_INTEGER move, unsigned long origin, ULARGE_INTEGER *position)
+HRESULT __stdcall CStreamClass::Seek(LARGE_INTEGER dlibMove, unsigned long dwOrigin, ULARGE_INTEGER *plibNewPosition)
 {
     if (unknown_10 || unknown_11) {
         return E_FAIL;
     }
-    return Stream->Seek(move, origin, position);
+    return Stream->Seek(dlibMove, dwOrigin, plibNewPosition);
 }
 
 
@@ -276,12 +277,12 @@ HRESULT __stdcall CStreamClass::Seek(LARGE_INTEGER move, unsigned long origin, U
 // IStream slot 6: refused (E_FAIL) while either state flag is set,
 // otherwise forwarded to the inner stream.
 
-HRESULT __stdcall CStreamClass::SetSize(ULARGE_INTEGER size)
+HRESULT __stdcall CStreamClass::SetSize(ULARGE_INTEGER libNewSize)
 {
     if (unknown_10 || unknown_11) {
         return E_FAIL;
     }
-    return Stream->SetSize(size);
+    return Stream->SetSize(libNewSize);
 }
 
 
@@ -295,9 +296,9 @@ HRESULT __stdcall CStreamClass::SetSize(ULARGE_INTEGER size)
 // IStream slot 7: forwards to the held inner stream (E_POINTER through
 // _com_issue_error when none is held).
 
-HRESULT __stdcall CStreamClass::CopyTo(IStream *stream, ULARGE_INTEGER size, ULARGE_INTEGER *read, ULARGE_INTEGER *written)
+HRESULT __stdcall CStreamClass::CopyTo(IStream *pstm, ULARGE_INTEGER cb, ULARGE_INTEGER *pcbRead, ULARGE_INTEGER *pcbWritten)
 {
-    return Stream->CopyTo(stream, size, read, written);
+    return Stream->CopyTo(pstm, cb, pcbRead, pcbWritten);
 }
 
 
@@ -309,9 +310,9 @@ HRESULT __stdcall CStreamClass::CopyTo(IStream *stream, ULARGE_INTEGER size, ULA
 // IStream slot 8: forwards to the held inner stream (E_POINTER through
 // _com_issue_error when none is held).
 
-HRESULT __stdcall CStreamClass::Commit(unsigned long flags)
+HRESULT __stdcall CStreamClass::Commit(unsigned long grfCommitFlags)
 {
-    return Stream->Commit(flags);
+    return Stream->Commit(grfCommitFlags);
 }
 
 
@@ -337,9 +338,9 @@ HRESULT __stdcall CStreamClass::Revert()
 // IStream slot 10: forwards to the held inner stream (E_POINTER through
 // _com_issue_error when none is held).
 
-HRESULT __stdcall CStreamClass::LockRegion(ULARGE_INTEGER offset, ULARGE_INTEGER size, unsigned long type)
+HRESULT __stdcall CStreamClass::LockRegion(ULARGE_INTEGER libOffset, ULARGE_INTEGER cb, unsigned long dwLockType)
 {
-    return Stream->LockRegion(offset, size, type);
+    return Stream->LockRegion(libOffset, cb, dwLockType);
 }
 
 
@@ -351,9 +352,9 @@ HRESULT __stdcall CStreamClass::LockRegion(ULARGE_INTEGER offset, ULARGE_INTEGER
 // IStream slot 11: forwards to the held inner stream (E_POINTER through
 // _com_issue_error when none is held).
 
-HRESULT __stdcall CStreamClass::UnlockRegion(ULARGE_INTEGER offset, ULARGE_INTEGER size, unsigned long type)
+HRESULT __stdcall CStreamClass::UnlockRegion(ULARGE_INTEGER libOffset, ULARGE_INTEGER cb, unsigned long dwLockType)
 {
-    return Stream->UnlockRegion(offset, size, type);
+    return Stream->UnlockRegion(libOffset, cb, dwLockType);
 }
 
 
@@ -365,9 +366,9 @@ HRESULT __stdcall CStreamClass::UnlockRegion(ULARGE_INTEGER offset, ULARGE_INTEG
 // IStream slot 12: forwards to the held inner stream (E_POINTER through
 // _com_issue_error when none is held).
 
-HRESULT __stdcall CStreamClass::Stat(STATSTG *stat, unsigned long flags)
+HRESULT __stdcall CStreamClass::Stat(STATSTG *pstatstg, unsigned long grfStatFlag)
 {
-    return Stream->Stat(stat, flags);
+    return Stream->Stat(pstatstg, grfStatFlag);
 }
 
 
@@ -381,9 +382,9 @@ HRESULT __stdcall CStreamClass::Stat(STATSTG *stat, unsigned long flags)
 // IStream slot 13: forwards to the held inner stream (E_POINTER through
 // _com_issue_error when none is held).
 
-HRESULT __stdcall CStreamClass::Clone(IStream **stream)
+HRESULT __stdcall CStreamClass::Clone(IStream **ppstm)
 {
-    return Stream->Clone(stream);
+    return Stream->Clone(ppstm);
 }
 
 

@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/factory.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/factory.cpp where both define the function (names only).
 
 // factory.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -354,10 +355,10 @@ extern "C" GUID const CLSID_FactoryClass;
 /// identifier to know what kind of object to create before handing it the stream.
 /// </summary>
 /// <returns>Returns with S_OK, or E_POINTER if no return location was supplied.</returns>
-HRESULT __stdcall FactoryClass::GetClassID(GUID *id)
+HRESULT __stdcall FactoryClass::GetClassID(GUID *retval)
 {
- if(!id) return 0x80004003;
- *id=CLSID_FactoryClass;
+ if(!retval) return 0x80004003;
+ *retval=CLSID_FactoryClass;
  return 0;
 }
 
@@ -399,9 +400,9 @@ HRESULT __stdcall FactoryClass::Load(IStream *stream)
 /// </summary>
 /// <returns>Returns with S_OK if the factory was written, otherwise the stream error.</returns>
 // Original element-write failure returns S_OK; base/count-write errors propagate.
-HRESULT __stdcall FactoryClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall FactoryClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         int count = Queue.Count();
         result = stream->Write(&count, sizeof(count), 0);

@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/waypoint.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/waypoint.cpp where both define the function (names only).
 
 // waypoint.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -333,12 +334,12 @@ void WaypointPathClass::Compute_CRC(WWCRCEngine &crc) const
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // WaypointPathClass GetClassID (0x725010)
 
-HRESULT __stdcall WaypointPathClass::GetClassID(GUID *clsid)
+HRESULT __stdcall WaypointPathClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_WaypointPathClass;
+    *retval = CLSID_WaypointPathClass;
     return S_OK;
 }
 
@@ -391,9 +392,9 @@ HRESULT __stdcall WaypointPathClass::Load(IStream *stream)
 // Writes the waypoint count and then each waypoint (12 bytes); TibSun waypoint.cpp shape (index
 // declared first, early return when the count write fails).
 
-HRESULT __stdcall WaypointPathClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall WaypointPathClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         int index;
 

@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/tagtype.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/tagtype.cpp where both define the function (names only).
 
 // tagtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -82,8 +83,8 @@ DynamicVectorClass<TagTypeClass *> TagTypes;
 // A volatile tag with no triggers, named after its ID; registered in the tag
 // type list (its index) and the abstract list.
 
-TagTypeClass::TagTypeClass(char const *ini_name) :
-    AbstractTypeClass(ini_name),
+TagTypeClass::TagTypeClass(char const *name) :
+    AbstractTypeClass(name),
     ArrayIndex(-1),
     Persistence(0),
     FirstTrigger(0)
@@ -444,12 +445,12 @@ TagTypeClass *__fastcall TagTypeClass::Find_Or_Make(char const *name)
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x006B4DB0)
 
-HRESULT __stdcall TagTypeClass::GetClassID(GUID *clsid)
+HRESULT __stdcall TagTypeClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_TagTypeClass;
+    *retval = CLSID_TagTypeClass;
     return S_OK;
 }
 
@@ -498,9 +499,9 @@ HRESULT __stdcall TagTypeClass::Load(IStream *stream)
 /// <returns>Returns with S_OK if the tag type was saved, otherwise the failure code.</returns>
 // (0x006B4E80)
 
-HRESULT __stdcall TagTypeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall TagTypeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }

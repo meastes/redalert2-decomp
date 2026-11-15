@@ -9,6 +9,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/psystype.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/psystype.cpp where both define the function (names only).
 
 // psystype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -203,10 +204,10 @@ int __fastcall ParticleSystemTypeClass::Index_Or_Make(char const *name)
 // (0x00620C40)
 // The ID of the indexed type, "<none>" when the index is out of range.
 
-char const *__fastcall ParticleSystemTypeClass::Name_From(unsigned int index)
+char const *__fastcall ParticleSystemTypeClass::Name_From(unsigned int partsys)
 {
-    if (index < (unsigned int)ParticleSystemTypes.Count()) {
-        return ParticleSystemTypes[index]->ID;
+    if (partsys < (unsigned int)ParticleSystemTypes.Count()) {
+        return ParticleSystemTypes[partsys]->ID;
     }
     return "<none>";
 }
@@ -247,12 +248,12 @@ void ParticleSystemTypeClass::Compute_CRC(WWCRCEngine &crc) const
 
 extern "C" GUID const CLSID_ParticleSystemTypeClass;
 
-HRESULT __stdcall ParticleSystemTypeClass::GetClassID(GUID *clsid)
+HRESULT __stdcall ParticleSystemTypeClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_ParticleSystemTypeClass;
+    *retval = CLSID_ParticleSystemTypeClass;
     return S_OK;
 }
 
@@ -284,9 +285,9 @@ HRESULT __stdcall ParticleSystemTypeClass::Load(IStream *stream)
 // (0x00620D90, slot 6)
 // The object type's save; always S_OK.
 
-HRESULT __stdcall ParticleSystemTypeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall ParticleSystemTypeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    ObjectTypeClass::Save(stream, clear_dirty);
+    ObjectTypeClass::Save(stream, cleardirty);
     return S_OK;
 }
 

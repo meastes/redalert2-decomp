@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/trigger.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/trigger.cpp where both define the function (names only).
 
 // trigger.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -106,8 +107,8 @@
 // The abstract list 0x00AC0D48 (element type AbstractClass * by RTTI).
 extern DynamicVectorClass<AbstractClass *> TriggerPtrTracker;
 
-TriggerClass::TriggerClass(TriggerTypeClass *type) :
-    Class(type),
+TriggerClass::TriggerClass(TriggerTypeClass *trigtype) :
+    Class(trigtype),
     LinkedTo(0),
     IsToDelete(false),
     IsTripped(0),
@@ -208,12 +209,12 @@ bool TriggerClass::Is_Allow_Win() const
 /// <returns>bool; Is this trigger tied to that global variable?</returns>
 // (0x006ED5D0)
 
-bool TriggerClass::Is_Linked_To_Global(int value) const
+bool TriggerClass::Is_Linked_To_Global(int global) const
 {
     if (LinkedTo != 0) {
-        return Class->Is_Linked_To_Global(value) || LinkedTo->Class->Is_Linked_To_Global(value);
+        return Class->Is_Linked_To_Global(global) || LinkedTo->Class->Is_Linked_To_Global(global);
     }
-    return Class->Is_Linked_To_Global(value);
+    return Class->Is_Linked_To_Global(global);
 }
 
 
@@ -227,10 +228,10 @@ bool TriggerClass::Is_Linked_To_Global(int value) const
 // Resets every trigger of the chain (from this one) whose type answers
 // TriggerTypeClass::Is_Linked_To_Global(value).
 
-void TriggerClass::Reset_Global_Linked_Timed_Events(int value)
+void TriggerClass::Reset_Global_Linked_Timed_Events(int global)
 {
     for (TriggerClass *trigger = this; trigger != 0; trigger = trigger->LinkedTo) {
-        if (trigger->Class->Is_Linked_To_Global(value)) {
+        if (trigger->Class->Is_Linked_To_Global(global)) {
             trigger->Reset_All_Timed_Events();
         }
     }
@@ -247,10 +248,10 @@ void TriggerClass::Reset_Global_Linked_Timed_Events(int value)
 // Resets every trigger of the chain (from this one) whose type answers
 // TriggerTypeClass::Is_Linked_To_Local(value).
 
-void TriggerClass::Reset_Local_Linked_Timed_Events(int value)
+void TriggerClass::Reset_Local_Linked_Timed_Events(int local)
 {
     for (TriggerClass *trigger = this; trigger != 0; trigger = trigger->LinkedTo) {
-        if (trigger->Class->Is_Linked_To_Local(value)) {
+        if (trigger->Class->Is_Linked_To_Local(local)) {
             trigger->Reset_All_Timed_Events();
         }
     }
@@ -443,9 +444,9 @@ void TriggerClass::Detach(AbstractClass *target, bool all)
 /// <param name="event">Index of the event that was satisfied.</param>
 // (0x006ED930)
 
-void TriggerClass::Flag_Event_Tripped(int index)
+void TriggerClass::Flag_Event_Tripped(int event)
 {
-    IsTripped |= 1 << index;
+    IsTripped |= 1 << event;
 }
 
 
@@ -457,9 +458,9 @@ void TriggerClass::Flag_Event_Tripped(int index)
 /// <param name="event">Index of the event to rearm.</param>
 // (0x006ED950)
 
-void TriggerClass::Flag_Event_Untripped(int index)
+void TriggerClass::Flag_Event_Untripped(int event)
 {
-    IsTripped &= ~(1 << index);
+    IsTripped &= ~(1 << event);
 }
 
 
@@ -472,9 +473,9 @@ void TriggerClass::Flag_Event_Untripped(int index)
 /// <returns>bool; Has the event already sprung?</returns>
 // (0x006ED970)
 
-bool TriggerClass::Is_Event_Tripped(int index) const
+bool TriggerClass::Is_Event_Tripped(int event) const
 {
-    return (IsTripped & (1 << index)) != 0;
+    return (IsTripped & (1 << event)) != 0;
 }
 
 
@@ -537,12 +538,12 @@ void TriggerClass::Compute_CRC(WWCRCEngine &crc) const
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x006EDA90)
 
-HRESULT __stdcall TriggerClass::GetClassID(GUID *clsid)
+HRESULT __stdcall TriggerClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_TriggerClass;
+    *retval = CLSID_TriggerClass;
     return S_OK;
 }
 
@@ -576,9 +577,9 @@ HRESULT __stdcall TriggerClass::Load(IStream *stream)
 /// <returns>Returns with the result code of the save attempt.</returns>
 // (0x006EDB40)
 
-HRESULT __stdcall TriggerClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall TriggerClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }

@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/xpipe.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/xpipe.cpp where both define the function (names only).
 
 // xpipe.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -102,14 +103,14 @@ int FilePipe::End()
 // Writes to the file, opening it for writing first if it is closed (and
 // remembering to close it later). Returns the bytes written, 0 on failure.
 
-int FilePipe::Put(void const *source, int length)
+int FilePipe::Put(void const *source, int slen)
 {
-    if (Valid_File() && source && length > 0) {
+    if (Valid_File() && source && slen > 0) {
         if (!File->Is_Open()) {
             HasOpened = true;
             File->Open(FILE_RIGHTS_WRITE);
         }
-        return File->Write(source, length);
+        return File->Write(source, slen);
     }
     return 0;
 }

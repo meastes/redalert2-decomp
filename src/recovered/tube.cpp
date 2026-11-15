@@ -9,6 +9,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/tube.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/tube.cpp where both define the function (names only).
 
 // tube.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -163,9 +164,9 @@ HRESULT __stdcall TubeClass::Load(IStream *stream)
 /// <returns>Returns with S_OK if the tunnel was written successfully.</returns>
 // (0x006EF3E0)
 
-HRESULT __stdcall TubeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall TubeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }
@@ -317,13 +318,13 @@ inline Cell Adjacent_Cell(Cell const &cell, int facing)
 /// <param name="dir">The direction to extend the tunnel in.</param>
 /// <remarks>A tunnel can hold no more than 99 steps. Beyond that the direction is
 /// dropped, although the exit cell still moves.</remarks>
-void TubeClass::Add_Direction(int facing)
+void TubeClass::Add_Direction(int dir)
 {
     if (unknown_1c0 < 99) {
-        Directions[unknown_1c0] = facing;
+        Directions[unknown_1c0] = dir;
         Directions[++unknown_1c0] = -1;
     }
-    ExitCell = Adjacent_Cell(ExitCell, facing);
+    ExitCell = Adjacent_Cell(ExitCell, dir);
 }
 
 
@@ -375,12 +376,12 @@ int TubeClass::Kind_Of() const
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x006EF8D0)
 
-HRESULT __stdcall TubeClass::GetClassID(GUID *clsid)
+HRESULT __stdcall TubeClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_TubeClass;
+    *retval = CLSID_TubeClass;
     return S_OK;
 }
 

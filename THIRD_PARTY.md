@@ -155,6 +155,9 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   (TibSun house.h), by apply_rename member_renames.
   Adopted 2026-11-15 (lane M1 batch b6, comments only): the same for the remaining 119 mischa85 fully matched units
   whose files carry function comments (list in the batch commit message).
+  Adopted 2026-11-15 (lane M1 batch u1, names only): parameter names of functions both files define, for 34
+  units (list in the commit message), each file carrying a provenance line.
+  Adopted 2026-11-15 (lane M1 batch u2, names only): the same for 76 further units.
 
 ## Native linked libraries (tested development versions)
 

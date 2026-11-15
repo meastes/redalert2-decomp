@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/matrix3d.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/matrix3d.cpp where both define the function (names only).
 
 // matrix3d.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -317,9 +318,9 @@ void Matrix3D::Scale(float x, float y, float z)
 // (0x005902D0)
 // Scales the local X axis.
 
-void Matrix3D::Scale_X(float x)
+void Matrix3D::Scale_X(float scale)
 {
-    Row[0][0] *= x; Row[1][0] *= x; Row[2][0] *= x;
+    Row[0][0] *= scale; Row[1][0] *= scale; Row[2][0] *= scale;
 }
 
 
@@ -332,9 +333,9 @@ void Matrix3D::Scale_X(float x)
 // (0x005902F0)
 // Scales the local Y axis.
 
-void Matrix3D::Scale_Y(float y)
+void Matrix3D::Scale_Y(float scale)
 {
-    Row[0][1] *= y; Row[1][1] *= y; Row[2][1] *= y;
+    Row[0][1] *= scale; Row[1][1] *= scale; Row[2][1] *= scale;
 }
 
 
@@ -347,9 +348,9 @@ void Matrix3D::Scale_Y(float y)
 // (0x00590320)
 // Scales the local Z axis.
 
-void Matrix3D::Scale_Z(float z)
+void Matrix3D::Scale_Z(float scale)
 {
-    Row[0][2] *= z; Row[1][2] *= z; Row[2][2] *= z;
+    Row[0][2] *= scale; Row[1][2] *= scale; Row[2][2] *= scale;
 }
 
 
@@ -440,10 +441,10 @@ void Matrix3D::Pre_Rotate_X(float theta)
  *   07/1/1999 NH  : Created.                                                                  *
  *=============================================================================================*/
 // Matrix3D pre-multiplication by a Y rotation; original00590550.
-void Matrix3D::Pre_Rotate_Y(float angle)
+void Matrix3D::Pre_Rotate_Y(float theta)
 {
-    float sine = Fast_Sin(angle);
-    float cosine = Fast_Cos(angle);
+    float sine = Fast_Sin(theta);
+    float cosine = Fast_Cos(theta);
     float const &negative_sine = -sine;
     float first_x = Row[0][0];
     float first_y = Row[0][1];
@@ -762,11 +763,11 @@ float Matrix3D::Get_Z_Rotation() const
 // (0x00590CD0)
 // Applies the rotation part to vector.
 
-Vector3 Matrix3D::Rotate_Vector(Vector3 const &vector) const
+Vector3 Matrix3D::Rotate_Vector(Vector3 const &vect) const
 {
-    return Vector3(Row[0][0] * vector.X + Row[0][1] * vector.Y + Row[0][2] * vector.Z,
-                   Row[1][0] * vector.X + Row[1][1] * vector.Y + Row[1][2] * vector.Z,
-                   Row[2][0] * vector.X + Row[2][1] * vector.Y + Row[2][2] * vector.Z);
+    return Vector3(Row[0][0] * vect.X + Row[0][1] * vect.Y + Row[0][2] * vect.Z,
+                   Row[1][0] * vect.X + Row[1][1] * vect.Y + Row[1][2] * vect.Z,
+                   Row[2][0] * vect.X + Row[2][1] * vect.Y + Row[2][2] * vect.Z);
 }
 
 
@@ -786,11 +787,11 @@ Vector3 Matrix3D::Rotate_Vector(Vector3 const &vector) const
 
 double __cdecl unknown_sqrt_4ba410(double value);
 
-void Matrix3D::Look_At(Vector3 const &position, Vector3 const &target, float roll)
+void Matrix3D::Look_At(Vector3 const &p, Vector3 const &t, float roll)
 {
-    float dx = target.X - position.X;
-    float dy = target.Y - position.Y;
-    float dz = target.Z - position.Z;
+    float dx = t.X - p.X;
+    float dy = t.Y - p.Y;
+    float dz = t.Z - p.Z;
     float len1 = (float)unknown_sqrt_4ba410(dy * dy + dx * dx + dz * dz);
     float len2 = (float)unknown_sqrt_4ba410(dx * dx + dz * dz);
     float sinp;
@@ -812,7 +813,7 @@ void Matrix3D::Look_At(Vector3 const &position, Vector3 const &target, float rol
         cosy = 1.0f;
     }
     Make_Identity();
-    Translate(position);
+    Translate(p);
     Rotate_Y(siny, cosy);
     Rotate_X(-sinp, cosp);
     Rotate_Z(roll);
@@ -832,9 +833,9 @@ void Matrix3D::Look_At(Vector3 const &position, Vector3 const &target, float rol
 // built from the forward, up and right vectors (Westwood's wwmath Obj_Look_At). The up vector is
 // assigned member by member and the length is held as a double (both fix the original's load order).
 
-void Matrix3D::Obj_Look_At(Vector3 const &position, Vector3 const &target, float roll)
+void Matrix3D::Obj_Look_At(Vector3 const &p, Vector3 const &t, float roll)
 {
-    Vector3 dir(target.X - position.X, target.Y - position.Y, target.Z - position.Z);
+    Vector3 dir(t.X - p.X, t.Y - p.Y, t.Z - p.Z);
     float yaw;
     if (dir.Y == 0.0f && dir.X == 0.0f) {
         yaw = 0.0f;
@@ -863,15 +864,15 @@ void Matrix3D::Obj_Look_At(Vector3 const &position, Vector3 const &target, float
     Row[0][0] = right.X;
     Row[0][1] = up.X;
     Row[0][2] = forward.X;
-    Row[0][3] = position.X;
+    Row[0][3] = p.X;
     Row[1][0] = right.Y;
     Row[1][1] = up.Y;
     Row[1][2] = forward.Y;
-    Row[1][3] = position.Y;
+    Row[1][3] = p.Y;
     Row[2][0] = right.Z;
     Row[2][1] = up.Z;
     Row[2][2] = forward.Z;
-    Row[2][3] = position.Z;
+    Row[2][3] = p.Z;
 }
 
 

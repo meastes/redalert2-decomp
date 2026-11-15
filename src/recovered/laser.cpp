@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/laser.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/laser.cpp where both define the function (names only).
 
 // laser.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -77,15 +78,15 @@ DynamicVectorClass<LaserDrawClass *> LaserDrawList::Array;
 // A laser from source to target with its colours, drawn for duration
 // progress steps (one per frame) and listed in LaserDrawList::Array.
 
-LaserDrawClass::LaserDrawClass(CoordStruct source, CoordStruct target, int z_adjust, bool unknown, RGBClass inner,
-                               RGBClass outer, RGBClass outer_spread, int duration, bool blinks, bool fades,
+LaserDrawClass::LaserDrawClass(CoordStruct start, CoordStruct end, int zadjust, bool unknown, RGBClass inner_color,
+                               RGBClass outer_color, RGBClass outer_spread, int duration, bool blinks, bool fades,
                                float start_intensity, float end_intensity) :
     unknown_18(1),
     IsHouseColor(false),
     unknown_1d(false),
-    Source(source),
-    Target(target),
-    ZAdjust(z_adjust),
+    Source(start),
+    Target(end),
+    ZAdjust(zadjust),
     unknown_3c(unknown),
     Duration(duration),
     Blinks(blinks),
@@ -96,8 +97,8 @@ LaserDrawClass::LaserDrawClass(CoordStruct source, CoordStruct target, int z_adj
 {
     Progress.Stage = 0;
     Progress.Set_Rate(1);
-    InnerColor = inner;
-    OuterColor = outer;
+    InnerColor = inner_color;
+    OuterColor = outer_color;
     OuterSpread = outer_spread;
     LaserDrawList::Array.Add(this);
 }

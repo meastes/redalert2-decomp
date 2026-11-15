@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/ccini.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/ccini.cpp where both define the function (names only).
 
 // ccini.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -284,9 +285,9 @@ int CCINIClass::Get_Lepton(char const *section, char const *entry, int defvalue)
 // (0x00469B20)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_Lepton(char const *section, char const *entry, int lepton)
+bool CCINIClass::Put_Lepton(char const *section, char const *entry, int value)
 {
-    return Put_Double(section, entry, lepton / 256.0);
+    return Put_Double(section, entry, value / 256.0);
 }
 
 
@@ -343,10 +344,10 @@ Cell CCINIClass::Get_Cell(char const *section, char const *entry, Cell const &de
 // (0x00469C80)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_Cell(char const *section, char const *entry, Cell const &cell)
+bool CCINIClass::Put_Cell(char const *section, char const *entry, Cell const &value)
 {
     char buffer[64];
-    sprintf(buffer, "%d,%d", cell.X, cell.Y);
+    sprintf(buffer, "%d,%d", value.X, value.Y);
     return Put_String(section, entry, buffer);
 }
 
@@ -464,10 +465,10 @@ CategoryType CCINIClass::Get_CategoryType(char const *section, char const *entry
 // (0x00469EE0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_CategoryType(char const *section, char const *entry, CategoryType category)
+bool CCINIClass::Put_CategoryType(char const *section, char const *entry, CategoryType value)
 {
-    if (category != CATEGORY_SOLDIER) {
-        return Put_String(section, entry, Name_From_Category(category));
+    if (value != CATEGORY_SOLDIER) {
+        return Put_String(section, entry, Name_From_Category(value));
     }
     return false;
 }
@@ -720,9 +721,9 @@ RTTIType CCINIClass::Get_RTTIType(char const *section, char const *entry, RTTITy
 // (0x0046A4F0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_RTTIType(char const *section, char const *entry, RTTIType rtti)
+bool CCINIClass::Put_RTTIType(char const *section, char const *entry, RTTIType value)
 {
-    return Put_String(section, entry, Name_From_RTTI(rtti));
+    return Put_String(section, entry, Name_From_RTTI(value));
 }
 
 
@@ -746,9 +747,9 @@ BuildCat CCINIClass::Get_BuildCat(char const *section, char const *entry, BuildC
 // (0x0046A560)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_BuildCat(char const *section, char const *entry, BuildCat category)
+bool CCINIClass::Put_BuildCat(char const *section, char const *entry, BuildCat value)
 {
-    return Put_String(section, entry, Name_From_BuildCat(category));
+    return Put_String(section, entry, Name_From_BuildCat(value));
 }
 
 
@@ -815,14 +816,14 @@ int CCINIClass::Get_Owners(char const *section, char const *entry, int defvalue)
 // (0x0046A610)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_Owners(char const *section, char const *entry, int owners)
+bool CCINIClass::Put_Owners(char const *section, char const *entry, int value)
 {
     char buffer[128];
     buffer[0] = '\0';
-    if (owners != 0) {
+    if (value != 0) {
         for (int index = 0; index < HouseTypes.Count(); index++) {
             HouseTypeClass *house = HouseTypes[index];
-            if ((owners & (1 << house->House)) != 0) {
+            if ((value & (1 << house->House)) != 0) {
                 if (buffer[0] != '\0') {
                     strcat(buffer, ",");
                 }
@@ -863,14 +864,14 @@ int CCINIClass::Get_Houses(char const *section, char const *entry, int defvalue)
 // (0x0046A7A0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_Houses(char const *section, char const *entry, int houses)
+bool CCINIClass::Put_Houses(char const *section, char const *entry, int value)
 {
     char buffer[128];
     buffer[0] = '\0';
-    if (houses != 0) {
+    if (value != 0) {
         for (int index = 0; index < Houses.Count(); index++) {
             HouseClass *house = Houses[index];
-            if ((houses & (1 << house->ArrayIndex)) != 0) {
+            if ((value & (1 << house->ArrayIndex)) != 0) {
                 if (buffer[0] != '\0') {
                     strcat(buffer, ",");
                 }
@@ -936,9 +937,9 @@ ArmorType CCINIClass::Get_ArmorType(char const *section, char const *entry, Armo
 // (0x0046A900)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_ArmorType(char const *section, char const *entry, ArmorType armor)
+bool CCINIClass::Put_ArmorType(char const *section, char const *entry, ArmorType value)
 {
-    return Put_String(section, entry, ArmorNames[armor]);
+    return Put_String(section, entry, ArmorNames[value]);
 }
 
 
@@ -964,12 +965,12 @@ bool CCINIClass::Put_ArmorType(char const *section, char const *entry, ArmorType
 // (0x0046A920)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_VocType(char const *section, char const *entry, int voc)
+bool CCINIClass::Put_VocType(char const *section, char const *entry, int value)
 {
-    if ((char)voc == -1) {
+    if ((char)value == -1) {
         return Put_String(section, entry, "<none>");
     }
-    return Put_String(section, entry, Voc_Name(voc));
+    return Put_String(section, entry, Voc_Name(value));
 }
 
 
@@ -998,9 +999,9 @@ LandType CCINIClass::Get_LandType(char const *section, char const *entry, LandTy
 // (0x0046A9D0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_LandType(char const *section, char const *entry, LandType land)
+bool CCINIClass::Put_LandType(char const *section, char const *entry, LandType value)
 {
-    return Put_String(section, entry, Name_From_Land(land));
+    return Put_String(section, entry, Name_From_Land(value));
 }
 
 
@@ -1063,15 +1064,15 @@ int CCINIClass::Get_HousesType(char const *section, char const *entry, int defva
 // (0x0046AAB0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_HousesType(char const *section, char const *entry, int house)
+bool CCINIClass::Put_HousesType(char const *section, char const *entry, int value)
 {
     char const *name = "<none>";
-    if (house == -2) {
+    if (value == -2) {
         name = "<random>";
-    } else if (house == -3) {
+    } else if (value == -3) {
         name = "<random>";
-    } else if (house != -1 && house >= 0 && house < HouseTypes.Count()) {
-        name = HouseTypes[house]->ID;
+    } else if (value != -1 && value >= 0 && value < HouseTypes.Count()) {
+        name = HouseTypes[value]->ID;
     }
     return Put_String(section, entry, name);
 }
@@ -1111,11 +1112,11 @@ int CCINIClass::Get_Side(char const *section, char const *entry, int defvalue) c
 // (0x0046ABE0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_Side(char const *section, char const *entry, int side)
+bool CCINIClass::Put_Side(char const *section, char const *entry, int value)
 {
     char const *name = "<none>";
-    if (side != -1) {
-        name = Sides[side]->ID;
+    if (value != -1) {
+        name = Sides[value]->ID;
     }
     return Put_String(section, entry, name);
 }
@@ -1202,9 +1203,9 @@ TheaterType CCINIClass::Get_TheaterType(char const *section, char const *entry, 
 // (0x0046AD00)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_TheaterType(char const *section, char const *entry, TheaterType theater)
+bool CCINIClass::Put_TheaterType(char const *section, char const *entry, TheaterType value)
 {
-    return Put_String(section, entry, Theaters[theater].Name);
+    return Put_String(section, entry, Theaters[value].Name);
 }
 
 
@@ -1261,9 +1262,9 @@ int CCINIClass::Get_ThemeType(char const *section, char const *entry, int defval
 // (0x0046AD90)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_ThemeType(char const *section, char const *entry, int theme)
+bool CCINIClass::Put_ThemeType(char const *section, char const *entry, int value)
 {
-    return Put_String(section, entry, Theme.Base_Name(theme));
+    return Put_String(section, entry, Theme.Base_Name(value));
 }
 
 
@@ -1321,9 +1322,9 @@ SourceType CCINIClass::Get_SourceType(char const *section, char const *entry, So
 // (0x0046AE10)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_SourceType(char const *section, char const *entry, SourceType source)
+bool CCINIClass::Put_SourceType(char const *section, char const *entry, SourceType value)
 {
-    return Put_String(section, entry, SourceNames[source]);
+    return Put_String(section, entry, SourceNames[value]);
 }
 
 
@@ -1380,9 +1381,9 @@ CrateType CCINIClass::Get_CrateType(char const *section, char const *entry, Crat
 // (0x0046AE80)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_CrateType(char const *section, char const *entry, CrateType crate)
+bool CCINIClass::Put_CrateType(char const *section, char const *entry, CrateType value)
 {
-    return Put_String(section, entry, CrateNames[crate]);
+    return Put_String(section, entry, CrateNames[value]);
 }
 
 
@@ -1472,12 +1473,12 @@ int CCINIClass::Get_Buildings(char const *section, char const *entry, int defval
 // (0x0046AFB0)
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
-bool CCINIClass::Put_Buildings(char const *section, char const *entry, int buildings)
+bool CCINIClass::Put_Buildings(char const *section, char const *entry, int value)
 {
     char buffer[128] = "";
     int count = BuildingTypes.Count() > 32 ? 32 : BuildingTypes.Count();
     for (int index = 0; index < count; index++) {
-        if ((buildings & (1 << index)) != 0) {
+        if ((value & (1 << index)) != 0) {
             if (buffer[0] != '\0') {
                 strcat(buffer, ",");
             }

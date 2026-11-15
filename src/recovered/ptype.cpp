@@ -9,6 +9,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/ptype.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/ptype.cpp where both define the function (names only).
 
 // ptype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -230,10 +231,10 @@ int __fastcall ParticleTypeClass::Index_Or_Make(char const *name)
 // (0x006219F0)
 // The ID of the indexed particle type, 0 when the index is out of range.
 
-char const *__fastcall ParticleTypeClass::Name_From(unsigned int index)
+char const *__fastcall ParticleTypeClass::Name_From(unsigned int particle)
 {
-    if (index < (unsigned int)ParticleTypes.Count()) {
-        return ParticleTypes[index]->ID;
+    if (particle < (unsigned int)ParticleTypes.Count()) {
+        return ParticleTypes[particle]->ID;
     }
     return 0;
 }
@@ -284,12 +285,12 @@ void ParticleTypeClass::Compute_CRC(WWCRCEngine &crc) const
 
 extern "C" GUID const CLSID_ParticleTypeClass;
 
-HRESULT __stdcall ParticleTypeClass::GetClassID(GUID *clsid)
+HRESULT __stdcall ParticleTypeClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_ParticleTypeClass;
+    *retval = CLSID_ParticleTypeClass;
     return S_OK;
 }
 
@@ -344,9 +345,9 @@ HRESULT __stdcall ParticleTypeClass::Load(IStream *stream)
 // Saves the object type, then the colour list as a count and its colours
 // (a failed colour write still reports success).
 
-HRESULT __stdcall ParticleTypeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall ParticleTypeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = ObjectTypeClass::Save(stream, clear_dirty);
+    HRESULT result = ObjectTypeClass::Save(stream, cleardirty);
     if (FAILED(result)) {
         return result;
     }

@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/_warhead.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/_warhead.cpp where both define the function (names only).
 
 // _warhead.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -61,10 +62,10 @@ int __fastcall Warhead_From_Name(char const *name)
 // ID of the warhead type at this index of the unit's list 0x00839B00, or null.
 // No direct callers.
 
-char const *__fastcall Warhead_Name(int index)
+char const *__fastcall Warhead_Name(int warhead)
 {
-    if (index != -1 && (unsigned)index < (unsigned)unknown_WarheadTypeClass_list_00839b00.Count()) {
-        return unknown_WarheadTypeClass_list_00839b00[index]->ID;
+    if (warhead != -1 && (unsigned)warhead < (unsigned)unknown_WarheadTypeClass_list_00839b00.Count()) {
+        return unknown_WarheadTypeClass_list_00839b00[warhead]->ID;
     }
     return 0;
 }

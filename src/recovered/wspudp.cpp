@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/wspudp.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/wspudp.cpp where both define the function (names only).
 
 // wspudp.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -420,13 +421,13 @@ bool UDPInterfaceClass::Open_Socket(int)
 // (0x0076C960, slot 3)
 // A write to a broadcast address becomes a broadcast.
 
-void UDPInterfaceClass::WriteTo(void *buf, int buflen, void *address, int addresslen, bool alternate, unsigned char arg6, unsigned short arg7)
+void UDPInterfaceClass::WriteTo(void *buffer, int buffer_len, void *address, int address_len, bool alternate, unsigned char flag, unsigned short port)
 {
     if (address && ((IPXAddressClass *)address)->Is_Broadcast()) {
-        Broadcast(buf, buflen, alternate);
+        Broadcast(buffer, buffer_len, alternate);
         return;
     }
-    WinsockInterfaceClass::WriteTo(buf, buflen, address, addresslen, alternate, arg6, arg7);
+    WinsockInterfaceClass::WriteTo(buffer, buffer_len, address, address_len, alternate, flag, port);
 }
 
 
@@ -449,12 +450,12 @@ void UDPInterfaceClass::WriteTo(void *buf, int buflen, void *address, int addres
 // A broadcast goes to every broadcast address as its own checksummed
 // packet, each followed by a write notification.
 
-void UDPInterfaceClass::Broadcast(void *buf, int buflen, bool alternate)
+void UDPInterfaceClass::Broadcast(void *buffer, int buffer_len, bool alternate)
 {
     for (int i = 0; i < BroadcastAddresses.Count(); i++) {
         WinsockBufferType *packet = Get_New_Out_Buffer(alternate);
-        memcpy(packet->Buffer, buf, buflen);
-        packet->BufferLen = buflen;
+        memcpy(packet->Buffer, buffer, buffer_len);
+        packet->BufferLen = buffer_len;
         packet->IsBroadcast = true;
         memset(packet->Address, 0, sizeof(packet->Address));
         *(unsigned long *)&packet->Address[4] = *(unsigned long *)BroadcastAddresses[i];
@@ -785,12 +786,12 @@ int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int 
 // The notification message: 0x474 for the primary socket (or -1), 0x475
 // for the alternate, else 0.
 
-unsigned int UDPInterfaceClass::Protocol_Event_Message(int socket)
+unsigned int UDPInterfaceClass::Protocol_Event_Message(int socketnum)
 {
-    if (socket == (int)Socket || socket == -1) {
+    if (socketnum == (int)Socket || socketnum == -1) {
         return 0x474;
     }
-    return socket == (int)Socket2 ? 0x475 : 0;
+    return socketnum == (int)Socket2 ? 0x475 : 0;
 }
 
 

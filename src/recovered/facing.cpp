@@ -1,4 +1,5 @@
 // Westwood facing.cpp in one source (twins: mischa85/RedAlert2 src/facing.cpp, TibSun facing.cpp); the
+// Parameter names from mischa85/RedAlert2 392e904 src/facing.cpp where both define the function (names only).
 // accepted bodies under the template's names, the directions as UnknownFacingDir until DirType is converted.
 #include "shared/facing.hpp"
 
@@ -7,11 +8,11 @@ FacingClass::FacingClass() : DesiredFacing(0), StartFacing(0), ROT(0) {}
 FacingClass::FacingClass(int rate) : DesiredFacing(0), StartFacing(0), ROT(0) { Set_ROT(rate); }
 
 extern "C" int __cdecl abs(int value);
-bool FacingClass::Set_Desired(UnknownFacingDir const &dir)
+bool FacingClass::Set_Desired(UnknownFacingDir const &facing)
 {
-    if (DesiredFacing != (short)dir.Raw) {
+    if (DesiredFacing != (short)facing.Raw) {
     *(UnknownFacingDir *)&StartFacing = Current();
-    *(UnknownFacingDir *)&DesiredFacing = dir;
+    *(UnknownFacingDir *)&DesiredFacing = facing;
     if (ROT > 0) {
         short delta = (short)(DesiredFacing - StartFacing);
         RotationTimer = CDTimerClass<FrameTimerClass>(abs(delta) / ROT);
@@ -21,11 +22,11 @@ bool FacingClass::Set_Desired(UnknownFacingDir const &dir)
     return false;
 }
 
-bool FacingClass::Set(UnknownFacingDir const &dir)
+bool FacingClass::Set(UnknownFacingDir const &facing)
 {
-    if(Current().Raw!=dir.Raw) {
-        *(UnknownFacingDir *)&DesiredFacing=dir;
-        *(UnknownFacingDir *)&StartFacing=dir;
+    if(Current().Raw!=facing.Raw) {
+        *(UnknownFacingDir *)&DesiredFacing=facing;
+        *(UnknownFacingDir *)&StartFacing=facing;
         RotationTimer=CDTimerClass<FrameTimerClass>(0);
         return true;
     }

@@ -1,3 +1,9 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+// Parameter names from mischa85/RedAlert2 392e904 src/vqa.cpp where both define the function (names only).
+
 // vqa.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -210,7 +216,7 @@ VQAClass::~VQAClass()
 
 extern "C" void *__cdecl malloc(unsigned size);
 
-int VQAClass::Cache_VQA(unsigned size)
+int VQAClass::Cache_VQA(unsigned bytes_to_cache)
 {
     if (!FileOpen) {
         FileOpen = File.Open(Filename, 1) != 0;
@@ -227,19 +233,19 @@ int VQAClass::Cache_VQA(unsigned size)
             return -3;
         }
     }
-    if (size == 0) {
-        size = FileSize - Position;
-    } else if (Position + size > FileSize) {
-        size = FileSize - Position;
+    if (bytes_to_cache == 0) {
+        bytes_to_cache = FileSize - Position;
+    } else if (Position + bytes_to_cache > FileSize) {
+        bytes_to_cache = FileSize - Position;
     }
-    if ((unsigned)File.Read(Buffer + Position, size) != size) {
+    if ((unsigned)File.Read(Buffer + Position, bytes_to_cache) != bytes_to_cache) {
         File.Close();
         FileOpen = false;
         unknown_530 = 0;
         Position = 0;
         return -5;
     }
-    Position += size;
+    Position += bytes_to_cache;
     if (Position >= FileSize) {
         File.Close();
         FileOpen = false;
@@ -254,10 +260,10 @@ int VQAClass::Cache_VQA(unsigned size)
 // The read clips at FileSize; seek origin 0 = set, 1 = current, 2 = end.
 #include "shared/crt_memory.hpp"
 
-int VQAClass::CacheHandler(int request, int unknown2, int unknown3)
+int VQAClass::CacheHandler(int action, int buffer, int nbytes)
 {
     int rc = 1;
-    switch (request) {
+    switch (action) {
     case 1:
     case 2:
     case 3:
@@ -265,27 +271,27 @@ int VQAClass::CacheHandler(int request, int unknown2, int unknown3)
         rc = 0;
         break;
     case 5:
-        if (unknown_530 + unknown3 > FileSize) {
+        if (unknown_530 + nbytes > FileSize) {
             rc = 1;
             return rc;
         } else {
-            memcpy((void *)unknown2, Buffer + unknown_530, unknown3);
-            unknown_530 += unknown3;
+            memcpy((void *)buffer, Buffer + unknown_530, nbytes);
+            unknown_530 += nbytes;
             rc = 0;
         }
         break;
     case 7:
-        switch (unknown2) {
+        switch (buffer) {
         case 1:
-            unknown_530 += unknown3;
+            unknown_530 += nbytes;
             rc = 0;
             break;
         case 0:
-            unknown_530 = unknown3;
+            unknown_530 = nbytes;
             rc = 0;
             break;
         case 2:
-            unknown_530 = FileSize - unknown3 - 1;
+            unknown_530 = FileSize - nbytes - 1;
             rc = 0;
             break;
         default:
@@ -304,9 +310,9 @@ int VQAClass::CacheHandler(int request, int unknown2, int unknown3)
 // void VQAClass::Handle_Palette_Event(unsigned char const *palette) (0x0071CAF0)
 // Copies the 768-byte palette and marks it changed.
 
-void VQAClass::Handle_Palette_Event(unsigned char const *palette)
+void VQAClass::Handle_Palette_Event(unsigned char const *buffer)
 {
-    memcpy(Palette, palette, sizeof(Palette));
+    memcpy(Palette, buffer, sizeof(Palette));
     PaletteChanged = true;
 }
 
@@ -351,11 +357,11 @@ int VQAClass::Get_VQA_Version()
 
 // int VQAClass::Set_VQA_Volume(int value) (0x0071CBC0): sets the configuration volume (-1 keeps it); returns the old one.
 
-int VQAClass::Set_VQA_Volume(int value)
+int VQAClass::Set_VQA_Volume(int vol)
 {
     int old = Config.Volume;
-    if (value != -1) {
-        Config.Volume = value;
+    if (vol != -1) {
+        Config.Volume = vol;
     }
     return old;
 }
@@ -426,14 +432,14 @@ bool VQAClass::Seek_To_Stored_Frame()
 #include "shared/keyboard.hpp"
 #include "shared/unknown_globals.hpp"
 
-int VQAClass::Play_VQA(int frame, bool unknown)
+int VQAClass::Play_VQA(int last_frame_to_play, bool nobreakout)
 {
     bool done = false;
     bool sleeping = false;
-    if (frame < 0 || frame >= FrameCount) {
-        frame = FrameCount - 1;
+    if (last_frame_to_play < 0 || last_frame_to_play >= FrameCount) {
+        last_frame_to_play = FrameCount - 1;
     }
-    VQA_SetStop(Handle, frame);
+    VQA_SetStop(Handle, last_frame_to_play);
     if (unknown_508 != -1) {
         int unknown2;
         int unknown3;
@@ -488,7 +494,7 @@ int VQAClass::Play_VQA(int frame, bool unknown)
             unknown_548 = true;
             Debug_Printf("Movie is sleeping\n");
         }
-        if (!unknown && WWKeyboard->Check() && WWKeyboard->Get() == 0x81B) {
+        if (!nobreakout && WWKeyboard->Check() && WWKeyboard->Get() == 0x81B) {
             done = true;
         }
     }
@@ -501,16 +507,16 @@ int VQAClass::Play_VQA(int frame, bool unknown)
 
 // void VQAClass::Play_VQA_Frame(int frame) (0x0071CF50): seeks to the frame (-1: the last one) and plays it.
 
-void VQAClass::Play_VQA_Frame(int frame)
+void VQAClass::Play_VQA_Frame(int frame_number)
 {
-    if (frame == -1) {
-        frame = FrameCount - 1;
+    if (frame_number == -1) {
+        frame_number = FrameCount - 1;
     }
-    if (CurrentFrame != frame) {
-        Seek_To_Frame(frame);
-        CurrentFrame = frame;
+    if (CurrentFrame != frame_number) {
+        Seek_To_Frame(frame_number);
+        CurrentFrame = frame_number;
     }
-    Play_VQA(frame, 0);
+    Play_VQA(frame_number, 0);
     if ((unsigned)CurrentFrame >= (unsigned)FrameCount) {
         CurrentFrame = 0;
     }
@@ -520,9 +526,9 @@ void VQAClass::Play_VQA_Frame(int frame)
 // bool VQAClass::Advance_Frame(bool *unknown) (0x0071CFC0): VQAClass::Advance_Frame (debug strings);
 // true when a frame was drawn; otherwise *unknown is set when the movie ended with an error.
 
-bool VQAClass::Advance_Frame(bool *unknown)
+bool VQAClass::Advance_Frame(bool *finished)
 {
-    *unknown = false;
+    *finished = false;
     if (!unknown_549) {
         VQA_SetStop(Handle, FrameCount);
         if (unknown_508 != -1) {
@@ -567,10 +573,10 @@ bool VQAClass::Advance_Frame(bool *unknown)
         case -11:
         case -10:
         case -1:
-            *unknown = false;
+            *finished = false;
             return false;
         default:
-            *unknown = true;
+            *finished = true;
             return false;
         }
     }
@@ -638,42 +644,42 @@ int VQAClass::Get_Desired_Color_Mode()
 // bool VQAClass::Set_Draw_Buffer(int unknown1, int x, int y, int width, int height) (0x0071D240)
 // -1 keeps the saved position and gives a zero size.
 
-bool VQAClass::Set_Draw_Buffer(int unknown1, int x, int y, int width, int height)
+bool VQAClass::Set_Draw_Buffer(int buffer, int buffer_width, int buffer_height, int x_offset, int y_offset)
 {
-    if (x == -1) {
-        x = unknown_518;
+    if (buffer_width == -1) {
+        buffer_width = unknown_518;
     } else {
-        unknown_518 = x;
+        unknown_518 = buffer_width;
     }
-    if (y == -1) {
-        y = unknown_51c;
+    if (buffer_height == -1) {
+        buffer_height = unknown_51c;
     } else {
-        unknown_51c = y;
+        unknown_51c = buffer_height;
     }
-    if (width == -1) {
-        width = 0;
+    if (x_offset == -1) {
+        x_offset = 0;
     }
-    if (height == -1) {
-        height = 0;
+    if (y_offset == -1) {
+        y_offset = 0;
     }
-    return VQA_Set_DrawBuffer(Handle, unknown1, x, y, width, height) == -1 ? true : false;
+    return VQA_Set_DrawBuffer(Handle, buffer, buffer_width, buffer_height, x_offset, y_offset) == -1 ? true : false;
 }
 
 
 // void VQAClass::Set_Primary_Color_Mode(int value) (0x0071D2B0)
 
-void VQAClass::Set_Primary_Color_Mode(int value)
+void VQAClass::Set_Primary_Color_Mode(int mode)
 {
-    unknown_508 = value;
+    unknown_508 = mode;
 }
 
 
 // void VQAClass::Handle_Codebook_Event(void *buffer, unsigned length) (0x0071D2C0)
 
-void VQAClass::Handle_Codebook_Event(void *buffer, unsigned length)
+void VQAClass::Handle_Codebook_Event(void *buf, unsigned num)
 {
     if (unknown_508 != -1) {
-        VQA_Unknown_0070B7F0(buffer, length / 2);
+        VQA_Unknown_0070B7F0(buf, num / 2);
     }
     unknown_544 = CurrentFrame;
 }
@@ -714,33 +720,33 @@ void VQAClass::Handle_Unlock_Event()
 // int VQAClass::CCFileHandler(int request, int unknown2, int unknown3) (0x0071D340)
 // Stream callback on the movie file (File); nonzero results are errors.
 
-int VQAClass::CCFileHandler(int request, int unknown2, int unknown3)
+int VQAClass::CCFileHandler(int action, int buffer, int nbytes)
 {
     int error = 1;
     char byte;
-    switch (request) {
+    switch (action) {
     case 3:
-        FileOpen = File.Open((char const *)unknown2, 1) != 0;
+        FileOpen = File.Open((char const *)buffer, 1) != 0;
         error = !FileOpen;
         break;
     case 5:
-        error = File.Read((void *)unknown2, unknown3) != unknown3;
+        error = File.Read((void *)buffer, nbytes) != nbytes;
         break;
     case 6:
         error = 1;
         break;
     case 7:
-        error = File.Seek(unknown3, unknown2) == 0;
+        error = File.Seek(nbytes, buffer) == 0;
         break;
     case 8: {
-        if (unknown3 > 0) {
-            error = File.Seek(unknown3 - 1, unknown2) == 0;
+        if (nbytes > 0) {
+            error = File.Seek(nbytes - 1, buffer) == 0;
             if (error) {
                 break;
             }
             error = File.Read(&byte, 1) != 1;
         } else {
-            error = File.Seek(unknown3, unknown2) == 0;
+            error = File.Seek(nbytes, buffer) == 0;
             if (error) {
                 break;
             }
@@ -753,7 +759,7 @@ int VQAClass::CCFileHandler(int request, int unknown2, int unknown3)
         break;
     }
     case 9:
-        *(long *)unknown2 = File.Size();
+        *(long *)buffer = File.Size();
         error = 0;
         break;
     case 4:
@@ -785,11 +791,11 @@ int __cdecl VQA_Unknown_0071D490(VQAHandle *handle, int unknown2, int unknown3, 
 // to the movie; otherwise as 0x0071D340.
 #include "shared/mix_file_class.hpp"
 
-int VQAClass::MixFileHandler(int request, int unknown2, int unknown3)
+int VQAClass::MixFileHandler(int action, int buffer, int nbytes)
 {
     int error = 1;
     char byte;
-    switch (request) {
+    switch (action) {
     case 3: {
         long offset = 0;
         MixFileClass *mixfile = 0;
@@ -800,22 +806,22 @@ int VQAClass::MixFileHandler(int request, int unknown2, int unknown3)
         return 1;
     }
     case 5:
-        error = File.Read((void *)unknown2, unknown3) != unknown3;
+        error = File.Read((void *)buffer, nbytes) != nbytes;
         break;
     case 6:
         return 1;
     case 7:
-        error = File.Seek(unknown3, unknown2) == 0;
+        error = File.Seek(nbytes, buffer) == 0;
         break;
     case 8: {
-        if (unknown3 > 0) {
-            error = File.Seek(unknown3 - 1, unknown2) == 0;
+        if (nbytes > 0) {
+            error = File.Seek(nbytes - 1, buffer) == 0;
             if (error) {
                 break;
             }
             error = File.Read(&byte, 1) != 1;
         } else {
-            error = File.Seek(unknown3, unknown2) == 0;
+            error = File.Seek(nbytes, buffer) == 0;
             if (error) {
                 break;
             }
@@ -828,7 +834,7 @@ int VQAClass::MixFileHandler(int request, int unknown2, int unknown3)
         break;
     }
     case 9:
-        *(long *)unknown2 = File.Size();
+        *(long *)buffer = File.Size();
         return 0;
     case 4:
         File.Close();
@@ -847,19 +853,19 @@ int VQAClass::MixFileHandler(int request, int unknown2, int unknown3)
 // int __cdecl VQAMixFileHandler(VQAHandle *handle, int unknown2, int unknown3, int unknown4) (0x0071D640)
 // Library callback: forwards to the owning player's 0x0071D4B0.
 
-int __cdecl VQAMixFileHandler(VQAHandle *handle, int unknown2, int unknown3, int unknown4)
+int __cdecl VQAMixFileHandler(VQAHandle *vqa, int action, int buffer, int nbytes)
 {
-    VQAClass *player = handle->Player;
-    return player->MixFileHandler(unknown2, unknown3, unknown4);
+    VQAClass *player = vqa->Player;
+    return player->MixFileHandler(action, buffer, nbytes);
 }
 
 
 // int __fastcall VQACacheHandler(VQAHandle *handle, int unknown2, int unknown3, int unknown4) (0x0071D660)
 // Library callback: forwards to the owning player's 0x0071CA00.
 
-int __fastcall VQACacheHandler(VQAHandle *handle, int unknown2, int unknown3, int unknown4)
+int __fastcall VQACacheHandler(VQAHandle *vqa, int action, int buffer, int nbytes)
 {
-    return handle->Player->CacheHandler(unknown2, unknown3, unknown4);
+    return vqa->Player->CacheHandler(action, buffer, nbytes);
 }
 
 
@@ -870,19 +876,19 @@ int __fastcall VQACacheHandler(VQAHandle *handle, int unknown2, int unknown3, in
 extern "C" void *__cdecl malloc(unsigned size);
 extern "C" void __cdecl free(void *block);
 
-int __cdecl VQAMemoryHandler(VQAHandle *handle, int request, int unknown3, int unknown4)
+int __cdecl VQAMemoryHandler(VQAHandle *vqa, int action, int buffer, int nbytes)
 {
-    switch (request) {
+    switch (action) {
     case 2:
-        return (int)malloc(unknown4);
+        return (int)malloc(nbytes);
     case 3:
-        free((void *)unknown3);
+        free((void *)buffer);
         return 0;
     case 4:
     case 5:
-        return unknown3;
+        return buffer;
     case 6:
-        *(int *)unknown3 = -1;
+        *(int *)buffer = -1;
         break;
     }
     return 0;
@@ -893,12 +899,12 @@ int __cdecl VQAMemoryHandler(VQAHandle *handle, int request, int unknown3, int u
 // Library event callback: 2 a new palette (6-bit components scaled by 4),
 // 3 frame timing (0x0071D2C0), 6 and 7 the player's callbacks.
 
-int __cdecl VQAEventHandler(VQAHandle *handle, int event, int unknown3, int unknown4)
+int __cdecl VQAEventHandler(VQAHandle *vqa, int action, int buffer, int nbytes)
 {
-    VQAClass *player = handle->Player;
-    switch (event) {
+    VQAClass *player = vqa->Player;
+    switch (action) {
     case 2: {
-        unsigned char *palette = (unsigned char *)unknown3;
+        unsigned char *palette = (unsigned char *)buffer;
         for (int index = 0; index < 256; index++) {
             palette[index] <<= 2;
         }
@@ -907,7 +913,7 @@ int __cdecl VQAEventHandler(VQAHandle *handle, int event, int unknown3, int unkn
         return 0;
     }
     case 3:
-        player->Handle_Codebook_Event((void *)unknown3, unknown4);
+        player->Handle_Codebook_Event((void *)buffer, nbytes);
         return 0;
     case 4:
     case 5:

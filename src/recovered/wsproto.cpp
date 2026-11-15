@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/wsproto.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/wsproto.cpp where both define the function (names only).
 
 // wsproto.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -813,9 +814,9 @@ bool WinsockInterfaceClass::Set_Socket_Options(SOCKET socket)
 /// <returns>bool; Was the host name fetched?</returns>
 // (0x0076B990, slot 17)
 
-bool WinsockInterfaceClass::Get_Host_Name(char *name, int length)
+bool WinsockInterfaceClass::Get_Host_Name(char *name, int len)
 {
-    if (gethostname(name, length) == SOCKET_ERROR) {
+    if (gethostname(name, len) == SOCKET_ERROR) {
         Debug_Printf("Error - WinsockInterface Unable to get host name. Error code %d\n", WSAGetLastError());
         return false;
     }

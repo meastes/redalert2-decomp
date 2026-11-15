@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/bullettype.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/bullettype.cpp where both define the function (names only).
 
 // bullettype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -308,10 +309,10 @@ int __fastcall BulletTypeClass::Index_Or_Make(char const *name)
 /// then NULL is returned.</returns>
 // (0x00464DE0)
 
-char const *__fastcall BulletTypeClass::Name_From(int index)
+char const *__fastcall BulletTypeClass::Name_From(int bullet)
 {
-    if ((unsigned)index < (unsigned)BulletTypes.Count()) {
-        return BulletTypes[index]->ID;
+    if ((unsigned)bullet < (unsigned)BulletTypes.Count()) {
+        return BulletTypes[bullet]->ID;
     }
     return 0;
 }
@@ -408,9 +409,9 @@ HRESULT __stdcall BulletTypeClass::Load(IStream *stream)
 /// <returns>Returns with S_OK if the object was written successfully.</returns>
 // (0x00465040)
 
-HRESULT __stdcall BulletTypeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall BulletTypeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = ObjectTypeClass::Save(stream, clear_dirty);
+    HRESULT result = ObjectTypeClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }
@@ -424,12 +425,12 @@ HRESULT __stdcall BulletTypeClass::Save(IStream *stream, BOOL clear_dirty)
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x00465060)
 
-HRESULT __stdcall BulletTypeClass::GetClassID(GUID *clsid)
+HRESULT __stdcall BulletTypeClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_BulletTypeClass;
+    *retval = CLSID_BulletTypeClass;
     return S_OK;
 }
 

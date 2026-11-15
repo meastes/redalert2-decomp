@@ -1,4 +1,5 @@
 // Westwood rawfile.cpp in one source (twins: mischa85/RedAlert2 src/rawfile.cpp, TibSun rawfile.cpp): the accepted
+// Parameter names from mischa85/RedAlert2 392e904 src/rawfile.cpp where both define the function (names only).
 // bodies; the file and size types stay long until the FileClass hierarchy is converted.
 
 #include "shared/raw_file_class.hpp"
@@ -272,24 +273,24 @@ long RawFileClass::Write(void const *buffer, long size)
 // and a result outside the window is pulled back to its nearest edge.
 // Returns the new position relative to the window start.
 
-long RawFileClass::Seek(long position, int origin)
+long RawFileClass::Seek(long pos, int dir)
 {
     if (BiasLength != -1) {
-        switch (origin) {
+        switch (dir) {
         case FILE_SEEK_START:
-            if (position > BiasLength) {
-                position = BiasLength;
+            if (pos > BiasLength) {
+                pos = BiasLength;
             }
-            position += BiasStart;
+            pos += BiasStart;
             break;
         case FILE_SEEK_CURRENT:
             break;
         case FILE_SEEK_END:
-            origin = FILE_SEEK_START;
-            position += BiasStart + BiasLength;
+            dir = FILE_SEEK_START;
+            pos += BiasStart + BiasLength;
             break;
         }
-        long result = Raw_Seek(position, origin) - BiasStart;
+        long result = Raw_Seek(pos, dir) - BiasStart;
         if (result < 0) {
             result = Raw_Seek(BiasStart, FILE_SEEK_START) - BiasStart;
         }
@@ -298,7 +299,7 @@ long RawFileClass::Seek(long position, int origin)
         }
         return result;
     }
-    return Raw_Seek(position, origin);
+    return Raw_Seek(pos, dir);
 }
 
 
@@ -431,29 +432,29 @@ void RawFileClass::Bias(int start, int length)
 // Moves the Win32 file pointer, ignoring the bias window. Fails (reporting
 // through Error()) when the file is not open or SetFilePointer fails.
 
-long RawFileClass::Raw_Seek(long position, int origin)
+long RawFileClass::Raw_Seek(long pos, int dir)
 {
     if (!Is_Open()) {
         Error(FILE_ERROR_NOT_OPEN, false, Filename);
         return 0;
     }
-    switch (origin) {
+    switch (dir) {
     case FILE_SEEK_START:
-        origin = FILE_BEGIN;
+        dir = FILE_BEGIN;
         break;
     case FILE_SEEK_CURRENT:
-        origin = FILE_CURRENT;
+        dir = FILE_CURRENT;
         break;
     case FILE_SEEK_END:
-        origin = FILE_END;
+        dir = FILE_END;
         break;
     }
-    position = SetFilePointer(Handle, position, 0, origin);
-    if (position == -1) {
+    pos = SetFilePointer(Handle, pos, 0, dir);
+    if (pos == -1) {
         Error(GetLastError(), false, Filename);
         return 0;
     }
-    return position;
+    return pos;
 }
 
 

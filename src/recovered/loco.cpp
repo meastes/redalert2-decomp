@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/loco.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/loco.cpp where both define the function (names only).
 
 // loco.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -117,10 +118,10 @@ LocomotionClass::~LocomotionClass()
 // (0x0053D010, ILocomotion 3)
 // The object becomes both the owner and the linked object.
 
-HRESULT __stdcall LocomotionClass::Link_To_Object(void *object)
+HRESULT __stdcall LocomotionClass::Link_To_Object(void *pointer)
 {
-    LinkedTo = (FootClass *)object;
-    Owner = (FootClass *)object;
+    LinkedTo = (FootClass *)pointer;
+    Owner = (FootClass *)pointer;
     return S_OK;
 }
 
@@ -305,25 +306,25 @@ unsigned long __stdcall LocomotionClass::Release()
 // IUnknown and ILocomotion give the +4 interface, IPersistStream and
 // IPersist the object.
 
-HRESULT __stdcall LocomotionClass::QueryInterface(GUID const &iid, void **object)
+HRESULT __stdcall LocomotionClass::QueryInterface(GUID const &riid, void **ppvObject)
 {
-    if (object == 0) {
+    if (ppvObject == 0) {
         return E_POINTER;
     }
-    *object = 0;
-    if (iid == IID_IUnknown_7afce0) {
-        *object = static_cast<ILocomotion *>(this);
+    *ppvObject = 0;
+    if (riid == IID_IUnknown_7afce0) {
+        *ppvObject = static_cast<ILocomotion *>(this);
     }
-    if (iid == IID_IPersistStream) {
-        *object = static_cast<IPersistStream *>(this);
+    if (riid == IID_IPersistStream) {
+        *ppvObject = static_cast<IPersistStream *>(this);
     }
-    if (iid == IID_ILocomotion) {
-        *object = static_cast<ILocomotion *>(this);
+    if (riid == IID_ILocomotion) {
+        *ppvObject = static_cast<ILocomotion *>(this);
     }
-    if (iid == IID_IPersist) {
-        *object = static_cast<IPersistStream *>(this);
+    if (riid == IID_IPersist) {
+        *ppvObject = static_cast<IPersistStream *>(this);
     }
-    if (*object == 0) {
+    if (*ppvObject == 0) {
         return E_NOINTERFACE;
     }
     AddRef();
@@ -342,7 +343,7 @@ HRESULT __stdcall LocomotionClass::QueryInterface(GUID const &iid, void **object
 // Writes the object's own address (the swizzle key Load registers), then
 // the whole object (Size() bytes).
 
-HRESULT __stdcall LocomotionClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall LocomotionClass::Save(IStream *stream, BOOL cleardirty)
 {
     if (!stream) {
         return E_POINTER;
@@ -356,7 +357,7 @@ HRESULT __stdcall LocomotionClass::Save(IStream *stream, BOOL clear_dirty)
     if (FAILED(result)) {
         return result;
     }
-    if (clear_dirty) {
+    if (cleardirty) {
         Dirty = false;
     }
     return result;
@@ -407,12 +408,12 @@ HRESULT __stdcall LocomotionClass::Load(IStream *stream)
 // (0x0053D440)
 // Size() plus the saved address.
 
-HRESULT __stdcall LocomotionClass::GetSizeMax(ULARGE_INTEGER *size)
+HRESULT __stdcall LocomotionClass::GetSizeMax(ULARGE_INTEGER *pcbSize)
 {
-    if (size == 0) {
+    if (pcbSize == 0) {
         return E_POINTER;
     }
-    size->QuadPart = (unsigned)(Size() + sizeof(LocomotionClass *));
+    pcbSize->QuadPart = (unsigned)(Size() + sizeof(LocomotionClass *));
     return S_OK;
 }
 
@@ -500,7 +501,7 @@ int __stdcall LocomotionClass::Z_Gradient()
 // (0x0053D4C0, ILocomotion)
 // Normal (0).
 
-int __stdcall LocomotionClass::Visual_Character(bool raw)
+int __stdcall LocomotionClass::Visual_Character(bool flag)
 {
     return 0;
 }
@@ -605,7 +606,7 @@ void __stdcall LocomotionClass::Unlimbo()
 // (0x0053D530, ILocomotion)
 // Nothing here.
 
-void __stdcall LocomotionClass::Do_Turn(UnknownFacingDir dir)
+void __stdcall LocomotionClass::Do_Turn(UnknownFacingDir coord)
 {
 
 }

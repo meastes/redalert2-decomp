@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/lzopipe.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/lzopipe.cpp where both define the function (names only).
 
 // lzopipe.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -111,22 +112,22 @@ LZOPipe::~LZOPipe()
 // bytes, then passes the block header and compressed block on. Returns the
 // bytes passed down the chain.
 
-int LZOPipe::Put(void const *source, int length)
+int LZOPipe::Put(void const *source, int slen)
 {
-    if (source == 0 || length < 1) {
-        return Pipe::Put(source, length);
+    if (source == 0 || slen < 1) {
+        return Pipe::Put(source, slen);
     }
 
     int total = 0;
 
     if (Control == DECOMPRESS) {
-        while (length > 0) {
+        while (slen > 0) {
             // Accumulate the block header first.
             if (BlockHeader.CompCount == 0xFFFF) {
-                int count = (length < sizeof(BlockHeader) - Counter) ? length : sizeof(BlockHeader) - Counter;
+                int count = (slen < sizeof(BlockHeader) - Counter) ? slen : sizeof(BlockHeader) - Counter;
                 memmove(Buffer + Counter, source, count);
                 source = (char const *)source + count;
-                length -= count;
+                slen -= count;
                 Counter += count;
 
                 if (Counter == sizeof(BlockHeader)) {
@@ -136,11 +137,11 @@ int LZOPipe::Put(void const *source, int length)
             }
 
             // Then the compressed block; uncompress it once complete.
-            if (length > 0) {
+            if (slen > 0) {
                 int needed = BlockHeader.CompCount - Counter;
-                int count = (length < needed) ? length : needed;
+                int count = (slen < needed) ? slen : needed;
                 memmove(Buffer + Counter, source, count);
-                length -= count;
+                slen -= count;
                 source = (char const *)source + count;
                 Counter += count;
 
@@ -157,10 +158,10 @@ int LZOPipe::Put(void const *source, int length)
         // Complete a partially filled block first.
         if (Counter > 0) {
             int needed = BlockSize - Counter;
-            int count = (length < needed) ? length : needed;
+            int count = (slen < needed) ? slen : needed;
             memmove(Buffer + Counter, source, count);
             source = (char const *)source + count;
-            length -= count;
+            slen -= count;
             Counter += count;
 
             if (Counter == BlockSize) {
@@ -177,13 +178,13 @@ int LZOPipe::Put(void const *source, int length)
         }
 
         // Compress whole blocks straight from the source.
-        while (length >= BlockSize) {
+        while (slen >= BlockSize) {
             unsigned int compressed = 0;
             void *dictionary = new char[64 * 1024];
             lzo1x_1_compress((unsigned char const *)source, BlockSize, (unsigned char *)Buffer2, &compressed, dictionary);
             delete [] dictionary;
             source = (char const *)source + BlockSize;
-            length -= BlockSize;
+            slen -= BlockSize;
             BlockHeader.CompCount = (unsigned short)compressed;
             BlockHeader.UncompCount = (unsigned short)BlockSize;
             total += Pipe::Put(&BlockHeader, sizeof(BlockHeader));
@@ -191,9 +192,9 @@ int LZOPipe::Put(void const *source, int length)
         }
 
         // Keep the remainder for the next block.
-        if (length > 0) {
-            memmove(Buffer, source, length);
-            Counter = length;
+        if (slen > 0) {
+            memmove(Buffer, source, slen);
+            Counter = slen;
         }
     }
 

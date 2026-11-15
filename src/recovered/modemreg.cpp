@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/modemreg.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/modemreg.cpp where both define the function (names only).
 
 // modemreg.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -47,7 +48,7 @@
  *=============================================================================================*/
 // (0x0059CBA0)
 
-HKEY __fastcall Search_Registry_Key(HKEY key, char const *value_name, char const *value)
+HKEY __fastcall Search_Registry_Key(HKEY key_in, char const *value_name, char const *search_string)
 {
     DWORD index = 0;
     char *sub_key_name = new char[256];
@@ -59,19 +60,19 @@ HKEY __fastcall Search_Registry_Key(HKEY key, char const *value_name, char const
     LONG result;
     do {
         sub_key_name_size = 256;
-        result = RegEnumKeyExA(key, index++, sub_key_name, &sub_key_name_size, 0, 0, 0, &last_write_time);
+        result = RegEnumKeyExA(key_in, index++, sub_key_name, &sub_key_name_size, 0, 0, 0, &last_write_time);
         if (result == 0) {
-            HKEY sub_key = Get_Registry_Sub_Key(key, sub_key_name, false);
+            HKEY sub_key = Get_Registry_Sub_Key(key_in, sub_key_name, false);
             if (sub_key) {
                 key_value_size = 256;
                 if (RegQueryValueExA(sub_key, value_name, 0, &value_type, key_value, &key_value_size) == 0) {
-                    if (value_type == REG_SZ && !strcmp((char *)key_value, value)) {
+                    if (value_type == REG_SZ && !strcmp((char *)key_value, search_string)) {
                         delete[] sub_key_name;
                         delete[] key_value;
                         return sub_key;
                     }
                 }
-                HKEY found = Search_Registry_Key(sub_key, value_name, value);
+                HKEY found = Search_Registry_Key(sub_key, value_name, search_string);
                 RegCloseKey(sub_key);
                 if (found) {
                     delete[] sub_key_name;

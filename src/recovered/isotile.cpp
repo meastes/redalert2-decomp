@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/isotile.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/isotile.cpp where both define the function (names only).
 
 // isotile.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -260,9 +261,9 @@ HRESULT __stdcall IsometricTileClass::Load(IStream *stream)
 /// <returns>Returns with S_OK if the tile was written, otherwise the failure code.</returns>
 // (0x00528140)
 
-HRESULT __stdcall IsometricTileClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall IsometricTileClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }

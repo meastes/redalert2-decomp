@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/side.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/side.cpp where both define the function (names only).
 
 // side.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -80,8 +81,8 @@
 // (0x0067AE10)
 // An empty side named ini_name; registers it in Sides.
 
-SideClass::SideClass(char const *ini_name) :
-    AbstractTypeClass(ini_name)
+SideClass::SideClass(char const *ininame) :
+    AbstractTypeClass(ininame)
 {
     Create_ID();
     Sides.Add(this);
@@ -141,12 +142,12 @@ void SideClass::Compute_CRC(WWCRCEngine &crc) const
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x0067B000)
 
-HRESULT __stdcall SideClass::GetClassID(GUID *classid)
+HRESULT __stdcall SideClass::GetClassID(GUID *retval)
 {
-    if (classid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *classid = CLSID_SideClass;
+    *retval = CLSID_SideClass;
     return S_OK;
 }
 
@@ -199,9 +200,9 @@ HRESULT __stdcall SideClass::Load(IStream *stream)
 // (0x0067B160)
 // The AbstractClass data, the house count and the houses.
 
-HRESULT __stdcall SideClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall SideClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (FAILED(result)) {
         return result;
     }

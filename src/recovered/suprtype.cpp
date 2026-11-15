@@ -9,6 +9,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/suprtype.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/suprtype.cpp where both define the function (names only).
 
 // suprtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -158,12 +159,12 @@ SuperWeaponTypeClass::~SuperWeaponTypeClass()
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x0069F1F0)
 
-HRESULT __stdcall SuperWeaponTypeClass::GetClassID(GUID *classid)
+HRESULT __stdcall SuperWeaponTypeClass::GetClassID(GUID *retval)
 {
-    if (classid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *classid = CLSID_SuperWeaponTypeClass;
+    *retval = CLSID_SuperWeaponTypeClass;
     return S_OK;
 }
 
@@ -204,9 +205,9 @@ HRESULT __stdcall SuperWeaponTypeClass::Load(IStream *stream)
 /// <returns>Returns with S_OK if the object was written successfully.</returns>
 // (0x0069F300)
 
-HRESULT __stdcall SuperWeaponTypeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall SuperWeaponTypeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }

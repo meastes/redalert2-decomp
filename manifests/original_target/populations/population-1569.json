@@ -4,8 +4,8 @@
     "id": "population-1569",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "7fb4afb995beb9ea0e9ac70d9a0aca5cc4d29c558d9e17a33d873742fc7f4859",
-    "historical_acceptance_sha256": "da46eef3665fa80afb72dc2f9492920a59e72710edbb23f8b75f312751e1cfc1"
+    "historical_population_sha256": "608c97fe5cbbbffd551c22f09accaf4631076fb3feec28a12c1e9874b0f242a6",
+    "historical_acceptance_sha256": "e1678694f26f26e099548f743b1e76eb74e910e077c01d315bca16bd6c23426a"
   },
   "references": {
     "?Get@Straw@@UAEHPAXH@Z": 6926496,
@@ -494,7 +494,9 @@
     "??_7type_info@@6B@": 8066532,
     "??_R0?AVINIClass@@@8": 8183560,
     "??_R0?AVStraw@@@8": 8199872,
-    "??_R0?AVCacheStraw@@@8": 8238120
+    "??_R0?AVCacheStraw@@@8": 8238120,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "__ramp_corners": 8339828
   },
   "regions": [
     {
@@ -532,7 +534,7 @@
           "resolved": 2123979
         }
       ],
-      "source_sha256": "8f128b7bd9a737125172d026d9bceee6ddb4efb3d4802d177eeb825788a53d0d",
+      "source_sha256": "2523511a6ddcbfa42aebf501dcdc0f84ab1b0d8ca40d799e85c44139bc82ac17",
       "source": "src/recovered/cstraw.cpp",
       "population": "population-1569",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

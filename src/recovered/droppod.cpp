@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/droppod.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/droppod.cpp where both define the function (names only).
 
 // droppod.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -257,12 +258,12 @@ void __stdcall DropPodLocomotionClass::Move_To(CoordStruct to)
 /// <returns>Returns with S_OK, or E_POINTER if no return pointer was supplied.</returns>
 // (0x004A6180)
 
-HRESULT __stdcall DropPodLocomotionClass::GetClassID(GUID *clsid)
+HRESULT __stdcall DropPodLocomotionClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_DropPodLocomotionClass;
+    *retval = CLSID_DropPodLocomotionClass;
     return S_OK;
 }
 
@@ -304,9 +305,9 @@ HRESULT __stdcall DropPodLocomotionClass::Load(IStream *stream)
 // that locomotor (OleSaveToStream through its IPersistStream); otherwise
 // the result of writing the flag.
 
-HRESULT __stdcall DropPodLocomotionClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall DropPodLocomotionClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = LocomotionClass::Save(stream, clear_dirty);
+    HRESULT result = LocomotionClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         bool piggybacking;
         if (Piggybacker != 0) {
@@ -409,14 +410,14 @@ bool __stdcall DropPodLocomotionClass::Is_Ok_To_End()
 // (0x004A63F0)
 // The base interfaces, then IPiggyback.
 
-HRESULT __stdcall DropPodLocomotionClass::QueryInterface(GUID const &iid, void **object)
+HRESULT __stdcall DropPodLocomotionClass::QueryInterface(GUID const &riid, void **ppvObject)
 {
-    HRESULT result = LocomotionClass::QueryInterface(iid, object);
+    HRESULT result = LocomotionClass::QueryInterface(riid, ppvObject);
     if (result == E_NOINTERFACE) {
-        if (iid == IID_IPiggyback) {
-            *object = static_cast<IPiggyback *>(this);
+        if (riid == IID_IPiggyback) {
+            *ppvObject = static_cast<IPiggyback *>(this);
         }
-        if (*object == 0) {
+        if (*ppvObject == 0) {
             return E_NOINTERFACE;
         }
         AddRef();

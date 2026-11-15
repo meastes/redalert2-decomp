@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/nullmgr.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/nullmgr.cpp where both define the function (names only).
 
 // nullmgr.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -774,7 +775,7 @@ unsigned long NullModemClass::Response_Time()
  *=========================================================================*/
 // (0x005D0900, slot 11)
 
-void NullModemClass::Reset_Response_Time(bool clear)
+void NullModemClass::Reset_Response_Time(bool zero)
 {
     if (Connection) {
         Connection->Queue->Reset_Delay(true);

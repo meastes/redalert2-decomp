@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/alphalighting.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/alphalighting.cpp where both define the function (names only).
 
 // alphalighting.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -100,13 +101,13 @@ void AlphaLightingRemapInitClass::Release(AlphaTableRows table)
 /// <param name="count">The number of shading bands the translation table provides.</param>
 // (0x0041E590)
 
-AlphaLightingRemapClass::AlphaLightingRemapClass(int level)
-    : Level(level), RefCount(0)
+AlphaLightingRemapClass::AlphaLightingRemapClass(int count)
+    : Level(count), RefCount(0)
 {
     for (int index = 0; index <= 0xFFFF; index++) {
-        int value = (index & 0xFF) * (index >> 8) * (level - 1) / 0x7E02;
-        if (value > level - 1) {
-            value = level - 1;
+        int value = (index & 0xFF) * (index >> 8) * (count - 1) / 0x7E02;
+        if (value > count - 1) {
+            value = count - 1;
         }
         Table[index] = (unsigned short)((unsigned char)value << 8);
     }

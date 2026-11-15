@@ -9,6 +9,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/aitrig.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/aitrig.cpp where both define the function (names only).
 
 // aitrig.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -31,8 +32,8 @@
 // ??0AITriggerTypeClass@@QAE@PBD@Z (0x0041C5C0)
 // Defaults, listed in the AI trigger type list.
 
-AITriggerTypeClass::AITriggerTypeClass(char const *ini_name) :
-    AbstractTypeClass(ini_name),
+AITriggerTypeClass::AITriggerTypeClass(char const *name) :
+    AbstractTypeClass(name),
     ConditionType(-1),
     unknown_9c(0),
     unknown_a0(0),
@@ -80,12 +81,12 @@ AITriggerTypeClass::~AITriggerTypeClass()
 // (0x0041C770)
 // The class identifier.
 
-HRESULT __stdcall AITriggerTypeClass::GetClassID(GUID *classid)
+HRESULT __stdcall AITriggerTypeClass::GetClassID(GUID *retval)
 {
-    if (classid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *classid = CLSID_AITriggerTypeClass;
+    *retval = CLSID_AITriggerTypeClass;
     return S_OK;
 }
 
@@ -123,9 +124,9 @@ HRESULT __stdcall AITriggerTypeClass::Load(IStream *stream)
 // (0x0041C830)
 // Only the AbstractClass part.
 
-HRESULT __stdcall AITriggerTypeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall AITriggerTypeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }
@@ -900,9 +901,9 @@ AITriggerTypeClass *__fastcall AITriggerTypeClass::Find_Or_Make(char const *name
 /// </summary>
 // (0x0041DF80)
 
-void AITriggerTypeClass::Set_Condition_Object(AbstractTypeClass *object)
+void AITriggerTypeClass::Set_Condition_Object(AbstractTypeClass *obj)
 {
-    unknown_d8 = object;
+    unknown_d8 = obj;
 }
 
 

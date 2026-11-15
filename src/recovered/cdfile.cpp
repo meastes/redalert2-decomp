@@ -12,6 +12,7 @@
  * disclaimers apply; see LICENSE.md.
  ******************************************************************************/
 // From mischa85/RedAlert2 dbca015 src/cdfile.cpp (matching RA2 1.006 decomp; TibSun cdfile.cpp); modified:
+// Parameter names from mischa85/RedAlert2 392e904 src/cdfile.cpp where both define the function (names only).
 // the function bodies are this tree's accepted ones, Is_Disk_Inserted is a static member, the find
 // handle is the static member FindHandle, and the template's disabled Set_Search_Drives (#if 0) is
 // left out (modules.json cdfile).
@@ -417,9 +418,9 @@ void *CDFileClass::FindHandle = (void *)-1;     // INVALID_HANDLE_VALUE while no
 /// <param name="fname">The wildcard to search for; filled in with the file found.</param>
 /// <returns>bool; Was a matching file found?</returns>
 /// <remarks>Be sure that the buffer is big enough to hold the filename returned.</remarks>
-bool __fastcall CDFileClass::Find_First_File(char *filename)
+bool __fastcall CDFileClass::Find_First_File(char *fname)
 {
-    if (filename == 0) {
+    if (fname == 0) {
         return false;
     }
     if (FindHandle != INVALID_HANDLE_VALUE) {
@@ -429,20 +430,20 @@ bool __fastcall CDFileClass::Find_First_File(char *filename)
 
     char path[_MAX_PATH];
     WIN32_FIND_DATA finddata;
-    strcpy(path, filename);
+    strcpy(path, fname);
     HANDLE handle = FindFirstFileA(path, &finddata);
     if (handle != INVALID_HANDLE_VALUE && (finddata.dwFileAttributes & 0x116) == 0) {
-        strcpy(filename, finddata.cFileName);
+        strcpy(fname, finddata.cFileName);
         FindHandle = handle;
         return true;
     }
 
     for (CDSearchDrive *drive = First; drive != 0; drive = drive->Next) {
         strcpy(path, drive->Path);
-        strcat(path, filename);
+        strcat(path, fname);
         handle = FindFirstFileA(path, &finddata);
         if (handle != INVALID_HANDLE_VALUE && (finddata.dwFileAttributes & 0x116) == 0) {
-            strcpy(filename, finddata.cFileName);
+            strcpy(fname, finddata.cFileName);
             FindHandle = handle;
             return true;
         }
@@ -459,19 +460,19 @@ bool __fastcall CDFileClass::Find_First_File(char *filename)
 /// <param name="buffer">Buffer to fill in with the name of the file found.</param>
 /// <returns>bool; Was another matching file found?</returns>
 /// <remarks>Be sure that the buffer is big enough to hold the filename returned.</remarks>
-bool __fastcall CDFileClass::Find_Next_File(char *filename)
+bool __fastcall CDFileClass::Find_Next_File(char *buffer)
 {
-    if (filename == 0) {
+    if (buffer == 0) {
         return false;
     }
     if (FindHandle != INVALID_HANDLE_VALUE) {
         WIN32_FIND_DATA finddata;
         if (FindNextFileA(FindHandle, &finddata) == TRUE) {
-            strcpy(filename, finddata.cFileName);
+            strcpy(buffer, finddata.cFileName);
             return true;
         }
     }
-    filename[0] = '\0';
+    buffer[0] = '\0';
     return false;
 }
 

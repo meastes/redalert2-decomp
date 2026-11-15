@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/overlay.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/overlay.cpp where both define the function (names only).
 
 // overlay.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -129,14 +130,14 @@
 // Assumptions: slot 53 places an object (Unlimbo); the house global at
 // 0x007E8A8C is read while placing.
 
-OverlayClass::OverlayClass(OverlayTypeClass *type, Cell const &cell, int house) :
-    Class(type)
+OverlayClass::OverlayClass(OverlayTypeClass *ttype, Cell const &pos, int house) :
+    Class(ttype)
 {
     AbstractClass::Create_ID();
     unknown_OverlayClass_list_00a40c00.Add(this);
-    if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
+    if (pos.X != unknown_geometry_k.X || pos.Y != unknown_geometry_k.Y) {
         unknown_placing_house_7e8a8c = house;
-        CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
+        CoordStruct coord(pos.X * 256 + 128, pos.Y * 256 + 128, 0);
         ObjectClass::Unlimbo(&coord, 0);
         unknown_placing_house_7e8a8c = -1;
     }
@@ -666,7 +667,7 @@ extern short unknown_short_8325d0;                          // 0x008325D0
 /// </summary>
 /// <param name="point">The pixel location to draw the overlay at.</param>
 /// <param name="cliprect">The clipping rectangle to draw within.</param>
-void OverlayClass::Editor_Draw_It(Point2D const &point, Rect const &window)
+void OverlayClass::Editor_Draw_It(Point2D const &point, Rect const &cliprect)
 {
     void *shape = Class->Get_Image_Data();
     int height = Unknown_006A2970(Map.Get_Height_GL(CoordStruct(Coord)));
@@ -680,14 +681,14 @@ void OverlayClass::Editor_Draw_It(Point2D const &point, Rect const &window)
         if (!shape && Class->CellAnim) {
             shape = Class->CellAnim->Get_Image_Data();
         }
-        CC_Draw_Shape(unknown_surface_83995c, scheme->Converter, (ShapeFileStruct const *)shape, 0, position, window,
+        CC_Draw_Shape(unknown_surface_83995c, scheme->Converter, (ShapeFileStruct const *)shape, 0, position, cliprect,
                       0xE00, 0, -2 - height, 0, 1000, 0, 0, Point2D(0, 0));
     } else if (Class->IsVeins) {
         if (Class->ArrayIndex == 0xA7) {
             position.Y -= 0x26;
         }
         Point2D origin(0, 0);
-        CC_Draw_Shape(unknown_surface_83995c, ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter, (ShapeFileStruct const *)shape, 0, position, window,
+        CC_Draw_Shape(unknown_surface_83995c, ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter, (ShapeFileStruct const *)shape, 0, position, cliprect,
                       0xE00, 0, -2 - height, 0, Map[CoordStruct(Coord)].unknown_10c, 0, 0, origin);
     } else {
         CellClass *drawn;
@@ -698,7 +699,7 @@ void OverlayClass::Editor_Draw_It(Point2D const &point, Rect const &window)
         } else {
             drawn = &Map[Cell(1, unknown_short_8325d0)];
         }
-        CC_Draw_Shape(unknown_surface_83995c, (ConvertClass *)drawn->unknown_34, (ShapeFileStruct const *)shape, 0, position, window,
+        CC_Draw_Shape(unknown_surface_83995c, (ConvertClass *)drawn->unknown_34, (ShapeFileStruct const *)shape, 0, position, cliprect,
                       0xE00, 0, -2 - height, 0, drawn->unknown_10c, 0, 0, Point2D(0, 0));
     }
 }

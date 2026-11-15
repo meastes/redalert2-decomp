@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/coord.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/coord.cpp where both define the function (names only).
 
 // coord.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -168,9 +169,9 @@ CoordStruct __fastcall Coord_Scatter(CoordStruct const &coord, int distance, boo
 // TibSun coord.cpp: the coordinate one cell toward a facing (the AdjacentPoint offsets at
 // 0x00851AC0), its height moved by the ground-height difference between the two places.
 
-CoordStruct __fastcall Adjacent_Coord_With_Height(CoordStruct const &coord, int facing)
+CoordStruct __fastcall Adjacent_Coord_With_Height(CoordStruct const &coord, int dir)
 {
-    CoordStruct newcoord = (coord + unknown_adjacent_offsets_00851ac0[facing]);
+    CoordStruct newcoord = (coord + unknown_adjacent_offsets_00851ac0[dir]);
     newcoord.Z += Map.Get_Height_GL(newcoord) - Map.Get_Height_GL(coord);
     return newcoord;
 }

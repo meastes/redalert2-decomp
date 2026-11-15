@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/warhead.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/warhead.cpp where both define the function (names only).
 
 // warhead.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -353,12 +354,12 @@ void WarheadTypeClass::Compute_CRC(WWCRCEngine &crc) const
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x00720D70)
 
-HRESULT __stdcall WarheadTypeClass::GetClassID(GUID *clsid)
+HRESULT __stdcall WarheadTypeClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_WarheadTypeClass;
+    *retval = CLSID_WarheadTypeClass;
     return S_OK;
 }
 
@@ -411,9 +412,9 @@ HRESULT __stdcall WarheadTypeClass::Load(IStream *stream)
 // (0x00720EC0)
 // The base object, then the animation list as a count and pointers.
 
-HRESULT __stdcall WarheadTypeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall WarheadTypeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractTypeClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractTypeClass::Save(stream, cleardirty);
     if (FAILED(result)) {
         return result;
     }

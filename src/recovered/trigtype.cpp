@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/trigtype.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/trigtype.cpp where both define the function (names only).
 
 // trigtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -105,8 +106,8 @@
 // Enabled on every difficulty, no house, next trigger, events or actions;
 // listed in the abstract lists and numbered by its place in TriggerTypes.
 
-TriggerTypeClass::TriggerTypeClass(char const *ini_name) :
-    AbstractTypeClass(ini_name),
+TriggerTypeClass::TriggerTypeClass(char const *name) :
+    AbstractTypeClass(name),
     ArrayIndex(-1),
     IsEnabledOnEasy(true),
     IsEnabledOnMedium(true),
@@ -263,11 +264,11 @@ bool TriggerTypeClass::Is_Allow_Win() const
 // (0x006EE240)
 // Whether the type has an event of type 0x1B or 0x1C with this data.
 
-bool TriggerTypeClass::Is_Linked_To_Global(int value) const
+bool TriggerTypeClass::Is_Linked_To_Global(int global) const
 {
     bool result = false;
     for (TEventClass *event = FirstEvent; event != 0; event = event->Next) {
-        if ((event->Type == 0x1B || event->Type == 0x1C) && event->Data == value) {
+        if ((event->Type == 0x1B || event->Type == 0x1C) && event->Data == global) {
             result = true;
             break;
         }
@@ -286,11 +287,11 @@ bool TriggerTypeClass::Is_Linked_To_Global(int value) const
 // (0x006EE280)
 // Whether the type has an event of type 0x24 or 0x25 with this data.
 
-bool TriggerTypeClass::Is_Linked_To_Local(int value) const
+bool TriggerTypeClass::Is_Linked_To_Local(int local) const
 {
     bool result = false;
     for (TEventClass *event = FirstEvent; event != 0; event = event->Next) {
-        if ((event->Type == 0x24 || event->Type == 0x25) && event->Data == value) {
+        if ((event->Type == 0x24 || event->Type == 0x25) && event->Data == local) {
             result = true;
             break;
         }
@@ -692,18 +693,18 @@ void __fastcall TriggerTypeClass::Write_Scenario_INI(CCINIClass &ini)
 // (0x006EEC00)
 // Unlinks and deletes an action of the type.
 
-bool TriggerTypeClass::Delete_Action(TActionClass *action)
+bool TriggerTypeClass::Delete_Action(TActionClass *taction)
 {
     TActionClass *current = FirstAction;
-    if (current == action) {
-        FirstAction = action->Next;
-        delete action;
+    if (current == taction) {
+        FirstAction = taction->Next;
+        delete taction;
         return true;
     }
     while (current != 0) {
-        if (current->Next == action) {
+        if (current->Next == taction) {
             current->Next = current->Next->Next;
-            delete action;
+            delete taction;
             return true;
         }
         current = current->Next;
@@ -723,18 +724,18 @@ bool TriggerTypeClass::Delete_Action(TActionClass *action)
 // (0x006EEC60)
 // Unlinks and deletes an event of the type.
 
-bool TriggerTypeClass::Delete_Event(TEventClass *event)
+bool TriggerTypeClass::Delete_Event(TEventClass *tevent)
 {
     TEventClass *current = FirstEvent;
-    if (current == event) {
-        FirstEvent = event->Next;
-        delete event;
+    if (current == tevent) {
+        FirstEvent = tevent->Next;
+        delete tevent;
         return true;
     }
     while (current != 0) {
-        if (current->Next == event) {
+        if (current->Next == tevent) {
             current->Next = current->Next->Next;
-            delete event;
+            delete tevent;
             return true;
         }
         current = current->Next;
@@ -800,12 +801,12 @@ void TriggerTypeClass::Compute_CRC(WWCRCEngine &crc) const
 /// <returns>Returns with S_OK, or E_POINTER if no storage location was supplied.</returns>
 // (0x006EEDD0)
 
-HRESULT __stdcall TriggerTypeClass::GetClassID(GUID *clsid)
+HRESULT __stdcall TriggerTypeClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_TriggerTypeClass;
+    *retval = CLSID_TriggerTypeClass;
     return S_OK;
 }
 
@@ -844,9 +845,9 @@ HRESULT __stdcall TriggerTypeClass::Load(IStream *stream)
 /// code.</returns>
 // (0x006EEEA0)
 
-HRESULT __stdcall TriggerTypeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall TriggerTypeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }

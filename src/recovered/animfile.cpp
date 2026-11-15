@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/animfile.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/animfile.cpp where both define the function (names only).
 
 // animfile.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -358,13 +359,13 @@ int AnimFile::Frame_Size(int frame)
 // uncompressed copy (refused unless it fills dest exactly), 1 a run/skip/dump stream that
 // must end in the stop code 80 00 00; any other type is refused. An empty record is no change.
 
-bool AnimFile::Decode_Frame(void *source, int size, void *dest, int destsize)
+bool AnimFile::Decode_Frame(void *source, int nBytes, void *dest, int dlength)
 {
     int body;
     unsigned char *dst;
     bool decoded;
 
-    if (size == 0) {
+    if (nBytes == 0) {
         return true;
     }
 
@@ -374,11 +375,11 @@ bool AnimFile::Decode_Frame(void *source, int size, void *dest, int destsize)
     int pixel;
 
     body = *(short *)source;
-    size -= sizeof(short);
+    nBytes -= sizeof(short);
     source = (unsigned char *)source + sizeof(short);
     dst = (unsigned char *)dest;
 
-    if (size == 0) {
+    if (nBytes == 0) {
         return true;
     }
 
@@ -386,16 +387,16 @@ bool AnimFile::Decode_Frame(void *source, int size, void *dest, int destsize)
 
     switch (body) {
         case 0:
-            if (size != destsize) {
+            if (nBytes != dlength) {
                 decoded = false;
             } else {
-                memcpy(dst, source, size);
+                memcpy(dst, source, nBytes);
             }
             break;
 
         case 1:
-            src = (unsigned char *)source + size - 3;
-            if (size < 3 || src[0] != 0x80 || src[1] != 0 || src[2] != 0) {
+            src = (unsigned char *)source + nBytes - 3;
+            if (nBytes < 3 || src[0] != 0x80 || src[1] != 0 || src[2] != 0) {
                 decoded = false;
                 break;
             }

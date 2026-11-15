@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/zbuffer.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/zbuffer.cpp where both define the function (names only).
 
 // zbuffer.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -35,11 +36,11 @@
 /// <param name="rect">The area the buffer is to cover.</param>
 // Construct the 16-bit ring stored at original global 00839C6C.
 // ZBuffer is the existing project name hypothesis, not an asserted RTTI identity.
-ZBuffer::ZBuffer(Rect area)
+ZBuffer::ZBuffer(Rect rect)
 {
-    Width=area.Width;
-    Height=area.Height;
-    Area=area;
+    Width=rect.Width;
+    Height=rect.Height;
+    Area=rect;
     BufferSize=(int)((unsigned int)Width*(unsigned int)Height*2u);
     Surface=new BSurface(Width,Height,2);
     Surface->Fill_Rect(Rect(0,0,Width,Height),0xffff);
@@ -60,14 +61,14 @@ ZBuffer::ZBuffer(Rect area)
 /// <param name="rect">The region of the destination surface to copy into.</param>
 // Copy an area-sized block of alpha values, starting at the ring's current
 // origin, into surface at the area's position (a view of the buffer).
-void ZBuffer::Copy_To(::Surface &surface, Rect area)
+void ZBuffer::Copy_To(::Surface &surface, Rect rect)
 {
-    unsigned short *pixels = (unsigned short *)surface.Lock(Point2D(area.X, area.Y));
+    unsigned short *pixels = (unsigned short *)surface.Lock(Point2D(rect.X, rect.Y));
     unsigned short *alpha = (unsigned short *)(BufferHead + BufferOffset);
-    int skip = surface.Stride() / 2 - area.Width;
-    if (pixels && area.Height > 0) {
-        for (int row = area.Height; row; --row) {
-            for (int column = area.Width; column > 0; --column) {
+    int skip = surface.Stride() / 2 - rect.Width;
+    if (pixels && rect.Height > 0) {
+        for (int row = rect.Height; row; --row) {
+            for (int column = rect.Width; column > 0; --column) {
                 *pixels++ = *alpha++;
                 alpha = Wrap_Pointer(alpha);
             }
@@ -96,21 +97,21 @@ ZBuffer::~ZBuffer() { delete Surface; }
 // entry when pointer is not 4-byte aligned, then packed pairs, then a final
 // single entry. As in the original, the final entry is written only when at
 // least one pair was (the tail address stays null otherwise).
-void ZBuffer::Set(unsigned short *pointer, int count, unsigned short value)
+void ZBuffer::Set(unsigned short *dst, int size, unsigned short value)
 {
-    if (((unsigned int)pointer & 2u) && count) {
-        *pointer++=value;
-        --count;
+    if (((unsigned int)dst & 2u) && size) {
+        *dst++=value;
+        --size;
     }
-    unsigned int pairs=(unsigned int)(count>>1);
+    unsigned int pairs=(unsigned int)(size>>1);
     unsigned int *tail=0;
     if(pairs) {
         unsigned int packed=((unsigned int)value<<16)+(unsigned int)value;
-        unsigned int *output=(unsigned int *)pointer;
+        unsigned int *output=(unsigned int *)dst;
         for(unsigned int remaining=pairs;remaining;--remaining) *output++=packed;
         tail=output;
     }
-    if((count&1u) && tail) *(unsigned short *)tail=value;
+    if((size&1u) && tail) *(unsigned short *)tail=value;
 }
 
 
@@ -203,21 +204,21 @@ void ZBuffer::Clear_Region_007761A0(unsigned short color, Rect area) { Surface->
 /// </summary>
 /// <param name="rect">The region of the buffer to reset.</param>
 // Clear a by-value rectangle to FFFF in the ring at original global00839C6C.
-void ZBuffer::Update(Rect area)
+void ZBuffer::Update(Rect rect)
 {
-    char *locked=(char *)Surface->Lock(Point2D(area.X,area.Y));
+    char *locked=(char *)Surface->Lock(Point2D(rect.X,rect.Y));
     Surface->Unlock();
     char *pointer=locked+BufferOffset;
     if(pointer>=BufferTail) pointer-=BufferSize;
-    if(area.Height>0) {
-        int rows=area.Height;
+    if(rect.Height>0) {
+        int rows=rect.Height;
         do {
-            if(pointer+(unsigned int)area.Width*2u>=BufferTail) {
+            if(pointer+(unsigned int)rect.Width*2u>=BufferTail) {
                 unsigned int first=(unsigned int)(BufferTail-pointer)>>1;
                 Set((unsigned short *)pointer,first,0xffff);
-                Set((unsigned short *)BufferHead,area.Width-first,0xffff);
+                Set((unsigned short *)BufferHead,rect.Width-first,0xffff);
             } else {
-                Set((unsigned short *)pointer,area.Width,0xffff);
+                Set((unsigned short *)pointer,rect.Width,0xffff);
             }
             pointer+=(unsigned int)Width*2u;
             if(pointer>=BufferTail) pointer-=BufferSize;
@@ -235,9 +236,9 @@ void ZBuffer::Update(Rect area)
 /// <returns>Returns with the address of the entry within the depth buffer.</returns>
 // Point-by-value getter for the ring at original global00839C6C.
 // ZBuffer remains the existing project-name hypothesis.
-unsigned short *ZBuffer::Get_Buffer_Offset(Point2D point)
+unsigned short *ZBuffer::Get_Buffer_Offset(Point2D pos)
 {
-    char *pointer=(char *)Surface->Lock(point);
+    char *pointer=(char *)Surface->Lock(pos);
     Surface->Unlock();
     char *result=pointer+BufferOffset;
     if(result>=BufferTail) result-=BufferSize;

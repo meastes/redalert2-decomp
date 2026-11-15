@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/pk.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/pk.cpp where both define the function (names only).
 
 // pk.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -247,17 +248,17 @@ void __fastcall PKey::Generate(Straw &random, int bits, PKey &fastkey, PKey &slo
 // Raises each whole plaintext block to the exponent modulo the modulus;
 // returns the cyphertext bytes written.
 
-int PKey::Encrypt(void const *source, int length, void *dest) const
+int PKey::Encrypt(void const *source, int slen, void *dest) const
 {
     int total = 0;
 
-    while (length >= Plain_Block_Size()) {
+    while (slen >= Plain_Block_Size()) {
         BigInt temp = 0;
         memmove(&temp, source, Plain_Block_Size());
         temp = temp.exp_b_mod_c(Exponent, Modulus);
 
         memmove(dest, &temp, Crypt_Block_Size());
-        length -= Plain_Block_Size();
+        slen -= Plain_Block_Size();
         source = (char const *)source + Plain_Block_Size();
         dest = (char *)dest + Crypt_Block_Size();
         total += Crypt_Block_Size();
@@ -292,18 +293,18 @@ int PKey::Encrypt(void const *source, int length, void *dest) const
 // Raises each whole cyphertext block to the exponent modulo the modulus;
 // returns the plaintext bytes written.
 
-int PKey::Decrypt(void const *source, int length, void *dest) const
+int PKey::Decrypt(void const *source, int slen, void *dest) const
 {
     int total = 0;
     BigInt temp;
 
-    while (length >= Crypt_Block_Size()) {
+    while (slen >= Crypt_Block_Size()) {
         temp = 0;
         memmove(&temp, source, Crypt_Block_Size());
         temp = temp.exp_b_mod_c(Exponent, Modulus);
 
         memmove(dest, &temp, Plain_Block_Size());
-        length -= Crypt_Block_Size();
+        slen -= Crypt_Block_Size();
         source = (char const *)source + Crypt_Block_Size();
         dest = (char *)dest + Plain_Block_Size();
         total += Plain_Block_Size();

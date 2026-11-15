@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/wspipx.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/wspipx.cpp where both define the function (names only).
 
 // wspipx.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -215,7 +216,7 @@ int IPXInterfaceClass::unknown_76a230(int card_number, char *buffer, int length)
 // Opens the IPX datagram socket on the socket number at the address of net
 // card unknown_3f2f8 and sets its broadcast, packet type and filter options.
 
-bool IPXInterfaceClass::Open_Socket(int socket_number)
+bool IPXInterfaceClass::Open_Socket(int socketnum)
 {
     if (!WinsockInitialised) {
         if (!Init()) {
@@ -225,13 +226,13 @@ bool IPXInterfaceClass::Open_Socket(int socket_number)
         return false;
     }
 
-    SocketNumber = socket_number;
-    Debug_Printf("IPX Socket number is %04x\n", socket_number);
+    SocketNumber = socketnum;
+    Debug_Printf("IPX Socket number is %04x\n", socketnum);
     UnknownIPXSocketAddress address;
     address.sa_family = 6;
     memset(address.sa_netnum, 0, sizeof(address.sa_netnum));
     memset(address.sa_nodenum, 0xFF, sizeof(address.sa_nodenum));
-    address.sa_socket = htons(socket_number);
+    address.sa_socket = htons(socketnum);
 
     Debug_Printf("About to create an IPX socket\n");
     Socket = socket(6, 2, 1000);

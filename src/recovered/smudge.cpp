@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/smudge.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/smudge.cpp where both define the function (names only).
 
 // smudge.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -108,14 +109,14 @@
 // Assumptions: slot 53 places an object (Unlimbo); the house global at
 // 0x007F4230 is read while placing.
 
-SmudgeClass::SmudgeClass(SmudgeTypeClass *type, CoordStruct const &coord, int house) :
+SmudgeClass::SmudgeClass(SmudgeTypeClass *type, CoordStruct const &pos, int house) :
     Class(type)
 {
     AbstractClass::Create_ID();
     Smudges.Add(this);
-    if (coord.X != unknown_geometry_l.X || coord.Y != unknown_geometry_l.Y || coord.Z != unknown_geometry_l.Z) {
+    if (pos.X != unknown_geometry_l.X || pos.Y != unknown_geometry_l.Y || pos.Z != unknown_geometry_l.Z) {
         unknown_placing_house_7f4230 = house;
-        if (!ObjectClass::Unlimbo(&coord, 0)) {
+        if (!ObjectClass::Unlimbo(&pos, 0)) {
             ObjectClass::Delete_Me();
             return;
         }
@@ -165,9 +166,9 @@ SmudgeClass::~SmudgeClass()
 // cells (SmudgeTypeClass::Place, when the cells allow it or placement is
 // forced) and removes the object (slot 60).
 
-bool SmudgeClass::Mark(int arg1)
+bool SmudgeClass::Mark(int mark)
 {
-    if (ObjectClass::Mark(arg1) && (arg1 == 1 || arg1 == 3)) {
+    if (ObjectClass::Mark(mark) && (mark == 1 || mark == 3)) {
         Cell cell = Cell(unknown_slot104());
         if (ScenarioInit > 0 || Debug_Map || Class->Can_Place(cell, true)) {
             Class->Place(cell);
@@ -314,9 +315,9 @@ HRESULT __stdcall SmudgeClass::Load(IStream *stream)
 /// <returns>Returns with the result code that the base class reported.</returns>
 // (0x00687A60)
 
-HRESULT __stdcall SmudgeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall SmudgeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    return ObjectClass::Save(stream, clear_dirty);
+    return ObjectClass::Save(stream, cleardirty);
 }
 
 

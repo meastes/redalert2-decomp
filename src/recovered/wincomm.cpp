@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/wincomm.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/wincomm.cpp where both define the function (names only).
 
 // wincomm.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -731,7 +732,7 @@ extern "C" char *__cdecl strchr(char const *string, int character);
 extern "C" char *__cdecl strrchr(char const *string, int character);
 extern "C" char *__cdecl strstr(char const *string, char const *search);
 
-int WinModemClass::Get_Modem_Result(int delay, char *buffer, int buffer_len, int timeout)
+int WinModemClass::Get_Modem_Result(int delay, char *buffer, int buffer_len, int inter_char_delay)
 {
     CDTimerClass<SystemTimerClass> timer;
     CDTimerClass<SystemTimerClass> cr_timer;
@@ -739,7 +740,7 @@ int WinModemClass::Get_Modem_Result(int delay, char *buffer, int buffer_len, int
     char *cr_ptr;
 
     memset(buffer, 0, buffer_len);
-    cr_timer = timeout;
+    cr_timer = inter_char_delay;
     do {
         timer = delay;
         for (;;) {
@@ -755,13 +756,13 @@ int WinModemClass::Get_Modem_Result(int delay, char *buffer, int buffer_len, int
             int bytes = Read_From_Serial_Port((unsigned char *)buffer + pos, (buffer_len - pos < 0 ? 0 : buffer_len - pos));
             if (bytes) {
                 pos += bytes;
-                cr_timer = timeout;
+                cr_timer = inter_char_delay;
             }
             if (!timer || pos >= buffer_len) {
                 break;
             }
             if (strchr(buffer, '\r')) {
-                if (timeout == -1 || !cr_timer) {
+                if (inter_char_delay == -1 || !cr_timer) {
                     break;
                 }
             }
@@ -850,8 +851,8 @@ void WinModemClass::Dial_Modem(char const *dial_number)
 extern "C" char *__cdecl strstr(char const *string, char const *search);
 extern "C" char *__cdecl strncpy(char *destination, char const *source, unsigned int count);
 
-int WinModemClass::Send_Command_To_Modem(char const *command, char terminator, char *buffer, int buffer_len,
-                                         int delay, int retries, int timeout)
+int WinModemClass::Send_Command_To_Modem(char const *command, char terminator, char *buffer, int buflen,
+                                         int delay, int retries, int inter_char_delay)
 {
     char term_string[2];
     char send_string[80];
@@ -876,7 +877,7 @@ int WinModemClass::Send_Command_To_Modem(char const *command, char terminator, c
         int wait = timer.Value() < 1 ? 1 : timer.Value();
         char reply[80];
         memset(reply, 0, 80);
-        Get_Modem_Result(wait, reply, 80, timeout);
+        Get_Modem_Result(wait, reply, 80, inter_char_delay);
         if (strcmp(reply, "0") == 0) {
             return 3;
         }
@@ -888,10 +889,10 @@ int WinModemClass::Send_Command_To_Modem(char const *command, char terminator, c
         }
         if (strlen(reply) == 3 && reply[0] >= '0' && reply[0] <= '9' && reply[1] >= '0' && reply[1] <= '9'
             && reply[2] >= '0' && reply[2] <= '9') {
-            strncpy(buffer, reply, buffer_len < 80 ? buffer_len : 80);
+            strncpy(buffer, reply, buflen < 80 ? buflen : 80);
             return 2;
         }
-        strncpy(buffer, reply, buffer_len < 80 ? buffer_len : 80);
+        strncpy(buffer, reply, buflen < 80 ? buflen : 80);
         Sleep(100);
         Write_To_Serial_Port((unsigned char *)"\r", 1);
         Wait_For_Serial_Write();

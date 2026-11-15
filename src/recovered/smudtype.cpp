@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/smudtype.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/smudtype.cpp where both define the function (names only).
 
 // smudtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -300,21 +301,21 @@ ObjectClass *SmudgeTypeClass::Create_One_Of(HouseClass *house) const
 // Width) is moved to its own cell of the isometric block; the cell supplies
 // the drawer and the light level, the height the depth.
 
-void SmudgeTypeClass::Draw_It(Point2D const *point, Rect const *window, int piece, int height, Cell const *cell)
+void SmudgeTypeClass::Draw_It(Point2D const *point, Rect const *cliprect, int size, int z, Cell const *cell)
 {
     void *shape = Get_Image_Data();
     if (shape != 0) {
         Point2D position = *point;
-        if (piece != 0) {
-            int x = piece % Width;
-            int y = piece / Width;
+        if (size != 0) {
+            int x = size % Width;
+            int y = size / Width;
             position.Y -= (y + x) * 15;
             position.X += (y - x) * 60 / 2;
         }
         CellClass &here = Map[*cell];
         int level = here.unknown_10c;
-        CC_Draw_Shape(unknown_surface_83995c, (ConvertClass *)here.unknown_34, (ShapeFileStruct const *)shape, 0, position, *window,
-                      0xE00, 0, -1 - Unknown_006A2970(height), 0, level, 0, 0, Point2D(0, 0));
+        CC_Draw_Shape(unknown_surface_83995c, (ConvertClass *)here.unknown_34, (ShapeFileStruct const *)shape, 0, position, *cliprect,
+                      0xE00, 0, -1 - Unknown_006A2970(z), 0, level, 0, 0, Point2D(0, 0));
     }
 }
 
@@ -401,9 +402,9 @@ HRESULT __stdcall SmudgeTypeClass::Load(IStream *stream)
 /// from the base class.</returns>
 // (0x00688370)
 
-HRESULT __stdcall SmudgeTypeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall SmudgeTypeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = ObjectTypeClass::Save(stream, clear_dirty);
+    HRESULT result = ObjectTypeClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }
@@ -419,12 +420,12 @@ HRESULT __stdcall SmudgeTypeClass::Save(IStream *stream, BOOL clear_dirty)
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x00688390)
 
-HRESULT __stdcall SmudgeTypeClass::GetClassID(GUID *clsid)
+HRESULT __stdcall SmudgeTypeClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_SmudgeTypeClass;
+    *retval = CLSID_SmudgeTypeClass;
     return S_OK;
 }
 
@@ -573,11 +574,11 @@ bool SmudgeTypeClass::Can_Place(Cell const &cell, bool arg2) const
 // Marks every cell of the Width x Height block with this type and the
 // cell's piece number (row * Width + column).
 
-void SmudgeTypeClass::Place(Cell const &cell) const
+void SmudgeTypeClass::Place(Cell const &origin) const
 {
     for (int y = 0; y < Height; y++) {
         for (int x = 0; x < Width; x++) {
-            Cell pos = cell + Cell(x, y);
+            Cell pos = origin + Cell(x, y);
             CellClass &here = Map[pos];
             here.SmudgeIndex = ArrayIndex;
             here.SmudgeData = y * Width + x;

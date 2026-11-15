@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/txtlabel.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/txtlabel.cpp where both define the function (names only).
 
 // txtlabel.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -52,12 +53,12 @@
 // A one-pixel gadget at x, y printing text in colour scheme color with print style style; the
 // width is the surface's (PixWidth -1) and the text is shown at once (no reveal).
 
-TextLabelClass::TextLabelClass(wchar_t const *text, int x, int y, int color, unsigned style) :
+TextLabelClass::TextLabelClass(wchar_t const *txt, int x, int y, int color, unsigned style) :
     GadgetClass(x, y, 1, 1, 0, 0),
     UserData1(0),
     UserData2(0),
     Style(style),
-    Text(text),
+    Text(txt),
     Color(color),
     PixWidth(-1),
     Scroll(0),

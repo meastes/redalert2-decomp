@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/list.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/list.cpp where both define the function (names only).
 
 // list.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -733,14 +734,14 @@ void ListClass::Draw_Entry(int index, int x, int y, int width, int selected)
 // (0x0053A7D0, slot 3)
 // The scroll parts follow the list.
 
-LinkClass &ListClass::Add(LinkClass &object)
+LinkClass &ListClass::Add(LinkClass &list)
 {
     if (IsScrollActive) {
-        ScrollGadget.Add(object);
-        DownGadget.Add(object);
-        UpGadget.Add(object);
+        ScrollGadget.Add(list);
+        DownGadget.Add(list);
+        UpGadget.Add(list);
     }
-    return ControlClass::Add(object);
+    return ControlClass::Add(list);
 }
 
 
@@ -759,14 +760,14 @@ LinkClass &ListClass::Add(LinkClass &object)
  *=============================================================================================*/
 // (0x0053A820, slot 5)
 
-LinkClass &ListClass::Add_Head(LinkClass &object)
+LinkClass &ListClass::Add_Head(LinkClass &list)
 {
     if (IsScrollActive) {
-        ScrollGadget.Add_Head(object);
-        DownGadget.Add_Head(object);
-        UpGadget.Add_Head(object);
+        ScrollGadget.Add_Head(list);
+        DownGadget.Add_Head(list);
+        UpGadget.Add_Head(list);
     }
-    return ControlClass::Add_Head(object);
+    return ControlClass::Add_Head(list);
 }
 
 
@@ -791,13 +792,13 @@ LinkClass &ListClass::Add_Head(LinkClass &object)
  *=============================================================================================*/
 // (0x0053A870, slot 4)
 
-LinkClass &ListClass::Add_Tail(LinkClass &object)
+LinkClass &ListClass::Add_Tail(LinkClass &list)
 {
-    ControlClass::Add_Tail(object);
+    ControlClass::Add_Tail(list);
     if (IsScrollActive) {
-        UpGadget.Add_Tail(object);
-        DownGadget.Add_Tail(object);
-        ScrollGadget.Add_Tail(object);
+        UpGadget.Add_Tail(list);
+        DownGadget.Add_Tail(list);
+        ScrollGadget.Add_Tail(list);
     }
     return Head_Of_List();
 }
@@ -886,10 +887,10 @@ void ListClass::Set_Selected_Index(int index)
 // (0x0053A970, slot 41)
 // Moves the selection by forward; returns the old index.
 
-int ListClass::Step_Selected_Index(int forward)
+int ListClass::Step_Selected_Index(int step)
 {
     int old = SelectedIndex;
-    Set_Selected_Index(old + forward);
+    Set_Selected_Index(old + step);
     return old;
 }
 

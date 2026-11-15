@@ -1,3 +1,9 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+// Parameter names from mischa85/RedAlert2 392e904 src/winstub.cpp where both define the function (names only).
+
 // winstub.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -174,16 +180,16 @@ extern char const sidebar_down_007dd0f8[], sidebar_up_007dcf9c[];
 void __fastcall Execute_Command_By_Name(char const *name);
 extern "C" unsigned int __cdecl wcslen(wchar_t const *text);
 unsigned short __fastcall Char_To_Wide_00738130(unsigned int character, long key_data);
-LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+LRESULT WINAPI Windows_Procedure(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     if (PacketTransport && (message == PacketTransport->Protocol_Event_Message(-1) || message == 0x475)) {
-        if (PacketTransport->Message_Handler((int)window, message, wparam, lparam))
-            return DefWindowProcA(window, message, wparam, lparam);
+        if (PacketTransport->Message_Handler((int)hwnd, message, wParam, lParam))
+            return DefWindowProcA(hwnd, message, wParam, lParam);
         return 0;
     }
-    Map.Message_Handler(window, message, wparam, lparam);
+    Map.Message_Handler(hwnd, message, wParam, lParam);
     if (MainWindow) GetMenu(MainWindow);
-    if (IME_Process_Message(window, message, wparam, lparam)) {
+    if (IME_Process_Message(hwnd, message, wParam, lParam)) {
         Debug_Printf(ime_processed_007fd18c);
         return IMEDefaultResult;
     }
@@ -196,22 +202,22 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
             if (ScenarioActive == true) {
                 Update_Visible_Surface(WWMouse->Is_Captured(), unknown_surface_839964, 0);
                 Map.Unknown_0067D420(true);
-                ValidateRect(window, 0);
+                ValidateRect(hwnd, 0);
                 break;
             }
             if ((unsigned char)Is_Movie_Active()) {
                 Movie_Handle_Blit();
-                ValidateRect(window, 0);
+                ValidateRect(hwnd, 0);
                 break;
             }
             Update_Visible_Surface(WWMouse->Is_Captured(), HiddenSurface, 0);
         }
-        ValidateRect(window, 0);
+        ValidateRect(hwnd, 0);
         break;
     case 0x14:
         return 1;
     case 1:
-        ToolTips = new CCToolTip(window);
+        ToolTips = new CCToolTip(hwnd);
         break;
     case 3:
         if (WindowedMode == true && WWMouse)
@@ -226,8 +232,8 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
         if (ReadyToQuit != 0) ReadyToQuit = 2;
         return 0;
     case 0x1c:
-        if (window == MainWindow && GameInFocus != (wparam != 0)) {
-            GameInFocus = wparam != 0;
+        if (hwnd == MainWindow && GameInFocus != (wParam != 0)) {
+            GameInFocus = wParam != 0;
             if (!GameInFocus) {
                 Focus_Loss();
                 Debug_Printf(focus_lost_007fd180);
@@ -242,29 +248,29 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
         window_scroll_coasting_8373fc = false;
         break;
     case 0x216:
-        return unknown_moving_736d80(window, wparam, (Rect *)lparam);
+        return unknown_moving_736d80(hwnd, wParam, (Rect *)lParam);
     case 0x20a:
         if (!window_mouse_wheel_b263e9) {
             window_mouse_wheel_b263e9 = true;
-            Execute_Command_By_Name((short)(wparam >> 16) < 0 ? sidebar_down_007dd0f8 : sidebar_up_007dcf9c);
+            Execute_Command_By_Name((short)(wParam >> 16) < 0 ? sidebar_down_007dd0f8 : sidebar_up_007dcf9c);
             window_mouse_wheel_b263e9 = false;
         }
         break;
     case 0x112:
-        switch (wparam) {
+        switch (wParam) {
         case 0xf060: return 0;
         case 0xf140: return 0;
         }
         break;
     }
-    if (WWKeyboard->Message_Handler(window, message, wparam, lparam)) return 0;
+    if (WWKeyboard->Message_Handler(hwnd, message, wParam, lParam)) return 0;
     if (message == 0x286) {
         int index = wcslen(IMEResultString);
-        IMEResultString[index] = Char_To_Wide_00738130(wparam,lparam);
+        IMEResultString[index] = Char_To_Wide_00738130(wParam,lParam);
         IMEResultString[index + 1] = 0;
         return 0;
     }
-    return DefWindowProcA(window, message, wparam, lparam);
+    return DefWindowProcA(hwnd, message, wParam, lParam);
 }
 
 

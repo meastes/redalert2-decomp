@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/radar.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/radar.cpp where both define the function (names only).
 
 // radar.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -440,7 +441,7 @@ void RadarClass::Init_IO()
 // redraw, and grows the redraw rectangle +0x1208 by the radar buttons that
 // need drawing.
 
-void RadarClass::Draw_It(bool complete)
+void RadarClass::Draw_It(bool forced)
 {
     bool redraw = false;
     if (Debug_Map) {
@@ -448,7 +449,7 @@ void RadarClass::Draw_It(bool complete)
         unknown_14d5 = false;
         return;
     }
-    unknown_14d6 = (unknown_14d6 == true || complete == true);
+    unknown_14d6 = (unknown_14d6 == true || forced == true);
     unknown_14d5 = (unknown_14d5 == true || unknown_14d6 == true);
     if (unknown_14d5) {
         ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_buffer_ac0ff0;
@@ -879,9 +880,9 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
 // (0x00630300, slot 28)
 // Passes the map dimensions on to the base class (TibSun RadarClass::Set_Map_Dimensions).
 
-void RadarClass::Set_Map_Dimensions(Rect const *rect, bool arg2, int arg3, bool arg4)
+void RadarClass::Set_Map_Dimensions(Rect const *size, bool reset_cells, int cell_height, bool refresh_map)
 {
-    DisplayClass::Set_Map_Dimensions(rect, arg2, arg3, arg4);
+    DisplayClass::Set_Map_Dimensions(size, reset_cells, cell_height, refresh_map);
 }
 
 
@@ -1590,10 +1591,10 @@ void RadarClass::Radar_Untrack(TechnoClass *techno, Point2D point)
 // the diamond, scaled by the zoom (+0x1484), and kept inside the radar
 // rectangle's size when clip is set.
 
-Point2D RadarClass::Coord_To_Radar_Pixel(Point2D const &position, bool clip)
+Point2D RadarClass::Coord_To_Radar_Pixel(Point2D const &coord, bool clip)
 {
-    int px = position.X;
-    int py = position.Y;
+    int px = coord.X;
+    int py = coord.Y;
     int x = (int)((unknown_148c * 256 - py + px) * unknown_1484 * (1.0f / 256.0f));
     int y = (int)((py - unknown_1494 * 256 + px) * unknown_1484 * (1.0f / 256.0f));
     if (clip) {
@@ -2232,19 +2233,19 @@ bool __fastcall FUN_00632ff0(int radar_address)
 // multiplayer game always gets mode 1; a running movie keeps the request
 // (+0x14B0); modes 1 and above queue the next movie (0x0062F150, expanded)
 // when the radar is up, otherwise turn it on or off (0x00632F30).
-void RadarClass::Radar_Activate(int mode, bool sound)
+void RadarClass::Radar_Activate(int control, bool sound)
 {
     if (unknown_game_mode_a3d298 && unknown_player_a35db4->unknown_13d && MuteSWLaunches) {
-        mode = 1;
+        control = 1;
     }
-    if (unknown_14ac == mode) {
+    if (unknown_14ac == control) {
         return;
     }
-    if ((unknown_14ac == 3 || (unknown_14ac == 4 && mode != 3)) && unknown_14a8 != 5) {
-        unknown_14b0 = mode;
+    if ((unknown_14ac == 3 || (unknown_14ac == 4 && control != 3)) && unknown_14a8 != 5) {
+        unknown_14b0 = control;
         return;
     }
-    switch (mode) {
+    switch (control) {
     case 0:
         Set_Radar_State(false, unknown_14ac == 1);
         break;
@@ -2265,7 +2266,7 @@ void RadarClass::Radar_Activate(int mode, bool sound)
         Set_Radar_State(true, false);
         break;
     }
-    unknown_14ac = mode;
+    unknown_14ac = control;
 }
 
 
@@ -2386,10 +2387,10 @@ unsigned int __fastcall FUN_006331c0(int radar_address)
 // (0x006331E0)
 // Asks for a radar redraw (+0x14D5), a complete one (+0x14D6) when flag is set.
 
-void RadarClass::Redraw_Radar(bool flag)
+void RadarClass::Redraw_Radar(bool complete)
 {
     unknown_14d5 = true;
-    unknown_14d6 = unknown_14d6 || flag;
+    unknown_14d6 = unknown_14d6 || complete;
 }
 
 

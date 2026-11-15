@@ -9,6 +9,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/lightcon.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/lightcon.cpp where both define the function (names only).
 
 // lightcon.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -85,48 +86,48 @@ bool Unknown_0051FC60();
 extern "C" unsigned char DAT_007df768[];
 extern "C" int DAT_007df868;
 
-LightConvertClass::LightConvertClass(PaletteClass const &artpalette, PaletteClass const &screenpalette, Surface *surface,
-                                     int red, int green, int blue, bool skip_blitters, unsigned char const *remap,
-                                     int unknown_shadow_count)
-    : ConvertClass(artpalette, screenpalette, surface, unknown_shadow_count, true),
-      ArtPalette(&artpalette), ScreenPalette(&screenpalette), unknown_190(remap), unknown_194(0),
-      Red(red), Green(green), Blue(blue), StoredRed(red), StoredGreen(green), StoredBlue(blue), unknown_1b0(false)
+LightConvertClass::LightConvertClass(PaletteClass const &artpalette, PaletteClass const &screenpalette, Surface *typicalsurface,
+                                     int red_tint, int green_tint, int blue_tint, bool blitters_created, unsigned char const *tint_mask,
+                                     int intensity_levels)
+    : ConvertClass(artpalette, screenpalette, typicalsurface, intensity_levels, true),
+      ArtPalette(&artpalette), ScreenPalette(&screenpalette), unknown_190(tint_mask), unknown_194(0),
+      Red(red_tint), Green(green_tint), Blue(blue_tint), StoredRed(red_tint), StoredGreen(green_tint), StoredBlue(blue_tint), unknown_1b0(false)
 {
     if (this->unknown_shadow_count >= 1) {
-        if (remap == 0) {
+        if (tint_mask == 0) {
             unknown_190 = DAT_007df768;
         }
         if (DAT_007df868 == -1) {
             DAT_007df868 = Get_Unknown_7d6290();
         }
         if (Unknown_0051FC50()) {
-            if (red == -1) {
+            if (red_tint == -1) {
                 Red = 1000;
                 Green = 1000;
                 Blue = 1000;
             } else {
-                Red = red;
-                Green = green;
-                Blue = blue;
+                Red = red_tint;
+                Green = green_tint;
+                Blue = blue_tint;
             }
             Set_Tint(unknown_id_source_a3d290->IonRed * 1000 / 100, unknown_id_source_a3d290->IonGreen * 1000 / 100,
                      unknown_id_source_a3d290->IonBlue * 1000 / 100, true);
         } else if (Unknown_0051FC60()) {
-            if (red == -1) {
+            if (red_tint == -1) {
                 Red = 1000;
                 Green = 1000;
                 Blue = 1000;
             } else {
-                Red = red;
-                Green = green;
-                Blue = blue;
+                Red = red_tint;
+                Green = green_tint;
+                Blue = blue_tint;
             }
             Set_Tint(unknown_id_source_a3d290->unknown_22e4 * 1000 / 100, unknown_id_source_a3d290->unknown_22e8 * 1000 / 100,
                      unknown_id_source_a3d290->unknown_22ec * 1000 / 100, true);
         } else {
-            Set_Tint(red, green, blue, false);
+            Set_Tint(red_tint, green_tint, blue_tint, false);
         }
-        if (!skip_blitters) {
+        if (!blitters_created) {
             Initialize_Blitters_00483B00();
         }
     }

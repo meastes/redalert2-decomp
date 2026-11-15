@@ -9,6 +9,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/light.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/light.cpp where both define the function (names only).
 
 // light.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -385,12 +386,12 @@ void LightSourceClass::Compute_CRC(WWCRCEngine &crc) const
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x00537B60, slot 3)
 
-HRESULT __stdcall LightSourceClass::GetClassID(GUID *clsid)
+HRESULT __stdcall LightSourceClass::GetClassID(GUID *retval)
 {
-    if (!clsid) {
+    if (!retval) {
         return E_POINTER;
     }
-    *clsid = CLSID_LightSource;
+    *retval = CLSID_LightSource;
     return S_OK;
 }
 

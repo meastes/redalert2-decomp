@@ -1,3 +1,9 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+// Parameter names from mischa85/RedAlert2 392e904 src/vqalib_loader.cpp where both define the function (names only).
+
 // vqalib_loader.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -513,16 +519,16 @@ static long Load_SN2J(VQAHandleP *vqap,unsigned long size)
 // long __fastcall PrimeBuffers(VQAHandleP *vqap) -- 0x007796A0
 // Purpose: fills the frame buffers before playback; -9/-11 are not errors.
 
-long __fastcall PrimeBuffers(VQAHandleP *vqap)
+long __fastcall PrimeBuffers(VQAHandleP *vqa)
 {
     VQAConfig *config;
     long rc;
     long i;
 
-    config = &vqap->Config;
+    config = &vqa->Config;
     for (i = 0; i < config->NumFrameBufs; i++) {
-        if ((rc = VQA_LoadFrame(vqap, 0x20)) == -1) {
-            vqap->LoadedFrames++;
+        if ((rc = VQA_LoadFrame(vqa, 0x20)) == -1) {
+            vqa->LoadedFrames++;
         } else if (rc != -9 && rc != -11) {
             return rc;
         }
@@ -1319,52 +1325,52 @@ static long VQA_MFCIPrepare(VQAHandleP *player, unsigned long index)
     return -1;
 }
 
-long __fastcall Load_MFCI(VQAHandleP *player)
+long __fastcall Load_MFCI(VQAHandleP *vqap)
 {
     VQAChunkHeader chunk;
-    VQAConfig *config = &player->Config;
+    VQAConfig *config = &vqap->Config;
     long size;
     unsigned long count, iffsize;
-    if (config->StreamHandler((VQAHandle *)player, VQACMD_READ, (int)&chunk, sizeof(chunk))) return -2;
+    if (config->StreamHandler((VQAHandle *)vqap, VQACMD_READ, (int)&chunk, sizeof(chunk))) return -2;
     if (chunk.ID != ID_MFCH) return -4;
     iffsize = REVERSE_LONG(chunk.Size);
-    if (Load_MFCH(player, iffsize) != -1) return -4;
-    count = player->MFCInfo.Header.StaticCount;
+    if (Load_MFCH(vqap, iffsize) != -1) return -4;
+    count = vqap->MFCInfo.Header.StaticCount;
     if (count > 0) {
         size = count * sizeof(VQAMFCInfo::DATA);
-        player->MFCInfo.StaticData = (VQAMFCInfo::DATA *)config->MemoryHandler(
-            (VQAHandle *)player, VQAMEM_ALLOC, 0, size);
-        if (!player->MFCInfo.StaticData) return -8;
-        config->MemoryHandler((VQAHandle *)player, VQAMEM_LOCK, (int)player->MFCInfo.StaticData, size);
-        player->MemUsed += size;
-        if (config->StreamHandler((VQAHandle *)player, VQACMD_READ, (int)&chunk, sizeof(chunk))) return -2;
+        vqap->MFCInfo.StaticData = (VQAMFCInfo::DATA *)config->MemoryHandler(
+            (VQAHandle *)vqap, VQAMEM_ALLOC, 0, size);
+        if (!vqap->MFCInfo.StaticData) return -8;
+        config->MemoryHandler((VQAHandle *)vqap, VQAMEM_LOCK, (int)vqap->MFCInfo.StaticData, size);
+        vqap->MemUsed += size;
+        if (config->StreamHandler((VQAHandle *)vqap, VQACMD_READ, (int)&chunk, sizeof(chunk))) return -2;
         if (chunk.ID != ID_MFCD) return -4;
         size = REVERSE_LONG(chunk.Size);
-        if (Load_MFCD(player, size) != -1) return -4;
+        if (Load_MFCD(vqap, size) != -1) return -4;
     }
-    count = player->MFCInfo.Header.Count;
+    count = vqap->MFCInfo.Header.Count;
     if (count > 0) {
         size = count * sizeof(VQAMFCInfo::TABLE);
-        player->MFCInfo.Table = (VQAMFCInfo::TABLE *)config->MemoryHandler(
-            (VQAHandle *)player, VQAMEM_ALLOC, 0, size);
-        if (!player->MFCInfo.Table) return -8;
-        config->MemoryHandler((VQAHandle *)player, VQAMEM_LOCK, (int)player->MFCInfo.Table, size);
-        player->MemUsed += size;
-        if (config->StreamHandler((VQAHandle *)player, VQACMD_READ, (int)&chunk, sizeof(chunk))) return -2;
+        vqap->MFCInfo.Table = (VQAMFCInfo::TABLE *)config->MemoryHandler(
+            (VQAHandle *)vqap, VQAMEM_ALLOC, 0, size);
+        if (!vqap->MFCInfo.Table) return -8;
+        config->MemoryHandler((VQAHandle *)vqap, VQAMEM_LOCK, (int)vqap->MFCInfo.Table, size);
+        vqap->MemUsed += size;
+        if (config->StreamHandler((VQAHandle *)vqap, VQACMD_READ, (int)&chunk, sizeof(chunk))) return -2;
         if (chunk.ID != ID_MFCT) return -4;
         size = REVERSE_LONG(chunk.Size);
-        if (Load_MFCT(player, size) != -1) return -4;
+        if (Load_MFCT(vqap, size) != -1) return -4;
     }
-    count = player->MFCInfo.Header.Count;
+    count = vqap->MFCInfo.Header.Count;
     if (count > 0) {
         size = count * sizeof(VQAChunkCache);
-        player->MFCInfo.Data2 = (VQAChunkCache *)config->MemoryHandler(
-            (VQAHandle *)player, VQAMEM_ALLOC, 0, size);
-        if (!player->MFCInfo.Data2) return -8;
-        config->MemoryHandler((VQAHandle *)player, VQAMEM_LOCK, (int)player->MFCInfo.Data2, size);
-        player->MemUsed += size;
+        vqap->MFCInfo.Data2 = (VQAChunkCache *)config->MemoryHandler(
+            (VQAHandle *)vqap, VQAMEM_ALLOC, 0, size);
+        if (!vqap->MFCInfo.Data2) return -8;
+        config->MemoryHandler((VQAHandle *)vqap, VQAMEM_LOCK, (int)vqap->MFCInfo.Data2, size);
+        vqap->MemUsed += size;
         for (unsigned long entry = 0; entry < count; ++entry) {
-            long result = VQA_MFCIPrepare(player, entry);
+            long result = VQA_MFCIPrepare(vqap, entry);
             if (result != -1) return result;
         }
     }
@@ -1418,40 +1424,40 @@ static long VQA_MSCIPrepare(VQAHandleP *player, unsigned long index)
     return -1;
 }
 
-long __fastcall Load_MSCI(VQAHandleP *player)
+long __fastcall Load_MSCI(VQAHandleP *vqap)
 {
     VQAChunkHeader chunk;
-    VQAConfig *config = &player->Config;
+    VQAConfig *config = &vqap->Config;
     long size;
     unsigned long count, iffsize;
-    if (config->StreamHandler((VQAHandle *)player, VQACMD_READ, (int)&chunk, sizeof(chunk))) return -2;
+    if (config->StreamHandler((VQAHandle *)vqap, VQACMD_READ, (int)&chunk, sizeof(chunk))) return -2;
     if (chunk.ID != ID_MSCH) return -4;
     iffsize = REVERSE_LONG(chunk.Size);
-    if (Load_MSCH(player, iffsize) != -1) return -4;
-    VQAMSCInfo::HEADER *header = &player->MSCInfo.Header;
+    if (Load_MSCH(vqap, iffsize) != -1) return -4;
+    VQAMSCInfo::HEADER *header = &vqap->MSCInfo.Header;
     count = header->Count;
     if (count > 0) {
         size = count * sizeof(VQAMSCInfo::TABLE);
-        player->MSCInfo.Table = (VQAMSCInfo::TABLE *)config->MemoryHandler(
-            (VQAHandle *)player, VQAMEM_ALLOC, 0, size);
-        if (!player->MSCInfo.Table) return -8;
-        config->MemoryHandler((VQAHandle *)player, VQAMEM_LOCK, (int)player->MSCInfo.Table, size);
-        player->MemUsed += size;
-        if (config->StreamHandler((VQAHandle *)player, VQACMD_READ, (int)&chunk, sizeof(chunk))) return -2;
+        vqap->MSCInfo.Table = (VQAMSCInfo::TABLE *)config->MemoryHandler(
+            (VQAHandle *)vqap, VQAMEM_ALLOC, 0, size);
+        if (!vqap->MSCInfo.Table) return -8;
+        config->MemoryHandler((VQAHandle *)vqap, VQAMEM_LOCK, (int)vqap->MSCInfo.Table, size);
+        vqap->MemUsed += size;
+        if (config->StreamHandler((VQAHandle *)vqap, VQACMD_READ, (int)&chunk, sizeof(chunk))) return -2;
         if (chunk.ID != ID_MSCT) return -4;
         size = REVERSE_LONG(chunk.Size);
-        if (Load_MSCT(player, size) != -1) return -4;
+        if (Load_MSCT(vqap, size) != -1) return -4;
     }
     count = header->Count;
     if (count > 0) {
         size = count * sizeof(VQAChunkCache);
-        player->MSCInfo.Data2 = (VQAChunkCache *)config->MemoryHandler(
-            (VQAHandle *)player, VQAMEM_ALLOC, 0, size);
-        if (!player->MSCInfo.Data2) return -8;
-        config->MemoryHandler((VQAHandle *)player, VQAMEM_LOCK, (int)player->MSCInfo.Data2, size);
-        player->MemUsed += size;
+        vqap->MSCInfo.Data2 = (VQAChunkCache *)config->MemoryHandler(
+            (VQAHandle *)vqap, VQAMEM_ALLOC, 0, size);
+        if (!vqap->MSCInfo.Data2) return -8;
+        config->MemoryHandler((VQAHandle *)vqap, VQAMEM_LOCK, (int)vqap->MSCInfo.Data2, size);
+        vqap->MemUsed += size;
         for (unsigned long entry = 0; entry < count; ++entry) {
-            long result = VQA_MSCIPrepare(player, entry);
+            long result = VQA_MSCIPrepare(vqap, entry);
             if (result != -1) return result;
         }
     }

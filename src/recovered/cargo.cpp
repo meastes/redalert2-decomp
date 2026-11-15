@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/cargo.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/cargo.cpp where both define the function (names only).
 
 // cargo.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -56,15 +57,15 @@ inline bool Cargo_Is_Foot(ObjectClass const *object)
  *   04/23/1994 JLB : Created.                                                                 *
  *   10/31/94   JLB : Handles chained objects.                                                 *
  *=============================================================================================*/
-void CargoClass::Attach(FootClass *passenger)
+void CargoClass::Attach(FootClass *object)
 {
-    if (passenger == 0) return;
+    if (object == 0) return;
 
-    passenger->Limbo();
+    object->Limbo();
 
     ObjectClass *o = 0;
-    if (passenger->unknown_30 && Cargo_Is_Foot(passenger->unknown_30)) {
-        o = passenger->unknown_30;
+    if (object->unknown_30 && Cargo_Is_Foot(object->unknown_30)) {
+        o = object->unknown_30;
         while (o != 0) {
             if (o->unknown_30 == 0) break;
             if (!Cargo_Is_Foot(o->unknown_30)) {
@@ -78,17 +79,17 @@ void CargoClass::Attach(FootClass *passenger)
     if (o != 0) {
         o->unknown_30 = Object;
     } else {
-        passenger->unknown_30 = Object;
+        object->unknown_30 = Object;
     }
 
-    Object = passenger;
+    Object = object;
     Count = 0;
-    passenger = (FootClass *)Object;
-    while (passenger != 0) {
+    object = (FootClass *)Object;
+    while (object != 0) {
         Count++;
-        if (passenger->unknown_30 == 0) break;
-        if (!Cargo_Is_Foot(passenger->unknown_30)) break;
-        passenger = (FootClass *)passenger->unknown_30;
+        if (object->unknown_30 == 0) break;
+        if (!Cargo_Is_Foot(object->unknown_30)) break;
+        object = (FootClass *)object->unknown_30;
     }
 }
 
@@ -154,14 +155,14 @@ int CargoClass::GetTotalSize() const
 /// </summary>
 /// <param name="object">The passenger to remove from the cargo hold.</param>
 // Unlinks only: original65-bytebody leaves Count and removed-next unchanged.
-void CargoClass::Detach(FootClass *passenger)
+void CargoClass::Detach(FootClass *object)
 {
-    if (passenger && Object) {
-        if (Object == passenger) Object = Object->unknown_30;
+    if (object && Object) {
+        if (Object == object) Object = Object->unknown_30;
         else {
             ObjectClass *previous = Object;
             while (previous->unknown_30) {
-                if (passenger == previous->unknown_30) {
+                if (object == previous->unknown_30) {
                     previous->unknown_30 = previous->unknown_30->unknown_30;
                     break;
                 }

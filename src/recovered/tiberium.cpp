@@ -9,6 +9,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/tiberium.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/tiberium.cpp where both define the function (names only).
 
 // tiberium.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -87,8 +88,8 @@ DynamicVectorClass<TiberiumClass *> unknown_TiberiumClass_list_00ac0b30;
 
 // TiberiumClass::TiberiumClass(char const *ini_name) (0x006E89A0)
 
-TiberiumClass::TiberiumClass(char const *ini_name)
-    : AbstractTypeClass(ini_name),
+TiberiumClass::TiberiumClass(char const *ininame)
+    : AbstractTypeClass(ininame),
       ArrayIndex(-1),
       Spread(0),
       unknown_a0(0.1),
@@ -337,9 +338,9 @@ int __stdcall GetSizeMax_006e9380(int self, int *size)
 /// <returns>Returns with S_OK if the tiberium type was saved.</returns>
 // (0x006E93B0)
 
-HRESULT __stdcall TiberiumClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall TiberiumClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (FAILED(result)) {
         return result;
     }

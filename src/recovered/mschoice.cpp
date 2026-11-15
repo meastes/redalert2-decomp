@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/mschoice.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/mschoice.cpp where both define the function (names only).
 
 // mschoice.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -284,31 +285,31 @@ MSSfxEntry *MapSelectData::Find_Sound(Wstring const &name) const
 // Assumptions: `unused` is a local the original constructs and destroys but
 // never reads; the Description line number 0x1E2 is the original __LINE__.
 
-MapStage::MapStage(INIClass &ini, Wstring const &section)
+MapStage::MapStage(INIClass &ini, Wstring const &label)
 {
     Wstring value;
     WideString text;
     Wstring unused;
 
-    Name = section;
+    Name = label;
 
     Scenario = (char const *)0;
-    if (ini.Get_String(section, "Scenario", (char const *)0, value) > 0) {
+    if (ini.Get_String(label, "Scenario", (char const *)0, value) > 0) {
         Scenario = value;
     }
 
     Description = (unsigned short const *)0;
-    if (ini.Get_String(section, "Description", (char const *)0, value) > 0) {
+    if (ini.Get_String(label, "Description", (char const *)0, value) > 0) {
         Description = StringTable::Load_String(value.Get(), 0, "D:\\Ra2\\MSChoice.cpp", 0x1E2);
     }
 
     VoiceOver = (char const *)0;
-    if (ini.Get_String(section, "VoiceOver", (char const *)0, value) > 0) {
+    if (ini.Get_String(label, "VoiceOver", (char const *)0, value) > 0) {
         VoiceOver = value;
     }
 
     MapVQ = (char const *)0;
-    if (ini.Get_String(section, "MapVQ", (char const *)0, value) > 0) {
+    if (ini.Get_String(label, "MapVQ", (char const *)0, value) > 0) {
         MapVQ = value;
     }
 
@@ -317,7 +318,7 @@ MapStage::MapStage(INIClass &ini, Wstring const &section)
     for (index = 0; index < 2; index++) {
         Overlays[index] = (char const *)0;
     }
-    if (ini.Get_String(section, "Overlays", (char const *)0, value) > 0) {
+    if (ini.Get_String(label, "Overlays", (char const *)0, value) > 0) {
         index = 0;
         Wstring token;
         int position = value.Get_Token(0, ",", token);
@@ -330,12 +331,12 @@ MapStage::MapStage(INIClass &ini, Wstring const &section)
     }
 
     ClickMap = (char const *)0;
-    if (ini.Get_String(section, "ClickMap", (char const *)0, value) > 0) {
+    if (ini.Get_String(label, "ClickMap", (char const *)0, value) > 0) {
         ClickMap = value;
     }
 
     for (index = 1; index < 8; index++) {
-        if (ini.Get_String(section, "Text" + Int_To_Wstring(index), (char const *)0, value) > 0) {
+        if (ini.Get_String(label, "Text" + Int_To_Wstring(index), (char const *)0, value) > 0) {
             text = Wstring_To_Wide(value);
             MSTextEntry *entry = new MSTextEntry(text);
             if (entry != 0) {
@@ -344,7 +345,7 @@ MapStage::MapStage(INIClass &ini, Wstring const &section)
         }
     }
 
-    if (ini.Get_String(section, "Targets", (char const *)0, value) > 0) {
+    if (ini.Get_String(label, "Targets", (char const *)0, value) > 0) {
         int count = 0;
         Wstring token;
         int position = value.Get_Token(0, ",", token);
@@ -366,7 +367,7 @@ MapStage::MapStage(INIClass &ini, Wstring const &section)
     }
 
     for (index = 0; index < 256; index++) {
-        if (ini.Get_String(section, Int_To_Wstring(index), (char const *)0, value) > 0) {
+        if (ini.Get_String(label, Int_To_Wstring(index), (char const *)0, value) > 0) {
             MapSelection *selection = new MapSelection(value, (char)index);
             if (selection != 0) {
                 Selections.Add(selection);
@@ -443,26 +444,26 @@ Wstring MapStage::Selection_Name(char key) const
 // (0x005B13D0)
 // Parses "x,y,unknown,text".
 
-MSTextEntry::MSTextEntry(WideString const &line) :
+MSTextEntry::MSTextEntry(WideString const &string) :
     X(0),
     Y(0),
     unknown_08(0),
     Text((unsigned short const *)0)
 {
     WideString token;
-    int position = line.Get_Token(0, L",", token);
+    int position = string.Get_Token(0, L",", token);
     if (token.Length() > 0) {
         X = token.As_Integer();
     }
-    position = line.Get_Token(position, L",", token);
+    position = string.Get_Token(position, L",", token);
     if (token.Length() > 0) {
         Y = token.As_Integer();
     }
-    position = line.Get_Token(position, L",", token);
+    position = string.Get_Token(position, L",", token);
     if (token.Length() > 0) {
         unknown_08 = token.As_Integer();
     }
-    line.Get_Token(position, L",", token);
+    string.Get_Token(position, L",", token);
     if (token.Length() > 0) {
         Text = token;
     }
@@ -478,26 +479,26 @@ MSTextEntry::MSTextEntry(WideString const &line) :
 // (0x005B14C0)
 // Parses "name,a,b,c".
 
-MSAnimEntry::MSAnimEntry(Wstring const &line) :
+MSAnimEntry::MSAnimEntry(Wstring const &string) :
     Name((char const *)0),
     unknown_04(0),
     unknown_08(0),
     unknown_0C(0)
 {
     Wstring token;
-    int position = line.Get_Token(0, ",", token);
+    int position = string.Get_Token(0, ",", token);
     if (token.Length() > 0) {
         Name = token;
     }
-    position = line.Get_Token(position, ",", token);
+    position = string.Get_Token(position, ",", token);
     if (token.Length() > 0) {
         unknown_04 = token.As_Integer();
     }
-    position = line.Get_Token(position, ",", token);
+    position = string.Get_Token(position, ",", token);
     if (token.Length() > 0) {
         unknown_08 = token.As_Integer();
     }
-    line.Get_Token(position, ",", token);
+    string.Get_Token(position, ",", token);
     if (token.Length() > 0) {
         unknown_0C = token.As_Integer();
     }
@@ -517,7 +518,7 @@ MSAnimEntry::MSAnimEntry(Wstring const &line) :
 // With sound available: line is "file,volume" (volume in percent, clamped
 // to 0..100 and scaled to 0..255); keeps the name when audible.
 
-MSSfxEntry::MSSfxEntry(Wstring const &name, Wstring const &line) :
+MSSfxEntry::MSSfxEntry(Wstring const &name, Wstring const &string) :
     Name((char const *)0),
     unknown_04(false),
     unknown_08(0),
@@ -525,9 +526,9 @@ MSSfxEntry::MSSfxEntry(Wstring const &name, Wstring const &line) :
 {
     if (name != 0 && AudioDeviceAvailable()) {
         Wstring file;
-        int position = line.Get_Token(0, ",", file);
+        int position = string.Get_Token(0, ",", file);
         Wstring volume;
-        line.Get_Token(position, ",", volume);
+        string.Get_Token(position, ",", volume);
         if (volume != 0) {
             Volume = volume.As_Integer();
             if (Volume > 100) {

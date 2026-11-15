@@ -1,3 +1,9 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+// Parameter names from mischa85/RedAlert2 392e904 src/savever.cpp where both define the function (names only).
+
 // savever.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -55,9 +61,9 @@ int SaveVersionInfo::Get_Version() const
 
 // void SaveVersionInfo::Set_Internal_Version(int value) (0x006592D0)
 
-void SaveVersionInfo::Set_Internal_Version(int value)
+void SaveVersionInfo::Set_Internal_Version(int num)
 {
-    InternalVersion = value;
+    InternalVersion = num;
 }
 
 
@@ -71,10 +77,10 @@ int SaveVersionInfo::Get_Internal_Version() const
 
 // void SaveVersionInfo::Set_Scenario_Description(wchar_t const *text) (0x006592F0)
 
-void SaveVersionInfo::Set_Scenario_Description(wchar_t const *text)
+void SaveVersionInfo::Set_Scenario_Description(wchar_t const *desc)
 {
     ScenarioDescription[0x7F] = 0;
-    wcsncpy(ScenarioDescription, text, 0x7F);
+    wcsncpy(ScenarioDescription, desc, 0x7F);
 }
 
 
@@ -88,10 +94,10 @@ wchar_t const *SaveVersionInfo::Get_Scenario_Description() const
 
 // void SaveVersionInfo::Set_Player_House(wchar_t const *text) (0x00659320)
 
-void SaveVersionInfo::Set_Player_House(wchar_t const *text)
+void SaveVersionInfo::Set_Player_House(wchar_t const *name)
 {
     PlayerHouse[0x3F] = 0;
-    wcsncpy(PlayerHouse, text, 0x3F);
+    wcsncpy(PlayerHouse, name, 0x3F);
 }
 
 
@@ -105,9 +111,9 @@ wchar_t const *SaveVersionInfo::Get_Player_House() const
 
 // void SaveVersionInfo::Set_Campaign_Number(int value) (0x00659360)
 
-void SaveVersionInfo::Set_Campaign_Number(int value)
+void SaveVersionInfo::Set_Campaign_Number(int num)
 {
-    CampaignNumber = value;
+    CampaignNumber = num;
 }
 
 
@@ -121,9 +127,9 @@ int SaveVersionInfo::Get_Campaign_Number() const
 
 // void SaveVersionInfo::Set_Scenario_Number(int value) (0x00659380)
 
-void SaveVersionInfo::Set_Scenario_Number(int value)
+void SaveVersionInfo::Set_Scenario_Number(int num)
 {
-    ScenarioNumber = value;
+    ScenarioNumber = num;
 }
 
 
@@ -137,10 +143,10 @@ int SaveVersionInfo::Get_Scenario_Number() const
 
 // void SaveVersionInfo::Set_Unknown_String(char const *text) (0x006593A0)
 
-void SaveVersionInfo::Set_Unknown_String(char const *text)
+void SaveVersionInfo::Set_Unknown_String(char const *name)
 {
     UnknownString[0x103] = 0;
-    strncpy(UnknownString, text, 0x103);
+    strncpy(UnknownString, name, 0x103);
 }
 
 
@@ -154,10 +160,10 @@ char const *SaveVersionInfo::Get_Unknown_String() const
 
 // void SaveVersionInfo::Set_Player_Name(char const *text) (0x006593E0)
 
-void SaveVersionInfo::Set_Player_Name(char const *text)
+void SaveVersionInfo::Set_Player_Name(char const *name)
 {
     PlayerName[0x3F] = 0;
-    strncpy(PlayerName, text, 0x3F);
+    strncpy(PlayerName, name, 0x3F);
 }
 
 
@@ -173,10 +179,10 @@ char const *SaveVersionInfo::Get_Player_Name() const
 
 // void SaveVersionInfo::Set_Executable_Name(char const *text) (0x00659410)
 
-void SaveVersionInfo::Set_Executable_Name(char const *text)
+void SaveVersionInfo::Set_Executable_Name(char const *name)
 {
     ExecutableName[0x103] = 0;
-    strncpy(ExecutableName, text, 0x103);
+    strncpy(ExecutableName, name, 0x103);
 }
 
 
@@ -238,9 +244,9 @@ void SaveVersionInfo::Get_Last_Time(FILETIME &time) const
 
 // void SaveVersionInfo::Set_Game_Type(int type) (0x00659510)
 
-void SaveVersionInfo::Set_Game_Type(int type)
+void SaveVersionInfo::Set_Game_Type(int id)
 {
-    GameType = type;
+    GameType = id;
 }
 
 

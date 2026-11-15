@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/taskforc.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/taskforc.cpp where both define the function (names only).
 
 // taskforc.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -368,9 +369,9 @@ TaskForceClass *__fastcall TaskForceClass::Find_Or_Make(char const *name)
 /// <returns>Returns with the result code of the save operation.</returns>
 // (0x006B7040)
 
-HRESULT __stdcall TaskForceClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall TaskForceClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }
@@ -410,12 +411,12 @@ HRESULT __stdcall TaskForceClass::Load(IStream *stream)
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x006B70D0)
 
-HRESULT __stdcall TaskForceClass::GetClassID(GUID *clsid)
+HRESULT __stdcall TaskForceClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_TaskForceClass;
+    *retval = CLSID_TaskForceClass;
     return S_OK;
 }
 

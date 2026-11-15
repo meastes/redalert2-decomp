@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/bfiofile.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/bfiofile.cpp where both define the function (names only).
 
 // bfiofile.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -120,10 +121,10 @@ BufferIOFileClass::~BufferIOFileClass()
 // Note: IsAllocated is set even for caller-supplied memory, as in the
 // original, so Free() would delete it.
 
-bool BufferIOFileClass::Cache(long size, void *buffer)
+bool BufferIOFileClass::Cache(long size, void *ptr)
 {
     if (Buffer) {
-        if (size || buffer) {
+        if (size || ptr) {
             return false;
         }
         return true;
@@ -136,7 +137,7 @@ bool BufferIOFileClass::Cache(long size, void *buffer)
     if (size) {
         if (size < BUFFER_IO_MINIMUM_SIZE) {
             size = BUFFER_IO_MINIMUM_SIZE;
-            if (buffer) {
+            if (ptr) {
                 Error(FILE_ERROR_INVALID, false, 0);
             }
         }
@@ -144,12 +145,12 @@ bool BufferIOFileClass::Cache(long size, void *buffer)
     } else {
         BufferSize = FileSize;
     }
-    if (!size && buffer) {
+    if (!size && ptr) {
         return false;
     }
     if (BufferSize) {
-        if (buffer) {
-            Buffer = (char *)buffer;
+        if (ptr) {
+            Buffer = (char *)ptr;
         } else {
             Buffer = new char[BufferSize];
         }
@@ -713,11 +714,11 @@ long BufferIOFileClass::Read(void *buffer, long size)
 // the disk position follows. Positions at or beyond TrueFileStart are taken
 // as absolute disk positions and answered the same way.
 
-long BufferIOFileClass::Seek(long position, int origin)
+long BufferIOFileClass::Seek(long pos, int dir)
 {
     if (UseBuffer) {
         bool adjusted = false;
-        switch (origin) {
+        switch (dir) {
         case FILE_SEEK_START:
             FilePos = 0;
             break;
@@ -725,11 +726,11 @@ long BufferIOFileClass::Seek(long position, int origin)
             FilePos = FileSize;
             break;
         }
-        if (TrueFileStart && position >= TrueFileStart) {
-            position -= TrueFileStart;
+        if (TrueFileStart && pos >= TrueFileStart) {
+            pos -= TrueFileStart;
             adjusted = true;
         }
-        FilePos += position;
+        FilePos += pos;
         if (FilePos < 0) {
             FilePos = 0;
         }
@@ -756,7 +757,7 @@ long BufferIOFileClass::Seek(long position, int origin)
         }
         return FilePos;
     }
-    return RawFileClass::Seek(position, origin);
+    return RawFileClass::Seek(pos, dir);
 }
 
 

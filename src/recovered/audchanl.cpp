@@ -1,3 +1,9 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+// Parameter names from mischa85/RedAlert2 392e904 src/audchanl.cpp where both define the function (names only).
+
 // audchanl.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -76,10 +82,10 @@ struct UnknownComHolder_00402170 {
     UnknownFunctionTable_00402170 *unknown_d4;
 };
 
-void __fastcall audioChannelDestroy(UnknownComHolder_00402170 *holder)
+void __fastcall audioChannelDestroy(UnknownComHolder_00402170 *chan)
 {
-    holder->unknown_d4->unknown_08();
-    operator delete(holder);
+    chan->unknown_d4->unknown_08();
+    operator delete(chan);
 }
 
 

@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/voxpal.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/voxpal.cpp where both define the function (names only).
 
 // voxpal.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -27,20 +28,20 @@
 /// <param name="rgb">Pointer to the palette buffer to use, or NULL to allocate one.</param>
 /// <param name="lut">Pointer to the shading table buffer to use, or NULL to allocate
 /// one.</param>
-VoxelPaletteLibrary::VoxelPaletteLibrary(unsigned char *palette, unsigned char *table)
+VoxelPaletteLibrary::VoxelPaletteLibrary(unsigned char *rgb, unsigned char *lut)
 {
-    if (palette == 0) {
+    if (rgb == 0) {
         Colors = (unsigned char *)operator new(0x300);
         ColorsAllocated = 1;
     } else {
-        Colors = palette;
+        Colors = rgb;
         ColorsAllocated = 0;
     }
-    if (table == 0) {
+    if (lut == 0) {
         LUT = (unsigned char *)operator new(0x8000);
         LUTAllocated = 1;
     } else {
-        LUT = table;
+        LUT = lut;
         LUTAllocated = 0;
     }
 }
@@ -160,16 +161,16 @@ int VoxelPaletteLibrary::Write_File(FileClass *file)
 // in unknown_levels_af8f10) scales every palette color
 // 1..255, and the nearest color of the same remap kind is stored. The upper
 // 16 default sections clamp each channel to 255.
-void VoxelPaletteLibrary::Calculate_Lookup_Table(float *levels, int count)
+void VoxelPaletteLibrary::Calculate_Lookup_Table(float *scale, int lut_count)
 {
     int index;
     int entry;
     int pos;
     static const float _addend = 0.6f;     // 0x007AEA48 (a const static, not a merged literal)
     float *shades;
-    if (levels && count) {
-        Header.unknown_08 = count;
-        shades = levels;
+    if (scale && lut_count) {
+        Header.unknown_08 = lut_count;
+        shades = scale;
     } else {
         shades = unknown_levels_af8f10;
         Header.unknown_08 = 32;

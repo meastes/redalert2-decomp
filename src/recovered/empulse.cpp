@@ -1,3 +1,9 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+// Parameter names from mischa85/RedAlert2 392e904 src/empulse.cpp where both define the function (names only).
+
 // empulse.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -238,12 +244,12 @@ void EMPulseClass::Clear_Cells_004B5210()
 
 // HRESULT EMPulseClass::GetClassID(GUID *clsid) (0x004B5340, slot 3)
 
-HRESULT __stdcall EMPulseClass::GetClassID(GUID *clsid)
+HRESULT __stdcall EMPulseClass::GetClassID(GUID *retval)
 {
-    if (!clsid) {
+    if (!retval) {
         return E_POINTER;
     }
-    *clsid = CLSID_EMPulseClass;
+    *retval = CLSID_EMPulseClass;
     return S_OK;
 }
 

@@ -1,3 +1,9 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+// Parameter names from mischa85/RedAlert2 392e904 src/mpfreeforall.cpp where both define the function (names only).
+
 // mpfreeforall.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
 // state (its switches and includes in their original order). The module map
@@ -67,9 +73,9 @@
 #endif
 #include "shared/multiplayer_game_mode.hpp"
 
-FreeForAll::FreeForAll(WideString const &name, WideString const &description, Wstring const &ini_name,
-    Wstring const &unknown_4, bool unknown_5, int id) :
-    MultiplayerGameMode(name, description, ini_name, unknown_4, unknown_5, id)
+FreeForAll::FreeForAll(WideString const &title, WideString const &tooltip, Wstring const &inifile,
+    Wstring const &mapfilter, bool aiallowed, int modeindex) :
+    MultiplayerGameMode(title, tooltip, inifile, mapfilter, aiallowed, modeindex)
 {
 }
 
@@ -136,18 +142,18 @@ bool FreeForAll::AssignTeamsAtStart()
 WIN32_IMPORT long __stdcall SendMessageA(HWND window, unsigned int message, unsigned int wparam, long lparam);
 void __fastcall Clear_ComboBox(HWND combo);
 
-void FreeForAll::PopulateTeamDropdownForPlayer(HWND combo, int team)
+void FreeForAll::PopulateTeamDropdownForPlayer(HWND hwnd, int index)
 {
-    Clear_ComboBox(combo);
-    MultiplayerTeam *entry = GetTeam(team);
+    Clear_ComboBox(hwnd);
+    MultiplayerTeam *entry = GetTeam(index);
     if (entry != 0) {
-        entry->AddToList(combo);
+        entry->AddToList(hwnd);
     }
     entry = GetTeam(-1);
     if (entry != 0) {
-        entry->AddToList(combo);
+        entry->AddToList(hwnd);
     }
-    SendMessageA(combo, 0x14e, 0, 0);    // CB_SETCURSEL
+    SendMessageA(hwnd, 0x14e, 0, 0);    // CB_SETCURSEL
 }
 
 

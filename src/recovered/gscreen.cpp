@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/gscreen.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/gscreen.cpp where both define the function (names only).
 
 // gscreen.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -122,15 +123,15 @@ GScreenClass::GScreenClass() : ShakeX(0), ShakeY(0), IsToRedraw(2)
 // (0x004E08F0, slot 0)
 // IUnknown and IGameMap give the screen itself.
 
-HRESULT __stdcall GScreenClass::QueryInterface(GUID const &iid, void **object)
+HRESULT __stdcall GScreenClass::QueryInterface(GUID const &riid, void **ppvObject)
 {
-    if (object == 0) {
+    if (ppvObject == 0) {
         return E_POINTER;
     }
-    if (!(iid == IID_IUnknown_7afce0) && !(iid == IID_IGameMap)) {
+    if (!(riid == IID_IUnknown_7afce0) && !(riid == IID_IGameMap)) {
         return E_NOINTERFACE;
     }
-    *object = this;
+    *ppvObject = this;
     AddRef();
     return S_OK;
 }
@@ -274,14 +275,14 @@ void GScreenClass::Init_IO()
 // Marks the tactical view dirty; a nonzero request is remembered unless a
 // complete redraw is already pending, and the screen object is notified.
 
-void GScreenClass::Flag_To_Redraw(int complete)
+void GScreenClass::Flag_To_Redraw(int flags)
 {
     if (TacticalMap != 0) {
         TacticalMap->unknown_d7d = true;
     }
-    if (complete) {
+    if (flags) {
         if (IsToRedraw != 2) {
-            IsToRedraw = complete;
+            IsToRedraw = flags;
         }
         Map.Unknown_0055ACC0();
     }

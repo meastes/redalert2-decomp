@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/rndstraw.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/rndstraw.cpp where both define the function (names only).
 
 // rndstraw.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -304,18 +305,18 @@ void RandomStraw::Scramble_Seed()
 // Fills the buffer with one byte from each generator in turn; returns the
 // bytes delivered.
 
-int RandomStraw::Get(void *buffer, int length)
+int RandomStraw::Get(void *source, int slen)
 {
-    if (buffer == 0 || length < 1) {
-        return Straw::Get(buffer, length);
+    if (source == 0 || slen < 1) {
+        return Straw::Get(source, slen);
     }
 
     int total = 0;
-    while (length > 0) {
-        *(char *)buffer = (char)Random[Current++]();
+    while (slen > 0) {
+        *(char *)source = (char)Random[Current++]();
         Current = Current % (sizeof(Random) / sizeof(Random[0]));
-        buffer = (char *)buffer + sizeof(char);
-        length--;
+        source = (char *)source + sizeof(char);
+        slen--;
         total++;
     }
     return total;

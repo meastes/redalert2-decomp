@@ -9,6 +9,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/campaign.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/campaign.cpp where both define the function (names only).
 
 // campaign.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -79,8 +80,8 @@
 // (0x00465450)
 // A campaign named ini_name, listed in the campaign list, with an empty description.
 
-CampaignClass::CampaignClass(char const *ini_name) :
-    AbstractTypeClass(ini_name),
+CampaignClass::CampaignClass(char const *name) :
+    AbstractTypeClass(name),
     unknown_98(-1),
     unknown_29c(-1)
 {
@@ -184,12 +185,12 @@ void __fastcall CampaignClass::Read_Battles(CCINIClass &ini)
 // (0x00465860)
 // The class identifier.
 
-HRESULT __stdcall CampaignClass::GetClassID(GUID *classid)
+HRESULT __stdcall CampaignClass::GetClassID(GUID *retval)
 {
-    if (classid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *classid = CLSID_CampaignClass;
+    *retval = CLSID_CampaignClass;
     return S_OK;
 }
 
@@ -239,9 +240,9 @@ HRESULT __stdcall CampaignClass::Load(IStream *stream)
 // (0x00465930)
 // Only the AbstractClass part.
 
-HRESULT __stdcall CampaignClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall CampaignClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }

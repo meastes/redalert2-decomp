@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/rgb.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/rgb.cpp where both define the function (names only).
 
 // rgb.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -46,11 +47,11 @@ RGBClass::RGBClass(RGBClass const &from, RGBClass const &to, float ratio)
 // (0x0063CDF0)
 // This colour as color scaled by factor, each channel clamped to 0..255.
 
-RGBClass &RGBClass::Set(RGBClass const &color, float factor)
+RGBClass &RGBClass::Set(RGBClass const &rgb, float value)
 {
-    Red = (unsigned char)MAX(MIN(color.Red * factor, 255.0f), 0.0f);
-    Green = (unsigned char)MAX(MIN(color.Green * factor, 255.0f), 0.0f);
-    Blue = (unsigned char)MAX(MIN(color.Blue * factor, 255.0f), 0.0f);
+    Red = (unsigned char)MAX(MIN(rgb.Red * value, 255.0f), 0.0f);
+    Green = (unsigned char)MAX(MIN(rgb.Green * value, 255.0f), 0.0f);
+    Blue = (unsigned char)MAX(MIN(rgb.Blue * value, 255.0f), 0.0f);
     return *this;
 }
 
@@ -81,12 +82,12 @@ RGBClass &RGBClass::Set(RGBClass const &color, float factor)
 // RgbTriplet::BlendRgbTowardTarget_0063cf20 (population-32) under its class
 // name; the channels are read and written in the original's order.
 
-void RGBClass::Adjust(int ratio, RGBClass const &target)
+void RGBClass::Adjust(int ratio, RGBClass const &rgb)
 {
     int weight = ratio & 0xFF;
-    Red = (unsigned char)(Red + ((int)target.Red - (int)Red) * weight / 256);
-    Green = (unsigned char)(Green + ((int)target.Green - (int)Green) * weight / 256);
-    Blue = (unsigned char)(Blue + ((int)target.Blue - (int)Blue) * weight / 256);
+    Red = (unsigned char)(Red + ((int)rgb.Red - (int)Red) * weight / 256);
+    Green = (unsigned char)(Green + ((int)rgb.Green - (int)Green) * weight / 256);
+    Blue = (unsigned char)(Blue + ((int)rgb.Blue - (int)Blue) * weight / 256);
 }
 
 
@@ -112,13 +113,13 @@ void RGBClass::Adjust(int ratio, RGBClass const &target)
 // (0x0063CFB0)
 // The weighted distance 2|dRed| + 4|dGreen| + 3|dBlue|.
 
-int RGBClass::Difference(RGBClass const &other) const
+int RGBClass::Difference(RGBClass const &rgb) const
 {
-    int red = (int)Red - (int)other.Red;
+    int red = (int)Red - (int)rgb.Red;
     if (red < 0) red = -red;
-    int green = (int)Green - (int)other.Green;
+    int green = (int)Green - (int)rgb.Green;
     if (green < 0) green = -green;
-    int blue = (int)Blue - (int)other.Blue;
+    int blue = (int)Blue - (int)rgb.Blue;
     if (blue < 0) blue = -blue;
     return blue * 3 + (red + green * 2) * 2;
 }

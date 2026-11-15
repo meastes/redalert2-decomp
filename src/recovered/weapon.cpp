@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/weapon.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/weapon.cpp where both define the function (names only).
 
 // weapon.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -438,12 +439,12 @@ void WeaponTypeClass::Compute_CRC(WWCRCEngine &crc) const
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x00733C50)
 
-HRESULT __stdcall WeaponTypeClass::GetClassID(GUID *clsid)
+HRESULT __stdcall WeaponTypeClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_WeaponTypeClass;
+    *retval = CLSID_WeaponTypeClass;
     return S_OK;
 }
 
@@ -493,9 +494,9 @@ HRESULT __stdcall WeaponTypeClass::Load(IStream *stream)
 // (0x00733DF0)
 // The base object, then the two lists as counts and elements.
 
-HRESULT __stdcall WeaponTypeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall WeaponTypeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractTypeClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractTypeClass::Save(stream, cleardirty);
     if (FAILED(result)) {
         return result;
     }

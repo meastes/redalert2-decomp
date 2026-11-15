@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/cd.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/cd.cpp where both define the function (names only).
 
 // cd.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -83,16 +84,16 @@ void __fastcall CD::Set_Required_CD(int cd)
 // local installation, else searches for it with the music theme reset.
 // Assumes: the -2/IsLocal meanings and the callee's purpose (hypotheses).
 
-bool CD::Force_Available(int cd)
+bool CD::Force_Available(int disk)
 {
-    if (cd == -2) {
+    if (disk == -2) {
         return true;
     }
     if (IsLocal == true) {
         return true;
     }
     LastTheme = THEME_NONE;
-    return Unknown_004985C0(cd);
+    return Unknown_004985C0(disk);
 }
 
 

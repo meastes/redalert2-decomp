@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/scroll.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/scroll.cpp where both define the function (names only).
 
 // scroll.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -165,16 +166,16 @@ void ScrollClass::AI(int &input, Point2D const &xy)
 /// <param name="fog">Receives whether the spot is covered by fog of war.</param>
 /// <param name="shadow">Receives whether the spot is covered by shroud.</param>
 /// <returns>bool; Does the point lie over the map?</returns>
-bool ScrollClass::Resolve_Point(Point2D const &xy,Cell &cell,CoordStruct &coord,ObjectClass *&object,bool &fog,bool &shadow)
+bool ScrollClass::Resolve_Point(Point2D const &point,Cell &cell,CoordStruct &coord,ObjectClass *&object,bool &fog,bool &shadow)
 {
     object=0;
     cell=unknown_geometry_k;
     coord=unknown_geometry_l;
     fog=false;
     shadow=false;
-    if (xy.X<0 || xy.Y<0) return false;
-    cell = TacticalMap ? TacticalMap->Pixel_To_Cell(xy+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_k;
-    coord = TacticalMap ? TacticalMap->Pixel_To_Coord(xy+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_l;
+    if (point.X<0 || point.Y<0) return false;
+    cell = TacticalMap ? TacticalMap->Pixel_To_Cell(point+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_k;
+    coord = TacticalMap ? TacticalMap->Pixel_To_Coord(point+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_l;
     if (TacticalMap && Map.Unknown_0054AB00(coord)) {
         UnknownCoord434820 adjusted = UnknownCoord434820(cell,Map.Get_Height_GL(UnknownCoord434820(cell)));
         shadow=Map.Is_Shrouded(adjusted) && unknown_b263d8!=0;
@@ -185,7 +186,7 @@ bool ScrollClass::Resolve_Point(Point2D const &xy,Cell &cell,CoordStruct &coord,
             else fog=Map.Is_Fogged(adjusted) && unknown_b263d8!=0;
         }
         if (!shadow && !fog) {
-            object=TacticalMap->Get_Selectable_Object_006aa990(xy);
+            object=TacticalMap->Get_Selectable_Object_006aa990(point);
             TechnoClass *techno=object->As_Techno();
             if (techno && !techno->unknown_372) {
                 if ((techno->unknown_1b8==2 && !Map[techno->Center_Coord()].Is_Sensed(unknown_player_a35db4->ArrayIndex)) || techno->Techno_Type_Class()->Invisible) object=0;
@@ -221,14 +222,14 @@ inline bool Scroll_Key_Down(int key)
 /// <param name="object">The object the mouse is over, or NULL if there is none.</param>
 /// <param name="check_fog">Should the action be limited by what the fog of war hides?</param>
 /// <returns>Returns with the action that a left click would perform.</returns>
-int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
+int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_fog)
 {
     int action = 0;
     if (unknown_objects_a40c60.Count()) {
         if (object != 0) {
             action = Best_Selected_Object(0, object)->unknown_slot28(object, false);
         } else {
-            action = Best_Selected_Object(&cell, 0)->What_Action(&cell, arg3, false);
+            action = Best_Selected_Object(&cell, 0)->What_Action(&cell, check_fog, false);
         }
     } else {
         bool visible = true;
@@ -528,7 +529,7 @@ bool ScrollClass::Is_Scrolling()
 /// </summary>
 // (0x0066A400)
 
-void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wparam, long &lparam)
+void ScrollClass::Message_Handler(HWND hwnd, unsigned &message, unsigned &wParam, long &lParam)
 {
     if (!TacticalActive) {
         return;
@@ -550,7 +551,7 @@ void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wpar
     bool arg6;
     switch (message) {
     case 0x201: {
-        long position = lparam;
+        long position = lParam;
         xy.X = ((short *)&position)[0] - unknown_rect_839630.X;
         xy.Y = ((short *)&position)[1] - unknown_rect_839630.Y;
         if (!Resolve_Point(xy, cell, coord, object, arg5, arg6)) {
@@ -569,7 +570,7 @@ void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wpar
         break;
     }
     case 0x202: {
-        long position = lparam;
+        long position = lParam;
         xy.X = ((short *)&position)[0] - unknown_rect_839630.X;
         xy.Y = ((short *)&position)[1] - unknown_rect_839630.Y;
         if (Planning_Left_Up_00617680(xy)) {
@@ -585,7 +586,7 @@ void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wpar
         break;
     }
     case 0x204: {
-        long position = lparam;
+        long position = lParam;
         xy.X = ((short *)&position)[0] - unknown_rect_839630.X;
         xy.Y = ((short *)&position)[1] - unknown_rect_839630.Y;
         Planning_Mouse_Down(xy.X, xy.Y);
@@ -601,7 +602,7 @@ void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wpar
         break;
     }
     case 0x205: {
-        long position = lparam;
+        long position = lParam;
         Point2D point(((short *)&position)[0] - unknown_rect_839630.X, ((short *)&position)[1] - unknown_rect_839630.Y);
         Planning_Mouse_Up(point.X, point.Y);
         if (!unknown_4f2a) {
@@ -614,7 +615,7 @@ void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wpar
         break;
     }
     case 0x215:
-        if (lparam != (long)MainWindow && unknown_4f2a == true) {
+        if (lParam != (long)MainWindow && unknown_4f2a == true) {
             Abort_Drag_Select();
         }
         break;
@@ -775,14 +776,14 @@ void ScrollClass::Scroll_Coast(Point2D const &xy)
 // Ends a pending scroll by restoring the default mouse; otherwise the
 // display's slot 49.
 
-void ScrollClass::Mouse_Right_Release(Point2D const &xy)
+void ScrollClass::Mouse_Right_Release(Point2D const &point)
 {
     if (unknown_4f28) {
         Set_Default_Mouse(0, unknown_flag_83740c);
         unknown_4f28 = false;
         return;
     }
-    DisplayClass::Mouse_Right_Release(xy);
+    DisplayClass::Mouse_Right_Release(point);
 }
 
 

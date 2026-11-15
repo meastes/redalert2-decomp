@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/mission.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/mission.cpp where both define the function (names only).
 
 // mission.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -556,7 +557,7 @@ bool MissionClass::Commence()
 // (0x00594CB0, slot 116)
 // Queues a mission (not over missions 28/5 and 19) and optionally starts it.
 
-void MissionClass::QueueMission(int mission, bool commence)
+void MissionClass::QueueMission(int mission, bool start)
 {
     if (Mission == 28 && mission == 5) {
         return;
@@ -568,7 +569,7 @@ void MissionClass::QueueMission(int mission, bool commence)
         MissionQueue = mission;
         unknown_a4 = false;
     }
-    if (commence && Ready_To_Commence()) {
+    if (start && Ready_To_Commence()) {
         Commence();
     }
 }

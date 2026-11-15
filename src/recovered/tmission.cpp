@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/tmission.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/tmission.cpp where both define the function (names only).
 
 // tmission.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -138,9 +139,9 @@ int ScriptMissionClass::Build_INI_Entry(char *buffer) const
 // Maps a script action number to a value (most actions give 0); no callers by direct call
 // (name, argument and result types are hypotheses).
 
-int __fastcall TeamMission_Needs(int mission)
+int __fastcall TeamMission_Needs(int tmtype)
 {
-    switch (mission) {
+    switch (tmtype) {
     case 0:
     case 57:
         return 15;

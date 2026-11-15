@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/delay.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/delay.cpp where both define the function (names only).
 
 // delay.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -205,13 +206,13 @@ bool DelayTimerClass::Is_Count_Down_Complete() const
 /// timer reports its count up as complete.
 /// </summary>
 /// <param name="duration">The length of the count, expressed in game minutes.</param>
-void DelayTimerClass::Count_Up(double time)
+void DelayTimerClass::Count_Up(double duration)
 {
     if (IsActive || IsToCountUp != true) {
-        time *= 900.0;
+        duration *= 900.0;
         IsActive = true;
-        Duration = time;
-        Timer = UnknownDurationTimer423F60((long)time);
+        Duration = duration;
+        Timer = UnknownDurationTimer423F60((long)duration);
         IsToCountUp = true;
     }
 }
@@ -224,13 +225,13 @@ void DelayTimerClass::Count_Up(double time)
 /// timer reports its count down as complete.
 /// </summary>
 /// <param name="duration">The length of the count, expressed in game minutes.</param>
-void DelayTimerClass::Count_Down(double time)
+void DelayTimerClass::Count_Down(double duration)
 {
     if (IsActive || IsToCountUp != false) {
-        time *= 900.0;
+        duration *= 900.0;
         IsActive = true;
-        Duration = time;
-        Timer = UnknownDurationTimer423F60((long)time);
+        Duration = duration;
+        Timer = UnknownDurationTimer423F60((long)duration);
         IsToCountUp = false;
     }
 }

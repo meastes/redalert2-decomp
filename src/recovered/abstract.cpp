@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/abstract.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/abstract.cpp where both define the function (names only).
 
 // abstract.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -183,25 +184,25 @@ void __stdcall AbstractClass::Create_ID()
 // (0x00410000)
 // IUnknown: IUnknown, IPersistStream and IPersist give the object, IRTTITypeInfo its +4 interface.
 
-HRESULT __stdcall AbstractClass::QueryInterface(GUID const &iid, void **object)
+HRESULT __stdcall AbstractClass::QueryInterface(GUID const &riid, void **ppvObject)
 {
-    if (object == 0) {
+    if (ppvObject == 0) {
         return E_POINTER;
     }
-    *object = 0;
-    if (iid == IID_IUnknown_7afce0) {
-        *object = static_cast<IPersistStream *>(this);
+    *ppvObject = 0;
+    if (riid == IID_IUnknown_7afce0) {
+        *ppvObject = static_cast<IPersistStream *>(this);
     }
-    if (iid == IID_IPersistStream) {
-        *object = static_cast<IPersistStream *>(this);
+    if (riid == IID_IPersistStream) {
+        *ppvObject = static_cast<IPersistStream *>(this);
     }
-    if (iid == IID_IPersist) {
-        *object = static_cast<IPersistStream *>(this);
+    if (riid == IID_IPersist) {
+        *ppvObject = static_cast<IPersistStream *>(this);
     }
-    if (iid == IID_IRTTITypeInfo) {
-        *object = static_cast<IRTTITypeInfo *>(this);
+    if (riid == IID_IRTTITypeInfo) {
+        *ppvObject = static_cast<IRTTITypeInfo *>(this);
     }
-    if (*object == 0) {
+    if (*ppvObject == 0) {
         return E_NOINTERFACE;
     }
     AddRef();
@@ -252,7 +253,7 @@ unsigned long __stdcall AbstractClass::Release()
 // (0x004100C0)
 // IPersistStream: writes the object pointer (for swizzling), then Size_Of() bytes of the object.
 
-HRESULT __stdcall AbstractClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall AbstractClass::Save(IStream *stream, BOOL cleardirty)
 {
     if (stream == 0) {
         return E_POINTER;
@@ -263,7 +264,7 @@ HRESULT __stdcall AbstractClass::Save(IStream *stream, BOOL clear_dirty)
         return result;
     }
     result = stream->Write(this, Size_Of(), 0);
-    if (SUCCEEDED(result) && clear_dirty) {
+    if (SUCCEEDED(result) && cleardirty) {
         Dirty = false;
     }
     return result;
@@ -309,12 +310,12 @@ HRESULT __stdcall AbstractClass::Load(IStream *stream)
 // (0x00410180)
 // IPersistStream: Size_Of() plus the saved pointer.
 
-HRESULT __stdcall AbstractClass::GetSizeMax(ULARGE_INTEGER *size)
+HRESULT __stdcall AbstractClass::GetSizeMax(ULARGE_INTEGER *pcbSize)
 {
-    if (size == 0) {
+    if (pcbSize == 0) {
         return E_POINTER;
     }
-    size->QuadPart = Size_Of() + sizeof(AbstractClass *);
+    pcbSize->QuadPart = Size_Of() + sizeof(AbstractClass *);
     return S_OK;
 }
 

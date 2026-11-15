@@ -3,6 +3,7 @@
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // From mischa85/RedAlert2 392e904 src/movie.cpp (matching RA2 1.006 decomp; TibSun movie.cpp): function, global,
+// Parameter names from mischa85/RedAlert2 392e904 src/movie.cpp where both define the function (names only).
 // parameter and local names and Stop_Ingame_Movie's call of Movie_Audio_Resume; modified
 // (our module form and header state, Route A unit map manifests/original_target/modules/movie.json).
 
@@ -264,9 +265,9 @@ void __fastcall Play_Ingame_Movie(char const *name, bool loop)
 // The subtitle callback of the radar's queued movies: shows the subtitle's text in the session's message
 // list for its display duration (the argument is the SubTitle the movie's companion reached).
 
-void __fastcall Ingame_Movie_Subtitle(int movie)
+void __fastcall Ingame_Movie_Subtitle(int data)
 {
-    SubTitle *subtitle = (SubTitle *)movie;
+    SubTitle *subtitle = (SubTitle *)data;
     if (subtitle != 0) {
         unknown_session_a3d298.Messages.Add_Message(0, 0, subtitle->Get_Text(), 0, 0x4046, subtitle->Get_Display_Duration(), false);
     }

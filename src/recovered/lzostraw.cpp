@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/lzostraw.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/lzostraw.cpp where both define the function (names only).
 
 // lzostraw.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -118,28 +119,28 @@ LZOStraw::~LZOStraw()
 // BlockSize bytes and compresses them behind a header in Buffer2. Returns
 // the bytes delivered.
 
-int LZOStraw::Get(void *buffer, int length)
+int LZOStraw::Get(void *destbuf, int slen)
 {
     int total = 0;
 
-    if (buffer == 0 || length < 1) {
+    if (destbuf == 0 || slen < 1) {
         return 0;
     }
 
-    while (length > 0) {
+    while (slen > 0) {
         if (Counter > 0) {
-            int count = (length < Counter) ? length : Counter;
+            int count = (slen < Counter) ? slen : Counter;
             if (Control == DECOMPRESS) {
-                memmove(buffer, &Buffer[BlockHeader.UncompCount - Counter], count);
+                memmove(destbuf, &Buffer[BlockHeader.UncompCount - Counter], count);
             } else {
-                memmove(buffer, &Buffer2[(BlockHeader.CompCount + sizeof(BlockHeader)) - Counter], count);
+                memmove(destbuf, &Buffer2[(BlockHeader.CompCount + sizeof(BlockHeader)) - Counter], count);
             }
-            buffer = (char *)buffer + count;
-            length -= count;
+            destbuf = (char *)destbuf + count;
+            slen -= count;
             Counter -= count;
             total += count;
         }
-        if (length == 0) {
+        if (slen == 0) {
             break;
         }
 

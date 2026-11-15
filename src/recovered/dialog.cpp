@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/dialog.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/dialog.cpp where both define the function (names only).
 
 // dialog.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -86,7 +87,7 @@ struct BoxStyleType {
     int Corner;
 };
 
-void __fastcall Draw_Box(Rect const &rect, int style, bool fill)
+void __fastcall Draw_Box(Rect const &rect, int up, bool filled)
 {
     ColorScheme *scheme = ColorSchemes[Gadget_Color_Scheme()];
     BoxStyleType const styles[6] = {
@@ -97,13 +98,13 @@ void __fastcall Draw_Box(Rect const &rect, int style, bool fill)
         {scheme->unknown_color_0x320, scheme->unknown_color_0x32c, scheme->unknown_color_0x32c, scheme->unknown_color_0x320},
         {scheme->unknown_color_0x320, scheme->unknown_color_0x32c, scheme->unknown_color_0x32c, scheme->unknown_color_0x320},
     };
-    BoxStyleType const &colors = styles[style];
+    BoxStyleType const &colors = styles[up];
 
-    if (fill) {
+    if (filled) {
         unknown_surface_83995c->Fill_Rect(rect, scheme->Converter->Convert(colors.Filler));
     }
 
-    switch (style) {
+    switch (up) {
     case 4:
         unknown_surface_83995c->Draw_Rect(rect, scheme->Converter->Convert(colors.Highlight));
         break;

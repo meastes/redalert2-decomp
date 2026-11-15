@@ -12,6 +12,7 @@
  * disclaimers apply; see LICENSE.md.
  ******************************************************************************/
 // From mischa85/RedAlert2 dbca015 src/gadget.cpp (matching RA2 1.006 decomp; TibSun gadget.cpp); modified:
+// Parameter names from mischa85/RedAlert2 392e904 src/gadget.cpp where both define the function (names only).
 // the function bodies are this tree's accepted ones (unsigned key codes, no KeyNumType or BASECLASS),
 // the colour scheme is looked up by Fetch_Scheme_By_Name with its kind argument (modules.json header_gaps).
 
@@ -226,11 +227,11 @@ GadgetClass::~GadgetClass()
  *                                                                         *
  * HISTORY:    01/03/1995 MML : Created.                                   *
  *=========================================================================*/
-int GadgetClass::Clicked_On(unsigned &key, unsigned flags, int x, int y)
+int GadgetClass::Clicked_On(unsigned &key, unsigned flags, int mousex, int mousey)
 {
     flags &= Flags;
     if (this == StuckOn || (flags & KEYBOARD) ||
-        (flags && (unsigned)(x - X) < (unsigned)Width && (unsigned)(y - Y) < (unsigned)Height)) {
+        (flags && (unsigned)(mousex - X) < (unsigned)Width && (unsigned)(mousey - Y) < (unsigned)Height)) {
         return Action(flags, key);
     }
     return false;

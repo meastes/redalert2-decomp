@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/edit.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/edit.cpp where both define the function (names only).
 
 // edit.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -69,11 +70,11 @@
 // style's font.
 
 EditClass::EditClass(unsigned id, wchar_t *text, int max_len, unsigned flags, int x, int y, int w, int h,
-                     int editflags) :
+                     int style) :
     ControlClass(id, x, y, w, h, LEFTPRESS, false),
     TextFlags(flags & ~KEYBOARD)
 {
-    EditFlags = editflags;
+    EditFlags = style;
     Set_Text(text, max_len);
     Color = Gadget_Color_Scheme();
     if (w == -1 || h == -1) {

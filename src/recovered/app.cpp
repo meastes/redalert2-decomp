@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/app.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/app.cpp where both define the function (names only).
 
 // app.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -91,13 +92,13 @@ void Leaf_426b00::get() { unsigned int unused_this_address = (unsigned int)this;
 // (0x00426B10)
 // IUnknown slot 0: answers IClassFactory and IUnknown with the factory itself (AddRef).
 
-HRESULT __stdcall TiberianSunClassFactory::QueryInterface(GUID const &iid, void **object)
+HRESULT __stdcall TiberianSunClassFactory::QueryInterface(GUID const &riid, void **ppvObject)
 {
-    if (object == 0) {
+    if (ppvObject == 0) {
         return E_POINTER;
     }
-    if (iid == IID_IClassFactory || iid == IID_IUnknown_7afce0) {
-        *object = this;
+    if (riid == IID_IClassFactory || riid == IID_IUnknown_7afce0) {
+        *ppvObject = this;
         AddRef();
         return S_OK;
     }
@@ -118,32 +119,32 @@ HRESULT __stdcall TiberianSunClassFactory::QueryInterface(GUID const &iid, void 
 // IUnknown ask the application object at 0x0084C7DC, the third interface the
 // map at 0x008324E0; an object whose query fails is deleted.
 
-HRESULT __stdcall TiberianSunClassFactory::CreateInstance(IUnknown *outer, GUID const &iid, void **object)
+HRESULT __stdcall TiberianSunClassFactory::CreateInstance(IUnknown *pUnkOuter, GUID const &riid, void **ppvObject)
 {
-    if (object == 0) {
+    if (ppvObject == 0) {
         return E_INVALIDARG;
     }
-    *object = 0;
-    if (outer != 0) {
+    *ppvObject = 0;
+    if (pUnkOuter != 0) {
         return CLASS_E_NOAGGREGATION;
     }
     HRESULT result = E_NOINTERFACE;
-    if (iid == IID_IApplication_79c3d0 || iid == IID_IUnknown_7afce0) {
+    if (riid == IID_IApplication_79c3d0 || riid == IID_IUnknown_7afce0) {
         IUnknown *application = &ApplicationInstance;
         if (application == 0) {
             return E_OUTOFMEMORY;
         }
-        result = application->QueryInterface(iid, object);
+        result = application->QueryInterface(riid, ppvObject);
         if (result < 0) {
             delete application;
         }
     }
-    if (iid == unknown_iid_7a2c28) {
+    if (riid == unknown_iid_7a2c28) {
         IUnknown *map = (IUnknown *)&unknown_map_object_8324e0;
         if (map == 0) {
             return E_OUTOFMEMORY;
         }
-        result = map->QueryInterface(iid, object);
+        result = map->QueryInterface(riid, ppvObject);
         if (result < 0) {
             delete map;
         }
@@ -164,18 +165,18 @@ HRESULT __stdcall TiberianSunClassFactory::CreateInstance(IUnknown *outer, GUID 
 // and a third interface (0x007A2C28) with the map object at 0x008324E0
 // (no AddRef).
 
-HRESULT __stdcall ApplicationClass::QueryInterface(GUID const &iid, void **object)
+HRESULT __stdcall ApplicationClass::QueryInterface(GUID const &riid, void **ppvObject)
 {
-    if (object == 0) {
+    if (ppvObject == 0) {
         return E_POINTER;
     }
-    if (iid == IID_IApplication_79c3d0 || iid == IID_IUnknown_7afce0) {
-        *object = this;
+    if (riid == IID_IApplication_79c3d0 || riid == IID_IUnknown_7afce0) {
+        *ppvObject = this;
         AddRef();
         return S_OK;
     }
-    if (iid == unknown_iid_7a2c28) {
-        *object = &unknown_map_object_8324e0;
+    if (riid == unknown_iid_7a2c28) {
+        *ppvObject = &unknown_map_object_8324e0;
         return S_OK;
     }
     return E_NOINTERFACE;
@@ -220,9 +221,9 @@ unsigned long __stdcall ApplicationClass::Release()
 // IApplication slot: the object itself as IApplication (a QueryInterface
 // for IID 0x0079C3D0).
 
-HRESULT __stdcall ApplicationClass::App_Interface(void **object)
+HRESULT __stdcall ApplicationClass::App_Interface(void **pVal)
 {
-    return QueryInterface(IID_IApplication_79c3d0, object);
+    return QueryInterface(IID_IApplication_79c3d0, pVal);
 }
 
 
@@ -237,12 +238,12 @@ HRESULT __stdcall ApplicationClass::App_Interface(void **object)
 // IApplication slot: returns a new BSTR of L"Tiberian Sun" (E_POINTER without an
 // out pointer).
 
-HRESULT __stdcall ApplicationClass::get_FullName(BSTR *name)
+HRESULT __stdcall ApplicationClass::get_FullName(BSTR *retval)
 {
-    if (name == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *name = SysAllocString(L"Tiberian Sun");
+    *retval = SysAllocString(L"Tiberian Sun");
     return S_OK;
 }
 
@@ -256,12 +257,12 @@ HRESULT __stdcall ApplicationClass::get_FullName(BSTR *name)
 // IApplication slot: returns a new BSTR of L"Sun" (E_POINTER without an
 // out pointer).
 
-HRESULT __stdcall ApplicationClass::get_Name(BSTR *name)
+HRESULT __stdcall ApplicationClass::get_Name(BSTR *retval)
 {
-    if (name == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *name = SysAllocString(L"Sun");
+    *retval = SysAllocString(L"Sun");
     return S_OK;
 }
 
@@ -276,9 +277,9 @@ HRESULT __stdcall ApplicationClass::get_Name(BSTR *name)
 // IApplication slot: the object itself as IApplication (a QueryInterface
 // for IID 0x0079C3D0).
 
-HRESULT __stdcall ApplicationClass::Application_Interface(void **object)
+HRESULT __stdcall ApplicationClass::Application_Interface(void **pVal)
 {
-    return QueryInterface(IID_IApplication_79c3d0, object);
+    return QueryInterface(IID_IApplication_79c3d0, pVal);
 }
 
 
@@ -303,14 +304,14 @@ long __stdcall ApplicationClass::Quit()
 // (0x00426DB0)
 // IApplication slot: the scenario name (+0x83C of the scenario at 0x00A3D290) as a new BSTR.
 
-HRESULT __stdcall ApplicationClass::get_ScenarioName(BSTR *name)
+HRESULT __stdcall ApplicationClass::get_ScenarioName(BSTR *retval)
 {
-    if (name == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
     wchar_t text[32];
     MultiByteToWideChar(0, 1, unknown_id_source_a3d290->FileName, -1, text, 32);
-    *name = SysAllocString(text);
+    *retval = SysAllocString(text);
     return S_OK;
 }
 
@@ -322,12 +323,12 @@ HRESULT __stdcall ApplicationClass::get_ScenarioName(BSTR *name)
 // (0x00426E00)
 // IApplication slot: the scenario's elapsed-time timer value (+0x614).
 
-HRESULT __stdcall ApplicationClass::get_FrameCount(long *frame)
+HRESULT __stdcall ApplicationClass::get_FrameCount(long *retval)
 {
-    if (frame == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *frame = unknown_id_source_a3d290->Elapsed_Time().Time();
+    *retval = unknown_id_source_a3d290->Elapsed_Time().Time();
     return S_OK;
 }
 
@@ -341,7 +342,7 @@ HRESULT __stdcall ApplicationClass::get_FrameCount(long *frame)
 // (0x00426E50)
 // swizzler's ISwizzle interface (name from mischa85/RedAlert2 src/app.cpp).
 
-HRESULT __stdcall ApplicationClass::get_Swizzle_Interface(ISwizzle **swizzle)
+HRESULT __stdcall ApplicationClass::get_Swizzle_Interface(ISwizzle **pVal)
 {
-    return Swizzler.QueryInterface(IID_ISwizzle, (void **)swizzle);
+    return Swizzler.QueryInterface(IID_ISwizzle, (void **)pVal);
 }

@@ -13,6 +13,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/convert.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/convert.cpp where both define the function (names only).
 
 // convert.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -49,7 +50,7 @@ DynamicVectorClass<ConvertClass *> ConvertClass::Drawers;
 // Builds indexed or hicolor translation tables and registers the converter.
 
 ConvertClass::ConvertClass(PaletteClass const &artpalette, PaletteClass const &screenpalette,
-                          Surface *surface, int levels, bool quick)
+                          Surface *surface, int intensity_levels, bool quick_init)
     : BytesPerPixel(surface->Bytes_Per_Pixel()), 
       blit_plain_xlat_008(0), blit_trans_xlat_00c(0), blit_trans_darken_010(0), blit_trans_zremap_xlat_014(0),
       blit_trans_lucent75_018(0), blit_trans_lucent50_01c(0), blit_trans_lucent25_020(0), blit_plain_xlat_zread_024(0),
@@ -74,7 +75,7 @@ ConvertClass::ConvertClass(PaletteClass const &artpalette, PaletteClass const &s
       rleblit_trans_lucent25_alpha_zread_148(0), rleblit_trans_lucent75_alpha_zread_warp_14c(0), rleblit_trans_lucent50_alpha_zread_warp_150(0), rleblit_trans_lucent25_alpha_zread_warp_154(0),
       rleblit_trans_xlat_alpha_zread_write_158(0), rleblit_trans_zremap_xlat_alpha_zread_write_15c(0), rleblit_trans_lucent75_alpha_zread_write_160(0), rleblit_trans_lucent50_alpha_zread_write_164(0),
       rleblit_trans_lucent25_alpha_zread_write_168(0),
-      unknown_shadow_count(levels), AlphaPalette(0), Table(0), Remap(0), ActiveRemap(0)
+      unknown_shadow_count(intensity_levels), AlphaPalette(0), Table(0), Remap(0), ActiveRemap(0)
 {
     if (unknown_shadow_count < 1) unknown_shadow_count = 1;
     if (BytesPerPixel == 1) {
@@ -109,11 +110,11 @@ ConvertClass::ConvertClass(PaletteClass const &artpalette, PaletteClass const &s
         AlphaPalette = new unsigned short[256 * unknown_shadow_count];
         unsigned short *translation = (unsigned short *)AlphaPalette;
         Table = translation + 256 * ((unknown_shadow_count - 1) >> 1);
-        if (!quick) Build_Brightness_Tables(translation, unknown_shadow_count, artpalette);
+        if (!quick_init) Build_Brightness_Tables(translation, unknown_shadow_count, artpalette);
         HalfMask = unknown_half_mask_852fd0;
         QuarterMask = unknown_quarter_mask_852fd2;
     }
-    if (!quick) Initialize_Blitters_00483B00();
+    if (!quick_init) Initialize_Blitters_00483B00();
     Drawers.Add(this);
 }
 

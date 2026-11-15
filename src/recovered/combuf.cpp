@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/combuf.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/combuf.cpp where both define the function (names only).
 
 // combuf.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -622,10 +623,10 @@ void CommBufferClass::Reset_Delay(bool clear)
  *=========================================================================*/
 // (0x00480AB0)
 
-void CommBufferClass::Configure_Debug(int offset, int size, int names, int namestart, int namecount)
+void CommBufferClass::Configure_Debug(int type_offset, int type_size, int names, int namestart, int namecount)
 {
-    DebugOffset = offset;
-    DebugSize = size;
+    DebugOffset = type_offset;
+    DebugSize = type_size;
     DebugNames = names;
     DebugNameStart = namestart;
     DebugNameCount = namecount;

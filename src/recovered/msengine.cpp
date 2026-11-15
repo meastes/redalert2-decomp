@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/msengine.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/msengine.cpp where both define the function (names only).
 
 // msengine.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -94,10 +95,10 @@ int MSEngine::Add_Anim(MSAnim *anim)
 // Inserts anim after old (at index 0 when old is absent), then removes and
 // deletes old.
 
-void MSEngine::Replace_Anim(MSAnim *anim, MSAnim *old)
+void MSEngine::Replace_Anim(MSAnim *new_anim, MSAnim *old_anim)
 {
-    Anims.Add_After(anim, old);
-    Remove_Anim(old);
+    Anims.Add_After(new_anim, old_anim);
+    Remove_Anim(old_anim);
 }
 
 

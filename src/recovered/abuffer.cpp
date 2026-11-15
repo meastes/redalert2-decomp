@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/abuffer.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/abuffer.cpp where both define the function (names only).
 
 // abuffer.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -35,11 +36,11 @@
 /// <param name="rect">The area the buffer is to cover.</param>
 // Construct the depth buffer over a screen area: a 16-bit BSurface ring
 // cleared to 0x7F, with its lock address as the ring head.
-ABuffer::ABuffer(Rect area)
+ABuffer::ABuffer(Rect rect)
 {
-    Width=area.Width;
-    Height=area.Height;
-    Area=area;
+    Width=rect.Width;
+    Height=rect.Height;
+    Area=rect;
     BufferSize=(int)((unsigned int)Width*(unsigned int)Height*2u);
     Surface=new BSurface(Width,Height,2);
     Surface->Fill_Rect(Rect(0,0,Width,Height),0x7f);
@@ -60,14 +61,14 @@ ABuffer::ABuffer(Rect area)
 /// <param name="rect">The region of the destination surface to copy into.</param>
 // Copy an area-sized block of depth values, starting at the ring's current
 // origin, into surface at the area's position (a view of the buffer).
-void ABuffer::Copy_To(::Surface &surface, Rect area)
+void ABuffer::Copy_To(::Surface &surface, Rect rect)
 {
-    unsigned short *pixels = (unsigned short *)surface.Lock(Point2D(area.X, area.Y));
+    unsigned short *pixels = (unsigned short *)surface.Lock(Point2D(rect.X, rect.Y));
     unsigned short *depth = (unsigned short *)(BufferHead + BufferOffset);
-    int skip = surface.Stride() / 2 - area.Width;
-    if (pixels && area.Height > 0) {
-        for (int row = area.Height; row; --row) {
-            for (int column = area.Width; column > 0; --column) {
+    int skip = surface.Stride() / 2 - rect.Width;
+    if (pixels && rect.Height > 0) {
+        for (int row = rect.Height; row; --row) {
+            for (int column = rect.Width; column > 0; --column) {
                 *pixels++ = *depth++;
                 depth = Wrap_Pointer(depth);
             }
@@ -100,21 +101,21 @@ ABuffer::~ABuffer()
 // entry when pointer is not 4-byte aligned, then packed pairs, then a final
 // single entry. As in the original, the final entry is written only when at
 // least one pair was (the tail address stays null otherwise).
-void ABuffer::Set(unsigned short *pointer, int count, unsigned short value)
+void ABuffer::Set(unsigned short *dst, int size, unsigned short value)
 {
-    if (((unsigned int)pointer & 2u) && count) {
-        *pointer++=value;
-        --count;
+    if (((unsigned int)dst & 2u) && size) {
+        *dst++=value;
+        --size;
     }
-    unsigned int pairs=(unsigned int)(count>>1);
+    unsigned int pairs=(unsigned int)(size>>1);
     unsigned int *tail=0;
     if(pairs) {
         unsigned int packed=((unsigned int)value<<16)+(unsigned int)value;
-        unsigned int *output=(unsigned int *)pointer;
+        unsigned int *output=(unsigned int *)dst;
         for(unsigned int remaining=pairs;remaining;--remaining) *output++=packed;
         tail=output;
     }
-    if((count&1u) && tail) *(unsigned short *)tail=value;
+    if((size&1u) && tail) *(unsigned short *)tail=value;
 }
 
 
@@ -208,21 +209,21 @@ void ABuffer::Clear_Region_00411090(unsigned short color, Rect area) { Surface->
 /// <param name="rect">The region of the buffer to reset.</param>
 // Clear a by-value screen rectangle of the ring to 0x7F (empty depth),
 // splitting each row where it wraps past the ring end.
-void ABuffer::Update(Rect area)
+void ABuffer::Update(Rect rect)
 {
-    char *locked=(char *)Surface->Lock(Point2D(area.X,area.Y));
+    char *locked=(char *)Surface->Lock(Point2D(rect.X,rect.Y));
     Surface->Unlock();
     char *pointer=locked+BufferOffset;
     if(pointer>=BufferTail) pointer-=BufferSize;
-    if(area.Height>0) {
-        int rows=area.Height;
+    if(rect.Height>0) {
+        int rows=rect.Height;
         do {
-            if(pointer+(unsigned int)area.Width*2u>=BufferTail) {
+            if(pointer+(unsigned int)rect.Width*2u>=BufferTail) {
                 unsigned int first=(unsigned int)(BufferTail-pointer)>>1;
                 Set((unsigned short *)pointer,first,0x7f);
-                Set((unsigned short *)BufferHead,area.Width-first,0x7f);
+                Set((unsigned short *)BufferHead,rect.Width-first,0x7f);
             } else {
-                Set((unsigned short *)pointer,area.Width,0x7f);
+                Set((unsigned short *)pointer,rect.Width,0x7f);
             }
             pointer+=(unsigned int)Width*2u;
             if(pointer>=BufferTail) pointer-=BufferSize;
@@ -240,9 +241,9 @@ void ABuffer::Update(Rect area)
 /// <returns>Returns with the address of the pixel within the alpha buffer.</returns>
 // Address of the depth value for a screen point: the lock address of the
 // backing surface moved by the ring origin, wrapped at the ring end.
-unsigned short *ABuffer::Get_Buffer_Offset(Point2D point)
+unsigned short *ABuffer::Get_Buffer_Offset(Point2D pos)
 {
-    char *pointer=(char *)Surface->Lock(point);
+    char *pointer=(char *)Surface->Lock(pos);
     Surface->Unlock();
     char *result=pointer+BufferOffset;
     if(result>=BufferTail) result-=BufferSize;

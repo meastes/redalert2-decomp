@@ -9,6 +9,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/vanimtype.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/vanimtype.cpp where both define the function (names only).
 
 // vanimtype.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -90,8 +91,8 @@
 // Assumptions: the 0x00AC0CB0 list is declared as an ObjectClass list in
 // shared/object.hpp (element type unknown; it also holds types).
 
-VoxelAnimTypeClass::VoxelAnimTypeClass(char const *ini_name) :
-    ObjectTypeClass(ini_name),
+VoxelAnimTypeClass::VoxelAnimTypeClass(char const *ininame) :
+    ObjectTypeClass(ininame),
     Normalized(false),
     Translucent(false),
     unknown_266(false),
@@ -285,10 +286,10 @@ bool VoxelAnimTypeClass::Read_INI(CCINIClass &ini)
 /// <returns>Returns with a pointer to the name, or an empty string if the type is not
 /// a legal one.</returns>
 // VoxelAnimTypeClass Name_From0070EA40: unsigned lookup, preserving the original upper-bound test.
-char const *__fastcall VoxelAnimTypeClass::Name_From(unsigned index)
+char const *__fastcall VoxelAnimTypeClass::Name_From(unsigned anim)
 {
-    if (index > (unsigned)VoxelAnimTypes.Count()) return "";
-    return VoxelAnimTypes[index]->ID;
+    if (anim > (unsigned)VoxelAnimTypes.Count()) return "";
+    return VoxelAnimTypes[anim]->ID;
 }
 
 
@@ -355,12 +356,12 @@ void VoxelAnimTypeClass::Compute_CRC(WWCRCEngine &crc) const
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x0070EBF0)
 
-HRESULT __stdcall VoxelAnimTypeClass::GetClassID(GUID *clsid)
+HRESULT __stdcall VoxelAnimTypeClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_VoxelAnimTypeClass;
+    *retval = CLSID_VoxelAnimTypeClass;
     return S_OK;
 }
 
@@ -401,9 +402,9 @@ HRESULT __stdcall VoxelAnimTypeClass::Load(IStream *stream)
 /// <returns>Returns with the HRESULT of the save. S_OK if the type was written.</returns>
 // (0x0070ECF0)
 
-HRESULT __stdcall VoxelAnimTypeClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall VoxelAnimTypeClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = ObjectTypeClass::Save(stream, clear_dirty);
+    HRESULT result = ObjectTypeClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }

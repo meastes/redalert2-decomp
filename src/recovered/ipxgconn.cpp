@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/ipxgconn.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/ipxgconn.cpp where both define the function (names only).
 
 // ipxgconn.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -400,16 +401,16 @@ void IPXGlobalConnClass::Mark_Packet_Read(int index)
 // Sends to the address carried as the packet's extra data: broadcast, to
 // the bridge node when it is on the bridged network, or directly.
 
-int IPXGlobalConnClass::Send(char *buf, int buflen, void *extrabuf, int extralen, bool flagged, unsigned short id)
+int IPXGlobalConnClass::Send(char *buf, int buflen, void *extrabuf, int extralen, bool flag, unsigned short port)
 {
     IPXAddressClass *address = (IPXAddressClass *)extrabuf;
     if (address->Is_Broadcast()) {
         return Broadcast(buf, buflen);
     }
     if (unknown_game_mode_a3d298 == 3 && IsBridge && !memcmp(address, BridgeNet, 4)) {
-        return Send_To(buf, buflen, address, BridgeNode, flagged, 0);
+        return Send_To(buf, buflen, address, BridgeNode, flag, 0);
     }
-    return Send_To(buf, buflen, address, 0, flagged, id);
+    return Send_To(buf, buflen, address, 0, flag, port);
 }
 
 
@@ -550,13 +551,13 @@ int IPXGlobalConnClass::Discard_Undeliverable_Packets()
 // Removes the unacknowledged sends to an address (same node) with the given ID and
 // returns how many.
 
-int IPXGlobalConnClass::Discard_Packets_To(IPXAddressClass *address, unsigned short id)
+int IPXGlobalConnClass::Discard_Packets_To(IPXAddressClass *address, unsigned short port)
 {
     int count = 0;
     for (int i = 0; i < Queue->SendCount; i++) {
         SendQueueType *send = Queue->Get_Send(i);
         if (!send->IsACK && send->ExtraLen
-            && ((IPXAddressClass *)send->ExtraBuffer)->Is_Same_Node(*address) && send->unknown_20 == id) {
+            && ((IPXAddressClass *)send->ExtraBuffer)->Is_Same_Node(*address) && send->unknown_20 == port) {
             char buffer[1024];
             int buflen;
             IPXAddressClass dest;

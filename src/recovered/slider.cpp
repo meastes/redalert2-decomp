@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/slider.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/slider.cpp where both define the function (names only).
 
 // slider.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -50,10 +51,10 @@
 // A gauge with a thumb; unless no_buttons, a plus button right of it and a minus button left of it
 // become its peers. The thumb starts one value wide.
 
-SliderClass::SliderClass(unsigned id, int x, int y, int w, int h, int no_buttons)
+SliderClass::SliderClass(unsigned id, int x, int y, int w, int h, int belong_to_list)
     : GaugeClass(id, x, y, w, h)
 {
-    NoButtons = no_buttons ? true : false;
+    NoButtons = belong_to_list ? true : false;
 
     PlusGadget = 0;
     MinusGadget = 0;

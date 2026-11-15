@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/cpoint.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/cpoint.cpp where both define the function (names only).
 
 // cpoint.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -77,12 +78,12 @@ int __fastcall operator==(tagCONNECTDATA const &a,tagCONNECTDATA const &b) { if 
 /// <param name="ppv">Pointer to fill in with the interface.</param>
 /// <returns>Returns with S_OK if the interface was supplied, or E_NOINTERFACE if it is not
 /// supported.</returns>
-HRESULT __stdcall EnumConnectionsClass::QueryInterface(GUID const &iid,void **object) {
- if (!object) return E_POINTER;
- *object=0;
- if (!memcmp(&iid,&IID_IUnknown,sizeof(GUID))) *object=this;
- if (!memcmp(&iid,&IID_IEnumConnections,sizeof(GUID))) *object=this;
- if (*object) { AddRef(); return 0; }
+HRESULT __stdcall EnumConnectionsClass::QueryInterface(GUID const &riid,void **ppv) {
+ if (!ppv) return E_POINTER;
+ *ppv=0;
+ if (!memcmp(&riid,&IID_IUnknown,sizeof(GUID))) *ppv=this;
+ if (!memcmp(&riid,&IID_IEnumConnections,sizeof(GUID))) *ppv=this;
+ if (*ppv) { AddRef(); return 0; }
  return E_NOINTERFACE;
 }
 
@@ -105,21 +106,21 @@ unsigned long __stdcall EnumConnectionsClass::Release() { --COMReferences_00a6eb
 /// NULL only when a single connection was asked for.</param>
 /// <returns>Returns with S_OK if any were fetched, or E_FAIL once the enumerator has run
 /// dry.</returns>
-HRESULT __stdcall EnumConnectionsClass::Next(unsigned long requested,tagCONNECTDATA *data,unsigned long *fetched) {
- if (!data) return E_POINTER;
- if (requested>1 && !fetched) return (HRESULT)0x80070057;
- if (fetched) *fetched=0;
+HRESULT __stdcall EnumConnectionsClass::Next(unsigned long cConnections,tagCONNECTDATA *rgpcd,unsigned long *pcFetched) {
+ if (!rgpcd) return E_POINTER;
+ if (cConnections>1 && !pcFetched) return (HRESULT)0x80070057;
+ if (pcFetched) *pcFetched=0;
  unsigned long count=0;
- for (unsigned long i=0; i<requested && Position<Connections.Count(); ++i) {
+ for (unsigned long i=0; i<cConnections && Position<Connections.Count(); ++i) {
   Connections[Position].pUnk->AddRef();
-  *data++=Connections[Position++]; ++count;
+  *rgpcd++=Connections[Position++]; ++count;
  }
- if (fetched) *fetched=count;
+ if (pcFetched) *pcFetched=count;
  return count ? 0 : (HRESULT)0x80004005;
 }
 
 
-HRESULT __stdcall EnumConnectionsClass::Skip(unsigned long count) { Position+=count; return 0; }
+HRESULT __stdcall EnumConnectionsClass::Skip(unsigned long cConnections) { Position+=cConnections; return 0; }
 
 
 HRESULT __stdcall EnumConnectionsClass::Reset() { Position=0; return 0; }
@@ -132,12 +133,12 @@ HRESULT __stdcall EnumConnectionsClass::Reset() { Position=0; return 0; }
 /// </summary>
 /// <param name="ppEnum">Pointer to fill in with the clone.</param>
 /// <returns>Returns with S_OK if the clone was created, or an error code otherwise.</returns>
-HRESULT __stdcall EnumConnectionsClass::Clone(IEnumConnections **result) {
- if (!result) return E_POINTER;
+HRESULT __stdcall EnumConnectionsClass::Clone(IEnumConnections **ppEnum) {
+ if (!ppEnum) return E_POINTER;
  EnumConnectionsClass *copy=new EnumConnectionsClass(*this);
  if (!copy) return (HRESULT)0x8007000e;
  copy->RefCount=0;
- copy->AddRef(); *result=copy; return 0;
+ copy->AddRef(); *ppEnum=copy; return 0;
 }
 
 
@@ -159,11 +160,11 @@ EnumConnectionsClass::~EnumConnectionsClass() { for (int i=0;i<Connections.Count
 /// <param name="ppv">Pointer to fill in with the interface.</param>
 /// <returns>Returns with S_OK if the interface was supplied, or E_NOINTERFACE if it is not
 /// supported.</returns>
-HRESULT __stdcall ConnectionPointClass::QueryInterface(GUID const &iid,void **object) {
- if (!object) return E_POINTER;
+HRESULT __stdcall ConnectionPointClass::QueryInterface(GUID const &riid,void **ppv) {
+ if (!ppv) return E_POINTER;
  IUnknown *found=0;
- if (!memcmp(&iid,&IID_IConnectionPoint,sizeof(GUID)) || !memcmp(&iid,&IID_IUnknown,sizeof(GUID))) found=this;
- *object=found;
+ if (!memcmp(&riid,&IID_IConnectionPoint,sizeof(GUID)) || !memcmp(&riid,&IID_IUnknown,sizeof(GUID))) found=this;
+ *ppv=found;
  if (found) { found->AddRef(); return 0; }
  return E_NOINTERFACE;
 }
@@ -175,10 +176,10 @@ unsigned long __stdcall ConnectionPointClass::AddRef() { ++COMReferences_00a6eb1
 unsigned long __stdcall ConnectionPointClass::Release() { --COMReferences_00a6eb14; unsigned long count=InterlockedDecrement(&RefCount); if (!count) delete this; return count; }
 
 
-HRESULT __stdcall ConnectionPointClass::GetConnectionInterface(GUID *iid) { if (!iid) return E_POINTER; *iid=InterfaceID; return 0; }
+HRESULT __stdcall ConnectionPointClass::GetConnectionInterface(GUID *pIID) { if (!pIID) return E_POINTER; *pIID=InterfaceID; return 0; }
 
 
-HRESULT __stdcall ConnectionPointClass::GetConnectionPointContainer(IConnectionPointContainer **container) { return Container->QueryInterface(IID_IConnectionPointContainer,(void **)container); }
+HRESULT __stdcall ConnectionPointClass::GetConnectionPointContainer(IConnectionPointContainer **ppCPC) { return Container->QueryInterface(IID_IConnectionPointContainer,(void **)ppCPC); }
 
 
 /// <summary>
@@ -192,13 +193,13 @@ HRESULT __stdcall ConnectionPointClass::GetConnectionPointContainer(IConnectionP
 /// connection.</param>
 /// <returns>Returns with S_OK if the sink was connected, or a connection error code
 /// otherwise.</returns>
-HRESULT __stdcall ConnectionPointClass::Advise(IUnknown *sink,unsigned long *cookie) {
- if (!sink || !cookie) return E_POINTER;
+HRESULT __stdcall ConnectionPointClass::Advise(IUnknown *pUnkSink,unsigned long *pdwCookie) {
+ if (!pUnkSink || !pdwCookie) return E_POINTER;
  tagCONNECTDATA connection;
  connection.dwCookie=unknown_id_source_a3d290->Next_ID();
- if (FAILED(sink->QueryInterface(InterfaceID,(void **)&connection.pUnk))) return (HRESULT)0x80040202;
+ if (FAILED(pUnkSink->QueryInterface(InterfaceID,(void **)&connection.pUnk))) return (HRESULT)0x80040202;
  if (!Connections.Add(connection)) return (HRESULT)0x80040201;
- *cookie=connection.dwCookie; return 0;
+ *pdwCookie=connection.dwCookie; return 0;
 }
 
 
@@ -223,15 +224,15 @@ HRESULT __stdcall ConnectionPointClass::Unadvise(unsigned long cookie) {
 /// <param name="ppEnum">Pointer to fill in with the enumerator.</param>
 /// <returns>Returns with S_OK if the enumerator was created, or an error code
 /// otherwise.</returns>
-HRESULT __stdcall ConnectionPointClass::EnumConnections(IEnumConnections **result) {
- if (!result) return E_POINTER;
+HRESULT __stdcall ConnectionPointClass::EnumConnections(IEnumConnections **ppEnum) {
+ if (!ppEnum) return E_POINTER;
  EnumConnectionsClass *copy=new EnumConnectionsClass(Connections);
  if (!copy) return (HRESULT)0x8007000e;
- return copy->QueryInterface(IID_IEnumConnections,(void **)result);
+ return copy->QueryInterface(IID_IEnumConnections,(void **)ppEnum);
 }
 
 
-ConnectionPointClass::ConnectionPointClass(GUID const &iid,IUnknown *container):InterfaceID(iid),RefCount(0),Container(container),Connections() { container->AddRef(); }
+ConnectionPointClass::ConnectionPointClass(GUID const &riid,IUnknown *obj):InterfaceID(riid),RefCount(0),Container(obj),Connections() { obj->AddRef(); }
 
 
 ConnectionPointClass::~ConnectionPointClass() { Container->Release(); Connections.Clear(); }
@@ -246,11 +247,11 @@ ConnectionPointClass::~ConnectionPointClass() { Container->Release(); Connection
 /// <param name="ppv">Pointer to fill in with the interface.</param>
 /// <returns>Returns with S_OK if the interface was supplied, or E_NOINTERFACE if it is not
 /// supported.</returns>
-HRESULT __stdcall EnumConnectionPointsClass::QueryInterface(GUID const &iid,void **object) {
- if (!object) return E_POINTER;
+HRESULT __stdcall EnumConnectionPointsClass::QueryInterface(GUID const &riid,void **ppv) {
+ if (!ppv) return E_POINTER;
  IUnknown *found=0;
- if (!memcmp(&iid,&IID_IEnumConnectionPoints,sizeof(GUID)) || !memcmp(&iid,&IID_IUnknown,sizeof(GUID))) found=this;
- *object=found;
+ if (!memcmp(&riid,&IID_IEnumConnectionPoints,sizeof(GUID)) || !memcmp(&riid,&IID_IUnknown,sizeof(GUID))) found=this;
+ *ppv=found;
  if (found) { AddRef(); return 0; }
  return E_NOINTERFACE;
 }
@@ -274,18 +275,18 @@ unsigned long __stdcall EnumConnectionPointsClass::Release() { --COMReferences_0
 /// NULL only when a single connection point was asked for.</param>
 /// <returns>Returns with S_OK if any were fetched, or E_FAIL once the enumerator has run
 /// dry.</returns>
-HRESULT __stdcall EnumConnectionPointsClass::Next(unsigned long requested,IConnectionPoint **data,unsigned long *fetched) {
- if (!data) return E_POINTER;
- if (requested>1 && !fetched) return E_POINTER;
- if (fetched) *fetched=0;
+HRESULT __stdcall EnumConnectionPointsClass::Next(unsigned long cConnections,IConnectionPoint **rgpcn,unsigned long *pcFetched) {
+ if (!rgpcn) return E_POINTER;
+ if (cConnections>1 && !pcFetched) return E_POINTER;
+ if (pcFetched) *pcFetched=0;
  unsigned long count=0;
- for (unsigned long i=0;i<requested && Position<Points.Count();++i) { Points[Position]->AddRef(); *data++=Points[Position++]; ++count; }
- if (fetched) *fetched=count;
+ for (unsigned long i=0;i<cConnections && Position<Points.Count();++i) { Points[Position]->AddRef(); *rgpcn++=Points[Position++]; ++count; }
+ if (pcFetched) *pcFetched=count;
  return count ? 0 : (HRESULT)0x80004005;
 }
 
 
-HRESULT __stdcall EnumConnectionPointsClass::Skip(unsigned long count) { Position+=count; return 0; }
+HRESULT __stdcall EnumConnectionPointsClass::Skip(unsigned long cConnections) { Position+=cConnections; return 0; }
 
 
 HRESULT __stdcall EnumConnectionPointsClass::Reset() { Position=0; return 0; }
@@ -298,11 +299,11 @@ HRESULT __stdcall EnumConnectionPointsClass::Reset() { Position=0; return 0; }
 /// </summary>
 /// <param name="ppEnum">Pointer to fill in with the clone.</param>
 /// <returns>Returns with S_OK if the clone was created, or an error code otherwise.</returns>
-HRESULT __stdcall EnumConnectionPointsClass::Clone(IEnumConnectionPoints **result) {
- if (!result) return E_POINTER;
+HRESULT __stdcall EnumConnectionPointsClass::Clone(IEnumConnectionPoints **ppEnum) {
+ if (!ppEnum) return E_POINTER;
  EnumConnectionPointsClass *copy=new EnumConnectionPointsClass(*this);
  if (!copy) return (HRESULT)0x8007000e;
- copy->AddRef(); *result=copy; return 0;
+ copy->AddRef(); *ppEnum=copy; return 0;
 }
 
 

@@ -7,6 +7,7 @@
  * See LICENSE.md for applicable additional terms and warranty disclaimers.
  ******************************************************************************/
 // From mischa85/RedAlert2 dbca015 src/swizzle.cpp (matching RA2 1.006 decomp; TibSun swizzle.cpp);
+// Parameter names from mischa85/RedAlert2 392e904 src/swizzle.cpp where both define the function (names only).
 // modified: the function bodies are this tree's accepted ones, and AddRef, Release, Save_Interface and
 // Load_Interface are defined here rather than inline in the header (modules.json swizzle).
 
@@ -184,13 +185,13 @@ HRESULT __stdcall SwizzleManagerClass::Get_Save_Size(int *size)
 /// <param name="ppvObject">Pointer to the variable to fill in with the interface pointer.</param>
 /// <returns>Returns with S_OK, E_POINTER if no destination was supplied, or E_NOINTERFACE
 /// if the interface asked for is not one the manager provides.</returns>
-HRESULT __stdcall SwizzleManagerClass::QueryInterface(GUID const &iid, void **object)
+HRESULT __stdcall SwizzleManagerClass::QueryInterface(GUID const &riid, void **ppvObject)
 {
-    if (object == 0) {
+    if (ppvObject == 0) {
         return E_POINTER;
     }
-    if (iid == IID_ISwizzle || iid == IID_IUnknown_7afce0) {
-        *object = this;
+    if (riid == IID_ISwizzle || riid == IID_IUnknown_7afce0) {
+        *ppvObject = this;
         AddRef();
         return S_OK;
     }

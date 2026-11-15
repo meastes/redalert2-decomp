@@ -1,4 +1,5 @@
 // Westwood ccfile.cpp in one source (twins: mischa85/RedAlert2 src/ccfile.cpp, TibSun ccfile.cpp): the accepted
+// Parameter names from mischa85/RedAlert2 392e904 src/ccfile.cpp where both define the function (names only).
 // bodies; the file and size types stay long until the FileClass hierarchy is converted.
 
 #include "shared/cc_file_class.hpp"
@@ -114,10 +115,10 @@ long CCFileClass::Read(void *buffer, long size)
 // Moves the read position of a resident file, clamped to its size;
 // otherwise seeks on disk.
 
-long CCFileClass::Seek(long position, int origin)
+long CCFileClass::Seek(long pos, int dir)
 {
     if (Data.Get_Buffer() != 0) {
-        switch (origin) {
+        switch (dir) {
         case FILE_SEEK_START:
             Position = 0;
             break;
@@ -125,12 +126,12 @@ long CCFileClass::Seek(long position, int origin)
             Position = Data.Get_Size();
             break;
         }
-        Position += position;
+        Position += pos;
         Position = (Position < 0) ? 0 : Position;
         Position = (Position > Data.Get_Size()) ? Data.Get_Size() : Position;
         return Position;
     }
-    return CDFileClass::Seek(position, origin);
+    return CDFileClass::Seek(pos, dir);
 }
 
 

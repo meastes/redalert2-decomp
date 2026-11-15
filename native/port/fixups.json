@@ -3125,13 +3125,13 @@
   {
    "source": "src/recovered/cstream.cpp",
    "old": "    if (unknown_11) return E_FAIL;\n    unknown_10 = true;\n",
-   "new": "    if (unknown_11) return E_FAIL;\n    unknown_10 = true;\n    ra2port_save_index_bytes(this, size, 0);   // NATIVE (C17): the decompressed position, for RA2_NATIVE_SAVE_INDEX\n",
+   "new": "    if (unknown_11) return E_FAIL;\n    unknown_10 = true;\n    ra2port_save_index_bytes(this, cb, 0);   // NATIVE (C17): the decompressed position, for RA2_NATIVE_SAVE_INDEX\n",
    "why": "Native diagnostics only (lane C17, comparing saves): the bytes a save's CONTENTS stream has delivered, decompressed, so each typed read can be logged with its position (RA2_NATIVE_SAVE_INDEX; tools/original_save_compare.py). A counter, otherwise a no-op; CStreamClass::Read 0x00494A30 is unchanged."
   },
   {
    "source": "src/recovered/cstream.cpp",
    "old": "    if (unknown_10) return E_FAIL;\n    unknown_11 = true;\n",
-   "new": "    if (unknown_10) return E_FAIL;\n    unknown_11 = true;\n    ra2port_save_index_bytes(this, size, 1);   // NATIVE (C17): the decompressed position, for RA2_NATIVE_SAVE_INDEX\n",
+   "new": "    if (unknown_10) return E_FAIL;\n    unknown_11 = true;\n    ra2port_save_index_bytes(this, cb, 1);   // NATIVE (C17): the decompressed position, for RA2_NATIVE_SAVE_INDEX\n",
    "why": "Native diagnostics only (lane C17, comparing saves): the bytes written to a save's CONTENTS stream before compression, as for CStreamClass::Read. A counter, otherwise a no-op; CStreamClass::Write is unchanged."
   },
   {

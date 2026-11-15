@@ -9,6 +9,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/vein.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/vein.cpp where both define the function (names only).
 
 // vein.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -469,9 +470,9 @@ void VeinholeMonsterClass::Draw_It()
 // ObjectClass's result decides the state (+0xB8): 4 -> 3 and the object is
 // ended through 0x006ECB90, 5 -> unchanged, otherwise 2 and a 120 frame timer.
 
-int VeinholeMonsterClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6)
+int VeinholeMonsterClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int no_crew)
 {
-    int result = ObjectClass::Take_Damage(damage, distance, warhead, source, forced, arg6);
+    int result = ObjectClass::Take_Damage(damage, distance, warhead, source, forced, no_crew);
     switch (result) {
     case 0:
         break;
@@ -669,11 +670,11 @@ void VeinholeMonsterClass::Shrink()
 // cells again (placed ones 0x00711AA0, others 0x007115B0) and removes vein
 // overlays (0x7E) no monster covers.
 
-void __fastcall VeinholeMonsterClass::Init_Vein_Growth_System(bool rebuild)
+void __fastcall VeinholeMonsterClass::Init_Vein_Growth_System(bool clear)
 {
     int cells = Map_Cell_Count();
     int index;
-    if (rebuild) {
+    if (clear) {
         Deinit_Vein_Growth_System();
         for (index = VeinholeMonsters.Count() - 1; index >= 0; index--) {
             VeinholeMonsters[index]->GrowthNodes = new UnknownVeinNode[Rules_Vein_Node_Count()];
@@ -1034,9 +1035,9 @@ bool __fastcall VeinholeMonsterClass::Save_All(IStream *stream)
 /// <returns>Returns with S_OK if the monster was written successfully.</returns>
 // (0x007122D0)
 
-HRESULT __stdcall VeinholeMonsterClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall VeinholeMonsterClass::Save(IStream *stream, BOOL cleardirty)
 {
-    return AbstractClass::Save(stream, clear_dirty);
+    return AbstractClass::Save(stream, cleardirty);
 }
 
 
@@ -1118,12 +1119,12 @@ void VeinholeMonsterClass::Reduce_Veins_At(CellClass *cellptr)
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x007126C0)
 
-HRESULT __stdcall VeinholeMonsterClass::GetClassID(GUID *clsid)
+HRESULT __stdcall VeinholeMonsterClass::GetClassID(GUID *retval)
 {
-    if (clsid == 0) {
+    if (retval == 0) {
         return E_POINTER;
     }
-    *clsid = CLSID_VeinholeMonsterClass;
+    *retval = CLSID_VeinholeMonsterClass;
     return S_OK;
 }
 

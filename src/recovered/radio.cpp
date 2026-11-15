@@ -1,4 +1,5 @@
 // Westwood radio.cpp in one source (twins: mischa85/RedAlert2 src/radio.cpp on this target, TibSun radio.cpp):
+// Parameter names from mischa85/RedAlert2 392e904 src/radio.cpp where both define the function (names only).
 // the accepted bodies in the unit's order. Names follow the template where taking them changes no other
 // unit; the rest are recorded in modules.json radio.
 
@@ -41,7 +42,7 @@ RadioClass::RadioClass(NoInitClass const &noinit) :
 // when the other house is no ally or no link is free); anything else is
 // ObjectClass's.
 
-int RadioClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&param)
+int RadioClass::Receive_Message(RadioClass *from, int message, AbstractClass *&param)
 {
     if (message != Old[0]) {
         Old[2] = Old[1];
@@ -50,31 +51,31 @@ int RadioClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&
     }
     if (message == 3) {
         for (int index = 0; index < RadioLinks.Length(); index++) {
-            if (radio == RadioLinks[index]) {
-                MissionClass::Receive_Message(radio, 3, param);
+            if (from == RadioLinks[index]) {
+                MissionClass::Receive_Message(from, 3, param);
                 RadioLinks[index] = 0;
                 return 1;
             }
         }
     } else if (message == 2 && Strength != 0) {
-        if (!((TechnoClass *)radio)->House->Is_Ally((TechnoClass *)this)) {
+        if (!((TechnoClass *)from)->House->Is_Ally((TechnoClass *)this)) {
             return 0xA;
         }
-        if (this != 0 && AbstractFlags.IsTechno && !((TechnoClass *)this)->House->Is_Ally((TechnoClass *)radio)) {
+        if (this != 0 && AbstractFlags.IsTechno && !((TechnoClass *)this)->House->Is_Ally((TechnoClass *)from)) {
             return 0xA;
         }
-        if (radio != 0 && FindLinkIndex((TechnoClass *)radio) != -1) {
+        if (from != 0 && FindLinkIndex((TechnoClass *)from) != -1) {
             return 1;
         }
         for (int index = 0; index < RadioLinks.Length(); index++) {
             if (RadioLinks[index] == 0) {
-                RadioLinks[index] = (TechnoClass *)radio;
+                RadioLinks[index] = (TechnoClass *)from;
                 return 1;
             }
         }
         return 0xA;
     }
-    return MissionClass::Receive_Message(radio, message, param);
+    return MissionClass::Receive_Message(from, message, param);
 }
 
 
@@ -208,9 +209,9 @@ HRESULT __stdcall RadioClass::Load(IStream *stream)
 // HRESULT __stdcall RadioClass::Save(IStream *stream, BOOL clear_dirty) (0x00636D20, slot 6)
 // MissionClass's part, then the contact vector's size and its pointers.
 
-HRESULT __stdcall RadioClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall RadioClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = MissionClass::Save(stream, clear_dirty);
+    HRESULT result = MissionClass::Save(stream, cleardirty);
     if (FAILED(result)) {
         return result;
     }
@@ -242,11 +243,11 @@ int RadioClass::unknown_slot149(int message)
 
 // void RadioClass::SendToEachLink(int message) (0x00636DC0, slot 152): to every contact.
 
-void RadioClass::SendToEachLink(int message)
+void RadioClass::SendToEachLink(int command)
 {
     for (int index = 0; index < RadioLinks.Length(); index++) {
         if (RadioLinks[index] != 0) {
-            unknown_slot151(message, &unknown_radio_param_a40be0, RadioLinks[index]);
+            unknown_slot151(command, &unknown_radio_param_a40be0, RadioLinks[index]);
         }
     }
 }

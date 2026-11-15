@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/brain.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/brain.cpp where both define the function (names only).
 
 // brain.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -115,12 +116,12 @@ NeuronClass::~NeuronClass()
 /// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
 // (0x00437AC0, slot 3)
 
-HRESULT __stdcall NeuronClass::GetClassID(GUID *clsid)
+HRESULT __stdcall NeuronClass::GetClassID(GUID *retval)
 {
-    if (!clsid) {
+    if (!retval) {
         return E_POINTER;
     }
-    *clsid = CLSID_NeuronClass;
+    *retval = CLSID_NeuronClass;
     return S_OK;
 }
 
@@ -155,9 +156,9 @@ HRESULT __stdcall NeuronClass::Load(IStream *stream)
 /// <returns>Returns with S_OK if the neuron was written successfully.</returns>
 // (0x00437B70, slot 6)
 
-HRESULT __stdcall NeuronClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT __stdcall NeuronClass::Save(IStream *stream, BOOL cleardirty)
 {
-    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    HRESULT result = AbstractClass::Save(stream, cleardirty);
     if (SUCCEEDED(result)) {
         result = S_OK;
     }
@@ -217,11 +218,11 @@ void BrainClass::Clear()
 /// <param name="max">The most neurons this brain will accept.</param>
 // (0x00437C70)
 
-void BrainClass::Init(int value, int max_neurons)
+void BrainClass::Init(int min, int max)
 {
     Clear();
-    unknown_1c = value;
-    MaxNeurons = max_neurons;
+    unknown_1c = min;
+    MaxNeurons = max;
 }
 
 
@@ -252,7 +253,7 @@ bool BrainClass::Add(NeuronClass *neuron)
 // (0x00437D30)
 // The neuron count, then each neuron.
 
-HRESULT BrainClass::Save(IStream *stream, BOOL clear_dirty)
+HRESULT BrainClass::Save(IStream *stream, BOOL cleardirty)
 {
     if (!stream) {
         return E_POINTER;
@@ -263,7 +264,7 @@ HRESULT BrainClass::Save(IStream *stream, BOOL clear_dirty)
         return result;
     }
     for (int i = 0; i < count; i++) {
-        result = Neurons[i]->Save(stream, clear_dirty);
+        result = Neurons[i]->Save(stream, cleardirty);
         if (FAILED(result)) {
             return result;
         }

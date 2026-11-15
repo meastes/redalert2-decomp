@@ -13,6 +13,7 @@
  ******************************************************************************/
 
 // From mischa85/RedAlert2 dbca015 src/shapebtn.cpp (matching RA2 1.006 decomp; TibSun shapebtn.cpp); modified:
+// Parameter names from mischa85/RedAlert2 392e904 src/shapebtn.cpp where both define the function (names only).
 // the function bodies are this tree's accepted ones (the shape is the raw shape file, not ShapeSet; the
 // drawing call is CC_Draw_Shape with its full argument list) (modules.json source_gaps).
 
@@ -156,7 +157,7 @@ ShapeButtonClass::~ShapeButtonClass()
  * HISTORY:                                                                                    *
  *   09/20/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-void ShapeButtonClass::Set_Shape(void const *shape, int w, int h)
+void ShapeButtonClass::Set_Shape(void const *data, int override_width, int override_height)
 {
     if (IsShapeLoaded && ShapeData != 0) {
         delete (char *)ShapeData;
@@ -165,19 +166,19 @@ void ShapeButtonClass::Set_Shape(void const *shape, int w, int h)
         Width = 0;
         Height = 0;
     }
-    ShapeData = shape;
-    if (shape != 0) {
-        Width = ((short const *)shape)[1];
-        Height = ((short const *)shape)[2];
+    ShapeData = data;
+    if (data != 0) {
+        Width = ((short const *)data)[1];
+        Height = ((short const *)data)[2];
     } else {
         Width = 0;
         Height = 0;
     }
-    if (w != 0) {
-        Width = w;
+    if (override_width != 0) {
+        Width = override_width;
     }
-    if (h != 0) {
-        Height = h;
+    if (override_height != 0) {
+        Height = override_height;
     }
 }
 

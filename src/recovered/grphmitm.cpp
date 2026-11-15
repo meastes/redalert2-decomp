@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/grphmitm.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/grphmitm.cpp where both define the function (names only).
 
 // grphmitm.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -149,7 +150,7 @@ bool GraphicMenuItem::Contains(Point2D const &point)
 // (0x004E01D0)
 // Virtual; false in the base class.
 
-bool GraphicMenuItem::Is_Input_Key(int unknown)
+bool GraphicMenuItem::Is_Input_Key(int key)
 {
     return false;
 }

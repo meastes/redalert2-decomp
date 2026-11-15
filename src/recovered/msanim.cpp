@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/msanim.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/msanim.cpp where both define the function (names only).
 
 // msanim.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -182,7 +183,7 @@ void MSShapeAnim::Set_End_Frame(int frame)
 /// </summary>
 /// <param name="rect">Filled in with the area disturbed, for the caller to update.</param>
 /// <returns>bool; Has the anim finished and become ready for deletion?</returns>
-bool MSShapeAnim::Advance(Surface *surface, Rect *dirty)
+bool MSShapeAnim::Advance(Surface *surface, Rect *rect)
 {
     if (unknown_0C == true && Timer.Value()==0) {
         Timer=unknown_24;
@@ -191,16 +192,16 @@ bool MSShapeAnim::Advance(Surface *surface, Rect *dirty)
         if (Flags & 0x200) { old.X-=Shape->Width/2; old.Y-=Shape->Height/2; }
         surface->Copy_From(old,*AlternateSurface,old,false,true);
         if (++Frame>EndFrame) {
-            if (!unknown_34) { *dirty=old; return true; }
+            if (!unknown_34) { *rect=old; return true; }
             Frame=StartFrame;
         }
         CC_Draw_Shape(surface,Drawer,Shape,Frame,Point2D(X,Y),surface->Get_Rect(),Flags|0x400,0,0,0,1000,0,0,Point2D(0,0));
-        *dirty=Frame_Rect(); dirty->X=dirty->X+X; dirty->Y=dirty->Y+Y;
-        if (Flags & 0x200) { dirty->X-=Shape->Width/2; dirty->Y-=Shape->Height/2; }
-        *dirty=Union(*dirty,old);
+        *rect=Frame_Rect(); rect->X=rect->X+X; rect->Y=rect->Y+Y;
+        if (Flags & 0x200) { rect->X-=Shape->Width/2; rect->Y-=Shape->Height/2; }
+        *rect=Union(*rect,old);
         return false;
     }
-    dirty->Set(0,0,0,0);
+    rect->Set(0,0,0,0);
     return false;
 }
 
@@ -269,11 +270,11 @@ Rect MSShapeAnim::Get_Rect()
 // MSFadeAnim::MSFadeAnim(Wstring const &filename, int x, int y, ConvertClass *drawer, int unknown_24, int flags,
 //     DynamicVectorClass<MSAnim *> *anims) (0x005ACDB0)
 
-MSFadeAnim::MSFadeAnim(Wstring const &filename, int x, int y, ConvertClass *drawer, int unknown_24, int flags,
-                       DynamicVectorClass<MSAnim *> *anims) :
-    MSShapeAnim(filename, x, y, drawer, unknown_24, false, flags),
+MSFadeAnim::MSFadeAnim(Wstring const &name, int x, int y, ConvertClass *drawer, int rate, int flags,
+                       DynamicVectorClass<MSAnim *> *vector) :
+    MSShapeAnim(name, x, y, drawer, rate, false, flags),
     unknown_40(0),
-    Anims(anims)
+    Anims(vector)
 {
 }
 
@@ -292,7 +293,7 @@ MSFadeAnim::MSFadeAnim(Wstring const &filename, int x, int y, ConvertClass *draw
 // the last frame is passed and unknown_34 is clear) and the fade level, draws
 // the new frame and reports the union of the old and new areas.
 
-bool MSFadeAnim::Advance(Surface *surface, Rect *dirty)
+bool MSFadeAnim::Advance(Surface *surface, Rect *rect)
 {
     if (unknown_0C == true && Timer.Value() == 0) {
         Timer = CDTimerClass<SystemTimerClass>(unknown_24);
@@ -320,7 +321,7 @@ bool MSFadeAnim::Advance(Surface *surface, Rect *dirty)
         }
         if (++Frame > EndFrame) {
             if (!unknown_34) {
-                dirty->Set(0, 0, 0, 0);
+                rect->Set(0, 0, 0, 0);
                 return true;
             }
             Frame = StartFrame;
@@ -332,17 +333,17 @@ bool MSFadeAnim::Advance(Surface *surface, Rect *dirty)
         }
         CC_Draw_Shape(surface, Drawer, Shape, Frame, Point2D(X, Y), surface->Get_Rect(), flags, 0, 0, 0, 1000, 0, 0,
                       Point2D(0, 0));
-        *dirty = Frame_Rect();
-        dirty->X = X + dirty->X;
-        dirty->Y = Y + dirty->Y;
+        *rect = Frame_Rect();
+        rect->X = X + rect->X;
+        rect->Y = Y + rect->Y;
         if (flags & 0x200) {
-            dirty->X -= Shape->Width / 2;
-            dirty->Y -= Shape->Height / 2;
+            rect->X -= Shape->Width / 2;
+            rect->Y -= Shape->Height / 2;
         }
-        *dirty = Union(*dirty, old);
+        *rect = Union(*rect, old);
         return false;
     }
-    dirty->Set(0, 0, 0, 0);
+    rect->Set(0, 0, 0, 0);
     return false;
 }
 
@@ -455,19 +456,19 @@ void __fastcall FUN_005ad410(unsigned int *object_words)
 // animations of Anims, reporting its area; at level 4 the frame is also drawn
 // into the background surface. Returns !unknown_48.
 
-bool MSOverlayAnim::Advance(Surface *surface, Rect *dirty)
+bool MSOverlayAnim::Advance(Surface *surface, Rect *rect)
 {
     if (unknown_0C == true && Timer.Value() == 0) {
         Timer = CDTimerClass<SystemTimerClass>(unknown_24);
         if ((unsigned)unknown_40 < 4) {
-            *dirty = Frame_Rect();
-            dirty->X = X + dirty->X;
-            dirty->Y = Y + dirty->Y;
+            *rect = Frame_Rect();
+            rect->X = X + rect->X;
+            rect->Y = Y + rect->Y;
             if (Flags & 0x200) {
-                dirty->X -= Shape->Width / 2;
-                dirty->Y -= Shape->Height / 2;
+                rect->X -= Shape->Width / 2;
+                rect->Y -= Shape->Height / 2;
             }
-            surface->Copy_From(*dirty, *AlternateSurface, *dirty, false, true);
+            surface->Copy_From(*rect, *AlternateSurface, *rect, false, true);
             unsigned level = (unsigned)unknown_40 < 3 ? unknown_40 : 3;
             CC_Draw_Shape(surface, Drawer, Shape, Frame, Point2D(X, Y), surface->Get_Rect(),
                           unknown_fade_flags_7e57f0[level] | Flags, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
@@ -475,7 +476,7 @@ bool MSOverlayAnim::Advance(Surface *surface, Rect *dirty)
                 int index = Anims->ID(this);
                 for (int i = 0; i < Anims->Count(); i++) {
                     if (i != index) {
-                        (*Anims)[i]->Draw(surface, dirty);
+                        (*Anims)[i]->Draw(surface, rect);
                     }
                 }
             }
@@ -487,7 +488,7 @@ bool MSOverlayAnim::Advance(Surface *surface, Rect *dirty)
         }
         return false;
     }
-    dirty->Set(0, 0, 0, 0);
+    rect->Set(0, 0, 0, 0);
     return false;
 }
 
@@ -556,7 +557,7 @@ void MSOverlayAnim::Set_Frame(unsigned frame)
 // Draws the current frame into the background surface at its fade level
 // (while active).
 
-void MSOverlayAnim::Restore(int unknown1)
+void MSOverlayAnim::Restore(int rect)
 {
     unsigned level = (unsigned)unknown_40 < 3 ? unknown_40 : 3;
     if (unknown_0C) {
@@ -668,7 +669,7 @@ bool MSBinkAnim::Has_Finished()
 // redraws every other animation of the list inside it. True once the movie
 // finished unless unknown_38.
 
-bool MSBinkAnim::Advance(Surface *surface, Rect *dirty)
+bool MSBinkAnim::Advance(Surface *surface, Rect *rect)
 {
     if (surface == 0) {
         return false;
@@ -678,7 +679,7 @@ bool MSBinkAnim::Advance(Surface *surface, Rect *dirty)
     }
     if (!Movie->Is_Finished() && Movie->Render_Frame()) {
         Draw(surface, 0);
-        *dirty = MovieRect;
+        *rect = MovieRect;
         int index = Anims->ID(this);
         for (int i = 0; i < Anims->Count(); i++) {
             if (i != index) {
@@ -708,7 +709,7 @@ void MSBinkAnim::Draw(Surface *surface, Rect const *clip)
 /// </summary>
 // (0x005ADB90, slot 8)
 
-void MSBinkAnim::Restore(int unknown1)
+void MSBinkAnim::Restore(int rect)
 {
 }
 
@@ -892,7 +893,7 @@ void MSVQAnim::Draw(Surface *surface, Rect const *clip)
 // (0x005AE390, slot 8)
 // Copies the picture into the target again once the movie is done.
 
-void MSVQAnim::Restore(int unknown1)
+void MSVQAnim::Restore(int rect)
 {
     if (Done && Movie != 0 && Image != 0) {
         Target->Copy_From(Movie->Source, *Image, Image->Get_Rect(), false, true);
@@ -996,7 +997,7 @@ bool MSBitPrintAnim::Has_Finished()
 // Prints the text clipped to TextRect with the bitmap font and reports
 // TextRect as the area to refresh; done once unknown_30 is set.
 
-bool MSBitPrintAnim::Advance(Surface *surface, Rect *dirty)
+bool MSBitPrintAnim::Advance(Surface *surface, Rect *rect)
 {
     if (unknown_bit_printer_84e9d0_ptr != 0 && unknown_bit_font_84e9e8_ptr != 0) {
         RECT box;
@@ -1009,7 +1010,7 @@ bool MSBitPrintAnim::Advance(Surface *surface, Rect *dirty)
         unknown_bit_printer_84e9d0_ptr->Print_432490(unknown_bit_font_84e9e8_ptr, surface, Text.Get(), TextRect.X,
                                                      TextRect.Y, TextRect.Width, TextRect.Height, unknown8, 0, 0);
     }
-    *dirty = TextRect;
+    *rect = TextRect;
     return !unknown_30;
 }
 
@@ -1202,12 +1203,12 @@ int __fastcall unknown_paginate_text_5aece0(WideString &text, MSFont *font, int 
 // TextRect as the area to refresh. Once the text is finished it returns
 // !unknown_48 after three more calls.
 
-bool MSPrintAnim::Advance(Surface *surface, Rect *dirty)
+bool MSPrintAnim::Advance(Surface *surface, Rect *rect)
 {
-    dirty->X = 0;
-    dirty->Y = 0;
-    dirty->Width = 0;
-    dirty->Height = 0;
+    rect->X = 0;
+    rect->Y = 0;
+    rect->Width = 0;
+    rect->Height = 0;
     if (Timer.Value() != 0) {
         return false;
     }
@@ -1260,7 +1261,7 @@ bool MSPrintAnim::Advance(Surface *surface, Rect *dirty)
             Font->Print_Char(surface, ch, x, y, style, 1);
             x += Font->Char_Width(ch);
         }
-        *dirty = TextRect;
+        *rect = TextRect;
         Position++;
     }
     return false;
@@ -1540,7 +1541,7 @@ MSPCXAnim::~MSPCXAnim()
 // draws it onto `surface`, reports its rectangle and redraws every other
 // animation of the list inside it. True once shown unless unknown_28.
 
-bool MSPCXAnim::Advance(Surface *surface, Rect *dirty)
+bool MSPCXAnim::Advance(Surface *surface, Rect *rect)
 {
     if (!Done) {
         if (unknown_0C) {
@@ -1548,7 +1549,7 @@ bool MSPCXAnim::Advance(Surface *surface, Rect *dirty)
                 Background->Copy_From(PCXRect, *Image, Image->Get_Rect(), false, true);
                 Draw(surface, 0);
                 Rect area = PCXRect;
-                *dirty = area;
+                *rect = area;
                 int index = Anims->ID(this);
                 for (int i = 0; i < Anims->Count(); i++) {
                     if (i != index) {

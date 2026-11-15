@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/dib.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/dib.cpp where both define the function (names only).
 
 // dib.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -39,7 +40,7 @@
  *   04/18/1997 GH  : Created.                                                                 *
  *=============================================================================================*/
 // Allocate an 8-bit Windows DIB and a BSurface over its pixel backing.
-DIB8Class::DIB8Class(HWND window, int width, int height, PaletteClass const &palette)
+DIB8Class::DIB8Class(HWND hwnd, int width, int height, PaletteClass const &pal)
     : Error(false), Info(0), Bitmap(0), Bits(0), Width(width), Height(height), Origin(0), Stride(0), BackingSurface(0)
 {
     Info = (BITMAPINFO *)new unsigned char[sizeof(BITMAPINFO) + 256 * sizeof(RGBQUAD)];
@@ -56,14 +57,14 @@ DIB8Class::DIB8Class(HWND window, int width, int height, PaletteClass const &pal
         Info->bmiHeader.biClrUsed = 256;
         Info->bmiHeader.biClrImportant = 256;
         for (int index = 0; index < 256; ++index) {
-            Info->bmiColors[index].rgbBlue = palette[index].Blue;
-            Info->bmiColors[index].rgbGreen = palette[index].Green;
-            Info->bmiColors[index].rgbRed = palette[index].Red;
+            Info->bmiColors[index].rgbBlue = pal[index].Blue;
+            Info->bmiColors[index].rgbGreen = pal[index].Green;
+            Info->bmiColors[index].rgbRed = pal[index].Red;
             Info->bmiColors[index].rgbReserved = 0;
         }
-        HDC dc = GetDC(window);
+        HDC dc = GetDC(hwnd);
         Bitmap = CreateDIBSection(dc, Info, 0, &Bits, 0, 0);
-        ReleaseDC(window, dc);
+        ReleaseDC(hwnd, dc);
         if (Bitmap) {
             Width = Info->bmiHeader.biWidth;
             Height = abs(Info->bmiHeader.biHeight);

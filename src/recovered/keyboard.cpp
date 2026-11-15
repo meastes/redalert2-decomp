@@ -12,6 +12,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/keyboard.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Parameter names from mischa85/RedAlert2 392e904 src/keyboard.cpp where both define the function (names only).
 
 // keyboard.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -249,30 +250,30 @@ bool WWKeyboardClass::Put(KeyNumType key)
 // and the release bit, and queues it. Alt+tab is dropped; while the keyboard
 // is ignored only VK_ESCAPE gets through.
 
-bool WWKeyboardClass::Put_Key_Message(KeyNumType key, bool release)
+bool WWKeyboardClass::Put_Key_Message(KeyNumType vk_key, bool release)
 {
-    if (IgnoreInput && key != 0x1B) {
+    if (IgnoreInput && vk_key != 0x1B) {
         return true;
     }
-    Unknown_005233A0(key, release);
-    if (!Is_Mouse_Key(key) && !Is_Char_Key(key)) {
+    Unknown_005233A0(vk_key, release);
+    if (!Is_Mouse_Key(vk_key) && !Is_Char_Key(vk_key)) {
         if ((Unknown_005233D0(0x10) & 0x8000) != 0) {
-            key |= 0x100;
+            vk_key |= 0x100;
         }
         if ((Unknown_005233D0(0x11) & 0x8000) != 0) {
-            key |= 0x200;
+            vk_key |= 0x200;
         }
         if ((Unknown_005233D0(0x12) & 0x8000) != 0) {
-            if (key == 0x09) {
+            if (vk_key == 0x09) {
                 return true;
             }
-            key |= 0x400;
+            vk_key |= 0x400;
         }
     }
     if (release) {
-        key |= 0x800;
+        vk_key |= 0x800;
     }
-    return Put(key);
+    return Put(vk_key);
 }
 
 
@@ -299,13 +300,13 @@ bool WWKeyboardClass::Put_Key_Message(KeyNumType key, bool release)
 // (0x005325C0)
 // Queues a mouse key and its position when three slots are free.
 
-bool WWKeyboardClass::Put_Mouse_Message(KeyNumType key, int x, int y, bool release)
+bool WWKeyboardClass::Put_Mouse_Message(KeyNumType vk_key, int x, int y, bool release)
 {
     if (IgnoreInput) {
         return true;
     }
-    if (Available() >= 3 && Is_Mouse_Key(key)) {
-        Put_Key_Message(key, release);
+    if (Available() >= 3 && Is_Mouse_Key(vk_key)) {
+        Put_Key_Message(vk_key, release);
         Put((KeyNumType)x);
         Put((KeyNumType)y);
         return true;
@@ -560,11 +561,11 @@ KeyNumType WWKeyboardClass::Peek_Element()
 // (0x00532940)
 // Appends an element; false when the queue is full.
 
-bool WWKeyboardClass::Put_Element(KeyNumType key)
+bool WWKeyboardClass::Put_Element(KeyNumType val)
 {
     if (!Is_Buffer_Full()) {
         int next = (Tail + 1) % 256;
-        Buffer[Tail] = key;
+        Buffer[Tail] = val;
         Tail = next;
         return true;
     }
@@ -709,13 +710,13 @@ void WWKeyboardClass::Clear()
  *=============================================================================================*/
 // The Windows SDK values this handler uses (win32_api.hpp declares no message constants).
 
-int WWKeyboardClass::Message_Handler(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+int WWKeyboardClass::Message_Handler(HWND window, UINT message, WPARAM wParam, LPARAM lParam)
 {
     bool processed = false;
 
     POINT point;
-    point.x = LOWORD(lparam);
-    point.y = HIWORD(lparam);
+    point.x = LOWORD(lParam);
+    point.y = HIWORD(lParam);
     ClientToScreen(window, &point);
     LONG x = point.x;
     LONG y = point.y;
@@ -724,15 +725,15 @@ int WWKeyboardClass::Message_Handler(HWND window, UINT message, WPARAM wparam, L
     switch (message) {
         case WM_SYSKEYDOWN:
         case WM_KEYDOWN:
-            if (wparam != VK_SCROLL && !(lparam & (1 << 30))) {
-                Put_Key_Message((KeyNumType)wparam);
+            if (wParam != VK_SCROLL && !(lParam & (1 << 30))) {
+                Put_Key_Message((KeyNumType)wParam);
             }
             processed = true;
             break;
 
         case WM_SYSKEYUP:
         case WM_KEYUP:
-            Put_Key_Message((KeyNumType)wparam, true);
+            Put_Key_Message((KeyNumType)wParam, true);
             processed = true;
             break;
 
@@ -754,7 +755,7 @@ int WWKeyboardClass::Message_Handler(HWND window, UINT message, WPARAM wparam, L
 
         case WM_CHAR:
             if (unknown_flag_a3dc89) {
-                Put_Char((KeyNumType)wparam);
+                Put_Char((KeyNumType)wParam);
             }
             processed = true;
             break;
@@ -796,7 +797,7 @@ int WWKeyboardClass::Message_Handler(HWND window, UINT message, WPARAM wparam, L
     }
 
     if (processed) {
-        DefWindowProcA(window, message, wparam, lparam);
+        DefWindowProcA(window, message, wParam, lParam);
         return true;
     }
     return false;
