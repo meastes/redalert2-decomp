@@ -6,9 +6,9 @@
 
 | Directory under `src/recovered/` | Regions | Body bytes | Descriptive names | Address range |
 | --- | ---: | ---: | ---: | --- |
-| (discovery: address-named) | 15587 | 3,054,880 | 15513 | 0x00401000–0x00793976 |
+| (discovery: address-named) | 15615 | 3,055,407 | 15542 | 0x00401000–0x00793976 |
 | [header_statics/004d2ba0](../src/recovered/header_statics/004d2ba0/) | 351 | 25,025 | 351 | 0x004D2BA0–0x004DBBC0 |
-| [unowned](../src/recovered/unowned/) | 138 | 15,966 | 138 | 0x0040AEA0–0x00768260 |
+| [unowned](../src/recovered/unowned/) | 112 | 15,530 | 112 | 0x0040AEA0–0x00768260 |
 | [ownrdraw](../src/recovered/ownrdraw/) | 22 | 9,504 | 22 | 0x005DEF80–0x00600FD0 |
 | [classes/CChatEventSink](../src/recovered/classes/CChatEventSink/) | 5 | 7,696 | 5 | 0x0075E000–0x00765980 |
 | [sendfile](../src/recovered/sendfile/) | 5 | 6,593 | 5 | 0x0066AEA0–0x0066C5B0 |
@@ -19,7 +19,7 @@
 | [classes/MapSeedClass](../src/recovered/classes/MapSeedClass/) | 16 | 3,577 | 11 | 0x00576F50–0x00579750 |
 | [ipxaddr](../src/recovered/ipxaddr/) | 14 | 3,509 | 14 | 0x00522560–0x00523360 |
 | [facing](../src/recovered/facing/) | 5 | 3,418 | 5 | 0x004B7BF0–0x004B89C0 |
-| [wonline](../src/recovered/wonline/) | 19 | 3,371 | 19 | 0x0073BCC0–0x00766E60 |
+| [wonline](../src/recovered/wonline/) | 17 | 3,280 | 17 | 0x0073C0B0–0x00766E60 |
 | [classes/MapGeneratorClass](../src/recovered/classes/MapGeneratorClass/) | 6 | 3,109 | 6 | 0x0057ACE0–0x00589890 |
 | [containers](../src/recovered/containers/) | 17 | 2,067 | 17 | 0x0042B620–0x00682580 |
 | [word_storage](../src/recovered/word_storage/) | 15 | 1,739 | 15 | 0x0046CE20–0x006C03E0 |

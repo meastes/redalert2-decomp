@@ -3717,209 +3717,243 @@
     "bytes": 30,
     "population": "population-4352",
     "bound": "own frozen bound (population-4352)"
-   }
-  ],
-  "residuals": [
+   },
    {
-    "kind": "split",
     "entry": "0073bcc0",
     "bytes": 29,
     "population": "population-3026",
-    "source": "src/recovered/wonline/unknown_strings_b29980_init_0073bcc0.cpp",
-    "cause": "held by population-3026; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-3026)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bce0",
     "bytes": 62,
     "population": "population-3026",
-    "source": "src/recovered/wonline/unknown_strings_b29980_atexit_destructor_0073bce0.cpp",
-    "cause": "held by population-3026; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-3026)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bd20",
     "bytes": 29,
     "population": "population-08",
-    "source": "src/recovered/0073bd20.cpp",
-    "cause": "held by population-08; not joined: another option set (/O1 /Ob2 /G5 /Gy)"
+    "bound": "own frozen bound, rebound to population-46 (seeded-pass2-aligned, the aligned split of population-08's pass; owner ruling 4, 2026-11-14)",
+    "options": "joined under the unit's options (frozen under /O1 /Ob2 /G5 /Gy)",
+    "placed": "address",
+    "unit_evidence": "xcu single",
+    "rewritten": "stand-in replaced by the definition WolStringArray unknown_strings_b29828; its _$E bound by its .CRT$XCU slot (apply_rename xcu_rewrites)"
    },
    {
-    "kind": "split",
     "entry": "0073bd80",
     "bytes": 22,
     "population": "population-960",
-    "source": "src/recovered/unowned/unknown_wstring_b2997c_init_0073bd80.cpp",
-    "cause": "held by population-960; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-960)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bda0",
     "bytes": 10,
     "population": "population-960",
-    "source": "src/recovered/unowned/unknown_wstring_b2997c_atexit_destructor_0073bda0.cpp",
-    "cause": "held by population-960; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-960)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bdd0",
     "bytes": 22,
     "population": "population-961",
-    "source": "src/recovered/unowned/unknown_wstring_b29ce4_init_0073bdd0.cpp",
-    "cause": "held by population-961; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-961)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bdf0",
     "bytes": 10,
     "population": "population-961",
-    "source": "src/recovered/unowned/unknown_wstring_b29ce4_atexit_destructor_0073bdf0.cpp",
-    "cause": "held by population-961; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-961)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073be00",
     "bytes": 22,
     "population": "population-962",
-    "source": "src/recovered/unowned/unknown_wstring_b269a8_init_0073be00.cpp",
-    "cause": "held by population-962; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-962)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073be20",
     "bytes": 10,
     "population": "population-962",
-    "source": "src/recovered/unowned/unknown_wstring_b269a8_atexit_destructor_0073be20.cpp",
-    "cause": "held by population-962; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-962)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073be30",
     "bytes": 22,
     "population": "population-963",
-    "source": "src/recovered/unowned/unknown_wstring_b2909c_init_0073be30.cpp",
-    "cause": "held by population-963; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-963)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073be50",
     "bytes": 10,
     "population": "population-963",
-    "source": "src/recovered/unowned/unknown_wstring_b2909c_atexit_destructor_0073be50.cpp",
-    "cause": "held by population-963; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-963)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073be60",
     "bytes": 22,
     "population": "population-964",
-    "source": "src/recovered/unowned/unknown_wstring_b297c4_init_0073be60.cpp",
-    "cause": "held by population-964; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-964)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073be80",
     "bytes": 10,
     "population": "population-964",
-    "source": "src/recovered/unowned/unknown_wstring_b297c4_atexit_destructor_0073be80.cpp",
-    "cause": "held by population-964; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-964)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073be90",
     "bytes": 22,
     "population": "population-965",
-    "source": "src/recovered/unowned/unknown_wstring_b2a640_init_0073be90.cpp",
-    "cause": "held by population-965; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-965)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073beb0",
     "bytes": 10,
     "population": "population-965",
-    "source": "src/recovered/unowned/unknown_wstring_b2a640_atexit_destructor_0073beb0.cpp",
-    "cause": "held by population-965; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-965)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bec0",
     "bytes": 22,
     "population": "population-966",
-    "source": "src/recovered/unowned/unknown_wstring_b2a71c_init_0073bec0.cpp",
-    "cause": "held by population-966; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-966)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bee0",
     "bytes": 10,
     "population": "population-966",
-    "source": "src/recovered/unowned/unknown_wstring_b2a71c_atexit_destructor_0073bee0.cpp",
-    "cause": "held by population-966; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-966)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bef0",
     "bytes": 22,
     "population": "population-2261",
-    "source": "src/recovered/unowned/unknown_wstring_b2a724_init_0073bef0.cpp",
-    "cause": "held by population-2261; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-2261)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bf10",
     "bytes": 10,
     "population": "population-2261",
-    "source": "src/recovered/unowned/unknown_wstring_b2a724_atexit_destructor_0073bf10.cpp",
-    "cause": "held by population-2261; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-2261)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bf20",
     "bytes": 22,
     "population": "population-967",
-    "source": "src/recovered/unowned/unknown_wstring_b2945c_init_0073bf20.cpp",
-    "cause": "held by population-967; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-967)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bf40",
     "bytes": 10,
     "population": "population-967",
-    "source": "src/recovered/unowned/unknown_wstring_b2945c_atexit_destructor_0073bf40.cpp",
-    "cause": "held by population-967; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-967)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bf50",
     "bytes": 22,
     "population": "population-968",
-    "source": "src/recovered/unowned/unknown_wstring_b297bc_init_0073bf50.cpp",
-    "cause": "held by population-968; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-968)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bf70",
     "bytes": 10,
     "population": "population-968",
-    "source": "src/recovered/unowned/unknown_wstring_b297bc_atexit_destructor_0073bf70.cpp",
-    "cause": "held by population-968; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
+    "bound": "own frozen bound (population-968)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bf80",
     "bytes": 32,
     "population": "population-3035",
-    "source": "src/recovered/unowned/unknown_profile_ptr_b28cc0_init_0073bf80.cpp",
-    "cause": "held by population-3035; not joined (.CRT$XCU single): differs under the unit's state (Function symbol ambiguous/missing: _$E100221)"
+    "bound": "own frozen bound (population-3035)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
    {
-    "kind": "split",
     "entry": "0073bfa0",
     "bytes": 20,
     "population": "population-3035",
-    "source": "src/recovered/unowned/unknown_profile_ptr_b28cc0_atexit_destructor_0073bfa0.cpp",
-    "cause": "held by population-3035; not joined (.CRT$XCU single): differs under the unit's state (Function symbol ambiguous/missing: _$E100220)"
+    "bound": "own frozen bound (population-3035)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
    },
+   {
+    "entry": "0073c420",
+    "bytes": 22,
+    "population": "population-969",
+    "bound": "own frozen bound (population-969)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
+   },
+   {
+    "entry": "0073c440",
+    "bytes": 10,
+    "population": "population-969",
+    "bound": "own frozen bound (population-969)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
+   },
+   {
+    "entry": "0073c450",
+    "bytes": 22,
+    "population": "population-970",
+    "bound": "own frozen bound (population-970)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
+   },
+   {
+    "entry": "0073c470",
+    "bytes": 10,
+    "population": "population-970",
+    "bound": "own frozen bound (population-970)",
+    "placed": "address",
+    "unit_evidence": "xcu single"
+   }
+  ],
+  "residuals": [
    {
     "kind": "split",
     "entry": "0073c0b0",
@@ -3935,38 +3969,6 @@
     "population": "population-2332",
     "source": "src/recovered/wonline/unknown_open_tournament_page.cpp",
     "cause": "frozen in another population's inventory pass (population-2332)"
-   },
-   {
-    "kind": "split",
-    "entry": "0073c420",
-    "bytes": 22,
-    "population": "population-969",
-    "source": "src/recovered/unowned/unknown_wstring_b26cb8_init_0073c420.cpp",
-    "cause": "held by population-969; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
-   },
-   {
-    "kind": "split",
-    "entry": "0073c440",
-    "bytes": 10,
-    "population": "population-969",
-    "source": "src/recovered/unowned/unknown_wstring_b26cb8_atexit_destructor_0073c440.cpp",
-    "cause": "held by population-969; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
-   },
-   {
-    "kind": "split",
-    "entry": "0073c450",
-    "bytes": 22,
-    "population": "population-970",
-    "source": "src/recovered/unowned/unknown_wstring_b2a63c_init_0073c450.cpp",
-    "cause": "held by population-970; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
-   },
-   {
-    "kind": "split",
-    "entry": "0073c470",
-    "bytes": 10,
-    "population": "population-970",
-    "source": "src/recovered/unowned/unknown_wstring_b2a63c_atexit_destructor_0073c470.cpp",
-    "cause": "held by population-970; not joined (.CRT$XCU single): the joined unit fails the strict audit (Unsupported allocatable data section .CRT$XCU)"
    },
    {
     "kind": "split",

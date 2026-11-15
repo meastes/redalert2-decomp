@@ -132,5 +132,54 @@ class StaleTableEntryTests(unittest.TestCase):
         self.assertEqual(apply_rename.stale_names(members, set(), '?seed_dtor_b@@YAXXZ', '_x'), {'_x'})
 
 
+class ReboundJoinTests(unittest.TestCase):
+    """Owner ruling 4: a joining row takes the aligned split of its own pass as its bound."""
+    def setUp(self):
+        import json, tempfile
+        self.folder = tempfile.TemporaryDirectory()
+        root = Path(self.folder.name)
+        body = 'c3' * 29
+        def write(name, rows):
+            (root / name).write_text('\n'.join(json.dumps(r) for r in rows) + '\n')
+            return str(root / name)
+        entry = dict(entry='0073bd20', ranges=[dict(start='0073bd20', end_inclusive='0073bd3c', length=29, bytes_hex=body)])
+        self.config = dict(executable=str(root / 'exe'), populations={
+            'population-8': dict(inventory=write('i8', [entry]), gaps=write('g8', [dict(start='0073bd3d', length=67)])),
+            'population-46': dict(inventory=write('i46', [entry]), gaps=write('g46', [dict(start='0073bd3d', length=3)]))})
+        (root / 'exe').write_bytes(b'')
+        self.image = bytes.fromhex(body) + b'\x90' * 3
+
+    def tearDown(self):
+        self.folder.cleanup()
+
+    def rebind(self, row):
+        import xcu_units
+        image = self.image
+        class Image:
+            def __init__(self, data):
+                self.data = image
+            def offset(self, va):
+                return va - 0x0073bd20
+        saved, xcu_units.Image = xcu_units.Image, Image
+        try:
+            apply_rename.rebind_bound(row, 'population-46', self.config)
+        finally:
+            xcu_units.Image = saved
+
+    def test_the_aligned_pass_gives_the_whole_nop_gap_as_padding(self):
+        row = dict(entry=0x0073bd20, population='population-8', body_bytes=29, padding_bytes=0, full_extent_bytes=29)
+        self.rebind(row)
+        self.assertEqual((row['bound_population'], row['padding_bytes'], row['full_extent_bytes']), ('population-46', 3, 32))
+
+    def test_another_body_refuses(self):
+        import json
+        path = Path(self.config['populations']['population-46']['inventory'])
+        entry = json.loads(path.read_text()); entry['ranges'][0]['length'] = 28
+        path.write_text(json.dumps(entry) + '\n')
+        row = dict(entry=0x0073bd20, population='population-8', body_bytes=29)
+        with self.assertRaises(SystemExit):
+            self.rebind(row)
+
+
 if __name__ == '__main__':
     unittest.main()

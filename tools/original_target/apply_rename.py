@@ -66,6 +66,11 @@ still joins the module's translation unit: it keeps the population that froze it
 population's pass (canonical.bound_population). Nothing else is relaxed: same option
 set, the unit's table has precedence, neither population has a closed compiler-output
 policy, and the row must reproduce its complete extent in the module's unit.
+`"joins_rebound": {"0073bd20": "population-46"}` (owner ruling 2026-11-14, ruling 4): a joining
+row takes another frozen independent pass as its `bound_population` (an owner-named row-less
+population holding the aligned split of the row's own pass): the pass must bound the row's body
+exactly as its frozen one does, and the gap behind it gives the frozen padding (a whole gap of
+original NOPs, promote_sweep.gap_padding).
 `"joins_options": "unit_gr"` lets a row frozen without /GR take the unit's /GR;
 `"joins_options": "unit"` lets a row frozen under any other recorded option set take the
 unit's (docs/DECISIONS.md "Stand-ins frozen under another optimisation option than their
@@ -291,6 +296,44 @@ def frozen_bounds(config):
     return bound
 
 
+def rebind_bound(row, holder, config):
+    """`joins_rebound`: the row's bound and frozen padding from `holder`'s pass. The pass must
+    bound the same body (entry, length, bytes) as the row's frozen pass; the padding is the whole
+    NOP gap behind it there."""
+    import xcu_units
+    from canonical import sha
+    from promote_sweep import gap_padding
+    if holder not in config['populations']:
+        raise SystemExit('joins_rebound: %s is no population' % holder)
+    frozen = row.get('bound_population', row['population'])
+    parsed = {}
+    for pid in (frozen, holder):
+        inputs = config['populations'][pid]
+        entry = next((json.loads(l) for l in (REPOSITORY / inputs['inventory']).read_text().splitlines()
+                      if l.strip() and int(json.loads(l)['entry'], 16) == row['entry']), None)
+        if entry is None:
+            raise SystemExit('joins_rebound: %s bounds no row at %08x' % (pid, row['entry']))
+        parsed[pid] = entry
+    body = lambda e: [(r['start'].lower(), r.get('length') or int(r['end_inclusive'], 16) + 1 - int(r['start'], 16),
+                       r.get('bytes_hex', '').lower()) for r in e['ranges']]
+    if body(parsed[frozen]) != body(parsed[holder]) or len(parsed[holder]['ranges']) != 1:
+        raise SystemExit('joins_rebound: %s and %s bound %08x differently' % (frozen, holder, row['entry']))
+    gaps = {}
+    for line in (REPOSITORY / config['populations'][holder]['gaps']).read_text().splitlines():
+        if line.strip():
+            gap = json.loads(line); gaps[int(gap['start'], 16)] = gap
+    image = xcu_units.Image(Path(config['executable']).read_bytes())
+    original = lambda va, n: bytes(image.data[image.offset(va):image.offset(va) + n])
+    end = row['entry'] + row['body_bytes']
+    padding_hex, gap = gap_padding(original, gaps, end)
+    if not gap:
+        raise SystemExit('joins_rebound: %s has no whole NOP gap behind %08x' % (holder, row['entry']))
+    pad = bytes.fromhex(padding_hex)
+    whole = original(row['entry'], row['body_bytes']) + pad
+    row.update(bound_population=holder, padding_bytes=len(pad), padding_sha256=sha(pad),
+               full_extent_bytes=len(whole), full_extent_sha256=sha(whole))
+
+
 def gr_only_difference(row_options, unit_options):
     """True when the unit's option set is the row's plus /GR (lane F measurement: a row
     frozen before its unit gained /GR joins under the unit's options)."""
@@ -415,6 +458,10 @@ def apply_modules(catalog, spec, files, removed, config=None):
                 raise SystemExit('%s: joins_bound is "equal" or "own"' % module)
             if item.get('joins_options', 'same') not in ('same', 'unit_gr', 'unit'):
                 raise SystemExit('%s: joins_options is "same", "unit_gr" or "unit"' % module)
+            for entry, holder in sorted(item.get('joins_rebound', {}).items()):
+                if int(entry, 16) not in joins or item.get('joins_bound') != 'own':
+                    raise SystemExit('%s: joins_rebound %s needs an own-bound join of that row' % (module, entry))
+                rebind_bound(next(r for r in rows if r['entry'] == int(entry, 16)), holder, config)
             affected |= join_rows(catalog, module, rows, joins, config, item.get('joins_bound') == 'own',
                                   item.get('joins_options') == 'unit_gr', item.get('joins_options') == 'unit',
                                   {int(e, 16): m for e, m in item.get('joins_renumber', {}).items()})

@@ -1,12 +1,12 @@
 {
  "about": "Undefined symbols of the Mac ra2-native link closure (RA2_NATIVE_SUBSYSTEM=all, drafts and link closure on, WIN64_PARAMS on) that tests/link_closure_baseline.py allows. Names only (no bytes). Regenerate with tests/link_closure_baseline.py --build <dir> --write when the set shrinks.",
- "total": 234,
+ "total": 229,
  "by_class": {
-  "c-address": 25,
+  "c-address": 24,
   "c-data": 1,
-  "c-function": 4,
+  "c-function": 3,
   "cxx-data": 3,
-  "cxx-function": 201
+  "cxx-function": 198
  },
  "symbols": [
   {
@@ -815,21 +815,6 @@
    "cls": "cxx-function"
   },
   {
-   "symbol": "__ZN13seed_0073bfc015Callee_0069a43026SystemTimer_Value_0069a430Ev",
-   "name": "seed_0073bfc0::Callee_0069a430::SystemTimer_Value_0069a430()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_0073bfc015atexit_0078298aEj",
-   "name": "seed_0073bfc0::atexit_0078298a(unsigned int)",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_0073bfc029unknown_timer_atexit_0073bff0Ev",
-   "name": "seed_0073bfc0::unknown_timer_atexit_0073bff0()",
-   "cls": "cxx-function"
-  },
-  {
    "symbol": "__ZN13seed_0073c04015strchr_00784130EPjc",
    "name": "seed_0073c040::strchr_00784130(unsigned int*, char)",
    "cls": "cxx-function"
@@ -1045,11 +1030,6 @@
    "cls": "c-function"
   },
   {
-   "symbol": "_call_73bd20_0",
-   "name": "call_73bd20_0",
-   "cls": "c-function"
-  },
-  {
    "symbol": "_clear_storage_slot_0046ce20",
    "name": "clear_storage_slot_0046ce20",
    "cls": "c-address"
@@ -1107,11 +1087,6 @@
   {
    "symbol": "_opaque_code_address_735d70_735d90",
    "name": "opaque_code_address_735d70_735d90",
-   "cls": "c-address"
-  },
-  {
-   "symbol": "_opaque_code_address_73bd20_73bd40",
-   "name": "opaque_code_address_73bd20_73bd40",
    "cls": "c-address"
   },
   {

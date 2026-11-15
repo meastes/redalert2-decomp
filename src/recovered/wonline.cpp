@@ -299,19 +299,46 @@ WolChannelDictionary unknown_channels_b29478;
 // in Wonline_unknown_channels_b29478_Initializer_0073baa0.cpp; no handwritten helper body.
 
 
-extern WolStringArray unknown_strings_b29828;
-void Destroy_Wonline_Strings_0073bd40()
-{
-    unknown_strings_b29828.~WolStringArray();
-}
+// Two widths of the buddy list's columns (0x00B29460, 0x00B26CB4): their dynamic
+// initializers (0x0073BC80, 0x0073BCA0, _$E) are emitted by these definitions. Names are
+// hypotheses.
+// @ref ?unknown_column_width_b29460@@3HA=00b29460
+// @ref ?unknown_column_width_b26cb4@@3HA=00b26cb4
+extern int buddy_column_007fd308;
+extern int buddy_column_007fd30c;
+extern int buddy_column_007fd318;
+extern int buddy_column_007fd31c;
+int unknown_column_width_b29460 = buddy_column_007fd30c - buddy_column_007fd308 - 4;
+int unknown_column_width_b26cb4 = buddy_column_007fd31c - buddy_column_007fd318 - 4;
 
 
-class Leaf_73bc80 { public: void get(); };
-void Leaf_73bc80::get() { unsigned int scratch = (unsigned int)this; unsigned int value; unsigned int spare; value = *(unsigned int*)(0x7fd30c); scratch = *(unsigned int*)(0x7fd308); value = (value) - (scratch); value = (value) - (4); *(unsigned int*)(0xb29460) = value; }
+WolStringArray unknown_strings_b29980;
 
 
-class Leaf_73bca0 { public: void get(); };
-void Leaf_73bca0::get() { unsigned int scratch = (unsigned int)this; unsigned int value; unsigned int spare; value = *(unsigned int*)(0x7fd31c); scratch = *(unsigned int*)(0x7fd318); value = (value) - (scratch); value = (value) - (4); *(unsigned int*)(0xb26cb4) = value; }
+// atexit destructor of the static defined in unknown_strings_b29980_init_0073bcc0.cpp (0x0073BCC0); emitted by that definition, no source of its own.
+
+
+// 0x0073BD20 (_$E): dynamic initializer of unknown_strings_b29828, emitted by its
+// definition below; no source of its own.
+
+
+// The pinged-names list (0x00B29828): its dynamic initializer (0x0073BD20, _$E) and
+// atexit destructor (0x0073BD40, _$E) are emitted by this definition.
+
+WolStringArray unknown_strings_b29828;
+
+
+
+// Dynamic initializer of a global Wstring (0x0073BD80, _$E): constructs
+// unknown_wstring_b2997c (0x00B2997C) and registers its atexit destructor
+// (0x0073BDA0, the following _$E draft, emitted by this definition).
+// The owning unit (a small WOL-area unit) is not identified yet.
+
+Wstring unknown_wstring_b2997c;
+
+
+// atexit destructor of unknown_wstring_b2997c (0x0073BDA0, _$E): emitted by
+// the definition in unknown_wstring_b2997c_init_0073bd80.cpp; no source of its own.
 
 
 // 0x0073bdb0: function not yet identified
@@ -339,57 +366,134 @@ unsigned int  unknown_mode_1_or_2_0073bdb0(void)
 }  // namespace seed_0073bdb0
 
 
-// 0x0073bfc0: function not yet identified
-//
-// Body: 37 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void unknown_timer_init_0073bfc0(void)
-// Callees with accepted source:
-//   unknown_timer_atexit_0073bff0 -> src/recovered/0073bff0.cpp
-//   atexit_0078298a -> src/recovered/0078298a.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// Dynamic initializer of a global Wstring (0x0073BDD0, _$E): constructs
+// unknown_wstring_b29ce4 (0x00B29CE4) and registers its atexit destructor
+// (0x0073BDF0, the following _$E draft, emitted by this definition).
+// The owning unit (a small WOL-area unit) is not identified yet.
 
-namespace seed_0073bfc0 {
-
-struct Callee_0069a430 { unsigned int SystemTimer_Value_0069a430(); };
-extern void __cdecl unknown_timer_atexit_0073bff0(void);
-extern unsigned int  atexit_0078298a(unsigned int);
-extern "C" unsigned int unknown_timer_start_00b292e8;
-extern "C" unsigned int unknown_system_timer_00b292ec;
-extern "C" unsigned int unknown_timer_accum_00b292f0;
-
-void  unknown_timer_init_0073bfc0(void)
-{
-    unknown_timer_start_00b292e8 = ((Callee_0069a430*)(&unknown_system_timer_00b292ec))->SystemTimer_Value_0069a430();
-    unknown_timer_accum_00b292f0 = 0;
-    atexit_0078298a((unsigned int)(unknown_timer_atexit_0073bff0));
-    return;
-}
-
-}  // namespace seed_0073bfc0
+Wstring unknown_wstring_b29ce4;
 
 
-// 0x0073bff0: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void unknown_timer_atexit_0073bff0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// atexit destructor of unknown_wstring_b29ce4 (0x0073BDF0, _$E): emitted by
+// the definition in unknown_wstring_b29ce4_init_0073bdd0.cpp; no source of its own.
 
-namespace seed_0073bff0 {
 
-void  unknown_timer_atexit_0073bff0(void)
-{
-    return;
-}
+// Dynamic initializer of a global Wstring (0x0073BE00, _$E): constructs
+// unknown_wstring_b269a8 (0x00B269A8) and registers its atexit destructor
+// (0x0073BE20, the following _$E draft, emitted by this definition).
+// The owning unit (a small WOL-area unit) is not identified yet.
 
-}  // namespace seed_0073bff0
+Wstring unknown_wstring_b269a8;
+
+
+// atexit destructor of unknown_wstring_b269a8 (0x0073BE20, _$E): emitted by
+// the definition in unknown_wstring_b269a8_init_0073be00.cpp; no source of its own.
+
+
+// Dynamic initializer of a global Wstring (0x0073BE30, _$E): constructs
+// unknown_wstring_b2909c (0x00B2909C) and registers its atexit destructor
+// (0x0073BE50, the following _$E draft, emitted by this definition).
+// The owning unit (a small WOL-area unit) is not identified yet.
+
+Wstring unknown_wstring_b2909c;
+
+
+// atexit destructor of unknown_wstring_b2909c (0x0073BE50, _$E): emitted by
+// the definition in unknown_wstring_b2909c_init_0073be30.cpp; no source of its own.
+
+
+// Dynamic initializer of a global Wstring (0x0073BE60, _$E): constructs
+// unknown_wstring_b297c4 (0x00B297C4) and registers its atexit destructor
+// (0x0073BE80, the following _$E draft, emitted by this definition).
+// The owning unit (a small WOL-area unit) is not identified yet.
+
+Wstring unknown_wstring_b297c4;
+
+
+// atexit destructor of unknown_wstring_b297c4 (0x0073BE80, _$E): emitted by
+// the definition in unknown_wstring_b297c4_init_0073be60.cpp; no source of its own.
+
+
+// Dynamic initializer of a global Wstring (0x0073BE90, _$E): constructs
+// unknown_wstring_b2a640 (0x00B2A640) and registers its atexit destructor
+// (0x0073BEB0, the following _$E draft, emitted by this definition).
+// The owning unit (a small WOL-area unit) is not identified yet.
+
+Wstring unknown_wstring_b2a640;
+
+
+// atexit destructor of unknown_wstring_b2a640 (0x0073BEB0, _$E): emitted by
+// the definition in unknown_wstring_b2a640_init_0073be90.cpp; no source of its own.
+
+
+// Dynamic initializer of a global Wstring (0x0073BEC0, _$E): constructs
+// unknown_wstring_b2a71c (0x00B2A71C) and registers its atexit destructor
+// (0x0073BEE0, the following _$E draft, emitted by this definition).
+// The owning unit (a small WOL-area unit) is not identified yet.
+
+Wstring unknown_wstring_b2a71c;
+
+
+// atexit destructor of unknown_wstring_b2a71c (0x0073BEE0, _$E): emitted by
+// the definition in unknown_wstring_b2a71c_init_0073bec0.cpp; no source of its own.
+
+
+// Dynamic initializer of a global Wstring (0x0073bef0, _$E): constructs
+// unknown_wstring_b2a724 (0x00b2a724) and registers its atexit destructor
+// (0x0073bf10, the following _$E draft, emitted by this definition).
+// The owning unit (a small WOL-area unit) is not identified yet.
+
+Wstring unknown_wstring_b2a724;
+
+
+// atexit destructor of unknown_wstring_b2a724 (0x0073bf10, _$E): emitted by
+// the definition in unknown_wstring_b2a724_init_0073bef0.cpp; no source of its own.
+
+
+// Dynamic initializer of a global Wstring (0x0073BF20, _$E): constructs
+// unknown_wstring_b2945c (0x00B2945C) and registers its atexit destructor
+// (0x0073BF40, the following _$E draft, emitted by this definition).
+// The owning unit (a small WOL-area unit) is not identified yet.
+
+Wstring unknown_wstring_b2945c;
+
+
+// atexit destructor of unknown_wstring_b2945c (0x0073BF40, _$E): emitted by
+// the definition in unknown_wstring_b2945c_init_0073bf20.cpp; no source of its own.
+
+
+// Dynamic initializer of a global Wstring (0x0073BF50, _$E): constructs
+// unknown_wstring_b297bc (0x00B297BC) and registers its atexit destructor
+// (0x0073BF70, the following _$E draft, emitted by this definition).
+// The owning unit (a small WOL-area unit) is not identified yet.
+
+Wstring unknown_wstring_b297bc;
+
+
+// atexit destructor of unknown_wstring_b297bc (0x0073BF70, _$E): emitted by
+// the definition in unknown_wstring_b297bc_init_0073bf50.cpp; no source of its own.
+
+
+// Dynamic initializer of a global rc_ptr<PlayerProfile> (0x0073BF80, _$E):
+// constructs unknown_profile_ptr_b28cc0 (0x00B28CC0) and registers its atexit
+// destructor (0x0073BFA0, the following _$E draft, emitted by this
+// definition). Its pointer (+0x04) is what the WOL code reads as
+// unknown_profile_b28cc4 (shared/wol_sink.hpp). The owning unit is not
+// identified yet.
+class PlayerProfile;
+
+rc_ptr<PlayerProfile> unknown_profile_ptr_b28cc0;
+
+
+// atexit destructor of unknown_profile_ptr_b28cc0 (0x0073BFA0, _$E): emitted by the
+// definition in unknown_profile_ptr_b28cc0_init_0073bf80.cpp; no source of its own.
+
+
+// The general WOnline timer (0x00B292E8): its dynamic initializer (0x0073BFC0, _$E)
+// and atexit destructor (0x0073BFF0, _$E; ~CDTimerClass is empty) are emitted by
+// this definition.
+
+CDTimerClass<SystemTimerClass> unknown_timer_b292e8;
 
 
 // SimpleWonlineDialogControl::SimpleWonlineDialogControl() (0x0073C000)
@@ -767,6 +871,30 @@ int __fastcall Unknown_0073cb80(WideString const &message)
         return 1;
     }
 }
+
+
+// Dynamic initializer of a global Wstring (0x0073C420, _$E): constructs
+// unknown_wstring_b26cb8 (0x00B26CB8) and registers its atexit destructor
+// (0x0073C440, the following _$E draft, emitted by this definition).
+// The owning unit (a small WOL-area unit) is not identified yet.
+
+Wstring unknown_wstring_b26cb8;
+
+
+// atexit destructor of unknown_wstring_b26cb8 (0x0073C440, _$E): emitted by
+// the definition in unknown_wstring_b26cb8_init_0073c420.cpp; no source of its own.
+
+
+// Dynamic initializer of a global Wstring (0x0073C450, _$E): constructs
+// unknown_wstring_b2a63c (0x00B2A63C) and registers its atexit destructor
+// (0x0073C470, the following _$E draft, emitted by this definition).
+// The owning unit (a small WOL-area unit) is not identified yet.
+
+Wstring unknown_wstring_b2a63c;
+
+
+// atexit destructor of unknown_wstring_b2a63c (0x0073C470, _$E): emitted by
+// the definition in unknown_wstring_b2a63c_init_0073c450.cpp; no source of its own.
 
 
 // void __fastcall Encode_Game_Options_0073ccb0(char *out) (0x0073CCB0)
@@ -1248,7 +1376,7 @@ void* Leaf_7667c0::get(unsigned int flags) { cleanup(); if (flags & 1) release_7
 // the lobby names are lines 2485-2492). Called by Initialize_Wonline 0x00742390.
 // Clear_Buddy_Lists groups the two string lists: both Clear calls stay out of line (0x007661C0) one level down.
 // The Ladder and Channel node deletes are refused here and emit their ??_G bodies 0x00766780 and 0x007667E0.
-extern rc_ptr<PlayerProfile> unknown_profile_ptr_b28cc0;
+
 extern char wol_source_file_007fd62c[];
 extern char wol_lobby_label_1_007fd7d0[],wol_lobby_label_2_007fd7c4[],wol_lobby_label_3_007fd7b8[],wol_lobby_label_4_007fd7ac[];
 extern char wol_lobby_label_5_007fd7a0[],wol_lobby_label_6_007fd794[],wol_lobby_label_7_007fd788[],wol_lobby_label_8_007fd77c[];
@@ -2957,7 +3085,7 @@ inline void __fastcall Close_Wonline_Wait(unsigned int);
 void __stdcall unknown_dialog_5ecf40(HWND,int);
 long __stdcall Birthdate_Dialog_007494d0(HWND,UINT,WPARAM,LPARAM);
 long __stdcall Account_Details_Dialog_007498e0(HWND,UINT,WPARAM,LPARAM);
-extern Wstring unknown_wstring_b29ce4;
+
 extern int account_birth_year_b2a6d4,account_birth_day_b26930,account_birth_month_b26894,account_newsletter_b29098;
 extern Wstring account_name_b2a640,account_password_b2a71c,account_password_check_b2a724,unknown_account_detail_b2945c;
 extern int unknown_account_checkbox_b29ad0;
@@ -4471,7 +4599,7 @@ long __stdcall Wonline_Password_Dialog_007492d0(HWND window,UINT message,WPARAM 
 void __fastcall unknown_dialog_5e5f20(HWND);
 LRESULT __fastcall unknown_get_window_text(HWND,Wstring &);
 extern "C" int __cdecl atoi(char const *);
-extern Wstring unknown_wstring_b29ce4,unknown_wstring_b269a8,unknown_wstring_b2909c,unknown_wstring_b297c4;
+
 extern int account_birth_year_b2a6d4,account_birth_day_b26930,account_birth_month_b26894,account_newsletter_b29098;
 extern char wol_source_file_007fd62c[];
 extern char birthdate_privacy_url_7feac0[];
@@ -6204,7 +6332,7 @@ void __fastcall Send_Public_Options_0074e3f0(char kind,char const *text)
 // Resends command 13 to each expired pending destination; operation name is a hypothesis.
 
 extern char const unknown_retry_format_7fefac[];
-extern Wstring unknown_wstring_b26cb8;
+
 
 void Retry_Requests_0074e470()
 {
@@ -9890,7 +10018,6 @@ void __fastcall Collect_Remote_Player_Names_0075a6c0()
 
 
 extern Wstring unknown_b2997c;
-extern WolStringArray unknown_strings_b29828;
 extern int unknown_b2ac2c,unknown_b2ab88;
 extern long unknown_b2a8a4;
 extern char wol_source_file_007fd62c[];
@@ -10172,7 +10299,6 @@ void __fastcall Service_Pending_Player_Pings_0075b2d0()
 }
 
 
-extern WolStringArray unknown_strings_b29828;
 extern char pending_ping_missing_007fffb0[];
 extern char pending_ping_no_ip_007fffc8[];
 extern char ping_report_title_8000ec[];

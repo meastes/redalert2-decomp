@@ -20,13 +20,7 @@
 extern "C" int __cdecl atexit(void (__cdecl *function)(void));
 extern ApplicationClass unknown_application_object_84c7dc;           // 0x0084C7DC
 extern BasicTimerClass<SystemTimerClass> GameTimer;                  // 0x00ABD4C0
-extern CDTimerClass<SystemTimerClass> unknown_timer_b292e8;          // 0x00B292E8
 extern int unknown_radar_event_word_ab67b8;                          // 0x00AB67B8 (two words)
-extern WolStringArray unknown_strings_b29828;                        // 0x00B29828
-void Destroy_Wonline_Strings_0073bd40();                             // 0x0073BD40
-extern int buddy_column_007fd308, buddy_column_007fd30c;             // 0x007FD308..
-extern int buddy_column_007fd318, buddy_column_007fd31c;
-extern int buddy_column_b29460, buddy_column_b26cb4;
 
 namespace OwnerDraw {
 struct UnknownTooltipState {
@@ -123,27 +117,5 @@ void Initterm_00735D70()
     atexit(unknown_clear_font_cache_735d90);
 }
 
-// 0x0073BC80 / 0x0073BCA0: widths of two buddy-list columns from their edges.
-void Initterm_0073BC80() { buddy_column_b29460 = buddy_column_007fd30c - buddy_column_007fd308 - 4; }
-void Initterm_0073BCA0() { buddy_column_b26cb4 = buddy_column_007fd31c - buddy_column_007fd318 - 4; }
-
-// 0x0073BD20: the WOL string list starts empty; 0x0073BD40 destroys it at exit.
-void Initterm_0073BD20()
-{
-    memset((void *)&unknown_strings_b29828, 0, sizeof(unknown_strings_b29828));
-    atexit(Destroy_Wonline_Strings_0073bd40);
-}
-
-// 0x0073BFC0: unknown_timer_b292e8 (CDTimerClass<SystemTimerClass>: Started =
-// the system timer, DelayTime 0; empty destructor 0x0073BFF0 at exit).
-void Initterm_0073BFC0()
-{
-    CDTimerClass<SystemTimerClass> constructed;
-    memcpy((void *)&unknown_timer_b292e8, (void *)&constructed, sizeof(constructed));
-}
-
-// 0x00769390 / 0x007693D0: one dword each (0x00B2AD60, 0x00B2AD70) zeroed and a
-// destructor (0x007693B0, 0x007693F0) registered; no recovered source names
-// either object. Nothing to construct natively.
-void Initterm_00769390() {}
-void Initterm_007693D0() {}
+// 0x0073BC80/0x0073BCA0, 0x0073BD20, 0x0073BFC0 and 0x00769390/0x007693D0 are real
+// dynamic initializers now (wonline.cpp, worlddom.cpp; lane E1b): no native rewrite.

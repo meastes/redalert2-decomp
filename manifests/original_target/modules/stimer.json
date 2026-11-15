@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 771,
+ "compile_group": 757,
  "code": [
   {
    "symbol": "??BSystemTimerClass@@QBEJXZ",
@@ -89,7 +89,7 @@
   },
   {
    "site": "0073bfc0",
-   "symbol": "?SystemTimer_Value_0069a430@Callee_0069a430@seed_0073bfc0@@QAEIXZ",
+   "symbol": "??BSystemTimerClass@@QBEJXZ",
    "target": "0069a430",
    "function_entry": true
   },
@@ -3085,12 +3085,6 @@
    "module_symbol": "??BSystemTimerClass@@QBEJXZ"
   },
   {
-   "site": "0073bfc0",
-   "target": "0069a430",
-   "symbol": "?SystemTimer_Value_0069a430@Callee_0069a430@seed_0073bfc0@@QAEIXZ",
-   "module_symbol": "??BSystemTimerClass@@QBEJXZ"
-  },
-  {
    "site": "0069a160",
    "target": "0069a430",
    "symbol": "?Value@UnknownTimeSource_0069a160@@QAEHXZ",
@@ -3103,7 +3097,7 @@
    "module_symbol": "??BSystemTimerClass@@QBEJXZ"
   }
  ],
- "stand_in_reference_count": 6,
+ "stand_in_reference_count": 5,
  "residual_split": {
   "rows": 0,
   "bytes": 0
