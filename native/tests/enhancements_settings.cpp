@@ -13,6 +13,7 @@
 #include <string.h>
 #include <map>
 #include <string>
+#include <vector>
 
 extern "C" {
 int ra2_enh_rows(void);
@@ -37,6 +38,11 @@ int ra2_enh_sidebar_height(int screen_height);
 }
 void ra2_enhancements_store(std::string (*get)(const char *), void (*set)(const char *, const char *));
 void ra2_enhancements_start();
+void ra2_enhancements_mods(std::vector<std::string> (*list)(), const char *running, void (*switch_to)(const char *),
+                           bool restarts);
+static std::string switched = "-";      // the Mod row's last switch (main.cpp saves it and restarts)
+static std::vector<std::string> two_mods() { return {"Another", "TestMod"}; }
+static void switch_to(const char *name) { switched = name; }
 
 // The host as the page sees it (platform/sdl/host.cpp on a desktop: not a touch host).
 static int picture_scaling = -1;
@@ -220,6 +226,33 @@ int main(int argc, char **argv)
         choose_next(row_of("Map zoom"));
         ra2_enh_accept();
         expect(ra2_enh_sidebar_height(768) == 614 && ra2_enh_map_zoom() == 1.25, "same process: 1.25x again");
+        // Mods (lane C16, level 2): with the app's mod list the page has an eleventh row, Mod:
+        // None and the folders; a different mod at Ok is switched to (main.cpp), the same one
+        // or a preset is not.
+        ra2_enhancements_mods(two_mods, "", switch_to, true);
+        expect(ra2_enh_rows() == kRows + 1 && !strcmp(ra2_enh_label(kRows), "Mod"), "Mod row with mods listed",
+               std::to_string(ra2_enh_rows()));
+        ra2_enh_begin();
+        std::string mods;
+        for (int k = 0; k < ra2_enh_value_count(kRows); ++k) mods += (k ? "," : "") + std::string(ra2_enh_value_name(kRows, k));
+        expect(mods == "None,Another,TestMod" && ra2_enh_value_index(kRows) == 0, "Mod row lists None and the mods", mods);
+        ra2_enh_set_preset(1);
+        expect(ra2_enh_value_index(kRows) == 0, "a preset leaves the Mod row alone");
+        ra2_enh_begin();
+        ra2_enh_set_value(kRows, 2);
+        ra2_enh_accept();
+        expect(switched == "TestMod", "TestMod chosen is switched to", switched);
+        ra2_enhancements_mods(two_mods, "TestMod", switch_to, true);
+        switched = "-";
+        ra2_enh_begin();
+        expect(ra2_enh_value_index(kRows) == 2, "the mod running is the row's value");
+        ra2_enh_accept();
+        expect(switched == "-", "the same mod at Ok: no switch", switched);
+        ra2_enh_begin();
+        ra2_enh_set_value(kRows, 0);
+        ra2_enh_accept();
+        expect(switched.empty(), "None chosen is switched to", switched);
+        ra2_enhancements_mods(nullptr, "", nullptr, true);
         // main.cpp keeps the window's fullscreen state in the same file at exit.
         set("fullscreen", fullscreen ? "1" : "0");
     } else {

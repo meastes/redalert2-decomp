@@ -43,7 +43,7 @@ extern "C" __attribute__((weak)) void ra2_enh_accept(void) {}
 
 namespace {
 
-constexpr int kRows = 10;            // rows the template has (port/src/native_dialogs.cpp)
+constexpr int kRows = 11;            // rows the template has (port/src/native_dialogs.cpp)
 constexpr int kLabel = 0x7F20, kDropdown = 0x7F10, kPresetText = 0x7F40;
 constexpr int kOriginal = 0x7F00, kEnhanced = 0x7F01, kOk = 0x7F02, kCancel = 0x7F03;   // the column's menu buttons
 constexpr int kHint = 0x695, kTitle = 0x694, kHeading = 0x7F7E;   // hint line and title box: the Options ids

@@ -83,6 +83,26 @@ bool start_crash_report(const char *self, const char *log)
     return true;
 }
 bool crash_report_at_next_start() { return false; }
+bool relaunch(const char *self, const std::vector<std::string> &args)
+{
+    std::string command = std::string("\"") + self + "\" --after-pid=" + std::to_string((unsigned long)GetCurrentProcessId());
+    for (const std::string &a : args) command += " \"" + a + "\"";
+    STARTUPINFOA si = {};
+    si.cb = sizeof si;
+    PROCESS_INFORMATION pi = {};
+    if (!CreateProcessA(self, &command[0], nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi)) return false;
+    CloseHandle(pi.hThread);
+    CloseHandle(pi.hProcess);
+    return true;
+}
+bool relaunch_supported() { return true; }
+void wait_for_process(long pid)
+{
+    HANDLE process = pid > 0 ? OpenProcess(SYNCHRONIZE, FALSE, (DWORD)pid) : nullptr;
+    if (!process) return;
+    WaitForSingleObject(process, 10000);
+    CloseHandle(process);
+}
 
 void reveal_file(const char *path)
 {

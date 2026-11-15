@@ -96,6 +96,16 @@ const std::map<std::string, std::string> &preset_values(bool enhanced)
 
 std::map<std::string, std::string> current, pending;
 std::string (*store_get)(const char *key) = nullptr;
+// Mods (lane C16, level 2): the last row, "Mod", lists None and the mod folders the app found
+// (main.cpp: Mods/<name> in the app's folder and the game folder). The mod running is the one the
+// game started with; a different one chosen is used from a fresh start (mod_switch: main.cpp saves
+// it and starts the app again, or on iOS says it is used at the next start). Not a preset row.
+std::vector<std::string> (*mod_list)() = nullptr;
+void (*mod_switch)(const char *name) = nullptr;
+std::string mod_running;
+std::vector<std::string> mod_names;     // the row's values after None (taken when the page opens)
+bool mod_restarts = true;               // the app starts again for a new mod (not on iOS: at the next start)
+bool mod_row() { return mod_list != nullptr; }
 void (*store_set)(const char *key, const char *value) = nullptr;
 bool loaded = false;
 
@@ -196,19 +206,40 @@ void ra2_enhancements_start()
     apply();
 }
 
+// Mods (lane C16): the folders to list, the mod the game runs ("" for none) and what a different
+// choice does (main.cpp).
+void ra2_enhancements_mods(std::vector<std::string> (*list)(), const char *running, void (*switch_to)(const char *),
+                           bool restarts)
+{
+    mod_restarts = restarts;
+    mod_list = list;
+    mod_running = running ? running : "";
+    mod_switch = switch_to;
+}
+
 // The page (link/native_enhancements.cpp) works on a pending copy: the dropdowns and the
 // presets edit it, ACCEPT applies and saves it, CANCEL drops it.
 extern "C" {
-int ra2_enh_rows(void) { return (int)rows().size(); }
-const char *ra2_enh_label(int i) { return i >= 0 && i < ra2_enh_rows() ? rows()[i].label : ""; }
+int ra2_enh_rows(void) { return (int)rows().size() + (mod_row() ? 1 : 0); }
+static bool is_mod_row(int i) { return mod_row() && i == (int)rows().size(); }
+const char *ra2_enh_label(int i)
+{
+    if (is_mod_row(i)) return "Mod";
+    return i >= 0 && i < (int)rows().size() ? rows()[i].label : "";
+}
 const char *ra2_enh_help(int i)
 {
+    if (is_mod_row(i))
+        return mod_names.empty() ? (mod_restarts ? "No mods: put a mod's folder in a Mods folder. Restarts the game."
+                                                 : "No mods: put a mod's folder in a Mods folder. From the next start.")
+                                 : (mod_restarts ? "Game files from a folder in Mods; saves kept per mod. Restarts the game."
+                                                 : "Game files from a folder in Mods; saves kept per mod. From the next start.");
     if (i < 0 || i >= ra2_enh_rows())
         return "Native additions, not in the original. Each is off in the Original preset.";
     if (automatic(rows()[i])) return "Fullscreen follows the display here.";
     return rows()[i].help;
 }
-int ra2_enh_automatic(int i) { return i >= 0 && i < ra2_enh_rows() && automatic(rows()[i]); }
+int ra2_enh_automatic(int i) { return i >= 0 && i < (int)rows().size() && automatic(rows()[i]); }
 const char *ra2_enh_preset(void)
 {
     static std::string text;
@@ -219,22 +250,36 @@ void ra2_enh_begin(void)
     load();
     pending = current;
     pending["fullscreen"] = ra2_host_is_fullscreen() ? "on" : "off";
+    if (mod_row()) {
+        mod_names = mod_list();
+        // The mod running stays listed even when its folder has gone.
+        bool listed = mod_running.empty();
+        for (const std::string &n : mod_names) listed = listed || n == mod_running;
+        if (!listed) mod_names.insert(mod_names.begin(), mod_running);
+        pending["mod"] = mod_running;
+    }
 }
 // Each row's dropdown (link/native_enhancements.cpp): its values' names, the one chosen,
 // and a choice. An Automatic row has its one name and takes no choice.
 int ra2_enh_value_count(int i)
 {
+    if (is_mod_row(i)) return 1 + (int)mod_names.size();
     if (i < 0 || i >= ra2_enh_rows()) return 0;
     return automatic(rows()[i]) ? 1 : (int)rows()[i].values.size();
 }
 const char *ra2_enh_value_name(int i, int k)
 {
+    if (is_mod_row(i)) return k <= 0 ? "None" : k <= (int)mod_names.size() ? mod_names[k - 1].c_str() : "";
     if (i < 0 || i >= ra2_enh_rows() || k < 0 || k >= ra2_enh_value_count(i)) return "";
     if (automatic(rows()[i])) return "Automatic";
     return rows()[i].names[k].c_str();
 }
 int ra2_enh_value_index(int i)
 {
+    if (is_mod_row(i)) {
+        for (size_t k = 0; k < mod_names.size(); ++k) if (mod_names[k] == pending["mod"]) return (int)k + 1;
+        return 0;
+    }
     if (i < 0 || i >= ra2_enh_rows() || automatic(rows()[i])) return 0;
     const Row &r = rows()[i];
     std::string v = value_of(pending, r);
@@ -243,6 +288,10 @@ int ra2_enh_value_index(int i)
 }
 void ra2_enh_set_value(int i, int k)
 {
+    if (is_mod_row(i)) {
+        if (k >= 0 && k <= (int)mod_names.size()) pending["mod"] = k == 0 ? "" : mod_names[k - 1];
+        return;
+    }
     if (i < 0 || i >= ra2_enh_rows() || automatic(rows()[i])) return;
     const Row &r = rows()[i];
     if (k >= 0 && k < (int)r.values.size()) pending[r.key] = r.values[k];
@@ -252,6 +301,8 @@ void ra2_enh_accept(void)
 {
     bool full = pending["fullscreen"] == "on";
     pending.erase("fullscreen");
+    std::string mod = pending["mod"];
+    pending.erase("mod");
     current = pending;
     apply();
     if (!ra2_host_touch() && full != ra2_host_is_fullscreen()) ra2_host_set_fullscreen(full);
@@ -261,6 +312,11 @@ void ra2_enh_accept(void)
     fprintf(stderr, "enhancements: accepted vsync %s, scaling %s, interface %sx, map zoom %sx, menu fill %s, queue five %s, controls %s, fullscreen %s\n",
             current["vsync"].c_str(), current["scaling"].c_str(), current["uisize"].c_str(), current["mapzoom"].c_str(),
             current["menufill"].c_str(), current["queuefive"].c_str(), current["controls"].c_str(), full ? "on" : "off");
+    if (mod_row() && mod != mod_running) {
+        fprintf(stderr, "enhancements: mod %s chosen (running %s)\n", mod.empty() ? "none" : mod.c_str(),
+                mod_running.empty() ? "none" : mod_running.c_str());
+        if (mod_switch) mod_switch(mod.c_str());
+    }
 }
 // Queue five with Shift (lane C16): the game's sidebar asks at each production click
 // (link/native_queue_five.cpp). Off by default and in the Original preset.

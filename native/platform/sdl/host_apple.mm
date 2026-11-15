@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #include <TargetConditionals.h>
+#include <errno.h>
 #include <signal.h>
 #include <stdlib.h>
 #include <string.h>
@@ -92,6 +93,28 @@ bool start_crash_report(const char *self, const char *log)
     return child > 0;
 }
 bool crash_report_at_next_start() { return false; }
+bool relaunch(const char *self, const std::vector<std::string> &args)
+{
+    std::vector<char *> argv;
+    argv.push_back(const_cast<char *>(self));
+    for (const std::string &a : args) argv.push_back(const_cast<char *>(a.c_str()));
+    argv.push_back(nullptr);
+    char after[32];
+    snprintf(after, sizeof after, "--after-pid=%ld", (long)getpid());
+    argv.insert(argv.begin() + 1, after);
+    pid_t child = fork();
+    if (child == 0) {
+        setsid();       // not ended with this process's session
+        execv(self, argv.data());
+        _exit(1);
+    }
+    return child > 0;
+}
+bool relaunch_supported() { return true; }
+void wait_for_process(long pid)
+{
+    for (int i = 0; i < 200 && pid > 0 && (kill((pid_t)pid, 0) == 0 || errno == EPERM); ++i) usleep(50000);
+}
 
 void reveal_file(const char *path)
 {
@@ -190,6 +213,9 @@ std::string log_dir() { return user_dir(NSLibraryDirectory, "Logs/RA2Native"); }
 // No other processes on iOS: the next start shows the report.
 bool start_crash_report(const char *, const char *) { return false; }
 bool crash_report_at_next_start() { return true; }
+bool relaunch(const char *, const std::vector<std::string> &) { return false; }
+void wait_for_process(long) {}
+bool relaunch_supported() { return false; }
 void reveal_file(const char *) {}
 
 bool post_system_click(void *, double, double) { return false; }

@@ -30,8 +30,8 @@ import wine as winehost
 # dialog's Enhancements, the page's Game interface size dropdown (its arrow: the game's
 # dropdowns open on their rightmost pixels) and its 1.5x entry, the page's Ok (the column's
 # top slot), the Options dialog's Main Menu, then Single Player, Skirmish, Start Game
-# (build/routeA sk.script). The page's rows are 23 dialog units apart since it took ten rows
-# (lane C16): the dropdown sits at y 278 and its 1.5x entry at 332.
+# (build/routeA sk.script). The page's rows are 21 dialog units apart since it took eleven rows
+# (lane C16, Mod): the dropdown sits at y 272 and its 1.5x entry at 326.
 # Each click waits for its menu to settle ("s<k>": the k-th dialog shown and its slide-in
 # done, host.cpp), not a fixed time after an earlier dialog was shown: the Single Player
 # click had been timed from the Options dialog and landed while the main menu was still
@@ -41,8 +41,8 @@ import wine as winehost
 # fails on its time limit rather than checking the wrong game.
 SCRIPT = """s1+1000 click 834 472
 s2+1000 click 834 388
-s3+1000 click 588 278
-s3+2000 click 500 332
+s3+1000 click 588 272
+s3+2000 click 500 326
 s3+3000 click 834 304
 s4+1000 click 834 639
 s5+1000 click 834 304

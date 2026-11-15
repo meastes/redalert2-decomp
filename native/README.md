@@ -881,7 +881,7 @@ inside the game's own pacing); the Windows build under Wine (x86_64 under Rosett
 (10 ms at -O0); the iOS Simulator 2.5 ms (20.8 frames a second, 148 MB, as without). Shadows' 2x edges are closed (a 3x3 dilation then
 erosion of the four passes' union, the 1x render's own pixels kept) so they are solid, not checkered.
 
-### Mods (C16, level 1)
+### Mods (C16, levels 1 and 2)
 
 A mod is a folder of the game's own kinds of files: loose `rules.ini`, `art.ini`, string tables,
 shapes, `expand##.mix` (Ares/Phobos and other DLL mods are out of scope). `--mod=<name or folder>`
@@ -900,6 +900,22 @@ in a made-up installation; `native-mod-rules` (`tests/mod_rules.py`) has the gam
 RULES.INI (`RA2_NATIVE_HARNESS_DUMP_RULES`, `link/harness_mod.cpp`), makes a mod from it with the
 Grizzly's cost set to 1234, and checks the costs the game loads with the mod and without
 (`RA2_NATIVE_HARNESS_COST`).
+
+Level 2 (the app): the Enhancements page's last row, Mod, lists None and the folders in `Mods` in
+the app's support folder (Windows: `%APPDATA%\RA2Native\Mods`) and in the game folder (by name, the
+first spelling, sorted; `main.cpp` `mods_in`). The choice is saved in the app's settings (`mod=`)
+and used at each start without `--mod`; the presets leave it alone. A mod's writes (its saves,
+RA2.INI and the checkpoint) go to `Game/Mods/<name>` below the app's write folder, so each mod keeps
+its own saves and game settings, and None's stay in `Game`. A different mod at Ok starts the game
+again with it: the choice is saved, the app quits as Cmd+Q does and, at its quit, starts itself
+again with the same arguments (`hostos::relaunch`: fork and exec on the Mac, CreateProcess on
+Windows; the new process waits for the old one to end, `--after-pid`). iOS cannot start itself
+again: the choice is used at the next start, which a message says (importing mods on iOS is level
+3). The page took an eleventh row (rows 21 dialog units apart). ctest `native-mod-switch`
+(`tests/mod_switch.py`) runs the app three times with two mod folders: TestMod chosen on the row
+(saved, the app ends to start again; `RA2_NATIVE_NO_RELAUNCH=1` leaves the start to the test), the
+next start with TestMod and its writes in `Game/Mods/TestMod`, None chosen, then a start with no
+mod; `native-enhancements-settings` checks the row's values and switches.
 
 ### Original saves (C6, roadmap (d))
 

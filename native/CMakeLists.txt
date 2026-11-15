@@ -575,6 +575,12 @@ if(RA2_NATIVE_SDL)
                  --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
                  --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/mod-rules" ${ra2_wine_args_mods})
         set_tests_properties(native-mod-rules PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
+        #      Level 2: the Enhancements page's Mod row chooses a mod (and None again) across app
+        #      starts, each mod's writes in their own folder (tests/mod_switch.py).
+        add_test(NAME native-mod-switch COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/mod_switch.py"
+                 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/mod-switch" ${ra2_wine_args_modswitch})
+        set_tests_properties(native-mod-switch PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1000)
         # 13. Touch controls (C10): the app's movies, menus and a game with the touch controls on;
         #     Skip alone during a movie, the Keys button alone in the menus (its tap turns the
         #     keyboard on), the toolbar alone in play.

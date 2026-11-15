@@ -9,6 +9,7 @@
 #pragma once
 #include <stdint.h>
 #include <string>
+#include <vector>
 
 namespace hostos {
 
@@ -35,6 +36,13 @@ std::string log_dir();
 // the app shows the report at its next start (crash_report_at_next_start).
 bool start_crash_report(const char *self, const char *log);
 bool crash_report_at_next_start();
+// Starts this executable again with these arguments (lane C16: a new mod is used from a fresh
+// start); false where the platform cannot (iOS), when the app applies it at its next start.
+// The new process gets "--after-pid=<this process>" first and waits for it to end
+// (wait_for_process) before it opens its window.
+bool relaunch(const char *self, const std::vector<std::string> &args);
+void wait_for_process(long pid);
+bool relaunch_supported();
 // Shows a file in the system's file manager (macOS Finder; nothing on iOS).
 void reveal_file(const char *path);
 // A fault handler's context: the faulting instruction's address (false when the

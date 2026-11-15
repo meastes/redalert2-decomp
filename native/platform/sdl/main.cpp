@@ -30,6 +30,7 @@
 #include <sys/stat.h>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 #ifdef RA2_NATIVE_GAME
 // The recovered entry point (0x0068E280). Not yet in the tree: with
@@ -90,6 +91,51 @@ void save_app_settings()
 // The enhancements' settings (platform/sdl/enhancements.cpp): enh_* keys of this file,
 // never RA2.INI.
 std::string enhancement_get(const char *key) { return app_settings.get(key); }
+// Mods (lane C16, level 2): the game folder (for the Mods folder in it), this process's arguments
+// (a restart passes them on without --mod: the saved choice is used) and a restart asked for.
+std::string mods_data_dir;
+std::vector<std::string> restart_args;
+bool restart_wanted = false;
+std::vector<std::string> app_mods();
+void restart_if_wanted()
+{
+    if (!restart_wanted) return;
+    restart_wanted = false;
+    char self[2048];
+    snprintf(self, sizeof self, "%s", app::exe_path().c_str());
+    // RA2_NATIVE_NO_RELAUNCH=1 (tests): the choice is saved and the app ends, nothing started.
+    if (getenv("RA2_NATIVE_NO_RELAUNCH")) {
+        fprintf(stderr, "app: restarting for the mod: not started (RA2_NATIVE_NO_RELAUNCH)\n");
+        fflush(stderr);
+        return;
+    }
+    bool ok = hostos::relaunch(self, restart_args);
+    fprintf(stderr, "app: restarting for the mod: %s\n", ok ? "started" : "could not start");
+    fflush(stderr);
+}
+// The host's quit (_exit after this, no atexit handlers): the settings saved, then a restart asked for.
+void save_and_restart()
+{
+    save_app_settings();
+    restart_if_wanted();
+}
+// The Mod row's choice: saved, then the app starts again with it (where it can; iOS: at the next start).
+void switch_mod(const char *name)
+{
+    app_settings.values["mod"] = name ? name : "";
+    app_settings.save();
+    if (hostos::relaunch_supported()) {
+        restart_wanted = true;
+        SDL_Event quit = {};
+        quit.type = SDL_EVENT_QUIT;
+        SDL_PushEvent(&quit);
+        fprintf(stderr, "app: mod %s chosen: restarting\n", name && *name ? name : "none");
+    } else {
+        fprintf(stderr, "app: mod %s chosen: used at the next start\n", name && *name ? name : "none");
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Mod",
+                                 "The mod you chose is used the next time you open Red Alert 2.", app_window);
+    }
+}
 void enhancement_set(const char *key, const char *value)
 {
     app_settings.values[key] = value;
@@ -101,6 +147,8 @@ void enhancement_set(const char *key, const char *value)
 #include <string>
 extern "C" int ra2_enh_sidebar_height(int screen_height);   // platform/sdl/enhancements.cpp
 void ra2_enhancements_store(std::string (*get)(const char *), void (*set)(const char *, const char *));
+void ra2_enhancements_mods(std::vector<std::string> (*list)(), const char *running, void (*switch_to)(const char *),
+                           bool restarts);
 #endif
 
 #ifdef RA2_NATIVE_GAME
@@ -129,6 +177,26 @@ static std::string child_any_case(const std::string &dir, const std::string &nam
     }
     return std::string();
 }
+// The mods to choose from (lane C16, level 2: the Enhancements row "Mod"): the folders in Mods in
+// the app's support folder and in the game folder, by name (the first spelling of a name), sorted.
+static std::vector<std::string> mods_in(const std::vector<std::string> &roots)
+{
+    std::vector<std::string> names;
+    for (const std::string &root : roots) {
+        std::string mods = child_any_case(root, "Mods");
+        DIR *d = mods.empty() ? nullptr : opendir(mods.c_str());
+        if (!d) continue;
+        while (struct dirent *e = readdir(d)) {
+            if (e->d_name[0] == '.' || !is_dir(mods + "/" + e->d_name)) continue;
+            bool listed = false;
+            for (const std::string &n : names) listed = listed || !strcasecmp(n.c_str(), e->d_name);
+            if (!listed) names.push_back(e->d_name);
+        }
+        closedir(d);
+    }
+    std::sort(names.begin(), names.end(), [](const std::string &a, const std::string &b) { return strcasecmp(a.c_str(), b.c_str()) < 0; });
+    return names;
+}
 static std::string find_mod(const char *mod, const char *data)
 {
     std::string m = mod;
@@ -146,6 +214,17 @@ static std::string find_mod(const char *mod, const char *data)
     }
     return std::string();
 }
+
+#ifdef RA2_APP_MODE
+namespace {
+std::vector<std::string> app_mods()
+{
+    std::vector<std::string> roots = {app::support_dir()};
+    if (!mods_data_dir.empty()) roots.push_back(mods_data_dir);
+    return mods_in(roots);
+}
+}
+#endif
 
 int main(int argc, char **argv)
 {
@@ -206,6 +285,12 @@ int main(int argc, char **argv)
         // --mod=<name or folder> (lane C16, mod support level 1; RA2_NATIVE_MOD the same): the
         // mod's folder is read ahead of the installation (ra2port::set_mod_dir).
         else if (!strncmp(argv[i], "--mod=", 6)) mod = argv[i] + 6;
+#ifdef RA2_APP_MODE
+        // --after-pid=<pid> (lane C16, mods level 2): a restart for a new mod waits for the app
+        // that started it to end (hostos::relaunch).
+        else if (!strncmp(argv[i], "--after-pid=", 12)) hostos::wait_for_process(atol(argv[i] + 12));
+        if (strncmp(argv[i], "--mod=", 6) && strncmp(argv[i], "--after-pid=", 12)) restart_args.push_back(argv[i]);
+#endif
     }
 #ifdef RA2_APP_MODE
     bool app_mode = app_flag || (app::in_bundle() && !run_to && !skirmish && !smoke);
@@ -288,15 +373,39 @@ int main(int argc, char **argv)
         data = data_dir_kept.c_str();
         setenv("RA2_GAME_EXE", exe.c_str(), 1);
         fprintf(stderr, "app: game folder %s, game.exe %s\n", folder.c_str(), exe.c_str());
-        // Writes (RA2.INI, saved games) beside the settings, never into the installation.
+        // Mods (lane C16, level 2): without --mod or RA2_NATIVE_MOD, the one chosen on the
+        // Enhancements page (the settings' "mod"); its saves and RA2.INI have their own folder.
+        mods_data_dir = folder;
+        static std::string saved_mod, mod_found, mod_name;
+        if (!mod || !*mod) {
+            saved_mod = app_settings.get("mod");
+            mod = saved_mod.c_str();
+        }
+        if (mod && *mod) {
+            mod_found = find_mod(mod, data);
+            if (mod_found.empty()) {
+                fprintf(stderr, "mod: %s not found (a folder, or Mods/%s in the app's folder or the game folder); none used\n", mod, mod);
+            } else {
+                size_t slash = mod_found.find_last_of('/');
+                mod_name = slash == std::string::npos ? mod_found : mod_found.substr(slash + 1);
+                ra2port::set_mod_dir(mod_found.c_str());
+                fprintf(stderr, "mod: %s from %s\n", mod_name.c_str(), mod_found.c_str());
+            }
+            mod = nullptr;      // resolved here
+        }
+        ra2_enhancements_mods(app_mods, mod_name.c_str(), switch_mod, hostos::relaunch_supported());
+        atexit(restart_if_wanted);
+        // Writes (RA2.INI, saved games) beside the settings, never into the installation; a
+        // mod's in Mods/<name> below them.
         if (!write_dir) {
             static std::string game_writes;
             game_writes = app::game_write_dir();
+            if (!mod_name.empty()) game_writes += "/Mods/" + mod_name;
             app::make_dirs(game_writes);
             ra2port::set_write_dir(game_writes.c_str());
             fprintf(stderr, "app: writes go to %s\n", game_writes.c_str());
         }
-        ra2_sdl_host_options(true, app_settings.get("fullscreen") == "1", save_app_settings);
+        ra2_sdl_host_options(true, app_settings.get("fullscreen") == "1", save_and_restart);
         ra2_enhancements_store(enhancement_get, enhancement_set);
         atexit(save_app_settings);
         if (hostos::imports_game_files() && app_window) {
