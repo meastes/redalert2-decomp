@@ -683,21 +683,15 @@ void release_76bb00(void *block) { Free_Memory_00781d3b(block); }
 void release_76d5b0(void *block) { Free_Memory_00781d3b(block); }
 // storage_<addr>, allocate_storage_<addr>, allocate_words_<addr>: the seed vectors' buffer
 // allocation through the CRT operator new (byte count).
-void *allocate_storage_0046d1f0(unsigned int byte_count) { return ::operator new(byte_count); }
-void *allocate_storage_004faa90(unsigned int byte_count) { return ::operator new(byte_count); }
-void *allocate_storage_004fae60(unsigned int byte_count) { return ::operator new(byte_count); }
-void *allocate_storage_004fb230(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_storage_0050b480(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_storage_0058e170(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_storage_005b95c0(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_storage_005cd770(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_storage_0061ac80(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_storage_0061af90(unsigned int byte_count) { return ::operator new(byte_count); }
-void *allocate_storage_00653340(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_storage_00653730(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_storage_00653a40(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_storage_006634e0(unsigned int byte_count) { return ::operator new(byte_count); }
-void *allocate_storage_006c03e0(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_storage_007246d0(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_words_0046ce20(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_words_004f6f30(unsigned int byte_count) { return ::operator new(byte_count); }
