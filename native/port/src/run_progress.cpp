@@ -78,6 +78,11 @@ long elapsed_ms()
         std::chrono::steady_clock::now() - state().start).count();
 }
 
+}  // namespace
+}  // namespace ra2port
+extern "C" int ra2port_last_frame(void);   // below
+namespace ra2port {
+namespace {
 void summary_locked(const char *stop)
 {
     State &s = state();
@@ -96,6 +101,9 @@ void summary_locked(const char *stop)
     }
     fprintf(stderr, "run-to: target %s; stopped: %s after %ld ms; furthest milestone: %s\n",
             s.target.c_str(), stop, elapsed_ms(), furthest >= 0 ? last.c_str() : "(none)");
+    // The game frames run (lane C16: a run stopped by its time limit says how far the game got,
+    // so a test tells a slow machine from a stall).
+    fprintf(stderr, "run-to:   frames run %d\n", ra2port_last_frame());
     for (auto &r : s.reached)
         fprintf(stderr, "run-to:   milestone %-9s %s\n", r.first.c_str(), r.second.c_str());
     for (auto &c : s.counters) {

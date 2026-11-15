@@ -17,7 +17,10 @@ half drawn (C5).
 The settled menu still animates (the button column's lights) on a wall clock, so two
 runs never dump the same animation frame at the same moment. The animated pixels are
 measured, not assumed: the 16x16 tiles (and their neighbours) holding a pixel that differs
-between any two settled frames of the default run itself. Outside them:
+between any two settled frames of the default run itself or of the ORIGINAL run itself (lane C16:
+under load the ORIGINAL run's first compared frame still had a button's tail sliding in, in the
+dialog area, where the default run's frames had already settled; a pixel that changes within one
+run is animation, a difference that stays is not). Outside them:
   - the ORIGINAL run (RA2_NATIVE_ENHANCEMENTS=preset=original) must equal the default
     run (no settings) byte for byte, in every settled frame;
   - the ENHANCED run must differ (so the comparison can see the scaling at all).
@@ -109,7 +112,7 @@ def main():
     ap.add_argument('--data-dir', default='')
     ap.add_argument('--game-exe', default='')
     ap.add_argument('--work', required=True)
-    ap.add_argument('--settle-ms', type=int, default=5000, help='time on the main menu after it settled (the last frames are compared)')
+    ap.add_argument('--settle-ms', type=int, default=7000, help='time on the main menu after it settled (the last frames are compared)')
     ap.add_argument('--compare', type=int, default=6, help='settled frames compared from each run (the last ones)')
     ap.add_argument('--seconds', type=int, default=120)
     ap.add_argument('--wine-prefix', default='', help='run the Windows .exe under Wine in this fresh prefix')
@@ -151,9 +154,10 @@ def main():
             bad.append('the runs dumped windows of different sizes')
         else:
             d = frames['default']
-            for i in range(len(d)):
-                for j in range(i + 1, len(d)):
-                    animated |= differing(d[i][3], d[j][3], bpp)
+            for one in (d, frames["original"]):
+                for i in range(len(one)):
+                    for j in range(i + 1, len(one)):
+                        animated |= differing(one[i][3], one[j][3], bpp)
             # Each animation runs through more states than a few frames show: the 16x16 tiles
             # holding an animated pixel, and their neighbours, are left out as a whole.
             tiles = {(x // 16 + dx, y // 16 + dy) for x, y in animated for dx in (-1, 0, 1) for dy in (-1, 0, 1)}
