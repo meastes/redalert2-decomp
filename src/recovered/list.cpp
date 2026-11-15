@@ -702,13 +702,13 @@ void ListClass::Draw_Entry(int index, int x, int y, int width, int selected)
 
     if (selected) {
         flags |= 0x2000;
-        unknown_surface_83995c->Fill_Rect(Rect(x, y, width, LineHeight),
-                                          unknown_drawer_8323c4->Convert(ColorSchemes[scheme]->unknown_color_0x31c));
+        LogicalSurface->Fill_Rect(Rect(x, y, width, LineHeight),
+                                          NormalDrawer->Convert(ColorSchemes[scheme]->unknown_color_0x31c));
     } else if (!(flags & 0x4000)) {
         flags |= 0x1000;
     }
     Point2D point(x, y);
-    Fancy_Clip_Text_Print(List[index], unknown_surface_83995c, &unknown_surface_83995c->Get_Rect(), &point,
+    Fancy_Clip_Text_Print(List[index], LogicalSurface, &LogicalSurface->Get_Rect(), &point,
                           ColorSchemes[scheme], 0, flags, width, Tabs);
 }
 

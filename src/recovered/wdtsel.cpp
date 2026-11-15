@@ -853,7 +853,7 @@ bool __fastcall Selection::Choose_Conflict(rc_ptr<Campaign> const &campaign, int
     bool chosen = territory.Get() != 0;
     if (chosen) {
         unknown_session_a3d2a0 = territory->Index;
-        rc_ptr<WDTTerritory> settings = Unknown_Territory_00769690(unknown_session_a3d2a0);
+        rc_ptr<WDTTerritory> settings = Find_WDT_Territory(unknown_session_a3d2a0);
         if (settings.Get()) {
             unknown_session_a3d298.UnitCount = settings->UnitCount;
             BuildLevel = settings->TechLevel;
@@ -894,7 +894,7 @@ void Selection::Start_Theme()
     WWMouse->Hide_Mouse();
     AlternateSurface->Fill(0);
     HiddenSurface->Fill(0);
-    unknown_surface_839950->Copy_From(*HiddenSurface, false, true);
+    VisibleSurface->Copy_From(*HiddenSurface, false, true);
     WWKeyboard->Clear();
     TheMap->unknown_72a620(this, &TheVoices);
     while (WWMouse->Get_Mouse_State() < 0) {

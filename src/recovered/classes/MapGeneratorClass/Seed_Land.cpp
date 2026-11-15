@@ -14,7 +14,7 @@ extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
 // @ref ?unknown_map_regions_a6fd28@@3V?$DynamicVectorClass@PAVMapRegionClass@@@@A=00a6fd28
 // @ref ??1MapRegionClass@@QAE@XZ=0056d970
 // @ref ?Seed_Land@MapGeneratorClass@@=0057bea0
-// @ref ?unknown_0057c4f0@MapGeneratorClass@@=0057c4f0
+// @ref ?Seed_Land_Type0@MapGeneratorClass@@=0057c4f0
 // @ref ?Seed_Land_Type1@MapGeneratorClass@@=0057c780
 // @ref ?Seed_Land_Type2@MapGeneratorClass@@=0057c9e0
 // @ref ?Unknown_0055C2C0@MapClass@@=0055c2c0
@@ -37,7 +37,7 @@ void MapGeneratorClass::Seed_Land()
         cell=Map.Iterate();
     }
     switch(SeedData.MapType) {
-    case 0: unknown_0057c4f0();break;
+    case 0: Seed_Land_Type0();break;
     case 1: Seed_Land_Type1();break;
     case 2: Seed_Land_Type2();break;
     }
@@ -47,7 +47,7 @@ void MapGeneratorClass::Seed_Land()
         if(cell->IsoTileIndex==unknown_tileset_a52580) {
             bool surrounded=true;
             for(int direction=0;direction<8;direction+=2) {
-                if(!cell->Adjacent_Cell(direction).unknown_47b590())surrounded=false;
+                if(!cell->Adjacent_Cell(direction).Is_Tile_Clear())surrounded=false;
             }
             if(surrounded)cell->IsoTileIndex=0;
         }
@@ -71,7 +71,7 @@ void MapGeneratorClass::Seed_Land()
         if(cell->unknown_47b7c0()) {
             for(int direction=0;direction<8;direction+=2) {
                 CellClass &neighbor=cell->Adjacent_Cell(direction);
-                if(neighbor.unknown_47b590())neighbor.IsoTileIndex=unknown_tileset_a52c60;
+                if(neighbor.Is_Tile_Clear())neighbor.IsoTileIndex=unknown_tileset_a52c60;
             }
         }
         cell=Map.Iterate();

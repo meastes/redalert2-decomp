@@ -191,8 +191,8 @@ void UnitTypeClass::One_Time()
         unknown_surface_ad0604 = new BSurface(256, 256, 1);
         unknown_surface_ad0604->Fill(0);
     }
-    if (unknown_drawer_ad0608 == 0) {
-        unknown_drawer_ad0608 = new ConvertClass(GamePalette, GamePalette, unknown_surface_ad0604, 1, false);
+    if (EightBitDrawer == 0) {
+        EightBitDrawer = new ConvertClass(GamePalette, GamePalette, unknown_surface_ad0604, 1, false);
     }
     VisceroidSmallShape = MixFileClass::Retrieve("VISC_SML.SHP");
     VisceroidLargeShape = MixFileClass::Retrieve("VISC_LRG.SHP");

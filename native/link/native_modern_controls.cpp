@@ -138,7 +138,7 @@ bool Tap_Selects_Across_Houses(ObjectClass *object, int action)
 {
     if ((action != 1 && action != 2) || !ra2_host_touch_click() || In_Mode() || Held(kCtrl) || Held(kAlt) || Held(kShift))
         return false;
-    if (!Selectable(object) || object->unknown_77 || !object->AbstractFlags.IsTechno || unknown_objects_a40c60.Count() == 0)
+    if (!Selectable(object) || object->unknown_77 || !object->AbstractFlags.IsTechno || CurrentObject.Count() == 0)
         return false;
     HouseClass *house = object->Owning_House();
     if (house == 0 || !house->Is_Player_Control()) return false;
@@ -184,7 +184,7 @@ int Native_Modern_Left_Up(Cell const &cell, ObjectClass *&object, int action)
         return kNone;
     }
     if (shift) return kToggleSelect;
-    if (object->unknown_77 && unknown_objects_a40c60.Count() > 1) return kSelect;   // the group becomes this one
+    if (object->unknown_77 && CurrentObject.Count() > 1) return kSelect;   // the group becomes this one
     return kNone;    // selects it unless selected (Mouse_Left_Release's action 0)
 }
 
@@ -196,7 +196,7 @@ void Native_Modern_Left_Done()
     type_select = 0;
     if (object == 0) return;
     Unknown_006F71E0(object->Class_Of()->ID);
-    fprintf(stderr, "modern-controls: double click: %d selected\n", unknown_objects_a40c60.Count());
+    fprintf(stderr, "modern-controls: double click: %d selected\n", CurrentObject.Count());
 }
 
 // The right button released over the map (WM_RBUTTONUP): true when Modern takes it as an
@@ -224,7 +224,7 @@ void (__fastcall *Native_Modern_Band_Walk(void (__fastcall *select)(ObjectClass 
     // A dry run over the band (the walk clears its corner: put it back for the real one).
     Point2D start = TacticalMap->RubberBandStart;
     band_objects = band_unselected = 0;
-    TacticalMap->Unknown_006AA610(Count_Band);
+    TacticalMap->Select_Rubber_Band(Count_Band);
     TacticalMap->RubberBandStart = start;
     if (band_objects > 0 && band_unselected == 0) {
         fprintf(stderr, "modern-controls: shift band: %d selected objects unselected\n", band_objects);

@@ -554,7 +554,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
                 Send_Game_Options_005c3c60("K1");
             }
         }
-        Unknown_005c7570(Find_Lobby_Window_005c2c40());
+        Update_Network_Dialog_Preview(Find_Lobby_Window_005c2c40());
     }
     if (digest == 0) {
         Unknown_005C2C80(-1, L"Gameopt parse failed");

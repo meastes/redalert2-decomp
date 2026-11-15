@@ -4,8 +4,8 @@
     "id": "population-4337",
     "inventory_sha256": "d6d02805cd37e826b934aa58d648a7ffe1317e0bee5f810b3bf1d0dce5e06892",
     "gaps_sha256": "87a0e05641f30277e6de220b0cec1e14698b772597b4cd08c002c8551d3ae009",
-    "historical_population_sha256": "dc880ba7e28a35319a344cc7c51527e37656fbeba8749b77a0dc7eefb21e5848",
-    "historical_acceptance_sha256": "4d113b0a23f5ce624b86b5b35f09f7373cdcb68c647f2caae37adecf6705622c"
+    "historical_population_sha256": "10ce9d50f918ea6e5922be62ba16f5d5a00830898afda4bb999d64c7417b3543",
+    "historical_acceptance_sha256": "ecb74c647ce22a2d602cd8de278a9b190c73e062ca87a24883c2fa2e2a428285"
   },
   "references": {
     "?unknown_value_8523e0@@3HA": 8725472,
@@ -1775,7 +1775,7 @@
     "?Size@ShipLocomotionClass@@UAEHXZ": 6794112,
     "?Size@TeleportLocomotionClass@@UAEHXZ": 7216096,
     "?Size@TunnelLocomotionClass@@UAEHXZ": 7279520,
-    "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z": 7281408,
+    "?Inflate_Rect@@YIXPAVRect@@H@Z": 7281408,
     "??_GVeinholeMonsterClass@@UAEPAXI@Z": 7415600,
     "??1VeinholeMonsterClass@@UAE@XZ": 7405040,
     "?Size@WalkLocomotionClass@@UAEHXZ": 7470640,
@@ -2012,7 +2012,7 @@
     "?Draw_Line@RadBeam@@QAEXABUCoordStruct@@0F@Z": 6510608,
     "_?unknown@?3??Faction_Name@@YIABVWstring@@H@Z@4V2@A": 11709704,
     "_?unknown@?3??Faction_Code@@YIABVWstring@@H@Z@4V2@A": 11709652,
-    "_?pattern@?1??unknown_6cc020@TechnoClass@@QAEXXZ@4PA_NA": 8352020,
+    "_?pattern@?1??Draw_Target_Laser@TechnoClass@@QAEXXZ@4PA_NA": 8352020,
     "?Reset@BooleanVectorClass@@QAEXXZ": 7402240,
     "?Reset@VoxelDrawSystem@@YAXXZ": 7434704,
     "_?entry@?1??Get_Image_0068ca40@SurfaceCacheClass@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,

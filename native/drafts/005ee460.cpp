@@ -489,7 +489,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 						if (unknown_tooltip_a737f0.shown_114 && unknown_tooltip_a737f0.drawn_118 != 1 && unknown_tooltip_a737f0.surface_10 != 0) {
 							Rect drect = unknown_tooltip_a737f0.rect_00;
 							Rect srect(0, 0, unknown_tooltip_a737f0.rect_00.Width, unknown_tooltip_a737f0.rect_00.Height);
-							unknown_surface_839950->Copy_From(drect, *unknown_tooltip_a737f0.surface_10, srect, false, true);
+							VisibleSurface->Copy_From(drect, *unknown_tooltip_a737f0.surface_10, srect, false, true);
 							unknown_tooltip_a737f0.drawn_118 = true;
 							show_tooltip = true;
 						}
@@ -659,11 +659,11 @@ cleanup:
                     }
                     Rect whole(min_update_rect.x, min_update_rect.y, max_update_rect.x - min_update_rect.x, max_update_rect.y - min_update_rect.y);
                     destination = Offset_Rect(whole, offset_x, offset_y);
-                    unknown_surface_839950->Lock();
+                    VisibleSurface->Lock();
                     AlternateSurface->Lock();
-                    unknown_surface_839950->Copy_From(destination, *AlternateSurface, whole, false, true);
+                    VisibleSurface->Copy_From(destination, *AlternateSurface, whole, false, true);
                     AlternateSurface->Unlock();
-                    unknown_surface_839950->Unlock();
+                    VisibleSurface->Unlock();
                     WolArrayList<HWND> children;
                     EnumChildWindows(window, (WNDENUMPROC)unknown_add_window_5ff430, (LPARAM)&children);
                     HWND child = 0;
@@ -679,11 +679,11 @@ cleanup:
                         Unknown_Rect_Shrink_006F1B30(&source, -1, -1);
                         Unknown_Rect_Shrink_006F1B30(&destination, -1, -1);
                     }
-                    unknown_surface_839950->Lock();
+                    VisibleSurface->Lock();
                     AlternateSurface->Lock();
-                    unknown_surface_839950->Copy_From(destination, *AlternateSurface, source, false, true);
+                    VisibleSurface->Copy_From(destination, *AlternateSurface, source, false, true);
                     AlternateSurface->Unlock();
-                    unknown_surface_839950->Unlock();
+                    VisibleSurface->Unlock();
                 }
             }
             min_update_rect.x = 0xFFFFFF;

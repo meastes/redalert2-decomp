@@ -140,8 +140,8 @@ int __fastcall Skirmish_Message_497(HWND dialog, WPARAM wparam, LPARAM lparam)
         if (MultiplayerMapPreview) delete MultiplayerMapPreview;
         MultiplayerMapPreview = new MapPreviewClass;
         MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
-        if (!MultiplayerMapPreview->unknown_00) Unknown_005c7570(dialog);
-    } else Unknown_005c7570(dialog);
+        if (!MultiplayerMapPreview->unknown_00) Update_Network_Dialog_Preview(dialog);
+    } else Update_Network_Dialog_Preview(dialog);
     return 0;
 }
 

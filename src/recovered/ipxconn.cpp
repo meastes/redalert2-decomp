@@ -408,21 +408,21 @@ int IPXConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address, unsig
     CommHeaderType *header = (CommHeaderType *)buf;
     if (!flagged && unknown_flag_a3fba8) {
         if (header->unknown_03 == 0) {
-            unsigned char target = unknown_OwnerTalkClass_00ab6d18.Unknown_0063F4C0(ID);
+            unsigned char target = OwnerTalk.Unknown_0063F4C0(ID);
             if (!target) {
                 return 0;
             }
             header->unknown_03 = target;
         }
         dest = unknown_forward_address_a3fbac;
-        port = unknown_port_7f60dc;
+        port = LoopbackPort;
         if (unknown_forward_address_a3fbb8 == unknown_players_a3fa7c[0]->Address
             && dest.Is_Same_Node(unknown_players_a3fa7c[0]->Address)) {
             header->unknown_0c = 0;
             memset(&header->unknown_08, 0, sizeof(header->unknown_08));
         } else {
             port = unknown_forward_port_a3fbc4;
-            header->unknown_0c = unknown_port_7f60dc;
+            header->unknown_0c = LoopbackPort;
             memset(&header->unknown_08, 0, sizeof(header->unknown_08));
         }
     } else {
@@ -431,7 +431,7 @@ int IPXConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address, unsig
     }
 
     if (unknown_game_mode_a3d298 == 4 && !unknown_flag_a3fba8) {
-        int index = unknown_ipx_manager_a40978.unknown_slot19(this);
+        int index = Ipx.unknown_slot19(this);
         switch (index) {
             case -4:
                 if ((unsigned short)unknown_forward_port_a3fbc4) {
@@ -447,8 +447,8 @@ int IPXConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address, unsig
                     if ((unsigned short)unknown_forward_port_a3fbc4) {
                         port = unknown_forward_port_a3fbc4;
                     }
-                } else if (index >= 0 && index < unknown_ipx_manager_a40978.Num_Connections()) {
-                    port = unknown_session_a3d298.Unknown_00672F50(unknown_ipx_manager_a40978.Connection_ID(index));
+                } else if (index >= 0 && index < Ipx.Num_Connections()) {
+                    port = unknown_session_a3d298.Player_Port(Ipx.Connection_ID(index));
                 }
                 break;
         }

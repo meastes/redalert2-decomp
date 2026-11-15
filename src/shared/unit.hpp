@@ -164,7 +164,7 @@ public:
     bool Flag_Attach(int arg1);                                    // 0x007049C0
     void APC_Close_Door();                                            // 0x00704A80 (restarts the +0x2A8 change over the type's DeployTime; AI and slot 95 expand it inline)
     void APC_Open_Door();                                            // 0x00704AA0
-    bool unknown_709790(Cell const *from, Cell const *to);   // 0x00709790 (hypothesis: whether a trip should use the path estimator)
+    bool AStarAttempt(Cell const *from, Cell const *to);   // 0x00709790 (hypothesis: whether a trip should use the path estimator)
 #ifdef RA2_UNIT_PLAN_ROUTE
     AbstractClass *Plan_Route_00707f60(AbstractClass *target);   // 0x00707F60 (YR UnitClass::Plan_Route 0x007447B0: splits a trip at bridge ends)
 #endif
@@ -175,7 +175,7 @@ public:
     void unknown_6fbf40();                                            // 0x006FBF40 (hypothesis: an idle shuffle of an unmoving unit)
     void unknown_6fb890();                                            // 0x006FB890 (hypothesis: turret and body turning toward the target)
     void unknown_6fbc90();                                            // 0x006FBC90 (hypothesis: acts on the answer of slot 218 for the target)
-    bool unknown_7013a0();                                            // 0x007013A0 (hypothesis: one step of harvesting)
+    bool Harvesting();                                            // 0x007013A0 (hypothesis: one step of harvesting)
     bool unknown_6fd930();                                            // 0x006FD930 (slot 132: may start deploying)
     bool unknown_6fdfc0();                                            // 0x006FDFC0 (slot 132: deploy check)
     int unknown_707130();                                             // 0x00707130 (the value of the stored load scaled by the owner; inlined everywhere)

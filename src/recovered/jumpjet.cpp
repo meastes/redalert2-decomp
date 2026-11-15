@@ -167,7 +167,7 @@ bool __stdcall JumpjetLocomotionClass::Process()
         if (!LinkedTo->IsActive) {
             return false;
         }
-        if (LinkedTo->House->Unknown_0051FC80() && unknown_4c != 0 && unknown_4c != 5) {
+        if (LinkedTo->House->Ion_Sensitives_Should_Be_Offline() && unknown_4c != 0 && unknown_4c != 5) {
             LinkedTo->unknown_slot224(0);
         }
         if (LinkedTo->unknown_37d && unknown_4c != 5 && unknown_4c != 6 && LinkedTo->Get_Height_AGL() > 0) {
@@ -194,10 +194,10 @@ bool __stdcall JumpjetLocomotionClass::Process()
             unknown_530550();
             break;
         case 5:
-            unknown_530940();
+            Process_Crashing();
             break;
         case 6:
-            unknown_530ad0();
+            Process_Unknown();
             break;
         }
         if (LinkedTo->unknown_77 && LinkedTo->House != unknown_player_a35db4) {
@@ -358,7 +358,7 @@ void JumpjetLocomotionClass::unknown_52fca0()
         unknown_68 = 0;
         unknown_70 = 0;
         unknown_78 = Height;
-        if (!LinkedTo->House->Unknown_0051FC80()) {
+        if (!LinkedTo->House->Ion_Sensitives_Should_Be_Offline()) {
             if (LinkedTo->unknown_slot178() == unknown_geometry_k) {
                 AircraftTracker.Unknown_004131E0(LinkedTo);
             }
@@ -451,10 +451,10 @@ void JumpjetLocomotionClass::unknown_52fff0()
             if (LinkedTo->unknown_228 == 0) {
                 if (LinkedTo->Techno_Type_Class()->BalloonHover) {
                     unknown_4c = 2;
-                    LinkedTo->unknown_6d1470();
+                    LinkedTo->Next_Planning_Node();
                 } else {
                     unknown_4c = 4;
-                    LinkedTo->unknown_6d1470();
+                    LinkedTo->Next_Planning_Node();
                 }
             }
         } else {
@@ -509,7 +509,7 @@ void JumpjetLocomotionClass::unknown_530180()
         if (LinkedTo->unknown_228 == 0 && !balloon) {
             unknown_78 = 0;
             unknown_4c = 4;
-            LinkedTo->unknown_6d1470();
+            LinkedTo->Next_Planning_Node();
         } else {
             if (AircraftTracker.Unknown_004132E0(LinkedTo)) {
                 int facing = Random_Pick(0, 7);
@@ -631,14 +631,14 @@ void JumpjetLocomotionClass::unknown_530550()
 }
 
 
-// void JumpjetLocomotionClass::unknown_530940() (0x00530940)
+// void JumpjetLocomotionClass::Process_Crashing() (0x00530940)
 // Process state 5 (crashing): the object sinks by JumpjetCrash and turns
 // (+0x2D00 a step); on the map it is moved to the new coordinate. Once on
 // the ground (slot 108 at most 0) its cell claim is released, the arrival
 // tracker is told, the speed (+0x70) cleared, the state set to 6 and the
 // object notified (0x117C).
 
-void JumpjetLocomotionClass::unknown_530940()
+void JumpjetLocomotionClass::Process_Crashing()
 {
     CoordStruct coord = LinkedTo->Coord;
     coord.Z -= Crash;
@@ -667,11 +667,11 @@ void JumpjetLocomotionClass::unknown_530940()
 }
 
 
-// void JumpjetLocomotionClass::unknown_530ad0() (0x00530AD0)
+// void JumpjetLocomotionClass::Process_Unknown() (0x00530AD0)
 // Process state 6: the routine has no code. Process expands it (its jump
 // table keeps the case 6 entry at the switch exit); this copy is unreferenced.
 
-void JumpjetLocomotionClass::unknown_530ad0()
+void JumpjetLocomotionClass::Process_Unknown()
 {
 }
 
@@ -724,7 +724,7 @@ void JumpjetLocomotionClass::unknown_530b00()
         ground+=unknown_geometry_j;
     int difference;
     if (unknown_4c!=4 && unknown_4c!=0 && (!at_destination || LinkedTo->Techno_Type_Class()->BalloonHover))
-        difference=height-unknown_531140();
+        difference=height-Desired_Flight_Level();
     else difference=height-ground;
     bool moved=false;
     if (difference<desired_height) {
@@ -752,7 +752,7 @@ void JumpjetLocomotionClass::unknown_530b00()
         if (difference<desired_height/4) unknown_68=0;
     }
     if (moved) {
-        LinkedTo->unknown_func_5d4920(height);
+        LinkedTo->Set_Height(height);
         if (need_mark) LinkedTo->Mark(0);
     }
     CoordStruct start=Object_Coord(LinkedTo);
@@ -761,7 +761,7 @@ void JumpjetLocomotionClass::unknown_530b00()
     LinkedTo->Set_Coord(next);
     BuildingClass *building=static_cast<BuildingClass *>(Map[next].Cell_Building());
     if (building && building->Type->FirestormWall && building->House->unknown_142)
-        building->unknown_450cb0(LinkedTo,true);
+        building->Crossing_Firestorm(LinkedTo,true);
     LinkedTo->unknown_2e0.Set(unknown_50.Current());
     if (need_mark) LinkedTo->Mark(1);
     else LinkedTo->unknown_74=was_down;
@@ -787,13 +787,13 @@ CoordStruct JumpjetLocomotionClass::unknown_5310a0(CoordStruct const &coord)
 }
 
 
-// int JumpjetLocomotionClass::unknown_531140() (0x00531140)
+// int JumpjetLocomotionClass::Desired_Flight_Level() (0x00531140)
 // The ground height to hold: the cell top under the object (plus the bridge
 // height on a bridge cell); with speed (+0x68 above zero) also the cell one
 // step ahead in the current facing (+0x50): the higher of the two when the
 // ahead cell is higher, else their mean.
 
-int JumpjetLocomotionClass::unknown_531140()
+int JumpjetLocomotionClass::Desired_Flight_Level()
 {
     CoordStruct coord = LinkedTo->Coord;
     int height = Map[coord].Occupier_Height();

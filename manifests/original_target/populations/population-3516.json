@@ -4,8 +4,8 @@
     "id": "population-3516",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "829b55c90a8075624b681b32ce90b46085e540666fa450f9e96e8410995879d6",
-    "historical_acceptance_sha256": "c6d4f5d5da272bde3e4ef29ce84490b0c8a1a2fa38705680d4029d69e199b0bf"
+    "historical_population_sha256": "c356f8560ab0ab7ca4d33419b3953c8cec93bbb479435d318d0dc2d63c9b7d9f",
+    "historical_acceptance_sha256": "773626b40aa6d10f0d40c1dc29c3203ece23aadbad1f8c1c59cdd2ed5762ba40"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -61,7 +61,7 @@
     "?Size@ShipLocomotionClass@@UAEHXZ": 6794112,
     "?Size@TeleportLocomotionClass@@UAEHXZ": 7216096,
     "?Size@TunnelLocomotionClass@@UAEHXZ": 7279520,
-    "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z": 7281408,
+    "?Inflate_Rect@@YIXPAVRect@@H@Z": 7281408,
     "??_GVeinholeMonsterClass@@UAEPAXI@Z": 7415600,
     "??1VeinholeMonsterClass@@UAE@XZ": 7405040,
     "?Size@WalkLocomotionClass@@UAEHXZ": 7470640,
@@ -484,7 +484,7 @@
     "__real@8@4005f800000000000000": 8010280,
     "__wcsnicmp": 7958688,
     "__putws": 7881518,
-    "_?pattern@?1??unknown_6cc020@TechnoClass@@QAEXXZ@4PA_NA": 8352020,
+    "_?pattern@?1??Draw_Target_Laser@TechnoClass@@QAEXXZ@4PA_NA": 8352020,
     "?Reset@BooleanVectorClass@@QAEXXZ": 7402240,
     "?Set@BooleanVectorClass@@QAEXXZ": 7402288,
     "__real@8@3ffec000000000000000": 7996888,
@@ -1592,7 +1592,7 @@
     "?get@Leaf_6594d0@@QAEXI@Z": 6657232,
     "?get@Leaf_659510@@QAEXI@Z": 6657296,
     "?get@Leaf_659520@@QAEIXZ": 6657312,
-    "?unknown_6631a0@ScenarioClass@@QAEPAVCellClass@@H@Z": 6697376,
+    "?Get_Waypoint_Target@ScenarioClass@@QAEPAVCellClass@@H@Z": 6697376,
     "?Set_Waypoint_Location@ScenarioClass@@QAEXHVCell@@@Z": 6697984,
     "?Add@?$DynamicVectorClass@PAVTechnoTypeClass@@@@QAE_NABQAVTechnoTypeClass@@@Z": 6698304,
     "?get@Leaf_668ea0@@QAEXXZ": 6721184,

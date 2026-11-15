@@ -19,8 +19,8 @@ void *Native_Entry_From_Handle(int handle);   // NATIVE: native/link/native_even
 // @ref ??_C@_11LOCGONAA@?$AA?$AA@=00839d4c
 // @ref ?Unknown_005e22b0@@YIPBDPAUHWND__@@0@Z=005e22b0
 // @ref ?Unknown_005e8710@@YIXPAUHWND__@@@Z=005e8710
-// @ref ?Unknown_005e5fc0@@YIXPAUHWND__@@@Z=005e5fc0
-// @ref ?Unknown_005c7570@@YIXPAUHWND__@@@Z=005c7570
+// @ref ?WS_Save_Dialog_Values@@YIXPAUHWND__@@@Z=005e5fc0
+// @ref ?Update_Network_Dialog_Preview@@YIXPAUHWND__@@@Z=005c7570
 // @ref ?Change_Scenario_Slots_005cb8d0@@YIXPAUHWND__@@HH@Z=005cb8d0
 // @ref ?Unknown_005cb560@@YIXPAUHWND__@@@Z=005cb560
 // @ref ?Unknown_005cbf20@@YIXPAUHWND__@@HHH@Z=005cbf20
@@ -41,7 +41,7 @@ void *Native_Entry_From_Handle(int handle);   // NATIVE: native/link/native_even
 
 char const *__fastcall Unknown_005e22b0(HWND window, HWND control);
 void __fastcall Unknown_005e8710(HWND window);
-void __fastcall Unknown_005e5fc0(HWND window);
+void __fastcall WS_Save_Dialog_Values(HWND window);
 void __fastcall Center_Window_Within_Window(HWND window);
 void __fastcall Change_Scenario_Slots_005cb8d0(HWND dialog, int previous, int scenario);
 void __fastcall Load_Lobby_Options_005cca30(HWND dialog, SessionOptionsClass *options);
@@ -96,7 +96,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
         if (ProgressScreen.Has_Window()) {
             ProgressScreen.Draw_It(Point2D(-1, -1));
         }
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window, 0);
         return 0;
     case 0x02:                  // WM_DESTROY
@@ -151,12 +151,12 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
                 int old_scenario = unknown_session_a3d2b4;
                 bool old_unlimited = unknown_session_a3d298.Mode == 0 || unknown_session_a3d298.Mode->unknown_slot12();
                 bool old_flag = unknown_session_a3d298.Mode == 0 || unknown_session_a3d298.Mode->unknown_slot40();
-                Unknown_005e5fc0(window);
+                WS_Save_Dialog_Values(window);
                 ShowWindow(window, SW_HIDE);
                 IsRandomMap = false;
                 if (Open_Lobby_Dialog_005c6960(MainWindow) == 2) {
                     Select_Scenario_005c7c30(unknown_session_a3d2b4 = old_scenario);
-                    Unknown_005c7570(window);
+                    Update_Network_Dialog_Preview(window);
                     IsRandomMap = true;
                     ShowWindow(window, SW_SHOW);
                     Load_Random_Map_Preview_005cc800(window);

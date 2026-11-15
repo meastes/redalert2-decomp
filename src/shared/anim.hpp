@@ -108,10 +108,10 @@ public:
     void unknown_func_4226d0();                                         // 0x004226D0 (start)
     CoordStruct unknown_func_4237b0();                                  // 0x004237B0 (a place to come down)
     void Flaming_Guy_AI();                                              // 0x00423120 (TibSun anim.cpp Flaming_Guy_AI)
-    bool unknown_func_423b90(Cell const &cell);                   // 0x00423B90 (can it land in cell?)
-    void unknown_func_4228f0();                                         // 0x004228F0 (scorch / crater)
-    void unknown_func_422f50();                                         // 0x00422F50 (vein damage)
-    void unknown_func_422680(AbstractClass *value);                     // 0x00422680 (sets unknown_15c)
+    bool Is_Valid_Flaming_Guy_Cell(Cell const &cell);                   // 0x00423B90 (can it land in cell?)
+    void Middle();                                         // 0x004228F0 (scorch / crater)
+    void Vein_Attack_AI();                                         // 0x00422F50 (vein damage)
+    void Set_Attached_Bullet(AbstractClass *value);                     // 0x00422680 (sets unknown_15c)
     void unknown_func_422690(HouseClass *house);                       // 0x00422690 (sets unknown_160)
     void unknown_func_422c10();                                         // 0x00422C10 (unknown_17e = true)
     void unknown_func_422c20();                                         // 0x00422C20 (unknown_17e = false)
@@ -232,7 +232,7 @@ void __fastcall Unknown_00422BA0(int arg1, Cell const &cell);
 // Gives every animated-tiberium animation the palette entry of its cell's
 // tiberium (0x00423C70; name hypothesis).
 void __fastcall Unknown_00423C70();
-// Unknown_004955D0 and GamePalette are in shared/unknown_globals.hpp.
+// Set_Palette and GamePalette are in shared/unknown_globals.hpp.
 void unknown_481fb0();                              // 0x00481FB0 (shared/ms_engine.hpp)
 
 // The cell offsets of the eight facings (0x00851A70; shared/aircraft.hpp
@@ -265,6 +265,6 @@ extern DynamicVectorClass<AnimClass *> unknown_anims_a35e60;
 int __fastcall Anim_From_Name(char const *name);
 // Stops the looping of every animation attached to an object (0x00420D30;
 // name hypothesis).
-void __fastcall Unknown_00420D30(ObjectClass *object);
+void __fastcall Shorten_Attached_Anims(ObjectClass *object);
 
 #endif

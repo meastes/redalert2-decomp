@@ -1,6 +1,6 @@
 // Not exact (RA2_NON_MATCHING): FUN_0063a880 at 0x0063A880, best score 88.45, 2026-11-13; differs: same instruction count (485), shape 98.97: instruction choice and registers differ
 #ifdef RA2_NON_MATCHING
-// bool __fastcall Unknown_0063A880(TeamTypeClass *teamtype, int wp) -- 0x0063A880 (reinf.cpp)
+// bool __fastcall Do_Chrono_Reinforcements(TeamTypeClass *teamtype, int wp) -- 0x0063A880 (reinf.cpp)
 // Chrono reinforcement: creates the team type's group and teleports each member in at the team's
 // waypoint (or wp): a free spot near the waypoint cell, a teleport locomotor that piggybacks the
 // member's own, the chrono delay; members that cannot be placed are deleted. Allied arrivals mark
@@ -44,7 +44,7 @@ inline HRESULT UnknownComPtr<Interface, iid>::Query(UnknownComPtr<ILocomotion, &
     }
     return result;
 }
-bool __fastcall Unknown_0063A880(TeamTypeClass *teamtype, int wp)
+bool __fastcall Do_Chrono_Reinforcements(TeamTypeClass *teamtype, int wp)
 {
     if (!teamtype || !teamtype->TaskForce->CountEntries) return false;
 

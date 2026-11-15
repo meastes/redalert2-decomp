@@ -10,7 +10,7 @@
 // @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?unknown_flag_ac133c@@3_NA=00ac133c
 // @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
-// @ref ?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40c60
+// @ref ?CurrentObject@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40c60
 // @ref _wcscpy=00783689
 // @ref ?MuteSWLaunches@@3HA=00a3d548
 // @ref ?unknown_state_ac132c@@3HA=00ac132c

@@ -272,7 +272,7 @@ Matrix3D *DriveLocomotionClass::unknown_49faa0(Matrix3D *matrix)
     if (!unknown_24.Has_Completed2()) {
         Matrix3D blend;
         double ratio = Slope_Ratio();
-        tilt = *Unknown_00718DF0(&blend, unknown_20, unknown_1c, ratio);
+        tilt = *Get_Slope_Transition_Matrix(&blend, unknown_20, unknown_1c, ratio);
     } else if (unknown_1c != 0) {
         Matrix3D ramp;
         tilt = *Unknown_00718D60(&ramp, unknown_1c);
@@ -549,12 +549,12 @@ bool __stdcall DriveLocomotionClass::Process()
         if (LinkedTo->unknown_494 != 0 && LinkedTo->unknown_494->Kind_Of() == 11) {
             CellClass *cell = (CellClass *)LinkedTo->unknown_494;
             if (LinkedTo->unknown_slot104() == cell->Fetch_CellID()) {
-                unknown_4a4850();
+                Abandon_Navigation();
                 return false;
             }
         }
         if (LinkedTo->Mission == 5 && !unknown_63 && unknown_34 != unknown_geometry_l && Object_Coord(LinkedTo) == unknown_34) {
-            unknown_4a4850();
+            Abandon_Navigation();
             return false;
         }
         if (LinkedTo->unknown_2e0.Is_Rotating()) {
@@ -571,7 +571,7 @@ bool __stdcall DriveLocomotionClass::Process()
                 if (Is_Moving() || LinkedTo->unknown_4d0 != -1) {
                     if (LinkedTo->unknown_32d && LinkedTo->Get_Mission() != 7 && Is_Moving() && !LinkedTo->unknown_slot171(unknown_34)) {
                         Stop_Driver();
-                        if (unknown_4a4850()) {
+                        if (Abandon_Navigation()) {
                             return false;
                         }
                     } else {
@@ -999,7 +999,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                                 break;
 
                             case 1:
-                                Map[c].unknown_478740();
+                                Map[c].Shimmer();
                                 break;
 
                             case 3:
@@ -1063,7 +1063,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                 if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return true;
 
                 if (arrived) {
-                    LinkedTo->unknown_4cd9b0();
+                    LinkedTo->Abort_Motion();
                     LinkedTo->Path[0] = -1;
                     if (LinkedTo->Get_Mission() == 2 && LinkedTo->unknown_slot261(false, true)) {
                         return true;
@@ -1221,9 +1221,9 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
 
                 if (unknown_34 == unknown_geometry_l) return false;
 
-                if (!LinkedTo->unknown_4c8d60() && LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && (LinkedTo->Get_Mission() == 2 || LinkedTo->Get_Mission() == 11)) {
+                if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && (LinkedTo->Get_Mission() == 2 || LinkedTo->Get_Mission() == 11)) {
                     Stop_Driver();
-                    if (unknown_4a4850()) return true;
+                    if (Abandon_Navigation()) return true;
                     if (!LinkedTo->IsActive) return false;
                 } else {
                     Cell cell = Adjacent_Cell((LinkedTo->Center_Coord()).As_Cell(), Dir_To_8(LinkedTo->unknown_2e0.Current()));
@@ -1239,7 +1239,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                                     if (abs(unknown_34.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
                                         if (Map[Object_Coord(LinkedTo)].Land_Type() != 10) {
                                             Stop_Driver();
-                                            if (unknown_4a4850()) return true; return false;
+                                            if (Abandon_Navigation()) return true; return false;
                                         }
                                     }
                                 }
@@ -1258,7 +1258,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                         LinkedTo->unknown_53c--;
                     } else {
                         Stop_Driver();
-                        if (unknown_4a4850()) return true;
+                        if (Abandon_Navigation()) return true;
                         if (!LinkedTo->IsActive) return false;
                         if (LinkedTo->unknown_57a) Voc_Play(Rules->unknown_620, 1.0f, 0x2000, 0);
                         LinkedTo->unknown_57a = false;
@@ -1267,7 +1267,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
 
                 if (!Is_Moving() && LinkedTo->unknown_228 != 0 && !LinkedTo->unknown_slot213(LinkedTo->unknown_228)) {
                     LinkedTo->unknown_578 = true;
-                    if (LinkedTo->Team != 0) LinkedTo->Team->unknown_func_6baa30();
+                    if (LinkedTo->Team != 0) LinkedTo->Team->Scan_Limit();
                     LinkedTo->unknown_slot220(0);
                 }
 
@@ -1299,7 +1299,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                         if (abs(unknown_34.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
                             if (Map[Object_Coord(LinkedTo)].Land_Type() != 10) {
                                 Stop_Driver();
-                                return unknown_4a4850();
+                                return Abandon_Navigation();
                             }
                         }
                     }
@@ -1384,19 +1384,19 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                         Map[destcell].Incoming(&unknown_geometry_l, true, true, is_bridge);
                     } else {
                         Stop_Driver();
-                        if (unknown_4a4850()) {
+                        if (Abandon_Navigation()) {
                             return true;
                         }
                     }
                 }
             } else if (cando == 1) {
-                Map[destcell].unknown_478740();
+                Map[destcell].Shimmer();
                 if (retry) {
                     LinkedTo->Path[0] = -1;
                     return Start_Of_Move(stop_processing, false, false);
                 }
                 Stop_Driver();
-                return unknown_4a4850();
+                return Abandon_Navigation();
             }
 
             Stop_Driver();
@@ -1446,7 +1446,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                 return Start_Of_Move(stop_processing, false, false);
             } else if (cando == 7 && !retry) {
                 Stop_Driver();
-                return unknown_4a4850();
+                return Abandon_Navigation();
             }
 
             LinkedTo->unknown_57a = false;
@@ -1579,19 +1579,19 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                             cellptr->Incoming(&unknown_geometry_l, true, true, is_bridge);
                         } else {
                             Stop_Driver();
-                            if (unknown_4a4850()) {
+                            if (Abandon_Navigation()) {
                                 return true;
                             }
                         }
                     }
                 } else if (nextcando == 1) {
-                    Map[destcell].unknown_478740();
+                    Map[destcell].Shimmer();
                     if (retry) {
                         LinkedTo->Path[0] = -1;
                         return Start_Of_Move(stop_processing, false, false);
                     }
                     Stop_Driver();
-                    return unknown_4a4850();
+                    return Abandon_Navigation();
                 } else if (nextcando == 7) {
                     if (retry) {
                         LinkedTo->Path[0] = -1;
@@ -1599,7 +1599,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                         return Start_Of_Move(stop_processing, false, false);
                     }
                     Stop_Driver();
-                    return unknown_4a4850();
+                    return Abandon_Navigation();
                 }
 
                 LinkedTo->Path[0] = -1;
@@ -1727,17 +1727,17 @@ int __stdcall DriveLocomotionClass::Z_Gradient()
 }
 
 
-// bool DriveLocomotionClass::unknown_4a4850() (0x004A4850)
+// bool DriveLocomotionClass::Abandon_Navigation() (0x004A4850)
 // With nothing in the unit's 0x478 list: slot 260 (0, 1) and false; else
 // 0x004CD9B0 and slot 261 (false, true). Unreferenced.
 
-bool DriveLocomotionClass::unknown_4a4850()
+bool DriveLocomotionClass::Abandon_Navigation()
 {
     if (LinkedTo->unknown_478.Count() == 0) {
         LinkedTo->Assign_Destination(0, true);
         return false;
     }
-    LinkedTo->unknown_4cd9b0();
+    LinkedTo->Abort_Motion();
     return LinkedTo->unknown_slot261(false, true);
 }
 

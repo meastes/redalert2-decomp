@@ -36,7 +36,7 @@ SpotLightClass::SpotLightClass(CoordStruct coord, int size) :
     unknown_10(size),
     unknown_14(0)
 {
-    unknown_SpotLightClass_list_00a731c0.Add(this);
+    SpotLights.Add(this);
 }
 
 
@@ -44,7 +44,7 @@ SpotLightClass::SpotLightClass(CoordStruct coord, int size) :
 
 SpotLightClass::~SpotLightClass()
 {
-    unknown_SpotLightClass_list_00a731c0.Delete(this);
+    SpotLights.Delete(this);
 }
 
 
@@ -63,8 +63,8 @@ void SpotLightClass::AI()
 
 void SpotLightClass::Update_All()
 {
-    for (int index = unknown_SpotLightClass_list_00a731c0.Count() - 1; index >= 0; index--) {
-        unknown_SpotLightClass_list_00a731c0[index]->AI();
+    for (int index = SpotLights.Count() - 1; index >= 0; index--) {
+        SpotLights[index]->AI();
     }
 }
 
@@ -189,7 +189,7 @@ void SpotLightClass::unknown_func_5ddb90()
     Point2D drawpoint;
     if (TacticalMap->Coord_To_Pixel(Coord, drawpoint)) {
         if (!(unknown_id_source_a3d290->unknown_000 & 0x1000) || !Map.Is_Fogged(Coord)) {
-            Surface *dsurf = unknown_surface_83995c;
+            Surface *dsurf = LogicalSurface;
             Rect drect(drawpoint.X - 128, drawpoint.Y - 64, 255, 127);
             Rect dcliprect = unknown_rect_839630;
             int index = SpotLight_Index_Table[unknown_0c];
@@ -328,8 +328,8 @@ void SpotLightClass::unknown_func_5ddb90()
 
 void SpotLightClass::Draw_All()
 {
-    for (int index = unknown_SpotLightClass_list_00a731c0.Count() - 1; index >= 0; index--) {
-        unknown_SpotLightClass_list_00a731c0[index]->unknown_func_5ddb90();
+    for (int index = SpotLights.Count() - 1; index >= 0; index--) {
+        SpotLights[index]->unknown_func_5ddb90();
     }
 }
 

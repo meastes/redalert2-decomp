@@ -16,7 +16,7 @@
 
 // 0x004EEC70: marks every scout node of house as preferred (the scout team's target
 // house; the AI's scout script calls it when a team found nothing to attack there).
-void HouseClass::unknown_4eec70(HouseClass *house)
+void HouseClass::Mark_Scouted(HouseClass *house)
 {
     for (int i = 0; i < ScoutNodes.Count(); ++i) {
         if (ScoutNodes[i].House == house) {

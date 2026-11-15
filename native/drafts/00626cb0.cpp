@@ -9,7 +9,7 @@
 #include "shared/rect.hpp"
 #include "shared/win32_window.hpp"
 #include "shared/rgb_class.hpp"
-// @ref ?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A=00a40978
+// @ref ?Ipx@@3VIPXManagerClass@@A=00a40978
 // @ref ?unknown_timing_bars_7ec418@@3PAHA=007ec418
 // @ref ?unknown_aabe90@@3HA=00aabe90
 // @ref ?unknown_bar_color_ab6831@@3VRGBClass@@A=00ab6831
@@ -35,7 +35,7 @@ void __fastcall Unknown_00626CB0(HWND dialog)
         if (unknown_session_a3d298.Type == 1 || unknown_session_a3d298.Type == 2) {
             index = 0;
         } else {
-            index = unknown_ipx_manager_a40978.Connection_Index(id);
+            index = Ipx.Connection_Index(id);
         }
         unsigned int progress = 0;
         if (i != 0) {

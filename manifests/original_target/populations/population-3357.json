@@ -4,8 +4,8 @@
     "id": "population-3357",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "63d713a4da44fd89f7e28ae8ae602f654753d2ae889bc692aeb1ebea212a5021",
-    "historical_acceptance_sha256": "f954de3eb2ff605cf0fb97c924770e239b3bd443991fe7dc16ca8f155fd6d9ac",
+    "historical_population_sha256": "5cc2a9af78f1c6bdbee977a6cdfd85f4f9aa6c815c2342c13a3f2b0755046d91",
+    "historical_acceptance_sha256": "f614f608c73d57fb82b1e7d5afae287bd74d908ce974d974d00d948b5244b84d",
     "separate_units": true
   },
   "references": {
@@ -1340,7 +1340,7 @@
     "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
     "?RadarEventClass_unknown_reset_cells@@YAXXZ": 6539152,
     "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z": 6700336,
-    "?unknown_color_scheme_index_663d90@@YIHPBDH@Z": 6700432,
+    "?Fetch_Scheme_Index_By_Name@@YIHPBDH@Z": 6700432,
     "_wcslen": 7878149,
     "_wcscspn": 7887455,
     "?Contains_Any@UnknownWideString_00771540@@QBE_NPBG@Z": 7804224,
@@ -2878,7 +2878,7 @@
     "?Assign_Destination@TechnoClass@@UAEXPAVAbstractClass@@_N@Z": 7162080,
     "?Size@TeleportLocomotionClass@@UAEHXZ": 7216096,
     "?Size@TunnelLocomotionClass@@UAEHXZ": 7279520,
-    "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z": 7281408,
+    "?Inflate_Rect@@YIXPAVRect@@H@Z": 7281408,
     "??_GVeinholeMonsterClass@@UAEPAXI@Z": 7415600,
     "??1VeinholeMonsterClass@@UAE@XZ": 7405040,
     "?Size@WalkLocomotionClass@@UAEHXZ": 7470640,
@@ -3127,7 +3127,20 @@
     "??_EMSShapeAnim@@UAEPAXI@Z": 5962944,
     "??_ERadarClass@@UAEPAXI@Z": 6507216,
     "??_EWaveClass@@UAEPAXI@Z": 7489024,
-    "??_EMSPrintAnim@@UAEPAXI@Z": 5963392
+    "??_EMSPrintAnim@@UAEPAXI@Z": 5963392,
+    "??_G?$DynamicVectorClass@PAVBombClass@@@@UAEPAXI@Z": 4242208,
+    "??_G?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z": 4246048,
+    "??_G?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249376,
+    "??_G?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z": 4257488,
+    "??_G?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845312,
+    "??_7?$DynamicVectorClass@PBVTeamTypeClass@@@@6B@": 8007660,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "??_E?$DynamicVectorClass@PAVBombClass@@@@UAEPAXI@Z": 4242208,
+    "??_E?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z": 4246048,
+    "??_E?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249376,
+    "??_E?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z": 4257488,
+    "??_E?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845312
   },
   "regions": [
     {
@@ -3200,8 +3213,8 @@
     {
       "entry": 6700432,
       "method": "00663d90",
-      "symbol": "?unknown_color_scheme_index_663d90@@YIHPBDH@Z",
-      "symbol_prefix": "?unknown_color_scheme_index_663d90@@YIHPBDH@Z",
+      "symbol": "?Fetch_Scheme_Index_By_Name@@YIHPBDH@Z",
+      "symbol_prefix": "?Fetch_Scheme_Index_By_Name@@YIHPBDH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -3255,7 +3268,7 @@
           "resolved": 11235080
         }
       ],
-      "source_sha256": "8b4551c12882ce5c21e2c3518a7dfde8ec6b2e9ffe648fed88fbf24e7319526d",
+      "source_sha256": "709c03847a8d40eadffe1b449d97feb00d80652b7d3509c56909b6deb111e2e8",
       "source": "src/recovered/scheme/unknown_color_scheme_index.cpp",
       "population": "population-3357",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

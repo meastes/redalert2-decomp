@@ -79,7 +79,7 @@ struct RecoilControl {
 // The tactical view (pointer at 0x0083996C): see shared/gscreen.hpp
 // (Sidebar proposal: the UnknownTactical83996c view collided with
 // gscreen.hpp's `Tactical *TacticalMap`; units that need
-// Unknown_006A2900 should declare it on Tactical).
+// Pixel_To_Lepton should declare it on Tactical).
 
 // The default locomotor class ID (0x007A1FD0, {4A582747-9839-11D1-B709-00A024DDAFD1}).
 extern "C" GUID const unknown_clsid_7a1fd0;

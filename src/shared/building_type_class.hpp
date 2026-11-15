@@ -157,15 +157,15 @@ public:
 
     static int __fastcall From_Name(char const *name);                  // 0x004583D0 (by ID)
     static int __fastcall From_Full_Name(char const *name);             // 0x00458380 (by Name)
-    void unknown_func_4584d0(int index, int value0, int value1, int value2); // 0x004584D0
+    void Init_Anim(int index, int value0, int value1, int value2); // 0x004584D0
     int Width() const;                                                  // 0x00458930
     // TibSun builtype.cpp Can_Always_Undeploy (IsLimpetMine || IsMobileWar); RA2 dropped both and returns false.
     // TechnoClass::Can_Deploy_Now 0x006CD340 asks it for buildings.
     bool Can_Always_Undeploy() const;                                   // 0x0045EC40
     int Foundation_Height(bool bib) const;                              // 0x00458940
-    void unknown_func_459640();                                         // 0x00459640
-    void unknown_func_45eaa0();                                         // 0x0045EAA0 (RulesClass::Objects calls it for every type)
-    void unknown_func_458ea0(int theater);                              // 0x00458EA0
+    void Fetch_Building_Voxel_Image();                                         // 0x00459640
+    void Calculate_Base_Defense_Values();                                         // 0x0045EAA0 (RulesClass::Objects calls it for every type)
+    void Fetch_Building_Normal_Image(int theater);                              // 0x00458EA0
     static BuildingTypeClass *__fastcall Find_Or_Make(char const *name); // 0x0045E0E0
     void Free_Buildup();                                                // 0x0045E920
     void Free_unknown_11cc();                                           // 0x0045E960
@@ -174,23 +174,23 @@ public:
     void Free_unknown_11b0();                                           // 0x0045EA20
     void Free_unknown_11b8();                                           // 0x0045EA60
     // Prepares the cloak surface and resolves each type's ToTile= (0x0045E170).
-    static void unknown_func_45e170();
-    static void __fastcall unknown_func_45ebd0();                                // 0x0045EBD0 (each type's "ToTile" isometric tile type)
+    static void Post_Load_Game();
+    static void __fastcall Post_Read_Tile_Fixup();                                // 0x0045EBD0 (each type's "ToTile" isometric tile type)
     // Loads the type images and buildups for a theater (0x00458600).
     static void __fastcall Init(int theater);
-    static void unknown_func_458510();                                  // 0x00458510 (BUILDNGZ.SHP)
-    bool unknown_func_45ec50() const;                                   // 0x0045EC50 (sensor array, tick tank, ICBM launcher or artillery)
-    bool unknown_func_458e00(void **image, int *frame) const;            // 0x00458E00 (rubble image and frame 3)
-    bool unknown_func_458e50(void **image, int *frame) const;            // 0x00458E50 (rubble image and frame count / 2 + 3)
+    static void Fetch_Z_Data();                                  // 0x00458510 (BUILDNGZ.SHP)
+    bool Is_Mobile_Deployer() const;                                   // 0x0045EC50 (sensor array, tick tank, ICBM launcher or artillery)
+    bool Get_Rubble_Shape(void **image, int *frame) const;            // 0x00458E00 (rubble image and frame 3)
+    bool Get_Rubble_Shadow(void **image, int *frame) const;            // 0x00458E50 (rubble image and frame count / 2 + 3)
     void Read_Rest(CCINIClass &ini);
     void Read_Rest(CCINIClass *ini);
     void Read_Rest();
     void Read_Fire_Offsets();                                           // inline (Read_INI)
-    Rect unknown_func_45e290();                                         // 0x0045E290 (the image bounds; cached in unknown_11ec)
-    int unknown_func_45ec90() const;                                    // 0x0045EC90
-    Cell const *unknown_45e270() const;                           // 0x0045E270 (the outer-cell list of the foundation; foundation 9 uses 6)
+    Rect Get_Draw_Rect();                                         // 0x0045E290 (the image bounds; cached in unknown_11ec)
+    int Deploy_Facing() const;                                    // 0x0045EC90
+    Cell const *Exit_List() const;                           // 0x0045E270 (the outer-cell list of the foundation; foundation 9 uses 6)
 
-    int unknown_458b10(Cell const &origin,HouseClass *house) const; // complete00458B10
+    int Flush_For_Placement(Cell const &origin,HouseClass *house) const; // complete00458B10
 
     int ArrayIndex;                                  // +0xB90 index in BuildingTypes (slot 16)
     Cell const *FoundationData;                // +0xB94 occupation list (slot 36; set from Foundation= on load)

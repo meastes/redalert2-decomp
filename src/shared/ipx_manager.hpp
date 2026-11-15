@@ -56,33 +56,33 @@ public:
     int Init();                                                         // 0x005251C0
     int Is_IPX();                                                       // 0x00525390
     int Create_Connection(int id, wchar_t const *name, IPXAddressClass *address);   // 0x00525500
-    int unknown_5255b0();                                               // 0x005255B0 (creates the multicast connection)
+    int Create_Multicast_Connection();                                               // 0x005255B0 (creates the multicast connection)
     int Delete_Connection(int id);                                      // 0x00525640
     wchar_t *Connection_Name(int id);                                   // 0x00525700
     IPXAddressClass *Connection_Address(int id);                        // 0x00525740
-    void unknown_525800(int index, int id, wchar_t const *name);        // 0x00525800 (renames a connection)
+    void Set_Connection_Parms(int index, int id, wchar_t const *name);        // 0x00525800 (renames a connection)
     int Send_Global_Message(void *buf, int buflen, int ack_req, IPXAddressClass *address, unsigned short id, unsigned long packet_id);   // 0x00525830
-    int unknown_5258b0(void *buf, int buflen, int ack_req, int node_id);           // 0x005258B0 (to a node by ID)
-    int unknown_5259a0(void *buf, int buflen, int ack_req, wchar_t const *name);   // 0x005259A0 (to a node by name)
+    int Send_Global_Message_To_Player(void *buf, int buflen, int ack_req, int node_id);           // 0x005258B0 (to a node by ID)
+    int Send_Global_Message_To_Name(void *buf, int buflen, int ack_req, wchar_t const *name);   // 0x005259A0 (to a node by name)
     int Get_Global_Message(void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id);   // 0x00525AB0
-    int unknown_525af0(int index, void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id, unsigned long *packet_id);   // 0x00525AF0
-    void unknown_525b30(int index);                                     // 0x00525B30
-    int unknown_525b50(void *buf, int buflen, bool ack_req);            // 0x00525B50 (on the second global channel)
-    int unknown_525bc0(void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id);   // 0x00525BC0
+    int Global_Channel_Op(int index, void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id, unsigned long *packet_id);   // 0x00525AF0
+    void Global_Channel_Op_3C(int index);                                     // 0x00525B30
+    int Send_Lobby_Message(void *buf, int buflen, bool ack_req);            // 0x00525B50 (on the second global channel)
+    int Get_Lobby_Message(void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id);   // 0x00525BC0
     void Set_Connection_Address(int id, IPXAddressClass *address);      // 0x005269F0
-    int unknown_526a30();                                               // 0x00526A30
+    int Get_Bad_Connection();                                               // 0x00526A30
     void Set_Socket(unsigned short socket);                             // 0x00526BA0
-    bool unknown_525dc0(CommHeaderType *header, char *buf, int buflen, IPXAddressClass *address, unsigned short port);   // 0x00525DC0 (forwards a packet through the local router)
+    bool Forward_Router_Packet(CommHeaderType *header, char *buf, int buflen, IPXAddressClass *address, unsigned short port);   // 0x00525DC0 (forwards a packet through the local router)
     unsigned long unknown_526c30();                                     // 0x00526C30 (global channel's mean delay)
-    unsigned long unknown_526c50();                                     // 0x00526C50 (second global channel's)
-    unsigned long unknown_526c70();                                     // 0x00526C70 (multicast connection's)
+    unsigned long Lobby_Response_Time();                                     // 0x00526C50 (second global channel's)
+    unsigned long Multicast_Response_Time();                                     // 0x00526C70 (multicast connection's)
     char *unknown_5276a0();                                             // 0x005276A0 (the oldest unacknowledged sequenced send)
     void Set_Bridge(NetNumType bridge);                                 // 0x00527730 (Red Alert's Set_Bridge)
-    void unknown_5277c0(IPXAddressClass *address);                      // 0x005277C0
-    void unknown_5277f0();                                              // 0x005277F0
-    void unknown_527800();                                              // 0x00527800
-    void unknown_527810(IPXAddressClass *address, unsigned short id);   // 0x00527810
-    void unknown_527830(int index);                                     // 0x00527830
+    void Set_Lobby_Address(IPXAddressClass *address);                      // 0x005277C0
+    void Global_Channel_Clear_FieldC8();                                              // 0x005277F0
+    void Set_Global_Routed();                                              // 0x00527800
+    void Global_Channel_Op_40(IPXAddressClass *address, unsigned short id);   // 0x00527810
+    void Global_Channel_Op_44(int index);                                     // 0x00527830
     // Prints the connections' figures under Multiplayer_Debug_Print's (0x00526D90; TibSun's
     // IPXManagerClass::Multiplayer_Debug_Print).
     void Multiplayer_Debug_Print_00526d90();
@@ -159,7 +159,7 @@ public:
 };
 
 // The game's IPX manager (0x00A40978; defined in the IPXManagerClass unit).
-extern IPXManagerClass unknown_ipx_manager_a40978;
+extern IPXManagerClass Ipx;
 // The destination network address set from [Network] DestNet (0x00A3F608) and
 // the flag that it is set (0x00A3F604; OptionsClass, name hypotheses).
 extern int unknown_dest_net_set_a3f604;

@@ -225,7 +225,7 @@ inline bool Scroll_Key_Down(int key)
 int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_fog)
 {
     int action = 0;
-    if (unknown_objects_a40c60.Count()) {
+    if (CurrentObject.Count()) {
         if (object != 0) {
             action = Best_Selected_Object(0, object)->unknown_slot28(object, false);
         } else {

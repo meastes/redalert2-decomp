@@ -174,7 +174,7 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
     }
     Stage = 0;
     if (Class->Layer == 3 || Class->Layer == 4) {
-        unknown_func_5d4920(Rules->unknown_6dc);
+        Set_Height(Rules->unknown_6dc);
     } else {
         ObjectClass::Set_Height_AGL(0);
     }
@@ -330,10 +330,10 @@ int __fastcall Anim_From_Name(char const *name)
 }
 
 
-// void __fastcall Unknown_00420D30(ObjectClass *object) (0x00420D30)
+// void __fastcall Shorten_Attached_Anims(ObjectClass *object) (0x00420D30)
 // Ends the loops of the animations attached to an object.
 
-void __fastcall Unknown_00420D30(ObjectClass *object)
+void __fastcall Shorten_Attached_Anims(ObjectClass *object)
 {
     if (object != 0) {
         for (int index = 0; index < Anims.Count(); index++) {
@@ -463,7 +463,7 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
             }
 
             if (unknown_174) {
-                CC_Draw_Shape(unknown_surface_83995c, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset + Unknown_006A2970(height)), cliprect, 0x2601, 0, Class->YDrawOffset - Unknown_006A2970(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(LogicalSurface, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset + Unknown_006A2970(height)), cliprect, 0x2601, 0, Class->YDrawOffset - Unknown_006A2970(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
             }
 
             if (Class->Tiled) {
@@ -473,17 +473,17 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
                 bool done = false;
                 int height_offset = ZAdjust + Class->YDrawOffset - Unknown_006A2970(Get_Height()) - 50;
                 while (!done) {
-                    CC_Draw_Shape(unknown_surface_83995c, Unit_Draw_Convert_008323C0, shapefile, shapenum, Point2D(origin.X, drawpoint.Y + Class->YDrawOffset), unknown_rect_839630, flags | 0x2000, 0, height_offset, 2, brightness, 0, 0, Point2D(0, 0));
+                    CC_Draw_Shape(LogicalSurface, Unit_Draw_Convert_008323C0, shapefile, shapenum, Point2D(origin.X, drawpoint.Y + Class->YDrawOffset), unknown_rect_839630, flags | 0x2000, 0, height_offset, 2, brightness, 0, 0, Point2D(0, 0));
                     if (drawpoint.Y < 0) done = true;
                     drawpoint.Y -= frameheight;
                     height_offset -= frameheight + frameheight / 2;
                 }
             } else if (Class->Flat) {
-                CC_Draw_Shape(unknown_surface_83995c, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset), cliprect, flags | 0x2000, 0, ZAdjust + Class->YDrawOffset - Unknown_006A2970(Get_Height()) - 3, 0, brightness, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(LogicalSurface, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset), cliprect, flags | 0x2000, 0, ZAdjust + Class->YDrawOffset - Unknown_006A2970(Get_Height()) - 3, 0, brightness, 0, 0, Point2D(0, 0));
             } else {
-                CC_Draw_Shape(unknown_surface_83995c, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset), cliprect, flags | 0x2000, 0, ZAdjust + Class->YDrawOffset - Unknown_006A2970(Get_Height()) - 2, 2, brightness, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(LogicalSurface, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset), cliprect, flags | 0x2000, 0, ZAdjust + Class->YDrawOffset - Unknown_006A2970(Get_Height()) - 2, 2, brightness, 0, 0, Point2D(0, 0));
                 if (Class->Shadow) {
-                    CC_Draw_Shape(unknown_surface_83995c, convert, shapefile, shapenum + shapefile->Get_Count() / 2, point, cliprect, flags & ~6 | 0x601, 0, -2 - Unknown_006A2970(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
+                    CC_Draw_Shape(LogicalSurface, convert, shapefile, shapenum + shapefile->Get_Count() / 2, point, cliprect, flags & ~6 | 0x601, 0, -2 - Unknown_006A2970(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
                 }
             }
         }
@@ -657,7 +657,7 @@ void AnimClass::AI()
         --LoopDelay;
         if (!LoopDelay) unknown_func_4226d0();
     } else if (IsActive) {
-        if (Class->IsVeins) unknown_func_422f50();
+        if (Class->IsVeins) Vein_Attack_AI();
         if (Class->IsAnimatedTiberium) {
             int overlay=Map[Center_Coord()-CoordStruct(384,384,0)].OverlayIndex;
             if (overlay==-1 || OverlayTypes[overlay]->CellAnim!=Class) unknown_17b=true;
@@ -683,7 +683,7 @@ void AnimClass::AI()
                 }
             }
             if (Class->unknown_268 && Class->Start+stage==Class->unknown_268 && !unknown_174)
-                unknown_func_4228f0();
+                Middle();
             if (Class->PingPong) {
                 if ((Loops<=1 && (stage>=Class->End || stage==0)) ||
                     (Loops>1 && (stage>=Class->LoopEnd-Class->Start || stage==Class->Start))) {
@@ -774,9 +774,9 @@ void AnimClass::Attach_To(ObjectClass *object)
 }
 
 
-// void AnimClass::unknown_func_422680(AbstractClass *value) (0x00422680)
+// void AnimClass::Set_Attached_Bullet(AbstractClass *value) (0x00422680)
 
-void AnimClass::unknown_func_422680(AbstractClass *value)
+void AnimClass::Set_Attached_Bullet(AbstractClass *value)
 {
     unknown_15c = value;
 }
@@ -820,7 +820,7 @@ void AnimClass::unknown_func_4226d0()
     }
     unknown_194.Unknown_00405D50();
     if (Class->unknown_268 == 0) {
-        unknown_func_4228f0();
+        Middle();
     }
     if (!unknown_178 && Class->TiberiumChainReaction) {
         UnknownAnimCell *cell = (UnknownAnimCell *)&Map[Center_Coord()];
@@ -847,13 +847,13 @@ void AnimClass::unknown_func_4226d0()
 }
 
 
-// void AnimClass::unknown_func_4228f0() (0x004228F0)
+// void AnimClass::Middle() (0x004228F0)
 // Marks the ground under a low animation (slot 108 < 30) with the size of
 // its type's first frame (30 x 30 without an image): a Scorch type leaves a
 // scorch (with Crater too, only half of the time); otherwise a Crater type
 // flags the cell (6) and leaves a crater (ForceBigCraters: 300, forced).
 
-void AnimClass::unknown_func_4228f0()
+void AnimClass::Middle()
 {
     Cell where = Coord_Cell(Center_Coord());
     UnknownAnimCell *cell = (UnknownAnimCell *)&Map[where];
@@ -918,7 +918,7 @@ void __fastcall Unknown_00422BA0(int arg1, Cell const &cell)
     coord.Y = cell.Y * 256 + 128;
     Unknown_0047E2C0(coord, Rules->unknown_1190, 0, Rules->unknown_c60, 0);
     if (unknown_game_mode_a3d298 == 0) {
-        Unknown_004955D0(&GamePalette, 30, unknown_481fb0);
+        Set_Palette(&GamePalette, 30, unknown_481fb0);
     }
 }
 
@@ -1060,7 +1060,7 @@ bool AnimClass::Limbo()
 }
 
 
-// void AnimClass::unknown_func_422f50() (0x00422F50)
+// void AnimClass::Vein_Attack_AI() (0x00422F50)
 // Vein damage: the animation is done (unknown_17b) unless its cell is a
 // grown vein cell (+0x44 == 0x7E, +0x11E >= 0x30, +0x11C clear) holding a
 // harmless first object (slot 108 <= 0). On even frames every techno in the
@@ -1068,7 +1068,7 @@ bool AnimClass::Limbo()
 // (unknown_7d) and low (slot 108 <= 5) takes the rules' vein damage
 // (+0xE4) with the veins' warhead (+0xCB0).
 
-void AnimClass::unknown_func_422f50()
+void AnimClass::Vein_Attack_AI()
 {
     CoordStruct coord = Coord;
     UnknownAnimCell *cell = (UnknownAnimCell *)&Map[coord];
@@ -1306,13 +1306,13 @@ CoordStruct AnimClass::unknown_func_4237b0()
         } else if (dy > 0) {
             step_y = 1;
         }
-        if (unknown_func_423b90(start + Cell(step_x, step_y))) {
+        if (Is_Valid_Flaming_Guy_Cell(start + Cell(step_x, step_y))) {
             return CoordStruct(Cell(start.X + step_x, start.Y + step_y));
         }
-        if (unknown_func_423b90(start + Cell(step_x, 0))) {
+        if (Is_Valid_Flaming_Guy_Cell(start + Cell(step_x, 0))) {
             return CoordStruct(Cell(start.X + step_x, start.Y));
         }
-        if (unknown_func_423b90(start + Cell(0, step_y))) {
+        if (Is_Valid_Flaming_Guy_Cell(start + Cell(0, step_y))) {
             return CoordStruct(Cell(start.X, start.Y + step_y));
         }
     }
@@ -1322,7 +1322,7 @@ CoordStruct AnimClass::unknown_func_4237b0()
             int facing = (dir + i) % 8;
             Cell const &offset = AdjacentCell[facing & 7];
             Cell newcell = start + offset;
-            if (unknown_func_423b90(newcell)) {
+            if (Is_Valid_Flaming_Guy_Cell(newcell)) {
                 return CoordStruct(newcell);
             }
         }
@@ -1331,14 +1331,14 @@ CoordStruct AnimClass::unknown_func_4237b0()
 }
 
 
-// bool AnimClass::unknown_func_423b90(Cell const &where) (0x00423B90)
+// bool AnimClass::Is_Valid_Flaming_Guy_Cell(Cell const &where) (0x00423B90)
 // Whether the animation may come down in a cell: over a bridge-like cell
 // (flag 0x100) well above its level only when it is free (+0x128 & 0xE0);
 // otherwise not on land types 3, 4 and 10, not on an overlay of the
 // +0x278 kind, not on an occupied cell (+0x124 & 0xE0) and not more than
 // two levels below the ground.
 
-bool AnimClass::unknown_func_423b90(Cell const &where)
+bool AnimClass::Is_Valid_Flaming_Guy_Cell(Cell const &where)
 {
     UnknownAnimCell *cell = (UnknownAnimCell *)&Map[where];
     CoordStruct coord;

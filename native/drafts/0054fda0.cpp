@@ -44,7 +44,7 @@ void MapClass::Compute_Zone_Connections()
 
     while (cptr != 0) {
 
-        if (!cptr->unknown_47b960() && !cptr->unknown_47b980()) {
+        if (!cptr->Is_Tile_Bridge() && !cptr->Is_Tile_Train_Bridge()) {
 
             if (cptr->Has_Tunnel()) {
                 if ((cptr->Adjacent_Cell(2).Has_Tunnel() && cptr->Adjacent_Cell(6).Has_Tunnel()) ||
@@ -66,7 +66,7 @@ void MapClass::Compute_Zone_Connections()
         } else {
 
             int faceindex;
-            if (cptr->unknown_47b960()) {
+            if (cptr->Is_Tile_Bridge()) {
                 faceindex = cptr->IsoTileIndex - unknown_tileset_a52c74;
             } else {
                 faceindex = cptr->IsoTileIndex - unknown_tileset_a6cb68;
@@ -80,13 +80,13 @@ void MapClass::Compute_Zone_Connections()
 
                 CellClass *bptr;
                 for (bptr = &cptr->Adjacent_Cell(facing); In_Radar(bptr->MapCoords) && !crossed; bptr = &bptr->Adjacent_Cell(facing)) {
-                    if (bptr->unknown_47b960()) {
+                    if (bptr->Is_Tile_Bridge()) {
                         int index = bptr->IsoTileIndex - unknown_tileset_a52c74;
                         if (index != -1 && _bridge_subtiles2[index] == (unsigned char)bptr->unknown_11a) {
                             crossed = true;
                         }
 
-                    } else if (bptr->unknown_47b980()) {
+                    } else if (bptr->Is_Tile_Train_Bridge()) {
                         int index = bptr->IsoTileIndex - unknown_tileset_a6cb68;
                         if (index != -1 && _bridge_subtiles2[index] == (unsigned char)bptr->unknown_11a) {
                             crossed = true;

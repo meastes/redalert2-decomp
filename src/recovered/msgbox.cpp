@@ -33,7 +33,7 @@ int WWMessageBox::Process(unsigned short const *msg, unsigned short const *b1txt
     bool has_button1 = b1txt != 0 && *b1txt != 0;
     bool has_button2 = b2txt != 0 && *b2txt != 0;
     bool has_button3 = b3txt != 0 && *b3txt != 0;
-    unknown_5159b0(0, true);
+    Darken_Surface(0, true);
 
     int resource = 0xCE;
     if (has_button3) {

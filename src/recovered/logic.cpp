@@ -173,7 +173,7 @@ void LogicClass::AI()
         Map.Encroach_Shadow();
     }
     if (Frame % 120 == 0) {
-        Map.Unknown_0055A300();
+        Map.Refresh_Shroud();
     }
     if (((SpecialClass *)unknown_id_source_a3d290)->FogOfWar && Rules->FogRate != 0 && unknown_id_source_a3d290->unknown_804 == 0) {
         unknown_id_source_a3d290->unknown_804 = 900 * Rules->FogRate;

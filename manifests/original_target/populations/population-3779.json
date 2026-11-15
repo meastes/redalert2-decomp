@@ -4,8 +4,8 @@
     "id": "population-3779",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "1e719cd98d1547f6391200c9b95d50dd5dfdabdfc4da5eb589b4457fb5930eda",
-    "historical_acceptance_sha256": "ce9ea4581b788fe1867dcdd40f70f2d394803c50bb2e6e5b3c52a5405c8efc0f"
+    "historical_population_sha256": "573b34af65a106cbffb931c39a90f617de9ce8fd6a2e2eaced8087f170ecaca9",
+    "historical_acceptance_sha256": "a1029f9cb6c25fe95916d0f4f632a17c17d3aca305d7e3a60f4c43b8dfefbdaf"
   },
   "references": {
     "??_7LogicClass@@6B@": 7973100,
@@ -42,7 +42,7 @@
     "?ID@?$VectorClass@PAVIsometricTileClass@@@@UAEHPBQAVIsometricTileClass@@@Z": 4245712,
     "?Resize@?$DynamicVectorClass@PAVIsometricTileClass@@@@UAE_NHPBQAVIsometricTileClass@@@Z": 4245744,
     "?Resize@?$VectorClass@PAVIsometricTileClass@@@@UAE_NHPBQAVIsometricTileClass@@@Z": 4245424,
-    "?unknown_IsometricTileClass_list_00832448@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A": 8594504,
+    "?IsometricTiles@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A": 8594504,
     "?unknown_math_4ba520@@YANN@Z": 4957472,
     "?unknown_math_4ba5b0@@YANN@Z": 4957616,
     "?unknown_sqrt_4ba410@@YANN@Z": 4957200,
@@ -1542,7 +1542,7 @@
     "?GetClassID@TriggerTypeClass@@UAGJPAUGUID@@@Z": 7269840,
     "?GetClassID@TunnelLocomotionClass@@UAGJPAUGUID@@@Z": 7279280,
     "?Size@TunnelLocomotionClass@@UAEHXZ": 7279520,
-    "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z": 7281408,
+    "?Inflate_Rect@@YIXPAVRect@@H@Z": 7281408,
     "?Get_Mouse_Start_Frame_0059f170@Target_6f6750@@QAEIII@Z": 5894512,
     "?Get_Mouse_Start_Frame_0059f170@Target_6f6760@@QAEIII@Z": 5894512,
     "?GetClassID@UnitClass@@UAGJPAUGUID@@@Z": 7381648,
@@ -6140,7 +6140,7 @@
           "resolved": 8594424
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -6191,7 +6191,7 @@
           "resolved": 8594496
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6242,7 +6242,7 @@
           "resolved": 8594480
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6293,7 +6293,7 @@
           "resolved": 8594472
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6344,7 +6344,7 @@
           "resolved": 8594432
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6395,7 +6395,7 @@
           "resolved": 8594392
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6478,7 +6478,7 @@
           "resolved": 8594528
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -6537,7 +6537,7 @@
           "resolved": 8594440
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -6596,7 +6596,7 @@
           "resolved": 8594464
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -6655,7 +6655,7 @@
           "resolved": 8594488
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6698,7 +6698,7 @@
           "resolved": 8594418
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -6749,7 +6749,7 @@
           "resolved": 8594456
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -6808,7 +6808,7 @@
           "resolved": 8594412
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6845,7 +6845,7 @@
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "?unknown_IsometricTileClass_list_00832448@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
+          "symbol": "?IsometricTiles@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
           "target": 8594504,
           "addend": 4,
           "resolved": 8594508
@@ -6853,7 +6853,7 @@
         {
           "offset": 13,
           "kind": 6,
-          "symbol": "?unknown_IsometricTileClass_list_00832448@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
+          "symbol": "?IsometricTiles@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
           "target": 8594504,
           "addend": 8,
           "resolved": 8594512
@@ -6861,7 +6861,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?unknown_IsometricTileClass_list_00832448@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
+          "symbol": "?IsometricTiles@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
           "target": 8594504,
           "addend": 12,
           "resolved": 8594516
@@ -6869,7 +6869,7 @@
         {
           "offset": 25,
           "kind": 6,
-          "symbol": "?unknown_IsometricTileClass_list_00832448@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
+          "symbol": "?IsometricTiles@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
           "target": 8594504,
           "addend": 13,
           "resolved": 8594517
@@ -6877,7 +6877,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?unknown_IsometricTileClass_list_00832448@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
+          "symbol": "?IsometricTiles@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
           "target": 8594504,
           "addend": 0,
           "resolved": 8594504
@@ -6893,7 +6893,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_IsometricTileClass_list_00832448@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
+          "symbol": "?IsometricTiles@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
           "target": 8594504,
           "addend": 20,
           "resolved": 8594524
@@ -6901,7 +6901,7 @@
         {
           "offset": 50,
           "kind": 6,
-          "symbol": "?unknown_IsometricTileClass_list_00832448@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
+          "symbol": "?IsometricTiles@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
           "target": 8594504,
           "addend": 16,
           "resolved": 8594520
@@ -6915,7 +6915,7 @@
           "resolved": 3629759
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -6967,7 +6967,7 @@
         }
       ],
       "source": "src/recovered/_isotile.cpp",
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source_order": 243690,
       "population": "population-3779",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -7017,7 +7017,7 @@
         }
       ],
       "source": "src/recovered/_isotile.cpp",
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source_order": 243691,
       "population": "population-3779",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -7204,7 +7204,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_IsometricTileClass_list_00832448@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
+          "symbol": "?IsometricTiles@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
           "target": 8594504,
           "addend": 4,
           "resolved": 8594508
@@ -7212,7 +7212,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_IsometricTileClass_list_00832448@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
+          "symbol": "?IsometricTiles@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
           "target": 8594504,
           "addend": 0,
           "resolved": 8594504
@@ -7228,7 +7228,7 @@
         {
           "offset": 24,
           "kind": 6,
-          "symbol": "?unknown_IsometricTileClass_list_00832448@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
+          "symbol": "?IsometricTiles@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
           "target": 8594504,
           "addend": 13,
           "resolved": 8594517
@@ -7244,7 +7244,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_IsometricTileClass_list_00832448@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
+          "symbol": "?IsometricTiles@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
           "target": 8594504,
           "addend": 4,
           "resolved": 8594508
@@ -7252,7 +7252,7 @@
         {
           "offset": 47,
           "kind": 6,
-          "symbol": "?unknown_IsometricTileClass_list_00832448@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
+          "symbol": "?IsometricTiles@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
           "target": 8594504,
           "addend": 13,
           "resolved": 8594517
@@ -7260,13 +7260,13 @@
         {
           "offset": 53,
           "kind": 6,
-          "symbol": "?unknown_IsometricTileClass_list_00832448@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
+          "symbol": "?IsometricTiles@@3V?$DynamicVectorClass@PAVIsometricTileClass@@@@A",
           "target": 8594504,
           "addend": 8,
           "resolved": 8594512
         }
       ],
-      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_sha256": "6fbced12e30a9817864dbf483eebeec8c083fac3b5e7d74d521d3a199e68615b",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

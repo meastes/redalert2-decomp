@@ -783,7 +783,7 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
         bool third = unknown_pending_super_833694 == 5;
         bool fourth = unknown_pending_super_833694 == 6;
         bool pressed = (flags & 0x50) != 0;
-        if (!pressed && (unknown_objects_a40c60.Count() != 0 || nuke || first || second || third || fourth)) {
+        if (!pressed && (CurrentObject.Count() != 0 || nuke || first || second || third || fourth)) {
             if (nuke) {
                 action = 0x14;
             } else if (first) {

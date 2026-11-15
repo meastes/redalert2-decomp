@@ -184,7 +184,7 @@ void TemporalClass::AI()
             if(Target->Kind_Of()==6) {
                 BuildingClass *building=(BuildingClass *)Target;
                 if(building!=0) {
-                    if(building->unknown_4532f0()>0) building->KillOccupants(0);
+                    if(building->GetOccupantCount()>0) building->KillOccupants(0);
                     if(ScenarioInit==0) {
                         while(building->Cargo.Object!=0) {
                             ObjectClass *passenger=building->Cargo.Detach_Object();

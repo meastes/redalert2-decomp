@@ -197,10 +197,10 @@ int __fastcall Init_Game()
 
     Debug_Printf("Bootstrap.....");
     if (!Bootstrap()) {
-        Unknown_00496460(" ..Failed to bootstrap!\n");
+        DebugStringNoPrefix(" ..Failed to bootstrap!\n");
         return -1;
     }
-    Unknown_00496460(" ...OK\n");
+    DebugStringNoPrefix(" ...OK\n");
 
     Debug_Printf("Init Mouse\n");
     Init_Mouse();
@@ -213,10 +213,10 @@ int __fastcall Init_Game()
 
     Debug_Printf("Init Secondary Mixfiles.....");
     if (!Init_Secondary_Mixfiles()) {
-        Unknown_00496460(" ...Failed!!!\n");
+        DebugStringNoPrefix(" ...Failed!!!\n");
         return -1;
     }
-    Unknown_00496460(" ...OK\n");
+    DebugStringNoPrefix(" ...OK\n");
 
     Debug_Printf("Init Campaigns\n");
     Read_Battle_Files();
@@ -231,7 +231,7 @@ int __fastcall Init_Game()
     Options.Load_Settings();
 
     Debug_Printf("Init Anim System\n");
-    VQA_Unknown_0071DB20();
+    Initialize_Options();
     Set_Option(0);
 
     Debug_Printf("Init Color Remap Tables\n");
@@ -246,7 +246,7 @@ int __fastcall Init_Game()
     }
 
     Surface *hidden = HiddenSurface;
-    unknown_surface_83995c = hidden;
+    LogicalSurface = hidden;
 
     Debug_Printf("Reading SOUND.INI\n");
     CCFileClass voc_file("SOUND.INI");
@@ -259,7 +259,7 @@ int __fastcall Init_Game()
         Debug_Printf("Failed to load SOUND.INI!\n");
         return -1;
     }
-    Unknown_00714860();
+    Free_Vocs();
     VocClass::Process(voc_ini);
 
     Debug_Printf("Reading EVA.INI\n");
@@ -287,7 +287,7 @@ int __fastcall Init_Game()
         Debug_Printf("Failed to load THEME.INI!\n");
         return -1;
     }
-    Theme.Unknown_006E7A70();
+    Theme.Free_Themes();
     Theme.Unknown_006E7890(theme_ini);
     Theme.Scan();
 
@@ -318,7 +318,7 @@ int __fastcall Init_Game()
         Debug_Printf("Playing startup movie.\n");
         Play_Movie_005A02D0("WESTLOGO", -1, true, true, true, false);
     }
-    unknown_5159b0(0, true);
+    Darken_Surface(0, true);
     unknown_481fb0();
 
     unknown_max_players_a3d558 = Rules->MaxPlayers;
@@ -352,7 +352,7 @@ static bool Bootstrap()
     int index;
 
     if (!unknown_hicolor_7ce008) {
-        Unknown_004955D0(&unknown_palette_837510, 0, 0);
+        Set_Palette(&unknown_palette_837510, 0, 0);
     }
 
     if (CD::IsLocal == true) {
@@ -418,7 +418,7 @@ static bool Bootstrap()
     unknown_af6610 = 0;
     Unknown_00718060();
 
-    unknown_drawer_8323b8 = new ConvertClass(GamePalette, GamePalette, unknown_surface_839950, 0x35, false);
+    TerrainDrawer = new ConvertClass(GamePalette, GamePalette, VisibleSurface, 0x35, false);
 
     PaletteClass pal;
     memmove(&pal[0], MixFileClass::Retrieve("ANIM.PAL"), sizeof(pal));
@@ -426,37 +426,37 @@ static bool Bootstrap()
         pal[index] = RGBClass((unsigned char)(pal[index].Red << 2), (unsigned char)(pal[index].Green << 2),
             (unsigned char)(pal[index].Blue << 2));
     }
-    Unit_Draw_Convert_008323C0 = new ConvertClass(pal, GamePalette, unknown_surface_839950, 0x35, false);
+    Unit_Draw_Convert_008323C0 = new ConvertClass(pal, GamePalette, VisibleSurface, 0x35, false);
 
     memmove(&pal[0], MixFileClass::Retrieve("PALETTE.PAL"), sizeof(pal));
     for (index = 0; index < 256; index++) {
         pal[index] = RGBClass((unsigned char)(pal[index].Red << 2), (unsigned char)(pal[index].Green << 2),
             (unsigned char)(pal[index].Blue << 2));
     }
-    unknown_drawer_8323c4 = new ConvertClass(pal, GamePalette, unknown_surface_839950, 0x35, false);
+    NormalDrawer = new ConvertClass(pal, GamePalette, VisibleSurface, 0x35, false);
 
     memmove(&pal[0], MixFileClass::Retrieve("UNITSNO.PAL"), sizeof(pal));
     for (index = 0; index < 256; index++) {
         pal[index] = RGBClass((unsigned char)(pal[index].Red << 2), (unsigned char)(pal[index].Green << 2),
             (unsigned char)(pal[index].Blue << 2));
     }
-    unknown_drawer_8323b4 = new ConvertClass(pal, GamePalette, unknown_surface_839950, 0x35, false);
+    unknown_drawer_8323b4 = new ConvertClass(pal, GamePalette, VisibleSurface, 0x35, false);
 
     memmove(&pal[0], MixFileClass::Retrieve("CAMEO.PAL"), sizeof(pal));
     for (index = 0; index < 256; index++) {
         pal[index] = RGBClass((unsigned char)(pal[index].Red << 2), (unsigned char)(pal[index].Green << 2),
             (unsigned char)(pal[index].Blue << 2));
     }
-    unknown_drawer_8323b0 = new ConvertClass(pal, GamePalette, unknown_surface_839950, 0x35, false);
+    unknown_drawer_8323b0 = new ConvertClass(pal, GamePalette, VisibleSurface, 0x35, false);
 
     memmove(&pal[0], MixFileClass::Retrieve("MOUSEPAL.PAL"), sizeof(pal));
     for (index = 0; index < 256; index++) {
         pal[index] = RGBClass((unsigned char)(pal[index].Red << 2), (unsigned char)(pal[index].Green << 2),
             (unsigned char)(pal[index].Blue << 2));
     }
-    unknown_drawer_8323c8 = new ConvertClass(pal, GamePalette, unknown_surface_839950, 1, false);
+    unknown_drawer_8323c8 = new ConvertClass(pal, GamePalette, VisibleSurface, 1, false);
 
-    unknown_drawer_8323bc = unknown_drawer_8323b4;
+    TiberiumDrawer = unknown_drawer_8323b4;
 
     CCFileClass palfile("GRFXTXT.PAL");
     if (palfile.Is_Available()) {
@@ -471,7 +471,7 @@ static bool Bootstrap()
     }
     if (unknown_grfxtxt_palette_a41670 != 0) {
         unknown_grfxtxt_drawer_a41678 = new ConvertClass(*(PaletteClass *)unknown_grfxtxt_palette_a41670,
-            GamePalette, unknown_surface_839950, 1, false);
+            GamePalette, VisibleSurface, 1, false);
     }
 
     CCFileClass shpfile("GRFXTXT.SHP");
@@ -510,13 +510,13 @@ static bool Init_CDROM_Access()
             error = CDFileClass::Set_Search_Drives("?:\\");
             switch (error) {
                 case 1:
-                    Unknown_004955D0(&GamePalette, 0, 0);
+                    Set_Palette(&GamePalette, 0, 0);
                     WWMessageBox(L" ").Process(StringTable::Load_String("TXT_CD_ERROR1", 0, "D:\\Ra2\\Init.CPP", 0x104D),
                         StringTable::Load_String("TXT_OK", 0, "D:\\Ra2\\Init.CPP", 0x104D), 0, 0, false);
                     return false;
 
                 case 2:
-                    Unknown_004955D0(&GamePalette, 0, 0);
+                    Set_Palette(&GamePalette, 0, 0);
                     if (WWMessageBox(L" ").Process(StringTable::Load_String("TXT_CD_DIALOG_1", 0, "D:\\Ra2\\Init.CPP", 0x1056),
                             StringTable::Load_String("TXT_OK", 0, "D:\\Ra2\\Init.CPP", 0x1056),
                             StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\Init.CPP", 0x1056), 0, false) == 1) {
@@ -684,11 +684,11 @@ have_rules:
         }
         rules = files[choice];
     }
-    unknown_ini_8396d0 = rules;
+    RuleINI = rules;
     Rules->Colors(*rules);
     Rules->Movies(ArtINI);
-    Rules->Audio_Visual(*unknown_ini_8396d0);
-    Rules->MPlayer(*unknown_ini_8396d0);
+    Rules->Audio_Visual(*RuleINI);
+    Rules->MPlayer(*RuleINI);
 
     unknown_session_a3d298.unknown_24 = Rules->Money;
     unknown_session_a3d298.UnitCount = Rules->UnitCount;
@@ -719,13 +719,13 @@ have_rules:
     }
 
     for (int index = 0; index < files.Count(); index++) {
-        if (files[index] != unknown_ini_8396d0) {
+        if (files[index] != RuleINI) {
             delete files[index];
         }
     }
 
     CCFileClass aifile("AI.INI");
-    unknown_ini_8397a0.Load(aifile, true, false);
+    AIINI.Load(aifile, true, false);
     return true;
 }
 
@@ -1143,7 +1143,7 @@ static int Choose_Campaign()
             }
             if (SurfacesRestored) {
                 SurfacesRestored = false;
-                unknown_5159b0(0, true);
+                Darken_Surface(0, true);
                 Update_Visible_Surface(false, HiddenSurface, 0);
             }
         }
@@ -1215,7 +1215,7 @@ top:
                 if (PacketTransport != 0) {
                     if (unknown_session_a3d298.ViaPacketRouter) {
                         if (PacketRouterConnection != 0) {
-                            unknown_OwnerTalkClass_00ab6d18.Unknown_0063FC90();
+                            OwnerTalk.Unknown_0063FC90();
                         }
                         unknown_session_a3d298.ViaPacketRouter = false;
                     }
@@ -1274,12 +1274,12 @@ top:
                     unsigned short const *text = StringTable::Load_String("GUI:ExitAreYouSure", 0, "D:\\Ra2\\Init.CPP", 0x96B);
                     unsigned short const *ok = StringTable::Load_String("GUI:Ok", 0, "D:\\Ra2\\Init.CPP", 0x96C);
                     unsigned short const *cancel = StringTable::Load_String("GUI:Cancel", 0, "D:\\Ra2\\Init.CPP", 0x96D);
-                    unknown_5159b0(0, true);
+                    Darken_Surface(0, true);
                     if (WWMessageBox(L" ").Process(text, ok, cancel, 0, false) == 0) {
                         selection = 7;
                         Options.Save_Settings();
                     } else {
-                        unknown_5159b0(0, true);
+                        Darken_Surface(0, true);
                         selection = 0x12;
                     }
                     break;
@@ -1292,7 +1292,7 @@ top:
                     }
                     Theme.Stop(false);
                     if (!unknown_flag_7ce008) {
-                        Unknown_004955D0(&unknown_palette_837510, 30, 0);
+                        Set_Palette(&unknown_palette_837510, 30, 0);
                     }
                     return false;
                 }
@@ -1306,10 +1306,10 @@ top:
                             unknown_a41698--;
                         }
                         Unknown_005A07F0(unknown_a41698--, -1, 1, 1, 1);
-                        unknown_5159b0(0, true);
+                        Darken_Surface(0, true);
                     } else {
                         Unknown_005A02D0("EMPRTRLR.BIK", -1, 1, 1, 1, 0);
-                        unknown_5159b0(0, true);
+                        Darken_Surface(0, true);
                     }
                     break;
                 case 14: {
@@ -1319,7 +1319,7 @@ top:
                             break;
                         }
                         Unknown_005A02D0(movie->Name, -1, 1, 1, 1, 0);
-                        unknown_5159b0(0, true);
+                        Darken_Surface(0, true);
                     } else {
                         selection = 4;
                     }
@@ -1329,7 +1329,7 @@ top:
                     selection = 4;
                     Unknown_004B37C0();
                     Theme.Queue_Song((ThemeType)Theme.From_Name("INTRO"));
-                    unknown_5159b0(0, true);
+                    Darken_Surface(0, true);
                     break;
                 case 8: {
                     new (&unknown_scenario_checkpoint_00855a90) EnvironmentClass;
@@ -1385,7 +1385,7 @@ top:
                 case 17: {
                     Unknown_0066F3A0(&unknown_session_a3d298);
                     for (int house = 0; house < HouseTypes.Count(); house++) {
-                        HouseTypes[house]->Read_INI(*unknown_ini_8396d0);
+                        HouseTypes[house]->Read_INI(*RuleINI);
                     }
                     unknown_counter_a3fabc = 0;
                     switch (unknown_session_a3d298.Type) {
@@ -1444,7 +1444,7 @@ top:
                         case -1:
                             Theme.Stop(true);
                             if (!unknown_flag_7ce008) {
-                                Unknown_004955D0(&unknown_palette_837510, 30, 0);
+                                Set_Palette(&unknown_palette_837510, 30, 0);
                             }
                             delete PacketTransport;
                             PacketTransport = 0;
@@ -1481,14 +1481,14 @@ top:
                             PacketTransport = 0;
                         }
                         for (int house = 0; house < HouseTypes.Count(); house++) {
-                            HouseTypes[house]->Read_INI(*unknown_ini_8396d0);
+                            HouseTypes[house]->Read_INI(*RuleINI);
                         }
                         unknown_session_a3d298.Type = 3;
                         unknown_session_a3d2ac = 2;
                         if (PacketTransport == 0) {
                             PacketTransport = new IPXInterfaceClass;
                             PacketTransport->Init();
-                            unknown_5159b0(0, true);
+                            Darken_Surface(0, true);
                             if (Init_Network_005bc460() && Unknown_005BD070()) {
                                 process = false;
                             } else {
@@ -1520,7 +1520,7 @@ top:
             WWMouse->Hide_Mouse();
             if (selection != 8) {
                 if (!unknown_flag_7ce008) {
-                    Unknown_004955D0(&unknown_palette_837510, 15, unknown_481fb0);
+                    Set_Palette(&unknown_palette_837510, 15, unknown_481fb0);
                 }
                 HiddenSurface->Fill(0);
                 Update_Visible_Surface(true, HiddenSurface, 0);
@@ -1558,21 +1558,21 @@ top:
         if (unknown_session_a3d298.Type != 0 && unknown_session_a3d298.Type != 5 && !unknown_session_a3d298.Play) {
             unknown_session_a3d298.Create_Connections();
             if (unknown_session_a3d298.Type == 3) {
-                unknown_ipx_manager_a40978.Set_Timing(Max(unknown_ipx_manager_a40978.unknown_526c30() + 2, 15), -1, 600, true);
-                unknown_ipx_manager_a40978.unknown_slot14(Max(unknown_ipx_manager_a40978.unknown_526c30() + 2, 60), -1, 600);
+                Ipx.Set_Timing(Max(Ipx.unknown_526c30() + 2, 15), -1, 600, true);
+                Ipx.unknown_slot14(Max(Ipx.unknown_526c30() + 2, 60), -1, 600);
             } else if (unknown_session_a3d298.Type == 4 && unknown_a3d580 == 0) {
-                unknown_ipx_manager_a40978.Set_Timing(Max(unknown_ipx_manager_a40978.unknown_526c30() + 2, 60), -1, 600, true);
+                Ipx.Set_Timing(Max(Ipx.unknown_526c30() + 2, 60), -1, 600, true);
             }
         }
         unknown_481fb0();
         WWMouse->Hide_Mouse();
         if (!unknown_flag_7ce008) {
-            Unknown_004955D0(&unknown_palette_837510, 15, unknown_481fb0);
+            Set_Palette(&unknown_palette_837510, 15, unknown_481fb0);
         }
         HiddenSurface->Fill(0);
         Update_Visible_Surface(true, HiddenSurface, 0);
         WWMouse->Show_Mouse();
-        unknown_surface_83995c = HiddenSurface;
+        LogicalSurface = HiddenSurface;
         Map.Override_Mouse_Shape(0x13, false);
         Map.Revert_Mouse_Shape();
         if (!Debug_Map) {
@@ -1850,14 +1850,14 @@ bool __fastcall Unknown_00514EE0()
         PacketTransport = 0;
     }
     for (int house = 0; house < HouseTypes.Count(); house++) {
-        HouseTypes[house]->Read_INI(*unknown_ini_8396d0);
+        HouseTypes[house]->Read_INI(*RuleINI);
     }
     if (PacketTransport == 0) {
         PacketTransport = new UDPInterfaceClass;
     }
     unknown_session_a3d2ac = 2;
     PacketTransport->Open_Socket(0);
-    unknown_ipx_manager_a40978.Set_Timing(30, -1, 600, true);
+    Ipx.Set_Timing(30, -1, 600, true);
     Debug_Printf("About to initialise the network code\n");
     bool result = Unknown_005BB540();
     PacketTransport->Start_Listening();
@@ -1890,7 +1890,7 @@ bool __fastcall Unknown_00514EE0()
     unknown_ini_839740.Put_Int("MultiPlayer", "PortBase", unknown_session_a3d298.PortBase);
     unknown_ini_839740.Put_Int("MultiPlayer", "PortPool", unknown_a71b28);
     unknown_ini_839740.Save(file, false);
-    unknown_OwnerTalkClass_00ab6d18.Reset_0063f070();
+    OwnerTalk.Reset_0063f070();
     unknown_session_a3f616 = true;
     return result;
 }
@@ -1901,7 +1901,7 @@ bool __fastcall Unknown_00514EE0()
 
 void __cdecl Unknown_00515100()
 {
-    VQA_Unknown_0071DB20();
+    Initialize_Options();
     Set_Option(0);
 }
 
@@ -2018,7 +2018,7 @@ bool __fastcall Parse_Command_Line(int argc, char *argv[])
                 socket = (unsigned short)(atoi(string + strlen("SOCKET")));
                 socket += (unsigned short)0x4000;
                 if (socket >= 0x4000 && socket < 0x8000) {
-                    unknown_ipx_manager_a40978.Set_Socket(socket);
+                    Ipx.Set_Socket(socket);
                 }
                 continue;
             }
@@ -2116,7 +2116,7 @@ bool __fastcall Parse_Command_Line(int argc, char *argv[])
 void __fastcall Init_Random()
 {
     Debug_Printf("Init random number\n");
-    if (unknown_a3d8c8 != 0 || (unknown_flags_a3f600 & 2) != 0 || unknown_function_522e80() != 0) {
+    if (unknown_a3d8c8 != 0 || (unknown_flags_a3f600 & 2) != 0 || Get_Input_Record_Mode() != 0) {
         unknown_id_source_a3d290->RandomNumber = Seed;
         NonCriticalRandomNumber = Seed;
         Debug_Printf("Seed is %08x\n", Seed);
@@ -2154,7 +2154,7 @@ void __fastcall Init_Random()
 }
 
 
-// void __fastcall unknown_5159b0(int unknown1, bool unknown2) -- 0x005159B0
+// void __fastcall Darken_Surface(int unknown1, bool unknown2) -- 0x005159B0
 // Body 0x005159B0-0x00515A79 (202 bytes, nop padding to 0x00515A80). unknown1 is really the surface to draw
 // on (0: HiddenSurface) and unknown2 whether to blit it afterwards; the declaration in
 // shared/unknown_globals.hpp keeps its int parameter until a rename spec changes the signature.
@@ -2166,7 +2166,7 @@ void __fastcall Fill_Surface_Rect_006f3a20(Surface *surface, Rect const &window,
 
 // Clears the surface and redraws the menu background into it through a 16-bit work surface of the same
 // size (0x006F3A20 draws it), then blits it when asked (name hypothesis: the main menu background).
-void __fastcall unknown_5159b0(int unknown1, bool unknown2)
+void __fastcall Darken_Surface(int unknown1, bool unknown2)
 {
     Surface *surface = (Surface *)unknown1;
     if (surface == 0) {
@@ -2193,12 +2193,12 @@ void __fastcall unknown_5159b0(int unknown1, bool unknown2)
 
 extern PaletteClass CCPalette;
 // Reads a picture file onto a surface with a palette (0x00738190; hypothesis).
-void __fastcall Unknown_00738190(char const *filename, Surface *surface, PaletteClass *palette);
+void __fastcall Load_Title_Screen(char const *filename, Surface *surface, PaletteClass *palette);
 
 void __fastcall Load_Title_Page(char const *filename, bool blit)
 {
     HiddenSurface->Fill(0);
-    Unknown_00738190(filename, HiddenSurface, &CCPalette);
+    Load_Title_Screen(filename, HiddenSurface, &CCPalette);
     if (blit) {
         GScreenClass::Blit(true, HiddenSurface);
     }
@@ -2273,7 +2273,7 @@ bool __fastcall Init_Bootstrap_Mixfiles()
             MixFileClass *mix = new MixFileClass(name, &FastKey);
             if (mix != 0) {
                 unknown_expansion_mixes_837450.Add(mix);
-                Unknown_00496460(" %s", name);
+                DebugStringNoPrefix(" %s", name);
             }
         }
     }
@@ -2282,19 +2282,19 @@ bool __fastcall Init_Bootstrap_Mixfiles()
     if (unknown_ra2_mix_8374b8 == 0) {
         return false;
     }
-    Unknown_00496460(" CACHE.MIX");
+    DebugStringNoPrefix(" CACHE.MIX");
 
     unknown_cache_mix_8374e8 = new MixFileClass("CACHE.MIX", &FastKey);
     if (unknown_cache_mix_8374e8 == 0 || !MixFileClass::Cache("CACHE.MIX")) {
         return false;
     }
-    Unknown_00496460(" CACHE.MIX");
+    DebugStringNoPrefix(" CACHE.MIX");
 
     unknown_local_mix_8374ec = new MixFileClass("LOCAL.MIX", &FastKey);
     if (unknown_local_mix_8374ec == 0) {
         return false;
     }
-    Unknown_00496460(" LOCAL.MIX");
+    DebugStringNoPrefix(" LOCAL.MIX");
     CD::Set_Required_CD(cd);
     return true;
 }
@@ -2312,7 +2312,7 @@ bool __fastcall Init_Secondary_Mixfiles()
     if (CCFileClass("CONQUER.MIX").Is_Available()) {
         ConquerMix = new MixFileClass("CONQUER.MIX", &FastKey);
     }
-    Unknown_00496460(" CONQUER.MIX");
+    DebugStringNoPrefix(" CONQUER.MIX");
     if (ConquerMix == 0) {
         return false;
     }
@@ -2320,7 +2320,7 @@ bool __fastcall Init_Secondary_Mixfiles()
     if (CCFileClass("CAMEO.MIX").Is_Available()) {
         CameoMix = new MixFileClass("CAMEO.MIX", &FastKey);
     }
-    Unknown_00496460(" CAMEO.MIX");
+    DebugStringNoPrefix(" CAMEO.MIX");
     if (CameoMix == 0) {
         return false;
     }
@@ -2330,10 +2330,10 @@ bool __fastcall Init_Secondary_Mixfiles()
     if (CD::IsLocal == true) {
         strcpy(name, "MAPS*.MIX");
         if (CDFileClass::Find_First_File(name) == true) {
-            Unknown_00496460(" %s", name);
+            DebugStringNoPrefix(" %s", name);
             MapsMix = new MixFileClass(name, &FastKey);
             while (CDFileClass::Find_Next_File(name) == true) {
-                Unknown_00496460(" %s", name);
+                DebugStringNoPrefix(" %s", name);
                 MixFileClass *mix = new MixFileClass(name, &FastKey);
                 if (mix != 0) {
                     MixFileClass *added = mix;
@@ -2347,7 +2347,7 @@ bool __fastcall Init_Secondary_Mixfiles()
         if (CCFileClass(name).Is_Available()) {
             MapsMix = new MixFileClass(name, &FastKey);
         }
-        Unknown_00496460(" %s", name);
+        DebugStringNoPrefix(" %s", name);
     }
     if (MapsMix == 0) {
         return false;
@@ -2356,7 +2356,7 @@ bool __fastcall Init_Secondary_Mixfiles()
     if (CCFileClass("MULTI.MIX").Is_Available()) {
         MultiMix = new MixFileClass("MULTI.MIX", &FastKey);
     }
-    Unknown_00496460(" MULTI.MIX");
+    DebugStringNoPrefix(" MULTI.MIX");
     if (MultiMix == 0) {
         return false;
     }
@@ -2364,7 +2364,7 @@ bool __fastcall Init_Secondary_Mixfiles()
     if (CCFileClass("THEME.MIX").Is_Available()) {
         ThemeMix = new MixFileClass("THEME.MIX", &FastKey);
     }
-    Unknown_00496460(" THEME.MIX");
+    DebugStringNoPrefix(" THEME.MIX");
     unknown_sound_enabled_a40c18 = true;
     Theme.Scan();
 
@@ -2377,10 +2377,10 @@ bool __fastcall Init_Secondary_Mixfiles()
             strcpy(name, "MIXFILES\\MOVIES*.MIX");
         }
         if (CDFileClass::Find_First_File(name) == true) {
-            Unknown_00496460(" %s", name);
+            DebugStringNoPrefix(" %s", name);
             MoviesMix = new MixFileClass(name, &FastKey);
             while (CDFileClass::Find_Next_File(name) == true) {
-                Unknown_00496460(" %s", name);
+                DebugStringNoPrefix(" %s", name);
                 MixFileClass *mix = new MixFileClass(name, &FastKey);
                 if (mix != 0) {
                     MixFileClass *added = mix;
@@ -2394,7 +2394,7 @@ bool __fastcall Init_Secondary_Mixfiles()
         if (CCFileClass(name).Is_Available()) {
             MoviesMix = new MixFileClass(name, &FastKey);
         }
-        Unknown_00496460(" %s", name);
+        DebugStringNoPrefix(" %s", name);
     }
     return MoviesMix ? true : false;
 }
@@ -2423,7 +2423,7 @@ void __fastcall Draw_Loading_Screen()
             color = RGBClass(color.Red << 2, color.Green << 2, color.Blue << 2);
         }
         if (palette != 0) {
-            drawer = new ConvertClass(*palette, GamePalette, unknown_surface_839950, 1, false);
+            drawer = new ConvertClass(*palette, GamePalette, VisibleSurface, 1, false);
             if (drawer != 0) {
                 CCFileClass shapefile(VideoModeWidth == 640 ? "GLSS.SHP" : "GLSL.SHP");
                 if (shapefile.Is_Available()) {
@@ -2587,7 +2587,7 @@ bool __fastcall Load_Recording_Values(CCFileClass &file)
 
 char *__fastcall unknown_build_machine_text_737ad0(char *buffer, int size);                   // 0x00737AD0
 char *__fastcall Build_By_String_00737b00(char *buffer, int size);                      // 0x00737B00
-void __fastcall unknown_clear_text_4955a0(char *text);                                        // 0x004955A0
+void __fastcall Get_Language_Version(char *text);                                        // 0x004955A0
 extern char unknown_cpu_text_8015a5[];
 
 // The version dialog's procedure (pointer only, 0x00516E70's dialog 0xD4): the common handler
@@ -2628,7 +2628,7 @@ int __stdcall Unknown_00516C40(HWND window, UINT message, WPARAM wparam, LPARAM 
             Get_CPU_Info(&family, &mmx, 0, 0);
             sprintf(buffer, "MMX %s, Vendor: %s", mmx ? "Yes" : "No", unknown_cpu_text_8015a5);
             SendMessageA(item, 0x4C8, 0, (LPARAM)buffer);
-            unknown_clear_text_4955a0(buffer);
+            Get_Language_Version(buffer);
             SendMessageA(item, 0x4C8, 0, (LPARAM)buffer);
         }
         return 0;
@@ -2692,7 +2692,7 @@ static bool Cheat_Key_Process(char chr)
     char tmp[2];
     tmp[0] = chr;
     tmp[1] = 0;
-    Unknown_00496460(tmp);
+    DebugStringNoPrefix(tmp);
 
     int len = strlen(unknown_cheat_text_a4169c);
     if (len >= 31) {
@@ -2823,7 +2823,7 @@ void __fastcall Unknown_00517370(bool force)
 {
     if (SurfacesRestored || force) {
         SurfacesRestored = false;
-        unknown_5159b0(0, true);
+        Darken_Surface(0, true);
         GScreenClass::Blit(false, HiddenSurface);
     }
 }
@@ -2870,114 +2870,114 @@ bool __fastcall Load_Keyboard_Hotkeys();
 void unknown_init_commands_5173c0()
 {
     if (unknown_flag_a3d8c4) {
-        unknown_commands_832358.Add(new MultiplayerDebugCommandClass);
-        unknown_commands_832358.Add(new MultiplayerSyncCommandClass);
+        AllCommands.Add(new MultiplayerDebugCommandClass);
+        AllCommands.Add(new MultiplayerSyncCommandClass);
     }
-    unknown_commands_832358.Add(new FollowCommandClass);
-    unknown_commands_832358.Add(new View1CommandClass);
-    unknown_commands_832358.Add(new View2CommandClass);
-    unknown_commands_832358.Add(new View3CommandClass);
-    unknown_commands_832358.Add(new View4CommandClass);
-    unknown_commands_832358.Add(new SetView1CommandClass);
-    unknown_commands_832358.Add(new SetView2CommandClass);
-    unknown_commands_832358.Add(new SetView3CommandClass);
-    unknown_commands_832358.Add(new SetView4CommandClass);
+    AllCommands.Add(new FollowCommandClass);
+    AllCommands.Add(new View1CommandClass);
+    AllCommands.Add(new View2CommandClass);
+    AllCommands.Add(new View3CommandClass);
+    AllCommands.Add(new View4CommandClass);
+    AllCommands.Add(new SetView1CommandClass);
+    AllCommands.Add(new SetView2CommandClass);
+    AllCommands.Add(new SetView3CommandClass);
+    AllCommands.Add(new SetView4CommandClass);
     CommandClass *options = new OptionsCommandClass;
-    unknown_commands_832358.Add(options);
-    unknown_commands_832358.Add(new SidebarUpCommandClass);
-    unknown_commands_832358.Add(new LSidebarUpCommandClass);
-    unknown_commands_832358.Add(new RSidebarUpCommandClass);
-    unknown_commands_832358.Add(new SidebarDownCommandClass);
-    unknown_commands_832358.Add(new LSidebarDownCommandClass);
-    unknown_commands_832358.Add(new RSidebarDownCommandClass);
-    unknown_commands_832358.Add(new SidebarPageUpCommandClass);
-    unknown_commands_832358.Add(new LSidebarPageUpCommandClass);
-    unknown_commands_832358.Add(new RSidebarPageUpCommandClass);
-    unknown_commands_832358.Add(new SidebarPageDownCommandClass);
-    unknown_commands_832358.Add(new LSidebarPageDownCommandClass);
-    unknown_commands_832358.Add(new RSidebarPageDownCommandClass);
+    AllCommands.Add(options);
+    AllCommands.Add(new SidebarUpCommandClass);
+    AllCommands.Add(new LSidebarUpCommandClass);
+    AllCommands.Add(new RSidebarUpCommandClass);
+    AllCommands.Add(new SidebarDownCommandClass);
+    AllCommands.Add(new LSidebarDownCommandClass);
+    AllCommands.Add(new RSidebarDownCommandClass);
+    AllCommands.Add(new SidebarPageUpCommandClass);
+    AllCommands.Add(new LSidebarPageUpCommandClass);
+    AllCommands.Add(new RSidebarPageUpCommandClass);
+    AllCommands.Add(new SidebarPageDownCommandClass);
+    AllCommands.Add(new LSidebarPageDownCommandClass);
+    AllCommands.Add(new RSidebarPageDownCommandClass);
     CommandClass *center_event = new CenterREventCommandClass;
-    unknown_commands_832358.Add(center_event);
-    unknown_commands_832358.Add(new BeaconPlacementCommandClass);
-    unknown_commands_832358.Add(new ToggleSellCommandClass);
-    unknown_commands_832358.Add(new ToggleRepairCommandClass);
-    unknown_commands_832358.Add(new AllianceCommandClass);
-    unknown_commands_832358.Add(new CenterBaseCommandClass);
-    unknown_commands_832358.Add(new CenterViewCommandClass);
-    unknown_commands_832358.Add(new ScatterCommandClass);
-    unknown_commands_832358.Add(new GuardCommandClass);
-    unknown_commands_832358.Add(new StopCommandClass);
-    unknown_commands_832358.Add(new AllToCheerCommandClass);
-    unknown_commands_832358.Add(new DeployCommandClass);
-    unknown_commands_832358.Add(new PrevObjectCommandClass);
-    unknown_commands_832358.Add(new NextObjectCommandClass);
-    unknown_commands_832358.Add(new PlanningModeCommandClass);
-    unknown_commands_832358.Add(new CombatantSelectCommandClass);
-    unknown_commands_832358.Add(new TypeSelectCommandClass);
-    unknown_commands_832358.Add(new HealthNavCommandClass);
-    unknown_commands_832358.Add(new VeterancyNavCommandClass);
-    unknown_commands_832358.Add(new SetStructureTabCommandClass);
-    unknown_commands_832358.Add(new SetDefenseTabCommandClass);
-    unknown_commands_832358.Add(new SetUnitTabCommandClass);
-    unknown_commands_832358.Add(new SetInfantryTabCommandClass);
+    AllCommands.Add(center_event);
+    AllCommands.Add(new BeaconPlacementCommandClass);
+    AllCommands.Add(new ToggleSellCommandClass);
+    AllCommands.Add(new ToggleRepairCommandClass);
+    AllCommands.Add(new AllianceCommandClass);
+    AllCommands.Add(new CenterBaseCommandClass);
+    AllCommands.Add(new CenterViewCommandClass);
+    AllCommands.Add(new ScatterCommandClass);
+    AllCommands.Add(new GuardCommandClass);
+    AllCommands.Add(new StopCommandClass);
+    AllCommands.Add(new AllToCheerCommandClass);
+    AllCommands.Add(new DeployCommandClass);
+    AllCommands.Add(new PrevObjectCommandClass);
+    AllCommands.Add(new NextObjectCommandClass);
+    AllCommands.Add(new PlanningModeCommandClass);
+    AllCommands.Add(new CombatantSelectCommandClass);
+    AllCommands.Add(new TypeSelectCommandClass);
+    AllCommands.Add(new HealthNavCommandClass);
+    AllCommands.Add(new VeterancyNavCommandClass);
+    AllCommands.Add(new SetStructureTabCommandClass);
+    AllCommands.Add(new SetDefenseTabCommandClass);
+    AllCommands.Add(new SetUnitTabCommandClass);
+    AllCommands.Add(new SetInfantryTabCommandClass);
     int team_number_1 = 1;
-    unknown_commands_832358.Add(new CreateTeamCommandClass(team_number_1));
+    AllCommands.Add(new CreateTeamCommandClass(team_number_1));
     int team_number_2 = 2;
-    unknown_commands_832358.Add(new CreateTeamCommandClass(team_number_2));
+    AllCommands.Add(new CreateTeamCommandClass(team_number_2));
     int team_number_3 = 3;
-    unknown_commands_832358.Add(new CreateTeamCommandClass(team_number_3));
+    AllCommands.Add(new CreateTeamCommandClass(team_number_3));
     int team_number_4 = 4;
-    unknown_commands_832358.Add(new CreateTeamCommandClass(team_number_4));
+    AllCommands.Add(new CreateTeamCommandClass(team_number_4));
     int team_number_5 = 5;
-    unknown_commands_832358.Add(new CreateTeamCommandClass(team_number_5));
-    unknown_commands_832358.Add(new CreateTeamCommandClass(6));
-    unknown_commands_832358.Add(new CreateTeamCommandClass(7));
-    unknown_commands_832358.Add(new CreateTeamCommandClass(8));
-    unknown_commands_832358.Add(new CreateTeamCommandClass(9));
-    unknown_commands_832358.Add(new CreateTeamCommandClass(10));
-    unknown_commands_832358.Add(new SelectTeamCommandClass(1));
-    unknown_commands_832358.Add(new SelectTeamCommandClass(2));
-    unknown_commands_832358.Add(new SelectTeamCommandClass(3));
-    unknown_commands_832358.Add(new SelectTeamCommandClass(4));
-    unknown_commands_832358.Add(new SelectTeamCommandClass(5));
-    unknown_commands_832358.Add(new SelectTeamCommandClass(6));
-    unknown_commands_832358.Add(new SelectTeamCommandClass(7));
-    unknown_commands_832358.Add(new SelectTeamCommandClass(8));
-    unknown_commands_832358.Add(new SelectTeamCommandClass(9));
-    unknown_commands_832358.Add(new SelectTeamCommandClass(10));
-    unknown_commands_832358.Add(new AddTeamCommandClass(1));
-    unknown_commands_832358.Add(new AddTeamCommandClass(2));
-    unknown_commands_832358.Add(new AddTeamCommandClass(3));
-    unknown_commands_832358.Add(new AddTeamCommandClass(4));
-    unknown_commands_832358.Add(new AddTeamCommandClass(5));
-    unknown_commands_832358.Add(new AddTeamCommandClass(6));
-    unknown_commands_832358.Add(new AddTeamCommandClass(7));
-    unknown_commands_832358.Add(new AddTeamCommandClass(8));
-    unknown_commands_832358.Add(new AddTeamCommandClass(9));
-    unknown_commands_832358.Add(new AddTeamCommandClass(10));
-    unknown_commands_832358.Add(new CenterTeamCommandClass(1));
-    unknown_commands_832358.Add(new CenterTeamCommandClass(2));
-    unknown_commands_832358.Add(new CenterTeamCommandClass(3));
-    unknown_commands_832358.Add(new CenterTeamCommandClass(4));
-    unknown_commands_832358.Add(new CenterTeamCommandClass(5));
-    unknown_commands_832358.Add(new CenterTeamCommandClass(6));
-    unknown_commands_832358.Add(new CenterTeamCommandClass(7));
-    unknown_commands_832358.Add(new CenterTeamCommandClass(8));
-    unknown_commands_832358.Add(new CenterTeamCommandClass(9));
-    unknown_commands_832358.Add(new CenterTeamCommandClass(10));
-    unknown_commands_832358.Add(new TauntCommandClass(1));
-    unknown_commands_832358.Add(new TauntCommandClass(2));
-    unknown_commands_832358.Add(new TauntCommandClass(3));
-    unknown_commands_832358.Add(new TauntCommandClass(4));
-    unknown_commands_832358.Add(new TauntCommandClass(5));
-    unknown_commands_832358.Add(new TauntCommandClass(6));
-    unknown_commands_832358.Add(new TauntCommandClass(7));
-    unknown_commands_832358.Add(new TauntCommandClass(8));
-    unknown_commands_832358.Add(new ScreenCaptureCommandClass);
-    unknown_commands_832358.Add(new PageUserCommandClass);
-    unknown_commands_832358.Add(new CursorPositionCommandClass);
+    AllCommands.Add(new CreateTeamCommandClass(team_number_5));
+    AllCommands.Add(new CreateTeamCommandClass(6));
+    AllCommands.Add(new CreateTeamCommandClass(7));
+    AllCommands.Add(new CreateTeamCommandClass(8));
+    AllCommands.Add(new CreateTeamCommandClass(9));
+    AllCommands.Add(new CreateTeamCommandClass(10));
+    AllCommands.Add(new SelectTeamCommandClass(1));
+    AllCommands.Add(new SelectTeamCommandClass(2));
+    AllCommands.Add(new SelectTeamCommandClass(3));
+    AllCommands.Add(new SelectTeamCommandClass(4));
+    AllCommands.Add(new SelectTeamCommandClass(5));
+    AllCommands.Add(new SelectTeamCommandClass(6));
+    AllCommands.Add(new SelectTeamCommandClass(7));
+    AllCommands.Add(new SelectTeamCommandClass(8));
+    AllCommands.Add(new SelectTeamCommandClass(9));
+    AllCommands.Add(new SelectTeamCommandClass(10));
+    AllCommands.Add(new AddTeamCommandClass(1));
+    AllCommands.Add(new AddTeamCommandClass(2));
+    AllCommands.Add(new AddTeamCommandClass(3));
+    AllCommands.Add(new AddTeamCommandClass(4));
+    AllCommands.Add(new AddTeamCommandClass(5));
+    AllCommands.Add(new AddTeamCommandClass(6));
+    AllCommands.Add(new AddTeamCommandClass(7));
+    AllCommands.Add(new AddTeamCommandClass(8));
+    AllCommands.Add(new AddTeamCommandClass(9));
+    AllCommands.Add(new AddTeamCommandClass(10));
+    AllCommands.Add(new CenterTeamCommandClass(1));
+    AllCommands.Add(new CenterTeamCommandClass(2));
+    AllCommands.Add(new CenterTeamCommandClass(3));
+    AllCommands.Add(new CenterTeamCommandClass(4));
+    AllCommands.Add(new CenterTeamCommandClass(5));
+    AllCommands.Add(new CenterTeamCommandClass(6));
+    AllCommands.Add(new CenterTeamCommandClass(7));
+    AllCommands.Add(new CenterTeamCommandClass(8));
+    AllCommands.Add(new CenterTeamCommandClass(9));
+    AllCommands.Add(new CenterTeamCommandClass(10));
+    AllCommands.Add(new TauntCommandClass(1));
+    AllCommands.Add(new TauntCommandClass(2));
+    AllCommands.Add(new TauntCommandClass(3));
+    AllCommands.Add(new TauntCommandClass(4));
+    AllCommands.Add(new TauntCommandClass(5));
+    AllCommands.Add(new TauntCommandClass(6));
+    AllCommands.Add(new TauntCommandClass(7));
+    AllCommands.Add(new TauntCommandClass(8));
+    AllCommands.Add(new ScreenCaptureCommandClass);
+    AllCommands.Add(new PageUserCommandClass);
+    AllCommands.Add(new CursorPositionCommandClass);
     CommandClass *del = new DeleteCommandClass;
-    unknown_commands_832358.Add(del);
+    AllCommands.Add(del);
     Load_Keyboard_Hotkeys();
     if (unknown_hotkeys_832380.Is_Present(0x2E)) {
         unknown_hotkeys_832380.Remove_Index(0x2E);
@@ -3012,9 +3012,9 @@ bool __fastcall Load_Keyboard_Hotkeys()
         for (int index = 0; index < ini.Entry_Count("Hotkey"); index++) {
             char const *entry = ini.Get_Entry("Hotkey", index);
             int key = ini.Get_Int("Hotkey", entry, 0);
-            for (int command = 0; command < unknown_commands_832358.Count(); command++) {
-                if (strcmp(unknown_commands_832358[command]->Get_Name(), entry) == 0) {
-                    CommandClass *found = (CommandClass *)unknown_commands_832358[command];
+            for (int command = 0; command < AllCommands.Count(); command++) {
+                if (strcmp(AllCommands[command]->Get_Name(), entry) == 0) {
+                    CommandClass *found = (CommandClass *)AllCommands[command];
                     if (found != 0 && key != 0) {
                         unknown_hotkeys_832380.Add_Index(key, found);
                     }
@@ -3036,9 +3036,9 @@ extern "C" int __cdecl strcmp(char const *left, char const *right);
 
 void __fastcall Execute_Command_By_Name(char const *name)
 {
-    for (int index = 0; index < unknown_commands_832358.Count(); index++) {
-        if (strcmp(unknown_commands_832358[index]->Get_Name(), name) == 0) {
-            unknown_commands_832358[index]->Execute(0);
+    for (int index = 0; index < AllCommands.Count(); index++) {
+        if (strcmp(AllCommands[index]->Get_Name(), name) == 0) {
+            AllCommands[index]->Execute(0);
             return;
         }
     }
@@ -3298,8 +3298,8 @@ void __fastcall Delete_All_Objects_00519960()
         delete unknown_BombClass_list_0084eb78[0];
     }
     Unknown_006ecf10();
-    while (unknown_SpotLightClass_list_00a731c0.Count()) {
-        delete unknown_SpotLightClass_list_00a731c0[0];
+    while (SpotLights.Count()) {
+        delete SpotLights[0];
     }
     Unknown_006ecf10();
     while (FoggedObjectClass::Array.Count()) {
@@ -3472,7 +3472,7 @@ bool __cdecl Unknown_0051A2B0()
     if (unknown_mix_8374f0 == 0) {
         return false;
     }
-    Unknown_00496460("LOADED NEUTRAL.MIX");
+    DebugStringNoPrefix("LOADED NEUTRAL.MIX");
     return true;
 }
 
@@ -3562,9 +3562,9 @@ ObjectClass *__fastcall Best_Selected_Object(Cell const *cell, ObjectClass *obje
     ObjectClass *best = 0;
     int best_priority = -1;
     int best_distance = 0x7FFFFFFF;
-    if (unknown_objects_a40c60.Count() > 0) {
-        for (int index = 0; index < unknown_objects_a40c60.Count(); index++) {
-            ObjectClass *candidate = unknown_objects_a40c60[index];
+    if (CurrentObject.Count() > 0) {
+        for (int index = 0; index < CurrentObject.Count(); index++) {
+            ObjectClass *candidate = CurrentObject[index];
             int priority = 0;
             bool flagged = false;
             if (candidate != 0) {
@@ -4407,7 +4407,7 @@ void NextObjectCommandClass::Execute(int key) const
     Map.Unknown_0049C860(0, false);
     Map.Unknown_0049CA20(0);
     Map.Unknown_0049C7C0(0);
-    ObjectClass *object = Map.Next_Object(unknown_objects_a40c60.Count() ? unknown_objects_a40c60[0] : 0);
+    ObjectClass *object = Map.Next_Object(CurrentObject.Count() ? CurrentObject[0] : 0);
     if (object != 0) {
         Clear_Selected_Objects_00482bc0();
         object->unknown_slot80();
@@ -4785,7 +4785,7 @@ void PrevObjectCommandClass::Execute(int key) const
     Map.Unknown_0049C860(0, false);
     Map.Unknown_0049CA20(0);
     Map.Unknown_0049C7C0(0);
-    ObjectClass *object = Map.Prev_Object(unknown_objects_a40c60.Count() ? unknown_objects_a40c60[0] : 0);
+    ObjectClass *object = Map.Prev_Object(CurrentObject.Count() ? CurrentObject[0] : 0);
     if (object != 0) {
         Clear_Selected_Objects_00482bc0();
         object->unknown_slot80();
@@ -5062,7 +5062,7 @@ wchar_t const *CenterViewCommandClass::Get_Description() const
 
 void CenterViewCommandClass::Execute(int key) const
 {
-    if (unknown_objects_a40c60.Count() > 0) {
+    if (CurrentObject.Count() > 0) {
         Map.Unknown_0049E3B0();
         Map.Flag_To_Redraw(true);
     }
@@ -6397,8 +6397,8 @@ wchar_t const *FollowCommandClass::Get_Description() const
 
 void FollowCommandClass::Execute(int key) const
 {
-    if (unknown_objects_a40c60.Count() != 0 && Map.Unknown_0049EC40() == 0) {
-        Map.Unknown_0049EC60(unknown_objects_a40c60[0]);
+    if (CurrentObject.Count() != 0 && Map.Unknown_0049EC40() == 0) {
+        Map.Unknown_0049EC60(CurrentObject[0]);
     } else {
         Map.Unknown_0049EC60(0);
     }
@@ -6471,7 +6471,7 @@ void ScreenCaptureCommandClass::Execute(int key) const
                 int width = HiddenSurface->Get_Width();
                 int height = HiddenSurface->Get_Height();
                 Rect full(0, 0, width, height);
-                HiddenSurface->Copy_From(full, *unknown_surface_839950, area, false, true);
+                HiddenSurface->Copy_From(full, *VisibleSurface, area, false, true);
                 WWMouse->Show_Mouse();
                 char filename[128];
                 int index = -1;

@@ -1088,9 +1088,9 @@ DialStatusType NullModemClass::Dial_Modem(char *string, int method, bool reconne
     } else {
         text = StringTable::Load_String("TXT_DIALING", 0, "D:\\Ra2\\NullMgr.CPP", 0x583);
     }
-    unknown_modem_aborted_a72ec4 = false;
+    ModemDialogIsOpen = false;
     HWND dialog = unknown_cancel_dialog_6001e0(text, StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullMgr.CPP", 0x587),
-                                               &unknown_modem_aborted_a72ec4);
+                                               &ModemDialogIsOpen);
     if (dialog) {
         unknown_dialog_5ff7c0(dialog);
 
@@ -1101,12 +1101,12 @@ DialStatusType NullModemClass::Dial_Modem(char *string, int method, bool reconne
         Debug_Printf("Calling dial function\n");
         SerialPort->Dial_Modem(string);
         SerialPort->Set_Abort_Function(Abort_Modem);
-        unknown_modem_aborted_a72ec4 = false;
+        ModemDialogIsOpen = false;
 
         delay = unknown_24;
         Debug_Printf("Waiting for dial result\n");
         while (process == true) {
-            if (unknown_6000d0() == true || unknown_modem_aborted_a72ec4) {
+            if (unknown_6000d0() == true || ModemDialogIsOpen) {
                 dialstatus = DIAL_CANCELED;
                 if (SerialPort) {
                     char abort[3] = "\r";
@@ -1169,7 +1169,7 @@ DialStatusType NullModemClass::Dial_Modem(char *string, int method, bool reconne
         }
 
         SerialPort->Set_Abort_Function(0);
-        unknown_modem_aborted_a72ec4 = false;
+        ModemDialogIsOpen = false;
         unknown_dialog_5ff6e0(dialog);
     }
     return dialstatus;
@@ -1216,17 +1216,17 @@ DialStatusType NullModemClass::Answer_Modem(bool reconnect)
     }
     Debug_Printf("Waiting for ring\n");
     process = true;
-    unknown_modem_aborted_a72ec4 = false;
+    ModemDialogIsOpen = false;
     HWND dialog = unknown_cancel_dialog_6001e0(text, StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullMgr.CPP", 0x635),
-                                               &unknown_modem_aborted_a72ec4);
+                                               &ModemDialogIsOpen);
     if (dialog) {
         unknown_dialog_5ff7c0(dialog);
         SerialPort->Set_Abort_Function(Abort_Modem);
-        unknown_modem_aborted_a72ec4 = false;
+        ModemDialogIsOpen = false;
 
         delay = 3600;
         while (process == true) {
-            if (unknown_6000d0() == true || unknown_modem_aborted_a72ec4) {
+            if (unknown_6000d0() == true || ModemDialogIsOpen) {
                 dialstatus = DIAL_CANCELED;
                 Debug_Printf("Answering cancelled\n");
                 if (SerialPort) {
@@ -1304,7 +1304,7 @@ DialStatusType NullModemClass::Answer_Modem(bool reconnect)
         }
 
         SerialPort->Set_Abort_Function(0);
-        unknown_modem_aborted_a72ec4 = false;
+        ModemDialogIsOpen = false;
         unknown_dialog_5ff6e0(dialog);
     }
     return dialstatus;
@@ -1419,10 +1419,10 @@ void NullModemClass::Setup_Modem_Echo(void (__fastcall *func)(char c))
 }
 
 
-// void NullModemClass::unknown_5d1d40() (0x005D1D40)
+// void NullModemClass::Remove_Modem_Echo() (0x005D1D40)
 // Does nothing.
 
-void NullModemClass::unknown_5d1d40()
+void NullModemClass::Remove_Modem_Echo()
 {
 }
 
@@ -1480,11 +1480,11 @@ int NullModemClass::Abort_Modem()
     if (key) {
         WWKeyboard->Clear();
         if (key == 0x1B) {
-            unknown_modem_aborted_a72ec4 = true;
+            ModemDialogIsOpen = true;
             return -1000;
         }
     }
-    return unknown_modem_aborted_a72ec4 ? -1000 : 0;
+    return ModemDialogIsOpen ? -1000 : 0;
 }
 
 
@@ -1507,7 +1507,7 @@ int NullModemClass::Abort_Modem()
 void NullModemClass::Setup_Abort_Modem()
 {
     SerialPort->Set_Abort_Function(Abort_Modem);
-    unknown_modem_aborted_a72ec4 = false;
+    ModemDialogIsOpen = false;
 }
 
 
@@ -1530,7 +1530,7 @@ void NullModemClass::Setup_Abort_Modem()
 void NullModemClass::Remove_Abort_Modem()
 {
     SerialPort->Set_Abort_Function(0);
-    unknown_modem_aborted_a72ec4 = false;
+    ModemDialogIsOpen = false;
 }
 
 

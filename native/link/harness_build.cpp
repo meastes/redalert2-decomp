@@ -260,7 +260,7 @@ void Native_Harness_Build(int frame, bool army)
         tried_count = 0;
         return;
     case 2: {
-        FactoryClass *factory = player->unknown_func_4eb580(7, false, HouseClass::unknown_func_4eb550(7, type_index));
+        FactoryClass *factory = player->Fetch_Factory(7, false, HouseClass::unknown_func_4eb550(7, type_index));
         if (factory == 0 || !factory->Is_Complete_004B9900()) return;
         Cell cell;
         if (tried_count >= 64 || !Find_Cell(BuildingTypes[type_index], player, cell)) {
@@ -280,7 +280,7 @@ void Native_Harness_Build(int frame, bool army)
         // Placed when the player's building count rose, or when the house's
         // factory no longer holds the finished building (Scout1153: in a campaign
         // the count can stay flat while other buildings of the player die).
-        FactoryClass *factory = player->unknown_func_4eb580(7, false, HouseClass::unknown_func_4eb550(7, type_index));
+        FactoryClass *factory = player->Fetch_Factory(7, false, HouseClass::unknown_func_4eb550(7, type_index));
         if (Player_Buildings() > buildings_before || factory == 0 || !factory->Is_Complete_004B9900()) {
             Note("placed", frame, BuildingTypes[type_index]->ID.Buffer, 0);
             ++step;

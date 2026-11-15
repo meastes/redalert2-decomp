@@ -99,7 +99,7 @@ void __fastcall Unknown_005c3450(HWND dialog, MultiplayerGameMode *mode);
 // Sets a lobby dialog's text 0x5A8 from the session (0x005C34B0).
 void __fastcall Unknown_005c34b0(HWND dialog);
 // Refreshes a lobby dialog (0x005C7570).
-void __fastcall Unknown_005c7570(HWND dialog);
+void __fastcall Update_Network_Dialog_Preview(HWND dialog);
 // Sends the lobby state (0x005C3810; flags not recovered).
 void __fastcall Unknown_005c3810(bool unknown_1, bool unknown_2);
 // Starts a multiplayer game's pregame state (0x005C74F0).
@@ -276,9 +276,9 @@ extern HWND unknown_lobby_dialog_a728e0;
 // (0x005FF7E0) and runs a dialog's update callback (0x007359E0; the last three arguments unknown; it returns
 // the dialog's result, which 0x005C3230 returns).
 typedef long (__stdcall *UnknownDialogProc)(HWND window, unsigned message, unsigned wparam, long lparam);
-void *__fastcall unknown_create_dialog_735700(void *instance, int id, HWND parent, UnknownDialogProc procedure, long arg);
+void *__fastcall WS_Create_Dialog(void *instance, int id, HWND parent, UnknownDialogProc procedure, long arg);
 void __fastcall unknown_show_dialog_5ff7e0(void *dialog, int id);
-int __fastcall Unknown_007359e0(HWND dialog, bool (*callback)(), int unknown_1, int unknown_2, int unknown_3);
+int __fastcall WS_Wait_Dialog(HWND dialog, bool (*callback)(), int unknown_1, int unknown_2, int unknown_3);
 // Shows each slot's status image: the host's (wolhost.pcx) for the host's own slot, the accepted
 // one (wolacpt.pcx) for computer slots and players that accepted, none otherwise (0x005C9EC0).
 void __fastcall Refresh_Slot_Images_005c9ec0(HWND dialog);

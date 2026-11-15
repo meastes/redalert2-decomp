@@ -17,7 +17,7 @@
 #include "shared/command.hpp"
 
 IndexClass<int, CommandClass *> unknown_hotkeys_832380;
-DynamicVectorClass<CommandClass const *> unknown_commands_832358;
+DynamicVectorClass<CommandClass const *> AllCommands;
 
 
 // atexit destructor of unknown_hotkeys_832380 (0x0040BCB0, _$E): emitted by

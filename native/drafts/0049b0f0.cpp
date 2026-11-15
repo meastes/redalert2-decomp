@@ -117,7 +117,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
             Set_Default_Mouse(0x4E, small_mouse);
             break;
         case 2:
-            if (unknown_objects_a40c60.Count() && unknown_objects_a40c60[0] != 0 && unknown_objects_a40c60[0]->AbstractFlags.IsTechno && unknown_objects_a40c60[0]->Techno_Type_Class()->MoveToShroud) {
+            if (CurrentObject.Count() && CurrentObject[0] != 0 && CurrentObject[0]->AbstractFlags.IsTechno && CurrentObject[0]->Techno_Type_Class()->MoveToShroud) {
                 Set_Default_Mouse(0x12, small_mouse);
                 break;
             }
@@ -238,7 +238,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
             Set_Default_Mouse(0x12, small_mouse);
             break;
         case 5:
-            if (target != 0 && unknown_objects_a40c60.Count() == 1 && unknown_objects_a40c60[0] != 0 && unknown_objects_a40c60[0]->AbstractFlags.IsTechno && ((TechnoClass *)unknown_objects_a40c60[0])->unknown_slot213(target)) {
+            if (target != 0 && CurrentObject.Count() == 1 && CurrentObject[0] != 0 && CurrentObject[0]->AbstractFlags.IsTechno && ((TechnoClass *)CurrentObject[0])->unknown_slot213(target)) {
                 Set_Default_Mouse(0x14, small_mouse);
                 break;
             }

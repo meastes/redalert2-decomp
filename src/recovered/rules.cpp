@@ -3093,7 +3093,7 @@ bool RulesClass::Objects(CCINIClass &ini)
         unknown_WeaponTypeClass_list_00839b90[index]->Init_Max_Speed();
     }
     for (index = 0; index < BuildingTypes.Count(); index++) {
-        BuildingTypes[index]->unknown_func_45eaa0();
+        BuildingTypes[index]->Calculate_Base_Defense_Values();
     }
     for (index = 0; index < TerrainTypes.Count(); index++) {
         TerrainTypes[index]->Read_INI(ini);
@@ -3156,14 +3156,14 @@ int __fastcall Coop_Camp_Unique_ID()
 // __fastcall as Coop_Camp_Unique_ID: the inlined CCFileClass/Load setup is
 // scheduled register-first only in a fastcall caller.
 
-extern CCINIClass *unknown_ini_8396d0;     // 0x008396D0
+extern CCINIClass *RuleINI;     // 0x008396D0
 int Unknown_005B6F80();
 UnknownSessionA3D29C *__fastcall Unknown_005B6FE0(int index);
 int __fastcall Coop_Camp_Unique_ID();
 
 int __fastcall Unknown_006525F0()
 {
-    int id = unknown_ini_8396d0->Get_Unique_ID();
+    int id = RuleINI->Get_Unique_ID();
     int count = Unknown_005B6F80();
     for (int index = 1; index <= count; index++) {
         UnknownSessionA3D29C *session = Unknown_005B6FE0(index);

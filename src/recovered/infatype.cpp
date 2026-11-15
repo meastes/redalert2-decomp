@@ -343,7 +343,7 @@ int __fastcall InfantryTypeClass::From_Name(char const *name)
 extern "C" int __cdecl sscanf(char const *buffer, char const *format, ...);
 
 // The sequence entry names (0x007DAF60: Ready, Guard, Prone, ..., Panic).
-extern char const *unknown_sequence_names_7daf60[38];
+extern char const *SequenceName[38];
 
 void InfantryTypeClass::Read_Sequence()
 {
@@ -353,7 +353,7 @@ void InfantryTypeClass::Read_Sequence()
         for (int index = 0; index < 38; index++) {
             char facing[10] = "";
             char value[32];
-            if (ArtINI.Get_String(section, unknown_sequence_names_7daf60[index], unknown_string_83c55c, value, sizeof(value)) > 0) {
+            if (ArtINI.Get_String(section, SequenceName[index], unknown_string_83c55c, value, sizeof(value)) > 0) {
                 sscanf(value, "%d,%d,%d,%s", &controls[index].Frame, &controls[index].Count, &controls[index].Jump, facing);
                 if (strcmp("N", facing) == 0) {
                     controls[index].Facing = 0;

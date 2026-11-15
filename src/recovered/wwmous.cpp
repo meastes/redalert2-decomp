@@ -16,7 +16,7 @@
 MouseThreadInfoStruct MouseThreadInfo;
 HANDLE MouseThread;
 DWORD MouseThreadID;
-bool unknown_flag_b2af58;
+bool AllowNegativeY;
 WWMouseClass *_Mouse;
 HANDLE MouseMutex;
 int MouseThreadActive;

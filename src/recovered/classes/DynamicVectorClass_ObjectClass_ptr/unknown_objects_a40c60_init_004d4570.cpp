@@ -1,4 +1,4 @@
-// Dynamic initializer of the global unknown_objects_a40c60 (0x004D4570, _$E): an empty
+// Dynamic initializer of the global CurrentObject (0x004D4570, _$E): an empty
 // DynamicVectorClass<ObjectClass *> (constructor expanded in place) whose atexit
 // destructor (0x004D45B0, the following _$E draft, emitted by this definition)
 // expands the vector's destructor. Declared in shared/object.hpp.
@@ -23,6 +23,6 @@ class ObjectClass;
 // @ref ?Resize@?$VectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z=0040cc00
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref _atexit=0078298a
-// @ref ?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40c60
+// @ref ?CurrentObject@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40c60
 
-DynamicVectorClass<ObjectClass *> unknown_objects_a40c60;
+DynamicVectorClass<ObjectClass *> CurrentObject;

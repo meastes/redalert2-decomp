@@ -58,9 +58,9 @@ public:
     WolDictionary<Wstring, UnknownBitmapEntry> Images;      // +0x00
 #endif
 };
-extern SurfaceCacheClass unknown_bitmap_writer_a76378;
+extern SurfaceCacheClass SurfaceCache;
 // Brightens a 768-byte RGB palette: red and green by 1.5, clamped to 255 (0x0068BCE0; hypothesis).
-void __fastcall unknown_brighten_palette_68bce0(unsigned char *palette);
+void __fastcall SurfaceCacheConvertPalette(unsigned char *palette);
 
 // The images the skirmish and multiplayer dialogs name (GDlgSupp.cpp): the
 // country flags, [0] "rani.pcx" (random), [1] "obsi.pcx" (observer),

@@ -75,13 +75,13 @@ static wchar_t const *Expand_Labels_004b37c0(char const *text)
 }
 void __fastcall Show_Who_Was_Responsible_004b37c0()
 {
-    unknown_surface_83995c=AlternateSurface;
+    LogicalSurface=AlternateSurface;
     CCFileClass file("CREDITS.TXT");
     if (file.Is_Available()) {
         char *credits=new char[file.Size()+1];
         file.Read(credits,file.Size());
         unknown_scheme_name_007d83b4="Green";
-        Fancy_Text_Printf(L" ",unknown_surface_83995c,&unknown_surface_83995c->Get_Rect(),&Point2D(0,0),Fetch_Scheme_By_Name("LightGold",1),0,0x148);
+        Fancy_Text_Printf(L" ",LogicalSurface,&LogicalSurface->Get_Rect(),&Point2D(0,0),Fetch_Scheme_By_Name("LightGold",1),0,0x148);
         int length=file.Size();
         int line=0,column=0;
         char *cursor=credits;
@@ -138,7 +138,7 @@ void __fastcall Show_Who_Was_Responsible_004b37c0()
         unknown_surface_853118->Copy_From(*HiddenSurface,false,true);
         WWKeyboard->Clear();
         float oldvolume=Options.ScoreVolume;
-        unknown_surface_83995c=HiddenSurface;
+        LogicalSurface=HiddenSurface;
         if ((double)oldvolume==0.0) Options.Set_Score_Volume(0.4f,false);
         Theme.Queue_Song(Theme.From_Name("CREDITS"));
         int time=TickCount.Time();
@@ -152,7 +152,7 @@ void __fastcall Show_Who_Was_Responsible_004b37c0()
                 unknown_surfaces_restored_008523dc=false;
                 fresh=true;
                 if (!WindowedMode) {
-                    unknown_surface_839950->Fill(0);
+                    VisibleSurface->Fill(0);
                     unknown_surface_853118->Fill(0);
                 }
                 WWMouse->Show_Mouse();
@@ -191,11 +191,11 @@ void __fastcall Show_Who_Was_Responsible_004b37c0()
                 unknown_surface_853118->Unlock();
             }
             if (GameInFocus) {
-                if (fresh) unknown_surface_839950->Copy_From(*unknown_surface_853118,false,true);
+                if (fresh) VisibleSurface->Copy_From(*unknown_surface_853118,false,true);
                 else {
-                    unknown_surface_839950->Copy_From(top,*unknown_surface_853118,top,false,true);
-                    unknown_surface_839950->Copy_From(dest,*unknown_surface_839950,source,false,true);
-                    unknown_surface_839950->Copy_From(bottom,*unknown_surface_853118,bottom,false,true);
+                    VisibleSurface->Copy_From(top,*unknown_surface_853118,top,false,true);
+                    VisibleSurface->Copy_From(dest,*VisibleSurface,source,false,true);
+                    VisibleSurface->Copy_From(bottom,*unknown_surface_853118,bottom,false,true);
                 }
             }
             fresh=false;

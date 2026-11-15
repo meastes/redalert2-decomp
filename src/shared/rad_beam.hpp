@@ -20,8 +20,8 @@ public:
     void Set_Target(CoordStruct const &coord);      // 0x00635760 (+0x28)
     void Set_Period(int period);                    // 0x00635780 (+0x34)
     void Set_Amplitude(double amplitude);           // 0x00635790 (+0x38)
-    void unknown_6357b0(double value);              // 0x006357B0 (+0x40)
-    void unknown_6357d0(int value);                 // 0x006357D0 (+0x48)
+    void Set_Phase(double value);              // 0x006357B0 (+0x40)
+    void Set_Start_Delay(int value);                 // 0x006357D0 (+0x48)
     void Deactivate();                              // 0x006357E0 (IsActive false)
     bool Is_Active() const;                         // 0x006357F0
     void Set_Step_Length(int length);               // 0x00635800 (+0x10)

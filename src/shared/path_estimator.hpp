@@ -263,7 +263,7 @@ struct AStarClass {
 };
 extern AStarClass Search;     // 0x008315C8
 // The cell index offsets of the eight facings for a map of side unknown_map_cell_side_84e804 (0x0084C838).
-extern int unknown_path_facing_offsets_84c838[8];
+extern int AStarFacingToOffset[8];
 // The level of each step of the path 0x00428370 returns (0x0084C858; size unknown).
 extern int unknown_path_levels_84c858[];
 // The facing by (dy + 1, dx + 1); -1 at the centre (0x007CF100).

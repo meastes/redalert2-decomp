@@ -200,10 +200,10 @@ void BuildingLightClass::Draw_It(Point2D const &point, Rect const &window)
     int zend = -Unknown_006A2970((Position_Coord_004f3f40() + CoordStruct(0, 0, 250)).Z);
 
     if (Clip_Line(caster_px, arc1_px, unknown_rect_839630)) {
-        unknown_surface_83995c->Draw_Depth_Glow_Line(unknown_surface_83995c->Get_Rect(), caster_px, arc1_px, 75 - 6 * stage, zstart, zend);
+        LogicalSurface->Draw_Depth_Glow_Line(LogicalSurface->Get_Rect(), caster_px, arc1_px, 75 - 6 * stage, zstart, zend);
     }
     if (Clip_Line(caster_px2, arc2_px, unknown_rect_839630)) {
-        unknown_surface_83995c->Draw_Depth_Glow_Line(unknown_surface_83995c->Get_Rect(), caster_px2, arc2_px, 75 - 6 * stage, zstart, zend);
+        LogicalSurface->Draw_Depth_Glow_Line(LogicalSurface->Get_Rect(), caster_px2, arc2_px, 75 - 6 * stage, zstart, zend);
     }
 }
 

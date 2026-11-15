@@ -7,5 +7,5 @@ void EgoClass::Copy_Background(Surface *source)
     BitFontClass *font = Font_For_Style(TextFlags);
     font->String_Pixel_Width(Text, 0);
     Rect area(0, Y, VideoModeWidth, 18);
-    unknown_surface_83995c->Copy_From(area, *source, area, false, true);
+    LogicalSurface->Copy_From(area, *source, area, false, true);
 }

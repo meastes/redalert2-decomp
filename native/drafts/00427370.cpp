@@ -245,7 +245,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
             Cell &neighbor_id = neighbor_cell->MapCoords;
             int node_index;
             if (face != 8) {
-                node_index = from_index + unknown_path_facing_offsets_84c838[face];
+                node_index = from_index + AStarFacingToOffset[face];
             } else {
                 node_index = neighbor_cell->MapCoords.X + unknown_map_cell_side_84e804 * neighbor_cell->MapCoords.Y;
             }

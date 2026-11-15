@@ -147,22 +147,22 @@ FrameSyncStruct::FrameSyncStruct() :
 FrameSyncStruct unknown_timing_aabcf0[7];
 
 
-// void __fastcall Unknown_00623260() (0x00623260): IPXManagerClass::unknown_527800 in an IPX game.
+// void __fastcall Unknown_00623260() (0x00623260): IPXManagerClass::Set_Global_Routed in an IPX game.
 
 void __fastcall Unknown_00623260()
 {
     if (unknown_game_mode_a3d298 == 4) {
-        unknown_ipx_manager_a40978.unknown_527800();
+        Ipx.Set_Global_Routed();
     }
 }
 
 
-// void __fastcall Unknown_00623280() (0x00623280): IPXManagerClass::unknown_5277f0 in an IPX game.
+// void __fastcall Unknown_00623280() (0x00623280): IPXManagerClass::Global_Channel_Clear_FieldC8 in an IPX game.
 
 void __fastcall Unknown_00623280()
 {
     if (unknown_game_mode_a3d298 == 4) {
-        unknown_ipx_manager_a40978.unknown_5277f0();
+        Ipx.Global_Channel_Clear_FieldC8();
     }
 }
 
@@ -471,7 +471,7 @@ static void __fastcall Generate_Real_Timing_Event_00623b00(ConnManClass *net, in
                 desired=WestwoodMIN(desired,cap);
                 unsigned long response;
                 if(unknown_game_mode_a3d298==4 && unknown_session_a3d298.ViaPacketRouter) {
-                    response=((IPXManagerClass*)net)->unknown_526c70();
+                    response=((IPXManagerClass*)net)->Multicast_Response_Time();
                     unsigned long worst_response=0;
                     for(i=0;i<net->Num_Connections();i++) {
                         worst_response=WestwoodMAX(worst_response,(unsigned long)unknown_their_timing_aabdd0[i].unknown_10);
@@ -550,7 +550,7 @@ static void __fastcall Queue_AI_Multiplayer()
     if (unknown_game_mode_a3d298 >= 3 && unknown_game_mode_a3d298 <= 4) {
         buffer = unknown_meta_packet_a3f81a;
         maximum = unknown_meta_size_a3fa48;
-        net = &unknown_ipx_manager_a40978;
+        net = &Ipx;
     } else {
         buffer = unknown_null_modem_a40a28.BuildBuf;
         maximum = unknown_null_modem_a40a28.MaxLen - 14;
@@ -576,7 +576,7 @@ static void __fastcall Queue_AI_Multiplayer()
         memset(unknown_megamission_counts_aabdb0,0,sizeof(unknown_megamission_counts_aabdb0));
         for(i=0;i<32;i+=4) for(int j=0;j<8;j++) *(int *)((char *)&unknown_sync_counts_a76b74[j][0]+i)=0;
         if (unknown_a3d8c8) unknown_crc_a40770=unknown_a3d8cc ? 0 : GameCRC;
-        unknown_frame_syncs_ab62e4=0;
+        SentFrameSyncCount=0;
         unknown_timer_a780c0=UnknownElapsedTimer();
         Send_FrameSync(net,unknown_my_sent_aabe78);
         rc=Wait_For_Players(1,net,unknown_queue_timeouts_7ec438[unknown_game_mode_a3d298].Resend,
@@ -696,7 +696,7 @@ void __fastcall Wait_For_End_Game()
     Debug_Printf("Waiting to exit game\n");
     if (unknown_session_a3d298.Type >= 3 && unknown_session_a3d298.Type <= 4) {
         multi_packet_buf = unknown_meta_packet_a3f81a;
-        net = &unknown_ipx_manager_a40978;
+        net = &Ipx;
         multi_packet_max = unknown_meta_size_a3fa48;
     } else {
         multi_packet_buf = serial_manager_00a40a28.BuildBuf;
@@ -855,7 +855,7 @@ static inline int Process_Reconnect_Dialog(ConnManClass *net, CDTimerClass<Syste
         unknown_flag_ab62fc = TacticalActive;
         TacticalActive = false;
         unknown_reconnect_result_ab5ed0 = -1;
-        unknown_reconnect_dialog_a780d4 = (HWND)unknown_create_dialog_735700(unknown_instance_b26180, 0xEA, unknown_parent_b263d8,
+        unknown_reconnect_dialog_a780d4 = (HWND)WS_Create_Dialog(unknown_instance_b26180, 0xEA, unknown_parent_b263d8,
             (UnknownDialogProc)Unknown_00627350, 0);
         if (unknown_reconnect_dialog_a780d4) {
             SetWindowLongA(unknown_reconnect_dialog_a780d4, 8, (long)&unknown_reconnect_result_ab5ed0);
@@ -903,7 +903,7 @@ static inline int Process_Reconnect_Dialog(ConnManClass *net, CDTimerClass<Syste
                     }
                     if (unknown_session_a3d298.Type == 3 || unknown_session_a3d298.Type == 4) {
                         swprintf(buf, QTEXT("TXT_RECONNECTING_TO", 3911),
-                            unknown_ipx_manager_a40978.Connection_Name(unknown_ipx_manager_a40978.Connection_ID(oldest_index)));
+                            Ipx.Connection_Name(Ipx.Connection_ID(oldest_index)));
                     } else {
                         swprintf(buf, QTEXT("TXT_RECONNECTING_TO", 3917), unknown_session_a3d298.Players[1]->Name);
                     }
@@ -1012,7 +1012,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
     int i;
     RetcodeType rc;
     bool stall_drawn = false;
-    Surface *surface = unknown_surface_839950;
+    Surface *surface = VisibleSurface;
     CDTimerClass<SystemTimerClass> retry_timer;
     CDTimerClass<SystemTimerClass> dialog_timer;
     CDTimerClass<SystemTimerClass> timeout_timer;
@@ -1041,7 +1041,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
             retry_timer = resend_delta;
             Send_FrameSync(net, my_sent);
             if (unknown_session_a3d298.Type == 4 && unknown_flag_a3fba8) {
-                unknown_ipx_manager_a40978.unknown_5277f0();
+                Ipx.Global_Channel_Clear_FieldC8();
                 Debug_Printf("Time to send IM_STILL_HERE packets\n");
                 UnknownGlobalPacket packet;
                 packet.Command = 0x27;
@@ -1053,7 +1053,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                 for (i = 1; i < unknown_session_a3d298.Players.Count(); i++) {
                     int id2 = unknown_session_a3d298.Players[i]->ID;
                     if (id2 != unknown_player_a35db4->ArrayIndex) {
-                        unknown_ipx_manager_a40978.Send_Global_Message(&packet, 0x5B, 0,
+                        Ipx.Send_Global_Message(&packet, 0x5B, 0,
                             &unknown_session_a3d298.Players[i]->Address, unknown_node_ids_a402ba[i], 0);
                     }
                 }
@@ -1067,7 +1067,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                 if (unknown_session_a3d298.Type == 1 || unknown_session_a3d298.Type == 2 || unknown_flag_a3fba8) {
                     Debug_Printf("Resending progress message\n");
                     if (unknown_session_a3d298.Type == 4) {
-                        unknown_ipx_manager_a40978.unknown_5277f0();
+                        Ipx.Global_Channel_Clear_FieldC8();
                     }
                     unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
                     progress_timer = 180;
@@ -1078,7 +1078,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
 
         if (dialog_timer.Value() == 0) {
             if (unknown_session_a3d298.Type == 4) {
-                unknown_ipx_manager_a40978.unknown_5277f0();
+                Ipx.Global_Channel_Clear_FieldC8();
             }
             int fresh = reconnect_dlg == 0;
             int reconn = first_time == 0;
@@ -1093,7 +1093,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                     Close_Reconnect_Dialog();
                 }
                 if (unknown_session_a3d298.Type == 4) {
-                    unknown_ipx_manager_a40978.unknown_527800();
+                    Ipx.Set_Global_Routed();
                 }
                 if (!unknown_ab62e0) {
                     Send_Port_Unreachable();
@@ -1112,7 +1112,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                 }
                 Send_Port_Unreachable();
                 if (unknown_session_a3d298.Type == 4) {
-                    unknown_ipx_manager_a40978.unknown_527800();
+                    Ipx.Set_Global_Routed();
                 }
                 return RC_NOT_RESPONDING;
             }
@@ -1127,7 +1127,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                     Close_Reconnect_Dialog();
                 }
                 if (unknown_session_a3d298.Type == 4) {
-                    unknown_ipx_manager_a40978.unknown_527800();
+                    Ipx.Set_Global_Routed();
                 }
                 return RC_NOT_RESPONDING;
             }
@@ -1161,7 +1161,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                             Close_Reconnect_Dialog();
                         }
                         if (unknown_session_a3d298.Type == 4) {
-                            unknown_ipx_manager_a40978.unknown_527800();
+                            Ipx.Set_Global_Routed();
                         }
                         Send_Port_Unreachable();
                         return RC_NOT_RESPONDING;
@@ -1178,7 +1178,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                     Close_Reconnect_Dialog();
                 }
                 if (unknown_session_a3d298.Type == 4) {
-                    unknown_ipx_manager_a40978.unknown_527800();
+                    Ipx.Set_Global_Routed();
                 }
                 return RC_SCENARIO_MISMATCH;
             } else if (rc == RC_DOLIST_FULL) {
@@ -1186,7 +1186,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                     Close_Reconnect_Dialog();
                 }
                 if (unknown_session_a3d298.Type == 4) {
-                    unknown_ipx_manager_a40978.unknown_527800();
+                    Ipx.Set_Global_Routed();
                 }
                 Send_Port_Unreachable();
                 return RC_DOLIST_FULL;
@@ -1208,7 +1208,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                 break;
             }
             if (unknown_flag_a3d8c4 && unknown_flag_a3d8c5 && loop_count > 0 && (!stall_drawn || frame_stall != -1 || count_stall != -1)) {
-                Unknown_005419E0(true);
+                Draw_Multiplayer_Debug(true);
             } else if (stall_drawn) {
                 goto service;
             }
@@ -1248,7 +1248,7 @@ service:
         surface->Fill_Rect(rect, 0);
     }
     if (unknown_game_mode_a3d298 == 4) {
-        unknown_ipx_manager_a40978.unknown_527800();
+        Ipx.Set_Global_Routed();
     }
     return RC_NORMAL;
 }
@@ -1289,7 +1289,7 @@ int __fastcall Send_Packets(ConnManClass *net, char *multi_packet_buf, int multi
             ack_req = 1;
         }
         net->Send_Private_Message(multi_packet_buf, packetlen, ack_req, -1);
-        unknown_frame_syncs_ab62e4++;
+        SentFrameSyncCount++;
         net->Service();
         if (OutList.Count == 0 || OutList.Count > count || cap == 0) {
             break;
@@ -1393,7 +1393,7 @@ void __fastcall Send_FrameSync(ConnManClass *net, int cmd_count)
     packet.ByteAt(0x0d) = unknown_max_ahead_a3d560;
     net->Send_Private_Message(&packet, 0x0E, 0, -1);
     Debug_Printf("Sent FrameSync only packet\n");
-    unknown_frame_syncs_ab62e4++;
+    SentFrameSyncCount++;
 }
 
 
@@ -1436,18 +1436,18 @@ RetcodeType __fastcall Process_Receive_Packet(ConnManClass *net, char *multi_pac
                     if (their[player].Frame < (long)(mega->Frame - mega->Delay)) {
                         their[player].Frame = mega->Frame - mega->Delay;
                         Unknown_0062E5C0(their, player);
-                        if (unknown_ipx_manager_a40978.Connection_Name(mega->ID)) {
+                        if (Ipx.Connection_Name(mega->ID)) {
                             Debug_Printf("Got MEGAFRAMEINFO frame update from %s. New frame = %d\n",
-                                Wide_To_Narrow_006fa120(unknown_ipx_manager_a40978.Connection_Name(mega->ID)), their[player].Frame);
+                                Wide_To_Narrow_006fa120(Ipx.Connection_Name(mega->ID)), their[player].Frame);
                         }
                         if ((unsigned)their[player].unknown_04 < mega->CommandCount) {
                             their[player].unknown_04 = mega->CommandCount;
                             Debug_Printf("Command count is %d\n", their[player].unknown_04);
                         }
                     } else {
-                        if (unknown_ipx_manager_a40978.Connection_Name(mega->ID)) {
+                        if (Ipx.Connection_Name(mega->ID)) {
                             Debug_Printf("Got useless MEGAFRAMEINFO frame update from %s. frame = %d\n",
-                                Wide_To_Narrow_006fa120(unknown_ipx_manager_a40978.Connection_Name(mega->ID)), their[player].Frame);
+                                Wide_To_Narrow_006fa120(Ipx.Connection_Name(mega->ID)), their[player].Frame);
                         }
                     }
                     if (!(mega->Flags & 1)) {
@@ -1506,7 +1506,7 @@ RetcodeType __fastcall Process_Receive_Packet(ConnManClass *net, char *multi_pac
         t->unknown_08 += (unsigned short)i;
     } else {
     if (unknown_session_a3d298.Type == 4 || unknown_session_a3d298.Type == 3) {
-        Debug_Printf("Received FRAMESYNC packet from %s. Frame = %d\n", unknown_ipx_manager_a40978.Connection_Name(id),
+        Debug_Printf("Received FRAMESYNC packet from %s. Frame = %d\n", Ipx.Connection_Name(id),
             event->Frame - event->ByteAt(0x0D));
     }
     if (event->LongAt(0x07) != unknown_crc_a40770) {
@@ -1675,7 +1675,7 @@ void __fastcall Unknown_00626CB0(HWND dialog)
         if (unknown_session_a3d298.Type == 1 || unknown_session_a3d298.Type == 2) {
             index = 0;
         } else {
-            index = unknown_ipx_manager_a40978.Connection_Index(id);
+            index = Ipx.Connection_Index(id);
         }
         unsigned int progress = 0;
         if (i != 0) {
@@ -1739,7 +1739,7 @@ void __fastcall Propose_Kick_Player(HWND dialog, int index)
     packet.Kick.Kickee = unknown_session_a3d298.Players[index]->ID;
     for (int i = 1; i < unknown_session_a3d298.Players.Count(); i++) {
         Debug_Printf("Sending kick proposal to %s\n", unknown_session_a3d298.Players[i]->Name);
-        unknown_ipx_manager_a40978.Send_Global_Message(&packet, 0x1C7, 1, &unknown_session_a3d298.Players[i]->Address, 0, 0);
+        Ipx.Send_Global_Message(&packet, 0x1C7, 1, &unknown_session_a3d298.Players[i]->Address, 0, 0);
     }
     Unknown_00627210(unknown_session_a3d298.Players[0]->ID, unknown_session_a3d298.Players[index]->ID);
 }
@@ -1771,12 +1771,12 @@ void __fastcall Unknown_00627210(int id, int index)
     unknown_session_a3d298.KickVoters[index].ID[unknown_session_a3d298.KickVotes[index]] = id;
     unknown_session_a3d298.KickVotes[index]++;
     if (unknown_session_a3d298.Type == 3 || unknown_session_a3d298.Type == 4) {
-        name = unknown_ipx_manager_a40978.Connection_Name(id);
+        name = Ipx.Connection_Name(id);
         if (!name) {
             name = unknown_session_a3d298.Players[0]->Name;
         }
-        Debug_Printf("Player %s votes to kick player %s from the game\n", name, unknown_ipx_manager_a40978.Connection_Name(index));
-        swprintf(buffer, StringTable::Load_String("TXT_RECONNECT_KICK_RECEIVED", 0, "D:\\Ra2\\Queue.CPP", 3488), name, unknown_ipx_manager_a40978.Connection_Name(index));
+        Debug_Printf("Player %s votes to kick player %s from the game\n", name, Ipx.Connection_Name(index));
+        swprintf(buffer, StringTable::Load_String("TXT_RECONNECT_KICK_RECEIVED", 0, "D:\\Ra2\\Queue.CPP", 3488), name, Ipx.Connection_Name(index));
         HWND dialog = WS_Top_Window();
         HWND list = GetDlgItem(dialog, 0x651);
         _DrawMessage_005c2da0(-1, buffer, list);
@@ -3980,7 +3980,7 @@ void __fastcall Unknown_0062E5C0(FrameSyncStruct *their, int index)
         frame_delay = frames / 2;
         delay = half_response - frame_delay + half_latency;
     } else {
-        delay = unknown_ipx_manager_a40978.unknown_slot22(index) / 2;
+        delay = Ipx.unknown_slot22(index) / 2;
     }
     now = ::Frame;
     unsigned int scaled = delay * unknown_a6eb1c;
@@ -4059,20 +4059,20 @@ void __fastcall Send_Port_Unreachable()
         return;
     }
     Unknown_00623280();
-    start = unknown_ipx_manager_a40978.Global_Num_Send();
-    for (i = 0; i < unknown_OwnerTalkClass_00ab6d18.Connections.Count(); i++) {
+    start = Ipx.Global_Num_Send();
+    for (i = 0; i < OwnerTalk.Connections.Count(); i++) {
         memset(&packet, 0, 0x2F);
         packet.Command = 0x2F;
         strcpy(packet.Name, Wide_To_Narrow_006fa120(unknown_session_a3d298.Players[0]->Name));
-        name = unknown_OwnerTalkClass_00ab6d18.Name_From_Index(i);
+        name = OwnerTalk.Name_From_Index(i);
         if (name && _stricmp(name, Wide_To_Narrow_006fa120(unknown_session_a3d298.Players[0]->Name))) {
             Debug_Printf("Sending NET_PORT_UNREACHABLE to %s\n", name);
-            IPXAddressClass address = *unknown_OwnerTalkClass_00ab6d18.Unknown_0063FA00(name);
-            unknown_ipx_manager_a40978.Send_Global_Message(&packet, 0x2F, 1, &address, unknown_OwnerTalkClass_00ab6d18.Unknown_0063FAF0(name), 0);
+            IPXAddressClass address = *OwnerTalk.Unknown_0063FA00(name);
+            Ipx.Send_Global_Message(&packet, 0x2F, 1, &address, OwnerTalk.Unknown_0063FAF0(name), 0);
         }
     }
     CDTimerClass<SystemTimerClass> timer(300);
-    while (unknown_ipx_manager_a40978.Global_Num_Send() > start && timer) {
+    while (Ipx.Global_Num_Send() > start && timer) {
         unknown_481fb0();
     }
     Unknown_00623260();

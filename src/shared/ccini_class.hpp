@@ -257,8 +257,8 @@ extern CCINIClass unknown_ini_839740;   // 0x00839740
 // The rules INI (pointer 0x008396D0), the AI INI (0x008397A0; its teams,
 // scripts, task forces and AI triggers are the global ones) and the INI
 // Read_Scenario_INI hands to RulesClass::Advanced_Command_Bar (0x00839860).
-extern CCINIClass *unknown_ini_8396d0;  // 0x008396D0
-extern CCINIClass unknown_ini_8397a0;   // 0x008397A0
+extern CCINIClass *RuleINI;  // 0x008396D0
+extern CCINIClass AIINI;   // 0x008397A0
 extern CCINIClass unknown_ini_839860;   // 0x00839860
 // A fifth INI object of the INI globals unit (0x008396E0; use unknown).
 extern CCINIClass unknown_ini_8396e0;   // 0x008396E0

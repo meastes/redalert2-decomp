@@ -17,7 +17,7 @@
 #include "shared/ww_message_box.hpp"
 #include "shared/unknown_player_entry.hpp"
 #include "shared/modem_guest.hpp"
-// @ref ?Unknown_005e5fc0@@YIXPAUHWND__@@@Z=005e5fc0
+// @ref ?WS_Save_Dialog_Values@@YIXPAUHWND__@@@Z=005e5fc0
 // @ref ?Process@WWMessageBox@@QAEHPBG000_N@Z=005b46b0
 // @ref ??_C@_13ECNF@?$AA?5?$AA?$AA@=007d64f4
 // @ref ??_C@_06DN@TXT_OK?$AA@=007db8f4
@@ -32,7 +32,7 @@
 // @ref ??_7?$rc_ptr@VWDTTerritory@@@@6B@=007a452c
 
 // (0x005E5FC0; before the lobby dialog opens over the skirmish dialog; not recovered.)
-void __fastcall Unknown_005e5fc0(HWND dialog);
+void __fastcall WS_Save_Dialog_Values(HWND dialog);
 
 // A code-free GetDlgItem wrapper (hypothesis, see VC6_MATCHING_NOTES "Import-call wrappers"); its sites, with
 // the row helper below, leave the original's /Ob2 allowance at the row helper, which then calls
@@ -80,13 +80,13 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
         strcpy(old_file, unknown_session_a3d298.ScenarioFileName_658);
         wchar_t old_name[0x100];
         wcscpy(old_name, unknown_map_name_a3d342);
-        Unknown_005e5fc0(dialog);
+        WS_Save_Dialog_Values(dialog);
         ShowWindow(dialog, SW_HIDE);
         if (Open_Lobby_Dialog_005c6960((HWND)unknown_b263d8) == 2) {
             unknown_session_a3d298.GameModeIndex = old_mode;
             unknown_session_a3d298.ScenarioIndex = old_scenario;
             Select_Scenario_005c7c30(old_scenario);
-            Unknown_005c7570(dialog);
+            Update_Network_Dialog_Preview(dialog);
             ShowWindow(dialog, SW_SHOW);
             if (unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->Unknown_006720C0()) {
                 if (MultiplayerMapPreview) {
@@ -95,11 +95,11 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
                 MultiplayerMapPreview = new MapPreviewClass;
                 MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
                 if (!MultiplayerMapPreview->Is_Present()) {
-                    Unknown_005c7570(dialog);
+                    Update_Network_Dialog_Preview(dialog);
                 }
                 InvalidateRect(dialog, 0, 0);
             } else {
-                Unknown_005c7570(dialog);
+                Update_Network_Dialog_Preview(dialog);
             }
             InvalidateRect(dialog, 0, 0);
             return;
@@ -133,11 +133,11 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
                     MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
                 }
                 if (!MultiplayerMapPreview->Is_Present()) {
-                    Unknown_005c7570(dialog);
+                    Update_Network_Dialog_Preview(dialog);
                 }
                 InvalidateRect(dialog, 0, 0);
             } else {
-                Unknown_005c7570(dialog);
+                Update_Network_Dialog_Preview(dialog);
             }
         } else {
             unknown_session_a3d298.ScenarioIndex = old_scenario;

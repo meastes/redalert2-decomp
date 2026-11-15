@@ -19,7 +19,7 @@ extern int unknown_zone_a6fc34;                  // NATIVE: hZR LastAdjacentZone
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ?LastAdjacentZone@@3HA=00a6fc34
-// @ref ?unknown_table_7e00c4@@3PAY07HA=007e00c4
+// @ref ?MZonePassability@@3PAY07HA=007e00c4
 // @ref ?Zone_Span@MapClass@@QAEHPAUUnknownMapElem4@@HAAH@Z=0054f250
 // @ref ??_7?$DynamicVectorClass@W4PassabilityType@@@@6B@=007a5ab8
 // @ref ??_7?$VectorClass@W4PassabilityType@@@@6B@=007a5a98
@@ -148,7 +148,7 @@ int MapClass::Zone_Reset()
 
     for (int mzone = 0; mzone < 12; mzone++) {
         int next_movement_zone = 2;
-        int *table = unknown_table_7e00c4[mzone];
+        int *table = MZonePassability[mzone];
 
         unsigned short *nzone = new unsigned short[unknown_48];
         unknown_18[mzone] = nzone;

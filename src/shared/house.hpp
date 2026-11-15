@@ -151,7 +151,7 @@ class TeamTypeClass;
 class HouseClass : public AbstractClass, public IHouse, public IPublicHouse, public IConnectionPointContainer {
 public:
 #ifdef RA2_TEAM_AI_HANDLERS
-    void unknown_4eec70(HouseClass *house); // original004EEC70/RET4, marks a scout-house node.
+    void Mark_Scouted(HouseClass *house); // original004EEC70/RET4, marks a scout-house node.
 #endif
 
     bool Can_Build_Team(TeamTypeClass *team);                   // 0x004F3630 (name hypothesis)
@@ -210,13 +210,13 @@ public:
     void Unknown_004EF5A0();                               // 0x004EF5A0 (UnitClass 0x006FDFC0 after moving BaseCenter; result unused)
     void Unknown_004F6310();                               // 0x004F6310 (UnitClass 0x006FDFC0 after moving the base plan; reads BaseCenter)
     float Unknown_004F5B30();                              // 0x004F5B30 (a float of the owner type, +0x148; UnitClass 0x00707130 scales the load value by it)
-    void Unknown_004E5280(int amount);                      // 0x004E5280 (spends credits; TechnoClass slot 95 repair)
+    void Spend_Money(int amount);                      // 0x004E5280 (spends credits; TechnoClass slot 95 repair)
     bool Flag_Attach(Cell const &cell, bool arg2);         // 0x004E76A0 (RA's Flag_Attach-like: keeps the cell's object at +0x5308; UnitClass slot 52; hypothesis)
     void Unknown_004ED610(TechnoClass *techno, bool arg2);   // 0x004ED610 (TechnoClass slot 53: the object enters the map)
     void Unknown_004ED440(TechnoClass *techno, bool arg2);   // 0x004ED440 (TechnoClass slot 52: the object leaves the map)
     double Unknown_004F5A20(TechnoTypeClass *type);       // 0x004F5A20 (a speed factor for a type; FootClass slot 303)
     Cell Unknown_004EB270(FootClass *foot);          // 0x004EB270 (a cell for a unit to guard; FootClass slot 144)
-    bool Unknown_0051FC80();                               // 0x0051FC80 (FootClass slot 53: the locomotor powers off when it holds; hypothesis: ion storm)
+    bool Ion_Sensitives_Should_Be_Offline();                               // 0x0051FC80 (FootClass slot 53: the locomotor powers off when it holds; hypothesis: ion storm)
     double Tiberium_Fraction() const;                      // 0x004E2DF0 (stored tiberium over capacity)
     void Refund_Money(int amount);                         // 0x004E5440
     bool Is_Ally(int house) const;                         // 0x004E5500 (by index)
@@ -231,7 +231,7 @@ public:
     double Power_Fraction() const;                         // 0x004E8330 (1 when power covers the drain)
     float unknown_func_4f5a20(TechnoTypeClass *type);       // 0x004F5A20 (the owner type's multiplier for the type's kind; FootClass 0x004C9B10)
     float unknown_func_4f5a70(TechnoTypeClass *type);       // 0x004F5A70 (the owner type's build time multiplier for the type's kind; TechnoClass 0x006C22A0)
-    float unknown_func_4f58a0(TechnoTypeClass *type);       // 0x004F58A0 (the owner type's armor multiplier against the type's kind; TechnoClass 0x006CA6C0)
+    float Armor_Multiplier(TechnoTypeClass *type);       // 0x004F58A0 (the owner type's armor multiplier against the type's kind; TechnoClass 0x006CA6C0)
     // Index in Houses of the house with this name, or -1 (0x004F5B40).
     static int __fastcall Find_Index(char const *name);
     int Can_Build(TechnoTypeClass const *type, bool forced, bool include_in_progress);// 0x004E3660 (-1: none left; hypothesis; AircraftClass destructor)
@@ -272,7 +272,7 @@ public:
     static HouseClass *__fastcall As_Pointer(int type);    // 0x004ED760 (the house of a house type index)
     float Harvested(float amount, int type);                // 0x004E5100 (credits for harvested tiberium)
     void Place_Tiberium(int count, int type);              // 0x004E51F0
-    double unknown_func_4e5240() const;                    // 0x004E5240 (weed fraction; hypothesis)
+    double Weed_Fraction() const;                    // 0x004E5240 (weed fraction; hypothesis)
     void Make_Ally(ObjectClass *object, bool announce);    // 0x004ECF50 (its owning house)
     void Make_Enemy(ObjectClass *object, bool announce);   // 0x004ECF80
     void Add_Waypoint(CoordStruct const &coord);           // 0x004ED0E0 (selects the waypoint in the current path; name hypothesis)
@@ -402,15 +402,15 @@ public:
     void unknown_func_4e7df0();                            // 0x004E7DF0 (destroys every techno the house owns)
     bool unknown_func_4e7e80();                            // 0x004E7E80
     bool Flag_To_Win(bool quiet);                          // 0x004E7EE0 (RA's name)
-    void unknown_func_4e82c0();                            // 0x004E82C0
+    void Flag_To_End();                            // 0x004E82C0
     bool Flag_To_Lose(bool quiet);                         // 0x004E80D0 (RA's name)
     // Hands a human player's house to the computer (0x004F4070; Destroy_Null_Connection calls it when a
     // serial player leaves).
     void AI_Takeover();
-    void unknown_func_4f5be0();                            // 0x004F5BE0 (the base building action when the base plan is empty)
+    void Begin_Construction();                            // 0x004F5BE0 (the base building action when the base plan is empty)
     int Check_Raise_Money_004e8d80();
     FactoryClass *Factory_Producing_This_004e4090(TechnoTypeClass const *type) const;
-    FactoryClass *unknown_func_4eb580(int kind, bool naval, int arg3); // 0x004EB580 (the factory per kind)
+    FactoryClass *Fetch_Factory(int kind, bool naval, int arg3); // 0x004EB580 (the factory per kind)
     // Starts producing a type in the house's factory for its kind (made when
     // missing): 0 on success, 3 when refused (0x004E5E30; name after TS, from
     // its "Request to Begin_Production" messages).

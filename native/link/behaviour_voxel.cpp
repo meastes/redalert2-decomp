@@ -38,7 +38,7 @@ DrawerAt const drawers[] = {
     {0x0071B5A0, Draw_Voxel_Regular_ZBuffer},
     {0x0071B7E0, Draw_Voxel_Reverse_ZBuffer},
 };
-unsigned int const table_va = 0x007F9DE0;   // unknown_drawers_7f9de0, 32 entries
+unsigned int const table_va = 0x007F9DE0;   // VoxelDrawFunctions, 32 entries
 int const table_entries = 32;
 
 VoxelDrawer Drawer_At(unsigned int address)

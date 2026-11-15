@@ -49,7 +49,7 @@ int BuildingClass::Exit_Object(TechnoClass *base)
     case 2:
         House->unknown_func_4f3720(2);
         House->unknown_5548 = -1;
-        if (!Unknown_00636ED0(base) && (!House->Unknown_0051FC80() || aircraft->Type->AirportBound)) {
+        if (!Unknown_00636ED0(base) && (!House->Ion_Sensitives_Should_Be_Offline() || aircraft->Type->AirportBound)) {
             if (!aircraft->Type->AirportBound) {
 Cell edge = Cell(Map.MapLocalSize.X, -Map.MapLocalSize.X) + Cell(1, Map.MapSize.Width) + Cell(Map.MapLocalSize.Y, Map.MapLocalSize.Y);
 Cell const &diff = Cell(Center_Coord()) - edge;
@@ -85,9 +85,9 @@ exitcell.X += random; exitcell.Y += random;
                 return 0;
             }
         } else {
-            aircraft->unknown_func_5d4920(0);
+            aircraft->Set_Height(0);
             ++ScenarioInit;
-            if (House->Unknown_0051FC80()) {
+            if (House->Ion_Sensitives_Should_Be_Offline()) {
                 Cell nearby = aircraft->unknown_6cf130(this);
                 if (aircraft->Unlimbo(&CoordStruct(nearby, 0), aircraft->Pose_Dir())) {
                     --ScenarioInit;
@@ -146,7 +146,7 @@ exitcell.X += random; exitcell.Y += random;
                     base->Mark(1);
                     return 2;
                 } else {
-                    base->unknown_6d6e50(unknown_1b0);
+                    base->Assign_Archive_Target(unknown_1b0);
                     if (Get_Mission() == 0x10) {
                         int count = House->Buildings.Count();
                         for (int index = 0; index < count; index++) {
@@ -176,7 +176,7 @@ exitcell.X += random; exitcell.Y += random;
                     }
                 }
             } else if (Type->Factory == 0x10 || Type->Hospital || Type->Armory || Type->Cloning) {
-                base->unknown_6d6e50(unknown_1b0);
+                base->Assign_Archive_Target(unknown_1b0);
                 exitcell = unknown_slot280(base);
                 if (exitcell == unknown_geometry_k) return 0;
                 if (Type->Factory == 0x10 && !Type->Cloning) {
@@ -217,7 +217,7 @@ exitcell.X += random; exitcell.Y += random;
                     FootClass *foot = (FootClass *)base;
                     if (foot->unknown_494) {
                         if (!base->Techno_Type_Class()->JumpJet && !base->Techno_Type_Class()->Teleporter) {
-                            if (foot->unknown_494) base->unknown_6d6e50(foot->unknown_494);
+                            if (foot->unknown_494) base->Assign_Archive_Target(foot->unknown_494);
                             base->QueueMission(2, 0);
                             base->Assign_Destination(&Map[exitcell], 1);
                         }
@@ -226,10 +226,10 @@ exitcell.X += random; exitcell.Y += random;
                         base->QueueMission(0xB, 0);
                         Cell dest = House->Unknown_004EB270(foot);
                         if (dest != unknown_geometry_k && Type->Factory != 0) {
-                            base->unknown_6d6e50(&Map[dest]);
+                            base->Assign_Archive_Target(&Map[dest]);
                             foot->unknown_4c8bb0(&Map[dest]);
                         } else {
-                            base->unknown_6d6e50(0);
+                            base->Assign_Archive_Target(0);
                         }
                     }
                     if (unknown_slot150(2, base) == 1) {
@@ -273,9 +273,9 @@ exitcell.X += random; exitcell.Y += random;
                         base->QueueMission(0xB, 0);
                         Cell dest = House->Unknown_004EB270((FootClass *)base);
                         if (dest != unknown_geometry_k && Type->Factory != 0) {
-                            base->unknown_6d6e50(&Map[dest]);
+                            base->Assign_Archive_Target(&Map[dest]);
                         } else {
-                            base->unknown_6d6e50(0);
+                            base->Assign_Archive_Target(0);
                         }
                     }
                     --ScenarioInit;
@@ -328,11 +328,11 @@ exitcell.X += random; exitcell.Y += random;
             }
             if (placementcoord != unknown_geometry_l) {
                 cellnum = placementcoord;
-                switch (((BuildingTypeClass *)base->Class_Of())->unknown_458b10(cellnum, House)) {
+                switch (((BuildingTypeClass *)base->Class_Of())->Flush_For_Placement(cellnum, House)) {
                 default:
                     return 0;
                 case 1: {
-                    int failures = House->unknown_55f0.unknown_42cb70(node);
+                    int failures = House->unknown_55f0.FailedToPlaceNode(node);
                     if (unknown_game_mode_a3d298 && failures > Rules->MaximumBuildingPlacementFailures && node) {
                         House->unknown_55f0.Nodes.Delete(House->unknown_55f0.Nodes.ID(node));
                     }

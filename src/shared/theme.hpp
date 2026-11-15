@@ -59,13 +59,13 @@ public:
     void Scan();                            // 0x006E7AF0 (name hypothesis)
     void AI();                              // 0x006E7CD0 (name hypothesis: chooses and starts the next song)
     ThemeType Pick_Next_Song(ThemeType current);    // 0x006E7D80 (name hypothesis)
-    bool unknown_6e8440(unsigned theme);            // 0x006E8440 (the theme may be played; hypothesis)
+    bool Is_Allowed(unsigned theme);            // 0x006E8440 (the theme may be played; hypothesis)
     // The theme whose file name is `name` (0x006E8510) and a theme's file
     // base name (0x006E7C40); CCINIClass reads and writes themes by name.
     int From_Name(char const *name) const;
     char const *Base_Name(int theme) const;
     char const *Name(int theme) const;      // 0x006E8570 (the theme's INI name; "none" out of range)
-    void Unknown_006E7A70();                // 0x006E7A70 (frees every theme record; Prog_End)
+    void Free_Themes();                // 0x006E7A70 (frees every theme record; Prog_End)
     void Set_Volume(int volume);            // 0x006E8590 (at most 255)
     bool Still_Playing() const;             // 0x006E82D0 (name after Red Alert's ThemeClass)
 #ifdef THEME_SOUND_CONTROLS

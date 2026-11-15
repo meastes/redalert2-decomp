@@ -340,7 +340,7 @@ WWCRCEngine __fastcall Game_CRC()
         crc((long)unknown_player_a35db4->ArrayIndex);
     }
     crc((long)Frame);
-    crc((long)unknown_objects_a40c60.Count());
+    crc((long)CurrentObject.Count());
     return crc;
 }
 
@@ -1160,13 +1160,13 @@ HRESULT __fastcall Save_Misc_Values(IStream *stream)
     if (FAILED(res)) {
         return res;
     }
-    count = unknown_objects_a40c60.Count();
+    count = CurrentObject.Count();
     res = stream->Write(&count, sizeof(count), 0);
     if (FAILED(res)) {
         return res;
     }
     for (i = 0; i < count; i++) {
-        res = stream->Write(&unknown_objects_a40c60[i], sizeof(unknown_objects_a40c60[i]), 0);
+        res = stream->Write(&CurrentObject[i], sizeof(CurrentObject[i]), 0);
         if (FAILED(res)) {
             return res;
         }
@@ -1218,7 +1218,7 @@ HRESULT __fastcall Save_Misc_Values(IStream *stream)
     if (FAILED(res)) {
         return res;
     }
-    res = stream->Write(&unknown_ab9174, sizeof(unknown_ab9174), 0);
+    res = stream->Write(&UnlockInputFrame, sizeof(UnlockInputFrame), 0);
     if (FAILED(res)) {
         return res;
     }
@@ -1260,10 +1260,10 @@ HRESULT __fastcall Load_Misc_Values(IStream *stream)
         if (FAILED(res)) {
             return res;
         }
-        unknown_objects_a40c60.Add(*(ObjectClass **)&ptr);
+        CurrentObject.Add(*(ObjectClass **)&ptr);
     }
-    for (i = 0; i < unknown_objects_a40c60.Count(); i++) {
-        Swizzler.Swizzle((void **)&unknown_objects_a40c60[i]);
+    for (i = 0; i < CurrentObject.Count(); i++) {
+        Swizzler.Swizzle((void **)&CurrentObject[i]);
     }
     res = stream->Read(&Ground, sizeof(Ground), 0);
     if (FAILED(res)) {
@@ -1318,7 +1318,7 @@ HRESULT __fastcall Load_Misc_Values(IStream *stream)
     if (FAILED(res)) {
         return res;
     }
-    res = stream->Read(&unknown_ab9174, sizeof(unknown_ab9174), 0);
+    res = stream->Read(&UnlockInputFrame, sizeof(UnlockInputFrame), 0);
     if (FAILED(res)) {
         return res;
     }

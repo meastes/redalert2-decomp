@@ -219,7 +219,7 @@ public:
 //   +0x55  bool DrawFaded          constructor argument (draw flag 0x800)
 //   +0x58  void const *ShapeData   shape file; its header gives the size
 //   +0x5C  bool IsShapeLoaded      the button owns (and frees) the shape
-extern ConvertClass *unknown_drawer_8323c4;     // 0x008323C4 (the GUI palette converter)
+extern ConvertClass *NormalDrawer;     // 0x008323C4 (the GUI palette converter)
 
 class ShapeButtonClass : public ToggleClass {
 public:

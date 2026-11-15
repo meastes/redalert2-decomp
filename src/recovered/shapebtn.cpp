@@ -73,7 +73,7 @@ ShapeButtonClass::ShapeButtonClass() :
     DrawOffsetX(0),
     DrawOffsetY(0),
     DrawOnSidebar(false),
-    ShapeDrawer(unknown_drawer_8323c4),
+    ShapeDrawer(NormalDrawer),
     DrawFaded(false),
     IsShapeLoaded(false)
 {
@@ -111,7 +111,7 @@ ShapeButtonClass::ShapeButtonClass(unsigned id, void const *shape, int x, int y,
     DrawOffsetX(0),
     DrawOffsetY(0),
     DrawOnSidebar(false),
-    ShapeDrawer(unknown_drawer_8323c4),
+    ShapeDrawer(NormalDrawer),
     DrawFaded(flag),
     IsShapeLoaded(false)
 {
@@ -233,7 +233,7 @@ int ShapeButtonClass::Draw_Me(int forced)
         } else {
             shapenum = IsPressed ? 1 : 0;
         }
-        Surface *surf = DrawOnSidebar ? SidebarSurface : unknown_surface_83995c;
+        Surface *surf = DrawOnSidebar ? SidebarSurface : LogicalSurface;
         CC_Draw_Shape(surf, (ConvertClass *)ShapeDrawer, (ShapeFileStruct const *)ShapeData, shapenum,
                       Point2D(X + DrawOffsetX, Y + DrawOffsetY), unknown_window_839640, DrawFaded ? 0x800 : 0,
                       0, 0, 0, 1000, 0, 0, Point2D(0, 0));

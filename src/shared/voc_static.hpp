@@ -24,7 +24,7 @@ extern AudioPool *unknown_voc_static_pool_ad0844;
 
 // Updates every static sound and drops the finished ones (0x00714330); lets
 // the ones at a coordinate with any of the flags end (0x007143B0). Stopping and
-// dropping them all is Unknown_00714410 (shared/vox_class.hpp).
+// dropping them all is Sound_Clear_Static (shared/vox_class.hpp).
 void Voc_Static_Update();
 void __fastcall Voc_Static_Finish_At(CoordStruct const &coord, unsigned int flags);
 // Pauses (0x007144B0) and resumes (0x007144F0) every static sound.

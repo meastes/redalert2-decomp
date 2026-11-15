@@ -51,9 +51,9 @@ int CheckBoxClass::Draw_Me(int forced)
     if (ControlClass::Draw_Me(forced)) {
         WWMouse->Hide_Mouse();
         Draw_Box(Rect(X, Y, Width, Height), 0, false);
-        unknown_surface_83995c->Fill_Rect(Rect(X + 1, Y + 1, Width - 1, Height - 1), unknown_drawer_8323c4->Convert(13));
+        LogicalSurface->Fill_Rect(Rect(X + 1, Y + 1, Width - 1, Height - 1), NormalDrawer->Convert(13));
         if (IsOn) {
-            unknown_surface_83995c->Fill_Rect(Rect(X + 1, Y + 1, Width - 1, Height - 1), unknown_drawer_8323c4->Convert(4));
+            LogicalSurface->Fill_Rect(Rect(X + 1, Y + 1, Width - 1, Height - 1), NormalDrawer->Convert(4));
         }
         WWMouse->Show_Mouse();
         return true;

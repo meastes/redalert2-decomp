@@ -712,7 +712,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         }
 
         for (i = 0; i < 101; i++) {
-            if (unknown_id_source_a3d290->Unknown_00663240(i)) {
+            if (unknown_id_source_a3d290->Is_Valid_Waypoint(i)) {
                 unknown_id_source_a3d290->Set_Waypoint_Location(i, unknown_id_source_a3d290->Get_Waypoint_Location(i) + offset);
             }
         }
@@ -984,7 +984,7 @@ void MapClass::Unknown_00549C50(CoordStruct const &xcoord, int sightrange, House
                     if (arg8) {
                         Map.RevealFogShroud(newcell, house, false);
                     } else {
-                        cellptr->unknown_47c900();
+                        cellptr->Unshroud();
                     }
                 }
             }
@@ -1140,13 +1140,13 @@ void MapClass::Unknown_0054A550(CoordStruct const &coord, int start, int sightra
 }
 
 
-// void MapClass::Unknown_0054A720(CoordStruct const &coord, int radius) (0x0054A720)
+// void MapClass::Shroud_Gap_Area(CoordStruct const &coord, int radius) (0x0054A720)
 // Moves coord up the screen by its height (0x006A2970, in cells of 30
 // pixels), then for every cell strictly inside radius + 1 of its cell whose
 // +0x130 is clear sets +0x130 and clears +0x12C bits 3 and 4 (Map's cells;
 // the reverse of 0x0054A8F0).
 
-void MapClass::Unknown_0054A720(CoordStruct const &coord, int radius)
+void MapClass::Shroud_Gap_Area(CoordStruct const &coord, int radius)
 {
     CoordStruct center = coord;
     center.X += (Unknown_006A2970(center.Z) / -30) * 256;
@@ -2237,11 +2237,11 @@ void MapClass::unknown_slot27()
 }
 
 
-// int MapClass::Unknown_0054E370(Cell const &cell) (0x0054E370)
+// int MapClass::Cell_Region(Cell const &cell) (0x0054E370)
 // The index of the cell's 4 x 4 block in a 130 x 130 grid that keeps a
 // one-block border (the layout of HouseClass +0x56D0).
 
-int MapClass::Unknown_0054E370(Cell const &cell)
+int MapClass::Cell_Region(Cell const &cell)
 {
     return (cell.Y / 4 + 1) * 130 + (cell.X / 4 + 1);
 }
@@ -2254,7 +2254,7 @@ int MapClass::Unknown_0054E370(Cell const &cell)
 int MapClass::Cell_Threat(Cell const &cell, HouseClass *house)
 {
     Cell coords = Map[cell].MapCoords;
-    return house->unknown_56d0[Unknown_0054E370(coords)];
+    return house->unknown_56d0[Cell_Region(coords)];
 }
 
 
@@ -2293,13 +2293,13 @@ bool MapClass::Unknown_0054E410()
 }
 
 
-// bool MapClass::Unknown_0054E580(Cell cell, int arg2) (0x0054E580)
+// bool MapClass::Place_Crate(Cell cell, int arg2) (0x0054E580)
 // Places a crate near a cell: the nearest reachable cell for speed type 5 on
 // water (cell land type 2) or 1 elsewhere (0x005502E0), the first free entry
 // of the +0x154 table (cell unknown_cell_a6f238) creates the crate there
 // (0x004939A0), and unless arg2 is 0x14 the cell's +0x11E takes arg2.
 
-bool MapClass::Unknown_0054E580(Cell cell, int arg2)
+bool MapClass::Place_Crate(Cell cell, int arg2)
 {
     if (Map[cell].unknown_ec == 2) {
         cell = Map.Nearby_Location(cell, 5, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
@@ -2722,7 +2722,7 @@ int MapClass::Zone_Reset()
 
     for (int mzone = 0; mzone < 12; mzone++) {
         int next_movement_zone = 2;
-        int *table = unknown_table_7e00c4[mzone];
+        int *table = MZonePassability[mzone];
 
         unsigned short *nzone = new unsigned short[unknown_48];
         unknown_18[mzone] = nzone;
@@ -2839,7 +2839,7 @@ int MapClass::Zone(Cell const &cell, int zone_type, bool alt)
                 while (cptr->IsUnderBridge) {
                     cptr = &cptr->Adjacent_Cell(facing);
                 }
-                if ((cptr->unknown_47b960() || cptr->unknown_47b980()) && cptr->unknown_ec != 3) {
+                if ((cptr->Is_Tile_Bridge() || cptr->Is_Tile_Train_Bridge()) && cptr->unknown_ec != 3) {
                     p = &connection.To;
                 } else {
                     p = &connection.From;
@@ -3035,7 +3035,7 @@ void MapClass::Compute_Zone_Connections()
 
     while (cptr != 0) {
 
-        if (!cptr->unknown_47b960() && !cptr->unknown_47b980()) {
+        if (!cptr->Is_Tile_Bridge() && !cptr->Is_Tile_Train_Bridge()) {
 
             if (cptr->Has_Tunnel()) {
                 if ((cptr->Adjacent_Cell(2).Has_Tunnel() && cptr->Adjacent_Cell(6).Has_Tunnel()) ||
@@ -3057,7 +3057,7 @@ void MapClass::Compute_Zone_Connections()
         } else {
 
             int faceindex;
-            if (cptr->unknown_47b960()) {
+            if (cptr->Is_Tile_Bridge()) {
                 faceindex = cptr->IsoTileIndex - unknown_tileset_a52c74;
             } else {
                 faceindex = cptr->IsoTileIndex - unknown_tileset_a6cb68;
@@ -3075,9 +3075,9 @@ void MapClass::Compute_Zone_Connections()
 
                         if (!crossed) {
                             int index;
-                            if (bptr->unknown_47b960()) {
+                            if (bptr->Is_Tile_Bridge()) {
                                 index = bptr->IsoTileIndex - unknown_tileset_a52c74;
-                            } else if (bptr->unknown_47b980()) {
+                            } else if (bptr->Is_Tile_Train_Bridge()) {
                                 index = bptr->IsoTileIndex - unknown_tileset_a6cb68;
                             } else {
                                 if (!bptr->IsUnderBridge) {
@@ -6395,12 +6395,12 @@ void MapClass::Unknown_00559F10()
 }
 
 
-// void MapClass::Unknown_00559FD0() (0x00559FD0)
+// void MapClass::Shroud_The_Map() (0x00559FD0)
 // Clears every cell's visibility bits (+0x12C bits 3-4, +0x140 bits 0-1),
 // runs DisplayClass 0x0049E110 (false, false), clears the player's +0x188,
 // redraws the radar and flags a full redraw.
 
-void MapClass::Unknown_00559FD0()
+void MapClass::Shroud_The_Map()
 {
     Reset_Iterator();
     for (CellClass *cell = Iterate(); cell != 0; cell = Iterate()) {
@@ -6424,7 +6424,7 @@ void MapClass::Unknown_0055A070()
 {
     Reset_Iterator();
     for (CellClass *cell = Iterate(); cell != 0; cell = Iterate()) {
-        cell->unknown_47c8a0();
+        cell->IncreaseShroudCounter();
         if (cell->unknown_130 >= 0) {
             cell->IsMapped = false; cell->IsVisible = false;
             cell->IsFogVisible = false; cell->IsFogMapped = false;
@@ -6462,11 +6462,11 @@ void MapClass::Unknown_0055A120()
 }
 
 
-// void MapClass::Unknown_0055A1F0() (0x0055A1F0)
+// void MapClass::Reveal_The_Map() (0x0055A1F0)
 // Once per game (player +0x188 clear): passes every cell of the global Map
 // with the player to DisplayClass slot 39, then redraws.
 
-void MapClass::Unknown_0055A1F0()
+void MapClass::Reveal_The_Map()
 {
     if (!unknown_player_a35db4->unknown_188) {
         unknown_player_a35db4->unknown_188 = true;
@@ -6493,14 +6493,14 @@ int MapClass::Get_Height_GL(CoordStruct const &coord)
 }
 
 
-// void MapClass::Unknown_0055A300() (0x0055A300)
+// void MapClass::Refresh_Shroud() (0x0055A300)
 // Refreshes the shroud drawing of every cell in two walks (0x0055A490): cells
 // flagged +0x140 bit 0x20 lose their +0x12C bits 0x18 and +0x140 bits 0x23 and
 // are redrawn; then each cell whose layer 0 shroud frame (0x006A8D40) changed
 // takes it and is redrawn. A redrawn cell that is fully shrouded (frame -2)
 // reveals its nearby technos to the player (0x00568520).
 
-void MapClass::Unknown_0055A300()
+void MapClass::Refresh_Shroud()
 {
     Reset_Iterator();
     CellClass *cellptr = Iterate();
@@ -6655,12 +6655,12 @@ bool MapClass::Unknown_0055A7F0(CoordStruct const &coord)
 }
 
 
-// bool MapClass::Unknown_0055A840(Rect const &rect, Cell const &cell, bool flag) (0x0055A840)
+// bool MapClass::In_Area_Radar(Rect const &rect, Cell const &cell, bool flag) (0x0055A840)
 // Whether a cell lies inside a rectangle in the map's diamond coordinates
 // (0x0055A660 with the rectangle in place of the local map rectangle);
 // with flag, the cell's height moves the X + Y bounds.
 
-bool MapClass::Unknown_0055A840(Rect const &rect, Cell const &cell, bool flag)
+bool MapClass::In_Area_Radar(Rect const &rect, Cell const &cell, bool flag)
 {
     int height = 0;
     int x = cell.X;
@@ -6771,9 +6771,9 @@ bool MapClass::Unknown_0055ACD0(ObjectClass *object, Cell const &cell)
             BuildingClass *bptr = (BuildingClass *)optr;
             if (bptr->Kind_Of() == 6 && bptr->Type->Gate) {
                 if (bptr->House->Is_Ally((TechnoClass *)object)) {
-                    return bptr->unknown_44d7d0();
+                    return bptr->Open_Gate();
                 }
-                if (bptr->unknown_44d880()) {
+                if (bptr->Is_Gate_Open()) {
                     return true;
                 }
             }
@@ -6946,7 +6946,7 @@ bool MapClass::Build_All_Cliffs(int unused, int region_id)
     Map.Reset_Iterator();
     cellptr = Map.Iterate();
     while (cellptr != 0 && expanded) {
-        if (cellptr->unknown_11c == 0 && cellptr->unknown_47b590()) {
+        if (cellptr->unknown_11c == 0 && cellptr->Is_Tile_Clear()) {
             expanded = Place_Cliff(cellptr, region_id);
         }
         cellptr = Map.Iterate();
@@ -7648,7 +7648,7 @@ int MapClass::Unknown_0055D410(CellClass *cellptr, int control)
     }
 
     if (control == 0) {
-        if (!cellptr->unknown_47b590()) {
+        if (!cellptr->Is_Tile_Clear()) {
             return mask;
         }
     } else if (control == 1) {
@@ -7743,7 +7743,7 @@ bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int reg
                     if (id > 0 && id != region_id && region_id != -1) {
                         int existing = cellptr->IsoTileIndex - unknown_tileset_a6cb74;
                         int pending = type->ArrayIndex - unknown_tileset_a6cb74;
-                        if (!cellptr->unknown_47b590()) {
+                        if (!cellptr->Is_Tile_Clear()) {
                             if (existing < 0 || pending < 0 || existing > 41 || pending > 41 ||
                                 unknown_shore_groups_7e0304[existing] != unknown_shore_groups_7e0304[pending]) {
                                 result = false;
@@ -7762,7 +7762,7 @@ bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int reg
                                 return false;
                             }
                         }
-                    } else if (cellptr->unknown_47b590()) {
+                    } else if (cellptr->Is_Tile_Clear()) {
                         RandomMapGen.Set_Cell_Data_Region(cell, region_id);
                     } else if (region_id != -1) {
                         result = false;
@@ -7771,7 +7771,7 @@ bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int reg
                         place = false;
                     }
                     if (place) {
-                        if (cellptr->unknown_47b590() || (cellptr->IsoTileIndex >= first && cellptr->IsoTileIndex <= last)) {
+                        if (cellptr->Is_Tile_Clear() || (cellptr->IsoTileIndex >= first && cellptr->IsoTileIndex <= last)) {
                             cellptr->IsoTileIndex = type->ArrayIndex;
                             cellptr->unknown_11a = subtile;
                             cellptr->unknown_11b = height + record->Height;
@@ -9734,7 +9734,7 @@ void MapClass::Unknown_00564B60(ZoneConnectionClass *connection, int layer)
     Cell exit1;
     Cell exit2;
     CellClass *from_cell = &Map[from];
-    if (!from_cell->unknown_47b960() && !from_cell->unknown_47b980()) {
+    if (!from_cell->Is_Tile_Bridge() && !from_cell->Is_Tile_Train_Bridge()) {
         TubeClass *tube = from_cell->Get_Tunnel();
         int facing = tube->Facing;
         enter1 = Adjacent_Cell(from, facing + 2);
@@ -9749,7 +9749,7 @@ void MapClass::Unknown_00564B60(ZoneConnectionClass *connection, int layer)
         int count2 = tube2->unknown_1c0;
         exit2 = AStarClass::Follow_Path(enter2, count2, tube2->Directions);
     } else {
-        bool is_bridge = from_cell->unknown_47b960();
+        bool is_bridge = from_cell->Is_Tile_Bridge();
         int tile_set = unknown_tileset_a52c74;
         int tile;
         if (!is_bridge) { tile = from_cell->IsoTileIndex; tile_set = unknown_tileset_a6cb68; }
@@ -9827,7 +9827,7 @@ Cell MapClass::Get_Bridge_Zone_Connection_Cell(CellClass *cptr, bool isbridge)
             while (cptr->IsUnderBridge) {
                 cptr = &cptr->Adjacent_Cell(facing);
             }
-            if ((cptr->unknown_47b960() || cptr->unknown_47b980()) && cptr->unknown_ec != 3) {
+            if ((cptr->Is_Tile_Bridge() || cptr->Is_Tile_Train_Bridge()) && cptr->unknown_ec != 3) {
                 return zcon->To + ncell;
             } else {
                 return zcon->From + ncell;
@@ -9867,7 +9867,7 @@ Cell MapClass::Unknown_005651E0(Cell const &cell, Cell const &from)
         while (cellptr->IsUnderBridge) {
             cellptr = &cellptr->Adjacent_Cell(facing);
         }
-        if ((cellptr->unknown_47b960() || cellptr->unknown_47b980()) && cellptr->unknown_ec != 3) {
+        if ((cellptr->Is_Tile_Bridge() || cellptr->Is_Tile_Train_Bridge()) && cellptr->unknown_ec != 3) {
             return connection.To;
         }
         return connection.From;
@@ -9911,13 +9911,13 @@ Cell MapClass::Unknown_005653C0(Cell const &cell, Cell const &reference)
         if (fcell->IsUnderBridge) {
             fcell = &fcell->Adjacent_Cell(fwd);
             if (!fcell->IsUnderBridge &&
-                (fcell->unknown_47b960() || fcell->unknown_47b980()) && fcell->unknown_ec != 3)
+                (fcell->Is_Tile_Bridge() || fcell->Is_Tile_Train_Bridge()) && fcell->unknown_ec != 3)
                 fresult = fcell->MapCoords;
         }
         if (bcell->IsUnderBridge) {
             bcell = &bcell->Adjacent_Cell(bwd);
             if (!bcell->IsUnderBridge &&
-                (bcell->unknown_47b960() || bcell->unknown_47b980()) && bcell->unknown_ec != 3)
+                (bcell->Is_Tile_Bridge() || bcell->Is_Tile_Train_Bridge()) && bcell->unknown_ec != 3)
                 bresult = bcell->MapCoords;
         }
         if (!bcell->IsUnderBridge && !fcell->IsUnderBridge) break;
@@ -9956,13 +9956,13 @@ Cell MapClass::Find_Bridge_End_Cell_For_Subzone(Cell const &cell, int layer, uns
         if (forward->IsUnderBridge) {
             forward = &forward->Adjacent_Cell(facing);
             if (!forward->IsUnderBridge &&
-                (forward->unknown_47b960() || forward->unknown_47b980()) && forward->unknown_ec != 3)
+                (forward->Is_Tile_Bridge() || forward->Is_Tile_Train_Bridge()) && forward->unknown_ec != 3)
                 front_end = forward->MapCoords;
         }
         if (back->IsUnderBridge) {
             back = &back->Adjacent_Cell(opposite);
             if (!back->IsUnderBridge &&
-                (back->unknown_47b960() || back->unknown_47b980()) && back->unknown_ec != 3)
+                (back->Is_Tile_Bridge() || back->Is_Tile_Train_Bridge()) && back->unknown_ec != 3)
                 back_end = back->MapCoords;
         }
         if (!back->IsUnderBridge && !forward->IsUnderBridge) break;
@@ -10122,7 +10122,7 @@ bool MapClass::Build_Reachable_Subzones(CellClass *cptr, int layer, DynamicVecto
     _subzone_flood_visited[(dim - 1) & cptr->MapCoords.X][(dim - 1) & cptr->MapCoords.Y] = 1;
     int count = 1;
 
-    int *mzone_table = unknown_table_7e00c4[foot->Techno_Type_Class()->unknown_500];
+    int *mzone_table = MZonePassability[foot->Techno_Type_Class()->unknown_500];
 
     while (true) {
 
@@ -10229,8 +10229,8 @@ void MapClass::Unknown_00566C30(ZoneConnectionClass *connection)
     Cell from_side2 = none;
     Cell to_side1 = none;
     Cell to_side2 = none;
-    if (from_cell->unknown_47b960() || from_cell->unknown_47b980()) {
-        bool is_bridge = from_cell->unknown_47b960();
+    if (from_cell->Is_Tile_Bridge() || from_cell->Is_Tile_Train_Bridge()) {
+        bool is_bridge = from_cell->Is_Tile_Bridge();
         int tile_set = unknown_tileset_a52c74;
         int tile;
         if (!is_bridge) { tile = from_cell->IsoTileIndex; tile_set = unknown_tileset_a6cb68; }
@@ -10279,8 +10279,8 @@ void MapClass::Unknown_00566F90(ZoneConnectionClass *connection)
     Cell from_side2;
     Cell to_side1;
     Cell to_side2 = unknown_cell_a6f238;
-    if (from_cell->unknown_47b960() || from_cell->unknown_47b980()) {
-        bool is_bridge = from_cell->unknown_47b960();
+    if (from_cell->Is_Tile_Bridge() || from_cell->Is_Tile_Train_Bridge()) {
+        bool is_bridge = from_cell->Is_Tile_Bridge();
         int tile_set = unknown_tileset_a52c74;
         int tile;
         if (!is_bridge) { tile = from_cell->IsoTileIndex; tile_set = unknown_tileset_a6cb68; }
@@ -10633,7 +10633,7 @@ void MapClass::Mark_Fill_Area(Cell const &origin, bool on_water)
                 UnknownMapGenerationCell &data = Get_Cell_Data_0056dba0(adjacent);
                 CellClass *adjptr = &Map[adjacent];
                 if (!data.unknown_45[4]) {
-                    if (on_water && adjptr->unknown_47b7e0() || !on_water && adjptr->unknown_11b == height && adjptr->unknown_47b590()) {
+                    if (on_water && adjptr->unknown_47b7e0() || !on_water && adjptr->unknown_11b == height && adjptr->Is_Tile_Clear()) {
                         frontier_cells.Add(adjacent);
                         bool legal = In_Radar(adjacent);
                         bool legal2 = In_Radar(cell);
@@ -10697,7 +10697,7 @@ bool MapClass::Rebuild_Cliffs_At(Cell const &cell)
     Map.Reset_Iterator();
     cellptr = Map.Iterate();
     while (cellptr != 0 && expanded) {
-        if (cellptr->unknown_11c == 0 && cellptr->unknown_47b590()) {
+        if (cellptr->unknown_11c == 0 && cellptr->Is_Tile_Clear()) {
             expanded = Place_Cliff(cellptr, 0);
         }
         cellptr = Map.Iterate();
@@ -10770,7 +10770,7 @@ int MapClass::Region_Threat(HouseClass *house, int level, int from_subzone, int 
             short to_block_y = to_y - (to_y / 4 % 2 != 0);
 
             if (from_block_x == to_block_x && from_block_y == to_block_y) {
-                return (house->unknown_56d0[Unknown_0054E370(XY_Cell(from_x, from_y))] + house->unknown_56d0[Unknown_0054E370(XY_Cell(to_x, to_y))]) >> 1;
+                return (house->unknown_56d0[Cell_Region(XY_Cell(from_x, from_y))] + house->unknown_56d0[Cell_Region(XY_Cell(to_x, to_y))]) >> 1;
             }
 
             int facing;
@@ -10796,15 +10796,15 @@ int MapClass::Region_Threat(HouseClass *house, int level, int from_subzone, int 
                 facing = 0;
             }
 
-            int from_threat1 = house->unknown_56d0[Unknown_0054E370(XY_Cell(from_block_x, from_block_y) + unknown_cells_a6f218[unknown_from_quadrants_7e0494[facing][0]])];
-            int from_threat2 = house->unknown_56d0[Unknown_0054E370(unknown_cells_a6f218[unknown_from_quadrants_7e0494[facing][1]] + XY_Cell(from_block_x, from_block_y))];
+            int from_threat1 = house->unknown_56d0[Cell_Region(XY_Cell(from_block_x, from_block_y) + unknown_cells_a6f218[unknown_from_quadrants_7e0494[facing][0]])];
+            int from_threat2 = house->unknown_56d0[Cell_Region(unknown_cells_a6f218[unknown_from_quadrants_7e0494[facing][1]] + XY_Cell(from_block_x, from_block_y))];
             int from_threat = from_threat1;
             if (from_threat1 >= from_threat2) {
                 from_threat = from_threat2;
             }
 
-            int to_threat1 = house->unknown_56d0[Unknown_0054E370(unknown_cells_a6f218[unknown_to_quadrants_7e04d4[facing][0]] + XY_Cell(to_block_x, to_block_y))];
-            int to_threat2 = house->unknown_56d0[Unknown_0054E370(unknown_cells_a6f218[unknown_to_quadrants_7e04d4[facing][1]] + XY_Cell(to_block_x, to_block_y))];
+            int to_threat1 = house->unknown_56d0[Cell_Region(unknown_cells_a6f218[unknown_to_quadrants_7e04d4[facing][0]] + XY_Cell(to_block_x, to_block_y))];
+            int to_threat2 = house->unknown_56d0[Cell_Region(unknown_cells_a6f218[unknown_to_quadrants_7e04d4[facing][1]] + XY_Cell(to_block_x, to_block_y))];
             if (to_threat1 >= to_threat2) {
                 to_threat1 = to_threat2;
             }
@@ -10976,7 +10976,7 @@ void MapClass::Unknown_00568650()
 {
     Reset_Iterator();
     for (CellClass *cell = Iterate(); cell != 0; cell = Iterate()) {
-        cell->unknown_47be00();
+        cell->Unfog_Cell();
     }
 }
 
@@ -11466,7 +11466,7 @@ bool MapClass::Check_Map()
             for (int mzone = 0; mzone < 12; mzone++) {
                 if (mzone != 9 && mzone != 6) {
 
-                    from_ground = unknown_table_7e00c4[mzone][from->unknown_4c] == 1;
+                    from_ground = MZonePassability[mzone][from->unknown_4c] == 1;
 
                     from_bridge = from->IsUnderBridge
                         && ((from->IsBridgeEastWest && ((bcptr = from->unknown_2c) == 0 || bcptr->MapCoords.Y - from->MapCoords.Y != 2))
@@ -11479,7 +11479,7 @@ bool MapClass::Check_Map()
                         while (to != 0) {
 
                             if ((to->MapCoords.X + to->MapCoords.Y > from->MapCoords.X + from->MapCoords.Y) || (to->MapCoords.X + to->MapCoords.Y == from->MapCoords.X + from->MapCoords.Y && to->MapCoords.X - to->MapCoords.Y > from->MapCoords.X - from->MapCoords.Y)) {
-                                to_ground = unknown_table_7e00c4[mzone][to->unknown_4c] == 1;
+                                to_ground = MZonePassability[mzone][to->unknown_4c] == 1;
                                 to_bridge = to->IsUnderBridge
                                     && ((to->IsBridgeEastWest && ((bcptr = to->unknown_2c) == 0 || bcptr->MapCoords.Y - to->MapCoords.Y != 2))
                                         || (!to->IsBridgeEastWest && ((bcptr = to->unknown_2c) == 0 || bcptr->MapCoords.X - to->MapCoords.X != 2)));
@@ -11703,11 +11703,11 @@ void MapClass::Lower_Max_Level(int value)
 }
 
 
-// int MapClass::Unknown_0056A8A0() (0x0056A8A0)
+// int MapClass::Get_Max_Level() (0x0056A8A0)
 // While +0x144 is still 13 or more, lowers it to the +0x11B value of every
 // cell (0x0056A870, expanded inline); returns +0x144.
 
-int MapClass::Unknown_0056A8A0()
+int MapClass::Get_Max_Level()
 {
     if (unknown_144 >= 13) {
         int count = Cells.Length();
@@ -11736,9 +11736,9 @@ int __fastcall Unknown_0056A900(int row1, int row2)
         bool ok = true;
         int count = 0;
         for (int index = 0; index < 8; index++) {
-            int value1 = unknown_table_7e00c4[row1][index];
-            int value2 = unknown_table_7e00c4[row2][index];
-            int value = unknown_table_7e00c4[row][index];
+            int value1 = MZonePassability[row1][index];
+            int value2 = MZonePassability[row2][index];
+            int value = MZonePassability[row][index];
             if ((value1 == 2 || value2 == 2) && value == 1) {
                 ok = false;
             }

@@ -1161,7 +1161,7 @@ second was lost); each fails without its fixup.
    same parameter (Plain_Text_Print, Fancy_Text_Printf, MonoClass::Printf,
    JShell_Fatal, the chat lines).
    Slot 67/68's point/rect, the blitters' ring and depth-shape arguments,
-   CC_Draw_Shape's remap and depth shape, unknown_blit_49f3a0's remap/blitter and
+   CC_Draw_Shape's remap and depth shape, Blit_Block's remap/blitter and
    the voxel shadow mask are real pointer types in src/ (Scout1102).
    Rows with `__asm` are skipped and listed. `port/fixups.json` holds the
    per-file substitutions clang needs (sources and `src/shared` headers, each

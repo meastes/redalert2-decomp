@@ -1046,7 +1046,7 @@ void FlyLocomotionClass::Take_Off_004bf0d0()
 
 void FlyLocomotionClass::unknown_4bf1f0()
 {
-    if (LinkedTo->Get_Mission() == 7 || !LinkedTo->unknown_6d1470()) {
+    if (LinkedTo->Get_Mission() == 7 || !LinkedTo->Next_Planning_Node()) {
         if (LinkedTo->Kind_Of() == 2) {
             AircraftClass *aircraft = (AircraftClass *)LinkedTo;
             if (aircraft->Type->AirportBound) {

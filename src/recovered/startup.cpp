@@ -208,7 +208,7 @@ void Unknown_0077F0F4();
 extern "C" bool video_back_buffer_7f4cc4;
 extern int unknown_screen_width_a40b38;
 extern int unknown_screen_height_a40b3c;
-extern bool unknown_allow_mode_toggle_a40d0b;
+extern bool Debug_IngameModeChange;
 extern "C" __declspec(dllimport) unsigned long __stdcall GetCurrentThreadId();
 extern "C" __declspec(dllimport) HWND __stdcall FindWindowA(char const *class_name, char const *window_name);
 extern "C" __declspec(dllimport) int __stdcall SetForegroundWindow(HWND window);
@@ -229,7 +229,7 @@ extern MouseClass Map;
 extern "C" void __cdecl exit(int code);
 extern "C" int __cdecl atexit(void (__cdecl *function)());
 int __fastcall Load_String_File(char const *name);
-bool __fastcall Unknown_00495590(bool flag);
+bool __fastcall Init_Language_Resources(bool flag);
 unsigned __fastcall Query_DLL_Version(char const *name);
 extern "C" char const Keys[];
 extern "C" char unknown_string_7f4ea8[];
@@ -340,7 +340,7 @@ class AlphaShapeClass; extern "C" GUID const CLSID_AlphaShapeClass; // @ref _CLS
 #include "shared/mouse_class.hpp"
 #include "shared/multiplayer_game_mode.hpp"
 extern bool unknown_hicolor_7ce008;
-extern int unknown_depth_8523e8;
+extern int VideoModeBitsPerPixel;
 extern int unknown_audio_mode_a41664;
 extern bool unknown_no_exception_handler_a4168c;
 extern bool SurfacesRestored;
@@ -513,7 +513,7 @@ inline void Init_Keys()
 
 inline void Init_Mouse()
 {
-    WWMouse = new WWMouseClass(unknown_surface_839950, MainWindow);
+    WWMouse = new WWMouseClass(VisibleSurface, MainWindow);
 }
 
 inline void Init_Language()
@@ -687,14 +687,14 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
         RawFileClass *cfile = new RawFileClass("RA2.INI");
         unknown_ini_839740.Load(*cfile, false, false);
         video_back_buffer_7f4cc4 = unknown_ini_839740.Get_Bool("Video", "VideoBackBuffer", true);
-        unknown_allow_mode_toggle_a40d0b = unknown_ini_839740.Get_Bool("Video", "AllowModeToggle", false);
+        Debug_IngameModeChange = unknown_ini_839740.Get_Bool("Video", "AllowModeToggle", false);
         unknown_screen_width_a40b38 = unknown_ini_839740.Get_Int("Video", "ScreenWidth", unknown_screen_width_a40b38);
         unknown_screen_height_a40b3c = unknown_ini_839740.Get_Int("Video", "ScreenHeight", unknown_screen_height_a40b3c);
         int socket = unknown_ini_839740.Get_Int("Network", "Socket", 0);
         if (socket > 0) {
             socket += 0x4000;
             if (socket >= 0x4000 && socket < 0x8000) {
-                unknown_ipx_manager_a40978.Set_Socket((unsigned short)socket);
+                Ipx.Set_Socket((unsigned short)socket);
             }
         }
         Read_Destination_Network();
@@ -728,7 +728,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
             MessageBoxA(0, unknown_string_7f4ea8, "Red Alert 2", 0x10);
             return 0;
         }
-        if (!Unknown_00495590(true)) {
+        if (!Init_Language_Resources(true)) {
             return 0;
         }
         if (GetSystemMetrics(0x13) == 0 || GetSystemMetrics(0x2B) == 0) {
@@ -741,7 +741,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
             Wide_Message_Box(0, buffer, StringTable::Load_String("TXT_SHORT_TITLE", 0, "D:\\Ra2\\Startup.CPP", 0x772), 0x10);
             exit(1);
         }
-        RegisterActiveObject((IUnknown *)&Map, CLSID_TiberianSun, 1, &unknown_active_object_7f4ccc);
+        RegisterActiveObject((IUnknown *)&Map, CLSID_TiberianSun, 1, &dwRegisterMap);
 
         if (unknown_screen_width_a40b38 == -1 || unknown_screen_height_a40b3c == -1) {
             unknown_screen_width_a40b38 = 640;
@@ -753,7 +753,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
         }
 
         BOOL video_success = FALSE;
-        if (unknown_allow_mode_toggle_a40d0b) {
+        if (Debug_IngameModeChange) {
             Create_Main_Window(instance, command_show, 640, 400);
             Prep_Direct_Draw();
             if (WindowedMode) {
@@ -761,7 +761,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
                 unknown_window_839640 = rect1;
                 VideoModeWidth = 640;
                 VideoModeHeight = 400;
-                unknown_depth_8523e8 = unknown_hicolor_7ce008 ? 16 : 8;
+                VideoModeBitsPerPixel = unknown_hicolor_7ce008 ? 16 : 8;
             } else {
                 Rect rect2(0, 0, 640, 400);
                 unknown_window_839640 = rect2;
@@ -786,7 +786,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
                 unknown_window_839640 = rect4;
                 VideoModeWidth = unknown_screen_width_a40b38;
                 VideoModeHeight = unknown_screen_height_a40b3c;
-                unknown_depth_8523e8 = unknown_hicolor_7ce008 ? 16 : 8;
+                VideoModeBitsPerPixel = unknown_hicolor_7ce008 ? 16 : 8;
             } else {
                 video_success = Set_Video_Mode(MainWindow, unknown_screen_width_a40b38, unknown_screen_height_a40b3c, unknown_hicolor_7ce008 ? 16 : 8);
                 Rect rect5(0, 0, unknown_screen_width_a40b38, unknown_screen_height_a40b3c);
@@ -817,8 +817,8 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
             }
         }
 
-        unknown_surface_839950 = DSurface::Create_Primary(0);
-        int bpp = unknown_surface_839950->Bytes_Per_Pixel();
+        VisibleSurface = DSurface::Create_Primary(0);
+        int bpp = VisibleSurface->Bytes_Per_Pixel();
         unknown_hicolor_7ce008 = bpp == 2;
         if (!unknown_hicolor_7ce008) {
             Wide_Message_Box(MainWindow, StringTable::Load_String("TXT_INVALIDMODE", 0, "D:\\Ra2\\Startup.CPP", 0x846),
@@ -836,7 +836,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
 
         SurfacesRestored = false;
         if (!WindowedMode) {
-            unknown_surface_839950->Fill(0);
+            VisibleSurface->Fill(0);
         }
         Mono_Window_Init(ProgramInstance, MainWindow, WindowedMode);
         Planning_Reset();
@@ -853,7 +853,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
         if (UseDirect3D) {
             Init_Direct3D();
         }
-        unknown_surface_83995c = HiddenSurface;
+        LogicalSurface = HiddenSurface;
         GScreenClass::Blit(true, HiddenSurface);
 
         DepthBuffer = new ZBuffer(Rect(unknown_int_839630, unknown_int_839634, 480, 480 - unknown_int_839634));
@@ -904,7 +904,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
         GScreenClass::Blit(true, HiddenSurface);
 
         ReadyToQuit = 1;
-        Theme.Unknown_006E7A70();
+        Theme.Free_Themes();
         Audio_Shutdown();
         PostMessageA(MainWindow, 2, 0, 0);
         do {
@@ -928,9 +928,9 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
     MouseClass::Unknown_0059FEF0();
     Shutdown_Network_005bc4d0();
 
-    if (unknown_active_object_7f4ccc != -1) {
-        RevokeActiveObject(unknown_active_object_7f4ccc, 0);
-        unknown_active_object_7f4ccc = -1;
+    if (dwRegisterMap != -1) {
+        RevokeActiveObject(dwRegisterMap, 0);
+        dwRegisterMap = -1;
     }
     CoDisconnectObject((IUnknown *)&unknown_application_84c7dc, 0);
     OleUninitialize();
@@ -1013,16 +1013,16 @@ void __cdecl Prog_End()
     }
     Movies.Clear();
 
-    for (int index = 0; index < unknown_commands_832358.Count(); index++) {
-        delete unknown_commands_832358[index];
+    for (int index = 0; index < AllCommands.Count(); index++) {
+        delete AllCommands[index];
     }
-    unknown_commands_832358.Clear();
+    AllCommands.Clear();
 
-    if (unknown_ini_8396d0) {
-        delete unknown_ini_8396d0;
-        unknown_ini_8396d0 = 0;
+    if (RuleINI) {
+        delete RuleINI;
+        RuleINI = 0;
     }
-    unknown_ini_8397a0.Clear();
+    AIINI.Clear();
     ArtINI.Clear();
     unknown_ini_839860.Clear();
     unknown_ini_8396e0.Clear();
@@ -1050,17 +1050,17 @@ void __cdecl Prog_End()
         delete BitText;
         BitText = 0;
     }
-    if (unknown_drawer_8323b8) {
-        delete unknown_drawer_8323b8;
-        unknown_drawer_8323b8 = 0;
+    if (TerrainDrawer) {
+        delete TerrainDrawer;
+        TerrainDrawer = 0;
     }
     if (Unit_Draw_Convert_008323C0) {
         delete Unit_Draw_Convert_008323C0;
         Unit_Draw_Convert_008323C0 = 0;
     }
-    if (unknown_drawer_8323c4) {
-        delete unknown_drawer_8323c4;
-        unknown_drawer_8323c4 = 0;
+    if (NormalDrawer) {
+        delete NormalDrawer;
+        NormalDrawer = 0;
     }
     if (unknown_drawer_8323b4) {
         delete unknown_drawer_8323b4;
@@ -1078,9 +1078,9 @@ void __cdecl Prog_End()
         delete unknown_drawer_8323b0;
         unknown_drawer_8323b0 = 0;
     }
-    if (unknown_drawer_ad0608) {
-        delete unknown_drawer_ad0608;
-        unknown_drawer_ad0608 = 0;
+    if (EightBitDrawer) {
+        delete EightBitDrawer;
+        EightBitDrawer = 0;
     }
     if (unknown_surface_ad0604) {
         delete unknown_surface_ad0604;
@@ -1096,10 +1096,10 @@ void __cdecl Prog_End()
     }
     Map.Unknown_00562EA0();
 
-    for (int light = 0; light < unknown_LightConvertClass_list_00832398.Count(); light++) {
-        delete unknown_LightConvertClass_list_00832398[light];
+    for (int light = 0; light < TileDrawers.Count(); light++) {
+        delete TileDrawers[light];
     }
-    unknown_LightConvertClass_list_00832398.Clear();
+    TileDrawers.Clear();
 
     if (unknown_theater_mix_8374c0) {
         delete unknown_theater_mix_8374c0;
@@ -1233,7 +1233,7 @@ void __cdecl Prog_End()
     Unknown_00535970();
     MouseClass::Unknown_0059FEF0();
     Shutdown_Network_005bc4d0();
-    Unknown_00714860();
+    Free_Vocs();
     Speech_Free_All();
     CDFileClass::Clear_Search_Drives();
     if (WWKeyboard) {
@@ -1271,7 +1271,7 @@ void __cdecl Prog_End()
         unknown_handle_abd47c = 0;
     }
     Unknown_00522930();
-    Theme.Unknown_006E7A70();
+    Theme.Free_Themes();
     Audio_Shutdown();
     Unknown_006F9D90();
     CopyProtection_Shutdown_00491b00();
@@ -1306,9 +1306,9 @@ void Unknown_00691320()
             break;
         }
     }
-    if (unknown_active_object_7f4ccc != -1) {
-        RevokeActiveObject(unknown_active_object_7f4ccc, 0);
-        unknown_active_object_7f4ccc = -1;
+    if (dwRegisterMap != -1) {
+        RevokeActiveObject(dwRegisterMap, 0);
+        dwRegisterMap = -1;
     }
     CoDisconnectObject((IUnknown *)&unknown_application_84c7dc, 0);
     OleUninitialize();

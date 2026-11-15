@@ -3,7 +3,7 @@
 #ifndef RA2_SHARED_SURFACE_BLIT_HPP
 #define RA2_SHARED_SURFACE_BLIT_HPP
 #include "shared/surface.hpp"
-void __fastcall unknown_blit_49f3a0(Surface &dest, void *convert, Surface &source, Rect const &sourcerect,
+void __fastcall Blit_Block(Surface &dest, void *convert, Surface &source, Rect const &sourcerect,
                                     RectPoint2D const &destpoint, Rect const &destclip, unsigned char const *unknown1, class Blitter const *unknown2,
                                     int unknown3, int unknown4, int unknown5, int unknown6);
 #endif

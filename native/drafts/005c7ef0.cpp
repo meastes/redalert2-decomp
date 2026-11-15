@@ -76,13 +76,13 @@ void __fastcall Upload_Map_Preview_005c7ef0(MapPreviewClass *preview)
     memset(&packet, 0, sizeof(packet));
     packet.Command = 0x19;
     strcpy(packet.Name, unknown_name_a3d3a0);
-    unknown_ipx_manager_a40978.Set_Timing(50, -1, 5000, true);
+    Ipx.Set_Timing(50, -1, 5000, true);
     timer = 1200;
     for (int i = 1; i < unknown_players_a3fa7c.Count(); i++) {
-        unknown_ipx_manager_a40978.unknown_5259a0(&packet, sizeof(packet), 1, unknown_players_a3fa7c[i]->Name);
+        Ipx.Send_Global_Message_To_Name(&packet, sizeof(packet), 1, unknown_players_a3fa7c[i]->Name);
         Service_Game_IO_00481fb0();
     }
-    while (unknown_ipx_manager_a40978.Global_Num_Send() && timer) {
+    while (Ipx.Global_Num_Send() && timer) {
         Service_Game_IO_00481fb0();
     }
     if (!timer) {
@@ -99,7 +99,7 @@ void __fastcall Upload_Map_Preview_005c7ef0(MapPreviewClass *preview)
         UnknownGlobalPacket reply;
         int length = sizeof(reply);
         unsigned short product;
-        if (unknown_ipx_manager_a40978.Get_Global_Message(&reply, &length, &address, &product) && reply.Command == 0x1A) {
+        if (Ipx.Get_Global_Message(&reply, &length, &address, &product) && reply.Command == 0x1A) {
             for (int j = 1; j < unknown_players_a3fa7c.Count(); j++) {
                 if (address.Is_Same_Node(unknown_players_a3fa7c[j]->Address)) {
                     if (!ready[j]) {
@@ -137,5 +137,5 @@ void __fastcall Upload_Map_Preview_005c7ef0(MapPreviewClass *preview)
     operator delete(compressed);
     Debug_Printf("Calling Send_Remote_File to send the preview\n");
     Send_Remote_File_0066bb20("Preview.bin", 3, 1, 0);
-    unknown_ipx_manager_a40978.Set_Timing(30, -1, 600, true);
+    Ipx.Set_Timing(30, -1, 600, true);
 }

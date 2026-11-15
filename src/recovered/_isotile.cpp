@@ -18,7 +18,7 @@
 class IsometricTileClass;
 
 // The unit's list of IsometricTileClass objects (0x00832448; name is a hypothesis).
-DynamicVectorClass<IsometricTileClass *> unknown_IsometricTileClass_list_00832448;
+DynamicVectorClass<IsometricTileClass *> IsometricTiles;
 
 // The logic layer: every object that runs its AI each frame (0x00832470; Westwood's Logic). Its
 // definition emits the initializer 0x0040CA70 and the atexit destructor 0x0040CAB0.

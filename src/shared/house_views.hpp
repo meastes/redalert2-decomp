@@ -77,7 +77,7 @@ struct UnknownBuildingTypeBA0View {
     int unknown_ba0;                        // +0x0BA0 (5 picks the second building factory; hypothesis)
 };
 int __fastcall Unknown_006818D0(int kind, int id, int arg3);   // 0x006818D0
-// The sidebar redraw (0x0067C2D0) is SidebarClass::Unknown_0067C2D0 on Map
+// The sidebar redraw (0x0067C2D0) is SidebarClass::Flag_Tab_To_Redraw on Map
 // (shared/map_view.hpp).
 
 #endif

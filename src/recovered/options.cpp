@@ -275,7 +275,7 @@ void OptionsClass::Load_Settings()
     Debug_Printf("StretchMovies is %s\n", StretchMovies == true ? "ON" : "OFF");
     AllowHiResModes = unknown_ini_839740.Get_Bool("Video", "AllowHiResModes", AllowHiResModes);
     Debug_Printf("AllowHiRes is %s\n", AllowHiResModes == true ? "ON" : "OFF");
-    unknown_allow_mode_toggle_a40d0b = unknown_ini_839740.Get_Bool("Video", "AllowModeToggle", unknown_allow_mode_toggle_a40d0b);
+    Debug_IngameModeChange = unknown_ini_839740.Get_Bool("Video", "AllowModeToggle", Debug_IngameModeChange);
     AllowVRAMSidebar = unknown_ini_839740.Get_Bool("Video", "AllowVRAMSidebar", AllowVRAMSidebar);
 
     Set_Sound_Volume(unknown_ini_839740.Get_Double("Audio", "SoundVolume", SoundVolume), false);
@@ -319,8 +319,8 @@ void OptionsClass::Load_Settings()
     unknown_ini_839740.Get_String("Network", "DestNet", "", DestNet, sizeof(DestNet));
     Debug_Printf("--------- Complete -------------------------------\n");
 
-    Map.Unknown_0067B880(SidebarCameoText);
-    TechnoClass::unknown_6d79c0(UnitActionLines);
+    Map.Toggle_Cameo_Text(SidebarCameoText);
+    TechnoClass::Set_Action_Lines(UnitActionLines);
     Setup_Network();
 }
 
@@ -383,9 +383,9 @@ void OptionsClass::Save_Settings()
 void OptionsClass::Setup_Network()
 {
     if (Socket == 0xFFFF) {
-        unknown_ipx_manager_a40978.Set_Socket(0x8813);
+        Ipx.Set_Socket(0x8813);
     } else if (Socket < 0x4000) {
-        unknown_ipx_manager_a40978.Set_Socket(Socket + 0x4000);
+        Ipx.Set_Socket(Socket + 0x4000);
     }
     int length = strlen(DestNet);
     if (length != 0) {
@@ -426,8 +426,8 @@ void OptionsClass::Set()
     Set_Score_Volume(ScoreVolume, false);
     Set_Repeat(IsScoreRepeat);
     Set_Shuffle(IsScoreShuffle);
-    Map.Unknown_0067B880(SidebarCameoText);
-    TechnoClass::unknown_6d79c0(UnitActionLines);
+    Map.Toggle_Cameo_Text(SidebarCameoText);
+    TechnoClass::Set_Action_Lines(UnitActionLines);
 }
 
 
@@ -458,7 +458,7 @@ int OptionsClass::Normalize_Volume(int volume)
 
 
 // int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND, UINT, WPARAM, LPARAM) (0x005D97A0)
-// The keyboard dialog (0xA3, run by OptionsClass::Unknown_005DA360; TS Hotkey_Dialog_Proc): category
+// The keyboard dialog (0xA3, run by OptionsClass::Hotkey_Dialog; TS Hotkey_Dialog_Proc): category
 // combo 0x4C7, command list 0x4C8, description 0x4CB, current shortcut 0x63C, hot key control 0x4CD,
 // assigned-to 0x63B, error text 0x63D. It posts itself 0x464 (fill the command list), 0x465 (show the
 // selected command), 0x466 (assign the hot key) and 0x467 (refill the categories; also sent for 0x497).
@@ -553,8 +553,8 @@ int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WP
                 SendMessageA(cmb_category, 0x4B3, 64, (LPARAM)buffer);
                 HWND list_commands = GetDlgItem(window, 0x4C8);
                 SendMessageA(list_commands, 0x184, 0, 0);
-                for (int i = 0; i < unknown_commands_832358.Count(); i++) {
-                    CommandClass const *cmd = unknown_commands_832358[i];
+                for (int i = 0; i < AllCommands.Count(); i++) {
+                    CommandClass const *cmd = AllCommands[i];
                     if (_wcsicmp(cmd->Get_Category(), buffer) == 0) {
                         int index = SendMessageA(list_commands, 0x4CD, 0, (LPARAM)cmd->Get_UI_Name());
                         if (index != -1) {
@@ -578,8 +578,8 @@ int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WP
         case 0x467: {
             HWND cmb_category = GetDlgItem(window, 0x4C7);
             SendMessageA(cmb_category, 0x14B, 0, 0);
-            for (int i = 0; i < unknown_commands_832358.Count(); i++) {
-                CommandClass const *cmd = unknown_commands_832358[i];
+            for (int i = 0; i < AllCommands.Count(); i++) {
+                CommandClass const *cmd = AllCommands[i];
                 if (SendMessageA(cmb_category, 0x4BE, 0, (LPARAM)cmd->Get_Category()) == -1) {
                     SendMessageA(cmb_category, 0x4C2, 0, (LPARAM)cmd->Get_Category());
                 }
@@ -681,7 +681,7 @@ int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WP
 }
 
 
-// bool OptionsClass::Unknown_005DA360() (0x005DA360)
+// bool OptionsClass::Hotkey_Dialog() (0x005DA360)
 // Runs dialog 0xA3 (procedure 0x005D97A0) until it sets its result or the dialog handler ends the wait;
 // outside a game the title screen keeps being serviced. Does not use its receiver; always true.
 
@@ -690,7 +690,7 @@ void __fastcall unknown_dialog_5ff6e0(HWND window);      // 0x005FF6E0
 void __fastcall Title_Screen_Restore(bool unknown1);           // 0x00517370
 int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 
-bool OptionsClass::Unknown_005DA360()
+bool OptionsClass::Hotkey_Dialog()
 {
     int rc = -1;
     HWND dialog = unknown_create_dialog_5ff610(0xA3, Unknown_Options_Dialog_Proc_005d97a0, 0);

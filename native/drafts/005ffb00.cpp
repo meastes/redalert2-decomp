@@ -22,7 +22,7 @@
 #include "shared/rect.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
 
-void __fastcall unknown_735ba0(HWND window);
+void __fastcall Resize_Dialogs(HWND window);
 void __fastcall unknown_737060(HWND window);
 
 // NATIVE (Scout1081 adaptation): declarations OwnrDraw406's scratch overlay
@@ -48,7 +48,7 @@ BOOL __stdcall unknown_5e86d0(HWND window, LPARAM lparam);
 
 inline void unknown_prepare_dialog(HWND dialog, int kind)
 {
-    unknown_735ba0(dialog);
+    Resize_Dialogs(dialog);
     unknown_5eaaa0(dialog, kind);
     if (!unknown_session_a3d298.Unknown_00672F10()) {
         unknown_set_control_art_5ea960((unsigned int)dialog);

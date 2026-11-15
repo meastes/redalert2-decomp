@@ -4,8 +4,8 @@
     "id": "population-4226",
     "inventory_sha256": "609eefbc72cedcf8216e2e96de705f972e69a1b22ec4d3fe4826dbdf784c6592",
     "gaps_sha256": "21065825b61fc51d4f655181781b6b5c6978c6d523359e7cc982058d092003ba",
-    "historical_population_sha256": "bb9f78a87c0a12c7c37094e38d84572dcdac80d355fd8acd83fb18f75848317b",
-    "historical_acceptance_sha256": "cf4d08b9f8b13e3a4f2f2adce770084addc5927d497be8dcf181c5ca36d364e3"
+    "historical_population_sha256": "40b076676d551a327ac3493c0b16535caa04657797197681e4cfdcede1d34562",
+    "historical_acceptance_sha256": "323837bf6b2d3fd25290d5ee442c9b9809ad7d387ee37a5cafcce0d59ffbf328"
   },
   "references": {
     "_unknown_static_rect": 11504128,
@@ -17,7 +17,7 @@
     "__real@4@4006ff00000000000000": 7975080,
     "__real@4@00000000000000000000": 7972664,
     "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A": 8363616,
-    "?unknown_drawers_7f9de0@@3PAP6AXPAUVoxelFuncArgumentStruct@@@ZA": 8363488,
+    "?VoxelDrawFunctions@@3PAP6AXPAUVoxelFuncArgumentStruct@@@ZA": 8363488,
     "?unknown_af6610@@3HA": 11494928,
     "?unknown_af6614@@3HA": 11494932,
     "__real@4@40068000000000000000": 8055356,
@@ -31,7 +31,7 @@
     "?Read_File@VoxelLibrary@@QAEHPAVFileClass@@H@Z": 7442784,
     "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
     "?unknown_normal_tables_7f9f80@@3PAPBUVector3@@A": 8363904,
-    "?unknown_normal_counts_7f9f94@@3PAHA": 8363924,
+    "?VoxelNormalTableEntryCount@@3PAHA": 8363924,
     "?unknown_shades_af8e10@@3PAEA": 11505168,
     "__real@4@3ffe8000000000000000": 7986560,
     "__real@4@3ffccccccd0000000000": 8055364,
@@ -789,7 +789,7 @@
     "?get@Storage_654960@@QAEPAXIPAI@Z": 6637920,
     "?get@Storage_6549b0@@QAEPAXIPAI@Z": 6638000,
     "?get@Storage_654a00@@QAEPAXIPAI@Z": 6638080,
-    "?unknown_6631a0@ScenarioClass@@QAEPAVCellClass@@H@Z": 6697376,
+    "?Get_Waypoint_Target@ScenarioClass@@QAEPAVCellClass@@H@Z": 6697376,
     "?Set_Waypoint_Location@ScenarioClass@@QAEXHVCell@@@Z": 6697984,
     "?Add@?$DynamicVectorClass@PAVTechnoTypeClass@@@@QAE_NABQAVTechnoTypeClass@@@Z": 6698304,
     "?get@Leaf_668ea0@@QAEXXZ": 6721184,
@@ -962,7 +962,7 @@
     "?get@Leaf_6eb2c0@@QAEXXZ": 7254720,
     "?get@Leaf_6ec1d0@@QAEPAXI@Z": 7258576,
     "?Size@TunnelLocomotionClass@@UAEHXZ": 7279520,
-    "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z": 7281408,
+    "?Inflate_Rect@@YIXPAVRect@@H@Z": 7281408,
     "?get@Leaf_6f6730@@QAEIXZ": 7300912,
     "?get@Leaf_6f6740@@QAEIXZ": 7300928,
     "?get@Leaf_6f6750@@QAEIXZ": 7300944,
@@ -2007,10 +2007,10 @@
     "?Draw_Voxel_Reverse@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7451616,
     "?Draw_Voxel_Regular_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7452064,
     "?Draw_Voxel_Reverse_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7452640,
-    "?unknown_71ba20@@YIXPBUVector3@@H@Z": 7453216,
+    "?Precalculate_Normal_Lookup@@YIXPBUVector3@@H@Z": 7453216,
     "?unknown_71baa0@@YIXPBUVector3@@0MH@Z": 7453344,
-    "?unknown_71bc30@@YIHPBUVector3@@H@Z": 7453744,
-    "?unknown_71bce0@@YAXXZ": 7453920,
+    "?Find_Closest_Normal@@YIHPBUVector3@@H@Z": 7453744,
+    "?Init_Normal_Lookup@@YAXXZ": 7453920,
     "?Bridge_Adjusted_Height_0047CF10@CellClass@@QBEHXZ": 4706064,
     "?get@Leaf_68633a@@QAEXXZ": 6841146,
     "?get@Leaf_6b22f0@@QAEEIIII@Z": 7021296,
@@ -2295,7 +2295,7 @@
     "?unknown_flag_a40d0c@@3DA": 10751244,
     "?AudioDeviceAvailable@@YAHXZ": 4222768,
     "?Debug_Printf@@YAXPBDZZ": 4221168,
-    "?unknown_stop_sample_407e60@@YIXPAX@Z": 4226656,
+    "?AudioStreamerStop@@YIXPAX@Z": 4226656,
     "??_C@_0BE@KPIN@Theme?3?3Suspend?$CI?$CFd?$CJ?6?$AA@": 8356892,
     "?unknown_mode_ac109c@@3DA": 11276444,
     "?unknown_flag_ac109d@@3_NA": 11276445,
@@ -6202,7 +6202,7 @@
     "_?unknown@?3??Faction_Name@@YIABVWstring@@H@Z@4V2@A": 11709704,
     "_?unknown@?3??Faction_Code@@YIABVWstring@@H@Z@4V2@A": 11709652,
     "??0RGBClass@@QAE@EEE@Z": 4402544,
-    "_?pattern@?1??unknown_6cc020@TechnoClass@@QAEXXZ@4PA_NA": 8352020,
+    "_?pattern@?1??Draw_Target_Laser@TechnoClass@@QAEXXZ@4PA_NA": 8352020,
     "?Reset@BooleanVectorClass@@QAEXXZ": 7402240,
     "?Reset@VoxelDrawSystem@@YAXXZ": 7434704,
     "?Reset@AudioTimeSpan@@QAEXXZ": 4208672,
@@ -6349,7 +6349,28 @@
     "??_R0?AVVeinholeMonsterClass@@@8": 8361640,
     "??_R0?AVWinModemClass@@@8": 8374768,
     "??_R0?AVWWMouseClass@@@8": 8393584,
-    "__ramp_corners": 8339828
+    "__ramp_corners": 8339828,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?AI@CreditClass@@QAEX_N@Z": 4802128,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
   },
   "regions": [
     {
@@ -6403,7 +6424,7 @@
           "resolved": 11504140
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6472,7 +6493,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "3e81d0583862630da539051c69932013220adf36b9d402560a9bec840439d44c",
       "relocations": [],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -6523,7 +6544,7 @@
           "resolved": 429122
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -6617,7 +6638,7 @@
           "resolved": 429042
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -6643,7 +6664,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "9a57a0f97e8389dbd8dbd25551bed768a425f5dd89a343fb23816490cc493f17",
       "relocations": [],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -6669,7 +6690,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "2c53c1fbab99d0f769c8a8af6cd963bec789e8deca42a25179a32fa5e1f5002c",
       "relocations": [],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -6680,8 +6701,8 @@
     {
       "entry": 7453920,
       "method": "0071bce0",
-      "symbol": "?unknown_71bce0@@YAXXZ",
-      "symbol_prefix": "?unknown_71bce0@@YAXXZ",
+      "symbol": "?Init_Normal_Lookup@@YAXXZ",
+      "symbol_prefix": "?Init_Normal_Lookup@@YAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -6704,7 +6725,7 @@
           "resolved": 11505168
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -6739,7 +6760,7 @@
           "resolved": 182
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6791,7 +6812,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "4d1ab2ff2c43f3bca687afe6be3850d5864f5f5b996cede970804cb0087d8b13",
       "relocations": [],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -6842,7 +6863,7 @@
           "resolved": 7986560
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -7183,13 +7204,13 @@
         {
           "offset": 694,
           "kind": 6,
-          "symbol": "?unknown_drawers_7f9de0@@3PAP6AXPAUVoxelFuncArgumentStruct@@@ZA",
+          "symbol": "?VoxelDrawFunctions@@3PAP6AXPAUVoxelFuncArgumentStruct@@@ZA",
           "target": 8363488,
           "addend": 0,
           "resolved": 8363488
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -7264,7 +7285,7 @@
           "resolved": 7986560
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -7339,7 +7360,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -7414,7 +7435,7 @@
           "resolved": 11504146
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -7497,7 +7518,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -7580,7 +7601,7 @@
           "resolved": 11504146
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -7591,8 +7612,8 @@
     {
       "entry": 7453216,
       "method": "0071ba20",
-      "symbol": "?unknown_71ba20@@YIXPBUVector3@@H@Z",
-      "symbol_prefix": "?unknown_71ba20@@YIXPBUVector3@@H@Z",
+      "symbol": "?Precalculate_Normal_Lookup@@YIXPBUVector3@@H@Z",
+      "symbol_prefix": "?Precalculate_Normal_Lookup@@YIXPBUVector3@@H@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -7617,7 +7638,7 @@
         {
           "offset": 12,
           "kind": 6,
-          "symbol": "?unknown_normal_counts_7f9f94@@3PAHA",
+          "symbol": "?VoxelNormalTableEntryCount@@3PAHA",
           "target": 8363924,
           "addend": 0,
           "resolved": 8363924
@@ -7687,7 +7708,7 @@
           "resolved": 11505421
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -7698,8 +7719,8 @@
     {
       "entry": 7453744,
       "method": "0071bc30",
-      "symbol": "?unknown_71bc30@@YIHPBUVector3@@H@Z",
-      "symbol_prefix": "?unknown_71bc30@@YIHPBUVector3@@H@Z",
+      "symbol": "?Find_Closest_Normal@@YIHPBUVector3@@H@Z",
+      "symbol_prefix": "?Find_Closest_Normal@@YIHPBUVector3@@H@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -7740,13 +7761,13 @@
         {
           "offset": 97,
           "kind": 6,
-          "symbol": "?unknown_normal_counts_7f9f94@@3PAHA",
+          "symbol": "?VoxelNormalTableEntryCount@@3PAHA",
           "target": 8363924,
           "addend": 0,
           "resolved": 8363924
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -7957,7 +7978,7 @@
           "resolved": 11340401
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -8064,7 +8085,7 @@
           "resolved": 11504146
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -8163,7 +8184,7 @@
           "resolved": 11416585
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -8262,7 +8283,7 @@
           "resolved": 11504146
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -8369,7 +8390,7 @@
           "resolved": 11340401
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -8476,7 +8497,7 @@
           "resolved": 11504146
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -8668,7 +8689,7 @@
         {
           "offset": 175,
           "kind": 6,
-          "symbol": "?unknown_normal_counts_7f9f94@@3PAHA",
+          "symbol": "?VoxelNormalTableEntryCount@@3PAHA",
           "target": 8363924,
           "addend": 0,
           "resolved": 8363924
@@ -8762,7 +8783,7 @@
           "resolved": 11505421
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -8949,7 +8970,7 @@
           "resolved": 11416585
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -9224,7 +9245,7 @@
           "resolved": 427285
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -9347,7 +9368,7 @@
           "resolved": 11504146
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -9470,7 +9491,7 @@
           "resolved": 11416585
         }
       ],
-      "source_sha256": "fd16c44e7741de8a405788f0f672801d3d969105032e41fa8b385cb1e23d7420",
+      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

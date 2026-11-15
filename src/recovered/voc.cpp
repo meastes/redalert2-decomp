@@ -17,7 +17,7 @@
 class VocClass;
 
 // The unit's list of VocClass objects (0x00AD0818; name is a hypothesis).
-DynamicVectorClass<VocClass *> unknown_VocClass_list_00ad0818;
+DynamicVectorClass<VocClass *> Vocs;
 
 
 // Dynamic initializer (0x007135C0, _$E) emitted by HeaderStatics_empty_rect_init_007135a0.cpp; no source of its own.
@@ -68,7 +68,7 @@ DynamicVectorClass<VocClass *> unknown_VocClass_list_00ad0818;
 
 VocClass::VocClass(char const *name) : Event(0)
 {
-    unknown_VocClass_list_00ad0818.Add(this);
+    Vocs.Add(this);
     Event = Audio_Event_Type_Find(name);
 }
 
@@ -77,7 +77,7 @@ VocClass::VocClass(char const *name) : Event(0)
 
 VocClass::~VocClass()
 {
-    unknown_VocClass_list_00ad0818.Delete(this);
+    Vocs.Delete(this);
 }
 
 
@@ -101,7 +101,7 @@ bool VocClass::Read_INI(CCINIClass &ini)
         Audio_Event_Type_Add_Sample(Event, token);
     }
 
-    float volume = (float)ini.Get_Double(Name(), "Volume", unknown_voc_volume_7f9a70) * 0.01f;
+    float volume = (float)ini.Get_Double(Name(), "Volume", DefaultVolume) * 0.01f;
     if (volume > 1.0) {
         volume = 1.0f;
     } else if (volume <= 0) {
@@ -111,7 +111,7 @@ bool VocClass::Read_INI(CCINIClass &ini)
 
     Audio_Event_Type_Set_Percent(Event, ini.Get_Int(Name(), "VShift", 0));
 
-    float min_volume = (float)ini.Get_Double(Name(), "MinVolume", unknown_voc_min_volume_7f9a74) * 0.01f;
+    float min_volume = (float)ini.Get_Double(Name(), "MinVolume", DefaultMinVolume) * 0.01f;
     if (min_volume > 1.0) {
         min_volume = 1.0f;
     } else if (min_volume <= 0) {
@@ -120,7 +120,7 @@ bool VocClass::Read_INI(CCINIClass &ini)
     Audio_Event_Type_Set_Min_Volume(Event, min_volume);
 
     ini.Get_String(Name(), "Priority", "NORMAL", buffer, sizeof(buffer));
-    int priority = unknown_voc_priority_7f9a6c;
+    int priority = DefaultPriority;
     Audio_Priority_From_Name(buffer, &priority);
     Audio_Event_Type_Set_Priority(Event, priority);
 
@@ -129,7 +129,7 @@ bool VocClass::Read_INI(CCINIClass &ini)
 
     ini.Get_String(Name(), "Control", "", buffer, sizeof(buffer));
     token = strtok(buffer, " \t\n");
-    unsigned int control = unknown_voc_control_ad0850;
+    unsigned int control = DefaultControl;
     if (token != 0) {
         control = 0;
         do {
@@ -141,7 +141,7 @@ bool VocClass::Read_INI(CCINIClass &ini)
 
     ini.Get_String(Name(), "Type", "", buffer, sizeof(buffer));
     token = strtok(buffer, " \t\n");
-    unsigned int type = unknown_voc_type_7f9a78;
+    unsigned int type = DefaultType;
     if (token != 0) {
         type = 0x20;
         do {
@@ -151,9 +151,9 @@ bool VocClass::Read_INI(CCINIClass &ini)
     }
     Audio_Event_Type_Set_Type(Event, type);
 
-    Audio_Event_Type_Set_Limit(Event, ini.Get_Int(Name(), "Limit", unknown_voc_limit_7f9a80));
+    Audio_Event_Type_Set_Limit(Event, ini.Get_Int(Name(), "Limit", DefaultLimit));
     Audio_Event_Type_Set_Loop(Event, ini.Get_Int(Name(), "Loop", 0));
-    Audio_Event_Type_Set_Range(Event, ini.Get_Int(Name(), "Range", unknown_voc_range_7f9a7c));
+    Audio_Event_Type_Set_Range(Event, ini.Get_Int(Name(), "Range", DefaultRange));
 
     ini.Get_String(Name(), "Delay", "", buffer, sizeof(buffer));
     token = strtok(buffer, " \t\n");
@@ -194,8 +194,8 @@ bool VocClass::Read_INI(CCINIClass &ini)
 AudioEvent *__fastcall Voc_Play(int voc, float volume, int pan, AudioEventHandle *handle)
 {
     AudioEventType *type = 0;
-    if (voc >= 0 && voc < unknown_VocClass_list_00ad0818.Count()) {
-        type = unknown_VocClass_list_00ad0818[voc]->Event;
+    if (voc >= 0 && voc < Vocs.Count()) {
+        type = Vocs[voc]->Event;
     }
     AudioEvent *event = 0;
     if (handle != 0) {
@@ -231,8 +231,8 @@ AudioEvent *__fastcall Voc_Play_At(int voc, CoordStruct const &coord, AudioEvent
 {
     AudioEvent *event = 0;
     AudioEventType *type = 0;
-    if (voc >= 0 && voc < unknown_VocClass_list_00ad0818.Count()) {
-        type = unknown_VocClass_list_00ad0818[voc]->Event;
+    if (voc >= 0 && voc < Vocs.Count()) {
+        type = Vocs[voc]->Event;
     }
     if (handle != 0) {
         event = Audio_Event_Handle_Event(handle);
@@ -443,11 +443,11 @@ void __fastcall Voc_Static_Finish_At(CoordStruct const &coord, unsigned int flag
 }
 
 
-// void Unknown_00714410() (0x00714410): stops and drops every static sound
+// void Sound_Clear_Static() (0x00714410): stops and drops every static sound
 // (Do_Restart and Clear_Scenario call it; hypothesis).
 #include "shared/vox_class.hpp"
 
-void Unknown_00714410()
+void Sound_Clear_Static()
 {
     VocStaticSound *sound = (VocStaticSound *)Audio_List_First(&unknown_voc_static_list_ad07d0);
     while (sound != 0) {
@@ -529,17 +529,17 @@ void __fastcall VocClass::Process(CCINIClass &ini)
     char buffer[0x800];
     char *token;
     if (ini.Is_Present("Defaults")) {
-        unknown_voc_volume_7f9a70 = (float)ini.Get_Double("Defaults", "Volume", unknown_voc_volume_7f9a70);
-        unknown_voc_min_volume_7f9a74 = (float)ini.Get_Double("Defaults", "MinVolume", unknown_voc_min_volume_7f9a74);
+        DefaultVolume = (float)ini.Get_Double("Defaults", "Volume", DefaultVolume);
+        DefaultMinVolume = (float)ini.Get_Double("Defaults", "MinVolume", DefaultMinVolume);
         ini.Get_String("Defaults", "Priority", "NORMAL", buffer, sizeof(buffer));
-        Audio_Priority_From_Name(buffer, &unknown_voc_priority_7f9a6c);
+        Audio_Priority_From_Name(buffer, &DefaultPriority);
 
         ini.Get_String("Defaults", "Control", "", buffer, sizeof(buffer));
         token = strtok(buffer, " \t\n");
         if (token != 0) {
-            unknown_voc_control_ad0850 = 0;
+            DefaultControl = 0;
             do {
-                Audio_Control_Apply_Keyword(&unknown_voc_control_ad0850, token);
+                Audio_Control_Apply_Keyword(&DefaultControl, token);
                 token = strtok(0, " \t\n");
             } while (token != 0);
         }
@@ -547,15 +547,15 @@ void __fastcall VocClass::Process(CCINIClass &ini)
         ini.Get_String("Defaults", "Type", "", buffer, sizeof(buffer));
         token = strtok(buffer, " \t\n");
         if (token != 0) {
-            unknown_voc_type_7f9a78 = 0x20;
+            DefaultType = 0x20;
             do {
-                Audio_Event_Apply_Keyword(&unknown_voc_type_7f9a78, token);
+                Audio_Event_Apply_Keyword(&DefaultType, token);
                 token = strtok(0, " \t\n");
             } while (token != 0);
         }
 
-        unknown_voc_limit_7f9a80 = ini.Get_Int("Defaults", "Limit", unknown_voc_limit_7f9a80);
-        unknown_voc_range_7f9a7c = ini.Get_Int("Defaults", "Range", unknown_voc_range_7f9a7c);
+        DefaultLimit = ini.Get_Int("Defaults", "Limit", DefaultLimit);
+        DefaultRange = ini.Get_Int("Defaults", "Range", DefaultRange);
     }
 
     if (ini.Is_Present("SoundList")) {
@@ -568,7 +568,7 @@ void __fastcall VocClass::Process(CCINIClass &ini)
                 if (voc_index == -1) {
                     voc = new VocClass(name);
                 } else {
-                    voc = unknown_VocClass_list_00ad0818[voc_index];
+                    voc = Vocs[voc_index];
                 }
                 voc->Read_INI(ini);
             }
@@ -577,18 +577,18 @@ void __fastcall VocClass::Process(CCINIClass &ini)
 }
 
 
-// void Unknown_00714860() (0x00714860)
+// void Free_Vocs() (0x00714860)
 // Deletes every sound effect type (each leaves the VocClass list) and, when the static sounds have a pool, stops and
 // drops them all and frees the pool (Init_Game and Prog_End call it; hypothesis).
 #include "shared/unknown_globals.hpp"
 
-void Unknown_00714860()
+void Free_Vocs()
 {
-    while (unknown_VocClass_list_00ad0818.Count() > 0) {
-        delete unknown_VocClass_list_00ad0818[0];
+    while (Vocs.Count() > 0) {
+        delete Vocs[0];
     }
     if (unknown_voc_static_pool_ad0844 != 0) {
-        Unknown_00714410();
+        Sound_Clear_Static();
         Audio_Pool_Destroy(unknown_voc_static_pool_ad0844);
         unknown_voc_static_pool_ad0844 = 0;
     }
@@ -601,8 +601,8 @@ void Unknown_00714860()
 int __fastcall VocClass::From_Name(char const *name)
 {
     if (name != 0) {
-        for (int index = 0; index < unknown_VocClass_list_00ad0818.Count(); index++) {
-            if (_stricmp(name, unknown_VocClass_list_00ad0818[index]->Name()) == 0) {
+        for (int index = 0; index < Vocs.Count(); index++) {
+            if (_stricmp(name, Vocs[index]->Name()) == 0) {
                 return index;
             }
         }
@@ -617,9 +617,9 @@ int __fastcall VocClass::From_Name(char const *name)
 VocClass *__fastcall VocClass::Find(char const *name)
 {
     if (name != 0 && _stricmp(name, "<none>") != 0) {
-        for (int index = 0; index < unknown_VocClass_list_00ad0818.Count(); index++) {
-            if (_stricmp(name, unknown_VocClass_list_00ad0818[index]->Name()) == 0) {
-                return unknown_VocClass_list_00ad0818[index];
+        for (int index = 0; index < Vocs.Count(); index++) {
+            if (_stricmp(name, Vocs[index]->Name()) == 0) {
+                return Vocs[index];
             }
         }
     }
@@ -632,8 +632,8 @@ VocClass *__fastcall VocClass::Find(char const *name)
 
 int __fastcall VocClass::Index_Of(VocClass *voc)
 {
-    for (int index = 0; index < unknown_VocClass_list_00ad0818.Count(); index++) {
-        if (unknown_VocClass_list_00ad0818[index] == voc) {
+    for (int index = 0; index < Vocs.Count(); index++) {
+        if (Vocs[index] == voc) {
             return index;
         }
     }
@@ -718,7 +718,7 @@ char const *UnknownVocRef_00714a70::unknown_name() const
 
 long __fastcall Voc_Static_Load(IStream *stream)
 {
-    Unknown_00714410();
+    Sound_Clear_Static();
     Audio_Stop();
     int count;
     HRESULT result = stream->Read(&count, sizeof(count), 0);
@@ -732,8 +732,8 @@ long __fastcall Voc_Static_Load(IStream *stream)
             if (FAILED(result)) {
                 return result;
             }
-            if (entry.Index != -1 && entry.Index < unknown_VocClass_list_00ad0818.Count() && entry.Index >= 0) {
-                VocClass *voc = unknown_VocClass_list_00ad0818[entry.Index];
+            if (entry.Index != -1 && entry.Index < Vocs.Count() && entry.Index >= 0) {
+                VocClass *voc = Vocs[entry.Index];
                 if (voc->Event != 0 && Audio_Event_Type_Loops_Forever(voc->Event)) {
                     CoordStruct coord = entry.Coord;
                     Voc_Static_Add(entry.Index, coord, 0);
@@ -750,8 +750,8 @@ long __fastcall Voc_Static_Load(IStream *stream)
 
 void __fastcall Voc_Handle_Set(AudioEventHandle *handle, int voc)
 {
-    if (voc >= 0 && voc < unknown_VocClass_list_00ad0818.Count()) {
-        Audio_Event_Handle_Set(handle, 0, unknown_VocClass_list_00ad0818[voc]->Event);
+    if (voc >= 0 && voc < Vocs.Count()) {
+        Audio_Event_Handle_Set(handle, 0, Vocs[voc]->Event);
     }
 }
 

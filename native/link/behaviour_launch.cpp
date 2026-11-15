@@ -302,7 +302,7 @@ UnknownHouseTracker::~UnknownHouseTracker() { ((UnitTrackerClass *)unknown_000)-
 
 // --- Scenario load (Scout1083) ---------------------------------------------------
 
-// 0x0068B410 SpecialClass::Unknown_0068B410 (the row's seed
+// 0x0068B410 SpecialClass::Apply_To_Game (the row's seed
 // src/recovered/0068b410.cpp has an empty body: the original returns at once).
 #include "shared/special.hpp"
 

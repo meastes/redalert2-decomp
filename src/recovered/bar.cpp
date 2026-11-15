@@ -147,7 +147,7 @@ bool ProgressBarClass::Update(double value)
 void ProgressBarClass::Outline() const
 {
     if (Is_Outlined()) {
-        unknown_surface_83995c->Draw_Rect(Rect(X, Y, Width, Height), unknown_drawer_8323c4->Convert(BorderColor));
+        LogicalSurface->Draw_Rect(Rect(X, Y, Width, Height), NormalDrawer->Convert(BorderColor));
     }
 }
 
@@ -189,17 +189,17 @@ void ProgressBarClass::Redraw() const
 
     if (fill > 0) {
         if (Is_Horizontal()) {
-            unknown_surface_83995c->Fill_Rect(Rect(x, y, fill, h), unknown_drawer_8323c4->Convert(BarColor));
+            LogicalSurface->Fill_Rect(Rect(x, y, fill, h), NormalDrawer->Convert(BarColor));
         } else {
-            unknown_surface_83995c->Fill_Rect(Rect(x, y + fill, w, h), unknown_drawer_8323c4->Convert(BarColor));
+            LogicalSurface->Fill_Rect(Rect(x, y + fill, w, h), NormalDrawer->Convert(BarColor));
         }
     }
 
     if (w - fill > 0) {
         if (Is_Horizontal()) {
-            unknown_surface_83995c->Fill_Rect(Rect(x + fill, y, w, h), unknown_drawer_8323c4->Convert(BackColor));
+            LogicalSurface->Fill_Rect(Rect(x + fill, y, w, h), NormalDrawer->Convert(BackColor));
         } else {
-            unknown_surface_83995c->Fill_Rect(Rect(x, y, w, fill - 1), unknown_drawer_8323c4->Convert(BackColor));
+            LogicalSurface->Fill_Rect(Rect(x, y, w, fill - 1), NormalDrawer->Convert(BackColor));
         }
     }
     WWMouse->Show_Mouse();

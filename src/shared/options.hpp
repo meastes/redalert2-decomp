@@ -38,7 +38,7 @@ public:
     int Normalize_Delay(int delay) const;                   // 0x005D9760 (name after TS)
     // Runs dialog 0xA3 (proc 0x005D97A0) to its end (0x005DA360; the shell Options dialog's button 0x5CE;
     // it lies in Options.cpp and ignores ecx: Main_Options_Dialog 0x00542460 hoists mov ecx, &Options).
-    bool Unknown_005DA360();
+    bool Hotkey_Dialog();
 
     int GameSpeed;                          // +0x00 [Options] GameSpeed (3)
     int Difficulty;                         // +0x04 [Options] Difficulty, 0-4 (1; the campaign difficulty)
@@ -97,7 +97,7 @@ extern int const Delay_Adjust[4][8];
 extern OptionsClass Options;                // 0x00A40B18
 
 // [Video] AllowModeToggle (0x00A40D0B; not an OptionsClass member).
-extern bool unknown_allow_mode_toggle_a40d0b;
+extern bool Debug_IngameModeChange;
 
 // Hot key control values (virtual key, HOTKEYF_SHIFT/CONTROL/ALT/EXT in the high byte) and key
 // numbers (KN_SHIFT_BIT/CTRL/ALT 0x100/0x200/0x400, 0x1000 extended) (Options.CPP; nothing calls the

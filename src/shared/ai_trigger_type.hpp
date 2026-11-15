@@ -19,8 +19,8 @@
 #endif
 
 extern "C" GUID const CLSID_AITriggerTypeClass;     // 0x007A1EA0
-extern char const *unknown_none_name_7ceacc;        // 0x007CEACC -> "<none>"
-extern char const *unknown_all_name_7cead0;         // 0x007CEAD0 -> "<all>"
+extern char const *NONE_STRING;        // 0x007CEACC -> "<none>"
+extern char const *ALL_STRING;         // 0x007CEAD0 -> "<all>"
 extern char const *unknown_section_79b748;          // 0x0079B748 -> "AITriggerTypes"
 extern char const *unknown_section_79b74c;          // 0x0079B74C -> "AITriggerTypesEnable" (hypothesis)
 extern "C" int __cdecl sprintf(char *buffer, char const *format, ...);

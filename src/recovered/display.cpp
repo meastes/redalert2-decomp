@@ -755,7 +755,7 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
         Map.Unknown_00568520(&target, house, mapped);
     }
     if ((target.unknown_140 & 2) && unmapped && (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
-        target.unknown_47be00();
+        target.Unfog_Cell();
     }
     return changed;
 }
@@ -775,9 +775,9 @@ bool DisplayClass::RevealFogShroud(Cell const &cell, HouseClass *house, bool arg
     bool mapped = changed;
     target.unknown_140 = (target.unknown_140 & ~0x40) | 2;
     if (arg3) {
-        target.unknown_47c8a0();
+        target.IncreaseShroudCounter();
     } else {
-        target.unknown_47c840();
+        target.ReduceShroudCounter();
     }
     signed char frame = TacticalMap->Cell_Shadow(cell, 0);
     if (frame != target.unknown_120) {
@@ -800,7 +800,7 @@ bool DisplayClass::RevealFogShroud(Cell const &cell, HouseClass *house, bool arg
         Map.Unknown_00568520(&target, house, mapped);
     }
     if ((target.unknown_140 & 2) && unmapped && (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
-        target.unknown_47be00();
+        target.Unfog_Cell();
     }
     return changed;
 }
@@ -868,7 +868,7 @@ bool DisplayClass::unknown_slot38(Cell const &cell, HouseClass *house)
         Map.Unknown_00568520(&target, house, mapped);
     }
     if ((target.unknown_140 & 2) && unmapped && (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
-        target.unknown_47be00();
+        target.Unfog_Cell();
     }
     return changed;
 }
@@ -1310,7 +1310,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
             unknown_117c = Passes_Proximity_Check_004991D0(PendingObject, unknown_11a8, unknown_1178, where);
         }
         if (PendingObject->Kind_Of() == 7 && object && object->Kind_Of() == 6 &&
-            static_cast<BuildingClass *>(object)->unknown_44d900(static_cast<BuildingTypeClass const *>(PendingObject), unknown_player_a35db4))
+            static_cast<BuildingClass *>(object)->Can_Upgrade(static_cast<BuildingTypeClass const *>(PendingObject), unknown_player_a35db4))
             unknown_117c = true;
         if (unknown_117c && unknown_117d) {
             TechnoTypeClass const *techno_type = dynamic_cast<TechnoTypeClass const *>(PendingObject);
@@ -1344,11 +1344,11 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
         if (unknown_11cb) {
             TacticalMap->unknown_d7d = true;
             if (!WWKeyboard->Down(0x10)) {
-                if (TacticalMap->Unknown_006AA6A0()) Clear_Selected_Objects_00482bc0();
+                if (TacticalMap->Rubber_Band_Contains_Selectable()) Clear_Selected_Objects_00482bc0();
                 else continue_select = 1;
             }
-            TacticalMap->Unknown_006AA610(Unknown_0049C3F0);
-            TechnoClass::unknown_6d7990();
+            TacticalMap->Select_Rubber_Band(Unknown_0049C3F0);
+            TechnoClass::Reset_Action_Line_Timer();
             unknown_11cb = false;
             Set_Default_Mouse(0, small_mouse);
             unknown_11cc = false;
@@ -1357,7 +1357,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
         }
         {
             if (action == 8) {
-                if (!object || !unknown_objects_a40c60.Count() || !unknown_objects_a40c60[0]->Owning_House()->Is_Player_Control()) {
+                if (!object || !CurrentObject.Count() || !CurrentObject[0]->Owning_House()->Is_Player_Control()) {
                     action = 7;
                 } else if (object->unknown_77) {
                     if (Unknown_006F76B0()) Unknown_006F7020(object->Class_Of()->ID);
@@ -1374,7 +1374,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
                     if (Unknown_006F76B0()) Unknown_006F71E0(object->Class_Of()->ID);
                     else object->unknown_slot80();
                     Set_Default_Mouse(0, small_mouse);
-                    TechnoClass::unknown_6d7990();
+                    TechnoClass::Reset_Action_Line_Timer();
                 }
             }
             if (action == 0x3d) {
@@ -1391,7 +1391,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
                 }
                 if (allowed) {
                     Active_Click_0049E870(object, cell, action);
-                    TechnoClass::unknown_6d7990();
+                    TechnoClass::Reset_Action_Line_Timer();
                     if (action == 0x21) {
                         if (object->Kind_Of() == 6) {
                             if (static_cast<BuildingClass *>(object)->unknown_530)
@@ -1534,7 +1534,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
             Set_Default_Mouse(0x4E, small_mouse);
             break;
         case 2:
-            if (unknown_objects_a40c60.Count() && unknown_objects_a40c60[0] != 0 && unknown_objects_a40c60[0]->AbstractFlags.IsTechno && unknown_objects_a40c60[0]->Techno_Type_Class()->MoveToShroud) {
+            if (CurrentObject.Count() && CurrentObject[0] != 0 && CurrentObject[0]->AbstractFlags.IsTechno && CurrentObject[0]->Techno_Type_Class()->MoveToShroud) {
                 Set_Default_Mouse(0x12, small_mouse);
                 break;
             }
@@ -1655,7 +1655,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
             Set_Default_Mouse(0x12, small_mouse);
             break;
         case 5:
-            if (target != 0 && unknown_objects_a40c60.Count() == 1 && unknown_objects_a40c60[0] != 0 && unknown_objects_a40c60[0]->AbstractFlags.IsTechno && ((TechnoClass *)unknown_objects_a40c60[0])->unknown_slot213(target)) {
+            if (target != 0 && CurrentObject.Count() == 1 && CurrentObject[0] != 0 && CurrentObject[0]->AbstractFlags.IsTechno && ((TechnoClass *)CurrentObject[0])->unknown_slot213(target)) {
                 Set_Default_Mouse(0x14, small_mouse);
                 break;
             }
@@ -1762,7 +1762,7 @@ void __fastcall Unknown_0049C3F0(ObjectClass *object)
             }
         }
         if (!object->unknown_76 && object->unknown_slot80()) {
-            unknown_sound_enabled_7d88d6 = false;
+            AllowVoice = false;
         }
     }
 }
@@ -2290,7 +2290,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
 
     unknown_id_source_a3d290->Read_Waypoints(ini);
 
-    if (!unknown_id_source_a3d290->Unknown_00663240(unknown_id_source_a3d290->HomeCell)) {
+    if (!unknown_id_source_a3d290->Is_Valid_Waypoint(unknown_id_source_a3d290->HomeCell)) {
         unknown_id_source_a3d290->Set_Waypoint_Location(unknown_id_source_a3d290->HomeCell,
             Cell((MapSize.Width + MapSize.Height) / 2, (MapSize.Width + MapSize.Height) / 2));
     }
@@ -2396,7 +2396,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
 
     (INIRect &)MapLocalSize = ini.Get_Rect(name, "LocalSize", (INIRect const &)MapSize);
     Map.Unknown_00630840(MapLocalSize);
-    Map.Unknown_0056A8A0();
+    Map.Get_Max_Level();
 
     unknown_loaded_theater_7d88dc = unknown_id_source_a3d290->Theater;
 }
@@ -2472,7 +2472,7 @@ int DisplayClass::Unknown_0049DB60(void *buffer, int arg2)
     out += 4;
     int waypoints = 0;
     for (int waypoint = 0; waypoint < 101; waypoint++) {
-        if (unknown_id_source_a3d290->Unknown_00663240(waypoint)) {
+        if (unknown_id_source_a3d290->Is_Valid_Waypoint(waypoint)) {
             *(int *)out = waypoint;
             out += 4;
             *(int *)out = unknown_id_source_a3d290->Get_Waypoint_Location(waypoint).Y * 1000 +
@@ -2703,32 +2703,32 @@ void DisplayClass::Unknown_0049E3B0()
 {
     int index;
 
-    if (unknown_objects_a40c60.Count() > 0) {
+    if (CurrentObject.Count() > 0) {
         CoordStruct center(0, 0, 0);
-        for (index = 0; index < unknown_objects_a40c60.Count(); index++) {
-            CoordStruct position = unknown_objects_a40c60[index]->Coord;
+        for (index = 0; index < CurrentObject.Count(); index++) {
+            CoordStruct position = CurrentObject[index]->Coord;
             center += position;
         }
 
         CoordStruct sum = center;
 
-        center /= unknown_objects_a40c60.Count();
+        center /= CurrentObject.Count();
 
-        if (unknown_objects_a40c60.Count() > 2) {
+        if (CurrentObject.Count() > 2) {
             CoordStruct farthest(0, 0, 0);
             int farthest_distance = 0;
-            for (index = 0; index < unknown_objects_a40c60.Count(); index++) {
-                CoordStruct position = unknown_objects_a40c60[index]->Coord;
+            for (index = 0; index < CurrentObject.Count(); index++) {
+                CoordStruct position = CurrentObject[index]->Coord;
                 UnknownVector3 delta = UnknownVector3(center.X - position.X, center.Y - position.Y, center.Z - position.Z);
                 int d = delta.Length();
                 if (d > farthest_distance) {
-                    farthest = unknown_objects_a40c60[index]->Coord;
+                    farthest = CurrentObject[index]->Coord;
                     farthest_distance = d;
                 }
             }
 
             sum -= farthest;
-            center = sum / (unknown_objects_a40c60.Count() - 1);
+            center = sum / (CurrentObject.Count() - 1);
         }
 
         TacticalMap->Set_Tactical_Position_006a66b0(center);
@@ -2908,38 +2908,38 @@ void DisplayClass::Active_Click_0049E870(ObjectClass *object, Cell cell, int act
         unknown_player_a35db4->Fetch_Waypoint_Data(waypoint, &waypoint_path, &waypoint_id);
     }
 
-    for (index = 0; index < unknown_objects_a40c60.Count(); index++) {
-        unknown_objects_a40c60[index]->Set_Waypoint_Path(waypoint_path, waypoint_id);
-        if (Is_Foot(unknown_objects_a40c60[index])) {
-            TechnoClass *techno = (TechnoClass *)unknown_objects_a40c60[index];
+    for (index = 0; index < CurrentObject.Count(); index++) {
+        CurrentObject[index]->Set_Waypoint_Path(waypoint_path, waypoint_id);
+        if (Is_Foot(CurrentObject[index])) {
+            TechnoClass *techno = (TechnoClass *)CurrentObject[index];
             techno->unknown_37f = false;
         }
     }
 
     if (object != 0) {
-        for (index = 0; index < unknown_objects_a40c60.Count(); index++) {
-            unknown_objects_a40c60[index]->unknown_slot78(unknown_objects_a40c60[index]->unknown_slot28(object, false), object, false);
-            unknown_sound_enabled_7d88d6 = false;
+        for (index = 0; index < CurrentObject.Count(); index++) {
+            CurrentObject[index]->unknown_slot78(CurrentObject[index]->unknown_slot28(object, false), object, false);
+            AllowVoice = false;
         }
     } else if (action == 1 || action == 0x33) {
-        for (index = 0; index < unknown_objects_a40c60.Count(); index++) {
-            unknown_objects_a40c60[index]->unknown_slot77(unknown_objects_a40c60[index]->What_Action(&cell, false, false), &cell, &cell, false);
-            unknown_sound_enabled_7d88d6 = false;
+        for (index = 0; index < CurrentObject.Count(); index++) {
+            CurrentObject[index]->unknown_slot77(CurrentObject[index]->What_Action(&cell, false, false), &cell, &cell, false);
+            AllowVoice = false;
         }
     } else if (action == 2) {
-        int count = unknown_objects_a40c60.Count();
+        int count = CurrentObject.Count();
         for (index = 0; index < count; index++) {
-            unknown_objects_a40c60[index]->unknown_slot77(unknown_objects_a40c60[index]->What_Action(&cell, false, false), &cell, &cell, false);
-            unknown_sound_enabled_7d88d6 = false;
+            CurrentObject[index]->unknown_slot77(CurrentObject[index]->What_Action(&cell, false, false), &cell, &cell, false);
+            AllowVoice = false;
         }
     } else {
-        for (index = 0; index < unknown_objects_a40c60.Count(); index++) {
+        for (index = 0; index < CurrentObject.Count(); index++) {
             Cell none(-1, -1);
-            unknown_objects_a40c60[index]->unknown_slot77(unknown_objects_a40c60[index]->What_Action(&cell, false, false), &cell, &none, false);
-            unknown_sound_enabled_7d88d6 = false;
+            CurrentObject[index]->unknown_slot77(CurrentObject[index]->What_Action(&cell, false, false), &cell, &none, false);
+            AllowVoice = false;
         }
     }
-    unknown_sound_enabled_7d88d6 = true;
+    AllowVoice = true;
 }
 
 

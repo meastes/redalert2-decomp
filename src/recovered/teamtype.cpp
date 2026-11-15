@@ -92,7 +92,7 @@
 // Parses leading hexadecimal digits (either case); stops at the first other
 // character. File-local in the original (no callers found; name hypothesis).
 
-int __fastcall TeamTypeClass_unknown_hex_6be950(char const *string)
+int __fastcall _ahtoi(char const *string)
 {
     int value = 0;
     while (isxdigit(*string)) {
@@ -715,13 +715,13 @@ void TeamTypeClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// bool TeamTypeClass::unknown_func_6c0010(FootClass *foot, HouseClass *house) (0x006C0010)
+// bool TeamTypeClass::Can_Recruit(FootClass *foot, HouseClass *house) (0x006C0010)
 // Whether the foot may join a team of this type (HouseClass::Can_Build_Team): it belongs to house, is alive
 // and not in radio contact, in no team or in one of a lower priority, in an idle mission when it has one,
 // recruitable by the team type's Autocreate flag (+0x379/+0x37A), and not a unit with a weapon and no
 // +0x254 state (kind 2).
 
-bool TeamTypeClass::unknown_func_6c0010(FootClass *foot, HouseClass *house)
+bool TeamTypeClass::Can_Recruit(FootClass *foot, HouseClass *house)
 {
     if ((foot->Team == 0 || this != foot->Team->Class) && foot->Strength > 0 && foot->IsActive && !foot->unknown_76
         && !foot->HasAnyLink() && foot->House == house) {
@@ -742,10 +742,10 @@ bool TeamTypeClass::unknown_func_6c0010(FootClass *foot, HouseClass *house)
 }
 
 
-// void TeamTypeClass::unknown_func_6c0110(int value) const (0x006C0110)
+// void TeamTypeClass::Flash(int value) const (0x006C0110)
 // Passes value to TeamClass::unknown_func_6bd990 of every team of this type.
 
-void TeamTypeClass::unknown_func_6c0110(int value) const
+void TeamTypeClass::Flash(int value) const
 {
     for (int index = 0; index < Teams.Count(); index++) {
         if (Teams[index]->Class == this) {

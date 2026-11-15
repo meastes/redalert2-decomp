@@ -110,7 +110,7 @@ public:
     Rect Overlay_Shadow_Render_Rect() const;    // 0x00475100 (as shared/cell.hpp)
     bool Has_Tunnel() const;    // 0x00479CC0 (as shared/cell.hpp)
     bool unknown_47a270();          // 0x0047A270 (a water tile; hypothesis: TibSun Is_Tile_Water)
-    bool unknown_47b590() const;    // 0x0047B590 (no tile: 0 or 0xFFFF; as shared/cell.hpp)
+    bool Is_Tile_Clear() const;    // 0x0047B590 (no tile: 0 or 0xFFFF; as shared/cell.hpp)
 #ifdef RA2_MAP_BRIDGE_PIECES
     bool unknown_47b7e0() const;     // 0x0047B7E0 (TibSun Is_Tile_With_Water)
     bool unknown_47b7c0() const;     // 0x0047B7C0 (TibSun Is_Tile_Shore; as shared/cell_class.hpp)
@@ -123,10 +123,10 @@ public:
     bool Is_Clear_To_Build(int speed, class BuildingTypeClass const *type, class HouseClass *house);
     void Set_Under_Bridge(unsigned facing, bool state);   // 0x004732D0 (a high bridge piece; as shared/cell.hpp)
     void Set_Under_Rail_Bridge(unsigned facing, bool state);   // 0x00473700 (the other bridge piece; as shared/cell.hpp)
-    bool unknown_47b960() const;    // 0x0047B960 (a bridge tile; as shared/cell.hpp)
+    bool Is_Tile_Bridge() const;    // 0x0047B960 (a bridge tile; as shared/cell.hpp)
     void On_Bridge_Collapse();          // 0x0047C930 (a cell of a collapsed bridge; TibSun On_Bridge_Collapse)
-    void unknown_47c900();          // 0x0047C900 (maps the cell for the player; MapClass 0x00549C50)
-    bool unknown_47b980() const;    // 0x0047B980 (a train bridge tile; as shared/cell.hpp)
+    void Unshroud();          // 0x0047C900 (maps the cell for the player; MapClass 0x00549C50)
+    bool Is_Tile_Train_Bridge() const;    // 0x0047B980 (a train bridge tile; as shared/cell.hpp)
 #ifdef RA2_MAP_BRIDGE_PIECES
     void Kill_Illegal_Occupiers();
     class TubeClass *Get_Tunnel();   // 0x0047A130 (the cell's tube; TibSun Get_Tunnel)
@@ -137,9 +137,9 @@ public:
     void Occupy_Up(class ObjectClass *object, bool alt);   // 0x00473D20 (as shared/cell_class.hpp; TibSun Occupy_Up)
     int unknown_475db0(int amount);     // 0x00475DB0 (takes up to amount of tiberium; as shared/cell.hpp)
     void Fog_Cell();          // 0x0047BC80 (DisplayClass 0x0049CDB0, for a cell that was mapped)
-    void unknown_47be00();          // 0x0047BE00 (as shared/cell.hpp)
-    void unknown_47c840();          // 0x0047C840 (as shared/cell.hpp)
-    void unknown_47c8a0();          // 0x0047C8A0 (as shared/cell.hpp)
+    void Unfog_Cell();          // 0x0047BE00 (as shared/cell.hpp)
+    void ReduceShroudCounter();          // 0x0047C840 (as shared/cell.hpp)
+    void IncreaseShroudCounter();          // 0x0047C8A0 (as shared/cell.hpp)
     void Recalc_Light();        // 0x004798F0 (run over every cell by DisplayClass 0x0049E5E0)
     class ObjectClass *Cell_Building() const;  // 0x004717B0 the building in the cell (as shared/cell.hpp)
     class ObjectClass *Cell_Terrain(bool alt = false) const;   // 0x004717E0 (as shared/cell.hpp)

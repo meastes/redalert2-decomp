@@ -119,7 +119,7 @@ bool MSFont::Load(bool sidebar)
               | (((palette[0xCE] << 2) >> unknown_shift_852fc4) << unknown_shift_852fc0)
               | (((palette[0xCC] << 2) >> unknown_shift_852fbc) << unknown_shift_852fb8);
         operator delete(palette);
-        Drawer = new ConvertClass(CCPalette, CCPalette, unknown_surface_839950, 1, false);
+        Drawer = new ConvertClass(CCPalette, CCPalette, VisibleSurface, 1, false);
         if (Drawer == 0) {
             return false;
         }

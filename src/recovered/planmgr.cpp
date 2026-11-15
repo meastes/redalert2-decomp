@@ -1337,7 +1337,7 @@ PlanningTokenClass::PlanningTokenClass(TechnoClass *owner)
 PlanningTokenClass::~PlanningTokenClass()
 {
     if (Owner != 0) {
-        Owner->unknown_6d1420(0);
+        Owner->Set_Planning_Token(0);
     }
     Planning_Unlist_Token(this);
     Cancel_Owner();
@@ -2068,7 +2068,7 @@ void __fastcall Planning_Hover();   // 0x00615C00
 inline void Planning_Update_Hover_00614010()
 {
     Planning_Hover();
-    if (unknown_node_a766b0 && unknown_objects_a40c60.Count() > 0) {
+    if (unknown_node_a766b0 && CurrentObject.Count() > 0) {
         unknown_node_a766b0 = 0;
     }
 }
@@ -2186,12 +2186,12 @@ void __fastcall Planning_Unlist_Techno(TechnoClass *techno)
 }
 
 
-// void TechnoClass::unknown_6145e0() (0x006145E0)
+// void TechnoClass::Select_Planning_Members() (0x006145E0)
 // With planning active: tells every member of the last node on the techno's
 // planned path to stop (their slot 80), unless they are already finished.
 // The flag keeps it from re-entering.
 
-void TechnoClass::unknown_6145e0()
+void TechnoClass::Select_Planning_Members()
 {
     if (!unknown_flag_a767a6) {
         unknown_flag_a767a6 = true;
@@ -2289,7 +2289,7 @@ static inline void Commit_Unit_Orders(TechnoClass *techno)
         token->unknown_613a80();
         bool permitted = Planning_Mission_Allows(techno);
         if (!started && permitted) {
-            techno->unknown_615360();
+            techno->TryNextPlanningTokenNode();
         }
     }
 }
@@ -2383,7 +2383,7 @@ inline void __fastcall Planning_Restart_House(int house)
                 token->unknown_613a80();
                 bool allows = Planning_Mission_Allows(techno);
                 if (!started && allows) {
-                    techno->unknown_615360();
+                    techno->TryNextPlanningTokenNode();
                 }
             }
         }
@@ -2532,13 +2532,13 @@ bool __fastcall Planning_Add_Order(TechnoClass *techno, EventClass *event)
 }
 
 
-// bool TechnoClass::unknown_615360() (0x00615360, PlanMgr.cpp)
+// bool TechnoClass::TryNextPlanningTokenNode() (0x00615360, PlanMgr.cpp)
 // Starts carrying out the techno's planned path once: when its planning
 // token has nodes, a first-node index of -1 or above 0 and is not started
 // yet, queues mission 0x1C, lists the token's 0x00613330 event
 // (Planning_Store_Event) and marks the token started.
 
-bool TechnoClass::unknown_615360()
+bool TechnoClass::TryNextPlanningTokenNode()
 {
     PlanningTokenClass *token = Planning_Token(this);
     if (token != 0 && token->Nodes.Count() > 0 && (token->unknown_8c == -1 || token->unknown_8c > 0) && !token->unknown_1c) {
@@ -2592,7 +2592,7 @@ PlanningTokenClass *__fastcall Planning_New_Token(TechnoClass *techno)
 {
     PlanningTokenClass *token = new PlanningTokenClass(techno);
     PlanningTokenClass::unknown_list_00a76738.Add(token);
-    techno->unknown_6d1420((UnknownTechno408 *)token);
+    techno->Set_Planning_Token((UnknownTechno408 *)token);
     return token;
 }
 
@@ -2832,17 +2832,17 @@ bool __fastcall Unknown_Planning_00615DE0()
     if (!unknown_flag_a767a4) {
         return true;
     }
-    int count = unknown_objects_a40c60.Count();
+    int count = CurrentObject.Count();
     if (count == 0) {
         return true;
     }
     int i;
     for (i = 0; i < count; i++) {
-        ObjectClass *object = unknown_objects_a40c60[i];
+        ObjectClass *object = CurrentObject[i];
         if (Is_Techno(object)) {
             PlanningTokenClass *first = Planning_Token((TechnoClass *)object);
             for (i = 0; i < count; i++) {
-                ObjectClass *other = unknown_objects_a40c60[i];
+                ObjectClass *other = CurrentObject[i];
                 if (!Is_Techno(other)) goto fail;
                 PlanningTokenClass *token = Planning_Token((TechnoClass *)other);
                 if (!Planning_Same_Last_Node(first, token)) goto fail;
@@ -2867,9 +2867,9 @@ bool __fastcall Planning_Can_Add()
     if (unknown_flag_a767a4) {
         int total = Planning_Count(unknown_player_a35db4->ArrayIndex);
         int added = 0;
-        int count = unknown_objects_a40c60.Count();
+        int count = CurrentObject.Count();
         for (int i = 0; i < count; i++) {
-            ObjectClass *object = unknown_objects_a40c60[i];
+            ObjectClass *object = CurrentObject[i];
             bool techno;
             if (object != 0) {
                 techno = object->AbstractFlags.IsTechno;
@@ -3223,9 +3223,9 @@ inline int Planning_Object_Kind(ObjectClass *object)
 int Planning_Selection_Kind()
 {
     int kind = -1;
-    int count = unknown_objects_a40c60.Count();
+    int count = CurrentObject.Count();
     for (int i = 0; i < count; i++) {
-        ObjectClass *object = unknown_objects_a40c60[i];
+        ObjectClass *object = CurrentObject[i];
         bool techno;
         if (object != 0) {
             techno = object->AbstractFlags.IsTechno;
@@ -3613,7 +3613,7 @@ void __stdcall Planning_Mouse_Down(int x, int y)
 {
     unknown_flag_a76770 = true;
     unknown_point_a76728 = Point2D(-1, -1);
-    if (unknown_flag_a767a4 && unknown_objects_a40c60.Count() <= 0) {
+    if (unknown_flag_a767a4 && CurrentObject.Count() <= 0) {
         unknown_point_a76728 = Point2D(x, y);
     }
 }
@@ -3626,7 +3626,7 @@ void __stdcall Planning_Mouse_Down(int x, int y)
 void __stdcall Planning_Mouse_Up(int x, int y)
 {
     unknown_flag_a76770 = false;
-    if (unknown_flag_a767a4 && unknown_objects_a40c60.Count() <= 0 && unknown_node_a766b0
+    if (unknown_flag_a767a4 && CurrentObject.Count() <= 0 && unknown_node_a766b0
         && abs(x - unknown_point_a76728.X) <= 3 && abs(y - unknown_point_a76728.Y) <= 3) {
         unknown_node_a766b0 = 0;
     }
@@ -3668,9 +3668,9 @@ unsigned int Leaf_617a00::get() { unsigned int self = (unsigned int)this; unsign
 
 int __fastcall Planning_Selection_Node_State(PlanningNodeClass *node)
 {
-    int count = unknown_objects_a40c60.Count();
+    int count = CurrentObject.Count();
     for (int i = 0; i < count; i++) {
-        ObjectClass *object = unknown_objects_a40c60[i];
+        ObjectClass *object = CurrentObject[i];
         bool techno;
         if (object != 0) {
             techno = object->AbstractFlags.IsTechno;
@@ -3770,11 +3770,11 @@ void Planning_Unknown_617af0()
 {
     PlanningNodeClass *selected = Planning_Get_a766f8();
     Planning_Set_a766f8(0);
-    int count = unknown_objects_a40c60.Count();
+    int count = CurrentObject.Count();
     if (count > 0) {
         DynamicVectorClass<TechnoClass *> units;
         for (int i = 0; i < count; ++i) {
-            ObjectClass *object = unknown_objects_a40c60[i];
+            ObjectClass *object = CurrentObject[i];
             if (Is_Techno(object)) {
                 TechnoClass *techno = (TechnoClass *)object;
                 PlanningTokenClass *token = Planning_Token(techno);
@@ -3967,7 +3967,7 @@ inline bool Planning_Current_Order(TechnoClass *techno, bool has_nodes)
 
 void __fastcall Planning_Draw_Techno(TechnoClass *techno)
 {
-    PlanningTokenClass *token = (PlanningTokenClass *)techno->unknown_6d1430();
+    PlanningTokenClass *token = (PlanningTokenClass *)techno->Get_Planning_Token();
     CoordStruct current_coord = techno->unknown_slot22();
     Point2D start = Planning_Coord_Pixel(current_coord);
     int color = Planning_Techno_Color(techno);
@@ -4080,7 +4080,7 @@ inline bool Planning_Reached(PlanningTokenClass const *token, int slot)
 
 void __fastcall Planning_Draw_Techno_618c00(TechnoClass *techno)
 {
-    PlanningTokenClass *token = (PlanningTokenClass *)techno->unknown_6d1430();
+    PlanningTokenClass *token = (PlanningTokenClass *)techno->Get_Planning_Token();
     CoordStruct current_coord = techno->unknown_slot22();
     Point2D start = Planning_Coord_Pixel(current_coord);
     int dim = Planning_House_Pixel(techno, unknown_rgb_ab6841, 0x50);

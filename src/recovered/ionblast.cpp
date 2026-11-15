@@ -417,7 +417,7 @@ void IonBlastClass::Draw_It()
 {
     Point2D point;
     if (unknown_a40b2c == 2 && TacticalMap->Coord_To_Pixel(Coord, point)) {
-        Surface *dest_surface = unknown_surface_83995c;
+        Surface *dest_surface = LogicalSurface;
         Rect dcliprect = unknown_rect_839630;
         dcliprect.Height -= 7;
         Surface *source_surface = BlastSurfaces[Lifetime];
@@ -444,7 +444,7 @@ void IonBlastClass::Draw_It()
 
             unsigned short *zbuffer_base = DepthBuffer->Get_Buffer_Offset(Point2D(0, drect.Y));
             int height = srect.Height + 1;
-            int surface_width = unknown_surface_83995c->Get_Width();
+            int surface_width = LogicalSurface->Get_Width();
             int buffer_width = DepthBuffer->Width;
 
             if (zbuffer_base + surface_width + height * buffer_width < (unsigned short *)DepthBuffer->BufferTail) {
@@ -501,8 +501,8 @@ void IonBlastClass::Draw_It()
 // drawing surface's stride changed, then draws every blast's shockwave.
 void IonBlastClass::Draw_All()
 {
-    if (unknown_surface_83995c->Stride() != BlastSurfaceStride) {
-        Calculate_Index_To_Surface_LUT(unknown_surface_83995c->Stride());
+    if (LogicalSurface->Stride() != BlastSurfaceStride) {
+        Calculate_Index_To_Surface_LUT(LogicalSurface->Stride());
     }
     for (int i = IonBlasts.Count() - 1; i >= 0; i--) {
         IonBlasts[i]->Draw_It();

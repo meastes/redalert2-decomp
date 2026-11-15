@@ -155,15 +155,15 @@ bool FirewallSettings::Send_Mangler_Query(IPXAddressClass *address, unsigned sho
     ((UDPInterfaceClass *)PacketTransport)->Select_Port_Socket(port);
     packet.Port = port;
     packet.unknown_37 = (flag == true);
-    int count = unknown_ipx_manager_a40978.Global_Num_Send();
+    int count = Ipx.Global_Num_Send();
     Debug_Printf("Sending from port %d to %s\n", port, address->As_String());
-    unknown_ipx_manager_a40978.Send_Global_Message(&packet, sizeof(packet), 0, address, *(unsigned short *)address, packet_id);
+    Ipx.Send_Global_Message(&packet, sizeof(packet), 0, address, *(unsigned short *)address, packet_id);
     CDTimerClass<SystemTimerClass> timer(180);
-    while (unknown_ipx_manager_a40978.Global_Num_Send() > count || PacketTransport->OutBuffers.Count()) {
+    while (Ipx.Global_Num_Send() > count || PacketTransport->OutBuffers.Count()) {
         if (!timer) {
             break;
         }
-        unknown_ipx_manager_a40978.Service();
+        Ipx.Service();
         unknown_481fb0();
     }
     ((UDPInterfaceClass *)PacketTransport)->Select_Port_Socket(0);
@@ -189,19 +189,19 @@ unsigned short FirewallSettings::Wait_For_Mangler_Reply(int packet_id, int time)
         timer = CDTimerClass<SystemTimerClass>(time);
     }
     while (timer) {
-        unknown_ipx_manager_a40978.Service();
+        Ipx.Service();
         unknown_481fb0();
-        if (index >= unknown_ipx_manager_a40978.Global_Num_Receive()) {
+        if (index >= Ipx.Global_Num_Receive()) {
             index = 0;
         }
         ManglerPacket *packet = (ManglerPacket *)buffer;
-        if (unknown_ipx_manager_a40978.unknown_525af0(index, buffer, &length, &address, &product_id, &id)
+        if (Ipx.Global_Channel_Op(index, buffer, &length, &address, &product_id, &id)
             && product_id == 0xAA03 && packet->Type == 0x2C) {
             int from = packet->Port;
             if (packet_id == (int)id) {
                 unsigned short port = packet->SeenPort;
                 Debug_Printf("Mangler is seeing packets from port %d as coming from port %d\n", from, port);
-                unknown_ipx_manager_a40978.unknown_525b30(index);
+                Ipx.Global_Channel_Op_3C(index);
                 return port;
             }
         }

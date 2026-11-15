@@ -1,7 +1,7 @@
 // Behaviour-written bodies for native M22 (Scout1177): cell leaves the trap
 // census and the coverage ranking reached. NOT EXACT: each follows its pass-6a
 // decompile against cell_class.hpp's members.
-#define RA2_CELL_MAP_VIEW          // unknown_47c900
+#define RA2_CELL_MAP_VIEW          // Unshroud
 #include "shared/techno.hpp"
 #include "shared/cell_class.hpp"
 
@@ -53,7 +53,7 @@ bool CellClass::unknown_47c300(int house) const
 // 0x0047C900 (pass-6a decompile): maps the cell (IsMapped, IsVisible: bits 3
 // and 4 of +0x12C) and, while the shroud counter (+0x130) is positive, flags it
 // to be shrouded (IsToShroud, bit 5 of +0x140).
-void CellClass::unknown_47c900()
+void CellClass::Unshroud()
 {
     unknown_12c |= 0x18;
     if (unknown_130 > 0) {
@@ -62,7 +62,7 @@ void CellClass::unknown_47c900()
 }
 
 // 0x0047A120 (pass-6a decompile): always true (UnitClass slot 27).
-bool CellClass::unknown_47a120(TechnoClass *techno) const
+bool CellClass::Can_Enter_Tunnel(TechnoClass *techno) const
 {
     (void)techno;
     return true;

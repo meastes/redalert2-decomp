@@ -261,10 +261,10 @@ void WWMouseClass::Draw_Cursor(Surface *surface, int xoffset, int yoffset)
     rect.Y += yoffset;
     BSurface cursor(rect.Width, rect.Height, 1, (void *)MouseCursor->Get_Frame_Data(MouseFrame));
     if (surface == ScreenSurface) {
-        unknown_blit_49f3a0(*surface, unknown_convert_8323c8, cursor, Rect(0, 0, rect.Width, rect.Height), RectPoint2D(rect.X, rect.Y),
+        Blit_Block(*surface, unknown_convert_8323c8, cursor, Rect(0, 0, rect.Width, rect.Height), RectPoint2D(rect.X, rect.Y),
                             ConfiningRect, 0, 0, 0, 0, 1000, 0);
     } else {
-        unknown_blit_49f3a0(*surface, unknown_convert_8323c8, cursor, Rect(0, 0, rect.Width, rect.Height), RectPoint2D(rect.X, rect.Y),
+        Blit_Block(*surface, unknown_convert_8323c8, cursor, Rect(0, 0, rect.Width, rect.Height), RectPoint2D(rect.X, rect.Y),
                             surface->Get_Rect(), 0, 0, 0, 0, 1000, 0);
     }
 }
@@ -399,7 +399,7 @@ void WWMouseClass::Conditional_Show_Mouse()
 
 // void WWMouseClass::Convert_Coordinate(int &x, int &y) const (0x00773100, slot 17)
 // Screen to client coordinates clamped to the confining rectangle (negative y
-// is kept when unknown_flag_b2af58 is set).
+// is kept when AllowNegativeY is set).
 
 void WWMouseClass::Convert_Coordinate(int &x, int &y) const
 {
@@ -408,7 +408,7 @@ void WWMouseClass::Convert_Coordinate(int &x, int &y) const
     if (x < 0) {
         x = 0;
     }
-    if (y < 0 && !unknown_flag_b2af58) {
+    if (y < 0 && !AllowNegativeY) {
         y = 0;
     }
     if (x >= ConfiningRect.Width) {
@@ -469,7 +469,7 @@ void WWMouseClass::Process_Mouse()
 
         int x;
         int y;
-        if (unknown_function_522e80()) {
+        if (Get_Input_Record_Mode()) {
             x = MouseX;
             y = MouseY;
         } else {

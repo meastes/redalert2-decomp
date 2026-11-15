@@ -133,19 +133,19 @@ DynamicVectorClass<UndoInfoStruct> unknown_UndoInfoStruct_list_00abce18;
 // atexit destructor (0x00684F80, _$E41) emitted by HeaderStatics_diagonal_init_00684d50.cpp; no source of its own.
 
 
-// void __fastcall unknown_undo_record_684fc0(Point2D const &cell, int value) (0x00684FC0)
+// void __fastcall Record_Deform_Undo(Point2D const &cell, int value) (0x00684FC0)
 // Appends (cell X, cell Y, value) to the unit's undo list (0x00ABCE18).
 // UndoInfoStruct (shared/vector_elements.hpp) and the list are defined by this unit's first source
 // (HeaderStatics_diagonal_init_00684d50.cpp).
 #include "shared/rect.hpp"
 
-void __fastcall unknown_undo_record_684fc0(Point2D const &cell, int value)
+void __fastcall Record_Deform_Undo(Point2D const &cell, int value)
 {
     unknown_UndoInfoStruct_list_00abce18.Add(UndoInfoStruct(cell, value));
 }
 
 
-// void unknown_undo_restore_685030() (0x00685030)
+// void Undo_Deform() (0x00685030)
 // Writes every recorded value back, newest first, into the unit's cell
 // table (0x00ABCEAC, eight bytes a cell, row width 0x008286E4), then
 // empties the undo list.
@@ -168,7 +168,7 @@ extern int unknown_undo_width_8286e4;
 extern int unknown_undo_x_8286e8;
 extern int unknown_undo_y_8286ec;
 
-void unknown_undo_restore_685030()
+void Undo_Deform()
 {
     for (int index = unknown_UndoInfoStruct_list_00abce18.Count() - 1; index >= 0; index--) {
         UndoInfoStruct &info = unknown_UndoInfoStruct_list_00abce18[index];
@@ -599,13 +599,13 @@ bool __fastcall Ripple_Deform_Points_00686610(Point2D start, int direction, bool
                 if (abs(cell.Value - height) > 15) {
                     if (direction == 1) {
                         if (cell.Value < height) {
-                            unknown_undo_record_684fc0(point, cell.Value);
+                            Record_Deform_Undo(point, cell.Value);
                             cell.Value = height - 15;
                             cell.unknown_05 = 1;
                         }
                     } else {
                         if (cell.Value > height) {
-                            unknown_undo_record_684fc0(point, cell.Value);
+                            Record_Deform_Undo(point, cell.Value);
                             cell.Value = height + 15;
                             cell.unknown_05 = 1;
                         }
@@ -691,15 +691,15 @@ bool __fastcall Deform_Cell_RMG_006869f0(Cell position, int direction, bool forc
                     if (cell.Value < 0 || cell.Value > 180) {
                         cell.Value -= direction * 15;
                     } else {
-                        unknown_undo_record_684fc0(Point2D(x, y), cell.Value - direction * 15);
+                        Record_Deform_Undo(Point2D(x, y), cell.Value - direction * 15);
                     }
                     cell.unknown_05 = 1;
                     if (!Ripple_Deform_Points_00686610(Point2D(x, y), direction, forced) && !forced) {
-                        unknown_undo_restore_685030();
+                        Undo_Deform();
                         return false;
                     }
                 } else if (!forced) {
-                    unknown_undo_restore_685030();
+                    Undo_Deform();
                     return false;
                 }
             }

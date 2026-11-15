@@ -45,7 +45,7 @@
 
 void __fastcall Fade_Palette_To(PaletteClass const &target, int time, void (*callback)())
 {
-    if (unknown_surface_839950->Bytes_Per_Pixel() != 1) return;
+    if (VisibleSurface->Bytes_Per_Pixel() != 1) return;
     CDTimerClass<SystemTimerClass> timer = time;
     PaletteClass original;
     memcpy(&original, &unknown_palette_00851cc8, sizeof(PaletteClass));
@@ -451,7 +451,7 @@ void PaletteClass::Set()
     if (this != &unknown_palette_00851cc8)
         memmove(&unknown_palette_00851cc8, this, sizeof(PaletteClass));
     IDirectDrawSurface *surface;
-    if (DirectDrawObject && (surface = unknown_palette_surface_008523d8)) {
+    if (DirectDrawObject && (surface = PaletteSurface)) {
         unsigned char const *color = (unsigned char const *)Palette;
         for (int i = 0; i < 256; ++i) {
             int red = *color++;

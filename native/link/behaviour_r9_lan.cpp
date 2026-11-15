@@ -119,7 +119,7 @@ char *__fastcall Build_By_String_00737b00(char *buffer, int size)
 }
 
 // 0x00738100 (accepted seed Leaf_738100::get): does nothing.
-void Unknown_00738100()
+void IME_Stub1()
 {
 }
 

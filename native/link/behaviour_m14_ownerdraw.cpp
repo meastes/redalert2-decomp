@@ -159,16 +159,16 @@ void Paint_Button(HWND window, WinData *record, bool lit)
         char name[32];
         Surface *left = 0, *middle = 0, *right = 0;
         sprintf(name, "b%c%c_li%d.pcx", state, 'e', height);
-        left = unknown_bitmap_writer_a76378.Get_Image_0068ca40(name, 0);
+        left = SurfaceCache.Get_Image_0068ca40(name, 0);
         sprintf(name, "b%c%c_mi%d.pcx", state, 'e', height);
-        middle = unknown_bitmap_writer_a76378.Get_Image_0068ca40(name, 0);
+        middle = SurfaceCache.Get_Image_0068ca40(name, 0);
         sprintf(name, "b%c%c_ri%d.pcx", state, 'e', height);
-        right = unknown_bitmap_writer_a76378.Get_Image_0068ca40(name, 0);
+        right = SurfaceCache.Get_Image_0068ca40(name, 0);
         if (left && middle && right) {
             int end = 7;
             Rect from(0, 0, end, height);
             AlternateSurface->Copy_From(Rect(area.X, y, end, height), *left, from, false, true);
-            unknown_bitmap_writer_a76378.Draw_0068cce0(Rect(area.X + end, y, area.Width - 2 * end, height), AlternateSurface, middle, 0, 0);
+            SurfaceCache.Draw_0068cce0(Rect(area.X + end, y, area.Width - 2 * end, height), AlternateSurface, middle, 0, 0);
             AlternateSurface->Copy_From(Rect(area.X + area.Width - end, y, end, height), *right, from, false, true);
         } else {
             int color = unknown_5fda40(lit ? unknown_color_a733e4 : unknown_color_a76158);
@@ -405,7 +405,7 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
                     Rect at = to;
                     if (width < to.Width) { at.X = to.X + (to.Width - width) / 2; at.Width = width; }
                     if (height < to.Height) { at.Y = to.Y + (to.Height - height) / 2; at.Height = height; }
-                    unknown_bitmap_writer_a76378.DrawTrans(at, AlternateSurface, image, unknown_5fda40(0xFF00FF));
+                    SurfaceCache.DrawTrans(at, AlternateSurface, image, unknown_5fda40(0xFF00FF));
                 }
             } else if (record->unknown_78) {
                 ShapeFileStruct const *shape = (ShapeFileStruct const *)record->unknown_78;
@@ -1053,7 +1053,7 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
                 // fills the box shrunk by 2 (0x006F1B00) under the text (asm 0x005F53AD-0x005F548F).
                 unsigned long fill = record->item_colors_110[selected];
                 Rect swatch(area.X, area.Y, area.Width - 20, area.Height);
-                Unknown_Rect_Shrink_006F1B00(&swatch, 2);
+                Inflate_Rect(&swatch, 2);
                 surface->Fill_Rect(swatch, Build_Hicolor_Pixel(fill & 0xFF, (fill >> 8) & 0xFF, (fill >> 16) & 0xFF));
                 color = fill;
             }

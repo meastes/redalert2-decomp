@@ -152,7 +152,7 @@ int __stdcall SoundControlsDialog::Sound_Option_Dialog_Func(HWND window, UINT me
                         SendMessageA(list, 0x184, 0, 0);
 
                         for (ThemeType index = 0; index < Theme.Max_Themes(); index++) {
-                            if (Theme.unknown_6e8440(index)) {
+                            if (Theme.Is_Allowed(index)) {
                                 wchar_t buffer[100];
                                 int length = Theme.unknown_theme_length(index);
                                 wchar_t const *fullname = Theme.Full_Name(index);

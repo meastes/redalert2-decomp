@@ -21,7 +21,7 @@ void __fastcall Draw_Radial_Indicator_00451BF0(unsigned int radius, unsigned cha
 extern bool unknown_placing_a40b32;
 extern int unknown_radial_pulse_abfd78;
 extern int unknown_radial_step_7f6974;
-// @ref ?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40c60
+// @ref ?CurrentObject@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40c60
 // @ref ?unknown_placing_a40b32@@3_NA=00a40b32
 // @ref ?unknown_radial_pulse_abfd78@@3HA=00abfd78
 // @ref ?unknown_radial_step_7f6974@@3HA=007f6974
@@ -37,9 +37,9 @@ extern int unknown_radial_step_7f6974;
 
 void Tactical::Draw_Radial_Indicators()
 {
-    int count = unknown_objects_a40c60.Count();
+    int count = CurrentObject.Count();
     for (int i = 0; i < count; i++) {
-        ObjectClass *object = unknown_objects_a40c60[i];
+        ObjectClass *object = CurrentObject[i];
         if (object->Class_Of() && object->Class_Of()->unknown_208) {
             object->unknown_slot74(1);
         }

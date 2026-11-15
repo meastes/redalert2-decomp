@@ -77,15 +77,15 @@
 // by HeaderStatics_empty_rect_init_005de660.cpp; no source of its own.
 
 
-// unknown_bitmap_writer_a76378 (0x00A76378), defined by the unit at 0x005DE660: its dynamic initializer
+// SurfaceCache (0x00A76378), defined by the unit at 0x005DE660: its dynamic initializer
 // calls the out-of-line constructor (0x68BD50) and registers the atexit
 // destructor (the next draft), which jumps to the destructor (0x68BE30).
 #include "shared/pcx_cache.hpp"
 
-SurfaceCacheClass unknown_bitmap_writer_a76378;
+SurfaceCacheClass SurfaceCache;
 
 
-// atexit destructor (0x005DE870, _$E) of unknown_bitmap_writer_a76378: emitted by the definition in
+// atexit destructor (0x005DE870, _$E) of SurfaceCache: emitted by the definition in
 // unknown_bitmap_writer_a76378_init_005de850.cpp; no source of its own.
 
 
@@ -2223,14 +2223,14 @@ void __fastcall unknown_5e5150(HWND dialog, bool reverse)
                 CC_Draw_Shape(AlternateSurface, drawer_c, shape_f0, phase * dir + base_90, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
         }
-        unknown_surface_839950->Lock();
+        VisibleSurface->Lock();
         AlternateSurface->Lock();
-        unknown_surface_839950->Copy_From(to, *AlternateSurface, from, false, true);
+        VisibleSurface->Copy_From(to, *AlternateSurface, from, false, true);
         if (has_d7) {
-            unknown_surface_839950->Copy_From(to_c0, *AlternateSurface, from_c0, false, true);
+            VisibleSurface->Copy_From(to_c0, *AlternateSurface, from_c0, false, true);
         }
         AlternateSurface->Unlock();
-        unknown_surface_839950->Unlock();
+        VisibleSurface->Unlock();
         Audio_Update();
         Sleep(30);
     }
@@ -2253,7 +2253,7 @@ void __fastcall unknown_5e5150(HWND dialog, bool reverse)
 
 // When the dialog's record has its +0xBE flag set: notifies control 0x71A (0x4E2), calls 0x005E5150
 // and clears the flag (0x005E5F20).
-void __fastcall unknown_dialog_5e5f20(HWND window)
+void __fastcall Slide_Pending_Dialog(HWND window)
 {
     OwnerDraw::WinData *record = 0;
     unknown_control_table_a73640.Get_Pointer((unsigned int)window, &record);
@@ -4228,7 +4228,7 @@ LRESULT __stdcall unknown_combo_drop_proc_5ead20(HWND window, UINT message, WPAR
                     fill2.Y = row.Y;
                     fill2.Width = width;
                     fill2.Height = item_height;
-                    Unknown_Rect_Shrink_006F1B00(&fill2, 2);
+                    Inflate_Rect(&fill2, 2);
                     AlternateSurface->Fill_Rect(fill2, unknown_5fda40(text_color));
                 }
             }
@@ -4244,14 +4244,14 @@ LRESULT __stdcall unknown_combo_drop_proc_5ead20(HWND window, UINT message, WPAR
             unknown_draw_text_5fe020(AlternateSurface, text, &text_rect, font, text_color, 4, 12, 0, 0, 0);
         }
         AlternateSurface->Lock();
-        unknown_surface_839950->Lock();
+        VisibleSurface->Lock();
         Rect screen(dest_rect);
         RECT window_rect;
         GetWindowRect(window, &window_rect);
         screen.X += window_rect.left - rect.left;
         screen.Y += window_rect.top - rect.top;
-        unknown_surface_839950->Copy_From(screen, *AlternateSurface, dest_rect, false, true);
-        unknown_surface_839950->Unlock();
+        VisibleSurface->Copy_From(screen, *AlternateSurface, dest_rect, false, true);
+        VisibleSurface->Unlock();
         AlternateSurface->Unlock();
         ValidateRect(window, 0);
         return 0;
@@ -4651,22 +4651,22 @@ bool __fastcall unknown_show_tooltip_5ee110(bool save_background)
         Surface *background = new BSurface(unknown_tooltip_a737f0.rect_00.Width, unknown_tooltip_a737f0.rect_00.Height, 2);
         unknown_tooltip_a737f0.surface_10 = background;
         Rect destination(0, 0, unknown_tooltip_a737f0.rect_00.Width, unknown_tooltip_a737f0.rect_00.Height);
-        background->Copy_From(destination, *unknown_surface_839950, unknown_tooltip_a737f0.rect_00, false, true);
+        background->Copy_From(destination, *VisibleSurface, unknown_tooltip_a737f0.rect_00, false, true);
     }
     unknown_tooltip_a737f0.drawn_118 = 0;
     Rect area = unknown_tooltip_a737f0.rect_00;
     int color = unknown_5fda40(unknown_color_a763d4);
-    unknown_surface_839950->Lock();
-    unknown_surface_839950->Fill_Rect(area, color);
-    unknown_surface_839950->Unlock();
-    unknown_5fe9b0(area, *unknown_surface_839950, 8, 4);
+    VisibleSurface->Lock();
+    VisibleSurface->Fill_Rect(area, color);
+    VisibleSurface->Unlock();
+    unknown_5fe9b0(area, *VisibleSurface, 8, 4);
     unknown_text_draw_005fe1b0(unknown_color_a733e4, 0, area, unknown_tooltip_a737f0.text_14,
-        wcslen(unknown_tooltip_a737f0.text_14), 1, 1, unknown_surface_839950, 0);
+        wcslen(unknown_tooltip_a737f0.text_14), 1, 1, VisibleSurface, 0);
     ++area.X;
     ++area.Y;
     area.Width -= 2;
     area.Height -= 2;
-    unknown_5fdb20(unknown_surface_839950, area, 1, -1);
+    unknown_5fdb20(VisibleSurface, area, 1, -1);
     return true;
 }
 }
@@ -4687,7 +4687,7 @@ bool unknown_5ee310()
         return false;
     }
     Rect area = unknown_tooltip_a737f0.rect_00;
-    unknown_surface_839950->Copy_From(area, *unknown_tooltip_a737f0.surface_10, Rect(0, 0, area.Width, area.Height),
+    VisibleSurface->Copy_From(area, *unknown_tooltip_a737f0.surface_10, Rect(0, 0, area.Width, area.Height),
                                       false, true);
     unknown_tooltip_a737f0.drawn_118 = 1;
     return true;
@@ -4706,7 +4706,7 @@ bool unknown_5ee3b0()
     }
     if (unknown_tooltip_a737f0.drawn_118 != 1 && unknown_tooltip_a737f0.surface_10) {
             Rect area = unknown_tooltip_a737f0.rect_00;
-            unknown_surface_839950->Copy_From(area, *unknown_tooltip_a737f0.surface_10, Rect(0, 0, area.Width, area.Height),
+            VisibleSurface->Copy_From(area, *unknown_tooltip_a737f0.surface_10, Rect(0, 0, area.Width, area.Height),
                                               false, true);
             unknown_tooltip_a737f0.drawn_118 = 1;
     }
@@ -4998,7 +4998,7 @@ LRESULT __stdcall unknown_checkbox_proc_5f3cf0(HWND window,UINT message,WPARAM w
                 if(checked)letter='c';
                 sprintf(image_name,"c%ce_i.pcx",letter);
             }
-            Surface *image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(image_name,0);
+            Surface *image=SurfaceCache.Get_Image_0068ca40(image_name,0);
             int height=image->Get_Height();
             Rect source(0,0,image->Get_Width(),height);
             AlternateSurface->Copy_From(destination,*image,source,false,true);
@@ -5125,7 +5125,7 @@ LRESULT __stdcall unknown_button_proc_5f42d0(HWND window,UINT message,WPARAM wpa
             if(state & 1)origin.Y+=2;
             char name[40];
             sprintf(name,"b%c%c_li%d.pcx",updown,'e',height);
-            Surface *image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(name,0);
+            Surface *image=SurfaceCache.Get_Image_0068ca40(name,0);
             origin.Height=image->Get_Height();
             Rect destination,source;
             destination=origin;
@@ -5137,14 +5137,14 @@ LRESULT __stdcall unknown_button_proc_5f42d0(HWND window,UINT message,WPARAM wpa
             source.Height=height;
             AlternateSurface->Copy_From(destination,*image,source,false,true);
             sprintf(name,"b%c%c_mi%d.pcx",updown,'e',height);
-            image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(name,0);
+            image=SurfaceCache.Get_Image_0068ca40(name,0);
             Rect middle=origin;
             middle.X+=width;
             middle.Width-=margin;
             middle.Height=image->Get_Height();
-            unknown_bitmap_writer_a76378.Draw_0068cce0(middle,AlternateSurface,image,0,0);
+            SurfaceCache.Draw_0068cce0(middle,AlternateSurface,image,0,0);
             sprintf(name,"b%c%c_ri%d.pcx",updown,'e',height);
-            image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(name,0);
+            image=SurfaceCache.Get_Image_0068ca40(name,0);
             destination=origin;
             destination.X+=origin.Width-margin;
             destination.Width=margin;
@@ -5654,7 +5654,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 						if (unknown_tooltip_a737f0.shown_114 && unknown_tooltip_a737f0.drawn_118 != 1 && unknown_tooltip_a737f0.surface_10 != 0) {
 							Rect drect = unknown_tooltip_a737f0.rect_00;
 							Rect srect(0, 0, unknown_tooltip_a737f0.rect_00.Width, unknown_tooltip_a737f0.rect_00.Height);
-							unknown_surface_839950->Copy_From(drect, *unknown_tooltip_a737f0.surface_10, srect, false, true);
+							VisibleSurface->Copy_From(drect, *unknown_tooltip_a737f0.surface_10, srect, false, true);
 							unknown_tooltip_a737f0.drawn_118 = true;
 							show_tooltip = true;
 						}
@@ -5817,11 +5817,11 @@ cleanup:
                     if (GetWindowLongA(window, 4) && unknown_show_dialog_5e61b0(window)) *(int *)((char *)data + 0x1FC) = 3;
                     Rect whole(min_update_rect.x, min_update_rect.y, max_update_rect.x - min_update_rect.x, max_update_rect.y - min_update_rect.y);
                     destination = Offset_Rect(whole, offset_x, offset_y);
-                    unknown_surface_839950->Lock();
+                    VisibleSurface->Lock();
                     AlternateSurface->Lock();
-                    unknown_surface_839950->Copy_From(destination, *AlternateSurface, whole, false, true);
+                    VisibleSurface->Copy_From(destination, *AlternateSurface, whole, false, true);
                     AlternateSurface->Unlock();
-                    unknown_surface_839950->Unlock();
+                    VisibleSurface->Unlock();
                     WolArrayList<HWND> children;
                     EnumChildWindows(window, (WNDENUMPROC)unknown_add_window_5ff430, (LPARAM)&children);
                     HWND child = 0;
@@ -5837,11 +5837,11 @@ cleanup:
                         Unknown_Rect_Shrink_006F1B30(&source, -1, -1);
                         Unknown_Rect_Shrink_006F1B30(&destination, -1, -1);
                     }
-                    unknown_surface_839950->Lock();
+                    VisibleSurface->Lock();
                     AlternateSurface->Lock();
-                    unknown_surface_839950->Copy_From(destination, *AlternateSurface, source, false, true);
+                    VisibleSurface->Copy_From(destination, *AlternateSurface, source, false, true);
                     AlternateSurface->Unlock();
-                    unknown_surface_839950->Unlock();
+                    VisibleSurface->Unlock();
                 }
             }
             min_update_rect.x = 0xFFFFFF;
@@ -6063,20 +6063,20 @@ LRESULT __stdcall unknown_scroll_bar_proc_5f9fb0(HWND window, UINT message, WPAR
         src_rect.Y = grip_top;
         Surface *grip_middle;
         if (data->alternate_cd) {
-            grip_middle = unknown_bitmap_writer_a76378.Get_Image_0068ca40("gsbgripm.pcx", 0);
+            grip_middle = SurfaceCache.Get_Image_0068ca40("gsbgripm.pcx", 0);
         } else {
-            grip_middle = unknown_bitmap_writer_a76378.Get_Image_0068ca40("sbgripm.pcx", 0);
+            grip_middle = SurfaceCache.Get_Image_0068ca40("sbgripm.pcx", 0);
         }
         if (grip_middle) {
             grip_rect.Width = grip_middle->Get_Width();
         }
-        unknown_bitmap_writer_a76378.Draw_0068cce0(grip_rect, AlternateSurface, grip_middle, 0, 0);
+        SurfaceCache.Draw_0068cce0(grip_rect, AlternateSurface, grip_middle, 0, 0);
         Rect grip_src(0, 0, grip_middle->Get_Height(), grip_middle->Get_Width());
         Surface *grip_top_image;
         if (data->alternate_cd) {
-            grip_top_image = unknown_bitmap_writer_a76378.Get_Image_0068ca40("gsbgript.pcx", 0);
+            grip_top_image = SurfaceCache.Get_Image_0068ca40("gsbgript.pcx", 0);
         } else {
-            grip_top_image = unknown_bitmap_writer_a76378.Get_Image_0068ca40("sbgript.pcx", 0);
+            grip_top_image = SurfaceCache.Get_Image_0068ca40("sbgript.pcx", 0);
         }
         if (grip_top_image) {
             full_rect.Height = grip_top_image->Get_Height();
@@ -6084,9 +6084,9 @@ LRESULT __stdcall unknown_scroll_bar_proc_5f9fb0(HWND window, UINT message, WPAR
         AlternateSurface->Copy_From(full_rect, *grip_top_image, grip_src, false, true);
         Surface *grip_bottom_image;
         if (data->alternate_cd) {
-            grip_bottom_image = unknown_bitmap_writer_a76378.Get_Image_0068ca40("gsbgripb.pcx", 0);
+            grip_bottom_image = SurfaceCache.Get_Image_0068ca40("gsbgripb.pcx", 0);
         } else {
-            grip_bottom_image = unknown_bitmap_writer_a76378.Get_Image_0068ca40("sbgripb.pcx", 0);
+            grip_bottom_image = SurfaceCache.Get_Image_0068ca40("sbgripb.pcx", 0);
         }
         if (grip_bottom_image) {
             full_rect.Y = display_rect.top + grip_bottom - grip_bottom_image->Get_Height();
@@ -6465,12 +6465,12 @@ LRESULT __stdcall unknown_trackbar_proc_5fb270(HWND window, UINT message, WPARAM
 
         if (show_numbers) {
             {
-                Surface *center = unknown_bitmap_writer_a76378.Get_Image_0068ca40("trofm.pcx", 0);
+                Surface *center = SurfaceCache.Get_Image_0068ca40("trofm.pcx", 0);
                 Rect center_rect(disp_rect.X + disp_rect.Width - number_width + 1, disp_rect.Y - 1, number_width, center->Get_Height());
-                unknown_bitmap_writer_a76378.Draw_0068cce0(center_rect, AlternateSurface, center, 0, 0);
+                SurfaceCache.Draw_0068cce0(center_rect, AlternateSurface, center, 0, 0);
             }
             {
-                Surface *left = unknown_bitmap_writer_a76378.Get_Image_0068ca40("trofl.pcx", 0);
+                Surface *left = SurfaceCache.Get_Image_0068ca40("trofl.pcx", 0);
                 Rect left_dst(disp_rect.X + disp_rect.Width - number_width + 1, disp_rect.Y - 1, left->Get_Width(), left->Get_Height());
                 Rect left_src = left_dst;
                 left_src.Y = 0;
@@ -6478,7 +6478,7 @@ LRESULT __stdcall unknown_trackbar_proc_5fb270(HWND window, UINT message, WPARAM
                 AlternateSurface->Copy_From(left_dst, *left, left_src, false, true);
             }
             {
-                Surface *right = unknown_bitmap_writer_a76378.Get_Image_0068ca40("trofr.pcx", 0);
+                Surface *right = SurfaceCache.Get_Image_0068ca40("trofr.pcx", 0);
                 Rect right_dst(disp_rect.X + disp_rect.Width - right->Get_Width() + 1, disp_rect.Y - 1, right->Get_Width(), right->Get_Height());
                 Rect right_src = right_dst;
                 right_src.Y = 0;
@@ -6489,7 +6489,7 @@ LRESULT __stdcall unknown_trackbar_proc_5fb270(HWND window, UINT message, WPARAM
         }
 
         Rect grip_rect(paint_rect.left + grip_left, paint_rect.top, grip_right - grip_left, paint_rect.bottom - paint_rect.top);
-        Surface *grip = unknown_bitmap_writer_a76378.Get_Image_0068ca40("trakgrip.pcx", 0);
+        Surface *grip = SurfaceCache.Get_Image_0068ca40("trakgrip.pcx", 0);
         Rect grip_src;
         grip_src.X = 0;
         grip_src.Y = 0;
@@ -6977,7 +6977,7 @@ void __fastcall unknown_draw_arrow_5fd960(Surface *surface, Rect const &rect, in
     } else {
         sprintf(name, "gdnarrow%c.pcx", state);
     }
-    Surface *arrow = unknown_bitmap_writer_a76378.Get_Image_0068ca40(name + !prefixed, 0);
+    Surface *arrow = SurfaceCache.Get_Image_0068ca40(name + !prefixed, 0);
     Rect destination = rect;
     destination.Width = arrow->Get_Width();
     destination.Height = arrow->Get_Height();
@@ -7187,7 +7187,7 @@ int __fastcall unknown_text_draw_005fe1b0(unsigned int color, BitFontClass *font
 void __fastcall Unknown_005FE380(long item)
 {
     DRAWITEMSTRUCT *draw = (DRAWITEMSTRUCT *)item;
-    if (unknown_surface_839950 && AlternateSurface) {
+    if (VisibleSurface && AlternateSurface) {
         RECT area;
         RECT client;
         Window_Rect_In_Main_Client(draw->hwndItem, &area);
@@ -7246,7 +7246,7 @@ void __fastcall unknown_draw_dimmed_back_5fe490(Rect const &area, HWND window, i
             from.Height = screen.bottom - screen.top + 1;
             surface->Copy_From(full, *parent_surface, from, false, true);
         } else {
-            Surface *source = unknown_surface_839950;
+            Surface *source = VisibleSurface;
             Rect from;
             from.X = screen.left;
             from.Y = screen.top;
@@ -7391,10 +7391,10 @@ namespace OwnerDraw {
 void __fastcall unknown_draw_bits_5fed10(Rect const *area, Surface *surface)
 {
     unsigned char palette[768];
-    Surface *image = unknown_bitmap_writer_a76378.Get_Image_0068ca40("bits_i.pcx", (int)palette);
-    Surface *alpha = unknown_bitmap_writer_a76378.Get_Image_0068ca40("bits_a.pcx", 0);
+    Surface *image = SurfaceCache.Get_Image_0068ca40("bits_i.pcx", (int)palette);
+    Surface *alpha = SurfaceCache.Get_Image_0068ca40("bits_a.pcx", 0);
     int count = 0;
-    unknown_brighten_palette_68bce0(palette);
+    SurfaceCacheConvertPalette(palette);
     int x = 0;
     Rect rect = *area;
     if (x < area->Width) {
@@ -7404,13 +7404,13 @@ void __fastcall unknown_draw_bits_5fed10(Rect const *area, Surface *surface)
             rect.Y = area->Y + 1;
             rect.Width = 10;
             rect.Height = 12;
-            unknown_bitmap_writer_a76378.Draw_0068cf90(rect, surface, image, alpha, palette, 0, frame * 10, 0);
+            SurfaceCache.Draw_0068cf90(rect, surface, image, alpha, palette, 0, frame * 10, 0);
             frame = rand() % 8;
             rect.X = area->X + x;
             rect.Width = 10;
             rect.Height = 12;
             rect.Y = area->Y + area->Height - 16;
-            unknown_bitmap_writer_a76378.Draw_0068cf90(rect, surface, image, alpha, palette, 0, frame * 10, 0);
+            SurfaceCache.Draw_0068cf90(rect, surface, image, alpha, palette, 0, frame * 10, 0);
             count++;
             if (count % 6 == 0) {
                 x += 10;
@@ -7514,7 +7514,7 @@ void __fastcall unknown_draw_dialog_back_5fee70(HWND window)
                 CC_Draw_Shape(surface, drawer, (ShapeFileStruct const *)shape, 0,
                               Point2D(0, 0), to, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             } else {
-                Surface *back = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_dialog_back_name_7e8d1c, 0);
+                Surface *back = SurfaceCache.Get_Image_0068ca40(unknown_dialog_back_name_7e8d1c, 0);
                 Rect to = full;
                 Rect from = full;
                 to.X -= screen.left;
@@ -7706,7 +7706,7 @@ void __fastcall unknown_dialog_5ff7c0(HWND window)
 }
 
 
-void __fastcall unknown_735ba0(HWND window);
+void __fastcall Resize_Dialogs(HWND window);
 void __fastcall unknown_737060(HWND window);
 
 namespace OwnerDraw {
@@ -7722,7 +7722,7 @@ bool __fastcall unknown_5e9fa0(HWND dialog);
 // frame size, and the per-control callbacks.
 inline void unknown_prepare_dialog(HWND dialog, int kind)
 {
-    unknown_735ba0(dialog);
+    Resize_Dialogs(dialog);
     unknown_5eaaa0(dialog, kind);
     if (!unknown_session_a3d298.Unknown_00672F10()) {
         unknown_set_control_art_5ea960((unsigned int)dialog);

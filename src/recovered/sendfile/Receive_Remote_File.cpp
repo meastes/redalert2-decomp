@@ -60,13 +60,13 @@ bool __fastcall Receive_Remote_File_0066b520(char *file_name, unsigned int file_
         ProgressScreen.Init(100.0, 1, 0);
         ProgressScreen.Load_Shape("PROGBARM.SHP", 0, 0);
         ProgressScreen.Set_Layout(Point2D(-1, -1), StringTable::Load_String("GUI:MapTransfer", 0, "D:\\Ra2\\SendFile.CPP", 358), false, true);
-        unknown_5159b0(0, true);
+        Darken_Surface(0, true);
         ProgressScreen.Draw_It(Point2D(-1, -1));
         ProgressScreen.Set_Progress_Percent(0, 0.0, Point2D(-1, -1));
     }
     if (unknown_session_a3d298.Type == 4) {
-        unknown_ipx_manager_a40978.unknown_slot16();
-        unknown_ipx_manager_a40978.unknown_slot14(120, -1, 1200);
+        Ipx.unknown_slot16();
+        Ipx.unknown_slot14(120, -1, 1200);
     }
 
     response_timer = Get_Timeout(gametype);
@@ -99,7 +99,7 @@ bool __fastcall Receive_Remote_File_0066b520(char *file_name, unsigned int file_
             Unknown_005B5EE0();
             Service_Game_IO_00481fb0();
             int receive_packet_length = 0x1E7;
-            if (unknown_ipx_manager_a40978.Get_Global_Message(receive_packet, &receive_packet_length, &sender_address, &product_id)) {
+            if (Ipx.Get_Global_Message(receive_packet, &receive_packet_length, &sender_address, &product_id)) {
                 bool from_host = sender_address.Is_Same_Node(unknown_address_a3db2c);
                 if (unknown_session_a3d298.Type == 4) {
                     WOL::User *host = Unknown_0074DA60();
@@ -130,7 +130,7 @@ bool __fastcall Receive_Remote_File_0066b520(char *file_name, unsigned int file_
     } while (response_timer);
 
     if (unknown_session_a3d298.Type == 4) {
-        unknown_ipx_manager_a40978.unknown_slot17();
+        Ipx.unknown_slot17();
     }
     save_file.Write(buffer, file_length);
     operator delete(buffer);

@@ -482,7 +482,7 @@ void BeaconManagerClass::Unknown_0042E370(int house, CoordStruct coord, int slot
             packet.House = (unsigned char)house;
             for (int index = 1; index < unknown_players_a3fa7c.Count(); index++) {
                 Debug_Printf("Sending beacon placement to %s\n", unknown_players_a3fa7c[index]);
-                unknown_ipx_manager_a40978.Send_Global_Message(&packet, 0x3d, 1, &unknown_players_a3fa7c[index]->Address, 0, 0);
+                Ipx.Send_Global_Message(&packet, 0x3d, 1, &unknown_players_a3fa7c[index]->Address, 0, 0);
             }
         } else if (beacon->Unknown_0042E080()) {
             if (Unknown_0063B5B0(11, Cell(coord.X / 256, coord.Y / 256))) {
@@ -637,7 +637,7 @@ found:
                 packet.Slot = (unsigned char)index;
                 for (int player = 1; player < unknown_players_a3fa7c.Count(); player++) {
                     Debug_Printf("Sending beacon delete to %s\n", unknown_players_a3fa7c[player]);
-                    unknown_ipx_manager_a40978.Send_Global_Message(&packet, 0x3d, 1, &unknown_players_a3fa7c[player]->Address, 0, 0);
+                    Ipx.Send_Global_Message(&packet, 0x3d, 1, &unknown_players_a3fa7c[player]->Address, 0, 0);
                 }
             }
         }

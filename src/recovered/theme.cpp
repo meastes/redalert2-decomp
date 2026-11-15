@@ -172,7 +172,7 @@ void ThemeClass::Unknown_006E7890(CCINIClass &ini)
 }
 
 
-// void ThemeClass::Unknown_006E7A70() (0x006E7A70)
+// void ThemeClass::Free_Themes() (0x006E7A70)
 // Frees every theme record, then fades out, waits for and destroys the stream.
 #ifndef VECTOR_IMPLEMENT_VECTOR_ACCESSORS
 #define VECTOR_IMPLEMENT_VECTOR_ACCESSORS
@@ -190,22 +190,22 @@ void ThemeClass::Unknown_006E7890(CCINIClass &ini)
 #define VECTOR_IMPLEMENT_DYNAMIC_CONSTRUCTOR
 #endif
 
-void __fastcall unknown_stop_sample_407e60(void *sample);
-void __fastcall unknown_sample_407fe0(void *sample);
-void __fastcall unknown_sample_408010(void *sample);
-void __fastcall unknown_sample_4079c0(void *sample);
+void __fastcall AudioStreamerStop(void *sample);
+void __fastcall AudioStreamerFadeOut(void *sample);
+void __fastcall AudioStreamerWaitForFade(void *sample);
+void __fastcall AudioStreamerDestroy(void *sample);
 
-void ThemeClass::Unknown_006E7A70()
+void ThemeClass::Free_Themes()
 {
     while (Themes.Count() > 0) {
         delete Themes[0];
         Themes.Delete(0);
     }
     if (Sample != 0) {
-        unknown_sample_407fe0(Sample);
-        unknown_sample_408010(Sample);
-        unknown_stop_sample_407e60(Sample);
-        unknown_sample_4079c0(Sample);
+        AudioStreamerFadeOut(Sample);
+        AudioStreamerWaitForFade(Sample);
+        AudioStreamerStop(Sample);
+        AudioStreamerDestroy(Sample);
         Sample = 0;
     }
 }
@@ -315,19 +315,19 @@ int Owner_006e7cb0::Full_Name(unsigned int theme_index)
 
 extern char unknown_sound_enabled_a40c18;
 extern char unknown_flag_a40d0c;
-void __fastcall unknown_stop_sample_407e60(void *sample);
-int __fastcall unknown_sample_407f90(void *sample);
-int __fastcall unknown_sample_407ff0(void *sample);
+void __fastcall AudioStreamerStop(void *sample);
+int __fastcall AudioStreamerIsPlaying(void *sample);
+int __fastcall AudioStreamerIsFading(void *sample);
 
 void ThemeClass::AI()
 {
     if (AudioDeviceAvailable() && !unknown_flag_a40d0c && unknown_sound_enabled_a40c18 && Volume > 0) {
         bool ready = false;
         if (Sample != 0) {
-            if (unknown_11 && !unknown_sample_407ff0(Sample)) {
-                unknown_stop_sample_407e60(Sample);
+            if (unknown_11 && !AudioStreamerIsFading(Sample)) {
+                AudioStreamerStop(Sample);
             }
-            ready = unknown_sample_407f90(Sample);
+            ready = AudioStreamerIsPlaying(Sample);
         }
         if (ready) {
             return;
@@ -365,7 +365,7 @@ ThemeType ThemeClass::Pick_Next_Song(ThemeType current)
             do {
                 pick = NonCriticalRandomNumber(0, Themes.Count() - 1);
                 tries++;
-            } while (tries < 1000 && (pick == current || !unknown_6e8440(pick)));
+            } while (tries < 1000 && (pick == current || !Is_Allowed(pick)));
             if (tries == 1000) {
                 pick = 0;
             }
@@ -381,7 +381,7 @@ ThemeType ThemeClass::Pick_Next_Song(ThemeType current)
             if (remaining == 0) {
                 return 0;
             }
-            if (unknown_6e8440(current)) {
+            if (Is_Allowed(current)) {
                 break;
             }
         }
@@ -399,10 +399,10 @@ ThemeType ThemeClass::Pick_Next_Song(ThemeType current)
 
 extern char unknown_sound_enabled_a40c18;
 extern char unknown_flag_a40d0c;
-void __fastcall unknown_stop_sample_407e60(void *sample);
-int __fastcall unknown_sample_407f90(void *sample);
-void __fastcall unknown_sample_407fe0(void *sample);
-int __fastcall unknown_sample_407ff0(void *sample);
+void __fastcall AudioStreamerStop(void *sample);
+int __fastcall AudioStreamerIsPlaying(void *sample);
+void __fastcall AudioStreamerFadeOut(void *sample);
+int __fastcall AudioStreamerIsFading(void *sample);
 
 void ThemeClass::Queue_Song(ThemeType theme)
 {
@@ -412,7 +412,7 @@ void ThemeClass::Queue_Song(ThemeType theme)
             Debug_Printf("Theme::QueueSong(%d)\n", theme);
             if (Still_Playing() == true) {
                 if (Sample != 0) {
-                    unknown_sample_407fe0(Sample);
+                    AudioStreamerFadeOut(Sample);
                 }
                 unknown_11 = true;
             }
@@ -429,10 +429,10 @@ void ThemeClass::Queue_Song(ThemeType theme)
 
 extern char unknown_sound_enabled_a40c18;
 extern char unknown_flag_a40d0c;
-void __fastcall unknown_stop_sample_407e60(void *sample);
-int __fastcall unknown_sample_407f90(void *sample);
-void __fastcall unknown_sample_407fe0(void *sample);
-int __fastcall unknown_sample_407ff0(void *sample);
+void __fastcall AudioStreamerStop(void *sample);
+int __fastcall AudioStreamerIsPlaying(void *sample);
+void __fastcall AudioStreamerFadeOut(void *sample);
+int __fastcall AudioStreamerIsFading(void *sample);
 struct AudioStreamPlayer;
 int __fastcall Audio_Stream_Open(AudioStreamPlayer *stream, char const *name, int raw);
 
@@ -497,10 +497,10 @@ char const *ThemeClass::Theme_File_Name(ThemeType theme)
 
 extern char unknown_sound_enabled_a40c18;
 extern char unknown_flag_a40d0c;
-void __fastcall unknown_stop_sample_407e60(void *sample);
-int __fastcall unknown_sample_407f90(void *sample);
-void __fastcall unknown_sample_407fe0(void *sample);
-int __fastcall unknown_sample_407ff0(void *sample);
+void __fastcall AudioStreamerStop(void *sample);
+int __fastcall AudioStreamerIsPlaying(void *sample);
+void __fastcall AudioStreamerFadeOut(void *sample);
+int __fastcall AudioStreamerIsFading(void *sample);
 
 void ThemeClass::Stop(bool fade)
 {
@@ -508,13 +508,13 @@ void ThemeClass::Stop(bool fade)
         if (fade && Still_Playing() == true) {
             Debug_Printf("Theme::Stop(%d) - Fading\n", Score);
             if (Sample != 0) {
-                unknown_sample_407fe0(Sample);
+                AudioStreamerFadeOut(Sample);
             }
             unknown_11 = true;
         } else {
             Debug_Printf("Theme::Stop(%d)\n", Score);
             if (Sample != 0) {
-                unknown_stop_sample_407e60(Sample);
+                AudioStreamerStop(Sample);
             }
         }
         Pending = Score = Current = -1;
@@ -526,17 +526,17 @@ void ThemeClass::Stop(bool fade)
 // The stream is still playing (one that should fade but no longer fades is
 // stopped first).
 
-void __fastcall unknown_stop_sample_407e60(void *sample);
-int __fastcall unknown_sample_407f90(void *sample);
-int __fastcall unknown_sample_407ff0(void *sample);
+void __fastcall AudioStreamerStop(void *sample);
+int __fastcall AudioStreamerIsPlaying(void *sample);
+int __fastcall AudioStreamerIsFading(void *sample);
 
 bool ThemeClass::Still_Playing() const
 {
     if (Sample != 0) {
-        if (unknown_11 && !unknown_sample_407ff0(Sample)) {
-            unknown_stop_sample_407e60(Sample);
+        if (unknown_11 && !AudioStreamerIsFading(Sample)) {
+            AudioStreamerStop(Sample);
         }
-        return unknown_sample_407f90(Sample) != 0;
+        return AudioStreamerIsPlaying(Sample) != 0;
     }
     return false;
 }

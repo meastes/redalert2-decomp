@@ -313,7 +313,7 @@ void __fastcall Unknown_006D7C80(AbstractClass *target);
 
 // Sound effects: enabled flag (0x007D88D6), the effect generator
 // (0x00839218); the play call 0x00713DB0 is shared/sound_play.hpp.
-extern bool unknown_sound_enabled_7d88d6;
+extern bool AllowVoice;
 extern Random2Class NonCriticalRandomNumber;
 
 // A double constant 0.0 (0x0079B610; slot 165 returns it).
@@ -539,10 +539,10 @@ public:
     virtual void unknown_slot278() {}                          // slot 278 (+0x458) 0x006D8FB0
     virtual bool unknown_slot279() { return false; }           // slot 279 (+0x45C) 0x006D8FC0
 
-    void unknown_6d1420(UnknownTechno408 *value);              // 0x006D1420
+    void Set_Planning_Token(UnknownTechno408 *value);              // 0x006D1420
     void unknown_6d9670(long delay);                            // 0x006D9670 (restarts the +0x148 timer)
-    UnknownTechno408 *unknown_6d1430() const;                   // 0x006D1430
-    void unknown_6d6e50(AbstractClass *value);                  // 0x006D6E50
+    UnknownTechno408 *Get_Planning_Token() const;                   // 0x006D1430
+    void Assign_Archive_Target(AbstractClass *value);                  // 0x006D6E50
     void unknown_6d0990(CoordStruct from, CoordStruct to, RGBClass color);   // 0x006D0990 (draws a line; CaptureManagerClass 0x00468150)
     // Guarded like the static timers below: Techno.CPP only. One more member declaration here shifts
     // VC6's per-unit counters of Print_CRCs 0x0062A360, 0x00589AC0 and 0x004F1190 (Scout633 fragile_probe).
@@ -550,21 +550,21 @@ public:
     void unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass color, bool shadow);   // 0x006D0DC0 (a 64-step line shaded from unknown_rgb_ab6841 to color; never called)
 #endif
     void UpdateThreatInCell(AbstractClass *cell);                 // 0x006D9610 (InfantryClass slot 93: an occupied building, its cell)
-    bool unknown_6d7f70();                                      // 0x006D7F70 (FootClass::AI, after the movement; the result is unused there)
+    bool Enter_Object_Nearby();                                      // 0x006D7F70 (FootClass::AI, after the movement; the result is unused there)
     int FireDeathWeapon(int extra);                              // 0x006D7E20 (fires the death weapon at itself; returns the damage)
     void Unknown_006D21E0(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, Surface *mask, unsigned unknown_2, unsigned unknown_3);  // 0x006D21E0 (the shadow draw; FootClass 0x004C9A40)
-    int unknown_6d6750();                                       // 0x006D6750
-    bool unknown_6d83d0();                                      // 0x006D83D0
+    int Get_Predator_Offset();                                       // 0x006D6750
+    bool Has_Turret_Tooltips();                                      // 0x006D83D0
     bool unknown_6d83e0();                                      // 0x006D83E0
-    bool unknown_6d8460() const;                                // 0x006D8460
-    int unknown_6d8470() const;                                 // 0x006D8470
-    int unknown_6d84a0();                                       // 0x006D84A0
-    bool unknown_615360();                                      // 0x00615360 (out of this unit; returns al)
-    static void __fastcall unknown_6d79c0(bool value);          // 0x006D79C0
+    bool Has_Current_Turret() const;                                // 0x006D8460
+    int Get_Current_Turret_Number() const;                                 // 0x006D8470
+    int Get_Current_Weapon_Number();                                       // 0x006D84A0
+    bool TryNextPlanningTokenNode();                                      // 0x00615360 (out of this unit; returns al)
+    static void __fastcall Set_Action_Lines(bool value);          // 0x006D79C0
     SurfaceRegion Render_Voxel_Object_006d24e0(UnknownObjectPair const &voxel, Matrix3D const &transform, Point2D const &point, Rect const &cliprect, int frame, unsigned flags, int brightness);
     SurfaceRegion Render_Voxel_Shadow_006d2810(UnknownObjectPair const &voxel, Matrix3D const &transform, Point2D const &point, Rect const &cliprect, int layer, unsigned flags, bool cached, Surface *mask, unsigned unknown_2, unsigned unknown_3);
     void Blit_Voxel_006d29d0(void const *entry, Point2D const &point, Rect const &cliprect, unsigned flags, int brightness);
-    static void unknown_6d7990();                               // 0x006D7990 (restarts unknown_timer_ac0178 at 25)
+    static void Reset_Action_Line_Timer();                               // 0x006D7990 (restarts unknown_timer_ac0178 at 25)
     // TibSun TechnoClass::ActionLineTimer / TalkBubbleTimer: Techno.CPP defines them
     // (initializers 0x006C0C40 / 0x006C0C80, guarded atexit destructors 0x006C0C60 /
     // 0x006C0CB0, guard byte 0x00AC0128). Other units still reach them through the
@@ -576,68 +576,68 @@ public:
     static CDTimerClass<FrameTimerClass> ActionLineTimer;       // 0x00AC0178
     static CDTimerClass<SystemTimerClass> TalkBubbleTimer;      // 0x00AC0168
 #endif
-    static void __fastcall unknown_6d8fd0(TechnoClass *techno, int value);   // 0x006D8FD0 (sets the talk-bubble techno and restarts its timer)
-    void unknown_6145e0();                                      // 0x006145E0 (out of this unit)
+    static void __fastcall Set_Talker(TechnoClass *techno, int value);   // 0x006D8FD0 (sets the talk-bubble techno and restarts its timer)
+    void Select_Planning_Members();                                      // 0x006145E0 (out of this unit)
     bool Unknown_006D8640(WeaponStruct *weapon);                // 0x006D8640 (InfantryClass slot 137)
-    void unknown_6c8300();                                      // 0x006C8300
-    void unknown_6d7f30();                                      // 0x006D7F30
+    void StartReloading();                                      // 0x006C8300
+    void Remove_Damage_Particle();                                      // 0x006D7F30
     // Draws a shape frame (0x006D1510; ret 0x3C, fifteen argument words; names
     // hypotheses; BuildingClass slot 68). Words 13 and 14 are a Point2D passed
     // on by value as CC_Draw_Shape's last argument.
-    void unknown_6d1510(void const *shape, int drawer, Point2D const *point, Rect const *bounds, int arg5, int arg6,
+    void Techno_Draw_Object(void const *shape, int drawer, Point2D const *point, Rect const *bounds, int arg5, int arg6,
                         int z, int arg8, int arg9, int height, ShapeFileStruct const *arg11, int arg12, Point2D offset, int arg15);
-    int unknown_6d86f0(int value);                              // 0x006D86F0 (adjusts the slot 254 value when slot 203 holds; BuildingClass slot 79)
+    int GetInvulnerabilityTintIntensity(int value);                              // 0x006D86F0 (adjusts the slot 254 value when slot 203 holds; BuildingClass slot 79)
     void unknown_6cdc00(HouseClass *house);                     // 0x006CDC00 (sets House; +0x372 when it is the player's)
     void unknown_6d95a0(UnknownCellClass *cell);                // 0x006D95A0
     void unknown_6d95d0(UnknownCellClass *cell);                // 0x006D95D0
-    void unknown_6d2ca0(int x, int y);                           // 0x006D2CA0 (sets the draw depth +0x322; never called)
-    int unknown_6d46b0(int mission);                            // 0x006D46B0 (mission neither 5 nor 6; never called)
-    EBolt *unknown_6ca020(AbstractClass *target, WeaponTypeClass *weapon, CoordStruct const &source);   // 0x006CA020 (a new electric bolt from source to target)
-    EBolt *unknown_6ca130(AbstractClass *target);               // 0x006CA130 (fires an electric bolt; never called)
-    void unknown_6ca1d0(AbstractClass *target, int chrono);     // 0x006CA1D0 (draws a rad or chrono beam to the target)
-    int unknown_6ca6c0(TechnoClass *target, WeaponTypeClass *weapon);   // 0x006CA6C0 (the damage a weapon would do to target)
-    void unknown_6ca340(int spread);                            // 0x006CA340 (rad beams to the eight cells around at a spread)
-    void unknown_6d4400();                                      // 0x006D4400 (DistributedFire target spreading; TechnoClass slot 209)
-    bool unknown_6d7d20(int weapon);                            // 0x006D7D20 (TechnoClass slot 170)
+    void Calculate_Sinking_Offset(int x, int y);                           // 0x006D2CA0 (sets the draw depth +0x322; never called)
+    int Is_Not_Guard_Or_Sticky(int mission);                            // 0x006D46B0 (mission neither 5 nor 6; never called)
+    EBolt *CreateEBolt(AbstractClass *target, WeaponTypeClass *weapon, CoordStruct const &source);   // 0x006CA020 (a new electric bolt from source to target)
+    EBolt *Electric_Zap(AbstractClass *target);               // 0x006CA130 (fires an electric bolt; never called)
+    void Rad_Zap(AbstractClass *target, int chrono);     // 0x006CA1D0 (draws a rad or chrono beam to the target)
+    int Estimate_Damage(TechnoClass *target, WeaponTypeClass *weapon);   // 0x006CA6C0 (the damage a weapon would do to target)
+    void CreateRadBeams(int spread);                            // 0x006CA340 (rad beams to the eight cells around at a spread)
+    void Distribute_Fire();                                      // 0x006D4400 (DistributedFire target spreading; TechnoClass slot 209)
+    bool Should_Use_High_Arc(int weapon);                            // 0x006D7D20 (TechnoClass slot 170)
     void unknown_6155e0();                                      // 0x006155E0 (out of this unit; TechnoClass slot 222)
-    int unknown_6cd6f0();                                       // 0x006CD6F0 (the height bonus above the map's lowest level; never called)
-    int unknown_6c6350(Cell const *cell);                       // 0x006C6350 (the threat of a wall cell to break; TechnoClass slot 219)
+    int Elevation_Bonus();                                       // 0x006CD6F0 (the height bonus above the map's lowest level; never called)
+    int Evaluate_Just_Cell(Cell const *cell);                       // 0x006C6350 (the threat of a wall cell to break; TechnoClass slot 219)
     bool unknown_6c5570(int method, int arg2, int arg3, ObjectClass *object, int *value, int arg6, CoordStruct const *coord);   // 0x006C5570 (rates an object as a target; TechnoClass slot 219)
-    bool unknown_6c6130(int method, int arg2, Cell const *cell, int arg4, ObjectClass **object, int *value, int zone);   // 0x006C6130 (the best target in a cell; TechnoClass slot 219)
+    bool Evaluate_Cell(int method, int arg2, Cell const *cell, int arg4, ObjectClass **object, int *value, int zone);   // 0x006C6130 (the best target in a cell; TechnoClass slot 219)
     LaserDrawClass *unknown_6c9df0(AbstractClass *target, int weapon_index, WeaponTypeClass *weapon, CoordStruct const &source);   // 0x006C9DF0 (draws the weapon's laser)
     bool unknown_6d9710() const;                                // 0x006D9710 (the +0x148 timer has run out)
-    void unknown_6cc020(); // 006CC020: draw the targeting laser
-    CoordStruct unknown_6d65b0();                               // 0x006D65B0 (FootClass slot 243: the far end of a line to draw)
+    void Draw_Target_Laser(); // 006CC020: draw the targeting laser
+    CoordStruct Predict_Target_Coord();                               // 0x006D65B0 (FootClass slot 243: the far end of a line to draw)
     void unknown_6d0510(CoordStruct from, CoordStruct to, RGBClass color, int arg8, int arg9);   // 0x006D0510 (draws a line between two points)
-    bool unknown_6d1440();                                      // 0x006D1440 (+0x408 set and its 0x00613B60 positive)
-    int unknown_6d8480();                                       // 0x006D8480 (copies +0x100 into +0x104; whether it changed)
-    bool unknown_6d1470();                                      // 0x006D1470 (0x00615360's result; Fly 0x004BF1F0 tests al)
+    bool Has_Planning_Nodes();                                      // 0x006D1440 (+0x408 set and its 0x00613B60 positive)
+    int Turret_Changed();                                       // 0x006D8480 (copies +0x100 into +0x104; whether it changed)
+    bool Next_Planning_Node();                                      // 0x006D1470 (0x00615360's result; Fly 0x004BF1F0 tests al)
     void unknown_6d96a0();                                      // 0x006D96A0 (restarts the +0x148 timer at 4-8 when over 10)
-    int unknown_6d85e0(int index);                              // 0x006D85E0 (a valid weapon index)
-    int unknown_6cf9d0();                                       // 0x006CF9D0 (FootClass slot 176: times ZFudgeColumn)
+    int Is_Valid_Weapon_Index(int index);                              // 0x006D85E0 (a valid weapon index)
+    int Get_Z_Fudge_Column();                                       // 0x006CF9D0 (FootClass slot 176: times ZFudgeColumn)
     int unknown_6cfb60();                                       // 0x006CFB60 (times ZFudgeTunnel)
-    int unknown_6cfda0();                                       // 0x006CFDA0 (times ZFudgeCliff)
-    int unknown_6c4a70(ObjectClass *other);                     // 0x006C4A70
+    int Get_Z_Fudge_Cliff();                                       // 0x006CFDA0 (times ZFudgeCliff)
+    int Elevation_Range_Bonus(ObjectClass *other);                     // 0x006C4A70
 #ifdef RA2_NON_MATCHING
     double unknown_6c5270(Cell const &cell);                    // 0x006C5270 (non-exact draft; caller 0x006C5570)
 #endif
-    int unknown_6c48f0(ObjectClass *other);                     // 0x006C48F0
+    int Elevation_Distance(ObjectClass *other);                     // 0x006C48F0
     void unknown_6d9080(Point2D const &center, void const *unused); // 0x006D9080, RET8; unused pointee type unknown
-    bool unknown_6cf670();                                      // 0x006CF670 (ZFudgeBridge applies)
-    bool unknown_6cf820();                                      // 0x006CF820
-    bool unknown_6d4180();                                      // 0x006D4180
-    bool unknown_6d4310();                                      // 0x006D4310
-    int unknown_6d5870();                                       // 0x006D5870 (anti-air strength of the secondary weapon / 50)
+    bool Is_Z_Fudge_Bridge();                                      // 0x006CF670 (ZFudgeBridge applies)
+    bool Was_Z_Fudge_Bridge();                                      // 0x006CF820
+    bool Should_Scan_For_Target();                                      // 0x006D4180
+    bool Scan_For_Target();                                      // 0x006D4310
+    int Anti_Air();                                       // 0x006D5870 (anti-air strength of the secondary weapon / 50)
     Cell unknown_6cf130(AbstractClass *target);           // 0x006CF130
-    bool unknown_6d8080();                                      // 0x006D8080
-    bool unknown_6d40c0();                                      // 0x006D40C0 (may look for a target now)
+    bool Move_To_Object_Nearby();                                      // 0x006D8080
+    bool Can_Scan_For_Target();                                      // 0x006D40C0 (may look for a target now)
     int unknown_6c16f0(int weapon);                             // 0x006C16F0 (+0x98 plus +0xA4 of a weapon, or their average)
     bool unknown_6d3b60(TechnoClass *source, int arg2);         // 0x006D3B60 (whether to answer an attack by source; arg2 unused)
-    double unknown_6d7550(ObjectClass *target, CoordStruct const &coord);   // 0x006D7550 (a threat value of the target; hypothesis)
-    void unknown_6d8820();                                      // 0x006D8820 (steps the +0x16C state on the +0x160 timer while slot 203 holds; TechnoClass::AI)
+    double Target_Threat(ObjectClass *target, CoordStruct const &coord);   // 0x006D7550 (a threat value of the target; hypothesis)
+    void Update_Iron_Tint();                                      // 0x006D8820 (steps the +0x16C state on the +0x160 timer while slot 203 holds; TechnoClass::AI)
     bool unknown_6c4bb0(CoordStruct const *coord, AbstractClass *target, WeaponTypeClass *weapon);   // 0x006C4BB0 (in range; hypothesis)
-    int unknown_6d5900();                                       // 0x006D5900 (ground strength of the secondary weapon, Verses[4])
-    int unknown_6d59d0();                                       // 0x006D59D0 (the same with Verses[0])
+    int Anti_Armor();                                       // 0x006D5900 (ground strength of the secondary weapon, Verses[4])
+    int Anti_Infantry();                                       // 0x006D59D0 (the same with Verses[0])
 
     CargoClass Cargo;                       // +0x0F8 (count, first object; swizzled)
     int unknown_100;                        // +0x100 (-1)
@@ -785,17 +785,17 @@ public:
     virtual int Kind_Of() const;                                      // slot 11 0x00453C40
     virtual int Size_Of() const;                                      // slot 12 0x00453BF0
     virtual void unknown_slot216(int arg1);                           // slot 216 0x00449170
-    int unknown_4532f0();               // 0x004532F0
-    void unknown_44c920(int index, bool damaged, bool garrisoned, int arg4); // 0x0044C920 (as shared/building_class.hpp)
-    void unknown_44cfd0(int index);     // 0x0044CFD0 (as shared/building_class.hpp)
-    bool unknown_44d880();              // 0x0044D880 (as shared/building_class.hpp)
+    int GetOccupantCount();               // 0x004532F0
+    void PlayNthAnim(int index, bool damaged, bool garrisoned, int arg4); // 0x0044C920 (as shared/building_class.hpp)
+    void DestroyNthAnim(int index);     // 0x0044CFD0 (as shared/building_class.hpp)
+    bool Is_Gate_Open();              // 0x0044D880 (as shared/building_class.hpp)
     bool Cell_Is_Impassable_Row_00453af0(CellClass const *cell);    // 0x00453AF0 (as shared/building_class.hpp)
-    bool unknown_44d900(BuildingTypeClass const *upgrade, HouseClass *house);   // 0x0044D900 (as shared/building_class.hpp: the upgrade may power up this building)
+    bool Can_Upgrade(BuildingTypeClass const *upgrade, HouseClass *house);   // 0x0044D900 (as shared/building_class.hpp: the upgrade may power up this building)
     void unknown_450950();              // 0x00450950 (a firestorm wall building switches its state; HouseClass 0x004EE8F0/0x004EEA40)
     bool CanBeOccupiedBy(TechnoClass *techno);     // 0x00452EB0 (whether techno may enter; InfantryClass slot 132)
     void KillOccupants(InfantryClass *infantry);     // 0x004536D0 (an Assaulter enters; InfantryClass 0x005094B0)
     BuildingTypeClass *Type;            // +0x418 (AircraftClass slots 28/101)
-    void unknown_44d070(int damaged);   // 0x0044D070 (TechnoClass slot 233: health at or below the rules' +0x1368)
+    void Set_Anim_Damage_State(int damaged);   // 0x0044D070 (TechnoClass slot 233: health at or below the rules' +0x1368)
     int unknown_449dd0();               // 0x00449DD0 (the power the building drains; as shared/building_class.hpp)
     char unknown_41c[0x434 - 0x41C];
     int unknown_434;                    // +0x434 (TechnoClass slot 55; the full class names it in shared/building.hpp)

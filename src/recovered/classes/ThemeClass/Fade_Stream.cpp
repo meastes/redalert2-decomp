@@ -4,9 +4,9 @@
 // Assumptions: layout as in ThemeClass::Suspend (0x006E8270); what
 // 0x00407FE0 does to the sample (a fade?) and the flag's meaning are
 // unknown.
-// @ref ?unknown_sample_407fe0@@YIXPAX@Z=00407fe0
+// @ref ?AudioStreamerFadeOut@@YIXPAX@Z=00407fe0
 
-void __fastcall unknown_sample_407fe0(void *sample);    // 0x00407FE0
+void __fastcall AudioStreamerFadeOut(void *sample);    // 0x00407FE0
 
 class ThemeClass {
 public:
@@ -24,7 +24,7 @@ public:
 void ThemeClass::Fade_Stream_006e8180()
 {
     if (Sample != 0) {
-        unknown_sample_407fe0(Sample);
+        AudioStreamerFadeOut(Sample);
     }
     unknown_11 = true;
 }

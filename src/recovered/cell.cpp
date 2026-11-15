@@ -1001,7 +1001,7 @@ void CellClass::Recalc_Attributes(int cell_height)
         itype->Get_Tile_Pixel_Dimensions((unsigned char)unknown_11a, width, height);
         unknown_11d = (height - 30) / 15;
         if (!IsAnimAttached && itype->unknown_298 != -1 && itype->AttachesTo == (unsigned char)unknown_11a) {
-            CoordStruct anim_coord = CoordStruct(MapCoords, unknown_11b * unknown_geometry_g) + TacticalMap->Unknown_006A2BF0(itype->Offset);
+            CoordStruct anim_coord = CoordStruct(MapCoords, unknown_11b * unknown_geometry_g) + TacticalMap->Pixel_To_Coord_Absolute(itype->Offset);
             AnimClass *anim = new AnimClass(AnimTypes[itype->unknown_298], anim_coord, 0, -1, 0x1600, 0);
             anim->ZAdjust = itype->ZAdjust;
             anim->unknown_176 = true;
@@ -1413,7 +1413,7 @@ bool CellClass::Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bo
                 BuildingClass *building = (BuildingClass *)Cell_Object(Point2D(0, 0), false);
                 if (building != 0 && building->Kind_Of() == 6) {
                     BuildingTypeClass *ptype = (BuildingTypeClass *)Map.PendingObject;
-                    if (building->unknown_44d900(ptype, unknown_player_a35db4)) {
+                    if (building->Can_Upgrade(ptype, unknown_player_a35db4)) {
                         ok = true;
                     }
                 }
@@ -1428,13 +1428,13 @@ bool CellClass::Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bo
 
         int flags = drawtrans ? 0x10600 : 0x20600;
         if ((unknown_12c & 4) != 0) {
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, (ShapeFileStruct const *)DisplayClass::TransIconset, 1, point + pixel, rect,
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)DisplayClass::TransIconset, 1, point + pixel, rect,
                 flags, 0, height_offset, 0, 1000, 0, 0, Point2D(0, 0));
         } else if (ok) {
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, (ShapeFileStruct const *)DisplayClass::TransIconset, 0, point + pixel, rect,
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)DisplayClass::TransIconset, 0, point + pixel, rect,
                 flags, 0, height_offset, 0, 1000, 0, 0, Point2D(0, 0));
         } else {
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, (ShapeFileStruct const *)DisplayClass::TransIconset, unknown_11c + 2, point + pixel, rect,
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)DisplayClass::TransIconset, unknown_11c + 2, point + pixel, rect,
                 flags, 0, height_offset, 0, 1000, 0, 0, Point2D(0, 0));
         }
     }
@@ -1544,13 +1544,13 @@ void CellClass::Draw_Overlay_Shadow(Point2D const &xpoint, Rect const &clip)
         if (unknown_40 != 0) {
             ShapeFileStruct *image;
             int rubble;
-            if (((BuildingTypeClass *)unknown_40)->unknown_func_458e50((void **)&image, &rubble)) {
-                CC_Draw_Shape(unknown_surface_83995c, unknown_34, image, rubble, point, clip, 0x4601, 0, -2 - yoffset, 0, 1000, 0, 0, Point2D(0, 0));
+            if (((BuildingTypeClass *)unknown_40)->Get_Rubble_Shadow((void **)&image, &rubble)) {
+                CC_Draw_Shape(LogicalSurface, unknown_34, image, rubble, point, clip, 0x4601, 0, -2 - yoffset, 0, 1000, 0, 0, Point2D(0, 0));
             }
         }
         return;
     }
-    CC_Draw_Shape(unknown_surface_83995c, unknown_34, shape, frame + shape->FrameCount / 2, point, clip, 0x4601, 0, -2 - yoffset, 0, 1000, 0, 0, Point2D(0, 0));
+    CC_Draw_Shape(LogicalSurface, unknown_34, shape, frame + shape->FrameCount / 2, point, clip, 0x4601, 0, -2 - yoffset, 0, 1000, 0, 0, Point2D(0, 0));
 }
 
 
@@ -1584,7 +1584,7 @@ void CellClass::Draw_Overlay(Point2D const &xpoint, Rect const &clip)
             if (shapenum == 0 || shapenum == 9) {
                 shapenum += unknown_bridge_variation_7d2b18[(MapCoords.X & 3) | (4 * (MapCoords.Y & 3))];
             }
-            CC_Draw_Shape(unknown_surface_83995c, unknown_34, shape, shapenum, point, clip, 0x4E00, 0, -2 - yoffset, 0, unknown_10e, 0, 0, Point2D(0, 0));
+            CC_Draw_Shape(LogicalSurface, unknown_34, shape, shapenum, point, clip, 0x4E00, 0, -2 - yoffset, 0, unknown_10e, 0, 0, Point2D(0, 0));
             unknown_64 = Frame;
             unknown_68 = unknown_rect_839630;
             unknown_118 = unknown_redraws_833634;
@@ -1605,17 +1605,17 @@ void CellClass::Draw_Overlay(Point2D const &xpoint, Rect const &clip)
         }
         ShapeFileStruct *tibshape = (ShapeFileStruct *)tib_overlay->Get_Image_Data();
         if (unknown_11c != 0) {
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323b8, tibshape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, 1000, (ShapeFileStruct const *)unknown_slope_shapes_a52eb0[unknown_11c - 1], 0, Point2D(0, 0));
+            CC_Draw_Shape(LogicalSurface, TerrainDrawer, tibshape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, 1000, (ShapeFileStruct const *)unknown_slope_shapes_a52eb0[unknown_11c - 1], 0, Point2D(0, 0));
         } else {
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323b8, tibshape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, 1000, 0, 0, Point2D(0, 0));
+            CC_Draw_Shape(LogicalSurface, TerrainDrawer, tibshape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, 1000, 0, 0, Point2D(0, 0));
         }
     } else if (otype->Wall) {
-        CC_Draw_Shape(unknown_surface_83995c, ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter, shape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 2, unknown_10a, 0, 0, Point2D(0, 0));
+        CC_Draw_Shape(LogicalSurface, ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter, shape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 2, unknown_10a, 0, 0, Point2D(0, 0));
     } else if (otype->ArrayIndex == 0x7E) {
         if (unknown_11c != 0) {
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323b8, shape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, unknown_10c, (ShapeFileStruct const *)unknown_slope_shapes_a52eb0[unknown_11c - 1], 0, Point2D(30, -2));
+            CC_Draw_Shape(LogicalSurface, TerrainDrawer, shape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, unknown_10c, (ShapeFileStruct const *)unknown_slope_shapes_a52eb0[unknown_11c - 1], 0, Point2D(30, -2));
         } else {
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323b8, shape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, unknown_10c, 0, 0, Point2D(0, 0));
+            CC_Draw_Shape(LogicalSurface, TerrainDrawer, shape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, unknown_10c, 0, 0, Point2D(0, 0));
         }
     } else {
         bool flat = otype->DrawFlat;
@@ -1624,17 +1624,17 @@ void CellClass::Draw_Overlay(Point2D const &xpoint, Rect const &clip)
             offsety = 0;
         }
         if (otype->Crate) {
-            CC_Draw_Shape(unknown_surface_83995c, unknown_34, shape, 0, point, clip, 0x4E00, 0, offsety - yoffset - 2, flat ? 0 : 2, unknown_10c, 0, 0, Point2D(0, 0));
+            CC_Draw_Shape(LogicalSurface, unknown_34, shape, 0, point, clip, 0x4E00, 0, offsety - yoffset - 2, flat ? 0 : 2, unknown_10c, 0, 0, Point2D(0, 0));
         } else if (otype->IsRubble) {
             if (unknown_40 != 0) {
                 ShapeFileStruct *image;
                 int frame;
-                if (((BuildingTypeClass *)unknown_40)->unknown_func_458e00((void **)&image, &frame)) {
-                    CC_Draw_Shape(unknown_surface_83995c, unknown_34, image, frame, point, clip, 0x4E00, 0, offsety - yoffset - 2, flat ? 0 : 2, unknown_10c, 0, 0, Point2D(0, 0));
+                if (((BuildingTypeClass *)unknown_40)->Get_Rubble_Shape((void **)&image, &frame)) {
+                    CC_Draw_Shape(LogicalSurface, unknown_34, image, frame, point, clip, 0x4E00, 0, offsety - yoffset - 2, flat ? 0 : 2, unknown_10c, 0, 0, Point2D(0, 0));
                 }
             }
         } else {
-            CC_Draw_Shape(unknown_surface_83995c, unknown_34, shape, OverlayData, point, clip, 0x4E00, 0, offsety - yoffset - 2, flat ? 0 : 2, unknown_10c, 0, 0, Point2D(0, 0));
+            CC_Draw_Shape(LogicalSurface, unknown_34, shape, OverlayData, point, clip, 0x4E00, 0, offsety - yoffset - 2, flat ? 0 : 2, unknown_10c, 0, 0, Point2D(0, 0));
         }
     }
 }
@@ -1665,7 +1665,7 @@ Rect CellClass::Overlay_Render_Rect() const
     } else if (overlay->IsRubble) {
         image = 0;
         if (unknown_40 != 0) {
-            ((BuildingTypeClass *)unknown_40)->unknown_func_458e00((void **)&image, &frame);
+            ((BuildingTypeClass *)unknown_40)->Get_Rubble_Shape((void **)&image, &frame);
         }
     } else {
         image = (ShapeFileStruct *)overlay->Get_Image_Data();
@@ -1791,7 +1791,7 @@ Point2D CellClass::unknown_475440() const
 
 void CellClass::unknown_4754b0(Point2D const &point, Rect const &rect)
 {
-    IsoTileTypes[0]->unknown_func_52c230(unknown_LightConvertClass_list_00832398[0], 0, unknown_surface_83995c,
+    IsoTileTypes[0]->unknown_func_52c230(TileDrawers[0], 0, LogicalSurface,
         point.X, point.Y, rect, unknown_11b, unknown_10c, 1, 0, 0, 1, 0, 0);
 }
 
@@ -1862,7 +1862,7 @@ void CellClass::Draw_Shadow_Cast(Point2D const &point, Rect const &clip)
         Point2D drawpoint;
         drawpoint.X = point.X;
         drawpoint.Y = point.Y - 15 * unknown_11b;
-        isotype->Draw_Shadow_Caster(subtile, unknown_surface_83995c, drawpoint, clip, -2 - 15 * (unknown_11b - 4));
+        isotype->Draw_Shadow_Caster(subtile, LogicalSurface, drawpoint, clip, -2 - 15 * (unknown_11b - 4));
     }
 }
 
@@ -1892,7 +1892,7 @@ void CellClass::Draw_It(Point2D const &xpoint, Rect const &clip, bool objects)
         point.Y = xpoint.Y - 15 * unknown_11b;
 
         if (ittype->Get_Image_Data()) {
-            ittype->unknown_func_52c230(unknown_34, subtile, unknown_surface_83995c, point.X, point.Y + unknown_int_839634, clip, unknown_11b, unknown_10c, 1, icon, 0, 0, 0, 0);
+            ittype->unknown_func_52c230(unknown_34, subtile, LogicalSurface, point.X, point.Y + unknown_int_839634, clip, unknown_11b, unknown_10c, 1, icon, 0, 0, 0, 0);
         }
 
         if (SmudgeIndex != -1) {
@@ -2254,7 +2254,7 @@ CoordStruct CellClass::Closest_Free_Spot(CoordStruct const &xcoord, bool any, bo
     }
 
     if (!any) {
-        if (is_vehicle_occupied || (Occupy_124.Monolith && (!Get_Gate() || !Get_Gate()->unknown_44d880()))) {
+        if (is_vehicle_occupied || (Occupy_124.Monolith && (!Get_Gate() || !Get_Gate()->Is_Gate_Open()))) {
             return unknown_geometry_l;
         }
     }
@@ -2406,14 +2406,14 @@ CellClass &CellClass::Adjacent_Cell(unsigned facing)
 
 
 // void CellClass::Adjust_Threat(int house, int value) (0x00476B20): passes
-// the cell's map block (Map.Unknown_0054E370) and value to
+// the cell's map block (Map.Cell_Region) and value to
 // HouseClass::unknown_func_4e5dc0 of every other house that fails
 // Unknown_004F52F0 or is not house's ally.
 
 void CellClass::Adjust_Threat(int house, int value)
 {
     Cell cell = MapCoords;
-    int block = Map.Unknown_0054E370(cell);
+    int block = Map.Cell_Region(cell);
     for (int index = 0; index < Houses.Count(); index++) {
         HouseClass *other = Houses[index];
         if (other != 0 && other->ArrayIndex != house
@@ -2888,11 +2888,11 @@ crate_money:
 }
 
 
-// bool CellClass::unknown_4786d0(int value) (0x004786D0): when flag 0x10 of
+// bool CellClass::Flag_Place(int value) (0x004786D0): when flag 0x10 of
 // +0x140 is clear and Is_Clear_To_Move(1, false, false, -1, 0, -1, 1) agrees,
 // sets the flag, stores value at +0x50 and answers true.
 
-bool CellClass::unknown_4786d0(int value)
+bool CellClass::Flag_Place(int value)
 {
     if ((unknown_140 & 0x10) == 0 && Is_Clear_To_Move(1, 0, 0, -1, 0, -1, 1)) {
         unknown_140 |= 0x10;
@@ -2903,7 +2903,7 @@ bool CellClass::unknown_4786d0(int value)
 }
 
 
-// bool CellClass::unknown_478720() (0x00478720): undoes unknown_4786d0: when
+// bool CellClass::unknown_478720() (0x00478720): undoes Flag_Place: when
 // flag 0x10 of +0x140 is set, clears it, sets +0x50 to -1 and answers true.
 
 bool CellClass::unknown_478720()
@@ -2917,10 +2917,10 @@ bool CellClass::unknown_478720()
 }
 
 
-// void CellClass::unknown_478740() (0x00478740): calls ObjectClass slot 61
+// void CellClass::Shimmer() (0x00478740): calls ObjectClass slot 61
 // on every occupant.
 
-void CellClass::unknown_478740()
+void CellClass::Shimmer()
 {
     for (ObjectClass *object = OccupierPtr; object != 0; object = object->unknown_30) {
         object->Do_Shimmer();
@@ -3955,10 +3955,10 @@ void CellClass::Redraw_Veins()
 }
 
 
-// bool CellClass::unknown_47b590() const (0x0047B590): whether the cell has
+// bool CellClass::Is_Tile_Clear() const (0x0047B590): whether the cell has
 // no tile (IsoTileIndex 0xFFFF or 0).
 
-bool CellClass::unknown_47b590() const
+bool CellClass::Is_Tile_Clear() const
 {
     if (IsoTileIndex == 0xFFFF || IsoTileIndex == 0) {
         return true;
@@ -3967,10 +3967,10 @@ bool CellClass::unknown_47b590() const
 }
 
 
-// bool CellClass::unknown_47b5b0() const (0x0047B5B0): whether the cell's
+// bool CellClass::Is_Tile_Ramp() const (0x0047B5B0): whether the cell's
 // tile is in the 20-tile set at 0x00A6E018 or the 12-tile set at 0x00A52EA8.
 
-bool CellClass::unknown_47b5b0() const
+bool CellClass::Is_Tile_Ramp() const
 {
     if ((IsoTileIndex < unknown_tileset_a6e018 || IsoTileIndex >= unknown_tileset_a6e018 + 20) && (IsoTileIndex < unknown_tileset_a52ea8 || IsoTileIndex >= unknown_tileset_a52ea8 + 12)) {
         return false;
@@ -4074,10 +4074,10 @@ bool CellClass::unknown_47b7e0() const
 }
 
 
-// bool CellClass::unknown_47b860() const (0x0047B860): whether the cell's tile
+// bool CellClass::Is_Tile_Misc_Pavement() const (0x0047B860): whether the cell's tile
 // is one of the 14 tiles of the set starting at 0x00A52EF4.
 
-bool CellClass::unknown_47b860() const
+bool CellClass::Is_Tile_Misc_Pavement() const
 {
     if (IsoTileIndex >= unknown_tileset_a52ef4 && IsoTileIndex < unknown_tileset_a52ef4 + 14) {
         return true;
@@ -4086,10 +4086,10 @@ bool CellClass::unknown_47b860() const
 }
 
 
-// bool CellClass::unknown_47b880() const (0x0047B880): whether the cell's tile
+// bool CellClass::Is_Tile_Pavement() const (0x0047B880): whether the cell's tile
 // is one of the 16 tiles of the set starting at 0x00A6E0E0.
 
-bool CellClass::unknown_47b880() const
+bool CellClass::Is_Tile_Pavement() const
 {
     if (IsoTileIndex >= unknown_tileset_a6e0e0 && IsoTileIndex < unknown_tileset_a6e0e0 + 16) {
         return true;
@@ -4098,10 +4098,10 @@ bool CellClass::unknown_47b880() const
 }
 
 
-// bool CellClass::unknown_47b8a0() const (0x0047B8A0): whether the cell's
+// bool CellClass::Is_Tile_Dirt_Road() const (0x0047B8A0): whether the cell's
 // tile is in the sets at 0x00A6CB6C (11), 0x00A6E014 (24) or 0x00A52EFC (66).
 
-bool CellClass::unknown_47b8a0() const
+bool CellClass::Is_Tile_Dirt_Road() const
 {
     if ((IsoTileIndex < unknown_tileset_a6cb6c || IsoTileIndex >= unknown_tileset_a6cb6c + 11)
         && (IsoTileIndex < unknown_tileset_a6e014 || IsoTileIndex >= unknown_tileset_a6e014 + 24)
@@ -4112,10 +4112,10 @@ bool CellClass::unknown_47b8a0() const
 }
 
 
-// bool CellClass::unknown_47b8e0() const (0x0047B8E0): whether the cell's tile
+// bool CellClass::Is_Tile_Paved_Road() const (0x0047B8E0): whether the cell's tile
 // is one of the 15 tiles of the set starting at 0x00A6DD0C.
 
-bool CellClass::unknown_47b8e0() const
+bool CellClass::Is_Tile_Paved_Road() const
 {
     if (IsoTileIndex >= unknown_tileset_a6dd0c && IsoTileIndex < unknown_tileset_a6dd0c + 15) {
         return true;
@@ -4124,10 +4124,10 @@ bool CellClass::unknown_47b8e0() const
 }
 
 
-// bool CellClass::unknown_47b900() const (0x0047B900): whether the cell's tile
+// bool CellClass::Is_Tile_Paved_Road_End() const (0x0047B900): whether the cell's tile
 // is one of the 4 tiles of the set starting at 0x00A6DD08.
 
-bool CellClass::unknown_47b900() const
+bool CellClass::Is_Tile_Paved_Road_End() const
 {
     if (IsoTileIndex >= unknown_tileset_a6dd08 && IsoTileIndex < unknown_tileset_a6dd08 + 4) {
         return true;
@@ -4136,10 +4136,10 @@ bool CellClass::unknown_47b900() const
 }
 
 
-// bool CellClass::unknown_47b920() const (0x0047B920): whether the cell's tile
+// bool CellClass::Is_Tile_Paved_Road_Slope() const (0x0047B920): whether the cell's tile
 // is one of the 4 tiles of the set starting at 0x00A52EE4.
 
-bool CellClass::unknown_47b920() const
+bool CellClass::Is_Tile_Paved_Road_Slope() const
 {
     if (IsoTileIndex >= unknown_tileset_a52ee4 && IsoTileIndex < unknown_tileset_a52ee4 + 4) {
         return true;
@@ -4148,10 +4148,10 @@ bool CellClass::unknown_47b920() const
 }
 
 
-// bool CellClass::unknown_47b940() const (0x0047B940): whether the cell's tile
+// bool CellClass::Is_Tile_Road_Median() const (0x0047B940): whether the cell's tile
 // is one of the 14 tiles of the set starting at 0x00A52C68.
 
-bool CellClass::unknown_47b940() const
+bool CellClass::Is_Tile_Road_Median() const
 {
     if (IsoTileIndex >= unknown_tileset_a52c68 && IsoTileIndex < unknown_tileset_a52c68 + 14) {
         return true;
@@ -4160,10 +4160,10 @@ bool CellClass::unknown_47b940() const
 }
 
 
-// bool CellClass::unknown_47b960() const (0x0047B960): whether the cell's tile
+// bool CellClass::Is_Tile_Bridge() const (0x0047B960): whether the cell's tile
 // is one of the 16 tiles of the set starting at 0x00A52C74.
 
-bool CellClass::unknown_47b960() const
+bool CellClass::Is_Tile_Bridge() const
 {
     if (IsoTileIndex >= unknown_tileset_a52c74 && IsoTileIndex < unknown_tileset_a52c74 + 16) {
         return true;
@@ -4172,10 +4172,10 @@ bool CellClass::unknown_47b960() const
 }
 
 
-// bool CellClass::unknown_47b980() const (0x0047B980): whether the cell's tile
+// bool CellClass::Is_Tile_Train_Bridge() const (0x0047B980): whether the cell's tile
 // is one of the 16 tiles of the set starting at 0x00A6CB68.
 
-bool CellClass::unknown_47b980() const
+bool CellClass::Is_Tile_Train_Bridge() const
 {
     if (IsoTileIndex >= unknown_tileset_a6cb68 && IsoTileIndex < unknown_tileset_a6cb68 + 16) {
         return true;
@@ -4184,10 +4184,10 @@ bool CellClass::unknown_47b980() const
 }
 
 
-// bool CellClass::unknown_47b9a0() const (0x0047B9A0): whether the cell's tile
+// bool CellClass::Is_Tile_Clear_To_Sand_LAT() const (0x0047B9A0): whether the cell's tile
 // is one of the 16 tiles of the set starting at 0x00A52C70.
 
-bool CellClass::unknown_47b9a0() const
+bool CellClass::Is_Tile_Clear_To_Sand_LAT() const
 {
     if (IsoTileIndex >= unknown_tileset_a52c70 && IsoTileIndex < unknown_tileset_a52c70 + 16) {
         return true;
@@ -4196,10 +4196,10 @@ bool CellClass::unknown_47b9a0() const
 }
 
 
-// bool CellClass::unknown_47b9c0() const (0x0047B9C0): whether the cell's
+// bool CellClass::Is_Tile_Clear_To_Green_LAT() const (0x0047B9C0): whether the cell's
 // tile is the one at 0x00A52C60 or in the 16-tile set at 0x00A52590.
 
-bool CellClass::unknown_47b9c0() const
+bool CellClass::Is_Tile_Clear_To_Green_LAT() const
 {
     if (IsoTileIndex != unknown_tileset_a52c60 && (IsoTileIndex < unknown_tileset_a52590 || IsoTileIndex >= unknown_tileset_a52590 + 16)) {
         return false;
@@ -4290,11 +4290,11 @@ bool CellClass::On_Ground() const
 }
 
 
-// bool CellClass::unknown_47ba10(int house) const (0x0047BA10): with a player
+// bool CellClass::Should_Draw_As_Cloaked(int house) const (0x0047BA10): with a player
 // house and the house's bit set, true for the player's own house or when the
 // player's per-house counter at +0x7C is not positive.
 
-bool CellClass::unknown_47ba10(int house) const
+bool CellClass::Should_Draw_As_Cloaked(int house) const
 {
     if (unknown_player_a35db4 != 0 && Is_House_Bit(house)) {
         if (house == unknown_player_a35db4->ArrayIndex) {
@@ -4419,11 +4419,11 @@ void CellClass::Fog_Cell()
 }
 
 
-// void CellClass::unknown_47be00() (0x0047BE00): walks the seven cells down
+// void CellClass::Unfog_Cell() (0x0047BE00): walks the seven cells down
 // the diagonal from this one; each whose level (+0x11B) is within two below
 // 1, 3, .., 13 in turn loses flag 0x400000 of +0x140 and runs Remove_Fogged_Objects.
 
-void CellClass::unknown_47be00()
+void CellClass::Unfog_Cell()
 {
     Cell cell = MapCoords;
     for (int level = 1; level < 15; level += 2) {
@@ -4448,8 +4448,8 @@ void CellClass::Remove_Fogged_Objects()
         int index = FoggedObjects->Count();
         while (--index >= 0) {
             FoggedObjectClass *object = (*FoggedObjects)[index];
-            if (object->unknown_4c1f00() != 0) {
-                for (Cell const *offset = object->unknown_4c1f00(); offset->X != 0x7FFF || offset->Y != 0x7FFF; offset++) {
+            if (object->Get_Head_Record_Occupy_List() != 0) {
+                for (Cell const *offset = object->Get_Head_Record_Occupy_List(); offset->X != 0x7FFF || offset->Y != 0x7FFF; offset++) {
                     CoordStruct coord = object->Coord;
                     CellClass &cell = Map[Coord_Cell(coord) + *offset];
                     if (&cell != this && cell.FoggedObjects != 0) {
@@ -4485,11 +4485,11 @@ int CellClass::Occupation_Mask(int house)
 }
 
 
-// int CellClass::unknown_47c040() (0x0047C040): tells the object found for
+// int CellClass::Reduce_Weed() (0x0047C040): tells the object found for
 // the cell (Unknown_007101B0; tube or bridge hypothesis) about the cell, or
 // else runs Redraw_Veins on the map's cell; answers 0.
 
-int CellClass::unknown_47c040()
+int CellClass::Reduce_Weed()
 {
     UnknownCellLookup *lookup = Unknown_007101B0(MapCoords);
     if (lookup != 0) {
@@ -4648,11 +4648,11 @@ bool CellClass::Place_Tiberium(int tib, int data)
 }
 
 
-// void CellClass::unknown_47c840() (0x0047C840): decrements +0x130 (from 0
+// void CellClass::ReduceShroudCounter() (0x0047C840): decrements +0x130 (from 0
 // when it is 1); at or below zero sets flags 0x18 of +0x12C unless both are
 // set already, in which case it clears flag 0x20 of +0x140.
 
-void CellClass::unknown_47c840()
+void CellClass::ReduceShroudCounter()
 {
     if (unknown_130 == 1) {
         unknown_130 = 0;
@@ -4669,11 +4669,11 @@ void CellClass::unknown_47c840()
 }
 
 
-// void CellClass::unknown_47c8a0() (0x0047C8A0): increments +0x130 (from 0
+// void CellClass::IncreaseShroudCounter() (0x0047C8A0): increments +0x130 (from 0
 // when it is -1) up to +0x134, setting flag 0x20 of +0x140 when it becomes
 // positive.
 
-void CellClass::unknown_47c8a0()
+void CellClass::IncreaseShroudCounter()
 {
     int old = unknown_130;
     if (old == -1) {
@@ -4858,10 +4858,10 @@ class Leaf_47ce40 { public: unsigned int get(); };
 unsigned int Leaf_47ce40::get() { return *(unsigned int*)((char*)this + 0xf8); }
 
 
-// int CellClass::unknown_47ce50() const (0x0047CE50): whether +0xF0 is above
+// int CellClass::IsRadiated() const (0x0047CE50): whether +0xF0 is above
 // 1.0.
 
-int CellClass::unknown_47ce50() const
+int CellClass::IsRadiated() const
 {
     if (unknown_f0 > 1.0) {
         return 1;
@@ -4870,11 +4870,11 @@ int CellClass::unknown_47ce50() const
 }
 
 
-// int CellClass::unknown_47ce70() const (0x0047CE70): the radiation level
+// int CellClass::GetRadLevel() const (0x0047CE70): the radiation level
 // (+0xF0) limited to Rules RadLevelMax, as an int.
 
 
-int CellClass::unknown_47ce70() const
+int CellClass::GetRadLevel() const
 {
     return Min(unknown_f0, Rules->RadLevelMax);
 }

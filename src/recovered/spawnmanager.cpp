@@ -220,7 +220,7 @@ void SpawnManagerClass::AI()
         AircraftClass *unit = SpawnedNodes[i]->Unit;
         switch (SpawnedNodes[i]->Status) {
         case 0:
-            if (Destination == 0 || unknown_5c.Value() || Status == 2 || Owner->House->Unknown_0051FC80()) {
+            if (Destination == 0 || unknown_5c.Value() || Status == 2 || Owner->House->Ion_Sensitives_Should_Be_Offline()) {
                 break;
             }
             if (SpawnedNodes[i]->IsMissile == 1) {

@@ -34,9 +34,9 @@ public:
     // Adds the scenario's state to a CRC (0x00662E00; Game_CRC).
     void Compute_CRC(WWCRCEngine &crc) const;
     long Next_ID();                             // 0x00663170 (name hypothesis)
-    CellClass *unknown_6631a0(int waypoint);            // 0x006631A0 (the map cell of a waypoint; hypothesis)
-    bool unknown_6612c0(unsigned index, bool value);    // 0x006612C0 (sets one of the 50 local variables; returns the old value; hypothesis)
-    bool unknown_661560(unsigned index, bool value);    // 0x00661560 (sets one of the 50 global variables; returns the old value; hypothesis)
+    CellClass *Get_Waypoint_Target(int waypoint);            // 0x006631A0 (the map cell of a waypoint; hypothesis)
+    bool Set_Global_To(unsigned index, bool value);    // 0x006612C0 (sets one of the 50 local variables; returns the old value; hypothesis)
+    bool Set_Local_To(unsigned index, bool value);    // 0x00661560 (sets one of the 50 global variables; returns the old value; hypothesis)
     // The variables by name and index (+0x1210 global, +0x1A12 local;
     // 0x00661310-0x00661710; name hypotheses).
     bool Set_Global_Variable(char const *name, bool value);       // 0x00661310
@@ -49,7 +49,7 @@ public:
     bool Get_Local_Variable(char const *name, bool *value);       // 0x00661680
     int Find_Local_Variable(char const *name);                    // 0x00661710
     void Set_Waypoint_Location(int waypoint, Cell cell);   // 0x00663400
-    bool Unknown_00663240(int waypoint) const;        // 0x00663240 (whether the waypoint is set; hypothesis)
+    bool Is_Valid_Waypoint(int waypoint) const;        // 0x00663240 (whether the waypoint is set; hypothesis)
     Cell Get_Waypoint_Location(int waypoint) const;   // 0x00663180 (the cell at +0x632 + 4*waypoint; hypothesis)
     // The centre of a waypoint's cell, raised on a bridge (0x006631C0).
     CoordStruct Waypoint_Coord(int waypoint) const;
@@ -243,7 +243,7 @@ void Release_Pause_0065c310();
 void __fastcall Focus_Loss_0065c040();
 void Focus_Restore_0065c140();
 // Whether the game was already paused when the pause count rose from zero (0x00AB6EF4).
-extern bool unknown_was_paused_ab6ef4;
+extern bool InputLockedBeforeHold;
 // With [Video] AllowModeToggle, switches to the RA2.INI screen size or back to
 // 640 x 480 (0x0065C480).
 void __fastcall Toggle_Display_Mode_0065c480(bool preferred);

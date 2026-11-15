@@ -648,7 +648,7 @@ void ParticleClass::Draw_It(Point2D const &point, Rect const &cliprect)
                         flags = 0x2806;
                     }
                 }
-                CC_Draw_Shape(unknown_surface_83995c, Unit_Draw_Convert_008323C0, shape, shapenum, point, cliprect, flags | 0xE00, 0, height_offset, 2, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(LogicalSurface, Unit_Draw_Convert_008323C0, shape, shapenum, point, cliprect, flags | 0xE00, 0, height_offset, 2, 1000, 0, 0, Point2D(0, 0));
             }
         } else {
             Point2D pixel;
@@ -673,7 +673,7 @@ void ParticleClass::Draw_It(Point2D const &point, Rect const &cliprect)
                             green = (int)(green * alpha) >> 7;
                             blue = (int)(blue * alpha) >> 7;
                         }
-                        unknown_surface_83995c->Put_Pixel(pixel, (unsigned short)Build_Hicolor_Pixel(red, green, blue));
+                        LogicalSurface->Put_Pixel(pixel, (unsigned short)Build_Hicolor_Pixel(red, green, blue));
                     }
                 }
             }
@@ -814,11 +814,11 @@ int ParticleClass::In_Which_Layer() const
 }
 
 
-// int __fastcall Unknown_0060A5C0(Point2D const &point) (0x0060A5C0)
+// int __fastcall Approximate_Distance(Point2D const &point) (0x0060A5C0)
 // Half the sum of the absolute coordinates (never called: expanded wherever
 // the unit uses it).
 
-int __fastcall Unknown_0060A5C0(Point2D const &point)
+int __fastcall Approximate_Distance(Point2D const &point)
 {
     return (abs(point.X) + abs(point.Y)) >> 1;
 }

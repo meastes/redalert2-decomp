@@ -9,8 +9,8 @@
 #include "shared/tactical.hpp"
 #include "shared/rules.hpp"
 #include "shared/unknown_globals.hpp"
-// @ref ?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z=006a8c80
-// @ref ?Unknown_006A9170@Tactical@@QAEXXZ=006a9170
+// @ref ?Clamp_To_Tactical_Rect@Tactical@@QAE_NPAUPoint2D@@@Z=006a8c80
+// @ref ?Update_Visible_Cells@Tactical@@QAEXXZ=006a9170
 // @ref ?Lerp@@YI?AUPoint2D@@ABU1@0M@Z=00722140
 // @ref ?unknown_abe540@@3UPoint2D@@A=00abe540/00abe544
 
@@ -39,7 +39,7 @@ void Tactical::AI()
             Point2D point = pos;
             int x;
             int y;
-            if (Unknown_006A8C80(&point) && !Debug_Map) {
+            if (Clamp_To_Tactical_Rect(&point) && !Debug_Map) {
                 x = point.X;
                 y = point.Y;
             } else {
@@ -48,7 +48,7 @@ void Tactical::AI()
             }
             unknown_d64 = Point2D(x, y);
             unknown_d74 = Point2D(x, y);
-            Unknown_006A9170();
+            Update_Visible_Cells();
             unknown_d7d = true;
             moved = true;
         }
@@ -62,7 +62,7 @@ void Tactical::AI()
         Point2D point = unknown_d74;
         int x;
         int y;
-        if (Unknown_006A8C80(&point) && !Debug_Map) {
+        if (Clamp_To_Tactical_Rect(&point) && !Debug_Map) {
             x = point.X;
             y = point.Y;
         } else {
@@ -71,7 +71,7 @@ void Tactical::AI()
         }
         unknown_d64 = Point2D(x, y);
         unknown_d74 = Point2D(x, y);
-        Unknown_006A9170();
+        Update_Visible_Cells();
         unknown_d7d = true;
     }
 }

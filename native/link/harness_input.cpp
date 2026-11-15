@@ -75,8 +75,8 @@ char const *Type_ID(TechnoClass *techno)
 }
 bool Is_Selected(ObjectClass *object)
 {
-    for (int i = 0; i < unknown_objects_a40c60.Count(); ++i) {
-        if (unknown_objects_a40c60[i] == object) return true;
+    for (int i = 0; i < CurrentObject.Count(); ++i) {
+        if (CurrentObject[i] == object) return true;
     }
     return false;
 }
@@ -173,11 +173,11 @@ void Native_Harness_Input(int frame)
         milestone = name;
     }
     char detail[1200] = "selected ";
-    Append_Int(detail, unknown_objects_a40c60.Count(), sizeof detail);
+    Append_Int(detail, CurrentObject.Count(), sizeof detail);
     // The selected objects of another house under the player's control (lane C18: a campaign's
     // units of their own house, Allied mission 2's Tanya the Germans'): " other=ID/HOUSE".
-    for (int i = 0; i < unknown_objects_a40c60.Count(); ++i) {
-        ObjectClass *object = unknown_objects_a40c60[i];
+    for (int i = 0; i < CurrentObject.Count(); ++i) {
+        ObjectClass *object = CurrentObject[i];
         HouseClass *house = object ? object->Owning_House() : 0;
         if (object == 0 || house == unknown_player_a35db4) continue;
         ObjectTypeClass *type = object->Class_Of();

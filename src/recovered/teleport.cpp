@@ -196,7 +196,7 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
 }
 
 
-// void TeleportLocomotionClass::unknown_6e0430(CoordStruct coord) (0x006E0430)
+// void TeleportLocomotionClass::Check_Landing(CoordStruct coord) (0x006E0430)
 // The warp arrival at coord (Process, state 5): each occupant of the cell
 // that slot 83 marks crushes the linked object (C4Warhead, its full
 // strength); a land unit on water that is not on a bridge sinks (+0x325,
@@ -204,7 +204,7 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
 // (slot 101 answers 7), is destroyed unless the cell (0x0047B7E0) lets an
 // infantry-less object sink there.
 
-void TeleportLocomotionClass::unknown_6e0430(CoordStruct coord)
+void TeleportLocomotionClass::Check_Landing(CoordStruct coord)
 {
     for (ObjectClass *object = Map[coord].OccupierPtr; object != 0; object = object->unknown_30) {
         if (object->unknown_slot83()) {
@@ -370,7 +370,7 @@ bool __stdcall TeleportLocomotionClass::Process()
                     for (int index = unknown_BulletClass_list_00a40ce8.Count() - 1; index >= 0; index--) {
                         BulletClass *bullet = unknown_BulletClass_list_00a40ce8[index];
                         if (bullet->Target == LinkedTo) {
-                            bullet->unknown_func_461470();
+                            bullet->LoseTarget();
                         }
                     }
                     new AnimClass(Rules->WarpOut, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
@@ -493,12 +493,12 @@ bool __stdcall TeleportLocomotionClass::Process()
             LinkedTo->unknown_32d = false;
         }
         if (LinkedTo->unknown_214 == 0) {
-            unknown_6e0430(unknown_28);
+            Check_Landing(unknown_28);
         }
         if (LinkedTo->IsActive) {
             LinkedTo->unknown_slot93(2);
             Stop_Moving();
-            LinkedTo->unknown_6d6e50(0);
+            LinkedTo->Assign_Archive_Target(0);
             LinkedTo->Assign_Destination(0, true);
             unknown_3c = LinkedTo->unknown_218;
             new AnimClass(Rules->WarpOut, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
@@ -513,7 +513,7 @@ bool __stdcall TeleportLocomotionClass::Process()
     }
     if (unknown_38 == 7) {
         LinkedTo->unknown_205 = false;
-        LinkedTo->unknown_6d6e50(0);
+        LinkedTo->Assign_Archive_Target(0);
         LinkedTo->Assign_Destination(0, true);
         unknown_34 = false;
         LinkedTo->unknown_214 = 0;

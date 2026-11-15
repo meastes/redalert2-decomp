@@ -979,7 +979,7 @@ void ModemHost::Select_Multi_Map_0059b090()
     if (Open_Lobby_Dialog_005c6960(MainWindow) == 2) {
         unknown_session_a3d298.ScenarioIndex = scenario;
         Select_Scenario_005c7c30(scenario);
-        Unknown_005c7570(Window);
+        Update_Network_Dialog_Preview(Window);
         ShowWindow(Window, 5);
         if (_stricmp(unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->unknown_58, "RandMap.Sed") == 0) {
             if (MultiplayerMapPreview != 0) {
@@ -988,11 +988,11 @@ void ModemHost::Select_Multi_Map_0059b090()
             MultiplayerMapPreview = new MapPreviewClass;
             MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
             if (MultiplayerMapPreview->unknown_00 == 0) {
-                Unknown_005c7570(Window);
+                Update_Network_Dialog_Preview(Window);
             }
             InvalidateRect(Window, 0, false);
         } else {
-            Unknown_005c7570(Window);
+            Update_Network_Dialog_Preview(Window);
         }
         InvalidateRect(Window, 0, false);
     } else {
@@ -1006,11 +1006,11 @@ void ModemHost::Select_Multi_Map_0059b090()
                     MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
                 }
                 if (MultiplayerMapPreview->unknown_00 == 0) {
-                    Unknown_005c7570(Window);
+                    Update_Network_Dialog_Preview(Window);
                 }
                 InvalidateRect(Window, 0, false);
             } else {
-                Unknown_005c7570(Window);
+                Update_Network_Dialog_Preview(Window);
             }
         } else {
             unknown_session_a3d298.ScenarioIndex = scenario;
@@ -1459,7 +1459,7 @@ bool ModemHost::Start_Game_0059c290(bool load_game)
     unknown_special_a40920.TiberiumSpreads = true;
     unknown_id_source_a3d290->Special().FixedAlliance = false;
     unknown_session_a3d298.unknown_a4 = true;
-    unknown_special_a40920.Unknown_0068B410();
+    unknown_special_a40920.Apply_To_Game();
     Debug_Printf("ModemHost.StartGame(exit)\n");
     return true;
 }

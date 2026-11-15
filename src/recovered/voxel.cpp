@@ -74,22 +74,22 @@
 // 0x00717ED0-0x00717F80 in definition order (Matrix3D and Vector3 arrays
 // have empty inline constructors: one-ret initializers).
 
-Matrix3D unknown_matrices_af73a0[21];
+Matrix3D ScreenSlopeMatrices[21];
 
 
-Matrix3D unknown_matrices_af8608[21];
+Matrix3D SlopeMatrices[21];
 
 
-Quaternion unknown_quaternions_af77d8[21];
+Quaternion ScreenSlopeQuaternions[21];
 
 
-Quaternion unknown_quaternions_af6618[21];
+Quaternion SlopeQuaternions[21];
 
 
-Matrix3D unknown_matrix_af77a8;
+Matrix3D IsometricViewMatrix;
 
 
-Matrix3D unknown_matrices_af8538[4];
+Matrix3D BounceMatrices[4];
 
 
 Vector3 unknown_vectors_af7930[256];
@@ -98,16 +98,16 @@ Vector3 unknown_vectors_af7930[256];
 Vector3 unknown_vectors_af6768[256];
 
 
-// Matrix3D __fastcall Unknown_00717F90() -- 0x00717F90: the isometric view matrix (unknown_matrix_af77a8) by value
+// Matrix3D __fastcall Get_Isometric_View_Matrix() -- 0x00717F90: the isometric view matrix (IsometricViewMatrix) by value
 // (callers: BulletClass 0x004610D0, UnitClass 0x007005B0, AircraftClass 0x004141C0, BuildingClass 0x0043ABD0;
 // the copy constructor is inline in this unit, RA2_MATRIX3D_INLINE_COPY in its first row).
-Matrix3D __fastcall Unknown_00717F90()
+Matrix3D __fastcall Get_Isometric_View_Matrix()
 {
-    return unknown_matrix_af77a8;
+    return IsometricViewMatrix;
 }
 
 
-extern float unknown_839aac;
+extern float VoxelLightAngle;
 extern Vector3 unknown_839ab0;
 extern Vector3 unknown_839a60;
 
@@ -115,7 +115,7 @@ void __stdcall Unknown_00717FB0(float angle)
 {
     Matrix3D matrix;
     matrix.Make_Identity();
-    unknown_839aac = angle;
+    VoxelLightAngle = angle;
     matrix.Rotate_Y(angle);
     unknown_839ab0 = matrix * Vector3(-0.70710599f, -0.70710599f, 0.0f);
     unknown_839a60 = Vector3(unknown_839ab0.X * -6.0f, 0.0f, 0.0f);
@@ -139,47 +139,47 @@ void __fastcall Unknown_00718060()
     Vector3 west(-1.0f, 0.0f, 0.0f);
     Vector3 south(0.0f, -1.0f, 0.0f);
 
-    unknown_matrices_af73a0[0].Make_Identity();
-    unknown_matrices_af73a0[1] = Matrix3D(3.9268751f, slope_i);
-    unknown_matrices_af73a0[2] = Matrix3D(2.3561251f, slope_i);
-    unknown_matrices_af73a0[3] = Matrix3D(0.785375f, slope_i);
-    unknown_matrices_af73a0[4] = Matrix3D(5.4976249f, slope_i);
-    unknown_quaternions_af77d8[1] = Axis_To_Quat(diagonal5, slope_i);
-    unknown_quaternions_af77d8[2] = Axis_To_Quat(diagonal3, slope_i);
-    unknown_quaternions_af77d8[3] = Axis_To_Quat(diagonal1, slope_i);
-    unknown_quaternions_af77d8[4] = Axis_To_Quat(diagonal7, slope_i);
-    unknown_matrices_af73a0[5] = Matrix3D(3.1415f, slope_h);
-    unknown_matrices_af73a0[6] = Matrix3D(1.57075f, slope_h);
-    unknown_matrices_af73a0[7] = Matrix3D(0.0f, slope_h);
-    unknown_matrices_af73a0[8] = Matrix3D(4.7122502f, slope_h);
-    unknown_quaternions_af77d8[5] = Axis_To_Quat(west, slope_h);
-    unknown_quaternions_af77d8[6] = Axis_To_Quat(north, slope_h);
-    unknown_quaternions_af77d8[7] = Axis_To_Quat(east, slope_h);
-    unknown_quaternions_af77d8[8] = Axis_To_Quat(south, slope_h);
-    unknown_matrices_af73a0[9] = Matrix3D(3.1415f, slope_h);
-    unknown_matrices_af73a0[10] = Matrix3D(1.57075f, slope_h);
-    unknown_matrices_af73a0[11] = Matrix3D(0.0f, slope_h);
-    unknown_matrices_af73a0[12] = Matrix3D(4.7122502f, slope_h);
-    unknown_quaternions_af77d8[9] = Axis_To_Quat(west, slope_h);
-    unknown_quaternions_af77d8[10] = Axis_To_Quat(north, slope_h);
-    unknown_quaternions_af77d8[11] = Axis_To_Quat(east, slope_h);
-    unknown_quaternions_af77d8[12] = Axis_To_Quat(south, slope_h);
-    unknown_matrices_af73a0[13] = Matrix3D(3.1415f, slope_i);
-    unknown_matrices_af73a0[14] = Matrix3D(1.57075f, slope_i);
-    unknown_matrices_af73a0[15] = Matrix3D(0.0f, slope_i);
-    unknown_matrices_af73a0[16] = Matrix3D(4.7122502f, slope_i);
-    unknown_quaternions_af77d8[13] = Axis_To_Quat(west, slope_i);
-    unknown_quaternions_af77d8[14] = Axis_To_Quat(north, slope_i);
-    unknown_quaternions_af77d8[15] = Axis_To_Quat(east, slope_i);
-    unknown_quaternions_af77d8[16] = Axis_To_Quat(south, slope_i);
-    unknown_matrices_af73a0[17].Make_Identity();
-    unknown_matrices_af73a0[18].Make_Identity();
-    unknown_matrices_af73a0[19].Make_Identity();
-    unknown_matrices_af73a0[20].Make_Identity();
-    unknown_quaternions_af77d8[17].Set(0.0f, 0.0f, 0.0f, 1.0f);
-    unknown_quaternions_af77d8[18].Set(0.0f, 0.0f, 0.0f, 1.0f);
-    unknown_quaternions_af77d8[19].Set(0.0f, 0.0f, 0.0f, 1.0f);
-    unknown_quaternions_af77d8[20].Set(0.0f, 0.0f, 0.0f, 1.0f);
+    ScreenSlopeMatrices[0].Make_Identity();
+    ScreenSlopeMatrices[1] = Matrix3D(3.9268751f, slope_i);
+    ScreenSlopeMatrices[2] = Matrix3D(2.3561251f, slope_i);
+    ScreenSlopeMatrices[3] = Matrix3D(0.785375f, slope_i);
+    ScreenSlopeMatrices[4] = Matrix3D(5.4976249f, slope_i);
+    ScreenSlopeQuaternions[1] = Axis_To_Quat(diagonal5, slope_i);
+    ScreenSlopeQuaternions[2] = Axis_To_Quat(diagonal3, slope_i);
+    ScreenSlopeQuaternions[3] = Axis_To_Quat(diagonal1, slope_i);
+    ScreenSlopeQuaternions[4] = Axis_To_Quat(diagonal7, slope_i);
+    ScreenSlopeMatrices[5] = Matrix3D(3.1415f, slope_h);
+    ScreenSlopeMatrices[6] = Matrix3D(1.57075f, slope_h);
+    ScreenSlopeMatrices[7] = Matrix3D(0.0f, slope_h);
+    ScreenSlopeMatrices[8] = Matrix3D(4.7122502f, slope_h);
+    ScreenSlopeQuaternions[5] = Axis_To_Quat(west, slope_h);
+    ScreenSlopeQuaternions[6] = Axis_To_Quat(north, slope_h);
+    ScreenSlopeQuaternions[7] = Axis_To_Quat(east, slope_h);
+    ScreenSlopeQuaternions[8] = Axis_To_Quat(south, slope_h);
+    ScreenSlopeMatrices[9] = Matrix3D(3.1415f, slope_h);
+    ScreenSlopeMatrices[10] = Matrix3D(1.57075f, slope_h);
+    ScreenSlopeMatrices[11] = Matrix3D(0.0f, slope_h);
+    ScreenSlopeMatrices[12] = Matrix3D(4.7122502f, slope_h);
+    ScreenSlopeQuaternions[9] = Axis_To_Quat(west, slope_h);
+    ScreenSlopeQuaternions[10] = Axis_To_Quat(north, slope_h);
+    ScreenSlopeQuaternions[11] = Axis_To_Quat(east, slope_h);
+    ScreenSlopeQuaternions[12] = Axis_To_Quat(south, slope_h);
+    ScreenSlopeMatrices[13] = Matrix3D(3.1415f, slope_i);
+    ScreenSlopeMatrices[14] = Matrix3D(1.57075f, slope_i);
+    ScreenSlopeMatrices[15] = Matrix3D(0.0f, slope_i);
+    ScreenSlopeMatrices[16] = Matrix3D(4.7122502f, slope_i);
+    ScreenSlopeQuaternions[13] = Axis_To_Quat(west, slope_i);
+    ScreenSlopeQuaternions[14] = Axis_To_Quat(north, slope_i);
+    ScreenSlopeQuaternions[15] = Axis_To_Quat(east, slope_i);
+    ScreenSlopeQuaternions[16] = Axis_To_Quat(south, slope_i);
+    ScreenSlopeMatrices[17].Make_Identity();
+    ScreenSlopeMatrices[18].Make_Identity();
+    ScreenSlopeMatrices[19].Make_Identity();
+    ScreenSlopeMatrices[20].Make_Identity();
+    ScreenSlopeQuaternions[17].Set(0.0f, 0.0f, 0.0f, 1.0f);
+    ScreenSlopeQuaternions[18].Set(0.0f, 0.0f, 0.0f, 1.0f);
+    ScreenSlopeQuaternions[19].Set(0.0f, 0.0f, 0.0f, 1.0f);
+    ScreenSlopeQuaternions[20].Set(0.0f, 0.0f, 0.0f, 1.0f);
 
     for (int facing = 0; facing < 256; facing++) {
         Matrix3D matrix;
@@ -187,103 +187,103 @@ void __fastcall Unknown_00718060()
         matrix.Rotate_Z(facing * 0.024542969f);
         unknown_vectors_af6768[facing] = matrix * Vector3(1.0f, 0.0f, 0.0f);
         unknown_vectors_af7930[facing] = Vector3::Cross_Product(unknown_vectors_af6768[facing], Vector3(0.0f, 0.0f, 1.0f));
-        Matrix3D rotation(unknown_vectors_af7930[facing], unknown_839aac);
+        Matrix3D rotation(unknown_vectors_af7930[facing], VoxelLightAngle);
         unknown_vectors_af6768[facing] = rotation * unknown_vectors_af6768[facing];
     }
 
-    unknown_matrices_af8608[0].Make_Identity();
-    unknown_matrices_af8608[1] = Matrix3D(4.7122502f, slope_i);
-    unknown_matrices_af8608[2] = Matrix3D(3.1415f, slope_i);
-    unknown_matrices_af8608[3] = Matrix3D(1.57075f, slope_i);
-    unknown_matrices_af8608[4] = Matrix3D(0.0f, slope_i);
-    unknown_matrices_af8608[5] = Matrix3D(3.9268751f, slope_h);
-    unknown_matrices_af8608[6] = Matrix3D(2.3561251f, slope_h);
-    unknown_matrices_af8608[7] = Matrix3D(0.785375f, slope_h);
-    unknown_matrices_af8608[8] = Matrix3D(5.4976249f, slope_h);
-    unknown_matrices_af8608[9] = Matrix3D(3.9268751f, slope_h);
-    unknown_matrices_af8608[10] = Matrix3D(2.3561251f, slope_h);
-    unknown_matrices_af8608[11] = Matrix3D(0.785375f, slope_h);
-    unknown_matrices_af8608[12] = Matrix3D(5.4976249f, slope_h);
-    unknown_matrices_af8608[13] = Matrix3D(3.9268751f, slope_i);
-    unknown_matrices_af8608[14] = Matrix3D(2.3561251f, slope_i);
-    unknown_matrices_af8608[15] = Matrix3D(0.785375f, slope_i);
-    unknown_matrices_af8608[16] = Matrix3D(5.4976249f, slope_i);
-    unknown_quaternions_af6618[0].Set(0.0f, 0.0f, 0.0f, 1.0f);
-    unknown_quaternions_af6618[1] = Axis_To_Quat(south, slope_i);
-    unknown_quaternions_af6618[2] = Axis_To_Quat(west, slope_i);
-    unknown_quaternions_af6618[3] = Axis_To_Quat(north, slope_i);
-    unknown_quaternions_af6618[4] = Axis_To_Quat(east, slope_i);
-    unknown_quaternions_af6618[5] = Axis_To_Quat(diagonal5, slope_h);
-    unknown_quaternions_af6618[6] = Axis_To_Quat(diagonal3, slope_h);
-    unknown_quaternions_af6618[7] = Axis_To_Quat(diagonal1, slope_h);
-    unknown_quaternions_af6618[8] = Axis_To_Quat(diagonal7, slope_h);
-    unknown_quaternions_af6618[9] = Axis_To_Quat(diagonal5, slope_h);
-    unknown_quaternions_af6618[10] = Axis_To_Quat(diagonal3, slope_h);
-    unknown_quaternions_af6618[11] = Axis_To_Quat(diagonal1, slope_h);
-    unknown_quaternions_af6618[12] = Axis_To_Quat(diagonal7, slope_h);
-    unknown_quaternions_af6618[13] = Axis_To_Quat(diagonal5, slope_i);
-    unknown_quaternions_af6618[14] = Axis_To_Quat(diagonal3, slope_i);
-    unknown_quaternions_af6618[15] = Axis_To_Quat(diagonal1, slope_i);
-    unknown_quaternions_af6618[16] = Axis_To_Quat(diagonal7, slope_i);
-    unknown_matrices_af8608[17].Make_Identity();
-    unknown_matrices_af8608[18].Make_Identity();
-    unknown_matrices_af8608[19].Make_Identity();
-    unknown_matrices_af8608[20].Make_Identity();
-    unknown_quaternions_af6618[17].Set(0.0f, 0.0f, 0.0f, 1.0f);
-    unknown_quaternions_af6618[18].Set(0.0f, 0.0f, 0.0f, 1.0f);
-    unknown_quaternions_af6618[19].Set(0.0f, 0.0f, 0.0f, 1.0f);
-    unknown_quaternions_af6618[20].Set(0.0f, 0.0f, 0.0f, 1.0f);
+    SlopeMatrices[0].Make_Identity();
+    SlopeMatrices[1] = Matrix3D(4.7122502f, slope_i);
+    SlopeMatrices[2] = Matrix3D(3.1415f, slope_i);
+    SlopeMatrices[3] = Matrix3D(1.57075f, slope_i);
+    SlopeMatrices[4] = Matrix3D(0.0f, slope_i);
+    SlopeMatrices[5] = Matrix3D(3.9268751f, slope_h);
+    SlopeMatrices[6] = Matrix3D(2.3561251f, slope_h);
+    SlopeMatrices[7] = Matrix3D(0.785375f, slope_h);
+    SlopeMatrices[8] = Matrix3D(5.4976249f, slope_h);
+    SlopeMatrices[9] = Matrix3D(3.9268751f, slope_h);
+    SlopeMatrices[10] = Matrix3D(2.3561251f, slope_h);
+    SlopeMatrices[11] = Matrix3D(0.785375f, slope_h);
+    SlopeMatrices[12] = Matrix3D(5.4976249f, slope_h);
+    SlopeMatrices[13] = Matrix3D(3.9268751f, slope_i);
+    SlopeMatrices[14] = Matrix3D(2.3561251f, slope_i);
+    SlopeMatrices[15] = Matrix3D(0.785375f, slope_i);
+    SlopeMatrices[16] = Matrix3D(5.4976249f, slope_i);
+    SlopeQuaternions[0].Set(0.0f, 0.0f, 0.0f, 1.0f);
+    SlopeQuaternions[1] = Axis_To_Quat(south, slope_i);
+    SlopeQuaternions[2] = Axis_To_Quat(west, slope_i);
+    SlopeQuaternions[3] = Axis_To_Quat(north, slope_i);
+    SlopeQuaternions[4] = Axis_To_Quat(east, slope_i);
+    SlopeQuaternions[5] = Axis_To_Quat(diagonal5, slope_h);
+    SlopeQuaternions[6] = Axis_To_Quat(diagonal3, slope_h);
+    SlopeQuaternions[7] = Axis_To_Quat(diagonal1, slope_h);
+    SlopeQuaternions[8] = Axis_To_Quat(diagonal7, slope_h);
+    SlopeQuaternions[9] = Axis_To_Quat(diagonal5, slope_h);
+    SlopeQuaternions[10] = Axis_To_Quat(diagonal3, slope_h);
+    SlopeQuaternions[11] = Axis_To_Quat(diagonal1, slope_h);
+    SlopeQuaternions[12] = Axis_To_Quat(diagonal7, slope_h);
+    SlopeQuaternions[13] = Axis_To_Quat(diagonal5, slope_i);
+    SlopeQuaternions[14] = Axis_To_Quat(diagonal3, slope_i);
+    SlopeQuaternions[15] = Axis_To_Quat(diagonal1, slope_i);
+    SlopeQuaternions[16] = Axis_To_Quat(diagonal7, slope_i);
+    SlopeMatrices[17].Make_Identity();
+    SlopeMatrices[18].Make_Identity();
+    SlopeMatrices[19].Make_Identity();
+    SlopeMatrices[20].Make_Identity();
+    SlopeQuaternions[17].Set(0.0f, 0.0f, 0.0f, 1.0f);
+    SlopeQuaternions[18].Set(0.0f, 0.0f, 0.0f, 1.0f);
+    SlopeQuaternions[19].Set(0.0f, 0.0f, 0.0f, 1.0f);
+    SlopeQuaternions[20].Set(0.0f, 0.0f, 0.0f, 1.0f);
 
-    unknown_matrix_af77a8.Make_Identity();
-    unknown_matrix_af77a8.Rotate_X((float)-unknown_geometry_angle60);
-    unknown_matrix_af77a8.Rotate_Z((float)-unknown_geometry_angle45);
+    IsometricViewMatrix.Make_Identity();
+    IsometricViewMatrix.Rotate_X((float)-unknown_geometry_angle60);
+    IsometricViewMatrix.Rotate_Z((float)-unknown_geometry_angle45);
 
     for (int index = 0; index < 4; index++) {
-        unknown_matrices_af8538[index].Make_Identity();
+        BounceMatrices[index].Make_Identity();
     }
-    unknown_matrices_af8538[0].Row[1][1] = -1.0f;
-    unknown_matrices_af8538[1].Row[0][0] = 0.0f;
-    unknown_matrices_af8538[1].Row[0][1] = 1.0f;
-    unknown_matrices_af8538[1].Row[1][0] = 1.0f;
-    unknown_matrices_af8538[1].Row[1][1] = 0.0f;
-    unknown_matrices_af8538[2].Row[0][0] = -1.0f;
-    unknown_matrices_af8538[3].Row[0][0] = 0.0f;
-    unknown_matrices_af8538[3].Row[0][1] = -1.0f;
-    unknown_matrices_af8538[3].Row[1][0] = -1.0f;
-    unknown_matrices_af8538[3].Row[1][1] = 0.0f;
+    BounceMatrices[0].Row[1][1] = -1.0f;
+    BounceMatrices[1].Row[0][0] = 0.0f;
+    BounceMatrices[1].Row[0][1] = 1.0f;
+    BounceMatrices[1].Row[1][0] = 1.0f;
+    BounceMatrices[1].Row[1][1] = 0.0f;
+    BounceMatrices[2].Row[0][0] = -1.0f;
+    BounceMatrices[3].Row[0][0] = 0.0f;
+    BounceMatrices[3].Row[0][1] = -1.0f;
+    BounceMatrices[3].Row[1][0] = -1.0f;
+    BounceMatrices[3].Row[1][1] = 0.0f;
 }
 
 
-void __fastcall Unknown_00718D40(int index, Matrix3D *matrix)
+void __fastcall Get_Screen_Slope_Matrix(int index, Matrix3D *matrix)
 {
-    *matrix = unknown_matrices_af73a0[index];
+    *matrix = ScreenSlopeMatrices[index];
 }
 
 
 Matrix3D * __fastcall Unknown_00718D60(Matrix3D *matrix, int ramp)
 {
-    *matrix = unknown_matrices_af8608[ramp];
+    *matrix = SlopeMatrices[ramp];
     return matrix;
 }
 
 
-void __fastcall Unknown_00718D80(int from, int to, Matrix3D *matrix, double alpha)
+void __fastcall Get_Screen_Slope_Transition_Matrix(int from, int to, Matrix3D *matrix, double alpha)
 {
     if (from == to) {
-        *matrix = unknown_matrices_af73a0[to];
+        *matrix = ScreenSlopeMatrices[to];
     } else {
-        *matrix = Build_Matrix3D(Slerp(unknown_quaternions_af77d8[from], unknown_quaternions_af77d8[to], (float)alpha));
+        *matrix = Build_Matrix3D(Slerp(ScreenSlopeQuaternions[from], ScreenSlopeQuaternions[to], (float)alpha));
     }
 }
 
 
-Matrix3D * __fastcall Unknown_00718DF0(Matrix3D *matrix, int from, int to, double alpha)
+Matrix3D * __fastcall Get_Slope_Transition_Matrix(Matrix3D *matrix, int from, int to, double alpha)
 {
     if (from != to) {
-        *matrix = Build_Matrix3D(Slerp(unknown_quaternions_af6618[from], unknown_quaternions_af6618[to], (float)alpha));
+        *matrix = Build_Matrix3D(Slerp(SlopeQuaternions[from], SlopeQuaternions[to], (float)alpha));
         return matrix;
     }
-    *matrix = unknown_matrices_af8608[to];
+    *matrix = SlopeMatrices[to];
     return matrix;
 }
 
@@ -292,11 +292,11 @@ Matrix3D * __fastcall Unknown_00718DF0(Matrix3D *matrix, int from, int to, doubl
 // Purpose: entry `index` of the word table at 0x007F9D9C.
 // Assumptions: what the table holds is unknown.
 
-extern int unknown_table_7f9d9c[];
+extern int SomeNumbers[];
 
 int __fastcall unknown_table_entry_7f9d9c(int index)
 {
-    return unknown_table_7f9d9c[index];
+    return SomeNumbers[index];
 }
 
 
@@ -305,7 +305,7 @@ extern double const unknown_facing_origin_79b630;
 // The 256-step facing from one coordinate to another, measured from 0x20
 // (the UnknownFacingDir(from, to) formula of 0x00423EF0 without its
 // equal-coordinates case).
-char __fastcall Unknown_00718E80(CoordStruct const &from, CoordStruct const &to)
+char __fastcall _Direction256(CoordStruct const &from, CoordStruct const &to)
 {
     int x1 = from.X;
     int x2 = to.X;
@@ -317,11 +317,11 @@ char __fastcall Unknown_00718E80(CoordStruct const &from, CoordStruct const &to)
 }
 
 
-extern float unknown_angles_7f9d84[];
+extern float ExtraLightTiltAngles[];
 
-void __fastcall Unknown_00718EE0(Matrix3D *matrix, int index, int angle)
+void __fastcall Apply_Light_Transform(Matrix3D *matrix, int index, int angle)
 {
-    Matrix3D rotation(unknown_vectors_af7930[index], unknown_angles_7f9d84[angle]);
+    Matrix3D rotation(unknown_vectors_af7930[index], ExtraLightTiltAngles[angle]);
     *matrix = *matrix * rotation;
     matrix->Translate(unknown_vectors_af6768[index] * -3.0f);
     matrix->Translate(0.0f, 0.0f, 3.0f);
@@ -345,11 +345,11 @@ void Unknown_00719000()
 }
 
 
-Matrix3D * __fastcall Unknown_00719010(Matrix3D *matrix, int index)
+Matrix3D * __fastcall Get_Bounce_Matrix(Matrix3D *matrix, int index)
 {
     if (index >= 4) {
         index -= 4;
     }
-    *matrix = unknown_matrices_af8538[index];
+    *matrix = BounceMatrices[index];
     return matrix;
 }

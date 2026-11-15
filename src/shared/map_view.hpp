@@ -86,8 +86,8 @@ public:
     void Unknown_00557090(Cell const &cell);                      // 0x00557090
 #endif
     void Sight_From(CoordStruct const &coord, int sight, HouseClass *house, bool arg4, bool arg5, bool arg6, bool arg7, bool arg8);   // 0x0054A110
-    void Unknown_0054A720(CoordStruct const &coord, int radius);           // 0x0054A720 (TActionClass 0x006B1050: the rules RevealTriggerRadius around a waypoint)
-    void Unknown_0055A300();                                              // 0x0055A300
+    void Shroud_Gap_Area(CoordStruct const &coord, int radius);           // 0x0054A720 (TActionClass 0x006B1050: the rules RevealTriggerRadius around a waypoint)
+    void Refresh_Shroud();                                              // 0x0055A300
     void unknown_slot27();                                                // slot 27 0x0054E300 (virtual in shared/map.hpp; Logic calls it directly)
     Cell Unknown_005689D0(Cell const &cell, int arg2);                    // 0x005689D0 (TActionClass 0x006B2860 launches from the cell it returns)
     void Unknown_0055AA50();                                                    // 0x0055AA50 (starts the walk of 0x0055A910)
@@ -102,8 +102,8 @@ public:
     bool Unknown_0055C2C0(int first, int second); // physical AL-only/RET8; signedness/source intent hypotheses
     void Unknown_00559F10();                                              // 0x00559F10
     void Unknown_0055A120();                                              // 0x0055A120 (shared/map.hpp)
-    void Unknown_0055A1F0();                                              // 0x0055A1F0 (shared/map.hpp)
-    int Unknown_0056A8A0();                                               // 0x0056A8A0 (the lowest cell level, +0x144; TechnoClass 0x006CD6F0)
+    void Reveal_The_Map();                                              // 0x0055A1F0 (shared/map.hpp)
+    int Get_Max_Level();                                               // 0x0056A8A0 (the lowest cell level, +0x144; TechnoClass 0x006CD6F0)
     bool In_Radar(Cell const &cell);                                      // 0x0054AAB0
 #ifdef RA2_MAP_EDGE_CELL
     Cell Unknown_00547F30(Cell const &cell);                              // 0x00547F30 (TibSun Cell_To_LocalRect; Fly unit only)
@@ -124,8 +124,8 @@ public:
     int Get_Height_GL(CoordStruct const &coord);                             // 0x0055A280
     void Collapse_Cliff(CellClass *cell);    // 0x00562F50 (TibSun name)
     CellClass *Iterate();
-    bool Unknown_0054E580(Cell cell, int arg2);                             // 0x0054E580
-    void Unknown_00559FD0();                                              // 0x00559FD0                                              // 0x0055A490
+    bool Place_Crate(Cell cell, int arg2);                             // 0x0054E580
+    void Shroud_The_Map();                                              // 0x00559FD0                                              // 0x0055A490
     int Overpass();                                                     // 0x0054B2E0 (TibSun Overpass)
     void Unknown_005685F0();                                                    // 0x005685F0
     bool Unknown_00569090(Cell *cell);                                          // 0x00569090
@@ -153,7 +153,7 @@ public:
     bool Is_Fogged(CoordStruct const &coord);                            // 0x005683C0 (Tunnel.cpp)
     bool Is_Shrouded(CoordStruct const &coord);                            // 0x00568140
     void Unknown_0054A550(CoordStruct const &coord, int arg2, int arg3, int arg4);   // 0x0054A550
-    int Unknown_0054E370(Cell const &cell);                               // 0x0054E370
+    int Cell_Region(Cell const &cell);                               // 0x0054E370
     Cell Nearby_Location(Cell const &cell, int speed, int zone_index, int zone, bool bridge, Point2D size, bool arg8, bool arg9, bool arg10, bool arg11, Cell const &arg12, int arg13);   // 0x005502E0 (size: width and height, by value)
     void Unknown_00552570(Cell const &cell);                              // 0x00552570
     void Unknown_00555A60(Cell const &cell);                              // 0x00555A60
@@ -329,21 +329,21 @@ int __fastcall Unknown_006818D0(int type, int id, int arg3);
 class SidebarClass : public PowerClass {
 public:
 #ifdef MAP_VIEW_DECLARE_WINDOW_PROC
-    void Unknown_0067D420(bool sidebar);
+    void Blit_Sidebar(bool sidebar);
 #endif
     void Unknown_0067C150(ObjectClass *object);                                 // 0x0067C150 (as shared/sidebar.hpp)
     virtual void Reposition_Sidebar();                                              // slot 34 0x006819A0
 #ifdef RA2_HOUSE_SCREEN_AI
     void Unknown_0067E1C0(); // as shared/sidebar.hpp
 #endif
-    void Unknown_0067C2D0(int column);                                          // 0x0067C2D0 redraws a strip if active
+    void Flag_Tab_To_Redraw(int column);                                          // 0x0067C2D0 redraws a strip if active
     bool Unknown_0067C370(class FactoryClass *factory,int type,int id); // 0067C370, as shared/sidebar.hpp; House production link
     bool Unknown_00681740(int type, int id, class FactoryClass *factory);             // 0x00681740 (as shared/sidebar.hpp; production abandoned)
     static int __fastcall Which_Column(int kind, int arg3, bool naval);           // 0x00681940 (as shared/sidebar.hpp)
-    void Unknown_0067B880(bool cameo_text);                                     // 0x0067B880 (empty; OptionsClass SidebarCameoText)
+    void Toggle_Cameo_Text(bool cameo_text);                                     // 0x0067B880 (empty; OptionsClass SidebarCameoText)
     void Select_Tab(int index);                                                 // 0x0067D990 (as shared/sidebar.hpp)
     bool Unknown_0067C530(int type, int id);                                    // 0x0067C530 (as shared/sidebar.hpp; adds a buildable to its strip)
-    void Unknown_006822B0(TechnoTypeClass *type, int arg2);                     // 0x006822B0 (as shared/sidebar.hpp)
+    void Flash_Cameo(TechnoTypeClass *type, int arg2);                     // 0x006822B0 (as shared/sidebar.hpp)
 
     // A production strip, as far as the other units read it (shared/sidebar.hpp's StripClass, 0xE64 bytes).
     class StripClass {

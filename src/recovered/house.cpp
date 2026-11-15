@@ -1167,7 +1167,7 @@ void HouseClass::AI()
         SuperClass *super=Supers[super_index];
         if (super->Is_Present() && super->unknown_69d390(this==unknown_player_a35db4) && this==unknown_player_a35db4) {
             int type_index=super->Type->Fetch_Heap_ID();
-            Map.Unknown_0067C2D0(Unknown_006818D0(0x39,type_index,0));
+            Map.Flag_Tab_To_Redraw(Unknown_006818D0(0x39,type_index,0));
         }
     }
     if (unknown_game_mode_a3d298!=0 && !unknown_13d && Frame>0 && !Type->MultiplayPassive) {
@@ -1270,7 +1270,7 @@ void HouseClass::unknown_func_4e4ef0()
         if (super->unknown_55 && super->unknown_func_69d390(this == unknown_player_a35db4) &&
             this == unknown_player_a35db4) {
             int id = super->Type->Fetch_Heap_ID();
-            Map.Unknown_0067C2D0(Unknown_006818D0(0x39, id, 0));
+            Map.Flag_Tab_To_Redraw(Unknown_006818D0(0x39, id, 0));
         }
     }
 }
@@ -1359,9 +1359,9 @@ void HouseClass::Place_Tiberium(int count, int type)
 }
 
 
-// double HouseClass::unknown_func_4e5240() const (0x004E5240)
+// double HouseClass::Weed_Fraction() const (0x004E5240)
 
-double HouseClass::unknown_func_4e5240() const
+double HouseClass::Weed_Fraction() const
 {
     if (unknown_254.Get_Total_Amount() == 0.0f) {
         return 0.0;
@@ -1684,13 +1684,13 @@ void HouseClass::unknown_func_4e5dc0(int cell, int amount)
 
 int HouseClass::unknown_func_4e63f0(int kind, int index, bool naval)
 {
-    UnknownFactoryView *factory = (UnknownFactoryView *)unknown_func_4eb580(kind, naval, unknown_func_4eb550(kind, index));
+    UnknownFactoryView *factory = (UnknownFactoryView *)Fetch_Factory(kind, naval, unknown_func_4eb550(kind, index));
     if (factory == 0) {
         return 3;
     }
     factory->unknown_func_4b9630(true);
     if (unknown_player_a35db4 == this) {
-        Map.Unknown_0067C2D0(Unknown_006818D0(kind, index, 0));
+        Map.Flag_Tab_To_Redraw(Unknown_006818D0(kind, index, 0));
     }
     return 0;
 }
@@ -1705,12 +1705,12 @@ int HouseClass::unknown_func_4e63f0(int kind, int index, bool naval)
 int HouseClass::Abandon_Production(int kind, int index, bool naval)
 {
     int buildcat = unknown_func_4eb550(kind, index);
-    FactoryClass *factory = unknown_func_4eb580(kind, naval, buildcat);
+    FactoryClass *factory = Fetch_Factory(kind, naval, buildcat);
     if (factory == 0) {
         return 3;
     }
     if (factory->Queue.Count() > 0 && index >= 0 && buildcat == 0 && factory->Delete_Queued_004B9DF0(Unknown_00482C00(kind, index))) {
-        Map.Unknown_0067C2D0(Unknown_006818D0(kind, index, 0));
+        Map.Flag_Tab_To_Redraw(Unknown_006818D0(kind, index, 0));
         return 0;
     }
     if (buildcat == 0 && index != -1) {
@@ -1802,7 +1802,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
     bool placed = false;
     TechnoClass *tech = 0;
     int category = unknown_func_4eb550(kind, index);
-    FactoryClass *factory = unknown_func_4eb580(kind, naval, category);
+    FactoryClass *factory = Fetch_Factory(kind, naval, category);
     if (factory && factory->Is_Complete_004B9900()) {
         tech = factory->Get_Object();
         if (cell == unknown_cell_a40f10 || cell == Cell(-1, -1)) {
@@ -2174,11 +2174,11 @@ bool HouseClass::Flag_Attach(Cell const &cell, bool arg2)
     if (Map.In_Radar(cell)) {
         unknown_func_4e7580(unknown_5308, arg2);
         Cell target = cell;
-        bool ok = Map[target].unknown_4786d0(Type->House);
+        bool ok = Map[target].Flag_Place(Type->House);
         if (!ok) {
             target = Map.Nearby_Location(cell, 1, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
             if (target != unknown_cell_a40f10) {
-                ok = Map[target].unknown_4786d0(Type->House);
+                ok = Map[target].Flag_Place(Type->House);
             }
         }
         if (ok) {
@@ -2243,7 +2243,7 @@ void HouseClass::MPlayer_Defeated_004e77f0()
         Planning_End();
         Map.Unknown_0049CAC0(0);
         MuteSWLaunches=1;
-        Map.Unknown_0055A1F0();
+        Map.Reveal_The_Map();
         Map.Toggle_Radar(true);
         HiddenSurface->Fill(0);
         Map.Flag_To_Redraw(2);
@@ -2463,9 +2463,9 @@ bool HouseClass::Flag_To_Lose(bool quiet)
 }
 
 
-// void HouseClass::unknown_func_4e82c0() (0x004E82C0)
+// void HouseClass::Flag_To_End() (0x004E82C0)
 
-void HouseClass::unknown_func_4e82c0()
+void HouseClass::Flag_To_End()
 {
     if (!unknown_140 && !unknown_13f) {
         Flag_To_Win(false);
@@ -2677,9 +2677,9 @@ void HouseClass::unknown_func_4e8640()
                 if (building != 0 && !building->unknown_76 && building->Strength > 0) {
                     int zone = Which_Zone(building->Center_Coord());
                     if (zone != -1) {
-                        ZoneInfo[zone].ArmorDefense += building->unknown_6d5900();
-                        ZoneInfo[zone].AirDefense += building->unknown_6d5870();
-                        ZoneInfo[zone].InfantryDefense += building->unknown_6d59d0();
+                        ZoneInfo[zone].ArmorDefense += building->Anti_Armor();
+                        ZoneInfo[zone].AirDefense += building->Anti_Air();
+                        ZoneInfo[zone].InfantryDefense += building->Anti_Infantry();
                     }
                 }
             }
@@ -2883,7 +2883,7 @@ bool HouseClass::AI_Raise_Money_004e90f0(int urgency)
             if (level!=0) {
                 int cost=((BuildingTypeClass *)building->unknown_4c0[level-1])->GetRefund(this,true);
                 Balance+=cost;
-                building->unknown_44c860();
+                building->Remove_Upgrade();
                 unknown_5668=true;
                 unknown_5669=true;
                 Building_Refresh_House_Buildings_0044fa40(this);
@@ -3067,7 +3067,7 @@ int HouseClass::AI_Unit()
             int age = team->unknown_50;
             if (((type->Reinforce && !team->IsFullStrength) || (!team->IsForcedActive && !team->IsHasBeen)) && team->Owner == this) {
                 DynamicVectorClass<TechnoTypeClass *> needed;
-                team->unknown_func_6bd870(needed);
+                team->Team_Members(needed);
                 for (int subindex = 0; subindex < needed.Count(); subindex++) {
                     TechnoTypeClass *member = needed[subindex];
                     if (member->Kind_Of() == 0x28) {
@@ -3081,7 +3081,7 @@ int HouseClass::AI_Unit()
 
     for (int uindex = 0; uindex < Units.Count(); uindex++) {
         UnitClass *unit = Units[uindex];
-        if (unit != 0 && unit->unknown_4c8d00(this) && counter[unit->Type->ArrayIndex] > 0) {
+        if (unit != 0 && unit->Is_Recruitable(this) && counter[unit->Type->ArrayIndex] > 0) {
             counter[unit->Type->ArrayIndex]--;
         }
     }
@@ -3136,7 +3136,7 @@ int HouseClass::AI_Infantry()
             int age = team->unknown_50;
             if (((type->Reinforce && !team->IsFullStrength) || (!team->IsForcedActive && !team->IsHasBeen)) && team->Owner == this) {
                 DynamicVectorClass<TechnoTypeClass *> needed;
-                team->unknown_func_6bd870(needed);
+                team->Team_Members(needed);
                 for (int subindex = 0; subindex < needed.Count(); subindex++) {
                     TechnoTypeClass *member = needed[subindex];
                     if (member->Kind_Of() == 0x10) {
@@ -3150,7 +3150,7 @@ int HouseClass::AI_Infantry()
 
     for (int iindex = 0; iindex < Infantry.Count(); iindex++) {
         InfantryClass *infantry = Infantry[iindex];
-        if (infantry != 0 && infantry->unknown_4c8d00(this) && counter[infantry->Type->ArrayIndex] > 0) {
+        if (infantry != 0 && infantry->Is_Recruitable(this) && counter[infantry->Type->ArrayIndex] > 0) {
             counter[infantry->Type->ArrayIndex]--;
         }
     }
@@ -3205,7 +3205,7 @@ int HouseClass::AI_Aircraft()
             int age = team->unknown_50;
             if (((type->Reinforce && !team->IsFullStrength) || (!team->IsForcedActive && !team->IsHasBeen)) && team->Owner == this) {
                 DynamicVectorClass<TechnoTypeClass *> needed;
-                team->unknown_func_6bd870(needed);
+                team->Team_Members(needed);
                 for (int subindex = 0; subindex < needed.Count(); subindex++) {
                     TechnoTypeClass *member = needed[subindex];
                     if (member->Kind_Of() == 3) {
@@ -3219,7 +3219,7 @@ int HouseClass::AI_Aircraft()
 
     for (int aindex = 0; aindex < Aircraft.Count(); aindex++) {
         AircraftClass *aircraft = Aircraft[aindex];
-        if (aircraft != 0 && aircraft->unknown_4c8d00(this) && counter[aircraft->Type->ArrayIndex] > 0) {
+        if (aircraft != 0 && aircraft->Is_Recruitable(this) && counter[aircraft->Type->ArrayIndex] > 0) {
             counter[aircraft->Type->ArrayIndex]--;
         }
     }
@@ -3525,7 +3525,7 @@ inline Cell Coord_Cell_Value(CoordStruct coord)
 Cell HouseClass::Unknown_004EB270(FootClass *foot)
 {
     int zone;
-    if (foot->unknown_6d59d0() + foot->unknown_6d5900() + foot->unknown_6d5870() == 0) {
+    if (foot->Anti_Infantry() + foot->Anti_Armor() + foot->Anti_Air() == 0) {
         zone = 0;
     } else {
         zone = Random_Pick(1, 4);
@@ -3555,7 +3555,7 @@ AbstractClass *HouseClass::unknown_func_4eb360(CoordStruct const &coord)
         if (unit != 0 && !unit->unknown_76 && !Is_Ally(unit) && unit->House->Which_Zone(unit) == -1
                 && unit->Get_Height_AGL() >= -20 && unit->unknown_1b8 != 2) {
             int distance = Coord_Distance(coord, unit->Center_Coord());
-            if (unit->unknown_6d5870() != 0) {
+            if (unit->Anti_Air() != 0) {
                 distance *= 2;
             }
             if (value == 0 || distance < value) {
@@ -3587,12 +3587,12 @@ int __fastcall HouseClass::unknown_func_4eb550(int kind, int index)
 }
 
 
-// FactoryClass *HouseClass::unknown_func_4eb580(int kind, bool naval, int arg3) (0x004EB580)
+// FactoryClass *HouseClass::Fetch_Factory(int kind, bool naval, int arg3) (0x004EB580)
 // The house's factory for an object kind (+0x52D8..+0x52F8).
 // Cases are object kinds: 1 unit, 2/3 aircraft, 6/7 building, 15/16
 // infantry, 40 (all hypotheses); arg3 5 picks the second building entry.
 
-FactoryClass *HouseClass::unknown_func_4eb580(int kind, bool naval, int arg3)
+FactoryClass *HouseClass::Fetch_Factory(int kind, bool naval, int arg3)
 {
     FactoryClass *factory;
     switch (kind) {
@@ -3766,7 +3766,7 @@ void HouseClass::unknown_func_4eb810(int kind, bool naval, int arg3, bool value)
 
 
 // void HouseClass::Set_Factory(FactoryClass *factory, int kind, bool naval, int buildcat) (0x004EB8C0)
-// Stores the house's factory for an object kind (the slots unknown_func_4eb580
+// Stores the house's factory for an object kind (the slots Fetch_Factory
 // reads; name after TS's HouseClass::Set_Factory).
 
 void HouseClass::Set_Factory(FactoryClass *factory, int kind, bool naval, int buildcat)
@@ -4240,10 +4240,10 @@ void HouseClass::Adjust_Drain(int amount)
 #pragma auto_inline(off)
 void HouseClass::unknown_func_4ec9b0()
 {
-    int count = unknown_objects_a40c60.Count();
+    int count = CurrentObject.Count();
     if (count != 0) {
         for (int index = 0; index < count; index++) {
-            UnknownBuildingView *building = (UnknownBuildingView *)unknown_objects_a40c60[index];
+            UnknownBuildingView *building = (UnknownBuildingView *)CurrentObject[index];
             if (building != 0 && building->Kind_Of() == 6 && !building->unknown_372 &&
                 ((UnknownBuildingTypeView *)building->Type)->unknown_c68 > 0 &&
                 (building->unknown_1a8 & (1 << unknown_player_a35db4->Type->House)) != 0) {
@@ -5541,7 +5541,7 @@ Cell HouseClass::unknown_func_4f0e30(BuildingTypeClass *upgrade)
     bool any_level = upgrade->PowersUpToLevel == -1;
     for (int at = 0; at < unknown_BuildingClass_list_00a40af8.Count(); at++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[at];
-        if (building->House == this && building->Type == type && building->unknown_44d900(upgrade, this)) {
+        if (building->House == this && building->Type == type && building->Can_Upgrade(upgrade, this)) {
             if ((any_level && best > building->unknown_5c6) || (!any_level && building->unknown_5c6 == 0)) {
                 best = building->unknown_5c6;
                 chosen = building;
@@ -5687,9 +5687,9 @@ bool HouseClass::AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells)
             int dy = -delta.Y;
             UnknownFacingDir dir = Offset_Direction(delta.X, dy);
             int quadrant = Dir_To_4(dir);
-            int air = building->unknown_451710();
-            int armor = building->unknown_451760();
-            int infantry = building->unknown_4517b0();
+            int air = building->Anti_Air_Defense_Value();
+            int armor = building->Anti_Armor_Defense_Value();
+            int infantry = building->Anti_Infantry_Defense_Value();
             if (air + armor + infantry > 0) {
                 air_values[quadrant] += air;
                 armor_values[quadrant] += armor;
@@ -6225,7 +6225,7 @@ void HouseClass::unknown_func_4f3170(int kind, bool naval, int arg3)
         } else if (factory->Object->Techno_Type_Class()->Who_Can_Build_Me(true, true, true, this) == 0) {
             factory->Suspend_004B9630(false);
             if (unknown_player_a35db4 == this) {
-                Map.Unknown_0067C2D0(SidebarClass::Which_Column(kind, arg3, naval));
+                Map.Flag_Tab_To_Redraw(SidebarClass::Which_Column(kind, arg3, naval));
             }
         } else if (factory->unknown_6c && !factory->unknown_6d) {
             factory->Start_Production_004B9670(false);
@@ -6296,7 +6296,7 @@ void HouseClass::unknown_func_4f3420()
             if (foot->unknown_454 == unknown_cell_a40f10) {
                 continue;
             }
-            int region = Map.Unknown_0054E370(foot->unknown_454);
+            int region = Map.Cell_Region(foot->unknown_454);
             if (foot->House == this) {
                 continue;
             }
@@ -6305,7 +6305,7 @@ void HouseClass::unknown_func_4f3420()
             }
             unknown_func_4e5dc0(region, threat);
         } else {
-            unknown_func_4e5dc0(Map.Unknown_0054E370(((CellClass *)techno->Get_Cell_Ptr())->MapCoords), threat);
+            unknown_func_4e5dc0(Map.Cell_Region(((CellClass *)techno->Get_Cell_Ptr())->MapCoords), threat);
         }
     }
 }
@@ -6345,9 +6345,9 @@ bool HouseClass::Can_Build_Team(TeamTypeClass *team)
                 return false;
             }
             bool found = false;
-            for (int foot_index = unknown_FootClass_list_00865f38.Count() - 1; foot_index >= 0; foot_index--) {
-                FootClass *foot = unknown_FootClass_list_00865f38[foot_index];
-                if (foot->House == this && type == foot->Techno_Type_Class() && team->unknown_func_6c0010(foot, this)) {
+            for (int foot_index = Feet.Count() - 1; foot_index >= 0; foot_index--) {
+                FootClass *foot = Feet[foot_index];
+                if (foot->House == this && type == foot->Techno_Type_Class() && team->Can_Recruit(foot, this)) {
                     found = true;
                     break;
                 }
@@ -6814,7 +6814,7 @@ void HouseClass::Update_Present_Super_Weapons()
                                 if (!enabled) enabled = b->unknown_530;
                             }
                         }
-                        if (b->unknown_452800() == s || b->unknown_452860() == s) {
+                        if (b->Fetch_Super_Weapon() == s || b->Fetch_Super_Weapon2() == s) {
                             present = true;
                             if (enabled) break;
                             enabled = b->unknown_530;
@@ -6838,7 +6838,7 @@ void HouseClass::Update_Present_Super_Weapons()
                 if ((off && Supers[s]->Is_Powered() && Supers[s]->Suspend(true)) || (enabled && Supers[s]->Suspend(false))) {
                     if (is_player) {
                         if (unknown_pending_super_833694 == s) unknown_pending_super_833694 = -1;
-                        Map.Unknown_0067C2D0(type_index);
+                        Map.Flag_Tab_To_Redraw(type_index);
                     }
                     unknown_144 = true;
                 }
@@ -6846,7 +6846,7 @@ void HouseClass::Update_Present_Super_Weapons()
                 if (Supers[s]->Remove() && unknown_player_a35db4 != 0) {
                     if (is_player) {
                         if (unknown_pending_super_833694 == s) unknown_pending_super_833694 = -1;
-                        Map.Unknown_0067C2D0(type_index);
+                        Map.Flag_Tab_To_Redraw(type_index);
                     }
                     unknown_144 = true;
                 }
@@ -6874,12 +6874,12 @@ void HouseClass::Enable_Available_Super_Weapons_004f4db0()
                             break;
                         }
                     }
-                    if (building->unknown_452800()==super_index || building->unknown_452860()==super_index || from_upgrade) {
+                    if (building->Fetch_Super_Weapon()==super_index || building->Fetch_Super_Weapon2()==super_index || from_upgrade) {
                         Supers[super_index]->Grant(false,this==unknown_player_a35db4,Power_Fraction()<1.0);
                         if (this==unknown_player_a35db4) {
                             Map.Unknown_0067C530(31,super_index);
                             int type_index=Supers[super_index]->Type->Fetch_Heap_ID();
-                            Map.Unknown_0067C2D0(Unknown_006818D0(57,type_index,0));
+                            Map.Flag_Tab_To_Redraw(Unknown_006818D0(57,type_index,0));
                         }
                         break;
                     }
@@ -6898,7 +6898,7 @@ bool HouseClass::Is_Build_Limited_004F4F30(TechnoTypeClass *type)
     if (!type) return true;
     int queued=0;
     bool naval=type->Naval;
-    FactoryClass *factory=unknown_func_4eb580(type->Kind_Of(),naval,0);
+    FactoryClass *factory=Fetch_Factory(type->Kind_Of(),naval,0);
     if (factory) queued=factory->Count_Type_004B9E40(type);
     switch (type->Kind_Of()) {
     case 40:
@@ -7092,11 +7092,11 @@ void HouseClass::unknown_func_4f5880()
 }
 
 
-// float HouseClass::unknown_func_4f58a0(TechnoTypeClass *type) (0x004F58A0)
+// float HouseClass::Armor_Multiplier(TechnoTypeClass *type) (0x004F58A0)
 // The owner country's armor multiplier for the type's kind (infantry, vehicle,
 // aircraft, building or, for a defence building (+0xBA0 == 5), defence); 1 otherwise.
 
-float HouseClass::unknown_func_4f58a0(TechnoTypeClass *type)
+float HouseClass::Armor_Multiplier(TechnoTypeClass *type)
 {
     switch (type->Kind_Of()) {
     case 16:
@@ -7217,7 +7217,7 @@ int __fastcall HouseClass::Find_Index(char const *name)
 
 // Begin construction from an existing construction yard, original004F5BE0;328body+8padding.
 
-void HouseClass::unknown_func_4f5be0()
+void HouseClass::Begin_Construction()
 {
     BuildingClass *construction_yard=0;
     for (int index=Buildings.Count()-1;index>=0;--index) {
@@ -7338,7 +7338,7 @@ void HouseClass::Unknown_004F6310()
                  !techno->Techno_Type_Class()->DeploysInto->ConstructionYard) &&
                 Coord_Cell(BaseCenter)!=unknown_cell_a40f10) {
                 techno->Assign_Destination(&Map[destination],true);
-                techno->unknown_6d6e50(0);
+                techno->Assign_Archive_Target(0);
                 techno->QueueMission(2,false);
             }
         }
@@ -7449,11 +7449,11 @@ CLASSIFIED:
 // target mode (0x006220E0 gives the threat flags): slot 219 of the leader with its
 // own center coordinate; the invalid cell without a team or a target.
 
-int __fastcall unknown_threat_flags_6220e0(int mode);   // 0x006220E0
+int __fastcall Quarry_To_Threat(int mode);   // 0x006220E0
 
 Cell HouseClass::unknown_func_4f6a80(int mode)
 {
-    int flags = unknown_threat_flags_6220e0(mode);
+    int flags = Quarry_To_Threat(mode);
     TeamClass *team = 0;
     for (int index = 0; index < Teams.Count(); index++) {
         team = Teams[index];
@@ -7462,7 +7462,7 @@ Cell HouseClass::unknown_func_4f6a80(int mode)
         }
     }
     if (team != 0 && team->Owner == this) {
-        FootClass *leader = team->unknown_func_6baa60();
+        FootClass *leader = team->Fetch_A_Leader();
         AbstractClass *target = leader->unknown_slot219(flags, &leader->Center_Coord(), true);
         if (target != 0) {
             return Coord_Cell(target->Center_Coord());

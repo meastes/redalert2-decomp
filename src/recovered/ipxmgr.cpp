@@ -346,10 +346,10 @@ int IPXManagerClass::Create_Connection(int id, wchar_t const *name, IPXAddressCl
 }
 
 
-// int IPXManagerClass::unknown_5255b0() (0x005255B0)
+// int IPXManagerClass::Create_Multicast_Connection() (0x005255B0)
 // Creates the multicast connection to the first node's address.
 
-int IPXManagerClass::unknown_5255b0()
+int IPXManagerClass::Create_Multicast_Connection()
 {
     if (!IPXStatus) {
         return 0;
@@ -474,10 +474,10 @@ int IPXManagerClass::unknown_slot19(ConnectionClass *connection)
 }
 
 
-// void IPXManagerClass::unknown_525800(int index, int id, wchar_t const *name) (0x00525800)
+// void IPXManagerClass::Set_Connection_Parms(int index, int id, wchar_t const *name) (0x00525800)
 // Gives the index'th connection a new ID and name.
 
-void IPXManagerClass::unknown_525800(int index, int id, wchar_t const *name)
+void IPXManagerClass::Set_Connection_Parms(int index, int id, wchar_t const *name)
 {
     if (index < NumConnections) {
         Connection[index]->ID = id;
@@ -507,11 +507,11 @@ int IPXManagerClass::Send_Global_Message(void *buf, int buflen, int ack_req, IPX
 }
 
 
-// int IPXManagerClass::unknown_5258b0(void *buf, int buflen, int ack_req, int node_id) (0x005258B0)
+// int IPXManagerClass::Send_Global_Message_To_Player(void *buf, int buflen, int ack_req, int node_id) (0x005258B0)
 // Sends a global message to another session node chosen by ID (never the
 // first node, this player).
 
-int IPXManagerClass::unknown_5258b0(void *buf, int buflen, int ack_req, int node_id)
+int IPXManagerClass::Send_Global_Message_To_Player(void *buf, int buflen, int ack_req, int node_id)
 {
     if (unknown_players_a3fa7c.Count() && unknown_players_a3fa7c[0]->ID == node_id) {
         return 0;
@@ -526,11 +526,11 @@ int IPXManagerClass::unknown_5258b0(void *buf, int buflen, int ack_req, int node
 }
 
 
-// int IPXManagerClass::unknown_5259a0(void *buf, int buflen, int ack_req, wchar_t const *name) (0x005259A0)
+// int IPXManagerClass::Send_Global_Message_To_Name(void *buf, int buflen, int ack_req, wchar_t const *name) (0x005259A0)
 // Sends a global message to another session node chosen by name (never the
 // first node, this player).
 
-int IPXManagerClass::unknown_5259a0(void *buf, int buflen, int ack_req, wchar_t const *name)
+int IPXManagerClass::Send_Global_Message_To_Name(void *buf, int buflen, int ack_req, wchar_t const *name)
 {
     if (unknown_players_a3fa7c.Count() && !_wcsicmp(unknown_players_a3fa7c[0]->Name, name)) {
         return 0;
@@ -556,10 +556,10 @@ int IPXManagerClass::Get_Global_Message(void *buf, int *buflen, IPXAddressClass 
 }
 
 
-// int IPXManagerClass::unknown_525af0(int index, void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id, unsigned long *packet_id) (0x00525AF0)
+// int IPXManagerClass::Global_Channel_Op(int index, void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id, unsigned long *packet_id) (0x00525AF0)
 // Reads a global packet without marking it (IPXGlobalConnClass slot 14).
 
-int IPXManagerClass::unknown_525af0(int index, void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id, unsigned long *packet_id)
+int IPXManagerClass::Global_Channel_Op(int index, void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id, unsigned long *packet_id)
 {
     if (!IPXStatus || !Listening) {
         return 0;
@@ -568,10 +568,10 @@ int IPXManagerClass::unknown_525af0(int index, void *buf, int *buflen, IPXAddres
 }
 
 
-// void IPXManagerClass::unknown_525b30(int index) (0x00525B30)
+// void IPXManagerClass::Global_Channel_Op_3C(int index) (0x00525B30)
 // Marks a global packet read (IPXGlobalConnClass slot 15).
 
-void IPXManagerClass::unknown_525b30(int index)
+void IPXManagerClass::Global_Channel_Op_3C(int index)
 {
     if (IPXStatus && Listening) {
         GlobalChannel->Mark_Packet_Read(index);
@@ -579,10 +579,10 @@ void IPXManagerClass::unknown_525b30(int index)
 }
 
 
-// int IPXManagerClass::unknown_525b50(void *buf, int buflen, bool ack_req) (0x00525B50)
+// int IPXManagerClass::Send_Lobby_Message(void *buf, int buflen, bool ack_req) (0x00525B50)
 // Sends on the second global channel to its own address; counts overflows.
 
-int IPXManagerClass::unknown_525b50(void *buf, int buflen, bool ack_req)
+int IPXManagerClass::Send_Lobby_Message(void *buf, int buflen, bool ack_req)
 {
     if (!IPXStatus || !Listening || !unknown_4c) {
         return 0;
@@ -596,10 +596,10 @@ int IPXManagerClass::unknown_525b50(void *buf, int buflen, bool ack_req)
 }
 
 
-// int IPXManagerClass::unknown_525bc0(void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id) (0x00525BC0)
+// int IPXManagerClass::Get_Lobby_Message(void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id) (0x00525BC0)
 // Reads from the second global channel.
 
-int IPXManagerClass::unknown_525bc0(void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id)
+int IPXManagerClass::Get_Lobby_Message(void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id)
 {
     if (!IPXStatus || !Listening) {
         return 0;
@@ -674,7 +674,7 @@ int IPXManagerClass::Get_Private_Message(void *buf, int *buflen, int *conn_id)
 }
 
 
-// bool IPXManagerClass::unknown_525dc0(CommHeaderType *header, char *buf, int buflen, IPXAddressClass *address, unsigned short port) (0x00525DC0)
+// bool IPXManagerClass::Forward_Router_Packet(CommHeaderType *header, char *buf, int buflen, IPXAddressClass *address, unsigned short port) (0x00525DC0)
 // In the forwarding session with a router process: a packet that carries the
 // forwarder port goes to the local router with the sender's node and port in
 // its header; a packet with a forwarding target that is not this node goes on
@@ -687,16 +687,16 @@ struct UnknownLoopbackAddress {
     unsigned long NodeAddress;
 };
 
-bool IPXManagerClass::unknown_525dc0(CommHeaderType *header, char *buf, int buflen, IPXAddressClass *address, unsigned short port)
+bool IPXManagerClass::Forward_Router_Packet(CommHeaderType *header, char *buf, int buflen, IPXAddressClass *address, unsigned short port)
 {
     static UnknownLoopbackAddress loopback = { {0}, htonl(0x7F000001) };
 
-    if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8 && unknown_OwnerTalkClass_00ab6d18.RouterProcess) {
-        if (header->unknown_0c == unknown_port_7f60dc) {
+    if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8 && OwnerTalk.RouterProcess) {
+        if (header->unknown_0c == LoopbackPort) {
             header->unknown_0c = port;
             memcpy(&header->unknown_08, address->NodeAddress, 4);
             Debug_Printf("Forwarding packet from %s ; %d to forwarder\n", address->As_String(), port);
-            PacketTransport->WriteTo(buf, buflen, &loopback, sizeof(IPXAddressClass), false, 1, unknown_port_7f60dc);
+            PacketTransport->WriteTo(buf, buflen, &loopback, sizeof(IPXAddressClass), false, 1, LoopbackPort);
             return true;
         }
         if (header->unknown_0c != 0) {
@@ -751,7 +751,7 @@ int IPXManagerClass::Service()
         packet=(CommHeaderType *)CurDataBuf;
         if (packet->MagicNumber==GlobalChannel->MagicNum) {
             Debug_Printf("Adding packet from %s ; %d to global queue\n",address.As_String(),port);
-            if (!unknown_525dc0(packet,(char *)receive_buffer,packetlen,(IPXAddressClass *)address_buffer,port)) {
+            if (!Forward_Router_Packet(packet,(char *)receive_buffer,packetlen,(IPXAddressClass *)address_buffer,port)) {
                 if (!GlobalChannel->Receive_Packet(packet,packetlen,&address,port)) {
                     ++unknown_a4;
                     Debug_Printf("GlobalChannel recive buffer overflow %d\n",unknown_a4);
@@ -776,12 +776,12 @@ int IPXManagerClass::Service()
                                             Debug_Printf("Player %s is having his port translated to %d\n",name,port);
                                             unsigned short old_port=unknown_node_ids_a402ba[i];
                                             unknown_node_ids_a402ba[i]=port;
-                                            unknown_OwnerTalkClass_00ab6d18.Unknown_0063FB60(unknown_players_a3fa7c[i]->ID,port);
+                                            OwnerTalk.Unknown_0063FB60(unknown_players_a3fa7c[i]->ID,port);
                                             GlobalChannel->Discard_Packets_To(&address,old_port);
                                             GlobalChannel->Discard_Packets_To(&address,*(unsigned short *)unknown_players_a3fa7c[i]->Address.NetworkNumber);
                                             unknown_players_a3fa7c[i]->Address=address;
                                             unknown_players_a3fa7c[i]->Address.Set_Port(port);
-                                            unknown_OwnerTalkClass_00ab6d18.Unknown_0063F9A0(unknown_players_a3fa7c[i]->ID,&unknown_players_a3fa7c[i]->Address);
+                                            OwnerTalk.Unknown_0063F9A0(unknown_players_a3fa7c[i]->ID,&unknown_players_a3fa7c[i]->Address);
                                             unknown_player_slots_a3fa98[unknown_session_a3d298.Unknown_00672F90(i)]->Address=address;
                                             unknown_player_slots_a3fa98[unknown_session_a3d298.Unknown_00672F90(i)]->Address.Set_Port(port);
                                             for (int connection=0;connection<NumConnections;++connection) {
@@ -818,7 +818,7 @@ int IPXManagerClass::Service()
                 Debug_Printf("RouterChannel recive buffer overflow %d\n",unknown_a4);
                 break;
             }
-        } else if (packet->MagicNumber==ProductID && !unknown_525dc0(packet,(char *)receive_buffer,packetlen,(IPXAddressClass *)address_buffer,port)) {
+        } else if (packet->MagicNumber==ProductID && !Forward_Router_Packet(packet,(char *)receive_buffer,packetlen,(IPXAddressClass *)address_buffer,port)) {
             if (unknown_flag_a3fba8 && packet->unknown_03==0xff) {
                 if (packet->Code==PACKET_ACK) unknown_50->Receive_Packet(packet,packetlen);
                 else if (NumConnections>0) {
@@ -838,7 +838,7 @@ int IPXManagerClass::Service()
             } else {
                 bool found=false;
                 for (i=0;i<NumConnections;++i) {
-                    if ((unknown_flag_a3fba8 && unknown_OwnerTalkClass_00ab6d18.Unknown_0063F4C0(Connection[i]->ID)==packet->unknown_03) || (!unknown_flag_a3fba8 && Connection[i]->Address==address)) {
+                    if ((unknown_flag_a3fba8 && OwnerTalk.Unknown_0063F4C0(Connection[i]->ID)==packet->unknown_03) || (!unknown_flag_a3fba8 && Connection[i]->Address==address)) {
                         found=true;
                         break;
                     }
@@ -875,7 +875,7 @@ int IPXManagerClass::Service()
                             unknown_50->Address=address;
                             unknown_address_a3db2c=address;
                             unknown_forward_address_a3fbac=address;
-                            unknown_OwnerTalkClass_00ab6d18.Unknown_0063F9A0(unknown_players_a3fa7c[player]->ID,&address);
+                            OwnerTalk.Unknown_0063F9A0(unknown_players_a3fa7c[player]->ID,&address);
                         }
                     }
                 }
@@ -895,7 +895,7 @@ next_packet:
                 unknown_4c->Discard_Undeliverable_Packets();
                 result=0;
             }
-            if (!unknown_flag_a402d8) unknown_OwnerTalkClass_00ab6d18.Unknown_0063F840();
+            if (!unknown_flag_a402d8) OwnerTalk.Unknown_0063F840();
         }
         if (unknown_flag_a3fba8 && unknown_50 && !unknown_50->Service()) {
             Debug_Printf("Multicast channel has gone bad\n");
@@ -929,9 +929,9 @@ void IPXManagerClass::Set_Connection_Address(int id, IPXAddressClass *address)
 }
 
 
-// int IPXManagerClass::unknown_526a30() (0x00526A30)
+// int IPXManagerClass::Get_Bad_Connection() (0x00526A30)
 
-int IPXManagerClass::unknown_526a30()
+int IPXManagerClass::Get_Bad_Connection()
 {
     return unknown_a8;
 }
@@ -1085,10 +1085,10 @@ unsigned long IPXManagerClass::unknown_526c30()
 }
 
 
-// unsigned long IPXManagerClass::unknown_526c50() (0x00526C50)
+// unsigned long IPXManagerClass::Lobby_Response_Time() (0x00526C50)
 // The second global channel's mean delay (0 without one).
 
-unsigned long IPXManagerClass::unknown_526c50()
+unsigned long IPXManagerClass::Lobby_Response_Time()
 {
     if (unknown_4c) {
         return unknown_4c->Queue->Avg_Delay();
@@ -1097,10 +1097,10 @@ unsigned long IPXManagerClass::unknown_526c50()
 }
 
 
-// unsigned long IPXManagerClass::unknown_526c70() (0x00526C70)
+// unsigned long IPXManagerClass::Multicast_Response_Time() (0x00526C70)
 // The multicast channel's mean delay (0 without one).
 
-unsigned long IPXManagerClass::unknown_526c70()
+unsigned long IPXManagerClass::Multicast_Response_Time()
 {
     if (unknown_50) {
         return unknown_50->Queue->Avg_Delay();
@@ -1157,7 +1157,7 @@ public:
     int Started;
     T Timer;
 };
-extern BasicTimerClass<SystemTimerClass> unknown_frame_sync_timer_a780c0;
+extern BasicTimerClass<SystemTimerClass> SentFrameSyncTimer;
 
 void IPXManagerClass::Multiplayer_Debug_Print_00526d90()
 {
@@ -1174,17 +1174,17 @@ void IPXManagerClass::Multiplayer_Debug_Print_00526d90()
     swprintf(buffer, L"Lat Fudge : %d", unknown_a3fba4);
     Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 422), Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
-    if (unknown_frame_sync_timer_a780c0 / 60) {
-        swprintf(buffer, L"FSPS : %d", unknown_frame_syncs_ab62e4 / (unknown_frame_sync_timer_a780c0 / 60));
+    if (SentFrameSyncTimer / 60) {
+        swprintf(buffer, L"FSPS : %d", SentFrameSyncCount / (SentFrameSyncTimer / 60));
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 432), Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
         if ((Frame & 0x7F) == 0x7F) {
-            unknown_frame_sync_timer_a780c0 = 0;
-            unknown_frame_syncs_ab62e4 = 0;
+            SentFrameSyncTimer = 0;
+            SentFrameSyncCount = 0;
         }
     }
 
     if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8) {
-        swprintf(buffer, L"MC resp: %d", 1000 * unknown_ipx_manager_a40978.unknown_526c70() / 60);
+        swprintf(buffer, L"MC resp: %d", 1000 * Ipx.Multicast_Response_Time() / 60);
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 442), Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
     }
 
@@ -1320,10 +1320,10 @@ void IPXManagerClass::Configure_Debug(int index, int offset, int size, int names
 // Inline (empty) in shared/ipx_manager.hpp; emitted with the vtable. No source of its own.
 
 
-// void IPXManagerClass::unknown_5277c0(IPXAddressClass *address) (0x005277C0)
+// void IPXManagerClass::Set_Lobby_Address(IPXAddressClass *address) (0x005277C0)
 // The second global channel's address.
 
-void IPXManagerClass::unknown_5277c0(IPXAddressClass *address)
+void IPXManagerClass::Set_Lobby_Address(IPXAddressClass *address)
 {
     if (unknown_4c) {
         unknown_4c->Address = *address;
@@ -1331,9 +1331,9 @@ void IPXManagerClass::unknown_5277c0(IPXAddressClass *address)
 }
 
 
-// void IPXManagerClass::unknown_5277f0() (0x005277F0)
+// void IPXManagerClass::Global_Channel_Clear_FieldC8() (0x005277F0)
 
-void IPXManagerClass::unknown_5277f0()
+void IPXManagerClass::Global_Channel_Clear_FieldC8()
 {
     if (GlobalChannel) {
         GlobalChannel->unknown_c8 = false;
@@ -1341,9 +1341,9 @@ void IPXManagerClass::unknown_5277f0()
 }
 
 
-// void IPXManagerClass::unknown_527800() (0x00527800)
+// void IPXManagerClass::Set_Global_Routed() (0x00527800)
 
-void IPXManagerClass::unknown_527800()
+void IPXManagerClass::Set_Global_Routed()
 {
     if (GlobalChannel) {
         GlobalChannel->unknown_c8 = true;
@@ -1351,10 +1351,10 @@ void IPXManagerClass::unknown_527800()
 }
 
 
-// void IPXManagerClass::unknown_527810(IPXAddressClass *address, unsigned short id) (0x00527810)
+// void IPXManagerClass::Global_Channel_Op_40(IPXAddressClass *address, unsigned short id) (0x00527810)
 // Drops the global channel's unacknowledged sends to an address.
 
-void IPXManagerClass::unknown_527810(IPXAddressClass *address, unsigned short id)
+void IPXManagerClass::Global_Channel_Op_40(IPXAddressClass *address, unsigned short id)
 {
     if (GlobalChannel) {
         GlobalChannel->Discard_Packets_To(address, id);
@@ -1362,9 +1362,9 @@ void IPXManagerClass::unknown_527810(IPXAddressClass *address, unsigned short id
 }
 
 
-// void IPXManagerClass::unknown_527830(int index) (0x00527830)
+// void IPXManagerClass::Global_Channel_Op_44(int index) (0x00527830)
 
-void IPXManagerClass::unknown_527830(int index)
+void IPXManagerClass::Global_Channel_Op_44(int index)
 {
     if (GlobalChannel) {
         GlobalChannel->Discard_Old_Packets(index);

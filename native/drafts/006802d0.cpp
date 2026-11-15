@@ -68,7 +68,7 @@ bool SidebarClass::StripClass::Unknown_006802D0()
                 }
             }
             if (tech) {
-                FactoryClass *factory = unknown_player_a35db4->unknown_func_4eb580(tech->Kind_Of(), tech->Naval, 0);   // NATIVE: 0x004EB580 under house_screen.hpp's name
+                FactoryClass *factory = unknown_player_a35db4->Fetch_Factory(tech->Kind_Of(), tech->Naval, 0);   // NATIVE: 0x004EB580 under house_screen.hpp's name
                 if (factory) {
                     for (int q = factory->Queue.Count() - 1; q >= 0; q--) {
                         if (factory->Queue[q] == tech) {

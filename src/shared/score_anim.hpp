@@ -54,6 +54,6 @@ public:
 };
 
 // Set by every ScorePrintClass::Update (0x00AB6F9C; purpose unknown).
-extern bool unknown_score_print_ab6f9c;
+extern bool StillUpdating;
 
 #endif

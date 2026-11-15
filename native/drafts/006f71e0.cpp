@@ -6,8 +6,8 @@
 
 void __fastcall Unknown_006F71E0(char const *name)
 {
-    bool sound = unknown_sound_enabled_7d88d6;
-    unknown_sound_enabled_7d88d6 = false;
+    bool sound = AllowVoice;
+    AllowVoice = false;
     UnknownTest test = (UnknownTest)Unknown_006F7190;
     DynamicVectorClass<TechnoClass *> *list;
     if (unknown_flag_ac133c) {
@@ -27,5 +27,5 @@ void __fastcall Unknown_006F71E0(char const *name)
         (*list)[index]->unknown_slot80();
     }
     delete list;
-    unknown_sound_enabled_7d88d6 = sound;
+    AllowVoice = sound;
 }

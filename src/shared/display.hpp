@@ -28,7 +28,7 @@ class BuildingTypeClass;
 // A three-component offset with an out-of-line constructor (0x0041B630)
 // and length (0x0041B780) (hypothesis: a coordinate difference class).
 #include "shared/unknown_vector3.hpp"
-// The selected objects (0x00A40C60) are unknown_objects_a40c60 (shared/object.hpp).
+// The selected objects (0x00A40C60) are CurrentObject (shared/object.hpp).
 
 // The small-cursor flag passed to Set_Default_Mouse (0x0083740C).
 

@@ -628,9 +628,9 @@ bool TEventClass::unknown_func_6e6cf0() const
 }
 
 
-// bool TEventClass::unknown_func_6e6d50() const (0x006E6D50)
+// bool TEventClass::Is_To_Flag_As_Tripped() const (0x006E6D50)
 
-bool TEventClass::unknown_func_6e6d50() const
+bool TEventClass::Is_To_Flag_As_Tripped() const
 {
     switch (Type) {
     case 1:

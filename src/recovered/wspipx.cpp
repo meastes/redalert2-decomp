@@ -167,10 +167,10 @@ int IPXInterfaceClass::Get_Network_Card_Address(int card_number, UnknownIPXSocke
 }
 
 
-// int IPXInterfaceClass::unknown_76a230(int card_number, char *buffer, int length) (0x0076A230)
+// int IPXInterfaceClass::Get_Network_Card_Address_As_String(int card_number, char *buffer, int length) (0x0076A230)
 // A network card's address as text ("net : node" in hex).
 
-int IPXInterfaceClass::unknown_76a230(int card_number, char *buffer, int length)
+int IPXInterfaceClass::Get_Network_Card_Address_As_String(int card_number, char *buffer, int length)
 {
     if (!WinsockInitialised) {
         return 0;
@@ -348,8 +348,8 @@ int IPXInterfaceClass::Message_Handler(int window, int message, int wparam, int 
                 memcpy(packet->Buffer, &ReceiveBuffer[4], received - 4);
                 if (!Passes_CRC_Check(packet)) {
                     Debug_Printf("Throwing away malformed packet\n");
-                    if (!unknown_malformed_seen_b2ae24) {
-                        unknown_malformed_seen_b2ae24 = true;
+                    if (!IsMalformedIPXPacketReported) {
+                        IsMalformedIPXPacketReported = true;
                     }
                     if (packet->IsAllocated) {
                         delete packet;

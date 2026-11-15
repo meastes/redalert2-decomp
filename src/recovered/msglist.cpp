@@ -457,7 +457,7 @@ void MessageListClass::Remove_Edit()
     if (IsEdit) {
         IsEdit = false;
         delete EditLabel;
-        Unknown_00738100();
+        IME_Stub1();
         if (AdjustEdit) {
             Restack_Messages();
             MaxMessages++;
@@ -674,7 +674,7 @@ void MessageListClass::Draw()
         if (EditCursor != 0 && EditCurPos - EditInitPos < MaxChars - 1 && EditLabel->Has_Focus()) {
             cursor[0] = EditCursor;
             Point2D at(EditLabel->X + width, EditLabel->Y);
-            Fancy_Text_Printf((wchar_t const *)cursor, unknown_surface_83995c, &unknown_surface_83995c->Get_Rect(), &at,
+            Fancy_Text_Printf((wchar_t const *)cursor, LogicalSurface, &LogicalSurface->Get_Rect(), &at,
                 ColorSchemes[EditLabel->Color], 0, EditLabel->Style);
         }
         WWMouse->Show_Mouse();

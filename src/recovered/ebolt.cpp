@@ -68,7 +68,7 @@ EBolt::EBolt() : Start(CoordStruct(0,0,0)),End(CoordStruct(0,0,0)),unknown_18(0)
 #include "shared/tactical.hpp"
 #include "shared/convert.hpp"
 #include "shared/surface.hpp"
-extern ConvertClass *unknown_drawer_8323c4;
+extern ConvertClass *NormalDrawer;
 extern Surface *unknown_surface_839964;
 extern Rect unknown_rect_839630;
 int __fastcall Unknown_006A2970(int height);
@@ -79,7 +79,7 @@ void EBolt::Draw_Line_004B1850(CoordStruct start,CoordStruct end,int color,int f
     TacticalMap->Coord_To_Pixel(end,second_pixel);
     int first_z=first_depth-Unknown_006A2970(start.Z)-2;
     int second_z=second_depth-Unknown_006A2970(end.Z)-2;
-    int pixel=unknown_drawer_8323c4->Convert(color);
+    int pixel=NormalDrawer->Convert(color);
     unknown_surface_839964->Draw_Depth_Shaded_Line(unknown_rect_839630,first_pixel,second_pixel,
         pixel,first_z,second_z);
 }
@@ -121,7 +121,7 @@ void __fastcall FUN_004b1830(int object_address)
 #include "shared/random2.hpp"
 #include "shared/crt_memory.hpp"
 #include "shared/unknown_vector3.hpp"
-extern ConvertClass *unknown_drawer_8323c4;
+extern ConvertClass *NormalDrawer;
 extern Surface *unknown_surface_839964;
 extern Rect unknown_rect_839630;
 extern Random2Class NonCriticalRandomNumber;

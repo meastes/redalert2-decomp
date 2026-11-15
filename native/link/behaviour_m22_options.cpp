@@ -61,7 +61,7 @@ int __stdcall Main_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
                 return 0;
             }
             if (Try_Mode_Dialog()) {
-                if (unknown_allow_mode_toggle_a40d0b) {
+                if (Debug_IngameModeChange) {
                     Options.ScreenWidth = unknown_video_width_a6ec58;
                     Options.ScreenHeight = unknown_video_height_a6ec5c;
                     return 0;
@@ -70,7 +70,7 @@ int __stdcall Main_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
                     Options.ScreenWidth = unknown_video_width_a6ec58;
                     Options.ScreenHeight = unknown_video_height_a6ec5c;
                     Unknown_Reset_Art_006F33B0(unknown_video_width_a6ec58, unknown_video_height_a6ec5c);
-                    unknown_5159b0(0, true);
+                    Darken_Surface(0, true);
                     return 0;
                 }
             }

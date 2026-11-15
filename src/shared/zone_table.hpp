@@ -6,7 +6,7 @@
 #ifndef RA2_SHARED_ZONE_TABLE_HPP
 #define RA2_SHARED_ZONE_TABLE_HPP
 
-extern int unknown_table_7e00c4[12][8];
+extern int MZonePassability[12][8];
 int __fastcall Unknown_0056A900(int row1, int row2);
 
 #endif

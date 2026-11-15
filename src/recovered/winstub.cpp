@@ -153,9 +153,9 @@ void Focus_Restore()
                 }
             }
         }
-        if (unknown_surface_839950 != 0) {
-            if (((DSurface *)unknown_surface_839950)->Restore_Check() && (!ScenarioActive || Frame > 0x10)) {
-                unknown_surface_839950->Fill_Rect(unknown_window_839640, 0);
+        if (VisibleSurface != 0) {
+            if (((DSurface *)VisibleSurface)->Restore_Check() && (!ScenarioActive || Frame > 0x10)) {
+                VisibleSurface->Fill_Rect(unknown_window_839640, 0);
             }
         }
     }
@@ -198,10 +198,10 @@ LRESULT WINAPI Windows_Procedure(HWND hwnd, UINT message, WPARAM wParam, LPARAM 
         return 0;
     case 0xf:
         if (unknown_int_a40d48 == 0 && (GameInFocus == true || WindowedMode == true)
-            && WWMouse && unknown_surface_839950 && HiddenSurface && unknown_surface_839964) {
+            && WWMouse && VisibleSurface && HiddenSurface && unknown_surface_839964) {
             if (ScenarioActive == true) {
                 Update_Visible_Surface(WWMouse->Is_Captured(), unknown_surface_839964, 0);
-                Map.Unknown_0067D420(true);
+                Map.Blit_Sidebar(true);
                 ValidateRect(hwnd, 0);
                 break;
             }
@@ -679,7 +679,7 @@ void __fastcall Load_Title_Screen_00738190(char const *name, Surface *surface, P
         }
         if (palette && image->Bytes_Per_Pixel() == 1) {
             ConvertClass *convert = new ConvertClass(*palette, *palette, surface, 1, false);
-            unknown_blit_49f3a0(*surface, convert, *image, image->Get_Rect(),
+            Blit_Block(*surface, convert, *image, image->Get_Rect(),
                 RectPoint2D(x, y), surface->Get_Rect(), 0, 0, 0, 0, 1000, 0);
             delete convert;
         } else {

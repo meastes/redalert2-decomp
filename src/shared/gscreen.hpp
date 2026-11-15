@@ -119,7 +119,7 @@ struct UnknownStruct_AC11FC {
 };
 extern UnknownStruct_AC11FC *unknown_ac11fc;
 
-void __fastcall Unknown_005419E0(bool unknown);              // 0x005419E0 Render, when unknown_flag_a3d8c4
+void __fastcall Draw_Multiplayer_Debug(bool unknown);              // 0x005419E0 Render, when unknown_flag_a3d8c4
 extern bool unknown_flag_a3d8c4;
 extern bool unknown_flag_abcd85;                // Render erases the mouse from the sidebar once
 extern bool TacticalActive;

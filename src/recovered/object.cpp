@@ -247,7 +247,7 @@ void ObjectClass::AI()
         Set_Height_AGL(0);
         unknown_7a = false;
         unknown_slot93(2);
-        Unknown_00420D30(this);
+        Shorten_Attached_Anims(this);
     }
     if (!unknown_76) {
 
@@ -525,7 +525,7 @@ void ObjectClass::Move(int facing)
 void ObjectClass::Unselect()
 {
     if (unknown_77) {
-        unknown_objects_a40c60.Delete(this);
+        CurrentObject.Delete(this);
         unknown_77 = false;
         if (Map.Unknown_0049EC40() == this) {
             Map.Unknown_0049EC60(0);
@@ -542,7 +542,7 @@ void ObjectClass::Unselect()
 // go to the head of the selection list 0x00A40C60, others to its end.
 extern int unknown_833684;    // 0x00833684
 void __cdecl Clear_Selected_Objects_00482bc0();
-void __fastcall Unknown_006f6780(unsigned int value);
+void __fastcall Set_Type_Select_Mode(unsigned int value);
 
 bool ObjectClass::unknown_slot80()
 {
@@ -556,9 +556,9 @@ bool ObjectClass::unknown_slot80()
     if (unknown_833684) {
         return false;
     }
-    if (unknown_objects_a40c60.Count() > 0) {
+    if (CurrentObject.Count() > 0) {
         HouseClass *house = Owning_House();
-        HouseClass *other = unknown_objects_a40c60[0]->Owning_House();
+        HouseClass *other = CurrentObject[0]->Owning_House();
         if (other->Is_Player_Control() != house->Is_Player_Control() || !other->Is_Player_Control()) {
             Clear_Selected_Objects_00482bc0();
         }
@@ -568,11 +568,11 @@ bool ObjectClass::unknown_slot80()
         techno_flag = AbstractFlags.IsTechno;
     }
     if (this && techno_flag && static_cast<TechnoTypeClass *>(Class_Of())->unknown_aa8) {
-        unknown_objects_a40c60.Add_Head(this);
+        CurrentObject.Add_Head(this);
     } else {
-        unknown_objects_a40c60.Add(this);
+        CurrentObject.Add(this);
     }
-    Unknown_006f6780(0);
+    Set_Type_Select_Mode(0);
     unknown_77 = true;
     return true;
 }
@@ -1117,9 +1117,9 @@ void ObjectClass::Set_Health_Ratio(double ratio)
 }
 
 
-// int ObjectClass::unknown_func_5d45b0() const (0x005D45B0)
+// int ObjectClass::Is_Red_HP() const (0x005D45B0)
 
-int ObjectClass::unknown_func_5d45b0() const
+int ObjectClass::Is_Red_HP() const
 {
     if (Health_Ratio() <= Rules->unknown_1370 && Strength > 0) {
         return 1;
@@ -1128,9 +1128,9 @@ int ObjectClass::unknown_func_5d45b0() const
 }
 
 
-// int ObjectClass::unknown_func_5d4600() const (0x005D4600)
+// int ObjectClass::Is_Yellow_HP() const (0x005D4600)
 
-int ObjectClass::unknown_func_5d4600() const
+int ObjectClass::Is_Yellow_HP() const
 {
     if (Health_Ratio() > Rules->unknown_1370 && Health_Ratio() <= Rules->unknown_1368) {
         return 1;
@@ -1139,9 +1139,9 @@ int ObjectClass::unknown_func_5d4600() const
 }
 
 
-// int ObjectClass::unknown_func_5d4670() const (0x005D4670)
+// int ObjectClass::Is_Green_HP() const (0x005D4670)
 
-int ObjectClass::unknown_func_5d4670() const
+int ObjectClass::Is_Green_HP() const
 {
     if (Health_Ratio() > Rules->unknown_1368) {
         return 1;
@@ -1150,9 +1150,9 @@ int ObjectClass::unknown_func_5d4670() const
 }
 
 
-// int ObjectClass::unknown_func_5d46b0() const (0x005D46B0)
+// int ObjectClass::GetHealthStatus() const (0x005D46B0)
 
-int ObjectClass::unknown_func_5d46b0() const
+int ObjectClass::GetHealthStatus() const
 {
     if (Health_Ratio() <= Rules->unknown_1370 && Strength > 0) {
         return 0;
@@ -1231,9 +1231,9 @@ void ObjectClass::Set_Height_AGL(int height)
 }
 
 
-// void ObjectClass::unknown_func_5d4920(int z) (0x005D4920)
+// void ObjectClass::Set_Height(int z) (0x005D4920)
 
-void ObjectClass::unknown_func_5d4920(int z)
+void ObjectClass::Set_Height(int z)
 {
     if (unknown_74) {
         Mark(0);
@@ -1431,7 +1431,7 @@ void ObjectClass::Editor_Draw_It(Point2D const &point, Rect const &window)
 void ObjectClass::Delete_Me()
 {
     if (unknown_38 != 0) {
-        unknown_38->Unknown_00435FB0();
+        unknown_38->Disarm();
     }
     Unknown_006ECB90(this, true);
     Limbo();
@@ -1666,9 +1666,9 @@ CoordStruct ObjectClass::unknown_slot41(int arg1) const
 }
 
 
-// void ObjectClass::unknown_func_5d5520(int value) (0x005D5520)
+// void ObjectClass::Set_Ambient_Sound(int value) (0x005D5520)
 
-void ObjectClass::unknown_func_5d5520(int value)
+void ObjectClass::Set_Ambient_Sound(int value)
 {
     unknown_64 = value;
     if (value == -1) {

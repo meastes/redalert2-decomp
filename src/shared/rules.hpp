@@ -41,7 +41,7 @@ class WarheadTypeClass;
 void __fastcall Set_Frame_Rate_Limit(int rate);
 // 0x0053D830 (__fastcall): stores its argument at 0x007DFB38 (Fill_In_Data passes
 // DetailBufferZoneWidth; name hypothesis).
-void __fastcall unknown_set_buffer_zone_0053d830(int width);
+void __fastcall Set_Buffer_Zone_Width(int width);
 
 // A rocket's flight model ([General] V3Rocket*= and DMisl*=; RulesClass::General).
 struct RocketStruct {

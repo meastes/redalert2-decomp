@@ -106,7 +106,7 @@ Rect Native_Map_View(Rect const &rect)
 
 namespace {
 // The view's origin (Tactical +0xB0, the world pixel at its top left; the game keeps it as the view
-// position +0xD64 less half the tactical screen rectangle, Unknown_006A9170) read fresh, and set to a
+// position +0xD64 less half the tactical screen rectangle, Update_Visible_Cells) read fresh, and set to a
 // given origin through the position (the offset between the two measured, not assumed).
 Point2D view_origin(Tactical *t)
 {

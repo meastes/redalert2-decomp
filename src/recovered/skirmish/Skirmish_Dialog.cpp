@@ -28,10 +28,10 @@ int __stdcall Skirmish_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 bool __fastcall Skirmish_Dialog()
 {
     int result = -1;
-    Rules->Countries(*unknown_ini_8396d0);
-    Rules->Sides(*unknown_ini_8396d0);
+    Rules->Countries(*RuleINI);
+    Rules->Sides(*RuleINI);
     for (int index = 0; index < HouseTypes.Count(); index++) {
-        HouseTypes[index]->Read_INI(*unknown_ini_8396d0);
+        HouseTypes[index]->Read_INI(*RuleINI);
     }
     HWND dialog = unknown_create_dialog_5ff610(0x102, Skirmish_Dialog_Proc, 0);
     if (dialog != 0) {
@@ -50,7 +50,7 @@ bool __fastcall Skirmish_Dialog()
     }
     unknown_session_a3d298.Write_MultiPlayer_Settings();
     if (result == 0x5C0) {
-        unknown_5159b0(0, true);
+        Darken_Surface(0, true);
     }
     if (result == 0x617) {
         return true;

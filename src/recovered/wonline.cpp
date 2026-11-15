@@ -624,7 +624,7 @@ void __fastcall Unknown_0073c230()
     IgnoreInput = true;
     WWKeyboard->Clear();
     ShowWindow(dialog, 1);
-    Unknown_007359e0(dialog, unknown_6000d0, 0, 1, 1);
+    WS_Wait_Dialog(dialog, unknown_6000d0, 0, 1, 1);
     WWKeyboard->Clear();
     IgnoreInput = unknown_id_source_a3d290->unknown_2306;
     Map.Flag_To_Redraw(2);
@@ -1721,20 +1721,20 @@ void __fastcall Refresh_Game_List_0073f8f0()
         cell.Flags=2;
         cell.Secondary.Set(L"");
         if(Unknown_0073c3c0(&channel)) {
-            cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40(game_clan_image_007eb228,0);
+            cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40(game_clan_image_007eb228,0);
             cell.Secondary.Set(StringTable::Load_String(game_clan_label_007fd8a4,0,wol_source_file_007fd62c,0xb57));
         } else if(Unknown_0073c340(&channel)) {
-            cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40(game_tournament_image_007eb25c,0);
+            cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40(game_tournament_image_007eb25c,0);
             cell.Secondary.Set(StringTable::Load_String(game_tournament_label_007fd890,0,wol_source_file_007fd62c,0xb5c));
         } else {
-            cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40(game_normal_image_007eb1fc,0);
+            cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40(game_normal_image_007eb1fc,0);
             cell.Secondary.Set(L"");
         }
         SendMessageA(list,0x4a8,((unsigned long)(unsigned short)game_type_column_b2a6f8|((unsigned long)(unsigned short)row<<16)),(LPARAM)&cell);
         cell.Flags=2;
         cell.Secondary.Set(L"");
         if(channel.flags&0x100) {
-            cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40(game_private_image_007eb234,0);
+            cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40(game_private_image_007eb234,0);
             cell.Secondary.Set(StringTable::Load_String(game_password_label_007fd87c,0,wol_source_file_007fd62c,0xb6a));
         } else {
             cell.Flags=0;
@@ -1747,14 +1747,14 @@ void __fastcall Refresh_Game_List_0073f8f0()
         if(channel.unknown_20&0x600) {
             if(!observers && allow_observers) {
                 cell.Flags=2;
-                cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40(game_locked_observer_image_007eb218,0);
+                cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40(game_locked_observer_image_007eb218,0);
             } else {
                 cell.Flags=2;
-                cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40(game_locked_image_007eafb4,0);
+                cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40(game_locked_image_007eafb4,0);
             }
         } else if(!observers && allow_observers) {
             cell.Flags=2;
-            cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40(game_observer_image_007e7444,0);
+            cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40(game_observer_image_007e7444,0);
         }
         SendMessageA(list,0x4a8,((unsigned long)(unsigned short)game_observer_column_b299a0|((unsigned long)(unsigned short)row<<16)),(LPARAM)&cell);
         if(channel.ping==-1) {
@@ -1898,11 +1898,11 @@ void __fastcall Unknown_0073FEE0(int keep_selection,bool full)
             cell.Flags=1;
             if(user.flags & 1) {
                 cell.Flags=2;
-                cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40("woloper.pcx",0);
+                cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40("woloper.pcx",0);
                 cell.Secondary.Set(StringTable::Load_String("TXT_OPER",0,"D:\\Ra2\\wonline.cpp",0xc90));
             } else if(user.flags & 2) {
                 cell.Flags=2;
-                cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40("wolvoice.pcx",0);
+                cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40("wolvoice.pcx",0);
                 cell.Secondary.Set(StringTable::Load_String("TXT_VOICE",0,"D:\\Ra2\\wonline.cpp",0xc96));
             } else {
                 cell.Text.Set(player_list_w_00839d4c);
@@ -1952,39 +1952,39 @@ void __fastcall Unknown_0073FEE0(int keep_selection,bool full)
             cell.Flags=2;
             switch(country) {
             case 0:
-                cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40("usai.pcx",0);
+                cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40("usai.pcx",0);
                 swprintf(info,L"%s",StringTable::Load_String("TXT_GDI",0,"D:\\Ra2\\wonline.cpp",0xd1b));
                 break;
             case 1:
-                cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40("japi.pcx",0);
+                cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40("japi.pcx",0);
                 swprintf(info,L"%s",StringTable::Load_String("TXT_GDI",0,"D:\\Ra2\\wonline.cpp",0xd1f));
                 break;
             case 2:
-                cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40("frai.pcx",0);
+                cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40("frai.pcx",0);
                 swprintf(info,L"%s",StringTable::Load_String("TXT_GDI",0,"D:\\Ra2\\wonline.cpp",0xd23));
                 break;
             case 3:
-                cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40("geri.pcx",0);
+                cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40("geri.pcx",0);
                 swprintf(info,L"%s",StringTable::Load_String("TXT_GDI",0,"D:\\Ra2\\wonline.cpp",0xd27));
                 break;
             case 4:
-                cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40("gbri.pcx",0);
+                cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40("gbri.pcx",0);
                 swprintf(info,L"%s",StringTable::Load_String("TXT_GDI",0,"D:\\Ra2\\wonline.cpp",0xd2b));
                 break;
             case 5:
-                cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40("djbi.pcx",0);
+                cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40("djbi.pcx",0);
                 swprintf(info,L"%s",StringTable::Load_String("TXT_NOD",0,"D:\\Ra2\\wonline.cpp",0xd2f));
                 break;
             case 6:
-                cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40("arbi.pcx",0);
+                cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40("arbi.pcx",0);
                 swprintf(info,L"%s",StringTable::Load_String("TXT_NOD",0,"D:\\Ra2\\wonline.cpp",0xd33));
                 break;
             case 7:
-                cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40("lati.pcx",0);
+                cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40("lati.pcx",0);
                 swprintf(info,L"%s",StringTable::Load_String("TXT_NOD",0,"D:\\Ra2\\wonline.cpp",0xd37));
                 break;
             case 8:
-                cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40("rusi.pcx",0);
+                cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40("rusi.pcx",0);
                 swprintf(info,L"%s",StringTable::Load_String("TXT_NOD",0,"D:\\Ra2\\wonline.cpp",0xd3b));
                 break;
             }
@@ -1992,8 +1992,8 @@ void __fastcall Unknown_0073FEE0(int keep_selection,bool full)
             SendDlgItemMessageA(window,0x53e,0x4a8,((unsigned short)player_list_column_00b292e0 | ((unsigned int)(unsigned short)i << 16)),(LPARAM)&cell);
             cell.Flags=2;
             if(star) {
-                if(star==2) cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40("wolhost.pcx",0);
-                else cell.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40("wolacpt.pcx",0);
+                if(star==2) cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40("wolhost.pcx",0);
+                else cell.unknown_10=(int)SurfaceCache.Get_Image_0068ca40("wolacpt.pcx",0);
                 cell.Secondary.Set(StringTable::Load_String("TXT_ACCEPTED",0,"D:\\Ra2\\wonline.cpp",0xd49));
             } else {
                 cell.Flags=0;
@@ -2504,7 +2504,7 @@ int __fastcall Unknown_00751c30(unsigned int flags);
 Wstring __fastcall WOL_Auto_Login_Persona();
 Wstring __fastcall WOL_Last_Valid_Persona();
 void __fastcall Unknown_007391f0(Wstring const &);
-void __fastcall unknown_5159b0(int, bool);
+void __fastcall Darken_Surface(int, bool);
 void __fastcall Title_Screen_Restore(bool);
 HWND __fastcall unknown_create_dialog_5ff610(int, DLGPROC, int);
 void __fastcall unknown_dialog_5ff7c0(HWND);
@@ -2636,7 +2636,7 @@ int __fastcall Login_Wonline_00742fd0()
             Debug_Printf((char const *)0x7fe65c);
             SimpleWonlineDialogControl control;
             int dialog_id = options.unknown_004ff2c0() ? 0x10f : 0x11d;
-            unknown_5159b0(0, true);
+            Darken_Surface(0, true);
             HWND window = unknown_create_dialog_5ff610(dialog_id, (DLGPROC)Wonline_Account_Dialog_007540a0, (int)&control);
             unknown_dialog_5ff7c0(window);
             Set_Login_Focus(window);
@@ -2670,7 +2670,7 @@ int __fastcall Login_Wonline_00742fd0()
                 if (Unknown_00742d50()) {
                     Remember_Login(saved, profile);
                     if (!saved.unknown_004ff2b0() || !Get_Auto_Login_00738cb0()) { return 1; }
-                    unknown_5159b0(0, true);
+                    Darken_Surface(0, true);
                     SimpleWonlineDialogControl next;
                     Run_Control_Dialog_006011a0(0x112, (DLGPROC)Wonline_Dialog_00755070, &next);
                     return 1;
@@ -2701,7 +2701,7 @@ extern bool unknown_7fd354;
 extern int unknown_time_b2abd0, unknown_time_b2abd4;
 extern HWND game_window_00b263d8;
 void __fastcall Open_Wait_Window_0074d4d0(unsigned int, WideString const &, bool);
-void __fastcall unknown_5159b0(int, bool);
+void __fastcall Darken_Surface(int, bool);
 HWND __fastcall unknown_create_dialog_5ff610(int, DLGPROC, int);
 int __stdcall Wonline_Main_Dialog_007469c0(HWND, UINT, WPARAM, LPARAM);
 bool __fastcall Get_Channel_List_0073d8f0();
@@ -2797,7 +2797,7 @@ int __fastcall Unknown_00743720(HWND window, bool first_time)
         ResetEvent(wol_wait_events_b264f8[i]);
     }
     if (window == 0) {
-        unknown_5159b0(0, true);
+        Darken_Surface(0, true);
         window = unknown_create_dialog_5ff610(0x113, (DLGPROC)Wonline_Main_Dialog_007469c0, 0);
         Print_Message_Of_The_Day();
         {
@@ -3105,7 +3105,7 @@ extern char account_text_7fe744[];
 void __fastcall Create_Wonline_Account_00744a00(HWND parent)
 {
     OwnerDraw::unknown_5e5150(parent,false);
-    unknown_5159b0(0,true);
+    Darken_Surface(0,true);
     char nickname[32];
     char password[32];
     char confirmation[32];
@@ -3151,9 +3151,9 @@ void __fastcall Create_Wonline_Account_00744a00(HWND parent)
         return;
     }
 birthdate_retry:
-    unknown_5159b0(0,true);
+    Darken_Surface(0,true);
     {
-        dialog=(HWND)unknown_create_dialog_735700(ProgramInstance,0xe7,MainWindow,(UnknownDialogProc)Birthdate_Dialog_007494d0,0);
+        dialog=(HWND)WS_Create_Dialog(ProgramInstance,0xe7,MainWindow,(UnknownDialogProc)Birthdate_Dialog_007494d0,0);
         unknown_show_dialog_5ff7e0(dialog,0xe7);
         SendDlgItemMessageA(dialog,0x62e,0x14e,month-1,0);
         if(day>0) {
@@ -3178,7 +3178,7 @@ birthdate_retry:
         SendDlgItemMessageA(dialog,0x631,0xf1,newsletter,0);
         ShowWindow(parent,0);
         ShowWindow(dialog,1);
-        if(Unknown_007359e0(dialog,connection_wait_callback_0073c120,0,1,1)==1) {
+        if(WS_Wait_Dialog(dialog,connection_wait_callback_0073c120,0,1,1)==1) {
             email[0]=0;
             strcpy(email,unknown_wstring_b29ce4.Get());
             month=account_birth_month_b26894+1;
@@ -3219,7 +3219,7 @@ account_retry:
                 int resource;
                 if(unknown_b2ac6c<13) resource=0xe6;
                 else resource=unknown_b2ac6c>=18 ? 0xf4 : 0xf3;
-                dialog=(HWND)unknown_create_dialog_735700(ProgramInstance,resource,MainWindow,(UnknownDialogProc)Account_Details_Dialog_007498e0,0);
+                dialog=(HWND)WS_Create_Dialog(ProgramInstance,resource,MainWindow,(UnknownDialogProc)Account_Details_Dialog_007498e0,0);
                 unknown_show_dialog_5ff7e0(dialog,resource);
                 if(nickname && strlen(nickname)>0) {
                     HWND edit=GetDlgItem(dialog,0x628);
@@ -3251,7 +3251,7 @@ account_retry:
                 }
                 ShowWindow(dialog,1);
                 SendMessageA(dialog,0x4a9,0,1);
-                if(Unknown_007359e0(dialog,connection_wait_callback_0073c120,0,1,1)!=1) goto birthdate_retry;
+                if(WS_Wait_Dialog(dialog,connection_wait_callback_0073c120,0,1,1)!=1) goto birthdate_retry;
                 nickname[0]=0;
                 strcpy(nickname,account_name_b2a640.Get());
                 password[0]=0;
@@ -3439,7 +3439,7 @@ bool __fastcall Join_Game_Channel_00745780(WOL::Channel const *channel,bool obse
     Wstring password;
     // The external WOL channel flags occupy the second DWORD of this still-flat field.
     if(*(unsigned int const *)(channel->unknown_18+4)&0x100) {
-        unknown_5159b0(0,true);
+        Darken_Surface(0,true);
         WonlineStringDialogControl control;
         if(Run_Control_Dialog_006011a0(0xe1,(DLGPROC)Wonline_Password_Dialog_007492d0,&control)==2) return false;
         password=control.Text;
@@ -3460,7 +3460,7 @@ int __fastcall Run_Control_Dialog_006011a0(int,DLGPROC,OwnerDraw::DialogControl 
 long __stdcall Wonline_Create_Game_Dialog_00748e10(HWND,UINT,WPARAM,LPARAM);
 int __stdcall WOL_Game_Options_Proc_0074a710(HWND,UINT,WPARAM,LPARAM);
 void __fastcall Seat_First_Player_005c8cd0(int slot);   // 0x005C8CD0 (netshare.cpp)
-void __fastcall unknown_5159b0(int,bool);
+void __fastcall Darken_Surface(int,bool);
 extern char wol_password_find_7e613c[],wol_password_replace_7cf730[],wol_game_name_format_7fe938[];
 extern char wol_leave_debug_7fe6f8[],wol_leaving_label_7fe6e4[];
 extern char wol_source_file_007fd62c[],wol_bad_key_label_7fe928[],wol_cant_create_label_7fe914[],wol_creating_label_7fe900[];
@@ -3492,9 +3492,9 @@ inline void Show_Game_Options()
         HWND window=WS_Top_Window();
         if(window) {
             OwnerDraw::unknown_5e5150(window,false);
-            unknown_5159b0(0,true);
+            Darken_Surface(0,true);
         }
-        unknown_5159b0(0,true);
+        Darken_Surface(0,true);
         HWND dialog=unknown_create_dialog_5ff610(0xc2,(DialogProc)WOL_Game_Options_Proc_0074a710,0);
         unknown_session_a3d298.Mode->unknown_slot33();
         unknown_session_a3d298.Mode->unknown_slot8();
@@ -3523,7 +3523,7 @@ bool __fastcall Host_Game_007459a0()
     unknown_b2ac04=false;
     if(Is_Online_Session()) wol_max_players_b2abdc=2;
     else {
-        unknown_5159b0(0,true);
+        Darken_Surface(0,true);
         if(Run_Control_Dialog_006011a0(0xc3,(DLGPROC)Wonline_Create_Game_Dialog_00748e10,&control)==2) return false;
         password=control.Text;
         password.Replace(wol_password_find_7e613c,wol_password_replace_7cf730);
@@ -3807,14 +3807,14 @@ int __fastcall Reply_To_Last_Pager_007466c0(wchar_t const *text)
 
 extern HANDLE wol_wait_events_b264f8[18];
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 void __stdcall unknown_dialog_5ecf40(HWND,int);
 namespace OwnerDraw {
 void __fastcall unknown_5e6390(HWND);
 void __fastcall unknown_5e5150(HWND,bool);
 void __fastcall unknown_draw_dialog_back_5fee70(HWND);
 }
-void __fastcall unknown_5159b0(int,bool);
+void __fastcall Darken_Surface(int,bool);
 void __fastcall Unknown_005CD3A0();
 void __fastcall Unknown_005FE380(long);
 WideString __fastcall Limit_Name_Text_005ccf50(HWND);
@@ -3920,7 +3920,7 @@ int __stdcall Wonline_Main_Dialog_007469c0(HWND window,UINT message,WPARAM wpara
         return 1;
     case 0xf:
         OwnerDraw::unknown_draw_dialog_back_5fee70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window,0);
         return 0;
     case 7:
@@ -4074,7 +4074,7 @@ int __stdcall Wonline_Main_Dialog_007469c0(HWND window,UINT message,WPARAM wpara
                         EnableWindow(GetDlgItem(window,0x686),1);
                         if(joined) {
                             OwnerDraw::unknown_5e5150(window,false);
-                            unknown_5159b0(0,true);
+                            Darken_Surface(0,true);
                             ShowWindow(window,0);
                             unknown_dialog_5ecf40(window,1);
                         }
@@ -4105,7 +4105,7 @@ int __stdcall Wonline_Main_Dialog_007469c0(HWND window,UINT message,WPARAM wpara
         }
         case 0x61f: {
             OwnerDraw::unknown_5e5150(window,false);
-            unknown_5159b0(0,true);
+            Darken_Surface(0,true);
             HWND dialog=unknown_create_dialog_5ff610(700,Wonline_Options_Dialog_00749b50,0);
             ShowWindow(dialog,1);
             int result=Dialog_Loop_007359e0(dialog,connection_wait_callback_0073c120,0,true,true);
@@ -4167,7 +4167,7 @@ int __stdcall Wonline_Main_Dialog_007469c0(HWND window,UINT message,WPARAM wpara
                         EnableWindow(GetDlgItem(window,0x686),0);
                         if(Join_Game_Channel_00745780(&game,unknown_a72c68==1)) {
                             OwnerDraw::unknown_5e5150(window,false);
-                            unknown_5159b0(0,true);
+                            Darken_Surface(0,true);
                             ShowWindow(window,0);
                             unknown_dialog_5ecf40(window,1);
                         }
@@ -4199,10 +4199,10 @@ int __stdcall Wonline_Main_Dialog_007469c0(HWND window,UINT message,WPARAM wpara
         return 0;
     case 0x497: {
         Unknown_005cd540(window);
-        SendDlgItemMessageA(window,0x3ed,0x49c,0,(LPARAM)unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_label_7eb2e4,0));
-        SendDlgItemMessageA(window,0x3ed,0x4aa,0,(LPARAM)unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_label_7eb2d8,0));
-        SendDlgItemMessageA(window,0x55d,0x49c,0,(LPARAM)unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_label_7eb2cc,0));
-        SendDlgItemMessageA(window,0x55d,0x4aa,0,(LPARAM)unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_label_7eb2c0,0));
+        SendDlgItemMessageA(window,0x3ed,0x49c,0,(LPARAM)SurfaceCache.Get_Image_0068ca40(wol_label_7eb2e4,0));
+        SendDlgItemMessageA(window,0x3ed,0x4aa,0,(LPARAM)SurfaceCache.Get_Image_0068ca40(wol_label_7eb2d8,0));
+        SendDlgItemMessageA(window,0x55d,0x49c,0,(LPARAM)SurfaceCache.Get_Image_0068ca40(wol_label_7eb2cc,0));
+        SendDlgItemMessageA(window,0x55d,0x4aa,0,(LPARAM)SurfaceCache.Get_Image_0068ca40(wol_label_7eb2c0,0));
         game_type_column_b2a6f8=2;
         game_private_column_b2a6f4=0x13;
         game_observer_column_b299a0=0x24;
@@ -4262,7 +4262,7 @@ LRESULT __fastcall unknown_get_window_text(HWND,Wstring &);
 LRESULT __fastcall unknown_get_window_wide_text(HWND,WideString &);
 WideString __fastcall Limit_Name_Text_005ccf50(HWND);
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 bool __fastcall Unknown_005def80(long,bool);
 extern int unknown_color_7a737c;
 extern unsigned short wol_empty_text_839d4c[];
@@ -4358,7 +4358,7 @@ long __stdcall Find_Page_Dialog_007485d0(HWND window,UINT message,WPARAM wparam,
         break;
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window,0);
         return 0;
     case 0x2b:
@@ -4442,7 +4442,7 @@ long __stdcall Wonline_Download_Dialog_00748cd0(HWND window,unsigned message,uns
 
 
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 LRESULT __fastcall unknown_get_window_text(HWND,Wstring &);
 extern "C" __declspec(dllimport) UINT __stdcall IsDlgButtonChecked(HWND,int);
 extern "C" __declspec(dllimport) BOOL __stdcall CheckDlgButton(HWND,int,UINT);
@@ -4457,7 +4457,7 @@ long __stdcall Wonline_Create_Game_Dialog_00748e10(HWND window,UINT message,WPAR
     switch(message) {
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window,0);
         return 0;
     case 0x14: return 1;
@@ -4540,7 +4540,7 @@ long __stdcall Wonline_Create_Game_Dialog_00748e10(HWND window,UINT message,WPAR
 
 
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 LRESULT __fastcall unknown_get_window_text(HWND,Wstring &);
 extern char password_invalid_characters_7fea20[];
 long __stdcall Wonline_Password_Dialog_007492d0(HWND window,UINT message,WPARAM wparam,LPARAM lparam)
@@ -4552,7 +4552,7 @@ long __stdcall Wonline_Password_Dialog_007492d0(HWND window,UINT message,WPARAM 
     switch(message) {
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window,0);
         return 0;
     case 0x2b:
@@ -4596,7 +4596,7 @@ long __stdcall Wonline_Password_Dialog_007492d0(HWND window,UINT message,WPARAM 
 }
 
 
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 LRESULT __fastcall unknown_get_window_text(HWND,Wstring &);
 extern "C" int __cdecl atoi(char const *);
 
@@ -4620,7 +4620,7 @@ long __stdcall Birthdate_Dialog_007494d0(HWND window,UINT message,WPARAM wparam,
     switch(message) {
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window,0);
         return 0;
     case 0x2b:
@@ -4698,7 +4698,7 @@ long __stdcall Birthdate_Dialog_007494d0(HWND window,UINT message,WPARAM wparam,
 
 
 namespace OwnerDraw { int __fastcall unknown_5eab00(HWND control); }
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 LRESULT __fastcall unknown_get_window_text(HWND,Wstring &);
 extern Wstring account_name_b2a640,account_password_b2a71c,account_password_check_b2a724,unknown_account_detail_b2945c;
 extern int unknown_account_checkbox_b29ad0;
@@ -4708,7 +4708,7 @@ long __stdcall Account_Details_Dialog_007498e0(HWND window,UINT message,WPARAM w
     switch(message) {
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window,0);
         return 0;
     case 0x2b: Unknown_005FE380(lparam); return 1;
@@ -4771,8 +4771,8 @@ extern int wol_pending_allow_page_b292e4,wol_pending_allow_find_b294f0,wol_pendi
 extern int wol_pending_show_all_b2a644,wol_pending_display_asian_b29730,wol_pending_display_latin_b29978;
 extern void *unknown_options_b2aca0;
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
-void __fastcall unknown_5159b0(int,bool);
+void __fastcall Slide_Pending_Dialog(HWND);
+void __fastcall Darken_Surface(int,bool);
 void __stdcall unknown_dialog_5ecf40(HWND,int);
 int __stdcall Wonline_Options_Dialog_00749b50(HWND window,UINT message,WPARAM wparam,LPARAM lparam)
 {
@@ -4784,7 +4784,7 @@ int __stdcall Wonline_Options_Dialog_00749b50(HWND window,UINT message,WPARAM wp
         return 0;
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window,0);
         return 0;
     case 0x2b:
@@ -4834,7 +4834,7 @@ int __stdcall Wonline_Options_Dialog_00749b50(HWND window,UINT message,WPARAM wp
             break;
         case 0x63a: {
             OwnerDraw::unknown_5e5150(window,false);
-            unknown_5159b0(0,true);
+            Darken_Surface(0,true);
             GameActive=false;
             SoundControlsDialog dialog;
             dialog.Run_00688CD0();
@@ -5045,7 +5045,7 @@ WideString __fastcall unknown_5e2160(HWND,int);
 WideString __fastcall unknown_5e2260(unsigned int,HWND);
 }
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 void __stdcall unknown_dialog_5ecf40(HWND,int);
 void __fastcall Unknown_0073FEE0(int,bool);
 wchar_t *__fastcall Player_Info_Tooltip_0074a120(wchar_t const *);
@@ -5203,7 +5203,7 @@ int __stdcall WOL_Game_Options_Proc_0074a710(HWND window,UINT message,WPARAM wpa
         return 0;
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         if(MultiplayerMapPreview) MultiplayerMapPreview->Blit_Preview(window);
         else if(unknown_session_a3d2b4==-1 && unknown_preview_a6fee4) unknown_preview_a6fee4->Blit_Preview(window);
         if(ProgressScreen.Has_Window()) ProgressScreen.Draw_It(Point2D(-1,-1));
@@ -5377,11 +5377,11 @@ int __stdcall WOL_Game_Options_Proc_0074a710(HWND window,UINT message,WPARAM wpa
             bool observers=!unknown_session_a3d298.Mode || unknown_session_a3d298.Mode->unknown_slot40();
             char filename[132]; wchar_t description[130];
             strcpy(filename,host_scenario_file_a3d8f0); wcscpy(description,unknown_map_name_a3d342);
-            host_scenario_enabled_7e6dc0=false; Unknown_005e5150(window,false); unknown_5159b0(0,true);
+            host_scenario_enabled_7e6dc0=false; Unknown_005e5150(window,false); Darken_Surface(0,true);
             bool cancelled=Open_Lobby_Dialog_005c6960((HWND)unknown_b263d8)==2;
             ShowWindow(window,5); unknown_dialog_5ecf40(window,0); SetFocus(GetDlgItem(window,0x540));
             if(cancelled) {
-                unknown_session_a3d2b4=old; Select_Scenario_005c7c30(old); Unknown_005c7570(window);
+                unknown_session_a3d2b4=old; Select_Scenario_005c7c30(old); Update_Network_Dialog_Preview(window);
                 host_scenario_enabled_7e6dc0=true; ShowWindow(window,5); unknown_dialog_5ecf40(window,0);
                 Load_Random_Map_Preview_005cc800(window); Unknown_005c3810(true,false); InvalidateRect(window,0,0); return 0;
             }
@@ -5409,8 +5409,8 @@ int __stdcall WOL_Game_Options_Proc_0074a710(HWND window,UINT message,WPARAM wpa
         return 0;
     }
     case 0x497: {
-        SendDlgItemMessageA(window,0x3ed,0x49c,0,(LPARAM)unknown_bitmap_writer_a76378.Get_Image_0068ca40(guest_label_7eb2e4,0));
-        SendDlgItemMessageA(window,0x3ed,0x4aa,0,(LPARAM)unknown_bitmap_writer_a76378.Get_Image_0068ca40(guest_label_7eb2d8,0));
+        SendDlgItemMessageA(window,0x3ed,0x49c,0,(LPARAM)SurfaceCache.Get_Image_0068ca40(guest_label_7eb2e4,0));
+        SendDlgItemMessageA(window,0x3ed,0x4aa,0,(LPARAM)SurfaceCache.Get_Image_0068ca40(guest_label_7eb2d8,0));
         MultiplayerGameMode *mode=MultiplayerGameMode::unknown_first_mode_5b6ec0();
         unknown_session_a3d298.GameModeIndex=mode->unknown_28; unknown_session_a3d298.Mode=mode;
         mode->unknown_slot8(); Unknown_005c3450(window,mode);
@@ -5574,7 +5574,7 @@ WideString __fastcall unknown_5e2160(HWND,int);
 WideString __fastcall unknown_5e2260(unsigned int,HWND);
 }
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 void __stdcall unknown_dialog_5ecf40(HWND,int);
 void __fastcall Refresh_Wonline_Players_0073fee0(int,bool);
 wchar_t *__fastcall Player_Info_Tooltip_0074a120(wchar_t const *);
@@ -5645,7 +5645,7 @@ int __stdcall Wonline_Guest_Dialog_0074c660(HWND window,UINT message,WPARAM wpar
         return 0;
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         if(MultiplayerMapPreview) MultiplayerMapPreview->Blit_Preview(window);
         if(ProgressScreen.Has_Window()) ProgressScreen.Draw_It(Point2D(-1,-1));
         ValidateRect(window,0);
@@ -5774,8 +5774,8 @@ int __stdcall Wonline_Guest_Dialog_0074c660(HWND window,UINT message,WPARAM wpar
     }
     case 0x497: {
         SetFocus(GetDlgItem(window,0x540));
-        SendDlgItemMessageA(window,0x3ed,0x49c,0,(LPARAM)unknown_bitmap_writer_a76378.Get_Image_0068ca40(guest_label_7eb2e4,0));
-        SendDlgItemMessageA(window,0x3ed,0x4aa,0,(LPARAM)unknown_bitmap_writer_a76378.Get_Image_0068ca40(guest_label_7eb2d8,0));
+        SendDlgItemMessageA(window,0x3ed,0x49c,0,(LPARAM)SurfaceCache.Get_Image_0068ca40(guest_label_7eb2e4,0));
+        SendDlgItemMessageA(window,0x3ed,0x4aa,0,(LPARAM)SurfaceCache.Get_Image_0068ca40(guest_label_7eb2d8,0));
         MultiplayerGameMode *mode=MultiplayerGameMode::unknown_first_mode_5b6ec0();
         unknown_session_a3d298.GameModeIndex=mode->unknown_28;
         Unknown_005c3450(window,mode);
@@ -5788,7 +5788,7 @@ int __stdcall Wonline_Guest_Dialog_0074c660(HWND window,UINT message,WPARAM wpar
         unknown_a72d52=false;
         unknown_int_a3db1c=8;
         Unknown_005c34b0(window);
-        Unknown_005c7570(window);
+        Update_Network_Dialog_Preview(window);
         Unknown_Fill_Options_Dialog_005c3550(window,1);
         Refresh_Wonline_Players_0073fee0(0,false);
         return 0;
@@ -5877,14 +5877,14 @@ void __fastcall Open_Wait_Window_0074d4d0(unsigned int events,WideString const &
     } else if(events) {
         HWND focus=WS_Top_Window();
         focus=GetDlgItem(focus,0x540);
-        dialog=(HWND)unknown_create_dialog_735700(ProgramInstance,0xc4,MainWindow,Wonline_Wait_Dialog_0074d5e0,0);
+        dialog=(HWND)WS_Create_Dialog(ProgramInstance,0xc4,MainWindow,Wonline_Wait_Dialog_0074d5e0,0);
         unknown_show_dialog_5ff7e0(dialog,0xc4);
         HWND text=GetDlgItem(dialog,0x5b2);
         SendMessageA(text,0x4b2,0,(LPARAM)message.unknown_text_770430());
         unknown_b2abe0=events;
         if(focus) SetFocus(focus);
     }
-    if(block && unknown_b2abe0) Unknown_007359e0(dialog,connection_wait_callback_0073c120,0,1,0);
+    if(block && unknown_b2abe0) WS_Wait_Dialog(dialog,connection_wait_callback_0073c120,0,1,0);
 }
 
 
@@ -6344,7 +6344,7 @@ void Retry_Requests_0074e470()
             strcpy(packet.Name, unknown_wstring_b26cb8.Get());
             char const *name = Wide_To_Narrow_006fa120((unsigned short const *)unknown_player_slots_a3fa98[unknown_session_a3d298.unknown_2f14[index]]);
             Debug_Printf(unknown_retry_format_7fefac, name);
-            unknown_ipx_manager_a40978.unknown_5259a0(&packet, 0x2f, 0,
+            Ipx.Send_Global_Message_To_Name(&packet, 0x2f, 0,
                 (wchar_t const *)unknown_player_slots_a3fa98[unknown_session_a3d298.unknown_2f14[index]]);
             unknown_session_a3d298.unknown_2f34[index] = CDTimerClass<SystemTimerClass>(1200);
         }
@@ -6479,10 +6479,10 @@ void __fastcall Start_Game_Now_0074f300()
     PacketTransport->Discard_In_Buffers();
     PacketTransport->Discard_Out_Buffers();
     memset(wol_connection_status_b26a2c,0xff,sizeof(wol_connection_status_b26a2c));
-    void *dialog=unknown_create_dialog_735700(ProgramInstance,300,MainWindow,Player_Readiness_Dialog_0074db40,0);
+    void *dialog=WS_Create_Dialog(ProgramInstance,300,MainWindow,Player_Readiness_Dialog_0074db40,0);
     if(dialog) unknown_show_dialog_5ff7e0(dialog,300);
     for(int n=0;n<100;++n) Service_Game_IO_00481fb0();
-    unknown_ipx_manager_a40978.unknown_527830(300);
+    Ipx.Global_Channel_Op_44(300);
     bool connected=Connect_Player_Pairs_0074ef80();
     if(!connected) {
         unknown_login_state_00b2abe4=0;
@@ -6558,7 +6558,7 @@ void __fastcall Start_Game_Now_0074f300()
         else if(worst_ping<600) unknown_session_a3d298.unknown_290c=1;
         int timing=60*worst_ping/1000;
         timing+=120*timing/100;
-        unknown_ipx_manager_a40978.Set_Timing(timing,(unsigned long)-1,timing*8,true);
+        Ipx.Set_Timing(timing,(unsigned long)-1,timing*8,true);
         owner=Unknown_0074DA60();
         if(owner && !_stricmp(owner->name,unknown_wstring_b26cb8.Peek_Buffer())) {
             switch(unknown_session_a3d298.unknown_290c) {
@@ -6581,11 +6581,11 @@ void __fastcall Start_Game_Now_0074f300()
     memset(unknown_session_a3d298.unknown_2ec,0,sizeof(player_statistics_00a3d584));
     unknown_a40b18=unknown_session_a3d298.GameSpeed_30;
     unknown_default_port_7f60d0=1234;
-    unknown_port_7f60d4=1235;
-    unknown_alternate_port_7f60d8=1236;
+    AlternateSendPort=1235;
+    AlternateListenPort=1236;
     game_port_7f60dc=1237;
     Frame=0;
-    if(use_router_a402d0) unknown_OwnerTalkClass_00ab6d18.Wait_For_Router_Shutdown(2000,true);
+    if(use_router_a402d0) OwnerTalk.Wait_For_Router_Shutdown(2000,true);
     unknown_squad_1_b2a820[0]=0;
     unknown_squad_2_b293d8[0]=0;
     if(unknown_session_a3d298.Type==4) {
@@ -6871,8 +6871,8 @@ int __fastcall Sync_Scenario_With_Guests_00750330(bool connected)
     bool failed=!connected;
     bool scenario_mismatch=false;
     int result=0;
-    unknown_ipx_manager_a40978.unknown_5277f0();
-    unknown_ipx_manager_a40978.Set_Timing(50,(unsigned long)-1,5000,true);
+    Ipx.Global_Channel_Clear_FieldC8();
+    Ipx.Set_Timing(50,(unsigned long)-1,5000,true);
     WOL::User *owner;
     if(Local_User_Is_Channel_Owner_0074d960()) {
         memset(&packet,0,sizeof(packet));
@@ -6886,7 +6886,7 @@ int __fastcall Sync_Scenario_With_Guests_00750330(bool connected)
         if(failed) response_timer=300;
         do {
             Service_Game_IO_00481fb0();
-            if(unknown_ipx_manager_a40978.Get_Global_Message(&unknown_gpacket_a3f640,&scenario_packet_length_a3f808,&unknown_address_a3f80c,&scenario_product_a3f818) && scenario_product_a3f818==0xaa03) {
+            if(Ipx.Get_Global_Message(&unknown_gpacket_a3f640,&scenario_packet_length_a3f808,&unknown_address_a3f80c,&scenario_product_a3f818) && scenario_product_a3f818==0xaa03) {
                 Debug_Printf(scenario_debug_007ff8c0);
                 for(int i=1;i<unknown_session_a3d298.Players.Count();++i) {
                     if(unknown_session_a3d298.Players[i]->Address.Is_Same_Node(unknown_address_a3f80c) && !_stricmp(Wide_To_Narrow_006fa120(unknown_session_a3d298.Players[i]->Name),unknown_gpacket_a3f640.Name) && !responses[i]) {
@@ -6946,7 +6946,7 @@ int __fastcall Sync_Scenario_With_Guests_00750330(bool connected)
             if(failed) send_timer=CDTimerClass<SystemTimerClass>(300);
             do {
                 Service_Game_IO_00481fb0();
-            } while(!unknown_ipx_manager_a40978.unknown_5259a0(&packet,47,1,unknown_session_a3d298.Players[k]->Name) && send_timer);
+            } while(!Ipx.Send_Global_Message_To_Name(&packet,47,1,unknown_session_a3d298.Players[k]->Name) && send_timer);
         }
     } else {
         if(Find_Local_Scenario_0066c5b0(unknown_session_a3d298.ScenarioFileName_658,unknown_session_a3d298.ScenarioFileLength_87c,unknown_session_a3d298.ScenarioDigest_85a,unknown_session_a3d298.ScenarioIsOfficial_880,true)) {
@@ -6959,11 +6959,11 @@ int __fastcall Sync_Scenario_With_Guests_00750330(bool connected)
                 unknown_users_b2a728.Get_Copy(unknown_user_b2a658,i);
                 if(unknown_user_b2a658.flags&1) { owner=&unknown_user_b2a658; break; }
             }
-            if(owner) unknown_ipx_manager_a40978.unknown_5259a0(&packet,47,1,Narrow_To_Wide_006fa180(owner->name));
+            if(owner) Ipx.Send_Global_Message_To_Name(&packet,47,1,Narrow_To_Wide_006fa180(owner->name));
             CDTimerClass<SystemTimerClass> send_timer;
             send_timer=1200;
             if(failed) send_timer=300;
-            while(unknown_ipx_manager_a40978.Global_Num_Send()>0 && send_timer) Service_Game_IO_00481fb0();
+            while(Ipx.Global_Num_Send()>0 && send_timer) Service_Game_IO_00481fb0();
         } else {
             if((unknown_a3d2a4!=2 && unknown_a3d2a4==1) || (unknown_session_a3d298.ScenarioIsOfficial_880 && !unknown_session_a3d298.Unknown_00672140())) {
                 memset(&packet,0,sizeof(packet));
@@ -6973,11 +6973,11 @@ int __fastcall Sync_Scenario_With_Guests_00750330(bool connected)
                     unknown_users_b2a728.Get_Copy(unknown_user_b2a658,i);
                     if(unknown_user_b2a658.flags&1) { owner=&unknown_user_b2a658; break; }
                 }
-                if(owner) unknown_ipx_manager_a40978.unknown_5259a0(&packet,47,1,Narrow_To_Wide_006fa180(owner->name));
+                if(owner) Ipx.Send_Global_Message_To_Name(&packet,47,1,Narrow_To_Wide_006fa180(owner->name));
                 Debug_Printf(scenario_debug_007ff828);
                 CDTimerClass<SystemTimerClass> send_timer;
                 send_timer=1200;
-                while(unknown_ipx_manager_a40978.Global_Num_Send()>0 && send_timer) Service_Game_IO_00481fb0();
+                while(Ipx.Global_Num_Send()>0 && send_timer) Service_Game_IO_00481fb0();
                 result=2;
                 failed=true;
             } else {
@@ -6992,7 +6992,7 @@ int __fastcall Sync_Scenario_With_Guests_00750330(bool connected)
         if(failed) response_timer=300;
         do {
             Service_Game_IO_00481fb0();
-            if(unknown_ipx_manager_a40978.Get_Global_Message(&unknown_gpacket_a3f640,&scenario_packet_length_a3f808,&unknown_address_a3f80c,&scenario_product_a3f818) && scenario_product_a3f818==0xaa03) {
+            if(Ipx.Get_Global_Message(&unknown_gpacket_a3f640,&scenario_packet_length_a3f808,&unknown_address_a3f80c,&scenario_product_a3f818) && scenario_product_a3f818==0xaa03) {
                 Debug_Printf(scenario_debug_007ff8c0);
                 owner=0;
                 for(int i=0;i<unknown_users_b2a728.Count;++i) {
@@ -7021,8 +7021,8 @@ int __fastcall Sync_Scenario_With_Guests_00750330(bool connected)
         if(!response_timer) failed=true;
     }
 finish:
-    unknown_ipx_manager_a40978.Set_Timing(unknown_ipx_manager_a40978.unknown_526c30()+2,(unsigned long)-1,unknown_ipx_manager_a40978.unknown_526c30()*8<120?120:unknown_ipx_manager_a40978.unknown_526c30()*8,true);
-    unknown_ipx_manager_a40978.unknown_527800();
+    Ipx.Set_Timing(Ipx.unknown_526c30()+2,(unsigned long)-1,Ipx.unknown_526c30()*8<120?120:Ipx.unknown_526c30()*8,true);
+    Ipx.Set_Global_Routed();
     if(result!=2 && failed) result=1;
     return result;
 }
@@ -7044,19 +7044,19 @@ bool __fastcall Receive_Host_Map_Preview_00750d10()
             }
         }
         if(owner && !_stricmp(owner->name,unknown_wstring_b26cb8.Peek_Buffer())) return false;
-        if(unknown_b2ac40==0 && unknown_ipx_manager_a40978.Global_Num_Receive()) {
+        if(unknown_b2ac40==0 && Ipx.Global_Num_Receive()) {
             Service_Game_IO_00481fb0();
             UnknownGlobalPacket packet;
             int length=sizeof(packet);
             unsigned short product;
-            if(unknown_ipx_manager_a40978.unknown_525af0(0,&packet,&length,&address,&product,0) && packet.Command==25) {
+            if(Ipx.Global_Channel_Op(0,&packet,&length,&address,&product,0) && packet.Command==25) {
                 void *dialog=WS_Find_Dialog_00735940(0xc9);
                 if(dialog) ShowWindow(GetDlgItem((HWND)dialog,0x468),1);
                 WOL::User user;
                 unknown_users_b2a728.Get_Copy(user,0);
                 user.next=0;
                 Unknown_0074d7d0(&user);
-                if(unknown_ipx_manager_a40978.Get_Global_Message(&packet,&length,&address,&product) && packet.Command==25 && address.Is_Same_Node(unknown_address_a3db2c) && product==0xaa03) {
+                if(Ipx.Get_Global_Message(&packet,&length,&address,&product) && packet.Command==25 && address.Is_Same_Node(unknown_address_a3db2c) && product==0xaa03) {
                     owner=0;
                     for(int i=0;i<unknown_users_b2a728.Count;++i) {
                         unknown_users_b2a728.Get_Copy(unknown_user_b2a658,i);
@@ -7067,11 +7067,11 @@ bool __fastcall Receive_Host_Map_Preview_00750d10()
                     }
                     if(owner && !_stricmp(packet.Name,owner->name)) {
                         Debug_Printf(host_preview_debug_007ff8d8);
-                        unknown_ipx_manager_a40978.Set_Timing(50,(unsigned long)-1,5000,true);
+                        Ipx.Set_Timing(50,(unsigned long)-1,5000,true);
                         receiving_host_preview_00b2ac46=true;
                         Download_Map_Preview_005c7970();
                         receiving_host_preview_00b2ac46=false;
-                        unknown_ipx_manager_a40978.Set_Timing(30,(unsigned long)-1,600,true);
+                        Ipx.Set_Timing(30,(unsigned long)-1,600,true);
                         return true;
                     }
                 }
@@ -7104,7 +7104,7 @@ void __fastcall Poke_The_Host_00750f60()
                 user.next=0;
                 Unknown_0074d7d0(&user);
                 Service_Game_IO_00481fb0();
-                unknown_ipx_manager_a40978.Set_Timing(50,(unsigned long)-1,5000,true);
+                Ipx.Set_Timing(50,(unsigned long)-1,5000,true);
                 Debug_Printf(wol_host_address_debug_7ff904,unknown_address_a3db2c.As_String());
                 UnknownGlobalPacket packet;
                 memset(&packet,0,sizeof(packet));
@@ -7118,7 +7118,7 @@ void __fastcall Poke_The_Host_00750f60()
                         break;
                     }
                 }
-                if(owner) unknown_ipx_manager_a40978.unknown_5259a0(&packet,sizeof(packet),1,Narrow_To_Wide_006fa180(owner->name));
+                if(owner) Ipx.Send_Global_Message_To_Name(&packet,sizeof(packet),1,Narrow_To_Wide_006fa180(owner->name));
                 Service_Game_IO_00481fb0();
             }
         }
@@ -7140,7 +7140,7 @@ int Open_Wonline_Dialog_FE_00751130()
 // Locale chooser00751190: native callback ABI and existing dialog-control result carrier.
 WideString __fastcall Locale_Name_0073f1c0(int locale);
 void __fastcall Unknown_005FF380(HWND window);
-void __fastcall unknown_dialog_5e5f20(HWND window);
+void __fastcall Slide_Pending_Dialog(HWND window);
 
 long __stdcall Wonline_Dialog_FE_00751190(HWND window,unsigned message,unsigned wparam,long lparam)
 {
@@ -7157,7 +7157,7 @@ long __stdcall Wonline_Dialog_FE_00751190(HWND window,unsigned message,unsigned 
             return 0;
         case 0xf:
             Unknown_005FEE70(window);
-            unknown_dialog_5e5f20(window);
+            Slide_Pending_Dialog(window);
             ValidateRect(window,0);
             return 0;
         case 0x14:
@@ -7386,9 +7386,9 @@ void __fastcall Start_Test_Network_Game_007516c0()
         else if(maximum_ping<600) unknown_a3fba4=1;
         int ticks=60*maximum_ping/1000;
         ticks+=120*ticks/100;
-        unknown_ipx_manager_a40978.Set_Timing(ticks,(unsigned long)-1,ticks*8,true);
+        Ipx.Set_Timing(ticks,(unsigned long)-1,ticks*8,true);
         if(precalculate) {
-            unknown_ipx_manager_a40978.unknown_slot18(5,(unsigned long)-1,120);
+            Ipx.unknown_slot18(5,(unsigned long)-1,120);
             switch(unknown_a3fba4) {
             case 0:case 1:unknown_session_a3d298.unknown_2e4=unknown_session_a3d298.MaxAhead_2c8;break;
             case 2:unknown_session_a3d298.unknown_2e4=(unknown_session_a3d298.MaxAhead_2c8>>1)+unknown_session_a3d298.MaxAhead_2c8;break;
@@ -7743,7 +7743,7 @@ DWORD __fastcall Wait_Wonline_Events_007528c0(int seconds,DWORD count)
 
 
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 extern int unknown_online_option_a3d2a8;
 extern char wol_standard_icon_007eb1fc[];
 extern char wol_tournament_icon_007eb25c[];
@@ -7763,7 +7763,7 @@ long __stdcall Wonline_Mode_Menu_Dialog_00752950(HWND window,UINT message,WPARAM
     switch(message) {
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window,0);
         return 1;
     case 0x14: return 1;
@@ -7795,31 +7795,31 @@ long __stdcall Wonline_Mode_Menu_Dialog_00752950(HWND window,UINT message,WPARAM
         break;
     case 0x497: {
         HWND image_control=GetDlgItem(window,0x746);
-        Surface *image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_standard_icon_007eb1fc,0);
+        Surface *image=SurfaceCache.Get_Image_0068ca40(wol_standard_icon_007eb1fc,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x747);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_tournament_icon_007eb25c,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_tournament_icon_007eb25c,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x748);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_clan_icon_007eb228,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_clan_icon_007eb228,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x749);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_reserved_icon_007eafb4,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_reserved_icon_007eafb4,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x74a);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_observer_icon_007e7444,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_observer_icon_007e7444,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x752);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_private_icon_007eb234,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_private_icon_007eb234,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x75c);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_ping_good_icon_007eafa8,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_ping_good_icon_007eafa8,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x75d);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_ping_medium_icon_007eaf9c,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_ping_medium_icon_007eaf9c,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x75e);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_ping_poor_icon_007eaf90,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_ping_poor_icon_007eaf90,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         break;
     }
@@ -7829,7 +7829,7 @@ long __stdcall Wonline_Mode_Menu_Dialog_00752950(HWND window,UINT message,WPARAM
 
 
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 extern int unknown_online_option_a3d2a8;
 extern char wol_standard_icon_007eb1fc[];
 extern char wol_tournament_icon_007eb25c[];
@@ -7849,7 +7849,7 @@ long __stdcall Wonline_Profile_Mode_Menu_Dialog_00752cf0(HWND window,UINT messag
     switch(message) {
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window,0);
         return 1;
     case 0x14: return 1;
@@ -7889,31 +7889,31 @@ long __stdcall Wonline_Profile_Mode_Menu_Dialog_00752cf0(HWND window,UINT messag
             if(profile.Get()) profile->Populate_Dialog_00739b70(window,unknown_wstring_b26cb8,true);
         }
         HWND image_control=GetDlgItem(window,0x746);
-        Surface *image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_standard_icon_007eb1fc,0);
+        Surface *image=SurfaceCache.Get_Image_0068ca40(wol_standard_icon_007eb1fc,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x747);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_tournament_icon_007eb25c,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_tournament_icon_007eb25c,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x748);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_clan_icon_007eb228,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_clan_icon_007eb228,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x749);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_reserved_icon_007eafb4,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_reserved_icon_007eafb4,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x74a);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_observer_icon_007e7444,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_observer_icon_007e7444,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x752);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_private_icon_007eb234,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_private_icon_007eb234,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x75c);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_ping_good_icon_007eafa8,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_ping_good_icon_007eafa8,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x75d);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_ping_medium_icon_007eaf9c,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_ping_medium_icon_007eaf9c,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         image_control=GetDlgItem(window,0x75e);
-        image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_ping_poor_icon_007eaf90,0);
+        image=SurfaceCache.Get_Image_0068ca40(wol_ping_poor_icon_007eaf90,0);
         if(image_control && image) OwnerDraw::unknown_5e1f30(image_control,image);
         break;
     }
@@ -7930,7 +7930,7 @@ int Open_Wonline_Selection_00753110()
 {
     WolRegistryOptions options;
     options.Read_004ff200();
-    unknown_5159b0(0,true);
+    Darken_Surface(0,true);
     if(unknown_ladder_client_a72d00 && strlen(unknown_ladder_address_b29018) && unknown_wstring_b26cb8.Length()>0) {
         unknown_ladder_client_a72d00->Request(unknown_ladder_address_b29018,unknown_ladder_port_b2a8ac,unknown_wstring_b26cb8.Get(),unknown_game_code_7fd370&0xffff00,-1,0,0);
     }
@@ -7970,7 +7970,7 @@ void __fastcall Unknown_00753240(HWND combo)
 
 
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 void __stdcall unknown_dialog_5ecf40(HWND,int);
 void __fastcall Clear_ComboBox(HWND);
 LRESULT __fastcall unknown_get_window_text(HWND,Wstring &);
@@ -7994,7 +7994,7 @@ long __stdcall Wonline_Profile_Login_Dialog_00753370(HWND window,UINT message,WP
     OwnerDraw::DialogControl *control=(OwnerDraw::DialogControl *)GetWindowLongA(window,8);
     switch(message) {
     case 0xf:
-        Unknown_005FEE70(window);unknown_dialog_5e5f20(window);ValidateRect(window,0);
+        Unknown_005FEE70(window);Slide_Pending_Dialog(window);ValidateRect(window,0);
     painted:return 1;
     case 0x14:goto painted;
     case 0x2b:Unknown_005FE380(lparam);return 1;
@@ -8194,7 +8194,7 @@ int __fastcall Open_Wonline_Lobby_00753f70()
 
 // long __stdcall Wonline_Account_Dialog_007540a0(HWND window, UINT message, WPARAM wparam, LPARAM lparam) (0x007540A0)
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 void __stdcall unknown_dialog_5ecf40(HWND,int);
 void __fastcall Clear_ComboBox(HWND);
 LRESULT __fastcall unknown_get_window_text(HWND,Wstring &);
@@ -8240,7 +8240,7 @@ long __stdcall Wonline_Account_Dialog_007540a0(HWND window, UINT message, WPARAM
     switch (message) {
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window, 0);
         return 1;
     case 0x14:
@@ -8683,30 +8683,30 @@ void __fastcall Unknown_00755180(HWND dialog)
             name.unknown_0c=status.unknown_0c=0xffff00;
             mode.Flags=2;
             if(game.unknown_14!=0) {
-                mode.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40(buddy_007eb25c,0);
+                mode.unknown_10=(int)SurfaceCache.Get_Image_0068ca40(buddy_007eb25c,0);
                 mode.Secondary.Set(StringTable::Load_String(buddy_007fd890,0,buddy_007fd62c,0x5f87));
             } else if(game.unknown_20&0x100) {
-                mode.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40(buddy_007eb228,0);
+                mode.unknown_10=(int)SurfaceCache.Get_Image_0068ca40(buddy_007eb228,0);
                 mode.Secondary.Set(StringTable::Load_String(buddy_007fd8a4,0,buddy_007fd62c,0x5f8a));
             } else {
-                mode.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40(buddy_007ffad4,0);
+                mode.unknown_10=(int)SurfaceCache.Get_Image_0068ca40(buddy_007ffad4,0);
                 mode.Secondary.Set(buddy_00839d4c);
             }
             if(game.unknown_20&0x600) {
                 if(fourth==0 && fifth!=0) {
                     gameType.Flags=2;
-                    gameType.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40(buddy_007eb218,0);
+                    gameType.unknown_10=(int)SurfaceCache.Get_Image_0068ca40(buddy_007eb218,0);
                 } else {
                     gameType.Flags=2;
-                    gameType.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40(buddy_007eafb4,0);
+                    gameType.unknown_10=(int)SurfaceCache.Get_Image_0068ca40(buddy_007eafb4,0);
                 }
             } else if(fourth==0 && fifth!=0) {
                 gameType.Flags=2;
-                gameType.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40(buddy_007e7444,0);
+                gameType.unknown_10=(int)SurfaceCache.Get_Image_0068ca40(buddy_007e7444,0);
             }
             if(game.flags&0x100) {
                 password.Flags=2;
-                password.unknown_10=(int)unknown_bitmap_writer_a76378.Get_Image_0068ca40(buddy_007eb234,0);
+                password.unknown_10=(int)SurfaceCache.Get_Image_0068ca40(buddy_007eb234,0);
                 password.Secondary.Set(StringTable::Load_String(buddy_007fd87c,0,buddy_007fd62c,0x5faa));
             }
             ping.Flags=3;
@@ -8808,11 +8808,11 @@ bool __fastcall Can_Join_Selected_Buddy_00755ef0()
 
 void __fastcall Open_Page_Dialog_007560e0()
 {
-    HWND dialog=(HWND)unknown_create_dialog_735700(ProgramInstance,0x11e,MainWindow,(UnknownDialogProc)Page_Dialog_Proc_00757d80,0);
+    HWND dialog=(HWND)WS_Create_Dialog(ProgramInstance,0x11e,MainWindow,(UnknownDialogProc)Page_Dialog_Proc_00757d80,0);
     unknown_show_dialog_5ff7e0(dialog,0x11e);
     SendMessageA(dialog,0x4a9,0,1);
     ShowWindow(dialog,1);
-    Unknown_007359e0(dialog,Unknown_0073e100,0,1,1);
+    WS_Wait_Dialog(dialog,Unknown_0073e100,0,1,1);
 }
 
 
@@ -9126,7 +9126,7 @@ void __fastcall Reset_Buddy_State_00757720()
 
 
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 LRESULT __fastcall unknown_get_window_wide_text(HWND,WideString &);
 extern unsigned short wol_empty_text_839d4c[];
 long __stdcall Buddy_Message_Dialog_00757950(HWND window,UINT message,WPARAM wparam,LPARAM lparam)
@@ -9137,7 +9137,7 @@ long __stdcall Buddy_Message_Dialog_00757950(HWND window,UINT message,WPARAM wpa
     case 2: return 0;
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window,0);
         return 1;
     case 0x14: return 1;
@@ -9220,7 +9220,7 @@ Wstring __fastcall Unknown_00757cc0(HWND list)
 
 
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 LRESULT __fastcall unknown_get_window_wide_text(HWND,WideString &);
 extern unsigned short wol_empty_text_839d4c[];
 int WINAPI Page_Dialog_Proc_00757d80(HWND window,UINT message,WPARAM wparam,LPARAM lparam)
@@ -9232,7 +9232,7 @@ int WINAPI Page_Dialog_Proc_00757d80(HWND window,UINT message,WPARAM wparam,LPAR
     case 2: return 0;
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window,0);
         return 1;
     case 0x14: return 1;
@@ -9306,7 +9306,7 @@ int WINAPI Page_Dialog_Proc_00757d80(HWND window,UINT message,WPARAM wparam,LPAR
 
 
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 LRESULT __fastcall unknown_get_window_text(HWND,Wstring &);
 extern "C" long __cdecl time(long *timer);
 extern char wol_empty_name_83c55c[];
@@ -9319,7 +9319,7 @@ long __stdcall Add_Buddy_Dialog_00758210(HWND window,UINT message,WPARAM wparam,
     switch(message) {
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window,0);
     case 0x14: return 1;
     case 0x2b: Unknown_005FE380(lparam); return 1;
@@ -9409,7 +9409,7 @@ extern char wol_label_7eb2cc[], wol_label_7eb2c0[];
 extern HWND game_window_00b263d8;
 extern void *unknown_instance_b26180;
 int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 bool __fastcall Request_Game_Channel_List_0073df10(unsigned char autoping,bool wait);
 bool __fastcall Can_Join_Selected_Buddy_00755ef0();
 bool Selected_Buddy_Unavailable_00756140();
@@ -9437,7 +9437,7 @@ inline void Run_Add_Buddy_Dialog(HWND window)
 
 inline void Start_Buddy_Refresh(HWND window,HWND refresh)
 {
-    SendMessageA(refresh, 0x4aa, 0, (LPARAM)unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_label_7eb2c0, 0));
+    SendMessageA(refresh, 0x4aa, 0, (LPARAM)SurfaceCache.Get_Image_0068ca40(wol_label_7eb2c0, 0));
     Reset_Buddy_State_00757720();
     SetTimer(window, 0, 1000, 0);
 }
@@ -9453,7 +9453,7 @@ int __stdcall Buddy_Dialog_Proc_00758750(HWND window, UINT message, WPARAM wpara
         return 1;
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window, 0);
         return 1;
     case 2:
@@ -9468,7 +9468,7 @@ int __stdcall Buddy_Dialog_Proc_00758750(HWND window, UINT message, WPARAM wpara
         if (control->unknown_slot2()) return 0;
         switch (LOWORD(wparam)) {
         case 0x5c2: {
-            HWND page = (HWND)unknown_create_dialog_735700(unknown_instance_b26180, 0x11e, game_window_00b263d8, (UnknownDialogProc)Page_Dialog_Proc_00757d80, 0);
+            HWND page = (HWND)WS_Create_Dialog(unknown_instance_b26180, 0x11e, game_window_00b263d8, (UnknownDialogProc)Page_Dialog_Proc_00757d80, 0);
             unknown_show_dialog_5ff7e0(page, 0x11e);
             SendMessageA(page, 0x4a9, 0, 1);
             ShowWindow(page, 1);
@@ -9568,7 +9568,7 @@ int __stdcall Buddy_Dialog_Proc_00758750(HWND window, UINT message, WPARAM wpara
         SendMessageA(list, 0x4a6, buddy_column_b26cb4, buddy_columns_7fd308[4]);
         SendMessageA(list, 0x4a6, 0, buddy_columns_7fd308[5]);
         HWND refresh = GetDlgItem(window, 0x704);
-        SendMessageA(refresh, 0x49c, 0, (LPARAM)unknown_bitmap_writer_a76378.Get_Image_0068ca40(wol_label_7eb2cc, 0));
+        SendMessageA(refresh, 0x49c, 0, (LPARAM)SurfaceCache.Get_Image_0068ca40(wol_label_7eb2cc, 0));
         Start_Buddy_Refresh(window, refresh);
         return 0;
     }
@@ -9923,7 +9923,7 @@ int __fastcall Start_Quick_Match_00759e20()
         Match_Message(wol_no_server_7ffdb8,0x650e);
         return 0;
     }
-    HWND dialog=(HWND)unknown_create_dialog_735700(ProgramInstance,0x117,game_window_00b263d8,(UnknownDialogProc)Wonline_Waiting_Dialog_0075c350,0);
+    HWND dialog=(HWND)WS_Create_Dialog(ProgramInstance,0x117,game_window_00b263d8,(UnknownDialogProc)Wonline_Waiting_Dialog_0075c350,0);
     unknown_show_dialog_5ff7e0(dialog,0x117);
     SendMessageA(dialog,0x4a9,0,1);
     ShowWindow(dialog,1);
@@ -10475,7 +10475,7 @@ void __fastcall Report_Match_Player_Ping_0075bc40()
 }
 
 
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 extern HANDLE wol_wait_events_b264f8[18];
 extern char wol_start_command1_00800324[],wol_start_command2_00800378[];
 int __stdcall Wonline_Waiting_Dialog_0075c350(HWND window,UINT message,WPARAM wparam,LPARAM lparam)
@@ -10486,7 +10486,7 @@ int __stdcall Wonline_Waiting_Dialog_0075c350(HWND window,UINT message,WPARAM wp
         return 0;
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window,0);
         return 1;
     case 0x14:
@@ -10624,7 +10624,7 @@ void __fastcall Apply_Endpoint_Map_0075c570(char const *text)
 
 // Wonline_Map_Download_Dialog0075C830: preview and progress while waiting.
 extern HANDLE wol_wait_events_b264f8[18];
-void __fastcall unknown_dialog_5e5f20(HWND window);
+void __fastcall Slide_Pending_Dialog(HWND window);
 int __stdcall Wonline_Map_Download_Dialog_0075c830(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
     int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
@@ -10641,7 +10641,7 @@ int __stdcall Wonline_Map_Download_Dialog_0075c830(HWND window, UINT message, WP
         break;
     case 0xf: {
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         MapPreviewClass *preview = MultiplayerMapPreview;
         if (!preview && unknown_session_a3d2b4 == -1) preview = unknown_preview_a6fee4;
         if (preview) preview->Blit_Preview(window);
@@ -10737,7 +10737,7 @@ int __fastcall unknown_dialog_proc_5ffb00(HWND,UINT,WPARAM,LPARAM);
 extern Wstring unknown_b2997c;
 extern char buddy_query_label_008003d4[],wol_source_file_007fd62c[];
 void __fastcall Set_Add_Match_Buddies_00738fa0(bool);
-void __fastcall unknown_dialog_5e5f20(HWND);
+void __fastcall Slide_Pending_Dialog(HWND);
 long __stdcall Buddy_Dialog_0075cc10(HWND window,UINT message,WPARAM wparam,LPARAM lparam)
 {
     if(message==0x110 && lparam) SetWindowLongA(window,8,*(long *)(lparam+4));
@@ -10747,7 +10747,7 @@ long __stdcall Buddy_Dialog_0075cc10(HWND window,UINT message,WPARAM wparam,LPAR
     switch(message) {
     case 0xf:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window,0);
         return 1;
     case 0x14: return 1;
@@ -11143,7 +11143,7 @@ HRESULT __stdcall CChatEventSink::OnUpdateList(HRESULT result, WOL::Update *upda
             HWND dialog = unknown_create_dialog_5ff610(0xd3, Download_Dialog_Proc_00748cd0, 0);
             HWND item = GetDlgItem(dialog, 0x5c7);
             SendMessageA(item, 0x4b2, 0, (LPARAM)message.unknown_text_770430());
-            if (Unknown_007359e0(dialog, (bool (*)())Unknown_0073c120, 0, 1, 1) == 2) {
+            if (WS_Wait_Dialog(dialog, (bool (*)())Unknown_0073c120, 0, 1, 1) == 2) {
                 SetEvent(unknown_b264f8);
                 SetCurrentDirectoryA(directory);
                 return S_OK;
@@ -11284,7 +11284,7 @@ HRESULT __stdcall CChatEventSink::OnConnection(HRESULT result, char const *motd)
                 unknown_chat_a72cfc->GetGametypeInfo(id, unknown_icon_format_7fd304, &bitmap, &bitmap_bytes, &game_name, &url);
                 char file[64];
                 sprintf(file, "gt%d.bmp", id);
-                unknown_bitmap_writer_a76378.CacheBMP_0068c040(file, bitmap, bitmap_bytes, 2);
+                SurfaceCache.CacheBMP_0068c040(file, bitmap, bitmap_bytes, 2);
                 token = strtok(0, ",");
             }
             delete [] copy;
@@ -11587,8 +11587,8 @@ HRESULT __stdcall CChatEventSink::OnChannelJoin(HRESULT result, WOL::Channel *ch
             unknown_session_a3d298.Players.Add(node);
             unknown_host_name_a3f618[0] = 0;
             if (!Is_Online_Session()) {
-                unknown_5159b0(0, true);
-                void *guest = unknown_create_dialog_735700(ProgramInstance, 0xc9, (HWND)unknown_b263d8, (UnknownDialogProc)Wonline_Guest_Dialog_0074c660, 0);
+                Darken_Surface(0, true);
+                void *guest = WS_Create_Dialog(ProgramInstance, 0xc9, (HWND)unknown_b263d8, (UnknownDialogProc)Wonline_Guest_Dialog_0074c660, 0);
                 unknown_show_dialog_5ff7e0(guest, 0xc9);
                 HWND main = (HWND)WS_Find_Dialog_00735940(0x113);
                 if (main) {
@@ -12161,7 +12161,7 @@ HRESULT __stdcall CChatEventSink::OnPaged(HRESULT result, WOL::User *user, char 
         }
         if (!dialog) {
             ReleaseCapture();
-            unknown_5159b0(0, true);
+            Darken_Surface(0, true);
             dialog = unknown_create_dialog_5ff610(0x11e, Page_Dialog_Proc_00757d80, 0);
             if (dialog) {
                 SetFocus(dialog);
@@ -12203,7 +12203,7 @@ HRESULT __stdcall CChatEventSink::OnPagedUnicode(HRESULT result, WOL::User *user
         }
         if (!dialog) {
             ReleaseCapture();
-            unknown_5159b0(0, true);
+            Darken_Surface(0, true);
             dialog = unknown_create_dialog_5ff610(0x11e, Page_Dialog_Proc_00757d80, 0);
             SetFocus(dialog);
             Unknown_005C2C80(unknown_color_7a7378, L"(%hs) %s", user->name, message);

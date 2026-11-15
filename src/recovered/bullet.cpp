@@ -249,7 +249,7 @@ void BulletClass::AI()
         }
         AnimPtrTracker.Delete(this);
         SpawnNextAnim = false;
-        unknown_func_461de0(false);
+        Bullet_Explodes(false);
         Delete_Me();
         return;
     }
@@ -566,7 +566,7 @@ flown:
         if (building != 0 && building->Type->FirestormWall && building->House->unknown_142
             && (Owner == 0 || building->House != Owner->House)
             && Class_Of() != 0 && !Class_Of()->unknown_209) {
-            building->unknown_450cb0(this, false);
+            building->Crossing_Firestorm(this, false);
             Delete_Me();
             break;
         }
@@ -615,7 +615,7 @@ flown:
                 break;
             }
         }
-        unknown_func_461de0(forced);
+        Bullet_Explodes(forced);
         Delete_Me();
         break;
     }
@@ -669,7 +669,7 @@ void BulletClass::Draw_It(Point2D const &point, Rect const &clip)
     }
     if (height_agl > 0 && Type->Shadow) {
         Point2D shadow = point + Point2D(0, Bullet_Height_Pixel(height_agl));
-        CC_Draw_Shape(unknown_surface_83995c, bullet_normal_drawer, image, shape, shadow, clip, 0x2601, 0, -10 - Bullet_Height_Pixel(ground_height), 0, 1000, 0, 0, Point2D(0, 0));
+        CC_Draw_Shape(LogicalSurface, bullet_normal_drawer, image, shape, shadow, clip, 0x2601, 0, -10 - Bullet_Height_Pixel(ground_height), 0, 1000, 0, 0, Point2D(0, 0));
     }
     ConvertClass *drawer = bullet_normal_drawer;
     if (Type->AnimPalette) drawer = bullet_anim_drawer;
@@ -677,15 +677,15 @@ void BulletClass::Draw_It(Point2D const &point, Rect const &clip)
         if (InheritedColor != -1) drawer = ColorSchemes[InheritedColor]->Converter;
         else drawer = ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter;
     }
-    CC_Draw_Shape(unknown_surface_83995c, drawer, image, shape, point, clip, 0x2e00, 0, -30 - Bullet_Height_Pixel(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
+    CC_Draw_Shape(LogicalSurface, drawer, image, shape, point, clip, 0x2e00, 0, -30 - Bullet_Height_Pixel(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
 }
 
 
-// void BulletClass::unknown_func_461470() (0x00461470)
+// void BulletClass::LoseTarget() (0x00461470)
 // Retargets the bullet at the cell under its target (cleared when the
 // target is in limbo-like state or the cell is the zero cell).
 
-void BulletClass::unknown_func_461470()
+void BulletClass::LoseTarget()
 {
     Cell cell = Coord_Cell(Target->Center_Coord());
     if (ScenarioInit == 0 && !Target->In_Air() && (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y)) {
@@ -857,7 +857,7 @@ bool BulletClass::Is_Forced_To_Explode_00461c10(CoordStruct &coord)
 }
 
 
-// void BulletClass::unknown_func_461de0(bool forced) (0x00461DE0)
+// void BulletClass::Bullet_Explodes(bool forced) (0x00461DE0)
 // See shared/bullet.hpp. The aim point starts at the bullet; an accurate
 // bullet close to its target (within 32) takes the target's centre, and
 // unless its warhead is an EMP or it bursts in the air, the remembered point
@@ -888,7 +888,7 @@ inline int Vector_Length(UnknownVector3 vector)
     return (int)unknown_sqrt_4ba410(x * x + z * z + y * y);
 }
 
-void BulletClass::unknown_func_461de0(bool forced)
+void BulletClass::Bullet_Explodes(bool forced)
 {
     ObjectClass *object = 0;
     CoordStruct coord = Coord;
@@ -958,7 +958,7 @@ void BulletClass::unknown_func_461de0(bool forced)
 
 // The impact animation of a warhead hitting a land type (-1 above the
 // ground) at a coordinate (0x0047F4D0, __fastcall; hypothesis).
-AnimTypeClass *__fastcall Unknown_0047F4D0(int damage, WarheadTypeClass *warhead, int land, CoordStruct const &coord);
+AnimTypeClass *__fastcall Combat_Anim(int damage, WarheadTypeClass *warhead, int land, CoordStruct const &coord);
 // The height adjustment an animation at a coordinate gets (0x0047FCC0;
 // hypothesis: the AnimClass constructor's z adjustment).
 int __stdcall Get_Explosion_Z_0047fcc0(CoordStruct coord);
@@ -1013,7 +1013,7 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
         unknown_list_8322e0.Add_Bomb(Owner, target);
     } else if (WH->ElectricAssault) {
         if (Target != 0 && Target->Kind_Of() == 6 && Owner != 0 && Owner->Kind_Of() == 15)
-            static_cast<BuildingClass *>(Target)->unknown_44da20(static_cast<InfantryClass *>(Owner));
+            static_cast<BuildingClass *>(Target)->Rotate_Overpowerer(static_cast<InfantryClass *>(Owner));
     } else if (WH->Parasite) {
         if (Owner != 0) {
             FootClass *target = Target == 0 ? 0 :
@@ -1028,7 +1028,7 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
     } else if (WH->BombDisarm) {
         if (Target != 0 && Target->AbstractFlags.IsObject) {
             ObjectClass *object = static_cast<ObjectClass *>(Target);
-            if (object->unknown_38 != 0) object->unknown_38->Unknown_00435FB0();
+            if (object->unknown_38 != 0) object->unknown_38->Disarm();
         }
     } else if (WH->MakesDisguise) {
         if (Owner != 0) Owner->DisguiseAs(static_cast<TechnoClass *>(Target));
@@ -1054,7 +1054,7 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
             }
         }
     }
-    AnimTypeClass *animation = Unknown_0047F4D0(Strength, WH, land, CoordStruct(Coord));
+    AnimTypeClass *animation = Combat_Anim(Strength, WH, land, CoordStruct(Coord));
     if (Bright && !special_impact) {
         unsigned flags = 0;
         if (WH->CLDisableRed) flags = 2;
@@ -1175,7 +1175,7 @@ void BulletClass::unknown_func_462c50()
                     fragment->unknown_slot118(Coord_Of_462c50(this), velocity);
                     CoordStruct source = Coord_Of_462c50(this);
                     if (weapon->unknown_121 && Owner != 0) Owner->unknown_6c9df0(target, 0, weapon, source);
-                    if (weapon->unknown_127 && Owner != 0) Owner->unknown_6ca020(target, weapon, source);
+                    if (weapon->unknown_127 && Owner != 0) Owner->CreateEBolt(target, weapon, source);
                 }
                 if (++fired == count) return;
             }
@@ -1196,7 +1196,7 @@ void BulletClass::unknown_func_462c50()
                 fragment->unknown_slot118(Coord_Of_462c50(this), velocity);
                 CoordStruct source = Coord_Of_462c50(this);
                 if (weapon->unknown_121 && Owner != 0) Owner->unknown_6c9df0(&Map_Cell(cell), 0, weapon, source);
-                if (weapon->unknown_127 && Owner != 0) Owner->unknown_6ca020(&Map_Cell(cell), weapon, source);
+                if (weapon->unknown_127 && Owner != 0) Owner->CreateEBolt(&Map_Cell(cell), weapon, source);
             }
         } while (--remaining != 0);
     }
@@ -1279,9 +1279,9 @@ unsigned long __stdcall BulletClass::Release()
 }
 
 
-// bool BulletClass::unknown_func_463970() (0x00463970)
+// bool BulletClass::Is_Homing() (0x00463970)
 
-bool BulletClass::unknown_func_463970()
+bool BulletClass::Is_Homing()
 {
     return Type_View(Type)->unknown_2ac > 0 ? true : false;
 }
@@ -1341,7 +1341,7 @@ void BulletClass::Draw_Voxel_00463a00(UnknownObjectPair const &pair, Matrix3D co
         flat = unknown_flat_voxel_7d11a4;
         draw_flags |= 0x2000;
     }
-    unknown_blit_49f3a0(*unknown_surface_83995c, ColorSchemes[Type->Color]->Converter, Voxel_Render_Surface_00717040(),
+    Blit_Block(*LogicalSurface, ColorSchemes[Type->Color]->Converter, Voxel_Render_Surface_00717040(),
                        bounds.rectangle, point + bounds.offset, window, 0,
                        ColorSchemes[Type->Color]->Converter->Select_Blitter_00485AA0(draw_flags), flat,
                        Type->Flat ? 0 : 2, brightness, 0);
@@ -1367,11 +1367,11 @@ WeaponTypeClass *BulletClass::Get_Weapon_Type()
 }
 
 
-// void BulletClass::unknown_func_463bc0() (0x00463BC0)
+// void BulletClass::InitScalable() (0x00463BC0)
 // Tracks the bullet in BulletClass::Array and updates the type's value by
 // how many are tracked.
 
-void BulletClass::unknown_func_463bc0()
+void BulletClass::InitScalable()
 {
     Array.Add(this);
     int count = Array.Count() - 5;

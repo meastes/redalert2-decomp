@@ -20,7 +20,7 @@ int BuildingClass::Do_MISSION_ATTACK()
             unknown_slot220(0);
             unknown_534 = 0;
             if (IsNotWarpingIn()) {
-                unknown_6d1470();
+                Next_Planning_Node();
             }
             if (Get_Mission() != 0x1C) {
                 QueueMission(5, false);
@@ -53,7 +53,7 @@ int BuildingClass::Do_MISSION_ATTACK()
             unknown_slot220(0);
             unknown_534 = 0;
             if (IsNotWarpingIn()) {
-                unknown_6d1470();
+                Next_Planning_Node();
             }
             if (Get_Mission() == 0x1C) {
                 return 1;
@@ -110,19 +110,19 @@ int BuildingClass::Do_MISSION_ATTACK()
                     if (support != 0) {
                         ++unknown_534;
                         CoordStruct from = unknown_slot43(0);
-                        support->unknown_44b870(2, from);
+                        support->Start_Delayed_Fire(2, from);
                         return 1;
                     }
                 }
                 CoordStruct shot = {};
                 shot.X = 0;
-                unknown_44b870(1, shot);
+                Start_Delayed_Fire(1, shot);
                 return 1;
             }
             if (Type->IsAnimDelayedFire) {
                 CoordStruct shot = {};
                 shot.X = weapon;
-                unknown_44b870(1, shot);
+                Start_Delayed_Fire(1, shot);
                 return 1;
             }
             Fire_At(unknown_228, weapon);

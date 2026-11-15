@@ -76,8 +76,8 @@ void __fastcall Unknown_00627210(int id, int index);
 // Reconnects a modem game (0x005CEB40; Red Alert's Reconnect_Modem).
 bool Reconnect_Modem();
 
-// The IPX manager calls made only in an IPX game (0x00623260: unknown_527800,
-// 0x00623280: unknown_5277f0).
+// The IPX manager calls made only in an IPX game (0x00623260: Set_Global_Routed,
+// 0x00623280: Global_Channel_Clear_FieldC8).
 void __fastcall Unknown_00623260();
 void __fastcall Unknown_00623280();
 // Sends NET_PORT_UNREACHABLE (0x2F) to every router connection but the player's own
@@ -314,7 +314,7 @@ void __fastcall Unknown_0062DBA0(int index, EventClass *event);
 // A CRC sent in the FRAMESYNC packet (0x00A40770).
 extern unsigned long unknown_crc_a40770;
 // The FRAMESYNC packets sent (0x00AB62E4).
-extern int unknown_frame_syncs_ab62e4;
+extern int SentFrameSyncCount;
 // The time() of the last kick (0x00AB6304).
 extern long unknown_last_kick_ab6304;
 extern bool unknown_flag_a417c8;        // 0x00A417C8

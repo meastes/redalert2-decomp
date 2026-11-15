@@ -10,7 +10,7 @@
 class TextLabelClass;
 
 // An empty function the edit removal calls (0x00738100).
-void Unknown_00738100();
+void IME_Stub1();
 
 extern bool unknown_flag_a3f208;         // 0x00A3F208 (game mode 3: new messages are marked)
 extern bool unknown_flag_a3f209;         // 0x00A3F209 (game mode 4)

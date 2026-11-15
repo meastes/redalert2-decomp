@@ -47,7 +47,7 @@ void __fastcall Speech_Play(int index, int type, int priority);
 // Speech queue helpers (0x00714410 releases the queued entries of the list at
 // 0x00AD07D0; 0x007160D0 calls 0x00407E60 on the object at 0x00AD0968; Do_Restart
 // and Clear_Scenario call them); meanings not recovered.
-void Unknown_00714410();
+void Sound_Clear_Static();
 void __fastcall Unknown_007160D0();
 
 #endif

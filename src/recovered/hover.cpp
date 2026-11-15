@@ -275,7 +275,7 @@ inline bool Is_Complete_Turn(UnknownFacingDir const &current, UnknownFacingDir c
 }
 unsigned char __stdcall HoverLocomotionClass::Process()
 {
-    if (Is_Moving() && unknown_4fdfc0()) {
+    if (Is_Moving() && Is_Moving1()) {
         Motion_AI_004fdaf0();
         if (!LinkedTo->IsActive) return false;
 
@@ -337,7 +337,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
             if (coord.As_Cell() != Object_Coord(LinkedTo).As_Cell()) {
                 LinkedTo->Mark(0);
                 LinkedTo->Set_Coord(coord);
-                LinkedTo->unknown_func_5d4920(height);
+                LinkedTo->Set_Height(height);
                 CellClass *cellptr = &Map[coord];
                 if (!LinkedTo->unknown_79 && Hover_Under_Bridge_004fbfc0(cellptr) && LinkedTo->Get_Height_AGL() >= unknown_geometry_j) {
                     LinkedTo->unknown_79 = true;
@@ -350,7 +350,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
                 bool wasdown = LinkedTo->unknown_74;
                 LinkedTo->unknown_74 = false;
                 LinkedTo->Set_Coord(coord);
-                LinkedTo->unknown_func_5d4920(height);
+                LinkedTo->Set_Height(height);
                 LinkedTo->unknown_74 = wasdown;
             }
         }
@@ -444,7 +444,7 @@ void __stdcall HoverLocomotionClass::Move_To(CoordStruct to)
 {
     unknown_18=to;
     if (LinkedTo->unknown_slot202()) return;
-    if (Is_Powered() && Is_Ion_Sensitive() && LinkedTo->House->Unknown_0051FC80()) Power_Off();
+    if (Is_Powered() && Is_Ion_Sensitive() && LinkedTo->House->Ion_Sensitives_Should_Be_Offline()) Power_Off();
     unknown_18.Z=Map.Get_Height_GL(unknown_18);
     if (Loco_Cell(CoordStruct(to.X,to.Y,to.Z))->Flags&0x100) unknown_18.Z+=unknown_geometry_j;
     if (to!=unknown_geometry_l && Is_Powered()) {
@@ -568,7 +568,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
         switch (ok) {
         case 7:
         case 1:
-            Map[unknown_24].unknown_478740();
+            Map[unknown_24].Shimmer();
             if (first_pass) {
                 unknown_4fda80();
                 LinkedTo->unknown_530 = 0;
@@ -800,11 +800,11 @@ void __stdcall HoverLocomotionClass::Do_Turn(UnknownFacingDir dir)
 }
 
 
-// bool HoverLocomotionClass::unknown_4fdfc0() (0x004FDFC0)
+// bool HoverLocomotionClass::Is_Moving1() (0x004FDFC0)
 // Moving (Is_Moving as a bool test). Expanded where it is used; this
 // out-of-line copy is never called.
 
-bool HoverLocomotionClass::unknown_4fdfc0()
+bool HoverLocomotionClass::Is_Moving1()
 {
     return Is_Moving() ? true : false;
 }
@@ -866,7 +866,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
             LinkedTo->Assign_Destination(0,true);
             return;
         }
-        if (!LinkedTo->unknown_4c8d60() && Hover_Foot_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->unknown_1380 && (LinkedTo->Get_Mission()==2 || LinkedTo->Get_Mission()==11)) {
+        if (!LinkedTo->Is_On_Priority_Mission() && Hover_Foot_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->unknown_1380 && (LinkedTo->Get_Mission()==2 || LinkedTo->Get_Mission()==11)) {
             LinkedTo->Assign_Destination(0,true);
             if (!LinkedTo->IsActive) return;
         } else {
@@ -880,7 +880,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
         }
         if (!Is_Moving() && LinkedTo->unknown_228 && !LinkedTo->unknown_slot213(LinkedTo->unknown_228)) {
             LinkedTo->unknown_578=true;
-            if (LinkedTo->Team) LinkedTo->Team->unknown_func_6baa30();
+            if (LinkedTo->Team) LinkedTo->Team->Scan_Limit();
             LinkedTo->unknown_slot220(0);
         }
         if (unknown_24!=unknown_geometry_l) {

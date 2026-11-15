@@ -25,7 +25,7 @@ extern "C" wchar_t *__cdecl wcscpy(wchar_t *destination, wchar_t const *source);
 extern IPXAddressClass unknown_forward_address_a3fbac;   // 0x00A3FBAC
 extern IPXAddressClass unknown_forward_address_a3fbb8;   // 0x00A3FBB8
 extern int unknown_forward_port_a3fbc4;                   // 0x00A3FBC4
-extern int unknown_port_7f60dc;                           // 0x007F60DC
+extern int LoopbackPort;                           // 0x007F60DC
 
 class IPXConnClass : public ConnectionClass {
 public:

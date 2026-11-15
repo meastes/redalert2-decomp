@@ -15,10 +15,10 @@ class Leaf_735670 { public: void get(); };
 void Leaf_735670::get() { unsigned int unused_this_address = (unsigned int)this; unsigned int zero_value; unsigned int unused_value; zero_value = 0; *(unsigned int*)(0xb25db8) = zero_value; *(unsigned int*)(0xb25dbc) = zero_value; *(unsigned int*)(0xb25dc0) = zero_value; *(unsigned int*)(0xb25dc4) = zero_value; }
 
 
-// void *__fastcall unknown_create_dialog_735700(void *instance, int id, HWND parent,
+// void *__fastcall WS_Create_Dialog(void *instance, int id, HWND parent,
 //     UnknownDialogProc procedure, long arg) (0x00735700)
 
-void *__fastcall unknown_create_dialog_735700(void *instance, int id, HWND parent, UnknownDialogProc procedure, long arg)
+void *__fastcall WS_Create_Dialog(void *instance, int id, HWND parent, UnknownDialogProc procedure, long arg)
 {
     DialogStack[DialogStackCount].Window = 0;
     DialogStack[DialogStackCount].Resource = 0;
@@ -224,11 +224,11 @@ int __fastcall Dialog_Template_Size(int dialog_id, DLGPROC procedure, int unused
 }
 
 
-// void __fastcall unknown_735ba0(HWND window) (0x00735BA0)
+// void __fastcall Resize_Dialogs(HWND window) (0x00735BA0)
 // Prepares every child control of a dialog, then the dialog itself, with
 // 0x00735BC0 (unknown_show_dialog 0x005FF7E0 calls it).
 
-void __fastcall unknown_735ba0(HWND window)
+void __fastcall Resize_Dialogs(HWND window)
 {
     EnumChildWindows(window, Resize_Dialog, 1);
     Resize_Dialog(window, 0);

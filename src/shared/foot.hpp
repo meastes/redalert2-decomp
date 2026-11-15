@@ -225,35 +225,35 @@ public:
                                  int arg6, int z, int arg8, int arg9, int height, ShapeFileStruct const *arg11, int arg12, Point2D offset,
                                  int arg15)
     {
-        unknown_6d1510(shape, drawer, point, bounds, arg5, arg6, z, arg8, arg9, height, arg11, arg12, offset, arg15);
+        Techno_Draw_Object(shape, drawer, point, bounds, arg5, arg6, z, arg8, arg9, height, arg11, arg12, offset, arg15);
     }
     virtual void Berzerk() {}                           // slot 294 (kept copy 0x0041B4F0)
     virtual void Start_Fear() {}                           // slot 295 (kept copy 0x0041B500)
     virtual void Stop_Fear() {}                           // slot 296 (kept copy 0x0041B510)
     virtual void Do_Idle(int arg1) {}                   // slot 297 (kept copy 0x0041B520)
-    Cell unknown_4c8af0(Cell const &cell);          // 0x004C8AF0 (returns its argument; TeamClass callers)
-    void unknown_4ca1a0();                                      // 0x004CA1A0 (never called: a drop pod locomotor carries the old one)
-    void unknown_4c8c90();                                      // 0x004C8C90 (clears the vector at +0x49C)
-    void unknown_4cab90();                                     // 0x004CAB90 (draws the action line; no stack arguments)
-    double unknown_4cafb0() const;                              // 0x004CAFB0
+    Cell Adjust_Dest(Cell const &cell);          // 0x004C8AF0 (returns its argument; TeamClass callers)
+    void Link_DropPod();                                      // 0x004CA1A0 (never called: a drop pod locomotor carries the old one)
+    void Clear_Navigation_List();                                      // 0x004C8C90 (clears the vector at +0x49C)
+    void Draw_Action_Line();                                     // 0x004CAB90 (draws the action line; no stack arguments)
+    double Threat_Avoidance_Value() const;                              // 0x004CAFB0
     Cell unknown_4cca40(Cell const &cell, bool arg2); // 0x004CCA40 (the cell to head for; arg2 passed on to slot 27)
-    Cell unknown_4cc100(int radius);                      // 0x004CC100 (nearest cell passing 0x004CC260, by rings)
-    bool unknown_4cc260(Cell &cell, int dx, int dy);      // 0x004CC260
-    bool unknown_4cc400(int arg1);                              // 0x004CC400
-    void unknown_4cd9b0();                                     // 0x004CD9B0 (clears +0x490 and +0x494)
+    Cell Search_For_Weed(int radius);                      // 0x004CC100 (nearest cell passing 0x004CC260, by rings)
+    bool Weed_Check(Cell &cell, int dx, int dy);      // 0x004CC260
+    bool Goto_Weed(int arg1);                              // 0x004CC400
+    void Abort_Motion();                                     // 0x004CD9B0 (clears +0x490 and +0x494)
     void unknown_4c8bb0(AbstractClass *target);                // 0x004C8BB0 (queues a destination; itself turns on looping)
-    Cell unknown_4cb8f0(int arg1, bool arg2);             // 0x004CB8F0
-    bool unknown_4cb830(int arg1, bool arg2);                   // 0x004CB830
-    bool unknown_4cb6d0(Cell const &cell);               // 0x004CB6D0
+    Cell ScanForTiberium(int arg1, bool arg2);             // 0x004CB8F0
+    bool Goto_Tiberium(int arg1, bool arg2);                   // 0x004CB830
+    bool Tiberium_Check(Cell const &cell);               // 0x004CB6D0
     Cell unknown_4cbb40(int radius);                      // 0x004CBB40 (a weighted random cell of the rings that passes 0x004CB6D0; TibSun Search_For_Tiberium_Weighted)
-    int unknown_4c82a0(AbstractClass *target);                 // 0x004C82A0 (an attack rate against a target)
+    int Rescue_Mission(AbstractClass *target);                 // 0x004C82A0 (an attack rate against a target)
     void unknown_4c8b00();                                      // 0x004C8B00 (next queued destination; UnitClass slot 261)
-    bool unknown_4c8d60();                                      // 0x004C8D60 (slot 91 == 7)
+    bool Is_On_Priority_Mission();                                      // 0x004C8D60 (slot 91 == 7)
     void unknown_4cdb60();                                      // 0x004CDB60 (+0x4B8 from +0x4BC's cell)
     void Unknown_004CD9B0();                                    // 0x004CD9B0 (clears +0x490 and +0x494)
     bool unknown_4cb110(WaypointClass *waypoint);               // 0x004CB110 (heads for a waypoint of the path; returns whether the click succeeded; FootClass slots 93, 194)
     BuildingClass *unknown_4c45b0();                            // 0x004C45B0 (an adjacent Overpowerable building of the same owner)
-    bool unknown_4c8d00(HouseClass *house);                     // 0x004C8D00 (free to recruit: no team, an idle mission, +0x379)
+    bool Is_Recruitable(HouseClass *house);                     // 0x004C8D00 (free to recruit: no team, an idle mission, +0x379)
     FootClass *unknown_4ccfc0();                                // 0x004CCFC0 (a passenger leaves this transport)
     void unknown_4ccf20(FootClass *passenger);                  // 0x004CCF20 (a given passenger leaves; never called)
     void unknown_4c4c30();                                      // 0x004C4C30 (approach the target; hypothesis: Approach_Target)
@@ -347,7 +347,7 @@ public:
 // The unit's list of FootClass objects (0x00865F38; defined by the
 // header-static draft of this unit). The list at 0x00AC0C18 is in
 // shared/object_lists.hpp.
-extern DynamicVectorClass<FootClass *> unknown_FootClass_list_00865f38;
+extern DynamicVectorClass<FootClass *> Feet;
 
 // Member-wise cell sum: shared/coord.hpp.
 

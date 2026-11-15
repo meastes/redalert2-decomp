@@ -274,7 +274,7 @@ Matrix3D *ShipLocomotionClass::unknown_675a60(Matrix3D *matrix)
     if (!unknown_24.Has_Completed2()) {
         Matrix3D blend;
         double ratio = Slope_Ratio();
-        tilt = *Unknown_00718DF0(&blend, unknown_20, unknown_1c, ratio);
+        tilt = *Get_Slope_Transition_Matrix(&blend, unknown_20, unknown_1c, ratio);
     } else if (unknown_1c != 0) {
         Matrix3D ramp;
         tilt = *Unknown_00718D60(&ramp, unknown_1c);
@@ -980,7 +980,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                                 break;
 
                             case 1:
-                                Map[c].unknown_478740();
+                                Map[c].Shimmer();
                                 break;
 
                             case 3:
@@ -1045,7 +1045,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return true;
 
                 if (arrived) {
-                    LinkedTo->unknown_4cd9b0();
+                    LinkedTo->Abort_Motion();
                     LinkedTo->Path[0] = -1;
                     if (LinkedTo->Get_Mission() == 2 && LinkedTo->unknown_slot261(false, true)) {
                         return true;
@@ -1203,7 +1203,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
 
                 if (unknown_34 == unknown_geometry_l) return false;
 
-                if (!LinkedTo->unknown_4c8d60() && LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && (LinkedTo->Get_Mission() == 2 || LinkedTo->Get_Mission() == 11)) {
+                if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && (LinkedTo->Get_Mission() == 2 || LinkedTo->Get_Mission() == 11)) {
                     Stop_Driver();
                     if (unknown_67a7a0()) return true;
                     if (!LinkedTo->IsActive) return false;
@@ -1249,7 +1249,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
 
                 if (!Is_Moving() && LinkedTo->unknown_228 != 0 && !LinkedTo->unknown_slot213(LinkedTo->unknown_228)) {
                     LinkedTo->unknown_578 = true;
-                    if (LinkedTo->Team != 0) LinkedTo->Team->unknown_func_6baa30();
+                    if (LinkedTo->Team != 0) LinkedTo->Team->Scan_Limit();
                     LinkedTo->unknown_slot220(0);
                 }
 
@@ -1372,7 +1372,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                     }
                 }
             } else if (cando == 1) {
-                Map[destcell].unknown_478740();
+                Map[destcell].Shimmer();
                 if (retry) {
                     LinkedTo->Path[0] = -1;
                     return Start_Of_Move(stop_processing, false, false);
@@ -1567,7 +1567,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                         }
                     }
                 } else if (nextcando == 1) {
-                    Map[destcell].unknown_478740();
+                    Map[destcell].Shimmer();
                     if (retry) {
                         LinkedTo->Path[0] = -1;
                         return Start_Of_Move(stop_processing, false, false);
@@ -1719,7 +1719,7 @@ bool ShipLocomotionClass::unknown_67a7a0()
         LinkedTo->Assign_Destination(0, true);
         return false;
     }
-    LinkedTo->unknown_4cd9b0();
+    LinkedTo->Abort_Motion();
     return LinkedTo->unknown_slot261(false, true);
 }
 

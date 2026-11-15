@@ -33,12 +33,12 @@ bool MapGeneratorClass::Expand_All_High_Ground()
 #include "shared/map_region.hpp"
 // @ref ?unknown_map_cells_a70a24@@=00a70a24
 // @ref ?unknown_map_cell_side_84e804@@=0084e804
-// @ref ?unknown_0056eac0@MapRegionClass@@=0056eac0
+// @ref ?Reassign_Border_Cells@MapRegionClass@@=0056eac0
 void MapRegionClass::Update_Cell_Marks_005707a0()
 {
     int count = (int)((unsigned)unknown_map_cell_side_84e804 * (unsigned)unknown_map_cell_side_84e804);
     for (int i = 0; i < count; ++i) unknown_map_cells_a70a24[i].Marked = 0;
-    unknown_0056eac0(8, -2);
+    Reassign_Border_Cells(8, -2);
     for (int j = 0; j < count; ++j) {
         UnknownMapGenerationCell &data=unknown_map_cells_a70a24[j];
         if (data.RegionIndex == Index) unknown_map_cells_a70a24[j].Marked = 1;

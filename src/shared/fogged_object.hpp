@@ -48,7 +48,7 @@ public:
     virtual ~FoggedObjectClass();                               // 0x004C0DD0 (leaves Array and Index, clears a building's fog marks)
     // The cells a fogged building covers (its type's slot 36 list, ending
     // at 0x7FFF,0x7FFF); null for other kinds (0x004C1F00).
-    Cell const *unknown_4c1f00() const;
+    Cell const *Get_Head_Record_Occupy_List() const;
 
     virtual HRESULT __stdcall GetClassID(GUID *classid);        // 0x004C1F40
     virtual HRESULT __stdcall Load(IStream *stream);             // 0x004C1C80

@@ -196,7 +196,7 @@ void __fastcall Special_Dialog_00481850()
             unknown_int_a40d48 = 5;
             break;
         case 4:
-            Options.Unknown_005DA360();
+            Options.Hotkey_Dialog();
             unknown_int_a40d48 = 5;
             break;
         case 3:
@@ -355,13 +355,13 @@ void __fastcall IPX_Call_Back()
     static CDTimerClass<SystemTimerClass> _probe_timer(unknown_probe_delay_7d333c);
 
     Windows_Message_Handler();
-    unknown_ipx_manager_a40978.Service();
+    Ipx.Service();
 
     if (unknown_session_a3d298.Type == 4 && !unknown_session_a3d298.NetOpen) {
         if ((_probe_timer == 0 || unknown_session_a3d298.unknown_3014) && unknown_session_a3d298.Players.Count()) {
             Windows_Message_Handler();
-            unknown_ipx_manager_a40978.Service();
-            if (unknown_ipx_manager_a40978.Global_Num_Send() == 0) {
+            Ipx.Service();
+            if (Ipx.Global_Num_Send() == 0) {
                 UnknownGlobalPacket packet;
                 memset(&packet, 0, 0x5b);
                 packet.Command = 0x29;
@@ -373,9 +373,9 @@ void __fastcall IPX_Call_Back()
                     unsigned short port = unknown_session_a3d298.unknown_3022.unknown[i];
                     if (port) {
                         Debug_Printf("Sending to %s\n", Wide_To_Narrow_006fa120(unknown_session_a3d298.Players[i]->Name));
-                        unknown_ipx_manager_a40978.Send_Global_Message(&packet, 0x5b, 0, &unknown_session_a3d298.Players[i]->Address, port, 0);
+                        Ipx.Send_Global_Message(&packet, 0x5b, 0, &unknown_session_a3d298.Players[i]->Address, port, 0);
                         Windows_Message_Handler();
-                        unknown_ipx_manager_a40978.Service();
+                        Ipx.Service();
 
                         for (int index = 0; index < 8; index++) {
                             if (Same_Name(unknown_session_a3d298.PlayerSlots[index], unknown_session_a3d298.Players[i])) {
@@ -383,7 +383,7 @@ void __fastcall IPX_Call_Back()
                                     Debug_Printf("No PORT_PROBE from %s in the last 40 seconds\n", Wide_To_Narrow_006fa120(unknown_session_a3d298.Players[i]->Name));
                                     if (unknown_session_a3d298.Players[i]->Port != port && unknown_session_a3d298.Players[i]->Port >= 0x400) {
                                         Debug_Printf("Sending to %s on mangled port from pserver\n", Wide_To_Narrow_006fa120(unknown_session_a3d298.Players[i]->Name));
-                                        unknown_ipx_manager_a40978.Send_Global_Message(&packet, 0x5b, 0, &unknown_session_a3d298.Players[i]->Address, unknown_session_a3d298.Players[i]->Port, 0);
+                                        Ipx.Send_Global_Message(&packet, 0x5b, 0, &unknown_session_a3d298.Players[i]->Address, unknown_session_a3d298.Players[i]->Port, 0);
                                     }
                                 }
                                 break;
@@ -393,20 +393,20 @@ void __fastcall IPX_Call_Back()
                 }
 
                 CDTimerClass<SystemTimerClass> timer(120);
-                while (unknown_ipx_manager_a40978.Global_Num_Send() > 0 && timer > 0) {
+                while (Ipx.Global_Num_Send() > 0 && timer > 0) {
                     Windows_Message_Handler();
-                    unknown_ipx_manager_a40978.Service();
+                    Ipx.Service();
                 }
 
                 _probe_timer = unknown_probe_delay_7d333c;
                 unknown_session_a3d298.unknown_3014 = false;
-                unknown_ipx_manager_a40978.unknown_527800();
+                Ipx.Set_Global_Routed();
             }
         }
     }
 
     if (!unknown_session_a3d298.NetOpen) {
-        while (unknown_ipx_manager_a40978.Get_Global_Message(&unknown_session_a3d298.GPacket, &unknown_session_a3d298.GPacketlen, &unknown_session_a3d298.GAddress, &unknown_session_a3d298.GProductID)) {
+        while (Ipx.Get_Global_Message(&unknown_session_a3d298.GPacket, &unknown_session_a3d298.GPacketlen, &unknown_session_a3d298.GAddress, &unknown_session_a3d298.GProductID)) {
 
             if (unknown_session_a3d298.GProductID == 0xAA03) {
 
@@ -421,9 +421,9 @@ void __fastcall IPX_Call_Back()
                     case 0x27:
                     {
                         if (unknown_session_a3d298.Type == 4 && unknown_session_a3d298.ViaPacketRouter) {
-                            for (int i = 0; i < unknown_ipx_manager_a40978.Num_Connections(); i++) {
-                                if (unknown_ipx_manager_a40978.Connection_ID(i) == unknown_session_a3d298.GPacket.Chat.ID) {
-                                    Debug_Printf("Got NET_IM_STILL_HERE packet from %s.\n", Wide_To_Narrow_006fa120(unknown_ipx_manager_a40978.Connection_Name(unknown_session_a3d298.GPacket.Chat.ID)));
+                            for (int i = 0; i < Ipx.Num_Connections(); i++) {
+                                if (Ipx.Connection_ID(i) == unknown_session_a3d298.GPacket.Chat.ID) {
+                                    Debug_Printf("Got NET_IM_STILL_HERE packet from %s.\n", Wide_To_Narrow_006fa120(Ipx.Connection_Name(unknown_session_a3d298.GPacket.Chat.ID)));
                                     unknown_stamp_timed_slot_00623300(i);
                                     break;
                                 }
@@ -479,9 +479,9 @@ void __fastcall IPX_Call_Back()
 
                     case 0x0A:
                     {
-                        for (int i = 0; i < unknown_ipx_manager_a40978.Num_Connections(); i++) {
-                            int id = unknown_ipx_manager_a40978.Connection_ID(i);
-                            if (unknown_session_a3d298.GAddress == (*unknown_ipx_manager_a40978.Connection_Address(id))) {
+                        for (int i = 0; i < Ipx.Num_Connections(); i++) {
+                            int id = Ipx.Connection_ID(i);
+                            if (unknown_session_a3d298.GAddress == (*Ipx.Connection_Address(id))) {
                                 Destroy_Connection_005bb5d0(id, 0);
                             }
                         }
@@ -495,7 +495,7 @@ void __fastcall IPX_Call_Back()
                             NetNumType net;
                             NetNodeType node;
                             unsigned short port;
-                            IPXAddressClass *address = unknown_OwnerTalkClass_00ab6d18.Unknown_0063FA00(unknown_session_a3d298.GPacket.Name);
+                            IPXAddressClass *address = OwnerTalk.Unknown_0063FA00(unknown_session_a3d298.GPacket.Name);
                             address->Get_Address(net, node, &port);
                             ((UDPInterfaceClass *)PacketTransport)->Add_Peer((unsigned long *)node, port);
                         }
@@ -515,7 +515,7 @@ void __fastcall IPX_Call_Back()
                             }
                         }
                         if (msg_ok && unknown_session_a3d298.ViaPacketRouter) {
-                            msg_ok = (unknown_session_a3d298.GPacket.Message.unknown_2f & unknown_OwnerTalkClass_00ab6d18.Unknown_0063F4C0(unknown_session_a3d298.Players[0]->ID)) != 0;
+                            msg_ok = (unknown_session_a3d298.GPacket.Message.unknown_2f & OwnerTalk.Unknown_0063F4C0(unknown_session_a3d298.Players[0]->ID)) != 0;
                         }
 
                         if (msg_ok) {
@@ -549,7 +549,7 @@ void __fastcall IPX_Call_Back()
                             }
                         }
                         if (msg_ok && unknown_session_a3d298.ViaPacketRouter) {
-                            msg_ok = (unknown_session_a3d298.GPacket.Taunt.Recipients & unknown_OwnerTalkClass_00ab6d18.Unknown_0063F4C0(unknown_session_a3d298.Players[0]->ID)) != 0;
+                            msg_ok = (unknown_session_a3d298.GPacket.Taunt.Recipients & OwnerTalk.Unknown_0063F4C0(unknown_session_a3d298.Players[0]->ID)) != 0;
                         }
                         if (msg_ok) {
                             if ((unknown_session_a3d298.LANTaunts && unknown_session_a3d298.Type == 3) || (unknown_session_a3d298.WOLTaunts && unknown_session_a3d298.Type == 4)) {
@@ -588,7 +588,7 @@ void __fastcall IPX_Call_Back()
             }
 
             Windows_Message_Handler();
-            unknown_ipx_manager_a40978.Service();
+            Ipx.Service();
         }
     }
 }
@@ -643,14 +643,14 @@ int __fastcall Facing_From_Key_00482b50(unsigned int key)
 class BeaconManagerClass;
 extern BeaconManagerClass unknown_object_84e8d0;
 // Observed one-DWORD ECX argument, no stack arguments; original source form unknown.
-void __fastcall Unknown_006f6780(unsigned int value);
+void __fastcall Set_Type_Select_Mode(unsigned int value);
 // Observed one-pointer ECX receiver, no stack arguments; member/free source form unknown.
 void __fastcall Unknown_0042e830(BeaconManagerClass *receiver);
 void __cdecl Clear_Selected_Objects_00482bc0()
 {
-    while (unknown_objects_a40c60.Count()!=0)
-        unknown_objects_a40c60[0]->Unselect();
-    Unknown_006f6780(0);
+    while (CurrentObject.Count()!=0)
+        CurrentObject[0]->Unselect();
+    Set_Type_Select_Mode(0);
     Unknown_0042e830(&unknown_object_84e8d0);
 }
 

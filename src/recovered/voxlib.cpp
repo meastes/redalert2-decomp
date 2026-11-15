@@ -56,7 +56,7 @@ struct UnknownVoxelView {
 };
 
 extern UnknownVoxelView unknown_views_7f9e60[];
-extern void (*unknown_drawers_7f9de0[])(VoxelFuncArgumentStruct *parameters);
+extern void (*VoxelDrawFunctions[])(VoxelFuncArgumentStruct *parameters);
 extern int unknown_af6610;
 extern int unknown_af6614;
 
@@ -68,7 +68,7 @@ extern unsigned char unknown_grid_ae3408[];
 
 // The normal vector tables per normal type (0 none) and their sizes.
 extern Vector3 const *unknown_normal_tables_7f9f80[5];
-extern int unknown_normal_counts_7f9f94[5];
+extern int VoxelNormalTableEntryCount[5];
 
 // The default brightness levels of VoxelPaletteLibrary::Calculate_Lookup_Table.
 float unknown_levels_af8f10[32];
@@ -286,7 +286,7 @@ void VoxelLibrary::Render_Object(UnknownVoxelDrawState *state, Vector3 const *or
     if (tailer->unknown_a3 == 0) {
         drawer |= 8;
     }
-    unknown_drawers_7f9de0[drawer](&parameters);
+    VoxelDrawFunctions[drawer](&parameters);
 }
 
 
@@ -1169,10 +1169,10 @@ void Draw_Voxel_Reverse_ZBuffer(VoxelFuncArgumentStruct *parameters)
 
 // Fills the shade table from a light direction: the lit share of each normal
 // of normal type `type` times 16; the last three entries are unlit.
-void __fastcall unknown_71ba20(Vector3 const *light, int type)
+void __fastcall Precalculate_Normal_Lookup(Vector3 const *light, int type)
 {
     Vector3 const *normals = unknown_normal_tables_7f9f80[type];
-    int count = unknown_normal_counts_7f9f94[type];
+    int count = VoxelNormalTableEntryCount[type];
     for (int index = 0; index < count; index++) {
         Vector3 const &normal = normals[index];
         float dot = normal.X * light->X + normal.Z * light->Z + light->Y * normal.Y;
@@ -1219,7 +1219,7 @@ void __fastcall unknown_71baa0(Vector3 const *light, Vector3 const *view, float 
     Vector3 const *normals = unknown_normal_tables_7f9f80[type];
     Vector3 sum = *view + *light;
     Vector3 halfway = Vector3_Normalize(sum);
-    for (int index = 0; index < unknown_normal_counts_7f9f94[type]; index++) {
+    for (int index = 0; index < VoxelNormalTableEntryCount[type]; index++) {
         Vector3 const &normal = normals[index];
         float diffuse = Vector3_Dot(normal, *light);
         float dot = Vector3_Dot(normal, halfway);
@@ -1241,7 +1241,7 @@ void __fastcall unknown_71baa0(Vector3 const *light, Vector3 const *view, float 
 
 // The index of the normal of normal type `type` closest in direction to
 // `normal` (largest dot product); 0xFF when `normal` is shorter than 0.2.
-int __fastcall unknown_71bc30(Vector3 const *normal, int type)
+int __fastcall Find_Closest_Normal(Vector3 const *normal, int type)
 {
     Vector3 const *normals = unknown_normal_tables_7f9f80[type];
     float best = 0;
@@ -1249,7 +1249,7 @@ int __fastcall unknown_71bc30(Vector3 const *normal, int type)
     if (Fast_Sqrt(normal->X * normal->X + normal->Y * normal->Y + normal->Z * normal->Z) < 0.2f) {
         return 0xFF;
     }
-    int count = unknown_normal_counts_7f9f94[type];
+    int count = VoxelNormalTableEntryCount[type];
     for (int index = 0; index < count; index++) {
         float dot = normals[index].X * normal->X + normals[index].Z * normal->Z + normals[index].Y * normal->Y;
         if (dot > best) {
@@ -1262,7 +1262,7 @@ int __fastcall unknown_71bc30(Vector3 const *normal, int type)
 
 
 // Marks every normal unlit.
-void unknown_71bce0()
+void Init_Normal_Lookup()
 {
     memset(unknown_shades_af8e10, 0x10, sizeof(unknown_shades_af8e10));
 }

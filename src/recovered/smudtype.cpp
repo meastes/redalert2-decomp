@@ -314,7 +314,7 @@ void SmudgeTypeClass::Draw_It(Point2D const *point, Rect const *cliprect, int si
         }
         CellClass &here = Map[*cell];
         int level = here.unknown_10c;
-        CC_Draw_Shape(unknown_surface_83995c, (ConvertClass *)here.unknown_34, (ShapeFileStruct const *)shape, 0, position, *cliprect,
+        CC_Draw_Shape(LogicalSurface, (ConvertClass *)here.unknown_34, (ShapeFileStruct const *)shape, 0, position, *cliprect,
                       0xE00, 0, -1 - Unknown_006A2970(z), 0, level, 0, 0, Point2D(0, 0));
     }
 }

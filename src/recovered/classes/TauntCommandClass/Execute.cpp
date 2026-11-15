@@ -22,8 +22,8 @@
 // @ref ?unknown_host_name_a3f618@@3PAGA=00a3f618
 // @ref ?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A=00a3fa7c
 // @ref ?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A=00a32298
-// @ref ?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A=00a40978
-// @ref ?unknown_OwnerTalkClass_00ab6d18@@3VOwnerTalkClass@@A=00ab6d18
+// @ref ?Ipx@@3VIPXManagerClass@@A=00a40978
+// @ref ?OwnerTalk@@3VOwnerTalkClass@@A=00ab6d18
 // @ref ?Unknown_005bba50@@YIHPAG@Z=005bba50
 // @ref ?Unknown_Play_Taunt_00715fb0@@YIXD@Z=00715fb0
 // @ref ?Unknown_0063F4C0@OwnerTalkClass@@QAEEH@Z=0063f4c0
@@ -66,23 +66,23 @@ void TauntCommandClass::Execute(int key) const
     for (int h = 0; h < houses; h++) {
         HouseClass *house = Houses[h];
         if (house != 0 && house->Type->Multiplay && unknown_flags_a3f118[h]) {
-            int connections = unknown_ipx_manager_a40978.Num_Connections();
+            int connections = Ipx.Num_Connections();
             for (int c = 0; c < connections; c++) {
-                int id = unknown_ipx_manager_a40978.Connection_ID(c);
-                if (wcscmp(house->UIName, unknown_ipx_manager_a40978.Connection_Name(id)) == 0) {
-                    IPXAddressClass *address = unknown_ipx_manager_a40978.Connection_Address(id);
+                int id = Ipx.Connection_ID(c);
+                if (wcscmp(house->UIName, Ipx.Connection_Name(id)) == 0) {
+                    IPXAddressClass *address = Ipx.Connection_Address(id);
                     if (unknown_flag_a3fba8) {
-                        packet.Muted |= unknown_OwnerTalkClass_00ab6d18.Unknown_0063F4C0(id);
+                        packet.Muted |= OwnerTalk.Unknown_0063F4C0(id);
                     } else {
-                        unknown_ipx_manager_a40978.Send_Global_Message(&packet, 0x1C7, 1, address, 0, 0);
-                        unknown_ipx_manager_a40978.Service();
+                        Ipx.Send_Global_Message(&packet, 0x1C7, 1, address, 0, 0);
+                        Ipx.Service();
                     }
                 }
             }
         }
     }
     if (unknown_flag_a3fba8 && packet.Muted) {
-        unknown_ipx_manager_a40978.Send_Global_Message(&packet, 0x1C7, 1, &unknown_players_a3fa7c[0]->Address, 0, 0);
-        unknown_ipx_manager_a40978.Service();
+        Ipx.Send_Global_Message(&packet, 0x1C7, 1, &unknown_players_a3fa7c[0]->Address, 0, 0);
+        Ipx.Service();
     }
 }

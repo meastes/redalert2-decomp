@@ -109,7 +109,7 @@ void EventClass::Execute()
         techno = TargetAt(0x07).As_Techno();
         Planning_Techno_00615480(techno, 0);
         if (techno && techno->IsActive) {
-            techno->unknown_6d6e50(TargetAt(0x0C).As_Abstract());
+            techno->Assign_Archive_Target(TargetAt(0x0C).As_Abstract());
         }
         break;
 
@@ -280,13 +280,13 @@ void EventClass::Execute()
                 if (techno && foot) {
                     techno->unknown_slot220(0);
                     techno->Assign_Destination(TargetAt(0x0E).As_Abstract(), true);
-                    techno->unknown_6d6e50(TargetAt(0x0E).As_Abstract());
+                    techno->Assign_Archive_Target(TargetAt(0x0E).As_Abstract());
                     break;
                 }
             }
             if (footp) {
-                footp->unknown_6d6e50(0);
-                footp->unknown_4c8c90();
+                footp->Assign_Archive_Target(0);
+                footp->Clear_Navigation_List();
             }
             techno->unknown_slot220(TargetAt(0x0E).As_Abstract());
             techno->Assign_Destination(TargetAt(0x13).As_Abstract(), true);
@@ -311,7 +311,7 @@ void EventClass::Execute()
             }
             if (techno && foot) {
                 ((FootClass *)techno)->unknown_49c.Clear();
-                ((FootClass *)techno)->unknown_4c8c90();
+                ((FootClass *)techno)->Clear_Navigation_List();
                 ((FootClass *)techno)->unknown_418 = -1;
                 ((FootClass *)techno)->unknown_576 = 0;
                 ((FootClass *)techno)->unknown_41c = Cell(0, 0);
@@ -438,7 +438,7 @@ void EventClass::Execute()
         house = Houses[index];
         if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8) {
             if (house->Is_Human_Player()) {
-                unknown_OwnerTalkClass_00ab6d18.Unknown_0063FE20(index);
+                OwnerTalk.Unknown_0063FE20(index);
             }
         }
         if ((unknown_game_mode_a3d298 == 4 && unknown_b2a7ec) || house->Is_Human_Player()) {
@@ -465,8 +465,8 @@ void EventClass::Execute()
         *(long *)node = LongAt(0x08);
         IPXAddressClass address(network, node, 0);
         Debug_Printf("New address is %s\n", address.As_String(&address));
-        unknown_ipx_manager_a40978.Set_Connection_Address((char)ByteAt(0x07), &address);
-        unknown_OwnerTalkClass_00ab6d18.Unknown_0063F9A0((char)ByteAt(0x07), &address);
+        Ipx.Set_Connection_Address((char)ByteAt(0x07), &address);
+        OwnerTalk.Unknown_0063F9A0((char)ByteAt(0x07), &address);
         int count = unknown_session_a3d298.Players.Count();
         for (i = 0; i < count; i++) {
             if (unknown_session_a3d298.Players[i]->ID == (char)ByteAt(0x07)) {
@@ -486,7 +486,7 @@ void EventClass::Execute()
             unknown_a402b8 = true;
         }
         unknown_a402d8 = true;
-        int host = unknown_OwnerTalkClass_00ab6d18.Unknown_0063FBA0();
+        int host = OwnerTalk.Unknown_0063FBA0();
         if (host != -1) {
             HouseClass *hostp = Houses[host];
             if (hostp) {
@@ -506,14 +506,14 @@ void EventClass::Execute()
                     Debug_Printf("Session.PacketRouterAddress = %s\n", unknown_forward_address_a3fbac.As_String(0));
                     Debug_Printf("Session.PacketRouterPort = %d\n", unknown_session_a3d298.unknown_292c);
                     if (!unknown_session_a3d298.Am_I_Master(0)) {
-                        unknown_ipx_manager_a40978.unknown_5277c0(&unknown_forward_address_a3fbac);
+                        Ipx.Set_Lobby_Address(&unknown_forward_address_a3fbac);
                     }
                 }
                 wcscpy(unknown_session_a3d298.MasterPlayerName, hostp->UIName);
                 Debug_Printf("New game host is %ls\n", unknown_session_a3d298.MasterPlayerName);
                 unknown_session_a3d298.MasterPlayerID = host;
                 if (unknown_session_a3d298.Am_I_Master(0)) {
-                    unknown_OwnerTalkClass_00ab6d18.Unknown_0063F130();
+                    OwnerTalk.Unknown_0063F130();
                 }
             }
             unknown_session_a3d298.unknown_3048 = ::Frame;

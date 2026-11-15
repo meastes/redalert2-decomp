@@ -4,8 +4,8 @@
     "id": "population-2679",
     "inventory_sha256": "3af864b095381b52596821fc72a61d7cf1f3cae7e018c830daf463f66374c209",
     "gaps_sha256": "97d87df891be20df62c8c7e711b33cf7416971096437f14a139c7760ae370efc",
-    "historical_population_sha256": "3a97e07d35925d67850bc3a189b41242a1e02b7c86e8a4562f34c2c9d9a11573",
-    "historical_acceptance_sha256": "107e8df40c910b189950cfc93b82870364764a43c9ca064ea86bf8287145618d"
+    "historical_population_sha256": "c3a12c2829e694d4ab18c61a643365f51b91231224120ceb5c01405b34f272ee",
+    "historical_acceptance_sha256": "d2d6b008a3bfd6b7f14ad96fed50f8f70deb15348757aea6df0672daf7f848a5"
   },
   "references": {
     "?unknown_map_regions_a6fd28@@3V?$DynamicVectorClass@PAVMapRegionClass@@@@A": 10943784,
@@ -1085,7 +1085,7 @@
     "?ID@?$VectorClass@PAVToolTip@@@@UAEHABQAVToolTip@@@Z": 7258256,
     "?ID@?$VectorClass@PAVToolTip@@@@UAEHPBQAVToolTip@@@Z": 7258320,
     "?ID@?$DynamicVectorClass@PAVToolTip@@@@UAEHABQAVToolTip@@@Z": 7258528,
-    "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z": 7281408,
+    "?Inflate_Rect@@YIXPAVRect@@H@Z": 7281408,
     "?Clear@?$VectorClass@E@@UAEXXZ": 7402752,
     "??_7?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@6B@": 8054580,
     "?Clear@?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@UAEXXZ": 7415632,
@@ -2507,7 +2507,7 @@
     "?unknown_00573d40@MapRegionClass@@QAE_NABVCell@@0H@Z": 5717312,
     "?unknown_00573040@MapRegionClass@@QAE_NABVCell@@0H@Z": 5713984,
     "?unknown_00573680@MapRegionClass@@QAE_NABVCell@@0H@Z": 5715584,
-    "?unknown_005729f0@MapRegionClass@@QAE_NABVCell@@0H@Z": 5712368,
+    "?Build_South_Ramp@MapRegionClass@@QAE_NABVCell@@0H@Z": 5712368,
     "__real@8@4006e100000000000000": 7983416,
     "??0BaseNodeClass@@QAE@HABVCell@@@Z": 5204960,
     "?Generate_Starting_Points_00576170@MapRegionClass@@QAEXH@Z": 5726576,
@@ -2519,7 +2519,7 @@
     "__unlink": 7886498,
     "__real@4@3ff9a3d70a0000000000": 8053468,
     "?Update_Cell_Marks_005707a0@MapRegionClass@@QAEXXZ": 5703584,
-    "?unknown_0056eac0@MapRegionClass@@QAEXHH@Z": 5696192,
+    "?Reassign_Border_Cells@MapRegionClass@@QAEXHH@Z": 5696192,
     "?Make_Regions_00570810@MapRegionClass@@SA_NXZ": 5703696,
     "?Create_Region_From_Cell@MapRegionClass@@SIPAV1@PAVCellClass@@@Z": 5693696,
     "__real@8@3ffda3d70a3d70a3d800": 8020016,

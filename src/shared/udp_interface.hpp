@@ -23,11 +23,11 @@ extern "C" int __cdecl sscanf(char const *string, char const *format, ...);     
 // The default game port (0x007F60D0).
 extern int unknown_default_port_7f60d0;
 // The alternate socket's port (0x007F60D8).
-extern int unknown_alternate_port_7f60d8;
+extern int AlternateListenPort;
 // The alternate socket's destination port on the loopback (0x007F60D4).
-extern int unknown_port_7f60d4;
+extern int AlternateSendPort;
 // Set once a malformed packet was seen (0x00B2AF1C).
-extern bool unknown_b2af1c;
+extern bool IsMalformedPacketReported;
 
 class UDPInterfaceClass : public WinsockInterfaceClass {
 public:

@@ -323,7 +323,7 @@ void ParticleSystemClass::Spark_AI()
 }
 
 
-// Not exact (RA2_NON_MATCHING): ParticleSystemClass::unknown_func_60bb70 at 0x0060BB70, best score 54.23, 2026-11-13; differs: 346 instructions in the original, 351 in the draft (shape 93.54)
+// Not exact (RA2_NON_MATCHING): ParticleSystemClass::Smoke_AI at 0x0060BB70, best score 54.23, 2026-11-13; differs: 346 instructions in the original, 351 in the draft (shape 93.54)
 #ifdef RA2_NON_MATCHING
 // NON-EXACT DRAFT 0x60BB70 ParticleSystemClass Smoke AI: 54.23 (shape 93.54), Scout1127 m6 (no Spread helper; from Scout1123 v15 49.78)
 // entry 0x60BB70; exact-match score 37.95 (Scout588/Scout1000; misses_index best 53.12 by Scout1005, text not kept);
@@ -331,7 +331,7 @@ void ParticleSystemClass::Spark_AI()
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by Scout1111
 // (native/drafts.json). Not original bytes. Reached at frame ~3,300 of the M12 harness runs
 // (ParticleSystemClass::AI, a smoking building or wreck). Text unchanged.
-// void ParticleSystemClass::unknown_func_60bb70() (0x0060BB70)
+// void ParticleSystemClass::Smoke_AI() (0x0060BB70)
 // Behaviour 0 (smoke): the system follows its owner; particles run, and
 // each finished particle splits into two of its type's next particle,
 // spread sideways at random; every SpawnFrames frames a new particle rises
@@ -354,7 +354,7 @@ static inline FootClass *Foot_Of(ObjectClass *object)
     }
     return 0;
 }
-void ParticleSystemClass::unknown_func_60bb70()
+void ParticleSystemClass::Smoke_AI()
 {
     if (Object_Flag_Set(Owner) && Owner->What_Am_I() != 6) {
         Set_Coord(Owner->Center_Coord() + unknown_9c);
@@ -632,7 +632,7 @@ void ParticleSystemClass::AI()
 {
     switch (Class->BehavesLike) {
     case 0:
-        unknown_func_60bb70();
+        Smoke_AI();
         break;
     case 1:
         Gas_AI();

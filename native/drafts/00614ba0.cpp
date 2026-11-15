@@ -34,7 +34,7 @@ inline void __fastcall Planning_Restart_House(int house)
                 token->unknown_613a80();
                 bool allows = Planning_Mission_Allows(techno);
                 if (!started && allows) {
-                    techno->unknown_615360();
+                    techno->TryNextPlanningTokenNode();
                 }
             }
         }

@@ -259,7 +259,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         goto done;
                     }
                 } else {
-                    Map[what].unknown_478740();
+                    Map[what].Shimmer();
                 }
                 if (!continue_moving) return;
                 LinkedTo->Path[0] = -1;

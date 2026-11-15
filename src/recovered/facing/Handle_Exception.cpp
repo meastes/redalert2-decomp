@@ -15,8 +15,8 @@ extern char exception_text_00855ba8[];
 extern DWORD main_thread_00b25f78;
 extern HWND exception_window_00b25dd4;
 extern bool unknown_flag_839c4c;
-extern Surface *unknown_surface_839950;
-// @ref ?unknown_surface_839950@@=00839950
+extern Surface *VisibleSurface;
+// @ref ?VisibleSurface@@=00839950
 // @ref ?HiddenSurface@@=00839954
 extern Surface *unknown_surface_839964;
 // @ref ?unknown_surface_839964@@=00839964
@@ -60,7 +60,7 @@ int __fastcall Handle_Exception_004b87f0(unsigned int exceptionCode, _EXCEPTION_
             CloseHandle(file);
         }
     }
-    if (((unknown_surface_839950 && unknown_surface_839950->Is_Locked())
+    if (((VisibleSurface && VisibleSurface->Is_Locked())
       || (HiddenSurface && HiddenSurface->Is_Locked())
       || (unknown_surface_839964 && unknown_surface_839964->Is_Locked())
       || (unknown_surface_839944 && unknown_surface_839944->Is_Locked())

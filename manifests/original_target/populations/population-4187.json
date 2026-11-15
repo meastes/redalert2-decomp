@@ -4,8 +4,8 @@
     "id": "population-4187",
     "inventory_sha256": "a180853e963a2334459da9dbc5a426f827a3a94159f4d9ca44c3fc7b128f4c2a",
     "gaps_sha256": "08d2db4e3b07bca7d2a8200dc71841476d6d6991769ff87dfd0f138f413c127d",
-    "historical_population_sha256": "6cfb2dd1f9b2a1d554c6022efd59313efb1326b5e9ec0c4ce686bccac00f69c7",
-    "historical_acceptance_sha256": "cc9746ac433602fae4a18165c79e8958ce01738af3b3ad24a0d2924d1f68863a"
+    "historical_population_sha256": "b41388f26f75618f115748c62f994c921c94497e7c1801ed9372290c6f897a08",
+    "historical_acceptance_sha256": "31ee286119f9447ecd37bc73e9a4e8b84f572ab65deb158c0d9fed90da634b33"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -2870,7 +2870,7 @@
     "?Size@ShipLocomotionClass@@UAEHXZ": 6794112,
     "?Size@TeleportLocomotionClass@@UAEHXZ": 7216096,
     "?Size@TunnelLocomotionClass@@UAEHXZ": 7279520,
-    "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z": 7281408,
+    "?Inflate_Rect@@YIXPAVRect@@H@Z": 7281408,
     "??_GVeinholeMonsterClass@@UAEPAXI@Z": 7415600,
     "??1VeinholeMonsterClass@@UAE@XZ": 7405040,
     "?Size@WalkLocomotionClass@@UAEHXZ": 7470640,
@@ -3150,7 +3150,7 @@
     "?Resume@VocStaticSound@@QAEXXZ": 7423104,
     "?Draw@MessageListClass@@QAEXXZ": 5987120,
     "?Update@ScorePrintClass@@UAE_NPAVSurface@@@Z": 6717680,
-    "?unknown_score_print_ab6f9c@@3_NA": 11235228,
+    "?StillUpdating@@3_NA": 11235228,
     "??0FoggedObjectClass@@QAE@PAVBuildingClass@@_N@Z": 4982384,
     "?AI@VoxelAnimClass@@UAEXXZ": 7394176,
     "?Draw@MSPrintAnim@@UAEXPAVSurface@@PBVRect@@@Z": 5959728,
@@ -6575,7 +6575,7 @@
     "?get@Storage_654960@@QAEPAXIPAI@Z": 6637920,
     "?get@Storage_6549b0@@QAEPAXIPAI@Z": 6638000,
     "?get@Storage_654a00@@QAEPAXIPAI@Z": 6638080,
-    "?unknown_6631a0@ScenarioClass@@QAEPAVCellClass@@H@Z": 6697376,
+    "?Get_Waypoint_Target@ScenarioClass@@QAEPAVCellClass@@H@Z": 6697376,
     "?Set_Waypoint_Location@ScenarioClass@@QAEXHVCell@@@Z": 6697984,
     "?get@Leaf_668ea0@@QAEXXZ": 6721184,
     "?get@Leaf_6715c0@@QAEXXZ": 6755776,

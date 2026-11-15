@@ -278,7 +278,7 @@ int TechnoClass::What_Weapon_Should_I_Use(AbstractClass *target)
     if (Kind_Of() == 6 && ((BuildingClass *)this)->unknown_531) {
         return 1;
     }
-    if (Kind_Of() == 6 && ((BuildingClass *)this)->unknown_4532f0() > 0) {
+    if (Kind_Of() == 6 && ((BuildingClass *)this)->GetOccupantCount() > 0) {
         return ((BuildingClass *)this)->unknown_554[0]->House->unknown_130 == 1;
     }
     if (target == 0) {
@@ -821,7 +821,7 @@ int TechnoClass::Receive_Message(RadioClass *from, int message, AbstractClass *&
             }
             if (House->Available_Money() >= cost) {
                 if (cost != 0) {
-                    House->Unknown_004E5280(cost);
+                    House->Spend_Money(cost);
                 }
                 Strength += step;
                 unknown_70 += step;
@@ -935,7 +935,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
         if (unknown_68 && unknown_38 && !Map[unknown_slot104()].unknown_47cb50()) {
             Point2D bomb_point;
             TacticalMap->Coord_To_Pixel(unknown_slot42(), bomb_point);
-            CC_Draw_Shape(unknown_surface_83995c, static_cast<ConvertClass *>(unknown_convert_8323c8),
+            CC_Draw_Shape(LogicalSurface, static_cast<ConvertClass *>(unknown_convert_8323c8),
                 static_cast<ShapeFileStruct const *>(Rules->BombCursorShape), unknown_38->Unknown_00436000(),
                 bomb_point, unknown_rect_839630, 0xe00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
@@ -946,7 +946,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
                 TacticalMap->Coord_To_Pixel(unknown_slot42(), repair_point);
                 int delay = Options.Normalize_Delay(14) / 4;
                 if (delay < 2) delay = 2;
-                CC_Draw_Shape(unknown_surface_83995c, static_cast<ConvertClass *>(unknown_convert_8323c8),
+                CC_Draw_Shape(LogicalSurface, static_cast<ConvertClass *>(unknown_convert_8323c8),
                     static_cast<ShapeFileStruct const *>(unknown_wrench_shape_8502a8),
                     ((Frame % delay) * 6) / (delay - 1), repair_point, window, 0xe00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
@@ -965,7 +965,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
                 int x = dim.X / 2;
                 dim.Y /= 2;
                 int y = dim.Y;
-                color = unknown_drawer_8323c4->Convert(color);
+                color = NormalDrawer->Convert(color);
                 CoordStruct const &position = Center_Coord();
                 ::Coord center = position;
                 if (Kind_Of() != 15) {
@@ -1004,7 +1004,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
 
 
         if (unknown_talk_techno_ac01c4 == this && unknown_talk_value_ac01c8 > 0 && (long)TalkBubbleTimer > 0) {
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4,
+            CC_Draw_Shape(LogicalSurface, NormalDrawer,
                 static_cast<ShapeFileStruct const *>(unknown_talkbubl_shapes_a72fec), unknown_talk_value_ac01c8 - 1,
                 point, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
@@ -1057,7 +1057,7 @@ void TechnoClass::unknown_slot65(int point, int cliprect)
         dim.Y /= 2;
         int x = dim.X;
         int y = dim.Y;
-        color = unknown_drawer_8323c4->Convert(color);
+        color = NormalDrawer->Convert(color);
         CoordStruct const &position = Center_Coord();
         ::Coord center = position;
         Draw_Double_Selection_Bracket_006c3950(center + ::Coord(-x, -y, 0), center + ::Coord(-x, -y, dim.Z), color);
@@ -1110,9 +1110,9 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             count = length;
         }
         int frame = 1;
-        if ((char)unknown_func_5d4600()) {
+        if ((char)Is_Yellow_HP()) {
             frame = 2;
-        } else if ((char)unknown_func_5d45b0()) {
+        } else if ((char)Is_Red_HP()) {
             frame = 4;
         }
         int ybase = 2 - 2 * length;
@@ -1125,7 +1125,7 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             position.Y = point.Y + p0.Y + ybase + 2;
             position.X -= xoff;
             position.Y -= yoff;
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, (ShapeFileStruct const *)unknown_pips_shapes_a72fe4,
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pips_shapes_a72fe4,
                           frame, position, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             xoff += 4;
             yoff -= 2;
@@ -1137,7 +1137,7 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             position.Y = point.Y + p0.Y + ybase + 2;
             position.X -= xoff;
             position.Y -= yoff;
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, (ShapeFileStruct const *)unknown_pips_shapes_a72fe4,
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pips_shapes_a72fe4,
                           0, position, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             xoff += 4;
             yoff -= 2;
@@ -1150,14 +1150,14 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
         int length;
         if (Kind_Of() == 15) {
             if (unknown_77) {
-                CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, (ShapeFileStruct const *)unknown_pipbrd_shapes_a72fe0,
+                CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pipbrd_shapes_a72fe0,
                               1, point + Point2D(11, -25), window, 0xE00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
             offset = Point2D(-5, -24);
             length = 8;
         } else {
             if (unknown_77) {
-                CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, (ShapeFileStruct const *)unknown_pipbrd_shapes_a72fe0,
+                CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pipbrd_shapes_a72fe0,
                               0, point + Point2D(1, -26), window, 0xE00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
             offset = Point2D(-15, -25);
@@ -1182,7 +1182,7 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             position.X = point.X + offset.X;
             position.Y = offset.Y + point.Y;
             position.X += 2 * index;
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, (ShapeFileStruct const *)unknown_pips_shapes_a72fe4,
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pips_shapes_a72fe4,
                           frame, position, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
         if (House->Is_Ally(unknown_player_a35db4) || (unknown_1a8 & (1 << unknown_player_a35db4->Type->House))) {
@@ -1324,13 +1324,13 @@ int __stdcall Get_Sight_Bonus_006c48d0(int type)
 }  // namespace seed_006c48d0
 
 
-// int TechnoClass::unknown_6c48f0(ObjectClass *other) (0x006C48F0)
+// int TechnoClass::Elevation_Distance(ObjectClass *other) (0x006C48F0)
 // The distance to the other object when its height is measured like
 // 0x006C4A70: the horizontal part (levels above, scaled and limited, in
 // leptons) and the vertical part (the same levels times the geometry
 // constant 0x00AC01C0) combined; 0 unless both are on the map (slot 20).
 
-int TechnoClass::unknown_6c48f0(ObjectClass *other)
+int TechnoClass::Elevation_Distance(ObjectClass *other)
 {
     if (On_Ground() && other->On_Ground()) {
         Cell here = Coord_Cell(Center_Coord());
@@ -1356,12 +1356,12 @@ int TechnoClass::unknown_6c48f0(ObjectClass *other)
 }
 
 
-// int TechnoClass::unknown_6c4a70(ObjectClass *other) (0x006C4A70)
+// int TechnoClass::Elevation_Range_Bonus(ObjectClass *other) (0x006C4A70)
 // How high this object's cell stands above the other's (levels, never
 // negative), divided by the rules' +0x1480, scaled by +0x1488 and limited
 // to +0x1490, in leptons (<< 8); 0 unless both are on the map (slot 20).
 
-int TechnoClass::unknown_6c4a70(ObjectClass *other)
+int TechnoClass::Elevation_Range_Bonus(ObjectClass *other)
 {
     if (On_Ground() && other->On_Ground()) {
         Cell here = Coord_Cell(Center_Coord());
@@ -1440,7 +1440,7 @@ bool TechnoClass::unknown_6c4bb0(CoordStruct const *coord, AbstractClass *target
         BulletTypeClass *bullet = weapon->Projectile;
         int ground_range = range;
         if (bullet->SubjectToElevation) {
-            ground_range = unknown_6c48f0((ObjectClass *)target) + range;
+            ground_range = Elevation_Distance((ObjectClass *)target) + range;
         }
         CoordStruct tcoord = target->Center_Coord();
         int minrange = weapon->unknown_b8;
@@ -1452,7 +1452,7 @@ bool TechnoClass::unknown_6c4bb0(CoordStruct const *coord, AbstractClass *target
             int dist = Length_XY(Coord_XY(delta));
             int arcrange = range;
             if (bullet->SubjectToElevation) {
-                arcrange = unknown_6c4a70((ObjectClass *)target) + range;
+                arcrange = Elevation_Range_Bonus((ObjectClass *)target) + range;
             }
             if (dist > arcrange) {
                 return false;
@@ -1585,7 +1585,7 @@ bool TechnoClass::In_Range(CoordStruct const &coord, int weapon)
 
 // Evaluate the objects occupying a cell, retaining the last eligible techno.
 // Existing seven-argument ABI retained; +418 type and cell views use shared layouts.
-bool TechnoClass::unknown_6c6130(int method,int mask,Cell const *cell,int range,ObjectClass **object,int *value,int zone)
+bool TechnoClass::Evaluate_Cell(int method,int mask,Cell const *cell,int range,ObjectClass **object,int *value,int zone)
 {
     *object=0;
     *value=0;
@@ -1814,7 +1814,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     CellClass *here=&Map[Position_Coord_004f3f40()];
     CellClass *there=&Map[object->Position_Coord_004f3f40()];
     if((here->unknown_140&0x100) && (there->unknown_140&0x100) && unknown_79!=object->unknown_79) return false;
-    *value=(int)unknown_6d7550(object,*coord);
+    *value=(int)Target_Threat(object,*coord);
     if(Techno_Type_Class()->VHPScan==1) {
         if(object->unknown_70<=0) *value=*value/2;
         else if(object->unknown_70<=object->Techno_Type_Class()->MaxStrength/2) *value=*value*2;
@@ -1840,7 +1840,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
         if(w && w->WeaponType && otype==6) {
             BuildingClass *b=object->Kind_Of()==6?static_cast<BuildingClass *>(object):0;
             // behaviour fix (codex4 r505): a building that cannot be occupied keeps its score.
-            if(!b->Type->CanBeOccupied || b->unknown_4532f0()!=0) keep=true;
+            if(!b->Type->CanBeOccupied || b->GetOccupantCount()!=0) keep=true;
         }
         if(!keep) *value=0;
     }
@@ -1855,7 +1855,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
 }
 #endif
 
-// int TechnoClass::unknown_6c6350(Cell const *cell) (0x006C6350)
+// int TechnoClass::Evaluate_Just_Cell(Cell const *cell) (0x006C6350)
 // How much a computer-owned techno wants to shoot the wall in cell
 // (TechnoClass slot 219): 0 for a human owner, a difficulty without
 // DestroyWalls, a cell without a wall overlay, a cell out of range of the
@@ -1863,7 +1863,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
 // AG, or a wall owned by an ally; otherwise slot 85 less the distance to
 // the cell's centre.
 
-int TechnoClass::unknown_6c6350(Cell const *cell)
+int TechnoClass::Evaluate_Just_Cell(Cell const *cell)
 {
     if (House->Unknown_004F52F0()) {
         return 0;
@@ -1970,23 +1970,23 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
                 for (int x=-radius;x<=radius;++x) {
                     Cell scan=center+Cell(x,-radius);
                     if (Map.In_Radar(scan)) {
-                        if (unknown_6c6130(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
+                        if (Evaluate_Cell(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
                             if (Techno_Type_Class()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
                         }
                         if (!best_object) {
-                            value=unknown_6c6350(&scan);
+                            value=Evaluate_Just_Cell(&scan);
                             if (best_cell_value<value) {best_cell_value=value;best_cell=scan;}
                         }
                     }
                     scan=center+Cell(x,radius);
                     if (Map.In_Radar(scan)) {
-                        if (unknown_6c6130(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
+                        if (Evaluate_Cell(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
                             if (Techno_Type_Class()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
                         }
                         if (!best_object) {
-                            value=unknown_6c6350(&scan);
+                            value=Evaluate_Just_Cell(&scan);
                             if (best_cell_value<value) {best_cell_value=value;best_cell=scan;}
                         }
                     }
@@ -1994,23 +1994,23 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
                 for (int y=1-radius;y<radius;++y) {
                     Cell scan=center+Cell(-radius,y);
                     if (Map.In_Radar(scan)) {
-                        if (unknown_6c6130(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
+                        if (Evaluate_Cell(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
                             if (Techno_Type_Class()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
                         }
                         if (!best_object) {
-                            value=unknown_6c6350(&scan);
+                            value=Evaluate_Just_Cell(&scan);
                             if (best_cell_value<value) {best_cell_value=value;best_cell=scan;}
                         }
                     }
                     scan=center+Cell(radius,y);
                     if (Map.In_Radar(scan)) {
-                        if (unknown_6c6130(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
+                        if (Evaluate_Cell(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
                             if (Techno_Type_Class()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
                         }
                         if (!best_object) {
-                            value=unknown_6c6350(&scan);
+                            value=Evaluate_Just_Cell(&scan);
                             if (best_cell_value<value) {best_cell_value=value;best_cell=scan;}
                         }
                     }
@@ -2104,7 +2104,7 @@ void TechnoClass::AI()
     Point2D point;
     Rect window;
     if (unknown_380) unknown_380=false;
-    unknown_6d8820();
+    Update_Iron_Tint();
     if (unknown_70>Strength) unknown_70=Strength;
     if ((Frame&4) && unknown_70<Strength) {
         if (unknown_70+30<0) unknown_70=-30;
@@ -2179,7 +2179,7 @@ void TechnoClass::AI()
     if (unknown_148.Value()==0) {
         if (unknown_slot276()) {
             unknown_slot278();
-        } else if ((Mission==2 || Mission==10 || Mission==5) && unknown_6d4180()) {
+        } else if ((Mission==2 || Mission==10 || Mission==5) && Should_Scan_For_Target()) {
             unknown_3f4=Frame;
             AbstractClass *target=unknown_228;
             CoordStruct coord=Coord;
@@ -2267,17 +2267,17 @@ void TechnoClass::Reload()
     if (ammo != -1 && unknown_254 < ammo && unknown_194.Value() == 0) {
         unknown_254++;
         Mark(2);
-        unknown_6c8300();
+        StartReloading();
     }
 }
 
 
-// void TechnoClass::unknown_6c8300() (0x006C8300)
+// void TechnoClass::StartReloading() (0x006C8300)
 // Restarts the reload timer (+0x194) while below the type's Ammo:
 // EmptyReload when empty (if set), else Reload plus ReloadIncrement times
 // the square of the full PipWrap groups loaded.
 
-void TechnoClass::unknown_6c8300()
+void TechnoClass::StartReloading()
 {
     int ammo = Techno_Type_Class()->Ammo;
     if (unknown_254 < ammo) {
@@ -2561,10 +2561,10 @@ bool TechnoClass::unknown_slot80()
         if (unknown_34) {
             unknown_34->Spring(0x21, this, unknown_geometry_k, 0, 0);
         }
-        if (House->Is_Player_Control() && unknown_sound_enabled_7d88d6) {
+        if (House->Is_Player_Control() && AllowVoice) {
             unknown_slot196();
         }
-        unknown_6145e0();
+        Select_Planning_Members();
         return true;
     }
     return false;
@@ -2618,10 +2618,10 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
     }
     weapon=unknown_slot231(which)->WeaponType;
     if(weapon!=0) {
-        if(weapon->unknown_125 && House->Unknown_0051FC80()) goto CANT;
+        if(weapon->unknown_125 && House->Ion_Sensitives_Should_Be_Offline()) goto CANT;
         if(techno && weapon->Warhead && techno->unknown_slot111() && !weapon->Warhead->Temporal) goto ILLEGAL;
         if(weapon->unknown_10d) {
-            if(unknown_6cf670()) goto CANT;
+            if(Is_Z_Fudge_Bridge()) goto CANT;
             if(unknown_slot202()) goto CANT;
             if(SpawnManager->Alive_Count()==0) return 3;
         }
@@ -2785,8 +2785,8 @@ int TechnoClass::unknown_slot187(int which)
                 delay=delay*Rules->VeteranROF;
             }
         }
-        if (Kind_Of()==6 && static_cast<BuildingClass *>(this)->unknown_4532f0()>0) {
-            delay/=static_cast<BuildingClass *>(this)->unknown_4532f0();
+        if (Kind_Of()==6 && static_cast<BuildingClass *>(this)->GetOccupantCount()>0) {
+            delay/=static_cast<BuildingClass *>(this)->GetOccupantCount();
         }
         return delay;
     }
@@ -2853,14 +2853,14 @@ LaserDrawClass *TechnoClass::unknown_6c9df0(AbstractClass *target, int weapon_in
 }
 #endif
 
-// EBolt *TechnoClass::unknown_6ca020(AbstractClass *target, WeaponTypeClass *weapon, CoordStruct const &source) (0x006CA020)
+// EBolt *TechnoClass::CreateEBolt(AbstractClass *target, WeaponTypeClass *weapon, CoordStruct const &source) (0x006CA020)
 // Fires an electric bolt from source to the target: a new EBolt, set up
 // from source to the target's coordinate (slot 40 for objects, slot 22
 // otherwise); a building raises it by the screen height of the source above
 // its own slot 42 coordinate. The weapon's +0x129 flag is copied to the
 // bolt's +0x2C.
 
-EBolt *TechnoClass::unknown_6ca020(AbstractClass *target, WeaponTypeClass *weapon, CoordStruct const &source)
+EBolt *TechnoClass::CreateEBolt(AbstractClass *target, WeaponTypeClass *weapon, CoordStruct const &source)
 {
     int depth = 0;
     EBolt *bolt = new EBolt;
@@ -2889,18 +2889,18 @@ EBolt *TechnoClass::unknown_6ca020(AbstractClass *target, WeaponTypeClass *weapo
 }
 
 
-// EBolt *TechnoClass::unknown_6ca130(AbstractClass *target) (0x006CA130)
+// EBolt *TechnoClass::Electric_Zap(AbstractClass *target) (0x006CA130)
 // Fires the weapon chosen for the target as an electric bolt from its fire
 // coordinate (0x006CA020); a unit with +0x7D set and no bolt yet keeps it
 // at +0x5C4 and attaches itself (0x004B2580). Never called: inlined at
 // every use.
 
-EBolt *TechnoClass::unknown_6ca130(AbstractClass *target)
+EBolt *TechnoClass::Electric_Zap(AbstractClass *target)
 {
     int weapon = What_Weapon_Should_I_Use(target);
     WeaponTypeClass *type = unknown_slot231(weapon)->WeaponType;
     CoordStruct source = unknown_slot43(weapon);
-    EBolt *bolt = unknown_6ca020(target, type, source);
+    EBolt *bolt = CreateEBolt(target, type, source);
     if (bolt != 0 && Kind_Of() == 1 && IsActive && ((UnitClass *)this)->unknown_5c4 == 0) {
         ((UnitClass *)this)->unknown_5c4 = bolt;
         bolt->Attach_004B2580(this, weapon);
@@ -2909,14 +2909,14 @@ EBolt *TechnoClass::unknown_6ca130(AbstractClass *target)
 }
 
 
-// void TechnoClass::unknown_6ca1d0(AbstractClass *target, int chrono) (0x006CA1D0)
+// void TechnoClass::Rad_Zap(AbstractClass *target, int chrono) (0x006CA1D0)
 // Draws a beam (RadBeam type 1) from the fire coordinate of weapon 0 to the
 // target's coordinate (slot 40 for objects, slot 22 otherwise) in Rules
 // RadColor, or ChronoBeamColor when chrono is 1, period 15, amplitude 40,
 // with the screen height of the fire coordinate above slot 42's when they
 // differ in Y (TechnoClass 0x006CA890).
 
-void TechnoClass::unknown_6ca1d0(AbstractClass *target, int chrono)
+void TechnoClass::Rad_Zap(AbstractClass *target, int chrono)
 {
     RadBeam *beam = RadBeam::Allocate(1);
     int depth = 0;
@@ -2952,12 +2952,12 @@ void TechnoClass::unknown_6ca1d0(AbstractClass *target, int chrono)
 }
 
 
-// void TechnoClass::unknown_6ca340(int spread) (0x006CA340)
+// void TechnoClass::CreateRadBeams(int spread) (0x006CA340)
 // Draws eight beams (RadBeam type 2, Rules RadColor) from the centre to
 // random points of the cells spread cells away in each direction, with
 // random period, amplitude and +0x48 value (TechnoClass 0x006CA890).
 
-void TechnoClass::unknown_6ca340(int spread)
+void TechnoClass::CreateRadBeams(int spread)
 {
     CoordStruct center = Center_Coord();
     int longest = 0;
@@ -2985,8 +2985,8 @@ void TechnoClass::unknown_6ca340(int spread)
                 beam->Set_Target(to);
                 beam->Set_Period(period);
                 beam->Set_Amplitude(amplitude);
-                beam->unknown_6357b0(0.0);
-                beam->unknown_6357d0(value);
+                beam->Set_Phase(0.0);
+                beam->Set_Start_Delay(value);
                 if (longest <= period) {
                     longest = period;
                 }
@@ -3008,7 +3008,7 @@ UnknownFacingDir TechnoClass::unknown_slot170(AbstractClass *target)
 {
     UnknownFacingDir dir((unsigned short)(Techno_Type_Class()->FireAngle << 8));
     if (target != 0) {
-        CoordStruct end = unknown_6d65b0();
+        CoordStruct end = Predict_Target_Coord();
         int weapon;
         if (Techno_Type_Class()->Has_Turret_Weapons()) {
             weapon = unknown_10c;
@@ -3023,7 +3023,7 @@ UnknownFacingDir TechnoClass::unknown_slot170(AbstractClass *target)
         }
         int distance = (int)unknown_sqrt_4ba410(pow(delta.X, 2.0) + pow(delta.Y, 2.0));
         int velocity = type->Get_Speed(distance);
-        if (!Unknown_0047F8B0(unknown_6d7d20(weapon), velocity, distance, delta.Z, speed, &dir)) {
+        if (!Unknown_0047F8B0(Should_Use_High_Arc(weapon), velocity, distance, delta.Z, speed, &dir)) {
             dir = UnknownFacingDir(0xE000);
         }
     }
@@ -3031,7 +3031,7 @@ UnknownFacingDir TechnoClass::unknown_slot170(AbstractClass *target)
 }
 
 
-// int TechnoClass::unknown_6ca6c0(TechnoClass *target, WeaponTypeClass *weapon) (0x006CA6C0)
+// int TechnoClass::Estimate_Damage(TechnoClass *target, WeaponTypeClass *weapon) (0x006CA6C0)
 // The damage a weapon would do to target (0 without a target or for a
 // weapon flagged +0x10C or +0x105): Damage times the owner's +0xD0 and the
 // techno's +0x128 multipliers (and VeteranCombat for a veteran/elite with
@@ -3040,7 +3040,7 @@ UnknownFacingDir TechnoClass::unknown_slot170(AbstractClass *target)
 // least 1, then through the warhead against the target's armor
 // (0x0047E1C0).
 
-int TechnoClass::unknown_6ca6c0(TechnoClass *target, WeaponTypeClass *weapon)
+int TechnoClass::Estimate_Damage(TechnoClass *target, WeaponTypeClass *weapon)
 {
     if (target == 0) {
         return 0;
@@ -3059,7 +3059,7 @@ int TechnoClass::unknown_6ca6c0(TechnoClass *target, WeaponTypeClass *weapon)
             }
         }
         double value = damage;
-        damage = value / (target->House->unknown_func_4f58a0(Techno_Type_Class()) * unknown_120);
+        damage = value / (target->House->Armor_Multiplier(Techno_Type_Class()) * unknown_120);
         if (target->unknown_118.Is_Veteran() || target->unknown_118.Is_Elite()) {
             TechnoTypeClass *type = target->Techno_Type_Class();
             if ((target->unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[1])
@@ -3261,11 +3261,11 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
             TechnoClass *techno = unknown_228 == 0 ? 0 : (unknown_228->AbstractFlags.IsTechno ? static_cast<TechnoClass *>(unknown_228) : 0);
             WeaponTypeClass *bullet_weapon = bullet->Get_Weapon_Type();
             if (techno != 0 && bullet_weapon != 0) {
-                techno->unknown_70 -= unknown_6ca6c0(techno, bullet_weapon);
+                techno->unknown_70 -= Estimate_Damage(techno, bullet_weapon);
             }
         }
         CoordStruct displacement;
-        displacement = unknown_6d65b0() - fire_coord;
+        displacement = Predict_Target_Coord() - fire_coord;
         if (btype->Inaccurate && btype->Arcing) {
             if (!btype->FlakScatter || btype->Inviso) {
                 int spread = unknown_id_source_a3d290->Random()(Rules->unknown_139c / 2, Rules->unknown_139c);
@@ -3330,7 +3330,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
                 gravity = Unknown_0047FCD0();
             }
             int planar = Planar_006ca890(displacement);
-            valid = Unknown_0047F8B0(unknown_6d7d20(which), speed, planar, height, gravity, &pitch);
+            valid = Unknown_0047F8B0(Should_Use_High_Arc(which), speed, planar, height, gravity, &pitch);
         } else if (bullet->Type->unknown_206) {
             if (target->Center_Coord().Z < Center_Coord().Z) {
                 pitch = UnknownFacingDir(0x8000);
@@ -3409,10 +3409,10 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
                     int zadjust = dy / -4;
                     anim->ZAdjust = MIN_006ca890(zadjust, 0);
                     BuildingClass *building = static_cast<BuildingClass *>(this);
-                    if (building->unknown_4532f0() > 0) {
+                    if (building->GetOccupantCount() > 0) {
                         anim->ZAdjust = -200;
                         building->unknown_56c++;
-                        building->unknown_56c %= building->unknown_4532f0();
+                        building->unknown_56c %= building->GetOccupantCount();
                     }
                 }
                 if (anim != 0 && Kind_Of() != 6) {
@@ -3447,7 +3447,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
                 int index = What_Weapon_Should_I_Use(target);
                 WeaponTypeClass *bolt_weapon = unknown_slot231(index)->WeaponType;
                 CoordStruct source = unknown_slot43(index);
-                EBolt *bolt = unknown_6ca020(target, bolt_weapon, source);
+                EBolt *bolt = CreateEBolt(target, bolt_weapon, source);
                 if (bolt != 0 && Kind_Of() == 1 && IsActive && reinterpret_cast<UnknownUnitView_006ca890 *>(this)->unknown_5c4 == 0) {
                     reinterpret_cast<UnknownUnitView_006ca890 *>(this)->unknown_5c4 = bolt;
                     bolt->Attach_004B2580(this, index);
@@ -3455,12 +3455,12 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
             } else if (weapon->unknown_12a) {
                 WarheadTypeClass *warhead = weapon->Warhead;
                 if (warhead == 0 || !warhead->Temporal) {
-                    unknown_6ca1d0(target, 0);
+                    Rad_Zap(target, 0);
                 } else {
-                    unknown_6ca1d0(target, 1);
+                    Rad_Zap(target, 1);
                 }
             } else if (weapon->unknown_12b) {
-                unknown_6ca340((int)weapon->Warhead->CellSpread);
+                CreateRadBeams((int)weapon->Warhead->CellSpread);
             }
             Reduce_Ammunition();
             Mark(2);
@@ -3506,7 +3506,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
     }
     if (weapon->unknown_111) {
         if (this != 0 && AbstractFlags.IsFoot && static_cast<FootClass *>(this)->Team != 0) {
-            static_cast<FootClass *>(this)->Team->unknown_func_6b79e0(0);
+            static_cast<FootClass *>(this)->Team->Assign_Mission_Target(0);
             static_cast<FootClass *>(this)->Team->StepCompleted = true;
         }
         unknown_slot220(0);
@@ -3527,23 +3527,23 @@ static inline Rect Target_Laser_Rect(Point2D const &point)
     Point2D offset=point-Point2D(2,2);
     return Rect(RectPoint2D(offset.X,offset.Y),3,3);
 }
-void TechnoClass::unknown_6cc020()
+void TechnoClass::Draw_Target_Laser()
 {
     static bool pattern[16]={true,false,true,false,true,false,true,false,true,false,true,false,true,false,true,false};
     if(unknown_228) {
         CoordStruct source=Turret_Coord(0);
-        CoordStruct target=unknown_6d65b0();
+        CoordStruct target=Predict_Target_Coord();
         Point2D start;
         Point2D end;
         TacticalMap->Coord_To_Pixel(source,start);
         TacticalMap->Coord_To_Pixel(target,end);
         start.Y+=unknown_rect_839630.Y;
         end.Y+=unknown_rect_839630.Y;
-        unknown_surface_83995c->Fill_Rect(unknown_rect_839630.Intersect(Rect(RectPoint2D(start.X,start.Y),3,3)-RectPoint2D(2,2)),unknown_drawer_8323c4->Convert(8));
-        unknown_surface_83995c->Fill_Rect(unknown_rect_839630.Intersect(Target_Laser_Rect(end)),unknown_drawer_8323c4->Convert(8));
+        LogicalSurface->Fill_Rect(unknown_rect_839630.Intersect(Rect(RectPoint2D(start.X,start.Y),3,3)-RectPoint2D(2,2)),NormalDrawer->Convert(8));
+        LogicalSurface->Fill_Rect(unknown_rect_839630.Intersect(Target_Laser_Rect(end)),NormalDrawer->Convert(8));
         Rect clip=unknown_rect_839630;
         if(Clip_Line(start,end,clip)) {
-            unknown_surface_83995c->Draw_Dashed_Line(start,end,unknown_drawer_8323c4->Convert(8),pattern,7*Frame%16);
+            LogicalSurface->Draw_Dashed_Line(start,end,NormalDrawer->Convert(8),pattern,7*Frame%16);
         }
     }
 }
@@ -3568,7 +3568,7 @@ bool TechnoClass::Player_Assign_Mission(int mission, AbstractClass *target, Abst
         Planning_Send_Event(event);
         return false;
     }
-    if (unknown_sound_enabled_7d88d6) {
+    if (AllowVoice) {
         if (mission == 1) {
             unknown_slot198();
         } else if (mission == 2) {
@@ -3648,7 +3648,7 @@ int TechnoClass::unknown_slot28(ObjectClass *object, bool arg2)
         }
         return 7;
     }
-    if (object == this && unknown_objects_a40c60.Count() == 1 && object->unknown_38 != 0 && object->unknown_38->unknown_28->Is_Player_Control()) {
+    if (object == this && CurrentObject.Count() == 1 && object->unknown_38 != 0 && object->unknown_38->unknown_28->Is_Player_Control()) {
         if (object->unknown_38->Unknown_00435FF0() == 1 && Rules->CanDetonateDeathBomb) {
             return 0x37;
         }
@@ -3665,10 +3665,10 @@ int TechnoClass::unknown_slot28(ObjectClass *object, bool arg2)
             return 8;
         }
     }
-    if (object == this && unknown_objects_a40c60.Count() == 1 && House->Is_Player_Control()) {
+    if (object == this && CurrentObject.Count() == 1 && House->Is_Player_Control()) {
         return 4;
     }
-    if (object == this && unknown_objects_a40c60.Count() == 1 && House->Is_Ally(unknown_player_a35db4) && unknown_game_mode_a3d298 == 0) {
+    if (object == this && CurrentObject.Count() == 1 && House->Is_Ally(unknown_player_a35db4) && unknown_game_mode_a3d298 == 0) {
         if (this != 0) {
             if (Kind_Of() == 1 && ((UnitClass *)this)->Type->Passengers > 0 && Cargo.Count > 0) {
                 return 4;
@@ -4014,13 +4014,13 @@ bool TechnoClass::Can_Repair()
 }
 
 
-// int TechnoClass::unknown_6cd6f0() (0x006CD6F0)
+// int TechnoClass::Elevation_Bonus() (0x006CD6F0)
 // The distance bonus of this object's height above the map's lowest level
 // (0x0056A8A0), measured like 0x006C48F0: the levels divided by the rules'
 // +0x1480, scaled by +0x1488 and limited to +0x1490, in leptons, combined
 // with the levels times the geometry constant; 0 when slot 21 holds or the
 // increment is 0. Never called (inlined everywhere).
-int TechnoClass::unknown_6cd6f0()
+int TechnoClass::Elevation_Bonus()
 {
     if (In_Air()) {
         return 0;
@@ -4032,7 +4032,7 @@ int TechnoClass::unknown_6cd6f0()
     double bonus = Rules->unknown_1488;
     Cell here = Coord_Cell(Center_Coord());
     UnknownCellClass *cell = (UnknownCellClass *)&Map[here];
-    int lowest = Map.Unknown_0056A8A0();
+    int lowest = Map.Get_Max_Level();
     char level = cell->unknown_11b;
     double scaled = (level - lowest) / increment * bonus;
     double limit = Rules->unknown_1490;
@@ -4096,7 +4096,7 @@ void TechnoClass::unknown_slot233()
     unknown_70 = strength;
     if (Kind_Of() == 6) {
         Repair(0);
-        ((BuildingClass *)this)->unknown_44d070(Health_Ratio() <= Rules->unknown_1368);
+        ((BuildingClass *)this)->Set_Anim_Damage_State(Health_Ratio() <= Rules->unknown_1368);
         Voc_Play_At(Rules->unknown_1bc, Center_Coord(), 0);
     }
 }
@@ -4211,7 +4211,7 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
     bool healing=*damage<0;
     if (!forced && !healing) {
         double incoming=*damage;
-        *damage=(int)(incoming/(House->unknown_func_4f58a0(Techno_Type_Class())*unknown_120));
+        *damage=(int)(incoming/(House->Armor_Multiplier(Techno_Type_Class())*unknown_120));
         if (Has_Ability_L(this,1)) {
             *damage=(int)(*damage/Rules->VeteranArmor);
         }
@@ -4236,7 +4236,7 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
         double readiness=unknown_254;
         unknown_254=(int)(readiness-Techno_Type_Class()->Ammo*reduction);
         if (unknown_254<0) unknown_254=0;
-        unknown_6c8300();
+        StartReloading();
     }
     if (warhead) {
         if (warhead->Radiation && Techno_Type_Class()->ImmuneToRadiation) { *damage=0; return 0; }
@@ -4635,7 +4635,7 @@ int TechnoClass::unknown_slot25(bool arg1, int arg2)
 }
 
 
-// bool TechnoClass::unknown_6cf670() (0x006CF670)
+// bool TechnoClass::Is_Z_Fudge_Bridge() (0x006CF670)
 // Whether the object (off a bridge, +0x79) stands where a bridge cell (flag
 // 0x100) is under it or next to it: its own cell, the south and west
 // neighbours when they carry flag 0x800 too, the east and north ones when
@@ -4643,7 +4643,7 @@ int TechnoClass::unknown_slot25(bool arg1, int arg2)
 
 extern Cell const AdjacentCell[8];
 
-bool TechnoClass::unknown_6cf670()
+bool TechnoClass::Is_Z_Fudge_Bridge()
 {
     Cell position = unknown_slot104();
     UnknownCellClass *here = (UnknownCellClass *)&Map[position];
@@ -4664,14 +4664,14 @@ bool TechnoClass::unknown_6cf670()
 }
 
 
-// bool TechnoClass::unknown_6cf820() (0x006CF820)
+// bool TechnoClass::Was_Z_Fudge_Bridge() (0x006CF820)
 // The same test as 0x006CF670 with flag 0x400 in place of 0x100 (a second
 // kind of bridge cell; hypothesis): whether the object (off a bridge, +0x79)
 // stands on or next to such a cell.
 
 extern Cell const AdjacentCell[8];
 
-bool TechnoClass::unknown_6cf820()
+bool TechnoClass::Was_Z_Fudge_Bridge()
 {
     Cell position = unknown_slot104();
     UnknownCellClass *here = (UnknownCellClass *)&Map[position];
@@ -4692,7 +4692,7 @@ bool TechnoClass::unknown_6cf820()
 }
 
 
-// int TechnoClass::unknown_6cf9d0() (0x006CF9D0)
+// int TechnoClass::Get_Z_Fudge_Column() (0x006CF9D0)
 // How many of the three neighbouring cells (facings 4, 2 and 3) hold one
 // of the cliff or column tiles (tile set 0x00A52C74, positions 7-16); 0
 // unless a bridge applies under the object (0x006CF670 or 0x006CF820).
@@ -4701,12 +4701,12 @@ extern Cell const AdjacentCell[8];
 
 extern int unknown_tileset_a52c74;
 
-int TechnoClass::unknown_6cf9d0()
+int TechnoClass::Get_Z_Fudge_Column()
 {
     Cell position = unknown_slot104();
     int count = 0;
     UnknownCellClass *here = (UnknownCellClass *)&Map[position];
-    if (here != 0 && (unknown_6cf670() || unknown_6cf820())) {
+    if (here != 0 && (Is_Z_Fudge_Bridge() || Was_Z_Fudge_Bridge())) {
         UnknownCellClass *south = (UnknownCellClass *)&Map[(AdjacentCell[4] + position)];
         UnknownCellClass *east = (UnknownCellClass *)&Map[(AdjacentCell[2] + position)];
         UnknownCellClass *west = (UnknownCellClass *)&Map[(AdjacentCell[3] + position)];
@@ -4788,7 +4788,7 @@ int TechnoClass::unknown_6cfb60()
 }
 
 
-// int TechnoClass::unknown_6cfda0() (0x006CFDA0)
+// int TechnoClass::Get_Z_Fudge_Cliff() (0x006CFDA0)
 // How a cliff next to the object raises its drawing depth: 2 when the cell
 // to the facing-3 side is more than three levels above this one, 1 when
 // the cell beyond that is, 0 when the object is on a bridge (+0x79) or
@@ -4796,7 +4796,7 @@ int TechnoClass::unknown_6cfb60()
 
 extern Cell const AdjacentCell[8];
 
-int TechnoClass::unknown_6cfda0()
+int TechnoClass::Get_Z_Fudge_Cliff()
 {
     int result = 0;
     Cell position = unknown_slot104();
@@ -4971,14 +4971,14 @@ void TechnoClass::unknown_6d0510(CoordStruct from, CoordStruct to, RGBClass colo
     shadow_end.Y+=1;
     char shadow=(char)arg9;
     if (shadow) {
-        int black=unknown_drawer_8323c4->Convert(0);
+        int black=NormalDrawer->Convert(0);
         unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Moved_Rect(Rect(-2,-2,3,3),shadow_start)),black);
-        black=unknown_drawer_8323c4->Convert(0);
+        black=NormalDrawer->Convert(0);
         unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Moved_Rect(Rect(-2,-2,3,3),shadow_end)),black);
     }
     Rect clip=unknown_rect_839630;
     if (shadow && Clip_Line(shadow_start,shadow_end,clip)) {
-        unknown_surface_839964->Draw_Line(shadow_start,shadow_end,unknown_drawer_8323c4->Convert(0));
+        unknown_surface_839964->Draw_Line(shadow_start,shadow_end,NormalDrawer->Convert(0));
     }
     int pixel=((color.Red>>unknown_shift_852fbc)<<unknown_shift_852fb8)|((color.Blue>>unknown_shift_852fc4)<<unknown_shift_852fc0)|((color.Green>>unknown_shift_852fcc)<<unknown_shift_852fc8);
     unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Moved_Rect(Rect(-2,-2,3,3),start)),pixel);
@@ -5033,7 +5033,7 @@ void TechnoClass::unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass colo
     }
     Rect clip=unknown_rect_839630;
     if (shadow && Clip_Line(shadow_start,shadow_end,clip)) {
-        unknown_surface_839964->Draw_Line(shadow_start,shadow_end,unknown_drawer_8323c4->Convert(0));
+        unknown_surface_839964->Draw_Line(shadow_start,shadow_end,NormalDrawer->Convert(0));
     }
     unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Line_End_Rect(start)),fade);
     unknown_surface_839964->Fill_Rect(unknown_rect_839630.Intersect(Line_End_Rect(end)),pixel);
@@ -5129,28 +5129,28 @@ CoordStruct TechnoClass::unknown_slot241()
 }
 
 
-// void TechnoClass::unknown_6d1420(UnknownTechno408 *value) (0x006D1420)
+// void TechnoClass::Set_Planning_Token(UnknownTechno408 *value) (0x006D1420)
 // Sets unknown_408.
 
-void TechnoClass::unknown_6d1420(UnknownTechno408 *value)
+void TechnoClass::Set_Planning_Token(UnknownTechno408 *value)
 {
     unknown_408 = value;
 }
 
 
-// UnknownTechno408 *TechnoClass::unknown_6d1430() const (0x006D1430)
+// UnknownTechno408 *TechnoClass::Get_Planning_Token() const (0x006D1430)
 // Returns unknown_408.
 
-UnknownTechno408 *TechnoClass::unknown_6d1430() const
+UnknownTechno408 *TechnoClass::Get_Planning_Token() const
 {
     return unknown_408;
 }
 
 
-// bool TechnoClass::unknown_6d1440() (0x006D1440)
+// bool TechnoClass::Has_Planning_Nodes() (0x006D1440)
 // Whether the object at +0x408 exists and its 0x00613B60 is positive.
 
-bool TechnoClass::unknown_6d1440()
+bool TechnoClass::Has_Planning_Nodes()
 {
     if (unknown_408 == 0) {
         return false;
@@ -5168,12 +5168,12 @@ bool TechnoClass::IsNotWarpingIn()
 }
 
 
-// bool TechnoClass::unknown_6d1470() (0x006D1470)
+// bool TechnoClass::Next_Planning_Node() (0x006D1470)
 // Forwards to 0x00615360 and returns its result.
 
-bool TechnoClass::unknown_6d1470()
+bool TechnoClass::Next_Planning_Node()
 {
-    return unknown_615360();
+    return TryNextPlanningTokenNode();
 }
 
 
@@ -5200,15 +5200,15 @@ ConvertClass *TechnoClass::unknown_slot115()
 // Draw a techno shape with its visual state, lighting, composite bounds and shadow.
 
 extern Rect unknown_unit_composite_rect_ad0490;
-extern ConvertClass *unknown_drawer_ad0608;
+extern ConvertClass *EightBitDrawer;
 
-void TechnoClass::unknown_6d1510(void const *shape, int frame, Point2D const *point, Rect const *bounds,
+void TechnoClass::Techno_Draw_Object(void const *shape, int frame, Point2D const *point, Rect const *bounds,
     int rotation, int scale, int z, int gradient, int zwrite, int brightness, ShapeFileStruct const *zshape, int zframe,
     Point2D offset, int negative_flags)
 {
     if (shape) {
         ShapeFileStruct const *shape_file=static_cast<ShapeFileStruct const *>(shape);
-        bool shadow=unknown_flag_7d88d5;
+        bool shadow=DrawShapeShadows;
         int visual=unknown_slot25(false,0);
         unsigned int flags=0;
         if (!negative_flags) {
@@ -5233,7 +5233,7 @@ void TechnoClass::unknown_6d1510(void const *shape, int frame, Point2D const *po
             }
             brightness=cell->unknown_10c;
         } else {
-            if (Kind_Of()==1 && static_cast<UnitClass *>(this)->unknown_5bb) converter=unknown_drawer_ad0608;
+            if (Kind_Of()==1 && static_cast<UnitClass *>(this)->unknown_5bb) converter=EightBitDrawer;
             else converter=unknown_slot115();
         }
         Point2D draw_point=*point;
@@ -5280,32 +5280,32 @@ void TechnoClass::unknown_6d1510(void const *shape, int frame, Point2D const *po
         }
         if (House->Is_Player_Control() && unknown_slot48()) flags=unknown_slot244(flags);
         brightness=unknown_slot254(brightness);
-        if (unknown_slot203()) brightness=unknown_6d86f0(brightness);
+        if (unknown_slot203()) brightness=GetInvulnerabilityTintIntensity(brightness);
         switch (visual) {
         case 0:
-            CC_Draw_Shape(unknown_surface_83995c,converter,shape_file,frame,draw_point,*bounds,flags|0x600,0,z_adjust-2,gradient,brightness,zshape,zframe,offset);
+            CC_Draw_Shape(LogicalSurface,converter,shape_file,frame,draw_point,*bounds,flags|0x600,0,z_adjust-2,gradient,brightness,zshape,zframe,offset);
             if (shadow) {
                 z_adjust=-2-Unknown_006A2970(Get_Height());
                 if (unknown_37c) draw_point.Y-=14;
                 flags&=~6;
-                CC_Draw_Shape(unknown_surface_83995c,converter,shape_file,frame+shape_file->FrameCount/2,draw_point,*bounds,flags|0x601,0,z_adjust-2,0,1000,0,0,Point2D(0,0));
+                CC_Draw_Shape(LogicalSurface,converter,shape_file,frame+shape_file->FrameCount/2,draw_point,*bounds,flags|0x601,0,z_adjust-2,0,1000,0,0,Point2D(0,0));
             }
             break;
         case 1:
-            CC_Draw_Shape(unknown_surface_83995c,converter,shape_file,frame,draw_point,*bounds,flags|0x600,0,z_adjust-2,gradient,brightness,zshape,zframe,offset);
+            CC_Draw_Shape(LogicalSurface,converter,shape_file,frame,draw_point,*bounds,flags|0x600,0,z_adjust-2,gradient,brightness,zshape,zframe,offset);
             if (shadow) {
                 z_adjust=-2-Unknown_006A2970(Get_Height());
                 flags&=~6;
                 if (unknown_37c) draw_point.Y-=14;
-                CC_Draw_Shape(unknown_surface_83995c,converter,shape_file,frame+shape_file->FrameCount/2,draw_point,*bounds,flags|0x601,0,z_adjust-2,0,1000,0,0,Point2D(0,0));
+                CC_Draw_Shape(LogicalSurface,converter,shape_file,frame+shape_file->FrameCount/2,draw_point,*bounds,flags|0x601,0,z_adjust-2,0,1000,0,0,Point2D(0,0));
             }
             break;
         case 2:
         case 4:
-            CC_Draw_Shape(unknown_surface_83995c,converter,shape_file,frame,draw_point,*bounds,flags|0x600,0,z_adjust-2,gradient,brightness,zshape,zframe,offset);
+            CC_Draw_Shape(LogicalSurface,converter,shape_file,frame,draw_point,*bounds,flags|0x600,0,z_adjust-2,gradient,brightness,zshape,zframe,offset);
             break;
         case 3:
-            CC_Draw_Shape(unknown_surface_83995c,converter,shape_file,frame,draw_point,*bounds,flags|0x600,0,z_adjust-2,gradient,brightness,zshape,zframe,offset);
+            CC_Draw_Shape(LogicalSurface,converter,shape_file,frame,draw_point,*bounds,flags|0x600,0,z_adjust-2,gradient,brightness,zshape,zframe,offset);
             break;
         }
     }
@@ -5336,7 +5336,7 @@ void TechnoClass::unknown_slot246(UnknownObjectPair const &voxel,int frame,int k
     flags=(flags|0x800)&~negflags;
     Rect window=cliprect;
     brightness=unknown_slot254(brightness);
-    if (unknown_slot203()) brightness=unknown_6d86f0(brightness);
+    if (unknown_slot203()) brightness=GetInvulnerabilityTintIntensity(brightness);
     if (key!=-1) {
         if (!cache || Techno_Type_Class()->DisableVoxelCache) key=-1;
         else {
@@ -5353,10 +5353,10 @@ void TechnoClass::unknown_slot246(UnknownObjectPair const &voxel,int frame,int k
     int width=region.Bounds.Width;
     if (Kind_Of()==1) unknown_unit_rect_ad0490=Union(unknown_unit_rect_ad0490,Rect(region.Point.X+draw_point.X,region.Point.Y+draw_point.Y,width,height));
     if (key==-1) return;
-    void *data=unknown_voxel_static_buffer_839aa0.Add(*VoxelDrawSystem::Get_Surface(),region);
+    void *data=VoxelStaticBuffer.Add(*VoxelDrawSystem::Get_Surface(),region);
     if (!data || !cache->Add_Index(key,data)) {
         Class_Of()->Clear_Voxel_Indexes();
-        if (!data) data=unknown_voxel_static_buffer_839aa0.Add(*VoxelDrawSystem::Get_Surface(),region);
+        if (!data) data=VoxelStaticBuffer.Add(*VoxelDrawSystem::Get_Surface(),region);
         cache->Add_Index(key,data);
     }
 }
@@ -5380,11 +5380,11 @@ void TechnoClass::Unknown_006D21E0(UnknownObjectPair const &voxel,int layer,int 
     SurfaceRegion region=Render_Voxel_Shadow_006d2810(voxel,transform,draw_point,cliprect,layer,0x2001,key!=-1,mask,unknown_2,unknown_3);
     if (key!=-1) {
         bool added=true;
-        void *data=unknown_voxel_static_buffer_839aa0.Add(*VoxelDrawSystem::Get_Surface(),region);
+        void *data=VoxelStaticBuffer.Add(*VoxelDrawSystem::Get_Surface(),region);
         if (!data || !cache->Add_Index(key,data)) {
             added=false;
             Class_Of()->Clear_Voxel_Indexes();
-            if (!data) data=unknown_voxel_static_buffer_839aa0.Add(*VoxelDrawSystem::Get_Surface(),region);
+            if (!data) data=VoxelStaticBuffer.Add(*VoxelDrawSystem::Get_Surface(),region);
         }
         if (!added) cache->Add_Index(key,data);
         Unknown_006D21E0(voxel,layer,key,cache,cliprect,draw_point,transform,false,0,0,0);
@@ -5402,7 +5402,7 @@ namespace VoxelDrawSystem {
 extern Matrix3D unknown_voxel_transform_839a70;
 extern Vector3 unknown_voxel_light_839ab0;
 extern BSurface *unknown_surface_ad0604;
-extern ConvertClass *unknown_drawer_ad0608;
+extern ConvertClass *EightBitDrawer;
 extern int unknown_int_839638;
 SurfaceRegion TechnoClass::Render_Voxel_Object_006d24e0(UnknownObjectPair const &voxel,Matrix3D const &transform,Point2D const &point,Rect const &xcliprect,int frame,unsigned flags,int brightness)
 {
@@ -5426,7 +5426,7 @@ SurfaceRegion TechnoClass::Render_Voxel_Object_006d24e0(UnknownObjectPair const 
     if (unknown_slot111() || unknown_slot112()) flags|=4;
     if (House->Is_Player_Control() && unknown_slot48()) flags=unknown_slot244(flags);
     Rect cliprect=xcliprect;
-    if (unknown_surface_83995c!=unknown_surface_ad0604) {
+    if (LogicalSurface!=unknown_surface_ad0604) {
         if (unknown_322>0) {
             cliprect=Intersect(cliprect,Rect(0,0,unknown_int_839638,unknown_322-TacticalMap->TacPixelY));
         } else if (unknown_325) {
@@ -5435,12 +5435,12 @@ SurfaceRegion TechnoClass::Render_Voxel_Object_006d24e0(UnknownObjectPair const 
     }
     flags&=~0x10U;
     ConvertClass *converter;
-    if (Kind_Of()==1 && static_cast<UnitClass *>(this)->unknown_5bb) converter=unknown_drawer_ad0608;
+    if (Kind_Of()==1 && static_cast<UnitClass *>(this)->unknown_5bb) converter=EightBitDrawer;
     else converter=unknown_slot115();
     int phase=0;
     if (flags&8) phase=(Fetch_ID()+(int)unknown_1e0)%400;
     Point2D destination=region.Point+point;
-    unknown_blit_49f3a0(*unknown_surface_83995c,converter,*VoxelDrawSystem::Get_Surface(),region.Bounds,RectPoint2D(destination.X,destination.Y),cliprect,0,converter->Select_Blitter_00485AA0(flags),unknown_slot176(),unknown_slot177(),brightness,phase);
+    Blit_Block(*LogicalSurface,converter,*VoxelDrawSystem::Get_Surface(),region.Bounds,RectPoint2D(destination.X,destination.Y),cliprect,0,converter->Select_Blitter_00485AA0(flags),unknown_slot176(),unknown_slot177(),brightness,phase);
     return region;
 }
 
@@ -5453,7 +5453,7 @@ namespace VoxelDrawSystem {
 }
 extern Matrix3D unknown_voxel_transform_839a70;
 extern Vector3 unknown_839a60;
-extern ConvertClass *unknown_drawer_8323c4;
+extern ConvertClass *NormalDrawer;
 SurfaceRegion TechnoClass::Render_Voxel_Shadow_006d2810(UnknownObjectPair const &voxel,Matrix3D const &transform,Point2D const &point,Rect const &cliprect,int layer,unsigned flags,bool cached,Surface *mask,unsigned unknown_2,unsigned unknown_3)
 {
     UnknownPairSecond *motion=voxel.unknown_04;
@@ -5472,14 +5472,14 @@ SurfaceRegion TechnoClass::Render_Voxel_Shadow_006d2810(UnknownObjectPair const 
     if (!cached) {
         (void)VoxelDrawSystem::Get_Surface()->Get_Rect();
         Point2D destination=region.Point+point;
-        unknown_blit_49f3a0(*unknown_surface_83995c,unknown_drawer_8323c4,*VoxelDrawSystem::Get_Surface(),region.Bounds,RectPoint2D(destination.X,destination.Y),cliprect,0,unknown_drawer_8323c4->Select_Blitter_00485AA0(flags),unknown_slot176(),unknown_slot177(),1000,0);
+        Blit_Block(*LogicalSurface,NormalDrawer,*VoxelDrawSystem::Get_Surface(),region.Bounds,RectPoint2D(destination.X,destination.Y),cliprect,0,NormalDrawer->Select_Blitter_00485AA0(flags),unknown_slot176(),unknown_slot177(),1000,0);
     }
     return region;
 }
 
 
 // Complete cached-voxel blit: 710 body bytes and 10 frozen NOPs.
-extern ConvertClass *unknown_drawer_ad0608;
+extern ConvertClass *EightBitDrawer;
 extern Rect unknown_unit_rect_ad0490;
 void TechnoClass::Blit_Voxel_006d29d0(void const *image,Point2D const &point,Rect const &cliprect,unsigned flags,int brightness)
 {
@@ -5487,7 +5487,7 @@ void TechnoClass::Blit_Voxel_006d29d0(void const *image,Point2D const &point,Rec
     BSurface surface(entry.Width,entry.Height,1,entry.Data);
     flags&=~0x10U;
     ConvertClass *converter;
-    if (Kind_Of()==1 && static_cast<UnitClass *>(this)->unknown_5bb) converter=unknown_drawer_ad0608;
+    if (Kind_Of()==1 && static_cast<UnitClass *>(this)->unknown_5bb) converter=EightBitDrawer;
     else converter=unknown_slot115();
     RLEBlitter const *blitter=converter->RLEBlitter_From_Flags_00485d60(flags);
     int phase=0;
@@ -5496,17 +5496,17 @@ void TechnoClass::Blit_Voxel_006d29d0(void const *image,Point2D const &point,Rec
         unknown_unit_rect_ad0490=Union(unknown_unit_rect_ad0490,Rect(entry.X+point.X,entry.Y+point.Y,entry.Width,entry.Height));
     }
     if (blitter) {
-        RLE_Blit(*unknown_surface_83995c,cliprect,Rect(entry.X+point.X,entry.Y+point.Y,entry.Width,entry.Height),surface,surface.Get_Rect(),surface.Get_Rect(),*blitter,unknown_slot176(),unknown_slot177(),brightness,phase,0,BlitPair(0,0));
+        RLE_Blit(*LogicalSurface,cliprect,Rect(entry.X+point.X,entry.Y+point.Y,entry.Width,entry.Height),surface,surface.Get_Rect(),surface.Get_Rect(),*blitter,unknown_slot176(),unknown_slot177(),brightness,phase,0,BlitPair(0,0));
     }
 }
 
 
-// void TechnoClass::unknown_6d2ca0(int x, int y) (0x006D2CA0)
+// void TechnoClass::Calculate_Sinking_Offset(int x, int y) (0x006D2CA0)
 // Sets the draw depth +0x322 from a screen point and the view's Y, raised
 // for turret directions 0, 6 (8 pixels) and 7 (12 pixels). Never called:
 // inlined at every use.
 
-void TechnoClass::unknown_6d2ca0(int x, int y)
+void TechnoClass::Calculate_Sinking_Offset(int x, int y)
 {
     unknown_322 = TacticalMap->TacPixelY + x + y - 10;
     int dir = Dir_To_8(unknown_2e0.Current());
@@ -5785,7 +5785,7 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
                     Cell from=Coord_Cell(unknown_slot19(0));
                     Cell to=Coord_Cell(member->unknown_slot19(0));
                     if (Map.Unknown_0054F7C0(to,from,member->Type->MovementZone,member->Is_Moving_Onto_Bridge(0),false,false)) {
-                        int value=member->unknown_4c82a0(attacker);
+                        int value=member->Rescue_Mission(attacker);
                         if (value) {
                             if (unknown_1b0==this) value*=100;
                             if (value<0) required+=value;
@@ -5817,7 +5817,7 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
                     Cell from=Coord_Cell(unknown_slot19(0));
                     Cell to=Coord_Cell(member->unknown_slot19(0));
                     if (Map.Unknown_0054F7C0(to,from,member->Type->MovementZone,member->Is_Moving_Onto_Bridge(0),false,false)) {
-                        int value=member->unknown_4c82a0(attacker);
+                        int value=member->Rescue_Mission(attacker);
                         if (value) {
                             if (value>0 && unknown_1b0==this) value*=10;
                             if (value<0) required+=value;
@@ -5944,7 +5944,7 @@ bool TechnoClass::unknown_6d3b60(TechnoClass *source, int arg2)
             techno = target->AbstractFlags.IsObject;
         }
         if (target != 0 && techno
-            && unknown_6d7550((ObjectClass *)target, unknown_geometry_l) > unknown_6d7550((ObjectClass *)source, unknown_geometry_l)) {
+            && Target_Threat((ObjectClass *)target, unknown_geometry_l) > Target_Threat((ObjectClass *)source, unknown_geometry_l)) {
             return false;
         }
     }
@@ -5975,9 +5975,9 @@ int TechnoClass::unknown_slot168()
 {
     TechnoTypeClass *type = Techno_Type_Class();
     if (type) {
-        if (Kind_Of() == 6 && ((BuildingClass *)this)->unknown_4532f0() > 0) {
+        if (Kind_Of() == 6 && ((BuildingClass *)this)->GetOccupantCount() > 0) {
             int value = Rules->unknown_be8;
-            return value * ((BuildingClass *)this)->unknown_4532f0();
+            return value * ((BuildingClass *)this)->GetOccupantCount();
         }
         return type->ThreatPosed;
     }
@@ -6047,7 +6047,7 @@ UnknownFacingDir TechnoClass::Fire_Direction()
 
 void TechnoClass::unknown_slot196()
 {
-    if (unknown_sound_enabled_7d88d6) {
+    if (AllowVoice) {
         if (Techno_Type_Class()->VoiceSelect.Count()) {
             DynamicVectorClass<int> &sounds = Techno_Type_Class()->VoiceSelect;
             unsigned random = NonCriticalRandomNumber();
@@ -6062,7 +6062,7 @@ void TechnoClass::unknown_slot196()
 
 void TechnoClass::unknown_slot197()
 {
-    if (unknown_sound_enabled_7d88d6) {
+    if (AllowVoice) {
         if (Techno_Type_Class()->VoiceMove.Count()) {
             DynamicVectorClass<int> &sounds = Techno_Type_Class()->VoiceMove;
             unsigned random = NonCriticalRandomNumber();
@@ -6077,7 +6077,7 @@ void TechnoClass::unknown_slot197()
 
 void TechnoClass::unknown_slot198()
 {
-    if (unknown_sound_enabled_7d88d6) {
+    if (AllowVoice) {
         if (Techno_Type_Class()->VoiceAttack.Count()) {
             DynamicVectorClass<int> &sounds = Techno_Type_Class()->VoiceAttack;
             unsigned random = NonCriticalRandomNumber();
@@ -6087,20 +6087,20 @@ void TechnoClass::unknown_slot198()
 }
 
 
-// bool TechnoClass::unknown_6d40c0() (0x006D40C0)
+// bool TechnoClass::Can_Scan_For_Target() (0x006D40C0)
 // Whether the techno may scan for a target now: the scan interval
 // (0x00AC01CC) has passed since +0x3F4, slot 113 does not hold, the type
 // CanPassiveAquire, a building type flagged +0x121E needs 0x004532F0, and
 // it is armed (slot 163) without a busy +0x230 or an owner-controlled slot
 // 193.
 
-bool TechnoClass::unknown_6d40c0()
+bool TechnoClass::Can_Scan_For_Target()
 {
     if ((unsigned)(Frame - unknown_3f4) >= unknown_ac01cc) {
         if (!unknown_slot113()) {
             if (Techno_Type_Class()->CanPassiveAquire) {
                 if (Kind_Of() != 6 || !((UnknownTechnoBuildingType *)((BuildingClass *)this)->Type)->unknown_121e
-                    || ((BuildingClass *)this)->unknown_4532f0() != 0) {
+                    || ((BuildingClass *)this)->GetOccupantCount() != 0) {
                     bool busy = unknown_230 != 0 && ((UnknownTechno230 *)unknown_230)->unknown_24 != 0;
                     if ((!Is_Renovator() || !House->Unknown_004F52F0()) && !busy && unknown_slot163()) {
                         return true;
@@ -6113,7 +6113,7 @@ bool TechnoClass::unknown_6d40c0()
 }
 
 
-// bool TechnoClass::unknown_6d4180() (0x006D4180)
+// bool TechnoClass::Should_Scan_For_Target() (0x006D4180)
 // Whether the object may take another order now (hypothesis: should keep
 // guarding / hunting): false for a while after being constructed or
 // asked; a team member of an aggressive, non-suicide team on mission 2
@@ -6121,7 +6121,7 @@ bool TechnoClass::unknown_6d40c0()
 // on mission 2 of a type with BalloonHover, or on mission 5 whose
 // weapon (flag +0x126) already is the one for the target, may not.
 
-bool TechnoClass::unknown_6d4180()
+bool TechnoClass::Should_Scan_For_Target()
 {
     if ((unsigned int)(Frame - unknown_3f4) < unknown_ac01cc) {
         return false;
@@ -6137,7 +6137,7 @@ bool TechnoClass::unknown_6d4180()
             }
         }
     }
-    if (!unknown_6d40c0()) {
+    if (!Can_Scan_For_Target()) {
         return false;
     }
     if (Mission == 2 && Techno_Type_Class()->BalloonHover) {
@@ -6200,14 +6200,14 @@ unsigned int __stdcall unknown_is_kind_not_5_6_8_006d42f0(int kind)
 }  // namespace seed_006d42f0
 
 
-// bool TechnoClass::unknown_6d4310() (0x006D4310)
+// bool TechnoClass::Scan_For_Target() (0x006D4310)
 // When 0x006D4180 allows it: stamps +0x3F4 with the frame and asks slot 209
 // about the current coordinate; a changed +0x228 then sets +0x404.
 
-bool TechnoClass::unknown_6d4310()
+bool TechnoClass::Scan_For_Target()
 {
     bool result = false;
-    if (unknown_6d4180()) {
+    if (Should_Scan_For_Target()) {
         unknown_3f4 = Frame;
         AbstractClass *target = unknown_228;
         CoordStruct coord = Coord;
@@ -6283,7 +6283,7 @@ unsigned int __fastcall unknown_mission_set_006d43b0(int self)
 // The membership tests are written-out loops (an inlined ID compared with -1 does not thread
 // the found branch); the two local vectors' vtables, slots and out-of-line base constructors
 // are bound by @ref (they are emitted outside their home population).
-void TechnoClass::unknown_6d4400()
+void TechnoClass::Distribute_Fire()
 {
     if (unknown_3a8.Count() == 0) {
         unknown_3c0.Clear();
@@ -6348,12 +6348,12 @@ void TechnoClass::unknown_6d4400()
 }
 
 
-// int TechnoClass::unknown_6d46b0(int mission) (0x006D46B0)
+// int TechnoClass::Is_Not_Guard_Or_Sticky(int mission) (0x006D46B0)
 // Whether a mission is neither 5 nor 6 (hypothesis: neither Guard nor
 // Sticky). Never called: inlined at every use; owner and parameter are
 // hypotheses.
 
-int TechnoClass::unknown_6d46b0(int mission)
+int TechnoClass::Is_Not_Guard_Or_Sticky(int mission)
 {
     if (mission != 5 && mission != 6) {
         return 1;
@@ -6395,7 +6395,7 @@ bool TechnoClass::unknown_slot209(CoordStruct const *coord, int arg2)
     if (unknown_228 == 0) {
         AbstractClass *target = unknown_slot219(method, coord, false);
         if (Techno_Type_Class()->DistributedFire) {
-            unknown_6d4400();
+            Distribute_Fire();
         } else {
             if (target != 0) {
                 unknown_slot220(target);
@@ -6407,7 +6407,7 @@ bool TechnoClass::unknown_slot209(CoordStruct const *coord, int arg2)
             }
             WeaponTypeClass *type = unknown_slot231(weapon)->WeaponType;
             if (techno != 0 && type != 0 && !type->Projectile->Inaccurate) {
-                techno->unknown_70 -= unknown_6ca6c0(techno, type);
+                techno->unknown_70 -= Estimate_Damage(techno, type);
             }
         }
     }
@@ -6450,7 +6450,7 @@ void TechnoClass::Assign_Destination(AbstractClass *target, bool immediate)
 bool TechnoClass::unknown_slot261(bool arg1, bool arg2)
 {
     if (!unknown_slot279() && IsNotWarpingIn()) {
-        unknown_615360();
+        TryNextPlanningTokenNode();
     }
     return false;
 }
@@ -6520,18 +6520,18 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
         for (int i = 0; i < spawns; i++) {
             int full = 1;
             int empty = 0;
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, pip_shapes, i < docked ? full : empty, xy + offset * i, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, pip_shapes, i < docked ? full : empty, xy + offset * i, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
     }
     if (building) {
         BuildingClass *self = static_cast<BuildingClass *>(this);
         int occupants = self->Type->MaxNumberOccupants;
-        int count = self->unknown_4532f0();
+        int count = self->GetOccupantCount();
         if (self->Type->ShowOccupantPips && occupants > 0 && count > 0) {
             for (int i = 0; i < occupants; i++) {
                 int full = 7;
                 int empty = 6;
-                CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, pip_shapes, i < count ? full : empty, xy + offset * i, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(LogicalSurface, NormalDrawer, pip_shapes, i < count ? full : empty, xy + offset * i, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
         }
     }
@@ -6560,12 +6560,12 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
         }
         int start = 0;
         if (Techno_Type_Class()->Gunner) {
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, pip_shapes, colors[0], xy, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, pip_shapes, colors[0], xy, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             start = 1;
             shift = offset * 2;
         }
         for (int j = start; j < pips; j++) {
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, pip_shapes, colors[j], xy + shift + offset * j, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, pip_shapes, colors[j], xy + shift + offset * j, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
         delete colors;
     } else {
@@ -6586,7 +6586,7 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
                     shape = 1;
                     greenpips--;
                 }
-                CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, pip_shapes, shape, xy + offset * i, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(LogicalSurface, NormalDrawer, pip_shapes, shape, xy + offset * i, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
         } else if (Techno_Type_Class()->PipScale == 1) {
             int wrap = Techno_Type_Class()->PipWrap;
@@ -6595,7 +6595,7 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
                 for (int i = 0; i < Class_Of()->Max_Pips(); i++) {
                     if (left > 0) {
                         left--;
-                        CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, pips2, 12, xy + offset * i - Point2D(0, 3), window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                        CC_Draw_Shape(LogicalSurface, NormalDrawer, pips2, 12, xy + offset * i - Point2D(0, 3), window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                     }
                 }
             } else {
@@ -6608,7 +6608,7 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
                             break;
                         }
                     }
-                    CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, pips2, frame, xy + offset * i - Point2D(0, 3), window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                    CC_Draw_Shape(LogicalSurface, NormalDrawer, pips2, frame, xy + offset * i - Point2D(0, 3), window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                 }
             }
         }
@@ -6627,9 +6627,9 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
         box.Width++;
         RGBClass color = House->unknown_55e9;
         int pixel = Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
-        unknown_surface_83995c->Fill_Rect(box, 0);
-        unknown_surface_83995c->Draw_Rect(box, pixel);
-        unknown_scheme_text_print_498050(text, unknown_surface_83995c, &window, &where, pixel, 0, 0x49, -1, 1);
+        LogicalSurface->Fill_Rect(box, 0);
+        LogicalSurface->Draw_Rect(box, pixel);
+        Plain_Text_Print_Wide(text, LogicalSurface, &window, &where, pixel, 0, 0x49, -1, 1);
     }
 }
 
@@ -6658,7 +6658,7 @@ void TechnoClass::unknown_slot250(Point2D const &point, Rect const &window)
             position.X += 5;
             position.Y += 4;
         }
-        CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, (ShapeFileStruct const *)pips, frame, position, window,
+        CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)pips, frame, position, window,
                       0xE00, 0, -2, 0, 1000, 0, 0, Point2D(0, 0));
     }
 }
@@ -6675,9 +6675,9 @@ void TechnoClass::unknown_slot251(Point2D const &point,Point2D const &center,Rec
             background=background.Intersect(window);
             RGBClass const &color=House->unknown_55e9;
             unsigned pixel=Build_Hicolor_Pixel(color.Red,color.Green,color.Blue);
-            unknown_surface_83995c->Fill_Rect(background,0);
-            unknown_surface_83995c->Draw_Rect(background,pixel);
-            Simple_Text_Print(text,unknown_surface_83995c,&window,const_cast<Point2D *>(&center),pixel,0,0x149,1);
+            LogicalSurface->Fill_Rect(background,0);
+            LogicalSurface->Draw_Rect(background,pixel);
+            Simple_Text_Print(text,LogicalSurface,&window,const_cast<Point2D *>(&center),pixel,0,0x149,1);
         }
     }
     if(unknown_32b) {
@@ -6687,9 +6687,9 @@ void TechnoClass::unknown_slot251(Point2D const &point,Point2D const &center,Rec
         background=background.Intersect(window);
         RGBClass const &color=House->unknown_55e9;
         unsigned pixel=Build_Hicolor_Pixel(color.Red,color.Green,color.Blue);
-        unknown_surface_83995c->Fill_Rect(background,0);
-        unknown_surface_83995c->Draw_Rect(background,pixel);
-        Simple_Text_Print(label,unknown_surface_83995c,&window,const_cast<Point2D *>(&center),pixel,0,0x149,1);
+        LogicalSurface->Fill_Rect(background,0);
+        LogicalSurface->Draw_Rect(background,pixel);
+        Simple_Text_Print(label,LogicalSurface,&window,const_cast<Point2D *>(&center),pixel,0,0x149,1);
     }
 }
 
@@ -6712,11 +6712,11 @@ int TechnoClass::unknown_slot167()
 }
 
 
-// int TechnoClass::unknown_6d5870() (0x006D5870)
+// int TechnoClass::Anti_Air() (0x006D5870)
 // For an anti-air secondary weapon (slot 230): +0xA4 times the warhead's
 // Verses[3] times +0xB4 over +0xB0 (doubled for two-shooter types), / 50.
 
-int TechnoClass::unknown_6d5870()
+int TechnoClass::Anti_Air()
 {
     if (unknown_slot163()) {
         WeaponTypeClass *weapon = unknown_slot230()->WeaponType;
@@ -6733,12 +6733,12 @@ int TechnoClass::unknown_6d5870()
 }
 
 
-// int TechnoClass::unknown_6d5900() (0x006D5900)
+// int TechnoClass::Anti_Armor() (0x006D5900)
 // For a ground-capable (AG) secondary weapon (slot 230): +0xA4 times the
 // warhead's Verses[4] times the range (+0xB4, at most 1024) over +0xB0,
 // doubled for two-shooter types and halved for Inaccurate projectiles, / 50.
 
-int TechnoClass::unknown_6d5900()
+int TechnoClass::Anti_Armor()
 {
     if (unknown_slot163() && unknown_slot230()->WeaponType->Projectile->AG) {
         WeaponTypeClass *weapon = unknown_slot230()->WeaponType;
@@ -6762,12 +6762,12 @@ int TechnoClass::unknown_6d5900()
 }
 
 
-// int TechnoClass::unknown_6d59d0() (0x006D59D0)
+// int TechnoClass::Anti_Infantry() (0x006D59D0)
 // For a ground-capable (AG) secondary weapon (slot 230): +0xA4 times the
 // warhead's Verses[0] times the range (+0xB4, at most 1024) over +0xB0,
 // doubled for two-shooter types and halved for Inaccurate projectiles, / 50.
 
-int TechnoClass::unknown_6d59d0()
+int TechnoClass::Anti_Infantry()
 {
     if (unknown_slot163() && unknown_slot230()->WeaponType->Projectile->AG) {
         WeaponTypeClass *weapon = unknown_slot230()->WeaponType;
@@ -7064,7 +7064,7 @@ void TechnoClass::unknown_slot237()
 }
 
 
-// CoordStruct TechnoClass::unknown_6d65b0() (0x006D65B0)
+// CoordStruct TechnoClass::Predict_Target_Coord() (0x006D65B0)
 // Where to aim at the target (+0x228): its slot 22 coordinate, led ahead
 // along a moving unit's facing by its speed times the projectile's flight
 // time (distance over 0.9 of the secondary weapon's speed for the range).
@@ -7081,7 +7081,7 @@ inline CoordStruct Move_Coord(CoordStruct const &start, UnknownFacingDir const &
     double scaled = distance;
     return CoordStruct(int(start.X + Fast_Cos(angle) * scaled), int(start.Y - Fast_Sin(angle) * scaled), start.Z);
 }
-CoordStruct TechnoClass::unknown_6d65b0()
+CoordStruct TechnoClass::Predict_Target_Coord()
 {
     CoordStruct coord = unknown_geometry_l;
     if (unknown_228 != 0) {
@@ -7104,10 +7104,10 @@ CoordStruct TechnoClass::unknown_6d65b0()
 }
 
 
-// int TechnoClass::unknown_6d6750() (0x006D6750)
+// int TechnoClass::Get_Predator_Offset() (0x006D6750)
 // The ID plus unknown_1e0, modulo 400.
 
-int TechnoClass::unknown_6d6750()
+int TechnoClass::Get_Predator_Offset()
 {
     return (Fetch_ID() + (int)unknown_1e0) % 400;
 }
@@ -7303,10 +7303,10 @@ bool TechnoClass::unknown_slot114()
 }
 
 
-// void TechnoClass::unknown_6d6e50(AbstractClass *value) (0x006D6E50)
+// void TechnoClass::Assign_Archive_Target(AbstractClass *value) (0x006D6E50)
 // Sets unknown_1b0.
 
-void TechnoClass::unknown_6d6e50(AbstractClass *value)
+void TechnoClass::Assign_Archive_Target(AbstractClass *value)
 {
     unknown_1b0 = value;
 }
@@ -7465,7 +7465,7 @@ void TechnoClass::unknown_slot266()
 }
 
 
-// double TechnoClass::unknown_6d7550(ObjectClass *target, CoordStruct const &coord) (0x006D7550)
+// double TechnoClass::Target_Threat(ObjectClass *target, CoordStruct const &coord) (0x006D7550)
 // The threat value of a target (hypothesis: Westwood's Evaluate_Object):
 // the type's coefficients (Rules' Dumb* set for a house without +0x143)
 // weigh the target's weapon against this object's armor (negated when the
@@ -7474,7 +7474,7 @@ void TechnoClass::unknown_slot266()
 // target's health and the distance beyond the weapon's range (from coord,
 // or from this object when coord is the zero coordinate).
 
-double TechnoClass::unknown_6d7550(ObjectClass *target, CoordStruct const &coord)
+double TechnoClass::Target_Threat(ObjectClass *target, CoordStruct const &coord)
 {
     TechnoTypeClass *type = Techno_Type_Class();
     if (target->Class_Of() == 0) {
@@ -7561,19 +7561,19 @@ bool TechnoClass::unknown_6d7910(int ability)
 }
 
 
-// void TechnoClass::unknown_6d7990() (0x006D7990)
+// void TechnoClass::Reset_Action_Line_Timer() (0x006D7990)
 // Restarts the timer at 0x00AC0178 with 25 frames.
 
-void TechnoClass::unknown_6d7990()
+void TechnoClass::Reset_Action_Line_Timer()
 {
     unknown_timer_ac0178 = 25;
 }
 
 
-// void __fastcall TechnoClass::unknown_6d79c0(bool value) (0x006D79C0)
+// void __fastcall TechnoClass::Set_Action_Lines(bool value) (0x006D79C0)
 // Sets the flag at 0x007F7110.
 
-void __fastcall TechnoClass::unknown_6d79c0(bool value)
+void __fastcall TechnoClass::Set_Action_Lines(bool value)
 {
     unknown_bool_7f7110 = value;
 }
@@ -7692,7 +7692,7 @@ inline int Point2D::Length() const
     return (int)Fast_Sqrt((double)X*X+(double)Y*Y);
 }
 
-bool TechnoClass::unknown_6d7d20(int weapon)
+bool TechnoClass::Should_Use_High_Arc(int weapon)
 {
     WeaponTypeClass *type=unknown_slot231(weapon)->WeaponType;
     if(!type) return true;
@@ -7761,11 +7761,11 @@ int TechnoClass::FireDeathWeapon(int extra)
 }
 
 
-// void TechnoClass::unknown_6d7f30() (0x006D7F30)
+// void TechnoClass::Remove_Damage_Particle() (0x006D7F30)
 // Above the rules' health ratio at +0x1368 (or more than 10 below ground,
 // slot 108), slot 60 of the object at +0x268.
 
-void TechnoClass::unknown_6d7f30()
+void TechnoClass::Remove_Damage_Particle()
 {
     if (Health_Ratio() > Rules->unknown_1368 || Get_Height_AGL() < -10) {
         if (unknown_25c[3] != 0) {
@@ -7775,14 +7775,14 @@ void TechnoClass::unknown_6d7f30()
 }
 
 
-// bool TechnoClass::unknown_6d7f70() (0x006D7F70)
+// bool TechnoClass::Enter_Object_Nearby() (0x006D7F70)
 // Follows up the contact at +0x3F8 (hypothesis: a dock or repair partner):
 // dropped once it is inactive; when it answers message 2, message 15 decides
 // between mission 7 toward it and no mission with message 3, both dropping
 // it; an aircraft at a building whose type has UnitReload but not
 // UnitRepair sends message 14 instead (FootClass 0x004C984C).
 
-bool TechnoClass::unknown_6d7f70()
+bool TechnoClass::Enter_Object_Nearby()
 {
     if (unknown_3f8 == 0) {
         return false;
@@ -7818,12 +7818,12 @@ bool TechnoClass::unknown_6d7f70()
 }
 
 
-// bool TechnoClass::unknown_6d8080() (0x006D8080)
+// bool TechnoClass::Move_To_Object_Nearby() (0x006D8080)
 // With an active, +0x7D object at +0x3F8: heads for the cell 0x006CF130
 // picks near it (slot 260, mission 2) and reports true; an inactive one is
 // dropped.
 
-bool TechnoClass::unknown_6d8080()
+bool TechnoClass::Move_To_Object_Nearby()
 {
     if (unknown_3f8 != 0) {
         if (unknown_3f8->AbstractFlags.IsTechno && ((ObjectClass *)unknown_3f8)->IsActive) {
@@ -7899,10 +7899,10 @@ void TechnoClass::unknown_slot267(bool arg1)
 }
 
 
-// bool TechnoClass::unknown_6d83d0() (0x006D83D0)
+// bool TechnoClass::Has_Turret_Tooltips() (0x006D83D0)
 // The type flag +0x702.
 
-bool TechnoClass::unknown_6d83d0()
+bool TechnoClass::Has_Turret_Tooltips()
 {
     return Techno_Type_Class()->HasTurretTooltips;
 }
@@ -7935,28 +7935,28 @@ void TechnoClass::Set_Current_Weapon(int index)
 }
 
 
-// bool TechnoClass::unknown_6d8460() const (0x006D8460)
+// bool TechnoClass::Has_Current_Turret() const (0x006D8460)
 // Whether unknown_100 is set (not -1).
 
-bool TechnoClass::unknown_6d8460() const
+bool TechnoClass::Has_Current_Turret() const
 {
     return unknown_100 != -1;
 }
 
 
-// int TechnoClass::unknown_6d8470() const (0x006D8470)
+// int TechnoClass::Get_Current_Turret_Number() const (0x006D8470)
 // unknown_100.
 
-int TechnoClass::unknown_6d8470() const
+int TechnoClass::Get_Current_Turret_Number() const
 {
     return unknown_100;
 }
 
 
-// int TechnoClass::unknown_6d8480() (0x006D8480)
+// int TechnoClass::Turret_Changed() (0x006D8480)
 // Copies +0x100 into +0x104 and reports whether the value changed.
 
-int TechnoClass::unknown_6d8480()
+int TechnoClass::Turret_Changed()
 {
     int changed = unknown_100 != unknown_104;
     unknown_104 = unknown_100;
@@ -7964,10 +7964,10 @@ int TechnoClass::unknown_6d8480()
 }
 
 
-// int TechnoClass::unknown_6d84a0() (0x006D84A0)
+// int TechnoClass::Get_Current_Weapon_Number() (0x006D84A0)
 // unknown_10c when the type test 0x006DF680 holds, else 0.
 
-int TechnoClass::unknown_6d84a0()
+int TechnoClass::Get_Current_Weapon_Number()
 {
     if (Techno_Type_Class()->Has_Turret_Weapons()) {
         return unknown_10c;
@@ -8048,15 +8048,15 @@ WeaponStruct *TechnoClass::unknown_slot231(int index)
 
 WeaponStruct *TechnoClass::unknown_slot230()
 {
-    return unknown_slot231(unknown_6d84a0());
+    return unknown_slot231(Get_Current_Weapon_Number());
 }
 
 
-// int TechnoClass::unknown_6d85e0(int index) (0x006D85E0)
+// int TechnoClass::Is_Valid_Weapon_Index(int index) (0x006D85E0)
 // Whether index names a weapon: -1, 0 or 1, or a turret weapon below the
 // type's WeaponCount.
 
-int TechnoClass::unknown_6d85e0(int index)
+int TechnoClass::Is_Valid_Weapon_Index(int index)
 {
     bool basic = index < 2;
     bool turret = Techno_Type_Class()->Has_Turret_Weapons() && index < Techno_Type_Class()->WeaponCount;
@@ -8113,13 +8113,13 @@ void TechnoClass::IronCurtain(int arg1)
 }
 
 
-// int TechnoClass::unknown_6d86f0(int value) (0x006D86F0)
+// int TechnoClass::GetInvulnerabilityTintIntensity(int value) (0x006D86F0)
 // Scales value by a factor in 256ths chosen by the mode at +0x16C from the
 // time left on the +0x160 timer, at most 2000; other modes leave it
 // unchanged (BuildingClass slot 79). Body 304 bytes: code to 0x006D87F8
 // and the nine-entry jump table at 0x006D87FC.
 
-int TechnoClass::unknown_6d86f0(int value)
+int TechnoClass::GetInvulnerabilityTintIntensity(int value)
 {
     int time = unknown_160.Value();
     int factor;
@@ -8164,7 +8164,7 @@ int TechnoClass::unknown_6d86f0(int value)
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// void TechnoClass::unknown_6d8820() (0x006D8820)
+// void TechnoClass::Update_Iron_Tint() (0x006D8820)
 // Steps a ten-state sequence (+0x16C) on the +0x160 timer while slot 203
 // holds (the +0x154 timer runs), else resets it to 0: states 1-5 and 7-9
 // wait out delays of 6, 4, 20, 8, 16 / 6, 4, 20 frames; state 5 returns to
@@ -8178,7 +8178,7 @@ static inline long Timer_Left(CDTimerClass<FrameTimerClass> const &timer)
     return timer();
 }
 
-void TechnoClass::unknown_6d8820()
+void TechnoClass::Update_Iron_Tint()
 {
     if (unknown_slot203()) {
         switch (unknown_16c) {
@@ -8508,14 +8508,14 @@ class Leaf_6d8fc0 { public: bool get(); };
 bool Leaf_6d8fc0::get() { return false; }
 
 
-// void __fastcall TechnoClass::unknown_6d8fd0(TechnoClass *techno, int value) (0x006D8FD0)
+// void __fastcall TechnoClass::Set_Talker(TechnoClass *techno, int value) (0x006D8FD0)
 // Sets the talk-bubble techno (0x00AC01C4) and its value (0x00AC01C8),
 // restarts the talk-bubble timer (0x00AC0168) with Rules TalkBubbleTime and
 // reveals around the techno for the player (0x00549C50); without both, it
 // clears them and stops the timer at 0 (hypotheses: team script talk
 // bubbles, 0x006B2F50).
 
-void __fastcall TechnoClass::unknown_6d8fd0(TechnoClass *techno, int value)
+void __fastcall TechnoClass::Set_Talker(TechnoClass *techno, int value)
 {
     if (techno != 0 && value != 0) {
         unknown_talk_value_ac01c8 = value;
@@ -8534,7 +8534,7 @@ void __fastcall TechnoClass::unknown_6d8fd0(TechnoClass *techno, int value)
 // Arg1 is independently observed as two dwords (Point2D); arg2 is an
 // address passed by the original caller but never read by this body.
 // Its nominal pointee type is unknown; keep the unused pointer opaque.
-extern ConvertClass *unknown_drawer_8323c4;
+extern ConvertClass *NormalDrawer;
 extern DynamicVectorClass<AbstractClass *> AnimPtrTracker;
 extern bool unknown_a40b33;
 void TechnoClass::unknown_6d9080(Point2D const &center, void const *unused)
@@ -8551,22 +8551,22 @@ void TechnoClass::unknown_6d9080(Point2D const &center, void const *unused)
                 if (!unknown_a40b33) ((AnimClass *)unknown_108)->unknown_17d=true;
             }
         } else {
-            int color=unknown_drawer_8323c4->Convert(12);
+            int color=NormalDrawer->Convert(12);
             Point2D origin=center;
             int outside,inside;
             if (Frame&8) { outside=12; inside=8; }
             else { outside=10; inside=6; }
             for (int pass=0;pass<2;++pass) {
-                unknown_surface_83995c->Draw_Line(origin+Point2D(-outside,-outside),origin+Point2D(-inside,-outside),color);
-                unknown_surface_83995c->Draw_Line(origin+Point2D(inside,-outside),origin+Point2D(outside,-outside),color);
-                unknown_surface_83995c->Draw_Line(origin+Point2D(outside,-outside),origin+Point2D(outside,-inside),color);
-                unknown_surface_83995c->Draw_Line(origin+Point2D(outside,inside),origin+Point2D(outside,outside),color);
-                unknown_surface_83995c->Draw_Line(origin+Point2D(outside,outside),origin+Point2D(inside,outside),color);
-                unknown_surface_83995c->Draw_Line(origin+Point2D(-inside,outside),origin+Point2D(-outside,outside),color);
-                unknown_surface_83995c->Draw_Line(origin+Point2D(-outside,outside),origin+Point2D(-outside,inside),color);
-                unknown_surface_83995c->Draw_Line(origin+Point2D(-outside,-inside),origin+Point2D(-outside,-outside),color);
-                unknown_surface_83995c->Draw_Line(origin+Point2D(-4,0),origin+Point2D(4,0),color);
-                unknown_surface_83995c->Draw_Line(origin+Point2D(0,-4),origin+Point2D(0,4),color);
+                LogicalSurface->Draw_Line(origin+Point2D(-outside,-outside),origin+Point2D(-inside,-outside),color);
+                LogicalSurface->Draw_Line(origin+Point2D(inside,-outside),origin+Point2D(outside,-outside),color);
+                LogicalSurface->Draw_Line(origin+Point2D(outside,-outside),origin+Point2D(outside,-inside),color);
+                LogicalSurface->Draw_Line(origin+Point2D(outside,inside),origin+Point2D(outside,outside),color);
+                LogicalSurface->Draw_Line(origin+Point2D(outside,outside),origin+Point2D(inside,outside),color);
+                LogicalSurface->Draw_Line(origin+Point2D(-inside,outside),origin+Point2D(-outside,outside),color);
+                LogicalSurface->Draw_Line(origin+Point2D(-outside,outside),origin+Point2D(-outside,inside),color);
+                LogicalSurface->Draw_Line(origin+Point2D(-outside,-inside),origin+Point2D(-outside,-outside),color);
+                LogicalSurface->Draw_Line(origin+Point2D(-4,0),origin+Point2D(4,0),color);
+                LogicalSurface->Draw_Line(origin+Point2D(0,-4),origin+Point2D(0,4),color);
                 ++origin.X;
                 ++origin.Y;
                 RGBClass rgb=ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->BaseColor.To_RGB();

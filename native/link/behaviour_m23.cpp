@@ -44,11 +44,11 @@ extern "C" void ra2port_seed_free(intptr_t block)
 bool Native_Multiplayer_Unavailable()
 {
     unsigned short const *ok = StringTable::Load_String("GUI:Ok", 0, "native", 0);
-    unknown_5159b0(0, true);
+    Darken_Surface(0, true);
     WWMessageBox((unsigned short const *)L" ").Process(
         (unsigned short const *)L"Internet play is not available in this build. Network (LAN) games are.",
         ok, 0, 0, false);
-    unknown_5159b0(0, true);
+    Darken_Surface(0, true);
     return true;
 }
 
@@ -94,7 +94,7 @@ void ra2_native_original_records()
         {0x00A40D38u, &unknown_cheat_flag_a40d38},
         {0x00A40D39u, &unknown_a40d39},
         {0x00A40B41u, &Options.AllowHiResModes},
-        {0x00A40D0Bu, &unknown_allow_mode_toggle_a40d0b},
+        {0x00A40D0Bu, &Debug_IngameModeChange},
     };
     for (int i = 0; i < 4; ++i) {
         uint32_t record[4] = {0, 0, 0, 0};

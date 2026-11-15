@@ -311,8 +311,8 @@
   },
   {
    "source": "src/shared/techno.hpp",
-   "old": "    int unknown_6c4a70(ObjectClass *other);                     // 0x006C4A70\n",
-   "new": "    int unknown_6c4a70(ObjectClass *other);                     // 0x006C4A70\n    double unknown_6c5270(Cell const &cell);                    // native: 0x006C5270 (launch-path draft; caller 0x006C5570)\n",
+   "old": "    int Elevation_Range_Bonus(ObjectClass *other);                     // 0x006C4A70\n",
+   "new": "    int Elevation_Range_Bonus(ObjectClass *other);                     // 0x006C4A70\n    double unknown_6c5270(Cell const &cell);                    // native: 0x006C5270 (launch-path draft; caller 0x006C5570)\n",
    "why": "Declaration for the launch-path draft 0x006C5270 (fire-suppression factor), called by the draft 0x006C5570; its lane declared it in a private overlay. A declaration changes no code.",
    "verified": true
   },
@@ -381,8 +381,8 @@
   },
   {
    "source": "src/recovered/voxdrsys.cpp",
-   "old": "    UnknownWorker_716f40 worker(unknown_buffer_ae3008, unknown_buffer_af4608);\n    int result = worker.Run(source);\n    unknown_ae3004 = worker.unknown_00;\n    unknown_af660c = worker.unknown_04;\n    unknown_ae2fe8 = worker.unknown_08;\n    unknown_af6608 = worker.unknown_0c;",
-   "new": "    // native: the worker is VoxelPaletteLibrary (shared/unknown_voxel_palette.hpp; same ctor 0x0071BD00, Read_File 0x0071BDE0, dtor 0x0071BD70).\n    VoxelPaletteLibrary worker((unsigned char *)unknown_buffer_ae3008, (unsigned char *)unknown_buffer_af4608);\n    int result = worker.Read_File((FileClass *)source);\n    unknown_ae3004 = worker.Header.unknown_00;\n    unknown_af660c = worker.Header.unknown_04;\n    unknown_ae2fe8 = worker.Header.unknown_08;\n    unknown_af6608 = worker.Header.unknown_0c;",
+   "old": "    UnknownWorker_716f40 worker(unknown_buffer_ae3008, unknown_buffer_af4608);\n    int result = worker.Run(source);\n    VPLRemapStart = worker.unknown_00;\n    VPLRemapEnd = worker.unknown_04;\n    VPLLUTCount = worker.unknown_08;\n    VPLUnused = worker.unknown_0c;",
+   "new": "    // native: the worker is VoxelPaletteLibrary (shared/unknown_voxel_palette.hpp; same ctor 0x0071BD00, Read_File 0x0071BDE0, dtor 0x0071BD70).\n    VoxelPaletteLibrary worker((unsigned char *)unknown_buffer_ae3008, (unsigned char *)unknown_buffer_af4608);\n    int result = worker.Read_File((FileClass *)source);\n    VPLRemapStart = worker.Header.unknown_00;\n    VPLRemapEnd = worker.Header.unknown_04;\n    VPLLUTCount = worker.Header.unknown_08;\n    VPLUnused = worker.Header.unknown_0c;",
    "why": "The row's local view UnknownWorker_716f40 (ctor 0x0071BD00, Run 0x0071BDE0, dtor 0x0071BD70) is the accepted VoxelPaletteLibrary at the same addresses; its 0x20-byte layout matches (Header's four words first). The local constructor's declaration disagrees with the definition (listed in Scout1061's signature mismatches), so natively the unit uses the shared class. VC6 meaning unchanged.",
    "verified": true
   },
@@ -418,7 +418,7 @@
    "source": "src/shared/pcx_cache.hpp",
    "old": "#ifdef PCX_CACHE_DECLARE_IMAGES",
    "new": "#if 1 // NATIVE: PCX_CACHE_DECLARE_IMAGES in every unit",
-   "why": "SurfaceCacheClass's Images dictionary (+0x00, sizeof 0x38; constructor 0x0068BD50) is declared only where PCX_CACHE_DECLARE_IMAGES is defined (label numbering of 0x0073FEE0 in the exact build). The unit defining unknown_bitmap_writer_a76378 (0x005DE850) does not define it, so natively the global got 1 byte of storage and the constructor wrote its 0x38-byte dictionary over the neighbouring ownrdraw globals (ASan global-buffer-overflow at static init, Scout1083). The original object is the full dictionary; every native unit sees it.",
+   "why": "SurfaceCacheClass's Images dictionary (+0x00, sizeof 0x38; constructor 0x0068BD50) is declared only where PCX_CACHE_DECLARE_IMAGES is defined (label numbering of 0x0073FEE0 in the exact build). The unit defining SurfaceCache (0x005DE850) does not define it, so natively the global got 1 byte of storage and the constructor wrote its 0x38-byte dictionary over the neighbouring ownrdraw globals (ASan global-buffer-overflow at static init, Scout1083). The original object is the full dictionary; every native unit sees it.",
    "verified": true
   },
   {
@@ -817,13 +817,13 @@
    "source": "src/recovered/voxlib.cpp",
    "old": "void VoxelLibrary::Render_Object(UnknownVoxelDrawState *state, Vector3 const *origin)\n{\n",
    "new": "// native: the drawer table's entries are code addresses (native/link/behaviour_voxel.cpp maps them).\nvoid (*Native_Voxel_Drawer_7f9de0(int index))(VoxelFuncArgumentStruct *parameters);\nvoid VoxelLibrary::Render_Object(UnknownVoxelDrawState *state, Vector3 const *origin)\n{\n",
-   "why": "unknown_drawers_7f9de0 (0x007F9DE0, 32 entries) holds code addresses: the voxel span drawers 0x0071A180-0x0071B7E0 and, in the first half, the winasm.asm MMX drawers 0x00798A00-0x00798F40. The run-time data loader leaves code pointers null (skirmish fault drawing the start units, Scout1091). The native call reads the stored entry from game.exe and calls the recovered drawer at that address; an assembly entry maps to the C drawer at the same index of the table's second half (the original's own non-MMX entries). Native only.",
+   "why": "VoxelDrawFunctions (0x007F9DE0, 32 entries) holds code addresses: the voxel span drawers 0x0071A180-0x0071B7E0 and, in the first half, the winasm.asm MMX drawers 0x00798A00-0x00798F40. The run-time data loader leaves code pointers null (skirmish fault drawing the start units, Scout1091). The native call reads the stored entry from game.exe and calls the recovered drawer at that address; an assembly entry maps to the C drawer at the same index of the table's second half (the original's own non-MMX entries). Native only.",
    "verified": true
   },
   {
    "source": "src/recovered/voxlib.cpp",
-   "old": "    unknown_drawers_7f9de0[drawer](&parameters);\n",
-   "new": "    Native_Voxel_Drawer_7f9de0(drawer)(&parameters);   // NATIVE: unknown_drawers_7f9de0[drawer]\n",
+   "old": "    VoxelDrawFunctions[drawer](&parameters);\n",
+   "new": "    Native_Voxel_Drawer_7f9de0(drawer)(&parameters);   // NATIVE: VoxelDrawFunctions[drawer]\n",
    "why": "See the declaration fixup above.",
    "verified": true
   },
@@ -850,8 +850,8 @@
   },
   {
    "source": "src/shared/map_techno.hpp",
-   "old": "    char unknown_000[0x500];\npublic:\n    int unknown_500;                // +0x500 (row of unknown_table_7e00c4)\n",
-   "new": "#if defined(__LP64__)\n    char unknown_000[0x6F0];\npublic:\n    int unknown_500;                // NATIVE: arm64 +0x6F0\n#else\n    char unknown_000[0x500];\npublic:\n    int unknown_500;                // +0x500 (row of unknown_table_7e00c4)\n#endif\n",
+   "old": "    char unknown_000[0x500];\npublic:\n    int unknown_500;                // +0x500 (row of MZonePassability)\n",
+   "new": "#if defined(__LP64__)\n    char unknown_000[0x6F0];\npublic:\n    int unknown_500;                // NATIVE: arm64 +0x6F0\n#else\n    char unknown_000[0x500];\npublic:\n    int unknown_500;                // +0x500 (row of MZonePassability)\n#endif\n",
    "why": "Light view (Scout1098): as the first map_techno.hpp fixup (VC6 padding respelled to the full classes' arm64 offsets under __LP64__; native/link/check_light_views_map.cpp).",
    "verified": true
   },
@@ -2903,7 +2903,7 @@
    "source": "src/recovered/sidebar.cpp",
    "old": "(unknown_flag_a40b30 ? unknown_int_839638 : 0)",
    "new": "(unknown_flag_a40b30 ? Native_Sidebar_X(unknown_int_839638) : 0)",
-   "why": "Native addition (C4, Map zoom, enhancements v2 part 2; not original behaviour): with the map zoomed the view rectangle is smaller than the tactical area (link/native_map_zoom.cpp), but the sidebar and the command bar keep their places on the screen. The original takes the view's right edge as the sidebar's x; Native_Sidebar_X answers the tactical rectangle's right edge while the view is zoomed and the value asked about otherwise, so at map zoom 1x (the default and the ORIGINAL preset) nothing changes. This row: SidebarClass::Unknown_0067D420's five copies of the sidebar surface to the screen.",
+   "why": "Native addition (C4, Map zoom, enhancements v2 part 2; not original behaviour): with the map zoomed the view rectangle is smaller than the tactical area (link/native_map_zoom.cpp), but the sidebar and the command bar keep their places on the screen. The original takes the view's right edge as the sidebar's x; Native_Sidebar_X answers the tactical rectangle's right edge while the view is zoomed and the value asked about otherwise, so at map zoom 1x (the default and the ORIGINAL preset) nothing changes. This row: SidebarClass::Blit_Sidebar's five copies of the sidebar surface to the screen.",
    "verified": false
   },
   {
@@ -3092,8 +3092,8 @@
   },
   {
    "source": "src/recovered/display.cpp",
-   "old": "            TacticalMap->Unknown_006AA610(Unknown_0049C3F0);\n",
-   "new": "            void (__fastcall *Native_Modern_Band_Walk(void (__fastcall *select)(ObjectClass *)))(ObjectClass *);   // NATIVE (C16)\n            TacticalMap->Unknown_006AA610(Native_Modern_Band_Walk(Unknown_0049C3F0));\n",
+   "old": "            TacticalMap->Select_Rubber_Band(Unknown_0049C3F0);\n",
+   "new": "            void (__fastcall *Native_Modern_Band_Walk(void (__fastcall *select)(ObjectClass *)))(ObjectClass *);   // NATIVE (C16)\n            TacticalMap->Select_Rubber_Band(Native_Modern_Band_Walk(Unknown_0049C3F0));\n",
    "why": "Native addition (C16, Controls: Modern; not original behaviour): with the Enhancements setting Modern, left click selects and right click orders (link/native_modern_controls.cpp). With Classic (the default and the ORIGINAL preset) every Native_Modern_* answer is the original's own value, so the code runs as before. This row: DisplayClass::Mouse_Left_Release 0x0049BB20: the selection band's walk; Modern with Shift over objects that are all selected unselects them (otherwise 0x0049C3F0, the original's).",
    "verified": false
   },
@@ -3144,7 +3144,7 @@
   {
    "source": "src/recovered/voxdrsys.cpp",
    "old": "// SurfaceRegion VoxelDrawSystem::Render() (0x007178E0; TibSun voxdrsys.cpp)",
-   "new": "// NATIVE (C16, HD vehicles): the queued shadows and objects drawn again, as Render() 0x007178E0 draws them,\n// for link/native_hd_vehicles.cpp's sub-pixel passes; a shadow record's mask offset, which Render_Shadow moves by\n// the origin, is put back after each.\nvoid Native_Hd_Voxel_Replay(Vector3 const &center, UnknownVoxelRecord88 **render_data)\n{\n    for (int index = 0; index < unknown_voxel_shadow_count_ae3000; index++) {\n        int left = unknown_records_af3408[index].unknown_40;\n        int top = unknown_records_af3408[index].unknown_44;\n        unknown_records_af3408[index].unknown_00->Render_Shadow(&unknown_records_af3408[index], &center);\n        unknown_records_af3408[index].unknown_40 = left;\n        unknown_records_af3408[index].unknown_44 = top;\n    }\n    if (unknown_af6610) {\n        for (int index = unknown_voxel_record_count_ae0cb0 - 1; index >= 0; index--) {\n            render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);\n        }\n    } else {\n        for (int index = 0; index < unknown_voxel_record_count_ae0cb0; index++) {\n            render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);\n        }\n    }\n}\nvoid Native_Hd_Voxel_Passes(Rect const &rect, Vector3 const &center, UnknownVoxelRecord88 **render_data);   // link/native_hd_vehicles.cpp\n\n\n// SurfaceRegion VoxelDrawSystem::Render() (0x007178E0; TibSun voxdrsys.cpp)",
+   "new": "// NATIVE (C16, HD vehicles): the queued shadows and objects drawn again, as Render() 0x007178E0 draws them,\n// for link/native_hd_vehicles.cpp's sub-pixel passes; a shadow record's mask offset, which Render_Shadow moves by\n// the origin, is put back after each.\nvoid Native_Hd_Voxel_Replay(Vector3 const &center, UnknownVoxelRecord88 **render_data)\n{\n    for (int index = 0; index < VoxelShadowRenderDataCount; index++) {\n        int left = unknown_records_af3408[index].unknown_40;\n        int top = unknown_records_af3408[index].unknown_44;\n        unknown_records_af3408[index].unknown_00->Render_Shadow(&unknown_records_af3408[index], &center);\n        unknown_records_af3408[index].unknown_40 = left;\n        unknown_records_af3408[index].unknown_44 = top;\n    }\n    if (unknown_af6610) {\n        for (int index = VoxelRenderDataCount - 1; index >= 0; index--) {\n            render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);\n        }\n    } else {\n        for (int index = 0; index < VoxelRenderDataCount; index++) {\n            render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);\n        }\n    }\n}\nvoid Native_Hd_Voxel_Passes(Rect const &rect, Vector3 const &center, UnknownVoxelRecord88 **render_data);   // link/native_hd_vehicles.cpp\n\n\n// SurfaceRegion VoxelDrawSystem::Render() (0x007178E0; TibSun voxdrsys.cpp)",
    "why": "Native addition (C16, HD vehicles; not original behaviour): with the Enhancements setting HD vehicles 2x (taken when a game starts), voxel units and their shadows get a second, 2x image the host shows over the 1x picture where the picture still shows what the unit drew (link/native_hd_vehicles.cpp). Off (the default and the ORIGINAL preset) every hook answers the original's value and the 1x drawing is unchanged. This row: VoxelDrawSystem::Render 0x007178E0: the replay the 2x passes use.",
    "verified": false
   },

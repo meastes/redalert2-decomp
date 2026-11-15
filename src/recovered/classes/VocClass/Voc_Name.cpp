@@ -6,7 +6,7 @@
 // 0x00405150 returns; that class and its name are unidentified.
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-// @ref ?unknown_VocClass_list_00ad0818@@3V?$DynamicVectorClass@PAVVocClass@@@@A=00ad0818
+// @ref ?Vocs@@3V?$DynamicVectorClass@PAVVocClass@@@@A=00ad0818
 // @ref ?Name@UnknownSound_405150@@QAEPBDXZ=00405150
 // @ref ??_C@_0M@OOFK@Invalid?5Voc?$AA@=007f9b3c
 // @ref ??_C@_06CPHF@?$DMnone?$DO?$AA@=007cdecc
@@ -20,12 +20,12 @@ class VocClass {
 public:
     UnknownSound_405150 *Sound;     // +0x00
 };
-extern DynamicVectorClass<VocClass *> unknown_VocClass_list_00ad0818;
+extern DynamicVectorClass<VocClass *> Vocs;
 
 char const *__fastcall Voc_Name(int voc)
 {
-    if (voc >= 0 && voc < unknown_VocClass_list_00ad0818.Count()) {
-        UnknownSound_405150 *sound = unknown_VocClass_list_00ad0818[voc]->Sound;
+    if (voc >= 0 && voc < Vocs.Count()) {
+        UnknownSound_405150 *sound = Vocs[voc]->Sound;
         if (sound != 0) {
             return sound->Name();
         }

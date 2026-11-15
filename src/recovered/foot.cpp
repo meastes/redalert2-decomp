@@ -35,7 +35,7 @@ inline Cell operator+(Cell const &left, Cell const &right)
 #endif
 
 // The unit's list of FootClass objects (0x00865F38; name is a hypothesis).
-DynamicVectorClass<FootClass *> unknown_FootClass_list_00865f38;
+DynamicVectorClass<FootClass *> Feet;
 
 #include "shared/cell.hpp"
 
@@ -144,7 +144,7 @@ FootClass::FootClass(HouseClass *house) :
 {
     unknown_4d0 = -1;
     unknown_43c.Init();
-    unknown_FootClass_list_00865f38.Add(this);
+    Feet.Add(this);
     AbstractFlags.IsFoot = 1;
     TeamPtrTracker.Add(this);
 }
@@ -177,7 +177,7 @@ FootClass::~FootClass()
     if (Team != 0 && GameActive) {
         Team->Remove(this, -1, 0);
     }
-    unknown_FootClass_list_00865f38.Delete(this);
+    Feet.Delete(this);
     TeamPtrTracker.Delete(this);
     if (unknown_588 != 0) {
         delete unknown_588;
@@ -292,7 +292,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
         return false;
     }
     int distance=Path_Distance3(Center_Coord(),Cell_Center(cell));
-    int close_enough=Team?Team->Unknown_006BE6A0():Rules->unknown_1380;
+    int close_enough=Team?Team->Stray_Distance():Rules->unknown_1380;
     int max_distance=0;
     bool train=Techno_Type_Class()->IsTrain;
     int move=Can_Enter_Cell(&Map[cell],-1,-1,0,true);
@@ -462,11 +462,11 @@ int FootClass::Do_MISSION_PATROL()
 
             if (unknown_1b0 == 0) {
                 if (unknown_478.Count() > 0) {
-                    unknown_6d6e50(unknown_478[unknown_478.Count() - 1]);
+                    Assign_Archive_Target(unknown_478[unknown_478.Count() - 1]);
                 } else if (unknown_494 != 0) {
-                    unknown_6d6e50(unknown_494);
+                    Assign_Archive_Target(unknown_494);
                 } else {
-                    unknown_6d6e50(unknown_4cc);
+                    Assign_Archive_Target(unknown_4cc);
                 }
             }
 
@@ -494,7 +494,7 @@ int FootClass::Do_MISSION_PATROL()
                 break;
             }
             Assign_Destination(unknown_1b0, true);
-            unknown_6d6e50(0);
+            Assign_Archive_Target(0);
             unknown_4cc = 0;
             unknown_a8 = 0;
             return 45;
@@ -547,7 +547,7 @@ int FootClass::Do_MISSION_PATROL()
             unknown_slot220(0);
             if (unknown_1b0 != 0) {
                 Assign_Destination(unknown_1b0, true);
-                unknown_6d6e50(0);
+                Assign_Archive_Target(0);
                 unknown_a8 = 0;
                 unknown_4cc = 0;
             } else {
@@ -1071,7 +1071,7 @@ int FootClass::Do_MISSION_GUARD_AREA()
             && (Kind_Of() != 1 || !((UnitClass *)this)->Type->Harvester)) {
             Cell nearby = Map.Nearby_Location(Coord_Cell(unknown_1b0->Center_Coord()), 1, Map.Zone(Coord_Cell_Value(Coord), 0, false), 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
             if (nearby != unknown_geometry_k) {
-                unknown_6d6e50((AbstractClass *)&Map[nearby]);
+                Assign_Archive_Target((AbstractClass *)&Map[nearby]);
             }
         }
     }
@@ -1083,7 +1083,7 @@ int FootClass::Do_MISSION_GUARD_AREA()
     }
 
     if (unknown_1b0 == 0 && MissionQueue == -1) {
-        unknown_6d6e50((AbstractClass *)&Map[CoordStruct(Coord)]);
+        Assign_Archive_Target((AbstractClass *)&Map[CoordStruct(Coord)]);
     }
 
     InfantryClass *infantry = As_Infantry(this);
@@ -1111,7 +1111,7 @@ int FootClass::Do_MISSION_GUARD_AREA()
         }
 
         if (unknown_228 == 0) {
-            if (unknown_6d40c0() && unknown_6d9710()) {
+            if (Can_Scan_For_Target() && unknown_6d9710()) {
                 unknown_slot209(&unknown_1b0->Center_Coord(), 2);
             }
             if (unknown_228 != 0) {
@@ -1158,7 +1158,7 @@ bool FootClass::Unlimbo(CoordStruct const *coord, int dir)
 {
     if (TechnoClass::Unlimbo(coord, dir)) {
         Locomotor.Checked()->Unlimbo();
-        if (House->Unknown_0051FC80() && Locomotor.Checked()->Is_Ion_Sensitive()) {
+        if (House->Ion_Sensitives_Should_Be_Offline() && Locomotor.Checked()->Is_Ion_Sensitive()) {
             Locomotor.Checked()->Power_Off();
         } else {
             Locomotor.Checked()->Power_On();
@@ -1216,7 +1216,7 @@ int FootClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
         return result;
     }
     if (result != 0 && Team != 0) {
-        Team->Unknown_006B9AA0(this, result, source);
+        Team->Took_Damage(this, result, source);
         return result;
     }
     if (result != 4 && result != 0) {
@@ -1437,7 +1437,7 @@ bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, b
 
     case 1:
     case 62:
-        if (unknown_sound_enabled_7d88d6) {
+        if (AllowVoice) {
             CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
             coord.Z = Map.Get_Height_GL(coord);
             if (((UnknownCellClass *)&Map[coord])->Flags & 0x100) {
@@ -1547,7 +1547,7 @@ bool FootClass::unknown_slot261(bool initial,bool resume_waypoint)
                 AbstractClass *target=unknown_1b0;
                 if (Mission!=11) {
                     QueueMission(2,false);
-                    unknown_6d6e50(0);
+                    Assign_Archive_Target(0);
                 }
                 Assign_Destination(target,true);
             }
@@ -1608,7 +1608,7 @@ void FootClass::unknown_slot93(int why)
         }
 
         if (unknown_454 != Cell(0, 0)) {
-            if (Map.Unknown_0054E370(unknown_454) != Map.Unknown_0054E370(unknown_slot104())) {
+            if (Map.Cell_Region(unknown_454) != Map.Cell_Region(unknown_slot104())) {
                 unknown_6d95d0((UnknownCellClass *)&Map[unknown_454]);
                 unknown_6d95a0((UnknownCellClass *)Get_Cell_Ptr());
             }
@@ -1894,7 +1894,7 @@ int FootClass::Do_MISSION_ENTER()
             Assign_Destination(target, true);
         }
     } else {
-        if (!unknown_6d8080() && (unknown_494 == 0 || (unknown_494->Kind_Of() != 1 && unknown_494->Kind_Of() != 2))) {
+        if (!Move_To_Object_Nearby() && (unknown_494 == 0 || (unknown_494->Kind_Of() != 1 && unknown_494->Kind_Of() != 2))) {
             unknown_slot261(0, true);
         }
         Commence();
@@ -1977,7 +1977,7 @@ void FootClass::unknown_slot54(bool arg1)
 }
 
 
-// int FootClass::unknown_4c82a0(AbstractClass *target) (0x004C82A0)
+// int FootClass::Rescue_Mission(AbstractClass *target) (0x004C82A0)
 // How eagerly to attack a target: the negated rate (slot 168) for the
 // current target; nothing for a cloaked current techno target, for a team
 // that is not a base defense, in mission 10 or without a rate; otherwise
@@ -1989,7 +1989,7 @@ inline T Max_Of(T a, T b)
     return (a > b) ? a : b;
 }
 
-int FootClass::unknown_4c82a0(AbstractClass *target)
+int FootClass::Rescue_Mission(AbstractClass *target)
 {
     if (target == 0) {
         return 0;
@@ -2077,7 +2077,7 @@ void FootClass::Detach(AbstractClass *target, bool all)
         unknown_4c8 = ((FootClass *)unknown_4c8)->unknown_4c8;
     }
     if (unknown_1b0 == target) {
-        unknown_6d6e50(0);
+        Assign_Archive_Target(0);
     }
     if (unknown_498 == target) {
         unknown_498 = 0;
@@ -2240,9 +2240,9 @@ CoordStruct FootClass::unknown_slot287()
 }
 
 
-// Cell FootClass::unknown_4c8af0(Cell const &cell) (0x004C8AF0)
+// Cell FootClass::Adjust_Dest(Cell const &cell) (0x004C8AF0)
 
-Cell FootClass::unknown_4c8af0(Cell const &cell)
+Cell FootClass::Adjust_Dest(Cell const &cell)
 {
     return cell;
 }
@@ -2295,9 +2295,9 @@ void FootClass::unknown_4c8bb0(AbstractClass *target)
 }
 
 
-// void FootClass::unknown_4c8c90() (0x004C8C90)
+// void FootClass::Clear_Navigation_List() (0x004C8C90)
 
-void FootClass::unknown_4c8c90()
+void FootClass::Clear_Navigation_List()
 {
     unknown_49c.Clear();
 }
@@ -2310,19 +2310,19 @@ bool FootClass::unknown_slot189()
     if (!unknown_32d) {
         return false;
     }
-    if (Techno_Type_Class()->IsTrain || unknown_32c || Get_Mission() == 4 || (Team != 0 && Team->Unknown_006BA990())) {
+    if (Techno_Type_Class()->IsTrain || unknown_32c || Get_Mission() == 4 || (Team != 0 && Team->Is_Leaving_Map())) {
         return true;
     }
     return false;
 }
 
 
-// bool FootClass::unknown_4c8d00(HouseClass *house) (0x004C8D00)
+// bool FootClass::Is_Recruitable(HouseClass *house) (0x004C8D00)
 // Whether the unit is free to be recruited (by house, when given): owned
 // by that house, +0x76 clear, in no team, in an idle mission (0x00594DB0)
 // and with +0x379 set.
 
-bool FootClass::unknown_4c8d00(HouseClass *house)
+bool FootClass::Is_Recruitable(HouseClass *house)
 {
     if (house != 0 && house != House) {
         return false;
@@ -2340,10 +2340,10 @@ bool FootClass::unknown_4c8d00(HouseClass *house)
 }
 
 
-// bool FootClass::unknown_4c8d60() (0x004C8D60)
+// bool FootClass::Is_On_Priority_Mission() (0x004C8D60)
 // Whether the mission (slot 91) is 7.
 
-bool FootClass::unknown_4c8d60()
+bool FootClass::Is_On_Priority_Mission()
 {
     return Get_Mission() == 7 ? true : false;
 }
@@ -2587,7 +2587,7 @@ void FootClass::AI()
         piggyback->End_Piggyback(&Locomotor.Pointer);
     }
     unknown_59e = false;
-    unknown_6d7f70();
+    Enter_Object_Nearby();
     if (unknown_580 != 0) {
         unknown_580->unknown_588->AI();
     }
@@ -2628,11 +2628,11 @@ int FootClass::unknown_slot176()
     if (Locomotor) {
         adjust = Locomotor.Checked()->Z_Adjust();
     }
-    int fudge = Techno_Type_Class()->ZFudgeColumn * unknown_6cf9d0();
+    int fudge = Techno_Type_Class()->ZFudgeColumn * Get_Z_Fudge_Column();
     int tunnel = Techno_Type_Class()->ZFudgeTunnel * unknown_6cfb60();
-    int cliff = Techno_Type_Class()->ZFudgeCliff * unknown_6cfda0();
+    int cliff = Techno_Type_Class()->ZFudgeCliff * Get_Z_Fudge_Cliff();
     int bridge = 0;
-    if (unknown_6cf670()) {
+    if (Is_Z_Fudge_Bridge()) {
         bridge = Techno_Type_Class()->ZFudgeBridge;
     }
     if (fudge <= tunnel) {
@@ -2874,14 +2874,14 @@ void FootClass::Set_Coord(CoordStruct const &coord)
 }
 
 
-// void FootClass::unknown_4ca1a0() (0x004CA1A0; never called)
+// void FootClass::Link_DropPod() (0x004CA1A0; never called)
 // Replaces the locomotor with a new drop pod locomotor that carries the old
 // one (the new one is linked to this unit and begins piggybacking it).
 #include "shared/droppod_locomotion.hpp"
 
 extern "C" GUID const unknown_uuid_IPiggyback_7cfc30;
 
-void FootClass::unknown_4ca1a0()
+void FootClass::Link_DropPod()
 {
     UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600> old(Locomotor);
     UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600> pod(CLSID_DropPodLocomotionClass);
@@ -3082,8 +3082,8 @@ void FootClass::unknown_slot243(bool force, int arg2)
         }
         if (unknown_228 != 0) {
             from = Turret_Coord(0);
-            to = unknown_6d65b0();
-            unknown_6d0510(from, to, Unpack_Hicolor_Pixel(unknown_drawer_8323c4->Convert(8)), 0, 0);
+            to = Predict_Target_Coord();
+            unknown_6d0510(from, to, Unpack_Hicolor_Pixel(NormalDrawer->Convert(8)), 0, 0);
             return;
         }
         from = Coord;
@@ -3095,7 +3095,7 @@ void FootClass::unknown_slot243(bool force, int arg2)
         if (Map.In_Radar(Coord_Cell(to)) && (((UnknownCellClass *)&Map[to])->Flags & 0x100)) {
             to.Z = Map.Get_Height_GL(to) + unknown_geometry_j;
         }
-        unknown_6d0510(from, to, Unpack_Hicolor_Pixel(unknown_drawer_8323c4->Convert(3)), arg2, 0);
+        unknown_6d0510(from, to, Unpack_Hicolor_Pixel(NormalDrawer->Convert(3)), arg2, 0);
     }
 }
 
@@ -3125,7 +3125,7 @@ static inline void Clipped_Fill(Rect area, int pixel)
     unknown_surface_839964->Fill_Rect(clipped, pixel);
 }
 
-void FootClass::unknown_4cab90()
+void FootClass::Draw_Action_Line()
 {
     RGBClass white(255, 255, 255);
     RGBClass color;
@@ -3134,7 +3134,7 @@ void FootClass::unknown_4cab90()
     CoordStruct end_coord;
     if (unknown_228 != 0) {
         start_coord = Turret_Coord(0);
-        end_coord = unknown_6d65b0();
+        end_coord = Predict_Target_Coord();
     } else {
         start_coord = Coord;
         if (unknown_478.Count() == 0) {
@@ -3169,9 +3169,9 @@ void FootClass::unknown_4cab90()
 }
 
 
-// double FootClass::unknown_4cafb0() const (0x004CAFB0)
+// double FootClass::Threat_Avoidance_Value() const (0x004CAFB0)
 
-double FootClass::unknown_4cafb0() const
+double FootClass::Threat_Avoidance_Value() const
 {
     if (Team != 0 && Team->Class->AvoidThreats) {
         return 1.0;
@@ -3187,7 +3187,7 @@ bool FootClass::unknown_slot282()
     if (!unknown_32d) {
         return false;
     }
-    if (Team != 0 && !Team->Unknown_006BA990()) {
+    if (Team != 0 && !Team->Is_Leaving_Map()) {
         return false;
     }
     if (Techno_Type_Class()->IsTrain && unknown_494 != 0) {
@@ -3250,8 +3250,8 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
 
         unknown_420 = Coord_Cell(coord);
 
-        bool sound = unknown_sound_enabled_7d88d6;
-        unknown_sound_enabled_7d88d6 = false;
+        bool sound = AllowVoice;
+        AllowVoice = false;
 
         Cell cell = Coord_Cell(coord);
         int action;
@@ -3316,7 +3316,7 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
         }
 
         if (sound) {
-            unknown_sound_enabled_7d88d6 = true;
+            AllowVoice = true;
         }
     }
 
@@ -3332,12 +3332,12 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
 }
 
 
-// bool FootClass::unknown_4cb6d0(Cell const &cell) (0x004CB6D0)
+// bool FootClass::Tiberium_Check(Cell const &cell) (0x004CB6D0)
 // Whether a cell suits the unit (cf. 0x004CC260): passes the map test
 // 0x0055A660, is not a raised spot for a +0x372 unit, is reachable in the
 // unit's movement zone, has land type 5 and is unoccupied (slot 101).
 
-bool FootClass::unknown_4cb6d0(Cell const &cell)
+bool FootClass::Tiberium_Check(Cell const &cell)
 {
     if (Map.Unknown_0055A660(cell, true)) {
         if (unknown_game_mode_a3d298 == 0 && unknown_372) {
@@ -3360,15 +3360,15 @@ bool FootClass::unknown_4cb6d0(Cell const &cell)
 }
 
 
-// bool FootClass::unknown_4cb830(int arg1, bool arg2) (0x004CB830)
+// bool FootClass::Goto_Tiberium(int arg1, bool arg2) (0x004CB830)
 // With nothing at +0x494: the cell chosen by 0x004CB8F0; true when the unit
 // already stands there, otherwise slot 260 toward that cell's object
 // (false). False when no cell is chosen.
 
-bool FootClass::unknown_4cb830(int arg1, bool arg2)
+bool FootClass::Goto_Tiberium(int arg1, bool arg2)
 {
     if (unknown_494 == 0) {
-        Cell cell = unknown_4cb8f0(arg1, arg2);
+        Cell cell = ScanForTiberium(arg1, arg2);
         if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
             Cell here = Coord_Cell(Center_Coord());
             if (cell.X == here.X && cell.Y == here.Y) {
@@ -3381,13 +3381,13 @@ bool FootClass::unknown_4cb830(int arg1, bool arg2)
 }
 
 
-// Cell FootClass::unknown_4cb8f0(int radius, bool arg2) (0x004CB8F0)
+// Cell FootClass::ScanForTiberium(int radius, bool arg2) (0x004CB8F0)
 // A cell to dock at: the unit's own cell when its land type is 5;
 // otherwise, ring by ring out to the radius, the best-scoring cell
 // (0x0047A230) that passes 0x004CB6D0 on the first ring with one (the zero
 // cell when none does).
 
-Cell FootClass::unknown_4cb8f0(int radius, bool arg2)
+Cell FootClass::ScanForTiberium(int radius, bool arg2)
 {
     Cell found = unknown_geometry_k;
     Cell center = Center_Coord();
@@ -3398,7 +3398,7 @@ Cell FootClass::unknown_4cb8f0(int radius, bool arg2)
     for (int ring = 1; ring < radius; ring++) {
         for (int index = -ring; index <= ring; index++) {
             Cell cell = center + Cell(index, -ring);
-            if (unknown_4cb6d0(cell)) {
+            if (Tiberium_Check(cell)) {
                 int score = ((UnknownCellClass *)&Map[cell])->Unknown_0047A230();
                 if (score > best) {
                     best = score;
@@ -3406,7 +3406,7 @@ Cell FootClass::unknown_4cb8f0(int radius, bool arg2)
                 }
             }
             cell = center + Cell(index, ring);
-            if (unknown_4cb6d0(cell)) {
+            if (Tiberium_Check(cell)) {
                 int score = ((UnknownCellClass *)&Map[cell])->Unknown_0047A230();
                 if (score > best) {
                     best = score;
@@ -3414,7 +3414,7 @@ Cell FootClass::unknown_4cb8f0(int radius, bool arg2)
                 }
             }
             cell = center + Cell(-ring, index);
-            if (unknown_4cb6d0(cell)) {
+            if (Tiberium_Check(cell)) {
                 int score = ((UnknownCellClass *)&Map[cell])->Unknown_0047A230();
                 if (score > best) {
                     best = score;
@@ -3422,7 +3422,7 @@ Cell FootClass::unknown_4cb8f0(int radius, bool arg2)
                 }
             }
             cell = center + Cell(ring, index);
-            if (unknown_4cb6d0(cell)) {
+            if (Tiberium_Check(cell)) {
                 int score = ((UnknownCellClass *)&Map[cell])->Unknown_0047A230();
                 if (score > best) {
                     best = score;
@@ -3486,7 +3486,7 @@ Cell FootClass::unknown_4cbb40(int radius)
         for (int x = -ring; x <= ring; x++) {
             Cell cell;
             cell = Cell(x, -ring) + center;
-            if (unknown_4cb6d0(cell)) {
+            if (Tiberium_Check(cell)) {
                 if (!northrun) {
                     CellClass *cptr = &Map[cell];
                     if (Tiberium_Value(cptr) * scale < 1.0) {
@@ -3503,7 +3503,7 @@ Cell FootClass::unknown_4cbb40(int radius)
             }
 
             cell = Cell(x, ring) + center;
-            if (unknown_4cb6d0(cell)) {
+            if (Tiberium_Check(cell)) {
                 if (!southrun) {
                     CellClass *cptr = &Map[cell];
                     if (Tiberium_Value(cptr) * scale < 1.0) {
@@ -3520,7 +3520,7 @@ Cell FootClass::unknown_4cbb40(int radius)
             }
 
             cell = Cell(-ring, x) + center;
-            if (unknown_4cb6d0(cell)) {
+            if (Tiberium_Check(cell)) {
                 if (!westrun) {
                     CellClass *cptr = &Map[cell];
                     if (Tiberium_Value(cptr) * scale < 1.0) {
@@ -3537,7 +3537,7 @@ Cell FootClass::unknown_4cbb40(int radius)
             }
 
             cell = Cell(ring, x) + center;
-            if (unknown_4cb6d0(cell)) {
+            if (Tiberium_Check(cell)) {
                 if (!eastrun) {
                     CellClass *cptr = &Map[cell];
                     if (Tiberium_Value(cptr) * scale < 1.0) {
@@ -3563,34 +3563,34 @@ Cell FootClass::unknown_4cbb40(int radius)
 }
 
 
-// Cell FootClass::unknown_4cc100(int radius) (0x004CC100)
+// Cell FootClass::Search_For_Weed(int radius) (0x004CC100)
 // The unit's own cell when it passes 0x004CC260; otherwise, ring by ring
 // out to the radius, the last cell on the first ring that has one that
 // passes (the zero cell when none does).
 
-Cell FootClass::unknown_4cc100(int radius)
+Cell FootClass::Search_For_Weed(int radius)
 {
     Cell found = unknown_geometry_k;
     Cell center = Coord_Cell(Center_Coord());
-    if (unknown_4cc260(center, 0, 0)) {
+    if (Weed_Check(center, 0, 0)) {
         return center;
     }
     for (int ring = 1; ring < radius; ring++) {
         for (int index = -ring; index <= ring; index++) {
             Cell cell = center;
-            if (unknown_4cc260(cell, index, -ring)) {
+            if (Weed_Check(cell, index, -ring)) {
                 found = cell;
             }
             cell = center;
-            if (unknown_4cc260(cell, index, ring)) {
+            if (Weed_Check(cell, index, ring)) {
                 found = cell;
             }
             cell = center;
-            if (unknown_4cc260(cell, -ring, index)) {
+            if (Weed_Check(cell, -ring, index)) {
                 found = cell;
             }
             cell = center;
-            if (unknown_4cc260(cell, ring, index)) {
+            if (Weed_Check(cell, ring, index)) {
                 found = cell;
             }
         }
@@ -3602,13 +3602,13 @@ Cell FootClass::unknown_4cc100(int radius)
 }
 
 
-// bool FootClass::unknown_4cc260(Cell &cell, int dx, int dy) (0x004CC260)
+// bool FootClass::Weed_Check(Cell &cell, int dx, int dy) (0x004CC260)
 // Whether the cell at an offset suits the unit (stored back into cell when
 // the map's test 0x0055A660 passes): not a raised spot for a +0x372 unit,
 // reachable in the unit's movement zone, unoccupied (slot 101), with land
 // type 11 and +0x11E of at least 0x30.
 
-bool FootClass::unknown_4cc260(Cell &cell, int dx, int dy)
+bool FootClass::Weed_Check(Cell &cell, int dx, int dy)
 {
     Cell next = cell + Cell(dx, dy);
     if (Map.Unknown_0055A660(next, true)) {
@@ -3633,15 +3633,15 @@ bool FootClass::unknown_4cc260(Cell &cell, int dx, int dy)
 }
 
 
-// bool FootClass::unknown_4cc400(int arg1) (0x004CC400)
+// bool FootClass::Goto_Weed(int arg1) (0x004CC400)
 // With nothing at +0x494: the cell chosen by 0x004CC100; true when the unit
 // already stands there, otherwise slot 260 toward that cell's object
 // (false). False when no cell is chosen.
 
-bool FootClass::unknown_4cc400(int arg1)
+bool FootClass::Goto_Weed(int arg1)
 {
     if (unknown_494 == 0) {
-        Cell cell = unknown_4cc100(arg1);
+        Cell cell = Search_For_Weed(arg1);
         if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
             Cell here = Coord_Cell(Center_Coord());
             if (cell.X == here.X && cell.Y == here.Y) {
@@ -3771,7 +3771,7 @@ int FootClass::Do_MISSION_RESCUE()
         }
         if (unknown_1b0 == 0) {
             coord = Coord;
-            unknown_6d6e50((AbstractClass *)&Map[coord]);
+            Assign_Archive_Target((AbstractClass *)&Map[coord]);
         }
         unknown_578 = false;
         {
@@ -3795,11 +3795,11 @@ int FootClass::Do_MISSION_RESCUE()
                 Assign_Destination(0, true);
             }
         }
-        unknown_6d6e50(0);
+        Assign_Archive_Target(0);
         break;
     case 1:
         if (unknown_494 == 0) {
-            unknown_6d6e50(0);
+            Assign_Archive_Target(0);
             QueueMission(11, false);
             Commence();
         }
@@ -3838,9 +3838,9 @@ Cell FootClass::unknown_4cca40(Cell const &cell, bool arg2)
         UnknownCellClass *cptr = (UnknownCellClass *)&Map[unknown_slot19(0)];
         int mzone = Techno_Type_Class()->MovementZone;
         if (mzone == 6) mzone = 0;
-        else if (mzone == 9 && House->Unknown_0051FC80()) mzone = 7;
+        else if (mzone == 9 && House->Ion_Sensitives_Should_Be_Offline()) mzone = 7;
 
-        bool moveanywhere = In_Air() || Techno_Type_Class()->unknown_af5 || (Kind_Of() == 15 && ((InfantryClass *)this)->Type->JumpJet && !House->Unknown_0051FC80()) || Kind_Of() == 2;
+        bool moveanywhere = In_Air() || Techno_Type_Class()->unknown_af5 || (Kind_Of() == 15 && ((InfantryClass *)this)->Type->JumpJet && !House->Ion_Sensitives_Should_Be_Offline()) || Kind_Of() == 2;
 
         bool ontobridge = Is_Moving_Onto_Bridge(0);
         CoordStruct center = Cell_Coord(cell);

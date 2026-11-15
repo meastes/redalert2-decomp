@@ -37,7 +37,7 @@ inline bool operator==(SwizzlePointerClass const &a, SwizzlePointerClass const &
 inline bool operator!=(SwizzlePointerClass const &a, SwizzlePointerClass const &b) { return !(a == b); }
 
 // 12 bytes: a cell and the value recorded for it (the map-generation undo list
-// 0x00ABCE18: unknown_undo_record_684fc0 adds one, unknown_undo_restore_685030 writes the
+// 0x00ABCE18: Record_Deform_Undo adds one, Undo_Deform writes the
 // values back; VectorClass<UndoInfoStruct>::operator== 0x00686FD0 compares all three words).
 #ifdef RA2_UNDO_INFO_POINT
 // The unit's own form (TibSun DeformUndoStruct): the Point2D member and the assigning ctor keep the

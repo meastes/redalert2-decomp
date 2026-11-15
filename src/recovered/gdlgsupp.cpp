@@ -145,11 +145,11 @@ Surface *__fastcall Ping_Image_4d0fb0(int ping)
 {
     Surface *image = 0;
     if (ping == 0) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_ping_images_7f86dc[0], 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_ping_images_7f86dc[0], 0);
     } else if (ping == 1) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_ping_images_7f86dc[1], 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_ping_images_7f86dc[1], 0);
     } else if (ping == 2) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_ping_images_7f86dc[2], 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_ping_images_7f86dc[2], 0);
     }
     return image;
 }
@@ -209,27 +209,27 @@ Surface *__fastcall Country_Flag(int country)
 {
     Surface *image = 0;
     if (country == -2) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_flag_images_7f86b0[0], 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_flag_images_7f86b0[0], 0);
     } else if (country == 0) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_flag_images_7f86b0[2], 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_flag_images_7f86b0[2], 0);
     } else if (country == 1) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_flag_images_7f86b0[3], 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_flag_images_7f86b0[3], 0);
     } else if (country == 2) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_flag_images_7f86b0[4], 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_flag_images_7f86b0[4], 0);
     } else if (country == 3) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_flag_images_7f86b0[5], 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_flag_images_7f86b0[5], 0);
     } else if (country == 4) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_flag_images_7f86b0[6], 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_flag_images_7f86b0[6], 0);
     } else if (country == 5) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_flag_images_7f86b0[7], 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_flag_images_7f86b0[7], 0);
     } else if (country == 6) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_flag_images_7f86b0[8], 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_flag_images_7f86b0[8], 0);
     } else if (country == 7) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_flag_images_7f86b0[9], 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_flag_images_7f86b0[9], 0);
     } else if (country == 8) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_flag_images_7f86b0[10], 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_flag_images_7f86b0[10], 0);
     } else if (country == -3) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_flag_images_7f86b0[1], 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_flag_images_7f86b0[1], 0);
     }
     return image;
 }

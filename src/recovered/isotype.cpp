@@ -354,18 +354,18 @@ LightConvertClass *__fastcall IsometricTileTypeClass::Find_Or_Make_Drawer(int re
 {
     LightConvertClass *drawer;
 
-    if (unknown_surface_839950 == 0) {
+    if (VisibleSurface == 0) {
         return 0;
     }
 
-    if (red == 1000 && green == 1000 && blue == 1000 && unknown_LightConvertClass_list_00832398.Count() != 0) {
-        return unknown_LightConvertClass_list_00832398[0];
+    if (red == 1000 && green == 1000 && blue == 1000 && TileDrawers.Count() != 0) {
+        return TileDrawers[0];
     }
 
     Clamp_Tile_RGB(red, green, blue);
 
-    for (int i = 1; i < unknown_LightConvertClass_list_00832398.Count(); i++) {
-        drawer = unknown_LightConvertClass_list_00832398[i];
+    for (int i = 1; i < TileDrawers.Count(); i++) {
+        drawer = TileDrawers[i];
         if (drawer->Red == red && drawer->Green == green && drawer->Blue == blue) {
             return drawer;
         }
@@ -375,9 +375,9 @@ LightConvertClass *__fastcall IsometricTileTypeClass::Find_Or_Make_Drawer(int re
     if (red + green + blue < 2000) {
         shadows = 27;
     }
-    drawer = new LightConvertClass(IsoTilePalette, GamePalette, unknown_surface_839950, red, green, blue,
-        unknown_LightConvertClass_list_00832398.Count() != 0, 0, shadows);
-    unknown_LightConvertClass_list_00832398.Add(drawer);
+    drawer = new LightConvertClass(IsoTilePalette, GamePalette, VisibleSurface, red, green, blue,
+        TileDrawers.Count() != 0, 0, shadows);
+    TileDrawers.Add(drawer);
 
     return drawer;
 }
@@ -402,15 +402,15 @@ bool __fastcall Unknown_00529710(int unknown1, bool unknown2)
 
 void IsometricTileTypeClass::Init_Drawers()
 {
-    for (int i = 0; i < unknown_LightConvertClass_list_00832398.Count(); i++) {
-        LightConvertClass *drawer = unknown_LightConvertClass_list_00832398[i];
+    for (int i = 0; i < TileDrawers.Count(); i++) {
+        LightConvertClass *drawer = TileDrawers[i];
         delete drawer;
-        unknown_LightConvertClass_list_00832398.Delete(i);
+        TileDrawers.Delete(i);
         i--;
     }
 
-    unknown_LightConvertClass_list_00832398.Add(new LightConvertClass(IsoTilePalette, GamePalette,
-        unknown_surface_839950, 1000, 1000, 1000, false, 0, 53));
+    TileDrawers.Add(new LightConvertClass(IsoTilePalette, GamePalette,
+        VisibleSurface, 1000, 1000, 1000, false, 0, 53));
 
     unknown_dummy_cell_a6f9f8.unknown_34 = 0;
     unknown_dummy_cell_a6f9f8.Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
@@ -454,8 +454,8 @@ extern int unknown_tileset_a52f80;
 extern int unknown_tileset_a53394;
 extern int unknown_tileset_a52588;
 extern void *SlopeZShapes[4];
-extern int unknown_tile_set_count_a6e390;
-extern int unknown_tile_sets_a52f90[];
+extern int TileSetLookupCount;
+extern int TileSetIDLookup[];
 
 void __fastcall Unknown_00529870(int theater, bool from_ccfile)
 {
@@ -643,7 +643,7 @@ void __fastcall Unknown_00529870(int theater, bool from_ccfile)
     unknown_tileset_a6cb7c = ini.Get_Int("General", "BridgeMiddle1", -1);
     unknown_tileset_a52e70 = ini.Get_Int("General", "BridgeMiddle2", -1);
 
-    unknown_tile_set_count_a6e390 = 0;
+    TileSetLookupCount = 0;
     {
         CDTimerClass<SystemTimerClass> fresh(4);
         callback_timer = fresh;
@@ -656,7 +656,7 @@ void __fastcall Unknown_00529870(int theater, bool from_ccfile)
             callback_timer = fresh;
         }
 
-        unknown_tile_sets_a52f90[unknown_tile_set_count_a6e390++] = heapid;
+        TileSetIDLookup[TileSetLookupCount++] = heapid;
 
         if (setid == _RampBase) unknown_tileset_a6e018 = heapid;
         if (setid == _RampSmooth) unknown_tileset_a52ea8 = heapid;
@@ -798,7 +798,7 @@ void __fastcall Unknown_00529870(int theater, bool from_ccfile)
                     if (from_ccfile) {
                         tile->unknown_2c4 = true;
                     }
-                    tile->TileSetBaseID = unknown_tile_sets_a52f90[unknown_tile_set_count_a6e390 - 1];
+                    tile->TileSetBaseID = TileSetIDLookup[TileSetLookupCount - 1];
                     tile->unknown_274.Clear();
                     if (has_section) {
                         char entry[32];
@@ -883,7 +883,7 @@ void __fastcall Unknown_00529870(int theater, bool from_ccfile)
                     if (is_shadow_caster && shadow_tiles) {
                         tile->IsShadowCaster = is_shadow_caster;
                     }
-                    tile->TileSetBaseID = unknown_tile_sets_a52f90[unknown_tile_set_count_a6e390 - 1];
+                    tile->TileSetBaseID = TileSetIDLookup[TileSetLookupCount - 1];
                     tail_tile->unknown_28c = tile;
                     tile->unknown_274.Clear();
                     tail_tile = tile;
@@ -927,10 +927,10 @@ void __fastcall Unknown_00529870(int theater, bool from_ccfile)
         IsometricTileTypeClass *isotype = IsoTileTypes[j];
         int offset = isotype->ArrayIndex - isotype->TileSetBaseID;
         if (isotype->MarbleMadness != 0xFFFF) {
-            isotype->MarbleMadness = unknown_tile_sets_a52f90[isotype->MarbleMadness] + offset;
+            isotype->MarbleMadness = TileSetIDLookup[isotype->MarbleMadness] + offset;
         }
         if (isotype->NonMarbleMadness != 0xFFFF) {
-            isotype->NonMarbleMadness = unknown_tile_sets_a52f90[isotype->NonMarbleMadness] + offset;
+            isotype->NonMarbleMadness = TileSetIDLookup[isotype->NonMarbleMadness] + offset;
         }
     }
 }
@@ -1167,7 +1167,7 @@ void IsometricTileTypeClass::Draw_Shadow_Caster(int index, Surface *surface, Poi
         point.Y += unknown_rect_839630.Y;
         point.X -= cliprect.X;
         point.Y -= cliprect.Y;
-        CC_Draw_Shape(surface, unknown_LightConvertClass_list_00832398[0], (ShapeFileStruct const *)unknown_block_a6e38c,
+        CC_Draw_Shape(surface, TileDrawers[0], (ShapeFileStruct const *)unknown_block_a6e38c,
             frame - 1, point, cliprect, 0x4601, 0, offset, 0, 1000, 0, 0, Point2D(0, 0));
     }
 }
@@ -2315,9 +2315,9 @@ void IsometricTileTypeClass::Compute_CRC(WWCRCEngine &crc) const
 HRESULT __stdcall IsometricTileTypeClass::Load(IStream *stream)
 {
     int index;
-    for (index = 0; index < unknown_LightConvertClass_list_00832398.Count(); index++) {
-        delete unknown_LightConvertClass_list_00832398[index];
-        unknown_LightConvertClass_list_00832398[index] = 0;
+    for (index = 0; index < TileDrawers.Count(); index++) {
+        delete TileDrawers[index];
+        TileDrawers[index] = 0;
     }
 
     HRESULT result = ObjectTypeClass::Load(stream);
@@ -2327,8 +2327,8 @@ HRESULT __stdcall IsometricTileTypeClass::Load(IStream *stream)
     new (this) IsometricTileTypeClass(NoInitClass());
     Swizzler.Swizzle((void **)&unknown_28c);
 
-    for (index = 0; index < unknown_LightConvertClass_list_00832398.Count(); index++) {
-        unknown_LightConvertClass_list_00832398[index] = 0;
+    for (index = 0; index < TileDrawers.Count(); index++) {
+        TileDrawers[index] = 0;
     }
     Build_Preview_Tiles();
     return S_OK;

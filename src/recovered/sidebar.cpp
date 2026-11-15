@@ -173,10 +173,10 @@ SidebarClass::SidebarClass(NoInitClass const &noinit) : PowerClass(noinit)
 }
 
 
-// void SidebarClass::Unknown_0067B880(bool cameo_text) (0x0067B880)
+// void SidebarClass::Toggle_Cameo_Text(bool cameo_text) (0x0067B880)
 // Empty in this build (OptionsClass's SidebarCameoText setting).
 
-void SidebarClass::Unknown_0067B880(bool cameo_text)
+void SidebarClass::Toggle_Cameo_Text(bool cameo_text)
 {
 }
 
@@ -241,13 +241,13 @@ void SidebarClass::Unknown_0067B910()
     } else {
         extra = 18;
     }
-    unknown_int_abcd70 = (unknown_int_83962c - extra - 0x4C) / 50 * 50;
+    PowerBarHeight = (unknown_int_83962c - extra - 0x4C) / 50 * 50;
     if (unknown_id_source_a3d290->unknown_2239) {
-        unknown_abcd78 = unknown_int_abcd70 + 0xEA;
+        unknown_abcd78 = PowerBarHeight + 0xEA;
         unknown_abcd7c = 0x2E;
         unknown_abcd80 = 0x32;
     } else {
-        unknown_abcd78 = unknown_int_abcd70 + 0xEA;
+        unknown_abcd78 = PowerBarHeight + 0xEA;
         unknown_abcd7c = 0x2D;
         unknown_abcd80 = 0x32;
     }
@@ -347,7 +347,7 @@ void SidebarClass::Init_IO()
     for (int column = 0; column < 4; column++) {
         Column[column].unknown_1c = unknown_abcd60;
         Column[column].unknown_20 = unknown_abcd64;
-        Column[column].unknown_24 = Rect(0, 0, 60, unknown_int_abcd70);
+        Column[column].unknown_24 = Rect(0, 0, 60, PowerBarHeight);
         Column[column].Unknown_0067E7E0(column);
     }
     Reposition_Sidebar();
@@ -370,7 +370,7 @@ void SidebarClass::Init_For_House()
         delete SidebarDrawer;
         SidebarDrawer = 0;
     }
-    SidebarDrawer = new ConvertClass(palette, palette, unknown_surface_839950, 1, false);
+    SidebarDrawer = new ConvertClass(palette, palette, VisibleSurface, 1, false);
     unknown_shapes_abcd20[7] = Unknown_Load_Shape_00495270("GCLOCK2.SHP", unknown_shapes_allocated_abcd40[7]);
 
     bool allocated = false;
@@ -492,10 +492,10 @@ void SidebarClass::Unknown_0067C150(ObjectClass *object)
 }
 
 
-// void SidebarClass::Unknown_0067C2D0(int column) (0x0067C2D0)
+// void SidebarClass::Flag_Tab_To_Redraw(int column) (0x0067C2D0)
 // Redraws a strip when it is the active one.
 
-void SidebarClass::Unknown_0067C2D0(int column)
+void SidebarClass::Flag_Tab_To_Redraw(int column)
 {
     if (column == unknown_4ed8) {
         unknown_4ee2 = true;
@@ -726,8 +726,8 @@ bool SidebarClass::Scroll_Page(bool up, int column)
 void SidebarClass::Draw_It(bool complete)
 {
     unknown_rect_8336e8 = StripClass::unknown_rect_ab9688;
-    Surface *old = unknown_surface_83995c;
-    unknown_surface_83995c = SidebarSurface;
+    Surface *old = LogicalSurface;
+    LogicalSurface = SidebarSurface;
     bool drawn = false;
     Rect window(0, 0, SidebarSurface->Get_Width(), SidebarSurface->Get_Height());
     complete = complete || unknown_4ee2 || unknown_4ee3;
@@ -797,20 +797,20 @@ void SidebarClass::Draw_It(bool complete)
     if (ToolTips) {
         ToolTips->Refresh(true);
     }
-    Unknown_0067D420(unknown_flag_abcd84 || unknown_4ee3);
+    Blit_Sidebar(unknown_flag_abcd84 || unknown_4ee3);
     unknown_4ee2 = false;
     unknown_4ee3 = false;
-    unknown_surface_83995c = old;
+    LogicalSurface = old;
 }
 
 
-// void SidebarClass::Unknown_0067D420(bool complete) (0x0067D420)
+// void SidebarClass::Blit_Sidebar(bool complete) (0x0067D420)
 // Blits the sidebar surface to the screen: everything when complete or a
 // full redraw was requested, else only the changed rectangle (or the credits
 // strip when that alone changed).
 extern bool unknown_session_a40d04;     // 0x00A40D04
 
-void SidebarClass::Unknown_0067D420(bool complete)
+void SidebarClass::Blit_Sidebar(bool complete)
 {
     if (unknown_4ee1 && GameActive && unknown_session_a40d04) {
         RECT crect;
@@ -825,7 +825,7 @@ void SidebarClass::Unknown_0067D420(bool complete)
             if (unknown_rect_8336e8 == StripClass::unknown_rect_ab9688) {
                 if (IsToRedrawCredits) {
                     WWMouse->Draw_Mouse(SidebarSurface, true);
-                    unknown_surface_839950->Copy_From(
+                    VisibleSurface->Copy_From(
                         Rect(scrnpt.x + (unknown_flag_a40b30 ? unknown_int_839638 : 0), scrnpt.y, unknown_int_839628, 16),
                         *SidebarSurface, Rect(0, 0, unknown_int_839628, 16), false, true);
                     IsToRedrawCredits = false;
@@ -841,22 +841,22 @@ void SidebarClass::Unknown_0067D420(bool complete)
         WWMouse->Draw_Mouse(SidebarSurface, true);
         if (unknown_rect_8336e8 == StripClass::unknown_rect_ab9688 && !complete) {
             if (IsToRedrawCredits) {
-                unknown_surface_839950->Copy_From(
+                VisibleSurface->Copy_From(
                     Rect(scrnpt.x + (unknown_flag_a40b30 ? unknown_int_839638 : 0), scrnpt.y, unknown_int_839628, 16),
                     *SidebarSurface, Rect(0, 0, unknown_int_839628, 16), false, true);
                 IsToRedrawCredits = false;
             }
-            unknown_surface_839950->Copy_From(
+            VisibleSurface->Copy_From(
                 Rect(scrnpt.x + (unknown_flag_a40b30 ? unknown_int_839638 : 0), scrnpt.y + unknown_int_839624,
                      unknown_int_839628, SidebarSurface->Get_Height() - unknown_int_839624),
                 *SidebarSurface, Rect(0, unknown_int_839624, unknown_int_839628, unknown_int_83962c), false, true);
         } else if (unknown_flag_abcd84) {
             Rect sb_rect = SidebarSurface->Get_Rect();
-            unknown_surface_839950->Copy_From(
+            VisibleSurface->Copy_From(
                 Rect(scrnpt.x + (unknown_flag_a40b30 ? unknown_int_839638 : 0), scrnpt.y, sb_rect.Width, sb_rect.Height),
                 *SidebarSurface, Rect(0, 0, sb_rect.Width, sb_rect.Height), false, true);
         } else {
-            unknown_surface_839950->Copy_From(
+            VisibleSurface->Copy_From(
                 Rect(scrnpt.x + unknown_rect_8336e8.X + (unknown_flag_a40b30 ? unknown_int_839638 : 0),
                      scrnpt.y + unknown_rect_8336e8.Y, unknown_rect_8336e8.Width, unknown_rect_8336e8.Height),
                 *SidebarSurface, unknown_rect_8336e8, false, true);
@@ -1578,7 +1578,7 @@ building:
     }
 
     if (redraw) {
-        Map.Unknown_0067C2D0(Map.unknown_4ed8);
+        Map.Flag_Tab_To_Redraw(Map.unknown_4ed8);
         Flag_To_Redraw();
         Map.unknown_4ee3 = true;
         unknown_flag_abcd84 = true;
@@ -1933,7 +1933,7 @@ bool SidebarClass::StripClass::Unknown_006802D0()
                 }
             }
             if (tech) {
-                FactoryClass *factory = unknown_player_a35db4->unknown_func_4eb580(tech->Kind_Of(), tech->Naval, 0);   // NATIVE: 0x004EB580 under house_screen.hpp's name
+                FactoryClass *factory = unknown_player_a35db4->Fetch_Factory(tech->Kind_Of(), tech->Naval, 0);   // NATIVE: 0x004EB580 under house_screen.hpp's name
                 if (factory) {
                     for (int q = factory->Queue.Count() - 1; q >= 0; q--) {
                         if (factory->Queue[q] == tech) {
@@ -2705,7 +2705,7 @@ class Leaf_6822a0 { public: unsigned int get(unsigned int stream_address); };
 unsigned int Leaf_6822a0::get(unsigned int stream_address) { return ((Target_6822a0*)(this))->Save_00632e10((unsigned int)(stream_address)); }
 
 
-// void SidebarClass::Unknown_006822B0(TechnoTypeClass *type, int delay) (0x006822B0)
+// void SidebarClass::Flash_Cameo(TechnoTypeClass *type, int delay) (0x006822B0)
 // Finds a techno type's index in its type list and delays the matching
 // icon of its strip (and the sidebar's next update) by `delay` frames.
 class InfantryTypeClass;
@@ -2717,7 +2717,7 @@ extern DynamicVectorClass<UnitTypeClass *> UnitTypes;           // 0x00A35D48
 extern DynamicVectorClass<AircraftTypeClass *> AircraftTypes;   // 0x00A3D278
 extern DynamicVectorClass<BuildingTypeClass *> BuildingTypes;   // 0x00A35CD8
 
-void SidebarClass::Unknown_006822B0(TechnoTypeClass *type, int delay)
+void SidebarClass::Flash_Cameo(TechnoTypeClass *type, int delay)
 {
     int index;
     for (index = 0; index < InfantryTypes.Count(); index++) {

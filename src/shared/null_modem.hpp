@@ -91,7 +91,7 @@ extern char ModemCmdNames[4][20];
 extern char ModemRXString[80];
 
 // ESC aborted the modem operation (0x00A72EC4).
-extern bool unknown_modem_aborted_a72ec4;
+extern bool ModemDialogIsOpen;
 
 class NullModemClass : public ConnManClass {
 public:
@@ -133,7 +133,7 @@ public:
     // Drops the line (DTR, escape code, ATH, ATZ): true when the modem answers (0x005D1B70).
     bool Hangup_Modem();
     void Setup_Modem_Echo(void (__fastcall *func)(char c));            // 0x005D1D20
-    void unknown_5d1d40();                                              // 0x005D1D40 (empty)
+    void Remove_Modem_Echo();                                              // 0x005D1D40 (empty)
     void Translate_Line_Ends();                                         // 0x005D1D50 (CR -> 1, LF -> 2 in the receive buffer)
     void Clear_Receive_Buffer();                                        // 0x005D1DA0
     int Get_Modem_Status();                                             // 0x005D1E50 (0x80: carrier detect)

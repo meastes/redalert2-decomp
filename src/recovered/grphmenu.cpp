@@ -128,7 +128,7 @@ GraphicMenu::~GraphicMenu()
     }
     AlternateSurface->Fill(0);
     HiddenSurface->Fill(0);
-    unknown_surface_839950->Copy_From(*HiddenSurface, false, true);
+    VisibleSurface->Copy_From(*HiddenSurface, false, true);
 }
 
 
@@ -156,7 +156,7 @@ int GraphicMenu::Run()
     ::Theme.Play_Song(::Theme.From_Name(Theme.Get()));
     AlternateSurface->Fill(0);
     HiddenSurface->Fill(0);
-    unknown_surface_839950->Copy_From(*HiddenSurface, false, true);
+    VisibleSurface->Copy_From(*HiddenSurface, false, true);
     bool done = false;
     GraphicMenuItem *selected = 0;
     WWKeyboard->Clear();

@@ -8,7 +8,7 @@
 // (+0x28), finishes the ticking sound (+0x3C, 0x00405FE0) and clears +0x54, in the
 // order of the unowned view src/recovered/unowned/Unknown435FB0Owner_unknown_435fb0_00435fb0.cpp
 // (char pads to +0x24 and +0x38 of the target).
-void BombClass::Unknown_00435FB0()
+void BombClass::Disarm()
 {
     if (Target != 0) {
         Target->unknown_38 = 0;

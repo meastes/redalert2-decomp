@@ -78,7 +78,7 @@ void __fastcall Unknown_005B6060(HWND dialog);
 typedef long (__stdcall *UnknownDialogProc)(HWND window, unsigned message, unsigned wparam, long lparam);
 // Creates dialog id from its template resource over parent, pushes it on the dialog stack, prepares
 // it and its children (0x00735BC0), shows it when show is set and makes it the current dialog (0x00735700).
-void *__fastcall unknown_create_dialog_735700(void *instance, int id, HWND parent, UnknownDialogProc procedure, long arg);
+void *__fastcall WS_Create_Dialog(void *instance, int id, HWND parent, UnknownDialogProc procedure, long arg);
 // Closes dialog (the top dialog when null) and every dialog above it on the stack, makes the one
 // below current and records result (0x00B25DDC); false when dialog is not on the stack (0x007357E0;
 // shared/unknown_globals.hpp still declares it as Unknown_007357E0(void *, int)).
@@ -90,7 +90,7 @@ bool __fastcall unknown_5e5fc0(HWND dialog);
 }
 // Prepares a dialog control (EnumChildWindows callback; 0x00735BC0).
 BOOL __stdcall Resize_Dialog(HWND window, LPARAM parameter);
-// The dialog loop (0x007359E0; shared/lobby.hpp declares it as Unknown_007359e0 with int flags):
+// The dialog loop (0x007359E0; shared/lobby.hpp declares it as WS_Wait_Dialog with int flags):
 // runs the message loop until dialog leaves the stack, calling callback each pass (true ends the
 // dialog with result 2); modal brackets it with message 0x4A9 (1 before, 0 after), show shows it;
 // returns the dialog result (0x00B25DDC).

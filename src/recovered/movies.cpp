@@ -118,7 +118,7 @@ void Movie_Blit_To_Screen()
         Rect area;
         area.Set(rect.left + CurrentVQAMovie->Dest.X, rect.top + CurrentVQAMovie->Dest.Y,
                  CurrentVQAMovie->Dest.Width, CurrentVQAMovie->Dest.Height);
-        unknown_surface_839950->Copy_From(area, *CurrentVQAMovie->FrameSurface, CurrentVQAMovie->Source, false, true);
+        VisibleSurface->Copy_From(area, *CurrentVQAMovie->FrameSurface, CurrentVQAMovie->Source, false, true);
     }
 }
 
@@ -149,7 +149,7 @@ void Movie_Blit_To_Screen_Hidden()
         Rect area;
         area.Set(rect.left + CurrentVQAMovie->Dest.X, rect.top + CurrentVQAMovie->Dest.Y,
                  CurrentVQAMovie->Dest.Width, CurrentVQAMovie->Dest.Height);
-        unknown_surface_839950->Copy_From(area, *HiddenSurface, CurrentVQAMovie->Source, false, true);
+        VisibleSurface->Copy_From(area, *HiddenSurface, CurrentVQAMovie->Source, false, true);
     }
 }
 
@@ -402,7 +402,7 @@ void __fastcall VQA_Movie_Blit()
             ClientToScreen(MainWindow, (POINT *)&client);
             Rect dest(CurrentVQAMovie->Dest.X + client.left, CurrentVQAMovie->Dest.Y + client.top,
                       CurrentVQAMovie->Dest.Width, CurrentVQAMovie->Dest.Height);
-            unknown_surface_839950->Copy_From(dest, *CurrentVQAMovie->FrameSurface, CurrentVQAMovie->Source, false, true);
+            VisibleSurface->Copy_From(dest, *CurrentVQAMovie->FrameSurface, CurrentVQAMovie->Source, false, true);
         }
     }
 }

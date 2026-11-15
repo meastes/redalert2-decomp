@@ -318,10 +318,10 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                     cellptr->Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
                 }
 
-                CC_Draw_Shape(unknown_surface_83995c, (ConvertClass *)cellptr->unknown_34, shape, shapenum, xy, rect, 0x4e00, 0, zadjust - 4, 2, cellptr->unknown_10c, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(LogicalSurface, (ConvertClass *)cellptr->unknown_34, shape, shapenum, xy, rect, 0x4e00, 0, zadjust - 4, 2, cellptr->unknown_10c, 0, 0, Point2D(0, 0));
 
-                if (unknown_flag_7d88d5) {
-                    CC_Draw_Shape(unknown_surface_83995c, (ConvertClass *)cellptr->unknown_34, shape, shapenum + shape->Get_Count() / 2, xy, rect, 0x4601, 0, zadjust - 2, 0, 1000, 0, 0, Point2D(0, 0));
+                if (DrawShapeShadows) {
+                    CC_Draw_Shape(LogicalSurface, (ConvertClass *)cellptr->unknown_34, shape, shapenum + shape->Get_Count() / 2, xy, rect, 0x4601, 0, zadjust - 2, 0, 1000, 0, 0, Point2D(0, 0));
                 }
                 break;
             }
@@ -373,16 +373,16 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
 
                         if (cliprect.Height > 0) {
                             if (heightadjust) {
-                                CC_Draw_Shape(unknown_surface_83995c, drawconvert, shape, shapenum, shapepoint, cliprect, 0x4e00, 0, zlepton - 2, 0, brightness, 0, 0, Point2D(0, 0));
-                                CC_Draw_Shape(unknown_surface_83995c, drawconvert, shape, shapenum + shape->Get_Count() / 2, shapepoint, cliprect, 0x4e01, 0, zlepton - 2, 0, 1000, 0, 0, Point2D(0, 0));
+                                CC_Draw_Shape(LogicalSurface, drawconvert, shape, shapenum, shapepoint, cliprect, 0x4e00, 0, zlepton - 2, 0, brightness, 0, 0, Point2D(0, 0));
+                                CC_Draw_Shape(LogicalSurface, drawconvert, shape, shapenum + shape->Get_Count() / 2, shapepoint, cliprect, 0x4e01, 0, zlepton - 2, 0, 1000, 0, 0, Point2D(0, 0));
                             } else {
-                                CC_Draw_Shape(unknown_surface_83995c, drawconvert, shape, shapenum, shapepoint, cliprect, 0x4e00, 0, zlepton + zadjust - 2, 2, brightness, zshapefile, 0, zdrawpoint);
-                                CC_Draw_Shape(unknown_surface_83995c, drawconvert, shape, shapenum + shape->Get_Count() / 2, shapepoint, cliprect, 0x4e01, 0, zlepton - 2, 0, 1000, 0, 0, Point2D(0, 0));
+                                CC_Draw_Shape(LogicalSurface, drawconvert, shape, shapenum, shapepoint, cliprect, 0x4e00, 0, zlepton + zadjust - 2, 2, brightness, zshapefile, 0, zdrawpoint);
+                                CC_Draw_Shape(LogicalSurface, drawconvert, shape, shapenum + shape->Get_Count() / 2, shapepoint, cliprect, 0x4e01, 0, zlepton - 2, 0, 1000, 0, 0, Point2D(0, 0));
                             }
                         }
 
                         if (type->unknown_11cc != 0) {
-                            CC_Draw_Shape(unknown_surface_83995c, drawconvert, (ShapeFileStruct const *)type->unknown_11cc, shapenum, drawpoint, rect, 0x4e00, 0, zlepton - 3, 0, brightness, 0, 0, Point2D(0, 0));
+                            CC_Draw_Shape(LogicalSurface, drawconvert, (ShapeFileStruct const *)type->unknown_11cc, shapenum, drawpoint, rect, 0x4e00, 0, zlepton - 3, 0, brightness, 0, 0, Point2D(0, 0));
                         }
 
                     } else {
@@ -411,9 +411,9 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                             int zadjust = data->DrawRecords[record].unknown_0c;
 
                             if (anim->Flat) {
-                                CC_Draw_Shape(unknown_surface_83995c, animconvert, shape, shapenum, drawpoint, rect, 0x2e00, 0, zadjust - Unknown_006A2970(CoordStruct(*position).Z) - 2, 0, brightness, 0, 0, Point2D(0, 0));
+                                CC_Draw_Shape(LogicalSurface, animconvert, shape, shapenum, drawpoint, rect, 0x2e00, 0, zadjust - Unknown_006A2970(CoordStruct(*position).Z) - 2, 0, brightness, 0, 0, Point2D(0, 0));
                             } else {
-                                CC_Draw_Shape(unknown_surface_83995c, animconvert, shape, shapenum, drawpoint, rect, 0x2e00, 0, zadjust - Unknown_006A2970(CoordStruct(*position).Z) - 2, 2, brightness, 0, 0, Point2D(0, 0));
+                                CC_Draw_Shape(LogicalSurface, animconvert, shape, shapenum, drawpoint, rect, 0x2e00, 0, zadjust - Unknown_006A2970(CoordStruct(*position).Z) - 2, 2, brightness, 0, 0, Point2D(0, 0));
                             }
                         }
                     }
@@ -429,7 +429,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                     TPoint3D<int> *position = &data->Coord;
                     CellClass *cellptr = &Map[CoordStruct(*position)];
                     int brightness = cellptr->unknown_10c;
-                    CC_Draw_Shape(unknown_surface_83995c, (ConvertClass *)cellptr->unknown_34, shape, data->unknown_58, point, rect, 0xe00, 0, -Unknown_006A2970(CoordStruct(*position).Z), 2, brightness, 0, 0, Point2D(0, 0));
+                    CC_Draw_Shape(LogicalSurface, (ConvertClass *)cellptr->unknown_34, shape, data->unknown_58, point, rect, 0xe00, 0, -Unknown_006A2970(CoordStruct(*position).Z), 2, brightness, 0, 0, Point2D(0, 0));
                 }
                 break;
             }
@@ -449,8 +449,8 @@ void FoggedObjectClass::unknown_4c1ae0()
 {
     for (int index = 0; index < Array.Count(); index++) {
         FoggedObjectClass *fogged = Array[index];
-        if (fogged->unknown_4c1f00() != 0) {
-            Cell const *offset = fogged->unknown_4c1f00();
+        if (fogged->Get_Head_Record_Occupy_List() != 0) {
+            Cell const *offset = fogged->Get_Head_Record_Occupy_List();
             Cell base = fogged->Get_Cell();
             for (; offset->X != 0x7FFF || offset->Y != 0x7FFF; offset++) {
                 Cell cell = Cell(offset->X + base.X, offset->Y + base.Y);
@@ -518,11 +518,11 @@ HRESULT __stdcall FoggedObjectClass::Load(IStream *stream)
 }
 
 
-// Cell const *FoggedObjectClass::unknown_4c1f00() const (0x004C1F00): the
+// Cell const *FoggedObjectClass::Get_Head_Record_Occupy_List() const (0x004C1F00): the
 // cells a fogged building covers (its type's slot 36 list); null for objects
 // of other kinds.
 
-Cell const *FoggedObjectClass::unknown_4c1f00() const
+Cell const *FoggedObjectClass::Get_Head_Record_Occupy_List() const
 {
     if (unknown_30 == 6) {
         return DrawRecords[0].Type->Occupy_List(0);

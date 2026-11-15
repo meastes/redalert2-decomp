@@ -109,7 +109,7 @@ MultiplayerGameMode::MultiplayerGameMode(WideString const &name, WideString cons
 {
     unknown_04 = false;
     unknown_3c = 1;
-    unknown_ini_5b7840();
+    GetINI();
     if (unknown_ini_38 != 0 && unknown_ini_38->Is_Present(unknown_section_7a7170)) {
         unknown_3c = unknown_ini_38->Get_Int(unknown_section_7a7170, "WonlineTournamentAllowed", unknown_3c);
     }
@@ -472,12 +472,12 @@ bool MultiplayerGameMode::unknown_slot7(int unknown)
 }
 
 
-// CCINIClass *MultiplayerGameMode::unknown_ini_5b7840() -- 0x005B7840
+// CCINIClass *MultiplayerGameMode::GetINI() -- 0x005B7840
 // The mode's INI: made on first use and read from the mode's INI file when it is there. The
 // three-argument CCINIClass::Load is called directly (the two-argument inline wrapper would
 // spend the inline budget that expands the List/GenericList constructors here).
 
-CCINIClass *MultiplayerGameMode::unknown_ini_5b7840()
+CCINIClass *MultiplayerGameMode::GetINI()
 {
     if (unknown_ini_38 == 0) {
         unknown_ini_38 = new CCINIClass;

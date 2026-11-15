@@ -362,14 +362,14 @@ void __fastcall Dropship_Screen_004A6B90()
         palette_data[i] = RGBClass(palette_data[i].Red * 4, palette_data[i].Green * 4, palette_data[i].Blue * 4);
     }
 
-    ConvertClass *drawer_dropship = new ConvertClass(palette_data, GamePalette, unknown_surface_839950, 53, false);
-    ConvertClass *drawer_dropship_alpha = new ConvertClass(palette_data, GamePalette, unknown_surface_839950, 1, false);
+    ConvertClass *drawer_dropship = new ConvertClass(palette_data, GamePalette, VisibleSurface, 53, false);
+    ConvertClass *drawer_dropship_alpha = new ConvertClass(palette_data, GamePalette, VisibleSurface, 1, false);
 
     memmove(&palette_data, MixFileClass::Retrieve("CAMEO.PAL"), sizeof(palette_data));
     for (i = 0; i < 256; ++i) {
         palette_data[i] = RGBClass(palette_data[i].Red * 4, palette_data[i].Green * 4, palette_data[i].Blue * 4);
     }
-    ConvertClass *drawer_cameo = new ConvertClass(palette_data, GamePalette, unknown_surface_839950, 1, false);
+    ConvertClass *drawer_cameo = new ConvertClass(palette_data, GamePalette, VisibleSurface, 1, false);
 
     Blitter *plain_blitter = drawer_dropship->Select_Blitter_00485AA0(0);
     Blitter *cameo_alpha_blitter = drawer_cameo->Select_Blitter_00485AA0(0x40);
@@ -501,7 +501,7 @@ void __fastcall Dropship_Screen_004A6B90()
     AlphaBuffer = new ABuffer(Rect(0, 0, HiddenSurface->Get_Width(), HiddenSurface->Get_Height()));
     Show_Mouse();
 
-    unknown_surface_83995c = HiddenSurface;
+    LogicalSurface = HiddenSurface;
     WWKeyboard->Clear();
 
     while (!accept) {
@@ -710,7 +710,7 @@ void __fastcall Dropship_Screen_004A6B90()
                     int light_x = screen_origin.X + 371;
                     ShapeFileStruct *shape = green_shapes[i];
                     if (next_frame > shape->Get_Count()) {
-                        unknown_blit_49f3a0(
+                        Blit_Block(
                             *HiddenSurface,
                             drawer_dropship,
                             *background_surface,
@@ -794,10 +794,10 @@ void __fastcall Dropship_Screen_004A6B90()
                     if (alpha != effect->Alpha || overlap_drawn) {
                         effect->Alpha = alpha;
                         if (draw_background) {
-                            unknown_blit_49f3a0(*HiddenSurface, drawer_dropship, *effect->FromSurface, effect->FromRect, RectPoint2D(0, 0), effect->DestRect, 0, effect->FromBlitter, 0, 0, 1000, 0);
+                            Blit_Block(*HiddenSurface, drawer_dropship, *effect->FromSurface, effect->FromRect, RectPoint2D(0, 0), effect->DestRect, 0, effect->FromBlitter, 0, 0, 1000, 0);
                         }
                         AlphaBuffer->Clear_Region_00411090(effect->Alpha, effect->DestRect);
-                        unknown_blit_49f3a0(*HiddenSurface, drawer_cameo, *effect->ToSurface, effect->ToRect, RectPoint2D(0, 0), effect->DestRect, 0, effect->ToBlitter, 0, 0, 1000, 0);
+                        Blit_Block(*HiddenSurface, drawer_cameo, *effect->ToSurface, effect->ToRect, RectPoint2D(0, 0), effect->DestRect, 0, effect->ToBlitter, 0, 0, 1000, 0);
                         effect->WasDrawn = true;
                         redraw = true;
                     }
@@ -864,7 +864,7 @@ void __fastcall Dropship_Screen_004A6B90()
                     redraw = true;
                 } else {
                     pilot_frame = -1;
-                    unknown_blit_49f3a0(*HiddenSurface, drawer_dropship, *background_surface, Rect(284, 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), RectPoint2D(0, 0), Rect(screen_origin.X + 284, screen_origin.Y + 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), 0, plain_blitter, 0, 0, 1000, 0);
+                    Blit_Block(*HiddenSurface, drawer_dropship, *background_surface, Rect(284, 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), RectPoint2D(0, 0), Rect(screen_origin.X + 284, screen_origin.Y + 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), 0, plain_blitter, 0, 0, 1000, 0);
                     pilot_timer = 60;
                     redraw = true;
                 }
@@ -981,7 +981,7 @@ extern wchar_t counter_previous_text_00852ab8[];
 extern wchar_t const counter_text_format_007d61ec[];
 extern char const counter_scheme_007d61e4[];
 ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name,int kind);
-void __fastcall unknown_blit_49f3a0(Surface &dest,void *convert,Surface &source,Rect const &sourcerect,
+void __fastcall Blit_Block(Surface &dest,void *convert,Surface &source,Rect const &sourcerect,
     RectPoint2D const &destpoint,Rect const &destclip,unsigned char const *unknown1, class Blitter const *unknown2,int unknown3,int unknown4,int unknown5,int unknown6);
 // The original merge retains the inclusive right/bottom adjustment.
 inline Rect Merge_Counter_Areas(Rect const &first,Rect const &second)
@@ -1025,7 +1025,7 @@ void __fastcall Draw_Updated_Counter_004a95c0(int current,int previous,Surface *
     Rect area=screen_area;
     area.X-=(HiddenSurface->Get_Width()-background->Get_Width())/2;
     area.Y-=(HiddenSurface->Get_Height()-background->Get_Height())/2;
-    unknown_blit_49f3a0(*HiddenSurface,convert,*background,area,RectPoint2D(0,0),screen_area,0,blitter,0,0,1000,0);
+    Blit_Block(*HiddenSurface,convert,*background,area,RectPoint2D(0,0),screen_area,0,blitter,0,0,1000,0);
     Fancy_Text_Printf(counter_current_text_00852a68,HiddenSurface,
         &HiddenSurface->Get_Rect(),&position,
         Fetch_Scheme_By_Name(counter_scheme_007d61e4,1),0,style);
@@ -1041,7 +1041,7 @@ extern wchar_t const type_armor_format_007d6204[];
 extern char const type_green_scheme_007d61fc[];
 extern char const type_red_scheme_007d61f8[];
 ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name,int kind);
-void __fastcall unknown_blit_49f3a0(Surface &dest,void *convert,Surface &source,Rect const &sourcerect,
+void __fastcall Blit_Block(Surface &dest,void *convert,Surface &source,Rect const &sourcerect,
     RectPoint2D const &destpoint,Rect const &destclip,unsigned char const *unknown1, class Blitter const *unknown2,int unknown3,int unknown4,int unknown5,int unknown6);
 void __fastcall Draw_Type_Details_004a97b0(Surface *background, ConvertClass *converter,
     TechnoTypeClass *type, bool show_cost)
@@ -1055,7 +1055,7 @@ void __fastcall Draw_Type_Details_004a97b0(Surface *background, ConvertClass *co
     Rect clip = Rect(top_left+offset,190,80);
     RectPoint2D zero(0,0);
     // Preserve the existing unresolved blit prototype's 32-bit payload spelling.
-    unknown_blit_49f3a0(*HiddenSurface,converter,*background,source_area,
+    Blit_Block(*HiddenSurface,converter,*background,source_area,
         zero,clip,0,converter->Select_Blitter_00485AA0(0),0,0,1000,0);
     }
     if (type) {

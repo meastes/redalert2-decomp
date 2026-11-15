@@ -521,7 +521,7 @@ void TabClass::Draw_It(bool complete)
         } else {
             int index;
             for (index = 0; index < drawn_count; index++) {
-                if (drawn_on[index] == unknown_surface_83995c) {
+                if (drawn_on[index] == LogicalSurface) {
                     goto drawn;
                 }
             }
@@ -533,13 +533,13 @@ void TabClass::Draw_It(bool complete)
         Draw_Credits_Tab();
         Credits.Graphic_Logic(true);
         if (redraw) {
-            Rect view = unknown_surface_83995c->Get_Rect();
+            Rect view = LogicalSurface->Get_Rect();
             Point2D where(0, 0);
             where.X = unknown_rect_ac11fc->X;
             where.Y = unknown_rect_ac11fc->Y;
             Rect narrow = view;
             narrow.Width = unknown_rect_ac11fc->Width;
-            Surface *surface = unknown_surface_83995c;
+            Surface *surface = LogicalSurface;
             CC_Draw_Shape(surface, SidebarDrawer, (ShapeFileStruct const *)unknown_buffer_ac1048, 0,
                           where, narrow, 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             if (unknown_4f14) {

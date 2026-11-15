@@ -8,7 +8,7 @@
 // unless stated.
 //
 // TechnoClass +0x408 (shared/techno.hpp's UnknownTechno408, reached through
-// TechnoClass::unknown_6d1430/unknown_6d1420) is the techno's
+// TechnoClass::Get_Planning_Token/Set_Planning_Token) is the techno's
 // PlanningTokenClass; renaming it there needs the TechnoClass population
 // (892) re-planned, so the planning code casts.
 #ifndef RA2_SHARED_PLANNING_HPP
@@ -480,7 +480,7 @@ public:
 // The planning token of a techno (TechnoClass +0x408).
 inline PlanningTokenClass *Planning_Token(TechnoClass *techno)
 {
-    return (PlanningTokenClass *)techno->unknown_6d1430();
+    return (PlanningTokenClass *)techno->Get_Planning_Token();
 }
 
 // Nodes the planning mode remembers (0x00A7678C, 0x00A766F8, 0x00A766B0;

@@ -78,7 +78,7 @@ public:
     virtual ~BombClass();                                               // 0x00435C80
 
     void Unknown_00435D30();            // 0x00435D30 (sets the bomb off at once: DETONATE events)
-    void Unknown_00435FB0();            // 0x00435FB0 (disarms: lets go of the target, the owner and the sound)
+    void Disarm();            // 0x00435FB0 (disarms: lets go of the target, the owner and the sound)
     int Unknown_00436000() const;       // 0x00436000 (the flicker frame, 0..11; 12 for a type 1 bomb)
     int Unknown_00435FF0() const;       // 0x00435FF0 (the bomb type, +0x30; TechnoClass slot 28)
     bool Unknown_00436070() const;      // 0x00436070 (a timed bomb, type 0, whose delay has passed)
@@ -338,16 +338,16 @@ public:
     int Unknown_005D47D0() const;                                          // 0x005D47D0 (a height level)
     int Distance_Squared(ObjectClass const *other) const;                  // 0x005D4DA0 (x/y; name hypothesis)
     int Distance_Squared(CoordStruct const &coord) const;                  // 0x005D4E00
-    void unknown_func_5d4920(int z);                                       // 0x005D4920
+    void Set_Height(int z);                                       // 0x005D4920
     int unknown_5d47d0();                                                  // 0x005D47D0 (the cell level, +4 on a bridge)
     int unknown_5d4c00(AbstractClass *target);                             // 0x005D4C00 (a distance to target; UnitClass slot 304)
     double Health_Ratio() const;                                           // 0x005D4540
     void Set_Health_Ratio(double ratio);                                   // 0x005D4560
-    int unknown_func_5d45b0() const;                                       // 0x005D45B0
-    int unknown_func_5d4600() const;                                       // 0x005D4600
-    int unknown_func_5d4670() const;                                       // 0x005D4670
-    int unknown_func_5d46b0() const;                                       // 0x005D46B0 (0, 1 or 2)
-    void unknown_func_5d5520(int value);                                   // 0x005D5520
+    int Is_Red_HP() const;                                       // 0x005D45B0
+    int Is_Yellow_HP() const;                                       // 0x005D4600
+    int Is_Green_HP() const;                                       // 0x005D4670
+    int GetHealthStatus() const;                                       // 0x005D46B0 (0, 1 or 2)
+    void Set_Ambient_Sound(int value);                                   // 0x005D5520
 
     UnknownTriple unknown_24;               // +0x24
     ObjectClass *unknown_30;                // +0x30
@@ -388,7 +388,7 @@ extern DynamicVectorClass<AbstractClass *> HousePtrTracker;   // 0x00AC0D08 (tec
 extern DynamicVectorClass<AbstractClass *> TagPtrTracker; // 0x00AC0C58 (AbstractClass * by its vtable 0x007A177C)
 extern DynamicVectorClass<AbstractClass *> ObjectsToDelete; // 0x00AC0CD8 (AbstractClass * by its vtable 0x007A177C)
 #endif
-extern DynamicVectorClass<ObjectClass *> unknown_objects_a40c60;   // 0x00A40C60 (objects with unknown_77 set)
+extern DynamicVectorClass<ObjectClass *> CurrentObject;   // 0x00A40C60 (objects with unknown_77 set)
 
 
 #endif

@@ -579,7 +579,7 @@ void ModemGuest::Show_Options_00597220()
         SendMessageA(control, 0x4B2, 0, (LPARAM)unknown_map_name_a3d342);
     }
     if (!MultiplayerMapPreview || !MultiplayerMapPreview->Is_Present()) {
-        Unknown_005c7570(Window);
+        Update_Network_Dialog_Preview(Window);
     }
     control = GetDlgItem(Window, 1);
     if (control) {
@@ -831,7 +831,7 @@ bool ModemGuest::Receive_Options_00597e50(UnknownSerialPacket const *packet)
     unknown_special_a40920.TiberiumSpreads = true;
     unknown_id_source_a3d290->Special().FixedAlliance = false;
     unknown_session_a3d298.unknown_a4 = true;
-    unknown_special_a40920.Unknown_0068B410();
+    unknown_special_a40920.Apply_To_Game();
     if (Compare_Narrow_00781f20(unknown_session_a3d298.ScenarioFileName_658, packet->Options.FileName)
         || Compare_Narrow_00781f20(unknown_session_a3d298.ScenarioDigest_85a, packet->Options.Digest)
         || unknown_session_a3d298.ScenarioIsOfficial_880 != (bool)packet->Options.IsOfficial
@@ -1012,7 +1012,7 @@ bool ModemGuest::Start_Game_005986f0(bool unknown)
     unknown_special_a40920.HarvesterImmune = unknown_session_a3d298.unknown_a5;
     unknown_special_a40920.TiberiumGrows = true;
     unknown_special_a40920.TiberiumSpreads = true;
-    unknown_special_a40920.Unknown_0068B410();
+    unknown_special_a40920.Apply_To_Game();
     return true;
 }
 

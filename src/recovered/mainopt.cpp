@@ -172,7 +172,7 @@ void __fastcall Main_Options_Apply(HWND window)
     control = GetDlgItem(window, 0x601);
     if (control) {
         Options.UnitActionLines = SendMessageA(control, 0xF0, 0, 0) == 1;
-        TechnoClass::unknown_6d79c0(Options.UnitActionLines);
+        TechnoClass::Set_Action_Lines(Options.UnitActionLines);
     }
     control = GetDlgItem(window, 0x604);
     if (control) {
@@ -251,7 +251,7 @@ void __fastcall Main_Options_Dialog()
                 continue;
             }
             case 0x5CE:
-                Options.Unknown_005DA360();
+                Options.Hotkey_Dialog();
                 continue;
             default:
                 Options.Save_Settings();
@@ -285,7 +285,7 @@ int __stdcall Main_Options_Proc2(HWND window, UINT message, WPARAM wparam, LPARA
                 Debug_Printf("Creating IPX Interface\n");
                 IPXInterfaceClass *transport = (IPXInterfaceClass *)PacketTransport;
                 for (int card = 0; card < 20; ++card) {
-                    if (transport->unknown_76a230(card, address, 64)) {
+                    if (transport->Get_Network_Card_Address_As_String(card, address, 64)) {
                         Debug_Printf("Got address for network card %d\n", card);
                         Debug_Printf("Address is %s\n", address);
                         if (SendMessageA(cards, 0x4b8, 0, (LPARAM)address) == -1) {
@@ -446,17 +446,17 @@ bool __fastcall Set_Display_Mode(int width, int height)
             delete WWMouse;
             WWMouse = 0;
         }
-        if (unknown_surface_839950) {
+        if (VisibleSurface) {
             Debug_Printf("Deleting primary surface\n");
-            delete unknown_surface_839950;
-            unknown_surface_839950 = 0;
+            delete VisibleSurface;
+            VisibleSurface = 0;
         }
         if (!Set_Video_Mode(MainWindow, width, height, 16)) {
             Debug_Printf("Set_Video_Mode failed.\n");
             Debug_Printf("Restoring primary surface\n");
-            unknown_surface_839950 = DSurface::Create_Primary(0);
+            VisibleSurface = DSurface::Create_Primary(0);
             Debug_Printf("Restoring mouse handler\n");
-            WWMouse = new WWMouseClass(unknown_surface_839950, MainWindow);
+            WWMouse = new WWMouseClass(VisibleSurface, MainWindow);
             void const *shape = MixFileClass::Retrieve("MOUSE.SHP");
             if (shape) {
                 Point2D hotspot = Point2D(0, 0);
@@ -500,7 +500,7 @@ bool __fastcall Set_Display_Mode(int width, int height)
         Debug_Printf("Setting new window size to %dx%d\n", width, height);
         SetWindowPos(MainWindow, 0, 0, 0, width, height, 2);
         Debug_Printf("Creating primary surface\n");
-        unknown_surface_839950 = DSurface::Create_Primary(0);
+        VisibleSurface = DSurface::Create_Primary(0);
     } else {
         Debug_Printf("Setting new window size to %dx%d\n", width, height);
         RECT rect;
@@ -515,11 +515,11 @@ bool __fastcall Set_Display_Mode(int width, int height)
         Rect composite(0, 0, tactical.Width, unknown_window_839640.Height);
         Allocate_Surfaces(&unknown_window_839640, &composite, &tile, &sidebar, false);
     }
-    unknown_surface_83995c = HiddenSurface;
+    LogicalSurface = HiddenSurface;
     Debug_Printf("Recalc color remap tables\n");
     Unknown_00486010(red_right, red_left, green_right, green_left, blue_right, blue_left);
     if (WWMouse == 0) {
-        WWMouse = new WWMouseClass(unknown_surface_839950, MainWindow);
+        WWMouse = new WWMouseClass(VisibleSurface, MainWindow);
         void const *shape = MixFileClass::Retrieve("MOUSE.SHP");
         if (shape) {
             Point2D hotspot = Point2D(0, 0);
@@ -565,7 +565,7 @@ bool __fastcall Test_Display_Mode(int width, int height)
     HiddenSurface->Fill(0);
     Update_Visible_Surface(true, HiddenSurface, 0);
     WWMouse->Show_Mouse();
-    unknown_5159b0(0, true);
+    Darken_Surface(0, true);
     HWND dialog = unknown_create_dialog_5ff610(0xD9, Confirm_Mode_Proc, 0);
     if (dialog) {
         SetWindowLongA(dialog, 8, (LONG)&result);
@@ -585,12 +585,12 @@ bool __fastcall Test_Display_Mode(int width, int height)
         if (result != 1) {
             Debug_Printf("Resetting display mode @ %dx%d\n", Options.ScreenWidth, Options.ScreenHeight);
             Set_Display_Mode(Options.ScreenWidth, Options.ScreenHeight);
-            unknown_surface_83995c = HiddenSurface;
+            LogicalSurface = HiddenSurface;
             return false;
         }
     }
     Debug_Printf("Keeping display mode @ %dx%d\n", width, height);
-    unknown_surface_83995c = HiddenSurface;
+    LogicalSurface = HiddenSurface;
     return true;
 }
 

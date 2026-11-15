@@ -203,7 +203,7 @@ void __fastcall Motion_Capture()
             }
 
             if (_array[_sequence] != 0) {
-                _array[_sequence]->Copy_From(Rect(0, 0, rect.Width, rect.Height), *unknown_surface_839950, rect, false, true);
+                _array[_sequence]->Copy_From(Rect(0, 0, rect.Width, rect.Height), *VisibleSurface, rect, false, true);
             }
             _sequence++;
 
@@ -237,11 +237,11 @@ void __fastcall Unknown_0053F780()
     Debug_Printf("Disconnect_Gracefully\n");
     if (unknown_game_mode_a3d298 == 4 && PacketTransport != 0 && unknown_flag_a3fba8) {
         if (PacketRouterConnection != 0) {
-            unknown_OwnerTalkClass_00ab6d18.Unknown_0063FC90();
+            OwnerTalk.Unknown_0063FC90();
             CDTimerClass<SystemTimerClass> timer = 480;
             while (timer.Value() != 0) {
                 Service_Game_IO_00481fb0();
-                if (unknown_OwnerTalkClass_00ab6d18.Wait_For_Router_Shutdown(10, false)) {
+                if (OwnerTalk.Wait_For_Router_Shutdown(10, false)) {
                     break;
                 }
             }
@@ -363,18 +363,18 @@ static inline void Do_Record_Playback()
         coord = TacticalMap->Get_Tactical_Position();
         unknown_session_a3d298.RecordFile.Write(&coord, sizeof(coord));
 
-        count = unknown_objects_a40c60.Count();
+        count = CurrentObject.Count();
         unknown_session_a3d298.RecordFile.Write(&count, sizeof(count));
 
         sum = 0;
         for (i = 0; i < count; i++) {
-            ltgt = TargetClass(unknown_objects_a40c60[i]).Encode();
+            ltgt = TargetClass(CurrentObject[i]).Encode();
             sum += ltgt;
         }
         unknown_session_a3d298.RecordFile.Write(&sum, sizeof(sum));
 
         for (i = 0; i < count; i++) {
-            tgt = TargetClass(unknown_objects_a40c60[i]).Encode();
+            tgt = TargetClass(CurrentObject[i]).Encode();
             unknown_session_a3d298.RecordFile.Write(&tgt, sizeof(tgt));
         }
 
@@ -391,8 +391,8 @@ static inline void Do_Record_Playback()
 
         if (unknown_session_a3d298.RecordFile.Read(&count, sizeof(count)) == sizeof(count)) {
             sum = 0;
-            for (i = 0; i < unknown_objects_a40c60.Count(); i++) {
-                ltgt = TargetClass(unknown_objects_a40c60[i]).Encode();
+            for (i = 0; i < CurrentObject.Count(); i++) {
+                ltgt = TargetClass(CurrentObject[i]).Encode();
                 sum += ltgt;
             }
 
@@ -401,7 +401,7 @@ static inline void Do_Record_Playback()
                 Unknown_00482BC0();
             }
 
-            unknown_sound_enabled_7d88d6 = true;
+            AllowVoice = true;
 
             for (i = 0; i < count; i++) {
                 if (unknown_session_a3d298.RecordFile.Read(&tgt, sizeof(tgt)) == sizeof(tgt)) {
@@ -410,12 +410,12 @@ static inline void Do_Record_Playback()
                     obj = tmp.As_Object();
                     if (obj && (sum2 != sum)) {
                         obj->unknown_slot80();
-                        unknown_sound_enabled_7d88d6 = false;
+                        AllowVoice = false;
                     }
                 }
             }
 
-            unknown_sound_enabled_7d88d6 = true;
+            AllowVoice = true;
         }
 
         unknown_session_a3d298.RecordFile.Read(&unknown_team_event_a6ebc4, sizeof(unknown_team_event_a6ebc4));
@@ -491,7 +491,7 @@ bool __fastcall unknown_53fbd0()
             int worst_latency = 0;
             if (unknown_session_a3d298.Type == 4) {
                 if (maxahead > 30) {
-                    for (int i = 0; i < unknown_ipx_manager_a40978.Num_Connections(); i++) {
+                    for (int i = 0; i < Ipx.Num_Connections(); i++) {
                         if (worst_latency <= unknown_a3fb84[i]) {
                             worst_latency = unknown_a3fb84[i];
                         }
@@ -538,10 +538,10 @@ bool __fastcall unknown_53fbd0()
             Map.Get_Input(input, x, y);
             Keyboard_Process(input);
             if (unknown_flag_a3d8c4) {
-                Unknown_005419E0(false);
+                Draw_Multiplayer_Debug(false);
             }
             if ((Frame & 7) == 7 && unknown_session_a3d298.Type == 4) {
-                unknown_ipx_manager_a40978.Store_Stats();
+                Ipx.Store_Stats();
             }
             FoggedObjectClass::unknown_4c1ae0();
             Map.Render();
@@ -605,9 +605,9 @@ bool __fastcall unknown_53fbd0()
 
     if (!player_wins_a35db1 && !player_loses_a40c78 && !player_restarts_866250 && !player_aborts_a35db0) {
         Frame++;
-        if (unknown_ab9174 != 0 && unknown_ab9174 < Frame) {
+        if (UnlockInputFrame != 0 && UnlockInputFrame < Frame) {
             Resume_Game_0065c420();
-            unknown_ab9174 = 0;
+            UnlockInputFrame = 0;
         }
         Sync_Delay();
         Unknown_006ecf10();
@@ -1029,16 +1029,16 @@ void __fastcall Message_Input(int &input)
                         && ((unknown_flags_a3f118[i] && unknown_chat_target_a6ebe0 == 1)
                             || (Houses[unknown_players_a3fa7c[0]->ID]->Is_Ally(house) && unknown_chat_target_a6ebe0 == 2)
                             || unknown_chat_target_a6ebe0 == 3)) {
-                        int connections = unknown_ipx_manager_a40978.Num_Connections();
+                        int connections = Ipx.Num_Connections();
                         for (int j = 0; j < connections; j++) {
-                            int id = unknown_ipx_manager_a40978.Connection_ID(j);
-                            if (wcscmp(house->UIName, unknown_ipx_manager_a40978.Connection_Name(id)) == 0) {
-                                IPXAddressClass *address = unknown_ipx_manager_a40978.Connection_Address(id);
+                            int id = Ipx.Connection_ID(j);
+                            if (wcscmp(house->UIName, Ipx.Connection_Name(id)) == 0) {
+                                IPXAddressClass *address = Ipx.Connection_Address(id);
                                 if (unknown_flag_a3fba8) {
-                                    unknown_session_a3d298.GPacket.Message.unknown_2f |= unknown_OwnerTalkClass_00ab6d18.Unknown_0063F4C0(id);
+                                    unknown_session_a3d298.GPacket.Message.unknown_2f |= OwnerTalk.Unknown_0063F4C0(id);
                                 } else {
-                                    unknown_ipx_manager_a40978.Send_Global_Message(&unknown_session_a3d298.GPacket, 0x1C7, 1, address, 0, 0);
-                                    unknown_ipx_manager_a40978.Service();
+                                    Ipx.Send_Global_Message(&unknown_session_a3d298.GPacket, 0x1C7, 1, address, 0, 0);
+                                    Ipx.Service();
                                 }
                             }
                         }
@@ -1047,8 +1047,8 @@ void __fastcall Message_Input(int &input)
 
                 if (unknown_flag_a3fba8 && unknown_session_a3d298.GPacket.Message.unknown_2f) {
                     Debug_Printf("Sending chat, mask = %d\n", (unsigned char)unknown_session_a3d298.GPacket.Message.unknown_2f);
-                    unknown_ipx_manager_a40978.Send_Global_Message(&unknown_session_a3d298.GPacket, 0x1C7, 1, &unknown_players_a3fa7c[0]->Address, 0, 0);
-                    unknown_ipx_manager_a40978.Service();
+                    Ipx.Send_Global_Message(&unknown_session_a3d298.GPacket, 0x1C7, 1, &unknown_players_a3fa7c[0]->Address, 0, 0);
+                    Ipx.Service();
                 }
 
                 wchar_t *from = Narrow_To_Wide_006fa180(unknown_session_a3d298.GPacket.Name);
@@ -1067,7 +1067,7 @@ void __fastcall Message_Input(int &input)
 }
 
 
-// void __fastcall Unknown_005419E0(bool noframecheck) (0x005419E0; Westwood's Multiplayer_Debug_Print):
+// void __fastcall Draw_Multiplayer_Debug(bool noframecheck) (0x005419E0; Westwood's Multiplayer_Debug_Print):
 // prints the timing value at 0x007EC498 (milliseconds, as seconds) when set, then, with the debug
 // display on in a network game, the frame, frame-rate, latency and processing figures across
 // the screen and the connection manager's own lines (the argument is not read).
@@ -1075,7 +1075,7 @@ void __fastcall Message_Input(int &input)
 extern "C" int __cdecl swprintf(wchar_t *buffer, wchar_t const *format, ...);
 extern bool unknown_debug_display_a3d8c5;               // 0x00A3D8C5 (MultiplayerDebugCommandClass toggles it)
 
-void __fastcall Unknown_005419E0(bool noframecheck)
+void __fastcall Draw_Multiplayer_Debug(bool noframecheck)
 {
     if (unknown_time_7ec498 != -1) {
         double seconds = unknown_time_7ec498 * 0.001;
@@ -1104,7 +1104,7 @@ void __fastcall Unknown_005419E0(bool noframecheck)
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 322),
             Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
-        swprintf(buffer, L"Resp Time : %d ms", (int)(unknown_ipx_manager_a40978.Response_Time() * 1000) / 60);
+        swprintf(buffer, L"Resp Time : %d ms", (int)(Ipx.Response_Time() * 1000) / 60);
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 332),
             Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
@@ -1128,7 +1128,7 @@ void __fastcall Unknown_005419E0(bool noframecheck)
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 382),
             Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
-        unknown_ipx_manager_a40978.Multiplayer_Debug_Print_00526d90();
+        Ipx.Multiplayer_Debug_Print_00526d90();
 
         WWMouse->Show_Mouse();
     }

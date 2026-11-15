@@ -296,7 +296,7 @@ void MSEngine::Blit_Rects(Surface *surface)
             Rect dest = Rects[index];
             dest.X += client.left;
             dest.Y += client.top;
-            unknown_surface_839950->Copy_From(dest, *surface, Rects[index], false, true);
+            VisibleSurface->Copy_From(dest, *surface, Rects[index], false, true);
         }
         RectCount = 0;
         if (WWMouse != 0) {
@@ -329,7 +329,7 @@ void MSEngine::Blit_Rect(Surface *surface, Rect const &rect)
         Rect offset_rect = rect;
         offset_rect.X += client_rect.left;
         offset_rect.Y += client_rect.top;
-        unknown_surface_839950->Copy_From(offset_rect, *surface, rect, false, true);
+        VisibleSurface->Copy_From(offset_rect, *surface, rect, false, true);
         if (WWMouse != 0) {
             WWMouse->Erase_Mouse(surface);
         }
@@ -345,7 +345,7 @@ void MSEngine::Run(int frames)
         do {
             unknown_481fb0();
             Unknown_Slot2();
-            unknown_4961d0();
+            Wait_Blit();
             Draw(HiddenSurface);
             Blit_Rects(HiddenSurface);
             unknown_5b5ee0();

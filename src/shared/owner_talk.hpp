@@ -67,6 +67,6 @@ public:
     void *RouterProcess;                                      // +0x1C (a process HANDLE)
 };
 
-extern OwnerTalkClass unknown_OwnerTalkClass_00ab6d18;     // 0x00AB6D18
+extern OwnerTalkClass OwnerTalk;     // 0x00AB6D18
 
 #endif

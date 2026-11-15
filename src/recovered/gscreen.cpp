@@ -309,10 +309,10 @@ void GScreenClass::Get_Input(int &input, int &x, int &y)
     y = WWMouse->Get_Mouse_Y();
     if (Buttons != 0) {
         if (Buttons->Is_List_To_Redraw()) Flag_To_Redraw();
-        Surface *oldpage = unknown_surface_83995c;
-        unknown_surface_83995c = HiddenSurface;
+        Surface *oldpage = LogicalSurface;
+        LogicalSurface = HiddenSurface;
         input = Buttons->Input();
-        unknown_surface_83995c = oldpage;
+        LogicalSurface = oldpage;
     } else {
         input = ((KeyboardClass *)WWKeyboard)->Check();
         if (input != 0) input = ((KeyboardClass *)WWKeyboard)->Get();
@@ -414,8 +414,8 @@ bool GScreenClass::Remove_A_Button(GadgetClass &gadget)
 
 void GScreenClass::Render()
 {
-    Surface *oldpage = unknown_surface_83995c;
-    unknown_surface_83995c = unknown_surface_839964;
+    Surface *oldpage = LogicalSurface;
+    LogicalSurface = unknown_surface_839964;
     WWMouse->Erase_Mouse(unknown_surface_839964, false);
 
     bool redraw = IsToRedraw != 0;
@@ -438,11 +438,11 @@ void GScreenClass::Render()
         ToolTips->Refresh(false);
     }
     if (unknown_flag_a3d8c4) {
-        Unknown_005419E0(false);
+        Draw_Multiplayer_Debug(false);
     }
     WWMouse->Draw_Mouse(unknown_surface_839964, false);
     Blit_Display();
-    unknown_surface_83995c = oldpage;
+    LogicalSurface = oldpage;
 }
 
 
@@ -560,20 +560,20 @@ void __fastcall GScreenClass::Blit(bool mouse, Surface *surface, Rect const *are
         Rect fill_rect;
         fill_rect.Set(fill_rect.X, screen_pt.y, abs(Map.ShakeX), surface->Get_Height() - unknown_ac11fc->unknown_0c);
         fill_rect.X = Map.ShakeX < 0 ? dest_rect.X + dest_rect.Width : dest_rect.X - Map.ShakeX;
-        unknown_surface_839950->Fill_Rect(unknown_surface_839950->Get_Rect(), fill_rect, 0);
+        VisibleSurface->Fill_Rect(VisibleSurface->Get_Rect(), fill_rect, 0);
     }
     if (Map.ShakeY != 0) {
         Rect fill_rect;
         fill_rect.Set(screen_pt.x, fill_rect.Y, surface->Get_Width(), abs(Map.ShakeY));
         fill_rect.Y = Map.ShakeY < 0 ? dest_rect.Y + dest_rect.Height : dest_rect.Y - Map.ShakeY;
-        unknown_surface_839950->Fill_Rect(unknown_surface_839950->Get_Rect(), fill_rect, 0);
+        VisibleSurface->Fill_Rect(VisibleSurface->Get_Rect(), fill_rect, 0);
     }
 
     if (mouse && WWMouse != 0) {
         WWMouse->Draw_Mouse(surface, false);
     }
 
-    unknown_surface_839950->Copy_From(dest_rect, *surface, src_rect, false, _dialog_count == 0);
+    VisibleSurface->Copy_From(dest_rect, *surface, src_rect, false, _dialog_count == 0);
 
     if (mouse && WWMouse != 0) {
         Sleep(50);

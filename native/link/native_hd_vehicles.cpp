@@ -50,9 +50,9 @@ bool __fastcall Bit_Blit_Core_Native(Surface &dest, Rect const &destwindow, Rect
 void Native_Hd_Voxel_Replay(Vector3 const &center, UnknownVoxelRecord88 **render_data);    // voxdrsys.cpp (native fixup)
 extern unsigned char unknown_buffer_ae3408[256 * 256];      // 0x00AE3408 the voxel draw buffer
 extern unsigned char unknown_zbuffer_ad0a70[256 * 256];     // 0x00AD0A70 its depth buffer
-extern Surface *unknown_surface_839950;                     // 0x00839950 the screen
-extern int unknown_voxel_record_count_ae0cb0;               // 0x00AE0CB0 objects queued for the draw
-extern int unknown_voxel_shadow_count_ae3000;               // 0x00AE3000 shadows queued for the draw
+extern Surface *VisibleSurface;                     // 0x00839950 the screen
+extern int VoxelRenderDataCount;               // 0x00AE0CB0 objects queued for the draw
+extern int VoxelShadowRenderDataCount;               // 0x00AE3000 shadows queued for the draw
 
 extern "C" int ra2port_last_frame(void);                   // port: the last Main_Loop frame
 
@@ -509,7 +509,7 @@ void Native_Hd_Voxel_Passes(Rect const &rect, Vector3 const &center, UnknownVoxe
                     }
             }
     }
-    if (unknown_voxel_record_count_ae0cb0 == 0 && unknown_voxel_shadow_count_ae3000 > 0) close_shadow(l, x0, y0, x1, y1);
+    if (VoxelRenderDataCount == 0 && VoxelShadowRenderDataCount > 0) close_shadow(l, x0, y0, x1, y1);
     for (int y = y0; y < y1; ++y) {
         memcpy(&unknown_buffer_ae3408[y * 256 + x0], &keep_grid[(size_t)(y - y0) * w], w);
         memcpy(&unknown_zbuffer_ad0a70[y * 256 + x0], &keep_z[(size_t)(y - y0) * w], w);
@@ -716,9 +716,9 @@ void Native_Hd_Copied(Surface &dest, Rect const &destrect, Surface &source, Rect
 extern "C" int ra2_hd_overlay(const void *pixels, int pitch, int w, int h, uint32_t *argb, int (*areas)[4], int max, int *count)
 {
     *count = 0;
-    if (!active || !unknown_surface_839950) return 0;
+    if (!active || !VisibleSurface) return 0;
     Timed timed(3);
-    Layer *l = live(unknown_surface_839950);
+    Layer *l = live(VisibleSurface);
     if (!l || l->w != w || l->h != h || l->bpp != 2) return 0;
     int W = S * w;
     long shown = 0, mismatched = 0, by_kind[kKinds] = {0, 0, 0, 0};

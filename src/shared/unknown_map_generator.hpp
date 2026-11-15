@@ -41,7 +41,7 @@ public:
     double Get_Angle_Score(Cell const &from,Cell const &to,double heading);
     void Cleanup();
     void Make_Regions();
-    void unknown_00582fd0();
+    void Vary_Cliff_Runs();
     void Read_Settings_00579960();
     int Pick_Alternate_Cliff(int tile); // caller ECXowner/RET4; operation name hypothesis
     bool Clear_Region_Border(int region,int rings,int newRegion); // ECXowner,RET12; ALpredicate
@@ -69,7 +69,7 @@ public:
     void Seed_Water();
     // Observed ECX/plain-RET/ignored-result contracts; unobserved stack aliases and source intent remain hypotheses.
     void Seed_Land();
-    void unknown_0057c4f0();
+    void Seed_Land_Type0();
     void Partition_Rect(DynamicVectorClass<Rect> *regions,int count,Rect const &area); //0057C5B7 ECX owner, RET12
     int unknown_0057d3a0(int count,Rect const &area,Point2D const &seed,bool flag,Cell const &origin,double weight,bool last); //RET32; source intent hypotheses
 #ifdef RA2_MAPGEN_SHAPE_MEMBER

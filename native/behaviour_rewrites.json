@@ -512,8 +512,8 @@
   },
   {
    "entry": "0x0051FC80",
-   "name": "HouseClass::Unknown_0051FC80()",
-   "symbol": "__ZN10HouseClass16Unknown_0051FC80Ev",
+   "name": "HouseClass::Ion_Sensitives_Should_Be_Offline()",
+   "symbol": "__ZN10HouseClass32Ion_Sensitives_Should_Be_OfflineEv",
    "origin_class": "unmatched (skirmish path)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -558,7 +558,7 @@
   },
   {
    "entry": "0x0053D830",
-   "name": "unknown_set_buffer_zone_0053d830(int)",
+   "name": "Set_Buffer_Zone_Width(int)",
    "symbol": "__Z31unknown_set_buffer_zone_0053d830i",
    "origin_class": "unmatched (skirmish path)",
    "plan": "behaviour rewrite",
@@ -1000,8 +1000,8 @@
   },
   {
    "entry": "0x006E8440",
-   "name": "ThemeClass::unknown_6e8440(unsigned int)",
-   "symbol": "__ZN10ThemeClass14unknown_6e8440Ej",
+   "name": "ThemeClass::Is_Allowed(unsigned int)",
+   "symbol": "__ZN10ThemeClass10Is_AllowedEj",
    "origin_class": "unmatched (launch path)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1046,8 +1046,8 @@
   },
   {
    "entry": "0x004CD9B0",
-   "name": "FootClass::unknown_4cd9b0()",
-   "symbol": "__ZN9FootClass14unknown_4cd9b0Ev",
+   "name": "FootClass::Abort_Motion()",
+   "symbol": "__ZN9FootClass12Abort_MotionEv",
    "origin_class": "unmatched leaf",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1496,7 +1496,7 @@
   },
   {
    "entry": "0x00482E00",
-   "name": "Unit_Unknown_Shake_00482e00",
+   "name": "Shake_The_Screen",
    "origin_class": "unmatched (leaf)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1808,7 +1808,7 @@
   },
   {
    "entry": "0x00435FB0",
-   "name": "BombClass::Unknown_00435FB0",
+   "name": "BombClass::Disarm",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2072,7 +2072,7 @@
   },
   {
    "entry": "0x0047C900",
-   "name": "CellClass::unknown_47c900",
+   "name": "CellClass::Unshroud",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2082,7 +2082,7 @@
   },
   {
    "entry": "0x0047A120",
-   "name": "CellClass::unknown_47a120",
+   "name": "CellClass::Can_Enter_Tunnel",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -3163,7 +3163,7 @@
   },
   {
    "entry": "0x00738100",
-   "name": "Unknown_00738100",
+   "name": "IME_Stub1",
    "symbol": "",
    "origin_class": "accepted seed under a scaffold name",
    "plan": "behaviour rewrite",

@@ -202,12 +202,12 @@ void InfantryClass::unknown_slot93(int why)
                     Limbo();
                     unknown_slot150(2,transport);
                     transport->Cargo.Attach(this);
-                    unknown_4cd9b0();
+                    Abort_Motion();
                     return;
                 }
             } else if (unknown_slot104()==transport->unknown_slot104() && transport==unknown_494) {
                 if (unknown_slot150(15,transport)==1) {
-                    unknown_6d6e50(0);
+                    Assign_Archive_Target(0);
                     unknown_79=false;
                     Limbo();
                     static_cast<FootClass *>(transport)->Unknown_004CCE80(this);
@@ -241,7 +241,7 @@ void InfantryClass::unknown_slot93(int why)
                     building->Clicked_As_Target(int(warning_delay));
                     Native_Building_Arm_C4_00500AA0(building,int(Rules->unknown_13b8*900.0),this);
                 }
-                unknown_4cd9b0();
+                Abort_Motion();
                 unknown_slot252(false);
                 unknown_244=unknown_slot187(1);
                 Scatter(building->Center_Coord(),true,true);

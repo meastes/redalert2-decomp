@@ -388,14 +388,14 @@ BuildingClass *ObjectTypeClass::Who_Can_Build_Me(bool in_theory, bool legal, boo
 }
 
 
-// bool ObjectTypeClass::unknown_func_5d6150(char const *image, int index) (0x005D6150)
+// bool ObjectTypeClass::Load_Charger_Turret(char const *image, int index) (0x005D6150)
 // Loads turret voxel `index` (<image>TUR.VXL for 0, else <image>TUR<n>.VXL,
 // with the matching .HVA) into unknown_c8[index]; the motion is scaled by
 // the voxel's first section multiplier. When either fails both are freed.
 
 extern "C" void __cdecl _makepath(char *path, char const *drive, char const *dir, char const *fname, char const *ext);
 
-bool ObjectTypeClass::unknown_func_5d6150(char const *image, int index)
+bool ObjectTypeClass::Load_Charger_Turret(char const *image, int index)
 {
     char name[256];
     char fullname[260];
@@ -440,14 +440,14 @@ bool ObjectTypeClass::unknown_func_5d6150(char const *image, int index)
 }
 
 
-// bool ObjectTypeClass::unknown_func_5d63f0(char const *image, int index) (0x005D63F0)
+// bool ObjectTypeClass::Load_Charger_Barrel(char const *image, int index) (0x005D63F0)
 // Loads turret voxel `index` (<image>TUR.VXL for 0, else <image>TUR<n>.VXL,
 // with the matching .HVA) into unknown_140[index]; the motion is scaled by
 // the voxel's first section multiplier. When either fails both are freed.
 
 extern "C" void __cdecl _makepath(char *path, char const *drive, char const *dir, char const *fname, char const *ext);
 
-bool ObjectTypeClass::unknown_func_5d63f0(char const *image, int index)
+bool ObjectTypeClass::Load_Charger_Barrel(char const *image, int index)
 {
     char name[256];
     char fullname[260];
@@ -492,10 +492,10 @@ bool ObjectTypeClass::unknown_func_5d63f0(char const *image, int index)
 }
 
 
-// void ObjectTypeClass::unknown_func_5d66a0() (0x005D66A0)
+// void ObjectTypeClass::Free_Charger_Voxels() (0x005D66A0)
 // Frees both voxel-pair tables (unknown_c8 and unknown_140, 15 each).
 
-void ObjectTypeClass::unknown_func_5d66a0()
+void ObjectTypeClass::Free_Charger_Voxels()
 {
     for (int index = 0; index < 15; index++) {
         if (unknown_c8[index].unknown_00 != 0) {
@@ -604,7 +604,7 @@ void ObjectTypeClass::Fetch_Voxel_Image()
     } else if (Kind_Of() == 0x28 && ((TechnoTypeClass *)this)->Has_Turret_Weapons()) {
         int count = ((TechnoTypeClass *)this)->TurretCount;
         for (int index = 0; index < count; index++) {
-            if (!unknown_func_5d6150(unknown_1c8, index)) {
+            if (!Load_Charger_Turret(unknown_1c8, index)) {
                 failed = true;
                 break;
             }
@@ -636,7 +636,7 @@ void ObjectTypeClass::Fetch_Voxel_Image()
         if (Kind_Of() == 0x28 && ((TechnoTypeClass *)this)->Has_Turret_Weapons()) {
             int count = ((TechnoTypeClass *)this)->TurretCount;
             for (int index = 0; index < count; index++) {
-                if (!unknown_func_5d63f0(unknown_1c8, index)) {
+                if (!Load_Charger_Barrel(unknown_1c8, index)) {
                     failed = true;
                     break;
                 }
@@ -675,7 +675,7 @@ void ObjectTypeClass::Fetch_Voxel_Image()
             unknown_b0.unknown_04 = 0;
         }
         if (Kind_Of() == 0x28 && ((TechnoTypeClass *)this)->Has_Turret_Weapons()) {
-            unknown_func_5d66a0();
+            Free_Charger_Voxels();
         } else {
             if (unknown_b8.unknown_00 != 0) {
                 delete unknown_b8.unknown_00;
@@ -950,7 +950,7 @@ HRESULT __stdcall ObjectTypeClass::Load(IStream *stream)
     unknown_c0.unknown_00 = 0;
     delete unknown_c0.unknown_04;
     unknown_c0.unknown_04 = 0;
-    unknown_func_5d66a0();
+    Free_Charger_Voxels();
 
     HRESULT result = AbstractClass::Load(stream);
     if (FAILED(result)) {

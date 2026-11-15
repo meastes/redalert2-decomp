@@ -1,6 +1,6 @@
 // SpotLightClass (SpotLight.cpp, unit 0x005DD320: 0x005DD590-0x005DDD..;
 // not polymorphic; RTTI name from the unit's list): a light at a coordinate
-// that registers itself in unknown_SpotLightClass_list_00a731c0 and grows
+// that registers itself in SpotLights and grows
 // for ten frames. The layout is from the constructor 0x005DD590 (hypotheses).
 #ifndef RA2_SHARED_SPOT_LIGHT_HPP
 #define RA2_SHARED_SPOT_LIGHT_HPP
@@ -31,7 +31,7 @@ public:
 };
 
 // Every spot light (0x00A731C0; defined with the unit's header statics; name hypothesis).
-extern DynamicVectorClass<SpotLightClass *> unknown_SpotLightClass_list_00a731c0;
+extern DynamicVectorClass<SpotLightClass *> SpotLights;
 
 // Frees the block 0x00A73378 and deletes every object of the 74-entry table 0x00A731E0 (0x005DDB40; convention
 // unevidenced: __cdecl and __fastcall compile alike, and no caller is recovered).

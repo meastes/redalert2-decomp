@@ -747,8 +747,8 @@ void __fastcall Set_Scheme_Lighting_00520A80(int red, int green, int blue, bool 
 void __fastcall Set_Lighting_00520B00(int red, int green, int blue, bool unknown4)
 {
     int index;
-    for (index = 0; index < unknown_LightConvertClass_list_00832398.Count(); index++) {
-        unknown_LightConvertClass_list_00832398[index]->Set_Tint(red, green, blue, unknown4);
+    for (index = 0; index < TileDrawers.Count(); index++) {
+        TileDrawers[index]->Set_Tint(red, green, blue, unknown4);
     }
     for (index = 0; index < ColorSchemes.Count(); index++) {
         if (ColorSchemes[index]->unknown_0x310 > 1) {

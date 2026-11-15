@@ -237,7 +237,7 @@
 double __cdecl Map_Random_Fraction_00579770();
 
 MapGeneratorClass RandomMapGen;
-Random2Class unknown_map_random_a705c0;
+Random2Class RMGRandom;
 MapGaussianClass unknown_map_gaussian_a6fd50(Map_Random_Fraction_00579770);
 DynamicVectorClass<MapRegionClass *> MapRegionClass::Regions;
 
@@ -246,7 +246,7 @@ DynamicVectorClass<MapRegionClass *> MapRegionClass::Regions;
 // draft (0x0056D4C0); no source of its own.
 
 
-// Dynamic initializer (0x0056D4F0, _$E) of unknown_map_random_a705c0 (Random2Class(0)), defined in the draft at
+// Dynamic initializer (0x0056D4F0, _$E) of RMGRandom (Random2Class(0)), defined in the draft at
 // 0x0056D4C0; no source of its own.
 
 
@@ -362,7 +362,7 @@ Cell MapRegionClass::Pick_Random_Region_Cell_0056dc20()
     do {
         unsigned int maximum = count - 1;
         do {
-            index = (unsigned int)((unsigned int)unknown_map_random_a705c0() * (1.0 / 4294967295.0) * (unsigned int)(maximum + 1) + (double)0);
+            index = (unsigned int)((unsigned int)RMGRandom() * (1.0 / 4294967295.0) * (unsigned int)(maximum + 1) + (double)0);
         } while (index > maximum);
     } while (unknown_map_cells_a70a24[index].RegionIndex != Index
         || (unknown_map_cells_a70a24[index].Position.X == 0 && unknown_map_cells_a70a24[index].Position.Y == 0));
@@ -371,7 +371,7 @@ Cell MapRegionClass::Pick_Random_Region_Cell_0056dc20()
 
 
 // Cell MapRegionClass::Pick_Random_Clear_Region_Cell_0056dcb0() (0x0056DCB0): up to 200 random cells of this
-// region (Pick_Random_Region_Cell_0056dc20, inline) until the map cell passes unknown_47b590; else (0,0).
+// region (Pick_Random_Region_Cell_0056dc20, inline) until the map cell passes Is_Tile_Clear; else (0,0).
 
 Cell MapRegionClass::Pick_Random_Clear_Region_Cell_0056dcb0()
 {
@@ -381,7 +381,7 @@ Cell MapRegionClass::Pick_Random_Clear_Region_Cell_0056dcb0()
         if (++tries > 200) {
             return Cell(0, 0);
         }
-        if (Map[position].unknown_47b590()) {
+        if (Map[position].Is_Tile_Clear()) {
             return position;
         }
     }
@@ -389,7 +389,7 @@ Cell MapRegionClass::Pick_Random_Clear_Region_Cell_0056dcb0()
 
 
 // Cell MapRegionClass::Pick_Random_Marked_Cell_0056dda0() (0x0056DDA0, RET4 hidden result): up to 99 random
-// generation cells of this region that are not (0,0), are Marked and whose map cell passes unknown_47b590; else
+// generation cells of this region that are not (0,0), are Marked and whose map cell passes Is_Tile_Clear; else
 // (0,0). Each pick is copied by value over the first generation cell (as 0x0056DEA0).
 
 Cell MapRegionClass::Pick_Random_Marked_Cell_0056dda0()
@@ -401,7 +401,7 @@ Cell MapRegionClass::Pick_Random_Marked_Cell_0056dda0()
         unsigned int maximum = count - 1;
         unsigned int index;
         do {
-            index = (unsigned int)((unsigned int)unknown_map_random_a705c0() * (1.0 / 4294967295.0) * (unsigned int)(maximum + 1) + (double)0);
+            index = (unsigned int)((unsigned int)RMGRandom() * (1.0 / 4294967295.0) * (unsigned int)(maximum + 1) + (double)0);
         } while (index > maximum);
         *cell = unknown_map_cells_a70a24[index];
         if (++tries >= 100) {
@@ -416,7 +416,7 @@ Cell MapRegionClass::Pick_Random_Marked_Cell_0056dda0()
         if (!cell->Marked) {
             continue;
         }
-        if (Map[cell->Position].unknown_47b590()) {
+        if (Map[cell->Position].Is_Tile_Clear()) {
             return cell->Position;
         }
     }
@@ -426,7 +426,7 @@ Cell MapRegionClass::Pick_Random_Marked_Cell_0056dda0()
 
 // Cell __fastcall MapRegionClass::Pick_Random_Clear_Cell_In_Zone(int zone, int region) (0x0056DEA0, static; ECX hidden
 // result, RET4): up to 99 random generation cells whose map cell is in movement zone zone (Map.Zone(.., 0, false)),
-// passes unknown_47b590 and belongs to region (any when -1); else (0,0). Each pick is copied by value over the
+// passes Is_Tile_Clear and belongs to region (any when -1); else (0,0). Each pick is copied by value over the
 // first generation cell (the original writes through the table pointer read at entry).
 
 Cell __fastcall MapRegionClass::Pick_Random_Clear_Cell_In_Zone(int zone, int region)
@@ -438,7 +438,7 @@ Cell __fastcall MapRegionClass::Pick_Random_Clear_Cell_In_Zone(int zone, int reg
         unsigned int maximum = count - 1;
         unsigned int index;
         do {
-            index = (unsigned int)((unsigned int)unknown_map_random_a705c0() * (1.0 / 4294967295.0) * (unsigned int)(maximum + 1) + (double)0);
+            index = (unsigned int)((unsigned int)RMGRandom() * (1.0 / 4294967295.0) * (unsigned int)(maximum + 1) + (double)0);
         } while (index > maximum);
         *cell = unknown_map_cells_a70a24[index];
         if (++tries >= 100) {
@@ -451,7 +451,7 @@ Cell __fastcall MapRegionClass::Pick_Random_Clear_Cell_In_Zone(int zone, int reg
         if (Map.Zone(mapcell.MapCoords, 0, false) != zone) {
             continue;
         }
-        if (!mapcell.unknown_47b590()) {
+        if (!mapcell.Is_Tile_Clear()) {
             continue;
         }
         if (region == -1 || cell->RegionIndex == region) {
@@ -498,7 +498,7 @@ double __stdcall Unknown_Cell_Score_0056dff0(Cell const &from, Cell const &to, d
     if (angle > 3.141592653589793) {
         angle = 6.283185307179586 - angle;
     }
-    return unknown_weight_distance_7a5be8 * distance + unknown_weight_angle_7a5bf0 * angle + ((unsigned int)unknown_map_random_a705c0() * (1.0 / 4294967295.0)) * unknown_weight_random_7a5be0;
+    return unknown_weight_distance_7a5be8 * distance + unknown_weight_angle_7a5bf0 * angle + ((unsigned int)RMGRandom() * (1.0 / 4294967295.0)) * unknown_weight_random_7a5be0;
 }
 
 
@@ -539,7 +539,7 @@ static inline unsigned Pick_Random_UInt(unsigned minimum, unsigned maximum)
 {
     unsigned value;
     do {
-        value = (unsigned)((unsigned)unknown_map_random_a705c0() * (1.0 / 4294967295.0) * (unsigned)(maximum + 1) + (double)minimum);
+        value = (unsigned)((unsigned)RMGRandom() * (1.0 / 4294967295.0) * (unsigned)(maximum + 1) + (double)minimum);
     } while (value > maximum);
     return value;
 }
@@ -567,7 +567,7 @@ MapRegionClass *__fastcall MapRegionClass::Create_Region_From_Cell(CellClass *ce
     cells.Set_Growth_Step(50000);
     cells.Add(cell_ptr->Fetch_CellID());
 
-    bool has_water = cell_ptr->unknown_47b7e0() || cell_ptr->unknown_47b9c0();
+    bool has_water = cell_ptr->unknown_47b7e0() || cell_ptr->Is_Tile_Clear_To_Green_LAT();
     int cell_height = cell_ptr->unknown_11b;
     int processed_count = 0;
 
@@ -586,7 +586,7 @@ MapRegionClass *__fastcall MapRegionClass::Create_Region_From_Cell(CellClass *ce
                 if (ndata.RegionIndex == -1 && ndata.unknown_3c != region_id) {
                     ndata.unknown_3c = region_id;
                     if (Map[ncell].unknown_11b == cell_height) {
-                        int n_has_water = Map[ncell].unknown_47b7e0() || Map[ncell].unknown_47b9c0();
+                        int n_has_water = Map[ncell].unknown_47b7e0() || Map[ncell].Is_Tile_Clear_To_Green_LAT();
                         if (!(has_water ^ n_has_water)) {
                             cells.Add(ncell);
                         }
@@ -697,7 +697,7 @@ void MapRegionClass::Destroy_Cell_Regions()
 
 
 // void MapRegionClass::Create_Water_Regions() (0x0056E890, static): creates a region for every real
-// generation cell still without one (RegionIndex -1) whose map cell passes unknown_47b7e0 or unknown_47b9c0.
+// generation cell still without one (RegionIndex -1) whose map cell passes unknown_47b7e0 or Is_Tile_Clear_To_Green_LAT.
 
 void MapRegionClass::Create_Water_Regions()
 {
@@ -707,7 +707,7 @@ void MapRegionClass::Create_Water_Regions()
         CellClass &cell = Map[position];
         if (unknown_map_cells_a70a24[i].RegionIndex == -1
             && (unknown_map_cells_a70a24[i].Position.X != 0 || unknown_map_cells_a70a24[i].Position.Y != 0)
-            && (cell.unknown_47b7e0() || cell.unknown_47b9c0())) {
+            && (cell.unknown_47b7e0() || cell.Is_Tile_Clear_To_Green_LAT())) {
             Create_Region_From_Cell(&cell);
         }
     }
@@ -769,12 +769,12 @@ void MapRegionClass::Reassign_Cells_0056ea20(int region, int value)
 }
 
 
-// void MapRegionClass::unknown_0056eac0(int count, int mark) (0x0056EAC0, RET8): sets RegionIndex to mark
+// void MapRegionClass::Reassign_Border_Cells(int count, int mark) (0x0056EAC0, RET8): sets RegionIndex to mark
 // on count rings of generation cells, starting with this region's boundary cells and growing each ring by the
 // 8-neighbours of this region not yet in a ring (+0x3C holds the ring number; cleared before and after when
 // count > 1).
 
-void MapRegionClass::unknown_0056eac0(int count, int mark)
+void MapRegionClass::Reassign_Border_Cells(int count, int mark)
 {
     DynamicVectorClass<Cell> *ring = Collect_Boundary_Cells_0056ed10();
     if (count > 1) {
@@ -930,7 +930,7 @@ bool MapRegionClass::Grow_Border_00570040(int steps)
                     if(Map[position].unknown_11b==unknown_10) {
                         UnknownMapGenerationCell &data=MapRegionClass::Get_Cell_Data(position);
                         int region=data.RegionIndex;
-                        if(region==-1 && (Map[position].unknown_47b590() || Map[position].unknown_47b9c0())) {
+                        if(region==-1 && (Map[position].Is_Tile_Clear() || Map[position].Is_Tile_Clear_To_Green_LAT())) {
                             next->Add(position);
                             data.RegionIndex=Index;
                             Map[position].unknown_11b=(char)unknown_10;
@@ -1307,7 +1307,7 @@ bool MapRegionClass::Is_Bridge_Allowed(Rect const &area) const
                 CellClass &cell=Map[Cell(x,y)];
                 if(cell.OverlayIndex!=-1)return false;
                 if(cell.unknown_11b!=height)return false;
-                if(!cell.unknown_47b590() && !cell.unknown_47b7e0())return false;
+                if(!cell.Is_Tile_Clear() && !cell.unknown_47b7e0())return false;
             }
         }
         return true;
@@ -1321,7 +1321,7 @@ bool MapRegionClass::Place_Bridge_Hut(Rect const &area)
     for(int y=area.Y;y<area.Y+area.Height+1;y++) {
         for(int x=area.X;x<area.X+area.Width+1;x++) {
             CellClass &cell=Map[Cell(x,y)];
-            if(cell.OverlayIndex==-1 && cell.unknown_47b590() && !cell.OccupierPtr) {
+            if(cell.OverlayIndex==-1 && cell.Is_Tile_Clear() && !cell.OccupierPtr) {
                 HouseClass *house=HouseClass::As_Pointer(HouseTypeClass::Find_Index("Neutral"));
                 int type=BuildingTypeClass::From_Name("CABHUT");
                 BuildingClass *building=new BuildingClass(BuildingTypes[type],house);
@@ -1371,7 +1371,7 @@ void MapRegionClass::Make_Region_Connections_00571ed0()
                     struct Range { double Span; } range={(unsigned)(last+1)};
                     unsigned choice;
                     do {
-                        choice=(unsigned)((unsigned)unknown_map_random_a705c0()*range.Span*(1.0/4294967295.0));
+                        choice=(unsigned)((unsigned)RMGRandom()*range.Span*(1.0/4294967295.0));
                     } while(choice>last);
                     Cell position=(*border)[choice];
                     if(Map.Unknown_0055A660(position,true)) {
@@ -1466,7 +1466,7 @@ bool MapRegionClass::Connect_Regions_With_Ramp_00572270(Cell const &cell,int reg
         if(mask&2) {--second.X;--first.X;}
         first.Y+=(short)Map_Random_Range_005797a0(0,1)-1;
         second.Y+=(short)Map_Random_Range_005797a0(0,1)-1;
-        result=unknown_005729f0(first,second,region);
+        result=Build_South_Ramp(first,second,region);
     }
     }
 fallback:
@@ -1475,7 +1475,7 @@ fallback:
         if((mask&8)==0) {
             first.X=cell.X-4;first.Y=cell.Y+1;
             second.X=cell.X+4;second.Y=cell.Y+1;
-            result=unknown_005729f0(first,second,region);
+            result=Build_South_Ramp(first,second,region);
             if(result)return result;
         }
         if((mask&2)==0) {
@@ -1537,7 +1537,7 @@ extern int unknown_ramp_shapes_7e0a00[10];
 void __stdcall Assign_Region_To_Rectangle_00575a90(Rect const &,int);
 void __fastcall Place_Tile_Footprint_005883f0(int,Cell const &,int,int);
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
-bool MapRegionClass::unknown_005729f0(Cell const &first,Cell const &second,int lowRegion)
+bool MapRegionClass::Build_South_Ramp(Cell const &first,Cell const &second,int lowRegion)
 {
     Rect area(first.X-5,(first.Y<second.Y?first.Y:second.Y)-3,second.X-first.X+9,(first.Y>second.Y?first.Y:second.Y)-(first.Y<second.Y?first.Y:second.Y)+11);
     if(!Is_Rectangle_Clear_00575910(area,lowRegion)) {
@@ -2017,7 +2017,7 @@ bool MapRegionClass::Is_Rectangle_Clear_00575910(Rect const &area,int allowedReg
             Cell position(x,y);
             int region=UnknownMapGenerationCell::Get_Region(position);
             if(region!=Index && region!=allowedRegion)return false;
-            if(!Map[position].unknown_47b590())return false;
+            if(!Map[position].Is_Tile_Clear())return false;
         }
     }
     return true;
@@ -2169,17 +2169,17 @@ void MapRegionClass::Generate_Starting_Points_00576170(int firstWaypoint)
     bounds.Height-=8;
     DynamicVectorClass<Cell> candidates;
     unsigned int extra;
-    do {extra=(unsigned int)((unsigned int)unknown_map_random_a705c0()*(3.0/4294967295.0));} while(extra>2);
+    do {extra=(unsigned int)((unsigned int)RMGRandom()*(3.0/4294967295.0));} while(extra>2);
     int wanted=unknown_20*15+extra;
     for(int attempt=0;candidates.Count()<wanted && attempt<300;++attempt) {
         unsigned int maximum=Cells.Count()-1;
         struct Range {double Span;};
         Range range={(unsigned int)(maximum+1)};
         unsigned int selected;
-        do {selected=(unsigned int)((unsigned int)unknown_map_random_a705c0()*range.Span*(1.0/4294967295.0));} while(selected>maximum);
+        do {selected=(unsigned int)((unsigned int)RMGRandom()*range.Span*(1.0/4294967295.0));} while(selected>maximum);
         Cell position=Cells[selected];
         Rect area(position.X-3,position.Y-3,6,6);
-        if(Can_Place_Paved_Road_00588a30(area,false,false) && Map.Unknown_0055A840(bounds,position,true))candidates.Add(position);
+        if(Can_Place_Paved_Road_00588a30(area,false,false) && Map.In_Area_Radar(bounds,position,true))candidates.Add(position);
     }
     DynamicVectorClass<Cell> *layout=Select_Separated_Cells_00576810(candidates);
     if(!layout)return;
@@ -2281,7 +2281,7 @@ void MapRegionClass::Place_Neutral_Tech_Building_00576cd0()
         while(list->X!=0x7fff || list->Y!=0x7fff) {
             Cell next=position + *list;
             CellClass *cell=&Map[next];
-            if(cell->OccupierPtr!=0 || !cell->unknown_47b590() || cell->unknown_11b!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true) || !seed_0056dac0::unknown_generation_cell_clear_0056dac0((short *)&cell->MapCoords))clear=false;
+            if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->unknown_11b!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true) || !seed_0056dac0::unknown_generation_cell_clear_0056dac0((short *)&cell->MapCoords))clear=false;
             ++list;
             if(!clear)break;
         }
@@ -2439,7 +2439,7 @@ char *__cdecl strncat(char *,char const *,unsigned);
 void __fastcall Do_Random_Map_00577880(HWND dialog,bool (*callback)())
 {
     rc_ptr<WDTTerritory> territory;
-    if(unknown_game_mode_a3d298==4 && unknown_a3d2a4==2)territory=Unknown_Territory_00769690(unknown_session_a3d2a0);
+    if(unknown_game_mode_a3d298==4 && unknown_a3d2a4==2)territory=Find_WDT_Territory(unknown_session_a3d2a0);
     if(territory.Get()!=0)RandomMapGen.SeedData.NumPlayers=4;
     char *digest=Random_Map_CRC_005c8420();
     char name[128];
@@ -2938,7 +2938,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     int index;
     CellClass *cell;
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
-    unknown_map_random_a705c0=Random2Class(SeedData.Seed);
+    RMGRandom=Random2Class(SeedData.Seed);
     unknown_map_gaussian_a6fd50=MapGaussianClass(Map_Random_Fraction_00579770);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     bool showProgress=!unknown_id_source_a3d290->unknown_22fc;
@@ -2993,7 +2993,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
         MapRegionClass::Make_Regions_00570810();
         Fixup_Cliff_Corners();
         Map.Build_All_Cliffs(0,-1);
-        unknown_00582fd0();
+        Vary_Cliff_Runs();
     }
     Report_Generation_Progress_0057be50(70);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
@@ -3263,7 +3263,7 @@ void MapGeneratorClass::Init_Map(int fullInit)
         if(theater!=unknown_id_source_a3d290->Theater) {Init_Theater_00519e70(theater);unknown_id_source_a3d290->Theater=theater;}
         Report_Generation_Progress_0057be50(30);
         if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
-        if(!MapSeeder || theater!=lastTheater || changed) {Rules->Process(*unknown_ini_8396d0);unknown_id_source_a3d290->Read_Global_Variables(*unknown_ini_8396d0);}
+        if(!MapSeeder || theater!=lastTheater || changed) {Rules->Process(*RuleINI);unknown_id_source_a3d290->Read_Global_Variables(*RuleINI);}
         Report_Generation_Progress_0057be50(35);
         if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
         if(!MapSeeder || theater!=lastTheater || changed) {
@@ -3325,7 +3325,7 @@ void MapGeneratorClass::Partition_Rect(DynamicVectorClass<Rect> *regions,int cou
     int height=area.Height/columns;
     int rowX=0,rowY=0;
     int stepX=0,stepY=0;
-    if((unsigned int)unknown_map_random_a705c0()*(1.0/4294967295.0)<0.5) {
+    if((unsigned int)RMGRandom()*(1.0/4294967295.0)<0.5) {
         width=area.Width/rows;
         stepY=height;
         rowX=width;
@@ -3347,7 +3347,7 @@ void MapGeneratorClass::Partition_Rect(DynamicVectorClass<Rect> *regions,int cou
         struct Range {double Span;};
         Range range={(unsigned int)(maximum+1)};
         unsigned int selected;
-        do {selected=(unsigned int)((unsigned int)unknown_map_random_a705c0()*range.Span*(1.0/4294967295.0));} while(selected>maximum);
+        do {selected=(unsigned int)((unsigned int)RMGRandom()*range.Span*(1.0/4294967295.0));} while(selected>maximum);
         counts[choices[selected]]=floor;
         choices.Delete((int)selected);
     }
@@ -3371,14 +3371,14 @@ void MapGeneratorClass::Partition_Rect(DynamicVectorClass<Rect> *regions,int cou
 
 
 extern double const unknown_random_scale_7a5dd0,unknown_chunk_floor_7a5ed0;
-void MapGeneratorClass::unknown_0057c4f0()
+void MapGeneratorClass::Seed_Land_Type0()
 {
     WorkingRegionID=1;
     DynamicVectorClass<Rect> regions;
     unsigned int range=2>SeedData.NumPlayers/2?2:SeedData.NumPlayers/2;
     double span=(double)range;
     unsigned int selected;
-    do {selected=(unsigned int)((unsigned int)unknown_map_random_a705c0()*(1.0/4294967295.0)*span+1.0);} while(selected>range);
+    do {selected=(unsigned int)((unsigned int)RMGRandom()*(1.0/4294967295.0)*span+1.0);} while(selected>range);
     Rect area=Map.MapLocalSize;
     Partition_Rect(&regions,SeedData.NumPlayers+selected,area);
     Map.Reset_Iterator();
@@ -3388,7 +3388,7 @@ void MapGeneratorClass::unknown_0057c4f0()
     }
     while(regions.Count()>0) {
         Rect region=regions[0];
-        int count=(int)(((unsigned int)unknown_map_random_a705c0()*unknown_random_scale_7a5dd0*0.05+unknown_chunk_floor_7a5ed0)*(region.Width*region.Height*2));
+        int count=(int)(((unsigned int)RMGRandom()*unknown_random_scale_7a5dd0*0.05+unknown_chunk_floor_7a5ed0)*(region.Width*region.Height*2));
         Point2D center;
         center.X=region.Width/2+region.Height/2+region.Y+region.X+1;
         center.Y=region.Height/2-region.Width/2-region.X+Map.MapSize.Width+region.Y;
@@ -3487,7 +3487,7 @@ void MapGeneratorClass::Seed_Land_Type2()
     }
 
     Rect halves[2];
-    if ((unsigned int)unknown_map_random_a705c0() * unknown_random_scale_7a5dd0 < 0.5) {
+    if ((unsigned int)RMGRandom() * unknown_random_scale_7a5dd0 < 0.5) {
         halves[0] = Rect(Map.MapLocalSize.X, Map.MapLocalSize.Y, Map.MapLocalSize.Width / 2 - 1, Map.MapLocalSize.Height);
         halves[1] = Rect(Map.MapLocalSize.X + Map.MapLocalSize.Width / 2 + 1, Map.MapLocalSize.Y, Map.MapLocalSize.Width / 2 - 1, Map.MapLocalSize.Height);
     } else {
@@ -3557,7 +3557,7 @@ void Fill_Adjacent_Empty_Tiles_0057ceb0()
         if(cell->unknown_47b7c0()) {
             for(int facing=0;facing<8;facing+=2) {
                 CellClass &adjacent=cell->Adjacent_Cell(facing);
-                if(adjacent.unknown_47b590())
+                if(adjacent.Is_Tile_Clear())
                     adjacent.IsoTileIndex=unknown_tileset_a52c60;
             }
         }
@@ -3572,10 +3572,10 @@ void MapGeneratorClass::Scatter_Green_Tiles()
     candidates.Set_Growth_Step(10000);
     Map.Reset_Iterator();
     for(CellClass *cell=Map.Iterate();cell;cell=Map.Iterate()) {
-        if(cell->unknown_47b9c0()) {
+        if(cell->Is_Tile_Clear_To_Green_LAT()) {
             for(int facing=0;facing<8;facing+=2) {
                 CellClass *adjacent=&cell->Adjacent_Cell(facing);
-                if(adjacent->unknown_47b590())candidates.Add(adjacent);
+                if(adjacent->Is_Tile_Clear())candidates.Add(adjacent);
             }
         }
     }
@@ -3587,14 +3587,14 @@ void MapGeneratorClass::Scatter_Green_Tiles()
         Range range={(unsigned)(maximum+1)};
         unsigned index;
         do {
-            index=(unsigned)((unsigned)unknown_map_random_a705c0()*range.Span*(1.0/4294967295.0));
+            index=(unsigned)((unsigned)RMGRandom()*range.Span*(1.0/4294967295.0));
         } while(index>maximum);
         CellClass *cell=candidates[index];
         candidates.Delete((int)index);
         cell->IsoTileIndex=unknown_tileset_a52c60;
         for(int facing=0;facing<8;facing+=2) {
             CellClass *adjacent=&cell->Adjacent_Cell(facing);
-            if(adjacent->unknown_47b590())candidates.Add(adjacent);
+            if(adjacent->Is_Tile_Clear())candidates.Add(adjacent);
         }
     }
 }
@@ -3663,7 +3663,7 @@ static inline unsigned Split_Random(unsigned minimum, unsigned maximum)
     Range range = {(unsigned)(maximum - minimum + 1), minimum};
     unsigned result;
     do {
-        result = (unsigned)((unsigned)unknown_map_random_a705c0() * range.Span * (1.0 / 4294967295.0) + range.Origin);
+        result = (unsigned)((unsigned)RMGRandom() * range.Span * (1.0 / 4294967295.0) + range.Origin);
     } while (result > maximum);
     return result;
 }
@@ -3706,7 +3706,7 @@ bool MapRegionClass::Split_Region_0056ef20()
     queue->Insert(&nodes[0]);
 
     UnknownVeinNode *node = queue->Remove_Min();
-    double dist = (unsigned)unknown_map_random_a705c0() * (6.283185307179586 / 4294967295.0);
+    double dist = (unsigned)RMGRandom() * (6.283185307179586 / 4294967295.0);
 
     while (node != 0) {
         if (spread_count >= (int)target_count) {
@@ -3721,7 +3721,7 @@ bool MapRegionClass::Split_Region_0056ef20()
         for (int dir = 0; dir < 8; dir += 2) {
             Cell ncell = Region_Adjacent_Cell(node->Position, dir);
             if (Flood_In_Bounds(ncell)) {
-                if (UnknownMapGenerationCell::Get_Region(ncell) == -2 && Get_Spread(ncell) != -3 && Map[ncell].unknown_47b590()) {
+                if (UnknownMapGenerationCell::Get_Region(ncell) == -2 && Get_Spread(ncell) != -3 && Map[ncell].Is_Tile_Clear()) {
                     newnode->Position = ncell;
                     newnode->Key = (float)RandomMapGen.Get_Angle_Score(seed, ncell, dist);
                     MapRegionClass::Get_Cell_Data(cell_index + unknown_facing_offsets_84c838[dir]).unknown_3c = -3;
@@ -3987,7 +3987,7 @@ bool __cdecl Generate_Starting_Points_00576420()
     }
     if(RandomMapGen.SeedData.MapType==0) {
         for(i=0;i<sorted.Count();i++) {
-            if(sorted[i]->unknown_20==0 && unknown_map_random_a705c0()*unknown_random_scale_7a5dd0<0.5) {
+            if(sorted[i]->unknown_20==0 && RMGRandom()*unknown_random_scale_7a5dd0<0.5) {
                 sorted[i]->Place_Neutral_Tech_Building_00576cd0();
             }
         }
@@ -4145,7 +4145,7 @@ unsigned int __fastcall Map_Random_Range_005797a0(unsigned int minimum,unsigned 
     unsigned int result;
     do {
         origin=minimum;
-        result=(unsigned int)((unsigned int)unknown_map_random_a705c0()*(double)(unsigned int)(maximum-minimum+1)*(1.0/4294967295.0)+origin);
+        result=(unsigned int)((unsigned int)RMGRandom()*(double)(unsigned int)(maximum-minimum+1)*(1.0/4294967295.0)+origin);
     } while(result>maximum);
     return result;
 }
@@ -4248,7 +4248,7 @@ bool MapGeneratorClass::Seed_Lake(Cell const &origin)
             seed=firstOffset+Cell((short)y,(short)y);
             if(++tries>=200)return false;
             int region=UnknownMapGenerationCell::Get_Region(seed);
-            if(region==0 && Map[seed].unknown_47b590() && unknown_map_cells_a70a24[(unsigned)(int)seed.Y*(unsigned)unknown_map_cell_side_84e804+(unsigned)(int)seed.X].Marked) {
+            if(region==0 && Map[seed].Is_Tile_Clear() && unknown_map_cells_a70a24[(unsigned)(int)seed.Y*(unsigned)unknown_map_cell_side_84e804+(unsigned)(int)seed.X].Marked) {
                 if(tries<200)break;
                 return false;
             }
@@ -4281,7 +4281,7 @@ bool MapGeneratorClass::Seed_Lake(Cell const &origin)
                 if(Generation_Cell_In_Bounds_0058da10(adjacent)) {
                     unsigned index=(unsigned)(int)adjacent.Y*(unsigned)unknown_map_cell_side_84e804+(unsigned)(int)adjacent.X;
                     UnknownMapGenerationCell &data=unknown_map_cells_a70a24[index];
-                    if(data.RegionIndex==0 && data.unknown_3c!=(int)WorkingRegionID && Map[adjacent].unknown_47b590() && data.Marked) {
+                    if(data.RegionIndex==0 && data.unknown_3c!=(int)WorkingRegionID && Map[adjacent].Is_Tile_Clear() && data.Marked) {
                         next->Position=adjacent;
                         next->Key=(float)Weighted_Cell_Distance_0057ec60(&seed,&adjacent,processed);
                         data.unknown_3c=(int)WorkingRegionID;
@@ -4300,7 +4300,7 @@ bool MapGeneratorClass::Seed_Lake(Cell const &origin)
         CellClass *current=&Map[remaining->Position];
         unsigned index=(unsigned)(int)remaining->Position.Y*(unsigned)unknown_map_cell_side_84e804+(unsigned)(int)remaining->Position.X;
         UnknownMapGenerationCell &data=unknown_map_cells_a70a24[index];
-        if(data.RegionIndex==0 && current->unknown_47b590() && data.Marked) {
+        if(data.RegionIndex==0 && current->Is_Tile_Clear() && data.Marked) {
             current->IsoTileIndex=unknown_tileset_a52580;
             current->unknown_11a=0;
             data.RegionIndex=(int)WorkingRegionID;
@@ -4368,7 +4368,7 @@ extern double const unknown_random_scale_7a5dd0;
 extern double const unknown_lake_chance_7a5cb0;
 static inline double Random_Fraction()
 {
-    return (unsigned int)unknown_map_random_a705c0()*unknown_random_scale_7a5dd0;
+    return (unsigned int)RMGRandom()*unknown_random_scale_7a5dd0;
 }
 static inline void Clear_River_Region(int region,int const &height_source)
 {
@@ -4458,7 +4458,7 @@ bool MapGeneratorClass::Seed_River(Cell const &point,double value,bool flag)
                 if(Generation_Cell_In_Bounds_0058da10(Cell((int)px,(int)py))) {
                     pcell=Cell((int)px,(int)py);
 
-                    if(UnknownMapGenerationCell::Get_Region(pcell)==0 && Map[pcell].unknown_47b590() || UnknownMapGenerationCell::Get_Region(pcell)==(int)WorkingRegionID) {
+                    if(UnknownMapGenerationCell::Get_Region(pcell)==0 && Map[pcell].Is_Tile_Clear() || UnknownMapGenerationCell::Get_Region(pcell)==(int)WorkingRegionID) {
                         if(unknown_map_cells_a70a24) {
                             MapRegionClass::Get_Cell_Data(pcell).RegionIndex=WorkingRegionID;
                         }
@@ -4763,7 +4763,7 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 					return(true);
 				}
 
-				if (!Map[Cell(xx, yy)].unknown_47b590()) {
+				if (!Map[Cell(xx, yy)].Is_Tile_Clear()) {
 					return(true);
 				}
 			}
@@ -5122,10 +5122,10 @@ bool MapGeneratorClass::Grow_Region(int region,int rings,Rect area,char setHeigh
                     int oldRegion=data.RegionIndex;
                     bool reclaim=setHeight && oldRegion==region-1;
                     CellClass &cell=Map[position];
-                    if((oldRegion==0 || reclaim) && (cell.unknown_47b590() || (reclaim && cell.unknown_47b7e0()))) {
+                    if((oldRegion==0 || reclaim) && (cell.Is_Tile_Clear() || (reclaim && cell.unknown_47b7e0()))) {
                         next->Add(position);
                         data.RegionIndex=region;
-                        if(setHeight && cell.unknown_47b590())Map[position].unknown_11b=height;
+                        if(setHeight && cell.Is_Tile_Clear())Map[position].unknown_11b=height;
                     } else if(oldRegion!=region) {
                         delete border;
                         delete next;
@@ -5257,7 +5257,7 @@ double MapGeneratorClass::Get_Angle_Score(Cell const &cell1,Cell const &cell2,do
         angle_diff=3.141592653589793*2-angle_diff;
     }
 
-    return(((unsigned)unknown_map_random_a705c0()*(1.0 / 4294967295.0))*jitter_weight_7a5cc8+angle_weight_7a5cd0*angle_diff);
+    return(((unsigned)RMGRandom()*(1.0 / 4294967295.0))*jitter_weight_7a5cc8+angle_weight_7a5cd0*angle_diff);
 }
 
 
@@ -5319,7 +5319,7 @@ int MapGeneratorClass::Pick_Alternate_Cliff(int tile)
 
 // Replaces ramp tiles on sloped runs with a random variant, looking one cell south and east of each cell. Operation name is a hypothesis.
 void __fastcall Place_Tile_Footprint_005883f0(int tile,Cell const &position,int region,int height);
-void MapGeneratorClass::unknown_00582fd0()
+void MapGeneratorClass::Vary_Cliff_Runs()
 {
     Map.Reset_Iterator();
     CellClass *cellptr=Map.Iterate();
@@ -5391,10 +5391,10 @@ void Fixup_Cliff_Corners()
         CellClass &neighbor6=current->Adjacent_Cell(6);
         unsigned int mask=Map.Unknown_0055BD70(current);
         if(mask==0x83) {
-            if(Map.Unknown_0055BD70(&neighbor3)==0x83 && neighbor2.unknown_47b590()) {
+            if(Map.Unknown_0055BD70(&neighbor3)==0x83 && neighbor2.Is_Tile_Clear()) {
                 unsigned int choice;
                 do {
-                    choice=(unsigned int)((unsigned int)unknown_map_random_a705c0()*(2.0/4294967295.0));
+                    choice=(unsigned int)((unsigned int)RMGRandom()*(2.0/4294967295.0));
                 } while(choice>1);
                 if(choice==0) {
                     neighbor2.unknown_11b=(char)(neighbor2.unknown_11b-4);
@@ -5402,10 +5402,10 @@ void Fixup_Cliff_Corners()
                 }
             }
         } else if(mask==0x38) {
-            if(Map.Unknown_0055BD70(&neighbor3)==0x38 && neighbor6.unknown_47b590()) {
+            if(Map.Unknown_0055BD70(&neighbor3)==0x38 && neighbor6.Is_Tile_Clear()) {
                 unsigned int choice;
                 do {
-                    choice=(unsigned int)((unsigned int)unknown_map_random_a705c0()*(2.0/4294967295.0));
+                    choice=(unsigned int)((unsigned int)RMGRandom()*(2.0/4294967295.0));
                 } while(choice>1);
                 if(choice==0) {
                     neighbor6.unknown_11b=(char)(neighbor6.unknown_11b-4);
@@ -5413,7 +5413,7 @@ void Fixup_Cliff_Corners()
                 }
             }
         } else if(mask==0xE0) {
-            if(Map.Unknown_0055BD70(&neighbor5)==0xE0 && Map.Unknown_0055BD70(&neighbor1)==0xE0 && current->unknown_47b590()) {
+            if(Map.Unknown_0055BD70(&neighbor5)==0xE0 && Map.Unknown_0055BD70(&neighbor1)==0xE0 && current->Is_Tile_Clear()) {
                 current->unknown_11b=(char)(current->unknown_11b+4);
                 Write_Generation_Region(current->MapCoords,Read_Generation_Region(neighbor6.MapCoords));
             }
@@ -5450,7 +5450,7 @@ void __fastcall Rebuild_Region_Grid_00583450(MapSeedClass const &options)
             CellClass &cell=Map[position];
             if(MapRegionClass::Get_Cell_Data(index).RegionIndex==-1 &&
                (MapRegionClass::Get_Cell_Data(index).Position.X!=0 || MapRegionClass::Get_Cell_Data(index).Position.Y!=0) &&
-               (cell.unknown_47b7e0() || cell.unknown_47b9c0())) {
+               (cell.unknown_47b7e0() || cell.Is_Tile_Clear_To_Green_LAT())) {
                 Build_Map_Region_0056e100(&cell);
             }
         }
@@ -5551,7 +5551,7 @@ bool MapGeneratorClass::Init_Start_Points()
                 for(;facing<8;++facing) {
                     Cell adjacent=CellClass::Adjacent_Cell(node->Position,facing);
                     if(Generation_Cell_In_Bounds_0058da10(adjacent) && reinterpret_cast<UnknownMapGenerationCell *>(seed_0056dba0::Get_Generation_Cell_0056dba0((short *)&adjacent))->unknown_3c==0) {
-                        if(Map[adjacent].unknown_47b590()) {
+                        if(Map[adjacent].Is_Tile_Clear()) {
                             next->Position=adjacent;
                             int dx=(int)adjacent.X-(int)seed.X;
                             int dy=(int)adjacent.Y-(int)seed.Y;
@@ -5759,7 +5759,7 @@ void MapGeneratorClass::Create_Tiberium_Patch(Cell const &position,int amount,in
             Cell adjacent=current->Position + unknown_adjacent_851a70[facing&7];
             if(Map.Unknown_0055A660(adjacent,true)) {
                 CellClass &neighbor=Map[adjacent];
-                if(neighbor.unknown_47b590() &&
+                if(neighbor.Is_Tile_Clear() &&
                    ((neighbor.OverlayIndex==-1 && unknown_map_cells_a70a24[adjacent.Y*unknown_map_cell_side_84e804+adjacent.X].unknown_3c!=patchId) ||
                     (neighbor.OverlayData<11 && neighbor.Tiberium_Type_Here()!=-1))) {
                     next->Position=adjacent;
@@ -5785,7 +5785,7 @@ double __stdcall Randomized_Cell_Distance_005846b0(Cell const &a,Cell const &b)
     int dy=(int)a.Y-(int)b.Y;
     int square=(int)((unsigned)dy*(unsigned)dy+(unsigned)dx*(unsigned)dx);
     double distance=unknown_sqrt_4ba410((double)square);
-    return distance+(unsigned int)unknown_map_random_a705c0()*unknown_random_scale_7a5dd0*unknown_distance_scale_007a5cf8;
+    return distance+(unsigned int)RMGRandom()*unknown_random_scale_7a5dd0*unknown_distance_scale_007a5cf8;
 }
 
 
@@ -5899,7 +5899,7 @@ void Mark_Adjacent_Grid_Weights_00584bd0()
             for(int direction=0;direction<8;++direction) {
                 Cell position=current->MapCoords;
                 Cell next=unknown_adjacent_851a70[direction&7]+position;
-                if(Generation_Cell_In_Bounds_0058da10(next) && Map[next].unknown_47b590()) {
+                if(Generation_Cell_In_Bounds_0058da10(next) && Map[next].Is_Tile_Clear()) {
                     int at=(int)((unsigned int)(int)next.Y*(unsigned int)unknown_map_cell_side_84e804+(unsigned int)(int)next.X);
                     unknown_map_cells_a70a24[at].unknown_08=0.5;
                     at=(int)((unsigned int)(int)next.Y*(unsigned int)unknown_map_cell_side_84e804+(unsigned int)(int)next.X);
@@ -5911,7 +5911,7 @@ void Mark_Adjacent_Grid_Weights_00584bd0()
             for(int direction=0;direction<8;++direction) {
                 Cell position=current->MapCoords;
                 Cell next=unknown_adjacent_851a70[direction&7]+position;
-                if(Generation_Cell_In_Bounds_0058da10(next) && Map[next].unknown_47b590()) {
+                if(Generation_Cell_In_Bounds_0058da10(next) && Map[next].Is_Tile_Clear()) {
                     int at=(int)((unsigned int)(int)next.Y*(unsigned int)unknown_map_cell_side_84e804+(unsigned int)(int)next.X);
                     unknown_map_cells_a70a24[at].unknown_45[0]=1;
                     break;
@@ -6069,7 +6069,7 @@ inline Cell Pick_Random_Clear_Map_Cell()
     for(;;) {
         Cell position=Pick_Random_Map_Cell();
         if(++tries>200)return Cell(0,0);
-        if(Map[position].unknown_47b590())return position;
+        if(Map[position].Is_Tile_Clear())return position;
     }
 }
 
@@ -6091,7 +6091,7 @@ void MapGeneratorClass::Generate_Vegetation()
 
     while(cell) {
         UnknownMapGenerationCell &data=MapRegionClass::Get_Cell_Data(cell->Fetch_CellID());
-        if(cell->unknown_47b590() && cell->unknown_11c==0 && cell->OverlayIndex==-1 && cell->OccupierPtr==0 && data.unknown_45[0]==0) {
+        if(cell->Is_Tile_Clear() && cell->unknown_11c==0 && cell->OverlayIndex==-1 && cell->OccupierPtr==0 && data.unknown_45[0]==0) {
             Cell origin=cell->Fetch_CellID();
             int originID=(int)((unsigned)(int)origin.Y*512u+(unsigned)(int)origin.X);
             if(Map_Random_Fraction_00579770()<data.unknown_18) {
@@ -6125,9 +6125,9 @@ void MapGeneratorClass::Generate_Vegetation()
         Cell position=Pick_Random_Map_Cell();
         CellClass *target=&Map[position];
         if(Overlay_Is_Clear(target)) {
-            if(target->unknown_47b9a0()) {
+            if(target->Is_Tile_Clear_To_Sand_LAT()) {
                 Set_Overlay(target,Map_Random_Range_005797a0(0,4)+0xa8);
-            } else if(target->unknown_47b590() || target->unknown_47b9c0()) {
+            } else if(target->Is_Tile_Clear() || target->Is_Tile_Clear_To_Green_LAT()) {
                 Set_Overlay(target,Map_Random_Range_005797a0(0,4)+0xad);
             }
             target->OverlayData=0;
@@ -6162,7 +6162,7 @@ int MapGeneratorClass::Place_Forest(CellClass *origin,int count,double density)
     int planted=0;
     while(planted<count && current && used<capacity) {
         CellClass *cell=&Map[current->Position];
-        if(cell->unknown_47b590() && cell->OccupierPtr==0 && cell->OverlayIndex==-1 && cell->unknown_ec!=3) {
+        if(cell->Is_Tile_Clear() && cell->OccupierPtr==0 && cell->OverlayIndex==-1 && cell->unknown_ec!=3) {
             if(Map_Random_Fraction_00579770()<density) {
                 char treeName[20];
                 int tree=(int)Map_Random_Range_005797a0(1,25);
@@ -6241,7 +6241,7 @@ void MapGeneratorClass::Place_Tile_Patch(CellClass *cell,int tile,int count,int 
             Cell newcell=CellClass::Adjacent_Cell(node->Position,dir);
             if(Generation_Cell_In_Bounds_0058da10(newcell)) {
                 CellClass *newcellptr=&Map[newcell];
-                if(newcellptr->unknown_47b590() || flag && (newcellptr->unknown_47b880() || newcellptr->unknown_47b860())) {
+                if(newcellptr->Is_Tile_Clear() || flag && (newcellptr->Is_Tile_Pavement() || newcellptr->Is_Tile_Misc_Pavement())) {
                     if(MapRegionClass::Get_Cell_Data(newcell).unknown_3c!=origin && newcellptr->unknown_11c==0 && newcellptr->OverlayIndex==-1 && newcellptr->OccupierPtr==0) {
                         newnode->Position=newcell;
                         Cell start=cell->Fetch_CellID();
@@ -6272,7 +6272,7 @@ double __stdcall Randomized_Cell_Distance_00586780(Cell const &a,Cell const &b)
     int dy=(int)a.Y-(int)b.Y;
     int square=(int)((unsigned)dy*(unsigned)dy+(unsigned)dx*(unsigned)dx);
     double distance=unknown_sqrt_4ba410((double)square);
-    return distance+(unsigned int)unknown_map_random_a705c0()*unknown_random_scale_7a5dd0*unknown_distance_scale_007a5d40;
+    return distance+(unsigned int)RMGRandom()*unknown_random_scale_7a5dd0*unknown_distance_scale_007a5d40;
 }
 
 
@@ -6324,7 +6324,7 @@ DynamicVectorClass<Cell> *MapGeneratorClass::Create_Urban_Area(Cell const &cell,
             Cell newcell = Region_Adjacent_Cell(node->Position, dir);
             if (Hill_In_Radar(newcell)) {
                 CellClass *newcellptr = &Map[newcell];
-                if (newcellptr->unknown_47b590() && newcellptr->OverlayIndex == -1) {
+                if (newcellptr->Is_Tile_Clear() && newcellptr->OverlayIndex == -1) {
                     if (Get_Cell_Data_Spread(newcell) != 1 && !MapRegionClass::Get_Cell_Data(newcell).unknown_45[0]) {
                         newnode->Position = newcell;
                         newnode->Key = Randomized_Chebyshev_Distance_005872c0(cell, newcell);
@@ -6402,7 +6402,7 @@ double __stdcall Randomized_Chebyshev_Distance_005872c0(Cell const &a,Cell const
     int x = (int)a.X - (int)b.X;
     int y = (int)a.Y - (int)b.Y;
     double distance=abs(x)>abs(y)?abs(x):abs(y);
-    return distance + (unsigned int)unknown_map_random_a705c0()*(1.0 / 4294967295.0)*unknown_distance_scale_7a5d50;
+    return distance + (unsigned int)RMGRandom()*(1.0 / 4294967295.0)*unknown_distance_scale_7a5d50;
 }
 
 
@@ -6549,8 +6549,8 @@ void MapGeneratorClass::Generate_Urban_Roads(DynamicVectorClass<Cell> &cells)
 
                                 CellClass *cellptr=&Map[cursor+Cell(1,-2)];
 
-                                if(cellptr->unknown_47b940()) {
-                                    while(cellptr->unknown_47b940()) {
+                                if(cellptr->Is_Tile_Road_Median()) {
+                                    while(cellptr->Is_Tile_Road_Median()) {
                                         cellptr->IsoTileIndex=unknown_tileset_a6dd0c+1;
                                         cellptr->unknown_11a=1;
                                         cellptr=&cellptr->Adjacent_Cell(0);
@@ -6616,7 +6616,7 @@ void MapGeneratorClass::Generate_Urban_Buildings(DynamicVectorClass<Cell> &cells
                     while(list->X!=0x7fff || list->Y!=0x7fff) {
                         Cell next=(position + *list);
                         CellClass *cell=&Map[next];
-                        if((!cell->unknown_47b880() && !cell->unknown_47b860()) || cell->OccupierPtr!=0 || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true))clear=false;
+                        if((!cell->Is_Tile_Pavement() && !cell->Is_Tile_Misc_Pavement()) || cell->OccupierPtr!=0 || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true))clear=false;
                         ++list;
                         if(!clear)break;
                     }
@@ -6853,11 +6853,11 @@ bool __fastcall Can_Place_Paved_Road_00588a30(Rect const &area,bool allowFirst,b
         for(int y=area.Y;y<area.Y+area.Height;++y) {
             for(int x=area.X;x<area.X+area.Width;++x) {
                 CellClass &cell=Map[Cell(x,y)];
-                if(cell.unknown_47b8e0()) {
+                if(cell.Is_Tile_Paved_Road()) {
                     if(!allowFirst)return false;
-                } else if(cell.unknown_47b900()) {
+                } else if(cell.Is_Tile_Paved_Road_End()) {
                     if(!allowSecond)return false;
-                } else if(!cell.unknown_47b590() && !cell.unknown_47b860() && !cell.unknown_47b880()) {
+                } else if(!cell.Is_Tile_Clear() && !cell.Is_Tile_Misc_Pavement() && !cell.Is_Tile_Pavement()) {
                     return false;
                 }
             }
@@ -6884,9 +6884,9 @@ bool __fastcall Can_Place_Paved_Road_End_00588c20(Rect const &area,bool allowRoa
             for(int x=area.X;x<area.X+area.Width;++x) {
                 CellClass &cell=Map[Cell(x,y)];
                 if(cell.unknown_11b!=height)return false;
-                if(cell.unknown_47b8e0() || cell.unknown_47b900()) {
+                if(cell.Is_Tile_Paved_Road() || cell.Is_Tile_Paved_Road_End()) {
                     if(!allowRoad)return false;
-                } else if(!cell.unknown_47b590() && !cell.unknown_47b860() && !cell.unknown_47b880()) {
+                } else if(!cell.Is_Tile_Clear() && !cell.Is_Tile_Misc_Pavement() && !cell.Is_Tile_Pavement()) {
                     return false;
                 }
             }
@@ -6922,13 +6922,13 @@ bool __fastcall Can_Place_Paved_Road_Junction_00588ec0(Rect &area)
         for(int y=area.Y;y<area.Y+3;++y) {
             for(int x=area.X;x<area.X+3;++x) {
                 CellClass &cell=Map[Cell(x,y)];
-                if((cell.IsoTileIndex<unknown_tileset_a6dd0c || cell.IsoTileIndex>unknown_tileset_a6dd0c+1) && !cell.unknown_47b940()) return false;
+                if((cell.IsoTileIndex<unknown_tileset_a6dd0c || cell.IsoTileIndex>unknown_tileset_a6dd0c+1) && !cell.Is_Tile_Road_Median()) return false;
             }
         }
         for(int x=area.X;x<area.X+3;++x) {
             int y=area.Y+3;
             CellClass &cell=Map[Cell(x,y)];
-            if(!cell.unknown_47b880() && !cell.unknown_47b590() && !cell.unknown_47b860()) return false;
+            if(!cell.Is_Tile_Pavement() && !cell.Is_Tile_Clear() && !cell.Is_Tile_Misc_Pavement()) return false;
         }
         return true;
     }
@@ -6949,7 +6949,7 @@ void MapGeneratorClass::Generate_Urban_Pavement(DynamicVectorClass<Cell> &cells)
         {
         unsigned maximum=(unsigned)cells.Count()-1;
         double span=(unsigned)(maximum+1);
-        do { index=(unsigned)((unsigned)unknown_map_random_a705c0()*span*(1.0/4294967295.0)); } while(index>maximum);
+        do { index=(unsigned)((unsigned)RMGRandom()*span*(1.0/4294967295.0)); } while(index>maximum);
         }
         Cell cell=cells[index];
         int size=0;
@@ -6964,7 +6964,7 @@ void MapGeneratorClass::Generate_Urban_Pavement(DynamicVectorClass<Cell> &cells)
         }
         if(fits) {
             unsigned variant;
-            do { variant=(unsigned)((unsigned)unknown_map_random_a705c0()*(6.0/4294967295.0)); } while(variant>5);
+            do { variant=(unsigned)((unsigned)RMGRandom()*(6.0/4294967295.0)); } while(variant>5);
             int tile=variant+unknown_tileset_a52ef4+8;
             for(int y=0;y<area.Height/2;++y) {
                 for(int x=0;x<area.Width/2;++x) {
@@ -6989,7 +6989,7 @@ bool __fastcall Can_Place_Misc_Pavement_00589320(Rect const &area)
             for(int x=area.X;x<area.X+area.Width;++x) {
                 CellClass &cell=Map[Cell(x,y)];
                 int tile=cell.IsoTileIndex;
-                if(!cell.unknown_47b880() && (tile<unknown_tileset_a52ef4 || tile>unknown_tileset_a52ef4+7))return false;
+                if(!cell.Is_Tile_Pavement() && (tile<unknown_tileset_a52ef4 || tile>unknown_tileset_a52ef4+7))return false;
                 if(cell.OccupierPtr)return false;
             }
         }
@@ -7015,7 +7015,7 @@ bool __fastcall Can_Use_Tile_Footprint_005894e0(int tile,Cell const &position,un
                 CellClass &cell=Map[where];
                 unsigned char const *subtile=(unsigned char const *)image->Tiles[(int)((unsigned)type->unknown_2b4*(unsigned)y+(unsigned)x)];
                 if(subtile) {
-                    if(!cell.unknown_47b590() && !cell.unknown_47b5b0())return false;
+                    if(!cell.Is_Tile_Clear() && !cell.Is_Tile_Ramp())return false;
                     if((int)cell.unknown_11c!=(int)(signed char)subtile[0x2a])return false;
                     if(check_mark && unknown_map_cells_a70a24[(int)((unsigned)(int)where.Y*(unsigned)unknown_map_cell_side_84e804+(unsigned)(int)where.X)].unknown_45[1])return false;
                 }
@@ -7106,7 +7106,7 @@ void MapGeneratorClass::Generate_Rural_Buildings(Cell const &origin)
                     while(list->X!=0x7fff || list->Y!=0x7fff) {
                         Cell next=(position + *list);
                         CellClass *cell=&Map[next];
-                        if(cell->OccupierPtr!=0 || !cell->unknown_47b590() || cell->unknown_11b!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true))clear=false;
+                        if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->unknown_11b!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true))clear=false;
                         ++list;
                         if(!clear)break;
                     }
@@ -7357,7 +7357,7 @@ bool __fastcall Find_Dirt_Road_Tile_0058a6e0(int facing,Cell const &target_cell,
         int tile_count=unknown_road_counts_7e1064[facing][current-1];
         int *tile_list=unknown_road_library_7e0fe4[facing][current-1];
         int start_index;
-        if(current==2 && (unsigned)unknown_map_random_a705c0()*random_unit_7a5dd0<unknown_road_bias_7a5d70) {
+        if(current==2 && (unsigned)RMGRandom()*random_unit_7a5dd0<unknown_road_bias_7a5d70) {
             start_index=Map_Random_Range_005797a0(7,tile_count-1);
         } else {
             start_index=Map_Random_Range_005797a0(0,tile_count-1);
@@ -7422,7 +7422,7 @@ inline CoordStruct Move_Coord(CoordStruct const &start,UnknownFacingDir const &d
 }
 double __cdecl Map_Random_Fraction_00579770()
 {
-    return (unsigned)unknown_map_random_a705c0()*(1.0/4294967295.0);
+    return (unsigned)RMGRandom()*(1.0/4294967295.0);
 }
 void MapGeneratorClass::Generate_Lights()
 {
@@ -7516,7 +7516,7 @@ void MapGeneratorClass::Generate_Neutral_Buildings()
                 while(!Is_List_End(list)) {
                     Cell next=position + *list;
                     CellClass *cell=&Map[next];
-                    if(cell->OccupierPtr!=0 || !cell->unknown_47b590() || cell->unknown_11b!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true) || !Cell_Is_Free(cell->MapCoords))clear=false;
+                    if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->unknown_11b!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true) || !Cell_Is_Free(cell->MapCoords))clear=false;
                     ++list;
                     if(!clear)break;
                 }
@@ -7765,7 +7765,7 @@ UnknownVeinNode *UnknownVeinHeap::Remove_Min()
 void Clear_Map_Cell_Traversal_Marks_00582a50();
 extern "C" double __cdecl log(double);
 #pragma intrinsic(log)
-extern Random2Class unknown_map_random_a705c0;
+extern Random2Class RMGRandom;
 extern double const angle_half_pi_79b630,angle_pi_79d158,angle_turn_79c9b8;
 extern double const angle_weight_7a5cd0,jitter_weight_7a5cc8,random_unit_7a5dd0;
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &);
@@ -7814,7 +7814,7 @@ bool MapGeneratorClass::Grow_Water_Region(int region,float scale,Rect const &bou
         if(!success || !node)break;
         Cell const &position=node->Position;
         UnknownMapGenerationCell &data=MapRegionClass::Get_Cell_Data(position);
-        if(data.RegionIndex==0 && Map[position].unknown_47b590()) {
+        if(data.RegionIndex==0 && Map[position].Is_Tile_Clear()) {
             data.unknown_4b=1;
             data.RegionIndex=region;
         }
@@ -7822,7 +7822,7 @@ bool MapGeneratorClass::Grow_Water_Region(int region,float scale,Rect const &bou
         for(int direction=0;direction<8;direction+=2) {
             Cell adjacent=CellClass::Adjacent_Cell(position,direction);
             if(Generation_Cell_In_Bounds_0058da10(adjacent)) {
-                if(Get_Cell_Data_Region(adjacent)==0 && Get_Cell_Data_Spread(adjacent)!=region && bounds.Is_Point_Within(Point2D(adjacent.X,adjacent.Y)) && Map[adjacent].unknown_47b590()) {
+                if(Get_Cell_Data_Region(adjacent)==0 && Get_Cell_Data_Spread(adjacent)!=region && bounds.Is_Point_Within(Point2D(adjacent.X,adjacent.Y)) && Map[adjacent].Is_Tile_Clear()) {
                     next->Position=adjacent;
                     next->Key=Get_Angle_Score(origin,adjacent,angle);
                     Set_Cell_Data_Spread(adjacent,region);
@@ -7888,12 +7888,12 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
             unsigned x_max = Map.MapSize.Width - 1;
             unsigned x;
             do {
-                x = (unsigned)((unsigned)unknown_map_random_a705c0() * (double)(x_max + 1) * (1.0 / 4294967296.0));
+                x = (unsigned)((unsigned)RMGRandom() * (double)(x_max + 1) * (1.0 / 4294967296.0));
             } while (x > x_max);
             unsigned y_max = Map.MapSize.Height - 1;
             unsigned y;
             do {
-                y = (unsigned)((unsigned)unknown_map_random_a705c0() * (double)(y_max + 1) * (1.0 / 4294967296.0));
+                y = (unsigned)((unsigned)RMGRandom() * (double)(y_max + 1) * (1.0 / 4294967296.0));
             } while (y > y_max);
             start = Cell(x + 1, Map.MapSize.Width - x) + Cell(y, y);
             if (++tries >= 200) {
@@ -7964,7 +7964,7 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
                             int dx = adjacent.X - center.X;
                             int dy = adjacent.Y - center.Y;
                             key = unknown_sqrt_4ba410((double)(dx * dx + dy * dy))
-                                + (unsigned)unknown_map_random_a705c0() * 5.0 * (1.0 / 4294967296.0);
+                                + (unsigned)RMGRandom() * 5.0 * (1.0 / 4294967296.0);
                         }
                         next->Key = (float)key;
                         data.unknown_3c = WorkingRegionID;

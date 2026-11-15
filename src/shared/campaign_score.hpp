@@ -109,7 +109,7 @@ int __stdcall unknown_score_dialog_proc_465fc0(struct HWND__ *window, unsigned i
 // Sorts the end screen's score list best first (0x00467A00).
 void unknown_sort_end_scores_467a00();
 // Dialog helpers of the score screens (0x005E5F20 when painting; 0x005ECF40 on message 0x4ED).
-void __fastcall unknown_dialog_5e5f20(struct HWND__ *window);
+void __fastcall Slide_Pending_Dialog(struct HWND__ *window);
 void __stdcall unknown_dialog_5ecf40(struct HWND__ *window, int unknown2);
 
 #endif

@@ -170,10 +170,10 @@ bool SpecialClass::Equals_Options(SpecialClass const &other) const
 }
 
 
-// void SpecialClass::Unknown_0068B410() (0x0068B410)
+// void SpecialClass::Apply_To_Game() (0x0068B410)
 // Empty in this build (Read_Scenario_INI calls it on the global options).
 
-void SpecialClass::Unknown_0068B410()
+void SpecialClass::Apply_To_Game()
 {
 }
 

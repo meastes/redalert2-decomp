@@ -317,8 +317,8 @@ void ParasiteClass::Unknown_00606780()
                 CoordStruct splash = coord + CoordStruct(x, y, 0);
                 new AnimClass(Rules->SplashList[unknown_id_source_a3d290->Random()(0, count - 1)], splash, 2, 1, 0x600, -10);
             }
-            if (warhead->Culling && (unknown_28->unknown_func_5d46b0() == 0 ||
-                (unknown_28->unknown_func_5d46b0() == 1 && Owner->unknown_118.Is_Elite()))) {
+            if (warhead->Culling && (unknown_28->GetHealthStatus() == 0 ||
+                (unknown_28->GetHealthStatus() == 1 && Owner->unknown_118.Is_Elite()))) {
                 if (Owner->Techno_Type_Class()->Trainable) {
                     TechnoTypeClass *victim_type = unknown_28->Techno_Type_Class();
                     TechnoTypeClass *owner_type = Owner->Techno_Type_Class();
@@ -482,7 +482,7 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
                     ((TeamClass *)Owner->unknown_384)->Add(Owner);
                 }
                 if (!Owner->unknown_slot270()) {
-                    Owner->unknown_6d6e50(0);
+                    Owner->Assign_Archive_Target(0);
                     Owner->unknown_slot220(0);
                     Owner->Assign_Destination(0, true);
                 }
@@ -560,7 +560,7 @@ void ParasiteClass::Unknown_00607440()
             ((TeamClass *)Owner->unknown_384)->Add(Owner);
         }
         if (!Owner->unknown_slot270()) {
-            Owner->unknown_6d6e50(0);
+            Owner->Assign_Archive_Target(0);
             Owner->unknown_slot220(0);
             Owner->Assign_Destination(0, true);
         }

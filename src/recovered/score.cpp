@@ -174,7 +174,7 @@ void ScoreClass::Presentation()
     Color = Build_Hicolor_Pixel(fontpal[204] << 2, fontpal[205] << 2, fontpal[206] << 2);
     delete fontpal;
 
-    ConvertClass *drawer = new ConvertClass(CCPalette, CCPalette, unknown_surface_839950, 1, 0);
+    ConvertClass *drawer = new ConvertClass(CCPalette, CCPalette, VisibleSurface, 1, 0);
     SurfacePtr = new DSurface(HiddenSurface->Get_Width(), HiddenSurface->Get_Height(), false);
     SurfacePtr->Fill(0);
     Load_Title_Screen_00738190("SCORE.PCX", SurfacePtr, &CCPalette);
@@ -209,7 +209,7 @@ void ScoreClass::Presentation()
     HiddenSurface->Copy_From(*SurfacePtr, false, true);
     AlternateSurface->Copy_From(*SurfacePtr, false, true);
 
-    Drawer = new ConvertClass(CCPalette, CCPalette, unknown_surface_839950, 1, 0);
+    Drawer = new ConvertClass(CCPalette, CCPalette, VisibleSurface, 1, 0);
     Add_Anim(new ScoreTimeClass(XOffset + 7, YOffset + 6, logo01shape, 60, 3, Drawer));
 
     Play_Sound("Efficiency", 128);
@@ -292,7 +292,7 @@ void ScoreClass::Presentation()
     PRINT(str, x, YOffset + 247, Font);
     WAIT();
     Do_Graphs();
-    while (unknown_score_print_ab6f9c) {
+    while (StillUpdating) {
         ScoreDelay(1);
     }
     WWKeyboard->Clear();
@@ -350,7 +350,7 @@ void ScoreClass::Presentation()
         }
         ScoreDelay(1);
     }
-    while (unknown_score_print_ab6f9c) {
+    while (StillUpdating) {
         ScoreDelay(1);
     }
     WWKeyboard->Clear();
@@ -805,7 +805,7 @@ void ScoreClass::ScoreDelay(int ticks)
 
 void ScoreClass::Update_Anims()
 {
-    unknown_score_print_ab6f9c = false;
+    StillUpdating = false;
     if (SurfacesRestored) {
         SurfacesRestored = false;
         HiddenSurface->Fill(0);
@@ -834,7 +834,7 @@ void ScoreClass::Blit_Score()
     if (WWMouse != 0) {
         WWMouse->Draw_Mouse(HiddenSurface);
     }
-    unknown_surface_839950->Copy_From(dest, *HiddenSurface, source, false, true);
+    VisibleSurface->Copy_From(dest, *HiddenSurface, source, false, true);
     if (WWMouse != 0) {
         WWMouse->Erase_Mouse(HiddenSurface);
     }
@@ -935,7 +935,7 @@ ScorePrintClass::ScorePrintClass(void const *string, int x, int y, ScoreFontClas
 
 bool ScorePrintClass::Update(Surface *surface)
 {
-    unknown_score_print_ab6f9c = true;
+    StillUpdating = true;
     if (!Timer) {
         Timer = CDTimerClass<SystemTimerClass>(2);
         if ((unsigned)Stage > wcslen((unsigned short const *)DataPtr) && unknown_20 > 2) {

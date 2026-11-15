@@ -313,7 +313,7 @@ FootClass * __fastcall _Create_Group(TeamTypeClass *teamtype)
         }
     }
 
-    bool has_air_transport = team->unknown_func_6bd810();
+    bool has_air_transport = team->Has_Air_Transport();
 
     FootClass *transport = 0;
     FootClass *object = 0;

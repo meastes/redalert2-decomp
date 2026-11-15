@@ -13,10 +13,10 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Map_Random_Fraction_00579770@@YANXZ=00579770
 // @ref ?Map_Random_Range_005797a0@@YIIII@Z=005797a0
-// @ref ?unknown_47b590@CellClass@@QBE_NXZ=0047b590
+// @ref ?Is_Tile_Clear@CellClass@@QBE_NXZ=0047b590
 // @ref ?unknown_map_cell_side_84e804@@3HA=0084e804
 // @ref ?unknown_map_cells_a70a24@@3PAUUnknownMapGenerationCell@@A=00a70a24
-// @ref ?unknown_map_random_a705c0@@3VRandom2Class@@A=00a705c0
+// @ref ?RMGRandom@@3VRandom2Class@@A=00a705c0
 // @ref ?unknown_math_4ba520@@YANN@Z=004ba520
 // @ref ?unknown_math_4ba5b0@@YANN@Z=004ba5b0
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410

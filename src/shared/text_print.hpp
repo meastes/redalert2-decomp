@@ -9,7 +9,7 @@
 // Overlaps to merge: shared/ms_anim.hpp (unknown_bit_font_84e9e8,
 // unknown_bit_printer_84e9d0), shared/font_message_views.hpp (FontDrawState:
 // line height +0x1C, clip box +0x30), shared/color_scheme.hpp (ColorScheme, HSVClass), shared/gscreen.hpp
-// (unknown_surface_83995c). ConvertClass is shared/convert.hpp's and the
+// (LogicalSurface). ConvertClass is shared/convert.hpp's and the
 // pixel shifts are shared/hicolor.hpp's.
 // The Gadgets copy of gadget.hpp includes this header in place of its
 // UnknownFont stand-in.
@@ -194,7 +194,7 @@ Point2D __fastcall Fancy_Clip_Text_Print(wchar_t const *text, Surface *surface, 
 Point2D __fastcall unknown_scheme_text_print_497f40(wchar_t const *text, Surface *surface, Rect const *clip,
                                                     Point2D *xy, unsigned fore, unsigned back, unsigned flags,
                                                     int scheme, int unknown8);   // 0x00497F40
-Point2D __fastcall unknown_scheme_text_print_498050(wchar_t const *text, Surface *surface, Rect const *clip,
+Point2D __fastcall Plain_Text_Print_Wide(wchar_t const *text, Surface *surface, Rect const *clip,
                                                     Point2D *xy, unsigned fore, unsigned back, unsigned flags,
                                                     int scheme, int unknown8);   // 0x00498050
 unsigned char *__fastcall unknown_fill_buffer_498160(int value);              // 0x00498160

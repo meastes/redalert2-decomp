@@ -104,9 +104,9 @@ int TextLabelClass::Draw_Me(int forced)
                 Rect rect;
                 rect.X = X;
                 rect.Y = Y;
-                rect.Width = PixWidth < 0 ? unknown_surface_83995c->Get_Width() : PixWidth;
+                rect.Width = PixWidth < 0 ? LogicalSurface->Get_Width() : PixWidth;
                 rect.Height = font->Height;
-                int over = rect.X + rect.Width - unknown_surface_83995c->Get_Width();
+                int over = rect.X + rect.Width - LogicalSurface->Get_Width();
                 if (over > 0) {
                     rect.Width -= over;
                     if (!rect.Is_Valid()) {
@@ -131,7 +131,7 @@ int TextLabelClass::Draw_Me(int forced)
                         Voc_Play(Rules->MessageCharTyped, 1.0f, 0x2000, 0);
                     }
                 }
-                OwnerDraw::unknown_draw_edit_text_600830(unknown_surface_83995c, rect, Text, length, font, color,
+                OwnerDraw::unknown_draw_edit_text_600830(LogicalSurface, rect, Text, length, font, color,
                                                         &Scroll, Has_Focus(), 0, 1, RevealCount);
                 return true;
             }

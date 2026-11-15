@@ -19,12 +19,12 @@
 
 // The VQA option bits (a bit vector at 0x00AF9020; 18 options, option 6 set
 // by default). Index meanings are unknown.
-extern unsigned char unknown_vqa_options_af9020[3];
-void __fastcall VQA_Unknown_0071DB20();                    // 0x0071DB20 defaults
+extern unsigned char VQOptions[3];
+void __fastcall Initialize_Options();                    // 0x0071DB20 defaults
 void __fastcall Set_Option(int flag);          // 0x0071DB60 set
-void __fastcall VQA_Unknown_0071DB80(int option);          // 0x0071DB80 clear
+void __fastcall Clear_Option(int option);          // 0x0071DB80 clear
 bool __fastcall Get_Option(int flag);          // 0x0071DBA0 test
-int __fastcall VQA_Unknown_0071DBC0(int option);           // 0x0071DBC0 toggle; 1 when now set
+int __fastcall Toggle_Option(int option);           // 0x0071DBC0 toggle; 1 when now set
 
 // Owned by the VQA movie at +0x48 (class unknown).
 #ifdef VQA_MOVIE_COMPANION_UNIT
@@ -246,7 +246,7 @@ public:
 void *GetDirectSoundObject();             // 0x0040A6C0 the DirectSound object
 #include "shared/debug_printf.hpp"
 extern float unknown_volume_a40b48;             // 0x00A40B48 movie volume scale
-extern float unknown_volume_84e9a8;             // 0x0084E9A8
+extern float BinkVolume;             // 0x0084E9A8
 VQAMovieCompanion *__fastcall Subtitles_Open(char const *filename);   // 0x0069B190
 
 class MovieHandle {

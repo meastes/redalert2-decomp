@@ -129,7 +129,7 @@ void EnvironmentClass::Capture_004B5AB0()
 void EnvironmentClass::Restore_004B5B40()
 {
     for (int i = 0; i < 50; ++i) {
-        unknown_id_source_a3d290->unknown_6612c0(i, Variables[i]);
+        unknown_id_source_a3d290->Set_Global_To(i, Variables[i]);
     }
     int cap = unknown_id_source_a3d290->unknown_1208;
     double money = Credits * unknown_id_source_a3d290->CarryOverMoney;

@@ -28,7 +28,7 @@ bool __fastcall End_Dialog_007357e0(HWND dialog, int result);
 int __fastcall Make_Random_Map_005c84e0();
 bool __fastcall Accept_Map_Selection_005c71f0(HWND dialog);
 int __fastcall unknown_select_list_item_by_data_005c7160(HWND dialog, intptr_t data);   // NATIVE: pointer item data (port/fixups.json)
-void __fastcall unknown_dialog_5e5f20(HWND dialog);
+void __fastcall Slide_Pending_Dialog(HWND dialog);
 namespace OwnerDraw {
 void __fastcall unknown_draw_dialog_back_5fee70(HWND window);
 void __fastcall unknown_5ff380(unsigned int key);
@@ -118,7 +118,7 @@ long __stdcall Lobby_Dialog_Proc_005c69e0(HWND window, unsigned message, unsigne
     case 0xf:
         OwnerDraw::unknown_draw_dialog_back_5fee70(window);
         if (MultiplayerMapPreview) MultiplayerMapPreview->Blit_Preview(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window, 0);
         return 0;
     case 0x14:
@@ -146,11 +146,11 @@ long __stdcall Lobby_Dialog_Proc_005c69e0(HWND window, unsigned message, unsigne
                     }
                     if (index < unknown_multi_missions_a3d8d8.Count()) unknown_select_list_item_by_data_005c7160(window, (intptr_t)unknown_multi_missions_a3d8d8[index]);
                     Select_Scenario_005c7c30(index);
-                    if (!MultiplayerMapPreview->unknown_00) Unknown_005c7570(window);
+                    if (!MultiplayerMapPreview->unknown_00) Update_Network_Dialog_Preview(window);
                     unknown_session_a3d2b4 = unknown_lobby_map_a72c80;
                     Select_Scenario_005c7c30(unknown_session_a3d2b4);
                     bool accepted = Accept_Map_Selection_005c71f0(window);
-                    unknown_5159b0(0, true);
+                    Darken_Surface(0, true);
                     if (accepted) return 0;
                 }
                 OwnerDraw::unknown_show_dialog_5e61b0(window);

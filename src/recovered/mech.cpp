@@ -458,7 +458,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         LinkedTo->unknown_57a = false;
                     } else {
                         if (can_enter == 1) {
-                            Map[what].unknown_478740();
+                            Map[what].Shimmer();
                         }
                         if (!continue_moving) return;
                         LinkedTo->Path[0] = -1;

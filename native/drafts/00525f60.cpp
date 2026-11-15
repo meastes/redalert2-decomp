@@ -54,7 +54,7 @@ int IPXManagerClass::Service()
             CommHeaderType *packet=(CommHeaderType *)receive_buffer;
             if (packet->MagicNumber==GlobalChannel->MagicNum) {
                 Debug_Printf(s_Adding_packet_from__s____d_to_gl_007de2e0,address.As_String(),(unsigned int)port);
-                if (!unknown_525dc0(packet,receive_buffer,packet_length,(IPXAddressClass *)address_buffer,port)) {
+                if (!Forward_Router_Packet(packet,receive_buffer,packet_length,(IPXAddressClass *)address_buffer,port)) {
                     if (!GlobalChannel->Receive_Packet(receive_buffer,packet_length,&address,port)) {
                         ++unknown_a4;
                         Debug_Printf(s_GlobalChannel_recive_buffer_over_007de0d0,unknown_a4);
@@ -80,12 +80,12 @@ int IPXManagerClass::Service()
                                                 Debug_Printf(s_Player__s_is_having_his_port_tra_007de284,player_name,(unsigned int)port);
                                                 unsigned short old_port=unknown_node_ids_a402ba[player];
                                                 unknown_node_ids_a402ba[player]=port;
-                                                unknown_OwnerTalkClass_00ab6d18.Unknown_0063FB60(unknown_players_a3fa7c[player]->ID,port);
+                                                OwnerTalk.Unknown_0063FB60(unknown_players_a3fa7c[player]->ID,port);
                                                 GlobalChannel->Discard_Packets_To(&address,old_port);
                                                 GlobalChannel->Discard_Packets_To(&address,*(unsigned short *)unknown_players_a3fa7c[player]->Address.NetworkNumber);
                                                 unknown_players_a3fa7c[player]->Address=address;
                                                 unknown_players_a3fa7c[player]->Address.Set_Port(port);
-                                                unknown_OwnerTalkClass_00ab6d18.Unknown_0063F9A0(unknown_players_a3fa7c[player]->ID,&unknown_players_a3fa7c[player]->Address);
+                                                OwnerTalk.Unknown_0063F9A0(unknown_players_a3fa7c[player]->ID,&unknown_players_a3fa7c[player]->Address);
                                                 int slot=unknown_session_a3d298.Unknown_00672F90(player);
                                                 unknown_player_slots_a3fa98[slot]->Address=address;
                                                 slot=unknown_session_a3d298.Unknown_00672F90(player);
@@ -127,7 +127,7 @@ int IPXManagerClass::Service()
                     break;
                 }
             } else if (packet->MagicNumber==ProductID &&
-                       !unknown_525dc0(packet,receive_buffer,packet_length,(IPXAddressClass *)address_buffer,port)) {
+                       !Forward_Router_Packet(packet,receive_buffer,packet_length,(IPXAddressClass *)address_buffer,port)) {
                 if (!unknown_flag_a3fba8 || packet->unknown_03!=0xff) {
                     int connection;
                     for (connection=0;connection<NumConnections;++connection) {
@@ -136,7 +136,7 @@ int IPXManagerClass::Service()
 check_address:
                             matches=Connection[connection]->Address==address;
                         } else {
-                            matches=unknown_OwnerTalkClass_00ab6d18.Unknown_0063F4C0(Connection[connection]->ID)==packet->unknown_03;
+                            matches=OwnerTalk.Unknown_0063F4C0(Connection[connection]->ID)==packet->unknown_03;
                             if (!matches && !unknown_flag_a3fba8) goto check_address;
                         }
                         if (matches) {
@@ -188,7 +188,7 @@ check_router_address:
                                 unknown_50->Address=address;
                                 unknown_address_a3db2c=address;
                                 unknown_forward_address_a3fbac=address;
-                                unknown_OwnerTalkClass_00ab6d18.Unknown_0063F9A0(unknown_players_a3fa7c[player]->ID,&address);
+                                OwnerTalk.Unknown_0063F9A0(unknown_players_a3fa7c[player]->ID,&address);
                             }
                         }
                     }
@@ -207,7 +207,7 @@ next_packet:;
                 unknown_4c->Discard_Undeliverable_Packets();
                 result=0;
             }
-            if (!unknown_a402d8) unknown_OwnerTalkClass_00ab6d18.Unknown_0063F840();
+            if (!unknown_a402d8) OwnerTalk.Unknown_0063F840();
         }
         if (unknown_flag_a3fba8 && unknown_50 && !unknown_50->Service()) {
             Debug_Printf(s_Multicast_channel_has_gone_bad_007de084);

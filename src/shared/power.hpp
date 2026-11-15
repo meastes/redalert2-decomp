@@ -36,7 +36,7 @@ struct UnknownBuilding {
 // (0x00A3D290: unknown_id_source_a3d290->unknown_2239 shifts the region 5 pixels down.)
 extern int unknown_int_839620;      // 0x00839620 sidebar origin X
 extern int unknown_int_839624;      // 0x00839624 sidebar origin Y
-extern int unknown_int_abcd70;      // 0x00ABCD70
+extern int PowerBarHeight;      // 0x00ABCD70
 
 // The shared help-text buffer the help slots return (0x00A767E0).
 extern wchar_t unknown_text_a767e0[];

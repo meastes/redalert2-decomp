@@ -4,7 +4,7 @@
 // a war factory, the harness queues the events a player's clicks would:
 //   * the tank cameo click: PRODUCE (event 0x0E, kind 0x28 = UnitTypeClass,
 //     the type's index in UnitTypes, not naval), one tank at a time while the
-//     house's vehicle factory (HouseClass::unknown_func_4eb580 0x004EB580,
+//     house's vehicle factory (HouseClass::Fetch_Factory 0x004EB580,
 //     kinds 1/0x28) is idle;
 //   * the attack: once twelve tanks stand (or at the frame given by
 //     RA2_NATIVE_ARMY_ATTACK, default 9,000) every combat unit of the player
@@ -181,7 +181,7 @@ void Native_Harness_Army(int frame)
                 }
             }
         }
-        if (infantry_index >= 0 && player->unknown_func_4eb580(0x10, false, 0) == 0
+        if (infantry_index >= 0 && player->Fetch_Factory(0x10, false, 0) == 0
             && player->Can_Build(InfantryTypes[infantry_index], false, true) > 0) {
             OutList.Add(EventClass(player->ArrayIndex, 0x0E, 0x10, infantry_index, 0));
             ++produced;
@@ -221,7 +221,7 @@ void Native_Harness_Army(int frame)
         }
         if (tank_index < 0) return;
     }
-    if (player->unknown_func_4eb580(0x28, false, 0) == 0 && player->Can_Build(UnitTypes[tank_index], false, true) > 0) {
+    if (player->Fetch_Factory(0x28, false, 0) == 0 && player->Can_Build(UnitTypes[tank_index], false, true) > 0) {
         OutList.Add(EventClass(player->ArrayIndex, 0x0E, 0x28, tank_index, 0));
         ++produced;
         if (produced <= 3 || produced % 5 == 0) Note("produce tank", frame, produced);

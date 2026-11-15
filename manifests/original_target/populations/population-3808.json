@@ -4,8 +4,8 @@
     "id": "population-3808",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "8e52b082f55f0f4f7c76ff034c4e6e7162ae8f23430c07f1789bc235e3b82e98",
-    "historical_acceptance_sha256": "94cd9a01228b846bc3638209faf1532da4939263472853f30647f5f148173cf4"
+    "historical_population_sha256": "d4394b0b99ee7161108fe3ed995b0cd9d684e802690151aeff5198040503adcc",
+    "historical_acceptance_sha256": "ebc3d97740c91f30b00a1afbff52a4c5212d7a5722a9d1a6f969237ea9197063"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -224,8 +224,8 @@
     "?unknown_records_af3408@@3PAUUnknownVoxelRecord48@@A": 11482120,
     "?unknown_voxel_colors_ae3008@@3PAVRGBClass@@A": 11415560,
     "?unknown_voxel16_colors_ae0a7c@@3PAGA": 11405948,
-    "?unknown_voxel_record_count_ae0cb0@@3HA": 11406512,
-    "?unknown_voxel_shadow_count_ae3000@@3HA": 11415552,
+    "?VoxelRenderDataCount@@3HA": 11406512,
+    "?VoxelShadowRenderDataCount@@3HA": 11415552,
     "_?_need_buffer_init@?1??Reset@VoxelDrawSystem@@YAXXZ@4HA": 8363392,
     "_?render_data@?1??Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z@4PAPAUUnknownVoxelRecord88@@A": 11416328,
     "_?render_data@?1??Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ@4PAPAUUnknownVoxelRecord88@@A": 11406516,
@@ -1515,7 +1515,7 @@
     "?get@Storage_654960@@QAEPAXIPAI@Z": 6637920,
     "?get@Storage_6549b0@@QAEPAXIPAI@Z": 6638000,
     "?get@Storage_654a00@@QAEPAXIPAI@Z": 6638080,
-    "?unknown_6631a0@ScenarioClass@@QAEPAVCellClass@@H@Z": 6697376,
+    "?Get_Waypoint_Target@ScenarioClass@@QAEPAVCellClass@@H@Z": 6697376,
     "?target@Target_6631a0@@QAEII@Z": 5537904,
     "?Set_Waypoint_Location@ScenarioClass@@QAEXHVCell@@@Z": 6697984,
     "?Add@?$DynamicVectorClass@PAVTechnoTypeClass@@@@QAE_NABQAVTechnoTypeClass@@@Z": 6698304,
@@ -1764,7 +1764,7 @@
     "?ID@?$DynamicVectorClass@PAVToolTip@@@@UAEHABQAVToolTip@@@Z": 7258528,
     "?get@Leaf_6ec1d0@@QAEPAXI@Z": 7258576,
     "?Size@TunnelLocomotionClass@@UAEHXZ": 7279520,
-    "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z": 7281408,
+    "?Inflate_Rect@@YIXPAVRect@@H@Z": 7281408,
     "?get@Leaf_6f6730@@QAEIXZ": 7300912,
     "?get@Leaf_6f6740@@QAEIXZ": 7300928,
     "?get@Leaf_6f6750@@QAEIXZ": 7300944,
@@ -4101,7 +4101,7 @@
     "?Play_Sound@GraphicMenuImageItem@@UAEXH@Z": 5111408,
     "?Resume@VocStaticSound@@QAEXXZ": 7423104,
     "?Update@ScorePrintClass@@UAE_NPAVSurface@@@Z": 6717680,
-    "?unknown_score_print_ab6f9c@@3_NA": 11235228,
+    "?StillUpdating@@3_NA": 11235228,
     "??1ConvertClass@@UAE@XZ": 4739856,
     "?Pause@MSAnim@@UAEXXZ": 5962768,
     "?One_Time@SessionClass@@QAEXXZ": 6745520,
@@ -4357,10 +4357,10 @@
     "??0UnknownWorker_716f40@@QAE@PAX0@Z": 7453952,
     "??1UnknownWorker_716f40@@QAE@XZ": 7454064,
     "?Run@UnknownWorker_716f40@@QAEHPAX@Z": 7454176,
-    "?unknown_ae2fe8@@3HA": 11415528,
-    "?unknown_ae3004@@3HA": 11415556,
-    "?unknown_af6608@@3HA": 11494920,
-    "?unknown_af660c@@3HA": 11494924,
+    "?VPLLUTCount@@3HA": 11415528,
+    "?VPLRemapStart@@3HA": 11415556,
+    "?VPLUnused@@3HA": 11494920,
+    "?VPLRemapEnd@@3HA": 11494924,
     "?unknown_buffer_ae3008@@3PADA": 11415560,
     "?unknown_buffer_af4608@@3PADA": 11486728,
     "?Unknown_Clear_Table_Region_00717B10@@YIXHHIH@Z": 7437072,
@@ -4369,7 +4369,27 @@
     "?Run@GraphicMenu@@QAEHXZ": 5106144,
     "?Run@GameControlsDialog@@QAEXXZ": 5044512,
     "?Run@MSEngine@@QAEXH@Z": 5977424,
-    "__ramp_corners": 8339828
+    "__ramp_corners": 8339828,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?AI@CreditClass@@QAEX_N@Z": 4802128,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
   },
   "regions": [
     {
@@ -4399,7 +4419,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -4434,7 +4454,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -4469,7 +4489,7 @@
           "resolved": 11340400
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -4530,7 +4550,7 @@
         {
           "offset": 50,
           "kind": 6,
-          "symbol": "?unknown_ae3004@@3HA",
+          "symbol": "?VPLRemapStart@@3HA",
           "target": 11415556,
           "addend": 0,
           "resolved": 11415556
@@ -4538,7 +4558,7 @@
         {
           "offset": 60,
           "kind": 6,
-          "symbol": "?unknown_af660c@@3HA",
+          "symbol": "?VPLRemapEnd@@3HA",
           "target": 11494924,
           "addend": 0,
           "resolved": 11494924
@@ -4546,7 +4566,7 @@
         {
           "offset": 70,
           "kind": 6,
-          "symbol": "?unknown_ae2fe8@@3HA",
+          "symbol": "?VPLLUTCount@@3HA",
           "target": 11415528,
           "addend": 0,
           "resolved": 11415528
@@ -4554,7 +4574,7 @@
         {
           "offset": 75,
           "kind": 6,
-          "symbol": "?unknown_af6608@@3HA",
+          "symbol": "?VPLUnused@@3HA",
           "target": 11494920,
           "addend": 0,
           "resolved": 11494920
@@ -4568,7 +4588,7 @@
           "resolved": 19932
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -4612,7 +4632,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -4671,7 +4691,7 @@
           "resolved": 18781
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -4746,7 +4766,7 @@
           "resolved": 18665
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -4783,7 +4803,7 @@
         {
           "offset": 18,
           "kind": 6,
-          "symbol": "?unknown_voxel_record_count_ae0cb0@@3HA",
+          "symbol": "?VoxelRenderDataCount@@3HA",
           "target": 11406512,
           "addend": 0,
           "resolved": 11406512
@@ -4791,7 +4811,7 @@
         {
           "offset": 24,
           "kind": 6,
-          "symbol": "?unknown_voxel_shadow_count_ae3000@@3HA",
+          "symbol": "?VoxelShadowRenderDataCount@@3HA",
           "target": 11415552,
           "addend": 0,
           "resolved": 11415552
@@ -4965,7 +4985,7 @@
           "resolved": 11406816
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -5002,7 +5022,7 @@
         {
           "offset": 24,
           "kind": 6,
-          "symbol": "?unknown_voxel_shadow_count_ae3000@@3HA",
+          "symbol": "?VoxelShadowRenderDataCount@@3HA",
           "target": 11415552,
           "addend": 0,
           "resolved": 11415552
@@ -5098,7 +5118,7 @@
         {
           "offset": 317,
           "kind": 6,
-          "symbol": "?unknown_voxel_shadow_count_ae3000@@3HA",
+          "symbol": "?VoxelShadowRenderDataCount@@3HA",
           "target": 11415552,
           "addend": 0,
           "resolved": 11415552
@@ -5106,13 +5126,13 @@
         {
           "offset": 326,
           "kind": 6,
-          "symbol": "?unknown_voxel_shadow_count_ae3000@@3HA",
+          "symbol": "?VoxelShadowRenderDataCount@@3HA",
           "target": 11415552,
           "addend": 0,
           "resolved": 11415552
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -5149,7 +5169,7 @@
         {
           "offset": 24,
           "kind": 6,
-          "symbol": "?unknown_voxel_record_count_ae0cb0@@3HA",
+          "symbol": "?VoxelRenderDataCount@@3HA",
           "target": 11406512,
           "addend": 0,
           "resolved": 11406512
@@ -5269,7 +5289,7 @@
         {
           "offset": 483,
           "kind": 6,
-          "symbol": "?unknown_voxel_record_count_ae0cb0@@3HA",
+          "symbol": "?VoxelRenderDataCount@@3HA",
           "target": 11406512,
           "addend": 0,
           "resolved": 11406512
@@ -5277,13 +5297,13 @@
         {
           "offset": 492,
           "kind": 6,
-          "symbol": "?unknown_voxel_record_count_ae0cb0@@3HA",
+          "symbol": "?VoxelRenderDataCount@@3HA",
           "target": 11406512,
           "addend": 0,
           "resolved": 11406512
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -5326,7 +5346,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -5361,7 +5381,7 @@
           "resolved": 11340400
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -5406,7 +5426,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "?unknown_voxel_shadow_count_ae3000@@3HA",
+          "symbol": "?VoxelShadowRenderDataCount@@3HA",
           "target": 11415552,
           "addend": 0,
           "resolved": 11415552
@@ -5486,7 +5506,7 @@
         {
           "offset": 109,
           "kind": 6,
-          "symbol": "?unknown_voxel_shadow_count_ae3000@@3HA",
+          "symbol": "?VoxelShadowRenderDataCount@@3HA",
           "target": 11415552,
           "addend": 0,
           "resolved": 11415552
@@ -5494,7 +5514,7 @@
         {
           "offset": 123,
           "kind": 6,
-          "symbol": "?unknown_voxel_record_count_ae0cb0@@3HA",
+          "symbol": "?VoxelRenderDataCount@@3HA",
           "target": 11406512,
           "addend": 0,
           "resolved": 11406512
@@ -5526,7 +5546,7 @@
         {
           "offset": 219,
           "kind": 6,
-          "symbol": "?unknown_voxel_record_count_ae0cb0@@3HA",
+          "symbol": "?VoxelRenderDataCount@@3HA",
           "target": 11406512,
           "addend": 0,
           "resolved": 11406512
@@ -5574,7 +5594,7 @@
         {
           "offset": 314,
           "kind": 6,
-          "symbol": "?unknown_voxel_record_count_ae0cb0@@3HA",
+          "symbol": "?VoxelRenderDataCount@@3HA",
           "target": 11406512,
           "addend": 0,
           "resolved": 11406512
@@ -5676,7 +5696,7 @@
           "resolved": 424015
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -5721,7 +5741,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "?unknown_voxel_shadow_count_ae3000@@3HA",
+          "symbol": "?VoxelShadowRenderDataCount@@3HA",
           "target": 11415552,
           "addend": 0,
           "resolved": 11415552
@@ -5801,7 +5821,7 @@
         {
           "offset": 107,
           "kind": 6,
-          "symbol": "?unknown_voxel_shadow_count_ae3000@@3HA",
+          "symbol": "?VoxelShadowRenderDataCount@@3HA",
           "target": 11415552,
           "addend": 0,
           "resolved": 11415552
@@ -5809,7 +5829,7 @@
         {
           "offset": 121,
           "kind": 6,
-          "symbol": "?unknown_voxel_record_count_ae0cb0@@3HA",
+          "symbol": "?VoxelRenderDataCount@@3HA",
           "target": 11406512,
           "addend": 0,
           "resolved": 11406512
@@ -5841,7 +5861,7 @@
         {
           "offset": 209,
           "kind": 6,
-          "symbol": "?unknown_voxel_record_count_ae0cb0@@3HA",
+          "symbol": "?VoxelRenderDataCount@@3HA",
           "target": 11406512,
           "addend": 0,
           "resolved": 11406512
@@ -5889,7 +5909,7 @@
         {
           "offset": 301,
           "kind": 6,
-          "symbol": "?unknown_voxel_record_count_ae0cb0@@3HA",
+          "symbol": "?VoxelRenderDataCount@@3HA",
           "target": 11406512,
           "addend": 0,
           "resolved": 11406512
@@ -5991,7 +6011,7 @@
           "resolved": 423522
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -6042,7 +6062,7 @@
           "resolved": 11416329
         }
       ],
-      "source_sha256": "0619dbfc9b489eb86de1ff03fe52fb3c93854d90d9c0dab870c0ecc86302848c",
+      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

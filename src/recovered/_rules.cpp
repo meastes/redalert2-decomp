@@ -67,7 +67,7 @@
 
 CCINIClass ArtINI;              // 0x008397F0
 CCINIClass unknown_ini_839860;  // 0x00839860
-CCINIClass unknown_ini_8397a0;  // 0x008397A0
+CCINIClass AIINI;  // 0x008397A0
 CCINIClass unknown_ini_8396e0;  // 0x008396E0
 CCINIClass unknown_ini_839740;  // 0x00839740
 
@@ -84,11 +84,11 @@ CCINIClass unknown_ini_839740;  // 0x00839740
 // ArtINI_init_0040de40.cpp; no source of its own.
 
 
-// Dynamic initializer (0x0040DF80, _$E) of unknown_ini_8397a0: emitted by the definition in
+// Dynamic initializer (0x0040DF80, _$E) of AIINI: emitted by the definition in
 // ArtINI_init_0040de40.cpp; no source of its own.
 
 
-// atexit destructor (0x0040E010, _$E) of unknown_ini_8397a0: emitted by the definition in
+// atexit destructor (0x0040E010, _$E) of AIINI: emitted by the definition in
 // ArtINI_init_0040de40.cpp; no source of its own.
 
 

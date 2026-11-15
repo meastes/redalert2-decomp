@@ -95,12 +95,12 @@ bool Init_Network_005bb540()
     NetNumType net;
     NetNodeType node;
 
-    if (!unknown_ipx_manager_a40978.Init()) {
+    if (!Ipx.Init()) {
         return false;
     }
     if (unknown_game_mode_a3d298 != 4 && unknown_dest_net_set_a3f604) {
         unknown_dest_net_a3f608.Get_Address(net, node);
-        unknown_ipx_manager_a40978.Set_Bridge(net);
+        Ipx.Set_Bridge(net);
     }
     return true;
 }
@@ -157,7 +157,7 @@ void __fastcall Destroy_Connection_005bb5d0(int id, int error)
         Map.Flag_To_Redraw(false);
     }
 
-    unknown_ipx_manager_a40978.Delete_Connection(id);
+    Ipx.Delete_Connection(id);
 
     if (error) {
         if (Frame == 0) {
@@ -170,13 +170,13 @@ void __fastcall Destroy_Connection_005bb5d0(int id, int error)
             housep->unknown_func_4e7e80();
         }
         if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8) {
-            unknown_OwnerTalkClass_00ab6d18.Unknown_0063FE20(id);
+            OwnerTalk.Unknown_0063FE20(id);
         }
     }
 
     if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8 && unknown_session_a3d298.Am_I_Master(housep)) {
         unknown_a402d8 = true;
-        int host = unknown_OwnerTalkClass_00ab6d18.Unknown_0063FBA0();
+        int host = OwnerTalk.Unknown_0063FBA0();
         if (host != -1) {
             HouseClass *hostp = Houses[host];
             if (hostp) {
@@ -195,13 +195,13 @@ void __fastcall Destroy_Connection_005bb5d0(int id, int error)
                     unknown_forward_address_a3fbac.Set_Address(network, node, 0);
                     Debug_Printf("Session.PacketRouterAddress = %s\n", unknown_forward_address_a3fbac.As_String(0));
                     Debug_Printf("Session.PacketRouterPort = %d\n", unknown_session_a3d298.unknown_292c);
-                    unknown_ipx_manager_a40978.unknown_5277c0(&unknown_forward_address_a3fbac);
+                    Ipx.Set_Lobby_Address(&unknown_forward_address_a3fbac);
                 }
                 wcscpy(unknown_session_a3d298.MasterPlayerName, hostp->UIName);
                 Debug_Printf("New game host is %ls\n", unknown_session_a3d298.MasterPlayerName);
                 unknown_session_a3d298.MasterPlayerID = host;
                 if (unknown_session_a3d298.Am_I_Master(0)) {
-                    unknown_OwnerTalkClass_00ab6d18.Unknown_0063F130();
+                    OwnerTalk.Unknown_0063F130();
                 }
             }
         }
@@ -213,7 +213,7 @@ void __fastcall Destroy_Connection_005bb5d0(int id, int error)
             unknown_session_a3d298.Players.Delete(unknown_session_a3d298.Players[i]);
             unknown_session_a3d298.Unknown_00672F20(i);
             if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8) {
-                unknown_OwnerTalkClass_00ab6d18.Unknown_0063FE20(id);
+                OwnerTalk.Unknown_0063FE20(id);
             }
             break;
         }

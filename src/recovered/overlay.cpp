@@ -681,14 +681,14 @@ void OverlayClass::Editor_Draw_It(Point2D const &point, Rect const &cliprect)
         if (!shape && Class->CellAnim) {
             shape = Class->CellAnim->Get_Image_Data();
         }
-        CC_Draw_Shape(unknown_surface_83995c, scheme->Converter, (ShapeFileStruct const *)shape, 0, position, cliprect,
+        CC_Draw_Shape(LogicalSurface, scheme->Converter, (ShapeFileStruct const *)shape, 0, position, cliprect,
                       0xE00, 0, -2 - height, 0, 1000, 0, 0, Point2D(0, 0));
     } else if (Class->IsVeins) {
         if (Class->ArrayIndex == 0xA7) {
             position.Y -= 0x26;
         }
         Point2D origin(0, 0);
-        CC_Draw_Shape(unknown_surface_83995c, ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter, (ShapeFileStruct const *)shape, 0, position, cliprect,
+        CC_Draw_Shape(LogicalSurface, ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter, (ShapeFileStruct const *)shape, 0, position, cliprect,
                       0xE00, 0, -2 - height, 0, Map[CoordStruct(Coord)].unknown_10c, 0, 0, origin);
     } else {
         CellClass *drawn;
@@ -699,7 +699,7 @@ void OverlayClass::Editor_Draw_It(Point2D const &point, Rect const &cliprect)
         } else {
             drawn = &Map[Cell(1, unknown_short_8325d0)];
         }
-        CC_Draw_Shape(unknown_surface_83995c, (ConvertClass *)drawn->unknown_34, (ShapeFileStruct const *)shape, 0, position, cliprect,
+        CC_Draw_Shape(LogicalSurface, (ConvertClass *)drawn->unknown_34, (ShapeFileStruct const *)shape, 0, position, cliprect,
                       0xE00, 0, -2 - height, 0, drawn->unknown_10c, 0, 0, Point2D(0, 0));
     }
 }

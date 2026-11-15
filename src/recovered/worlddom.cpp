@@ -280,7 +280,7 @@ int __stdcall Faction_Select_Dialog_Proc_007689c0(HWND window, UINT message, WPA
         case 0x0F:
             Unknown_005FEE70(window);
             control->Draw_00768940(0);
-            unknown_dialog_5e5f20(window);
+            Slide_Pending_Dialog(window);
             ValidateRect(window, 0);
             return 1;
         case 0x14:
@@ -364,7 +364,7 @@ int __stdcall Faction_Select_Dialog_Proc_007689c0(HWND window, UINT message, WPA
 
 int __fastcall Faction_Select_Dialog_00768c70()
 {
-    unknown_5159b0(0, true);
+    Darken_Surface(0, true);
     FactionSelectDialogControl control;
     Run_Control_Dialog_006011a0(0x125, Faction_Select_Dialog_Proc_007689c0, &control);
     return control.Selection;

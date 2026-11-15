@@ -41,9 +41,9 @@ void Unknown_Free_Screen_Surfaces_0068E1C0()
             delete unknown_surface_839964;
             unknown_surface_839964 = 0;
         }
-        if (unknown_surface_839950 != 0) {
-            delete unknown_surface_839950;
-            unknown_surface_839950 = 0;
+        if (VisibleSurface != 0) {
+            delete VisibleSurface;
+            VisibleSurface = 0;
         }
         Restore_Video_Mode_00495e90();
         unknown_flag_abd48d = true;

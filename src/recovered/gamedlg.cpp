@@ -150,7 +150,7 @@ void GameControlsDialog::Apply_Settings()
     control = GetDlgItem(Window, 0x601);
     if (control) {
         Options.UnitActionLines = SendMessageA(control, 0xF0, 0, 0) == 1;
-        TechnoClass::unknown_6d79c0(Options.UnitActionLines);
+        TechnoClass::Set_Action_Lines(Options.UnitActionLines);
     }
     control = GetDlgItem(Window, 0x604);
     if (control) {

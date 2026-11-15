@@ -285,7 +285,7 @@ public:
 
     SidebarClass();                                     // 0x0067B700
     SidebarClass(NoInitClass const &noinit);            // 0x0067B7B0
-    void Unknown_0067B880(bool cameo_text);             // 0x0067B880 (empty; OptionsClass SidebarCameoText)
+    void Toggle_Cameo_Text(bool cameo_text);             // 0x0067B880 (empty; OptionsClass SidebarCameoText)
 
     virtual void One_Time();                            // slot 5  0x0067B890
     virtual void Init_Clear();                          // slot 7  0x0067B8B0
@@ -297,7 +297,7 @@ public:
     bool Unknown_0067C4C0(int control);                 // 0x0067C4C0 the same for unknown_4ee5
     void Unknown_0067DC00(int index);                   // 0x0067DC00 starts a tab button's flash
     void Unknown_0067C100();                            // 0x0067C100 redraws the active strip (soon)
-    void Unknown_0067C2D0(int column);                  // 0x0067C2D0 redraws a strip if active
+    void Flag_Tab_To_Redraw(int column);                  // 0x0067C2D0 redraws a strip if active
     // The strip of a type kind (0x00681940; TS name; buildings with arg3 5 take strip 1; naval is unused).
     static int __fastcall Which_Column(int kind, int arg3, bool naval);
     void Unknown_0067C310(int column);                  // 0x0067C310 and soon
@@ -309,10 +309,10 @@ public:
     int Unknown_006820A0();                             // 0x006820A0 rows of icons that fit
     int Unknown_006820F0();                             // 0x006820F0 icons that fit, two per row
     bool Unknown_0067C530(int type, int id);            // 0x0067C530 adds a buildable to its strip (hypothesis: Add)
-    void Unknown_0067D420(bool complete);               // 0x0067D420
+    void Blit_Sidebar(bool complete);               // 0x0067D420
     void Unknown_0067CA50(int index);                   // 0x0067CA50 a tab whose strip emptied
     void Select_Tab(int index);                         // 0x0067D990 switches to another tab
-    void Unknown_006822B0(TechnoTypeClass *type, int arg2);   // 0x006822B0 (TActionClass 0x006B3060)
+    void Flash_Cameo(TechnoTypeClass *type, int arg2);   // 0x006822B0 (TActionClass 0x006B3060)
     void Activate_Tab(int index);                       // 0x0067D7E0 selects a tab and shows its strip
     void Unknown_0067C910(int index);                   // 0x0067C910 enables a tab button
     void Unknown_0067C850();                            // 0x0067C850 enables the scroll buttons when the strip overflows

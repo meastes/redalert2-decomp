@@ -40,19 +40,19 @@ public:
 
 extern char unknown_buffer_ae3008[];
 extern char unknown_buffer_af4608[];
-extern int unknown_ae3004;
-extern int unknown_af660c;
-extern int unknown_ae2fe8;
-extern int unknown_af6608;
+extern int VPLRemapStart;
+extern int VPLRemapEnd;
+extern int VPLLUTCount;
+extern int VPLUnused;
 
 int __fastcall unknown_run_716f40(void *source)
 {
     UnknownWorker_716f40 worker(unknown_buffer_ae3008, unknown_buffer_af4608);
     int result = worker.Run(source);
-    unknown_ae3004 = worker.unknown_00;
-    unknown_af660c = worker.unknown_04;
-    unknown_ae2fe8 = worker.unknown_08;
-    unknown_af6608 = worker.unknown_0c;
+    VPLRemapStart = worker.unknown_00;
+    VPLRemapEnd = worker.unknown_04;
+    VPLLUTCount = worker.unknown_08;
+    VPLUnused = worker.unknown_0c;
     return result;
 }
 
@@ -83,8 +83,8 @@ extern Rect unknown_rect_ae2ff0;                            // 0x00AE2FF0 the la
 extern UnknownVoxelRecord48 unknown_records_af3408[64];     // 0x00AF3408
 extern RGBClass unknown_voxel_colors_ae3008[256];           // 0x00AE3008 the voxel palette
 extern unsigned short unknown_voxel16_colors_ae0a7c[256];   // 0x00AE0A7C the palette in screen format
-extern int unknown_voxel_record_count_ae0cb0;               // 0x00AE0CB0
-extern int unknown_voxel_shadow_count_ae3000;               // 0x00AE3000
+extern int VoxelRenderDataCount;               // 0x00AE0CB0
+extern int VoxelShadowRenderDataCount;               // 0x00AE3000
 
 void __fastcall unknown_normal_lookup_71ba20(Vector3 const &light, int type);              // 0x0071BA20
 void __fastcall unknown_normal_lookup_71baa0(Vector3 const &light, Vector3 const &viewer, float specular, int type);  // 0x0071BAA0
@@ -158,8 +158,8 @@ void VoxelDrawSystem::Reset()
 {
     static int _need_buffer_init = true;
 
-    unknown_voxel_record_count_ae0cb0 = 0;
-    unknown_voxel_shadow_count_ae3000 = 0;
+    VoxelRenderDataCount = 0;
+    VoxelShadowRenderDataCount = 0;
 
     if (_need_buffer_init) {
         Clear_Buffer();
@@ -194,7 +194,7 @@ void __fastcall VoxelDrawSystem::Prep_For_Shadow(VoxelLibrary *voxlib, int layer
 {
     UnknownVoxelTailer const *layer_info = voxlib->Get_Layer_Info(layer, info);
 
-    UnknownVoxelRecord48 &data = unknown_records_af3408[unknown_voxel_shadow_count_ae3000];
+    UnknownVoxelRecord48 &data = unknown_records_af3408[VoxelShadowRenderDataCount];
 
     data.unknown_3c = mask;
     data.unknown_40 = mask_x;
@@ -224,7 +224,7 @@ void __fastcall VoxelDrawSystem::Prep_For_Shadow(VoxelLibrary *voxlib, int layer
         }
     }
 
-    unknown_voxel_shadow_count_ae3000++;
+    VoxelShadowRenderDataCount++;
 }
 
 
@@ -234,7 +234,7 @@ void __fastcall VoxelDrawSystem::Prep_For_Object(VoxelLibrary *voxlib, int layer
 {
     UnknownVoxelTailer const *layer_info = voxlib->Get_Layer_Info(layer, info);
 
-    UnknownVoxelRecord88 &data = unknown_records_ae0de8[unknown_voxel_record_count_ae0cb0];
+    UnknownVoxelRecord88 &data = unknown_records_ae0de8[VoxelRenderDataCount];
 
     data.MinBounds = Vector3(10000, 10000, 10000);
     data.MaxBounds = Vector3(-10000, -10000, -10000);
@@ -285,7 +285,7 @@ void __fastcall VoxelDrawSystem::Prep_For_Object(VoxelLibrary *voxlib, int layer
         unknown_bounds_max_ae0dd8.Z = data.MaxBounds.Z;
     }
 
-    unknown_voxel_record_count_ae0cb0++;
+    VoxelRenderDataCount++;
 }
 
 
@@ -304,16 +304,16 @@ void __fastcall VoxelDrawSystem::Render(Rect &rect, int &x, int &y)
     center.Y = (unknown_bounds_max_ae0dd8.Y + unknown_bounds_min_ae0a70.Y) * 0.5f;
     center.Z = (unknown_bounds_max_ae0dd8.Z + unknown_bounds_min_ae0a70.Z) * 0.5f;
 
-    for (index = 0; index < unknown_voxel_shadow_count_ae3000; index++) {
+    for (index = 0; index < VoxelShadowRenderDataCount; index++) {
         unknown_records_af3408[index].unknown_00->Render_Shadow(&unknown_records_af3408[index], &center);
     }
 
-    for (index = 0; index < unknown_voxel_record_count_ae0cb0; index++) {
+    for (index = 0; index < VoxelRenderDataCount; index++) {
         render_data[index] = &unknown_records_ae0de8[index];
     }
 
-    for (index = 0; index < unknown_voxel_record_count_ae0cb0 - 1; index++) {
-        for (int index2 = index + 1; index2 < unknown_voxel_record_count_ae0cb0; index2++) {
+    for (index = 0; index < VoxelRenderDataCount - 1; index++) {
+        for (int index2 = index + 1; index2 < VoxelRenderDataCount; index2++) {
             UnknownVoxelRecord88 *first = render_data[index];
             UnknownVoxelRecord88 *second = render_data[index2];
 
@@ -325,11 +325,11 @@ void __fastcall VoxelDrawSystem::Render(Rect &rect, int &x, int &y)
     }
 
     if (unknown_af6610) {
-        for (index = unknown_voxel_record_count_ae0cb0 - 1; index >= 0; index--) {
+        for (index = VoxelRenderDataCount - 1; index >= 0; index--) {
             render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);
         }
     } else {
-        for (index = 0; index < unknown_voxel_record_count_ae0cb0; index++) {
+        for (index = 0; index < VoxelRenderDataCount; index++) {
             render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);
         }
     }
@@ -364,16 +364,16 @@ SurfaceRegion __fastcall VoxelDrawSystem::Render()
     center.Y = (unknown_bounds_max_ae0dd8.Y + unknown_bounds_min_ae0a70.Y) * 0.5f;
     center.Z = (unknown_bounds_max_ae0dd8.Z + unknown_bounds_min_ae0a70.Z) * 0.5f;
 
-    for (index = 0; index < unknown_voxel_shadow_count_ae3000; index++) {
+    for (index = 0; index < VoxelShadowRenderDataCount; index++) {
         unknown_records_af3408[index].unknown_00->Render_Shadow(&unknown_records_af3408[index], &center);
     }
 
-    for (index = 0; index < unknown_voxel_record_count_ae0cb0; index++) {
+    for (index = 0; index < VoxelRenderDataCount; index++) {
         render_data[index] = &unknown_records_ae0de8[index];
     }
 
-    for (index = 0; index < unknown_voxel_record_count_ae0cb0 - 1; index++) {
-        for (int index2 = index + 1; index2 < unknown_voxel_record_count_ae0cb0; index2++) {
+    for (index = 0; index < VoxelRenderDataCount - 1; index++) {
+        for (int index2 = index + 1; index2 < VoxelRenderDataCount; index2++) {
             UnknownVoxelRecord88 *first = render_data[index];
             UnknownVoxelRecord88 *second = render_data[index2];
 
@@ -385,11 +385,11 @@ SurfaceRegion __fastcall VoxelDrawSystem::Render()
     }
 
     if (unknown_af6610) {
-        for (index = unknown_voxel_record_count_ae0cb0 - 1; index >= 0; index--) {
+        for (index = VoxelRenderDataCount - 1; index >= 0; index--) {
             render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);
         }
     } else {
-        for (index = 0; index < unknown_voxel_record_count_ae0cb0; index++) {
+        for (index = 0; index < VoxelRenderDataCount; index++) {
             render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);
         }
     }

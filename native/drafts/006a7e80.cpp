@@ -25,13 +25,13 @@ void Tactical::Draw_Pixel_Effects(Rect const &area, Rect const &cliprect)
     if (unknown_a6eb1c < Unknown_0053D840()) {
         return;
     }
-    if (unknown_surface_83995c->Bytes_Per_Pixel() != 2) {
+    if (LogicalSurface->Bytes_Per_Pixel() != 2) {
         return;
     }
     if (unknown_a40b2c == 0) {
         return;
     }
-    char *pixels = (char *)unknown_surface_83995c->Lock();
+    char *pixels = (char *)LogicalSurface->Lock();
     if (pixels == 0) {
         return;
     }
@@ -41,8 +41,8 @@ void Tactical::Draw_Pixel_Effects(Rect const &area, Rect const &cliprect)
     if (frames > 1000) {
         frames = 1000;
     }
-    int pitch = unknown_surface_83995c->Stride();
-    Point2D lepton = Unknown_006A2900(Point2D(area.Top_Left()) + Point2D(TacPixelX, TacPixelY) - unknown_rect_839630.Top_Left());
+    int pitch = LogicalSurface->Stride();
+    Point2D lepton = Pixel_To_Lepton(Point2D(area.Top_Left()) + Point2D(TacPixelX, TacPixelY) - unknown_rect_839630.Top_Left());
     Cell origin(lepton.X / 256, lepton.Y / 256);
     Cell base = origin;
     int rows = area.Height / 15 + 17;
@@ -86,5 +86,5 @@ void Tactical::Draw_Pixel_Effects(Rect const &area, Rect const &cliprect)
             scan += Cell(1, -1);
         }
     }
-    unknown_surface_83995c->Unlock();
+    LogicalSurface->Unlock();
 }

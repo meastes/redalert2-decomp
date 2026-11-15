@@ -36,6 +36,6 @@ public:
 void __fastcall Clamp_Tile_RGB(int &red, int &green, int &blue);
 // Every light converter (0x00832398; hypothesis: the tile drawers; moved from
 // shared/isometric_tile_type.hpp for Ion.cpp's lighting 0x00520B00).
-extern DynamicVectorClass<LightConvertClass *> unknown_LightConvertClass_list_00832398;
+extern DynamicVectorClass<LightConvertClass *> TileDrawers;
 
 #endif

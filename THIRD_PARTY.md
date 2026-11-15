@@ -172,6 +172,8 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   sequence of local types in both files, for 56 units (list in the commit message).
   Adopted 2026-11-15 (lane M1 batch l2, names only): the same where the local types differ only in spelling
   (typedef against its base type), for 11 units.
+  Adopted 2026-11-15 (lane M1 batch p2, names only): 492 function and global names for address-named placeholders
+  across 324 units, from ra2-decomp's names of byte-identical twins (scope agreeing) or else mischa85 names.csv.
 
 ## Native linked libraries (tested development versions)
 

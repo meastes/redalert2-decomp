@@ -255,7 +255,7 @@ int __fastcall Clip_Line_Outcode(Rect const &rect, double x, double y);
 
 // Moves every side of a rectangle inwards by amount (outwards when negative)
 // (0x006F1B00).
-void __fastcall Unknown_Rect_Shrink_006F1B00(Rect *rect, int amount);
+void __fastcall Inflate_Rect(Rect *rect, int amount);
 
 #ifdef RA2_SDK_HEADERS
 // The original's rect.h holds the file-static zero rectangle (ra2-decomp include/rect.h:144 RECT_NONE, the YR

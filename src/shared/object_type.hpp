@@ -145,7 +145,7 @@ public:
     // PIPS.SHP, PIPS2.SHP, TALKBUBL.SHP; RA1 name One_Time).
     static void One_Time();                 // 0x005D5E00
     // Frees the 15 + 15 voxel pairs (unknown_c8, unknown_140).
-    void unknown_func_5d66a0();             // 0x005D66A0
+    void Free_Charger_Voxels();             // 0x005D66A0
     // Releases every type's four cached buffers and resets
     // unknown_839aa8 from unknown_839aa4 (name hypothesis).
     static void Clear_Voxel_Indexes();      // 0x005D7EF0
@@ -155,10 +155,10 @@ public:
     void Fetch_Aux_Voxel_Image();           // 0x005D72B0
     // Loads turret voxel `index` (<image>TUR[n].VXL/.HVA) into
     // unknown_c8[index]; false (and both freed) unless both load.
-    bool unknown_func_5d6150(char const *image, int index);    // 0x005D6150
+    bool Load_Charger_Turret(char const *image, int index);    // 0x005D6150
     // The barrel counterpart (<image>BARL[n], unknown_140[index]); a
     // missing .VXL returns true.
-    bool unknown_func_5d63f0(char const *image, int index);    // 0x005D63F0
+    bool Load_Charger_Barrel(char const *image, int index);    // 0x005D63F0
     void Fetch_Normal_Image();              // 0x005D7630 (theater image load; hypothesis)
     // Rewrites a file name's second letter for a theater (0x005D7BD0) or to
     // the generic 'G' (0x005D7C20); names hypotheses.

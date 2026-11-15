@@ -128,7 +128,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     CellClass *here=&Map[Position_Coord_004f3f40()];
     CellClass *there=&Map[object->Position_Coord_004f3f40()];
     if((here->unknown_140&0x100) && (there->unknown_140&0x100) && unknown_79!=object->unknown_79) return false;
-    *value=(int)unknown_6d7550(object,*coord);
+    *value=(int)Target_Threat(object,*coord);
     if(Techno_Type_Class()->VHPScan==1) {
         if(object->unknown_70<=0) *value=*value/2;
         else if(object->unknown_70<=object->Techno_Type_Class()->MaxStrength/2) *value=*value*2;
@@ -154,7 +154,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
         if(w && w->WeaponType && otype==6) {
             BuildingClass *b=object->Kind_Of()==6?static_cast<BuildingClass *>(object):0;
             // behaviour fix (codex4 r505): a building that cannot be occupied keeps its score.
-            if(!b->Type->CanBeOccupied || b->unknown_4532f0()!=0) keep=true;
+            if(!b->Type->CanBeOccupied || b->GetOccupantCount()!=0) keep=true;
         }
         if(!keep) *value=0;
     }

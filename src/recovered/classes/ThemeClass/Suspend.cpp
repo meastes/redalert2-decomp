@@ -9,14 +9,14 @@
 // @ref ?unknown_flag_a40d0c@@3DA=00a40d0c
 // @ref ?AudioDeviceAvailable@@YAHXZ=00406f30
 // @ref ?Debug_Printf@@YAXPBDZZ=004068f0
-// @ref ?unknown_stop_sample_407e60@@YIXPAX@Z=00407e60
+// @ref ?AudioStreamerStop@@YIXPAX@Z=00407e60
 // @ref ??_C@_0BE@KPIN@Theme?3?3Suspend?$CI?$CFd?$CJ?6?$AA@=007f841c
 #include "shared/debug_printf.hpp"
 #include "shared/sound_available.hpp"
 
 extern char unknown_sound_enabled_a40c18;
 extern char unknown_flag_a40d0c;
-void __fastcall unknown_stop_sample_407e60(void *sample);
+void __fastcall AudioStreamerStop(void *sample);
 
 class ThemeClass {
 public:
@@ -34,7 +34,7 @@ void ThemeClass::Suspend()
     if (unknown_sound_enabled_a40c18 && AudioDeviceAvailable() && !unknown_flag_a40d0c && Current != -1) {
         Debug_Printf("Theme::Suspend(%d)\n", Playing);
         if (Sample != 0) {
-            unknown_stop_sample_407e60(Sample);
+            AudioStreamerStop(Sample);
         }
         Current = -1;
         Suspended = Playing;

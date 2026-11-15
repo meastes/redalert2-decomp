@@ -10,7 +10,7 @@
 #include "shared/spot_light.hpp"
 
 // The unit's list of SpotLightClass objects (0x00A731C0; name is a hypothesis).
-DynamicVectorClass<SpotLightClass *> unknown_SpotLightClass_list_00a731c0;
+DynamicVectorClass<SpotLightClass *> SpotLights;
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ??8?$VectorClass@PAVSpotLightClass@@@@UBE_NABV0@@Z=005de360
 // @ref ??_7?$DynamicVectorClass@PAVSpotLightClass@@@@6B@=007a7ac4
@@ -26,7 +26,7 @@ DynamicVectorClass<SpotLightClass *> unknown_SpotLightClass_list_00a731c0;
 // @ref ?ID@?$VectorClass@PAVSpotLightClass@@@@UAEHPBQAVSpotLightClass@@@Z=005de4c0
 // @ref ?Resize@?$DynamicVectorClass@PAVSpotLightClass@@@@UAE_NHPBQAVSpotLightClass@@@Z=005de4e0
 // @ref ?Resize@?$VectorClass@PAVSpotLightClass@@@@UAE_NHPBQAVSpotLightClass@@@Z=005de3a0
-// @ref ?unknown_SpotLightClass_list_00a731c0@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A=00a731c0
+// @ref ?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A=00a731c0
 // @ref ?unknown_math_4ba520@@YANN@Z=004ba520
 // @ref ?unknown_math_4ba5b0@@YANN@Z=004ba5b0
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410

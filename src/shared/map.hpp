@@ -205,7 +205,7 @@ public:
     bool Unknown_0054E0C0(Straw &straw);                       // 0x0054E0C0
     bool Unknown_0054E1E0(Straw &straw);                       // 0x0054E1E0
     // Redraws the cells whose shroud changed (0x0055A300): see its source.
-    void Unknown_0055A300();                                    // 0x0055A300
+    void Refresh_Shroud();                                    // 0x0055A300
     // Whether the object may enter the cell: a gate there of an allied house opens (TibSun Try_Open_Gate).
     bool Unknown_0055ACD0(ObjectClass *object, Cell const &cell);  // 0x0055ACD0
     int Cell_To_Local_Sector_Index(Cell const &cell);   // 0x0055AD70 (the local view sector 1-9 of a cell)
@@ -223,14 +223,14 @@ public:
     bool Is_Under_Fog(CoordStruct const &coord);    // 0x00568280 (as 0x00568140 for the cells' +0x13C; RadarClass)
     void Unknown_0054A550(CoordStruct const &coord, int arg2, int arg3, int arg4);   // 0x0054A550 (InfantryClass slot 93)
     void Unknown_0054A8F0(CoordStruct const &coord, int radius);   // 0x0054A8F0 (clears +0x130/+0x134 and sets +0x12C bits 3-4 in a disc around coord)
-    void Unknown_0054A720(CoordStruct const &coord, int radius);   // 0x0054A720 (marks +0x130 and clears +0x12C bits 3-4 of the unmarked cells in a disc around coord; TActionClass 0x006B1050)
+    void Shroud_Gap_Area(CoordStruct const &coord, int radius);   // 0x0054A720 (marks +0x130 and clears +0x12C bits 3-4 of the unmarked cells in a disc around coord; TActionClass 0x006B1050)
     CellClass *Get_Local_Grid_Cell(Cell const &cell, int spacing, bool unbiased);   // 0x0055AA80 (TibSun name)
     // The index of a cell's 4 x 4 block in a 130 x 130 grid with a one-block
     // border, the layout of HouseClass +0x56D0 (0x0054E370; FootClass slot 93).
     #ifdef RA2_MAP_REGION_THREAT
     int Region_Threat(HouseClass *house, int level, int from_subzone, int to_subzone);
     #endif
-    int Unknown_0054E370(Cell const &cell);
+    int Cell_Region(Cell const &cell);
     // A reachable cell near `cell` for a speed type and zone (0x005502E0;
     // hypothesis: Westwood's Nearby_Location; FootClass 0x004CCA40). `size` is
     // a Point2D by value (width, height): callers build it in a register pair,
@@ -347,8 +347,8 @@ public:
     bool Unknown_0055EDB0(Cell const &cell);      // 0x0055EDB0 (the same for the second low bridge overlays)
     bool Unknown_00559000(Cell const &cell);      // 0x00559000 (TibSun Damage_High_Bridge)
     bool Unknown_005539B0(Cell const &cell);      // 0x005539B0 (TibSun Damage_Train_Bridge)
-    bool Unknown_0054E580(Cell cell, int arg2);     // 0x0054E580
-    void Unknown_00559FD0();                        // 0x00559FD0
+    bool Place_Crate(Cell cell, int arg2);     // 0x0054E580
+    void Shroud_The_Map();                        // 0x00559FD0
     // Lets every cell refresh (0x0047C8A0) and clears the visibility bits of
     // those with +0x130 not negative, then the 0x00559FD0 tail (0x0055A070).
     void Unknown_0055A070();
@@ -358,13 +358,13 @@ public:
     void Unknown_0055A120();
     // Once per game (player +0x188 clear): passes every cell of the global Map
     // with the player to DisplayClass slot 39, then redraws (0x0055A1F0).
-    void Unknown_0055A1F0();
+    void Reveal_The_Map();
     // Whether all four corner cells of a cell rectangle pass 0x0055A660
     // (0x0055A590).
     bool Unknown_0055A590(Rect const &rect, bool flag);
     // The test of 0x0055A660 against a given rectangle instead of the local
     // map rectangle (0x0055A840).
-    bool Unknown_0055A840(Rect const &rect, Cell const &cell, bool flag);
+    bool In_Area_Radar(Rect const &rect, Cell const &cell, bool flag);
     // Rebuilds the three subzone tracking vectors (each cleared, then
     // 0x00563D80 with its index, from 2 down) and resets the path estimator
     // (0x00563D40).
@@ -383,7 +383,7 @@ public:
     void Lower_Max_Level(int value);
     // From +0x144 13 or more: lowers +0x144 (0x0056A870) to every cell's
     // +0x11B; returns +0x144 (0x0056A8A0).
-    int Unknown_0056A8A0();
+    int Get_Max_Level();
     // Runs CellClass 0x0047BC80 on every cell without +0x140 bit 1
     // (0x005685F0) and CellClass 0x0047BE00 on every cell (0x00568650).
     void Unknown_005685F0();

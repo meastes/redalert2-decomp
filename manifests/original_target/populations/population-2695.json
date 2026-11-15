@@ -4,8 +4,8 @@
     "id": "population-2695",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "bc988f3b2bcd95c0bb88b8907adf85896138b12989ae06ef680d4d649efa8970",
-    "historical_acceptance_sha256": "f65c6464f1a181c1d743e8026a0c5ec39c967539fa4c831cdbb7ec7114c04627"
+    "historical_population_sha256": "7e6014025273f4cb3eb25e8e850ed1261454049dfa5aa31c7db79c5ceeec9e37",
+    "historical_acceptance_sha256": "d71983a06f887adafaacbf8da075031f35ab3060e6f9f0f41189e291215144b5"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -578,7 +578,7 @@
     "?ID@?$VectorClass@PAVToolTip@@@@UAEHABQAVToolTip@@@Z": 7258256,
     "?ID@?$VectorClass@PAVToolTip@@@@UAEHPBQAVToolTip@@@Z": 7258320,
     "?ID@?$DynamicVectorClass@PAVToolTip@@@@UAEHABQAVToolTip@@@Z": 7258528,
-    "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z": 7281408,
+    "?Inflate_Rect@@YIXPAVRect@@H@Z": 7281408,
     "?ID@?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@UAEHPBQAVVeinholeMonsterClass@@@Z": 7415680,
     "?ID@?$VectorClass@PAVVeinholeMonsterClass@@@@UAEHABQAVVeinholeMonsterClass@@@Z": 7416016,
     "?ID@?$VectorClass@PAVVeinholeMonsterClass@@@@UAEHPBQAVVeinholeMonsterClass@@@Z": 7416080,
@@ -2318,7 +2318,7 @@
     "?Is_Visited@AStarClass@@QAE_NH_NH@Z": 4358000,
     "?Facing_Between@AStarClass@@SIHABVCell@@0@Z": 4358944,
     "?unknown_path_facing_table_7cf100@@3PAY02HA": 8188160,
-    "?unknown_path_facing_offsets_84c838@@3PAHA": 8702008,
+    "?AStarFacingToOffset@@3PAHA": 8702008,
     "?Subzone_Edge_Banned@AStarClass@@QAE_NGGH@Z": 4368240,
     "?Ban_Subzone_Edge@AStarClass@@QAEXIIH@Z": 4368336,
     "__real@4@40068000000000000000": 8055356,

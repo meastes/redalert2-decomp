@@ -543,7 +543,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
             Cell &neighbor_id = neighbor_cell->MapCoords;
             int node_index;
             if (face != 8) {
-                node_index = from_index + unknown_path_facing_offsets_84c838[face];
+                node_index = from_index + AStarFacingToOffset[face];
             } else {
                 node_index = neighbor_cell->MapCoords.X + unknown_map_cell_side_84e804 * neighbor_cell->MapCoords.Y;
             }
@@ -820,14 +820,14 @@ void AStarClass::Update_Map_Dimensions(Rect const &size)
     RegularVisited = new int[count];
     RegularMovementCosts = new float[count];
     RegularBridgeMovementCosts = new float[count];
-    unknown_path_facing_offsets_84c838[0] = -unknown_map_cell_side_84e804;
-    unknown_path_facing_offsets_84c838[1] = 1 - unknown_map_cell_side_84e804;
-    unknown_path_facing_offsets_84c838[2] = 1;
-    unknown_path_facing_offsets_84c838[3] = unknown_map_cell_side_84e804 + 1;
-    unknown_path_facing_offsets_84c838[4] = unknown_map_cell_side_84e804;
-    unknown_path_facing_offsets_84c838[5] = unknown_map_cell_side_84e804 - 1;
-    unknown_path_facing_offsets_84c838[6] = -1;
-    unknown_path_facing_offsets_84c838[7] = -1 - unknown_map_cell_side_84e804;
+    AStarFacingToOffset[0] = -unknown_map_cell_side_84e804;
+    AStarFacingToOffset[1] = 1 - unknown_map_cell_side_84e804;
+    AStarFacingToOffset[2] = 1;
+    AStarFacingToOffset[3] = unknown_map_cell_side_84e804 + 1;
+    AStarFacingToOffset[4] = unknown_map_cell_side_84e804;
+    AStarFacingToOffset[5] = unknown_map_cell_side_84e804 - 1;
+    AStarFacingToOffset[6] = -1;
+    AStarFacingToOffset[7] = -1 - unknown_map_cell_side_84e804;
 }
 
 
@@ -1030,7 +1030,7 @@ int AStarClass::Try_Diagonal_Shortcut(FootClass *foot, int *facings, int *height
         diagonal_start_cell = Follow_Path(diagonal_start_cell, first_leg_length - second_leg_length, facings);
     }
 
-    double threat_avoidance = foot->unknown_4cafb0();
+    double threat_avoidance = foot->Threat_Avoidance_Value();
     HouseClass *house = foot->House;
 
     while (second_leg_length > 0) {
@@ -1302,7 +1302,7 @@ bool AStarClass::Plot_Straight_Line(int *moves, int move_count, Cell const &from
     int x_dist = abs(x);
     int first_dist = MIN(x_dist, y_dist);
     int second_dist = MAX(x_dist, y_dist) - first_dist;
-    double avoidance = foot->unknown_4cafb0();
+    double avoidance = foot->Threat_Avoidance_Value();
     int threats = 0;
     HouseClass *house = foot->House;
     bool avoid_threats = avoidance > 0.00001;
@@ -1416,8 +1416,8 @@ extern "C" float const unknown_path_passability_scores_79c4a4[8];
 
 bool AStarClass::Find_Path_Hierarchical(Cell const &from, Cell const &to, int zone, FootClass *foot)
 {
-    int *pass_table = unknown_table_7e00c4[zone];
-    double threat_avoidance = foot != 0 ? foot->unknown_4cafb0() : 0.0;
+    int *pass_table = MZonePassability[zone];
+    double threat_avoidance = foot != 0 ? foot->Threat_Avoidance_Value() : 0.0;
     HouseClass *house = foot != 0 ? foot->House : 0;
     bool avoid_threats = threat_avoidance > 0.00001;
 

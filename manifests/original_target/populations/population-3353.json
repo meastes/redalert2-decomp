@@ -4,8 +4,8 @@
     "id": "population-3353",
     "inventory_sha256": "53ebe2c7616532f7152f650f3d518a892bf4a883ba00b4166abeac9f94f0fbd6",
     "gaps_sha256": "4e582a9109c45a1716db32b83dc3092d2f0dc5ed80df02a4a97f53dbbfed92d0",
-    "historical_population_sha256": "cf36c53d0106d59ade93c7048304d4a76f8d306bc448964ade2dd9820a53699c",
-    "historical_acceptance_sha256": "62fbb6a59aa109112aa42121601c60c7bd997aae21affc9a4114f019246d6eb8",
+    "historical_population_sha256": "b3cbbea232603e61548f1d06c338e3410688f8094b71b3ba43d30ff064363720",
+    "historical_acceptance_sha256": "d9ab38d770e76cd4a8672667898ff15e3801d903e209028ea72194d4cc5704ed",
     "separate_units": true
   },
   "references": {
@@ -864,7 +864,7 @@
     "??_C@_0O@NFJI@gdnarrowp?4pcx?$AA@": 8303020,
     "??_C@_0O@OFHI@guparrowp?4pcx?$AA@": 8303004,
     "??_C@_0P@FFCB@wolrslknob?4pcx?$AA@": 8303112,
-    "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A": 10969976,
+    "?SurfaceCache@@3VSurfaceCacheClass@@A": 10969976,
     "?Load_Image_0068c600@SurfaceCacheClass@@QAE_NPBDHH@Z": 6866432,
     "?Load_Image_0068ca20@SurfaceCacheClass@@QAEXPBD@Z": 6867488,
     "?unknown_dialog_background_7e8d1c@@3PBDB": 8293660,
@@ -970,7 +970,7 @@
     "?unknown_flag_a40d0c@@3DA": 10751244,
     "?AudioDeviceAvailable@@YAHXZ": 4222768,
     "?Debug_Printf@@YAXPBDZZ": 4221168,
-    "?unknown_stop_sample_407e60@@YIXPAX@Z": 4226656,
+    "?AudioStreamerStop@@YIXPAX@Z": 4226656,
     "??_C@_0BE@KPIN@Theme?3?3Suspend?$CI?$CFd?$CJ?6?$AA@": 8356892,
     "?unknown_load_719160@UnknownRecord_00719080@@QAEHPAX0@Z": 7442784,
     "?unknown_value_72d290@UnknownSource_00726350@@QAEHXZ": 7525008,
@@ -4387,7 +4387,7 @@
     "?AI@ThemeClass@@QAEXXZ": 7240912,
     "?Resume@VocStaticSound@@QAEXXZ": 7423104,
     "?Update@ScorePrintClass@@UAE_NPAVSurface@@@Z": 6717680,
-    "?unknown_score_print_ab6f9c@@3_NA": 11235228,
+    "?StillUpdating@@3_NA": 11235228,
     "??1ConvertClass@@UAE@XZ": 4739856,
     "?AI@VoxelAnimClass@@UAEXXZ": 7394176,
     "?Pause@MSAnim@@UAEXXZ": 5962768,
@@ -4425,7 +4425,7 @@
     "?GetClassID@SmudgeTypeClass@@UAGJPAUGUID@@@Z": 6849424,
     "?GetClassID@TerrainTypeClass@@UAGJPAUGUID@@@Z": 7231968,
     "??0TerrainTypeClass@@QAE@PBD@Z": 7230048,
-    "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z": 7281408,
+    "?Inflate_Rect@@YIXPAVRect@@H@Z": 7281408,
     "??_GUnitClass@@UAEPAXI@Z": 7381808,
     "??1UnitClass@@UAE@XZ": 7317440,
     "??_GVeinholeMonsterClass@@UAEPAXI@Z": 7415600,
@@ -4521,7 +4521,7 @@
     "?Audio_Event_Handle_Event@@YIPAUAudioEvent@@PAUAudioEventHandle@@@Z": 4219200,
     "??0TeamClass@@QAE@PAVTeamTypeClass@@PAVHouseClass@@H@Z": 7042096,
     "?Find@UnknownChunkList_602cd0@@QAEPAUUnknownChunk_602cd0@@PBD@Z": 6302928,
-    "?unknown_ini_8397a0@@3VCCINIClass@@A": 8624032,
+    "?AIINI@@3VCCINIClass@@A": 8624032,
     "?Init@AudioLevelSet@@QAIXXZ": 4198400,
     "??8WideString@@QBE_NABV0@@Z": 7797424,
     "??8WideString@@QBE_NPBG@Z": 7797360,
@@ -4570,7 +4570,7 @@
     "??9WideString@@QBE_NABV0@@Z": 7797552,
     "??HWideString@@QAE?AV0@ABV0@@Z": 7798688,
     "?Find@Unknown42C350Table@@QBEPAUUnknown42C350Record@@ABVCell@@@Z": 4375376,
-    "?unknown_ini_8396d0@@3PAVCCINIClass@@A": 8623824,
+    "?RuleINI@@3PAVCCINIClass@@A": 8623824,
     "?Action@Dial8Class@@UAEHIAAI@Z": 4812768,
     "?Action@EditClass@@UAEHIAAI@Z": 4926272,
     "??0FoggedObjectClass@@QAE@ABVNoInitClass@@@Z": 4980688,
@@ -4690,22 +4690,22 @@
     "??0VocClass@@QAE@PBD@Z": 7419920,
     "??1VocClass@@QAE@XZ": 7420032,
     "?Read_INI@VocClass@@QAE_NAAVCCINIClass@@@Z": 7420112,
-    "?unknown_voc_volume_7f9a70@@3MA": 8362608,
-    "?unknown_voc_min_volume_7f9a74@@3MA": 8362612,
+    "?DefaultVolume@@3MA": 8362608,
+    "?DefaultMinVolume@@3MA": 8362612,
     "?Audio_Event_Type_Set_Min_Volume@@YIXPAUAudioEventType@@M@Z": 4220416,
-    "?unknown_voc_priority_7f9a6c@@3HA": 8362604,
+    "?DefaultPriority@@3HA": 8362604,
     "?Audio_Priority_From_Name@@YI_NPBDPAH@Z": 4220896,
     "?Audio_Event_Type_Set_Priority@@YIXPAUAudioEventType@@H@Z": 4220240,
     "?Audio_Event_Type_Set_Intro@@YIXPAUAudioEventType@@H@Z": 4220208,
     "?Audio_Event_Type_Set_Outro@@YIXPAUAudioEventType@@H@Z": 4220224,
-    "?unknown_voc_control_ad0850@@3IA": 11339856,
+    "?DefaultControl@@3IA": 11339856,
     "?Audio_Control_Apply_Keyword@@YI_NPAIPBD@Z": 4220976,
-    "?unknown_voc_type_7f9a78@@3IA": 8362616,
+    "?DefaultType@@3IA": 8362616,
     "?Audio_Event_Type_Set_Type@@YIXPAUAudioEventType@@I@Z": 4220368,
-    "?unknown_voc_limit_7f9a80@@3HA": 8362624,
+    "?DefaultLimit@@3HA": 8362624,
     "?Audio_Event_Type_Set_Limit@@YIXPAUAudioEventType@@H@Z": 4220384,
     "?Audio_Event_Type_Set_Loop@@YIXPAUAudioEventType@@H@Z": 4220496,
-    "?unknown_voc_range_7f9a7c@@3HA": 8362620,
+    "?DefaultRange@@3HA": 8362620,
     "?Audio_Event_Type_Set_Range@@YIXPAUAudioEventType@@H@Z": 4220400,
     "?Audio_Event_Type_Set_Delay@@YIXPAUAudioEventType@@HH@Z": 4220432,
     "?Audio_Event_Type_Set_FShift@@YIXPAUAudioEventType@@HH@Z": 4220448,
@@ -4819,7 +4819,7 @@
     "?unknown_ping_images_7f86dc@@3PAPBDA": 8357596,
     "?Get_Image_0068ca40@SurfaceCacheClass@@QAEPAVSurface@@PBDH@Z": 6867520,
     "?unknown_flag_images_7f86b0@@3PAPBDA": 8357552,
-    "?unknown_brighten_palette_68bce0@@YIXPAE@Z": 6864096,
+    "?SurfaceCacheConvertPalette@@YIXPAE@Z": 6864096,
     "?Draw_0068cf90@SurfaceCacheClass@@QAE_NABVRect@@PAVSurface@@11PAEHHH@Z": 6868880,
     "?Get_Value@GaugeClass@@UBEHXZ": 5049472,
     "?Get_Value@FlagGameOption@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z": 7506000,
@@ -5673,7 +5673,7 @@
     "?get@Storage_654960@@QAEPAXIPAI@Z": 6637920,
     "?get@Storage_6549b0@@QAEPAXIPAI@Z": 6638000,
     "?get@Storage_654a00@@QAEPAXIPAI@Z": 6638080,
-    "?unknown_6631a0@ScenarioClass@@QAEPAVCellClass@@H@Z": 6697376,
+    "?Get_Waypoint_Target@ScenarioClass@@QAEPAVCellClass@@H@Z": 6697376,
     "?Set_Waypoint_Location@ScenarioClass@@QAEXHVCell@@@Z": 6697984,
     "?Compute_CRC@ScriptClass@@UBEXAAVWWCRCEngine@@@Z": 6719568,
     "?get@Leaf_668ea0@@QAEXXZ": 6721184,
@@ -6311,14 +6311,14 @@
     "?Scale_004376b0@Vector3@@QAEAAU1@M@Z": 4421296,
     "?Add_004376e0@Vector3@@QAEAAU1@ABU1@@Z": 4421344,
     "?Matrix3D_Rigid_Inverse_00591420@@YI?AVMatrix3D@@ABV1@@Z": 5837856,
-    "?Unknown_006A2900@Tactical@@QAE?AUPoint2D@@ABU2@@Z": 6957312,
+    "?Pixel_To_Lepton@Tactical@@QAE?AUPoint2D@@ABU2@@Z": 6957312,
     "?Fast_Sin_4096@@YAMN@Z": 4957472,
     "?INoticeSink_Unknown@TabClass@@UAE_NHH@Z": 6955040,
     "?View@MonoClass@@QAEXXZ": 5890800,
     "?Detach@TiberiumClass@@UAEXPAVAbstractClass@@_N@Z": 7246880,
     "?Detach@RulesClass@@QAEXPBVAbstractClass@@_N@Z": 6623888,
     "?Set_View_Dimensions_006a65a0@Tactical@@QAEXABVRect@@@Z": 6972832,
-    "?Unknown_006A2BF0@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z": 6958064,
+    "?Pixel_To_Coord_Absolute@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z": 6958064,
     "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABUCoordStruct@@@Z": 6956960,
     "?On_Ground@CellClass@@UBE_NXZ": 4700656,
     "?unknown_slot22@CellClass@@UBE?AUCoordStruct@@XZ": 4700832,
@@ -6341,22 +6341,22 @@
     "?As_Techno@TargetClass@@QBEPAVTechnoClass@@XZ": 7035152,
     "?As_Cell@TargetClass@@QBEPAVCellClass@@XZ": 7038480,
     "?Compute_CRC@TubeClass@@UBEXAAVWWCRCEngine@@@Z": 7272496,
-    "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z": 6982784,
-    "?Unknown_006A9170@Tactical@@QAEXXZ": 6984048,
+    "?Clamp_To_Tactical_Rect@Tactical@@QAE_NPAUPoint2D@@@Z": 6982784,
+    "?Update_Visible_Cells@Tactical@@QAEXXZ": 6984048,
     "?RandomAICountryIndex@MPCooperative@@UAEHXZ": 5916144,
     "?unknown_slot22@MPCooperative@@UAE_NXZ": 5915216,
     "?Set_Tactical_Position_006a6640@Tactical@@QAEXABUPoint2D@@@Z": 6972992,
     "?unknown_slot20@MPCooperative@@UAE_NXZ": 5912784,
     "?unknown_slot19@MPCooperative@@UAE_NHHPAVMPlayerScoreType@@@Z": 5912016,
-    "?Unknown_006AA610@Tactical@@QAEXP6IXPAVObjectClass@@@Z@Z": 6989328,
-    "?Unknown_006AABC0@Tactical@@QAEXPBVRect@@P6IXPAVObjectClass@@@Z@Z": 6990784,
-    "?Unknown_006AA790@Tactical@@QAEXXZ": 6989712,
+    "?Select_Rubber_Band@Tactical@@QAEXP6IXPAVObjectClass@@@Z@Z": 6989328,
+    "?Select_These@Tactical@@QAEXPBVRect@@P6IXPAVObjectClass@@@Z@Z": 6990784,
+    "?Draw_Rubber_Band@Tactical@@QAEXXZ": 6989712,
     "?Unknown_006A9E10@Tactical@@QAEX_NABVRect@@1@Z": 6987280,
-    "?Unknown_006A9F60@Tactical@@QAEX_NABVRect@@1@Z": 6987616,
+    "?Draw_Buildings@Tactical@@QAEX_NABVRect@@1@Z": 6987616,
     "?Rectangular_To_Isometric@@YI?AUPoint2D@@U1@@Z": 6956864,
     "?Add_To_Selectables@Tactical@@QAE_NPAVObjectClass@@UPoint2D@@@Z": 6989072,
     "?unknown_tactical_pixels_abe5f8@@3PAUTacticalObjectPixel@@A": 11265528,
-    "?Unknown_006AA6A0@Tactical@@QAEHXZ": 6989472,
+    "?Rubber_Band_Contains_Selectable@Tactical@@QAEHXZ": 6989472,
     "?Unknown_006F76B0@@YA_NXZ": 7304880,
     "?Unknown_006F71E0@@YIXPBD@Z": 7303648,
     "?unknown_slot21@MPCooperative@@UAE_NXZ": 5912928,
@@ -6971,7 +6971,7 @@
     "?Unload_Image_0068cb30@SurfaceCacheClass@@QAEXPBD@Z": 6867760,
     "??_ENode@?$WolDictionary@VWstring@@ULadder@WOL@@@@QAEPAXI@Z": 7759744,
     "??_ENode@?$WolDictionary@VWstring@@UChannel@WOL@@@@QAEPAXI@Z": 7759840,
-    "?unknown_OwnerTalkClass_00ab6d18@@3VOwnerTalkClass@@A": 11234584,
+    "?OwnerTalk@@3VOwnerTalkClass@@A": 11234584,
     "??_GIPXManagerClass@@UAEPAXI@Z": 5404752,
     "??1IPXManagerClass@@UAE@XZ": 5394736,
     "??1OwnerTalkClass@@QAE@XZ": 6549696,
@@ -7021,8 +7021,8 @@
     "?Set_Volume@VoxClass@@SIXH@Z": 7429872,
     "?Play_Song@ThemeClass@@QAEHH@Z": 7241392,
     "?Pick_Next_Song@ThemeClass@@QAEHH@Z": 7241088,
-    "?unknown_6e8440@ThemeClass@@QAE_NI@Z": 7242816,
-    "?Unknown_006E7A70@ThemeClass@@QAEXXZ": 7240304,
+    "?Is_Allowed@ThemeClass@@QAE_NI@Z": 7242816,
+    "?Free_Themes@ThemeClass@@QAEXXZ": 7240304,
     "?Still_Playing@ThemeClass@@QBE_NXZ": 7242448,
     "?Unknown_006E7890@ThemeClass@@QAEXAAVCCINIClass@@@Z": 7239824,
     "?From_Name@IsometricTileTypeClass@@SIHPBD@Z": 5411840,
@@ -7030,7 +7030,26 @@
     "?Theme_File_Name@ThemeClass@@QAEPBDH@Z": 7242000,
     "?Put_All@@YI_NPAUIStream@@H@Z": 6641840,
     "?Full_Name@ThemeClass@@QBEPBGI@Z": 7240880,
-    "_?fade@?1??Main_Game@@YIXHQAPAD@Z@4_NA": 8205112
+    "_?fade@?1??Main_Game@@YIXHQAPAD@Z@4_NA": 8205112,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
   },
   "regions": [
     {
@@ -8004,7 +8023,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8020,7 +8039,7 @@
         {
           "offset": 21,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8044,7 +8063,7 @@
         {
           "offset": 40,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8068,7 +8087,7 @@
         {
           "offset": 59,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8092,7 +8111,7 @@
         {
           "offset": 78,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8116,7 +8135,7 @@
         {
           "offset": 97,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8140,7 +8159,7 @@
         {
           "offset": 116,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8164,7 +8183,7 @@
         {
           "offset": 135,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8188,7 +8207,7 @@
         {
           "offset": 154,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8212,7 +8231,7 @@
         {
           "offset": 173,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8236,7 +8255,7 @@
         {
           "offset": 192,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8260,7 +8279,7 @@
         {
           "offset": 211,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8284,7 +8303,7 @@
         {
           "offset": 230,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8308,7 +8327,7 @@
         {
           "offset": 249,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8332,7 +8351,7 @@
         {
           "offset": 268,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8356,7 +8375,7 @@
         {
           "offset": 287,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8388,7 +8407,7 @@
         {
           "offset": 315,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8404,7 +8423,7 @@
         {
           "offset": 325,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8428,7 +8447,7 @@
         {
           "offset": 344,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8452,7 +8471,7 @@
         {
           "offset": 363,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8476,7 +8495,7 @@
         {
           "offset": 382,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8500,7 +8519,7 @@
         {
           "offset": 401,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8524,7 +8543,7 @@
         {
           "offset": 420,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8548,7 +8567,7 @@
         {
           "offset": 439,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8572,7 +8591,7 @@
         {
           "offset": 458,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8596,7 +8615,7 @@
         {
           "offset": 477,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8620,7 +8639,7 @@
         {
           "offset": 496,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8644,7 +8663,7 @@
         {
           "offset": 515,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8668,7 +8687,7 @@
         {
           "offset": 534,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8692,7 +8711,7 @@
         {
           "offset": 553,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8716,7 +8735,7 @@
         {
           "offset": 572,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8740,7 +8759,7 @@
         {
           "offset": 591,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8772,7 +8791,7 @@
         {
           "offset": 615,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8788,7 +8807,7 @@
         {
           "offset": 625,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8812,7 +8831,7 @@
         {
           "offset": 644,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8836,7 +8855,7 @@
         {
           "offset": 663,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8860,7 +8879,7 @@
         {
           "offset": 682,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8884,7 +8903,7 @@
         {
           "offset": 701,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8908,7 +8927,7 @@
         {
           "offset": 720,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8932,7 +8951,7 @@
         {
           "offset": 739,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8956,7 +8975,7 @@
         {
           "offset": 758,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -8980,7 +8999,7 @@
         {
           "offset": 777,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9004,7 +9023,7 @@
         {
           "offset": 796,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9028,7 +9047,7 @@
         {
           "offset": 815,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9052,7 +9071,7 @@
         {
           "offset": 834,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9076,7 +9095,7 @@
         {
           "offset": 853,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9100,7 +9119,7 @@
         {
           "offset": 872,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9124,7 +9143,7 @@
         {
           "offset": 891,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9148,7 +9167,7 @@
         {
           "offset": 910,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9172,7 +9191,7 @@
         {
           "offset": 929,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9196,7 +9215,7 @@
         {
           "offset": 948,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9220,7 +9239,7 @@
         {
           "offset": 967,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9244,7 +9263,7 @@
         {
           "offset": 986,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9268,7 +9287,7 @@
         {
           "offset": 1005,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9292,7 +9311,7 @@
         {
           "offset": 1024,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9316,7 +9335,7 @@
         {
           "offset": 1043,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9340,7 +9359,7 @@
         {
           "offset": 1062,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9364,7 +9383,7 @@
         {
           "offset": 1081,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9388,7 +9407,7 @@
         {
           "offset": 1100,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9412,7 +9431,7 @@
         {
           "offset": 1119,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9436,7 +9455,7 @@
         {
           "offset": 1138,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9460,7 +9479,7 @@
         {
           "offset": 1157,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9484,7 +9503,7 @@
         {
           "offset": 1176,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9508,7 +9527,7 @@
         {
           "offset": 1195,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9532,7 +9551,7 @@
         {
           "offset": 1214,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9564,7 +9583,7 @@
         {
           "offset": 1242,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9580,7 +9599,7 @@
         {
           "offset": 1252,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9604,7 +9623,7 @@
         {
           "offset": 1271,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9628,7 +9647,7 @@
         {
           "offset": 1290,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9652,7 +9671,7 @@
         {
           "offset": 1309,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9676,7 +9695,7 @@
         {
           "offset": 1328,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9700,7 +9719,7 @@
         {
           "offset": 1347,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9724,7 +9743,7 @@
         {
           "offset": 1366,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9748,7 +9767,7 @@
         {
           "offset": 1385,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9772,7 +9791,7 @@
         {
           "offset": 1404,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9796,7 +9815,7 @@
         {
           "offset": 1423,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9820,7 +9839,7 @@
         {
           "offset": 1442,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9844,7 +9863,7 @@
         {
           "offset": 1461,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9868,7 +9887,7 @@
         {
           "offset": 1480,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9892,7 +9911,7 @@
         {
           "offset": 1499,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9916,7 +9935,7 @@
         {
           "offset": 1518,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9948,7 +9967,7 @@
         {
           "offset": 1546,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9964,7 +9983,7 @@
         {
           "offset": 1556,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -9988,7 +10007,7 @@
         {
           "offset": 1575,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10012,7 +10031,7 @@
         {
           "offset": 1594,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10036,7 +10055,7 @@
         {
           "offset": 1613,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10060,7 +10079,7 @@
         {
           "offset": 1632,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10084,7 +10103,7 @@
         {
           "offset": 1651,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10108,7 +10127,7 @@
         {
           "offset": 1670,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10132,7 +10151,7 @@
         {
           "offset": 1689,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10156,7 +10175,7 @@
         {
           "offset": 1708,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10180,7 +10199,7 @@
         {
           "offset": 1727,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10204,7 +10223,7 @@
         {
           "offset": 1746,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10228,7 +10247,7 @@
         {
           "offset": 1765,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10252,7 +10271,7 @@
         {
           "offset": 1784,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10276,7 +10295,7 @@
         {
           "offset": 1803,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10300,7 +10319,7 @@
         {
           "offset": 1822,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10332,7 +10351,7 @@
         {
           "offset": 1850,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10348,7 +10367,7 @@
         {
           "offset": 1860,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10372,7 +10391,7 @@
         {
           "offset": 1879,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10396,7 +10415,7 @@
         {
           "offset": 1898,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10420,7 +10439,7 @@
         {
           "offset": 1917,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10444,7 +10463,7 @@
         {
           "offset": 1936,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10468,7 +10487,7 @@
         {
           "offset": 1955,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10492,7 +10511,7 @@
         {
           "offset": 1974,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10516,7 +10535,7 @@
         {
           "offset": 1993,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10540,7 +10559,7 @@
         {
           "offset": 2012,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10564,7 +10583,7 @@
         {
           "offset": 2031,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10588,7 +10607,7 @@
         {
           "offset": 2050,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10612,7 +10631,7 @@
         {
           "offset": 2069,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10636,7 +10655,7 @@
         {
           "offset": 2088,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10660,7 +10679,7 @@
         {
           "offset": 2107,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10684,7 +10703,7 @@
         {
           "offset": 2126,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10716,7 +10735,7 @@
         {
           "offset": 2154,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10732,7 +10751,7 @@
         {
           "offset": 2164,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10756,7 +10775,7 @@
         {
           "offset": 2183,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10780,7 +10799,7 @@
         {
           "offset": 2202,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10804,7 +10823,7 @@
         {
           "offset": 2221,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10828,7 +10847,7 @@
         {
           "offset": 2240,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10852,7 +10871,7 @@
         {
           "offset": 2259,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10876,7 +10895,7 @@
         {
           "offset": 2278,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10900,7 +10919,7 @@
         {
           "offset": 2297,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10924,7 +10943,7 @@
         {
           "offset": 2316,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10948,7 +10967,7 @@
         {
           "offset": 2335,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10972,7 +10991,7 @@
         {
           "offset": 2354,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -10996,7 +11015,7 @@
         {
           "offset": 2373,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -11020,7 +11039,7 @@
         {
           "offset": 2392,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -11044,7 +11063,7 @@
         {
           "offset": 2411,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -11068,7 +11087,7 @@
         {
           "offset": 2430,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -11092,7 +11111,7 @@
         {
           "offset": 2449,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -11116,7 +11135,7 @@
         {
           "offset": 2468,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -11140,7 +11159,7 @@
         {
           "offset": 2487,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -11164,7 +11183,7 @@
         {
           "offset": 2506,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -11188,7 +11207,7 @@
         {
           "offset": 2525,
           "kind": 6,
-          "symbol": "?unknown_bitmap_writer_a76378@@3VSurfaceCacheClass@@A",
+          "symbol": "?SurfaceCache@@3VSurfaceCacheClass@@A",
           "target": 10969976,
           "addend": 0,
           "resolved": 10969976
@@ -11210,7 +11229,7 @@
           "resolved": 586609
         }
       ],
-      "source_sha256": "deb02223ccf52ddc26aef3287cdb5c3d58d55ae62f85513a015f4c0431e35cf9",
+      "source_sha256": "1f36bbe26269173aa0d30d1dd732b59882f2ac28029ec511aff0849acdb51385",
       "source": "src/recovered/ownrdraw/OwnerDraw_Load_Dialog_Images.cpp",
       "population": "population-3353",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",

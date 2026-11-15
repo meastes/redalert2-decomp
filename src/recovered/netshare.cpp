@@ -407,7 +407,7 @@ int __fastcall Message_Box_005c3230(wchar_t const *text, int kind, bool (*callba
     } else {
         id = kind == 4 ? 0x126 : 0xfb;
     }
-    HWND dialog = (HWND)unknown_create_dialog_735700(ProgramInstance, id, (HWND)unknown_b263d8, Unknown_Dialog_Proc_005c33a0, 0);
+    HWND dialog = (HWND)WS_Create_Dialog(ProgramInstance, id, (HWND)unknown_b263d8, Unknown_Dialog_Proc_005c33a0, 0);
     unknown_show_dialog_5ff7e0(dialog, id);
     HWND button;
     if (kind == 0) {
@@ -430,7 +430,7 @@ int __fastcall Message_Box_005c3230(wchar_t const *text, int kind, bool (*callba
     HWND message = GetDlgItem(dialog, 0x5b0);
     SendMessageA(message, 0x4b2, 0, (LPARAM)text);
     ShowWindow(dialog, 1);
-    return Unknown_007359e0(dialog, callback, 0, 1, 1);
+    return WS_Wait_Dialog(dialog, callback, 0, 1, 1);
 }
 
 
@@ -445,7 +445,7 @@ long __stdcall Unknown_Dialog_Proc_005c33a0(HWND window, unsigned message, unsig
         return 1;
     case 0x0f:                  // WM_PAINT
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window, 0);
         return 1;
     case 0x2b:                  // WM_DRAWITEM
@@ -656,7 +656,7 @@ void Unknown_005c3ae0()
     strcpy(packet.Name, unknown_name_a3d3a0);
     int count = unknown_players_a3fa7c.Count();
     for (int i = 1; i < count; i++) {
-        unknown_ipx_manager_a40978.Send_Global_Message(&packet, sizeof(packet), 1, &unknown_players_a3fa7c[i]->Address, 0, 0);
+        Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &unknown_players_a3fa7c[i]->Address, 0, 0);
         Service_Game_IO_00481fb0();
     }
 }
@@ -729,7 +729,7 @@ void __fastcall Send_Game_Options_005c3c60(char const *text)
     for (int i = 1; i < unknown_players_a3fa7c.Count(); i++) {
         NodeNameType *player = unknown_players_a3fa7c[i];
         Debug_Printf("Sending public game options to %s\n", Wide_To_Narrow_006fa120(player->Name));
-        unknown_ipx_manager_a40978.Send_Global_Message(&packet, sizeof(packet), 1, &player->Address, 0, 0);
+        Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &player->Address, 0, 0);
         Service_Game_IO_00481fb0();
     }
 }
@@ -761,7 +761,7 @@ void __fastcall Unknown_005c3d90(char const *name, char const *text)
     for (int i = 1; i < unknown_players_a3fa7c.Count(); i++) {
         if (_stricmp(Wide_To_Narrow_006fa120(unknown_players_a3fa7c[i]->Name), name) == 0) {
             Debug_Printf("Sending private game options to %ls\n", unknown_players_a3fa7c[i]->Name);
-            unknown_ipx_manager_a40978.Send_Global_Message(&packet, sizeof(packet), 1, &unknown_players_a3fa7c[i]->Address, 0, 0);
+            Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &unknown_players_a3fa7c[i]->Address, 0, 0);
             Service_Game_IO_00481fb0();
         }
     }
@@ -1335,7 +1335,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
                 Send_Game_Options_005c3c60("K1");
             }
         }
-        Unknown_005c7570(Find_Lobby_Window_005c2c40());
+        Update_Network_Dialog_Preview(Find_Lobby_Window_005c2c40());
     }
     if (digest == 0) {
         Unknown_005C2C80(-1, L"Gameopt parse failed");
@@ -1680,11 +1680,11 @@ bool Lobby_Dialog_Update_005c67c0()
                 MultiplayerMapPreview = new MapPreviewClass;
                 MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
                 if (MultiplayerMapPreview->unknown_00 == 0) {
-                    Unknown_005c7570(unknown_lobby_dialog_a728e0);
+                    Update_Network_Dialog_Preview(unknown_lobby_dialog_a728e0);
                 }
                 InvalidateRect(unknown_lobby_dialog_a728e0, 0, 0);
             } else {
-                Unknown_005c7570(unknown_lobby_dialog_a728e0);
+                Update_Network_Dialog_Preview(unknown_lobby_dialog_a728e0);
             }
             unknown_lobby_map_a728d0 = found;
             unknown_session_a3d2b4 = unknown_lobby_map_a72c80;
@@ -1717,12 +1717,12 @@ bool Lobby_Dialog_Update_005c67c0()
 
 int __fastcall Open_Lobby_Dialog_005c6960(HWND parent)
 {
-    unknown_5159b0(0, true);
-    unknown_lobby_dialog_a728e0 = (HWND)unknown_create_dialog_735700(ProgramInstance, 0x6B, parent, Lobby_Dialog_Proc_005c69e0, 0);
+    Darken_Surface(0, true);
+    unknown_lobby_dialog_a728e0 = (HWND)WS_Create_Dialog(ProgramInstance, 0x6B, parent, Lobby_Dialog_Proc_005c69e0, 0);
     unknown_show_dialog_5ff7e0(unknown_lobby_dialog_a728e0, 0x6B);
     SendMessageA(unknown_lobby_dialog_a728e0, 0x4A9, 0, 1);
     ShowWindow(unknown_lobby_dialog_a728e0, 1);
-    return Unknown_007359e0(unknown_lobby_dialog_a728e0, Lobby_Dialog_Update_005c67c0, 0, 1, 1);
+    return WS_Wait_Dialog(unknown_lobby_dialog_a728e0, Lobby_Dialog_Update_005c67c0, 0, 1, 1);
 }
 
 
@@ -1745,7 +1745,7 @@ bool __fastcall End_Dialog_007357e0(HWND dialog, int result);
 int __fastcall Make_Random_Map_005c84e0();
 bool __fastcall Accept_Map_Selection_005c71f0(HWND dialog);
 int __fastcall unknown_select_list_item_by_data_005c7160(HWND dialog, int data);   // NATIVE: pointer item data (port/fixups.json)
-void __fastcall unknown_dialog_5e5f20(HWND dialog);
+void __fastcall Slide_Pending_Dialog(HWND dialog);
 namespace OwnerDraw {
 void __fastcall unknown_draw_dialog_back_5fee70(HWND window);
 void __fastcall unknown_5ff380(unsigned int key);
@@ -1835,7 +1835,7 @@ long __stdcall Lobby_Dialog_Proc_005c69e0(HWND window, unsigned message, unsigne
     case 0xf:
         OwnerDraw::unknown_draw_dialog_back_5fee70(window);
         if (MultiplayerMapPreview) MultiplayerMapPreview->Blit_Preview(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         ValidateRect(window, 0);
         return 0;
     case 0x14:
@@ -1863,11 +1863,11 @@ long __stdcall Lobby_Dialog_Proc_005c69e0(HWND window, unsigned message, unsigne
                     }
                     if (index < unknown_multi_missions_a3d8d8.Count()) unknown_select_list_item_by_data_005c7160(window, (int)unknown_multi_missions_a3d8d8[index]);
                     Select_Scenario_005c7c30(index);
-                    if (!MultiplayerMapPreview->unknown_00) Unknown_005c7570(window);
+                    if (!MultiplayerMapPreview->unknown_00) Update_Network_Dialog_Preview(window);
                     unknown_session_a3d2b4 = unknown_lobby_map_a72c80;
                     Select_Scenario_005c7c30(unknown_session_a3d2b4);
                     bool accepted = Accept_Map_Selection_005c71f0(window);
-                    unknown_5159b0(0, true);
+                    Darken_Surface(0, true);
                     if (accepted) return 0;
                 }
                 OwnerDraw::unknown_show_dialog_5e61b0(window);
@@ -2066,11 +2066,11 @@ void Unknown_Pregame_Setup_005c74f0()
     unknown_special_a40920.HarvesterImmune = unknown_session_a3d33d;
     unknown_special_a40920.TiberiumGrows = true;
     unknown_special_a40920.TiberiumSpreads = true;
-    unknown_special_a40920.Unknown_0068B410();
+    unknown_special_a40920.Apply_To_Game();
 }
 
 
-// void Unknown_005c7570(HWND dialog) (0x005C7570)
+// void Update_Network_Dialog_Preview(HWND dialog) (0x005C7570)
 // Remakes the dialogs' map preview for the session's map. In a modem game (modes 1 and 2) a map
 // that is not among the local maps makes the host send its preview (serial command 0x77, for at
 // most 1800 ticks); in a LAN game (3) the setup dialog 0xBD asks the host the same (global
@@ -2078,7 +2078,7 @@ void Unknown_Pregame_Setup_005c74f0()
 // unless 0x00672140 holds, drops) the current preview. Otherwise the preview is made from the
 // map file when it is present.
 
-void __fastcall Unknown_005c7570(HWND dialog)
+void __fastcall Update_Network_Dialog_Preview(HWND dialog)
 {
     delete MultiplayerMapPreview;
     MultiplayerMapPreview = 0;
@@ -2094,12 +2094,12 @@ void __fastcall Unknown_005c7570(HWND dialog)
             for (;;) {
                 int sent;
                 if (unknown_game_mode_a3d298 == 3) {
-                    sent = unknown_ipx_manager_a40978.Send_Global_Message(&packet, 0x2F, 1, &unknown_address_a3db2c, 0, 0);
+                    sent = Ipx.Send_Global_Message(&packet, 0x2F, 1, &unknown_address_a3db2c, 0, 0);
                 } else {
                     WOL::User *host = Unknown_0074DA60();
                     sent = 0;
                     if (host != 0) {
-                        sent = unknown_ipx_manager_a40978.unknown_5259a0(&packet, 0x2F, 1, Narrow_To_Wide_006fa180(host->name));
+                        sent = Ipx.Send_Global_Message_To_Name(&packet, 0x2F, 1, Narrow_To_Wide_006fa180(host->name));
                     }
                 }
                 if (sent) {
@@ -2107,7 +2107,7 @@ void __fastcall Unknown_005c7570(HWND dialog)
                 }
                 Service_Game_IO_00481fb0();
             }
-            while (unknown_ipx_manager_a40978.Global_Num_Send()) {
+            while (Ipx.Global_Num_Send()) {
                 Service_Game_IO_00481fb0();
             }
             return;
@@ -2192,7 +2192,7 @@ void __fastcall Unknown_005c7570(HWND dialog)
 
 void __fastcall Download_Map_Preview_005c7970()
 {
-    unknown_ipx_manager_a40978.Set_Timing(50, -1, 5000, true);
+    Ipx.Set_Timing(50, -1, 5000, true);
     Debug_Printf("Starting map preview download\n");
     UnknownGlobalPacket packet;
     memset(&packet, 0, sizeof(packet));
@@ -2201,20 +2201,20 @@ void __fastcall Download_Map_Preview_005c7970()
     for (;;) {
         int sent;
         if (unknown_game_mode_a3d298 == 3) {
-            sent = unknown_ipx_manager_a40978.Send_Global_Message(&packet, sizeof(packet), 1, &unknown_address_a3db2c, 0, 0);
+            sent = Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &unknown_address_a3db2c, 0, 0);
         } else {
             WOL::User *host = Unknown_0074DA60();
             if (host == 0) {
                 break;
             }
-            sent = unknown_ipx_manager_a40978.unknown_5259a0(&packet, sizeof(packet), 1, Narrow_To_Wide_006fa180(host->name));
+            sent = Ipx.Send_Global_Message_To_Name(&packet, sizeof(packet), 1, Narrow_To_Wide_006fa180(host->name));
         }
         if (sent) {
             break;
         }
         Service_Game_IO_00481fb0();
     }
-    while (unknown_ipx_manager_a40978.Global_Num_Send()) {
+    while (Ipx.Global_Num_Send()) {
         Service_Game_IO_00481fb0();
     }
     Debug_Printf("Preview mode acks sent\n");
@@ -2223,7 +2223,7 @@ void __fastcall Download_Map_Preview_005c7970()
     char filename[256];
     if (!Get_File_From_Host_0066aef0(filename, 3, false)) {
         Debug_Printf("got_file is false. Download failed\n");
-        unknown_ipx_manager_a40978.Set_Timing(30, -1, 600, true);
+        Ipx.Set_Timing(30, -1, 600, true);
         return;
     }
     Debug_Printf("Loading the compressed preview image\n");
@@ -2248,7 +2248,7 @@ void __fastcall Download_Map_Preview_005c7970()
     Debug_Printf("Cleaning up the temporary decompression buffers\n");
     operator delete(image);
     operator delete(compressed);
-    unknown_ipx_manager_a40978.Set_Timing(30, -1, 600, true);
+    Ipx.Set_Timing(30, -1, 600, true);
 }
 
 
@@ -2337,13 +2337,13 @@ void __fastcall Upload_Map_Preview_005c7ef0(MapPreviewClass *preview)
     memset(&packet, 0, sizeof(packet));
     packet.Command = 0x19;
     strcpy(packet.Name, unknown_name_a3d3a0);
-    unknown_ipx_manager_a40978.Set_Timing(50, -1, 5000, true);
+    Ipx.Set_Timing(50, -1, 5000, true);
     timer = 1200;
     for (int i = 1; i < unknown_players_a3fa7c.Count(); i++) {
-        unknown_ipx_manager_a40978.unknown_5259a0(&packet, sizeof(packet), 1, unknown_players_a3fa7c[i]->Name);
+        Ipx.Send_Global_Message_To_Name(&packet, sizeof(packet), 1, unknown_players_a3fa7c[i]->Name);
         Service_Game_IO_00481fb0();
     }
-    while (unknown_ipx_manager_a40978.Global_Num_Send() && timer) {
+    while (Ipx.Global_Num_Send() && timer) {
         Service_Game_IO_00481fb0();
     }
     if (!timer) {
@@ -2360,7 +2360,7 @@ void __fastcall Upload_Map_Preview_005c7ef0(MapPreviewClass *preview)
         UnknownGlobalPacket reply;
         int length = sizeof(reply);
         unsigned short product;
-        if (unknown_ipx_manager_a40978.Get_Global_Message(&reply, &length, &address, &product) && reply.Command == 0x1A) {
+        if (Ipx.Get_Global_Message(&reply, &length, &address, &product) && reply.Command == 0x1A) {
             for (int j = 1; j < unknown_players_a3fa7c.Count(); j++) {
                 if (address.Is_Same_Node(unknown_players_a3fa7c[j]->Address)) {
                     if (!ready[j]) {
@@ -2398,7 +2398,7 @@ void __fastcall Upload_Map_Preview_005c7ef0(MapPreviewClass *preview)
     operator delete(compressed);
     Debug_Printf("Calling Send_Remote_File to send the preview\n");
     Send_Remote_File_0066bb20("Preview.bin", 3, 1, 0);
-    unknown_ipx_manager_a40978.Set_Timing(30, -1, 600, true);
+    Ipx.Set_Timing(30, -1, 600, true);
 }
 #endif
 
@@ -3543,9 +3543,9 @@ static void Refresh_Slot_Image(HWND dialog, int slot)
         && unknown_player_slots_a3fa98[slot] != unknown_medium_ai_entry_a72d38
         && unknown_player_slots_a3fa98[slot] != unknown_hard_ai_entry_a72d3c
         && Compare_Wide_007837d3(unknown_player_slots_a3fa98[slot]->Name, unknown_host_name_a3f618) == 0) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_host_image_7e6db8, 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_host_image_7e6db8, 0);
     } else if (Is_Accepted_Slot_005ca3b0(slot) == 1) {
-        image = unknown_bitmap_writer_a76378.Get_Image_0068ca40(unknown_accept_image_7e6dbc, 0);
+        image = SurfaceCache.Get_Image_0068ca40(unknown_accept_image_7e6dbc, 0);
     }
     OwnerDraw::unknown_5e1f30(control, image);
 }
@@ -4487,11 +4487,11 @@ void __fastcall Load_Random_Map_Preview_005cc800(HWND dialog)
         MultiplayerMapPreview = new MapPreviewClass;
         MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
         if (MultiplayerMapPreview->unknown_00 == 0) {
-            Unknown_005c7570(dialog);
+            Update_Network_Dialog_Preview(dialog);
         }
         InvalidateRect(dialog, 0, 0);
     } else {
-        Unknown_005c7570(dialog);
+        Update_Network_Dialog_Preview(dialog);
     }
 }
 
@@ -4796,9 +4796,9 @@ void __fastcall Unknown_005cd3f0(HWND dialog)
         }
         Surface *image;
         if (unknown_a72c68) {
-            image = unknown_bitmap_writer_a76378.Get_Image_0068ca40("wolob.pcx", 0);
+            image = SurfaceCache.Get_Image_0068ca40("wolob.pcx", 0);
         } else {
-            image = unknown_bitmap_writer_a76378.Get_Image_0068ca40("wolnob.pcx", 0);
+            image = SurfaceCache.Get_Image_0068ca40("wolnob.pcx", 0);
         }
         HWND picture = GetDlgItem(dialog, 0x75F);
         OwnerDraw::unknown_5e1f30(picture, image);

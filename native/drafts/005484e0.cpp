@@ -178,7 +178,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         }
 
         for (i = 0; i < 101; i++) {
-            if (unknown_id_source_a3d290->Unknown_00663240(i)) {
+            if (unknown_id_source_a3d290->Is_Valid_Waypoint(i)) {
                 unknown_id_source_a3d290->Set_Waypoint_Location(i, unknown_id_source_a3d290->Get_Waypoint_Location(i) + offset);
             }
         }

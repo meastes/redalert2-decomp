@@ -295,7 +295,7 @@ int PowerClass::Update_Delay()
 
 int PowerClass::Max_Power_Height()
 {
-    return (unknown_int_abcd70 + 3) / 3;
+    return (PowerBarHeight + 3) / 3;
 }
 
 
@@ -630,7 +630,7 @@ void PowerClass::Reposition_Sidebar()
         tip.Region.X = unknown_int_839620 + shift;
         tip.Region.Y = unknown_int_839624 + 0x45;
         tip.Region.Width = 8;
-        tip.Region.Height = unknown_int_abcd70;
+        tip.Region.Height = PowerBarHeight;
         ToolTips->Remove(999);
         ToolTips->Add(tip);
     }

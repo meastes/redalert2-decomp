@@ -127,7 +127,7 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
             if (!weighted) {
                 int dx = next.X - start.X, dy = next.Y - start.Y;
                 double distance = Fast_Sqrt((double)(dx * dx + dy * dy));
-                key = (float)((double)unknown_map_random_a705c0() * 5.0 * 2.3283064370807974e-10 + distance);
+                key = (float)((double)RMGRandom() * 5.0 * 2.3283064370807974e-10 + distance);
             } else {
                 Cell from = start;
                 key = (float)Direction_Weighted_Cell_Distance_0057d120(&from, &next, &area, &origin, x_shape, y_shape);

@@ -241,7 +241,7 @@ void __fastcall Initialize_Wave_Tables_00721bf0()
 
 void WaveClass::Init_Offset_Tables()
 {
-    int row = unknown_surface_83995c->Stride() >> 1;
+    int row = LogicalSurface->Stride() >> 1;
     DirectionStrides[0] = -row;
     DirectionStrides[1] = 1 - row;
     DirectionStrides[2] = 1;
@@ -513,7 +513,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
 {
     int zpix = Unknown_006A2970(StartCoord.Z);
 
-    unsigned short *surfptr = (unsigned short *)unknown_surface_83995c->Lock();
+    unsigned short *surfptr = (unsigned short *)LogicalSurface->Lock();
     if (surfptr != 0) {
         int top = cliprect.Y + 3;
         int bottom = cliprect.Y + cliprect.Height - 3;
@@ -540,11 +540,11 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
                 int xstart;
                 zval = (unsigned short)(DepthBuffer->MaxValue - zpix) - starty - 2;
                 unsigned short *zptr = DepthBuffer->Get_Buffer_Offset(Point2D(0, starty - unknown_rect_839630.Y));
-                int width = unknown_surface_83995c->Get_Width();
+                int width = LogicalSurface->Get_Width();
                 int zwidth = DepthBuffer->Width;
 
                 if (zptr + (width + zwidth * (endy - starty + 1)) < (unsigned short *)DepthBuffer->BufferTail) {
-                    int stride = unknown_surface_83995c->Stride() >> 1;
+                    int stride = LogicalSurface->Stride() >> 1;
                     unsigned short *dest = surfptr + starty * stride;
                     points = Scanlines_168.Spans;
 
@@ -581,7 +581,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
                             xstop = MIN(xoff + entry->Y, cliprect.X + cliprect.Width - 2);
                             xstart = MAX(entry->X + xoff, cliprect.X + 2);
 
-                            unsigned short *dest = surfptr + xstart + y * (unknown_surface_83995c->Stride() >> 1);
+                            unsigned short *dest = surfptr + xstart + y * (LogicalSurface->Stride() >> 1);
                             int zy = y - unknown_rect_839630.Y;
                             Point2D zpos(xstart, zy);
                             int ypos = abs(y - yoff - WaveStartMiddle.Y);
@@ -599,11 +599,11 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
                 int xstop;
                 int xstart;
                 unsigned int zoffset = (unsigned int)DepthBuffer->Get_Buffer_Offset(Point2D(0, starty - unknown_rect_839630.Y));
-                int width = unknown_surface_83995c->Get_Width();
+                int width = LogicalSurface->Get_Width();
                 int zwidth = DepthBuffer->Width;
 
                 if (zoffset + 2 * (width + zwidth * (endy - starty + 1)) < (unsigned int)DepthBuffer->BufferTail) {
-                    int stride = unknown_surface_83995c->Stride() >> 1;
+                    int stride = LogicalSurface->Stride() >> 1;
                     unsigned short *dest = surfptr + endy * stride;
                     points = &Scanlines_168.Spans[endy - starty];
                     zval = (unsigned short)(DepthBuffer->MaxValue - endy) - zpix - 2;
@@ -643,7 +643,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
                             xstart = MIN(entry->Y + xoff, cliprect.X + cliprect.Width - 2);
                             xstop = MAX(xoff + entry->X, cliprect.X + 2);
 
-                            unsigned short *dest = surfptr + xstart + y * (unknown_surface_83995c->Stride() >> 1);
+                            unsigned short *dest = surfptr + xstart + y * (LogicalSurface->Stride() >> 1);
                             int zy = y - unknown_rect_839630.Y;
                             Point2D zpos(xstart, zy);
                             int ypos = abs(y - yoff - WaveStartMiddle.Y);
@@ -660,7 +660,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
             }
         }
 
-        unknown_surface_83995c->Unlock();
+        LogicalSurface->Unlock();
 
         if (Scanlines_168.Spans != 0) {
             delete [] Scanlines_168.Spans;
@@ -685,7 +685,7 @@ void WaveClass::Draw_Laser_00722cb0(Point2D const &point, Rect const &cliprect)
     if (unknown_a40b2c == 2) {
         int zpix = Unknown_006A2970(StartCoord.Z);
 
-        unsigned short *buffer = (unsigned short *)unknown_surface_83995c->Lock();
+        unsigned short *buffer = (unsigned short *)LogicalSurface->Lock();
         if (buffer != 0) {
 
             int top = cliprect.Y;
@@ -718,9 +718,9 @@ void WaveClass::Draw_Laser_00722cb0(Point2D const &point, Rect const &cliprect)
                 depth -= ystart;
                 depth -= 2;
                 zoff = DepthBuffer->Get_Buffer_Offset(Point2D(0, ystart - unknown_rect_839630.Y));
-                if (zoff + (unknown_surface_83995c->Get_Width() + (yend - ystart + 1) * DepthBuffer->Width) < (unsigned short *)DepthBuffer->BufferTail) {
+                if (zoff + (LogicalSurface->Get_Width() + (yend - ystart + 1) * DepthBuffer->Width) < (unsigned short *)DepthBuffer->BufferTail) {
 
-                    stride = unknown_surface_83995c->Stride() >> 1;
+                    stride = LogicalSurface->Stride() >> 1;
                     zwidth = DepthBuffer->Width;
                     scrptr = &buffer[ystart * stride];
                     points = Scanlines_168.Spans;
@@ -773,7 +773,7 @@ void WaveClass::Draw_Laser_00722cb0(Point2D const &point, Rect const &cliprect)
                                 xstart = Scanlines_168.Spans[i].X + xoff;
                             }
 
-                            scrptr = &buffer[xstart + y * (unknown_surface_83995c->Stride() >> 1)];
+                            scrptr = &buffer[xstart + y * (LogicalSurface->Stride() >> 1)];
                             Point2D zpos(xstart, y - unknown_rect_839630.Y);
 
                             for (x = xstart; x <= xstop; x++) {
@@ -790,7 +790,7 @@ void WaveClass::Draw_Laser_00722cb0(Point2D const &point, Rect const &cliprect)
                 }
             }
 
-            unknown_surface_83995c->Unlock();
+            LogicalSurface->Unlock();
 
             if (Scanlines_168.Spans != 0) {
                 delete [] Scanlines_168.Spans;

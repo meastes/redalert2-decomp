@@ -4,8 +4,8 @@
     "id": "population-2710",
     "inventory_sha256": "f8ef961bf7b0693179d081767111dfa06d47b5f94189e7adac7bfe08391131e4",
     "gaps_sha256": "60c1bb11ecba31ce915a4ed1a6e0a4767c21e03d17d6c218d20464bfe63e241e",
-    "historical_population_sha256": "3f4fd392b7ad04a2ee91cb3b5fdc66d0a33a118c2a263bb78ea6719b1aa0e34b",
-    "historical_acceptance_sha256": "6dffe0e59dab0777d1c694810b6528ca7ec285bd6f5a46106bbf3efebe174b7f"
+    "historical_population_sha256": "2343c66beced1efd8fceab26921519698904b9c81a055b33b21195f8e49325f7",
+    "historical_acceptance_sha256": "8a891b511d9e7e157c013f7377dd90299674cf21d9dfc7e213d8c83e0e211c36"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -1075,7 +1075,7 @@
     "?GetClassID@TriggerClass@@UAGJPAUGUID@@@Z": 7264912,
     "?GetClassID@TriggerTypeClass@@UAGJPAUGUID@@@Z": 7269840,
     "?GetClassID@TunnelLocomotionClass@@UAGJPAUGUID@@@Z": 7279280,
-    "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z": 7281408,
+    "?Inflate_Rect@@YIXPAVRect@@H@Z": 7281408,
     "?GetClassID@UnitClass@@UAGJPAUGUID@@@Z": 7381648,
     "?GetClassID@UnitTypeClass@@UAGJPAUGUID@@@Z": 7386016,
     "?Save@VoxelAnimClass@@UAGJPAUIStream@@H@Z": 7396944,
@@ -4770,8 +4770,8 @@
     "__real@4@3ffda0d97c0000000000": 8048652,
     "??0Cell@@QAE@XZ": 4582640,
     "?Get_Rect@INIClass@@QBE?AUINIRect@@PBD0ABU2@@Z": 5299536,
-    "?unknown_undo_record_684fc0@@YIXABUPoint2D@@H@Z": 6836160,
-    "?unknown_undo_restore_685030@@YAXXZ": 6836272,
+    "?Record_Deform_Undo@@YIXABUPoint2D@@H@Z": 6836160,
+    "?Undo_Deform@@YAXXZ": 6836272,
     "__real@4@c001c000000000000000": 8055344,
     "__real@4@c000c000000000000000": 8055352,
     "__real@4@40068000000000000000": 8055356,

@@ -636,7 +636,7 @@
     "??2@YAPAXI@Z": "00782017",
     "??3@YAXPAX@Z": "00781D3B",
     "?LastAdjacentZone@@3HA": "00A6FC34",
-    "?unknown_table_7e00c4@@3PAY07HA": "007E00C4",
+    "?MZonePassability@@3PAY07HA": "007E00C4",
     "?Zone_Span@MapClass@@QAEHPAUUnknownMapElem4@@HAAH@Z": "0054F250",
     "??_7?$DynamicVectorClass@W4PassabilityType@@@@6B@": "007A5AB8",
     "??_7?$VectorClass@W4PassabilityType@@@@6B@": "007A5A98"
@@ -828,7 +828,7 @@
    "references": {
     "?Get_Angle_Score@MapRegionClass@@QAENABVCell@@0N@Z": "0056DFF0",
     "?unknown_facing_offsets_84c838@@3QBHB": "0084C838",
-    "?unknown_map_random_a705c0@@3VRandom2Class@@A": "00A705C0",
+    "?RMGRandom@@3VRandom2Class@@A": "00A705C0",
     "??RRandom2Class@@QAEHXZ": "00638840",
     "__ftol": "0077F110",
     "?Next@MapGaussianClass@@QAENXZ": "00579830",
@@ -950,7 +950,7 @@
     "?angle_weight_7a5cd0@@": "007A5CD0",
     "?jitter_weight_7a5cc8@@": "007A5CC8",
     "?random_unit_7a5dd0@@": "007A5DD0",
-    "?unknown_map_random_a705c0@@": "00A705C0",
+    "?RMGRandom@@": "00A705C0",
     "??RRandom2Class@@QAEHXZ": "00638840",
     "?unknown_gaussian_value_005798d0@@": "005798D0"
    },
@@ -1047,8 +1047,8 @@
     "??_C@_11LOCGONAA@?$AA?$AA@": "00839D4C",
     "?Unknown_005e22b0@@YIPBDPAUHWND__@@0@Z": "005E22B0",
     "?Unknown_005e8710@@YIXPAUHWND__@@@Z": "005E8710",
-    "?Unknown_005e5fc0@@YIXPAUHWND__@@@Z": "005E5FC0",
-    "?Unknown_005c7570@@YIXPAUHWND__@@@Z": "005C7570",
+    "?WS_Save_Dialog_Values@@YIXPAUHWND__@@@Z": "005E5FC0",
+    "?Update_Network_Dialog_Preview@@YIXPAUHWND__@@@Z": "005C7570",
     "?Change_Scenario_Slots_005cb8d0@@YIXPAUHWND__@@HH@Z": "005CB8D0",
     "?Unknown_005cb560@@YIXPAUHWND__@@@Z": "005CB560",
     "?Unknown_005cbf20@@YIXPAUHWND__@@HHH@Z": "005CBF20",
@@ -1326,7 +1326,7 @@
    "bytes": 1240,
    "source": "src/recovered/partsys.cpp",
    "anchor": "0060AA70",
-   "symbol": "?unknown_func_60bb70@ParticleSystemClass@@QAEXXZ",
+   "symbol": "?Smoke_AI@ParticleSystemClass@@QAEXXZ",
    "references": {
     "??0ParticleClass@@QAE@PAVParticleTypeClass@@ABUCoordStruct@@1PAVParticleSystemClass@@@Z": "00608440",
     "?ParticleTypes@@3V?$DynamicVectorClass@PAVParticleTypeClass@@@@A": "00A35E00",
@@ -1456,7 +1456,7 @@
    "anchor": "00622FB0",
    "symbol": "?Unknown_00626CB0@@YIXPAUHWND__@@@Z",
    "references": {
-    "?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A": "00A40978",
+    "?Ipx@@3VIPXManagerClass@@A": "00A40978",
     "?unknown_timing_bars_7ec418@@3PAHA": "007EC418",
     "?unknown_aabe90@@3HA": "00AABE90",
     "?unknown_bar_color_ab6831@@3VRGBClass@@A": "00AB6831"
@@ -1537,7 +1537,7 @@
    "bytes": 1567,
    "source": "src/recovered/Reinf/Unknown_0063a880.cpp",
    "anchor": "0063A690",
-   "symbol": "?Unknown_0063A880@@YI_NPAVTeamTypeClass@@H@Z",
+   "symbol": "?Do_Chrono_Reinforcements@@YI_NPAVTeamTypeClass@@H@Z",
    "references": {
     "?Checked@?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@QBEPAUILocomotion@@XZ": "004CDE90",
     "?Release_Held@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEXXZ": "00509860",
@@ -1630,7 +1630,7 @@
    "references": {
     "?Make_Identity@Matrix3D@@QAEXXZ": "00590060",
     "?Unknown_00718D60@@YIPAVMatrix3D@@PAV1@H@Z": "00718D60",
-    "?Unknown_00718DF0@@YIPAVMatrix3D@@PAV1@HHN@Z": "00718DF0",
+    "?Get_Slope_Transition_Matrix@@YIPAVMatrix3D@@PAV1@HHN@Z": "00718DF0",
     "??D@YI?AVMatrix3D@@ABV0@0@Z": "00591180",
     "??0Matrix3D@@QAE@ABV0@@Z": "0058FE10",
     "?Draw_Matrix@LocomotionClass@@UAGPAVMatrix3D@@PAV2@PAH@Z": "0053D030",
@@ -2014,7 +2014,7 @@
     "?Is_Player_Control@HouseClass@@QAE_NXZ": "004F52B0",
     "?unknown_flag_ac133c@@3_NA": "00AC133C",
     "?unknown_game_mode_a3d298@@3HA": "00A3D298",
-    "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A": "00A40C60",
+    "?CurrentObject@@3V?$DynamicVectorClass@PAVObjectClass@@@@A": "00A40C60",
     "_wcscpy": "00783689",
     "?MuteSWLaunches@@3HA": "00A3D548",
     "?unknown_state_ac132c@@3HA": "00AC132C",
@@ -2174,7 +2174,7 @@
     "?Rasterize_Polygon_0061be40@@YIXABUWavePolygonInput@@AAUWaveScanlineBuffer@@@Z": "0061BE40",
     "??_V@YAXPAX@Z": "00781D3B",
     "?Brighten_Pixel_007219c0@WaveClass@@QAEXHHHPAG@Z": "007219C0",
-    "?unknown_surface_83995c@@3PAVSurface@@A": "0083995C"
+    "?LogicalSurface@@3PAVSurface@@A": "0083995C"
    },
    "non_exact": {
     "score": 86.89,
@@ -2193,7 +2193,7 @@
    "references": {
     "?Rasterize_Polygon_0061be40@@YIXABUWavePolygonInput@@AAUWaveScanlineBuffer@@@Z": "0061BE40",
     "??_V@YAXPAX@Z": "00781D3B",
-    "?unknown_surface_83995c@@3PAVSurface@@A": "0083995C"
+    "?LogicalSurface@@3PAVSurface@@A": "0083995C"
    },
    "non_exact": {
     "score": 61.27,

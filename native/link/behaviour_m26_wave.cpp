@@ -29,7 +29,7 @@ inline int Max_m26(int a, int b) { return a > b ? a : b; }
 void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
 {
     int zpix = Unknown_006A2970(StartCoord.Z);
-    Surface *surface = unknown_surface_83995c;
+    Surface *surface = LogicalSurface;
     unsigned short *surfptr = (unsigned short *)surface->Lock(Point2D(0, 0));
     if (surfptr == 0) return;
     ZBuffer *depth = DepthBuffer;
@@ -84,7 +84,7 @@ void WaveClass::Draw_Laser_00722cb0(Point2D const &point, Rect const &cliprect)
 {
     if (unknown_a40b2c != 2) return;                // the highest detail level only
     int zpix = Unknown_006A2970(StartCoord.Z);
-    Surface *surface = unknown_surface_83995c;
+    Surface *surface = LogicalSurface;
     unsigned short *buffer = (unsigned short *)surface->Lock(Point2D(0, 0));
     if (buffer == 0) return;
     ZBuffer *depth = DepthBuffer;

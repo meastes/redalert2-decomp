@@ -20,5 +20,5 @@ extern IDirectDrawPalette *unknown_palette_00851fc8;
 extern PALETTEENTRY unknown_palette_entries_00851fcc[256];
 extern IDirectDraw *DirectDrawObject;
 extern bool unknown_palette_attached_008523d4;
-extern IDirectDrawSurface *unknown_palette_surface_008523d8;
+extern IDirectDrawSurface *PaletteSurface;
 #endif

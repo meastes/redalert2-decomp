@@ -103,7 +103,7 @@ struct MouseThreadInfoStruct {
 extern MouseThreadInfoStruct MouseThreadInfo;   // 0x00B2AF30
 extern HANDLE MouseThread;                      // 0x00B2AF4C
 extern DWORD MouseThreadID;                     // 0x00B2AF50
-extern bool unknown_flag_b2af58;                // 0x00B2AF58 lets Convert_Coordinate keep negative y
+extern bool AllowNegativeY;                // 0x00B2AF58 lets Convert_Coordinate keep negative y
 extern WWMouseClass *_Mouse;                    // 0x00B2AF5C the mouse the thread updates
 extern HANDLE MouseMutex;                       // 0x00B2AF60
 extern int MouseThreadActive;                   // 0x00B2AF64
@@ -119,11 +119,11 @@ void Unblock_Mouse();                           // 0x00773660
 // Outside wwmous.cpp.
 #include "shared/debug_printf.hpp"
 // Returns the global 0x00A522AC; when nonzero the mouse keeps its position (0x00522E80).
-int unknown_function_522e80();
+int Get_Input_Record_Mode();
 // Draws source through convert onto dest at destpoint clipped to destclip (0x0049F3A0).
-void __fastcall unknown_blit_49f3a0(Surface &dest, void *convert, Surface &source, Rect const &sourcerect,
+void __fastcall Blit_Block(Surface &dest, void *convert, Surface &source, Rect const &sourcerect,
                                     RectPoint2D const &destpoint, Rect const &destclip, unsigned char const *unknown1, class Blitter const *unknown2,
                                     int unknown3, int unknown4, int unknown5, int unknown6);
-extern void *unknown_convert_8323c8;            // drawer passed to unknown_blit_49f3a0; no cursor without it
+extern void *unknown_convert_8323c8;            // drawer passed to Blit_Block; no cursor without it
 
 #endif

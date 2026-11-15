@@ -319,7 +319,7 @@ bool TActionClass::Execute(HouseClass *house, ObjectClass *object, TriggerClass 
     case 97: success = unknown_toggle_session_flag_2229(house, object, trigger, cell); break;
     case 94: success = unknown_ion_blast_at_waypoint(house, object, trigger, cell); break;
     case 95: success = unknown_nuke_at_waypoint(house, object, trigger, cell); break;
-    case 102: success = unknown_func_6b25e0(house, object, trigger, cell); break;
+    case 102: success = TAction_LIGHTNING_STORM(house, object, trigger, cell); break;
     case 96: success = unknown_chem_missile_at_waypoint(house, object, trigger, cell); break;
     case 91: success = unknown_infantry_with_tag_slot294(house, object, trigger, cell); break;
     case 81: success = unknown_hunt_technos_with_tag(house, object, trigger, cell); break;
@@ -332,7 +332,7 @@ bool TActionClass::Execute(HouseClass *house, ObjectClass *object, TriggerClass 
     case 67: success = unknown_player_4e7ee0(house, object, trigger, cell); break;
     case 68: success = unknown_player_4e80d0(house, object, trigger, cell); break;
     case 69: success = unknown_player_4e82c0(house, object, trigger, cell); break;
-    case 63: success = unknown_damage_006afd80(house, object, trigger, cell); break;
+    case 63: success = TAction_DAMAGE(house, object, trigger, cell); break;
     case 64: success = unknown_explosion_50_at_waypoint(house, object, trigger, cell); break;
     case 65: success = unknown_explosion_100_at_waypoint(house, object, trigger, cell); break;
     case 66: success = unknown_explosion_300_at_waypoint(house, object, trigger, cell); break;
@@ -344,7 +344,7 @@ bool TActionClass::Execute(HouseClass *house, ObjectClass *object, TriggerClass 
     case 11: success = unknown_show_text(house, object, trigger, cell); break;
     case 37: success = unknown_make_ally(house, object, trigger, cell); break;
     case 38: success = unknown_make_enemy(house, object, trigger, cell); break;
-    case 35: success = unknown_action_006b0540(house, object, trigger, cell); break;
+    case 35: success = TAction_PREFERRED_TARGET(house, object, trigger, cell); break;
     case 30: success = unknown_base_building(house, object, trigger, cell); break;
     case 31: success = unknown_map_49cc20(house, object, trigger, cell); break;
     case 28: success = unknown_set_local_variable(house, object, trigger, cell); break;
@@ -359,79 +359,79 @@ bool TActionClass::Execute(HouseClass *house, ObjectClass *object, TriggerClass 
     case 26: success = unknown_func_6b0b20(house, object, trigger, cell); break;
     case 27: success = unknown_func_6b0ba0(house, object, trigger, cell); break;
     case 103: success = unknown_set_mission_timer_text(house, object, trigger, cell); break;
-    case 10: success = unknown_func_6b0d30(house, object, trigger, cell); break;
-    case 19: success = unknown_func_6b0d70(house, object, trigger, cell); break;
+    case 10: success = TAction_PLAY_MOVIE(house, object, trigger, cell); break;
+    case 19: success = TAction_PLAY_SOUND(house, object, trigger, cell); break;
     case 98: success = unknown_sound_at_random_waypoint(house, object, trigger, cell); break;
-    case 99: success = unknown_waypoint_sound_6b0ec0(house, object, trigger, cell); break;
-    case 101: success = unknown_reveal_6b1050(house, object, trigger, cell); break;
+    case 99: success = TAction_PLAY_SOUND_AT(house, object, trigger, cell); break;
+    case 101: success = TAction_REVEAL_AROUND_WAYPOINT(house, object, trigger, cell); break;
     case 20: success = unknown_queue_theme(house, object, trigger, cell); break;
     case 21: success = unknown_play_voice(house, object, trigger, cell); break;
-    case 33: success = unknown_grant_super_6b11a0(house, object, trigger, cell); break;
-    case 34: success = unknown_grant_super_6b1200(house, object, trigger, cell); break;
-    case 8: success = unknown_func_6b1270(house, object, trigger, cell); break;
-    case 1: success = unknown_win_or_lose_6b1360(house, object, trigger, cell); break;
-    case 2: success = unknown_lose_or_win_6b1390(house, object, trigger, cell); break;
+    case 33: success = TAction_1_SPECIAL(house, object, trigger, cell); break;
+    case 34: success = TAction_FULL_SPECIAL(house, object, trigger, cell); break;
+    case 8: success = TAction_DZ(house, object, trigger, cell); break;
+    case 1: success = TAction_WIN(house, object, trigger, cell); break;
+    case 2: success = TAction_LOSE(house, object, trigger, cell); break;
     case 3: success = unknown_set_house_136(house, object, trigger, cell); break;
     case 9: success = unknown_set_house_198(house, object, trigger, cell); break;
     case 13: success = unknown_set_house_137(house, object, trigger, cell); break;
     case 4: success = unknown_create_team(house, object, trigger, cell); break;
     case 5: success = unknown_destroy_teams(house, object, trigger, cell); break;
-    case 7: success = unknown_func_6b1470(house, object, trigger, cell); break;
-    case 80: success = unknown_func_6b1490(house, object, trigger, cell); break;
-    case 6: success = unknown_func_6b14b0(house, object, trigger, cell); break;
-    case 32: success = unknown_func_6b14d0(house, object, trigger, cell); break;
-    case 39: success = unknown_action_006b1640(house, object, trigger, cell); break;
+    case 7: success = TAction_SPAWN_TEAM(house, object, trigger, cell); break;
+    case 80: success = TAction_REINFORCEMENTS_SPECIAL(house, object, trigger, cell); break;
+    case 6: success = TAction_ALL_HUNT(house, object, trigger, cell); break;
+    case 32: success = TAction_DESTROY_OBJECT(house, object, trigger, cell); break;
+    case 39: success = TAction_CHANGE_ZOOM(house, object, trigger, cell); break;
     case 40: success = unknown_func_6b1650(house, object, trigger, cell); break;
-    case 41: success = unknown_func_6b1710(house, object, trigger, cell); break;
+    case 41: success = TAction_PLAY_ANIM(house, object, trigger, cell); break;
     case 42: success = unknown_weapon_explosion_at_waypoint(house, object, trigger, cell); break;
-    case 43: success = unknown_func_6b19a0(house, object, trigger, cell); break;
-    case 44: success = unknown_func_6b1a80(house, object, trigger, cell); break;
-    case 45: success = unknown_action_006b1ac0(house, object, trigger, cell); break;
-    case 46: success = unknown_action_006b1ae0(house, object, trigger, cell); break;
-    case 47: success = unknown_action_006b1af0(house, object, trigger, cell); break;
+    case 43: success = TAction_METEOR_IMPACT(house, object, trigger, cell); break;
+    case 44: success = TAction_ION_STORM_START(house, object, trigger, cell); break;
+    case 45: success = TAction_ION_STORM_STOP(house, object, trigger, cell); break;
+    case 46: success = TAction_LOCK_INPUT(house, object, trigger, cell); break;
+    case 47: success = TAction_UNLOCK_INPUT(house, object, trigger, cell); break;
     case 48: success = unknown_look_at_waypoint(house, object, trigger, cell); break;
     case 49: success = unknown_func_6b1c80(house, object, trigger, cell); break;
-    case 50: success = unknown_func_6b1d00(house, object, trigger, cell); break;
+    case 50: success = TAction_ZOOM_OUT(house, object, trigger, cell); break;
     case 51: success = unknown_map_559fd0(house, object, trigger, cell); break;
-    case 52: success = unknown_spotlight_behavior_6b1d80(house, object, trigger, cell); break;
-    case 12: success = unknown_func_6b1e20(house, object, trigger, cell); break;
-    case 70: success = unknown_func_6b1e70(house, object, trigger, cell); break;
-    case 22: success = unknown_func_6b1ec0(house, object, trigger, cell); break;
-    case 53: success = unknown_func_6b1f10(house, object, trigger, cell); break;
-    case 54: success = unknown_func_6b1f90(house, object, trigger, cell); break;
+    case 52: success = TAction_CHANGE_SPOTLIGHT_BEHAVIOR(house, object, trigger, cell); break;
+    case 12: success = TAction_DESTROY_TRIGGER(house, object, trigger, cell); break;
+    case 70: success = TAction_DESTROY_TAG(house, object, trigger, cell); break;
+    case 22: success = TAction_FORCE_TRIGGER(house, object, trigger, cell); break;
+    case 53: success = TAction_ENABLE_TRIGGER(house, object, trigger, cell); break;
+    case 54: success = TAction_DISABLE_TRIGGER(house, object, trigger, cell); break;
     case 55: success = unknown_63b5b0_at_waypoint(house, object, trigger, cell); break;
     case 56: success = unknown_set_global_variable(house, object, trigger, cell); break;
     case 57: success = unknown_clear_global_variable(house, object, trigger, cell); break;
     case 58: success = unknown_meteor_shower_at_waypoint(house, object, trigger, cell); break;
-    case 71: success = unknown_func_6b2220(house, object, trigger, cell); break;
-    case 72: success = unknown_func_6b2240(house, object, trigger, cell); break;
+    case 71: success = TAction_SET_AMBIENT_STEP(house, object, trigger, cell); break;
+    case 72: success = TAction_SET_AMBIENT_RATE(house, object, trigger, cell); break;
     case 73: success = unknown_set_session_22a8(house, object, trigger, cell); break;
-    case 74: success = unknown_func_6b2290(house, object, trigger, cell); break;
-    case 75: success = unknown_func_6b22b0(house, object, trigger, cell); break;
-    case 76: success = unknown_action_006b22f0(house, object, trigger, cell); break;
-    case 77: success = unknown_action_006b2310(house, object, trigger, cell); break;
-    case 78: success = unknown_action_006b2330(house, object, trigger, cell); break;
-    case 79: success = unknown_action_006b2350(house, object, trigger, cell); break;
+    case 74: success = TAction_BEGIN_AI_TRIGGERS(house, object, trigger, cell); break;
+    case 75: success = TAction_STOP_AI_TRIGGERS(house, object, trigger, cell); break;
+    case 76: success = TAction_SET_AI_TRIGGER_TEAM_RATIO(house, object, trigger, cell); break;
+    case 77: success = TAction_SET_TEAM_AIRCRAFT_RATIO(house, object, trigger, cell); break;
+    case 78: success = TAction_SET_TEAM_INFANTRY_RATIO(house, object, trigger, cell); break;
+    case 79: success = TAction_SET_TEAM_UNIT_RATIO(house, object, trigger, cell); break;
     case 88: success = unknown_particle_system_at_waypoint(house, object, trigger, cell); break;
-    case 89: success = unknown_func_6af980(house, object, trigger, cell); break;
-    case 90: success = unknown_func_6af950(house, object, trigger, cell); break;
-    case 100: success = unknown_func_6b0d50(house, object, trigger, cell); break;
+    case 89: success = TAction_REMOVE_PARTICLE_ANIM(house, object, trigger, cell); break;
+    case 90: success = TAction_ION_LIGHTNING_STRIKE(house, object, trigger, cell); break;
+    case 100: success = TAction_PLAY_INGAME_MOVIE(house, object, trigger, cell); break;
     case 92: success = unknown_action_006af930(house, object, trigger, cell); break;
-    case 93: success = unknown_action_006af940(house, object, trigger, cell); break;
-    case 104: success = unknown_func_6b2f30(house, object, trigger, cell); break;
-    case 105: success = unknown_func_6b2f50(house, object, trigger, cell); break;
+    case 93: success = TAction_DEACTIVATE_FIRESTORM(house, object, trigger, cell); break;
+    case 104: success = TAction_FLASH_TEAM(house, object, trigger, cell); break;
+    case 105: success = TAction_TALK_BUBBLE(house, object, trigger, cell); break;
     case 106: success = Set_Type_Tech_Level_006b27e0(house, object, trigger, cell); break;
-    case 107: success = unknown_func_6b2810(house, object, trigger, cell); break;
+    case 107: success = TAction_CHRONO_IN_TEAM(house, object, trigger, cell); break;
     case 108: success = unknown_map_54e580_at_waypoint(house, object, trigger, cell); break;
     case 109: success = unknown_iron_curtain_at_waypoint(house, object, trigger, cell); break;
-    case 110: success = unknown_func_6b2f90(house, object, trigger, cell); break;
-    case 111: success = unknown_func_6b2fa0(house, object, trigger, cell); break;
+    case 110: success = TAction_PAUSE_SCENARIO(house, object, trigger, cell); break;
+    case 111: success = TAction_EJECT_OCCUPANTS(house, object, trigger, cell); break;
     case 112: success = unknown_center_on_waypoint(house, object, trigger, cell); break;
-    case 113: success = unknown_func_6b22d0(house, object, trigger, cell); break;
+    case 113: success = TAction_CHEER(house, object, trigger, cell); break;
     case 114: success = unknown_select_sidebar_tab(house, object, trigger, cell); break;
     case 115: success = unknown_sidebar_6822b0(house, object, trigger, cell); break;
-    case 116: success = unknown_waypoint_sound_6b0f90(house, object, trigger, cell); break;
-    case 117: success = unknown_func_6b0d60(house, object, trigger, cell); break;
+    case 116: success = TAction_STOP_SOUND_AT(house, object, trigger, cell); break;
+    case 117: success = TAction_PLAY_INGAME_MOVIE_PAUSE(house, object, trigger, cell); break;
     default: break;
     }
     return success;
@@ -445,30 +445,30 @@ bool TActionClass::unknown_action_006af930(HouseClass *house, ObjectClass *objec
 }
 
 
-// bool TActionClass::unknown_action_006af940(...) (0x006AF940)
-bool TActionClass::unknown_action_006af940(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+// bool TActionClass::TAction_DEACTIVATE_FIRESTORM(...) (0x006AF940)
+bool TActionClass::TAction_DEACTIVATE_FIRESTORM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     return true;
 }
 
 
-// bool TActionClass::unknown_func_6af950(...) (0x006AF950)
+// bool TActionClass::TAction_ION_LIGHTNING_STRIKE(...) (0x006AF950)
 // Calls 0x0051FC90 with the cell of waypoint +0x44; always true.
 #include "shared/id_source.hpp"
 void __stdcall Unknown_0051FC90(Cell cell);   // 0x0051FC90
 
-bool TActionClass::unknown_func_6af950(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_ION_LIGHTNING_STRIKE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Unknown_0051FC90(unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44));
     return true;
 }
 
 
-// bool TActionClass::unknown_func_6af980(...) (0x006AF980)
+// bool TActionClass::TAction_REMOVE_PARTICLE_ANIM(...) (0x006AF980)
 // Calls slot 60 on every active particle system that stands on the cell of waypoint +0x44; always true.
 #include "shared/particle_system.hpp"
 
-bool TActionClass::unknown_func_6af980(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_REMOVE_PARTICLE_ANIM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
     for (int index = 0; index < ParticleSystems.Count(); index++) {
@@ -549,12 +549,12 @@ bool TActionClass::unknown_set_session_flag_222c(HouseClass *house, ObjectClass 
 // bool TActionClass::unknown_hunt_idle_feet_not_of_house(...) (0x006AFBA0)
 // Sends every idle (mission 0), living, active, non-limbo foot not owned by the action's house to mission 5; always true.
 #include "shared/foot.hpp"
-extern DynamicVectorClass<FootClass *> unknown_FootClass_list_00865f38;
+extern DynamicVectorClass<FootClass *> Feet;
 
 bool TActionClass::unknown_hunt_idle_feet_not_of_house(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    for (int index = 0; index < unknown_FootClass_list_00865f38.Count(); index++) {
-        FootClass *foot = unknown_FootClass_list_00865f38[index];
+    for (int index = 0; index < Feet.Count(); index++) {
+        FootClass *foot = Feet[index];
         if (foot->Get_Mission() == 0 && foot->Strength > 0 && foot->IsActive && foot->unknown_74
             && !foot->unknown_76 && house != foot->House) {
             foot->QueueMission(5, false);
@@ -566,12 +566,12 @@ bool TActionClass::unknown_hunt_idle_feet_not_of_house(HouseClass *house, Object
 
 // bool TActionClass::unknown_hunt_feet_mission_23_of_house(...) (0x006AFC20)
 // Sends every mission-23, living, active, non-limbo foot owned by the action's house to mission 5; always true.
-extern DynamicVectorClass<FootClass *> unknown_FootClass_list_00865f38;
+extern DynamicVectorClass<FootClass *> Feet;
 
 bool TActionClass::unknown_hunt_feet_mission_23_of_house(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    for (int index = 0; index < unknown_FootClass_list_00865f38.Count(); index++) {
-        FootClass *foot = unknown_FootClass_list_00865f38[index];
+    for (int index = 0; index < Feet.Count(); index++) {
+        FootClass *foot = Feet[index];
         if (foot->Get_Mission() == 0x17 && foot->Strength > 0 && foot->IsActive && foot->unknown_74
             && !foot->unknown_76 && foot->House == house) {
             foot->QueueMission(5, false);
@@ -619,11 +619,11 @@ bool TActionClass::unknown_player_4e80d0(HouseClass *house, ObjectClass *object,
 
 
 // bool TActionClass::unknown_player_4e82c0(...) (0x006AFD70)
-// Calls HouseClass::unknown_func_4e82c0() on the player's house; always true.
+// Calls HouseClass::Flag_To_End() on the player's house; always true.
 
 bool TActionClass::unknown_player_4e82c0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_player_a35db4->unknown_func_4e82c0();
+    unknown_player_a35db4->Flag_To_End();
     return true;
 }
 
@@ -632,19 +632,19 @@ bool TActionClass::unknown_player_4e82c0(HouseClass *house, ObjectClass *object,
 #include "shared/tactical.hpp"
 #include "shared/anim.hpp"
 #include "shared/rules.hpp"
-bool TActionClass::unknown_damage_006afd80(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_DAMAGE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     int damage = 100;
-    Unknown_0047E2C0(unknown_6b2e80(), damage, 0, Rules->unknown_c74, 1);
+    Unknown_0047E2C0(Waypoint_As_Coord(), damage, 0, Rules->unknown_c74, 1);
     damage = 100;
-    Unknown_0047E2C0(unknown_6b2e80() + CoordStruct(85, 85, 0), damage, 0, Rules->unknown_c74, 1);
+    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(85, 85, 0), damage, 0, Rules->unknown_c74, 1);
     damage = 100;
-    Unknown_0047E2C0(unknown_6b2e80() + CoordStruct(-85, 85, 0), damage, 0, Rules->unknown_c74, 1);
+    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(-85, 85, 0), damage, 0, Rules->unknown_c74, 1);
     damage = 100;
-    Unknown_0047E2C0(unknown_6b2e80() + CoordStruct(85, -85, 0), damage, 0, Rules->unknown_c74, 1);
+    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(85, -85, 0), damage, 0, Rules->unknown_c74, 1);
     damage = 100;
-    Unknown_0047E2C0(unknown_6b2e80() + CoordStruct(-85, -85, 0), damage, 0, Rules->unknown_c74, 1);
-    bool valid_waypoint = unknown_id_source_a3d290->Unknown_00663240(Data.Value);
+    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(-85, -85, 0), damage, 0, Rules->unknown_c74, 1);
+    bool valid_waypoint = unknown_id_source_a3d290->Is_Valid_Waypoint(Data.Value);
     if (valid_waypoint) {
         Cell spot = unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value);
         int tries = 3;
@@ -859,8 +859,8 @@ bool TActionClass::unknown_make_enemy(HouseClass *house, ObjectClass *object, Tr
 }
 
 
-// bool TActionClass::unknown_action_006b0540(...) (0x006B0540)
-bool TActionClass::unknown_action_006b0540(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+// bool TActionClass::TAction_PREFERRED_TARGET(...) (0x006B0540)
+bool TActionClass::TAction_PREFERRED_TARGET(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (house != 0) house->unknown_541c = Data.Value;
     return true;
@@ -883,7 +883,7 @@ bool TActionClass::unknown_base_building(HouseClass *house, ObjectClass *object,
             house->unknown_55f0.unknown_50 = center;
         }
         if (house->unknown_55f0.Nodes.Count() == 0) {
-            house->unknown_func_4f5be0();
+            house->Begin_Construction();
         }
     } else {
         house->unknown_13b = false;
@@ -903,21 +903,21 @@ bool TActionClass::unknown_map_49cc20(HouseClass *house, ObjectClass *object, Tr
 
 
 // bool TActionClass::unknown_set_local_variable(...) (0x006B0630)
-// Sets local variable Data.Value (ScenarioClass::unknown_6612c0); always true.
+// Sets local variable Data.Value (ScenarioClass::Set_Global_To); always true.
 
 bool TActionClass::unknown_set_local_variable(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->unknown_6612c0(Data.Value, true);
+    unknown_id_source_a3d290->Set_Global_To(Data.Value, true);
     return true;
 }
 
 
 // bool TActionClass::unknown_clear_local_variable(...) (0x006B0650)
-// Clears local variable Data.Value (ScenarioClass::unknown_6612c0); always true.
+// Clears local variable Data.Value (ScenarioClass::Set_Global_To); always true.
 
 bool TActionClass::unknown_clear_local_variable(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->unknown_6612c0(Data.Value, false);
+    unknown_id_source_a3d290->Set_Global_To(Data.Value, false);
     return true;
 }
 
@@ -1099,41 +1099,41 @@ bool TActionClass::unknown_set_mission_timer_text(HouseClass *house, ObjectClass
 }
 
 
-// bool TActionClass::unknown_func_6b0d30(...) (0x006B0D30)
+// bool TActionClass::TAction_PLAY_MOVIE(...) (0x006B0D30)
 // Passes Data.Value to 0x005A07F0 with -1, 1, 1, 1; always true.
 #include "shared/team.hpp"
 
-bool TActionClass::unknown_func_6b0d30(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_PLAY_MOVIE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Unknown_005A07F0(Data.Value, -1, 1, 1, 1);
     return true;
 }
 
 
-// bool TActionClass::unknown_func_6b0d50(...) (0x006B0D50)
+// bool TActionClass::TAction_PLAY_INGAME_MOVIE(...) (0x006B0D50)
 // Unknown_005A0920(Data.Value, false); always true.
 
-bool TActionClass::unknown_func_6b0d50(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_PLAY_INGAME_MOVIE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Unknown_005A0920(Data.Value, false);
     return true;
 }
 
 
-// bool TActionClass::unknown_func_6b0d60(...) (0x006B0D60)
+// bool TActionClass::TAction_PLAY_INGAME_MOVIE_PAUSE(...) (0x006B0D60)
 // Unknown_005A0920(Data.Value, true); always true.
 
-bool TActionClass::unknown_func_6b0d60(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_PLAY_INGAME_MOVIE_PAUSE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Unknown_005A0920(Data.Value, true);
     return true;
 }
 
 
-// bool TActionClass::unknown_func_6b0d70(...) (0x006B0D70)
+// bool TActionClass::TAction_PLAY_SOUND(...) (0x006B0D70)
 // Plays sound Data.Value at full volume (priority 0x2000); always true.
 
-bool TActionClass::unknown_func_6b0d70(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_PLAY_SOUND(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Voc_Play(Data.Value, 1.0f, 0x2000, 0);
     return true;
@@ -1149,7 +1149,7 @@ bool TActionClass::unknown_sound_at_random_waypoint(HouseClass *house, ObjectCla
     Cell cells[100];
     int count = 0;
     for (int waypoint = 0; waypoint < 101; waypoint++) {
-        if (unknown_id_source_a3d290->Unknown_00663240(waypoint)) {
+        if (unknown_id_source_a3d290->Is_Valid_Waypoint(waypoint)) {
             cells[count++] = unknown_id_source_a3d290->Get_Waypoint_Location(waypoint);
             if (count == sizeof(cells)) {
                 break;
@@ -1179,16 +1179,16 @@ ObjectClass *__fastcall Building_Or_Terrain_At_006B0E40(CoordStruct const &coord
 }
 
 
-// bool TActionClass::unknown_waypoint_sound_6b0ec0(...) (0x006B0EC0)
+// bool TActionClass::TAction_PLAY_SOUND_AT(...) (0x006B0EC0)
 // Plays sound Data.Value on the object at waypoint +0x44, else starts a static sound there; always true.
 #include "shared/voc_static.hpp"
 
-bool TActionClass::unknown_waypoint_sound_6b0ec0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_PLAY_SOUND_AT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     CoordStruct coord = unknown_id_source_a3d290->Waypoint_Coord(unknown_44);
     ObjectClass *target = Building_Or_Terrain_At_006B0E40(coord);
     if (target != 0) {
-        target->unknown_func_5d5520(Data.Value);
+        target->Set_Ambient_Sound(Data.Value);
     } else {
         Voc_Static_Add(Data.Value, coord, 1);
     }
@@ -1196,15 +1196,15 @@ bool TActionClass::unknown_waypoint_sound_6b0ec0(HouseClass *house, ObjectClass 
 }
 
 
-// bool TActionClass::unknown_waypoint_sound_6b0f90(...) (0x006B0F90)
+// bool TActionClass::TAction_STOP_SOUND_AT(...) (0x006B0F90)
 // Stops the sound of the building or terrain object at waypoint +0x44 (0x005D5520 with -1), else lets the static sounds there end; always true.
 
-bool TActionClass::unknown_waypoint_sound_6b0f90(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_STOP_SOUND_AT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     CoordStruct coord = unknown_id_source_a3d290->Waypoint_Coord(unknown_44);
     ObjectClass *target = Building_Or_Terrain_At_006B0E40(coord);
     if (target != 0) {
-        target->unknown_func_5d5520(-1);
+        target->Set_Ambient_Sound(-1);
     } else {
         Voc_Static_Finish_At(coord, 1);
     }
@@ -1212,12 +1212,12 @@ bool TActionClass::unknown_waypoint_sound_6b0f90(HouseClass *house, ObjectClass 
 }
 
 
-// bool TActionClass::unknown_reveal_6b1050(...) (0x006B1050)
+// bool TActionClass::TAction_REVEAL_AROUND_WAYPOINT(...) (0x006B1050)
 // TibSun TAction_REVEAL_SOME shape: unless the player sees everything, Map 0x0054A720 reveals the rules
 // RevealTriggerRadius around waypoint Data.Value (raised by half the cell height, bridges +4), then 0x0055A300; always true.
 
 
-bool TActionClass::unknown_reveal_6b1050(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_REVEAL_AROUND_WAYPOINT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (!unknown_player_a35db4->unknown_188) {
         Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value);
@@ -1229,8 +1229,8 @@ bool TActionClass::unknown_reveal_6b1050(HouseClass *house, ObjectClass *object,
         }
         int size = Map[waypoint].unknown_11b + extra;
         Cell spot = waypoint - Cell(size / 2, size / 2);
-        Map.Unknown_0054A720(Cell_Coord(spot) + CoordStruct(0, 0, unknown_geometry_g * size), Rules->RevealTriggerRadius);
-        Map.Unknown_0055A300();
+        Map.Shroud_Gap_Area(Cell_Coord(spot) + CoordStruct(0, 0, unknown_geometry_g * size), Rules->RevealTriggerRadius);
+        Map.Refresh_Shroud();
     }
     return true;
 }
@@ -1258,41 +1258,41 @@ bool TActionClass::unknown_play_voice(HouseClass *house, ObjectClass *object, Tr
 }
 
 
-// bool TActionClass::unknown_grant_super_6b11a0(...) (0x006B11A0)
+// bool TActionClass::TAction_1_SPECIAL(...) (0x006B11A0)
 // Grants the house's super weapon Data.Value one-time; the player's house adds it to the sidebar and redraws that strip; always true.
 #include "shared/super.hpp"
 
-bool TActionClass::unknown_grant_super_6b11a0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_1_SPECIAL(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     house->Supers[Data.Value]->Grant(true, false, false);
     if (unknown_player_a35db4 == house) {
         Map.Unknown_0067C530(31, Data.Value);
-        Map.Unknown_0067C2D0(Unknown_006818D0(31, Data.Value, 0));
+        Map.Flag_Tab_To_Redraw(Unknown_006818D0(31, Data.Value, 0));
     }
     return true;
 }
 
 
-// bool TActionClass::unknown_grant_super_6b1200(...) (0x006B1200)
+// bool TActionClass::TAction_FULL_SPECIAL(...) (0x006B1200)
 // Grants the house's super weapon Data.Value and clears its +0x48; the player's house adds it to the sidebar and redraws that strip; always true.
 
-bool TActionClass::unknown_grant_super_6b1200(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_FULL_SPECIAL(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     house->Supers[Data.Value]->Grant(false, false, false);
     house->Supers[Data.Value]->unknown_0x48 = false;
     if (unknown_player_a35db4 == house) {
         Map.Unknown_0067C530(31, Data.Value);
-        Map.Unknown_0067C2D0(Unknown_006818D0(31, Data.Value, 0));
+        Map.Flag_Tab_To_Redraw(Unknown_006818D0(31, Data.Value, 0));
     }
     return true;
 }
 
 
-// bool TActionClass::unknown_func_6b1270(...) (0x006B1270)
+// bool TActionClass::TAction_DZ(...) (0x006B1270)
 // Creates the animation of the rules DropZoneAnim type at the waypoint +0x44 (ground height, bridge level counted), flagged +0x178; always true.
 #include "shared/anim_type.hpp"
 
-bool TActionClass::unknown_func_6b1270(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_DZ(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
     CoordStruct coord = CoordStruct(waypoint);
@@ -1307,11 +1307,11 @@ bool TActionClass::unknown_func_6b1270(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_win_or_lose_6b1360(...) (0x006B1360)
+// bool TActionClass::TAction_WIN(...) (0x006B1360)
 // The player wins (quietly no) when its house type is Data.Value, else loses; always true.
 #include "shared/house_type.hpp"
 
-bool TActionClass::unknown_win_or_lose_6b1360(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_WIN(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (Data.Value == unknown_player_a35db4->Type->House) {
         unknown_player_a35db4->Flag_To_Win(false);
@@ -1322,10 +1322,10 @@ bool TActionClass::unknown_win_or_lose_6b1360(HouseClass *house, ObjectClass *ob
 }
 
 
-// bool TActionClass::unknown_lose_or_win_6b1390(...) (0x006B1390)
+// bool TActionClass::TAction_LOSE(...) (0x006B1390)
 // The player loses when its house type is Data.Value, else wins; always true.
 
-bool TActionClass::unknown_lose_or_win_6b1390(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_LOSE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (Data.Value != unknown_player_a35db4->Type->House) {
         unknown_player_a35db4->Flag_To_Win(false);
@@ -1401,10 +1401,10 @@ bool TActionClass::unknown_destroy_teams(HouseClass *house, ObjectClass *object,
 }
 
 
-// bool TActionClass::unknown_func_6b1470(...) (0x006B1470)
+// bool TActionClass::TAction_SPAWN_TEAM(...) (0x006B1470)
 // Reinforcements of the team type at +0x30 at its own waypoint; false without one.
 
-bool TActionClass::unknown_func_6b1470(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_SPAWN_TEAM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (unknown_30 != 0) {
         return Do_Reinforcements((TeamTypeClass *)unknown_30, -1);
@@ -1413,10 +1413,10 @@ bool TActionClass::unknown_func_6b1470(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_func_6b1490(...) (0x006B1490)
+// bool TActionClass::TAction_REINFORCEMENTS_SPECIAL(...) (0x006B1490)
 // Reinforcements of the team type at +0x30 at the waypoint +0x44; false without either.
 
-bool TActionClass::unknown_func_6b1490(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_REINFORCEMENTS_SPECIAL(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (unknown_30 != 0 && unknown_44 != -1) {
         return Do_Reinforcements((TeamTypeClass *)unknown_30, unknown_44);
@@ -1425,20 +1425,20 @@ bool TActionClass::unknown_func_6b1490(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_func_6b14b0(...) (0x006B14B0)
+// bool TActionClass::TAction_ALL_HUNT(...) (0x006B14B0)
 // Sends every unit of the house of type Data.Value to hunt (IHouse::All_To_Hunt); always true.
 
-bool TActionClass::unknown_func_6b14b0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_ALL_HUNT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     HouseClass::As_Pointer(Data.Value)->All_To_Hunt();
     return true;
 }
 
 
-// bool TActionClass::unknown_func_6b14d0(...) (0x006B14D0)
+// bool TActionClass::TAction_DESTROY_OBJECT(...) (0x006B14D0)
 // Kills every living, active techno whose tag has the trigger attached (repeating while any was hit), then scrolls the tactical view to the cell unless it is the unset cell; true when any was killed.
 
-bool TActionClass::unknown_func_6b14d0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_DESTROY_OBJECT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     bool killed = false;
     bool again;
@@ -1472,8 +1472,8 @@ bool TActionClass::unknown_func_6b14d0(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_action_006b1640(...) (0x006B1640)
-bool TActionClass::unknown_action_006b1640(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+// bool TActionClass::TAction_CHANGE_ZOOM(...) (0x006B1640)
+bool TActionClass::TAction_CHANGE_ZOOM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     return true;
 }
@@ -1504,10 +1504,10 @@ bool TActionClass::unknown_func_6b1650(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_func_6b1710(...) (0x006B1710)
+// bool TActionClass::TAction_PLAY_ANIM(...) (0x006B1710)
 // Creates the animation of type index Data.Value at the waypoint +0x44 (ground height, bridge level counted), flagged +0x178; always true.
 
-bool TActionClass::unknown_func_6b1710(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_PLAY_ANIM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
     CoordStruct coord = CoordStruct(waypoint);
@@ -1546,12 +1546,12 @@ bool TActionClass::unknown_weapon_explosion_at_waypoint(HouseClass *house, Objec
 }
 
 
-// bool TActionClass::unknown_func_6b19a0(...) (0x006B19A0)
+// bool TActionClass::TAction_METEOR_IMPACT(...) (0x006B19A0)
 // Creates a voxel animation of the type at index Data.Value at the waypoint +0x44 (ground height, bridge level counted); always true.
 #include "shared/voxel_anim.hpp"
 #include "shared/voxel_anim_type.hpp"
 
-bool TActionClass::unknown_func_6b19a0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_METEOR_IMPACT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
     CoordStruct coord = CoordStruct(waypoint);
@@ -1566,12 +1566,12 @@ bool TActionClass::unknown_func_6b19a0(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_func_6b1a80(...) (0x006B1A80)
+// bool TActionClass::TAction_ION_STORM_START(...) (0x006B1A80)
 // Unless Unknown_0051FC50 holds (then false), calls 0x0051F930 with Data.Value,
 // the rules value at +0x13E8 and the zero cell (as TeamClass 0x006BC460);
 // true.
 
-bool TActionClass::unknown_func_6b1a80(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_ION_STORM_START(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (Unknown_0051FC50()) {
         return false;
@@ -1581,9 +1581,9 @@ bool TActionClass::unknown_func_6b1a80(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_action_006b1ac0(...) (0x006B1AC0)
+// bool TActionClass::TAction_ION_STORM_STOP(...) (0x006B1AC0)
 #include "shared/lightning_storm.hpp"
-bool TActionClass::unknown_action_006b1ac0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_ION_STORM_STOP(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (!Unknown_0051FC50()) return false;
     Unknown_0051FBB0();
@@ -1591,16 +1591,16 @@ bool TActionClass::unknown_action_006b1ac0(HouseClass *house, ObjectClass *objec
 }
 
 
-// bool TActionClass::unknown_action_006b1ae0(...) (0x006B1AE0)
-bool TActionClass::unknown_action_006b1ae0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+// bool TActionClass::TAction_LOCK_INPUT(...) (0x006B1AE0)
+bool TActionClass::TAction_LOCK_INPUT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Pause_Game_0065c3d0();
     return true;
 }
 
 
-// bool TActionClass::unknown_action_006b1af0(...) (0x006B1AF0)
-bool TActionClass::unknown_action_006b1af0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+// bool TActionClass::TAction_UNLOCK_INPUT(...) (0x006B1AF0)
+bool TActionClass::TAction_UNLOCK_INPUT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Resume_Game_0065c420();
     return true;
@@ -1659,10 +1659,10 @@ bool TActionClass::unknown_func_6b1c80(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_func_6b1d00(...) (0x006B1D00)
+// bool TActionClass::TAction_ZOOM_OUT(...) (0x006B1D00)
 // Undoes 0x006B1C80: tactical zoom 1.0, keyboard cleared, the input flag from the pause flag, mouse shown, redraw; always true.
 
-bool TActionClass::unknown_func_6b1d00(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_ZOOM_OUT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     TacticalMap->unknown_c0 = 1.0;
     WWKeyboard->Clear();
@@ -1675,22 +1675,22 @@ bool TActionClass::unknown_func_6b1d00(HouseClass *house, ObjectClass *object, T
 
 
 // bool TActionClass::unknown_map_559fd0(...) (0x006B1D70)
-// Calls Map.Unknown_00559FD0; always true.
+// Calls Map.Shroud_The_Map; always true.
 
 
 bool TActionClass::unknown_map_559fd0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Map.Unknown_00559FD0();
+    Map.Shroud_The_Map();
     return true;
 }
 
 
-// bool TActionClass::unknown_spotlight_behavior_6b1d80(...) (0x006B1D80)
+// bool TActionClass::TAction_CHANGE_SPOTLIGHT_BEHAVIOR(...) (0x006B1D80)
 // Sets spotlight behavior Data.Value on every living, active spotlight building whose tag has the trigger attached; true when any.
 #include "shared/building_light.hpp"
 extern DynamicVectorClass<BuildingClass *> unknown_BuildingClass_list_00a40af8;
 
-bool TActionClass::unknown_spotlight_behavior_6b1d80(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_CHANGE_SPOTLIGHT_BEHAVIOR(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
@@ -1706,12 +1706,12 @@ bool TActionClass::unknown_spotlight_behavior_6b1d80(HouseClass *house, ObjectCl
 }
 
 
-// bool TActionClass::unknown_func_6b1e20(...) (0x006B1E20)
+// bool TActionClass::TAction_DESTROY_TRIGGER(...) (0x006B1E20)
 // Deletes every trigger whose type is the one at +0x50 (the count is read
 // once; the index steps back after each deletion); always true.
 #include "shared/trigger.hpp"
 
-bool TActionClass::unknown_func_6b1e20(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_DESTROY_TRIGGER(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (unknown_50 != 0) {
         int count = Triggers.Count();
@@ -1726,11 +1726,11 @@ bool TActionClass::unknown_func_6b1e20(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_func_6b1e70(...) (0x006B1E70)
+// bool TActionClass::TAction_DESTROY_TAG(...) (0x006B1E70)
 // Deletes every tag whose type is the one at +0x4C (the count is read
 // once; the index steps back after each deletion); always true.
 
-bool TActionClass::unknown_func_6b1e70(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_DESTROY_TAG(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (unknown_4c != 0) {
         int count = Tags.Count();
@@ -1745,10 +1745,10 @@ bool TActionClass::unknown_func_6b1e70(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_func_6b1ec0(house, object, trigger, cell) (0x006B1EC0)
+// bool TActionClass::TAction_FORCE_TRIGGER(house, object, trigger, cell) (0x006B1EC0)
 // Springs (forced, no object) every trigger whose type is the one at +0x50; always true.
 
-bool TActionClass::unknown_func_6b1ec0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_FORCE_TRIGGER(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (unknown_50 != 0) {
         for (int index = 0; index < Triggers.Count(); index++) {
@@ -1761,11 +1761,11 @@ bool TActionClass::unknown_func_6b1ec0(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_func_6b1f10(...) (0x006B1F10)
+// bool TActionClass::TAction_ENABLE_TRIGGER(...) (0x006B1F10)
 // Enables every trigger whose type is the one at +0x50 and is enabled for
 // the scenario's difficulty (as 0x006B1F90 disables them); always true.
 
-bool TActionClass::unknown_func_6b1f10(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_ENABLE_TRIGGER(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (unknown_50 != 0) {
         for (int index = 0; index < Triggers.Count(); index++) {
@@ -1783,10 +1783,10 @@ bool TActionClass::unknown_func_6b1f10(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_func_6b1f90(house, object, trigger, cell) (0x006B1F90)
+// bool TActionClass::TAction_DISABLE_TRIGGER(house, object, trigger, cell) (0x006B1F90)
 // Disables every trigger whose type is the one at +0x50; always true.
 
-bool TActionClass::unknown_func_6b1f90(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_DISABLE_TRIGGER(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (unknown_50 != 0) {
         for (int index = 0; index < Triggers.Count(); index++) {
@@ -1811,21 +1811,21 @@ bool TActionClass::unknown_63b5b0_at_waypoint(HouseClass *house, ObjectClass *ob
 
 
 // bool TActionClass::unknown_set_global_variable(...) (0x006B2000)
-// Sets global variable Data.Value (ScenarioClass::unknown_661560); always true.
+// Sets global variable Data.Value (ScenarioClass::Set_Local_To); always true.
 
 bool TActionClass::unknown_set_global_variable(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->unknown_661560(Data.Value, true);
+    unknown_id_source_a3d290->Set_Local_To(Data.Value, true);
     return true;
 }
 
 
 // bool TActionClass::unknown_clear_global_variable(...) (0x006B2020)
-// Clears global variable Data.Value (ScenarioClass::unknown_661560); always true.
+// Clears global variable Data.Value (ScenarioClass::Set_Local_To); always true.
 
 bool TActionClass::unknown_clear_global_variable(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->unknown_661560(Data.Value, false);
+    unknown_id_source_a3d290->Set_Local_To(Data.Value, false);
     return true;
 }
 
@@ -1865,10 +1865,10 @@ bool TActionClass::unknown_meteor_shower_at_waypoint(HouseClass *house, ObjectCl
 }
 
 
-// bool TActionClass::unknown_func_6b2220(...) (0x006B2220)
+// bool TActionClass::TAction_SET_AMBIENT_STEP(...) (0x006B2220)
 // Sets the rules AmbientChangeStep to the float Data.Value; always true.
 
-bool TActionClass::unknown_func_6b2220(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_SET_AMBIENT_STEP(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     float change_step = Data.Float;
     Rules->AmbientChangeStep = change_step;
@@ -1876,10 +1876,10 @@ bool TActionClass::unknown_func_6b2220(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_func_6b2240(...) (0x006B2240)
+// bool TActionClass::TAction_SET_AMBIENT_RATE(...) (0x006B2240)
 // Sets the rules AmbientChangeRate to the float Data.Value; always true.
 
-bool TActionClass::unknown_func_6b2240(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_SET_AMBIENT_RATE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     float change_rate = Data.Float;
     Rules->AmbientChangeRate = change_rate;
@@ -1901,10 +1901,10 @@ bool TActionClass::unknown_set_session_22a8(HouseClass *house, ObjectClass *obje
 }
 
 
-// bool TActionClass::unknown_func_6b2290(...) (0x006B2290)
+// bool TActionClass::TAction_BEGIN_AI_TRIGGERS(...) (0x006B2290)
 // Sets +0x13A of the house of type Data.Value (none for -1); always true.
 
-bool TActionClass::unknown_func_6b2290(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_BEGIN_AI_TRIGGERS(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (Data.Value != -1) {
         HouseClass::As_Pointer(Data.Value)->unknown_13a = true;
@@ -1913,10 +1913,10 @@ bool TActionClass::unknown_func_6b2290(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_func_6b22b0(...) (0x006B22B0)
+// bool TActionClass::TAction_STOP_AI_TRIGGERS(...) (0x006B22B0)
 // Clears +0x13A of the house of type Data.Value (none for -1); always true.
 
-bool TActionClass::unknown_func_6b22b0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_STOP_AI_TRIGGERS(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (Data.Value != -1) {
         HouseClass::As_Pointer(Data.Value)->unknown_13a = false;
@@ -1925,10 +1925,10 @@ bool TActionClass::unknown_func_6b22b0(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_func_6b22d0(...) (0x006B22D0)
+// bool TActionClass::TAction_CHEER(...) (0x006B22D0)
 // Every techno of the house of type Data.Value (none for -1) cheers; always true.
 
-bool TActionClass::unknown_func_6b22d0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_CHEER(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (Data.Value != -1) {
         HouseClass::As_Pointer(Data.Value)->Cheer();
@@ -1937,32 +1937,32 @@ bool TActionClass::unknown_func_6b22d0(HouseClass *house, ObjectClass *object, T
 }
 
 
-// bool TActionClass::unknown_action_006b22f0(...) (0x006B22F0)
-bool TActionClass::unknown_action_006b22f0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+// bool TActionClass::TAction_SET_AI_TRIGGER_TEAM_RATIO(...) (0x006B22F0)
+bool TActionClass::TAction_SET_AI_TRIGGER_TEAM_RATIO(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (house != 0) house->unknown_554c = Data.Value;
     return true;
 }
 
 
-// bool TActionClass::unknown_action_006b2310(...) (0x006B2310)
-bool TActionClass::unknown_action_006b2310(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+// bool TActionClass::TAction_SET_TEAM_AIRCRAFT_RATIO(...) (0x006B2310)
+bool TActionClass::TAction_SET_TEAM_AIRCRAFT_RATIO(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (house != 0) house->unknown_5550 = Data.Value;
     return true;
 }
 
 
-// bool TActionClass::unknown_action_006b2330(...) (0x006B2330)
-bool TActionClass::unknown_action_006b2330(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+// bool TActionClass::TAction_SET_TEAM_INFANTRY_RATIO(...) (0x006B2330)
+bool TActionClass::TAction_SET_TEAM_INFANTRY_RATIO(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (house != 0) house->unknown_5554 = Data.Value;
     return true;
 }
 
 
-// bool TActionClass::unknown_action_006b2350(...) (0x006B2350)
-bool TActionClass::unknown_action_006b2350(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+// bool TActionClass::TAction_SET_TEAM_UNIT_RATIO(...) (0x006B2350)
+bool TActionClass::TAction_SET_TEAM_UNIT_RATIO(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (house != 0) house->unknown_5558 = Data.Value;
     return true;
@@ -2015,11 +2015,11 @@ bool TActionClass::unknown_nuke_at_waypoint(HouseClass *house, ObjectClass *obje
 }
 
 
-// bool TActionClass::unknown_func_6b25e0(...) (0x006B25E0)
+// bool TActionClass::TAction_LIGHTNING_STORM(...) (0x006B25E0)
 // Starts the lightning storm (0x0051F930) over the cell of waypoint +0x44 (bridge level counted) with the rules'
 // LightningStormDuration and LightningDeferment for house, unless Unknown_0051FC50 holds (then false); true otherwise.
 
-bool TActionClass::unknown_func_6b25e0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_LIGHTNING_STORM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
     CoordStruct coord = CoordStruct(waypoint);
@@ -2071,26 +2071,26 @@ bool TActionClass::Set_Type_Tech_Level_006b27e0(HouseClass *house, ObjectClass *
 }
 
 
-// bool TActionClass::unknown_func_6b2810(...) (0x006B2810)
-// Unknown_0063A880 with the team type at +0x30 and the waypoint +0x44; false without either.
+// bool TActionClass::TAction_CHRONO_IN_TEAM(...) (0x006B2810)
+// Do_Chrono_Reinforcements with the team type at +0x30 and the waypoint +0x44; false without either.
 
-bool TActionClass::unknown_func_6b2810(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_CHRONO_IN_TEAM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (unknown_30 != 0 && unknown_44 != -1) {
-        return Unknown_0063A880((TeamTypeClass *)unknown_30, unknown_44);
+        return Do_Chrono_Reinforcements((TeamTypeClass *)unknown_30, unknown_44);
     }
     return false;
 }
 
 
 // bool TActionClass::unknown_map_54e580_at_waypoint(...) (0x006B2830)
-// Calls Map.Unknown_0054E580 with the cell of waypoint +0x44 and Data.Value; returns its result.
+// Calls Map.Place_Crate with the cell of waypoint +0x44 and Data.Value; returns its result.
 
 
 bool TActionClass::unknown_map_54e580_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
-    return Map.Unknown_0054E580(waypoint, Data.Value);
+    return Map.Place_Crate(waypoint, Data.Value);
 }
 
 
@@ -2353,10 +2353,10 @@ int __fastcall TActionClass::Action_Flags(int type)
 }
 
 
-// CoordStruct TActionClass::unknown_6b2e80() const (0x006B2E80)
+// CoordStruct TActionClass::Waypoint_As_Coord() const (0x006B2E80)
 // The coordinate of the waypoint Data.Value (ScenarioClass 0x006631C0).
 
-CoordStruct TActionClass::unknown_6b2e80() const
+CoordStruct TActionClass::Waypoint_As_Coord() const
 {
     return unknown_id_source_a3d290->Waypoint_Coord(Data.Value);
 }
@@ -2393,58 +2393,58 @@ char const *TActionClass::Get_Text() const
 }
 
 
-// bool TActionClass::unknown_func_6b2f30(...) (0x006B2F30)
+// bool TActionClass::TAction_FLASH_TEAM(...) (0x006B2F30)
 // Passes Data.Value to every team of the team type at +0x30 (0x006C0110); always true.
 
-bool TActionClass::unknown_func_6b2f30(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_FLASH_TEAM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (unknown_30 != 0) {
-        ((TeamTypeClass *)unknown_30)->unknown_func_6c0110(Data.Value);
+        ((TeamTypeClass *)unknown_30)->Flash(Data.Value);
     }
     return true;
 }
 
 
-// bool TActionClass::unknown_func_6b2f50(...) (0x006B2F50)
+// bool TActionClass::TAction_TALK_BUBBLE(...) (0x006B2F50)
 // The first member of the team type's first team gets the talk bubble with Data.Value
 // (TechnoClass 0x006D8FD0); without a team type it is cleared. Always true.
 
-bool TActionClass::unknown_func_6b2f50(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_TALK_BUBBLE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (unknown_30 != 0) {
         TeamClass *team = ((TeamTypeClass *)unknown_30)->Find_Team();
         if (team != 0) {
-            TechnoClass::unknown_6d8fd0(team->Member, Data.Value);
+            TechnoClass::Set_Talker(team->Member, Data.Value);
         }
     } else {
-        TechnoClass::unknown_6d8fd0(0, 0);
+        TechnoClass::Set_Talker(0, 0);
     }
     return true;
 }
 
 
-// bool TActionClass::unknown_func_6b2f90(...) (0x006B2F90)
+// bool TActionClass::TAction_PAUSE_SCENARIO(...) (0x006B2F90)
 // Passes Data.Value to 0x0065C1F0 (the radar movie's flag handler); always true.
 
-bool TActionClass::unknown_func_6b2f90(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_PAUSE_SCENARIO(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Hold_Scenario(Data.Value);
     return true;
 }
 
 
-// bool TActionClass::unknown_func_6b2fa0(...) (0x006B2FA0)
-// Runs BuildingClass::unknown_452f50(0) on the first living, active building whose tag has the action's trigger attached; true when one was found.
+// bool TActionClass::TAction_EJECT_OCCUPANTS(...) (0x006B2FA0)
+// Runs BuildingClass::Eject_Occupants(0) on the first living, active building whose tag has the action's trigger attached; true when one was found.
 extern DynamicVectorClass<BuildingClass *> unknown_BuildingClass_list_00a40af8;
 
-bool TActionClass::unknown_func_6b2fa0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
+bool TActionClass::TAction_EJECT_OCCUPANTS(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
         if (building->IsActive && building->unknown_74 && !building->unknown_76 && building->unknown_34 != 0
             && building->unknown_34->Is_Trigger_Attached(trigger)) {
-            building->unknown_452f50(0);
+            building->Eject_Occupants(0);
             handled = true;
             break;
         }
@@ -2468,12 +2468,12 @@ bool TActionClass::unknown_select_sidebar_tab(HouseClass *house, ObjectClass *ob
 
 
 // bool TActionClass::unknown_sidebar_6822b0(...) (0x006B3060)
-// Map.Unknown_006822B0 with techno type Data.Value (when valid) and +0x48; true then.
+// Map.Flash_Cameo with techno type Data.Value (when valid) and +0x48; true then.
 
 bool TActionClass::unknown_sidebar_6822b0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (Data.Value < TechnoTypes.Count() && Data.Value >= 0) {
-        Map.Unknown_006822B0(TechnoTypes[Data.Value], unknown_48);
+        Map.Flash_Cameo(TechnoTypes[Data.Value], unknown_48);
         return true;
     }
     return false;

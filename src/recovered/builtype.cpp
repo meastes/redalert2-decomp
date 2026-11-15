@@ -334,11 +334,11 @@ BuildingTypeClass::BuildingTypeClass(char const *ini_name) :
     AbstractClass::Create_ID();
     BuildingTypes.Add(this);
     ArrayIndex=BuildingTypes.ID(this);
-    unknown_func_4584d0(0,0,1,0);
-    unknown_func_4584d0(1,0,1,0);
-    unknown_func_4584d0(2,0,1,0);
-    unknown_func_4584d0(4,0,1,0);
-    unknown_func_4584d0(5,0,1,0);
+    Init_Anim(0,0,1,0);
+    Init_Anim(1,0,1,0);
+    Init_Anim(2,0,1,0);
+    Init_Anim(4,0,1,0);
+    Init_Anim(5,0,1,0);
     for(int index=0;index<18;++index) {
         Anims[index].Anim.Clear();
         Anims[index].Damaged.Clear();
@@ -482,10 +482,10 @@ ObjectClass *BuildingTypeClass::Create_One_Of(HouseClass *house) const
 }
 
 
-// void BuildingTypeClass::unknown_func_4584d0(int index, int value0, int value1, int value2) (0x004584D0)
+// void BuildingTypeClass::Init_Anim(int index, int value0, int value1, int value2) (0x004584D0)
 // Sets one of the six value triples.
 
-void BuildingTypeClass::unknown_func_4584d0(int index, int value0, int value1, int value2)
+void BuildingTypeClass::Init_Anim(int index, int value0, int value1, int value2)
 {
     AnimFrames[index].unknown_00 = value0;
     AnimFrames[index].unknown_04 = value1;
@@ -495,7 +495,7 @@ void BuildingTypeClass::unknown_func_4584d0(int index, int value0, int value1, i
 
 // Load the shared building depth shape and remap its nonzero pixels.
 extern ShapeFileStruct *unknown_building_depth_shape_85029c;
-void BuildingTypeClass::unknown_func_458510()
+void BuildingTypeClass::Fetch_Z_Data()
 {
     if(unknown_building_depth_shape_85029c!=0) {
         operator delete(unknown_building_depth_shape_85029c);
@@ -539,7 +539,7 @@ struct UnknownBuildupShape {
 
 void __fastcall BuildingTypeClass::Init(int theater)
 {
-    unknown_func_458510();
+    Fetch_Z_Data();
     unknown_poweroff_shape_8502a4 = MixFileClass::Retrieve("POWEROFF.SHP");
     unknown_wrench_shape_8502a8 = MixFileClass::Retrieve("WRENCH.SHP");
     int radius = 0;
@@ -587,7 +587,7 @@ void __fastcall BuildingTypeClass::Init(int theater)
                 type->BuildupData = 0;
                 type->BuildupDataAllocated = false;
             }
-            type->unknown_func_458ea0(theater);
+            type->Fetch_Building_Normal_Image(theater);
         }
     }
     if (radius != 0) {
@@ -747,7 +747,7 @@ inline bool Scatter_Allied_Occupant_00458B10(TechnoClass *techno,Cell const &cel
  Map[cell].Incoming(&unknown_geometry_l,true,true,false);
  return true;
 }
-int BuildingTypeClass::unknown_458b10(Cell const &origin,HouseClass *house) const
+int BuildingTypeClass::Flush_For_Placement(Cell const &origin,HouseClass *house) const
 {
  bool scattered=false;
  Cell const *offset;
@@ -765,7 +765,7 @@ int BuildingTypeClass::unknown_458b10(Cell const &origin,HouseClass *house) cons
   if(object->Kind_Of()==0x24)return 2;
   if(!object->AbstractFlags.IsTechno)continue;
   if(object->Kind_Of()==6) {
-   if(!static_cast<BuildingClass *>(object)->unknown_44d900(const_cast<BuildingTypeClass *>(this),house))return 2;
+   if(!static_cast<BuildingClass *>(object)->Can_Upgrade(const_cast<BuildingTypeClass *>(this),house))return 2;
    continue;
   }
   TechnoClass *techno=static_cast<TechnoClass *>(object);
@@ -811,11 +811,11 @@ void *BuildingTypeClass::Get_Image_Data() const
 }
 
 
-// bool BuildingTypeClass::unknown_func_458e00(void **image, int *frame) const (0x00458E00)
+// bool BuildingTypeClass::Get_Rubble_Shape(void **image, int *frame) const (0x00458E00)
 // For a type that leaves rubble: the image (slot 39) and frame 3 when the
 // image has more than three frames per half (hypothesis: the rubble frame).
 
-bool BuildingTypeClass::unknown_func_458e00(void **image, int *frame) const
+bool BuildingTypeClass::Get_Rubble_Shape(void **image, int *frame) const
 {
     if (LeaveRubble && image) {
         *image = Get_Image_Data();
@@ -828,10 +828,10 @@ bool BuildingTypeClass::unknown_func_458e00(void **image, int *frame) const
 }
 
 
-// bool BuildingTypeClass::unknown_func_458e50(void **image, int *frame) const (0x00458E50)
+// bool BuildingTypeClass::Get_Rubble_Shadow(void **image, int *frame) const (0x00458E50)
 // Like 0x00458E00, but the frame is half the frame count plus three.
 
-bool BuildingTypeClass::unknown_func_458e50(void **image, int *frame) const
+bool BuildingTypeClass::Get_Rubble_Shadow(void **image, int *frame) const
 {
     if (LeaveRubble && image) {
         *image = Get_Image_Data();
@@ -850,7 +850,7 @@ bool BuildingTypeClass::unknown_func_458e50(void **image, int *frame) const
 // Resolve building buildup, deployment, door, overlay and base images.
 extern "C" void __cdecl _makepath(char *,char const *,char const *,char const *,char const *);
 void const *__fastcall Unknown_Load_Shape_00495270(char const *name,bool &allocated);
-void BuildingTypeClass::unknown_func_458ea0(int theater)
+void BuildingTypeClass::Fetch_Building_Normal_Image(int theater)
 {
     char name[64];
     char extension[16];
@@ -971,7 +971,7 @@ void BuildingTypeClass::unknown_func_458ea0(int theater)
             unknown_a4=(void *)MixFileClass::Retrieve(fullname);
         }
     }
-    unknown_func_459640();
+    Fetch_Building_Voxel_Image();
 }
 
 
@@ -979,7 +979,7 @@ void BuildingTypeClass::unknown_func_458ea0(int theater)
 extern "C" char *__cdecl _strupr(char *);
 extern "C" char *__cdecl strstr(char const *,char const *);
 extern "C" void __cdecl _makepath(char *,char const *,char const *,char const *,char const *);
-void BuildingTypeClass::unknown_func_459640()
+void BuildingTypeClass::Fetch_Building_Voxel_Image()
 {
     if(TurretAnimIsVoxel || BarrelAnimIsVoxel) {
         char name[128];
@@ -1261,7 +1261,7 @@ bool BuildingTypeClass::Read_INI(CCINIClass &ini)
         if (strlen(key) != 0) {
             strcpy(BuildupFile, key);
         }
-        unknown_func_458ea0(unknown_id_source_a3d290->Theater);
+        Fetch_Building_Normal_Image(unknown_id_source_a3d290->Theater);
         sprintf(triple_def, "%d,%d,%d", AnimFrames[1].unknown_00, AnimFrames[1].unknown_04, AnimFrames[1].unknown_08);
         if (ArtINI.Get_String(unknown_1c8, "AnimIdle", triple_def, triple_out, 64) > 0) {
             sscanf(triple_out, "%d,%d,%d", &AnimFrames[1].unknown_00, &AnimFrames[1].unknown_04, &AnimFrames[1].unknown_08);
@@ -1519,14 +1519,14 @@ HRESULT __stdcall BuildingTypeClass::Load(IStream *stream)
             }
             DockingOffsets[index] = point;
         }
-        unknown_func_459640();
+        Fetch_Building_Voxel_Image();
         Fetch_Normal_Image();
         unknown_bf0 = 0;
         FoundationData = unknown_foundation_cells_84ede8[Foundation];
         FoundationOutside = unknown_foundation_outside_84f848[Foundation];
         Swizzler.Swizzle((void **)&ToOverlay);
         Swizzler.Swizzle((void **)&FreeUnit);
-        unknown_func_459640();
+        Fetch_Building_Voxel_Image();
         BuildupData = 0;
         BuildupDataAllocated = false;
         unknown_11cc = 0;
@@ -1539,7 +1539,7 @@ HRESULT __stdcall BuildingTypeClass::Load(IStream *stream)
         unknown_11b4 = false;
         unknown_11b8 = 0;
         unknown_11bc = false;
-        unknown_func_458ea0(unknown_id_source_a3d290->Theater);
+        Fetch_Building_Normal_Image(unknown_id_source_a3d290->Theater);
         return S_OK;
     }
     return result;
@@ -1599,17 +1599,17 @@ BuildingTypeClass *__fastcall BuildingTypeClass::Find_Or_Make(char const *name)
 }
 
 
-// static void BuildingTypeClass::unknown_func_45e170() (0x0045E170)
+// static void BuildingTypeClass::Post_Load_Game() (0x0045E170)
 // Rebuilds the cloak surface for the largest CloakRadiusInCells, then gives
 // each type the isometric tile type its "ToTile" key (in the INI pointed to by
 // 0x008396D0) names (unknown_bf0).
 
 class IsometricTileTypeClass;
-extern CCINIClass *unknown_ini_8396d0;                       // 0x008396D0
+extern CCINIClass *RuleINI;                       // 0x008396D0
 extern DynamicVectorClass<IsometricTileTypeClass *> IsoTileTypes;
 int __fastcall Unknown_00529400(char const *name);           // 0x00529400 (IsometricTileTypeClass: the index by ID)
 
-void BuildingTypeClass::unknown_func_45e170()
+void BuildingTypeClass::Post_Load_Game()
 {
     int radius = 0;
     for (int index = 0; index < BuildingTypes.Count(); index++) {
@@ -1626,7 +1626,7 @@ void BuildingTypeClass::unknown_func_45e170()
         BuildingTypeClass *type = BuildingTypes[type_index];
         char name[60];
         name[0] = 0;
-        unknown_ini_8396d0->Get_String(type->ID, "ToTile", 0, name, 60);
+        RuleINI->Get_String(type->ID, "ToTile", 0, name, 60);
         int tile = Unknown_00529400(name);
         if (tile >= 0 && tile < IsoTileTypes.Count()) {
             type->unknown_bf0 = IsoTileTypes[tile];
@@ -1635,11 +1635,11 @@ void BuildingTypeClass::unknown_func_45e170()
 }
 
 
-// Cell const *BuildingTypeClass::unknown_45e270() const (0x0045E270)
+// Cell const *BuildingTypeClass::Exit_List() const (0x0045E270)
 // The outer-cell list for the foundation (foundation 9 shares the list of
 // foundation 6); each list holds 30 cells.
 
-Cell const *BuildingTypeClass::unknown_45e270() const
+Cell const *BuildingTypeClass::Exit_List() const
 {
     int foundation = Foundation;
     if (foundation == 9) {
@@ -1678,7 +1678,7 @@ inline Rect const __fastcall Union<Rect>(Rect const &rect1,Rect const &rect2)
     return rect2;
 }
 
-Rect BuildingTypeClass::unknown_func_45e290()
+Rect BuildingTypeClass::Get_Draw_Rect()
 {
     int frame;
     if(unknown_11ec!=unknown_static_rect)return unknown_11ec;
@@ -1862,7 +1862,7 @@ inline double Limit_Defense_Rating(double amount,double cap)
 {
     return cap<amount?cap:amount;
 }
-void BuildingTypeClass::unknown_func_45eaa0()
+void BuildingTypeClass::Calculate_Base_Defense_Values()
 {
     if(IsBaseDefense) {
         WeaponTypeClass *weapon=Get_Weapon(0)->WeaponType;
@@ -1880,22 +1880,22 @@ void BuildingTypeClass::unknown_func_45eaa0()
 }
 
 
-// static void __fastcall BuildingTypeClass::unknown_func_45ebd0() (0x0045EBD0)
+// static void __fastcall BuildingTypeClass::Post_Read_Tile_Fixup() (0x0045EBD0)
 // Gives each type the isometric tile type its "ToTile" key (in the INI
 // pointed to by 0x008396D0) names (unknown_bf0).
 
 class IsometricTileTypeClass;
-extern CCINIClass *unknown_ini_8396d0;                       // 0x008396D0
+extern CCINIClass *RuleINI;                       // 0x008396D0
 extern DynamicVectorClass<IsometricTileTypeClass *> IsoTileTypes;
 int __fastcall Unknown_00529400(char const *name);           // 0x00529400 (IsometricTileTypeClass: the index by ID)
 
-void __fastcall BuildingTypeClass::unknown_func_45ebd0()
+void __fastcall BuildingTypeClass::Post_Read_Tile_Fixup()
 {
     for (int index = 0; index < BuildingTypes.Count(); index++) {
         BuildingTypeClass *type = BuildingTypes[index];
         char name[60];
         name[0] = 0;
-        unknown_ini_8396d0->Get_String(type->ID, "ToTile", 0, name, 60);
+        RuleINI->Get_String(type->ID, "ToTile", 0, name, 60);
         int tile = Unknown_00529400(name);
         if (tile >= 0 && tile < IsoTileTypes.Count()) {
             type->unknown_bf0 = IsoTileTypes[tile];
@@ -1913,21 +1913,21 @@ bool BuildingTypeClass::Can_Always_Undeploy() const
 }
 
 
-// bool BuildingTypeClass::unknown_func_45ec50() const (0x0045EC50)
+// bool BuildingTypeClass::Is_Mobile_Deployer() const (0x0045EC50)
 // Sensor array, tick tank, ICBM launcher or artillery. The callers test al
 // (UnitClass 0x006FDFC0); the logical expression is materialized as 0/1 in eax.
 
-bool BuildingTypeClass::unknown_func_45ec50() const
+bool BuildingTypeClass::Is_Mobile_Deployer() const
 {
     return SensorArray || TickTank || ICBMLauncher || Artillary;
 }
 
 
-// int BuildingTypeClass::unknown_func_45ec90() const (0x0045EC90)
+// int BuildingTypeClass::Deploy_Facing() const (0x0045EC90)
 // 0 for artillery; 0x40 for sensor arrays, tick tanks and ICBM launchers;
 // otherwise 0x80 (flag values; meaning unknown).
 
-int BuildingTypeClass::unknown_func_45ec90() const
+int BuildingTypeClass::Deploy_Facing() const
 {
     if (!SensorArray && !TickTank && !ICBMLauncher && !Artillary) {
         return 0x80;

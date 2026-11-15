@@ -17,7 +17,7 @@
 #include "shared/owner_talk.hpp"
 
 // The unit's OwnerTalkClass object (0x00AB6D18; shared/owner_talk.hpp).
-OwnerTalkClass unknown_OwnerTalkClass_00ab6d18;
+OwnerTalkClass OwnerTalk;
 
 
 // Dynamic initializer (0x0063EDA0, _$E5) emitted by HeaderStatics_diagonal_init_0063ed70.cpp; no source of its own.
@@ -111,17 +111,17 @@ bool OwnerTalkClass::Unknown_0063F130()
     packet.Data = Connections.Count();
     for (int index = 0; index < Connections.Count(); index++) {
         packet.Players[index] = *Connections[index];
-        if (unknown_ipx_manager_a40978.Connection_Index(Connections[index]->ID) == -1
+        if (Ipx.Connection_Index(Connections[index]->ID) == -1
             && unknown_player_a35db4->ArrayIndex != Connections[index]->ID) {
             Debug_Printf("Marking player %s as inactive\n", Connections[index]->Name);
             packet.Players[index].IsActive = false;
             packet.Players[index].IsHost = false;
         }
     }
-    unknown_ipx_manager_a40978.unknown_525b50(&packet, sizeof(packet), true);
+    Ipx.Send_Lobby_Message(&packet, sizeof(packet), true);
     Debug_Printf("Player list sent to router\n");
     timer = 900;
-    while (unknown_ipx_manager_a40978.unknown_slot20() > 0 && timer) {
+    while (Ipx.unknown_slot20() > 0 && timer) {
         Service_Game_IO_00481fb0();
     }
     return true;
@@ -295,7 +295,7 @@ create:
         result = false;
         while (timer) {
             Service_Game_IO_00481fb0();
-            if (unknown_ipx_manager_a40978.unknown_525bc0(buffer, &length, &from, &product) && buffer[0] == 4) {
+            if (Ipx.Get_Lobby_Message(buffer, &length, &from, &product) && buffer[0] == 4) {
                 result = true;
                 Debug_Printf("Received TALK_HELLO from router\n");
                 unknown_18 = true;
@@ -317,7 +317,7 @@ void OwnerTalkClass::Unknown_0063F840()
     int length;
     IPXAddressClass address;
     if (Frame > 0) {
-        while (unknown_ipx_manager_a40978.unknown_525bc0(RouterBuffer, &length, &address, &product)) {
+        while (Ipx.Get_Lobby_Message(RouterBuffer, &length, &address, &product)) {
             if (RouterBuffer[0] != 5) {
                 Debug_Printf("Got spurious message %d from the router\n", RouterBuffer[0]);
             } else {
@@ -458,9 +458,9 @@ void OwnerTalkClass::Unknown_0063FC90()
     CDTimerClass<SystemTimerClass> timer;
     if (unknown_18 && RouterProcess != 0) {
         packet.Type = 3;
-        unknown_ipx_manager_a40978.unknown_525b50(&packet, sizeof(packet), true);
+        Ipx.Send_Lobby_Message(&packet, sizeof(packet), true);
         timer = 900;
-        while (unknown_ipx_manager_a40978.unknown_slot20() > 0 && timer) {
+        while (Ipx.unknown_slot20() > 0 && timer) {
             Service_Game_IO_00481fb0();
         }
     }
@@ -482,7 +482,7 @@ void OwnerTalkClass::Unknown_0063FE20(int id)
         packet.Type = 2;
         packet.Data = id;
         Debug_Printf("Sending TALK_REMOVE_PLAYER to router\n");
-        unknown_ipx_manager_a40978.unknown_525b50(&packet, sizeof(packet), true);
+        Ipx.Send_Lobby_Message(&packet, sizeof(packet), true);
     }
 }
 
@@ -495,7 +495,7 @@ void OwnerTalkClass::Unknown_0063FEB0(unsigned char flag)
         packet.Type = 6;
         packet.Data = flag;
         Debug_Printf("Sending TALK_PORT_BLITZ to router\n");
-        unknown_ipx_manager_a40978.unknown_525b50(&packet, sizeof(packet), true);
+        Ipx.Send_Lobby_Message(&packet, sizeof(packet), true);
     }
 }
 

@@ -1086,7 +1086,7 @@ CoordStruct TechnoTypeClass::Damage_Smoke_Offset() const
 {
     if (DamSmkOffScrnRel) {
         Point2D screen = Point2D(DamageSmokeOffset.X, DamageSmokeOffset.Y);
-        CoordStruct offset = Projected_Coord_006df6c0(TacticalMap->Unknown_006A2900(screen));
+        CoordStruct offset = Projected_Coord_006df6c0(TacticalMap->Pixel_To_Lepton(screen));
         int height = DamageSmokeOffset.Z * 10;
         offset.X -= height;
         offset.Y -= height;

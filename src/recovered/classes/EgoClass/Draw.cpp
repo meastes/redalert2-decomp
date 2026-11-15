@@ -17,9 +17,9 @@ int __fastcall unknown_text_draw_005fe1b0(unsigned int color, BitFontClass *font
 void EgoClass::Draw(bool force)
 {
     int y = Y;
-    if (y < unknown_surface_83995c->Get_Height()) {
+    if (y < LogicalSurface->Get_Height()) {
         y = Y;
-        if (y > unknown_surface_83995c->Get_Height() - 52) goto draw;
+        if (y > LogicalSurface->Get_Height() - 52) goto draw;
     }
     if ((y < -16 || y > 32) && !force) return;
 draw:

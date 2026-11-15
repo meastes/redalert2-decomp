@@ -133,7 +133,7 @@ public:
     void Remove_All_Particles();                                        // 0x0060B460
     void Gas_AI();                              // 0x0060B4E0 behaviour 1
     void Spark_AI();                            // 0x0060B670 behaviour 3
-    void unknown_func_60bb70();                 // 0x0060BB70 behaviour 0
+    void Smoke_AI();                 // 0x0060BB70 behaviour 0
     void Railgun_AI();                          // 0x0060C050 behaviour 4
     void Fire_AI();                             // 0x0060C7C0 behaviour 2
 

@@ -231,11 +231,11 @@ int GaugeClass::Draw_Me(int forced)
             int color = ColorSchemes[Gadget_Color_Scheme()]->unknown_color_0x330;
             if (IsHorizontal) {
                 if (middle >= X + 1) {
-                    unknown_surface_83995c->Fill_Rect(Rect(X + 1, Y + 1, middle - X - 1, Height - 2), unknown_drawer_8323c4->Convert(color));
+                    LogicalSurface->Fill_Rect(Rect(X + 1, Y + 1, middle - X - 1, Height - 2), NormalDrawer->Convert(color));
                 }
             } else {
                 if (middle >= Y + 1) {
-                    unknown_surface_83995c->Fill_Rect(Rect(X + 1, Y + 1, Width - 2, middle - Y - 1), unknown_drawer_8323c4->Convert(color));
+                    LogicalSurface->Fill_Rect(Rect(X + 1, Y + 1, Width - 2, middle - Y - 1), NormalDrawer->Convert(color));
                 }
             }
         }
@@ -432,27 +432,27 @@ int TriColorGaugeClass::Draw_Me(int forced)
         int middle = Value_To_Pixel(CurValue);
         if (CurValue <= RedLimit) {
             if (IsHorizontal) {
-                unknown_surface_83995c->Fill_Rect(Rect(X + 1, Y + 1, middle - X + 1, Height - 2), unknown_drawer_8323c4->Convert(6));
+                LogicalSurface->Fill_Rect(Rect(X + 1, Y + 1, middle - X + 1, Height - 2), NormalDrawer->Convert(6));
             } else {
-                unknown_surface_83995c->Fill_Rect(Rect(X + 1, Y + 1, Width - 2, middle - Y + 1), unknown_drawer_8323c4->Convert(6));
+                LogicalSurface->Fill_Rect(Rect(X + 1, Y + 1, Width - 2, middle - Y + 1), NormalDrawer->Convert(6));
             }
         } else if (CurValue > RedLimit && CurValue <= YellowLimit) {
             if (IsHorizontal) {
-                unknown_surface_83995c->Fill_Rect(Rect(X + 1, Y + 1, red - X + 1, Height - 2), unknown_drawer_8323c4->Convert(6));
-                unknown_surface_83995c->Fill_Rect(Rect(red - X + 1, Y + 1, middle - X - 1, Height - 2), unknown_drawer_8323c4->Convert(5));
+                LogicalSurface->Fill_Rect(Rect(X + 1, Y + 1, red - X + 1, Height - 2), NormalDrawer->Convert(6));
+                LogicalSurface->Fill_Rect(Rect(red - X + 1, Y + 1, middle - X - 1, Height - 2), NormalDrawer->Convert(5));
             } else {
-                unknown_surface_83995c->Fill_Rect(Rect(X + 1, Y + 1, Width - 2, red - Y + 1), unknown_drawer_8323c4->Convert(6));
-                unknown_surface_83995c->Fill_Rect(Rect(X + 1, red - Y + 1, X + Width - 2, middle - Y + 1), unknown_drawer_8323c4->Convert(5));
+                LogicalSurface->Fill_Rect(Rect(X + 1, Y + 1, Width - 2, red - Y + 1), NormalDrawer->Convert(6));
+                LogicalSurface->Fill_Rect(Rect(X + 1, red - Y + 1, X + Width - 2, middle - Y + 1), NormalDrawer->Convert(5));
             }
         } else if (CurValue > YellowLimit && CurValue <= MaxValue) {
             if (IsHorizontal) {
-                unknown_surface_83995c->Fill_Rect(Rect(X + 1, Y + 1, red - X + 1, Height - 2), unknown_drawer_8323c4->Convert(6));
-                unknown_surface_83995c->Fill_Rect(Rect(red, Y + 1, yellow - X + 1, Height - 2), unknown_drawer_8323c4->Convert(5));
-                unknown_surface_83995c->Fill_Rect(Rect(yellow, Y + 1, middle - X + 1, Height - 2), unknown_drawer_8323c4->Convert(3));
+                LogicalSurface->Fill_Rect(Rect(X + 1, Y + 1, red - X + 1, Height - 2), NormalDrawer->Convert(6));
+                LogicalSurface->Fill_Rect(Rect(red, Y + 1, yellow - X + 1, Height - 2), NormalDrawer->Convert(5));
+                LogicalSurface->Fill_Rect(Rect(yellow, Y + 1, middle - X + 1, Height - 2), NormalDrawer->Convert(3));
             } else {
-                unknown_surface_83995c->Fill_Rect(Rect(X + 1, Y + 1, Width - 2, red - Y + 1), unknown_drawer_8323c4->Convert(6));
-                unknown_surface_83995c->Fill_Rect(Rect(X + 1, red, Width - 2, yellow - Y + 1), unknown_drawer_8323c4->Convert(5));
-                unknown_surface_83995c->Fill_Rect(Rect(X + 1, yellow, Width - 2, middle - Y + 1), unknown_drawer_8323c4->Convert(3));
+                LogicalSurface->Fill_Rect(Rect(X + 1, Y + 1, Width - 2, red - Y + 1), NormalDrawer->Convert(6));
+                LogicalSurface->Fill_Rect(Rect(X + 1, red, Width - 2, yellow - Y + 1), NormalDrawer->Convert(5));
+                LogicalSurface->Fill_Rect(Rect(X + 1, yellow, Width - 2, middle - Y + 1), NormalDrawer->Convert(3));
             }
         }
         if (HasThumb) {

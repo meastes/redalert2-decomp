@@ -74,12 +74,12 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     if (!unknown_slot245(unknown_player_house_a35db4)) type=static_cast<TechnoTypeClass *>(GetDisguise(true));
     int frame=unknown_430 % (int)type->unknown_b0.unknown_04->unknown_frame_count;
     Rect cliprect=window;
-    Surface *old_surface=unknown_surface_83995c;
+    Surface *old_surface=LogicalSurface;
     int key=0;
     Matrix3D main_matrix;
-    unknown_surface_83995c=unknown_surface_ad0604;
+    LogicalSurface=unknown_surface_ad0604;
     drawpoint=Point2D(128,128);
-    cliprect=unknown_surface_83995c->Get_Rect();
+    cliprect=LogicalSurface->Get_Rect();
     unknown_5bb=true;
     key=unknown_use_voxel_cache_839a58 ? 0 : -1;
     {
@@ -102,7 +102,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
         turret_key=(turret_key&~31)|unknown_2f8.Current().As_Dir32();
         if (Techno_Type_Class()->TurretOffset==0) turret_key&=0xfffffc1f;
     }
-    if (!type->Turret && (!unknown_6d83e0() || !unknown_6d8460())) {
+    if (!type->Turret && (!unknown_6d83e0() || !Has_Current_Turret())) {
         if (Unit_Voxel_Loaded_007005b0(type->unknown_c0)) {
             main_matrix.Rotate_Y((float)-(unknown_2c8.Current().As_Radian32()-main_matrix.Get_Y_Rotation()));
             main_matrix.Translate((float)(unknown_slot231(0)->FLH.X*unknown_geometry_c),0.0f,(float)(unknown_slot231(0)->FLH.Z*unknown_geometry_c));
@@ -112,7 +112,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
         int turret_index=0;
         bool has_barrel;
         if (unknown_6d83e0()) {
-            turret_index=unknown_6d8470();
+            turret_index=Get_Current_Turret_Number();
             turret_key|=turret_index<<16;
             has_barrel=Unit_Voxel_Loaded_007005b0(type->unknown_140[turret_index]);
         } else has_barrel=Unit_Voxel_Loaded_007005b0(type->unknown_c0);
@@ -158,11 +158,11 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     if (unknown_322>0) rect=Intersect(rect,Rect(0,0,unknown_int_839638,unknown_322-TacticalMap->TacPixelY));
     else if (unknown_325) unknown_322=(short)(TacticalMap->TacPixelY+point.Y+unknown_unit_rect_ad0490.Y+unknown_unit_rect_ad0490.Height-128);
     int apparent_brightness=unknown_slot254(brightness);
-    if (unknown_slot203()) apparent_brightness=unknown_6d86f0(apparent_brightness);
+    if (unknown_slot203()) apparent_brightness=GetInvulnerabilityTintIntensity(apparent_brightness);
     unknown_slot312(*old_surface,point,rect,apparent_brightness);
     Rect dirtyrect=unknown_unit_rect_ad0490;
-    Surface *composite_surface=unknown_surface_83995c;
-    unknown_surface_83995c=old_surface;
+    Surface *composite_surface=LogicalSurface;
+    LogicalSurface=old_surface;
     unknown_5bb=false;
     if (!unknown_325) {
         Point2D shadow_drawpoint=point;

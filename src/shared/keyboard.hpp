@@ -80,9 +80,9 @@ extern bool unknown_flag_a3dc89;       // 0x00A3DC89
 
 // Key-state wrappers that replay recorded input (hypotheses): records a key
 // as down or up; GetKeyState and GetAsyncKeyState or the recorded state.
-void __fastcall Unknown_005233A0(int key, bool release);   // 0x005233A0
-short __fastcall Unknown_005233D0(int key);                 // 0x005233D0
-short __fastcall Unknown_005233F0(int key);                 // 0x005233F0
+void __fastcall Set_Key_State(int key, bool release);   // 0x005233A0
+short __fastcall Get_Key_State(int key);                 // 0x005233D0
+short __fastcall Get_Async_Key_State(int key);                 // 0x005233F0
 // While unknown_key_state_override_a522ac is nonzero both read the recorded
 // state word of the key's low byte instead of asking Windows.
 extern int unknown_key_state_override_a522ac;     // 0x00A522AC (also read by 0x00522E80)

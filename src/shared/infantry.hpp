@@ -262,7 +262,7 @@ public:
     bool Is_Deploy_Fire() const;                // 0x00509100 (the type's DeployFire flag)
     bool Is_Deploying() const;                // 0x005090D0 (deploying: sequence 27-30; TechnoClass slot 186 and UnitClass test al)
     bool Is_JumpJet();                      // 0x00508D00 (JumpJet type flying with the jumpjet locomotor)
-    bool unknown_508dd0(Cell const *from, Cell const *to);   // 0x00508DD0 (a move worth path-finding)
+    bool Should_JumpJet_Fly(Cell const *from, Cell const *to);   // 0x00508DD0 (a move worth path-finding)
     int unknown_500350();                       // 0x00500350 (the shape frame of the current sequence; Westwood's Shape_Number)
     void unknown_506f30();                      // 0x00506F30 (fear: decays, goes prone or stands, a Fraidycat runs)
     virtual bool INoticeSink_Unknown(int code, int arg);   // INoticeSink (+8) slot 0 0x00509590 (vtable 0x007A351C)

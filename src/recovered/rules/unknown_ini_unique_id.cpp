@@ -4,12 +4,12 @@
 // others compare it (multiplayer synchronisation; hypothesis).
 // Assumptions: the function's name is a placeholder.
 // @ref ?Get_Unique_ID@CCINIClass@@QBEHXZ=0046c1c0
-// @ref ?unknown_ini_8397a0@@3VCCINIClass@@A=008397a0
+// @ref ?AIINI@@3VCCINIClass@@A=008397a0
 #include "shared/ccini_class.hpp"
 
-extern CCINIClass unknown_ini_8397a0;      // 0x008397A0
+extern CCINIClass AIINI;      // 0x008397A0
 
 int __fastcall unknown_ini_8397a0_unique_id()
 {
-    return unknown_ini_8397a0.Get_Unique_ID();
+    return AIINI.Get_Unique_ID();
 }

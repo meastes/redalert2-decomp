@@ -128,7 +128,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
                 unknown_surface_839964 = unknown_surface_839944;
                 unknown_surface_839944 = oldcomp;
                 surface = unknown_surface_839964;
-                unknown_surface_83995c = unknown_surface_839964;
+                LogicalSurface = unknown_surface_839964;
             }
         } else {
             if (fullredraw && (drawpass == 0 || drawpass == 3)) {
@@ -146,9 +146,9 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
                 unknown_rect_839630.Width + 128, unknown_rect_839630.Height + 128));
         }
 
-        Surface *prevlogical = unknown_surface_83995c;
-        unknown_surface_83995c = unknown_surface_839944;
-        unknown_surface_83995c->Lock();
+        Surface *prevlogical = LogicalSurface;
+        LogicalSurface = unknown_surface_839944;
+        LogicalSurface->Lock();
 
         if (drawpass == 1 || drawpass == 3) {
             bool scrolled_left = LastTacPixelX > TacPixelX;
@@ -206,8 +206,8 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
                 TacticalLists::DirtyAreas.Delete(index);
             }
 
-            unknown_surface_83995c->Unlock();
-            unknown_surface_83995c = prevlogical;
+            LogicalSurface->Unlock();
+            LogicalSurface = prevlogical;
             unknown_e0 = 0;
         }
     }
@@ -219,7 +219,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
     LastTacPixelY = TacPixelY;
 
     if (drawpass == 1 || drawpass == 3) {
-        unknown_surface_83995c->Copy_From(unknown_rect_839630, *unknown_surface_839944, unknown_rect_839630, false, true);
+        LogicalSurface->Copy_From(unknown_rect_839630, *unknown_surface_839944, unknown_rect_839630, false, true);
     }
 
     if (drawpass == 1) {
@@ -231,8 +231,8 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
 
         Add_Buildings_To_Selectable(unknown_rect_839630);
         surface->Lock();
-        Surface *savedlogical = unknown_surface_83995c;
-        unknown_surface_83995c = surface;
+        Surface *savedlogical = LogicalSurface;
+        LogicalSurface = surface;
         Draw_Waypoints(false);
         Draw_Rally_Points(false);
         Draw_Placement(false);
@@ -245,8 +245,8 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
         LineTrail::Update_All();
         Unknown_006354E0();
         Draw_Radial_Indicators();
-        unknown_object_84e8d0.Unknown_0042E290(unknown_surface_83995c, unknown_rect_839630);
-        Unknown_006AA790();
+        unknown_object_84e8d0.Unknown_0042E290(LogicalSurface, unknown_rect_839630);
+        Draw_Rubber_Band();
         Draw_Waypoints(true);
         Draw_Rally_Points(true);
         Draw_Placement(true);
@@ -280,7 +280,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
         }
 
         Draw_Pixel_Effects(unknown_rect_839630, unknown_rect_839630);
-        unknown_surface_83995c = savedlogical;
+        LogicalSurface = savedlogical;
         surface->Unlock();
 
         int line = 0;

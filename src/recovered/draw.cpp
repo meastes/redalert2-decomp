@@ -73,7 +73,7 @@ cleanup:
 }
 
 
-void __fastcall unknown_blit_49f3a0(Surface &dest,void *converter,Surface &source,Rect const &source_rect,
+void __fastcall Blit_Block(Surface &dest,void *converter,Surface &source,Rect const &source_rect,
                                   RectPoint2D const &point,Rect const &window,unsigned char const *remap,Blitter const *blitter,
                                   int height_offset,int gradient,int intensity,int unknown)
 {

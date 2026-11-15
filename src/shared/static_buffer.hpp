@@ -18,7 +18,7 @@ public:
         unsigned char *Data;
     };
 #ifdef STATIC_BUFFER_DECLARE_LIFETIME
-    // Declared only for the definition of unknown_voxel_static_buffer_839aa0 (other includers keep
+    // Declared only for the definition of VoxelStaticBuffer (other includers keep
     // the implicit members).
     StaticBufferClass(int size);            // 0x0069A1A0
     ~StaticBufferClass();                   // 0x0069A1C0
@@ -44,6 +44,6 @@ public:
     unsigned char *Buffer;      // +0x04
     unsigned char *Current;     // +0x08
 };
-extern StaticBufferClass unknown_voxel_static_buffer_839aa0;
+extern StaticBufferClass VoxelStaticBuffer;
 
 #endif

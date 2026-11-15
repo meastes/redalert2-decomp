@@ -258,7 +258,7 @@ bool __stdcall TunnelLocomotionClass::Process()
                 }
             }
         }
-        LinkedTo->unknown_6d7f30();
+        LinkedTo->Remove_Damage_Particle();
         return true;
     }
     return false;
@@ -321,7 +321,7 @@ void TunnelLocomotionClass::Process_Aborting()
 {
     if (DigTimer.Ratio() == 1.0) {
         unknown_18 = 0;
-        LinkedTo->unknown_4cd9b0();
+        LinkedTo->Abort_Motion();
     }
 }
 
@@ -425,7 +425,7 @@ void TunnelLocomotionClass::Process_Emerging()
         if (LinkedTo->IsActive && !LinkedTo->unknown_76 && !LinkedTo->unknown_7a) {
             Stop_Moving();
             unknown_18 = 0;
-            LinkedTo->unknown_4cd9b0();
+            LinkedTo->Abort_Motion();
         }
     }
 }

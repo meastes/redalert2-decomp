@@ -66,7 +66,7 @@ struct SessionClass {
     // The colour scheme of a player colour (0x006715D0; -2 reads as 8).
     int Unknown_006715D0(int color);
     // The unknown_3022 value of the session player with this ID; 0 when none has it (0x00672F50).
-    unsigned short Unknown_00672F50(int id);
+    unsigned short Player_Port(int id);
     // The lobby slot whose name equals this session player's name; 0 when none (0x00672F90).
     int Unknown_00672F90(int player);
     // Original00673090: session in ECX, no stack arguments; member spelling hypothesis.

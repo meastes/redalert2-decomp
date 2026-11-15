@@ -452,7 +452,7 @@ void VeinholeMonsterClass::Draw_It()
         drawpoint.Y += -58 - height;
         TacticalMap->Add_To_Selectables(this, Point2D(drawpoint.X, unknown_rect_839630.Y + drawpoint.Y + 58));
         ConvertClass *drawer = ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter;
-        CC_Draw_Shape(unknown_surface_83995c, drawer, (ShapeFileStruct const *)shape, frame, drawpoint, unknown_rect_839630, 0x2e00, 0, -17 - height, 0,
+        CC_Draw_Shape(LogicalSurface, drawer, (ShapeFileStruct const *)shape, frame, drawpoint, unknown_rect_839630, 0x2e00, 0, -17 - height, 0,
                       Map[coord].unknown_10c, 0, 0, Point2D(0, 0));
     }
 }

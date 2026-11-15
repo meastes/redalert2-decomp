@@ -15,7 +15,7 @@
 
 unsigned __fastcall Map_Random_Range_005797a0(unsigned, unsigned);
 extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
-extern Random2Class unknown_map_random_a705c0;
+extern Random2Class RMGRandom;
 double __stdcall Unknown_Cell_Score_0056dff0(Cell const &from, Cell const &to, double direction);
 
 namespace {
@@ -124,7 +124,7 @@ bool MapRegionClass::Split_Region_0056ef20()
     queue->Insert(&nodes[0]);
 
     SplitNode *node = queue->Extract_Min();
-    double heading = (double)(unsigned)unknown_map_random_a705c0() * (6.283185307179586 / 4294967295.0);
+    double heading = (double)(unsigned)RMGRandom() * (6.283185307179586 / 4294967295.0);
     int spread = 0;
     while (node != 0 && spread < (int)target) {
         Split_Cell_Data(node->Element).RegionIndex = -3;
@@ -133,7 +133,7 @@ bool MapRegionClass::Split_Region_0056ef20()
             if (!Split_In_Bounds(ncell)) continue;
             UnknownMapGenerationCell &data = Split_Cell_Data(ncell);
             if (data.RegionIndex != -2 || data.unknown_3c == -3) continue;
-            if (!Map[ncell].unknown_47b590()) continue;
+            if (!Map[ncell].Is_Tile_Clear()) continue;
             if (node_count >= (int)heap_size) continue;
             SplitNode *added = &nodes[node_count++];
             added->Element = ncell;

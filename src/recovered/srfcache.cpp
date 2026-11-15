@@ -28,12 +28,12 @@
 
 
 // The PCX image cache unit (0x0068BC50-0x0068D94F; TibSun has no counterpart): the dictionary of loaded
-// .pcx images by name (unknown_bitmap_writer_a76378), their loading, drawing and writing.
+// .pcx images by name (SurfaceCache), their loading, drawing and writing.
 // Its first line: the dynamic initializer of shared/unknown_static_rect.hpp's file-local constant (0x0068BC50).
 
 
 // Palette transform at0068BCE0; native reads green, blue, then red, and preserves int signed division.
-void __fastcall unknown_brighten_palette_68bce0(unsigned char *palette)
+void __fastcall SurfaceCacheConvertPalette(unsigned char *palette)
 {
     RGBClass *colors = (RGBClass *)palette;
     for (int i = 0; i < 256; ++i) {

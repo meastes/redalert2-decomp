@@ -8,7 +8,7 @@
 //                row * 2 + i]: SidebarClass::StripClass::SelectClass::Action 0x006809F0);
 // and notes the player's production for the harness-input state: "inf=N veh=N", the
 // objects of each kind in the house's factory (the one in production and the queue:
-// HouseClass::unknown_func_4eb580 0x004EB580, kinds 0x10 infantry and 0x28 vehicles).
+// HouseClass::Fetch_Factory 0x004EB580, kinds 0x10 infantry and 0x28 vehicles).
 #include "shared/sidebar_screen.hpp"
 #include "shared/sidebar.hpp"
 #include "shared/house.hpp"
@@ -41,7 +41,7 @@ void Centre(GadgetClass const &gadget, int *x, int *y)
 int In_Factory(int kind)
 {
     HouseClass *player = unknown_player_a35db4;
-    FactoryClass *factory = player ? player->unknown_func_4eb580(kind, false, 0) : 0;
+    FactoryClass *factory = player ? player->Fetch_Factory(kind, false, 0) : 0;
     if (factory == 0) return 0;
     return (factory->Object ? 1 : 0) + factory->Queue.Count();
 }

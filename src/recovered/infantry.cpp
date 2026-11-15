@@ -390,7 +390,7 @@ void InfantryClass::Draw_It(Point2D const &input, Rect const &window)
             // spells that result Point2D; this storage view preserves its ABI and
             // applies the evidenced converting constructor without retyping it.
             Point2D shadow=input+Point2D(*reinterpret_cast<RectPoint2D const *>(&Locomotor.Checked()->Shadow_Point()));
-            CC_Draw_Shape(unknown_surface_83995c,unknown_infantry_drawer_008323c4,shape,
+            CC_Draw_Shape(LogicalSurface,unknown_infantry_drawer_008323c4,shape,
                 Locomotor.Checked()->Drawing_Code(),shadow,window,0x2e01,0,unknown_slot176()-2,0,1000,0,0,Point2D(0,0));
             Map[cell];
             Map[cell];
@@ -421,7 +421,7 @@ void InfantryClass::Draw_It(Point2D const &input, Rect const &window)
             }
             if (height>0 && (unknown_infantry_shadow_00a41134 ||
                 (unknown_infantry_shadow_00a41134=static_cast<ShapeFileStruct const *>(MixFileClass::Retrieve("INFSHDW.SHP"))))) {
-                CC_Draw_Shape(unknown_surface_83995c,unknown_infantry_drawer_008323c4,unknown_infantry_shadow_00a41134,
+                CC_Draw_Shape(LogicalSurface,unknown_infantry_drawer_008323c4,unknown_infantry_shadow_00a41134,
                     1,point+Point2D(0,-*reinterpret_cast<signed char const *>(&unknown_59e))+Point2D(0,Unknown_006A2970(height)),window,0x2601,0,-5-Unknown_006A2970(Position_Coord_004f3f40().Z-height),0,1000,0,0,Point2D(0,0));
             }
             // The original reads this storage byte with MOVSX; the current shared bool name remains a hypothesis.
@@ -610,12 +610,12 @@ void InfantryClass::unknown_slot93(int why)
                     Limbo();
                     unknown_slot150(2,transport);
                     transport->Cargo.Attach(this);
-                    unknown_4cd9b0();
+                    Abort_Motion();
                     return;
                 }
             } else if (unknown_slot104()==transport->unknown_slot104() && transport==unknown_494) {
                 if (unknown_slot150(15,transport)==1) {
-                    unknown_6d6e50(0);
+                    Assign_Archive_Target(0);
                     unknown_79=false;
                     Limbo();
                     static_cast<FootClass *>(transport)->Unknown_004CCE80(this);
@@ -647,7 +647,7 @@ void InfantryClass::unknown_slot93(int why)
                     *reinterpret_cast<CDTimerClass<FrameTimerClass> *>(reinterpret_cast<char *>(building)+0x420)=int(Rules->unknown_13b8*900.0);
                     *reinterpret_cast<AbstractClass **>(reinterpret_cast<char *>(building)+0x438)=this;
                 }
-                unknown_4cd9b0();
+                Abort_Motion();
                 unknown_slot252(false);
                 unknown_244=unknown_slot187(1);
                 Scatter(building->Center_Coord(),true,true);
@@ -731,13 +731,13 @@ void InfantryClass::Assign_Destination(AbstractClass *target, bool immediate)
                 if (transport->HasAnyLink()) {
                     if (transport->Kind_Of()==1) {
                         unknown_3f8=(AbstractClass *)As_Unit(target);
-                        unknown_6d6e50(0);
+                        Assign_Archive_Target(0);
                         target=0;
                     } else if (transport->Kind_Of()==6) {
                         unknown_3f8=As_Building((ObjectClass *)target);
-                        unknown_6d6e50(0);
+                        Assign_Archive_Target(0);
                         target=0;
-                    } else unknown_6d6e50(target);
+                    } else Assign_Archive_Target(target);
                 } else {
                     if (unknown_slot150(2,transport)==1) {
                         int reply=unknown_slot149(14);
@@ -759,7 +759,7 @@ void InfantryClass::Assign_Destination(AbstractClass *target, bool immediate)
         }
     }
     if (Type->JumpJet && target && !Locomotor.Checked()->Is_Moving()) {
-        bool should_fly=unknown_508dd0(&unknown_slot19(0).As_Cell(),&target->Center_Coord().As_Cell());
+        bool should_fly=Should_JumpJet_Fly(&unknown_slot19(0).As_Cell(),&target->Center_Coord().As_Cell());
         bool is_jumpjet=Is_JumpJet();
         if (Type->HoverAttack) should_fly=true;
         if (is_jumpjet) {
@@ -878,7 +878,7 @@ void InfantryClass::AI()
                     goto scatter_done;
                 }
                 goto scatter;
-            } else if (!building->Type->Gate || !building->unknown_44d880()) {
+            } else if (!building->Type->Gate || !building->Is_Gate_Open()) {
             scatter:
                 Scatter(unknown_geometry_l, true, true);
             }
@@ -1006,7 +1006,7 @@ int InfantryClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellC
                     continue;
                 }
                 if (building->Type->Gate) {
-                    if (!building->unknown_44d880()) {
+                    if (!building->Is_Gate_Open()) {
                         if (building->House->Is_Ally(House)) { if (result<3) result=3; }
                         else {
                             if (!unknown_slot163()) return 7;
@@ -2229,7 +2229,7 @@ int InfantryClass::What_Action(Cell const *cell, bool arg2, bool arg3)
     } else {
     ordinary_cell:
         if (result == 1 && Map[*cell].Has_Tunnel()) {
-            return Map[*cell].unknown_47a120(this) ? 35 : 36;
+            return Map[*cell].Can_Enter_Tunnel(this) ? 35 : 36;
         }
     }
 
@@ -2540,7 +2540,7 @@ void InfantryClass::Update_Fire_00507530()
             unknown_57d = true;
             unknown_2e0.Set(Direction_To(unknown_228));
             if (unknown_228 == unknown_494) {
-                unknown_4cd9b0();
+                Abort_Motion();
                 Stop_Driver();
             }
                 } break;
@@ -3136,7 +3136,7 @@ bool InfantryClass::Is_JumpJet()
 }
 
 
-// bool InfantryClass::unknown_508dd0(Cell const *from, Cell const *to) (0x00508DD0)
+// bool InfantryClass::Should_JumpJet_Fly(Cell const *from, Cell const *to) (0x00508DD0)
 // False under the owner's 0x0051FC80 condition, true at once when slot 108
 // is positive; false for a 0x004F52F0 owner whose start cell passes
 // 0x00479CF0. Otherwise true when the two cells are not connected
@@ -3144,10 +3144,10 @@ bool InfantryClass::Is_JumpJet()
 // an adjacent cell; for two or three cells true unless both cells pass
 // 0x0055A660 and the path estimate (0x0042AA30) is within 7.
 
-bool InfantryClass::unknown_508dd0(Cell const *from, Cell const *to)
+bool InfantryClass::Should_JumpJet_Fly(Cell const *from, Cell const *to)
 {
     Get_Height_AGL();
-    if (House->Unknown_0051FC80()) {
+    if (House->Ion_Sensitives_Should_Be_Offline()) {
         return false;
     }
     if (Get_Height_AGL() > 0) {

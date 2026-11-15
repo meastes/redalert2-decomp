@@ -153,7 +153,7 @@ extern Matrix3D unknown_voxel_transform_839a70;
 extern Vector3 unknown_voxel_shadow_light_839a60;
 extern Vector3 unknown_voxel_light_839ab0;
 extern ConvertClass *unknown_drawer_8323b4;
-extern ConvertClass *unknown_drawer_8323bc;
+extern ConvertClass *TiberiumDrawer;
 void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
 {
     if ((unknown_id_source_a3d290->unknown_000 & 0x1000) != 0) {
@@ -189,7 +189,7 @@ void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
     Voxel_Render_Bounds_007176c0(&rect, &offset_x, &offset_y);
     {
         RectPoint2D draw(pixel.X + offset_x, pixel.Y + offset_y);
-        unknown_blit_49f3a0(*unknown_surface_83995c, unknown_drawer_8323b4, Voxel_Render_Surface_00717040(), rect, draw, window, 0,
+        Blit_Block(*LogicalSurface, unknown_drawer_8323b4, Voxel_Render_Surface_00717040(), rect, draw, window, 0,
                             unknown_drawer_8323b4->Select_Blitter_00485AA0(0x2001), -4 - Unknown_006A2970(level), 0, 1000, 0);
     }
     matrix = BounceClass::unknown_matrix_436fc0();
@@ -210,14 +210,14 @@ void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
     if (unknown_f4 != 0) {
         drawer = ColorSchemes[unknown_f4->ColorSchemeIndex]->Converter;
     } else if (Class->IsTiberium) {
-        drawer = unknown_drawer_8323bc;
+        drawer = TiberiumDrawer;
     } else {
         drawer = unknown_drawer_8323b4;
         brightness = 1000;
     }
     {
         RectPoint2D draw2(position.X + offset_x, position.Y + offset_y);
-        unknown_blit_49f3a0(*unknown_surface_83995c, drawer, Voxel_Render_Surface_00717040(), rect, draw2, window, 0,
+        Blit_Block(*LogicalSurface, drawer, Voxel_Render_Surface_00717040(), rect, draw2, window, 0,
                             drawer->Select_Blitter_00485AA0(flags), -2 - Unknown_006A2970(Get_Height()), 0, brightness, 0);
     }
 }

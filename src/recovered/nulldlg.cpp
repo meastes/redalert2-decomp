@@ -179,15 +179,15 @@ static int Test_Null_Modem()
         }
 
         if (process) {
-            unknown_modem_aborted_a72ec4 = false;
+            ModemDialogIsOpen = false;
             HWND dialog = unknown_cancel_dialog_6001e0(
                 StringTable::Load_String("TXT_WAITING_CONNECT", 0, "D:\\Ra2\\NullDlg.CPP", 0x1895),
-                StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullDlg.CPP", 0x1895), &unknown_modem_aborted_a72ec4);
+                StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullDlg.CPP", 0x1895), &ModemDialogIsOpen);
             if (dialog) {
                 unknown_dialog_5ff7c0(dialog);
                 starttime = TickCount;
                 while (true) {
-                    if (unknown_6000d0() == true || unknown_modem_aborted_a72ec4) {
+                    if (unknown_6000d0() == true || ModemDialogIsOpen) {
                         retval = 0;
                         break;
                     }
@@ -593,15 +593,15 @@ bool __fastcall Reconnect_Null_Modem()
     UnknownSerialPacket SendPacket;
     UnknownSerialPacket ReceivePacket;
 
-    unknown_modem_aborted_a72ec4 = false;
+    ModemDialogIsOpen = false;
     HWND dialog = unknown_cancel_dialog_6001e0(
         StringTable::Load_String("TXT_NULL_CONNERR_CHECK_CABLES", 0, "D:\\Ra2\\NullDlg.CPP", 0x1959),
-        StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullDlg.CPP", 0x1959), &unknown_modem_aborted_a72ec4);
+        StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullDlg.CPP", 0x1959), &ModemDialogIsOpen);
     if (dialog) {
         unknown_dialog_5ff7c0(dialog);
         starttime = lastmsgtime = TickCount.Time();
         while (process == true) {
-            if (unknown_6000d0() == true || unknown_modem_aborted_a72ec4) {
+            if (unknown_6000d0() == true || ModemDialogIsOpen) {
                 retval = false;
                 break;
             }
@@ -683,7 +683,7 @@ bool __fastcall Dial_Modem(SerialSettingsType *settings, bool reconnect)
     modemstatus = serial_manager_00a40a28.Detect_Modem(settings, reconnect);
     if (!modemstatus) {
         Debug_Printf("Detect_Modem failed\n");
-        serial_manager_00a40a28.unknown_5d1d40();
+        serial_manager_00a40a28.Remove_Modem_Echo();
         serial_manager_00a40a28.Translate_Line_Ends();
         serial_manager_00a40a28.Clear_Receive_Buffer();
         switch (settings->Baud) {
@@ -696,7 +696,7 @@ bool __fastcall Dial_Modem(SerialSettingsType *settings, bool reconnect)
                 modemstatus = serial_manager_00a40a28.Detect_Modem(settings, reconnect);
                 if (!modemstatus) {
                     Debug_Printf("Detect_Modem failed at 19200\n");
-                    serial_manager_00a40a28.unknown_5d1d40();
+                    serial_manager_00a40a28.Remove_Modem_Echo();
                     serial_manager_00a40a28.Translate_Line_Ends();
                     serial_manager_00a40a28.Clear_Receive_Buffer();
                     WWMessageBox(L" ").Process(StringTable::Load_String("TXT_UNABLE_FIND_MODEM", 0, "D:\\Ra2\\NullDlg.CPP", 0x1A08),
@@ -714,7 +714,7 @@ bool __fastcall Dial_Modem(SerialSettingsType *settings, bool reconnect)
                 modemstatus = serial_manager_00a40a28.Detect_Modem(settings, reconnect);
                 if (!modemstatus) {
                     Debug_Printf("Detect_Modem failed at 38400\n");
-                    serial_manager_00a40a28.unknown_5d1d40();
+                    serial_manager_00a40a28.Remove_Modem_Echo();
                     serial_manager_00a40a28.Translate_Line_Ends();
                     serial_manager_00a40a28.Clear_Receive_Buffer();
                     WWMessageBox(L" ").Process(StringTable::Load_String("TXT_UNABLE_FIND_MODEM", 0, "D:\\Ra2\\NullDlg.CPP", 0x1A1D),
@@ -730,7 +730,7 @@ bool __fastcall Dial_Modem(SerialSettingsType *settings, bool reconnect)
                 return connected;
         }
     } else if (modemstatus == -1) {
-        serial_manager_00a40a28.unknown_5d1d40();
+        serial_manager_00a40a28.Remove_Modem_Echo();
         serial_manager_00a40a28.Translate_Line_Ends();
         serial_manager_00a40a28.Clear_Receive_Buffer();
         WWMessageBox(L" ").Process(StringTable::Load_String("TXT_ERROR_IN_INITSTRING", 0, "D:\\Ra2\\NullDlg.CPP", 0x1A31),
@@ -790,7 +790,7 @@ bool __fastcall Dial_Modem(SerialSettingsType *settings, bool reconnect)
             break;
     }
 
-    serial_manager_00a40a28.unknown_5d1d40();
+    serial_manager_00a40a28.Remove_Modem_Echo();
     serial_manager_00a40a28.Translate_Line_Ends();
     serial_manager_00a40a28.Clear_Receive_Buffer();
     serial_session_flags_00a3fac0 |= 1;
@@ -836,7 +836,7 @@ bool __fastcall Answer_Modem(SerialSettingsType *settings, bool reconnect)
     modemstatus = serial_manager_00a40a28.Detect_Modem(settings, reconnect);
     if (!modemstatus) {
         Debug_Printf("Detect_Modem failed\n");
-        serial_manager_00a40a28.unknown_5d1d40();
+        serial_manager_00a40a28.Remove_Modem_Echo();
         serial_manager_00a40a28.Translate_Line_Ends();
         serial_manager_00a40a28.Clear_Receive_Buffer();
         switch (settings->Baud) {
@@ -849,7 +849,7 @@ bool __fastcall Answer_Modem(SerialSettingsType *settings, bool reconnect)
                 modemstatus = serial_manager_00a40a28.Detect_Modem(settings, reconnect);
                 if (!modemstatus) {
                     Debug_Printf("Detect_Modem failed at 19200\n");
-                    serial_manager_00a40a28.unknown_5d1d40();
+                    serial_manager_00a40a28.Remove_Modem_Echo();
                     serial_manager_00a40a28.Translate_Line_Ends();
                     serial_manager_00a40a28.Clear_Receive_Buffer();
                     WWMessageBox(L" ").Process(StringTable::Load_String("TXT_UNABLE_FIND_MODEM", 0, "D:\\Ra2\\NullDlg.CPP", 0x1AE7),
@@ -867,7 +867,7 @@ bool __fastcall Answer_Modem(SerialSettingsType *settings, bool reconnect)
                 modemstatus = serial_manager_00a40a28.Detect_Modem(settings, reconnect);
                 if (!modemstatus) {
                     Debug_Printf("Detect_Modem failed at 38400\n");
-                    serial_manager_00a40a28.unknown_5d1d40();
+                    serial_manager_00a40a28.Remove_Modem_Echo();
                     serial_manager_00a40a28.Translate_Line_Ends();
                     serial_manager_00a40a28.Clear_Receive_Buffer();
                     WWMessageBox(L" ").Process(StringTable::Load_String("TXT_UNABLE_FIND_MODEM", 0, "D:\\Ra2\\NullDlg.CPP", 0x1AFC),
@@ -883,7 +883,7 @@ bool __fastcall Answer_Modem(SerialSettingsType *settings, bool reconnect)
                 return connected;
         }
     } else if (modemstatus == -1) {
-        serial_manager_00a40a28.unknown_5d1d40();
+        serial_manager_00a40a28.Remove_Modem_Echo();
         serial_manager_00a40a28.Translate_Line_Ends();
         serial_manager_00a40a28.Clear_Receive_Buffer();
         WWMessageBox(L" ").Process(StringTable::Load_String("TXT_ERROR_IN_INITSTRING", 0, "D:\\Ra2\\NullDlg.CPP", 0x1B0D),
@@ -925,7 +925,7 @@ bool __fastcall Answer_Modem(SerialSettingsType *settings, bool reconnect)
             break;
     }
 
-    serial_manager_00a40a28.unknown_5d1d40();
+    serial_manager_00a40a28.Remove_Modem_Echo();
     serial_manager_00a40a28.Translate_Line_Ends();
     serial_manager_00a40a28.Clear_Receive_Buffer();
     serial_session_flags_00a3fac0 |= 1;

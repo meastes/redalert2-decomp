@@ -31,7 +31,7 @@ bool ra2_owner_draw_index_get(void const *, unsigned int const &key, OwnerDraw::
 // (at most 6) when a vehicle blows up. The original body is a shared empty
 // leaf (pass-6a decompile 00482e00: Leaf_482e00::get, `return;`; the screen
 // shake was compiled out of the release build).
-void __fastcall Unit_Unknown_Shake_00482e00(int)
+void __fastcall Shake_The_Screen(int)
 {
 }
 

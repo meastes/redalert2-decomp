@@ -19,7 +19,7 @@
 HWND __fastcall unknown_cancel_dialog_6001e0(unsigned short const *text, unsigned short const *button, bool *cancelled);
 void __fastcall unknown_dialog_5ff7c0(HWND window);
 void __fastcall unknown_dialog_5ff6e0(HWND window);
-void __fastcall unknown_dialog_5e5f20(HWND window);                                       // 0x005E5F20 (WM_PAINT)
+void __fastcall Slide_Pending_Dialog(HWND window);                                       // 0x005E5F20 (WM_PAINT)
 wchar_t *__fastcall wcstrim(wchar_t *buffer);                                            // 0x006EEF80 (also trigger_type.hpp)
 class Rect;
 namespace OwnerDraw {

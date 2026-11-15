@@ -229,5 +229,5 @@ void Native_Sidebar_New_Game()
     Rect tile(0, 0, temp.Width, unknown_window_839640.Height);
     Rect composite(0, 0, temp.Width, unknown_window_839640.Height);
     Allocate_Surfaces(&unknown_window_839640, &composite, &tile, &sidebar, false);
-    unknown_surface_83995c = HiddenSurface;    // the drawing surface, as Set_Display_Mode 0x005434E0 sets it
+    LogicalSurface = HiddenSurface;    // the drawing surface, as Set_Display_Mode 0x005434E0 sets it
 }

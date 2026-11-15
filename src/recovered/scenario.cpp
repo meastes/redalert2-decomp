@@ -245,11 +245,11 @@ ScenarioClass::ScenarioClass()
     wcscpy(BriefingText, unknown_empty_wide_839d4c);
     for (int variable = 0; variable < 50; variable++) {
         Variables[variable].unknown_00[0] = '\0';
-        unknown_6612c0(variable, false);
+        Set_Global_To(variable, false);
     }
     for (int local = 0; local < 50; local++) {
         LocalVariables[local].unknown_00[0] = '\0';
-        unknown_661560(local, false);
+        Set_Local_To(local, false);
     }
     memset(Views, 0, sizeof(Views));
 }
@@ -555,8 +555,8 @@ void __fastcall Pause_Count_0065c1f0(int seconds)
         if (unknown_game_mode_a3d298 == 0 || unknown_game_mode_a3d298 == 5) {
             unknown_id_source_a3d290->ElapsedTime.Stop();
         }
-        unknown_was_paused_ab6ef4 = unknown_id_source_a3d290->unknown_2306;
-        if (!unknown_was_paused_ab6ef4) {
+        InputLockedBeforeHold = unknown_id_source_a3d290->unknown_2306;
+        if (!InputLockedBeforeHold) {
             Pause_Game_0065c3d0();
         }
     }
@@ -574,7 +574,7 @@ void Release_Pause_0065c310()
     if (unknown_id_source_a3d290->unknown_62c) {
         unknown_id_source_a3d290->unknown_62c--;
         if (unknown_id_source_a3d290->unknown_62c == 0) {
-            if (!unknown_was_paused_ab6ef4) {
+            if (!InputLockedBeforeHold) {
                 Resume_Game_0065c420();
             }
             unknown_id_source_a3d290->ElapsedTime.Start();
@@ -597,7 +597,7 @@ void Pause_Game_0065c3d0()
     unknown_id_source_a3d290->unknown_2306 = true;
     IgnoreInput = true;
     WWKeyboard->Clear();
-    unknown_ab9174 = 0;
+    UnlockInputFrame = 0;
 }
 
 
@@ -615,7 +615,7 @@ void Resume_Game_0065c420()
     unknown_id_source_a3d290->unknown_2306 = false;
     IgnoreInput = false;
     WWKeyboard->Clear();
-    unknown_ab9174 = 0;
+    UnlockInputFrame = 0;
 }
 
 
@@ -626,7 +626,7 @@ void Resume_Game_0065c420()
 
 void __fastcall Toggle_Display_Mode_0065c480(bool preferred)
 {
-    if (!unknown_allow_mode_toggle_a40d0b) {
+    if (!Debug_IngameModeChange) {
         return;
     }
     if (preferred) {
@@ -807,11 +807,11 @@ bool __fastcall Unknown_0065c7d0(char const *name)
         ok = Read_Scenario_0065e760(filename, true);
     }
     if (!Rules->Shroud) {
-        Map.Unknown_0055A1F0();
+        Map.Reveal_The_Map();
     }
     if (!ok) {
         Debug_Printf("Error - Unable to read scenario: %s\n", filename);
-        Unknown_004955D0(&GamePalette, 7, unknown_481fb0);
+        Set_Palette(&GamePalette, 7, unknown_481fb0);
         WWMessageBox(L" ").Process(
             StringTable::Load_String("TXT_UNABLE_READ_SCENARIO", 0, "D:\\Ra2\\Scenario.CPP", 1394),
             StringTable::Load_String("TXT_OK", 0, "D:\\Ra2\\Scenario.CPP", 1394), 0, 0, false);
@@ -829,7 +829,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
     if (unknown_game_mode_a3d298 == 3 || unknown_game_mode_a3d298 == 4) {
         unknown_session_a3d298.Update_Progress(99);
         if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8) {
-            unknown_OwnerTalkClass_00ab6d18.Wait_For_Router_Shutdown(15000, true);
+            OwnerTalk.Wait_For_Router_Shutdown(15000, true);
         }
     }
     unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
@@ -954,7 +954,7 @@ void __fastcall Fill_In_Data_0065cdd0()
     }
 
     Set_Frame_Rate_Limit(Rules->DetailMinFrameRateNormal);
-    unknown_set_buffer_zone_0053d830(Rules->DetailBufferZoneWidth);
+    Set_Buffer_Zone_Width(Rules->DetailBufferZoneWidth);
 }
 
 
@@ -969,7 +969,7 @@ void __fastcall Fill_In_Data_0065cdd0()
 
 void __fastcall Post_Load_Game_0065d2c0()
 {
-    BuildingTypeClass::unknown_func_45e170();
+    BuildingTypeClass::Post_Load_Game();
     Unknown_006EA9B0();
     VeinholeMonsterClass::Init(unknown_id_source_a3d290->Theater);
     Map.Post_Load_Radar_Fixup();
@@ -1014,7 +1014,7 @@ inline void LayerClass::unknown_slot8() { Clear(); }
 
 namespace seed_006e9670 { void Deinit_Tiberium_Spread_System_006e9670(); }
 namespace seed_006ea130 { void Deinit_Tiberium_Growth_System_006ea130(); }
-void Unknown_00714410();
+void Sound_Clear_Static();
 void Unknown_00613E50();
 void Unknown_0051FBB0();
 extern HouseClass *unknown_player_a35db4;
@@ -1032,7 +1032,7 @@ void Clear_Scenario_0065d370()
     unknown_id_source_a3d290->RandomNumber.IsLocked = true;
     unknown_saved_volume_7f1dec = 0x4000;
     Audio_Global_Levels[7]->Volume.Set(0x4000);
-    Unknown_00714410();
+    Sound_Clear_Static();
     unknown_player_a35db4 = 0;
     unknown_id_source_a3d290->Set_Defaults();
     Unknown_0051FBB0();
@@ -1152,7 +1152,7 @@ void __fastcall Do_Win_0065d7f0()
     Speech_Stop(true);
     Unknown_007160D0();
     Audio_Stop();
-    Unknown_00714410();
+    Sound_Clear_Static();
     Audio_Global_Levels[7]->Volume.Set(0x4000);
 
     Toggle_Display_Mode_0065c480(false);
@@ -1164,7 +1164,7 @@ void __fastcall Do_Win_0065d7f0()
             unknown_a3f58c++;
             if (unknown_session_a3d29c != 0) {
                 if ((unknown_game_mode_a3d298 == 3 || unknown_game_mode_a3d298 == 4) && unknown_session_a3d29c->unknown_slot2()) {
-                    unknown_5159b0(0, true);
+                    Darken_Surface(0, true);
                 } else {
                     UnknownScore_005AAA20().Presentation_005AAA40();
                 }
@@ -1275,10 +1275,10 @@ void __fastcall Do_Win_0065d7f0()
         && unknown_session_a3d29c->unknown_slot2()) {
         unknown_session_a3d298.Create_Connections();
         if (unknown_game_mode_a3d298 == 3) {
-            unknown_ipx_manager_a40978.Set_Timing(Max(unknown_ipx_manager_a40978.unknown_526c30() + 2, 15), -1, 600, true);
-            unknown_ipx_manager_a40978.unknown_slot14(Max(unknown_ipx_manager_a40978.unknown_526c30() + 2, 60), -1, 600);
+            Ipx.Set_Timing(Max(Ipx.unknown_526c30() + 2, 15), -1, 600, true);
+            Ipx.unknown_slot14(Max(Ipx.unknown_526c30() + 2, 60), -1, 600);
         } else if (unknown_game_mode_a3d298 == 4 && unknown_a3d580 == 0) {
-            unknown_ipx_manager_a40978.Set_Timing(Max(unknown_ipx_manager_a40978.unknown_526c30() + 2, 60), -1, 600, true);
+            Ipx.Set_Timing(Max(Ipx.unknown_526c30() + 2, 60), -1, 600, true);
         }
     }
     unknown_scenario_checkpoint_00855a90.Restore_004B5B40();
@@ -1286,7 +1286,7 @@ void __fastcall Do_Win_0065d7f0()
         ToolTips->Enable(unknown_tooltips_enabled_a40b34);
     }
     Map.Render();
-    Unknown_004955D0(&GamePalette, 7, unknown_481fb0);
+    Set_Palette(&GamePalette, 7, unknown_481fb0);
 }
 
 
@@ -1326,7 +1326,7 @@ void __fastcall Do_Lose_0065dec0()
     Speech_Stop(true);
     Unknown_007160D0();
     Audio_Stop();
-    Unknown_00714410();
+    Sound_Clear_Static();
     Audio_Global_Levels[7]->Volume.Set(0x4000);
 
     bool replay = false;
@@ -1335,7 +1335,7 @@ void __fastcall Do_Lose_0065dec0()
             unknown_a3f58c++;
             if (unknown_session_a3d29c != 0) {
                 if ((unknown_game_mode_a3d298 == 3 || unknown_game_mode_a3d298 == 4) && unknown_session_a3d29c->unknown_slot2()) {
-                    unknown_5159b0(0, true);
+                    Darken_Surface(0, true);
                 } else {
                     UnknownScore_005AAA20().Presentation_005AAA40();
                 }
@@ -1360,7 +1360,7 @@ void __fastcall Do_Lose_0065dec0()
         unknown_session_a3d29c->unknown_slot37();
     }
     Unknown_005A07F0(unknown_id_source_a3d290->LoseMovie, -1, 1, 1, 1);
-    unknown_5159b0(0, true);
+    Darken_Surface(0, true);
     if ((unknown_game_mode_a3d298 == 0 && !(unknown_flags_a3f600 & 2)
          && WWMessageBox(L" ").Process(
                 StringTable::Load_String("TXT_TO_REPLAY", 0, "D:\\Ra2\\Scenario.CPP", 2612),
@@ -1404,10 +1404,10 @@ void __fastcall Do_Lose_0065dec0()
             && unknown_session_a3d29c->unknown_slot2()) {
             unknown_session_a3d298.Create_Connections();
             if (unknown_game_mode_a3d298 == 3) {
-                unknown_ipx_manager_a40978.Set_Timing(Max(unknown_ipx_manager_a40978.unknown_526c30() + 2, 15), -1, 600, true);
-                unknown_ipx_manager_a40978.unknown_slot14(Max(unknown_ipx_manager_a40978.unknown_526c30() + 2, 60), -1, 600);
+                Ipx.Set_Timing(Max(Ipx.unknown_526c30() + 2, 15), -1, 600, true);
+                Ipx.unknown_slot14(Max(Ipx.unknown_526c30() + 2, 60), -1, 600);
             } else if (unknown_game_mode_a3d298 == 4 && unknown_a3d580 == 0) {
-                unknown_ipx_manager_a40978.Set_Timing(Max(unknown_ipx_manager_a40978.unknown_526c30() + 2, 60), -1, 600, true);
+                Ipx.Set_Timing(Max(Ipx.unknown_526c30() + 2, 60), -1, 600, true);
             }
         }
         unknown_scenario_checkpoint_00855a90.Restore_004B5B40();
@@ -1442,7 +1442,7 @@ void __fastcall Do_Restart_0065e440()
     timer = 60;
     Theme.Stop(true);
     Audio_Stop();
-    Unknown_00714410();
+    Sound_Clear_Static();
     Speech_Stop(true);
     Unknown_007160D0();
     Map.Set_Default_Mouse(0, false);
@@ -1491,7 +1491,7 @@ void __fastcall Unknown_0065e590()
     Speech_Stop(true);
     Unknown_007160D0();
     Audio_Stop();
-    Unknown_00714410();
+    Sound_Clear_Static();
     Audio_Global_Levels[7]->Volume.Set(0x4000);
     Toggle_Display_Mode_0065c480(false);
     GameActive = false;
@@ -1700,12 +1700,12 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     unknown_session_a3d298.Update_Progress(30);
     Rules->Advanced_Command_Bar(unknown_ini_839860, unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5);
     unknown_session_a3d298.Update_Progress(31);
-    Rules->Process(*unknown_ini_8396d0);
+    Rules->Process(*RuleINI);
     unknown_session_a3d298.Update_Progress(35);
     Service_Game_IO_00481fb0();
 
     ScenarioClass *scenario = unknown_id_source_a3d290;
-    CCINIClass &rules = *unknown_ini_8396d0;
+    CCINIClass &rules = *RuleINI;
     int count = Min(rules.Entry_Count("VariableNames"), 50);
     for (int index = 0; index < count; index++) {
         char const *entry = rules.Get_Entry("VariableNames", index);
@@ -1781,25 +1781,25 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     if (unknown_game_mode_a3d298 != 0 && !unknown_session_a3d2c0) {
         unknown_special_a40920.DestroyableBridges = false;
     }
-    unknown_special_a40920.Unknown_0068B410();
+    unknown_special_a40920.Apply_To_Game();
     Service_Game_IO_00481fb0();
 
-    TeamTypeClass::Read_Scenario_INI(unknown_ini_8397a0, 1);
+    TeamTypeClass::Read_Scenario_INI(AIINI, 1);
     TeamTypeClass::Read_Scenario_INI(ini, 0);
-    ScriptTypeClass::Read_Scenario_INI(unknown_ini_8397a0, 1);
+    ScriptTypeClass::Read_Scenario_INI(AIINI, 1);
     ScriptTypeClass::Read_Scenario_INI(ini, 0);
-    TaskForceClass::Read_Scenario_INI(unknown_ini_8397a0, 1);
+    TaskForceClass::Read_Scenario_INI(AIINI, 1);
     TaskForceClass::Read_Scenario_INI(ini, 0);
     TriggerTypeClass::Read_Scenario_INI(ini);
     TagTypeClass::Read_Scenario_INI(ini);
-    AITriggerTypeClass::Read_Scenario_INI(unknown_ini_8397a0, 1);
+    AITriggerTypeClass::Read_Scenario_INI(AIINI, 1);
     AITriggerTypeClass::Read_Scenario_INI(ini, 0);
     Unknown_006c0220();
     unknown_session_a3d298.Update_Progress(60);
     Map.Read_INI_0049CFD0(ini);
     Service_Game_IO_00481fb0();
     TubeClass::Read_INI(ini);
-    BuildingTypeClass::unknown_func_45ebd0();
+    BuildingTypeClass::Post_Read_Tile_Fixup();
     Map.Flag_To_Redraw(2);
     unknown_session_a3d298.Update_Progress(70);
     Service_Game_IO_00481fb0();
@@ -1863,7 +1863,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     ScenarioInit--;
     int init = ScenarioInit;
     ScenarioInit = 0;
-    BuildingClass::unknown_44df40();
+    BuildingClass::Init_All_Laser_Fences();
     ScenarioInit = init;
     unknown_session_a3d298.Update_Progress(98);
     Service_Game_IO_00481fb0();
@@ -2012,10 +2012,10 @@ void __fastcall Assign_Houses_0065fbb0()
     }
 
     HouseClass *neutral = new HouseClass(HouseTypes[HouseTypeClass::Find_Index("Neutral")]);
-    neutral->ColorSchemeIndex = unknown_color_scheme_index_663d90("LightGrey", 0x35);
+    neutral->ColorSchemeIndex = Fetch_Scheme_Index_By_Name("LightGrey", 0x35);
     neutral->Update_Color();
     HouseClass *special = new HouseClass(HouseTypes[HouseTypeClass::Find_Index("Special")]);
-    special->ColorSchemeIndex = unknown_color_scheme_index_663d90("LightGrey", 0x35);
+    special->ColorSchemeIndex = Fetch_Scheme_Index_By_Name("LightGrey", 0x35);
     special->Update_Color();
 }
 
@@ -2032,7 +2032,7 @@ DynamicVectorClass<Cell> __fastcall Multiplayer_Start_Waypoints_0065fff0(bool of
 
     int num_waypts = 0;
     for (int i = 0; i < 8; i++) {
-        if (unknown_id_source_a3d290->Unknown_00663240(i)) {
+        if (unknown_id_source_a3d290->Is_Valid_Waypoint(i)) {
             num_waypts++;
         } else {
             break;
@@ -2049,7 +2049,7 @@ DynamicVectorClass<Cell> __fastcall Multiplayer_Start_Waypoints_0065fff0(bool of
         ? num_waypts : unknown_players_a3fa7c.Count() - observers + unknown_session_a3d298.AICount;
 
     for (int waycount = 0; waycount < look_for; waycount++) {
-        if (unknown_id_source_a3d290->Unknown_00663240(waycount)) {
+        if (unknown_id_source_a3d290->Is_Valid_Waypoint(waycount)) {
             waypts.Add(unknown_id_source_a3d290->Get_Waypoint_Location(waycount));
             Debug_Printf("Multiplayer start waypoint found at cell %d,%d\n", unknown_id_source_a3d290->Get_Waypoint_Location(waycount).X, unknown_id_source_a3d290->Get_Waypoint_Location(waycount).Y);
         }
@@ -2368,7 +2368,7 @@ void ScenarioClass::Load(IStream *stream)
 // Sets one of the 50 variables at +0x1210 (the global ones; TagClass
 // 0x006B4220 is told of a change) and returns its old value; false for an
 // index out of range.
-bool ScenarioClass::unknown_6612c0(unsigned index, bool value)
+bool ScenarioClass::Set_Global_To(unsigned index, bool value)
 {
     if (index < 50) {
         bool old = Variables[index].Value;
@@ -2389,7 +2389,7 @@ bool ScenarioClass::Set_Global_Variable(char const *name, bool value)
 {
     int index = Find_Global_Variable(name);
     if (index != -1) {
-        return unknown_6612c0(index, value);
+        return Set_Global_To(index, value);
     }
     return true;
 }
@@ -2453,7 +2453,7 @@ bool ScenarioClass::Read_Global_Variables(CCINIClass &ini)
 
 // Sets one of the 50 local variables at +0x1A12 (TagClass 0x006B4250 is told
 // of a change) and returns its old value; false for an index out of range.
-bool ScenarioClass::unknown_661560(unsigned index, bool value)
+bool ScenarioClass::Set_Local_To(unsigned index, bool value)
 {
     if (index < 50) {
         bool old = LocalVariables[index].Value;
@@ -2474,7 +2474,7 @@ bool ScenarioClass::Set_Local_Variable(char const *name, bool value)
 {
     int index = Find_Local_Variable(name);
     if (index != -1) {
-        return unknown_661560(index, value);
+        return Set_Local_To(index, value);
     }
     return true;
 }
@@ -2892,7 +2892,7 @@ Cell ScenarioClass::Get_Waypoint_Location(int waypoint) const
 
 
 // The map cell of a waypoint (0x006631A0).
-CellClass *ScenarioClass::unknown_6631a0(int waypoint)
+CellClass *ScenarioClass::Get_Waypoint_Target(int waypoint)
 {
     return &Map[Waypoints[waypoint]];
 }
@@ -2913,7 +2913,7 @@ CoordStruct ScenarioClass::Waypoint_Coord(int waypoint) const
 
 
 // Whether a waypoint is in range and set (0x00663240).
-bool ScenarioClass::Unknown_00663240(int waypoint) const
+bool ScenarioClass::Is_Valid_Waypoint(int waypoint) const
 {
     if (waypoint < 101 && waypoint >= 0 && Waypoints[waypoint] != unknown_geometry_k) {
         return true;
@@ -2936,7 +2936,7 @@ void ScenarioClass::Read_Waypoints(CCINIClass &ini)
         } else {
             Waypoints[index] = Cell(value % 1000, value / 1000);
         }
-        if (Unknown_00663240(index)) {
+        if (Is_Valid_Waypoint(index)) {
             Map[Waypoints[index]].unknown_140 |= 4;
         }
     }
@@ -3024,7 +3024,7 @@ void Owner_00663420::Get_Waypoint_CellClass_00663420(int index)
 char const *ScenarioClass::Free_Waypoint_Name() const
 {
     for (int index = 0; index < 101; index++) {
-        if (!Unknown_00663240(index)) {
+        if (!Is_Valid_Waypoint(index)) {
             return Waypoint_As_String(index);
         }
     }

@@ -123,12 +123,12 @@ void Set_Up_Skirmish(char const *map)
     session.Type = 5;
     Unknown_0066F3A0(&session);                     // Read_MultiPlayer_Settings (Select_Game, cases 11/16/17)
     for (int house = 0; house < HouseTypes.Count(); house++) {
-        HouseTypes[house]->Read_INI(*unknown_ini_8396d0);
+        HouseTypes[house]->Read_INI(*RuleINI);
     }
-    Rules->Countries(*unknown_ini_8396d0);          // Skirmish_Dialog 0x00683BF0
-    Rules->Sides(*unknown_ini_8396d0);
+    Rules->Countries(*RuleINI);          // Skirmish_Dialog 0x00683BF0
+    Rules->Sides(*RuleINI);
     for (int house = 0; house < HouseTypes.Count(); house++) {
-        HouseTypes[house]->Read_INI(*unknown_ini_8396d0);
+        HouseTypes[house]->Read_INI(*RuleINI);
     }
     if (session.Mode == 0) {
         session.Mode = MultiplayerGameMode::unknown_first_mode_5b6ec0();

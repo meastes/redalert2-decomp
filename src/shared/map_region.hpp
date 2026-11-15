@@ -51,12 +51,12 @@ public:
     bool Grow_Border_00570040(int steps); // physical AL0/1, RET4; name/bool intent hypotheses
     DynamicVectorClass<Cell> *Select_Separated_Cells_00576810(DynamicVectorClass<Cell> const &candidates); //operation/reference/constness hypotheses; EAXptr/RET4
     bool Place_Bridge_Hut(Rect const &area); // hypothesis name; caller establishes MapRegion receiver, RET4
-    void unknown_0056eac0(int count,int mark);
+    void Reassign_Border_Cells(int count,int mark);
     void Update_Cell_Marks_005707a0();
     DynamicVectorClass< ::Cell > *Collect_Boundary_Cells_0056ed10();
     bool Expand_Cells_005702b0();
     void Collect_Neighbor_Regions_005709c0();
-    bool unknown_005729f0(Cell const &,Cell const &,int);
+    bool Build_South_Ramp(Cell const &,Cell const &,int);
     bool unknown_00573040(Cell const &,Cell const &,int);
     bool unknown_00573680(Cell const &,Cell const &,int);
     bool unknown_00573d40(Cell const &,Cell const &,int);

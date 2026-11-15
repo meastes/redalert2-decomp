@@ -22,12 +22,12 @@
 #include "shared/movie.hpp"
 
 
-// void __fastcall VQA_Unknown_0071DB20() (0x0071DB20): clears the 18 VQA options, then sets option 6.
+// void __fastcall Initialize_Options() (0x0071DB20): clears the 18 VQA options, then sets option 6.
 
-void __fastcall VQA_Unknown_0071DB20()
+void __fastcall Initialize_Options()
 {
     for (int option = 0; option < 18; option++) {
-        VQA_Unknown_0071DB80(option);
+        Clear_Option(option);
     }
     Set_Option(6);
 }
@@ -40,18 +40,18 @@ void __fastcall Set_Option(int flag)
     int index = flag >> 3;
     unsigned char shift = flag & 7;
     unsigned char mask = 1 << shift;
-    unknown_vqa_options_af9020[index] |= mask;
+    VQOptions[index] |= mask;
 }
 
 
-// void __fastcall VQA_Unknown_0071DB80(int option) (0x0071DB80): clears the option bit.
+// void __fastcall Clear_Option(int option) (0x0071DB80): clears the option bit.
 
-void __fastcall VQA_Unknown_0071DB80(int option)
+void __fastcall Clear_Option(int option)
 {
     int index = option >> 3;
     unsigned char shift = option & 7;
     unsigned char mask = 1 << shift;
-    unknown_vqa_options_af9020[index] &= ~mask;
+    VQOptions[index] &= ~mask;
 }
 
 
@@ -62,18 +62,18 @@ bool __fastcall Get_Option(int flag)
     int index = flag >> 3;
     unsigned char shift = flag & 7;
     unsigned char mask = 1 << shift;
-    return (unknown_vqa_options_af9020[index] & mask) ? true : false;
+    return (VQOptions[index] & mask) ? true : false;
 }
 
 
-// int __fastcall VQA_Unknown_0071DBC0(int option) (0x0071DBC0): toggles the option bit; 1 when it is now set.
+// int __fastcall Toggle_Option(int option) (0x0071DBC0): toggles the option bit; 1 when it is now set.
 
-int __fastcall VQA_Unknown_0071DBC0(int option)
+int __fastcall Toggle_Option(int option)
 {
     int index = option >> 3;
     unsigned char shift = option & 7;
-    if (unknown_vqa_options_af9020[index] & (1 << shift)) {
-        VQA_Unknown_0071DB80(option);
+    if (VQOptions[index] & (1 << shift)) {
+        Clear_Option(option);
         return 0;
     }
     Set_Option(option);

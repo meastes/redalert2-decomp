@@ -11,7 +11,7 @@ extern unsigned char unknown_session_a3d2c2;    // 0x00A3D2C2 (session +0x2A)
 extern int unknown_session_a3d2c4;              // 0x00A3D2C4 (session +0x2C; the low byte is used)
 extern int unknown_session_a3d340;              // 0x00A3D340 (session +0xA8; the low byte is used)
 // The territory of a WDT slot (0x00769690; name hypothesis).
-rc_ptr<WDTTerritory> __fastcall Unknown_Territory_00769690(int index);
+rc_ptr<WDTTerritory> __fastcall Find_WDT_Territory(int index);
 // Fills the options dialog from the session (0x005C3550).
 void __fastcall Unknown_Fill_Options_Dialog_005c3550(void *dialog, int initial);
 #endif

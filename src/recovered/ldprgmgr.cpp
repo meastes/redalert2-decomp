@@ -276,7 +276,7 @@ void __fastcall Unknown_00536c70(wchar_t const *text, Surface *surface, int x, i
     } else if (flags & 2) {
         area.X = x - text_width + width;
     }
-    Unknown_Rect_Shrink_006F1B00(&area, -4);
+    Inflate_Rect(&area, -4);
     Unknown_005feb60(&area, surface, 0, 0x9F);
 }
 

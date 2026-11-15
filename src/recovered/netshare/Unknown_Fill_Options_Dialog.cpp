@@ -13,7 +13,7 @@
 // @ref ?unknown_session_a3d2c8@@3HA=00a3d2c8
 // @ref ?unknown_flag_a3d2c1@@3_NA=00a3d2c1
 // @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
-// @ref ?Unknown_Territory_00769690@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z=00769690
+// @ref ?Find_WDT_Territory@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z=00769690
 #include "shared/options_dialog.hpp"
 #include "shared/win32_api.hpp"
 #include "shared/unknown_globals.hpp"
@@ -29,7 +29,7 @@ void __fastcall Unknown_Fill_Options_Dialog_005c3550(void *dialog_handle, int in
     if (initial) {
         rc_ptr<WDTTerritory> territory;
         if (unknown_game_mode_a3d298 == 4 && unknown_a3d2a4 == 2) {
-            territory.Set(Unknown_Territory_00769690(unknown_session_a3d2a0).Pointer);
+            territory.Set(Find_WDT_Territory(unknown_session_a3d2a0).Pointer);
         }
         if (territory.Pointer) {
             EnableWindow(GetDlgItem(dialog, 0x544), FALSE);

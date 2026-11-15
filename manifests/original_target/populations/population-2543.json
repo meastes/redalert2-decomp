@@ -4,11 +4,11 @@
     "id": "population-2543",
     "inventory_sha256": "ce5337bfd7db6c3bc48c01491dbedae88a7504beb5bc9622d518938e0239614c",
     "gaps_sha256": "744320f5a6a98903cb0961c169af0160f833f581cf15a54c3fb915a8e5eaa4c3",
-    "historical_population_sha256": "ba5c866c3ed10bb2c43f3695f3e3820f29c195fd109a82afd2e7ada4e393e664",
-    "historical_acceptance_sha256": "bb3d950100d2d10ed0b2803d82bb573ece49ce39ef52a960deb2f6ce32e4856c"
+    "historical_population_sha256": "5425b1581ca022157ce22db4ebc875d8deb8b090dbe00552f8e1dd1360c28402",
+    "historical_acceptance_sha256": "0a7aa10bda379f26d96a81d1aeb8be6d3b5ca2bf00544723d607cd3d845fc539"
   },
   "references": {
-    "?unknown_map_random_a705c0@@3VRandom2Class@@A": 10945984,
+    "?RMGRandom@@3VRandom2Class@@A": 10945984,
     "??RRandom2Class@@QAEHXZ": 6522944,
     "__real@8@3fdf8000000080000000": 8019408,
     "__real@8@40078000000000000000": 7972608,
@@ -344,7 +344,7 @@
         {
           "offset": 4,
           "kind": 6,
-          "symbol": "?unknown_map_random_a705c0@@3VRandom2Class@@A",
+          "symbol": "?RMGRandom@@3VRandom2Class@@A",
           "target": 10945984,
           "addend": 0,
           "resolved": 10945984
@@ -366,7 +366,7 @@
           "resolved": 8019408
         }
       ],
-      "source_sha256": "5853afcd360e3ba645615dac2c98830015824f728c46c1ab990413aa77e79ccb",
+      "source_sha256": "4ebcb24dff25cc3878bea4563d000ecb5274dda0b414ff4e7261a285de9df218",
       "source": "src/recovered/mapgen/Map_Random_Fraction.cpp",
       "population": "population-2543",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -395,7 +395,7 @@
         {
           "offset": 47,
           "kind": 6,
-          "symbol": "?unknown_map_random_a705c0@@3VRandom2Class@@A",
+          "symbol": "?RMGRandom@@3VRandom2Class@@A",
           "target": 10945984,
           "addend": 0,
           "resolved": 10945984
@@ -425,7 +425,7 @@
           "resolved": 2119961
         }
       ],
-      "source_sha256": "3f5605ca557054394a41f845b78e667130b236885173ab5c9d453da0c3f87fa9",
+      "source_sha256": "349244c51d66940ba9524fe1053601b76751ad0043c16c2b228ca7aeae61b44e",
       "source": "src/recovered/mapgen/Map_Random_Range.cpp",
       "population": "population-2543",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",

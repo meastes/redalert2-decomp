@@ -277,7 +277,7 @@ LRESULT __stdcall LoadOptionsClass::Load_Dialog_Proc(HWND window, UINT message, 
     }
     switch (message) {
     case 0x0f:
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         return 1;
     case 0x111:
         Load_Dialog_On_WM_COMMAND(window, (unsigned short)wparam, (HWND)lparam, (unsigned short)(wparam >> 16));
@@ -304,7 +304,7 @@ LRESULT __stdcall LoadOptionsClass::Save_Dialog_Proc(HWND window, UINT message, 
     }
     switch (message) {
     case 0x0f:
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         return 1;
     case 0x111:
         Save_Dialog_On_WM_COMMAND(window, (unsigned short)wparam, (HWND)lparam, (unsigned short)(wparam >> 16));
@@ -335,7 +335,7 @@ LRESULT __stdcall LoadOptionsClass::Delete_Dialog_Proc(HWND window, UINT message
     }
     switch (message) {
     case 0x0f:
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         return 1;
     case 0x111:
         Delete_Dialog_On_WM_COMMAND(window, (unsigned short)wparam, (HWND)lparam, (unsigned short)(wparam >> 16));

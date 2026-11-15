@@ -194,7 +194,7 @@ void OverlayTypeClass::Draw_It(Point2D const *point, Rect const *window, int fra
     Point2D position(point->X + tactical.X, point->Y + tactical.Y);
     position.X += 30;
     position.Y += 15;
-    CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323b8, (ShapeFileStruct const *)Get_Image_Data(), frame, position, *window,
+    CC_Draw_Shape(LogicalSurface, TerrainDrawer, (ShapeFileStruct const *)Get_Image_Data(), frame, position, *window,
                   0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
 }
 

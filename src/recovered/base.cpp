@@ -139,10 +139,10 @@ bool BaseClass::Is_Built(int index) const
 }
 
 
-// bool BaseClass::unknown_42c080(int index) const (0x0042C080)
+// bool BaseClass::Is_Placed(int index) const (0x0042C080)
 // The node's +0x08 flag.
 
-bool BaseClass::unknown_42c080(int index) const
+bool BaseClass::Is_Placed(int index) const
 {
     return Nodes[index].unknown_08;
 }
@@ -425,10 +425,10 @@ BaseClass::BaseClass(NoInitClass const &noinit)
 }
 
 
-// void BaseClass::unknown_42cad0(BuildingClass *building) (0x0042CAD0)
+// void BaseClass::Mark_Node_Placed(BuildingClass *building) (0x0042CAD0)
 // Marks the node of a building (+0x08 set, +0x0C cleared).
 
-void BaseClass::unknown_42cad0(BuildingClass *building)
+void BaseClass::Mark_Node_Placed(BuildingClass *building)
 {
     BaseNodeClass *node = Get_Node(building);
     if (node != 0) {
@@ -438,10 +438,10 @@ void BaseClass::unknown_42cad0(BuildingClass *building)
 }
 
 
-// int BaseClass::unknown_42cb70(BaseNodeClass *node) (0x0042CB70)
+// int BaseClass::FailedToPlaceNode(BaseNodeClass *node) (0x0042CB70)
 // Counts on the node's +0x0C (0 without a node).
 
-int BaseClass::unknown_42cb70(BaseNodeClass *node)
+int BaseClass::FailedToPlaceNode(BaseNodeClass *node)
 {
     if (node == 0) {
         return 0;

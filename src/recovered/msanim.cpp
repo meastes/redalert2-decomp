@@ -62,7 +62,7 @@ ConvertClass *__fastcall Create_Drawer(Wstring const &filename)
                                                  palette[index * 3 + 2] << 2);
     }
     operator delete(palette);
-    return new ConvertClass(CCPalette, CCPalette, unknown_surface_839950, 1, false);
+    return new ConvertClass(CCPalette, CCPalette, VisibleSurface, 1, false);
 }
 
 

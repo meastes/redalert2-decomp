@@ -13,7 +13,7 @@ public:
     bool Equals_Options(SpecialClass const &other) const;   // 0x0068B3F0 (name hypothesis)
     void Write_INI(INIClass &ini) const;        // 0x0068B430 (name hypothesis)
     void Read_INI(INIClass &ini);               // 0x0068B5A0 (name hypothesis)
-    void Unknown_0068B410();                    // 0x0068B410 (Read_Scenario_INI, on the global options)
+    void Apply_To_Game();                    // 0x0068B410 (Read_Scenario_INI, on the global options)
     void Unknown_0068B420();                    // 0x0068B420 (the modem host's first setup, on the global options)
 
     unsigned unknown_bits_0 : 2;                // bits 0-1

@@ -97,7 +97,7 @@ void BulletClass::AI()
         }
         AnimPtrTracker.Delete(this);
         SpawnNextAnim = false;
-        unknown_func_461de0(false);
+        Bullet_Explodes(false);
         Delete_Me();
         return;
     }
@@ -414,7 +414,7 @@ flown:
         if (building != 0 && building->Type->FirestormWall && building->House->unknown_142
             && (Owner == 0 || building->House != Owner->House)
             && Class_Of() != 0 && !Class_Of()->unknown_209) {
-            building->unknown_450cb0(this, false);
+            building->Crossing_Firestorm(this, false);
             Delete_Me();
             break;
         }
@@ -463,7 +463,7 @@ flown:
                 break;
             }
         }
-        unknown_func_461de0(forced);
+        Bullet_Explodes(forced);
         Delete_Me();
         break;
     }

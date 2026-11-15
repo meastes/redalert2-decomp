@@ -129,7 +129,7 @@ ret_addr:
         ScenarioInit = 0;
         fade = true;
 
-        Unknown_004955D0(&GamePalette, 15, 0);
+        Set_Palette(&GamePalette, 15, 0);
         WWKeyboard->Clear();
         if (unknown_session_a3d298.Play) {
             WWMouse->Hide_Mouse();
@@ -174,7 +174,7 @@ ret_addr:
         Write_Multiplayer_Statistics_00482fe0();
 
         if (!unknown_flag_7ce008) {
-            Unknown_004955D0(&unknown_palette_837510, 30, 0);
+            Set_Palette(&unknown_palette_837510, 30, 0);
         }
         Title_Screen_Restore(true);
 

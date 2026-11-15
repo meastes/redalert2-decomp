@@ -485,7 +485,7 @@ int SessionClass::Create_Connections()
             MasterPlayerID = Players[i]->ID;
             unknown_players_a3fa7c[i]->Address.Get_Address(net, node);
             unknown_forward_address_a3fbac.Set_Address(net, node, 0);
-            unknown_ipx_manager_a40978.unknown_5277c0(&unknown_forward_address_a3fbac);
+            Ipx.Set_Lobby_Address(&unknown_forward_address_a3fbac);
         }
         Houses[Players[i]->ID]->unknown_14c = Players[i]->unknown_6b;
         unknown_players_a3fa7c[i]->Address.Get_Address(net, node);
@@ -497,7 +497,7 @@ int SessionClass::Create_Connections()
         Houses[Players[i]->ID]->unknown_148 = ip;
         Houses[Players[i]->ID]->unknown_150 = false;
         if (i > 0) {
-            unknown_ipx_manager_a40978.Create_Connection(Players[i]->ID, Players[i]->Name, &Players[i]->Address);
+            Ipx.Create_Connection(Players[i]->ID, Players[i]->Name, &Players[i]->Address);
             Players[i]->unknown_63 = -1;
         }
     }
@@ -524,12 +524,12 @@ int SessionClass::Create_Connections()
         unknown_3034 = 0;
         unknown_3044 = 20;
         unknown_303c = -1;
-        unknown_ipx_manager_a40978.unknown_5255b0();
-        unknown_OwnerTalkClass_00ab6d18.Unknown_0063F2A0();
+        Ipx.Create_Multicast_Connection();
+        OwnerTalk.Unknown_0063F2A0();
         if (unknown_session_a3d298.Am_I_Master(0)) {
-            bool connected = unknown_OwnerTalkClass_00ab6d18.Unknown_0063F510(0);
+            bool connected = OwnerTalk.Unknown_0063F510(0);
             if (connected) {
-                connected = unknown_OwnerTalkClass_00ab6d18.Unknown_0063F130();
+                connected = OwnerTalk.Unknown_0063F130();
             }
             if (!connected) {
                 unknown_flag_a3fba8 = false;
@@ -617,7 +617,7 @@ void SessionClass::Read_MultiPlayer_Settings()
     char buf[0x400];
     int i;
 
-    Rules->Countries(*unknown_ini_8396d0);
+    Rules->Countries(*RuleINI);
 
     for (i = 0; i < InitStrings.Count(); i++) {
         delete [] InitStrings[i];
@@ -1547,15 +1547,15 @@ void SessionClass::Update_Progress(int percent)
         packet.Progress.Percent = (int)(ProgressScreen.Get_Progress(0) * 100.0);
         strcpy(packet.Name, Wide_To_Narrow_006fa120(unknown_players_a3fa7c[0]->Name));
         if (packet.Progress.Percent < 99.95) {
-            unknown_ipx_manager_a40978.Send_Global_Message(&packet, 0x33, 0, 0, 0, 0);
+            Ipx.Send_Global_Message(&packet, 0x33, 0, 0, 0, 0);
         } else {
             for (int i = 1; i < unknown_players_a3fa7c.Count(); i++) {
                 Debug_Printf("Sending guarenteed progress message to all players\n");
-                unknown_ipx_manager_a40978.unknown_5259a0(&packet, 0x33, 1, unknown_players_a3fa7c[i]->Name);
+                Ipx.Send_Global_Message_To_Name(&packet, 0x33, 1, unknown_players_a3fa7c[i]->Name);
             }
         }
         unknown_481fb0();
-        while (unknown_ipx_manager_a40978.Global_Num_Send() > 5 && timeout > 0) {
+        while (Ipx.Global_Num_Send() > 5 && timeout > 0) {
             Sleep(20);
             Unknown_005B5EE0();
             unknown_481fb0();
@@ -1896,7 +1896,7 @@ void SessionClass::Unknown_00672DE0()
         }
         if (!unknown_id_source_a3d290->unknown_2306) {
             Pause_Game_0065c3d0();
-            unknown_ab9174 = Frame + 3;
+            UnlockInputFrame = Frame + 3;
         }
         if (!WWMouse->Is_Captured()) {
             WWMouse->Capture_Mouse();
@@ -1918,7 +1918,7 @@ void SessionClass::Unknown_00672E70()
         Unknown_005173A0();
         Unknown_005A09E0();
         Audio_Stop();
-        Unknown_00714410();
+        Sound_Clear_Static();
         Speech_Reset();
         Unknown_007160D0();
         Audio_Global_Levels[7]->Volume.Set(0x4000);
@@ -1929,13 +1929,13 @@ void SessionClass::Unknown_00672E70()
             WWMouse->Release_Mouse();
         }
         WWMouse->Hide_Mouse();
-        unknown_ab9174 = 0;
+        UnlockInputFrame = 0;
     }
 }
 
 
 // The unknown_3022 value of the session player with this ID; 0 when none has it.
-unsigned short SessionClass::Unknown_00672F50(int id)
+unsigned short SessionClass::Player_Port(int id)
 {
     for (int index = 0; index < unknown_players_a3fa7c.Count(); index++) {
         if (unknown_players_a3fa7c[index]->ID == id) {

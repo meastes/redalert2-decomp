@@ -1,10 +1,10 @@
-// NON-EXACT DRAFT 0x60BB70 ParticleSystemClass::unknown_func_60bb70 (smoke system AI)
+// NON-EXACT DRAFT 0x60BB70 ParticleSystemClass::Smoke_AI (smoke system AI)
 // entry 0x60BB70; exact-match score 54.23 (shape 93.54; Scout1127 keep/smoke_5423_m6.cpp, no Spread helper;
 // from Scout1123 v15 49.78 and Scout588/Scout1000's 37.95 shape). Recovered source text by our lanes/workers;
 // never exact-match credit. Not original bytes. Reached at frame ~3,300 of the M12 harness runs
 // (ParticleSystemClass::AI, a smoking building or wreck). Text unchanged from the lane's (Scout1125, M15);
 // Object_Flag_Set and Foot_Of are file-local statics (ra2-decomp Is_Foot shape, TibSun As_FootClass).
-// void ParticleSystemClass::unknown_func_60bb70() (0x0060BB70)
+// void ParticleSystemClass::Smoke_AI() (0x0060BB70)
 // Behaviour 0 (smoke): the system follows its owner; particles run, and
 // each finished particle splits into two of its type's next particle,
 // spread sideways at random; every SpawnFrames frames a new particle rises
@@ -37,7 +37,7 @@ static inline FootClass *Foot_Of(ObjectClass *object)
     }
     return 0;
 }
-void ParticleSystemClass::unknown_func_60bb70()
+void ParticleSystemClass::Smoke_AI()
 {
     if (Object_Flag_Set(Owner) && Owner->What_Am_I() != 6) {
         Set_Coord(Owner->Center_Coord() + unknown_9c);

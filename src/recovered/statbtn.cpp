@@ -200,13 +200,13 @@ void StaticButtonClass::Set_Text(wchar_t const *text, bool resize)
 void StaticButtonClass::Draw_Background()
 {
     if (!Background.Is_Valid() && Width > 0 && Height > 0) {
-        new (&Background) Buffer(unknown_surface_83995c->Bytes_Per_Pixel() * Height * Width);
+        new (&Background) Buffer(LogicalSurface->Bytes_Per_Pixel() * Height * Width);
         if (Background.Is_Valid()) {
-            To_Buffer(*unknown_surface_83995c, Rect(X, Y, Width, Height), Background);
+            To_Buffer(*LogicalSurface, Rect(X, Y, Width, Height), Background);
         }
     }
     if (Background.Is_Valid()) {
-        From_Buffer(*unknown_surface_83995c, Rect(X, Y, Width, Height), Background);
+        From_Buffer(*LogicalSurface, Rect(X, Y, Width, Height), Background);
     }
 }
 
@@ -241,7 +241,7 @@ void StaticButtonClass::Draw_Text(wchar_t const *text)
         if (Style & 0x200) {
             x += Width - 1;
         }
-        Fancy_Text_Printf(text, unknown_surface_83995c, &unknown_surface_83995c->Get_Rect(), &Point2D(x, Y),
+        Fancy_Text_Printf(text, LogicalSurface, &LogicalSurface->Get_Rect(), &Point2D(x, Y),
                           ColorSchemes[Gadget_Color_Scheme()], 0, Style);
 
     }

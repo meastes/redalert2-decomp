@@ -251,7 +251,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                             return;
                         }
                     } else {
-                        Map[cell].unknown_478740();
+                        Map[cell].Shimmer();
                     }
                     if (first_pass) {
                         LinkedTo->Path[0] = -1;

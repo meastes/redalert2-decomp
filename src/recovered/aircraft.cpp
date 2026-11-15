@@ -507,7 +507,7 @@ choose_destination:
             FootClass *passenger = (FootClass *)Cargo.Attached_Object();
             if (!passenger || !passenger->Team || passenger->Team->Class->Waypoint_Location() == unknown_geometry_k) {
                 Assign_Destination(New_LZ(&Map[unknown_id_source_a3d290->Get_Waypoint_Location(99)]), true);
-                if (Team) Team->unknown_func_6b79e0(unknown_494);
+                if (Team) Team->Assign_Mission_Target(unknown_494);
             } else {
                 Assign_Destination(New_LZ(&Map[passenger->Team->Class->Waypoint_Location()]), true);
             }
@@ -1069,7 +1069,7 @@ int AircraftClass::Do_MISSION_MOVE_Carryall()
         }
 select_destination:
         Assign_Destination(New_LZ(unknown_494), true);
-        if (Team) Team->unknown_func_6b79e0(unknown_494);
+        if (Team) Team->Assign_Mission_Target(unknown_494);
         unknown_a8 = 1;
         Debug_Printf("Do_MISSION_MOVE_Carryall - VALIDATE_LZ - Status = TAKE_OFF\n");
         break;
@@ -1180,7 +1180,7 @@ int AircraftClass::Do_MISSION_PATROL()
         } else {
             Assign_Destination(New_LZ(unknown_494), true);
             if (Team) {
-                Team->unknown_func_6b79e0(unknown_494);
+                Team->Assign_Mission_Target(unknown_494);
             }
             unknown_a8 = 1;
         }
@@ -1296,7 +1296,7 @@ check_owner:
         if (!House->Is_Human_Player() && Type->Ammo == 0) goto check_team;
         goto check_weapon;
 check_team:
-        if (Team && Team->unknown_func_6baa00())
+        if (Team && Team->Has_Entered_Map())
             Team->Remove(this, -1, 0);
 check_weapon:
         if (unknown_slot231(0)->WeaponType) {
@@ -1861,7 +1861,7 @@ static inline Cell Move_Cell(Cell const &start, UnknownFacingDir const &dir, sho
 AbstractClass *AircraftClass::New_LZ(AbstractClass *desired)
 {
     if (desired) {
-        if (Team && Team->Unknown_006BA990()) return desired;
+        if (Team && Team->Is_Leaving_Map()) return desired;
         if (unknown_slot309(desired)) {
             Cell cell = Coord_Cell(desired->unknown_slot19(0));
             if (Cell_Seems_Ok(cell, false)) return desired;
@@ -2040,7 +2040,7 @@ int AircraftClass::Desired_Load_Dir(AbstractClass *object, Cell *cell)
 int AircraftClass::Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5)
 {
     CellClass *cell = arg1;
-    if (Team != 0 && Team->Unknown_006BA990() && !Map.Unknown_0055A740(cell, 1)) {
+    if (Team != 0 && Team->Is_Leaving_Map() && !Map.Unknown_0055A740(cell, 1)) {
         return 0;
     }
     TechnoClass *occupier = cell->Occupier;
@@ -2174,8 +2174,8 @@ bool AircraftClass::Cell_Seems_Ok(Cell const &cell, bool allow_self)
     if (Type->AirportBound) return true;
     bool ignore_contact = Type->Carryall && unknown_494 && unknown_494->Kind_Of() == 1;
     CellClass *where = &Map[cell];
-    for (int index = 0; index < unknown_FootClass_list_00865f38.Count(); index++) {
-        FootClass *foot = unknown_FootClass_list_00865f38[index];
+    for (int index = 0; index < Feet.Count(); index++) {
+        FootClass *foot = Feet[index];
         if (foot && (!ignore_contact || unknown_494 != foot) &&
             (allow_self || foot != this) && !foot->unknown_76 && foot->unknown_74 &&
             (foot->unknown_slot104() == cell || foot->unknown_494 == where)) return false;
@@ -2215,7 +2215,7 @@ int AircraftClass::Do_MISSION_ENTER()
         if (previous != target && target && target->Kind_Of() == 6)
             unknown_5b4 = Building_Destination(unknown_494);
     }
-    if (!unknown_494 && In_Which_Layer() != 2 && unknown_slot149(14) != 1 && !unknown_6d8080()) {
+    if (!unknown_494 && In_Which_Layer() != 2 && unknown_slot149(14) != 1 && !Move_To_Object_Nearby()) {
         unknown_slot261(false, true);
         return 1;
     }
@@ -2232,7 +2232,7 @@ int AircraftClass::Do_MISSION_ENTER()
     case 6:
         if (Type->AirportBound && Get_Height_AGL() != 0) unknown_slot149(14);
         if (!HasAnyLink()) {
-            if (!unknown_6d8080()) {
+            if (!Move_To_Object_Nearby()) {
                 if (Locomotor.Checked()->Get_Status() == 1) {
                     unknown_a8 = 7;
                     unknown_5bc = true;
@@ -2569,7 +2569,7 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
             BuildingClass *building = static_cast<BuildingClass *>(target);
             if (!HasAnyLink()) {
                 if (!building->Unknown_00636ED0(this)) {
-                    unknown_6d6e50(target);
+                    Assign_Archive_Target(target);
                     if (building->Type->unknown_1365) {
                         TechnoClass *dock = unknown_slot299(
                             (DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
@@ -2593,26 +2593,26 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
                     if (unknown_slot150(14, building) != 1) {
                         unknown_slot149(3);
                         if (building->Type->unknown_1349 || building->Type->unknown_134a) {
-                            unknown_6d6e50(target);
+                            Assign_Archive_Target(target);
                             target = 0;
                         }
                     }
                     if (!building->Type->unknown_1349 && !building->Type->unknown_134a) {
-                        unknown_6d6e50(target);
+                        Assign_Archive_Target(target);
                     } else if (unknown_494) {
-                        unknown_6d6e50(unknown_494);
+                        Assign_Archive_Target(unknown_494);
                     }
                 }
             } else {
                 TechnoClass *techno = target->As_Techno();
                 if (techno) {
                     if (!techno->Unknown_00636ED0(this)) {
-                        unknown_6d6e50(target);
+                        Assign_Archive_Target(target);
                     } else if (!techno->ContainsLink(this)) {
                         if (unknown_slot149(14) == 1) return;
                         unknown_slot149(3);
                         if (building->Type->unknown_1349 || building->Type->unknown_134a) {
-                            unknown_6d6e50(target);
+                            Assign_Archive_Target(target);
                             target = 0;
                         }
                     }
@@ -2628,7 +2628,7 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
             if (occupier) {
                 BuildingClass *building = static_cast<BuildingClass *>(occupier);
                 if (building->Type->unknown_1349 || building->Type->unknown_134a) {
-                    if (!Locomotor.Checked()->Is_Powered() && !House->Unknown_0051FC80()) {
+                    if (!Locomotor.Checked()->Is_Powered() && !House->Ion_Sensitives_Should_Be_Offline()) {
                         Locomotor.Checked()->Power_On();
                     }
                     if (Contact(0) == building && target != Contact(0)) unknown_slot149(3);
@@ -2942,7 +2942,7 @@ bool AircraftClass::Commence()
 bool AircraftClass::unknown_slot282()
 {
     if (unknown_228 == 0 && unknown_32d && Get_Mission() != 26 && Get_Mission() != 27) {
-        if ((Team == 0 && unknown_32c) || (Team != 0 && Team->Unknown_006BA990())) {
+        if ((Team == 0 && unknown_32c) || (Team != 0 && Team->Is_Leaving_Map())) {
             return true;
         }
     }

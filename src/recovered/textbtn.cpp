@@ -186,7 +186,7 @@ void TextButtonClass::Draw_Background()
 {
     if (!IsBordered) {
         if (IsBlackBorder) {
-            unknown_surface_83995c->Draw_Rect(Rect(X - 1, Y - 1, X + Width + 2, Y + Height + 2),
+            LogicalSurface->Draw_Rect(Rect(X - 1, Y - 1, X + Width + 2, Y + Height + 2),
                                               ColorSchemes[Gadget_Color_Scheme()]->Converter->Convert(12));
         }
         int style;
@@ -241,7 +241,7 @@ void TextButtonClass::Draw_Text(wchar_t const *text)
             ColorScheme *scheme = ColorSchemes[index];
             if (scheme != 0) {
                 Point2D point(X + (Width >> 1) - 1, Y + 1);
-                Fancy_Text_Print(text, unknown_surface_83995c, &unknown_surface_83995c->Get_Rect(), &point,
+                Fancy_Text_Print(text, LogicalSurface, &LogicalSurface->Get_Rect(), &point,
                                  scheme, 0, PrintFlags | flags | 0x100, 1);
             }
         }

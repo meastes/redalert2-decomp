@@ -56,7 +56,7 @@ int type_info::operator!=(type_info const &rhs) const
 #include "shared/rules.hpp"
 
 // 0x0051FC80 (leaf src/recovered/0051fc80.cpp): returns false.
-bool HouseClass::Unknown_0051FC80()
+bool HouseClass::Ion_Sensitives_Should_Be_Offline()
 {
     return false;
 }
@@ -88,7 +88,7 @@ void __fastcall Set_Frame_Rate_Limit(int rate)
     unknown_detail_frame_rate_7dfb34 = rate;
 }
 
-void __fastcall unknown_set_buffer_zone_0053d830(int width)
+void __fastcall Set_Buffer_Zone_Width(int width)
 {
     unknown_detail_buffer_zone_7dfb38 = width;
 }

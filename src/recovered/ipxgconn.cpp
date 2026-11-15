@@ -608,21 +608,21 @@ int IPXGlobalConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address,
                     break;
                 }
             }
-            unsigned char target = unknown_OwnerTalkClass_00ab6d18.Unknown_0063F4C0(target_id);
+            unsigned char target = OwnerTalk.Unknown_0063F4C0(target_id);
             if (!target) {
                 target = 1;
             }
             header->unknown_03 = target;
         }
         dest = unknown_forward_address_a3fbac;
-        port = unknown_port_7f60dc;
+        port = LoopbackPort;
         if (unknown_forward_address_a3fbb8 == unknown_players_a3fa7c[0]->Address
             && dest.Is_Same_Node(unknown_players_a3fa7c[0]->Address)) {
             header->unknown_0c = 0;
             memset(&header->unknown_08, 0, sizeof(header->unknown_08));
         } else {
             port = unknown_forward_port_a3fbc4;
-            header->unknown_0c = unknown_port_7f60dc;
+            header->unknown_0c = LoopbackPort;
             memset(&header->unknown_08, 0, sizeof(header->unknown_08));
         }
     } else {

@@ -71,17 +71,17 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
             for (int i = 1; i < unknown_players_a3fa7c.Count(); i++) {
                 do {
                     Service_Game_IO_00481fb0();
-                } while (!unknown_ipx_manager_a40978.unknown_5259a0(&net_file_info, sizeof(net_file_info), 1, unknown_players_a3fa7c[i]->Name) && response_timer);
+                } while (!Ipx.Send_Global_Message_To_Name(&net_file_info, sizeof(net_file_info), 1, unknown_players_a3fa7c[i]->Name) && response_timer);
             }
         } else {
             for (int i = 0; i < unknown_session_a3d298.RequestCount; i++) {
                 do {
                     Service_Game_IO_00481fb0();
                     Debug_Printf("Sending file info packet to player %d\n", unknown_players_a3fa7c[unknown_session_a3d298.ScenarioRequests[i]]->Name);
-                } while (!unknown_ipx_manager_a40978.unknown_5259a0(&net_file_info, sizeof(net_file_info), 1, unknown_players_a3fa7c[unknown_session_a3d298.ScenarioRequests[i]]->Name) && response_timer);
+                } while (!Ipx.Send_Global_Message_To_Name(&net_file_info, sizeof(net_file_info), 1, unknown_players_a3fa7c[unknown_session_a3d298.ScenarioRequests[i]]->Name) && response_timer);
             }
         }
-        while (unknown_ipx_manager_a40978.Global_Num_Send() > 0 && response_timer) {
+        while (Ipx.Global_Num_Send() > 0 && response_timer) {
             Service_Game_IO_00481fb0();
         }
     }
@@ -106,7 +106,7 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
         do {
             Service_Game_IO_00481fb0();
             int receive_packet_length = sizeof(net_receive_packet);
-            if (unknown_ipx_manager_a40978.Get_Global_Message(&net_receive_packet, &receive_packet_length, &sender_address, &product_id) && net_receive_packet.Command == 0x15) {
+            if (Ipx.Get_Global_Message(&net_receive_packet, &receive_packet_length, &sender_address, &product_id) && net_receive_packet.Command == 0x15) {
                 acks++;
             }
         } while (response_timer && acks < clients);
@@ -119,13 +119,13 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
         ProgressScreen.Init(100.0, 1, 0);
         ProgressScreen.Load_Shape("PROGBARM.SHP", 0, 0);
         ProgressScreen.Set_Layout(Point2D(-1, -1), StringTable::Load_String("GUI:MapTransfer", 0, "D:\\Ra2\\SendFile.CPP", 659), false, true);
-        unknown_5159b0(0, true);
+        Darken_Surface(0, true);
         ProgressScreen.Draw_It(Point2D(-1, -1));
         ProgressScreen.Set_Progress_Percent(0, 0.0, Point2D(-1, -1));
     }
     if (unknown_session_a3d298.Type == 4) {
-        unknown_ipx_manager_a40978.unknown_slot16();
-        unknown_ipx_manager_a40978.unknown_slot14(240, -1, 1200);
+        Ipx.unknown_slot16();
+        Ipx.unknown_slot14(240, -1, 1200);
     }
 
     response_timer = Get_Timeout(gametype);
@@ -164,7 +164,7 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
             Unknown_005B5EE0();
             Service_Game_IO_00481fb0();
             if (block_number < total_blocks) {
-                if (unknown_ipx_manager_a40978.Global_Num_Send() < 10) {
+                if (Ipx.Global_Num_Send() < 10) {
                     send_packet.Command = 0x12;
                     send_packet.BlockNumber = block_number;
                     send_packet.BlockLength = file_length;
@@ -179,7 +179,7 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
                             for (int i = 1; i < unknown_players_a3fa7c.Count(); i++) {
                                 int sent;
                                 do {
-                                    sent = unknown_ipx_manager_a40978.unknown_5259a0(&send_packet, sizeof(send_packet), 1, unknown_players_a3fa7c[i]->Name);
+                                    sent = Ipx.Send_Global_Message_To_Name(&send_packet, sizeof(send_packet), 1, unknown_players_a3fa7c[i]->Name);
                                     Service_Game_IO_00481fb0();
                                 } while (!sent);
                             }
@@ -187,7 +187,7 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
                             for (int i = 0; i < unknown_session_a3d298.RequestCount; i++) {
                                 int sent;
                                 do {
-                                    sent = unknown_ipx_manager_a40978.unknown_5259a0(&send_packet, sizeof(send_packet), 1, unknown_players_a3fa7c[unknown_session_a3d298.ScenarioRequests[i]]->Name);
+                                    sent = Ipx.Send_Global_Message_To_Name(&send_packet, sizeof(send_packet), 1, unknown_players_a3fa7c[unknown_session_a3d298.ScenarioRequests[i]]->Name);
                                     Service_Game_IO_00481fb0();
                                 } while (!sent);
                             }
@@ -199,8 +199,8 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
                         ProgressScreen.Set_Progress_Percent(0, percent / total_blocks, Point2D(-1, -1));
                     }
                 }
-            } else if (unknown_ipx_manager_a40978.Global_Num_Send() == 0) {
-                if (unknown_ipx_manager_a40978.Global_Num_Send() == 0) {
+            } else if (Ipx.Global_Num_Send() == 0) {
+                if (Ipx.Global_Num_Send() == 0) {
                     Debug_Printf("We sent the file properly with %d seconds left!\n", (long)response_timer);
                     return_code = true;
                     if (progress) {
@@ -212,7 +212,7 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
         }
     }
     if (unknown_session_a3d298.Type == 4) {
-        unknown_ipx_manager_a40978.unknown_slot17();
+        Ipx.unknown_slot17();
     }
     Debug_Printf("File upload completed - %s\n", return_code ? "success" : "failure");
     return return_code;

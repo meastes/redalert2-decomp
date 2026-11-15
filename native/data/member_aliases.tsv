@@ -71,7 +71,7 @@ _unknown_mono_width_a70eb8	_unknown_mono_metrics_a70ea0	24	24	exact	unknown_mono
 _unknown_int_af8fe8	_IngameVQ	24	16	exact	unknown_int_af8fe8	IngameVQ	base:class VectorClass<class MovieHandle *>.ActiveCount	int	int	32
 _unknown_beacon_cycle_84e93c	_unknown_object_84e8d0	204	108	exact	unknown_beacon_cycle_84e93c	unknown_object_84e8d0	unknown_00.unknown_6c	int	int	240
 _unknown_beacon_phase_84e948	_unknown_object_84e8d0	216	120	exact	unknown_beacon_phase_84e948	unknown_object_84e8d0	unknown_00.unknown_78	int	int	240
-_DAT_00a40c70	_unknown_objects_a40c60	24	16	exact	DAT_00a40c70	unknown_objects_a40c60	base:class VectorClass<class ObjectClass *>.ActiveCount	int	int	32
+_DAT_00a40c70	_CurrentObject	24	16	exact	DAT_00a40c70	CurrentObject	base:class VectorClass<class ObjectClass *>.ActiveCount	int	int	32
 _unknown_player_checked_b28dcc	_unknown_player_ready_b28dc4	8	8	exact	unknown_player_checked_b28dcc	unknown_player_ready_b28dc4	unknown_player_ready_b28dc4[8]	bool[8]	bool[9]	9
 _unknown_int_839624	_unknown_rect_839620	4	4	exact	unknown_int_839624	unknown_rect_839620	X.Y	int	int	16
 _unknown_int_839628	_unknown_rect_839620	8	8	exact	unknown_int_839628	unknown_rect_839620	X.Width	int	int	16
@@ -243,5 +243,5 @@ _unknown_session_a3d2c4	_unknown_session_a3d298	56	44	range	unknown_session_a3d2
 _unknown_session_a3d340	_unknown_session_a3d298	180	168	range	unknown_session_a3d340	unknown_session_a3d298	(anon).unknown_a8	int	_Bool	12592
 _unknown_a3d29c	_unknown_session_a3d298	8	4	compatible	unknown_a3d29c	unknown_session_a3d298	(anon).(anon).Type.Mode	UnknownA3D29CView*	MultiplayerGameMode *	12592
 _unknown_session_a3d29c	_unknown_session_a3d298	8	4	compatible	unknown_session_a3d29c	unknown_session_a3d298	(anon).(anon).Type.Mode	UnknownSessionA3D29C*	MultiplayerGameMode *	12592
-_PacketRouterConnection	_unknown_ipx_manager_a40978	120	76	compatible	PacketRouterConnection	unknown_ipx_manager_a40978	base:class ConnManClass.unknown_4c	ConnectionClass*	IPXGlobalConnClass *	232
+_PacketRouterConnection	_Ipx	120	76	compatible	PacketRouterConnection	Ipx	base:class ConnManClass.unknown_4c	ConnectionClass*	IPXGlobalConnClass *	232
 _unknown_profile_b28cc4	_unknown_profile_ptr_b28cc0	8	4	compatible	unknown_profile_b28cc4	unknown_profile_ptr_b28cc0	base:class rc_ptr_base.(vptr).Pointer	PlayerProfile*	ReferenceCounted *	16

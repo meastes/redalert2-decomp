@@ -43,7 +43,7 @@ struct UnknownIPXAddressData {
 };
 
 // A malformed IPX packet was seen (0x00B2AE24).
-extern bool unknown_malformed_seen_b2ae24;
+extern bool IsMalformedIPXPacketReported;
 
 class IPXInterfaceClass : public WinsockInterfaceClass {
 public:
@@ -54,7 +54,7 @@ public:
     virtual int Message_Handler(int window, int message, int wparam, int lparam);   // slot 16 0x0076A6B0 (the notification handler)
 
     int Get_Network_Card_Address(int card_number, UnknownIPXSocketAddress *address);   // 0x0076A0B0
-    int unknown_76a230(int card_number, char *buffer, int length);      // 0x0076A230 (the card address as text)
+    int Get_Network_Card_Address_As_String(int card_number, char *buffer, int length);      // 0x0076A230 (the card address as text)
 
     unsigned char Network[4];           // +0x3F2FC
     unsigned char Node[6];              // +0x3F300

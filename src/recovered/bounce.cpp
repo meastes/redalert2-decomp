@@ -368,7 +368,7 @@ BounceResultType BounceClass::AI()
                     if (bounce_facing != -1) {
                         Matrix3D temp;
                         Matrix3D bounce_matrix;
-                        bounce_matrix = *Unknown_00719010(&temp, bounce_facing);
+                        bounce_matrix = *Get_Bounce_Matrix(&temp, bounce_facing);
                         velocity = bounce_matrix * velocity;
                         velocity *= unknown_00.unknown_00;
                     }

@@ -7,9 +7,9 @@
 // @ref ?AudioDeviceAvailable@@YAHXZ=00406f30
 // @ref ?GetDirectSoundObject@@YAPAXXZ=0040a6c0
 // @ref ?unknown_volume_a40b48@@3MA=00a40b48
-// @ref ?unknown_volume_84e9a8@@3MA=0084e9a8
+// @ref ?BinkVolume@@3MA=0084e9a8
 // @ref ?Subtitles_Open@@YIPAVVQAMovieCompanion@@PBD@Z=0069b190
-// @ref ?unknown_surface_839950@@3PAVSurface@@A=00839950
+// @ref ?VisibleSurface@@3PAVSurface@@A=00839950
 // @ref ?HiddenSurface@@3PAVSurface@@A=00839954
 // @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
 // @ref ?Debug_Printf@@YAXPBDZZ=004068f0

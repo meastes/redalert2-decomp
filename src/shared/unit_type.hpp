@@ -124,7 +124,7 @@ extern DynamicVectorClass<UnitTypeClass *> UnitTypes;   // 0x00A35D48
 class BSurface;
 class ConvertClass;
 extern BSurface *unknown_surface_ad0604;            // 0x00AD0604 256x256, one byte per pixel
-extern ConvertClass *unknown_drawer_ad0608;         // 0x00AD0608 GamePalette onto unknown_surface_ad0604
+extern ConvertClass *EightBitDrawer;         // 0x00AD0608 GamePalette onto unknown_surface_ad0604
 extern void const *VisceroidSmallShape;             // 0x00AD060C VISC_SML.SHP
 extern void const *VisceroidLargeShape;             // 0x00AD0610 VISC_LRG.SHP
 

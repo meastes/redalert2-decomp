@@ -300,8 +300,8 @@ static inline void Send_Score_Packet(int command)
     packet.Command = command;
     strcpy(packet.Name, Wide_To_Narrow_006fa120(unknown_players_a3fa7c[0]->Name));
     for (int i = 1; i < unknown_players_a3fa7c.Count(); i++) {
-        unknown_ipx_manager_a40978.unknown_5259a0(&packet, 0x2F, 1, unknown_players_a3fa7c[i]->Name);
-        unknown_ipx_manager_a40978.Service();
+        Ipx.Send_Global_Message_To_Name(&packet, 0x2F, 1, unknown_players_a3fa7c[i]->Name);
+        Ipx.Service();
     }
 }
 
@@ -392,7 +392,7 @@ int __stdcall unknown_score_dialog_proc_465fc0(HWND window, UINT message, WPARAM
     }
     case 0x0F:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         return 0;
     case 0x111:
         switch (wparam & 0xFFFF) {
@@ -450,7 +450,7 @@ int __stdcall unknown_score_dialog_proc_465fc0(HWND window, UINT message, WPARAM
         }
         break;
     case 0x4ED:
-        unknown_5159b0(0, true);
+        Darken_Surface(0, true);
         unknown_dialog_5ecf40(window, 1);
         ShowWindow(window, 0);
         break;
@@ -496,8 +496,8 @@ static inline void Send_Continue()
     packet.Command = 0x26;
     strcpy(packet.Name, Wide_To_Narrow_006fa120(unknown_players_a3fa7c[0]->Name));
     for (int i = 1; i < unknown_players_a3fa7c.Count(); i++) {
-        unknown_ipx_manager_a40978.unknown_5259a0(&packet, 0x2F, 1, unknown_players_a3fa7c[i]->Name);
-        unknown_ipx_manager_a40978.Service();
+        Ipx.Send_Global_Message_To_Name(&packet, 0x2F, 1, unknown_players_a3fa7c[i]->Name);
+        Ipx.Service();
     }
 }
 
@@ -532,9 +532,9 @@ void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> sco
     unknown_465d10();
     unknown_sort_session_scores_465ee0();
     Unknown_Load_Art_Once_006F2710(unknown_id_source_a3d290->unknown_2239 == false);
-    unknown_5159b0(0, true);
+    Darken_Surface(0, true);
     if (unknown_game_mode_a3d298 == 4) {
-        unknown_ipx_manager_a40978.unknown_5277f0();
+        Ipx.Global_Channel_Clear_FieldC8();
     }
     HWND window = unknown_create_dialog_5ff610(0xBC6, unknown_score_dialog_proc_465fc0, 0);
     int result = 0;
@@ -565,8 +565,8 @@ void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> sco
                 }
                 result = 0;
             }
-            unknown_ipx_manager_a40978.Service();
-            if (!unknown_ipx_manager_a40978.Get_Global_Message(&unknown_global_packet_a3f640, &unknown_global_length_a3f808,
+            Ipx.Service();
+            if (!Ipx.Get_Global_Message(&unknown_global_packet_a3f640, &unknown_global_length_a3f808,
                     &unknown_global_address_a3f80c, &unknown_global_product_a3f818)
                 || unknown_global_product_a3f818 != 0xAA03
                 || unknown_5c05f0(&unknown_global_packet_a3f640, &unknown_global_address_a3f80c)) {
@@ -628,12 +628,12 @@ void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> sco
                 break;
             }
         }
-        unknown_5159b0(0, true);
+        Darken_Surface(0, true);
         unknown_dialog_5ff6e0(window);
-        unknown_5159b0(0, true);
+        Darken_Surface(0, true);
     }
     if (unknown_game_mode_a3d298 == 4) {
-        unknown_ipx_manager_a40978.unknown_527800();
+        Ipx.Set_Global_Routed();
     }
     Unknown_Free_Art_Flagged_006F2750();
 }
@@ -703,7 +703,7 @@ int __stdcall unknown_end_score_dialog_proc_467330(HWND window, UINT message, WP
     switch (message) {
     case 0x0F:
         Unknown_005FEE70(window);
-        unknown_dialog_5e5f20(window);
+        Slide_Pending_Dialog(window);
         break;
     case 0x110: {
         HWND item;
@@ -805,7 +805,7 @@ int __stdcall unknown_end_score_dialog_proc_467330(HWND window, UINT message, WP
         SendDlgItemMessageA(window, 0x72B, 0x4D3, 0, 0);
         break;
     case 0x4ED:
-        unknown_5159b0(0, true);
+        Darken_Surface(0, true);
         ShowWindow(window, 0);
         unknown_dialog_5ecf40(window, 1);
         break;
@@ -856,7 +856,7 @@ void CampaignEndScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> 
     int alternate = unknown_id_source_a3d290->unknown_2239 == false;
     Unknown_Load_Art_Once_006F2710(alternate);
     Unknown_Load_Art_Pair_006F2A30(alternate);
-    unknown_5159b0(0, true);
+    Darken_Surface(0, true);
     unknown_dialog_box_5eab60(0xBC7, unknown_end_score_dialog_proc_467330, 0);
     Unknown_006F2AB0();
     Unknown_Free_Art_Flagged_006F2750();

@@ -687,7 +687,7 @@ bool AITriggerTypeClass::Read_INI(CCINIClass &ini)
                 name[sizeof(name) - 1] = '\0';
                 strtrim(name);
                 unknown_dc = 0;
-                if (_stricmp(name, unknown_none_name_7ceacc) != 0) {
+                if (_stricmp(name, NONE_STRING) != 0) {
                     unknown_dc = TeamTypeClass::Find_By_ID_Or_Name(name);
                 }
                 token = strtok(0, ",");
@@ -697,9 +697,9 @@ bool AITriggerTypeClass::Read_INI(CCINIClass &ini)
                     strtrim(name);
                     unknown_a0 = 0;
                     unknown_a8 = -1;
-                    if (_stricmp(name, unknown_all_name_7cead0) == 0) {
+                    if (_stricmp(name, ALL_STRING) == 0) {
                         unknown_a0 = 2;
-                    } else if (_stricmp(name, unknown_none_name_7ceacc) != 0) {
+                    } else if (_stricmp(name, NONE_STRING) != 0) {
                         unknown_a8 = HouseTypeClass::Find_Index(name);
                         if (unknown_a8 != -1) {
                             unknown_a0 = 1;
@@ -780,7 +780,7 @@ bool AITriggerTypeClass::Read_INI(CCINIClass &ini)
                                         team2[sizeof(team2) - 1] = '\0';
                                         strtrim(team2);
                                         unknown_e0 = 0;
-                                        if (_stricmp(team2, unknown_none_name_7ceacc) != 0) {
+                                        if (_stricmp(team2, NONE_STRING) != 0) {
                                             unknown_e0 = TeamTypeClass::Find_By_ID_Or_Name(team2);
                                         }
                                     }
@@ -827,10 +827,10 @@ bool AITriggerTypeClass::Read_INI(CCINIClass &ini)
 
 bool AITriggerTypeClass::Write_INI(CCINIClass &ini) const
 {
-    char const *team1 = unknown_none_name_7ceacc;
-    char const *team2 = unknown_none_name_7ceacc;
-    char const *house = unknown_none_name_7ceacc;
-    char const *object = unknown_none_name_7ceacc;
+    char const *team1 = NONE_STRING;
+    char const *team2 = NONE_STRING;
+    char const *house = NONE_STRING;
+    char const *object = NONE_STRING;
     if (unknown_dc != 0) {
         team1 = unknown_dc->ID;
     }
@@ -844,7 +844,7 @@ bool AITriggerTypeClass::Write_INI(CCINIClass &ini) const
         }
         break;
     case 2:
-        house = unknown_all_name_7cead0;
+        house = ALL_STRING;
         break;
     }
     if (unknown_d8 != 0) {

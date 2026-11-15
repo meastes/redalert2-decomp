@@ -329,7 +329,7 @@ bool TriggerClass::Should_Spring(int event, ObjectClass *object, bool forced, bo
             if (!Is_Event_Tripped(index) && !e->unknown_func_6e6050(event, HouseClass::As_Pointer(Class->House->ArrayIndex),
                                                              object, &Timer, &persistent, source)) {
                 sprung = false;
-            } else if (persistent && e->unknown_func_6e6cf0() && e->unknown_func_6e6d50()) {
+            } else if (persistent && e->unknown_func_6e6cf0() && e->Is_To_Flag_As_Tripped()) {
                 Flag_Event_Tripped(index);
             }
             index++;

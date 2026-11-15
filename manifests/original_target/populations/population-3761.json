@@ -4,8 +4,8 @@
     "id": "population-3761",
     "inventory_sha256": "e9a55a8f9951fb06fd56b0666e08d6781cfbfb37efebd33374edf399999095d1",
     "gaps_sha256": "f53e56d4c1204421bf2fe49d076415f406a70a2dae26d50a4bbf4be54508e869",
-    "historical_population_sha256": "3934f40a8424c318362f6f617187f09647d800a69467d329744eaedc80313369",
-    "historical_acceptance_sha256": "9a2c6183d241025136d1909d89382aa70b86959e086937728529ffeb29011424"
+    "historical_population_sha256": "09a354ab391a512cb532996318edf2d856c50b3be233d54fa849700d54fb54e1",
+    "historical_acceptance_sha256": "c1cce3693a3916fc4921f789440d9ecd50dcfcefdb86945a2aa74848dfff4323"
   },
   "references": {
     "_unknown_empty_rect": 11261240,
@@ -655,7 +655,7 @@
     "?ID@?$VectorClass@PAVToolTip@@@@UAEHPBQAVToolTip@@@Z": 7258320,
     "?ID@?$DynamicVectorClass@PAVToolTip@@@@UAEHABQAVToolTip@@@Z": 7258528,
     "?Size@TunnelLocomotionClass@@UAEHXZ": 7279520,
-    "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z": 7281408,
+    "?Inflate_Rect@@YIXPAVRect@@H@Z": 7281408,
     "?Get_Mouse_Start_Frame_0059f170@Target_6f6750@@QAEIII@Z": 5894512,
     "?Get_Mouse_Start_Frame_0059f170@Target_6f6760@@QAEIII@Z": 5894512,
     "??_GVeinholeMonsterClass@@UAEPAXI@Z": 7415600,
@@ -1697,7 +1697,7 @@
     "??0Buffer@@QAE@J@Z": 4424576,
     "??0Buffer@@QAE@ABV0@@Z": 4424624,
     "_rand": 7882410,
-    "?unknown_voxel_static_buffer_839aa0@@3VStaticBufferClass@@A": 8624800,
+    "?VoxelStaticBuffer@@3VStaticBufferClass@@A": 8624800,
     "_malloc": 7874096,
     "?Add@?$DynamicVectorClass@H@@QAE_NABH@Z": 4641536,
     "?Add@ListClass@@UAEAAVLinkClass@@AAV2@@Z": 5482448,
@@ -1803,7 +1803,7 @@
     "?Draw_Line@RadBeam@@QAEXABUCoordStruct@@0F@Z": 6510608,
     "_?unknown@?3??Faction_Name@@YIABVWstring@@H@Z@4V2@A": 11709704,
     "_?unknown@?3??Faction_Code@@YIABVWstring@@H@Z@4V2@A": 11709652,
-    "_?pattern@?1??unknown_6cc020@TechnoClass@@QAEXXZ@4PA_NA": 8352020,
+    "_?pattern@?1??Draw_Target_Laser@TechnoClass@@QAEXXZ@4PA_NA": 8352020,
     "?Reset@BooleanVectorClass@@QAEXXZ": 7402240,
     "?Reset@VoxelDrawSystem@@YAXXZ": 7434704,
     "_?entry@?1??Get_Image_0068ca40@SurfaceCacheClass@@QAEPAVSurface@@PBDH@Z@4UUnknownBitmapEntry@@A": 11260136,

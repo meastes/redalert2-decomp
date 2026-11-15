@@ -14,10 +14,10 @@ struct NodeNameType;
 #include "shared/vector_class_decl.hpp"
 
 extern int SidebarWidth;
-extern ConvertClass *unknown_drawer_8323b8;  // 0x008323B8 (OverlayTypeClass slot 40; also CellClass 0x474C6B)
-extern ConvertClass *unknown_drawer_8323bc;  // 0x008323BC (TerrainClass slots 67/68 draw Tiberium spawners with it)
+extern ConvertClass *TerrainDrawer;  // 0x008323B8 (OverlayTypeClass slot 40; also CellClass 0x474C6B)
+extern ConvertClass *TiberiumDrawer;  // 0x008323BC (TerrainClass slots 67/68 draw Tiberium spawners with it)
 extern ConvertClass *SidebarDrawer;  // 0x008323CC
-extern bool unknown_flag_7d88d5;  // 0x007D88D5 shadows are drawn (TerrainClass slots 67/68)
+extern bool DrawShapeShadows;  // 0x007D88D5 shadows are drawn (TerrainClass slots 67/68)
 extern bool unknown_flag_8373c1;  // 0x008373C1 the power bar is shown (Power AI/Draw_It, Radar 0x00630350)
 extern bool unknown_flag_8373c3;  // 0x008373C3
 extern bool unknown_flag_83740c;
@@ -40,11 +40,11 @@ extern char unknown_profile_vram_text_a41308[];
 extern char unknown_profile_blit_text_a41408[];
 extern char unknown_profile_text_a4127c[];
 extern Surface *unknown_surface_839944;  // 0x00839944 (a video memory surface: Get_Performance_Profile times blits from it)
-extern Surface *unknown_surface_839950;  // 0x00839950 screen
+extern Surface *VisibleSurface;  // 0x00839950 screen
 class DSurface;
 extern Surface *HiddenSurface; // 0x00839954 (Get_Input draws the buttons on it; shared/dsurface.hpp)
 extern Surface *AlternateSurface;  // 0x00839958 background
-extern Surface *unknown_surface_83995c;  // 0x0083995C current drawing surface
+extern Surface *LogicalSurface;  // 0x0083995C current drawing surface
 extern Surface *unknown_surface_839964;  // 0x00839964 the surface Render composes
 extern bool unknown_flag_839c4c;  // 0x00839C4C
 extern int VideoModeWidth;  // 0x008523E0 VQA frame width (hypothesis)
@@ -105,7 +105,7 @@ void __fastcall _DrawMessage_005c2da0(int color, unsigned short const *text, HWN
 extern unsigned short unknown_map_name_a3d342[];
 // 0x005159B0 (the lobby dialog opener calls it with 0, true before creating its dialog; moved from
 // shared/ms_message_box.hpp).
-void __fastcall unknown_5159b0(int unknown1, bool unknown2);
+void __fastcall Darken_Surface(int unknown1, bool unknown2);
 extern int unknown_a3d3b4;            // 0x00A3D3B4 (session +0x11C)
 extern char unknown_name_a3d3a0[];    // 0x00A3D3A0 (the local nick name)
 extern int unknown_a3d3bc;            // 0x00A3D3BC (session +0x124; the modem guest's colour list choice)
@@ -302,7 +302,7 @@ public:
 };
 // Takes the palette at 0x00837E10 through value steps, calling the callback each
 // step (0x004955D0; Do_Win: 7, the per-frame service; moved from shared/anim.hpp).
-void __fastcall Unknown_004955D0(void *object, int value, void (*callback)());   // 0x004955D0
+void __fastcall Set_Palette(void *object, int value, void (*callback)());   // 0x004955D0
 // A palette (0x00837E10): UnitTypeClass::One_Time converts through it (ConvertClass's art and
 // screen palette), Rules' [Colors] schemes are made from it, 0x004955D0 fades it.
 class PaletteClass;
@@ -527,7 +527,7 @@ extern int unknown_a40c38;                          // 0x00A40C38
 class HouseClass;
 extern HouseClass *unknown_house_a72d28;            // 0x00A72D28 (the player without a team)
 // The index of a colour scheme by name (0x00663D90).
-int __fastcall unknown_color_scheme_index_663d90(char const *name, int kind);
+int __fastcall Fetch_Scheme_Index_By_Name(char const *name, int kind);
 // An empty string used as an INI default (0x0083C55C).
 extern char unknown_string_83c55c[];
 // WOnline.cpp globals (moved from shared/wol_sink.hpp, which includes this header).
@@ -552,7 +552,7 @@ extern bool Debug_Map;  // 0x00A40D13 (TibSun Debug_Map: the scenario editor fla
 extern int unknown_ini_format_a40d24;
 extern bool GameInFocus;  // 0x00A40D28 application active (focus)
 extern bool IgnoreInput;  // 0x00A40D44
-extern int unknown_ab9174;        // 0x00AB9174 (cleared when the game pauses or resumes)
+extern int UnlockInputFrame;        // 0x00AB9174 (cleared when the game pauses or resumes)
 // The game speed kept by SessionClass::Unknown_00672DE0 (0x007F3230; -1: none).
 extern int unknown_game_speed_7f3230;
 // An empty function 0x00672E70 calls first (0x005173A0).
@@ -583,7 +583,7 @@ class TeamTypeClass;
 bool __fastcall Do_Reinforcements(TeamTypeClass *team, int waypoint);   // 0x00639970
 // Another reinforcement of a team type at a waypoint, in the same unit
 // (TActionClass 0x006B2810; meaning not recovered).
-bool __fastcall Unknown_0063A880(TeamTypeClass *team, int waypoint);    // 0x0063A880
+bool __fastcall Do_Chrono_Reinforcements(TeamTypeClass *team, int waypoint);    // 0x0063A880
 
 // Switches the display to width x height; false when the mode cannot be set
 // (0x005434E0; logs "About to set video mode").
@@ -644,7 +644,7 @@ void Unknown_005D5F40();
 void Unknown_005EAC20();
 void Unknown_00613E40();
 void Unknown_006F57E0();
-void Unknown_00714860();
+void Free_Vocs();
 void Unknown_005BB5A0();
 void Unknown_00522930();
 // The program's exit cleanup, registered with atexit by WinMain (0x006909E0; Red Alert's Prog_End).

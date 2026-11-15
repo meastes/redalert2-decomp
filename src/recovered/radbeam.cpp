@@ -57,17 +57,17 @@
 #include "shared/unknown_geometry.hpp"
 
 
-// void RadBeam::unknown_6357b0(double value) (0x006357B0)
+// void RadBeam::Set_Phase(double value) (0x006357B0)
 
-void RadBeam::unknown_6357b0(double value)
+void RadBeam::Set_Phase(double value)
 {
     unknown_40 = value;
 }
 
 
-// void RadBeam::unknown_6357d0(int value) (0x006357D0)
+// void RadBeam::Set_Start_Delay(int value) (0x006357D0)
 
-void RadBeam::unknown_6357d0(int value)
+void RadBeam::Set_Start_Delay(int value)
 {
     unknown_48 = value;
 }
@@ -112,7 +112,7 @@ void RadBeam::Draw_Line(CoordStruct const &start, CoordStruct const &end, short 
     if (Clip_Line(first_pixel, second_pixel, clip)) {
         int first_z = Depth - Unknown_006A2970(start.Z) - 2;
         int second_z = 0 - Unknown_006A2970(end.Z) - 2;
-        unknown_surface_83995c->Draw_Depth_Shaded_Line(unknown_rect_839630, first_pixel, second_pixel,
+        LogicalSurface->Draw_Depth_Shaded_Line(unknown_rect_839630, first_pixel, second_pixel,
                                                        color, first_z, second_z);
     }
 }

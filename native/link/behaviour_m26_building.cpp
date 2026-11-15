@@ -89,13 +89,13 @@ int BuildingClass::Do_MISSION_MISSILE()
         switch (unknown_a8) {
         case 0:
             unknown_5ad = false;
-            unknown_443d60(2);
+            Begin_Mode(2);
             unknown_a8 = 1;
             unknown_444 = Create_Animation_At_Object_00438b80(House, &Map[House->NukeDest], 0, "PSIWARN");
             // fall through
         case 1:
             if (unknown_5ad) {
-                unknown_443d60(4);
+                Begin_Mode(4);
                 unknown_a8 = 2;
             }
             // fall through
@@ -114,7 +114,7 @@ int BuildingClass::Do_MISSION_MISSILE()
             if (bullet) {
                 bullet->Set_Weapon_Type(weapon);
                 if (unknown_444 != 0) {
-                    ((AnimClass *)unknown_444)->unknown_func_422680(bullet);
+                    ((AnimClass *)unknown_444)->Set_Attached_Bullet(bullet);
                     unknown_444 = 0;
                 }
                 bullet->Limbo();
@@ -138,11 +138,11 @@ int BuildingClass::Do_MISSION_MISSILE()
             return 1;
         }
         case 3:
-            unknown_443d60(5);
+            Begin_Mode(5);
             unknown_a8 = 4;
             return 6;
         case 4:
-            unknown_443d60(1);
+            Begin_Mode(1);
             QueueMission(5, false);
             return 60;
         default:
@@ -175,14 +175,14 @@ int BuildingClass::Do_MISSION_MISSILE()
             return 32;
         case 3:
             unknown_2c8.Set_Desired(UnknownFacingDir(0x4000));
-            unknown_443d60(1);
+            Begin_Mode(1);
             QueueMission(5, false);
             return 60;
         case 2: {
             WeaponTypeClass *weapon = unknown_slot231(0)->WeaponType;
             CellClass *target = &Map[House->EMPDest];
             if (Debug_Map || *(int const *)&House->EMPDest == unknown_84ed10) {
-                unknown_443d60(1);
+                Begin_Mode(1);
                 QueueMission(5, false);
                 return 60;
             }
@@ -211,9 +211,9 @@ int BuildingClass::Do_MISSION_MISSILE()
             int distance = (int)unknown_sqrt_4ba410((double)(dx * dx + dy * dy));
 
             UnknownFacingDir pitch;
-            bool valid = Unknown_0047F8B0(unknown_6d7d20(0), speed, distance, dz, Rules->unknown_1320, &pitch);
+            bool valid = Unknown_0047F8B0(Should_Use_High_Arc(0), speed, distance, dz, Rules->unknown_1320, &pitch);
             if (!valid) {
-                valid = Unknown_0047F8B0(unknown_6d7d20(0), speed * 10 / 8, distance, dz, Rules->unknown_1320, &pitch);
+                valid = Unknown_0047F8B0(Should_Use_High_Arc(0), speed * 10 / 8, distance, dz, Rules->unknown_1320, &pitch);
                 if (!valid) {
                     pitch = UnknownFacingDir(0xFA00);
                     valid = true;
@@ -234,7 +234,7 @@ int BuildingClass::Do_MISSION_MISSILE()
             if (bullet) {
                 bullet->Release();
             }
-            unknown_443d60(1);
+            Begin_Mode(1);
             QueueMission(5, false);
             return 60;
         }

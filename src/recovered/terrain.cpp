@@ -133,7 +133,7 @@ int TerrainClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhe
                 Unknown_0047E2C0(Get_Coord(this), 100, 0, Rules->unknown_c74, 1);
                 unknown_slot104().unknown_47e2b0();
             } else if (unknown_b4) {
-                Unknown_00420D30(this);
+                Shorten_Attached_Anims(this);
             } else {
                 Start_Crumbling();
             }
@@ -297,7 +297,7 @@ void TerrainClass::Draw_It(Point2D const &point, Rect const &window)
         ConvertClass *drawer;
         int brightness;
         if (Class->SpawnsTiberium) {
-            drawer = unknown_drawer_8323bc;
+            drawer = TiberiumDrawer;
             brightness = cell.unknown_10a;
             position -= Point2D(0, 16);
         } else {
@@ -310,9 +310,9 @@ void TerrainClass::Draw_It(Point2D const &point, Rect const &window)
         } else {
             flags = 0x4E00;
         }
-        CC_Draw_Shape(unknown_surface_83995c, drawer, shape, frame, position, window, flags, 0, height - 12, 2, brightness, 0, 0, Point2D(0, 0));
-        if (unknown_flag_7d88d5) {
-            CC_Draw_Shape(unknown_surface_83995c, (ConvertClass *)cell.unknown_34, shape, shape->FrameCount / 2 + frame, position, window, flags | 1, 0, height - 3, 0, 1000, 0, 0, Point2D(0, 0));
+        CC_Draw_Shape(LogicalSurface, drawer, shape, frame, position, window, flags, 0, height - 12, 2, brightness, 0, 0, Point2D(0, 0));
+        if (DrawShapeShadows) {
+            CC_Draw_Shape(LogicalSurface, (ConvertClass *)cell.unknown_34, shape, shape->FrameCount / 2 + frame, position, window, flags | 1, 0, height - 3, 0, 1000, 0, 0, Point2D(0, 0));
         }
     }
 }
@@ -340,16 +340,16 @@ void TerrainClass::Editor_Draw_It(Point2D const &point, Rect const &window)
         ConvertClass *drawer;
         int brightness;
         if (Class->SpawnsTiberium) {
-            drawer = unknown_drawer_8323bc;
+            drawer = TiberiumDrawer;
             brightness = cell.unknown_10a;
             position -= Point2D(0, 16);
         } else {
             drawer = (ConvertClass *)cell.unknown_34;
             brightness = cell.unknown_10c;
         }
-        CC_Draw_Shape(unknown_surface_83995c, drawer, shape, frame, position, window, 0xE00, 0, height - 4, 2, brightness, 0, 0, Point2D(0, 0));
-        if (unknown_flag_7d88d5) {
-            CC_Draw_Shape(unknown_surface_83995c, (ConvertClass *)cell.unknown_34, shape, shape->FrameCount / 2 + frame, position, window, 0x601, 0, height - 2, 0, 1000, 0, 0, Point2D(0, 0));
+        CC_Draw_Shape(LogicalSurface, drawer, shape, frame, position, window, 0xE00, 0, height - 4, 2, brightness, 0, 0, Point2D(0, 0));
+        if (DrawShapeShadows) {
+            CC_Draw_Shape(LogicalSurface, (ConvertClass *)cell.unknown_34, shape, shape->FrameCount / 2 + frame, position, window, 0x601, 0, height - 2, 0, 1000, 0, 0, Point2D(0, 0));
         }
     }
 }

@@ -1,4 +1,4 @@
-// int __fastcall unknown_color_scheme_index_663d90(char const *name, int kind) -- 0x00663D90
+// int __fastcall Fetch_Scheme_Index_By_Name(char const *name, int kind) -- 0x00663D90
 // Purpose: the index in ColorSchemes of the scheme named `name` (case
 // insensitive) whose +0x310 field equals kind; -1 when there is none.
 // Assumptions: names are hypotheses (Westwood's ColorScheme::From_Name
@@ -16,7 +16,7 @@
 
 extern "C" int __cdecl _stricmp(char const *left, char const *right);
 
-int __fastcall unknown_color_scheme_index_663d90(char const *name, int kind)
+int __fastcall Fetch_Scheme_Index_By_Name(char const *name, int kind)
 {
     for (int index = 0; index < ColorSchemes.Count(); index++) {
         if (_stricmp(name, ColorSchemes[index]->Name) == 0 && ColorSchemes[index]->unknown_0x310 == kind) {

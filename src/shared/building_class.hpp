@@ -255,89 +255,89 @@ public:
     virtual void unknown_slot291(Cell cell);                            // slot 291 0x004506B0
     virtual int unknown_slot292();                                    // slot 292 0x0044D3D0
 
-    bool unknown_44d880();                                            // 0x0044D880 (not a gate, or a gate in mission 24 whose +0x2A8 is done)
-    int unknown_452800();                                             // 0x00452800 (SuperWeapon, or -1 while its AuxBuilding is missing)
-    int unknown_452860();                                             // 0x00452860 (the same for SuperWeapon2)
+    bool Is_Gate_Open();                                            // 0x0044D880 (not a gate, or a gate in mission 24 whose +0x2A8 is done)
+    int Fetch_Super_Weapon();                                             // 0x00452800 (SuperWeapon, or -1 while its AuxBuilding is missing)
+    int Fetch_Super_Weapon2();                                             // 0x00452860 (the same for SuperWeapon2)
     // The techno's +0x1A0/+0x1A4 pair as a cell offset (hypothesis: its map cell).
     Point2D const &unknown_cell_1a0() const { return *(Point2D const *)&unknown_1a0; }
     void unknown_44ca60(char const *name, int index, bool damaged, bool garrisoned, int arg5);  // 0x0044CA60 (starts the animation of an Anims index; hypothesis)
-    void unknown_44cce0(AbstractClass *anim);                         // 0x0044CCE0 (Detach, for an animation not in unknown_49c)
-    void unknown_443d60(int arg1);                                   // 0x00443D60 (Receive_Message 3 passes true)
-    int unknown_4532f0();                                             // 0x004532F0 (TechnoClass slot 168)
+    void Detach_Anim(AbstractClass *anim);                         // 0x0044CCE0 (Detach, for an animation not in unknown_49c)
+    void Begin_Mode(int arg1);                                   // 0x00443D60 (Receive_Message 3 passes true)
+    int GetOccupantCount();                                             // 0x004532F0 (TechnoClass slot 168)
     bool CanBeOccupiedBy(TechnoClass *techno);                       // 0x00452EB0 (whether techno may enter; InfantryClass slot 132)
-    void unknown_453300(); // complete00453300, original source-name hypothesis
-    void unknown_452f50(int control); // complete00452F50, raw DWORD-control/void spelling hypothesis
+    void Update_Garrison_Owner(); // complete00453300, original source-name hypothesis
+    void Eject_Occupants(int control); // complete00452F50, raw DWORD-control/void spelling hypothesis
     void KillOccupants(InfantryClass *infantry);                   // 0x004536D0 (an Assaulter enters; InfantryClass slot 93)
     void Unknown_00452390(HouseClass *house);                         // 0x00452390 (an Agent infiltrates for house; InfantryClass slot 93)
-    void unknown_44d070(bool damaged);                                // 0x0044D070 (TechnoClass slot 233: health at or below the rules' +0x1368)
-    void unknown_4397c0();                                            // 0x004397C0 (slot 60 on each of unknown_49c, then clears them)
+    void Set_Anim_Damage_State(bool damaged);                                // 0x0044D070 (TechnoClass slot 233: health at or below the rules' +0x1368)
+    void Remove_Damage_Fires();                                            // 0x004397C0 (slot 60 on each of unknown_49c, then clears them)
     void unknown_440140(Cell const *cell, bool arg2);           // 0x00440140 (slot 77, action 1)
-    CoordStruct unknown_44ed60(int weapon, bool arg2);                // 0x0044ED60 (the voxel barrel's fire coordinate; slot 43)
+    CoordStruct Voxel_Fire_Coord(int weapon, bool arg2);                // 0x0044ED60 (the voxel barrel's fire coordinate; slot 43)
 #ifdef RA2_BUILDING_BARREL_MATRIX_VALUE
-    Matrix3D unknown_453900(); // 00453900, hidden result, RET4
+    Matrix3D Get_Barrel_Matrix(); // 00453900, hidden result, RET4
 #else
-    Matrix3D &unknown_453900(Matrix3D &result); // 00453900: writes/returns48-byte transform output, ABI hypothesis
+    Matrix3D &Get_Barrel_Matrix(Matrix3D &result); // 00453900: writes/returns48-byte transform output, ABI hypothesis
 #endif
     void Draw_Selection_Overlay_0043b660(Point2D const &point, Rect const &bounds); // 0043B660, observed ret8
     int unknown_43be20();                                             // 0x0043BE20 selects SHP frame from stage/state, health and occupants
-    bool unknown_4454b0();                                            // 0x004454B0 (weapons factory guard step; slot 129)
-    BuildingClass *unknown_44ddb0(int facing, bool through_fences, int max_range); // 0x0044DDB0, RET12; arg2 read as byte
+    bool Clear_Weapons_Factory_Bib();                                            // 0x004454B0 (weapons factory guard step; slot 129)
+    BuildingClass *Find_Laser_Fence_Post(int facing, bool through_fences, int max_range); // 0x0044DDB0, RET12; arg2 read as byte
     void unknown_44dc40(int arg1);                                    // 0x0044DC40 (laser fence post; slot 52)
     void Create_Fogged_Copy_00452c70(DynamicVectorClass<FoggedObjectClass *> *replacement_list, CellClass *replacement_cell, bool arg); // new owned RET12 helper
     void Reserve_Base_Area_004510d0(bool skip_inner_cells); // 004510D0, original RET4 and byte predicate
-    void unknown_4513b0();                                            // 0x004513B0 (slot 52, when slot 31 fails)
-    void unknown_44cfd0(int index);                                   // 0x0044CFD0 (-2: all of unknown_454)
-    bool unknown_4538d0(ObjectTypeClass *type);                       // 0x004538D0 (whether slot 62 accepts a new object of the type for the house; hypothesis)
-    void unknown_453850();                                            // 0x00453850 (restarts the ProduceCash timer unknown_5a0; pays the house ProduceCashAmount)
+    void Release_Base_Area();                                            // 0x004513B0 (slot 52, when slot 31 fails)
+    void DestroyNthAnim(int index);                                   // 0x0044CFD0 (-2: all of unknown_454)
+    bool Exit_New_Object(ObjectTypeClass *type);                       // 0x004538D0 (whether slot 62 accepts a new object of the type for the house; hypothesis)
+    void Produce_Cash();                                            // 0x00453850 (restarts the ProduceCash timer unknown_5a0; pays the house ProduceCashAmount)
     void unknown_44d2d0(int layer);                                   // 0x0044D2D0 (the layer of every animation in unknown_454: 0x10 instead of 0xF when slot 25 answers 5)
     int unknown_449dd0();                                             // 0x00449DD0 (the type's +0xC6C, with +0xC74 when unknown_539, and that of each upgrade in unknown_4c0; 0 when slot 111 holds or unknown_530 is clear)
-    void unknown_44dfc0(int arg1);                                    // 0x0044DFC0 (called with 0, 2, 4, 6 by unknown_44dbe0)
-    void unknown_44e5a0(int arg1);                                    // 0x0044E5A0
-    void unknown_44dbe0();                                            // 0x0044DBE0 (a laser fence post, outside a movie, refreshes its four links and the field)
-    bool unknown_445ab0();                                            // 0x00445AB0 (an undeploying type: true for a sensor, tick tank, ICBM or artillery type, or per the game mode and the owner)
-    void unknown_44a000(UnknownBuildingFactory *factory);             // 0x0044A000 (abandons the factory's production when no building can build it)
-    void unknown_44c920(int index, bool damaged, bool garrisoned, int arg4);   // 0x0044C920 (starts the animation of an Anims index in the chosen state)
-    bool unknown_44d900(BuildingTypeClass const *upgrade, HouseClass *house);        // 0x0044D900 (whether the upgrade type may power up this building; PowersUpToLevel)
+    void unknown_44dfc0(int arg1);                                    // 0x0044DFC0 (called with 0, 2, 4, 6 by Init_Laser_Fence)
+    void Toggle_Laser_Fence_Post(int arg1);                                    // 0x0044E5A0
+    void Init_Laser_Fence();                                            // 0x0044DBE0 (a laser fence post, outside a movie, refreshes its four links and the field)
+    bool Can_Be_Undeployed();                                            // 0x00445AB0 (an undeploying type: true for a sensor, tick tank, ICBM or artillery type, or per the game mode and the owner)
+    void Abandon_Orphaned_Production(UnknownBuildingFactory *factory);             // 0x0044A000 (abandons the factory's production when no building can build it)
+    void PlayNthAnim(int index, bool damaged, bool garrisoned, int arg4);   // 0x0044C920 (starts the animation of an Anims index in the chosen state)
+    bool Can_Upgrade(BuildingTypeClass const *upgrade, HouseClass *house);        // 0x0044D900 (whether the upgrade type may power up this building; PowersUpToLevel)
     static void __fastcall Read_INI(CCINIClass &ini);                 // 0x0044AB80 ([Structures] entries)
-    static void __fastcall unknown_44df40();
-    void Update_Animations_0044BD40(); // owned Building animation-update hypothesis                                     // 0x0044DF40 (unknown_44dbe0's work for every laser fence post)
-    void unknown_44ab00();                                            // 0x0044AB00 (the house's flags: the OR of the +0x1A8 of its Radar buildings)
+    static void __fastcall Init_All_Laser_Fences();
+    void Update_Animations_0044BD40(); // owned Building animation-update hypothesis                                     // 0x0044DF40 (Init_Laser_Fence's work for every laser fence post)
+    void Update_Radar_Spied();                                            // 0x0044AB00 (the house's flags: the OR of the +0x1A8 of its Radar buildings)
     void unknown_44e260(int facing, bool enabled); // 0x0044E260, nonvirtual RET8
     bool Advance_Upgrade_Animation_0044c5d0(); // 0x0044C5D0, nonvirtual hypothesis
     void Write_Structure_INI_0044b250(INIClass &ini); // 0x0044B250, nonvirtual
-    bool unknown_44c860();                                            // 0x0044C860 (removes the last upgrade; true when there was one)
+    bool Remove_Upgrade();                                            // 0x0044C860 (removes the last upgrade; true when there was one)
     void unknown_44d0f0(ConvertClass *value, int frame);                        // 0x0044D0F0 (the animations whose type has +0x318 take the value and frame; all take the layer)
 #ifdef RA2_BUILDING_CLOAK_GENERATOR
     void Enable_Cloak_Generator_0044fa90();                           // 0x0044FA90 (TibSun Enable_Cloak_Generator: the field starts growing)
     void Disable_Cloak_Generator_0044fad0();                          // 0x0044FAD0 (TibSun Disable_Cloak_Generator: the field starts collapsing)
 #endif
-    bool unknown_44d7d0();                                            // 0x0044D7D0 (a gate not in mission 24, or not settled, is sent to mission 24; true for a non-gate or an open gate)
+    bool Open_Gate();                                            // 0x0044D7D0 (a gate not in mission 24, or not settled, is sent to mission 24; true for a non-gate or an open gate)
     void unknown_44d600();                                            // 0x0044D600 (sets unknown_5ba; refreshes the house's buildings, the owned object, the field and the powered animations)
-    void unknown_44f8e0();                                            // 0x0044F8E0
-    void unknown_44da20(InfantryClass *infantry);                     // 0x0044DA20 (moves the infantry to the end of unknown_53c)
-    void unknown_44b870(int arg1, CoordStruct const &coord);          // 0x0044B870 (stores arg1, the type's DelayedFireDelay and the coordinate in unknown_5c8, unknown_5d8 and unknown_5cc; restarts animation 3 and 10)
-    void unknown_44b910();                                            // 0x0044B910 (drops the infantry in unknown_53c that no longer head here; sets unknown_531)
+    void Update_Power_State();                                            // 0x0044F8E0
+    void Rotate_Overpowerer(InfantryClass *infantry);                     // 0x0044DA20 (moves the infantry to the end of unknown_53c)
+    void Start_Delayed_Fire(int arg1, CoordStruct const &coord);          // 0x0044B870 (stores arg1, the type's DelayedFireDelay and the coordinate in unknown_5c8, unknown_5d8 and unknown_5cc; restarts animation 3 and 10)
+    void Update_Overpowerers();                                            // 0x0044B910 (drops the infantry in unknown_53c that no longer head here; sets unknown_531)
     void unknown_44b770();                                            // 0x0044B770 (counts unknown_5d8 down; at zero runs the delayed action unknown_5c8: 1 fires at the target, 2 starts 0x00446820)
-    void unknown_446820(CoordStruct coord);                           // 0x00446820 (creates an object at a coordinate; extent not yet bound)
-    void unknown_44c9a0();                                            // 0x0044C9A0 (places each animation at the building's slot 42 coordinate plus its Anims offset)
+    void Fire_Prism_Support(CoordStruct coord);                           // 0x00446820 (creates an object at a coordinate; extent not yet bound)
+    void Set_Anim_Coords();                                            // 0x0044C9A0 (places each animation at the building's slot 42 coordinate plus its Anims offset)
     void unknown_44d6c0();                                            // 0x0044D6C0 (the reverse of unknown_44d600: clears unknown_5ba, starts the cloak and the powered animations)
-    bool unknown_44daa0(ObjectClass *object);                         // 0x0044DAA0 (whether the object's centre is within the type's PsychicDetectionRadius cells)
+    bool Is_In_Psychic_Range(ObjectClass *object);                         // 0x0044DAA0 (whether the object's centre is within the type's PsychicDetectionRadius cells)
     void Spawn_Survivors_0043f8e0(ObjectClass *attacker); // private owned hypothesis, RET4
-    bool unknown_44db40(CellClass *cell);                             // 0x0044DB40 (the same for a cell's centre)
+    bool Is_Cell_In_Psychic_Range(CellClass *cell);                             // 0x0044DB40 (the same for a cell's centre)
     void Update_Anim_Appearance_0044d190();                                            // 0x0044D190 (slot 79's animation refresh: the slot 115 value and the cell's height level to every animation with +0x318, then the layer)
     void unknown_44d3e0();                                            // 0x0044D3E0 (powers the building on)
     void unknown_44d530();                                            // 0x0044D530 (powers the building off)
     Cell Offset_Toward_Map_Center_0044aa40(int mode); // private nominal class hypothesis, RET8 hidden Cell result
-    bool unknown_449930();                                            // 0x00449930 (whether another object stands in a cell of the foundation)
-    bool unknown_4444b0(bool take);                                   // 0x004444B0 (makes this the primary of its factory type among the house's buildings; true when unknown_32b changed)
+    bool Is_Blocked_By_Occupier();                                            // 0x00449930 (whether another object stands in a cell of the foundation)
+    bool Become_Primary(bool take);                                   // 0x004444B0 (makes this the primary of its factory type among the house's buildings; true when unknown_32b changed)
     int unknown_449d40();                                             // 0x00449D40 (the power the building supplies: Power, ExtraPower when unknown_538, and the upgrades', times the health; 0 when off)
-    int unknown_451710();                                             // 0x00451710 (the type's +0x11D8 if positive, else the first upgrade's)
-    int unknown_451760();                                             // 0x00451760 (the same for +0x11DC)
-    int unknown_4517b0();                                             // 0x004517B0 (the same for +0x11E0)
-    int unknown_4508c0();                                             // 0x004508C0 (a mask of the FirestormWall buildings next to this one, bit per facing/2)
-    bool unknown_450cb0(ObjectClass *object, bool damage); // 00450CB0; AL0/1, RET8, collision effects/damage
-    void unknown_44f730();                                            // 0x0044F730 (power restored: starts the Powered animations, creates the PoweredLight ones that are missing)
-    void unknown_44f800();                                            // 0x0044F800 (power lost: stops the Powered animations, removes the PoweredLight ones)
+    int Anti_Air_Defense_Value();                                             // 0x00451710 (the type's +0x11D8 if positive, else the first upgrade's)
+    int Anti_Armor_Defense_Value();                                             // 0x00451760 (the same for +0x11DC)
+    int Anti_Infantry_Defense_Value();                                             // 0x004517B0 (the same for +0x11E0)
+    int Get_Firestorm_Wall_Frame();                                             // 0x004508C0 (a mask of the FirestormWall buildings next to this one, bit per facing/2)
+    bool Crossing_Firestorm(ObjectClass *object, bool damage); // 00450CB0; AL0/1, RET8, collision effects/damage
+    void Enable_Powered_Anims();                                            // 0x0044F730 (power restored: starts the Powered animations, creates the PoweredLight ones that are missing)
+    void Disable_Powered_Anims();                                            // 0x0044F800 (power lost: stops the Powered animations, removes the PoweredLight ones)
     bool Cell_Is_Impassable_Row_00453af0(CellClass const *cell); // 0x00453AF0, nonvirtual
     bool unknown_452be0();                                            // 0x00452BE0 (whether every cell of the foundation has the cell flag 0x400000)
     int unknown_451930();                                             // 0x00451930 (a radius in cells: PsychicDetectionRadius, a gap generator's, a sensor/cloak's, else the weapon's range)

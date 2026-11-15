@@ -102,35 +102,35 @@ void __fastcall Draw_Box(Rect const &rect, int up, bool filled)
     BoxStyleType const &colors = ButtonColors[up];
 
     if (filled) {
-        unknown_surface_83995c->Fill_Rect(rect, scheme->Converter->Convert(colors.Filler));
+        LogicalSurface->Fill_Rect(rect, scheme->Converter->Convert(colors.Filler));
     }
 
     switch (up) {
     case 4:
-        unknown_surface_83995c->Draw_Rect(rect, scheme->Converter->Convert(colors.Highlight));
+        LogicalSurface->Draw_Rect(rect, scheme->Converter->Convert(colors.Highlight));
         break;
 
     case 5:
-        unknown_surface_83995c->Draw_Rect(Rect(rect.X + 1, rect.Y + 1, rect.Width - 1, rect.Height - 1),
+        LogicalSurface->Draw_Rect(Rect(rect.X + 1, rect.Y + 1, rect.Width - 1, rect.Height - 1),
                                           scheme->Converter->Convert(colors.Highlight));
         break;
 
     default:
-        unknown_surface_83995c->Draw_Line(Point2D(rect.X, rect.Y + rect.Height),
+        LogicalSurface->Draw_Line(Point2D(rect.X, rect.Y + rect.Height),
                                           Point2D(rect.X + rect.Width, rect.Y + rect.Height),
                                           scheme->Converter->Convert(colors.Shadow));
-        unknown_surface_83995c->Draw_Line(Point2D(rect.X + rect.Width, rect.Y),
+        LogicalSurface->Draw_Line(Point2D(rect.X + rect.Width, rect.Y),
                                           Point2D(rect.X + rect.Width, rect.Y + rect.Height),
                                           scheme->Converter->Convert(colors.Shadow));
-        unknown_surface_83995c->Draw_Line(Point2D(rect.X, rect.Y),
+        LogicalSurface->Draw_Line(Point2D(rect.X, rect.Y),
                                           Point2D(rect.X + rect.Width, rect.Y),
                                           scheme->Converter->Convert(colors.Highlight));
-        unknown_surface_83995c->Draw_Line(Point2D(rect.X, rect.Y),
+        LogicalSurface->Draw_Line(Point2D(rect.X, rect.Y),
                                           Point2D(rect.X, rect.Y + rect.Height),
                                           scheme->Converter->Convert(colors.Highlight));
-        unknown_surface_83995c->Put_Pixel(Point2D(rect.X, rect.Y + rect.Height),
+        LogicalSurface->Put_Pixel(Point2D(rect.X, rect.Y + rect.Height),
                                           scheme->Converter->Convert(colors.Corner));
-        unknown_surface_83995c->Put_Pixel(Point2D(rect.X + rect.Width, rect.Y),
+        LogicalSurface->Put_Pixel(Point2D(rect.X + rect.Width, rect.Y),
                                           scheme->Converter->Convert(colors.Corner));
         break;
     }
@@ -390,11 +390,11 @@ Point2D __fastcall unknown_scheme_text_print_497f40(wchar_t const *text, Surface
 }
 
 
-// Point2D unknown_scheme_text_print_498050(wchar_t const *text, Surface *surface, Rect const *clip, Point2D *xy, unsigned fore, unsigned back, unsigned flags, int scheme, int unknown8) (0x00498050)
+// Point2D Plain_Text_Print_Wide(wchar_t const *text, Surface *surface, Rect const *clip, Point2D *xy, unsigned fore, unsigned back, unsigned flags, int scheme, int unknown8) (0x00498050)
 // Simple_Text_Print in the base colour of colour scheme `scheme` (an index
 // into ColorSchemes), or in `fore` when scheme is -1.
 
-Point2D __fastcall unknown_scheme_text_print_498050(wchar_t const *text, Surface *surface, Rect const *clip,
+Point2D __fastcall Plain_Text_Print_Wide(wchar_t const *text, Surface *surface, Rect const *clip,
                                                     Point2D *xy, unsigned fore, unsigned back, unsigned flags,
                                                     int scheme, int unknown8)
 {

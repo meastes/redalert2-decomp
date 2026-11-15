@@ -59,14 +59,14 @@ bool __fastcall Get_File_From_Host_0066aef0(char *return_name, int gametype, boo
         net_send_packet.Command = 0x10;
         WideToCharString_006fa0f0(net_send_packet.Name, unknown_players_a3fa7c[0]->Name, -1);
         if (unknown_session_a3d298.Type == 3) {
-            unknown_ipx_manager_a40978.Send_Global_Message(&net_send_packet, sizeof(net_send_packet), 1, &unknown_address_a3db2c, 0, 0);
+            Ipx.Send_Global_Message(&net_send_packet, sizeof(net_send_packet), 1, &unknown_address_a3db2c, 0, 0);
         } else {
             WOL::User *host = Unknown_0074DA60();
             if (host != 0) {
-                unknown_ipx_manager_a40978.unknown_5259a0(&net_send_packet, sizeof(net_send_packet), 1, Narrow_To_Wide_006fa180(host->name));
+                Ipx.Send_Global_Message_To_Name(&net_send_packet, sizeof(net_send_packet), 1, Narrow_To_Wide_006fa180(host->name));
             }
         }
-        while (unknown_ipx_manager_a40978.Global_Num_Send() > 0 && response_timer) {
+        while (Ipx.Global_Num_Send() > 0 && response_timer) {
             Service_Game_IO_00481fb0();
         }
     }
@@ -91,7 +91,7 @@ bool __fastcall Get_File_From_Host_0066aef0(char *return_name, int gametype, boo
         do {
             Service_Game_IO_00481fb0();
             int receive_packet_length = sizeof(net_receive_packet);
-            if (unknown_ipx_manager_a40978.Get_Global_Message(&net_receive_packet, &receive_packet_length, &sender_address, &product_id)) {
+            if (Ipx.Get_Global_Message(&net_receive_packet, &receive_packet_length, &sender_address, &product_id)) {
                 bool from_host = sender_address.Is_Same_Node(unknown_address_a3db2c);
                 if (unknown_session_a3d298.Type == 4) {
                     WOL::User *host = Unknown_0074DA60();
@@ -128,12 +128,12 @@ bool __fastcall Get_File_From_Host_0066aef0(char *return_name, int gametype, boo
         if (unknown_session_a3d298.Type == 4) {
             WOL::User *host = Unknown_0074DA60();
             if (host != 0) {
-                unknown_ipx_manager_a40978.unknown_5259a0(&net_send_packet, sizeof(net_send_packet), 1, Narrow_To_Wide_006fa180(host->name));
+                Ipx.Send_Global_Message_To_Name(&net_send_packet, sizeof(net_send_packet), 1, Narrow_To_Wide_006fa180(host->name));
             }
         } else {
-            unknown_ipx_manager_a40978.Send_Global_Message(&net_send_packet, sizeof(net_send_packet), 1, &unknown_address_a3db2c, 0, 0);
+            Ipx.Send_Global_Message(&net_send_packet, sizeof(net_send_packet), 1, &unknown_address_a3db2c, 0, 0);
         }
-        while (unknown_ipx_manager_a40978.Global_Num_Send() > 0 && response_timer) {
+        while (Ipx.Global_Num_Send() > 0 && response_timer) {
             Service_Game_IO_00481fb0();
         }
     }

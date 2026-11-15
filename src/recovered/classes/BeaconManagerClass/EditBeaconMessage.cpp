@@ -45,7 +45,7 @@ void BeaconManagerClass::EditBeaconMessage_0042ec20(unsigned short const *text, 
                 if (packet.Slot != -1) {
                     for (int player = 1; player < unknown_players_a3fa7c.Count(); player++) {
                         Debug_Printf("Sending beacon text to %s\n", unknown_players_a3fa7c[player]);
-                        unknown_ipx_manager_a40978.Send_Global_Message(&packet, 0x1C7, 1, &unknown_players_a3fa7c[player]->Address, 0, 0);
+                        Ipx.Send_Global_Message(&packet, 0x1C7, 1, &unknown_players_a3fa7c[player]->Address, 0, 0);
                     }
                 }
             } else if (beacon->unknown_house != unknown_player_a35db4->ArrayIndex && beacon->Unknown_0042E080()) {

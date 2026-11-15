@@ -81,13 +81,13 @@ public:
 };
 
 // The Sound.ini defaults ([Defaults]; hypothesis: file statics of the unit).
-extern int unknown_voc_priority_7f9a6c;
-extern float unknown_voc_volume_7f9a70;
-extern float unknown_voc_min_volume_7f9a74;
-extern unsigned int unknown_voc_type_7f9a78;
-extern int unknown_voc_range_7f9a7c;
-extern int unknown_voc_limit_7f9a80;
-extern unsigned int unknown_voc_control_ad0850;
+extern int DefaultPriority;
+extern float DefaultVolume;
+extern float DefaultMinVolume;
+extern unsigned int DefaultType;
+extern int DefaultRange;
+extern int DefaultLimit;
+extern unsigned int DefaultControl;
 
 // The volume (0..1) and pan of a sound of a type at a coordinate, seen from
 // the tactical view (0x00713F30; hypothesis).

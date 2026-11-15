@@ -219,23 +219,23 @@ public:
     // Westwood's Cell_Coord: the centre at the height of its middle (inline; Goodie_Check).
     CoordStruct Ground_Coord() const { UnknownCellCoord coord(Fetch_CellID()); coord.Z = unknown_4706c0(Point2D(128, 128)); return coord; }
 #endif
-    bool unknown_47b590() const;                // 0x0047B590 (no tile: 0 or 0xFFFF)
-    bool unknown_47b5b0() const;                // 0x0047B5B0
+    bool Is_Tile_Clear() const;                // 0x0047B590 (no tile: 0 or 0xFFFF)
+    bool Is_Tile_Ramp() const;                // 0x0047B5B0
     bool unknown_47b5e0() const;                // 0x0047B5E0 (Westwood's Is_Tile_Cliff: a cliff, waterfall, ramp, cave or bridge tile)
     int Occupation_Mask(int house);              // 0x0047BFA0 (-1 unless unknown_dc has the house bit, else the facings whose neighbour has it; BuildingClass 0x004512C6/0x004515A9)
     bool unknown_47b7c0() const;                // 0x0047B7C0
     bool unknown_47b7e0() const;                // 0x0047B7E0
-    bool unknown_47b860() const;                // 0x0047B860
-    bool unknown_47b880() const;                // 0x0047B880
-    bool unknown_47b8a0() const;                // 0x0047B8A0
-    bool unknown_47b8e0() const;                // 0x0047B8E0
-    bool unknown_47b900() const;                // 0x0047B900
-    bool unknown_47b920() const;                // 0x0047B920
-    bool unknown_47b940() const;                // 0x0047B940
-    bool unknown_47b960() const;                // 0x0047B960
-    bool unknown_47b980() const;                // 0x0047B980
-    bool unknown_47b9a0() const;                // 0x0047B9A0
-    bool unknown_47b9c0() const;                // 0x0047B9C0
+    bool Is_Tile_Misc_Pavement() const;                // 0x0047B860
+    bool Is_Tile_Pavement() const;                // 0x0047B880
+    bool Is_Tile_Dirt_Road() const;                // 0x0047B8A0
+    bool Is_Tile_Paved_Road() const;                // 0x0047B8E0
+    bool Is_Tile_Paved_Road_End() const;                // 0x0047B900
+    bool Is_Tile_Paved_Road_Slope() const;                // 0x0047B920
+    bool Is_Tile_Road_Median() const;                // 0x0047B940
+    bool Is_Tile_Bridge() const;                // 0x0047B960
+    bool Is_Tile_Train_Bridge() const;                // 0x0047B980
+    bool Is_Tile_Clear_To_Sand_LAT() const;                // 0x0047B9A0
+    bool Is_Tile_Clear_To_Green_LAT() const;                // 0x0047B9C0
     bool Is_Tile_Destroyable_Cliff() const;     // 0x0047BB10
 
     // Per-house bits.
@@ -248,11 +248,11 @@ public:
     // through the const wrapper (Is_Near_Tunnel_ES's inline expansions show the depth).
     bool Is_Near_Tunnel_NW();                   // 0x00479CF0
     bool Is_Near_Tunnel_ES();                   // 0x00479F70
-    bool unknown_47a120(TechnoClass *techno) const;   // 0x0047A120 (UnitClass slot 27)
+    bool Can_Enter_Tunnel(TechnoClass *techno) const;   // 0x0047A120 (UnitClass slot 27)
     void Set_House_Bit(int house);              // 0x0047C320
     void Clear_House_Bit(int house);            // 0x0047C340
 
-    bool unknown_47ba10(int house) const;      // 0x0047BA10 (visible to the player's house; hypothesis)
+    bool Should_Draw_As_Cloaked(int house) const;      // 0x0047BA10 (visible to the player's house; hypothesis)
     bool Can_Build_Here() const;                // 0x0047CDD0 (land allows ...; no building, not blocked)
     Point2D unknown_475440() const;             // 0x00475440 (the overlay image offset in the cell; hypothesis)
     void unknown_4754b0(Point2D const &point, Rect const &rect);   // 0x004754B0 (draws IsoTileTypes[0] at point; Tactical 0x006A3641)
@@ -279,10 +279,10 @@ public:
     bool Can_Tiberium_Spread() const;                // 0x00478950 (the ore may spread from here; hypothesis)
     bool Grow_Tiberium();                      // 0x004789D0 (grows the ore through Place_Tiberium; hypothesis)
     bool Place_Tiberium(int tiberium, int data);    // 0x0047C3A0 (not recovered; TibSun Place_Tiberium(tib, data): Spread_Tiberium 0x00478A40 passes 3)
-    int unknown_47ce70() const;                 // 0x0047CE70 (+0xF0 limited to Rules RadLevelMax, as an int)
+    int GetRadLevel() const;                 // 0x0047CE70 (+0xF0 limited to Rules RadLevelMax, as an int)
     bool Can_Burrow_Here();                      // 0x0047C200 (the map allows the cell, its tile type does not refuse it, it is not blocked and holds no building or terrain object)
     void Fog_Cell();                      // 0x0047BC80 (Westwood's Fog_Cell: fogs the diagonal cells, keeping fogged copies of their buildings)
-    void unknown_47be00();                      // 0x0047BE00 (diagonal pass over the cells ahead)
+    void Unfog_Cell();                      // 0x0047BE00 (diagonal pass over the cells ahead)
     void Remove_Fogged_Objects();                      // 0x0047BE60
 
     void unknown_47a340(AbstractClass *target);   // 0x0047A340 (forgets a target)
@@ -296,12 +296,12 @@ public:
     bool unknown_47cb50();                      // 0x0047CB50 (map call at the cell centre)
     void unknown_47cbb0();                      // 0x0047CBB0
     int unknown_475db0(int amount);             // 0x00475DB0 (takes up to amount of tiberium; answers what it took; hypothesis)
-    int unknown_47c040();                       // 0x0047C040
+    int Reduce_Weed();                       // 0x0047C040
     void Redraw_Veins();                      // 0x0047A7A0
 
     // Counters and scalars.
-    void unknown_47c840();                      // 0x0047C840 (decrements +0x130)
-    void unknown_47c8a0();                      // 0x0047C8A0 (increments +0x130 up to +0x134)
+    void ReduceShroudCounter();                      // 0x0047C840 (decrements +0x130)
+    void IncreaseShroudCounter();                      // 0x0047C8A0 (increments +0x130 up to +0x134)
     // Westwood's Init_Drawer: takes the drawer given, or finds or makes one for the cell's light (+0x34), and keeps the light values.
     // arg1 is the drawer (a LightConvertClass *; retyping it is a rename of the accepted callers' binding).
     void Init_Drawer(LightConvertClass *drawer, int intensity, int ambient, int brightness, int tile_brightness, int alt_brightness);   // 0x004790F0 (TerrainClass slots 67/68, DisplayClass 0x0049E570 pass no drawer)
@@ -342,7 +342,7 @@ public:
     void Pick_Drawer(LightConvertClass *&drawer, int &intensity, int &ambient, int &brightness, int &tile_brightness, int &alt_brightness) const;   // 0x00479310
     void Recalc_Light();                      // 0x004798F0 (Westwood's Recalc_Light: the brightness values from the scenario light; DisplayClass 0x0049E5E0)
     void Init_Light(int &intensity, int &ambient, int &brightness, int &tile_brightness, int &alt_brightness, int &red, int &green, int &blue) const;   // 0x00479440
-    int unknown_47ce50() const;                 // 0x0047CE50 (+0xF0 above 1.0)
+    int IsRadiated() const;                 // 0x0047CE50 (+0xF0 above 1.0)
     void Reduce_f0(double amount);              // 0x0047CEC0
     bool Set_unknown_e0(void *value);           // 0x0047CF30
 
@@ -358,9 +358,9 @@ public:
     CoordStruct unknown_475d60() const;         // 0x00475D60 (centre at the middle's height)
     bool Is_Spot_Free(int facing, bool alt) const;   // 0x00476460 (+0x124/+0x128 bit clear)
     ObjectClass *unknown_476750() const;        // 0x00476750 (the building, if its type's +0x1351 flag is set)
-    bool unknown_4786d0(int value);             // 0x004786D0
+    bool Flag_Place(int value);             // 0x004786D0
     bool unknown_478720();                      // 0x00478720
-    void unknown_478740();                      // 0x00478740 (occupants' ObjectClass slot 61)
+    void Shimmer();                      // 0x00478740 (occupants' ObjectClass slot 61)
     // Whether an object of speed type speed may enter (zone and level -1: any;
     // arg2/arg3 ignore some blocked directions; hypothesis).
     bool Is_Clear_To_Move(int speed, bool arg2, bool arg3, int zone, int zone_type, int level, bool alt);   // 0x00478760
@@ -401,7 +401,7 @@ public:
     void unknown_473000();          // 0x00473000 (Destroy_Bridge above)
     bool unknown_47a270();          // 0x0047A270 (Is_Tile_Water above, declared non-const here)
     void On_Bridge_Collapse();          // 0x0047C930 (TibSun On_Bridge_Collapse)
-    void unknown_47c900();          // 0x0047C900 (maps the cell for the player; MapClass 0x00549C50)
+    void Unshroud();          // 0x0047C900 (maps the cell for the player; MapClass 0x00549C50)
     void Occupy_Down(ObjectClass *object, bool alt);   // 0x00473B30 (TibSun Occupy_Down)
 #ifdef RA2_MAP_BRIDGE_PIECES
 #ifndef CELL_DECLARE_DRAW_IT

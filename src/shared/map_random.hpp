@@ -5,5 +5,5 @@
 #ifndef RA2_SHARED_MAP_RANDOM_HPP
 #define RA2_SHARED_MAP_RANDOM_HPP
 #include "shared/random2.hpp"
-extern Random2Class unknown_map_random_a705c0;  // 0x00A705C0
+extern Random2Class RMGRandom;  // 0x00A705C0
 #endif

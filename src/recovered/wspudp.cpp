@@ -398,7 +398,7 @@ bool UDPInterfaceClass::Open_Socket(int)
 
     sockaddr_in addr;
     addr.sin_family = AF_INET;
-    addr.sin_port = htons(unknown_alternate_port_7f60d8);
+    addr.sin_port = htons(AlternateListenPort);
     addr.sin_addr = htonl(INADDR_ANY);
     Debug_Printf("About to bind the UDP socket\n");
     if (bind(Socket2, &addr, sizeof(addr)) == SOCKET_ERROR) {
@@ -658,8 +658,8 @@ int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int 
                 *(unsigned long *)&packet->Address[4] = addr.sin_addr;
                 unsigned long from = addr.sin_addr;
                 Debug_Printf("Throwing away malformed packet from %d . %d . %d . %d ; %d\n", from & 0xFF, (from >> 8) & 0xFF, (from >> 16) & 0xFF, from >> 24, ntohs(addr.sin_port));
-                if (!unknown_b2af1c) {
-                    unknown_b2af1c = true;
+                if (!IsMalformedPacketReported) {
+                    IsMalformedPacketReported = true;
                 }
                 if (packet->IsAllocated) {
                     delete packet;
@@ -717,7 +717,7 @@ int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int 
         addr.sin_family = AF_INET;
         if (alternate) {
             if (addr.sin_addr != htonl(0x7F000001)) {
-                addr.sin_port = htons((unsigned short)unknown_port_7f60d4);
+                addr.sin_port = htons((unsigned short)AlternateSendPort);
                 addr.sin_addr = htonl(0x7F000001);
             }
         } else {
@@ -729,7 +729,7 @@ int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int 
             if (!memcmp(&packet->Address[4], unknown_forward_address_a3fbb8.NodeAddress, 4)
                 && (unknown_session_a3d298.Players.Count() == 0 || unknown_forward_address_a3fbb8 == unknown_session_a3d298.Players[0]->Address)) {
                 addr.sin_addr = htonl(0x7F000001);
-                addr.sin_port = htons((unsigned short)unknown_port_7f60dc);
+                addr.sin_port = htons((unsigned short)LoopbackPort);
             }
         }
         ip.Address = addr.sin_addr;

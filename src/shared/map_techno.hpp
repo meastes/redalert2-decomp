@@ -28,7 +28,7 @@ public:
 class UnknownMapTechnoType {
     char unknown_000[0x500];
 public:
-    int unknown_500;                // +0x500 (row of unknown_table_7e00c4)
+    int unknown_500;                // +0x500 (row of MZonePassability)
 };
 
 class ObjectClass : public AbstractClass {
@@ -158,8 +158,8 @@ public:
 // A building as MapClass 0x00567380 and 0x0055ACD0 see it (stand-in).
 class BuildingClass : public TechnoClass {
 public:
-    bool unknown_44d880();                  // 0x0044D880 (as shared/building_class.hpp)
-    bool unknown_44d7d0();                  // 0x0044D7D0 (as shared/building_class.hpp)
+    bool Is_Gate_Open();                  // 0x0044D880 (as shared/building_class.hpp)
+    bool Open_Gate();                  // 0x0044D7D0 (as shared/building_class.hpp)
 
 #ifdef RA2_MAP_CLOSE_OBJECT
     char unknown_374[0x418 - 0x374];        // the TechnoClass stand-in reaches +0x372 in this unit

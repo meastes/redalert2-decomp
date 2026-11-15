@@ -412,11 +412,11 @@ void ProgressScreenClass::Draw_Bar(Point2D xy, double fraction, Surface *surface
     rect.X = xy.X + 3;
     rect.Y = xy.Y + 3;
     Rect outline = rect;
-    Unknown_Rect_Shrink_006F1B00(&outline, -3);
+    Inflate_Rect(&outline, -3);
     ConvertClass *drawer;
     if (scheme == 0) {
         scheme = Fetch_Scheme_By_Name("DarkRed", 1);
-        drawer = unknown_drawer_8323c4;
+        drawer = NormalDrawer;
     } else {
         drawer = scheme->Converter;
     }
@@ -446,7 +446,7 @@ void ProgressScreenClass::Draw_Flag(Point2D xy, Surface *flag)
     Rect rect(xy.X, xy.Y, width, height);
     int transparent = RGB_To_Pixel(255, 0, 255);
     if (HiddenSurface != 0 && !static_cast<DSurface *>(HiddenSurface)->Is_Surface_Lost()) {
-        unknown_bitmap_writer_a76378.DrawTrans(rect, HiddenSurface, flag, transparent);
+        SurfaceCache.DrawTrans(rect, HiddenSurface, flag, transparent);
     }
 }
 

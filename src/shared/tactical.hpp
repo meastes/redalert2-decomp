@@ -71,21 +71,21 @@ public:
     // Shows a caption with a value (+0x24 text, +0xA4; HouseClass::Flag_To_Win/Flag_To_Lose).
     void Set_Caption_Text_006a53f0(unsigned short const *text, int value);   // 0x006A53F0 (wchar_t text)
 
-    bool Unknown_006A8C80(Point2D *point);          // 0x006A8C80 (clamps a view position; false when unchanged)
-    void Unknown_006A9170();                        // 0x006A9170 (after the view position changed)
-    void Unknown_006AA610(void (__fastcall *callback)(ObjectClass *object));          // 0x006AA610 (ends the selection band: the rectangle of its two corners to 0x006AABC0; hypothesis)
+    bool Clamp_To_Tactical_Rect(Point2D *point);          // 0x006A8C80 (clamps a view position; false when unchanged)
+    void Update_Visible_Cells();                        // 0x006A9170 (after the view position changed)
+    void Select_Rubber_Band(void (__fastcall *callback)(ObjectClass *object));          // 0x006AA610 (ends the selection band: the rectangle of its two corners to 0x006AABC0; hypothesis)
     // Redraw the terrain objects (0x006A9E10, last first) and the buildings
     // (0x006A9F60) of display layer 2 whose drawn area overlaps the
     // intersection of the two rectangles (hypothesis).
     void Unknown_006A9E10(bool arg1, Rect const &rect1, Rect const &rect2);
-    void Unknown_006A9F60(bool arg1, Rect const &rect1, Rect const &rect2);
+    void Draw_Buildings(bool arg1, Rect const &rect1, Rect const &rect2);
     // Lists an object with its view-relative pixel in the selectable table when the pixel lies within
     // 32 of the tactical area (0x006AA510; ra2-decomp YR Tactical::Add_To_Selectables 0x006D9EF0 name and ABI).
     // The point is passed by value: Veinhole Draw_It 0x710880 builds it as a temporary.
     bool Add_To_Selectables(ObjectClass *object, Point2D point);   // 0x006AA510 (0x006AA300 expands it)
-    int Unknown_006AA6A0();                         // 0x006AA6A0 (1 when an object pixel lies inside the selection band; hypothesis)
-    void Unknown_006AA790();                        // 0x006AA790 (draws the selection band rectangle; hypothesis)
-    void Unknown_006AABC0(Rect const *rect, void (__fastcall *callback)(ObjectClass *object));   // 0x006AABC0 (hypothesis)
+    int Rubber_Band_Contains_Selectable();                         // 0x006AA6A0 (1 when an object pixel lies inside the selection band; hypothesis)
+    void Draw_Rubber_Band();                        // 0x006AA790 (draws the selection band rectangle; hypothesis)
+    void Select_These(Rect const *rect, void (__fastcall *callback)(ObjectClass *object));   // 0x006AABC0 (hypothesis)
 
     // Draws a line between two coordinates in a color (0x006AC160, slot 24;
     // TechnoClass 0x006C3950/0x006C3A90; true when drawn; hypothesis).
@@ -94,7 +94,7 @@ public:
     // Draws one pass (0, 1, 2) of the tactical view into surface (0x006A45A0).
     void Render(Surface *surface, bool redraw, int pass);
     // A screen point converted for the techno types' smoke offsets (0x006A2900).
-    Point2D Unknown_006A2900(Point2D const &point);
+    Point2D Pixel_To_Lepton(Point2D const &point);
     // The view position (0x006A67D0: the offset +0xD64/+0xD68 less +0xB0/+0xB4;
     // the View commands store the cell under it).
     Point2D Unknown_006A67D0();
@@ -107,7 +107,7 @@ public:
     // The coordinate under a screen point (0x006A2B10) and the cell under it
     // (0x006A6BD0; radar slot 51).
     CoordStruct Pixel_To_Coord(Point2D const &point);
-    CoordStruct Unknown_006A2BF0(Point2D const &point); // original ECX Tactical, hidden CoordStruct result, RET8
+    CoordStruct Pixel_To_Coord_Absolute(Point2D const &point); // original ECX Tactical, hidden CoordStruct result, RET8
     // The absolute screen pixel of a coordinate: the isometric rotation, leptons to pixels, less the height
     // (0x006A27A0; TibSun Tactical::Coord_To_Pixel_Absolute(Coord const &)), and of a flat point (0x006A2870).
     Point2D Coord_To_Pixel_Absolute(CoordStruct const &coord);

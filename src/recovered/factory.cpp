@@ -162,14 +162,14 @@ void FactoryClass::AI()
                 unknown_58=true;
                 Stage=(int)((unsigned int)Stage-1U);
             } else {
-                Owner->Unknown_004E5280(amount);
+                Owner->Spend_Money(amount);
                 unknown_58=false;
                 UnspentCost=(int)((unsigned int)UnspentCost-(unsigned int)amount);
             }
             if(Stage==54) {
                 unknown_6c=true;
                 Set_Rate(0);
-                Owner->Unknown_004E5280(UnspentCost);
+                Owner->Spend_Money(UnspentCost);
                 UnspentCost=0;
             }
         }

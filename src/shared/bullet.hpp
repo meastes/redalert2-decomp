@@ -319,7 +319,7 @@ public:
 
     void Construct(BulletTypeClass *type, AbstractClass *target, TechnoClass *owner,
                    int damage, WarheadTypeClass *warhead, int speed, bool bright);   // 0x0045F4F0
-    void unknown_func_461470();                                         // 0x00461470
+    void LoseTarget();                                         // 0x00461470
     // Starts radiation at a cell, or adds to the site already there (no
     // callers: an out-of-line copy; YR names it ApplyRadiationToCell).
     void unknown_func_463720(Cell cell, int spread, int level);  // 0x00463720
@@ -332,15 +332,15 @@ public:
     // hypothesis: Westwood's Detonate/explosion point): at its position, or
     // close targets' centres, then Cluster detonations (0x00462110) scattered
     // around it.
-    void unknown_func_461de0(bool forced);                              // 0x00461DE0
+    void Bullet_Explodes(bool forced);                              // 0x00461DE0
     void unknown_func_462110(CoordStruct const &coord);                 // 0x00462110
     // Fires the type's ShrapnelWeapon at objects in the cells around the
     // bullet, then at random nearby cells for the rest of the count.
     void unknown_func_462c50();                                         // 0x00462C50
     void Set_Weapon_Type(WeaponTypeClass *weapon);                      // 0x00463BA0
     WeaponTypeClass *Get_Weapon_Type();                                 // 0x00463BB0
-    bool unknown_func_463970();                                         // 0x00463970
-    void unknown_func_463bc0();                                         // 0x00463BC0
+    bool Is_Homing();                                         // 0x00463970
+    void InitScalable();                                         // 0x00463BC0
     void Draw_Voxel_00463a00(class UnknownObjectPair const &voxel, class Matrix3D const &matrix, struct RectPoint2D const &point, class Rect const &window, unsigned frame, unsigned flags, int brightness); // observed ECX receiver/RET28
     void unknown_func_463c50();                                         // 0x00463C50 (drops a NukePayload on the target cell)
 

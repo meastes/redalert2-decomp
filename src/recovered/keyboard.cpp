@@ -256,15 +256,15 @@ bool WWKeyboardClass::Put_Key_Message(KeyNumType vk_key, bool release)
     if (IgnoreInput && vk_key != 0x1B) {
         return true;
     }
-    Unknown_005233A0(vk_key, release);
+    Set_Key_State(vk_key, release);
     if (!Is_Mouse_Key(vk_key) && !Is_Char_Key(vk_key)) {
-        if ((Unknown_005233D0(0x10) & 0x8000) != 0) {
+        if ((Get_Key_State(0x10) & 0x8000) != 0) {
             vk_key |= 0x100;
         }
-        if ((Unknown_005233D0(0x11) & 0x8000) != 0) {
+        if ((Get_Key_State(0x11) & 0x8000) != 0) {
             vk_key |= 0x200;
         }
-        if ((Unknown_005233D0(0x12) & 0x8000) != 0) {
+        if ((Get_Key_State(0x12) & 0x8000) != 0) {
             if (vk_key == 0x09) {
                 return true;
             }
@@ -480,7 +480,7 @@ bool WWKeyboardClass::Down(KeyNumType key)
             key = key == 1 ? 2 : 1;
         }
     }
-    return Unknown_005233F0(key) != 0;
+    return Get_Async_Key_State(key) != 0;
 }
 
 

@@ -94,8 +94,8 @@ bool BinkClass::Open(char const *filename)
         Debug_Printf("Bink Error: %s\n", BinkGetError());
         return false;
     }
-    *(int *)&unknown_volume_84e9a8 = *(int *)&unknown_volume_a40b48;
-    BinkSetVolume(Handle, (int)(unknown_volume_84e9a8 * 32768.0f));
+    *(int *)&BinkVolume = *(int *)&unknown_volume_a40b48;
+    BinkSetVolume(Handle, (int)(BinkVolume * 32768.0f));
     unknown_24 = 60 / (Handle->FrameRate / Handle->FrameRateDiv);
     Companion = Subtitles_Open(filename);
     Rect movie(0, 0, Handle->Width, Handle->Height);
@@ -105,7 +105,7 @@ bool BinkClass::Open(char const *filename)
             movie.X = (Target->Get_Width() - movie.Width) / 2;
             movie.Y = (Target->Get_Height() - movie.Height) / 2;
         } else {
-            Target = unknown_surface_839950;
+            Target = VisibleSurface;
             RECT client;
             GetClientRect(MainWindow, &client);
             int clientwidth = client.right - client.left;
@@ -115,7 +115,7 @@ bool BinkClass::Open(char const *filename)
         }
     }
     Area = Target->Get_Rect().Intersect(movie);
-    SurfaceType = BinkDDSurfaceType(((DSurface *)unknown_surface_839950)->Get_DD_Surface());
+    SurfaceType = BinkDDSurfaceType(((DSurface *)VisibleSurface)->Get_DD_Surface());
     return true;
 }
 
@@ -243,7 +243,7 @@ void BinkClass::Play()
             if (!unknown_2c) {
                 Sleep(33);
             }
-            if (Target == unknown_surface_839950) {
+            if (Target == VisibleSurface) {
                 RECT client;
                 GetClientRect(MainWindow, &client);
                 ClientToScreen(MainWindow, (POINT *)&client);
@@ -255,7 +255,7 @@ void BinkClass::Play()
                 Rect dest = Area;
                 dest.X += client.left;
                 dest.Y += client.top;
-                unknown_surface_839950->Copy_From(dest, *Target, Area, false, true);
+                VisibleSurface->Copy_From(dest, *Target, Area, false, true);
             }
             if (WWKeyboard->Check() && !unknown_00 && WWKeyboard->Get() == 0x81B) {
                 break;
@@ -278,10 +278,10 @@ extern bool GameInFocus;                // 0x00A40D28 application active (focus)
 
 bool BinkClass::Draw_Frame(Surface *surface, int x, int y)
 {
-    if (unknown_volume_84e9a8 != unknown_volume_a40b48) {
+    if (BinkVolume != unknown_volume_a40b48) {
         // Copied as a bit pattern: the original moves it through eax and reads the copy back.
-        *(int *)&unknown_volume_84e9a8 = *(int *)&unknown_volume_a40b48;
-        BinkSetVolume(Handle, (int)(unknown_volume_84e9a8 * 32768.0f));
+        *(int *)&BinkVolume = *(int *)&unknown_volume_a40b48;
+        BinkSetVolume(Handle, (int)(BinkVolume * 32768.0f));
     }
     if (!GameInFocus) {
         if (unknown_2c == true) {
@@ -293,7 +293,7 @@ bool BinkClass::Draw_Frame(Surface *surface, int x, int y)
         Debug_Printf("Resume bink movie\n");
         unknown_2c = true;
         BinkPause(Handle, 0);
-        if (Target == unknown_surface_839950) {
+        if (Target == VisibleSurface) {
             RECT client;
             GetClientRect(MainWindow, &client);
             ClientToScreen(MainWindow, (POINT *)&client);
@@ -369,7 +369,7 @@ bool BinkClass::Render_Frame()
 
 void BinkClass::Redraw()
 {
-    if (Target == unknown_surface_839950) {
+    if (Target == VisibleSurface) {
         RECT client;
         GetClientRect(MainWindow, &client);
         ClientToScreen(MainWindow, (POINT *)&client);

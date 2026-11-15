@@ -71,7 +71,7 @@ HWND __fastcall WS_Top_Window()
 // 0x00522E80 (shared/wwmouse.hpp, keyboard.hpp: "also read by 0x00522E80"): the
 // row's leaf returns the dword at 0x00A522AC, the recorded-input override.
 extern int unknown_key_state_override_a522ac;
-int unknown_function_522e80()
+int Get_Input_Record_Mode()
 {
     return unknown_key_state_override_a522ac;
 }
@@ -88,7 +88,7 @@ int __fastcall Init_Game(int argc, char *argv[])
 
 // 0x00496460 under its third declared name (shared/debug_printf.hpp: the
 // loading-progress message; empty in this build, as Video_Debug_Log above).
-void __cdecl Unknown_00496460(char const *format, ...) {}
+void __cdecl DebugStringNoPrefix(char const *format, ...) {}
 
 // 0x005EAC10: an empty function in this build (the row's leaf is a bare
 // return, src/recovered/005eac10.cpp); Init_Game calls it.

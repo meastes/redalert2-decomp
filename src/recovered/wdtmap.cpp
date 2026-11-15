@@ -158,7 +158,7 @@ Map::~Map()
     }
     AlternateSurface->Fill(0);
     HiddenSurface->Fill(0);
-    unknown_surface_839950->Copy_From(*HiddenSurface, false, true);
+    VisibleSurface->Copy_From(*HiddenSurface, false, true);
     delete unknown_78;
 }
 

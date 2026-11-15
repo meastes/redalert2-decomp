@@ -226,14 +226,14 @@ unsigned int  FUN_006f5930(void)
 void Unknown_006F5940()
 {
     bool deployed = false;
-    if (unknown_objects_a40c60.Count() <= 0) {
+    if (CurrentObject.Count() <= 0) {
         return;
     }
-    if (unknown_objects_a40c60[0] != 0) {
-        BuildingClass *building = (BuildingClass *)unknown_objects_a40c60[0];
-        if (building != 0 && building->Kind_Of() == 6 && building->unknown_4532f0() > 0
+    if (CurrentObject[0] != 0) {
+        BuildingClass *building = (BuildingClass *)CurrentObject[0];
+        if (building != 0 && building->Kind_Of() == 6 && building->GetOccupantCount() > 0
             && building->House->Is_Player_Control()) {
-            ObjectClass *object = unknown_objects_a40c60[0];
+            ObjectClass *object = CurrentObject[0];
             if (object != 0 && object->AbstractFlags.IsTechno && ((TechnoClass *)object)->unknown_slot199(9)) {
                 Voc_Play(Rules->unknown_64c, 1.0f, 0x2000, 0);
             }
@@ -241,12 +241,12 @@ void Unknown_006F5940()
         }
     }
 
-    int count = unknown_objects_a40c60.Count();
+    int count = CurrentObject.Count();
     bool undeployed = false;
     int index = 0;
     bool deploying = false;
     for (; index < count; index++) {
-        ObjectClass *object = unknown_objects_a40c60[index];
+        ObjectClass *object = CurrentObject[index];
         if (object != 0 && object->Kind_Of() == 15 && ((InfantryClass *)object)->Is_Deployer()) {
             if (((InfantryClass *)object)->Is_Deploying()) {
                 deploying = true;
@@ -260,7 +260,7 @@ void Unknown_006F5940()
     }
 
     for (index = 0; index < count; index++) {
-        ObjectClass *object = unknown_objects_a40c60[index];
+        ObjectClass *object = CurrentObject[index];
         if (object != 0 && (object->Can_Player_Move() || object->Can_Player_Fire()) && object->AbstractFlags.IsTechno
             && ((TechnoClass *)object)->unknown_slot185() && ((TechnoClass *)object)->unknown_slot186()) {
             if (object->Kind_Of() == 15 && ((InfantryClass *)object)->Is_Deployer() && deploying && undeployed
@@ -290,11 +290,11 @@ void __fastcall Unknown_006F5B10()
         Planning_Refuse_No_Guard_Area();
         return;
     }
-    if (unknown_objects_a40c60.Count() > 0) {
+    if (CurrentObject.Count() > 0) {
         char agreed = 1;
-        int count = unknown_objects_a40c60.Count();
+        int count = CurrentObject.Count();
         for (int index = 0; index < count; index++) {
-            ObjectClass *object = unknown_objects_a40c60[index];
+            ObjectClass *object = CurrentObject[index];
             if (object != 0 && object->AbstractFlags.IsTechno && object->Can_Player_Move() && object->Can_Player_Fire()) {
                 agreed = ((TechnoClass *)object)->Player_Assign_Mission(0x0B, (AbstractClass *)object->Get_Target_Cell_Ptr(), 0, 0);
                 if (!agreed) {
@@ -315,11 +315,11 @@ void __fastcall Unknown_006F5B10()
 
 void Unknown_006F5BC0()
 {
-    if (unknown_objects_a40c60.Count() > 0) {
+    if (CurrentObject.Count() > 0) {
         char agreed = 1;
-        int count = unknown_objects_a40c60.Count();
+        int count = CurrentObject.Count();
         for (int index = 0; index < count; index++) {
-            ObjectClass *object = unknown_objects_a40c60[index];
+            ObjectClass *object = CurrentObject[index];
             if (object != 0 && object->AbstractFlags.IsTechno && (object->Can_Player_Move() || object->Can_Player_Fire())) {
                 agreed = (char)((TechnoClass *)object)->unknown_slot199(6);
                 if (!agreed) {
@@ -354,11 +354,11 @@ void Unknown_006F5C50()
 
 void Unknown_006F5D10()
 {
-    if (unknown_objects_a40c60.Count() > 0) {
+    if (CurrentObject.Count() > 0) {
         char agreed = 1;
-        int count = unknown_objects_a40c60.Count();
+        int count = CurrentObject.Count();
         for (int index = 0; index < count; index++) {
-            ObjectClass *object = unknown_objects_a40c60[index];
+            ObjectClass *object = CurrentObject[index];
             if (object != 0 && object->AbstractFlags.IsTechno && object->Can_Player_Move()) {
                 agreed = (char)((TechnoClass *)object)->unknown_slot199(7);
                 if (!agreed) {
@@ -459,19 +459,19 @@ void __fastcall Unknown_006F5F00(int group)
     unknown_group_frame_7f8bcc = Frame;
     unknown_group_7f8bd0 = group;
     unknown_selected_83996c->Unknown_006AAD40();
-    unknown_sound_enabled_7d88d6 = true;
+    AllowVoice = true;
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
         if (techno != 0 && !techno->unknown_76 && techno->unknown_1ac == group - 1) {
             if (Is_Player_Side(techno) && !techno->unknown_77) {
                 techno->unknown_slot80();
                 techno->unknown_13c = CDTimerClass<FrameTimerClass>(Rules->RadarCombatFlashTime);
-                unknown_sound_enabled_7d88d6 = false;
+                AllowVoice = false;
             }
         }
     }
-    unknown_sound_enabled_7d88d6 = true;
-    TechnoClass::unknown_6d7990();
+    AllowVoice = true;
+    TechnoClass::Reset_Action_Line_Timer();
 }
 
 
@@ -487,13 +487,13 @@ void __fastcall Unknown_006F60D0(int group)
     Map.Unknown_0049CA20(0);
     Map.Unknown_0049C7C0(0);
     Map.Unknown_0049CAC0(0);
-    if (unknown_objects_a40c60.Count() != 0) {
-        ObjectClass *object = unknown_objects_a40c60[0];
+    if (CurrentObject.Count() != 0) {
+        ObjectClass *object = CurrentObject[0];
         bool is_foot = false;
         if (object != 0) {
             is_foot = object->AbstractFlags.IsFoot;
         }
-        if (!is_foot || ((TechnoClass *)unknown_objects_a40c60[0])->unknown_1ac != group - 1) {
+        if (!is_foot || ((TechnoClass *)CurrentObject[0])->unknown_1ac != group - 1) {
             unknown_selected_83996c->Unknown_006AAD40();
         }
     }
@@ -502,13 +502,13 @@ void __fastcall Unknown_006F60D0(int group)
         if (techno != 0 && !techno->unknown_76 && techno->unknown_1ac == group - 1) {
             if (Is_Player_Side(techno) && !techno->unknown_77) {
                 techno->unknown_slot80();
-                unknown_sound_enabled_7d88d6 = false;
+                AllowVoice = false;
             }
         }
     }
     Map.Unknown_0049E3B0();
     Map.Flag_To_Redraw(1);
-    unknown_sound_enabled_7d88d6 = true;
+    AllowVoice = true;
 }
 
 
@@ -525,17 +525,17 @@ void __fastcall Unknown_006F61F0(int group)
     Map.Unknown_0049CA20(0);
     Map.Unknown_0049C7C0(0);
     Map.Unknown_0049CAC0(0);
-    unknown_sound_enabled_7d88d6 = true;
+    AllowVoice = true;
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
         if (techno != 0 && !techno->unknown_76 && techno->unknown_1ac == group - 1) {
             if (Is_Player_Side(techno) && !techno->unknown_77) {
                 techno->unknown_slot80();
-                unknown_sound_enabled_7d88d6 = false;
+                AllowVoice = false;
             }
         }
     }
-    unknown_sound_enabled_7d88d6 = true;
+    AllowVoice = true;
 }
 
 
@@ -555,9 +555,9 @@ void __fastcall Unknown_006F62D0(unsigned long argument)
 
 void Unknown_006F6380()
 {
-    if (unknown_objects_a40c60.Count() != 0 && !unknown_player_a35db4->unknown_13d) {
-        if (unknown_objects_a40c60[0]->Owning_House() != unknown_player_a35db4 && unknown_objects_a40c60[0]->Owning_House()->unknown_134) {
-            unsigned long owner = unknown_objects_a40c60[0]->Owner();
+    if (CurrentObject.Count() != 0 && !unknown_player_a35db4->unknown_13d) {
+        if (CurrentObject[0]->Owning_House() != unknown_player_a35db4 && CurrentObject[0]->Owning_House()->unknown_134) {
+            unsigned long owner = CurrentObject[0]->Owner();
             if (unknown_game_mode_a3d298 != 0 && !(unknown_id_source_a3d290->unknown_000 & 0x400) && Rules->unknown_111d) {
                 OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 3, owner));
             }
@@ -610,9 +610,9 @@ bool Planning_Mode_Active_6f6510()
 
 bool Unknown_006F6520()
 {
-    int count = unknown_objects_a40c60.Count();
+    int count = CurrentObject.Count();
     for (int index = 0; index < count; index++) {
-        ObjectClass *object = unknown_objects_a40c60[index];
+        ObjectClass *object = CurrentObject[index];
         bool flag;
         if (object != 0) {
             flag = object->AbstractFlags.IsTechno;
@@ -635,12 +635,12 @@ bool Unknown_006F6520()
 
 void Unknown_006F6570()
 {
-    if (unknown_objects_a40c60.Count() == 0) {
+    if (CurrentObject.Count() == 0) {
         Show_Message(StringTable::Load_String("MSG:NothingSelected", 0, "D:\\Ra2\\UICmnds.cpp", 0x2E9), 0xF0);
     } else {
-        int count = unknown_objects_a40c60.Count();
+        int count = CurrentObject.Count();
         for (int index = 0; index < count; index++) {
-            ObjectClass *object = unknown_objects_a40c60[index];
+            ObjectClass *object = CurrentObject[index];
             bool flag;
             if (object != 0) {
                 flag = object->AbstractFlags.IsTechno;
@@ -676,9 +676,9 @@ bool Unknown_Can_Force_Order_006F6670()
     if (!force_fire || !force_move) {
         return false;
     }
-    int count = unknown_objects_a40c60.Count();
+    int count = CurrentObject.Count();
     for (int index = 0; index < count; index++) {
-        ObjectClass *object = unknown_objects_a40c60[index];
+        ObjectClass *object = CurrentObject[index];
         bool flag;
         if (object != 0) {
             flag = object->AbstractFlags.IsTechno;
@@ -720,13 +720,13 @@ void Unknown_Click_End_006F6770()
 }
 
 
-// void __fastcall Unknown_006f6780(unsigned int state) (0x006F6780): sets the command
+// void __fastcall Set_Type_Select_Mode(unsigned int state) (0x006F6780): sets the command
 // state word 0x00AC132C (the combatant/experience commands test 1 and 4) and clears
 // the flag at 0x00AC1330.
 
 extern int unknown_state_ac132c;
 
-void __fastcall Unknown_006f6780(unsigned int state)
+void __fastcall Set_Type_Select_Mode(unsigned int state)
 {
     unknown_state_ac132c = state;
     unknown_flag_ac1330 = false;
@@ -742,7 +742,7 @@ extern "C" wchar_t *__cdecl wcscpy(wchar_t *destination, wchar_t const *source);
 
 void __fastcall Unknown_006F6790(wchar_t *buffer)
 {
-    if (unknown_objects_a40c60.Count() == 0) {
+    if (CurrentObject.Count() == 0) {
         wcscpy(buffer, StringTable::Load_String("MSG:NothingSelected", 0, "D:\\Ra2\\UICmnds.cpp", 0x382));
         return;
     }
@@ -773,14 +773,14 @@ void __fastcall Unknown_006F6810(wchar_t *buffer, wchar_t const *name)
     wchar_t upper[100];
     wcscpy(upper, name);
     _wcsupr(upper);
-    int count = unknown_objects_a40c60.Count();
+    int count = CurrentObject.Count();
     if (count == 0) {
         swprintf(buffer, StringTable::Load_String("MSG:NoUnitsSel", 0, "D:\\Ra2\\UICmnds.cpp", 0x399), upper);
         return;
     }
     int total = 0;
     for (int index = 0; index < count; index++) {
-        ObjectClass *object = unknown_objects_a40c60[index];
+        ObjectClass *object = CurrentObject[index];
         bool flag;
         if (object != 0) {
             flag = object->AbstractFlags.IsTechno;
@@ -838,9 +838,9 @@ DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test,
 DynamicVectorClass<TechnoClass *> *Unknown_006F6AD0()
 {
     DynamicVectorClass<TechnoClass *> *list = new DynamicVectorClass<TechnoClass *>(0, 0);
-    int count = unknown_objects_a40c60.Count();
+    int count = CurrentObject.Count();
     for (int index = 0; index < count; index++) {
-        ObjectClass *object = unknown_objects_a40c60[index];
+        ObjectClass *object = CurrentObject[index];
         bool flag;
         if (object != 0) {
             flag = object->AbstractFlags.IsTechno;
@@ -1078,8 +1078,8 @@ DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test,
 
 void __fastcall Unknown_006F71E0(char const *name)
 {
-    unsigned char sound = unknown_sound_enabled_7d88d6;
-    unknown_sound_enabled_7d88d6 = false;
+    unsigned char sound = AllowVoice;
+    AllowVoice = false;
     UnknownTest test = (UnknownTest)Unknown_006F7190;
     DynamicVectorClass<TechnoClass *> *list;
     if (unknown_flag_ac133c) {
@@ -1099,7 +1099,7 @@ void __fastcall Unknown_006F71E0(char const *name)
         (*list)[index]->unknown_slot80();
     }
     delete list;
-    unknown_sound_enabled_7d88d6 = sound != 0;
+    AllowVoice = sound != 0;
 }
 #endif
 
@@ -1244,9 +1244,9 @@ int __fastcall unknown_find_name_index(DynamicVectorClass<char const *> const &n
 DynamicVectorClass<char const *> *Unknown_006F76C0()
 {
     DynamicVectorClass<char const *> *names = new DynamicVectorClass<char const *>(0, 0);
-    int count = unknown_objects_a40c60.Count();
+    int count = CurrentObject.Count();
     for (int index = 0; index < count; index++) {
-        char const *name = unknown_objects_a40c60[index]->Class_Of()->ID;
+        char const *name = CurrentObject[index]->Class_Of()->ID;
         if (unknown_find_name_index(*names, name) == -1) {
             names->Add(name);
         }
@@ -1365,7 +1365,7 @@ static wchar_t const *Selection_Message(int kind)
     DynamicVectorClass<TechnoClass *> *objects = Unknown_006F6AD0();
     int objects_count = objects->Count();
     for (int check = 0; check < objects_count; check++) {
-        if ((*objects)[check]->unknown_func_5d46b0() != kind) {
+        if ((*objects)[check]->GetHealthStatus() != kind) {
             text = StringTable::Load_String("MSG:Mixed", 0, "D:\\Ra2\\UICmnds.cpp", 0x599);
             break;
         }
@@ -1394,7 +1394,7 @@ void __fastcall Unknown_006F7B80(bool flag)
     int count = list->Count();
     for (int index = 0; index < count; index++) {
         TechnoClass *techno = (*list)[index];
-        if (techno->unknown_func_5d46b0() == kind) {
+        if (techno->GetHealthStatus() == kind) {
             techno->unknown_slot80();
         }
     }

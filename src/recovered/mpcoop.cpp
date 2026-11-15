@@ -1117,7 +1117,7 @@ void MPCooperative::unknown_slot30()
         if (dialog != 0) {
             Unknown_005c3450(dialog, this);
             Unknown_005c34b0(dialog);
-            Unknown_005c7570(dialog);
+            Update_Network_Dialog_Preview(dialog);
         }
         Unknown_005c3810(true, true);
     }
@@ -1295,8 +1295,8 @@ extern unsigned int unknown_protocol_7fd370;
 extern char unknown_b2a6d8[];
 extern unsigned int unknown_b2ab84;
 extern int unknown_pings_b2a734[];
-extern IPXManagerClass unknown_ipx_manager_a40978;
-extern OwnerTalkClass unknown_OwnerTalkClass_00ab6d18;
+extern IPXManagerClass Ipx;
+extern OwnerTalkClass OwnerTalk;
 void Unknown_Pregame_Setup_005c74f0();
 extern CCToolTip *ToolTips;
 
@@ -1463,9 +1463,9 @@ void MPCooperative::unknown_slot37()
         }
         int retry = ping * 60 / 1000;
         retry += retry * 120 / 100;
-        unknown_ipx_manager_a40978.Set_Timing(retry, -1, retry * 8, true);
+        Ipx.Set_Timing(retry, -1, retry * 8, true);
         if (unknown_04) {
-            unknown_ipx_manager_a40978.unknown_slot18(5, -1, 120);
+            Ipx.unknown_slot18(5, -1, 120);
             if (unknown_04) {
                 switch (unknown_session_a3d298.unknown_290c) {
                 case 0:
@@ -1497,12 +1497,12 @@ void MPCooperative::unknown_slot37()
     OutList.Tail = 0;
     ToolTips->Enable(false);
     Debug_Printf("@@@@ Before destroying connections players.count() = %d\n", unknown_players_a3fa7c.Count());
-    while (unknown_ipx_manager_a40978.Num_Connections()) {
-        unknown_ipx_manager_a40978.Delete_Connection(unknown_ipx_manager_a40978.Connection_ID(0));
+    while (Ipx.Num_Connections()) {
+        Ipx.Delete_Connection(Ipx.Connection_ID(0));
     }
     if (unknown_flag_a3fba8) {
         if (PacketRouterConnection) {
-            unknown_OwnerTalkClass_00ab6d18.Unknown_0063FC90();
+            OwnerTalk.Unknown_0063FC90();
         }
         unknown_flag_a3fba8 = false;
     }

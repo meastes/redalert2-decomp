@@ -1,9 +1,9 @@
-// ?unknown_threat_flags_6220e0@@YIHH@Z (0x006220E0)
+// ?Quarry_To_Threat@@YIHH@Z (0x006220E0)
 // The threat flags (THREAT_*) a team mission's quarry (target category, see
 // unknown_quarry_from_name 0x00622090) searches for; 0 for none/anything and
 // base threats. quarry.cpp, after Name_From_Quarry 0x006220D0.
 
-int __fastcall unknown_threat_flags_6220e0(int quarry)
+int __fastcall Quarry_To_Threat(int quarry)
 {
     switch (quarry) {
     case 1:

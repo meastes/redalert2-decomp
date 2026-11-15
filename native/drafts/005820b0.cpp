@@ -16,7 +16,7 @@ void Clear_Map_Cell_Traversal_Marks_00582a50();
 #include "shared/crt_math.hpp"
 extern "C" double __cdecl log(double);
 #pragma intrinsic(log)
-extern Random2Class unknown_map_random_a705c0;
+extern Random2Class RMGRandom;
 extern double const angle_half_pi_79b630,angle_pi_79d158,angle_turn_79c9b8;
 extern double const angle_weight_7a5cd0,jitter_weight_7a5cc8,random_unit_7a5dd0;
 // @ref ?angle_half_pi_79b630@@=0079b630
@@ -25,7 +25,7 @@ extern double const angle_weight_7a5cd0,jitter_weight_7a5cc8,random_unit_7a5dd0;
 // @ref ?angle_weight_7a5cd0@@=007a5cd0
 // @ref ?jitter_weight_7a5cc8@@=007a5cc8
 // @ref ?random_unit_7a5dd0@@=007a5dd0
-// @ref ?unknown_map_random_a705c0@@=00a705c0
+// @ref ?RMGRandom@@=00a705c0
 // @ref ??RRandom2Class@@QAEHXZ=00638840
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &);
 // @ref ?Sample_Normal@@=005798d0
@@ -74,7 +74,7 @@ bool MapGeneratorClass::Grow_Water_Region(int region,float scale,Rect const &bou
         if(!success || !node)break;
         Cell const &position=node->Position;
         UnknownMapGenerationCell &data=MapRegionClass::Get_Cell_Data(position);
-        if(data.RegionIndex==0 && Map[position].unknown_47b590()) {
+        if(data.RegionIndex==0 && Map[position].Is_Tile_Clear()) {
             data.unknown_4b=1;
             data.RegionIndex=region;
         }
@@ -82,7 +82,7 @@ bool MapGeneratorClass::Grow_Water_Region(int region,float scale,Rect const &bou
         for(int direction=0;direction<8;direction+=2) {
             Cell adjacent=CellClass::Adjacent_Cell(position,direction);
             if(Generation_Cell_In_Bounds_0058da10(adjacent)) {
-                if(Get_Cell_Data_Region(adjacent)==0 && Get_Cell_Data_Spread(adjacent)!=region && bounds.Is_Point_Within(Point2D(adjacent.X,adjacent.Y)) && Map[adjacent].unknown_47b590()) {
+                if(Get_Cell_Data_Region(adjacent)==0 && Get_Cell_Data_Spread(adjacent)!=region && bounds.Is_Point_Within(Point2D(adjacent.X,adjacent.Y)) && Map[adjacent].Is_Tile_Clear()) {
                     next->Position=adjacent;
                     next->Key=Get_Angle_Score(origin,adjacent,angle);
                     Set_Cell_Data_Spread(adjacent,region);

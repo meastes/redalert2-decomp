@@ -36,7 +36,7 @@ int HouseClass::Begin_Production(int kind,int index,bool naval,bool resume)
             return 3;
         }
     }
-    factory=unknown_func_4eb580(kind,naval,buildcat);
+    factory=Fetch_Factory(kind,naval,buildcat);
     if (!factory) {
         factory=new FactoryClass;
         if (!factory) {
@@ -57,7 +57,7 @@ int HouseClass::Begin_Production(int kind,int index,bool naval,bool resume)
     if (!has_suspended) result=factory->unknown_4b9440(type,this,resume);
     if (result) {
         if (factory->Queue.Count() && !resume && !has_suspended) {
-            Map.Unknown_0067C2D0(Unknown_006818D0(kind,index,0));
+            Map.Flag_Tab_To_Redraw(Unknown_006818D0(kind,index,0));
         } else {
             bool suspended=factory->unknown_6c;
             factory->Start_Production_004B9670(onhold);
