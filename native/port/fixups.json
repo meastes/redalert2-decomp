@@ -3068,6 +3068,41 @@
    "old": "#include \"shared/rect.hpp\"\n",
    "new": "#include \"shared/rect.hpp\"\nextern \"C\" void ra2port_blit_window_clipped(int x, int y, int width, int height, int surface_width, int surface_height);   // NATIVE (C6)\n",
    "why": "Native only (C6): the declaration for the Prep_For_Blit clip report (see the fixup above)."
+  },
+  {
+   "source": "src/recovered/scroll.cpp",
+   "old": "// void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wparam, long &lparam) (0x0066A400)\n",
+   "new": "// void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wparam, long &lparam) (0x0066A400)\nint Native_Modern_Left_Up(Cell const &cell, ObjectClass *&object, int action);   // NATIVE (C16): link/native_modern_controls.cpp\nvoid Native_Modern_Left_Done();\nbool Native_Modern_Right_Order(bool scrolled);\nint Native_Modern_Right_Action(ObjectClass *object, int action);\n",
+   "why": "Native addition (C16, Controls: Modern; not original behaviour): with the Enhancements setting Modern, left click selects and right click orders (link/native_modern_controls.cpp). With Classic (the default and the ORIGINAL preset) every Native_Modern_* answer is the original's own value, so the code runs as before. This row: ScrollClass::Message_Handler 0x0066A400: declares the questions.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/scroll.cpp",
+   "old": "        Map.Mouse_Left_Release(coord, cell, object, What_Action(cell, object, false), false);\n",
+   "new": "        {\n            int action = Native_Modern_Left_Up(cell, object, What_Action(cell, object, false));\n            Map.Mouse_Left_Release(coord, cell, object, action, false);\n            Native_Modern_Left_Done();\n        }\n",
+   "why": "Native addition (C16, Controls: Modern; not original behaviour): with the Enhancements setting Modern, left click selects and right click orders (link/native_modern_controls.cpp). With Classic (the default and the ORIGINAL preset) every Native_Modern_* answer is the original's own value, so the code runs as before. This row: ScrollClass::Message_Handler 0x0066A400, WM_LBUTTONUP: the action Mouse_Left_Release performs for the original's What_Action there (Modern: select, deselect on open ground, Shift toggles, a double click selects the type).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/scroll.cpp",
+   "old": "        Map.Mouse_Right_Release(xy);\n        DisplayClass::Abort_Drag_Select();\n",
+   "new": "        if (Native_Modern_Right_Order(unknown_4f28)) {\n            Resolve_Point(point, cell, coord, object, arg5, arg6);\n            int action = Native_Modern_Right_Action(object, What_Action(cell, object, false));\n            if (action != 0) Map.Mouse_Left_Release(coord, cell, object, action, false);\n        } else {\n            Map.Mouse_Right_Release(xy);\n        }\n        DisplayClass::Abort_Drag_Select();\n",
+   "why": "Native addition (C16, Controls: Modern; not original behaviour): with the Enhancements setting Modern, left click selects and right click orders (link/native_modern_controls.cpp). With Classic (the default and the ORIGINAL preset) every Native_Modern_* answer is the original's own value, so the code runs as before. This row: ScrollClass::Message_Handler 0x0066A400, WM_RBUTTONUP: Modern takes a right click (no scroll ran, no mode on) as the order the original's left click would give there, never a selection; Classic, a scroll or a mode: Mouse_Right_Release as before.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/display.cpp",
+   "old": "            unknown_tactical_83996c->Unknown_006AA610(Unknown_0049C3F0);\n",
+   "new": "            void (__fastcall *Native_Modern_Band_Walk(void (__fastcall *select)(ObjectClass *)))(ObjectClass *);   // NATIVE (C16)\n            unknown_tactical_83996c->Unknown_006AA610(Native_Modern_Band_Walk(Unknown_0049C3F0));\n",
+   "why": "Native addition (C16, Controls: Modern; not original behaviour): with the Enhancements setting Modern, left click selects and right click orders (link/native_modern_controls.cpp). With Classic (the default and the ORIGINAL preset) every Native_Modern_* answer is the original's own value, so the code runs as before. This row: DisplayClass::Mouse_Left_Release 0x0049BB20: the selection band's walk; Modern with Shift over objects that are all selected unselects them (otherwise 0x0049C3F0, the original's).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/radar.cpp",
+   "old": "int RTacticalClass::Action(unsigned flags, unsigned &key)\n{\n    if (flags & 0x22) {\n",
+   "new": "unsigned Native_Modern_Radar_Flags(unsigned flags);   // NATIVE (C16): link/native_modern_controls.cpp\nint RTacticalClass::Action(unsigned flags, unsigned &key)\n{\n    flags = Native_Modern_Radar_Flags(flags);\n    if (flags & 0x22) {\n",
+   "why": "Native addition (C16, Controls: Modern; not original behaviour): with the Enhancements setting Modern, left click selects and right click orders (link/native_modern_controls.cpp). With Classic (the default and the ORIGINAL preset) every Native_Modern_* answer is the original's own value, so the code runs as before. This row: RTacticalClass::Action 0x0062FE30: Modern swaps the radar's buttons (left centres the view, right orders).",
+   "verified": false
   }
  ]
 }

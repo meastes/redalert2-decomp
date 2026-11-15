@@ -673,7 +673,7 @@ Original and Enhanced under it, Cancel in the bottom slot (0x005E6860 and 0x005E
 list them, native fixups). Rows: Fullscreen (Automatic on touch hosts), Vertical sync,
 Game interface size (1x, 1.25x, 1.5x, 2x), Map zoom (1x, 1.25x, 1.5x, 2x), Picture
 scaling (Sharp, the original look; Nearest; Smooth), Menu fill (Off, the original look;
-Blurred backdrop), Queue five with Shift (Off, On; C16). The page opens as the shell's other screens do (C12): the Options
+Blurred backdrop), Queue five with Shift (Off, On; C16), Controls (Classic, Modern; C16). The page opens as the shell's other screens do (C12): the Options
 dialog's column slides out (0x005E5FC0, the original's in-place transition of the skirmish
 map dialog's Random Map button) and the dialog is hidden; when the page closes the dialog is
 shown again and its next paint slides the column back in.
@@ -730,7 +730,7 @@ the game's width only gives back the sidebar's extra width as before (the zoom d
 change the screen). Every setting is off by default;
 the Original preset sets them back (fullscreen is a choice the presets leave alone).
 The settings (`platform/sdl/enhancements.cpp`) are kept in the app's own settings
-file (`enh_vsync`, `enh_scaling`, `enh_uisize`, `enh_mapzoom`, `enh_menufill`, `enh_queuefive`), never in RA2.INI; `RA2_NATIVE_ENHANCEMENTS=
+file (`enh_vsync`, `enh_scaling`, `enh_uisize`, `enh_mapzoom`, `enh_menufill`, `enh_queuefive`, `enh_controls`), never in RA2.INI; `RA2_NATIVE_ENHANCEMENTS=
 "preset=enhanced"` or `"vsync=on,scaling=smooth"` sets them for one run (tests).
 ctest `native-enhancements-frames` (`tests/enhancements_frames.py`) runs the main
 menu with the window at 0.75x the picture (`RA2_NATIVE_WINDOW_ZOOM`) and proves the
@@ -756,6 +756,42 @@ the infantry tab and the GI's icon with and without Shift and right-click it, an
 barracks' factory (harness-input ` inf=N`: the one in production plus the queue,
 `link/harness_sidebar.cpp`, which also answers the input script's `@tab=N` and `@cameo=ID`
 points: a tab button, a build icon shown in the strip).
+
+Controls: Classic / Modern (C16, the user's list; written from the behaviour the
+redalert2-recomp design notes describe, our own hooks, no code taken). Classic (the default and
+the Original preset; the Enhanced preset leaves it alone) is the original's clicks. Modern, on
+the map: a left click selects (never an order); a left click on open ground, or on an object
+that cannot be selected, clears the selection without an order (with Shift the selection stays);
+Shift with a left click adds or removes a unit (the original's toggle action 8); a left click on
+a unit of a group of several makes it the selection; a left double click (500 ms, the same
+object) on one of the player's units selects the player's units of its type on the screen (as a
+click with the type-select key held, 0x006F71E0), with Shift added to the selection; the left
+drag is the selection band (Shift adds, as in the original; with Shift over objects all
+selected already it removes them: a dry run of the band's walk counts them first); a right click
+gives the order the original's left click would give there (ScrollClass::What_Action, performed
+by Mouse_Left_Release, so the events are the original's) and never selects: on a selected unit
+that deploys it deploys it, on a selected factory it makes it primary (the original's own
+action on a selected object); the right drag still scrolls. Placement, sell, repair, power,
+super weapon, waypoint and beacon modes keep the original's clicks (a right click cancels
+them). With Ctrl or Alt held (force fire, force move; Ctrl and Shift: attack-move) a left
+click keeps the original's meaning, so those keys order with either button. On the radar
+Modern swaps the buttons: a left click centres the view, a right click orders (at the right
+press: the radar's gadget, mask 0x9F, gets no right release). The hooks are native fixups
+asking `link/native_modern_controls.cpp`: ScrollClass::Message_Handler 0x0066A400 (the left
+release's action; the right release as an order when no scroll ran and no mode is on),
+DisplayClass::Mouse_Left_Release 0x0049BB20 (the band's walk) and RTacticalClass::Action
+0x0062FE30 (the radar's flags); Classic answers each with the original's value. Only local
+input decisions change (which action a click performs, the selection, the view), so a
+multiplayer game sends the same kinds of events. The cursor over the map is still the
+original's (it shows the order a left click would give). Touch: Modern changes what the clicks
+mean, not the gestures: a tap (a left click) selects, a tap on the ground deselects, a double
+tap selects the type, a two-finger tap or a hold released on the map (right clicks) gives the
+order; the toolbar's Fire, Move and A-Move hold Ctrl or Alt, so their taps order as before, and
+Add (Shift) makes a tap add or remove a unit. ctest `native-controls-modern` and
+`native-controls-classic` (`tests/controls_input.py`) play the same clicks in a skirmish with
+each and check the selection, the first tank's mission and the MCV's deploy; ctest
+`native-touch-modern` (`tests/touch_input.py`) plays the touch gestures with Modern. The radar's
+swap has no ctest (the build order would need a radar building, about 2,500 frames).
 
 ### Original saves (C6, roadmap (d))
 

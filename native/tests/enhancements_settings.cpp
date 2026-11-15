@@ -29,6 +29,7 @@ void ra2_enh_set_preset(int enhanced);
 void ra2_enh_accept(void);
 double ra2_enh_map_zoom(void);
 int ra2_enh_queue_five(void);
+int ra2_enh_modern_controls(void);
 int ra2_enh_sidebar_buttons_inside(int rows);
 int ra2_enh_sidebar_height(int screen_height);
 }
@@ -101,6 +102,7 @@ static const Want rows[] = {
     {"Picture scaling", "Sharp", "Nearest", "enh_scaling", "sharp", "nearest"},
     {"Menu fill", "Off", "Blurred backdrop", "enh_menufill", "off", "backdrop"},
     {"Queue five with Shift", "Off", "On", "enh_queuefive", "off", "on"},
+    {"Controls", "Classic", "Modern", "enh_controls", "classic", "modern"},
 };
 static const int kRows = sizeof rows / sizeof rows[0];
 
@@ -153,7 +155,8 @@ int main(int argc, char **argv)
     expect(ra2_enh_rows() == kRows, "row count", std::to_string(ra2_enh_rows()));
     // Each dropdown lists its setting's values, the original look first.
     static const char *const lists[kRows] = {"Off,On", "Off,On", "1x,1.25x,1.5x,2x", "1x,1.25x,1.5x,2x", "Sharp,Nearest,Smooth",
-                                               "Off,Blurred backdrop", "Off,On"};
+                                               "Off,Blurred backdrop", "Off,On",
+                                               "Classic,Modern"};
     for (int r = 0; r < kRows; ++r) {
         int i = row_of(rows[r].label);
         if (i < 0) continue;
@@ -175,6 +178,7 @@ int main(int argc, char **argv)
         // A first start: the original look, applied.
         expect(picture_scaling == 0 && vsync == 0 && menu_fill == 0, "defaults applied at start");
         expect(!ra2_enh_queue_five(), "Queue five off by default");
+        expect(!ra2_enh_modern_controls(), "Classic controls by default");
         ra2_enh_begin();
         check_values(false, "first start");
         expect(!strcmp(ra2_enh_preset(), "Preset: Original"), "first start preset", ra2_enh_preset());
@@ -190,6 +194,7 @@ int main(int argc, char **argv)
         expect(fullscreen, "ACCEPT turned fullscreen on");
         expect(picture_scaling == 1 && vsync == 1 && menu_fill == 1, "changed settings applied at ACCEPT");
         expect(ra2_enh_queue_five() == 1, "Queue five on at ACCEPT (the sidebar's next click asks)");
+        expect(ra2_enh_modern_controls() == 1, "Modern controls at ACCEPT (the next click asks)");
         // The next game in this same process (codex4 R700): what a new game's start asks
         // (link/native_enhancements.cpp Native_Sidebar_New_Game, native_map_zoom.cpp) answers
         // the accepted interface size and map zoom, without a restart; and back at 1x.
@@ -216,6 +221,7 @@ int main(int argc, char **argv)
         expect(picture_scaling == 1 && vsync == 1 && menu_fill == 1, "saved settings applied at start");
         expect(ra2_enh_map_zoom() == 1.25, "map zoom read back");
         expect(ra2_enh_queue_five() == 1, "Queue five read back");
+        expect(ra2_enh_modern_controls() == 1, "Modern controls read back");
         expect(ra2_enh_sidebar_height(768) == 614, "interface size read back", std::to_string(ra2_enh_sidebar_height(768)));
         ra2_enh_begin();
         check_values(true, "fresh start");
@@ -235,12 +241,14 @@ int main(int argc, char **argv)
         expect(picture_scaling == 0 && vsync == 0 && menu_fill == 0, "ORIGINAL applied at ACCEPT");
         expect(ra2_enh_map_zoom() == 1.0 && ra2_enh_sidebar_height(768) == 768, "ORIGINAL map zoom and interface size");
         expect(!ra2_enh_queue_five(), "ORIGINAL turns Queue five off");
+        expect(!ra2_enh_modern_controls(), "ORIGINAL sets Classic controls");
         // ENHANCED is recognised as such.
         ra2_enh_begin();
         ra2_enh_set_preset(1);
         expect(!strcmp(ra2_enh_preset(), "Preset: Enhanced"), "preset after ENHANCED", ra2_enh_preset());
         expect(shown(row_of("Menu fill")) == "Blurred backdrop", "ENHANCED: Menu fill", shown(row_of("Menu fill")));
         expect(shown(row_of("Queue five with Shift")) == "On", "ENHANCED: Queue five", shown(row_of("Queue five with Shift")));
+        expect(shown(row_of("Controls")) == "Classic", "ENHANCED leaves the controls", shown(row_of("Controls")));
         // Every interface size, at every screen height from 480 to 2160 rows: the sidebar is
         // no taller than the screen, and either the screen's own (1x) or one whose bottom
         // buttons lie inside it (codex4 R703/R705/R706: they once sat past a 512-row sidebar).

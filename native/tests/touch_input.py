@@ -19,7 +19,10 @@ by game state in the harness-input log (link/harness_input.cpp):
 Both failed when a touch's press reached the game before its mouse thread had read the pointer's
 new position (host.cpp kPointerSeenMs).
 
-  touch_input.py --case two-finger|attack-move --binary <ra2-native> --data-dir <installed RA2>
+  modern       Controls: Modern (lane C16): a tap selects a tank, a two-finger tap on the ground
+               moves it (still selected), a tap on the ground deselects, A-Move's tap still orders.
+
+  touch_input.py --case two-finger|attack-move|modern --binary <ra2-native> --data-dir <installed RA2>
                  --game-exe <game.exe> [--log <file>]
 
 Without the data folder or game.exe it exits 77 (skipped), as native-census; so does the Windows
@@ -46,9 +49,22 @@ SCRIPTS = {
                     '405 tdown @MTNK-4,4', '405 tup @MTNK-4,4',
                     '605 toolbar 3',
                     '610 tdown @MTNK+4,-3', '610 tup @MTNK+4,-3'],
+    # Controls: Modern (lane C16; RA2_NATIVE_ENHANCEMENTS=controls=modern): a tap selects, a
+    # two-finger tap (a right click) on the ground orders the move and keeps the selection, a tap
+    # on the ground deselects without an order; A-Move (Ctrl and Shift held) keeps its taps as
+    # orders.
+    'modern': ['100 tdown @MTNK', '100 tup @MTNK',
+               '205 tdown @MTNK+6,2 1', '205 tdown @MTNK+6,3 2', '206 tup @MTNK+6,2 1', '206 tup @MTNK+6,3 2',
+               '380 tdown @MTNK-3,3', '380 tup @MTNK-3,3',
+               '455 tdown @MTNK', '455 tup @MTNK',
+               '505 toolbar 3',
+               '510 tdown @MTNK-4,4', '510 tup @MTNK-4,4',
+               '600 toolbar 3'],
 }
 # The run's last frame per case (each tank order takes under 100 frames to arrive).
-FRAMES = {'two-finger': 240, 'attack-move': 660}
+FRAMES = {'two-finger': 240, 'attack-move': 660, 'modern': 620}
+# Extra environment per case.
+ENV = {'modern': {'RA2_NATIVE_ENHANCEMENTS': 'controls=modern'}}
 TANK = re.compile(r' MTNK\*:m(\d+)@([-\d]+),([-\d]+)(?::p(-?\d+))?')
 
 
@@ -72,6 +88,22 @@ def attack_move_problems(st):
             problems.append('no selected tank at frame %d' % frame)
         elif not ok(t):
             problems.append('frame %d: not the %s (mission %d, order %s)' % (frame, what, t[0], t[2]))
+    return problems
+
+
+def modern_problems(st):
+    """The Modern case's checks (MISSION_MOVE 2, MISSION_GUARD 5; order 29 attack-move)."""
+    want = [(250, 'two-finger tap: move, still selected', lambda s, t: s == 1 and t is not None and t[0] == 2),
+            (450, 'tap on the ground: nothing selected', lambda s, t: s == 0),
+            (500, 'tap on the tank selects it again', lambda s, t: s == 1 and t is not None),
+            (550, 'A-Move tap: an attack-move', lambda s, t: s == 1 and t is not None and t[2] == '29' and t[0] == 2)]
+    problems = []
+    for frame, what, ok in want:
+        state = st.get(frame)
+        t = tank(state)
+        print('frame %d (%s): selected %s, tank %s' % (frame, what, state[0] if state else None, t))
+        if state is None or not ok(state[0], t):
+            problems.append('frame %d: not %s' % (frame, what))
     return problems
 
 
@@ -105,6 +137,7 @@ def main():
     env = dict(os.environ, RA2_GAME_EXE=a.game_exe, RA2_NATIVE_MOVIE_SKIP='1', RA2_NATIVE_CRASH_TRACE='1',
                RA2_NATIVE_IGNORE_FOCUS='1', RA2_NATIVE_TOUCH_UI='1', RA2_NATIVE_INPUT_LOG='50')
     env.pop('RA2_NATIVE_TRAP_CONTINUE', None)
+    env.update(ENV.get(a.case, {}))
     with tempfile.TemporaryDirectory(prefix='ra2-touch-') as work:
         script = os.path.join(work, 'input.script')
         with open(script, 'w') as f:
@@ -132,6 +165,8 @@ def main():
         print('end:       selected %d;%s' % last)
         if before[0] != 1:
             problems.append('the tank tap selected %d objects, not 1' % before[0])
+        elif a.case == 'modern':
+            problems += modern_problems(st)
         elif a.case == 'two-finger':
             if last[0] != 0:
                 problems.append('after the two-finger tap %d objects are still selected' % last[0])

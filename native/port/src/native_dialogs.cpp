@@ -98,8 +98,8 @@ std::vector<unsigned char> enhancements_dialog()
         item(0x7F20 + i, 0x82, kLabel, 25, y, 120, 10, "");
         item(0x7F10 + i, 0x85, kDropdown, 150, y - 2, 120, 74, "");
     }
-    item(0x7F40, 0x82, kLabel, 25, 259, 280, 10, "");                  // below the eighth row (lane C16; was 205)
-    item(0x7F70, 0x82, kLabel, 25, 270, 280, 10, "");                  // what the last row changed does (was 229)
+    item(0x7F40, 0x82, kLabel, 25, 264, 280, 10, "");                  // below the eighth row (lane C16; was 205)
+    item(0x7F70, 0x82, kLabel, 25, 277, 280, 10, "");                  // what the last row changed does (was 229)
     item(0x7F02, 0x80, kButton, 317, 122, 108, 23, "");               // Ok
     item(0x7F00, 0x80, kButton, 317, 149, 108, 23, "");               // Original
     item(0x7F01, 0x80, kButton, 317, 176, 108, 23, "");               // Enhanced

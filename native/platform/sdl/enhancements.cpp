@@ -66,6 +66,11 @@ const std::vector<Row> &rows()
         // the clicks' own events repeat: the game's production events, so no simulation change.
         {"queuefive", "Queue five with Shift", "Shift-click a build icon: five of it; Shift-right-click: five fewer.",
          {"off", "on"}, {"Off", "On"}, true},
+        // Lane C16 (user, 2026-11-14): Modern: left click selects, right click orders
+        // (link/native_modern_controls.cpp). Only local input decisions change: the orders are
+        // the original's events. The Enhanced preset leaves it alone (a change of habit, not a look).
+        {"controls", "Controls", "Modern: left click selects, right click orders, right drag scrolls.",
+         {"classic", "modern"}, {"Classic", "Modern"}, true},
     };
     return r;
 }
@@ -73,7 +78,8 @@ const std::vector<Row> &rows()
 const std::map<std::string, std::string> &preset_values(bool enhanced)
 {
     static const std::map<std::string, std::string> original = {{"vsync", "off"}, {"scaling", "sharp"}, {"uisize", "1"}, {"mapzoom", "1"},
-                                                                         {"menufill", "off"}, {"queuefive", "off"}};
+                                                                         {"menufill", "off"}, {"queuefive", "off"},
+                                                                         {"controls", "classic"}};
     static const std::map<std::string, std::string> better = {{"vsync", "on"}, {"scaling", "smooth"}, {"menufill", "backdrop"},
                                                                        {"queuefive", "on"}};
     return enhanced ? better : original;
@@ -136,9 +142,9 @@ void load()
         }
         store_set = nullptr;
     }
-    fprintf(stderr, "enhancements: vsync %s, scaling %s, interface %sx, map zoom %sx, menu fill %s, queue five %s\n",
+    fprintf(stderr, "enhancements: vsync %s, scaling %s, interface %sx, map zoom %sx, menu fill %s, queue five %s, controls %s\n",
             current["vsync"].c_str(), current["scaling"].c_str(), current["uisize"].c_str(), current["mapzoom"].c_str(),
-            current["menufill"].c_str(), current["queuefive"].c_str());
+            current["menufill"].c_str(), current["queuefive"].c_str(), current["controls"].c_str());
 }
 
 bool automatic(const Row &r) { return std::string(r.key) == "fullscreen" && ra2_host_touch(); }
@@ -243,9 +249,9 @@ void ra2_enh_accept(void)
     if (store_set)
         for (const Row &r : rows())
             if (r.preset) store_set((std::string("enh_") + r.key).c_str(), current[r.key].c_str());
-    fprintf(stderr, "enhancements: accepted vsync %s, scaling %s, interface %sx, map zoom %sx, menu fill %s, queue five %s, fullscreen %s\n",
+    fprintf(stderr, "enhancements: accepted vsync %s, scaling %s, interface %sx, map zoom %sx, menu fill %s, queue five %s, controls %s, fullscreen %s\n",
             current["vsync"].c_str(), current["scaling"].c_str(), current["uisize"].c_str(), current["mapzoom"].c_str(),
-            current["menufill"].c_str(), current["queuefive"].c_str(), full ? "on" : "off");
+            current["menufill"].c_str(), current["queuefive"].c_str(), current["controls"].c_str(), full ? "on" : "off");
 }
 // Queue five with Shift (lane C16): the game's sidebar asks at each production click
 // (link/native_queue_five.cpp). Off by default and in the Original preset.
@@ -253,6 +259,13 @@ int ra2_enh_queue_five(void)
 {
     load();
     return current["queuefive"] == "on";
+}
+// Controls: Classic / Modern (lane C16): the map's and the radar's mouse clicks ask at each
+// click (link/native_modern_controls.cpp). Classic by default and in the Original preset.
+int ra2_enh_modern_controls(void)
+{
+    load();
+    return current["controls"] == "modern";
 }
 }
 
