@@ -42,7 +42,7 @@ public:
 
     void Mark_To_Delete();                                              // 0x006B3CC0
     bool Is_Marked_To_Delete() const;                                   // 0x006B3D20
-    Cell Get_Cell() const;                                        // 0x006B3D80
+    Cell Get_Position() const;                                        // 0x006B3D80
     bool Is_Cross_Vertical() const;                                     // 0x006B3D90 (Class->Is_Cross_Vertical)
     bool Is_Cross_Horizontal() const;                                   // 0x006B3DA0 (Class->Is_Cross_Horizontal)
     bool Is_Enters_Zone() const;                                        // 0x006B3DB0 (Class->Is_Enters_Zone)
@@ -51,7 +51,7 @@ public:
     // Offers an event to the attached triggers (0x006B3DF0; TS's TagClass::Spring). source is the
     // event's originator (an object pointer the callers pass as an int).
     bool Spring(int event, ObjectClass *object, Cell cell, bool forced = false, int source = 0);
-    void Set_Cell(Cell cell);                                     // 0x006B3F90
+    void Set_Position(Cell cell);                                     // 0x006B3F90
     void Timer_Global_Reset(int value);                                 // 0x006B3FD0
 #ifdef RA2_TAG_UNIT_MEMBERS
     // Tag.cpp members declared for that unit only (tag.hpp is in object.hpp's closure).

@@ -702,8 +702,7 @@
    "address": "007b3958",
    "bytes": 16,
    "kind": "rtti",
-   "section": 64,
-   "known_difference": "hierarchy ambiguous bit"
+   "section": 64
   },
   {
    "symbol": "??_R4AnimClass@@6BIPersistStream@@@",
@@ -1009,8 +1008,7 @@
    "symbol": "??_R3AnimClass@@8",
    "address": "007b3958",
    "bytes": 16,
-   "kind": "rtti",
-   "known_difference": "hierarchy ambiguous bit"
+   "kind": "rtti"
   },
   {
    "symbol": "??_R4AnimClass@@6BIPersistStream@@@",
@@ -2062,6 +2060,10 @@
    "address": "005d27f0"
   },
   {
+   "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0cb0"
+  },
+  {
    "symbol": "?AddRef@AbstractClass@@UAGKXZ",
    "address": "004100a0"
   },
@@ -2212,6 +2214,14 @@
   {
    "symbol": "?Free_Image@AnimTypeClass@@QAEXXZ",
    "address": "00426700"
+  },
+  {
+   "symbol": "?GameActive@@3_NA",
+   "address": "00a40958"
+  },
+  {
+   "symbol": "?GamePalette@@3VPaletteClass@@A",
+   "address": "00837e10"
   },
   {
    "symbol": "?GetDisguise@ObjectClass@@UAEPAVObjectTypeClass@@_N@Z",
@@ -2486,6 +2496,10 @@
    "address": "00abd868"
   },
   {
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
    "symbol": "?Take_Damage@ObjectClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z",
    "address": "005d3d20"
   },
@@ -2546,10 +2560,6 @@
    "address": "0055a660"
   },
   {
-   "symbol": "?Unknown_00566340@MapClass@@QAEXABVCell@@@Z",
-   "address": "00566340"
-  },
-  {
    "symbol": "?Unknown_00688460@@YIXABUCoordStruct@@HH_N@Z",
    "address": "00688460"
   },
@@ -2576,6 +2586,10 @@
   {
    "symbol": "?Unselect@ObjectClass@@UAEXXZ",
    "address": "005d2df0"
+  },
+  {
+   "symbol": "?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z",
+   "address": "00566340"
   },
   {
    "symbol": "?Update_Cell_Zone@MapClass@@QAEXABVCell@@@Z",
@@ -2646,10 +2660,6 @@
    "address": "0079b628"
   },
   {
-   "symbol": "?unknown_flag_a40958@@3_NA",
-   "address": "00a40958"
-  },
-  {
    "symbol": "?unknown_func_5d4920@ObjectClass@@QAEXH@Z",
    "address": "005d4920"
   },
@@ -2670,16 +2680,8 @@
    "address": "004ba5b0"
   },
   {
-   "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0cb0"
-  },
-  {
    "symbol": "?unknown_overlay_types_a35de8@@3V?$DynamicVectorClass@PAVUnknownOverlayType@@@@A",
    "address": "00a35de8"
-  },
-  {
-   "symbol": "?unknown_palette_837e10@@3VPaletteClass@@A",
-   "address": "00837e10"
   },
   {
    "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
@@ -2820,10 +2822,6 @@
   {
    "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
    "address": "0083995c"
-  },
-  {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
   },
   {
    "symbol": "?unknown_tiberiums_ac0b30@@3V?$DynamicVectorClass@PAUUnknownAnimTiberium@@@@A",

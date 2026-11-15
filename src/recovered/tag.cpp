@@ -214,7 +214,7 @@ TagClass *__fastcall TagClass::Find_Or_Make(TagTypeClass *type)
 /// the map.</returns>
 // (0x006B3D80)
 
-Cell TagClass::Get_Cell() const
+Cell TagClass::Get_Position() const
 {
     return CellID;
 }
@@ -366,7 +366,7 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
 /// object.</param>
 // (0x006B3F90)
 
-void TagClass::Set_Cell(Cell cell)
+void TagClass::Set_Position(Cell cell)
 {
     CellID = cell;
 }

@@ -64,7 +64,7 @@ int __fastcall ComboBox_Find_Item_Data(HWND combo, int start, int data);
 void __fastcall Capture_Or_Release_Mouse(HWND window, short active);
 // Centres window on its owner (0x00737060) / on parent's client area, the main window
 // counting as the full screen (0x00737080).
-void __fastcall unknown_center_on_owner_737060(HWND window);
+void __fastcall Center_Window_Within_Window(HWND window);
 void __fastcall Center_Window_Within_Window(HWND window, HWND parent);
 // Reads one byte in every 4 KB page of a buffer (page prefault; 0x00737160).
 void __fastcall Prefetch_Audio_Buffer(char *buffer, int length);

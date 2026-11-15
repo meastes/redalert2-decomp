@@ -4,8 +4,8 @@
     "id": "population-4400",
     "inventory_sha256": "3e8e480171b05ea290e656559b8680fd9315a5ac2c3c5a1bb5c5a6c85cd670ff",
     "gaps_sha256": "aaa95b1b571cbfaa5277d90f4dd9aa5d1c126f35fc4ddda2792853b3045bcf30",
-    "historical_population_sha256": "86f55bbcc33a85f44a9e249bc1731963ad479e79fea819dfc33f431dc46de023",
-    "historical_acceptance_sha256": "eccec0c926f7004d695faec5d228cb7a9f586fb08c712c0554129fe5a5e4b74a"
+    "historical_population_sha256": "4b7ebbbbda6e0e54a2979ef7f306c93da8a08a7393daa9471227d24866fbeb22",
+    "historical_acceptance_sha256": "847398876f8df3ae748045afb19cd8b8a8678d81a20cd620f1fd79b63aeda6b3"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -8901,7 +8901,7 @@
     "?unknown_TActionClass_list_00abfd88@@3V?$DynamicVectorClass@PAVTActionClass@@@@A": 11271560,
     "_CLSID_TActionClass": 8002928,
     "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A": 11271752,
-    "?Set_Cell@TagClass@@QAEXVCell@@@Z": 7028624,
+    "?Set_Position@TagClass@@QAEXVCell@@@Z": 7028624,
     "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A": 11271840,
     "?Find_Or_Make@TagTypeClass@@SIPAV1@PBD@Z": 7032096,
     "??0TagTypeClass@@QAE@PBD@Z": 7030128,
@@ -9477,7 +9477,7 @@
     "?As_Pointer@HouseClass@@SIPAV1@H@Z": 5166944,
     "?Mark_To_Delete@TagClass@@QAEXXZ": 7027904,
     "?Find_Or_Make@TagClass@@SIPAV1@PAVTagTypeClass@@@Z": 7028016,
-    "?Get_Cell@TagClass@@QBE?AVCell@@XZ": 7028096,
+    "?Get_Position@TagClass@@QBE?AVCell@@XZ": 7028096,
     "?Is_Cross_Vertical@TagClass@@QBE_NXZ": 7028112,
     "?Is_Cross_Horizontal@TagClass@@QBE_NXZ": 7028128,
     "?Is_Enters_Zone@TagClass@@QBE_NXZ": 7028144,
@@ -15677,7 +15677,7 @@
     "?ComboBox_Find_Item_Data@@YIHPAUHWND__@@HH@Z": 7564816,
     "?Capture_Or_Release_Mouse@@YIXPAUHWND__@@F@Z": 7564912,
     "__imp__RedrawWindow@16": 7971876,
-    "?unknown_center_on_owner_737060@@YIXPAUHWND__@@@Z": 7565408,
+    "?Center_Window_Within_Window@@YIXPAUHWND__@@@Z": 7565408,
     "?Prefetch_Audio_Buffer@@YIXPADH@Z": 7565664,
     "__imp__RedrawWindow": 7971876,
     "__imp__GetWindowContextHelpId": 7971880,

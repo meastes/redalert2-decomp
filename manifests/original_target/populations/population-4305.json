@@ -4,8 +4,8 @@
     "id": "population-4305",
     "inventory_sha256": "493a3c6d1be959969cb2614ec24ed1e25e3d11ce516960b45a4601b92183dadb",
     "gaps_sha256": "02d842d9a55c356e73e9850300c171e95e0464bea138645aa1239aab6da17094",
-    "historical_population_sha256": "e478bbc1fe3544219b098a039d8c28d77c26ced7ad518b1d7266728639840fab",
-    "historical_acceptance_sha256": "bb78ffd6da2a20f75eb79b013c306ea31d85bd6f9d8857220668bce87589198c"
+    "historical_population_sha256": "ff16b86e353f54a97256cdd7fb5db79f4e7e18b1f55b9121992c8e8c9c172ec6",
+    "historical_acceptance_sha256": "35c3ce74417913b56af58939540420c2f19b5738adf666e70978c3127f1e84ef"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -3294,7 +3294,7 @@
     "?Get_BuildCat@CCINIClass@@QBE?AW4BuildCat@@PBD0W42@@Z": 4629792,
     "?Get_CategoryType@CCINIClass@@QBE?AW4CategoryType@@PBD0W42@@Z": 4628128,
     "?Get_Cell@CCINIClass@@QBE?AVCell@@PBD0ABV2@@Z": 4627456,
-    "?Get_Cell@TagClass@@QBE?AVCell@@XZ": 7028096,
+    "?Get_Position@TagClass@@QBE?AVCell@@XZ": 7028096,
     "?Get_Char@Wstring@@QBEDI@Z": 7792384,
     "?Get_ColorScheme@CCINIClass@@QBEHPBD0H@Z": 4628304,
     "?Get_Color_List@CCINIClass@@QAE?AV?$TypeList@VRGBClass@@@@PBD0V2@@Z": 4636512,
@@ -4013,7 +4013,7 @@
     "?Seek@RAMFileClass@@UAEJJH@Z": 6522080,
     "?Seek@RawFileClass@@UAEJJH@Z": 6524848,
     "?SetSize@CStreamClass@@UAGJTULARGE_INTEGER@@@Z": 4804144,
-    "?Set_Cell@TagClass@@QAEXVCell@@@Z": 7028624,
+    "?Set_Position@TagClass@@QAEXVCell@@@Z": 7028624,
     "?Set_Char@UnknownWideString_00770950@@QAE_NGI@Z": 7801168,
     "?Set_Char@WideString@@QAE_NGI@Z": 7801168,
     "?Set_Char@Wstring@@QAE_NDI@Z": 7794080,

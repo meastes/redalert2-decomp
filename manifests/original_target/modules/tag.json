@@ -133,7 +133,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?Get_Cell@TagClass@@QBE?AVCell@@XZ",
+   "symbol": "?Get_Position@TagClass@@QBE?AVCell@@XZ",
    "entry": "006b3d80",
    "body_bytes": 12,
    "padding_bytes": 4
@@ -175,7 +175,7 @@
    "padding_bytes": 14
   },
   {
-   "symbol": "?Set_Cell@TagClass@@QAEXVCell@@@Z",
+   "symbol": "?Set_Position@TagClass@@QAEXVCell@@@Z",
    "entry": "006b3f90",
    "body_bytes": 10,
    "padding_bytes": 6
@@ -1279,13 +1279,13 @@
   },
   {
    "site": "004c7220",
-   "symbol": "?Get_Cell@TagClass@@QBE?AVCell@@XZ",
+   "symbol": "?Get_Position@TagClass@@QBE?AVCell@@XZ",
    "target": "006b3d80",
    "function_entry": true
   },
   {
    "site": "004c7220",
-   "symbol": "?Get_Cell@TagClass@@QBE?AVCell@@XZ",
+   "symbol": "?Get_Position@TagClass@@QBE?AVCell@@XZ",
    "target": "006b3d80",
    "function_entry": true
   },
@@ -1405,7 +1405,7 @@
   },
   {
    "site": "0049cfd0",
-   "symbol": "?Set_Cell@TagClass@@QAEXVCell@@@Z",
+   "symbol": "?Set_Position@TagClass@@QAEXVCell@@@Z",
    "target": "006b3f90",
    "function_entry": true
   },

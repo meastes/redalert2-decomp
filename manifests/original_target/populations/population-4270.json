@@ -4,8 +4,8 @@
     "id": "population-4270",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "1fdabfdedc14f9a670731b9749f5289853d462576eec06cc360d1a654c40eda7",
-    "historical_acceptance_sha256": "571926caae1aed31cd9251202ad72296cba441e42ea68034485e75dce3d32e66"
+    "historical_population_sha256": "6899dfbdd0a18122db6d0219c12173feb86b8991785d6223d3bd44f52ed17a63",
+    "historical_acceptance_sha256": "fee2739cdf4a5b45fe4f885c80990bd71c040be87f40da393ff2240ab0958187"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -9372,7 +9372,7 @@
     "?Get_Buildings@CCINIClass@@QBEHPBD0H@Z": 4632224,
     "?Get_CategoryType@CCINIClass@@QBE?AW4CategoryType@@PBD0W42@@Z": 4628128,
     "?Get_Cell@CCINIClass@@QBE?AVCell@@PBD0ABV2@@Z": 4627456,
-    "?Get_Cell@TagClass@@QBE?AVCell@@XZ": 7028096,
+    "?Get_Position@TagClass@@QBE?AVCell@@XZ": 7028096,
     "?Get_Cell_Ptr@ObjectClass@@UAEPAVAbstractClass@@XZ": 6115808,
     "?Get_Char@WideString@@QBEGI@Z": 7799920,
     "?Get_Char@Wstring@@QBEDI@Z": 7792384,
@@ -9894,7 +9894,7 @@
     "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
     "?Set@UnknownRefHolder_00639530@@QAEXPAUUnknownRefCounted_00639530@@@Z": 6526256,
     "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
-    "?Set_Cell@TagClass@@QAEXVCell@@@Z": 7028624,
+    "?Set_Position@TagClass@@QAEXVCell@@@Z": 7028624,
     "?Set_CellID@CellClass@@QAEXABVCell@@@Z": 4695120,
     "?Set_Char@WideString@@QAE_NGI@Z": 7801168,
     "?Set_Char@Wstring@@QAE_NDI@Z": 7794080,

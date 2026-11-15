@@ -1284,7 +1284,7 @@ void *Native_Entry_From_Handle(int handle);   // NATIVE: native/link/native_even
 char const *__fastcall Unknown_005e22b0(HWND window, HWND control);
 void __fastcall Unknown_005e8710(HWND window);
 void __fastcall Unknown_005e5fc0(HWND window);
-void __fastcall unknown_center_on_owner_737060(HWND window);
+void __fastcall Center_Window_Within_Window(HWND window);
 void __fastcall Change_Scenario_Slots_005cb8d0(HWND dialog, int previous, int scenario);
 void __fastcall Load_Lobby_Options_005cca30(HWND dialog, SessionOptionsClass *options);
 void __fastcall Save_Lobby_Options_005cc890(HWND dialog, SessionOptionsClass *options);
@@ -1466,7 +1466,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
         VerNum.Init_Clipping();
         srand(NonCriticalRandomNumber(1, 0x7FFF));
         Seed = rand();
-        unknown_center_on_owner_737060(window);
+        Center_Window_Within_Window(window);
         Fill_Side_Combos_4d16d0(window);
         Init_Color_Entries_4d1ea0();
         Fill_Color_Combos_4d2300(window);

@@ -45,7 +45,7 @@ the native port is in progress. Per-batch evidence through A15 is in
 | Compiler populations | 597 |
 | Compile path (build environment, with the pinned VC6 SP3 8447 compiler; docs/ORIGINAL_TARGET_BUILD.md "Fixed compile folder") | `<drive>:\private\tmp\ra2c\XXXXXXXX\gNNNN\accepted.cpp; /I <drive>:\private\tmp\ra2c\XXXXXXXX\src; TMP <drive>:\private\tmp\ra2c\XXXXXXXX\tmp-N` |
 | Populations under /GR (docs/DECISIONS.md "/GR per population") | 342 of 597 |
-| Non-code bytes proven at their original addresses (module maps, deduplicated by address; not .text credit) | 223,796 of 711,662 file-backed (31.4%); RTTI 76,027, vtables 36,972, strings 93,897; 14 class hierarchy descriptor(s) differ from the original only in the ambiguous bit (known difference; the attributes word is not counted) |
+| Non-code bytes proven at their original addresses (module maps, deduplicated by address; not .text credit) | 223,792 of 711,662 file-backed (31.4%); RTTI 76,023, vtables 36,972, strings 93,897; 16 class hierarchy descriptor(s) differ from the original only in the ambiguous bit (known difference; the attributes word is not counted) |
 
 Manifest history (body bytes added per commit, and per hour since the previous commit):
 
@@ -3013,6 +3013,8 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `5d22bdc1f` | 2026-11-15 02:10 -0600 | 17,907 | 3,272,459 | +0 |  |
 | `fbc781fec` | 2026-11-15 02:10 -0600 | 17,907 | 3,272,459 | +0 |  |
 | `643d0aad7` | 2026-11-15 02:10 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `c6fa216bf` | 2026-11-15 02:57 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `9af930ab0` | 2026-11-15 02:57 -0600 | 17,907 | 3,272,459 | +0 | 0 |
 
 <!-- /generated:status -->
 

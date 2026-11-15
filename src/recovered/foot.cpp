@@ -1694,7 +1694,7 @@ void FootClass::unknown_slot93(int why)
                 tag = MapTags[MapTriggerID];
                 if (tag != 0) {
                     if (tag->Is_Enters_Zone()) {
-                        if (Map.Unknown_0054F7C0(tag->Get_Cell(), Coord_Cell(unknown_slot19(0)), Techno_Type_Class()->MovementZone, ((UnknownCellClass *)&Map[tag->Get_Cell()])->Flags >> 8 & 1, Is_Moving_Onto_Bridge(0), false)) {
+                        if (Map.Unknown_0054F7C0(tag->Get_Position(), Coord_Cell(unknown_slot19(0)), Techno_Type_Class()->MovementZone, ((UnknownCellClass *)&Map[tag->Get_Position()])->Flags >> 8 & 1, Is_Moving_Onto_Bridge(0), false)) {
                             tag->Spring(0x18, this, Coord_Cell(unknown_slot19(0)));
                         }
                     }

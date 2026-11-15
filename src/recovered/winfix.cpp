@@ -554,7 +554,7 @@ char *WindowsVersionInfo::Version_String()
 /// <param name="window">The window to be moved.</param>
 // (0x00737060)
 
-void __fastcall unknown_center_on_owner_737060(HWND window)
+void __fastcall Center_Window_Within_Window(HWND window)
 {
     HWND owner = (HWND)GetWindowLongA(window, -8);   // GWL_HWNDPARENT
     if (owner != 0) {

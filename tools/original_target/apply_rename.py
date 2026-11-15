@@ -24,7 +24,26 @@ re-verifies exactly the affected translation units:
    "row_flags": {"0040c690": {"unit_evidence": "xcu-prefix"}},
    "address_renames": {"OLD MANGLING": {"new": "NEW MANGLING", "at": ["004ba0b0", ...]}},
    "overload_renames": {"OLD FULL MANGLING": {"new": "NEW FULL MANGLING", "at": "00417560"}},
-   "xcu_rewrites": {"0073bd20": "initializer", "0073bd40": "0073bd20"}}
+   "xcu_rewrites": {"0073bd20": "initializer", "0073bd40": "0073bd20"},
+   "member_renames": [{"class": "TagClass", "old": "Get_Cell", "new": "Get_Position"},
+                      {"class": "WinFix", "old": "Center", "new": "Center_Window", "mangled": "?Center@..."}]}
+
+`function_renames` ([{"old": IDENTIFIER, "new": IDENTIFIER, "at": "00737060"}]) rename one free
+function, overload-aware (on `overload_renames`): its identifier is renamed as a whole word in the
+sources (an address-suffixed seed name spells one function), and the decorated name of the row
+bound at `at` becomes the new identifier's (`?OLD@@...` -> `?NEW@@...`) by its full name and
+address, so two functions may take one name with their own parameter lists.
+`global_renames` ([{"old": IDENTIFIER, "new": IDENTIFIER}]) rename a free function or global by
+its identifier everywhere it is one name: every catalog/symbols name it decorates (`?OLD@@...`,
+`_OLD`) becomes the new one's (plain renames), and the identifier is renamed as a whole word in
+every tracked source, non-exact drafts included (an address-suffixed seed name spells one entity;
+use function_renames when two functions are to share a name).
+`member_renames` (member_rename.py) rename a member of a class at every use whose static type
+resolves it to that class's declaration (the class or a derived class that does not declare its
+own), found by clang's parse of every translation unit that spells it; a token no parse
+explains refuses the batch. Its decorated names follow: `?OLD@X@...` becomes `?NEW@X@...` for
+every catalog/symbols name of the member (a plain rename), or, with `mangled` naming one of
+several overloads, that one full name through `overload_renames` at the address its row binds.
 
 `xcu_rewrites` (docs/DECISIONS.md "$E initialiser/atexit rows placed by the original .CRT$XCU
 table", owner 2026-11-14): rows whose source is rewritten from a seed or stand-in into the
@@ -196,8 +215,141 @@ def load_spec(path, catalog):
         if kind != 'initializer' and rewrites.get(kind) != 'initializer':
             raise SystemExit('xcu_rewrites: destructor %08x names %08x, not a listed initializer' % (entry, kind))
     spec['xcu_rewrites'] = rewrites
+    spec['member_edits'] = member_plans(spec, catalog, renames, overloads)
     spec['rules'] = [(re.compile(r['pattern'], re.M), r['replace']) for r in spec.get('rewrite', [])]
+    spec['rules'] += function_rules(spec, catalog, renames, overloads, spec['address_renames'])
+    spec['rules'] += global_rules(spec, catalog, renames, overloads)
     return spec
+
+
+def member_plans(spec, catalog, renames, overloads):
+    """`member_renames` -> {path: [(offset, old, new), ...]} of source edits on the tree as it is;
+    the members' decorated names are added to `renames` (or `overloads` for one selected
+    overload, bound at its row's address)."""
+    items = spec.get('member_renames') or []
+    if not items:
+        return {}
+    import member_rename
+    names = {n for region in catalog['regions'] for n in
+             [region['symbol'], region['symbol_prefix'], *(region.get('references') or {}),
+              *(r['symbol'] for r in region.get('relocations') or [])]}
+    names |= {s['mangled_prefix'] for s in json.loads(SYMBOLS.read_text())['symbols'] if s.get('mangled_prefix')}
+    by_symbol = {r['symbol']: r['entry'] for r in catalog['regions']}
+    edits = {}
+    for item in items:
+        klass, old, new = item['class'], item['old'], item['new']
+        result = member_rename.plan(klass, old, new, item.get('mangled'), allow_hiding=bool(item.get('allow_hiding')))
+        for path, offsets in result['edits'].items():
+            edits.setdefault(path, []).extend((o, old, new) for o in offsets)
+        if item.get('mangled') or result['overload']:
+            for full, renamed in result['manglings'].items():
+                if full not in by_symbol:
+                    raise SystemExit('member_renames: %s is no accepted row (an overload renames by its row)' % full)
+                # prefix keys bound at the row's address become the full new name (overload_renames)
+                overloads[full] = (renamed, by_symbol[full])
+        else:
+            # every decorated name of the member, full or prefix: `?OLD@X@` -> `?NEW@X@`
+            head = '?%s@%s@' % (old, klass)
+            for name in sorted(n for n in names if n.startswith(head)):
+                renamed = '?%s@%s@' % (new, klass) + name[len(head):]
+                if renames.setdefault(name, renamed) != renamed:
+                    raise SystemExit('member_renames: conflicting renames for %s' % name)
+    for path, items_ in edits.items():
+        offsets = [o for o, _, _ in items_]
+        if len(set(offsets)) != len(offsets):
+            raise SystemExit('member_renames: two renames edit %s at one place' % path)
+    if any(path in spec.get('headers', {}) or path in spec.get('sources', {}) for path in edits):
+        raise SystemExit('member_renames: a renamed file is also replaced by the batch (headers/sources)')
+    return edits
+
+
+def function_rules(spec, catalog, renames, overloads, scoped=None):
+    """`function_renames` -> whole-word source rules; the row's decorated name goes to `overloads`.
+    When the new identifier already names another function whose tables bind it by its bare
+    prefix (`?NEW@@` at that function's address), that prefix key becomes the other function's
+    full name there (an address-scoped rename), so no prefix covers both overloads."""
+    rules = []
+    by_entry = {}
+    for region in catalog['regions']:
+        by_entry.setdefault(region['entry'], []).append(region)
+    for item in spec.get('function_renames') or []:
+        old, new, at = item.get('old'), item.get('new'), item.get('at')
+        if not (old and new and re.fullmatch(r'[A-Za-z_]\w*', old) and re.fullmatch(r'[A-Za-z_]\w*', new) and
+                isinstance(at, str) and re.fullmatch(r'[0-9a-fA-F]{8}', at)):
+            raise SystemExit('function_renames: %r needs old and new identifiers and one address' % item)
+        rows = by_entry.get(int(at, 16), [])
+        if len(rows) != 1:
+            raise SystemExit('function_renames: %s is not one accepted row' % at)
+        full = rows[0]['symbol']
+        head = '?%s@@' % old
+        if not full.startswith(head):
+            raise SystemExit('function_renames: the row at %s is %s, not the free function %s' % (at, full, old))
+        renamed = '?%s@@' % new + full[len(head):]
+        if full in renames or full in overloads or renamed in {n for n, _ in overloads.values()}:
+            raise SystemExit('function_renames: %s is renamed twice' % full)
+        overloads[full] = (renamed, int(at, 16))
+        rules.append((re.compile(r'(?<![\w$?@])%s(?!\w)' % re.escape(old)), new))
+        if scoped is not None:
+            target = '?%s@@' % new
+            for region in catalog['regions']:
+                for key, value in list((region.get('references') or {}).items()) + [(region['symbol_prefix'], region['entry'])]:
+                    if key != target or value == int(at, 16):
+                        continue
+                    other = [r['symbol'] for r in by_entry.get(value, []) if r['symbol'].startswith(target)]
+                    if len(other) != 1:
+                        raise SystemExit('function_renames: %s is bound at %08x by prefix and no row there spells it' % (key, value))
+                    item_ = scoped.setdefault(key, (other[0], set()))
+                    if item_[0] != other[0]:
+                        raise SystemExit('function_renames: %s prefixes two functions' % key)
+                    item_[1].add(value)
+    return rules
+
+
+def global_rules(spec, catalog, renames, overloads):
+    """`global_renames` -> whole-word source rules; every decorated spelling to `renames`."""
+    items = spec.get('global_renames') or []
+    if not items:
+        return []
+    names = {n for region in catalog['regions'] for n in
+             [region['symbol'], region['symbol_prefix'], *(region.get('references') or {}),
+              *(r['symbol'] for r in region.get('relocations') or [])]}
+    names |= {s['mangled_prefix'] for s in json.loads(SYMBOLS.read_text())['symbols'] if s.get('mangled_prefix')}
+    rules = []
+    for item in items:
+        old, new = item.get('old'), item.get('new')
+        if not (old and new and re.fullmatch(r'[A-Za-z_]\w*', old) and re.fullmatch(r'[A-Za-z_]\w*', new)):
+            raise SystemExit('global_renames: %r needs old and new identifiers' % item)
+        found = 0
+        for name in sorted(names):
+            if name.startswith('?%s@@' % old):
+                renamed = '?%s@@' % new + name[len(old) + 3:]
+            elif name == '?' + old:
+                renamed = '?' + new         # a bare prefix key (`?Unknown_005c7570`, lane M1)
+            elif name == '_' + old:
+                renamed = '_' + new
+            else:
+                continue
+            if name in overloads or renames.setdefault(name, renamed) != renamed:
+                raise SystemExit('global_renames: %s is renamed twice' % name)
+            found += 1
+        if not found:
+            raise SystemExit('global_renames: no catalog name decorates %s' % old)
+        rules.append((re.compile(r'(?<![\w$?@])%s(?!\w)' % re.escape(old)), new))
+    return rules
+
+
+def member_edited(path, text, spec):
+    """`text` with the batch's member edits for `path` applied (offsets of the tree's text)."""
+    items = (spec.get('member_edits') or {}).get(path)
+    if not items:
+        return text
+    out, last = [], 0
+    for offset, old, new in sorted(items):
+        if text[offset:offset + len(old)] != old:
+            raise SystemExit('member_renames: %s changed under the plan (offset %d)' % (path, offset))
+        out.append(text[last:offset]); out.append(new); last = offset + len(old)
+    out.append(text[last:])
+    return ''.join(out)
 
 
 def rewrite(text, spec):
@@ -331,7 +483,7 @@ def planned_files(spec):
                      for p in (REPOSITORY / root).rglob('*') if p.suffix in ('.cpp', '.hpp', '.h'))
     for path in sorted(set(tracked) | set(files)):
         current = files[path] if path in files else (REPOSITORY / path).read_bytes()
-        text = rewrite(current.decode('latin-1'), spec).encode('latin-1')
+        text = rewrite(member_edited(path, current.decode('latin-1'), spec), spec).encode('latin-1')
         if not (REPOSITORY / path).exists() or text != (REPOSITORY / path).read_bytes():
             files[path] = text
     for path, draft in spec.get('sources', {}).items():
@@ -930,6 +1082,8 @@ def main():
     parser.add_argument('--config', type=Path, default=REPOSITORY / 'private/original-target.local.json')
     parser.add_argument('--output', type=Path, help='new ignored directory (default private/.../rename-<name>)')
     parser.add_argument('--dry-run', action='store_true', help='report what would change; write nothing')
+    parser.add_argument('--native', action='store_true',
+                        help='after the batch, re-key the native tree from the same spec (native_rekey.py)')
     parser.add_argument('--header-users', action='store_true',
                         help='also recompile and verify unchanged units that include a changed header')
     args = parser.parse_args()
@@ -1089,6 +1243,12 @@ def main():
     summary.update(regions_verified=manifest['matched_source_regions'], body_bytes=manifest['body_bytes'],
                    seconds=round(time.monotonic() - started, 1), timings=timings,
                    spec_sha256=sha(args.spec.read_bytes()), catalog_sha256=catalog_io.digest(CATALOG))
+    if args.native:
+        import native_rekey
+        changed, review = native_rekey.rekey(json.loads(args.spec.read_text()))
+        summary.update(native_rekey=dict(changed=changed, review=review))
+        for note in review:
+            print('native review: ' + note, file=sys.stderr)
     (output / 'receipt.json').write_text(json.dumps(summary, indent=1) + '\n')
     print(json.dumps(dict({k: v for k, v in summary.items() if k not in ('renames', 'changed_sources', 'affected_populations')},
                           renames=len(spec['renames']), changed_sources=len(sources),

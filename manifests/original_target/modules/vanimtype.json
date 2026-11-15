@@ -462,7 +462,8 @@
    "address": "007c4ac8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 64
+   "section": 64,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4VoxelAnimTypeClass@@6BIPersistStream@@@",
@@ -1035,7 +1036,8 @@
    "symbol": "??_R3VoxelAnimTypeClass@@8",
    "address": "007c4ac8",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4VoxelAnimTypeClass@@6BIPersistStream@@@",
@@ -1439,6 +1441,10 @@
    "address": "00410310"
   },
   {
+   "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0cb0"
+  },
+  {
    "symbol": "?AddRef@AbstractClass@@UAGKXZ",
    "address": "004100a0"
   },
@@ -1733,10 +1739,6 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0cb0"
   },
   {
    "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
