@@ -360,6 +360,48 @@ extern "C" void ra2port_blit_window_clipped(int x, int y, int width, int height,
     }
 }
 
+// BitFontClass::Set_Surface / Draw_Char (port/fixups.json, lane C17; codex4 R740 SAVE0029):
+// the locked surface's size per font, and a check of each character's rows and columns
+// against it. The original's text always lands inside its surface; a draw that would not
+// is reported (the first few) with the surface, the clip box and the position, and skipped.
+namespace {
+struct FontSurface { void const *buffer; int pitch, width, height; };
+std::mutex font_lock;
+std::map<void const *, FontSurface> &font_surfaces()
+{
+    static std::map<void const *, FontSurface> surfaces;
+    return surfaces;
+}
+}
+extern "C" void ra2port_font_surface(void const *font, void const *buffer, int pitch, int width, int height)
+{
+    std::lock_guard<std::mutex> g(font_lock);
+    font_surfaces()[font] = FontSurface{buffer, pitch, width, height};
+}
+extern "C" int ra2port_font_rows_ok(void const *font, void const *buffer, int x, int y, int rows, int left, int right,
+                                    int clip_left, int clip_top, int clip_right, int clip_bottom)
+{
+    FontSurface s;
+    {
+        std::lock_guard<std::mutex> g(font_lock);
+        auto it = font_surfaces().find(font);
+        if (it == font_surfaces().end()) return 1;
+        s = it->second;
+    }
+    bool ok = s.buffer == buffer && y >= 0 && y + rows <= s.height && left >= 0 && right < s.width &&
+              (s.pitch >= s.width || rows <= 0);
+    if (!ok) {
+        static int reported = 0;
+        if (++reported <= 8) {
+            fprintf(stderr, "font: a character at %d,%d (%d rows, columns %d..%d) falls outside its %dx%d surface "
+                    "(pitch %d, buffer %s; clip box %d,%d..%d,%d): skipped%s\n", x, y, rows, left, right, s.width,
+                    s.height, s.pitch, s.buffer == buffer ? "same" : "changed", clip_left, clip_top, clip_right,
+                    clip_bottom, reported == 8 ? " (no more reports)" : "");
+        }
+    }
+    return ok ? 1 : 0;
+}
+
 // SwizzleManagerClass::Process_Tables 0x0069FC30 (port/fixups.json, Scout1133):
 // a loaded pointer whose object never called Here_I_Am. The original faults
 // there (1 / 0; arm64 integer division does not trap, so the native loop spun).

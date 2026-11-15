@@ -67,6 +67,31 @@ class Counterparts(unittest.TestCase):
             self.assertEqual(cleanup_census.counterpart('gamma', stems), 'yes')
 
 
+class Ra2DecompCounterpart(unittest.TestCase):
+    def test_yes_no_unknown_and_not_in_line_one(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.assertIsNone(cleanup_census.ra2decomp_stems(root))
+            self.assertEqual(cleanup_census.ra2decomp_counterpart('alpha', None), 'unknown')
+            (root / 'ra2-decomp/src/wpaudio').mkdir(parents=True)
+            (root / 'ra2-decomp/src/wpaudio/Beta.CPP').write_text('')
+            (root / 'ra2-decomp/src/alpha.h').write_text('')
+            stems = cleanup_census.ra2decomp_stems(root)
+            self.assertEqual(cleanup_census.ra2decomp_counterpart('beta', stems), 'yes')
+            self.assertEqual(cleanup_census.ra2decomp_counterpart('alpha', stems), 'no')   # a header is not a unit
+        inputs, read = Census.inputs(None)
+        result = cleanup_census.census(inputs, read, dict(tibsun=set(), mischa85=set()), file_backed_non_code=1000,
+                                       ra2decomp={'beta'})
+        units = {u['unit']: u for u in result['units']}
+        self.assertEqual((units['alpha']['ra2decomp_counterpart'], units['beta']['ra2decomp_counterpart']), ('no', 'yes'))
+        self.assertEqual(result['counterpart_units']['total'], 0)                     # line 1 stays TibSun/mischa85
+        header, beta = cleanup_census.unit_lines(result, True).splitlines()[:2]
+        self.assertEqual(header.split('\t')[2], 'ra2-decomp counterpart')
+        self.assertEqual(beta.split('\t')[:3], ['beta', 'no', 'yes'])
+        default = cleanup_census.census(inputs, read, dict(tibsun=set(), mischa85=set()), file_backed_non_code=1000)
+        self.assertEqual({u['ra2decomp_counterpart'] for u in default['units']}, {'unknown'})
+
+
 class Census(unittest.TestCase):
     def inputs(self):
         unit_map = {'alpha': ['00401000', '00401100', '00401200'], 'beta': ['00402000'],

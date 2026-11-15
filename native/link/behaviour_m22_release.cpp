@@ -707,7 +707,6 @@ void *allocate_words_005a62d0(unsigned int byte_count) { return ::operator new(b
 void *allocate_words_006547b0(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_words_00654840(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_words_006548d0(unsigned int byte_count) { return ::operator new(byte_count); }
-void *storage_40bc10(unsigned int byte_count) { return ::operator new(byte_count); }
 void *storage_42b510(unsigned int byte_count) { return ::operator new(byte_count); }
 void *storage_454ad0(unsigned int byte_count) { return ::operator new(byte_count); }
 void *storage_454ba0(unsigned int byte_count) { return ::operator new(byte_count); }
@@ -728,7 +727,6 @@ void *storage_4f89f0(unsigned int byte_count) { return ::operator new(byte_count
 void *storage_4f8a40(unsigned int byte_count) { return ::operator new(byte_count); }
 void *storage_4f8a90(unsigned int byte_count) { return ::operator new(byte_count); }
 void *storage_4fb5c0(unsigned int byte_count) { return ::operator new(byte_count); }
-void *storage_4fb610(unsigned int byte_count) { return ::operator new(byte_count); }
 void *storage_4fb660(unsigned int byte_count) { return ::operator new(byte_count); }
 void *storage_50b860(unsigned int byte_count) { return ::operator new(byte_count); }
 void *storage_51e710(unsigned int byte_count) { return ::operator new(byte_count); }

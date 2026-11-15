@@ -3210,6 +3210,30 @@
    "new": "    unknown_rect_ae2ff0 = rect;\n    Native_Hd_Voxel_Passes(rect, center, render_data);   // NATIVE (C16)\n\n    x = (int)center.X - rect.Width / 2;\n",
    "why": "Native addition (C16, HD vehicles; not original behaviour): with the Enhancements setting HD vehicles 2x (taken when a game starts), voxel units and their shadows get a second, 2x image the host shows over the 1x picture where the picture still shows what the unit drew (link/native_hd_vehicles.cpp). Off (the default and the ORIGINAL preset) every hook answers the original's value and the 1x drawing is unchanged. This row: VoxelDrawSystem::Render(Rect &, int &, int &) 0x007176C0 (voxel animations and debris, VoxelAnimClass::Draw_It; voxel bullets): the same half-pixel passes as Render() 0x007178E0.",
    "verified": false
+  },
+  {
+   "source": "src/recovered/bitfont.cpp",
+   "old": "#define RA2_BITFONT_MISSING_GLYPH\n",
+   "new": "#define RA2_BITFONT_MISSING_GLYPH\nextern \"C\" void ra2port_font_surface(void const *font, void const *buffer, int pitch, int width, int height);   // native: port/src/run_progress.cpp\nextern \"C\" int ra2port_font_rows_ok(void const *font, void const *buffer, int x, int y, int rows, int left, int right, int clip_left, int clip_top, int clip_right, int clip_bottom);\n",
+   "why": "Declares the native text-draw guard (lane C17; see the Set_Surface and Draw_Char fixups)."
+  },
+  {
+   "source": "src/recovered/bitfont.cpp",
+   "old": "    Pitch = (unsigned)surface->Stride() >> 1;\n",
+   "new": "    Pitch = (unsigned)surface->Stride() >> 1;\n    ra2port_font_surface(this, Buffer, (int)Pitch, surface->Get_Width(), surface->Get_Height());   // NATIVE (C17): the locked surface's size\n",
+   "why": "Native only (lane C17, codex4 R740/R744: SAVE0029 faulted in Draw_Char's clipped blit, a 16-bit store, drawing a selected unit's team number at 800x600). The original's text always lands inside the surface it locked (Set_Surface clips the clip box to it). Natively a draw whose rows or columns would fall outside the locked surface is reported once on stderr (font: ...) with the surface, clip box and position, and the character is skipped, so the cause can be read instead of a fault. A draw inside the surface, every original case, is unchanged."
+  },
+  {
+   "source": "src/recovered/bitfont.cpp",
+   "old": "            short *line = (short *)Buffer + (Pitch * y + x);\n            int clipL = clipped.left;\n",
+   "new": "            if (!ra2port_font_rows_ok(this, Buffer, x, y, rows, clipped.left, clipped.right, ClipBox.left, ClipBox.top, ClipBox.right, ClipBox.bottom)) return unknown_2c + width + x;   // NATIVE (C17)\n            short *line = (short *)Buffer + (Pitch * y + x);\n            int clipL = clipped.left;\n",
+   "why": "Native only (lane C17, codex4 R740/R744: SAVE0029 faulted in Draw_Char's clipped blit, a 16-bit store, drawing a selected unit's team number at 800x600). The original's text always lands inside the surface it locked (Set_Surface clips the clip box to it). Natively a draw whose rows or columns would fall outside the locked surface is reported once on stderr (font: ...) with the surface, clip box and position, and the character is skipped, so the cause can be read instead of a fault. A draw inside the surface, every original case, is unchanged."
+  },
+  {
+   "source": "src/recovered/bitfont.cpp",
+   "old": "    short *line = (short *)Buffer + (Pitch * y + x);\n    while (height--) {\n",
+   "new": "    if (!ra2port_font_rows_ok(this, Buffer, x, y, height, x, x + width - 1, ClipBox.left, ClipBox.top, ClipBox.right, ClipBox.bottom)) return unknown_2c + width + x;   // NATIVE (C17)\n    short *line = (short *)Buffer + (Pitch * y + x);\n    while (height--) {\n",
+   "why": "Native only (lane C17, codex4 R740/R744: SAVE0029 faulted in Draw_Char's clipped blit, a 16-bit store, drawing a selected unit's team number at 800x600). The original's text always lands inside the surface it locked (Set_Surface clips the clip box to it). Natively a draw whose rows or columns would fall outside the locked surface is reported once on stderr (font: ...) with the surface, clip box and position, and the character is skipped, so the cause can be read instead of a fault. A draw inside the surface, every original case, is unchanged."
   }
  ]
 }

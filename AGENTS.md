@@ -113,8 +113,8 @@ locals. Existing transliterated sources (`unsigned int ecx = ...`) may be
 replaced whenever a class sweep touches them, provided the replacement still
 matches exactly. Formatting and renaming earn no matched-byte credit but are
 welcome. Standing rename lane (user, 2026-11-09): one lane, counted within the lane
-total, renames toward Westwood/TibSun names first, then mischa85 names.csv, ra2-decomp
-and RTTI names; YRpp-only names stay until better evidenced; one class per round; no
+total, renames toward Westwood/TibSun names first, then ra2-decomp, then mischa85
+names.csv, then RTTI names (order changed by the user, 2026-11-15); YRpp-only names stay until better evidenced; one class per round; no
 source-shape change; whole-file exact build gates every round. Canonical source in `src/recovered/` is authoritative. Accepted seed sources
 carry a `seed-generated` marker line: `regenerate_seeds.py` may rewrite marked
 files (the build proves they still match); delete the marker when editing a

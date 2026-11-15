@@ -23,6 +23,10 @@ Counterpart. A unit has a counterpart when TibSun has code/<unit>.cpp (or .c) or
 has src/<unit>.cpp (or .c), file names compared case-insensitively. "no" needs every reference
 clone present; with one absent and no hit in the other the answer is "unknown".
 
+ra2-decomp counterpart (per unit, --units and --json only; not part of line 1): "yes" when the
+Yuri's Revenge decompilation ra2-decomp has src/**/<unit>.cpp (case-insensitive), "no" when it
+does not, "unknown" when its clone (private/reference/ra2-decomp) is absent.
+
 Decompiler-style tokens (identifier occurrences in code: comments, string and character literals and
 `__asm` blocks or lines removed first; every occurrence counts), by category:
   register   a 32-bit register used as an identifier: eax ebx ecx edx esi edi ebp esp, alone or with
@@ -143,6 +147,21 @@ def reference_stems(references):
     return found
 
 
+def ra2decomp_stems(references):
+    """Lower-case stems of ra2-decomp's src/**/*.cpp, or None when the clone is absent."""
+    folder = Path(references) / 'ra2-decomp/src'
+    if not folder.is_dir():
+        return None
+    return {p.stem.lower() for p in folder.rglob('*') if p.suffix.lower() == '.cpp'}
+
+
+def ra2decomp_counterpart(unit, stems):
+    """'yes' | 'no' | 'unknown' (clone absent): ra2-decomp has src/**/<unit>.cpp."""
+    if stems is None:
+        return 'unknown'
+    return 'yes' if unit.rsplit('/', 1)[-1].lower() in stems else 'no'
+
+
 def counterpart(unit, stems):
     """'yes' | 'no' | 'unknown' (a clone absent and no hit in the other)."""
     stem = unit.rsplit('/', 1)[-1].lower()
@@ -205,7 +224,7 @@ def function_name(symbol):
     return symbol
 
 
-def census(inputs, read, stems, file_backed_non_code=None):
+def census(inputs, read, stems, file_backed_non_code=None, ra2decomp=None):
     """The whole census as a dict: units (per-unit rows), the five measures and their parts."""
     if file_backed_non_code is None:
         from status import FILE_BACKED_NON_CODE as file_backed_non_code
@@ -253,7 +272,8 @@ def census(inputs, read, stems, file_backed_non_code=None):
                 total.update(scans[path])
         tokens = sum(total[c] for c in CATEGORIES)
         named = sorted(p for p in files[unit] if address_named(p))
-        units.append(dict(unit=unit, counterpart=counterpart(unit, stems), files=len(files[unit]),
+        units.append(dict(unit=unit, counterpart=counterpart(unit, stems),
+                          ra2decomp_counterpart=ra2decomp_counterpart(unit, ra2decomp), files=len(files[unit]),
                           tokens=tokens, by_category={c: total[c] for c in CATEGORIES if total[c]},
                           placeholders=total['placeholder'], address_named_files=len(named),
                           missing_files=missing))
@@ -352,11 +372,11 @@ def block(result):
 def unit_lines(result, show_all=False):
     rows = sorted(result['units'], key=lambda u: (-u['tokens'], -u['placeholders'], -u['address_named_files'],
                                                   u['unit']))
-    out = ['unit\tcounterpart\ttokens\tplaceholders\taddress_named_files\tfiles\tby_category']
+    out = ['unit\tcounterpart\tra2-decomp counterpart\ttokens\tplaceholders\taddress_named_files\tfiles\tby_category']
     for u in rows:
         if u['done'] and not show_all:
             continue
-        out.append('\t'.join([u['unit'], u['counterpart'], str(u['tokens']), str(u['placeholders']),
+        out.append('\t'.join([u['unit'], u['counterpart'], u['ra2decomp_counterpart'], str(u['tokens']), str(u['placeholders']),
                               str(u['address_named_files']), str(u['files']),
                               ' '.join('%s=%d' % kv for kv in sorted(u['by_category'].items()))]))
     return '\n'.join(out)
@@ -371,8 +391,9 @@ def main():
     parser.add_argument('--all', action='store_true', help='with --units, also list units already done')
     parser.add_argument('--json', action='store_true')
     args = parser.parse_args()
-    stems = reference_stems(args.references or args.repository / 'private/reference')
-    result = census(load_inputs(args.repository), reader(args.repository), stems)
+    references = args.references or args.repository / 'private/reference'
+    result = census(load_inputs(args.repository), reader(args.repository), reference_stems(references),
+                    ra2decomp=ra2decomp_stems(references))
     if args.json:
         print(json.dumps(result, indent=1))
     if args.units:

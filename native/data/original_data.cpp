@@ -37,12 +37,8 @@ __asm__(".globl _vtable_56ae90\n.set _vtable_56ae90, _vtable_40b230\n");
 // row	_vtable_40bb20	0x0079A7DC	32	bytes	vtable_40bb20	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 alignas(16) unsigned char ra2_orig_0007[32] __asm__("_vtable_40bad0");
 __asm__(".globl _vtable_40bb20\n.set _vtable_40bb20, _vtable_40bad0\n");
-// row	_table_40bc10	0x0079A7FC	32	bytes	table_40bc10	src/recovered/classes/VectorClass_TechnoClass_ptr/0040bc10.cpp
-// row	_vtable_40bb70	0x0079A7FC	32	bytes	vtable_40bb70	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 // row	_vtable_40bbc0	0x0079A7FC	32	bytes	vtable_40bbc0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
-alignas(16) unsigned char ra2_orig_0008[32] __asm__("_table_40bc10");
-__asm__(".globl _vtable_40bb70\n.set _vtable_40bb70, _table_40bc10\n");
-__asm__(".globl _vtable_40bbc0\n.set _vtable_40bbc0, _table_40bc10\n");
+alignas(16) unsigned char ra2_orig_0008[32] __asm__("_vtable_40bbc0");
 // row	_vtable_40c9d0	0x0079A8CC	32	bytes	vtable_40c9d0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 // row	_vtable_40ca20	0x0079A8CC	32	bytes	vtable_40ca20	src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp
 alignas(16) unsigned char ra2_orig_0009[32] __asm__("_vtable_40c9d0");
