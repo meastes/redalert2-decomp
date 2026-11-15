@@ -65,3 +65,11 @@ LogicClass Logic;
 
 
 // Dynamic initializer (0x0040C6D0, _$E) emitted by HeaderStatics_diagonal_init_0040c4a0.cpp; no source of its own.
+
+
+// ??_G?$VectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z (0x0040C9D0): compiler generated with the VectorClass<IsometricTileClass *> vtable this unit's list stores
+// (shared/vector_class.hpp); emitted by this unit's own use of the list. No source of its own.
+
+
+// ??_G?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z (0x0040CA20): compiler generated with the DynamicVectorClass<IsometricTileClass *> vtable this unit's list stores
+// (shared/vector_class.hpp); emitted by this unit's own use of the list. No source of its own.

@@ -9,7 +9,7 @@
   "/G5",
   "/Gy"
  ],
- "compile_group": 719,
+ "compile_group": 718,
  "code": [
   {
    "symbol": "_$E2",
@@ -876,6 +876,24 @@
    "padding_bytes": 8
   },
   {
+   "symbol": "??0?$DynamicVectorClass@PAVBuildingTypeClass@@@@QAE@ABV0@@Z",
+   "entry": "006547b0",
+   "body_bytes": 136,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??0?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@QAE@ABV0@@Z",
+   "entry": "00654840",
+   "body_bytes": 136,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??0?$DynamicVectorClass@PAVAircraftTypeClass@@@@QAE@ABV0@@Z",
+   "entry": "006548d0",
+   "body_bytes": 136,
+   "padding_bytes": 8
+  },
+  {
    "symbol": "?get@Storage_654960@@QAEPAXIPAI@Z",
    "entry": "00654960",
    "body_bytes": 74,
@@ -894,7 +912,7 @@
    "padding_bytes": 6
   }
  ],
- "code_bytes": 83248,
+ "code_bytes": 83680,
  "data": [
   {
    "symbol": "??_7CDFileClass@@6B@",

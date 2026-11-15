@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 787,
+ "compile_group": 786,
  "code": [
   {
    "symbol": "_$E2",
@@ -101,9 +101,21 @@
    "entry": "0040c6d0",
    "body_bytes": 59,
    "padding_bytes": 5
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z",
+   "entry": "0040c9d0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z",
+   "entry": "0040ca20",
+   "body_bytes": 73,
+   "padding_bytes": 7
   }
  ],
- "code_bytes": 624,
+ "code_bytes": 784,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -606,14 +618,6 @@
   {
    "symbol": "??_7type_info@@6B@",
    "address": "007b15e4"
-  },
-  {
-   "symbol": "??_G?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z",
-   "address": "0040ca20"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z",
-   "address": "0040c9d0"
   },
   {
    "symbol": "??_G?$VectorClass@PAVObjectClass@@@@UAEPAXI@Z",

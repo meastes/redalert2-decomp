@@ -4,8 +4,8 @@
     "id": "population-12",
     "inventory_sha256": "82d76aac864d26e1a63b17341b43281aa316ce10c95f0d35474ebdba4d64c791",
     "gaps_sha256": "21f64252f3fcb8274a774e959238f0f224727b0f9c98bca222ac927a23e841e4",
-    "historical_population_sha256": "d1db9c66776f247fb5b5a31eefc588c8bab6c2e1ca5c203160526812176a2a90",
-    "historical_acceptance_sha256": "232c441bb2fe1c8ab790d4538c105577360d797f805aae4b6f4d61e664eb70b1"
+    "historical_population_sha256": "11cfb012f18bba46a0a21a789035b54383d502c5626e9531a6669875b1c24d41",
+    "historical_acceptance_sha256": "f7fd21dc8868e4186635954084ac2ffc82f785619aa305df64d9c562716160e1"
   },
   "references": {
     "_vtable_40b230": 7972716,
@@ -196,55 +196,6 @@
       "source": "src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp",
       "source_sha256": "40028f4d75c11f3aa0da5fc20fcdd7784af015612443285225fa11a87c42157d",
       "source_order": 74,
-      "population": "population-12",
-      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"
-    },
-    {
-      "entry": 4246048,
-      "method": "40ca20",
-      "symbol": "?get@Leaf_40ca20@@QAEPAXI@Z",
-      "symbol_prefix": "?get@Leaf_40ca20@@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 73,
-      "body_sha256": "0df553ca7eca87492205942b5e5dccc926bf6aa0ea6d5296ddd3bf28be7b2584",
-      "padding_bytes": 7,
-      "full_extent_bytes": 80,
-      "full_extent_sha256": "1a56be8cd23a8e1811840f7137e38840e1aac7a20c58d6268df20bb8dc1aeff3",
-      "relocations": [
-        {
-          "offset": 8,
-          "kind": 6,
-          "symbol": "_vtable_40ca20",
-          "target": 7973068,
-          "addend": 0,
-          "resolved": 7973068
-        },
-        {
-          "offset": 25,
-          "kind": 20,
-          "symbol": "_release_buffer_40ca20",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 3625726
-        },
-        {
-          "offset": 60,
-          "kind": 20,
-          "symbol": "_release_object_40ca20",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 3625691
-        }
-      ],
-      "source": "src/recovered/classes/DynamicVectorClass_IsometricTileClass_ptr/0040ca20.cpp",
-      "source_sha256": "709fd40d430ba1043ce65744138d55bd15cf2fa37fb07ee63a833462c51a6e6f",
-      "source_order": 155,
       "population": "population-12",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"
@@ -539,55 +490,6 @@
       "source": "src/recovered/classes/DynamicVectorClass_EgoClass_ptr/004b4640.cpp",
       "source_sha256": "a5da8fb7b3971d7af9bcc79b0e5369fdf5566f9636f0f6e92e77aa11fff65dff",
       "source_order": 1525,
-      "population": "population-12",
-      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"
-    },
-    {
-      "entry": 6845312,
-      "method": "687380",
-      "symbol": "?get@Leaf_687380@@QAEPAXI@Z",
-      "symbol_prefix": "?get@Leaf_687380@@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 73,
-      "body_sha256": "054233516109ac046ac054999f65abefd19fe7e561cf7b3298369f9cca9a99a9",
-      "padding_bytes": 7,
-      "full_extent_bytes": 80,
-      "full_extent_sha256": "3e71dade4f25c37ced682eec8e07a8d6ba60f6e69a69554c05d9442456ab277d",
-      "relocations": [
-        {
-          "offset": 8,
-          "kind": 6,
-          "symbol": "_vtable_687380",
-          "target": 8041772,
-          "addend": 0,
-          "resolved": 8041772
-        },
-        {
-          "offset": 25,
-          "kind": 20,
-          "symbol": "_release_buffer_687380",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 1026462
-        },
-        {
-          "offset": 60,
-          "kind": 20,
-          "symbol": "_release_object_687380",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 1026427
-        }
-      ],
-      "source": "src/recovered/classes/DynamicVectorClass_UndoInfoStruct/00687380.cpp",
-      "source_sha256": "e8697722aea706e1d80b0347a8183b11d1791c000c3bac625cf7f92fdd3de9d7",
-      "source_order": 5041,
       "population": "population-12",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"

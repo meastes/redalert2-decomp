@@ -1674,3 +1674,7 @@ void* Storage_5a6d80::get(unsigned int requested,unsigned int* buffer) { items=0
 // VectorClass<CoopCampaignClass *>::VectorClass(unsigned int, CoopCampaignClass * const *) (0x005A6E20)
 // Template constructor instantiated from shared/vector_class.hpp.
 // No source of its own: emitted by the MultiplayerGameMode/MPCooperative unit (the MPCooperative constructor calls it).
+
+
+// ??0?$DynamicVectorClass@PAVMPlayerScoreType@@@@QAE@ABV0@@Z (0x005A62D0): the compiler-generated DynamicVectorClass<MPlayerScoreType *> copy constructor (shared/vector_class.hpp declares none,
+// as TibSun vector.h); emitted by this unit's copy of the list. No source of its own.

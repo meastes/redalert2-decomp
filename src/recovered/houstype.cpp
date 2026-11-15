@@ -624,3 +624,11 @@ void* Storage_4fb660::get(unsigned int requested,unsigned int* buffer) { items=0
 
 
 // HouseTypeClass::Release adjustor thunk for IRTTITypeInfo (0x004FB6D0)
+
+
+// ??0?$DynamicVectorClass@PAVInfantryTypeClass@@@@QAE@ABV0@@Z (0x004FB4A0): the compiler-generated DynamicVectorClass<InfantryTypeClass *> copy constructor (shared/vector_class.hpp declares none,
+// as TibSun vector.h); emitted by this unit's copy of the list. No source of its own.
+
+
+// ??0?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE@ABV0@@Z (0x004FB530): the compiler-generated DynamicVectorClass<UnitTypeClass *> copy constructor (shared/vector_class.hpp declares none,
+// as TibSun vector.h); emitted by this unit's copy of the list. No source of its own.

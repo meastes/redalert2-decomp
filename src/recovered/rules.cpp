@@ -3670,3 +3670,15 @@ void* Storage_6549b0::get(unsigned int requested,unsigned int* buffer) { items=0
 extern "C" unsigned char table_654a00[]; extern "C" void* __cdecl storage_654a00(unsigned int);
 class Storage_654a00 { unsigned int table_word; unsigned int* items; unsigned int count; unsigned char valid; unsigned char owns; public: void* get(unsigned int requested,unsigned int* buffer); };
 void* Storage_654a00::get(unsigned int requested,unsigned int* buffer) { items=0; count=requested; valid=1; owns=0; table_word=(unsigned int)table_654a00; if(requested) { if(buffer) { items=buffer; return this; } items=(unsigned int*)storage_654a00(requested << 2); owns=1; } return this; }
+
+
+// ??0?$DynamicVectorClass@PAVBuildingTypeClass@@@@QAE@ABV0@@Z (0x006547B0): the compiler-generated DynamicVectorClass<BuildingTypeClass *> copy constructor (shared/vector_class.hpp declares none,
+// as TibSun vector.h); emitted by this unit's copy of the list. No source of its own.
+
+
+// ??0?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@QAE@ABV0@@Z (0x00654840): the compiler-generated DynamicVectorClass<VoxelAnimTypeClass *> copy constructor (shared/vector_class.hpp declares none,
+// as TibSun vector.h); emitted by this unit's copy of the list. No source of its own.
+
+
+// ??0?$DynamicVectorClass@PAVAircraftTypeClass@@@@QAE@ABV0@@Z (0x006548D0): the compiler-generated DynamicVectorClass<AircraftTypeClass *> copy constructor (shared/vector_class.hpp declares none,
+// as TibSun vector.h); emitted by this unit's copy of the list. No source of its own.

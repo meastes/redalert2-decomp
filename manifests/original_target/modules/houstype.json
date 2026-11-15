@@ -9,7 +9,7 @@
   "/G5",
   "/Gy"
  ],
- "compile_group": 718,
+ "compile_group": 717,
  "code": [
   {
    "symbol": "_$E2",
@@ -486,6 +486,18 @@
    "padding_bytes": 8
   },
   {
+   "symbol": "??0?$DynamicVectorClass@PAVInfantryTypeClass@@@@QAE@ABV0@@Z",
+   "entry": "004fb4a0",
+   "body_bytes": 136,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??0?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE@ABV0@@Z",
+   "entry": "004fb530",
+   "body_bytes": 136,
+   "padding_bytes": 8
+  },
+  {
    "symbol": "?get@Storage_4fb5c0@@QAEPAXIPAI@Z",
    "entry": "004fb5c0",
    "body_bytes": 74,
@@ -516,7 +528,7 @@
    "padding_bytes": 0
   }
  ],
- "code_bytes": 9534,
+ "code_bytes": 9822,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -1486,6 +1498,12 @@
   },
   {
    "site": "00647f40",
+   "symbol": "??0?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE@ABV0@@Z",
+   "target": "004fb530",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
    "symbol": "?Clear@?$VectorClass@PAVUnitTypeClass@@@@UAEXXZ",
    "target": "004fadd0",
    "function_entry": true
@@ -1500,6 +1518,12 @@
    "site": "00647f40",
    "symbol": "?Add@?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE_NABQAVUnitTypeClass@@@Z",
    "target": "004fafc0",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "??0?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE@ABV0@@Z",
+   "target": "004fb530",
    "function_entry": true
   },
   {
@@ -1542,6 +1566,12 @@
    "site": "00647f40",
    "symbol": "?Add@?$DynamicVectorClass@PAVInfantryTypeClass@@@@QAE_NABQAVInfantryTypeClass@@@Z",
    "target": "004fabf0",
+   "function_entry": true
+  },
+  {
+   "site": "00647f40",
+   "symbol": "??0?$DynamicVectorClass@PAVInfantryTypeClass@@@@QAE@ABV0@@Z",
+   "target": "004fb4a0",
    "function_entry": true
   },
   {

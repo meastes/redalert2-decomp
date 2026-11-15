@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 867,
+ "compile_group": 866,
  "code": [
   {
    "symbol": "_$E2",
@@ -239,9 +239,21 @@
    "entry": "006872f0",
    "body_bytes": 64,
    "padding_bytes": 0
+  },
+  {
+   "symbol": "??_G?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z",
+   "entry": "00687330",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z",
+   "entry": "00687380",
+   "body_bytes": 73,
+   "padding_bytes": 7
   }
  ],
- "code_bytes": 9696,
+ "code_bytes": 9856,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -716,16 +728,8 @@
    "address": null
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z",
-   "address": "00687380"
-  },
-  {
    "symbol": "??_G?$VectorClass@PAVObjectClass@@@@UAEPAXI@Z",
    "address": null
-  },
-  {
-   "symbol": "??_G?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z",
-   "address": "00687330"
   },
   {
    "symbol": "?AdjacentCell@@3QBVCell@@B",

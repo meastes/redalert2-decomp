@@ -834,3 +834,11 @@ int __fastcall Get_Deformable_Cell_Corners_00686dd0(CellClass *cell, int directi
 // Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):
 // DynamicVectorClass<UndoInfoStruct>::ID_object (0x006872F0; virtual slot 4).
 // Layout and behaviour: shared/vector_class.hpp; element comparison: shared/vector_elements.hpp.
+
+
+// ??_G?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z (0x00687330): compiler generated with the VectorClass<UndoInfoStruct> vtable this unit's list stores
+// (shared/vector_class.hpp); emitted by this unit's own use of the list. No source of its own.
+
+
+// ??_G?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z (0x00687380): compiler generated with the DynamicVectorClass<UndoInfoStruct> vtable this unit's list stores
+// (shared/vector_class.hpp); emitted by this unit's own use of the list. No source of its own.

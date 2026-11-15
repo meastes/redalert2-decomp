@@ -511,3 +511,11 @@ unsigned int Leaf_4369e0::get() { return 0x44; }
 
 
 // BombClass scalar deleting destructor (0x004369F0): compiler generated (the destructor expanded inline); no source of its own.
+
+
+// ??_G?$VectorClass@PAVBombClass@@@@UAEPAXI@Z (0x0040BAD0): compiler generated with the VectorClass<BombClass *> vtable this unit's list stores
+// (shared/vector_class.hpp); emitted by this unit's own use of the list. No source of its own.
+
+
+// ??_G?$DynamicVectorClass@PAVBombClass@@@@UAEPAXI@Z (0x0040BB20): compiler generated with the DynamicVectorClass<BombClass *> vtable this unit's list stores
+// (shared/vector_class.hpp); emitted by this unit's own use of the list. No source of its own.

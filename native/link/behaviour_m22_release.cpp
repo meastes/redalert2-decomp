@@ -9,12 +9,8 @@
 void Free_Memory_00781d3b(void *block);   // link/behaviour_m22_options.cpp
 extern "C" {
 void release_buffer_40b230(void *block) { Free_Memory_00781d3b(block); }
-void release_buffer_40bad0(void *block) { Free_Memory_00781d3b(block); }
-void release_buffer_40bb20(void *block) { Free_Memory_00781d3b(block); }
 void release_buffer_40bb70(void *block) { Free_Memory_00781d3b(block); }
 void release_buffer_40bbc0(void *block) { Free_Memory_00781d3b(block); }
-void release_buffer_40c9d0(void *block) { Free_Memory_00781d3b(block); }
-void release_buffer_40ca20(void *block) { Free_Memory_00781d3b(block); }
 void release_buffer_40ce20(void *block) { Free_Memory_00781d3b(block); }
 void release_buffer_40d6d0(void *block) { Free_Memory_00781d3b(block); }
 void release_buffer_40d720(void *block) { Free_Memory_00781d3b(block); }
@@ -282,8 +278,6 @@ void release_buffer_674960(void *block) { Free_Memory_00781d3b(block); }
 void release_buffer_6749b0(void *block) { Free_Memory_00781d3b(block); }
 void release_buffer_674a00(void *block) { Free_Memory_00781d3b(block); }
 void release_buffer_674a50(void *block) { Free_Memory_00781d3b(block); }
-void release_buffer_687330(void *block) { Free_Memory_00781d3b(block); }
-void release_buffer_687380(void *block) { Free_Memory_00781d3b(block); }
 void release_buffer_68afa0(void *block) { Free_Memory_00781d3b(block); }
 void release_buffer_68aff0(void *block) { Free_Memory_00781d3b(block); }
 void release_buffer_68b040(void *block) { Free_Memory_00781d3b(block); }
@@ -325,12 +319,8 @@ void release_buffer_76be10(void *block) { Free_Memory_00781d3b(block); }
 void release_buffer_76d870(void *block) { Free_Memory_00781d3b(block); }
 void release_buffer_76d8c0(void *block) { Free_Memory_00781d3b(block); }
 void release_object_40b230(void *block) { Free_Memory_00781d3b(block); }
-void release_object_40bad0(void *block) { Free_Memory_00781d3b(block); }
-void release_object_40bb20(void *block) { Free_Memory_00781d3b(block); }
 void release_object_40bb70(void *block) { Free_Memory_00781d3b(block); }
 void release_object_40bbc0(void *block) { Free_Memory_00781d3b(block); }
-void release_object_40c9d0(void *block) { Free_Memory_00781d3b(block); }
-void release_object_40ca20(void *block) { Free_Memory_00781d3b(block); }
 void release_object_40ce20(void *block) { Free_Memory_00781d3b(block); }
 void release_object_40d6d0(void *block) { Free_Memory_00781d3b(block); }
 void release_object_40d720(void *block) { Free_Memory_00781d3b(block); }
@@ -598,8 +588,6 @@ void release_object_674960(void *block) { Free_Memory_00781d3b(block); }
 void release_object_6749b0(void *block) { Free_Memory_00781d3b(block); }
 void release_object_674a00(void *block) { Free_Memory_00781d3b(block); }
 void release_object_674a50(void *block) { Free_Memory_00781d3b(block); }
-void release_object_687330(void *block) { Free_Memory_00781d3b(block); }
-void release_object_687380(void *block) { Free_Memory_00781d3b(block); }
 void release_object_68afa0(void *block) { Free_Memory_00781d3b(block); }
 void release_object_68aff0(void *block) { Free_Memory_00781d3b(block); }
 void release_object_68b040(void *block) { Free_Memory_00781d3b(block); }
@@ -693,14 +681,6 @@ void *allocate_storage_00653730(unsigned int byte_count) { return ::operator new
 void *allocate_storage_00653a40(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_storage_006634e0(unsigned int byte_count) { return ::operator new(byte_count); }
 void *allocate_storage_007246d0(unsigned int byte_count) { return ::operator new(byte_count); }
-void *allocate_words_0046ce20(unsigned int byte_count) { return ::operator new(byte_count); }
-void *allocate_words_004f6f30(unsigned int byte_count) { return ::operator new(byte_count); }
-void *allocate_words_004fb4a0(unsigned int byte_count) { return ::operator new(byte_count); }
-void *allocate_words_004fb530(unsigned int byte_count) { return ::operator new(byte_count); }
-void *allocate_words_005a62d0(unsigned int byte_count) { return ::operator new(byte_count); }
-void *allocate_words_006547b0(unsigned int byte_count) { return ::operator new(byte_count); }
-void *allocate_words_00654840(unsigned int byte_count) { return ::operator new(byte_count); }
-void *allocate_words_006548d0(unsigned int byte_count) { return ::operator new(byte_count); }
 void *storage_42b510(unsigned int byte_count) { return ::operator new(byte_count); }
 void *storage_454ad0(unsigned int byte_count) { return ::operator new(byte_count); }
 void *storage_454ba0(unsigned int byte_count) { return ::operator new(byte_count); }

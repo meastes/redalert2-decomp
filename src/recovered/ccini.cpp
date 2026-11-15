@@ -1582,3 +1582,7 @@ void* Storage_46dbd0::get(unsigned int requested,unsigned int* buffer) { items=0
 
 // VectorClass<RGBClass> operator assign (0x0046DD20): instantiated in the CCINI unit by the CCINIClass list readers
 // from shared/vector_class.hpp; no source of its own.
+
+
+// ??0?$DynamicVectorClass@H@@QAE@ABV0@@Z (0x0046CE20): the compiler-generated DynamicVectorClass<int> copy constructor (shared/vector_class.hpp declares none,
+// as TibSun vector.h); emitted by this unit's copy of the list. No source of its own.

@@ -4,8 +4,8 @@
     "id": "population-3779",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "9111ffc0c6b6d8b4532da7d1b5f40e91cfeb504d9fbc22c90c989bb9e447f81c",
-    "historical_acceptance_sha256": "71a6a2f51d6b72ff1c59b6f7a56a5b8991d8224cd5c4fe1ff8d5770f7978e732"
+    "historical_population_sha256": "1e719cd98d1547f6391200c9b95d50dd5dfdabdfc4da5eb589b4457fb5930eda",
+    "historical_acceptance_sha256": "ce9ea4581b788fe1867dcdd40f70f2d394803c50bb2e6e5b3c52a5405c8efc0f"
   },
   "references": {
     "??_7LogicClass@@6B@": 7973100,
@@ -5980,7 +5980,105 @@
     "??_R0?AVWDTState@@@8": 8372688,
     "??_R0?AVWinModemClass@@@8": 8374768,
     "__ramp_corners": 8339828,
-    "?Reset@BitFontClass@@QAEXXZ": 4399536
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "_release_buffer_40ca20": 7871803,
+    "_release_object_40ca20": 7871803,
+    "_vtable_40ca20": 7973068,
+    "??_G?$VectorClass@PAVBombClass@@@@UAEPAXI@Z": 4242128,
+    "??_G?$DynamicVectorClass@PAVBombClass@@@@UAEPAXI@Z": 4242208,
+    "??_G?$VectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242288,
+    "??_G?$VectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249296,
+    "??_G?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249376,
+    "??_G?$VectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z": 4257408,
+    "??_G?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z": 4257488,
+    "??8?$VectorClass@PAUDamageGroup@@@@UBE_NABV0@@Z": 4717904,
+    "??_G?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
+    "??_7?$VectorClass@PAUDamageGroup@@@@6B@": 7986524,
+    "??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "??0?$VectorClass@PAUDamageGroup@@@@QAE@IPBQAUDamageGroup@@@Z": 4718672,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "??_7?$DynamicVectorClass@PAVMapRegionClass@@@@6B@": 8019344,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "??_7?$DynamicVectorClass@PAUHWND__@@@@6B@": 8024292,
+    "??_7?$DynamicVectorClass@UAcceleratorTracker@@@@6B@": 8024356,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "??_G?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845232,
+    "??_G?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845312,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "??_7?$DynamicVectorClass@PBVTeamTypeClass@@@@6B@": 8007660,
+    "??1?$VectorClass@PAVInfantryTypeClass@@@@UAE@XZ": 6629440,
+    "??1?$VectorClass@PAVTerrainTypeClass@@@@UAE@XZ": 6629488,
+    "??1?$VectorClass@I@@UAE@XZ": 7547984,
+    "??0?$VectorClass@PAVPlanningNodeClass@@@@QAE@IPBQAVPlanningNodeClass@@@Z": 6405488,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?AI@CreditClass@@QAEX_N@Z": 4802128,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
+    "??_7?$VectorClass@PAUHWND__@@@@6B@": 8024324,
+    "??_7?$VectorClass@UAcceleratorTracker@@@@6B@": 8024388,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "??0?$VectorClass@PAVFoggedObjectClass@@@@QAE@IPBQAVFoggedObjectClass@@@Z": 4706528,
+    "??_7?$VectorClass@PAVMapRegionClass@@@@6B@": 8019376,
+    "??_7?$DynamicVectorClass@PBVBuildingTypeClass@@@@6B@": 8007464,
+    "??0?$VectorClass@_N@@QAE@IPB_N@Z": 5213472,
+    "??_7?$DynamicVectorClass@_N@@6B@": 8007556,
+    "??_7?$VectorClass@_N@@6B@": 8007524,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "??0?$VectorClass@PAVtConnInfoStruct@@@@QAE@IPBQAVtConnInfoStruct@@@Z": 7766208,
+    "??_7?$DynamicVectorClass@PAVtConnInfoStruct@@@@6B@": 8059268,
+    "??_7?$VectorClass@PAVtConnInfoStruct@@@@6B@": 8059236,
+    "??0?$VectorClass@N@@QAE@IPBN@Z": 5829328,
+    "??_7?$DynamicVectorClass@N@@6B@": 8019884,
+    "??_7?$VectorClass@N@@6B@": 8019852,
+    "??0?$DynamicVectorClass@PAVCellClass@@@@QAE@IPBQAVCellClass@@@Z": 7489232,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "??_7?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@6B@": 8007628,
+    "??_7?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@6B@": 8056836,
+    "??_7?$VectorClass@V?$TRect@H@@@@6B@": 8019632,
+    "??_7?$VectorClass@UCentroid@WorldDominationTour@@@@6B@": 8057496,
+    "??0?$VectorClass@PAVMSAnim@@@@QAE@IPBQAVMSAnim@@@Z": 7537776,
+    "??0?$VectorClass@PAVMSSfxEntry@@@@QAE@IPBQAVMSSfxEntry@@@Z": 7537856,
+    "??_G?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "??0?$DynamicVectorClass@VHSVClass@@@@QAE@IPBVHSVClass@@@Z": 6312432,
+    "??0?$DynamicVectorClass@PAVPlanningMemberClass@@@@QAE@IPBQAVPlanningMemberClass@@@Z": 6401152,
+    "??0?$DynamicVectorClass@PAVPlanningBranchClass@@@@QAE@IPBQAVPlanningBranchClass@@@Z": 6401936,
+    "??_7?$DynamicVectorClass@PAVMultiMission@@@@6B@": 8033700,
+    "??_7?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@6B@": 8033668,
+    "??_7?$DynamicVectorClass@PAVPhoneEntryClass@@@@6B@": 8033636,
+    "??_7?$DynamicVectorClass@PBG@@6B@": 8017684,
+    "??0?$VectorClass@PAUButtonFadeEffect@@@@QAE@IPBQAUButtonFadeEffect@@@Z": 4891152,
+    "??_7?$DynamicVectorClass@PAUButtonFadeEffect@@@@6B@": 7998332,
+    "??0?$VectorClass@PAUCrossDissolveEffect@@@@QAE@IPBQAUCrossDissolveEffect@@@Z": 4891232,
+    "??_7?$DynamicVectorClass@PAUCrossDissolveEffect@@@@6B@": 7998300,
+    "??_7?$VectorClass@PAUCrossDissolveEffect@@@@6B@": 7998256,
+    "??_7?$VectorClass@PAUButtonFadeEffect@@@@6B@": 7998224,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "??0?$VectorClass@PAVReestablish@@@@QAE@IPBQAVReestablish@@@Z": 4541344,
+    "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
+    "??_7?$VectorClass@PAVReestablish@@@@6B@": 7983344,
+    "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
+    "??_E?$VectorClass@PAVBombClass@@@@UAEPAXI@Z": 4242128,
+    "??_E?$DynamicVectorClass@PAVBombClass@@@@UAEPAXI@Z": 4242208,
+    "??_E?$VectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242288,
+    "??_E?$VectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249296,
+    "??_E?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249376,
+    "??_E?$VectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z": 4257408,
+    "??_E?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z": 4257488,
+    "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "??_E?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845232,
+    "??_E?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845312,
+    "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320
   },
   "regions": [
     {
@@ -6042,7 +6140,7 @@
           "resolved": 8594424
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -6093,7 +6191,7 @@
           "resolved": 8594496
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6144,7 +6242,7 @@
           "resolved": 8594480
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6195,7 +6293,7 @@
           "resolved": 8594472
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6246,7 +6344,7 @@
           "resolved": 8594432
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6297,7 +6395,7 @@
           "resolved": 8594392
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6380,7 +6478,7 @@
           "resolved": 8594528
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -6439,7 +6537,7 @@
           "resolved": 8594440
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -6498,7 +6596,7 @@
           "resolved": 8594464
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -6557,7 +6655,7 @@
           "resolved": 8594488
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6600,7 +6698,7 @@
           "resolved": 8594418
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -6651,7 +6749,7 @@
           "resolved": 8594456
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -6710,7 +6808,7 @@
           "resolved": 8594412
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6817,13 +6915,114 @@
           "resolved": 3629759
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
       "source_order": 167376
+    },
+    {
+      "entry": 4245968,
+      "method": "40c9d0",
+      "symbol": "??_G?$VectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 73,
+      "body_sha256": "60b8c92359d1859d1e9114515b7f1a124aed0ea3779e8cbab61d4e2ee0456793",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "2acef623105d8d08da163b6ea1d400eaf9991e95602b8d7584aeb6d3c7ebe433",
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVIsometricTileClass@@@@6B@",
+          "target": 7973068,
+          "addend": 0,
+          "resolved": 7973068
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3625806
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3625771
+        }
+      ],
+      "source": "src/recovered/_isotile.cpp",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_order": 243690,
+      "population": "population-3779",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"
+    },
+    {
+      "entry": 4246048,
+      "method": "40ca20",
+      "symbol": "??_G?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 73,
+      "body_sha256": "0df553ca7eca87492205942b5e5dccc926bf6aa0ea6d5296ddd3bf28be7b2584",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "1a56be8cd23a8e1811840f7137e38840e1aac7a20c58d6268df20bb8dc1aeff3",
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVIsometricTileClass@@@@6B@",
+          "target": 7973068,
+          "addend": 0,
+          "resolved": 7973068
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3625726
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3625691
+        }
+      ],
+      "source": "src/recovered/_isotile.cpp",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
+      "source_order": 243691,
+      "population": "population-3779",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "bound_population": "population-12"
     },
     {
       "entry": 4246128,
@@ -7067,7 +7266,7 @@
           "resolved": 8594512
         }
       ],
-      "source_sha256": "6c610228fea3b3eb70fc7eb6f0550cba63d560b9c9878283f1a5812609bdde0b",
+      "source_sha256": "8e919221f56728cb96f721cd864938e6034e36ed90f5f8ee935ec9b9aaaded68",
       "source": "src/recovered/_isotile.cpp",
       "population": "population-3779",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

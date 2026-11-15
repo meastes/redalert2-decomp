@@ -10,8 +10,20 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 828,
+ "compile_group": 827,
  "code": [
+  {
+   "symbol": "??_G?$VectorClass@PAVBombClass@@@@UAEPAXI@Z",
+   "entry": "0040bad0",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@PAVBombClass@@@@UAEPAXI@Z",
+   "entry": "0040bb20",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
   {
    "symbol": "_$E2",
    "entry": "00435970",
@@ -247,7 +259,7 @@
    "padding_bytes": 2
   }
  ],
- "code_bytes": 4304,
+ "code_bytes": 4464,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -1048,14 +1060,6 @@
   {
    "symbol": "??_7type_info@@6B@",
    "address": "007b15e4"
-  },
-  {
-   "symbol": "??_G?$DynamicVectorClass@PAVBombClass@@@@UAEPAXI@Z",
-   "address": "0040bb20"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVBombClass@@@@UAEPAXI@Z",
-   "address": "0040bad0"
   },
   {
    "symbol": "?AI@AbstractClass@@UAEXXZ",

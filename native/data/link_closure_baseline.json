@@ -1,8 +1,8 @@
 {
  "about": "Undefined symbols of the Mac ra2-native link closure (RA2_NATIVE_SUBSYSTEM=all, drafts and link closure on, WIN64_PARAMS on) that tests/link_closure_baseline.py allows. Names only (no bytes). Regenerate with tests/link_closure_baseline.py --build <dir> --write when the set shrinks.",
- "total": 220,
+ "total": 212,
  "by_class": {
-  "c-address": 21,
+  "c-address": 13,
   "c-data": 1,
   "c-function": 3,
   "cxx-data": 3,
@@ -998,46 +998,6 @@
    "symbol": "_call_735d70_0",
    "name": "call_735d70_0",
    "cls": "c-function"
-  },
-  {
-   "symbol": "_clear_storage_slot_0046ce20",
-   "name": "clear_storage_slot_0046ce20",
-   "cls": "c-address"
-  },
-  {
-   "symbol": "_clear_storage_slot_004f6f30",
-   "name": "clear_storage_slot_004f6f30",
-   "cls": "c-address"
-  },
-  {
-   "symbol": "_clear_storage_slot_004fb4a0",
-   "name": "clear_storage_slot_004fb4a0",
-   "cls": "c-address"
-  },
-  {
-   "symbol": "_clear_storage_slot_004fb530",
-   "name": "clear_storage_slot_004fb530",
-   "cls": "c-address"
-  },
-  {
-   "symbol": "_clear_storage_slot_005a62d0",
-   "name": "clear_storage_slot_005a62d0",
-   "cls": "c-address"
-  },
-  {
-   "symbol": "_clear_storage_slot_006547b0",
-   "name": "clear_storage_slot_006547b0",
-   "cls": "c-address"
-  },
-  {
-   "symbol": "_clear_storage_slot_00654840",
-   "name": "clear_storage_slot_00654840",
-   "cls": "c-address"
-  },
-  {
-   "symbol": "_clear_storage_slot_006548d0",
-   "name": "clear_storage_slot_006548d0",
-   "cls": "c-address"
   },
   {
    "symbol": "_data_402190_4022c0",
