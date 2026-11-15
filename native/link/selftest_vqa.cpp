@@ -7,8 +7,16 @@
 //     user's game.exe stores at 0x00801470 (read here byte by byte to compare), the pointers null;
 //   * VQA_Reset 0x0077C7D0 (VQAClass::Reset_VQA after every play) sets the stop frame to the last
 //     frame, the loop state to none, the audio block positions and the loop cache window back.
+//   * the half-height hi-colour decoders 0x0070BBC0/0x0070C0A0 (VQA option 11): a repeated codeword
+//     fills rows 0 and 2 of each block from the codeword's rows 0 and 2, rows 1 and 3 untouched;
+//   * the subtitle script (a mod's movie subtitles): the keyword table from game.exe recognises
+//     Time, Duration, Position and Text in a small UTF-16 script.
 // The hi-colour drawers 0x0077FD80/0x0077FE89 are checked in native-asm-check.
 #include "shared/vqa_player.hpp"
+#include "shared/movie.hpp"
+#include "shared/subtitle.hpp"
+#include "shared/buffer_straw.hpp"
+#include "shared/vector_class.hpp"
 #include <stdint.h>
 
 extern "C" int printf(char const *format, ...);
@@ -71,6 +79,50 @@ extern "C" int ra2_native_vqa_selftest(void)
           "reset: audio blocks");
     check(vqap->LoopCache.ID == -1 && vqap->LoopCache.Min == -1 && vqap->LoopCache.Max == -1, "reset: loop cache");
     free(vqap);
+
+    // The half-height decoders: two blocks per row, one block row, 8 pixels wide; codeword 0's pixel
+    // (r, c) is 0x100 * r + c + 1. 0x0070BBC0's 0x2002 and 0x0070C0A0's 0x2000 both repeat codeword 0
+    // over the row's two blocks.
+    {
+        unsigned short codebook[16];
+        for (int r = 0; r < 4; ++r)
+            for (int c = 0; c < 4; ++c) codebook[r * 4 + c] = (unsigned short)(0x100 * r + c + 1);
+        for (int which = 0; which < 2; ++which) {
+            unsigned short out[4 * 8];
+            for (int i = 0; i < 32; ++i) out[i] = 0xEEEE;
+            unsigned short command[2] = {(unsigned short)(which ? 0x2000 : 0x2002), 0};
+            if (which) VQA_Unknown_0070C0A0((unsigned char *)codebook, (unsigned char *)command, (unsigned char *)out, 2, 1, 8);
+            else VQA_Unknown_0070BBC0((unsigned char *)codebook, (unsigned char *)command, (unsigned char *)out, 2, 1, 8);
+            bool ok = true;
+            for (int y = 0; y < 4; ++y)
+                for (int x = 0; x < 8; ++x) {
+                    unsigned short want = (y % 2) ? 0xEEEE : (unsigned short)(0x100 * y + x % 4 + 1);
+                    ok = ok && out[y * 8 + x] == want;
+                }
+            check(ok, which ? "half-height 0x0070C0A0: rows 0 and 2 of a repeated codeword" : "half-height 0x0070BBC0: rows 0 and 2 of a repeated codeword");
+        }
+    }
+
+    // The subtitle script.
+    {
+        static char const script[] = "BeginMovie TEST\r\n"
+                                     "<Time=00:00:02:00, Duration=00:00:03:00, Position=3:Left, Text=\"Hi there\">\r\n"
+                                     "EndMovie\r\n";
+        static unsigned short wide[256];
+        int n = 0;
+        wide[n++] = 0xFEFF;
+        for (int i = 0; script[i]; ++i) wide[n++] = (unsigned char)script[i];
+        BufferStraw straw(wide, n * 2);
+        SubTitleParser parser(straw);
+        DynamicVectorClass<SubTitle *> *list = parser.Get_Sub_Titles("TEST");
+        SubTitle *t = list && list->Count() == 1 ? (*list)[0] : 0;
+        static char const want_text[] = "Hi there";
+        bool text = t && t->Get_Text();
+        for (int i = 0; text && i < (int)sizeof want_text; ++i) text = t->Get_Text()[i] == (unsigned char)want_text[i];
+        check(t && t->Get_Display_Time() == 120 && t->Get_Display_Duration() == 180, "subtitles: Time and Duration");
+        check(t && t->Get_Line_Position() == 3 && t->Get_Alignment() == 0, "subtitles: Position 3:Left");
+        check(text, "subtitles: Text");
+    }
     printf("vqa-selftest: %s\n", failures ? "FAILED" : "passed");
     return failures ? 1 : 0;
 }

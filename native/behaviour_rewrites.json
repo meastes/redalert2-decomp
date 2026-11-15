@@ -3244,6 +3244,28 @@
    "file": "native/link/behaviour_asm_vqa.cpp",
    "source": "src/recovered/asm/unvq_asm.asm",
    "notes": "C16: as 0x0077FD80, drawing the block's rows 0 and 2 only; installed only with VQA option 11, which nothing sets. native-asm-check."
+  },
+  {
+   "entry": "0x0070BBC0",
+   "name": "UnVQ2_4x2_Table (half-height hi-colour block decoder, VQA option 11)",
+   "symbol": "__Z20VQA_Unknown_0070BBC0PhS_S_jjj",
+   "origin_class": "unmatched (VQA player)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_c16_vqa.cpp",
+   "source": "src/recovered/unvqtblc.cpp",
+   "notes": "C16 (owner item 1, 2026-11-15): Written from the original's instructions (UnVQ2_4x4_Table 0x0070B820's commands, two lines per block: rows 0 and 2). native-vqa-selftest."
+  },
+  {
+   "entry": "0x0070C0A0",
+   "name": "UnVQ1_4x2_Table (half-height hi-colour block decoder, VQA option 11)",
+   "symbol": "__Z20VQA_Unknown_0070C0A0PhS_S_jjj",
+   "origin_class": "unmatched (VQA player)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_c16_vqa.cpp",
+   "source": "src/recovered/unvqtblc.cpp",
+   "notes": "C16 (owner item 1, 2026-11-15): The parked draft (src/recovered/unvqtblc.cpp RA2_NON_MATCHING, 75.55) checked against the original's instructions and carried natively. native-vqa-selftest."
   }
  ]
 }

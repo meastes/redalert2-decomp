@@ -1,12 +1,12 @@
 {
  "about": "Undefined symbols of the Mac ra2-native link closure (RA2_NATIVE_SUBSYSTEM=all, drafts and link closure on, WIN64_PARAMS on) that tests/link_closure_baseline.py allows. Names only (no bytes). Regenerate with tests/link_closure_baseline.py --build <dir> --write when the set shrinks.",
- "total": 224,
+ "total": 220,
  "by_class": {
-  "c-address": 23,
+  "c-address": 21,
   "c-data": 1,
   "c-function": 3,
   "cxx-data": 3,
-  "cxx-function": 194
+  "cxx-function": 192
  },
  "symbols": [
   {
@@ -57,16 +57,6 @@
   {
    "symbol": "__Z20Start_Match_0075be10v",
    "name": "Start_Match_0075be10()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__Z20VQA_Unknown_0070BBC0PhS_S_jjj",
-   "name": "VQA_Unknown_0070BBC0(unsigned char*, unsigned char*, unsigned char*, unsigned int, unsigned int, unsigned int)",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__Z20VQA_Unknown_0070C0A0PhS_S_jjj",
-   "name": "VQA_Unknown_0070C0A0(unsigned char*, unsigned char*, unsigned char*, unsigned int, unsigned int, unsigned int)",
    "cls": "cxx-function"
   },
   {
@@ -1117,16 +1107,6 @@
   {
    "symbol": "_u______hs_007fe1c8",
    "name": "u______hs_007fe1c8",
-   "cls": "c-address"
-  },
-  {
-   "symbol": "_unknown_subtitle_alignments_7f6320",
-   "name": "unknown_subtitle_alignments_7f6320",
-   "cls": "c-address"
-  },
-  {
-   "symbol": "_unknown_subtitle_hooks_7f62f0",
-   "name": "unknown_subtitle_hooks_7f62f0",
    "cls": "c-address"
   }
  ]

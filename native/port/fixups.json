@@ -3353,6 +3353,13 @@
    "new": "            void Native_Map_Zoom_End();   // NATIVE (C16): link/native_map_zoom.cpp\n            Native_Map_Zoom_End();\n            Do_Lose_0065dec0();\n",
    "why": "Native addition (C16, Zoom gestures at render scale 2; not original behaviour): Main_Loop_End runs Do_Win/Do_Lose (the score screen) before Main_Loop returns, so the host still took the game for in play and showed the score screen (a menu-style dialog centred on the screen) through the in-play dialog layout, its title and Continue button cut off. The host is told the game is over first (link/native_map_zoom.cpp Native_Map_Zoom_End, which the Main_Loop seam calls again harmlessly). At render scale 1 the host shows the same either way. This row: before Do_Lose_0065dec0.",
    "verified": false
+  },
+  {
+   "source": "src/recovered/subtitle.cpp",
+   "old": "SubTitleParser::SubTitleParser(Straw &input) : Input(input), LineNumber(0)\n{\n",
+   "new": "void Native_Subtitle_Tables();   // NATIVE (C16): link/behaviour_c16_vqa.cpp\nSubTitleParser::SubTitleParser(Straw &input) : Input(input), LineNumber(0)\n{\n    Native_Subtitle_Tables();\n",
+   "why": "Native addition (C16, a mod's movie subtitles): the subtitle script's keyword table 0x007F62F0 and alignment names 0x007F6320 are original data (UTF-16 keywords, handler addresses, alignment values); natively they are filled from the user's game.exe when the first subtitle parser is made (link/behaviour_c16_vqa.cpp Native_Subtitle_Tables: keywords into the mapped image, each handler address mapped to its native handler). Before, both were link-closure zero placeholders and no keyword was recognised. This row: SubTitleParser::SubTitleParser 0x0069B680.",
+   "verified": false
   }
  ]
 }
