@@ -15,8 +15,10 @@ Every rename of the spec becomes the matching edits in each spelling:
                                as `SCOPE::NAME`, and, for an unscoped name, as a whole identifier;
   member_renames               `<len>CLASS<len>OLD`, `CLASS::OLD`, and the class's decorated names.
 
-A member access written `.OLD` / `->OLD` in native code is not re-keyed (its static type is not
-known here): such tokens are listed under `review` and the native build is the check. A rename
+A member access written `.OLD` / `->OLD` (or an unqualified use inside the class's own code) in native
+code is typed by the native compiler: with `--build DIR` the tool builds the native tree and renames
+each use the compiler reports as the old member (`no member named 'OLD' in 'Y'`, `use of undeclared
+identifier 'OLD'`), then builds again until it passes; an error it cannot explain refuses. A rename
 that changes only a signature (same identifier) re-keys its MSVC names; its Itanium manglings are
 listed under `review`. Only tracked text files under native/ are edited.
 """
@@ -116,6 +118,28 @@ def tracked_native():
             continue
 
 
+SELF_SET = re.compile(r'^__asm__\("\.globl (_\w+)\\n\.set \1, \1\\n"\);[^\n]*\n', re.M)
+
+
+def merged(path, text):
+    """After a rename merges two names of one entity: an alias table row whose alias and target
+    are now one name, a repeated row, and a `.set X, X` alias line go."""
+    text = SELF_SET.sub('', text)
+    if not path.endswith('.tsv'):
+        return text
+    out, seen = [], set()
+    for line in text.split('\n'):
+        cells = line.split('\t')
+        if line and not line.startswith('#'):
+            if path.endswith('aliases.tsv') and len(cells) > 1 and cells[0] == cells[1]:
+                continue
+            if line in seen:
+                continue
+            seen.add(line)
+        out.append(line)
+    return '\n'.join(out)
+
+
 def rekey(spec, dry_run=False):
     """{path: {kind: count}} of the edits; writes unless dry_run. Also returns review notes."""
     rule_list, review = rules(spec)
@@ -132,10 +156,75 @@ def rekey(spec, dry_run=False):
                 review.append('%s:%d: member access %s (type not known here; the native build checks it)' % (
                     path, new.count('\n', 0, match.start()) + 1, match.group(0)))
         if new != text:
+            new = merged(path, new)
+        if new != text:
             changed[path] = counts
             if not dry_run:
                 (REPOSITORY / path).write_text(new, encoding='utf-8')
     return changed, review
+
+
+COMPILER_ERROR = re.compile(r"(/[^:\s]+?\.(?:cpp|hpp|h)):(\d+):(\d+): error: "
+                            r"(?:no member named '(\w+)' in '(?:[\w:]+::)?(\w+)'|use of undeclared identifier '(\w+)')")
+
+
+def compiler_places(output, members):
+    """[(path, line, column, old, class or None)] of compiler errors that name a member rename's old
+    name: the compiler resolved the use's static type and found only the new member there."""
+    olds = {m['old'] for m in members}
+    places = set()
+    for path, line, column, member, owner, undeclared in COMPILER_ERROR.findall(output):
+        name = member or undeclared
+        if name in olds:
+            places.add((path, int(line), int(column), name, owner or None))
+    return sorted(places)
+
+
+def rename_at(path, line, column, old, new):
+    """Rename `old` at path:line:column (the compiler's location; inside a macro argument it
+    points at the macro, so the line's one spelling of `old` is taken). False when unplaceable."""
+    lines = Path(path).read_text(encoding='utf-8').split('\n')
+    text = lines[line - 1]
+    if text[column - 1:column - 1 + len(old)] == old:
+        at = column - 1
+    else:
+        found = [m.start() for m in re.finditer(r'\b%s\b' % re.escape(old), text)]
+        if len(found) != 1:
+            return False
+        at = found[0]
+    lines[line - 1] = text[:at] + new + text[at + len(old):]
+    Path(path).write_text('\n'.join(lines), encoding='utf-8')
+    return True
+
+
+def compiler_rekey(spec, build_dir, rounds=10, build=None):
+    """Member renames in native-only code by the native compiler's type resolution: build, rename
+    each use the compiler reports as the old member name (its class now has only the new one),
+    and build again until the build passes. Refuses (SystemExit) when an error it cannot place,
+    or another error, remains. Returns [(path, line, old, class)] of the renames made."""
+    members = spec.get('member_renames') or []
+    new_of = {m['old']: m['new'] for m in members}
+    if build is None:
+        def build():
+            result = subprocess.run(['cmake', '--build', str(build_dir)], cwd=REPOSITORY, capture_output=True, text=True)
+            return result.returncode, result.stdout + result.stderr
+    made = []
+    for _ in range(rounds):
+        code, output = build()
+        if code == 0:
+            return made
+        places = compiler_places(output, members)
+        if not places:
+            errors = [l for l in output.splitlines() if ' error: ' in l][:8]
+            raise SystemExit('native_rekey: the native build fails with errors the renames do not explain:\n' + '\n'.join(errors))
+        # bottom-up, so earlier columns of a line stay where the compiler saw them
+        for path, line, column, old, owner in sorted(places, key=lambda p: (p[0], -p[1], -p[2])):
+            if not path.startswith(str(REPOSITORY / 'native')) and '/native/' not in path:
+                raise SystemExit('native_rekey: %s:%d names %s outside native/ (a source the batch renames)' % (path, line, old))
+            if not rename_at(path, line, column, old, new_of[old]):
+                raise SystemExit('native_rekey: cannot place %s at %s:%d' % (old, path, line))
+            made.append((Path(path).resolve().relative_to(REPOSITORY.resolve()).as_posix(), line, old, owner))
+    raise SystemExit('native_rekey: the native build still fails after %d rounds' % rounds)
 
 
 def main():
@@ -143,6 +232,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('spec', type=Path)
     parser.add_argument('--dry-run', action='store_true')
+    parser.add_argument('--build', type=Path, help='a configured native build folder: after the textual re-key, '
+                        'member uses only the compiler can type are renamed from its errors (compiler_rekey)')
     args = parser.parse_args()
     spec = json.loads(args.spec.read_text())
     changed, review = rekey(spec, args.dry_run)
@@ -151,6 +242,9 @@ def main():
     for note in review:
         print('review: ' + note)
     print('native_rekey: %d files %s' % (len(changed), 'would change' if args.dry_run else 'changed'))
+    if args.build and not args.dry_run and spec.get('member_renames'):
+        for path, line, old, owner in compiler_rekey(spec, args.build):
+            print('compiler: %s:%d %s (in %s)' % (path, line, old, owner or 'its class scope'))
 
 
 if __name__ == '__main__':

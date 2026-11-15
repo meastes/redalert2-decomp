@@ -160,6 +160,13 @@ class NativeRekeyTests(unittest.TestCase):
         out, _ = self.apply(spec, 'offsetof(DisplayClass, unknown_11a0) offsetof(MapView, unknown_11a0)')
         self.assertEqual(out, 'offsetof(DisplayClass, PendingObjectPtr) offsetof(MapView, unknown_11a0)')
 
+    def test_a_merge_drops_self_aliases_and_repeated_rows(self):
+        text = '# header\nalias\ttarget\n_Movies\t_Movies\t0x00A71050\tdata\n_A\t_B\t1\n_A\t_B\t1\n'
+        self.assertEqual(native_rekey.merged('native/data/bss_aliases.tsv', text),
+                         '# header\nalias\ttarget\n_A\t_B\t1\n')
+        cpp = '__asm__(".globl _Movies\\n.set _Movies, _Movies\\n");  // same\nint x;\n'
+        self.assertEqual(native_rekey.merged('native/data/bss_globals.cpp', cpp), 'int x;\n')
+
     def test_signature_only_rename_is_left_for_review(self):
         _, review = self.apply({'renames': {'?F@@YAXH@Z': '?F@@YAXI@Z'}}, '')
         self.assertTrue(any('only the signature' in r for r in review))
@@ -278,6 +285,40 @@ class SpecFormTests(unittest.TestCase):
         with self.assertRaises(SystemExit):
             apply_rename.function_rules({'function_renames': [{'old': 'f', 'new': 'g', 'at': '00400000'}]},
                                         self.catalog(), {}, {})
+
+
+class CompilerRekeyTests(unittest.TestCase):
+    """native_rekey.compiler_rekey: the native compiler types member uses in native-only code."""
+    def test_renames_each_reported_use_until_the_build_passes(self):
+        folder = tempfile.TemporaryDirectory()
+        saved = native_rekey.REPOSITORY
+        native_rekey.REPOSITORY = Path(folder.name)
+        try:
+            draft = Path(folder.name) / 'native/drafts/0045f710.cpp'
+            draft.parent.mkdir(parents=True)
+            draft.write_text('void f(FootClass *f) {\n    if (f->unknown_7d && other->unknown_7d) g(offsetof(X, unknown_7d));\n}\n')
+            outputs = iter([
+                (1, "%s:2:12: error: no member named 'unknown_7d' in 'FootClass'\n" % draft),
+                (0, '')])
+            made = native_rekey.compiler_rekey(
+                {'member_renames': [{'class': 'ObjectClass', 'old': 'unknown_7d', 'new': 'IsActive'}]},
+                None, build=lambda: next(outputs))
+            self.assertEqual(made, [('native/drafts/0045f710.cpp', 2, 'unknown_7d', 'FootClass')])
+            self.assertIn('f->IsActive && other->unknown_7d', draft.read_text())
+        finally:
+            native_rekey.REPOSITORY = saved
+            folder.cleanup()
+
+    def test_an_error_the_renames_do_not_explain_refuses(self):
+        with self.assertRaises(SystemExit):
+            native_rekey.compiler_rekey({'member_renames': [{'class': 'A', 'old': 'x', 'new': 'y'}]}, None,
+                                        build=lambda: (1, "/r/native/a.cpp:1:1: error: expected ';'\n"))
+
+    def test_a_use_in_a_generated_copy_of_src_refuses(self):
+        with self.assertRaises(SystemExit):
+            native_rekey.compiler_rekey({'member_renames': [{'class': 'A', 'old': 'x', 'new': 'y'}]}, None,
+                                        build=lambda: (1, "/r/build/native-play/gen/overlay/shared/a.hpp:3:5: "
+                                                          "error: use of undeclared identifier 'x'\n"))
 
 
 if __name__ == '__main__':

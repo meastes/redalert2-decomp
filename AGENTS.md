@@ -15,7 +15,12 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
 
 - **Target:** 4,485,392 bytes, SHA256
   `e6418111c2c36081a1795fb000e0927beea1630170b334c5013d12102602e70f`. Hash before
-  using addresses. Base RA2 only; Yuri's Revenge is a later separate target.
+  using addresses. The exact decompilation is base RA2 only. User decision (2026-11-15):
+  a native Yuri's Revenge port proceeds as a separate native target built from
+  ra2-decomp's tree (GPL-3.0-or-later, pinned, notices kept, `THIRD_PARTY.md`), sharing
+  our native platform layer, staged per `docs/YR_PORT_SIZING.md` (plan 1, a unified
+  menu with per-game match logic as the later target); it earns no exact-match credit
+  and never edits `src/`.
 - **Exact means exact:** a region is accepted only when the fresh VC6 object
   reproduces the complete independently bounded original body, references and
   frozen padding. No masks, prefix/tail trimming or candidate-derived bounds.

@@ -1118,6 +1118,8 @@ def main():
     parser.add_argument('--config', type=Path, default=REPOSITORY / 'private/original-target.local.json')
     parser.add_argument('--output', type=Path, help='new ignored directory (default private/.../rename-<name>)')
     parser.add_argument('--dry-run', action='store_true', help='report what would change; write nothing')
+    parser.add_argument('--native-build', type=Path,
+                        help='with --native: a configured native build folder; member uses only the native compiler can type follow')
     parser.add_argument('--native', action='store_true',
                         help='after the batch, re-key the native tree from the same spec (native_rekey.py)')
     parser.add_argument('--header-users', action='store_true',
@@ -1290,8 +1292,12 @@ def main():
                    spec_sha256=sha(args.spec.read_bytes()), catalog_sha256=catalog_io.digest(CATALOG))
     if args.native:
         import native_rekey
-        changed, review = native_rekey.rekey(json.loads(args.spec.read_text()))
-        summary.update(native_rekey=dict(changed=changed, review=review))
+        raw_spec = json.loads(args.spec.read_text())
+        changed, review = native_rekey.rekey(raw_spec)
+        compiled = []
+        if args.native_build and raw_spec.get('member_renames'):
+            compiled = native_rekey.compiler_rekey(raw_spec, args.native_build)
+        summary.update(native_rekey=dict(changed=changed, review=review, compiler=compiled))
         for note in review:
             print('native review: ' + note, file=sys.stderr)
     (output / 'receipt.json').write_text(json.dumps(summary, indent=1) + '\n')

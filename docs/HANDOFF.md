@@ -36,6 +36,8 @@ NATIVE 2026-11-15 (lane C17w): LAN on by default (Network opens the lobby; lan=0
 
 Native plan (user, 2026-11-15): internet relay held. Next: LAN on by default (the three user-reported LAN problems from 2026-11-10/11 closed: two-machine crash after a few minutes, Sound-menu crash in a network game, edge-scroll speed; Network opens the lobby without RA2_NATIVE_LAN; two-instance soak in ctest), then a read-only Yuri's Revenge sizing (box 4 h). Starting YR work needs the user's word in the owner session and an AGENTS.md change.
 
+YR native port (user, 2026-11-15, "Let's proceed with the YR plan"): AGENTS.md updated; plan 1 of docs/YR_PORT_SIZING.md, built from ra2-decomp's tree pinned, sharing our platform layer; stage 1 (build pipeline on their tree, unmatched functions as stops) boxed at ~20 lane-hours; later target (user, 2026-11-15, refined): one game: a Red Alert 2 / Yuri's Revenge mode toggle at the bottom left of the main menu (away from the menu buttons); deeper menus (campaigns, skirmish, load, options, network) follow the selected game; both games in one app (plan 2, all platforms), one engine active at a time, the toggle swaps engines in-process and lands on the other game's main menu without its intro; intro movie plays once for the last-selected game. Windows Codex heartbeat job cancelled (workers stopped).
+
 ## Restart checkpoint (owner, 2026-11-15 ~05:00Z, the user restarted the Mac)
 
 Main is clean and published. After the restart: C: mount (/Volumes/mike-gaming), stale wineservers (wineserver -k per prefix), one load/swap reading, then resume lanes one or two at a time under the performance lane's concurrency cap (not all at once). Each lane wrote build/RESUME.md in its worktree.

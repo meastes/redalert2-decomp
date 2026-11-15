@@ -61,6 +61,6 @@ public:
 };
 
 // The list of overlays (0x00A40C00; defined by the unit at 0x004D2BA0).
-extern DynamicVectorClass<OverlayClass *> unknown_OverlayClass_list_00a40c00;
+extern DynamicVectorClass<OverlayClass *> Overlays;
 
 #endif

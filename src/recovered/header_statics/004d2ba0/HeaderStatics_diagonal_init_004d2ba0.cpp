@@ -70,7 +70,7 @@ DynamicVectorClass<WaveClass *> Waves;
 // The unit's list of BulletClass (0x00A40CE8; name is a hypothesis).
 DynamicVectorClass<BulletClass *> unknown_BulletClass_list_00a40ce8;
 // The unit's list of OverlayClass (0x00A40C00; name is a hypothesis).
-DynamicVectorClass<OverlayClass *> unknown_OverlayClass_list_00a40c00;
+DynamicVectorClass<OverlayClass *> Overlays;
 // The unit's list of ParticleClass (0x00A35E28; name is a hypothesis).
 DynamicVectorClass<ParticleClass *> unknown_ParticleClass_list_00a35e28;
 // The unit's list of SmudgeClass (0x00A3D240; name is a hypothesis).
@@ -799,7 +799,7 @@ DynamicVectorClass<AnimClass *> unknown_AnimClass_list_00a35e60;
 // @ref ?Infantry@@3V?$DynamicVectorClass@PAVInfantryClass@@@@A=00a35e48
 // @ref ?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A=00a40350
 // @ref ?IsoTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A=00a40cd0
-// @ref ?unknown_OverlayClass_list_00a40c00@@3V?$DynamicVectorClass@PAVOverlayClass@@@@A=00a40c00
+// @ref ?Overlays@@3V?$DynamicVectorClass@PAVOverlayClass@@@@A=00a40c00
 // @ref ?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A=00a35de8
 // @ref ?unknown_ParticleClass_list_00a35e28@@3V?$DynamicVectorClass@PAVParticleClass@@@@A=00a35e28
 // @ref ?ParticleSystems@@3V?$DynamicVectorClass@PAVParticleSystemClass@@@@A=00a32280

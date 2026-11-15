@@ -3230,8 +3230,8 @@ void __fastcall Delete_All_Objects_00519960()
         delete BuildingLights[0];
     }
     Unknown_006ecf10();
-    while (unknown_OverlayClass_list_00a40c00.Count()) {
-        delete unknown_OverlayClass_list_00a40c00[0];
+    while (Overlays.Count()) {
+        delete Overlays[0];
     }
     Unknown_006ecf10();
     while (ParticleSystems.Count()) {

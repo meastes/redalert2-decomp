@@ -68,7 +68,7 @@ _DAT_00ad0940	_unknown_VoxClass_list_00ad0930	24	16	exact	DAT_00ad0940	unknown_V
 _g4_735d70_b25dcc	_unknown_font_cache_b25dc8	4	4	compatible	g4_735d70_b25dcc	unknown_font_cache_b25dc8	Count.Max	unsigned int	int	16
 _unknown_mono_leading_a70eb0	_unknown_mono_metrics_a70ea0	16	16	exact	unknown_mono_leading_a70eb0	unknown_mono_metrics_a70ea0	tmHeight.tmExternalLeading	int	LONG	56
 _unknown_mono_width_a70eb8	_unknown_mono_metrics_a70ea0	24	24	exact	unknown_mono_width_a70eb8	unknown_mono_metrics_a70ea0	tmHeight.tmMaxCharWidth	int	LONG	56
-_unknown_int_af8fe8	_unknown_movie_handles_af8fd8	24	16	exact	unknown_int_af8fe8	unknown_movie_handles_af8fd8	base:class VectorClass<class MovieHandle *>.ActiveCount	int	int	32
+_unknown_int_af8fe8	_IngameVQ	24	16	exact	unknown_int_af8fe8	IngameVQ	base:class VectorClass<class MovieHandle *>.ActiveCount	int	int	32
 _unknown_beacon_cycle_84e93c	_unknown_object_84e8d0	204	108	exact	unknown_beacon_cycle_84e93c	unknown_object_84e8d0	unknown_00.unknown_6c	int	int	240
 _unknown_beacon_phase_84e948	_unknown_object_84e8d0	216	120	exact	unknown_beacon_phase_84e948	unknown_object_84e8d0	unknown_00.unknown_78	int	int	240
 _DAT_00a40c70	_unknown_objects_a40c60	24	16	exact	DAT_00a40c70	unknown_objects_a40c60	base:class VectorClass<class ObjectClass *>.ActiveCount	int	int	32

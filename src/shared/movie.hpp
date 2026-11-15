@@ -61,7 +61,7 @@ public:
 // The VQA player library (0x0077xxxx, __fastcall; shared/vqa_player.hpp).
 // Results are VQA error codes (-1 none).
 extern int unknown_int_a40b54;                              // 0x00A40B54 (low 16 bits: VQAConfig +0x84)
-void __fastcall VQA_Unknown_0070B7F0(void *buffer, int count);   // Hicolor_Translate (shared/unvq_table.hpp)
+void __fastcall Hicolor_Translate(void *buffer, int count);   // Hicolor_Translate (shared/unvq_table.hpp)
 void __fastcall VQA_Unknown_0070B690(int unknown1);
 void VQA_Unknown_0070B820(unsigned char *codebook, unsigned char *pointers, unsigned char *buffer, unsigned long blocks_per_row, unsigned long rows, unsigned long width);
 void VQA_Unknown_0070BBC0(unsigned char *codebook, unsigned char *pointers, unsigned char *buffer, unsigned long blocks_per_row, unsigned long rows, unsigned long width);

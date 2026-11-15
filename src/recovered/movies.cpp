@@ -23,7 +23,7 @@
 
 
 // The unit's list of char const (0x00A71050; name is a hypothesis).
-DynamicVectorClass<char const *> unknown_char_const_ptr_list_00a71050;
+DynamicVectorClass<char const *> Movies;
 
 
 // Dynamic initializer (0x005A0B70, _$E5) emitted by HeaderStatics_empty_rect_init_005a0b50.cpp; no source of its own.

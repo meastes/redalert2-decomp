@@ -76,7 +76,7 @@
 #endif
 #include "shared/vector_class.hpp"
 
-DynamicVectorClass<MovieHandle *> unknown_movie_handles_af8fd8;
+DynamicVectorClass<MovieHandle *> IngameVQ;
 
 
 // _$E (0x0071C550): atexit thunk destroying the movie handle list; the
@@ -680,7 +680,7 @@ void VQAClass::Set_Primary_Color_Mode(int mode)
 void VQAClass::Handle_Codebook_Event(void *buf, unsigned num)
 {
     if (unknown_508 != -1) {
-        VQA_Unknown_0070B7F0(buf, num / 2);
+        Hicolor_Translate(buf, num / 2);
     }
     unknown_544 = CurrentFrame;
 }

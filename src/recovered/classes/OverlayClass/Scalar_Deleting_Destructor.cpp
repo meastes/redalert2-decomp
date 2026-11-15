@@ -7,7 +7,7 @@
 // @ref ?Limbo@ObjectClass@@UAEHXZ=005d3700
 // @ref ?GameActive@@3_NA=00a40958
 // @ref ??1ObjectClass@@UAE@XZ=005d2530
-// @ref ?unknown_OverlayClass_list_00a40c00@@3V?$DynamicVectorClass@PAVOverlayClass@@@@A=00a40c00
+// @ref ?Overlays@@3V?$DynamicVectorClass@PAVOverlayClass@@@@A=00a40c00
 // @ref ??_7OverlayClass@@6BIPersistStream@@@=007a77f4
 // @ref ??_7OverlayClass@@6BIRTTITypeInfo@@@=007a77d0
 // @ref ??_7OverlayClass@@6BINoticeSink@@@=007a77ec

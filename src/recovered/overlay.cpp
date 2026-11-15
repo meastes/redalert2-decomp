@@ -134,7 +134,7 @@ OverlayClass::OverlayClass(OverlayTypeClass *ttype, Cell const &pos, int house) 
     Class(ttype)
 {
     AbstractClass::Create_ID();
-    unknown_OverlayClass_list_00a40c00.Add(this);
+    Overlays.Add(this);
     if (pos.X != unknown_geometry_k.X || pos.Y != unknown_geometry_k.Y) {
         unknown_placing_house_7e8a8c = house;
         CoordStruct coord(pos.X * 256 + 128, pos.Y * 256 + 128, 0);
@@ -156,7 +156,7 @@ OverlayClass::OverlayClass(OverlayTypeClass *ttype, Cell const &pos, int house) 
 OverlayClass::~OverlayClass()
 {
     Unknown_006ECB90(this, true);
-    unknown_OverlayClass_list_00a40c00.Delete(this);
+    Overlays.Delete(this);
     if (GameActive) {
         ObjectClass::Limbo();
     }
@@ -497,7 +497,7 @@ bool OverlayClass::Mark(int mark)
 // scratch 640 x 400 surface; every overlay with an image is created, and
 // the wall and ore data bytes are restored.
 
-void Unknown_006ECF10();            // 0x006ECF10
+void Process_Deferred_Deletion();            // 0x006ECF10
 
 void __fastcall OverlayClass::Read_INI(CCINIClass &ini)
 {
@@ -556,7 +556,7 @@ void __fastcall OverlayClass::Read_INI(CCINIClass &ini)
         }
         surface.Unlock();
     }
-    Unknown_006ECF10();
+    Process_Deferred_Deletion();
 }
 
 

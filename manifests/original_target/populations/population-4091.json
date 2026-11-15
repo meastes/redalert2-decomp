@@ -4,8 +4,8 @@
     "id": "population-4091",
     "inventory_sha256": "a1f9a8bae13577d082a40ef750c2619d53b391924c9a1e479cfd653d9d0e15bd",
     "gaps_sha256": "dc4f592883e7e44dff8eef686b939e2dd63d9e18d62a925ff80ce2c10dc5a047",
-    "historical_population_sha256": "f410054f55ee44575112f1e373f7eddbed8291761c7ae605e807ded751eadab4",
-    "historical_acceptance_sha256": "ae92235888345cba4402a2e17d538dcacfd4cbcd8d1fd345e4d96d5c162c4b33"
+    "historical_population_sha256": "daf03feb28d579df3ee08cc36358f270cd001c4c511050372df88740e6a48da2",
+    "historical_acceptance_sha256": "b1b64d8debcdc3d3d215c3ff751d08b1f702f73cb2c33b0cd6c8b99406023c5b"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -5752,7 +5752,7 @@
     "?TriggerTypes@@3V?$DynamicVectorClass@PAVTriggerTypeClass@@@@A": 8806920,
     "_$E61": 5058512,
     "?ParticleSystems@@3V?$DynamicVectorClass@PAVParticleSystemClass@@@@A": 10691200,
-    "?unknown_OverlayClass_list_00a40c00@@3V?$DynamicVectorClass@PAVOverlayClass@@@@A": 10750976,
+    "?Overlays@@3V?$DynamicVectorClass@PAVOverlayClass@@@@A": 10750976,
     "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A": 10736192,
     "?Terrains@@3V?$DynamicVectorClass@PAVTerrainClass@@@@A": 10750272,
     "?unknown_BuildingClass_list_00a40af8@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A": 10750712,
@@ -10607,7 +10607,7 @@
     "?Set_Draw_Buffer@VQAClass@@QAE_NHHHHH@Z": 7459392,
     "?VQA_Set_DrawBuffer@@YIHPAUVQAHandle@@HHHHH@Z": 7849088,
     "?Handle_Codebook_Event@VQAClass@@QAEXPAXI@Z": 7459520,
-    "?VQA_Unknown_0070B7F0@@YIXPAXH@Z": 7387120,
+    "?Hicolor_Translate@@YIXPAXH@Z": 7387120,
     "?VQAMixFileHandler@@YAHPAUVQAHandle@@HHH@Z": 7460416,
     "?MixFileHandler@VQAClass@@QAEHHHH@Z": 7460016,
     "?VQACacheHandler@@YIHPAUVQAHandle@@HHH@Z": 7460448,
@@ -11975,7 +11975,6 @@
     "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
     "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
     "?Remove@?$WolArrayList@VWstring@@@@QAE_NH@Z": 7758320,
-    "?Hicolor_Translate@@YIXPAXH@Z": 7387120,
     "?Render@TerrainClass@@UAE_NPAVRect@@_N1@Z": 7226416,
     "??0HashString@@QAE@PBD@Z": 5116224,
     "??8HashString@@QBE_NABV0@@Z": 5116400,
