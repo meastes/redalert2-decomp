@@ -4,8 +4,8 @@
     "id": "population-4235",
     "inventory_sha256": "3f54c0e551b036669c18b4d4a5d9e97c28493eca113b04be1d91fece82ac5cbd",
     "gaps_sha256": "9ef6f5269597739e9db790831568d18a6c710427f5d7be98f87bb75e668ae6b1",
-    "historical_population_sha256": "d68725f3db95ae7032481a4c604f64b439c0880df99980389ea72126f973a26d",
-    "historical_acceptance_sha256": "97f3c39175e935c753708ecf101793f95fded02fead29d3baf118bae02e66053"
+    "historical_population_sha256": "6641a7a40622f9d35793f6aa34c3fe31ccb89517f80ed9cf33954c27fdf911d6",
+    "historical_acceptance_sha256": "974b427dd722495a426e8d11d33da2d8823e5bbeed684f1a15f5290d4f0137a9"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -1042,21 +1042,6 @@
     "?unknown_math_4ba520@@YANN@Z": 4957472,
     "?unknown_math_4ba5b0@@YANN@Z": 4957616,
     "?unknown_sqrt_4ba410@@YANN@Z": 4957200,
-    "_unknown_empty_rect": 8726016,
-    "_unknown_geometry_angle45": 8726576,
-    "_unknown_geometry_angle60": 8726048,
-    "_unknown_geometry_angle90": 8726008,
-    "_unknown_geometry_b": 8726848,
-    "_unknown_geometry_c": 8726592,
-    "_unknown_geometry_deg_to_rad": 7989288,
-    "_unknown_geometry_diagonal": 8726040,
-    "_unknown_geometry_g": 8726856,
-    "_unknown_geometry_h": 8726056,
-    "_unknown_geometry_i": 8726568,
-    "_unknown_geometry_j": 8726840,
-    "_unknown_geometry_k": 8726032,
-    "_unknown_geometry_l": 8726552,
-    "_unknown_geometry_sixty": 7989280,
     "_unknown_static_rect": 8593992,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
     "?ID@?$DynamicVectorClass@PAVBombClass@@@@UAEHPBQAVBombClass@@@Z": 4240768,
@@ -7397,19 +7382,7 @@
     "?unknown_triggers_section_7ada50@@3PBDB": 8051280,
     "?unknown_viewport_852fe4@@3PAUIDirect3DViewport2@@A": 8728548,
     "?wcstrim@@YIPAGPAG@Z": 7270272,
-    "_$E11": 4818896,
-    "_$E14": 4818928,
-    "_$E17": 4818960,
-    "_$E2": 4818784,
-    "_$E20": 4818992,
-    "_$E23": 4819024,
     "_$E24": 7433952,
-    "_$E26": 4819088,
-    "_$E29": 4819136,
-    "_$E32": 4819184,
-    "_$E35": 4819232,
-    "_$E38": 4819248,
-    "_$E5": 4818816,
     "_$E51": 4819360,
     "_$E54": 4819280,
     "_$E57": 4819504,
@@ -7417,7 +7390,6 @@
     "_$E61": 6483232,
     "_$E70": 6483312,
     "_$E78": 6483392,
-    "_$E8": 4818864,
     "_$E80": 6483360,
     "_$S52": 8726002,
     "_$S58": 8726001,
@@ -9350,9 +9322,950 @@
     "__ramp_corners": 8339828,
     "?operator_delete_00781d3b@seed_00781d3b@@YAXI@Z": 7871803,
     "?operator_delete_00781d3b@seed_00728c30@@YAXI@Z": 7871803,
-    "?Reset@BitFontClass@@QAEXXZ": 4399536
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "_unknown_empty_rect": 10948112,
+    "_unknown_geometry_diagonal": 10948136,
+    "_unknown_geometry_b": 10948320,
+    "_unknown_geometry_sixty": 8021160,
+    "_unknown_geometry_c": 10948248,
+    "_unknown_geometry_angle45": 10948240,
+    "_unknown_geometry_deg_to_rad": 8021168,
+    "_unknown_geometry_angle60": 10948144,
+    "_unknown_geometry_angle90": 10948104,
+    "_unknown_geometry_g": 10948328,
+    "_unknown_geometry_h": 10948152,
+    "_unknown_geometry_i": 10948232,
+    "_unknown_geometry_j": 10948312,
+    "_unknown_geometry_k": 10948128,
+    "_unknown_geometry_l": 10948192,
+    "?Infantry@@3V?$DynamicVectorClass@PAVInfantryClass@@@@A": 10706504,
+    "??0OverlayTypeClass@@QAE@PBD@Z": 6145440,
+    "??1WaypointClass@@QAE@XZ": 7490304,
+    "?Equal_XY_004bfb60@CoordStruct@@QBEHABU1@@Z": 4979552,
+    "?Equal_004fef20@Cell@@QBEHABV1@@Z": 5238560,
+    "?Not_Equal_0058db50@Cell@@QBEHABV1@@Z": 5823312,
+    "?Get_Frame@ShapeFileStruct@@QBEPBUShapeFileFrameStruct@@I@Z": 6423568,
+    "?operator_delete_00781d3b@seed_0040e1d0@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_004b57c0@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_004defa0@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_004e06a0@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_00538f30@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_005a22d0@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_005a7500@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_005abba0@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_005abec0@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_005abef0@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_005b8ec0@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_00652810@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_00668390@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_006ec220@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_0072c9d0@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_00732c80@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_00738420@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_0073a0c0@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_00770330@@YAXI@Z": 7871803,
+    "?Difference@HSVClass@@QBEHABV1@@Z": 5238784,
+    "??8HSVClass@@QBE_NABV0@@Z": 5239152,
+    "?Get_Count@PlanningBranchClass@@QBEHXZ": 6359344,
+    "?operator_delete_00781d3b@seed_005ad410@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_006231f0@@YAXI@Z": 7871803,
+    "?sprintf_007820f4@seed_00495770@@YAIHHH@Z": 7872756,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?operator_delete_00781d3b@seed_004ba060@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_00537d40@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_005b9000@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_00637fb0@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_006532b0@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@seed_005d5f40@@YAXI@Z": 7871803,
+    "?Fast_Sin@@YANN@Z": 4957312,
+    "?Fast_Cos@@YANN@Z": 4957392,
+    "?Fast_Atan2@@YAMNN@Z": 4957696,
+    "?Fast_Atan@@YAMN@Z": 4957616,
+    "?unknown_atan_step_817df8@@3MA": 8486392,
+    "?unknown_atan_table_813df4@@3PAMA": 8470004,
+    "?Fast_Sqrt@@YAMN@Z": 4957200,
+    "??0WaveClass@@QAE@XZ": 7476944,
+    "_?startup@?1??Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z@4_NA": 10948517,
+    "??1WaveClass@@UAE@XZ": 7477504,
+    "??_7WaveClass@@6BIPersistStream@@@": 8056016,
+    "??_7WaveClass@@6BIRTTITypeInfo@@@": 8055988,
+    "??_7WaveClass@@6BINoticeSink@@@": 8055980,
+    "??_7WaveClass@@6BINoticeSource@@@": 8055972,
+    "??_GWaveClass@@UAEPAXI@Z": 7489024,
+    "?unknown_sqrt_table_817dfc@@3PAIA": 8486396,
+    "?Fast_Asin_004ba550@@YAMN@Z": 4957520,
+    "?unknown_asin_table_80bdd4@@3PAMA": 8437204,
+    "?Fast_Acos_004ba580@@YAMN@Z": 4957568,
+    "?Fast_Sqrt_Float_004BA830@@YGMM@Z": 4958256,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?unknown_sin_table_801dc4@@3PAMA": 8396228,
+    "?unknown_sin_scale_7d8048@@3MA": 8224840,
+    "?unknown_cos_scale_7d804c@@3MA": 8224844,
+    "?unknown_sin_table_80fde4@@3PAMA": 8453604,
+    "??0WaveClass@@QAE@ABUCoordStruct@@0PAVTechnoClass@@HPAVObjectClass@@@Z": 7476128,
+    "?Fast_Sin_4096@@YAMN@Z": 4957472,
+    "??9HSVClass@@QBE_NABV0@@Z": 5239200,
+    "?Load@WeaponTypeClass@@UAGJPAUIStream@@@Z": 7552144,
+    "??0WaypointClass@@QAE@XZ": 7490256,
+    "??0WaypointClass@@QAE@ABU0@@Z": 7490272,
+    "?Infantry@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6601296,
+    "?Addition@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6567920,
+    "?Load@RulesClass@@QAEXPAUIStream@@@Z": 6612656,
+    "?Load@GraphicMenu@@SIPAV1@ABVWstring@@0@Z": 5104224,
+    "?Load@HouseClass@@UAGJPAUIStream@@@Z": 5167712,
+    "?Load@UnknownHouseCounter@@QAEXPAUIStream@@@Z": 4791824,
+    "??0ZoneConnectionClass@@QAE@XZ": 5682272,
+    "?Load@MapSeedClass@@UAE_NPBD@Z": 5738944,
+    "?Center_Coord@CellClass@@UBE?AUCoordStruct@@XZ": 4700752,
+    "?Load@BombClass@@UAGJPAUIStream@@@Z": 4415808,
+    "?Load@LightSourceClass@@UAGJPAUIStream@@@Z": 5471136,
+    "??_7OverlayTypeClass@@6BIPersistStream@@@": 8026632,
+    "??_7OverlayTypeClass@@6BIRTTITypeInfo@@@": 8026604,
+    "??_7OverlayTypeClass@@6BINoticeSink@@@": 8026596,
+    "??_7OverlayTypeClass@@6BINoticeSource@@@": 8026588,
+    "??0OverlayTypeClass@@QAE@ABVNoInitClass@@@Z": 6145792,
+    "??1OverlayTypeClass@@UAE@XZ": 6145840,
+    "?Load@OverlayTypeClass@@UAGJPAUIStream@@@Z": 6147600,
+    "??_GOverlayTypeClass@@UAEPAXI@Z": 6148752,
+    "?Load@SmudgeTypeClass@@UAGJPAUIStream@@@Z": 6849296,
+    "?Load@TerrainTypeClass@@UAGJPAUIStream@@@Z": 7231824,
+    "?Do_Reinforcements@@YI_NPAVTeamTypeClass@@H@Z": 6527344,
+    "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6658704,
+    "?Load@ScenarioClass@@QAEXPAUIStream@@@Z": 6688960,
+    "?Load@TerrainClass@@UAGJPAUIStream@@@Z": 7226736,
+    "?Load@WaypointPathClass@@UAGJPAUIStream@@@Z": 7491664,
+    "??0UnknownCoord434820@@QAE@HHH@Z": 4409376,
+    "??_EWaypointClass@@QAEPAXI@Z": 4307088,
+    "?Load@AlphaShapeClass@@UAGJPAUIStream@@@Z": 4321376,
+    "?Load@NeuronClass@@UAGJPAUIStream@@@Z": 4422400,
+    "?Load@BrainClass@@QAEJPAUIStream@@@Z": 4423072,
+    "?Load@SpawnManagerClass@@UAGJPAUIStream@@@Z": 6858704,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Load@KamikazeTrackerClass@@QAEJPAUIStream@@@Z": 5446304,
+    "?Get_Frame@AnimFile@@UAEPAXH@Z": 4342704,
+    "?As_Cell@TargetClass@@QBEPAVCellClass@@XZ": 7038480,
+    "?Unknown_00493C80@Cell@@QAE_NXZ": 4799616,
+    "?Load@TubeClass@@UAGJPAUIStream@@@Z": 7271328,
+    "?Adjust@HSVClass@@QAEXHABV1@@Z": 5238640,
+    "?Load@FoggedObjectClass@@UAGJPAUIStream@@@Z": 4988032,
+    "?Load@Tactical@@UAGJPAUIStream@@@Z": 6996768,
+    "?Load@BaseClass@@UAGJPAUIStream@@@Z": 4376224,
+    "??0Map@WorldDominationTour@@QAE@HHH@Z": 7508784,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "??0RGBClass@@QAE@EEE@Z": 4402544,
+    "?Coord_To_Cell@Tactical@@QAE?AVCell@@ABUCoordStruct@@@Z": 6974032,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Destroy_Low_Bridge_Span@MapClass@@QAEXABVCell@@@Z": 5598192,
+    "?Load@GraphicMenu@@SIPAV1@AAVINIClass@@ABVWstring@@@Z": 5104512,
+    "?As_Cell@CoordStruct@@QBE?AVCell@@XZ": 4274032,
+    "?Load@ThemeClass@@QAEJPAUIStream@@@Z": 7242560,
+    "??BRGBClass@@QBE?AVHSVClass@@XZ": 6541312,
+    "?Create_Reinforcement@@YI_NPAVTeamTypeClass@@PAVFootClass@@ABVCell@@_N@Z": 6529104,
+    "??0UnknownCoord434820@@QAE@ABVCell@@H@Z": 6417024,
+    "?Load@MouseClass@@QAEJPAUIStream@@@Z": 5895472,
+    "?Load@BombListClass@@QAEJPAUIStream@@@Z": 4417632,
+    "?Load@GameOptionsType@@QAE_NPAUIStream@@@Z": 6760576,
+    "?Load@TiberiumClass@@UAGJPAUIStream@@@Z": 7246176,
+    "??1Map@WorldDominationTour@@UAE@XZ": 7508976,
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
+    "?Adjacent_Coord_With_Height@@YI?AUCoordStruct@@ABU1@H@Z": 4790400,
+    "?Adjust@PaletteClass@@QAEXH@Z": 6303904,
+    "?Adjust@PaletteClass@@QAEXHABV1@@Z": 6303952,
+    "??4AbstractClass@@QAEAAV0@ABV0@@Z": 5679600,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Load@CellClass@@UAGJPAUIStream@@@Z": 4689072,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Load@Map@WorldDominationTour@@QAEXAAVINIClass@@PAVMSEngine@@H@Z": 7509264,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Load@WaveClass@@UAGJPAUIStream@@@Z": 7479760,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "?Assign_Destination@InfantryClass@@UAEXPAVAbstractClass@@_N@Z": 5250272,
+    "?Load@Map@WorldDominationTour@@QAEXAAVINIClass@@PAVMSEngine@@_N@Z": 7509264,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z": 7361520,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "??_7WaveClass@@6B@": 8056016,
+    "??_EWaveClass@@UAEPAXI@Z": 7489024,
+    "??_EOverlayTypeClass@@UAEPAXI@Z": 6148752,
+    "??_R0?AVAbstractClass@@@8": 8184384,
+    "??_R0?AVObjectClass@@@8": 8185160,
+    "??_R0?AVAnimClass@@@8": 8187032,
+    "??_R0?AVBuildingClass@@@8": 8189608,
+    "??_R0?AVBulletClass@@@8": 8196624,
+    "??_R0?AUILocomotion@@@8": 8216272,
+    "??_R0?AVInfantryClass@@@8": 8236736,
+    "??_R0?AVMSFont@@@8": 8281456,
+    "??_R0?AVOverlayTypeClass@@@8": 8293248,
+    "??_R0?AVParticleClass@@@8": 8304744,
+    "??_R0?AVTeamClass@@@8": 8351056,
+    "??_R0?AVWaveClass@@@8": 8369160,
+    "??_R0?AVWWMouseClass@@@8": 8393584
   },
   "regions": [
+    {
+      "entry": 5887376,
+      "method": "0059d590",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 23,
+      "body_sha256": "df683448ef5cc956c647226b4721e49a0cebe3e990d28750acecc33d2725e87e",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c25c97628b190440c2b568bf1fba293b6a95adcf2721e284455f090a403e7961",
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_unknown_empty_rect",
+          "target": 10948112,
+          "addend": 0,
+          "resolved": 10948112
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_unknown_empty_rect",
+          "target": 10948112,
+          "addend": 4,
+          "resolved": 10948116
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_unknown_empty_rect",
+          "target": 10948112,
+          "addend": 8,
+          "resolved": 10948120
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_unknown_empty_rect",
+          "target": 10948112,
+          "addend": 12,
+          "resolved": 10948124
+        }
+      ],
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
+      "source": "src/recovered/motlib.cpp",
+      "population": "population-4235",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 243673,
+      "bound_population": "population-274",
+      "unit_evidence": "xcu-prefix+map"
+    },
+    {
+      "entry": 5887408,
+      "method": "0059d5b0",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 40,
+      "body_sha256": "563fe86729cbd9e87a41488d0f1ee609deb6bbdc344b18802350625b4ee76c1a",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "493c1a0a920342d80ee2188d72876c4185a5545df9cf9f3481988ca350b157dd",
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1985519
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294037058
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_unknown_geometry_diagonal",
+          "target": 10948136,
+          "addend": 0,
+          "resolved": 10948136
+        }
+      ],
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
+      "source": "src/recovered/motlib.cpp",
+      "population": "population-4235",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 243674,
+      "bound_population": "population-274",
+      "unit_evidence": "xcu-prefix+map"
+    },
+    {
+      "entry": 5887456,
+      "method": "0059d5e0",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 19,
+      "body_sha256": "698178bae2e7f9515bc770b3485ad02cc4d0c089b9f5c5c01fe2cc320ad5f284",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4f28364c7914dacbc0a7b17b0d55a1295301538a7dbde2b637edab7f2bbe99c1",
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_unknown_geometry_diagonal",
+          "target": 10948136,
+          "addend": 0,
+          "resolved": 10948136
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_unknown_geometry_sixty",
+          "target": 8021160,
+          "addend": 0,
+          "resolved": 8021160
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_unknown_geometry_b",
+          "target": 10948320,
+          "addend": 0,
+          "resolved": 10948320
+        }
+      ],
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
+      "source": "src/recovered/motlib.cpp",
+      "population": "population-4235",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 243675,
+      "bound_population": "population-274",
+      "unit_evidence": "xcu-prefix+map"
+    },
+    {
+      "entry": 5887488,
+      "method": "0059d600",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 19,
+      "body_sha256": "188d21d230dd283c0633e90defb2fab65614aede2abcef58969784e3ad8320e5",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6ca81b79166c38b880e01ae7880625d4c6cb371bc5f73005b31c0a3ca67fe386",
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_unknown_geometry_b",
+          "target": 10948320,
+          "addend": 0,
+          "resolved": 10948320
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_unknown_geometry_c",
+          "target": 10948248,
+          "addend": 0,
+          "resolved": 10948248
+        }
+      ],
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
+      "source": "src/recovered/motlib.cpp",
+      "population": "population-4235",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 243676,
+      "bound_population": "population-274",
+      "unit_evidence": "xcu-prefix+map"
+    },
+    {
+      "entry": 5887520,
+      "method": "0059d620",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 19,
+      "body_sha256": "e45cb9a87617256f945ec08ba596144d5456bb70332dda23512afac7a65cd62c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f6a184e31eef3547da2eb1e94a609a4882dd4c4371a2ea0f574c14f4348d83bc",
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_unknown_geometry_deg_to_rad",
+          "target": 8021168,
+          "addend": 0,
+          "resolved": 8021168
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_unknown_geometry_angle45",
+          "target": 10948240,
+          "addend": 0,
+          "resolved": 10948240
+        }
+      ],
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
+      "source": "src/recovered/motlib.cpp",
+      "population": "population-4235",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 243677,
+      "bound_population": "population-274",
+      "unit_evidence": "xcu-prefix+map"
+    },
+    {
+      "entry": 5887552,
+      "method": "0059d640",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 19,
+      "body_sha256": "7dfd1dfa03b7d5590cf64d9dee7d14da47c2c791b40ada8bbd0f23f9ff240857",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7aa51bf1a659447f3f4b33e4a40c39b2663c73dc77b6591d49ed332425fb667c",
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_unknown_geometry_deg_to_rad",
+          "target": 8021168,
+          "addend": 0,
+          "resolved": 8021168
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_unknown_geometry_angle60",
+          "target": 10948144,
+          "addend": 0,
+          "resolved": 10948144
+        }
+      ],
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
+      "source": "src/recovered/motlib.cpp",
+      "population": "population-4235",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 243678,
+      "bound_population": "population-274",
+      "unit_evidence": "xcu-prefix+map"
+    },
+    {
+      "entry": 5887584,
+      "method": "0059d660",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 19,
+      "body_sha256": "ca5bff7b9822c1f29152ad6e91cefb8ca4a4d92156f29ce3b28a5370ee9cee22",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "832634814267d3d5cb2a735fa7168392c673a5a499b261debf50349468023ca9",
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_unknown_geometry_deg_to_rad",
+          "target": 8021168,
+          "addend": 0,
+          "resolved": 8021168
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_unknown_geometry_angle90",
+          "target": 10948104,
+          "addend": 0,
+          "resolved": 10948104
+        }
+      ],
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
+      "source": "src/recovered/motlib.cpp",
+      "population": "population-4235",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 243679,
+      "bound_population": "population-274",
+      "unit_evidence": "xcu-prefix+map"
+    },
+    {
+      "entry": 5887616,
+      "method": "0059d680",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 49,
+      "body_sha256": "c0330348c238be6923aab480c614d85f01b2197a65990efbfec4425f6ecc638a",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "8cb6405feef015b96ea801f3ceb7fc58528b1947e77fd486a37225c78d783aff",
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_unknown_geometry_angle90",
+          "target": 10948104,
+          "addend": 0,
+          "resolved": 10948104
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_unknown_geometry_angle60",
+          "target": 10948144,
+          "addend": 0,
+          "resolved": 10948144
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?unknown_math_4ba520@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4294037129
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_unknown_geometry_diagonal",
+          "target": 10948136,
+          "addend": 0,
+          "resolved": 10948136
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1972837
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_unknown_geometry_g",
+          "target": 10948328,
+          "addend": 0,
+          "resolved": 10948328
+        }
+      ],
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
+      "source": "src/recovered/motlib.cpp",
+      "population": "population-4235",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 243680,
+      "bound_population": "population-274",
+      "unit_evidence": "xcu-prefix+map"
+    },
+    {
+      "entry": 5887680,
+      "method": "0059d6c0",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 33,
+      "body_sha256": "b258ee4a51536f0e839e6e666b0dabf16a0aa7d3160ea2ed9dc8f2633dd0d9ba",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "02cdbf329532e75279ebbd7a329d7397e9706653f17636fc54fe8b71beeaafbe",
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_unknown_geometry_g",
+          "target": 10948328,
+          "addend": 0,
+          "resolved": 10948328
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294037209
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_unknown_geometry_h",
+          "target": 10948152,
+          "addend": 0,
+          "resolved": 10948152
+        }
+      ],
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
+      "source": "src/recovered/motlib.cpp",
+      "population": "population-4235",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 243681,
+      "bound_population": "population-274",
+      "unit_evidence": "xcu-prefix+map"
+    },
+    {
+      "entry": 5887728,
+      "method": "0059d6f0",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 44,
+      "body_sha256": "92b46f16f2488460edfc6bc04bca608d0d090c91469fba0b75652b670d0b6998",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ec53dd8d5964c80fb8c0ccdadd7209be7b6591706104c40b70683063b4f212d3",
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_unknown_geometry_g",
+          "target": 10948328,
+          "addend": 0,
+          "resolved": 10948328
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_unknown_geometry_diagonal",
+          "target": 10948136,
+          "addend": 0,
+          "resolved": 10948136
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294037150
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_unknown_geometry_i",
+          "target": 10948232,
+          "addend": 0,
+          "resolved": 10948232
+        }
+      ],
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
+      "source": "src/recovered/motlib.cpp",
+      "population": "population-4235",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 243682,
+      "bound_population": "population-274",
+      "unit_evidence": "xcu-prefix+map"
+    },
+    {
+      "entry": 5887776,
+      "method": "0059d720",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 39,
+      "body_sha256": "d28434f54698405ea51d77ef81e8b47c67f61924b1d44f88b99da48ea57551af",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a61ea044f0f379b2619c590afb38ae522b37433a673d9a5056be70fc178ca6d8",
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_unknown_geometry_g",
+          "target": 10948328,
+          "addend": 0,
+          "resolved": 10948328
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1972688
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_unknown_geometry_j",
+          "target": 10948312,
+          "addend": 0,
+          "resolved": 10948312
+        }
+      ],
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
+      "source": "src/recovered/motlib.cpp",
+      "population": "population-4235",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 243683,
+      "bound_population": "population-274",
+      "unit_evidence": "xcu-prefix+map"
+    },
+    {
+      "entry": 5887824,
+      "method": "0059d750",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 15,
+      "body_sha256": "27673a863007b20ada48646ca0693c9e701fe50ceed966c0c939d350af29e784",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0fdab870b808d967970b264f4477846cb396bdd5689e0770a542044e8d3f92dd",
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_unknown_geometry_k",
+          "target": 10948128,
+          "addend": 0,
+          "resolved": 10948128
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_unknown_geometry_k",
+          "target": 10948128,
+          "addend": 2,
+          "resolved": 10948130
+        }
+      ],
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
+      "source": "src/recovered/motlib.cpp",
+      "population": "population-4235",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 243684,
+      "bound_population": "population-274",
+      "unit_evidence": "xcu-prefix+map"
+    },
+    {
+      "entry": 5887840,
+      "method": "0059d760",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "body_bytes": 18,
+      "body_sha256": "8f541fcd8323865b66df3ffa543f5acfdd434ba64180ddcbf81c2efada94bf9a",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cb9aebc7982c7ae30a147e670b48d42919f3678752cebb1250d6875281e02b23",
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_unknown_geometry_l",
+          "target": 10948192,
+          "addend": 0,
+          "resolved": 10948192
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_unknown_geometry_l",
+          "target": 10948192,
+          "addend": 4,
+          "resolved": 10948196
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_unknown_geometry_l",
+          "target": 10948192,
+          "addend": 8,
+          "resolved": 10948200
+        }
+      ],
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
+      "source": "src/recovered/motlib.cpp",
+      "population": "population-4235",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "source_quality_family": "hand-written",
+      "source_order": 243685,
+      "bound_population": "population-274",
+      "unit_evidence": "xcu-prefix+map"
+    },
     {
       "entry": 5890624,
       "method": "0059e240",
@@ -9371,7 +10284,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "2fb2a42afd8f6f627d42d6643005a9532d29bde7d8962a98138bfd6e712b86d5",
       "relocations": [],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -9406,7 +10319,7 @@
           "resolved": 1978763
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "source_order": 243037,
       "population": "population-4235",
@@ -9433,7 +10346,7 @@
       "full_extent_bytes": 112,
       "full_extent_sha256": "37f67707efe1fea8781bdba4444f248424ea8804d2a774a974f7eb53d08af232",
       "relocations": [],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "source_order": 243038,
       "population": "population-4235",
@@ -9469,7 +10382,7 @@
           "resolved": 10948364
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -9496,7 +10409,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -9523,7 +10436,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "e1e0115de33db2594bb044aced52eeb609be7189cf26e9dac360370bb529cc2a",
       "relocations": [],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -9550,7 +10463,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "0ae83aedb38416826f3c64524102a427ee891526086c0ca2be340a0c3c2c446d",
       "relocations": [],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -9577,7 +10490,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "8708dcdca595159bd55216c5061cc8f5a2fe581869be8b38d12460940d00f48c",
       "relocations": [],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -9613,7 +10526,7 @@
           "resolved": 1978219
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -9649,7 +10562,7 @@
           "resolved": 10948362
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "source_order": 243044,
       "population": "population-4235",
@@ -9717,7 +10630,7 @@
           "resolved": 4294966664
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "source_order": 243045,
       "population": "population-4235",
@@ -9761,7 +10674,7 @@
           "resolved": 10948361
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "source_order": 243046,
       "population": "population-4235",
@@ -9797,7 +10710,7 @@
           "resolved": 1980
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -9848,7 +10761,7 @@
           "resolved": 10948272
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -9883,7 +10796,7 @@
           "resolved": 2181
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -9950,7 +10863,7 @@
           "resolved": 1840
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -9993,7 +10906,7 @@
           "resolved": 1296
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -10036,7 +10949,7 @@
           "resolved": 981
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10087,7 +11000,7 @@
           "resolved": 4294966939
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -10154,7 +11067,7 @@
           "resolved": 4294966841
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -10205,7 +11118,7 @@
           "resolved": 4294966774
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -10320,7 +11233,7 @@
           "resolved": 7970928
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -10467,7 +11380,7 @@
           "resolved": 7971960
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -10590,7 +11503,7 @@
           "resolved": 10948368
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -10697,7 +11610,7 @@
           "resolved": 7971724
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -10788,7 +11701,7 @@
           "resolved": 7971724
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -10847,7 +11760,7 @@
           "resolved": 7971992
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -10898,7 +11811,7 @@
           "resolved": 10948192
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -11093,7 +12006,7 @@
           "resolved": 7971724
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -11136,7 +12049,7 @@
           "resolved": 1677
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11427,7 +12340,7 @@
           "resolved": 7971960
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -11494,7 +12407,7 @@
           "resolved": 4044
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -12297,7 +13210,7 @@
           "resolved": 5889815
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "switch_data_bytes": 144,
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
@@ -12349,7 +13262,7 @@
           "resolved": 683
         }
       ],
-      "source_sha256": "04243ef2afeecad61a29c6fc133857481983197f2b8446f47fcdd929f54d012b",
+      "source_sha256": "002d8a7e00cb213a6b5f798ccd38c2dd1f56a162ca648b8b36c5911d2e233f8c",
       "source": "src/recovered/motlib.cpp",
       "population": "population-4235",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",

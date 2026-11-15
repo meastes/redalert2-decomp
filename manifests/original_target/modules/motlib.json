@@ -10,8 +10,86 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 890,
+ "compile_group": 889,
  "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0059d590",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0059d5b0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0059d5e0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0059d600",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0059d620",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0059d640",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0059d660",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0059d680",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0059d6c0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0059d6f0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0059d720",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0059d750",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0059d760",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
   {
    "symbol": "?Mono_Window_Init@@YIXPAXPAUHWND__@@_N@Z",
    "entry": "0059d780",
@@ -217,48 +295,165 @@
    "padding_bytes": 4
   }
  ],
- "code_bytes": 5136,
+ "code_bytes": 5632,
  "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a64a8",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
   {
    "symbol": "??_C@_07LMLG@Courier?$AA@",
    "address": "007a64bc",
    "bytes": 8,
    "kind": "string",
-   "section": 19
+   "section": 56
   },
   {
    "symbol": "??_C@_09NOGH@intro?4wav?$AA@",
    "address": "007e2ac4",
    "bytes": 10,
    "kind": "string",
-   "section": 26
+   "section": 63
   },
   {
    "symbol": "??_C@_0L@HJPA@TestEffect?$AA@",
    "address": "007e2ad0",
    "bytes": 11,
    "kind": "string",
-   "section": 27
+   "section": 64
   },
   {
    "symbol": "??_C@_0BD@KMLH@TestEnvelopeFShift?$AA@",
    "address": "007e2adc",
    "bytes": 19,
    "kind": "string",
-   "section": 28
+   "section": 65
   },
   {
    "symbol": "??_C@_02GKFL@?$CFS?$AA@",
    "address": "007e2af0",
    "bytes": 3,
    "kind": "string",
-   "section": 61
+   "section": 98
   }
  ],
  "data_ranges": [],
  "data_bytes_proven": 0,
  "data_complete": true,
  "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a64a8",
+   "bytes": 16,
+   "kind": "table"
+  },
   {
    "symbol": "??_C@_07LMLG@Courier?$AA@",
    "address": "007a64bc",
@@ -665,6 +860,14 @@
    "address": "00ad0930"
   },
   {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
    "symbol": "?unknown_mono_allowed_a70f08@@3_NA",
    "address": "00a70f08"
   },
@@ -725,8 +928,20 @@
    "address": "00a70f10"
   },
   {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
    "symbol": "__fltused",
    "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
   },
   {
    "symbol": "__imp__AdjustWindowRect@12",
@@ -973,113 +1188,126 @@
    "bound": "own frozen bound (population-3817)",
    "options": "joined under the unit's /GR (frozen without it)",
    "emitted": "Mono_Viewed_Page_0059da40 (0x0059DA40): defined above in this unit; its definition is the row"
-  }
- ],
- "residuals": [
+  },
   {
-   "kind": "split",
    "entry": "0059d590",
    "bytes": 23,
    "population": "population-274",
-   "source": "src/recovered/header_statics/0059d590/HeaderStatics_empty_rect_init_0059d590.cpp",
-   "cause": "frozen in another population's inventory pass (population-274)"
+   "bound": "own frozen bound (population-274)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0059d5b0",
    "bytes": 40,
    "population": "population-274",
-   "source": "src/recovered/header_statics/0059d590/HeaderStatics_diagonal_init_0059d5b0.cpp",
-   "cause": "held by population-274; not joined: binding: _unknown_geometry_diagonal is 00852618 in the unit and 00a70e28 in the row's population"
+   "bound": "own frozen bound (population-274)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0059d5e0",
    "bytes": 19,
    "population": "population-274",
-   "source": "src/recovered/header_statics/0059d590/HeaderStatics_b_init_0059d5e0.cpp",
-   "cause": "held by population-274; not joined: binding: _unknown_geometry_b is 00852940 in the unit and 00a70ee0 in the row's population"
+   "bound": "own frozen bound (population-274)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0059d600",
    "bytes": 19,
    "population": "population-274",
-   "source": "src/recovered/header_statics/0059d590/HeaderStatics_c_init_0059d600.cpp",
-   "cause": "held by population-274; not joined: binding: _unknown_geometry_b is 00852940 in the unit and 00a70ee0 in the row's population"
+   "bound": "own frozen bound (population-274)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0059d620",
    "bytes": 19,
    "population": "population-274",
-   "source": "src/recovered/header_statics/0059d590/HeaderStatics_angle45_init_0059d620.cpp",
-   "cause": "held by population-274; not joined: binding: _unknown_geometry_angle45 is 00852830 in the unit and 00a70e90 in the row's population"
+   "bound": "own frozen bound (population-274)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0059d640",
    "bytes": 19,
    "population": "population-274",
-   "source": "src/recovered/header_statics/0059d590/HeaderStatics_angle60_init_0059d640.cpp",
-   "cause": "held by population-274; not joined: binding: _unknown_geometry_angle60 is 00852620 in the unit and 00a70e30 in the row's population"
+   "bound": "own frozen bound (population-274)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0059d660",
    "bytes": 19,
    "population": "population-274",
-   "source": "src/recovered/header_statics/0059d590/HeaderStatics_angle90_init_0059d660.cpp",
-   "cause": "held by population-274; not joined: binding: _unknown_geometry_angle90 is 008525f8 in the unit and 00a70e08 in the row's population"
+   "bound": "own frozen bound (population-274)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0059d680",
    "bytes": 49,
    "population": "population-274",
-   "source": "src/recovered/header_statics/0059d590/HeaderStatics_g_init_0059d680.cpp",
-   "cause": "held by population-274; not joined: binding: _unknown_geometry_angle60 is 00852620 in the unit and 00a70e30 in the row's population"
+   "bound": "own frozen bound (population-274)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0059d6c0",
    "bytes": 33,
    "population": "population-274",
-   "source": "src/recovered/header_statics/0059d590/HeaderStatics_h_init_0059d6c0.cpp",
-   "cause": "held by population-274; not joined: binding: _unknown_geometry_g is 00852948 in the unit and 00a70ee8 in the row's population"
+   "bound": "own frozen bound (population-274)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0059d6f0",
    "bytes": 44,
    "population": "population-274",
-   "source": "src/recovered/header_statics/0059d590/HeaderStatics_i_init_0059d6f0.cpp",
-   "cause": "held by population-274; not joined: binding: _unknown_geometry_diagonal is 00852618 in the unit and 00a70e28 in the row's population"
+   "bound": "own frozen bound (population-274)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0059d720",
    "bytes": 39,
    "population": "population-274",
-   "source": "src/recovered/header_statics/0059d590/HeaderStatics_j_init_0059d720.cpp",
-   "cause": "held by population-274; not joined: binding: _unknown_geometry_g is 00852948 in the unit and 00a70ee8 in the row's population"
+   "bound": "own frozen bound (population-274)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0059d750",
    "bytes": 15,
    "population": "population-274",
-   "source": "src/recovered/header_statics/0059d590/HeaderStatics_k_init_0059d750.cpp",
-   "cause": "held by population-274; not joined: binding: _unknown_geometry_k is 00852610 in the unit and 00a70e20 in the row's population"
+   "bound": "own frozen bound (population-274)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
   },
   {
-   "kind": "split",
    "entry": "0059d760",
    "bytes": 18,
    "population": "population-274",
-   "source": "src/recovered/header_statics/0059d590/HeaderStatics_l_init_0059d760.cpp",
-   "cause": "held by population-274; not joined: binding: _unknown_geometry_l is 00852818 in the unit and 00a70e60 in the row's population"
-  },
+   "bound": "own frozen bound (population-274)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  }
+ ],
+ "residuals": [
   {
    "kind": "split",
    "entry": "0059da50",
@@ -1122,7 +1350,12 @@
   }
  ],
  "unit_functions": 58,
- "data_unproven": [],
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
  "stand_in_references": [
   {
    "site": "005d4a60",
@@ -1307,8 +1540,8 @@
  ],
  "stand_in_reference_count": 30,
  "residual_split": {
-  "rows": 18,
-  "bytes": 912
+  "rows": 5,
+  "bytes": 556
  },
  "residual_flipped": {
   "rows": 0,

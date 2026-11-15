@@ -5,6 +5,8 @@
 // stay in their own files.
 
 
+#include "shared/shape_file.hpp"
+#include "shared/unknown_geometry.hpp"
 #include "shared/win32_api.hpp"
 #include "shared/mono_window.hpp"
 #include "shared/win32_gdi.hpp"
@@ -15,6 +17,59 @@
 #define VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS
 #include "shared/vector_class.hpp"
 #include "shared/mono_class.hpp"
+
+
+// Header-static dynamic initializers of the unit at 0x0059D590: the shape_file.hpp empty rect and the
+// shared/unknown_geometry.hpp constants (0x0059D590-0x0059D771); the other
+// drafts of this plan are emitted by these includes.
+
+
+// Dynamic initializer (0x0059D5B0, _$E) of diagonal from the header(s) included
+// by HeaderStatics_empty_rect_init_0059d590.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059D5E0, _$E) of b from the header(s) included
+// by HeaderStatics_empty_rect_init_0059d590.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059D600, _$E) of c from the header(s) included
+// by HeaderStatics_empty_rect_init_0059d590.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059D620, _$E) of angle45 from the header(s) included
+// by HeaderStatics_empty_rect_init_0059d590.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059D640, _$E) of angle60 from the header(s) included
+// by HeaderStatics_empty_rect_init_0059d590.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059D660, _$E) of angle90 from the header(s) included
+// by HeaderStatics_empty_rect_init_0059d590.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059D680, _$E) of g from the header(s) included
+// by HeaderStatics_empty_rect_init_0059d590.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059D6C0, _$E) of h from the header(s) included
+// by HeaderStatics_empty_rect_init_0059d590.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059D6F0, _$E) of i from the header(s) included
+// by HeaderStatics_empty_rect_init_0059d590.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059D720, _$E) of j from the header(s) included
+// by HeaderStatics_empty_rect_init_0059d590.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059D750, _$E) of k from the header(s) included
+// by HeaderStatics_empty_rect_init_0059d590.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0059D760, _$E) of l from the header(s) included
+// by HeaderStatics_empty_rect_init_0059d590.cpp; no source of its own.
 
 
 // void Mono_Window_Init(void *instance, HWND__ *parent, bool allowed) (0x0059D780)

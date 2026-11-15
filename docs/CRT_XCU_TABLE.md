@@ -162,10 +162,19 @@ cause.
   src/coopcamp.cpp line 17 includes geometry.h) screens exact, but population-3596, which holds
   the emitter, also holds coopcamp split rows (0x0048E210, 0x004904A0) whose object then emits a
   .CRT$XCU of its own. Whole compile groups do not move.
+- **motlib (0x0059D590-0x0059D760, 13 rows) joined** with its include block (shape_file.hpp,
+  unknown_geometry.hpp; the YR twin src/motlib.cpp lines 7-8 include geometry.h and rect.h). Its
+  table's other copy of the statics (0x00852600-0x00852948) was stale: no motlib row relocates to
+  it (ruling 2), so it was not a hidden unit.
 - Still refused: jumpjet and vanim (the group's emitter does not compile placed in the
-  module), voxdrsys (no twin citation for its include block), motlib (its own code binds another
-  copy of the statics, 0x00852618: a hidden unit), subtitle (five headers, not one statics
-  include), globals (files with several rows).
+  module), voxdrsys (no twin citation for its include block), subtitle (0x0069B170: its emitter file
+  0069b170.cpp opens population-3436 and carries the header state its 8 other rows compile under,
+  VQA_MOVIE_COMPANION_UNIT, movie.hpp, file_straw.hpp, text_print.hpp, hicolor.hpp; the include
+  block would be six directives, not one statics include: a re-roll candidate like coopcamp),
+  globals (136 files whose rows sit in one emitter file of 339 rows,
+  header_statics/004d2ba0/HeaderStatics_diagonal_init_004d2ba0.cpp: a file of several rows does
+  not join; it needs a split first), txtlabel2 (its emitter 0x006F1810 is one of the 4 rows the
+  unit map gives to the other candidate).
 
 ## Runs
 
