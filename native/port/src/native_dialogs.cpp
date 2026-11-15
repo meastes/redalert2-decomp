@@ -93,8 +93,8 @@ std::vector<unsigned char> enhancements_dialog()
     };
     item(0x694, 0x82, kTitle, 318, 1, 108, 10, "");                    // the title box
     item(0x7F7E, 0x82, kHeading, 10, 10, 298, 10, "");
-    for (int i = 0; i < 9; ++i) {                   // up to nine rows (lane C16); unused ones are hidden
-        int y = 34 + 26 * i;                        // an open list (four values) covers the next rows until closed
+    for (int i = 0; i < 10; ++i) {                  // up to ten rows (lane C16); unused ones are hidden
+        int y = 32 + 23 * i;                        // an open list (four values) covers the next rows until closed
         item(0x7F20 + i, 0x82, kLabel, 25, y, 120, 10, "");
         item(0x7F10 + i, 0x85, kDropdown, 150, y - 2, 120, 74, "");
     }

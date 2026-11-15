@@ -1,0 +1,131 @@
+"""Clean-up end point census (lane K1, 2026-11-14): token definitions, counterparts, the five measures."""
+from pathlib import Path
+import sys
+import tempfile
+import unittest
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'tools/original_target'))
+import cleanup_census
+
+CLEAN = '''// alpha.cpp: FUN_00401000 in a comment is not code; neither is "param_1" in a string.
+#include "shared/alpha.hpp"
+int AlphaClass::Count(int unknown_0x24) { return unknown_0x24 + Size; }
+void Blit() { __asm { mov eax, ecx } }
+'''
+DIRTY = '''int FUN_00402000(int param_1)
+{
+    int iVar1 = param_1;
+    unsigned int eax = CONCAT11(iVar1, 0);
+    undefined4 local_10 = 0;
+    return Leaf_402000::get(eax) + SUB41;
+}
+'''
+
+
+def region(entry, source, symbol='?f@@YAXXZ', size=10):
+    return dict(entry=entry, source=source, symbol=symbol, body_bytes=size)
+
+
+class Tokens(unittest.TestCase):
+    def test_categories(self):
+        counts = cleanup_census.scan(DIRTY)
+        self.assertEqual(counts['ghidra_symbol'], 1)            # FUN_00402000
+        self.assertEqual(counts['ghidra_local'], 5)             # param_1 x2, iVar1 x2, local_10
+        self.assertEqual(counts['register'], 2)                 # eax declared and used
+        self.assertEqual(counts['ghidra_op'], 1)                # CONCAT11( but not a bare SUB41
+        self.assertEqual(counts['ghidra_type'], 1)
+        self.assertEqual(counts['placeholder'], 1)              # Leaf_402000
+
+    def test_comments_strings_and_asm_are_not_code(self):
+        counts = cleanup_census.scan(CLEAN)
+        self.assertEqual(sum(counts[c] for c in cleanup_census.CATEGORIES), 0)
+        self.assertEqual(counts['placeholder'], 2)              # unknown_0x24 twice
+
+    def test_ordinary_names_are_not_tokens(self):
+        for name in ('edit', 'editor', 'dx', 'uint', 'byte', 'in_range', 'in_focus', 'UNKNOWN', 'Unknowns'):
+            self.assertIsNone(cleanup_census.classify(name, '('), name)
+        self.assertEqual(cleanup_census.classify('in_EAX'), 'ghidra_local')
+        self.assertEqual(cleanup_census.classify('ppuVar12'), 'ghidra_local')
+        self.assertEqual(cleanup_census.classify('ecx_word'), 'register')
+        self.assertEqual(cleanup_census.classify('UnknownSessionA3D29C'), 'placeholder')
+
+
+class Counterparts(unittest.TestCase):
+    def test_yes_no_unknown(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.assertEqual(cleanup_census.counterpart('alpha', cleanup_census.reference_stems(root)), 'unknown')
+            (root / 'TibSun/code').mkdir(parents=True)
+            (root / 'TibSun/code/ALPHA.CPP').write_text('')
+            stems = cleanup_census.reference_stems(root)
+            self.assertEqual(cleanup_census.counterpart('alpha', stems), 'yes')
+            self.assertEqual(cleanup_census.counterpart('beta', stems), 'unknown')   # mischa85 absent
+            (root / 'mischa85-RedAlert2/src/sub').mkdir(parents=True)
+            (root / 'mischa85-RedAlert2/src/sub/gamma.c').write_text('')
+            stems = cleanup_census.reference_stems(root)
+            self.assertEqual(cleanup_census.counterpart('beta', stems), 'no')
+            self.assertEqual(cleanup_census.counterpart('gamma', stems), 'yes')
+
+
+class Census(unittest.TestCase):
+    def inputs(self):
+        unit_map = {'alpha': ['00401000', '00401100', '00401200'], 'beta': ['00402000'],
+                    'libcmt/strlen': ['00781000']}
+        modules = {'alpha': dict(module='alpha', source='src/recovered/alpha.cpp', route='A',
+                                 residuals=[dict(kind='split', entry='00401200', bytes=10, cause='held by population-9')],
+                                 data=[dict(address='007a0000', bytes=16, kind='string')], kept_elsewhere=[],
+                                 data_ranges=[dict(bytes=20, proven_bytes=16)],
+                                 data_unproven=[dict(symbol='_x', reason='no original address bound')])}
+        regions = [region(0x401000, 'src/recovered/alpha.cpp'),
+                   region(0x401100, 'src/recovered/header_statics/00401100/init.cpp', '_$E2', 12),
+                   region(0x401200, 'src/recovered/classes/AlphaClass/Other.cpp', size=10),
+                   region(0x402000, 'src/recovered/00402000.cpp', size=30),
+                   region(0x403000, 'src/recovered/00403000.cpp', size=7),
+                   region(0x781000, 'src/recovered/strlen.cpp')]
+        drafts = [dict(entry='00401300', bytes=50, source='src/recovered/alpha.cpp')]
+        texts = {'src/recovered/alpha.cpp': CLEAN, 'src/recovered/00402000.cpp': DIRTY,
+                 'src/recovered/header_statics/00401100/init.cpp': 'void f() {}\n',
+                 'src/recovered/classes/AlphaClass/Other.cpp': 'void g() {}\n',
+                 'src/shared/alpha.hpp': 'class AlphaClass { int Size; };\n'}
+        return (dict(unit_map=unit_map, modules=modules, declared={'alpha': dict(header='src/shared/alpha.hpp')},
+                     regions=regions, drafts=drafts, generated=[dict(range=['00800000', '00800100'])]),
+                texts.get)
+
+    def test_measures(self):
+        inputs, read = self.inputs()
+        stems = dict(tibsun={'alpha', 'beta'}, mischa85=set())
+        result = cleanup_census.census(inputs, read, stems, file_backed_non_code=1000)
+        units = {u['unit']: u for u in result['units']}
+        self.assertEqual(set(units), {'alpha', 'beta'})          # library units are not counted
+        self.assertEqual(units['alpha']['files'], 4)             # module source, two outside files, header
+        self.assertEqual(units['alpha']['tokens'], 0)
+        self.assertEqual(units['alpha']['placeholders'], 2)
+        self.assertFalse(units['alpha']['done'])                 # counterpart unit: placeholders count
+        self.assertEqual(units['beta']['address_named_files'], 1)
+        self.assertEqual(result['counterpart_units'], dict(done=0, total=2))
+        f = result['functions']
+        self.assertEqual((f['outside_rows'], f['outside_bytes']), (3, 52))
+        self.assertEqual((f['recorded_residual_rows'], f['leftover_rows']), (1, 1))
+        self.assertEqual(f['leftovers']['shared_initialiser'], [1, 12])
+        self.assertEqual((f['unassigned_rows'], f['unassigned_bytes']), (1, 7))
+        d = result['data']
+        self.assertEqual((d['proven'], d['typed_total'], d['unproven_items']), (16, 20, 1))
+        self.assertEqual(d['untyped_from_original'], 1000 - 16 - 4 - 256)
+        self.assertEqual(result['drafts'], dict(count=1, bytes=50))
+        block = cleanup_census.block(result).splitlines()
+        self.assertEqual(len(block), 5)
+        self.assertIn('0 / 2', block[0])
+        self.assertIn('3 rows, 52 bytes / 1 rows, 12 bytes', block[2])
+        work = cleanup_census.unit_lines(result).splitlines()
+        self.assertEqual(work[1].split('\t')[0], 'beta')         # most tokens first
+
+    def test_clean_unit_without_counterpart_allows_placeholders(self):
+        inputs, read = self.inputs()
+        result = cleanup_census.census(inputs, read, dict(tibsun=set(), mischa85=set()), file_backed_non_code=1000)
+        units = {u['unit']: u for u in result['units']}
+        self.assertTrue(units['alpha']['done'])
+        self.assertEqual(result['other_units'], dict(done=1, total=2))
+
+
+if __name__ == '__main__':
+    unittest.main()

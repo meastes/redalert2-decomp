@@ -3,6 +3,7 @@
 // event pump that turns SDL input into the Win32 messages the recovered window
 // procedure expects, and presentation of the DirectDraw primary surface.
 #include <SDL3/SDL.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,7 +20,10 @@
 namespace ra2port { void set_key_state(int vk, bool down); }
 void ra2_enhancements_start();   // platform/sdl/enhancements.cpp
 bool ra2_enh_sidebar_split(int picture_height, double *ratio);   // platform/sdl/enhancements.cpp
-bool ra2_enh_map_zoomed(int picture_width, int picture_height, int view[4], int full[4]);   // platform/sdl/enhancements.cpp
+bool ra2_enh_map_shown(int picture_width, int picture_height, double show[4], int full[4]);   // platform/sdl/enhancements.cpp
+int ra2_enh_map_generation();
+bool ra2_enh_tactical_rect(int full[4]);
+extern "C" int ra2_enh_zoom_gestures(void);
 bool ra2_enh_game_in_play();   // platform/sdl/enhancements.cpp: a game frame ran since the scenario started
 // A scripted point "@ID..." as game pixels (port/src/run_progress.cpp asks the
 // skirmish harness); 0 when it has no answer.
@@ -122,7 +126,9 @@ double split_ratio = 1.0, split_scale = 1.0;
 // and is shown over that whole area, map_zoom times larger; the command bar below it and the
 // sidebar column keep their own scales. Off with a dialog up, a movie playing or a scenario starting.
 bool zoom_on = false;
-int zoom_view[4] = {0, 0, 0, 0}, zoom_full[4] = {0, 0, 0, 0};
+double zoom_show[4] = {0, 0, 0, 0};   // the part of the view shown (fractional with a continuous zoom, lane C16)
+int zoom_full[4] = {0, 0, 0, 0};
+int zoom_generation = -1;
 double map_zoom = 1.0;
 // The picture's regions while split or zoomed (each a rectangle of game pixels shown at a
 // rectangle of window points); none: the whole picture at one scale.
@@ -169,6 +175,8 @@ uintptr_t top_dialog = 0;      // the topmost dialog last seen (a change is a sc
 SDL_TouchID const script_touch = 0x5C5D;   // scripted fingers: coordinates in game pixels
 SDL_FingerID toggle_finger = 0;            // the finger that pressed a toggle (its gesture is the toggle's)
 Uint32 const kScriptedToolbar = SDL_EVENT_USER + 0x5C;   // input script "toolbar ITEM" (never pushed to SDL)
+Uint32 const kScriptedZoom = SDL_EVENT_USER + 0x5D;      // input script "zoom FACTOR X Y" (lane C16)
+Uint32 const kScriptedMapCheck = SDL_EVENT_USER + 0x5E;  // input script "mapcheck" (lane C16)
 void (*before_exit)() = nullptr;     // the app's settings (main.cpp)
 // The last pointer position in game pixels (the trackpad hook's cursor).
 float pointer_x = 0, pointer_y = 0;
@@ -351,8 +359,9 @@ void update_layout()
     split_on = split_wanted(&split_ratio);
     // Zoom (Map zoom): in play, no dialog up, no movie playing, the view smaller than the
     // tactical area. The picture keeps its size and base scale; only the view is shown larger.
-    zoom_on = !ra2port_menu_shown() && !ra2port::movie_playing() && ra2_enh_map_zoomed(pic_w, pic_h, zoom_view, zoom_full);
-    map_zoom = zoom_on ? (double)zoom_full[2] / zoom_view[2] : 1.0;
+    zoom_on = !ra2port_menu_shown() && !ra2port::movie_playing() && ra2_enh_map_shown(pic_w, pic_h, zoom_show, zoom_full);
+    zoom_generation = ra2_enh_map_generation();
+    map_zoom = zoom_on ? (double)zoom_full[2] / zoom_show[2] : 1.0;
     double pw = split_on ? pic_w - kSidebarWidth + kSidebarWidth * split_ratio : pic_w;
     double scale = SDL_min(usable.w / pw, usable.h / pic_h);
     split_scale = scale;
@@ -368,7 +377,7 @@ void update_layout()
             // The view over the tactical area; the rest of the map side (the command bar
             // below the tactical area, any part right of it) at the base scale.
             double fx = zoom_full[0], fy = zoom_full[1], fw = zoom_full[2], fh = zoom_full[3];
-            add(zoom_view[0], zoom_view[1], zoom_view[2], zoom_view[3], px + fx * scale, py + fy * scale, fw * scale, fh * scale);
+            add(zoom_show[0], zoom_show[1], zoom_show[2], zoom_show[3], px + fx * scale, py + fy * scale, fw * scale, fh * scale);
             add(0, fy + fh, map_w, pic_h - fy - fh, px, py + (fy + fh) * scale, map_w * scale, (pic_h - fy - fh) * scale);
             add(fx + fw, fy, map_w - fx - fw, fh, px + (fx + fw) * scale, py + fy * scale, (map_w - fx - fw) * scale, fh * scale);
             add(0, 0, map_w, fy, px, py, map_w * scale, fy * scale);
@@ -376,6 +385,9 @@ void update_layout()
             add(0, 0, map_w, pic_h, px, py, map_w * scale, pic_h * scale);
         }
         add(map_w, 0, kSidebarWidth, pic_h / split_ratio, px + map_w * scale, py, kSidebarWidth * split_ratio * scale, pic_h * scale);
+        // The sidebar's place in the window (lane C16: the zoom never moves it; tests compare it).
+        const Region &side = regions.back();
+        fprintf(stderr, "host: layout: map zoom %.3f, sidebar %.1f,%.1f %.1fx%.1f\n", map_zoom, side.dx, side.dy, side.dw, side.dh);
     }
     if (system_toolbar) hostos::keys_button_place(keys_rect());
 }
@@ -393,8 +405,10 @@ bool region_to_game(float wx, float wy, float *gx, float *gy)
         if (inside) { best = &r; break; }
         if (!best || d < best_d) { best = &r; best_d = d; }
     }
-    *gx = (float)(best->sx + (wx - best->dx) * best->sw / best->dw);
-    *gy = (float)(best->sy + (wy - best->dy) * best->sh / best->dh);
+    // A hair added (lane C16): a window point made from a game pixel by region_to_window comes back
+    // as that pixel when truncated, not a rounding error below it (fractional zoom regions).
+    *gx = (float)(best->sx + (wx - best->dx) * best->sw / best->dw + 1e-4);
+    *gy = (float)(best->sy + (wy - best->dy) * best->sh / best->dh + 1e-4);
     return true;
 }
 bool region_to_window(float gx, float gy, float *wx, float *wy)
@@ -419,6 +433,39 @@ void game_to_window(float gx, float gy, float *wx, float *wy)
     if (region_to_window(gx, gy, wx, wy)) return;
     *wx = (float)(picture.x + gx * picture.w / pic_w);
     *wy = (float)(picture.y + gy * picture.h / pic_h);
+}
+
+// Zoom gestures (lane C16; Enhancements "Zoom gestures"): the wheel and a trackpad pinch over the map
+// (anchored at the pointer), a two-finger pinch (touch.cpp; anchored at its middle). The anchor goes
+// to the game as game pixels across the tactical rectangle from its corner (the point of the map
+// there stays put: link/native_map_zoom.cpp ra2_native_zoom_by), taken through the zoom region's
+// own mapping so it is exactly the point shown.
+extern "C" __attribute__((weak)) void ra2_native_zoom_by(double, double, double) {}
+bool map_anchor(float wx, float wy, double *ax, double *ay)
+{
+    if (!ra2_enh_zoom_gestures() || ra2port_menu_shown() || ra2port::movie_playing() || !ra2_enh_game_in_play()) return false;
+    if (zoom_on && !regions.empty()) {
+        const Region &r = regions.front();      // the view over the tactical area (update_layout adds it first)
+        if (wx < r.dx || wy < r.dy || wx >= r.dx + r.dw || wy >= r.dy + r.dh) return false;
+        *ax = (wx - r.dx) * zoom_full[2] / r.dw;
+        *ay = (wy - r.dy) * zoom_full[3] / r.dh;
+        return true;
+    }
+    int full[4];
+    if (!ra2_enh_tactical_rect(full)) return false;
+    float gx = 0, gy = 0;
+    window_to_game(wx, wy, &gx, &gy);
+    if (gx < full[0] || gy < full[1] || gx >= full[0] + full[2] || gy >= full[1] + full[3]) return false;
+    *ax = gx - full[0];
+    *ay = gy - full[1];
+    return true;
+}
+bool zoom_at(double factor, float wx, float wy)
+{
+    double ax = 0, ay = 0;
+    if (factor <= 0 || !map_anchor(wx, wy, &ax, &ay)) return false;
+    ra2_native_zoom_by(factor, ax, ay);
+    return true;
 }
 // A mouse event's window coordinates to the game's pixels (what the renderer's logical
 // presentation did before Scout1248).
@@ -823,7 +870,9 @@ void touch_moves_due()
     if (touch_move_waiting && !left_down_unseen()) touch_move_now(touch_move_x, touch_move_y);
     touch_queue_due();
 }
-const touch::Output touch_out = {touch_move, touch_button, touch_pan_logged, touch_wheel_logged};
+bool zoom_at(double factor, float wx, float wy);
+void touch_zoom(float scale, float wx, float wy) { zoom_at(scale, wx, wy); }
+const touch::Output touch_out = {touch_move, touch_button, touch_pan_logged, touch_wheel_logged, touch_zoom};
 
 void redraw();
 // The glass toolbar shows the toggles' states and the scale (Scout1249).
@@ -1043,6 +1092,20 @@ void finger_event(SDL_TouchFingerEvent const &f, Uint32 type)
         fprintf(stderr, "host: tap on the edit control: keyboard back\n");
     }
     touch::set_screen(pic_w, pic_h, ra2port_menu_shown() ? 0 : pic_w - 168);
+    // Pinch zoom (lane C16): in play with Zoom gestures on; the finger's window point beside its pixel.
+    touch::set_pinch(ra2_enh_zoom_gestures() && !ra2port_menu_shown() && !ra2port::movie_playing() && ra2_enh_game_in_play());
+    {
+        // Scripted fingers (game pixels) take the picture's own mapping, which the zoom leaves alone.
+        float pwx = (float)(picture.x + gx * picture.w / (pic_w > 0 ? pic_w : 1));
+        float pwy = (float)(picture.y + gy * picture.h / (pic_h > 0 ? pic_h : 1));
+        if (!scripted) {
+            int ww = 0, wh = 0;
+            SDL_GetWindowSize(window, &ww, &wh);
+            pwx = f.x * ww;
+            pwy = f.y * wh;
+        }
+        touch::set_window_point(pwx, pwy);
+    }
     // When the finger moved, not when the game read the queue (Scout1274): taps queued during
     // one long frame (menus pump seldom) were otherwise read at one time, and two separate
     // quick taps became a two-finger tap. SDL's event timestamps share SDL_GetTicks' clock
@@ -1228,6 +1291,13 @@ void pump_events()
             if (e.type == SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED) apply_mouse_grab();
             layout_dirty = true;
             break;
+        case SDL_EVENT_PINCH_UPDATE: {
+            // A trackpad pinch zooms the map about the pointer (Zoom gestures, lane C16).
+            float mx = 0, my = 0;
+            SDL_GetMouseState(&mx, &my);
+            zoom_at(e.pinch.scale, mx, my);
+            break;
+        }
         case SDL_EVENT_MOUSE_WHEEL: {
             // A trackpad (fractional, two-axis deltas) over the tactical view
             // pans the map: collected here, handed to the game at the next frame
@@ -1238,6 +1308,14 @@ void pump_events()
             bool precise = e.wheel.x != (float)(int)e.wheel.x || e.wheel.y != (float)(int)e.wheel.y ||
                            (e.wheel.x != 0 && e.wheel.y != 0);
             bool over_sidebar = tex_w > 0 && wx >= tex_w - 168;
+            if (!precise && !over_sidebar && e.wheel.y != 0) {
+                // A mouse wheel over the map zooms it about the pointer (Zoom gestures, lane C16):
+                // 10% a notch, up zooms in.
+                float gy = e.wheel.direction == SDL_MOUSEWHEEL_FLIPPED ? -e.wheel.y : e.wheel.y;
+                float ww = 0, wh = 0;
+                game_to_window(wx, wy, &ww, &wh);
+                if (zoom_at(pow(1.1, gy), ww, wh)) break;
+            }
             if (precise && !over_sidebar) {
                 // A new gesture (or one that ended in the menus, where no frame
                 // runs) starts from nothing.
@@ -1538,10 +1616,10 @@ void present_now(const void *pixels, int width, int height, int pitch)
         }
         if (split_wanted(&ratio) != split_on) layout_dirty = true;
         // The zoom layout follows the game too: a game starting or loading, a dialog, a movie.
-        int view[4], full[4];
-        bool zoom = !ra2port_menu_shown() && !ra2port::movie_playing() && ra2_enh_map_zoomed(pic_w, pic_h, view, full);
-        if (zoom != zoom_on || (zoom && (memcmp(view, zoom_view, sizeof view) || memcmp(full, zoom_full, sizeof full))))
-            layout_dirty = true;
+        double show[4];
+        int full[4];
+        bool zoom = !ra2port_menu_shown() && !ra2port::movie_playing() && ra2_enh_map_shown(pic_w, pic_h, show, full);
+        if (zoom != zoom_on || (zoom && ra2_enh_map_generation() != zoom_generation)) layout_dirty = true;
     }
     if (layout_dirty) update_layout();
     if (pixels) SDL_UpdateTexture(texture, nullptr, pixels, pitch);
@@ -1804,6 +1882,33 @@ void load_script()
             if (!ok) fprintf(stderr, "input-script: cannot read line %d %s\n", frame, action.c_str());
             continue;
         }
+        if (action == "mapcheck") {
+            // mapcheck: the window mapping checked both ways over the tactical area (lane C16's tests).
+            Scripted s = {frame, {}, std::string()};
+            s.event.type = kScriptedMapCheck;
+            script.push_back(s);
+            continue;
+        }
+        if (action == "zoom") {
+            // zoom FACTOR X Y: the zoom gestures' step (the wheel's, a pinch's) by FACTOR about the
+            // game pixel X, Y (lane C16's tests).
+            Scripted s = {frame, {}, std::string()};
+            if (script_ms >= 0) { s.ms = script_ms; s.frame = 0x7FFFFFFF; s.dialog = script_dialog; }
+            s.event.type = kScriptedZoom;
+            ok = tokens.size() >= 4;
+            if (ok) {
+                s.event.wheel.y = strtof(tokens[2].c_str(), nullptr);
+                size_t at = 3;
+                Point anchor = script_point(tokens, at);     // "X Y" or "@ID..." (resolved when played)
+                ok = anchor.ok;
+                s.spec = anchor.spec;
+                s.event.wheel.mouse_x = anchor.x;
+                s.event.wheel.mouse_y = anchor.y;
+                if (ok) script.push_back(s);
+            }
+            if (!ok) fprintf(stderr, "input-script: cannot read line %d %s\n", frame, action.c_str());
+            continue;
+        }
         if (action == "quit" || action == "wheel") {
             // quit: what Cmd+Q sends (SDL_EVENT_QUIT). wheel DX DY [X Y]: a
             // trackpad scroll of that many SDL units at the game pixel X, Y.
@@ -1965,6 +2070,52 @@ void play(Scripted &s, int number)
         if (e.type == kScriptedToolbar) {
             fprintf(stderr, "input-script: frame %d: toolbar item %d\n", number, (int)e.user.code);
             toolbar_tapped((int)e.user.code);
+            return;
+        }
+        if (e.type == kScriptedMapCheck) {
+            // Every 7th game pixel of the tactical area to the window and back: the largest error and
+            // the pixels that would come back as another (the click lands where it is shown).
+            int full[4];
+            if (!ra2_enh_tactical_rect(full)) { fprintf(stderr, "input-script: frame %d: mapcheck: no game\n", number); return; }
+            // Zoomed, the pixels shown: the part of the view standing for the tactical area.
+            int x0 = full[0], y0 = full[1], x1 = full[0] + full[2], y1 = full[1] + full[3];
+            if (zoom_on) {
+                x0 = (int)ceil(zoom_show[0]);
+                y0 = (int)ceil(zoom_show[1]);
+                x1 = (int)(zoom_show[0] + zoom_show[2]);
+                y1 = (int)(zoom_show[1] + zoom_show[3]);
+            }
+            double worst = 0;
+            int other = 0, checked = 0;
+            for (int y = y0; y < y1; y += 7)
+                for (int x = x0; x < x1; x += 7) {
+                    float wx = 0, wy = 0, bx = 0, by = 0;
+                    game_to_window((float)x, (float)y, &wx, &wy);
+                    window_to_game(wx, wy, &bx, &by);
+                    double err = SDL_max(fabs(bx - x), fabs(by - y));
+                    if (err > worst) worst = err;
+                    if ((int)bx != x || (int)by != y) ++other;
+                    ++checked;
+                }
+            fprintf(stderr, "host: mapcheck at map zoom %.3f: %d pixels, largest error %.5f, %d come back as another\n", map_zoom,
+                    checked, worst, other);
+            return;
+        }
+        if (e.type == kScriptedZoom) {
+            if (!s.spec.empty()) {
+                int px = 0, py = 0;
+                if (!ra2port_resolve_point(s.spec.c_str(), &px, &py)) {
+                    fprintf(stderr, "input-script: frame %d: no point for @%s\n", number, s.spec.c_str());
+                    return;
+                }
+                e.wheel.mouse_x = (float)px;
+                e.wheel.mouse_y = (float)py;
+            }
+            float wx = 0, wy = 0;
+            game_to_window(e.wheel.mouse_x, e.wheel.mouse_y, &wx, &wy);
+            bool took = zoom_at(e.wheel.y, wx, wy);
+            fprintf(stderr, "input-script: frame %d: zoom %.3f at %.0f,%.0f%s\n", number, e.wheel.y, e.wheel.mouse_x,
+                    e.wheel.mouse_y, took ? "" : " (not over the map in play, or Zoom gestures off)");
             return;
         }
         if (e.type == SDL_EVENT_KEY_DOWN || e.type == SDL_EVENT_KEY_UP) {

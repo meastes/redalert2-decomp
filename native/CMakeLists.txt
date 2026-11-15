@@ -137,6 +137,13 @@ if(NOT ra2_tables_result EQUAL 0)
 endif()
 set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/tools/fast_math_tables.py")
 list(APPEND RA2_NATIVE_DATA "${RA2_NATIVE_GEN}/fast_math_tables.s")
+# The arm64 game (macOS, and iOS, where CMAKE_SYSTEM_PROCESSOR is empty and the architecture
+# comes from CMAKE_OSX_ARCHITECTURES: before lane C17 the iOS app had no field maps).
+if(NOT WIN32 AND (CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64" OR CMAKE_OSX_ARCHITECTURES MATCHES "arm64"))
+  set(RA2_NATIVE_ARM64 ON)
+else()
+  set(RA2_NATIVE_ARM64 OFF)
+endif()
 # Field maps for reading the original game's saves (C6, README "Original saves"):
 # i686 and native record layouts of the units that load each type in
 # data/original_save_types.txt (tools/original_layouts.py): the arm64 game, and the
@@ -146,7 +153,7 @@ set(ra2_original_layouts_target "")
 if(WIN32)
   set(ra2_original_layouts_target --target windows "--cxx=${CMAKE_CXX_COMPILER}")
 endif()
-if(RA2_NATIVE_SUBSYSTEM STREQUAL "all" AND ((CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64" AND NOT WIN32) OR WIN32))
+if(RA2_NATIVE_SUBSYSTEM STREQUAL "all" AND ((RA2_NATIVE_ARM64 AND NOT WIN32) OR WIN32))
   add_custom_command(
     OUTPUT "${RA2_NATIVE_GEN}/original_layouts.cpp"
     COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_layouts.py"
@@ -208,7 +215,7 @@ add_test(NAME native-view-audit COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURR
          --build "${CMAKE_CURRENT_BINARY_DIR}")
 # 7b. Original saves (C6): every type in data/original_save_types.txt has an i686
 #     layout of the original's size whose members all pair with the arm64 layout.
-if(RA2_NATIVE_SUBSYSTEM STREQUAL "all" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64" AND NOT WIN32)
+if(RA2_NATIVE_SUBSYSTEM STREQUAL "all" AND RA2_NATIVE_ARM64 AND NOT WIN32)
   add_test(NAME native-original-layouts COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_layouts.py"
            --build "${CMAKE_CURRENT_BINARY_DIR}" --out "${CMAKE_CURRENT_BINARY_DIR}/original_layouts_check.cpp" --check)
 endif()
@@ -430,7 +437,7 @@ if(RA2_NATIVE_SDL)
       # 8b. Original saves (C6, C15): one of the user's saves from the original game
       #     (Allied 1, in the installation) loads through the menus (--load-save) with
       #     the field maps and plays 300 frames; on Windows the .exe under Wine.
-      if(RA2_NATIVE_SUBSYSTEM STREQUAL "all" AND ((CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64" AND NOT WIN32) OR WIN32))
+      if(RA2_NATIVE_SUBSYSTEM STREQUAL "all" AND ((RA2_NATIVE_ARM64 AND NOT WIN32) OR WIN32))
         add_test(NAME native-original-save COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/original_save_load.py"
                  --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
                  --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --save ALL01T.sav --frames 300 --seconds 240
@@ -534,6 +541,15 @@ if(RA2_NATIVE_SDL)
                  --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-hd-vehicles-zoom2.log"
                  ${ra2_wine_args_hdvox})
         set_tests_properties(native-hd-vehicles-zoom2 PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
+        # 12e. Zoom gestures (C16): scripted zoom steps (the wheel's path) with the window mapping checked
+        #      both ways, clicks on given tanks at each zoom and the sidebar left in place; a scripted
+        #      two-finger pinch that zooms only (tests/zoom_input.py).
+        foreach(ra2_zoom_case steps pinch)
+          add_test(NAME native-zoom-${ra2_zoom_case} COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/zoom_input.py"
+                   --case ${ra2_zoom_case} --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                   --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-zoom-${ra2_zoom_case}.log")
+          set_tests_properties(native-zoom-${ra2_zoom_case} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
+        endforeach()
         # 13. Touch controls (C10): the app's movies, menus and a game with the touch controls on;
         #     Skip alone during a movie, the Keys button alone in the menus (its tap turns the
         #     keyboard on), the toolbar alone in play.

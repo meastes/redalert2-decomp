@@ -27,6 +27,8 @@
 #include "shared/map_view.hpp"
 #include "shared/rect.hpp"
 #include "shared/unknown_globals.hpp"
+#include "shared/tactical.hpp"
+#include <stdio.h>
 
 Rect __fastcall Get_Title_Screen_Area_006f1f30();     // the tactical rectangle for the screen (0x006F1F30)
 extern Rect unknown_rect_839630;        // the view rectangle Set_View_Dimensions keeps
@@ -36,6 +38,7 @@ extern Rect unknown_rect_839630;        // the view rectangle Set_View_Dimension
 extern "C" __attribute__((weak)) double ra2_enh_map_zoom(void) { return 1.0; }
 extern "C" __attribute__((weak)) void ra2_enh_map_view(int, int, int, int, int, int, int, int) {}
 extern "C" __attribute__((weak)) void ra2_enh_in_play(int) {}
+extern "C" __attribute__((weak)) void ra2_enh_map_show(double, double, double, double) {}
 
 namespace {
 double game_zoom = 1.0;      // the zoom of the game running (taken at its start or load)
@@ -45,22 +48,116 @@ int full_right = 0;          // the tactical rectangle's right edge (the sidebar
 int full_bottom = 0;         // the tactical rectangle's bottom edge (the command bar's top)
 }
 
-// Set_View_Dimensions' rectangle (native fixup): the tactical rectangle divided by the
-// game's zoom (even sizes), at the same corner. Unchanged at 1x.
+namespace {
+// Continuous zoom (lane C16, the Outpost 2 port's model; the Enhancements row "Zoom gestures"): the
+// player's wheel, trackpad pinch or two-finger pinch changes the zoom in play. The part of the map
+// shown (show_w x show_h game pixels, the tactical rectangle divided by the zoom) starts at a
+// fraction of a pixel (show_ox, show_oy) inside the game's view, and the view is the shown part
+// rounded up to whole cells (60 x 30 pixels, one pixel to spare for the fraction), so most steps of a
+// pinch move only what the host shows and the game's view (its surfaces and buffers) is made again
+// only when the rounded size changes. The world point under the pinch's middle or the cursor stays
+// where it is on the screen: the view's position (Tactical +0xD64, its centre) is moved by whole
+// pixels and the rest is the fraction.
+constexpr double kZoomMin = 1.0, kZoomMax = 3.0;
+double show_ox = 0, show_oy = 0, show_w = 0, show_h = 0;
+double pending_factor = 1.0, pending_ax = 0, pending_ay = 0;
+bool pending = false;
+int round_up(double v, int step) { int n = (int)v; if (n < v) ++n; return (n + step - 1) / step * step; }
+void report_show(Rect const &view)
+{
+    ra2_enh_map_show(view.X + show_ox, view.Y + show_oy, show_w, show_h);
+}
+}  // namespace
+
+// Set_View_Dimensions' rectangle (native fixup): the tactical rectangle divided by the game's zoom,
+// rounded up to whole cells with a pixel to spare (never larger than the tactical rectangle), at
+// the same corner. Unchanged at 1x.
 Rect Native_Map_View(Rect const &rect)
 {
     Rect view = rect;
+    show_w = rect.Width;
+    show_h = rect.Height;
     if (game_zoom > 1.0 && rect.Width > 0 && rect.Height > 0) {
-        view.Width = ((int)(rect.Width / game_zoom + 0.5)) & ~1;
-        view.Height = ((int)(rect.Height / game_zoom + 0.5)) & ~1;
+        show_w = rect.Width / game_zoom;
+        show_h = rect.Height / game_zoom;
+        int w = round_up(show_w + 1, 60), h = round_up(show_h + 1, 30);
+        view.Width = w < rect.Width ? w : rect.Width;
+        view.Height = h < rect.Height ? h : rect.Height;
     }
+    if (show_ox + show_w > view.Width) show_ox = view.Width - show_w;
+    if (show_oy + show_h > view.Height) show_oy = view.Height - show_h;
+    if (show_ox < 0) show_ox = 0;
+    if (show_oy < 0) show_oy = 0;
     view_zoom = game_zoom;
     zoomed = view.Width != rect.Width || view.Height != rect.Height;
     full_right = rect.X + rect.Width;
     full_bottom = rect.Y + rect.Height;
     ra2_enh_map_view(view.X, view.Y, view.Width, view.Height, rect.X, rect.Y, rect.Width, rect.Height);
+    report_show(view);
     return view;
 }
+
+namespace {
+// The zoom asked for, applied at a frame's end (Native_Map_Zoom_Frame): the zoom is multiplied and
+// kept in range; the world point at (ax, ay) (game pixels across the tactical rectangle, from its
+// corner) stays there.
+void apply_zoom()
+{
+    pending = false;
+    Tactical *tactical = unknown_tactical_83996c;
+    double z0 = game_zoom, z1 = z0 * pending_factor;
+    if (z1 < kZoomMin) z1 = kZoomMin;
+    if (z1 > kZoomMax) z1 = kZoomMax;
+    if (!tactical || z1 == z0) return;
+    Rect full = Get_Title_Screen_Area_006f1f30();
+    double ax = pending_ax < 0 ? 0 : pending_ax > full.Width ? full.Width : pending_ax;
+    double ay = pending_ay < 0 ? 0 : pending_ay > full.Height ? full.Height : pending_ay;
+    // The world pixel under the anchor now: the view's origin (its centre less half the view) and
+    // the fraction shown past it.
+    Point2D centre = tactical->Get_Tactical_Position();
+    Rect const &view0 = unknown_rect_839630;
+    double wx = centre.X - view0.Width / 2 + show_ox + ax / z0;
+    double wy = centre.Y - view0.Height / 2 + show_oy + ay / z0;
+    game_zoom = z1;
+    view_zoom = z1;
+    Rect view1 = Native_Map_View(full);
+    if (view1.Width != view0.Width || view1.Height != view0.Height) {
+        Map.unknown_slot42(full);    // Set_View_Dimensions: the game's view takes the new size
+    }
+    Rect const &view = unknown_rect_839630;
+    // The new origin, split into whole pixels for the game and the fraction shown.
+    double ox = wx - ax / z1, oy = wy - ay / z1;
+    int tx = (int)ox, ty = (int)oy;
+    if (tx > ox) --tx;
+    if (ty > oy) --ty;
+    tactical->Set_Tactical_Position_006a6640(Point2D(tx + view.Width / 2, ty + view.Height / 2));
+    Point2D placed = tactical->Get_Tactical_Position();
+    show_ox = ox - (placed.X - view.Width / 2);
+    show_oy = oy - (placed.Y - view.Height / 2);
+    if (show_ox < 0) show_ox = 0;
+    if (show_oy < 0) show_oy = 0;
+    if (show_ox + show_w > view.Width) show_ox = view.Width - show_w;
+    if (show_oy + show_h > view.Height) show_oy = view.Height - show_h;
+    if (z1 == 1.0) show_ox = show_oy = 0;
+    report_show(view);
+    fprintf(stderr, "zoom: %.3f -> %.3f at %.0f,%.0f: view %dx%d, shown %.2fx%.2f from %.2f,%.2f, origin %d,%d\n", z0, z1, ax, ay,
+            view.Width, view.Height, show_w, show_h, show_ox, show_oy, placed.X - view.Width / 2, placed.Y - view.Height / 2);
+    Map.Flag_To_Redraw(1);
+}
+}  // namespace
+
+// The host's zoom (platform/sdl/host.cpp: the wheel, a trackpad pinch, a two-finger pinch): the zoom
+// is multiplied by factor about (ax, ay), game pixels across the tactical rectangle from its corner;
+// taken at the frame's end.
+extern "C" void ra2_native_zoom_by(double factor, double ax, double ay)
+{
+    pending_factor = pending ? pending_factor * factor : factor;
+    pending_ax = ax;
+    pending_ay = ay;
+    pending = true;
+}
+// The zoom in play now (the host shows it; tests).
+extern "C" double ra2_native_zoom(void) { return game_zoom; }
 
 // The sidebar's x where the original takes the view's right edge (native fixups): the
 // tactical rectangle's right edge while the view is zoomed, else the value asked about.
@@ -141,6 +238,7 @@ void Native_Map_Zoom_Start()
 void Native_Map_Zoom_Frame()
 {
     ra2_enh_in_play(1);
+    if (pending) apply_zoom();
 }
 
 // The game is over (Main_Loop returned true: won, lost, restarted or aborted). The score screen,

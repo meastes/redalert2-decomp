@@ -310,6 +310,13 @@ int main(int argc, char **argv)
         // lan=1 in the settings file turns on the Network (LAN) button, as RA2_NATIVE_LAN=1 does
         // for a test run: a Finder-launched app has no environment of its own (packaging/README.md).
         if (app_settings.get("lan") == "1" && !getenv("RA2_NATIVE_LAN")) setenv("RA2_NATIVE_LAN", "1", 1);
+        // save_format=original in the settings file writes saves in the original game's format
+        // (lane C17; RA2_NATIVE_SAVE_FORMAT, storage.cpp), as the environment does for a test run:
+        // the iOS app has no environment. A temporary switch until that format is the default.
+        if (app_settings.get("save_format") == "original" && !getenv("RA2_NATIVE_SAVE_FORMAT")) {
+            setenv("RA2_NATIVE_SAVE_FORMAT", "original", 1);
+            fprintf(stderr, "app: saves are written in the original game's format (save_format=original)\n");
+        }
     }
 #endif
     if (data) ra2port::set_data_dir(data);

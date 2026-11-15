@@ -37,10 +37,19 @@ enum class State {
     done,        // the gesture already acted (a hold on the sidebar): wait for the fingers to lift
     two,         // two fingers down: a two-finger tap until they move past kTwoSlop
     two_pan,     // two fingers moved past kTwoSlop: the map follows them (Scout1281)
+    pinch,       // two fingers whose span changed (lane C16, Zoom gestures): they zoom the map
     tap_wait,    // a one-finger tap lifted: its left click waits kTapWaitMs for a second finger
 };
 
 State state = State::idle;
+// Pinch (lane C16): on while the host's Zoom gestures apply (in play); the fingers' window points
+// (set_window_point before each event), the span when the second finger came down and at the last
+// zoom step. A pinch starts once the span changed by max(kPinchPoints, kPinchShare of it).
+constexpr float kPinchPoints = 8.0f, kPinchShare = 0.04f;
+bool pinch_on = false;
+float next_wx = 0, next_wy = 0;
+float w1x = 0, w1y = 0, w2x = 0, w2y = 0, span0 = 0, span_last = 0;
+float span() { return hypotf(w2x - w1x, w2y - w1y); }
 int screen_w = 800, screen_h = 600, sidebar_x = 0;
 uint64_t first_id = 0, second_id = 0;
 bool second_down = false;
@@ -100,6 +109,9 @@ void flush_tap(Output const &out, uint64_t ms, const char *why)
 void start_two(uint64_t id, float x, float y, uint64_t ms)
 {
     state = State::two;
+    w2x = next_wx;
+    w2y = next_wy;
+    span0 = span_last = span();
     second_id = id;
     second_down = true;
     moved_two = false;
@@ -130,6 +142,12 @@ void set_screen(int width, int height, int sidebar)
 }
 
 bool active() { return fingers > 0; }
+void set_pinch(bool on) { pinch_on = on; }
+void set_window_point(float wx, float wy)
+{
+    next_wx = wx;
+    next_wy = wy;
+}
 
 int finger_list(uint64_t *ids, int max)
 {
@@ -196,6 +214,8 @@ void finger_down(uint64_t id, float x, float y, uint64_t ms, Output const &out)
     }
     if (state == State::idle) {
         state = State::pending;
+        w1x = next_wx;
+        w1y = next_wy;
         first_id = id;
         second_down = false;
         x0 = last_x = x;
@@ -235,6 +255,26 @@ void finger_down(uint64_t id, float x, float y, uint64_t ms, Output const &out)
 
 void finger_move(uint64_t id, float x, float y, uint64_t ms, Output const &out)
 {
+    if (id == first_id) { w1x = next_wx; w1y = next_wy; }
+    else if (id == second_id && (state == State::two || state == State::pinch)) { w2x = next_wx; w2y = next_wy; }
+    if (state == State::two && pinch_on && fingers >= 2 && !over_sidebar(x0)) {
+        // The span changed past the slop: a pinch (it zooms only: no pan, no click; lane C16).
+        float d = span() - span0;
+        float slop = kPinchPoints > kPinchShare * span0 ? kPinchPoints : kPinchShare * span0;
+        if (d >= slop || -d >= slop) {
+            state = State::pinch;
+            moved_two = true;
+            fprintf(stderr, "touch: pinch (span %.0f -> %.0f points, +%llu ms)\n", span0, span(), (unsigned long long)(ms - down_ms));
+        }
+    }
+    if (state == State::pinch) {
+        float s = span();
+        if (span_last > 0 && s > 0 && fingers >= 2 && s != span_last) {
+            out.zoom(s / span_last, (w1x + w2x) / 2, (w1y + w2y) / 2);
+            span_last = s;
+        }
+        return;
+    }
     if (state == State::two) {
         float d = id == first_id ? hypotf(x - x0, y - y0) : id == second_id ? hypotf(x - x2, y - y2) : 0;
         if (d <= kTwoSlop) return;
@@ -359,6 +399,12 @@ void finger_up(uint64_t id, float x, float y, uint64_t ms, Output const &out)
                     ok ? "right click" : "dropped", (unsigned long long)(second_ms - down_ms),
                     (unsigned long long)(ms - down_ms), moved_two ? ", moved" : "");
             if (ok) click(out, 1, x0, y0);
+            state = State::idle;
+        }
+        break;
+    case State::pinch:
+        if (fingers == 0) {
+            fprintf(stderr, "touch: pinch ended (+%llu ms)\n", (unsigned long long)(ms - down_ms));
             state = State::idle;
         }
         break;

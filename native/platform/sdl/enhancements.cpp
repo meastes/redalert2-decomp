@@ -73,6 +73,10 @@ const std::vector<Row> &rows()
          {"classic", "modern"}, {"Classic", "Modern"}, true},
         // Lane C16 (user, 2026-11-14): voxel vehicles and their shadows drawn at 2x the picture's
         // resolution (link/native_hd_vehicles.cpp); the game's own drawing is unchanged.
+        // Lane C16 (user, 2026-11-14): the map zoom follows the wheel and a trackpad pinch (Mac,
+        // Windows) or a two-finger pinch (touch) in play; Map zoom above is the zoom a game starts at.
+        {"zoomgestures", "Zoom gestures", "Wheel or pinch zooms the map in play (Map zoom is where it starts).",
+         {"off", "on"}, {"Off", "On"}, true},
         {"hdvehicles", "HD vehicles", "Vehicles and their shadows at twice the detail. From the next game.",
          {"off", "2"}, {"Off", "2x"}, true},
     };
@@ -83,7 +87,8 @@ const std::map<std::string, std::string> &preset_values(bool enhanced)
 {
     static const std::map<std::string, std::string> original = {{"vsync", "off"}, {"scaling", "sharp"}, {"uisize", "1"}, {"mapzoom", "1"},
                                                                          {"menufill", "off"}, {"queuefive", "off"},
-                                                                         {"controls", "classic"}, {"hdvehicles", "off"}};
+                                                                         {"controls", "classic"}, {"hdvehicles", "off"},
+                                                                         {"zoomgestures", "off"}};
     static const std::map<std::string, std::string> better = {{"vsync", "on"}, {"scaling", "smooth"}, {"menufill", "backdrop"},
                                                                        {"queuefive", "on"}, {"hdvehicles", "2"}};
     return enhanced ? better : original;
@@ -273,6 +278,12 @@ int ra2_enh_modern_controls(void)
 }
 // HD vehicles (lane C16): 0 off, 2 for 2x; a game takes it when it starts or loads
 // (link/native_hd_vehicles.cpp).
+// Zoom gestures (lane C16): the host's wheel, trackpad pinch and two-finger pinch zoom the map in play.
+int ra2_enh_zoom_gestures(void)
+{
+    load();
+    return current["zoomgestures"] == "on";
+}
 int ra2_enh_hd_vehicles(void)
 {
     load();
@@ -342,6 +353,8 @@ bool ra2_enh_sidebar_split(int picture_height, double *ratio)
 // (Start_Scenario, a load); with 1x nothing changes.
 namespace {
 int view_rect[4] = {0, 0, 0, 0}, full_rect[4] = {0, 0, 0, 0};   // the view and the tactical rectangle it stands for
+double show_rect[4] = {0, 0, 0, 0};    // the part of the view shown (continuous zoom: fractional; lane C16)
+int show_generation = 0;               // counts the changes of view and shown part (the host's layout follows)
 bool in_play = false;          // a game frame ran since the last scenario start or load, and the game goes on
 }
 // The zoom for the game that starts now (the setting; 1 without one).
@@ -359,8 +372,37 @@ extern "C" void ra2_enh_map_view(int x, int y, int w, int h, int full_x, int ful
     if (memcmp(v, view_rect, sizeof v) || memcmp(f, full_rect, sizeof f))
         fprintf(stderr, "enhancements: map view %dx%d at %d,%d for %dx%d (map zoom %.2fx)\n", w, h, x, y, full_w, full_h,
                 w > 0 ? (double)full_w / w : 1.0);
+    if (memcmp(v, view_rect, sizeof v) || memcmp(f, full_rect, sizeof f)) ++show_generation;
     memcpy(view_rect, v, sizeof v);
     memcpy(full_rect, f, sizeof f);
+}
+// The part of the view the host shows (link/native_map_zoom.cpp; lane C16): game pixels, a fraction
+// of a pixel in and the tactical rectangle divided by the zoom.
+extern "C" void ra2_enh_map_show(double x, double y, double w, double h)
+{
+    double s[4] = {x, y, w, h};
+    if (memcmp(s, show_rect, sizeof s)) ++show_generation;
+    memcpy(show_rect, s, sizeof s);
+}
+int ra2_enh_map_generation() { return show_generation; }
+// The host's question with the shown part (lane C16): is the map shown zoomed, and which part of
+// the view (game pixels, fractional) stands for the tactical rectangle (full)?
+bool ra2_enh_map_shown(int picture_width, int picture_height, double show[4], int full[4])
+{
+    if (!in_play || show_rect[2] <= 0 || show_rect[3] <= 0) return false;
+    if (show_rect[2] >= full_rect[2] && show_rect[3] >= full_rect[3]) return false;
+    if (full_rect[0] < 0 || full_rect[1] < 0 || full_rect[0] + full_rect[2] > picture_width || full_rect[1] + full_rect[3] > picture_height)
+        return false;
+    memcpy(show, show_rect, sizeof show_rect);
+    memcpy(full, full_rect, sizeof full_rect);
+    return true;
+}
+// The tactical rectangle (game pixels) of the game in play, zoomed or not: false before a game.
+bool ra2_enh_tactical_rect(int full[4])
+{
+    if (!in_play || full_rect[2] <= 0) return false;
+    memcpy(full, full_rect, sizeof full_rect);
+    return true;
 }
 // In play (a game frame ran) or not (a scenario starting or loading: its loading screen
 // and movies are shown whole).

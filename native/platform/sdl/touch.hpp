@@ -21,7 +21,14 @@ struct Output {
     void (*button)(int button, bool down, float x, float y);   // 0 left, 1 right
     void (*pan)(float dx, float dy, float x, float y);    // view moves by dx, dy game pixels
     void (*wheel)(int notches, float x, float y);         // + up, - down (120 each)
+    void (*zoom)(float scale, float wx, float wy);        // a pinch's step about its middle (window points; lane C16)
 };
+
+// Pinch zoom (lane C16): two fingers whose span changes become a pinch while this is on (the
+// host's Zoom gestures, in play): it zooms only, never pans or clicks. Each finger's window point
+// (points) is given beside its game pixel so the span does not follow the zoom it makes.
+void set_pinch(bool on);
+void set_window_point(float wx, float wy);
 
 // The game picture's size in game pixels and the sidebar's left edge (no sidebar: <= 0).
 void set_screen(int width, int height, int sidebar_x);

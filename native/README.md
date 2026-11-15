@@ -673,7 +673,8 @@ Original and Enhanced under it, Cancel in the bottom slot (0x005E6860 and 0x005E
 list them, native fixups). Rows: Fullscreen (Automatic on touch hosts), Vertical sync,
 Game interface size (1x, 1.25x, 1.5x, 2x), Map zoom (1x, 1.25x, 1.5x, 2x), Picture
 scaling (Sharp, the original look; Nearest; Smooth), Menu fill (Off, the original look;
-Blurred backdrop), Queue five with Shift (Off, On; C16), Controls (Classic, Modern; C16), HD vehicles (Off, 2x; C16). The page opens as the shell's other screens do (C12): the Options
+Blurred backdrop), Queue five with Shift (Off, On; C16), Controls (Classic, Modern; C16), Zoom gestures (Off, On; C16),
+HD vehicles (Off, 2x; C16). The page opens as the shell's other screens do (C12): the Options
 dialog's column slides out (0x005E5FC0, the original's in-place transition of the skirmish
 map dialog's Random Map button) and the dialog is hidden; when the page closes the dialog is
 shown again and its next paint slides the column back in.
@@ -736,6 +737,30 @@ ctest `native-enhancements-frames` (`tests/enhancements_frames.py`) runs the mai
 menu with the window at 0.75x the picture (`RA2_NATIVE_WINDOW_ZOOM`) and proves the
 ORIGINAL preset's frames byte-identical to the defaults outside the menu's animated
 pixels, and the ENHANCED preset's different.
+
+Zoom gestures (C16; the user's smooth pinch zoom, the Outpost 2 port's model): with the setting on,
+the map's zoom follows the player in play, from 1x to 3x: a mouse wheel over the map (10% a notch)
+and a trackpad pinch (SDL_EVENT_PINCH_UPDATE) about the pointer, a two-finger pinch on a touch screen
+about its middle; Map zoom is the zoom a game starts at. The world point under the pointer or the
+pinch's middle stays where it is. The part of the map shown is the tactical rectangle divided by the
+zoom, a fraction of a pixel into the game's view, and the view is that part rounded up to whole
+cells (60x30 pixels, a pixel to spare), so most steps only move what the host shows and the game's
+view (Set_View_Dimensions 0x00498C80: its depth and alpha buffers) is made again only when the
+rounded size changes (`link/native_map_zoom.cpp` `ra2_native_zoom_by`, applied at a frame's end;
+the view's position, Tactical +0xD64, takes the whole pixels). The host shows the shown part over
+the tactical area through its zoom region (fractional source, `host.cpp`), maps the mouse through the
+same region (a hair added so a pixel shown comes back as itself) and lays HD vehicles' overlay over
+it the same way. The sidebar and the command bar keep their places and scale; the close-in filter is
+Picture scaling's (Nearest gives crisp pixels). Touch (`touch.cpp`): two fingers whose span changes
+by max(8 points, 4%) before they move as a pan become a pinch, which only zooms (no pan, no click),
+each move scaling by the span over the last; a gesture already a pan, a selection box or a tap stays
+one. The span is measured in window points, so it does not follow the zoom it makes. Below 1x (more
+map than the screen) is not yet there: it needs a game screen larger than the window in play.
+Off by default and in the Original preset (the Enhanced preset leaves it). ctest
+`native-zoom-steps` (`tests/zoom_input.py`; input script `zoom FACTOR X Y|@ID`, `mapcheck`) zooms
+to 1.37x, 2.6x and back, checking the view logged, the window mapping both ways over the shown map, a
+click through the window on a given tank at each zoom, and that the sidebar stays put;
+`native-zoom-pinch` plays a scripted two-finger pinch out and back in.
 
 Queue five with Shift (C16, the user's 2026-11-14 list; written from the behaviour the
 redalert2-recomp design notes describe, no code taken): with the setting on, Shift with a click
@@ -909,6 +934,19 @@ compound file it wrote (and does not mark it "(Original)"), never one the origin
 The port's own container stays the default. ctest `native-original-save-write` writes a
 fresh skirmish and each of the user's five saves (loaded, then saved at frame 50) this way
 and loads each back for 300 frames.
+
+**iOS and the Mac-to-phone transfer (lane C17 stage H).** The iOS app has no environment, so
+`save_format=original` in the settings file sets the same switch (main.cpp, as `lan=1`;
+temporary, no Enhancements row). The iOS build had no field maps before stage H (its
+CMAKE_SYSTEM_PROCESSOR is empty: `RA2_NATIVE_ARM64` now also follows
+CMAKE_OSX_ARCHITECTURES), so an original save loaded on the phone was read without them.
+Checked on the "RA2 Duo Validation" Simulator (`xcrun simctl launch --console-pty` with
+`SIMCTL_CHILD_` variables and `--data-dir` the imported GameData): a fresh skirmish saved
+in the original's format and a periodic checkpoint (CHECKPT.SAV, written twice: the second
+replaces the port's own compound file) load back and play; each of the user's five saves,
+loaded on the Mac and saved in the original's format, copied into the app's Documents/Game
+(the Files folder), loads and plays 300 frames on the phone and is saved there again; that
+save, copied back, loads and plays on the Mac; the phone's fresh save loads on the Mac.
 
 The x86_64 Windows build (lane C15) reads them the same way. Win64 is LLP64: `long` is
 4 bytes, as on VC6, and the pointer-width rewrites are `long long`, so the typed read
