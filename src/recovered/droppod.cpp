@@ -234,20 +234,20 @@ void __stdcall DropPodLocomotionClass::Move_To(CoordStruct to)
     if (unknown_20 == unknown_geometry_l) {
         unknown_20 = CoordStruct(to.X, to.Y, to.Z);
         unknown_20.Z = Map.Get_Height_GL(unknown_20);
-        CoordStruct start = unknown_20;
-        start.Z += Rules->DropPodHeight;
-        start.X = (int)(start.X + Rules->DropPodHeight / unknown_math_4ba520(Rules->DropPodAngle));
-        if (!Map.Unknown_0055A7F0(start)) {
+        CoordStruct dropcoord = unknown_20;
+        dropcoord.Z += Rules->DropPodHeight;
+        dropcoord.X = (int)(dropcoord.X + Rules->DropPodHeight / unknown_math_4ba520(Rules->DropPodAngle));
+        if (!Map.Unknown_0055A7F0(dropcoord)) {
             unknown_1c = true;
-            start.X = (int)(unknown_20.X - Rules->DropPodHeight / unknown_math_4ba520(Rules->DropPodAngle));
+            dropcoord.X = (int)(unknown_20.X - Rules->DropPodHeight / unknown_math_4ba520(Rules->DropPodAngle));
         }
-        LinkedTo->Set_Coord(start);
-        if (LinkedTo->Unlimbo(&start, 0x80)) {
-            LinkedTo->Set_Coord(start);
+        LinkedTo->Set_Coord(dropcoord);
+        if (LinkedTo->Unlimbo(&dropcoord, 0x80)) {
+            LinkedTo->Set_Coord(dropcoord);
             LinkedTo->unknown_2e0.Set(UnknownFacingDir(0x8000));
-            new AnimClass(Rules->AtmosphereEntry, start, 0, 1, 0x600, 0);
+            new AnimClass(Rules->AtmosphereEntry, dropcoord, 0, 1, 0x600, 0);
         } else {
-            LinkedTo->Unlimbo(&start, 0x80);
+            LinkedTo->Unlimbo(&dropcoord, 0x80);
         }
     }
 }

@@ -243,7 +243,7 @@ long RawFileClass::Read(void *buffer, long size)
 
 long RawFileClass::Write(void const *buffer, long size)
 {
-    DWORD bytes_written = 0;
+    DWORD byteswritten = 0;
     int opened = false;
 
     if (!Is_Open()) {
@@ -252,7 +252,7 @@ long RawFileClass::Write(void const *buffer, long size)
         }
         opened = true;
     }
-    if (!WriteFile(Handle, buffer, size, &bytes_written, 0)) {
+    if (!WriteFile(Handle, buffer, size, &byteswritten, 0)) {
         Error(GetLastError(), false, Filename);
     }
     if (BiasLength != -1) {
@@ -263,7 +263,7 @@ long RawFileClass::Write(void const *buffer, long size)
     if (opened) {
         Close();
     }
-    return bytes_written;
+    return byteswritten;
 }
 
 
@@ -291,14 +291,14 @@ long RawFileClass::Seek(long pos, int dir)
             pos += BiasStart + BiasLength;
             break;
         }
-        long result = Raw_Seek(pos, dir) - BiasStart;
-        if (result < 0) {
-            result = Raw_Seek(BiasStart, FILE_SEEK_START) - BiasStart;
+        long newpos = Raw_Seek(pos, dir) - BiasStart;
+        if (newpos < 0) {
+            newpos = Raw_Seek(BiasStart, FILE_SEEK_START) - BiasStart;
         }
-        if (result > BiasLength) {
-            result = Raw_Seek(BiasStart + BiasLength, FILE_SEEK_START) - BiasStart;
+        if (newpos > BiasLength) {
+            newpos = Raw_Seek(BiasStart + BiasLength, FILE_SEEK_START) - BiasStart;
         }
-        return result;
+        return newpos;
     }
     return Raw_Seek(pos, dir);
 }

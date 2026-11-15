@@ -460,14 +460,14 @@ void IPXGlobalConnClass::Discard_Old_Packets(unsigned long age)
 {
     Debug_Printf("Stripping queue entries older than %d seconds. Num receive = %d\n", age / 60, Queue->ReceiveCount);
     for (int i = 0; i < Queue->ReceiveCount; i++) {
-        ReceiveQueueType *rec = Queue->Get_Receive(i);
+        ReceiveQueueType *entry = Queue->Get_Receive(i);
         Debug_Printf("i = %d\n", i);
-        if (rec) {
+        if (entry) {
             Debug_Printf("Checking packet %d\n", i);
-            unsigned long const &received = rec->ReceiveTime;
+            unsigned long const &received = entry->ReceiveTime;
             if ((long)(received + age) < TickCount.Time()) {
-                Debug_Printf("Stripping global packet due to age of %d seconds\n", (int)(TickCount.Time() - rec->ReceiveTime) / 60);
-                unsigned long id = ((CommHeaderType *)rec->Buffer)->PacketID;
+                Debug_Printf("Stripping global packet due to age of %d seconds\n", (int)(TickCount.Time() - entry->ReceiveTime) / 60);
+                unsigned long id = ((CommHeaderType *)entry->Buffer)->PacketID;
                 for (int j = 0; j < unknown_d4; j++) {
                     if (unknown_d0[j] == id) {
                         unknown_d0[j] = -1;
@@ -477,7 +477,7 @@ void IPXGlobalConnClass::Discard_Old_Packets(unsigned long age)
                 Queue->UnQueue_Receive(0, 0, i, 0, 0);
                 i--;
             } else {
-                Debug_Printf("Leaving global packet due to age of %d seconds\n", (int)(TickCount.Time() - rec->ReceiveTime) / 60);
+                Debug_Printf("Leaving global packet due to age of %d seconds\n", (int)(TickCount.Time() - entry->ReceiveTime) / 60);
             }
         }
     }

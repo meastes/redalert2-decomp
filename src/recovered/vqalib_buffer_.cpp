@@ -533,21 +533,21 @@ long __fastcall VQA_Configure_Buffer(VQAHandleP *vqap)
 
 int __cdecl VQA_Memory_Handler(VQAHandle *vqa, int action, int buffer, int nbytes)
 {
-    int result = 0;
+    int error = 0;
     switch (action) {
     case VQAMEM_ALLOC:
-        result = (int)malloc(nbytes);
+        error = (int)malloc(nbytes);
         break;
     case VQAMEM_FREE:
         free((void *)buffer);
         break;
     case VQAMEM_LOCK:
     case VQAMEM_UNLOCK:
-        result = buffer;
+        error = buffer;
         break;
     case 6:
         *(int *)buffer = -1;
         break;
     }
-    return result;
+    return error;
 }

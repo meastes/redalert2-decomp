@@ -582,13 +582,13 @@ void __stdcall FUN_0062fbc0(int unused_0, int unused_1)
 
 Cell RadarClass::Click_Cell_Calc(Point2D const &xy)
 {
-    Point2D point = xy;
-    CoordStruct coord = TacticalMap->Pixel_To_Coord(point);
+    Point2D pixel = xy;
+    CoordStruct coord = TacticalMap->Pixel_To_Coord(pixel);
     if (coord != unknown_coord_ab6370) {
         if (Debug_Map) {
-            return TacticalMap->Pixel_To_Cell(point);
+            return TacticalMap->Pixel_To_Cell(pixel);
         }
-        return TacticalMap->Pixel_To_Cell(point);
+        return TacticalMap->Pixel_To_Cell(pixel);
     }
     return unknown_cell_ab6330;
 }

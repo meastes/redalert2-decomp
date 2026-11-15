@@ -8,6 +8,7 @@
  ******************************************************************************/
 // Function comment blocks from mischa85/RedAlert2 392e904 src/grphmsct.cpp (matching RA2 1.006 decomp), placed above our
 // own notes; code unchanged.
+// Local variable names from mischa85/RedAlert2 392e904 src/grphmsct.cpp where both functions declare the same local types (names only).
 
 // grphmsct.cpp: the original translation unit re-filed as one source (Route A): the accepted
 // bodies of its canonical compile group in address order, under the unit's own header
@@ -65,16 +66,16 @@ int __fastcall Parse_Shortcut_Key(Wstring const &text);
 
 GraphicMenuShortcutItem::GraphicMenuShortcutItem(int id, Wstring const &keys) : GraphicMenuItem(id)
 {
-    Wstring token;
-    int position = keys.Get_Token(0, ",", token);
-    while (token.Length() > 0) {
-        int key = Parse_Shortcut_Key(token);
+    Wstring tok;
+    int pos = keys.Get_Token(0, ",", tok);
+    while (tok.Length() > 0) {
+        int key = Parse_Shortcut_Key(tok);
         if (key != 0) {
             Keys.Add(key);
         }
-        position = keys.Get_Token(position, ",;", token);
-        if (position == -1) {
-            token.Release();
+        pos = keys.Get_Token(pos, ",;", tok);
+        if (pos == -1) {
+            tok.Release();
         }
     }
 }

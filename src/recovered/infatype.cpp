@@ -634,11 +634,11 @@ bool InfantryTypeClass::CanAttackMove() const
 
 CoordStruct InfantryTypeClass::Coord_Fixup(CoordStruct const &coord) const
 {
-    CoordStruct result = coord;
-    if (result.Z < Map.Get_Height_GL(result)) {
-        result.Z = Map.Get_Height_GL(result);
+    CoordStruct fix = coord;
+    if (fix.Z < Map.Get_Height_GL(fix)) {
+        fix.Z = Map.Get_Height_GL(fix);
     }
-    return result;
+    return fix;
 }
 
 

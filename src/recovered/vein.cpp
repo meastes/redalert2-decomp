@@ -446,13 +446,13 @@ void VeinholeMonsterClass::Draw_It()
         if (Map[coord].unknown_140 & 0x400000) {
             frame = 0;
         }
-        Point2D pixel;
-        TacticalMap->Coord_To_Pixel(coord, pixel);
+        Point2D drawpoint;
+        TacticalMap->Coord_To_Pixel(coord, drawpoint);
         int height = 15 * Map[CellID].unknown_11b;
-        pixel.Y += -58 - height;
-        TacticalMap->Add_To_Selectables(this, Point2D(pixel.X, unknown_rect_839630.Y + pixel.Y + 58));
+        drawpoint.Y += -58 - height;
+        TacticalMap->Add_To_Selectables(this, Point2D(drawpoint.X, unknown_rect_839630.Y + drawpoint.Y + 58));
         ConvertClass *drawer = ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter;
-        CC_Draw_Shape(unknown_surface_83995c, drawer, (ShapeFileStruct const *)shape, frame, pixel, unknown_rect_839630, 0x2e00, 0, -17 - height, 0,
+        CC_Draw_Shape(unknown_surface_83995c, drawer, (ShapeFileStruct const *)shape, frame, drawpoint, unknown_rect_839630, 0x2e00, 0, -17 - height, 0,
                       Map[coord].unknown_10c, 0, 0, Point2D(0, 0));
     }
 }

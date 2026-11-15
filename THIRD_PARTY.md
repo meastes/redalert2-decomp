@@ -170,6 +170,8 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   Adopted 2026-11-15 (lane M1 batch u2, names only): the same for 76 further units.
   Adopted 2026-11-15 (lane M1 batch l1, names only): local-variable names of functions that declare the same
   sequence of local types in both files, for 56 units (list in the commit message).
+  Adopted 2026-11-15 (lane M1 batch l2, names only): the same where the local types differ only in spelling
+  (typedef against its base type), for 11 units.
 
 ## Native linked libraries (tested development versions)
 

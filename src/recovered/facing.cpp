@@ -1,5 +1,6 @@
 // Westwood facing.cpp in one source (twins: mischa85/RedAlert2 src/facing.cpp, TibSun facing.cpp); the
 // Parameter names from mischa85/RedAlert2 392e904 src/facing.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/facing.cpp where both functions declare the same local types (names only).
 // accepted bodies under the template's names, the directions as UnknownFacingDir until DirType is converted.
 #include "shared/facing.hpp"
 
@@ -38,12 +39,12 @@ bool FacingClass::Set(UnknownFacingDir const &facing)
 UnknownFacingDir FacingClass::Current() const
 {
     if (Is_Rotating()) {
-        short delta = (short)(DesiredFacing - StartFacing);
-        short ticks = (short)(abs(delta) / ROT);
-        UnknownFacingDir result = *(UnknownFacingDir const *)&DesiredFacing;
-        if (ticks > 0)
-            result.Raw = (unsigned short)(result.Raw - (delta / ticks) * (short)RotationTimer.Value());
-        return result;
+        short diff = (short)(DesiredFacing - StartFacing);
+        short rot = (short)(abs(diff) / ROT);
+        UnknownFacingDir dir = *(UnknownFacingDir const *)&DesiredFacing;
+        if (rot > 0)
+            dir.Raw = (unsigned short)(dir.Raw - (diff / rot) * (short)RotationTimer.Value());
+        return dir;
     }
     return *(UnknownFacingDir const *)&DesiredFacing;
 }

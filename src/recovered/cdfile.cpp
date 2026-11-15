@@ -13,6 +13,7 @@
  ******************************************************************************/
 // From mischa85/RedAlert2 dbca015 src/cdfile.cpp (matching RA2 1.006 decomp; TibSun cdfile.cpp); modified:
 // Parameter names from mischa85/RedAlert2 392e904 src/cdfile.cpp where both define the function (names only).
+// Local variable names from mischa85/RedAlert2 392e904 src/cdfile.cpp where both functions declare the same local types (names only).
 // the function bodies are this tree's accepted ones, Is_Disk_Inserted is a static member, the find
 // handle is the static member FindHandle, and the template's disabled Set_Search_Drives (#if 0) is
 // left out (modules.json cdfile).
@@ -354,9 +355,9 @@ char const *CDFileClass::Set_Name(char const *filename)
     if (IsDisabled || First == 0 || BufferIOFileClass::Is_Available()) {
         return File_Name();
     }
-    for (CDSearchDrive *drive = First; drive != 0; drive = drive->Next) {
+    for (CDSearchDrive *srch = First; srch != 0; srch = srch->Next) {
         char path[260];
-        strcpy(path, drive->Path);
+        strcpy(path, srch->Path);
         strcat(path, filename);
         BufferIOFileClass::Set_Name(path);
         if (BufferIOFileClass::Is_Available()) {

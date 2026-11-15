@@ -560,10 +560,10 @@ void MSOverlayAnim::Set_Frame(unsigned frame)
 
 void MSOverlayAnim::Restore(int rect)
 {
-    unsigned level = (unsigned)unknown_40 < 3 ? unknown_40 : 3;
+    unsigned fading_stage = (unsigned)unknown_40 < 3 ? unknown_40 : 3;
     if (unknown_0C) {
         CC_Draw_Shape(AlternateSurface, Drawer, Shape, Frame, Point2D(X, Y), AlternateSurface->Get_Rect(),
-                      unknown_fade_flags_7e57f0[level] | Flags, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                      unknown_fade_flags_7e57f0[fading_stage] | Flags, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
     }
 }
 
