@@ -551,11 +551,12 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   (layouts original_data.py leaves out) are filled from game.exe after the
   original data (`ra2_native_original_records`): with the zero placeholder the
   first letter typed in the main menu faulted in strstr.
-- **Multiplayer out of scope.** The main menu's Internet and Network buttons show
-  "Multiplayer is not available in this build." and return to the main menu
-  (`Native_Multiplayer_Unavailable`, a Select_Game fixup) instead of faulting in
-  IPXManagerClass; the WOL/IPX/modem code stays link-closure traps.
-  With `RA2_NATIVE_LAN=1` the Network button opens the LAN lobby instead: IPX
+- **Multiplayer: LAN yes, Internet no.** The main menu's Internet button shows
+  "Internet play is not available in this build. Network (LAN) games are." and returns to
+  the main menu (`Native_Multiplayer_Unavailable`, a Select_Game fixup) instead of faulting
+  in the WOL code; the WOL/modem code stays link-closure traps. The Network button opens the
+  LAN lobby by default (lane C17w, user 2026-11-15; before, only with `RA2_NATIVE_LAN=1` or
+  `lan=1` in the settings file); `RA2_NATIVE_LAN=0` or `lan=0` turns it off. IPX
   runs over UDP (`port/src/wsock32.cpp`, ports 26300-26307, broadcast;
   `RA2_NATIVE_NET_LOG=1` traces datagrams), and two games on one Mac (separate
   HOMEs) host, join, start and stay in sync (Scout1209 r7-r10: 6,400 frames with
@@ -563,6 +564,24 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   game CRC as `crc <frame> <value>` for comparing two games' logs. A type 0x1F
   event's variable data is a 32-bit handle in the event (`link/native_event_data.cpp`),
   so events keep the original 0x6F-byte wire layout.
+  ctest `native-lan-pair` (`tests/lan_pair.py`, lane C17w) plays such a pair through the real
+  menus with no switch set (Alpha hosts, Bravo joins and accepts) for 18,000 host frames (about
+  five minutes): both sides give orders and reuse control groups (the user's crash after a few
+  minutes with two machines, 2026-11-10: Extract_Compressed_Events on reused group orders,
+  fixed in r21 bbb926827), Bravo opens Escape > Game Controls > Sound twice and goes back to
+  the game (the user's Sound-menu crash, 2026-11-11: ThemeClass's view, fixed in r22
+  182f6cd15), and Alpha's edge scrolling per game frame is compared with a one-player
+  skirmish's (the user's "way too fast", 2026-11-10: Wait_For_Players scrolled on each pass of
+  its wait loop, fixed in r19 9037a5e7e / r21). Passes on equal per-frame CRCs over every
+  frame both logged, the Sound dialog shown twice, no fault, and the network rate at most
+  1.5 times the skirmish's. `--binary-b` runs Bravo from another build (a Windows .exe under
+  Wine): a Mac host and the Windows build under Wine played 4,000 frames in step (lane C17w).
+  The Windows build had faulted on entering the lobby: the socket thread's poll
+  (`platform/win/posix_win.cpp` `ra2_bsd_poll`) took a heap vector on each pass, and in that
+  thread under Wine malloc handed back an address that faulted on its first write; the poll
+  now uses a stack array (up to 64 sockets; the game opens two). The Windows fault handler also
+  walks the faulting thread's frames from the exception's context ("fault frame N:
+  module+offset", for llvm-symbolizer), which the handler's own backtrace cannot reach.
   The IPX layer delivers each datagram once: on a Mac with Ethernet and Wi-Fi on
   one subnet every broadcast arrived twice, the Wi-Fi copy late, and a stale
   progress report made the joiner drop the host at load (2 starts in 10); a

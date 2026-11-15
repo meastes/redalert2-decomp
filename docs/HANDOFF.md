@@ -32,6 +32,8 @@ Earlier owner periods are in [history/](history/).
 
 Standing approvals (user, 2026-11-15 "Yes to all"): (a) delete codex1's finished gate-* build folders whenever C: is under 40 GB, always keeping its newest, junctions unlinked first, compiler and game.exe verified after; (b) a 30-minute owner heartbeat job (session cron) that checks the Windows workers and posts the heartbeat; (c) codex1 is ended (its names work moves to the Mac lanes); codex4 continues only until the installed-game C17 save check is done, then pauses.
 
+NATIVE 2026-11-15 (lane C17w): LAN on by default (Network opens the lobby; lan=0 / RA2_NATIVE_LAN=0 turns it off). The user's three reports (crash after a few minutes with two machines; Sound-menu crash in a network game; edge scrolling too fast) were fixed by r21 bbb926827, r22 182f6cd15 and r19 9037a5e7e/r21, and are covered by ctest native-lan-pair (two instances, 18,000 frames in step). Mac to Windows under Wine played 4,000 frames after the Windows lobby fix (b6d64cd79). A real two-machine retest is pending from the user. Played coverage (C17w audit): Mac Allied 7/12 and Soviet 2/12 won, all 24 started; Wine and iOS only saves and skirmishes; no final-mission ending anywhere.
+
 Native plan (user, 2026-11-15): internet relay held. Next: LAN on by default (the three user-reported LAN problems from 2026-11-10/11 closed: two-machine crash after a few minutes, Sound-menu crash in a network game, edge-scroll speed; Network opens the lobby without RA2_NATIVE_LAN; two-instance soak in ctest), then a read-only Yuri's Revenge sizing (box 4 h). Starting YR work needs the user's word in the owner session and an AGENTS.md change.
 
 ## Restart checkpoint (owner, 2026-11-15 ~05:00Z, the user restarted the Mac)

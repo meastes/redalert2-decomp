@@ -71,18 +71,18 @@ menu or a movie, its clocks stand still (timers, the movie and its sound do not
 run on) and it goes on from the same moment when you come back. A network (LAN)
 game is not paused: the other players' games set its pace, as on Windows.
 
-## LAN games (experimental, off by default)
+## LAN games
 
-Network (LAN) play between Macs on the same local network works in tests
-(two and three games, thousands of frames in step) but is off by default.
-To turn it on, quit the game and add this line to
+Network (LAN) play between Macs (and iPhones/iPads) on the same local network is on: the
+main menu's Network button opens the LAN lobby. It works in tests (two and three games on one
+Mac, thousands of frames in step); games between separate machines are still being checked.
+To turn it off, quit the game and add this line to
 `~/Library/Application Support/RA2Native/settings`:
 
-    lan=1
+    lan=0
 
-(A test run can set `RA2_NATIVE_LAN=1` in the environment instead.) Every Mac
-that plays needs it. The game uses UDP ports 26300-26307 and broadcasts on the
-local network; up to eight games fit on one Mac or network.
+(A test run can set `RA2_NATIVE_LAN=0` in the environment instead.) The game uses UDP ports
+26300-26307 and broadcasts on the local network; up to eight games fit on one Mac or network.
 
 What to try, two Macs on the same Wi-Fi or Ethernet network:
 
@@ -103,8 +103,8 @@ firewall off there is no question. (That question takes the focus from the
 game; the name field keeps it when the game comes back, as on Windows. Before
 Scout1223 the field took no more keys after any trip to the background.)
 
-Not supported: Internet (Westwood Online) games, games with Windows PCs (not
-tested), the packet router and NAT.
+Not supported: Internet (Westwood Online) games (the Internet button says so), the packet
+router and NAT. Games with Windows PCs running this port's Windows build are untested.
 
 ## For testing
 

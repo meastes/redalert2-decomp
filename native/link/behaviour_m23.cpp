@@ -37,28 +37,31 @@ extern "C" void ra2port_seed_free(intptr_t block)
     Free_Memory_00781d3b((void *)block);
 }
 
-// Native single player scope (user decision: multiplayer is out of scope; WOL, IPX
-// and modem code stay link-closure traps). Select_Game 0x005135F0 asks this before
-// its Internet (WOL) and Network (LAN) selections (port/fixups.json): a message box
-// says so and the main menu comes back, instead of faulting in IPXManagerClass.
+// Internet play (Westwood Online) is not in the native build (its WOL and modem code stay
+// link-closure traps). Select_Game 0x005135F0 asks this before its Internet selection
+// (port/fixups.json): a message box says so and the main menu comes back, instead of
+// faulting in the WOL code.
 bool Native_Multiplayer_Unavailable()
 {
     unsigned short const *ok = StringTable::Load_String("GUI:Ok", 0, "native", 0);
     unknown_5159b0(0, true);
     WWMessageBox((unsigned short const *)L" ").Process(
-        (unsigned short const *)L"Multiplayer is not available in this build.",
+        (unsigned short const *)L"Internet play is not available in this build. Network (LAN) games are.",
         ok, 0, 0, false);
     unknown_5159b0(0, true);
     return true;
 }
 
-// The Network (LAN) selection: the same box unless RA2_NATIVE_LAN=1 (test runs, Scout1209
-// r7). IPX is carried over UDP (port/src/wsock32.cpp); the LAN code then reaches
-// IPXManagerClass::Service 0x00525F60 (draft, codex4 r545) and the lobby rows.
+// The Network (LAN) selection: the LAN lobby (lane C17w, user 2026-11-15: LAN on by default;
+// before, only with RA2_NATIVE_LAN=1 or lan=1 in the settings file, Scout1209 r7). IPX is carried
+// over UDP (port/src/wsock32.cpp); the LAN code reaches IPXManagerClass::Service 0x00525F60
+// (draft, codex4 r545) and the lobby rows. RA2_NATIVE_LAN=0 (or lan=0 in the settings file)
+// turns it off again: the Internet button's box then answers Network too.
 extern "C" char *getenv(char const *name);
 bool Native_LAN_Unavailable()
 {
-    static bool lan = getenv("RA2_NATIVE_LAN") != 0;
+    char const *value = getenv("RA2_NATIVE_LAN");
+    static bool lan = !(value && value[0] == '0');
     return lan ? false : Native_Multiplayer_Unavailable();
 }
 

@@ -6,6 +6,12 @@ the 2026-11-06 twin measurement against the current read-only clone at
 catalog on main. It reverses the question: for each YR function ra2-decomp has **not** matched,
 do we already hold an exact RA2 function that is its counterpart? Calibration used: no.
 
+**Re-measured 2026-11-15** (lane C17y, for `docs/YR_PORT_SIZING.md`): ra2-decomp is still at
+`f8d8d53` (the day's standing pull found no new commits), and `overlap.py` rerun against our
+catalog on main gives the same counts as below: 281 unmatched (561,685 B), of which 55 identical
+/ 76 near / 7 different have exact RA2 counterparts (138 functions, 209,777 B). Our PRs
+#258-#260 are open, so their functions still count as unmatched.
+
 ## Method
 
 - **Their unmatched set.** This follows their `tools/gamecode.py`. Game code is every

@@ -117,6 +117,41 @@ LONG WINAPI unhandled(EXCEPTION_POINTERS *e)
         info.si_addr = (void *)e->ExceptionRecord->ExceptionInformation[1];
     else
         info.si_addr = e->ExceptionRecord->ExceptionAddress;
+    // The faulting frames, walked from the exception's context (the handler's own backtrace stops
+    // at the system's dispatcher): module-relative addresses, for llvm-symbolizer (lane C17w).
+    {
+        CONTEXT c = *e->ContextRecord;
+        char line[256];
+        {
+            int n = snprintf(line, sizeof line, "fault: code %#lx at %p, data %#llx; rax %#llx rcx %#llx rdx %#llx r8 %#llx rdi %#llx rsp %#llx\n",
+                             (unsigned long)e->ExceptionRecord->ExceptionCode, e->ExceptionRecord->ExceptionAddress,
+                             e->ExceptionRecord->NumberParameters >= 2 ? (unsigned long long)e->ExceptionRecord->ExceptionInformation[1] : 0ull,
+                             (unsigned long long)c.Rax, (unsigned long long)c.Rcx, (unsigned long long)c.Rdx, (unsigned long long)c.R8,
+                             (unsigned long long)c.Rdi, (unsigned long long)c.Rsp);
+            if (n > 0) _write(2, line, (unsigned)n);
+        }
+        for (int depth = 0; depth < 24 && c.Rip; ++depth) {
+            DWORD64 image = 0;
+            PRUNTIME_FUNCTION f = RtlLookupFunctionEntry(c.Rip, &image, nullptr);
+            char name[MAX_PATH] = "?";
+            if (image) {
+                GetModuleFileNameA((HMODULE)image, name, sizeof name);
+                char *slash = strrchr(name, '\\');
+                if (slash) memmove(name, slash + 1, strlen(slash));
+            }
+            int n = snprintf(line, sizeof line, "fault frame %d: %s+%#llx\n", depth, name,
+                             (unsigned long long)(c.Rip - image));
+            if (n > 0) _write(2, line, (unsigned)n);
+            if (!f) {
+                // A call through a null or foreign pointer: the return address is at the stack top.
+                if (depth == 0 && c.Rsp) { c.Rip = *(DWORD64 *)c.Rsp; c.Rsp += 8; continue; }
+                break;
+            }
+            void *handler_data = nullptr;
+            DWORD64 frame = 0;
+            RtlVirtualUnwind(UNW_FLAG_NHANDLER, image, c.Rip, f, &c, &handler_data, &frame, nullptr);
+        }
+    }
     info_handlers[sig](sig, &info, e->ContextRecord);
     return EXCEPTION_CONTINUE_SEARCH;
 }
@@ -427,13 +462,14 @@ char *ra2_bsd_inet_ntoa(bsd_in_addr address)
 
 int ra2_bsd_poll(bsd_pollfd *fds, unsigned int count, int timeout_ms)
 {
-    std::vector<WSAPOLLFD> w(count);
+    WSAPOLLFD w[64];
+    if (count > 64) { errno = EINVAL; return -1; }
     for (unsigned int i = 0; i < count; ++i) {
         w[i].fd = (SOCKET)fds[i].fd;
         w[i].events = fds[i].events;
         w[i].revents = 0;
     }
-    int n = WSAPoll(w.data(), count, timeout_ms);
+    int n = WSAPoll(w, count, timeout_ms);
     if (n == SOCKET_ERROR) return fail();
     for (unsigned int i = 0; i < count; ++i) fds[i].revents = w[i].revents;
     return n;

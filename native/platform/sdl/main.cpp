@@ -504,9 +504,10 @@ int main(int argc, char **argv)
                 }
             }
         }
-        // lan=1 in the settings file turns on the Network (LAN) button, as RA2_NATIVE_LAN=1 does
-        // for a test run: a Finder-launched app has no environment of its own (packaging/README.md).
-        if (app_settings.get("lan") == "1" && !getenv("RA2_NATIVE_LAN")) setenv("RA2_NATIVE_LAN", "1", 1);
+        // The Network (LAN) button opens the LAN lobby by default (lane C17w); lan=0 in the settings
+        // file turns it off, as RA2_NATIVE_LAN=0 does for a test run: a Finder-launched app has no
+        // environment of its own (packaging/README.md). lan=1, the old switch, changes nothing.
+        if (app_settings.get("lan") == "0" && !getenv("RA2_NATIVE_LAN")) setenv("RA2_NATIVE_LAN", "0", 1);
         // save_format=original in the settings file writes saves in the original game's format
         // (lane C17; RA2_NATIVE_SAVE_FORMAT, storage.cpp), as the environment does for a test run:
         // the iOS app has no environment. A temporary switch until that format is the default.
