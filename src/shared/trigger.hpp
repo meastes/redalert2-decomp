@@ -29,13 +29,13 @@ extern "C" GUID const CLSID_TriggerClass;       // 0x007A1D50
 
 class TriggerClass : public AbstractClass {
 public:
-    TriggerClass(TriggerTypeClass *type);                               // 0x006ED220
+    TriggerClass(TriggerTypeClass *trigtype);                               // 0x006ED220
     TriggerClass(NoInitClass const &noinit) : AbstractClass(noinit), Timer(noinit) {}
     virtual ~TriggerClass();                                            // (scalar deleting 0x006EDBA0)
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x006EDA90 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x006EDA90 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x006EDAD0 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x006EDB40 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x006EDB40 slot 6
     virtual void Detach(AbstractClass *target, bool all = true);        // 0x006ED900 slot 10
     virtual int Kind_Of() const;                                        // 0x006EDB90 slot 11
     virtual int Size_Of() const;                                        // 0x006EDB80 slot 12
@@ -45,13 +45,13 @@ public:
     bool Is_Cross_Vertical() const;                                     // 0x006ED510 (chain: Is_Cross_Vertical)
     bool Is_Enters_Zone() const;                                        // 0x006ED550 (this and next: Is_Enters_Zone)
     bool Is_Allow_Win() const;                                          // 0x006ED590 (this and next: Is_Allow_Win)
-    bool Is_Linked_To_Global(int value) const;                          // 0x006ED5D0 (this and next: Is_Linked_To_Global)
-    void Reset_Global_Linked_Timed_Events(int value);                   // 0x006ED620 (resets the chain's triggers that answer 0x006EE240)
-    void Reset_Local_Linked_Timed_Events(int value);                    // 0x006ED650 (resets the chain's triggers that answer 0x006EE280)
+    bool Is_Linked_To_Global(int global) const;                          // 0x006ED5D0 (this and next: Is_Linked_To_Global)
+    void Reset_Global_Linked_Timed_Events(int global);                   // 0x006ED620 (resets the chain's triggers that answer 0x006EE240)
+    void Reset_Local_Linked_Timed_Events(int local);                    // 0x006ED650 (resets the chain's triggers that answer 0x006EE280)
     void Reset_All_Timed_Events();                                      // 0x006ED680 (restarts the timed events)
-    void Flag_Event_Tripped(int index);                                 // 0x006ED930
-    void Flag_Event_Untripped(int index);                               // 0x006ED950
-    bool Is_Event_Tripped(int index) const;                             // 0x006ED970
+    void Flag_Event_Tripped(int event);                                 // 0x006ED930
+    void Flag_Event_Untripped(int event);                               // 0x006ED950
+    bool Is_Event_Tripped(int event) const;                             // 0x006ED970
     void Mark_To_Delete();                                              // 0x006ED990
     bool Is_Marked_To_Delete() const;                                   // 0x006ED9F0
     void Enable();                                                      // 0x006EDB60

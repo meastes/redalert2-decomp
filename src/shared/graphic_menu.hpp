@@ -20,7 +20,7 @@ class GraphicMenuItem {
 public:
     GraphicMenuItem(int id);                                     // 0x004E0120
     virtual ~GraphicMenuItem();                                  // 0x004E0140 (scalar deleting 0x004E01F0)
-    virtual bool Is_Input_Key(int unknown);                     // 0x004E01D0 (false)
+    virtual bool Is_Input_Key(int key);                     // 0x004E01D0 (false)
     virtual bool Contains(Point2D const &point);                 // 0x004E01C0 (false; the subclasses hit-test their rectangle)
     virtual void Play_Sound(int unknown);                        // 0x004E01E0
     virtual void Enabled_Changed(bool enabled);                  // 0x004E01A0 (empty)

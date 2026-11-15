@@ -25,7 +25,7 @@ extern unsigned short IMEResultString[];         // 0x00B25F7C
 extern LRESULT IMEDefaultResult;                 // 0x00B263F8
 
 void Focus_Loss();                                                                   // 0x007373A0
-LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARAM lparam);   // 0x007375A0
+LRESULT WINAPI Windows_Procedure(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);   // 0x007375A0
 // The build time stamp (0x007D8940) as "MM/DD/YYYY - hh:mm:ss"; size is not read.
 void __fastcall Build_Time_Text(char *buffer, int size);                             // 0x00737A60
 // The build machine and builder names printed into buffer (size is not read); buffer (0x00737AD0, 0x00737B00).

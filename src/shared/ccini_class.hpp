@@ -111,13 +111,13 @@ public:
     // 0x00469AE0
     int Get_Lepton(char const *section, char const *entry, int defvalue) const;
     // 0x00469B20
-    bool Put_Lepton(char const *section, char const *entry, int lepton);
+    bool Put_Lepton(char const *section, char const *entry, int value);
     // 0x00469B50
     bool Put_Facing(char const *section, char const *entry, int facing);
     // 0x00469BA0
     int Get_Facing(char const *section, char const *entry, int defvalue) const;
     // 0x00469C80
-    bool Put_Cell(char const *section, char const *entry, Cell const &cell);
+    bool Put_Cell(char const *section, char const *entry, Cell const &value);
     // 0x00469CD0
     int Get_Percent(char const *section, char const *entry, int defvalue) const;
     // 0x00469D30
@@ -131,7 +131,7 @@ public:
     // 0x00469EA0
     CategoryType Get_CategoryType(char const *section, char const *entry, CategoryType defvalue) const;
     // 0x00469EE0
-    bool Put_CategoryType(char const *section, char const *entry, CategoryType category);
+    bool Put_CategoryType(char const *section, char const *entry, CategoryType value);
     // 0x0046A260
     int Get_Foundation(char const *section, char const *entry, int defvalue) const;
     // 0x0046A2D0
@@ -145,11 +145,11 @@ public:
     // 0x0046A8B0
     ArmorType Get_ArmorType(char const *section, char const *entry, ArmorType defvalue) const;
     // 0x0046A900
-    bool Put_ArmorType(char const *section, char const *entry, ArmorType armor);
+    bool Put_ArmorType(char const *section, char const *entry, ArmorType value);
     // 0x0046A970
     LandType Get_LandType(char const *section, char const *entry, LandType defvalue) const;
     // 0x0046ABE0
-    bool Put_Side(char const *section, char const *entry, int side);
+    bool Put_Side(char const *section, char const *entry, int value);
     // 0x0046ACB0
     TheaterType Get_TheaterType(char const *section, char const *entry, TheaterType defvalue) const;
     // 0x0046ADC0
@@ -157,7 +157,7 @@ public:
     // 0x0046AE30
     CrateType Get_CrateType(char const *section, char const *entry, CrateType defvalue) const;
     // 0x0046AE80
-    bool Put_CrateType(char const *section, char const *entry, CrateType crate);
+    bool Put_CrateType(char const *section, char const *entry, CrateType value);
     // 0x00469C00
     Cell Get_Cell(char const *section, char const *entry, Cell const &defvalue) const;
     // 0x0046A010
@@ -175,7 +175,7 @@ public:
     // 0x0046AA00
     int Get_HousesType(char const *section, char const *entry, int defvalue) const;
     // 0x0046AAB0
-    bool Put_HousesType(char const *section, char const *entry, int house);
+    bool Put_HousesType(char const *section, char const *entry, int value);
     // 0x0046AB30
     int Get_Side(char const *section, char const *entry, int defvalue) const;
     // 0x0046A410
@@ -185,11 +185,11 @@ public:
     // 0x0046A590
     int Get_Owners(char const *section, char const *entry, int defvalue) const;
     // 0x0046A610
-    bool Put_Owners(char const *section, char const *entry, int owners);
+    bool Put_Owners(char const *section, char const *entry, int value);
     // 0x0046A720
     int Get_Houses(char const *section, char const *entry, int defvalue) const;
     // 0x0046A7A0
-    bool Put_Houses(char const *section, char const *entry, int houses);
+    bool Put_Houses(char const *section, char const *entry, int value);
     // 0x0046AC10
     int Get_Listed_Name(char const *section, char const *entry, int defvalue) const;
     // 0x0046AC60
@@ -205,17 +205,17 @@ public:
     // 0x00469FE0
     bool Put_ColorScheme(char const *section, char const *entry, int scheme);
     // 0x0046A4F0
-    bool Put_RTTIType(char const *section, char const *entry, RTTIType rtti);
+    bool Put_RTTIType(char const *section, char const *entry, RTTIType value);
     // 0x0046A560
-    bool Put_BuildCat(char const *section, char const *entry, BuildCat category);
+    bool Put_BuildCat(char const *section, char const *entry, BuildCat value);
     // 0x0046A9D0
-    bool Put_LandType(char const *section, char const *entry, LandType land);
+    bool Put_LandType(char const *section, char const *entry, LandType value);
     // 0x0046AD00
-    bool Put_TheaterType(char const *section, char const *entry, TheaterType theater);
+    bool Put_TheaterType(char const *section, char const *entry, TheaterType value);
     // 0x0046AD90
-    bool Put_ThemeType(char const *section, char const *entry, int theme);
+    bool Put_ThemeType(char const *section, char const *entry, int value);
     // 0x0046AE10
-    bool Put_SourceType(char const *section, char const *entry, SourceType source);
+    bool Put_SourceType(char const *section, char const *entry, SourceType value);
 #ifdef RA2_CCINI_UNIT_MEMBERS
     // CCINI.CPP members declared for that unit only (a new member elsewhere can move fragile rows). 0x0046AEA0 (TibSun ccini.cpp)
     int Get_Buildings(char const *section, char const *entry, int defvalue) const;
@@ -225,7 +225,7 @@ public:
     bool Put_PipScale(char const *section, char const *entry, int scale);
 #endif
     // 0x0046AFB0
-    bool Put_Buildings(char const *section, char const *entry, int buildings);
+    bool Put_Buildings(char const *section, char const *entry, int value);
     // 0x0046B0B0
     bool Put_Voc_List(char const *section, char const *entry, TypeList<int> list);
     // 0x004696B0
@@ -241,7 +241,7 @@ public:
     // 0x00469A00
     int Save(Pipe &pipe, bool withdigest);
     // 0x0046A920
-    bool Put_VocType(char const *section, char const *entry, int voc);
+    bool Put_VocType(char const *section, char const *entry, int value);
     // END unit-3 members
 
     bool IsDigestValid;             // +0x38 Digest is current

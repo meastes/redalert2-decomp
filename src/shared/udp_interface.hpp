@@ -33,14 +33,14 @@ class UDPInterfaceClass : public WinsockInterfaceClass {
 public:
     UDPInterfaceClass();                                                // 0x0076C050
     virtual ~UDPInterfaceClass();                                       // 0x0076C0F0
-    virtual void WriteTo(void *buf, int buflen, void *address, int addresslen, bool alternate, unsigned char arg6, unsigned short arg7);   // slot 3 0x0076C960
-    virtual void Broadcast(void *buf, int buflen, bool alternate);  // slot 4 0x0076C9C0
+    virtual void WriteTo(void *buffer, int buffer_len, void *address, int address_len, bool alternate, unsigned char flag, unsigned short port);   // slot 3 0x0076C960
+    virtual void Broadcast(void *buffer, int buffer_len, bool alternate);  // slot 4 0x0076C9C0
     virtual bool Start_Listening();                                     // slot 7 0x0076CB30
     virtual void Stop_Listening();                                      // slot 8 0x0076CBA0
     virtual void Set_Broadcast_Address(char *address, unsigned short port);    // slot 11 0x0076C290 (adds a broadcast address "a.b.c.d")
     virtual void Clear_Broadcast_Addresses();                                      // slot 12 0x0076C230 (clears the broadcast addresses)
     virtual int Get_Protocol() { return 2; }                          // slot 13 0x0076D3E0 (inline)
-    virtual unsigned int Protocol_Event_Message(int socket);                    // slot 14 0x0076D3F0 (the notification message)
+    virtual unsigned int Protocol_Event_Message(int socketnum);                    // slot 14 0x0076D3F0 (the notification message)
     virtual bool Open_Socket(int socket);                            // slot 15 0x0076C6F0 (local addresses, then the alternate socket)
     virtual int Message_Handler(int arg1, int arg2, int arg3, int arg4); // slot 16 0x0076CD40
     virtual int Get_Num_Local_Addresses() { return LocalAddresses.Count(); }     // slot 18 0x0076D430 (inline)

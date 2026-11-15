@@ -37,20 +37,20 @@ extern "C" GUID const CLSID_VoxelAnimTypeClass;   // 0x007A1D00
 
 class VoxelAnimTypeClass : public ObjectTypeClass {
 public:
-    VoxelAnimTypeClass(char const *ini_name);                           // 0x0070E1A0
+    VoxelAnimTypeClass(char const *ininame);                           // 0x0070E1A0
     VoxelAnimTypeClass(NoInitClass const &noinit) : ObjectTypeClass(noinit) {}   // inline (Load)
     virtual ~VoxelAnimTypeClass();                                      // 0x0070E390
 
 #ifdef VOXEL_ANIM_TYPE_DECLARE_NAME_FROM
     // 0070EA40: the ID at an unsigned index; original rejects only index > Count.
-    static char const *__fastcall Name_From(unsigned index);
+    static char const *__fastcall Name_From(unsigned anim);
 #endif
     static int __fastcall From_Name(char const *name);                  // 0x0070EA60
     static VoxelAnimTypeClass *__fastcall Find_Or_Make(char const *name);   // 0x0070ED80
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x0070EBF0 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x0070EBF0 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x0070EC30 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x0070ECF0 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x0070ECF0 slot 6
     virtual void Detach(AbstractClass *target, bool all = true);        // 0x0070ED10 slot 10
     virtual int Kind_Of() const { return 0x2A; }                        // 0x0070EE10 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(VoxelAnimTypeClass); }  // 0x0070EE20 slot 12 (inline)

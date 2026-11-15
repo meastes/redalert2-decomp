@@ -48,13 +48,13 @@ int __fastcall BuildingType_From_Name_4583d0(char const *name);  // 0x004583D0
 class HouseClass;
 class AITriggerTypeClass : public AbstractTypeClass {
 public:
-    AITriggerTypeClass(char const *ini_name);                   // 0x0041C5C0
+    AITriggerTypeClass(char const *name);                   // 0x0041C5C0
     AITriggerTypeClass(NoInitClass const &noinit) : AbstractTypeClass(noinit) {}
     virtual ~AITriggerTypeClass();                              // 0x0041C6F0
 
-    virtual HRESULT __stdcall GetClassID(GUID *classid);        // 0x0041C770
+    virtual HRESULT __stdcall GetClassID(GUID *retval);        // 0x0041C770
     virtual HRESULT __stdcall Load(IStream *stream);            // 0x0041C7B0
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x0041C830
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x0041C830
     virtual int Kind_Of() const;                                // 0x0041E270
     virtual int Size_Of() const;                                // 0x0041E280
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // 0x0041C850
@@ -62,7 +62,7 @@ public:
     virtual bool Write_INI(CCINIClass &ini) const;              // 0x0041DD60
 
     static AITriggerTypeClass *__fastcall Find_Or_Make(char const *name);  // 0x0041DEF0
-    void Set_Condition_Object(AbstractTypeClass *object);       // 0x0041DF80 (unknown_d8; name hypothesis)
+    void Set_Condition_Object(AbstractTypeClass *obj);       // 0x0041DF80 (unknown_d8; name hypothesis)
     void Set_Team1(TeamTypeClass *team);                        // 0x0041DF90 (unknown_dc; name hypothesis)
     void Set_Team2(TeamTypeClass *team);                        // 0x0041DFA0 (unknown_e0; name hypothesis)
     bool Enemy_Power_Below_100(HouseClass *house, HouseClass *enemy) const;  // 0x0041D290 (name hypothesis)

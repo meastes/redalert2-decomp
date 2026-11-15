@@ -36,9 +36,9 @@ public:
     // INoticeSource).
     ParticleSystemTypeClass(NoInitClass const &noinit);
     virtual ~ParticleSystemTypeClass();                                 // slot 8 (0x00620EC0 scalar deleting)
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x00620D00 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x00620D00 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x00620D40 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x00620D90 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x00620D90 slot 6
     virtual int Kind_Of() const;                                        // 0x00620E90 slot 11
     virtual int Size_Of() const;                                        // 0x00620E80 slot 12
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x00620C60 slot 13
@@ -49,7 +49,7 @@ public:
     ParticleSystemTypeClass(char const *ini_name);                      // 0x00620600
     static int __fastcall Index_Or_Make(char const *name);            // 0x00620B90
     static ParticleSystemTypeClass *__fastcall Find_Or_Make(char const *name);  // 0x00620DF0
-    static char const *__fastcall Name_From(unsigned int index);        // 0x00620C40 ("<none>" when out of range)
+    static char const *__fastcall Name_From(unsigned int partsys);        // 0x00620C40 ("<none>" when out of range)
     static int __fastcall Behaviour_From_Name(char const *name);        // 0x00620DB0 (-1: unknown)
 
     int HoldsWhat;                          // +0x264 index in the particle types (-1: none)

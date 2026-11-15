@@ -10,9 +10,9 @@
 
 class LightConvertClass : public ConvertClass {
 public:
-    LightConvertClass(PaletteClass const &artpalette, PaletteClass const &screenpalette, Surface *surface,
-                      int red, int green, int blue, bool skip_blitters, unsigned char const *remap,
-                      int unknown_shadow_count);                      // 0x00538860
+    LightConvertClass(PaletteClass const &artpalette, PaletteClass const &screenpalette, Surface *typicalsurface,
+                      int red_tint, int green_tint, int blue_tint, bool blitters_created, unsigned char const *tint_mask,
+                      int intensity_levels);                      // 0x00538860
     virtual ~LightConvertClass();                                     // slot 0 (??_G 0x00538F30)
 
     // Rebuilds the tinted tables from the colour (0x00538AA0).

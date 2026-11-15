@@ -9,8 +9,8 @@
 class WWMessageBox {
 public:
     WWMessageBox(unsigned short const *caption) : Caption(caption) {}
-    int Process(unsigned short const *text, unsigned short const *button1,
-                unsigned short const *button2, unsigned short const *button3, bool unknown5);  // 0x005B46B0
+    int Process(unsigned short const *msg, unsigned short const *b1txt,
+                unsigned short const *b2txt, unsigned short const *b3txt, bool preserve);  // 0x005B46B0
     unsigned short const *Caption;
 };
 

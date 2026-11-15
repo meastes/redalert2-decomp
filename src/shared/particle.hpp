@@ -50,9 +50,9 @@ public:
     ParticleTypeClass(char const *ini_name);                            // 0x00621120
     ParticleTypeClass(NoInitClass const &noinit);
     virtual ~ParticleTypeClass();                                       // slot 8 (0x00621E80 scalar deleting)
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x00621B50 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x00621B50 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x00621B90 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x00621CD0 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x00621CD0 slot 6
     virtual void Detach(AbstractClass *target, bool all = true);        // 0x00621DE0 slot 10
     virtual int Kind_Of() const;                                        // 0x00621E50 slot 11
     virtual int Size_Of() const;                                        // 0x00621E40 slot 12
@@ -96,7 +96,7 @@ public:
     // "<none>" (0x00621960).
     static int __fastcall Index_Or_Make(char const *name);
     static ParticleTypeClass *__fastcall Find_Or_Make(char const *name);   // 0x00621D50
-    static char const *__fastcall Name_From(unsigned int index);        // 0x006219F0 (0 when out of range)
+    static char const *__fastcall Name_From(unsigned int particle);        // 0x006219F0 (0 when out of range)
     static int __fastcall Behaviour_From_Name(char const *name);        // 0x00621E00 (-1: unknown)
 };
 // The BehavesLike= names of particles (0x007EC1B4: five entries).

@@ -26,19 +26,19 @@ public:
     virtual bool Is_Scrolling();                              // slot 26 0x0066A3C0
     virtual void Abort_Drag_Select();                              // slot 35 0x0066AC20 (aborts a drag select)
     virtual void Mouse_Right_Press(Point2D const &point);          // slot 44 0x0066ABE0
-    virtual void Mouse_Right_Release(Point2D const &xy);             // slot 49 0x0066ABA0
+    virtual void Mouse_Right_Release(Point2D const &point);             // slot 49 0x0066ABA0
 
     // Scrolls by the mouse and keyboard (0x0066A290, called first by AI).
     void Scroll_AI();
     // The cell, coordinate and object under a tactical point (0x00669650;
     // false when the point is off the map; hypothesis).
-    bool Resolve_Point(Point2D const &xy, Cell &cell, CoordStruct &coord, ObjectClass *&object, bool &arg5, bool &arg6);
+    bool Resolve_Point(Point2D const &point, Cell &cell, CoordStruct &coord, ObjectClass *&object, bool &arg5, bool &arg6);
     // The action the mouse would take on an object or cell (0x00669960).
-    int What_Action(Cell const &cell, ObjectClass *object, bool arg3);
+    int What_Action(Cell const &cell, ObjectClass *object, bool check_fog);
     // Scrolls when the mouse rests at a screen edge (0x00669EC0; RA ScrollClass::AI's body).
     void Edge_Scroll_00669EC0(Point2D const &xy);
     // The main window's mouse messages (0x0066A400, from the window procedure 0x00737620).
-    void Message_Handler(HWND window, unsigned &message, unsigned &wparam, long &lparam);
+    void Message_Handler(HWND hwnd, unsigned &message, unsigned &wParam, long &lParam);
     // Scrolls while the right button drags (0x0066A7A0).
     void Scroll_Coast(Point2D const &xy);
 

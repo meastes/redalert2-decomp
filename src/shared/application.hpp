@@ -48,17 +48,17 @@ public:
 
 class ApplicationClass : public IApplication {
 public:
-    virtual HRESULT __stdcall QueryInterface(GUID const &iid, void **object);     // 0x00426C60
+    virtual HRESULT __stdcall QueryInterface(GUID const &riid, void **ppvObject);     // 0x00426C60
     virtual unsigned long __stdcall AddRef();                                    // 0x00426CE0
     virtual unsigned long __stdcall Release();                                   // 0x00426CF0
-    virtual HRESULT __stdcall get_FullName(BSTR *name);
-    virtual HRESULT __stdcall get_Name(BSTR *name);
+    virtual HRESULT __stdcall get_FullName(BSTR *retval);
+    virtual HRESULT __stdcall get_Name(BSTR *retval);
     virtual long __stdcall Quit();
-    virtual HRESULT __stdcall get_ScenarioName(BSTR *name);
-    virtual HRESULT __stdcall get_FrameCount(long *frame);
-    virtual HRESULT __stdcall get_Swizzle_Interface(ISwizzle **swizzle);
-    virtual HRESULT __stdcall App_Interface(void **object);
-    virtual HRESULT __stdcall Application_Interface(void **object);
+    virtual HRESULT __stdcall get_ScenarioName(BSTR *retval);
+    virtual HRESULT __stdcall get_FrameCount(long *retval);
+    virtual HRESULT __stdcall get_Swizzle_Interface(ISwizzle **pVal);
+    virtual HRESULT __stdcall App_Interface(void **pVal);
+    virtual HRESULT __stdcall Application_Interface(void **pVal);
 };
 
 #endif

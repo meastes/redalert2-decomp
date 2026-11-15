@@ -63,9 +63,9 @@ public:
     AircraftTypeClass(NoInitClass const &noinit);                       // 0x0041BDB0
     virtual ~AircraftTypeClass();                                       // 0x0041BDE0
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x0041C210
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x0041C210
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x0041C180
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x0041C1F0
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x0041C1F0
     virtual int Kind_Of() const;                                        // 0x0041C310 (3)
     virtual int Size_Of() const;                                        // 0x0041C320
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0041C110

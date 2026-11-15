@@ -17,8 +17,8 @@ public:
 
     // Encrypt or decrypt length bytes block by block; return the bytes
     // written to dest. Partial blocks are ignored.
-    int Encrypt(void const *source, int length, void *dest) const;     // 0x0060F520
-    int Decrypt(void const *source, int length, void *dest) const;     // 0x0060F650
+    int Encrypt(void const *source, int slen, void *dest) const;     // 0x0060F520
+    int Decrypt(void const *source, int slen, void *dest) const;     // 0x0060F650
 
     // Creates a key pair of the given modulus size from random data.
     static void __fastcall Generate(Straw &random, int bits, PKey &fastkey, PKey &slowkey);  // 0x0060EE30

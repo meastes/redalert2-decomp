@@ -30,9 +30,9 @@ public:
     BulletTypeClass(NoInitClass const &noinit);                         // 0x00464700
     virtual ~BulletTypeClass();                                         // 0x00464730
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x00465060 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x00465060 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x00464FB0 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x00465040 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x00465040 slot 6
     virtual void Detach(AbstractClass *target, bool all = true);        // 0x00465130 slot 10
     virtual int Kind_Of() const;                                        // 0x00465160 slot 11
     virtual int Size_Of() const;                                        // 0x00465170 slot 12
@@ -45,7 +45,7 @@ public:
     void Set_unknown_2b8(int value);                                    // 0x00465150
     static BulletTypeClass *__fastcall Find_Or_Make(char const *name);  // 0x004650A0
     static int __fastcall Index_Or_Make(char const *name);              // 0x00464D50 (-1 for "<none>")
-    static char const *__fastcall Name_From(int index);                 // 0x00464DE0 (0 when out of range)
+    static char const *__fastcall Name_From(int bullet);                 // 0x00464DE0 (0 when out of range)
 
     bool Airburst;                          // +0x264
     bool Floater;                           // +0x265

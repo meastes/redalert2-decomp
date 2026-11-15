@@ -13,12 +13,12 @@ extern ApplicationClass ApplicationInstance;     // 0x0084C7DC
 
 class TiberianSunClassFactory : public IClassFactory {
 public:
-    virtual HRESULT __stdcall QueryInterface(GUID const &iid, void **object);            // 0x00426B10
+    virtual HRESULT __stdcall QueryInterface(GUID const &riid, void **ppvObject);            // 0x00426B10
     // AddRef, Release and LockServer are inline: the globals unit at 0x004D2BA0, whose
     // initializer 0x004D4510 builds the vtable, emits them (0x004D4950/60/70).
     virtual unsigned long __stdcall AddRef() { return 1; }                                // 0x004D4950
     virtual unsigned long __stdcall Release() { return 1; }                               // 0x004D4960
-    virtual HRESULT __stdcall CreateInstance(IUnknown *outer, GUID const &iid, void **object);   // 0x00426B70
+    virtual HRESULT __stdcall CreateInstance(IUnknown *pUnkOuter, GUID const &riid, void **ppvObject);   // 0x00426B70
     virtual HRESULT __stdcall LockServer(int lock) { return 0; }                          // 0x004D4970
 };
 

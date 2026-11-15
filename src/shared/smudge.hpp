@@ -31,7 +31,7 @@ extern char const *unknown_smudge_section_7ab558;
 
 class SmudgeClass : public ObjectClass {
 public:
-    SmudgeClass(SmudgeTypeClass *type, CoordStruct const &coord, int house = -1);   // 0x006875C0
+    SmudgeClass(SmudgeTypeClass *type, CoordStruct const &pos, int house = -1);   // 0x006875C0
     SmudgeClass(NoInitClass const &noinit) : ObjectClass(noinit) {}     // inline (Load)
     virtual ~SmudgeClass();                                             // 0x006876B0
 
@@ -47,12 +47,12 @@ public:
         return S_OK;
     }
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x00687A00 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x00687A60 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x00687A60 slot 6
     virtual int Kind_Of() const { return 0x1D; }                        // 0x00687AA0 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(SmudgeClass); }         // 0x00687A90 slot 12 (inline)
     virtual ObjectTypeClass *Class_Of() const { return Class; }         // 0x00687A80 slot 33 (inline)
     virtual void Draw_It(Point2D const &point, Rect const &window) {}                  // 0x00687AF0 (inline)
-    virtual bool Mark(int arg1);                              // 0x00687750
+    virtual bool Mark(int mark);                              // 0x00687750
 
     SmudgeTypeClass *Class;                 // +0x098
 };

@@ -55,7 +55,7 @@ class CCINIClass;
 #ifndef RA2_SHARED_GSCREEN_HPP
 class GScreenClass {
 public:
-    virtual void Flag_To_Redraw(int complete = false);                          // slot 14 0x004E09A0
+    virtual void Flag_To_Redraw(int flags = false);                          // slot 14 0x004E09A0
     virtual void Render();                                                      // slot 15 0x004E0B30
 
     // The data the light layers place after it (shared/gscreen.hpp's layout).
@@ -294,7 +294,7 @@ public:
     bool Is_Radar_Existing();                                                   // 0x00633130 (+0x14D4: the radar is on; as shared/radar.hpp)
     void Toggle_Radar(bool on);                                                 // 0x00633140 (turns the radar on or off; as shared/radar.hpp)
     void Unknown_00634970(int arg1); // as shared/radar.hpp
-    void Redraw_Radar(bool flag);                                           // 0x006331E0
+    void Redraw_Radar(bool complete);                                           // 0x006331E0
     void Reset_Radar();                                                    // 0x00631D40 (as shared/radar.hpp)
     void Complete_Radar_Refresh();                                                    // 0x00634030
     void Compute_Radar_Image();                                                    // 0x00630A00
@@ -381,10 +381,10 @@ public:
 class ScrollClass : public TabClass {
 public:
 #ifdef MAP_VIEW_DECLARE_WINDOW_PROC
-    void Message_Handler(struct HWND__ *window, unsigned int &message, unsigned int &wparam, long &lparam);
+    void Message_Handler(struct HWND__ *hwnd, unsigned int &message, unsigned int &wParam, long &lParam);
 #endif
     virtual void Abort_Drag_Select();                              // slot 35 0x0066AC20 (aborts a drag select)
-    bool Resolve_Point(Point2D const &xy, Cell &cell, CoordStruct &coord, ObjectClass *&object, bool &arg5, bool &arg6);      // 0x00669650
+    bool Resolve_Point(Point2D const &point, Cell &cell, CoordStruct &coord, ObjectClass *&object, bool &arg5, bool &arg6);      // 0x00669650
 };
 #endif
 

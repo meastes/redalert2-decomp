@@ -35,7 +35,7 @@ public:
         return S_OK;
     }
     virtual HRESULT __stdcall Load(IStream *stream);                // 0x005280E0 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x00528140 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x00528140 slot 6
     virtual int Kind_Of() const { return 0x11; }                    // 0x005281F0 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(IsometricTileClass); }  // 0x005281E0 slot 12 (inline)
     virtual ObjectTypeClass *Class_Of() const { return (ObjectTypeClass *)Type; }  // 0x00528240 slot 33 (inline)

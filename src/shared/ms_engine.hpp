@@ -52,7 +52,7 @@ public:
     virtual void Unknown_Slot2();                               // slot 2 (+0x08) 0x005B3830 once per frame
 
     int Add_Anim(MSAnim *anim);                                 // 0x005B2D60 index, or -1
-    void Replace_Anim(MSAnim *anim, MSAnim *old);               // 0x005B2DD0 inserts after old, then removes old
+    void Replace_Anim(MSAnim *new_anim, MSAnim *old_anim);               // 0x005B2DD0 inserts after old, then removes old
     void Remove_Anim(MSAnim *anim);                             // 0x005B2EC0
     void Wait_For(MSAnim *anim, unsigned time);                 // 0x005B2F30
     void Redraw();                                              // 0x005B2F90

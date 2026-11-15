@@ -12,7 +12,7 @@ HKEY __fastcall Get_Registry_Sub_Key(HKEY base_key, char const *search_key, bool
 bool __fastcall Get_Modem_Name_From_Registry(char *buffer, int buffer_len);
 // Searches key and all its sub keys for a sub key whose string value value_name is
 // value; that key (open, the caller closes it) or null. Reenters itself (0x0059CBA0).
-HKEY __fastcall Search_Registry_Key(HKEY key, char const *value_name, char const *value);
+HKEY __fastcall Search_Registry_Key(HKEY key_in, char const *value_name, char const *search_string);
 
 enum {
     SIZE_OF_WINDOWS_SERIAL_BUFFER = 0x2000
@@ -27,10 +27,10 @@ public:
     virtual void Set_Modem_Dial_Type(int method);                       // 0x007348A0 slot 2
     virtual unsigned Get_Modem_Status();                                // 0x007348B0 slot 3
     virtual void Set_Serial_DTR(bool state);                            // 0x00734900 slot 4
-    virtual int Get_Modem_Result(int delay, char *buffer, int buffer_len, int timeout);   // 0x00734CD0 slot 5
+    virtual int Get_Modem_Result(int delay, char *buffer, int buffer_len, int inter_char_delay);   // 0x00734CD0 slot 5
     virtual void Dial_Modem(char const *dial_number);                  // 0x00734F50 slot 6 ("ATDT"/"ATDP")
-    virtual int Send_Command_To_Modem(char const *command, char terminator, char *buffer, int buffer_len,
-                                      int delay, int retries, int timeout);   // 0x00735110 slot 7
+    virtual int Send_Command_To_Modem(char const *command, char terminator, char *buffer, int buflen,
+                                      int delay, int retries, int inter_char_delay);   // 0x00735110 slot 7
     virtual void Set_Echo_Function(void (__fastcall *func)(char c));             // 0x007354A0 slot 8
     virtual void Set_Abort_Function(int (*func)());                     // 0x007354B0 slot 9
 

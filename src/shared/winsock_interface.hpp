@@ -141,7 +141,7 @@ public:
     virtual unsigned int Protocol_Event_Message(int socket) { return 0; }       // slot 14 0x0076BA10 (inline; the notification message)
     virtual bool Open_Socket(int socket) { return false; }           // slot 15 0x0076BA20 (inline; opens a socket)
     virtual int Message_Handler(int arg1, int arg2, int arg3, int arg4) { return 1; }   // slot 16 0x0076BA30 (inline)
-    virtual bool Get_Host_Name(char *name, int length);                 // slot 17 0x0076B990
+    virtual bool Get_Host_Name(char *name, int len);                 // slot 17 0x0076B990
     virtual int Get_Num_Local_Addresses() { return 0; }                          // slot 18 0x0076AA20 (inline)
     virtual int Get_Local_Address(int arg1) { return 0; }                  // slot 19 0x0076AA30 (inline)
     virtual void Set_NetCard(int arg1) { unknown_3f2f8 = arg1; }     // slot 20 0x0076AA40 (inline)

@@ -39,9 +39,9 @@ public:
     static bool __fastcall Create_Scorch(CoordStruct const &coord, int width, int height, bool big);   // 0x00688460
     static bool __fastcall Create_Crater(CoordStruct const &coord, int width, int height, bool big);   // 0x00688750
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x00688390 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x00688390 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x00688310 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x00688370 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x00688370 slot 6
     virtual int Kind_Of() const { return 0x1E; }                        // 0x00688BF0 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(SmudgeTypeClass); }     // 0x00688C00 slot 12 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x006882B0 slot 13
@@ -49,10 +49,10 @@ public:
     virtual bool Read_INI(CCINIClass &ini);                             // 0x006881B0 slot 25
     virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const;   // 0x00688030 (creates a smudge at the cell)
     virtual ObjectClass *Create_One_Of(HouseClass *house) const;       // 0x006880A0 (creates a smudge)
-    virtual void Draw_It(Point2D const *point, Rect const *window, int piece, int height, Cell const *cell);   // 0x006880D0 (draws one piece of the image; new slot)
+    virtual void Draw_It(Point2D const *point, Rect const *cliprect, int size, int z, Cell const *cell);   // 0x006880D0 (draws one piece of the image; new slot)
 
     bool Can_Place(Cell const &cell, bool arg2) const;            // 0x00688A40 (name hypothesis)
-    void Place(Cell const &cell) const;                           // 0x00688B40 (name hypothesis)
+    void Place(Cell const &origin) const;                           // 0x00688B40 (name hypothesis)
 
     int ArrayIndex;                         // +0x264
     int Width;                              // +0x268

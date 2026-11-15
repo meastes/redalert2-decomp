@@ -98,23 +98,23 @@ class CStreamClass : public IStream, public ILinkStream {
 public:
     CStreamClass();
     // IUnknown (0x00494970 QueryInterface, 0x00494910 AddRef, 0x00494930 Release)
-    virtual HRESULT __stdcall QueryInterface(GUID const &iid, void **object);
+    virtual HRESULT __stdcall QueryInterface(GUID const &riid, void **ppvObject);
     virtual unsigned long __stdcall AddRef();
     virtual unsigned long __stdcall Release();
     // ISequentialStream (0x00494B40, 0x00494CB0)
-    virtual HRESULT __stdcall Read(void *buffer, unsigned long size, unsigned long *read);
-    virtual HRESULT __stdcall Write(void const *buffer, unsigned long size, unsigned long *written);
+    virtual HRESULT __stdcall Read(void *pv, unsigned long cb, unsigned long *pcbRead);
+    virtual HRESULT __stdcall Write(void const *pv, unsigned long cb, unsigned long *pcbWritten);
     // IStream (0x00494DE0 .. 0x00494FD0)
-    virtual HRESULT __stdcall Seek(LARGE_INTEGER move, unsigned long origin, ULARGE_INTEGER *position);
-    virtual HRESULT __stdcall SetSize(ULARGE_INTEGER size);
-    virtual HRESULT __stdcall CopyTo(IStream *stream, ULARGE_INTEGER size, ULARGE_INTEGER *read,
-                                     ULARGE_INTEGER *written);
-    virtual HRESULT __stdcall Commit(unsigned long flags);
+    virtual HRESULT __stdcall Seek(LARGE_INTEGER dlibMove, unsigned long dwOrigin, ULARGE_INTEGER *plibNewPosition);
+    virtual HRESULT __stdcall SetSize(ULARGE_INTEGER libNewSize);
+    virtual HRESULT __stdcall CopyTo(IStream *pstm, ULARGE_INTEGER cb, ULARGE_INTEGER *pcbRead,
+                                     ULARGE_INTEGER *pcbWritten);
+    virtual HRESULT __stdcall Commit(unsigned long grfCommitFlags);
     virtual HRESULT __stdcall Revert();
-    virtual HRESULT __stdcall LockRegion(ULARGE_INTEGER offset, ULARGE_INTEGER size, unsigned long type);
-    virtual HRESULT __stdcall UnlockRegion(ULARGE_INTEGER offset, ULARGE_INTEGER size, unsigned long type);
-    virtual HRESULT __stdcall Stat(STATSTG *stat, unsigned long flags);
-    virtual HRESULT __stdcall Clone(IStream **stream);
+    virtual HRESULT __stdcall LockRegion(ULARGE_INTEGER libOffset, ULARGE_INTEGER cb, unsigned long dwLockType);
+    virtual HRESULT __stdcall UnlockRegion(ULARGE_INTEGER libOffset, ULARGE_INTEGER cb, unsigned long dwLockType);
+    virtual HRESULT __stdcall Stat(STATSTG *pstatstg, unsigned long grfStatFlag);
+    virtual HRESULT __stdcall Clone(IStream **ppstm);
     // slot 14 (scalar deleting destructor 0x004950F0); destructor 0x00494860
     virtual ~CStreamClass();
     // ILinkStream

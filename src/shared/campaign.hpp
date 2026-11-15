@@ -32,7 +32,7 @@ public:
 
 class CampaignClass : public AbstractTypeClass {
 public:
-    CampaignClass(char const *ini_name);                        // 0x00465450
+    CampaignClass(char const *name);                        // 0x00465450
     CampaignClass(NoInitClass const &noinit) : AbstractTypeClass(noinit) {}
     virtual ~CampaignClass();                                   // 0x00465500
 
@@ -41,9 +41,9 @@ public:
     // section (0x004656F0; name hypothesis).
     static void __fastcall Read_Battles(CCINIClass &ini);
 
-    virtual HRESULT __stdcall GetClassID(GUID *classid);        // 0x00465860
+    virtual HRESULT __stdcall GetClassID(GUID *retval);        // 0x00465860
     virtual HRESULT __stdcall Load(IStream *stream);            // 0x004658E0
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x00465930
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x00465930
     virtual int Kind_Of() const;                                // 0x00465960
     virtual int Size_Of() const;                                // 0x00465950
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // 0x004658A0

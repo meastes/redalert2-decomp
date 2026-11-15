@@ -14,7 +14,7 @@
 
 class LaserDrawClass {
 public:
-    LaserDrawClass(CoordStruct source, CoordStruct target, int z_adjust, bool unknown, RGBClass inner, RGBClass outer,
+    LaserDrawClass(CoordStruct start, CoordStruct end, int zadjust, bool unknown, RGBClass inner_color, RGBClass outer_color,
                    RGBClass outer_spread, int duration, bool blinks, bool fades, float start_intensity,
                    float end_intensity);       // 0x00533110
     ~LaserDrawClass();                         // 0x00533260 (leaves LaserDrawList::Array)

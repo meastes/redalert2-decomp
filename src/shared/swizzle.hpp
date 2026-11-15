@@ -29,7 +29,7 @@ public:
     SwizzleManagerClass();                                                          // 0x0069FA60
     ~SwizzleManagerClass();                                                         // 0x0069FAB0
 
-    virtual HRESULT __stdcall QueryInterface(GUID const &iid, void **object);      // 0x0069FD10
+    virtual HRESULT __stdcall QueryInterface(GUID const &riid, void **ppvObject);      // 0x0069FD10
     virtual unsigned long __stdcall AddRef();                                      // 0x0069FD90
     virtual unsigned long __stdcall Release();                                     // 0x0069FDA0
     virtual HRESULT __stdcall Reset();                                              // 0x0069FB10

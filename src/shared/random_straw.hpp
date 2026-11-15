@@ -15,7 +15,7 @@ class RandomStraw : public Straw {
 public:
     RandomStraw();                                      // 0x0063D2D0
     virtual ~RandomStraw();                             // 0x0063D320
-    virtual int Get(void *buffer, int length);          // 0x0063D830
+    virtual int Get(void *source, int slen);          // 0x0063D830
 
     void Reset();                                       // 0x0063D350
     void Seed_Bit(int seed);                            // 0x0063D390

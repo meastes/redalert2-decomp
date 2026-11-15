@@ -20,9 +20,9 @@ public:
     TubeClass(NoInitClass const &noinit) {}
     virtual ~TubeClass();                                               // 0x006EF2D0 (scalar deleting 0x006EF910)
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x006EF8D0 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x006EF8D0 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x006EF3A0 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x006EF3E0 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x006EF3E0 slot 6
     virtual int Kind_Of() const;                                        // 0x006EF8C0 slot 11 (0x35)
     virtual int Size_Of() const;                                        // 0x006EF8B0 slot 12 (0x1C4)
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x006EF830 slot 13
@@ -32,7 +32,7 @@ public:
     // TibSun Not_In_Tube: false when the cell lies on the path after the entry cell (0x006EF740).
     bool unknown_6ef740(Cell const &cell) const;      // 0x006EF740
     // Appends a facing to the path (at most 99) and moves the exit cell (0x006EF7D0).
-    void Add_Direction(int facing);
+    void Add_Direction(int dir);
     // Writes the tunnels (0x006EF480; "%d,%d,%d,%d,%d" entries; Write_Scenario_INI).
     static void __fastcall Write_INI(CCINIClass &ini);
     // Reads the [Tubes] entries (0x006EF5C0; "enter x,y,facing,exit x,y,directions").

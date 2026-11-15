@@ -62,9 +62,9 @@ public:
     void Translate_Z(float z);                                          // 0x005901E0
     void Scale(float scale);                                            // 0x00590210
     void Scale(float x, float y, float z);                              // 0x00590270
-    void Scale_X(float x);                                              // 0x005902D0
-    void Scale_Y(float y);                                              // 0x005902F0
-    void Scale_Z(float z);                                              // 0x00590320
+    void Scale_X(float scale);                                              // 0x005902D0
+    void Scale_Y(float scale);                                              // 0x005902F0
+    void Scale_Z(float scale);                                              // 0x00590320
     void Shear_X(float y, float z);                                     // 0x00590350
     void Shear_Z(float x, float y);                                     // 0x005903A0
     void Shear_Y(float x, float z);                                     // 0x005903F0
@@ -86,9 +86,9 @@ public:
     float Get_X_Rotation() const;                                       // 0x00590BB0
     float Get_Y_Rotation() const;                                       // 0x00590C10
     float Get_Z_Rotation() const;                                       // 0x00590C70
-    Vector3 Rotate_Vector(Vector3 const &vector) const;                 // 0x00590CD0
-    void Look_At(Vector3 const &position, Vector3 const &target, float roll);   // 0x00590D50
-    void Obj_Look_At(Vector3 const &position, Vector3 const &target, float roll);   // 0x00590F10
+    Vector3 Rotate_Vector(Vector3 const &vect) const;                 // 0x00590CD0
+    void Look_At(Vector3 const &p, Vector3 const &t, float roll);   // 0x00590D50
+    void Obj_Look_At(Vector3 const &p, Vector3 const &t, float roll);   // 0x00590F10
 
     float Row[3][4];    // +0x00
 };

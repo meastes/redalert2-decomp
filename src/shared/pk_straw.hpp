@@ -23,7 +23,7 @@ public:
     PKStraw(CryptControl control, RandomStraw &rnd);        // 0x0060FE30
     virtual void Get_From(Straw *straw);                    // 0x0060FEA0
     virtual void Get_From(Straw &straw) { Get_From(&straw); }   // 0x00610140
-    virtual int Get(void *buffer, int length);              // 0x0060FF10
+    virtual int Get(void *source, int length);              // 0x0060FF10
 
     // Sets the public (encrypting) or private (decrypting) key.
     void Key(PKey const *key);                              // 0x0060FEF0

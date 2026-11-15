@@ -629,7 +629,7 @@ extern "C" void __cdecl VQA_sosCODECDecompressData(void *source, void *dest, uns
 // loader.cpp
 long __fastcall VQA_LoadFrame(VQAHandleP *vqap, long flags);                                          // 0x00778680
 long __fastcall VQA_LoadFrame_Internal(VQAHandleP *vqap, long flags);                                 // 0x00778950
-long __fastcall PrimeBuffers(VQAHandleP *vqap);                                                       // 0x007796A0
+long __fastcall PrimeBuffers(VQAHandleP *vqa);                                                       // 0x007796A0
 bool __fastcall VQA_IsFrameStartOfLoop(VQAHandleP *vqap, long framenum);                              // 0x007796F0
 long __fastcall VQA_ReloadPalette(VQAHandleP *vqap, long framenum, int force);                        // 0x00779740
 long __fastcall VQA_SeekGroup(VQAHandleP *vqap, long framenum, long groupsize, bool preloadaudio,

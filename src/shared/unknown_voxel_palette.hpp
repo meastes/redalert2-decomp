@@ -16,12 +16,12 @@ struct UnknownVoxelPaletteHeader {
 
 class VoxelPaletteLibrary {
 public:
-    VoxelPaletteLibrary(unsigned char *palette, unsigned char *table);     // 0x0071BD00
+    VoxelPaletteLibrary(unsigned char *rgb, unsigned char *lut);     // 0x0071BD00
     ~VoxelPaletteLibrary();                                     // 0x0071BD70
     int Read_Colors(FileClass *file);                           // 0x0071BDA0 (reads the palette; 1 on failure)
     int Read_File(FileClass *file);                             // 0x0071BDE0 (reads; 1 on failure)
     int Write_File(FileClass *file);                            // 0x0071BE80 (writes; 1 on failure)
-    void Calculate_Lookup_Table(float *levels, int count);      // 0x0071BF20 (builds the lookup)
+    void Calculate_Lookup_Table(float *scale, int lut_count);      // 0x0071BF20 (builds the lookup)
     unsigned char Closest_Color(float red, float green, float blue);    // 0x0071C1C0
     unsigned char Closest_Color(float red, float green, float blue, bool remap);     // 0x0071C250
 

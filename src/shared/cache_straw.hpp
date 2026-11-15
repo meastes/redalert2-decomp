@@ -13,7 +13,7 @@
 class CacheStraw : public Straw {
 public:
     CacheStraw(int size = 4096) : BufferPtr(size), Index(0), Length(0) {}
-    virtual int Get(void *buffer, int length);
+    virtual int Get(void *source, int slen);
 
     Buffer BufferPtr;   // +0x0C cache block
     int Index;          // +0x18 next unread byte in the block

@@ -107,7 +107,7 @@ public:
     virtual int Global_Num_Receive();                                   // 8 0x005D1FF0
     virtual int Private_Num_Send(int id);                               // 9 0x005D2010
     virtual int Private_Num_Receive(int id);                            // 10 0x005D2030
-    virtual void Reset_Response_Time(bool clear);                       // 11 0x005D0900
+    virtual void Reset_Response_Time(bool zero);                       // 11 0x005D0900
     virtual unsigned long Response_Time();                              // 12 0x005D08E0
     virtual void Set_Timing(unsigned long retrydelta, unsigned long maxretries, unsigned long timeout, bool global);   // 13 0x005D05C0
     virtual void unknown_slot14(unsigned long retrydelta, unsigned long maxretries, unsigned long timeout);   // 14 0x005D1F40

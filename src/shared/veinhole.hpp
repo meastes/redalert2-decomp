@@ -69,7 +69,7 @@ public:
     void Draw_It();                                                 // 0x00710880
     void Grow();                                                    // 0x00710BB0 (grows the vein network: takes 1-5 nodes off the heap)
     void Shrink();                                                  // 0x00710FF0 (spreads the veins: takes 1-4 nodes off the heap)
-    static void __fastcall Init_Vein_Growth_System(bool rebuild);  // 0x00711280 (rebuilds the shared table and, with rebuild, every monster's buffers)
+    static void __fastcall Init_Vein_Growth_System(bool clear);  // 0x00711280 (rebuilds the shared table and, with rebuild, every monster's buffers)
     void Build_Growth_Queue();                                      // 0x007115B0 (marks an unplaced monster's vein cells)
     void Build_Shrinking_Queue();                                   // 0x00711AA0 (rebuilds a placed monster's node heap)
     void Clear_Growth();                                            // 0x00711C90 (frees the heap, nodes and table)
@@ -82,14 +82,14 @@ public:
     static void __cdecl Reset();                                    // 0x00710B50
     static void __cdecl Remove_Dead();                              // 0x00711E20 (near miss)
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);              // 0x007126C0 slot 3
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x007122D0 slot 6
+    virtual HRESULT __stdcall GetClassID(GUID *retval);              // 0x007126C0 slot 3
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x007122D0 slot 6
     virtual int Kind_Of() const;                                    // 0x00712700 slot 11
     virtual int Size_Of() const;                                    // 0x00712710 slot 12
     virtual void AI();                                              // 0x00710250 slot 23
     virtual int In_Which_Layer() const;                             // 0x00712720 (-1)
     virtual ObjectTypeClass *Class_Of() const;                      // 0x007122F0 slot 33
-    virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // 0x007109C0
+    virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int no_crew);  // 0x007109C0
 
     int GrowthCount;                // +0x98
     UnknownVeinHeap *GrowthQueue;   // +0x9C

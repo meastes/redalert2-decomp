@@ -31,13 +31,13 @@ extern "C" char *__cdecl strcpy(char *destination, char const *source);
 
 class TriggerTypeClass : public AbstractTypeClass {
 public:
-    TriggerTypeClass(char const *ini_name);                             // 0x006EDEB0
+    TriggerTypeClass(char const *name);                             // 0x006EDEB0
     TriggerTypeClass(NoInitClass const &noinit) : AbstractTypeClass(noinit) {}
     virtual ~TriggerTypeClass();                                        // 0x006EE030
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x006EEDD0 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x006EEDD0 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x006EEE10 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x006EEEA0 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x006EEEA0 slot 6
     virtual void Detach(AbstractClass *target, bool all = true);        // 0x006EE2C0 slot 10
     virtual int Kind_Of() const;                                        // 0x006EEEC0 slot 11
     virtual int Size_Of() const;                                        // 0x006EEED0 slot 12
@@ -47,9 +47,9 @@ public:
     virtual bool Write_INI(CCINIClass &ini) const;                      // 0x006EE8C0 slot 26
 
 #ifdef RA2_TRIGGER_TYPE_REMOVE_ACTION
-    bool Delete_Action(TActionClass *action);                           // 0x006EEC00 (deletes it)
+    bool Delete_Action(TActionClass *taction);                           // 0x006EEC00 (deletes it)
 #endif
-    bool Delete_Event(TEventClass *event);                              // 0x006EEC60 (deletes it)
+    bool Delete_Event(TEventClass *tevent);                              // 0x006EEC60 (deletes it)
     static TriggerTypeClass *__fastcall From_Name(char const *name);    // 0x006EE350 (by ID or name)
     static int __fastcall Persistence_From_Name(char const *name);      // 0x006EE3C0
 
@@ -58,8 +58,8 @@ public:
     bool Is_Cross_Horizontal() const;                                   // 0x006EE1B0
     bool Is_Enters_Zone() const;                                        // 0x006EE1E0
     bool Is_Allow_Win() const;                                          // 0x006EE210
-    bool Is_Linked_To_Global(int value) const;                          // 0x006EE240
-    bool Is_Linked_To_Local(int value) const;                           // 0x006EE280
+    bool Is_Linked_To_Global(int global) const;                          // 0x006EE240
+    bool Is_Linked_To_Local(int local) const;                           // 0x006EE280
     static TriggerTypeClass *__fastcall Find_Or_Make(char const *name); // 0x006EECC0
     static char const *__fastcall Name_From_Persistence(int persistence);   // 0x006EE400
     static void __fastcall Read_Scenario_INI(CCINIClass &ini);          // 0x006EE7F0

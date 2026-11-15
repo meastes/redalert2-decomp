@@ -19,7 +19,7 @@ public:
 
     LCWStraw(CompControl control, int blocksize);          // 0x005352D0
     virtual ~LCWStraw();                                    // 0x00535340
-    virtual int Get(void *buffer, int length);              // 0x00535380
+    virtual int Get(void *destbuf, int slen);              // 0x00535380
 
     CompControl Control;    // +0x0C compressing or decompressing
     int Counter;            // +0x10 processed bytes still to hand out

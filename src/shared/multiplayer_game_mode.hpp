@@ -42,17 +42,17 @@ void __fastcall Unknown_005cb170(HWND dialog, int count);   // 0x005CB170
 // A team of a game mode: a vptr, the team name and its number.
 class MultiplayerTeam {
 public:
-    MultiplayerTeam(WideString const &name, int number);     // 0x005B9B20
+    MultiplayerTeam(WideString const &title, int index);     // 0x005B9B20
     virtual ~MultiplayerTeam();                               // 0x005B9B50 (scalar deleting 0x005B9C20)
     // Slot 1: true for a valid player list index.
-    virtual bool IsTeamIncluded(int player);                  // 0x005B9B60
+    virtual bool IsTeamIncluded(int index);                  // 0x005B9B60
     // Slot 2: puts a valid player on this team.
     virtual bool SetPlayerTeam(int player);                   // 0x005B9B80
     // The number of players on this team.
     int CountMembers() const;                                 // 0x005B9BB0
     // Adds the team name to a combo box with the team number as item data;
     // returns the new item's index.
-    int AddToList(HWND combo);                                // 0x005B9BE0
+    int AddToList(HWND list);                                // 0x005B9BE0
 
     WideString Name;                                          // +0x04
     int Number;                                               // +0x08
@@ -231,14 +231,14 @@ public:
 // vtable 0x007A6914 (scalar deleting destructor 0x005A71C0)
 class FreeForAll : public MultiplayerGameMode {
 public:
-    FreeForAll(WideString const &name, WideString const &description, Wstring const &ini_name,
-        Wstring const &unknown_4, bool unknown_5, int id);
+    FreeForAll(WideString const &title, WideString const &tooltip, Wstring const &inifile,
+        Wstring const &mapfilter, bool aiallowed, int modeindex);
     virtual ~FreeForAll();
     virtual bool AssignTeams();                                    // 4 0x005A70B0
     virtual bool CheckStartConditions(WideString *message);                         // 5 0x005A70C0
     virtual bool AssignTeamsAtStart();                             // 6 0x005A7110
     virtual bool unknown_slot12();                                 // 12 0x005A71B0
-    virtual void PopulateTeamDropdownForPlayer(HWND combo, int team);                 // 16 0x005A7150
+    virtual void PopulateTeamDropdownForPlayer(HWND hwnd, int index);                 // 16 0x005A7150
 };
 
 // vtable 0x007A6AA4 (scalar deleting destructor 0x005AA780)

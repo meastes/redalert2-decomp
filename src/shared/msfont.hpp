@@ -24,7 +24,7 @@
 
 class MSFont {
 public:
-    MSFont(bool sidebar);                                               // 0x005B3F40
+    MSFont(bool use_side_palette);                                               // 0x005B3F40
     virtual ~MSFont();                                                  // slot 0 (+0x00) 0x005B3F70
     virtual int Char_Width(unsigned short ch);                          // slot 1 (+0x04) 0x005B4300
     virtual int String_Width(unsigned short const *text);               // slot 2 (+0x08) 0x005B42A0

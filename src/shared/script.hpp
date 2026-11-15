@@ -45,7 +45,7 @@ public:
 
 class ScriptTypeClass : public AbstractTypeClass {
 public:
-    ScriptTypeClass(char const *ini_name);                          // 0x00668A20
+    ScriptTypeClass(char const *name);                          // 0x00668A20
     ScriptTypeClass(NoInitClass const &noinit) : AbstractTypeClass(noinit) {}   // (inlined into Load)
     virtual ~ScriptTypeClass();                                     // 0x00668AE0
 
@@ -54,9 +54,9 @@ public:
     static ScriptTypeClass *__fastcall Find_By_Name(char const *name);          // 0x00668F20
     static ScriptTypeClass *__fastcall Find_Or_Make(char const *name);          // 0x00668F70
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);              // 0x006690C0 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);              // 0x006690C0 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                // 0x00669100 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x00669150 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x00669150 slot 6
     virtual void Detach(AbstractClass *target, bool all = true);    // 0x006691A0 slot 10
     virtual int Kind_Of() const { return 0x1B; }                    // 0x006692E0 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(ScriptTypeClass); } // 0x006692F0 slot 12 (inline)
@@ -84,9 +84,9 @@ public:
     bool Next_Mission();                                            // 0x00668920
     bool Has_Mission() const;                                       // 0x00668940
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);              // 0x00668960 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);              // 0x00668960 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                // 0x006689A0 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x00668A00 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x00668A00 slot 6
     virtual int Kind_Of() const { return 0x1A; }                    // 0x00669230 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(ScriptClass); }     // 0x00669240 slot 12 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;               // 0x00668850 slot 13

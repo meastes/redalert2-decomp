@@ -33,12 +33,12 @@ public:
     virtual int Open(char const *filename, int rights);
     virtual int Open(int rights = FILE_RIGHTS_READ);
     virtual long Read(void *buffer, long size);
-    virtual long Seek(long position, int origin);
+    virtual long Seek(long pos, int dir);
     virtual long Size();
     virtual long Write(void const *buffer, long size);
     virtual void Close();
 
-    bool Cache(long size = 0, void *buffer = 0);
+    bool Cache(long size = 0, void *ptr = 0);
     void Free();
     bool Commit();
 

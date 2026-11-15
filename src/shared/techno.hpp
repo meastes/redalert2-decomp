@@ -107,8 +107,8 @@ public:
     bool Is_Count_Down_Active() const;      // 0x00496AB0 (+0x18 set, +0x19 clear)
     bool Is_Count_Up_Complete() const;      // 0x00496B30 (+0x18 set, or +0x19 is 1)
     bool Is_Count_Down_Complete() const;    // 0x00496B50 (neither +0x18 nor +0x19 set)
-    void Count_Down(double time);           // 0x00496BC0 (starts a timed change; UnitClass slot 145 passes DeployTime)
-    void Count_Up(double time);             // 0x00496B70 (the reverse timed change; AircraftClass slot 95 passes DeployTime)
+    void Count_Down(double duration);           // 0x00496BC0 (starts a timed change; UnitClass slot 145 passes DeployTime)
+    void Count_Up(double duration);             // 0x00496B70 (the reverse timed change; AircraftClass slot 95 passes DeployTime)
     double Duration;                        // +00 duration scaled to frames
     UnknownDurationTimer423F60 Timer;       // +0x08,16bytes including TotalTime at+14
     bool IsActive;
@@ -169,8 +169,8 @@ public:
     int How_Many() const { return Count; } // Cargo passenger count; original inline reads +0.
 #endif
     ObjectClass *Detach_Object();           // 0x004689F0 (detaches the first passenger)
-    void Attach(FootClass *passenger);              // 0x00468960 (adds a passenger; InfantryClass slot 93)
-    void Detach(FootClass *passenger);              // 0x00468A70 (removes a given passenger; FootClass 0x004CCF20)
+    void Attach(FootClass *object);              // 0x00468960 (adds a passenger; InfantryClass slot 93)
+    void Detach(FootClass *object);              // 0x00468A70 (removes a given passenger; FootClass 0x004CCF20)
     int Count;                              // +0x00
     ObjectClass *Object;                    // +0x04
 };

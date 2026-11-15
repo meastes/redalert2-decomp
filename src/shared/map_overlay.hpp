@@ -6,7 +6,7 @@
 class OverlayTypeClass;
 class OverlayClass : public ObjectClass {
 public:
-    OverlayClass(OverlayTypeClass *type, Cell const &cell, int house = -1);
+    OverlayClass(OverlayTypeClass *ttype, Cell const &pos, int house = -1);
     virtual ~OverlayClass();
     virtual HRESULT __stdcall GetClassID(GUID *classid);
     virtual HRESULT __stdcall Load(IStream *stream);

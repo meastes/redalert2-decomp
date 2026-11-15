@@ -5,11 +5,11 @@
 #include "shared/rect.hpp"
 class Dial8Class : public ControlClass {
 public:
-    Dial8Class(unsigned id, int x, int y, int width, int height, unsigned direction);
+    Dial8Class(unsigned id, int x, int y, int w, int h, unsigned dir);
     virtual int Action(unsigned flags, unsigned &key);
     virtual int Draw_Me(int forced = false);
     void Update_Direction(unsigned direction);
-    void Set_Direction(unsigned direction);
+    void Set_Direction(unsigned dir);
     int Get_Direction() const;
     Point2D Center;             // +2C
     Point2D OuterPoints[8];     // +34

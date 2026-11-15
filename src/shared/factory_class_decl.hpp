@@ -15,7 +15,7 @@ public:
  FactoryClass(NoInitClass const &noinit) : AbstractClass(noinit),StageClass(noinit) {}
  virtual ~FactoryClass();
  virtual HRESULT __stdcall Load(IStream *stream);
- virtual HRESULT __stdcall Save(IStream *stream,BOOL clear_dirty);
+ virtual HRESULT __stdcall Save(IStream *stream,BOOL cleardirty);
  virtual int Kind_Of() const;
  virtual int Size_Of() const;
  virtual void AI();
@@ -23,7 +23,7 @@ public:
  bool Start_Production_004B9670(bool suspend);
  int Production_Rate_004B9780() const;
  virtual void Detach(AbstractClass *target,bool all=true);
- virtual HRESULT __stdcall GetClassID(GUID *id);
+ virtual HRESULT __stdcall GetClassID(GUID *retval);
  bool unknown_4b9440(TechnoTypeClass *type, HouseClass *owner, unsigned char flag); // owner-approved narrow declaration
  void Set_Object_004B95E0(TechnoClass *object);
  bool Suspend_004B9630(bool value);

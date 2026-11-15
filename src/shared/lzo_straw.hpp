@@ -19,7 +19,7 @@ public:
 
     LZOStraw(CompControl control, int blocksize);           // 0x0053EFB0
     virtual ~LZOStraw();                                    // 0x0053F010
-    virtual int Get(void *buffer, int length);              // 0x0053F050
+    virtual int Get(void *destbuf, int slen);              // 0x0053F050
 
     CompControl Control;    // +0x0C compressing or decompressing
     int Counter;            // +0x10 processed bytes still to hand out

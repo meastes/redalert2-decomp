@@ -21,9 +21,9 @@
 // by default). Index meanings are unknown.
 extern unsigned char unknown_vqa_options_af9020[3];
 void __fastcall VQA_Unknown_0071DB20();                    // 0x0071DB20 defaults
-void __fastcall Set_Option(int option);          // 0x0071DB60 set
+void __fastcall Set_Option(int flag);          // 0x0071DB60 set
 void __fastcall VQA_Unknown_0071DB80(int option);          // 0x0071DB80 clear
-bool __fastcall Get_Option(int option);          // 0x0071DBA0 test
+bool __fastcall Get_Option(int flag);          // 0x0071DBA0 test
 int __fastcall VQA_Unknown_0071DBC0(int option);           // 0x0071DBC0 toggle; 1 when now set
 
 // Owned by the VQA movie at +0x48 (class unknown).
@@ -81,9 +81,9 @@ bool VQA_Message_Handler();                                // 0x0071C590 one win
 // Player callbacks given to the VQA library through the configuration.
 int __cdecl VQA_Unknown_0071D490(VQAHandle *handle, int unknown2, int unknown3, int unknown4);
 int __cdecl VQAMixFileHandler(VQAHandle *handle, int unknown2, int unknown3, int unknown4);
-int __fastcall VQACacheHandler(VQAHandle *handle, int unknown2, int unknown3, int unknown4);
-int __cdecl VQAMemoryHandler(VQAHandle *handle, int request, int unknown3, int unknown4);
-int __cdecl VQAEventHandler(VQAHandle *handle, int event, int unknown3, int unknown4);
+int __fastcall VQACacheHandler(VQAHandle *vqa, int action, int buffer, int nbytes);
+int __cdecl VQAMemoryHandler(VQAHandle *vqa, int action, int buffer, int nbytes);
+int __cdecl VQAEventHandler(VQAHandle *vqa, int action, int buffer, int nbytes);
 
 // The VQA player object (VQA unit 0x0071C320-0x0071DC0F; class name
 // unknown, 0x54C bytes from the constructor's stores).
@@ -185,7 +185,7 @@ extern VQAMovie *CurrentVQAMovie;                          // 0x00A710AC
 
 void __fastcall VQA_Movie_Close(VQAMovie *movie);                                     // 0x005A1470
 void __fastcall VQA_Movie_Play(VQAMovie *movie, bool hide, int theme, bool unknown);  // 0x005A14D0
-bool __fastcall Movie_Advance_Frame(VQAMovie *movie, bool *unknown);          // 0x005A15F0
+bool __fastcall Movie_Advance_Frame(VQAMovie *handle, bool *finished);          // 0x005A15F0
 bool __fastcall VQA_Movie_Is_Playing();                                              // 0x005A1620
 void __fastcall VQA_Movie_Pause(VQAMovie *movie);                                     // 0x005A1630
 void __fastcall VQA_Movie_Resume(VQAMovie *movie);                                    // 0x005A1640
@@ -272,7 +272,7 @@ public:
 
 class VQMovieHandle : public MovieHandle {
 public:
-    VQMovieHandle(VQAMovie *movie);                        // 0x005A17B0
+    VQMovieHandle(VQAMovie *player);                        // 0x005A17B0
     virtual ~VQMovieHandle();                              // 0x005A1A00 (??_G 0x005A1F00)
     virtual bool AdvanceFrame();                           // 0x005A1860
     virtual void Waiting();                                // 0x005A18A0
@@ -291,7 +291,7 @@ public:
 
 class BinkMovieHandle : public MovieHandle {
 public:
-    BinkMovieHandle(BinkClass *bink);                      // 0x005A1A80
+    BinkMovieHandle(BinkClass *player);                      // 0x005A1A80
     virtual ~BinkMovieHandle();                            // 0x005A1B70 (??_G 0x005A1F80)
     virtual bool AdvanceFrame();                           // 0x005A1AF0
     virtual void Waiting();                                // 0x005A1B00
@@ -309,7 +309,7 @@ public:
 
 extern MovieHandle *CurrentMovieHandle;                    // 0x00A710B0
 
-bool __fastcall Find_Movie_File(char const *name, char *found, int unused);           // 0x005A1BB0
+bool __fastcall Find_Movie_File(char const *name, char *out, int unused);           // 0x005A1BB0
 MovieHandle *__fastcall Create_Movie_Handle(char const *name, Surface *surface, Rect const *area);  // 0x005A1D30
 int __fastcall Is_Movie_Active();                                                   // 0x005A1ED0
 void __fastcall Movie_Handle_Blit();                                                 // 0x005A1EF0

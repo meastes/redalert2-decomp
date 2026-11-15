@@ -80,7 +80,7 @@ public:
     virtual int Open(char const *filename, int rights);
     virtual int Open(int rights = FILE_RIGHTS_READ);
     virtual long Read(void *buffer, long size);
-    virtual long Seek(long position, int origin);
+    virtual long Seek(long pos, int dir);
     virtual long Size();
     virtual long Write(void const *buffer, long size);
     virtual void Close();
@@ -98,7 +98,7 @@ protected:
     // Positions the Win32 file pointer without applying the bias window.
     // Defined with the class (0x006393D0); VC6 also inlines it into Seek
     // and Write.
-    long Raw_Seek(long position, int origin = FILE_SEEK_CURRENT);
+    long Raw_Seek(long pos, int dir = FILE_SEEK_CURRENT);
 
 public:
     // Public as in TibSun rawfile.h (MixFileClass's constructor adds BiasStart to DataStart).

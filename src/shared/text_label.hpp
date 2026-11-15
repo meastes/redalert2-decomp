@@ -16,7 +16,7 @@
 
 class TextLabelClass : public GadgetClass {
 public:
-    TextLabelClass(wchar_t const *text, int x, int y, int color, unsigned style);   // 0x006F15C0
+    TextLabelClass(wchar_t const *txt, int x, int y, int color, unsigned style);   // 0x006F15C0
 
     virtual int Draw_Me(int forced = false);                        // slot 27 0x006F1620
     virtual void Set_Text(wchar_t const *text) { Text = text; }     // slot 33 (kept copy 0x006F17E0)

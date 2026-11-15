@@ -30,7 +30,7 @@ extern char const *unknown_overlay_section_7a77c0;
 
 class OverlayClass : public ObjectClass {
 public:
-    OverlayClass(OverlayTypeClass *type, Cell const &cell, int house = -1);   // 0x005DA7D0
+    OverlayClass(OverlayTypeClass *ttype, Cell const &pos, int house = -1);   // 0x005DA7D0
     OverlayClass(NoInitClass const &noinit) : ObjectClass(noinit) {}    // inline (Load)
     virtual ~OverlayClass();                                            // 0x005DA8D0
 
@@ -48,7 +48,7 @@ public:
     virtual int Size_Of() const { return sizeof(OverlayClass); }        // 0x005DC290 slot 12 (inline)
     virtual ObjectTypeClass *Class_Of() const;                          // 0x005DC170 slot 33
     virtual void Draw_It(Point2D const &point, Rect const &window) {}                  // 0x005DC2F0 (inline)
-    virtual void Editor_Draw_It(Point2D const &point, Rect const &window);                    // 0x005DBD00
+    virtual void Editor_Draw_It(Point2D const &point, Rect const &cliprect);                    // 0x005DBD00
     virtual bool Mark(int arg1);                              // 0x005DA970
 
     static Point2D __fastcall Draw_Offset(int overlay);                 // 0x005DC050 (pixel offset of an overlay image; hypothesis)

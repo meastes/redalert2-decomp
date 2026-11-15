@@ -91,7 +91,7 @@ public:
     int Find_Page(int frame) const;                                     // 0x004247A0
     void *Frame_Data(int frame);                                        // 0x004247F0
     int Frame_Size(int frame);                                          // 0x004248F0
-    bool Decode_Frame(void *source, int size, void *dest, int destsize);   // 0x004249F0 (uncompressed or run/skip/dump body; returns whether it decoded)
+    bool Decode_Frame(void *source, int nBytes, void *dest, int dlength);   // 0x004249F0 (uncompressed or run/skip/dump body; returns whether it decoded)
 
     char Buffer[0x80];                      // +0x004
     FileClass *File;                        // +0x084

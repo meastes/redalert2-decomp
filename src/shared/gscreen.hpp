@@ -42,7 +42,7 @@ public:
     GScreenClass(NoInitClass const &noinit) {}
 
     // IUnknown: the screen is a static object, so AddRef/Release are fixed.
-    virtual HRESULT __stdcall QueryInterface(GUID const &iid, void **object);  // slot 0 0x004E08F0
+    virtual HRESULT __stdcall QueryInterface(GUID const &riid, void **ppvObject);  // slot 0 0x004E08F0
     virtual unsigned long __stdcall AddRef() { return 1; }                      // slot 1 0x0040D100 (kept elsewhere)
     virtual unsigned long __stdcall Release() { return 1; }                     // slot 2 0x0040D110 (kept elsewhere)
 
@@ -57,7 +57,7 @@ public:
     virtual bool Is_Button_Listed(GadgetClass &gadget);                         // slot 11 0x004E0AA0
     virtual bool Add_A_Button(GadgetClass &gadget);                             // slot 12 0x004E0AC0
     virtual bool Remove_A_Button(GadgetClass &gadget);                          // slot 13 0x004E0B00
-    virtual void Flag_To_Redraw(int complete = false);                          // slot 14 0x004E09A0
+    virtual void Flag_To_Redraw(int flags = false);                          // slot 14 0x004E09A0
     virtual void Render();                                                      // slot 15 0x004E0B30
     virtual void Draw_It(bool complete = false) {}                              // slot 16 0x0049ED00 (kept elsewhere)
     virtual void Blit_Display();                                                // slot 17 0x004E0C50

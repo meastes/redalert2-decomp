@@ -43,9 +43,9 @@ struct WaypointClass {
 class WaypointPathClass : public AbstractClass {
 public:
     // IPersist / IPersistStream
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x00725010
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x00725010
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x00725050
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x00725170
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x00725170
 
     WaypointPathClass();                                    // 0x00724B10
     WaypointPathClass(NoInitClass const &noinit);           // 0x00724BB0

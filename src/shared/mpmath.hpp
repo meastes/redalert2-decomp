@@ -17,7 +17,7 @@ typedef unsigned long digit;
 
 unsigned short const * __fastcall XMP_Fetch_Prime_Table();                          // 0x005A7530
 int __fastcall XMP_Fetch_Prime_Size();                                              // 0x005A7540
-int __fastcall XMP_Test_Eq_Int(digit const *number, int value, int precision);     // 0x005A7550
+int __fastcall XMP_Test_Eq_Int(digit const *r, int i, int p);     // 0x005A7550
 int __fastcall XMP_DER_Length_Encode(unsigned long length, unsigned char *output); // 0x005A7590
 int __fastcall XMP_DER_Encode(digit const *from, unsigned char *output, int precision);         // 0x005A7610
 void __fastcall XMP_DER_Decode(digit *result, unsigned char const *input, int precision);       // 0x005A76D0
@@ -38,14 +38,14 @@ void __fastcall XMP_Init(digit *number, digit value, int precision);            
 int __fastcall XMP_Count_Bits(digit const *number, int precision);                 // 0x005A7CC0
 int __fastcall XMP_Count_Bytes(digit const *number, int precision);                // 0x005A7D00
 void __fastcall XMP_Move(digit *dest, digit const *source, int precision);         // 0x005A7D20
-int __fastcall XMP_Compare(digit const *left, digit const *right, int precision);  // 0x005A7D40
-bool __fastcall XMP_Add(digit *result, digit const *left, digit const *right, bool carry, int precision);           // 0x005A7D90
-bool __fastcall XMP_Add_Int(digit *result, digit const *left, digit right, bool carry, int precision);             // 0x005A7E00
-bool __fastcall XMP_Sub(digit *result, digit const *left, digit const *right, bool borrow, int precision);         // 0x005A7E60
-bool __fastcall XMP_Sub_Int(digit *result, digit const *left, unsigned short right, bool borrow, int precision);   // 0x005A7EC0
-int __fastcall XMP_Unsigned_Mult(digit *product, digit const *multiplicand, digit const *multiplier, int precision);  // 0x005A7F20
-int __fastcall XMP_Unsigned_Mult_Int(digit *product, digit const *multiplicand, short multiplier, int precision);  // 0x005A80F0
-int __fastcall XMP_Signed_Mult_Int(digit *product, digit const *multiplicand, signed short multiplier, int precision);  // 0x005A8130
+int __fastcall XMP_Compare(digit const *left_number, digit const *right_number, int precision);  // 0x005A7D40
+bool __fastcall XMP_Add(digit *result, digit const *left_number, digit const *right_number, bool carry, int precision);           // 0x005A7D90
+bool __fastcall XMP_Add_Int(digit *result, digit const *left_number, digit right_number, bool carry, int precision);             // 0x005A7E00
+bool __fastcall XMP_Sub(digit *result, digit const *left_number, digit const *right_number, bool borrow, int precision);         // 0x005A7E60
+bool __fastcall XMP_Sub_Int(digit *result, digit const *left_number, unsigned short right_number, bool borrow, int precision);   // 0x005A7EC0
+int __fastcall XMP_Unsigned_Mult(digit *prod, digit const *multiplicand, digit const *multiplier, int precision);  // 0x005A7F20
+int __fastcall XMP_Unsigned_Mult_Int(digit *prod, digit const *multiplicand, short multiplier, int precision);  // 0x005A80F0
+int __fastcall XMP_Signed_Mult_Int(digit *prod, digit const *multiplicand, signed short multiplier, int precision);  // 0x005A8130
 int __fastcall XMP_Signed_Mult(digit *product, digit const *multiplicand, digit const *multiplier, int precision);  // 0x005A8340
 unsigned short __fastcall XMP_Unsigned_Div_Int(digit *quotient, digit const *dividend, unsigned short divisor, int precision); // 0x005A8540
 int __fastcall XMP_Unsigned_Div(digit *remainder, digit *quotient, digit const *dividend, digit const *divisor, int precision);  // 0x005A8670
@@ -55,20 +55,20 @@ int __fastcall XMP_Reciprocal(digit *quotient, digit const *divisor, int precisi
 void __fastcall XMP_Decode_ASCII(char const *str, digit *number, int precision);                                  // 0x005A8F00
 void __fastcall XMP_Single_Mul(unsigned short *prod, unsigned short const *multiplicand, unsigned short multiplier, int precision);   // 0x005A9110
 void __fastcall XMP_Double_Mul(digit *prod, digit const *multiplicand, digit const *multiplier, int precision);  // 0x005A9160
-int __fastcall XMP_Prepare_Modulus(digit const *modulus, int precision);                                          // 0x005A9220
+int __fastcall XMP_Prepare_Modulus(digit const *n_modulus, int precision);                                          // 0x005A9220
 int __fastcall XMP_Mod_Mult(digit *prod, digit const *multiplicand, digit const *multiplier, int precision);     // 0x005A9400
 void __fastcall XMP_Mod_Mult_Clear(int precision);                                                                // 0x005A9720
 unsigned short __fastcall mp_quo_digit(unsigned short const *dividend);                                          // 0x005A97D0
 int __fastcall XMP_Exponent_Mod(digit *result, digit const *base, digit const *exponent, digit const *modulus, int precision);   // 0x005A9860
 void __fastcall memrev(char *buffer, unsigned int length);                                                         // 0x005A9BD0
-int __fastcall pfunc(void const *key, void const *element);                                                       // 0x005A9BF0
+int __fastcall pfunc(void const *pkey, void const *base);                                                       // 0x005A9BF0
 bool __fastcall XMP_Is_Small_Prime(digit const *candidate, int precision);                                        // 0x005A9C10
 bool __fastcall XMP_Small_Divisors_Test(digit const *candidate, int precision);                                   // 0x005A9C90
-bool __fastcall XMP_Fermat_Test(digit const *candidate, unsigned rounds, int precision);                          // 0x005A9CE0
+bool __fastcall XMP_Fermat_Test(digit const *candidate_prime, unsigned rounds, int precision);                          // 0x005A9CE0
 bool __fastcall XMP_Rabin_Miller_Test(Straw &rng, digit const *w, int rounds, int precision);                     // 0x005A9E10
 void __fastcall XMP_Randomize(digit *result, Straw &rng, int nbits, int precision);                               // 0x005AA130
 void __fastcall XMP_Randomize(digit *result, Straw &rng, digit const *minval, digit const *maxval, int precision);   // 0x005AA1A0
-bool __fastcall XMP_Is_Prime(digit const *number, int precision);                   // 0x005AA380
+bool __fastcall XMP_Is_Prime(digit const *prime, int precision);                   // 0x005AA380
 
 inline digit XMP_Bit_Mask(int bits)
 {

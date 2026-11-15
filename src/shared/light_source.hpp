@@ -47,7 +47,7 @@ public:
     // Works through the pending cells (TibSun Process_Lighting, 0x00537830).
     static void __fastcall Unknown_00537830(int time, bool force);
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);          // 0x00537B60 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);          // 0x00537B60 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);            // 0x00537BA0 slot 5
     virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x00537BF0 slot 6
     virtual int Kind_Of() const { return 0x36; }                // 0x00537C20 slot 11 (inline)

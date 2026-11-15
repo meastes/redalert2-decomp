@@ -24,7 +24,7 @@ extern "C" GUID const CLSID_SideClass;
 
 class SideClass : public AbstractTypeClass {
 public:
-    SideClass(char const *ini_name);                            // 0x0067AE10
+    SideClass(char const *ininame);                            // 0x0067AE10
     SideClass(NoInitClass const &noinit) : AbstractTypeClass(noinit), Houses() {}
     // 0x0067AED0 (defined in Side.cpp; the scalar deleting destructor 0x0067B1F0 expands it).
     virtual ~SideClass();
@@ -32,9 +32,9 @@ public:
     // Index in Sides of the side whose ID equals the name (case-insensitive), or -1.
     static int __fastcall Find_Index(char const *name);         // 0x0067AF90
 
-    virtual HRESULT __stdcall GetClassID(GUID *classid);        // 0x0067B000
+    virtual HRESULT __stdcall GetClassID(GUID *retval);        // 0x0067B000
     virtual HRESULT __stdcall Load(IStream *stream);            // 0x0067B040
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty); // 0x0067B160
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty); // 0x0067B160
     virtual int Kind_Of() const;                                // 0x0067B1E0
     virtual int Size_Of() const;                                // 0x0067B1D0
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // 0x0067AFD0

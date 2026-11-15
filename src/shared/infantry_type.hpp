@@ -73,9 +73,9 @@ public:
     InfantryTypeClass(NoInitClass const &noinit);                       // 0x00509D60
     virtual ~InfantryTypeClass();                                       // 0x00509DB0
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x0050AE90
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x0050AE90
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x0050AB40
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x0050AD80
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x0050AD80
     virtual int Kind_Of() const;                                        // 0x0050AF60 (0x10)
     virtual int Size_Of() const;                                        // 0x0050AF70
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0050AA20

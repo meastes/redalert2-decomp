@@ -32,7 +32,7 @@ class OverlayTypeClass;
 
 class TiberiumClass : public AbstractTypeClass {
 public:
-    TiberiumClass(char const *ini_name);                        // 0x006E89A0
+    TiberiumClass(char const *ininame);                        // 0x006E89A0
     TiberiumClass(NoInitClass const &noinit) : AbstractTypeClass(noinit), SpreadTimer(0), GrowthTimer(0) {}
     virtual ~TiberiumClass();                                   // 0x006E8B60
 
@@ -40,7 +40,7 @@ public:
 
     virtual HRESULT __stdcall GetClassID(GUID *classid);        // 0x006E9120
     virtual HRESULT __stdcall Load(IStream *stream);            // 0x006E9160
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x006E93B0
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x006E93B0
     virtual HRESULT __stdcall GetSizeMax(ULARGE_INTEGER *size); // 0x006E9380
     virtual void Detach(AbstractClass *target, bool all);       // 0x006E9420
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // 0x006E90A0 slot 13

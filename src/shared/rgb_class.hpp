@@ -32,10 +32,10 @@ public:
 
     // Moves this colour toward target by ratio/256 (0x0063CF20; Westwood's
     // RGBClass::Adjust; accepted as RgbTriplet::BlendRgbTowardTarget_0063cf20).
-    void Adjust(int ratio, RGBClass const &target);
+    void Adjust(int ratio, RGBClass const &rgb);
 
 
-    int Difference(RGBClass const &other) const; // 0x0063CFB0 weighted absolute difference
+    int Difference(RGBClass const &rgb) const; // 0x0063CFB0 weighted absolute difference
 #ifdef RGB_DECLARE_ACCESSORS
     // Westwood's channel accessors (the map preview unit 0x0061D240).
     int Get_Red() const { return Red; }
@@ -52,7 +52,7 @@ public:
 #ifdef RGB_DECLARE_BRIGHTEN
     // This colour as `color` brightened by `factor` (0x0063CDF0; TibSun RGBClass::Set(color, factor);
     // guarded: this header is in Refresh_Wonline_Players 0x0073FEE0's closure).
-    RGBClass &Set(RGBClass const &color, float factor);
+    RGBClass &Set(RGBClass const &rgb, float value);
 #endif
     void Set(unsigned char red, unsigned char green, unsigned char blue)
     {

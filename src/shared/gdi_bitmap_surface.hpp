@@ -8,7 +8,7 @@ class BSurface;
 class PaletteClass;
 class DIB8Class {
 public:
-    DIB8Class(HWND window, int width, int height, PaletteClass const &palette);
+    DIB8Class(HWND hwnd, int width, int height, PaletteClass const &pal);
     ~DIB8Class();
     void Clear(unsigned char color);
     bool Error;                  // +00

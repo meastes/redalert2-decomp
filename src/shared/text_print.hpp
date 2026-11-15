@@ -171,7 +171,7 @@ extern "C" unsigned short *__cdecl wcscpy(unsigned short *dest, unsigned short c
 extern "C" unsigned short *__cdecl wcschr(unsigned short const *string, unsigned short character);       // 0x00783AC6
 
 Rect __fastcall Text_Rect(wchar_t const *text, int x, int y, unsigned flags, int padx, int pady);   // 0x00497360
-void __fastcall Draw_Box(Rect const &rect, int style, bool fill);                       // 0x004973D0
+void __fastcall Draw_Box(Rect const &rect, int up, bool filled);                       // 0x004973D0
 int __fastcall Text_Lines(wchar_t const *text, int style, int columns, int *width, int *height);   // 0x004977D0
 Point2D __fastcall Simple_Text_Print(wchar_t const *text, Surface *surface, Rect const *clip, Point2D *xy,
                                      unsigned fore, unsigned back, unsigned flags, int unknown8 = 1);   // 0x00497830

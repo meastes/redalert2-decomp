@@ -15,7 +15,7 @@ public:
     FilePipe(FileClass &file) : File(&file), HasOpened(false) {}
     virtual ~FilePipe();
     virtual int End();
-    virtual int Put(void const *source, int length);
+    virtual int Put(void const *source, int slen);
 
     bool Valid_File() const { return File != 0; }
 

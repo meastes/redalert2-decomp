@@ -32,16 +32,16 @@ public:
     virtual ~RadioClass() {}
 
     virtual HRESULT __stdcall Load(IStream *stream);            // slot 5 0x00636C60
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // slot 6 0x00636D20
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // slot 6 0x00636D20
     virtual void Detach(AbstractClass *target, bool all = true);    // slot 10 0x00636BA0
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // slot 13 0x00636BF0
-    virtual int Receive_Message(RadioClass *radio, int message, AbstractClass *&param);   // slot 95 0x00636900
+    virtual int Receive_Message(RadioClass *from, int message, AbstractClass *&param);   // slot 95 0x00636900
 
     virtual bool Limbo();                               // slot 52 0x00636B60
     virtual int unknown_slot149(int message);                   // slot 149 0x00636D90 to the first contact (template Transmit_Message)
     virtual int unknown_slot150(int message, TechnoClass *techno);  // slot 150 0x00636B80 (template Transmit_Message)
     virtual int unknown_slot151(int message, AbstractClass **param, TechnoClass *techno);  // slot 151 0x00636A50 transmit (template Transmit_Message)
-    virtual void SendToEachLink(int message);                   // slot 152 0x00636DC0 to every contact
+    virtual void SendToEachLink(int command);                   // slot 152 0x00636DC0 to every contact
 
     void SetLinkCount(int count);                               // 0x00636F40 grows RadioLinks, clearing new entries
     TechnoClass *Contact(int index) const;                      // 0x00636E10

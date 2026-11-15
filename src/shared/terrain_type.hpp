@@ -48,9 +48,9 @@ public:
     static int __fastcall From_Name(char const *name);                  // 0x006E5510
     static TerrainTypeClass *__fastcall Find_Or_Make(char const *name); // 0x006E5A20
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x006E59E0 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x006E59E0 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x006E5950 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x006E59C0 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x006E59C0 slot 6
     virtual int Kind_Of() const { return 0x25; }                        // 0x006E5AB0 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(TerrainTypeClass); }    // 0x006E5AC0 slot 12 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x006E58C0 slot 13

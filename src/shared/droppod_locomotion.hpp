@@ -18,12 +18,12 @@ public:
     DropPodLocomotionClass(NoInitClass const &noinit) : LocomotionClass(noinit) {} // inline (Load)
     virtual ~DropPodLocomotionClass();                                          // 0x004A5A90
 
-    virtual HRESULT __stdcall QueryInterface(GUID const &iid, void **object);   // 0x004A63F0
+    virtual HRESULT __stdcall QueryInterface(GUID const &riid, void **ppvObject);   // 0x004A63F0
     virtual unsigned long __stdcall AddRef();                                    // 0x004A6620
     virtual unsigned long __stdcall Release();                                   // 0x004A6630
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                          // 0x004A6180
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                          // 0x004A6180
     virtual HRESULT __stdcall Load(IStream *stream);                            // 0x004A61C0
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);          // 0x004A6240
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);          // 0x004A6240
     virtual int Size() { return sizeof(DropPodLocomotionClass); }               // 0x004A6660 (inline)
 
     virtual bool __stdcall Is_Moving();                                         // 0x004A5AC0

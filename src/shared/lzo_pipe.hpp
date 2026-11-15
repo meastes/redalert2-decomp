@@ -20,7 +20,7 @@ public:
     LZOPipe(CompControl control, int blocksize);            // 0x0053EB40
     virtual ~LZOPipe();                                     // 0x0053EBA0
     virtual int Flush();                                    // 0x0053EE70
-    virtual int Put(void const *source, int length);        // 0x0053EBE0
+    virtual int Put(void const *source, int slen);        // 0x0053EBE0
 
     CompControl Control;    // +0x0C compressing or decompressing
     int Counter;            // +0x10 bytes accumulated in Buffer

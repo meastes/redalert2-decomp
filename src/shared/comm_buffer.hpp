@@ -80,7 +80,7 @@ public:
     unsigned long Avg_Delay();                                  // 0x00480A60
     unsigned long Max_Delay();                                  // 0x00480A70
     void Reset_Delay(bool clear);                               // 0x00480A80
-    void Configure_Debug(int offset, int size, int names, int namestart, int namecount);   // 0x00480AB0
+    void Configure_Debug(int type_offset, int type_size, int names, int namestart, int namecount);   // 0x00480AB0
 
     int MaxSend;                        // +0x04
     int MaxReceive;                     // +0x08

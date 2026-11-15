@@ -26,7 +26,7 @@
 // One text line of a stage: "x,y,unknown,text" (0x10 bytes).
 class MSTextEntry {
 public:
-    MSTextEntry(WideString const &line);                // 0x005B13D0
+    MSTextEntry(WideString const &string);                // 0x005B13D0
 
     int X;                      // +0x00
     int Y;                      // +0x04
@@ -37,7 +37,7 @@ public:
 // One "name,a,b,c" animation line of the screen (0x10 bytes).
 class MSAnimEntry {
 public:
-    MSAnimEntry(Wstring const &line);                   // 0x005B14C0
+    MSAnimEntry(Wstring const &string);                   // 0x005B14C0
 #ifdef WDT_SELECTION_ACCESSORS
     Wstring const &Get_Filename() const { return Name; }   // TibSun mschoice.h
 #endif
@@ -51,7 +51,7 @@ public:
 // One [Sounds] entry: key name, "file,volume%" (0x10 bytes).
 class MSSfxEntry {
 public:
-    MSSfxEntry(Wstring const &name, Wstring const &line);   // 0x005B15B0
+    MSSfxEntry(Wstring const &name, Wstring const &string);   // 0x005B15B0
     ~MSSfxEntry();                                      // 0x005B16C0
     void Play();                                        // 0x005B16D0 empty in this build
 
@@ -75,7 +75,7 @@ public:
 // One stage of the map selection (0x6C bytes from operator new).
 class MapStage {
 public:
-    MapStage(INIClass &ini, Wstring const &section);    // 0x005B0A20 (loads the stage)
+    MapStage(INIClass &ini, Wstring const &label);    // 0x005B0A20 (loads the stage)
     ~MapStage();                                        // 0x005B11B0
 
     MapSelection *Find_Selection(char const *name) const;   // 0x005B12D0 case-insensitive

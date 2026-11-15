@@ -30,7 +30,7 @@ public:
     AbstractClass &operator=(AbstractClass const &other); // original0056A9F0
 #endif
     // IUnknown
-    virtual HRESULT __stdcall QueryInterface(GUID const &iid, void **object);   // 0x00410000
+    virtual HRESULT __stdcall QueryInterface(GUID const &riid, void **ppvObject);   // 0x00410000
     virtual unsigned long __stdcall AddRef();                                    // 0x004100A0
     virtual unsigned long __stdcall Release();                                   // 0x004100B0
 
@@ -38,8 +38,8 @@ public:
     // classes call)
     virtual HRESULT __stdcall IsDirty();                                         // 0x004101F0
     virtual HRESULT __stdcall Load(IStream *stream) = 0;                         // 0x00410120
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty) = 0;       // 0x004100C0
-    virtual HRESULT __stdcall GetSizeMax(ULARGE_INTEGER *size);                  // 0x00410180
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty) = 0;       // 0x004100C0
+    virtual HRESULT __stdcall GetSizeMax(ULARGE_INTEGER *pcbSize);                  // 0x00410180
 
     // IRTTITypeInfo
     virtual int __stdcall What_Am_I();                                           // 0x0040FFB0

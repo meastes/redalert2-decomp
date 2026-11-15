@@ -19,22 +19,22 @@ class RLEBlitter;
 // blitters (fields +0x00..+0x28; the names follow the use).
 class ABuffer {
 public:
-    ABuffer(Rect area); // original00410A60; by-value spelling hypothesis
+    ABuffer(Rect rect); // original00410A60; by-value spelling hypothesis
     ~ABuffer(); // original00410BD0
     void Clear_Region_00411090(unsigned short color, Rect area); // original00411090
     // Copies an area-sized block of values, starting at the ring origin,
     // into surface at the area's position (0x00410B40).
-    void Copy_To(::Surface &surface, Rect area);
+    void Copy_To(::Surface &surface, Rect rect);
     // Stores value into count entries from pointer (0x00410BF0).
-    void Set(unsigned short *pointer, int count, unsigned short value);
+    void Set(unsigned short *dst, int size, unsigned short value);
     // Scrolls the ring by dx columns and dy rows, clearing what is exposed
     // to value (0x00410C50).
     void Pan(int dx, int dy, unsigned short value);
     void Fill(unsigned short value);                   // 0x00411050
     // Clears a screen rectangle of the ring to 0x7F (0x004110B0).
-    void Update(Rect area);
+    void Update(Rect rect);
     // Address of the value for a screen point (wraps at the ring end).
-    unsigned short *Get_Buffer_Offset(Point2D point);       // 0x00411230, by value (ret 8)
+    unsigned short *Get_Buffer_Offset(Point2D pos);       // 0x00411230, by value (ret 8)
     // Keep a scanline pointer inside the ring after advancing it.
     unsigned short *Wrap_Pointer(unsigned short *pointer) const {
         if ((char *)pointer >= BufferTail) pointer = (unsigned short *)((char *)pointer - BufferSize);
@@ -78,19 +78,19 @@ public:
 class ZBuffer {
 public:
     // TibSun zbuffer.h ZBuffer: this constructor builds DepthBuffer 0x00839C6C.
-    ZBuffer(Rect area); // original 00775B80, by-value screen rectangle
+    ZBuffer(Rect rect); // original 00775B80, by-value screen rectangle
     ~ZBuffer(); // original 00775CF0
     void Fill(unsigned short color); // original 00776160
     void Clear_Region_007761A0(unsigned short color, Rect area); // original 007761A0
     // Copies an area-sized block of values, starting at the ring origin,
     // into surface at the area's position (0x00775C60).
-    void Copy_To(::Surface &surface, Rect area);
+    void Copy_To(::Surface &surface, Rect rect);
     // Scrolls the ring by dx columns and dy rows, clearing what is exposed
     // to value (0x00775D60).
     void Pan(int dx, int dy, unsigned short value);
-    void Update(Rect area); // original 007761C0
+    void Update(Rect rect); // original 007761C0
     // Stores value into count entries from pointer (0x00775D00).
-    void Set(unsigned short *pointer, int count, unsigned short value);
+    void Set(unsigned short *dst, int size, unsigned short value);
     unsigned short *Wrap_Pointer(unsigned short *pointer) const {
         if ((char *)pointer >= BufferTail) pointer = (unsigned short *)((char *)pointer - BufferSize);
         return pointer;
@@ -108,7 +108,7 @@ public:
     void Set_Scroll(int position) { MaxValue = position; }
     int Get_Scroll_Delta(int position) const { return MaxValue - position; }
     unsigned short Get_Scroll() const { return (unsigned short)MaxValue; }
-    unsigned short *Get_Buffer_Offset(Point2D point);       // 0x00776340, by-value point hypothesis
+    unsigned short *Get_Buffer_Offset(Point2D pos);       // 0x00776340, by-value point hypothesis
     Rect Area;                  // +0x00
     int BufferOffset;           // +0x10
     BSurface *Surface;          // +0x14

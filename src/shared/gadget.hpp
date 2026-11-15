@@ -95,7 +95,7 @@ protected:
     virtual int Action(unsigned flags, unsigned &key);            // slot 31 0x004CF220
 
 private:
-    virtual int Clicked_On(unsigned &key, unsigned flags, int x, int y);   // slot 32 0x004CF0E0
+    virtual int Clicked_On(unsigned &key, unsigned flags, int mousex, int mousey);   // slot 32 0x004CF0E0
 
 public:
 
@@ -229,7 +229,7 @@ public:
     virtual ~ShapeButtonClass();                                    // 0x006750F0
 
     virtual int Draw_Me(int forced = false);                        // slot 27 0x006751E0
-    virtual void Set_Shape(void const *shape, int w = 0, int h = 0);   // slot 34 0x00675130
+    virtual void Set_Shape(void const *data, int override_width = 0, int override_height = 0);   // slot 34 0x00675130
     bool Start_Flashing(int delay, int initdelay, bool start);      // 0x006752D0
     bool Stop_Flashing();                                           // 0x00675300
     bool AI();                                                      // 0x00675320 true when the imagery changes
@@ -276,7 +276,7 @@ extern char const *Gadget_Scheme_Name;  // 0x007D83B4
 class EditClass : public ControlClass {
 public:
     EditClass(unsigned id, wchar_t *text, int max_len, unsigned flags, int x, int y,
-              int w = -1, int h = -1, int editflags = 0);           // 0x004B2970
+              int w = -1, int h = -1, int style = 0);           // 0x004B2970
     virtual ~EditClass();                                           // 0x004B2A60
 
     virtual void Set_Focus();                                       // slot 20 0x004B2F20
@@ -355,7 +355,7 @@ class Rect;
 
 class SliderClass : public GaugeClass {
 public:
-    SliderClass(unsigned id, int x, int y, int w, int h, int no_buttons = false);   // 0x006846E0
+    SliderClass(unsigned id, int x, int y, int w, int h, int belong_to_list = false);   // 0x006846E0
     virtual ~SliderClass();                                         // 0x006848C0
 
     virtual void Peer_To_Peer(unsigned flags, unsigned &key, ControlClass &whom);   // slot 19 0x00684D10
@@ -399,9 +399,9 @@ public:
     ListClass(ListClass const &list);                               // 0x00539D40
     virtual ~ListClass();                                           // 0x00539FC0
 
-    virtual LinkClass &Add(LinkClass &object);                      // slot 3  0x0053A7D0
-    virtual LinkClass &Add_Tail(LinkClass &object);                 // slot 4  0x0053A870
-    virtual LinkClass &Add_Head(LinkClass &object);                 // slot 5  0x0053A820
+    virtual LinkClass &Add(LinkClass &list);                      // slot 3  0x0053A7D0
+    virtual LinkClass &Add_Tail(LinkClass &list);                 // slot 4  0x0053A870
+    virtual LinkClass &Add_Head(LinkClass &list);                 // slot 5  0x0053A820
     virtual LinkClass *Remove();                                    // slot 9  0x0053A8C0
     virtual void Flag_To_Redraw();                                  // slot 18 0x0053A990
     virtual void Peer_To_Peer(unsigned flags, unsigned &key, ControlClass &whom);   // slot 19 0x0053A4D0
@@ -415,7 +415,7 @@ public:
     virtual int Current_Index() const;                              // slot 38 0x0053A4C0
     virtual wchar_t *Current_Item() const;                          // slot 39 0x0053A4A0
     virtual wchar_t *Get_Item(int index) const;                     // slot 40 0x0053A480
-    virtual int Step_Selected_Index(int forward);                   // slot 41 0x0053A970
+    virtual int Step_Selected_Index(int step);                   // slot 41 0x0053A970
     virtual void Remove_Item(wchar_t *text);                        // slot 43 0x0053A1C0 (overloads: last slot first)
     virtual void Remove_Item(int index);                            // slot 42 0x0053A0F0
     virtual int Remove_Scroll_Bar();                                // slot 44 0x0053A670

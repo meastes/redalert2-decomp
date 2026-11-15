@@ -50,9 +50,9 @@ public:
     WeaponTypeClass(NoInitClass const &noinit);                         // 0x007330D0
     virtual ~WeaponTypeClass();                                         // 0x00733120
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x00733C50 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x00733C50 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x00733C90 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x00733DF0 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x00733DF0 slot 6
     virtual int Kind_Of() const;                                        // 0x00733FE0 slot 11
     virtual int Size_Of() const;                                        // 0x00733FD0 slot 12
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x00733AB0 slot 13

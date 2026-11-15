@@ -31,9 +31,9 @@ public:
     // Queues a key with the shift/control/alt bits (0x100/0x200/0x400) and
     // the release bit (0x800); ignored while IgnoreInput is set
     // except for VK_ESCAPE; alt+tab is dropped.
-    bool Put_Key_Message(KeyNumType key, bool release = false);                 // 0x005324D0
+    bool Put_Key_Message(KeyNumType vk_key, bool release = false);                 // 0x005324D0
     // Queues a mouse key followed by its position (needs three free slots).
-    bool Put_Mouse_Message(KeyNumType key, int x, int y, bool release = false);  // 0x005325C0
+    bool Put_Mouse_Message(KeyNumType vk_key, int x, int y, bool release = false);  // 0x005325C0
     // Queues the 0x0A marker followed by a character (no callers).
     bool Put_Char(KeyNumType character);                      // 0x005326A0 (name hypothesis)
     // The character of a key through ToAscii with the key's shift state.
@@ -46,7 +46,7 @@ public:
     // Queues the keyboard and mouse-button window messages (mouse positions
     // in game coordinates) and passes them on to DefWindowProcA; 0 for the
     // messages it does not handle.
-    int Message_Handler(HWND window, UINT message, WPARAM wparam, LPARAM lparam);  // 0x00532A60
+    int Message_Handler(HWND window, UINT message, WPARAM wParam, LPARAM lParam);  // 0x00532A60
     // Free slots.
     int Available();                                    // 0x00532E60
 
@@ -62,7 +62,7 @@ private:
     static int __fastcall Is_Char_Key(KeyNumType key);  // 0x005322C0 (name hypothesis)
     KeyNumType Fetch_Element();                         // 0x005328E0
     KeyNumType Peek_Element();                          // 0x00532920
-    bool Put_Element(KeyNumType key);                   // 0x00532940
+    bool Put_Element(KeyNumType val);                   // 0x00532940
     bool Is_Buffer_Full();                              // 0x00532980
     bool Is_Buffer_Empty();                             // 0x005329A0
     void Fill_Buffer_From_System();                     // 0x005329C0

@@ -14,7 +14,7 @@ public:
     FileStraw(FileClass *file) : File(file), HasOpened(false) {}
     FileStraw(FileClass &file) : File(&file), HasOpened(false) {}
     virtual ~FileStraw();
-    virtual int Get(void *buffer, int length);
+    virtual int Get(void *source, int slen);
 
     bool Valid_File() const { return File != 0; }
 

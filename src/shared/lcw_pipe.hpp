@@ -20,7 +20,7 @@ public:
     LCWPipe(CompControl control, int blocksize);          // 0x00534EE0
     virtual ~LCWPipe();                                     // 0x00534F50
     virtual int Flush();                                    // 0x005351C0
-    virtual int Put(void const *source, int length);        // 0x00534F90
+    virtual int Put(void const *source, int slen);        // 0x00534F90
 
     CompControl Control;    // +0x0C compressing or decompressing
     int Counter;            // +0x10 bytes accumulated in Buffer

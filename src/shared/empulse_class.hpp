@@ -15,7 +15,7 @@ public:
     EMPulseClass(Cell position, int radius, int duration, TechnoClass *source); // 004b4c00
     EMPulseClass(NoInitClass const &noinit); // 004b4d00
     virtual ~EMPulseClass(); // 004b4d30
-    virtual HRESULT __stdcall GetClassID(GUID *clsid); // 004b5340
+    virtual HRESULT __stdcall GetClassID(GUID *retval); // 004b5340
     virtual HRESULT __stdcall Load(IStream *stream); // 004b5380
     virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty); // 004b53d0
     virtual int Kind_Of() const; // 004b5400

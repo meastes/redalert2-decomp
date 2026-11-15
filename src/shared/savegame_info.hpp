@@ -114,21 +114,21 @@ public:
 
     void Set_Version(int value);                                // 0x006592B0
     int Get_Version() const;                                    // 0x006592C0
-    void Set_Internal_Version(int value);                       // 0x006592D0
+    void Set_Internal_Version(int num);                       // 0x006592D0
     int Get_Internal_Version() const;                           // 0x006592E0
-    void Set_Scenario_Description(wchar_t const *text);         // 0x006592F0
+    void Set_Scenario_Description(wchar_t const *desc);         // 0x006592F0
     wchar_t const *Get_Scenario_Description() const;            // 0x00659310
-    void Set_Player_House(wchar_t const *text);                 // 0x00659320
+    void Set_Player_House(wchar_t const *name);                 // 0x00659320
     wchar_t const *Get_Player_House() const;                    // 0x00659350
-    void Set_Campaign_Number(int value);                        // 0x00659360
+    void Set_Campaign_Number(int num);                        // 0x00659360
     int Get_Campaign_Number() const;                            // 0x00659370
-    void Set_Scenario_Number(int value);                        // 0x00659380
+    void Set_Scenario_Number(int num);                        // 0x00659380
     int Get_Scenario_Number() const;                            // 0x00659390
-    void Set_Unknown_String(char const *text);                  // 0x006593A0
+    void Set_Unknown_String(char const *name);                  // 0x006593A0
     char const *Get_Unknown_String() const;                     // 0x006593D0
-    void Set_Player_Name(char const *text);                     // 0x006593E0
+    void Set_Player_Name(char const *name);                     // 0x006593E0
     char const *Get_Player_Name() const;                        // 0x00659400
-    void Set_Executable_Name(char const *text);                 // 0x00659410
+    void Set_Executable_Name(char const *name);                 // 0x00659410
     char const *Get_Executable_Name() const;                    // 0x00659440
     void Set_Start_Time(FILETIME const &time);                  // 0x00659450
     void Get_Start_Time(FILETIME &time) const;                  // 0x00659470
@@ -136,7 +136,7 @@ public:
     void Get_Play_Time(FILETIME &time) const;                   // 0x006594B0
     void Set_Last_Time(FILETIME const &time);                   // 0x006594D0
     void Get_Last_Time(FILETIME &time) const;                   // 0x006594F0
-    void Set_Game_Type(int type);                               // 0x00659510
+    void Set_Game_Type(int id);                               // 0x00659510
     int Get_Game_Type() const;                                  // 0x00659520 (the game mode at 0x00A3D298)
 
     int InternalVersion;                    // +0x000

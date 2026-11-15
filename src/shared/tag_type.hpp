@@ -31,13 +31,13 @@ extern "C" int __cdecl atoi(char const *string);
 
 class TagTypeClass : public AbstractTypeClass {
 public:
-    TagTypeClass(char const *ini_name);                                 // 0x006B4570
+    TagTypeClass(char const *name);                                 // 0x006B4570
     TagTypeClass(NoInitClass const &noinit) : AbstractTypeClass(noinit) {}
     virtual ~TagTypeClass();                                            // 0x006B46B0
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x006B4DB0 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x006B4DB0 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x006B4E20 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x006B4E80 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x006B4E80 slot 6
     virtual void Detach(AbstractClass *target, bool all = true);        // 0x006B4860 slot 10
     virtual int Kind_Of() const;                                        // 0x006B4EA0 slot 11
     virtual int Size_Of() const;                                        // 0x006B4EB0 slot 12

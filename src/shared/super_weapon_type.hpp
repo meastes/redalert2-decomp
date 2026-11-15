@@ -54,9 +54,9 @@ public:
     // The type with this ID, created when missing; null for "<none>" and "none".
     static SuperWeaponTypeClass *__fastcall Find_Or_Make(char const *name);   // 0x0069F820
 
-    virtual HRESULT __stdcall GetClassID(GUID *classid);        // 0x0069F1F0
+    virtual HRESULT __stdcall GetClassID(GUID *retval);        // 0x0069F1F0
     virtual HRESULT __stdcall Load(IStream *stream);            // 0x0069F230
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty); // 0x0069F300
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty); // 0x0069F300
     virtual int Kind_Of() const;                                // 0x0069F320
     virtual int Size_Of() const;                                // 0x0069F330
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // 0x0069F340

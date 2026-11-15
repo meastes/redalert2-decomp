@@ -63,9 +63,9 @@ public:
     static TaskForceClass *__fastcall Find_Or_Make(char const *name);   // 0x006B6FB0
     int Max_Tech_Level() const;                                     // 0x006B7140 (name hypothesis)
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);              // 0x006B70D0 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);              // 0x006B70D0 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                // 0x006B7060 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x006B7040 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x006B7040 slot 6
     virtual int Kind_Of() const { return 0x21; }                    // 0x006B7190 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(TaskForceClass); }  // 0x006B71A0 slot 12 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;               // 0x006B7110 slot 13

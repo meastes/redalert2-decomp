@@ -24,7 +24,7 @@ class MixFileClass;
 class CD {
 public:
     CD() {}
-    virtual bool Force_Available(int cd);      // slot 0, 0x0046E4F0
+    virtual bool Force_Available(int disk);      // slot 0, 0x0046E4F0
     virtual bool Insert_Disk(int cd);          // slot 1, 0x0046E520
     virtual bool Swap_Disk(int cd);            // slot 2, 0x0046E750
 

@@ -176,7 +176,7 @@ struct RawTrackStruct {
 class LocomotionClass : public IPersistStream, public ILocomotion {
 public:
     // IUnknown
-    virtual HRESULT __stdcall QueryInterface(GUID const &iid, void **object);   // 0x0053D2B0
+    virtual HRESULT __stdcall QueryInterface(GUID const &riid, void **ppvObject);   // 0x0053D2B0
     virtual unsigned long __stdcall AddRef();                                    // 0x0053D250
     virtual unsigned long __stdcall Release();                                   // 0x0053D270
 
@@ -184,8 +184,8 @@ public:
     // locomotors call)
     virtual HRESULT __stdcall IsDirty() { return Dirty ? S_OK : S_FALSE; }      // inline, kept 0x004A4BF0
     virtual HRESULT __stdcall Load(IStream *stream) = 0;                        // 0x0053D3C0
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);          // 0x0053D360
-    virtual HRESULT __stdcall GetSizeMax(ULARGE_INTEGER *size);                 // 0x0053D440
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);          // 0x0053D360
+    virtual HRESULT __stdcall GetSizeMax(ULARGE_INTEGER *pcbSize);                 // 0x0053D440
 
     LocomotionClass();                                                          // 0x0053CFC0
     LocomotionClass(NoInitClass const &noinit) {}                               // inline (the locomotors' Load)
@@ -193,7 +193,7 @@ public:
     virtual int Size() = 0;                                                     // slot 9 (the saved size; hypothesis)
 
     // ILocomotion
-    virtual HRESULT __stdcall Link_To_Object(void *object);                     // 0x0053D010
+    virtual HRESULT __stdcall Link_To_Object(void *pointer);                     // 0x0053D010
     virtual bool __stdcall Is_Moving();                                         // 0x0053D5D0
     virtual CoordStruct __stdcall Destination();                                // 0x0053D570
     virtual CoordStruct __stdcall Head_To_Coord();                              // 0x0053D5A0
@@ -203,7 +203,7 @@ public:
     virtual Matrix3D * __stdcall Shadow_Matrix(Matrix3D *matrix, int *key);                         // 0x0053D0D0
     virtual Point2D __stdcall Draw_Point();                                     // 0x0053D4D0
     virtual Point2D __stdcall Shadow_Point();                                   // 0x0053D1C0
-    virtual int __stdcall Visual_Character(bool raw);                           // 0x0053D4C0
+    virtual int __stdcall Visual_Character(bool flag);                           // 0x0053D4C0
     virtual int __stdcall Z_Adjust();                                           // 0x0053D4A0
     virtual int __stdcall Z_Gradient();                                         // 0x0053D4B0
 #ifdef RA2_PROCESS_COM_BOOLEAN
@@ -217,7 +217,7 @@ public:
     virtual void __stdcall Move_To(CoordStruct to);                             // 0x0053D550
 #endif
     virtual void __stdcall Stop_Moving();                                       // 0x0053D540
-    virtual void __stdcall Do_Turn(UnknownFacingDir dir);                       // 0x0053D530
+    virtual void __stdcall Do_Turn(UnknownFacingDir coord);                       // 0x0053D530
     virtual void __stdcall Unlimbo();                                           // 0x0053D520
     virtual void __stdcall Tilt_Pitch_AI();                                     // 0x0053D490
     virtual bool __stdcall Power_On();                                          // 0x0053D1F0

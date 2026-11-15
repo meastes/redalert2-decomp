@@ -184,11 +184,11 @@ public:
     virtual void Init_Clear();                          // slot 7  0x0062F260
     virtual void Init_IO();                             // slot 8  0x0062F490
     virtual void AI(int &input, Point2D const &xy);     // slot 10 0x0062FCC0
-    virtual void Draw_It(bool complete = false);        // slot 16 0x0062F580
+    virtual void Draw_It(bool forced = false);        // slot 16 0x0062F580
     // Slot 33 returns the help text of a button id (PowerClass answers 999).
     virtual wchar_t const *Help_Text(int id);      // slot 33 0x00634AA0
     virtual void Reposition_Sidebar();                      // slot 34 0x006306D0
-    virtual void Set_Map_Dimensions(Rect const *rect, bool arg2, int arg3, bool arg4);   // slot 28 0x00630300 (thunk passing the four arguments on to MapClass's)
+    virtual void Set_Map_Dimensions(Rect const *size, bool reset_cells, int cell_height, bool refresh_map);   // slot 28 0x00630300 (thunk passing the four arguments on to MapClass's)
     virtual void Set_Local_Dimensions(Rect const &rect);              // slot 29 0x00630840 (MapClass's slot) fits the radar to the map
     virtual HRESULT Load(IStream *stream);    // slot 30 0x00632BF0 load
     virtual HRESULT Save(IStream *stream);    // slot 31 0x00632E10 save
@@ -219,7 +219,7 @@ public:
     void Radar_Pixel(Point2D const &point);        // 0x00632620
     // The radar pixel of a lepton position (256 per cell), optionally kept
     // inside the radar rectangle (0x00631BA0).
-    Point2D Coord_To_Radar_Pixel(Point2D const &position, bool clip);
+    Point2D Coord_To_Radar_Pixel(Point2D const &coord, bool clip);
     void Plot_Radar_Pixel(Point2D const &point);        // 0x00632000 draws one radar point
     void Render_Tracked_Objects();                            // 0x006324A0
     void Complete_Radar_Refresh();                            // 0x00634030 redraws the whole radar
@@ -243,11 +243,11 @@ public:
     bool Is_Player_Names();                             // 0x006331A0 (TechnoClass slot 55: the radar is up)
     bool Is_Radar_Existing();                           // 0x00633130 returns +0x14D4 (the radar is on)
     void Toggle_Radar(bool on);                         // 0x00633140 turns the radar on or off (+0x14D4; HouseClass 0x004F2E50)
-    void Redraw_Radar(bool flag);                   // 0x006331E0 asks for a radar redraw (+0x14D6 complete)
+    void Redraw_Radar(bool complete);                   // 0x006331E0 asks for a radar redraw (+0x14D6 complete)
     void Set_Radar_State(bool on, bool sound);         // 0x00632F30 activates (3) or deactivates (2) the radar
     void Unknown_00634670(int arg1, int index, HouseClass *house);  // 0x00634670
     void Unknown_00634970(int arg1);                    // 0x00634970 runs 0x00634670 for each house                            // 0x00631C80 builds a new tracking table
-    void Radar_Activate(int mode, bool sound);        // 0x00633000 switches the radar mode (+0x14AC)
+    void Radar_Activate(int control, bool sound);        // 0x00633000 switches the radar mode (+0x14AC)
     void Update_Transmission();                            // 0x00633C40 the mode-4 (transmission) update
     void Render_Radar();                            // 0x00633210 (Draw_It, every frame)
     void Draw_Names();                            // 0x00630350 (Draw_It, mode 2)

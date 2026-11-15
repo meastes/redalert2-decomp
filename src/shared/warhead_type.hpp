@@ -67,9 +67,9 @@ public:
     WarheadTypeClass(NoInitClass const &noinit);                        // 0x00720360
     virtual ~WarheadTypeClass();                                        // 0x007203D0
 
-    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x00720D70 slot 3
+    virtual HRESULT __stdcall GetClassID(GUID *retval);                  // 0x00720D70 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x00720DB0 slot 5
-    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x00720EC0 slot 6
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL cleardirty);  // 0x00720EC0 slot 6
     virtual void Detach(AbstractClass *target, bool all = true);        // 0x00720FC0 slot 10
     virtual int Kind_Of() const;                                        // 0x00721080 slot 11
     virtual int Size_Of() const;                                        // 0x00721070 slot 12
