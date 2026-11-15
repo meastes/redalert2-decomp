@@ -15,8 +15,9 @@ facing would have none and show at 1x. Passes when, from the first count on:
     comes late in the scroll, E1b's gate saw a median of 467);
   * no 2x pixel group disagrees with the 1x pixel it stands for (mismatched 0: the top-left 2x
     pixel is the 1x render's own, so a 2x image of another facing or frame would show here);
-  * the 2x work stays under 4 ms a picture in the median count (not checked under Wine, nor under a
-    load average above the CPUs, when only reported);
+  * the 2x work stays under 4 ms a picture in the median count, checked only on a quiet Mac (a
+    load average under 1; otherwise, and under Wine, only reported: it failed at 4.68 ms at load 3
+    beside other lanes, owner ruling 2026-11-15);
   * no picture flickers back to 1x (drops 0: fewer than half the 2x unit pixels of the picture
     before, from at least 2,000; only reported under that load);
 and the run ends without a fault.
@@ -148,7 +149,10 @@ def main():
     if counts and counts[-1][6] != 0 and not loaded:
         problems.append('%d pictures showed the units at 1x after one at 2x (flicker)' % counts[-1][6])
     # The time is the Mac's measure: under Wine (x86_64 under Rosetta) it is not the game's.
-    if counts and not prefix and not loaded:
+    quiet = load < 1.0
+    if counts and not prefix and not quiet:
+        print('%s: load %.1f: the 2x work time reported only' % (name, load))
+    if counts and not prefix and quiet:
         mean = sorted(c[5] for c in counts)[len(counts) // 2]
         if mean > 4.0:
             problems.append('the 2x work took %.2f ms a picture (the median count; wanted under 4)' % mean)

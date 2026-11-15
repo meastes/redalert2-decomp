@@ -153,6 +153,7 @@ void ra2_enhancements_mods(std::vector<std::string> (*list)(), const char *runni
 
 #ifdef RA2_NATIVE_GAME
 extern "C" int ra2_native_draw_selftest(void);   // link/selftest_draw.cpp (lane C17, tests)
+extern "C" int ra2_native_vqa_selftest(void);    // link/selftest_vqa.cpp (lane C16, tests)
 #endif
 // The folder of a mod named on the command line (lane C16): the name as a folder, else
 // Mods/<name> in the app's support folder (the app) or in the game folder, folder names in any
@@ -230,6 +231,7 @@ int main(int argc, char **argv)
 {
 #ifdef RA2_NATIVE_GAME
     if (getenv("RA2_NATIVE_DRAW_SELFTEST")) return ra2_native_draw_selftest();
+    if (getenv("RA2_NATIVE_VQA_SELFTEST")) return ra2_native_vqa_selftest();
 #endif
 #ifdef RA2_APP_MODE
     // The crash dialog of RA2.app (app_mode.hpp): a fresh process.

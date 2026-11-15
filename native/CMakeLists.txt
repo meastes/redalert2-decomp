@@ -429,6 +429,13 @@ if(RA2_NATIVE_SDL)
       elseif(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
         add_test(NAME native-draw-selftest COMMAND "${CMAKE_COMMAND}" -E env RA2_NATIVE_DRAW_SELFTEST=1 $<TARGET_FILE:ra2-native>)
       endif()
+      # 8g. The VQA player's path around a mod's .VQA movie (C16): the library's default
+      #     configuration from game.exe and VQA_Reset, in the game binary (link/selftest_vqa.cpp).
+      if(NOT WIN32 AND NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+        add_test(NAME native-vqa-selftest COMMAND "${CMAKE_COMMAND}" -E env RA2_NATIVE_VQA_SELFTEST=1
+                 "RA2_GAME_EXE=${RA2_NATIVE_CENSUS_GAME_EXE}" $<TARGET_FILE:ra2-native>)
+        set_tests_properties(native-vqa-selftest PROPERTIES SKIP_RETURN_CODE 77)
+      endif()
       # 8e. A loaded game abandoned and the game ended by the menus' Exit (C15f, codex4
       #     R710/R719): WinMain and the exit-time teardown end cleanly (tests/exit_route.py).
       add_test(NAME native-exit-route COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/exit_route.py"

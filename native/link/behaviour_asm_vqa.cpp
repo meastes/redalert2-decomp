@@ -368,3 +368,53 @@ extern "C" void ASM_UnVQ1_C1_4x4(unsigned char *codebook, unsigned char *pointer
         }
     }
 }
+
+// ---------------------------------------------------------------------------
+// ASM_UnVQ1_C1_TABLE 0x0077FD80 and ASM_UnVQ1_C1_TABLE_ALT 0x0077FE89 (unvq_asm.asm; lane C16:
+// the hi-colour drawers VQAClass installs for a colour mode 1 movie, VQAClass::Play_VQA's
+// VQA_SetUnVQ calls; a mod's .VQA reached their link-closure traps). Pointers as ASM_UnVQ1_C1_4x4:
+// the low bytes then the high bytes, entries apart; a pointer with bit 15 set is one colour,
+// HicolorTable[p & 0x7FFF] (the screen-format pixel), otherwise codeword p (32 bytes: four rows of
+// four 16-bit pixels). bufwidth is in pixels; block rows are four pixel rows apart. The ALT form
+// draws the codeword's rows 0 and 2 into the block's rows 0 and 2 only (rows 1 and 3 untouched),
+// as the original's interlaced variant does.
+// ---------------------------------------------------------------------------
+#include "shared/unvq_table.hpp"
+namespace {
+template <bool Alt>
+void unvq_c1_table(unsigned char *codebook, unsigned char *pointers, unsigned char *buffer, uint32_t bpr, uint32_t rows,
+                   uint32_t bufwidth)
+{
+    if (bpr == 0 || rows == 0) return;
+    uint32_t entries = bpr * rows;
+    uint32_t pitch = bufwidth * 2;                 // bytes
+    unsigned char *lo = pointers;
+    unsigned char *row = buffer;
+    for (uint32_t r = 0; r < rows; ++r, row += pitch * 4) {
+        unsigned char *d = row;
+        for (uint32_t b = 0; b < bpr; ++b, ++lo, d += 8) {
+            uint32_t p = ((uint32_t)lo[entries] << 8) | lo[0];
+            if (p & 0x8000) {
+                uint16_t c = HicolorTable[p & 0x7FFF];
+                for (int y = 0; y < 4; y += Alt ? 2 : 1)
+                    for (int x = 0; x < 4; ++x) memcpy(d + y * pitch + 2 * x, &c, 2);
+            } else {
+                unsigned char const *cw = codebook + p * 32;
+                for (int y = 0; y < 4; y += Alt ? 2 : 1) memcpy(d + y * pitch, cw + 8 * y, 8);
+            }
+        }
+    }
+}
+}
+
+void __cdecl VQA_Unknown_0077FD80(unsigned char *codebook, unsigned char *pointers, unsigned char *buffer,
+    RA2_ULONG blocksperrow, RA2_ULONG numrows, RA2_ULONG bufwidth)
+{
+    unvq_c1_table<false>(codebook, pointers, buffer, (uint32_t)blocksperrow, (uint32_t)numrows, (uint32_t)bufwidth);
+}
+
+void __cdecl VQA_Unknown_0077FE89(unsigned char *codebook, unsigned char *pointers, unsigned char *buffer,
+    RA2_ULONG blocksperrow, RA2_ULONG numrows, RA2_ULONG bufwidth)
+{
+    unvq_c1_table<true>(codebook, pointers, buffer, (uint32_t)blocksperrow, (uint32_t)numrows, (uint32_t)bufwidth);
+}

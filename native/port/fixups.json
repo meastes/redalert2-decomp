@@ -3332,6 +3332,13 @@
    "new": "void Native_Dialog_Screen(bool on);   // NATIVE (C16): link/native_map_zoom.cpp\nvoid __fastcall Special_Dialog_00481850()\n{\n",
    "why": "Native addition (C16, Zoom gestures: zooming out below 1x; not original behaviour): with Zoom gestures on the game's screen is twice the window's in its map column, and the in-game dialogs (the in-game menu, Abort Mission, Save/Load, Game Controls, Diplomacy, the message boxes) are laid out for the screen size; for their time the screen size is the window's, so each is laid out as the original lays it out at the window's size and the host shows it at the window's scale (link/native_map_zoom.cpp Native_Dialog_Screen). Off (the default and the ORIGINAL preset): nothing changes. This row: declares it.",
    "verified": false
+  },
+  {
+   "source": "src/recovered/vqalib_config/VQA_Unknown.cpp",
+   "old": "void __fastcall VQA_Unknown_00777850(VQAConfig *config)\n{\n    *config = unknown_vqa_default_config_801470;\n",
+   "new": "void Native_VQA_Default_Config();   // NATIVE (C16): link/behaviour_c16_vqa.cpp\nvoid __fastcall VQA_Unknown_00777850(VQAConfig *config)\n{\n    Native_VQA_Default_Config();\n    *config = unknown_vqa_default_config_801470;\n",
+   "why": "Native addition (C16, owner ruling 2026-11-15: a mod's .VQA movie plays): VQA_DefaultConfig 0x00777850 copies the library's default configuration 0x00801470, which the original stores and no permitted text supplies; natively its integer fields are read from the user's game.exe at the first copy (link/behaviour_c16_vqa.cpp Native_VQA_Default_Config; the pointer fields are null there). Without it every field was a link-closure zero.",
+   "verified": false
   }
  ]
 }

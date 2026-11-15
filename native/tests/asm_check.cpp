@@ -6,6 +6,9 @@
 // value here comes from the original executable. The ADPCM tables are also
 // compared with the adopted archive text (src/recovered/asm/*.inc).
 #include "shared/vqa_player.hpp"
+#include "shared/unvq_table.hpp"
+
+unsigned short *HicolorTable;   // the hi-colour table (unvqtblc.cpp in the game; set per case here)
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -484,6 +487,37 @@ static void test_unvq()
             }
         }
         CHECK(ok);
+    }
+    // C1 table, 4x4 and the interlaced ALT form (lane C16; 0x0077FD80, 0x0077FE89): the one-colour
+    // block is HicolorTable[value & 0x7FFF]; ALT draws the block's rows 0 and 2 only.
+    for (int alt = 0; alt < 2; ++alt) {
+        Vec<uint16_t> table(0x8000);
+        for (int i = 0; i < 0x8000; ++i) table[i] = (uint16_t)(i * 7 + 0x1234);
+        HicolorTable = table.data();
+        Vec<uint8_t> p2(2 * entries);
+        Vec<int> v2(entries);
+        for (int i = 0; i < entries; ++i) {
+            int v = (rnd() % 2) ? (int)(0x8000 | (rnd() & 0x7FFF)) : (int)(rnd() % 300);
+            v2[i] = v; p2[i] = (uint8_t)v; p2[entries + i] = (uint8_t)(v >> 8);
+        }
+        int pitch = 24;   // pixels
+        Vec<uint16_t> out(pitch * rows * 4 + 32, 0xEEEE);
+        if (alt) VQA_Unknown_0077FE89(codebook.data(), p2.data(), (unsigned char *)out.data(), bpr, rows, pitch);
+        else VQA_Unknown_0077FD80(codebook.data(), p2.data(), (unsigned char *)out.data(), bpr, rows, pitch);
+        bool ok = true;
+        for (int y = 0; y < rows * 4; ++y) {
+            for (int x = 0; x < pitch; ++x) {
+                uint16_t got = out[y * pitch + x];
+                if (x >= bpr * 4 || (alt && (y % 2) == 1)) { ok = ok && got == 0xEEEE; continue; }
+                int v = v2[(y / 4) * bpr + x / 4];
+                uint16_t expect;
+                if (v & 0x8000) expect = table[v & 0x7FFF];
+                else memcpy(&expect, &codebook[v * 32 + (y % 4) * 8 + (x % 4) * 2], 2);
+                ok = ok && got == expect;
+            }
+        }
+        CHECK(ok);
+        HicolorTable = 0;
     }
 }
 

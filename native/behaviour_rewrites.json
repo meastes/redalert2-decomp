@@ -3211,6 +3211,39 @@
    "file": "native/link/behaviour_c3_attack_move.cpp",
    "source": "src/recovered/004cdbd0.cpp (seed scaffolding)",
    "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed."
+  },
+  {
+   "entry": "0x0077C7D0",
+   "name": "VQA_Reset (VQAClass::Reset_VQA after every play)",
+   "symbol": "__Z20VQA_Unknown_0077C7D0P9VQAHandle",
+   "origin_class": "unmatched (VQA player)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_c16_vqa.cpp",
+   "source": "src/recovered/vqalib_task.cpp (RA2_NON_MATCHING parked draft, score 66.67)",
+   "notes": "C16 (owner ruling 2026-11-15): a mod's .VQA movie trapped at Reset_VQA after playing; the best parked draft carried natively. native-vqa-selftest."
+  },
+  {
+   "entry": "0x0077FD80",
+   "name": "ASM_UnVQ1_C1_TABLE (hi-colour 4x4 UnVQ drawer, VQA colour mode 1)",
+   "symbol": "__Z20VQA_Unknown_0077FD80PhS_S_jjj",
+   "origin_class": "unmatched (VQA player)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_asm_vqa.cpp",
+   "source": "src/recovered/asm/unvq_asm.asm",
+   "notes": "C16: portable rewrite of the adopted TibSun procedure (the one-colour block is HicolorTable[p & 0x7FFF]); VQAClass::Play_VQA installs it for a colour mode 1 movie. native-asm-check."
+  },
+  {
+   "entry": "0x0077FE89",
+   "name": "ASM_UnVQ1_C1_TABLE_ALT (interlaced hi-colour drawer: rows 0 and 2)",
+   "symbol": "__Z20VQA_Unknown_0077FE89PhS_S_jjj",
+   "origin_class": "unmatched (VQA player)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_asm_vqa.cpp",
+   "source": "src/recovered/asm/unvq_asm.asm",
+   "notes": "C16: as 0x0077FD80, drawing the block's rows 0 and 2 only; installed only with VQA option 11, which nothing sets. native-asm-check."
   }
  ]
 }

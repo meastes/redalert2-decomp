@@ -917,6 +917,14 @@ again: the choice is used at the next start, which a message says (importing mod
 next start with TestMod and its writes in `Game/Mods/TestMod`, None chosen, then a start with no
 mod; `native-enhancements-settings` checks the row's values and switches.
 
+A mod's `.VQA` movies (the installed game plays only Bink movies) go through the VQA player:
+its default configuration (0x00801470, read from game.exe at the first copy), the hi-colour
+drawers 0x0077FD80/0x0077FE89 (portable rewrites in `link/behaviour_asm_vqa.cpp`) and VQA_Reset
+0x0077C7D0 after each play (`link/behaviour_c16_vqa.cpp`) are native now; the half-height drawers
+0x0070BBC0/0x0070C0A0 (VQA option 11, which nothing sets) and the subtitle tables (no subtitles
+parsed) stay link-closure items. ctest `native-vqa-selftest` checks the configuration and the
+reset in the game binary; `native-asm-check` the drawers.
+
 ### Original saves (C6, roadmap (d))
 
 End state (user, 2026-11-14): original-format saves only, as in the Outpost 2 port; the port's own
