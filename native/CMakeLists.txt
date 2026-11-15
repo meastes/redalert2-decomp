@@ -588,7 +588,7 @@ if(RA2_NATIVE_SDL)
         #      both ways, clicks on given tanks at each zoom and the sidebar left in place; a scripted
         #      two-finger pinch that zooms only; the in-game menu at render scale 2, clicked through the
         #      window (tests/zoom_input.py).
-        foreach(ra2_zoom_case steps menu score pinch)
+        foreach(ra2_zoom_case steps menu menu-ui score pinch)
           add_test(NAME native-zoom-${ra2_zoom_case} COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/zoom_input.py"
                    --case ${ra2_zoom_case} --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
                    --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-zoom-${ra2_zoom_case}.log")

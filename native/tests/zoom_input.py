@@ -80,7 +80,7 @@ def tanks_selected(state):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('--case', required=True, choices=['steps', 'menu', 'score', 'pinch'])
+    ap.add_argument('--case', required=True, choices=['steps', 'menu', 'menu-ui', 'score', 'pinch'])
     ap.add_argument('--binary', required=True)
     ap.add_argument('--data-dir', default=os.environ.get('RA2_NATIVE_CENSUS_DATA_DIR', ''))
     ap.add_argument('--game-exe', default=os.environ.get('RA2_NATIVE_CENSUS_GAME_EXE', ''))
@@ -99,8 +99,13 @@ def main():
     if a.case == 'steps':
         env['RA2_NATIVE_SCRIPT_AS_USER'] = '1'
         lines, frames = STEPS, 250
-    elif a.case == 'menu':
+    elif a.case in ('menu', 'menu-ui'):
         env['RA2_NATIVE_SCRIPT_AS_USER'] = '1'
+        # Game interface size 1.25x (the Duo's setting): play lays the sidebar art out shorter than
+        # the screen; the dialogs need it at the screen's whole height (the user's Duo report: the
+        # command bar across the menu, the column ending above Resume Mission). 'menu-ui' is the
+        # same without Zoom gestures (render scale 1).
+        env['RA2_NATIVE_ENHANCEMENTS'] = 'uisize=1.25' + (',zoomgestures=on' if a.case == 'menu' else '')
         lines, frames = MENU, 250
     elif a.case == 'score':
         env['RA2_NATIVE_SCRIPT_AS_USER'] = '1'
@@ -132,7 +137,7 @@ def main():
         scale = int(m.group(1))
         full = (int(m.group(2)) - 168, int(m.group(3)) - 32)
     print('render scale %d: tactical area %dx%d' % (scale, full[0], full[1]))
-    if scale != 2:
+    if scale != (1 if a.case == 'menu-ui' else 2):
         problems.append('render scale %d, wanted 2 (Zoom gestures on)' % scale)
     zooms = [(float(m.group(1)), float(m.group(2)), int(m.group(3)), int(m.group(4)), float(m.group(5)), float(m.group(6)))
              for m in ZOOM.finditer(out)]
@@ -174,17 +179,17 @@ def main():
                 problems.append(what)
         if 'host: layout: dialog in play' in out:
             problems.append('the score screen was shown through the in-play dialog layout')
-    elif a.case == 'menu':
+    elif a.case in ('menu', 'menu-ui'):
         want = 'zoom: in-play dialogs at %dx%d' % (full[0] // scale + 168, full[1] // scale + 32)
         print('%s: %s' % (want, want in out))
         if want not in out:
             problems.append('the dialogs were not laid out at the window\'s size ("%s")' % want)
-        if 'host: layout: in-play dialogs at' not in out:
+        if a.case == 'menu' and 'host: layout: in-play dialogs at' not in out:
             problems.append('the host did not show the dialogs\' part of the screen')
         if 'host: layout: dialog in play' in out:
             problems.append('a dialog was shown with the larger screen\'s layout')
         last = out.rfind('host: layout: in-play dialogs at')
-        if last < 0 or 'host: layout: map zoom' not in out[last:]:
+        if a.case == 'menu' and (last < 0 or 'host: layout: map zoom' not in out[last:]):
             problems.append('the game was not shown again after Resume Mission')
         if 'stopped: target reached' not in out:
             problems.append('the game did not play on to its last frame')

@@ -331,36 +331,43 @@ void __fastcall Unknown_6F5400();                                     // txtlabe
 void __fastcall Unknown_Layout_Sidebar_006F4C90(int width, int height);   // and makes it for a size
 extern bool unknown_flag_ac11b0;                                      // 0x00AC11B0: that layout made
 int Native_Sidebar_Height(int screen_height);                        // link/native_enhancements.cpp
-// Both interface art layouts made again for a screen width (the sidebar art's height is the
-// sidebar's, Native_Sidebar_Height of the real screen, the same at both sizes).
-static void relayout_art(int width, int height, int screen_height)
+// Both interface art layouts made again for a screen size; the sidebar art's height given (in play
+// the sidebar's, Native_Sidebar_Height; for the dialogs the screen's whole height).
+static void relayout_art(int width, int height, int sidebar_height)
 {
     if (unknown_flag_ac119c) Unknown_Reset_Art_006F33B0(width, height);
     if (unknown_flag_ac11b0) {
         Unknown_6F5400();
-        Unknown_Layout_Sidebar_006F4C90(width, Native_Sidebar_Height(screen_height));
+        Unknown_Layout_Sidebar_006F4C90(width, sidebar_height);
     }
 }
 void Native_Dialog_Screen(bool on)
 {
     static int saved_w = 0, saved_h = 0;
-    static bool set = false;
-    if (on && render_scale > 1 && !set) {
+    static bool set = false, scaled = false;
+    if (on && !set) {
         saved_w = VideoModeWidth;
         saved_h = VideoModeHeight;
-        VideoModeWidth = (saved_w - 168) / render_scale + 168;
-        VideoModeHeight = (saved_h - 32) / render_scale + 32;
+        scaled = render_scale > 1;
+        // The in-game dialogs draw their sidebar column and command bar from the sidebar art's
+        // layout, which play makes Native_Sidebar_Height tall (Game interface size: a shorter
+        // surface the host shows larger). The dialogs are shown whole, so they get the screen's
+        // whole height (the user's Duo report: the command bar across the menu at 3/4 height and
+        // the column ending above the bottom).
+        if (!scaled && Native_Sidebar_Height(saved_h) == saved_h) return;
         set = true;
-        // The interface art's layouts (the dialogs' backdrop and sidebar column, the places of the
-        // column's bottom buttons) made again for that size, as a mode change makes them.
-        relayout_art(VideoModeWidth, VideoModeHeight, saved_h);
-        ra2_enh_set_dialog_screen(1);
+        if (scaled) {
+            VideoModeWidth = (saved_w - 168) / render_scale + 168;
+            VideoModeHeight = (saved_h - 32) / render_scale + 32;
+        }
+        relayout_art(VideoModeWidth, VideoModeHeight, VideoModeHeight);
+        if (scaled) ra2_enh_set_dialog_screen(1);
         fprintf(stderr, "zoom: in-play dialogs at %dx%d (the screen %dx%d)\n", VideoModeWidth, VideoModeHeight, saved_w, saved_h);
     } else if (!on && set) {
         VideoModeWidth = saved_w;
         VideoModeHeight = saved_h;
         set = false;
-        relayout_art(saved_w, saved_h, saved_h);
-        ra2_enh_set_dialog_screen(0);
+        relayout_art(saved_w, saved_h, Native_Sidebar_Height(saved_h));
+        if (scaled) ra2_enh_set_dialog_screen(0);
     }
 }
