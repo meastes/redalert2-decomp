@@ -3191,6 +3191,20 @@
    "verified": false
   },
   {
+   "source": "src/recovered/techno.cpp",
+   "old": "SurfaceRegion TechnoClass::Render_Voxel_Object_006d24e0(UnknownObjectPair const &voxel,Matrix3D const &transform,Point2D const &point,Rect const &xcliprect,int frame,unsigned flags,int brightness)\n{\n",
+   "new": "void Native_Hd_Owner(int kind_of);   // NATIVE (C17): link/native_hd_vehicles.cpp\nSurfaceRegion TechnoClass::Render_Voxel_Object_006d24e0(UnknownObjectPair const &voxel,Matrix3D const &transform,Point2D const &point,Rect const &xcliprect,int frame,unsigned flags,int brightness)\n{\n    Native_Hd_Owner(Kind_Of());   // NATIVE (C17)\n",
+   "why": "Native addition (C17, HD vehicles 3x and per-kind counts; not original behaviour): the voxel renderer tells link/native_hd_vehicles.cpp whose voxels it draws (Kind_Of: unit, aircraft, building), for its per-kind counts (the tests' proof that aircraft and voxel building parts show at 2x/3x). With HD vehicles off the call only stores a number nothing reads; the 1x drawing is unchanged. This row: TechnoClass 0x006D24E0 (the voxel object).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/techno.cpp",
+   "old": "SurfaceRegion TechnoClass::Render_Voxel_Shadow_006d2810(UnknownObjectPair const &voxel,Matrix3D const &transform,Point2D const &point,Rect const &cliprect,int layer,unsigned flags,bool cached,Surface *mask,unsigned unknown_2,unsigned unknown_3)\n{\n",
+   "new": "void Native_Hd_Owner(int kind_of);   // NATIVE (C17): link/native_hd_vehicles.cpp\nSurfaceRegion TechnoClass::Render_Voxel_Shadow_006d2810(UnknownObjectPair const &voxel,Matrix3D const &transform,Point2D const &point,Rect const &cliprect,int layer,unsigned flags,bool cached,Surface *mask,unsigned unknown_2,unsigned unknown_3)\n{\n    Native_Hd_Owner(Kind_Of());   // NATIVE (C17)\n",
+   "why": "Native addition (C17, HD vehicles 3x and per-kind counts; not original behaviour): the voxel renderer tells link/native_hd_vehicles.cpp whose voxels it draws (Kind_Of: unit, aircraft, building), for its per-kind counts (the tests' proof that aircraft and voxel building parts show at 2x/3x). With HD vehicles off the call only stores a number nothing reads; the 1x drawing is unchanged. This row: TechnoClass 0x006D2810 (the voxel shadow).",
+   "verified": false
+  },
+  {
    "source": "src/recovered/dsurface.cpp",
    "old": "        return VideoSurfacePtr->Blt(&destination_rectangle, ((DSurface &)source).VideoSurfacePtr,\n                                    &source_rectangle, DDBLT_WAIT, 0) == DD_OK;\n",
    "new": "        bool blitted = VideoSurfacePtr->Blt(&destination_rectangle, ((DSurface &)source).VideoSurfacePtr,\n                                    &source_rectangle, DDBLT_WAIT, 0) == DD_OK;\n        void Native_Hd_Copied(Surface &dest, Rect const &destrect, Surface &source, Rect const &sourcerect);   // NATIVE (C16)\n        if (blitted) Native_Hd_Copied(*this, Rect(destination_rectangle.left, destination_rectangle.top, destination_area.Width, destination_area.Height),\n                                      source, Rect(source_rectangle.left, source_rectangle.top, source_area.Width, source_area.Height));\n        return blitted;\n",

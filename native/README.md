@@ -674,7 +674,7 @@ list them, native fixups). Rows: Fullscreen (Automatic on touch hosts), Vertical
 Game interface size (1x, 1.25x, 1.5x, 2x), Map zoom (1x, 1.25x, 1.5x, 2x), Picture
 scaling (Sharp, the original look; Nearest; Smooth), Menu fill (Off, the original look;
 Blurred backdrop), Queue five with Shift (Off, On; C16), Controls (Classic, Modern; C16), Zoom gestures (Off, On; C16),
-HD vehicles (Off, 2x; C16). The page opens as the shell's other screens do (C12): the Options
+HD vehicles (Off, 2x; C16; 3x, C17). The page opens as the shell's other screens do (C12): the Options
 dialog's column slides out (0x005E5FC0, the original's in-place transition of the skirmish
 map dialog's Random Map button) and the dialog is hidden; when the page closes the dialog is
 shown again and its next paint slides the column back in.
@@ -883,6 +883,36 @@ scrolling, and checks that every count shows units at 2x, none disagrees, no pic
 inside the game's own pacing); the Windows build under Wine (x86_64 under Rosetta) 1.9 ms at -O2
 (10 ms at -O0); the iOS Simulator 2.5 ms (20.8 frames a second, 148 MB, as without). Shadows' 2x edges are closed (a 3x3 dilation then
 erosion of the four passes' union, the 1x render's own pixels kept) so they are solid, not checkered.
+
+HD vehicles 3x (C17, user 2026-11-15; the same design notes): the row's third entry. Everything
+above runs at a scale N, 2 or 3, taken with the setting at a game's start (`ra2_hd_scale` gives the
+host its overlay's size): N*N - 1 passes, each starting a third of a pixel further left, up or both
+(85 or 171 in the 8.8 start offsets), the N*N images interleaved; Nx blit rows; an overlay N times
+the picture. 2x is the same computation as before (offsets -128, no fill). At 3x the thirds do not
+split the voxel splats cleanly, so sub-pixels inside the unit stay uncovered: each such sub-pixel
+inside a pixel the 1x render covered takes that pixel's own 1x value (the unit's colour; a shadow's
+mark) before the shadow closing, so the ground does not stipple through. Aircraft and buildings'
+voxel parts (a Patriot's or Flak Cannon's turret, the paradrop cargo plane) go through the same
+VoxelDrawSystem::Render, so they are drawn at Nx with the vehicles; the voxel renderers
+(TechnoClass 0x006D24E0 and 0x006D2810, native fixups) tell the HD code whose voxels they draw
+(Kind_Of), and `RA2_NATIVE_HD_STATS` adds per kind (vehicles, aircraft, buildings, other) the
+renders and the screen pixels the last picture showed at Nx, and the 3x fill count. Frame budget:
+at 3x the Nx work a picture is averaged over windows of 60 pictures; two windows in a row over
+`RA2_NATIVE_HD_BUDGET_MS` (default 8 ms, half a 60 Hz frame; 0 is no limit) drop the game to 2x for
+the rest of it ("hd-vehicles: 3x work ... 2x for the rest of this game"); the next game takes the
+setting again. ctests: `native-hd-vehicles-3x` (the skirmish above at 3x; time limit 9 ms, the work
+scaled by 9/4; the fill must have run), `native-hd-air-base` and `native-hd-air-base-3x` (the MCV
+builds a power plant, a barracks and a Patriot, RA2_NATIVE_BUILD_LIST; two paradrops fly over the
+base, harness order `super 5 home <dx> <dy>`; aircraft and buildings must each show at Nx on screen
+in some count, beside the vehicles' checks). The tests turn the budget off so a loaded Mac stays at
+3x. `tests/hd_vehicles.py --dump <dir> --dump-frames <f,...>` writes the window with and without
+the overlay at those frames (screenshots); `native-hd-vehicles-3x-budget` runs 3x over a 0.5 ms
+budget and checks the drop to 2x and a clean game after it. 3x work a picture: Mac (Apple M4, under
+load) about 4-6 ms in the skirmish (2x the same run: 1.4-2 ms); the iOS Simulator ("RA2 Duo
+Validation", 1,200 frames, Map zoom 1.5x) 3.9-5.0 ms (2x: 2.0-3.3 ms), the game's own frame work
+mean 5.3 ms and 95th percentile 7.6 ms (2x: 3.4 and 5.4), the same 21 frames a second as 2x: inside
+the budget, so the phone keeps 3x. The Windows build under Wine at -O0 takes 23-30 ms at 3x (2x:
+10 ms), so with the default budget it drops to 2x there; the ctests pass under Wine with the budget off.
 
 ### Mods (C16, levels 1 to 3)
 

@@ -77,8 +77,10 @@ const std::vector<Row> &rows()
         // Windows) or a two-finger pinch (touch) in play; Map zoom above is the zoom a game starts at.
         {"zoomgestures", "Zoom gestures", "Wheel or pinch zooms the map in play (Map zoom is where it starts).",
          {"off", "on"}, {"Off", "On"}, true},
-        {"hdvehicles", "HD vehicles", "Vehicles and their shadows at twice the detail. From the next game.",
-         {"off", "2"}, {"Off", "2x"}, true},
+        // Lane C17 (user, 2026-11-15): 3x as well, aircraft and voxel building parts with them; at 3x
+        // a game whose 3x work runs over the frame budget drops to 2x (the Enhanced preset keeps 2x).
+        {"hdvehicles", "HD vehicles", "Vehicles, aircraft and voxel building parts at two or three times the detail. From the next game.",
+         {"off", "2", "3"}, {"Off", "2x", "3x"}, true},
     };
     return r;
 }
@@ -367,7 +369,7 @@ int ra2_enh_zoom_gestures(void)
 int ra2_enh_hd_vehicles(void)
 {
     load();
-    return current["hdvehicles"] == "2" ? 2 : 0;
+    return current["hdvehicles"] == "3" ? 3 : current["hdvehicles"] == "2" ? 2 : 0;
 }
 }
 

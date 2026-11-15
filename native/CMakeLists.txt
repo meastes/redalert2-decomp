@@ -568,6 +568,22 @@ if(RA2_NATIVE_SDL)
                  --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-hd-vehicles-zoom2.log"
                  ${ra2_wine_args_hdvox})
         set_tests_properties(native-hd-vehicles-zoom2 PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
+        # 12c'. HD vehicles 3x (C17): the same skirmish at 3x (the 1x colour fill in the gaps the thirds
+        #      leave), and the air-base case at 2x and 3x: a Patriot's voxel turret and two paradrops'
+        #      cargo plane on screen, each kind shown at Nx (tests/hd_vehicles.py --case air-base).
+        #      vehicles-3x-budget: 3x over a 0.5 ms frame budget drops to 2x for the rest of the game.
+        foreach(ra2_hd_case IN ITEMS "vehicles-3x;units;3;0" "vehicles-3x-budget;units;3;0.5" "air-base;air-base;2;0"
+                                     "air-base-3x;air-base;3;0")
+          list(GET ra2_hd_case 0 ra2_hd_name)
+          list(GET ra2_hd_case 1 ra2_hd_kind)
+          list(GET ra2_hd_case 2 ra2_hd_scale)
+          list(GET ra2_hd_case 3 ra2_hd_budget)
+          add_test(NAME native-hd-${ra2_hd_name} COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/hd_vehicles.py"
+                   --case ${ra2_hd_kind} --scale ${ra2_hd_scale} --budget-ms ${ra2_hd_budget} --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                   --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-hd-${ra2_hd_name}.log"
+                   ${ra2_wine_args_hdvox})
+          set_tests_properties(native-hd-${ra2_hd_name} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
+        endforeach()
         # 12e. Zoom gestures (C16): scripted zoom steps (the wheel's path) with the window mapping checked
         #      both ways, clicks on given tanks at each zoom and the sidebar left in place; a scripted
         #      two-finger pinch that zooms only; the in-game menu at render scale 2, clicked through the

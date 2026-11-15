@@ -166,7 +166,7 @@ int main(int argc, char **argv)
     // Each dropdown lists its setting's values, the original look first.
     static const char *const lists[kRows] = {"Off,On", "Off,On", "1x,1.25x,1.5x,2x", "1x,1.25x,1.5x,2x", "Sharp,Nearest,Smooth",
                                                "Off,Blurred backdrop", "Off,On",
-                                               "Classic,Modern", "Off,On", "Off,2x"};
+                                               "Classic,Modern", "Off,On", "Off,2x,3x"};
     for (int r = 0; r < kRows; ++r) {
         int i = row_of(rows[r].label);
         if (i < 0) continue;
@@ -209,6 +209,18 @@ int main(int argc, char **argv)
         expect(ra2_enh_modern_controls() == 1, "Modern controls at ACCEPT (the next click asks)");
         expect(ra2_enh_hd_vehicles() == 2, "HD vehicles 2x at ACCEPT (the next game takes it)");
         expect(ra2_enh_zoom_gestures() == 1, "Zoom gestures on at ACCEPT");
+        // HD vehicles' third entry, 3x (lane C17): chosen, saved and answered; then 2x again.
+        {
+            int hd = row_of("HD vehicles");
+            ra2_enh_begin();
+            ra2_enh_set_value(hd, 2);
+            ra2_enh_accept();
+            expect(ra2_enh_hd_vehicles() == 3 && get("enh_hdvehicles") == "3", "HD vehicles 3x at ACCEPT", get("enh_hdvehicles"));
+            ra2_enh_begin();
+            ra2_enh_set_value(hd, 1);
+            ra2_enh_accept();
+            expect(ra2_enh_hd_vehicles() == 2, "HD vehicles back to 2x");
+        }
         // The next game in this same process (codex4 R700): what a new game's start asks
         // (link/native_enhancements.cpp Native_Sidebar_New_Game, native_map_zoom.cpp) answers
         // the accepted interface size and map zoom, without a restart; and back at 1x.

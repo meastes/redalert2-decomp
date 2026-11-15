@@ -3,7 +3,19 @@
 """ctest native-hd-vehicles (lane C16): HD vehicles 2x in a skirmish ('#5') with Map zoom 1.5x (and
 native-hd-vehicles-zoom2 with Map zoom 2x, where the scrolling view moves the most screen pixels),
 checked by the 2x layer's own counts (link/native_hd_vehicles.cpp, RA2_NATIVE_HD_STATS=1: every
-100 pictures "renders R blits B pixels P; shown S, mismatched M; 2x work T ms a picture").
+100 pictures "renders R blits B pixels P; shown S, mismatched M; 2x work T ms a picture", and
+"by kind (renders, shown): vehicles R S aircraft R S buildings R S other R S; 3x fill F").
+
+--scale 3 (lane C17; ctest native-hd-vehicles-3x) runs the same at 3x: the same checks, the time
+limit scaled by the work (9/4), the frame budget off (RA2_NATIVE_HD_BUDGET_MS=0, so the game
+stays at 3x), and the 3x gap fill must have filled sub-pixels.
+
+--case air-base (lane C17; ctests native-hd-air-base and native-hd-air-base-3x) puts aircraft and a
+voxel building part on screen: the MCV deploys and builds a power plant, a barracks and a Patriot
+Missile (NASAM, a voxel turret; --skirmish-order=build, RA2_NATIVE_BUILD_LIST), and two paradrops
+(super 5 home: the cargo plane, a voxel aircraft) fly over the base; passes when, beside the
+checks above, aircraft and buildings each show at Nx on screen in some count (their own pixels in
+the picture, counted by owner kind: techno.cpp native fixup).
 
 The start units move (--skirmish-order=both: the MCV deploys, the tanks and infantry drive east)
 and two tanks force-fire at the ground in four directions each (Ctrl with a click: the original's
@@ -22,7 +34,8 @@ facing would have none and show at 1x. Passes when, from the first count on:
     before, from at least 2,000; only reported under that load);
 and the run ends without a fault.
 
-  hd_vehicles.py --binary <ra2-native> --data-dir <installed RA2> --game-exe <game.exe> [--zoom 1.5|2] [--log <file>]
+  hd_vehicles.py --binary <ra2-native> --data-dir <installed RA2> --game-exe <game.exe> [--zoom 1.5|2] [--scale 2|3]
+                 [--case units|air-base] [--log <file>]
                  [--wine-prefix <dir> [--wine <wine>]]
 
 Without the data folder or game.exe it exits 77 (skipped), as native-census."""
@@ -40,6 +53,8 @@ SKIP = 77
 BAD = re.compile(r'unrecovered|trap|signal \d+|SIG(SEGV|BUS|ILL|ABRT|FPE)|crash:|abort', re.I)
 COUNTS = re.compile(r'^hd-vehicles: renders (\d+) blits (\d+) pixels (\d+); shown (\d+), mismatched (\d+); 2x work ([\d.]+) ms'
                     r' a picture; drops (\d+)')
+KINDS = re.compile(r'^hd-vehicles: at (\d)x; by kind \(renders, shown\): vehicles (\d+) (\d+) aircraft (\d+) (\d+) buildings (\d+) (\d+)'
+                   r' other (\d+) (\d+); 3x fill (\d+)')
 
 
 def fire(frame, tank, offsets):
@@ -56,6 +71,10 @@ SCRIPT = (fire(120, 1, [(5, 0), (0, 5), (-5, 0), (0, -5)]) + fire(320, 2, [(4, 4
           + ['500 keydown Right', '530 keyup Right', '540 keydown Down', '580 keyup Down'])
 FRAMES = 600
 
+# air-base: the base is built (power plant, barracks, Patriot), then two paradrops fly over it.
+AIR_BASE_FRAMES = 2400
+AIR_BASE_ENV = {'RA2_NATIVE_BUILD_LIST': 'GAPOWR,GAPILE,NASAM', 'RA2_NATIVE_ORDERS': '1500 super 5 home 3 3; 1900 super 5 home -3 4'}
+
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -64,11 +83,21 @@ def main():
     ap.add_argument('--game-exe', default=os.environ.get('RA2_NATIVE_CENSUS_GAME_EXE', ''))
     ap.add_argument('--seconds', type=int, default=300)
     ap.add_argument('--zoom', default='1.5', help='the Map zoom (1.5; ctest native-hd-vehicles-zoom2: 2)')
+    ap.add_argument('--scale', default='2', choices=['2', '3'], help='HD vehicles 2x (default) or 3x')
+    ap.add_argument('--case', default='units', choices=['units', 'air-base'])
+    ap.add_argument('--budget-ms', default='0', help='the 3x frame budget (0: none; ctest native-hd-vehicles-3x-budget: 0.5, '
+                    'so the game must drop to 2x and go on without a fault)')
     ap.add_argument('--log', default='')
+    ap.add_argument('--dump', default='', help='a folder for window pictures (with and without the HD overlay) at --dump-frames')
+    ap.add_argument('--dump-frames', default='', help='comma-separated Main_Loop frames for --dump')
     ap.add_argument('--wine-prefix', default='')
     ap.add_argument('--wine', default='')
     a = ap.parse_args()
-    name = 'native-hd-vehicles' + ('' if a.zoom == '1.5' else '-zoom' + a.zoom.replace('.', ''))
+    name = ('native-hd-air-base' if a.case == 'air-base' else 'native-hd-vehicles') \
+        + ('' if a.zoom == '1.5' else '-zoom' + a.zoom.replace('.', '')) + ('-3x' if a.scale == '3' else '') \
+        + ('-budget' if float(a.budget_ms) > 0 else '')
+    budget = float(a.budget_ms) > 0
+    scale = int(a.scale)
     if not a.data_dir or not os.path.isdir(a.data_dir) or not a.game_exe or not os.path.isfile(a.game_exe):
         print('%s: skipped (set RA2_NATIVE_CENSUS_DATA_DIR and RA2_NATIVE_CENSUS_GAME_EXE)' % name)
         return SKIP
@@ -81,20 +110,32 @@ def main():
         if not wine:
             print('%s: Windows build and no Wine (set RA2_NATIVE_WINE); skipped' % name)
             return SKIP
-        prefix = winehost.Prefix(wine, a.wine_prefix + ('' if a.zoom == '1.5' else '-zoom' + a.zoom))   # one per test
+        prefix = winehost.Prefix(wine, a.wine_prefix + '-' + name)   # one per test
     env = dict(os.environ, RA2_GAME_EXE=a.game_exe, RA2_NATIVE_MOVIE_SKIP='1', RA2_NATIVE_CRASH_TRACE='1',
-               RA2_NATIVE_IGNORE_FOCUS='1', RA2_NATIVE_HD_STATS='1', RA2_NATIVE_ENHANCEMENTS='hdvehicles=2,mapzoom=' + a.zoom)
+               RA2_NATIVE_IGNORE_FOCUS='1', RA2_NATIVE_HD_STATS='1', RA2_NATIVE_HD_BUDGET_MS=a.budget_ms,
+               RA2_NATIVE_ENHANCEMENTS='hdvehicles=%d,mapzoom=%s' % (scale, a.zoom))
+    if a.case == 'air-base':
+        env.update(AIR_BASE_ENV)
+    dumps = ['%s dump' % f for f in a.dump_frames.split(',') if f] if a.dump else []
+    if dumps:
+        os.makedirs(a.dump, exist_ok=True)
+        env.update(RA2_NATIVE_WINDOW_DUMP=os.path.join(os.path.abspath(a.dump), 'w'), RA2_NATIVE_WINDOW_DUMP_MS='100000000',
+                   RA2_NATIVE_HD_COMPARE='1')
     env.pop('RA2_NATIVE_TRAP_CONTINUE', None)
     work = tempfile.mkdtemp(prefix='ra2-hdvox-')
     try:
         script = os.path.join(work, 'input.script')
         with open(script, 'w') as f:
-            f.write('\n'.join(SCRIPT) + '\n')
+            lines = (SCRIPT if a.case == 'units' else []) + dumps
+            f.write('\n'.join(sorted(lines, key=lambda l: int(l.split()[0]))) + '\n')
         write_dir = os.path.join(work, 'write')
         os.mkdir(write_dir)
         cmd = [a.binary, '--data-dir', a.data_dir, '--run-to=frames', '--run-seconds=%d' % a.seconds,
-               '--write-dir=' + write_dir, '--game-args=-noaudio -CD.', '--skirmish=#5', '--skirmish-order=both',
-               '--skirmish-frames=%d' % FRAMES, '--input-script=' + script]
+               '--write-dir=' + write_dir, '--game-args=-noaudio -CD.', '--skirmish=#5',
+               '--skirmish-order=' + ('both' if a.case == 'units' else 'build'),
+               '--skirmish-frames=%d' % (FRAMES if a.case == 'units' else AIR_BASE_FRAMES)]
+        if a.case == 'units' or dumps:
+            cmd.append('--input-script=' + script)
         for attempt in range(winehost.HOST_RETRIES + 1):
             run_env, run_cmd = env, cmd
             if prefix:
@@ -115,11 +156,35 @@ def main():
             f.write(out)
     bad = [l for l in out.splitlines() if BAD.search(l)]
     counts = [tuple(float(g) for g in m.groups()) for m in map(COUNTS.match, out.splitlines()) if m]
+    kinds = [tuple(int(g) for g in m.groups()) for m in map(KINDS.match, out.splitlines()) if m]
     problems = []
     if p.returncode != 0 or bad:
         problems.append('exit %d, %d bad lines' % (p.returncode, len(bad)))
-    if 'hd-vehicles: 2x for this game' not in out:
-        problems.append('the game did not take HD vehicles')
+    if 'hd-vehicles: %dx for this game' % scale not in out:
+        problems.append('the game did not take HD vehicles %dx' % scale)
+    if budget:
+        # Over the budget: two windows of 60 pictures at 3x, then 2x for the rest of the game.
+        if 'over the %.2f ms budget: 2x for the rest of this game' % float(a.budget_ms) not in out:
+            problems.append('the game did not drop to 2x over the %s ms budget' % a.budget_ms)
+        if not kinds or kinds[-1][0] != 2:
+            problems.append('the last count is not at 2x after the drop')
+    elif 'for the rest of this game' in out:
+        problems.append('the game dropped to 2x (the frame budget is off in this test)')
+    if len(kinds) != len(counts) or (not budget and any(k[0] != scale for k in kinds)):
+        problems.append('the per-kind counts are missing or not at %dx' % scale)
+    for k, c in enumerate(kinds):
+        print('count %d by kind: vehicles %d/%d aircraft %d/%d buildings %d/%d other %d/%d (renders/shown); 3x fill %d'
+              % ((k,) + c[1:]))
+    if kinds and scale == 3 and not budget and kinds[-1][9] <= 0:
+        problems.append('3x filled no sub-pixels (the 1x colour fill did not run)')
+    if kinds and scale == 2 and kinds[-1][9] != 0:
+        problems.append('2x filled %d sub-pixels (2x must stay as it was)' % kinds[-1][9])
+    if a.case == 'air-base':
+        for kind, at in (('aircraft', 4), ('buildings', 6)):
+            best = max(c[at] for c in kinds) if kinds else 0
+            print('%s: at most %d screen pixels at %dx in a count' % (kind, best, scale))
+            if best <= 0:
+                problems.append('no %s shown at %dx in any count' % (kind, scale))
     # A count every 100 pictures: under Wine fewer pictures are shown in the same 600 frames.
     if len(counts) < 2:
         problems.append('%d counts (wanted at least 2)' % len(counts))
@@ -137,14 +202,14 @@ def main():
         print('%s: load %.0f over %d CPUs: time and flicker reported only' % (name, load, os.cpu_count() or 1))
     for k, c in enumerate(counts):
         print('count %d: renders %d blits %d pixels %d; shown %d, mismatched %d; %.2f ms a picture; drops %d' % ((k,) + c))
-        if c[3] <= 0:
+        if c[3] <= 0 and a.case == 'units':
             problems.append('count %d: no screen pixels at 2x' % k)
         if c[4] != 0:
             problems.append('count %d: %d 2x groups disagree with their 1x pixel' % (k, c[4]))
     if counts:
         which = 'best' if loaded else 'median'
         shown = max(c[3] for c in counts) if loaded else sorted(c[3] for c in counts)[len(counts) // 2]
-        if shown < 1000:
+        if shown < 1000 and a.case == 'units':
             problems.append('the %s count shows %d screen pixels at 2x (wanted 1,000 or more)' % (which, shown))
     if counts and counts[-1][6] != 0 and not loaded:
         problems.append('%d pictures showed the units at 1x after one at 2x (flicker)' % counts[-1][6])
@@ -154,8 +219,9 @@ def main():
         print('%s: load %.1f: the 2x work time reported only' % (name, load))
     if counts and not prefix and quiet:
         mean = sorted(c[5] for c in counts)[len(counts) // 2]
-        if mean > 4.0:
-            problems.append('the 2x work took %.2f ms a picture (the median count; wanted under 4)' % mean)
+        limit = 4.0 * scale * scale / 4
+        if mean > limit:
+            problems.append('the %dx work took %.2f ms a picture (the median count; wanted under %g)' % (scale, mean, limit))
     for l in bad[:20]:
         print('  ' + l)
     if problems:

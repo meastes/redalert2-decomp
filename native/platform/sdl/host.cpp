@@ -1677,40 +1677,45 @@ bool fill_menu_bands(float density)
 
 // HD vehicles (lane C16; link/native_hd_vehicles.cpp): the screen's 2x unit pixels that still show
 // in the picture, laid over it at the picture's scale (the regions' too, so with Map zoom the units
-// are sharper, not only larger). hd_argb is the overlay at twice the picture's size, transparent
-// but where a unit's 2x pixels show; each new picture clears the box it wrote last and writes the new.
+// are sharper, not only larger). hd_argb is the overlay at N times the picture's size (N the HD
+// scale, 2 or 3, ra2_hd_scale), transparent but where a unit's Nx pixels show; each new picture clears
+// the box it wrote last and writes the new.
 extern "C" __attribute__((weak)) int ra2_hd_overlay(const void *, int, int, int, uint32_t *, int (*)[4], int, int *count)
 {
     *count = 0;
     return 0;
 }
+extern "C" __attribute__((weak)) int ra2_hd_scale(void) { return 2; }
 SDL_Texture *hd_texture = nullptr;
 std::vector<uint32_t> hd_argb;
-int hd_w = 0, hd_h = 0;
+int hd_w = 0, hd_h = 0, hd_scale = 2;   // hd_scale: the overlay texture's, taken before each overlay
 constexpr int kHdAreas = 64;
 int hd_areas[kHdAreas][4], hd_area_count = 0;   // the areas written last (1x pixels: x, y, w, h)
 bool hd_shown = false;
 void hd_update(const void *pixels, int width, int height, int pitch)
 {
     if (!pixels) return;      // the last picture again: the overlay stays as it is
-    if (hd_w != width || hd_h != height) {
+    int N = ra2_hd_scale();
+    if (hd_w != width || hd_h != height || hd_scale != N) {
         if (hd_texture) SDL_DestroyTexture(hd_texture);
         hd_texture = nullptr;
-        hd_argb.assign((size_t)width * height * 4, 0);
+        hd_argb.assign((size_t)width * height * N * N, 0);
         hd_w = width;
         hd_h = height;
+        hd_scale = N;
         hd_area_count = 0;
+        hd_shown = false;
     }
-    int W = width * 2;
+    int W = width * N;
     int old_areas[kHdAreas][4], old_count = hd_area_count;
     memcpy(old_areas, hd_areas, sizeof hd_areas);
     for (int k = 0; k < old_count; ++k)
-        for (int y = old_areas[k][1] * 2; y < (old_areas[k][1] + old_areas[k][3]) * 2; ++y)
-            memset(&hd_argb[(size_t)y * W + old_areas[k][0] * 2], 0, (size_t)old_areas[k][2] * 2 * sizeof(uint32_t));
+        for (int y = old_areas[k][1] * N; y < (old_areas[k][1] + old_areas[k][3]) * N; ++y)
+            memset(&hd_argb[(size_t)y * W + old_areas[k][0] * N], 0, (size_t)old_areas[k][2] * N * sizeof(uint32_t));
     bool any = ra2_hd_overlay(pixels, pitch, width, height, hd_argb.data(), hd_areas, kHdAreas, &hd_area_count) != 0;
     if (!any && !hd_shown) return;
     if (!hd_texture) {
-        hd_texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, W, height * 2);
+        hd_texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, W, height * N);
         if (!hd_texture) return;
         SDL_SetTextureBlendMode(hd_texture, SDL_BLENDMODE_BLEND);
         SDL_UpdateTexture(hd_texture, nullptr, hd_argb.data(), W * sizeof(uint32_t));
@@ -1718,7 +1723,7 @@ void hd_update(const void *pixels, int width, int height, int pitch)
     SDL_SetTextureScaleMode(hd_texture, picture_scale_mode);
     // The areas cleared and the areas written go up.
     auto upload = [&](const int *a) {
-        SDL_Rect r = {a[0] * 2, a[1] * 2, a[2] * 2, a[3] * 2};
+        SDL_Rect r = {a[0] * N, a[1] * N, a[2] * N, a[3] * N};
         if (r.w > 0 && r.h > 0) SDL_UpdateTexture(hd_texture, &r, &hd_argb[(size_t)r.y * W + r.x], W * sizeof(uint32_t));
     };
     for (int k = 0; k < old_count; ++k) upload(old_areas[k]);
@@ -1782,7 +1787,8 @@ void present_now(const void *pixels, int width, int height, int pitch)
                 SDL_FRect to = {(float)(r.dx * density), (float)(r.dy * density), (float)(r.dw * density), (float)(r.dh * density)};
                 SDL_RenderTexture(renderer, texture, &src, &to);
                 if (hd_shown && hd_texture) {
-                    SDL_FRect src2 = {src.x * 2, src.y * 2, src.w * 2, src.h * 2};
+                    float N = (float)hd_scale;
+                    SDL_FRect src2 = {src.x * N, src.y * N, src.w * N, src.h * N};
                     SDL_RenderTexture(renderer, hd_texture, &src2, &to);
                 }
             }

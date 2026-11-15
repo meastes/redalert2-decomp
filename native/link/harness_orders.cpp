@@ -15,7 +15,7 @@
 // tanks hunt the enemy; the start units wait and join the attack).
 // RA2_NATIVE_ORDERS="<frame> goto <ID|*> <x> <y>; <frame> attack <ID|*> <x> <y>;
 // <frame> hunt; <frame> capture <ID> <x> <y>; <frame> sabotage <ID> <x> <y>; <frame> train <ID>; <frame> super <index> <x> <y>;
-// <frame> amove <ID|*> <x> <y> (attack-move, C3); <frame> grant <index>; <frame> super <index> enemy [<house>] [units]; <frame> board <ID> <TRANSPORT>; <frame> unload <TRANSPORT>" (board/unload, train of a vehicle: Scout1295) (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
+// <frame> amove <ID|*> <x> <y> (attack-move, C3); <frame> grant <index>; <frame> super <index> enemy [<house>] [units]; <frame> super <index> home [<dx> <dy>] (C17); <frame> board <ID> <TRANSPORT>; <frame> unload <TRANSPORT>" (board/unload, train of a vehicle: Scout1295) (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
 // attack/capture: the building in cell x,y, mission 1 / 8 (`attack <ID> <TYPE>`: the first enemy
 // object of that type; Tanya only when named); train: the barracks' cameo click;
 // units -1 when the cell holds none) (Scout1153,
@@ -217,6 +217,27 @@ int Scripted_Order(char const *command)
             }
         }
         return -1;
+    }
+    if (Same(word[1], "super", 6) && (words == 4 || words == 6) && Same(word[3], "home", 5)) {
+        // `super <index> home [<dx> <dy>]` (C17, HD vehicles: a paradrop's cargo plane over the
+        // player's own view): the cell of the player's first building, else first unit, moved by
+        // dx, dy cells.
+        HouseClass *player = unknown_player_a35db4;
+        if (player == 0) return -1;
+        TechnoClass *home = 0;
+        for (int i = 0; i < Technos.Count() && home == 0; ++i)
+            if (Technos[i] && Technos[i]->House == player && Technos[i]->Kind_Of() == 6) home = Technos[i];
+        for (int i = 0; i < Technos.Count() && home == 0; ++i)
+            if (Technos[i] && Technos[i]->House == player && Technos[i]->Kind_Of() == 1) home = Technos[i];
+        if (home == 0) return -1;
+        Cell cell = home->Center_Coord().As_Cell();
+        char text[64] = "0 super ";
+        Append(text, word[2]);
+        Append(text, " ");
+        Append_Int(text, cell.X + (words == 6 ? atoi(word[4]) : 0));
+        Append(text, " ");
+        Append_Int(text, cell.Y + (words == 6 ? atoi(word[5]) : 0));
+        return Scripted_Order(text);
     }
     if (Same(word[1], "super", 6) && words >= 5) {
         // A super weapon (Scout1170, M21): the human house's Supers[index] is
