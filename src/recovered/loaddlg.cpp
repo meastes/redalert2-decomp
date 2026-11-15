@@ -283,7 +283,7 @@ LRESULT __stdcall LoadOptionsClass::Load_Dialog_Proc(HWND window, UINT message, 
         Load_Dialog_On_WM_COMMAND(window, (unsigned short)wparam, (HWND)lparam, (unsigned short)(wparam >> 16));
         break;
     case 0x216:
-        return Unknown_Clamp_Rect_To_Screen_00736D80(window, wparam, (Rect *)lparam);
+        return On_WM_MOVING(window, wparam, (Rect *)lparam);
     case 0x497:
         SendDlgItemMessageA(window, 0x525, 0x4a6, 0xf9, 2);
         SendDlgItemMessageA(window, 0x525, 0x4a6, 0x38, 0xff);
@@ -310,7 +310,7 @@ LRESULT __stdcall LoadOptionsClass::Save_Dialog_Proc(HWND window, UINT message, 
         Save_Dialog_On_WM_COMMAND(window, (unsigned short)wparam, (HWND)lparam, (unsigned short)(wparam >> 16));
         break;
     case 0x216:
-        return Unknown_Clamp_Rect_To_Screen_00736D80(window, wparam, (Rect *)lparam);
+        return On_WM_MOVING(window, wparam, (Rect *)lparam);
     case 0x497:
         SendMessageA(GetDlgItem(window, 0x526), 0xc5, 0x4f, 0);
         SendDlgItemMessageA(window, 0x527, 0x4a6, 0xf9, 2);
@@ -341,7 +341,7 @@ LRESULT __stdcall LoadOptionsClass::Delete_Dialog_Proc(HWND window, UINT message
         Delete_Dialog_On_WM_COMMAND(window, (unsigned short)wparam, (HWND)lparam, (unsigned short)(wparam >> 16));
         break;
     case 0x216:
-        return Unknown_Clamp_Rect_To_Screen_00736D80(window, wparam, (Rect *)lparam);
+        return On_WM_MOVING(window, wparam, (Rect *)lparam);
     case 0x497:
         SendDlgItemMessageA(window, 0x528, 0x4a6, 0xf9, 2);
         SendDlgItemMessageA(window, 0x528, 0x4a6, 0x38, 0xff);
@@ -425,8 +425,8 @@ bool LoadOptionsClass::Dialog()
                 if (unknown_14) {
                     ((void (*)())unknown_14)();
                 }
-                if (!unknown_flag_a40958) {
-                    unknown_517370(false);
+                if (!GameActive) {
+                    Title_Screen_Restore(false);
                 }
             }
             if (State == 1 || State == 0x40f) {
@@ -772,8 +772,8 @@ bool __stdcall Load_Game_With_Dialog(char const *filename)
     if (dialog) {
         unknown_dialog_5ff7c0(dialog);
     }
-    unknown_flag_a40d04 = false;
-    unknown_flag_a40380 = false;
+    ScenarioActive = false;
+    TacticalActive = false;
     unknown_session_a3d298.Unknown_00672E70();
     bool loaded = Unknown_00656890(filename);
     while (WWMouse->Get_Mouse_State() < mouse_state) {

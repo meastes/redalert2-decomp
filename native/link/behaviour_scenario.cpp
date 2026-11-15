@@ -83,7 +83,7 @@ extern unsigned int unknown_detail_buffer_zone_7dfb38;  // 0x007DFB38
 
 // 0x0053D820 / 0x0053D830 (leaves src/recovered/0053d820.cpp, 0053d830.cpp,
 // __fastcall): store the argument at 0x007DFB34 / 0x007DFB38.
-void __fastcall unknown_set_frame_rate_0053d820(int rate)
+void __fastcall Set_Frame_Rate_Limit(int rate)
 {
     unknown_detail_frame_rate_7dfb34 = rate;
 }

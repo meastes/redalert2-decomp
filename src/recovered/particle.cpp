@@ -225,7 +225,7 @@ ParticleClass::~ParticleClass()
 static inline Vector3 Slope_Vector(Vector3 &vector, CoordStruct const &coord, float length)
 {
     Matrix3D slope_matrix;
-    slope_matrix = *Unknown_00718D60(&Matrix3D(), unknown_tactical_83996c->Get_Cell_Ramp_006a7110(coord));
+    slope_matrix = *Unknown_00718D60(&Matrix3D(), TacticalMap->Get_Cell_Ramp_006a7110(coord));
     Matrix3D slope_matrix_inv = Matrix3D_Rigid_Inverse_00591420(slope_matrix);
     Vector3 vec;
     vec.Set_00437690(vector.X, -vector.Y, vector.Z);
@@ -652,7 +652,7 @@ void ParticleClass::Draw_It(Point2D const &point, Rect const &cliprect)
             }
         } else {
             Point2D pixel;
-            unknown_tactical_83996c->Coord_To_Pixel(Position_Coord_004f3f40(), pixel);
+            TacticalMap->Coord_To_Pixel(Position_Coord_004f3f40(), pixel);
             pixel.Y += unknown_int_839634;
             if (cliprect.Is_Point_Within(pixel)) {
                 Point2D alpha_point = pixel - Point2D(0, AlphaBuffer->Area.Y);
@@ -865,9 +865,9 @@ int ParticleClass::Shape_Number()
         {
             Point2D from;
             Point2D to;
-            unknown_tactical_83996c->Coord_To_Pixel(unknown_e4, from);
-            unknown_tactical_83996c->Coord_To_Pixel(unknown_d8, to);
-            int direction = Unknown_00721DB0(from, to);
+            TacticalMap->Coord_To_Pixel(unknown_e4, from);
+            TacticalMap->Coord_To_Pixel(unknown_d8, to);
+            int direction = Facing_Between_Points(from, to);
             if (direction == 2 || direction == 6) {
                 return unknown_11e + Class->EndStateAI * 2;
             }

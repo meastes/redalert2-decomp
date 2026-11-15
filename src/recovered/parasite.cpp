@@ -140,7 +140,7 @@ void ParasiteClass::Unknown_006064C0()
         Victim = 0;
     }
     if (unknown_54) {
-        unknown_abstracts_ac0bf8.Delete(this);
+        AnimPtrTracker.Delete(this);
         unknown_54 = false;
     }
 }
@@ -155,7 +155,7 @@ HRESULT __stdcall ParasiteClass::Load(IStream *stream)
     if (SUCCEEDED(result)) {
         new (this) ParasiteClass(NoInitClass());
         if (Victim != 0) {
-            unknown_abstracts_ac0bf8.Add(this);
+            AnimPtrTracker.Add(this);
         }
         Swizzler.Swizzle((void **)&Owner);
         Swizzler.Swizzle((void **)&unknown_28);
@@ -273,7 +273,7 @@ void ParasiteClass::Unknown_00606780()
                     AnimClass *anim = new AnimClass(type, coord, 0, 1, 0x600, 0);
                     if (anim) {
                         Victim = (ParasiteVictim *)anim;
-                        unknown_abstracts_ac0bf8.Add(this);
+                        AnimPtrTracker.Add(this);
                     }
                 }
             }
@@ -459,7 +459,7 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
         return;
     }
     if (target == unknown_28) {
-        if (!unknown_flag_a40d04) {
+        if (!ScenarioActive) {
             unknown_28 = 0;
             return;
         }
@@ -470,10 +470,10 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
             return;
         }
         CoordStruct coord = Unknown_00607C30();
-        unknown_a40774++;
+        ScenarioInit++;
         if (coord != unknown_geometry_l) {
             if (Owner->Unlimbo(&coord, Dir_To_256(unknown_28->unknown_2e0.Current()))) {
-                unknown_a40774--;
+                ScenarioInit--;
                 if (Owner->unknown_381 && Owner->House->Is_Player_Control()) {
                     Owner->unknown_381 = false;
                     Owner->unknown_slot80();
@@ -493,7 +493,7 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
                 return;
             }
         }
-        unknown_a40774--;
+        ScenarioInit--;
         Owner->Strength = 0;
         Owner->Delete_Me();
         unknown_28 = 0;

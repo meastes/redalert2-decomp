@@ -230,8 +230,8 @@ bool MapSelect::Init_0058fa20(ScenarioClass *scenario)
         Deinit_0058fc60();
         return false;
     }
-    XOffset=(unknown_surface_839954->Get_Width()-640)/2;
-    YOffset=(unknown_surface_839954->Get_Height()-400)/2;
+    XOffset=(HiddenSurface->Get_Width()-640)/2;
+    YOffset=(HiddenSurface->Get_Height()-400)/2;
     Rect const *textBounds=&Choices.TextRect;
     TextRect=*textBounds;
     TextRect.X+=XOffset;

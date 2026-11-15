@@ -21,7 +21,7 @@ void *Native_Pointer_From_Handle(int handle);   // NATIVE: native/link/native_po
 // @ref ?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
 // @ref ?AlphaBuffer@@3PAVABuffer@@A=008315b4
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
-// @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
+// @ref ?TacticalMap@@3PAVTactical@@A=0083996c
 // @ref _unknown_empty_rect=0083c600
 
 #ifndef MIN
@@ -36,7 +36,7 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
     for (int index = 0; index < unknown_AlphaShapeClass_list_0083c648.Count(); index++) {
         {
             Rect r1 = unknown_AlphaShapeClass_list_0083c648[index]->Bounds;
-            r1 -= Point2D(unknown_tactical_83996c->TacPixelX, unknown_tactical_83996c->TacPixelY);
+            r1 -= Point2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY);
             r1.X += unknown_rect_839630.X;   // NATIVE: the overlay's Rect += Point2D (RA2_RECT_POINT_INLINE): moves the corner
             r1.Y += unknown_rect_839630.Y;   // NATIVE
             Rect clip = cliprect;

@@ -17,15 +17,15 @@ extern HWND exception_window_00b25dd4;
 extern bool unknown_flag_839c4c;
 extern Surface *unknown_surface_839950;
 // @ref ?unknown_surface_839950@@=00839950
-// @ref ?unknown_surface_839954@@=00839954
+// @ref ?HiddenSurface@@=00839954
 extern Surface *unknown_surface_839964;
 // @ref ?unknown_surface_839964@@=00839964
 extern Surface *unknown_surface_839944;
 // @ref ?unknown_surface_839944@@=00839944
-extern Surface *unknown_surface_839948;
-// @ref ?unknown_surface_839948@@=00839948
-extern Surface *unknown_surface_839958;
-// @ref ?unknown_surface_839958@@=00839958
+extern Surface *SidebarSurface;
+// @ref ?SidebarSurface@@=00839948
+extern Surface *AlternateSurface;
+// @ref ?AlternateSurface@@=00839958
 // @ref ?Unknown_00522e10@@=00522e10
 // @ref ?Dump_Exception_004b7df0@@=004b7df0
 // @ref ?Show_Exception_Dialog_004b7cf0@@=004b7cf0
@@ -61,11 +61,11 @@ int __fastcall Handle_Exception_004b87f0(unsigned int exceptionCode, _EXCEPTION_
         }
     }
     if (((unknown_surface_839950 && unknown_surface_839950->Is_Locked())
-      || (unknown_surface_839954 && unknown_surface_839954->Is_Locked())
+      || (HiddenSurface && HiddenSurface->Is_Locked())
       || (unknown_surface_839964 && unknown_surface_839964->Is_Locked())
       || (unknown_surface_839944 && unknown_surface_839944->Is_Locked())
-      || (unknown_surface_839948 && unknown_surface_839948->Is_Locked())
-      || (unknown_surface_839958 && unknown_surface_839958->Is_Locked())) && unknown_flag_839c4c)
+      || (SidebarSurface && SidebarSurface->Is_Locked())
+      || (AlternateSurface && AlternateSurface->Is_Locked())) && unknown_flag_839c4c)
         goto unavailable;
     if (GetCurrentThreadId()!=main_thread_00b25f78) {
 unavailable:

@@ -2317,7 +2317,7 @@ class Surface;
 int __fastcall Write_PCX_File(FileClass &file,Surface &picture,PaletteClass *palette);
 void __fastcall unknown_dialog_5ff7c0(HWND window);
 void __fastcall unknown_dialog_5ff6e0(HWND window);
-void __fastcall unknown_517370(bool flag);
+void __fastcall Title_Screen_Restore(bool flag);
 int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND,UINT,WPARAM,LPARAM);
 bool Default_Map_Generation_Callback_00482100();
 extern bool (*rmg_callback_7e09c4)();
@@ -2337,7 +2337,7 @@ int __fastcall Do_Random_Map_Dialog_00577490(bool (*callback)())
         while(result==0) {
             if(unknown_6000d0()==true)break;
             if(callback!=0)callback();
-            unknown_517370(false);
+            Title_Screen_Restore(false);
         }
         unknown_dialog_5ff6e0(dialog);
     }
@@ -2346,7 +2346,7 @@ int __fastcall Do_Random_Map_Dialog_00577490(bool (*callback)())
     if(unknown_preview_a6fee4!=0) {
         if(unknown_preview_a6fee4->unknown_00!=0) {
             RawFileClass file(rmg_preview_filename_7e1540);
-            Write_PCX_File(file,*static_cast<Surface *>(unknown_preview_a6fee4->unknown_00),&unknown_palette_837e10);
+            Write_PCX_File(file,*static_cast<Surface *>(unknown_preview_a6fee4->unknown_00),&GamePalette);
         }
         delete unknown_preview_a6fee4;
         unknown_preview_a6fee4=0;
@@ -2419,7 +2419,7 @@ void __fastcall Clean_Up_RMCache()
 
 class Surface;
 int __fastcall Write_PCX_File(FileClass &,Surface &,PaletteClass *);
-void __fastcall unknown_517370(bool);
+void __fastcall Title_Screen_Restore(bool);
 char * __fastcall Random_Map_CRC_005c8420();
 void __fastcall Clean_Up_RMCache();
 extern bool (*rmg_callback_7e09c4)();
@@ -2453,7 +2453,7 @@ void __fastcall Do_Random_Map_00577880(HWND dialog,bool (*callback)())
         if(unknown_preview_a6fee4==0)unknown_preview_a6fee4=new MapPreviewClass;
         if(unknown_preview_a6fee4->Read_PCX_Preview(name)) {
             RawFileClass file(rmg_preview_filename_7e1540);
-            Write_PCX_File(file,*static_cast<Surface *>(unknown_preview_a6fee4->unknown_00),&unknown_palette_837e10);
+            Write_PCX_File(file,*static_cast<Surface *>(unknown_preview_a6fee4->unknown_00),&GamePalette);
             delete unknown_preview_a6fee4;
             unknown_preview_a6fee4=0;
             return;
@@ -2464,7 +2464,7 @@ void __fastcall Do_Random_Map_00577880(HWND dialog,bool (*callback)())
     rmg_callback_7e09c4=callback;
     RandomMapGen.SeedData.unknown_14=(int)callback;
     if(RandomMapGen.SeedData.Seed==-1)
-        RandomMapGen.SeedData.Seed=unknown_random_839218(0,65535);
+        RandomMapGen.SeedData.Seed=NonCriticalRandomNumber(0,65535);
     RandomMapGen.Unknown_0057A0D0(1,(int)dialog);
     unknown_preview_a6fee4->Create_Preview();
     if(unknown_game_mode_a3d298==4 && unknown_a3d2a4==2)unknown_preview_a6fee4->unknown_005c7ef0();
@@ -2472,11 +2472,11 @@ void __fastcall Do_Random_Map_00577880(HWND dialog,bool (*callback)())
     RandomMapGen.MapSeeder=(int)new MapSeedClass;
     memcpy((void*)RandomMapGen.MapSeeder,&RandomMapGen.SeedData,sizeof(MapSeedClass));
     unknown_id_source_a3d290->Set_Scenario_Name_0065e730(rmg_description_7e15dc);
-    unknown_517370(false);
+    Title_Screen_Restore(false);
     if(unknown_preview_a6fee4!=0) {
         if(unknown_preview_a6fee4->unknown_00!=0) {
             RawFileClass file(rmg_preview_filename_7e1540);
-            Write_PCX_File(file,*static_cast<Surface *>(unknown_preview_a6fee4->unknown_00),&unknown_palette_837e10);
+            Write_PCX_File(file,*static_cast<Surface *>(unknown_preview_a6fee4->unknown_00),&GamePalette);
             WIN32_FIND_DATA find;
             if(FindFirstFileA(rmg_cache_directory_7e15d4,&find)==(HANDLE)-1)CreateDirectoryA(rmg_cache_directory_7e15d4,0);
             CopyFileA(rmg_preview_filename_7e1540,name,0);
@@ -2600,16 +2600,16 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
         case 0x621: {
             RandomMapGen.SeedData.Read_Dialog_Parameters_00578420(window);
             RandomMapGen.SeedData.Populate_Dialog_Parameters_00578600(window);
-            RandomMapGen.SeedData.Theater=((unsigned int)unknown_random_839218(0,100)>=50);
-            RandomMapGen.SeedData.MapType=unknown_random_839218(1,4);
-            RandomMapGen.SeedData.Time=unknown_random_839218(0,3);
-            RandomMapGen.SeedData.Resources=unknown_random_839218(0,3);
-            RandomMapGen.SeedData.Width=unknown_random_839218(0,3);
+            RandomMapGen.SeedData.Theater=((unsigned int)NonCriticalRandomNumber(0,100)>=50);
+            RandomMapGen.SeedData.MapType=NonCriticalRandomNumber(1,4);
+            RandomMapGen.SeedData.Time=NonCriticalRandomNumber(0,3);
+            RandomMapGen.SeedData.Resources=NonCriticalRandomNumber(0,3);
+            RandomMapGen.SeedData.Width=NonCriticalRandomNumber(0,3);
             RandomMapGen.SeedData.Height=RandomMapGen.SeedData.Width;
             RandomMapGen.SeedData.Randomize_Parameters_005789f0(RandomMapGen.SeedData.MapType);
             wcscpy(RandomMapGen.SeedData.DescriptionBuffer,
                 StringTable::Load_String(unknown_description_label_7e14dc,0,unknown_mapgen_file_7e14f8,0xed1));
-            RandomMapGen.SeedData.Seed=unknown_random_839218(0,65535);
+            RandomMapGen.SeedData.Seed=NonCriticalRandomNumber(0,65535);
             RandomMapGen.SeedData.Fixup_Settings();
             RandomMapGen.SeedData.Populate_Dialog_Parameters_00578600(window);
             delete unknown_preview_a6fee4;
@@ -2775,7 +2775,7 @@ void MapSeedClass::Apply_WDT_Territory_00578bc0()
         territory=Get_WDT_Territory_00769690(*(int const*)&unknown_session_a3d298.unknown_00[8]);
     if(territory.Get()) {
         unsigned short fixed_seed=*(unsigned short const*)territory->unknown_0c;
-        Seed=fixed_seed==0 ? unknown_random_839218(0,0xffff) : fixed_seed;
+        Seed=fixed_seed==0 ? NonCriticalRandomNumber(0,0xffff) : fixed_seed;
         switch(territory->unknown_12) {
         case 0: Width=0; break;
         case 2: Width=2; break;
@@ -2954,7 +2954,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     Debug_Printf(unknown_rmg_message_007e19b4);
     Init_Map(fullInit);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
-    unknown_a40774=(int)((unsigned)unknown_a40774+1u);
+    ScenarioInit=(int)((unsigned)ScenarioInit+1u);
     if((unsigned char)fullInit) {
         unknown_preview_a6fee4->Create_Preview();
         SendMessageA(window,15,0,0);
@@ -3083,7 +3083,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
         SendMessageA(window,15,0,0);
         if(unknown_session_a3d298.Type==4 && unknown_a3d2a4==2)unknown_preview_a6fee4->unknown_005c7ef0();
     }
-    unknown_a40774=(int)((unsigned)unknown_a40774-1u);
+    ScenarioInit=(int)((unsigned)ScenarioInit-1u);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     Debug_Printf(unknown_rmg_message_007e1950);
     Map.Reset_Iterator();
@@ -3191,7 +3191,7 @@ void MapGeneratorClass::Init_Map(int fullInit)
     Clear_Tiberium_Spread_006e9670();
     Clear_Tiberium_Growth_006ea130();
     if(!(unsigned char)fullInit) {
-        unknown_a40774=(int)((unsigned)unknown_a40774+1u);
+        ScenarioInit=(int)((unsigned)ScenarioInit+1u);
         unknown_id_source_a3d290->Set_Scenario_Name_0065e730("");
         if(Debug_Map)Clear_Scenario_0065d370();
         Read_Scenario_INI(ini,true);
@@ -3201,7 +3201,7 @@ void MapGeneratorClass::Init_Map(int fullInit)
         unknown_id_source_a3d290->Set_Waypoint_Location(unknown_id_source_a3d290->HomeCell,unknown_id_source_a3d290->Get_Waypoint_Location(99));
         Map[unknown_id_source_a3d290->Get_Waypoint_Location(unknown_id_source_a3d290->HomeCell)].unknown_140|=4;
         Map.RadarClass::Set_Tactical_Position(unknown_id_source_a3d290->Waypoint_Coord(unknown_id_source_a3d290->HomeCell));
-        unknown_a40774--;
+        ScenarioInit--;
     } else {
         unknown_id_source_a3d290->Set_Defaults();
         if(!MapPreview)MapPreview=(int)new MapPreviewClass;
@@ -3228,9 +3228,9 @@ void MapGeneratorClass::Init_Map(int fullInit)
             Map.MouseClass::Init_Clear();
             Map.RadarClass::Set_Map_Dimensions(&size,true,false,true);
             Map.RadarClass::Set_Local_Dimensions(localSize);
-            if(unknown_tactical_83996c)delete unknown_tactical_83996c;
-            unknown_tactical_83996c=new Tactical;
-            unknown_tactical_83996c->Reset_Dirty_Rectangles();
+            if(TacticalMap)delete TacticalMap;
+            TacticalMap=new Tactical;
+            TacticalMap->Reset_Dirty_Rectangles();
         }
         Report_Generation_Progress_0057be50(10);
         while(Units.Count()>0)delete Units[Units.Count()-1];
@@ -3259,7 +3259,7 @@ void MapGeneratorClass::Init_Map(int fullInit)
         Map.RadarClass::Set_Tactical_Position(unknown_id_source_a3d290->Waypoint_Coord(98));
         Report_Generation_Progress_0057be50(25);
         if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
-        unknown_a40774=(int)((unsigned)unknown_a40774+1u);
+        ScenarioInit=(int)((unsigned)ScenarioInit+1u);
         if(theater!=unknown_id_source_a3d290->Theater) {Init_Theater_00519e70(theater);unknown_id_source_a3d290->Theater=theater;}
         Report_Generation_Progress_0057be50(30);
         if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
@@ -3284,7 +3284,7 @@ void MapGeneratorClass::Init_Map(int fullInit)
             Load_Isometric_Tiles_0052b2e0(false,true);
         }
         unknown_loaded_theater_7d88dc=unknown_id_source_a3d290->Theater;
-        unknown_a40774--;
+        ScenarioInit--;
     }
     Report_Generation_Progress_0057be50(40);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();

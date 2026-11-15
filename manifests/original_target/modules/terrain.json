@@ -657,6 +657,10 @@
    "address": "00a40d2c"
   },
   {
+   "symbol": "?GameActive@@3_NA",
+   "address": "00a40958"
+  },
+  {
    "symbol": "?GetDisguise@ObjectClass@@UAEPAVObjectTypeClass@@_N@Z",
    "address": null
   },
@@ -881,6 +885,10 @@
    "address": "005d2cf0"
   },
   {
+   "symbol": "?ScenarioInit@@3HA",
+   "address": "00a40774"
+  },
+  {
    "symbol": "?Select_Damage_Anim@@YIPAVAnimTypeClass@@HPAVWarheadTypeClass@@HPAUCoordStruct@@@Z",
    "address": "0047f4d0"
   },
@@ -917,6 +925,10 @@
    "address": "00abd868"
   },
   {
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
    "symbol": "?Take_Damage@ObjectClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z",
    "address": "005d3d20"
   },
@@ -941,10 +953,6 @@
    "address": "0047e2c0"
   },
   {
-   "symbol": "?Unknown_00566340@MapClass@@QAEXABVCell@@@Z",
-   "address": "00566340"
-  },
-  {
    "symbol": "?Unknown_006A2970@@YIHH@Z",
    "address": "006a2970"
   },
@@ -959,6 +967,10 @@
   {
    "symbol": "?Unselect@ObjectClass@@UAEXXZ",
    "address": "005d2df0"
+  },
+  {
+   "symbol": "?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z",
+   "address": "00566340"
   },
   {
    "symbol": "?Update_Cell_Zone@MapClass@@QAEXABVCell@@@Z",
@@ -989,10 +1001,6 @@
    "address": "0047e2b0"
   },
   {
-   "symbol": "?unknown_a40774@@3HA",
-   "address": "00a40774"
-  },
-  {
    "symbol": "?unknown_b263d8@@3HA",
    "address": "00b263d8"
   },
@@ -1003,10 +1011,6 @@
   {
    "symbol": "?unknown_flag_7d88d5@@3_NA",
    "address": "007d88d5"
-  },
-  {
-   "symbol": "?unknown_flag_a40958@@3_NA",
-   "address": "00a40958"
   },
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
@@ -1167,10 +1171,6 @@
   {
    "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
    "address": "0083995c"
-  },
-  {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
   },
   {
    "symbol": "?unknown_terrain_section_7ad390@@3PBDB",

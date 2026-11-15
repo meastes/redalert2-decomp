@@ -36,7 +36,7 @@ protected:
     int Table[250];
 };
 
-extern Random2Class unknown_random_839218;      // 0x00839218 the generator audio and techno use
+extern Random2Class NonCriticalRandomNumber;      // 0x00839218 the generator audio and techno use
 
 // A random number in [minval, maxval] drawn with rejection sampling from the
 // generator's low bits.

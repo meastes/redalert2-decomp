@@ -186,12 +186,12 @@ extern "C" void ra2_adapter_0042(void * a0, void * a1, void * a2, bool a3) { ra2
 extern "C" int ra2_adapter_target_0043(void *, void *, int, bool, bool) __asm__("__Z20Dialog_Loop_007359e0P6HWND__PFbvEibb");
 extern "C" int ra2_adapter_0043(void * a0, void * a1, int a2, int a3, int a4) __asm__("__Z16Unknown_007359e0P6HWND__PFbvEiii");
 extern "C" int ra2_adapter_0043(void * a0, void * a1, int a2, int a3, int a4) { return ra2_adapter_target_0043(a0, a1, a2, (((unsigned int)(int)a3 & 0xFFu) != 0), (((unsigned int)(int)a4 & 0xFFu) != 0)); }
-// 0x007368A0 unknown_dialog_context_menu_7368a0(unsigned long) -> unknown_context_help_7368a0(HWND__*) [pointer-sized]
-extern "C" void ra2_adapter_target_0044(void *) __asm__("__Z27unknown_context_help_7368a0P6HWND__");
+// 0x007368A0 unknown_dialog_context_menu_7368a0(unsigned long) -> On_WM_CONTEXTMENU(HWND__*) [pointer-sized]
+extern "C" void ra2_adapter_target_0044(void *) __asm__("__Z17On_WM_CONTEXTMENUP6HWND__");
 extern "C" void ra2_adapter_0044(long long a0) __asm__("__Z34unknown_dialog_context_menu_7368a0m");
 extern "C" void ra2_adapter_0044(long long a0) { ra2_adapter_target_0044((void *)(intptr_t)a0); }
-// 0x00736D80 unknown_moving_736d80(HWND__*, unsigned long, Rect*) -> Unknown_Clamp_Rect_To_Screen_00736D80(void*, unsigned int, Rect*) [wparam]
-extern "C" bool ra2_adapter_target_0045(void *, int, void *) __asm__("__Z37Unknown_Clamp_Rect_To_Screen_00736D80PvjP4Rect");
+// 0x00736D80 unknown_moving_736d80(HWND__*, unsigned long, Rect*) -> On_WM_MOVING(void*, unsigned int, Rect*) [wparam]
+extern "C" bool ra2_adapter_target_0045(void *, int, void *) __asm__("__Z12On_WM_MOVINGPvjP4Rect");
 extern "C" bool ra2_adapter_0045(void * a0, long long a1, void * a2) __asm__("__Z21unknown_moving_736d80P6HWND__mP4Rect");
 extern "C" bool ra2_adapter_0045(void * a0, long long a1, void * a2) { return ra2_adapter_target_0045(a0, (int)(unsigned int)a1, a2); }
 // 0x00739A50 Unknown_00739a50(HWND__*, char) -> Unknown_Persona_Stats_Text_00739a50(HWND__*, bool) [width]

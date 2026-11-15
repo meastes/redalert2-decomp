@@ -165,7 +165,7 @@ void IonBlastClass::AI()
 
     if (unknown_10 != 1) {
         Point2D point;
-        unknown_tactical_83996c->Coord_To_Pixel(Coord, point);
+        TacticalMap->Coord_To_Pixel(Coord, point);
 
         if (Lifetime == 0) {
             if (Map[Coord].unknown_ec == 2) {
@@ -195,7 +195,7 @@ void IonBlastClass::AI()
                     if (occupier->Kind_Of() == 0x0F || occupier->Kind_Of() == 1) {
                         FootClass *foot = (FootClass *)occupier;
                         Point2D occupier_point;
-                        unknown_tactical_83996c->Coord_To_Pixel(occupier->Position_Coord_004f3f40(), occupier_point);
+                        TacticalMap->Coord_To_Pixel(occupier->Position_Coord_004f3f40(), occupier_point);
 
                         Point2D diff = occupier_point - point;
                         int screen_dist = (int)Fast_Sqrt((double)diff.Y * diff.Y + (double)diff.X * diff.X) + 8;
@@ -361,7 +361,7 @@ extern Rect unknown_rect_839630;        // 0x00839630 tactical X, Y, width, heig
 void IonBlastClass::Draw_It()
 {
     Point2D point;
-    if (unknown_a40b2c == 2 && unknown_tactical_83996c->Coord_To_Pixel(Coord, point)) {
+    if (unknown_a40b2c == 2 && TacticalMap->Coord_To_Pixel(Coord, point)) {
         Surface *dest_surface = unknown_surface_83995c;
         Rect dcliprect = unknown_rect_839630;
         dcliprect.Height -= 7;

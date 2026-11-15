@@ -140,8 +140,8 @@ void GScreenClass::Init_IO()
 
 void GScreenClass::Flag_To_Redraw(int complete)
 {
-    if (unknown_tactical_83996c != 0) {
-        unknown_tactical_83996c->unknown_d7d = true;
+    if (TacticalMap != 0) {
+        TacticalMap->unknown_d7d = true;
     }
     if (complete) {
         if (IsToRedraw != 2) {
@@ -172,7 +172,7 @@ void GScreenClass::Get_Input(int &input, int &x, int &y)
     if (Buttons != 0) {
         if (Buttons->Is_List_To_Redraw()) Flag_To_Redraw();
         Surface *oldpage = unknown_surface_83995c;
-        unknown_surface_83995c = unknown_surface_839954;
+        unknown_surface_83995c = HiddenSurface;
         input = Buttons->Input();
         unknown_surface_83995c = oldpage;
     } else {
@@ -237,13 +237,13 @@ void GScreenClass::Render()
     bool any = IsToRedraw != 0;
     bool complete = IsToRedraw == 2;
     IsToRedraw = 0;
-    unknown_tactical_83996c->Render(unknown_surface_839964, any, 0);
-    unknown_tactical_83996c->Render(unknown_surface_839964, any, 1);
+    TacticalMap->Render(unknown_surface_839964, any, 0);
+    TacticalMap->Render(unknown_surface_839964, any, 1);
     Draw_It(complete);
-    unknown_tactical_83996c->Render(unknown_surface_839964, any, 2);
+    TacticalMap->Render(unknown_surface_839964, any, 2);
 
     if (unknown_flag_abcd85 && !Debug_Map) {
-        WWMouse->Erase_Mouse(unknown_surface_839948, true);
+        WWMouse->Erase_Mouse(SidebarSurface, true);
         unknown_flag_abcd85 = false;
     }
     if (Buttons != 0) {
@@ -268,7 +268,7 @@ void GScreenClass::Render()
 
 void GScreenClass::Blit_Display()
 {
-    if (unknown_flag_852fd7 && unknown_device_852fe0->BeginScene() == 0) {
+    if (UseDirect3D && unknown_device_852fe0->BeginScene() == 0) {
         unknown_device_852fe0->EndScene();
     }
     Blit(false, unknown_surface_839964);
@@ -315,19 +315,19 @@ void __fastcall GScreenClass::Blit(bool mouse, Surface *surface, Rect const *are
     }
 
     if (!unknown_flag_a40b30 && !Debug_Map) {
-        dest_rect.X += (((unknown_surface_839948->Get_Width() < unknown_int_839648 - dest_rect.Width) ? unknown_surface_839948->Get_Width() : unknown_int_839648 - dest_rect.Width) > 0)
-            ? ((unknown_surface_839948->Get_Width() < unknown_int_839648 - dest_rect.Width) ? unknown_surface_839948->Get_Width() : unknown_int_839648 - dest_rect.Width)
+        dest_rect.X += (((SidebarSurface->Get_Width() < unknown_int_839648 - dest_rect.Width) ? SidebarSurface->Get_Width() : unknown_int_839648 - dest_rect.Width) > 0)
+            ? ((SidebarSurface->Get_Width() < unknown_int_839648 - dest_rect.Width) ? SidebarSurface->Get_Width() : unknown_int_839648 - dest_rect.Width)
             : 0;
     }
 
     Rect src_rect = *area;
-    if (unknown_tactical_83996c != 0 && unknown_tactical_83996c->unknown_c0 != 1.0) {
+    if (TacticalMap != 0 && TacticalMap->unknown_c0 != 1.0) {
         int zoom_surface_width = surface->Get_Width();
         int zoom_surface_height = surface->Get_Height();
         Rect tmp;
-        double zoomed_width = (double)zoom_surface_width / unknown_tactical_83996c->unknown_c0;
+        double zoomed_width = (double)zoom_surface_width / TacticalMap->unknown_c0;
         tmp.X = (int)(((double)zoom_surface_width - zoomed_width) / 2.0);
-        double zoomed_height = (double)zoom_surface_height / unknown_tactical_83996c->unknown_c0;
+        double zoomed_height = (double)zoom_surface_height / TacticalMap->unknown_c0;
         tmp.Y = (int)(((double)zoom_surface_height - zoomed_height) / 2.0);
         tmp.Width = (int)zoomed_width;
         tmp.Height = (int)zoomed_height;
@@ -348,7 +348,7 @@ void __fastcall GScreenClass::Blit(bool mouse, Surface *surface, Rect const *are
         src_rect.X -= Map.ShakeX;
     }
 
-    if (unknown_flag_a40380) {
+    if (TacticalActive) {
         bool active = ToolTips != 0 && ToolTips->Is_Active();
         if (!unknown_flag_8373f6 && Map.ShakeY == 0 && !active) {
             dest_rect.Height -= unknown_ac11fc->unknown_0c;
@@ -373,7 +373,7 @@ void __fastcall GScreenClass::Blit(bool mouse, Surface *surface, Rect const *are
         WWMouse->Draw_Mouse(surface, false);
     }
 
-    unknown_surface_839950->Copy_From(dest_rect, *surface, src_rect, false, unknown_int_a40d34 == 0);
+    unknown_surface_839950->Copy_From(dest_rect, *surface, src_rect, false, _dialog_count == 0);
 
     if (mouse && WWMouse != 0) {
         Sleep(50);

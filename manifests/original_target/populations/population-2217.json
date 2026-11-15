@@ -4,8 +4,8 @@
     "id": "population-2217",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "c437e2ba74f79cdba9909b1e292566be38fb47fb841894d6188f6dcdddcb89b6",
-    "historical_acceptance_sha256": "1153cca8179155e98fc246f44f8587859ea1ba5d056ac4b738a0b62ed62b74f4"
+    "historical_population_sha256": "08ee4a5bb4cebbac982da4e5b75608b1050f63c61bbcb93bfb7e3250b84a4e74",
+    "historical_acceptance_sha256": "4c4c6fe5dfc5933cbdfaa35044a301e26a25433fac3fb9025c64564a1a9dda70"
   },
   "references": {
     "__real@4@3ff38000000000000000": 7999408,
@@ -318,7 +318,7 @@
     "__imp__GetOverlappedResult@16": 7971192,
     "__real@8@400fc350000000000000": 8048696,
     "?Focus_Loss@@YAXXZ": 7566240,
-    "?Unknown_00406F50@@YAXXZ": 4222800,
+    "?Audio_Focus_Lose@@YAXXZ": 4222800,
     "__imp__FileTimeToSystemTime@8": 7971044,
     "__imp__InitCommonControls@0": 7970860,
     "__imp__LoadIconA@8": 7971868,
@@ -342,7 +342,7 @@
     "__decoder": 7980580,
     "__real@8@3ffda0d97bb4e7870000": 7999744,
     "?Focus_Restore@@YAXXZ": 7566336,
-    "?Unknown_00406F70@@YAXXZ": 4222832,
+    "?Audio_Focus_Regain@@YAXXZ": 4222832,
     "__imp__SetActiveWindow@4": 7971872,
     "__real@8@3ffaccccccccccccd000": 7999736,
     "__real@4@400c8000000000000000": 8055240,

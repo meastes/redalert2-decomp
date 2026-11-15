@@ -19,8 +19,8 @@ _DAT_00833674	_Map	4680	4500	compatible	DAT_00833674	Map	base:class ScrollClass.
 _unknown_833688	_Map	4712	4520	exact	unknown_833688	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.unknown_11a8	int	int	23128
 _unknown_sell_mode_83368d	_Map	4717	4525	exact	unknown_sell_mode_83368d	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.unknown_11ad	bool	_Bool	23128
 _unknown_pending_super_833694	_Map	4724	4532	exact	unknown_pending_super_833694	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.unknown_11b4	int	int	23128
-_unknown_radar_x_8336cc	_Map	4784	4588	exact	unknown_radar_x_8336cc	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.unknown_11ec	int	int	23128
-_unknown_radar_y_8336d0	_Map	4788	4592	exact	unknown_radar_y_8336d0	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.unknown_11f0	int	int	23128
+_SidebarMovieX	_Map	4784	4588	exact	SidebarMovieX	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.unknown_11ec	int	int	23128
+_SidebarMovieY	_Map	4788	4592	exact	SidebarMovieY	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.unknown_11f0	int	int	23128
 _unknown_rect_8336e8	_Map	4812	4616	exact	unknown_rect_8336e8	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.unknown_1208	Rect	class Rect	23128
 _unknown_radar_surface_8336f8	_Map	4832	4632	exact	unknown_radar_surface_8336f8	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.unknown_1218	Surface*	Surface *	23128
 _unknown_radar_rect_833978	_Map	5684	5272	exact	unknown_radar_rect_833978	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.unknown_1498	Rect	class Rect	23128
@@ -116,7 +116,7 @@ _unknown_name_a3d3a0	_unknown_session_a3d298	276	264	exact	unknown_name_a3d3a0	u
 _unknown_a3d3b4	_unknown_session_a3d298	296	284	exact	unknown_a3d3b4	unknown_session_a3d298	(anon).unknown_11c	int	int	12592
 _unknown_a3d3bc	_unknown_session_a3d298	304	292	exact	unknown_a3d3bc	unknown_session_a3d298	(anon).unknown_124	int	int	12592
 _DAT_00a3d548	_unknown_session_a3d298	700	688	compatible	DAT_00a3d548	unknown_session_a3d298	(anon).unknown_2b0	unsigned int	int	12592
-_unknown_int_a3d548	_unknown_session_a3d298	700	688	exact	unknown_int_a3d548	unknown_session_a3d298	(anon).unknown_2b0	int	int	12592
+_MuteSWLaunches	_unknown_session_a3d298	700	688	exact	MuteSWLaunches	unknown_session_a3d298	(anon).unknown_2b0	int	int	12592
 _unknown_last_nickname_slot_a3d554	_unknown_session_a3d298	712	700	exact	unknown_last_nickname_slot_a3d554	unknown_session_a3d298	(anon).LastNickSlot	int	int	12592
 _unknown_max_players_a3d558	_unknown_session_a3d298	716	704	range	unknown_max_players_a3d558	unknown_session_a3d298	(anon).unknown_2c0	int	char[4]	12592
 _unknown_team_count_a3d558	_unknown_session_a3d298	716	704	range	unknown_team_count_a3d558	unknown_session_a3d298	(anon).unknown_2c0	int	char[4]	12592
@@ -243,5 +243,5 @@ _unknown_session_a3d2c4	_unknown_session_a3d298	56	44	range	unknown_session_a3d2
 _unknown_session_a3d340	_unknown_session_a3d298	180	168	range	unknown_session_a3d340	unknown_session_a3d298	(anon).unknown_a8	int	_Bool	12592
 _unknown_a3d29c	_unknown_session_a3d298	8	4	compatible	unknown_a3d29c	unknown_session_a3d298	(anon).(anon).Type.Mode	UnknownA3D29CView*	MultiplayerGameMode *	12592
 _unknown_session_a3d29c	_unknown_session_a3d298	8	4	compatible	unknown_session_a3d29c	unknown_session_a3d298	(anon).(anon).Type.Mode	UnknownSessionA3D29C*	MultiplayerGameMode *	12592
-_unknown_connection_a409c4	_unknown_ipx_manager_a40978	120	76	compatible	unknown_connection_a409c4	unknown_ipx_manager_a40978	base:class ConnManClass.unknown_4c	ConnectionClass*	IPXGlobalConnClass *	232
+_PacketRouterConnection	_unknown_ipx_manager_a40978	120	76	compatible	PacketRouterConnection	unknown_ipx_manager_a40978	base:class ConnManClass.unknown_4c	ConnectionClass*	IPXGlobalConnClass *	232
 _unknown_profile_b28cc4	_unknown_profile_ptr_b28cc0	8	4	compatible	unknown_profile_b28cc4	unknown_profile_ptr_b28cc0	base:class rc_ptr_base.(vptr).Pointer	PlayerProfile*	ReferenceCounted *	16

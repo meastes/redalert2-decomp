@@ -1322,7 +1322,7 @@
   },
   {
    "entry": "0x566340",
-   "name": "MapClass::Unknown_00566340(Cell const &) (subzone graph rebuild around a cell)",
+   "name": "MapClass::Update_Cell_Subzones(Cell const &) (subzone graph rebuild around a cell)",
    "plan": "draft, verify",
    "tier": "skirmish frame",
    "bytes": 2281,
@@ -1738,7 +1738,7 @@
    "origin": "build/class-work/Scout1166/keep/place_veins_7839.cpp",
    "author": "Scout1166",
    "draft": "native/drafts/0047ad00.cpp",
-   "notes": "Scout1209 r16: reachable from Read_Scenario_INI (OverlayClass::unknown_func_5dc180) on maps with veins; the lane's overlay names mapped to current src/shared names. Scout1274 static review: 16 call sites in order, Union argument order, OverlayIndex/OverlayData/+0x11C fields, skip rule and frame branch match (verdicts/0047ad00) codex4 r569: same in 1,092 complete-caller cases (36,536 ordered callbacks, 18,710 ordered writes, final memory, thiscall ABI) with the 7 accepted Rect/Point/Union/Random2 helpers executed; 564/669 original instructions covered (the rest are two zero-Rect guard blocks, invariants asserted).",
+   "notes": "Scout1209 r16: reachable from Read_Scenario_INI (OverlayClass::Post_Read_Vein_Fixups) on maps with veins; the lane's overlay names mapped to current src/shared names. Scout1274 static review: 16 call sites in order, Union argument order, OverlayIndex/OverlayData/+0x11C fields, skip rule and frame branch match (verdicts/0047ad00) codex4 r569: same in 1,092 complete-caller cases (36,536 ordered callbacks, 18,710 ordered writes, final memory, thiscall ABI) with the 7 accepted Rect/Point/Union/Random2 helpers executed; 564/669 original instructions covered (the rest are two zero-Rect guard blocks, invariants asserted).",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "codex4 r569",
    "behaviour_checked_date": "2026-11-11",

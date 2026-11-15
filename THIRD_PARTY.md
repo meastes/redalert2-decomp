@@ -122,6 +122,29 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   attribution: an adopted file keeps its SPDX and copyright lines plus a provenance line naming the commit, and the
   commit subject says "from mischa85 <address>". Acceptance is unchanged: strict audit and exact whole-file build; an
   `__asm` block still needs the TibSun archive citation under the evidenced-inline-asm rule.
+  Adopted 2026-11-14 (lane M1, names and comments only, no shape change): from src/credits.cpp at 392e904 the
+  CreditClass member names (Credits, Current, IsToRedraw, IsUp, IsAudible, Countdown, AI, Graphic_Logic),
+  TabClass::Credits/Draw_Credits_Tab, SidebarClass::IsToRedrawCredits, the globals SidebarSurface and TooltipColor
+  (names.csv) and the Westwood comment blocks, in src/recovered/credits.cpp.
+  Adopted 2026-11-14 (lane M1, names and comments only): from src/tracker.cpp at 392e904 the twelve tracker list
+  names (ObjectPtrTracker ... NeuronPtrTracker, ObjectsToDelete), Detach_From_Command_List, GasSystem,
+  AircraftTracker (and its Detach), TacticalMap (names.csv) and the comment blocks, in src/recovered/tracker.cpp.
+  Adopted 2026-11-14 (lane M1, names and comments only): from src/winfix.cpp at 392e904 (Renegade/TibSun
+  WinFix.CPP) the function, global and parameter names (TreeView_*, read/write_view(s)_*_ini, On_WM_CONTEXTMENU,
+  On_WM_MOVING, Make_Identifier, ComboBox_Find_Item_Data, Capture_Or_Release_Mouse, noop,
+  WindowsVersionInfo::Version_String, Center_Window_Within_Window (two-window form), Prefetch_Audio_Buffer,
+  item_data, VideoModeWidth/Height) and the comment blocks, in src/recovered/winfix.cpp and src/recovered/winfix/.
+  Adopted 2026-11-14 (lane M1): from src/movie.cpp at 392e904 (ra2-decomp and OpenTS copyright lines) the
+  function, global, parameter and local names (IngameVQ, Movies, Play_Ingame_Movie, Ingame_Movie_Subtitle,
+  Stop_Ingame_Movie, Has_Ingame_Movies, Movie_Audio_Resume/Suspend, MovieAudioSuspended, Movie_Create,
+  Play_Movie_Simple, SidebarMovieX/Y, HiddenSurface, AlternateSurface, TacticalActive; names.csv) and
+  Stop_Ingame_Movie's call of Movie_Audio_Resume in place of its inline copy, in src/recovered/movie.cpp.
+  Adopted 2026-11-14 (lane M1, names and comments only): from src/tag.cpp at 392e904 (OpenTS copyright line) the
+  globals LogicTags, MapTags, LogicTriggerID (merging the second spelling of 0x00A35D44), MapTriggerID,
+  GameActive and ScenarioActive (names.csv) and the function comment blocks, in src/recovered/tag.cpp.
+  Adopted 2026-11-15 (lane M1 batch b12, names only): 80 function and global names for placeholder-named
+  identifiers, from ra2-decomp's names of byte-identical twins (build/ra2decomp/twins.json) where they exist and
+  agree in scope, otherwise from mischa85 config/ra2-1.006/names.csv at 392e904; list in the commit message.
 
 ## Native linked libraries (tested development versions)
 

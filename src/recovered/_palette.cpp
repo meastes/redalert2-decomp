@@ -17,8 +17,8 @@
 // nine initializers run PaletteClass's constructors (the inline default one zeroes 256 RGB
 // entries; black 0x00837510 and white 0x00838410 fill through 0x00602FD0).
 
-PaletteClass unknown_palette_838710;
-PaletteClass unknown_palette_837e10;
+PaletteClass CCPalette;
+PaletteClass GamePalette;
 PaletteClass unknown_palette_838a10;
 PaletteClass unknown_palette_837510(RGBClass(0, 0, 0));
 PaletteClass unknown_palette_838410(RGBClass(255, 255, 255));
@@ -29,7 +29,7 @@ PaletteClass unknown_palette_837810;
 // The key the mixfiles are opened with (0x00839010).
 PKey FastKey;
 // A random number generator seeded with 0 (0x00839218).
-Random2Class unknown_random_839218(0);
+Random2Class NonCriticalRandomNumber(0);
 // An empty rectangle (0x00839610).
 Rect unknown_rect_839610(0, 0, 0, 0);
 // The tactical area: X, Y, width, height (0x00839630).
@@ -38,7 +38,7 @@ Rect unknown_rect_839630(0, 0, 640, 400);
 Rect unknown_window_839640(0, 0, 640, 400);
 
 
-// Dynamic initializer of unknown_palette_837e10 (0x0040D790, _$E): emitted by the definition in
+// Dynamic initializer of GamePalette (0x0040D790, _$E): emitted by the definition in
 // palette_globals_init_0040d770.cpp; no source of its own.
 
 
@@ -74,5 +74,5 @@ Rect unknown_window_839640(0, 0, 640, 400);
 // palette_globals_init_0040d770.cpp; no source of its own.
 
 
-// Dynamic initializer of unknown_random_839218 (0x0040D8C0, _$E): emitted by the definition in
+// Dynamic initializer of NonCriticalRandomNumber (0x0040D8C0, _$E): emitted by the definition in
 // palette_globals_init_0040d770.cpp; no source of its own.

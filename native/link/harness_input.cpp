@@ -89,7 +89,7 @@ namespace {
 int Resolve(char const *spec, int *x, int *y)
 {
     HouseClass *player = unknown_player_a35db4;
-    if (player == 0 || unknown_tactical_83996c == 0) return 0;
+    if (player == 0 || TacticalMap == 0) return 0;
     // "@tab=N", "@cameo=ID": the sidebar's tab button, a build icon shown (lane C16).
     if (Native_Harness_Sidebar_Point(spec, x, y)) return 1;
     if (spec[0] == '=') {
@@ -101,7 +101,7 @@ int Resolve(char const *spec, int *x, int *y)
         cell.Y = (short)Read_Int(p);
         CoordStruct coord = Map[cell].Center_Coord();
         Point2D pixel;
-        if (!unknown_tactical_83996c->Coord_To_Pixel(coord, pixel)) return 0;
+        if (!TacticalMap->Coord_To_Pixel(coord, pixel)) return 0;
         *x = pixel.X;
         *y = pixel.Y;
         return 1;
@@ -121,7 +121,7 @@ int Resolve(char const *spec, int *x, int *y)
         coord.X += dx * 256;
         coord.Y += dy * 256;
         Point2D pixel;
-        unknown_tactical_83996c->Coord_To_Pixel(coord, pixel);
+        TacticalMap->Coord_To_Pixel(coord, pixel);
         *x = pixel.X;
         *y = pixel.Y;
         return 1;
@@ -152,7 +152,7 @@ void Native_Harness_Input(int frame)
     if ((!last && (every <= 0 || frame % every != 0)) || unknown_player_a35db4 == 0) return;
     {
         // The view position too (Scout1231: scroll-rate measurements; stderr, so RA2.app runs log it).
-        Point2D view = unknown_tactical_83996c ? unknown_tactical_83996c->Get_Tactical_Position() : Point2D(0, 0);
+        Point2D view = TacticalMap ? TacticalMap->Get_Tactical_Position() : Point2D(0, 0);
         fprintf(stderr, "harness-view %d @%d,%d msgs %d\n", frame, view.X, view.Y, Native_Session_Message_Count());
     }
     static char names[64][24];

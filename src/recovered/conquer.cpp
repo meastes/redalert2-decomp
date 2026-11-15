@@ -266,7 +266,7 @@ void __cdecl Process_Serial_Progress_Packets_00481f00()
 }
 
 
-extern DynamicVectorClass<MovieHandle *> queued_movies_00af8fd8;
+extern DynamicVectorClass<MovieHandle *> IngameVQ;
 void __cdecl Audio_Update();
 void __fastcall IPX_Call_Back();
 extern int unknown_login_state_00b2abe4;
@@ -276,8 +276,8 @@ extern "C" long __cdecl time(long *result);
 void __fastcall Service_Game_IO_00481fb0()
 {
     Audio_Update();
-    if (queued_movies_00af8fd8.Count()>0) {
-        MovieHandle *movie=queued_movies_00af8fd8[0];
+    if (IngameVQ.Count()>0) {
+        MovieHandle *movie=IngameVQ[0];
         if (movie) movie->Waiting();
     }
     if (unknown_game_mode_a3d298==3 || unknown_game_mode_a3d298==4)
@@ -767,13 +767,13 @@ void __fastcall Copy_Cell_List_00482e10(Cell const *input,int capacity,Cell *out
 
 
 extern "C" int __cdecl _stricmp(char const *left,char const *right);
-extern DynamicVectorClass<char const *> unknown_names_a71050;
+extern DynamicVectorClass<char const *> Movies;
 extern char const none_name_007cdecc[];
-int __fastcall unknown_name_index_482e60(char const *name)
+int __fastcall VQ_From_Name(char const *name)
 {
     if (name && _stricmp(none_name_007cdecc,name)!=0) {
-        for (int index=0;index<unknown_names_a71050.Count();++index)
-            if (_stricmp(name,unknown_names_a71050[index])==0) return index;
+        for (int index=0;index<Movies.Count();++index)
+            if (_stricmp(name,Movies[index])==0) return index;
     }
     return -1;
 }

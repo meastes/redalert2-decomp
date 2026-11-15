@@ -77,7 +77,7 @@ ParticleTypeClass::ParticleTypeClass(char const *ini_name) :
     Translucent50State(255), Normalized(false), NextParticle(-1), BehavesLike(-1)
 {
     ParticleTypes.Add(this);
-    unknown_objects_ac0cb0.Add(this);
+    AbstractTypePtrTracker.Add(this);
     unknown_204 = false;
 }
 
@@ -88,7 +88,7 @@ ParticleTypeClass::ParticleTypeClass(NoInitClass const &noinit) : ObjectTypeClas
 ParticleTypeClass::~ParticleTypeClass()
 {
     Unknown_006ECB90(this, true);
-    unknown_objects_ac0cb0.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
     ParticleTypes.Delete(this);
 }
 

@@ -123,7 +123,7 @@ void UnknownBeacon::Unknown_0042DA20(Surface *surface, Rect rect)
 {
     ColorScheme *scheme = ColorSchemes[Houses[unknown_house]->ColorSchemeIndex];
     Point2D pixel;
-    if (!unknown_tactical_83996c->Coord_To_Pixel(unknown_coord, pixel)) {
+    if (!TacticalMap->Coord_To_Pixel(unknown_coord, pixel)) {
         return;
     }
     int half = unknown_beacon_cycle_84e93c / 2;

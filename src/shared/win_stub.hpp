@@ -10,14 +10,14 @@
 extern bool unknown_mouse_captured_b263e8;   // 0x00B263E8 the mouse was captured when focus was lost
 extern HICON unknown_icon_b263d4;            // 0x00B263D4 the window class icon
 extern HCURSOR unknown_cursor_b263d0;        // 0x00B263D0 the window class cursor
-extern int unknown_command_show_b263cc;      // 0x00B263CC WinMain's show command
+extern int ShowCommand;      // 0x00B263CC WinMain's show command
 extern FILETIME const unknown_build_time_7d8940;   // 0x007D8940 the build time stamp (after "Date3Here4")
 
 // IME state: the composition text, its length and caret, whether a composition
 // is open, the committed text, and the result DefWindowProcA gave a handled message.
 extern HIMC IMEContext;                          // 0x00B263E4
 extern unsigned short IMECompositionString[256]; // 0x00B261A8
-extern unsigned short unknown_b263a8;            // 0x00B263A8 (cleared after each conversion)
+extern unsigned short IMECompositionTerminator;            // 0x00B263A8 (cleared after each conversion)
 extern int IMECompositionLength;                 // 0x00B263EC
 extern int IMECursorPosition;                    // 0x00B263F0
 extern int IMEComposing;                         // 0x00B263F4

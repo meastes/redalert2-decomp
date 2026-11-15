@@ -104,7 +104,7 @@ extern int unknown_column_a71e28;
 extern wchar_t const unknown_empty_wide_839d4c[];
 static bool Find_Active_Game_Dialog(HWND &active)
 {
-    active=Unknown_00735B10();
+    active=WS_Top_Window();
     int dialog_id=Current_Dialog_Id_00735b20();
     if(dialog_id==0xbc || dialog_id==0xbd) {
         return true;
@@ -129,7 +129,7 @@ void __fastcall Unknown_005bbdd0(bool full)
         return;
     }
     {
-    HWND dialog=Unknown_00735B10();
+    HWND dialog=WS_Top_Window();
     HWND list=GetDlgItem(dialog,0x53e);
     if(dialog && list) {
         HWND users=GetDlgItem(dialog,0x53e);
@@ -298,7 +298,7 @@ void __fastcall Refresh_Game_List_005bc790()
     wchar_t text[80];
 
     if (Current_Dialog_Id_00735b20() == 0xBB) {
-        HWND dialog = Unknown_00735B10();
+        HWND dialog = WS_Top_Window();
         HWND list = GetDlgItem(dialog, 0x549);
         if (unknown_game_index_a71e90 >= unknown_games_a3fa64.Count()) {
             unknown_game_index_a71e90 = unknown_games_a3fa64.Count() - 1;
@@ -568,10 +568,10 @@ bool __fastcall Net_Join_Dialog_005bd070()
             Sleep(0);
             Service_Game_IO_00481fb0();
             unknown_ipx_manager_a40978.Service();
-            unknown_517370(false);
-            unknown_message_count_a52298++;
+            Title_Screen_Restore(false);
+            MessageLoopCount++;
             MSG msg;
-            while (unknown_peek_message_522ed0(&msg, 0, 0, 0, 1)) {
+            while (Peek_Windows_Message(&msg, 0, 0, 0, 1)) {
                 TranslateMessage(&msg);
                 DispatchMessageA(&msg);
             }
@@ -579,7 +579,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
             if (unknown_lobby_result_a71e8c != 0) {
                 break;
             }
-            if (Unknown_00735B10()) {
+            if (WS_Top_Window()) {
                 Unknown_005c01d0(0, 0, 0, 0);
                 Get_Join_Responses_005c08a0();
                 if (Current_Dialog_Id_00735b20() == 0xBC) {
@@ -609,7 +609,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
             if (Current_Dialog_Id_00735b20() == 0xBC) {
                 Unjoin_Game_005c00b0(unknown_game_index_a71e90);
                 unknown_join_state_a71e94 = 0;
-                End_Dialog_007357e0(Unknown_00735B10(), 0);
+                End_Dialog_007357e0(WS_Top_Window(), 0);
                 Unknown_Reset_Slots_005c8a90();
                 dialog = (HWND)unknown_create_dialog_735700(ProgramInstance, 0xBB, MainWindow, Join_Dialog_Proc_005be6b0, 0);
                 unknown_show_dialog_5ff7e0(dialog, 0xBB);
@@ -701,7 +701,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
             if (Request_To_Join_005bfc40(unknown_game_index_a71e90, unknown_a72c68 != 0)) {
                 unknown_join_state_a71e94 = 1;
             } else {
-                HWND top = Unknown_00735B10();
+                HWND top = WS_Top_Window();
                 if (top) {
                     EnableWindow(top, TRUE);
                     HWND button = GetDlgItem(top, 0x541);
@@ -721,7 +721,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
             if (Request_To_Join_005bfc40(unknown_game_index_a71e90, true)) {
                 unknown_join_state_a71e94 = 1;
             } else {
-                HWND top = Unknown_00735B10();
+                HWND top = WS_Top_Window();
                 if (top) {
                     EnableWindow(top, TRUE);
                     HWND button = GetDlgItem(top, 0x541);
@@ -800,7 +800,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
                 SendMessageA(host, 0x4A9, 0, 1);
                 ShowWindow(host, 1);
             } else {
-                HWND top = Unknown_00735B10();
+                HWND top = WS_Top_Window();
                 if (top) {
                     EnableWindow(top, TRUE);
                     HWND button = GetDlgItem(top, 0x541);
@@ -855,7 +855,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
             if (count - observers <= 1) {
                 Unknown_005C2C80(-1, StringTable::Load_String("TXT_ONLY_ONE", 0, "D:\\Ra2\\netdlg2.cpp", 0x6E0));
                 unknown_lobby_result_a71e8c = 0;
-                EnableWindow(GetDlgItem(Unknown_00735B10(), 0x588), TRUE);
+                EnableWindow(GetDlgItem(WS_Top_Window(), 0x588), TRUE);
             }
             if (unknown_lobby_result_a71e8c == 0x588) {
                 bool nomap = false;
@@ -868,23 +868,23 @@ bool __fastcall Net_Join_Dialog_005bd070()
                 }
                 if (nomap) {
                     unknown_lobby_result_a71e8c = 0;
-                    EnableWindow(GetDlgItem(Unknown_00735B10(), 0x588), TRUE);
+                    EnableWindow(GetDlgItem(WS_Top_Window(), 0x588), TRUE);
                 }
             }
         }
         MultiplayerGameMode *mode = unknown_session_a3d298.Mode;
         if (unknown_lobby_result_a71e8c == 0x588) {
-            int map_players = Unknown_005c6600(unknown_session_a3d2b4);
+            int map_players = RandomMapWaypointCount(unknown_session_a3d2b4);
             if (map_players < unknown_session_a3d298.AICount - observers + count) {
                 Unknown_005C2C80(-1, StringTable::Load_String("TXT_SCENARIO_TOO_SMALL", 0, "D:\\Ra2\\netdlg2.cpp", 0x6FF), map_players);
-                EnableWindow(GetDlgItem(Unknown_00735B10(), 0x588), TRUE);
+                EnableWindow(GetDlgItem(WS_Top_Window(), 0x588), TRUE);
                 unknown_lobby_result_a71e8c = 0;
             }
             {
                 WideString message;
                 if (!mode->CheckStartConditions(&message)) {
                     Unknown_005C2C80(-1, message.Get());
-                    EnableWindow(GetDlgItem(Unknown_00735B10(), 0x588), TRUE);
+                    EnableWindow(GetDlgItem(WS_Top_Window(), 0x588), TRUE);
                     unknown_lobby_result_a71e8c = 0;
                 }
             }
@@ -894,7 +894,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
                         Unknown_005c3b70();
                         Unknown_005C2C80(-1, StringTable::Load_String("GUI:HostGameStartHost", 0, "D:\\Ra2\\netdlg2.cpp", 0x719));
                         unknown_lobby_result_a71e8c = 0;
-                        EnableWindow(GetDlgItem(Unknown_00735B10(), 0x588), TRUE);
+                        EnableWindow(GetDlgItem(WS_Top_Window(), 0x588), TRUE);
                         break;
                     }
                 }
@@ -922,9 +922,9 @@ bool __fastcall Net_Join_Dialog_005bd070()
                         }
                     }
                     mode->unknown_slot21();
-                    if (unknown_dialog_preview_a72ce8 != 0) {
-                        delete unknown_dialog_preview_a72ce8;
-                        unknown_dialog_preview_a72ce8 = 0;
+                    if (MultiplayerMapPreview != 0) {
+                        delete MultiplayerMapPreview;
+                        MultiplayerMapPreview = 0;
                     }
                     Unknown_Pregame_Setup_005c74f0();
                     unknown_session_a3d298.unknown_2cc = 5;
@@ -1292,7 +1292,7 @@ bool __fastcall Unknown_Clear_Closed_Slots_005cacb0(HWND dialog);
 void __fastcall unknown_set_dialog_item_text_005c34b0(HWND dialog);
 struct UnknownTextOwner_005c3450;
 void __fastcall unknown_set_dialog_wide_text_005c3450(HWND dialog, UnknownTextOwner_005c3450 *owner);
-extern bool unknown_host_shown_7e6dc0;
+extern bool IsRandomMap;
 
 long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned wparam, long lparam)
 {
@@ -1328,8 +1328,8 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
         return 1;
     case 0x0F:                  // WM_PAINT
         Unknown_005FEE70(window);
-        if (unknown_dialog_preview_a72ce8 != 0) {
-            unknown_dialog_preview_a72ce8->Blit_Preview(window);
+        if (MultiplayerMapPreview != 0) {
+            MultiplayerMapPreview->Blit_Preview(window);
         }
         if (ProgressScreen.Has_Window()) {
             ProgressScreen.Draw_It(Point2D(-1, -1));
@@ -1362,9 +1362,9 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
             break;
         case 2:
             if (!unknown_lock_a71e98) {
-                if (unknown_dialog_preview_a72ce8 != 0) {
-                    delete unknown_dialog_preview_a72ce8;
-                    unknown_dialog_preview_a72ce8 = 0;
+                if (MultiplayerMapPreview != 0) {
+                    delete MultiplayerMapPreview;
+                    MultiplayerMapPreview = 0;
                 }
                 Save_Lobby_Options_005cc890(window, &unknown_session_a3d298.LANOptions);
                 unknown_lobby_result_a71e8c = 2;
@@ -1391,11 +1391,11 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
                 bool old_flag = unknown_session_a3d298.Mode == 0 || unknown_session_a3d298.Mode->unknown_slot40();
                 Unknown_005e5fc0(window);
                 ShowWindow(window, SW_HIDE);
-                unknown_host_shown_7e6dc0 = false;
+                IsRandomMap = false;
                 if (Open_Lobby_Dialog_005c6960(MainWindow) == 2) {
                     Select_Scenario_005c7c30(unknown_session_a3d2b4 = old_scenario);
                     Unknown_005c7570(window);
-                    unknown_host_shown_7e6dc0 = true;
+                    IsRandomMap = true;
                     ShowWindow(window, SW_SHOW);
                     Load_Random_Map_Preview_005cc800(window);
                     Unknown_005c3810(true, false);
@@ -1407,7 +1407,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
                 } else {
                     Change_Scenario_Slots_005cb8d0(window, old_scenario, unknown_session_a3d2b4);
                 }
-                unknown_host_shown_7e6dc0 = true;
+                IsRandomMap = true;
                 ShowWindow(window, SW_SHOW);
                 unknown_set_dialog_item_text_005c34b0(window);
                 Load_Random_Map_Preview_005cc800(window);
@@ -1464,7 +1464,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
     }
     case 0x497:
         VerNum.Init_Clipping();
-        srand(unknown_random_839218(1, 0x7FFF));
+        srand(NonCriticalRandomNumber(1, 0x7FFF));
         Seed = rand();
         unknown_center_on_owner_737060(window);
         Fill_Side_Combos_4d16d0(window);
@@ -1663,7 +1663,7 @@ int __fastcall Request_To_Join_005bfc40(int game, bool unknown)
     packet.Join.unknown_43 = unknown_a71e9c;
     packet.Join.unknown_4b = unknown_a71ea0;
     packet.Join.unknown_47 = unknown_a71ea4;
-    packet.Join.unknown_4f = Unknown_00737af0();
+    packet.Join.unknown_4f = Build_Number();
     packet.Join.unknown_57 = unknown;
     unknown_ipx_manager_a40978.Send_Global_Message(&packet, sizeof(packet), 1, &unknown_games_a3fa64[game]->Address, 0, 0);
     return 1;
@@ -1884,7 +1884,7 @@ void __fastcall Get_Join_Responses_005c08a0()
             if (Current_Dialog_Id_00735b20() == 0xBC) {
                 Unknown_Enable_Start_005c9700();
                 display_users = true;
-                unknown_dialog_preview_a72ce8->unknown_005c7ef0();
+                MultiplayerMapPreview->unknown_005c7ef0();
             }
         } else if (unknown_gpacket_a3f640.Command == 1) {
             // NET_ANSWER_GAME
@@ -2079,7 +2079,7 @@ void __fastcall Get_Join_Responses_005c08a0()
                     Message_Box_005c3230(item, 0, Unknown_005bbd10, false);
                 }
                 if (Current_Dialog_Id_00735b20() == 0xBB) {
-                    HWND window = Unknown_00735B10();
+                    HWND window = WS_Top_Window();
                     if (window) {
                         EnableWindow(window, TRUE);
                         HWND button = GetDlgItem(window, 0x541);
@@ -2189,7 +2189,7 @@ void __fastcall Get_Join_Responses_005c08a0()
                 HWND dialog = WS_Find_Dialog_00735940(0xBD);
                 Unknown_005cd030(dialog, true);
                 if (Current_Dialog_Id_00735b20() == 0x6B) {
-                    HWND window = Unknown_00735B10();
+                    HWND window = WS_Top_Window();
                     int index = SendDlgItemMessageA(window, 0x6EB, 0x188, 0, 0);
                     if (index != -1) {
                         MultiplayerGameMode *row = (MultiplayerGameMode *)SendDlgItemMessageA(window, 0x6EB, 0x199, index, 0);
@@ -2326,7 +2326,7 @@ void __fastcall Get_Join_Responses_005c08a0()
                 if (unknown_gpacket_a3f640.Join.unknown_4b != unknown_a71ea0) {
                     match = false;
                 }
-                if (unknown_gpacket_a3f640.Join.unknown_4f != Unknown_00737af0()) {
+                if (unknown_gpacket_a3f640.Join.unknown_4f != Build_Number()) {
                     match = false;
                 }
             }
@@ -2442,9 +2442,9 @@ long __stdcall Join_Lobby_Dialog_Proc_005c2330(HWND window, unsigned message, un
         if (ProgressScreen.Has_Window()) {
             ProgressScreen.Clear_Window();
         }
-        if (unknown_dialog_preview_a72ce8 != 0) {
-            delete unknown_dialog_preview_a72ce8;
-            unknown_dialog_preview_a72ce8 = 0;
+        if (MultiplayerMapPreview != 0) {
+            delete MultiplayerMapPreview;
+            MultiplayerMapPreview = 0;
             return 0;
         }
         break;
@@ -2455,8 +2455,8 @@ long __stdcall Join_Lobby_Dialog_Proc_005c2330(HWND window, unsigned message, un
         return 1;
     case 0x0F:                  // WM_PAINT
         Unknown_005FEE70(window);
-        if (unknown_dialog_preview_a72ce8 != 0) {
-            unknown_dialog_preview_a72ce8->Blit_Preview(window);
+        if (MultiplayerMapPreview != 0) {
+            MultiplayerMapPreview->Blit_Preview(window);
         }
         if (ProgressScreen.Has_Window()) {
             ProgressScreen.Draw_It(Point2D(-1, -1));
@@ -2607,7 +2607,7 @@ long __stdcall Join_Lobby_Dialog_Proc_005c2330(HWND window, unsigned message, un
 
 void __fastcall Unknown_005c28e0()
 {
-    HWND dialog = Unknown_00735B10();
+    HWND dialog = WS_Top_Window();
     HWND item = GetDlgItem(dialog, 0x59F);
     if (Unknown_Find_Player_By_Name_005bcc60(0) != 1) {
         SendMessageA(item, 0x4DC, 0, 1);

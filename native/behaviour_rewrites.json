@@ -512,7 +512,7 @@
   },
   {
    "entry": "0x0053D820",
-   "name": "unknown_set_frame_rate_0053d820(int)",
+   "name": "Set_Frame_Rate_Limit(int)",
    "symbol": "__Z30unknown_set_frame_rate_0053d820i",
    "origin_class": "unmatched (skirmish path)",
    "plan": "behaviour rewrite",
@@ -862,8 +862,8 @@
   },
   {
    "entry": "0x0040A6C0",
-   "name": "unknown_directsound_40a6c0()",
-   "symbol": "__Z26unknown_directsound_40a6c0v",
+   "name": "GetDirectSoundObject()",
+   "symbol": "__Z20GetDirectSoundObjectv",
    "origin_class": "unmatched leaf (audio)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -972,8 +972,8 @@
   },
   {
    "entry": "0x004131D0",
-   "name": "AircraftTrackerClass::Detach_004131d0(AbstractClass *)",
-   "symbol": "__ZN20AircraftTrackerClass15Detach_004131d0EP13AbstractClass",
+   "name": "AircraftTrackerClass::Detach(AbstractClass *)",
+   "symbol": "__ZN20AircraftTrackerClass6DetachEP13AbstractClass",
    "origin_class": "unmatched leaf",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1122,8 +1122,8 @@
   },
   {
    "entry": "0x00406F50",
-   "name": "Unknown_00406F50()",
-   "symbol": "__Z16Unknown_00406F50v",
+   "name": "Audio_Focus_Lose()",
+   "symbol": "__Z16Audio_Focus_Losev",
    "origin_class": "unmatched (skirmish path)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1588,7 +1588,7 @@
   },
   {
    "entry": "0x00716940",
-   "name": "Unknown_00716940 (speech queue block count +1)",
+   "name": "Add_Speech_Hold (speech queue block count +1)",
    "origin_class": "unmatched (transliterated Leaf row only)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1598,7 +1598,7 @@
   },
   {
    "entry": "0x00716690",
-   "name": "Unknown_00716690 (VoxClass at an index idle)",
+   "name": "Is_Speech_Finished (VoxClass at an index idle)",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1658,7 +1658,7 @@
   },
   {
    "entry": "0x004F3120",
-   "name": "HouseClass::Unknown_004F3120",
+   "name": "HouseClass::Can_Add_Waypoint_To_Path",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,

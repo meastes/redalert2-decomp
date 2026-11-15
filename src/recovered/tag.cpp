@@ -1,9 +1,14 @@
-// tag.cpp: the original translation unit re-filed as one source (Route A): the accepted
-// bodies of its canonical compile group in address order, under the unit's own header
-// state (its switches and includes in their original order). The module map
-// manifests/original_target/modules/tag.json carries the addresses and the rows that
-// stay in their own files.
-
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+// From mischa85/RedAlert2 392e904 src/tag.cpp (matching RA2 1.006 decomp; TibSun tag.cpp): global names and
+// function comments; modified (our module form and header state, Route A unit map
+// manifests/original_target/modules/tag.json).
 
 // Header-static dynamic initializers of the unit at 0x006B3600 and the
 // unit's TagClass list; the other drafts of this plan are emitted by this file.
@@ -18,7 +23,7 @@
 
 #include "shared/object.hpp"
 
-// The unit's list of TagClass objects (0x00ABFE48; name is a hypothesis).
+// The live tags (0x00ABFE48).
 DynamicVectorClass<TagClass *> Tags;
 
 
@@ -64,11 +69,17 @@ DynamicVectorClass<TagClass *> Tags;
 // Dynamic initializer (0x006B3830, _$E) emitted by HeaderStatics_diagonal_init_006b3600.cpp; no source of its own.
 
 
-// TagClass::TagClass(TagTypeClass *type) (0x006B3870)
-// A live tag with one trigger per trigger type of its type.
+/// <summary>
+/// Creates a tag from the specified tag type.
+/// The new tag joins the global tag list and builds a trigger for every trigger type
+/// that its tag type names, so it is ready to spring the moment it is attached to
+/// something.
+/// </summary>
+/// <param name="type">The tag type that this tag is built from.</param>
+// (0x006B3870)
 
-// The abstract list 0x00AC0D48 (element type AbstractClass * by RTTI).
-extern DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0d48;
+// The trigger tracker list (0x00AC0D48; tracker.cpp).
+extern DynamicVectorClass<AbstractClass *> TriggerPtrTracker;
 
 TagClass::TagClass(TagTypeClass *type) :
     Class(type),
@@ -79,8 +90,8 @@ TagClass::TagClass(TagTypeClass *type) :
     IsCurrentlySprung(false)
 {
     Tags.Add(this);
-    unknown_objects_ac0cb0.Add((ObjectClass *)this);
-    unknown_AbstractClass_list_00ac0d48.Add(this);
+    AbstractTypePtrTracker.Add((ObjectClass *)this);
+    TriggerPtrTracker.Add(this);
     if (type != 0) {
         for (TriggerTypeClass *trigger = type->FirstTrigger; trigger != 0; trigger = trigger->LinkedTo) {
             TriggerClass *made = new TriggerClass(trigger);
@@ -91,42 +102,46 @@ TagClass::TagClass(TagTypeClass *type) :
 }
 
 
-// TagClass::~TagClass() (0x006B39F0)
-// Drops the tag from the scenario's tag lists and its house's counters,
-// queues its triggers for removal and leaves the abstract lists.
+/// <summary>
+/// Destroys this tag and severs everything that pointed at it.
+/// The triggers hanging off this tag are queued for destruction, the tag is pulled from
+/// the global tag list, and if it was one of the allow-win tags then its house is given
+/// back the victory it was holding up.
+/// </summary>
+// (0x006B39F0)
 #include "shared/house.hpp"
 
-// The abstract list 0x00AC0D48 (element type AbstractClass * by RTTI).
-extern DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0d48;
-// Two tag lists and their positions (0x00866160 / 0x00A35D44 for types
-// with flag 0x10, 0x00866238 / 0x00A35E24 for flag 4; hypotheses).
-extern DynamicVectorClass<TagClass *> unknown_tags_866160;
-extern int unknown_tag_position_a35d44;
-extern DynamicVectorClass<TagClass *> unknown_tags_866238;
-extern int unknown_tag_position_a35e24;
-extern bool unknown_flag_a40958;
-extern bool unknown_flag_a40d04;
+// The trigger tracker list (0x00AC0D48; tracker.cpp).
+extern DynamicVectorClass<AbstractClass *> TriggerPtrTracker;
+// The logic and map tag lists and the index each is being processed at (0x00866160 / 0x00A35D44
+// for types with flag 0x10, 0x00866238 / 0x00A35E24 for flag 4).
+extern DynamicVectorClass<TagClass *> LogicTags;
+extern int LogicTriggerID;
+extern DynamicVectorClass<TagClass *> MapTags;
+extern int MapTriggerID;
+extern bool GameActive;
+extern bool ScenarioActive;
 
 TagClass::~TagClass()
 {
     Unknown_006ECB90(this, true);
-    if (unknown_flag_a40958 && unknown_flag_a40d04 && Class != 0 && (Class->Attaches_To() & 0x10)) {
-        int index = unknown_tags_866160.ID(this);
-        if (unknown_tag_position_a35d44 >= index) {
-            if (--unknown_tag_position_a35d44 < 0 && unknown_tags_866160.Count() == 0) {
-                unknown_tag_position_a35d44 = 0;
+    if (GameActive && ScenarioActive && Class != 0 && (Class->Attaches_To() & 0x10)) {
+        int index = LogicTags.ID(this);
+        if (LogicTriggerID >= index) {
+            if (--LogicTriggerID < 0 && LogicTags.Count() == 0) {
+                LogicTriggerID = 0;
             }
         }
     }
-    if (unknown_flag_a40958 && unknown_flag_a40d04 && Class != 0 && (Class->Attaches_To() & 4)) {
-        int index = unknown_tags_866238.ID(this);
-        if (unknown_tag_position_a35e24 >= index) {
-            if (--unknown_tag_position_a35e24 < 0 && unknown_tags_866238.Count() == 0) {
-                unknown_tag_position_a35e24 = 0;
+    if (GameActive && ScenarioActive && Class != 0 && (Class->Attaches_To() & 4)) {
+        int index = MapTags.ID(this);
+        if (MapTriggerID >= index) {
+            if (--MapTriggerID < 0 && MapTags.Count() == 0) {
+                MapTriggerID = 0;
             }
         }
     }
-    if (unknown_flag_a40958 && unknown_flag_a40d04 && Trigger != 0 && Trigger->Class != 0 &&
+    if (GameActive && ScenarioActive && Trigger != 0 && Trigger->Class != 0 &&
         Trigger->Class->House != 0 && Class->Is_Allow_Win()) {
         HouseClass *house = HouseClass::As_Pointer(((HouseTypeClass *)Trigger->Class->House)->House);
         if (house->unknown_1c4 != 0) {
@@ -135,26 +150,34 @@ TagClass::~TagClass()
         house->unknown_1e0 = 60;
     }
     for (TriggerClass *trigger = Trigger; trigger != 0; trigger = trigger->LinkedTo) {
-        unknown_objects_ac0cd8.Add(trigger);
+        ObjectsToDelete.Add(trigger);
     }
-    unknown_objects_ac0cb0.Delete((ObjectClass *)this);
-    unknown_AbstractClass_list_00ac0d48.Delete(this);
+    AbstractTypePtrTracker.Delete((ObjectClass *)this);
+    TriggerPtrTracker.Delete(this);
     Tags.Delete(this);
     Unknown_006ECB90(this, true);
 }
 
 
-// void TagClass::Mark_To_Delete() (0x006B3CC0)
-// Marks the tag and queues it in the abstract list 0x00AC0CD8.
+/// <summary>
+/// Condemns this tag to destruction.
+/// The tag is not deleted on the spot; it is queued so that it goes away at a point in
+/// the game logic where nothing is still walking the tag list.
+/// </summary>
+// (0x006B3CC0)
 
 void TagClass::Mark_To_Delete()
 {
     IsToDie = true;
-    unknown_objects_ac0cd8.Add(this);
+    ObjectsToDelete.Add(this);
 }
 
 
-// bool TagClass::Is_Marked_To_Delete() const (0x006B3D20)
+/// <summary>
+/// Has this tag been condemned?
+/// </summary>
+/// <returns>bool; Is this tag waiting to be destroyed?</returns>
+// (0x006B3D20)
 
 bool TagClass::Is_Marked_To_Delete() const
 {
@@ -162,8 +185,15 @@ bool TagClass::Is_Marked_To_Delete() const
 }
 
 
-// TagClass *__fastcall TagClass::Find_Or_Make(TagTypeClass *type) (0x006B3D30)
-// The live tag of a type, created when missing.
+/// <summary>
+/// Fetches the tag of the specified type, creating one if need be.
+/// Use this routine when something needs a tag of a given type and does not care whether
+/// the scenario has already brought one into existence.
+/// </summary>
+/// <param name="type">The tag type that the tag should be built from.</param>
+/// <returns>Returns with a pointer to the tag of that type. It is created if none
+/// existed.</returns>
+// (0x006B3D30)
 
 TagClass *__fastcall TagClass::Find_Or_Make(TagTypeClass *type)
 {
@@ -177,7 +207,12 @@ TagClass *__fastcall TagClass::Find_Or_Make(TagTypeClass *type)
 }
 
 
-// Cell TagClass::Get_Cell() const (0x006B3D80)
+/// <summary>
+/// Fetches the map cell that this tag rides on.
+/// </summary>
+/// <returns>Returns with the cell the tag is attached to. CELL_NONE means it is not on
+/// the map.</returns>
+// (0x006B3D80)
 
 Cell TagClass::Get_Cell() const
 {
@@ -185,7 +220,11 @@ Cell TagClass::Get_Cell() const
 }
 
 
-// bool TagClass::Is_Cross_Vertical() const (0x006B3D90)
+/// <summary>
+/// Is this tag watching for a vertical line crossing?
+/// </summary>
+/// <returns>bool; Was the tag type declared as a vertical crossing tag?</returns>
+// (0x006B3D90)
 
 bool TagClass::Is_Cross_Vertical() const
 {
@@ -193,7 +232,11 @@ bool TagClass::Is_Cross_Vertical() const
 }
 
 
-// bool TagClass::Is_Cross_Horizontal() const (0x006B3DA0)
+/// <summary>
+/// Is this tag watching for a horizontal line crossing?
+/// </summary>
+/// <returns>bool; Was the tag type declared as a horizontal crossing tag?</returns>
+// (0x006B3DA0)
 
 bool TagClass::Is_Cross_Horizontal() const
 {
@@ -201,7 +244,11 @@ bool TagClass::Is_Cross_Horizontal() const
 }
 
 
-// bool TagClass::Is_Enters_Zone() const (0x006B3DB0)
+/// <summary>
+/// Is this tag watching for something entering its zone?
+/// </summary>
+/// <returns>bool; Was the tag type declared as an enters-zone tag?</returns>
+// (0x006B3DB0)
 
 bool TagClass::Is_Enters_Zone() const
 {
@@ -209,7 +256,13 @@ bool TagClass::Is_Enters_Zone() const
 }
 
 
-// bool TagClass::Is_Allow_Win() const (0x006B3DC0)
+/// <summary>
+/// Is this one of the tags that gates the player's victory?
+/// A house cannot declare victory while any of its allow-win tags is still waiting to
+/// be sprung.
+/// </summary>
+/// <returns>bool; Does this tag hold up its house from winning?</returns>
+// (0x006B3DC0)
 
 bool TagClass::Is_Allow_Win() const
 {
@@ -217,7 +270,11 @@ bool TagClass::Is_Allow_Win() const
 }
 
 
-// bool TagClass::Is_Trigger_Attached(TriggerClass *trigger) const (0x006B3DD0)
+/// <summary>
+/// Is the specified trigger hanging off this tag?
+/// </summary>
+/// <returns>bool; Is the trigger a member of this tag's chain?</returns>
+// (0x006B3DD0)
 
 bool TagClass::Is_Trigger_Attached(TriggerClass *trigger) const
 {
@@ -230,10 +287,22 @@ bool TagClass::Is_Trigger_Attached(TriggerClass *trigger) const
 }
 
 
-// bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, int source) (0x006B3DF0)
-// Offers the event to each attached trigger. A sprung trigger acts on object and cell; by the tag
-// type's persistence (0 volatile, 1 semi-persistent, 2 persistent) the trigger and the tag are then
-// queued for removal and the object and cell drop the tag. Returns whether any trigger acted.
+/// <summary>
+/// Springs this tag in response to a game event.
+/// Every trigger hanging off this tag is offered the event and any that recognize it
+/// will fire their actions. The tag type's persistence decides what becomes of the tag
+/// afterwards -- it may detach itself from whatever it was riding on and queue itself
+/// for destruction, or it may stay behind to fire again.
+/// </summary>
+/// <param name="event">The event that has occurred.</param>
+/// <param name="object">The object the event happened to. This may be NULL.</param>
+/// <param name="cell">The cell the event happened at, or CELL_NONE if it was not cell
+/// based.</param>
+/// <param name="forced">Should the triggers fire without regard to their own event tests?</param>
+/// <param name="source">The object that caused the event, if there was one.</param>
+/// <returns>bool; Did any attached trigger fire?</returns>
+/// <remarks>A tag will refuse to spring while it is already in the middle of springing.</remarks>
+// (0x006B3DF0)
 #include "shared/cell.hpp"
 #include "shared/map_view.hpp"
 
@@ -284,13 +353,18 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
     }
     if (remove) {
         Unknown_006ECB90(this, true);
-        unknown_objects_ac0cd8.Add(this);
+        ObjectsToDelete.Add(this);
     }
     return sprung;
 }
 
 
-// void TagClass::Set_Cell(Cell cell) (0x006B3F90)
+/// <summary>
+/// Records the map cell that this tag rides on.
+/// </summary>
+/// <param name="cell">The cell the tag is attached to, or CELL_NONE if it rides on an
+/// object.</param>
+// (0x006B3F90)
 
 void TagClass::Set_Cell(Cell cell)
 {
@@ -298,8 +372,12 @@ void TagClass::Set_Cell(Cell cell)
 }
 
 
-// void TagClass::Clear_All() (0x006B3FA0)
-// Deletes every tag (each destructor removes it from Tags).
+/// <summary>
+/// Destroys every tag in the game.
+/// This routine is called when a scenario is torn down so that no tag from the previous
+/// mission survives into the next one.
+/// </summary>
+// (0x006B3FA0)
 
 void TagClass::Clear_All()
 {
@@ -309,7 +387,11 @@ void TagClass::Clear_All()
 }
 
 
-// void TagClass::Timer_Global_Reset(int value) (0x006B3FD0)
+/// <summary>
+/// Restarts this tag's elapsed time events tied to a global flag.
+/// </summary>
+/// <param name="global">The global flag that just changed.</param>
+// (0x006B3FD0)
 
 void TagClass::Timer_Global_Reset(int value)
 {
@@ -317,8 +399,11 @@ void TagClass::Timer_Global_Reset(int value)
 }
 
 
-// void TagClass::Timer_Local_Reset(int value) (0x006B3FE0)
-// Passes value to the attached chain's 0x006ED650 reset (the companion of 0x006B3FD0).
+/// <summary>
+/// Restarts this tag's elapsed time events tied to a local variable.
+/// </summary>
+/// <param name="local">The local variable that just changed.</param>
+// (0x006B3FE0)
 
 void TagClass::Timer_Local_Reset(int value)
 {
@@ -326,8 +411,11 @@ void TagClass::Timer_Local_Reset(int value)
 }
 
 
-// void TagClass::Link(TriggerClass *trigger) (0x006B3FF0): puts the trigger at the head of the chain
-// (TibSun Link).
+/// <summary>
+/// Adds a trigger to this tag's trigger chain.
+/// </summary>
+/// <param name="trigger">The trigger to attach to this tag.</param>
+// (0x006B3FF0)
 
 void TagClass::Link(TriggerClass *trigger)
 {
@@ -336,8 +424,13 @@ void TagClass::Link(TriggerClass *trigger)
 }
 
 
-// bool TagClass::Unlink(TriggerClass *trigger) (0x006B4000): takes the trigger out of the chain;
-// false when it was not attached (TibSun Unlink).
+/// <summary>
+/// Removes a trigger from this tag's trigger chain.
+/// The trigger itself is left intact -- only its membership in this tag is severed.
+/// </summary>
+/// <param name="trigger">The trigger to detach from this tag.</param>
+/// <returns>bool; Was the trigger found and unlinked?</returns>
+// (0x006B4000)
 
 bool TagClass::Unlink(TriggerClass *trigger)
 {
@@ -359,8 +452,15 @@ bool TagClass::Unlink(TriggerClass *trigger)
 }
 
 
-// void TagClass::Detach(AbstractClass *target, bool all) (0x006B4040)
-// A tag that loses its type queues itself for removal.
+/// <summary>
+/// Removes all references to the object specified.
+/// This routine is called when an object is leaving the game. Should the tag lose the
+/// tag type it was built from, it marks itself to die as well, since a tag with no type
+/// has nothing left to do.
+/// </summary>
+/// <param name="target">The object that is going away.</param>
+/// <param name="all">Is the target disappearing for good rather than merely hiding?</param>
+// (0x006B4040)
 
 void TagClass::Detach(AbstractClass *target, bool all)
 {
@@ -376,7 +476,12 @@ void TagClass::Detach(AbstractClass *target, bool all)
 }
 
 
-// HRESULT __stdcall TagClass::GetClassID(GUID *clsid) (0x006B40D0)
+/// <summary>
+/// Fetches the class identifier that this tag persists under.
+/// </summary>
+/// <param name="retval">Pointer to the identifier to fill in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+// (0x006B40D0)
 #include "shared/tag.hpp"
 
 HRESULT __stdcall TagClass::GetClassID(GUID *clsid)
@@ -389,7 +494,13 @@ HRESULT __stdcall TagClass::GetClassID(GUID *clsid)
 }
 
 
-// void TagClass::Compute_CRC(WWCRCEngine &crc) const (0x006B4110)
+/// <summary>
+/// Submits this tag's state to the game CRC.
+/// This routine is used by the network sync check to prove that every machine agrees
+/// about the tags currently in play.
+/// </summary>
+/// <param name="crc">The CRC engine to feed this tag's values into.</param>
+// (0x006B4110)
 
 void TagClass::Compute_CRC(WWCRCEngine &crc) const
 {
@@ -402,7 +513,14 @@ void TagClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// HRESULT __stdcall TagClass::Load(IStream *stream) (0x006B4160)
+/// <summary>
+/// Loads this tag from the save game stream.
+/// The virtual table is rebuilt in place and the tag type and trigger references are
+/// swizzled back into live pointers.
+/// </summary>
+/// <param name="stream">The stream to read this tag from.</param>
+/// <returns>Returns with the result code of the load attempt.</returns>
+// (0x006B4160)
 
 HRESULT __stdcall TagClass::Load(IStream *stream)
 {
@@ -417,7 +535,15 @@ HRESULT __stdcall TagClass::Load(IStream *stream)
 }
 
 
-// HRESULT __stdcall TagClass::Save(IStream *stream, BOOL clear_dirty) (0x006B41D0)
+/// <summary>
+/// Saves this tag to the save game stream.
+/// The base class writes the raw object out; this routine exists so that the tag layer
+/// gets its chance at the stream.
+/// </summary>
+/// <param name="stream">The stream to write this tag to.</param>
+/// <param name="cleardirty">Should the object be considered clean after being written?</param>
+/// <returns>Returns with the result code of the save attempt.</returns>
+// (0x006B41D0)
 
 HRESULT __stdcall TagClass::Save(IStream *stream, BOOL clear_dirty)
 {
@@ -429,8 +555,15 @@ HRESULT __stdcall TagClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// bool TagClass::Is_To_Inherit() const (0x006B41F0)
-// Whether any attached trigger's type has +0xA0 set.
+/// <summary>
+/// Determines if this tag may be handed over to another object.
+/// A tag is transferable if any of the triggers hanging off it was marked as such by
+/// its trigger type. Such a tag will be passed along to the new owner when an object
+/// is captured, and to the crew that survives a destroyed vehicle, rather than being
+/// lost with the object it started out on.
+/// </summary>
+/// <returns>bool; May this tag be handed over to another object?</returns>
+// (0x006B41F0)
 
 bool TagClass::Is_To_Inherit() const
 {
@@ -443,8 +576,13 @@ bool TagClass::Is_To_Inherit() const
 }
 
 
-// void __fastcall TagClass::All_Timer_Global_Reset(int value) (0x006B4220)
-// Passes value to the first trigger of every tag.
+/// <summary>
+/// Restarts the elapsed time events tied to a global flag.
+/// This routine is called when a global flag changes value, so that every tag in the
+/// scenario gets a chance to restart the timers that were waiting on it.
+/// </summary>
+/// <param name="global">The global flag that just changed.</param>
+// (0x006B4220)
 
 void __fastcall TagClass::All_Timer_Global_Reset(int value)
 {
@@ -454,8 +592,13 @@ void __fastcall TagClass::All_Timer_Global_Reset(int value)
 }
 
 
-// void __fastcall TagClass::All_Timer_Local_Reset(int value) (0x006B4250)
-// Passes value to the first trigger of every tag.
+/// <summary>
+/// Restarts the elapsed time events tied to a local variable.
+/// This routine is called when a local variable changes value, so that every tag in the
+/// scenario gets a chance to restart the timers that were waiting on it.
+/// </summary>
+/// <param name="local">The local variable that just changed.</param>
+// (0x006B4250)
 
 void __fastcall TagClass::All_Timer_Local_Reset(int value)
 {
@@ -465,8 +608,13 @@ void __fastcall TagClass::All_Timer_Local_Reset(int value)
 }
 
 
-// bool TagClass::Is_One_Of_A_Kind() const (0x006B4280)
-// True when no other tag has the same type.
+/// <summary>
+/// Is this the only tag built from its tag type?
+/// This routine is used when something needs to know whether the tag type it is looking
+/// at has been instantiated more than once during the scenario.
+/// </summary>
+/// <returns>bool; Is this the sole tag of its type?</returns>
+// (0x006B4280)
 
 bool TagClass::Is_One_Of_A_Kind() const
 {

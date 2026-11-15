@@ -81,7 +81,7 @@
 
 // DSurface::DSurface(int width, int height, unsigned char system_memory) (0x004AA4A0)
 // Creates an offscreen DirectDraw surface of the given size (system memory
-// when asked; a plain offscreen 3D-device surface when unknown_flag_852fd7
+// when asked; a plain offscreen 3D-device surface when UseDirect3D
 // is set) and reads back its
 // description, pixel size and memory placement.
 // Unresolved: the meaning of the global flag; CreateSurface's result is not
@@ -106,7 +106,7 @@ DSurface::DSurface(int width, int height, unsigned char system_memory)
         if (system_memory == true) {
             VideoSurfaceDescription->ddsCaps.dwCaps |= DDSCAPS_SYSTEMMEMORY;
         }
-        if (unknown_flag_852fd7) {
+        if (UseDirect3D) {
             VideoSurfaceDescription->ddsCaps.dwCaps = DDSCAPS_3DDEVICE | DDSCAPS_OFFSCREENPLAIN;
         }
         DirectDrawObject->CreateSurface(VideoSurfaceDescription, &VideoSurfacePtr, 0);
@@ -199,7 +199,7 @@ DSurface *__fastcall DSurface::Create_Primary(DSurface **back_buffer)
     DSurface *surface = new DSurface;
     int count = back_buffer != 0;
     surface->VideoSurfaceDescription->dwFlags = 1;
-    if (unknown_flag_852fd7)
+    if (UseDirect3D)
         surface->VideoSurfaceDescription->ddsCaps.dwCaps = 0x2200;
     else
         surface->VideoSurfaceDescription->ddsCaps.dwCaps = 0x200;
@@ -384,7 +384,7 @@ int DSurface::Stride()
 // expand inline while Restore_Check itself is an ordinary function.
 inline bool DSurface::Restore_Lost_Surface()
 {
-    if (unknown_flag_851cb0 || unknown_flag_a40d28) {
+    if (WindowedMode || GameInFocus) {
         if (VideoSurfacePtr != 0 && VideoSurfacePtr->IsLost() == DDERR_SURFACELOST) {
             if (VideoSurfacePtr->Restore() != DD_OK || VideoSurfacePtr->IsLost() != DD_OK) {
                 return false;
@@ -523,7 +523,7 @@ bool DSurface::Copy_From(Rect const &toclip, Rect const &toarea, Surface &source
         || Bytes_Per_Pixel() != source.Bytes_Per_Pixel()) {
         software = true;
     }
-    bool system_copy = (IsPrimary == true && unknown_flag_851cb0 == true) ? false : unknown;
+    bool system_copy = (IsPrimary == true && WindowedMode == true) ? false : unknown;
     if (!software && system_copy == true) {
         if (!IsVideoRam || (source.Is_Direct_Draw() == true && !((DSurface &)source).IsVideoRam)) {
             if (fromarea.Width == toarea.Width && fromarea.Height == toarea.Height) {
@@ -2740,7 +2740,7 @@ bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &
 // HRESULT Init_Direct3D() (0x004B1340)
 // Creates the Direct3D device on the composing surface's DirectDraw surface:
 // IDirect3D and IDirect3D2 from the DirectDraw object, a HAL device, and a
-// viewport covering unknown_8523e0 x unknown_8523e4 that becomes the
+// viewport covering VideoModeWidth x VideoModeHeight that becomes the
 // device's current viewport. Returns the first failing HRESULT (the
 // viewport is released again when the device rejects it). The name is a
 // hypothesis.
@@ -2773,8 +2773,8 @@ HRESULT Init_Direct3D()
     D3DVIEWPORT2 viewport;
     memset(&viewport, 0, sizeof(viewport));
     viewport.dwSize = sizeof(viewport);
-    viewport.dwWidth = unknown_8523e0;
-    viewport.dwHeight = unknown_8523e4;
+    viewport.dwWidth = VideoModeWidth;
+    viewport.dwHeight = VideoModeHeight;
     viewport.dvClipX = -1.0f;
     viewport.dvClipWidth = 2.0f;
     viewport.dvClipY = 1.0f;

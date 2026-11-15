@@ -1,4 +1,4 @@
-// BOOL __fastcall unknown_peek_message_522ed0(MSG *, HWND, UINT, UINT, UINT) -- 0x00522ED0
+// BOOL __fastcall Peek_Windows_Message(MSG *, HWND, UINT, UINT, UINT) -- 0x00522ED0
 // The game's PeekMessage with Westwood's input recorder: while recording (mode 1) logs each cursor move
 // and every message for a listed window (others are dropped and the next message is taken); while playing
 // back (mode 2) dispatches only real WM_PAINTs, ends playback on Escape or at the end of the stream file
@@ -15,11 +15,11 @@ WIN32_IMPORT BOOL WINAPI GetCursorPos(POINT *point);
 // @ref __imp__DispatchMessageA@4=0079a4b4
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
 // @ref ?Frame@@3HA=00a40d2c
-// @ref ?unknown_message_count_a52298@@3HA=00a52298
+// @ref ?MessageLoopCount@@3HA=00a52298
 // @ref ?Audio_Queue_Copy@@YIHPAUAudioQueue@@PAXH@Z=00408e00
 // @ref ?unknown_audio_file_lock_a52268@@3UCRITICAL_SECTION@@A=00a52268
 
-BOOL __fastcall unknown_peek_message_522ed0(MSG *message, HWND window, UINT first, UINT last, UINT remove)
+BOOL __fastcall Peek_Windows_Message(MSG *message, HWND window, UINT first, UINT last, UINT remove)
 {
     BOOL result;
 
@@ -32,7 +32,7 @@ BOOL __fastcall unknown_peek_message_522ed0(MSG *message, HWND window, UINT firs
         if (audio_file_cursor_x_00a5229c != audio_file_last_cursor_x_00a522a4 || audio_file_cursor_y_00a522a0 != audio_file_last_cursor_y_00a522a8) {
             AudioFileCursorRecord record;
             record.Header.Type = 1;
-            record.Header.Count = unknown_message_count_a52298;
+            record.Header.Count = MessageLoopCount;
             record.Header.Frame = Frame;
             EnterCriticalSection(&unknown_audio_file_lock_a52268);
             WWMouse->Set_Mouse_XY(audio_file_cursor_x_00a5229c, audio_file_cursor_y_00a522a0);
@@ -72,7 +72,7 @@ BOOL __fastcall unknown_peek_message_522ed0(MSG *message, HWND window, UINT firs
                     Audio_Queue_Copy(audio_file_flush_queue_00a522cc, &audio_file_next_header_00a521d0, sizeof(AudioFileRecordHeader));
                     audio_file_header_read_00a522e0 = 1;
                 }
-                if (audio_file_next_header_00a521d0.Count > (unsigned int)unknown_message_count_a52298) {
+                if (audio_file_next_header_00a521d0.Count > (unsigned int)MessageLoopCount) {
                     return 0;
                 }
                 audio_file_header_read_00a522e0 = 0;
@@ -112,7 +112,7 @@ recorded:
             int index = Audio_File_Find((int)message->hwnd);
             if (index >= 0) {
                 AudioFileMessageRecord record;
-                record.Header.Count = unknown_message_count_a52298;
+                record.Header.Count = MessageLoopCount;
                 record.Header.Type = 0;
                 record.Header.Frame = Frame;
                 record.Message = *message;

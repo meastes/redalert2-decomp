@@ -41,7 +41,7 @@ void __cdecl Unknown_004068F0(char const *format, ...) {}
 // Audio_DS_Restart_Primary). Its pair 0x00406F50 counts up and stops it.
 extern int DAT_00831440;
 void Audio_DS_Restart_Primary();
-void Unknown_00406F70()
+void Audio_Focus_Regain()
 {
     if (DAT_00831440 != 0 && --DAT_00831440 == 0) {
         Audio_DS_Restart_Primary();
@@ -52,7 +52,7 @@ void Unknown_00406F70()
 // the primary sound buffer (0x0040A860 Audio_DS_Stop_Primary), then counts up.
 // Scout1111: reached at frame ~2,100 of the harness build order (a focus change).
 void Audio_DS_Stop_Primary();
-void Unknown_00406F50()
+void Audio_Focus_Lose()
 {
     if (DAT_00831440 == 0) {
         Audio_DS_Stop_Primary();
@@ -63,7 +63,7 @@ void Unknown_00406F50()
 // 0x00735B10 (shared/unknown_globals.hpp: the current dialog window): the row's
 // leaf returns the dword at 0x00B25DD4, the tree's CurrentDialog.
 extern HWND CurrentDialog;
-HWND __fastcall Unknown_00735B10()
+HWND __fastcall WS_Top_Window()
 {
     return CurrentDialog;
 }

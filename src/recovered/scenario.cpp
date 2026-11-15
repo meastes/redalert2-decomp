@@ -461,7 +461,7 @@ bool __fastcall Start_Scenario_0065bc70(char const *name, bool briefing, int cam
     int brief = unknown_id_source_a3d290->BriefMovie;
     if (brief != -1) {
         char movie_name[28];
-        wsprintfA(movie_name, "%s.VQA", unknown_names_a71050[brief]);
+        wsprintfA(movie_name, "%s.VQA", Movies[brief]);
     }
     if (unknown_id_source_a3d290->StartingDropships > 0) {
         Unknown_004A6B90();
@@ -471,8 +471,8 @@ bool __fastcall Start_Scenario_0065bc70(char const *name, bool briefing, int cam
     }
     Unknown_Free_Art_Set_006F30F0();
     Options.Set();
-    unknown_surface_839954->Fill(0);
-    Unknown_004E0C90(true, unknown_surface_839954, 0);
+    HiddenSurface->Fill(0);
+    Unknown_004E0C90(true, HiddenSurface, 0);
     Toggle_Display_Mode_0065c480(true);
     unknown_id_source_a3d290->ElapsedTime.Start();
     if (unknown_id_source_a3d290->Theme != -1) {
@@ -480,8 +480,8 @@ bool __fastcall Start_Scenario_0065bc70(char const *name, bool briefing, int cam
     } else {
         Theme.Stop(true);
     }
-    unknown_flag_a40d04 = true;
-    unknown_flag_a40380 = true;
+    ScenarioActive = true;
+    TacticalActive = true;
     return true;
 }
 
@@ -595,7 +595,7 @@ void Pause_Game_0065c3d0()
         WWMouse->Hide_Mouse();
     }
     unknown_id_source_a3d290->unknown_2306 = true;
-    unknown_flag_a40d44 = true;
+    IgnoreInput = true;
     WWKeyboard->Clear();
     unknown_ab9174 = 0;
 }
@@ -613,7 +613,7 @@ void Resume_Game_0065c420()
         }
     }
     unknown_id_source_a3d290->unknown_2306 = false;
-    unknown_flag_a40d44 = false;
+    IgnoreInput = false;
     WWKeyboard->Clear();
     unknown_ab9174 = 0;
 }
@@ -730,7 +730,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
     strcpy(filename, name);
     Frame = 0;
     unknown_id_source_a3d290->unknown_22fc = true;
-    unknown_a40774++;
+    ScenarioInit++;
     char *extension = &filename[strlen(filename) - 4];
     if (_stricmp(extension, ".SED") == 0) {
         unknown_id_source_a3d290->unknown_223b = true;
@@ -811,11 +811,11 @@ bool __fastcall Unknown_0065c7d0(char const *name)
     }
     if (!ok) {
         Debug_Printf("Error - Unable to read scenario: %s\n", filename);
-        Unknown_004955D0(&unknown_palette_837e10, 7, unknown_481fb0);
+        Unknown_004955D0(&GamePalette, 7, unknown_481fb0);
         WWMessageBox(L" ").Process(
             StringTable::Load_String("TXT_UNABLE_READ_SCENARIO", 0, "D:\\Ra2\\Scenario.CPP", 1394),
             StringTable::Load_String("TXT_OK", 0, "D:\\Ra2\\Scenario.CPP", 1394), 0, 0, false);
-        unknown_a40774--;
+        ScenarioInit--;
         unknown_id_source_a3d290->unknown_22fc = false;
         if (loader != 0) {
             ProgressScreen.Set_Listener(0);
@@ -839,7 +839,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
     if (unknown_game_mode_a3d298 == 4) {
         unknown_session_a3d298.Unknown_00672440();
     }
-    unknown_a40774--;
+    ScenarioInit--;
     if (!Debug_Map && ok) {
         Service_Game_IO_00481fb0();
         while (ProgressScreen.Average_Progress() < 1.0) {
@@ -868,7 +868,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
 
 void __fastcall Fill_In_Data_0065cdd0()
 {
-    unknown_a40774++;
+    ScenarioInit++;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         unknown_BuildingClass_list_00a40af8[index]->unknown_slot283();
     }
@@ -890,10 +890,10 @@ void __fastcall Fill_In_Data_0065cdd0()
     for (int tag_index = 0; tag_index < TagTypes.Count(); tag_index++) {
         TagTypeClass *tagtype = TagTypes[tag_index];
         if (tagtype->Attaches_To() & 4) {
-            unknown_tags_866238.Add(TagClass::Find_Or_Make(tagtype));
+            MapTags.Add(TagClass::Find_Or_Make(tagtype));
         }
         if (tagtype->Attaches_To() & 0x10) {
-            unknown_tags_866160.Add(TagClass::Find_Or_Make(tagtype));
+            LogicTags.Add(TagClass::Find_Or_Make(tagtype));
         }
         if (tagtype->Attaches_To() & 8) {
             TagClass *tag = TagClass::Find_Or_Make(tagtype);
@@ -903,7 +903,7 @@ void __fastcall Fill_In_Data_0065cdd0()
             }
         }
     }
-    unknown_a40774--;
+    ScenarioInit--;
 
     for (int count_index = 0; count_index < TagTypes.Count(); count_index++) {
         TagTypeClass *tagtype = TagTypes[count_index];
@@ -938,8 +938,8 @@ void __fastcall Fill_In_Data_0065cdd0()
     Map.Reset_All_Subzones();
     Map.Set_WasUnderBridge_Flags();
 
-    if (unknown_gas_cloud_system_a40d20 == 0) {
-        unknown_gas_cloud_system_a40d20 = new ParticleSystemClass(
+    if (GasSystem == 0) {
+        GasSystem = new ParticleSystemClass(
             ParticleSystemTypes[ParticleSystemTypeClass::Index_Or_Make("GasCloudSys")],
             CoordStruct(0xA80, 0xA80, 0), 0, 0, unknown_geometry_l);
     }
@@ -953,7 +953,7 @@ void __fastcall Fill_In_Data_0065cdd0()
         }
     }
 
-    unknown_set_frame_rate_0053d820(Rules->DetailMinFrameRateNormal);
+    Set_Frame_Rate_Limit(Rules->DetailMinFrameRateNormal);
     unknown_set_buffer_zone_0053d830(Rules->DetailBufferZoneWidth);
 }
 
@@ -1021,10 +1021,10 @@ extern HouseClass *unknown_player_a35db4;
 extern BombListClass unknown_bomb_list_8322e0;
 extern DynamicVectorClass<ObjectClass *> CurrentObjects;
 extern DynamicVectorClass<int> unknown_map_list_83252c;
-extern ParticleSystemClass *unknown_gas_cloud_system_a40d20;
-extern DynamicVectorClass<TagClass *> unknown_tags_866160;
-extern DynamicVectorClass<TagClass *> unknown_tags_866238;
-extern Tactical *unknown_tactical_83996c;
+extern ParticleSystemClass *GasSystem;
+extern DynamicVectorClass<TagClass *> LogicTags;
+extern DynamicVectorClass<TagClass *> MapTags;
+extern Tactical *TacticalMap;
 
 void Clear_Scenario_0065d370()
 {
@@ -1061,9 +1061,9 @@ void Clear_Scenario_0065d370()
                 }
         }
     }
-    delete unknown_tactical_83996c;
-    unknown_tactical_83996c = new Tactical;
-    unknown_tactical_83996c->Reset_Dirty_Rectangles();
+    delete TacticalMap;
+    TacticalMap = new Tactical;
+    TacticalMap->Reset_Dirty_Rectangles();
     unknown_flag_7df630 = false;
     while (unknown_objects_a40368.Count()) {
         if (unknown_objects_a40368[0]->Kind_Of() == 8) {
@@ -1076,8 +1076,8 @@ void Clear_Scenario_0065d370()
     while (TagTypes.Count()) {
         delete TagTypes[0];
     }
-    unknown_tags_866238.Clear();
-    unknown_tags_866160.Clear();
+    MapTags.Clear();
+    LogicTags.Clear();
     unknown_id_source_a3d290->ParTimeEasy = 3600;
     unknown_id_source_a3d290->ParTimeMedium = unknown_id_source_a3d290->ParTimeEasy;
     unknown_id_source_a3d290->ParTimeHard = unknown_id_source_a3d290->ParTimeEasy;
@@ -1093,7 +1093,7 @@ void Clear_Scenario_0065d370()
     seed_006ea130::Deinit_Tiberium_Growth_System_006ea130();
     unknown_bomb_list_8322e0.Clear();
     KamikazeTracker.Clear();
-    unknown_tracker_839ea0.Clear_00413540();
+    AircraftTracker.Clear_00413540();
     Unknown_00613E50();
     Map.MapSize = Rect(0, 0, 0, 0);
     Debug_Printf("Map.Init_Clear()\n");
@@ -1107,10 +1107,10 @@ void Clear_Scenario_0065d370()
     seed_00663220::Clear_All_Waypoints_00663220((int)unknown_id_source_a3d290);
     Debug_Printf("Init_Campaigns()\n");
     Read_Battle_Files();
-    if (unknown_gas_cloud_system_a40d20 != 0) {
-        unknown_gas_cloud_system_a40d20->Remove_All_Particles();
-        delete unknown_gas_cloud_system_a40d20;
-        unknown_gas_cloud_system_a40d20 = 0;
+    if (GasSystem != 0) {
+        GasSystem->Remove_All_Particles();
+        delete GasSystem;
+        GasSystem = 0;
     }
     unknown_id_source_a3d290->RandomNumber.IsLocked = false;
     Unknown_006F89E0();
@@ -1135,11 +1135,11 @@ void __fastcall Do_Win_0065d7f0()
         Unknown_00624850();
         Unknown_0053F780();
     }
-    unknown_flag_a40d04 = false;
-    unknown_flag_a40380 = false;
+    ScenarioActive = false;
+    TacticalActive = false;
     unknown_id_source_a3d290->ElapsedTime.Stop();
     Unknown_005A09E0();
-    WWMouse->Erase_Mouse(unknown_surface_839954, false);
+    WWMouse->Erase_Mouse(HiddenSurface, false);
     WWMouse->Release_Mouse();
     Map.Set_Default_Mouse(0, false);
     WWMouse->Hide_Mouse();
@@ -1183,7 +1183,7 @@ void __fastcall Do_Win_0065d7f0()
             if (unknown_session_a3d29c != 0) {
                 unknown_session_a3d29c->unknown_slot35(1);
             }
-            unknown_flag_a40958 = false;
+            GameActive = false;
             return;
         }
         unknown_session_a3d29c->unknown_slot37();
@@ -1201,7 +1201,7 @@ void __fastcall Do_Win_0065d7f0()
             Unknown_005A07F0(unknown_id_source_a3d290->PreMapSelectMovie, -1, 1, 1, 1);
         }
         if (!Unknown_00491A10() || unknown_id_source_a3d290->OneTimeOnly) {
-            unknown_flag_a40958 = false;
+            GameActive = false;
             WWMouse->Show_Mouse();
             return;
         }
@@ -1210,7 +1210,7 @@ void __fastcall Do_Win_0065d7f0()
                 Unknown_005A07F0(Campaigns[unknown_id_source_a3d290->unknown_224c]->unknown_29c, -1, 1, 1, 1);
             }
             Unknown_004B37C0();
-            unknown_flag_a40958 = false;
+            GameActive = false;
             WWMouse->Show_Mouse();
             return;
         }
@@ -1254,7 +1254,7 @@ void __fastcall Do_Win_0065d7f0()
                 delete PacketTransport;
                 PacketTransport = 0;
             }
-            unknown_flag_a40958 = false;
+            GameActive = false;
             return;
         }
         unknown_session_a3d298.AICount = ai_count;
@@ -1265,8 +1265,8 @@ void __fastcall Do_Win_0065d7f0()
         }
         WWKeyboard->Clear();
     }
-    unknown_flag_a40958 = Unknown_00491A10();
-    if (!unknown_flag_a40958) {
+    GameActive = Unknown_00491A10();
+    if (!GameActive) {
         WWMouse->Show_Mouse();
         return;
     }
@@ -1286,7 +1286,7 @@ void __fastcall Do_Win_0065d7f0()
         ToolTips->Enable(unknown_tooltips_enabled_a40b34);
     }
     Map.Render();
-    Unknown_004955D0(&unknown_palette_837e10, 7, unknown_481fb0);
+    Unknown_004955D0(&GamePalette, 7, unknown_481fb0);
 }
 
 
@@ -1305,11 +1305,11 @@ void __fastcall Do_Lose_0065dec0()
         Unknown_00624850();
         Unknown_0053F780();
     }
-    unknown_flag_a40d04 = false;
-    unknown_flag_a40380 = false;
+    ScenarioActive = false;
+    TacticalActive = false;
     unknown_id_source_a3d290->ElapsedTime.Stop();
     Unknown_005A09E0();
-    WWMouse->Erase_Mouse(unknown_surface_839954, false);
+    WWMouse->Erase_Mouse(HiddenSurface, false);
     WWMouse->Release_Mouse();
     Map.Set_Default_Mouse(0, false);
     WWMouse->Hide_Mouse();
@@ -1354,7 +1354,7 @@ void __fastcall Do_Lose_0065dec0()
             if (unknown_session_a3d29c != 0) {
                 unknown_session_a3d29c->unknown_slot35(0);
             }
-            unknown_flag_a40958 = false;
+            GameActive = false;
             return;
         }
         unknown_session_a3d29c->unknown_slot37();
@@ -1388,7 +1388,7 @@ void __fastcall Do_Lose_0065dec0()
                     delete PacketTransport;
                     PacketTransport = 0;
                 }
-                unknown_flag_a40958 = false;
+                GameActive = false;
                 return;
             }
             unknown_session_a3d298.AICount = ai_count;
@@ -1417,7 +1417,7 @@ void __fastcall Do_Lose_0065dec0()
         Map.Render();
         return;
     }
-    unknown_flag_a40958 = false;
+    GameActive = false;
 }
 
 
@@ -1431,8 +1431,8 @@ void __fastcall Do_Lose_0065dec0()
 
 void __fastcall Do_Restart_0065e440()
 {
-    unknown_flag_a40d04 = false;
-    unknown_flag_a40380 = false;
+    ScenarioActive = false;
+    TacticalActive = false;
     if (ToolTips != 0) {
         ToolTips->Enable(false);
     }
@@ -1471,13 +1471,13 @@ void __fastcall Do_Restart_0065e440()
 
 void __fastcall Unknown_0065e590()
 {
-    unknown_flag_a40d04 = false;
-    unknown_flag_a40380 = false;
+    ScenarioActive = false;
+    TacticalActive = false;
     unknown_id_source_a3d290->ElapsedTime.Stop();
     unknown_id_source_a3d290->TechLevel = 1;
     Unknown_005A09E0();
     WWKeyboard->Clear();
-    WWMouse->Erase_Mouse(unknown_surface_839954, false);
+    WWMouse->Erase_Mouse(HiddenSurface, false);
     WWMouse->Release_Mouse();
     Map.Set_Default_Mouse(0, false);
     Theme.Stop(true);
@@ -1494,7 +1494,7 @@ void __fastcall Unknown_0065e590()
     Unknown_00714410();
     Audio_Global_Levels[7]->Volume.Set(0x4000);
     Toggle_Display_Mode_0065c480(false);
-    unknown_flag_a40958 = false;
+    GameActive = false;
 }
 
 
@@ -1543,15 +1543,15 @@ void __fastcall Unknown_0065e8c0(bool official)
     }
     Service_Game_IO_00481fb0();
     if (!Debug_Map) {
-        int saved = unknown_a40774;
-        unknown_a40774 = 0;
+        int saved = ScenarioInit;
+        ScenarioInit = 0;
         if (unknown_session_a3d29c != 0) {
             unknown_session_a3d29c->unknown_slot27(official);
             unknown_session_a3d29c->Unknown_005B7CE0();
         } else {
             Create_Units_00660320(official);
         }
-        unknown_a40774 = saved;
+        ScenarioInit = saved;
     }
     unknown_session_a3d298.Update_Progress(93);
     Service_Game_IO_00481fb0();
@@ -1606,7 +1606,7 @@ void __fastcall Unknown_0065e8c0(bool official)
 bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
 {
     char buffer[32];
-    unknown_a40774++;
+    ScenarioInit++;
     Debug_Printf("Clearing old scenario\n");
     Clear_Scenario_0065d370();
     if (unknown_game_mode_a3d298 == 0) {
@@ -1692,9 +1692,9 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     Unknown_00535910()->Unknown_00535BF0();
     unknown_session_a3d298.Update_Progress(3);
     Swizzler.Reset();
-    delete unknown_tactical_83996c;
-    unknown_tactical_83996c = new Tactical;
-    unknown_tactical_83996c->Set_View_Dimensions_006a65a0(unknown_rect_839630);
+    delete TacticalMap;
+    TacticalMap = new Tactical;
+    TacticalMap->Set_View_Dimensions_006a65a0(unknown_rect_839630);
     unknown_id_source_a3d290->Theater = ini.Get_TheaterType("Map", "Theater", (TheaterType)0);
     Init_Theater_00519e70(unknown_id_source_a3d290->Theater);
     unknown_session_a3d298.Update_Progress(30);
@@ -1742,19 +1742,19 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
         }
         unknown_id_source_a3d290->unknown_2239 = allied;
         if (!Unknown_0051a330(!allied)) {
-            unknown_a40774--;
+            ScenarioInit--;
             return false;
         }
     } else {
         scenario->unknown_2239 = allied;
         if (!Unknown_0051a330(!allied)) {
-            unknown_a40774--;
+            ScenarioInit--;
             return false;
         }
     }
     unknown_session_a3d298.Update_Progress(50);
     if (!unknown_id_source_a3d290->Read_Basic(ini)) {
-        unknown_a40774--;
+        ScenarioInit--;
         return false;
     }
     unknown_session_a3d298.Update_Progress(58);
@@ -1768,7 +1768,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
             allied = false;
         }
         if (!Unknown_0051a330(!allied)) {
-            unknown_a40774--;
+            ScenarioInit--;
             return false;
         }
         unknown_id_source_a3d290->unknown_2239 = allied;
@@ -1809,7 +1809,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     for (CellClass *cell = Map.Iterate(); cell; cell = Map.Iterate()) {
         cell->Recalc_Attributes(-1);
     }
-    OverlayClass::unknown_func_5dc180();
+    OverlayClass::Post_Read_Vein_Fixups();
     TerrainClass::Read_INI(ini);
     Service_Game_IO_00481fb0();
     VeinholeMonsterClass::Init_Vein_Growth_System(true);
@@ -1860,11 +1860,11 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     if (unknown_game_mode_a3d298 != 0) {
         unknown_id_source_a3d290->Special() = unknown_special_a40920;
     }
-    unknown_a40774--;
-    int init = unknown_a40774;
-    unknown_a40774 = 0;
+    ScenarioInit--;
+    int init = ScenarioInit;
+    ScenarioInit = 0;
     BuildingClass::unknown_44df40();
-    unknown_a40774 = init;
+    ScenarioInit = init;
     unknown_session_a3d298.Update_Progress(98);
     Service_Game_IO_00481fb0();
     Map.Clear_Redraw_Cells();
@@ -1979,7 +1979,7 @@ void __fastcall Assign_Houses_0065fbb0()
         if (player->Team == -1) {
             unknown_house_a72d28 = house;
         }
-        house->unknown_11c = unknown_house_setting_7d88d8;
+        house->unknown_11c = BuildLevel;
         house->Assign_Handicap(1);
         player->ID = house->ArrayIndex;
     }
@@ -1992,7 +1992,7 @@ void __fastcall Assign_Houses_0065fbb0()
             int color = unknown_session_a3d298.AIColor[slot];
             made++;
             HouseClass *house = new HouseClass(HouseTypes[country]);
-            house->unknown_11c = unknown_house_setting_7d88d8;
+            house->unknown_11c = BuildLevel;
             house->unknown_134 = false;
             house->unknown_func_4e8300(color, country, unknown_session_a3d298.unknown_24);
             house->ColorSchemeIndex = unknown_session_a3d298.Unknown_006715D0(color);

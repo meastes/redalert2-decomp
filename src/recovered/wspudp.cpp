@@ -511,7 +511,7 @@ int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int 
                 }
             }
             int loss = unknown_76b9f0();
-            if (loss > 0 && unknown_random_839218(0, 99) <= loss) {
+            if (loss > 0 && NonCriticalRandomNumber(0, 99) <= loss) {
                 return 0;
             }
             WinsockBufferType *packet = Get_New_In_Buffer();

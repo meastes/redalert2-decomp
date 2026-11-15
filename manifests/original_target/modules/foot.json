@@ -3577,6 +3577,10 @@
    "address": "00a40398"
   },
   {
+   "symbol": "?AircraftTracker@@3UAircraftTrackerClass@@A",
+   "address": "00839ea0"
+  },
+  {
    "symbol": "?Anims@@3V?$DynamicVectorClass@PAVAnimClass@@@@A",
    "address": "00a40960"
   },
@@ -3881,6 +3885,10 @@
    "address": "00a40d2c"
   },
   {
+   "symbol": "?GameActive@@3_NA",
+   "address": "00a40958"
+  },
+  {
    "symbol": "?GetDisguise@ObjectClass@@UAEPAVObjectTypeClass@@_N@Z",
    "address": "0041b2d0"
   },
@@ -4093,6 +4101,14 @@
    "address": "008324e0"
   },
   {
+   "symbol": "?MapTags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+   "address": "00866238"
+  },
+  {
+   "symbol": "?MapTriggerID@@3HA",
+   "address": "00a35e24"
+  },
+  {
    "symbol": "?Mark@TechnoClass@@UAE_NH@Z",
    "address": "006c2550"
   },
@@ -4111,6 +4127,10 @@
   {
    "symbol": "?Next_Waypoint@WaypointPathClass@@QAEPAUWaypointClass@@PBU2@@Z",
    "address": "00724f80"
+  },
+  {
+   "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+   "address": "00839218"
   },
   {
    "symbol": "?Not_Underground@ObjectClass@@UBE_NXZ",
@@ -4237,6 +4257,14 @@
    "address": "005d2cf0"
   },
   {
+   "symbol": "?ScenarioActive@@3_NA",
+   "address": "00a40d04"
+  },
+  {
+   "symbol": "?ScenarioInit@@3HA",
+   "address": "00a40774"
+  },
+  {
    "symbol": "?Search@@3UAStarClass@@A",
    "address": "008315c8"
   },
@@ -4281,8 +4309,16 @@
    "address": "00abd868"
   },
   {
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
    "symbol": "?Take_Damage@TechnoClass@@UAEHPAHHPAVWarheadTypeClass@@PAV1@_NH@Z",
    "address": "006cdc40"
+  },
+  {
+   "symbol": "?TeamPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0c18"
   },
   {
    "symbol": "?Techno_Type_Class@TechnoClass@@UAEPAVTechnoTypeClass@@XZ",
@@ -4601,10 +4637,6 @@
    "address": "008661c8"
   },
   {
-   "symbol": "?unknown_a40774@@3HA",
-   "address": "00a40774"
-  },
-  {
    "symbol": "?unknown_action_line_pattern_7d81dc@@3QB_NB",
    "address": "007d81dc"
   },
@@ -4619,14 +4651,6 @@
   {
    "symbol": "?unknown_drawer_8323c4@@3PAVConvertClass@@A",
    "address": "008323c4"
-  },
-  {
-   "symbol": "?unknown_flag_a40958@@3_NA",
-   "address": "00a40958"
-  },
-  {
-   "symbol": "?unknown_flag_a40d04@@3_NA",
-   "address": "00a40d04"
   },
   {
    "symbol": "?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z",
@@ -4649,10 +4673,6 @@
    "address": "00a40ba8"
   },
   {
-   "symbol": "?unknown_list_ac0c18@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0c18"
-  },
-  {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
    "address": "004ba520"
   },
@@ -4663,10 +4683,6 @@
   {
    "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
    "address": "00a35db4"
-  },
-  {
-   "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
-   "address": "00839218"
   },
   {
    "symbol": "?unknown_rect_839630@@3VRect@@A",
@@ -5157,24 +5173,8 @@
    "address": "00839964"
   },
   {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
-  },
-  {
-   "symbol": "?unknown_tag_position_a35e24@@3HA",
-   "address": "00a35e24"
-  },
-  {
-   "symbol": "?unknown_tags_866238@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
-   "address": "00866238"
-  },
-  {
    "symbol": "?unknown_timer_ac0178@@3V?$CDTimerClass@VFrameTimerClass@@@@A",
    "address": "00ac0178"
-  },
-  {
-   "symbol": "?unknown_tracker_839ea0@@3UAircraftTrackerClass@@A",
-   "address": "00839ea0"
   },
   {
    "symbol": "?unknown_zone_table_7a1200@@3PAHA",

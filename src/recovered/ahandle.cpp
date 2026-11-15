@@ -147,7 +147,7 @@ long __cdecl Stream_Audio_Handler(VQAHandle *vqa, long action, void *buffer, lon
 
 long __cdecl Open_Audio_Handler(VQAHandleP *vqap, AhandleInitParams *params, long b)
 {
-    IDirectSound *sound = (IDirectSound *)unknown_directsound_40a6c0();
+    IDirectSound *sound = (IDirectSound *)GetDirectSoundObject();
     DSCAPS dscaps;
 
     Debug_Printf("Opening VQ audio handler\n");
@@ -288,7 +288,7 @@ long __cdecl Start_Audio_Handler(VQAHandleP *vqap)
     audio->DsBuffFormat.nBlockAlign = (short)((audio->DsBuffFormat.wBitsPerSample / 8) * audio->DsBuffFormat.nChannels);
     audio->DsBuffFormat.nAvgBytesPerSec = audio->DsBuffFormat.nSamplesPerSec * audio->DsBuffFormat.nBlockAlign;
 
-    ((IDirectSound *)unknown_directsound_40a6c0())->CreateSoundBuffer(&audio->BufferDesc, &audio->SecondaryBufferPtr, 0);
+    ((IDirectSound *)GetDirectSoundObject())->CreateSoundBuffer(&audio->BufferDesc, &audio->SecondaryBufferPtr, 0);
 
     if (audio->SecondaryBufferPtr == 0) {
         LeaveCriticalSection(&audio->CriticalSection);
@@ -557,7 +557,7 @@ void __stdcall AudioCallback(unsigned int uTimerID, unsigned int, DWORD dwUser, 
 
 unsigned long __cdecl Simple_Timer_Callback_Audio_Handler(VQAHandle *vqa)
 {
-    return unknown_ticks_004d0090();
+    return Get_Game_Time_50();
 }
 
 

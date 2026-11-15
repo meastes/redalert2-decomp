@@ -24,8 +24,8 @@ void TechnoClass::unknown_6d0990(CoordStruct from, CoordStruct to, RGBClass colo
     {
         Point2D start;
         Point2D end;
-        unknown_tactical_83996c->Coord_To_Pixel(from,start);
-        unknown_tactical_83996c->Coord_To_Pixel(to,end);
+        TacticalMap->Coord_To_Pixel(from,start);
+        TacticalMap->Coord_To_Pixel(to,end);
         start.Y+=unknown_rect_839630.Y;
         end.Y+=unknown_rect_839630.Y;
         int pixel=Build_Hicolor_Pixel(color.Red,color.Green,color.Blue);
@@ -47,8 +47,8 @@ void TechnoClass::unknown_6d0990(CoordStruct from, CoordStruct to, RGBClass colo
         next.Z=(int)(z+(-(t*t)+1.0)*512.0);
         Point2D start;
         Point2D end;
-        unknown_tactical_83996c->Coord_To_Pixel(last,start);
-        unknown_tactical_83996c->Coord_To_Pixel(next,end);
+        TacticalMap->Coord_To_Pixel(last,start);
+        TacticalMap->Coord_To_Pixel(next,end);
         start.Y+=unknown_rect_839630.Y;
         end.Y+=unknown_rect_839630.Y;
         if (Clip_Line(start,end,clip)) {

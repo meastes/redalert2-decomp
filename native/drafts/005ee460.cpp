@@ -218,7 +218,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 	RECT disp_rect;
 	Window_Rect_In_Main_Client(window, &disp_rect);
 
-	bool in_focus = unknown_flag_a40d28;
+	bool in_focus = GameInFocus;
 
 	bool is_paint = false;
 	if (message == 0xf) {
@@ -232,7 +232,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 
 	if (in_focus == true && !was_in_focus) {
 		InvalidateRect(MainWindow, 0, 0);
-		in_focus = unknown_flag_a40d28;
+		in_focus = GameInFocus;
 	}
 	was_in_focus = in_focus;
 
@@ -660,9 +660,9 @@ cleanup:
                     Rect whole(min_update_rect.x, min_update_rect.y, max_update_rect.x - min_update_rect.x, max_update_rect.y - min_update_rect.y);
                     destination = Offset_Rect(whole, offset_x, offset_y);
                     unknown_surface_839950->Lock();
-                    unknown_surface_839958->Lock();
-                    unknown_surface_839950->Copy_From(destination, *unknown_surface_839958, whole, false, true);
-                    unknown_surface_839958->Unlock();
+                    AlternateSurface->Lock();
+                    unknown_surface_839950->Copy_From(destination, *AlternateSurface, whole, false, true);
+                    AlternateSurface->Unlock();
                     unknown_surface_839950->Unlock();
                     WolArrayList<HWND> children;
                     EnumChildWindows(window, (WNDENUMPROC)unknown_add_window_5ff430, (LPARAM)&children);
@@ -680,9 +680,9 @@ cleanup:
                         Unknown_Rect_Shrink_006F1B30(&destination, -1, -1);
                     }
                     unknown_surface_839950->Lock();
-                    unknown_surface_839958->Lock();
-                    unknown_surface_839950->Copy_From(destination, *unknown_surface_839958, source, false, true);
-                    unknown_surface_839958->Unlock();
+                    AlternateSurface->Lock();
+                    unknown_surface_839950->Copy_From(destination, *AlternateSurface, source, false, true);
+                    AlternateSurface->Unlock();
                     unknown_surface_839950->Unlock();
                 }
             }

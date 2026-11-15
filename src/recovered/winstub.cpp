@@ -96,7 +96,7 @@ void Focus_Loss()
 {
     Debug_Printf("Focus_Loss()\n");
     Pause_Radar_Movie_005a0a90(true);
-    Unknown_00406F50();
+    Audio_Focus_Lose();
     if (WWMouse != 0) {
         unknown_mouse_captured_b263e8 = WWMouse->Is_Captured();
         Debug_Printf("Focus_Loss(): _MouseCaptured = %s\n", unknown_mouse_captured_b263e8 ? "true" : "false");
@@ -112,43 +112,43 @@ void Focus_Loss()
 // dialog window. Like Focus_Loss, an out-of-line copy of what the window procedure expands.
 
 extern Surface *unknown_surface_839944;
-HWND __fastcall Unknown_00735B10();    // 0x00735B10 (the current dialog window)
+HWND __fastcall WS_Top_Window();    // 0x00735B10 (the current dialog window)
 
 void Focus_Restore()
 {
     Debug_Printf("Focus_Restore()\n");
-    Unknown_00406F70();
+    Audio_Focus_Regain();
     Debug_Printf("Focus_Restore(): _MouseCaptured = %s\n", unknown_mouse_captured_b263e8 ? "true" : "false");
     if (WWMouse != 0 && unknown_mouse_captured_b263e8 == true && !Debug_Map) {
         WWMouse->Capture_Mouse();
     }
-    if (!unknown_flag_851cb0) {
-        if (unknown_surface_839958 != 0) {
-            ((DSurface *)unknown_surface_839958)->Restore_Check();
+    if (!WindowedMode) {
+        if (AlternateSurface != 0) {
+            ((DSurface *)AlternateSurface)->Restore_Check();
         }
-        if (unknown_surface_839954 != 0) {
-            static_cast<DSurface *>(unknown_surface_839954)->Restore_Check();
+        if (HiddenSurface != 0) {
+            static_cast<DSurface *>(HiddenSurface)->Restore_Check();
         }
         if (unknown_surface_839964 != 0) {
-            if (((DSurface *)unknown_surface_839964)->Restore_Check() && (!unknown_flag_a40d04 || Frame > 0x10)) {
+            if (((DSurface *)unknown_surface_839964)->Restore_Check() && (!ScenarioActive || Frame > 0x10)) {
                 unknown_surface_839964->Fill(0);
             }
         }
         if (unknown_surface_839944 != 0) {
-            if (((DSurface *)unknown_surface_839944)->Restore_Check() && (!unknown_flag_a40d04 || Frame > 0x10)) {
+            if (((DSurface *)unknown_surface_839944)->Restore_Check() && (!ScenarioActive || Frame > 0x10)) {
                 unknown_surface_839944->Fill(0);
             }
         }
-        if (unknown_surface_839948 != 0) {
-            if (((DSurface *)unknown_surface_839948)->Restore_Check()) {
+        if (SidebarSurface != 0) {
+            if (((DSurface *)SidebarSurface)->Restore_Check()) {
                 unknown_flag_8373c3 = true;
-                if (!unknown_flag_a40d04 || Frame > 0x10) {
-                    unknown_surface_839948->Fill(0);
+                if (!ScenarioActive || Frame > 0x10) {
+                    SidebarSurface->Fill(0);
                 }
             }
         }
         if (unknown_surface_839950 != 0) {
-            if (((DSurface *)unknown_surface_839950)->Restore_Check() && (!unknown_flag_a40d04 || Frame > 0x10)) {
+            if (((DSurface *)unknown_surface_839950)->Restore_Check() && (!ScenarioActive || Frame > 0x10)) {
                 unknown_surface_839950->Fill_Rect(unknown_window_839640, 0);
             }
         }
@@ -156,9 +156,9 @@ void Focus_Restore()
     Map.Flag_To_Redraw(2);
     InvalidateRect(MainWindow, 0, FALSE);
     Pause_Radar_Movie_005a0a90(false);
-    if (Unknown_00735B10() != 0) {
-        SetActiveWindow(Unknown_00735B10());
-        SetFocus(Unknown_00735B10());
+    if (WS_Top_Window() != 0) {
+        SetActiveWindow(WS_Top_Window());
+        SetFocus(WS_Top_Window());
     }
 }
 
@@ -168,7 +168,7 @@ extern CCToolTip *ToolTips;
 bool __fastcall unknown_moving_736d80(HWND window, unsigned int message, class Rect *rect);
 extern bool window_mouse_wheel_b263e9;
 extern bool window_scroll_coasting_8373fc;
-extern bool unknown_redraw_8523dc;
+extern bool SurfacesRestored;
 extern char const ime_processed_007fd18c[], focus_gained_007fd170[], focus_lost_007fd180[];
 extern char const sidebar_down_007dd0f8[], sidebar_up_007dcf9c[];
 void __fastcall Execute_Command_By_Name(char const *name);
@@ -191,9 +191,9 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
     case 0x18:
         return 0;
     case 0xf:
-        if (unknown_int_a40d48 == 0 && (unknown_flag_a40d28 == true || unknown_flag_851cb0 == true)
-            && WWMouse && unknown_surface_839950 && unknown_surface_839954 && unknown_surface_839964) {
-            if (unknown_flag_a40d04 == true) {
+        if (unknown_int_a40d48 == 0 && (GameInFocus == true || WindowedMode == true)
+            && WWMouse && unknown_surface_839950 && HiddenSurface && unknown_surface_839964) {
+            if (ScenarioActive == true) {
                 Unknown_004E0C90(WWMouse->Is_Captured(), unknown_surface_839964, 0);
                 Map.Unknown_0067D420(true);
                 ValidateRect(window, 0);
@@ -204,7 +204,7 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
                 ValidateRect(window, 0);
                 break;
             }
-            Unknown_004E0C90(WWMouse->Is_Captured(), unknown_surface_839954, 0);
+            Unknown_004E0C90(WWMouse->Is_Captured(), HiddenSurface, 0);
         }
         ValidateRect(window, 0);
         break;
@@ -214,7 +214,7 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
         ToolTips = new CCToolTip(window);
         break;
     case 3:
-        if (unknown_flag_851cb0 == true && WWMouse)
+        if (WindowedMode == true && WWMouse)
             static_cast<WWMouseClass *>(WWMouse)->Calc_Confining_Rect();
         break;
     case 2:
@@ -226,16 +226,16 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
         if (ReadyToQuit != 0) ReadyToQuit = 2;
         return 0;
     case 0x1c:
-        if (window == MainWindow && unknown_flag_a40d28 != (wparam != 0)) {
-            unknown_flag_a40d28 = wparam != 0;
-            if (!unknown_flag_a40d28) {
+        if (window == MainWindow && GameInFocus != (wparam != 0)) {
+            GameInFocus = wparam != 0;
+            if (!GameInFocus) {
                 Focus_Loss();
                 Debug_Printf(focus_lost_007fd180);
             } else {
                 Focus_Restore();
                 Debug_Printf(focus_gained_007fd170);
             }
-            unknown_redraw_8523dc = true;
+            SurfacesRestored = true;
         }
         return 0;
     case 0x205:
@@ -376,7 +376,7 @@ void __fastcall Create_Main_Window(HINSTANCE instance, int command_show, int wid
     wndclass.lpszMenuName = 0;
     wndclass.lpszClassName = "Red Alert 2";
     RegisterClassA(&wndclass);
-    if (unknown_flag_851cb0) {
+    if (WindowedMode) {
         MainWindow = CreateWindowExA(0, "Red Alert 2", "Red Alert 2", 0x2CA0000, 0, 0, 0, 0, 0, 0, instance, 0);
         SetRect(&rect, 0, 0, width, height);
         AdjustWindowRectEx(&rect, GetWindowLongA(MainWindow, -16), GetMenu(MainWindow) != 0,
@@ -388,7 +388,7 @@ void __fastcall Create_Main_Window(HINSTANCE instance, int command_show, int wid
     }
     IMEContext = ImmGetContext(MainWindow);
     ShowWindow(MainWindow, 1);
-    unknown_command_show_b263cc = command_show;
+    ShowCommand = command_show;
     UpdateWindow(MainWindow);
     SetFocus(MainWindow);
     RegisterHotKey(MainWindow, 1, 7, 0x4D);
@@ -467,7 +467,7 @@ void IME_Update_Composition()
         if (length > 0) {
             buffer[length] = 0;
             int count = MultiByteToWideChar(0, 0, buffer, -1, IMECompositionString, 0x100);
-            unknown_b263a8 = 0;
+            IMECompositionTerminator = 0;
             if (count < 0) {
                 count = 0;
             } else {

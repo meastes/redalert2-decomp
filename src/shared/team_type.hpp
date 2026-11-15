@@ -40,7 +40,7 @@ class TagTypeClass;
 class ScriptTypeClass;
 class TaskForceClass;
 class TeamClass;
-extern DynamicVectorClass<AbstractClass *> unknown_objects_ac0cb0;   // 0x00AC0CB0 (shared/object.hpp)
+extern DynamicVectorClass<AbstractClass *> AbstractTypePtrTracker;   // 0x00AC0CB0 (shared/object.hpp)
 
 class TeamTypeClass;
 

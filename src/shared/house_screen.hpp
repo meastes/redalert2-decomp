@@ -57,7 +57,7 @@ public:
     // A waypoint in the cell, else 0 (0x004ED200; shared/house.hpp).
     class WaypointClass *Waypoint_At(Cell const &cell);
     bool Fetch_Waypoint_Data(class WaypointClass *waypoint, int *path, char *position);   // 0x004ED2B0 (overlay)
-    bool Unknown_004F3120() const;                         // 0x004F3120 (overlay)
+    bool Can_Add_Waypoint_To_Path() const;                         // 0x004F3120 (overlay)
 
     char unknown_000[0x30];
     int ArrayIndex;                     // +0x030 index in Houses (bit in house masks; TechnoClass::Owner)

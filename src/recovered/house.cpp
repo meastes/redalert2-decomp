@@ -377,11 +377,11 @@ HouseClass::HouseClass(HouseTypeClass *type)
     if (Type != 0) {
         ColorSchemeIndex = Type->Color;
     }
-    unknown_objects_ac0cb0.Add(this);
-    unknown_abstracts_ac0c80.Add(this);
-    unknown_objects_ac0c30.Add(this);
-    unknown_objects_ac0c58.Add(this);
-    unknown_AbstractClass_list_00ac0d60.Add(this);
+    AbstractTypePtrTracker.Add(this);
+    FactoryPtrTracker.Add(this);
+    WaypointPathPtrTracker.Add(this);
+    TagPtrTracker.Add(this);
+    ObjectPtrTracker.Add(this);
     ArrayIndex = Houses.Count();
     if (type != 0) {
         for (int index = 0; index < Houses.Count(); index++) {
@@ -716,7 +716,7 @@ int HouseClass::Assign_Handicap(int difficulty)
 // Deletes the house's waypoint paths, super weapons and tags, releases its
 // connection points and removes it from the global lists and Houses.
 
-extern bool unknown_flag_a40958;            // 0x00A40958
+extern bool GameActive;            // 0x00A40958
 extern HouseClass *unknown_house_84e894;    // 0x0084E894
 
 HouseClass::~HouseClass()
@@ -731,7 +731,7 @@ HouseClass::~HouseClass()
         delete Supers[index];
     }
     Supers.Clear();
-    if (unknown_56cc != 0 && unknown_flag_a40958) {
+    if (unknown_56cc != 0 && GameActive) {
         unknown_56cc->Release();
         unknown_56cc = 0;
     }
@@ -745,11 +745,11 @@ HouseClass::~HouseClass()
     }
     ConnectionPoints.Clear();
     unknown_15f60 = 0;
-    unknown_objects_ac0cb0.Delete((ObjectClass *)this);
-    unknown_abstracts_ac0c80.Delete(this);
-    unknown_objects_ac0c30.Delete(this);
-    unknown_objects_ac0c58.Delete(this);
-    unknown_AbstractClass_list_00ac0d60.Delete(this);
+    AbstractTypePtrTracker.Delete((ObjectClass *)this);
+    FactoryPtrTracker.Delete(this);
+    WaypointPathPtrTracker.Delete(this);
+    TagPtrTracker.Delete(this);
+    ObjectPtrTracker.Delete(this);
     if (unknown_house_84e894 == this) {
         unknown_house_84e894 = 0;
     }
@@ -1056,7 +1056,7 @@ void HouseClass::AI()
         Recalc_Power_004f2cc0();
         unknown_5669 = true;
     }
-    if ((unknown_5669 != false) && (unknown_int_a3d548 == 0)) {
+    if ((unknown_5669 != false) && (MuteSWLaunches == 0)) {
         unknown_func_4f2e50();
         unknown_func_4f2fc0();
     }
@@ -1536,10 +1536,10 @@ void HouseClass::Make_Ally(HouseClass *house, bool announce)
         if (unknown_54f0 == house->ArrayIndex) {
             unknown_54f0 = -1;
         }
-        if (unknown_a40774) {
+        if (ScenarioInit) {
             unknown_120 |= 1 << house->ArrayIndex;
         }
-        if (unknown_game_mode_a3d298 == 4 || !unknown_a40774) {
+        if (unknown_game_mode_a3d298 == 4 || !ScenarioInit) {
             if (Is_Human_Control() && Rules->Paranoid && !house->Type->MultiplayPassive && unknown_game_mode_a3d298 != 0) {
                 unknown_func_4ec5e0();
             }
@@ -1560,7 +1560,7 @@ void HouseClass::Make_Ally(HouseClass *house, bool announce)
                 unknown_messages_a3dc70.Add_Message(0, 0, buffer, Type->Color, 0x4046, (int)(Rules->MessageDelay * 900.0), 0);
                 if (announce) {
                     if (house->Is_Ally(this)) {
-                        if (!unknown_int_a3d548) {
+                        if (!MuteSWLaunches) {
                             if (unknown_player_a35db4->Is_Ally(house) && unknown_player_a35db4->Is_Ally(this)) {
                                 Speech_Play_Name("EVA_AllianceFormed", -1, -1);
                             } else {
@@ -1607,20 +1607,20 @@ void HouseClass::Make_Enemy(HouseClass *house, bool announce)
     unknown_func_4eeba0(1, house);
     if (Is_Ally(house)) {
         Allies &= ~(1 << house->ArrayIndex);
-        if (unknown_a40774) {
+        if (ScenarioInit) {
             unknown_120 &= !(1 << house->ArrayIndex);
         }
         unknown_func_4f3420();
         if (house->Is_Ally(this)) {
             house->Allies &= ~(1 << ArrayIndex);
             broken = true;
-            if (unknown_a40774) {
+            if (ScenarioInit) {
                 unknown_120 &= ~(1 << ArrayIndex);
             }
             house->unknown_func_4f3420();
             house->unknown_func_4eeba0(1, house);
         }
-        if (unknown_game_mode_a3d298 != 0 && !unknown_a40774 && unknown_134) {
+        if (unknown_game_mode_a3d298 != 0 && !ScenarioInit && unknown_134) {
             wchar_t buffer[80];
             swprintf(buffer, StringTable::Load_String("TXT_AT_WAR", 0, "D:\\Ra2\\House.CPP", 3272), UIName, house->UIName);
             unknown_messages_a3dc70.Add_Message(0, 0, buffer, Type->Color, 0x4046, (int)(Rules->MessageDelay * 900.0), 0);
@@ -1876,7 +1876,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                             if (Map.unknown_1190) {
                                 Map.Unknown_00498F10(((ObjectTypeClass *)Map.unknown_1190)->Occupy_List(1));
                                 Point2D xy = WWMouse->Get_Mouse_XY();
-                                unknown_tactical_83996c->Pixel_To_Coord(xy);
+                                TacticalMap->Pixel_To_Coord(xy);
                                 xy -= Point2D(unknown_rect_839630.X, unknown_rect_839630.Y);
                                 Cell mouse_cell;
                                 CoordStruct mouse_coord;
@@ -2242,13 +2242,13 @@ void HouseClass::MPlayer_Defeated_004e77f0()
         } else unknown_flag_7d9fe8=false;
         Planning_End();
         Map.Unknown_0049CAC0(0);
-        unknown_int_a3d548=1;
+        MuteSWLaunches=1;
         Map.Unknown_0055A1F0();
         Map.Toggle_Radar(true);
-        unknown_surface_839954->Fill(0);
+        HiddenSurface->Fill(0);
         Map.Flag_To_Redraw(2);
         memset(unknown_flags_a3f118,1,sizeof(unknown_flags_a3f118));
-        if (Current_Dialog_Id_00735b20()==0x73) Map.Unknown_00634970((int)Unknown_00735B10());
+        if (Current_Dialog_Id_00735b20()==0x73) Map.Unknown_00634970((int)WS_Top_Window());
         if (unknown_house_a72d28!=unknown_player_a35db4) {
             swprintf(text,StringTable::Load_String("TXT_PLAYER_DEFEATED",0,"D:\\Ra2\\House.CPP",0x125f),UIName);
             unknown_session_a3d298.Messages.Add_Message(0,0,text,unknown_session_a3d298.Unknown_006715D0(unknown_a3d3b4),0x4046,(int)(Rules->MessageDelay*900),false);
@@ -2405,12 +2405,12 @@ bool HouseClass::Flag_To_Win(bool quiet)
         if (unknown_game_mode_a3d298 == 0) {
             if (Is_Player_Control()) {
                 Pause_Game_0065c3d0();
-                unknown_tactical_83996c->Set_Caption_Text_006a53f0(StringTable::Load_String("TXT_SCENARIO_WON", 0, "D:\\Ra2\\House.CPP", 5304), 0);
+                TacticalMap->Set_Caption_Text_006a53f0(StringTable::Load_String("TXT_SCENARIO_WON", 0, "D:\\Ra2\\House.CPP", 5304), 0);
                 Speech_Play_Name("EVA_MissionAccomplished", -1, -1);
                 Map.Flag_To_Redraw(false);
             }
         } else if (Is_Player_Control()) {
-            unknown_tactical_83996c->Set_Caption_Text_006a53f0(StringTable::Load_String("TXT_VICTORIOUS", 0, "D:\\Ra2\\House.CPP", 5307), 2);
+            TacticalMap->Set_Caption_Text_006a53f0(StringTable::Load_String("TXT_VICTORIOUS", 0, "D:\\Ra2\\House.CPP", 5307), 2);
             Speech_Play_Name("EVA_YouAreVictorious", -1, -1);
             Map.Flag_To_Redraw(false);
         }
@@ -2447,12 +2447,12 @@ bool HouseClass::Flag_To_Lose(bool quiet)
         if (unknown_game_mode_a3d298 == 0) {
             if (Is_Player_Control()) {
                 Pause_Game_0065c3d0();
-                unknown_tactical_83996c->Set_Caption_Text_006a53f0(StringTable::Load_String("TXT_SCENARIO_LOST", 0, "D:\\Ra2\\House.CPP", 5359), 1);
+                TacticalMap->Set_Caption_Text_006a53f0(StringTable::Load_String("TXT_SCENARIO_LOST", 0, "D:\\Ra2\\House.CPP", 5359), 1);
                 Speech_Play_Name("EVA_MissionFailed", -1, -1);
                 Map.Flag_To_Redraw(false);
             }
         } else if (Is_Player_Control()) {
-            unknown_tactical_83996c->Set_Caption_Text_006a53f0(StringTable::Load_String("TXT_LOST", 0, "D:\\Ra2\\House.CPP", 5362), 3);
+            TacticalMap->Set_Caption_Text_006a53f0(StringTable::Load_String("TXT_LOST", 0, "D:\\Ra2\\House.CPP", 5362), 3);
             if (unknown_player_a35db4 != unknown_house_a72d28) {
                 Speech_Play_Name("EVA_YouHaveLost", -1, -1);
             }
@@ -2537,7 +2537,7 @@ void HouseClass::Sell_Wall(Cell const &cell, bool quiet)
                         Map.Radar_Background(cell);
                         Unknown_006D7C80(&Map[cell]);
                         Map.Update_Cell_Zone(cell);
-                        Map.Unknown_00566340(cell);
+                        Map.Update_Cell_Subzones(cell);
                     }
                 }
             }
@@ -4057,7 +4057,7 @@ class SideClass {
 public:
     static int __fastcall Find_Index(char const *name);   // 0x0067AF90
 };
-extern int unknown_a40774;                  // 0x00A40774
+extern int ScenarioInit;                  // 0x00A40774
 
 bool HouseClass::Is_Allowed_To_Ally(HouseClass *house)
 {
@@ -4067,7 +4067,7 @@ bool HouseClass::Is_Allowed_To_Ally(HouseClass *house)
     if (house->Type->Side == SideClass::Find_Index("Civilian") && unknown_game_mode_a3d298 != 0) {
         return false;
     }
-    if (unknown_a40774 != 0) {
+    if (ScenarioInit != 0) {
         return true;
     }
     if (unknown_13d) {
@@ -4151,12 +4151,12 @@ void HouseClass::unknown_func_4ec5e0()
 
 void HouseClass::Adjust_Power(int amount)
 {
-    if (unknown_flag_a40958) {
+    if (GameActive) {
         bool was_low = Power < Drain;
         Power += amount;
         unknown_func_4ec9b0();
         bool low = Power < Drain;
-        if (!unknown_a40774 && was_low != low) {
+        if (!ScenarioInit && was_low != low) {
             IConnectionPointContainer *container;
             QueryInterface(IID_IConnectionPointContainer, (void **)&container);
             IEnumConnectionPoints *points;
@@ -4199,7 +4199,7 @@ void HouseClass::Adjust_Drain(int amount)
     Drain += amount;
     unknown_func_4ec9b0();
     bool low = Power < Drain;
-    if (!unknown_a40774 && was_low != low) {
+    if (!ScenarioInit && was_low != low) {
         IConnectionPointContainer *container;
         QueryInterface(IID_IConnectionPointContainer, (void **)&container);
         IEnumConnectionPoints *points;
@@ -5147,7 +5147,7 @@ void HouseClass::Plan_Naval_Yard_Path_004eecb0(int node)
 // void HouseClass::Unknown_004EF5A0() (0x004EF5A0)
 // After the MCV deploys (UnitClass 0x006FDFC0): a computer house in a
 // multiplayer game runs 0x004EC5E0; a house without base nodes plans its
-// base (0x004EF890) with unknown_a40774 cleared.
+// base (0x004EF890) with ScenarioInit cleared.
 
 void HouseClass::Unknown_004EF5A0()
 {
@@ -5155,10 +5155,10 @@ void HouseClass::Unknown_004EF5A0()
         unknown_func_4ec5e0();
     }
     if (unknown_55f0.Nodes.Count() == 0) {
-        int saved = unknown_a40774;
-        unknown_a40774 = 0;
+        int saved = ScenarioInit;
+        ScenarioInit = 0;
         unknown_func_4ef890();
-        unknown_a40774 = saved;
+        ScenarioInit = saved;
     }
 }
 
@@ -6668,10 +6668,10 @@ void HouseClass::AI_Takeover()
     BaseCenter=Cell_Coord(center);
     if (Is_Network_Computer(this)) unknown_func_4ec5e0();
     if (unknown_55f0.Nodes.Count()==0) {
-        int saved_init=unknown_a40774;
-        unknown_a40774=0;
+        int saved_init=ScenarioInit;
+        ScenarioInit=0;
         unknown_func_4ef890();
-        unknown_a40774=saved_init;
+        ScenarioInit=saved_init;
     }
     unknown_55f0.Nodes[0].Cell=center;
     unknown_55f0.unknown_50=center;
@@ -6796,7 +6796,7 @@ void HouseClass::AI_Takeover()
 // second test stays; the second named negation sets the compare order of the Fetch_ID pair.
 void HouseClass::Update_Present_Super_Weapons()
 {
-    if (!unknown_flag_a40958) return;
+    if (!GameActive) return;
     bool is_player = unknown_player_a35db4 == this;
     for (int s = 0; s < Supers.Count(); ++s) {
         if (Supers[s]->Is_Present() && ((Supers[s]->unknown_0x48 && !Supers[s]->Is_One_Time()) || unknown_13d)) {
@@ -7240,10 +7240,10 @@ void HouseClass::unknown_func_4f5be0()
     BaseCenter=Cell_Coord(center);
     if (!Is_Human_Control() && unknown_game_mode_a3d298!=0) unknown_func_4ec5e0();
     if (unknown_55f0.Nodes.Count()==0) {
-        int saved_initialization=unknown_a40774;
-        unknown_a40774=0;
+        int saved_initialization=ScenarioInit;
+        ScenarioInit=0;
         unknown_func_4ef890();
-        unknown_a40774=saved_initialization;
+        ScenarioInit=saved_initialization;
     }
     unknown_55f0.Nodes[0].Cell=center;
     unknown_55f0.unknown_50=center;

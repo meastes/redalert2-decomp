@@ -177,9 +177,9 @@ BulletClass::~BulletClass()
 {
     Unknown_006ECB90(this, true);
     if (SpawnNextAnim) {
-        unknown_abstracts_ac0bf8.Delete(this);
+        AnimPtrTracker.Delete(this);
     }
-    if (unknown_flag_a40958) {
+    if (GameActive) {
         ObjectClass::Limbo();
     }
     Type = 0;
@@ -247,7 +247,7 @@ void BulletClass::AI()
         if (NextAnim != 0) {
             return;
         }
-        unknown_abstracts_ac0bf8.Delete(this);
+        AnimPtrTracker.Delete(this);
         SpawnNextAnim = false;
         unknown_func_461de0(false);
         Delete_Me();
@@ -471,7 +471,7 @@ void BulletClass::AI()
                     }
                     Matrix3D slope;
                     Matrix3D inverse;
-                    inverse = Matrix3D_Rigid_Inverse_00591420(slope = *Unknown_00718D60(&Matrix3D(), unknown_tactical_83996c->Get_Cell_Ramp_006a7110(new_coord)));
+                    inverse = Matrix3D_Rigid_Inverse_00591420(slope = *Unknown_00718D60(&Matrix3D(), TacticalMap->Get_Cell_Ramp_006a7110(new_coord)));
                     Vector3 vec;
                     vec.Set_00437690((float)velocity.X, -(float)velocity.Y, (float)velocity.Z);
                     vec = inverse.Rotate_Vector(vec);
@@ -611,7 +611,7 @@ flown:
             if (index != -1 && (type = AnimTypes[index]) != 0) {
                 NextAnim = new AnimClass(type, CoordStruct(Coord), 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(Coord));
                 SpawnNextAnim = true;
-                unknown_abstracts_ac0bf8.Add(this);
+                AnimPtrTracker.Add(this);
                 break;
             }
         }
@@ -688,7 +688,7 @@ void BulletClass::Draw_It(Point2D const &point, Rect const &clip)
 void BulletClass::unknown_func_461470()
 {
     Cell cell = Coord_Cell(Target->Center_Coord());
-    if (unknown_a40774 == 0 && !Target->In_Air() && (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y)) {
+    if (ScenarioInit == 0 && !Target->In_Air() && (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y)) {
         Target = (AbstractClass *)&Map[cell];
         return;
     }
@@ -714,7 +714,7 @@ inline Cell Cell_Of(AbstractClass *object)
 inline void Retarget(BulletClass *self)
 {
     Cell cell = Cell_Of(self->Target);
-    if (unknown_a40774 == 0 && !self->Target->In_Air() && cell != unknown_geometry_k) {
+    if (ScenarioInit == 0 && !self->Target->In_Air() && cell != unknown_geometry_k) {
         self->Target = &Map[cell];
     } else {
         self->Target = 0;
@@ -967,7 +967,7 @@ int __stdcall Get_Explosion_Z_0047fcc0(CoordStruct coord);
 // form of Random_Pick in shared/id_source.hpp: the result is a variable).
 template<class T> inline T Random2_Pick(T a, T b)
 {
-    return T(unknown_random_839218((int)a, (int)b));
+    return T(NonCriticalRandomNumber((int)a, (int)b));
 }
 
 // The target as a techno (flag bit 0), or 0.
@@ -1235,7 +1235,7 @@ HRESULT __stdcall BulletClass::Load(IStream *stream)
     if (SUCCEEDED(result)) {
         new (this) BulletClass(NoInitClass());
         if (NextAnim) {
-            unknown_abstracts_ac0bf8.Add(this);
+            AnimPtrTracker.Add(this);
         }
         Swizzle_Pointer(Type);
         Swizzle_Pointer(Owner);

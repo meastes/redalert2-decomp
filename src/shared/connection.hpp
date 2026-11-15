@@ -31,7 +31,7 @@ extern bool unknown_flag_a3fba8;
 
 class ConnectionClass;
 // The connection whose sends are flagged (0x00A409C4).
-extern ConnectionClass *unknown_connection_a409c4;
+extern ConnectionClass *PacketRouterConnection;
 
 class ConnectionClass {
 public:

@@ -1,4 +1,4 @@
-// NON-EXACT DRAFT 0x566340 MapClass::Unknown_00566340 (rebuild the subzone graph around a changed cell)
+// NON-EXACT DRAFT 0x566340 MapClass::Update_Cell_Subzones (rebuild the subzone graph around a changed cell)
 // entry 0x566340; exact-match score 64.37 (misses_index best; shape 98.45, calls equal); plan "draft, verify"
 // origin lane: Scout664 (build/class-work/Scout664/w/keep/c_6437.cpp, overlay w/h2; Scout662 c_5141 before it)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
@@ -44,7 +44,7 @@ inline int Cell_Passability(MapClass *map, Cell const &cell)
     return map->CellZones[map->Get_Cell_Zone_Index(cell)].unknown_00;
 }
 
-void MapClass::Unknown_00566340(Cell const &cell)
+void MapClass::Update_Cell_Subzones(Cell const &cell)
 {
     if (Unknown_0055A660(cell, true)) {
         int y;

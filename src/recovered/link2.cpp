@@ -170,8 +170,8 @@ void LineTrail::Draw()
 
         Point2D start;
         Point2D end;
-        unknown_tactical_83996c->Coord_To_Pixel(from->Position, start);
-        unknown_tactical_83996c->Coord_To_Pixel(to->Position, end);
+        TacticalMap->Coord_To_Pixel(from->Position, start);
+        TacticalMap->Coord_To_Pixel(to->Position, end);
         int start_height = -2 - Unknown_006A2970(from->Position.Z);
         int end_height = -2 - Unknown_006A2970(to->Position.Z);
         ((DSurface *)unknown_surface_839964)->Draw_Trail_Line_4AE9C0(unknown_rect_839630, start, end, Color,

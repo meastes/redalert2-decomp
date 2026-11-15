@@ -71,8 +71,8 @@ NeuronClass::NeuronClass() :
     Brain(0),
     CreationFrame(Frame)
 {
-    unknown_list_ac0c18.Add(this);
-    unknown_objects_ac0cb0.Add(this);
+    TeamPtrTracker.Add(this);
+    AbstractTypePtrTracker.Add(this);
 }
 
 
@@ -81,8 +81,8 @@ NeuronClass::NeuronClass() :
 
 NeuronClass::~NeuronClass()
 {
-    unknown_objects_ac0cb0.Delete(this);
-    unknown_list_ac0c18.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
+    TeamPtrTracker.Delete(this);
 }
 
 

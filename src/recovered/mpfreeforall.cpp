@@ -134,11 +134,11 @@ bool FreeForAll::AssignTeamsAtStart()
 // -1 add their entries (0x005B9BE0) and selects the first entry.
 
 WIN32_IMPORT long __stdcall SendMessageA(HWND window, unsigned int message, unsigned int wparam, long lparam);
-void __fastcall unknown_reset_combo_6007f0(HWND combo);
+void __fastcall Clear_ComboBox(HWND combo);
 
 void FreeForAll::PopulateTeamDropdownForPlayer(HWND combo, int team)
 {
-    unknown_reset_combo_6007f0(combo);
+    Clear_ComboBox(combo);
     MultiplayerTeam *entry = GetTeam(team);
     if (entry != 0) {
         entry->AddToList(combo);

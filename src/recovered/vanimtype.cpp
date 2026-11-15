@@ -113,7 +113,7 @@ VoxelAnimTypeClass::VoxelAnimTypeClass(char const *ini_name) :
     unknown_202 = true;
     unknown_203 = true;
     unknown_205 = false;
-    unknown_objects_ac0cb0.Add(this);
+    AbstractTypePtrTracker.Add(this);
     VoxelAnimTypes.Add(this);
 }
 
@@ -125,7 +125,7 @@ VoxelAnimTypeClass::VoxelAnimTypeClass(char const *ini_name) :
 VoxelAnimTypeClass::~VoxelAnimTypeClass()
 {
     Unknown_006ECB90(this, true);
-    unknown_objects_ac0cb0.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
     VoxelAnimTypes.Delete(this);
     if (unknown_266) {
         unknown_b0.unknown_00 = 0;

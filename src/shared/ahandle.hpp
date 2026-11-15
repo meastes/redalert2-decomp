@@ -10,10 +10,10 @@
 #include "shared/sound_available.hpp"
 #include "shared/crt_memory.hpp"
 
-void *unknown_directsound_40a6c0();             // 0x0040A6C0 the DirectSound object
+void *GetDirectSoundObject();             // 0x0040A6C0 the DirectSound object
 long __fastcall Audio_DS_Volume_Attenuation(int volume);    // 0x0040A820
 extern float unknown_volume_a40b48;             // 0x00A40B48 movie volume scale
-unsigned long unknown_ticks_004d0090();         // 0x004D0090 game ticks (1/60 s)
+unsigned long Get_Game_Time_50();         // 0x004D0090 game ticks (1/60 s)
 
 typedef void (__stdcall *LPTIMECALLBACK)(unsigned int timer, unsigned int message, DWORD user, DWORD unused1, DWORD unused2);
 WIN32_IMPORT unsigned int WINAPI timeBeginPeriod(unsigned int period);

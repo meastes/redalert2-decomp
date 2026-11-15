@@ -72,7 +72,7 @@ bool MapClass::Unknown_0055F020(Cell const &cell)
         }
 
         draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-        unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
+        TacticalMap->Register_Dirty_Area(draw_rect, false);
 
         cellptr1->Recalc_Attributes(-1);
         cellptr2->Recalc_Attributes(-1);

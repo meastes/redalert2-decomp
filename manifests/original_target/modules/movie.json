@@ -109,7 +109,7 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?Play_Movie_Handle@@YIXPBD@Z",
+   "symbol": "?Play_Movie_Simple@@YIXPBD@Z",
    "entry": "005a0710",
    "body_bytes": 222,
    "padding_bytes": 2
@@ -121,13 +121,13 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?Unknown_Queue_Movie_005a0840@@YIXPBD_N@Z",
+   "symbol": "?Play_Ingame_Movie@@YIXPBD_N@Z",
    "entry": "005a0840",
    "body_bytes": 163,
    "padding_bytes": 13
   },
   {
-   "symbol": "?Unknown_Movie_Message_005a08f0@@YIXH@Z",
+   "symbol": "?Ingame_Movie_Subtitle@@YIXH@Z",
    "entry": "005a08f0",
    "body_bytes": 36,
    "padding_bytes": 12
@@ -139,7 +139,7 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?Unknown_Clear_Movies_005a09e0@@YAXXZ",
+   "symbol": "?Stop_Ingame_Movie@@YAXXZ",
    "entry": "005a09e0",
    "body_bytes": 168,
    "padding_bytes": 8
@@ -151,19 +151,19 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?Unknown_Movies_Queued_005a0ab0@@YA_NXZ",
+   "symbol": "?Has_Ingame_Movies@@YA_NXZ",
    "entry": "005a0ab0",
    "body_bytes": 14,
    "padding_bytes": 2
   },
   {
-   "symbol": "?Unknown_Audio_Resume_005a0ac0@@YAXXZ",
+   "symbol": "?Movie_Audio_Resume@@YAXXZ",
    "entry": "005a0ac0",
    "body_bytes": 69,
    "padding_bytes": 11
   },
   {
-   "symbol": "?Unknown_Audio_Pause_005a0b10@@YAXXZ",
+   "symbol": "?Movie_Audio_Suspend@@YAXXZ",
    "entry": "005a0b10",
    "body_bytes": 64,
    "padding_bytes": 0
@@ -591,6 +591,10 @@
    "address": "00852fd6"
   },
   {
+   "symbol": "?AlternateSurface@@3PAVSurface@@A",
+   "address": "00839958"
+  },
+  {
    "symbol": "?Audio_DS_Apply_Primary_Format@@YIXXZ",
    "address": "0040a770"
   },
@@ -663,8 +667,28 @@
    "address": "0071d300"
   },
   {
+   "symbol": "?HiddenSurface@@3PAVSurface@@A",
+   "address": "00839954"
+  },
+  {
+   "symbol": "?IngameVQ@@3V?$DynamicVectorClass@PAVMovieHandle@@@@A",
+   "address": "00af8fd8"
+  },
+  {
    "symbol": "?Map@@3VMouseClass@@A",
    "address": "008324e0"
+  },
+  {
+   "symbol": "?MovieAudioSuspended@@3_NA",
+   "address": "00a7101c"
+  },
+  {
+   "symbol": "?Movie_Create@@YIPAVVQAMovie@@PBDPAVSurface@@VRect@@2H_N@Z",
+   "address": "005a1010"
+  },
+  {
+   "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+   "address": "00a71050"
   },
   {
    "symbol": "?Options@@3VOptionsClass@@A",
@@ -679,8 +703,24 @@
    "address": "004070a0"
   },
   {
+   "symbol": "?SidebarMovieX@@3HA",
+   "address": "008336cc"
+  },
+  {
+   "symbol": "?SidebarMovieY@@3HA",
+   "address": "008336d0"
+  },
+  {
+   "symbol": "?SidebarSurface@@3PAVSurface@@A",
+   "address": "00839948"
+  },
+  {
    "symbol": "?Speech_Hold@@YAXXZ",
    "address": "00716980"
+  },
+  {
+   "symbol": "?TacticalActive@@3_NA",
+   "address": "00a40380"
   },
   {
    "symbol": "?VQA_Movie_Close@@YIXPAVVQAMovie@@@Z",
@@ -691,28 +731,12 @@
    "address": "005a14d0"
   },
   {
-   "symbol": "?VQA_Unknown_005A1010@@YIPAVVQAMovie@@PBDPAVSurface@@VRect@@2H_N@Z",
-   "address": "005a1010"
-  },
-  {
    "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
    "address": "00832468"
   },
   {
    "symbol": "?WWMouse@@3PAVMouse@@A",
    "address": "00839c68"
-  },
-  {
-   "symbol": "?queued_movies_00af8fd8@@3V?$DynamicVectorClass@PAVMovieHandle@@@@A",
-   "address": "00af8fd8"
-  },
-  {
-   "symbol": "?unknown_audio_paused_a7101c@@3_NA",
-   "address": "00a7101c"
-  },
-  {
-   "symbol": "?unknown_flag_a40380@@3_NA",
-   "address": "00a40380"
   },
   {
    "symbol": "?unknown_game_mode_a3d298@@3HA",
@@ -735,36 +759,12 @@
    "address": "004ba5b0"
   },
   {
-   "symbol": "?unknown_names_a71050@@3V?$DynamicVectorClass@PBD@@A",
-   "address": "00a71050"
-  },
-  {
-   "symbol": "?unknown_radar_x_8336cc@@3HA",
-   "address": "008336cc"
-  },
-  {
-   "symbol": "?unknown_radar_y_8336d0@@3HA",
-   "address": "008336d0"
-  },
-  {
    "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
    "address": "00a3d298"
   },
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_surface_839948@@3PAVSurface@@A",
-   "address": "00839948"
-  },
-  {
-   "symbol": "?unknown_surface_839954@@3PAVSurface@@A",
-   "address": "00839954"
-  },
-  {
-   "symbol": "?unknown_surface_839958@@3PAVSurface@@A",
-   "address": "00839958"
   },
   {
    "symbol": "?unknown_tick_sound@@YAXXZ",
@@ -934,13 +934,13 @@
    "site": "00633c40",
    "target": "005a0b10",
    "symbol": "?Unknown_005A0B10@@YAXXZ",
-   "module_symbol": "?Unknown_Audio_Pause_005a0b10@@YAXXZ"
+   "module_symbol": "?Movie_Audio_Suspend@@YAXXZ"
   },
   {
    "site": "00633d30",
    "target": "005a0ac0",
    "symbol": "?Unknown_005A0AC0@@YAXXZ",
-   "module_symbol": "?Unknown_Audio_Resume_005a0ac0@@YAXXZ"
+   "module_symbol": "?Movie_Audio_Resume@@YAXXZ"
   },
   {
    "site": "006b0d30",
@@ -976,13 +976,13 @@
    "site": "0065e440",
    "target": "005a09e0",
    "symbol": "?Unknown_005A09E0@@YAXXZ",
-   "module_symbol": "?Unknown_Clear_Movies_005a09e0@@YAXXZ"
+   "module_symbol": "?Stop_Ingame_Movie@@YAXXZ"
   },
   {
    "site": "0065e590",
    "target": "005a09e0",
    "symbol": "?Unknown_005A09E0@@YAXXZ",
-   "module_symbol": "?Unknown_Clear_Movies_005a09e0@@YAXXZ"
+   "module_symbol": "?Stop_Ingame_Movie@@YAXXZ"
   },
   {
    "site": "0065bc70",
@@ -1000,7 +1000,7 @@
    "site": "0065d7f0",
    "target": "005a09e0",
    "symbol": "?Unknown_005A09E0@@YAXXZ",
-   "module_symbol": "?Unknown_Clear_Movies_005a09e0@@YAXXZ"
+   "module_symbol": "?Stop_Ingame_Movie@@YAXXZ"
   },
   {
    "site": "0065d7f0",
@@ -1030,7 +1030,7 @@
    "site": "0065dec0",
    "target": "005a09e0",
    "symbol": "?Unknown_005A09E0@@YAXXZ",
-   "module_symbol": "?Unknown_Clear_Movies_005a09e0@@YAXXZ"
+   "module_symbol": "?Stop_Ingame_Movie@@YAXXZ"
   },
   {
    "site": "0065dec0",
@@ -1054,7 +1054,7 @@
    "site": "00672e70",
    "target": "005a09e0",
    "symbol": "?Unknown_005A09E0@@YAXXZ",
-   "module_symbol": "?Unknown_Clear_Movies_005a09e0@@YAXXZ"
+   "module_symbol": "?Stop_Ingame_Movie@@YAXXZ"
   },
   {
    "site": "005116a0",

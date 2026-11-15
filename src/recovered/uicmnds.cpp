@@ -340,7 +340,7 @@ void Unknown_006F5BC0()
 
 void Unknown_006F5C50()
 {
-    if (Frame >= unknown_cheer_frame_ac134c && unknown_int_a3d548 == 0) {
+    if (Frame >= unknown_cheer_frame_ac134c && MuteSWLaunches == 0) {
         OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0x2D));
         unknown_cheer_frame_ac134c = Rules->MaximumCheerRate + Frame;
     }
@@ -960,7 +960,7 @@ static bool None_On_Screen(DynamicVectorClass<TechnoClass *> *list)
 // message through 0x006F58E0.
 void __fastcall Unknown_006F6D00(bool flag)
 {
-    if (unknown_int_a3d548 != 0) {
+    if (MuteSWLaunches != 0) {
         return;
     }
     unknown_selected_83996c->Unknown_006AAD70();
@@ -1141,7 +1141,7 @@ static void Select_Named(DynamicVectorClass<TechnoClass *> *list, DynamicVectorC
 
 void __fastcall Unknown_006F7360()
 {
-    if (unknown_int_a3d548 != 0) {
+    if (MuteSWLaunches != 0) {
         return;
     }
     unknown_selected_83996c->Unknown_006AAD70();
@@ -1285,12 +1285,12 @@ void __fastcall Unknown_006F7800(char const *name, UnknownVisit visit, int argum
 }
 
 
-// void __fastcall Unknown_006F7970(void *item) (0x006F7970)
+// void __fastcall Detach_From_Command_List(void *item) (0x006F7970)
 // Removes the last entry equal to item from the list at 0x00AC1344 (searched from the end).
 
 extern UnknownPointerList *unknown_list_ac1344;
 
-void __fastcall Unknown_006F7970(void *item)
+void __fastcall Detach_From_Command_List(void *item)
 {
     if (unknown_list_ac1344 != 0) {
         for (int index = unknown_list_ac1344->Count - 1; index >= 0; index--) {
@@ -1376,7 +1376,7 @@ static wchar_t const *Selection_Message(int kind)
 
 void __fastcall Unknown_006F7B80(bool flag)
 {
-    if (unknown_int_a3d548 != 0) {
+    if (MuteSWLaunches != 0) {
         return;
     }
     int kind;
@@ -1483,7 +1483,7 @@ static wchar_t const *Experience_Message(int kind)
 
 void __fastcall Unknown_006F7EC0(bool flag)
 {
-    if (unknown_int_a3d548 != 0) {
+    if (MuteSWLaunches != 0) {
         return;
     }
     int kind;
@@ -1624,7 +1624,7 @@ void Unknown_006F88F0()
         CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
         int height = Map[coord].unknown_11b * 256 / 2;
         coord -= CoordStruct(height, height, 0);
-        unknown_tactical_83996c->Set_Tactical_Position_006a66b0(coord);
+        TacticalMap->Set_Tactical_Position_006a66b0(coord);
         if (unknown_833684 != 0) {
             Map.Unknown_004994D0(unknown_geometry_k);
         }

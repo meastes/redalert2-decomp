@@ -60,7 +60,7 @@
 // @ref ?unknown_slot_a3fc34@@3PAHA=00a3fc34
 // @ref ?unknown_slot_a40238@@3PAHA=00a40238
 // @ref ?unknown_slot_addresses_a3fbd4@@3PAVIPXAddressClass@@A=00a3fbd4
-// @ref ?unknown_b2abd9@@3_NA=00b2abd9
+// @ref ?g_PlayingNetGame@@3_NA=00b2abd9
 // @ref ?unknown_b2ac40@@3HA=00b2ac40
 // @ref _atoi=00782dfd
 // @ref _atol=00782d72
@@ -69,7 +69,7 @@ extern "C" char *__cdecl _strdup(char const *string);
 extern "C" long __cdecl atol(char const *string);
 extern "C" int __cdecl atoi(char const *string);
 extern "C" int __cdecl sscanf(char const *string, char const *format, ...);
-extern bool unknown_b2abd9;
+extern bool g_PlayingNetGame;
 extern int unknown_a72d08;
 extern int unknown_b2ac40;
 extern IPXAddressClass unknown_slot_addresses_a3fbd4[8];
@@ -131,7 +131,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
         free(copy);
         return false;
     }
-    if (unknown_game_mode_a3d298 == 4 && (unknown_b2abd9 || unknown_b2ac40 != 0)) {
+    if (unknown_game_mode_a3d298 == 4 && (g_PlayingNetGame || unknown_b2ac40 != 0)) {
         free(copy);
         return false;
     }

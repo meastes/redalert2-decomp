@@ -46,7 +46,7 @@ int CellClass::unknown_475db0(int levels)
                 }
             }
         }
-        unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+        TacticalMap->Register_Dirty_Area(dirty, false);
         return reducer;
     }
     return 0;

@@ -177,7 +177,7 @@ MultiplayerGameMode *__fastcall MultiplayerGameMode::unknown_find_mode_5b6fe0(in
 
 void __fastcall MultiplayerGameMode::unknown_fill_combo_5b70b0(HWND combo, int id)
 {
-    unknown_reset_combo_6007f0(combo);
+    Clear_ComboBox(combo);
     bool listed = unknown_game_mode_a3d298 == 5;
     for (int index = 0; index < unknown_mode_count_5b6f80(); index++) {
         MultiplayerGameMode *mode = unknown_modes_5b6c30()[index];
@@ -342,7 +342,7 @@ int MultiplayerGameMode::RandomAICountryIndex()
 
 void MultiplayerGameMode::PopulateTeamDropdown(HWND combo, DynamicVectorClass<int> const *items, int selected)
 {
-    unknown_reset_combo_6007f0(combo);
+    Clear_ComboBox(combo);
     for (int index = 0; index < items->Count(); index++) {
         int value = (*items)[index];
         int item = SendMessageA(combo, 0x143, 0, value);      // CB_ADDSTRING
@@ -382,7 +382,7 @@ void MultiplayerGameMode::DrawTeamDropdown(HWND list, DynamicVectorClass<MultiMi
 
 void MultiplayerGameMode::PopulateTeamDropdownForPlayer(HWND combo, int player)
 {
-    unknown_reset_combo_6007f0(combo);
+    Clear_ComboBox(combo);
     for (int index = 0; index < Teams.Count(); index++) {
         delete Teams[index];
     }
@@ -619,7 +619,7 @@ bool MultiplayerGameMode::Create_Starting_Objects_005b7ce0()
         int type_count = 0;
         for (int unit_index = 0; unit_index < UnitTypes.Count(); ++unit_index) {
             UnitTypeClass *type = UnitTypes[unit_index];
-            if (type->AllowedToStartInMultiplayer && (owners & type->Owner) && type->TechLevel <= unknown_house_setting_7d88d8) {
+            if (type->AllowedToStartInMultiplayer && (owners & type->Owner) && type->TechLevel <= BuildLevel) {
                 if (!Rules->BaseUnit.Is_Present(type)) {
                     ++type_count;
                     total_cost += type->Raw_Cost();
@@ -628,7 +628,7 @@ bool MultiplayerGameMode::Create_Starting_Objects_005b7ce0()
         }
         for (int infantry_index = 0; infantry_index < InfantryTypes.Count(); ++infantry_index) {
             InfantryTypeClass *type = InfantryTypes[infantry_index];
-            if (type->AllowedToStartInMultiplayer && (owners & type->Owner) && type->TechLevel <= unknown_house_setting_7d88d8) {
+            if (type->AllowedToStartInMultiplayer && (owners & type->Owner) && type->TechLevel <= BuildLevel) {
                 ++type_count;
                 total_cost += type->Raw_Cost();
             }

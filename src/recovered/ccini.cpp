@@ -773,7 +773,7 @@ int CCINIClass::Get_Listed_Name(char const *section, char const *entry, int defv
 {
     char buffer[128];
     if (Get_String(section, entry, "", buffer, sizeof(buffer))) {
-        int index = unknown_name_index_482e60(buffer);
+        int index = VQ_From_Name(buffer);
         if (index != -1) {
             return index;
         }
@@ -787,10 +787,10 @@ int CCINIClass::Get_Listed_Name(char const *section, char const *entry, int defv
 
 bool CCINIClass::Put_Listed_Name(char const *section, char const *entry, unsigned index)
 {
-    if (index >= (unsigned)unknown_names_a71050.Count()) {
+    if (index >= (unsigned)Movies.Count()) {
         return Put_String(section, entry, "<none>");
     }
-    return Put_String(section, entry, unknown_names_a71050[index]);
+    return Put_String(section, entry, Movies[index]);
 }
 
 

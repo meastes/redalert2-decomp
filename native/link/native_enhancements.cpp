@@ -20,7 +20,7 @@
 
 void __fastcall unknown_dialog_5ff7c0(HWND window);    // 0x005FF7C0 shows a created dialog
 void __fastcall unknown_dialog_5ff6e0(HWND window);    // 0x005FF6E0 closes it
-void __fastcall unknown_517370(bool unknown1);         // 0x00517370 the shell's idle step
+void __fastcall Title_Screen_Restore(bool unknown1);         // 0x00517370 the shell's idle step
 namespace OwnerDraw {
 bool __fastcall unknown_5e5fc0(HWND dialog);           // 0x005E5FC0 a dialog's buttons slide out
 }
@@ -173,7 +173,7 @@ void Native_Run_Enhancements(HWND options)
     unknown_dialog_5ff7c0(dialog);
     while (result < 0) {
         if (unknown_6000d0() == true) break;
-        unknown_517370(false);
+        Title_Screen_Restore(false);
     }
     unknown_dialog_5ff6e0(dialog);
     if (options) {
@@ -220,14 +220,14 @@ Rect __fastcall Get_Title_Screen_Area_006f1f30();     // the tactical rectangle 
 bool __fastcall Allocate_Surfaces(Rect *hidden, Rect *composite, Rect *tile, Rect *sidebar, bool hidden_first);   // 0x00519500
 void Native_Sidebar_New_Game()
 {
-    if (unknown_surface_839948 == 0) return;
+    if (SidebarSurface == 0) return;
     int height = Native_Sidebar_Height(unknown_window_839640.Height);
-    if (unknown_surface_839948->Get_Height() == height) return;
-    fprintf(stderr, "enhancements: new game: sidebar surface %d rows, was %d\n", height, unknown_surface_839948->Get_Height());
+    if (SidebarSurface->Get_Height() == height) return;
+    fprintf(stderr, "enhancements: new game: sidebar surface %d rows, was %d\n", height, SidebarSurface->Get_Height());
     Rect temp = Get_Title_Screen_Area_006f1f30();
-    Rect sidebar(0, 0, unknown_int_7add80, height);
+    Rect sidebar(0, 0, SidebarWidth, height);
     Rect tile(0, 0, temp.Width, unknown_window_839640.Height);
     Rect composite(0, 0, temp.Width, unknown_window_839640.Height);
     Allocate_Surfaces(&unknown_window_839640, &composite, &tile, &sidebar, false);
-    unknown_surface_83995c = unknown_surface_839954;    // the drawing surface, as Set_Display_Mode 0x005434E0 sets it
+    unknown_surface_83995c = HiddenSurface;    // the drawing surface, as Set_Display_Mode 0x005434E0 sets it
 }

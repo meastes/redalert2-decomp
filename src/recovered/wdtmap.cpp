@@ -156,9 +156,9 @@ Map::~Map()
     for (int i = 0; i < Palettes.Count(); i++) {
         delete Palettes[i];
     }
-    unknown_surface_839958->Fill(0);
-    unknown_surface_839954->Fill(0);
-    unknown_surface_839950->Copy_From(*unknown_surface_839954, false, true);
+    AlternateSurface->Fill(0);
+    HiddenSurface->Fill(0);
+    unknown_surface_839950->Copy_From(*HiddenSurface, false, true);
     delete unknown_78;
 }
 
@@ -175,8 +175,8 @@ void Map::Load(INIClass &ini, MSEngine *engine, int unknown3)
     Wstring faction_section;
     ini.Get_String(map_section, Faction_Name(unknown_10), unknown_string_83c55c, faction_section);
     Wstring art;
-    bool found = ini.Get_String(faction_section, "Art_" + Wstring_From_Integer(unknown_8523e0), unknown_string_83c55c, art) > 0;
-    if (unknown_8523e0 > 800 && !found) {
+    bool found = ini.Get_String(faction_section, "Art_" + Wstring_From_Integer(VideoModeWidth), unknown_string_83c55c, art) > 0;
+    if (VideoModeWidth > 800 && !found) {
         ini.Get_String(faction_section, "Art_800", unknown_string_83c55c, art);
     }
     Point2D size(640, 400);
@@ -185,8 +185,8 @@ void Map::Load(INIClass &ini, MSEngine *engine, int unknown3)
     sidebar_size = ini.Get_Point(art, "SideBarSize", sidebar_size);
     Point2D helpbar_size(0, 0);
     helpbar_size = ini.Get_Point(art, "HelpBarSize", helpbar_size);
-    unknown_44 = Point2D((unknown_surface_839954->Get_Width() - sidebar_size.X - size.X) / 2,
-                         (unknown_surface_839954->Get_Height() - size.Y - helpbar_size.Y) / 2);
+    unknown_44 = Point2D((HiddenSurface->Get_Width() - sidebar_size.X - size.X) / 2,
+                         (HiddenSurface->Get_Height() - size.Y - helpbar_size.Y) / 2);
     unknown_4c = Point2D(unknown_44.X, unknown_44.Y + size.Y);
     (INIRect &)DescriptionRect = ini.Get_Rect(art, "TextRect", (INIRect &)DescriptionRect);
     DescriptionRect += unknown_44;
@@ -200,7 +200,7 @@ void Map::Load(INIClass &ini, MSEngine *engine, int unknown3)
     ini.Get_String(art, "Opening", unknown_string_83c55c, value);
     if (value.Length() > 0) {
         Rect rectangle(unknown_44, size.X, size.Y);
-        unknown_18 = new MSBinkAnim(value, unknown_surface_839958, &engine->Anims, rectangle, false);
+        unknown_18 = new MSBinkAnim(value, AlternateSurface, &engine->Anims, rectangle, false);
         engine->Add_Anim(unknown_18);
     }
     ini.Get_String(art, "Background", unknown_string_83c55c, value);
@@ -216,7 +216,7 @@ void Map::Load(INIClass &ini, MSEngine *engine, int unknown3)
         ini.Get_String(art, "SideBar", unknown_string_83c55c, value);
         if (value.Length() > 0) {
             int const &width = size.X;
-            Point2D position(width, (unknown_surface_839954->Get_Height() - sidebar_size.Y) / 2);
+            Point2D position(width, (HiddenSurface->Get_Height() - sidebar_size.Y) / 2);
             position.X += unknown_44.X;
             sidebar = new MSPCXAnim(value, &engine->Anims, position, true);
         }
@@ -231,7 +231,7 @@ void Map::Load(INIClass &ini, MSEngine *engine, int unknown3)
     back_origin += unknown_44;
     ini.Get_String(art, "BackButtonPalette", "sdbtnanm.pal", value);
     delete unknown_78;
-    unknown_78 = unknown_load_drawer_5ac560(value);
+    unknown_78 = Create_Drawer(value);
     unknown_6c.unknown_0 = ini.Get_Int(art, "BackButtonNormalFrame", unknown_6c.unknown_0);
     unknown_6c.unknown_4 = ini.Get_Int(art, "BackButtonDepressedFrame", unknown_6c.unknown_4);
     ini.Get_String(art, "BackButton", unknown_string_83c55c, value);
@@ -243,7 +243,7 @@ void Map::Load(INIClass &ini, MSEngine *engine, int unknown3)
     ini.Get_String(art, "BackButtonHighlighted", unknown_string_83c55c, value);
     ini.Get_String(art, "OverlayPrefix", 0, unknown_28);
     ini.Get_String(art, "OverlayPalette", 0, value);
-    unknown_14 = unknown_load_drawer_5ac560(value);
+    unknown_14 = Create_Drawer(value);
     Wstring name_prefix = Wstring("WDT:") + map_section;
     ini.Get_String(faction_section, "NameKeyPrefix", name_prefix, name_prefix);
     {
@@ -335,7 +335,7 @@ ConvertClass *Map::Get_Drawer(Wstring const &name)
             return Palettes[i]->Drawer;
         }
     }
-    ConvertClass *drawer = unknown_load_drawer_5ac560(name);
+    ConvertClass *drawer = Create_Drawer(name);
     if (drawer) {
         Palettes.Add(new AnimationPalette(name, drawer));
     }
@@ -602,7 +602,7 @@ void __fastcall unknown_write_wdtmap_ini_72a880(Wstring const &prefix, Wstring c
     int i = 0;
     while (cursor) {
         Wstring section = Wstring_Join(prefix, Wstring_From_Integer(i, 2));
-        Wstring number = Wstring_From_Integer(unknown_8523e0);
+        Wstring number = Wstring_From_Integer(VideoModeWidth);
         ini.Put_Point(section, Wstring("Target_") + number, To_Point(centroids[i].Average()));
         ++cursor;
         i++;

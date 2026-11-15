@@ -77,7 +77,7 @@ Rect Area(HWND window)
 
 void Frame(Rect const &area, int color)
 {
-    Surface *s = unknown_surface_839958;
+    Surface *s = AlternateSurface;
     int r = area.X + area.Width - 1, b = area.Y + area.Height - 1;
     s->Draw_Line(Point2D(area.X, area.Y), Point2D(r, area.Y), color);
     s->Draw_Line(Point2D(area.X, b), Point2D(r, b), color);
@@ -91,13 +91,13 @@ void Text(WinData *record, Rect const &area, wchar_t const *text, int x_alignmen
     int length = 0;
     while (text[length]) ++length;
     unknown_text_draw_005fe1b0(unknown_color_a733e4, record ? record->font_64 : 0, area, text, length, x_alignment, y_alignment,
-                               unknown_surface_839958, 0);
+                               AlternateSurface, 0);
 }
 
 void Image(Surface *image, Rect const &area)
 {
     Rect from(0, 0, area.Width, area.Height);
-    unknown_surface_839958->Copy_From(area, *image, from, true, true);
+    AlternateSurface->Copy_From(area, *image, from, true, true);
 }
 
 // A list or combo item's text (strings kept by the Win32 control), widened.
@@ -147,8 +147,8 @@ void Paint_Button(HWND window, WinData *record, bool lit)
         frame = pressed ? 1 : lit ? 2 : 0;
     }
     if (drawer && shape) {
-        Rect window_rect = unknown_surface_839958->Get_Rect();
-        CC_Draw_Shape(unknown_surface_839958, drawer, shape, frame, Point2D(area.X, area.Y), window_rect, 0x400, 0, 0, 0, 1000, 0, 0,
+        Rect window_rect = AlternateSurface->Get_Rect();
+        CC_Draw_Shape(AlternateSurface, drawer, shape, frame, Point2D(area.X, area.Y), window_rect, 0x400, 0, 0, 0, 1000, 0, 0,
                       Point2D(0, 0));
     } else if (kind == 0 && record->image_14) {
         Image(pressed && record->alternate_image_18 ? record->alternate_image_18 : record->image_14, area);
@@ -167,9 +167,9 @@ void Paint_Button(HWND window, WinData *record, bool lit)
         if (left && middle && right) {
             int end = 7;
             Rect from(0, 0, end, height);
-            unknown_surface_839958->Copy_From(Rect(area.X, y, end, height), *left, from, false, true);
-            unknown_bitmap_writer_a76378.Draw_0068cce0(Rect(area.X + end, y, area.Width - 2 * end, height), unknown_surface_839958, middle, 0, 0);
-            unknown_surface_839958->Copy_From(Rect(area.X + area.Width - end, y, end, height), *right, from, false, true);
+            AlternateSurface->Copy_From(Rect(area.X, y, end, height), *left, from, false, true);
+            unknown_bitmap_writer_a76378.Draw_0068cce0(Rect(area.X + end, y, area.Width - 2 * end, height), AlternateSurface, middle, 0, 0);
+            AlternateSurface->Copy_From(Rect(area.X + area.Width - end, y, end, height), *right, from, false, true);
         } else {
             int color = unknown_5fda40(lit ? unknown_color_a733e4 : unknown_color_a76158);
             Frame(area, color);
@@ -179,7 +179,7 @@ void Paint_Button(HWND window, WinData *record, bool lit)
     if (!record->image_14 && record->text_28) {
         RECT text = {area.X + 1, area.Y, area.X + area.Width, area.Y + area.Height};
         if (pressed) { text.left += 4; text.top += 2; text.bottom += 2; }
-        unknown_draw_text_5fe020(unknown_surface_839958, record->text_28, &text, record->font_64,
+        unknown_draw_text_5fe020(AlternateSurface, record->text_28, &text, record->font_64,
                                  disabled ? unknown_color_a737ec : unknown_color_a733e4, 5, 0xC, 0, 0, 0);
     }
 }
@@ -300,7 +300,7 @@ void Static_Start_Movie(HWND window, StaticExtra &extra, char const *name)
     Static_Stop_Movie(window, extra);
     RECT area = {0, 0, 0, 0};
     Window_Rect_In_Main_Client(window, &area);
-    extra.movie = Create_Movie_Handle(name, unknown_surface_839958, 0);
+    extra.movie = Create_Movie_Handle(name, AlternateSurface, 0);
     if (getenv("RA2_NATIVE_PERF_LOG")) dprintf(2, "perf: t%u static movie %s started (%s)\n", (unsigned)GetTickCount(), name ? name : "", extra.movie ? "open" : "failed");
     if (extra.movie) {
         extra.movie->Set_Position(area.left, area.top);
@@ -358,14 +358,14 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
             int width = client.right + 1, height = client.bottom + 1;
             record->surface_10 = new BSurface(width, height, 2);
             ++unknown_surface_count_a763d8;
-            record->surface_10->Copy_From(Rect(0, 0, width, height), *unknown_surface_839958,
+            record->surface_10->Copy_From(Rect(0, 0, width, height), *AlternateSurface,
                                           Rect(where.left, where.top, width, height), false, true);
         }
         RECT area = {0, 0, 0, 0};
         Window_Rect_In_Main_Client(window, &area);
         if (Static_Fill(record)) {
             unsigned long color = Static_Fill_Color(record);
-            unknown_surface_839958->Fill_Rect(Rect(area.left, area.top, area.right - area.left, area.bottom - area.top),
+            AlternateSurface->Fill_Rect(Rect(area.left, area.top, area.right - area.left, area.bottom - area.top),
                                               unknown_5fda40(color & 0xFFFFFF));
         }
         int kind = record->unknown_70;
@@ -374,7 +374,7 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
                 LONG style = GetWindowLongA(window, GWL_STYLE);
                 int flags = (style & 1) ? 0x11 : (style & 2) ? 0x12 : 0x10;     // SS_CENTER / SS_RIGHT
                 unsigned long color = (style & 0x8000000) ? (unsigned long)unknown_color_a737ec : (unsigned long)record->unknown_ec;
-                unknown_draw_text_5fe020(unknown_surface_839958, record->text_28, &area, record->font_64, color, flags,
+                unknown_draw_text_5fe020(AlternateSurface, record->text_28, &area, record->font_64, color, flags,
                                          Static_Text_Arg(record), 0, record->unknown_80, record->unknown_8c);
                 if (record->unknown_90 != -1) {
                     Voc_Play(record->unknown_90, 1.0f, 0x2000, 0);
@@ -396,7 +396,7 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
             GetClientRect(window, &client);
             Rect from(client.left, client.top, client.right - client.left, client.bottom - client.top);
             if (record->surface_10) {
-                unknown_surface_839958->Copy_From(to, *record->surface_10, from, false, true);
+                AlternateSurface->Copy_From(to, *record->surface_10, from, false, true);
             }
             if (kind == 2) {
                 Surface *image = record->image_14;
@@ -405,7 +405,7 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
                     Rect at = to;
                     if (width < to.Width) { at.X = to.X + (to.Width - width) / 2; at.Width = width; }
                     if (height < to.Height) { at.Y = to.Y + (to.Height - height) / 2; at.Height = height; }
-                    unknown_bitmap_writer_a76378.DrawTrans(at, unknown_surface_839958, image, unknown_5fda40(0xFF00FF));
+                    unknown_bitmap_writer_a76378.DrawTrans(at, AlternateSurface, image, unknown_5fda40(0xFF00FF));
                 }
             } else if (record->unknown_78) {
                 ShapeFileStruct const *shape = (ShapeFileStruct const *)record->unknown_78;
@@ -413,8 +413,8 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
                 Point2D at(to.X, to.Y);
                 if (shape->Height < to.Height) at.Y = to.Y + (to.Height - shape->Height) / 2;
                 if (shape->Width < to.Width) at.X = to.X + (to.Width - shape->Width) / 2;
-                Rect window_rect = unknown_surface_839958->Get_Rect();
-                CC_Draw_Shape(unknown_surface_839958, (ConvertClass *)record->unknown_74, shape, frame, at, window_rect, 0x400, 0, 0, 0,
+                Rect window_rect = AlternateSurface->Get_Rect();
+                CC_Draw_Shape(AlternateSurface, (ConvertClass *)record->unknown_74, shape, frame, at, window_rect, 0x400, 0, 0, 0,
                               1000, 0, 0, Point2D(0, 0));
                 if (kind == 4 && record->unknown_a8) {
                     int next = frame + 1;
@@ -488,7 +488,7 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
             Window_Rect_In_Main_Client(window, &where);
             GetClientRect(window, &client);
             int width = client.right + 1, height = client.bottom + 1;
-            unknown_surface_839958->Copy_From(Rect(where.left, where.top, width, height), *record->surface_10,
+            AlternateSurface->Copy_From(Rect(where.left, where.top, width, height), *record->surface_10,
                                               Rect(0, 0, width, height), false, true);
             InvalidateRect(window, 0, FALSE);
         }
@@ -531,8 +531,8 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
         if (record->unknown_70 == 4) extra.notify = (HWND)lparam;
         return 0;
     case 0x4DF:                                     // a movie from the movie list
-        if ((int)wparam >= 0 && (int)wparam < unknown_names_a71050.Count()) {
-            Static_Start_Movie(window, extra, unknown_names_a71050[(int)wparam]);
+        if ((int)wparam >= 0 && (int)wparam < Movies.Count()) {
+            Static_Start_Movie(window, extra, Movies[(int)wparam]);
         }
         return 0;
     case 0x4E0:
@@ -1012,7 +1012,7 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
         // it has one and +0xCC is set, shortened with "..." to fit, drawn by 0x005FE020
         // (flags 4, 0xC: vertically centred) 2 pixels in from the left.
         Rect area = Area(window);
-        Surface *surface = unknown_surface_839958;
+        Surface *surface = AlternateSurface;
         LONG style = GetWindowLongA(window, GWL_STYLE);
         bool disabled = (style & 0x8000000) != 0;
         bool dropped = Combo_Drop(window, false) != 0;
@@ -1187,10 +1187,10 @@ LRESULT __stdcall unknown_new_edit_proc_5f22a0(HWND window, UINT message, WPARAM
         bool combo = strcmp(class_name, "ComboBox") == 0;
         Rect background(display.left, display.top, display.right - display.left + 1, display.bottom - display.top + 1);
         unknown_draw_dimmed_back_5fe490(background, window, record->unknown_c8);
-        if (!combo) unknown_5fdb20(unknown_surface_839958, background, 1, -1);
+        if (!combo) unknown_5fdb20(AlternateSurface, background, 1, -1);
         Rect area(display.left + 2, display.top, display.right - (display.left + 2) + 1, display.bottom - display.top + 1);
         unknown_caret_hidden_a763ec = caret_hidden;
-        unknown_draw_edit_text_600830(unknown_surface_839958, area, (wchar_t const *)text.Get(), record->unknown_40,
+        unknown_draw_edit_text_600830(AlternateSurface, area, (wchar_t const *)text.Get(), record->unknown_40,
                                       record->font_64, unknown_color_a733e4, &record->unknown_44, record->unknown_38,
                                       ((unsigned int)record->unknown_54 >> 5) & 1, 0, 0);
         ValidateRect(window, 0);

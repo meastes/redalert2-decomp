@@ -1,4 +1,4 @@
-// Dynamic initializer of the global unknown_tags_866160 (0x004D47E0, _$E): an empty
+// Dynamic initializer of the global LogicTags (0x004D47E0, _$E): an empty
 // DynamicVectorClass<TagClass *> (constructor expanded in place) whose atexit
 // destructor (0x004D4820, the following _$E draft, emitted by this definition)
 // expands the vector's destructor. A tag list.
@@ -23,6 +23,6 @@ class TagClass;
 // @ref ?ID@?$DynamicVectorClass@PAVTagClass@@@@UAEHABQAVTagClass@@@Z=004d5b40
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref _atexit=0078298a
-// @ref ?unknown_tags_866160@@3V?$DynamicVectorClass@PAVTagClass@@@@A=00866160
+// @ref ?LogicTags@@3V?$DynamicVectorClass@PAVTagClass@@@@A=00866160
 
-DynamicVectorClass<TagClass *> unknown_tags_866160;
+DynamicVectorClass<TagClass *> LogicTags;

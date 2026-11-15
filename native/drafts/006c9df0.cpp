@@ -16,7 +16,7 @@
 #include "shared/unknown_geometry.hpp"
 #include "shared/laser_draw.hpp"
 // @ref _unknown_geometry_l=00ac0188
-// @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
+// @ref ?TacticalMap@@3PAVTactical@@A=0083996c
 // @ref ?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABUCoordStruct@@@Z=006a27a0
 // @ref ??0LaserDrawClass@@QAE@UCoordStruct@@0H_NVRGBClass@@22H11MM@Z=00533110
 
@@ -46,8 +46,8 @@ LaserDrawClass *TechnoClass::unknown_6c9df0(AbstractClass *target, int weapon_in
     } else {
         from = unknown_slot43(weapon_index);
         if (Kind_Of() == 6) {
-            Point2D a = unknown_tactical_83996c->Coord_To_Pixel_Absolute(from);
-            Point2D b = unknown_tactical_83996c->Coord_To_Pixel_Absolute(unknown_slot42());
+            Point2D a = TacticalMap->Coord_To_Pixel_Absolute(from);
+            Point2D b = TacticalMap->Coord_To_Pixel_Absolute(unknown_slot42());
             depth = a.Y - b.Y;
             if (depth > 0) {
                 depth = 0;

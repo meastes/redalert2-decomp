@@ -249,6 +249,6 @@ TechnoTypeClass::TechnoTypeClass(char const *ini_name, int speed_type) :
     for (index = 0; index < 15; index++) {
         unknown_710[index] = -1;
     }
-    unknown_objects_ac0cb0.Add(this);
+    AbstractTypePtrTracker.Add(this);
     TechnoTypes.Add(this);
 }

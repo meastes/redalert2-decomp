@@ -1,6 +1,6 @@
-// VQAMovieCompanion *__fastcall unknown_create_companion_69b190(char const *filename) (0x0069B190): a
+// VQAMovieCompanion *__fastcall Subtitles_Open(char const *filename) (0x0069B190): a
 // manager with the subtitles of the movie file's base name and a 640x255 16-bit surface to draw them on.
-VQAMovieCompanion *__fastcall unknown_create_companion_69b190(char const *filename)
+VQAMovieCompanion *__fastcall Subtitles_Open(char const *filename)
 {
     if (filename == 0 || strlen(filename) == 0) {
         return 0;

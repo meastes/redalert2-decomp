@@ -186,7 +186,7 @@ extern int unknown_wind_7eb824[2][8];
 
 // The direction (0..7) from one screen point to another (0x00721DB0,
 // __fastcall; hypothesis).
-int __fastcall Unknown_00721DB0(Point2D const &from, Point2D const &to);
+int __fastcall Facing_Between_Points(Point2D const &from, Point2D const &to);
 
 // The list of particles (0x00A35E28; defined by the unit at 0x004D2BA0).
 extern DynamicVectorClass<ParticleClass *> unknown_ParticleClass_list_00a35e28;

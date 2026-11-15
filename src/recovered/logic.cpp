@@ -135,8 +135,8 @@ void LogicClass::AI()
 
     unknown_frames_this_second_a6eb18++;
 
-    for (LogicTriggerID = 0; LogicTriggerID < unknown_tags_866160.Count(); LogicTriggerID++) {
-        TagClass *trig = unknown_tags_866160[LogicTriggerID];
+    for (LogicTriggerID = 0; LogicTriggerID < LogicTags.Count(); LogicTriggerID++) {
+        TagClass *trig = LogicTags[LogicTriggerID];
 
         if (unknown_id_source_a3d290->unknown_223c) {
             if (trig->Spring(0x32, 0, unknown_geometry_k)) continue;
@@ -237,7 +237,7 @@ void LogicClass::AI()
     AlphaShapeClass::Update_All();
 
     Map.unknown_slot27();
-    unknown_tactical_83996c->AI();
+    TacticalMap->AI();
 
     for (index = 0; index < Factories.Count(); index++) {
         Factories[index]->AI();
@@ -252,7 +252,7 @@ void LogicClass::AI()
 
     if (Map.Unknown_0049EC40() != 0) {
         CoordStruct coord = Map.Unknown_0049EC40()->Coord;
-        unknown_tactical_83996c->Set_Tactical_Position_006a66b0(coord);
+        TacticalMap->Set_Tactical_Position_006a66b0(coord);
     }
 }
 
@@ -285,9 +285,9 @@ void LogicClass::Environment_AI()
 void LogicClass::Detach(AbstractClass const *target, bool all)
 {
     if (target != 0 && target->Kind_Of() == 0x2C) {
-        for (int index = 0; index < unknown_tags_866160.Count(); index++) {
-            if (target == (AbstractClass *)unknown_tags_866160[index]) {
-                unknown_tags_866160.Delete(index);
+        for (int index = 0; index < LogicTags.Count(); index++) {
+            if (target == (AbstractClass *)LogicTags[index]) {
+                LogicTags.Delete(index);
                 index--;
             }
         }

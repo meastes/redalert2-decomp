@@ -200,7 +200,7 @@ void InfantryClass::Init()
 
 InfantryClass::~InfantryClass()
 {
-    if (unknown_flag_a40958 && Type != 0) {
+    if (GameActive && Type != 0) {
         if (House->Can_Build(Type, 0, 0) == -1) {
             House->unknown_144 = true;
         }
@@ -399,7 +399,7 @@ void InfantryClass::Draw_It(Point2D const &input, Rect const &window)
             ShapeFileStruct const *shape=static_cast<ShapeFileStruct const *>(Get_Image_Data());
             if (!shape) return;
             Cell target_cell=Get_Target_Cell();
-            unknown_tactical_83996c->Add_To_Selectables(this, point);
+            TacticalMap->Add_To_Selectables(this, point);
             int level_light;
             if (Unknown_0051FC50()) level_light=unknown_id_source_a3d290->IonLevel;
             else if (Unknown_0051FC60()) level_light=unknown_id_source_a3d290->unknown_22f4;
@@ -428,7 +428,7 @@ void InfantryClass::Draw_It(Point2D const &input, Rect const &window)
             signed char draw_offset=*reinterpret_cast<signed char const *>(&unknown_59e);
             unknown_slot293(shape,unknown_500350(),&(point+Point2D(0,-draw_offset)),&window,0,256,unknown_infantry_zadjust_007daeb8,2,0,brightness,0,0,Point2D(0,0),0);
         }
-    } else unknown_tactical_83996c->Add_To_Selectables(this, point);
+    } else TacticalMap->Add_To_Selectables(this, point);
     FootClass::Draw_It(point,window);
 }
 
@@ -485,11 +485,11 @@ void InfantryClass::unknown_slot93(int why)
                 if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
                 if (Techno_Type_Class()->VoiceDie.Count()>0 && House->Is_Player_Control()) {
                     CoordStruct location=Coord;
-                    Voc_Play_At(Techno_Type_Class()->VoiceDie.Pick(unknown_random_839218()),location,0);
+                    Voc_Play_At(Techno_Type_Class()->VoiceDie.Pick(NonCriticalRandomNumber()),location,0);
                 }
                 if (Techno_Type_Class()->DieSound.Count()>0) {
                     CoordStruct location=Coord;
-                    Voc_Play_At(Techno_Type_Class()->DieSound.Pick(unknown_random_839218()),location,0);
+                    Voc_Play_At(Techno_Type_Class()->DieSound.Pick(NonCriticalRandomNumber()),location,0);
                 }
                 building->House->Refund_Money(unknown_slot167());
                 if (unknown_34) unknown_34->Spring(48,this,unknown_geometry_k,false,0);
@@ -955,7 +955,7 @@ int InfantryClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellC
         infantry_owner=cell->unknown_58;
         vehicle=reinterpret_cast<CellOccupancyFlags_00503190 const &>(cell->unknown_128).vehicle!=0;
     }
-    if (unknown_32d && !unknown_a40774 && !Map.Unknown_0055A740(cell,true) && !unknown_slot189()) return 7;
+    if (unknown_32d && !ScenarioInit && !Map.Unknown_0055A740(cell,true) && !unknown_slot189()) return 7;
     int result=0;
     if (cell->OverlayIndex!=-1) {
         OverlayTypeClass *overlay=OverlayTypes[cell->OverlayIndex];
@@ -1018,7 +1018,7 @@ int InfantryClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellC
                 }
             }
             if (Get_Mission()==7 && occupant==unknown_494 && unknown_370) return 0;
-            if (House->Is_Ally(static_cast<TechnoClass*>(occupant)) || unknown_a40774) {
+            if (House->Is_Ally(static_cast<TechnoClass*>(occupant)) || ScenarioInit) {
                 switch (occupant->Kind_Of()) {
                 case 1: {
                     FootClass *unit=static_cast<FootClass*>(occupant);
@@ -1332,7 +1332,7 @@ inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
     case 1: case 2: case 7:
         infantry->unknown_slot311(10, false, false);
         if (!infantry->unknown_77 && infantry->House->Is_Player_Control() && infantry->Type->VoiceComment.Count() > 0
-            && unknown_random_839218(0, 2) == 0) {
+            && NonCriticalRandomNumber(0, 2) == 0) {
             CoordStruct coord = infantry->Coord;
             Voc_Play_At(infantry->Type->VoiceComment[0], coord, 0);
             return true;
@@ -1446,7 +1446,7 @@ void InfantryClass::Scatter(CoordStruct const &threat, bool forced, bool nokiddi
                 if (unknown_geometry_k==Cell(0,0)) {
                     CoordStruct projected=Cell_Coord(check);
                     projected.Z=destination.Z;
-                    if (check==unknown_tactical_83996c->Coord_To_Cell(projected) && !Map[check].IsUnderBridge) {
+                    if (check==TacticalMap->Coord_To_Cell(projected) && !Map[check].IsUnderBridge) {
                         best=check;
                         break;
                     }
@@ -1662,7 +1662,7 @@ bool InfantryClass::Unlimbo(CoordStruct const *coord, int dir)
     int ground = Map.Get_Height_GL(*coord);
     CoordStruct where = *coord;
     if (where.Z == ground) {
-        int alternate = unknown_a40774 != 0 || !Map.Unknown_0055A660(Coord_Cell(*coord), true);
+        int alternate = ScenarioInit != 0 || !Map.Unknown_0055A660(Coord_Cell(*coord), true);
         where = Map_Cell(*coord)->Unknown_004764B0(*coord, alternate, false);
         if (where.X == unknown_geometry_l.X && where.Y == unknown_geometry_l.Y
             && where.Z == unknown_geometry_l.Z) {

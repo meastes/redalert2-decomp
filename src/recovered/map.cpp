@@ -739,7 +739,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
             }
         }
 
-        unknown_a40774++;
+        ScenarioInit++;
 
         for (i = 0; i < unknown_objects_a40368.Count(); i++) {
             if (unknown_objects_a40368[i]->Kind_Of() != 0x18 || !ra2native_is_gas_system_5484e0(unknown_objects_a40368[i])) {   // NATIVE: Class +0x98, BehavesLike +0x284 == 1
@@ -758,7 +758,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
             }
         }
 
-        unknown_a40774--;
+        ScenarioInit--;
 
         for (i = 0; i < Cells.Length(); i++) {
             CellClass *c1 = Cells[i];
@@ -1129,11 +1129,11 @@ void MapClass::Unknown_0054A550(CoordStruct const &coord, int start, int sightra
         while (count--) {
             Cell newcell = *ptr++ + cell;
             CellClass &cellptr = (*this)[newcell];
-            signed char frame = unknown_tactical_83996c->Cell_Shadow(newcell, 0);
+            signed char frame = TacticalMap->Cell_Shadow(newcell, 0);
             if (frame != cellptr.unknown_120) {
                 cellptr.unknown_120 = frame;
                 cellptr.unknown_138 = true;
-                unknown_tactical_83996c->Flag_Cell(&cellptr);
+                TacticalMap->Flag_Cell(&cellptr);
             }
         }
     }
@@ -1530,7 +1530,7 @@ void MapClass::Repair_High_Bridge_Span_0054b560(CellClass *start, FacingType dir
     if (dirty) {
         CoordStruct coord(start->Fetch_CellID(), unknown_geometry_g * start->unknown_11b);
         Point2D pixel;
-        unknown_tactical_83996c->Coord_To_Pixel(coord, pixel);
+        TacticalMap->Coord_To_Pixel(coord, pixel);
         dirty->X = pixel.X;
         dirty->Y = pixel.Y;
     }
@@ -1552,7 +1552,7 @@ void MapClass::Repair_High_Bridge_Span_0054b560(CellClass *start, FacingType dir
     if (dirty) {
         CoordStruct coord(last, unknown_geometry_g * Map[last].unknown_11b);
         Point2D pixel;
-        unknown_tactical_83996c->Coord_To_Pixel(coord, pixel);
+        TacticalMap->Coord_To_Pixel(coord, pixel);
         int original_x = dirty->X;
         int original_y = dirty->Y;
         dirty->X = min(dirty->X, pixel.X) - 64;
@@ -1652,7 +1652,7 @@ void MapClass::Repair_Train_Bridge_Span_0054be80(CellClass *start, FacingType di
     if (dirty) {
         CoordStruct coord(start->Fetch_CellID(), unknown_geometry_g * start->unknown_11b);
         Point2D pixel;
-        unknown_tactical_83996c->Coord_To_Pixel(coord, pixel);
+        TacticalMap->Coord_To_Pixel(coord, pixel);
         dirty->X = pixel.X;
         dirty->Y = pixel.Y;
     }
@@ -1674,7 +1674,7 @@ void MapClass::Repair_Train_Bridge_Span_0054be80(CellClass *start, FacingType di
     if (dirty) {
         CoordStruct coord(last, unknown_geometry_g * Map[last].unknown_11b);
         Point2D pixel;
-        unknown_tactical_83996c->Coord_To_Pixel(coord, pixel);
+        TacticalMap->Coord_To_Pixel(coord, pixel);
         int original_x = dirty->X;
         int original_y = dirty->Y;
         dirty->X = min(dirty->X, pixel.X) - 64;
@@ -2346,7 +2346,7 @@ bool MapClass::Remove_Crate(Cell const &cell)
         if (cellptr->OverlayIndex != -1 && unknown_overlay_types_a35de8[cellptr->OverlayIndex]->unknown_27a) {
             Rect dirty = Union(cellptr->Overlay_Render_Rect(), cellptr->Overlay_Shadow_Render_Rect());
             dirty.Y -= unknown_int_839634;
-            unknown_tactical_83996c->Register_Dirty_Area(dirty, 0);
+            TacticalMap->Register_Dirty_Area(dirty, 0);
             cellptr->OverlayIndex = -1;
             cellptr->OverlayData = 0;
             return true;
@@ -3240,7 +3240,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
                     if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->unknown_11b) < 2) {
                         if ((!checkburrow || cellptr->Can_Burrow_Here()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
                             candidates[count++] = newcell;
-                            if (checkbridge || newcell == unknown_tactical_83996c->Coord_To_Cell(CoordStruct(newcell, 0))) {
+                            if (checkbridge || newcell == TacticalMap->Coord_To_Cell(CoordStruct(newcell, 0))) {
                                 found = true;
                             }
                         }
@@ -3256,7 +3256,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
                     if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->unknown_11b) < 2) {
                         if ((!checkburrow || cellptr->Can_Burrow_Here()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
                             candidates[count++] = newcell;
-                            if (checkbridge || newcell == unknown_tactical_83996c->Coord_To_Cell(CoordStruct(newcell, 0))) {
+                            if (checkbridge || newcell == TacticalMap->Coord_To_Cell(CoordStruct(newcell, 0))) {
                                 found = true;
                             }
                         }
@@ -3276,7 +3276,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
                     if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->unknown_11b) < 2) {
                         if ((!checkburrow || cellptr->Can_Burrow_Here()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
                             candidates[count++] = newcell;
-                            if (checkbridge || newcell == unknown_tactical_83996c->Coord_To_Cell(CoordStruct(newcell, 0))) {
+                            if (checkbridge || newcell == TacticalMap->Coord_To_Cell(CoordStruct(newcell, 0))) {
                                 found = true;
                             }
                         }
@@ -3290,7 +3290,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
                 if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->unknown_11b) < 2) {
                     if ((!checkburrow || cellptr->Can_Burrow_Here()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
                         candidates[count++] = newcell;
-                        if (checkbridge || newcell == unknown_tactical_83996c->Coord_To_Cell(CoordStruct(newcell, 0))) {
+                        if (checkbridge || newcell == TacticalMap->Coord_To_Cell(CoordStruct(newcell, 0))) {
                             found = true;
                         }
                     }
@@ -3308,7 +3308,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
         int hidden_count = 0;
         int index;
         for (index = 0; index < count; ++index) {
-            Cell projected = unknown_tactical_83996c->Coord_To_Cell(CoordStruct(candidates[index], 0));
+            Cell projected = TacticalMap->Coord_To_Cell(CoordStruct(candidates[index], 0));
             if (projected == candidates[index]) {
                 visible[visible_count++] = candidates[index];
             } else {
@@ -3408,9 +3408,9 @@ void MapClass::Set_Bridge_End_State(Cell const &cell, bool damaged, bool recursi
         coord.X = cell.X * 256 + 128;
         coord.Y = cell.Y * 256 + 128;
         coord.Z = 0;
-        unknown_tactical_83996c->Coord_To_Pixel(coord, point);
+        TacticalMap->Coord_To_Pixel(coord, point);
         point.Y -= 15 * cellptr->unknown_11b;
-        unknown_tactical_83996c->Register_Dirty_Area(Rect(point.X - 128, point.Y - 128, 256, 256), 0);
+        TacticalMap->Register_Dirty_Area(Rect(point.X - 128, point.Y - 128, 256, 256), 0);
     }
 
     if (damaged != (bool)cellptr->IsBridgeDamaged) {
@@ -3447,9 +3447,9 @@ void MapClass::Set_Bridge_Middle_State(Cell const &cell, int new_tile, int match
         coord.X = cell.X * 256 + 128;
         coord.Y = cell.Y * 256 + 128;
         coord.Z = 0;
-        unknown_tactical_83996c->Coord_To_Pixel(coord, point);
+        TacticalMap->Coord_To_Pixel(coord, point);
         point.Y -= 15 * cellptr->unknown_11b;
-        unknown_tactical_83996c->Register_Dirty_Area(Rect(point.X - 128, point.Y - 128, 256, 256), 0);
+        TacticalMap->Register_Dirty_Area(Rect(point.X - 128, point.Y - 128, 256, 256), 0);
         old_tile = cellptr->IsoTileIndex;
         if (new_tile == old_tile) {
             return;
@@ -3903,7 +3903,7 @@ void MapClass::Unknown_00552570(Cell const &cell)
             if ((ittype == unknown_tileset_a6e0e4 || ittype == unknown_tileset_a52f80) && spanptr->unknown_11a == 8) {
                 Set_Bridge_End_State(spancell, false, false);
                 Repair_Train_Bridge_Span_0054be80(&Map[spancell], FACING_E, &dirty);
-                unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                TacticalMap->Register_Dirty_Area(dirty, false);
                 break;
             }
             if ((ittype == unknown_tileset_a6cb7c || ittype == unknown_tileset_a6cb7c + 3 ||
@@ -3924,13 +3924,13 @@ void MapClass::Unknown_00552570(Cell const &cell)
                 }
                 Unknown_00552570(spancell + Cell(-2, 0));
                 Repair_Train_Bridge_Span_0054be80(&Map[spancell], FACING_E, &dirty);
-                unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                TacticalMap->Register_Dirty_Area(dirty, false);
                 break;
             }
             if ((ittype == unknown_tileset_a53394 || ittype == unknown_tileset_a52588) && spanptr->unknown_11a == 12) {
                 Set_Bridge_End_State(spancell, false, false);
                 Repair_Train_Bridge_Span_0054be80(&Map[spancell], FACING_S, &dirty);
-                unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                TacticalMap->Register_Dirty_Area(dirty, false);
                 break;
             }
             if ((ittype == unknown_tileset_a52e70 || ittype == unknown_tileset_a52e70 + 3 ||
@@ -3951,7 +3951,7 @@ void MapClass::Unknown_00552570(Cell const &cell)
                 }
                 Unknown_00552570(spancell + Cell(0, -2));
                 Repair_Train_Bridge_Span_0054be80(&Map[spancell], FACING_S, &dirty);
-                unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                TacticalMap->Register_Dirty_Area(dirty, false);
                 break;
             }
         }
@@ -4059,13 +4059,13 @@ bool MapClass::Destroy_Train_Bridge_Span_00553000(Cell const & cell, FacingType 
 			coord.X = cell.X * 256 + 128;
             coord.Y = cell.Y * 256 + 128;
             coord.Z = unknown_geometry_g * startptr->unknown_11b;
-			unknown_tactical_83996c->Coord_To_Pixel(coord, startpix);
+			TacticalMap->Coord_To_Pixel(coord, startpix);
 
 			Point2D endpix;
 			coord.X = lastcell.X * 256 + 128;
             coord.Y = lastcell.Y * 256 + 128;
             coord.Z = unknown_geometry_g * startptr->unknown_11b;
-			unknown_tactical_83996c->Coord_To_Pixel(coord, endpix);
+			TacticalMap->Coord_To_Pixel(coord, endpix);
 
             Rect bounds;
             bounds.X = min(startpix.X, endpix.X) - 64;
@@ -4203,7 +4203,7 @@ void MapClass::Destroy_Train_Bridge_Connections_00553570(Cell const &cell)
             if ((ittype == unknown_tileset_a6e0e4 || ittype == unknown_tileset_a52f80) && spanptr->unknown_11a == 8) {
                 if (Destroy_Train_Bridge_Span_00553000(current, FACING_E, &dirty)) {
                     if (dirty != unknown_empty_rect) {
-                        unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                        TacticalMap->Register_Dirty_Area(dirty, false);
                     }
                 }
                 return;
@@ -4214,7 +4214,7 @@ void MapClass::Destroy_Train_Bridge_Connections_00553570(Cell const &cell)
                 spanptr->unknown_11a == 5) {
                 if (Destroy_Train_Bridge_Span_00553000(current, FACING_E, &dirty)) {
                     if (dirty != unknown_empty_rect) {
-                        unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                        TacticalMap->Register_Dirty_Area(dirty, false);
                     }
                 }
                 return;
@@ -4223,7 +4223,7 @@ void MapClass::Destroy_Train_Bridge_Connections_00553570(Cell const &cell)
             if ((ittype == unknown_tileset_a53394 || ittype == unknown_tileset_a52588) && spanptr->unknown_11a == 12) {
                 if (Destroy_Train_Bridge_Span_00553000(current, FACING_S, &dirty)) {
                     if (dirty != unknown_empty_rect) {
-                        unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                        TacticalMap->Register_Dirty_Area(dirty, false);
                     }
                 }
                 return;
@@ -4234,7 +4234,7 @@ void MapClass::Destroy_Train_Bridge_Connections_00553570(Cell const &cell)
                 spanptr->unknown_11a == 7) {
                 if (Destroy_Train_Bridge_Span_00553000(current, FACING_S, &dirty)) {
                     if (dirty != unknown_empty_rect) {
-                        unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                        TacticalMap->Register_Dirty_Area(dirty, false);
                     }
                 }
                 return;
@@ -4996,7 +4996,7 @@ void MapClass::Unknown_00555A60(Cell const &cell)
             if ((ittype == unknown_tileset_a6e0e4 || ittype == unknown_tileset_a52f80) && spanptr->unknown_11a == 8) {
                 Set_Bridge_End_State(spancell, false, false);
                 Repair_High_Bridge_Span_0054b560(&Map[spancell], FACING_E, &dirty);
-                unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                TacticalMap->Register_Dirty_Area(dirty, false);
                 break;
             }
             if ((ittype == unknown_tileset_a6cb7c || ittype == unknown_tileset_a6cb7c + 3 ||
@@ -5017,13 +5017,13 @@ void MapClass::Unknown_00555A60(Cell const &cell)
                 }
                 Unknown_00555A60(spancell + Cell(-2, 0));
                 Repair_High_Bridge_Span_0054b560(&Map[spancell], FACING_E, &dirty);
-                unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                TacticalMap->Register_Dirty_Area(dirty, false);
                 break;
             }
             if ((ittype == unknown_tileset_a53394 || ittype == unknown_tileset_a52588) && spanptr->unknown_11a == 12) {
                 Set_Bridge_End_State(spancell, false, false);
                 Repair_High_Bridge_Span_0054b560(&Map[spancell], FACING_S, &dirty);
-                unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                TacticalMap->Register_Dirty_Area(dirty, false);
                 break;
             }
             if ((ittype == unknown_tileset_a52e70 || ittype == unknown_tileset_a52e70 + 3 ||
@@ -5044,7 +5044,7 @@ void MapClass::Unknown_00555A60(Cell const &cell)
                 }
                 Unknown_00555A60(spancell + Cell(0, -2));
                 Repair_High_Bridge_Span_0054b560(&Map[spancell], FACING_S, &dirty);
-                unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                TacticalMap->Register_Dirty_Area(dirty, false);
                 break;
             }
         }
@@ -5162,7 +5162,7 @@ destroy_span:
         }
 destroy_connections:
         Destroy_High_Bridge_Connections_00558BD0(spancell);
-        unknown_tactical_83996c->unknown_d7c = true;
+        TacticalMap->unknown_d7c = true;
     }
 
 finished:
@@ -5379,7 +5379,7 @@ destroy_span:
         }
 destroy_connections:
         Destroy_High_Bridge_Connections_00558BD0(spancell);
-        unknown_tactical_83996c->unknown_d7c = true;
+        TacticalMap->unknown_d7c = true;
     }
 
 finished:
@@ -5461,7 +5461,7 @@ void MapClass::Destroy_Low_Bridge_EW(Cell const &cell)
     }
 
     Zone_Reset();
-    unknown_tactical_83996c->unknown_d7c = true;
+    TacticalMap->unknown_d7c = true;
 }
 
 
@@ -5531,7 +5531,7 @@ void MapClass::Destroy_Low_Bridge_NS(Cell const &cell)
     }
 
     Zone_Reset();
-    unknown_tactical_83996c->unknown_d7c = true;
+    TacticalMap->unknown_d7c = true;
 }
 
 
@@ -5601,7 +5601,7 @@ void MapClass::Destroy_Low_Bridge2_EW(Cell const &cell)
     }
 
     Zone_Reset();
-    unknown_tactical_83996c->unknown_d7c = true;
+    TacticalMap->unknown_d7c = true;
 }
 
 
@@ -5671,7 +5671,7 @@ void MapClass::Destroy_Low_Bridge2_NS(Cell const &cell)
     }
 
     Zone_Reset();
-    unknown_tactical_83996c->unknown_d7c = true;
+    TacticalMap->unknown_d7c = true;
 }
 
 
@@ -5834,13 +5834,13 @@ bool MapClass::Destroy_High_Bridge_Span_00558660(Cell const & cell, FacingType d
 			coord.X = cell.X * 256 + 128;
             coord.Y = cell.Y * 256 + 128;
             coord.Z = unknown_geometry_g * startptr->unknown_11b;
-			unknown_tactical_83996c->Coord_To_Pixel(coord, startpix);
+			TacticalMap->Coord_To_Pixel(coord, startpix);
 
 			Point2D endpix;
 			coord.X = lastcell.X * 256 + 128;
             coord.Y = lastcell.Y * 256 + 128;
             coord.Z = unknown_geometry_g * startptr->unknown_11b;
-			unknown_tactical_83996c->Coord_To_Pixel(coord, endpix);
+			TacticalMap->Coord_To_Pixel(coord, endpix);
 
             Rect bounds;
             bounds.X = min(startpix.X, endpix.X) - 64;
@@ -5976,7 +5976,7 @@ void MapClass::Destroy_High_Bridge_Connections_00558BD0(Cell const &cell)
             if ((ittype == unknown_tileset_a6e0e4 || ittype == unknown_tileset_a52f80) && spanptr->unknown_11a == 8) {
                 if (Destroy_High_Bridge_Span_00558660(current, FACING_E, &dirty)) {
                     if (dirty != unknown_empty_rect) {
-                        unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                        TacticalMap->Register_Dirty_Area(dirty, false);
                     }
                 }
                 return;
@@ -5987,7 +5987,7 @@ void MapClass::Destroy_High_Bridge_Connections_00558BD0(Cell const &cell)
                 spanptr->unknown_11a == 5) {
                 if (Destroy_High_Bridge_Span_00558660(current, FACING_E, &dirty)) {
                     if (dirty != unknown_empty_rect) {
-                        unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                        TacticalMap->Register_Dirty_Area(dirty, false);
                     }
                 }
                 return;
@@ -5996,7 +5996,7 @@ void MapClass::Destroy_High_Bridge_Connections_00558BD0(Cell const &cell)
             if ((ittype == unknown_tileset_a53394 || ittype == unknown_tileset_a52588) && spanptr->unknown_11a == 12) {
                 if (Destroy_High_Bridge_Span_00558660(current, FACING_S, &dirty)) {
                     if (dirty != unknown_empty_rect) {
-                        unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                        TacticalMap->Register_Dirty_Area(dirty, false);
                     }
                 }
                 return;
@@ -6007,7 +6007,7 @@ void MapClass::Destroy_High_Bridge_Connections_00558BD0(Cell const &cell)
                 spanptr->unknown_11a == 7) {
                 if (Destroy_High_Bridge_Span_00558660(current, FACING_S, &dirty)) {
                     if (dirty != unknown_empty_rect) {
-                        unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+                        TacticalMap->Register_Dirty_Area(dirty, false);
                     }
                 }
                 return;
@@ -6337,7 +6337,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 // forgets it (0x0047A340), and the tag leaves the tag list 0x00866238.
 
 // The tag list (0x00866238; as TagClass's destructor 0x006B39F0 declares it).
-extern DynamicVectorClass<TagClass *> unknown_tags_866238;
+extern DynamicVectorClass<TagClass *> MapTags;
 
 void MapClass::Detach(AbstractClass *target, bool all)
 {
@@ -6353,7 +6353,7 @@ void MapClass::Detach(AbstractClass *target, bool all)
         unknown_dummy_cell_a6f9f8.unknown_47a340(target);
     }
     if (target->Kind_Of() == 0x2C) {
-        unknown_tags_866238.Delete((TagClass *)target);
+        MapTags.Delete((TagClass *)target);
     }
 }
 
@@ -6509,7 +6509,7 @@ void MapClass::Unknown_0055A300()
             cellptr->IsMapped = false; cellptr->IsVisible = false;
             cellptr->IsFogVisible = false; cellptr->IsFogMapped = false; cellptr->IsToShroud = false;
             cellptr->unknown_138 = true;
-            unknown_tactical_83996c->Flag_Cell(cellptr);
+            TacticalMap->Flag_Cell(cellptr);
             if (cellptr->unknown_120 == -2) {
                 Map.Unknown_00568520(cellptr, unknown_player_a35db4, true);
             }
@@ -6521,11 +6521,11 @@ void MapClass::Unknown_0055A300()
     cellptr = Iterate();
     while (cellptr != 0) {
         Cell cell = Coord_Cell(cellptr->Center_Coord());
-        signed char frame = unknown_tactical_83996c->Cell_Shadow(cell, 0);
+        signed char frame = TacticalMap->Cell_Shadow(cell, 0);
         if (frame != cellptr->unknown_120) {
             cellptr->unknown_120 = frame;
             cellptr->unknown_138 = true;
-            unknown_tactical_83996c->Flag_Cell(cellptr);
+            TacticalMap->Flag_Cell(cellptr);
             if (cellptr->unknown_120 == -2) {
                 Map.Unknown_00568520(cellptr, unknown_player_a35db4, true);
             }
@@ -7989,7 +7989,7 @@ bool MapClass::Unknown_0055DEF0(Cell const &cell)
         }
 
         draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-        unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
+        TacticalMap->Register_Dirty_Area(draw_rect, false);
 
         cellptr1->Recalc_Attributes(-1);
         cellptr2->Recalc_Attributes(-1);
@@ -8078,7 +8078,7 @@ bool MapClass::Unknown_0055E410(Cell const &cell)
         }
 
         draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-        unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
+        TacticalMap->Register_Dirty_Area(draw_rect, false);
 
         cellptr1->Recalc_Attributes(-1);
         cellptr2->Recalc_Attributes(-1);
@@ -8328,7 +8328,7 @@ bool MapClass::Unknown_0055F020(Cell const &cell)
         }
 
         draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-        unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
+        TacticalMap->Register_Dirty_Area(draw_rect, false);
 
         cellptr1->Recalc_Attributes(-1);
         cellptr2->Recalc_Attributes(-1);
@@ -8417,7 +8417,7 @@ bool MapClass::Unknown_0055F540(Cell const &cell)
         }
 
         draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-        unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
+        TacticalMap->Register_Dirty_Area(draw_rect, false);
 
         cellptr1->Recalc_Attributes(-1);
         cellptr2->Recalc_Attributes(-1);
@@ -8515,7 +8515,7 @@ void MapClass::Damage_Low_Bridge_Piece_EW_0055FCC0(Cell const &cell)
         }
         side2->OverlayIndex = side1->OverlayIndex = center->OverlayIndex = next;
         draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-        unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
+        TacticalMap->Register_Dirty_Area(draw_rect, false);
         if (next == 0x64) {
             Map.Radar_Background(cell);
             Map.Radar_Background(cell + Cell(0, 1));
@@ -8555,7 +8555,7 @@ void MapClass::Damage_Low_Bridge_Piece_NS_005601F0(Cell const &cell)
         }
         side2->OverlayIndex = side1->OverlayIndex = center->OverlayIndex = next;
         draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-        unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
+        TacticalMap->Register_Dirty_Area(draw_rect, false);
         if (next == 0x65) {
             Map.Radar_Background(cell);
             Map.Radar_Background(cell + TPoint2D<short>(1, 0));
@@ -8595,7 +8595,7 @@ void MapClass::Damage_Low_Bridge2_Piece_EW_005606D0(Cell const &cell)
         }
         side2->OverlayIndex = side1->OverlayIndex = center->OverlayIndex = next;
         draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-        unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
+        TacticalMap->Register_Dirty_Area(draw_rect, false);
         if (next == 0xe7) {
             Map.Radar_Background(cell);
             Map.Radar_Background(cell + Cell(0, 1));
@@ -8635,7 +8635,7 @@ void MapClass::Damage_Low_Bridge2_Piece_NS_00560C10(Cell const &cell)
         }
         side2->OverlayIndex = side1->OverlayIndex = center->OverlayIndex = next;
         draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-        unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
+        TacticalMap->Register_Dirty_Area(draw_rect, false);
         if (next == 0xe8) {
             Map.Radar_Background(cell);
             Map.Radar_Background(cell + TPoint2D<short>(1, 0));
@@ -8767,7 +8767,7 @@ void MapClass::Repair_Low_Bridge_EW(Cell const &cell)
             side1->OverlayIndex = new_overlay;
             side2->OverlayIndex = new_overlay;
             draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-            unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
+            TacticalMap->Register_Dirty_Area(draw_rect, false);
             if (old_overlay == 0x64) {
                 Map.Radar_Background(cursor);
                 Map.Radar_Background(cursor + Cell(0, 1));
@@ -8833,7 +8833,7 @@ void MapClass::Repair_Low_Bridge_NS(Cell const &cell)
             side1->OverlayIndex = new_overlay;
             side2->OverlayIndex = new_overlay;
             draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-            unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
+            TacticalMap->Register_Dirty_Area(draw_rect, false);
             if (old_overlay == 0x65) {
                 Map.Radar_Background(cursor);
                 Map.Radar_Background(cursor + Cell(1, 0));
@@ -8899,7 +8899,7 @@ void MapClass::Repair_Low_Bridge2_EW(Cell const &cell)
             side1->OverlayIndex = new_overlay;
             side2->OverlayIndex = new_overlay;
             draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-            unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
+            TacticalMap->Register_Dirty_Area(draw_rect, false);
             if (old_overlay == 0xe7) {
                 Map.Radar_Background(cursor);
                 Map.Radar_Background(cursor + Cell(0, 1));
@@ -8965,7 +8965,7 @@ void MapClass::Repair_Low_Bridge2_NS(Cell const &cell)
             side1->OverlayIndex = new_overlay;
             side2->OverlayIndex = new_overlay;
             draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-            unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
+            TacticalMap->Register_Dirty_Area(draw_rect, false);
             if (old_overlay == 0xe8) {
                 Map.Radar_Background(cursor);
                 Map.Radar_Background(cursor + Cell(1, 0));
@@ -9176,7 +9176,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
                 Cell here = origin + Cell(x, y);
                 if (image->Tiles[y * isotype->unknown_2b4 + x] != 0 && Unknown_0055A660(here, true)
                     && Fine_Subzone(here) == 0) {
-                    Unknown_00566340(here);
+                    Update_Cell_Subzones(here);
                 }
             }
         }
@@ -9192,9 +9192,9 @@ void MapClass::Unknown_00562F50(CellClass *cell)
 
         Point2D start;
         Point2D end;
-        unknown_tactical_83996c->Coord_To_Pixel(CoordStruct(origin, Map[origin].unknown_11b * unknown_geometry_g), start);
-        unknown_tactical_83996c->Coord_To_Pixel(CoordStruct(origin + Cell(5, 3), Map[origin + Cell(5, 3)].unknown_11b * unknown_geometry_g), end);
-        unknown_tactical_83996c->Register_Dirty_Area(Rect(start.X - 120, start.Y - 60, end.X - start.X + 240, end.Y - start.Y + 120), false);
+        TacticalMap->Coord_To_Pixel(CoordStruct(origin, Map[origin].unknown_11b * unknown_geometry_g), start);
+        TacticalMap->Coord_To_Pixel(CoordStruct(origin + Cell(5, 3), Map[origin + Cell(5, 3)].unknown_11b * unknown_geometry_g), end);
+        TacticalMap->Register_Dirty_Area(Rect(start.X - 120, start.Y - 60, end.X - start.X + 240, end.Y - start.Y + 120), false);
 
         AnimTypeClass *med1 = AnimTypes[AnimTypeClass::From_Name("XGRYMED1")];
         AnimTypeClass *med2 = AnimTypes[AnimTypeClass::From_Name("XGRYMED2")];
@@ -9259,7 +9259,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
                 Cell here = origin + Cell(x, y);
                 if (image->Tiles[y * row_width + x] != 0 && Unknown_0055A660(here, true)) {
                     if (Fine_Subzone(here) == 0) {
-                        Unknown_00566340(here);
+                        Update_Cell_Subzones(here);
                     }
                 }
             }
@@ -9277,9 +9277,9 @@ void MapClass::Unknown_00562F50(CellClass *cell)
 
         Point2D start;
         Point2D end;
-        unknown_tactical_83996c->Coord_To_Pixel(CoordStruct(origin, Map[origin].unknown_11b * unknown_geometry_g), start);
-        unknown_tactical_83996c->Coord_To_Pixel(CoordStruct(origin + Cell(3, 5), Map[origin + Cell(3, 5)].unknown_11b * unknown_geometry_g), end);
-        unknown_tactical_83996c->Register_Dirty_Area(Rect(end.X - 120, start.Y - 60, start.X - end.X + 240, end.Y - start.Y + 120), false);
+        TacticalMap->Coord_To_Pixel(CoordStruct(origin, Map[origin].unknown_11b * unknown_geometry_g), start);
+        TacticalMap->Coord_To_Pixel(CoordStruct(origin + Cell(3, 5), Map[origin + Cell(3, 5)].unknown_11b * unknown_geometry_g), end);
+        TacticalMap->Register_Dirty_Area(Rect(end.X - 120, start.Y - 60, start.X - end.X + 240, end.Y - start.Y + 120), false);
 
         AnimTypeClass *med1 = AnimTypes[AnimTypeClass::From_Name("XGRYMED1")];
         AnimTypeClass *med2 = AnimTypes[AnimTypeClass::From_Name("XGRYMED2")];
@@ -10332,9 +10332,9 @@ void MapClass::Unknown_00566F90(ZoneConnectionClass *connection)
 }
 
 
-// Not exact (RA2_NON_MATCHING): MapClass::Unknown_00566340 at 0x00566340, best score 64.37, 2026-11-13; differs: 709 instructions in the original, 711 in the draft (shape 98.45)
+// Not exact (RA2_NON_MATCHING): MapClass::Update_Cell_Subzones at 0x00566340, best score 64.37, 2026-11-13; differs: 709 instructions in the original, 711 in the draft (shape 98.45)
 #ifdef RA2_NON_MATCHING
-// NON-EXACT DRAFT 0x566340 MapClass::Unknown_00566340 (rebuild the subzone graph around a changed cell)
+// NON-EXACT DRAFT 0x566340 MapClass::Update_Cell_Subzones (rebuild the subzone graph around a changed cell)
 // entry 0x566340; exact-match score 64.37 (misses_index best; shape 98.45, calls equal); plan "draft, verify"
 // origin lane: Scout664 (build/class-work/Scout664/w/keep/c_6437.cpp, overlay w/h2; Scout662 c_5141 before it)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
@@ -10353,7 +10353,7 @@ inline int Cell_Passability(MapClass *map, Cell const &cell)
     return map->CellZones[map->Get_Cell_Zone_Index(cell)].unknown_00;
 }
 
-void MapClass::Unknown_00566340(Cell const &cell)
+void MapClass::Update_Cell_Subzones(Cell const &cell)
 {
     if (Unknown_0055A660(cell, true)) {
         int y;
@@ -10905,7 +10905,7 @@ bool MapClass::Is_Under_Fog(CoordStruct const &coord)
 bool MapClass::Is_Fogged(CoordStruct const &coord)
 {
     CellClass *cellptr;
-    if (unknown_game_mode_a3d298 == 0 || !unknown_player_a35db4->unknown_13d || !unknown_int_a3d548) {
+    if (unknown_game_mode_a3d298 == 0 || !unknown_player_a35db4->unknown_13d || !MuteSWLaunches) {
         int level = coord.Z / unknown_geometry_g;
         if ((level & 1) != 0) {
             int offset = level / 2 + 1;
@@ -11052,7 +11052,7 @@ void MapClass::Unknown_005688A0(DynamicVectorClass<Cell> &cells)
         Cell cell = cells[index];
         if (Unknown_0055A660(cell, true)) {
             if (*(short *)(CellSubzones + Get_Cell_Zone_Index(cell) * 10) == 0) {
-                Unknown_00566340(cell);
+                Update_Cell_Subzones(cell);
             }
         }
     }

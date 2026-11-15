@@ -72,7 +72,7 @@ public:
     DynamicVectorClass<MSSfx *> Sfx;        // +0x30
 };
 
-extern bool unknown_redraw_8523dc;              // 0x008523DC set by Redraw: Draw clears and repaints everything
+extern bool SurfacesRestored;              // 0x008523DC set by Redraw: Draw clears and repaints everything
 
 void unknown_481fb0();                          // 0x00481FB0 once per frame
 void unknown_4961d0();                          // 0x004961D0 once per frame

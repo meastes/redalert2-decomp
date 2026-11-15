@@ -15,13 +15,13 @@ void __fastcall VQA_Unknown_0071DB20()
     for (int option = 0; option < 18; option++) {
         VQA_Unknown_0071DB80(option);
     }
-    VQA_Unknown_0071DB60(6);
+    Set_Option(6);
 }
 
 
-// void __fastcall VQA_Unknown_0071DB60(int option) (0x0071DB60): sets the option bit.
+// void __fastcall Set_Option(int option) (0x0071DB60): sets the option bit.
 
-void __fastcall VQA_Unknown_0071DB60(int option)
+void __fastcall Set_Option(int option)
 {
     int index = option >> 3;
     unsigned char shift = option & 7;
@@ -41,9 +41,9 @@ void __fastcall VQA_Unknown_0071DB80(int option)
 }
 
 
-// bool __fastcall VQA_Unknown_0071DBA0(int option) (0x0071DBA0): the option bit is set.
+// bool __fastcall Get_Option(int option) (0x0071DBA0): the option bit is set.
 
-bool __fastcall VQA_Unknown_0071DBA0(int option)
+bool __fastcall Get_Option(int option)
 {
     int index = option >> 3;
     unsigned char shift = option & 7;
@@ -62,6 +62,6 @@ int __fastcall VQA_Unknown_0071DBC0(int option)
         VQA_Unknown_0071DB80(option);
         return 0;
     }
-    VQA_Unknown_0071DB60(option);
+    Set_Option(option);
     return 1;
 }

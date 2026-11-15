@@ -6,7 +6,7 @@
 // @ref ?unknown_b26898=00b26898
 // @ref ?unknown_b299c0=00b299c0
 // @ref ?unknown_b2a630=00b2a630
-// @ref ?unknown_b2abd9=00b2abd9
+// @ref ?g_PlayingNetGame=00b2abd9
 // @ref ?unknown_a3d2a4=00a3d2a4
 // @ref Unknown_0073FEE0=0073fee0
 // @ref ?Unknown_0075B590=0075b590
@@ -14,7 +14,7 @@
 // @ref Debug_Printf=004068f0
 HRESULT __stdcall CNetUtilEventSink::OnPing(HRESULT result, int time, unsigned long ip, int handle)
 {
-    if (unknown_b2abd9 && unknown_b2a630) {
+    if (g_PlayingNetGame && unknown_b2a630) {
         if (result == 0 && time >= 0 && time < 1000) {
             ++unknown_b2aaf8;
             return 0;

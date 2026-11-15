@@ -178,7 +178,7 @@ Tactical::Tactical()
                     -4.2667f, 8.5334f, 0.0f, 0.0f,
                     0.0f, 0.0f, 1.0f, 0.0f);
 
-    unknown_tactical_83996c = this;
+    TacticalMap = this;
 }
 
 
@@ -200,7 +200,7 @@ Tactical::Tactical(NoInitClass const &noinit)
 
 Tactical::~Tactical()
 {
-    unknown_tactical_83996c = 0;
+    TacticalMap = 0;
 }
 
 
@@ -2450,7 +2450,7 @@ void Tactical::Unknown_006A9170()
 void __fastcall Tactical::Draw_Render_Hooks(ObjectClass *object, Rect const &cliprect)
 {
     Point2D pixel;
-    if (unknown_tactical_83996c->Coord_To_Pixel(object->Center_Coord(), pixel)) {
+    if (TacticalMap->Coord_To_Pixel(object->Center_Coord(), pixel)) {
         object->unknown_slot65((int)&pixel, (int)&cliprect);
         object->unknown_slot66(pixel, cliprect);
     }
@@ -2523,7 +2523,7 @@ void Tactical::Draw_Objects(bool forced)
                         continue;
                     }
                     Point2D pixel;
-                    if (unknown_tactical_83996c->Coord_To_Pixel(obj->Center_Coord(), pixel)) {
+                    if (TacticalMap->Coord_To_Pixel(obj->Center_Coord(), pixel)) {
                         obj->unknown_85 = true;
                         obj->unknown_slot65((int)&pixel, (int)&unknown_rect_839630);
                         obj->Render(&unknown_rect_839630, forced, false);
@@ -2563,7 +2563,7 @@ void Tactical::Draw_Objects(bool forced)
                     position = obj->Position_Coord_004f3f40();
                     if (view.Is_Point_Within(Point2D(position.X, position.Y))) {
                         Point2D pixel;
-                        if (unknown_tactical_83996c->Coord_To_Pixel(obj->Center_Coord(), pixel)) {
+                        if (TacticalMap->Coord_To_Pixel(obj->Center_Coord(), pixel)) {
                             obj->unknown_85 = true;
                             obj->unknown_slot65((int)&pixel, (int)&unknown_rect_839630);
                             obj->Render(&unknown_rect_839630, forced, false);
@@ -2578,7 +2578,7 @@ void Tactical::Draw_Objects(bool forced)
                 BuildingClass *bptr = unknown_BuildingClass_list_00a40af8[bindex];
                 if (bptr->unknown_74 && bptr->unknown_85) {
                     Point2D pixel;
-                    if (unknown_tactical_83996c->Coord_To_Pixel(bptr->unknown_slot42(), pixel)) {
+                    if (TacticalMap->Coord_To_Pixel(bptr->unknown_slot42(), pixel)) {
                         Rect rect = unknown_rect_839630;
                         if (rect.X > unknown_rect_839630.X) pixel.X += unknown_rect_839630.X - rect.X;
                         if (rect.Y > unknown_rect_839630.Y) pixel.Y += unknown_rect_839630.Y - rect.Y;
@@ -2601,7 +2601,7 @@ void Tactical::Draw_Objects(bool forced)
                     }
                 }
                 Point2D pixel;
-                if (unknown_tactical_83996c->Coord_To_Pixel(obj2->Center_Coord(), pixel)) {
+                if (TacticalMap->Coord_To_Pixel(obj2->Center_Coord(), pixel)) {
                     obj2->unknown_slot66(pixel, unknown_rect_839630);
                 }
             }

@@ -180,7 +180,7 @@ inline UnknownFacingDir Direction(CoordStruct const &coord1, CoordStruct const &
 // A value in [a, b] from the generator at 0x00839218 (TibSun Sim_Random_Pick; file-local hypothesis).
 inline int Sim_Random_Pick(int a, int b)
 {
-    return unknown_random_839218(a, b);
+    return NonCriticalRandomNumber(a, b);
 }
 
 // The glow offset table's element: a screen point with a destructor (the table's atexit
@@ -222,9 +222,9 @@ void LaserDrawClass::Draw_It()
             int facing = Dir_To_8(dir);
 
             Point2D start_pixel;
-            unknown_tactical_83996c->Coord_To_Pixel(Source, start_pixel);
+            TacticalMap->Coord_To_Pixel(Source, start_pixel);
             Point2D end_pixel;
-            unknown_tactical_83996c->Coord_To_Pixel(Target, end_pixel);
+            TacticalMap->Coord_To_Pixel(Target, end_pixel);
 
             int start_z = ZAdjust - Unknown_006A2970(Source.Z) - 2;
             int end_z = -Unknown_006A2970(Target.Z) - 2;
@@ -329,9 +329,9 @@ void LaserDrawClass::Draw_House_Color()
     UnknownFacingDir dir = Direction(Source, Target);
     int facing = Dir_To_8(dir);
     Point2D start_pixel;
-    unknown_tactical_83996c->Coord_To_Pixel(Source, start_pixel);
+    TacticalMap->Coord_To_Pixel(Source, start_pixel);
     Point2D end_pixel;
-    unknown_tactical_83996c->Coord_To_Pixel(Target, end_pixel);
+    TacticalMap->Coord_To_Pixel(Target, end_pixel);
     int start_z = ZAdjust - Unknown_006A2970(Source.Z) - 2;
     int end_z = -Unknown_006A2970(Target.Z) - 2;
     bool high_detail = unknown_a6eb1c >= Unknown_0053D840() && unknown_a40b2c != 0;

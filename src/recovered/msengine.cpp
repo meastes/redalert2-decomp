@@ -104,8 +104,8 @@ void MSEngine::Wait_For(MSAnim *anim,unsigned time)
 
 void MSEngine::Redraw()
 {
-    unknown_redraw_8523dc = true;
-    Draw(unknown_surface_839954);
+    SurfacesRestored = true;
+    Draw(HiddenSurface);
 }
 
 
@@ -117,13 +117,13 @@ void MSEngine::Redraw()
 void MSEngine::Draw(Surface *surface)
 {
     int index;
-    if (unknown_redraw_8523dc == true) {
-        unknown_redraw_8523dc = false;
+    if (SurfacesRestored == true) {
+        SurfacesRestored = false;
         surface->Fill(0);
-        Rect rect = unknown_surface_839958->Get_Rect();
+        Rect rect = AlternateSurface->Get_Rect();
         rect.X = (surface->Get_Width() - rect.Width) / 2;
         rect.Y = (surface->Get_Height() - rect.Height) / 2;
-        surface->Copy_From(unknown_surface_839958->Get_Rect(), *unknown_surface_839958, rect, false, true);
+        surface->Copy_From(AlternateSurface->Get_Rect(), *AlternateSurface, rect, false, true);
         for (index = 0; index < Anims.Count(); index++) {
             Anims[index]->Draw(surface, 0);
         }
@@ -303,10 +303,10 @@ void MSEngine::Run(int frames)
             unknown_481fb0();
             Unknown_Slot2();
             unknown_4961d0();
-            Draw(unknown_surface_839954);
-            Blit_Rects(unknown_surface_839954);
+            Draw(HiddenSurface);
+            Blit_Rects(HiddenSurface);
             unknown_5b5ee0();
-            if (!unknown_flag_a40d28) {
+            if (!GameInFocus) {
                 timer.Stop();
                 Check_Focus();
                 timer.Start();
@@ -325,13 +325,13 @@ void MSEngine::Run(int frames)
 
 void MSEngine::Check_Focus()
 {
-    if (unknown_flag_a40d28 != true) {
+    if (GameInFocus != true) {
         Debug_Printf("MSEngine - Pausing animations\n");
         int index;
         for (index = 0; index < Anims.Count(); index++) {
             Anims[index]->Pause();
         }
-        while (!unknown_flag_a40d28) {
+        while (!GameInFocus) {
             Debug_Printf("MSEngine - Sleeping\n");
             Sleep(500);
             unknown_5b5ee0();

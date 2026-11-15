@@ -24,7 +24,7 @@ void Tactical::AI()
         return;
     }
     if (unknown_a8 != Frame) {
-        if (unknown_flag_a40d04 && unknown_d0 != unknown_abe540 && unknown_d8 != 0.0f) {
+        if (ScenarioActive && unknown_d0 != unknown_abe540 && unknown_d8 != 0.0f) {
             unknown_dc = unknown_dc + unknown_d8;
             if (unknown_dc > 1.0) {
                 unknown_dc = 1.0f;

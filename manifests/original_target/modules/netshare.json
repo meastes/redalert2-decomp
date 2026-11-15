@@ -252,7 +252,7 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "symbol": "?RandomMapWaypointCount@@YIHH@Z",
    "entry": "005c6600",
    "body_bytes": 412,
    "padding_bytes": 4
@@ -1896,7 +1896,7 @@
   },
   {
    "site": "005a4250",
-   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "symbol": "?RandomMapWaypointCount@@YIHH@Z",
    "target": "005c6600",
    "function_entry": true
   },
@@ -2058,7 +2058,7 @@
   },
   {
    "site": "0059a310",
-   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "symbol": "?RandomMapWaypointCount@@YIHH@Z",
    "target": "005c6600",
    "function_entry": true
   },
@@ -3318,7 +3318,7 @@
   },
   {
    "site": "005bd070",
-   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "symbol": "?RandomMapWaypointCount@@YIHH@Z",
    "target": "005c6600",
    "function_entry": true
   },
@@ -3396,7 +3396,7 @@
   },
   {
    "site": "00683fc0",
-   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "symbol": "?RandomMapWaypointCount@@YIHH@Z",
    "target": "005c6600",
    "function_entry": true
   },
@@ -3702,13 +3702,13 @@
   },
   {
    "site": "006829f0",
-   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "symbol": "?RandomMapWaypointCount@@YIHH@Z",
    "target": "005c6600",
    "function_entry": true
   },
   {
    "site": "006829f0",
-   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "symbol": "?RandomMapWaypointCount@@YIHH@Z",
    "target": "005c6600",
    "function_entry": true
   },
@@ -3738,7 +3738,7 @@
   },
   {
    "site": "006829f0",
-   "symbol": "?Unknown_005c6600@@YIHH@Z",
+   "symbol": "?RandomMapWaypointCount@@YIHH@Z",
    "target": "005c6600",
    "function_entry": true
   },
@@ -4971,6 +4971,10 @@
    "address": "0046e520"
   },
   {
+   "symbol": "?IsRandomMap@@3_NA",
+   "address": "007e6dc0"
+  },
+  {
    "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
    "address": "004e5540"
   },
@@ -5017,6 +5021,14 @@
   {
    "symbol": "?Lobby_Dialog_Proc_005c69e0@@YGJPAUHWND__@@IIJ@Z",
    "address": "005c69e0"
+  },
+  {
+   "symbol": "?ModemHostCallback@@YA_NXZ",
+   "address": "0059c880"
+  },
+  {
+   "symbol": "?MultiplayerMapPreview@@3PAVMapPreviewClass@@A",
+   "address": "00a72ce8"
   },
   {
    "symbol": "?Narrow_Copy_00771280@@YI?AVWstring@@ABVWideString@@@Z",
@@ -5199,10 +5211,6 @@
    "address": "0046e4c0"
   },
   {
-   "symbol": "?Unknown_0059c880@@YA_NXZ",
-   "address": "0059c880"
-  },
-  {
    "symbol": "?Unknown_005FE380@@YIXJ@Z",
    "address": "005fe380"
   },
@@ -5279,10 +5287,6 @@
    "address": "007359e0"
   },
   {
-   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
-   "address": "00735b10"
-  },
-  {
    "symbol": "?Unknown_0073ccb0@@YIXPAD@Z",
    "address": "0073ccb0"
   },
@@ -5317,6 +5321,10 @@
   {
    "symbol": "?WS_Find_Dialog_00735940@@YIPAUHWND__@@H@Z",
    "address": "00735940"
+  },
+  {
+   "symbol": "?WS_Top_Window@@YIPAUHWND__@@XZ",
+   "address": "00735b10"
   },
   {
    "symbol": "?Wide_To_Narrow_006fa120@@YIPADPBG@Z",
@@ -5459,10 +5467,6 @@
    "address": "0075ca30"
   },
   {
-   "symbol": "?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A",
-   "address": "00a72ce8"
-  },
-  {
    "symbol": "?unknown_easy_ai_entry_a72d34@@3PAUNodeNameType@@A",
    "address": "00a72d34"
   },
@@ -5505,10 +5509,6 @@
   {
    "symbol": "?unknown_host_name_a3f618@@3PAGA",
    "address": "00a3f618"
-  },
-  {
-   "symbol": "?unknown_host_shown_7e6dc0@@3_NA",
-   "address": "007e6dc0"
   },
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",

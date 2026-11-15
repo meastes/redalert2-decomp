@@ -86,7 +86,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // A new action, numbered by its place in TActions.
 
 // The abstract list 0x00AC0C98 (element type AbstractClass * by RTTI).
-extern DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0c98;
+extern DynamicVectorClass<AbstractClass *> EventActionPtrTracker;
 
 TActionClass::TActionClass() :
     unknown_24(-1),
@@ -104,8 +104,8 @@ TActionClass::TActionClass() :
 {
     unknown_TActionClass_list_00abfd88.Add(this);
     unknown_24 = unknown_TActionClass_list_00abfd88.ID(this);
-    unknown_objects_ac0cb0.Add((ObjectClass *)this);
-    unknown_AbstractClass_list_00ac0c98.Add(this);
+    AbstractTypePtrTracker.Add((ObjectClass *)this);
+    EventActionPtrTracker.Add(this);
     Text[0] = 0;
     Data.Value = 0;
 }
@@ -114,13 +114,13 @@ TActionClass::TActionClass() :
 // TActionClass::~TActionClass() (0x006AD4F0)
 
 // The abstract list 0x00AC0C98 (element type AbstractClass * by RTTI).
-extern DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0c98;
+extern DynamicVectorClass<AbstractClass *> EventActionPtrTracker;
 
 TActionClass::~TActionClass()
 {
     Unknown_006ECB90(this, true);
-    unknown_objects_ac0cb0.Delete((ObjectClass *)this);
-    unknown_AbstractClass_list_00ac0c98.Delete(this);
+    AbstractTypePtrTracker.Delete((ObjectClass *)this);
+    EventActionPtrTracker.Delete(this);
     unknown_TActionClass_list_00abfd88.Delete(this);
     Text[0] = 0;
 }
@@ -652,9 +652,9 @@ bool TActionClass::unknown_damage_006afd80(HouseClass *house, ObjectClass *objec
         Point2D point;
         CoordStruct coord = CoordStruct(spot);
         coord.Z += unknown_geometry_j;
-        unknown_tactical_83996c->Coord_To_Pixel(coord, point);
+        TacticalMap->Coord_To_Pixel(coord, point);
         Rect dirty(point.X - 128, point.Y - 128, 256, 256);
-        unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+        TacticalMap->Register_Dirty_Area(dirty, false);
     }
     return true;
 }
@@ -1465,8 +1465,8 @@ bool TActionClass::unknown_func_6b14d0(HouseClass *house, ObjectClass *object, T
         CoordStruct coord = CoordStruct(cell->X * 256 + 128, cell->Y * 256 + 128, 0);
         coord.Z = unknown_geometry_j;
         Point2D pixel;
-        unknown_tactical_83996c->Coord_To_Pixel(coord, pixel);
-        unknown_tactical_83996c->Register_Dirty_Area(Rect(pixel.X - 0x80, pixel.Y - 0x80, 0x100, 0x100), 0);
+        TacticalMap->Coord_To_Pixel(coord, pixel);
+        TacticalMap->Register_Dirty_Area(Rect(pixel.X - 0x80, pixel.Y - 0x80, 0x100, 0x100), 0);
     }
     return killed;
 }
@@ -1618,7 +1618,7 @@ bool TActionClass::unknown_look_at_waypoint(HouseClass *house, ObjectClass *obje
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
         coord.Z += unknown_geometry_j;
     }
-    unknown_tactical_83996c->Setup_Trigger_Scroll(coord, Data.Value);
+    TacticalMap->Setup_Trigger_Scroll(coord, Data.Value);
     return true;
 }
 
@@ -1634,7 +1634,7 @@ bool TActionClass::unknown_center_on_waypoint(HouseClass *house, ObjectClass *ob
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
         coord.Z += unknown_geometry_j;
     }
-    unknown_tactical_83996c->Set_Tactical_Position_006a66b0(coord);
+    TacticalMap->Set_Tactical_Position_006a66b0(coord);
     return true;
 }
 
@@ -1647,8 +1647,8 @@ bool TActionClass::unknown_center_on_waypoint(HouseClass *house, ObjectClass *ob
 
 bool TActionClass::unknown_func_6b1c80(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_tactical_83996c->unknown_c0 = Rules->ZoomInFactor;
-    unknown_flag_a40d44 = true;
+    TacticalMap->unknown_c0 = Rules->ZoomInFactor;
+    IgnoreInput = true;
     WWKeyboard->Clear();
     WWMouse->Hide_Mouse();
     Map.Abort_Drag_Select();
@@ -1664,9 +1664,9 @@ bool TActionClass::unknown_func_6b1c80(HouseClass *house, ObjectClass *object, T
 
 bool TActionClass::unknown_func_6b1d00(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_tactical_83996c->unknown_c0 = 1.0;
+    TacticalMap->unknown_c0 = 1.0;
     WWKeyboard->Clear();
-    unknown_flag_a40d44 = unknown_id_source_a3d290->unknown_2306;
+    IgnoreInput = unknown_id_source_a3d290->unknown_2306;
     WWMouse->Show_Mouse();
     Map.Flag_To_Redraw(0);
     Map.Render();
@@ -2428,7 +2428,7 @@ bool TActionClass::unknown_func_6b2f50(HouseClass *house, ObjectClass *object, T
 
 bool TActionClass::unknown_func_6b2f90(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Unknown_0065C1F0(Data.Value);
+    Hold_Scenario(Data.Value);
     return true;
 }
 

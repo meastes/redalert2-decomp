@@ -125,7 +125,7 @@ bool ModemGuest::Dialog_00596010()
             if (Process_Messages_00597680() == true) {
                 break;
             }
-            unknown_517370(false);
+            Title_Screen_Restore(false);
         }
         unknown_dialog_5ff6e0(Window);
         if (Changed == true) {
@@ -194,15 +194,15 @@ int __stdcall ModemGuest::Dialog_Proc_00596170(HWND window, UINT message, WPARAM
         }
         break;
     case 0xF:
-        if (unknown_dialog_preview_a72ce8) {
-            unknown_dialog_preview_a72ce8->Blit_Preview(window);
+        if (MultiplayerMapPreview) {
+            MultiplayerMapPreview->Blit_Preview(window);
         }
         ValidateRect(window, 0);
         break;
     case 0x2:
-        if (unknown_dialog_preview_a72ce8) {
-            delete unknown_dialog_preview_a72ce8;
-            unknown_dialog_preview_a72ce8 = 0;
+        if (MultiplayerMapPreview) {
+            delete MultiplayerMapPreview;
+            MultiplayerMapPreview = 0;
         }
         break;
     }
@@ -274,9 +274,9 @@ void ModemGuest::Init_Dialog_00596540()
     control = GetDlgItem(Window, 0x550);
     if (control) {
         Send_Message(control, 0x406, 1, 0xA0001);
-        Send_Message(control, 0x405, 1, unknown_house_setting_7d88d8);
+        Send_Message(control, 0x405, 1, BuildLevel);
     }
-    Debug_Printf("TechLevel: %d\n", unknown_house_setting_7d88d8);
+    Debug_Printf("TechLevel: %d\n", BuildLevel);
     control = GetDlgItem(Window, 0x402);
     if (control) {
         Send_Message(control, 0x406, 1, ((unsigned long)(unsigned short)Rules->MaxMoney << 16) | (unsigned short)Rules->MinMoney);
@@ -352,9 +352,9 @@ void ModemGuest::Init_Dialog_00596540()
     }
     Debug_Printf("Harvester Truce: %s\n", unknown_session_a3d298.unknown_a5 == true ? "ON" : "OFF");
     VerNum.Init_Clipping();
-    if (unknown_dialog_preview_a72ce8) {
-        delete unknown_dialog_preview_a72ce8;
-        unknown_dialog_preview_a72ce8 = 0;
+    if (MultiplayerMapPreview) {
+        delete MultiplayerMapPreview;
+        MultiplayerMapPreview = 0;
     }
     if (strlen(ModemRXString) > 78) {
         ModemRXString[79] = 0;
@@ -516,7 +516,7 @@ void ModemGuest::Show_Options_00597220()
     }
     control = GetDlgItem(Window, 0x550);
     if (control) {
-        SendMessageA(control, 0x405, 1, unknown_house_setting_7d88d8);
+        SendMessageA(control, 0x405, 1, BuildLevel);
     }
     control = GetDlgItem(Window, 0x402);
     if (control) {
@@ -578,7 +578,7 @@ void ModemGuest::Show_Options_00597220()
     if (control) {
         SendMessageA(control, 0x4B2, 0, (LPARAM)unknown_map_name_a3d342);
     }
-    if (!unknown_dialog_preview_a72ce8 || !unknown_dialog_preview_a72ce8->Is_Present()) {
+    if (!MultiplayerMapPreview || !MultiplayerMapPreview->Is_Present()) {
         Unknown_005c7570(Window);
     }
     control = GetDlgItem(Window, 1);
@@ -792,7 +792,7 @@ bool ModemGuest::Receive_Options_00597e50(UnknownSerialPacket const *packet)
         && unknown_session_a3d298.unknown_fog_a7 == (bool)packet->Options.FogOfWar
         && unknown_session_a3d298.AICount == packet->Options.AICount
         && unknown_session_a3d298.unknown_difficulty_40 == packet->Options.AIDifficulty
-        && unknown_house_setting_7d88d8 == packet->Options.TechLevel
+        && BuildLevel == packet->Options.TechLevel
         && unknown_session_a3d298.unknown_24 == packet->Options.Credits
         && unknown_session_a3d298.UnitCount == packet->Options.UnitCount
         && Seed == packet->Options.Seed
@@ -817,7 +817,7 @@ bool ModemGuest::Receive_Options_00597e50(UnknownSerialPacket const *packet)
     unknown_session_a3d298.unknown_a5 = packet->Options.unknown_a5;
     unknown_session_a3d298.AICount = packet->Options.AICount;
     unknown_session_a3d298.unknown_difficulty_40 = packet->Options.AIDifficulty;
-    unknown_house_setting_7d88d8 = packet->Options.TechLevel;
+    BuildLevel = packet->Options.TechLevel;
     unknown_session_a3d298.unknown_24 = packet->Options.Credits;
     unknown_session_a3d298.UnitCount = packet->Options.UnitCount;
     Seed = packet->Options.Seed;
@@ -856,9 +856,9 @@ bool ModemGuest::Receive_Options_00597e50(UnknownSerialPacket const *packet)
         if (!found) {
             wcscpy(unknown_map_name_a3d342, packet->Options.MapName);
         }
-        if (unknown_dialog_preview_a72ce8) {
-            delete unknown_dialog_preview_a72ce8;
-            unknown_dialog_preview_a72ce8 = 0;
+        if (MultiplayerMapPreview) {
+            delete MultiplayerMapPreview;
+            MultiplayerMapPreview = 0;
         }
     }
     return true;
@@ -874,7 +874,7 @@ void ModemGuest::Send_Options_00598330()
     *(int *)&packet.unknown_19[0x86 - 0x19] = unknown_50;
     *(int *)&packet.unknown_19[0xD4 - 0x19] = unknown_54;
     *(int *)&packet.unknown_19[0xD0 - 0x19] = unknown_58;
-    *(unsigned long *)&packet.unknown_19[0xD8 - 0x19] = Unknown_00737af0();
+    *(unsigned long *)&packet.unknown_19[0xD8 - 0x19] = Build_Number();
     *(unsigned long *)&packet.unknown_19[0x1E - 0x19] = VerNum.Min_Version();
     *(unsigned long *)&packet.unknown_19[0x22 - 0x19] = VerNum.Max_Version();
     packet.ID = serial_local_player_00a3fb38;
@@ -1052,11 +1052,11 @@ void ModemGuest::Receive_Preview_005989b0()
     unsigned short *image = new unsigned short[length];
     lzo.Get(image, length);
     Debug_Printf("Creating the new preview surface\n");
-    if (unknown_dialog_preview_a72ce8) {
-        delete unknown_dialog_preview_a72ce8;
+    if (MultiplayerMapPreview) {
+        delete MultiplayerMapPreview;
     }
-    unknown_dialog_preview_a72ce8 = new MapPreviewClass;
-    unknown_dialog_preview_a72ce8->Create_Preview_Surface(image);
+    MultiplayerMapPreview = new MapPreviewClass;
+    MultiplayerMapPreview->Create_Preview_Surface(image);
     InvalidateRect(Window, 0, 0);
     Debug_Printf("Cleaning up the temporary decompression buffers\n");
     delete image;

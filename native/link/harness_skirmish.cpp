@@ -458,7 +458,7 @@ bool Native_Main_Loop_Seam()
         }
         static bool ended = false;
         static int games_ended = 0;
-        bool ending = player_wins_a35db1 || player_loses_a40c78 || player_restarts_866250 || player_aborts_a35db0 || !unknown_flag_a40958;
+        bool ending = player_wins_a35db1 || player_loses_a40c78 || player_restarts_866250 || player_aborts_a35db0 || !GameActive;
         if (ended && !ending) ended = false;     // a later game (a loaded one) runs
         if (!ended && ending) {
             ended = true;

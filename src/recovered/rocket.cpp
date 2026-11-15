@@ -293,7 +293,7 @@ bool __stdcall RocketLocomotionClass::Process()
             unknown_50 = rocket->PitchFinal * 1.5707963267948966;
             unknown_40 = 3;
             if (LinkedTo->unknown_slot178() == unknown_geometry_k) {
-                unknown_tracker_839ea0.Unknown_004131E0(LinkedTo);
+                AircraftTracker.Unknown_004131E0(LinkedTo);
             }
             new AnimClass(AnimTypes[AnimTypeClass::From_Name(unknown_rocket_takeoff_anim_7ee804)], Object_Coord(LinkedTo), 2, 1, 0x600, -10);
             Voc_Play_At(LinkedTo->Techno_Type_Class()->AuxSound1, Object_Coord(LinkedTo), 0);
@@ -377,7 +377,7 @@ bool __stdcall RocketLocomotionClass::Process()
         LinkedTo->Set_Coord(coord);
         Cell cell = LinkedTo->unknown_slot104();
         if (cell != LinkedTo->unknown_458 && LinkedTo->unknown_7d) {
-            unknown_tracker_839ea0.Update_00413600(LinkedTo, LinkedTo->unknown_458, cell);
+            AircraftTracker.Update_00413600(LinkedTo, LinkedTo->unknown_458, cell);
         }
         if (LinkedTo->Strength <= 0) {
             unknown_63e7d0();
@@ -402,7 +402,7 @@ static inline int Land_Type_At(Cell const &cell)
 
 void RocketLocomotionClass::unknown_63e7d0()
 {
-    unknown_tracker_839ea0.Unknown_00413310(LinkedTo);
+    AircraftTracker.Unknown_00413310(LinkedTo);
     TechnoClass *spawner = static_cast<TechnoClass *>(LinkedTo->unknown_23c);
     bool elite = spawner != 0 && spawner->unknown_118.Is_Elite();
     RocketStruct const *rocket;

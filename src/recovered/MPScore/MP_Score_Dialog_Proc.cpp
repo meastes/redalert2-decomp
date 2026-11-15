@@ -21,7 +21,7 @@ int __stdcall MP_Score_Dialog_Proc_005AAE40(HWND window, UINT message, WPARAM wp
         Window_Rect_In_Main_Client(item, &last);
         Rect area(first.left, first.top, last.right - first.left, last.bottom - first.top);
         Unknown_Rect_Shrink_006F1B30(&area, -4, -8);
-        Unknown_005feb60(&area, unknown_surface_839958, 0, 0x9F);
+        Unknown_005feb60(&area, AlternateSurface, 0, 0x9F);
         break;
     }
     case 0x111:
@@ -113,6 +113,6 @@ int __stdcall MP_Score_Dialog_Proc_005AAE40(HWND window, UINT message, WPARAM wp
 // @ref ?Unknown_Rect_Shrink_006F1B30@@YIXPAVRect@@HH@Z=006f1b30
 // @ref ?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z=00735690
 // @ref ?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z=005ffb00
-// @ref ?unknown_surface_839958@@3PAVSurface@@A=00839958
+// @ref ?AlternateSurface@@3PAVSurface@@A=00839958
 // @ref ?unknown_compare_descending_60_005aae10@@YAHPBX0@Z=005aae10
 // @ref ?MP_Tally_Scores_005AABD0@@YAXXZ=005aabd0

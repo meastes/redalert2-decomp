@@ -4,8 +4,8 @@
     "id": "population-602",
     "inventory_sha256": "5c411f7ae930ec09a751fbfc6afee9126886a77c5de500d425850a1d0f232d5e",
     "gaps_sha256": "37a1032bb70589ee1216e30e27da8fabf5b8db43bbb45815fa1547eb28be6826",
-    "historical_population_sha256": "bad55da86f46903321eb23104618358184adc19a0e1394ae1561b9b849989eeb",
-    "historical_acceptance_sha256": "1a03536db89c7361c4d56829c9514b2bb78aca2abec237f0b51eff8f00638030"
+    "historical_population_sha256": "4aa6e612d7a31dfe321fff8cc0c208b08c9d4f6b52165e4aa42b60414b0d550c",
+    "historical_acceptance_sha256": "4af79a665e4d6d9e2b24a34ca55d266c5d5500b7c0b5d0c0b2aab5ed20578628"
   },
   "references": {
     "_unknown_empty_rect": 8719600,
@@ -1315,7 +1315,7 @@
     "?Load@SpawnManagerClass@@UAGJPAUIStream@@@Z": 6858704,
     "?Action@GaugeClass@@UAEHIAAI@Z": 5047328,
     "?Focus_Loss@@YAXXZ": 7566240,
-    "?Unknown_00406F50@@YAXXZ": 4222800,
+    "?Audio_Focus_Lose@@YAXXZ": 4222800,
     "__mbsnbcnt": 7884173,
     "__real@8@3ffd9999999999999800": 7986512,
     "?Draw@LineTrail@@QAEXXZ": 5477824,
@@ -1331,7 +1331,7 @@
     "__decoder": 7980580,
     "__real@8@3ffda0d97bb4e7870000": 7999744,
     "?Focus_Restore@@YAXXZ": 7566336,
-    "?Unknown_00406F70@@YAXXZ": 4222832,
+    "?Audio_Focus_Regain@@YAXXZ": 4222832,
     "??1FoggedObjectClass@@UAE@XZ": 4984272,
     "?Load@FoggedObjectClass@@UAGJPAUIStream@@@Z": 4988032,
     "?Load@Tactical@@UAGJPAUIStream@@@Z": 6996768,

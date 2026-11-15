@@ -199,7 +199,7 @@ void Selection::Load_Layout(INIClass &ini, Wstring const &section)
         ZoomingTarget = new MSAnimEntry(value);
     }
     ini.Get_String(section, faction + "TargetPalette", (char const *)0, value);
-    TargetPalette = unknown_load_drawer_5ac560(value);
+    TargetPalette = Create_Drawer(value);
     ini.Get_String(section, faction + "Target", (char const *)0, value);
     Target = new MSAnimEntry(value);
     TargetDividingFrame = ini.Get_Int(section, faction + "TargetDividingFrame", 0x20);
@@ -748,7 +748,7 @@ void Selection::Set_Description(WideString const &text, int unknown2)
 {
     if (Description != 0) {
         Remove_Anim(Description);
-        unknown_surface_839954->Copy_From(TheMap->DescriptionRect, *unknown_surface_839958, TheMap->DescriptionRect, false, true);
+        HiddenSurface->Copy_From(TheMap->DescriptionRect, *AlternateSurface, TheMap->DescriptionRect, false, true);
         Add_Rect(TheMap->DescriptionRect);
         Description = 0;
     }
@@ -772,7 +772,7 @@ void Selection::Set_Tooltip(WideString const &text)
     Rect rect = TheMap->TooltipRect;
     if (Tooltip != 0) {
         Remove_Anim(Tooltip);
-        unknown_surface_839954->Copy_From(rect, *unknown_surface_839958, rect, false, true);
+        HiddenSurface->Copy_From(rect, *AlternateSurface, rect, false, true);
         Add_Rect(rect);
         Tooltip = 0;
     }
@@ -856,7 +856,7 @@ bool __fastcall Selection::Choose_Conflict(rc_ptr<Campaign> const &campaign, int
         rc_ptr<WDTTerritory> settings = Unknown_Territory_00769690(unknown_session_a3d2a0);
         if (settings.Get()) {
             unknown_session_a3d298.UnitCount = settings->UnitCount;
-            unknown_house_setting_7d88d8 = settings->TechLevel;
+            BuildLevel = settings->TechLevel;
             unknown_session_a3d298.unknown_24 = settings->unknown_10;
             unknown_session_a3d298.unknown_a4 = (settings->OptionFlags & 0x4) != 0;
             unknown_session_a3d298.unknown_a5 = false;
@@ -886,15 +886,15 @@ bool __fastcall Selection::Choose_Conflict(rc_ptr<Campaign> const &campaign, int
 namespace WorldDominationTour {
 void Selection::Start_Theme()
 {
-    unknown_flag_a40d44 = false;
+    IgnoreInput = false;
     if (ThemeName != 0) {
         Theme.Play_Song(Theme.From_Name(ThemeName.Get()));
         Theme.IsRepeat = true;
     }
     WWMouse->Hide_Mouse();
-    unknown_surface_839958->Fill(0);
-    unknown_surface_839954->Fill(0);
-    unknown_surface_839950->Copy_From(*unknown_surface_839954, false, true);
+    AlternateSurface->Fill(0);
+    HiddenSurface->Fill(0);
+    unknown_surface_839950->Copy_From(*HiddenSurface, false, true);
     WWKeyboard->Clear();
     TheMap->unknown_72a620(this, &TheVoices);
     while (WWMouse->Get_Mouse_State() < 0) {
@@ -913,8 +913,8 @@ void Selection::Clear_Screen()
 {
     WWMouse->Hide_Mouse();
     Theme.Queue_Song(-3);
-    unknown_surface_839958->Fill(0);
-    unknown_surface_839954->Fill(0);
+    AlternateSurface->Fill(0);
+    HiddenSurface->Fill(0);
     while (WWMouse->Get_Mouse_State() < 0) {
         WWMouse->Show_Mouse();
     }

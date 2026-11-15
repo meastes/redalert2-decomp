@@ -727,7 +727,7 @@ bool MPCooperative::StartingPositionsToHouseBaseCells(bool official)
 
 bool MPCooperative::unknown_slot22()
 {
-    int players = Unknown_005c6600(unknown_session_a3d298.ScenarioIndex) - 2;
+    int players = RandomMapWaypointCount(unknown_session_a3d298.ScenarioIndex) - 2;
     Debug_Printf("@@@@ Adding %d AI players\n", players);
     if (players <= 0) {
         return false;
@@ -914,7 +914,7 @@ void MPCooperative::unknown_slot34(bool player_wins)
     unknown_master_id_194 = unknown_session_a3d298.MasterPlayerID;
     unknown_74 = unknown_session_a3d298.unknown_124;
     unknown_a0 = Seed;
-    unknown_a4 = unknown_house_setting_7d88d8;
+    unknown_a4 = BuildLevel;
     unknown_units_a8 = unknown_session_a3d298.UnitCount;
     unknown_credits_ac = unknown_session_a3d298.unknown_24;
     unknown_fog_b0 = unknown_session_a3d298.unknown_fog_a7;
@@ -1074,7 +1074,7 @@ void MPCooperative::unknown_slot30()
 {
     if (Current_Dialog_Id_00735b20() == 0x6B) {
         if (unknown_4d) {
-            HWND list = GetDlgItem(Unknown_00735B10(), 0x553);
+            HWND list = GetDlgItem(WS_Top_Window(), 0x553);
             int count = SendMessageA(list, 0x18B, 0, 0);
             if (count == -1) {
                 if (unknown_campaign_44 != 0) {
@@ -1161,7 +1161,7 @@ void MPCooperative::unknown_slot31()
                         }
                     }
                     if (map != 0) {
-                        HWND list = GetDlgItem(Unknown_00735B10(), 0x553);
+                        HWND list = GetDlgItem(WS_Top_Window(), 0x553);
                         int rows = SendMessageA(list, 0x18B, 0, 0);
                         if (rows != -1) {
                             SendMessageA(list, 0x4CD, 0, (LPARAM)StringTable::Load_String("TXT_COOP_USE_SAVE", 0, "D:\\Ra2\\MPCoop.cpp", 0x5E1));
@@ -1388,7 +1388,7 @@ void MPCooperative::unknown_slot37()
     wcscpy(unknown_session_a3d298.MasterPlayerName, unknown_master_name_168);
     unknown_session_a3d298.MasterPlayerID = unknown_master_id_194;
     Seed = unknown_a0;
-    unknown_house_setting_7d88d8 = unknown_a4;
+    BuildLevel = unknown_a4;
     unknown_session_a3d298.UnitCount = unknown_units_a8;
     unknown_session_a3d298.unknown_24 = unknown_credits_ac;
     unknown_session_a3d298.unknown_fog_a7 = unknown_fog_b0;
@@ -1501,7 +1501,7 @@ void MPCooperative::unknown_slot37()
         unknown_ipx_manager_a40978.Delete_Connection(unknown_ipx_manager_a40978.Connection_ID(0));
     }
     if (unknown_flag_a3fba8) {
-        if (unknown_connection_a409c4) {
+        if (PacketRouterConnection) {
             unknown_OwnerTalkClass_00ab6d18.Unknown_0063FC90();
         }
         unknown_flag_a3fba8 = false;

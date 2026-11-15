@@ -22,7 +22,7 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
-// @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
+// @ref ?TacticalMap@@3PAVTactical@@A=0083996c
 // @ref ?unknown_a40d13@@3_NA=00a40d13
 // @ref ?Click_Cell_Calc@RadarClass@@QAE?AVCell@@ABUPoint2D@@@Z=0062fbd0
 // @ref ?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z=006a6bd0
@@ -48,7 +48,7 @@ Cell DisplayClass::Unknown_004994D0(Cell const &xpos)
             }
         } else {
             Point2D mouse = WWMouse->Get_Mouse_XY();
-            pos = unknown_tactical_83996c->Pixel_To_Cell(mouse - tl);
+            pos = TacticalMap->Pixel_To_Cell(mouse - tl);
         }
     }
 
@@ -59,7 +59,7 @@ Cell DisplayClass::Unknown_004994D0(Cell const &xpos)
     }
 
     if (!Debug_Map) {   // NATIVE: unknown_a40d13
-        pos = unknown_tactical_83996c->Clamp_Cursor_To_Tactical(pos + unknown_1174, unknown_1178) - unknown_1174;
+        pos = TacticalMap->Clamp_Cursor_To_Tactical(pos + unknown_1174, unknown_1178) - unknown_1174;
     }
 
     if (pos == unknown_1170) return pos;

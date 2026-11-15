@@ -570,8 +570,16 @@
    "address": "0040dbd0"
   },
   {
+   "symbol": "?Best_Selected_Object@@YIPAVObjectClass@@PBVCell@@PAV1@@Z",
+   "address": "0051a690"
+  },
+  {
    "symbol": "?Blit_Display@GScreenClass@@UAEXXZ",
    "address": "004e0c50"
+  },
+  {
+   "symbol": "?Can_Add_Waypoint_To_Path@HouseClass@@QBE_NXZ",
+   "address": "004f3120"
   },
   {
    "symbol": "?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ",
@@ -606,6 +614,10 @@
    "address": "006a12d0"
   },
   {
+   "symbol": "?Facing_Between_Points@@YIHABUPoint2D@@0@Z",
+   "address": "00721db0"
+  },
+  {
    "symbol": "?Fast_Atan2@@YAMNN@Z",
    "address": "004ba600"
   },
@@ -620,6 +632,10 @@
   {
    "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
    "address": "004e09a0"
+  },
+  {
+   "symbol": "?GameActive@@3_NA",
+   "address": "00a40958"
   },
   {
    "symbol": "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z",
@@ -648,6 +664,10 @@
   {
    "symbol": "?INoticeSink_Unknown@TabClass@@UAE_NHH@Z",
    "address": "006a2020"
+  },
+  {
+   "symbol": "?IgnoreInput@@3_NA",
+   "address": "00a40d44"
   },
   {
    "symbol": "?Init@GScreenClass@@UAEXH@Z",
@@ -806,6 +826,10 @@
    "address": "006822a0"
   },
   {
+   "symbol": "?ScenarioActive@@3_NA",
+   "address": "00a40d04"
+  },
+  {
    "symbol": "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z",
    "address": "00499b60"
   },
@@ -822,16 +846,20 @@
    "address": "00630320"
   },
   {
+   "symbol": "?SidebarSurface@@3PAVSurface@@A",
+   "address": "00839948"
+  },
+  {
    "symbol": "?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A",
    "address": "00a40338"
   },
   {
-   "symbol": "?Unknown_004F3120@HouseClass@@QBE_NXZ",
-   "address": "004f3120"
+   "symbol": "?TacticalActive@@3_NA",
+   "address": "00a40380"
   },
   {
-   "symbol": "?Unknown_0051A690@@YIPAVObjectClass@@PBVCell@@PAV1@@Z",
-   "address": "0051a690"
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
   },
   {
    "symbol": "?Unknown_0054AB00@MapClass@@QAE_NABUCoordStruct@@@Z",
@@ -842,8 +870,12 @@
    "address": "0055a660"
   },
   {
-   "symbol": "?Unknown_00721DB0@@YIHABUPoint2D@@0@Z",
-   "address": "00721db0"
+   "symbol": "?VideoModeHeight@@3HA",
+   "address": "008523e4"
+  },
+  {
+   "symbol": "?VideoModeWidth@@3HA",
+   "address": "008523e0"
   },
   {
    "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
@@ -858,36 +890,12 @@
    "address": "004ed200"
   },
   {
-   "symbol": "?unknown_8523e0@@3HA",
-   "address": "008523e0"
-  },
-  {
-   "symbol": "?unknown_8523e4@@3HA",
-   "address": "008523e4"
-  },
-  {
    "symbol": "?unknown_b263d8@@3HA",
    "address": "00b263d8"
   },
   {
    "symbol": "?unknown_flag_83740c@@3_NA",
    "address": "0083740c"
-  },
-  {
-   "symbol": "?unknown_flag_a40380@@3_NA",
-   "address": "00a40380"
-  },
-  {
-   "symbol": "?unknown_flag_a40958@@3_NA",
-   "address": "00a40958"
-  },
-  {
-   "symbol": "?unknown_flag_a40d04@@3_NA",
-   "address": "00a40d04"
-  },
-  {
-   "symbol": "?unknown_flag_a40d44@@3_NA",
-   "address": "00a40d44"
   },
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
@@ -974,16 +982,8 @@
    "address": "004ba410"
   },
   {
-   "symbol": "?unknown_surface_839948@@3PAVSurface@@A",
-   "address": "00839948"
-  },
-  {
    "symbol": "?unknown_surface_839964@@3PAVSurface@@A",
    "address": "00839964"
-  },
-  {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
   },
   {
    "symbol": "__CIpow",

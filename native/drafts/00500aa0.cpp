@@ -76,11 +76,11 @@ void InfantryClass::unknown_slot93(int why)
                 if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
                 if (Techno_Type_Class()->VoiceDie.Count()>0 && House->Is_Player_Control()) {
                     CoordStruct location=Coord;
-                    Voc_Play_At(Techno_Type_Class()->VoiceDie.Pick(unknown_random_839218()),location,0);
+                    Voc_Play_At(Techno_Type_Class()->VoiceDie.Pick(NonCriticalRandomNumber()),location,0);
                 }
                 if (Techno_Type_Class()->DieSound.Count()>0) {
                     CoordStruct location=Coord;
-                    Voc_Play_At(Techno_Type_Class()->DieSound.Pick(unknown_random_839218()),location,0);
+                    Voc_Play_At(Techno_Type_Class()->DieSound.Pick(NonCriticalRandomNumber()),location,0);
                 }
                 building->House->Refund_Money(unknown_slot167());
                 if (unknown_34) unknown_34->Spring(48,this,unknown_geometry_k,false,0);

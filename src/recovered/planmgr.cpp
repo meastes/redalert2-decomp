@@ -130,7 +130,7 @@ int __fastcall Planning_House(TechnoClass *techno)
 Point2D __fastcall Planning_Coord_Pixel(CoordStruct const &coord)
 {
     Point2D pixel;
-    Tactical *tactical = unknown_tactical_83996c;
+    Tactical *tactical = TacticalMap;
     tactical->Coord_To_Pixel(coord, pixel);
     int x = pixel.X;
     int y = pixel.Y;
@@ -3519,7 +3519,7 @@ void __fastcall unknown_set_a76750_00617240(unsigned int value)
 
 void __fastcall Planning_Refuse_Command(int kind)
 {
-    unknown_tactical_83996c->Unknown_006AAD40();
+    TacticalMap->Unknown_006AAD40();
     if (kind == 0) {
         Planning_Refuse("MSG:PostTerminatingCommand");
     } else if (kind == 1) {

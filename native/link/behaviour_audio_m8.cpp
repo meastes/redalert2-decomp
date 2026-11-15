@@ -74,7 +74,7 @@ int __fastcall Audio_Bag_Find(AudioBag *bag, char const *name)
 #include "shared/ahandle.hpp"
 
 // 0x0040A6C0 (decompile): the DirectSound object (0x008315AC).
-void *unknown_directsound_40a6c0()
+void *GetDirectSoundObject()
 {
     return Audio_DirectSound;
 }

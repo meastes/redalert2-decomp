@@ -62,8 +62,8 @@ bool SidebarClass::unknown_slot54(int control)
             unknown_4ee2 = true;
             unknown_button_ab96b8.Zap();
             Add_A_Button(unknown_button_ab96b8);
-            unknown_button_abcc58.Zap();
-            Add_A_Button(unknown_button_abcc58);
+            Upgrade.Zap();
+            Add_A_Button(Upgrade);
             int index;
             for (index = 0; index < 4; index++) {
                 unknown_buttons_ab9508[index].Zap();
@@ -90,7 +90,7 @@ bool SidebarClass::unknown_slot54(int control)
         } else {
             Unknown_005A09E0();
             Remove_A_Button(unknown_button_ab96b8);
-            Remove_A_Button(unknown_button_abcc58);
+            Remove_A_Button(Upgrade);
             Remove_A_Button(Background);
             for (int index = 0; index < 4; index++) {
                 Remove_A_Button(unknown_buttons_ab9508[index]);

@@ -22,6 +22,6 @@ void FootClass::unknown_4cd9b0()
 
 // 0x004131D0 AircraftTrackerClass (seed leaf Leaf_4131d0::get: `ret 4`, an
 // empty body): a detached object needs nothing here.
-void AircraftTrackerClass::Detach_004131d0(AbstractClass *target)
+void AircraftTrackerClass::Detach(AbstractClass *target)
 {
 }

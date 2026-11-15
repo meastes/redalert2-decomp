@@ -189,12 +189,12 @@ int Native_Modern_Right_Action(ObjectClass *object, int action)
 // selected already, they are unselected instead of selected.
 void (__fastcall *Native_Modern_Band_Walk(void (__fastcall *select)(ObjectClass *)))(ObjectClass *)
 {
-    if (!ra2_enh_modern_controls() || !Held(kShift) || unknown_tactical_83996c == 0) return select;
+    if (!ra2_enh_modern_controls() || !Held(kShift) || TacticalMap == 0) return select;
     // A dry run over the band (the walk clears its corner: put it back for the real one).
-    Point2D start = unknown_tactical_83996c->RubberBandStart;
+    Point2D start = TacticalMap->RubberBandStart;
     band_objects = band_unselected = 0;
-    unknown_tactical_83996c->Unknown_006AA610(Count_Band);
-    unknown_tactical_83996c->RubberBandStart = start;
+    TacticalMap->Unknown_006AA610(Count_Band);
+    TacticalMap->RubberBandStart = start;
     if (band_objects > 0 && band_unselected == 0) {
         fprintf(stderr, "modern-controls: shift band: %d selected objects unselected\n", band_objects);
         return Unselect_Band;

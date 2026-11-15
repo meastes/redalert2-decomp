@@ -87,8 +87,8 @@ int __stdcall Restate_Dialog_Proc_0063b270(HWND window, UINT message, WPARAM wpa
 
 void __fastcall Unknown_0063B090(ScenarioClass *scenario)
 {
-    bool old = unknown_flag_a40d04;
-    unknown_flag_a40d04 = false;
+    bool old = ScenarioActive;
+    ScenarioActive = false;
 
     CCFileClass file;
     CCINIClass ini;
@@ -107,7 +107,7 @@ void __fastcall Unknown_0063B090(ScenarioClass *scenario)
         }
 
         HWND dialog = unknown_create_dialog_5ff610(0x10C, Restate_Dialog_Proc_0063b270, 0);
-        unknown_flag_a40d44 = true;
+        IgnoreInput = true;
         WWKeyboard->Clear();
         if (dialog) {
             int result;
@@ -126,11 +126,11 @@ void __fastcall Unknown_0063B090(ScenarioClass *scenario)
             unknown_dialog_5ff6e0(dialog);
         }
         WWKeyboard->Clear();
-        unknown_flag_a40d44 = unknown_id_source_a3d290->unknown_2306;
+        IgnoreInput = unknown_id_source_a3d290->unknown_2306;
         Map.Flag_To_Redraw(2);
     }
 
-    unknown_flag_a40d04 = old;
+    ScenarioActive = old;
 }
 
 

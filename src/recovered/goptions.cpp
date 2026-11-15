@@ -86,7 +86,7 @@ void Unknown_004DD7D0()
     if (unknown_game_mode_a3d298 == 0 || unknown_game_mode_a3d298 == 5) {
         window = unknown_create_dialog_5ff610(0xB5, Options_Menu_Proc, 0);
     } else if (unknown_game_mode_a3d298 == 4) {
-        if (unknown_int_a3d548) {
+        if (MuteSWLaunches) {
             window = unknown_create_dialog_5ff610(0xBBA, Options_Menu_Proc, 0);
         } else {
             window = unknown_create_dialog_5ff610(0xFF, Options_Menu_Proc, 0);
@@ -191,7 +191,7 @@ static void __fastcall Options_Menu_Command(HWND window, int id, HWND control, u
         case 0x686:
             if (code == 0) {
                 if (unknown_game_mode_a3d298 == 4) {
-                    if (unknown_int_a3d548 == 0) {
+                    if (MuteSWLaunches == 0) {
                         HWND slider = GetDlgItem(window, 0x3EF);
                         if (slider != 0) {
                             int latency = 3 - SendMessageA(slider, 0x400, 0, 0);
@@ -272,7 +272,7 @@ int __stdcall Options_Menu_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 
 // void __fastcall Options_Menu_Init(HWND window) (0x004DDE00): sets up the in-game options menu (dialog
 // 0xB5/0xBBA/0xFF of Unknown_004DD7D0): in single-player games the load (0x51E) and delete (0x520)
-// buttons are enabled while saved games exist; in game mode 4 (without unknown_int_a3d548) the latency
+// buttons are enabled while saved games exist; in game mode 4 (without MuteSWLaunches) the latency
 // (0x3EF, 0-2) and game speed (0x529, 0-6) sliders get their range and position.
 
 
@@ -288,7 +288,7 @@ void __fastcall Options_Menu_Init(HWND window)
         if (button) {
             EnableWindow(button, saved);
         }
-    } else if (unknown_game_mode_a3d298 == 4 && !unknown_int_a3d548) {
+    } else if (unknown_game_mode_a3d298 == 4 && !MuteSWLaunches) {
         HWND slider = GetDlgItem(window, 0x3EF);
         if (slider) {
             int latency = 3 - unknown_a3fba4;

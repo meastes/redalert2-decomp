@@ -4,8 +4,8 @@
     "id": "population-3661",
     "inventory_sha256": "8d10881ab879567ae7fb70c5798a1f9864f41f6a2754c56d6aa87fc6aa87acdc",
     "gaps_sha256": "77a7ad72046be1995d51daa874b5eced65b2024dcc66f9387ab8c14cdb26e15c",
-    "historical_population_sha256": "31a2524b3705ff8d260a6b99f0642f5373c785ffb39e8e6a5e565cf26fe7100f",
-    "historical_acceptance_sha256": "049c49ea77496a1ef830723eea20c595882999d3390ac70979c4aeed524af1fe"
+    "historical_population_sha256": "c72db7bdd3aa4e36d2897e921966831f269200bb8af280c3aee228a5724e2372",
+    "historical_acceptance_sha256": "7a13c936b66a7786bde7b1f21d147fdeff9bf9b5da197b5fed5d8d4fae116bdf"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1586,7 +1586,7 @@
     "_$E38": 7253824,
     "?Read_INI_Entry@ScriptMissionClass@@QAEXPBD@Z": 7253856,
     "?Build_INI_Entry@ScriptMissionClass@@QBEHPAD@Z": 7253920,
-    "?unknown_script_mission_6eafe0@@YIHH@Z": 7253984,
+    "?TeamMission_Needs@@YIHH@Z": 7253984,
     "??0FootClass@@QAE@ABVNoInitClass@@@Z": 4992096,
     "??_7FootClass@@6BIPersistStream@@@": 8000160,
     "??_7FootClass@@6BIRTTITypeInfo@@@": 8000132,
@@ -4210,7 +4210,7 @@
     "?Unknown_00405D50@UnknownAudioController@@QAEXXZ": 4218192,
     "?Unknown_00405C10@UnknownAudioController@@QAEXXZ": 4217872,
     "?Unknown_00405FE0@UnknownAudioController@@QAEXXZ": 4218848,
-    "?unknown_random_839218@@3VRandom2Class@@A": 8622616,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
     "?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z": 7421360,
     "?unknown_timer_ac0178@@3V?$CDTimerClass@VFrameTimerClass@@@@A": 11272568,
     "__imp__GetCapture@0": 7971820,
@@ -5359,7 +5359,34 @@
     "??_R0?AVWDTState@@@8": 8372688,
     "??_R0?AVWinModemClass@@@8": 8374768,
     "??_R0?AVPlayerProfile@@@8": 8376904,
-    "??_R0?AVMouse@@@8": 8393616
+    "??_R0?AVMouse@@@8": 8393616,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "?Compute_CRC@LightSourceClass@@UBEXAAVWWCRCEngine@@@Z": 5471056,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "?End@ProgressScreenClass@@QAEXXZ": 6417904,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?AI@CreditClass@@QAEX_N@Z": 4802128,
+    "?Graphic_Logic@CreditClass@@QAEX_N@Z": 4801840,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "__ramp_corners": 8339828,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
   },
   "regions": [
     {
@@ -5421,7 +5448,7 @@
           "resolved": 11275136
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -5472,7 +5499,7 @@
           "resolved": 11275208
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -5523,7 +5550,7 @@
           "resolved": 11275192
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -5574,7 +5601,7 @@
           "resolved": 11275184
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -5625,7 +5652,7 @@
           "resolved": 11275144
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -5676,7 +5703,7 @@
           "resolved": 11275104
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -5759,7 +5786,7 @@
           "resolved": 11275216
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -5818,7 +5845,7 @@
           "resolved": 11275152
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -5877,7 +5904,7 @@
           "resolved": 11275176
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -5936,7 +5963,7 @@
           "resolved": 11275200
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -5979,7 +6006,7 @@
           "resolved": 11275130
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -6030,7 +6057,7 @@
           "resolved": 11275168
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -6089,7 +6116,7 @@
           "resolved": 11275124
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6132,7 +6159,7 @@
           "resolved": 624559
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -6175,7 +6202,7 @@
           "resolved": 618809
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -6186,8 +6213,8 @@
     {
       "entry": 7253984,
       "method": "006eafe0",
-      "symbol": "?unknown_script_mission_6eafe0@@YIHH@Z",
-      "symbol_prefix": "?unknown_script_mission_6eafe0@@YIHH@Z",
+      "symbol": "?TeamMission_Needs@@YIHH@Z",
+      "symbol_prefix": "?TeamMission_Needs@@YIHH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -6378,7 +6405,7 @@
           "resolved": 7254122
         }
       ],
-      "source_sha256": "87610a925de77277087057c922af3f4e1f01a53ed416ac52dcf8b9b76fbdf68f",
+      "source_sha256": "8e8956d5fc7a010a791c9d5ba9a80bba0c89a2e85677be054e9c564007ebede8",
       "switch_data_bytes": 139,
       "source": "src/recovered/tmission.cpp",
       "population": "population-3661",

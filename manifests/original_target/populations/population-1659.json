@@ -4,8 +4,8 @@
     "id": "population-1659",
     "inventory_sha256": "0e347aa084b49cbd9c4c51d5ffd0f8e51a85856605687be820fbb86f133dd3f1",
     "gaps_sha256": "37b33e9230f88e1bdafca3941c5789a5c1379eb27a4167a27e49c8a4ccc2e5ee",
-    "historical_population_sha256": "ccdd64b61de52e837319a9c07aa44b927a3839b584be343e3588494fe414f69b",
-    "historical_acceptance_sha256": "5a8be3e894be5211d555f5aa223f781ed8f905c593c0e7a38d91c72f5ff31515"
+    "historical_population_sha256": "ced4654437a1147620f9aee780f49ec7b3b01bc41380535f994683629591553e",
+    "historical_acceptance_sha256": "a0ce16f206e0f569f87ccab099d318452f523f31634939a11c5d8ec51e258fdf"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -105,9 +105,9 @@
     "_unknown_static_rect": 11235272,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "?Delete@?$DynamicVectorClass@PAVAbstractClass@@@@QAE_NH@Z": 4541216,
-    "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
-    "?unknown_abstracts_ac0bf8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
-    "?unknown_abstracts_ac0d08@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
+    "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
+    "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
+    "?HousePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
     "?unknown_player_a35db4@@3PAVHouseClass@@A": 10706356,
     "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
@@ -4167,7 +4167,7 @@
     "?Get_Global_Variable@ScenarioClass@@QAE_NHPA_N@Z": 6689712,
     "?Get_Local_Variable@ScenarioClass@@QAE_NHPA_N@Z": 6690384,
     "_malloc": 7874096,
-    "?unknown_random_839218@@3VRandom2Class@@A": 8622616,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
     "?unknown_timer_ac0178@@3V?$CDTimerClass@VFrameTimerClass@@@@A": 11272568,
     "?Write_Scenario_INI@TaskForceClass@@SIXAAVCCINIClass@@H@Z": 7040272,
     "?Write_Scenario_INI@TagTypeClass@@SIXAAVCCINIClass@@@Z": 7031280,

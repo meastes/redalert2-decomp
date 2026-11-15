@@ -5,7 +5,7 @@
 // @ref ??1SmudgeClass@@UAE@XZ=006876b0
 // @ref ?Unknown_006ECB90@@YIXPAVObjectClass@@_N@Z=006ecb90
 // @ref ?Limbo@ObjectClass@@UAEHXZ=005d3700
-// @ref ?unknown_flag_a40958@@3_NA=00a40958
+// @ref ?GameActive@@3_NA=00a40958
 // @ref ??1ObjectClass@@UAE@XZ=005d2530
 // @ref ?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A=00a3d240
 // @ref ??_7SmudgeClass@@6BIPersistStream@@@=007ab58c

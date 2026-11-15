@@ -449,7 +449,7 @@ bool __fastcall Put_All(IStream *stream, int save_net)
     DebugString("Saving Logic\n");
     Logic.Save(stream);
     DebugString("Saving TacticalMap\n");
-    if (FAILED(OleSaveToStream(unknown_tactical_83996c, stream))) {
+    if (FAILED(OleSaveToStream(TacticalMap, stream))) {
         DebugString("\t***** FAILED!\n");
         return false;
     }
@@ -688,7 +688,7 @@ bool __fastcall Put_All(IStream *stream, int save_net)
         return false;
     }
     DebugString("Saving Unit Tracker\n");
-    if (FAILED(unknown_tracker_839ea0.Save_00413590(stream))) {
+    if (FAILED(AircraftTracker.Save_00413590(stream))) {
         DebugString("\t***** FAILED!\n");
         return false;
     }
@@ -787,8 +787,8 @@ bool __fastcall Unknown_00656890(char const *filename)
     TiberiumClass::Init_Growth();
     TiberiumClass::Init_Spread();
     Map.Complete_Radar_Refresh();
-    unknown_flag_a40d04 = true;
-    unknown_flag_a40380 = true;
+    ScenarioActive = true;
+    TacticalActive = true;
     Unknown_Free_Art_Set_006F30F0();
     Debug_Printf("LOADING GAME [%s] - Complete\n\n", filename);
     return true;
@@ -811,7 +811,7 @@ bool __fastcall Get_All(IStream *stream, bool save_net)
     }
     Rect temp = Get_Title_Screen_Area_006f1f30();
     {
-        Rect sidebar(0, 0, unknown_int_7add80, unknown_window_839640.Height);
+        Rect sidebar(0, 0, SidebarWidth, unknown_window_839640.Height);
         Rect tile(0, 0, temp.Width, unknown_window_839640.Height);
         Rect composite(0, 0, temp.Width, unknown_window_839640.Height);
         Allocate_Surfaces(&unknown_window_839640, &composite, &tile, &sidebar, false);
@@ -835,9 +835,9 @@ bool __fastcall Get_All(IStream *stream, bool save_net)
     }
     Map.Reset_All_Subzones();
     Logic.Load(stream);
-    if (unknown_tactical_83996c != 0) {
-        delete unknown_tactical_83996c;
-        unknown_tactical_83996c = 0;
+    if (TacticalMap != 0) {
+        delete TacticalMap;
+        TacticalMap = 0;
     }
     Tactical *old_tactical;
     if (FAILED(OleLoadFromStream(stream, IID_IUnknown_7afce0, (void **)&old_tactical))) {
@@ -1087,8 +1087,8 @@ bool __fastcall Get_All(IStream *stream, bool save_net)
         DebugString("\t***** FAILED!\n");
         return false;
     }
-    unknown_tracker_839ea0.Clear_00413540();
-    if (FAILED(unknown_tracker_839ea0.Load_00413400(stream))) {
+    AircraftTracker.Clear_00413540();
+    if (FAILED(AircraftTracker.Load_00413400(stream))) {
         DebugString("\t***** FAILED!\n");
         return false;
     }
@@ -1148,7 +1148,7 @@ HRESULT __fastcall Save_Misc_Values(IStream *stream)
     int count;
     HRESULT res;
 
-    res = stream->Write(&unknown_gas_cloud_system_a40d20, sizeof(unknown_gas_cloud_system_a40d20), 0);
+    res = stream->Write(&GasSystem, sizeof(GasSystem), 0);
     if (FAILED(res)) {
         return res;
     }
@@ -1176,24 +1176,24 @@ HRESULT __fastcall Save_Misc_Values(IStream *stream)
         return res;
     }
     Save_Storm_0051F3F0(stream);
-    count = unknown_tags_866160.Count();
+    count = LogicTags.Count();
     res = stream->Write(&count, sizeof(count), 0);
     if (FAILED(res)) {
         return res;
     }
     for (i = 0; i < count; i++) {
-        res = stream->Write(&unknown_tags_866160[i], sizeof(unknown_tags_866160[i]), 0);
+        res = stream->Write(&LogicTags[i], sizeof(LogicTags[i]), 0);
         if (FAILED(res)) {
             return res;
         }
     }
-    count = unknown_tags_866238.Count();
+    count = MapTags.Count();
     res = stream->Write(&count, sizeof(count), 0);
     if (FAILED(res)) {
         return res;
     }
     for (i = 0; i < count; i++) {
-        res = stream->Write(&unknown_tags_866238[i], sizeof(unknown_tags_866238[i]), 0);
+        res = stream->Write(&MapTags[i], sizeof(MapTags[i]), 0);
         if (FAILED(res)) {
             return res;
         }
@@ -1237,11 +1237,11 @@ HRESULT __fastcall Load_Misc_Values(IStream *stream)
     void *ptr;
     HRESULT res;
 
-    res = stream->Read(&unknown_gas_cloud_system_a40d20, sizeof(unknown_gas_cloud_system_a40d20), 0);
+    res = stream->Read(&GasSystem, sizeof(GasSystem), 0);
     if (FAILED(res)) {
         return res;
     }
-    Swizzler.Swizzle((void **)&unknown_gas_cloud_system_a40d20);
+    Swizzler.Swizzle((void **)&GasSystem);
     res = stream->Read(&unknown_player_a35db4, sizeof(unknown_player_a35db4), 0);
     if (FAILED(res)) {
         return res;
@@ -1279,10 +1279,10 @@ HRESULT __fastcall Load_Misc_Values(IStream *stream)
         if (FAILED(res)) {
             return res;
         }
-        unknown_tags_866160.Add(*(TagClass **)&ptr);
+        LogicTags.Add(*(TagClass **)&ptr);
     }
-    for (i = 0; i < unknown_tags_866160.Count(); i++) {
-        Swizzler.Swizzle((void **)&unknown_tags_866160[i]);
+    for (i = 0; i < LogicTags.Count(); i++) {
+        Swizzler.Swizzle((void **)&LogicTags[i]);
     }
     res = stream->Read(&count, sizeof(count), 0);
     if (FAILED(res)) {
@@ -1293,10 +1293,10 @@ HRESULT __fastcall Load_Misc_Values(IStream *stream)
         if (FAILED(res)) {
             return res;
         }
-        unknown_tags_866238.Add(*(TagClass **)&ptr);
+        MapTags.Add(*(TagClass **)&ptr);
     }
-    for (i = 0; i < unknown_tags_866238.Count(); i++) {
-        Swizzler.Swizzle((void **)&unknown_tags_866238[i]);
+    for (i = 0; i < MapTags.Count(); i++) {
+        Swizzler.Swizzle((void **)&MapTags[i]);
     }
     res = stream->Read(&CrateShares, sizeof(CrateShares), 0);
     if (FAILED(res)) {

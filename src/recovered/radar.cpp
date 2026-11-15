@@ -217,7 +217,7 @@ void RadarClass::One_Time()
     RadarButton.Width = unknown_11fc;
     RadarButton.Height = unknown_1200;
     RadarButton.Flags = 0xDF;
-    unknown_14d0 = Unknown_00716640("EVA_IncomingTransmission");
+    unknown_14d0 = Vox_From_Name("EVA_IncomingTransmission");
 }
 
 
@@ -280,26 +280,26 @@ void RadarClass::Init_For_House()
     Debug_Printf("RadarClass::Init_For_House()\n");
     DisposeOfArt();
     if(unknown_id_source_a3d290->unknown_2239) {
-        unknown_11ec=(unknown_int_7add80-144)/2+4;
+        unknown_11ec=(SidebarWidth-144)/2+4;
         unknown_int_ab6468=unknown_11e0+11;
         unknown_int_ab646c=unknown_11e4+4;
         unknown_int_ab6338=unknown_11e0+83;
     } else {
-        unknown_11ec=(unknown_int_7add80-145)/2+5;
+        unknown_11ec=(SidebarWidth-145)/2+5;
         unknown_int_ab6468=unknown_11e0+14;
         unknown_int_ab646c=unknown_11e4+5;
         unknown_int_ab6338=unknown_11e0+86;
     }
     unknown_int_ab633c=unknown_int_ab646c;
     RadarButton.X=unknown_11ec;
-    unknown_shape_ab6350=Unknown_Load_Shape_00495270(unknown_name_7ee064,unknown_shape_ab6350_allocated);
-    unknown_shape_ab6318=Unknown_Load_Shape_00495270(unknown_name_7ee068,unknown_shape_ab6318_allocated);
+    unknown_shape_ab6350=Unknown_Load_Shape_00495270(BriefingButtonShapeName,unknown_shape_ab6350_allocated);
+    unknown_shape_ab6318=Unknown_Load_Shape_00495270(OptionsButtonShapeName,unknown_shape_ab6318_allocated);
     unknown_int_ab6470=((ShapeFileStruct const *)unknown_shape_ab6350)->Width;
     unknown_int_ab6474=((ShapeFileStruct const *)unknown_shape_ab6350)->Height;
     unknown_int_ab6340=((ShapeFileStruct const *)unknown_shape_ab6318)->Width;
     unknown_int_ab6344=((ShapeFileStruct const *)unknown_shape_ab6318)->Height;
     RadarButton.unknown_28=unknown_art_ac1070;
-    unknown_1204=Build_Hicolor_Pixel(unknown_color_ac1028.Get_Red(),unknown_color_ac1028.Get_Green(),unknown_color_ac1028.Get_Blue());
+    unknown_1204=Build_Hicolor_Pixel(TooltipColor.Get_Red(),TooltipColor.Get_Green(),TooltipColor.Get_Blue());
 }
 
 
@@ -313,7 +313,7 @@ void RadarClass::Init_IO()
     if (!Debug_Map) {
         unknown_button_ab63e8.ID = 0xF2;
         unknown_button_ab63e8.DrawOnSidebar = true;
-        unknown_button_ab63e8.ShapeDrawer = unknown_drawer_8323cc;
+        unknown_button_ab63e8.ShapeDrawer = SidebarDrawer;
         unknown_button_ab63e8.IsOn = false;
         unknown_button_ab63e8.ToggleType = 0;
         unknown_button_ab63e8.Flags = 5;
@@ -323,7 +323,7 @@ void RadarClass::Init_IO()
 
         unknown_button_ab6380.ID = 0xF3;
         unknown_button_ab6380.DrawOnSidebar = true;
-        unknown_button_ab6380.ShapeDrawer = unknown_drawer_8323cc;
+        unknown_button_ab6380.ShapeDrawer = SidebarDrawer;
         unknown_button_ab6380.IsOn = false;
         unknown_button_ab6380.ToggleType = 0;
         unknown_button_ab6380.Flags = 5;
@@ -354,8 +354,8 @@ void RadarClass::Draw_It(bool complete)
     unknown_14d5 = (unknown_14d5 == true || unknown_14d6 == true);
     if (unknown_14d5) {
         ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_buffer_ac0ff0;
-        CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, shape, 0,
-                      Point2D(unknown_11e0, unknown_11e4), unknown_surface_839948->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+        CC_Draw_Shape(SidebarSurface, SidebarDrawer, shape, 0,
+                      Point2D(unknown_11e0, unknown_11e4), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         unknown_button_ab63e8.Draw_Me(true);
         unknown_button_ab6380.Draw_Me(true);
     }
@@ -381,9 +381,9 @@ void RadarClass::Draw_It(bool complete)
         }
         if (unknown_14a8 != 1 && (unknown_14d5 == true || redraw)
             && unknown_14f8 >= 0 && unknown_14f8 < ((ShapeFileStruct const *)RadarButton.unknown_28)->FrameCount) {
-            CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)RadarButton.unknown_28, unknown_14f8,
-                          Point2D(unknown_11e0, unknown_11e8), unknown_surface_839948->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-            unknown_1208 = Rect(unknown_11e0, unknown_11e8, unknown_int_7add80, 110);
+            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)RadarButton.unknown_28, unknown_14f8,
+                          Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+            unknown_1208 = Rect(unknown_11e0, unknown_11e8, SidebarWidth, 110);
         }
     }
 
@@ -398,10 +398,10 @@ void RadarClass::Draw_It(bool complete)
             if (unknown_14d5) {
                 unknown_14d5 = false;
                 if (unknown_14d6) {
-                    CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)RadarButton.unknown_28, 32,
-                                  Point2D(unknown_11e0, unknown_11e8), unknown_surface_839948->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                    CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)RadarButton.unknown_28, 32,
+                                  Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                     Draw_Names();
-                    unknown_1208 = Rect(unknown_11e0, unknown_11e8, unknown_int_7add80, 110);
+                    unknown_1208 = Rect(unknown_11e0, unknown_11e8, SidebarWidth, 110);
                 } else {
                     Draw_Names();
                     unknown_1208 = Rect(unknown_11ec, unknown_11f0, unknown_11fc, unknown_1200);
@@ -414,9 +414,9 @@ void RadarClass::Draw_It(bool complete)
         default:
             if (unknown_14d5) {
                 unknown_14d5 = false;
-                CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)RadarButton.unknown_28, 0,
-                              Point2D(unknown_11e0, unknown_11e8), unknown_surface_839948->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-                unknown_1208 = Rect(unknown_11e0, unknown_11e8, unknown_int_7add80, 110);
+                CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)RadarButton.unknown_28, 0,
+                              Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                unknown_1208 = Rect(unknown_11e0, unknown_11e8, SidebarWidth, 110);
             }
             break;
         }
@@ -424,7 +424,7 @@ void RadarClass::Draw_It(bool complete)
 
     if (unknown_14d6) {
         unknown_14d6 = false;
-        SidebarClass::unknown_button_abcc58.Draw_Me(true);
+        SidebarClass::Upgrade.Draw_Me(true);
         SidebarClass::unknown_button_ab96b8.Draw_Me(true);
     }
     if (unknown_button_ab63e8.IsDrawn) {
@@ -466,12 +466,12 @@ void __stdcall FUN_0062fbc0(int unused_0, int unused_1)
 Cell RadarClass::Click_Cell_Calc(Point2D const &xy)
 {
     Point2D point = xy;
-    CoordStruct coord = unknown_tactical_83996c->Pixel_To_Coord(point);
+    CoordStruct coord = TacticalMap->Pixel_To_Coord(point);
     if (coord != unknown_coord_ab6370) {
         if (Debug_Map) {
-            return unknown_tactical_83996c->Pixel_To_Cell(point);
+            return TacticalMap->Pixel_To_Cell(point);
         }
-        return unknown_tactical_83996c->Pixel_To_Cell(point);
+        return TacticalMap->Pixel_To_Cell(point);
     }
     return unknown_cell_ab6330;
 }
@@ -542,7 +542,7 @@ void RadarClass::AI(int &input, Point2D const &xy)
     if (unknown_14ac == 4) {
         Update_Transmission();
     } else {
-        Unknown_00716950();
+        Remove_Speech_Hold();
     }
 }
 
@@ -558,7 +558,7 @@ void RadarClass::AI(int &input, Point2D const &xy)
 // Declared in shared/scroll.hpp and shared/main_loop.hpp, which this unit cannot include
 // (scroll.hpp refuses the light map_view; main_loop.hpp brings always.hpp's min next to the
 // unit's own).
-ObjectClass *__fastcall Unknown_0051A690(Cell const *cell, ObjectClass *object);
+ObjectClass *__fastcall Best_Selected_Object(Cell const *cell, ObjectClass *object);
 extern bool unknown_flag_a40d45;
 extern int unknown_int_8325d0;
 extern int unknown_int_8325d4;
@@ -620,9 +620,9 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
             } else if (fourth) {
                 action = 0x41;
             } else if (object) {
-                action = Unknown_0051A690(0, object)->unknown_slot28(object, false);
+                action = Best_Selected_Object(0, object)->unknown_slot28(object, false);
             } else {
-                action = Unknown_0051A690(&cell, 0)->What_Action(&cell, false, false);
+                action = Best_Selected_Object(&cell, 0)->What_Action(&cell, false, false);
             }
             switch (action) {
             case 1: case 2: case 3: case 5: case 6: case 9: case 0x10: case 0x14: case 0x1A: case 0x25: case 0x26: case 0x29: case 0x41:
@@ -672,7 +672,7 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
                         cell.Y -= adjust;
                     }
                     CoordStruct center = reinterpret_cast<UnknownCellClass &>(Map[cell]).unknown_475d60();
-                    unknown_tactical_83996c->Set_Tactical_Position_006a66b0(center);
+                    TacticalMap->Set_Tactical_Position_006a66b0(center);
                     Map.Flag_To_Redraw(1);
                     if (DepthBuffer != 0) {
                         DepthBuffer->MaxValue = 0x8000;
@@ -702,7 +702,7 @@ void RadarClass::Set_Map_Dimensions(Rect const *rect, bool arg2, int arg3, bool 
 
 void RadarClass::Set_Tactical_Position(CoordStruct const &coord)
 {
-    unknown_tactical_83996c->Set_Tactical_Position_006a66b0(coord);
+    TacticalMap->Set_Tactical_Position_006a66b0(coord);
 }
 
 
@@ -726,18 +726,18 @@ ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name, int kind);
 void RadarClass::Draw_Names()
 {
     if (unknown_flag_8373c1) {
-        CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shape_ab64a0, 32,
-                      Point2D(unknown_11e0, unknown_11e8), unknown_surface_839948->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0,
+        CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shape_ab64a0, 32,
+                      Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0,
                       Point2D(0, 0));
         int y = unknown_11f0 + 2;
-        Fancy_Text_Printf(StringTable::Load_String("TXT_NAME_COLON", 0, "D:\\Ra2\\Radar.CPP", 1217), unknown_surface_839948,
-                          &unknown_surface_839948->Get_Rect(), &Point2D(unknown_11ec, y), Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
-        Fancy_Text_Printf(StringTable::Load_String("TXT_KILLS_COLON", 0, "D:\\Ra2\\Radar.CPP", 1219), unknown_surface_839948,
-                          &unknown_surface_839948->Get_Rect(), &Point2D(unknown_11ec + unknown_11f4 - 2, y),
+        Fancy_Text_Printf(StringTable::Load_String("TXT_NAME_COLON", 0, "D:\\Ra2\\Radar.CPP", 1217), SidebarSurface,
+                          &SidebarSurface->Get_Rect(), &Point2D(unknown_11ec, y), Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
+        Fancy_Text_Printf(StringTable::Load_String("TXT_KILLS_COLON", 0, "D:\\Ra2\\Radar.CPP", 1219), SidebarSurface,
+                          &SidebarSurface->Get_Rect(), &Point2D(unknown_11ec + unknown_11f4 - 2, y),
                           Fetch_Scheme_By_Name("Grey", 1), 0, 0x219);
         y += 7;
-        unknown_surface_839948->Draw_Line(Point2D(unknown_11ec, y), Point2D(unknown_11ec + unknown_11f4 - 1, y),
-                                          unknown_drawer_8323cc->Convert(14));
+        SidebarSurface->Draw_Line(Point2D(unknown_11ec, y), Point2D(unknown_11ec + unknown_11f4 - 1, y),
+                                          SidebarDrawer->Convert(14));
         y += 4;
         for (int index = 0; index < Houses.Count(); index++) {
             HouseClass *house = Houses[index];
@@ -762,14 +762,14 @@ void RadarClass::Draw_Names()
                     text[18] = '.';
                     text[19] = 0;
                 }
-                Fancy_Text_Printf(text, unknown_surface_839948, &unknown_surface_839948->Get_Rect(), &Point2D(unknown_11ec, y),
+                Fancy_Text_Printf(text, SidebarSurface, &SidebarSurface->Get_Rect(), &Point2D(unknown_11ec, y),
                                   scheme, 0, flags);
                 int kills = 0;
                 for (int other = 0; other < 20; other++) {
                     kills += house->unknown_5310[other] + house->unknown_5364[other];
                 }
                 swprintf(text, L"%2d", kills);
-                Fancy_Text_Printf(text, unknown_surface_839948, &unknown_surface_839948->Get_Rect(),
+                Fancy_Text_Printf(text, SidebarSurface, &SidebarSurface->Get_Rect(),
                                   &Point2D(unknown_11ec + unknown_11f4 - 2, y), scheme, 0, flags | 0x200);
                 y += 9;
             }
@@ -1405,7 +1405,7 @@ void RadarClass::Post_Load_Radar_Fixup()
     if (unknown_14ac == 3) {
         unknown_14a8 = 5;
         Radar_Activate(unknown_14b0, false);
-        unknown_set_frame_rate_0053d820(Rules->DetailMinFrameRateNormal);
+        Set_Frame_Rate_Limit(Rules->DetailMinFrameRateNormal);
     }
 }
 
@@ -1786,7 +1786,7 @@ bool __fastcall FUN_00632ff0(int radar_address)
 // when the radar is up, otherwise turn it on or off (0x00632F30).
 void RadarClass::Radar_Activate(int mode, bool sound)
 {
-    if (unknown_game_mode_a3d298 && unknown_player_a35db4->unknown_13d && unknown_int_a3d548) {
+    if (unknown_game_mode_a3d298 && unknown_player_a35db4->unknown_13d && MuteSWLaunches) {
         mode = 1;
     }
     if (unknown_14ac == mode) {
@@ -1923,7 +1923,7 @@ void RadarClass::Render_Radar()
     int edge;
     Rect previous = unknown_1208;
     bool tactical = unknown_14ac == 1 && unknown_14a8 == 1;
-    Cell center = Map[unknown_tactical_83996c->Pixel_To_Cell(Point2D(
+    Cell center = Map[TacticalMap->Pixel_To_Cell(Point2D(
         unknown_rect_839630.X + unknown_rect_839630.Width / 2,
         unknown_rect_839630.Y + unknown_rect_839630.Height / 2))].Fetch_CellID();
     unknown_14d8 = Cell_To_Radar_Pixel(center);
@@ -1974,17 +1974,17 @@ void RadarClass::Render_Radar()
         if (tactical) {
             if (unknown_14d6) {
                 unknown_1208 = unknown_1498;
-                CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shape_ab64a0, 32,
-                    Point2D(unknown_11e0, unknown_11e8), unknown_surface_839948->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shape_ab64a0, 32,
+                    Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
             if (unknown_1208.Is_Valid()) {
                 Rect from = unknown_1208 - RectPoint2D(unknown_1498.X, unknown_1498.Y);
-                unknown_surface_839948->Copy_From(unknown_1208, *unknown_1218, from, false, true);
+                SidebarSurface->Copy_From(unknown_1208, *unknown_1218, from, false, true);
             }
-            unknown_surface_839948->Draw_Rect(unknown_14d8, unknown_1204);
+            SidebarSurface->Draw_Rect(unknown_14d8, unknown_1204);
             Rect area = unknown_1498;
             Rect border(area.X - 1, area.Y - 1, area.Width + 2, area.Height + 2);
-            unknown_surface_839948->Draw_Rect(border, unknown_1204);
+            SidebarSurface->Draw_Rect(border, unknown_1204);
         }
         if (moved) {
             Rect const &inner = Union(unknown_14e8, unknown_1208);
@@ -2009,31 +2009,31 @@ void RadarClass::Update_Transmission()
     case 0:
         Speech_Clear();
         Speech_Play(unknown_14d0, 0, 3);
-        Unknown_00716940();
+        Add_Speech_Hold();
         unknown_14b4 = 1;
         break;
     case 1:
-        if (Unknown_00716690(unknown_14d0)) {
+        if (Is_Speech_Finished(unknown_14d0)) {
             if (unknown_int_af8fe8 != 0) {
-                Unknown_004082B0();
+                AudioStreamerFadeOutAllStreams();
             }
             unknown_14b4 = 2;
         }
         break;
     case 2:
         if (unknown_int_af8fe8 != 0) {
-            if (Unknown_00408330() == 0) {
+            if (AudioStreamerAllFaded() == 0) {
                 return;
             }
             if (unknown_int_af8fe8 != 0) {
-                Unknown_00716950();
+                Remove_Speech_Hold();
                 Unknown_005A0B10();
             }
         }
         Radar_Activate(3, false);
         unknown_14bc.Unknown_00406070();
         unknown_14bc.Unknown_00406100(Voc_Play(Rules->unknown_618, 1.0f, 0x2000, 0), 0);
-        unknown_set_frame_rate_0053d820(Rules->DetailMinFrameRateMovie);
+        Set_Frame_Rate_Limit(Rules->DetailMinFrameRateMovie);
         break;
     }
 }
@@ -2049,21 +2049,21 @@ void RadarClass::Play_Movie()
 {
     MovieHandle *movie = 0;
     bool flag = false;
-    bool playing = queued_movies_00af8fd8.Count() > 0;
+    bool playing = IngameVQ.Count() > 0;
     if (!unknown_14b9 && playing) {
         Speech_Is_Playing();
     }
     if (unknown_14d6 == true && !unknown_14b9) {
-        CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shape_ab64a0, 32,
-                      Point2D(unknown_11e0, unknown_11e8), unknown_surface_839948->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0,
+        CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shape_ab64a0, 32,
+                      Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0,
                       Point2D(0, 0));
-        unknown_1208 = Rect(unknown_11e0, unknown_11e8, unknown_int_7add80, 110);
+        unknown_1208 = Rect(unknown_11e0, unknown_11e8, SidebarWidth, 110);
         Debug_Printf("Radar: Movie full redrawn\n");
     }
     bool done;
-    if (playing && queued_movies_00af8fd8.Count() > 0 && (movie = queued_movies_00af8fd8[0]) != 0) {
+    if (playing && IngameVQ.Count() > 0 && (movie = IngameVQ[0]) != 0) {
         if (movie->AdvanceFrame() == true) {
-            unknown_1208 = Rect(unknown_11e0, unknown_11e8, unknown_int_7add80, 110);
+            unknown_1208 = Rect(unknown_11e0, unknown_11e8, SidebarWidth, 110);
         }
         done = movie->Is_Finished();
         flag = movie->unknown_04;
@@ -2074,10 +2074,10 @@ void RadarClass::Play_Movie()
     }
     if (done == true) {
         if (movie != 0) {
-            queued_movies_00af8fd8.Delete(movie);
+            IngameVQ.Delete(movie);
             delete movie;
         }
-        playing = queued_movies_00af8fd8.Count() != 0;
+        playing = IngameVQ.Count() != 0;
         if (playing) {
             Debug_Printf("Radar: Next movie.\n");
             unknown_14bc.Unknown_00406070();
@@ -2095,16 +2095,16 @@ void RadarClass::Play_Movie()
         flag = playing;
         unknown_14bc.Unknown_00406070();
         unknown_14bc.Unknown_00406100(Voc_Play(Rules->MovieOff, 1.0f, 0x2000, 0), 0);
-        unknown_set_frame_rate_0053d820(Rules->DetailMinFrameRateNormal);
+        Set_Frame_Rate_Limit(Rules->DetailMinFrameRateNormal);
         unknown_14d5 = true;
     }
     unknown_14b9 = !done;
     if (unknown_14b8 != flag) {
         if (flag) {
-            Unknown_0065C1F0(0);
+            Hold_Scenario(0);
             unknown_14b8 = true;
         } else {
-            Unknown_0065C310();
+            Release_Scenario();
             unknown_14b8 = false;
         }
     }
@@ -2218,7 +2218,7 @@ int __stdcall Unknown_006340F0(HWND window, UINT message, WPARAM wparam, LPARAM 
                         SendMessageA(ally, 0xF1, allied, 0);
                         unknown_5e1fd0(ally, house->Is_Ally(unknown_player_a35db4));
                         any_ally = true;
-                        if (unknown_int_a3d548) {
+                        if (MuteSWLaunches) {
                             EnableWindow(ally, 0);
                         }
                         } else {
@@ -2230,7 +2230,7 @@ int __stdcall Unknown_006340F0(HWND window, UINT message, WPARAM wparam, LPARAM 
                     if (!house->Unknown_004F52F0()) {
                         ShowWindow(chat, 0);
                     } else {
-                        if (!unknown_int_a3d548) {
+                        if (!MuteSWLaunches) {
                             SendMessageA(chat, 0xF1, unknown_flags_a3f118[house_index], 0);
                         } else {
                             SendMessageA(chat, 0xF1, 1, 0);
@@ -2377,7 +2377,7 @@ void RadarClass::Unknown_00634970(int arg1)
 void __fastcall Unknown_00634A00(MouseClass *map)
 {
     HWND window = unknown_create_dialog_5ff610(0x73, Unknown_006340F0, 0);
-    unknown_flag_a40d44 = true;
+    IgnoreInput = true;
     WWKeyboard->Clear();
     if (window) {
         int result;
@@ -2396,7 +2396,7 @@ void __fastcall Unknown_00634A00(MouseClass *map)
         unknown_dialog_5ff6e0(window);
     }
     WWKeyboard->Clear();
-    unknown_flag_a40d44 = unknown_id_source_a3d290->unknown_2306;
+    IgnoreInput = unknown_id_source_a3d290->unknown_2306;
     Map.Flag_To_Redraw(2);
 }
 

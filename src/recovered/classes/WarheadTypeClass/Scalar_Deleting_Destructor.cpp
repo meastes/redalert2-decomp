@@ -8,5 +8,5 @@ WarheadTypeClass::~WarheadTypeClass()
 {
     Unknown_006ECB90(this, true);
     unknown_WarheadTypeClass_list_00839b00.Delete(this);
-    unknown_objects_ac0cb0.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
 }

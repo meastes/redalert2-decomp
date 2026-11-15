@@ -1,4 +1,4 @@
-// bool __fastcall Unknown_Clamp_Rect_To_Screen_00736D80(void *, unsigned, Rect *)
+// bool __fastcall On_WM_MOVING(void *, unsigned, Rect *)
 // (0x00736D80): keeps a window rectangle on the screen (GetSystemMetrics
 // SM_CXSCREEN/SM_CYSCREEN); true when it changed. The window procedures pass
 // their window and wParam in ECX/EDX for WM_SIZING/WM_MOVING (0x214/0x216)
@@ -8,7 +8,7 @@
 #include "shared/win32_api.hpp"
 #include "shared/rect.hpp"
 
-bool __fastcall Unknown_Clamp_Rect_To_Screen_00736D80(void *window, unsigned int wparam, Rect *rect)
+bool __fastcall On_WM_MOVING(void *window, unsigned int wparam, Rect *rect)
 {
     bool changed = false;
     int x = rect->X;

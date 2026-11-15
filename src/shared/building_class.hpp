@@ -434,7 +434,7 @@ struct UnknownBuildingInfantryView : TechnoClass {
 };
 
 // Every building (0x00A40AF8): shared/techno.hpp.
-// unknown_abstracts_ac0c80 (0x00AC0C80): shared/object_lists.hpp.
+// FactoryPtrTracker (0x00AC0C80): shared/object_lists.hpp.
 
 // Writes [Structures] (0x0044B200; takes the INI by pointer; Write_Scenario_INI
 // 0x0065F980 passes its CCINIClass).

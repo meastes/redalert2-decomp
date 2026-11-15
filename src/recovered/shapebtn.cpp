@@ -231,7 +231,7 @@ int ShapeButtonClass::Draw_Me(int forced)
         } else {
             shapenum = IsPressed ? 1 : 0;
         }
-        Surface *surface = DrawOnSidebar ? unknown_surface_839948 : unknown_surface_83995c;
+        Surface *surface = DrawOnSidebar ? SidebarSurface : unknown_surface_83995c;
         CC_Draw_Shape(surface, (ConvertClass *)ShapeDrawer, (ShapeFileStruct const *)ShapeData, shapenum,
                       Point2D(X + DrawOffsetX, Y + DrawOffsetY), unknown_window_839640, DrawFaded ? 0x800 : 0,
                       0, 0, 0, 1000, 0, 0, Point2D(0, 0));

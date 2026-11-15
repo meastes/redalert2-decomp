@@ -1403,8 +1403,16 @@
    "address": "004cdf90"
   },
   {
+   "symbol": "?AircraftTracker@@3UAircraftTrackerClass@@A",
+   "address": "00839ea0"
+  },
+  {
    "symbol": "?BombList@@3VBombListClass@@A",
    "address": "008322e0"
+  },
+  {
+   "symbol": "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z",
+   "address": "004131d0"
   },
   {
    "symbol": "?Detach@BombListClass@@QAEXPAVAbstractClass@@@Z",
@@ -1427,8 +1435,12 @@
    "address": "00651290"
   },
   {
-   "symbol": "?Detach_004131d0@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z",
-   "address": "004131d0"
+   "symbol": "?Detach_From_Command_List@@YIXPAX@Z",
+   "address": "006f7970"
+  },
+  {
+   "symbol": "?GasSystem@@3PAVParticleSystemClass@@A",
+   "address": "00a40d20"
   },
   {
    "symbol": "?KamikazeTracker@@3VKamikazeTrackerClass@@A",
@@ -1447,16 +1459,12 @@
    "address": "00839848"
   },
   {
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
    "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
    "address": "00498f10"
-  },
-  {
-   "symbol": "?Unknown_006F7970@@YIXPAX@Z",
-   "address": "006f7970"
-  },
-  {
-   "symbol": "?unknown_gas_cloud_system_a40d20@@3PAVParticleSystemClass@@A",
-   "address": "00a40d20"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
@@ -1469,14 +1477,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
-  },
-  {
-   "symbol": "?unknown_tracker_839ea0@@3UAircraftTrackerClass@@A",
-   "address": "00839ea0"
   },
   {
    "symbol": "__CIpow",

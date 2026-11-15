@@ -48,7 +48,7 @@ void __fastcall RadBeam::Update_All()
             done = beam->unknown_6358d0();
         } else if (beam->Type == 2) {
             if (beam->IsActive) {
-                if (unknown_random_839218(0, 99) < (int)(cull * 100.0)) {
+                if (NonCriticalRandomNumber(0, 99) < (int)(cull * 100.0)) {
                     beam->Deactivate();
                 }
             }

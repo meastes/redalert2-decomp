@@ -105,7 +105,7 @@ CarryoverClass::CarryoverClass(TechnoClass *techno) :
 
 // bool CarryoverClass::Create() const (0x00468D50)
 // Recreates the object for its house at its cell with its strength;
-// infantry is placed with unknown_a40774 cleared. Always false.
+// infantry is placed with ScenarioInit cleared. Always false.
 
 bool CarryoverClass::Create() const
 {
@@ -123,15 +123,15 @@ bool CarryoverClass::Create() const
             break;
     }
     if (techno) {
-        bool old = unknown_a40774 != 0;
+        bool old = ScenarioInit != 0;
         techno->Strength = Strength;
         if (RTTI == 15) {
-            unknown_a40774 = 0;
+            ScenarioInit = 0;
         }
         CoordStruct coord(Position.X * 256 + 128, Position.Y * 256 + 128, 0);
         techno->Unlimbo(&coord, 0);
         if (RTTI == 15) {
-            unknown_a40774 = old;
+            ScenarioInit = old;
         }
     }
     return false;

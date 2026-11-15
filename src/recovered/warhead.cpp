@@ -66,7 +66,7 @@
 // object.hpp declares it with element type ObjectClass * and WarheadType.cpp
 // does not include object.hpp (0x00AC0CB0; RTTI element type
 // AbstractClass *, declared as ObjectClass * in object.hpp).
-extern DynamicVectorClass<AbstractClass *> unknown_objects_ac0cb0;
+extern DynamicVectorClass<AbstractClass *> AbstractTypePtrTracker;
 
 
 float __fastcall Percent_Value(char const *text)
@@ -130,7 +130,7 @@ WarheadTypeClass::WarheadTypeClass(char const *ini_name) :
 {
     Create_ID();
     unknown_WarheadTypeClass_list_00839b00.Add(this);
-    unknown_objects_ac0cb0.Add(this);
+    AbstractTypePtrTracker.Add(this);
     double *verses = Verses;
     verses[0] = 1.0;
     memcpy(verses + 1, verses, sizeof(Verses) - sizeof(Verses[0]));

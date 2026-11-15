@@ -55,7 +55,7 @@ HRESULT __stdcall CChatEventSink::OnPublicGameOptions(HRESULT result, WOL::Chann
     char *copy = _strdup(options);
     bool changed = Unknown_005c3ff0(copy, user->name);
     free(copy);
-    if (unknown_b2abd9 || unknown_b2ac40 || *options == 'Z') return S_OK;
+    if (g_PlayingNetGame || unknown_b2ac40 || *options == 'Z') return S_OK;
     bool request = false;
     WOL::User *host = Unknown_0074DA60();
     if (host && !_stricmp(host->name, unknown_wstring_b26cb8.Peek_Buffer())) return S_OK;
@@ -67,14 +67,14 @@ HRESULT __stdcall CChatEventSink::OnPublicGameOptions(HRESULT result, WOL::Chann
         if (unknown_users_b2a728.Count == 2) unknown_chat_a72cfc->unknown_slot15("A1");
         return S_OK;
     }
-    HWND dialog = Unknown_00735B10();
-    if (!unknown_dialog_preview_a72ce8) {
+    HWND dialog = WS_Top_Window();
+    if (!MultiplayerMapPreview) {
         if (changed) {
             request = true;
             preview_timer = 0;
             Debug_Printf("New scenario - requesting a map preview\n");
         }
-        if (preview_timer > 900 && (!unknown_dialog_preview_a72ce8 || !unknown_dialog_preview_a72ce8->Is_Present()) && !unknown_b2ac46) {
+        if (preview_timer > 900 && (!MultiplayerMapPreview || !MultiplayerMapPreview->Is_Present()) && !unknown_b2ac46) {
             if (unknown_session_a3d298.ScenarioFileName_658[0] && !Find_Local_Scenario_0066c5b0(unknown_session_a3d298.ScenarioFileName_658,
                     unknown_session_a3d298.ScenarioFileLength_87c, unknown_session_a3d298.ScenarioDigest_85a,
                     unknown_session_a3d298.ScenarioIsOfficial_880, false)) {
@@ -106,7 +106,7 @@ HRESULT __stdcall CChatEventSink::OnPublicGameOptions(HRESULT result, WOL::Chann
                 }
             }
         checked:
-            if (Current_Dialog_Id_00735b20() == 0xC9) InvalidateRect(Unknown_00735B10(), 0, FALSE);
+            if (Current_Dialog_Id_00735b20() == 0xC9) InvalidateRect(WS_Top_Window(), 0, FALSE);
         }
     } else {
         HWND item = GetDlgItem(dialog, 0x3F2);

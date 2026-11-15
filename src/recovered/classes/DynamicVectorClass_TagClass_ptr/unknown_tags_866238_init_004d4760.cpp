@@ -1,4 +1,4 @@
-// Dynamic initializer of the global unknown_tags_866238 (0x004D4760, _$E): an empty
+// Dynamic initializer of the global MapTags (0x004D4760, _$E): an empty
 // DynamicVectorClass<TagClass *> (constructor expanded in place) whose atexit
 // destructor (0x004D47A0, the following _$E draft, emitted by this definition)
 // expands the vector's destructor. A tag list (shared/map.hpp).
@@ -23,6 +23,6 @@ class TagClass;
 // @ref ?ID@?$DynamicVectorClass@PAVTagClass@@@@UAEHABQAVTagClass@@@Z=004d5b40
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref _atexit=0078298a
-// @ref ?unknown_tags_866238@@3V?$DynamicVectorClass@PAVTagClass@@@@A=00866238
+// @ref ?MapTags@@3V?$DynamicVectorClass@PAVTagClass@@@@A=00866238
 
-DynamicVectorClass<TagClass *> unknown_tags_866238;
+DynamicVectorClass<TagClass *> MapTags;

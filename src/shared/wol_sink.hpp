@@ -215,7 +215,7 @@ extern int unknown_b2ac0c;              // 0x00B2AC0C (the age-check result)
 extern int unknown_b2ac6c;              // 0x00B2AC6C (years)
 extern int unknown_b2ac70;              // 0x00B2AC70 (consent)
 extern unsigned int unknown_b2abe0;     // 0x00B2ABE0 (pending-request bits; 0x100 age check)
-extern bool unknown_b2abd9;             // 0x00B2ABD9
+extern bool g_PlayingNetGame;             // 0x00B2ABD9
 extern int unknown_b2a630;              // 0x00B2A630
 extern int unknown_b2aaf8;              // 0x00B2AAF8 (successful pings)
 extern int unknown_b26568;              // 0x00B26568 (pings received)

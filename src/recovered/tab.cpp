@@ -262,7 +262,7 @@ void TabClass::Init_For_House()
     unknown_int_abe374 = unknown_rect_ac11fc->Y;
     unknown_int_abe460 = slot.Width - unknown_int_abe478;
     unknown_int_abe388 = unknown_int_abe460 + unknown_int_abe478;
-    unknown_4eec.unknown_04 = 0;
+    Credits.Current = 0;
 }
 
 
@@ -304,7 +304,7 @@ void TabClass::Init_IO()
     if (!Debug_Map && Unknown_Get_Art_006f4590()) {
         Unknown_006A1880();
         unknown_button_abe400.ID = 0xF0;
-        unknown_button_abe400.ShapeDrawer = unknown_drawer_8323cc;
+        unknown_button_abe400.ShapeDrawer = SidebarDrawer;
         unknown_button_abe400.IsOn = false;
         unknown_button_abe400.ToggleType = 0;
         unknown_button_abe400.Flags = 5;
@@ -313,7 +313,7 @@ void TabClass::Init_IO()
         unknown_button_abe400.Set_Position(area.X, area.Y);
         unknown_button_abe400.Set_Shape(shape, 0, 0);
         unknown_button_abe390.ID = 0xF1;
-        unknown_button_abe390.ShapeDrawer = unknown_drawer_8323cc;
+        unknown_button_abe390.ShapeDrawer = SidebarDrawer;
         unknown_button_abe390.IsOn = false;
         unknown_button_abe390.ToggleType = 0;
         unknown_button_abe390.Flags = 5;
@@ -439,7 +439,7 @@ void TabClass::AI(int &input, Point2D const &xy)
         Unknown_Play_Sound(Rules->unknown_190);
         Unknown_006A1F10();
     } else if (key == 0x80F1) {
-        if (unknown_int_a3d548 == 0) {
+        if (MuteSWLaunches == 0) {
             Unknown_Play_Sound(Rules->unknown_18c);
             Unknown_006A1EC0();
         }
@@ -449,7 +449,7 @@ void TabClass::AI(int &input, Point2D const &xy)
             Unknown_006F5E10(Unknown_006A06D0(id));
         }
     }
-    unknown_4eec.Unknown_00494650(0);
+    Credits.AI(0);
     SidebarClass::AI(input, xy);
 }
 
@@ -530,8 +530,8 @@ void TabClass::Draw_It(bool complete)
         }
     }
     if (!Debug_Map) {
-        Unknown_006A1710();
-        unknown_4eec.Unknown_00494530(true);
+        Draw_Credits_Tab();
+        Credits.Graphic_Logic(true);
         if (redraw) {
             Rect view = unknown_surface_83995c->Get_Rect();
             Point2D where(0, 0);
@@ -540,7 +540,7 @@ void TabClass::Draw_It(bool complete)
             Rect narrow = view;
             narrow.Width = unknown_rect_ac11fc->Width;
             Surface *surface = unknown_surface_83995c;
-            CC_Draw_Shape(surface, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_buffer_ac1048, 0,
+            CC_Draw_Shape(surface, SidebarDrawer, (ShapeFileStruct const *)unknown_buffer_ac1048, 0,
                           where, narrow, 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             if (unknown_4f14) {
                 where.X = unknown_rect_ac1204->X;
@@ -549,13 +549,13 @@ void TabClass::Draw_It(bool complete)
                 where.X = unknown_rect_ac1208->X;
                 where.Y = unknown_rect_ac1208->Y;
             }
-            CC_Draw_Shape(surface, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_buffer_ac1098, 0,
+            CC_Draw_Shape(surface, SidebarDrawer, (ShapeFileStruct const *)unknown_buffer_ac1098, 0,
                           where, view, 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             if (unknown_4f14) {
                 where.X = unknown_rect_ac120c->X;
                 where.Y = unknown_rect_ac11fc->Y;
                 for (int tile = 0; tile < unknown_int_ac0ff4; tile++) {
-                    CC_Draw_Shape(surface, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_buffer_ac10a4, 0,
+                    CC_Draw_Shape(surface, SidebarDrawer, (ShapeFileStruct const *)unknown_buffer_ac10a4, 0,
                                   where, view, 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                     where.X += unknown_rect_ac120c->Width;
                 }
@@ -568,7 +568,7 @@ void TabClass::Draw_It(bool complete)
                 }
             }
             where.X = unknown_rect_ac1210->X;
-            CC_Draw_Shape(surface, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_buffer_ac10b0, 0,
+            CC_Draw_Shape(surface, SidebarDrawer, (ShapeFileStruct const *)unknown_buffer_ac10b0, 0,
                           where, view, 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             if (unknown_4f14) {
                 unknown_button_abe400.Draw_Me(1);
@@ -596,15 +596,15 @@ void TabClass::Draw_It(bool complete)
 // emitted by the definition in TabClass_Draw_It_006a12d0.cpp; no source of its own.
 
 
-// void TabClass::Unknown_006A1710() (0x006A1710)
+// void TabClass::Draw_Credits_Tab() (0x006A1710)
 // Draws the bar's background shape at the origin of the sidebar surface
 // (brightness 1000) and notes that a sidebar button repainted.
 
-void TabClass::Unknown_006A1710()
+void TabClass::Draw_Credits_Tab()
 {
     ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_buffer_ac10f8;
-    CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, shape, 0,
-                  Point2D(0, 0), unknown_surface_839948->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+    CC_Draw_Shape(SidebarSurface, SidebarDrawer, shape, 0,
+                  Point2D(0, 0), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
     unknown_flag_abcd84 = true;
 }
 
@@ -633,7 +633,7 @@ void TabClass::Unknown_006A1880()
             int y = unknown_int_abe374;
             if (box.Width+x<=right) {
                 button->ID=slot+0xd6;
-                button->ShapeDrawer=unknown_drawer_8323cc;
+                button->ShapeDrawer=SidebarDrawer;
                 button->IsOn=false;
                 button->ToggleType=0;
                 button->Set_Flags(5);
@@ -662,7 +662,7 @@ void TabClass::Unknown_006A1880()
 void TabClass::Unknown_006A19E0()
 {
     unknown_button_abe400.ID = 0xF0;
-    unknown_button_abe400.ShapeDrawer = unknown_drawer_8323cc;
+    unknown_button_abe400.ShapeDrawer = SidebarDrawer;
     unknown_button_abe400.IsOn = false;
     unknown_button_abe400.ToggleType = 0;
     unknown_button_abe400.Flags = 5;
@@ -671,7 +671,7 @@ void TabClass::Unknown_006A19E0()
     unknown_button_abe400.Set_Position(area.X, area.Y);
     unknown_button_abe400.Set_Shape(shape, 0, 0);
     unknown_button_abe390.ID = 0xF1;
-    unknown_button_abe390.ShapeDrawer = unknown_drawer_8323cc;
+    unknown_button_abe390.ShapeDrawer = SidebarDrawer;
     unknown_button_abe390.IsOn = false;
     unknown_button_abe390.ToggleType = 0;
     unknown_button_abe390.Flags = 5;

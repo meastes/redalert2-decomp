@@ -115,7 +115,7 @@ inline void Loading_Filename(char *filename, int side, char const *suffix)
 inline Rect Name_Area()
 {
     Rect area;
-    if (unknown_8523e0 == unknown_screen_widths_7add68[0]) {
+    if (VideoModeWidth == unknown_screen_widths_7add68[0]) {
         area.X = 0x181;
         area.Y = 0x1B4;
     } else {
@@ -124,9 +124,9 @@ inline Rect Name_Area()
     }
     area.Width = 200;
     area.Height = 20;
-    if (unknown_8523e0 >= unknown_screen_widths_7add68[1]) {
-        area.X += (unknown_8523e0 - unknown_screen_widths_7add68[1]) / 2;
-        area.Y += (unknown_8523e4 - unknown_screen_heights_7add74[1]) / 2;
+    if (VideoModeWidth >= unknown_screen_widths_7add68[1]) {
+        area.X += (VideoModeWidth - unknown_screen_widths_7add68[1]) / 2;
+        area.Y += (VideoModeHeight - unknown_screen_heights_7add74[1]) / 2;
     }
     return area;
 }
@@ -134,7 +134,7 @@ inline Rect Name_Area()
 inline Rect Unit_Area()
 {
     Rect area;
-    if (unknown_8523e0 == unknown_screen_widths_7add68[0]) {
+    if (VideoModeWidth == unknown_screen_widths_7add68[0]) {
         area.X = 0x10;
         area.Y = 0x48;
     } else {
@@ -143,9 +143,9 @@ inline Rect Unit_Area()
     }
     area.Width = 200;
     area.Height = 20;
-    if (unknown_8523e0 >= unknown_screen_widths_7add68[1]) {
-        area.X += (unknown_8523e0 - unknown_screen_widths_7add68[1]) / 2;
-        area.Y += (unknown_8523e4 - unknown_screen_heights_7add74[1]) / 2;
+    if (VideoModeWidth >= unknown_screen_widths_7add68[1]) {
+        area.X += (VideoModeWidth - unknown_screen_widths_7add68[1]) / 2;
+        area.Y += (VideoModeHeight - unknown_screen_heights_7add74[1]) / 2;
     }
     return area;
 }
@@ -270,15 +270,15 @@ void Unknown535910::Unknown_00535BF0()
     wchar_t unit_name[128];
     char filename[32];
 
-    bool small = unknown_8523e0 == unknown_screen_widths_7add68[0];
-    unknown_5c = new BSurface(unknown_8523e0, unknown_8523e4, 2);
+    bool small = VideoModeWidth == unknown_screen_widths_7add68[0];
+    unknown_5c = new BSurface(VideoModeWidth, VideoModeHeight, 2);
     if (unknown_5c == 0) {
         return;
     }
     Rect screen(0, 0, 0, 0);
     int background = Build_Hicolor_Pixel(unknown_rgb_ab6841.Red, unknown_rgb_ab6841.Green, unknown_rgb_ab6841.Blue);
-    screen.Width = unknown_8523e0;
-    screen.Height = unknown_8523e4;
+    screen.Width = VideoModeWidth;
+    screen.Height = VideoModeHeight;
     unknown_5c->Fill_Rect(screen, screen, background);
 
     if (unknown_game_mode_a3d298 == 0) {
@@ -295,8 +295,8 @@ void Unknown535910::Unknown_00535BF0()
             unknown_3c = StringTable::Load_String(unknown_id_source_a3d290->LSLoadBriefing, 0, "D:\\Ra2\\LdPrgMgr.cpp", 0x253);
         }
         int side = ProgressScreen.Get_Side();
-        char const *top_name = (char const *)Unknown_Select_Art_6f2400(unknown_8523e0, unknown_8523e4, side);
-        char const *bottom_name = (char const *)Unknown_Select_Art_6f2420(unknown_8523e0, unknown_8523e4, side);
+        char const *top_name = (char const *)Unknown_Select_Art_6f2400(VideoModeWidth, VideoModeHeight, side);
+        char const *bottom_name = (char const *)Unknown_Select_Art_6f2420(VideoModeWidth, VideoModeHeight, side);
         unknown_40 = (void *)Unknown_Load_Shape_00495270(top_name, unknown_4c);
         unknown_48 = (void *)Unknown_Load_Shape_00495270(bottom_name, unknown_4e);
         unknown_44 = (void *)Unknown_Load_Shape_00495270(name, unknown_4d);
@@ -348,7 +348,7 @@ void Unknown535910::Unknown_00535BF0()
 
     {
     int side = unknown_players_a3fa7c[0]->unknown_66e290();
-    char const *suffix = unknown_8523e0 == unknown_screen_widths_7add68[0] ? unknown_suffix_7df398 : unknown_suffix_7df39c;
+    char const *suffix = VideoModeWidth == unknown_screen_widths_7add68[0] ? unknown_suffix_7df398 : unknown_suffix_7df39c;
     Loading_Filename(filename, side, suffix);
     unknown_44 = (void *)Unknown_Load_Shape_00495270(filename, unknown_4d);
     ConvertClass *drawer = (ConvertClass *)Unknown_Get_Art_6f25b0();

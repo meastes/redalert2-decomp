@@ -217,7 +217,7 @@ void __fastcall Motion_Capture()
                 sprintf(filename, "cap%04d.pcx", index);
                 CCFileClass file(filename);
                 temp_page.Copy_From(*_array[index], false, true);
-                Write_PCX_File(file, temp_page, &unknown_palette_837e10);
+                Write_PCX_File(file, temp_page, &GamePalette);
             }
 
             _sequence = 0;
@@ -236,7 +236,7 @@ void __fastcall Unknown_0053F780()
 {
     Debug_Printf("Disconnect_Gracefully\n");
     if (unknown_game_mode_a3d298 == 4 && PacketTransport != 0 && unknown_flag_a3fba8) {
-        if (unknown_connection_a409c4 != 0) {
+        if (PacketRouterConnection != 0) {
             unknown_OwnerTalkClass_00ab6d18.Unknown_0063FC90();
             CDTimerClass<SystemTimerClass> timer = 480;
             while (timer.Value() != 0) {
@@ -337,7 +337,7 @@ bool __fastcall Main_Loop_End_0053f840()
         }
         unknown_a3fabc--;
     }
-    return !unknown_flag_a40958;
+    return !GameActive;
 }
 
 
@@ -360,7 +360,7 @@ static inline void Do_Record_Playback()
     unsigned int ltgt;
 
     if (unknown_session_a3d298.Record) {
-        coord = unknown_tactical_83996c->Get_Tactical_Position();
+        coord = TacticalMap->Get_Tactical_Position();
         unknown_session_a3d298.RecordFile.Write(&coord, sizeof(coord));
 
         count = unknown_objects_a40c60.Count();
@@ -386,7 +386,7 @@ static inline void Do_Record_Playback()
 
     if (unknown_session_a3d298.Play) {
         if (unknown_session_a3d298.RecordFile.Read(&coord, sizeof(coord)) == sizeof(coord)) {
-            unknown_tactical_83996c->Set_Tactical_Position_006a6640(coord);
+            TacticalMap->Set_Tactical_Position_006a6640(coord);
         }
 
         if (unknown_session_a3d298.RecordFile.Read(&count, sizeof(count)) == sizeof(count)) {
@@ -432,13 +432,13 @@ bool __fastcall unknown_53fbd0()
     int y;
     int x;
 
-    if (!unknown_flag_a40958) {
-        return !unknown_flag_a40958;
+    if (!GameActive) {
+        return !GameActive;
     }
 
     unknown_main_loop_flag_a6eb30 = true;
 
-    while (!unknown_flag_a40d28) {
+    while (!GameInFocus) {
         if (unknown_session_a3d298.Type == 0 || unknown_session_a3d298.Type == 5) {
             Sleep(500);
             Windows_Message_Handler();
@@ -459,7 +459,7 @@ bool __fastcall unknown_53fbd0()
         unknown_trap_check_heap_a40d1a = true;
     }
 
-    if (unknown_flag_a40380 == true && unknown_check_406f30()) {
+    if (TacticalActive == true && unknown_check_406f30()) {
         int theme = Theme.Score;
         if (theme == -1) {
             theme = Theme.Pending;
@@ -525,16 +525,16 @@ bool __fastcall unknown_53fbd0()
         if (unknown_id_source_a3d290->unknown_62c) {
             Windows_Message_Handler();
             Service_Game_IO_00481fb0();
-            unknown_tactical_83996c->AI();
+            TacticalMap->AI();
             Map.Render();
             Sync_Delay();
             unknown_main_loop_flag_a6eb30 = false;
-            return !unknown_flag_a40958;
+            return !GameActive;
         }
     }
 
     if (!unknown_session_a3d298.Play) {
-        if (unknown_int_a40d48 == 0 && unknown_flag_a40d28) {
+        if (unknown_int_a40d48 == 0 && GameInFocus) {
             Map.Get_Input(input, x, y);
             Keyboard_Process(input);
             if (unknown_flag_a3d8c4) {
@@ -613,7 +613,7 @@ bool __fastcall unknown_53fbd0()
         Unknown_006ecf10();
         Unknown_00614010();
         unknown_main_loop_flag_a6eb30 = false;
-        return !unknown_flag_a40958;
+        return !GameActive;
     }
 
     unknown_main_loop_flag_a6eb30 = false;
@@ -640,7 +640,7 @@ void __fastcall Keyboard_Process(int &input)
     } else if (!command->unknown_slot5(plain)) {
         command = unknown_hotkeys_832380[(int)plain];
     }
-    if (command != 0 && (!unknown_flag_a40d44 || _wcsicmp(command->Get_Category(), L"Debug") == 0)) {
+    if (command != 0 && (!IgnoreInput || _wcsicmp(command->Get_Category(), L"Debug") == 0)) {
         if (command->unknown_slot6(input)) {
             command->Execute(input);
         }
@@ -708,14 +708,14 @@ void __fastcall Sync_Delay()
     if (unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5) {
         while (unknown_net_frame_timer_839970.Value()) {
             Service_Game_IO_00481fb0();
-            if (unknown_int_a40d48 == 0 && unknown_flag_a40d28 == true) {
+            if (unknown_int_a40d48 == 0 && GameInFocus == true) {
                 int input = 0;
                 int x;
                 int y;
                 if (unknown_net_frame_timer_839970.Value() > 10) {
                     Map.Get_Input(input, x, y);
                     Keyboard_Process(input);
-                    unknown_tactical_83996c->AI();
+                    TacticalMap->AI();
                     Map.Render();
                 } else {
                     Sleep(0);
@@ -1007,7 +1007,7 @@ void __fastcall Message_Input(int &input)
                 }
 
                 count = Houses.Count();
-                if (unknown_int_a3d548 && (unknown_chat_target_a6ebe0 == 1 || unknown_chat_target_a6ebe0 == 2)) {
+                if (MuteSWLaunches && (unknown_chat_target_a6ebe0 == 1 || unknown_chat_target_a6ebe0 == 2)) {
                     for (i = 0; i < count; i++) {
                         HouseClass *house = Houses[i];
                         if (house && house->Type->Multiplay

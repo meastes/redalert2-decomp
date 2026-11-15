@@ -58,7 +58,7 @@ class TechnoClass;
 class AbstractClass;
 // The selected object that decides the mouse action for a cell or an object
 // (0x0051A690; one of the two is null; ScrollClass 0x00669960).
-ObjectClass *__fastcall Unknown_0051A690(Cell const *cell, ObjectClass *object);
+ObjectClass *__fastcall Best_Selected_Object(Cell const *cell, ObjectClass *object);
 // RTTI-kind checked conversion to TechnoClass (0x0040DBD0: kinds 1, 2, 6 and 15).
 TechnoClass *__fastcall As_Techno_0040dbd0(AbstractClass *object);
 

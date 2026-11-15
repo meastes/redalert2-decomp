@@ -28,7 +28,7 @@ void SoundControlsDialog::Run_00688CD0()
     DialogInitialized = false;
 
     HWND dialog;
-    if (!unknown_flag_a40958) {
+    if (!GameActive) {
         dialog = unknown_create_dialog_5ff610(0xD6, Sound_Option_Dialog_Func, 0);
     } else {
         dialog = unknown_create_dialog_5ff610(0xB8, Sound_Option_Dialog_Func, 0);
@@ -41,8 +41,8 @@ void SoundControlsDialog::Run_00688CD0()
             if (unknown_6000d0() == true) {
                 rc = 2;
             }
-            if (!unknown_flag_a40958) {
-                unknown_517370(false);
+            if (!GameActive) {
+                Title_Screen_Restore(false);
             }
         }
         unknown_dialog_5ff6e0(dialog);
@@ -102,7 +102,7 @@ int __stdcall SoundControlsDialog::Sound_Option_Dialog_Func(HWND window, UINT me
                     EnableWindow(track, enabled);
                 }
 
-                if (unknown_flag_a40958) {
+                if (GameActive) {
                     HWND button = GetDlgItem(window, 0x533);
                     if (button) {
                         SendMessageA(button, 0xF1, Options.IsScoreShuffle ? 1 : 0, 0);

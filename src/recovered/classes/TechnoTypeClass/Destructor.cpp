@@ -29,6 +29,6 @@ TechnoTypeClass::~TechnoTypeClass()
 {
     Free_Cameo(this);
     Free_Alt_Cameo(this);
-    unknown_objects_ac0cb0.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
     TechnoTypes.Delete(this);
 }

@@ -169,7 +169,7 @@ int IPXGlobalConnClass::Receive_Packet(void *buf, int buflen, IPXAddressClass *a
         acknowledgement.ProductID = ProductID;
         acknowledgement.unknown_03 = 0;
         Debug_Printf("Sending global ack packet to port %d\n", port);
-        ConnectionClass *global_channel = unknown_connection_a409c4;
+        ConnectionClass *global_channel = PacketRouterConnection;
         if (!Send((char *)&acknowledgement, sizeof(acknowledgement), address, sizeof(IPXAddressClass), this == global_channel, port)) {
             Debug_Printf("Failed to ack global packet\n");
         }

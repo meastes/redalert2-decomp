@@ -4,8 +4,8 @@
     "id": "population-2837",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "dcbcf3ac3e34752afcd4c476fef367ec304780a2e37cbc562ed19b69e6265d09",
-    "historical_acceptance_sha256": "ac4dd9dc46cbbdc3fbbda8d1fb32a059272e58ddf87e760332324951ab0868d2"
+    "historical_population_sha256": "ef3432fe27a270fa2837bee0b319c141baf154b7bae301d6b3614225e29d9a99",
+    "historical_acceptance_sha256": "6d83d03dfb22da663a494cb14ca7a4e0db0d89eb1183ecff903cac0e65cabb21"
   },
   "references": {
     "__imp__GetSystemMetrics@4": 7971804,
@@ -469,7 +469,7 @@
     "??_ETacticalClass@DisplayClass@@UAEPAXI@Z": 4844768,
     "??_EMSShapeAnim@@UAEPAXI@Z": 5962944,
     "??_ERadarClass@@UAEPAXI@Z": 6507216,
-    "?Unknown_Clamp_Rect_To_Screen_00736D80@@": 7564672,
+    "?On_WM_MOVING@@": 7564672,
     "_unknown_empty_rect": 8594576,
     "?Size@DriveLocomotionClass@@UAEHXZ": 4869280,
     "?Size@DropPodLocomotionClass@@UAEHXZ": 4875872,
@@ -564,7 +564,7 @@
     "__decoder": 7980580,
     "??1FoggedObjectClass@@UAE@XZ": 4984272,
     "??0Tactical@@QAE@ABVNoInitClass@@@Z": 6956736,
-    "?Unknown_Clamp_Rect_To_Screen_00736D80@@YI_NPAXIPAVRect@@@Z": 7564672,
+    "?On_WM_MOVING@@YI_NPAXIPAVRect@@@Z": 7564672,
     "??0FoggedObjectClass@@QAE@ABUCoordStruct@@HH@Z": 4980976,
     "??0FoggedObjectClass@@QAE@ABUCoordStruct@@HI@Z": 4981680,
     "??0FoggedObjectClass@@QAE@PAVAnimClass@@@Z": 4983536,
@@ -827,14 +827,32 @@
     "??_7VeinholeMonsterClass@@6B@": 8054688,
     "??_EVeinholeMonsterClass@@UAEPAXI@Z": 7415600,
     "??_EWinModemClass@@UAEPAXI@Z": 7558672,
-    "??_EMSPrintAnim@@UAEPAXI@Z": 5963392
+    "??_EMSPrintAnim@@UAEPAXI@Z": 5963392,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
   },
   "regions": [
     {
       "entry": 7564672,
       "method": "00736d80",
-      "symbol": "?Unknown_Clamp_Rect_To_Screen_00736D80@@YI_NPAXIPAVRect@@@Z",
-      "symbol_prefix": "?Unknown_Clamp_Rect_To_Screen_00736D80@@",
+      "symbol": "?On_WM_MOVING@@YI_NPAXIPAVRect@@@Z",
+      "symbol_prefix": "?On_WM_MOVING@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -856,13 +874,13 @@
           "resolved": 7971804
         }
       ],
-      "source_sha256": "edf3e4f19ac733b49b364915eb798645d211572460618bebaf0b25fd36609680",
-      "source": "src/recovered/winfix/Unknown_Clamp_Rect_To_Screen.cpp",
+      "source_sha256": "52d16ff16b9c6d0747d2d014956eff9d2b7c2da107b9ac78624126fdd8670276",
+      "source": "src/recovered/winfix/On_WM_MOVING.cpp",
       "population": "population-2837",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Unknown_Clamp_Rect_To_Screen",
+      "semantic_name": "On_WM_MOVING",
       "source_order": 108798
     }
   ]

@@ -151,7 +151,7 @@ bool WWKeyboardClass::Put(KeyNumType key)
 
 bool WWKeyboardClass::Put_Key_Message(KeyNumType key, bool release)
 {
-    if (unknown_flag_a40d44 && key != 0x1B) {
+    if (IgnoreInput && key != 0x1B) {
         return true;
     }
     Unknown_005233A0(key, release);
@@ -181,7 +181,7 @@ bool WWKeyboardClass::Put_Key_Message(KeyNumType key, bool release)
 
 bool WWKeyboardClass::Put_Mouse_Message(KeyNumType key, int x, int y, bool release)
 {
-    if (unknown_flag_a40d44) {
+    if (IgnoreInput) {
         return true;
     }
     if (Available() >= 3 && Is_Mouse_Key(key)) {
@@ -201,7 +201,7 @@ bool WWKeyboardClass::Put_Mouse_Message(KeyNumType key, int x, int y, bool relea
 
 bool WWKeyboardClass::Put_Char(KeyNumType character)
 {
-    if (unknown_flag_a40d44) {
+    if (IgnoreInput) {
         return true;
     }
     if (Available() >= 2) {

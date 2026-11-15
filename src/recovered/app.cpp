@@ -103,7 +103,7 @@ HRESULT __stdcall TiberianSunClassFactory::CreateInstance(IUnknown *outer, GUID 
     }
     HRESULT result = E_NOINTERFACE;
     if (iid == IID_IApplication_79c3d0 || iid == IID_IUnknown_7afce0) {
-        IUnknown *application = &unknown_application_object_84c7dc;
+        IUnknown *application = &ApplicationInstance;
         if (application == 0) {
             return E_OUTOFMEMORY;
         }

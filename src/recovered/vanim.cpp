@@ -116,14 +116,14 @@ VoxelAnimClass::~VoxelAnimClass()
         unknown_f0->Delete_Me();
         unknown_f0 = 0;
     }
-    if (unknown_flag_a40958) {
+    if (GameActive) {
         Limbo();
     }
     unknown_fc.Unknown_00406070();
     unknown_110.Unknown_00406070();
     unknown_fc.Unknown_00405C10();
     unknown_110.Unknown_00405C10();
-    unknown_objects_ac0cb0.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
     Class = 0;
 }
 #pragma auto_inline(on)
@@ -170,10 +170,10 @@ void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
                 if ((cell.unknown_140 & 0x100) != 0 && (CoordStruct(Coord).Z >= unknown_geometry_j + ground.Z)) {
             level = unknown_geometry_j + ground.Z;
             CoordStruct raised = ground + CoordStruct(0, 0, unknown_geometry_j + 1);
-            unknown_tactical_83996c->Coord_To_Pixel(raised, pixel);
+            TacticalMap->Coord_To_Pixel(raised, pixel);
         } else {
             level = ground.Z;
-            unknown_tactical_83996c->Coord_To_Pixel(ground, pixel);
+            TacticalMap->Coord_To_Pixel(ground, pixel);
         }
     }
     if (unknown_124) return;
@@ -300,7 +300,7 @@ void VoxelAnimClass::AI()
                             Map.Radar_Background(cell.MapCoords);
                         }
                     }
-                    unknown_tactical_83996c->Register_Dirty_Area(dirty, 0);
+                    TacticalMap->Register_Dirty_Area(dirty, 0);
                 }
             } else if (Class->IsTiberium && !bridge) {
                 CellClass &cell = Map[BounceClass::Coord()];

@@ -197,7 +197,7 @@ IsometricTileClass::~IsometricTileClass()
     IsometricTileClass::Limbo();
     Type = 0;
     IsoTiles.Delete(this);
-    unknown_objects_ac0cb0.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
 }
 
 
@@ -242,7 +242,7 @@ bool IsometricTileClass::Unlimbo(CoordStruct const *coord, int dir)
 
 bool IsometricTileClass::Limbo()
 {
-    if (unknown_flag_a40958 && !unknown_76) {
+    if (GameActive && !unknown_76) {
         Unselect();
         unknown_slot54(true);
         Mark(0);

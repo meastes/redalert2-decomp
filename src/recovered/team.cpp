@@ -100,8 +100,8 @@
 // lists, counts itself in its type (and the owner's team count), makes the
 // script and tag, and heads for the type's waypoint.
 
-extern DynamicVectorClass<AbstractClass *> unknown_objects_ac0cb0;
-extern DynamicVectorClass<AbstractClass *> unknown_objects_ac0d30;
+extern DynamicVectorClass<AbstractClass *> AbstractTypePtrTracker;
+extern DynamicVectorClass<AbstractClass *> NeuronPtrTracker;
 
 TeamClass::TeamClass(TeamTypeClass *type, HouseClass *owner, int arg3) :
     Class(type),
@@ -138,10 +138,10 @@ TeamClass::TeamClass(TeamTypeClass *type, HouseClass *owner, int arg3) :
     IsSuspended(false)
 {
     Teams.Add(this);
-    unknown_objects_ac0cb0.Add(this);
-    unknown_objects_ac0c58.Add(this);
-    unknown_AbstractClass_list_00ac0d60.Add(this);
-    unknown_objects_ac0d30.Add(this);
+    AbstractTypePtrTracker.Add(this);
+    TagPtrTracker.Add(this);
+    ObjectPtrTracker.Add(this);
+    NeuronPtrTracker.Add(this);
     memset(unknown_84, 0, sizeof(unknown_84));
     if (Class != 0) {
         if (Owner != 0 && Class->IsBaseDefense) {
@@ -164,9 +164,9 @@ TeamClass::TeamClass(TeamTypeClass *type, HouseClass *owner, int arg3) :
 // releases its members and tag, leaves the lists and deletes a transient
 // team type.
 
-extern bool unknown_flag_a40958;            // 0x00A40958
-extern DynamicVectorClass<AbstractClass *> unknown_objects_ac0cb0;
-extern DynamicVectorClass<AbstractClass *> unknown_objects_ac0d30;
+extern bool GameActive;            // 0x00A40958
+extern DynamicVectorClass<AbstractClass *> AbstractTypePtrTracker;
+extern DynamicVectorClass<AbstractClass *> NeuronPtrTracker;
 
 TeamClass::~TeamClass()
 {
@@ -182,7 +182,7 @@ TeamClass::~TeamClass()
     if (Owner != 0 && Class != 0 && Class->IsBaseDefense) {
         Owner->unknown_555c--;
     }
-    if (unknown_flag_a40958 && Class != 0) {
+    if (GameActive && Class != 0) {
         while (Member != 0) {
             Remove(Member, -1, 0);
         }
@@ -195,10 +195,10 @@ TeamClass::~TeamClass()
         }
     }
     Unknown_006ECB90(this, true);
-    unknown_objects_ac0d30.Delete(this);
-    unknown_AbstractClass_list_00ac0d60.Delete(this);
-    unknown_objects_ac0cb0.Delete(this);
-    unknown_objects_ac0c58.Delete(this);
+    NeuronPtrTracker.Delete(this);
+    ObjectPtrTracker.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
+    TagPtrTracker.Delete(this);
     Teams.Delete(this);
     if (IsTransient && Class != 0) {
         delete Class;
@@ -298,11 +298,11 @@ void TeamClass::AI()
     }
     if (Member == 0 && (IsHasBeen || (unknown_game_mode_a3d298 != 0 && Frame - unknown_50 > Rules->DissolveUnfilledTeamDelay))) {
         if (TargetNotAssigned) {
-            for (int index = 0; index < unknown_tags_866160.Count(); index++) {
-                TagClass *tag = unknown_tags_866160[index];
+            for (int index = 0; index < LogicTags.Count(); index++) {
+                TagClass *tag = LogicTags[index];
                 if (tag->Spring(0x17, 0, unknown_geometry_k)) {
                     index--;
-                    if (unknown_tags_866160.Count() == 0) {
+                    if (LogicTags.Count() == 0) {
                         break;
                     }
                 }
@@ -500,7 +500,7 @@ void TeamClass::unknown_func_6b88b0()
 // force's total; a team that never had members is deleted when its last
 // member is gone.
 
-extern DynamicVectorClass<TagClass *> unknown_tags_866160;      // 0x00866160
+extern DynamicVectorClass<TagClass *> LogicTags;      // 0x00866160
 
 bool TeamClass::unknown_func_6b8bb0()
 {
@@ -536,9 +536,9 @@ bool TeamClass::unknown_func_6b8bb0()
         unknown_34 = 0;
         if (IsHasBeen) {
             if (TargetNotAssigned) {
-                for (int index = unknown_tags_866160.Count() - 1; index >= 0; index--) {
-                    TagClass *tag = unknown_tags_866160[index];
-                    if (tag->Spring(0x17, 0, unknown_geometry_k, 0, 0) && unknown_tags_866160.Count() == 0) {
+                for (int index = LogicTags.Count() - 1; index >= 0; index--) {
+                    TagClass *tag = LogicTags[index];
+                    if (tag->Spring(0x17, 0, unknown_geometry_k, 0, 0) && LogicTags.Count() == 0) {
                         break;
                     }
                 }
@@ -681,7 +681,7 @@ bool TeamClass::Remove(FootClass *member, int slot, bool arg3)
     if (member->Team != 0) {
         member->Team = 0;
     }
-    if (unknown_a40774 == 0 && member->unknown_7d && !member->unknown_37d && !member->unknown_76 && !arg3) {
+    if (ScenarioInit == 0 && member->unknown_7d && !member->unknown_37d && !member->unknown_76 && !arg3) {
         member->unknown_slot261(false, true);
     }
     if (!first && Member != 0) {
@@ -2100,7 +2100,7 @@ void TeamClass::TMission_unknown_6bc4c0(ScriptMissionClass const &mission, bool 
     if ((Map[coord].unknown_140 & 0x100) || (Map[coord].unknown_140 & 0x400)) {
         coord.Z += unknown_geometry_j;
     }
-    unknown_tactical_83996c->Setup_Trigger_Scroll(coord, mission.Data);
+    TacticalMap->Setup_Trigger_Scroll(coord, mission.Data);
     StepCompleted = true;
 }
 
@@ -2683,7 +2683,7 @@ void TeamClass::TMission_unknown_6bdaa0(ScriptMissionClass const &mission, bool 
 
 bool __fastcall TeamClass::unknown_func_6bdd80(ObjectClass *object)
 {
-    if (object != 0 && object->unknown_7d && object->Strength != 0 && (unknown_a40774 != 0 || !object->unknown_76)) {
+    if (object != 0 && object->unknown_7d && object->Strength != 0 && (ScenarioInit != 0 || !object->unknown_76)) {
         return true;
     }
     return false;

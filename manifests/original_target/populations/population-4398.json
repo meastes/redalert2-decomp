@@ -4,8 +4,8 @@
     "id": "population-4398",
     "inventory_sha256": "8b535662116274dc5d511e9ba2471fe83d27b887344b8352e7f84c9316eb9a34",
     "gaps_sha256": "f824756eaf9954442945b1b72e7f1d05ac32893c2bdb011c3649c16f40c92d77",
-    "historical_population_sha256": "c68a138d64706733fd93101c7c319e28b1efe5271f7f74c37f7b21a839ac2196",
-    "historical_acceptance_sha256": "b1839b51896f7db600d3d7c624bb2691d952e3f7461ff2c641381db662a9459e"
+    "historical_population_sha256": "37d7e0f5af0159d4be575b963694e3c67ebf7ef0d9d4bf4fe43622982bf96223",
+    "historical_acceptance_sha256": "a680f2ed2fadb0d2f81498367bdc1d38f9ec7d7ec7b88b5ab90dde4ddb45fece"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -296,7 +296,7 @@
     "??0ShadowCasterInfo@@QAE@HHHH@Z": 5432928,
     "?ShadowCasterCliffInfo@@3PAUShadowCasterInfo@@A": 10936584,
     "?ShadowCasterSlopeInfo@@3PAUShadowCasterInfo@@A": 10936384,
-    "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
+    "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
     "?IsoTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A": 10751184,
     "??0ObjectTypeClass@@QAE@PBD@Z": 6117360,
     "_strncpy": 7873488,
@@ -315,7 +315,7 @@
     "_$E60": 5412112,
     "??0LightConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@HHH_NPBEH@Z": 5474400,
     "?Clamp_Tile_RGB@@YIXAAH00@Z": 5473696,
-    "?unknown_palette_837e10@@3VPaletteClass@@A": 8617488,
+    "?GamePalette@@3VPaletteClass@@A": 8617488,
     "?unknown_surface_839950@@3PAVSurface@@A": 8624464,
     "?Init_Drawer@CellClass@@QAEXPAVLightConvertClass@@HHHHH@Z": 4690160,
     "?Iterate@MapClass@@QAEPAVCellClass@@XZ": 5612688,
@@ -1419,8 +1419,8 @@
     "?Cell_At@UnknownMap8324E0@@QAEAAVUnknownPlacementCellView@@ABVCell@@@Z": 5537904,
     "?unknown_4cb8f0@FootClass@@QAE?AVCell@@H_N@Z": 5028080,
     "?Delete@?$DynamicVectorClass@PAVAbstractClass@@@@QAE_NH@Z": 4541216,
-    "?unknown_abstracts_ac0bf8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
-    "?unknown_abstracts_ac0d08@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
+    "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
+    "?HousePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
     "?unknown_player_a35db4@@3PAVHouseClass@@A": 10706356,
     "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
@@ -3035,9 +3035,9 @@
     "?Compute_CRC@MissionClass@@UBEXAAVWWCRCEngine@@@Z": 5853248,
     "?Compute_CRC@ObjectClass@@UBEXAAVWWCRCEngine@@@Z": 6114064,
     "?Init@UnknownAudioController@@QAEXXZ": 4217840,
-    "?unknown_AbstractClass_list_00ac0d60@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275616,
-    "?unknown_objects_ac0c58@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275352,
-    "?unknown_objects_ac0cd8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275480,
+    "?ObjectPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275616,
+    "?TagPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275352,
+    "?ObjectsToDelete@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275480,
     "?Unknown_00405D50@UnknownAudioController@@QAEXXZ": 4218192,
     "?Unknown_00405C10@UnknownAudioController@@QAEXXZ": 4217872,
     "?Clear_Owner@LineTrail@@QAEXXZ": 5477616,
@@ -3182,7 +3182,7 @@
     "??_7BulletClass@@6BIRTTITypeInfo@@@": 7983960,
     "??_7BulletClass@@6BINoticeSink@@@": 7983952,
     "??_7BulletClass@@6BINoticeSource@@@": 7983944,
-    "?unknown_flag_a40958@@3_NA": 10750296,
+    "?GameActive@@3_NA": 10750296,
     "?Occupy_List@BulletClass@@UAEPBVCell@@H@Z": 4585104,
     "?Mark@BulletClass@@UAE_NH@Z": 4585200,
     "?In_Which_Layer@BulletClass@@UBEHXZ": 4594672,
@@ -4625,7 +4625,7 @@
     "?Unknown_0054F7C0@MapClass@@QAE_NABVCell@@0H_N11@Z": 5568448,
     "?Map@@3VMouseClass@@A": 8594656,
     "?Update_Cell_Zone@MapClass@@QAEXABVCell@@@Z": 5569312,
-    "?Unknown_00566340@MapClass@@QAEXABVCell@@@Z": 5661504,
+    "?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z": 5661504,
     "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z": 5612160,
     "?Size_Of@AnimClass@@UBEHXZ": 4341360,
     "?GetClassID@AnimClass@@UAGJPAUGUID@@@Z": 4341376,
@@ -5420,7 +5420,7 @@
     "?Action@ToggleClass@@UAEHIAAI@Z": 7254400,
     "?Action@ListClass@@UAEHIAAI@Z": 5480944,
     "?Action@CheckListClass@@UAEHIAAI@Z": 4707584,
-    "?unknown_set_frame_rate_0053d820@@YIXH@Z": 5494816,
+    "?Set_Frame_Rate_Limit@@YIXH@Z": 5494816,
     "??0SmudgeTypeClass@@QAE@PBD@Z": 6847904,
     "?Get_Type@@YIPAVAircraftTypeClass@@AAVCCINIClass@@PBD1PAV1@@Z": 6635696,
     "?Get_Type@@YIPAVBuildingTypeClass@@AAVCCINIClass@@PBD1PAV1@@Z": 6635616,
@@ -5951,37 +5951,37 @@
     "?Process@LocomotionClass@@UAG_NXZ": 5494112,
     "?unknown_slot3@MultiplayerGameMode@@UAE_NPAVWideString@@@Z": 5907360,
     "?Save@OverlayTypeClass@@UAGJPAUIStream@@H@Z": 6147856,
-    "?unknown_a40774@@3HA": 10749812,
+    "?ScenarioInit@@3HA": 10749812,
     "?Save@SmudgeTypeClass@@UAGJPAUIStream@@H@Z": 6849392,
     "?Save@TerrainTypeClass@@UAGJPAUIStream@@H@Z": 7231936,
     "?Is_Valid@Conflict@WorldDominationTour@@QBE_NXZ": 7500768,
     "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__InvalidateRect@12": 7971988,
-    "?unknown_flag_852fd7@@3_NA": 8728535,
-    "?unknown_flag_a40d28@@3_NA": 10751272,
+    "?UseDirect3D@@3_NA": 8728535,
+    "?GameInFocus@@3_NA": 10751272,
     "??0MultiplayerGameMode@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z": 5991632,
     "?unknown_flag_a40b30@@3_NA": 10750768,
     "?unknown_int_839638@@3HA": 8623672,
-    "?unknown_surface_839948@@3PAVSurface@@A": 8624456,
+    "?SidebarSurface@@3PAVSurface@@A": 8624456,
     "?unknown_int_839648@@3HA": 8623688,
-    "?unknown_surface_839958@@3PAVSurface@@A": 8624472,
+    "?AlternateSurface@@3PAVSurface@@A": 8624472,
     "?Protocol_Event_Message@IPXInterfaceClass@@UAEIH@Z": 7776864,
     "?Get_Protocol@UDPInterfaceClass@@UAEHXZ": 7787488,
     "??0ConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@H_N@Z": 4732496,
-    "?unknown_surface_839954@@3PAVSurface@@A": 8624468,
+    "?HiddenSurface@@3PAVSurface@@A": 8624468,
     "??_7TacticalClass@DisplayClass@@6B@": 7989396,
     "?unknown_flag_839c4c@@3_NA": 8625228,
     "?Get_Global_Variable@ScenarioClass@@QAE_NHPA_N@Z": 6689712,
     "?Get_Local_Variable@ScenarioClass@@QAE_NHPA_N@Z": 6690384,
-    "?unknown_flag_a40d44@@3_NA": 10751300,
+    "?IgnoreInput@@3_NA": 10751300,
     "?unknown_volume_a40b44@@3MA": 10750788,
-    "?unknown_8523e4@@3HA": 8725476,
-    "?unknown_8523e0@@3HA": 8725472,
+    "?VideoModeHeight@@3HA": 8725476,
+    "?VideoModeWidth@@3HA": 8725472,
     "?Render@GScreenClass@@UAEXXZ": 5114672,
     "?unknown_surface_839964@@3PAVSurface@@A": 8624484,
     "?unknown_surface_83995c@@3PAVSurface@@A": 8624476,
     "?unknown_b263d8@@3HA": 11690968,
-    "?unknown_random_839218@@3VRandom2Class@@A": 8622616,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
     "?unknown_timer_ac0178@@3V?$CDTimerClass@VFrameTimerClass@@@@A": 11272568,
     "?unknown_slot23@MapClass@@UAEXXZ": 5538768,
     "?Voc_Name@@YIPBDH@Z": 7424512,
@@ -5996,12 +5996,12 @@
     "?Set_Broadcast_Address@UDPInterfaceClass@@UAEXPADG@Z": 7783056,
     "?WriteTo@UDPInterfaceClass@@UAEXPAXH0H_NEG@Z": 7784800,
     "?Protocol_Event_Message@UDPInterfaceClass@@UAEIH@Z": 7787504,
-    "?unknown_flag_a40d04@@3_NA": 10751236,
-    "?unknown_AbstractClass_list_00ac0c98@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275416,
+    "?ScenarioActive@@3_NA": 10751236,
+    "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275416,
     "?unknown_func_6c0110@TeamTypeClass@@QBEXH@Z": 7078160,
     "_wcsncpy": 7878178,
     "?unknown_int_839630@@3HA": 8623664,
-    "?unknown_drawer_8323cc@@3PAVConvertClass@@A": 8594380,
+    "?SidebarDrawer@@3PAVConvertClass@@A": 8594380,
     "?unknown_flag_8373c3@@3_NA": 8614851,
     "?unknown_flag_abcd84@@3_NA": 11259268,
     "?Unknown_006F8A20@@YIXPAVBuildingClass@@@Z": 7309856,
@@ -6064,7 +6064,7 @@
     "__imp__lstrlenA@4": 7971228,
     "__imp__RegCloseKey@4": 7970820,
     "??0DropshipLoadoutClass@@QAE@XZ": 4876560,
-    "?unknown_int_7add80@@3HA": 8052096,
+    "?SidebarWidth@@3HA": 8052096,
     "?unknown_ini_005b7840@UnknownSessionA3D29C@@QAEPAVCCINIClass@@XZ": 5994560,
     "?Draw_It@TabClass@@UAEX_N@Z": 6951632,
     "?Draw_It@SidebarClass@@UAEX_N@Z": 6803328,
@@ -6108,7 +6108,7 @@
     "?ID@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z": 7504112,
     "?AI@PowerClass@@UAEXAAHABUPoint2D@@@Z": 6409264,
     "?unknown_flag_8373c1@@3_NA": 8614849,
-    "?Unknown_0065C1F0@@YIXH@Z": 6668784,
+    "?Hold_Scenario@@YIXH@Z": 6668784,
     "?Is_Loaded_006fa030@StringTable@@SAHXZ": 7315504,
     "?Save@MapSeedClass@@UAE_NPBDPBG@Z": 5738240,
     "?Load@MapSeedClass@@UAE_NPBD@Z": 5738944,
@@ -6195,7 +6195,7 @@
     "?Unknown_006ecf10@@YAXXZ": 7261968,
     "?unknown_house_a72d28@@3PAVHouseClass@@A": 10956072,
     "?Unknown_006715D0@SessionClass@@QAEHH@Z": 6755792,
-    "?unknown_house_setting_7d88d8@@3HA": 8227032,
+    "?BuildLevel@@3HA": 8227032,
     "??_7OverlayTypeClass@@6BIPersistStream@@@": 8026632,
     "??_7OverlayTypeClass@@6BIRTTITypeInfo@@@": 8026604,
     "??_7OverlayTypeClass@@6BINoticeSink@@@": 8026596,
@@ -6385,9 +6385,9 @@
     "?Get_Side@ProgressScreenClass@@QAEHXZ": 6417984,
     "??_7?$DynamicVectorClass@PAVColorScheme@@@@6B@": 8027032,
     "?Lock@ShipLocomotionClass@@UAGXXZ": 6793968,
-    "?unknown_abstracts_ac0c80@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275392,
-    "?unknown_objects_ac0c30@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275312,
-    "?unknown_list_ac0c18@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275288,
+    "?FactoryPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275392,
+    "?WaypointPathPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275312,
+    "?TeamPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275288,
     "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z": 7281408,
     "?Unknown_Get_Art_6f2490@@YAPAXXZ": 7283856,
     "??1WaypointClass@@QAE@XZ": 7490304,
@@ -6721,7 +6721,7 @@
     "?Input@GadgetClass@@UAEHXZ": 5042992,
     "?Draw_Box@@YIXABVRect@@H_N@Z": 4813776,
     "?Partial_Adjust@PaletteClass@@QAEXHABV1@PA_N@Z": 6304096,
-    "?unknown_int_a3d548@@3HA": 10736968,
+    "?MuteSWLaunches@@3HA": 10736968,
     "?Unknown_Free_Art_Sets_006F2510@@YIXXZ": 7283984,
     "?Unknown_Free_Art_Pair_006F26D0@@YIXXZ": 7284432,
     "?Decrement@CounterClass@@QAEHH@Z": 4791472,
@@ -6843,7 +6843,7 @@
     "??_GRLEBlitter@@": 4769936,
     "??_ECCFileClass@@UAEPAXI@Z": 4200864,
     "??_EMultiplayerGameMode@@UAEPAXI@Z": 6000144,
-    "?Unknown_00406F50@@YAXXZ": 4222800,
+    "?Audio_Focus_Lose@@YAXXZ": 4222800,
     "?Get_Frame@AnimFile@@UAEPAXH@Z": 4342704,
     "??_7?$DynamicVectorClass@PAVAlphaLightingRemapClass@@@@6B@": 7976960,
     "??_G?$VectorClass@USwizzlePointerClass@@@@UAEPAXI@Z": 6947120,
@@ -9037,7 +9037,7 @@
     "__imp__GetCapture@0": 7971820,
     "__imp__ReleaseCapture@0": 7971816,
     "?Unknown_007357E0@@YIXPAXH@Z": 7559136,
-    "?Unknown_00735B10@@YIPAUHWND__@@XZ": 7559952,
+    "?WS_Top_Window@@YIPAUHWND__@@XZ": 7559952,
     "?Unknown_005C2C80@@YAXHPBGZZ": 6040704,
     "?unknown_color_7a7360@@3HA": 8024928,
     "?Voc_Play_At@@YIPAUAudioEvent@@HABUCoordStruct@@PAUAudioEventHandle@@@Z": 7421536,
@@ -9126,7 +9126,7 @@
     "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM@Z": 7455168,
     "?unknown_slot7@MPCooperative@@UAE_NH@Z": 5909712,
     "?unknown_slot22@MPCooperative@@UAE_NXZ": 5915216,
-    "?Unknown_005c6600@@YIHH@Z": 6055424,
+    "?RandomMapWaypointCount@@YIHH@Z": 6055424,
     "?unknown_slot28@MPCooperative@@UAE_NXZ": 5915584,
     "?AssignTeams@MPCooperative@@UAE_NXZ": 5909872,
     "?UnfixAlliances@MPCooperative@@UAE_NXZ": 5914336,
@@ -9576,7 +9576,7 @@
     "??_ENode@?$WolDictionary@VWstring@@H@@QAEPAXI@Z": 7759776,
     "??_EMapSelect@@UAEPAXI@Z": 5832096,
     "?Unknown_0051A2B0@@YIXXZ": 5350064,
-    "?Unknown_00406F70@@YAXXZ": 4222832,
+    "?Audio_Focus_Regain@@YAXXZ": 4222832,
     "??_7?$TypeList@PBVTeamTypeClass@@@@6B@": 8007364,
     "?Unknown_0051A2B0@@YA_NXZ": 5350064,
     "?Unknown_00496460@@YAXPBDZZ": 4809824,
@@ -9833,7 +9833,7 @@
     "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ": 4844608,
     "?Unknown_0049EC60@DisplayClass@@QAEXPAVObjectClass@@@Z": 4844640,
     "_IID_IGameMap": 8006696,
-    "?unknown_tactical_83996c@@3PAVTactical@@A": 8624492,
+    "?TacticalMap@@3PAVTactical@@A": 8624492,
     "?Unknown_0055ACC0@MapClass@@QAEXXZ": 5614784,
     "?Is_Button_Listed@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114528,
     "?Add_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114560,
@@ -10029,7 +10029,7 @@
     "?Unknown_0067C150@SidebarClass@@QAEXPAVObjectClass@@@Z": 6799696,
     "?Unknown_0067C370@SidebarClass@@QAE_NPAVFactoryClass@@HH@Z": 6800240,
     "?Is_Enabled@GadgetClass@@QBE_NXZ": 5042528,
-    "?unknown_int_a40d34@@3HA": 10751284,
+    "?_dialog_count@@3HA": 10751284,
     "?Select_Tab@SidebarClass@@QAEXH@Z": 6805904,
     "?Start_Flashing@ShapeButtonClass@@QAE_NHH_N@Z": 6771408,
     "?Unknown_0067E1C0@SidebarClass@@QAEXXZ": 6808000,
@@ -10311,7 +10311,7 @@
     "?Draw_Matrix@RocketLocomotionClass@@UAGPAVMatrix3D@@PAV2@PAH@Z": 6548480,
     "?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z": 4680896,
     "?Draw_Matrix@TunnelLocomotionClass@@UAGPAVMatrix3D@@PAV2@PAH@Z": 7277792,
-    "?unknown_flag_a40380@@3_NA": 10748800,
+    "?TacticalActive@@3_NA": 10748800,
     "?Unknown_0049C670@DisplayClass@@QAEXXZ": 4834928,
     "?Write_INI_0049D910@DisplayClass@@QAEXAAVCCINIClass@@@Z": 4839696,
     "?Spread_Tiberium@CellClass@@QAE_N_N@Z": 4688448,
@@ -11845,7 +11845,7 @@
     "?unknown_func_4e7070@HouseClass@@QAE_NPAVTechnoClass@@PAVBuildingClass@@@Z": 5140592,
     "?Is_Build_Limited_004F4F30@HouseClass@@QAE_NPAVTechnoTypeClass@@@Z": 5197616,
     "?Fetch_Waypoint_Data@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z": 5165744,
-    "?Unknown_004F3120@HouseClass@@QBE_NXZ": 5189920,
+    "?Can_Add_Waypoint_To_Path@HouseClass@@QBE_NXZ": 5189920,
     "??_7WaypointPathClass@@6B@": 8056616,
     "??_EWaypointPathClass@@UAEPAXI@Z": 7492096,
     "?Play@BinkMovieHandle@@UAEXXZ": 5905088,
@@ -12050,7 +12050,7 @@
     "?WS_Find_Dialog_00735940@@YIPAUHWND__@@H@Z": 7559488,
     "?unknown_b2abe0@@3IA": 11709408,
     "?OnServerError@CChatEventSink@@UAGJJPBD@Z": 7728848,
-    "?unknown_b2abd9@@3_NA": 11709401,
+    "?g_PlayingNetGame@@3_NA": 11709401,
     "?OnMessageOfTheDay@CChatEventSink@@UAGJJPBD@Z": 7729808,
     "?Char_To_Wide_006fa0c0@@YIXPAGPBDH@Z": 7315648,
     "?OnChannelLeave@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@@Z": 7736272,
@@ -12690,7 +12690,7 @@
     "?unknown_cursor_b263d0@@3PAXA": 11690960,
     "?Windows_Procedure@@YGJPAUHWND__@@IIJ@Z": 7566752,
     "?IMEContext@@3PAUHIMC__@@A": 11690980,
-    "?unknown_command_show_b263cc@@3HA": 11690956,
+    "?ShowCommand@@3HA": 11690956,
     "?IME_Reset@@YAXXZ": 7568784,
     "?IMECompositionString@@3PAGA": 11690408,
     "?IMECompositionLength@@3HA": 11690988,
@@ -12698,7 +12698,7 @@
     "?IMEComposing@@3HA": 11690996,
     "?IMEResultString@@3PAGA": 11689852,
     "?IME_Update_Composition@@YAXXZ": 7568944,
-    "?unknown_b263a8@@3GA": 11690920,
+    "?IMECompositionTerminator@@3GA": 11690920,
     "?IME_Send_Result@@YIXPAUHWND__@@@Z": 7569184,
     "?IME_Process_Message@@YIHPAUHWND__@@IIJ@Z": 7569344,
     "?Build_By_String_00737b00@@YIPADPADH@Z": 7568128,
@@ -12914,7 +12914,7 @@
     "??1WinModemClass@@UAE@XZ": 7553392,
     "??1MovieHandle@@UAE@XZ": 5905312,
     "??_7MovieHandle@@6B@": 8021588,
-    "?Unknown_Movie_Message_005a08f0@@YIXH@Z": 5900528,
+    "?Ingame_Movie_Subtitle@@YIXH@Z": 5900528,
     "?Counter@ScrollClass@@2V?$CDTimerClass@VSystemTimerClass@@@@A": 11235400,
     "?unknown_shape_ab9480@SidebarClass@@2PBXB": 11244672,
     "?Draw_Mouse@WWMouseClass@@UAEXPAVSurface@@_N@Z": 7808016,
@@ -12969,7 +12969,7 @@
     "?Get_Mouse_Frame@MouseClass@@QBEHH_N@Z": 5894560,
     "?Get_Mouse_Hotspot@MouseClass@@QBE?AUPoint2D@@H@Z": 5894608,
     "?unknown_button_ab96b8@SidebarClass@@2VShapeButtonClass@@A": 11245240,
-    "?unknown_button_abcc58@SidebarClass@@2VShapeButtonClass@@A": 11258968,
+    "?Upgrade@SidebarClass@@2VShapeButtonClass@@A": 11258968,
     "?unknown_buttons_ab9508@SidebarClass@@2PAVShapeButtonClass@@A": 11244808,
     "?unknown_button_abcbe8@SidebarClass@@2VShapeButtonClass@@A": 11258856,
     "?unknown_button_abccc0@SidebarClass@@2VShapeButtonClass@@A": 11259072,
@@ -13036,7 +13036,7 @@
     "?unknown_button_ab6380@RadarClass@@2VShapeButtonClass@@A": 11232128,
     "?unknown_rect_ab6320@RadarClass@@2VRect@@A": 11232032,
     "?Clear_Radar@RadarClass@@QAEXXZ": 6495808,
-    "?Unknown_00716640@@YIHPBD@Z": 7431744,
+    "?Vox_From_Name@@YIHPBD@Z": 7431744,
     "?Set_Buttons@RadarClass@@QAEX_N@Z": 6484688,
     "?unknown_int_ab646c@@3HA": 11232364,
     "?unknown_int_ab6468@@3HA": 11232360,
@@ -13071,7 +13071,7 @@
     "?unknown_list_a40c20@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A": 10751008,
     "?Radar_Activate@RadarClass@@QAEXH_N@Z": 6500352,
     "?Set_Radar_State@RadarClass@@QAEX_N0@Z": 6500144,
-    "?unknown_color_ac1028@@3UUnknownColor_006f45a0@@A": 11276328,
+    "?TooltipColor@@3UUnknownColor_006f45a0@@A": 11276328,
     "?RadarEventClass_unknown_all_63b910@@YAXXZ": 6535440,
     "?Speech_Stop@@YIX_N@Z": 7429600,
     "?Speech_Clear@@YIXXZ": 7428016,
@@ -13093,7 +13093,7 @@
     "?Unknown_006F5870@@YIHH@Z": 7297136,
     "?Unknown_006F5E10@@YIXH@Z": 7298576,
     "?Unknown_006F6570@@YAXXZ": 7300464,
-    "?unknown_color_ac1028@@3VRGBClass@@A": 11276328,
+    "?TooltipColor@@3VRGBClass@@A": 11276328,
     "?unknown_int_83963c@@3HA": 8623676,
     "?Set_Button_Count@TabClass@@SIXH@Z": 6948464,
     "?unknown_int_abe2ac@@3HA": 11264684,
@@ -13108,7 +13108,7 @@
     "?unknown_rect_ac1208@@3PBVRect@@B": 11276808,
     "?Unknown_006A1AB0@TabClass@@QAEXXZ": 6953648,
     "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z": 6951536,
-    "?Unknown_006A1710@TabClass@@QAEXXZ": 6952720,
+    "?Draw_Credits_Tab@TabClass@@QAEXXZ": 6952720,
     "?Remove_Pip@PowerClass@@QAEXXZ": 6409040,
     "?Desired_Levels@PowerClass@@QAEHAAH00@Z": 6407936,
     "?unknown_rect_839620@@3VRect@@A": 8623648,
@@ -13118,14 +13118,14 @@
     "?unknown_rect_ab6338@@3VRect@@A": 11232056,
     "?unknown_int_af8fe8@@3HA": 11505640,
     "?Update_Transmission@RadarClass@@QAEXXZ": 6503488,
-    "?Unknown_00716950@@YAXXZ": 7432528,
-    "?Unknown_00408330@@YAHXZ": 4227888,
+    "?Remove_Speech_Hold@@YAXXZ": 7432528,
+    "?AudioStreamerAllFaded@@YAHXZ": 4227888,
     "?Unknown_005A0B10@@YAXXZ": 5901072,
-    "?Unknown_00716690@@YI_NH@Z": 7431824,
-    "?Unknown_004082B0@@YAXXZ": 4227760,
-    "?Unknown_00716940@@YAXXZ": 7432512,
+    "?Is_Speech_Finished@@YI_NH@Z": 7431824,
+    "?AudioStreamerFadeOutAllStreams@@YAXXZ": 4227760,
+    "?Add_Speech_Hold@@YAXXZ": 7432512,
     "?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z": 4250576,
-    "?queued_movies_00af8fd8@@3V?$DynamicVectorClass@PAVMovieHandle@@@@A": 11505624,
+    "?IngameVQ@@3V?$DynamicVectorClass@PAVMovieHandle@@@@A": 11505624,
     "?Activate@LightSourceClass@@QAEX_N@Z": 5469504,
     "??0CreditClass@@QAE@XZ": 4801808,
     "?unknown_int_abe464@@3HA": 11265124,
@@ -13154,8 +13154,8 @@
     "?Unknown_0049DCD0@DisplayClass@@QAEXPAX@Z": 4840656,
     "?Add_Pip@PowerClass@@QAEXXZ": 6409152,
     "?Unknown_006F7360@@YAXXZ": 7304032,
-    "?Unknown_00494650@CreditClass@@QAEX_N@Z": 4802128,
-    "?Unknown_00494530@CreditClass@@QAEX_N@Z": 4801840,
+    "?AI@CreditClass@@QAEX_N@Z": 4802128,
+    "?Graphic_Logic@CreditClass@@QAEX_N@Z": 4801840,
     "?unknown_int_ac0ff4@@3HA": 11276276,
     "?Cheer@HouseClass@@QAEXXZ": 5202608,
     "?Set_Volume@VoxClass@@SIXH@Z": 7429872,
@@ -13164,16 +13164,16 @@
     "?Play_Movie@RadarClass@@QAEXXZ": 6503728,
     "?unknown_shape_ab64a0@@3PAXA": 11232416,
     "?Unknown_005A0AC0@@YAXXZ": 5900992,
-    "?Unknown_0065C310@@YAXXZ": 6669072,
+    "?Release_Scenario@@YAXXZ": 6669072,
     "?Unknown_00714410@@YAXXZ": 7422992,
     "?Unknown_007160D0@@YIXXZ": 7430352,
     "?unknown_rect_8336e8@@3VRect@@A": 8599272,
     "?Unknown_0067F800@StripClass@SidebarClass@@QAEX_N@Z": 6813696,
     "?Sorted_Add@LayerClass@@QAEHPAVObjectClass@@@Z": 5458304,
     "?Sort@LayerClass@@QAEXXZ": 5458208,
-    "?Unknown_Queue_Movie_005a0840@@YIXPBD_N@Z": 5900352,
-    "?unknown_radar_y_8336d0@@3HA": 8599248,
-    "?unknown_radar_x_8336cc@@3HA": 8599244,
+    "?Play_Ingame_Movie@@YIXPBD_N@Z": 5900352,
+    "?SidebarMovieY@@3HA": 8599248,
+    "?SidebarMovieX@@3HA": 8599244,
     "?Speech_Shutdown@@YAXXZ": 7427968,
     "??0VoxClass@@QAE@PBD@Z": 7430368,
     "??1VoxClass@@QAE@XZ": 7430544,
@@ -13182,7 +13182,7 @@
     "?Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z": 6727584,
     "?What_Action@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z": 6723936,
     "?Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z": 6725312,
-    "?Unknown_0051A690@@YIPAVObjectClass@@PBVCell@@PAV1@@Z": 5351056,
+    "?Best_Selected_Object@@YIPAVObjectClass@@PBVCell@@PAV1@@Z": 5351056,
     "?Unknown_006340F0@@YGHPAUHWND__@@IIJ@Z": 6504688,
     "?Fill_In_Background@RadarClass@@QAEXABVRect@@0@Z": 6492752,
     "?Plot_Radar_Background@RadarClass@@QAEXXZ": 6493696,
@@ -13203,8 +13203,8 @@
     "?Active_Click_0049E870@DisplayClass@@QAEXPAVObjectClass@@VCell@@H@Z": 4843632,
     "?Unknown_00499390@DisplayClass@@QAE_NPAVBuildingTypeClass@@HHPBVCell@@@Z": 4821904,
     "?Passes_Proximity_Check_004991D0@DisplayClass@@QBE_NPBVObjectTypeClass@@HPBVCell@@ABV3@@Z": 4821456,
-    "?unknown_name_7ee064@@3PBDB": 8314980,
-    "?unknown_name_7ee068@@3PBDB": 8314984,
+    "?BriefingButtonShapeName@@3PBDB": 8314980,
+    "?OptionsButtonShapeName@@3PBDB": 8314984,
     "?unknown_int_ab6470@@3HA": 11232368,
     "?unknown_int_ab6474@@3HA": 11232372,
     "?unknown_int_ab6340@@3HA": 11232064,
@@ -13608,7 +13608,13 @@
     "?End@ProgressScreenClass@@QAEXXZ": 6417904,
     "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
     "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
-    "?Unknown_005689D0@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376
+    "?Unknown_005689D0@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376,
+    "?Which_Column@seed_00681940@@YIIHHH@Z": 6822208,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Cheer@InfantryClass@@UAEXXZ": 5281456,
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
+    "?Movies@@3V?$DynamicVectorClass@PBD@@A": 10948688,
+    "?Play_Ingame_Movie@@YIXH_N@Z": 5900576
   },
   "regions": [
     {
@@ -13721,7 +13727,7 @@
           "resolved": 10936560
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -13772,7 +13778,7 @@
           "resolved": 10936368
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -13823,7 +13829,7 @@
           "resolved": 10936352
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -13874,7 +13880,7 @@
           "resolved": 10825592
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -13925,7 +13931,7 @@
           "resolved": 10824824
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -14008,7 +14014,7 @@
           "resolved": 10937224
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -14067,7 +14073,7 @@
           "resolved": 10825608
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -14126,7 +14132,7 @@
           "resolved": 10932064
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -14185,7 +14191,7 @@
           "resolved": 10936556
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -14228,7 +14234,7 @@
           "resolved": 10825390
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -14279,7 +14285,7 @@
           "resolved": 10932040
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -14386,7 +14392,7 @@
           "resolved": 2466751
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -14412,7 +14418,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -14471,7 +14477,7 @@
           "resolved": 8002412
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -14497,7 +14503,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "58d44b3d49b4cf572dc1729be433b2563b1e47d23c7644bc7273c21580773fa9",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -14523,7 +14529,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "60e1ad8f54963be5014fb0672040c5416c2fe6735039fd06c19b1279983517b6",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -14549,7 +14555,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "7d043569ce0bdb08296d7ac6849e3e3281b3d90d09d70cf19458c7b457863ecc",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -14592,7 +14598,7 @@
           "resolved": 2438774
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -14628,7 +14634,7 @@
           "resolved": 2438736
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -14655,7 +14661,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -14682,7 +14688,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -14709,7 +14715,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -14736,7 +14742,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -14789,7 +14795,7 @@
         }
       ],
       "source": "src/recovered/isotype.cpp",
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source_order": 242947,
       "population": "population-4398",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -14840,7 +14846,7 @@
         }
       ],
       "source": "src/recovered/isotype.cpp",
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source_order": 242948,
       "population": "population-4398",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -14891,7 +14897,7 @@
         }
       ],
       "source": "src/recovered/isotype.cpp",
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source_order": 242949,
       "population": "population-4398",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -14942,7 +14948,7 @@
         }
       ],
       "source": "src/recovered/isotype.cpp",
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source_order": 242950,
       "population": "population-4398",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -14984,7 +14990,7 @@
           "resolved": 2437709
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -15019,7 +15025,7 @@
           "resolved": 8612
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -15045,7 +15051,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "742ea839bce1ac12916f9b028f41baf6a4234c0791cffc4e2edcf81c4604bdab",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -15080,7 +15086,7 @@
           "resolved": 8806884
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -15115,7 +15121,7 @@
           "resolved": 2438307
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -15142,7 +15148,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -15168,7 +15174,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -15203,7 +15209,7 @@
           "resolved": 695196
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -15246,7 +15252,7 @@
           "resolved": 2438384
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -15290,7 +15296,7 @@
           "resolved": 2438077
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -15317,7 +15323,7 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "41ac92a47950d3949cbda24d087c96cb7ab38f2a794f3f36a36607cd2fafa2b2",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -15385,7 +15391,7 @@
           "resolved": 10825404
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -15412,7 +15418,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "source_order": 242953,
       "population": "population-4398",
@@ -15464,7 +15470,7 @@
           "resolved": 10751200
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -15490,7 +15496,7 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "68a1302b1ebcf720225e7cad1efc2aab68acb1ff8c3c34f9e96812a6c0fe419f",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -15575,7 +15581,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "3f1423d2d8565363fa49d26a4dd6977a77095ccb118ebc25fd5576ef9ecfca31",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -15611,7 +15617,7 @@
           "resolved": 8250604
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -15655,7 +15661,7 @@
           "resolved": 4294942409
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -15714,7 +15720,7 @@
           "resolved": 4294942320
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -15740,7 +15746,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "ca3c1205798bf634a8e881dc9db24ff3fb7f20dd9dc683989c92525bd043a67c",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -15911,7 +15917,7 @@
           "resolved": 309
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -15937,7 +15943,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "8aa28c477cf076d3c6e0898cd904f3bf0f178f896f0a3ab4cb7229cbc32d33b4",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -15972,7 +15978,7 @@
           "resolved": 8562
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -16047,7 +16053,7 @@
           "resolved": 10824836
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -16073,7 +16079,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -16191,7 +16197,7 @@
         {
           "offset": 139,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 0,
           "resolved": 11275440
@@ -16199,7 +16205,7 @@
         {
           "offset": 149,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 0,
           "resolved": 11275440
@@ -16207,7 +16213,7 @@
         {
           "offset": 167,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 16,
           "resolved": 11275456
@@ -16215,7 +16221,7 @@
         {
           "offset": 180,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 16,
           "resolved": 11275456
@@ -16223,7 +16229,7 @@
         {
           "offset": 188,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 4,
           "resolved": 11275444
@@ -16231,7 +16237,7 @@
         {
           "offset": 202,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 16,
           "resolved": 11275456
@@ -16269,7 +16275,7 @@
           "resolved": 706667
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -16304,7 +16310,7 @@
           "resolved": 10935570
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -16411,7 +16417,7 @@
           "resolved": 10825424
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -18014,7 +18020,7 @@
           "resolved": 10937220
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -18361,7 +18367,7 @@
           "resolved": 10936536
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -18438,7 +18444,7 @@
         {
           "offset": 293,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 8,
           "resolved": 11275448
@@ -18446,7 +18452,7 @@
         {
           "offset": 299,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 16,
           "resolved": 11275456
@@ -18454,7 +18460,7 @@
         {
           "offset": 309,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 13,
           "resolved": 11275453
@@ -18462,7 +18468,7 @@
         {
           "offset": 321,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 20,
           "resolved": 11275460
@@ -18470,7 +18476,7 @@
         {
           "offset": 332,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 0,
           "resolved": 11275440
@@ -18478,7 +18484,7 @@
         {
           "offset": 339,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 0,
           "resolved": 11275440
@@ -18486,7 +18492,7 @@
         {
           "offset": 352,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 16,
           "resolved": 11275456
@@ -18494,7 +18500,7 @@
         {
           "offset": 361,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 16,
           "resolved": 11275456
@@ -18502,7 +18508,7 @@
         {
           "offset": 367,
           "kind": 6,
-          "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
           "target": 11275440,
           "addend": 4,
           "resolved": 11275444
@@ -18588,7 +18594,7 @@
           "resolved": 2462474
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -18663,7 +18669,7 @@
           "resolved": 8016252
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -18698,7 +18704,7 @@
           "resolved": 8700
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -18757,7 +18763,7 @@
           "resolved": 10751200
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -18783,7 +18789,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "7cdcf69e5c5686fa3ff742402e50d1be86b59b3eb2881d570e46fd95bfb79bc4",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -18826,7 +18832,7 @@
           "resolved": 10825420
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -18927,7 +18933,7 @@
         {
           "offset": 249,
           "kind": 6,
-          "symbol": "?unknown_palette_837e10@@3VPaletteClass@@A",
+          "symbol": "?GamePalette@@3VPaletteClass@@A",
           "target": 8617488,
           "addend": 0,
           "resolved": 8617488
@@ -19021,7 +19027,7 @@
           "resolved": 8594332
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -19122,7 +19128,7 @@
         {
           "offset": 132,
           "kind": 6,
-          "symbol": "?unknown_palette_837e10@@3VPaletteClass@@A",
+          "symbol": "?GamePalette@@3VPaletteClass@@A",
           "target": 8617488,
           "addend": 0,
           "resolved": 8617488
@@ -19288,7 +19294,7 @@
           "resolved": 199723
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -19499,7 +19505,7 @@
           "resolved": 4293768094
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -19606,7 +19612,7 @@
           "resolved": 4293934354
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -19632,7 +19638,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "920e21c9071196fd218abf6402a15ac3b75116103d778eba4367cb0cdcf75bdb",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -19803,7 +19809,7 @@
           "resolved": 4294391290
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -19974,7 +19980,7 @@
           "resolved": 4294335862
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -20000,7 +20006,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "57f9adde7e32b480059e3fde6242f3705bd9070fa8c41d7ba5f9e6c9838e011d",
       "relocations": [],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -20195,7 +20201,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -22206,7 +22212,7 @@
           "resolved": 10931072
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -22241,7 +22247,7 @@
           "resolved": 8250668
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -26068,7 +26074,7 @@
           "resolved": 4294837761
         }
       ],
-      "source_sha256": "fd0a78f67a5e18febf076236fcbaef7d56223f1d536e5e3014cf89caa1ff56a3",
+      "source_sha256": "90fd1d0337c28fd64a441403c71ce7b663a1e1a9a1581c614b8e97aa8cf0f3ab",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

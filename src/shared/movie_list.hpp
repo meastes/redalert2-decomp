@@ -7,7 +7,7 @@
 // The movie names at 0x00A71050 (the scenario's Intro/Brief/Action indices; Start_Scenario
 // formats "%s.VQA" from one). Find_Index 0x00482E60 returns the index of a name, -1 for
 // "<none>" or unknown.
-extern DynamicVectorClass<char const *> unknown_names_a71050;
-int __fastcall unknown_name_index_482e60(char const *name);
+extern DynamicVectorClass<char const *> Movies;
+int __fastcall VQ_From_Name(char const *name);
 
 #endif

@@ -19,18 +19,19 @@
 #include "shared/notice.hpp"
 #include "shared/mouse.hpp"
 
-// A 16-byte member at TabClass +0x4EEC (constructor 0x00494510 clears it).
+// The credit display, a 16-byte member at TabClass +0x4EEC (credits.cpp; names from
+// mischa85/RedAlert2 392e904 include/credits.h and TibSun credits.h).
 struct CreditClass {
     CreditClass();
-    void Unknown_00494650(bool forced);    // 0x00494650 (TabClass::AI, every frame; TibSun CreditClass::AI)
-    void Unknown_00494530(bool arg);   // 0x00494530 (TabClass::Draw_It, after the background)
+    void AI(bool forced);               // 0x00494650 (TabClass::AI, every frame)
+    void Graphic_Logic(bool forced);    // 0x00494530 (TabClass::Draw_It, after the background)
     CreditClass(NoInitClass const &noinit) {}
-    int unknown_00;
-    int unknown_04;     // +0x04 (TabClass +0x4EF0, cleared by slot 53)
-    bool unknown_08;
-    bool unknown_09;
-    bool unknown_0a;
-    int unknown_0c;
+    int Credits;        // Value of credits trying to update display to.
+    int Current;        // Credit value currently displayed (TabClass +0x4EF0, cleared by slot 53).
+    bool IsToRedraw;
+    bool IsUp;
+    bool IsAudible;
+    int Countdown;      // Delay between ticks.
 };
 
 // Draw_It's function-local static: where the mouse was last seen over the bar
@@ -47,7 +48,7 @@ public:
     TabClass();                                                 // 0x006A06E0
     // Restore-in-place form (the copy the linker kept is 0x0059FF60, Mouse.cpp).
     TabClass(NoInitClass const &noinit)
-        : SidebarClass(noinit), unknown_4eec(noinit), unknown_4efc(noinit), unknown_4f08(noinit)
+        : SidebarClass(noinit), Credits(noinit), unknown_4efc(noinit), unknown_4f08(noinit)
     {
     }
     virtual bool INoticeSink_Unknown(int code, int arg);        // 0x006A2020 (secondary vtable 0x007A64DC)
@@ -87,7 +88,7 @@ public:
     void Unknown_006A17B0();                // 0x006A17B0 (sets +0x4F15 and flags a redraw)
     // Draws the bar's background shape (0x00AC10F8) at the sidebar surface's
     // origin (0x006A1710).
-    void Unknown_006A1710();
+    void Draw_Credits_Tab();
     // Sets up the two side buttons (ids 0xF0 and 0xF1); inlined into Init_IO, whose copy of the
     // code this is (0x006A19E0, no callers).
     static void Unknown_006A19E0();
@@ -110,7 +111,7 @@ public:
     static int SlotButton[25];                          // 0x00ABE2C8
 
     // +0x4EE8 INoticeSink vptr
-    CreditClass unknown_4eec;                        // +0x4EEC
+    CreditClass Credits;                                // +0x4EEC
     CDTimerClass<FrameTimerClass> unknown_4efc;         // +0x4EFC
     CDTimerClass<FrameTimerClass> unknown_4f08;         // +0x4F08
     bool unknown_4f14;                                  // +0x4F14

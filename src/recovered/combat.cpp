@@ -223,9 +223,9 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
 
     int cell_height = Map.Get_Height_GL(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0));
     if (cell_height < coord.Z) {
-        unknown_tracker_839ea0.Unknown_004128A0(cptr, (int)warhead->CellSpread);
+        AircraftTracker.Unknown_004128A0(cptr, (int)warhead->CellSpread);
         TechnoClass *techno;
-        while ((techno = unknown_tracker_839ea0.Fetch_Next_004134e0()) != 0) {
+        while ((techno = AircraftTracker.Fetch_Next_004134e0()) != 0) {
             if (techno->unknown_7d && techno->unknown_74 && techno->Strength > 0) {
                 distance = Coord_Distance_To(coord, techno->Coord);
                 if (distance <= range) {
@@ -376,8 +376,8 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
                         Unknown_006D7C80((AbstractClass *)cptr);
                     }
                     Point2D point;
-                    unknown_tactical_83996c->Coord_To_Pixel(coord, point);
-                    unknown_tactical_83996c->Register_Dirty_Area(Rect(point.X - 128, point.Y - 128, 256, 256), false);
+                    TacticalMap->Coord_To_Pixel(coord, point);
+                    TacticalMap->Register_Dirty_Area(Rect(point.X - 128, point.Y - 128, 256, 256), false);
                 }
             }
         }
@@ -397,8 +397,8 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
                         Unknown_006D7C80((AbstractClass *)cptr);
                     }
                     Point2D point;
-                    unknown_tactical_83996c->Coord_To_Pixel(coord, point);
-                    unknown_tactical_83996c->Register_Dirty_Area(Rect(point.X - 96, point.Y - 96, 192, 192), false);
+                    TacticalMap->Coord_To_Pixel(coord, point);
+                    TacticalMap->Register_Dirty_Area(Rect(point.X - 96, point.Y - 96, 192, 192), false);
                 }
             }
         }
@@ -424,7 +424,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
         cptr->OverlayIndex = -1;
         cptr->Recalc_Attributes(-1);
         Map.Update_Cell_Zone(cptr->MapCoords);
-        Map.Unknown_00566340(cptr->MapCoords);
+        Map.Update_Cell_Subzones(cptr->MapCoords);
         Unknown_006D7C80((AbstractClass *)cptr);
 
         new AnimClass(Rules->BarrelExplode, coord, 0, 1, 0x600, 0);
@@ -443,7 +443,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
     if (warhead->Particle != 0) {
         ParticleSystemClass *psys;
         if (warhead->Particle->BehavesLike == 1) {
-            psys = unknown_gas_cloud_system_a40d20;
+            psys = GasSystem;
         } else {
             psys = new ParticleSystemClass(warhead->Particle, coord, 0, 0, unknown_geometry_l);
         }

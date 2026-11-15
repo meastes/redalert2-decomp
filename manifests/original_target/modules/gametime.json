@@ -31,13 +31,13 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_milliseconds_004d0070@@YAHXZ",
+   "symbol": "?Get_Game_Time@@YAHXZ",
    "entry": "004d0070",
    "body_bytes": 23,
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_ticks_004d0090@@YAKXZ",
+   "symbol": "?Get_Game_Time_50@@YAKXZ",
    "entry": "004d0090",
    "body_bytes": 53,
    "padding_bytes": 11
@@ -53,31 +53,31 @@
  "references_in": [
   {
    "site": "00411420",
-   "symbol": "?unknown_ticks_004d0090@@YAKXZ",
+   "symbol": "?Get_Game_Time_50@@YAKXZ",
    "target": "004d0090",
    "function_entry": true
   },
   {
    "site": "004115a0",
-   "symbol": "?unknown_ticks_004d0090@@YAKXZ",
+   "symbol": "?Get_Game_Time_50@@YAKXZ",
    "target": "004d0090",
    "function_entry": true
   },
   {
    "site": "00411b70",
-   "symbol": "?unknown_ticks_004d0090@@YAKXZ",
+   "symbol": "?Get_Game_Time_50@@YAKXZ",
    "target": "004d0090",
    "function_entry": true
   },
   {
    "site": "00412000",
-   "symbol": "?unknown_ticks_004d0090@@YAKXZ",
+   "symbol": "?Get_Game_Time_50@@YAKXZ",
    "target": "004d0090",
    "function_entry": true
   },
   {
    "site": "004122c0",
-   "symbol": "?unknown_ticks_004d0090@@YAKXZ",
+   "symbol": "?Get_Game_Time_50@@YAKXZ",
    "target": "004d0090",
    "function_entry": true
   }

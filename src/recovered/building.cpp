@@ -378,8 +378,8 @@ BuildingClass::BuildingClass(BuildingTypeClass *type, HouseClass *house) :
     unknown_4f4.Value = 0;
     unknown_BuildingClass_list_00a40af8.Add(this);
     Init();
-    unknown_abstracts_ac0c80.Add(this);
-    unknown_abstracts_ac0bf8.Add(this);
+    FactoryPtrTracker.Add(this);
+    AnimPtrTracker.Add(this);
     unknown_object_index_abff58.Add_Index(Fetch_ID(), this);
     if (Type) {
         int count = Type->NumberOfDocks;
@@ -429,7 +429,7 @@ BuildingClass::~BuildingClass()
     unknown_44cfd0(-2);
     Type->Free_Buildup();
     unknown_4397c0();
-    if (unknown_flag_a40958 && Type && Type->CloakGenerator) {
+    if (GameActive && Type && Type->CloakGenerator) {
         unknown_5bb = -1;
         if (!unknown_5bc) {
             unknown_5bc = Type->CloakRadiusInCells;
@@ -441,11 +441,11 @@ BuildingClass::~BuildingClass()
     if (unknown_452800() != -1 || unknown_452860() != -1) {
         House->Update_Present_Super_Weapons();
     }
-    if (unknown_flag_a40958) {
+    if (GameActive) {
         if (Strength != unknown_43c) {
             House->unknown_5668 = true;
         }
-        if (unknown_flag_a40958 && Type) {
+        if (GameActive && Type) {
             if (House) {
                 House->Tracking_Remove(this);
             }
@@ -454,8 +454,8 @@ BuildingClass::~BuildingClass()
     }
     delete unknown_41c;
     unknown_41c = 0;
-    Remove_From(unknown_abstracts_ac0bf8, this);
-    Remove_From(unknown_abstracts_ac0c80, this);
+    Remove_From(AnimPtrTracker, this);
+    Remove_From(FactoryPtrTracker, this);
     unknown_object_index_abff58.Remove_Index(Fetch_ID());
     Type = 0;
     unknown_7d = false;
@@ -482,7 +482,7 @@ void BuildingClass::Create_Damage_Fires_004395f0()
         for (int index = 0; index < 8; ++index) {
             if (Type->DamageFireOffset[index] == Damage_Fire_Offset_End_0084ed30) return;
             if (unknown_49c[index] != 0) return;
-            CoordStruct coordinate = Projected_Coord_0043bbd0(unknown_tactical_83996c->Unknown_006A2900(Type->DamageFireOffset[index]));
+            CoordStruct coordinate = Projected_Coord_0043bbd0(TacticalMap->Unknown_006A2900(Type->DamageFireOffset[index]));
             Accumulate_Coord_004395f0(coordinate, unknown_slot42());
             AnimClass *fire = new AnimClass(Rules->DamageFireTypes[type_index], coordinate, 0, 1, 0x600, 0);
             if (fire) {
@@ -547,7 +547,7 @@ int BuildingClass::Receive_Message(RadioClass *radio,int message,AbstractClass *
         TechnoClass::Receive_Message(radio,message,param);
         if (!House->Is_Ally(sender)) return 0;
         if (Get_Mission()==18 || Get_Mission()==19 || unknown_42c==0 ||
-            (!unknown_a40774 && !Unknown_00636ED0(sender))) return 10;
+            (!ScenarioInit && !Unknown_00636ED0(sender))) return 10;
         if (sender->Techno_Type_Class()->MovementZone!=5 &&
             ((Techno_Type_Class()->Naval && !sender->Techno_Type_Class()->Naval) ||
              (!Techno_Type_Class()->Naval && sender->Techno_Type_Class()->Naval))) return 10;
@@ -567,10 +567,10 @@ int BuildingClass::Receive_Message(RadioClass *radio,int message,AbstractClass *
         }
         if (Type->Helipad) return radio->What_Am_I()==2?1:10;
         if (Type->DockUnload && radio->Kind_Of()==1 && static_cast<UnitClass *>(radio)->Type->Harvester) {
-            if (unknown_a40774 || !Cargo.Object) return 1;
+            if (ScenarioInit || !Cargo.Object) return 1;
         }
         if (Type->Weeder && radio->Kind_Of()==1 && static_cast<UnitClass *>(radio)->Type->Weeder) {
-            if (unknown_a40774 || !Cargo.Object) return 1;
+            if (ScenarioInit || !Cargo.Object) return 1;
         }
         return 0;
     case 21:
@@ -685,7 +685,7 @@ bool BuildingClass::Render(Rect *bounds,bool force,bool alternate)
 
         if(Overlap_Draw_Bounds(*bounds,Offset_Draw_Bounds(Get_Render_Rect(),origin))) {
             Point2D pixel;
-            unknown_tactical_83996c->Coord_To_Pixel(unknown_slot42(),pixel);
+            TacticalMap->Coord_To_Pixel(unknown_slot42(),pixel);
             if(bounds->X>unknown_rect_839630.X) {
                 pixel.X=(int)((unsigned int)pixel.X+(unsigned int)unknown_rect_839630.X-(unsigned int)bounds->X);
             }
@@ -797,7 +797,7 @@ void BuildingClass::Draw_It(Point2D const &draw_point, Rect const &bounds)
         depth_point+=Type->ZShapePointMove;
     }
     Point2D footprint(Type->Width()*256-256,Type->Foundation_Height(false)*256-256);
-    depth_point-=unknown_tactical_83996c->Coord_To_Pixel_Absolute(footprint);
+    depth_point-=TacticalMap->Coord_To_Pixel_Absolute(footprint);
     ShapeFileStruct const *depth_shape=unknown_building_depth_shape_85029c;
     if(Type->Width()>=8) depth_shape=0;
     if(bounds.Height>0) {
@@ -848,7 +848,7 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
                 if(!unknown_b263d8 || Debug_Map || !(unknown_id_source_a3d290->unknown_000&0x1000) ||
                    (!Map.Is_Fogged(product->Position_Coord_004f3f40()) && !Map.Is_Fogged(destination))) {
                     Point2D point;
-                    unknown_tactical_83996c->Coord_To_Pixel(product->unknown_slot42(),point);
+                    TacticalMap->Coord_To_Pixel(product->unknown_slot42(),point);
                     product->Draw_It(point,bounds);
                 }
             }
@@ -1032,7 +1032,7 @@ UnknownFacingDir BuildingClass::unknown_slot170(AbstractClass *target)
             WeaponStruct *weap = unknown_slot231(0);
             int z = weap->FLH.Z;
             CoordStruct coord = unknown_slot42() + CoordStruct(0, 0, z);
-            CoordStruct pt(unknown_tactical_83996c->Unknown_006A2900(Point2D(Type->Anims[9].Offset.X, Type->Anims[9].Offset.Y)), 0);
+            CoordStruct pt(TacticalMap->Unknown_006A2900(Point2D(Type->Anims[9].Offset.X, Type->Anims[9].Offset.Y)), 0);
             coord += pt;
             CoordStruct fire = predicted - coord;
 
@@ -1100,11 +1100,11 @@ UnknownFacingDir BuildingClass::unknown_slot285(AbstractClass *target)
     CoordStruct offset=unknown_geometry_l;
     Point2D const &pixel=Type->PrimaryFirePixelOffset;
     if(Fire_Pixels_Differ_0043bbd0(pixel,Point2D(65535,65535))) {
-        offset=Projected_Coord_0043bbd0(unknown_tactical_83996c->Unknown_006A2900(pixel));
+        offset=Projected_Coord_0043bbd0(TacticalMap->Unknown_006A2900(pixel));
     } else {
         Point2D turret(Type->Anims[9].Offset.X,Type->Anims[9].Offset.Y);
         if(turret.X!=0 || turret.Y!=0) {
-            offset=Projected_Coord_0043bbd0(unknown_tactical_83996c->Unknown_006A2900(turret));
+            offset=Projected_Coord_0043bbd0(TacticalMap->Unknown_006A2900(turret));
         }
     }
     CoordStruct from=Center_Coord()+offset;
@@ -1401,7 +1401,7 @@ void BuildingClass::AI()
         } else {
             for (int index = 0; index < Type->MaxNumberOccupants; ++index) {
                 if ((Frame + index) % 24 == 0 && Rules->unknown_2a8) {
-                    CoordStruct location(unknown_tactical_83996c->Unknown_006A2900(Type->MuzzleFlash[index]), 0);
+                    CoordStruct location(TacticalMap->Unknown_006A2900(Type->MuzzleFlash[index]), 0);
                     location = unknown_slot42() + location;
                     AnimClass *effect = new AnimClass(Rules->unknown_2a8, location, 0, 1, 0x600, 0);
                     effect->ZAdjust = -200;
@@ -1742,7 +1742,7 @@ bool BuildingClass::Unlimbo(CoordStruct const *coord, int dir)
             unknown_4e8->Activate(false);
         }
 
-        if (Type->LaserFencePost && !unknown_a40774) {
+        if (Type->LaserFencePost && !ScenarioInit) {
             if (unknown_7d && !unknown_76) {
                 unknown_44dfc0(0);
                 unknown_44dfc0(2);
@@ -1964,7 +1964,7 @@ void BuildingClass::Leave_Rubble_0043eba0()
             cell.unknown_40 = 0;
             cell.Recalc_Attributes(-1);
             Map.Update_Cell_Zone(cell.MapCoords);
-            Map.Unknown_00566340(cell.MapCoords);
+            Map.Update_Cell_Subzones(cell.MapCoords);
             Unknown_006D7C80(&cell);
         }
         CellClass &base = Map[origin];
@@ -1972,8 +1972,8 @@ void BuildingClass::Leave_Rubble_0043eba0()
         Rect area = Union(base.Overlay_Render_Rect(), base.Overlay_Shadow_Render_Rect());
         Point2D view_origin(unknown_rect_839630.X, unknown_rect_839630.Y);
         Point2D translated(area.X - view_origin.X, area.Y - view_origin.Y);
-        unknown_tactical_83996c->Register_Dirty_Area(Rect(RectPoint2D(translated.X, translated.Y), area.Width, area.Height), 0);
-        unknown_tactical_83996c->Flag_Cell(&Map[origin]);
+        TacticalMap->Register_Dirty_Area(Rect(RectPoint2D(translated.X, translated.Y), area.Width, area.Height), 0);
+        TacticalMap->Flag_Cell(&Map[origin]);
     }
     if (Type->CrateBeneath) {
         Cell position = Coord_Cell(unknown_slot42());
@@ -2196,7 +2196,7 @@ void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
             Debug_Printf("Creating survivor type '%s' from building type '%s'\n",survivor->Type->Name.Buffer,Type->Name.Buffer);
             if(survivor) {
                 if(unknown_5b9 && survivor->Type->Nominal)survivor->unknown_5c1=true;
-                ++unknown_a40774;
+                ++ScenarioInit;
                 coordinate=CoordStruct(location.X*256+128,location.Y*256+164,0);
                 coordinate=((UnknownPlacementCellView *)&Map[coordinate])->Closest_Free_Spot(coordinate,false,false);
                 if(coordinate==unknown_geometry_l || !survivor->Unlimbo(&coordinate,0)) {
@@ -2216,7 +2216,7 @@ void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
                         survivor->QueueMission(15,false);
                     }
                 }
-                --unknown_a40774;
+                --ScenarioInit;
             }
         }
         if(cell->Is_Clear_To_Move(1,1,1,-1,0,-1,1)) {
@@ -2429,7 +2429,7 @@ exitcell = edge;
 int random = Random_Pick(0, Map.MapLocalSize.Height);
 exitcell.X += random; exitcell.Y += random;
 }
-                ++unknown_a40774;
+                ++ScenarioInit;
                 if (aircraft->Unlimbo(&CoordStruct(exitcell, 0), 0)) {
                     AbstractClass *target = unknown_1b0;
                     if (target) {
@@ -2443,19 +2443,19 @@ exitcell.X += random; exitcell.Y += random;
                         }
                     }
                     aircraft->Set_Mission(2);
-                    --unknown_a40774;
+                    --ScenarioInit;
                     return 2;
                 }
-                --unknown_a40774;
+                --ScenarioInit;
                 return 0;
             }
         } else {
             aircraft->unknown_func_5d4920(0);
-            ++unknown_a40774;
+            ++ScenarioInit;
             if (House->Unknown_0051FC80()) {
                 Cell nearby = aircraft->unknown_6cf130(this);
                 if (aircraft->Unlimbo(&CoordStruct(nearby, 0), aircraft->Pose_Dir())) {
-                    --unknown_a40774;
+                    --ScenarioInit;
                     return 2;
                 }
             } else {
@@ -2468,11 +2468,11 @@ exitcell.X += random; exitcell.Y += random;
                         aircraft->Assign_Destination(unknown_1b0, 1);
                         aircraft->QueueMission(2, 0);
                     }
-                    --unknown_a40774;
+                    --ScenarioInit;
                     return 2;
                 }
             }
-            --unknown_a40774;
+            --ScenarioInit;
             return 0;
         }
         break;
@@ -2528,7 +2528,7 @@ exitcell.X += random; exitcell.Y += random;
                         }
                         return 1;
                     }
-                    ++unknown_a40774;
+                    ++ScenarioInit;
                     if (base->Unlimbo(&unknown_slot44(0), 0x40)) {
                         base->Mark(0);
                         base->Set_Coord(unknown_slot44(0));
@@ -2536,7 +2536,7 @@ exitcell.X += random; exitcell.Y += random;
                         unknown_slot150(2, base);
                         unknown_slot150(0x18, base);
                         QueueMission(0x10, 0);
-                        --unknown_a40774;
+                        --ScenarioInit;
                         return 2;
                     }
                 }
@@ -2577,7 +2577,7 @@ exitcell.X += random; exitcell.Y += random;
                 if (Type->NODBarracks && exitcell.X == x + 2 && exitcell.Y == y + 2) {
                     exitcoord = exitcoord + Type->ExitCoord;
                 }
-                ++unknown_a40774;
+                ++ScenarioInit;
                 if (base->Unlimbo(&exitcoord, dir)) {
                     FootClass *foot = (FootClass *)base;
                     if (foot->unknown_494) {
@@ -2600,7 +2600,7 @@ exitcell.X += random; exitcell.Y += random;
                     if (unknown_slot150(2, base) == 1) {
                         unknown_slot150(9, base);
                     }
-                    --unknown_a40774;
+                    --ScenarioInit;
                     return 2;
                 }
             } else {
@@ -2630,7 +2630,7 @@ exitcell.X += random; exitcell.Y += random;
                 if (Type->NODBarracks && exitcell.X == x + 2 && exitcell.Y == y + 2) {
                     exitcoord = exitcoord + Type->ExitCoord;
                 }
-                ++unknown_a40774;
+                ++ScenarioInit;
                 if (base->Unlimbo(&exitcoord, dir)) {
                     base->QueueMission(2, 0);
                     base->Assign_Destination(&Map[exitcell], 1);
@@ -2643,14 +2643,14 @@ exitcell.X += random; exitcell.Y += random;
                             base->unknown_6d6e50(0);
                         }
                     }
-                    --unknown_a40774;
+                    --ScenarioInit;
                     return 2;
                 }
             }
         } else {
             if (base->Kind_Of() == 1) {
                 exitcell = Adjacent_Cell(Cell(Center_Coord()), 5);
-                ++unknown_a40774;
+                ++ScenarioInit;
                 if (base->Unlimbo(&CoordStruct(Adjacent_Cell(exitcell, 4), 0), 0xA0)) {
                     base->unknown_2e0.Set(UnknownFacingDir((unsigned short)0x8000));
                     base->QueueMission(10, 0);
@@ -2660,7 +2660,7 @@ exitcell.X += random; exitcell.Y += random;
                 return 0;
             }
         }
-        --unknown_a40774;
+        --ScenarioInit;
         return 0;
     case 6:
         if (!House->Is_Human_Player()) {
@@ -2846,7 +2846,7 @@ bool BuildingClass::Limbo()
         if (Type->LaserFencePost) {
             unknown_44dc40(0);
         }
-        if (unknown_a40774 == 0) {
+        if (ScenarioInit == 0) {
             if (Type->SensorArray) {
                 unknown_slot289(unknown_geometry_k);
             }
@@ -2863,7 +2863,7 @@ bool BuildingClass::Limbo()
                 break;
             }
         }
-        if (!unknown_flag_a40958) {
+        if (!GameActive) {
             result = true;
             goto fence;
         }
@@ -2897,8 +2897,8 @@ bool BuildingClass::Limbo()
                 }
             }
         }
-        if (unknown_tactical_83996c != 0) {
-            unknown_tactical_83996c->Register_Dirty_Area(Get_Render_Rect(), 0);
+        if (TacticalMap != 0) {
+            TacticalMap->Register_Dirty_Area(Get_Render_Rect(), 0);
         }
         if (unknown_4d4 != 0) {
             ((ObjectClass *)unknown_4d4)->Delete_Me();
@@ -2920,7 +2920,7 @@ bool BuildingClass::Limbo()
         House->unknown_func_4f3170(Type->Factory, Type->Naval, 0);
     }
 fence:
-    if (Type->LaserFencePost && unknown_a40774 == 0) {
+    if (Type->LaserFencePost && ScenarioInit == 0) {
         unknown_4ec = 0;
     }
     return result;
@@ -3055,7 +3055,7 @@ void BuildingClass::unknown_slot282(bool captured)
         }
         Unknown_0063B5B0(12, Cell(Position_Coord_004f3f40()));
     }
-    if (!House->Is_Player_Control() && unknown_int_a3d548 == 0 && unknown_game_mode_a3d298 != 0 &&
+    if (!House->Is_Player_Control() && MuteSWLaunches == 0 && unknown_game_mode_a3d298 != 0 &&
         (Type->SuperWeapon == -1 || !Supers[Type->SuperWeapon]->Type->AuxBuilding ||
          House->unknown_5460.unknown_func_491d10(Supers[Type->SuperWeapon]->Type->AuxBuilding->ArrayIndex) != 0)) {
         switch (Type->SuperWeapon) {
@@ -3076,7 +3076,7 @@ void BuildingClass::unknown_slot282(bool captured)
     House->unknown_5668 = true;
     House->unknown_5669 = true;
     if (Techno_Type_Class()->GapGenerator) unknown_slot235();
-    if (Type->FreeUnit && unknown_a40774 == 0 && !captured && !Debug_Map &&
+    if (Type->FreeUnit && ScenarioInit == 0 && !captured && !Debug_Map &&
         (!House->Is_Human_Player() || unknown_258 == 0 || unknown_258 > Type->Raw_Cost())) {
         Cell origin(Center_Coord());
         short south_y = (short)(origin.Y + grand_south_step_00851a80.Y);
@@ -3114,7 +3114,7 @@ void BuildingClass::unknown_slot282(bool captured)
         }
     }
     if (!Rules->unknown_142c && Type->HoverPad && !captured) {
-        ++unknown_a40774;
+        ++ScenarioInit;
         AircraftClass *aircraft = new AircraftClass(Rules->PadAircraft[0], House);
         if (aircraft) {
             aircraft->Set_Height_AGL(0);
@@ -3124,7 +3124,7 @@ void BuildingClass::unknown_slot282(bool captured)
                 unknown_slot150(0x18, aircraft);
             }
         }
-        --unknown_a40774;
+        --ScenarioInit;
     }
 }
 
@@ -3329,19 +3329,19 @@ result_action:
 void BuildingClass::unknown_443d60(int state)
 {
     unknown_430=state;
-    if(unknown_42c==-1 || state==0 || unknown_a40774) {
+    if(unknown_42c==-1 || state==0 || ScenarioInit) {
         unknown_430=-1;
         unknown_42c=state;
         BuildingTriple const *control=&Type->AnimFrames[state];
-        if(unknown_a40774) {
+        if(ScenarioInit) {
             unknown_44c920(17,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
-            if(unknown_a40774) {
+            if(ScenarioInit) {
                 unknown_44c920(3,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
-                if(unknown_a40774) {
+                if(ScenarioInit) {
                     unknown_44c920(4,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
-                    if(unknown_a40774) {
+                    if(ScenarioInit) {
                         unknown_44c920(5,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
-                        if(unknown_a40774) {
+                        if(ScenarioInit) {
                             unknown_44c920(6,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
                         }
                     }
@@ -3997,7 +3997,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                     InfantryClass *infantry=0;
                     if(crew) infantry=new InfantryClass(crew,House);
                     if(infantry) {
-                        ++unknown_a40774;
+                        ++ScenarioInit;
                         Cell cell=unknown_slot104()+foundation[unknown_id_source_a3d290->RandomNumber(0,cells-1)];
                         CoordStruct position=CoordStruct(cell)+CoordStruct(0,36,0);
                         position=Map[position].Closest_Free_Spot(position,false,false);
@@ -4005,12 +4005,12 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                             delete infantry;
                         } else {
                             if(infantry->Type->Nominal) infantry->unknown_5c1=true;
-                            --unknown_a40774;
+                            --ScenarioInit;
                             infantry->Scatter(unknown_geometry_l,true,false);
-                            ++unknown_a40774;
+                            ++ScenarioInit;
                             infantry->QueueMission(2,false);
                         }
-                        --unknown_a40774;
+                        --ScenarioInit;
                     }
                     --count;
                 }
@@ -4039,9 +4039,9 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                     unknown_2e0.Set_Desired(UnknownFacingDir((Dir256)Type->unknown_c64));
                     return 1;
                 }
-                ++unknown_a40774;
+                ++ScenarioInit;
                 UnitClass *unit=new UnitClass(Type->UndeploysInto,House);
-                --unknown_a40774;
+                --ScenarioInit;
                 if(unit) {
                     double ratio=Health_Ratio();
                     int refund=unknown_slot167();
@@ -4456,7 +4456,7 @@ int BuildingClass::Do_MISSION_REPAIR()
 
 // bool BuildingClass::Revealed(HouseClass *house) (0x00448FE0)
 // The techno's slot 96 first (false stops here). Outside the special mode
-// (unknown_a40774 clear) the owner records this type's index and its flag
+// (ScenarioInit clear) the owner records this type's index and its flag
 // at +0x18D; the owner's +0x144 is set. A building not in radio contact then
 // runs slot 282(false) when its owner passes 0x004F52F0 and neither its
 // slot 91 nor its queued mission is 0x12, or when the owner fails it, the
@@ -4465,7 +4465,7 @@ int BuildingClass::Do_MISSION_REPAIR()
 bool BuildingClass::Revealed(HouseClass *house)
 {
     if (TechnoClass::Revealed(house)) {
-        if (unknown_a40774 == 0) {
+        if (ScenarioInit == 0) {
             House->unknown_1b4 = Type->ArrayIndex;
             House->unknown_18d = true;
         }
@@ -4485,7 +4485,7 @@ bool BuildingClass::Revealed(HouseClass *house)
 bool BuildingClass::unknown_slot261(bool opening, bool arg2)
 {
     int mission;
-    if(opening && !unknown_a40774 && !Debug_Map) {
+    if(opening && !ScenarioInit && !Debug_Map) {
         unknown_443d60(false);
         mission=18;
     } else {
@@ -4717,7 +4717,7 @@ int BuildingClass::Do_MISSION_OPEN()
                         unknown_2a8.Count_Up(Type->DeployTime);
                         CoordStruct position = Coord;
                         Voc_Play_At(Rules->GateDown, position, 0);
-                        unknown_tactical_83996c->Register_Dirty_Area(Get_Render_Rect(), 0);
+                        TacticalMap->Register_Dirty_Area(Get_Render_Rect(), 0);
                     }
                 }
                 unknown_a8 = 1;
@@ -5788,7 +5788,7 @@ void BuildingClass::unknown_44c9a0()
         // Original dispatch requires the ObjectClass slot103 interface; concrete entry class is not assumed.
         ObjectClass *animation=static_cast<ObjectClass *>(unknown_454[index]);
         if(animation) {
-            CoordStruct position=unknown_tactical_83996c->Unknown_006A2BF0(Type->Anims[index].Offset)+center;
+            CoordStruct position=TacticalMap->Unknown_006A2BF0(Type->Anims[index].Offset)+center;
             animation->Set_Coord(position);
         }
     }
@@ -5813,7 +5813,7 @@ void BuildingClass::unknown_44ca60(char const *name, int index, bool damaged, bo
     unknown_44d070(damaged);
     int type = AnimTypeClass::From_Name(name);
     if (type != -1) {
-        CoordStruct coord(unknown_slot42() + unknown_tactical_83996c->Unknown_006A2BF0(Type->Anims[index].Offset));
+        CoordStruct coord(unknown_slot42() + TacticalMap->Unknown_006A2BF0(Type->Anims[index].Offset));
         AnimClass *animation = new AnimClass(AnimTypes[type], coord, delay, 1, 0x1600, 0);
         animation->ZAdjust = Type->Anims[index].ZAdjust;
         animation->YSortAdjust = Type->Anims[index].YSort;
@@ -6375,13 +6375,13 @@ bool BuildingClass::unknown_44db40(CellClass *cell)
 
 
 // void BuildingClass::unknown_44dbe0() (0x0044DBE0)
-// Outside a movie (unknown_a40774 clear), a laser fence post that is active
+// Outside a movie (ScenarioInit clear), a laser fence post that is active
 // (+0x7D) and not selected out (+0x76 clear) refreshes its four directions
 // (0044DFC0 with 0, 2, 4, 6) and then the field (0044E5A0).
 
 void BuildingClass::unknown_44dbe0()
 {
-    if (!unknown_a40774 && Type->LaserFencePost && unknown_7d && !unknown_76) {
+    if (!ScenarioInit && Type->LaserFencePost && unknown_7d && !unknown_76) {
         unknown_44dfc0(0);
         unknown_44dfc0(2);
         unknown_44dfc0(4);
@@ -6405,7 +6405,7 @@ inline Cell Adjacent_Cell(Cell const &cell, int facing)
 #endif
 void BuildingClass::unknown_44dc40(int explode)
 {
-    if (!unknown_a40774 && Type->LaserFencePost) {
+    if (!ScenarioInit && Type->LaserFencePost) {
         bool do_explode = false;
         if (explode == (int)true) {
             do_explode = true;
@@ -6465,7 +6465,7 @@ void __fastcall BuildingClass::unknown_44df40()
 {
     for(int index=0;index<unknown_BuildingClass_list_00a40af8.Count();++index) {
         BuildingClass *building=unknown_BuildingClass_list_00a40af8[index];
-        if(building && building->Type->LaserFencePost && unknown_a40774==0 && building->unknown_7d && !building->unknown_76) {
+        if(building && building->Type->LaserFencePost && ScenarioInit==0 && building->unknown_7d && !building->unknown_76) {
             building->unknown_44dfc0(0);
             building->unknown_44dfc0(2);
             building->unknown_44dfc0(4);
@@ -6492,7 +6492,7 @@ void BuildingClass::unknown_44dfc0(int dir)
 {
     BuildingClass *building;
 
-    if (!unknown_a40774 && Type->LaserFencePost) {
+    if (!ScenarioInit && Type->LaserFencePost) {
         int range;
         if (Type->LaserFencePost) {
             range = Type->GuardRange.Value >> 8;
@@ -6624,7 +6624,7 @@ destroy:
 
 void __fastcall Building_Reset_Fence_Progress_0044e570(BuildingClass *building)
 {
-    if(!unknown_a40774 && building->Type->LaserFencePost)
+    if(!ScenarioInit && building->Type->LaserFencePost)
         building->unknown_4ec=0;
 }
 
@@ -6720,16 +6720,16 @@ static inline CoordStruct Add_Pixel_Offset(CoordStruct &coord,Point2D const &poi
 CoordStruct BuildingClass::unknown_slot43(int weapon)
 {
     if(Type->CanBeOccupied && unknown_554.Count()>0) {
-        CoordStruct offset(unknown_tactical_83996c->Unknown_006A2900(Type->MuzzleFlash[unknown_56c]),0);
+        CoordStruct offset(TacticalMap->Unknown_006A2900(Type->MuzzleFlash[unknown_56c]),0);
         return unknown_slot42()+offset;
     } else {
         Point2D const &pixel=Type->PrimaryFirePixelOffset;
         if(Fire_Pixels_Differ_0043bbd0(pixel,Point2D(65535,65535))) {
             if(Type->PrimaryFireDualOffset) {
-                CoordStruct offset(unknown_tactical_83996c->Unknown_006A2900(pixel),0);
+                CoordStruct offset(TacticalMap->Unknown_006A2900(pixel),0);
                 return TechnoClass::unknown_slot43(weapon)+offset;
             } else {
-                CoordStruct offset(unknown_tactical_83996c->Unknown_006A2900(pixel),0);
+                CoordStruct offset(TacticalMap->Unknown_006A2900(pixel),0);
                 return unknown_slot42()+offset;
             }
         } else {
@@ -6737,7 +6737,7 @@ CoordStruct BuildingClass::unknown_slot43(int weapon)
             CoordStruct coord=TechnoClass::unknown_slot43(weapon);
             if(Type->TurretAnimIsVoxel) {
                 Point2D turret(Type->Anims[9].Offset.X,Type->Anims[9].Offset.Y);
-                coord=Add_Pixel_Offset(coord,unknown_tactical_83996c->Unknown_006A2900(turret));
+                coord=Add_Pixel_Offset(coord,TacticalMap->Unknown_006A2900(turret));
             }
             return coord;
         }
@@ -6750,19 +6750,19 @@ static inline CoordStruct Add_Pixel_Offset(CoordStruct &coord,Point2D const &poi
 CoordStruct BuildingClass::Turret_Coord(int weapon)
 {
     if(Type->CanBeOccupied && unknown_554.Count()>0) {
-        CoordStruct offset=Projected_Coord_0043bbd0(unknown_tactical_83996c->Unknown_006A2900(Type->MuzzleFlash[unknown_56c]));
+        CoordStruct offset=Projected_Coord_0043bbd0(TacticalMap->Unknown_006A2900(Type->MuzzleFlash[unknown_56c]));
         return unknown_slot42()+offset;
     } else {
         Point2D const &pixel=Type->PrimaryFirePixelOffset;
         if(Fire_Pixels_Differ_0043bbd0(pixel,Point2D(65535,65535))) {
-            CoordStruct offset=Projected_Coord_0043bbd0(unknown_tactical_83996c->Unknown_006A2900(pixel));
+            CoordStruct offset=Projected_Coord_0043bbd0(TacticalMap->Unknown_006A2900(pixel));
             return unknown_slot42()+offset;
         }
         if(Type->BarrelAnimIsVoxel) return unknown_44ed60(weapon,false);
         CoordStruct coord=TechnoClass::Turret_Coord(weapon);
         if(Type->TurretAnimIsVoxel) {
             Point2D turret(Type->Anims[9].Offset.X,Type->Anims[9].Offset.Y);
-            coord=Add_Pixel_Offset(coord,unknown_tactical_83996c->Unknown_006A2900(turret));
+            coord=Add_Pixel_Offset(coord,TacticalMap->Unknown_006A2900(turret));
         }
         return coord;
     }
@@ -6792,7 +6792,7 @@ CoordStruct BuildingClass::unknown_44ed60(int weapon, bool previous)
     CoordStruct delta(x,y,z);
     CoordStruct result=unknown_slot42()+delta;
     Point2D pixel(Type->Anims[9].Offset.X,Type->Anims[9].Offset.Y);
-    return Add_Pixel_Offset(result,unknown_tactical_83996c->Unknown_006A2900(pixel));
+    return Add_Pixel_Offset(result,TacticalMap->Unknown_006A2900(pixel));
 }
 
 
@@ -7542,13 +7542,13 @@ inline Rect Offset_Draw_Bounds(Rect const &bounds,Point2D const &pixel) { Point2
 Rect BuildingClass::Get_Render_Rect()
 {
     CoordStruct position=unknown_slot42();
-    Point2D view(unknown_tactical_83996c->TacPixelX, unknown_tactical_83996c->TacPixelY);
+    Point2D view(TacticalMap->TacPixelX, TacticalMap->TacPixelY);
     Rect result;
     if(position==unknown_51c && view==unknown_528) {
         result=unknown_50c;
     } else {
         Point2D pixel;
-        unknown_tactical_83996c->Coord_To_Pixel(position,pixel);
+        TacticalMap->Coord_To_Pixel(position,pixel);
         result=Offset_Draw_Bounds(Type->unknown_func_45e290(),pixel);
         unknown_51c=position;
         unknown_528=view;
@@ -7858,7 +7858,7 @@ void __fastcall Draw_Radial_Indicator_00451BF0(unsigned int radius,unsigned char
         pixels = (int)(((double)radius + 0.5) / unknown_sqrt_4ba410(2.0) * 60.0);
     }
     Point2D pixel;
-    unknown_tactical_83996c->Coord_To_Pixel(center, pixel);
+    TacticalMap->Coord_To_Pixel(center, pixel);
     pixel += Point2D(unknown_rect_839630.X, unknown_rect_839630.Y);
     Rect area = Rect(pixel.X - pixels, pixel.Y - pixels / 2, pixels * 2, pixels);
     Rect visible = Intersect(area, unknown_rect_839630);
@@ -8355,7 +8355,7 @@ after_first_edge:
     }
 
     destination = Map[selected].Center_Coord();
-    unknown_a40774 = (int)((unsigned int)unknown_a40774 + 1u);
+    ScenarioInit = (int)((unsigned int)ScenarioInit + 1u);
     for (int index = (int)((unsigned int)unknown_554.Count() - 1u); index >= 0; --index) {
         InfantryClass *member = unknown_554[index];
         if (member->Unlimbo(&destination, 0)) {
@@ -8370,7 +8370,7 @@ after_first_edge:
             member->Delete_Me();
         }
     }
-    unknown_a40774 = (int)((unsigned int)unknown_a40774 - 1u);
+    ScenarioInit = (int)((unsigned int)ScenarioInit - 1u);
     DynamicVectorClass<InfantryClass *> &occupants = unknown_554;
     int capacity = occupants.Length();
     occupants.Clear();
@@ -8467,7 +8467,7 @@ void BuildingClass::KillOccupants(InfantryClass *infantry)
     } else {
         for(int index=unknown_554.Count()-1;index>=0;--index) {
             CoordStruct coordinate;
-            Occupant_Offset_To_Coord(coordinate,unknown_tactical_83996c->Unknown_006A2900(Type->MuzzleFlash[index]));
+            Occupant_Offset_To_Coord(coordinate,TacticalMap->Unknown_006A2900(Type->MuzzleFlash[index]));
             coordinate=coordinate+unknown_slot42();
             AnimClass *animation=new AnimClass(reinterpret_cast<AnimTypeClass *>(infantry->unknown_slot231(0)->WeaponType->unknown_f4),coordinate,0,1,0x600,0);
             animation->ZAdjust=-200;

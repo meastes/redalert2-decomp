@@ -29,10 +29,10 @@
 extern DynamicVectorClass<EgoClass *> unknown_EgoClass_list_00855930;
 extern char const *unknown_scheme_name_007d83b4;
 extern bool unknown_surfaces_restored_008523dc;
-extern bool unknown_flag_851cb0;
-extern bool unknown_flag_a40d28;
+extern bool WindowedMode;
+extern bool GameInFocus;
 extern Surface *unknown_surface_853118;
-extern int unknown_8523e0,unknown_8523e4;
+extern int VideoModeWidth,VideoModeHeight;
 extern TTimerClass<SystemTimerClass> TickCount;
 extern wchar_t labels_0085311c[];
 extern int credits_scroll_speed_007d6430;
@@ -75,7 +75,7 @@ static wchar_t const *Expand_Labels_004b37c0(char const *text)
 }
 void __fastcall Show_Who_Was_Responsible_004b37c0()
 {
-    unknown_surface_83995c=unknown_surface_839958;
+    unknown_surface_83995c=AlternateSurface;
     CCFileClass file("CREDITS.TXT");
     if (file.Is_Available()) {
         char *credits=new char[file.Size()+1];
@@ -85,7 +85,7 @@ void __fastcall Show_Who_Was_Responsible_004b37c0()
         int length=file.Size();
         int line=0,column=0;
         char *cursor=credits;
-        int y=unknown_surface_839954->Get_Height()+2;
+        int y=HiddenSurface->Get_Height()+2;
         int lastline=-2;
         do {
             char ch=*cursor++;
@@ -132,13 +132,13 @@ void __fastcall Show_Who_Was_Responsible_004b37c0()
             }
         } while (length>0);
         Theme.Stop();
-        unknown_surface_839954->Fill(0);
-        Unknown_004E0C90(true,unknown_surface_839954,0);
+        HiddenSurface->Fill(0);
+        Unknown_004E0C90(true,HiddenSurface,0);
         unknown_surface_853118=new DSurface(unknown_int_839648,unknown_int_83964c,false);
-        unknown_surface_853118->Copy_From(*unknown_surface_839954,false,true);
+        unknown_surface_853118->Copy_From(*HiddenSurface,false,true);
         WWKeyboard->Clear();
         float oldvolume=Options.ScoreVolume;
-        unknown_surface_83995c=unknown_surface_839954;
+        unknown_surface_83995c=HiddenSurface;
         if ((double)oldvolume==0.0) Options.Set_Score_Volume(0.4f,false);
         Theme.Queue_Song(Theme.From_Name("CREDITS"));
         int time=TickCount.Time();
@@ -151,7 +151,7 @@ void __fastcall Show_Who_Was_Responsible_004b37c0()
             if (unknown_surfaces_restored_008523dc) {
                 unknown_surfaces_restored_008523dc=false;
                 fresh=true;
-                if (!unknown_flag_851cb0) {
+                if (!WindowedMode) {
                     unknown_surface_839950->Fill(0);
                     unknown_surface_853118->Fill(0);
                 }
@@ -168,10 +168,10 @@ void __fastcall Show_Who_Was_Responsible_004b37c0()
                     break;
                 }
             }
-            Rect dest(0,32,unknown_8523e0,unknown_8523e4-66);
-            Rect source(0,34,unknown_8523e0,unknown_8523e4-66);
-            Rect top(0,0,unknown_8523e0,34);
-            Rect bottom(0,unknown_8523e4-34,unknown_8523e0,34);
+            Rect dest(0,32,VideoModeWidth,VideoModeHeight-66);
+            Rect source(0,34,VideoModeWidth,VideoModeHeight-66);
+            Rect top(0,0,VideoModeWidth,34);
+            Rect bottom(0,VideoModeHeight-34,VideoModeWidth,34);
             unknown_surface_853118->Fill_Rect(top,0);
             unknown_surface_853118->Fill_Rect(bottom,0);
             for (i=unknown_EgoClass_list_00855930.Count()-1;i>=0;--i) unknown_EgoClass_list_00855930[i]->Draw(fresh);
@@ -182,15 +182,15 @@ void __fastcall Show_Who_Was_Responsible_004b37c0()
                 for (int fade_y=0;fade_y<32;fade_y++) {
                     int alpha=min(256-fade_y*8,255);
                     int first=step*fade_y;
-                    int last=step*(unknown_8523e4-fade_y-1);
-                    for (int x=0;x<unknown_8523e0;++x) {
+                    int last=step*(VideoModeHeight-fade_y-1);
+                    for (int x=0;x<VideoModeWidth;++x) {
                         (pixels+first)[x]=OwnerDraw::Blend_Color((pixels+first)[x],0,alpha);
                         (pixels+last)[x]=OwnerDraw::Blend_Color((pixels+last)[x],0,alpha);
                     }
                 }
                 unknown_surface_853118->Unlock();
             }
-            if (unknown_flag_a40d28) {
+            if (GameInFocus) {
                 if (fresh) unknown_surface_839950->Copy_From(*unknown_surface_853118,false,true);
                 else {
                     unknown_surface_839950->Copy_From(top,*unknown_surface_853118,top,false,true);
@@ -211,8 +211,8 @@ void __fastcall Show_Who_Was_Responsible_004b37c0()
             Service_Game_IO_00481fb0();
             while (TickCount.Time()-time<frame*credits_scroll_speed_007d6430 && !WWKeyboard->Check()) {}
         }
-        unknown_surface_839954->Fill(0);
-        Unknown_004E0C90(true,unknown_surface_839954,0);
+        HiddenSurface->Fill(0);
+        Unknown_004E0C90(true,HiddenSurface,0);
         WWMouse->Show_Mouse();
         unknown_scheme_name_007d83b4="Blue";
         Theme.Stop();

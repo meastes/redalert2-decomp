@@ -66,7 +66,7 @@ class FootClass;
 
 extern "C" GUID const CLSID_ParasiteClass;     // 0x007A1DF0
 // Objects updated every frame (0x00AC0BF8; name hypothesis, see BulletClass).
-extern DynamicVectorClass<AbstractClass *> unknown_abstracts_ac0bf8;
+extern DynamicVectorClass<AbstractClass *> AnimPtrTracker;
 
 class ParasiteClass : public AbstractClass {
 public:
@@ -103,7 +103,7 @@ public:
     int unknown_48;                                 // +0x48
     int unknown_4c;                                 // +0x4C
     int unknown_50;                                 // +0x50
-    bool unknown_54;                                // +0x54 listed in unknown_abstracts_ac0bf8
+    bool unknown_54;                                // +0x54 listed in AnimPtrTracker
 };
 
 extern DynamicVectorClass<ParasiteClass *> unknown_ParasiteClass_list_00a76430;   // 0x00A76430

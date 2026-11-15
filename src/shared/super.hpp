@@ -46,8 +46,8 @@ struct SuperStateStruct {
     int unknown_8;      // +0x08
 };
 
-// The super joins object.hpp's lists unknown_objects_ac0cb0 (0x00AC0CB0),
-// unknown_abstracts_ac0d08 and unknown_abstracts_ac0bf8.
+// The super joins object.hpp's lists AbstractTypePtrTracker (0x00AC0CB0),
+// HousePtrTracker and AnimPtrTracker.
 // The super weapon type whose placement is pending (4 while a chronosphere warp waits, else -1; hypothesis).
 extern int unknown_pending_super_833694;                          // 0x00833694
 extern Cell const unknown_cell_abd768;                            // 0x00ABD768

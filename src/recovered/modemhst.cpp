@@ -122,7 +122,7 @@ bool ModemHost::Dialog_00598e10()
         GuestName[0] = 0;
         GuestColor = -1;
         GuestHouse = -1;
-        unknown_modem_host_a70de4 = this;
+        _ModemHost = this;
         unknown_54 = Unknown_006525F0();
         Read_Art_INI();
         unknown_58 = unknown_art_ini_unique_id();
@@ -137,7 +137,7 @@ bool ModemHost::Dialog_00598e10()
                 if (Process_Messages_0059b690(false) == true) {
                     break;
                 }
-                unknown_517370(false);
+                Title_Screen_Restore(false);
             }
             if (Result != 1) {
                 break;
@@ -150,7 +150,7 @@ bool ModemHost::Dialog_00598e10()
             ShowWindow(Window, 5);
         }
         unknown_dialog_5ff6e0(Window);
-        unknown_modem_host_a70de4 = 0;
+        _ModemHost = 0;
         if (Changed == true) {
             unknown_session_a3d298.Write_MultiPlayer_Settings();
         }
@@ -293,14 +293,14 @@ int __stdcall ModemHost::Dialog_Proc_00598fa0(HWND window, UINT message, WPARAM 
         }
         break;
     case 0x2:
-        if (unknown_dialog_preview_a72ce8) {
-            delete unknown_dialog_preview_a72ce8;
-            unknown_dialog_preview_a72ce8 = 0;
+        if (MultiplayerMapPreview) {
+            delete MultiplayerMapPreview;
+            MultiplayerMapPreview = 0;
         }
         break;
     case 0xF:
-        if (unknown_dialog_preview_a72ce8) {
-            unknown_dialog_preview_a72ce8->Blit_Preview(window);
+        if (MultiplayerMapPreview) {
+            MultiplayerMapPreview->Blit_Preview(window);
         }
         ValidateRect(window, 0);
         break;
@@ -379,11 +379,11 @@ void ModemHost::Init_Dialog_00599920()
     Debug_Printf("UnitCount: %d\n", unknown_session_a3d298.UnitCount);
     control = GetDlgItem(Window, 0x550);
     if (control) {
-        int value = unknown_house_setting_7d88d8;
+        int value = BuildLevel;
         SendMessageA(control, 0x406, 1, 0xA0001);
         SendMessageA(control, 0x405, 1, value);
     }
-    Debug_Printf("TechLevel: %d\n", unknown_house_setting_7d88d8);
+    Debug_Printf("TechLevel: %d\n", BuildLevel);
     control = GetDlgItem(Window, 0x402);
     if (control) {
         int value = unknown_session_a3d298.unknown_24;
@@ -463,12 +463,12 @@ void ModemHost::Init_Dialog_00599920()
     }
     Debug_Printf("Crap Engineers: %s\n", unknown_session_a3d298.unknown_34 == true ? "ON" : "OFF");
     VerNum.Init_Clipping();
-    srand(unknown_random_839218(1, 0x7FFF));
+    srand(NonCriticalRandomNumber(1, 0x7FFF));
     Seed = rand();
     unknown_special_a40920.unknown_bit_4 = Rules->CaptureTheFlag;
-    if (unknown_dialog_preview_a72ce8) {
-        delete unknown_dialog_preview_a72ce8;
-        unknown_dialog_preview_a72ce8 = 0;
+    if (MultiplayerMapPreview) {
+        delete MultiplayerMapPreview;
+        MultiplayerMapPreview = 0;
     }
     Free_Pointers_005a7480(&unknown_players_a3fa7c);
     Select_Scenario_005c7c30(0);
@@ -478,8 +478,8 @@ void ModemHost::Init_Dialog_00599920()
     SendMessageA(control, 0x4B2, 0, (LPARAM)unknown_map_name_a3d342);
     unknown_session_a3f616 = true;
     if (CCFileClass(unknown_session_a3d298.ScenarioFileName_658).Is_Available()) {
-        unknown_dialog_preview_a72ce8 = new MapPreviewClass;
-        unknown_dialog_preview_a72ce8->Read_INI_Preview(unknown_session_a3d298.ScenarioFileName_658);
+        MultiplayerMapPreview = new MapPreviewClass;
+        MultiplayerMapPreview->Read_INI_Preview(unknown_session_a3d298.ScenarioFileName_658);
         PostMessageA(Window, 0xF, 0, 0);
     }
     if (strlen(ModemRXString) > 78) {
@@ -505,7 +505,7 @@ extern "C" int __cdecl swprintf(unsigned short *buffer, unsigned short const *fo
 bool ModemHost::Read_Dialog_0059a310()
 {
     Debug_Printf("ModemHost.ReadDialog(enter)\n");
-    int max_players = Unknown_005c6600(unknown_session_a3d298.ScenarioIndex);
+    int max_players = RandomMapWaypointCount(unknown_session_a3d298.ScenarioIndex);
     int players = 2;
     HWND control = GetDlgItem(Window, 0x552);
     if (control) {
@@ -546,9 +546,9 @@ bool ModemHost::Read_Dialog_0059a310()
 
     control = GetDlgItem(Window, 0x550);
     if (control) {
-        unknown_house_setting_7d88d8 = SendMessageA(control, 0x400, 0, 0);
+        BuildLevel = SendMessageA(control, 0x400, 0, 0);
     }
-    Debug_Printf("TechLevel: %d\n", unknown_house_setting_7d88d8);
+    Debug_Printf("TechLevel: %d\n", BuildLevel);
 
     control = GetDlgItem(Window, 0x402);
     if (control) {
@@ -758,7 +758,7 @@ void ModemHost::Read_Tech_Level_0059acb0()
 {
     HWND control = GetDlgItem(Window, 0x550);
     if (control) {
-        unknown_house_setting_7d88d8 = SendMessageA(control, 0x400, 0, 0);
+        BuildLevel = SendMessageA(control, 0x400, 0, 0);
         OptionsChanged = true;
     }
 }
@@ -982,12 +982,12 @@ void ModemHost::Select_Multi_Map_0059b090()
         Unknown_005c7570(Window);
         ShowWindow(Window, 5);
         if (_stricmp(unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->unknown_58, "RandMap.Sed") == 0) {
-            if (unknown_dialog_preview_a72ce8 != 0) {
-                delete unknown_dialog_preview_a72ce8;
+            if (MultiplayerMapPreview != 0) {
+                delete MultiplayerMapPreview;
             }
-            unknown_dialog_preview_a72ce8 = new MapPreviewClass;
-            unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
-            if (unknown_dialog_preview_a72ce8->unknown_00 == 0) {
+            MultiplayerMapPreview = new MapPreviewClass;
+            MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
+            if (MultiplayerMapPreview->unknown_00 == 0) {
                 Unknown_005c7570(Window);
             }
             InvalidateRect(Window, 0, false);
@@ -1000,12 +1000,12 @@ void ModemHost::Select_Multi_Map_0059b090()
         if (Select_Scenario_005c7c30(unknown_session_a3d298.ScenarioIndex) == true) {
             Send_Dlg_Item_Message(Window, 0x5A8, 0x4B2, 0, (LPARAM)unknown_map_name_a3d342);
             if (_stricmp(unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->unknown_58, "RandMap.Sed") == 0) {
-                if (unknown_dialog_preview_a72ce8 != 0) {
-                    delete unknown_dialog_preview_a72ce8;
-                    unknown_dialog_preview_a72ce8 = new MapPreviewClass;
-                    unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
+                if (MultiplayerMapPreview != 0) {
+                    delete MultiplayerMapPreview;
+                    MultiplayerMapPreview = new MapPreviewClass;
+                    MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
                 }
-                if (unknown_dialog_preview_a72ce8->unknown_00 == 0) {
+                if (MultiplayerMapPreview->unknown_00 == 0) {
                     Unknown_005c7570(Window);
                 }
                 InvalidateRect(Window, 0, false);
@@ -1028,18 +1028,18 @@ void ModemHost::Select_Multi_Map_0059b090()
 // RandMap.img when the scenario file exists. Its exit trace reuses SelectMultiMap's text.
 
 int __fastcall Do_Random_Map_Dialog_00577490(bool (*callback)());
-extern bool unknown_host_shown_7e6dc0;
+extern bool IsRandomMap;
 
 void ModemHost::Select_Random_Map_0059b2c0()
 {
     Debug_Printf("ModemHost.SelectRandomMap(enter)\n");
-    unknown_host_shown_7e6dc0 = false;
-    if (Do_Random_Map_Dialog_00577490(Unknown_0059c880) == 1) {
-        unknown_host_shown_7e6dc0 = true;
+    IsRandomMap = false;
+    if (Do_Random_Map_Dialog_00577490(ModemHostCallback) == 1) {
+        IsRandomMap = true;
         RandomMapGen.SeedData.Save_Or_Prompt_00578ed0("RandMap.Sed");
-        if (unknown_dialog_preview_a72ce8 != 0) {
-            delete unknown_dialog_preview_a72ce8;
-            unknown_dialog_preview_a72ce8 = 0;
+        if (MultiplayerMapPreview != 0) {
+            delete MultiplayerMapPreview;
+            MultiplayerMapPreview = 0;
         }
         Send_Dlg_Item_Message(Window, 0x5A8, 0x4B2, 0, (LPARAM)RandomMapGen.SeedData.DescriptionBuffer);
         bool found = false;
@@ -1064,14 +1064,14 @@ void ModemHost::Select_Random_Map_0059b2c0()
             strcpy(unknown_session_a3d298.ScenarioFileName_658, "RandMap.Sed");
             strcpy(unknown_id_source_a3d290->FileName, unknown_session_a3d298.ScenarioFileName_658);
             if (CCFileClass(unknown_session_a3d298.ScenarioFileName_658).Is_Available()) {
-                unknown_dialog_preview_a72ce8 = new MapPreviewClass;
-                unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
+                MultiplayerMapPreview = new MapPreviewClass;
+                MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
                 PostMessageA(Window, 0xF, 0, 0);
             }
         }
         OptionsChanged = true;
     }
-    unknown_host_shown_7e6dc0 = true;
+    IsRandomMap = true;
     Debug_Printf("ModemHost.SelectMultiMap(exit)\n");
 }
 
@@ -1234,7 +1234,7 @@ void ModemHost::Send_Options_0059bc90()
     packet.Options.Checksum = unknown_54;
     packet.Options.ArtID = unknown_58;
     packet.Options.INIID = unknown_5c;
-    packet.Options.Version = Unknown_00737af0();
+    packet.Options.Version = Build_Number();
     packet.Options.MinVersion = VerNum.Min_Version();
     packet.Options.MaxVersion = VerNum.Max_Version();
     packet.Options.Seed = Seed;
@@ -1257,7 +1257,7 @@ void ModemHost::Send_Options_0059bc90()
     packet.Options.FogOfWar = unknown_session_a3d298.unknown_fog_a7;
     packet.Options.AICount = unknown_session_a3d298.AICount;
     packet.Options.AIDifficulty = unknown_session_a3d298.unknown_difficulty_40;
-    packet.Options.TechLevel = unknown_house_setting_7d88d8;
+    packet.Options.TechLevel = BuildLevel;
     packet.Options.UnitCount = unknown_session_a3d298.UnitCount;
     wcscpy(packet.Options.MapName, unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->Description);
     CCFileClass file(unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->Get_Filename());
@@ -1469,9 +1469,9 @@ bool ModemHost::Start_Game_0059c290(bool load_game)
 
 bool ModemHost::Idle_0059c880()
 {
-    if (unknown_modem_host_a70de4) {
-        unknown_modem_host_a70de4->Service_0059b560(false);
-        unknown_modem_host_a70de4->Process_Messages_0059b690(true);
+    if (_ModemHost) {
+        _ModemHost->Service_0059b560(false);
+        _ModemHost->Process_Messages_0059b690(true);
     }
     Service_Game_IO_00481fb0();
     return false;
@@ -1510,7 +1510,7 @@ void ModemHost::Send_Preview_0059c8b0()
         return;
     }
     int size = 0;
-    unsigned short *image = unknown_dialog_preview_a72ce8->Create_Paletted_Preview(0x40, &size);
+    unsigned short *image = MultiplayerMapPreview->Create_Paletted_Preview(0x40, &size);
     Debug_Printf("Preview size is %d bytes\n", size);
     char *data = new char[size * 4];
     BufferPipe pipe(data, size * 4);

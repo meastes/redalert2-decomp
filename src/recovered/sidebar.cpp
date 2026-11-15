@@ -98,7 +98,7 @@
 
 SidebarClass::SBGadgetClass SidebarClass::Background;
 ShapeButtonClass SidebarClass::unknown_button_ab96b8;
-ShapeButtonClass SidebarClass::unknown_button_abcc58;
+ShapeButtonClass SidebarClass::Upgrade;
 ShapeButtonClass SidebarClass::unknown_buttons_ab9508[4];
 ShapeButtonClass SidebarClass::unknown_button_abcbe8;
 ShapeButtonClass SidebarClass::unknown_button_abccc0;
@@ -114,10 +114,10 @@ SidebarClass::StripClass::SelectClass SidebarClass::SelectButton[240];
 // unknown_button_ab96b8 atexit destructor (0x0067B520), emitted by the static definitions in SidebarClass_statics_init_0067b4b0.cpp.
 
 
-// unknown_button_abcc58 initializer (0x0067B540), emitted by the static definitions in SidebarClass_statics_init_0067b4b0.cpp.
+// Upgrade initializer (0x0067B540), emitted by the static definitions in SidebarClass_statics_init_0067b4b0.cpp.
 
 
-// unknown_button_abcc58 atexit destructor (0x0067B560), emitted by the static definitions in SidebarClass_statics_init_0067b4b0.cpp.
+// Upgrade atexit destructor (0x0067B560), emitted by the static definitions in SidebarClass_statics_init_0067b4b0.cpp.
 
 
 // unknown_buttons_ab9508 initializer (0x0067B580), emitted by the static definitions in SidebarClass_statics_init_0067b4b0.cpp.
@@ -158,7 +158,7 @@ SidebarClass::SidebarClass() :
     unknown_4ee0(false),
     unknown_4ee1(false),
     unknown_4ee2(true),
-    unknown_4ee4(false),
+    IsToRedrawCredits(false),
     unknown_4ee5(false),
     unknown_4ee6(false)
 {
@@ -216,7 +216,7 @@ void SidebarClass::Init_Clear()
 
 void SidebarClass::Unknown_0067B910()
 {
-    unknown_int_839628 = unknown_int_7add80;
+    unknown_int_839628 = SidebarWidth;
     unknown_int_839624 = 0x9E;
     unknown_int_83962c = unknown_int_839634 + unknown_int_83963c + unknown_int_7add84 - 0x9E;
     if (unknown_id_source_a3d290->unknown_2239) {
@@ -288,27 +288,27 @@ void SidebarClass::Init_IO()
         return;
     }
 
-    unknown_button_abcc58.IsSticky = true;
-    unknown_button_abcc58.ID = 101;
-    unknown_button_abcc58.X = unknown_abcd48;
-    unknown_button_abcc58.Y = unknown_abcd4c;
-    unknown_button_abcc58.DrawOffsetX = -480;
-    unknown_button_abcc58.DrawOffsetY = 0;
-    unknown_button_abcc58.DrawOnSidebar = true;
-    unknown_button_abcc58.ShapeDrawer = unknown_drawer_8323cc;
-    unknown_button_abcc58.IsOn = false;
-    unknown_button_abcc58.ToggleType = 1;
-    unknown_button_abcc58.ReflectButtonState = true;
-    unknown_button_abcc58.Stop_Flashing();
+    Upgrade.IsSticky = true;
+    Upgrade.ID = 101;
+    Upgrade.X = unknown_abcd48;
+    Upgrade.Y = unknown_abcd4c;
+    Upgrade.DrawOffsetX = -480;
+    Upgrade.DrawOffsetY = 0;
+    Upgrade.DrawOnSidebar = true;
+    Upgrade.ShapeDrawer = SidebarDrawer;
+    Upgrade.IsOn = false;
+    Upgrade.ToggleType = 1;
+    Upgrade.ReflectButtonState = true;
+    Upgrade.Stop_Flashing();
 
     unknown_button_ab96b8.IsSticky = true;
     unknown_button_ab96b8.ID = 102;
-    unknown_button_ab96b8.X = unknown_button_abcc58.X + unknown_abcd50;
-    unknown_button_ab96b8.Y = unknown_button_abcc58.Y;
+    unknown_button_ab96b8.X = Upgrade.X + unknown_abcd50;
+    unknown_button_ab96b8.Y = Upgrade.Y;
     unknown_button_ab96b8.DrawOffsetX = -480;
     unknown_button_ab96b8.DrawOffsetY = 0;
     unknown_button_ab96b8.DrawOnSidebar = true;
-    unknown_button_ab96b8.ShapeDrawer = unknown_drawer_8323cc;
+    unknown_button_ab96b8.ShapeDrawer = SidebarDrawer;
     unknown_button_ab96b8.IsOn = false;
     unknown_button_ab96b8.ToggleType = 1;
     unknown_button_ab96b8.ReflectButtonState = true;
@@ -322,7 +322,7 @@ void SidebarClass::Init_IO()
         unknown_buttons_ab9508[index].DrawOffsetX = -480;
         unknown_buttons_ab9508[index].DrawOffsetY = 0;
         unknown_buttons_ab9508[index].DrawOnSidebar = true;
-        unknown_buttons_ab9508[index].ShapeDrawer = unknown_drawer_8323cc;
+        unknown_buttons_ab9508[index].ShapeDrawer = SidebarDrawer;
         unknown_buttons_ab9508[index].IsOn = false;
         unknown_buttons_ab9508[index].ToggleType = 2;
         unknown_buttons_ab9508[index].ReflectButtonState = true;
@@ -333,14 +333,14 @@ void SidebarClass::Init_IO()
     unknown_button_abcbe8.IsSticky = true;
     unknown_button_abcbe8.ID = 201;
     unknown_button_abcbe8.DrawOnSidebar = true;
-    unknown_button_abcbe8.ShapeDrawer = unknown_drawer_8323cc;
+    unknown_button_abcbe8.ShapeDrawer = SidebarDrawer;
     unknown_button_abcbe8.Flags = 0x55;
     unknown_button_abcbe8.Stop_Flashing();
 
     unknown_button_abccc0.IsSticky = true;
     unknown_button_abccc0.ID = 200;
     unknown_button_abccc0.DrawOnSidebar = true;
-    unknown_button_abccc0.ShapeDrawer = unknown_drawer_8323cc;
+    unknown_button_abccc0.ShapeDrawer = SidebarDrawer;
     unknown_button_abccc0.Flags = 0x55;
     unknown_button_abccc0.Stop_Flashing();
 
@@ -366,37 +366,37 @@ void SidebarClass::Init_For_House()
 {
     PowerClass::Init_For_House();
     PaletteClass palette = *Unknown_006F45E0();
-    if (unknown_drawer_8323cc) {
-        delete unknown_drawer_8323cc;
-        unknown_drawer_8323cc = 0;
+    if (SidebarDrawer) {
+        delete SidebarDrawer;
+        SidebarDrawer = 0;
     }
-    unknown_drawer_8323cc = new ConvertClass(palette, palette, unknown_surface_839950, 1, false);
+    SidebarDrawer = new ConvertClass(palette, palette, unknown_surface_839950, 1, false);
     unknown_shapes_abcd20[7] = Unknown_Load_Shape_00495270("GCLOCK2.SHP", unknown_shapes_allocated_abcd40[7]);
 
     bool allocated = false;
     unknown_button_ab96b8.Set_Shape(Unknown_Load_Shape_00495270("SELL.SHP", allocated));
     unknown_button_ab96b8.Set_Shape_Loaded(allocated);
-    unknown_button_ab96b8.ShapeDrawer = unknown_drawer_8323cc;
+    unknown_button_ab96b8.ShapeDrawer = SidebarDrawer;
 
-    unknown_button_abcc58.Set_Shape(Unknown_Load_Shape_00495270("REPAIR.SHP", allocated));
-    unknown_button_abcc58.Set_Shape_Loaded(allocated);
-    unknown_button_abcc58.ShapeDrawer = unknown_drawer_8323cc;
+    Upgrade.Set_Shape(Unknown_Load_Shape_00495270("REPAIR.SHP", allocated));
+    Upgrade.Set_Shape_Loaded(allocated);
+    Upgrade.ShapeDrawer = SidebarDrawer;
 
     for (int index = 0; index < 4; index++) {
         char name[256];
         sprintf(name, "TAB%02d.SHP", index);
         unknown_buttons_ab9508[index].Set_Shape(Unknown_Load_Shape_00495270(name, allocated));
         unknown_buttons_ab9508[index].Set_Shape_Loaded(allocated);
-        unknown_buttons_ab9508[index].ShapeDrawer = unknown_drawer_8323cc;
+        unknown_buttons_ab9508[index].ShapeDrawer = SidebarDrawer;
     }
 
     unknown_button_abcbe8.Set_Shape(Unknown_Load_Shape_00495270("R-DN.SHP", allocated));
     unknown_button_abcbe8.Set_Shape_Loaded(allocated);
-    unknown_button_abcbe8.ShapeDrawer = unknown_drawer_8323cc;
+    unknown_button_abcbe8.ShapeDrawer = SidebarDrawer;
 
     unknown_button_abccc0.Set_Shape(Unknown_Load_Shape_00495270("R-UP.SHP", allocated));
     unknown_button_abccc0.Set_Shape_Loaded(allocated);
-    unknown_button_abccc0.ShapeDrawer = unknown_drawer_8323cc;
+    unknown_button_abccc0.ShapeDrawer = SidebarDrawer;
 
     unknown_shapes_abcd20[0] = Unknown_Load_Shape_00495270("SIDE1.SHP", unknown_shapes_allocated_abcd40[0]);
     unknown_shapes_abcd20[1] = Unknown_Load_Shape_00495270("SIDE2.SHP", unknown_shapes_allocated_abcd40[1]);
@@ -444,7 +444,7 @@ void SidebarClass::DisposeOfArt()
         unknown_shapes_allocated_abcd40[7] = false;
     }
     unknown_button_ab96b8.Clear_Shape();
-    unknown_button_abcc58.Clear_Shape();
+    Upgrade.Clear_Shape();
     for (int index = 0; index < 4; index++) {
         unknown_buttons_ab9508[index].Clear_Shape();
     }
@@ -686,7 +686,7 @@ void SidebarClass::Unknown_0067CA50(int index)
 
 bool SidebarClass::Scroll(bool up, int column)
 {
-    if (unknown_int_a40d34) {
+    if (_dialog_count) {
         return false;
     }
     if (column == -1) {
@@ -727,15 +727,15 @@ void SidebarClass::Draw_It(bool complete)
 {
     unknown_rect_8336e8 = StripClass::unknown_rect_ab9688;
     Surface *old = unknown_surface_83995c;
-    unknown_surface_83995c = unknown_surface_839948;
+    unknown_surface_83995c = SidebarSurface;
     bool drawn = false;
-    Rect window(0, 0, unknown_surface_839948->Get_Width(), unknown_surface_839948->Get_Height());
+    Rect window(0, 0, SidebarSurface->Get_Width(), SidebarSurface->Get_Height());
     complete = complete || unknown_4ee2 || unknown_4ee3;
 
     if (unknown_4ee1 && complete && !Debug_Map) {
         if (unknown_4ee3) {
             drawn = true;
-            CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shapes_abcd20[0], 0,
+            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shapes_abcd20[0], 0,
                 Point2D(0, unknown_int_839624), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             int y = unknown_abcd64;
             int row = 0;
@@ -743,29 +743,29 @@ void SidebarClass::Draw_It(bool complete)
                 if (row >= StripClass::Max_Visible_Rows()) {
                     break;
                 }
-                CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shapes_abcd20[1], 0,
+                CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shapes_abcd20[1], 0,
                     Point2D(0, y), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                 y += ((ShapeFileStruct const *)unknown_shapes_abcd20[1])->Height;
                 row++;
             }
-            CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shapes_abcd20[2], 0,
+            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shapes_abcd20[2], 0,
                 Point2D(0, y), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-            CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shapes_abcd20[3], 0,
+            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shapes_abcd20[3], 0,
                 Point2D(0, y + ((ShapeFileStruct const *)unknown_shapes_abcd20[2])->Height), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
         unknown_button_ab96b8.Draw_Me(drawn);
-        unknown_button_abcc58.Draw_Me(drawn);
+        Upgrade.Draw_Me(drawn);
         for (int index = 0; index < 4; index++) {
             unknown_buttons_ab9508[index].Draw_Me(true);
         }
         unknown_button_abcbe8.Draw_Me(drawn);
         unknown_button_abccc0.Draw_Me(drawn);
         if (unknown_4ed4) {
-            CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shapes_abcd20[4], unknown_4ed0,
+            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shapes_abcd20[4], unknown_4ed0,
                 Point2D(0, unknown_abcd64), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-            CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shapes_abcd20[5], unknown_4ed0,
+            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shapes_abcd20[5], unknown_4ed0,
                 Point2D(0, unknown_abcd64), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-            CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shapes_abcd20[6], unknown_4ed0,
+            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shapes_abcd20[6], unknown_4ed0,
                 Point2D(0, unknown_abcd64), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
         unknown_flag_abcd84 = true;
@@ -776,8 +776,8 @@ void SidebarClass::Draw_It(bool complete)
         unknown_button_ab96b8.IsDrawn = false;
         unknown_flag_abcd84 = true;
     }
-    if (unknown_button_abcc58.IsDrawn) {
-        unknown_button_abcc58.IsDrawn = false;
+    if (Upgrade.IsDrawn) {
+        Upgrade.IsDrawn = false;
         unknown_flag_abcd84 = true;
     }
     for (int tab = 0; tab < 4; tab++) {
@@ -812,7 +812,7 @@ extern bool unknown_session_a40d04;     // 0x00A40D04
 
 void SidebarClass::Unknown_0067D420(bool complete)
 {
-    if (unknown_4ee1 && unknown_flag_a40958 && unknown_session_a40d04) {
+    if (unknown_4ee1 && GameActive && unknown_session_a40d04) {
         RECT crect;
         GetClientRect(MainWindow, &crect);
         POINT scrnpt;
@@ -823,12 +823,12 @@ void SidebarClass::Unknown_0067D420(bool complete)
         if (!unknown_flag_abcd84 && !complete) {
             unknown_flag_abcd84 = false;
             if (unknown_rect_8336e8 == StripClass::unknown_rect_ab9688) {
-                if (unknown_4ee4) {
-                    WWMouse->Draw_Mouse(unknown_surface_839948, true);
+                if (IsToRedrawCredits) {
+                    WWMouse->Draw_Mouse(SidebarSurface, true);
                     unknown_surface_839950->Copy_From(
                         Rect(scrnpt.x + (unknown_flag_a40b30 ? unknown_int_839638 : 0), scrnpt.y, unknown_int_839628, 16),
-                        *unknown_surface_839948, Rect(0, 0, unknown_int_839628, 16), false, true);
-                    unknown_4ee4 = false;
+                        *SidebarSurface, Rect(0, 0, unknown_int_839628, 16), false, true);
+                    IsToRedrawCredits = false;
                     unknown_flag_abcd85 = true;
                 }
                 unknown_flag_abcd84 = false;
@@ -838,28 +838,28 @@ void SidebarClass::Unknown_0067D420(bool complete)
             unknown_flag_abcd84 = true;
         }
 
-        WWMouse->Draw_Mouse(unknown_surface_839948, true);
+        WWMouse->Draw_Mouse(SidebarSurface, true);
         if (unknown_rect_8336e8 == StripClass::unknown_rect_ab9688 && !complete) {
-            if (unknown_4ee4) {
+            if (IsToRedrawCredits) {
                 unknown_surface_839950->Copy_From(
                     Rect(scrnpt.x + (unknown_flag_a40b30 ? unknown_int_839638 : 0), scrnpt.y, unknown_int_839628, 16),
-                    *unknown_surface_839948, Rect(0, 0, unknown_int_839628, 16), false, true);
-                unknown_4ee4 = false;
+                    *SidebarSurface, Rect(0, 0, unknown_int_839628, 16), false, true);
+                IsToRedrawCredits = false;
             }
             unknown_surface_839950->Copy_From(
                 Rect(scrnpt.x + (unknown_flag_a40b30 ? unknown_int_839638 : 0), scrnpt.y + unknown_int_839624,
-                     unknown_int_839628, unknown_surface_839948->Get_Height() - unknown_int_839624),
-                *unknown_surface_839948, Rect(0, unknown_int_839624, unknown_int_839628, unknown_int_83962c), false, true);
+                     unknown_int_839628, SidebarSurface->Get_Height() - unknown_int_839624),
+                *SidebarSurface, Rect(0, unknown_int_839624, unknown_int_839628, unknown_int_83962c), false, true);
         } else if (unknown_flag_abcd84) {
-            Rect sb_rect = unknown_surface_839948->Get_Rect();
+            Rect sb_rect = SidebarSurface->Get_Rect();
             unknown_surface_839950->Copy_From(
                 Rect(scrnpt.x + (unknown_flag_a40b30 ? unknown_int_839638 : 0), scrnpt.y, sb_rect.Width, sb_rect.Height),
-                *unknown_surface_839948, Rect(0, 0, sb_rect.Width, sb_rect.Height), false, true);
+                *SidebarSurface, Rect(0, 0, sb_rect.Width, sb_rect.Height), false, true);
         } else {
             unknown_surface_839950->Copy_From(
                 Rect(scrnpt.x + unknown_rect_8336e8.X + (unknown_flag_a40b30 ? unknown_int_839638 : 0),
                      scrnpt.y + unknown_rect_8336e8.Y, unknown_rect_8336e8.Width, unknown_rect_8336e8.Height),
-                *unknown_surface_839948, unknown_rect_8336e8, false, true);
+                *SidebarSurface, unknown_rect_8336e8, false, true);
         }
         unknown_flag_abcd85 = true;
     }
@@ -996,8 +996,8 @@ void SidebarClass::AI(int &input, Point2D const &xy)
     if (!unknown_11ad && unknown_button_ab96b8.IsOn) {
         unknown_button_ab96b8.Turn_Off();
     }
-    if (!unknown_11ac && unknown_button_abcc58.IsOn) {
-        unknown_button_abcc58.Turn_Off();
+    if (!unknown_11ac && Upgrade.IsOn) {
+        Upgrade.Turn_Off();
     }
     PowerClass::AI(input, xy);
 }
@@ -1047,8 +1047,8 @@ bool SidebarClass::unknown_slot54(int control)
             unknown_4ee2 = true;
             unknown_button_ab96b8.Zap();
             Add_A_Button(unknown_button_ab96b8);
-            unknown_button_abcc58.Zap();
-            Add_A_Button(unknown_button_abcc58);
+            Upgrade.Zap();
+            Add_A_Button(Upgrade);
             int index;
             for (index = 0; index < 4; index++) {
                 unknown_buttons_ab9508[index].Zap();
@@ -1075,7 +1075,7 @@ bool SidebarClass::unknown_slot54(int control)
         } else {
             Unknown_005A09E0();
             Remove_A_Button(unknown_button_ab96b8);
-            Remove_A_Button(unknown_button_abcc58);
+            Remove_A_Button(Upgrade);
             Remove_A_Button(Background);
             for (int index = 0; index < 4; index++) {
                 Remove_A_Button(unknown_buttons_ab9508[index]);
@@ -1380,7 +1380,7 @@ bool SidebarClass::StripClass::Unknown_0067EDF0(int type, int id)
                 return false;
             }
         }
-        if (!unknown_a40774 && type != 31) {
+        if (!ScenarioInit && type != 31) {
             Speech_Play_Name("EVA_NewConstructionOptions", -1, -1);
         }
         Unknown_0067ED10(type, id);
@@ -1594,7 +1594,7 @@ building:
 wchar_t const *SidebarClass::StripClass::Help_Text(int gadget_index)
 {
     int index = gadget_index + unknown_40 * 2;
-    if (!unknown_flag_a40958 || index >= BuildableCount || BuildableCount >= 75) {
+    if (!GameActive || index >= BuildableCount || BuildableCount >= 75) {
         return 0;
     }
     if (Buildables[index].unknown_04 == 31) {
@@ -1677,8 +1677,8 @@ void SidebarClass::StripClass::Unknown_0067F800(bool complete)
         Rect cliprect;
         cliprect.X = 0;
         cliprect.Y = 0;
-        cliprect.Width = unknown_surface_839948->Get_Width();
-        cliprect.Height = unknown_surface_839948->Get_Height();
+        cliprect.Width = SidebarSurface->Get_Width();
+        cliprect.Height = SidebarSurface->Get_Height();
 
         bool busy = false;
         for (int i = 0; i < BuildableCount; i++) {
@@ -1791,29 +1791,29 @@ void SidebarClass::StripClass::Unknown_0067F800(bool complete)
                 Rect window(0, 0, x + 60, y + 48);
                 if (draw) {
                     if (shape) {
-                        CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323b0, (ShapeFileStruct const *)shape, 0,
+                        CC_Draw_Shape(SidebarSurface, unknown_drawer_8323b0, (ShapeFileStruct const *)shape, 0,
                             Point2D(x, y), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                     }
                     if (hover) {
-                        RGBClass color = unknown_color_ac1028;
-                        unknown_surface_839948->Draw_Rect(window, Rect(x, y, 60, 48),
+                        RGBClass color = TooltipColor;
+                        SidebarSurface->Draw_Rect(window, Rect(x, y, 60, 48),
                             (int)(((color.Green >> unknown_shift_852fcc) << unknown_shift_852fc8) | ((color.Red >> unknown_shift_852fbc) << unknown_shift_852fb8) | ((color.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0)));
                     }
                     if (darken) {
-                        CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shape_ab9480, 0,
+                        CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shape_ab9480, 0,
                             Point2D(x, y), window, 0x401, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                     }
                     if (Buildables[index].unknown_2c > Frame && Frame % 16 > 8) {
-                        CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shape_ab9480, 0,
+                        CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shape_ab9480, 0,
                             Point2D(x, y), window, 0x404, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                     }
                     if (name) {
                         Unknown_00682140(name, Point2D(x, y + 36), cliprect, 60);
                     }
                     bool hasqueue = false;
-                    unsigned pixel = ((unknown_color_ac1028.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
-                        | ((unknown_color_ac1028.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0)
-                        | ((unknown_color_ac1028.Green >> unknown_shift_852fcc) << unknown_shift_852fc8);
+                    unsigned pixel = ((TooltipColor.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
+                        | ((TooltipColor.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0)
+                        | ((TooltipColor.Green >> unknown_shift_852fcc) << unknown_shift_852fc8);
                     if (obj) {
                         FactoryClass *queue = ((UnknownSidebarHouse *)unknown_player_a35db4)->Unknown_004EB580(obj->Kind_Of(), obj->Naval, 0);
                         if (queue) {
@@ -1823,8 +1823,8 @@ void SidebarClass::StripClass::Unknown_0067F800(bool complete)
                                 swprintf(buffer, L"%d", total);
                                 Point2D point(x + 60, y + 1);
                                 Rect rect = Text_Rect(buffer, point.X, point.Y, 0x242, 2, 1);
-                                Unknown_005feb60(&rect, unknown_surface_839948, 0, 0xaf);
-                                Plain_Text_Print(L"%d", unknown_surface_839948, &cliprect, &point, pixel, 0, 0x242, total);
+                                Unknown_005feb60(&rect, SidebarSurface, 0, 0xaf);
+                                Plain_Text_Print(L"%d", SidebarSurface, &cliprect, &point, pixel, 0, 0x242, total);
                                 hasqueue = true;
                             }
                         }
@@ -1833,24 +1833,24 @@ void SidebarClass::StripClass::Unknown_0067F800(bool complete)
                         if (state) {
                             Point2D point(x + 30, y + 1);
                             Rect rect = Text_Rect(state, point.X, point.Y, 0x142, 2, 1);
-                            Unknown_005feb60(&rect, unknown_surface_839948, 0, 0xaf);
-                            Plain_Text_Print(state, unknown_surface_839948, &cliprect, &point, pixel, 0, 0x142);
+                            Unknown_005feb60(&rect, SidebarSurface, 0, 0xaf);
+                            Plain_Text_Print(state, SidebarSurface, &cliprect, &point, pixel, 0, 0x142);
                         }
                         if (!completed) {
-                            CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shapes_abcd20[7], stage + 1,
+                            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shapes_abcd20[7], stage + 1,
                                 Point2D(x, y), window, 0x404, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                             if (factory && (!factory->unknown_34 || factory->unknown_6c) || Buildables[index].unknown_10 == 2) {
                                 wchar_t const *hold = StringTable::Load_String("TXT_HOLD", 0, "D:\\Ra2\\Sidebar.CPP", 3070);
                                 if (hasqueue) {
                                     Point2D point(x + 2, y + 1);
                                     Rect rect = Text_Rect(hold, point.X, point.Y, 0x42, 2, 1);
-                                    Unknown_005feb60(&rect, unknown_surface_839948, 0, 0xaf);
-                                    Plain_Text_Print(hold, unknown_surface_839948, &cliprect, &point, pixel, 0, 0x42);
+                                    Unknown_005feb60(&rect, SidebarSurface, 0, 0xaf);
+                                    Plain_Text_Print(hold, SidebarSurface, &cliprect, &point, pixel, 0, 0x42);
                                 } else {
                                     Point2D point(x + 30, y + 1);
                                     Rect rect = Text_Rect(hold, point.X, point.Y, 0x142, 2, 1);
-                                    Unknown_005feb60(&rect, unknown_surface_839948, 0, 0xaf);
-                                    Plain_Text_Print(hold, unknown_surface_839948, &cliprect, &point, pixel, 0, 0x142);
+                                    Unknown_005feb60(&rect, SidebarSurface, 0, 0xaf);
+                                    Plain_Text_Print(hold, SidebarSurface, &cliprect, &point, pixel, 0, 0x142);
                                 }
                             }
                         }
@@ -2273,7 +2273,7 @@ void SidebarClass::StripClass::SelectClass::Mouse_Leave()
 
 bool SidebarClass::StripClass::SelectClass::Unknown_00681690()
 {
-    return unknown_34 && !unknown_flag_a40d44;
+    return unknown_34 && !IgnoreInput;
 }
 
 
@@ -2492,13 +2492,13 @@ void SidebarClass::Reposition_Sidebar()
     } else {
         Background.Set_Position(0, top);
     }
-    Background.Set_Size(unknown_surface_839948->Get_Width(), unknown_surface_839948->Get_Height() - top);
+    Background.Set_Size(SidebarSurface->Get_Width(), SidebarSurface->Get_Height() - top);
 
-    unknown_button_abcc58.Set_Position(unknown_abcd48, unknown_abcd4c);
-    unknown_button_abcc58.Flag_To_Redraw();
-    unknown_button_abcc58.DrawOffsetX = -unknown_rect_839620.X;
+    Upgrade.Set_Position(unknown_abcd48, unknown_abcd4c);
+    Upgrade.Flag_To_Redraw();
+    Upgrade.DrawOffsetX = -unknown_rect_839620.X;
 
-    unknown_button_ab96b8.Set_Position(unknown_button_abcc58.X + unknown_abcd50, unknown_button_abcc58.Y);
+    unknown_button_ab96b8.Set_Position(Upgrade.X + unknown_abcd50, Upgrade.Y);
     unknown_button_ab96b8.Flag_To_Redraw();
     unknown_button_ab96b8.DrawOffsetX = -unknown_rect_839620.X;
 
@@ -2562,10 +2562,10 @@ void SidebarClass::Reposition_Sidebar()
         ToolTips->Add(tip);
         tip.ID = 0x65;
         tip.Label = "TXT_REPAIR_MODE";
-        tip.Region.X = unknown_button_abcc58.X;
-        tip.Region.Y = unknown_button_abcc58.Y;
-        tip.Region.Width = unknown_button_abcc58.Width;
-        tip.Region.Height = unknown_button_abcc58.Height;
+        tip.Region.X = Upgrade.X;
+        tip.Region.Y = Upgrade.Y;
+        tip.Region.Width = Upgrade.Width;
+        tip.Region.Height = Upgrade.Height;
         ToolTips->Remove(0x65);
         ToolTips->Add(tip);
         tip.ID = 0xC8;
@@ -2690,7 +2690,7 @@ void __fastcall Unknown_00682140(wchar_t const *text, Point2D const &point, Rect
         int text_height;
         font->Get_Text_Area(text, &text_width, &text_height, width);
         xy.Y += font->Height - text_height;
-        BitText->Print_Box(font, unknown_surface_839948, text, xy.X, xy.Y, width, 0, 0, 0, 0);
+        BitText->Print_Box(font, SidebarSurface, text, xy.X, xy.Y, width, 0, 0, 0, 0);
     }
 }
 

@@ -4,8 +4,8 @@
     "id": "population-3727",
     "inventory_sha256": "41b4fcc5acce3ace0cc3c727ce8aa906f632b8848e7d15f76849b46ed791a28e",
     "gaps_sha256": "d1c5ca0a497b70dcb5a33e91ce7845f94aeee2b73d9f92956460813ddc8aadb9",
-    "historical_population_sha256": "405cf81547d836ceb0a7bfe4041aad98e22ff28e37100ef883ceb7860959e733",
-    "historical_acceptance_sha256": "b878c3892b15cd67bf171d8b01cc5165f1af6d13864d43c00eebd816af39b288"
+    "historical_population_sha256": "484f1ff26af12eab7250694d7729bdefc275abf9771d7c4a3173594eaf277c43",
+    "historical_acceptance_sha256": "9ba2f2fd02dd88d6f1184985909e27fe482f540f990a757efe848d79fb7bd3a5"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1652,10 +1652,10 @@
     "?Delete@?$DynamicVectorClass@PAVAbstractClass@@@@QAE_NH@Z": 4541216,
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
     "?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A": 10748728,
-    "?unknown_abstracts_ac0bf8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
-    "?unknown_abstracts_ac0d08@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
+    "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
+    "?HousePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
     "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
-    "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
+    "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
     "?unknown_player_a35db4@@3PAVHouseClass@@A": 10706356,
     "?unknown_rules_839848@@3PAUUnknownRules839848@@A": 8624200,
     "?Coord_Fixup@ObjectTypeClass@@UBE?AUCoordStruct@@ABU2@@Z": 4309728,
@@ -4247,7 +4247,7 @@
     "??_G?$VectorClass@PAVLightConvertClass@@@@UAEPAXI@Z": 4244480,
     "??_7?$VectorClass@PAVLightConvertClass@@@@6B@": 7972988,
     "??_G?$DynamicVectorClass@PAVLightConvertClass@@@@UAEPAXI@Z": 4244560,
-    "?unknown_random_839218@@3VRandom2Class@@A": 8622616,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
     "?Find_Or_Make@AircraftTypeClass@@SIPAV1@PBD@Z": 4309584,
     "??_7?$DynamicVectorClass@PAVAlphaLightingRemapClass@@@@6B@": 7976960,
     "?Detach@AlphaShapeClass@@UAEXPAVAbstractClass@@_N@Z": 4321520,

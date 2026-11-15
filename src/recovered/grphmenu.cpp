@@ -69,13 +69,13 @@ GraphicMenu *__fastcall GraphicMenu::Load(INIClass &ini, Wstring const &section)
         Wstring vqa = value + ".VQA";
         MSAnim *anim = 0;
         if (CCFileClass(vqa).Is_Available()) {
-            anim = new MSVQAnim(vqa, unknown_surface_839958, &menu->Engine.Anims, true);
+            anim = new MSVQAnim(vqa, AlternateSurface, &menu->Engine.Anims, true);
         }
         if (anim == 0) {
             Wstring bik = value + ".BIK";
             if (CCFileClass(bik).Is_Available()) {
-                Rect rect(0, 0, unknown_8523e0, unknown_8523e4);
-                anim = new MSBinkAnim(bik, unknown_surface_839958, &menu->Engine.Anims, rect, true);
+                Rect rect(0, 0, VideoModeWidth, VideoModeHeight);
+                anim = new MSBinkAnim(bik, AlternateSurface, &menu->Engine.Anims, rect, true);
             }
         }
         if (anim == 0) {
@@ -126,9 +126,9 @@ GraphicMenu::~GraphicMenu()
         delete *cursor;
         cursor++;
     }
-    unknown_surface_839958->Fill(0);
-    unknown_surface_839954->Fill(0);
-    unknown_surface_839950->Copy_From(*unknown_surface_839954, false, true);
+    AlternateSurface->Fill(0);
+    HiddenSurface->Fill(0);
+    unknown_surface_839950->Copy_From(*HiddenSurface, false, true);
 }
 
 
@@ -154,16 +154,16 @@ int unknown_5ff5d0();
 int GraphicMenu::Run()
 {
     ::Theme.Play_Song(::Theme.From_Name(Theme.Get()));
-    unknown_surface_839958->Fill(0);
-    unknown_surface_839954->Fill(0);
-    unknown_surface_839950->Copy_From(*unknown_surface_839954, false, true);
+    AlternateSurface->Fill(0);
+    HiddenSurface->Fill(0);
+    unknown_surface_839950->Copy_From(*HiddenSurface, false, true);
     bool done = false;
     GraphicMenuItem *selected = 0;
     WWKeyboard->Clear();
     if (Anim) {
         Engine.Wait_For(Anim, 300000);
     }
-    Engine.Broadcast((int)&unknown_surface_839958->Get_Rect());
+    Engine.Broadcast((int)&AlternateSurface->Get_Rect());
     Engine.Redraw();
     do {
         WWMouse->Hide_Mouse();

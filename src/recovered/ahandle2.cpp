@@ -93,12 +93,12 @@ inline AircraftTrackerClass::~AircraftTrackerClass()
 {
     Clear_00413540();
 }
-AircraftTrackerClass unknown_tracker_839ea0;
+AircraftTrackerClass AircraftTracker;
 
 // Original-evidenced vector vtables, their slots, constructor and global lifetime.
 
 
-// Compiler-generated global destructor of unknown_tracker_839ea0.
+// Compiler-generated global destructor of AircraftTracker.
 // Its implementation and object definition are in UnknownTracker839EA0_Global_Initialize_004125d0.cpp.
 
 

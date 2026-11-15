@@ -165,7 +165,7 @@ void CCToolTip::Refresh(bool update)
 
 
 // CCToolTip text-box drawing, original0046E250; existing slot4 contract retained.
-extern RGBClass unknown_color_ac1028;
+extern RGBClass TooltipColor;
 void CCToolTip::Debug_Print(ToolTipRecord *record)
 {
     Rect box;
@@ -176,7 +176,7 @@ void CCToolTip::Debug_Print(ToolTipRecord *record)
         int boundary = unknown_rect_839630.X + unknown_rect_839630.Width;
         if (x + record->unknown_08 <= boundary) surface = unknown_surface_839964;
         else if (unknown_260 == true && x >= boundary) {
-            surface = unknown_surface_839948;
+            surface = SidebarSurface;
             x -= boundary;
             unknown_flag_abcd84 = true;
         }
@@ -186,7 +186,7 @@ void CCToolTip::Debug_Print(ToolTipRecord *record)
             surface = unknown_surface_839964;
             x -= boundary;
         } else if (unknown_260 == true && x + record->unknown_08 < boundary) {
-            surface = unknown_surface_839948;
+            surface = SidebarSurface;
             unknown_flag_abcd84 = true;
         }
     }
@@ -209,7 +209,7 @@ void CCToolTip::Debug_Print(ToolTipRecord *record)
         }
         area.right = box_width + area.left;
         area.bottom = box_height + area.top;
-        int color = Build_Hicolor_Pixel(unknown_color_ac1028.Red, unknown_color_ac1028.Green, unknown_color_ac1028.Blue);
+        int color = Build_Hicolor_Pixel(TooltipColor.Red, TooltipColor.Green, TooltipColor.Blue);
         box.Set(area.left, area.top, box_width, box_height);
         surface->Fill_Rect(box, 0);
         surface->Draw_Rect(box, color);

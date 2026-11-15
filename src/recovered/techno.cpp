@@ -208,7 +208,7 @@ TechnoClass::TechnoClass(HouseClass *house) :
     if (house) unknown_114=house->unknown_130;
     unknown_3d8.Init();
     Technos.Add(this);
-    unknown_abstracts_ac0d08.Add(this);
+    HousePtrTracker.Add(this);
     AbstractFlags.IsTechno=true;
     for (int i=0;i<8;++i) unknown_25c[i]=0;
     unknown_320=short(unknown_id_source_a3d290->Random()());
@@ -605,12 +605,12 @@ TechnoClass::~TechnoClass()
     House = 0;
     unknown_372 = false;
     Technos.Delete(this);
-    unknown_abstracts_ac0d08.Delete(this);
+    HousePtrTracker.Delete(this);
     if (unknown_108 != 0) {
         unknown_108->Delete_Me();
         unknown_108 = 0;
     }
-    unknown_abstracts_ac0bf8.Delete(this);
+    AnimPtrTracker.Delete(this);
 }
 
 
@@ -687,7 +687,7 @@ bool TechnoClass::Revealed(HouseClass *house)
             House->unknown_5668 = true;
             House->unknown_5669 = true;
             if (!unknown_372) {
-                if (unknown_a40774 == 0 && unknown_34 != 0) {
+                if (ScenarioInit == 0 && unknown_34 != 0) {
                     unknown_34->Spring(4, this, unknown_cell_ac0148, 0, 0);
                 }
                 House->unknown_13c = true;
@@ -916,9 +916,9 @@ inline void __fastcall Draw_Single_Selection_Bracket(::Coord const &from, ::Coor
 {
     ::Coord quarter = (from + from + from + to) / 4;
     if (from.Z > quarter.Z) {
-        unknown_tactical_83996c->unknown_slot24(reinterpret_cast<CoordStruct const &>(from), reinterpret_cast<CoordStruct const &>(quarter), color, 0);
+        TacticalMap->unknown_slot24(reinterpret_cast<CoordStruct const &>(from), reinterpret_cast<CoordStruct const &>(quarter), color, 0);
     } else {
-        unknown_tactical_83996c->unknown_slot24(reinterpret_cast<CoordStruct const &>(quarter), reinterpret_cast<CoordStruct const &>(from), color, 0);
+        TacticalMap->unknown_slot24(reinterpret_cast<CoordStruct const &>(quarter), reinterpret_cast<CoordStruct const &>(from), color, 0);
     }
 }
 // Read accessors of the tail tests (their sites decide the bracket refusals above).
@@ -934,7 +934,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
         }
         if (unknown_68 && unknown_38 && !Map[unknown_slot104()].unknown_47cb50()) {
             Point2D bomb_point;
-            unknown_tactical_83996c->Coord_To_Pixel(unknown_slot42(), bomb_point);
+            TacticalMap->Coord_To_Pixel(unknown_slot42(), bomb_point);
             CC_Draw_Shape(unknown_surface_83995c, static_cast<ConvertClass *>(unknown_convert_8323c8),
                 static_cast<ShapeFileStruct const *>(Rules->BombCursorShape), unknown_38->Unknown_00436000(),
                 bomb_point, unknown_rect_839630, 0xe00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
@@ -943,7 +943,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
             BuildingClass *building = Kind_Of() == 6 ? static_cast<BuildingClass *>(this) : 0;
             if (building->unknown_5b8 && !Map[unknown_slot104()].unknown_47cb50()) {
                 Point2D repair_point;
-                unknown_tactical_83996c->Coord_To_Pixel(unknown_slot42(), repair_point);
+                TacticalMap->Coord_To_Pixel(unknown_slot42(), repair_point);
                 int delay = Options.Normalize_Delay(14) / 4;
                 if (delay < 2) delay = 2;
                 CC_Draw_Shape(unknown_surface_83995c, static_cast<ConvertClass *>(unknown_convert_8323c8),
@@ -1017,14 +1017,14 @@ void __fastcall Draw_Double_Selection_Bracket_006c3950(::Coord const &first,::Co
     ::Coord first_tick=(first+first+first+second)/4;
     ::Coord second_tick=(second+second+second+first)/4;
     if (first.Z>first_tick.Z) {
-        unknown_tactical_83996c->unknown_slot24(reinterpret_cast<CoordStruct const &>(first),reinterpret_cast<CoordStruct const &>(first_tick),color,0);
+        TacticalMap->unknown_slot24(reinterpret_cast<CoordStruct const &>(first),reinterpret_cast<CoordStruct const &>(first_tick),color,0);
     } else {
-        unknown_tactical_83996c->unknown_slot24(reinterpret_cast<CoordStruct const &>(first_tick),reinterpret_cast<CoordStruct const &>(first),color,0);
+        TacticalMap->unknown_slot24(reinterpret_cast<CoordStruct const &>(first_tick),reinterpret_cast<CoordStruct const &>(first),color,0);
     }
     if (second.Z>second_tick.Z) {
-        unknown_tactical_83996c->unknown_slot24(reinterpret_cast<CoordStruct const &>(second),reinterpret_cast<CoordStruct const &>(second_tick),color,0);
+        TacticalMap->unknown_slot24(reinterpret_cast<CoordStruct const &>(second),reinterpret_cast<CoordStruct const &>(second_tick),color,0);
     } else {
-        unknown_tactical_83996c->unknown_slot24(reinterpret_cast<CoordStruct const &>(second_tick),reinterpret_cast<CoordStruct const &>(second),color,0);
+        TacticalMap->unknown_slot24(reinterpret_cast<CoordStruct const &>(second_tick),reinterpret_cast<CoordStruct const &>(second),color,0);
     }
 }
 
@@ -1089,14 +1089,14 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
         CoordStruct coord = dim - dim / 2;
         coord.X = -coord.X;
         coord.Z = dim.Z;
-        Point2D p0 = unknown_tactical_83996c->Coord_To_Pixel_Absolute(coord);
+        Point2D p0 = TacticalMap->Coord_To_Pixel_Absolute(coord);
         coord.X = -coord.X;
         coord.Y = -coord.Y;
         coord.X = -coord.X;
-        Point2D p1 = unknown_tactical_83996c->Coord_To_Pixel_Absolute(coord);
+        Point2D p1 = TacticalMap->Coord_To_Pixel_Absolute(coord);
         coord.Z = 0;
         coord.Y = -coord.Y;
-        Point2D p2 = unknown_tactical_83996c->Coord_To_Pixel_Absolute(coord);
+        Point2D p2 = TacticalMap->Coord_To_Pixel_Absolute(coord);
         coord.X = -coord.X;
         coord.Y = -coord.Y;
         coord.X = -coord.X;
@@ -1945,8 +1945,8 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
         Cell center(*coord);
         if (method&4) {
             int air_mask=mask|0x8002;
-            unknown_tracker_839ea0.Unknown_004128A0(&Map[center],cell_range);
-            TechnoClass *object=unknown_tracker_839ea0.Fetch_Next_004134e0();
+            AircraftTracker.Unknown_004128A0(&Map[center],cell_range);
+            TechnoClass *object=AircraftTracker.Fetch_Next_004134e0();
             while (object) {
                 int value=0;
                 if (!House->Is_Ally(object) && (!(method&0x4000) || House->Is_Ally(object->House)) && object->unknown_74 && object->In_Which_Layer()!=2 && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && unknown_6c5570(method,air_mask,range,object,&value,-1,&unknown_geometry_l)) {
@@ -1956,7 +1956,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
                     }
                     if (value>best_value) { best_object=object;best_value=value; }
                 }
-                object=unknown_tracker_839ea0.Fetch_Next_004134e0();
+                object=AircraftTracker.Fetch_Next_004134e0();
             }
         }
         if (method&0x10) mask|=4;
@@ -2144,7 +2144,7 @@ void TechnoClass::AI()
     if (draw_behind && !(this && Kind_Of()==2)) {
         unknown_6d9080(point,&window);
     } else if (unknown_108) {
-        if (Kind_Of()!=6) unknown_abstracts_ac0bf8.Delete(this);
+        if (Kind_Of()!=6) AnimPtrTracker.Delete(this);
         unknown_108->Delete_Me();
         unknown_108=0;
     }
@@ -2220,7 +2220,7 @@ void TechnoClass::AI()
     bool was_flash_on=(old_flash&2)==2;
     if (FlasherClass::Process()) Mark(2);
     if (old_flash && old_flash!=FlashCount && Kind_Of()==6 && was_flash_on!=((FlashCount&2)==2)) {
-        unknown_tactical_83996c->Register_Dirty_Area(Get_Render_Rect(),false);
+        TacticalMap->Register_Dirty_Area(Get_Render_Rect(),false);
         static_cast<BuildingClass *>(this)->Update_Anim_Appearance_0044d190();
     }
     TechnoTypeClass const *type=Techno_Type_Class();
@@ -2829,8 +2829,8 @@ LaserDrawClass *TechnoClass::unknown_6c9df0(AbstractClass *target, int weapon_in
     } else {
         from = unknown_slot43(weapon_index);
         if (Kind_Of() == 6) {
-            Point2D a = unknown_tactical_83996c->Coord_To_Pixel_Absolute(from);
-            Point2D b = unknown_tactical_83996c->Coord_To_Pixel_Absolute(unknown_slot42());
+            Point2D a = TacticalMap->Coord_To_Pixel_Absolute(from);
+            Point2D b = TacticalMap->Coord_To_Pixel_Absolute(unknown_slot42());
             depth = a.Y - b.Y;
             if (depth > 0) {
                 depth = 0;
@@ -2868,8 +2868,8 @@ EBolt *TechnoClass::unknown_6ca020(AbstractClass *target, WeaponTypeClass *weapo
         return 0;
     }
     if (Kind_Of() == 6) {
-        Point2D from = unknown_tactical_83996c->Coord_To_Pixel_Absolute(source);
-        Point2D to = unknown_tactical_83996c->Coord_To_Pixel_Absolute(unknown_slot42());
+        Point2D from = TacticalMap->Coord_To_Pixel_Absolute(source);
+        Point2D to = TacticalMap->Coord_To_Pixel_Absolute(unknown_slot42());
         depth = from.Y - to.Y;
         if (depth > 0) {
             depth = 0;
@@ -2923,8 +2923,8 @@ void TechnoClass::unknown_6ca1d0(AbstractClass *target, int chrono)
     CoordStruct source = unknown_slot43(0);
     CoordStruct center = unknown_slot42();
     if (source.Y != center.Y) {
-        Point2D from = unknown_tactical_83996c->Coord_To_Pixel_Absolute(source);
-        Point2D to = unknown_tactical_83996c->Coord_To_Pixel_Absolute(center);
+        Point2D from = TacticalMap->Coord_To_Pixel_Absolute(source);
+        Point2D to = TacticalMap->Coord_To_Pixel_Absolute(center);
         depth = from.Y - to.Y;
     }
     CoordStruct coord;
@@ -2972,15 +2972,15 @@ void TechnoClass::unknown_6ca340(int spread)
                 offset.Y *= y;
                 Cell spot = offset + cell;
                 CoordStruct to = ((UnknownCellClass *)&Map[spot])->unknown_475d60();
-                int dx = unknown_random_839218(-128, 128);
-                int dy = unknown_random_839218(-128, 128);
+                int dx = NonCriticalRandomNumber(-128, 128);
+                int dy = NonCriticalRandomNumber(-128, 128);
                 to.X += dx;
                 to.Y += dy;
                 RadBeam *beam = RadBeam::Allocate(2);
                 beam->Set_Color(color);
-                int period = unknown_random_839218(5, 20);
-                int amplitude = unknown_random_839218(100, 500);
-                int value = unknown_random_839218(0, 20);
+                int period = NonCriticalRandomNumber(5, 20);
+                int amplitude = NonCriticalRandomNumber(100, 500);
+                int value = NonCriticalRandomNumber(0, 20);
                 beam->Set_Source(center);
                 beam->Set_Target(to);
                 beam->Set_Period(period);
@@ -3535,8 +3535,8 @@ void TechnoClass::unknown_6cc020()
         CoordStruct target=unknown_6d65b0();
         Point2D start;
         Point2D end;
-        unknown_tactical_83996c->Coord_To_Pixel(source,start);
-        unknown_tactical_83996c->Coord_To_Pixel(target,end);
+        TacticalMap->Coord_To_Pixel(source,start);
+        TacticalMap->Coord_To_Pixel(target,end);
         start.Y+=unknown_rect_839630.Y;
         end.Y+=unknown_rect_839630.Y;
         unknown_surface_83995c->Fill_Rect(unknown_rect_839630.Intersect(Rect(RectPoint2D(start.X,start.Y),3,3)-RectPoint2D(2,2)),unknown_drawer_8323c4->Convert(8));
@@ -3589,7 +3589,7 @@ bool TechnoClass::Player_Assign_Mission(int mission, AbstractClass *target, Abst
             }
         } else if (Techno_Type_Class()->VoiceSpecialAttack.Count() > 0) {
             DynamicVectorClass<int> &sounds = Techno_Type_Class()->VoiceSpecialAttack;
-            unsigned random = unknown_random_839218();
+            unsigned random = NonCriticalRandomNumber();
             Voc_Play(sounds[random % sounds.Count()], 1.0f, 0x2000, 0);
         }
     }
@@ -4278,10 +4278,10 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
     case 4:
         {
             if (Techno_Type_Class()->VoiceDie.Count()>0 && House->Is_Player_Control()) {
-                Voc_Play_At(Techno_Type_Class()->VoiceDie.Pick(unknown_random_839218()),Position_Coord_004f3f40(),0);
+                Voc_Play_At(Techno_Type_Class()->VoiceDie.Pick(NonCriticalRandomNumber()),Position_Coord_004f3f40(),0);
             }
             if (Techno_Type_Class()->DieSound.Count()>0) {
-                Voc_Play_At(Techno_Type_Class()->DieSound.Pick(unknown_random_839218()),Position_Coord_004f3f40(),0);
+                Voc_Play_At(Techno_Type_Class()->DieSound.Pick(NonCriticalRandomNumber()),Position_Coord_004f3f40(),0);
             }
             SendToEachLink(3);
             unknown_slot210();
@@ -4324,8 +4324,8 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
     case 2:
         {
             TechnoTypeClass *type=Techno_Type_Class();
-            if (type->VoiceFeedback.Count()>0 && unknown_random_839218(0,99)<30 && House->Is_Player_Control()) {
-                int selection=unknown_random_839218();
+            if (type->VoiceFeedback.Count()>0 && NonCriticalRandomNumber(0,99)<30 && House->Is_Player_Control()) {
+                int selection=NonCriticalRandomNumber();
                 int voice=type->VoiceFeedback.Pick(selection);
                 Voc_Play_At(voice,Center_Coord(),0);
             }
@@ -4961,8 +4961,8 @@ void TechnoClass::unknown_6d0510(CoordStruct from, CoordStruct to, RGBClass colo
 {
     Point2D start;
     Point2D end;
-    unknown_tactical_83996c->Coord_To_Pixel(from,start);
-    unknown_tactical_83996c->Coord_To_Pixel(to,end);
+    TacticalMap->Coord_To_Pixel(from,start);
+    TacticalMap->Coord_To_Pixel(to,end);
     start.Y+=unknown_rect_839630.Y;
     end.Y+=unknown_rect_839630.Y;
     Point2D shadow_start=start;
@@ -5017,8 +5017,8 @@ void TechnoClass::unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass colo
     RGBClass shade;
     Point2D start;
     Point2D end;
-    unknown_tactical_83996c->Coord_To_Pixel(from,start);
-    unknown_tactical_83996c->Coord_To_Pixel(to,end);
+    TacticalMap->Coord_To_Pixel(from,start);
+    TacticalMap->Coord_To_Pixel(to,end);
     start.Y+=unknown_rect_839630.Y;
     end.Y+=unknown_rect_839630.Y;
     int pixel=Build_Hicolor_Pixel(color);
@@ -5045,8 +5045,8 @@ void TechnoClass::unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass colo
         next.X=(from.X*j+to.X*i)/64;
         next.Y=(from.Y*j+to.Y*i)/64;
         next.Z=(from.Z*j+to.Z*i)/64;
-        unknown_tactical_83996c->Coord_To_Pixel(last,start);
-        unknown_tactical_83996c->Coord_To_Pixel(next,end);
+        TacticalMap->Coord_To_Pixel(last,start);
+        TacticalMap->Coord_To_Pixel(next,end);
         start.Y+=unknown_rect_839630.Y;
         end.Y+=unknown_rect_839630.Y;
         if (Clip_Line(start,end,clip)) {
@@ -5078,8 +5078,8 @@ void TechnoClass::unknown_6d0990(CoordStruct from, CoordStruct to, RGBClass colo
     Point2D end;
     CoordStruct next;
     {
-        unknown_tactical_83996c->Coord_To_Pixel(from,start);
-        unknown_tactical_83996c->Coord_To_Pixel(to,end);
+        TacticalMap->Coord_To_Pixel(from,start);
+        TacticalMap->Coord_To_Pixel(to,end);
         start.Y+=unknown_rect_839630.Y;
         end.Y+=unknown_rect_839630.Y;
         int pixel=Build_Hicolor_Pixel(color.Red,color.Green,color.Blue);
@@ -5098,8 +5098,8 @@ void TechnoClass::unknown_6d0990(CoordStruct from, CoordStruct to, RGBClass colo
         int z=(to.Z*i+from.Z*j)/32;
         double arc=-(t*t);
         next.Z=(int)(z+(arc+1.0)*512.0);
-        unknown_tactical_83996c->Coord_To_Pixel(last,start);
-        unknown_tactical_83996c->Coord_To_Pixel(next,end);
+        TacticalMap->Coord_To_Pixel(last,start);
+        TacticalMap->Coord_To_Pixel(next,end);
         start.Y+=unknown_rect_839630.Y;
         end.Y+=unknown_rect_839630.Y;
         if (Clip_Line(start,end,clip)) {
@@ -5428,9 +5428,9 @@ SurfaceRegion TechnoClass::Render_Voxel_Object_006d24e0(UnknownObjectPair const 
     Rect cliprect=xcliprect;
     if (unknown_surface_83995c!=unknown_surface_ad0604) {
         if (unknown_322>0) {
-            cliprect=Intersect(cliprect,Rect(0,0,unknown_int_839638,unknown_322-unknown_tactical_83996c->TacPixelY));
+            cliprect=Intersect(cliprect,Rect(0,0,unknown_int_839638,unknown_322-TacticalMap->TacPixelY));
         } else if (unknown_325) {
-            unknown_322=(short)(unknown_tactical_83996c->TacPixelY+point.Y+region.Bounds.Height+region.Point.Y);
+            unknown_322=(short)(TacticalMap->TacPixelY+point.Y+region.Bounds.Height+region.Point.Y);
         }
     }
     flags&=~0x10U;
@@ -5508,7 +5508,7 @@ void TechnoClass::Blit_Voxel_006d29d0(void const *image,Point2D const &point,Rec
 
 void TechnoClass::unknown_6d2ca0(int x, int y)
 {
-    unknown_322 = unknown_tactical_83996c->TacPixelY + x + y - 10;
+    unknown_322 = TacticalMap->TacPixelY + x + y - 10;
     int dir = Dir_To_8(unknown_2e0.Current());
     if (dir == 0 || dir == 6) {
         unknown_322 -= 8;
@@ -5553,7 +5553,7 @@ void TechnoClass::Detach(AbstractClass *target, bool all)
         }
     }
     if (unknown_228 == target && forget && (all || target->Owning_House() != House)) {
-        if (unknown_148.Value() > 10 && unknown_a40774 == 0) {
+        if (unknown_148.Value() > 10 && ScenarioInit == 0) {
             unknown_148 = unknown_id_source_a3d290->Random()(4, 8);
         }
         unknown_slot220(0);
@@ -6050,7 +6050,7 @@ void TechnoClass::unknown_slot196()
     if (unknown_sound_enabled_7d88d6) {
         if (Techno_Type_Class()->VoiceSelect.Count()) {
             DynamicVectorClass<int> &sounds = Techno_Type_Class()->VoiceSelect;
-            unsigned random = unknown_random_839218();
+            unsigned random = NonCriticalRandomNumber();
             Voc_Play(sounds[random % sounds.Count()], 1.0f, 0x2000, 0);
         }
     }
@@ -6065,7 +6065,7 @@ void TechnoClass::unknown_slot197()
     if (unknown_sound_enabled_7d88d6) {
         if (Techno_Type_Class()->VoiceMove.Count()) {
             DynamicVectorClass<int> &sounds = Techno_Type_Class()->VoiceMove;
-            unsigned random = unknown_random_839218();
+            unsigned random = NonCriticalRandomNumber();
             Voc_Play(sounds[random % sounds.Count()], 1.0f, 0x2000, 0);
         }
     }
@@ -6080,7 +6080,7 @@ void TechnoClass::unknown_slot198()
     if (unknown_sound_enabled_7d88d6) {
         if (Techno_Type_Class()->VoiceAttack.Count()) {
             DynamicVectorClass<int> &sounds = Techno_Type_Class()->VoiceAttack;
-            unsigned random = unknown_random_839218();
+            unsigned random = NonCriticalRandomNumber();
             Voc_Play(sounds[random % sounds.Count()], 1.0f, 0x2000, 0);
         }
     }
@@ -7164,8 +7164,8 @@ HRESULT __stdcall TechnoClass::Load(IStream *stream)
     Swizzler.Swizzle((void **)&Cargo.Object);
     Swizzler.Swizzle((void **)&unknown_27c);
     if (unknown_108) {
-        unknown_abstracts_ac0bf8.Delete(this);
-        unknown_abstracts_ac0bf8.Add(this);
+        AnimPtrTracker.Delete(this);
+        AnimPtrTracker.Add(this);
     }
     Swizzler.Swizzle((void **)&unknown_108);
     unknown_3d8.Init();
@@ -7319,7 +7319,7 @@ void TechnoClass::unknown_6d6e50(AbstractClass *value)
 int TechnoClass::unknown_slot164()
 {
     CoordStruct coord = Coord;
-    Cell shown = ((UnknownTacticalView *)unknown_tactical_83996c)->Unknown_006A6A50(coord);
+    Cell shown = ((UnknownTacticalView *)TacticalMap)->Unknown_006A6A50(coord);
     if (shown == unknown_slot104()) {
         return 0;
     }
@@ -8535,7 +8535,7 @@ void __fastcall TechnoClass::unknown_6d8fd0(TechnoClass *techno, int value)
 // address passed by the original caller but never read by this body.
 // Its nominal pointee type is unknown; keep the unused pointer opaque.
 extern ConvertClass *unknown_drawer_8323c4;
-extern DynamicVectorClass<AbstractClass *> unknown_abstracts_ac0bf8;
+extern DynamicVectorClass<AbstractClass *> AnimPtrTracker;
 extern bool unknown_a40b33;
 void TechnoClass::unknown_6d9080(Point2D const &center, void const *unused)
 {
@@ -8544,8 +8544,8 @@ void TechnoClass::unknown_6d9080(Point2D const &center, void const *unused)
             unknown_108=new AnimClass(Rules->Behind,Center_Coord(),0,1,0x600,0);
             if (unknown_108) {
                 if (Kind_Of()!=6) {
-                    unknown_abstracts_ac0bf8.Delete((AbstractClass *)this);
-                    unknown_abstracts_ac0bf8.Add(this);
+                    AnimPtrTracker.Delete((AbstractClass *)this);
+                    AnimPtrTracker.Add(this);
                 }
                 ((AnimClass *)unknown_108)->Attach_To(this);
                 if (!unknown_a40b33) ((AnimClass *)unknown_108)->unknown_17d=true;
@@ -8631,7 +8631,7 @@ void TechnoClass::unknown_6d9670(long delay)
 
 void TechnoClass::unknown_6d96a0()
 {
-    if (unknown_148.Value() > 10 && unknown_a40774 == 0) {
+    if (unknown_148.Value() > 10 && ScenarioInit == 0) {
         unknown_148 = CDTimerClass<FrameTimerClass>(unknown_id_source_a3d290->Random()(4, 8));
     }
 }

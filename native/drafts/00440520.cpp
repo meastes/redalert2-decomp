@@ -17,8 +17,8 @@
 #include "shared/building_type_list.hpp"
 // @ref ?Pose_Dir@AircraftClass@@QBEIXZ=00417890
 // @ref ?Fast_Atan2@@=004ba600
-// @ref ?unknown_a40774@@3HA=00a40774
-// @ref _unknown_a40774=00a40774
+// @ref ?ScenarioInit@@3HA=00a40774
+// @ref _ScenarioInit=00a40774
 // @ref ?Base_Cell_Weight_By_Distance_004f0290@@YIHPAVHouseClass@@ABVCell@@HH@Z=004f0290
 inline UnknownFacingDir Direction_Between(CoordStruct const &from, CoordStruct const &to)
 {
@@ -64,7 +64,7 @@ exitcell = edge;
 int random = Random_Pick(0, Map.MapLocalSize.Height);
 exitcell.X += random; exitcell.Y += random;
 }
-                ++unknown_a40774;
+                ++ScenarioInit;
                 if (aircraft->Unlimbo(&CoordStruct(exitcell, 0), 0)) {
                     AbstractClass *target = unknown_1b0;
                     if (target) {
@@ -78,19 +78,19 @@ exitcell.X += random; exitcell.Y += random;
                         }
                     }
                     aircraft->Set_Mission(2);
-                    --unknown_a40774;
+                    --ScenarioInit;
                     return 2;
                 }
-                --unknown_a40774;
+                --ScenarioInit;
                 return 0;
             }
         } else {
             aircraft->unknown_func_5d4920(0);
-            ++unknown_a40774;
+            ++ScenarioInit;
             if (House->Unknown_0051FC80()) {
                 Cell nearby = aircraft->unknown_6cf130(this);
                 if (aircraft->Unlimbo(&CoordStruct(nearby, 0), aircraft->Pose_Dir())) {
-                    --unknown_a40774;
+                    --ScenarioInit;
                     return 2;
                 }
             } else {
@@ -103,11 +103,11 @@ exitcell.X += random; exitcell.Y += random;
                         aircraft->Assign_Destination(unknown_1b0, 1);
                         aircraft->QueueMission(2, 0);
                     }
-                    --unknown_a40774;
+                    --ScenarioInit;
                     return 2;
                 }
             }
-            --unknown_a40774;
+            --ScenarioInit;
             return 0;
         }
         break;
@@ -163,7 +163,7 @@ exitcell.X += random; exitcell.Y += random;
                         }
                         return 1;
                     }
-                    ++unknown_a40774;
+                    ++ScenarioInit;
                     if (base->Unlimbo(&unknown_slot44(0), 0x40)) {
                         base->Mark(0);
                         base->Set_Coord(unknown_slot44(0));
@@ -171,7 +171,7 @@ exitcell.X += random; exitcell.Y += random;
                         unknown_slot150(2, base);
                         unknown_slot150(0x18, base);
                         QueueMission(0x10, 0);
-                        --unknown_a40774;
+                        --ScenarioInit;
                         return 2;
                     }
                 }
@@ -212,7 +212,7 @@ exitcell.X += random; exitcell.Y += random;
                 if (Type->NODBarracks && exitcell.X == x + 2 && exitcell.Y == y + 2) {
                     exitcoord = exitcoord + Type->ExitCoord;
                 }
-                ++unknown_a40774;
+                ++ScenarioInit;
                 if (base->Unlimbo(&exitcoord, dir)) {
                     FootClass *foot = (FootClass *)base;
                     if (foot->unknown_494) {
@@ -235,7 +235,7 @@ exitcell.X += random; exitcell.Y += random;
                     if (unknown_slot150(2, base) == 1) {
                         unknown_slot150(9, base);
                     }
-                    --unknown_a40774;
+                    --ScenarioInit;
                     return 2;
                 }
             } else {
@@ -265,7 +265,7 @@ exitcell.X += random; exitcell.Y += random;
                 if (Type->NODBarracks && exitcell.X == x + 2 && exitcell.Y == y + 2) {
                     exitcoord = exitcoord + Type->ExitCoord;
                 }
-                ++unknown_a40774;
+                ++ScenarioInit;
                 if (base->Unlimbo(&exitcoord, dir)) {
                     base->QueueMission(2, 0);
                     base->Assign_Destination(&Map[exitcell], 1);
@@ -278,14 +278,14 @@ exitcell.X += random; exitcell.Y += random;
                             base->unknown_6d6e50(0);
                         }
                     }
-                    --unknown_a40774;
+                    --ScenarioInit;
                     return 2;
                 }
             }
         } else {
             if (base->Kind_Of() == 1) {
                 exitcell = Adjacent_Cell(Cell(Center_Coord()), 5);
-                ++unknown_a40774;
+                ++ScenarioInit;
                 if (base->Unlimbo(&CoordStruct(Adjacent_Cell(exitcell, 4), 0), 0xA0)) {
                     base->unknown_2e0.Set(UnknownFacingDir((unsigned short)0x8000));
                     base->QueueMission(10, 0);
@@ -295,7 +295,7 @@ exitcell.X += random; exitcell.Y += random;
                 return 0;
             }
         }
-        --unknown_a40774;
+        --ScenarioInit;
         return 0;
     case 6:
         if (!House->Is_Human_Player()) {

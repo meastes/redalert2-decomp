@@ -12,7 +12,7 @@
 // @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
 // @ref ?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40c60
 // @ref _wcscpy=00783689
-// @ref ?unknown_int_a3d548@@3HA=00a3d548
+// @ref ?MuteSWLaunches@@3HA=00a3d548
 // @ref ?unknown_state_ac132c@@3HA=00ac132c
 // @ref ?unknown_selected_83996c@@3PAUUnknownSelection@@A=0083996c
 // @ref ?Unknown_006AAD40@UnknownSelection@@QAEXXZ=006aad40
@@ -63,7 +63,7 @@ static void Select_If_Named(TechnoClass *techno, DynamicVectorClass<char const *
 
 void __fastcall Unknown_006F7360()
 {
-    if (unknown_int_a3d548 != 0) {
+    if (MuteSWLaunches != 0) {
         return;
     }
     unknown_selected_83996c->Unknown_006AAD70();

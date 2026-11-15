@@ -75,7 +75,7 @@ TagTypeClass::TagTypeClass(char const *ini_name) :
     Name = FixedString<49>(ID);
     ArrayIndex = TagTypes.Count();
     TagTypes.Add(this);
-    unknown_objects_ac0cb0.Add(this);
+    AbstractTypePtrTracker.Add(this);
 }
 
 
@@ -99,7 +99,7 @@ TagTypeClass::~TagTypeClass()
             index--;
         }
     }
-    unknown_objects_ac0cb0.Delete((ObjectClass *)this);
+    AbstractTypePtrTracker.Delete((ObjectClass *)this);
     TagTypes.Delete(this);
 }
 

@@ -837,10 +837,10 @@ class Leaf_716940 { public: void get(); };
 void Leaf_716940::get() { unsigned int unused_this_address = (unsigned int)this; unsigned int counter_value; unsigned int unused_value; counter_value = *(unsigned int*)(0xad0878); counter_value = (counter_value) + 1; *(unsigned int*)(0xad0878) = counter_value; }
 
 
-// void Unknown_00716950() (0x00716950): counts the speech block down, not
+// void Remove_Speech_Hold() (0x00716950): counts the speech block down, not
 // below 0.
 
-void Unknown_00716950()
+void Remove_Speech_Hold()
 {
     if (unknown_vox_ad0878 != 0) {
         if (--unknown_vox_ad0878 < 0) {

@@ -66,8 +66,8 @@ int WWMessageBox::Process(unsigned short const *text, unsigned short const *butt
                 if (unknown_6000d0()) {
                     break;
                 }
-                if (!unknown_flag_a40958) {
-                    unknown_517370(false);
+                if (!GameActive) {
+                    Title_Screen_Restore(false);
                 }
             }
         } else {

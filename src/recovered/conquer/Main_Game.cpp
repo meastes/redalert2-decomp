@@ -84,7 +84,7 @@ extern bool unknown_flag_7ce008;                        // 0x007CE008
 extern PaletteClass unknown_palette_837510;             // 0x00837510
 // Also declared in shared/gscreen.hpp, which cannot follow map_view.hpp in this unit.
 extern CCToolTip *ToolTips;                             // 0x008399B0
-extern bool unknown_flag_a40380;                        // 0x00A40380 (also in gscreen.hpp and load_dlg.hpp)
+extern bool TacticalActive;                        // 0x00A40380 (also in gscreen.hpp and load_dlg.hpp)
 
 void __fastcall Main_Game(int argc, char *argv[])
 {
@@ -126,10 +126,10 @@ ret_addr:
     Debug_Printf("ExceptionReturnAddress = %08X\n", ExceptionReturnAddress);
 
     while (Select_Game(fade)) {
-        unknown_a40774 = 0;
+        ScenarioInit = 0;
         fade = true;
 
-        Unknown_004955D0(&unknown_palette_837e10, 15, 0);
+        Unknown_004955D0(&GamePalette, 15, 0);
         WWKeyboard->Clear();
         if (unknown_session_a3d298.Play) {
             WWMouse->Hide_Mouse();
@@ -148,7 +148,7 @@ ret_addr:
             ToolTips->Enable(Options.ToolTips);
         }
 
-        unknown_flag_a40d44 = unknown_id_source_a3d290->unknown_2306;
+        IgnoreInput = unknown_id_source_a3d290->unknown_2306;
         unknown_int_a40d48 = 0;
         unknown_flag_007d88e0 = true;
         unknown_session_a3d298.Unknown_00672DE0();
@@ -166,8 +166,8 @@ ret_addr:
         }
         Unknown_Reload_Art_Set_006F31B0();
         unknown_session_a3d298.Unknown_00672E70();
-        unknown_flag_a40d04 = false;
-        unknown_flag_a40380 = false;
+        ScenarioActive = false;
+        TacticalActive = false;
 
         Debug_Printf("Game loop finished. Average FPS = %d\n", fps_sample_count_00a6eb24 ? accumulated_fps_00a6eb20 / fps_sample_count_00a6eb24 : 0);
 
@@ -176,7 +176,7 @@ ret_addr:
         if (!unknown_flag_7ce008) {
             Unknown_004955D0(&unknown_palette_837510, 30, 0);
         }
-        unknown_517370(true);
+        Title_Screen_Restore(true);
 
         if (unknown_session_a3d298.Record || unknown_session_a3d298.Play) {
             unknown_session_a3d298.RecordFile.Close();

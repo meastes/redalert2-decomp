@@ -66,17 +66,17 @@ FactoryClass::FactoryClass() :
     Factories.Add(this);
     Set_Rate(0);
     Stage = 0;
-    unknown_AbstractClass_list_00ac0d60.Add(this);
+    ObjectPtrTracker.Add(this);
 }
 
 
-extern bool unknown_flag_a40958;
+extern bool GameActive;
 FactoryClass::~FactoryClass()
 {
     Unknown_006ECB90(this, true);
     Factories.Delete(this);
-    if (unknown_flag_a40958) Abandon_Production_004B97C0();
-    unknown_AbstractClass_list_00ac0d60.Delete(this);
+    if (GameActive) Abandon_Production_004B97C0();
+    ObjectPtrTracker.Delete(this);
 }
 
 
@@ -210,10 +210,10 @@ bool FactoryClass::Abandon_Production_004B97C0()
             if (Object->Kind_Of() == 2) Owner->unknown_5548 = -1;
             if (Object->Kind_Of() == 6) Owner->unknown_553c = -1;
         }
-        ++unknown_a40774;
+        ++ScenarioInit;
         delete Object;
         Object = 0;
-        --unknown_a40774;
+        --ScenarioInit;
         return true;
     }
     return false;

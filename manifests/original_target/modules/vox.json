@@ -301,7 +301,7 @@
    "padding_bytes": 4
   },
   {
-   "symbol": "?Unknown_00716950@@YAXXZ",
+   "symbol": "?Remove_Speech_Hold@@YAXXZ",
    "entry": "00716950",
    "body_bytes": 33,
    "padding_bytes": 15
@@ -1064,7 +1064,7 @@
   },
   {
    "site": "0062f170",
-   "symbol": "?Unknown_00716640@@YIHPBD@Z",
+   "symbol": "?Vox_From_Name@@YIHPBD@Z",
    "target": "00716640",
    "function_entry": true
   },
@@ -1088,7 +1088,7 @@
   },
   {
    "site": "00732870",
-   "symbol": "?Unknown_00716640@@YIHPBD@Z",
+   "symbol": "?Vox_From_Name@@YIHPBD@Z",
    "target": "00716640",
    "function_entry": true
   },
@@ -1124,37 +1124,37 @@
   },
   {
    "site": "00406ad0",
-   "symbol": "?unknown_00715f10@@YAXXZ",
+   "symbol": "?Aux_Stream_Init@@YAXXZ",
    "target": "00715f10",
    "function_entry": true
   },
   {
    "site": "00406e40",
-   "symbol": "?unknown_00716980@@YAXXZ",
+   "symbol": "?Theme_Suspend@@YAXXZ",
    "target": "00716980",
    "function_entry": true
   },
   {
    "site": "00406e40",
-   "symbol": "?unknown_007168d0@@YAXXZ",
+   "symbol": "?Aux_Stream_Pause@@YAXXZ",
    "target": "007168d0",
    "function_entry": true
   },
   {
    "site": "00406e70",
-   "symbol": "?unknown_007168e0@@YAXXZ",
+   "symbol": "?Aux_Stream_Resume@@YAXXZ",
    "target": "007168e0",
    "function_entry": true
   },
   {
    "site": "00406e70",
-   "symbol": "?unknown_007169f0@@YAXXZ",
+   "symbol": "?Theme_Resume@@YAXXZ",
    "target": "007169f0",
    "function_entry": true
   },
   {
    "site": "00406ea0",
-   "symbol": "?unknown_00715ba0@@YAXXZ",
+   "symbol": "?Speech_Service@@YAXXZ",
    "target": "00715ba0",
    "function_entry": true
   },
@@ -1166,19 +1166,19 @@
   },
   {
    "site": "0062fcc0",
-   "symbol": "?Unknown_00716950@@YAXXZ",
+   "symbol": "?Remove_Speech_Hold@@YAXXZ",
    "target": "00716950",
    "function_entry": true
   },
   {
    "site": "00633c40",
-   "symbol": "?Unknown_00716950@@YAXXZ",
+   "symbol": "?Remove_Speech_Hold@@YAXXZ",
    "target": "00716950",
    "function_entry": true
   },
   {
    "site": "00633c40",
-   "symbol": "?Unknown_00716690@@YI_NH@Z",
+   "symbol": "?Is_Speech_Finished@@YI_NH@Z",
    "target": "00716690",
    "function_entry": true
   },
@@ -1196,7 +1196,7 @@
   },
   {
    "site": "00633c40",
-   "symbol": "?Unknown_00716940@@YAXXZ",
+   "symbol": "?Add_Speech_Hold@@YAXXZ",
    "target": "00716940",
    "function_entry": true
   },
@@ -1430,7 +1430,7 @@
   },
   {
    "site": "00406c80",
-   "symbol": "?unknown_00715f80@@YAXXZ",
+   "symbol": "?Aux_Stream_Shutdown@@YAXXZ",
    "target": "00715f80",
    "function_entry": true
   },
@@ -2504,13 +2504,13 @@
   {
    "site": "0062f170",
    "target": "00716640",
-   "symbol": "?Unknown_00716640@@YIHPBD@Z",
+   "symbol": "?Vox_From_Name@@YIHPBD@Z",
    "module_symbol": "?Find_Index@VoxClass@@SIHPBD@Z"
   },
   {
    "site": "00732870",
    "target": "00716640",
-   "symbol": "?Unknown_00716640@@YIHPBD@Z",
+   "symbol": "?Vox_From_Name@@YIHPBD@Z",
    "module_symbol": "?Find_Index@VoxClass@@SIHPBD@Z"
   },
   {
@@ -2522,49 +2522,49 @@
   {
    "site": "00406ad0",
    "target": "00715f10",
-   "symbol": "?unknown_00715f10@@YAXXZ",
+   "symbol": "?Aux_Stream_Init@@YAXXZ",
    "module_symbol": "?Taunt_Init@@YAHXZ"
   },
   {
    "site": "00406e40",
    "target": "00716980",
-   "symbol": "?unknown_00716980@@YAXXZ",
+   "symbol": "?Theme_Suspend@@YAXXZ",
    "module_symbol": "?Speech_Hold@@YAXXZ"
   },
   {
    "site": "00406e40",
    "target": "007168d0",
-   "symbol": "?unknown_007168d0@@YAXXZ",
+   "symbol": "?Aux_Stream_Pause@@YAXXZ",
    "module_symbol": "?Taunt_Pause@@YAXXZ"
   },
   {
    "site": "00406e70",
    "target": "007168e0",
-   "symbol": "?unknown_007168e0@@YAXXZ",
+   "symbol": "?Aux_Stream_Resume@@YAXXZ",
    "module_symbol": "?Taunt_Resume@@YAXXZ"
   },
   {
    "site": "00406e70",
    "target": "007169f0",
-   "symbol": "?unknown_007169f0@@YAXXZ",
+   "symbol": "?Theme_Resume@@YAXXZ",
    "module_symbol": "?unknown_tick_sound@@YAXXZ"
   },
   {
    "site": "00406ea0",
    "target": "00715ba0",
-   "symbol": "?unknown_00715ba0@@YAXXZ",
+   "symbol": "?Speech_Service@@YAXXZ",
    "module_symbol": "?Speech_Update@@YAXXZ"
   },
   {
    "site": "00633c40",
    "target": "00716690",
-   "symbol": "?Unknown_00716690@@YI_NH@Z",
+   "symbol": "?Is_Speech_Finished@@YI_NH@Z",
    "module_symbol": "?FUN_00716690@seed_00716690@@YI_NH@Z"
   },
   {
    "site": "00633c40",
    "target": "00716940",
-   "symbol": "?Unknown_00716940@@YAXXZ",
+   "symbol": "?Add_Speech_Hold@@YAXXZ",
    "module_symbol": "?get@Leaf_716940@@QAEXXZ"
   },
   {
@@ -2576,7 +2576,7 @@
   {
    "site": "00406c80",
    "target": "00715f80",
-   "symbol": "?unknown_00715f80@@YAXXZ",
+   "symbol": "?Aux_Stream_Shutdown@@YAXXZ",
    "module_symbol": "?Taunt_Shutdown@@YAXXZ"
   },
   {

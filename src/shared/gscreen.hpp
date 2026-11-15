@@ -87,7 +87,7 @@ public:
 // The tactical view (0x0083996C): shared/tactical.hpp.
 #include "shared/tactical.hpp"
 
-// 3D device used when unknown_flag_852fd7 is set (0x00852FE0; Blit_Display runs
+// 3D device used when UseDirect3D is set (0x00852FE0; Blit_Display runs
 // an empty scene on it): shared/direct3d.hpp's unknown_device_852fe0.
 #include "shared/direct3d.hpp"
 
@@ -122,9 +122,9 @@ extern UnknownStruct_AC11FC *unknown_ac11fc;
 void __fastcall Unknown_005419E0(bool unknown);              // 0x005419E0 Render, when unknown_flag_a3d8c4
 extern bool unknown_flag_a3d8c4;
 extern bool unknown_flag_abcd85;                // Render erases the mouse from the sidebar once
-extern bool unknown_flag_a40380;
+extern bool TacticalActive;
 extern bool unknown_flag_8373f6;
-extern int unknown_int_a40d34;                  // Blit copies with the last Copy_From flag when zero
+extern int _dialog_count;                  // Blit copies with the last Copy_From flag when zero
 
 
 #endif

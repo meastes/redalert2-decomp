@@ -99,10 +99,10 @@ Territory::Territory(int index, INIClass const &ini, Wstring const &section, Wst
     ShapeName = Wstring_Join(shape_prefix, Wstring_From_Integer(index, 2)) + ".shp";
     Wstring label = Wstring_Join(name_prefix, Wstring_From_Integer(index, 2));
     Name = StringTable::Load_String(label.Get(), 0, "D:\\Ra2\\WDTTerr.cpp", 39);
-    Wstring width = Wstring_From_Integer(unknown_8523e0);
+    Wstring width = Wstring_From_Integer(VideoModeWidth);
     Target = ini.Get_Point(section, "Target_" + width, Target);
     Origin = ini.Get_Point(section, "Origin_" + width, Origin);
-    if (unknown_8523e0 > 800) {
+    if (VideoModeWidth > 800) {
         if (Target.X == 0 && Target.Y == 0) {
             Wstring key("Target_800");
             Target = ini.Get_Point(section, key, Target);

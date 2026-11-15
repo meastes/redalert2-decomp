@@ -278,24 +278,24 @@ void PowerClass::Draw_It(bool complete)
             yoff = 0x45;
         }
         int y = unknown_int_839624 + yoff;
-        Rect window = unknown_surface_839948->Get_Rect();
+        Rect window = SidebarSurface->Get_Rect();
         int unlit = Max_Power_Height() - RedPipCount - YellowPipCount - GreenPipCount;
 
         for (int index = 0; index < unlit; index++) {
-            CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerPipShape, 0,
+            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)PowerPipShape, 0,
                           Point2D(shift, y), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             y += 3;
         }
         int first = 0;
         if (FlashCount > 0 && FlashCount % 2 == 0) {
-            CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerPipShape, 4,
+            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)PowerPipShape, 4,
                           Point2D(shift, y), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             y += 3;
             first = 1;
         }
         if (GreenPipCount > 0) {
             for (; first < GreenPipCount; first++) {
-                CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerPipShape, 1,
+                CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)PowerPipShape, 1,
                               Point2D(shift, y), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                 y += 3;
             }
@@ -303,7 +303,7 @@ void PowerClass::Draw_It(bool complete)
         }
         if (YellowPipCount > 0) {
             for (; first < YellowPipCount; first++) {
-                CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerPipShape, 2,
+                CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)PowerPipShape, 2,
                               Point2D(shift, y), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                 y += 3;
             }
@@ -311,7 +311,7 @@ void PowerClass::Draw_It(bool complete)
         }
         if (RedPipCount > 0) {
             for (; first < RedPipCount; first++) {
-                CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerPipShape, 3,
+                CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)PowerPipShape, 3,
                               Point2D(shift, y), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                 y += 3;
             }

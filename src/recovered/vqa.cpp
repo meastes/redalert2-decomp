@@ -76,16 +76,16 @@ DynamicVectorClass<MovieHandle *> unknown_movie_handles_af8fd8;
 // compiler emits it from the definition in 0x0071C510's draft.
 
 
-// bool VQA_Unknown_0071C590() (0x0071C590)
+// bool VQA_Message_Handler() (0x0071C590)
 // Handles one pending window message (counted in 0x00A52298); false when
 // the message loop has to end (WM_QUIT).
 
-bool VQA_Unknown_0071C590()
+bool VQA_Message_Handler()
 {
     MSG message;
-    ++unknown_message_count_a52298;
-    if (unknown_peek_message_522ed0(&message, 0, 0, 0, 0)) {
-        if (unknown_get_message_522e90(&message, 0, 0, 0)) {
+    ++MessageLoopCount;
+    if (Peek_Windows_Message(&message, 0, 0, 0, 0)) {
+        if (Get_Windows_Message(&message, 0, 0, 0)) {
             TranslateMessage(&message);
             DispatchMessageA(&message);
         } else {
@@ -114,16 +114,16 @@ VQAClass::VQAClass(char const *filename, int flags, int (*callback538)(), void (
     Config.Owner = this;
     Config.ImageBuf = &unknown;
     Config.DrawFlags = 0;
-    if (!VQA_Unknown_0071DBA0(15)) {
+    if (!Get_Option(15)) {
         Config.DrawFlags |= 1;
     }
-    if (!VQA_Unknown_0071DBA0(1)) {
+    if (!Get_Option(1)) {
         Config.DrawFlags |= 4;
     }
-    if (VQA_Unknown_0071DBA0(10) == true) {
+    if (Get_Option(10) == true) {
         Config.DrawFlags |= 0x40;
     }
-    if (VQA_Unknown_0071DBA0(12) == true) {
+    if (Get_Option(12) == true) {
         Config.DrawFlags |= 0x80;
     }
     Config.OptionFlags |= 8;
@@ -135,12 +135,12 @@ VQAClass::VQAClass(char const *filename, int flags, int (*callback538)(), void (
     } else {
         Config.OptionFlags &= ~0x20;
     }
-    if (VQA_Unknown_0071DBA0(17) == true) {
+    if (Get_Option(17) == true) {
         Config.OptionFlags |= 4;
     } else {
         Config.OptionFlags &= ~4;
     }
-    if (VQA_Unknown_0071DBA0(3) == true) {
+    if (Get_Option(3) == true) {
         Config.OptionFlags &= ~1;
     } else {
         Config.OptionFlags |= 1;
@@ -152,7 +152,7 @@ VQAClass::VQAClass(char const *filename, int flags, int (*callback538)(), void (
     Config.DrawerCallback = 0;
     Config.FrameRate = unknown6;
     Config.DrawRate = unknown7;
-    if (VQA_Unknown_0071DBA0(3) == true) {
+    if (Get_Option(3) == true) {
         Config.NumFrameBufs = 1;
     } else {
         Config.NumFrameBufs = 14;
@@ -163,9 +163,9 @@ VQAClass::VQAClass(char const *filename, int flags, int (*callback538)(), void (
     } else {
         Config.StreamHandler = VQA_Unknown_0071D490;
     }
-    Config.MemoryHandler = VQA_Unknown_0071D680;
-    Config.EventHandler = VQA_Unknown_0071D6E0;
-    if (VQA_Unknown_0071DBA0(4) == true) {
+    Config.MemoryHandler = VQAMemoryHandler;
+    Config.EventHandler = VQAEventHandler;
+    if (Get_Option(4) == true) {
         Config.TimerCallback = Unknown_004122C0;
         Config.RefreshRate = 60;
     } else {
@@ -441,23 +441,23 @@ int VQAClass::Play_VQA(int frame, bool unknown)
         VQA_Unknown_0077C920(Handle, &unknown3, &unknown2, &state);
         if (state == 1) {
             VQA_Unknown_0070B690(unknown_508);
-            if (VQA_Unknown_0071DBA0(11)) {
+            if (Get_Option(11)) {
                 VQA_Unknown_0077C440(Handle, VQA_Unknown_0077FE89, VQA_Unknown_0070BBC0);
             } else {
                 VQA_Unknown_0077C440(Handle, VQA_Unknown_0077FD80, VQA_Unknown_0070B820);
             }
         } else if (state == 4) {
             VQA_Unknown_0070B690(unknown_508);
-            if (VQA_Unknown_0071DBA0(11)) {
+            if (Get_Option(11)) {
                 VQA_Unknown_0077C440(Handle, VQA_Unknown_0070BF60, VQA_Unknown_0070C0A0);
             }
         }
     }
     int result = 0;
     while ((result >= 0 || result == -10 || result == -9 || result == -11 || result == -1) && !done) {
-        VQA_Unknown_0071C590();
+        VQA_Message_Handler();
         if (sleeping == true) {
-            if (unknown_flag_a40d28 == false) {
+            if (GameInFocus == false) {
                 Sleep(33);
                 continue;
             }
@@ -465,7 +465,7 @@ int VQAClass::Play_VQA(int frame, bool unknown)
             unknown_548 = false;
             Debug_Printf("Movie is awake\n");
         }
-        if (unknown_flag_a40d28 == true && !unknown_548) {
+        if (GameInFocus == true && !unknown_548) {
             result = VQA_Unknown_0077BF10(Handle, 1, 0);
             if (result >= 0) {
                 if (PaletteChanged) {
@@ -541,13 +541,13 @@ bool VQAClass::Advance_Frame(bool *unknown)
         unknown_549 = true;
     }
     if (unknown_548 == true && !(unknown_flags_a3f600 & 2) && unknown_int_a40d48 == 0) {
-        if (unknown_flag_a40d28 != true) {
+        if (GameInFocus != true) {
             goto pause;
         }
         unknown_548 = false;
         Debug_Printf("VQAClass::Advance_Frame() - Unpause\n");
     }
-    if (unknown_flag_a40d28 == true && !unknown_548) {
+    if (GameInFocus == true && !unknown_548) {
         int result = VQA_Unknown_0077BF10(Handle, 1, 0);
         if (result >= 0) {
             if (PaletteChanged) {
@@ -854,23 +854,23 @@ int __cdecl VQA_Unknown_0071D640(VQAHandle *handle, int unknown2, int unknown3, 
 }
 
 
-// int __fastcall VQA_Unknown_0071D660(VQAHandle *handle, int unknown2, int unknown3, int unknown4) (0x0071D660)
+// int __fastcall VQACacheHandler(VQAHandle *handle, int unknown2, int unknown3, int unknown4) (0x0071D660)
 // Library callback: forwards to the owning player's 0x0071CA00.
 
-int __fastcall VQA_Unknown_0071D660(VQAHandle *handle, int unknown2, int unknown3, int unknown4)
+int __fastcall VQACacheHandler(VQAHandle *handle, int unknown2, int unknown3, int unknown4)
 {
     return handle->Player->CacheHandler(unknown2, unknown3, unknown4);
 }
 
 
-// int __cdecl VQA_Unknown_0071D680(VQAHandle *handle, int request, int unknown3, int unknown4) (0x0071D680)
+// int __cdecl VQAMemoryHandler(VQAHandle *handle, int request, int unknown3, int unknown4) (0x0071D680)
 // Library memory callback: 2 allocates unknown4 bytes, 3 frees unknown3,
 // 4 and 5 return unknown3, 6 stores -1 through it.
 
 extern "C" void *__cdecl malloc(unsigned size);
 extern "C" void __cdecl free(void *block);
 
-int __cdecl VQA_Unknown_0071D680(VQAHandle *handle, int request, int unknown3, int unknown4)
+int __cdecl VQAMemoryHandler(VQAHandle *handle, int request, int unknown3, int unknown4)
 {
     switch (request) {
     case 2:
@@ -889,11 +889,11 @@ int __cdecl VQA_Unknown_0071D680(VQAHandle *handle, int request, int unknown3, i
 }
 
 
-// int __cdecl VQA_Unknown_0071D6E0(VQAHandle *handle, int event, int unknown3, int unknown4) (0x0071D6E0)
+// int __cdecl VQAEventHandler(VQAHandle *handle, int event, int unknown3, int unknown4) (0x0071D6E0)
 // Library event callback: 2 a new palette (6-bit components scaled by 4),
 // 3 frame timing (0x0071D2C0), 6 and 7 the player's callbacks.
 
-int __cdecl VQA_Unknown_0071D6E0(VQAHandle *handle, int event, int unknown3, int unknown4)
+int __cdecl VQAEventHandler(VQAHandle *handle, int event, int unknown3, int unknown4)
 {
     VQAClass *player = handle->Player;
     switch (event) {

@@ -182,7 +182,7 @@ bool UnitTypeClass::CanAttackMove() const
 
 // void UnitTypeClass::One_Time() (0x0070A900)
 // Makes the shared drawing resources once: a 256x256 byte surface cleared to 0, a drawer converting
-// unknown_palette_837e10 onto it, and the small and large visceroid shapes.
+// GamePalette onto it, and the small and large visceroid shapes.
 
 
 void UnitTypeClass::One_Time()
@@ -192,7 +192,7 @@ void UnitTypeClass::One_Time()
         unknown_surface_ad0604->Fill(0);
     }
     if (unknown_drawer_ad0608 == 0) {
-        unknown_drawer_ad0608 = new ConvertClass(unknown_palette_837e10, unknown_palette_837e10, unknown_surface_ad0604, 1, false);
+        unknown_drawer_ad0608 = new ConvertClass(GamePalette, GamePalette, unknown_surface_ad0604, 1, false);
     }
     VisceroidSmallShape = MixFileClass::Retrieve("VISC_SML.SHP");
     VisceroidLargeShape = MixFileClass::Retrieve("VISC_LRG.SHP");

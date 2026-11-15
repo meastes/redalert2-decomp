@@ -223,7 +223,7 @@ int CellClass::unknown_4706c0(Point2D const &point) const
 
 // CellClass::~CellClass() (0x00470E80): deletes the fogged-object list and
 // the owned +0xFC object, clears the occupier and, for a cell other than the
-// zero cell, releases +0x34 (its count drops while unknown_flag_a40958 is set).
+// zero cell, releases +0x34 (its count drops while GameActive is set).
 
 CellClass::~CellClass()
 {
@@ -237,7 +237,7 @@ CellClass::~CellClass()
     }
     OccupierPtr = 0;
     if (MapCoords != unknown_geometry_k && unknown_34 != 0) {
-        if (unknown_flag_a40958) {
+        if (GameActive) {
             unknown_34->unknown_194--;
         }
         unknown_34 = 0;
@@ -501,12 +501,12 @@ ObjectClass *CellClass::Cell_Techno(Point2D const &spot, bool alt, ObjectClass *
 
 // ObjectClass *CellClass::Find_Object(int kind, bool alt) const (0x00471760):
 // the first occupant (alt: of the alternate list) whose Kind_Of is kind;
-// none while unknown_flag_a40958 is clear (TibSun cell.cpp Cell_Find_Object: the list head once, then a while
+// none while GameActive is clear (TibSun cell.cpp Cell_Find_Object: the list head once, then a while
 // loop; this form lets Draw_Placement_Cursor 0x00473F20 expand it through Cell_Terrain as the original does).
 
 ObjectClass *CellClass::Find_Object(int kind, bool alt) const
 {
-    if (unknown_flag_a40958) {
+    if (GameActive) {
         ObjectClass *object = alt ? AltOccupierPtr : OccupierPtr;
 
         while (object != 0) {
@@ -567,7 +567,7 @@ ObjectClass *CellClass::Cell_Object(Point2D const &spot, bool alt)
 
 bool CellClass::Is_Clear_To_Build(int speed, BuildingTypeClass const *what, HouseClass *who)
 {
-    if (unknown_a40774) {
+    if (ScenarioInit) {
         return true;
     }
 
@@ -1001,7 +1001,7 @@ void CellClass::Recalc_Attributes(int cell_height)
         itype->Get_Tile_Pixel_Dimensions((unsigned char)unknown_11a, width, height);
         unknown_11d = (height - 30) / 15;
         if (!IsAnimAttached && itype->unknown_298 != -1 && itype->AttachesTo == (unsigned char)unknown_11a) {
-            CoordStruct anim_coord = CoordStruct(MapCoords, unknown_11b * unknown_geometry_g) + unknown_tactical_83996c->Unknown_006A2BF0(itype->Offset);
+            CoordStruct anim_coord = CoordStruct(MapCoords, unknown_11b * unknown_geometry_g) + TacticalMap->Unknown_006A2BF0(itype->Offset);
             AnimClass *anim = new AnimClass(AnimTypes[itype->unknown_298], anim_coord, 0, -1, 0x1600, 0);
             anim->ZAdjust = itype->ZAdjust;
             anim->unknown_176 = true;
@@ -1671,7 +1671,7 @@ Rect CellClass::Overlay_Render_Rect() const
         image = (ShapeFileStruct *)overlay->Get_Image_Data();
     }
     Point2D point;
-    unknown_tactical_83996c->Coord_To_Pixel(Coord_Snap(Cell_Coord(MapCoords)), point);
+    TacticalMap->Coord_To_Pixel(Coord_Snap(Cell_Coord(MapCoords)), point);
     point += unknown_475440();
     point.X -= 30;
     if (image == 0) {
@@ -1703,7 +1703,7 @@ Rect CellClass::Overlay_Shadow_Render_Rect() const
     }
     int shadow = frame + image->FrameCount / 2;
     Point2D point;
-    unknown_tactical_83996c->Coord_To_Pixel(Coord_Snap(Cell_Coord(MapCoords)), point);
+    TacticalMap->Coord_To_Pixel(Coord_Snap(Cell_Coord(MapCoords)), point);
     point += unknown_475440();
     point.X -= 30;
     if (unknown_140 & 0x80) {
@@ -1721,7 +1721,7 @@ Rect CellClass::Overlay_Shadow_Render_Rect() const
 Rect CellClass::Cell_Render_Rect() const
 {
     Point2D point;
-    unknown_tactical_83996c->Coord_To_Pixel(Coord_Snap(Cell_Coord(MapCoords)), point);
+    TacticalMap->Coord_To_Pixel(Coord_Snap(Cell_Coord(MapCoords)), point);
     point.X -= 30;
     point.Y += unknown_int_839634 - 15 * unknown_11b;
 
@@ -1804,7 +1804,7 @@ void CellClass::unknown_4754b0(Point2D const &point, Rect const &rect)
 
 void CellClass::Draw_Shroud_And_Fog(Point2D const &point, Rect const &clip)
 {
-    unknown_120 = unknown_tactical_83996c->Cell_Shadow(MapCoords, 0);
+    unknown_120 = TacticalMap->Cell_Shadow(MapCoords, 0);
     int frame = unknown_120;
     if (frame == -2) {
         frame = 15;
@@ -1812,7 +1812,7 @@ void CellClass::Draw_Shroud_And_Fog(Point2D const &point, Rect const &clip)
         frame = 0;
     }
     Draw_Shroud_Or_Fog_Shape(point, clip, frame);
-    unknown_121 = unknown_tactical_83996c->Cell_Shadow(MapCoords, 1);
+    unknown_121 = TacticalMap->Cell_Shadow(MapCoords, 1);
     if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && !unknown_player_a35db4->unknown_13d) {
         frame = unknown_121;
         if (frame == -2) {
@@ -2025,14 +2025,14 @@ void CellClass::Wall_Update(bool flag)
             if (newcell.unknown_4c != old_passability) {
                 if (recalc_around) {
                     Map.Update_Cell_Zone(newcell.MapCoords);
-                    Map.Unknown_00566340(newcell.MapCoords);
+                    Map.Update_Cell_Subzones(newcell.MapCoords);
                     for (unsigned dir = 0; dir < 8; dir++) {
                         CellClass &adjacent = Map[Adjacent_Cell(newcell.MapCoords, dir)];
                         adjacent.unknown_122--;
                     }
                 } else {
                     Map.Update_Cell_Zone_Constructively(newcell.MapCoords);
-                    Map.Unknown_00566340(newcell.MapCoords);
+                    Map.Update_Cell_Subzones(newcell.MapCoords);
                 }
             }
         }
@@ -2063,7 +2063,7 @@ int CellClass::Reduce_Wall(int damage)
         bool destroyed;
         OverlayTypeClass const *wall = OverlayTypes[OverlayIndex];
         if (wall->Wall) {
-            if (damage == -1 || damage >= wall->Strength || unknown_a40774) {
+            if (damage == -1 || damage >= wall->Strength || ScenarioInit) {
                 destroyed = true;
             } else {
                 destroyed = Random_Pick(0, wall->Strength) < damage;
@@ -2072,7 +2072,7 @@ int CellClass::Reduce_Wall(int damage)
             if (destroyed) {
                 Rect rect = Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect());
                 rect.Y -= unknown_rect_839630.Y;
-                unknown_tactical_83996c->Register_Dirty_Area(rect, false);
+                TacticalMap->Register_Dirty_Area(rect, false);
                 OverlayData += 0x10;
                 if ((OverlayData >> 4) == wall->DamageLevels - 1 && wall->DamageLevels > 2) {
                     for (int dir = 0; dir < 8; dir += 2) {
@@ -2090,7 +2090,7 @@ int CellClass::Reduce_Wall(int damage)
                     OverlayData = 0;
                     Recalc_Attributes(-1);
                     Map.Update_Cell_Zone(MapCoords);
-                    Map.Unknown_00566340(MapCoords);
+                    Map.Update_Cell_Subzones(MapCoords);
                     Map.Radar_Background(MapCoords);
                     ((CellClass &)((CellClass const *)this)->Adjacent_Cell(0)).Wall_Update(false);
                     ((CellClass &)((CellClass const *)this)->Adjacent_Cell(6)).Wall_Update(false);
@@ -2148,7 +2148,7 @@ int CellClass::unknown_475db0(int levels)
                 }
             }
         }
-        unknown_tactical_83996c->Register_Dirty_Area(dirty, false);
+        TacticalMap->Register_Dirty_Area(dirty, false);
         return reducer;
     }
     return 0;
@@ -2325,7 +2325,7 @@ int CellClass::Clear_Icon(int type,int count) const
         for(int i=0;i<64;++i) {
             int random=-1;
             for(int attempt=0;attempt<64;++attempt) {
-                random=unknown_random_839218()&7;
+                random=NonCriticalRandomNumber()&7;
                 bool duplicate=false;
                 for(int adjacent=0;adjacent<8;++adjacent) {
                     ClearIconOffset const &offset=Clear_Icon_Adjacent[adjacent];
@@ -3308,7 +3308,7 @@ inline void CellClass::Inc_Drawer_Ref_Count(LightConvertClass *drawer) const
 
 inline void CellClass::Dec_Drawer_Ref_Count(LightConvertClass *drawer) const
 {
-    if (unknown_flag_a40958) {
+    if (GameActive) {
         drawer->unknown_194--;
     }
 }
@@ -3869,11 +3869,11 @@ void CellClass::Register_As_Dirty()
 {
     CoordStruct corner = Coord_Snap(CoordStruct(MapCoords.X * 256 + 128, MapCoords.Y * 256 + 128, 0));
     Point2D pixel;
-    unknown_tactical_83996c->Coord_To_Pixel(corner, pixel);
+    TacticalMap->Coord_To_Pixel(corner, pixel);
     pixel.Y += unknown_int_839634 - unknown_11b * 15;
     pixel.X -= 30;
     pixel.Y -= 15;
-    unknown_tactical_83996c->Register_Dirty_Area(Rect(pixel.X, pixel.Y, 60, 30), 0);
+    TacticalMap->Register_Dirty_Area(Rect(pixel.X, pixel.Y, 60, 30), 0);
 }
 
 
@@ -3945,12 +3945,12 @@ void CellClass::Redraw_Veins()
             else adjacent.OverlayData=3*neighbor_frame+abs(unknown_id_source_a3d290->Random()()%3);
             adjacent.Recalc_Attributes(-1);
             area=Union(area,Union(adjacent.Overlay_Render_Rect(),adjacent.Overlay_Shadow_Render_Rect()))-unknown_rect_839630.Top_Left();
-            unknown_tactical_83996c->Register_Dirty_Area(area,false);
+            TacticalMap->Register_Dirty_Area(area,false);
             Map.Radar_Background(adjacent.MapCoords);
         }
     }
     dirty=Union(dirty,Union(Overlay_Render_Rect(),Overlay_Shadow_Render_Rect()))-unknown_rect_839630.Top_Left();
-    unknown_tactical_83996c->Register_Dirty_Area(dirty,false);
+    TacticalMap->Register_Dirty_Area(dirty,false);
     Recalc_Attributes(-1);
 }
 
@@ -4252,7 +4252,7 @@ void CellClass::Place_Veins()
                         adjacent.Recalc_Attributes(-1);
                         RectPoint2D origin = unknown_rect_839630.Top_Left();
                         adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect())) - origin;
-                        unknown_tactical_83996c->Register_Dirty_Area(adjrect, 0);
+                        TacticalMap->Register_Dirty_Area(adjrect, 0);
                     }
                 } else {
                     Rect adjrect(0, 0, 0, 0);
@@ -4260,7 +4260,7 @@ void CellClass::Place_Veins()
                     adjacent.OverlayIndex = 0x7E;
                     adjacent.OverlayData = 2 * adjacent.unknown_11c + (abs(unknown_id_source_a3d290->Random()()) & 1) + 0x33;
                     adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-                    unknown_tactical_83996c->Register_Dirty_Area(adjrect, 0);
+                    TacticalMap->Register_Dirty_Area(adjrect, 0);
                 }
 
                 Map.Radar_Background(adjacent.MapCoords);
@@ -4272,7 +4272,7 @@ void CellClass::Place_Veins()
         }
 
         rect = Union(rect, Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-        unknown_tactical_83996c->Register_Dirty_Area(rect, 0);
+        TacticalMap->Register_Dirty_Area(rect, 0);
         Recalc_Attributes(-1);
     }
 }
@@ -4508,7 +4508,7 @@ int CellClass::unknown_47c040()
 void CellClass::Register_For_Redraw()
 {
     Rect rect = Union(Union(Cell_Render_Rect(), Overlay_Render_Rect()), Overlay_Shadow_Render_Rect());
-    unknown_tactical_83996c->Register_Dirty_Area(rect - unknown_rect_839630.Top_Left(), 0);
+    TacticalMap->Register_Dirty_Area(rect - unknown_rect_839630.Top_Left(), 0);
     Map.Radar_Background(MapCoords);
 }
 
@@ -4638,7 +4638,7 @@ bool CellClass::Place_Tiberium(int tib, int data)
                 OverlayData += data;
                 OverlayData = OverlayData < tiberium->unknown_e4 - 1 ? OverlayData : tiberium->unknown_e4 - 1;
                 Rect rect = Union(Union(Cell_Render_Rect(), Overlay_Render_Rect()), Overlay_Shadow_Render_Rect());
-                unknown_tactical_83996c->Register_Dirty_Area(rect - unknown_rect_839630.Top_Left(), 0);
+                TacticalMap->Register_Dirty_Area(rect - unknown_rect_839630.Top_Left(), 0);
                 tiberium->Add_Spread_Cell(MapCoords);
                 return true;
             }

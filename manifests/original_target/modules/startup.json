@@ -10882,6 +10882,14 @@
    "address": "006714b0"
   },
   {
+   "symbol": "?GameActive@@3_NA",
+   "address": "00a40958"
+  },
+  {
+   "symbol": "?GameInFocus@@3_NA",
+   "address": "00a40d28"
+  },
+  {
    "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
    "address": "0050f410"
   },
@@ -10908,6 +10916,10 @@
   {
    "symbol": "?Handle_Exception_004b87f0@@YIHIPAU_EXCEPTION_POINTERS@@@Z",
    "address": "004b87f0"
+  },
+  {
+   "symbol": "?HiddenSurface@@3PAVSurface@@A",
+   "address": "00839954"
   },
   {
    "symbol": "?Init_Direct3D@@YAJXZ",
@@ -10960,6 +10972,10 @@
   {
    "symbol": "?Mono_Window_Shutdown@@YAXXZ",
    "address": "0059d900"
+  },
+  {
+   "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+   "address": "00a71050"
   },
   {
    "symbol": "?MoviesMix@@3PAVMixFileClass@@A",
@@ -11054,12 +11070,28 @@
    "address": "005bc4d0"
   },
   {
+   "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
+   "address": "008323cc"
+  },
+  {
+   "symbol": "?SidebarWidth@@3HA",
+   "address": "007add80"
+  },
+  {
    "symbol": "?Speech_Free_All@@YAXXZ",
    "address": "00716590"
   },
   {
    "symbol": "?Start_Mouse_Thread@@YAXXZ",
    "address": "007717e0"
+  },
+  {
+   "symbol": "?SurfacesRestored@@3_NA",
+   "address": "008523dc"
+  },
+  {
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
   },
   {
    "symbol": "?Theme@@3VThemeClass@@A",
@@ -11166,6 +11198,18 @@
    "address": "0068e1c0"
   },
   {
+   "symbol": "?UseDirect3D@@3_NA",
+   "address": "00852fd7"
+  },
+  {
+   "symbol": "?VideoModeHeight@@3HA",
+   "address": "008523e4"
+  },
+  {
+   "symbol": "?VideoModeWidth@@3HA",
+   "address": "008523e0"
+  },
+  {
    "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
    "address": "00832468"
   },
@@ -11180,6 +11224,10 @@
   {
    "symbol": "?WinVersion@@3VWindowsVersionInfo@@A",
    "address": "00839bc0"
+  },
+  {
+   "symbol": "?WindowedMode@@3_NA",
+   "address": "00851cb0"
   },
   {
    "symbol": "?Windows_Message_Handler@@YAXXZ",
@@ -11208,14 +11256,6 @@
   {
    "symbol": "?unknown_004ff2d0@WolRegistryOptions@@QBE_NXZ",
    "address": "004ff2d0"
-  },
-  {
-   "symbol": "?unknown_8523e0@@3HA",
-   "address": "008523e0"
-  },
-  {
-   "symbol": "?unknown_8523e4@@3HA",
-   "address": "008523e4"
   },
   {
    "symbol": "?unknown_LightConvertClass_list_00832398@@3V?$DynamicVectorClass@PAVLightConvertClass@@@@A",
@@ -11322,32 +11362,12 @@
    "address": "008323c4"
   },
   {
-   "symbol": "?unknown_drawer_8323cc@@3PAVConvertClass@@A",
-   "address": "008323cc"
-  },
-  {
    "symbol": "?unknown_drawer_ad0608@@3PAVConvertClass@@A",
    "address": "00ad0608"
   },
   {
    "symbol": "?unknown_expansion_mixes_837450@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
    "address": "00837450"
-  },
-  {
-   "symbol": "?unknown_flag_851cb0@@3_NA",
-   "address": "00851cb0"
-  },
-  {
-   "symbol": "?unknown_flag_852fd7@@3_NA",
-   "address": "00852fd7"
-  },
-  {
-   "symbol": "?unknown_flag_a40958@@3_NA",
-   "address": "00a40958"
-  },
-  {
-   "symbol": "?unknown_flag_a40d28@@3_NA",
-   "address": "00a40d28"
   },
   {
    "symbol": "?unknown_flag_abd48c@@3_NA",
@@ -11406,10 +11426,6 @@
    "address": "00851ca8"
   },
   {
-   "symbol": "?unknown_int_7add80@@3HA",
-   "address": "007add80"
-  },
-  {
    "symbol": "?unknown_int_839630@@3HA",
    "address": "00839630"
   },
@@ -11458,20 +11474,12 @@
    "address": "00837480"
   },
   {
-   "symbol": "?unknown_names_a71050@@3V?$DynamicVectorClass@PBD@@A",
-   "address": "00a71050"
-  },
-  {
    "symbol": "?unknown_no_exception_handler_a4168c@@3_NA",
    "address": "00a4168c"
   },
   {
    "symbol": "?unknown_ra2_mix_8374b8@@3PAVMixFileClass@@A",
    "address": "008374b8"
-  },
-  {
-   "symbol": "?unknown_redraw_8523dc@@3_NA",
-   "address": "008523dc"
   },
   {
    "symbol": "?unknown_screen_height_a40b3c@@3HA",
@@ -11510,10 +11518,6 @@
    "address": "00839950"
   },
   {
-   "symbol": "?unknown_surface_839954@@3PAVSurface@@A",
-   "address": "00839954"
-  },
-  {
    "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
    "address": "0083995c"
   },
@@ -11524,10 +11528,6 @@
   {
    "symbol": "?unknown_surface_ad0604@@3PAVBSurface@@A",
    "address": "00ad0604"
-  },
-  {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
   },
   {
    "symbol": "?unknown_theater_mix_8374c0@@3PAVMixFileClass@@A",

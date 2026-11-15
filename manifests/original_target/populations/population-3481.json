@@ -4,8 +4,8 @@
     "id": "population-3481",
     "inventory_sha256": "0600d5ee4cab616d8ea4ec10c69d42dbd5e2f0d693a0e436778f4b72821978ac",
     "gaps_sha256": "8fd8088775b8a77af707d0e93ad75c825d5770f5ac4466288b9ce992b4a57792",
-    "historical_population_sha256": "8aa65d02737f70f21d4f18609f43df8c4c341b1e8e37bdf8c3abfc7f49f13400",
-    "historical_acceptance_sha256": "c8c11f2c72440cc8cc35935a1895cf6e1f8cfdda7ea0664d16645fc756418075"
+    "historical_population_sha256": "31d97bdba3b9c6371007d2e3867a7e7cbd42909a2767d73053b2560749bbcb3c",
+    "historical_acceptance_sha256": "23f5332fa03433de51ca236bddf9f21aed69dac1f5dc2a9b09fb0e537a0479d8"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -652,7 +652,7 @@
     "__real@8@00000000000000000000": 7976464,
     "?Unknown_00405FE0@UnknownAudioController@@QAEXXZ": 4218848,
     "?QueryInterface@GScreenClass@@UAGJABUGUID@@PAPAX@Z": 5114096,
-    "?unknown_random_839218@@3VRandom2Class@@A": 8622616,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
     "?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z": 7421360,
     "__real@8@3ffee666666666666800": 8048680,
     "?Init@AnimTypeClass@@SIXH@Z": 4346416,
@@ -1296,7 +1296,7 @@
     "?Detach@KamikazeTrackerClass@@QAEXPAVAbstractClass@@@Z": 5445760,
     "?QueryInterface@SwizzleManagerClass@@UAGJABUGUID@@PAPAX@Z": 6946064,
     "?Focus_Loss@@YAXXZ": 7566240,
-    "?Unknown_00406F50@@YAXXZ": 4222800,
+    "?Audio_Focus_Lose@@YAXXZ": 4222800,
     "__imp__FileTimeToSystemTime@8": 7971044,
     "__imp__InitCommonControls@0": 7970860,
     "__imp__LoadIconA@8": 7971868,
@@ -1328,7 +1328,7 @@
     "?Audio_Events_Shutdown@@YAXXZ": 4210560,
     "?Audio_System_Shutdown@@YIXXZ": 4204944,
     "?Focus_Restore@@YAXXZ": 7566336,
-    "?Unknown_00406F70@@YAXXZ": 4222832,
+    "?Audio_Focus_Regain@@YAXXZ": 4222832,
     "__imp__SetActiveWindow@4": 7971872,
     "?Get_Source@AudioBankEntry@@QAIPAUAudioSource@@XZ": 4202544,
     "?Audio_Event_Start_Pass@@YIPAUAudioSource@@PAUAudioEvent@@@Z": 4212448,

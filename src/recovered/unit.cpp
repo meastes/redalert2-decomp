@@ -190,7 +190,7 @@ UnitClass::~UnitClass()
         unknown_5c4->unknown_4b25c0();
         unknown_5c4 = 0;
     }
-    if (unknown_flag_a40958 && Type != 0) {
+    if (GameActive && Type != 0) {
         if (House->Can_Build(Type, 0, 0) == -1) {
             House->unknown_144 = true;
         }
@@ -199,7 +199,7 @@ UnitClass::~UnitClass()
             Team = 0;
         }
         House->Tracking_Remove(this);
-        if (unknown_a40774 == 0) {
+        if (ScenarioInit == 0) {
             while (Cargo.Object != 0) {
                 ObjectClass *passenger = Cargo.Detach_Object();
                 if (passenger != 0) {
@@ -926,7 +926,7 @@ remove_passengers:
                 if (!passenger) break;
                 int move = passenger->Can_Enter_Cell(&Map[CoordStruct(Coord)], -1, -1, 0, 1);
                 bool can_place = move == 0 || move == 2;
-                ++unknown_a40774;
+                ++ScenarioInit;
                 passenger->unknown_79 = unknown_79;
                 animation_position = Coord;
                 animation_position.Z = Get_Cell_Ptr()->Center_Coord().Z;
@@ -945,7 +945,7 @@ remove_passengers:
                 passenger->Record_The_Kill(source);
                 delete passenger;
 passenger_removed:
-                --unknown_a40774;
+                --ScenarioInit;
             }
         }
         {
@@ -1975,8 +1975,8 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
         }
     }
     rect=window;
-    if (unknown_322>0) rect=Intersect(rect,Rect(0,0,unknown_int_839638,unknown_322-unknown_tactical_83996c->TacPixelY));
-    else if (unknown_325) unknown_322=(short)(unknown_tactical_83996c->TacPixelY+point.Y+unknown_unit_rect_ad0490.Y+unknown_unit_rect_ad0490.Height-128);
+    if (unknown_322>0) rect=Intersect(rect,Rect(0,0,unknown_int_839638,unknown_322-TacticalMap->TacPixelY));
+    else if (unknown_325) unknown_322=(short)(TacticalMap->TacPixelY+point.Y+unknown_unit_rect_ad0490.Y+unknown_unit_rect_ad0490.Height-128);
     int apparent_brightness=unknown_slot254(brightness);
     if (unknown_slot203()) apparent_brightness=unknown_6d86f0(apparent_brightness);
     unknown_slot312(*old_surface,point,rect,apparent_brightness);
@@ -2003,7 +2003,7 @@ plain:
         if (type->HunterSeeker) {
             CoordStruct coord=Position_Coord_004f3f40();
             coord.Z=Map.Get_Height_GL(coord);
-            unknown_tactical_83996c->Coord_To_Pixel(coord,shadow_drawpoint);
+            TacticalMap->Coord_To_Pixel(coord,shadow_drawpoint);
             shadow_drawpoint+=Locomotor.Checked()->Shadow_Point();
         }
         if (unknown_37c) shadow_drawpoint.Y-=14;
@@ -2040,7 +2040,7 @@ bool Unknown_0051FC60();
 // declaration-count tie (Scout1293: exact under the Can_Deploy_Now headers only with this form).
 inline bool Coord_Pixel_00700e70(CoordStruct coord, Point2D &pixel)
 {
-    return unknown_tactical_83996c->Coord_To_Pixel(coord, pixel);
+    return TacticalMap->Coord_To_Pixel(coord, pixel);
 }
 
 inline CoordStruct Move_Coord_00700e70(CoordStruct const &start, UnknownFacingDir const &dir, int distance)
@@ -2061,7 +2061,7 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
     }
     Cell cell = unknown_slot104();
     if (unknown_slot25(false, 0) != 5) {
-        unknown_tactical_83996c->Add_To_Selectables(this, adjusted_point);
+        TacticalMap->Add_To_Selectables(this, adjusted_point);
         int height = Get_Height_AGL();
         CellClass *cptr = &Map[CoordStruct(Coord)];
         int brightness;
@@ -2246,12 +2246,12 @@ int UnitClass::Do_MISSION_UNLOAD()
                             continue;
                         }
                         if (Map[near_cell].unknown_140&0x100) continue;
-                        ++unknown_a40774;
+                        ++ScenarioInit;
                         CoordStruct position=Cell_Coord(near_cell);
                         position=Map.Unknown_0049CB70(position,false);
                         UnknownFacingDir direction((unsigned short)(facing<<13));
                         placed=passenger->Unlimbo(&position,Dir_To_256(direction));
-                        --unknown_a40774;
+                        --ScenarioInit;
                         if (placed) {
                             passenger->QueueMission(2,false);
                             if (prefer_far) passenger->Assign_Destination(&Map[far_cell],true);
@@ -2591,9 +2591,9 @@ int UnitClass::Do_MISSION_HARVEST()
                     unknown_a8 = HEADINGHOME;
                     break;
                 }
-                unknown_a40774++;
+                ScenarioInit++;
                 nearest = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 1);
-                unknown_a40774--;
+                ScenarioInit--;
                 if (nearest != 0) {
                     if (DIST_B(nearest) > 0x300 || teleporter) {
                         Cell cell = Coord_Cell(CoordStruct(nearest->Coord));
@@ -2743,7 +2743,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
         vehicle=reinterpret_cast<CellOccupancyFlags_00703040 const &>(cell->unknown_128).vehicle!=0;
         infantry_owner=cell->unknown_58;
     }
-    if (!unknown_a40774 && !Map.Unknown_0055A740(cell,true) && !unknown_slot189() && unknown_32d) return 7;
+    if (!ScenarioInit && !Map.Unknown_0055A740(cell,true) && !unknown_slot189() && unknown_32d) return 7;
     result=FootClass::Can_Enter_Cell(cell,direction,height,adjacent,unused);
     if (result==7) return 7;
     if (cell->OverlayIndex!=-1) {
@@ -4403,7 +4403,7 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
                     if (found == unknown_geometry_k) {
                         CoordStruct coord = Cell_Center(adjacent);
                         coord.Z = here.Z;
-                        if (adjacent == ((UnknownTacticalView *)unknown_tactical_83996c)->Unknown_006A6A50(coord)
+                        if (adjacent == ((UnknownTacticalView *)TacticalMap)->Unknown_006A6A50(coord)
                             && !(Map[adjacent].unknown_140 & 0x100)) {
                             found = adjacent;
                             break;

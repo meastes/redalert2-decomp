@@ -88,7 +88,7 @@ int __fastcall Skirmish_Message_497(HWND dialog, WPARAM wparam, LPARAM lparam)
         unknown_session_a3d298.ScenarioIndex = selection;
     }
     int scenario = unknown_session_a3d298.ScenarioIndex;
-    int players = Unknown_005c6600(scenario);
+    int players = RandomMapWaypointCount(scenario);
     if (scenario == -1) {
         Skirmish_Hide_Players(dialog, 1);
         Skirmish_Show_Players(dialog, 1, players - 1);
@@ -137,10 +137,10 @@ int __fastcall Skirmish_Message_497(HWND dialog, WPARAM wparam, LPARAM lparam)
     item = GetDlgItem(dialog, 0x696);
     if (item) SendMessageA(item, 0xF1, unknown_session_a3d298.unknown_crates_29 != false, 0);
     if (map->Unknown_006720C0()) {
-        if (unknown_dialog_preview_a72ce8) delete unknown_dialog_preview_a72ce8;
-        unknown_dialog_preview_a72ce8 = new MapPreviewClass;
-        unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
-        if (!unknown_dialog_preview_a72ce8->unknown_00) Unknown_005c7570(dialog);
+        if (MultiplayerMapPreview) delete MultiplayerMapPreview;
+        MultiplayerMapPreview = new MapPreviewClass;
+        MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
+        if (!MultiplayerMapPreview->unknown_00) Unknown_005c7570(dialog);
     } else Unknown_005c7570(dialog);
     return 0;
 }

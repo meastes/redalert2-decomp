@@ -107,7 +107,7 @@ bool PhoneEdit::Dialog()
             if (unknown_6000d0() == true) {
                 break;
             }
-            unknown_517370(false);
+            Title_Screen_Restore(false);
         }
         unknown_dialog_5ff6e0(_Dialog);
         if (Changed == true) {
@@ -417,7 +417,7 @@ bool PhoneEntryEdit::Dialog(PhoneEntryClass *phone)
             if (unknown_6000d0() == true) {
                 break;
             }
-            unknown_517370(false);
+            Title_Screen_Restore(false);
         }
         unknown_dialog_5ff6e0(_Dialog);
     }

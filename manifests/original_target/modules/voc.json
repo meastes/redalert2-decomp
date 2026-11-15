@@ -1207,31 +1207,31 @@
   },
   {
    "site": "00406de0",
-   "symbol": "?unknown_007144b0@@YAXXZ",
+   "symbol": "?Sound_Pause_All@@YAXXZ",
    "target": "007144b0",
    "function_entry": true
   },
   {
    "site": "00406e00",
-   "symbol": "?unknown_007144f0@@YAXXZ",
+   "symbol": "?Sound_Resume_All@@YAXXZ",
    "target": "007144f0",
    "function_entry": true
   },
   {
    "site": "00406e40",
-   "symbol": "?unknown_007144b0@@YAXXZ",
+   "symbol": "?Sound_Pause_All@@YAXXZ",
    "target": "007144b0",
    "function_entry": true
   },
   {
    "site": "00406e70",
-   "symbol": "?unknown_007144f0@@YAXXZ",
+   "symbol": "?Sound_Resume_All@@YAXXZ",
    "target": "007144f0",
    "function_entry": true
   },
   {
    "site": "00406ea0",
-   "symbol": "?unknown_00714330@@YAXXZ",
+   "symbol": "?Sound_Service@@YAXXZ",
    "target": "00714330",
    "function_entry": true
   },
@@ -3172,6 +3172,10 @@
    "address": "008324e0"
   },
   {
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
    "address": "004ba520"
   },
@@ -3190,10 +3194,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
   },
   {
    "symbol": "?unknown_voc_control_ad0850@@3IA",
@@ -3460,31 +3460,31 @@
   {
    "site": "00406de0",
    "target": "007144b0",
-   "symbol": "?unknown_007144b0@@YAXXZ",
+   "symbol": "?Sound_Pause_All@@YAXXZ",
    "module_symbol": "?Voc_Static_Pause@@YAXXZ"
   },
   {
    "site": "00406e00",
    "target": "007144f0",
-   "symbol": "?unknown_007144f0@@YAXXZ",
+   "symbol": "?Sound_Resume_All@@YAXXZ",
    "module_symbol": "?Voc_Static_Resume@@YAXXZ"
   },
   {
    "site": "00406e40",
    "target": "007144b0",
-   "symbol": "?unknown_007144b0@@YAXXZ",
+   "symbol": "?Sound_Pause_All@@YAXXZ",
    "module_symbol": "?Voc_Static_Pause@@YAXXZ"
   },
   {
    "site": "00406e70",
    "target": "007144f0",
-   "symbol": "?unknown_007144f0@@YAXXZ",
+   "symbol": "?Sound_Resume_All@@YAXXZ",
    "module_symbol": "?Voc_Static_Resume@@YAXXZ"
   },
   {
    "site": "00406ea0",
    "target": "00714330",
-   "symbol": "?unknown_00714330@@YAXXZ",
+   "symbol": "?Sound_Service@@YAXXZ",
    "module_symbol": "?Voc_Static_Update@@YAXXZ"
   }
  ],

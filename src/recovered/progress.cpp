@@ -126,7 +126,7 @@ void ProgressScreenClass::Init(double total, char count, HWND window)
     if (window != 0) {
         Window = window;
     } else {
-        unknown_surface_839954->Fill(0);
+        HiddenSurface->Fill(0);
     }
     Name = 0;
     unknown_7c = -1;
@@ -445,8 +445,8 @@ void ProgressScreenClass::Draw_Flag(Point2D xy, Surface *flag)
     Flag_Size(&width, &height);
     Rect rect(xy.X, xy.Y, width, height);
     int transparent = RGB_To_Pixel(255, 0, 255);
-    if (unknown_surface_839954 != 0 && !static_cast<DSurface *>(unknown_surface_839954)->Is_Surface_Lost()) {
-        unknown_bitmap_writer_a76378.DrawTrans(rect, unknown_surface_839954, flag, transparent);
+    if (HiddenSurface != 0 && !static_cast<DSurface *>(HiddenSurface)->Is_Surface_Lost()) {
+        unknown_bitmap_writer_a76378.DrawTrans(rect, HiddenSurface, flag, transparent);
     }
 }
 
@@ -463,7 +463,7 @@ void ProgressScreenClass::Draw_Name(Point2D xy, wchar_t const *name, ColorScheme
         text_width = width;
     }
     Rect clip(0, 0, xy.X + text_width, xy.Y + text_height);
-    Fancy_Text_Printf(name, unknown_surface_839954, &clip, &xy, scheme, 0, 0x19);
+    Fancy_Text_Printf(name, HiddenSurface, &clip, &xy, scheme, 0, 0x19);
 }
 
 
@@ -476,7 +476,7 @@ void ProgressScreenClass::Draw_Player(ColorScheme *scheme, wchar_t const *name, 
     if (NameWidth != -1) width = NameWidth;
     if (unknown_71) {
         Rect shadow(xy.X, y, width, height);
-        Unknown_005feb60(&shadow, unknown_surface_839954, 0, 0x9f);
+        Unknown_005feb60(&shadow, HiddenSurface, 0, 0x9f);
     }
     int shape_width = 0, shape_height = 0;
     Shape_Size(&shape_width, &shape_height);
@@ -496,7 +496,7 @@ void ProgressScreenClass::Draw_Player(ColorScheme *scheme, wchar_t const *name, 
         name_point.X += flag_width + 10;
     }
     name_point.Y = y + text_offset;
-    Draw_Bar(bar, fraction, unknown_surface_839954, scheme);
+    Draw_Bar(bar, fraction, HiddenSurface, scheme);
     if (flag) {
         int country = unknown_players_a3fa7c[player]->unknown_66e290();
         if ((unknown_game_mode_a3d298 == 3 || unknown_game_mode_a3d298 == 4) && unknown_players_a3fa7c[player]->Team == -1) country = -3;
@@ -526,7 +526,7 @@ void ProgressScreenClass::Draw_It(Point2D xy)
             HWND control = GetDlgItem(Window, 0x639);
             Window_Rect_In_Main_Client(control, &rect);
             point = Point2D(rect.left, rect.top);
-            Draw_Bar(point, Get_Progress(0), unknown_surface_839958, 0);
+            Draw_Bar(point, Get_Progress(0), AlternateSurface, 0);
             return;
         }
         point = xy;
@@ -554,7 +554,7 @@ void ProgressScreenClass::Draw_It(Point2D xy)
                 Draw_Player(scheme, unknown_players_a3fa7c[player]->Name, point, player, ShowFlags);
             }
         }
-        GScreenClass::Blit(true, unknown_surface_839954);
+        GScreenClass::Blit(true, HiddenSurface);
     }
 }
 

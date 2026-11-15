@@ -1762,6 +1762,10 @@
    "address": "00a3d260"
   },
   {
+   "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0cb0"
+  },
+  {
    "symbol": "?AddRef@AbstractClass@@UAGKXZ",
    "address": "004100a0"
   },
@@ -1870,6 +1874,10 @@
    "address": "0070a890"
   },
   {
+   "symbol": "?GameActive@@3_NA",
+   "address": "00a40958"
+  },
+  {
    "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
    "address": "00410180"
   },
@@ -1958,6 +1966,10 @@
    "address": "00410120"
   },
   {
+   "symbol": "?LogicTags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+   "address": "00866160"
+  },
+  {
    "symbol": "?Map@@3VMouseClass@@A",
    "address": "008324e0"
   },
@@ -1970,8 +1982,16 @@
    "address": "005502e0"
   },
   {
+   "symbol": "?NeuronPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0d30"
+  },
+  {
    "symbol": "?Next_Mission@ScriptClass@@QAE_NXZ",
    "address": "00668920"
+  },
+  {
+   "symbol": "?ObjectPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0d60"
   },
   {
    "symbol": "?On_Ground@AbstractClass@@UBE_NXZ",
@@ -2026,6 +2046,10 @@
    "address": "004100c0"
   },
   {
+   "symbol": "?ScenarioInit@@3HA",
+   "address": "00a40774"
+  },
+  {
    "symbol": "?ScriptTypes@@3V?$DynamicVectorClass@PAVScriptTypeClass@@@@A",
    "address": "00866258"
   },
@@ -2048,6 +2072,14 @@
   {
    "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
    "address": "00abd868"
+  },
+  {
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
+   "symbol": "?TagPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0c58"
   },
   {
    "symbol": "?TeamTypes@@3V?$DynamicVectorClass@PAVTeamTypeClass@@@@A",
@@ -2190,20 +2222,12 @@
    "address": "006d6e50"
   },
   {
-   "symbol": "?unknown_AbstractClass_list_00ac0d60@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0d60"
-  },
-  {
    "symbol": "?unknown_BuildingClass_list_00a40af8@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
    "address": "00a40af8"
   },
   {
    "symbol": "?unknown_TubeClass_list_008661c8@@3V?$DynamicVectorClass@PAVTubeClass@@@@A",
    "address": "008661c8"
-  },
-  {
-   "symbol": "?unknown_a40774@@3HA",
-   "address": "00a40774"
   },
   {
    "symbol": "?unknown_cos_4ba4d0@@YANN@Z",
@@ -2220,10 +2244,6 @@
   {
    "symbol": "?unknown_facing_scale_79b628@@3NB",
    "address": "0079b628"
-  },
-  {
-   "symbol": "?unknown_flag_a40958@@3_NA",
-   "address": "00a40958"
   },
   {
    "symbol": "?unknown_func_4e68d0@HouseClass@@QAE_NHABVCell@@@Z",
@@ -2246,18 +2266,6 @@
    "address": "004ba5b0"
   },
   {
-   "symbol": "?unknown_objects_ac0c58@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0c58"
-  },
-  {
-   "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0cb0"
-  },
-  {
-   "symbol": "?unknown_objects_ac0d30@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0d30"
-  },
-  {
    "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
    "address": "00a35db4"
   },
@@ -2276,14 +2284,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
-  },
-  {
-   "symbol": "?unknown_tags_866160@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
-   "address": "00866160"
   },
   {
    "symbol": "_CLSID_TeamClass",

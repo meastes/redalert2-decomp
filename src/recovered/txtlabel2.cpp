@@ -23,13 +23,13 @@ void __fastcall unknown_init_color_ac1124()
 
 // void unknown_init_color_ac1028() -- 0x006F1AC0
 // Sets the colour at 0x00AC1028 to black.
-extern RGBClass unknown_color_ac1028;
+extern RGBClass TooltipColor;
 
 void __fastcall unknown_init_color_ac1028()
 {
-    unknown_color_ac1028.Red = 0;
-    unknown_color_ac1028.Green = 0;
-    unknown_color_ac1028.Blue = 0;
+    TooltipColor.Red = 0;
+    TooltipColor.Green = 0;
+    TooltipColor.Blue = 0;
 }
 
 

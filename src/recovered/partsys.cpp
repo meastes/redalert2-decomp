@@ -67,7 +67,7 @@ ParticleSystemClass::ParticleSystemClass(ParticleSystemTypeClass *type, CoordStr
         CoordStruct center = Coord;
         unknown_9c = center - Owner->Center_Coord();
     }
-    unknown_AbstractClass_list_00ac0d60.Add(this);
+    ObjectPtrTracker.Add(this);
 }
 
 
@@ -89,7 +89,7 @@ ParticleSystemClass::ParticleSystemClass() :
 {
     Particles.Clear();
     ParticleSystems.Add(this);
-    unknown_AbstractClass_list_00ac0d60.Add(this);
+    ObjectPtrTracker.Add(this);
 }
 
 
@@ -103,13 +103,13 @@ ParticleSystemClass::~ParticleSystemClass()
     ObjectClass::Limbo();
     while (Particles.Count() != 0) {
         delete Particles[0];
-        unknown_objects_ac0cd8.Delete(Particles[0]);
+        ObjectsToDelete.Delete(Particles[0]);
         Particles.Delete(Particles[0]);
     }
     Class = 0;
     ParticleSystems.Delete(this);
-    unknown_objects_ac0cb0.Delete(this);
-    unknown_AbstractClass_list_00ac0d60.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
+    ObjectPtrTracker.Delete(this);
 }
 
 
@@ -653,7 +653,7 @@ void ParticleSystemClass::AI()
     if (unknown_7d && unknown_e4 && Particles.Count() == 0) {
         Limbo();
         unknown_7d = false;
-        unknown_objects_ac0cd8.Add(this);
+        ObjectsToDelete.Add(this);
     }
 }
 

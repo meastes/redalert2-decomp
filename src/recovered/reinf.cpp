@@ -186,9 +186,9 @@ static bool _Create_Paradrop(TeamTypeClass *teamtype, FootClass *object, Cell or
 {
     Cell dest;
     TechnoTypeClass *ptype = AircraftTypes[AircraftTypeClass::From_Name("PDPLANE")];
-    unknown_a40774++;
+    ScenarioInit++;
     AircraftClass *plane = (AircraftClass *)ptype->Create_One_Of(object->House);
-    unknown_a40774--;
+    ScenarioInit--;
     if (plane) {
         plane->unknown_32c = true;
 
@@ -214,9 +214,9 @@ static bool _Create_Paradrop(TeamTypeClass *teamtype, FootClass *object, Cell or
         plane->Assign_Destination(0, true);
         plane->unknown_slot220((AbstractClass *)&Map[origin]);
 
-        unknown_a40774++;
+        ScenarioInit++;
         int placed = plane->Unlimbo(&UnknownCoord434820(dest, 0), 0);
-        unknown_a40774--;
+        ScenarioInit--;
         if (placed) {
             plane->unknown_5b1 = true;
             plane->Cargo.Attach(object);
@@ -321,9 +321,9 @@ FootClass * __fastcall _Create_Group(TeamTypeClass *teamtype)
         TechnoTypeClass *tclass = teamtype->TaskForce->Entries[index].Type;
 
         for (int sub = 0; sub < teamtype->TaskForce->Entries[index].Amount; sub++) {
-            unknown_a40774++;
+            ScenarioInit++;
             FootClass *temp = (FootClass *)tclass->Create_One_Of(teamtype->Owner);
-            unknown_a40774--;
+            ScenarioInit--;
 
             if (temp != 0) {
 
@@ -346,9 +346,9 @@ FootClass * __fastcall _Create_Group(TeamTypeClass *teamtype)
                 }
 
                 if (team != 0) {
-                    unknown_a40774++;
+                    ScenarioInit++;
                     team->Add(temp);
-                    unknown_a40774--;
+                    ScenarioInit--;
                     temp->unknown_579 = true;
                 }
 
@@ -453,7 +453,7 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
                 desiredfacing = DirType(DirType(eface).As_Int() - DirType(FACING_SE).As_Int() - 1).Snap_To_8();
             }
 
-            unknown_a40774++;
+            ScenarioInit++;
 
             bool placed = false;
             if (drop_pod) {
@@ -511,14 +511,14 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
                 if (adj >= FACING_COUNT) {
                     newcell = unknown_geometry_k;
                 } else if (newcell != unknown_geometry_k) {
-                    unknown_a40774--;
+                    ScenarioInit--;
                     continue;
                 }
 
                 delete object;
             }
 
-            unknown_a40774--;
+            ScenarioInit--;
             object = o;
             if (object != 0) {
                 o = (FootClass *)object->unknown_30;

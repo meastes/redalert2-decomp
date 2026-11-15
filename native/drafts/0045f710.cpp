@@ -95,7 +95,7 @@ void BulletClass::AI()
         if (NextAnim != 0) {
             return;
         }
-        unknown_abstracts_ac0bf8.Delete(this);
+        AnimPtrTracker.Delete(this);
         SpawnNextAnim = false;
         unknown_func_461de0(false);
         Delete_Me();
@@ -319,7 +319,7 @@ void BulletClass::AI()
                     }
                     Matrix3D slope;
                     Matrix3D inverse;
-                    inverse = Matrix3D_Rigid_Inverse_00591420(slope = Slope_Matrix_00718d60(unknown_tactical_83996c->Get_Cell_Ramp_006a7110(new_coord)));
+                    inverse = Matrix3D_Rigid_Inverse_00591420(slope = Slope_Matrix_00718d60(TacticalMap->Get_Cell_Ramp_006a7110(new_coord)));
                     Vector3 vec;
                     vec.Set_00437690((float)velocity.X, -(float)velocity.Y, (float)velocity.Z);
                     vec = inverse.Rotate_Vector(vec);
@@ -459,7 +459,7 @@ flown:
             if (index != -1 && (type = AnimTypes[index]) != 0) {
                 NextAnim = new AnimClass(type, CoordStruct(Coord), 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(Coord));
                 SpawnNextAnim = true;
-                unknown_abstracts_ac0bf8.Add(this);
+                AnimPtrTracker.Add(this);
                 break;
             }
         }

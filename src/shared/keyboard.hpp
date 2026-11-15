@@ -29,7 +29,7 @@ public:
     KeyNumType Get();                                   // 0x00532320 waits for and removes the next key
     bool Put(KeyNumType key);                           // 0x00532490
     // Queues a key with the shift/control/alt bits (0x100/0x200/0x400) and
-    // the release bit (0x800); ignored while unknown_flag_a40d44 is set
+    // the release bit (0x800); ignored while IgnoreInput is set
     // except for VK_ESCAPE; alt+tab is dropped.
     bool Put_Key_Message(KeyNumType key, bool release = false);                 // 0x005324D0
     // Queues a mouse key followed by its position (needs three free slots).

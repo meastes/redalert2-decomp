@@ -69,7 +69,7 @@ DynamicVectorClass<EMPulseClass *> EMPulseClass::Array;
 
 EMPulseClass::~EMPulseClass()
 {
-    if (unknown_flag_a40958) Clear_Cells_004B5210();
+    if (GameActive) Clear_Cells_004B5210();
     Unknown_006ECB90(this, true);
     Array.Delete(this);
 }

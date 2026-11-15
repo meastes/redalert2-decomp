@@ -75,8 +75,8 @@ int __fastcall Unknown_006A2970(int height);
 void EBolt::Draw_Line_004B1850(CoordStruct start,CoordStruct end,int color,int first_depth,int second_depth)
 {
     Point2D first_pixel,second_pixel;
-    unknown_tactical_83996c->Coord_To_Pixel(start,first_pixel);
-    unknown_tactical_83996c->Coord_To_Pixel(end,second_pixel);
+    TacticalMap->Coord_To_Pixel(start,first_pixel);
+    TacticalMap->Coord_To_Pixel(end,second_pixel);
     int first_z=first_depth-Unknown_006A2970(start.Z)-2;
     int second_z=second_depth-Unknown_006A2970(end.Z)-2;
     int pixel=unknown_drawer_8323c4->Convert(color);
@@ -124,7 +124,7 @@ void __fastcall FUN_004b1830(int object_address)
 extern ConvertClass *unknown_drawer_8323c4;
 extern Surface *unknown_surface_839964;
 extern Rect unknown_rect_839630;
-extern Random2Class unknown_random_839218;
+extern Random2Class NonCriticalRandomNumber;
 int __fastcall Unknown_006A2970(int height);
 
 // One pending piece of the bolt: the three strands' ends and the subdivision state.
@@ -190,25 +190,25 @@ void EBolt::Draw_Bolt_004B1900(CoordStruct start, CoordStruct end, int color)
                     }
                 }
                 if (length <= 128) {
-                    mids[0].X += unknown_random_839218(-1, 1) * deviation * 2;
-                    mids[0].Y += unknown_random_839218(-1, 1) * deviation * 2;
-                    mids[0].Z += unknown_random_839218(-1, 1) * deviation * 2;
+                    mids[0].X += NonCriticalRandomNumber(-1, 1) * deviation * 2;
+                    mids[0].Y += NonCriticalRandomNumber(-1, 1) * deviation * 2;
+                    mids[0].Z += NonCriticalRandomNumber(-1, 1) * deviation * 2;
                 } else {
-                    mids[0].X += unknown_random_839218(-deviation, deviation);
-                    mids[0].Y += unknown_random_839218(-deviation, deviation);
-                    mids[0].Z += unknown_random_839218(-deviation, deviation);
+                    mids[0].X += NonCriticalRandomNumber(-deviation, deviation);
+                    mids[0].Y += NonCriticalRandomNumber(-deviation, deviation);
+                    mids[0].Z += NonCriticalRandomNumber(-deviation, deviation);
                 }
                 if (length > threshold) {
                     for (int n = 1; n < 3; n++) {
-                        mids[n].X = mids[0].X + (unknown_random_839218(-deviation, deviation) >> 1);
-                        mids[n].Y = mids[0].Y + (unknown_random_839218(-deviation, deviation) >> 1);
-                        mids[n].Z = mids[0].Z + (unknown_random_839218(-deviation, deviation) >> 1);
+                        mids[n].X = mids[0].X + (NonCriticalRandomNumber(-deviation, deviation) >> 1);
+                        mids[n].Y = mids[0].Y + (NonCriticalRandomNumber(-deviation, deviation) >> 1);
+                        mids[n].Z = mids[0].Z + (NonCriticalRandomNumber(-deviation, deviation) >> 1);
                     }
                 } else {
                     for (int n2 = 1; n2 < 3; n2++) {
-                        mids[n2].X += unknown_random_839218(-deviation, deviation);
-                        mids[n2].Y += unknown_random_839218(-deviation, deviation);
-                        mids[n2].Z += unknown_random_839218(-deviation, deviation);
+                        mids[n2].X += NonCriticalRandomNumber(-deviation, deviation);
+                        mids[n2].Y += NonCriticalRandomNumber(-deviation, deviation);
+                        mids[n2].Z += NonCriticalRandomNumber(-deviation, deviation);
                     }
                 }
                 length >>= 1;
@@ -249,8 +249,8 @@ void EBolt::Draw_004B2170()
 {
  if(unknown_28) {
   Point2D start,end;
-  unknown_tactical_83996c->Coord_To_Pixel(Start,start);
-  unknown_tactical_83996c->Coord_To_Pixel(End,end);
+  TacticalMap->Coord_To_Pixel(Start,start);
+  TacticalMap->Coord_To_Pixel(End,end);
   if(Clip_Line(start,end,unknown_rect_839630)) Draw_Bolt_004B1900(Start,End,unknown_2c ? 5 : 10);
   ++unknown_1c;
  }
@@ -290,7 +290,7 @@ void EBolt::Setup_004B2430(CoordStruct start,CoordStruct end,int value)
  Start=start;
  End=end;
  unknown_18=value;
- unknown_1c=unknown_random_839218(0,256);
+ unknown_1c=NonCriticalRandomNumber(0,256);
  unknown_EBolt_list_00853050.Add(this);
  new ParticleSystemClass(Rules->unknown_ce0,end,0,0,unknown_geometry_l);
 }

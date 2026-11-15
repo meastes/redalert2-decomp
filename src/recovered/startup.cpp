@@ -343,7 +343,7 @@ extern bool unknown_hicolor_7ce008;
 extern int unknown_depth_8523e8;
 extern int unknown_audio_mode_a41664;
 extern bool unknown_no_exception_handler_a4168c;
-extern bool unknown_redraw_8523dc;
+extern bool SurfacesRestored;
 unsigned long Get_Video_Memory();
 void Prep_Direct_Draw();
 void Release_DirectDraw_00495a60();
@@ -756,11 +756,11 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
         if (unknown_allow_mode_toggle_a40d0b) {
             Create_Main_Window(instance, command_show, 640, 400);
             Prep_Direct_Draw();
-            if (unknown_flag_851cb0) {
+            if (WindowedMode) {
                 Rect rect1(0, 0, 640, 400);
                 unknown_window_839640 = rect1;
-                unknown_8523e0 = 640;
-                unknown_8523e4 = 400;
+                VideoModeWidth = 640;
+                VideoModeHeight = 400;
                 unknown_depth_8523e8 = unknown_hicolor_7ce008 ? 16 : 8;
             } else {
                 Rect rect2(0, 0, 640, 400);
@@ -781,11 +781,11 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
         } else {
             Create_Main_Window(instance, command_show, unknown_screen_width_a40b38, unknown_screen_height_a40b3c);
             Prep_Direct_Draw();
-            if (unknown_flag_851cb0) {
+            if (WindowedMode) {
                 Rect rect4(0, 0, unknown_screen_width_a40b38, unknown_screen_height_a40b3c);
                 unknown_window_839640 = rect4;
-                unknown_8523e0 = unknown_screen_width_a40b38;
-                unknown_8523e4 = unknown_screen_height_a40b3c;
+                VideoModeWidth = unknown_screen_width_a40b38;
+                VideoModeHeight = unknown_screen_height_a40b3c;
                 unknown_depth_8523e8 = unknown_hicolor_7ce008 ? 16 : 8;
             } else {
                 video_success = Set_Video_Mode(MainWindow, unknown_screen_width_a40b38, unknown_screen_height_a40b3c, unknown_hicolor_7ce008 ? 16 : 8);
@@ -832,17 +832,17 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
 
         do {
             Windows_Message_Handler();
-        } while (!unknown_flag_a40d28);
+        } while (!GameInFocus);
 
-        unknown_redraw_8523dc = false;
-        if (!unknown_flag_851cb0) {
+        SurfacesRestored = false;
+        if (!WindowedMode) {
             unknown_surface_839950->Fill(0);
         }
-        Mono_Window_Init(ProgramInstance, MainWindow, unknown_flag_851cb0);
+        Mono_Window_Init(ProgramInstance, MainWindow, WindowedMode);
         Planning_Reset();
 
         {
-        int sidebar_width = unknown_int_7add80;
+        int sidebar_width = SidebarWidth;
         int screen_height = unknown_window_839640.Height;
         Rect side_rect(0, 0, sidebar_width, screen_height);
         int width = unknown_window_839640.Width;
@@ -850,11 +850,11 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
         Rect composite_rect(0, 0, width - side_rect.Width, side_rect.Height);
         Allocate_Surfaces(&unknown_window_839640, &composite_rect, &tile_rect, &side_rect, false);
         }
-        if (unknown_flag_852fd7) {
+        if (UseDirect3D) {
             Init_Direct3D();
         }
-        unknown_surface_83995c = unknown_surface_839954;
-        GScreenClass::Blit(true, unknown_surface_839954);
+        unknown_surface_83995c = HiddenSurface;
+        GScreenClass::Blit(true, HiddenSurface);
 
         DepthBuffer = new ZBuffer(Rect(unknown_int_839630, unknown_int_839634, 480, 480 - unknown_int_839634));
         DepthBuffer->Set_Scroll(0x8000);
@@ -900,8 +900,8 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
         }
 
         WWMouse->Hide_Mouse();
-        unknown_surface_839954->Fill(0);
-        GScreenClass::Blit(true, unknown_surface_839954);
+        HiddenSurface->Fill(0);
+        GScreenClass::Blit(true, HiddenSurface);
 
         ReadyToQuit = 1;
         Theme.Unknown_006E7A70();
@@ -985,7 +985,7 @@ void __cdecl CopyProtection_Shutdown_00491b00();
 
 void __cdecl Prog_End()
 {
-    unknown_flag_a40958 = false;
+    GameActive = false;
     if (unknown_grfxtxt_shape_a41674) {
         delete unknown_grfxtxt_shape_a41674;
         unknown_grfxtxt_shape_a41674 = 0;
@@ -1007,11 +1007,11 @@ void __cdecl Prog_End()
 
     Delete_All_Objects_00519960();
 
-    while (unknown_names_a71050.Count()) {
-        free((void *)unknown_names_a71050[0]);
-        unknown_names_a71050.Delete(0);
+    while (Movies.Count()) {
+        free((void *)Movies[0]);
+        Movies.Delete(0);
     }
-    unknown_names_a71050.Clear();
+    Movies.Clear();
 
     for (int index = 0; index < unknown_commands_832358.Count(); index++) {
         delete unknown_commands_832358[index];
@@ -1070,9 +1070,9 @@ void __cdecl Prog_End()
         delete (ConvertClass *)unknown_convert_8323c8;
         unknown_convert_8323c8 = 0;
     }
-    if (unknown_drawer_8323cc) {
-        delete unknown_drawer_8323cc;
-        unknown_drawer_8323cc = 0;
+    if (SidebarDrawer) {
+        delete SidebarDrawer;
+        SidebarDrawer = 0;
     }
     if (unknown_drawer_8323b0) {
         delete unknown_drawer_8323b0;
@@ -1217,9 +1217,9 @@ void __cdecl Prog_End()
         delete unknown_language_mix_8374bc;
         unknown_language_mix_8374bc = 0;
     }
-    if (unknown_tactical_83996c) {
-        delete unknown_tactical_83996c;
-        unknown_tactical_83996c = 0;
+    if (TacticalMap) {
+        delete TacticalMap;
+        TacticalMap = 0;
     }
     RadarEventClass_unknown_delete_all_63b890();
     Map.DisposeOfArt();

@@ -143,8 +143,8 @@ SuperClass::SuperClass(SuperWeaponTypeClass *type, HouseClass *house) :
 {
     Create_ID();
     Supers.Add(this);
-    unknown_objects_ac0cb0.Add(this);
-    unknown_abstracts_ac0d08.Add(this);
+    AbstractTypePtrTracker.Add(this);
+    HousePtrTracker.Add(this);
 }
 
 
@@ -158,8 +158,8 @@ SuperClass::~SuperClass()
     unknown_69ca70();
     unknown_supers_a35db8.Delete(this);
     Supers.Delete(this);
-    unknown_objects_ac0cb0.Delete(this);
-    unknown_abstracts_ac0d08.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
+    HousePtrTracker.Delete(this);
 }
 #pragma auto_inline(on)
 
@@ -175,10 +175,10 @@ void SuperClass::unknown_69ca70()
     if (Anim != 0) {
         Anim->Loops = 0;
         Anim = 0;
-        unknown_abstracts_ac0bf8.Delete((AbstractClass *)this);
+        AnimPtrTracker.Delete((AbstractClass *)this);
     }
     if (AnimDetached) {
-        unknown_abstracts_ac0bf8.Delete((AbstractClass *)this);
+        AnimPtrTracker.Delete((AbstractClass *)this);
         AnimDetached = false;
     }
 }
@@ -195,7 +195,7 @@ void SuperClass::unknown_place_anim_69cb30(CoordStruct coord)
     AnimClass *anim = new AnimClass(Rules->ChronoPlacement, coord + CoordStruct(0, 0, 5), 0, 1, 0x600, 0);
     if (anim != 0) {
         Anim = anim;
-        unknown_abstracts_ac0bf8.Add(this);
+        AnimPtrTracker.Add(this);
     }
 }
 
@@ -683,7 +683,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                 object = object->unknown_30;
             }
         }
-        if (!unknown_int_a3d548) {
+        if (!MuteSWLaunches) {
             Speech_Play_Name("EVA_ChronosphereActivated", -1, -1);
         }
         if (player) {
@@ -697,7 +697,7 @@ void SuperClass::Place(Cell const &cell, bool player)
     case 2:
         if (unknown_0x57) {
             Unknown_0051F930(Rules->LightningStormDuration, Rules->unknown_13e8, cell, House);
-            if (!unknown_int_a3d548) {
+            if (!MuteSWLaunches) {
                 Speech_Play_Name("EVA_LightningStormCreated", -1, -1);
             }
             if (player) {
@@ -712,7 +712,7 @@ void SuperClass::Place(Cell const &cell, bool player)
         if (unknown_0x57) {
             CoordStruct coord = Map[cell].Center_Coord();
             new AnimClass(Rules->IronCurtainInvokeAnim, coord + CoordStruct(0, 0, 5), 0, 1, 0x600, 0);
-            if (!unknown_int_a3d548) {
+            if (!MuteSWLaunches) {
                 Speech_Play_Name("EVA_IronCurtainActivated", -1, -1);
             }
             Unknown_0063B5B0(13, cell);
@@ -829,7 +829,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                     velocity.XY() = planar;
                     velocity.Z = unknown_sin_4ba480(1.5707483884323126) * -100.0;
                     bullet->unknown_slot118(launch, velocity);
-                    if (!unknown_int_a3d548) {
+                    if (!MuteSWLaunches) {
                         Speech_Play_Name("EVA_NuclearMissileLaunched", -1, -1);
                     }
                     Voc_Static_Add(Rules->unknown_16c, sound, 0);
@@ -855,7 +855,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                         House->NukeDest = cell;
                         *(int *)((char *)site + 0x4CC) = Type->Type;   // TODO: BuildingClass +0x4CC (building_class.hpp unknown_4cc; the BuildingClass in scope differs)
                         Voc_Static_Add(Rules->unknown_16c, sound, 0);
-                        if (!unknown_int_a3d548) {
+                        if (!MuteSWLaunches) {
                             Speech_Play_Name("EVA_NuclearMissileLaunched", -1, -1);
                         }
                     }
@@ -929,7 +929,7 @@ HRESULT __stdcall SuperClass::Load(IStream *stream)
     }
     new (this) SuperClass(NoInitClass());
     if (Anim != 0) {
-        unknown_abstracts_ac0bf8.Add(this);
+        AnimPtrTracker.Add(this);
     }
     Swizzler.Swizzle((void **)&Type);
     Swizzler.Swizzle((void **)&House);

@@ -9,12 +9,12 @@
 #include "shared/crt_string.hpp"
 
 
-// int unknown_find_or_make_warhead_0040f2f0(char const *name) (0x0040F2F0)
+// int Warhead_From_Name(char const *name) (0x0040F2F0)
 // Index of the warhead type with this ID in the unit's list 0x00839B00 (-1 for
 // "<none>" and "none"); an unknown ID makes a new type and returns its index.
 // No direct callers.
 
-int __fastcall unknown_find_or_make_warhead_0040f2f0(char const *name)
+int __fastcall Warhead_From_Name(char const *name)
 {
     if (_stricmp(name, "<none>") == 0 || _stricmp(name, "none") == 0) {
         return -1;
@@ -28,11 +28,11 @@ int __fastcall unknown_find_or_make_warhead_0040f2f0(char const *name)
 }
 
 
-// char const *unknown_warhead_name_0040f3a0(int index) (0x0040F3A0)
+// char const *Warhead_Name(int index) (0x0040F3A0)
 // ID of the warhead type at this index of the unit's list 0x00839B00, or null.
 // No direct callers.
 
-char const *__fastcall unknown_warhead_name_0040f3a0(int index)
+char const *__fastcall Warhead_Name(int index)
 {
     if (index != -1 && (unsigned)index < (unsigned)unknown_WarheadTypeClass_list_00839b00.Count()) {
         return unknown_WarheadTypeClass_list_00839b00[index]->ID;

@@ -72,7 +72,7 @@ void RadarClass::Unknown_00634670(int arg1, int index, HouseClass *house)
     if (house == unknown_house_a72d28) image = Country_Flag(-3);
     OwnerDraw::unknown_5e1f30(flag, image);
     HWND ally = GetDlgItem(dialog, ally_ids[index]);
-    if (unknown_int_a3d548) EnableWindow(ally, FALSE);
+    if (MuteSWLaunches) EnableWindow(ally, FALSE);
     if (house->unknown_13d) {
         ShowWindow(ally, 0);
     } else {
@@ -81,7 +81,7 @@ void RadarClass::Unknown_00634670(int arg1, int index, HouseClass *house)
     unknown_5e1fd0(ally, house->Is_Ally(unknown_player_a35db4));
     if (house->unknown_18f) {
         ShowWindow(GetDlgItem(dialog, team_ids[index]), 0);
-    } else if (unknown_int_a3d548) {
+    } else if (MuteSWLaunches) {
         HWND team = GetDlgItem(dialog, team_ids[index]);
         SendMessageA(team, 0xF1, 1, 0);
         EnableWindow(team, FALSE);

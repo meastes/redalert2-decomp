@@ -78,7 +78,7 @@ public:
     static int __fastcall From_Name(char const *name);                  // 0x0070A890
     static UnitTypeClass *__fastcall Find_Or_Make(char const *name);    // 0x0070B540
     // Makes the shared drawing resources once (game start): a 256x256 byte surface cleared to 0, a
-    // drawer converting unknown_palette_837e10 onto it, and the visceroid shapes (0x0070A900).
+    // drawer converting GamePalette onto it, and the visceroid shapes (0x0070A900).
     static void One_Time();
 
     int ArrayIndex;                         // +0xB90
@@ -124,7 +124,7 @@ extern DynamicVectorClass<UnitTypeClass *> UnitTypes;   // 0x00A35D48
 class BSurface;
 class ConvertClass;
 extern BSurface *unknown_surface_ad0604;            // 0x00AD0604 256x256, one byte per pixel
-extern ConvertClass *unknown_drawer_ad0608;         // 0x00AD0608 unknown_palette_837e10 onto unknown_surface_ad0604
+extern ConvertClass *unknown_drawer_ad0608;         // 0x00AD0608 GamePalette onto unknown_surface_ad0604
 extern void const *VisceroidSmallShape;             // 0x00AD060C VISC_SML.SHP
 extern void const *VisceroidLargeShape;             // 0x00AD0610 VISC_LRG.SHP
 

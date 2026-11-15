@@ -6,7 +6,7 @@
 bool Unknown535910::Message_00536ea0(int message, void *data)
 {
     if (message == 0x11AE) {
-        Unknown_00536E00(unknown_surface_839954);
+        Unknown_00536E00(HiddenSurface);
         return true;
     }
     return false;

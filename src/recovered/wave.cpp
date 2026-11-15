@@ -440,8 +440,8 @@ HRESULT __stdcall WaveClass::GetClassID(GUID *clsid)
 
 bool WaveClass::Unlimbo(CoordStruct const *coord, int dir)
 {
-    if (unknown_flag_a40958 && unknown_76 && !unknown_74) {
-        if (unknown_a40774 == 0 && Can_Enter_Cell(&Map[*coord], -1, coord->Z, 0, 1) != 0) {
+    if (GameActive && unknown_76 && !unknown_74) {
+        if (ScenarioInit == 0 && Can_Enter_Cell(&Map[*coord], -1, coord->Z, 0, 1) != 0) {
             return false;
         }
         unknown_76 = false;
@@ -467,7 +467,7 @@ bool WaveClass::Unlimbo(CoordStruct const *coord, int dir)
 
 bool WaveClass::Limbo()
 {
-    if (unknown_flag_a40958 && !unknown_76) {
+    if (GameActive && !unknown_76) {
         unknown_slot54(1);
         Mark(0);
         Map.Remove(this);
@@ -933,8 +933,8 @@ void WaveClass::Draw_NonMagnetic_007238b0(CoordStruct const &source, CoordStruct
     EndCoord=end;
     Polygon_130.Count=6;
     Polygon_130.Points=&Polygon_130.InlinePoint0;
-    unknown_tactical_83996c->Coord_To_Pixel(start,WaveStartMiddle);
-    unknown_tactical_83996c->Coord_To_Pixel(end,WaveEndMiddle);
+    TacticalMap->Coord_To_Pixel(start,WaveStartMiddle);
+    TacticalMap->Coord_To_Pixel(end,WaveEndMiddle);
     Polygon_130.Points[1]=WaveEndMiddle;
     Polygon_130.Points[4]=WaveStartMiddle;
     double distance_f=distance;
@@ -965,10 +965,10 @@ void WaveClass::Draw_NonMagnetic_007238b0(CoordStruct const &source, CoordStruct
     WaveEndRightCoord=CoordStruct(start.X+end_right.X,start.Y+end_right.Y,end_right.Z);
     WaveStartLeftCoord=CoordStruct(start.X+start_left.X,start.Y+start_left.Y,start_left.Z);
     WaveStartRightCoord=CoordStruct(start.X+start_right.X,start.Y+start_right.Y,start_right.Z);
-    unknown_tactical_83996c->Coord_To_Pixel(WaveEndLeftCoord,WaveEndLeft);
-    unknown_tactical_83996c->Coord_To_Pixel(WaveEndRightCoord,WaveEndRight);
-    unknown_tactical_83996c->Coord_To_Pixel(WaveStartLeftCoord,WaveStartLeft);
-    unknown_tactical_83996c->Coord_To_Pixel(WaveStartRightCoord,WaveStartRight);
+    TacticalMap->Coord_To_Pixel(WaveEndLeftCoord,WaveEndLeft);
+    TacticalMap->Coord_To_Pixel(WaveEndRightCoord,WaveEndRight);
+    TacticalMap->Coord_To_Pixel(WaveStartLeftCoord,WaveStartLeft);
+    TacticalMap->Coord_To_Pixel(WaveStartRightCoord,WaveStartRight);
     Polygon_130.Points[0]=WaveEndLeft;
     Polygon_130.Points[2]=WaveEndRight;
     Polygon_130.Points[3]=WaveStartRight;

@@ -382,16 +382,40 @@
    "address": "004068f0"
   },
   {
+   "symbol": "?GameInFocus@@3_NA",
+   "address": "00a40d28"
+  },
+  {
    "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
    "address": "00532320"
+  },
+  {
+   "symbol": "?GetDirectSoundObject@@YAPAXXZ",
+   "address": "0040a6c0"
+  },
+  {
+   "symbol": "?Get_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@II@Z",
+   "address": "00522e90"
+  },
+  {
+   "symbol": "?HiddenSurface@@3PAVSurface@@A",
+   "address": "00839954"
   },
   {
    "symbol": "?MainWindow@@3PAUHWND__@@A",
    "address": "00b263d8"
   },
   {
+   "symbol": "?MessageLoopCount@@3HA",
+   "address": "00a52298"
+  },
+  {
    "symbol": "?Offset@MixFileClass@@SI_NPBDPAPAXPAPAV1@PAJ3@Z",
    "address": "00595aa0"
+  },
+  {
+   "symbol": "?Peek_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@III@Z",
+   "address": "00522ed0"
   },
   {
    "symbol": "?Process_0069b420@VQAMovieCompanion@@QAE_NH@Z",
@@ -402,6 +426,10 @@
    "address": "0069b4f0"
   },
   {
+   "symbol": "?Subtitles_Open@@YIPAVVQAMovieCompanion@@PBD@Z",
+   "address": "0069b190"
+  },
+  {
    "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
    "address": "00832468"
   },
@@ -410,36 +438,8 @@
    "address": "00406f30"
   },
   {
-   "symbol": "?unknown_create_companion_69b190@@YIPAVVQAMovieCompanion@@PBD@Z",
-   "address": "0069b190"
-  },
-  {
-   "symbol": "?unknown_directsound_40a6c0@@YAPAXXZ",
-   "address": "0040a6c0"
-  },
-  {
-   "symbol": "?unknown_flag_a40d28@@3_NA",
-   "address": "00a40d28"
-  },
-  {
-   "symbol": "?unknown_get_message_522e90@@YIHPAUtagMSG@@PAUHWND__@@II@Z",
-   "address": "00522e90"
-  },
-  {
-   "symbol": "?unknown_message_count_a52298@@3HA",
-   "address": "00a52298"
-  },
-  {
-   "symbol": "?unknown_peek_message_522ed0@@YIHPAUtagMSG@@PAUHWND__@@III@Z",
-   "address": "00522ed0"
-  },
-  {
    "symbol": "?unknown_surface_839950@@3PAVSurface@@A",
    "address": "00839950"
-  },
-  {
-   "symbol": "?unknown_surface_839954@@3PAVSurface@@A",
-   "address": "00839954"
   },
   {
    "symbol": "?unknown_volume_84e9a8@@3MA",

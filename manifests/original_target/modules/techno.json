@@ -2025,63 +2025,63 @@
    "address": "007b3278",
    "bytes": 9,
    "kind": "rtti",
-   "section": 436
+   "section": 444
   },
   {
    "symbol": "??_R3XSurface@@8",
    "address": "007b3288",
    "bytes": 16,
    "kind": "rtti",
-   "section": 437
+   "section": 445
   },
   {
    "symbol": "??_R4XSurface@@6B@",
    "address": "007b3298",
    "bytes": 20,
    "kind": "rtti",
-   "section": 438
+   "section": 447
   },
   {
    "symbol": "??_R1A@?0A@A@Surface@@8",
    "address": "007b32b0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 440
+   "section": 442
   },
   {
    "symbol": "??_R1A@?0A@A@XSurface@@8",
    "address": "007b32c8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 442
+   "section": 443
   },
   {
    "symbol": "??_R1A@?0A@A@BSurface@@8",
    "address": "007b32e0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 443
+   "section": 436
   },
   {
    "symbol": "??_R2BSurface@@8",
    "address": "007b32f8",
    "bytes": 13,
    "kind": "rtti",
-   "section": 444
+   "section": 437
   },
   {
    "symbol": "??_R3BSurface@@8",
    "address": "007b3308",
    "bytes": 16,
    "kind": "rtti",
-   "section": 445
+   "section": 438
   },
   {
    "symbol": "??_R4BSurface@@6B@",
    "address": "007b3318",
    "bytes": 20,
    "kind": "rtti",
-   "section": 447
+   "section": 440
   },
   {
    "symbol": "??_R2Surface@@8",
@@ -2207,21 +2207,21 @@
    "address": "007b4c04",
    "bytes": 5,
    "kind": "rtti",
-   "section": 189
+   "section": 192
   },
   {
    "symbol": "??_R3?$VectorClass@H@@8",
    "address": "007b4c10",
    "bytes": 16,
    "kind": "rtti",
-   "section": 190
+   "section": 193
   },
   {
    "symbol": "??_R4?$VectorClass@H@@6B@",
    "address": "007b4c20",
    "bytes": 20,
    "kind": "rtti",
-   "section": 191
+   "section": 194
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@H@@8",
@@ -2319,56 +2319,56 @@
    "address": "007b8654",
    "bytes": 5,
    "kind": "rtti",
-   "section": 186
+   "section": 195
   },
   {
    "symbol": "??_R3?$VectorClass@PAVAbstractClass@@@@8",
    "address": "007b8660",
    "bytes": 16,
    "kind": "rtti",
-   "section": 187
+   "section": 196
   },
   {
    "symbol": "??_R4?$VectorClass@PAVAbstractClass@@@@6B@",
    "address": "007b8670",
    "bytes": 20,
    "kind": "rtti",
-   "section": 188
+   "section": 197
   },
   {
    "symbol": "??_R4MissionClass@@6BINoticeSource@@@",
    "address": "007bdb98",
    "bytes": 20,
    "kind": "rtti",
-   "section": 192
+   "section": 186
   },
   {
    "symbol": "??_R4MissionClass@@6BINoticeSink@@@",
    "address": "007bdbb0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 193
+   "section": 187
   },
   {
    "symbol": "??_R4MissionClass@@6BIRTTITypeInfo@@@",
    "address": "007bdbc8",
    "bytes": 20,
    "kind": "rtti",
-   "section": 194
+   "section": 188
   },
   {
    "symbol": "??_R2MissionClass@@8",
    "address": "007bdbe0",
    "bytes": 41,
    "kind": "rtti",
-   "section": 195
+   "section": 189
   },
   {
    "symbol": "??_R3MissionClass@@8",
    "address": "007bdc10",
    "bytes": 16,
    "kind": "rtti",
-   "section": 196,
+   "section": 190,
    "known_difference": "hierarchy ambiguous bit"
   },
   {
@@ -2376,7 +2376,7 @@
    "address": "007bdc20",
    "bytes": 20,
    "kind": "rtti",
-   "section": 197
+   "section": 191
   },
   {
    "symbol": "??_R4RadioClass@@6BINoticeSource@@@",
@@ -2544,21 +2544,21 @@
    "address": "007ce2b0",
    "bytes": 22,
    "kind": "rtti",
-   "section": 439
+   "section": 441
   },
   {
    "symbol": "??_R0?AVXSurface@@@8",
    "address": "007ce2c8",
    "bytes": 23,
    "kind": "rtti",
-   "section": 441
+   "section": 446
   },
   {
    "symbol": "??_R0?AVBSurface@@@8",
    "address": "007ce2e0",
    "bytes": 23,
    "kind": "rtti",
-   "section": 446
+   "section": 439
   },
   {
    "symbol": "??_R0?AVStageClass@@@8",
@@ -6115,6 +6115,10 @@
    "address": "00a40398"
   },
   {
+   "symbol": "?AircraftTracker@@3UAircraftTrackerClass@@A",
+   "address": "00839ea0"
+  },
+  {
    "symbol": "?Aircraft_XY_Length_0041B750@@YINPBUAircraftVectorXY@@@Z",
    "address": "0041b750"
   },
@@ -6125,6 +6129,10 @@
   {
    "symbol": "?Allocate@RadBeam@@SIPAV1@H@Z",
    "address": "00635440"
+  },
+  {
+   "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0bf8"
   },
   {
    "symbol": "?Anims@@3V?$DynamicVectorClass@PAVAnimClass@@@@A",
@@ -6711,6 +6719,10 @@
    "address": "005d2c80"
   },
   {
+   "symbol": "?HousePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0d08"
+  },
+  {
    "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
    "address": "00a32298"
   },
@@ -6935,6 +6947,10 @@
    "address": "005502e0"
   },
   {
+   "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+   "address": "00839218"
+  },
+  {
    "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
    "address": "005d9760"
   },
@@ -7123,6 +7139,10 @@
    "address": "005d2cf0"
   },
   {
+   "symbol": "?ScenarioInit@@3HA",
+   "address": "00a40774"
+  },
+  {
    "symbol": "?Select_Blitter_00485AA0@ConvertClass@@QAEPAVBlitter@@I@Z",
    "address": "00485aa0"
   },
@@ -7229,6 +7249,10 @@
   {
    "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
    "address": "00abd868"
+  },
+  {
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
   },
   {
    "symbol": "?Take_Damage@ObjectClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z",
@@ -7595,20 +7619,8 @@
    "address": "00839a60"
   },
   {
-   "symbol": "?unknown_a40774@@3HA",
-   "address": "00a40774"
-  },
-  {
    "symbol": "?unknown_a40b33@@3_NA",
    "address": "00a40b33"
-  },
-  {
-   "symbol": "?unknown_abstracts_ac0bf8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0bf8"
-  },
-  {
-   "symbol": "?unknown_abstracts_ac0d08@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0d08"
   },
   {
    "symbol": "?unknown_ac01cc@@3IA",
@@ -7765,10 +7777,6 @@
   {
    "symbol": "?unknown_radar_surface_8336f8@@3PAVSurface@@A",
    "address": "008336f8"
-  },
-  {
-   "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
-   "address": "00839218"
   },
   {
    "symbol": "?unknown_random_scale_79c280@@3NB",
@@ -8039,10 +8047,6 @@
    "address": "00ad0604"
   },
   {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
-  },
-  {
    "symbol": "?unknown_talk_techno_ac01c4@@3PAVTechnoClass@@A",
    "address": "00ac01c4"
   },
@@ -8089,10 +8093,6 @@
   {
    "symbol": "?unknown_timer_ac0178@@3V?$CDTimerClass@VFrameTimerClass@@@@A",
    "address": "00ac0178"
-  },
-  {
-   "symbol": "?unknown_tracker_839ea0@@3UAircraftTrackerClass@@A",
-   "address": "00839ea0"
   },
   {
    "symbol": "?unknown_twenty_79d150@@3NB",

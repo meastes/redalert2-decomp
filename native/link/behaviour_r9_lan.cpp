@@ -128,11 +128,11 @@ void Unknown_00738100()
 WIN32_IMPORT HWND WINAPI GetDlgItem(HWND dialog, int id);
 void Unknown_005c2940()
 {
-    SendMessageA(GetDlgItem(Unknown_00735B10(), 0x59F), 0x4DC, 0, 0);
+    SendMessageA(GetDlgItem(WS_Top_Window(), 0x59F), 0x4DC, 0, 0);
 }
 void Unknown_0075ca00()
 {
-    SendMessageA(GetDlgItem(Unknown_00735B10(), 0x59F), 0x4DC, 0, 0);
+    SendMessageA(GetDlgItem(WS_Top_Window(), 0x59F), 0x4DC, 0, 0);
 }
 
 // 0x0073BDB0 (accepted seed seed_0073bdb0): the online session state 0x00A3D2A4 is 1 or 2.

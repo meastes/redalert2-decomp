@@ -18,7 +18,7 @@ extern char lobby_prefix_7fd358[];
 extern wchar_t lobby_name_format_7d9c94[];
 extern wchar_t lobby_number_format_7fd91c[];
 extern char leave_text_label_7fe420[],wol_source_path_7fd62c[];
-HWND __fastcall Unknown_00735B10();
+HWND __fastcall WS_Top_Window();
 void __stdcall unknown_dialog_5ecf40(HWND window,int result);
 void __fastcall Unknown_005cd030(HWND window,bool update);
 void __fastcall Unknown_Release_Slot_by_Name_005c9270(char const *name);
@@ -57,7 +57,7 @@ void __fastcall Handle_User_Leave_00741750(WOL::User *user)
             unknown_b2abe0 &= ~0x40;
             if (unknown_b2abe0 == 0) End_Dialog_007357e0(wait,0);
         }
-        HWND active=Unknown_00735B10();
+        HWND active=WS_Top_Window();
         HWND focus=Get_Item(active,0x540);
         if (focus) SetFocus(focus);
         wol_scenario_description_a3d342[0]=0;
@@ -65,7 +65,7 @@ void __fastcall Handle_User_Leave_00741750(WOL::User *user)
         unknown_session_a3d298.ScenarioFileLength_87c=0;
         unknown_session_a3d298.ScenarioDigest_85a[0]=0;
         HWND main=WS_Find_Dialog_00735940(0x113);
-        if (main && unknown_b2abd9) {
+        if (main && g_PlayingNetGame) {
             ShowWindow(main,0);
             unknown_dialog_5ecf40(main,1);
         }
@@ -75,7 +75,7 @@ void __fastcall Handle_User_Leave_00741750(WOL::User *user)
             ShowWindow(guest,0);
             unknown_dialog_5ecf40(guest,1);
             if (unknown_a3d2a4 == 3) {
-                if (unknown_b2abd9) {
+                if (g_PlayingNetGame) {
                     if (main) {
                         ShowWindow(main,0);
                         unknown_dialog_5ecf40(main,1);
@@ -95,7 +95,7 @@ void __fastcall Handle_User_Leave_00741750(WOL::User *user)
             ShowWindow(game,0);
             unknown_dialog_5ecf40(game,1);
             if (unknown_a3d2a4 == 3) {
-                if (unknown_b2abd9) {
+                if (g_PlayingNetGame) {
                     if (main) {
                         ShowWindow(main,0);
                         unknown_dialog_5ecf40(main,1);
@@ -107,7 +107,7 @@ void __fastcall Handle_User_Leave_00741750(WOL::User *user)
             } else if (unknown_a3d2a4 == 4) Debug_Printf(leave_debug_lan_game_7fe3d0);
         }
         if (main) {
-            if (!unknown_b2abd9) {
+            if (!g_PlayingNetGame) {
                 ShowWindow(main,5);
                 unknown_dialog_5ecf40(main,0);
             }
@@ -175,7 +175,7 @@ void __fastcall Handle_User_Leave_00741750(WOL::User *user)
             Unknown_0073c480();
             Unknown_005c3810(true,true);
             if (Current_Dialog_Id_00735b20() == 0x6b) {
-                HWND window=Unknown_00735B10();
+                HWND window=WS_Top_Window();
                 int index=SendDlgItemMessageA(window,0x6eb,0x188,0,0);
                 if (index != -1) {
                     UnknownSessionA3D29C *mode=(UnknownSessionA3D29C *)SendDlgItemMessageA(window,0x6eb,0x199,index,0);
@@ -212,7 +212,7 @@ void __fastcall Handle_User_Leave_00741750(WOL::User *user)
 // @ref ?Unknown_00672F20@SessionClass@@QAEXH@Z=00672f20
 // @ref ?Char_To_Wide_006fa0c0@@YIXPAGPBDH@Z=006fa0c0
 // @ref ?Wide_To_Narrow_006fa120@@YIPADPBG@Z=006fa120
-// @ref ?Unknown_00735B10@@YIPAUHWND__@@XZ=00735b10
+// @ref ?WS_Top_Window@@YIPAUHWND__@@XZ=00735b10
 // @ref ?Unknown_0073FEE0@@YIXH_N@Z=0073fee0
 // @ref ?Unknown_0073c480@@YIXXZ=0073c480
 // @ref ?Unknown_Release_Slot_by_Name_005c9270@@YIXPBD@Z=005c9270
@@ -228,7 +228,7 @@ void __fastcall Handle_User_Leave_00741750(WOL::User *user)
 // @ref ?lobby_number_format_7fd91c@@3PAGA=007fd91c
 // @ref ?lobby_prefix_7fd358@@3PADA=007fd358
 // @ref ?unknown_a3d2a4@@3HA=00a3d2a4
-// @ref ?unknown_b2abd9@@3_NA=00b2abd9
+// @ref ?g_PlayingNetGame@@3_NA=00b2abd9
 // @ref ?unknown_b2abe0@@3IA=00b2abe0
 // @ref ?unknown_b2abe8@@3HA=00b2abe8
 // @ref ?unknown_b2ac40@@3HA=00b2ac40

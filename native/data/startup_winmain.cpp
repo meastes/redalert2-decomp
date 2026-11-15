@@ -32,7 +32,7 @@ __asm__(".globl _unknown_flag_7ce008\n.set _unknown_flag_7ce008, _unknown_hicolo
 bool unknown_tile_sysmem_7f4cc4 = true;
 
 // 0x007ADD80: the sidebar width (TibSun sidebar.h SIDE_WIDTH = 168).
-int unknown_int_7add80 = 168;
+int SidebarWidth = 168;
 
 // 0x00A4168C (.bss): set by the command line to call Main_Game without the
 // exception handler (zero, as the loader gives .bss).

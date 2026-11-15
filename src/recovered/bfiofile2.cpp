@@ -65,7 +65,7 @@ bool BinkClass::Open(char const *filename)
 {
     Close();
     if (unknown_check_406f30()) {
-        BinkSetSoundSystem((void *)BinkOpenDirectSound, (unsigned long)unknown_directsound_40a6c0());
+        BinkSetSoundSystem((void *)BinkOpenDirectSound, (unsigned long)GetDirectSoundObject());
     }
     if (RawFileClass(filename).Is_Available() == true) {
         Handle = BinkOpen(filename, 0);
@@ -87,11 +87,11 @@ bool BinkClass::Open(char const *filename)
     *(int *)&unknown_volume_84e9a8 = *(int *)&unknown_volume_a40b48;
     BinkSetVolume(Handle, (int)(unknown_volume_84e9a8 * 32768.0f));
     unknown_24 = 60 / (Handle->FrameRate / Handle->FrameRateDiv);
-    Companion = unknown_create_companion_69b190(filename);
+    Companion = Subtitles_Open(filename);
     Rect movie(0, 0, Handle->Width, Handle->Height);
     if (Target == 0) {
         if (Companion != 0 && *(int *)Companion != 0) {
-            Target = unknown_surface_839954;
+            Target = HiddenSurface;
             movie.X = (Target->Get_Width() - movie.Width) / 2;
             movie.Y = (Target->Get_Height() - movie.Height) / 2;
         } else {
@@ -198,9 +198,9 @@ void BinkClass::Play()
     unknown_2d = false;
     while (Handle->FrameNum < Handle->Frames) {
         MSG message;
-        unknown_message_count_a52298++;
-        if (unknown_peek_message_522ed0(&message, 0, 0, 0, 0)) {
-            if (!unknown_get_message_522e90(&message, 0, 0, 0)) {
+        MessageLoopCount++;
+        if (Peek_Windows_Message(&message, 0, 0, 0, 0)) {
+            if (!Get_Windows_Message(&message, 0, 0, 0)) {
                 break;
             }
             TranslateMessage(&message);
@@ -237,7 +237,7 @@ void BinkClass::Play()
 // application focus, then decodes and copies every due frame into `surface`
 // at x, y; false when no frame was due.
 
-extern bool unknown_flag_a40d28;                // 0x00A40D28 application active (focus)
+extern bool GameInFocus;                // 0x00A40D28 application active (focus)
 
 bool BinkClass::Draw_Frame(Surface *surface, int x, int y)
 {
@@ -246,7 +246,7 @@ bool BinkClass::Draw_Frame(Surface *surface, int x, int y)
         *(int *)&unknown_volume_84e9a8 = *(int *)&unknown_volume_a40b48;
         BinkSetVolume(Handle, (int)(unknown_volume_84e9a8 * 32768.0f));
     }
-    if (!unknown_flag_a40d28) {
+    if (!GameInFocus) {
         if (unknown_2c == true) {
             Debug_Printf("Pause bink movie\n");
             unknown_2c = false;
@@ -448,11 +448,11 @@ int __fastcall FUN_00430ba0(int object_address)
 // Pauses the movie when the application loses the focus and resumes it (and
 // redraws the current frame) when it gets it back. No callers.
 
-extern bool unknown_flag_a40d28;                // 0x00A40D28 application active (focus)
+extern bool GameInFocus;                // 0x00A40D28 application active (focus)
 
 void BinkClass::Update_Focus()
 {
-    if (!unknown_flag_a40d28) {
+    if (!GameInFocus) {
         if (unknown_2c == true) {
             Debug_Printf("Pause bink movie\n");
             unknown_2c = false;

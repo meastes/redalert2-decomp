@@ -15,7 +15,7 @@
     "?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z": "00411230",
     "?AlphaBuffer@@3PAVZBuffer@@A": "008315B4",
     "?unknown_rect_839630@@3VRect@@A": "00839630",
-    "?unknown_tactical_83996c@@3PAVTactical@@A": "0083996C",
+    "?TacticalMap@@3PAVTactical@@A": "0083996C",
     "_unknown_empty_rect": "0083C600",
     "_?_tilemask@?1??Draw_In_Area@AlphaShapeClass@@SIXABUPoint2D@@ABVRect@@@Z@4QBEB": "0079B850"
    },
@@ -40,7 +40,7 @@
     "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z": "00411230",
     "?AlphaBuffer@@3PAVABuffer@@A": "008315B4",
     "?unknown_rect_839630@@3VRect@@A": "00839630",
-    "?unknown_tactical_83996c@@3PAVTactical@@A": "0083996C",
+    "?TacticalMap@@3PAVTactical@@A": "0083996C",
     "_unknown_empty_rect": "0083C600"
    },
    "non_exact": {
@@ -119,8 +119,8 @@
    "references": {
     "?Pose_Dir_00417890@AircraftClass@@QBEIXZ": "00417890",
     "?Fast_Atan2@@": "004BA600",
-    "?unknown_a40774@@3HA": "00A40774",
-    "_unknown_a40774": "00A40774",
+    "?ScenarioInit@@3HA": "00A40774",
+    "_ScenarioInit": "00A40774",
     "?Base_Cell_Weight_By_Distance_004f0290@@YIHPAVHouseClass@@ABVCell@@HH@Z": "004F0290"
    },
    "non_exact": {
@@ -200,7 +200,7 @@
     "?Map@@3VMouseClass@@A": "008324E0",
     "?WWMouse@@3PAVMouse@@A": "00839C68",
     "?unknown_rect_839630@@3VRect@@A": "00839630",
-    "?unknown_tactical_83996c@@3PAVTactical@@A": "0083996C",
+    "?TacticalMap@@3PAVTactical@@A": "0083996C",
     "?unknown_a40d13@@3_NA": "00A40D13",
     "?Click_Cell_Calc@RadarClass@@QAE?AVCell@@ABUPoint2D@@@Z": "0062FBD0",
     "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z": "006A6BD0",
@@ -606,7 +606,7 @@
     "?Anims@@3V?$DynamicVectorClass@PAVAnimClass@@@@A": "00A40960",
     "?unknown_TubeClass_list_008661c8@@3V?$DynamicVectorClass@PAVTubeClass@@@@A": "008661C8",
     "?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A": "00A3D290",
-    "?unknown_a40774@@3HA": "00A40774",
+    "?ScenarioInit@@3HA": "00A40774",
     "?unknown_map_min_a70a1c@@3HA": "00A70A1C",
     "?unknown_map_max_a70a20@@3HA": "00A70A20",
     "?unknown_int_8325d0@@3HA": "008325D0",
@@ -685,7 +685,7 @@
     "??GRectPoint2D@@QBE?AU0@ABU0@@Z": "0047D040",
     "??0Rect@@QAE@ABURectPoint2D@@HH@Z": "00453E40",
     "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z": "006A3020",
-    "?unknown_tactical_83996c@@3PAVTactical@@A": "0083996C",
+    "?TacticalMap@@3PAVTactical@@A": "0083996C",
     "?unknown_rect_839630@@3VRect@@A": "00839630",
     "?Radar_Background@RadarClass@@QAEXABVCell@@@Z": "00631570",
     "?Zone_Reset@MapClass@@QAEHXZ": "0054EBD0",
@@ -784,7 +784,7 @@
    "bytes": 2281,
    "source": "src/recovered/map.cpp",
    "anchor": "00543FE0",
-   "symbol": "?Unknown_00566340@MapClass@@QAEXABVCell@@@Z",
+   "symbol": "?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z",
    "references": {
     "?Unknown_00564290@MapClass@@QAEHPAUCellSubzoneStruct@@HIABVRect@@ABVCell@@@Z": "00564290",
     "?Reset@AStarClass@@QAEXXZ": "00429A90",
@@ -1058,7 +1058,7 @@
     "?Select_Scenario_005c7c30@@YI_NH@Z": "005C7C30",
     "?Open_Lobby_Dialog_005c6960@@YIHPAUHWND__@@@Z": "005C6960",
     "?Is_Host_005c86a0@@YA_NXZ": "005C86A0",
-    "?unknown_host_shown_7e6dc0@@3_NA": "007E6DC0",
+    "?IsRandomMap@@3_NA": "007E6DC0",
     "?unknown_lobby_result_a71e8c@@3HA": "00A71E8C",
     "?ProgressScreen@@3VProgressScreenClass@@A": "00A769E8",
     "??3@YAXPAX@Z": "00781D3B",
@@ -1121,7 +1121,7 @@
     "?unknown_slot_a3fc34@@3PAHA": "00A3FC34",
     "?unknown_slot_a40238@@3PAHA": "00A40238",
     "?unknown_slot_addresses_a3fbd4@@3PAVIPXAddressClass@@A": "00A3FBD4",
-    "?unknown_b2abd9@@3_NA": "00B2ABD9",
+    "?g_PlayingNetGame@@3_NA": "00B2ABD9",
     "?unknown_b2ac40@@3HA": "00B2AC40",
     "_atoi": "00782DFD",
     "_atol": "00782D72"
@@ -1233,7 +1233,7 @@
     "?Unknown_00672F10@UnknownSessionState@@QAEEXZ": "00672F10",
     "?unknown_7add6c@OwnerDraw@@3HA": "007ADD6C",
     "?unknown_7add78@OwnerDraw@@3HA": "007ADD78",
-    "?unknown_8523e0@@3HA": "008523E0",
+    "?VideoModeWidth@@3HA": "008523E0",
     "?unknown_screen_heights_7add74@@3PAHA": "007ADD74",
     "?Is_Listed_Kind_5e0da0@OwnerDraw@@YI_NH@Z": "005E0DA0",
     "__imp__GetParent@4": "0079A500",
@@ -1895,7 +1895,7 @@
    "symbol": "?unknown_6c9df0@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPAVWeaponTypeClass@@ABUCoordStruct@@@Z",
    "references": {
     "_unknown_geometry_l": "00AC0188",
-    "?unknown_tactical_83996c@@3PAVTactical@@A": "0083996C",
+    "?TacticalMap@@3PAVTactical@@A": "0083996C",
     "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABUCoordStruct@@@Z": "006A27A0",
     "??0LaserDrawClass@@QAE@UCoordStruct@@0H_NVRGBClass@@22H11MM@Z": "00533110"
    },
@@ -2016,7 +2016,7 @@
     "?unknown_game_mode_a3d298@@3HA": "00A3D298",
     "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A": "00A40C60",
     "_wcscpy": "00783689",
-    "?unknown_int_a3d548@@3HA": "00A3D548",
+    "?MuteSWLaunches@@3HA": "00A3D548",
     "?unknown_state_ac132c@@3HA": "00AC132C",
     "?unknown_selected_83996c@@3PAUUnknownSelection@@A": "0083996C",
     "?Unknown_006AAD40@UnknownSelection@@QAEXXZ": "006AAD40",

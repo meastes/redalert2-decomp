@@ -28,7 +28,7 @@
 //   +0xA98..+0xB68  flags and jumpjet/spawn values
 //   +0xB6C  palette file name (32 bytes), +0xB8C palette data
 //   size 0xB90
-// Every type is added to unknown_objects_ac0cb0 (0x00AC0CB0) and
+// Every type is added to AbstractTypePtrTracker (0x00AC0CB0) and
 // TechnoTypes (0x00A40AB8) and removed when destroyed.
 #ifndef RA2_SHARED_TECHNO_TYPE_HPP
 #define RA2_SHARED_TECHNO_TYPE_HPP
@@ -78,7 +78,7 @@ struct RecoilControl {
 
 // The tactical view (pointer at 0x0083996C): see shared/gscreen.hpp
 // (Sidebar proposal: the UnknownTactical83996c view collided with
-// gscreen.hpp's `Tactical *unknown_tactical_83996c`; units that need
+// gscreen.hpp's `Tactical *TacticalMap`; units that need
 // Unknown_006A2900 should declare it on Tactical).
 
 // The default locomotor class ID (0x007A1FD0, {4A582747-9839-11D1-B709-00A024DDAFD1}).

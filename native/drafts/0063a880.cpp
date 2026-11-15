@@ -116,9 +116,9 @@ bool __fastcall Unknown_0063A880(TeamTypeClass *teamtype, int wp)
 
         coord.X = result.X;
         coord.Y = result.Y;
-        unknown_a40774++;
+        ScenarioInit++;
         int placed = object->Unlimbo(&coord, 0);
-        unknown_a40774--;
+        ScenarioInit--;
 
         if (placed) {
             UnknownComPtr<IPiggyback, &unknown_uuid_IPiggyback_7cfc30> piggyback(object->Locomotor);

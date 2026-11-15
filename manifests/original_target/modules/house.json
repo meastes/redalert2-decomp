@@ -6741,13 +6741,13 @@
   },
   {
    "site": "00669960",
-   "symbol": "?Unknown_004F3120@HouseClass@@QBE_NXZ",
+   "symbol": "?Can_Add_Waypoint_To_Path@HouseClass@@QBE_NXZ",
    "target": "004f3120",
    "function_entry": true
   },
   {
    "site": "00669960",
-   "symbol": "?Unknown_004F3120@HouseClass@@QBE_NXZ",
+   "symbol": "?Can_Add_Waypoint_To_Path@HouseClass@@QBE_NXZ",
    "target": "004f3120",
    "function_entry": true
   },
@@ -8818,6 +8818,10 @@
    "address": "004b97c0"
   },
   {
+   "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0cb0"
+  },
+  {
    "symbol": "?Add_Amount@StorageClass@@QAEMMH@Z",
    "address": "0069ae50"
   },
@@ -8950,6 +8954,10 @@
    "address": "00a35e90"
   },
   {
+   "symbol": "?FactoryPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0c80"
+  },
+  {
    "symbol": "?Fast_Atan2@@YAMNN@Z",
    "address": "004ba600"
   },
@@ -9004,6 +9012,10 @@
   {
    "symbol": "?From_Name@UnitTypeClass@@SIHPBD@Z",
    "address": "0070a890"
+  },
+  {
+   "symbol": "?GameActive@@3_NA",
+   "address": "00a40958"
   },
   {
    "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
@@ -9072,6 +9084,10 @@
   {
    "symbol": "?Grant@SuperClass@@QAE_N_N00@Z",
    "address": "0069ccf0"
+  },
+  {
+   "symbol": "?HiddenSurface@@3PAVSurface@@A",
+   "address": "00839954"
   },
   {
    "symbol": "?HouseTypes@@3V?$DynamicVectorClass@PAVHouseTypeClass@@@@A",
@@ -9166,6 +9182,10 @@
    "address": "008324e0"
   },
   {
+   "symbol": "?MuteSWLaunches@@3HA",
+   "address": "00a3d548"
+  },
+  {
    "symbol": "?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z",
    "address": "005502e0"
   },
@@ -9180,6 +9200,10 @@
   {
    "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
    "address": "005d9760"
+  },
+  {
+   "symbol": "?ObjectPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0d60"
   },
   {
    "symbol": "?On_Ground@AbstractClass@@UBE_NXZ",
@@ -9290,6 +9314,10 @@
    "address": "00491db0"
   },
   {
+   "symbol": "?ScenarioInit@@3HA",
+   "address": "00a40774"
+  },
+  {
    "symbol": "?Search@@3UAStarClass@@A",
    "address": "008315c8"
   },
@@ -9352,6 +9380,14 @@
   {
    "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
    "address": "00abd868"
+  },
+  {
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
+   "symbol": "?TagPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0c58"
   },
   {
    "symbol": "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A",
@@ -9458,10 +9494,6 @@
    "address": "00565a50"
   },
   {
-   "symbol": "?Unknown_00566340@MapClass@@QAEXABVCell@@@Z",
-   "address": "00566340"
-  },
-  {
    "symbol": "?Unknown_005686B0@MapClass@@QAE_NABVRect@@H@Z",
    "address": "005686b0"
   },
@@ -9542,8 +9574,8 @@
    "address": "0070c490"
   },
   {
-   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
-   "address": "00735b10"
+   "symbol": "?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z",
+   "address": "00566340"
   },
   {
    "symbol": "?Update_Cell_Zone@MapClass@@QAEXABVCell@@@Z",
@@ -9570,12 +9602,20 @@
    "address": "00714290"
   },
   {
+   "symbol": "?WS_Top_Window@@YIPAUHWND__@@XZ",
+   "address": "00735b10"
+  },
+  {
    "symbol": "?WWMouse@@3PAVMouse@@A",
    "address": "00839c68"
   },
   {
    "symbol": "?Wall_Update@CellClass@@QAEX_N@Z",
    "address": "00475960"
+  },
+  {
+   "symbol": "?WaypointPathPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0c30"
   },
   {
    "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
@@ -9702,10 +9742,6 @@
    "address": "006d6e50"
   },
   {
-   "symbol": "?unknown_AbstractClass_list_00ac0d60@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0d60"
-  },
-  {
    "symbol": "?unknown_BuildingClass_list_00a40af8@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
    "address": "00a40af8"
   },
@@ -9728,14 +9764,6 @@
   {
    "symbol": "?unknown_a3d568@@3HA",
    "address": "00a3d568"
-  },
-  {
-   "symbol": "?unknown_a40774@@3HA",
-   "address": "00a40774"
-  },
-  {
-   "symbol": "?unknown_abstracts_ac0c80@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0c80"
   },
   {
    "symbol": "?unknown_adjacent_offset_7d9fa0@@3QBHB",
@@ -9776,10 +9804,6 @@
   {
    "symbol": "?unknown_flag_a3d8d1@@3_NA",
    "address": "00a3d8d1"
-  },
-  {
-   "symbol": "?unknown_flag_a40958@@3_NA",
-   "address": "00a40958"
   },
   {
    "symbol": "?unknown_flags_a3f118@@3PA_NA",
@@ -9874,10 +9898,6 @@
    "address": "00a3d290"
   },
   {
-   "symbol": "?unknown_int_a3d548@@3HA",
-   "address": "00a3d548"
-  },
-  {
    "symbol": "?unknown_list_832470@@3VUnknownList832470@@A",
    "address": "00832470"
   },
@@ -9904,18 +9924,6 @@
   {
    "symbol": "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
    "address": "00a40c60"
-  },
-  {
-   "symbol": "?unknown_objects_ac0c30@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0c30"
-  },
-  {
-   "symbol": "?unknown_objects_ac0c58@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0c58"
-  },
-  {
-   "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0cb0"
   },
   {
    "symbol": "?unknown_pending_super_833694@@3HA",
@@ -9984,14 +9992,6 @@
   {
    "symbol": "?unknown_string_83c55c@@3PADA",
    "address": "0083c55c"
-  },
-  {
-   "symbol": "?unknown_surface_839954@@3PAVSurface@@A",
-   "address": "00839954"
-  },
-  {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
   },
   {
    "symbol": "?unknown_threat_flags_6220e0@@YIHH@Z",
@@ -11846,13 +11846,13 @@
   {
    "site": "00669960",
    "target": "004f3120",
-   "symbol": "?Unknown_004F3120@HouseClass@@QBE_NXZ",
+   "symbol": "?Can_Add_Waypoint_To_Path@HouseClass@@QBE_NXZ",
    "module_symbol": "?unknown_slot_ready_004f3120@@YI_NPBUUnknownSlotOwner_004f3120@@@Z"
   },
   {
    "site": "00669960",
    "target": "004f3120",
-   "symbol": "?Unknown_004F3120@HouseClass@@QBE_NXZ",
+   "symbol": "?Can_Add_Waypoint_To_Path@HouseClass@@QBE_NXZ",
    "module_symbol": "?unknown_slot_ready_004f3120@@YI_NPBUUnknownSlotOwner_004f3120@@@Z"
   },
   {

@@ -217,8 +217,8 @@ void DisplayClass::unknown_slot42(Rect const &rect)
 {
     Debug_Printf("Set_View_Dimensions(%d,%d,%d,%d)\n", rect.X, rect.Y, rect.Width, rect.Height);
     unknown_rect_839630 = rect;
-    if (unknown_tactical_83996c != 0) {
-        unknown_tactical_83996c->Set_View_Dimensions_006a65a0(unknown_rect_839630);
+    if (TacticalMap != 0) {
+        TacticalMap->Set_View_Dimensions_006a65a0(unknown_rect_839630);
         WWMouse->Hide_Mouse();
         if (DepthBuffer != 0) {
             Debug_Printf("Deleting ZBuffer\n");
@@ -464,7 +464,7 @@ Cell DisplayClass::Unknown_004994D0(Cell const &xpos)
             }
         } else {
             Point2D mouse = WWMouse->Get_Mouse_XY();
-            pos = unknown_tactical_83996c->Pixel_To_Cell(mouse - tl);
+            pos = TacticalMap->Pixel_To_Cell(mouse - tl);
         }
     }
 
@@ -475,7 +475,7 @@ Cell DisplayClass::Unknown_004994D0(Cell const &xpos)
     }
 
     if (!Debug_Map) {   // NATIVE: unknown_a40d13
-        pos = unknown_tactical_83996c->Clamp_Cursor_To_Tactical(pos + unknown_1174, unknown_1178) - unknown_1174;
+        pos = TacticalMap->Clamp_Cursor_To_Tactical(pos + unknown_1174, unknown_1178) - unknown_1174;
     }
 
     if (pos == unknown_1170) return pos;
@@ -648,9 +648,9 @@ bool DisplayClass::Scroll_Map(int arg1, int *arg2, bool arg3)
         return false;
     }
     if (value != 0 && !arg3) {
-        return unknown_tactical_83996c->Scroll_Dir_006aa840(arg1) != -1;
+        return TacticalMap->Scroll_Dir_006aa840(arg1) != -1;
     }
-    unknown_tactical_83996c->Scroll_Map_006a8b70(arg1, value);
+    TacticalMap->Scroll_Map_006a8b70(arg1, value);
     return true;
 }
 
@@ -674,7 +674,7 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
     bool mapped = changed;
     target.unknown_140 = (target.unknown_140 & ~0x40) | 2;
     target.unknown_12c |= 8;
-    signed char frame = unknown_tactical_83996c->Cell_Shadow(cell, 0);
+    signed char frame = TacticalMap->Cell_Shadow(cell, 0);
     if (frame != target.unknown_120) {
         changed = true;
         target.unknown_120 = frame;
@@ -682,7 +682,7 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
     if (target.unknown_120 == -1) {
         target.unknown_12c |= 0x10;
     }
-    frame = unknown_tactical_83996c->Cell_Shadow(cell, 1);
+    frame = TacticalMap->Cell_Shadow(cell, 1);
     if (frame != target.unknown_121) {
         changed = true;
         target.unknown_121 = frame;
@@ -691,7 +691,7 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
         target.unknown_140 |= 1;
     }
     if (changed) {
-        unknown_tactical_83996c->Flag_Cell(&target);
+        TacticalMap->Flag_Cell(&target);
     }
 
     for (int facing = 0; facing < 8; facing++) {
@@ -699,20 +699,20 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
         CellClass &near_cell = (*this)[adjacent];
 
         if (adjacent != cell && !(near_cell.unknown_12c & 0x10)) {
-            int shade = unknown_tactical_83996c->Cell_Shadow(adjacent, 0);
+            int shade = TacticalMap->Cell_Shadow(adjacent, 0);
             if (shade == -1) {
                 if (!(near_cell.unknown_12c & 8)) {
                     Map_Cell(adjacent, house);
                 } else {
                     near_cell.unknown_12c |= 0x10;
-                    unknown_tactical_83996c->Flag_Cell(&near_cell);
+                    TacticalMap->Flag_Cell(&near_cell);
                     for (int around = 0; around < 8; around++) {
                         Cell next = AdjacentCell[around & 7] + adjacent;
                         CellClass &next_cell = (*this)[next];
-                        signed char next_frame = unknown_tactical_83996c->Cell_Shadow(next, 0);
+                        signed char next_frame = TacticalMap->Cell_Shadow(next, 0);
                         if (next_frame != next_cell.unknown_120) {
                             next_cell.unknown_120 = next_frame;
-                            unknown_tactical_83996c->Flag_Cell(&next_cell);
+                            TacticalMap->Flag_Cell(&next_cell);
                         }
                     }
                 }
@@ -720,25 +720,25 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
                 Map_Cell(adjacent, house);
             } else if (shade >= 0 && shade != near_cell.unknown_120) {
                 near_cell.unknown_120 = shade;
-                unknown_tactical_83996c->Flag_Cell(&near_cell);
+                TacticalMap->Flag_Cell(&near_cell);
             }
         }
 
         if (adjacent != cell && !(near_cell.unknown_140 & 1)) {
-            int shade = unknown_tactical_83996c->Cell_Shadow(adjacent, 1);
+            int shade = TacticalMap->Cell_Shadow(adjacent, 1);
             if (shade == -1) {
                 if (!(near_cell.unknown_140 & 2)) {
                     Map_Cell(adjacent, house);
                 } else {
                     near_cell.unknown_140 |= 1;
-                    unknown_tactical_83996c->Flag_Cell(&near_cell);
+                    TacticalMap->Flag_Cell(&near_cell);
                     for (int around = 0; around < 8; around++) {
                         Cell next = AdjacentCell[around & 7] + adjacent;
                         CellClass &next_cell = (*this)[next];
-                        signed char next_frame = unknown_tactical_83996c->Cell_Shadow(next, 1);
+                        signed char next_frame = TacticalMap->Cell_Shadow(next, 1);
                         if (next_frame != next_cell.unknown_121) {
                             next_cell.unknown_121 = next_frame;
-                            unknown_tactical_83996c->Flag_Cell(&next_cell);
+                            TacticalMap->Flag_Cell(&next_cell);
                         }
                     }
                 }
@@ -746,7 +746,7 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
                 Map_Cell(adjacent, house);
             } else if (shade >= 0 && shade != near_cell.unknown_121) {
                 near_cell.unknown_121 = shade;
-                unknown_tactical_83996c->Flag_Cell(&near_cell);
+                TacticalMap->Flag_Cell(&near_cell);
             }
         }
     }
@@ -779,7 +779,7 @@ bool DisplayClass::RevealFogShroud(Cell const &cell, HouseClass *house, bool arg
     } else {
         target.unknown_47c840();
     }
-    signed char frame = unknown_tactical_83996c->Cell_Shadow(cell, 0);
+    signed char frame = TacticalMap->Cell_Shadow(cell, 0);
     if (frame != target.unknown_120) {
         changed = true;
         target.unknown_120 = frame;
@@ -787,7 +787,7 @@ bool DisplayClass::RevealFogShroud(Cell const &cell, HouseClass *house, bool arg
     if (target.unknown_120 == -1) {
         target.unknown_12c |= 0x10;
     }
-    frame = unknown_tactical_83996c->Cell_Shadow(cell, 1);
+    frame = TacticalMap->Cell_Shadow(cell, 1);
     if (frame != target.unknown_121) {
         changed = true;
         target.unknown_121 = frame;
@@ -796,7 +796,7 @@ bool DisplayClass::RevealFogShroud(Cell const &cell, HouseClass *house, bool arg
         target.unknown_140 |= 1;
     }
     if (changed) {
-        unknown_tactical_83996c->Flag_Cell(&target);
+        TacticalMap->Flag_Cell(&target);
         Map.Unknown_00568520(&target, house, mapped);
     }
     if ((target.unknown_140 & 2) && unmapped && (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
@@ -823,7 +823,7 @@ bool DisplayClass::unknown_slot38(Cell const &cell, HouseClass *house)
     bool changed = !(target.unknown_140 & 2);
     bool mapped = changed;
     target.unknown_140 = (target.unknown_140 & ~0x40) | 2;
-    signed char frame = unknown_tactical_83996c->Cell_Shadow(cell, 1);
+    signed char frame = TacticalMap->Cell_Shadow(cell, 1);
     if (frame != target.unknown_121) {
         changed = true;
         target.unknown_121 = frame;
@@ -832,7 +832,7 @@ bool DisplayClass::unknown_slot38(Cell const &cell, HouseClass *house)
         target.unknown_140 |= 1;
     }
     if (changed) {
-        unknown_tactical_83996c->Flag_Cell(&target);
+        TacticalMap->Flag_Cell(&target);
     }
     for (int facing = 0; facing < 8; facing++) {
         Cell adjacent = Adjacent_Cell(cell, facing);
@@ -840,20 +840,20 @@ bool DisplayClass::unknown_slot38(Cell const &cell, HouseClass *house)
         if (adjacent == cell || (next.unknown_140 & 1)) {
             continue;
         }
-        int next_frame = unknown_tactical_83996c->Cell_Shadow(adjacent, 1);
+        int next_frame = TacticalMap->Cell_Shadow(adjacent, 1);
         if (next_frame == -1) {
             if (!(next.unknown_140 & 2)) {
                 unknown_slot38(adjacent, house);
             } else {
                 next.unknown_140 |= 1;
-                unknown_tactical_83996c->Flag_Cell(&next);
+                TacticalMap->Flag_Cell(&next);
                 for (int around = 0; around < 8; around++) {
                     Cell beyond = Adjacent_Cell(adjacent, around);
                     CellClass &far_cell = (*this)[beyond];
-                    signed char far_frame = unknown_tactical_83996c->Cell_Shadow(beyond, 1);
+                    signed char far_frame = TacticalMap->Cell_Shadow(beyond, 1);
                     if (far_frame != far_cell.unknown_121) {
                         far_cell.unknown_121 = far_frame;
-                        unknown_tactical_83996c->Flag_Cell(&far_cell);
+                        TacticalMap->Flag_Cell(&far_cell);
                     }
                 }
             }
@@ -861,7 +861,7 @@ bool DisplayClass::unknown_slot38(Cell const &cell, HouseClass *house)
             unknown_slot38(adjacent, house);
         } else if (next_frame >= 0 && next_frame != next.unknown_121) {
             next.unknown_121 = next_frame;
-            unknown_tactical_83996c->Flag_Cell(&next);
+            TacticalMap->Flag_Cell(&next);
         }
     }
     if (changed) {
@@ -887,7 +887,7 @@ bool DisplayClass::unknown_slot39(Cell const &cell, HouseClass *house)
     bool changed = !(target.unknown_12c & 8);
     target.unknown_12c |= 8;
     bool shown = changed;
-    signed char frame = unknown_tactical_83996c->Cell_Shadow(cell, 0);
+    signed char frame = TacticalMap->Cell_Shadow(cell, 0);
     if (frame != target.unknown_120) {
         changed = true;
         target.unknown_120 = frame;
@@ -896,7 +896,7 @@ bool DisplayClass::unknown_slot39(Cell const &cell, HouseClass *house)
         target.unknown_12c |= 0x10;
     }
     if (changed) {
-        unknown_tactical_83996c->Flag_Cell(&target);
+        TacticalMap->Flag_Cell(&target);
     }
     for (int facing = 0; facing < 8; facing++) {
         Cell adjacent = AdjacentCell[facing & 7] + cell;
@@ -904,20 +904,20 @@ bool DisplayClass::unknown_slot39(Cell const &cell, HouseClass *house)
         if (adjacent == cell || (next.unknown_12c & 0x10)) {
             continue;
         }
-        int next_frame = unknown_tactical_83996c->Cell_Shadow(adjacent, 0);
+        int next_frame = TacticalMap->Cell_Shadow(adjacent, 0);
         if (next_frame == -1) {
             if (!(next.unknown_12c & 8)) {
                 unknown_slot39(adjacent, house);
             } else {
                 next.unknown_12c |= 0x10;
-                unknown_tactical_83996c->Flag_Cell(&next);
+                TacticalMap->Flag_Cell(&next);
                 for (int around = 0; around < 8; around++) {
                     Cell beyond = Adjacent_Cell(adjacent, around);
                     CellClass &far_cell = (*this)[beyond];
-                    signed char far_frame = unknown_tactical_83996c->Cell_Shadow(beyond, 0);
+                    signed char far_frame = TacticalMap->Cell_Shadow(beyond, 0);
                     if (far_frame != far_cell.unknown_120) {
                         far_cell.unknown_120 = far_frame;
-                        unknown_tactical_83996c->Flag_Cell(&far_cell);
+                        TacticalMap->Flag_Cell(&far_cell);
                     }
                 }
             }
@@ -925,7 +925,7 @@ bool DisplayClass::unknown_slot39(Cell const &cell, HouseClass *house)
             unknown_slot39(adjacent, house);
         } else if (next_frame >= 0 && next_frame != next.unknown_120) {
             next.unknown_120 = next_frame;
-            unknown_tactical_83996c->Flag_Cell(&next);
+            TacticalMap->Flag_Cell(&next);
         }
     }
     if (changed) {
@@ -1212,7 +1212,7 @@ int DisplayClass::TacticalClass::Action(unsigned flags, unsigned &key)
         WWMouse->Get_Mouse_Y();
         xy = WWMouse->Get_Mouse_XY();
     }
-    unknown_tactical_83996c->Pixel_To_Coord(xy);
+    TacticalMap->Pixel_To_Coord(xy);
     xy -= Point2D(unknown_rect_839630.X, unknown_rect_839630.Y);
     Cell cell;
     CoordStruct coord;
@@ -1301,7 +1301,7 @@ extern int unknown_height_step_852948;
 
 void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell, ObjectClass *object, int action, bool small_mouse)
 {
-    if (object && unknown_flag_a40d04 && unknown_flag_a40958 && !Debug_Map &&
+    if (object && ScenarioActive && GameActive && !Debug_Map &&
         object->unknown_slot25(false, 0) == 5) object = 0;
     if (unknown_11a0) {
         if (unknown_11a4->Kind_Of() == 7) {
@@ -1342,12 +1342,12 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
     } else {
         int continue_select = 0;
         if (unknown_11cb) {
-            unknown_tactical_83996c->unknown_d7d = true;
+            TacticalMap->unknown_d7d = true;
             if (!WWKeyboard->Down(0x10)) {
-                if (unknown_tactical_83996c->Unknown_006AA6A0()) Clear_Selected_Objects_00482bc0();
+                if (TacticalMap->Unknown_006AA6A0()) Clear_Selected_Objects_00482bc0();
                 else continue_select = 1;
             }
-            unknown_tactical_83996c->Unknown_006AA610(Unknown_0049C3F0);
+            TacticalMap->Unknown_006AA610(Unknown_0049C3F0);
             TechnoClass::unknown_6d7990();
             unknown_11cb = false;
             Set_Default_Mouse(0, small_mouse);
@@ -1399,7 +1399,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
                             else OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 1, TargetClass(object)));
                         }
                     } else if (action == 0x3c) {
-                        if (unknown_int_a3d548 == 0) {
+                        if (MuteSWLaunches == 0) {
                             CoordStruct point = cell.As_Coord(Map[cell].unknown_11b * unknown_height_step_852948);
                             unknown_object_84e8d0.Unknown_0042E370(unknown_player_a35db4->ArrayIndex, point, -1);
                         }
@@ -1810,8 +1810,8 @@ void DisplayClass::Mouse_Left_Held(Point2D const &xy)
         }
         Point2D point(x, y);
         if (point != unknown_11d8) {
-            unknown_tactical_83996c->unknown_d7d = true;
-            unknown_tactical_83996c->Modify_Rubber_Band(point);
+            TacticalMap->unknown_d7d = true;
+            TacticalMap->Modify_Rubber_Band(point);
         }
     } else if (unknown_11cc) {
         Point2D const &start = unknown_11d0;
@@ -1820,8 +1820,8 @@ void DisplayClass::Mouse_Left_Held(Point2D const &xy)
             unknown_11cb = true;
             unknown_11cc = false;
             if (!unknown_11af && !unknown_11b0) {
-                unknown_tactical_83996c->unknown_d7d = true;
-                unknown_tactical_83996c->Start_Rubber_Band(start);
+                TacticalMap->unknown_d7d = true;
+                TacticalMap->Start_Rubber_Band(start);
                 Map.Override_Mouse_Shape(0, false);
             }
         }
@@ -1848,7 +1848,7 @@ void DisplayClass::Unknown_0049C670()
     }
     unknown_id_source_a3d290->Views[0]=unknown_id_source_a3d290->Views[1]=unknown_id_source_a3d290->Views[2]=unknown_id_source_a3d290->Views[3]=Cell(center);
     unknown_id_source_a3d290->AltHomeCell=unknown_id_source_a3d290->HomeCell;
-    if (unknown_tactical_83996c) unknown_tactical_83996c->Set_Tactical_Position_006a66b0(center);
+    if (TacticalMap) TacticalMap->Set_Tactical_Position_006a66b0(center);
 }
 
 
@@ -2171,20 +2171,20 @@ void DisplayClass::Unknown_0049CDB0(Cell const &cell)
     target.unknown_140 &= ~3;
     target.unknown_121 = 0xFE;
     if (target.unknown_12c & 8) {
-        unknown_tactical_83996c->Flag_Cell(&target);
+        TacticalMap->Flag_Cell(&target);
     }
     for (int facing = 0; facing < 8; facing++) {
         Cell adjacent = Adjacent_Cell(cell, facing);
         CellClass &next = (*this)[adjacent];
         Cell where = next.MapCoords;
-        int frame = unknown_tactical_83996c->Cell_Shadow(where, 1);
+        int frame = TacticalMap->Cell_Shadow(where, 1);
         if (frame == -2 && (char)next.unknown_121 != (char)frame) {
             Unknown_0049CDB0(adjacent);
         } else if ((next.unknown_140 & 1) || frame != (char)next.unknown_121) {
             if (frame >= 0 && (char)next.unknown_121 >= -1) {
                 next.unknown_121 = frame;
                 next.unknown_140 = (next.unknown_140 & ~1) | 2;
-                unknown_tactical_83996c->Flag_Cell(&next);
+                TacticalMap->Flag_Cell(&next);
             }
         }
     }
@@ -2209,13 +2209,13 @@ void DisplayClass::Unknown_0049CF00(Cell const &cell)
         return;
     }
     target.unknown_12c &= ~0x18;
-    unknown_tactical_83996c->Flag_Cell(&target);
+    TacticalMap->Flag_Cell(&target);
     for (int facing = 0; facing < 8; facing++) {
         Cell adjacent = Adjacent_Cell(cell, facing);
         CellClass &next = (*this)[adjacent];
         if (adjacent != cell) {
             next.unknown_12c &= ~0x10;
-            unknown_tactical_83996c->Flag_Cell(&next);
+            TacticalMap->Flag_Cell(&next);
         }
     }
 }
@@ -2301,7 +2301,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     homecoord.X = homecell.X * 256 + 128;
     homecoord.Y = homecell.Y * 256 + 128;
     homecoord.Z = 0;
-    unknown_tactical_83996c->Set_Tactical_Position_006a66b0(homecoord);
+    TacticalMap->Set_Tactical_Position_006a66b0(homecoord);
 
     char const * const celltags = "CellTags";
     int len = ini.Entry_Count(celltags);
@@ -2438,7 +2438,7 @@ void DisplayClass::Write_INI_0049D910(CCINIClass &ini)
     static char const * const MAPPACK3 = "IsoMapPack3";
     static char const * const MAPPACK4 = "IsoMapPack4";
     static char const * const MAPPACK5 = "IsoMapPack5";
-    BufferPipe bpipe(unknown_surface_839958->Lock(), unknown_surface_839958->Get_Height() * unknown_surface_839958->Get_Width() * unknown_surface_839958->Bytes_Per_Pixel());
+    BufferPipe bpipe(AlternateSurface->Lock(), AlternateSurface->Get_Height() * AlternateSurface->Get_Width() * AlternateSurface->Bytes_Per_Pixel());
     int len = Map.Unknown_0054DB10(bpipe);
     ini.Clear(MAPPACK1);
     ini.Clear(MAPPACK2);
@@ -2446,10 +2446,10 @@ void DisplayClass::Write_INI_0049D910(CCINIClass &ini)
     ini.Clear(MAPPACK4);
     ini.Clear(MAPPACK5);
     if (len > 0) {
-        ini.Put_UUBlock(MAPPACK5, unknown_surface_839958->Lock(), len);
-        unknown_surface_839958->Unlock();
+        ini.Put_UUBlock(MAPPACK5, AlternateSurface->Lock(), len);
+        AlternateSurface->Unlock();
     }
-    unknown_surface_839958->Unlock();
+    AlternateSurface->Unlock();
 }
 
 
@@ -2731,7 +2731,7 @@ void DisplayClass::Unknown_0049E3B0()
             center = sum / (unknown_objects_a40c60.Count() - 1);
         }
 
-        unknown_tactical_83996c->Set_Tactical_Position_006a66b0(center);
+        TacticalMap->Set_Tactical_Position_006a66b0(center);
     }
 }
 
@@ -2996,8 +2996,8 @@ extern bool unknown_flag_a40d45;
 
 void DisplayClass::Abort_Drag_Select()
 {
-    if (unknown_tactical_83996c != 0) {
-        unknown_tactical_83996c->Unknown_006AA770();
+    if (TacticalMap != 0) {
+        TacticalMap->Unknown_006AA770();
     }
     unknown_11cb = false;
     unknown_11cc = false;

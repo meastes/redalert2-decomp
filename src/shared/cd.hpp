@@ -89,7 +89,7 @@ extern PKey FastKey;                           // 0x00839010 key the mixfiles ar
 // "VolumeCheck()"); true when the disk is present (hypothesis).
 bool __fastcall VolumeCheck();                            // 0x00715090
 // Modal dialog with the text; false when the player cancels (hypothesis).
-bool __fastcall Unknown_00600C80(wchar_t const *text);   // 0x00600C80
+bool __fastcall Prompt_Dialog(wchar_t const *text);   // 0x00600C80
 // Get_CD_Index for the current CD drive (hypothesis).
 int __fastcall Unknown_0046E4C0(int timeout);  // 0x0046E4C0
 #include "shared/debug_printf.hpp"

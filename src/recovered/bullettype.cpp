@@ -124,7 +124,7 @@ BulletTypeClass::BulletTypeClass(char const *ini_name) :
     unknown_203 = true;
     unknown_205 = false;
     BulletTypes.Add(this);
-    unknown_objects_ac0cb0.Add(this);
+    AbstractTypePtrTracker.Add(this);
 }
 
 
@@ -141,7 +141,7 @@ BulletTypeClass::BulletTypeClass(NoInitClass const &noinit) :
 BulletTypeClass::~BulletTypeClass()
 {
     Unknown_006ECB90((ObjectClass *)this, true);
-    unknown_objects_ac0cb0.Delete((ObjectClass *)this);
+    AbstractTypePtrTracker.Delete((ObjectClass *)this);
     BulletTypes.Delete(this);
 }
 

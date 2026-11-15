@@ -125,9 +125,9 @@ ObjectClass::ObjectClass() :
     unknown_3c.Init();
     unknown_50.Init();
     unknown_objects_a40368.Add(this);
-    unknown_AbstractClass_list_00ac0d60.Add(this);
-    unknown_objects_ac0cb0.Add(this);
-    unknown_objects_ac0c58.Add(this);
+    ObjectPtrTracker.Add(this);
+    AbstractTypePtrTracker.Add(this);
+    TagPtrTracker.Add(this);
     AbstractFlags.IsObject = 1;
 }
 
@@ -145,11 +145,11 @@ ObjectClass::ObjectClass(NoInitClass const &noinit) :
 
 ObjectClass::~ObjectClass()
 {
-    unknown_objects_ac0cd8.Delete(this);
+    ObjectsToDelete.Delete(this);
     unknown_objects_a40368.Delete(this);
-    unknown_AbstractClass_list_00ac0d60.Delete(this);
-    unknown_objects_ac0cb0.Delete(this);
-    unknown_objects_ac0c58.Delete(this);
+    ObjectPtrTracker.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
+    TagPtrTracker.Delete(this);
     unknown_30 = 0;
     unknown_7d = false;
     unknown_3c.Unknown_00405D50();
@@ -585,7 +585,7 @@ extern Rect unknown_rect_839630;
 Rect ObjectClass::Get_Visual_Rect()
 {
     Point2D pixel;
-    unknown_tactical_83996c->Coord_To_Pixel(unknown_slot42(),pixel);
+    TacticalMap->Coord_To_Pixel(unknown_slot42(),pixel);
     ShapeFileStruct const *shape=static_cast<ShapeFileStruct const *>(Get_Image_Data());
     if (!shape) return unknown_static_rect;
     Rect frame=shape->Get_Frame_Rect(0);
@@ -611,7 +611,7 @@ static inline bool Object_Is_Building(ObjectClass const *object)
 Rect ObjectClass::Get_Render_Rect()
 {
     Point2D drawpoint;
-    unknown_tactical_83996c->Coord_To_Pixel(unknown_slot42(), drawpoint);
+    TacticalMap->Coord_To_Pixel(unknown_slot42(), drawpoint);
 
     ShapeFileStruct const *sdata = (ShapeFileStruct const *)Class_Of()->Get_Image_Data();
     if (sdata == 0) {
@@ -652,7 +652,7 @@ bool ObjectClass::Render(Rect *bounds, bool redraw, bool arg3)
     Point2D pixel;
     if (!Debug_Map && unknown_b263d8 && ((!redraw && !unknown_75) || unknown_76)) goto not_drawable;
     unknown_75 = false;
-    if (unknown_tactical_83996c->Coord_To_Pixel(unknown_slot42(), pixel) || Kind_Of() == 24)
+    if (TacticalMap->Coord_To_Pixel(unknown_slot42(), pixel) || Kind_Of() == 24)
         goto draw_clipped;
 not_drawable:
     return false;
@@ -681,10 +681,10 @@ void ObjectClass::Mark_For_Redraw()
 // Existing ObjectClass removal interface, diagnostic only.
 // Existing shape-file header supports a unit's own shared empty rectangle.
 // Keep the actual Rect initializer; do not suppress emitted startup output.
-extern bool unknown_flag_a40958;
+extern bool GameActive;
 bool ObjectClass::Limbo()
 {
-    if (!unknown_flag_a40958 || unknown_76) return false;
+    if (!GameActive || unknown_76) return false;
     Unselect();
     unknown_slot54(true);
     Mark(0);
@@ -699,14 +699,14 @@ bool ObjectClass::Limbo()
     if (Class_Of() && Class_Of()->unknown_ac) {
         Point2D pixel;
         CoordStruct location = Center_Coord();
-        unknown_tactical_83996c->Coord_To_Pixel(location, pixel);
+        TacticalMap->Coord_To_Pixel(location, pixel);
         ShapeFileStruct *shape = reinterpret_cast<ShapeFileStruct *>(Class_Of()->unknown_ac);
         Point2D half;
         half.X = shape->Width / 2;
         half.Y = shape->Height / 2;
         pixel.X = (int)((unsigned int)pixel.X - (unsigned int)half.X);
         pixel.Y = (int)((unsigned int)pixel.Y - (unsigned int)half.Y);
-        unknown_tactical_83996c->Register_Dirty_Area(
+        TacticalMap->Register_Dirty_Area(
             Rect(pixel.X, pixel.Y, shape->Width, shape->Height), 1);
     }
     Hidden();
@@ -718,8 +718,8 @@ bool ObjectClass::Limbo()
 
 // ObjectClass placement005D3890, original824+8; private typed candidate.
 // Interface/source types remain explicit compatible hypotheses.
-extern bool unknown_flag_a40958;
-extern int unknown_a40774;
+extern bool GameActive;
+extern int ScenarioInit;
 static inline void Object_Placement_Add_Point(Point2D &point, Point2D const &offset)
 {
     Point2D delta = offset;
@@ -729,8 +729,8 @@ static inline void Object_Placement_Add_Point(Point2D &point, Point2D const &off
 
 bool ObjectClass::Unlimbo(CoordStruct const *coord, int direction)
 {
-    if (!unknown_flag_a40958 || !unknown_76 || unknown_74) return false;
-    if (!unknown_a40774 && Can_Enter_Cell(&Map[*coord], -1, -1, 0, 0))
+    if (!GameActive || !unknown_76 || unknown_74) return false;
+    if (!ScenarioInit && Can_Enter_Cell(&Map[*coord], -1, -1, 0, 0))
         return false;
     unknown_76 = false;
     unknown_75 = false;
@@ -750,8 +750,8 @@ bool ObjectClass::Unlimbo(CoordStruct const *coord, int direction)
                 if (type->unknown_ac) {
                     CoordStruct location = Center_Coord();
                     Point2D pixel;
-                    unknown_tactical_83996c->Coord_To_Pixel(location, pixel);
-                    Object_Placement_Add_Point(pixel, Point2D(unknown_tactical_83996c->TacPixelX, unknown_tactical_83996c->TacPixelY));
+                    TacticalMap->Coord_To_Pixel(location, pixel);
+                    Object_Placement_Add_Point(pixel, Point2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY));
                     ShapeFileStruct *shape = reinterpret_cast<ShapeFileStruct *>(Class_Of()->unknown_ac);
                     Point2D half;
                     half.X = shape->Width / 2;
@@ -759,10 +759,10 @@ bool ObjectClass::Unlimbo(CoordStruct const *coord, int direction)
                     pixel.X = (int)((unsigned int)pixel.X - (unsigned int)half.X);
                     pixel.Y = (int)((unsigned int)pixel.Y - (unsigned int)half.Y);
                     new AlphaShapeClass(this, pixel.X, pixel.Y);
-                    if (!unknown_a40774) {
-                        unknown_tactical_83996c->Register_Dirty_Area(Rect(
-                            (int)((unsigned int)pixel.X - (unsigned int)unknown_tactical_83996c->TacPixelX),
-                            (int)((unsigned int)pixel.Y - (unsigned int)unknown_tactical_83996c->TacPixelY),
+                    if (!ScenarioInit) {
+                        TacticalMap->Register_Dirty_Area(Rect(
+                            (int)((unsigned int)pixel.X - (unsigned int)TacticalMap->TacPixelX),
+                            (int)((unsigned int)pixel.Y - (unsigned int)TacticalMap->TacPixelY),
                             shape->Width, shape->Height), 1);
                     }
                 }
@@ -1436,7 +1436,7 @@ void ObjectClass::Delete_Me()
     Unknown_006ECB90(this, true);
     Limbo();
     unknown_7d = false;
-    unknown_objects_ac0cd8.Add(this);
+    ObjectsToDelete.Add(this);
 }
 
 

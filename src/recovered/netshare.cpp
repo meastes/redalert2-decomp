@@ -164,8 +164,8 @@ void __cdecl Unknown_005C2C80(int color, unsigned short const *format, ...)
     unsigned short buffer[0x400];
     memset(buffer, 0, sizeof(buffer));
     vswprintf(buffer, format, (char *)(&format + 1));
-    if (Unknown_00735B10() != 0) {
-        HWND window = Unknown_00735B10();
+    if (WS_Top_Window() != 0) {
+        HWND window = WS_Top_Window();
         HWND list = GetDlgItem(window, 0x53f);
         while (list == 0) {
             window = (HWND)unknown_previous_key((int)window);
@@ -187,8 +187,8 @@ void __cdecl Unknown_005c2d10(int color, unsigned short const *format, ...)
     unsigned short buffer[0x400];
     memset(buffer, 0, sizeof(buffer));
     vswprintf(buffer, format, (char *)(&format + 1));
-    if (Unknown_00735B10() != 0) {
-        HWND window = Unknown_00735B10();
+    if (WS_Top_Window() != 0) {
+        HWND window = WS_Top_Window();
         HWND list = GetDlgItem(window, 0x5b5);
         while (list == 0) {
             window = (HWND)unknown_previous_key((int)window);
@@ -325,8 +325,8 @@ void __fastcall Add_List_Text_005c2f20(HWND list, wchar_t const *text, int lengt
 
 void __fastcall Add_Chat_Dot_005c3040()
 {
-    if (Unknown_00735B10() != 0) {
-        HWND window = Unknown_00735B10();
+    if (WS_Top_Window() != 0) {
+        HWND window = WS_Top_Window();
         HWND list = GetDlgItem(window, 0x53f);
         while (list == 0) {
             window = (HWND)unknown_previous_key((int)window);
@@ -513,7 +513,7 @@ MultiplayerGameMode *Current_Game_Mode_005c34d0()
 void __fastcall Unknown_005c34f0()
 {
     if (Current_Dialog_Id_00735b20() == 0x6b) {
-        HWND dialog = Unknown_00735B10();
+        HWND dialog = WS_Top_Window();
         int index = SendDlgItemMessageA(dialog, 0x6eb, 0x188, 0, 0);
         if (index != -1) {
             UnknownSessionA3D29C *mode = (UnknownSessionA3D29C *)SendDlgItemMessageA(dialog, 0x6eb, 0x199, index, 0);
@@ -850,7 +850,7 @@ extern "C" char *__cdecl _strdup(char const *string);
 extern "C" long __cdecl atol(char const *string);
 extern "C" int __cdecl atoi(char const *string);
 extern "C" int __cdecl sscanf(char const *string, char const *format, ...);
-extern bool unknown_b2abd9;
+extern bool g_PlayingNetGame;
 extern int unknown_a72d08;
 extern int unknown_b2ac40;
 extern IPXAddressClass unknown_slot_addresses_a3fbd4[8];
@@ -912,7 +912,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
         free(copy);
         return false;
     }
-    if (unknown_game_mode_a3d298 == 4 && (unknown_b2abd9 || unknown_b2ac40 != 0)) {
+    if (unknown_game_mode_a3d298 == 4 && (g_PlayingNetGame || unknown_b2ac40 != 0)) {
         free(copy);
         return false;
     }
@@ -1599,7 +1599,7 @@ int __fastcall Scenario_Slot_Limit_005c65a0(int scenario)
     if (scenario == -1) {
         return 8;
     }
-    int limit = Unknown_005c6600(scenario);
+    int limit = RandomMapWaypointCount(scenario);
     if (unknown_session_a3d29c != 0) {
         int mode_limit = unknown_session_a3d29c->unknown_slot32();
         if (mode_limit != -1 && mode_limit < limit) {
@@ -1617,11 +1617,11 @@ int __fastcall Scenario_Slot_Limit_005c65a0(int scenario)
 }
 
 
-// int __fastcall Unknown_005c6600(int scenario) (0x005C6600)
+// int __fastcall RandomMapWaypointCount(int scenario) (0x005C6600)
 // The player count of a multiplayer map (by unknown_multi_missions_a3d8d8 index): its [Waypoints]
 // 0..7 that are set, else [RandomMap] NumPlayers; 0 for no map or when the INI does not load.
 
-int __fastcall Unknown_005c6600(int scenario)
+int __fastcall RandomMapWaypointCount(int scenario)
 {
     if (scenario < 0 || scenario >= unknown_multi_missions_a3d8d8.Count()) {
         return 0;
@@ -1676,10 +1676,10 @@ bool Lobby_Dialog_Update_005c67c0()
         if (found != -1 && found != unknown_lobby_map_a728d0) {
             Select_Scenario_005c7c30(found);
             if (unknown_multi_missions_a3d8d8[found]->Unknown_006720C0()) {
-                delete unknown_dialog_preview_a72ce8;
-                unknown_dialog_preview_a72ce8 = new MapPreviewClass;
-                unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
-                if (unknown_dialog_preview_a72ce8->unknown_00 == 0) {
+                delete MultiplayerMapPreview;
+                MultiplayerMapPreview = new MapPreviewClass;
+                MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
+                if (MultiplayerMapPreview->unknown_00 == 0) {
                     Unknown_005c7570(unknown_lobby_dialog_a728e0);
                 }
                 InvalidateRect(unknown_lobby_dialog_a728e0, 0, 0);
@@ -1706,7 +1706,7 @@ bool Lobby_Dialog_Update_005c67c0()
         return Unknown_0073e100();
     }
     if (unknown_game_mode_a3d298 == 1 || unknown_game_mode_a3d298 == 2) {
-        return Unknown_0059c880();
+        return ModemHostCallback();
     }
     Service_Game_IO_00481fb0();
     return false;
@@ -1834,7 +1834,7 @@ long __stdcall Lobby_Dialog_Proc_005c69e0(HWND window, unsigned message, unsigne
         return 1;
     case 0xf:
         OwnerDraw::unknown_draw_dialog_back_5fee70(window);
-        if (unknown_dialog_preview_a72ce8) unknown_dialog_preview_a72ce8->Blit_Preview(window);
+        if (MultiplayerMapPreview) MultiplayerMapPreview->Blit_Preview(window);
         unknown_dialog_5e5f20(window);
         ValidateRect(window, 0);
         return 0;
@@ -1863,7 +1863,7 @@ long __stdcall Lobby_Dialog_Proc_005c69e0(HWND window, unsigned message, unsigne
                     }
                     if (index < unknown_multi_missions_a3d8d8.Count()) unknown_select_list_item_by_data_005c7160(window, (int)unknown_multi_missions_a3d8d8[index]);
                     Select_Scenario_005c7c30(index);
-                    if (!unknown_dialog_preview_a72ce8->unknown_00) Unknown_005c7570(window);
+                    if (!MultiplayerMapPreview->unknown_00) Unknown_005c7570(window);
                     unknown_session_a3d2b4 = unknown_lobby_map_a72c80;
                     Select_Scenario_005c7c30(unknown_session_a3d2b4);
                     bool accepted = Accept_Map_Selection_005c71f0(window);
@@ -1968,7 +1968,7 @@ bool __fastcall Accept_Map_Selection_005c71f0(HWND dialog)
     unknown_session_a3d298.Mode = mode;
     bool unknown2 = mode->unknown_slot12();
     bool unknown3 = mode->unknown_slot40();
-    int players = Unknown_005c6600(index);
+    int players = RandomMapWaypointCount(index);
     if (unknown_session_a3d298.Mode != 0) {
         int limit = unknown_session_a3d298.Mode->unknown_slot32();
         if (limit != -1 && limit < players) {
@@ -2080,8 +2080,8 @@ void Unknown_Pregame_Setup_005c74f0()
 
 void __fastcall Unknown_005c7570(HWND dialog)
 {
-    delete unknown_dialog_preview_a72ce8;
-    unknown_dialog_preview_a72ce8 = 0;
+    delete MultiplayerMapPreview;
+    MultiplayerMapPreview = 0;
     switch (unknown_game_mode_a3d298) {
     case 3:
         if (Current_Dialog_Id_00735b20() == 0xBD
@@ -2137,9 +2137,9 @@ void __fastcall Unknown_005c7570(HWND dialog)
                     break;
                 }
             }
-            if (!unknown_session_a3d298.Unknown_00672140() && unknown_dialog_preview_a72ce8 != 0) {
-                delete unknown_dialog_preview_a72ce8;
-                unknown_dialog_preview_a72ce8 = 0;
+            if (!unknown_session_a3d298.Unknown_00672140() && MultiplayerMapPreview != 0) {
+                delete MultiplayerMapPreview;
+                MultiplayerMapPreview = 0;
                 InvalidateRect(dialog, 0, FALSE);
                 return;
             }
@@ -2168,16 +2168,16 @@ void __fastcall Unknown_005c7570(HWND dialog)
         }
         break;
     }
-    if (unknown_dialog_preview_a72ce8 != 0) {
-        delete unknown_dialog_preview_a72ce8;
-        unknown_dialog_preview_a72ce8 = 0;
+    if (MultiplayerMapPreview != 0) {
+        delete MultiplayerMapPreview;
+        MultiplayerMapPreview = 0;
     }
     bool missing = !CCFileClass(unknown_session_a3d298.ScenarioFileName_658).Is_Available();
     if (!missing) {
-        unknown_dialog_preview_a72ce8 = new MapPreviewClass;
+        MultiplayerMapPreview = new MapPreviewClass;
     }
-    if (unknown_dialog_preview_a72ce8 != 0) {
-        unknown_dialog_preview_a72ce8->Read_INI_Preview(unknown_session_a3d298.ScenarioFileName_658);
+    if (MultiplayerMapPreview != 0) {
+        MultiplayerMapPreview->Read_INI_Preview(unknown_session_a3d298.ScenarioFileName_658);
         InvalidateRect(dialog, 0, FALSE);
     }
 }
@@ -2239,12 +2239,12 @@ void __fastcall Download_Map_Preview_005c7970()
     unsigned short *image = (unsigned short *)operator new(length * 2);
     straw.Get(image, length);
     Debug_Printf("Creating the new preview surface\n");
-    if (unknown_dialog_preview_a72ce8 != 0) {
-        delete unknown_dialog_preview_a72ce8;
+    if (MultiplayerMapPreview != 0) {
+        delete MultiplayerMapPreview;
     }
-    unknown_dialog_preview_a72ce8 = new MapPreviewClass;
-    unknown_dialog_preview_a72ce8->Create_Preview_Surface(image);
-    InvalidateRect(Unknown_00735B10(), 0, FALSE);
+    MultiplayerMapPreview = new MapPreviewClass;
+    MultiplayerMapPreview->Create_Preview_Surface(image);
+    InvalidateRect(WS_Top_Window(), 0, FALSE);
     Debug_Printf("Cleaning up the temporary decompression buffers\n");
     operator delete(image);
     operator delete(compressed);
@@ -2444,7 +2444,7 @@ char * __fastcall Random_Map_CRC_005c8420()
 
 int __fastcall Do_Random_Map_Dialog_00577490(bool (*callback)());
 bool Default_Map_Generation_Callback_00482100();
-extern bool unknown_host_shown_7e6dc0;
+extern bool IsRandomMap;
 
 int __fastcall Make_Random_Map_005c84e0()
 {
@@ -2454,18 +2454,18 @@ int __fastcall Make_Random_Map_005c84e0()
     } else if (unknown_game_mode_a3d298 == 4) {
         service = Unknown_0073e100;
     } else if (unknown_game_mode_a3d298 == 1 || unknown_game_mode_a3d298 == 2) {
-        service = Unknown_0059c880;
+        service = ModemHostCallback;
     } else {
         service = Default_Map_Generation_Callback_00482100;
     }
     if (Do_Random_Map_Dialog_00577490(service) != 1) {
         return -1;
     }
-    unknown_host_shown_7e6dc0 = true;
+    IsRandomMap = true;
     RandomMapGen.SeedData.Save_Or_Prompt_00578ed0("RandMap.Sed");
-    delete unknown_dialog_preview_a72ce8;
-    unknown_dialog_preview_a72ce8 = new MapPreviewClass;
-    unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
+    delete MultiplayerMapPreview;
+    MultiplayerMapPreview = new MapPreviewClass;
+    MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
     int index;
     bool found = false;
     for (index = 0; index < unknown_multi_missions_a3d8d8.Count(); index++) {
@@ -4483,10 +4483,10 @@ void __fastcall Select_Entry_Kind_005cc700(HWND dialog, int id, int kind)
 void __fastcall Load_Random_Map_Preview_005cc800(HWND dialog)
 {
     if (unknown_multi_missions_a3d8d8[unknown_session_a3d2b4]->Unknown_006720C0()) {
-        delete unknown_dialog_preview_a72ce8;
-        unknown_dialog_preview_a72ce8 = new MapPreviewClass;
-        unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
-        if (unknown_dialog_preview_a72ce8->unknown_00 == 0) {
+        delete MultiplayerMapPreview;
+        MultiplayerMapPreview = new MapPreviewClass;
+        MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
+        if (MultiplayerMapPreview->unknown_00 == 0) {
             Unknown_005c7570(dialog);
         }
         InvalidateRect(dialog, 0, 0);

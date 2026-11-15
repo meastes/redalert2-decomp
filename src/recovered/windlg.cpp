@@ -33,7 +33,7 @@ void *__fastcall unknown_create_dialog_735700(void *instance, int id, HWND paren
         DialogStackCount--;
         return 0;
     }
-    unknown_int_a40d34++;
+    _dialog_count++;
     Unknown_005B6000(dialog);
     EnumChildWindows(dialog, unknown_prepare_control_735bc0, 1);
     unknown_prepare_control_735bc0(dialog, 0);
@@ -87,7 +87,7 @@ bool __fastcall End_Dialog_007357e0(HWND dialog, int result)
     for (i = DialogStackCount - 1; i >= index; i--) {
         Unknown_005B6060(DialogStack[i].Window);
         DestroyWindow(DialogStack[i].Window);
-        unknown_int_a40d34--;
+        _dialog_count--;
     }
 
     DialogStackCount = index;
@@ -107,7 +107,7 @@ bool __fastcall End_Dialog_007357e0(HWND dialog, int result)
         CurrentDialogResource = 0;
         SetFocus(MainWindow);
     }
-    unknown_dialog_result_b25ddc = result;
+    g_LastResponse = result;
 
     return true;
 }
@@ -144,12 +144,12 @@ int __fastcall Dialog_Loop_007359e0(HWND dialog, bool (*callback)(), int unused,
         if (callback != 0 && callback() == true) {
             End_Dialog_007357e0(dialog, 2);
         }
-        if (!unknown_b2abd9) {
-            unknown_517370(false);
+        if (!g_PlayingNetGame) {
+            Title_Screen_Restore(false);
         }
-        unknown_message_count_a52298++;
+        MessageLoopCount++;
         MSG message;
-        while (unknown_peek_message_522ed0(&message, 0, 0, 0, 1)) {
+        while (Peek_Windows_Message(&message, 0, 0, 0, 1)) {
             TranslateMessage(&message);
             DispatchMessageA(&message);
             if (!unknown_is_listed_b25bb8((int)dialog)) {
@@ -161,7 +161,7 @@ int __fastcall Dialog_Loop_007359e0(HWND dialog, bool (*callback)(), int unused,
     if (modal) {
         SendMessageA(dialog, 0x4A9, 0, 0);
     }
-    return unknown_dialog_result_b25ddc;
+    return g_LastResponse;
 }
 
 

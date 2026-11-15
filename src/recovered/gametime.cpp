@@ -40,20 +40,20 @@ int GameTimeClass::unknown_elapsed_004d0050() const
 }
 
 
-// int unknown_milliseconds_004d0070() (0x004D0070)
+// int Get_Game_Time() (0x004D0070)
 // Milliseconds since the startup time stamp 0x00866074 (its elapsed time expanded inline).
 // Unreferenced; no inventory row.
 
-int unknown_milliseconds_004d0070()
+int Get_Game_Time()
 {
     return unknown_time_stamp_866074.unknown_elapsed_004d0050();
 }
 
 
-// unsigned long unknown_ticks_004d0090() (0x004D0090)
+// unsigned long Get_Game_Time_50() (0x004D0090)
 // Game ticks (1/60 s) elapsed since the startup time stamp 0x00866074.
 
-unsigned long unknown_ticks_004d0090()
+unsigned long Get_Game_Time_50()
 {
     return (unsigned long)unknown_time_stamp_866074.unknown_elapsed_004d0050() * 3 / 50;
 }

@@ -4970,6 +4970,10 @@
    "address": "00733a60"
   },
   {
+   "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0bf8"
+  },
+  {
    "symbol": "?AnimTypes@@3V?$TypeList@PAVAnimTypeClass@@@@A",
    "address": "008661e0"
   },
@@ -5294,6 +5298,10 @@
    "address": "00440520"
   },
   {
+   "symbol": "?FactoryPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0c80"
+  },
+  {
    "symbol": "?Factory_Bib_Message@@3QBDB",
    "address": "007cf970"
   },
@@ -5388,6 +5396,10 @@
   {
    "symbol": "?From_Name@TagTypeClass@@SIPAV1@PBD@Z",
    "address": "006b4880"
+  },
+  {
+   "symbol": "?GameActive@@3_NA",
+   "address": "00a40958"
   },
   {
    "symbol": "?GetDisguise@ObjectClass@@UAEPAVObjectTypeClass@@_N@Z",
@@ -5686,6 +5698,10 @@
    "address": "005d2d60"
   },
   {
+   "symbol": "?MuteSWLaunches@@3HA",
+   "address": "00a3d548"
+  },
+  {
    "symbol": "?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z",
    "address": "005502e0"
   },
@@ -5890,6 +5906,10 @@
    "address": "005d2cf0"
   },
   {
+   "symbol": "?ScenarioInit@@3HA",
+   "address": "00a40774"
+  },
+  {
    "symbol": "?Sell_Wall@HouseClass@@QAEXABVCell@@_N@Z",
    "address": "004e8380"
   },
@@ -5980,6 +6000,10 @@
   {
    "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
    "address": "00abd868"
+  },
+  {
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
   },
   {
    "symbol": "?Take_Damage@TechnoClass@@UAEHPAHHPAVWarheadTypeClass@@PAV1@_NH@Z",
@@ -6122,10 +6146,6 @@
    "address": "00557090"
   },
   {
-   "symbol": "?Unknown_00566340@MapClass@@QAEXABVCell@@@Z",
-   "address": "00566340"
-  },
-  {
    "symbol": "?Unknown_006328D0@RadarClass@@QAEPAV?$DynamicVectorClass@UPoint2D@@@@PAVBuildingTypeClass@@@Z",
    "address": "006328d0"
   },
@@ -6188,6 +6208,10 @@
   {
    "symbol": "?UpdateThreatInCell@TechnoClass@@QAEXPAVAbstractClass@@@Z",
    "address": "006d9610"
+  },
+  {
+   "symbol": "?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z",
+   "address": "00566340"
   },
   {
    "symbol": "?Update_Cell_Zone@MapClass@@QAEXABVCell@@@Z",
@@ -6346,18 +6370,6 @@
    "address": "00a40af8"
   },
   {
-   "symbol": "?unknown_a40774@@3HA",
-   "address": "00a40774"
-  },
-  {
-   "symbol": "?unknown_abstracts_ac0bf8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0bf8"
-  },
-  {
-   "symbol": "?unknown_abstracts_ac0c80@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0c80"
-  },
-  {
    "symbol": "?unknown_b263d8@@3HA",
    "address": "00b263d8"
   },
@@ -6432,10 +6444,6 @@
   {
    "symbol": "?unknown_flag_a3d340@@3_NA",
    "address": "00a3d340"
-  },
-  {
-   "symbol": "?unknown_flag_a40958@@3_NA",
-   "address": "00a40958"
   },
   {
    "symbol": "?unknown_func_422680@AnimClass@@QAEXPAVAbstractClass@@@Z",
@@ -6536,10 +6544,6 @@
   {
    "symbol": "?unknown_ini_format_a40d24@@3HA",
    "address": "00a40d24"
-  },
-  {
-   "symbol": "?unknown_int_a3d548@@3HA",
-   "address": "00a3d548"
   },
   {
    "symbol": "?unknown_key_a40ba4@@3HA",
@@ -7012,10 +7016,6 @@
   {
    "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
    "address": "0083995c"
-  },
-  {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
   },
   {
    "symbol": "?unknown_tileset_a6cb68@@3HA",

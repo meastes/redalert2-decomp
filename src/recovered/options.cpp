@@ -687,7 +687,7 @@ int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WP
 
 void __fastcall unknown_dialog_5ff7c0(HWND window);      // 0x005FF7C0 (shared/ms_message_box.hpp)
 void __fastcall unknown_dialog_5ff6e0(HWND window);      // 0x005FF6E0
-void __fastcall unknown_517370(bool unknown1);           // 0x00517370
+void __fastcall Title_Screen_Restore(bool unknown1);           // 0x00517370
 int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 
 bool OptionsClass::Unknown_005DA360()
@@ -701,8 +701,8 @@ bool OptionsClass::Unknown_005DA360()
             if (unknown_6000d0() == true) {
                 rc = 2;
             }
-            if (!unknown_flag_a40958) {
-                unknown_517370(false);
+            if (!GameActive) {
+                Title_Screen_Restore(false);
             }
         }
         unknown_dialog_5ff6e0(dialog);

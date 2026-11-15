@@ -512,10 +512,10 @@ int __stdcall TunnelLocomotionClass::Z_Adjust()
 {
     CoordStruct coord = LinkedTo->Coord;
     Point2D from;
-    unknown_tactical_83996c->Coord_To_Pixel(coord, from);
+    TacticalMap->Coord_To_Pixel(coord, from);
     coord.Z = Map.Get_Height_GL(coord);
     Point2D to;
-    unknown_tactical_83996c->Coord_To_Pixel(coord, to);
+    TacticalMap->Coord_To_Pixel(coord, to);
     int height = from.Y - to.Y;
     double ratio = DigTimer.Ratio();
     int facing = Dir_To_256(LinkedTo->unknown_2e0.Current());

@@ -271,7 +271,7 @@ static void Queue_AI_Normal()
         Queue_Record();
     }
     if (!Execute_DoList(1, unknown_player_a35db4->Type->House, 0, 0, 0)) {
-        unknown_flag_a40958 = false;
+        GameActive = false;
         return;
     }
     Clean_DoList(0);
@@ -290,12 +290,12 @@ static void Queue_Playback()
     if (WWKeyboard->Check()) {
         key = WWKeyboard->Get();
         if (key == 0x1B || (unknown_flags_a3f600 & 4)) {
-            unknown_flag_a40958 = false;
+            GameActive = false;
             return;
         }
     }
     if ((unknown_flags_a3f600 & 4) && ::Frame > 0 && (unknown_mouse_x_a76b70 != WWMouse->Get_Mouse_X() || unknown_mouse_y_a76c78 != WWMouse->Get_Mouse_Y())) {
-        unknown_flag_a40958 = false;
+        GameActive = false;
         return;
     }
     unknown_mouse_x_a76b70 = WWMouse->Get_Mouse_X();
@@ -339,7 +339,7 @@ static void Queue_Playback()
         ok = 0;
     }
     if (!ok) {
-        unknown_flag_a40958 = false;
+        GameActive = false;
         return;
     }
 
@@ -351,7 +351,7 @@ static void Queue_Playback()
         base_house = 0;
     }
     if (!Execute_DoList(max_houses, base_house, 0, 0, 0)) {
-        unknown_flag_a40958 = false;
+        GameActive = false;
         return;
     }
     Clean_DoList(0);
@@ -516,7 +516,7 @@ static void __fastcall Stop_Game_00623b00(bool cancelled)
 {
     unknown_a3d8c8=0;
     unknown_a3d8cc=0;
-    unknown_flag_a40958=false;
+    GameActive=false;
     if(unknown_ab62dc)Unknown_0059DA00();
     if(unknown_game_mode_a3d298==4) {
         unknown_flag_abd500=true;
@@ -762,7 +762,7 @@ void __fastcall Wait_For_End_Game()
         if (!unknown_int_a40d48) {
             Map.Get_Input(input, x, y);
             Keyboard_Process(input);
-            unknown_tactical_83996c->AI();
+            TacticalMap->AI();
             Map.Render();
         }
 
@@ -831,9 +831,9 @@ static inline void Close_Reconnect_Dialog()
             WWMouse->Capture_Mouse();
         }
         Unknown_007357E0(dialog, 0);
-        unknown_flag_a40380 = unknown_flag_ab62fc;
+        TacticalActive = unknown_flag_ab62fc;
         Map.Flag_To_Redraw(2);
-        if (unknown_flag_a40380) {
+        if (TacticalActive) {
             Map.Render();
         }
     }
@@ -852,8 +852,8 @@ static inline int Process_Reconnect_Dialog(ConnManClass *net, CDTimerClass<Syste
         unknown_timing_aabcf0[i] = their[i];
     }
     if (fresh) {
-        unknown_flag_ab62fc = unknown_flag_a40380;
-        unknown_flag_a40380 = false;
+        unknown_flag_ab62fc = TacticalActive;
+        TacticalActive = false;
         unknown_reconnect_result_ab5ed0 = -1;
         unknown_reconnect_dialog_a780d4 = (HWND)unknown_create_dialog_735700(unknown_instance_b26180, 0xEA, unknown_parent_b263d8,
             (UnknownDialogProc)Unknown_00627350, 0);
@@ -1087,7 +1087,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                 if (unknown_flag_ab5ed8) {
                     WWMouse->Capture_Mouse();
                 }
-                unknown_flag_a40380 = unknown_flag_ab62fc;
+                TacticalActive = unknown_flag_ab62fc;
                 Map.Flag_To_Redraw(2);
                 if (reconnect_dlg) {
                     Close_Reconnect_Dialog();
@@ -1231,7 +1231,7 @@ service:
         if (!first_time && !unknown_int_a40d48 && !reconnect_dlg) {
             Map.Get_Input(input, x, y);
             Keyboard_Process(input);
-            unknown_tactical_83996c->AI();
+            TacticalMap->AI();
             Map.Render();
         }
         loop_count++;
@@ -1699,13 +1699,13 @@ void __fastcall Unknown_00626CB0(HWND dialog)
         bar_rect.Width = (6 > w / 100 ? 6 : w / 100);
 
         int outline_color = Build_Hicolor_Pixel(unknown_bar_color_ab6831.Red, unknown_bar_color_ab6831.Green, unknown_bar_color_ab6831.Blue);
-        unknown_surface_839958->Draw_Rect(unknown_surface_839958->Get_Rect(), outline, outline_color);
+        AlternateSurface->Draw_Rect(AlternateSurface->Get_Rect(), outline, outline_color);
         Rect inside = bar_rect;
         inside.X += 2;
         inside.Y += 2;
         inside.Width -= 4;
         inside.Height -= 4;
-        unknown_surface_839958->Fill_Rect(unknown_surface_839958->Get_Rect(), inside, color);
+        AlternateSurface->Fill_Rect(AlternateSurface->Get_Rect(), inside, color);
 
     }
 }
@@ -1777,7 +1777,7 @@ void __fastcall Unknown_00627210(int id, int index)
         }
         Debug_Printf("Player %s votes to kick player %s from the game\n", name, unknown_ipx_manager_a40978.Connection_Name(index));
         swprintf(buffer, StringTable::Load_String("TXT_RECONNECT_KICK_RECEIVED", 0, "D:\\Ra2\\Queue.CPP", 3488), name, unknown_ipx_manager_a40978.Connection_Name(index));
-        HWND dialog = Unknown_00735B10();
+        HWND dialog = WS_Top_Window();
         HWND list = GetDlgItem(dialog, 0x651);
         _DrawMessage_005c2da0(-1, buffer, list);
         Unknown_00626FA0(list);
@@ -4030,7 +4030,7 @@ void __fastcall Unknown_0062E6E0(EventClass *event)
         unknown_counter_a3fabc--;
         unknown_a3d8c8 = 0;
         unknown_a3d8cc = 0;
-        unknown_flag_a40958 = false;
+        GameActive = false;
         if (unknown_ab62dc) {
             Unknown_0059DA00();
         }

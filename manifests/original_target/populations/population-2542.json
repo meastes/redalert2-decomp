@@ -4,8 +4,8 @@
     "id": "population-2542",
     "inventory_sha256": "3a110f46e7c4e8a521b486a67268cb55d470a5cb0fd6f23b6a7ded159f95a68f",
     "gaps_sha256": "c381c9f852b00800992661f62d4fe556baed9a444597fb1a043482d69fbd0c46",
-    "historical_population_sha256": "81be231cc6040643ac184fd3c5bffcf260f6a125f603fc7e0b79d33416aadba2",
-    "historical_acceptance_sha256": "d6e3ca3b3f5d88da03becbc5f364aee46754081cdf3f133a362ff03f83d38522"
+    "historical_population_sha256": "653e59c58513d1b277315b248b966b73a2bfb619db9f0a25221b9d34d2b2499a",
+    "historical_acceptance_sha256": "7a8169ff4906606725598f0076aa035557539ca22829dc724958e8c3ca5c3f12"
   },
   "references": {
     "??0LoadOptionsClass@@": 5484768,
@@ -2049,7 +2049,7 @@
     "??RRandom2Class@@QAEHXZ": 6522944,
     "??RRandom2Class@@QAEHHH@Z": 6523040,
     "??RRandom3Class@@QAEHHH@Z": 6523344,
-    "?unknown_random_839218@@3VRandom2Class@@A": 8622616,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
     "_?maximum@?1??Building_Find_Nearby_Radio_Acceptor_00450f90@@YIPAVBuildingClass@@PAVHouseClass@@PAVTechnoClass@@@Z@4HA": 8711404,
     "??_7Map@WorldDominationTour@@6B@": 8057324,
     "??_EMap@WorldDominationTour@@": 7515952,
@@ -3786,7 +3786,7 @@
     "?Release@HouseClass@@WCM@AGKXZ": 5213936,
     "?Action@GaugeClass@@UAEHIAAI@Z": 5047328,
     "?Focus_Loss@@YAXXZ": 7566240,
-    "?Unknown_00406F50@@YAXXZ": 4222800,
+    "?Audio_Focus_Lose@@YAXXZ": 4222800,
     "?Insert@WideString@@QAE_NGI@Z": 7800288,
     "?Draw@LineTrail@@QAEXXZ": 5477824,
     "?unknown_475440@CellClass@@QBE?AUPoint2D@@XZ": 4674624,
@@ -3795,7 +3795,7 @@
     "?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ": 4673792,
     "?Increase_Table_Size@?$IndexClass@HPAVFoggedObjectClass@@@@QAE_NH@Z": 4990384,
     "?Focus_Restore@@YAXXZ": 7566336,
-    "?Unknown_00406F70@@YAXXZ": 4222832,
+    "?Audio_Focus_Regain@@YAXXZ": 4222832,
     "??1FoggedObjectClass@@UAE@XZ": 4984272,
     "?Binary_Search@@YIPAUNodeElement@?$IndexClass@HPAVFoggedObjectClass@@@@PAU12@HABU12@@Z": 4990576,
     "??0Tactical@@QAE@ABVNoInitClass@@@Z": 6956736,
@@ -4157,7 +4157,7 @@
         {
           "offset": 25,
           "kind": 6,
-          "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
           "target": 8622616,
           "addend": 0,
           "resolved": 8622616
@@ -4189,7 +4189,7 @@
         {
           "offset": 54,
           "kind": 6,
-          "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
           "target": 8622616,
           "addend": 0,
           "resolved": 8622616
@@ -4221,7 +4221,7 @@
         {
           "offset": 83,
           "kind": 6,
-          "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
           "target": 8622616,
           "addend": 0,
           "resolved": 8622616
@@ -4253,7 +4253,7 @@
         {
           "offset": 112,
           "kind": 6,
-          "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
           "target": 8622616,
           "addend": 0,
           "resolved": 8622616
@@ -4285,7 +4285,7 @@
         {
           "offset": 141,
           "kind": 6,
-          "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
           "target": 8622616,
           "addend": 0,
           "resolved": 8622616
@@ -4301,7 +4301,7 @@
         {
           "offset": 164,
           "kind": 6,
-          "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
           "target": 8622616,
           "addend": 0,
           "resolved": 8622616
@@ -4333,7 +4333,7 @@
         {
           "offset": 245,
           "kind": 6,
-          "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
           "target": 8622616,
           "addend": 0,
           "resolved": 8622616
@@ -4349,7 +4349,7 @@
         {
           "offset": 262,
           "kind": 6,
-          "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
           "target": 8622616,
           "addend": 0,
           "resolved": 8622616
@@ -4363,7 +4363,7 @@
           "resolved": 785822
         }
       ],
-      "source_sha256": "f319b08dd691b4d1123777f72fa1f0af773e58aa59b07c0ed3ea3269689bfad8",
+      "source_sha256": "06fce9165930d8af85c4e6f9a688010f4cf598311eb89cbcb242c9e84a9c6d44",
       "source": "src/recovered/classes/MapSeedClass/Randomize_Parameters.cpp",
       "population": "population-2542",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -4392,7 +4392,7 @@
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
           "target": 8622616,
           "addend": 0,
           "resolved": 8622616
@@ -4408,7 +4408,7 @@
         {
           "offset": 28,
           "kind": 6,
-          "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
           "target": 8622616,
           "addend": 0,
           "resolved": 8622616
@@ -4424,7 +4424,7 @@
         {
           "offset": 45,
           "kind": 6,
-          "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
           "target": 8622616,
           "addend": 0,
           "resolved": 8622616
@@ -4440,7 +4440,7 @@
         {
           "offset": 62,
           "kind": 6,
-          "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
           "target": 8622616,
           "addend": 0,
           "resolved": 8622616
@@ -4456,7 +4456,7 @@
         {
           "offset": 79,
           "kind": 6,
-          "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
           "target": 8622616,
           "addend": 0,
           "resolved": 8622616
@@ -4512,7 +4512,7 @@
         {
           "offset": 144,
           "kind": 6,
-          "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
           "target": 8622616,
           "addend": 0,
           "resolved": 8622616
@@ -4534,7 +4534,7 @@
           "resolved": 454
         }
       ],
-      "source_sha256": "e99b1a38bfcbb14a93da6ae2300acd0648d9ec3a36c5b6877a851517bbc96d64",
+      "source_sha256": "f67ff369a9f1c02fdb6b421b00545b7caeaa294cd5655e2868b78a2490887801",
       "source": "src/recovered/classes/MapSeedClass/Randomize.cpp",
       "population": "population-2542",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",

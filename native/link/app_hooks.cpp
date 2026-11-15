@@ -12,7 +12,7 @@
 
 extern "C" int ra2_native_scroll_map(int, int, int dx, int dy)
 {
-    Tactical *tactical = unknown_tactical_83996c;
+    Tactical *tactical = TacticalMap;
     if (!tactical) return 0;
     Point2D view = tactical->Get_Tactical_Position();
     view.X += dx;
@@ -29,8 +29,8 @@ extern "C" void ra2_native_save_settings(void)
 // port/src/user32.cpp's question after a focus change (C11): is the game's screen redraw
 // mark (0x008523DC, set by WM_ACTIVATEAPP in Windows_Procedure 0x007375A0) still waiting
 // for a menu loop to clear it? The repaint of the dialogs then follows that redraw.
-extern bool unknown_redraw_8523dc;
+extern bool SurfacesRestored;
 extern "C" int ra2port_game_redraw_pending(void)
 {
-    return unknown_redraw_8523dc ? 1 : 0;
+    return SurfacesRestored ? 1 : 0;
 }

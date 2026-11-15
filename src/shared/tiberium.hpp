@@ -19,7 +19,7 @@ class AnimTypeClass;
 
 class TiberiumClass;
 extern DynamicVectorClass<TiberiumClass *> unknown_TiberiumClass_list_00ac0b30;   // 0x00AC0B30
-extern DynamicVectorClass<AbstractClass *> unknown_objects_ac0cb0;                 // 0x00AC0CB0
+extern DynamicVectorClass<AbstractClass *> AbstractTypePtrTracker;                 // 0x00AC0CB0
 void __fastcall Detach_This_From_All(AbstractClass *object, bool all);             // 0x006ECB90
 
 #ifndef E_POINTER

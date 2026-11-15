@@ -19,7 +19,7 @@
 // Anything that fails turns the audio off (Audio_Is_On = 0). Always returns 1.
 
 void unknown_007156d0();    // 0x007156D0
-void unknown_00715f10();    // 0x00715F10
+void Aux_Stream_Init();    // 0x00715F10
 
 int __fastcall Audio_Init(int enable)
 {
@@ -68,7 +68,7 @@ int __fastcall Audio_Init(int enable)
         enable = 0;
     }
     unknown_007156d0();
-    unknown_00715f10();
+    Aux_Stream_Init();
     Audio_Is_On = enable;
     return 1;
 }
@@ -79,7 +79,7 @@ int __fastcall Audio_Init(int enable)
 // (0x00715780, 0x00715F80), the event system and the streamer; then the bag, AUDIO.MIX, THEME.MIX and the device are
 // released and the system itself shut down.
 
-void unknown_00715f80();    // 0x00715F80
+void Aux_Stream_Shutdown();    // 0x00715F80
 
 void Audio_Shutdown()
 {
@@ -89,7 +89,7 @@ void Audio_Shutdown()
     Audio_Events_Clear();
     Audio_Streams_Stop();
     Speech_Shutdown();
-    unknown_00715f80();
+    Aux_Stream_Shutdown();
     Audio_Events_Shutdown();
     Audio_Streamer_Shutdown();
     if (Audio_Main_Bag != 0) {
@@ -163,7 +163,7 @@ void __fastcall Audio_Stop()
 // Purpose: pauses the device's event channels, the events and the
 // music hooks' counters (0x007144B0).
 
-void unknown_007144b0();    // 0x007144B0
+void Sound_Pause_All();    // 0x007144B0
 
 void __fastcall Audio_Pause()
 {
@@ -171,18 +171,18 @@ void __fastcall Audio_Pause()
         Audio_Device_Pause_Channels(Audio_Main_Device, 1);
     }
     Audio_Events_Pause();
-    unknown_007144b0();
+    Sound_Pause_All();
 }
 
 
 // void Audio_Resume() -- 0x00406E00
 // Purpose: undoes Audio_Pause.
 
-void unknown_007144f0();    // 0x007144F0
+void Sound_Resume_All();    // 0x007144F0
 
 void Audio_Resume()
 {
-    unknown_007144f0();
+    Sound_Resume_All();
     Audio_Events_Resume();
     if (Audio_Main_Device != 0) {
         Audio_Device_Resume_Channels(Audio_Main_Device, 1);
@@ -206,9 +206,9 @@ void Audio_Stop_All()
 // void Audio_Pause_All() -- 0x00406E40
 // Purpose: Audio_Pause plus the two 0x007169xx layers.
 
-void unknown_007144b0();    // 0x007144B0
-void unknown_00716980();    // 0x00716980
-void unknown_007168d0();    // 0x007168D0
+void Sound_Pause_All();    // 0x007144B0
+void Theme_Suspend();    // 0x00716980
+void Aux_Stream_Pause();    // 0x007168D0
 
 void Audio_Pause_All()
 {
@@ -216,24 +216,24 @@ void Audio_Pause_All()
         Audio_Device_Pause_Channels(Audio_Main_Device, 1);
     }
     Audio_Events_Pause();
-    unknown_007144b0();
-    unknown_00716980();
-    unknown_007168d0();
+    Sound_Pause_All();
+    Theme_Suspend();
+    Aux_Stream_Pause();
 }
 
 
 // void Audio_Resume_All() -- 0x00406E70
 // Purpose: undoes Audio_Pause_All.
 
-void unknown_007144f0();    // 0x007144F0
-void unknown_007168e0();    // 0x007168E0
-void unknown_007169f0();    // 0x007169F0
+void Sound_Resume_All();    // 0x007144F0
+void Aux_Stream_Resume();    // 0x007168E0
+void Theme_Resume();    // 0x007169F0
 
 void Audio_Resume_All()
 {
-    unknown_007168e0();
-    unknown_007169f0();
-    unknown_007144f0();
+    Aux_Stream_Resume();
+    Theme_Resume();
+    Sound_Resume_All();
     Audio_Events_Resume();
     if (Audio_Main_Device != 0) {
         Audio_Device_Resume_Channels(Audio_Main_Device, 1);
@@ -248,10 +248,10 @@ void Audio_Resume_All()
 
 struct unknown_00a35d78_type;
 extern unknown_00a35d78_type unknown_00a35d78;      // 0x00A35D78
-void unknown_00714330();                            // 0x00714330
-void unknown_00715ba0();                            // 0x00715BA0
+void Sound_Service();                            // 0x00714330
+void Speech_Service();                            // 0x00715BA0
 void __fastcall unknown_006e7cd0(unknown_00a35d78_type *object);        // 0x006E7CD0
-void unknown_007717c0();                            // 0x007717C0
+void Audio_Worker_Service();                            // 0x007717C0
 
 void Audio_Update()
 {
@@ -260,10 +260,10 @@ void Audio_Update()
         __int64 now = Audio_Now();
         if ((unsigned __int64)(now - Audio_Update_Last) > 0x21) {
             Audio_Events_Update();
-            unknown_00714330();
-            unknown_00715ba0();
+            Sound_Service();
+            Speech_Service();
             unknown_006e7cd0(&unknown_00a35d78);
-            unknown_007717c0();
+            Audio_Worker_Service();
             Audio_Update_Last = now;
         }
         Audio_Update_Busy = 0;

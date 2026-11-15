@@ -24,7 +24,7 @@ extern Rect unknown_rect_839630;
 // @ref ??GRectPoint2D@@QBE?AU0@ABU0@@Z=0047d040
 // @ref ??0Rect@@QAE@ABURectPoint2D@@HH@Z=00453e40
 // @ref ?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z=006a3020
-// @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
+// @ref ?TacticalMap@@3PAVTactical@@A=0083996c
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ?Radar_Background@RadarClass@@QAEXABVCell@@@Z=00631570
 // @ref ?Zone_Reset@MapClass@@QAEHXZ=0054ebd0
@@ -76,7 +76,7 @@ bool MapClass::Unknown_0055DEF0(Cell const &cell)
         }
 
         draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-        unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
+        TacticalMap->Register_Dirty_Area(draw_rect, false);
 
         cellptr1->Recalc_Attributes(-1);
         cellptr2->Recalc_Attributes(-1);

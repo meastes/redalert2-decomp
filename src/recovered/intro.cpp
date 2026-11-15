@@ -73,6 +73,6 @@
 void Choose_Side()
 {
     if (unknown_special_a40920.IsFromInstall) {
-        Play_Movie(unknown_name_index_482e60("INTRO"), -1, false, true, true);
+        Play_Movie(VQ_From_Name("INTRO"), -1, false, true, true);
     }
 }

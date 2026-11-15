@@ -78,7 +78,7 @@ AlphaShapeClass::AlphaShapeClass(ObjectClass *object, int x, int y) :
     Image = image;
     Bounds = Rect(x, y, image->Get_Width(), image->Get_Height());
     unknown_AlphaShapeClass_list_0083c648.Add(this);
-    unknown_AbstractClass_list_00ac0d60.Add(this);
+    ObjectPtrTracker.Add(this);
     if (!unknown_alpha_table_ready_84c684) {
         Init_Alpha_Table();
     }
@@ -95,7 +95,7 @@ AlphaShapeClass::AlphaShapeClass() :
     unknown_3c(false)
 {
     unknown_AlphaShapeClass_list_0083c648.Add(this);
-    unknown_AbstractClass_list_00ac0d60.Add(this);
+    ObjectPtrTracker.Add(this);
     if (!unknown_alpha_table_ready_84c684) {
         Init_Alpha_Table();
     }
@@ -116,7 +116,7 @@ AlphaShapeClass::AlphaShapeClass(NoInitClass const &noinit) :
 AlphaShapeClass::~AlphaShapeClass()
 {
     unknown_AlphaShapeClass_list_0083c648.Delete(this);
-    unknown_AbstractClass_list_00ac0d60.Delete(this);
+    ObjectPtrTracker.Delete(this);
 }
 
 
@@ -274,7 +274,7 @@ void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &point, Rect const &
     for (int index = 0; index < unknown_AlphaShapeClass_list_0083c648.Count(); index++) {
         if (!unknown_AlphaShapeClass_list_0083c648[index]->unknown_3c) {
             Rect r1 = unknown_AlphaShapeClass_list_0083c648[index]->Bounds;
-            r1 -= Point2D(unknown_tactical_83996c->TacPixelX, unknown_tactical_83996c->TacPixelY);
+            r1 -= Point2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY);
             r1 += Point2D(unknown_rect_839630.X, unknown_rect_839630.Y);
             Rect r2 = Intersect(r1, cliprect);
             Rect r3(point.X, point.Y, 60, 30);
@@ -355,7 +355,7 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
     for (int index = 0; index < unknown_AlphaShapeClass_list_0083c648.Count(); index++) {
         {
             Rect r1 = unknown_AlphaShapeClass_list_0083c648[index]->Bounds;
-            r1 -= Point2D(unknown_tactical_83996c->TacPixelX, unknown_tactical_83996c->TacPixelY);
+            r1 -= Point2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY);
             r1.X += unknown_rect_839630.X;   // NATIVE: the overlay's Rect += Point2D (RA2_RECT_POINT_INLINE): moves the corner
             r1.Y += unknown_rect_839630.Y;   // NATIVE
             Rect clip = cliprect;

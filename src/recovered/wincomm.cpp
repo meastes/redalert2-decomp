@@ -612,7 +612,7 @@ int WinModemClass::Get_Modem_Result(int delay, char *buffer, int buffer_len, int
                     return abort;
                 }
             }
-            if (!unknown_flag_a40d28) {
+            if (!GameInFocus) {
                 return 0;
             }
             int bytes = Read_From_Serial_Port((unsigned char *)buffer + pos, (buffer_len - pos < 0 ? 0 : buffer_len - pos));

@@ -72,7 +72,7 @@ void Taunt_Unblock();
 // The speech block (unknown_vox_ad0878) counted down (0x00716950); the
 // stream paused and speech starts blocked (0x00716980); everything stopped
 // and both blocks cleared (0x007169A0).
-void Unknown_00716950();
+void Remove_Speech_Hold();
 void Speech_Hold();
 void Speech_Reset();
 

@@ -73,7 +73,7 @@
 // A live trigger; disabled when its type is, or for the current difficulty.
 
 // The abstract list 0x00AC0D48 (element type AbstractClass * by RTTI).
-extern DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0d48;
+extern DynamicVectorClass<AbstractClass *> TriggerPtrTracker;
 
 TriggerClass::TriggerClass(TriggerTypeClass *type) :
     Class(type),
@@ -82,8 +82,8 @@ TriggerClass::TriggerClass(TriggerTypeClass *type) :
     IsTripped(0),
     IsActive(true)
 {
-    unknown_objects_ac0cb0.Add((ObjectClass *)this);
-    unknown_AbstractClass_list_00ac0d48.Add(this);
+    AbstractTypePtrTracker.Add((ObjectClass *)this);
+    TriggerPtrTracker.Add(this);
     Triggers.Add(this);
     if (Class != 0) {
         Reset_All_Timed_Events();
@@ -321,7 +321,7 @@ bool TriggerClass::Is_Event_Tripped(int index) const
 void TriggerClass::Mark_To_Delete()
 {
     IsToDelete = true;
-    unknown_objects_ac0cd8.Add(this);
+    ObjectsToDelete.Add(this);
 }
 
 
@@ -419,12 +419,12 @@ int TriggerClass::Kind_Of() const
 // bound by reference until the bound is refined.
 
 // The abstract list 0x00AC0D48 (element type AbstractClass * by RTTI).
-extern DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0d48;
+extern DynamicVectorClass<AbstractClass *> TriggerPtrTracker;
 
 TriggerClass::~TriggerClass()
 {
     Unknown_006ECB90(this, true);
     Triggers.Delete(this);
-    unknown_objects_ac0cb0.Delete((ObjectClass *)this);
-    unknown_AbstractClass_list_00ac0d48.Delete(this);
+    AbstractTypePtrTracker.Delete((ObjectClass *)this);
+    TriggerPtrTracker.Delete(this);
 }

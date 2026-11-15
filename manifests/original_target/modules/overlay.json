@@ -187,7 +187,7 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_func_5dc180@OverlayClass@@SAXXZ",
+   "symbol": "?Post_Read_Vein_Fixups@OverlayClass@@SAXXZ",
    "entry": "005dc180",
    "body_bytes": 261,
    "padding_bytes": 11
@@ -490,112 +490,112 @@
    "address": "007b4ae8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 171
+   "section": 170
   },
   {
    "symbol": "??_R1A@?0A@A@Straw@@8",
    "address": "007b4b50",
    "bytes": 24,
    "kind": "rtti",
-   "section": 108
+   "section": 107
   },
   {
    "symbol": "??_R1A@?0A@A@BufferStraw@@8",
    "address": "007b7960",
    "bytes": 24,
    "kind": "rtti",
-   "section": 103
+   "section": 108
   },
   {
    "symbol": "??_R2BufferStraw@@8",
    "address": "007b7978",
    "bytes": 9,
    "kind": "rtti",
-   "section": 104
+   "section": 109
   },
   {
    "symbol": "??_R3BufferStraw@@8",
    "address": "007b7988",
    "bytes": 16,
    "kind": "rtti",
-   "section": 105
+   "section": 110
   },
   {
    "symbol": "??_R4BufferStraw@@6B@",
    "address": "007b7998",
    "bytes": 20,
    "kind": "rtti",
-   "section": 107
+   "section": 112
   },
   {
    "symbol": "??_R2Straw@@8",
    "address": "007b79ac",
    "bytes": 5,
    "kind": "rtti",
-   "section": 109
+   "section": 103
   },
   {
    "symbol": "??_R3Straw@@8",
    "address": "007b79b8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 110
+   "section": 104
   },
   {
    "symbol": "??_R4Straw@@6B@",
    "address": "007b79c8",
    "bytes": 20,
    "kind": "rtti",
-   "section": 112
+   "section": 105
   },
   {
    "symbol": "??_R2Pipe@@8",
    "address": "007b79dc",
    "bytes": 5,
    "kind": "rtti",
-   "section": 172
+   "section": 166
   },
   {
    "symbol": "??_R3Pipe@@8",
    "address": "007b79e8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 173
+   "section": 167
   },
   {
    "symbol": "??_R4Pipe@@6B@",
    "address": "007b79f8",
    "bytes": 20,
    "kind": "rtti",
-   "section": 175
+   "section": 168
   },
   {
    "symbol": "??_R1A@?0A@A@BufferPipe@@8",
    "address": "007b7a10",
    "bytes": 24,
    "kind": "rtti",
-   "section": 166
+   "section": 171
   },
   {
    "symbol": "??_R2BufferPipe@@8",
    "address": "007b7a28",
    "bytes": 9,
    "kind": "rtti",
-   "section": 167
+   "section": 172
   },
   {
    "symbol": "??_R3BufferPipe@@8",
    "address": "007b7a38",
    "bytes": 16,
    "kind": "rtti",
-   "section": 168
+   "section": 173
   },
   {
    "symbol": "??_R4BufferPipe@@6B@",
    "address": "007b7a48",
    "bytes": 20,
    "kind": "rtti",
-   "section": 170
+   "section": 175
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@PAVCellClass@@@@8",
@@ -784,28 +784,28 @@
    "address": "007d1e90",
    "bytes": 19,
    "kind": "rtti",
-   "section": 174
+   "section": 169
   },
   {
    "symbol": "??_R0?AVStraw@@@8",
    "address": "007d1ec0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 111
+   "section": 106
   },
   {
    "symbol": "??_R0?AVBufferStraw@@@8",
    "address": "007d5df8",
    "bytes": 26,
    "kind": "rtti",
-   "section": 106
+   "section": 111
   },
   {
    "symbol": "??_R0?AVBufferPipe@@@8",
    "address": "007d5e30",
    "bytes": 25,
    "kind": "rtti",
-   "section": 169
+   "section": 174
   },
   {
    "symbol": "??_R0?AV?$VectorClass@PAVCellClass@@@@@8",
@@ -1460,7 +1460,7 @@
   },
   {
    "site": "0065eb40",
-   "symbol": "?unknown_func_5dc180@OverlayClass@@SAXXZ",
+   "symbol": "?Post_Read_Vein_Fixups@OverlayClass@@SAXXZ",
    "target": "005dc180",
    "function_entry": true
   },
@@ -1761,6 +1761,10 @@
    "address": "00476ac0"
   },
   {
+   "symbol": "?AlternateSurface@@3PAVSurface@@A",
+   "address": "00839958"
+  },
+  {
    "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
    "address": "0049eea0"
   },
@@ -1943,6 +1947,10 @@
   {
    "symbol": "?Flush@Pipe@@UAEHXZ",
    "address": "0060eb10"
+  },
+  {
+   "symbol": "?GameActive@@3_NA",
+   "address": "00a40958"
   },
   {
    "symbol": "?Get@BufferStraw@@UAEHPAXH@Z",
@@ -2233,6 +2241,10 @@
    "address": "005d2cf0"
   },
   {
+   "symbol": "?ScenarioInit@@3HA",
+   "address": "00a40774"
+  },
+  {
    "symbol": "?Sell_Back@ObjectClass@@UAEXH@Z",
    "address": "005d2d50"
   },
@@ -2273,6 +2285,10 @@
    "address": "00abd868"
   },
   {
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
    "symbol": "?Take_Damage@ObjectClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z",
    "address": "005d3d20"
   },
@@ -2287,10 +2303,6 @@
   {
    "symbol": "?Tiberium_Type_Here@CellClass@@QBEHXZ",
    "address": "0047a220"
-  },
-  {
-   "symbol": "?Unknown_00566340@MapClass@@QAEXABVCell@@@Z",
-   "address": "00566340"
   },
   {
    "symbol": "?Unknown_006A2970@@YIHH@Z",
@@ -2315,6 +2327,10 @@
   {
    "symbol": "?Unselect@ObjectClass@@UAEXXZ",
    "address": "005d2df0"
+  },
+  {
+   "symbol": "?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z",
+   "address": "00566340"
   },
   {
    "symbol": "?Update_Cell_Zone_Constructively@MapClass@@QAEXABVCell@@@Z",
@@ -2355,14 +2371,6 @@
   {
    "symbol": "?unknown_TiberiumClass_list_00ac0b30@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
    "address": "00ac0b30"
-  },
-  {
-   "symbol": "?unknown_a40774@@3HA",
-   "address": "00a40774"
-  },
-  {
-   "symbol": "?unknown_flag_a40958@@3_NA",
-   "address": "00a40958"
   },
   {
    "symbol": "?unknown_game_mode_a3d298@@3HA",
@@ -2533,16 +2541,8 @@
    "address": "004ba410"
   },
   {
-   "symbol": "?unknown_surface_839958@@3PAVSurface@@A",
-   "address": "00839958"
-  },
-  {
    "symbol": "?unknown_surface_83995c@@3PAVSurface@@A",
    "address": "0083995c"
-  },
-  {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
   },
   {
    "symbol": "_CLSID_OverlayClass",

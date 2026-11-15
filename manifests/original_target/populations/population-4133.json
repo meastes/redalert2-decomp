@@ -4,8 +4,8 @@
     "id": "population-4133",
     "inventory_sha256": "c5004ec856e450c3427a68cc7b07f00ac51859eec41f25770dbdd7c5aa1c55ab",
     "gaps_sha256": "e2cfb688622ccd4af16a820d1f124fd5ef21c886b23cf4cdd0a0053f9c648432",
-    "historical_population_sha256": "ba4b84ec90dfef9bbb68f7bee01a597deaa93c1f78befe98695c75cd8c4f08d5",
-    "historical_acceptance_sha256": "ee6d38f348a05058e625dfd6ce93227d661147b03c0d4f091de0be8491023299"
+    "historical_population_sha256": "63f9939f91b307107201a2d6d710a01e2519f7ae57d9c38a57fc400167ac3594",
+    "historical_acceptance_sha256": "a75a3eb1242808942325fc2dc42fe684dd71dda92c4f030b3fe72f561fa8c2c2"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -41,7 +41,7 @@
     "?Audio_Ring_Size@@YIHPAUAudioStream@@@Z": 4230256,
     "??3@YAXPAX@Z": 7871803,
     "_atexit": 7874954,
-    "?unknown_random_839218@@3VRandom2Class@@A": 8622616,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
     "??0Random2Class@@QAE@I@Z": 6522768,
     "?AddRef@AbstractClass@@UAGKXZ": 4260000,
     "?Release@AbstractClass@@UAGKXZ": 4260016,
@@ -1275,7 +1275,7 @@
     "?Detach@KamikazeTrackerClass@@QAEXPAVAbstractClass@@@Z": 5445760,
     "?QueryInterface@SwizzleManagerClass@@UAGJABUGUID@@PAPAX@Z": 6946064,
     "?Focus_Loss@@YAXXZ": 7566240,
-    "?Unknown_00406F50@@YAXXZ": 4222800,
+    "?Audio_Focus_Lose@@YAXXZ": 4222800,
     "__imp__FileTimeToSystemTime@8": 7971044,
     "__imp__InitCommonControls@0": 7970860,
     "__imp__LoadIconA@8": 7971868,
@@ -1307,7 +1307,7 @@
     "?Audio_Events_Shutdown@@YAXXZ": 4210560,
     "?Audio_System_Shutdown@@YIXXZ": 4204944,
     "?Focus_Restore@@YAXXZ": 7566336,
-    "?Unknown_00406F70@@YAXXZ": 4222832,
+    "?Audio_Focus_Regain@@YAXXZ": 4222832,
     "__imp__SetActiveWindow@4": 7971872,
     "?Get_Source@AudioBankEntry@@QAIPAUAudioSource@@XZ": 4202544,
     "?Audio_Event_Start_Pass@@YIPAUAudioSource@@PAUAudioEvent@@@Z": 4212448,

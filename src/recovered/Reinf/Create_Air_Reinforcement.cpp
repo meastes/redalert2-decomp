@@ -13,9 +13,9 @@ int __fastcall Create_Air_Reinforcement(HouseClass *house, int air, int number, 
 
     int sub;
     for (sub = 0; sub < number; sub++) {
-        unknown_a40774++;
+        ScenarioInit++;
         TechnoClass *obj = (TechnoClass *)type->Create_One_Of(house);
-        unknown_a40774--;
+        ScenarioInit--;
         if (!obj) return sub;
 
         obj->unknown_32c = true;
@@ -42,9 +42,9 @@ int __fastcall Create_Air_Reinforcement(HouseClass *house, int air, int number, 
             obj->unknown_slot220(tarcom);
         }
 
-        unknown_a40774++;
+        ScenarioInit++;
         int placed = obj->Unlimbo(&CoordStruct(newcell.X * 256 + 128, newcell.Y * 256 + 128, 0), 0);
-        unknown_a40774--;
+        ScenarioInit--;
         if (placed) {
             if (obj->Kind_Of() == 2 && passenger != -1 && passenger_count) {
                 ((AircraftClass *)obj)->unknown_5b1 = true;

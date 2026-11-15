@@ -24,14 +24,14 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
         CoordStruct coord = dim - dim / 2;
         coord.X = -coord.X;
         coord.Z = dim.Z;
-        Point2D p0 = unknown_tactical_83996c->Coord_To_Pixel_Absolute(coord);
+        Point2D p0 = TacticalMap->Coord_To_Pixel_Absolute(coord);
         coord.X = -coord.X;
         coord.Y = -coord.Y;
         coord.X = -coord.X;
-        Point2D p1 = unknown_tactical_83996c->Coord_To_Pixel_Absolute(coord);
+        Point2D p1 = TacticalMap->Coord_To_Pixel_Absolute(coord);
         coord.Z = 0;
         coord.Y = -coord.Y;
-        Point2D p2 = unknown_tactical_83996c->Coord_To_Pixel_Absolute(coord);
+        Point2D p2 = TacticalMap->Coord_To_Pixel_Absolute(coord);
         coord.X = -coord.X;
         coord.Y = -coord.Y;
         coord.X = -coord.X;

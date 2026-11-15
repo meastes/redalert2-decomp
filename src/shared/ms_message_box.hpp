@@ -47,7 +47,7 @@ void __fastcall unknown_dialog_5ff6e0(HWND window);                             
 // A dialog procedure: the common handler first, then WM_COMMAND from controls 0x5C0-0x5C1 stores the id in *DWL_USER (0x00600D50).
 int __stdcall unknown_choice_dialog_proc_600d50(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 void __fastcall unknown_5115f0(HWND dialog);                                       // 0x005115F0 (0x005EAB60 with its flag)
-void __fastcall unknown_517370(bool unknown1);                                       // 0x00517370 idle step
-bool __fastcall unknown_moving_736d80(HWND window, WPARAM wparam, Rect *rect);    // 0x00736D80 WM_MOVING (Unknown_Clamp_Rect_To_Screen_00736D80)
+void __fastcall Title_Screen_Restore(bool unknown1);                                       // 0x00517370 idle step
+bool __fastcall unknown_moving_736d80(HWND window, WPARAM wparam, Rect *rect);    // 0x00736D80 WM_MOVING (On_WM_MOVING)
 
 #endif

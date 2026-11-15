@@ -59,13 +59,13 @@ void __fastcall Unknown_00626CB0(HWND dialog)
         bar_rect.Width = (6 > w / 100 ? 6 : w / 100);
 
         int outline_color = Build_Hicolor_Pixel(unknown_bar_color_ab6831.Red, unknown_bar_color_ab6831.Green, unknown_bar_color_ab6831.Blue);
-        unknown_surface_839958->Draw_Rect(unknown_surface_839958->Get_Rect(), outline, outline_color);
+        AlternateSurface->Draw_Rect(AlternateSurface->Get_Rect(), outline, outline_color);
         Rect inside = bar_rect;
         inside.X += 2;
         inside.Y += 2;
         inside.Width -= 4;
         inside.Height -= 4;
-        unknown_surface_839958->Fill_Rect(unknown_surface_839958->Get_Rect(), inside, color);
+        AlternateSurface->Fill_Rect(AlternateSurface->Get_Rect(), inside, color);
 
     }
 }

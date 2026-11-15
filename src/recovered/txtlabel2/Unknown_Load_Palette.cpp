@@ -3,12 +3,12 @@
 // releases the file data when it was allocated, and makes a converter for the palette
 // on the 0x00839958 background surface (0 when the allocation fails).
 // @ref ?Unknown_Load_Shape_00495270@@YIPBXPBDAA_N@Z=00495270
-// @ref ?unknown_surface_839958@@3PAVSurface@@A=00839958
+// @ref ?AlternateSurface@@3PAVSurface@@A=00839958
 #include "shared/convert.hpp"
 
 class Surface;
 void const *__fastcall Unknown_Load_Shape_00495270(char const *filename, bool &allocated);
-extern Surface *unknown_surface_839958;
+extern Surface *AlternateSurface;
 
 void __fastcall Unknown_Load_Palette_006F1FA0(char const *name, PaletteClass **palette, ConvertClass **drawer)
 {
@@ -23,5 +23,5 @@ void __fastcall Unknown_Load_Palette_006F1FA0(char const *name, PaletteClass **p
     if (allocated) {
         delete (void *)data;
     }
-    *drawer = new ConvertClass(**palette, **palette, unknown_surface_839958, 1, false);
+    *drawer = new ConvertClass(**palette, **palette, AlternateSurface, 1, false);
 }

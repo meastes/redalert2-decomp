@@ -850,7 +850,7 @@ int IPXManagerClass::Service()
                         Debug_Printf("Reecive buffer overflow %d\n",unknown_a4);
                     }
                 } else {
-                if (unknown_game_mode_a3d298==4 && !unknown_a40774 && Frame>8 && !unknown_flag_a3fba8 && (unsigned)packetlen>15 && packet->Code==PACKET_DATA_NOACK) {
+                if (unknown_game_mode_a3d298==4 && !ScenarioInit && Frame>8 && !unknown_flag_a3fba8 && (unsigned)packetlen>15 && packet->Code==PACKET_DATA_NOACK) {
                     EventClass *event=(EventClass *)((char *)packet+sizeof(CommHeaderType));
                     if (event->Type==0x19) {
                         int id=event->House;

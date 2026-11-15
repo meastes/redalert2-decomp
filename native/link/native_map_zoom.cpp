@@ -125,7 +125,7 @@ Point2D set_view_origin(Tactical *t, int x, int y)
 void apply_zoom()
 {
     pending = false;
-    Tactical *tactical = unknown_tactical_83996c;
+    Tactical *tactical = TacticalMap;
     double z0 = game_zoom, z1 = z0 * pending_factor;
     if (z1 < zoom_min()) z1 = zoom_min();
     if (z1 > kZoomMax * render_scale) z1 = kZoomMax * render_scale;
@@ -264,7 +264,7 @@ void Native_Map_Zoom_Start()
         // (lane C16: the view's origin kept the old size's, and a zoomed start showed the base in a
         // corner; with a larger screen the map's edge had moved the base off the centre, so the point
         // asked is used, else the centre of what the game shows now).
-        Tactical *t = unknown_tactical_83996c;
+        Tactical *t = TacticalMap;
         bool asked = view_asked;
         Point2D asked_at = view_asked_at;
         double cx = 0, cy = 0;
@@ -346,19 +346,19 @@ void Native_Dialog_Screen(bool on)
     static int saved_w = 0, saved_h = 0;
     static bool set = false;
     if (on && render_scale > 1 && !set) {
-        saved_w = unknown_8523e0;
-        saved_h = unknown_8523e4;
-        unknown_8523e0 = (saved_w - 168) / render_scale + 168;
-        unknown_8523e4 = (saved_h - 32) / render_scale + 32;
+        saved_w = VideoModeWidth;
+        saved_h = VideoModeHeight;
+        VideoModeWidth = (saved_w - 168) / render_scale + 168;
+        VideoModeHeight = (saved_h - 32) / render_scale + 32;
         set = true;
         // The interface art's layouts (the dialogs' backdrop and sidebar column, the places of the
         // column's bottom buttons) made again for that size, as a mode change makes them.
-        relayout_art(unknown_8523e0, unknown_8523e4, saved_h);
+        relayout_art(VideoModeWidth, VideoModeHeight, saved_h);
         ra2_enh_set_dialog_screen(1);
-        fprintf(stderr, "zoom: in-play dialogs at %dx%d (the screen %dx%d)\n", unknown_8523e0, unknown_8523e4, saved_w, saved_h);
+        fprintf(stderr, "zoom: in-play dialogs at %dx%d (the screen %dx%d)\n", VideoModeWidth, VideoModeHeight, saved_w, saved_h);
     } else if (!on && set) {
-        unknown_8523e0 = saved_w;
-        unknown_8523e4 = saved_h;
+        VideoModeWidth = saved_w;
+        VideoModeHeight = saved_h;
         set = false;
         relayout_art(saved_w, saved_h, saved_h);
         ra2_enh_set_dialog_screen(0);

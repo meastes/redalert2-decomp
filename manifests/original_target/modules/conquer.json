@@ -199,7 +199,7 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_name_index_482e60@@YIHPBD@Z",
+   "symbol": "?VQ_From_Name@@YIHPBD@Z",
    "entry": "00482e60",
    "body_bytes": 80,
    "padding_bytes": 0
@@ -665,7 +665,7 @@
   },
   {
    "site": "0046ac10",
-   "symbol": "?unknown_name_index_482e60@@YIHPBD@Z",
+   "symbol": "?VQ_From_Name@@YIHPBD@Z",
    "target": "00482e60",
    "function_entry": true
   },
@@ -797,7 +797,7 @@
   },
   {
    "site": "0064dc90",
-   "symbol": "?unknown_name_index_482e60@@YIHPBD@Z",
+   "symbol": "?VQ_From_Name@@YIHPBD@Z",
    "target": "00482e60",
    "function_entry": true
   },
@@ -1625,7 +1625,7 @@
   },
   {
    "site": "0051eee0",
-   "symbol": "?unknown_name_index_482e60@@YIHPBD@Z",
+   "symbol": "?VQ_From_Name@@YIHPBD@Z",
    "target": "00482e60",
    "function_entry": true
   },
@@ -2088,6 +2088,10 @@
    "address": "00a40d2c"
   },
   {
+   "symbol": "?GamePalette@@3VPaletteClass@@A",
+   "address": "00837e10"
+  },
+  {
    "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z",
    "address": "005234c0"
   },
@@ -2104,8 +2108,16 @@
    "address": "00526a40"
   },
   {
+   "symbol": "?IgnoreInput@@3_NA",
+   "address": "00a40d44"
+  },
+  {
    "symbol": "?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A",
    "address": "00a40350"
+  },
+  {
+   "symbol": "?IngameVQ@@3V?$DynamicVectorClass@PAVMovieHandle@@@@A",
+   "address": "00af8fd8"
   },
   {
    "symbol": "?Init_Game@@YIHHQAPAD@Z",
@@ -2142,6 +2154,10 @@
   {
    "symbol": "?Modem_Signoff@@YIXXZ",
    "address": "005cea90"
+  },
+  {
+   "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+   "address": "00a71050"
   },
   {
    "symbol": "?Narrow_To_Wide_006fa180@@YIPAGPBD@Z",
@@ -2200,6 +2216,14 @@
    "address": "004ddf20"
   },
   {
+   "symbol": "?ScenarioActive@@3_NA",
+   "address": "00a40d04"
+  },
+  {
+   "symbol": "?ScenarioInit@@3HA",
+   "address": "00a40774"
+  },
+  {
    "symbol": "?Select_Game@@YI_N_N@Z",
    "address": "005135f0"
   },
@@ -2236,12 +2260,20 @@
    "address": "007d38a8"
   },
   {
+   "symbol": "?TacticalActive@@3_NA",
+   "address": "00a40380"
+  },
+  {
    "symbol": "?Theaters@@3PAUTheaterTypeStruct@@A",
    "address": "0079ab68"
   },
   {
    "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
    "address": "00839980"
+  },
+  {
+   "symbol": "?Title_Screen_Restore@@YIX_N@Z",
+   "address": "00517370"
   },
   {
    "symbol": "?ToolTips@@3PAVCCToolTip@@A",
@@ -2436,10 +2468,6 @@
    "address": "00a3d584"
   },
   {
-   "symbol": "?queued_movies_00af8fd8@@3V?$DynamicVectorClass@PAVMovieHandle@@@@A",
-   "address": "00af8fd8"
-  },
-  {
    "symbol": "?serial_local_player_00a3fb38@@3HA",
    "address": "00a3fb38"
   },
@@ -2520,10 +2548,6 @@
    "address": "007d3768"
   },
   {
-   "symbol": "?unknown_517370@@YIX_N@Z",
-   "address": "00517370"
-  },
-  {
    "symbol": "?unknown_527800@IPXManagerClass@@QAEXXZ",
    "address": "00527800"
   },
@@ -2534,10 +2558,6 @@
   {
    "symbol": "?unknown_OwnerTalkClass_00ab6d18@@3VOwnerTalkClass@@A",
    "address": "00ab6d18"
-  },
-  {
-   "symbol": "?unknown_a40774@@3HA",
-   "address": "00a40774"
   },
   {
    "symbol": "?unknown_a72c68@@3HA",
@@ -2570,18 +2590,6 @@
   {
    "symbol": "?unknown_flag_7ce008@@3_NA",
    "address": "007ce008"
-  },
-  {
-   "symbol": "?unknown_flag_a40380@@3_NA",
-   "address": "00a40380"
-  },
-  {
-   "symbol": "?unknown_flag_a40d04@@3_NA",
-   "address": "00a40d04"
-  },
-  {
-   "symbol": "?unknown_flag_a40d44@@3_NA",
-   "address": "00a40d44"
   },
   {
    "symbol": "?unknown_flag_a417c8@@3_NA",
@@ -2624,10 +2632,6 @@
    "address": "004ba5b0"
   },
   {
-   "symbol": "?unknown_names_a71050@@3V?$DynamicVectorClass@PBD@@A",
-   "address": "00a71050"
-  },
-  {
    "symbol": "?unknown_object_84e8d0@@3VBeaconManagerClass@@A",
    "address": "0084e8d0"
   },
@@ -2638,10 +2642,6 @@
   {
    "symbol": "?unknown_palette_837510@@3VPaletteClass@@A",
    "address": "00837510"
-  },
-  {
-   "symbol": "?unknown_palette_837e10@@3VPaletteClass@@A",
-   "address": "00837e10"
   },
   {
    "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",

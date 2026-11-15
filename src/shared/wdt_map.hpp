@@ -3,7 +3,7 @@
 // size 0xD4; created by 0x007292E0). Only the members the constructor (0x00729330) and
 // destructor (0x007293F0) touch are named; the types of the unknown members are hypotheses.
 //   +0x08 int unknown_08, +0x0C int unknown_0c, +0x10 int unknown_10  (the constructor arguments)
-//   +0x14 and +0x78 drawers made by unknown_load_drawer_5ac560, +0x24 the territory index surface
+//   +0x14 and +0x78 drawers made by Create_Drawer, +0x24 the territory index surface
 //         (unknown_load_pcx_60d110), all deleted by the destructor; +0x18/+0x1C animations
 //         (built in the loader 0x00729510, used by unknown_72a620)
 //   +0x28 Wstring (":" when built)

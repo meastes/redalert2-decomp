@@ -89,7 +89,7 @@ void GameControlsDialog::Run()
 {
     int result = -1;
     Debug_Printf("GameControls: GameSpeed = %d, ScrollRate = %d, Detail = %d\n", Options.GameSpeed, Options.ScrollRate, Options.DetailLevel);
-    if (unknown_flag_a40958 == 1) {
+    if (GameActive == 1) {
         Window = unknown_create_dialog_5ff610(0xBBB, Game_Controls_Proc, 0);
     } else {
         Window = unknown_create_dialog_5ff610(0xF5, Game_Controls_Proc, 0);
@@ -101,8 +101,8 @@ void GameControlsDialog::Run()
             if (unknown_6000d0() == true) {
                 result = 2;
             }
-            if (!unknown_flag_a40958) {
-                unknown_517370(false);
+            if (!GameActive) {
+                Title_Screen_Restore(false);
             }
         }
         if (result == 1) {
@@ -120,7 +120,7 @@ void GameControlsDialog::Run()
 // is queued as event 0xD (kept for later when the queue is full) while playing
 // a session game (otherwise it is applied directly); a changed detail level
 // resets the map's cells; the tool tip box enables the tool tips. Outside a game
-// (unknown_flag_a40958 clear) the difficulty slider 0x50F is read as well.
+// (GameActive clear) the difficulty slider 0x50F is read as well.
 
 void GameControlsDialog::Apply_Settings()
 {
@@ -128,7 +128,7 @@ void GameControlsDialog::Apply_Settings()
     if (control) {
         int speed = 6 - SendMessageA(control, 0x400, 0, 0);
         if (Options.GameSpeed != speed) {
-            if (unknown_flag_a40958 == 1 && unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5) {
+            if (GameActive == 1 && unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5) {
                 OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0xD, speed));
             } else {
                 Options.GameSpeed = speed;
@@ -159,11 +159,11 @@ void GameControlsDialog::Apply_Settings()
     control = GetDlgItem(Window, 0x602);
     if (control) {
         Options.ToolTips = SendMessageA(control, 0xF0, 0, 0) == 1;
-        if (ToolTips && unknown_flag_a40958 == 1) {
+        if (ToolTips && GameActive == 1) {
             ToolTips->Enable(Options.ToolTips);
         }
     }
-    if (!unknown_flag_a40958) {
+    if (!GameActive) {
         control = GetDlgItem(Window, 0x50F);
         if (control) {
             Options.Difficulty = SendMessageA(control, 0x400, 0, 0);
@@ -189,13 +189,13 @@ void __fastcall Game_Controls_Command(HWND window, int id, HWND control, unsigne
     int *result = (int *)GetWindowLongA(window, 8);
     switch (id) {
         case 0x52C:
-            if (code == 0 && unknown_flag_a40958 == 1) {
+            if (code == 0 && GameActive == 1) {
                 unknown_int_a40d48 = 4;
                 *result = 1;
             }
             break;
         case 0x52D:
-            if (code == 0 && unknown_flag_a40958 == 1) {
+            if (code == 0 && GameActive == 1) {
                 unknown_int_a40d48 = 6;
                 *result = 1;
             }
@@ -226,7 +226,7 @@ int __stdcall Game_Controls_Proc(HWND window, UINT message, WPARAM wparam, LPARA
                 SendMessageA(slider, 0x406, 1, 0x60000);
                 SendMessageA(slider, 0x405, 1, 6 - Options.GameSpeed);
             }
-            if (unknown_int_a3d548) {
+            if (MuteSWLaunches) {
                 HWND hidden = GetDlgItem(window, 0x529);
                 ShowWindow(hidden, SW_HIDE);
                 hidden = GetDlgItem(window, 0x714);
@@ -258,7 +258,7 @@ int __stdcall Game_Controls_Proc(HWND window, UINT message, WPARAM wparam, LPARA
             if (box) {
                 SendMessageA(box, 0xF1, Options.ToolTips != 0, 0);
             }
-            if (unknown_flag_a40958 == 1) {
+            if (GameActive == 1) {
                 HWND button = GetDlgItem(window, 0x52D);
                 if (button) {
                     EnableWindow(button, unknown_check_406f30());
@@ -303,7 +303,7 @@ int __stdcall Game_Controls_Proc(HWND window, UINT message, WPARAM wparam, LPARA
                     }
                     break;
                 }
-                if (!unknown_flag_a40958 && (HWND)lparam == GetDlgItem(window, 0x50F)) {
+                if (!GameActive && (HWND)lparam == GetDlgItem(window, 0x50F)) {
                     char const *label = Difficulty_Labels[position];
                     HWND text = GetDlgItem(window, 0x670);
                     if (text) {

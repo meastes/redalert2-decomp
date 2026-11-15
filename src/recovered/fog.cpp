@@ -106,8 +106,8 @@ FoggedObjectClass::FoggedObjectClass(CoordStruct const &coord, int arg24, int ar
 {
     CellClass &cell = Map[coord];
     unknown_40 = Union(cell.Overlay_Render_Rect(), cell.Overlay_Shadow_Render_Rect());
-    unknown_40.X += unknown_tactical_83996c->TacPixelX;
-    unknown_40.Y += unknown_tactical_83996c->TacPixelY;
+    unknown_40.X += TacticalMap->TacPixelX;
+    unknown_40.Y += TacticalMap->TacPixelY;
     unknown_40 -= Point2D(unknown_int_839630, unknown_int_839634);
     Array.Add(this);
     Index.Add_Index(unknown_index_key(unknown_coord_cell(Coord), unknown_30), this);
@@ -127,11 +127,11 @@ FoggedObjectClass::FoggedObjectClass(CoordStruct const &coord, int arg54, unsign
     CoordStruct &at = Coord;
     at = position;
     Point2D pixel;
-    unknown_tactical_83996c->Coord_To_Pixel(position, pixel);
+    TacticalMap->Coord_To_Pixel(position, pixel);
     pixel -= Point2D(30, 15);
     unknown_40 = Rect(pixel.X, pixel.Y, 60, 30);
-    unknown_40.X += unknown_tactical_83996c->TacPixelX;
-    unknown_40.Y += unknown_tactical_83996c->TacPixelY;
+    unknown_40.X += TacticalMap->TacPixelX;
+    unknown_40.Y += TacticalMap->TacPixelY;
     Array.Add(this);
     Index.Add_Index(unknown_index_key(XY_Cell(at.X / 256, at.Y / 256), unknown_30), this);
 }
@@ -170,9 +170,9 @@ FoggedObjectClass::FoggedObjectClass(BuildingClass *building,bool fade)
             DrawRecords.Add(record);
         }
     }
-    unknown_tactical_83996c->Register_Dirty_Area(unknown_40,false);
-    unknown_40.X+=unknown_tactical_83996c->TacPixelX;
-    unknown_40.Y+=unknown_tactical_83996c->TacPixelY;
+    TacticalMap->Register_Dirty_Area(unknown_40,false);
+    unknown_40.X+=TacticalMap->TacPixelX;
+    unknown_40.Y+=TacticalMap->TacPixelY;
 }
 
 
@@ -183,8 +183,8 @@ FoggedObjectClass::FoggedObjectClass(AnimClass *anim)
       unknown_50(Map[CoordStruct(anim->Coord)].unknown_11b), unknown_54(-1), unknown_58(0), unknown_74(true)
 {
     unknown_40 = anim->Get_Render_Rect();
-    unknown_40.X += unknown_tactical_83996c->TacPixelX;
-    unknown_40.Y += unknown_tactical_83996c->TacPixelY;
+    unknown_40.X += TacticalMap->TacPixelX;
+    unknown_40.Y += TacticalMap->TacPixelY;
     Array.Add(this);
     DrawRecord record;
     record.Type = anim->Class;
@@ -214,10 +214,10 @@ FoggedObjectClass::~FoggedObjectClass()
             }
         }
     }
-    if (unknown_tactical_83996c != 0) {
+    if (TacticalMap != 0) {
         Rect rect = unknown_40;
-        rect -= Point2D(unknown_tactical_83996c->TacPixelX, unknown_tactical_83996c->TacPixelY);
-        unknown_tactical_83996c->Register_Dirty_Area(rect, 0);
+        rect -= Point2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY);
+        TacticalMap->Register_Dirty_Area(rect, 0);
     }
 }
 
@@ -270,8 +270,8 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
         }
 
         Rect rectangle = data->unknown_40;
-        rectangle.X -= unknown_tactical_83996c->TacPixelX;
-        rectangle.Y -= unknown_tactical_83996c->TacPixelY;
+        rectangle.X -= TacticalMap->TacPixelX;
+        rectangle.Y -= TacticalMap->TacPixelY;
         rectangle += unknown_rect_839630.Top_Left();
 
         Rect clipped = Intersect(rect, rectangle);
@@ -290,7 +290,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                 cellptr->OverlayData = data->unknown_2c;
 
                 Point2D point;
-                unknown_tactical_83996c->Coord_To_Pixel(Coord_Whole(cellptr->MapCoords), point);
+                TacticalMap->Coord_To_Pixel(Coord_Whole(cellptr->MapCoords), point);
                 point.X += 60 / -2;
 
                 cellptr->Draw_Overlay(point, rect);
@@ -309,7 +309,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                 ShapeFileStruct const *shape = (ShapeFileStruct const *)type->Get_Image_Data();
 
                 Point2D xy;
-                unknown_tactical_83996c->Coord_To_Pixel(CoordStruct(*position), xy);
+                TacticalMap->Coord_To_Pixel(CoordStruct(*position), xy);
                 xy += unknown_rect_839630.Top_Left() - rect.Top_Left();
 
                 int zadjust = -Unknown_006A2970(CoordStruct(*position).Z);
@@ -339,7 +339,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
 
                         CoordStruct *position = &data->Coord;
                         Point2D drawpoint;
-                        unknown_tactical_83996c->Coord_To_Pixel(CoordStruct(*position) - CoordStruct(256 / 2, 256 / 2, 0), drawpoint);
+                        TacticalMap->Coord_To_Pixel(CoordStruct(*position) - CoordStruct(256 / 2, 256 / 2, 0), drawpoint);
                         CellClass *cellptr = &Map[CoordStruct(*position)];
                         drawpoint += unknown_rect_839630.Top_Left() - rect.Top_Left();
 
@@ -359,7 +359,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                         Point2D zdrawpoint(144, 172);
                         zdrawpoint += type->ZShapePointMove;
                         Point2D zsizeoffset(type->Width() * 256 - 256, type->Foundation_Height(false) * 256 - 256);
-                        zdrawpoint -= unknown_tactical_83996c->Coord_To_Pixel_Absolute(zsizeoffset);
+                        zdrawpoint -= TacticalMap->Coord_To_Pixel_Absolute(zsizeoffset);
 
                         ShapeFileStruct *zshapefile = unknown_building_depth_shape_85029c;
 
@@ -393,7 +393,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
 
                             TPoint3D<int> *position = &data->Coord;
                             Point2D drawpoint;
-                            unknown_tactical_83996c->Coord_To_Pixel(CoordStruct(*position) - CoordStruct(256 / 2, 256 / 2, 0), drawpoint);
+                            TacticalMap->Coord_To_Pixel(CoordStruct(*position) - CoordStruct(256 / 2, 256 / 2, 0), drawpoint);
                             drawpoint += unknown_rect_839630.Top_Left() - rect.Top_Left();
 
                             int brightness = 1000;
@@ -422,7 +422,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
             }
 
             case 0x1d: {
-                Point2D point = data->unknown_40.Top_Left() - RectPoint2D(unknown_tactical_83996c->TacPixelX, unknown_tactical_83996c->TacPixelY) + (unknown_rect_839630.Top_Left() + RectPoint2D(60 / 2, 0)) - rect.Top_Left();
+                Point2D point = data->unknown_40.Top_Left() - RectPoint2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY) + (unknown_rect_839630.Top_Left() + RectPoint2D(60 / 2, 0)) - rect.Top_Left();
 
                 ShapeFileStruct const *shape = (ShapeFileStruct const *)SmudgeTypes[data->unknown_54]->Get_Image_Data();
                 if (shape != 0) {

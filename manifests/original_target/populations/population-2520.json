@@ -4,8 +4,8 @@
     "id": "population-2520",
     "inventory_sha256": "e9ec00becc985a64d4084fef519e54d77dc852498f2585c5f836db36b42a5d15",
     "gaps_sha256": "c75310bc41df56d2b58699935151f8887ad639f916f407fc977809f411cb8fd6",
-    "historical_population_sha256": "8f931ae770282151de761f6f514035f3216483b8838a10bb099502344306fd77",
-    "historical_acceptance_sha256": "f2bbc5bc8410d4159f4c4fc04c91e85627fe7762a3d61434d14125fd2517fa3d"
+    "historical_population_sha256": "60a5c9316f71200a0af01496b6e5671ebaa9bddb3af3bc5350521a978656d534",
+    "historical_acceptance_sha256": "3184cb4857a15cae773c58ace1b90e4dad495025c11ae4f2484d95570644fbb6"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -244,9 +244,9 @@
     "?Char_To_Wide_006fa0c0@@YIXPAGPBDH@Z": 7315648,
     "_stricmp": 7872288,
     "?Delete@?$DynamicVectorClass@PAVAbstractClass@@@@QAE_NH@Z": 4541216,
-    "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
-    "?unknown_abstracts_ac0bf8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
-    "?unknown_abstracts_ac0d08@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
+    "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
+    "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
+    "?HousePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
     "?unknown_player_a35db4@@3PAVHouseClass@@A": 10706356,
     "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
@@ -5128,7 +5128,7 @@
     "??_G?$DynamicVectorClass@PAVLightConvertClass@@@@UAEPAXI@Z": 4244560,
     "_unknown_empty_rect": 8594576,
     "??_7?$DynamicVectorClass@PAVMixFileClass@@@@6B@": 7973428,
-    "?unknown_random_839218@@3VRandom2Class@@A": 8622616,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
     "?Lock@XSurface@@UAEPAXUPoint2D@@@Z": 4264672,
     "??_7?$DynamicVectorClass@PAVAlphaLightingRemapClass@@@@6B@": 7976960,
     "?GetClassID@AlphaShapeClass@@UAGJPAUGUID@@@Z": 4321216,

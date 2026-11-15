@@ -1265,8 +1265,8 @@ bool RulesClass::Colors(CCINIClass &ini)
             char const *entry = ini.Get_Entry(RulesSection_Colors, index);
             HSVClass color = ini.Get_HSV(RulesSection_Colors, entry, HSVClass(0, 0, 0));
             unknown_add_color_603a60(entry, color);
-            unknown_find_or_make_palette(entry, color, unknown_object_838a10, &unknown_palette_837e10, 1);
-            unknown_find_or_make_palette(entry, color, unknown_object_838a10, &unknown_palette_837e10, 0x35);
+            unknown_find_or_make_palette(entry, color, unknown_object_838a10, &GamePalette, 1);
+            unknown_find_or_make_palette(entry, color, unknown_object_838a10, &GamePalette, 0x35);
         }
         return true;
     }
@@ -2155,8 +2155,8 @@ bool RulesClass::Movies(CCINIClass &ini)
         for (int index = 0; index < count; index++) {
             char buffer[32];
             if (ini.Get_String(RulesSection_Movies, ini.Get_Entry(RulesSection_Movies, index), "<none>", buffer, sizeof(buffer))) {
-                if (unknown_name_index_482e60(buffer) == -1) {
-                    unknown_names_a71050.Add(_strdup(buffer));
+                if (VQ_From_Name(buffer) == -1) {
+                    ::Movies.Add(_strdup(buffer));
                 }
             }
         }

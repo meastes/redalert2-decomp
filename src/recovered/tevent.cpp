@@ -66,7 +66,7 @@ DynamicVectorClass<TEventClass *> unknown_TEventClass_list_00ac0808;
 // A new event, numbered by its place in TEvents.
 
 // The abstract list 0x00AC0C98 (element type AbstractClass * by RTTI).
-extern DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0c98;
+extern DynamicVectorClass<AbstractClass *> EventActionPtrTracker;
 
 TEventClass::TEventClass() :
     unknown_24(-1),
@@ -76,8 +76,8 @@ TEventClass::TEventClass() :
 {
     unknown_TEventClass_list_00ac0808.Add(this);
     unknown_24 = unknown_TEventClass_list_00ac0808.ID(this);
-    unknown_AbstractClass_list_00ac0c98.Add(this);
-    unknown_objects_ac0cb0.Add((ObjectClass *)this);
+    EventActionPtrTracker.Add(this);
+    AbstractTypePtrTracker.Add((ObjectClass *)this);
     Data = 0;
 }
 
@@ -85,13 +85,13 @@ TEventClass::TEventClass() :
 // TEventClass::~TEventClass() (0x006E5F40)
 
 // The abstract list 0x00AC0C98 (element type AbstractClass * by RTTI).
-extern DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0c98;
+extern DynamicVectorClass<AbstractClass *> EventActionPtrTracker;
 
 TEventClass::~TEventClass()
 {
     Unknown_006ECB90(this, true);
-    unknown_AbstractClass_list_00ac0c98.Delete(this);
-    unknown_objects_ac0cb0.Delete((ObjectClass *)this);
+    EventActionPtrTracker.Delete(this);
+    AbstractTypePtrTracker.Delete((ObjectClass *)this);
     unknown_TEventClass_list_00ac0808.Delete(this);
 }
 

@@ -9,7 +9,7 @@
 #include "shared/class_factory.hpp"
 #include "shared/application.hpp"
 
-extern ApplicationClass unknown_application_object_84c7dc;     // 0x0084C7DC
+extern ApplicationClass ApplicationInstance;     // 0x0084C7DC
 
 class TiberianSunClassFactory : public IClassFactory {
 public:

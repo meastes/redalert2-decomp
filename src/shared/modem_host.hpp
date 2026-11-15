@@ -129,6 +129,6 @@ int __fastcall unknown_ini_8397a0_unique_id();     // 0x00652720
 extern bool unknown_modem_host_first_7e2410;
 
 // The running host dialog (0x00A70DE4; null outside ModemHost::Dialog).
-extern ModemHost *unknown_modem_host_a70de4;
+extern ModemHost *_ModemHost;
 
 #endif

@@ -6,17 +6,17 @@
 #include "shared/vox_class.hpp"
 #include "shared/vox_speech.hpp"
 extern DynamicVectorClass<VoxClass *> unknown_VoxClass_list_00ad0930;   // 0x00AD0930
-void Unknown_00716940();                       // shared/radar.hpp
-bool __fastcall Unknown_00716690(int voice);   // shared/radar.hpp
+void Add_Speech_Hold();                       // shared/radar.hpp
+bool __fastcall Is_Speech_Finished(int voice);   // shared/radar.hpp
 // 0x00716940: blocks the speech queue once more (Speech_Hold's twin for the
 // queue counter 0x00AD0878, counted down by 0x00716950).
-void Unknown_00716940()
+void Add_Speech_Hold()
 {
     unknown_vox_ad0878 = unknown_vox_ad0878 + 1;
 }
 // 0x00716690: whether the VoxClass at an index is neither playing nor queued
 // (State 2); true for an index out of range.
-bool __fastcall Unknown_00716690(int voice)
+bool __fastcall Is_Speech_Finished(int voice)
 {
     if (voice > -1 && voice < unknown_VoxClass_list_00ad0930.Count()) {
         return unknown_VoxClass_list_00ad0930[voice]->State == 2;

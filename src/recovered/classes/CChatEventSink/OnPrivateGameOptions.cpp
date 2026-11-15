@@ -26,7 +26,7 @@ inline WOL::User *Unknown_0074DA60()
 
 HRESULT __stdcall CChatEventSink::OnPrivateGameOptions(HRESULT,WOL::User *user,char const *options)
 {
-    if(unknown_b2abd9) return S_OK;
+    if(g_PlayingNetGame) return S_OK;
     if(unknown_b2ac40 && options[0]!='Z') return S_OK;
     if(Is_Online_Session() && options[0]!='Z') return S_OK;
     int existing_user;
@@ -154,13 +154,13 @@ request_done:
         if(unknown_users_b2a728.Count>=2) {
             WOL::User temp;
             WOL::User *host=Unknown_0074DA60();
-            if(host && !_stricmp(host->name,unknown_wstring_b26cb8.Peek_Buffer()) && !unknown_b2ac40 && unknown_channel_b299c0.unknown_00 && unknown_dialog_preview_a72ce8 && unknown_dialog_preview_a72ce8->Is_Present() && unknown_random_preview_7e6dc0) {
+            if(host && !_stricmp(host->name,unknown_wstring_b26cb8.Peek_Buffer()) && !unknown_b2ac40 && unknown_channel_b299c0.unknown_00 && MultiplayerMapPreview && MultiplayerMapPreview->Is_Present() && unknown_random_preview_7e6dc0) {
                 int found=unknown_users_b2a728.Find_Name(user->name);
                 if(found!=-1) {
                     unknown_users_b2a728.Get_Copy(temp,found);temp.next=0;
                     Unknown_0074d7d0(&temp);
                     int old=unknown_login_state_00b2abe4;unknown_login_state_00b2abe4=1;
-                    unknown_dialog_preview_a72ce8->unknown_005c7ef0();unknown_login_state_00b2abe4=old;
+                    MultiplayerMapPreview->unknown_005c7ef0();unknown_login_state_00b2abe4=old;
                 }
             }
         }

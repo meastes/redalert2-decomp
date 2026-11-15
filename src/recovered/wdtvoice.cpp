@@ -208,7 +208,7 @@ bool __fastcall Voices::Pick(int faction, DynamicVectorClass<unsigned> const &li
     if (lines.Count() <= 0) {
         return false;
     }
-    int index = lines.Count() == 1 ? 0 : unknown_random_839218(0, lines.Count() - 1);
+    int index = lines.Count() == 1 ? 0 : NonCriticalRandomNumber(0, lines.Count() - 1);
     return Make_Name(faction, lines[index], name);
 }
 
@@ -402,7 +402,7 @@ void Voices::Update()
             }
         }
         if (Queue.Count() > 0) {
-            Speech_Play(Unknown_00716640(Queue[0].Get()), -1, -1);
+            Speech_Play(Vox_From_Name(Queue[0].Get()), -1, -1);
             Idle = false;
         } else {
             Pending = 0;

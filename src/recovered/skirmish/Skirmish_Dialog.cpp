@@ -16,13 +16,13 @@
 #include "shared/dialog_create.hpp"
 #include "shared/load_dlg.hpp"
 
-// @ref ?unknown_517370@@YIX_N@Z=00517370
+// @ref ?Title_Screen_Restore@@YIX_N@Z=00517370
 // @ref ?unknown_6000d0@@YA_NXZ=006000d0
 // @ref ?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z=005ff610
 // @ref ?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z=005ff6e0
 // @ref ?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z=005ff7c0
 // @ref ?SkirmishDialog@@3PAUHWND__@@A=00abcdfc
-// @ref ?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A=00a72ce8
+// @ref ?MultiplayerMapPreview@@3PAVMapPreviewClass@@A=00a72ce8
 int __stdcall Skirmish_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam);  // @ref ?Skirmish_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z=00683d10
 
 bool __fastcall Skirmish_Dialog()
@@ -39,14 +39,14 @@ bool __fastcall Skirmish_Dialog()
         SetWindowLongA(dialog, 8, (LONG)&result);
         unknown_dialog_5ff7c0(dialog);
         while (result != 0x617 && result != 0x5C0 && unknown_6000d0() != true) {
-            unknown_517370(false);
+            Title_Screen_Restore(false);
         }
         unknown_dialog_5ff6e0(dialog);
         SkirmishDialog = 0;
     }
-    if (unknown_dialog_preview_a72ce8 != 0) {
-        delete unknown_dialog_preview_a72ce8;
-        unknown_dialog_preview_a72ce8 = 0;
+    if (MultiplayerMapPreview != 0) {
+        delete MultiplayerMapPreview;
+        MultiplayerMapPreview = 0;
     }
     unknown_session_a3d298.Write_MultiPlayer_Settings();
     if (result == 0x5C0) {

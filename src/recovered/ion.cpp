@@ -352,7 +352,7 @@ void __fastcall Unknown_0051F930(int duration, int deferment, Cell cell, HouseCl
     StormActive = true;
     for (int index = 0; index < Houses.Count(); index++) {
         if (StormOwner == 0 || !StormOwner->Is_Ally(Houses[index])) {
-            if (!Houses[index]->unknown_13d && !unknown_int_a3d548) {
+            if (!Houses[index]->unknown_13d && !MuteSWLaunches) {
                 Houses[index]->unknown_func_4f5840(duration);
             }
         }

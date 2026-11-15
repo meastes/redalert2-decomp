@@ -61,7 +61,7 @@
 
 
 // Centres the dialog's movie control 0x71A in the 800x600 area of the screen
-// (unknown_8523e0 x unknown_8523e4), starts it (0x4E3) and loads the large or, at
+// (VideoModeWidth x VideoModeHeight), starts it (0x4E3) and loads the large or, at
 // 640 wide, the small Ra2ts clip (0x4E4) (0x005115F0; called by 0x005EAB60).
 #include "shared/ms_message_box.hpp"
 #include "shared/unknown_globals.hpp"
@@ -70,11 +70,11 @@ void __fastcall unknown_5115f0(HWND dialog)
 {
     HWND control = GetDlgItem(dialog, 0x71A);
     if (control != 0) {
-        int x = unknown_8523e0 <= 800 ? 0 : (unknown_8523e0 - 800) / 2;
-        int y = unknown_8523e4 <= 600 ? 0 : (unknown_8523e4 - 600) / 2;
+        int x = VideoModeWidth <= 800 ? 0 : (VideoModeWidth - 800) / 2;
+        int y = VideoModeHeight <= 600 ? 0 : (VideoModeHeight - 600) / 2;
         SetWindowPos(control, 0, x, y, -1, -1, 0xD);     // SWP_NOSIZE | SWP_NOZORDER | SWP_NOREDRAW
         SendMessageA(control, 0x4E3, 1, 0);
-        if (unknown_8523e0 == 640) {
+        if (VideoModeWidth == 640) {
             SendMessageA(control, 0x4E4, 0, (LPARAM)"Ra2ts_s");
         } else {
             SendMessageA(control, 0x4E4, 0, (LPARAM)"Ra2ts_l");
@@ -232,20 +232,20 @@ int __fastcall Init_Game()
 
     Debug_Printf("Init Anim System\n");
     VQA_Unknown_0071DB20();
-    VQA_Unknown_0071DB60(0);
+    Set_Option(0);
 
     Debug_Printf("Init Color Remap Tables\n");
     Gadget_Scheme_Name = "Grey";
 
     Debug_Printf("Creating TacticalMap\n");
-    delete unknown_tactical_83996c;
-    unknown_tactical_83996c = new Tactical;
-    if (unknown_tactical_83996c == 0) {
+    delete TacticalMap;
+    TacticalMap = new Tactical;
+    if (TacticalMap == 0) {
         Debug_Printf("Failed to create TacticalMap!\n");
         return -1;
     }
 
-    Surface *hidden = unknown_surface_839954;
+    Surface *hidden = HiddenSurface;
     unknown_surface_83995c = hidden;
 
     Debug_Printf("Reading SOUND.INI\n");
@@ -361,9 +361,9 @@ static bool Bootstrap()
 
     do {
         WWKeyboard->Check();
-    } while (!unknown_flag_a40d28);
+    } while (!GameInFocus);
 
-    unknown_redraw_8523dc = false;
+    SurfacesRestored = false;
     Unknown_0059DA50(4)->Clear();
 
     if (!Init_Bootstrap_Mixfiles()) {
@@ -386,15 +386,15 @@ static bool Bootstrap()
             (unsigned char)(unknown_palette_838a10[index].Blue << 2));
     }
 
-    memmove(&unknown_palette_837e10[0], MixFileClass::Retrieve("TEMPERAT.PAL"), sizeof(unknown_palette_837e10));
+    memmove(&GamePalette[0], MixFileClass::Retrieve("TEMPERAT.PAL"), sizeof(GamePalette));
     for (index = 0; index < 256; index++) {
-        unknown_palette_837e10[index] = RGBClass(
-            (unsigned char)(unknown_palette_837e10[index].Red << 2),
-            (unsigned char)(unknown_palette_837e10[index].Green << 2),
-            (unsigned char)(unknown_palette_837e10[index].Blue << 2));
+        GamePalette[index] = RGBClass(
+            (unsigned char)(GamePalette[index].Red << 2),
+            (unsigned char)(GamePalette[index].Green << 2),
+            (unsigned char)(GamePalette[index].Blue << 2));
     }
-    unknown_palette_838110 = unknown_palette_837e10;
-    unknown_palette_838710 = unknown_palette_837e10;
+    unknown_palette_838110 = GamePalette;
+    CCPalette = GamePalette;
     unknown_palette_838410[0] = unknown_palette_837510[0];
 
     memmove(&unknown_palette_837810[0], MixFileClass::Retrieve("WAYPOINT.PAL"), sizeof(unknown_palette_837810));
@@ -418,7 +418,7 @@ static bool Bootstrap()
     unknown_af6610 = 0;
     Unknown_00718060();
 
-    unknown_drawer_8323b8 = new ConvertClass(unknown_palette_837e10, unknown_palette_837e10, unknown_surface_839950, 0x35, false);
+    unknown_drawer_8323b8 = new ConvertClass(GamePalette, GamePalette, unknown_surface_839950, 0x35, false);
 
     PaletteClass pal;
     memmove(&pal[0], MixFileClass::Retrieve("ANIM.PAL"), sizeof(pal));
@@ -426,35 +426,35 @@ static bool Bootstrap()
         pal[index] = RGBClass((unsigned char)(pal[index].Red << 2), (unsigned char)(pal[index].Green << 2),
             (unsigned char)(pal[index].Blue << 2));
     }
-    Unit_Draw_Convert_008323C0 = new ConvertClass(pal, unknown_palette_837e10, unknown_surface_839950, 0x35, false);
+    Unit_Draw_Convert_008323C0 = new ConvertClass(pal, GamePalette, unknown_surface_839950, 0x35, false);
 
     memmove(&pal[0], MixFileClass::Retrieve("PALETTE.PAL"), sizeof(pal));
     for (index = 0; index < 256; index++) {
         pal[index] = RGBClass((unsigned char)(pal[index].Red << 2), (unsigned char)(pal[index].Green << 2),
             (unsigned char)(pal[index].Blue << 2));
     }
-    unknown_drawer_8323c4 = new ConvertClass(pal, unknown_palette_837e10, unknown_surface_839950, 0x35, false);
+    unknown_drawer_8323c4 = new ConvertClass(pal, GamePalette, unknown_surface_839950, 0x35, false);
 
     memmove(&pal[0], MixFileClass::Retrieve("UNITSNO.PAL"), sizeof(pal));
     for (index = 0; index < 256; index++) {
         pal[index] = RGBClass((unsigned char)(pal[index].Red << 2), (unsigned char)(pal[index].Green << 2),
             (unsigned char)(pal[index].Blue << 2));
     }
-    unknown_drawer_8323b4 = new ConvertClass(pal, unknown_palette_837e10, unknown_surface_839950, 0x35, false);
+    unknown_drawer_8323b4 = new ConvertClass(pal, GamePalette, unknown_surface_839950, 0x35, false);
 
     memmove(&pal[0], MixFileClass::Retrieve("CAMEO.PAL"), sizeof(pal));
     for (index = 0; index < 256; index++) {
         pal[index] = RGBClass((unsigned char)(pal[index].Red << 2), (unsigned char)(pal[index].Green << 2),
             (unsigned char)(pal[index].Blue << 2));
     }
-    unknown_drawer_8323b0 = new ConvertClass(pal, unknown_palette_837e10, unknown_surface_839950, 0x35, false);
+    unknown_drawer_8323b0 = new ConvertClass(pal, GamePalette, unknown_surface_839950, 0x35, false);
 
     memmove(&pal[0], MixFileClass::Retrieve("MOUSEPAL.PAL"), sizeof(pal));
     for (index = 0; index < 256; index++) {
         pal[index] = RGBClass((unsigned char)(pal[index].Red << 2), (unsigned char)(pal[index].Green << 2),
             (unsigned char)(pal[index].Blue << 2));
     }
-    unknown_drawer_8323c8 = new ConvertClass(pal, unknown_palette_837e10, unknown_surface_839950, 1, false);
+    unknown_drawer_8323c8 = new ConvertClass(pal, GamePalette, unknown_surface_839950, 1, false);
 
     unknown_drawer_8323bc = unknown_drawer_8323b4;
 
@@ -471,7 +471,7 @@ static bool Bootstrap()
     }
     if (unknown_grfxtxt_palette_a41670 != 0) {
         unknown_grfxtxt_drawer_a41678 = new ConvertClass(*(PaletteClass *)unknown_grfxtxt_palette_a41670,
-            unknown_palette_837e10, unknown_surface_839950, 1, false);
+            GamePalette, unknown_surface_839950, 1, false);
     }
 
     CCFileClass shpfile("GRFXTXT.SHP");
@@ -510,13 +510,13 @@ static bool Init_CDROM_Access()
             error = CDFileClass::Set_Search_Drives("?:\\");
             switch (error) {
                 case 1:
-                    Unknown_004955D0(&unknown_palette_837e10, 0, 0);
+                    Unknown_004955D0(&GamePalette, 0, 0);
                     WWMessageBox(L" ").Process(StringTable::Load_String("TXT_CD_ERROR1", 0, "D:\\Ra2\\Init.CPP", 0x104D),
                         StringTable::Load_String("TXT_OK", 0, "D:\\Ra2\\Init.CPP", 0x104D), 0, 0, false);
                     return false;
 
                 case 2:
-                    Unknown_004955D0(&unknown_palette_837e10, 0, 0);
+                    Unknown_004955D0(&GamePalette, 0, 0);
                     if (WWMessageBox(L" ").Process(StringTable::Load_String("TXT_CD_DIALOG_1", 0, "D:\\Ra2\\Init.CPP", 0x1056),
                             StringTable::Load_String("TXT_OK", 0, "D:\\Ra2\\Init.CPP", 0x1056),
                             StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\Init.CPP", 0x1056), 0, false) == 1) {
@@ -692,7 +692,7 @@ have_rules:
 
     unknown_session_a3d298.unknown_24 = Rules->Money;
     unknown_session_a3d298.UnitCount = Rules->UnitCount;
-    unknown_house_setting_7d88d8 = Rules->TechLevel;
+    BuildLevel = Rules->TechLevel;
     unknown_session_a3d298.GameSpeed_30 = Rules->GameSpeed;
     unknown_session_a3d298.unknown_difficulty_40 = Rules->AIDifficulty;
     unknown_session_a3d298.AICount = Rules->AIPlayers;
@@ -1085,7 +1085,7 @@ extern int unknown_a41698;                  // 0x00A41698
 extern int unknown_7db55c;                  // 0x007DB55C
 extern bool unknown_flag_7ce008;            // 0x007CE008
 extern PaletteClass unknown_palette_837510; // 0x00837510
-extern bool unknown_redraw_8523dc;
+extern bool SurfacesRestored;
 
 int __fastcall Unknown_00516F00(int timeout);
 bool __fastcall Unknown_00514EE0();
@@ -1141,10 +1141,10 @@ static int Choose_Campaign()
                 Voc_Play(unknown_side_voc_7db4f8, 1.0f, 0x2000, &unknown_side_sound_a411e8);
                 unknown_side_voc_7db4f8 = -1;
             }
-            if (unknown_redraw_8523dc) {
-                unknown_redraw_8523dc = false;
+            if (SurfacesRestored) {
+                SurfacesRestored = false;
                 unknown_5159b0(0, true);
-                Unknown_004E0C90(false, unknown_surface_839954, 0);
+                Unknown_004E0C90(false, HiddenSurface, 0);
             }
         }
         unknown_dialog_5ff6e0(window);
@@ -1166,7 +1166,7 @@ top:
         int selection;
         bool process = true;
 
-        unknown_flag_a40958 = true;
+        GameActive = true;
         unknown_player_a35db4 = 0;
         DoList.Init();
         OutList.Init();
@@ -1214,7 +1214,7 @@ top:
             while (process) {
                 if (PacketTransport != 0) {
                     if (unknown_session_a3d298.ViaPacketRouter) {
-                        if (unknown_connection_a409c4 != 0) {
+                        if (PacketRouterConnection != 0) {
                             unknown_OwnerTalkClass_00ab6d18.Unknown_0063FC90();
                         }
                         unknown_session_a3d298.ViaPacketRouter = false;
@@ -1300,9 +1300,9 @@ top:
                     selection = 4;
                     if (unknown_flag_a40d10) {
                         if (unknown_a41698 <= 0) {
-                            unknown_a41698 = unknown_names_a71050.Count();
+                            unknown_a41698 = Movies.Count();
                         }
-                        if (unknown_a41698 == unknown_names_a71050.Count()) {
+                        if (unknown_a41698 == Movies.Count()) {
                             unknown_a41698--;
                         }
                         Unknown_005A07F0(unknown_a41698--, -1, 1, 1, 1);
@@ -1366,9 +1366,9 @@ top:
                     break;
                 }
                 case 9:
-                    unknown_a40774++;
+                    ScenarioInit++;
                     Read_Battle_Files();
-                    unknown_a40774--;
+                    ScenarioInit--;
                     if (LoadOptionsClass().Load_Dialog_0053b190()) {
                         gameloaded = true;
                         process = false;
@@ -1522,8 +1522,8 @@ top:
                 if (!unknown_flag_7ce008) {
                     Unknown_004955D0(&unknown_palette_837510, 15, unknown_481fb0);
                 }
-                unknown_surface_839954->Fill(0);
-                Unknown_004E0C90(true, unknown_surface_839954, 0);
+                HiddenSurface->Fill(0);
+                Unknown_004E0C90(true, HiddenSurface, 0);
             }
             WWMouse->Show_Mouse();
             if (unknown_session_a3d298.Type == 4) {
@@ -1569,10 +1569,10 @@ top:
         if (!unknown_flag_7ce008) {
             Unknown_004955D0(&unknown_palette_837510, 15, unknown_481fb0);
         }
-        unknown_surface_839954->Fill(0);
-        Unknown_004E0C90(true, unknown_surface_839954, 0);
+        HiddenSurface->Fill(0);
+        Unknown_004E0C90(true, HiddenSurface, 0);
         WWMouse->Show_Mouse();
-        unknown_surface_83995c = unknown_surface_839954;
+        unknown_surface_83995c = HiddenSurface;
         Map.Override_Mouse_Shape(0x13, false);
         Map.Revert_Mouse_Shape();
         if (!Debug_Map) {
@@ -1902,7 +1902,7 @@ bool __fastcall Unknown_00514EE0()
 void __cdecl Unknown_00515100()
 {
     VQA_Unknown_0071DB20();
-    VQA_Unknown_0071DB60(0);
+    Set_Option(0);
 }
 
 
@@ -2079,7 +2079,7 @@ bool __fastcall Parse_Command_Line(int argc, char *argv[])
             }
 
             if (_stricmp(string, "-WIN") == 0) {
-                unknown_flag_851cb0 = true;
+                WindowedMode = true;
                 continue;
             }
 
@@ -2118,7 +2118,7 @@ void __fastcall Init_Random()
     Debug_Printf("Init random number\n");
     if (unknown_a3d8c8 != 0 || (unknown_flags_a3f600 & 2) != 0 || unknown_function_522e80() != 0) {
         unknown_id_source_a3d290->RandomNumber = Seed;
-        unknown_random_839218 = Seed;
+        NonCriticalRandomNumber = Seed;
         Debug_Printf("Seed is %08x\n", Seed);
         return;
     }
@@ -2150,13 +2150,13 @@ void __fastcall Init_Random()
     }
     Debug_Printf("Seed is %08x\n", Seed);
     unknown_id_source_a3d290->RandomNumber = Seed;
-    unknown_random_839218 = Seed;
+    NonCriticalRandomNumber = Seed;
 }
 
 
 // void __fastcall unknown_5159b0(int unknown1, bool unknown2) -- 0x005159B0
 // Body 0x005159B0-0x00515A79 (202 bytes, nop padding to 0x00515A80). unknown1 is really the surface to draw
-// on (0: unknown_surface_839954) and unknown2 whether to blit it afterwards; the declaration in
+// on (0: HiddenSurface) and unknown2 whether to blit it afterwards; the declaration in
 // shared/unknown_globals.hpp keeps its int parameter until a rename spec changes the signature.
 #include "shared/surface.hpp"
 #include "shared/rect.hpp"
@@ -2170,7 +2170,7 @@ void __fastcall unknown_5159b0(int unknown1, bool unknown2)
 {
     Surface *surface = (Surface *)unknown1;
     if (surface == 0) {
-        surface = unknown_surface_839954;
+        surface = HiddenSurface;
     }
     surface->Fill(0);
     int width = surface->Get_Width();
@@ -2191,16 +2191,16 @@ void __fastcall unknown_5159b0(int unknown1, bool unknown2)
 // 0x00838710 (0x00738190) and, when asked, blits it with the mouse.
 #include "shared/palette.hpp"
 
-extern PaletteClass unknown_palette_838710;
+extern PaletteClass CCPalette;
 // Reads a picture file onto a surface with a palette (0x00738190; hypothesis).
 void __fastcall Unknown_00738190(char const *filename, Surface *surface, PaletteClass *palette);
 
 void __fastcall Load_Title_Page(char const *filename, bool blit)
 {
-    unknown_surface_839954->Fill(0);
-    Unknown_00738190(filename, unknown_surface_839954, &unknown_palette_838710);
+    HiddenSurface->Fill(0);
+    Unknown_00738190(filename, HiddenSurface, &CCPalette);
     if (blit) {
-        GScreenClass::Blit(true, unknown_surface_839954);
+        GScreenClass::Blit(true, HiddenSurface);
     }
 }
 
@@ -2210,9 +2210,9 @@ void __fastcall Load_Title_Page(char const *filename, bool blit)
 
 void __fastcall Unknown_00515AC0(bool blit)
 {
-    unknown_surface_839954->Fill(0);
+    HiddenSurface->Fill(0);
     if (blit) {
-        GScreenClass::Blit(true, unknown_surface_839954);
+        GScreenClass::Blit(true, HiddenSurface);
     }
 }
 
@@ -2423,9 +2423,9 @@ void __fastcall Draw_Loading_Screen()
             color = RGBClass(color.Red << 2, color.Green << 2, color.Blue << 2);
         }
         if (palette != 0) {
-            drawer = new ConvertClass(*palette, unknown_palette_837e10, unknown_surface_839950, 1, false);
+            drawer = new ConvertClass(*palette, GamePalette, unknown_surface_839950, 1, false);
             if (drawer != 0) {
-                CCFileClass shapefile(unknown_8523e0 == 640 ? "GLSS.SHP" : "GLSL.SHP");
+                CCFileClass shapefile(VideoModeWidth == 640 ? "GLSS.SHP" : "GLSL.SHP");
                 if (shapefile.Is_Available()) {
                     shape = (ShapeFileStruct *)Load_Alloc_Data(shapefile);
                     shapefile.Close();
@@ -2439,7 +2439,7 @@ void __fastcall Draw_Loading_Screen()
     Rect area(0, 0, client.right - client.left, client.bottom - client.top);
     if (shape != 0) {
         Point2D xy((area.Width - shape->Width) / 2, (area.Height - shape->Height) / 2);
-        CC_Draw_Shape(unknown_surface_839954, drawer, shape, 0, xy, area, 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+        CC_Draw_Shape(HiddenSurface, drawer, shape, 0, xy, area, 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
     }
 
     wchar_t const *text = StringTable::Load_String("TXT_COPYRIGHT", 0, "D:\\Ra2\\Init.CPP", 4700);
@@ -2448,21 +2448,21 @@ void __fastcall Draw_Loading_Screen()
     if (font != 0) {
         xy.X = area.Width - font->String_Pixel_Width(text, 0) - 50;
     }
-    Plain_Text_Print(text, unknown_surface_839954, &area, &xy, 0xFFFF, 0, 0x16);
+    Plain_Text_Print(text, HiddenSurface, &area, &xy, 0xFFFF, 0, 0x16);
 
     text = StringTable::Load_String("GUI:WWBrand", 0, "D:\\Ra2\\Init.CPP", 4711);
     if (font != 0) {
         xy.X = area.Width - font->String_Pixel_Width(text, 0) - 50;
         xy.Y += font->Height + 3;
     }
-    Plain_Text_Print(text, unknown_surface_839954, &area, &xy, 0xFFFF, 0, 0x16);
+    Plain_Text_Print(text, HiddenSurface, &area, &xy, 0xFFFF, 0, 0x16);
 
     text = StringTable::Load_String("GUI:LoadingEx", 0, "D:\\Ra2\\Init.CPP", 4721);
     xy.X = 10;
     xy.Y = 10;
-    Plain_Text_Print(text, unknown_surface_839954, &area, &xy, 0xFFFF, 0, 0x16);
+    Plain_Text_Print(text, HiddenSurface, &area, &xy, 0xFFFF, 0, 0x16);
 
-    GScreenClass::Blit(true, unknown_surface_839954);
+    GScreenClass::Blit(true, HiddenSurface);
     unknown_title_time_a41668 = Audio_Now() + 5000;
     if (palette != 0) {
         operator delete(palette);
@@ -2550,7 +2550,7 @@ bool __fastcall Init_Bulk_Data()
 bool __fastcall Save_Recording_Values(CCFileClass &file)
 {
     Debug_Printf("Saving recording values for scenario : %s\n", unknown_id_source_a3d290->FileName);
-    file.Write(&unknown_house_setting_7d88d8, sizeof(unknown_house_setting_7d88d8));
+    file.Write(&BuildLevel, sizeof(BuildLevel));
     file.Write(&unknown_a40d3c, sizeof(unknown_a40d3c));
     file.Write(&unknown_id_source_a3d290->TechLevel, sizeof(unknown_id_source_a3d290->TechLevel));
     file.Write(unknown_id_source_a3d290->FileName, sizeof(unknown_id_source_a3d290->FileName));
@@ -2568,7 +2568,7 @@ bool __fastcall Save_Recording_Values(CCFileClass &file)
 
 bool __fastcall Load_Recording_Values(CCFileClass &file)
 {
-    file.Read(&unknown_house_setting_7d88d8, sizeof(unknown_house_setting_7d88d8));
+    file.Read(&BuildLevel, sizeof(BuildLevel));
     file.Read(&unknown_a40d3c, sizeof(unknown_a40d3c));
     file.Read(&unknown_id_source_a3d290->TechLevel, sizeof(unknown_id_source_a3d290->TechLevel));
     file.Read(unknown_id_source_a3d290->FileName, sizeof(unknown_id_source_a3d290->FileName));
@@ -2644,7 +2644,7 @@ int __stdcall Unknown_00516C40(HWND window, UINT message, WPARAM wparam, LPARAM 
 
 // void __fastcall Unknown_00516E70() -- 0x00516E70
 
-extern bool unknown_redraw_8523dc;
+extern bool SurfacesRestored;
 int __stdcall Unknown_00516C40(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 void __fastcall Unknown_00517370(bool force);
 
@@ -2672,7 +2672,7 @@ void __fastcall Unknown_00516E70()
 
 
 extern "C" int __cdecl isalnum(int character);
-extern bool unknown_redraw_8523dc;
+extern bool SurfacesRestored;
 int __stdcall Unknown_005171D0(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 void __fastcall Unknown_00517370(bool force);
 
@@ -2725,7 +2725,7 @@ int __fastcall Unknown_00516F00(int unknown_timeout)
     HWND window = unknown_create_dialog_5ff610(0xE2, Unknown_005171D0, 0);
     if (window != 0) {
         SetWindowLongA(window, 8, (LONG)&choice);
-        unknown_center_window_737080(window, MainWindow);
+        Center_Window_Within_Window(window, MainWindow);
         unknown_dialog_5ff7c0(window);
         SetFocus(MainWindow);
         unknown_5115f0(window);
@@ -2817,14 +2817,14 @@ int __stdcall Unknown_005171D0(HWND window, UINT message, WPARAM wparam, LPARAM 
 // When the screen is marked for a redraw (0x008523DC) or force: clears the
 // mark, clears the hidden surface (0x005159B0) and blits it.
 
-extern bool unknown_redraw_8523dc;
+extern bool SurfacesRestored;
 
 void __fastcall Unknown_00517370(bool force)
 {
-    if (unknown_redraw_8523dc || force) {
-        unknown_redraw_8523dc = false;
+    if (SurfacesRestored || force) {
+        SurfacesRestored = false;
         unknown_5159b0(0, true);
-        GScreenClass::Blit(false, unknown_surface_839954);
+        GScreenClass::Blit(false, HiddenSurface);
     }
 }
 
@@ -3069,15 +3069,15 @@ bool __fastcall Allocate_Surfaces(Rect *hidden, Rect *composite, Rect *tile, Rec
 {
     Debug_Printf("Allocating new surfaces\n");
 
-    if (unknown_surface_839958 != 0) {
+    if (AlternateSurface != 0) {
         Debug_Printf("Deleting AlternateSurface\n");
-        delete unknown_surface_839958;
-        unknown_surface_839958 = 0;
+        delete AlternateSurface;
+        AlternateSurface = 0;
     }
-    if (unknown_surface_839954 != 0) {
+    if (HiddenSurface != 0) {
         Debug_Printf("Deleting HiddenSurface\n");
-        delete unknown_surface_839954;
-        unknown_surface_839954 = 0;
+        delete HiddenSurface;
+        HiddenSurface = 0;
     }
     if (unknown_surface_839964 != 0) {
         Debug_Printf("Deleting CompositeSurface\n");
@@ -3089,20 +3089,20 @@ bool __fastcall Allocate_Surfaces(Rect *hidden, Rect *composite, Rect *tile, Rec
         delete unknown_surface_839944;
         unknown_surface_839944 = 0;
     }
-    if (unknown_surface_839948 != 0) {
+    if (SidebarSurface != 0) {
         Debug_Printf("Deleting SidebarSurface\n");
-        delete unknown_surface_839948;
-        unknown_surface_839948 = 0;
+        delete SidebarSurface;
+        SidebarSurface = 0;
     }
 
     bool tile_sysmem = !unknown_tile_sysmem_7f4cc4;
     bool sidebar_sysmem = !Options.AllowVRAMSidebar;
 
     if (hidden_first && hidden->Is_Valid()) {
-        unknown_surface_839954 = new DSurface(hidden->Width, hidden->Height, false);
-        unknown_surface_839954->Fill(0);
+        HiddenSurface = new DSurface(hidden->Width, hidden->Height, false);
+        HiddenSurface->Fill(0);
         Debug_Printf("HiddenSurface (%dx%d) %s\n", hidden->Width, hidden->Height,
-                     ((DSurface *)unknown_surface_839954)->Is_Video_Ram() ? "VRAM" : "SYSTEM MEMORY");
+                     ((DSurface *)HiddenSurface)->Is_Video_Ram() ? "VRAM" : "SYSTEM MEMORY");
     }
 
     if (composite->Is_Valid()) {
@@ -3132,24 +3132,24 @@ bool __fastcall Allocate_Surfaces(Rect *hidden, Rect *composite, Rect *tile, Rec
     }
 
     if (sidebar->Is_Valid()) {
-        unknown_surface_839948 = new DSurface(sidebar->Width, sidebar->Height, Memory_Flag(sidebar_sysmem));
-        unknown_surface_839948->Fill(0);
+        SidebarSurface = new DSurface(sidebar->Width, sidebar->Height, Memory_Flag(sidebar_sysmem));
+        SidebarSurface->Fill(0);
         Debug_Printf("SidebarSurface (%dx%d) %s\n", sidebar->Width, sidebar->Height,
-                     ((DSurface *)unknown_surface_839948)->Is_Video_Ram() ? "VRAM" : "SYSTEM MEMORY");
+                     ((DSurface *)SidebarSurface)->Is_Video_Ram() ? "VRAM" : "SYSTEM MEMORY");
     }
 
     if (!hidden_first && hidden->Is_Valid()) {
-        unknown_surface_839954 = new DSurface(hidden->Width, hidden->Height, false);
-        unknown_surface_839954->Fill(0);
+        HiddenSurface = new DSurface(hidden->Width, hidden->Height, false);
+        HiddenSurface->Fill(0);
         Debug_Printf("HiddenSurface (%dx%d) %s\n", hidden->Width, hidden->Height,
-                     ((DSurface *)unknown_surface_839954)->Is_Video_Ram() ? "VRAM" : "SYSTEM MEMORY");
+                     ((DSurface *)HiddenSurface)->Is_Video_Ram() ? "VRAM" : "SYSTEM MEMORY");
     }
 
     if (hidden->Is_Valid()) {
-        unknown_surface_839958 = new DSurface(hidden->Width, hidden->Height, true);
-        unknown_surface_839958->Fill(0);
+        AlternateSurface = new DSurface(hidden->Width, hidden->Height, true);
+        AlternateSurface->Fill(0);
         Debug_Printf("AlternateSurface (%dx%d) %s\n", hidden->Width, hidden->Height,
-                     ((DSurface *)unknown_surface_839958)->Is_Video_Ram() ? "VRAM" : "SYSTEM MEMORY");
+                     ((DSurface *)AlternateSurface)->Is_Video_Ram() ? "VRAM" : "SYSTEM MEMORY");
     }
 
     return true;
@@ -3200,8 +3200,8 @@ bool __fastcall Allocate_Surfaces(Rect *hidden, Rect *composite, Rect *tile, Rec
 
 void __fastcall Delete_All_Objects_00519960()
 {
-    unknown_a40774++;
-    unknown_objects_ac0cd8.Clear();
+    ScenarioInit++;
+    ObjectsToDelete.Clear();
     while (unknown_object_index_abff58.Count()) {
         delete unknown_object_index_abff58.Fetch_By_Position(0);
     }
@@ -3321,18 +3321,18 @@ void __fastcall Delete_All_Objects_00519960()
         delete AbstractTypes[0];
     }
     Unknown_006ecf10();
-    delete unknown_tactical_83996c;
-    unknown_tactical_83996c = 0;
+    delete TacticalMap;
+    TacticalMap = 0;
     Map.unknown_slot23();
     Unknown_006ecf10();
     unknown_object_84e8d0.Unknown_0042E150();
-    unknown_a40774--;
+    ScenarioInit--;
 }
 
 
 // void __fastcall Init_Theater_00519e70(int theater) -- 0x00519E70
 // Body 0x00519E70-0x0051A263 (1012 bytes). Tiberian Sun's Init_Theater: reopens the theater mixfiles,
-// loads the theater palette (unknown_palette_837e10, the game palette), copies it to the original
+// loads the theater palette (GamePalette, the game palette), copies it to the original
 // palette (0x00838110), loads UNIT<suffix>.PAL into the scheme palette and rebuilds every colour
 // scheme's converters from the two.
 #include "shared/anim_type.hpp"
@@ -3401,14 +3401,14 @@ void __fastcall Init_Theater_00519e70(int theater)
                 unsigned char r = (unsigned char)((*ptr++) << 2);
                 unsigned char g = (unsigned char)((*ptr++) << 2);
                 unsigned char b = (unsigned char)((*ptr++) << 2);
-                unknown_palette_837e10[color] = RGBClass(r, g, b);
+                GamePalette[color] = RGBClass(r, g, b);
             }
         } else {
             for (int color = 0; color < 256; color++) {
-                unknown_palette_837e10[color] = RGBClass(color, 255 - color, (color << 2) & 0xFF);
+                GamePalette[color] = RGBClass(color, 255 - color, (color << 2) & 0xFF);
             }
         }
-        unknown_palette_838110 = unknown_palette_837e10;
+        unknown_palette_838110 = GamePalette;
 
         wsprintfA(fullname, "UNIT%s.PAL", Theaters[theater].Suffix);
         PaletteClass const *unitpal = (PaletteClass const *)MixFileClass::Retrieve(fullname);
@@ -3426,7 +3426,7 @@ void __fastcall Init_Theater_00519e70(int theater)
         int last_percent = 12;
         int prog_step = ColorSchemes.Count() / (25 - 12);
         for (int s = 0; s < ColorSchemes.Count(); s++) {
-            ColorSchemes[s]->Unknown_00663B40(&unknown_palette_838a10, &unknown_palette_837e10, 1000, 1000, 1000);
+            ColorSchemes[s]->Unknown_00663B40(&unknown_palette_838a10, &GamePalette, 1000, 1000, 1000);
             int percent = (min(12 + (s / prog_step), 25));
             if (percent != last_percent) {
                 unknown_session_a3d298.Update_Progress(percent);
@@ -3545,7 +3545,7 @@ bool __fastcall Unknown_0051a330(int side)
 }
 
 
-// ObjectClass *__fastcall Unknown_0051A690(Cell const *cell, ObjectClass *object) -- 0x0051A690
+// ObjectClass *__fastcall Best_Selected_Object(Cell const *cell, ObjectClass *object) -- 0x0051A690
 // Body 0x0051A690-0x0051A864 (469 bytes, nop padding to 0x0051A870). Called from 0x00630049/0x00630063
 // and 0x00669984/0x006699A5.
 #include "shared/techno.hpp"
@@ -3557,7 +3557,7 @@ bool __fastcall Unknown_0051a330(int side)
 // techno with unknown_slot201, 2 the other flagged technos, 3 with unknown_slot163, 4 that and not a
 // building (Kind_Of 6), 5 that and unknown_6c16f0(-1) > 0. The separate Count() > 0 guard is the
 // original's (the count is tested twice before the loop).
-ObjectClass *__fastcall Unknown_0051A690(Cell const *cell, ObjectClass *object)
+ObjectClass *__fastcall Best_Selected_Object(Cell const *cell, ObjectClass *object)
 {
     ObjectClass *best = 0;
     int best_priority = -1;
@@ -3724,9 +3724,9 @@ int __fastcall Get_Performance_Profile()
         int speed = 5;
         int blits = 0;
         if (unknown_surface_839944 != 0 && ((DSurface *)unknown_surface_839944)->Is_Video_Ram()
-            && !((DSurface *)unknown_surface_839958)->Is_Video_Ram()) {
+            && !((DSurface *)AlternateSurface)->Is_Video_Ram()) {
             Rect area = unknown_surface_839944->Get_Rect();
-            Rect other = unknown_surface_839958->Get_Rect();
+            Rect other = AlternateSurface->Get_Rect();
             if (area.Width >= other.Width) {
                 area.Width = other.Width;
             }
@@ -3740,18 +3740,18 @@ int __fastcall Get_Performance_Profile()
                 area.Height = 400;
             }
             for (int index = 0; index < 4; index++) {
-                unknown_surface_839944->Copy_From(area, *unknown_surface_839958, area, false, true);
-                unknown_surface_839958->Copy_From(area, *unknown_surface_839944, area, false, true);
+                unknown_surface_839944->Copy_From(area, *AlternateSurface, area, false, true);
+                AlternateSurface->Copy_From(area, *unknown_surface_839944, area, false, true);
                 Sleep(0);
             }
             DWORD start = timeGetTime();
             if ((start & 0xFF000000) != 0xFF) {
-                unknown_surface_839944->Copy_From(area, *unknown_surface_839958, area, false, true);
-                unknown_surface_839958->Copy_From(area, *unknown_surface_839944, area, false, true);
+                unknown_surface_839944->Copy_From(area, *AlternateSurface, area, false, true);
+                AlternateSurface->Copy_From(area, *unknown_surface_839944, area, false, true);
                 blits++;
                 while (timeGetTime() - start <= 1000 && blits <= 5000) {
-                    unknown_surface_839944->Copy_From(area, *unknown_surface_839958, area, false, true);
-                    unknown_surface_839958->Copy_From(area, *unknown_surface_839944, area, false, true);
+                    unknown_surface_839944->Copy_From(area, *AlternateSurface, area, false, true);
+                    AlternateSurface->Copy_From(area, *unknown_surface_839944, area, false, true);
                     blits++;
                 }
                 speed = blits / 4 < 1 ? 1 : blits / 4;
@@ -5141,9 +5141,9 @@ void CenterBaseCommandClass::Execute(int key) const
         }
     }
     if (yard != unknown_geometry_l) {
-        unknown_tactical_83996c->Set_Tactical_Position_006a66b0(yard);
+        TacticalMap->Set_Tactical_Position_006a66b0(yard);
     } else if (other != unknown_geometry_l) {
-        unknown_tactical_83996c->Set_Tactical_Position_006a66b0(other);
+        TacticalMap->Set_Tactical_Position_006a66b0(other);
     }
     if (Map.unknown_11a4 != 0) {
         Map.Unknown_004994D0(unknown_geometry_k);
@@ -6011,7 +6011,7 @@ void View1CommandClass::Execute(int key) const
 {
     CoordStruct coord(unknown_id_source_a3d290->Views[0].X * 256 + 128, unknown_id_source_a3d290->Views[0].Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
-    unknown_tactical_83996c->Set_Tactical_Position_006a66b0(coord);
+    TacticalMap->Set_Tactical_Position_006a66b0(coord);
     if (Map.unknown_11a4 != 0) {
         Map.Unknown_004994D0(unknown_geometry_k);
     }
@@ -6062,7 +6062,7 @@ void View2CommandClass::Execute(int key) const
 {
     CoordStruct coord(unknown_id_source_a3d290->Views[1].X * 256 + 128, unknown_id_source_a3d290->Views[1].Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
-    unknown_tactical_83996c->Set_Tactical_Position_006a66b0(coord);
+    TacticalMap->Set_Tactical_Position_006a66b0(coord);
     if (Map.unknown_11a4 != 0) {
         Map.Unknown_004994D0(unknown_geometry_k);
     }
@@ -6113,7 +6113,7 @@ void View3CommandClass::Execute(int key) const
 {
     CoordStruct coord(unknown_id_source_a3d290->Views[2].X * 256 + 128, unknown_id_source_a3d290->Views[2].Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
-    unknown_tactical_83996c->Set_Tactical_Position_006a66b0(coord);
+    TacticalMap->Set_Tactical_Position_006a66b0(coord);
     if (Map.unknown_11a4 != 0) {
         Map.Unknown_004994D0(unknown_geometry_k);
     }
@@ -6164,7 +6164,7 @@ void View4CommandClass::Execute(int key) const
 {
     CoordStruct coord(unknown_id_source_a3d290->Views[3].X * 256 + 128, unknown_id_source_a3d290->Views[3].Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
-    unknown_tactical_83996c->Set_Tactical_Position_006a66b0(coord);
+    TacticalMap->Set_Tactical_Position_006a66b0(coord);
     if (Map.unknown_11a4 != 0) {
         Map.Unknown_004994D0(unknown_geometry_k);
     }
@@ -6212,8 +6212,8 @@ wchar_t const *SetView1CommandClass::Get_Description() const
 
 void SetView1CommandClass::Execute(int key) const
 {
-    Point2D point = unknown_tactical_83996c->Unknown_006A67D0();
-    unknown_id_source_a3d290->Views[0] = unknown_tactical_83996c->Pixel_To_Cell(point);
+    Point2D point = TacticalMap->Unknown_006A67D0();
+    unknown_id_source_a3d290->Views[0] = TacticalMap->Pixel_To_Cell(point);
 }
 
 
@@ -6258,8 +6258,8 @@ wchar_t const *SetView2CommandClass::Get_Description() const
 
 void SetView2CommandClass::Execute(int key) const
 {
-    Point2D point = unknown_tactical_83996c->Unknown_006A67D0();
-    unknown_id_source_a3d290->Views[1] = unknown_tactical_83996c->Pixel_To_Cell(point);
+    Point2D point = TacticalMap->Unknown_006A67D0();
+    unknown_id_source_a3d290->Views[1] = TacticalMap->Pixel_To_Cell(point);
 }
 
 
@@ -6304,8 +6304,8 @@ wchar_t const *SetView3CommandClass::Get_Description() const
 
 void SetView3CommandClass::Execute(int key) const
 {
-    Point2D point = unknown_tactical_83996c->Unknown_006A67D0();
-    unknown_id_source_a3d290->Views[2] = unknown_tactical_83996c->Pixel_To_Cell(point);
+    Point2D point = TacticalMap->Unknown_006A67D0();
+    unknown_id_source_a3d290->Views[2] = TacticalMap->Pixel_To_Cell(point);
 }
 
 
@@ -6350,8 +6350,8 @@ wchar_t const *SetView4CommandClass::Get_Description() const
 
 void SetView4CommandClass::Execute(int key) const
 {
-    Point2D point = unknown_tactical_83996c->Unknown_006A67D0();
-    unknown_id_source_a3d290->Views[3] = unknown_tactical_83996c->Pixel_To_Cell(point);
+    Point2D point = TacticalMap->Unknown_006A67D0();
+    unknown_id_source_a3d290->Views[3] = TacticalMap->Pixel_To_Cell(point);
 }
 
 
@@ -6461,17 +6461,17 @@ void ScreenCaptureCommandClass::Execute(int key) const
             bottomright.y = client.bottom;
             if (ClientToScreen(MainWindow, &bottomright)) {
                 Rect area(topleft.x, topleft.y, client.right + 1, client.bottom + 1);
-                if (area.Width >= unknown_surface_839954->Get_Width()) {
-                    area.Width = unknown_surface_839954->Get_Width();
+                if (area.Width >= HiddenSurface->Get_Width()) {
+                    area.Width = HiddenSurface->Get_Width();
                 }
-                if (area.Height >= unknown_surface_839954->Get_Height()) {
-                    area.Height = unknown_surface_839954->Get_Height();
+                if (area.Height >= HiddenSurface->Get_Height()) {
+                    area.Height = HiddenSurface->Get_Height();
                 }
                 WWMouse->Hide_Mouse();
-                int width = unknown_surface_839954->Get_Width();
-                int height = unknown_surface_839954->Get_Height();
+                int width = HiddenSurface->Get_Width();
+                int height = HiddenSurface->Get_Height();
                 Rect full(0, 0, width, height);
-                unknown_surface_839954->Copy_From(full, *unknown_surface_839950, area, false, true);
+                HiddenSurface->Copy_From(full, *unknown_surface_839950, area, false, true);
                 WWMouse->Show_Mouse();
                 char filename[128];
                 int index = -1;
@@ -6482,7 +6482,7 @@ void ScreenCaptureCommandClass::Execute(int key) const
                     exists = CCFileClass(filename).Is_Available();
                 } while (exists);
                 CCFileClass file(filename);
-                Write_PCX_File(file, *unknown_surface_839954, &unknown_palette_837e10);
+                Write_PCX_File(file, *HiddenSurface, &GamePalette);
             }
         }
     }

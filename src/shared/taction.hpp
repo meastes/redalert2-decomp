@@ -72,7 +72,7 @@ public:
     bool unknown_set_house_137(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B1400
     bool unknown_set_global_variable(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B2000
     bool unknown_clear_global_variable(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B2020
-    bool unknown_func_6b2f90(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B2F90 (Unknown_0065C1F0(Data); always true)
+    bool unknown_func_6b2f90(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B2F90 (Hold_Scenario(Data); always true)
     bool unknown_func_6b0d30(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B0D30 (Unknown_005A07F0(Data, -1, 1, 1, 1))
     bool unknown_func_6b0d50(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B0D50 (Unknown_005A0920(Data, false))
     bool unknown_func_6b0d60(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B0D60 (Unknown_005A0920(Data, true))

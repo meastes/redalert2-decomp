@@ -333,7 +333,7 @@ void ThemeClass::AI()
             return;
         }
         ThemeType theme = Pending;
-        if (theme != -1 && theme != -3 && unknown_a40774 == 0) {
+        if (theme != -1 && theme != -3 && ScenarioInit == 0) {
             if (theme == -2) {
                 Pending = Pick_Next_Song(Score);
                 Debug_Printf("Theme::AI(Next song = %d)\n", Pending);
@@ -363,7 +363,7 @@ ThemeType ThemeClass::Pick_Next_Song(ThemeType current)
             int tries = 0;
             int pick;
             do {
-                pick = unknown_random_839218(0, Themes.Count() - 1);
+                pick = NonCriticalRandomNumber(0, Themes.Count() - 1);
                 tries++;
             } while (tries < 1000 && (pick == current || !unknown_6e8440(pick)));
             if (tries == 1000) {

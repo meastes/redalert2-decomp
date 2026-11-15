@@ -105,7 +105,7 @@ void Movie_Unlock_Surface()
 void Movie_Blit_To_Screen()
 {
     RECT rect;
-    if (!VQA_Unknown_0071DBA0(15)) {
+    if (!Get_Option(15)) {
         GetClientRect(MainWindow, &rect);
         ClientToScreen(MainWindow, (POINT *)&rect);
         Rect area;
@@ -124,25 +124,25 @@ void Movie_Blit_To_Screen()
 void Movie_Blit_To_Screen_Hidden()
 {
     RECT rect;
-    if (!VQA_Unknown_0071DBA0(15)) {
-        unknown_surface_839954->Copy_From(CurrentVQAMovie->Source, *CurrentVQAMovie->FrameSurface,
+    if (!Get_Option(15)) {
+        HiddenSurface->Copy_From(CurrentVQAMovie->Source, *CurrentVQAMovie->FrameSurface,
                                           CurrentVQAMovie->Source, false, true);
         if (CurrentVQAMovie->Companion != 0 && CurrentVQAMovie->Companion->unknown_00 != 0) {
             Surface *picture = CurrentVQAMovie->Companion->unknown_10;
             Rect area = picture->Get_Rect();
             Rect dest;
-            dest.X = (unknown_surface_839954->Get_Width() - area.Width) / 2;
-            dest.Y = unknown_surface_839954->Get_Height() - area.Height;
+            dest.X = (HiddenSurface->Get_Width() - area.Width) / 2;
+            dest.Y = HiddenSurface->Get_Height() - area.Height;
             dest.Width = area.Width;
             dest.Height = area.Height;
-            unknown_surface_839954->Copy_From(dest, *picture, area, true, true);
+            HiddenSurface->Copy_From(dest, *picture, area, true, true);
         }
         GetClientRect(MainWindow, &rect);
         ClientToScreen(MainWindow, (POINT *)&rect);
         Rect area;
         area.Set(rect.left + CurrentVQAMovie->Dest.X, rect.top + CurrentVQAMovie->Dest.Y,
                  CurrentVQAMovie->Dest.Width, CurrentVQAMovie->Dest.Height);
-        unknown_surface_839950->Copy_From(area, *unknown_surface_839954, CurrentVQAMovie->Source, false, true);
+        unknown_surface_839950->Copy_From(area, *HiddenSurface, CurrentVQAMovie->Source, false, true);
     }
 }
 
@@ -169,7 +169,7 @@ inline Rect Intersect_Rects(Rect const &rect1, Rect const &rect2)
     return Intersect(rect1, rect2, (int *)0, (int *)0);
 }
 
-VQAMovie *__fastcall VQA_Unknown_005A1010(char const *name, Surface *surface, Rect source, Rect dest, int volume,
+VQAMovie *__fastcall Movie_Create(char const *name, Surface *surface, Rect source, Rect dest, int volume,
                                           bool fullscreen)
 {
     void (*callback)() = 0;
@@ -181,10 +181,10 @@ VQAMovie *__fastcall VQA_Unknown_005A1010(char const *name, Surface *surface, Re
         int flags = 0;
 
         if (!unknown_check_406f30()) {
-            VQA_Unknown_0071DB60(3);
+            Set_Option(3);
         }
 
-        if (VQA_Unknown_0071DBA0(0)) {
+        if (Get_Option(0)) {
             flags |= 1;
         }
 
@@ -239,7 +239,7 @@ VQAMovie *__fastcall VQA_Unknown_005A1010(char const *name, Surface *surface, Re
         movie->FrameSurface = surface;
         movie->Player->Set_Draw_Buffer(0, surface->Stride() / surface->Bytes_Per_Pixel(), surface->Get_Height(),
                                         0, 0);
-        movie->Companion = unknown_create_companion_69b190(name);
+        movie->Companion = Subtitles_Open(name);
         if (movie->Companion != 0) {
             movie->Player->Companion = movie->Companion;
         }
@@ -288,7 +288,7 @@ void __fastcall VQA_Movie_Play(VQAMovie *movie, bool hide, int theme, bool unkno
     int start = 0;
     int unknown2 = -1;
     int repeats = 0;
-    if (VQA_Unknown_0071DBA0(2)) {
+    if (Get_Option(2)) {
         start = movie->unknown_10;
         if (movie->unknown_14 >= 0) {
             unknown2 = movie->unknown_14;
@@ -334,11 +334,11 @@ void __fastcall VQA_Movie_Play(VQAMovie *movie, bool hide, int theme, bool unkno
 }
 
 
-// bool __fastcall VQA_Movie_Unknown_005A15F0(VQAMovie *movie, bool *unknown) (0x005A15F0)
+// bool __fastcall Movie_Advance_Frame(VQAMovie *movie, bool *unknown) (0x005A15F0)
 // Runs one player step (0x0071CFC0) as the current movie unless another
 // movie is playing.
 
-bool __fastcall VQA_Movie_Unknown_005A15F0(VQAMovie *movie, bool *unknown)
+bool __fastcall Movie_Advance_Frame(VQAMovie *movie, bool *unknown)
 {
     if (CurrentVQAMovie) {
         return false;
@@ -387,9 +387,9 @@ void __fastcall VQA_Movie_Resume(VQAMovie *movie)
 void __fastcall VQA_Movie_Blit()
 {
     if (CurrentVQAMovie) {
-        unknown_surface_839958->Fill(0);
-        Unknown_004E0C90(false, unknown_surface_839958, 0);
-        if (!VQA_Unknown_0071DBA0(15)) {
+        AlternateSurface->Fill(0);
+        Unknown_004E0C90(false, AlternateSurface, 0);
+        if (!Get_Option(15)) {
             RECT client;
             GetClientRect(MainWindow, &client);
             ClientToScreen(MainWindow, (POINT *)&client);
@@ -491,7 +491,7 @@ bool VQMovieHandle::Is_Finished()
 bool VQMovieHandle::AdvanceFrame()
 {
     if (!Movie->Player->unknown_548 && Movie->Playing) {
-        return VQA_Movie_Unknown_005A15F0(Movie, &Finished);
+        return Movie_Advance_Frame(Movie, &Finished);
     }
     return false;
 }
@@ -718,7 +718,7 @@ bool __fastcall Find_Movie_File(char const *name, char *found, int unused)
 
 extern "C" char *__cdecl strrchr(char const *string, int character);
 extern "C" int __cdecl _stricmp(char const *string1, char const *string2);
-VQAMovie *__fastcall VQA_Unknown_005A1010(char const *filename, Surface *surface, Rect unknown1, Rect area,
+VQAMovie *__fastcall Movie_Create(char const *filename, Surface *surface, Rect unknown1, Rect area,
                                           int unknown2, bool unknown3);   // 0x005A1010
 
 MovieHandle *__fastcall Create_Movie_Handle(char const *name, Surface *surface, Rect const *area)
@@ -743,7 +743,7 @@ MovieHandle *__fastcall Create_Movie_Handle(char const *name, Surface *surface, 
         return new BinkMovieHandle(bink);
     }
 
-    VQAMovie *movie = VQA_Unknown_005A1010(filename, surface, Rect(0, 0, 0, 0), rect, 0xFF, 0);
+    VQAMovie *movie = Movie_Create(filename, surface, Rect(0, 0, 0, 0), rect, 0xFF, 0);
     if (!movie) {
         return 0;
     }

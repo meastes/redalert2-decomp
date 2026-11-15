@@ -101,7 +101,7 @@ TiberiumClass::TiberiumClass(char const *ini_name)
     ArrayIndex = unknown_TiberiumClass_list_00ac0b30.Count();
     unknown_TiberiumClass_list_00ac0b30.Add(this);
     Debris.Clear();
-    unknown_objects_ac0cb0.Add(this);
+    AbstractTypePtrTracker.Add(this);
 }
 
 
@@ -110,7 +110,7 @@ TiberiumClass::TiberiumClass(char const *ini_name)
 TiberiumClass::~TiberiumClass()
 {
     Detach_This_From_All(this, true);
-    unknown_objects_ac0cb0.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
     unknown_TiberiumClass_list_00ac0b30.Delete(this);
     delete SpreadData;
     SpreadData = 0;

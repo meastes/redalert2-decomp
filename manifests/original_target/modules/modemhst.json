@@ -460,56 +460,56 @@
    "address": "007b4ae8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 217
+   "section": 216
   },
   {
    "symbol": "??_R2Pipe@@8",
    "address": "007b79dc",
    "bytes": 5,
    "kind": "rtti",
-   "section": 218
+   "section": 212
   },
   {
    "symbol": "??_R3Pipe@@8",
    "address": "007b79e8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 219
+   "section": 213
   },
   {
    "symbol": "??_R4Pipe@@6B@",
    "address": "007b79f8",
    "bytes": 20,
    "kind": "rtti",
-   "section": 221
+   "section": 214
   },
   {
    "symbol": "??_R1A@?0A@A@BufferPipe@@8",
    "address": "007b7a10",
    "bytes": 24,
    "kind": "rtti",
-   "section": 212
+   "section": 217
   },
   {
    "symbol": "??_R2BufferPipe@@8",
    "address": "007b7a28",
    "bytes": 9,
    "kind": "rtti",
-   "section": 213
+   "section": 218
   },
   {
    "symbol": "??_R3BufferPipe@@8",
    "address": "007b7a38",
    "bytes": 16,
    "kind": "rtti",
-   "section": 214
+   "section": 219
   },
   {
    "symbol": "??_R4BufferPipe@@6B@",
    "address": "007b7a48",
    "bytes": 20,
    "kind": "rtti",
-   "section": 216
+   "section": 221
   },
   {
    "symbol": "??_R0?AVCCFileClass@@@8",
@@ -558,7 +558,7 @@
    "address": "007d1e90",
    "bytes": 19,
    "kind": "rtti",
-   "section": 220
+   "section": 215
   },
   {
    "symbol": "??_C@_05NAGO@false?$AA@",
@@ -579,7 +579,7 @@
    "address": "007d5e30",
    "bytes": 25,
    "kind": "rtti",
-   "section": 215
+   "section": 220
   },
   {
    "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
@@ -2249,13 +2249,13 @@
  "references_in": [
   {
    "site": "005c67c0",
-   "symbol": "?Unknown_0059c880@@YA_NXZ",
+   "symbol": "?ModemHostCallback@@YA_NXZ",
    "target": "0059c880",
    "function_entry": true
   },
   {
    "site": "005c84e0",
-   "symbol": "?Unknown_0059c880@@YA_NXZ",
+   "symbol": "?ModemHostCallback@@YA_NXZ",
    "target": "0059c880",
    "function_entry": true
   },
@@ -2372,6 +2372,14 @@
    "address": "0061d460"
   },
   {
+   "symbol": "?BuildLevel@@3HA",
+   "address": "007d88d8"
+  },
+  {
+   "symbol": "?Build_Number@@YAHXZ",
+   "address": "00737af0"
+  },
+  {
    "symbol": "?Char_To_Wide_006fa0c0@@YIXPAGPBDH@Z",
    "address": "006fa0c0"
   },
@@ -2468,6 +2476,10 @@
    "address": "005d03c0"
   },
   {
+   "symbol": "?IsRandomMap@@3_NA",
+   "address": "007e6dc0"
+  },
+  {
    "symbol": "?Is_Available@BufferIOFileClass@@UAE_NH@Z",
    "address": "0042f6e0"
   },
@@ -2504,12 +2516,24 @@
    "address": "007131b0"
   },
   {
+   "symbol": "?ModemHostCallback@@YA_NXZ",
+   "address": "0059c880"
+  },
+  {
    "symbol": "?ModemRXString@@3PADA",
    "address": "00a72e10"
   },
   {
+   "symbol": "?MultiplayerMapPreview@@3PAVMapPreviewClass@@A",
+   "address": "00a72ce8"
+  },
+  {
    "symbol": "?Narrow_To_Wide_006fa180@@YIPAGPBD@Z",
    "address": "006fa180"
+  },
+  {
+   "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+   "address": "00839218"
   },
   {
    "symbol": "?Num_Send@NullModemClass@@QAEHXZ",
@@ -2562,6 +2586,10 @@
   {
    "symbol": "?RandomMapGen@@3VMapGeneratorClass@@A",
    "address": "00a6fd68"
+  },
+  {
+   "symbol": "?RandomMapWaypointCount@@YIHH@Z",
+   "address": "005c6600"
   },
   {
    "symbol": "?Random_Map_CRC_005c8420@@YIPADXZ",
@@ -2672,16 +2700,12 @@
    "address": "00839980"
   },
   {
-   "symbol": "?Unknown_0059c880@@YA_NXZ",
-   "address": "0059c880"
+   "symbol": "?Title_Screen_Restore@@YIX_N@Z",
+   "address": "00517370"
   },
   {
    "symbol": "?Unknown_005B5EE0@@YAXXZ",
    "address": "005b5ee0"
-  },
-  {
-   "symbol": "?Unknown_005c6600@@YIHH@Z",
-   "address": "005c6600"
   },
   {
    "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
@@ -2698,10 +2722,6 @@
   {
    "symbol": "?Unknown_0068B420@SpecialClass@@QAEXXZ",
    "address": "0068b420"
-  },
-  {
-   "symbol": "?Unknown_00737af0@@YAHXZ",
-   "address": "00737af0"
   },
   {
    "symbol": "?VerNum@@3VVersionClass@@A",
@@ -2744,6 +2764,10 @@
    "address": "005c2da0"
   },
   {
+   "symbol": "?_ModemHost@@3PAVModemHost@@A",
+   "address": "00a70de4"
+  },
+  {
    "symbol": "?cleanup@Leaf_59cb80@@QAEXXZ",
    "address": "0061d440"
   },
@@ -2754,10 +2778,6 @@
   {
    "symbol": "?serial_manager_00a40a28@@3VNullModemClass@@A",
    "address": "00a40a28"
-  },
-  {
-   "symbol": "?unknown_517370@@YIX_N@Z",
-   "address": "00517370"
   },
   {
    "symbol": "?unknown_6000d0@@YA_NXZ",
@@ -2808,10 +2828,6 @@
    "address": "005ff7c0"
   },
   {
-   "symbol": "?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A",
-   "address": "00a72ce8"
-  },
-  {
    "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
    "address": "005ffb00"
   },
@@ -2822,14 +2838,6 @@
   {
    "symbol": "?unknown_flag_839c4c@@3_NA",
    "address": "00839c4c"
-  },
-  {
-   "symbol": "?unknown_host_shown_7e6dc0@@3_NA",
-   "address": "007e6dc0"
-  },
-  {
-   "symbol": "?unknown_house_setting_7d88d8@@3HA",
-   "address": "007d88d8"
   },
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
@@ -2852,10 +2860,6 @@
    "address": "004ba5b0"
   },
   {
-   "symbol": "?unknown_modem_host_a70de4@@3PAVModemHost@@A",
-   "address": "00a70de4"
-  },
-  {
    "symbol": "?unknown_modem_host_first_7e2410@@3_NA",
    "address": "007e2410"
   },
@@ -2866,10 +2870,6 @@
   {
    "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
    "address": "00a3fa7c"
-  },
-  {
-   "symbol": "?unknown_random_839218@@3VRandom2Class@@A",
-   "address": "00839218"
   },
   {
    "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
@@ -3064,13 +3064,13 @@
   {
    "site": "005c67c0",
    "target": "0059c880",
-   "symbol": "?Unknown_0059c880@@YA_NXZ",
+   "symbol": "?ModemHostCallback@@YA_NXZ",
    "module_symbol": "?Idle_0059c880@ModemHost@@SA_NXZ"
   },
   {
    "site": "005c84e0",
    "target": "0059c880",
-   "symbol": "?Unknown_0059c880@@YA_NXZ",
+   "symbol": "?ModemHostCallback@@YA_NXZ",
    "module_symbol": "?Idle_0059c880@ModemHost@@SA_NXZ"
   }
  ],

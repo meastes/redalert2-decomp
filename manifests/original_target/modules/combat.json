@@ -1211,6 +1211,10 @@
    "address": "007b15e4"
   },
   {
+   "symbol": "?AircraftTracker@@3UAircraftTrackerClass@@A",
+   "address": "00839ea0"
+  },
+  {
    "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
    "address": "0040dc20"
   },
@@ -1229,6 +1233,10 @@
   {
    "symbol": "?Fetch_Next_004134e0@AircraftTrackerClass@@QAEPAVTechnoClass@@XZ",
    "address": "004134e0"
+  },
+  {
+   "symbol": "?GasSystem@@3PAVParticleSystemClass@@A",
+   "address": "00a40d20"
   },
   {
    "symbol": "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z",
@@ -1275,6 +1283,10 @@
    "address": "0060b190"
   },
   {
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
    "symbol": "?Unknown_004128A0@AircraftTrackerClass@@QAEXPAVCellClass@@H@Z",
    "address": "004128a0"
   },
@@ -1291,16 +1303,16 @@
    "address": "0055edb0"
   },
   {
-   "symbol": "?Unknown_00566340@MapClass@@QAEXABVCell@@@Z",
-   "address": "00566340"
-  },
-  {
    "symbol": "?Unknown_00569090@MapClass@@QAE_NPAVCell@@@Z",
    "address": "00569090"
   },
   {
    "symbol": "?Unknown_006D7C80@@YIXPAVAbstractClass@@@Z",
    "address": "006d7c80"
+  },
+  {
+   "symbol": "?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z",
+   "address": "00566340"
   },
   {
    "symbol": "?Update_Cell_Zone@MapClass@@QAEXABVCell@@@Z",
@@ -1317,10 +1329,6 @@
   {
    "symbol": "?unknown_a6eb1c@@3IA",
    "address": "00a6eb1c"
-  },
-  {
-   "symbol": "?unknown_gas_cloud_system_a40d20@@3PAVParticleSystemClass@@A",
-   "address": "00a40d20"
   },
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
@@ -1347,10 +1355,6 @@
    "address": "004ba410"
   },
   {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
-  },
-  {
    "symbol": "?unknown_tileset_a52c74@@3HA",
    "address": "00a52c74"
   },
@@ -1365,10 +1369,6 @@
   {
    "symbol": "?unknown_tileset_a6cb7c@@3HA",
    "address": "00a6cb7c"
-  },
-  {
-   "symbol": "?unknown_tracker_839ea0@@3UAircraftTrackerClass@@A",
-   "address": "00839ea0"
   },
   {
    "symbol": "__CIpow",

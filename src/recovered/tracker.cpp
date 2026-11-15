@@ -1,11 +1,43 @@
-// tracker.cpp: the original translation unit re-filed as one source (Route A): the accepted
-// bodies of its canonical compile group in address order, under the unit's own header
-// state (its switches and includes in their original order). The module map
-// manifests/original_target/modules/tracker.json carries the addresses and the rows that
-// stay in their own files.
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// From mischa85/RedAlert2 392e904 src/tracker.cpp (matching RA2 1.006 decomp; TibSun tracker.cpp): the tracker
+// list names, function names and comments; modified (our module form and header state, Route A unit map
+// manifests/original_target/modules/tracker.json).
 
-// Header-static dynamic initializers of the unit at 0x006EC3A0 and the
-// unit's twelve AbstractClass lists; the other drafts of this plan are emitted by this file.
+/* $Header: /CounterStrike/TRACKER.CPP 1     3/03/97 10:26a Joe_bostic $ */
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                    File Name : TRACKER.CPP                                                  *
+ *                                                                                             *
+ *                   Programmer : Joe L. Bostic                                                *
+ *                                                                                             *
+ *                   Start Date : 06/14/96                                                     *
+ *                                                                                             *
+ *                  Last Update : June 14, 1996 [JLB]                                          *
+ *                                                                                             *
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ *   Detach_This_From_All -- Detaches this object from all others.                             *
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+// Header-static dynamic initializers of the unit at 0x006EC3A0 and the unit's twelve
+// tracker lists (each an initializer and an atexit destructor, 0x006EC610-0x006ECB50; every
+// vtable store is DynamicVectorClass<AbstractClass *> 0x007A177C); the other drafts of this
+// plan are emitted by this file.
 #include "shared/unknown_geometry.hpp"
 #include "shared/unknown_static_rect.hpp"
 #ifndef VECTOR_IMPLEMENT_ALL
@@ -15,22 +47,19 @@
 
 class AbstractClass;
 
-// The unit's list of AbstractClass objects (0x00AC0D60; name is a hypothesis).
-DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0d60;
-// The unit's other eleven object lists, in initializer order (0x006EC610-
-// 0x006ECB50: each an initializer and an atexit destructor; every vtable
-// store is DynamicVectorClass<AbstractClass *> 0x007A177C). Names are hypotheses.
-DynamicVectorClass<AbstractClass *> unknown_objects_ac0cb0; // 0x00AC0CB0 (objects and types)
-DynamicVectorClass<AbstractClass *> unknown_objects_ac0c58; // 0x00AC0C58
-DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0d48; // 0x00AC0D48 (tags and triggers)
-DynamicVectorClass<AbstractClass *> unknown_abstracts_ac0bf8; // 0x00AC0BF8 (TechnoClass +0x108 holders, bullets)
-DynamicVectorClass<AbstractClass *> unknown_abstracts_ac0c80; // 0x00AC0C80 (buildings and houses)
-DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0c98; // 0x00AC0C98 (triggers, tags, events, actions)
-DynamicVectorClass<AbstractClass *> unknown_objects_ac0c30; // 0x00AC0C30
-DynamicVectorClass<AbstractClass *> unknown_list_ac0c18; // 0x00AC0C18 (foot objects and neurons)
-DynamicVectorClass<AbstractClass *> unknown_abstracts_ac0d08; // 0x00AC0D08 (technos, supers)
-DynamicVectorClass<AbstractClass *> unknown_objects_ac0d30; // 0x00AC0D30
-DynamicVectorClass<AbstractClass *> unknown_objects_ac0cd8; // 0x00AC0CD8
+DynamicVectorClass<AbstractClass *> ObjectPtrTracker;   // 0x00AC0D60
+DynamicVectorClass<AbstractClass *> AbstractTypePtrTracker;   // 0x00AC0CB0
+DynamicVectorClass<AbstractClass *> TagPtrTracker;   // 0x00AC0C58
+DynamicVectorClass<AbstractClass *> TriggerPtrTracker;   // 0x00AC0D48
+DynamicVectorClass<AbstractClass *> AnimPtrTracker;   // 0x00AC0BF8
+DynamicVectorClass<AbstractClass *> FactoryPtrTracker;   // 0x00AC0C80
+DynamicVectorClass<AbstractClass *> EventActionPtrTracker;   // 0x00AC0C98
+DynamicVectorClass<AbstractClass *> WaypointPathPtrTracker;   // 0x00AC0C30
+DynamicVectorClass<AbstractClass *> TeamPtrTracker;   // 0x00AC0C18
+DynamicVectorClass<AbstractClass *> HousePtrTracker;   // 0x00AC0D08
+DynamicVectorClass<AbstractClass *> NeuronPtrTracker;   // 0x00AC0D30
+
+DynamicVectorClass<AbstractClass *> ObjectsToDelete;   // 0x00AC0CD8
 // The later drafts of this unit include headers that declare these lists (shared/object.hpp,
 // shared/object_lists.hpp): they skip the declarations here.
 #define RA2_TRACKER_LISTS_DEFINED
@@ -94,101 +123,117 @@ DynamicVectorClass<AbstractClass *> unknown_objects_ac0cd8; // 0x00AC0CD8
 // Dynamic initializer (0x006EC5D0, _$E) emitted by HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006EC610, _$E) of unknown_objects_ac0cb0: emitted by the definition in
+// Dynamic initializer (0x006EC610, _$E) of AbstractTypePtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// atexit destructor (0x006EC650, _$E) of unknown_objects_ac0cb0: emitted by the definition in
+// atexit destructor (0x006EC650, _$E) of AbstractTypePtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006EC690, _$E) of unknown_objects_ac0c58: emitted by the definition in
+// Dynamic initializer (0x006EC690, _$E) of TagPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// atexit destructor (0x006EC6D0, _$E) of unknown_objects_ac0c58: emitted by the definition in
+// atexit destructor (0x006EC6D0, _$E) of TagPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006EC710, _$E) of unknown_AbstractClass_list_00ac0d48: emitted by the definition in
+// Dynamic initializer (0x006EC710, _$E) of TriggerPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// atexit destructor (0x006EC750, _$E) of unknown_AbstractClass_list_00ac0d48: emitted by the definition in
+// atexit destructor (0x006EC750, _$E) of TriggerPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006EC790, _$E) of unknown_abstracts_ac0bf8: emitted by the definition in
+// Dynamic initializer (0x006EC790, _$E) of AnimPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// atexit destructor (0x006EC7D0, _$E) of unknown_abstracts_ac0bf8: emitted by the definition in
+// atexit destructor (0x006EC7D0, _$E) of AnimPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006EC810, _$E) of unknown_abstracts_ac0c80: emitted by the definition in
+// Dynamic initializer (0x006EC810, _$E) of FactoryPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// atexit destructor (0x006EC850, _$E) of unknown_abstracts_ac0c80: emitted by the definition in
+// atexit destructor (0x006EC850, _$E) of FactoryPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006EC890, _$E) of unknown_AbstractClass_list_00ac0c98: emitted by the definition in
+// Dynamic initializer (0x006EC890, _$E) of EventActionPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// atexit destructor (0x006EC8D0, _$E) of unknown_AbstractClass_list_00ac0c98: emitted by the definition in
+// atexit destructor (0x006EC8D0, _$E) of EventActionPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006EC910, _$E) of unknown_objects_ac0c30: emitted by the definition in
+// Dynamic initializer (0x006EC910, _$E) of WaypointPathPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// atexit destructor (0x006EC950, _$E) of unknown_objects_ac0c30: emitted by the definition in
+// atexit destructor (0x006EC950, _$E) of WaypointPathPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006EC990, _$E) of unknown_list_ac0c18: emitted by the definition in
+// Dynamic initializer (0x006EC990, _$E) of TeamPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// atexit destructor (0x006EC9D0, _$E) of unknown_list_ac0c18: emitted by the definition in
+// atexit destructor (0x006EC9D0, _$E) of TeamPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006ECA10, _$E) of unknown_abstracts_ac0d08: emitted by the definition in
+// Dynamic initializer (0x006ECA10, _$E) of HousePtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// atexit destructor (0x006ECA50, _$E) of unknown_abstracts_ac0d08: emitted by the definition in
+// atexit destructor (0x006ECA50, _$E) of HousePtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006ECA90, _$E) of unknown_objects_ac0d30: emitted by the definition in
+// Dynamic initializer (0x006ECA90, _$E) of NeuronPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// atexit destructor (0x006ECAD0, _$E) of unknown_objects_ac0d30: emitted by the definition in
+// atexit destructor (0x006ECAD0, _$E) of NeuronPtrTracker: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006ECB10, _$E) of unknown_objects_ac0cd8: emitted by the definition in
+// Dynamic initializer (0x006ECB10, _$E) of ObjectsToDelete: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// atexit destructor (0x006ECB50, _$E) of unknown_objects_ac0cd8: emitted by the definition in
+// atexit destructor (0x006ECB50, _$E) of ObjectsToDelete: emitted by the definition in
 // HeaderStatics_diagonal_init_006ec3a0.cpp; no source of its own.
 
 
-// void __fastcall Detach_This_From_All(AbstractClass *target, bool all) (0x006ECB90)
-// TibSun tracker.cpp: removes every reference to an object that is going away from the
-// pending placement, the gas cloud system and each tracker list of its kind (houses,
-// animations, objects, types, then the switch on the remaining kinds), and from the
-// global owners (Map, Logic, Rules, the tactical view, the bomb and kamikaze trackers).
+void __fastcall Detach_From_Command_List(void *item);
 
-void __fastcall Unknown_006F7970(void *item);
+/***********************************************************************************************
+ * Detach_This_From_All -- Detaches this object from all others.                               *
+ *                                                                                             *
+ *    This routine sweeps through all game objects and makes sure that it is no longer         *
+ *    referenced by them. Typically, this is called in preparation for the object's death      *
+ *    or limbo state.                                                                          *
+ *                                                                                             *
+ * INPUT:   target   -- This object expressed as a target number.                              *
+ *                                                                                             *
+ *          all      -- Is this object really in truly being removed from the game? The        *
+ *                      answer would be false if the target was actually a stealth             *
+ *                      tank that is cloaking. In such a case, the object should be removed    *
+ *                      from all non-friendly tracking systems, but otherwise left alone.      *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/08/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
 
 void __fastcall Detach_This_From_All(AbstractClass *target, bool all)
 {
@@ -204,22 +249,28 @@ void __fastcall Detach_This_From_All(AbstractClass *target, bool all)
         Map.Unknown_00498F10(0);
     }
 
-    if (rtti == 0x18 && target == unknown_gas_cloud_system_a40d20) {
-        unknown_gas_cloud_system_a40d20 = 0;
+    if (rtti == 0x18 && target == GasSystem) {
+        GasSystem = 0;
     }
 
     if (rtti == 0x0D) {
-        for (index = 0; index < unknown_abstracts_ac0d08.Count(); index++) {
-            unknown_abstracts_ac0d08[index]->Detach(target, all);
+        for (index = 0; index < HousePtrTracker.Count(); index++) {
+            HousePtrTracker[index]->Detach(target, all);
         }
         Logic.Detach(target, all);
+        /*
+         * nothing else needs to be done
+         */
         return;
     }
 
     if (rtti == 0x04) {
-        for (index = 0; index < unknown_abstracts_ac0bf8.Count(); index++) {
-            unknown_abstracts_ac0bf8[index]->Detach(target, all);
+        for (index = 0; index < AnimPtrTracker.Count(); index++) {
+            AnimPtrTracker[index]->Detach(target, all);
         }
+        /*
+         * nothing else needs to be done
+         */
         return;
     }
 
@@ -228,85 +279,92 @@ void __fastcall Detach_This_From_All(AbstractClass *target, bool all)
         is_object = target->AbstractFlags.IsObject;
     }
     if (target != 0 && is_object) {
-        for (index = 0; index < unknown_AbstractClass_list_00ac0d60.Count(); index++) {
-            unknown_AbstractClass_list_00ac0d60[index]->Detach(target, all);
+        for (index = 0; index < ObjectPtrTracker.Count(); index++) {
+            ObjectPtrTracker[index]->Detach(target, all);
         }
         BombList.Detach(target);
         KamikazeTracker.Detach(target);
         if (rtti == 0x0F || rtti == 0x01 || rtti == 0x02) {
-            unknown_tracker_839ea0.Detach_004131d0(target);
+            AircraftTracker.Detach(target);
         }
-        Unknown_006F7970(target);
-        if (unknown_tactical_83996c != 0) {
-            unknown_tactical_83996c->Detach(target, true);
+        Detach_From_Command_List(target);
+        if (TacticalMap != 0) {
+            TacticalMap->Detach(target, true);
         }
         Logic.Detach(target, all);
+        /*
+         * nothing else needs to be done
+         */
         return;
     }
 
     if (dynamic_cast<AbstractTypeClass *>(target) != 0) {
-        for (index = 0; index < unknown_objects_ac0cb0.Count(); index++) {
-            unknown_objects_ac0cb0[index]->Detach(target, all);
+        for (index = 0; index < AbstractTypePtrTracker.Count(); index++) {
+            AbstractTypePtrTracker[index]->Detach(target, all);
         }
         Rules->Detach(target, all);
+        /*
+         * nothing else needs to be done
+         */
         return;
     }
 
     switch (rtti) {
     case 0x2C:
-        for (index = 0; index < unknown_objects_ac0c58.Count(); index++) {
-            unknown_objects_ac0c58[index]->Detach(target, all);
+        for (index = 0; index < TagPtrTracker.Count(); index++) {
+            TagPtrTracker[index]->Detach(target, all);
         }
         Map.Detach(target, true);
         Logic.Detach(target, all);
         break;
 
     case 0x26:
-        for (index = 0; index < unknown_AbstractClass_list_00ac0d48.Count(); index++) {
-            unknown_AbstractClass_list_00ac0d48[index]->Detach(target, all);
+        for (index = 0; index < TriggerPtrTracker.Count(); index++) {
+            TriggerPtrTracker[index]->Detach(target, all);
         }
         break;
 
     case 0x0C:
-        for (index = 0; index < unknown_abstracts_ac0c80.Count(); index++) {
-            unknown_abstracts_ac0c80[index]->Detach(target, all);
+        for (index = 0; index < FactoryPtrTracker.Count(); index++) {
+            FactoryPtrTracker[index]->Detach(target, all);
         }
         Map.Detach(target, true);
         break;
 
     case 0x2F:
     case 0x30:
-        for (index = 0; index < unknown_AbstractClass_list_00ac0c98.Count(); index++) {
-            unknown_AbstractClass_list_00ac0c98[index]->Detach(target, all);
+        for (index = 0; index < EventActionPtrTracker.Count(); index++) {
+            EventActionPtrTracker[index]->Detach(target, all);
         }
         break;
 
     case 0x33:
-        for (index = 0; index < unknown_objects_ac0c30.Count(); index++) {
-            unknown_objects_ac0c30[index]->Detach(target, all);
+        for (index = 0; index < WaypointPathPtrTracker.Count(); index++) {
+            WaypointPathPtrTracker[index]->Detach(target, all);
         }
         break;
 
     case 0x22:
-        for (index = 0; index < unknown_list_ac0c18.Count(); index++) {
-            unknown_list_ac0c18[index]->Detach(target, all);
+        for (index = 0; index < TeamPtrTracker.Count(); index++) {
+            TeamPtrTracker[index]->Detach(target, all);
         }
         break;
 
     case 0x3C:
-        for (index = 0; index < unknown_objects_ac0d30.Count(); index++) {
-            unknown_objects_ac0d30[index]->Detach(target, all);
+        for (index = 0; index < NeuronPtrTracker.Count(); index++) {
+            NeuronPtrTracker[index]->Detach(target, all);
         }
         break;
     }
 }
 
 
-// void Process_Deferred_Deletion() (0x006ECF10)
-// TibSun tracker.cpp: releases the objects waiting on the deferred deletion list
-// (0x00AC0CD8) once they are inactive (slot 17); a released building, unit, infantry or
-// aircraft is marked +0x7D first. Active objects stay for a later pass.
-
+/// <summary>
+/// Disposes of the objects that are waiting on deferred deletion list.
+/// This routine is called by the main game loop once the logic has finished with the
+/// objects it destroyed. Any object that has gone inactive is taken off the list and
+/// released; one that is still active is left behind for a later pass.
+/// </summary>
 class type_info {
 public:
     virtual ~type_info();
@@ -325,11 +383,11 @@ class AircraftClass;
 void Process_Deferred_Deletion()
 {
     int index = 0;
-    while (index < unknown_objects_ac0cd8.Count()) {
-        AbstractClass *obj = unknown_objects_ac0cd8[index];
+    while (index < ObjectsToDelete.Count()) {
+        AbstractClass *obj = ObjectsToDelete[index];
         if (obj->Is_Inactive()) {
             while (true) {
-                if (!unknown_objects_ac0cd8.Delete(obj)) {
+                if (!ObjectsToDelete.Delete(obj)) {
                     break;
                 }
             }

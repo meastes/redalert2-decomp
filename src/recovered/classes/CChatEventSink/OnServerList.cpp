@@ -103,7 +103,7 @@ HRESULT __stdcall CChatEventSink::OnServerList(HRESULT result, WOL::Server *serv
         strcpy(server->password, unknown_password_b2a63c.Get());
     }
     Debug_Printf("Got %d mangler servers\n", unknown_mangler_count_b2ac34);
-    if (unknown_mangler_count_b2ac34 > 1) unknown_mangler_index_b2ac38 = unknown_random_839218(0, unknown_mangler_count_b2ac34 - 1);
+    if (unknown_mangler_count_b2ac34 > 1) unknown_mangler_index_b2ac38 = NonCriticalRandomNumber(0, unknown_mangler_count_b2ac34 - 1);
     else unknown_mangler_index_b2ac38 = 0;
     Debug_Printf("CurrentManglerServer = %d\n", unknown_mangler_index_b2ac38);
     wchar_t const *status = StringTable::Load_String("TXT_DETECTING_FIREWALL_SETTINGS", 0, "D:\\Ra2\\wonline.cpp", 0x10af);

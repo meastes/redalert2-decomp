@@ -138,7 +138,7 @@ SpawnManagerClass::SpawnManagerClass(NoInitClass const &noinit) :
 
 SpawnManagerClass::~SpawnManagerClass()
 {
-    if (unknown_flag_a40958) {
+    if (GameActive) {
         Kill_Nodes();
     }
     for (int i = SpawnedNodes.Count() - 1; i >= 0; i--) {

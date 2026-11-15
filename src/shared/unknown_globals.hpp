@@ -13,10 +13,10 @@ struct NodeNameType;
 #include "shared/coord.hpp"
 #include "shared/vector_class_decl.hpp"
 
-extern int unknown_int_7add80;
+extern int SidebarWidth;
 extern ConvertClass *unknown_drawer_8323b8;  // 0x008323B8 (OverlayTypeClass slot 40; also CellClass 0x474C6B)
 extern ConvertClass *unknown_drawer_8323bc;  // 0x008323BC (TerrainClass slots 67/68 draw Tiberium spawners with it)
-extern ConvertClass *unknown_drawer_8323cc;  // 0x008323CC
+extern ConvertClass *SidebarDrawer;  // 0x008323CC
 extern bool unknown_flag_7d88d5;  // 0x007D88D5 shadows are drawn (TerrainClass slots 67/68)
 extern bool unknown_flag_8373c1;  // 0x008373C1 the power bar is shown (Power AI/Draw_It, Radar 0x00630350)
 extern bool unknown_flag_8373c3;  // 0x008373C3
@@ -27,7 +27,7 @@ extern int unknown_int_839638;  // 0x00839638 sidebar x offset
 extern int unknown_int_839648;  // 0x00839648 screen width
 extern int unknown_int_83964c;  // 0x0083964C screen height
 extern Surface *unknown_radar_surface_8336f8;  // 0x008336F8 (the radar view: TechnoClass slot 267 tests its Get_Rect)
-extern Surface *unknown_surface_839948;  // 0x00839948 (sidebar surface)
+extern Surface *SidebarSurface;  // 0x00839948 (sidebar surface)
 // A screen-sized clipping window (0x00839640; 0, 0, 640, 400 at startup, 0x0040D920).
 extern Rect unknown_window_839640;
 // The machine profile Get_Performance_Profile (0x0051A880) rates once (-1 until then;
@@ -42,18 +42,18 @@ extern char unknown_profile_text_a4127c[];
 extern Surface *unknown_surface_839944;  // 0x00839944 (a video memory surface: Get_Performance_Profile times blits from it)
 extern Surface *unknown_surface_839950;  // 0x00839950 screen
 class DSurface;
-extern Surface *unknown_surface_839954; // 0x00839954 (Get_Input draws the buttons on it; shared/dsurface.hpp)
-extern Surface *unknown_surface_839958;  // 0x00839958 background
+extern Surface *HiddenSurface; // 0x00839954 (Get_Input draws the buttons on it; shared/dsurface.hpp)
+extern Surface *AlternateSurface;  // 0x00839958 background
 extern Surface *unknown_surface_83995c;  // 0x0083995C current drawing surface
 extern Surface *unknown_surface_839964;  // 0x00839964 the surface Render composes
 extern bool unknown_flag_839c4c;  // 0x00839C4C
-extern int unknown_8523e0;  // 0x008523E0 VQA frame width (hypothesis)
-extern int unknown_8523e4;  // 0x008523E4 VQA frame height (hypothesis)
-extern bool unknown_flag_852fd7;  // 0x00852FD7
+extern int VideoModeWidth;  // 0x008523E0 VQA frame width (hypothesis)
+extern int VideoModeHeight;  // 0x008523E4 VQA frame height (hypothesis)
+extern bool UseDirect3D;  // 0x00852FD7
 extern HouseClass *unknown_player_a35db4;  // 0x00A35DB4 the player's house
 // A flag at 0x00A3D548 (radar: with the player's +0x13D, forces mode 1; no cheering while set;
 // moved from shared/radar.hpp).
-extern int unknown_int_a3d548;
+extern int MuteSWLaunches;
 extern int unknown_game_mode_a3d298;  // 0x00A3D298
 extern int unknown_a3fba4;            // 0x00A3FBA4 the latency setting (the GOptions slider shows 3 - it; cleared when the GO arrives)
 // The players of a multiplayer game (0x00A3D558, session +0x2C0; Red Alert's Session.MaxPlayers;
@@ -87,7 +87,7 @@ struct User {
 // it returns a copy in a static record, 0 when there is none).
 WOL::User *Unknown_0074DA60();
 extern WOL::IChat *unknown_chat_a72cfc;
-HWND __fastcall Unknown_00735B10();                       // 0x00735B10 (the current dialog window; moved from shared/wol_sink.hpp; __fastcall: callers copy its result at once, 0x005C34F0)
+HWND __fastcall WS_Top_Window();                       // 0x00735B10 (the current dialog window; moved from shared/wol_sink.hpp; __fastcall: callers copy its result at once, 0x005C34F0)
 // Dialog helpers (moved from shared/queue.hpp and shared/wol_sink.hpp): 0x005FEE70 before a dialog paints,
 // 0x005FE380 for WM_DRAWITEM, 0x007357E0 ends a dialog with a result (the command id).
 void __fastcall Unknown_005FEE70(HWND dialog);
@@ -210,7 +210,7 @@ extern unsigned short unknown_last_message_a3f122[];
 // Plays the taunt with the packed byte (low nibble taunt, high nibble country; 0x00715FB0; hypothesis).
 void __fastcall Unknown_Play_Taunt_00715fb0(char packed);
 // The player count of a multiplayer map (0x005C6600; hypothesis).
-int __fastcall Unknown_005c6600(int scenario);
+int __fastcall RandomMapWaypointCount(int scenario);
 // The session's game mode object (+0x04, a MultiplayerGameMode; moved from
 // shared/radar.hpp).
 class CCINIClass;
@@ -306,7 +306,7 @@ void __fastcall Unknown_004955D0(void *object, int value, void (*callback)());  
 // A palette (0x00837E10): UnitTypeClass::One_Time converts through it (ConvertClass's art and
 // screen palette), Rules' [Colors] schemes are made from it, 0x004955D0 fades it.
 class PaletteClass;
-extern PaletteClass unknown_palette_837e10;         // 0x00837E10
+extern PaletteClass GamePalette;         // 0x00837E10
 // Do_Win's campaign steps (meanings not recovered): 0x00491A10 decides whether the
 // campaign goes on, 0x004B37C0 is the end of the campaign, 0x0058F510 the map
 // selection and 0x0058F620 picks the named next scenario.
@@ -520,7 +520,7 @@ int __fastcall unknown_draw_text_5fe020(Surface *surface, wchar_t const *text, R
 // The art data at 0x00AC1154 (0x006F2490; the campaign loading screen's bar drawer).
 void *Unknown_Get_Art_6f2490();
 // Assign_Houses' session data and globals (0x0065FBB0).
-extern int unknown_house_setting_7d88d8;            // 0x007D88D8 (every new house's +0x11C)
+extern int BuildLevel;            // 0x007D88D8 (every new house's +0x11C)
 // Two values a recording starts with (Load_Recording_Values 0x00516BA0 / Save_Recording_Values 0x00516B00).
 extern int unknown_a40d3c;                          // 0x00A40D3C
 extern int unknown_a40c38;                          // 0x00A40C38
@@ -540,18 +540,18 @@ extern int unknown_pings_b2a734[];      // 0x00B2A734 the players' pings in ms (
 // 0x00672440 makes each list's houses allies; MPCooperative slot 37 empties both).
 extern char unknown_squad_1_b2a820[];    // 0x00B2A820
 extern char unknown_squad_2_b293d8[];    // 0x00B293D8
-extern int unknown_a40774;  // 0x00A40774 (a live-object count; BuildingClass, FactoryClass, ...)
+extern int ScenarioInit;  // 0x00A40774 (a live-object count; BuildingClass, FactoryClass, ...)
 extern int unknown_int_a40d48;  // 0x00A40D48 the mode the radar buttons select (1, 8, 9; Game Controls sets 4 and 6)
 extern bool unknown_flag_a40d84;  // 0x00A40D84 (Game Controls: set with a session game, its sliders then stay visible)
-extern bool unknown_flag_a40958;  // 0x00A40958 (the destructor then calls ObjectClass slot 52)
+extern bool GameActive;  // 0x00A40958 (the destructor then calls ObjectClass slot 52)
 extern int unknown_a40b2c;          // 0x00A40B2C (LineTrail::Set_Decrement keeps the decrement when set, doubles it otherwise)
 extern bool unknown_flag_a40b30;  // 0x00A40B30 the sidebar is on the left
 extern float unknown_volume_a40b44;  // 0x00A40B44 sound effect volume scale
-extern bool unknown_flag_a40d04;  // 0x00A40D04 (FootClass::Detach keeps a live parasite while it is set)
+extern bool ScenarioActive;  // 0x00A40D04 (FootClass::Detach keeps a live parasite while it is set)
 extern bool Debug_Map;  // 0x00A40D13 (TibSun Debug_Map: the scenario editor flag)
 extern int unknown_ini_format_a40d24;
-extern bool unknown_flag_a40d28;  // 0x00A40D28 application active (focus)
-extern bool unknown_flag_a40d44;  // 0x00A40D44
+extern bool GameInFocus;  // 0x00A40D28 application active (focus)
+extern bool IgnoreInput;  // 0x00A40D44
 extern int unknown_ab9174;        // 0x00AB9174 (cleared when the game pauses or resumes)
 // The game speed kept by SessionClass::Unknown_00672DE0 (0x007F3230; -1: none).
 extern int unknown_game_speed_7f3230;
@@ -570,7 +570,7 @@ extern int unknown_b263d8;  // 0x00B263D8
 // Called with 0 by RadarClass 0x00633D30 when the radar movie's flag (+0x04)
 // sets +0x14B8, and with a trigger action's Data by TActionClass 0x006B2F90
 // (meanings not recovered).
-void __fastcall Unknown_0065C1F0(int arg);              // 0x0065C1F0
+void __fastcall Hold_Scenario(int arg);              // 0x0065C1F0
 
 // Takes an index into the list at 0x00A71054 (count 0x00A71060) and a flag;
 // does nothing in a multiplayer game (TActionClass 0x006B0D50/0x006B0D60

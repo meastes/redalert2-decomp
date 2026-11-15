@@ -18,7 +18,7 @@
 #include "shared/wol_array_list.hpp"
 
 extern "C" int __cdecl atexit(void (__cdecl *function)(void));
-extern ApplicationClass unknown_application_object_84c7dc;           // 0x0084C7DC
+extern ApplicationClass ApplicationInstance;           // 0x0084C7DC
 extern BasicTimerClass<SystemTimerClass> GameTimer;                  // 0x00ABD4C0
 extern int unknown_radar_event_word_ab67b8;                          // 0x00AB67B8 (two words)
 
@@ -78,7 +78,7 @@ void Initterm_0063B5A0() {}
 void Initterm_00426B00()
 {
     ApplicationClass constructed;
-    memcpy((void *)&unknown_application_object_84c7dc, (void *)&constructed, sizeof(constructed));
+    memcpy((void *)&ApplicationInstance, (void *)&constructed, sizeof(constructed));
 }
 
 // 0x005EDF60: OwnerDraw::UnknownTooltipState's constructor for the tooltip

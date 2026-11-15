@@ -21,7 +21,7 @@ extern int *unknown_vegetation_min_a6fff0,*unknown_vegetation_max_a7000c;
 // @ref ?unknown_vegetation_min_a6fff0@@3PAHA=00a6fff0
 // @ref ?unknown_vegetation_max_a7000c@@3PAHA=00a7000c
 inline int MapSeed_Random_Range(int minimum,int maximum)
-{ return unknown_random_839218(minimum,maximum); }
+{ return NonCriticalRandomNumber(minimum,maximum); }
 void MapSeedClass::Randomize_Parameters_005789f0(int map_type)
 {
     WaterAmount=MapSeed_Random_Range(unknown_water_min_7e0b58[map_type],unknown_water_max_7e0b6c[map_type]);

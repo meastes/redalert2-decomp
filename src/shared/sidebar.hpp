@@ -346,7 +346,7 @@ public:
 
     static SBGadgetClass Background;                    // 0x00AB9718
     static ShapeButtonClass unknown_button_ab96b8;      // 0x00AB96B8
-    static ShapeButtonClass unknown_button_abcc58;      // 0x00ABCC58
+    static ShapeButtonClass Upgrade;      // 0x00ABCC58
     static ShapeButtonClass unknown_buttons_ab9508[4];  // 0x00AB9508
     static ShapeButtonClass unknown_button_abcbe8;      // 0x00ABCBE8
     static ShapeButtonClass unknown_button_abccc0;      // 0x00ABCCC0
@@ -362,7 +362,7 @@ public:
     bool unknown_4ee1;                                  // +0x4EE1
     bool unknown_4ee2;                                  // +0x4EE2 true after Init_Clear
     bool unknown_4ee3;                                  // +0x4EE3
-    bool unknown_4ee4;                                  // +0x4EE4
+    bool IsToRedrawCredits;                                  // +0x4EE4
     bool unknown_4ee5;                                  // +0x4EE5
     bool unknown_4ee6;                                  // +0x4EE6
 };

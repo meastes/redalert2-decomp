@@ -30,7 +30,7 @@ void *Native_Entry_From_Handle(int handle);   // NATIVE: native/link/native_even
 // @ref ?Select_Scenario_005c7c30@@YI_NH@Z=005c7c30
 // @ref ?Open_Lobby_Dialog_005c6960@@YIHPAUHWND__@@@Z=005c6960
 // @ref ?Is_Host_005c86a0@@YA_NXZ=005c86a0
-// @ref ?unknown_host_shown_7e6dc0@@3_NA=007e6dc0
+// @ref ?IsRandomMap@@3_NA=007e6dc0
 // @ref ?unknown_lobby_result_a71e8c@@3HA=00a71e8c
 // @ref ?ProgressScreen@@3VProgressScreenClass@@A=00a769e8
 // @ref ??3@YAXPAX@Z=00781d3b
@@ -50,7 +50,7 @@ bool __fastcall Unknown_Clear_Closed_Slots_005cacb0(HWND dialog);
 void __fastcall unknown_set_dialog_item_text_005c34b0(HWND dialog);
 struct UnknownTextOwner_005c3450;
 void __fastcall unknown_set_dialog_wide_text_005c3450(HWND dialog, UnknownTextOwner_005c3450 *owner);
-extern bool unknown_host_shown_7e6dc0;
+extern bool IsRandomMap;
 // @ref ?Save_Lobby_Options_005cc890@@YIXPAUHWND__@@PAUSessionOptionsClass@@@Z=005cc890
 // @ref ?Unknown_Clear_Closed_Slots_005cacb0@@YI_NPAUHWND__@@@Z=005cacb0
 // @ref ?unknown_set_dialog_item_text_005c34b0@@YIXPAUHWND__@@@Z=005c34b0
@@ -90,8 +90,8 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
         return 1;
     case 0x0F:                  // WM_PAINT
         Unknown_005FEE70(window);
-        if (unknown_dialog_preview_a72ce8 != 0) {
-            unknown_dialog_preview_a72ce8->Blit_Preview(window);
+        if (MultiplayerMapPreview != 0) {
+            MultiplayerMapPreview->Blit_Preview(window);
         }
         if (ProgressScreen.Has_Window()) {
             ProgressScreen.Draw_It(Point2D(-1, -1));
@@ -124,9 +124,9 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
             break;
         case 2:
             if (!unknown_lock_a71e98) {
-                if (unknown_dialog_preview_a72ce8 != 0) {
-                    delete unknown_dialog_preview_a72ce8;
-                    unknown_dialog_preview_a72ce8 = 0;
+                if (MultiplayerMapPreview != 0) {
+                    delete MultiplayerMapPreview;
+                    MultiplayerMapPreview = 0;
                 }
                 Save_Lobby_Options_005cc890(window, &unknown_session_a3d298.LANOptions);
                 unknown_lobby_result_a71e8c = 2;
@@ -153,11 +153,11 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
                 bool old_flag = unknown_session_a3d298.Mode == 0 || unknown_session_a3d298.Mode->unknown_slot40();
                 Unknown_005e5fc0(window);
                 ShowWindow(window, SW_HIDE);
-                unknown_host_shown_7e6dc0 = false;
+                IsRandomMap = false;
                 if (Open_Lobby_Dialog_005c6960(MainWindow) == 2) {
                     Select_Scenario_005c7c30(unknown_session_a3d2b4 = old_scenario);
                     Unknown_005c7570(window);
-                    unknown_host_shown_7e6dc0 = true;
+                    IsRandomMap = true;
                     ShowWindow(window, SW_SHOW);
                     Load_Random_Map_Preview_005cc800(window);
                     Unknown_005c3810(true, false);
@@ -169,7 +169,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
                 } else {
                     Change_Scenario_Slots_005cb8d0(window, old_scenario, unknown_session_a3d2b4);
                 }
-                unknown_host_shown_7e6dc0 = true;
+                IsRandomMap = true;
                 ShowWindow(window, SW_SHOW);
                 unknown_set_dialog_item_text_005c34b0(window);
                 Load_Random_Map_Preview_005cc800(window);
@@ -226,7 +226,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
     }
     case 0x497:
         VerNum.Init_Clipping();
-        srand(unknown_random_839218(1, 0x7FFF));
+        srand(NonCriticalRandomNumber(1, 0x7FFF));
         Seed = rand();
         unknown_center_on_owner_737060(window);
         Fill_Side_Combos_4d16d0(window);

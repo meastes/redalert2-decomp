@@ -455,7 +455,7 @@
   },
   {
    "site": "00631ed0",
-   "symbol": "?unknown_set_frame_rate_0053d820@@YIXH@Z",
+   "symbol": "?Set_Frame_Rate_Limit@@YIXH@Z",
    "target": "0053d820",
    "function_entry": true
   },
@@ -485,7 +485,7 @@
   },
   {
    "site": "00633c40",
-   "symbol": "?unknown_set_frame_rate_0053d820@@YIXH@Z",
+   "symbol": "?Set_Frame_Rate_Limit@@YIXH@Z",
    "target": "0053d820",
    "function_entry": true
   },
@@ -503,7 +503,7 @@
   },
   {
    "site": "00633d30",
-   "symbol": "?unknown_set_frame_rate_0053d820@@YIXH@Z",
+   "symbol": "?Set_Frame_Rate_Limit@@YIXH@Z",
    "target": "0053d820",
    "function_entry": true
   },
@@ -515,7 +515,7 @@
   },
   {
    "site": "0065cdd0",
-   "symbol": "?unknown_set_frame_rate_0053d820@@YIXH@Z",
+   "symbol": "?Set_Frame_Rate_Limit@@YIXH@Z",
    "target": "0053d820",
    "function_entry": true
   },
@@ -696,6 +696,10 @@
    "address": "00a6e428"
   },
   {
+   "symbol": "?LogicTags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+   "address": "00866160"
+  },
+  {
    "symbol": "?LogicTriggerID@@3HA",
    "address": "00a35d44"
   },
@@ -734,6 +738,10 @@
   {
    "symbol": "?Submit@LayerClass@@UAE_NPAVObjectClass@@_N@Z",
    "address": "005348a0"
+  },
+  {
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
   },
   {
    "symbol": "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A",
@@ -868,14 +876,6 @@
    "address": "004ba410"
   },
   {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
-  },
-  {
-   "symbol": "?unknown_tags_866160@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
-   "address": "00866160"
-  },
-  {
    "symbol": "__CIpow",
    "address": "007821b0"
   },
@@ -948,7 +948,7 @@
   {
    "site": "00631ed0",
    "target": "0053d820",
-   "symbol": "?unknown_set_frame_rate_0053d820@@YIXH@Z",
+   "symbol": "?Set_Frame_Rate_Limit@@YIXH@Z",
    "module_symbol": "?get@Leaf_53d820@@QAEXXZ"
   },
   {
@@ -978,7 +978,7 @@
   {
    "site": "00633c40",
    "target": "0053d820",
-   "symbol": "?unknown_set_frame_rate_0053d820@@YIXH@Z",
+   "symbol": "?Set_Frame_Rate_Limit@@YIXH@Z",
    "module_symbol": "?get@Leaf_53d820@@QAEXXZ"
   },
   {
@@ -996,7 +996,7 @@
   {
    "site": "00633d30",
    "target": "0053d820",
-   "symbol": "?unknown_set_frame_rate_0053d820@@YIXH@Z",
+   "symbol": "?Set_Frame_Rate_Limit@@YIXH@Z",
    "module_symbol": "?get@Leaf_53d820@@QAEXXZ"
   },
   {
@@ -1008,7 +1008,7 @@
   {
    "site": "0065cdd0",
    "target": "0053d820",
-   "symbol": "?unknown_set_frame_rate_0053d820@@YIXH@Z",
+   "symbol": "?Set_Frame_Rate_Limit@@YIXH@Z",
    "module_symbol": "?get@Leaf_53d820@@QAEXXZ"
   },
   {

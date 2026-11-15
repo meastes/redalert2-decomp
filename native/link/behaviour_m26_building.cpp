@@ -226,7 +226,7 @@ int BuildingClass::Do_MISSION_MISSILE()
                     unknown_330.unknown_6d8b90();
                     unknown_350.unknown_6d8b90();
                 }
-                int random_value = unknown_random_839218();
+                int random_value = NonCriticalRandomNumber();
                 Voc_Play_At(weapon->unknown_bc.Pick(random_value), unknown_slot43(0), 0);
                 unknown_a8 = 3;
                 return 1;

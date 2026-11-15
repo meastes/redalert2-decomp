@@ -45,34 +45,34 @@ WIN32_IMPORT DWORD WINAPI GetWindowContextHelpId(HWND window);
 WIN32_IMPORT BOOL WINAPI WinHelpA(HWND window, LPCSTR help_file, UINT command, DWORD data);
 
 // The label-edit buffer (0x00B25F10) and the tree view of the current label edit or drag (0x00B25F30).
-extern char *unknown_label_buffer_b25f10;
-extern HWND unknown_tree_b25f30;
+extern char *TreeView_Text;
+extern HWND TreeView_LastHandle;
 
 // Starts a tree-view label edit: limits the edit control to limit characters and remembers
 // buffer and tree for the end (0x007367B0).
-void __fastcall unknown_begin_label_edit_7367b0(HWND tree, char *buffer, int limit);
+void __fastcall TreeView_set_edit_text(HWND tree, char *buffer, int limit);
 // Ends it (TVN_ENDLABELEDIT): trims the new text, copies it to the buffer, sets it as the
 // item's text; its length, 0 when the edit was cancelled (0x007367F0).
-int __fastcall unknown_end_label_edit_7367f0(NMTVDISPINFOA *info);
+int __fastcall TreeView_set_item_text(NMTVDISPINFOA *info);
 // TVN_ITEMEXPANDED: gives the item the closed or open image; true when expanded (0x00736750).
-bool __fastcall unknown_set_expand_image_736750(HWND tree, NMTREEVIEWA *info, int closed_image, int open_image);
+bool __fastcall TreeView_set_item_image(HWND tree, NMTREEVIEWA *info, int closed_image, int open_image);
 // Context help popup for a control (HELP_CONTEXTMENU in SUN.HLP; 0x007368A0).
-void __fastcall unknown_context_help_7368a0(HWND window);
+void __fastcall On_WM_CONTEXTMENU(HWND window);
 // The first combo box item at or after start whose item data is data; -1 if none (0x00736E10).
-int __fastcall unknown_combo_find_data_736e10(HWND combo, int start, int data);
+int __fastcall ComboBox_Find_Item_Data(HWND combo, int start, int data);
 // Releases the game mouse and redraws window when active, captures it otherwise (0x00736E70).
-void __fastcall unknown_mouse_activate_736e70(HWND window, short active);
+void __fastcall Capture_Or_Release_Mouse(HWND window, short active);
 // Centres window on its owner (0x00737060) / on parent's client area, the main window
 // counting as the full screen (0x00737080).
 void __fastcall unknown_center_on_owner_737060(HWND window);
-void __fastcall unknown_center_window_737080(HWND window, HWND parent);
+void __fastcall Center_Window_Within_Window(HWND window, HWND parent);
 // Reads one byte in every 4 KB page of a buffer (page prefault; 0x00737160).
-void __fastcall unknown_touch_pages_737160(char *buffer, int length);
+void __fastcall Prefetch_Audio_Buffer(char *buffer, int length);
 
 // The dialog stack (shared/win32_window.hpp) and its users. Also declared in shared/queue.hpp
 // (0x005B6000/0x005B6060), shared/gscreen.hpp (0x00A40D34) and shared/lobby.hpp (0x00735700,
 // 0x007359E0): identical redeclarations so this unit does not include those headers.
-extern int unknown_int_a40d34;
+extern int _dialog_count;
 void __fastcall Unknown_005B6000(HWND dialog);
 void __fastcall Unknown_005B6060(HWND dialog);
 typedef long (__stdcall *UnknownDialogProc)(HWND window, unsigned message, unsigned wparam, long lparam);
@@ -83,7 +83,7 @@ void *__fastcall unknown_create_dialog_735700(void *instance, int id, HWND paren
 // below current and records result (0x00B25DDC); false when dialog is not on the stack (0x007357E0;
 // shared/unknown_globals.hpp still declares it as Unknown_007357E0(void *, int)).
 bool __fastcall End_Dialog_007357e0(HWND dialog, int result);
-extern int unknown_dialog_result_b25ddc;
+extern int g_LastResponse;
 // Called on a dialog before it is closed (0x005E5FC0; also declared in shared/owner_draw_dialog_control.hpp).
 namespace OwnerDraw {
 bool __fastcall unknown_5e5fc0(HWND dialog);
@@ -100,15 +100,15 @@ int __fastcall unknown_is_listed_b25bb8(int key);
 // Also declared in shared/movie.hpp, shared/ms_message_box.hpp and shared/wol_sink.hpp.
 WIN32_IMPORT BOOL WINAPI TranslateMessage(MSG const *message);
 WIN32_IMPORT LRESULT WINAPI DispatchMessageA(MSG const *message);
-BOOL __fastcall unknown_peek_message_522ed0(MSG *message, HWND window, UINT first, UINT last, UINT remove);
-extern int unknown_message_count_a52298;
-void __fastcall unknown_517370(bool unknown1);
-extern bool unknown_b2abd9;
+BOOL __fastcall Peek_Windows_Message(MSG *message, HWND window, UINT first, UINT last, UINT remove);
+extern int MessageLoopCount;
+void __fastcall Title_Screen_Restore(bool unknown1);
+extern bool g_PlayingNetGame;
 // Tree-view item dragging: the drag is on (0x00B25F2C), the dragged item (0x00B25F34) and its
 // drag image list (0x00B25F38).
-extern bool unknown_dragging_b25f2c;
-extern void *unknown_drag_item_b25f34;
-extern void *unknown_drag_image_b25f38;
+extern bool s_dragging;
+extern void *TreeView_DraggedItem;
+extern void *TreeView_ImageList;
 WIN32_IMPORT BOOL WINAPI ImageList_BeginDrag(void *image_list, int track, int hotspot_x, int hotspot_y);
 WIN32_IMPORT BOOL WINAPI ImageList_DragEnter(HWND lock, int x, int y);
 WIN32_IMPORT BOOL WINAPI ImageList_DragMove(int x, int y);
@@ -119,7 +119,7 @@ WIN32_IMPORT HWND WINAPI ChildWindowFromPoint(HWND parent, POINT point);
 // Where a dragged item is: the window under the cursor, the window that takes the drop (that
 // window's parent, or the window itself when it is the tree's parent), the tree and item, the
 // cursor in screen and client coordinates, and the cursor relative to the window (40 bytes).
-struct UnknownDragInfo {
+struct item_data {
     HWND Window;            // +0x00
     HWND Target;            // +0x04
     HWND Tree;              // +0x08
@@ -130,23 +130,23 @@ struct UnknownDragInfo {
 };
 // TVN_BEGINDRAG: asks dialog (message 0x4C9) whether the item may be dragged; starts the drag
 // image, captures the mouse and starts the scroll timer; whether a drag is on (0x00736230).
-bool __fastcall unknown_begin_drag_736230(HWND dialog, HWND tree, NMTREEVIEWA *info);
-UnknownDragInfo __fastcall unknown_drag_info_736490(unsigned long position);     // 0x00736490
+bool __fastcall TreeView_Begin_Drag(HWND dialog, HWND tree, NMTREEVIEWA *info);
+item_data __fastcall TreeView_get_item_data(unsigned long position);     // 0x00736490
 // The scroll timer (id 1): scrolls the tree one item towards the cursor above or below it,
 // faster the farther away (0x00736570).
-void __fastcall unknown_drag_scroll_736570(int timer);
+void __fastcall TreeView_handle_item_drag(int timer);
 // WM_MOUSEMOVE during a drag: asks the target (message 0x4C8) whether it takes the drop, sets the
 // arrow or no-drop cursor and moves the drag image; whether it does (0x00736670).
-bool __fastcall unknown_drag_move_736670(unsigned long position);
+bool __fastcall TreeView_On_Mouse_Move(unsigned long position);
 class INIClass;
 // Window positions in an INI file: the section of the window being saved or restored, read by the
 // child callbacks (0x00B25F28). Restoring moves window to section's X/Y kept on screen, then gives
 // each tree view its saved expanded items ("TV<n>") and each list view its column widths ("LV<n>")
 // through 0x007368F0 (0x00736A70); saving is 0x00736CD0 with 0x00736B40.
-extern char const *unknown_window_section_b25f28;
-void __fastcall unknown_restore_window_position_736a70(char const *section, HWND window, INIClass &ini);
-BOOL __stdcall unknown_restore_child_window_7368f0(HWND window, long parameter);
-BOOL __stdcall unknown_save_child_window(HWND window, long parameter);
+extern char const *last_view_ini_section_name;
+void __fastcall read_views_from_ini(char const *section, HWND window, INIClass &ini);
+BOOL __stdcall read_view_from_ini(HWND window, long parameter);
+BOOL __stdcall write_view_to_ini(HWND window, long parameter);
 // Whether window's class is class_name (inline in 0x007368F0 and 0x00736B40).
 extern "C" int __cdecl strcmp(char const *left, char const *right);
 inline bool Is_Window_Class(HWND window, char const *class_name)
@@ -165,7 +165,7 @@ BOOL __stdcall unknown_null_dialog_proc_735b40(HWND dialog, UINT message, WPARAM
 // WM_LBUTTONUP during a drag: moves the drag image a last time (0x00736670), ends the drag, offers
 // the drop to the target (message 0x4CA) when it takes it, stops the scroll timer and clears the
 // drop highlight; false when no drag is on (0x00736320).
-bool __fastcall unknown_end_drag_736320(unsigned long position);
+bool __fastcall TreeView_End_Drag(unsigned long position);
 // Fonts: a font of face at width x height device units (logical after the DC's mapping) with
 // attribute bits 1 bold, 2 italic, 4 underline, 8 strike-out; with a width, the face's average
 // character width is scaled to it (Petzold's EzCreateFont shape; 0x007360B0).

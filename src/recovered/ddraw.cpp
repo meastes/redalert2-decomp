@@ -89,7 +89,7 @@ void __fastcall Probe_DirectDraw_Rendering_004957e0()
 
 
 extern IDirectDraw *DirectDrawObject;
-extern bool unknown_flag_851cb0;
+extern bool WindowedMode;
 extern char const direct_draw_prep_log_007d5a8c[];
 extern char const direct_draw_create_failed_007d5a70[];
 void __cdecl Prep_Direct_Draw()
@@ -99,7 +99,7 @@ void __cdecl Prep_Direct_Draw()
         HRESULT result = DirectDrawCreate(0, &DirectDrawObject, 0);
         Process_DD_Result(result, false);
         if (result == DD_OK) {
-            if (unknown_flag_851cb0) result = DirectDrawObject->SetCooperativeLevel(MainWindow, 8);
+            if (WindowedMode) result = DirectDrawObject->SetCooperativeLevel(MainWindow, 8);
             else result = DirectDrawObject->SetCooperativeLevel(MainWindow, 0x11);
             Process_DD_Result(result, false);
         } else {

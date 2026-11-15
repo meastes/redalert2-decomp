@@ -33,7 +33,7 @@ inline int Sidebar_Margin(HWND window, int width)
     WinData *record = unknown_registry_a73640.Find((unsigned int)window);
 #endif
     if (record && record->unknown_dc) return record->unknown_dc;
-    return (unknown_int_7add80 - width) / 2;
+    return (SidebarWidth - width) / 2;
 }
 }
 #endif

@@ -4,8 +4,8 @@
     "id": "population-4394",
     "inventory_sha256": "82d76aac864d26e1a63b17341b43281aa316ce10c95f0d35474ebdba4d64c791",
     "gaps_sha256": "04d36338335bdd7e43e23bfbef070ac0785ff73d83cba2e18e0315fd2eb8d76f",
-    "historical_population_sha256": "6efa8a9fd7c036c4b9da05c21b63aa79830ff02fb829ae7a1c61af7fc3406be6",
-    "historical_acceptance_sha256": "ca039d18e2d6c7bf0ecb255c2cdaf2e84ea8fe51d6e1365b5ab7759f6d288c1e",
+    "historical_population_sha256": "546288d223063102bcc33f1f9ea118734e0868ff90b49665ab5ec54b045e377f",
+    "historical_acceptance_sha256": "04981054ab86d2b42cb57f10e9ab44e4597d211a4f889f3e3997d71fbfa81dd1",
     "separate_units": true
   },
   "references": {
@@ -259,7 +259,7 @@
     "__purecall": 4950368,
     "?Unknown_00614760@@YAXXZ": 6375264,
     "?Unknown_00616EC0@@YIX_N0@Z": 6385344,
-    "?unknown_int_a3d548@@3HA": 10736968,
+    "?MuteSWLaunches@@3HA": 10736968,
     "?Unknown_006147B0@@YAXXZ": 6375344,
     "__imp__timeGetTime@0": 7972132,
     "?unknown_flag_ac133d@@3_NA": 11277117,
@@ -2981,7 +2981,7 @@
     "?Compute_CRC@ObjectClass@@UBEXAAVWWCRCEngine@@@Z": 6114064,
     "?Load@ObjectClass@@UAGJPAUIStream@@@Z": 6113120,
     "?AI@GScreenClass@@UAEXAAHABUPoint2D@@@Z": 5116096,
-    "?unknown_random_839218@@3VRandom2Class@@A": 8622616,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
     "?Load@TechnoClass@@UAGJPAUIStream@@@Z": 7170128,
     "?Load@RadioClass@@UAGJPAUIStream@@@Z": 6515808,
     "?unknown_timer_ac0178@@3V?$CDTimerClass@VFrameTimerClass@@@@A": 11272568,
@@ -3796,7 +3796,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_int_a3d548@@3HA",
+          "symbol": "?MuteSWLaunches@@3HA",
           "target": 10736968,
           "addend": 0,
           "resolved": 10736968
@@ -3818,7 +3818,7 @@
           "resolved": 4294052310
         }
       ],
-      "source_sha256": "0b4cd1bbedc73be98353edcd5111d9790999cbfc7616fcde4d714ce36029ec78",
+      "source_sha256": "b63381723726f876f8f5e019108c25f33dc47f116d4661b5bc367fd6e8f45964",
       "source": "src/recovered/unowned/Unknown_Group_Order_006f64d0.cpp",
       "population": "population-4394",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -3855,7 +3855,7 @@
         {
           "offset": 9,
           "kind": 6,
-          "symbol": "?unknown_int_a3d548@@3HA",
+          "symbol": "?MuteSWLaunches@@3HA",
           "target": 10736968,
           "addend": 0,
           "resolved": 10736968
@@ -3869,7 +3869,7 @@
           "resolved": 4294052278
         }
       ],
-      "source_sha256": "051e5ce1be03edc56712710a07e1fd97760d3d9fee5c596d1b60a181f30ffddd",
+      "source_sha256": "b31f071d1e87c0b8eed391a48fd4e112e94fdb5974e1bf4dc0332221a141e4c6",
       "source": "src/recovered/unowned/Unknown_Group_Order_Off_006f64f0.cpp",
       "population": "population-4394",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",

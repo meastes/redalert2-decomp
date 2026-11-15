@@ -217,7 +217,7 @@ public:
     bool Unknown_0055A7F0(CoordStruct const &coord);
     void Unknown_0055ACC0();                            // 0x0055ACC0 increments unknown_1154 (GScreenClass::Flag_To_Redraw)
     void Update_Cell_Zone_Constructively(Cell const &cell);      // 0x0054FC60
-    void Unknown_00566340(Cell const &cell);      // 0x00566340
+    void Update_Cell_Subzones(Cell const &cell);      // 0x00566340
     bool Is_Fogged(CoordStruct const &coord);                            // 0x005683C0 (Tunnel.cpp)
     bool Is_Shrouded(CoordStruct const &coord);    // 0x00568140 (AircraftClass slot 101)
     bool Is_Under_Fog(CoordStruct const &coord);    // 0x00568280 (as 0x00568140 for the cells' +0x13C; RadarClass)

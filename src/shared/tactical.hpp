@@ -256,7 +256,7 @@ public:
     int unknown_e14;                // +0xE14
     // (0xE18 bytes: Read_Scenario_INI's new)
 };
-extern Tactical *unknown_tactical_83996c;
+extern Tactical *TacticalMap;
 
 // A rectangle of the Tactical unit (0x00ABE560): 0x006A2B10 accepts points
 // left of its Width and above its Y + Height, 0x006A29D0 and 0x006A92A0 test

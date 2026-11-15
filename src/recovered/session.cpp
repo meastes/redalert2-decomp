@@ -634,7 +634,7 @@ void SessionClass::Read_MultiPlayer_Settings()
     if (!unknown_ports_read_ab9178) {
         PortBase = unknown_ini_839740.Get_Int("MultiPlayer", "PortBase", 0x4E2);
         unknown_2f9c = unknown_ini_839740.Get_Int("MultiPlayer", "ForcePortBase", 0);
-        unknown_port_pool_a71b28 = unknown_ini_839740.Get_Int("MultiPlayer", "PortPool", unknown_random_839218(0, 0x8000) + 0x1000);
+        unknown_port_pool_a71b28 = unknown_ini_839740.Get_Int("MultiPlayer", "PortPool", NonCriticalRandomNumber(0, 0x8000) + 0x1000);
         unknown_ports_read_ab9178 = true;
         unknown_firewall_a71b18.Load_005ba280();
     }
@@ -1886,7 +1886,7 @@ void SessionClass::Unknown_00672BB0()
 // Pauses for a dialog once (+0x3080 records it); see the declaration.
 void SessionClass::Unknown_00672DE0()
 {
-    if (!unknown_3080 && unknown_flag_a40958) {
+    if (!unknown_3080 && GameActive) {
         unknown_3080 = true;
         if (unknown_game_speed_7f3230 == -1) {
             unknown_game_speed_7f3230 = Options.GameSpeed;

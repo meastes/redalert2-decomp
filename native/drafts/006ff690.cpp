@@ -155,8 +155,8 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
         }
     }
     rect=window;
-    if (unknown_322>0) rect=Intersect(rect,Rect(0,0,unknown_int_839638,unknown_322-unknown_tactical_83996c->TacPixelY));
-    else if (unknown_325) unknown_322=(short)(unknown_tactical_83996c->TacPixelY+point.Y+unknown_unit_rect_ad0490.Y+unknown_unit_rect_ad0490.Height-128);
+    if (unknown_322>0) rect=Intersect(rect,Rect(0,0,unknown_int_839638,unknown_322-TacticalMap->TacPixelY));
+    else if (unknown_325) unknown_322=(short)(TacticalMap->TacPixelY+point.Y+unknown_unit_rect_ad0490.Y+unknown_unit_rect_ad0490.Height-128);
     int apparent_brightness=unknown_slot254(brightness);
     if (unknown_slot203()) apparent_brightness=unknown_6d86f0(apparent_brightness);
     unknown_slot312(*old_surface,point,rect,apparent_brightness);
@@ -183,7 +183,7 @@ plain:
         if (type->HunterSeeker) {
             CoordStruct coord=Position_Coord_004f3f40();
             coord.Z=Map.Get_Height_GL(coord);
-            unknown_tactical_83996c->Coord_To_Pixel(coord,shadow_drawpoint);
+            TacticalMap->Coord_To_Pixel(coord,shadow_drawpoint);
             shadow_drawpoint+=Locomotor.Checked()->Shadow_Point();
         }
         if (unknown_37c) shadow_drawpoint.Y-=14;

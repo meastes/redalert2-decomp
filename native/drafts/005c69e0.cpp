@@ -117,7 +117,7 @@ long __stdcall Lobby_Dialog_Proc_005c69e0(HWND window, unsigned message, unsigne
         return 1;
     case 0xf:
         OwnerDraw::unknown_draw_dialog_back_5fee70(window);
-        if (unknown_dialog_preview_a72ce8) unknown_dialog_preview_a72ce8->Blit_Preview(window);
+        if (MultiplayerMapPreview) MultiplayerMapPreview->Blit_Preview(window);
         unknown_dialog_5e5f20(window);
         ValidateRect(window, 0);
         return 0;
@@ -146,7 +146,7 @@ long __stdcall Lobby_Dialog_Proc_005c69e0(HWND window, unsigned message, unsigne
                     }
                     if (index < unknown_multi_missions_a3d8d8.Count()) unknown_select_list_item_by_data_005c7160(window, (intptr_t)unknown_multi_missions_a3d8d8[index]);
                     Select_Scenario_005c7c30(index);
-                    if (!unknown_dialog_preview_a72ce8->unknown_00) Unknown_005c7570(window);
+                    if (!MultiplayerMapPreview->unknown_00) Unknown_005c7570(window);
                     unknown_session_a3d2b4 = unknown_lobby_map_a72c80;
                     Select_Scenario_005c7c30(unknown_session_a3d2b4);
                     bool accepted = Accept_Map_Selection_005c71f0(window);

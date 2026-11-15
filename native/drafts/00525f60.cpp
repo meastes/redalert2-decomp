@@ -148,7 +148,7 @@ check_address:
                             goto check_router_address;
                         }
                     }
-                    if (unknown_game_mode_a3d298==4 && unknown_a40774==0 && Frame>8 && !unknown_flag_a3fba8 &&
+                    if (unknown_game_mode_a3d298==4 && ScenarioInit==0 && Frame>8 && !unknown_flag_a3fba8 &&
                         (unsigned int)packet_length>15 && packet->Code==PACKET_DATA_NOACK && (signed char)receive_buffer[14]==0x19) {
                         int id=(signed char)receive_buffer[16];
                         for (int player=1;player<unknown_players_a3fa7c.Count();++player) {

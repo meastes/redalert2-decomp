@@ -96,7 +96,7 @@ SmudgeClass::~SmudgeClass()
 {
     Unknown_006ECB90(this, true);
     Smudges.Delete(this);
-    if (unknown_flag_a40958) {
+    if (GameActive) {
         ObjectClass::Limbo();
     }
     Class = 0;
@@ -112,7 +112,7 @@ bool SmudgeClass::Mark(int arg1)
 {
     if (ObjectClass::Mark(arg1) && (arg1 == 1 || arg1 == 3)) {
         Cell cell = Cell(unknown_slot104());
-        if (unknown_a40774 > 0 || Debug_Map || Class->Can_Place(cell, true)) {
+        if (ScenarioInit > 0 || Debug_Map || Class->Can_Place(cell, true)) {
             Class->Place(cell);
         }
         unknown_74 = false;

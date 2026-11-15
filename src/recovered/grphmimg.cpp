@@ -192,7 +192,7 @@ void GraphicMenuImageItem::Play_Sound(int unknown)
     MSEngine *engine = (MSEngine *)unknown;
     GraphicMenuItem::Play_Sound(unknown);
     if (CCFileClass(unknown_name_34).Is_Available()) {
-        MSVQAnim *movie = new MSVQAnim(unknown_name_34, unknown_surface_839958, &engine->Anims, true);
+        MSVQAnim *movie = new MSVQAnim(unknown_name_34, AlternateSurface, &engine->Anims, true);
         if (movie != 0) {
             engine->Wait_For(movie, 300000);
         }

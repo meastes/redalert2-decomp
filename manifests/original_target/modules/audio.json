@@ -309,7 +309,7 @@
   },
   {
    "site": "007373a0",
-   "symbol": "?Unknown_00406F50@@YAXXZ",
+   "symbol": "?Audio_Focus_Lose@@YAXXZ",
    "target": "00406f50",
    "function_entry": true
   },
@@ -321,7 +321,7 @@
   },
   {
    "site": "00737400",
-   "symbol": "?Unknown_00406F70@@YAXXZ",
+   "symbol": "?Audio_Focus_Regain@@YAXXZ",
    "target": "00406f70",
    "function_entry": true
   },
@@ -525,7 +525,7 @@
   },
   {
    "site": "007375a0",
-   "symbol": "?Unknown_00406F50@@YAXXZ",
+   "symbol": "?Audio_Focus_Lose@@YAXXZ",
    "target": "00406f50",
    "function_entry": true
   },
@@ -794,6 +794,26 @@
    "address": "00831470"
   },
   {
+   "symbol": "?Audio_Worker_Service@@YAXXZ",
+   "address": "007717c0"
+  },
+  {
+   "symbol": "?Aux_Stream_Init@@YAXXZ",
+   "address": "00715f10"
+  },
+  {
+   "symbol": "?Aux_Stream_Pause@@YAXXZ",
+   "address": "007168d0"
+  },
+  {
+   "symbol": "?Aux_Stream_Resume@@YAXXZ",
+   "address": "007168e0"
+  },
+  {
+   "symbol": "?Aux_Stream_Shutdown@@YAXXZ",
+   "address": "00715f80"
+  },
+  {
    "symbol": "?FastKey@@3VPKey@@A",
    "address": "00839010"
   },
@@ -806,12 +826,36 @@
    "address": "004070a0"
   },
   {
+   "symbol": "?Sound_Pause_All@@YAXXZ",
+   "address": "007144b0"
+  },
+  {
+   "symbol": "?Sound_Resume_All@@YAXXZ",
+   "address": "007144f0"
+  },
+  {
+   "symbol": "?Sound_Service@@YAXXZ",
+   "address": "00714330"
+  },
+  {
+   "symbol": "?Speech_Service@@YAXXZ",
+   "address": "00715ba0"
+  },
+  {
    "symbol": "?Speech_Shutdown@@YAXXZ",
    "address": "00715780"
   },
   {
    "symbol": "?ThemeMix@@3PAVMixFileClass@@A",
    "address": "00831448"
+  },
+  {
+   "symbol": "?Theme_Resume@@YAXXZ",
+   "address": "007169f0"
+  },
+  {
+   "symbol": "?Theme_Suspend@@YAXXZ",
+   "address": "00716980"
   },
   {
    "symbol": "?Update_Rate@AudioFormat@@QAEXXZ",
@@ -826,52 +870,8 @@
    "address": "006e7cd0"
   },
   {
-   "symbol": "?unknown_00714330@@YAXXZ",
-   "address": "00714330"
-  },
-  {
-   "symbol": "?unknown_007144b0@@YAXXZ",
-   "address": "007144b0"
-  },
-  {
-   "symbol": "?unknown_007144f0@@YAXXZ",
-   "address": "007144f0"
-  },
-  {
    "symbol": "?unknown_007156d0@@YAXXZ",
    "address": "007156d0"
-  },
-  {
-   "symbol": "?unknown_00715ba0@@YAXXZ",
-   "address": "00715ba0"
-  },
-  {
-   "symbol": "?unknown_00715f10@@YAXXZ",
-   "address": "00715f10"
-  },
-  {
-   "symbol": "?unknown_00715f80@@YAXXZ",
-   "address": "00715f80"
-  },
-  {
-   "symbol": "?unknown_007168d0@@YAXXZ",
-   "address": "007168d0"
-  },
-  {
-   "symbol": "?unknown_007168e0@@YAXXZ",
-   "address": "007168e0"
-  },
-  {
-   "symbol": "?unknown_00716980@@YAXXZ",
-   "address": "00716980"
-  },
-  {
-   "symbol": "?unknown_007169f0@@YAXXZ",
-   "address": "007169f0"
-  },
-  {
-   "symbol": "?unknown_007717c0@@YAXXZ",
-   "address": "007717c0"
   },
   {
    "symbol": "?unknown_00a35d78@@3Uunknown_00a35d78_type@@A",
@@ -933,19 +933,19 @@
   {
    "site": "007373a0",
    "target": "00406f50",
-   "symbol": "?Unknown_00406F50@@YAXXZ",
+   "symbol": "?Audio_Focus_Lose@@YAXXZ",
    "module_symbol": "?FUN_00406f50@seed_00406f50@@YAXXZ"
   },
   {
    "site": "00737400",
    "target": "00406f70",
-   "symbol": "?Unknown_00406F70@@YAXXZ",
+   "symbol": "?Audio_Focus_Regain@@YAXXZ",
    "module_symbol": "?FUN_00406f70@seed_00406f70@@YAXXZ"
   },
   {
    "site": "007375a0",
    "target": "00406f50",
-   "symbol": "?Unknown_00406F50@@YAXXZ",
+   "symbol": "?Audio_Focus_Lose@@YAXXZ",
    "module_symbol": "?FUN_00406f50@seed_00406f50@@YAXXZ"
   }
  ],

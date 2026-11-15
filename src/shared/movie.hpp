@@ -21,9 +21,9 @@
 // by default). Index meanings are unknown.
 extern unsigned char unknown_vqa_options_af9020[3];
 void __fastcall VQA_Unknown_0071DB20();                    // 0x0071DB20 defaults
-void __fastcall VQA_Unknown_0071DB60(int option);          // 0x0071DB60 set
+void __fastcall Set_Option(int option);          // 0x0071DB60 set
 void __fastcall VQA_Unknown_0071DB80(int option);          // 0x0071DB80 clear
-bool __fastcall VQA_Unknown_0071DBA0(int option);          // 0x0071DBA0 test
+bool __fastcall Get_Option(int option);          // 0x0071DBA0 test
 int __fastcall VQA_Unknown_0071DBC0(int option);           // 0x0071DBC0 toggle; 1 when now set
 
 // Owned by the VQA movie at +0x48 (class unknown).
@@ -73,17 +73,17 @@ extern bool unknown_vqa_paused_af901c;                     // 0x00AF901C the pau
 // MSG: shared/win32_api.hpp.
 WIN32_IMPORT BOOL WINAPI TranslateMessage(MSG const *message);
 WIN32_IMPORT LRESULT WINAPI DispatchMessageA(MSG const *message);
-BOOL __fastcall unknown_peek_message_522ed0(MSG *message, HWND window, UINT first, UINT last, UINT remove);
-BOOL __fastcall unknown_get_message_522e90(MSG *message, HWND window, UINT first, UINT last);
-extern int unknown_message_count_a52298;
-bool VQA_Unknown_0071C590();                                // 0x0071C590 one window message
+BOOL __fastcall Peek_Windows_Message(MSG *message, HWND window, UINT first, UINT last, UINT remove);
+BOOL __fastcall Get_Windows_Message(MSG *message, HWND window, UINT first, UINT last);
+extern int MessageLoopCount;
+bool VQA_Message_Handler();                                // 0x0071C590 one window message
 
 // Player callbacks given to the VQA library through the configuration.
 int __cdecl VQA_Unknown_0071D490(VQAHandle *handle, int unknown2, int unknown3, int unknown4);
 int __cdecl VQA_Unknown_0071D640(VQAHandle *handle, int unknown2, int unknown3, int unknown4);
-int __fastcall VQA_Unknown_0071D660(VQAHandle *handle, int unknown2, int unknown3, int unknown4);
-int __cdecl VQA_Unknown_0071D680(VQAHandle *handle, int request, int unknown3, int unknown4);
-int __cdecl VQA_Unknown_0071D6E0(VQAHandle *handle, int event, int unknown3, int unknown4);
+int __fastcall VQACacheHandler(VQAHandle *handle, int unknown2, int unknown3, int unknown4);
+int __cdecl VQAMemoryHandler(VQAHandle *handle, int request, int unknown3, int unknown4);
+int __cdecl VQAEventHandler(VQAHandle *handle, int event, int unknown3, int unknown4);
 
 // The VQA player object (VQA unit 0x0071C320-0x0071DC0F; class name
 // unknown, 0x54C bytes from the constructor's stores).
@@ -185,7 +185,7 @@ extern VQAMovie *CurrentVQAMovie;                          // 0x00A710AC
 
 void __fastcall VQA_Movie_Close(VQAMovie *movie);                                     // 0x005A1470
 void __fastcall VQA_Movie_Play(VQAMovie *movie, bool hide, int theme, bool unknown);  // 0x005A14D0
-bool __fastcall VQA_Movie_Unknown_005A15F0(VQAMovie *movie, bool *unknown);          // 0x005A15F0
+bool __fastcall Movie_Advance_Frame(VQAMovie *movie, bool *unknown);          // 0x005A15F0
 bool __fastcall VQA_Movie_Is_Playing();                                              // 0x005A1620
 void __fastcall VQA_Movie_Pause(VQAMovie *movie);                                     // 0x005A1630
 void __fastcall VQA_Movie_Resume(VQAMovie *movie);                                    // 0x005A1640
@@ -243,11 +243,11 @@ public:
 
 // Bink.cpp helpers and globals (names are hypotheses).
 #include "shared/sound_available.hpp"
-void *unknown_directsound_40a6c0();             // 0x0040A6C0 the DirectSound object
+void *GetDirectSoundObject();             // 0x0040A6C0 the DirectSound object
 #include "shared/debug_printf.hpp"
 extern float unknown_volume_a40b48;             // 0x00A40B48 movie volume scale
 extern float unknown_volume_84e9a8;             // 0x0084E9A8
-VQAMovieCompanion *__fastcall unknown_create_companion_69b190(char const *filename);   // 0x0069B190
+VQAMovieCompanion *__fastcall Subtitles_Open(char const *filename);   // 0x0069B190
 
 class MovieHandle {
 public:

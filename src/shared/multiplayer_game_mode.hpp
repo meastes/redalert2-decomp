@@ -60,7 +60,7 @@ public:
 
 
 // Empties a combo box (0x006007F0).
-void __fastcall unknown_reset_combo_6007f0(HWND combo);
+void __fastcall Clear_ComboBox(HWND combo);
 
 // The team number as wide text (0x007710C0; swprintf "%d").
 WideString __fastcall unknown_number_text_7710c0(int number);
@@ -328,7 +328,7 @@ public:
     int unknown_74;                                                // +0x74 [+0x124]
     unsigned short unknown_host_name_78[20];                       // +0x78 [+0x2380] the host's name
     int unknown_a0;                                                // +0xA0 [+0x3AA4]
-    int unknown_a4;                                                // +0xA4 (unknown_house_setting_7d88d8)
+    int unknown_a4;                                                // +0xA4 (BuildLevel)
     int unknown_units_a8;                                          // +0xA8 [+0x38] the start units
     int unknown_credits_ac;                                        // +0xAC [+0x24]
     bool unknown_fog_b0;                                           // +0xB0 [+0xA7]

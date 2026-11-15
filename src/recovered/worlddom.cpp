@@ -241,10 +241,10 @@ namespace WorldDominationTour {
 
 void FactionSelectDialogControl::Draw_00768940(int unknown)
 {
-    if (unknown_surface_839958 != 0 && Current != 0) {
+    if (AlternateSurface != 0 && Current != 0) {
         Rect rect = Current->Get_Rect();
-        unknown_surface_839958->Fill_Rect(rect, 0);
-        unknown_surface_839958->Copy_From(rect, *Current, rect, false, true);
+        AlternateSurface->Fill_Rect(rect, 0);
+        AlternateSurface->Copy_From(rect, *Current, rect, false, true);
     }
 }
 
@@ -425,7 +425,7 @@ rc_ptr<Campaign> const &__fastcall Previous_WDT_Campaign_00769680();
 
 int __fastcall WDT_Setup_Game_00768e90(bool first_time)
 {
-    if (unknown_8523e0 > 640) {
+    if (VideoModeWidth > 640) {
         WideString text(StringTable::Load_String("WOL:WDTResolutionQuery", 0, "D:\\Ra2\\WorldDom.cpp", 385));
         if (Message_Box_005c3230(text.Get(), 4, Unknown_0073e100, true) != 6) {
             return false;

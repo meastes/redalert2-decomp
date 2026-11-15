@@ -37,7 +37,7 @@
     ShapeFileStruct const *var = (ShapeFileStruct const *)Load_Alloc_Data(file); \
     file.Close();
 #define WIPE(shape, xp, yp) \
-    CC_Draw_Shape(unknown_surface_839954, Drawer, shape, i, Point2D(xp, yp), unknown_surface_839954->Get_Rect(), 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0))
+    CC_Draw_Shape(HiddenSurface, Drawer, shape, i, Point2D(xp, yp), HiddenSurface->Get_Rect(), 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0))
 #include "shared/comm_buffer.hpp"
 #include "shared/queue.hpp"
 #include "shared/serial_progress.hpp"
@@ -158,8 +158,8 @@ void ScoreClass::Presentation()
     CCFileClass file;
     Fame hallfame[9];
 
-    XOffset = (unknown_surface_839954->Get_Width() - 640) / 2;
-    YOffset = (unknown_surface_839954->Get_Height() - 400) / 2;
+    XOffset = (HiddenSurface->Get_Width() - 640) / 2;
+    YOffset = (HiddenSurface->Get_Height() - 400) / 2;
     WWMouse->Hide_Mouse();
     WWKeyboard->Clear();
     Theme.Stop();
@@ -169,15 +169,15 @@ void ScoreClass::Presentation()
     unsigned char *fontpal = (unsigned char *)Load_Alloc_Data(file);
     file.Close();
     for (i = 0; i < 256; i++) {
-        unknown_palette_838710[i] = RGBClass(fontpal[i * 3] << 2, fontpal[i * 3 + 1] << 2, fontpal[i * 3 + 2] << 2);
+        CCPalette[i] = RGBClass(fontpal[i * 3] << 2, fontpal[i * 3 + 1] << 2, fontpal[i * 3 + 2] << 2);
     }
     Color = Build_Hicolor_Pixel(fontpal[204] << 2, fontpal[205] << 2, fontpal[206] << 2);
     delete fontpal;
 
-    ConvertClass *drawer = new ConvertClass(unknown_palette_838710, unknown_palette_838710, unknown_surface_839950, 1, 0);
-    SurfacePtr = new DSurface(unknown_surface_839954->Get_Width(), unknown_surface_839954->Get_Height(), false);
+    ConvertClass *drawer = new ConvertClass(CCPalette, CCPalette, unknown_surface_839950, 1, 0);
+    SurfacePtr = new DSurface(HiddenSurface->Get_Width(), HiddenSurface->Get_Height(), false);
     SurfacePtr->Fill(0);
-    Load_Title_Screen_00738190("SCORE.PCX", SurfacePtr, &unknown_palette_838710);
+    Load_Title_Screen_00738190("SCORE.PCX", SurfacePtr, &CCPalette);
 
     LOAD(best01shape, "BEST01.SHP")
     LOAD(best02shape, "BEST02.SHP")
@@ -206,10 +206,10 @@ void ScoreClass::Presentation()
     WWKeyboard->Clear();
     Play_Sound("Wipe", 256);
     Play_Movie("SCORE.VQA", -1, false, false, true, false);
-    unknown_surface_839954->Copy_From(*SurfacePtr, false, true);
-    unknown_surface_839958->Copy_From(*SurfacePtr, false, true);
+    HiddenSurface->Copy_From(*SurfacePtr, false, true);
+    AlternateSurface->Copy_From(*SurfacePtr, false, true);
 
-    Drawer = new ConvertClass(unknown_palette_838710, unknown_palette_838710, unknown_surface_839950, 1, 0);
+    Drawer = new ConvertClass(CCPalette, CCPalette, unknown_surface_839950, 1, 0);
     Add_Anim(new ScoreTimeClass(XOffset + 7, YOffset + 6, logo01shape, 60, 3, Drawer));
 
     Play_Sound("Efficiency", 128);
@@ -218,8 +218,8 @@ void ScoreClass::Presentation()
         ScoreDelay(4);
     }
     Rect rect(XOffset + 480, YOffset + 23, 160, 120);
-    SurfacePtr->Copy_From(rect, *unknown_surface_839954, rect, false, true);
-    unknown_surface_839958->Copy_From(rect, *unknown_surface_839954, rect, false, true);
+    SurfacePtr->Copy_From(rect, *HiddenSurface, rect, false, true);
+    AlternateSurface->Copy_From(rect, *HiddenSurface, rect, false, true);
     str = FETCH("TXT_MISSION_EFFICIENCY", 506);
     Font->String_Pixel_Width(str);
     x = XOffset - Font->String_Pixel_Width(str) / 2 + 552;
@@ -238,16 +238,16 @@ void ScoreClass::Presentation()
         ScoreDelay(4);
     }
     rect.Set(XOffset + 481, YOffset + 148, 144, 86);
-    SurfacePtr->Copy_From(rect, *unknown_surface_839954, rect, false, true);
-    unknown_surface_839958->Copy_From(rect, *unknown_surface_839954, rect, false, true);
+    SurfacePtr->Copy_From(rect, *HiddenSurface, rect, false, true);
+    AlternateSurface->Copy_From(rect, *HiddenSurface, rect, false, true);
     str = FETCH("TXT_CURRENCY", 543);
     Font->String_Pixel_Width(str);
     x = XOffset - Font->String_Pixel_Width(str) / 2 + 560;
     PRINT(str, x, YOffset + 193, Font);
     WAIT();
     rect.Set(XOffset + 481, YOffset + 148, 150, 120);
-    SurfacePtr->Copy_From(rect, *unknown_surface_839954, rect, false, true);
-    unknown_surface_839958->Copy_From(rect, *unknown_surface_839954, rect, false, true);
+    SurfacePtr->Copy_From(rect, *HiddenSurface, rect, false, true);
+    AlternateSurface->Copy_From(rect, *HiddenSurface, rect, false, true);
     Show_Credits();
 
     for (i = 0; i < 10; i++) {
@@ -255,8 +255,8 @@ void ScoreClass::Presentation()
         ScoreDelay(4);
     }
     rect.Set(XOffset + 444, YOffset + 273, 196, 118);
-    SurfacePtr->Copy_From(rect, *unknown_surface_839954, rect, false, true);
-    unknown_surface_839958->Copy_From(rect, *unknown_surface_839954, rect, false, true);
+    SurfacePtr->Copy_From(rect, *HiddenSurface, rect, false, true);
+    AlternateSurface->Copy_From(rect, *HiddenSurface, rect, false, true);
     str = FETCH("TXT_MISSION_TIME_LAPSE", 571);
     Font->String_Pixel_Width(str);
     x = XOffset - Font->String_Pixel_Width(str) / 2 + 542;
@@ -271,8 +271,8 @@ void ScoreClass::Presentation()
         ScoreDelay(4);
     }
     rect.Set(XOffset + 186, YOffset + 54, 262, 326);
-    SurfacePtr->Copy_From(rect, *unknown_surface_839954, rect, false, true);
-    unknown_surface_839958->Copy_From(rect, *unknown_surface_839954, rect, false, true);
+    SurfacePtr->Copy_From(rect, *HiddenSurface, rect, false, true);
+    AlternateSurface->Copy_From(rect, *HiddenSurface, rect, false, true);
     str = FETCH("TXT_CASUALTIES", 601);
     Font->String_Pixel_Width(str);
     x = XOffset - Font->String_Pixel_Width(str) / 2 + 316;
@@ -304,8 +304,8 @@ void ScoreClass::Presentation()
         ScoreDelay(4);
     }
     rect.Set(XOffset, YOffset + 188, 182, 212);
-    SurfacePtr->Copy_From(rect, *unknown_surface_839954, rect, false, true);
-    unknown_surface_839958->Copy_From(rect, *unknown_surface_839954, rect, false, true);
+    SurfacePtr->Copy_From(rect, *HiddenSurface, rect, false, true);
+    AlternateSurface->Copy_From(rect, *HiddenSurface, rect, false, true);
     str = FETCH("TXT_BEST_SCORES", 669);
     Font->String_Pixel_Width(str);
     x = XOffset - Font->String_Pixel_Width(str) / 2 + 84;
@@ -400,7 +400,7 @@ void ScoreClass::Presentation()
         SurfacePtr = 0;
     }
     delete drawer;
-    unknown_surface_839954->Fill(0);
+    HiddenSurface->Fill(0);
     Blit_Score();
     Theme.Queue_Song((ThemeType)-1);
 }
@@ -579,24 +579,24 @@ void ScoreClass::Do_Graph(int first, int second, int xpos)
     int firststep = first * 2;
     for (int y = bottom - 1; firstheightcount <= (firstheight > secondheight ? firstheight : secondheight); ) {
         if (firstrect.Is_Valid()) {
-            unknown_surface_839954->Copy_From(firstrect, *unknown_surface_839958, firstrect, false, true);
+            HiddenSurface->Copy_From(firstrect, *AlternateSurface, firstrect, false, true);
         }
         if (firstheightcount <= firstheight) {
             rect.Set(xpos, y, 15, firstheightcount);
-            unknown_surface_839954->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
-            firstrect = Count_Up_Print(unknown_surface_839954, L"%d", firstcount / max, first, xpos, y);
+            HiddenSurface->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
+            firstrect = Count_Up_Print(HiddenSurface, L"%d", firstcount / max, first, xpos, y);
         } else {
-            firstrect = Count_Up_Print(unknown_surface_839954, L"%d", first, first, xpos, bottom - firstheight);
+            firstrect = Count_Up_Print(HiddenSurface, L"%d", first, first, xpos, bottom - firstheight);
         }
         if (secondrect.Is_Valid()) {
-            unknown_surface_839954->Copy_From(secondrect, *unknown_surface_839958, secondrect, false, true);
+            HiddenSurface->Copy_From(secondrect, *AlternateSurface, secondrect, false, true);
         }
         if (secondheightcount <= secondheight) {
             rect.Set(xpos + 132, y, 15, secondheightcount);
-            unknown_surface_839954->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
-            secondrect = Count_Up_Print(unknown_surface_839954, L"%d", secondcount / max, second, xpos + 132, y);
+            HiddenSurface->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
+            secondrect = Count_Up_Print(HiddenSurface, L"%d", secondcount / max, second, xpos + 132, y);
         } else {
-            secondrect = Count_Up_Print(unknown_surface_839954, L"%d", second, second, xpos + 132, bottom - secondheight);
+            secondrect = Count_Up_Print(HiddenSurface, L"%d", second, second, xpos + 132, bottom - secondheight);
         }
         Play_Sound("BarGraph", 96);
         ScoreDelay(1);
@@ -608,19 +608,19 @@ void ScoreClass::Do_Graph(int first, int second, int xpos)
     }
 
     if (firstrect.Is_Valid()) {
-        unknown_surface_839954->Copy_From(firstrect, *unknown_surface_839958, firstrect, false, true);
+        HiddenSurface->Copy_From(firstrect, *AlternateSurface, firstrect, false, true);
     }
     rect.Set(xpos, bottom - firstheight, 15, firstheight);
-    unknown_surface_839958->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
-    Count_Up_Print(unknown_surface_839954, L"%d", first, first, xpos, bottom - firstheight);
-    Count_Up_Print(unknown_surface_839958, L"%d", first, first, xpos, bottom - firstheight);
+    AlternateSurface->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
+    Count_Up_Print(HiddenSurface, L"%d", first, first, xpos, bottom - firstheight);
+    Count_Up_Print(AlternateSurface, L"%d", first, first, xpos, bottom - firstheight);
     if (secondrect.Is_Valid()) {
-        unknown_surface_839954->Copy_From(secondrect, *unknown_surface_839958, secondrect, false, true);
+        HiddenSurface->Copy_From(secondrect, *AlternateSurface, secondrect, false, true);
     }
     rect.Set(xpos + 132, bottom - secondheight, 15, secondheight);
-    unknown_surface_839958->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
-    Count_Up_Print(unknown_surface_839954, L"%d", second, second, xpos + 132, bottom - secondheight);
-    Count_Up_Print(unknown_surface_839958, L"%d", second, second, xpos + 132, bottom - secondheight);
+    AlternateSurface->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
+    Count_Up_Print(HiddenSurface, L"%d", second, second, xpos + 132, bottom - secondheight);
+    Count_Up_Print(AlternateSurface, L"%d", second, second, xpos + 132, bottom - secondheight);
     ScoreDelay(20);
 }
 
@@ -700,8 +700,8 @@ void ScoreClass::Input_Name(char *name, int x, int y)
             if (key == 8 && xpos >= x + 84) {
                 if (name[index] && name[index] != ' ') {
                     Rect rect(xpos, y + 1, Font->Char_Pixel_Width(name[index]) + 1, 16);
-                    unknown_surface_839954->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
-                    unknown_surface_839958->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
+                    HiddenSurface->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
+                    AlternateSurface->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
                     key = ' ';
                 }
             }
@@ -711,8 +711,8 @@ void ScoreClass::Input_Name(char *name, int x, int y)
                     int width = Font->Char_Pixel_Width(letter) + 1;
                     xpos -= width;
                     Rect rect(xpos, y + 1, width, 16);
-                    unknown_surface_839954->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
-                    unknown_surface_839958->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
+                    HiddenSurface->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
+                    AlternateSurface->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
                     name[index] = 0;
                     Play_Sound("Back", 192);
                 }
@@ -721,8 +721,8 @@ void ScoreClass::Input_Name(char *name, int x, int y)
                 if (xpos + Font->Width <= x + 90) {
                     if (xpos + width >= x + 84) {
                         Rect rect(xpos, y + 1, Font->Char_Pixel_Width(name[index]) + 1, 16);
-                        unknown_surface_839954->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
-                        unknown_surface_839958->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
+                        HiddenSurface->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
+                        AlternateSurface->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
                     }
                     name[index] = key;
                     name[index + 1] = 0;
@@ -757,14 +757,14 @@ void ScoreClass::Draw_Cursor(int x, int y)
     y += 14;
     if (x != lastx) {
         rect.Set(lastx, y, 11, 1);
-        unknown_surface_839954->Copy_From(rect, *unknown_surface_839958, rect, false, true);
+        HiddenSurface->Copy_From(rect, *AlternateSurface, rect, false, true);
         lastx = x;
     }
     if (blink) {
-        unknown_surface_839954->Draw_Line(Point2D(x, y), Point2D(x + 10, y), Color);
+        HiddenSurface->Draw_Line(Point2D(x, y), Point2D(x + 10, y), Color);
     } else {
         rect.Set(x, y, 11, 1);
-        unknown_surface_839954->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
+        HiddenSurface->Copy_From(rect, *(Surface *)SurfacePtr, rect, false, true);
     }
     if (!timer) {
         blink ^= 1;
@@ -786,7 +786,7 @@ void ScoreClass::ScoreDelay(int ticks)
         do {
             Service_Game_IO_00481fb0();
             unknown_5b5ee0();
-            if(!unknown_flag_a40d28) {
+            if(!GameInFocus) {
                 timer.Stop();
                 Wait_While_Inactive();
                 timer.Start();
@@ -806,10 +806,10 @@ void ScoreClass::ScoreDelay(int ticks)
 void ScoreClass::Update_Anims()
 {
     unknown_score_print_ab6f9c = false;
-    if (unknown_redraw_8523dc) {
-        unknown_redraw_8523dc = false;
-        unknown_surface_839954->Fill(0);
-        unknown_surface_839954->Copy_From(*unknown_surface_839958, false, true);
+    if (SurfacesRestored) {
+        SurfacesRestored = false;
+        HiddenSurface->Fill(0);
+        HiddenSurface->Copy_From(*AlternateSurface, false, true);
     }
     for (int index = 0; index < Anims.Count(); index++) {
         if (Anims[index]->Update(SurfacePtr) == true) {
@@ -832,11 +832,11 @@ void ScoreClass::Blit_Score()
     Rect dest(XOffset + client.left, YOffset + client.top, 640, 400);
     Rect source(XOffset, YOffset, 640, 400);
     if (WWMouse != 0) {
-        WWMouse->Draw_Mouse(unknown_surface_839954);
+        WWMouse->Draw_Mouse(HiddenSurface);
     }
-    unknown_surface_839950->Copy_From(dest, *unknown_surface_839954, source, false, true);
+    unknown_surface_839950->Copy_From(dest, *HiddenSurface, source, false, true);
     if (WWMouse != 0) {
-        WWMouse->Erase_Mouse(unknown_surface_839954);
+        WWMouse->Erase_Mouse(HiddenSurface);
     }
 }
 
@@ -847,11 +847,11 @@ void ScoreClass::Blit_Score()
 
 void ScoreClass::Wait_While_Inactive()
 {
-    if (unknown_flag_a40d28 != true) {
+    if (GameInFocus != true) {
         for (int index = 0; index < Anims.Count(); index++) {
             Anims[index]->Pause();
         }
-        while (!unknown_flag_a40d28) {
+        while (!GameInFocus) {
             Sleep(500);
             unknown_5b5ee0();
         }
@@ -906,10 +906,10 @@ bool ScoreTimeClass::Update(Surface *surface)
         if (++Stage >= MaxStage) {
             Stage = 0;
         }
-        CC_Draw_Shape(unknown_surface_839954, Drawer, (ShapeFileStruct const *)DataPtr, Stage,
-                      Point2D(XPos, YPos), unknown_surface_839954->Get_Rect(), 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-        CC_Draw_Shape(unknown_surface_839958, Drawer, (ShapeFileStruct const *)DataPtr, Stage,
-                      Point2D(XPos, YPos), unknown_surface_839958->Get_Rect(), 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+        CC_Draw_Shape(HiddenSurface, Drawer, (ShapeFileStruct const *)DataPtr, Stage,
+                      Point2D(XPos, YPos), HiddenSurface->Get_Rect(), 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+        CC_Draw_Shape(AlternateSurface, Drawer, (ShapeFileStruct const *)DataPtr, Stage,
+                      Point2D(XPos, YPos), AlternateSurface->Get_Rect(), 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
     }
     return false;
 }
@@ -944,7 +944,7 @@ bool ScorePrintClass::Update(Surface *surface)
         if (!Background) {
             int width = Font->String_Pixel_Width((unsigned short const *)DataPtr);
             Rect rect(XPos - 8 > 0 ? XPos - 8 : 0, YPos, width + 10, Font->Height);
-            unknown_surface_839954->Copy_From(rect, *unknown_surface_839958, rect, false, true);
+            HiddenSurface->Copy_From(rect, *AlternateSurface, rect, false, true);
         }
         int x = XPos;
         for (int i = 0; i <= Stage; i++) {
@@ -954,9 +954,9 @@ bool ScorePrintClass::Update(Surface *surface)
                 break;
             }
             int frame = Background == true ? 2 : (Stage - i < 2 ? Stage - i : 2);
-            Font->Print_Char(unknown_surface_839954, c, x, YPos, frame, 1);
+            Font->Print_Char(HiddenSurface, c, x, YPos, frame, 1);
             if (frame == 2) {
-                Font->Print_Char(unknown_surface_839958, c, x, YPos, 2, 0);
+                Font->Print_Char(AlternateSurface, c, x, YPos, 2, 0);
             }
             x += Font->Char_Pixel_Width(c) + 1;
         }

@@ -2068,7 +2068,7 @@ void __fastcall unknown_5e5150(HWND dialog, bool reverse)
     ConvertClass *drawer_c = (ConvertClass *)Unknown_Get_Art_6f2830();
     ShapeFileStruct *shape_f0 = unknown_shape_ac10f0;
     int count = unknown_count_ac102c;
-    Rect window = unknown_surface_839958->Get_Rect();
+    Rect window = AlternateSurface->Get_Rect();
     Rect rect_c4 = *unknown_rect_ac11c4;
     Rect rect_b8 = *unknown_rect_ac11b8;
     Rect rect_bc = *unknown_rect_ac11bc;
@@ -2139,10 +2139,10 @@ void __fastcall unknown_5e5150(HWND dialog, bool reverse)
             Point2D point = Unknown_Point_Copy_006F1AE0((Point2D const *)&rect_b8);
             int phase = Slide_Phase(step - order[pieces - 3]);
             if (phase == -1) {
-                CC_Draw_Shape(unknown_surface_839958, drawer, shape_ec, reverse ? 6 : 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer, shape_ec, reverse ? 6 : 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             } else if (phase == -2) {
                 if (!reverse) {
-                    CC_Draw_Shape(unknown_surface_839958, drawer, shape_ec, 6, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                    CC_Draw_Shape(AlternateSurface, drawer, shape_ec, 6, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                 }
             }
         }
@@ -2150,14 +2150,14 @@ void __fastcall unknown_5e5150(HWND dialog, bool reverse)
             Point2D point = Unknown_Point_Copy_006F1AE0((Point2D const *)&rect_bc);
             int phase = Slide_Phase(step - order[pieces - 2]);
             if (phase == -1) {
-                CC_Draw_Shape(unknown_surface_839958, drawer, shape_e8, !reverse, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer, shape_e8, !reverse, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             } else if (phase == -2) {
-                CC_Draw_Shape(unknown_surface_839958, drawer, shape_e8, reverse != 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer, shape_e8, reverse != 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             } else {
                 point = Unknown_Point_Copy_006F1AE0((Point2D const *)&rect_c4);
-                CC_Draw_Shape(unknown_surface_839958, drawer, shape_e8, 1, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer, shape_e8, 1, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                 point = Unknown_Point_Copy_006F1AE0((Point2D const *)&rect_bc);
-                CC_Draw_Shape(unknown_surface_839958, drawer, shape_b4, phase * dir + base_88, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer, shape_b4, phase * dir + base_88, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
         }
         if (has_d6) {
@@ -2165,10 +2165,10 @@ void __fastcall unknown_5e5150(HWND dialog, bool reverse)
             int phase = Slide_Phase(step - order[pieces - 3]);
             if (phase == -2) {
                 if (reverse) {
-                    CC_Draw_Shape(unknown_surface_839958, drawer, shape_ec, 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                    CC_Draw_Shape(AlternateSurface, drawer, shape_ec, 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                 }
             } else {
-                CC_Draw_Shape(unknown_surface_839958, drawer, shape_ec, phase * dir + base_94, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer, shape_ec, phase * dir + base_94, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
         }
         int k;
@@ -2176,33 +2176,33 @@ void __fastcall unknown_5e5150(HWND dialog, bool reverse)
             Point2D point(rect_b4.X, k * rect_b4.Height + top);
             int phase = Slide_Phase(step - order[k]);
             if (phase == -1) {
-                CC_Draw_Shape(unknown_surface_839958, drawer_b, shape_b8, reverse ? 10 : 1, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer_b, shape_b8, reverse ? 10 : 1, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             } else if (phase == -2) {
-                CC_Draw_Shape(unknown_surface_839958, drawer_b, shape_b8, reverse ? 1 : 10, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer_b, shape_b8, reverse ? 1 : 10, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             } else {
-                CC_Draw_Shape(unknown_surface_839958, drawer_b, shape_b8, phase * dir + base_64, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer_b, shape_b8, phase * dir + base_64, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
         }
         for (k = buttons; k < last; k++) {
             Point2D point(rect_b4.X, k * rect_b4.Height + top);
             int phase = Slide_Phase(step - order[k]);
             if (phase == -1) {
-                CC_Draw_Shape(unknown_surface_839958, drawer_b, shape_b8, reverse ? 10 : 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer_b, shape_b8, reverse ? 10 : 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             } else if (phase == -2) {
-                CC_Draw_Shape(unknown_surface_839958, drawer_b, shape_b8, reverse ? 0 : 10, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer_b, shape_b8, reverse ? 0 : 10, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             } else {
-                CC_Draw_Shape(unknown_surface_839958, drawer_b, shape_b8, phase * dir + base_8c, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer_b, shape_b8, phase * dir + base_8c, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
         }
         if (any) {
             Point2D point(rect_b4.X, unknown_rect_ac11cc->Y - rect_b4.Height);
             int phase = Slide_Phase(step - order[count - 1]);
             if (phase == -1) {
-                CC_Draw_Shape(unknown_surface_839958, drawer_b, shape_b8, reverse ? 10 : 1, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer_b, shape_b8, reverse ? 10 : 1, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             } else if (phase == -2) {
-                CC_Draw_Shape(unknown_surface_839958, drawer_b, shape_b8, reverse ? 1 : 10, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer_b, shape_b8, reverse ? 1 : 10, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             } else {
-                CC_Draw_Shape(unknown_surface_839958, drawer_b, shape_b8, phase * dir + base_64, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer_b, shape_b8, phase * dir + base_64, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
         }
         if (has_d7) {
@@ -2210,26 +2210,26 @@ void __fastcall unknown_5e5150(HWND dialog, bool reverse)
             int phase = Slide_Phase(step - order[total - 1]);
             if (phase == -1) {
                 if (!reverse) {
-                    if (unknown_8523e0 >= unknown_7add6c) point.X += 0x50;
+                    if (VideoModeWidth >= unknown_7add6c) point.X += 0x50;
                 }
-                CC_Draw_Shape(unknown_surface_839958, drawer_c, (reverse ? unknown_shape_ac110c : shape_f0), 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer_c, (reverse ? unknown_shape_ac110c : shape_f0), 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             } else if (phase == -2) {
                 if (reverse) {
-                    if (unknown_8523e0 >= unknown_7add6c) point.X += 0x50;
+                    if (VideoModeWidth >= unknown_7add6c) point.X += 0x50;
                 }
-                CC_Draw_Shape(unknown_surface_839958, drawer_c, (reverse ? shape_f0 : unknown_shape_ac110c), 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(AlternateSurface, drawer_c, (reverse ? shape_f0 : unknown_shape_ac110c), 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             } else {
-                if (unknown_8523e0 >= unknown_7add6c) point.X += 0x50;
-                CC_Draw_Shape(unknown_surface_839958, drawer_c, shape_f0, phase * dir + base_90, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                if (VideoModeWidth >= unknown_7add6c) point.X += 0x50;
+                CC_Draw_Shape(AlternateSurface, drawer_c, shape_f0, phase * dir + base_90, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
         }
         unknown_surface_839950->Lock();
-        unknown_surface_839958->Lock();
-        unknown_surface_839950->Copy_From(to, *unknown_surface_839958, from, false, true);
+        AlternateSurface->Lock();
+        unknown_surface_839950->Copy_From(to, *AlternateSurface, from, false, true);
         if (has_d7) {
-            unknown_surface_839950->Copy_From(to_c0, *unknown_surface_839958, from_c0, false, true);
+            unknown_surface_839950->Copy_From(to_c0, *AlternateSurface, from_c0, false, true);
         }
-        unknown_surface_839958->Unlock();
+        AlternateSurface->Unlock();
         unknown_surface_839950->Unlock();
         Audio_Update();
         Sleep(30);
@@ -2411,7 +2411,7 @@ bool __fastcall Select_Control_Rect_005e6450(HWND dialog,HWND control,Rect *boun
     int id = GetDlgCtrlID(control);
     Rect *selected = 0;
     if (kind == 0x94) {
-        if (unknown_8523e0 < unknown_screen_widths_7add68[1]) return false;
+        if (VideoModeWidth < unknown_screen_widths_7add68[1]) return false;
         if (id == 0x6ea) selected = new Rect(0x1e,0x1a,0x23a,0x87);
         else if (id == 0x6eb) selected = new Rect(0x52,0xbb,0x1d4,0x6c);
         else if (id == 0x6ec) selected = new Rect(0x62,0x12a,0x1bc,0x95);
@@ -2422,7 +2422,7 @@ bool __fastcall Select_Control_Rect_005e6450(HWND dialog,HWND control,Rect *boun
     }
     else if (kind == 0x103) {
         if (id != 0x72b) return false;
-        if (unknown_8523e0 >= unknown_screen_widths_7add68[1]) {
+        if (VideoModeWidth >= unknown_screen_widths_7add68[1]) {
             if (unknown_id_source_a3d290->unknown_2239) selected = new Rect(0x68,0x8e,0x1a8,0xdc);
             else selected = new Rect(0x67,0x82,0x1a8,0xe6);
         } else {
@@ -2432,7 +2432,7 @@ bool __fastcall Select_Control_Rect_005e6450(HWND dialog,HWND control,Rect *boun
     }
     else if (kind == 0xbc7) {
         if (id != 0x72b) return false;
-        if (unknown_8523e0 >= unknown_screen_widths_7add68[1]) {
+        if (VideoModeWidth >= unknown_screen_widths_7add68[1]) {
             if (unknown_id_source_a3d290->unknown_2239) selected = new Rect(0x68,0x8e,0x1a8,0xdc);
             else selected = new Rect(0x67,0x82,0x1a8,0xe6);
         } else {
@@ -2442,26 +2442,26 @@ bool __fastcall Select_Control_Rect_005e6450(HWND dialog,HWND control,Rect *boun
     }
     else if (kind == 0xbc) {
         if (id != 0x72f) return false;
-        if (unknown_8523e0 == unknown_screen_widths_7add68[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
-        else if (unknown_8523e0 == unknown_screen_widths_7add68[1] || unknown_8523e0 == unknown_screen_widths_7add68[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
+        if (VideoModeWidth == unknown_screen_widths_7add68[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
+        else if (VideoModeWidth == unknown_screen_widths_7add68[1] || VideoModeWidth == unknown_screen_widths_7add68[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
         else return false;
     }
     else if (kind == 0xbd) {
         if (id != 0x72f) return false;
-        if (unknown_8523e0 == unknown_screen_widths_7add68[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
-        else if (unknown_8523e0 == unknown_screen_widths_7add68[1] || unknown_8523e0 == unknown_screen_widths_7add68[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
+        if (VideoModeWidth == unknown_screen_widths_7add68[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
+        else if (VideoModeWidth == unknown_screen_widths_7add68[1] || VideoModeWidth == unknown_screen_widths_7add68[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
         else return false;
     }
     else if (kind == 0xc2) {
         if (id != 0x72f) return false;
-        if (unknown_8523e0 == unknown_screen_widths_7add68[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
-        else if (unknown_8523e0 == unknown_screen_widths_7add68[1] || unknown_8523e0 == unknown_screen_widths_7add68[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
+        if (VideoModeWidth == unknown_screen_widths_7add68[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
+        else if (VideoModeWidth == unknown_screen_widths_7add68[1] || VideoModeWidth == unknown_screen_widths_7add68[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
         else return false;
     }
     else if (kind == 0xc9) {
         if (id != 0x72f) return false;
-        if (unknown_8523e0 == unknown_screen_widths_7add68[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
-        else if (unknown_8523e0 == unknown_screen_widths_7add68[1] || unknown_8523e0 == unknown_screen_widths_7add68[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
+        if (VideoModeWidth == unknown_screen_widths_7add68[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
+        else if (VideoModeWidth == unknown_screen_widths_7add68[1] || VideoModeWidth == unknown_screen_widths_7add68[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
         else return false;
     }
     else return false;
@@ -3142,8 +3142,8 @@ void __fastcall unknown_5e9390(HWND window, Point2D const &size)
     RECT rect;
     GetWindowRect(parent, &parent_rect);
     GetWindowRect(window, &rect);
-    MoveWindow(window, (unknown_8523e0 - size.X) / 2 - parent_rect.left + rect.left,
-               (unknown_8523e4 - size.Y) / 2 - parent_rect.top + rect.top, rect.right - rect.left,
+    MoveWindow(window, (VideoModeWidth - size.X) / 2 - parent_rect.left + rect.left,
+               (VideoModeHeight - size.Y) / 2 - parent_rect.top + rect.top, rect.right - rect.left,
                rect.bottom - rect.top, FALSE);
 }
 
@@ -3208,8 +3208,8 @@ BOOL __stdcall unknown_5e9bb0(HWND window, LPARAM lparam)
 // Sizes a dialog to the movie frame and moves its controls from old_size by 0x005E9BB0 (0x005E9F00).
 void __fastcall Unknown_005E9F00(HWND dialog, Point2D *old_size)
 {
-    int width = unknown_8523e0;
-    int height = unknown_8523e4;
+    int width = VideoModeWidth;
+    int height = VideoModeHeight;
     MoveWindow(dialog, 0, 0, width, height, 0);
     OwnerDraw::unknown_dialog_a763cc = dialog;
     LPARAM param = (LPARAM)old_size;
@@ -3805,13 +3805,13 @@ void __fastcall unknown_5e9410(HWND window)
         }
     } else if (kind == 0x103) {
         if (id == 0x6f3 || id == 0x6f4 || id == 0x69f || id == 0x6f6 || id == 0x6ef || id == 0x6f1 || id == 0x6f0 || id == 0x6f2) {
-            if (unknown_8523e0 >= unknown_7add6c) {
+            if (VideoModeWidth >= unknown_7add6c) {
                 y -= (unknown_7add78 - unknown_screen_heights_7add74[0]) / 2;
             }
         }
     } else if (kind == 0xbc7) {
         if (id == 0x733 || id == 0x735 || id == 0x732 || id == 0x3ea || id == 0x73c || id == 0x411 || id == 0x412 || id == 0x73d || id == 0x419 || id == 0x41a || id == 0x73e || id == 0x6a3 || id == 0x6a4 || id == 0x73f || id == 0x6a5 || id == 0x6a7 || id == 0x740 || id == 0x6a6 || id == 0x6a8 || id == 0x736 || id == 0x73a || id == 0x73b || id == 0x737 || id == 0x739 || id == 0x738) {
-            if (unknown_8523e0 >= unknown_7add6c) {
+            if (VideoModeWidth >= unknown_7add6c) {
                 y -= (unknown_7add78 - unknown_screen_heights_7add74[0]) / 2;
             }
         }
@@ -4174,18 +4174,18 @@ LRESULT __stdcall unknown_combo_drop_proc_5ead20(HWND window, UINT message, WPAR
             from.Y = 0;
             from.Width = dest_rect.Width;
             from.Height = dest_rect.Height;
-            unknown_surface_839958->Copy_From(dest_rect, *data->surface_10, from, false, true);
+            AlternateSurface->Copy_From(dest_rect, *data->surface_10, from, false, true);
         }
         Rect frame(dest_rect);
         int color = unknown_5fda40(unknown_color_a76158);
         if (master && master->alternate_cd) {
             color = unknown_5fda40(unknown_color_a73910);
         }
-        unknown_5fdb20(unknown_surface_839958, frame, 1, color);
+        unknown_5fdb20(AlternateSurface, frame, 1, color);
         if (need_scrollbar && data && data->attached_0c) {
             Rect outer(dest_rect);
             outer.Width += scrollbar_width;
-            unknown_5fdb20(unknown_surface_839958, outer, 1, color);
+            unknown_5fdb20(AlternateSurface, outer, 1, color);
         }
         int first = data->unknown_f0;
         Rect row;
@@ -4209,7 +4209,7 @@ LRESULT __stdcall unknown_combo_drop_proc_5ead20(HWND window, UINT message, WPAR
                 } else {
                     fill_color = unknown_5fda40(unknown_color_a7613c);
                 }
-                unknown_surface_839958->Fill_Rect(fill, fill_color);
+                AlternateSurface->Fill_Rect(fill, fill_color);
             }
             RECT text_rect;
             text_rect.top = row.Y;
@@ -4229,7 +4229,7 @@ LRESULT __stdcall unknown_combo_drop_proc_5ead20(HWND window, UINT message, WPAR
                     fill2.Width = width;
                     fill2.Height = item_height;
                     Unknown_Rect_Shrink_006F1B00(&fill2, 2);
-                    unknown_surface_839958->Fill_Rect(fill2, unknown_5fda40(text_color));
+                    AlternateSurface->Fill_Rect(fill2, unknown_5fda40(text_color));
                 }
             }
             int max_width = client.right - 20;
@@ -4241,18 +4241,18 @@ LRESULT __stdcall unknown_combo_drop_proc_5ead20(HWND window, UINT message, WPAR
                 wcscat(text, L"...");
                 text_width = font->String_Pixel_Width(text, 0);
             }
-            unknown_draw_text_5fe020(unknown_surface_839958, text, &text_rect, font, text_color, 4, 12, 0, 0, 0);
+            unknown_draw_text_5fe020(AlternateSurface, text, &text_rect, font, text_color, 4, 12, 0, 0, 0);
         }
-        unknown_surface_839958->Lock();
+        AlternateSurface->Lock();
         unknown_surface_839950->Lock();
         Rect screen(dest_rect);
         RECT window_rect;
         GetWindowRect(window, &window_rect);
         screen.X += window_rect.left - rect.left;
         screen.Y += window_rect.top - rect.top;
-        unknown_surface_839950->Copy_From(screen, *unknown_surface_839958, dest_rect, false, true);
+        unknown_surface_839950->Copy_From(screen, *AlternateSurface, dest_rect, false, true);
         unknown_surface_839950->Unlock();
-        unknown_surface_839958->Unlock();
+        AlternateSurface->Unlock();
         ValidateRect(window, 0);
         return 0;
     }
@@ -4882,12 +4882,12 @@ LRESULT __stdcall unknown_edit_control_proc_5f1900(HWND window,UINT message,WPAR
         }
         Rect background(display.left,display.top,display.right-display.left+1,display.bottom-display.top+1);
         unknown_draw_dimmed_back_5fe490(background,window,data->unknown_c8);
-        if(!combo)unknown_5fdb20(unknown_surface_839958,background,1,-1);
+        if(!combo)unknown_5fdb20(AlternateSurface,background,1,-1);
         int caret=0;
         unknown_edit_text_5f2120(window,unknown_edit_buffer_a7393c,0x1400,&caret);
         Rect text(display.left,display.top,display.right-display.left+1,display.bottom-display.top+1);
         LONG text_style=GetWindowLongA(window,-16);
-        unknown_draw_edit_text_600830(unknown_surface_839958,text,unknown_edit_buffer_a7393c,caret,
+        unknown_draw_edit_text_600830(AlternateSurface,text,unknown_edit_buffer_a7393c,caret,
             data->font_64,unknown_color_a733e4,&data->unknown_44,data->unknown_38,((unsigned int)text_style>>5)&1,0,0);
         ValidateRect(window,0);
     }
@@ -5001,14 +5001,14 @@ LRESULT __stdcall unknown_checkbox_proc_5f3cf0(HWND window,UINT message,WPARAM w
             Surface *image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(image_name,0);
             int height=image->Get_Height();
             Rect source(0,0,image->Get_Width(),height);
-            unknown_surface_839958->Copy_From(destination,*image,source,false,true);
-            if(style & 0x08000000)Unknown_005feb60(&destination,unknown_surface_839958,0,unknown_color_a763b8);
+            AlternateSurface->Copy_From(destination,*image,source,false,true);
+            if(style & 0x08000000)Unknown_005feb60(&destination,AlternateSurface,0,unknown_color_a763b8);
             wchar_t *text=data->text_28;
             bounds.text.left+=26;
             if(text) {
                 unsigned int color=unknown_color_a733e4;
                 if(style & 0x08000000)color=unknown_color_a737ec;
-                unknown_draw_text_5fe020(unknown_surface_839958,text,&bounds.text,data->font_64,color,4,0xc,0,0,0);
+                unknown_draw_text_5fe020(AlternateSurface,text,&bounds.text,data->font_64,color,4,0xc,0,0,0);
             }
             ValidateRect(window,0);
         }
@@ -5089,14 +5089,14 @@ LRESULT __stdcall unknown_button_proc_5f42d0(HWND window,UINT message,WPARAM wpa
             destination.Width=client.right+1;destination.Height=client.bottom+1;
             source.X=display.left;source.Y=display.top;
             source.Width=client.right+1;source.Height=client.bottom+1;
-            captured->Copy_From(destination,*unknown_surface_839958,source,false,true);
+            captured->Copy_From(destination,*AlternateSurface,source,false,true);
         }
         if(data->image_14) {
             Surface *image=data->image_14;
             if((state & 1) && data->alternate_image_18)image=data->alternate_image_18;
             Rect source=rect;
             source.Y=source.X=0;
-            unknown_surface_839958->Copy_From(rect,*image,source,false,true);
+            AlternateSurface->Copy_From(rect,*image,source,false,true);
         } else {
             char updown='u';
             if(state & 1)updown='d';
@@ -5118,7 +5118,7 @@ LRESULT __stdcall unknown_button_proc_5f42d0(HWND window,UINT message,WPARAM wpa
                 source.Width=client.right+1;source.Height=client.bottom+1;
                 destination.X=display.left;destination.Y=display.top;
                 destination.Width=client.right+1;destination.Height=client.bottom+1;
-                unknown_surface_839958->Copy_From(destination,*data->surface_10,source,false,true);
+                AlternateSurface->Copy_From(destination,*data->surface_10,source,false,true);
                 InvalidateRect(window,0,0);
             }
             origin.Y+=(rect.Height-height)/2;
@@ -5135,14 +5135,14 @@ LRESULT __stdcall unknown_button_proc_5f42d0(HWND window,UINT message,WPARAM wpa
             source.X=0;
             destination.Height=height;
             source.Height=height;
-            unknown_surface_839958->Copy_From(destination,*image,source,false,true);
+            AlternateSurface->Copy_From(destination,*image,source,false,true);
             sprintf(name,"b%c%c_mi%d.pcx",updown,'e',height);
             image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(name,0);
             Rect middle=origin;
             middle.X+=width;
             middle.Width-=margin;
             middle.Height=image->Get_Height();
-            unknown_bitmap_writer_a76378.Draw_0068cce0(middle,unknown_surface_839958,image,0,0);
+            unknown_bitmap_writer_a76378.Draw_0068cce0(middle,AlternateSurface,image,0,0);
             sprintf(name,"b%c%c_ri%d.pcx",updown,'e',height);
             image=unknown_bitmap_writer_a76378.Get_Image_0068ca40(name,0);
             destination=origin;
@@ -5153,7 +5153,7 @@ LRESULT __stdcall unknown_button_proc_5f42d0(HWND window,UINT message,WPARAM wpa
             source.Height=destination.Height;
             source.Y=0;
             source.X=0;
-            unknown_surface_839958->Copy_From(destination,*image,source,false,true);
+            AlternateSurface->Copy_From(destination,*image,source,false,true);
         }
         if(!data->image_14 && data->text_28) {
             RECT unused_client;
@@ -5164,9 +5164,9 @@ LRESULT __stdcall unknown_button_proc_5f42d0(HWND window,UINT message,WPARAM wpa
             text_rect.right=origin.Width+origin.X-2;
             text_rect.bottom=origin.Height+origin.Y-2;
             if(state & 1) {text_rect.left+=2;text_rect.top+=4;}
-            unknown_draw_text_5fe020(unknown_surface_839958,data->text_28,&text_rect,data->font_64,color,5,0xc,0,0,0);
+            unknown_draw_text_5fe020(AlternateSurface,data->text_28,&text_rect,data->font_64,color,5,0xc,0,0,0);
         }
-        if(style & 0x08000000)Unknown_005feb60(&rect,unknown_surface_839958,0,128);
+        if(style & 0x08000000)Unknown_005feb60(&rect,AlternateSurface,0,128);
         ValidateRect(window,0);
         return 0;
     }
@@ -5380,7 +5380,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 	RECT disp_rect;
 	Window_Rect_In_Main_Client(window, &disp_rect);
 
-	bool in_focus = unknown_flag_a40d28;
+	bool in_focus = GameInFocus;
 
 	bool is_paint = false;
 	if (message == 0xf) {
@@ -5394,7 +5394,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 
 	if (in_focus == true && !was_in_focus) {
 		InvalidateRect(MainWindow, 0, 0);
-		in_focus = unknown_flag_a40d28;
+		in_focus = GameInFocus;
 	}
 	was_in_focus = in_focus;
 
@@ -5818,9 +5818,9 @@ cleanup:
                     Rect whole(min_update_rect.x, min_update_rect.y, max_update_rect.x - min_update_rect.x, max_update_rect.y - min_update_rect.y);
                     destination = Offset_Rect(whole, offset_x, offset_y);
                     unknown_surface_839950->Lock();
-                    unknown_surface_839958->Lock();
-                    unknown_surface_839950->Copy_From(destination, *unknown_surface_839958, whole, false, true);
-                    unknown_surface_839958->Unlock();
+                    AlternateSurface->Lock();
+                    unknown_surface_839950->Copy_From(destination, *AlternateSurface, whole, false, true);
+                    AlternateSurface->Unlock();
                     unknown_surface_839950->Unlock();
                     WolArrayList<HWND> children;
                     EnumChildWindows(window, (WNDENUMPROC)unknown_add_window_5ff430, (LPARAM)&children);
@@ -5838,9 +5838,9 @@ cleanup:
                         Unknown_Rect_Shrink_006F1B30(&destination, -1, -1);
                     }
                     unknown_surface_839950->Lock();
-                    unknown_surface_839958->Lock();
-                    unknown_surface_839950->Copy_From(destination, *unknown_surface_839958, source, false, true);
-                    unknown_surface_839958->Unlock();
+                    AlternateSurface->Lock();
+                    unknown_surface_839950->Copy_From(destination, *AlternateSurface, source, false, true);
+                    AlternateSurface->Unlock();
                     unknown_surface_839950->Unlock();
                 }
             }
@@ -6049,13 +6049,13 @@ LRESULT __stdcall unknown_scroll_bar_proc_5f9fb0(HWND window, UINT message, WPAR
             }
         }
         if (parent_data && parent_data->surface_10) {
-            unknown_surface_839958->Copy_From(full_rect, *parent_data->surface_10, source_rect, false, true);
+            AlternateSurface->Copy_From(full_rect, *parent_data->surface_10, source_rect, false, true);
         }
         int color = unknown_5fda40(unknown_color_a76158);
         if (data->alternate_cd) {
             color = unknown_5fda40(unknown_color_a73910);
         }
-        unknown_5fdb20(unknown_surface_839958, full_rect, unknown_color_a73928, color);
+        unknown_5fdb20(AlternateSurface, full_rect, unknown_color_a73928, color);
         Rect grip_rect(display_rect.left, grip_top + display_rect.top, client_rect.right, grip_bottom - grip_top);
         full_rect = grip_rect;
         src_rect = grip_rect;
@@ -6070,7 +6070,7 @@ LRESULT __stdcall unknown_scroll_bar_proc_5f9fb0(HWND window, UINT message, WPAR
         if (grip_middle) {
             grip_rect.Width = grip_middle->Get_Width();
         }
-        unknown_bitmap_writer_a76378.Draw_0068cce0(grip_rect, unknown_surface_839958, grip_middle, 0, 0);
+        unknown_bitmap_writer_a76378.Draw_0068cce0(grip_rect, AlternateSurface, grip_middle, 0, 0);
         Rect grip_src(0, 0, grip_middle->Get_Height(), grip_middle->Get_Width());
         Surface *grip_top_image;
         if (data->alternate_cd) {
@@ -6081,7 +6081,7 @@ LRESULT __stdcall unknown_scroll_bar_proc_5f9fb0(HWND window, UINT message, WPAR
         if (grip_top_image) {
             full_rect.Height = grip_top_image->Get_Height();
         }
-        unknown_surface_839958->Copy_From(full_rect, *grip_top_image, grip_src, false, true);
+        AlternateSurface->Copy_From(full_rect, *grip_top_image, grip_src, false, true);
         Surface *grip_bottom_image;
         if (data->alternate_cd) {
             grip_bottom_image = unknown_bitmap_writer_a76378.Get_Image_0068ca40("gsbgripb.pcx", 0);
@@ -6091,25 +6091,25 @@ LRESULT __stdcall unknown_scroll_bar_proc_5f9fb0(HWND window, UINT message, WPAR
         if (grip_bottom_image) {
             full_rect.Y = display_rect.top + grip_bottom - grip_bottom_image->Get_Height();
         }
-        unknown_surface_839958->Copy_From(full_rect, *grip_bottom_image, grip_src, false, true);
+        AlternateSurface->Copy_From(full_rect, *grip_bottom_image, grip_src, false, true);
         Rect up_rect(display_rect.left, display_rect.top, client_rect.right, 22);
         full_rect = up_rect;
         src_rect = up_rect;
         src_rect.X = 0;
         src_rect.Y = 0;
-        unknown_surface_839958->Copy_From(full_rect, *data->surface_10, src_rect, false, true);
-        unknown_draw_edge_glows_5fd810(unknown_surface_839958, up_rect, up_pressed == 0, 2, unknown_color_a733d0,
+        AlternateSurface->Copy_From(full_rect, *data->surface_10, src_rect, false, true);
+        unknown_draw_edge_glows_5fd810(AlternateSurface, up_rect, up_pressed == 0, 2, unknown_color_a733d0,
                                        unknown_color_a733d0, unknown_color_a733d0, unknown_color_a733d0);
-        unknown_draw_arrow_5fd960(unknown_surface_839958, up_rect, 1, up_pressed, data->alternate_cd);
+        unknown_draw_arrow_5fd960(AlternateSurface, up_rect, 1, up_pressed, data->alternate_cd);
         Rect down_rect(display_rect.left, display_rect.bottom - 22, client_rect.right, 22);
         full_rect = down_rect;
         src_rect = down_rect;
         src_rect.X = 0;
         src_rect.Y = client_rect.bottom - 22;
-        unknown_surface_839958->Copy_From(full_rect, *data->surface_10, src_rect, false, true);
-        unknown_draw_edge_glows_5fd810(unknown_surface_839958, down_rect, down_pressed == 0, 2, unknown_color_a733d0,
+        AlternateSurface->Copy_From(full_rect, *data->surface_10, src_rect, false, true);
+        unknown_draw_edge_glows_5fd810(AlternateSurface, down_rect, down_pressed == 0, 2, unknown_color_a733d0,
                                        unknown_color_a733d0, unknown_color_a733d0, unknown_color_a733d0);
-        unknown_draw_arrow_5fd960(unknown_surface_839958, down_rect, 0, down_pressed, data->alternate_cd);
+        unknown_draw_arrow_5fd960(AlternateSurface, down_rect, 0, down_pressed, data->alternate_cd);
         ValidateRect(window, 0);
         break;
     }
@@ -6288,12 +6288,12 @@ LRESULT __stdcall unknown_progress_proc_5faff0(HWND window, UINT message, WPARAM
                 Surface *background = new BSurface(rect.right-rect.left+1, rect.bottom-rect.top+1, 2);
                 data->surface_10 = background;
                 ++unknown_surface_count_a763d8;
-                background->Copy_From(source, *unknown_surface_839958, destination, false, true);
+                background->Copy_From(source, *AlternateSurface, destination, false, true);
             }
-            unknown_surface_839958->Copy_From(destination, *data->surface_10, source, false, true);
+            AlternateSurface->Copy_From(destination, *data->surface_10, source, false, true);
             int position = (data->unknown_f0 * 65536) / (data->unknown_ec - data->unknown_e8);
             int color = unknown_5fda40(0xff);
-            unknown_5fe7c0(destination, unknown_surface_839958, color, position);
+            unknown_5fe7c0(destination, AlternateSurface, color, position);
             ValidateRect(window, 0);
             break;
         }
@@ -6448,7 +6448,7 @@ LRESULT __stdcall unknown_trackbar_proc_5fb270(HWND window, UINT message, WPARAM
 
             Rect src_rect(0, 0, client_copy.right + 1, client_copy.bottom + 1);
             Rect dst_rect(disp_copy.left, disp_copy.top, client_copy.right + 1, client_copy.bottom + 1);
-            surf->Copy_From(src_rect, *unknown_surface_839958, dst_rect, false, true);
+            surf->Copy_From(src_rect, *AlternateSurface, dst_rect, false, true);
             Unknown_005feb60(&src_rect, surf, 0, data->unknown_c8);
         }
 
@@ -6460,14 +6460,14 @@ LRESULT __stdcall unknown_trackbar_proc_5fb270(HWND window, UINT message, WPARAM
 
             Rect src_rect(0, 0, client_copy.right + 1, client_copy.bottom + 1);
             Rect dst_rect(disp_copy.left, disp_copy.top, client_copy.right + 1, client_copy.bottom + 1);
-            unknown_surface_839958->Copy_From(dst_rect, *data->surface_10, src_rect, false, true);
+            AlternateSurface->Copy_From(dst_rect, *data->surface_10, src_rect, false, true);
         }
 
         if (show_numbers) {
             {
                 Surface *center = unknown_bitmap_writer_a76378.Get_Image_0068ca40("trofm.pcx", 0);
                 Rect center_rect(disp_rect.X + disp_rect.Width - number_width + 1, disp_rect.Y - 1, number_width, center->Get_Height());
-                unknown_bitmap_writer_a76378.Draw_0068cce0(center_rect, unknown_surface_839958, center, 0, 0);
+                unknown_bitmap_writer_a76378.Draw_0068cce0(center_rect, AlternateSurface, center, 0, 0);
             }
             {
                 Surface *left = unknown_bitmap_writer_a76378.Get_Image_0068ca40("trofl.pcx", 0);
@@ -6475,7 +6475,7 @@ LRESULT __stdcall unknown_trackbar_proc_5fb270(HWND window, UINT message, WPARAM
                 Rect left_src = left_dst;
                 left_src.Y = 0;
                 left_src.X = 0;
-                unknown_surface_839958->Copy_From(left_dst, *left, left_src, false, true);
+                AlternateSurface->Copy_From(left_dst, *left, left_src, false, true);
             }
             {
                 Surface *right = unknown_bitmap_writer_a76378.Get_Image_0068ca40("trofr.pcx", 0);
@@ -6484,7 +6484,7 @@ LRESULT __stdcall unknown_trackbar_proc_5fb270(HWND window, UINT message, WPARAM
                 right_src.Y = 0;
                 right_src.X = 0;
 
-                unknown_surface_839958->Copy_From(right_dst, *right, right_src, false, true);
+                AlternateSurface->Copy_From(right_dst, *right, right_src, false, true);
             }
         }
 
@@ -6495,11 +6495,11 @@ LRESULT __stdcall unknown_trackbar_proc_5fb270(HWND window, UINT message, WPARAM
         grip_src.Y = 0;
         grip_src.Width = grip->Get_Width();
         grip_src.Height = grip->Get_Height();
-        unknown_surface_839958->Copy_From(grip_rect, *grip, grip_src, false, true);
+        AlternateSurface->Copy_From(grip_rect, *grip, grip_src, false, true);
 
         int disabled = style & 0x8000000;
         if (disabled) {
-            Unknown_005feb60(&grip_rect, unknown_surface_839958, 0, unknown_color_a763b8);
+            Unknown_005feb60(&grip_rect, AlternateSurface, 0, unknown_color_a763b8);
         }
 
         int frame_color = unknown_5fda40(unknown_color_a76158);
@@ -6509,13 +6509,13 @@ LRESULT __stdcall unknown_trackbar_proc_5fb270(HWND window, UINT message, WPARAM
 
         Rect frame_rect = disp_rect;
         frame_rect.Width = disp_rect.Width - number_width;
-        unknown_5fdb20(unknown_surface_839958, frame_rect, 1, frame_color);
+        unknown_5fdb20(AlternateSurface, frame_rect, 1, frame_color);
 
         Rect number_rect = disp_rect;
         int inset = (show_numbers != 0) + 1;
         number_rect.X = inset - number_width + disp_rect.Width + disp_rect.X;
         number_rect.Width = number_width - inset;
-        unknown_5fdb20(unknown_surface_839958, number_rect, 1, frame_color);
+        unknown_5fdb20(AlternateSurface, number_rect, 1, frame_color);
 
         if (show_numbers) {
             wchar_t buffer[32];
@@ -6530,7 +6530,7 @@ LRESULT __stdcall unknown_trackbar_proc_5fb270(HWND window, UINT message, WPARAM
 
             RECT text_rect = paint_rect;
             text_rect.left = paint_rect.right - 49;
-            unknown_draw_text_5fe020(unknown_surface_839958, buffer, &text_rect, data->font_64, text_color, 5, 0xc, 0, 0, 0);
+            unknown_draw_text_5fe020(AlternateSurface, buffer, &text_rect, data->font_64, text_color, 5, 0xc, 0, 0, 0);
         }
 
         ValidateRect(window, 0);
@@ -6697,16 +6697,16 @@ LRESULT __stdcall unknown_group_box_proc_5fc020(HWND window, UINT message, WPARA
         int text_height;
         record->font_64->Get_Text_Area(text, &text_width, &text_height, width);
         Rect caption(area.left + 10, area.top, width, area.bottom - area.top);
-        unknown_text_draw_005fe1b0(unknown_color_a733e4, 0, caption, text, wcslen(text), 0, 0, unknown_surface_839958, 0);
+        unknown_text_draw_005fe1b0(unknown_color_a733e4, 0, caption, text, wcslen(text), 0, 0, AlternateSurface, 0);
         int color = unknown_5fda40(unknown_color_a76158);
-        unknown_surface_839958->Draw_Line(Point2D(area.left, middle), Point2D(area.left + 8, middle), color);
+        AlternateSurface->Draw_Line(Point2D(area.left, middle), Point2D(area.left + 8, middle), color);
         if (text_width) {
             gap = 12;
         }
-        unknown_surface_839958->Draw_Line(Point2D(area.left + text_width + gap, middle), Point2D(area.right, middle), color);
-        unknown_surface_839958->Draw_Line(Point2D(area.left, middle), Point2D(area.left, area.bottom), color);
-        unknown_surface_839958->Draw_Line(Point2D(area.left, area.bottom), Point2D(area.right, area.bottom), color);
-        unknown_surface_839958->Draw_Line(Point2D(area.right, middle), Point2D(area.right, area.bottom), color);
+        AlternateSurface->Draw_Line(Point2D(area.left + text_width + gap, middle), Point2D(area.right, middle), color);
+        AlternateSurface->Draw_Line(Point2D(area.left, middle), Point2D(area.left, area.bottom), color);
+        AlternateSurface->Draw_Line(Point2D(area.left, area.bottom), Point2D(area.right, area.bottom), color);
+        AlternateSurface->Draw_Line(Point2D(area.right, middle), Point2D(area.right, area.bottom), color);
         ValidateRect(window, 0);
         return 0;
     }
@@ -6744,21 +6744,21 @@ LRESULT __stdcall unknown_hotkey_proc_5fc330(HWND window, UINT message, WPARAM w
             Surface *surface = new BSurface(screen.Width, screen.Height, 2);
             record->surface_10 = surface;
             unknown_surface_count_a763d8++;
-            surface->Copy_From(local, *unknown_surface_839958, screen, false, true);
+            surface->Copy_From(local, *AlternateSurface, screen, false, true);
         }
         wchar_t text[64];
         unsigned short hotkey = (unsigned short)SendMessageA(window, 0x402, 0, 0);
         unknown_hotkey_text_5fc600(hotkey, text);
         if (record->surface_10) {
-            unknown_surface_839958->Copy_From(screen, *record->surface_10, local, false, true);
+            AlternateSurface->Copy_From(screen, *record->surface_10, local, false, true);
         }
-        unknown_5fdb20(unknown_surface_839958, screen, 1, -1);
+        unknown_5fdb20(AlternateSurface, screen, 1, -1);
         if (wcslen(text) > 0) {
             area.left += 4;
             area.top += 4;
             area.right -= 4;
             area.bottom -= 4;
-            unknown_draw_text_5fdf40(unknown_surface_839958, text, &area, record->font_64, unknown_color_a733e4, 0x24);
+            unknown_draw_text_5fdf40(AlternateSurface, text, &area, record->font_64, unknown_color_a733e4, 0x24);
         }
         ValidateRect(window, 0);
         return 0;
@@ -7150,8 +7150,8 @@ float __fastcall unknown_5fe130(int value)
 int __fastcall unknown_text_draw_005fe1b0(unsigned int color, BitFontClass *font, Rect const &area, wchar_t const *text,
     int length, int x_alignment, int y_alignment, Surface *surface, int unknown9)
 {
-    if (!unknown_flag_a40d28) return 0;
-    if (!surface) surface = unknown_surface_839958;
+    if (!GameInFocus) return 0;
+    if (!surface) surface = AlternateSurface;
     unsigned int pixel = (((unsigned char)color >> (unsigned char)unknown_shift_852fbc) << unknown_shift_852fb8)
         | (((unsigned char)((unsigned short)color >> 8) >> (unsigned char)unknown_shift_852fcc) << unknown_shift_852fc8)
         | (((unsigned char)(color >> 16) >> (unsigned char)unknown_shift_852fc4) << unknown_shift_852fc0);
@@ -7187,7 +7187,7 @@ int __fastcall unknown_text_draw_005fe1b0(unsigned int color, BitFontClass *font
 void __fastcall Unknown_005FE380(long item)
 {
     DRAWITEMSTRUCT *draw = (DRAWITEMSTRUCT *)item;
-    if (unknown_surface_839950 && unknown_surface_839958) {
+    if (unknown_surface_839950 && AlternateSurface) {
         RECT area;
         RECT client;
         Window_Rect_In_Main_Client(draw->hwndItem, &area);
@@ -7271,7 +7271,7 @@ void __fastcall unknown_draw_dimmed_back_5fe490(Rect const &area, HWND window, i
     from.Height = area.Height;
     from.X -= screen.left;
     from.Y -= screen.top;
-    unknown_surface_839958->Copy_From(area, *surface, from, false, true);
+    AlternateSurface->Copy_From(area, *surface, from, false, true);
 }
 
 }
@@ -7499,7 +7499,7 @@ void __fastcall unknown_draw_dialog_back_5fee70(HWND window)
                 Rect to = full;
                 to.X = 0;
                 to.Y = 0;
-                surface->Copy_From(to, *unknown_surface_839958, full, false, true);
+                surface->Copy_From(to, *AlternateSurface, full, false, true);
                 void *shape;
                 if (unknown_session_a3d298.Unknown_00672F10()) {
                     if (unknown_id_source_a3d290->unknown_2239) {
@@ -7521,11 +7521,11 @@ void __fastcall unknown_draw_dialog_back_5fee70(HWND window)
                 to.Y -= screen.top;
                 int width = back->Get_Width();
                 int height = back->Get_Height();
-                if (unknown_8523e0 > width) {
-                    from.X -= (unknown_8523e0 - width) / 2;
+                if (VideoModeWidth > width) {
+                    from.X -= (VideoModeWidth - width) / 2;
                 }
-                if (unknown_8523e4 > height) {
-                    from.Y -= (unknown_8523e4 - height) / 2;
+                if (VideoModeHeight > height) {
+                    from.Y -= (VideoModeHeight - height) / 2;
                 }
                 surface->Copy_From(to, *back, from, false, true);
             }
@@ -7533,7 +7533,7 @@ void __fastcall unknown_draw_dialog_back_5fee70(HWND window)
                 Rect from = full;
                 from.X -= screen.left;
                 from.Y -= screen.top;
-                unknown_surface_839958->Copy_From(full, *surface, from, false, true);
+                AlternateSurface->Copy_From(full, *surface, from, false, true);
             }
         }
     }
@@ -7785,10 +7785,10 @@ void __fastcall unknown_move_window_600120(HWND window, int x, int y)
 {
     RECT screen;
     RECT rect;
-    screen.right = unknown_8523e0;
+    screen.right = VideoModeWidth;
     screen.left = 0;
     screen.top = 0;
-    screen.bottom = unknown_8523e4;
+    screen.bottom = VideoModeHeight;
     ClientToScreen(MainWindow, (POINT *)&screen.left);
     ClientToScreen(MainWindow, (POINT *)&screen.right);
     GetWindowRect(window, &rect);
@@ -8207,7 +8207,7 @@ int __fastcall unknown_controlled_dialog_6011a0(int resource,DialogProc procedur
     WWKeyboard->Clear();
     while(!control->unknown_slot2()&&!control->unknown_slot4()) {
         if(unknown_6000d0())break;
-        unknown_517370(false);
+        Title_Screen_Restore(false);
     }
     unknown_dialog_5ff6e0(window);
     return (int)control->Get_Window_00601180();

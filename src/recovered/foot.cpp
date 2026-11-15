@@ -146,7 +146,7 @@ FootClass::FootClass(HouseClass *house) :
     unknown_43c.Init();
     unknown_FootClass_list_00865f38.Add(this);
     AbstractFlags.IsFoot = 1;
-    unknown_list_ac0c18.Add(this);
+    TeamPtrTracker.Add(this);
 }
 
 
@@ -167,18 +167,18 @@ FootClass::FootClass(NoInitClass const &noinit) :
 
 
 // FootClass::~FootClass() (0x004C2CB0)
-// Leaves its team (only while unknown_flag_a40958 is set) and both lists,
+// Leaves its team (only while GameActive is set) and both lists,
 // deletes the owned object at +0x588 and stops the sound controller; the
 // member destructors release the locomotor and the two vectors.
 #include "shared/parasite.hpp"
 
 FootClass::~FootClass()
 {
-    if (Team != 0 && unknown_flag_a40958) {
+    if (Team != 0 && GameActive) {
         Team->Remove(this, -1, 0);
     }
     unknown_FootClass_list_00865f38.Delete(this);
-    unknown_list_ac0c18.Delete(this);
+    TeamPtrTracker.Delete(this);
     if (unknown_588 != 0) {
         delete unknown_588;
         unknown_588 = 0;
@@ -1173,7 +1173,7 @@ bool FootClass::Unlimbo(CoordStruct const *coord, int dir)
         if (!In_Air()) {
             unknown_454 = cell;
         } else if (Techno_Type_Class()->ConsideredAircraft) {
-            unknown_tracker_839ea0.Unknown_004131E0(this);
+            AircraftTracker.Unknown_004131E0(this);
         }
         double threat = Techno_Type_Class()->ThreatAvoidanceCoefficient;
         unknown_428 = threat;
@@ -1690,8 +1690,8 @@ void FootClass::unknown_slot93(int why)
                 }
             }
 
-            for (unknown_tag_position_a35e24 = 0; unknown_tag_position_a35e24 < unknown_tags_866238.Count(); unknown_tag_position_a35e24++) {
-                tag = unknown_tags_866238[unknown_tag_position_a35e24];
+            for (MapTriggerID = 0; MapTriggerID < MapTags.Count(); MapTriggerID++) {
+                tag = MapTags[MapTriggerID];
                 if (tag != 0) {
                     if (tag->Is_Enters_Zone()) {
                         if (Map.Unknown_0054F7C0(tag->Get_Cell(), Coord_Cell(unknown_slot19(0)), Techno_Type_Class()->MovementZone, ((UnknownCellClass *)&Map[tag->Get_Cell()])->Flags >> 8 & 1, Is_Moving_Onto_Bridge(0), false)) {
@@ -1961,7 +1961,7 @@ void FootClass::Assign_Destination(AbstractClass *target, bool immediate)
 void FootClass::unknown_slot54(bool arg1)
 {
     if (arg1) {
-        if (Team != 0 && unknown_a40774 == 0) {
+        if (Team != 0 && ScenarioInit == 0) {
             Team->Remove(this, -1, 0);
         }
     }
@@ -2064,7 +2064,7 @@ void FootClass::Detach(AbstractClass *target, bool all)
     if (Team == target) {
         Team = 0;
     }
-    if (unknown_580 == target && (unknown_580->Strength == 0 || !unknown_flag_a40d04)) {
+    if (unknown_580 == target && (unknown_580->Strength == 0 || !ScenarioActive)) {
         unknown_580 = 0;
     }
     if (unknown_580 != 0 && unknown_580->Strength > 0) {
@@ -2469,7 +2469,7 @@ public:
 // A random entry of a sound list.
 inline int Random_Sound(TypeList<int> &list)
 {
-    unsigned index = unknown_random_839218();
+    unsigned index = NonCriticalRandomNumber();
     return list[index % list.Count()];
 }
 
@@ -2718,7 +2718,7 @@ bool FootClass::Limbo()
             UnknownCellClass *next = (UnknownCellClass *)&Map[Adjacent_Cell(cell, facing)];
             next->unknown_122--;
         }
-        if (unknown_a40774 == 0) {
+        if (ScenarioInit == 0) {
             Stop_Driver();
         }
         if (Locomotor) {
@@ -2729,7 +2729,7 @@ bool FootClass::Limbo()
             unknown_slot286(unknown_geometry_k);
         }
         if (unknown_slot178() != unknown_geometry_k) {
-            unknown_tracker_839ea0.Unknown_00413310(this);
+            AircraftTracker.Unknown_00413310(this);
         }
     }
     return TechnoClass::Limbo();
@@ -3148,8 +3148,8 @@ void FootClass::unknown_4cab90()
     }
     Point2D start;
     Point2D end;
-    unknown_tactical_83996c->Coord_To_Pixel(start_coord, start);
-    unknown_tactical_83996c->Coord_To_Pixel(end_coord, end);
+    TacticalMap->Coord_To_Pixel(start_coord, start);
+    TacticalMap->Coord_To_Pixel(end_coord, end);
     start.Y += unknown_rect_839630.Y;
     end.Y += unknown_rect_839630.Y;
     color = House->unknown_55e9;
@@ -4101,7 +4101,7 @@ bool FootClass::unknown_slot224(int source)
         unknown_slot149(3);
         unknown_slot210();
         Kill_Cargo((TechnoClass *)source);
-        if (Kind_Of() != 15 && unknown_a40774 == 0) {
+        if (Kind_Of() != 15 && ScenarioInit == 0) {
             double spin = unknown_id_source_a3d290->Random()(0, 0x7FFFFFFE);
             spin *= 1.0 / 2147483646.0;
             spin *= 0.15;

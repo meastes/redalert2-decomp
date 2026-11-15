@@ -2209,6 +2209,10 @@
    "address": "00a40d2c"
   },
   {
+   "symbol": "?GameActive@@3_NA",
+   "address": "00a40958"
+  },
+  {
    "symbol": "?Get_ID@ControlClass@@UBEIXZ",
    "address": "00483520"
   },
@@ -2255,6 +2259,10 @@
   {
    "symbol": "?Help_Text@RadarClass@@UAEPBGH@Z",
    "address": "00634aa0"
+  },
+  {
+   "symbol": "?IgnoreInput@@3_NA",
+   "address": "00a40d44"
   },
   {
    "symbol": "?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A",
@@ -2493,6 +2501,10 @@
    "address": "006eb810"
   },
   {
+   "symbol": "?ScenarioInit@@3HA",
+   "address": "00a40774"
+  },
+  {
    "symbol": "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z",
    "address": "00499b60"
   },
@@ -2553,6 +2565,18 @@
    "address": "00630320"
   },
   {
+   "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
+   "address": "008323cc"
+  },
+  {
+   "symbol": "?SidebarSurface@@3PAVSurface@@A",
+   "address": "00839948"
+  },
+  {
+   "symbol": "?SidebarWidth@@3HA",
+   "address": "007add80"
+  },
+  {
    "symbol": "?Speech_Play_Name@@YIXPBDHH@Z",
    "address": "00715b40"
   },
@@ -2591,6 +2615,10 @@
   {
    "symbol": "?ToolTips@@3PAVCCToolTip@@A",
    "address": "008399b0"
+  },
+  {
+   "symbol": "?TooltipColor@@3VRGBClass@@A",
+   "address": "00ac1028"
   },
   {
    "symbol": "?Turn_Off@ToggleClass@@QAEXXZ",
@@ -2725,12 +2753,12 @@
    "address": "00538ff0"
   },
   {
-   "symbol": "?unknown_69e990@SuperClass@@QBE_NXZ",
-   "address": "0069e990"
+   "symbol": "?_dialog_count@@3HA",
+   "address": "00a40d34"
   },
   {
-   "symbol": "?unknown_a40774@@3HA",
-   "address": "00a40774"
+   "symbol": "?unknown_69e990@SuperClass@@QBE_NXZ",
+   "address": "0069e990"
   },
   {
    "symbol": "?unknown_abcd48@@3HA",
@@ -2789,16 +2817,8 @@
    "address": "00abcd80"
   },
   {
-   "symbol": "?unknown_color_ac1028@@3VRGBClass@@A",
-   "address": "00ac1028"
-  },
-  {
    "symbol": "?unknown_drawer_8323b0@@3PAVConvertClass@@A",
    "address": "008323b0"
-  },
-  {
-   "symbol": "?unknown_drawer_8323cc@@3PAVConvertClass@@A",
-   "address": "008323cc"
   },
   {
    "symbol": "?unknown_flag_8373c0@@3_NA",
@@ -2809,16 +2829,8 @@
    "address": "008373c3"
   },
   {
-   "symbol": "?unknown_flag_a40958@@3_NA",
-   "address": "00a40958"
-  },
-  {
    "symbol": "?unknown_flag_a40b30@@3_NA",
    "address": "00a40b30"
-  },
-  {
-   "symbol": "?unknown_flag_a40d44@@3_NA",
-   "address": "00a40d44"
   },
   {
    "symbol": "?unknown_flag_abcd84@@3_NA",
@@ -2831,10 +2843,6 @@
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
    "address": "00a3d290"
-  },
-  {
-   "symbol": "?unknown_int_7add80@@3HA",
-   "address": "007add80"
   },
   {
    "symbol": "?unknown_int_7add84@@3HA",
@@ -2871,10 +2879,6 @@
   {
    "symbol": "?unknown_int_83963c@@3HA",
    "address": "0083963c"
-  },
-  {
-   "symbol": "?unknown_int_a40d34@@3HA",
-   "address": "00a40d34"
   },
   {
    "symbol": "?unknown_int_abcd70@@3HA",
@@ -2999,10 +3003,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_surface_839948@@3PAVSurface@@A",
-   "address": "00839948"
   },
   {
    "symbol": "?unknown_surface_839950@@3PAVSurface@@A",

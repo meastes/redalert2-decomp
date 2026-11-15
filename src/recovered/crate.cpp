@@ -101,7 +101,7 @@ bool CrateClass::Create_Crate(Cell const &cell)
     Remove_It();
     Cell loc = cell;
     if (Put_Crate(loc)) {
-        unknown_tactical_83996c->Flag_Cell(&Map[cell]);
+        TacticalMap->Flag_Cell(&Map[cell]);
         Location = loc;
         Timer = int(Random_Double(Rules->CrateRegen * 450.0, Rules->CrateRegen * 1800.0));
         Timer.Start();
@@ -117,10 +117,10 @@ bool CrateClass::Create_Crate(Cell const &cell)
 
 bool __fastcall CrateClass::Put_Crate(Cell &cell)
 {
-    int old = unknown_a40774;
-    unknown_a40774 = 0;
+    int old = ScenarioInit;
+    ScenarioInit = 0;
     if (!Map.Unknown_0055A660(cell, true)) {
-        unknown_a40774 = old;
+        ScenarioInit = old;
         return false;
     }
     CellClass *cellptr = &Map[cell];
@@ -132,11 +132,11 @@ bool __fastcall CrateClass::Put_Crate(Cell &cell)
         }
         Rect rect = Union(cellptr->Overlay_Render_Rect(), cellptr->Overlay_Shadow_Render_Rect());
         Point2D pt(unknown_int_839630, unknown_int_839634);
-        unknown_tactical_83996c->Register_Dirty_Area(Rect(rect.X - pt.X, rect.Y - pt.Y, rect.Width, rect.Height), false);
-        unknown_a40774 = old;
+        TacticalMap->Register_Dirty_Area(Rect(rect.X - pt.X, rect.Y - pt.Y, rect.Width, rect.Height), false);
+        ScenarioInit = old;
         return true;
     }
-    unknown_a40774 = old;
+    ScenarioInit = old;
     return false;
 }
 
@@ -154,7 +154,7 @@ bool Cell::Unknown_00493C80()
             if (type == Rules->unknown_f0 || type == Rules->unknown_f4 || type == Rules->unknown_f8) {
                 Rect rect = Union(cell.Overlay_Render_Rect(), cell.Overlay_Shadow_Render_Rect());
                 rect.Y -= unknown_int_839634;
-                unknown_tactical_83996c->Register_Dirty_Area(rect, 0);
+                TacticalMap->Register_Dirty_Area(rect, 0);
                 cell.OverlayIndex = -1;
                 cell.OverlayData = 0;
                 return true;

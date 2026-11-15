@@ -87,7 +87,7 @@ AnimTypeClass::AnimTypeClass(NoInitClass const &noinit) :
 
 AnimTypeClass::~AnimTypeClass()
 {
-    unknown_objects_ac0cb0.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
     AnimTypes.Delete(this);
 }
 

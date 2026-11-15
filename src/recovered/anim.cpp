@@ -270,7 +270,7 @@ AnimClass::AnimClass() :
 
 
 // AnimClass::~AnimClass() (0x00420A90)
-// Detaches itself everywhere; while unknown_flag_a40958 is set it also lets
+// Detaches itself everywhere; while GameActive is set it also lets
 // go of the object it follows (clearing that object's flag when no other
 // animation follows it) and leaves the map (slot 52, expanded here). Then
 // it leaves the object list, releases its type's image and audio, and
@@ -280,7 +280,7 @@ AnimClass::AnimClass() :
 AnimClass::~AnimClass()
 {
     Unknown_006ECB90(this, true);
-    if (unknown_flag_a40958) {
+    if (GameActive) {
         if (unknown_b4 != 0) {
             ObjectClass *object = unknown_b4;
             int index;
@@ -298,7 +298,7 @@ AnimClass::~AnimClass()
         }
         Limbo();
     }
-    unknown_objects_ac0cb0.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
     Class->Free_Image();
     unknown_180.Unknown_00406070();
     unknown_194.Unknown_00406070();
@@ -639,7 +639,7 @@ void AnimClass::AI()
                             }
                         }
                     }
-                    unknown_tactical_83996c->Register_Dirty_Area(update,false);
+                    TacticalMap->Register_Dirty_Area(update,false);
                 }
             }
             Delete_Me();
@@ -841,7 +841,7 @@ void AnimClass::unknown_func_4226d0()
             }
             cell->Recalc_Attributes(-1);
             Map.Update_Cell_Zone(cell->unknown_24);
-            Map.Unknown_00566340(cell->unknown_24);
+            Map.Update_Cell_Subzones(cell->unknown_24);
         }
     }
 }
@@ -918,7 +918,7 @@ void __fastcall Unknown_00422BA0(int arg1, Cell const &cell)
     coord.Y = cell.Y * 256 + 128;
     Unknown_0047E2C0(coord, Rules->unknown_1190, 0, Rules->unknown_c60, 0);
     if (unknown_game_mode_a3d298 == 0) {
-        Unknown_004955D0(&unknown_palette_837e10, 30, unknown_481fb0);
+        Unknown_004955D0(&GamePalette, 30, unknown_481fb0);
     }
 }
 

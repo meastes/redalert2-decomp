@@ -4,8 +4,8 @@
     "id": "population-1993",
     "inventory_sha256": "79268b97b4a7234743c77ef09878a42a424c6098329c92cef52af9efa98411f1",
     "gaps_sha256": "ca2df1260bf800f3da40b91c5b7a305112f0909294119acb22188ac14da5ac8b",
-    "historical_population_sha256": "a2acf6781e7540dd11f3763e33cee69d8c53c1c38b42b18bbeac085c5db6dc4b",
-    "historical_acceptance_sha256": "377a85d05d64cb83e50f807f6eaa0018e49faf6766f5399c74849fbf49dafe53"
+    "historical_population_sha256": "c633ee5f7193f70b039e6b1b46a41b9f1a456c948449ac7ef1faef31ed3922ef",
+    "historical_acceptance_sha256": "72fa2b8b363461388592a60b9266816d05723f10b3d657ff4b7c5f8575e03a6a"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -592,7 +592,7 @@
     "__imp__GetOverlappedResult@16": 7971192,
     "__real@8@400fc350000000000000": 8048696,
     "?Focus_Loss@@YAXXZ": 7566240,
-    "?Unknown_00406F50@@YAXXZ": 4222800,
+    "?Audio_Focus_Lose@@YAXXZ": 4222800,
     "__imp__FileTimeToSystemTime@8": 7971044,
     "__imp__InitCommonControls@0": 7970860,
     "__imp__LoadIconA@8": 7971868,
@@ -613,7 +613,7 @@
     "?x@?1???A?$IndexClass@JPAVAbstractClass@@@@QBEABQAVAbstractClass@@ABJ@Z@4PAV2@A": 11712040,
     "__real@8@3ffda0d97bb4e7870000": 7999744,
     "?Focus_Restore@@YAXXZ": 7566336,
-    "?Unknown_00406F70@@YAXXZ": 4222832,
+    "?Audio_Focus_Regain@@YAXXZ": 4222832,
     "__imp__SetActiveWindow@4": 7971872,
     "__real@8@3ffaccccccccccccd000": 7999736,
     "__real@4@400c8000000000000000": 8055240,
@@ -898,7 +898,7 @@
     "_?as@?1??Faction_Code@@YIABVWstring@@H@Z@4V2@A": 11709748,
     "?Version_Name@@YIPBDXZ": 7418320,
     "?Version_Name@VersionClass@@QAEPADXZ": 7417552,
-    "?Version_Name@WindowsVersionInfo@@QAEPADXZ": 7565120,
+    "?Version_String@WindowsVersionInfo@@QAEPADXZ": 7565120,
     "?Version_Number@VersionClass@@QAEIXZ": 7416656,
     "?Major_Version@VersionClass@@QAEGXZ": 7417168,
     "?Minor_Version@VersionClass@@QAEGXZ": 7417360,

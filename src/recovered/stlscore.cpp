@@ -86,11 +86,11 @@ int __stdcall Score_Dialog_Proc_0069A7D0(HWND__ *dialog, unsigned int message, u
 void UnknownScore_0069A640::Presentation_0069A650()
 {
     Unknown_Load_Art_Once_006F2710(unknown_id_source_a3d290->unknown_2239 == false);
-    Rect rect(0, 0, unknown_8523e0, unknown_8523e4);
-    Unknown_6F3BF0(unknown_surface_839954, rect);
-    Unknown_004E0C90(true, unknown_surface_839954, 0);
+    Rect rect(0, 0, VideoModeWidth, VideoModeHeight);
+    Unknown_6F3BF0(HiddenSurface, rect);
+    Unknown_004E0C90(true, HiddenSurface, 0);
     unknown_dialog_box_5eab60(0x103, Score_Dialog_Proc_0069A7D0, 0);
-    Unknown_6F3BF0(unknown_surface_839954, rect);
-    Unknown_004E0C90(true, unknown_surface_839954, 0);
+    Unknown_6F3BF0(HiddenSurface, rect);
+    Unknown_004E0C90(true, HiddenSurface, 0);
     Unknown_Free_Art_Flagged_006F2750();
 }

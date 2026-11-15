@@ -3504,6 +3504,10 @@
    "address": "005d5540"
   },
   {
+   "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0cb0"
+  },
+  {
    "symbol": "?AddRef@AbstractClass@@UAGKXZ",
    "address": "004100a0"
   },
@@ -3576,6 +3580,10 @@
    "address": "00a40d2c"
   },
   {
+   "symbol": "?GameActive@@3_NA",
+   "address": "00a40958"
+  },
+  {
    "symbol": "?GetDisguise@ObjectClass@@UAEPAVObjectTypeClass@@_N@Z",
    "address": null
   },
@@ -3632,6 +3640,14 @@
    "address": "008324e0"
   },
   {
+   "symbol": "?ObjectPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0d60"
+  },
+  {
+   "symbol": "?ObjectsToDelete@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0cd8"
+  },
+  {
    "symbol": "?Owner@AbstractClass@@UBEHXZ",
    "address": "00410230"
   },
@@ -3664,6 +3680,10 @@
    "address": "00839848"
   },
   {
+   "symbol": "?ScenarioInit@@3HA",
+   "address": "00a40774"
+  },
+  {
    "symbol": "?Set_Decrement@LineTrail@@QAEXH@Z",
    "address": "00539510"
   },
@@ -3686,6 +3706,14 @@
   {
    "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
    "address": "00abd868"
+  },
+  {
+   "symbol": "?TacticalMap@@3PAVTactical@@A",
+   "address": "0083996c"
+  },
+  {
+   "symbol": "?TagPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+   "address": "00ac0c58"
   },
   {
    "symbol": "?Unknown_00405C10@UnknownAudioController@@QAEXXZ",
@@ -3760,14 +3788,6 @@
    "address": "00833684"
   },
   {
-   "symbol": "?unknown_AbstractClass_list_00ac0d60@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0d60"
-  },
-  {
-   "symbol": "?unknown_a40774@@3HA",
-   "address": "00a40774"
-  },
-  {
    "symbol": "?unknown_b263d8@@3HA",
    "address": "00b263d8"
   },
@@ -3782,10 +3802,6 @@
   {
    "symbol": "?unknown_falling_decrement_007a7668@@3NB",
    "address": "007a7668"
-  },
-  {
-   "symbol": "?unknown_flag_a40958@@3_NA",
-   "address": "00a40958"
   },
   {
    "symbol": "?unknown_game_mode_a3d298@@3HA",
@@ -3810,18 +3826,6 @@
   {
    "symbol": "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A",
    "address": "00a40c60"
-  },
-  {
-   "symbol": "?unknown_objects_ac0c58@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0c58"
-  },
-  {
-   "symbol": "?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0cb0"
-  },
-  {
-   "symbol": "?unknown_objects_ac0cd8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
-   "address": "00ac0cd8"
   },
   {
    "symbol": "?unknown_player_a35db4@@3PAVHouseClass@@A",
@@ -3926,10 +3930,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_tactical_83996c@@3PAVTactical@@A",
-   "address": "0083996c"
   },
   {
    "symbol": "__CIpow",

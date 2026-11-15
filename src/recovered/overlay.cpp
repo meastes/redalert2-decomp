@@ -119,7 +119,7 @@ OverlayClass::~OverlayClass()
 {
     Unknown_006ECB90(this, true);
     unknown_OverlayClass_list_00a40c00.Delete(this);
-    if (unknown_flag_a40958) {
+    if (GameActive) {
         ObjectClass::Limbo();
     }
     Class = 0;
@@ -183,7 +183,7 @@ bool OverlayClass::Mark(int mark)
                     cellptr->OverlayData = 0;
                     new VeinholeMonsterClass(&cellptr->MapCoords);
                 }
-            } else if (type == 0x7E && !unknown_a40774) {
+            } else if (type == 0x7E && !ScenarioInit) {
                 cellptr->Place_Veins();
             } else if (Class->Land == 9) {
                 cellptr->OverlayIndex = Class->ArrayIndex;
@@ -193,9 +193,9 @@ bool OverlayClass::Mark(int mark)
                     cellptr->OverlayIndex = Class->ArrayIndex;
                     cellptr->OverlayData = 0;
                     cellptr->Wall_Update(true);
-                    if (!unknown_a40774) {
+                    if (!ScenarioInit) {
                         Map.Update_Cell_Zone_Constructively(cellptr->MapCoords);
-                        Map.Unknown_00566340(cellptr->MapCoords);
+                        Map.Update_Cell_Subzones(cellptr->MapCoords);
                     }
 
                     if (unknown_placing_house_7e8a8c != -1) {
@@ -340,7 +340,7 @@ bool OverlayClass::Mark(int mark)
                 }
             } else {
                 bool clear;
-                if (!unknown_a40774) {
+                if (!ScenarioInit) {
                     if (Class == Rules->unknown_f8) {
                         clear = cellptr->Is_Clear_To_Move(5, false, false, -1, 0, -1, true);
                     } else if (Class == Rules->unknown_f4 || Class == Rules->unknown_f0) {
@@ -362,7 +362,7 @@ bool OverlayClass::Mark(int mark)
                     clear = true;
                 }
 
-                if ((unknown_a40774 || cellptr->OverlayIndex == -1 || !OverlayTypes[cellptr->OverlayIndex]->Overrides) && clear) {
+                if ((ScenarioInit || cellptr->OverlayIndex == -1 || !OverlayTypes[cellptr->OverlayIndex]->Overrides) && clear) {
 
                     cellptr->OverlayIndex = Class->ArrayIndex;
                     if (type != 0x18 && type != 0x19 && type != 0xED && type != 0xEE) {
@@ -498,7 +498,7 @@ void __fastcall OverlayClass::Write_INI(CCINIClass &ini)
     ini.Clear(unknown_overlay_section_7a77c0);
     ini.Clear("OverlayPack");
 
-    BufferPipe bpipe(unknown_surface_839958->Lock(), unknown_surface_839958->Get_Width() * unknown_surface_839958->Get_Height());
+    BufferPipe bpipe(AlternateSurface->Lock(), AlternateSurface->Get_Width() * AlternateSurface->Get_Height());
     LCWPipe comppipe(LCWPipe::COMPRESS, 0x2000);
 
     comppipe.Put_To(&bpipe);
@@ -511,14 +511,14 @@ void __fastcall OverlayClass::Write_INI(CCINIClass &ini)
         }
     }
     if (total) {
-        ini.Put_UUBlock("OverlayPack", unknown_surface_839958->Lock(), total);
-        unknown_surface_839958->Unlock();
+        ini.Put_UUBlock("OverlayPack", AlternateSurface->Lock(), total);
+        AlternateSurface->Unlock();
     }
-    unknown_surface_839958->Unlock();
+    AlternateSurface->Unlock();
 
     ini.Clear("OverlayDataPack");
 
-    BufferPipe databpipe(unknown_surface_839958->Lock(), unknown_surface_839958->Get_Width() * unknown_surface_839958->Get_Height());
+    BufferPipe databpipe(AlternateSurface->Lock(), AlternateSurface->Get_Width() * AlternateSurface->Get_Height());
     LCWPipe datacomppipe(LCWPipe::COMPRESS, 0x2000);
 
     datacomppipe.Put_To(&databpipe);
@@ -530,10 +530,10 @@ void __fastcall OverlayClass::Write_INI(CCINIClass &ini)
         }
     }
     if (total) {
-        ini.Put_UUBlock("OverlayDataPack", unknown_surface_839958->Lock(), total);
-        unknown_surface_839958->Unlock();
+        ini.Put_UUBlock("OverlayDataPack", AlternateSurface->Lock(), total);
+        AlternateSurface->Unlock();
     }
-    unknown_surface_839958->Unlock();
+    AlternateSurface->Unlock();
 }
 
 
@@ -603,8 +603,8 @@ void OverlayClass::Editor_Draw_It(Point2D const &point, Rect const &window)
         CellClass *drawn;
         if (Map.In_Radar(Coord_Cell(CoordStruct(Coord)))) {
             drawn = &Map[CoordStruct(Coord)];
-        } else if (Map.In_Radar(unknown_tactical_83996c->Pixel_To_Cell(position))) {
-            drawn = &Map[unknown_tactical_83996c->Pixel_To_Cell(position)];
+        } else if (Map.In_Radar(TacticalMap->Pixel_To_Cell(position))) {
+            drawn = &Map[TacticalMap->Pixel_To_Cell(position)];
         } else {
             drawn = &Map[Cell(1, unknown_short_8325d0)];
         }
@@ -669,13 +669,13 @@ ObjectTypeClass *OverlayClass::Class_Of() const
 }
 
 
-// static void OverlayClass::unknown_func_5dc180() (0x005DC180)
+// static void OverlayClass::Post_Read_Vein_Fixups() (0x005DC180)
 // Removes overlay 0x7E from every cell, remembering the cells whose
 // overlay data was at least 0x30, then runs the 0x0047A670 / 0x0047AD00
 // pair on those cells in reverse order.
 // Assumptions: the map iterator names (0x0055A550 reset, 0x0055A490 next).
 
-void OverlayClass::unknown_func_5dc180()
+void OverlayClass::Post_Read_Vein_Fixups()
 {
     Map.Reset_Iterator();
     CellClass *cell = Map.Iterate();

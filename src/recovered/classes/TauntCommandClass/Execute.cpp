@@ -16,7 +16,7 @@
 // @ref ?unknown_flag_a3f121@@3_NA=00a3f121
 // @ref ?unknown_flags_a3f118@@3PA_NA=00a3f118
 // @ref ?unknown_a3d3b4@@3HA=00a3d3b4
-// @ref ?unknown_int_a3d548@@3HA=00a3d548
+// @ref ?MuteSWLaunches@@3HA=00a3d548
 // @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
 // @ref ?unknown_flag_a3fba8@@3_NA=00a3fba8
 // @ref ?unknown_host_name_a3f618@@3PAGA=00a3f618
@@ -41,7 +41,7 @@ void TauntCommandClass::Execute(int key) const
     if (unknown_game_mode_a3d298 != 3 && unknown_game_mode_a3d298 != 4) {
         return;
     }
-    if (unknown_int_a3d548 != 0) {
+    if (MuteSWLaunches != 0) {
         return;
     }
     unsigned long now = timeGetTime();

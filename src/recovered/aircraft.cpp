@@ -172,7 +172,7 @@ void AircraftClass::Init()
 
 AircraftClass::~AircraftClass()
 {
-    if (unknown_flag_a40958 && Type != 0) {
+    if (GameActive && Type != 0) {
         if (House->Can_Build(Type, 0, 0) == -1) {
             House->unknown_144 = true;
         }
@@ -279,7 +279,7 @@ void AircraftClass::Draw_It(Point2D const &point, Rect const &window)
         CoordStruct ground = Position_Coord_004f3f40();
         ground.Z = Map.Get_Height_GL(ground);
         Point2D shadow_point;
-        unknown_tactical_83996c->Coord_To_Pixel(ground, shadow_point);
+        TacticalMap->Coord_To_Pixel(ground, shadow_point);
         shadow_point += Locomotor.Checked()->Shadow_Point();
 
         int key = 0;
@@ -313,7 +313,7 @@ void AircraftClass::Draw_It(Point2D const &point, Rect const &window)
         }
         Set_Height_AGL(saved_height);
         unknown_5a0 = saved_flag;
-        unknown_tactical_83996c->Add_To_Selectables(this, draw_point);
+        TacticalMap->Add_To_Selectables(this, draw_point);
 
         int scenario_scale;
         if (Unknown_0051FC50()) scenario_scale = unknown_id_source_a3d290->IonLevel;
@@ -1867,7 +1867,7 @@ AbstractClass *AircraftClass::New_LZ(AbstractClass *desired)
             if (Cell_Seems_Ok(cell, false)) return desired;
         }
         CoordStruct coord = desired->Center_Coord();
-        if (!unknown_a40774) {
+        if (!ScenarioInit) {
             for (int radius = 0; radius < Rules->unknown_10e0 / 256; radius++) {
                 int phase = unknown_id_source_a3d290->Random()(0, 7);
                 Cell previous(0, 0);
@@ -2049,7 +2049,7 @@ int AircraftClass::Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass
         active = occupier->AbstractFlags.IsTechno;
     }
     if ((occupier == 0 || !active || occupier->House->Is_Ally(House)
-         || (occupier->unknown_1b8 != 2 && unknown_a40774 == 0
+         || (occupier->unknown_1b8 != 2 && ScenarioInit == 0
              && (occupier->Kind_Of() != 6 || !((BuildingClass *)occupier)->Type->Invisible)))
         && !cell->Unknown_00478760(4, 0, 0, -1, 0, -1, 1)) {
         return 7;

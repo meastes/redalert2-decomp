@@ -89,12 +89,12 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
             Unknown_005c7570(dialog);
             ShowWindow(dialog, SW_SHOW);
             if (unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->Unknown_006720C0()) {
-                if (unknown_dialog_preview_a72ce8) {
-                    delete unknown_dialog_preview_a72ce8;
+                if (MultiplayerMapPreview) {
+                    delete MultiplayerMapPreview;
                 }
-                unknown_dialog_preview_a72ce8 = new MapPreviewClass;
-                unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
-                if (!unknown_dialog_preview_a72ce8->Is_Present()) {
+                MultiplayerMapPreview = new MapPreviewClass;
+                MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
+                if (!MultiplayerMapPreview->Is_Present()) {
                     Unknown_005c7570(dialog);
                 }
                 InvalidateRect(dialog, 0, 0);
@@ -109,9 +109,9 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
         if (old_scenario == -1) {
             old_players = 8;
         } else {
-            old_players = Unknown_005c6600(old_scenario);
+            old_players = RandomMapWaypointCount(old_scenario);
         }
-        int players = Unknown_005c6600(scenario);
+        int players = RandomMapWaypointCount(scenario);
         int extra = players - old_players;
         if (old_scenario == scenario) {
             Skirmish_Hide_Players(dialog, 1);
@@ -127,12 +127,12 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
             Unknown_005c3450(dialog, MultiplayerGameMode::unknown_find_mode_5b6fe0(unknown_session_a3d298.GameModeIndex));
             Unknown_005c34b0(dialog);
             if (unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->Unknown_006720C0()) {
-                if (unknown_dialog_preview_a72ce8) {
-                    delete unknown_dialog_preview_a72ce8;
-                    unknown_dialog_preview_a72ce8 = new MapPreviewClass;
-                    unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
+                if (MultiplayerMapPreview) {
+                    delete MultiplayerMapPreview;
+                    MultiplayerMapPreview = new MapPreviewClass;
+                    MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
                 }
-                if (!unknown_dialog_preview_a72ce8->Is_Present()) {
+                if (!MultiplayerMapPreview->Is_Present()) {
                     Unknown_005c7570(dialog);
                 }
                 InvalidateRect(dialog, 0, 0);
@@ -153,7 +153,7 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
         if (id == 0x617) {
             EnableWindow(Get_Item(dialog, 0x617), 0);
         }
-        int players = Unknown_005c6600(unknown_session_a3d298.ScenarioIndex);
+        int players = RandomMapWaypointCount(unknown_session_a3d298.ScenarioIndex);
         int computers = 0;
         int index;
         for (index = 0; index < 7; index++) {
@@ -288,9 +288,9 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
         unknown_session_a3d298.unknown_28 = true;
         unknown_session_a3d298.unknown_a5 = false;
         unknown_session_a3d298.unknown_34 = false;
-        if (unknown_dialog_preview_a72ce8) {
-            delete unknown_dialog_preview_a72ce8;
-            unknown_dialog_preview_a72ce8 = 0;
+        if (MultiplayerMapPreview) {
+            delete MultiplayerMapPreview;
+            MultiplayerMapPreview = 0;
         }
         *result = id;
         return;

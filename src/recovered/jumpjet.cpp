@@ -264,7 +264,7 @@ void __stdcall JumpjetLocomotionClass::Move_To(CoordStruct to)
 
 void __stdcall JumpjetLocomotionClass::Stop_Moving()
 {
-    if (unknown_a40774 == 0 && unknown_48) {
+    if (ScenarioInit == 0 && unknown_48) {
         if (unknown_3c != unknown_geometry_l && unknown_4c != 0 && unknown_88) {
             LinkedTo->Clear_Occupy_Bit(unknown_3c);
             unknown_88 = false;
@@ -360,7 +360,7 @@ void JumpjetLocomotionClass::unknown_52fca0()
         unknown_78 = Height;
         if (!LinkedTo->House->Unknown_0051FC80()) {
             if (LinkedTo->unknown_slot178() == unknown_geometry_k) {
-                unknown_tracker_839ea0.Unknown_004131E0(LinkedTo);
+                AircraftTracker.Unknown_004131E0(LinkedTo);
             }
             unknown_4c = 1;
         }
@@ -387,10 +387,10 @@ void JumpjetLocomotionClass::unknown_52fd50()
     }
     Cell cell = LinkedTo->unknown_slot104();
     if (cell != LinkedTo->unknown_458) {
-        unknown_tracker_839ea0.Update_00413600(LinkedTo, LinkedTo->unknown_458, cell);
+        AircraftTracker.Update_00413600(LinkedTo, LinkedTo->unknown_458, cell);
     }
     if (height >= unknown_78) {
-        if (unknown_tracker_839ea0.Unknown_004132E0(LinkedTo)) {
+        if (AircraftTracker.Unknown_004132E0(LinkedTo)) {
             int facing = Random_Pick(0, 7);
             CellClass &here = Map[cell];
             LinkedTo->Assign_Destination(&here.Adjacent_Cell(facing), true);
@@ -484,7 +484,7 @@ void JumpjetLocomotionClass::unknown_530180()
     CoordStruct position = LinkedTo->Coord;
     Cell cell = LinkedTo->unknown_slot104();
     if (cell != LinkedTo->unknown_458) {
-        unknown_tracker_839ea0.Update_00413600(LinkedTo, LinkedTo->unknown_458, cell);
+        AircraftTracker.Update_00413600(LinkedTo, LinkedTo->unknown_458, cell);
     }
     CoordStruct const &to = unknown_3c;
     UnknownFacingDir dir;
@@ -511,7 +511,7 @@ void JumpjetLocomotionClass::unknown_530180()
             unknown_4c = 4;
             LinkedTo->unknown_6d1470();
         } else {
-            if (unknown_tracker_839ea0.Unknown_004132E0(LinkedTo)) {
+            if (AircraftTracker.Unknown_004132E0(LinkedTo)) {
                 int facing = Random_Pick(0, 7);
                 CellClass &here_cell = Map[cell];
                 LinkedTo->Assign_Destination(&here_cell.Adjacent_Cell(facing), true);
@@ -562,7 +562,7 @@ void JumpjetLocomotionClass::unknown_530550()
 {
     CellClass &cell = Map[unknown_3c];
     if ((cell.unknown_ec == 2 || cell.unknown_ec == 6) && LinkedTo->MissionQueue != 7 && LinkedTo->Get_Mission() != 7) {
-        if (unknown_tracker_839ea0.Unknown_004132E0(LinkedTo)) {
+        if (AircraftTracker.Unknown_004132E0(LinkedTo)) {
             int facing = Random_Pick(0, 7);
             CellClass *here = (CellClass *)LinkedTo->Get_Cell_Ptr();
             LinkedTo->Assign_Destination(&here->Adjacent_Cell(facing), true);
@@ -623,7 +623,7 @@ void JumpjetLocomotionClass::unknown_530550()
             if (((CellClass *)LinkedTo->Get_Cell_Ptr())->unknown_e0 == LinkedTo) {
                 ((CellClass *)LinkedTo->Get_Cell_Ptr())->Set_unknown_e0(0);
             }
-            unknown_tracker_839ea0.Unknown_00413310(LinkedTo);
+            AircraftTracker.Unknown_00413310(LinkedTo);
             unknown_4c = 0;
             unknown_88 = false;
         }
@@ -659,7 +659,7 @@ void JumpjetLocomotionClass::unknown_530940()
         if (((CellClass *)LinkedTo->Get_Cell_Ptr())->unknown_e0 == LinkedTo) {
             ((CellClass *)LinkedTo->Get_Cell_Ptr())->Set_unknown_e0(0);
         }
-        unknown_tracker_839ea0.Unknown_00413310(LinkedTo);
+        AircraftTracker.Unknown_00413310(LinkedTo);
         unknown_4c = 6;
         unknown_70 = 0;
         LinkedTo->INoticeSink_Unknown(0x117C, 0);

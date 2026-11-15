@@ -296,7 +296,7 @@ DynamicVectorClass<ColorScheme *> *SchemeTable::Find_Schemes(char const *name)
 extern "C" char *__cdecl _strupr(char *text);
 // The physical static MixFileClass::Retrieve entry: filename in ECX, pointer result in EAX.
 void const *__fastcall Retrieve_Palette_Data_005956c0(char const *filename);
-extern PaletteClass unknown_palette_837e10;
+extern PaletteClass GamePalette;
 extern char const Scheme_Palette_Dot_007dbe44[];
 extern char const *Scheme_Palette_Extension_007eb5e4;
 
@@ -323,10 +323,10 @@ DynamicVectorClass<ColorScheme *> *SchemeTable::Build_Schemes(char const *name)
     for (int scheme_index = 0; scheme_index < count; ++scheme_index) {
         char const *scheme_name = (*Names)[scheme_index];
         HSVClass color = (*Colors)[scheme_index];
-        ColorScheme *normal = new ColorScheme(scheme_name, color, &palette, &unknown_palette_837e10, 1, false);
+        ColorScheme *normal = new ColorScheme(scheme_name, color, &palette, &GamePalette, 1, false);
         normal->Index = scheme_index * 2;
         schemes->Add(normal);
-        ColorScheme *dark = new ColorScheme(scheme_name, color, &palette, &unknown_palette_837e10, 53, false);
+        ColorScheme *dark = new ColorScheme(scheme_name, color, &palette, &GamePalette, 53, false);
         dark->Index = scheme_index * 2 + 1;
         schemes->Add(dark);
     }

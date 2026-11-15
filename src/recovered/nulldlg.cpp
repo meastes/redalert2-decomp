@@ -109,7 +109,7 @@ WIN32_IMPORT BOOL WINAPI SetCommBreak(HANDLE file);
 WIN32_IMPORT BOOL WINAPI ClearCommBreak(HANDLE file);
 
 void __fastcall Unknown_00517370(bool unknown);
-extern Surface *unknown_surface_839954;
+extern Surface *HiddenSurface;
 
 static int Test_Null_Modem()
 {
@@ -245,7 +245,7 @@ int __fastcall Select_Serial_Dialog()
     HWND dialog = unknown_create_dialog_5ff610(0xEC, Select_Serial_Dialog_Proc, 0);
     if (dialog) {
         SetWindowLongA(dialog, DWL_USER, (LONG)&rc);
-        unknown_move_window_600120(dialog, -1, ((unknown_surface_839954->Get_Height() - 400) / 2) + 147);
+        unknown_move_window_600120(dialog, -1, ((HiddenSurface->Get_Height() - 400) / 2) + 147);
         unknown_dialog_5ff7c0(dialog);
 
         if (unknown_session_a3d298.SerialDefaults.Port == 0 || unknown_session_a3d298.SerialDefaults.IRQ == -1

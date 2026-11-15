@@ -2005,8 +2005,16 @@
    "address": "0076f570"
   },
   {
+   "symbol": "?BuildLevel@@3HA",
+   "address": "007d88d8"
+  },
+  {
    "symbol": "?CheckStartConditions@MPCooperative@@UAE_NPAVWideString@@@Z",
    "address": "005a32e0"
+  },
+  {
+   "symbol": "?Clear_ComboBox@@YIXPAUHWND__@@@Z",
+   "address": "006007f0"
   },
   {
    "symbol": "?Close@BufferIOFileClass@@UAEXXZ",
@@ -2273,6 +2281,10 @@
    "address": "00a32338"
   },
   {
+   "symbol": "?PacketRouterConnection@@3PAVConnectionClass@@A",
+   "address": "00a409c4"
+  },
+  {
    "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
    "address": "00839c50"
   },
@@ -2287,6 +2299,10 @@
   {
    "symbol": "?PopulateTeamDropdownForPlayer_005b75d0@Target_5a3f70@@QAEIII@Z",
    "address": "005b75d0"
+  },
+  {
+   "symbol": "?RandomMapWaypointCount@@YIHH@Z",
+   "address": "005c6600"
   },
   {
    "symbol": "?Read@BufferIOFileClass@@UAEJPAXJ@Z",
@@ -2425,10 +2441,6 @@
    "address": "005c3810"
   },
   {
-   "symbol": "?Unknown_005c6600@@YIHH@Z",
-   "address": "005c6600"
-  },
-  {
    "symbol": "?Unknown_005c7570@@YIXPAUHWND__@@@Z",
    "address": "005c7570"
   },
@@ -2457,16 +2469,16 @@
    "address": "00672940"
   },
   {
-   "symbol": "?Unknown_00735B10@@YIPAUHWND__@@XZ",
-   "address": "00735b10"
-  },
-  {
    "symbol": "?Unknown_Pregame_Setup_005c74f0@@YAXXZ",
    "address": "005c74f0"
   },
   {
    "symbol": "?WS_Find_Dialog_00735940@@YIPAUHWND__@@H@Z",
    "address": "00735940"
+  },
+  {
+   "symbol": "?WS_Top_Window@@YIPAUHWND__@@XZ",
+   "address": "00735b10"
   },
   {
    "symbol": "?Wide_To_Narrow_006fa120@@YIPADPBG@Z",
@@ -2549,10 +2561,6 @@
    "address": "00a71118"
   },
   {
-   "symbol": "?unknown_connection_a409c4@@3PAVConnectionClass@@A",
-   "address": "00a409c4"
-  },
-  {
    "symbol": "?unknown_create_battle_team_005a2550@@YIPAVMultiplayerTeam@@H@Z",
    "address": "005a2550"
   },
@@ -2575,10 +2583,6 @@
   {
    "symbol": "?unknown_game_mode_a3d298@@3HA",
    "address": "00a3d298"
-  },
-  {
-   "symbol": "?unknown_house_setting_7d88d8@@3HA",
-   "address": "007d88d8"
   },
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
@@ -2627,10 +2631,6 @@
   {
    "symbol": "?unknown_protocol_7fd370@@3IA",
    "address": "007fd370"
-  },
-  {
-   "symbol": "?unknown_reset_combo_6007f0@@YIXPAUHWND__@@@Z",
-   "address": "006007f0"
   },
   {
    "symbol": "?unknown_score_850504@@3_NA",

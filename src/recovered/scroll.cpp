@@ -131,9 +131,9 @@ bool ScrollClass::Resolve_Point(Point2D const &xy,Cell &cell,CoordStruct &coord,
     fog=false;
     shadow=false;
     if (xy.X<0 || xy.Y<0) return false;
-    cell = unknown_tactical_83996c ? unknown_tactical_83996c->Pixel_To_Cell(xy+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_k;
-    coord = unknown_tactical_83996c ? unknown_tactical_83996c->Pixel_To_Coord(xy+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_l;
-    if (unknown_tactical_83996c && Map.Unknown_0054AB00(coord)) {
+    cell = TacticalMap ? TacticalMap->Pixel_To_Cell(xy+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_k;
+    coord = TacticalMap ? TacticalMap->Pixel_To_Coord(xy+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_l;
+    if (TacticalMap && Map.Unknown_0054AB00(coord)) {
         UnknownCoord434820 adjusted = UnknownCoord434820(cell,Map.Get_Height_GL(UnknownCoord434820(cell)));
         shadow=Map.Is_Shrouded(adjusted) && unknown_b263d8!=0;
         fog=false;
@@ -143,7 +143,7 @@ bool ScrollClass::Resolve_Point(Point2D const &xy,Cell &cell,CoordStruct &coord,
             else fog=Map.Is_Fogged(adjusted) && unknown_b263d8!=0;
         }
         if (!shadow && !fog) {
-            object=unknown_tactical_83996c->Get_Selectable_Object_006aa990(xy);
+            object=TacticalMap->Get_Selectable_Object_006aa990(xy);
             TechnoClass *techno=object->As_Techno();
             if (techno && !techno->unknown_372) {
                 if ((techno->unknown_1b8==2 && !Map[techno->Center_Coord()].Is_Sensed(unknown_player_a35db4->ArrayIndex)) || techno->Techno_Type_Class()->Invisible) object=0;
@@ -173,9 +173,9 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
     int action = 0;
     if (unknown_objects_a40c60.Count()) {
         if (object != 0) {
-            action = Unknown_0051A690(0, object)->unknown_slot28(object, false);
+            action = Best_Selected_Object(0, object)->unknown_slot28(object, false);
         } else {
-            action = Unknown_0051A690(&cell, 0)->What_Action(&cell, arg3, false);
+            action = Best_Selected_Object(&cell, 0)->What_Action(&cell, arg3, false);
         }
     } else {
         bool visible = true;
@@ -233,12 +233,12 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
             if (Map.unknown_11b8 != 0) {
                 action = 0x30;
             } else if (force && waypoint != 0 && path == unknown_player_a35db4->unknown_154
-                    && unknown_player_a35db4->Unknown_004F3120()
+                    && unknown_player_a35db4->Can_Add_Waypoint_To_Path()
                     && unknown_player_a35db4->WaypointPaths[path]->Next_Waypoint(waypoint) != 0) {
                 action = 0x2F;
             } else if (waypoint != 0) {
                 action = 0x2E;
-            } else if (unknown_player_a35db4->unknown_154 != -1 && unknown_player_a35db4->Unknown_004F3120()
+            } else if (unknown_player_a35db4->unknown_154 != -1 && unknown_player_a35db4->Can_Add_Waypoint_To_Path()
                     && Map.Unknown_0055A660(cell, true)) {
                 action = 0x2A;
             } else {
@@ -309,7 +309,7 @@ void ScrollClass::Edge_Scroll_00669EC0(Point2D const &xy)
         Point2D p = Point2D(unknown_rect_839630.X, unknown_rect_839630.Y) + xy;
         int x = p.X;
         int y = p.Y;
-        int w = (unknown_surface_839964->Get_Width() + unknown_surface_839948->Get_Width()) - 1;
+        int w = (unknown_surface_839964->Get_Width() + SidebarSurface->Get_Width()) - 1;
         int h = unknown_surface_839964->Get_Height() - 1;
 
         bool at_screen_edge = (y <= 0 || x <= 0 || x >= w || y >= h);
@@ -323,8 +323,8 @@ void ScrollClass::Edge_Scroll_00669EC0(Point2D const &xy)
             if (at_screen_edge) {
                 player_scrolled = true;
 
-                int width = unknown_8523e0;
-                int height = unknown_8523e4;
+                int width = VideoModeWidth;
+                int height = VideoModeHeight;
 
                 static double edge_x = 0.16;
                 static double edge_y = 0.21;
@@ -406,7 +406,7 @@ void ScrollClass::Edge_Scroll_00669EC0(Point2D const &xy)
 
 void ScrollClass::Scroll_AI()
 {
-    if (unknown_flag_a40d44) {
+    if (IgnoreInput) {
         return;
     }
     int x = unknown_rect_839630.X;
@@ -444,10 +444,10 @@ void ScrollClass::Scroll_AI()
 
 bool ScrollClass::Is_Scrolling()
 {
-    if (unknown_4f2a || unknown_flag_a40d44) {
+    if (unknown_4f2a || IgnoreInput) {
         return true;
     }
-    if (unknown_tactical_83996c != 0 && unknown_tactical_83996c->unknown_d8 != 0.0f) {
+    if (TacticalMap != 0 && TacticalMap->unknown_d8 != 0.0f) {
         return true;
     }
     return false;
@@ -458,16 +458,16 @@ bool ScrollClass::Is_Scrolling()
 
 void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wparam, long &lparam)
 {
-    if (!unknown_flag_a40380) {
+    if (!TacticalActive) {
         return;
     }
-    if (!unknown_flag_a40d04 && !Debug_Map) {
+    if (!ScenarioActive && !Debug_Map) {
         return;
     }
-    if (!unknown_flag_a40958 || unknown_tactical_83996c == 0 || WWMouse == 0) {
+    if (!GameActive || TacticalMap == 0 || WWMouse == 0) {
         return;
     }
-    if (unknown_flag_a40d44 && message != 0x215) {
+    if (IgnoreInput && message != 0x215) {
         return;
     }
     Point2D xy;
@@ -561,10 +561,10 @@ void ScrollClass::Scroll_Coast(Point2D const &xy)
         0x3D, 0x3E, 0x40, 0x3F, 0x42, 0x3D, 0x41, 0x3D, 0x44, 0x45, 0x3D, 0x3D, 0x43, 0x3D, 0x3D, 0x3D
     };
 
-    if (!unknown_flag_a40958) {
+    if (!GameActive) {
         return;
     }
-    if (!unknown_flag_a40380 && !Debug_Map) {
+    if (!TacticalActive && !Debug_Map) {
         return;
     }
     if (!unknown_4f28) {
@@ -586,25 +586,25 @@ void ScrollClass::Scroll_Coast(Point2D const &xy)
     if (unknown_4f1c) {
         int dx = xy.X - unknown_4f20.X;
         int dy = xy.Y - unknown_4f20.Y;
-        int direction = Unknown_00721DB0(unknown_4f20, xy);
+        int direction = Facing_Between_Points(unknown_4f20, xy);
         if (direction != _direction) {
             _direction = direction;
         }
         if (dx == 0) {
             if (unknown_4f20.X == 0) {
                 dx = -1;
-            } else if (unknown_4f20.X >= unknown_8523e0 - 1) {
+            } else if (unknown_4f20.X >= VideoModeWidth - 1) {
                 dx = 1;
             }
         }
         if (dy == 0) {
             if (unknown_4f20.Y == 0) {
                 dy = -1;
-            } else if (unknown_4f20.Y >= unknown_8523e4) {
+            } else if (unknown_4f20.Y >= VideoModeHeight) {
                 dy = 1;
             }
         }
-        if ((unknown_4f20.X < 10 && dx < 0) || (unknown_4f20.X > unknown_8523e0 - 10 && dx > 0)) {
+        if ((unknown_4f20.X < 10 && dx < 0) || (unknown_4f20.X > VideoModeWidth - 10 && dx > 0)) {
             if (dx < 0 && dx > -5) {
                 dx = -5;
             }
@@ -613,7 +613,7 @@ void ScrollClass::Scroll_Coast(Point2D const &xy)
             }
             dx *= 4;
         }
-        if ((unknown_4f20.Y < 10 && dy < 0) || (unknown_4f20.Y > unknown_8523e4 - 10 && dy > 0)) {
+        if ((unknown_4f20.Y < 10 && dy < 0) || (unknown_4f20.Y > VideoModeHeight - 10 && dy > 0)) {
             if (dy < 0 && dy > -5) {
                 dy = -5;
             }
@@ -705,7 +705,7 @@ void ScrollClass::Mouse_Right_Release(Point2D const &xy)
 
 void ScrollClass::Mouse_Right_Press(Point2D const &point)
 {
-    if (!unknown_flag_a40d44) {
+    if (!IgnoreInput) {
         DisplayClass::Mouse_Right_Press(point);
         unknown_4f20.X = point.X;
         unknown_4f20.Y = point.Y;

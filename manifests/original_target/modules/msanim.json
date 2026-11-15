@@ -19,7 +19,7 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_load_drawer_5ac560@@YIPAVConvertClass@@ABVWstring@@@Z",
+   "symbol": "?Create_Drawer@@YIPAVConvertClass@@ABVWstring@@@Z",
    "entry": "005ac560",
    "body_bytes": 292,
    "padding_bytes": 12
@@ -1548,7 +1548,7 @@
   },
   {
    "site": "004df5f0",
-   "symbol": "?unknown_load_drawer_5ac560@@YIPAVConvertClass@@ABVWstring@@@Z",
+   "symbol": "?Create_Drawer@@YIPAVConvertClass@@ABVWstring@@@Z",
    "target": "005ac560",
    "function_entry": true
   },
@@ -1590,7 +1590,7 @@
   },
   {
    "site": "0072dea0",
-   "symbol": "?unknown_load_drawer_5ac560@@YIPAVConvertClass@@ABVWstring@@@Z",
+   "symbol": "?Create_Drawer@@YIPAVConvertClass@@ABVWstring@@@Z",
    "target": "005ac560",
    "function_entry": true
   },
@@ -1632,7 +1632,7 @@
   },
   {
    "site": "0072a510",
-   "symbol": "?unknown_load_drawer_5ac560@@YIPAVConvertClass@@ABVWstring@@@Z",
+   "symbol": "?Create_Drawer@@YIPAVConvertClass@@ABVWstring@@@Z",
    "target": "005ac560",
    "function_entry": true
   },
@@ -1722,7 +1722,7 @@
   },
   {
    "site": "00729510",
-   "symbol": "?unknown_load_drawer_5ac560@@YIPAVConvertClass@@ABVWstring@@@Z",
+   "symbol": "?Create_Drawer@@YIPAVConvertClass@@ABVWstring@@@Z",
    "target": "005ac560",
    "function_entry": true
   },
@@ -1734,7 +1734,7 @@
   },
   {
    "site": "00729510",
-   "symbol": "?unknown_load_drawer_5ac560@@YIPAVConvertClass@@ABVWstring@@@Z",
+   "symbol": "?Create_Drawer@@YIPAVConvertClass@@ABVWstring@@@Z",
    "target": "005ac560",
    "function_entry": true
   },
@@ -1891,8 +1891,16 @@
    "address": "00401950"
   },
   {
+   "symbol": "?AlternateSurface@@3PAVSurface@@A",
+   "address": "00839958"
+  },
+  {
    "symbol": "?Audio_Event_Play_Named@@YIXPBDH@Z",
    "address": "00406680"
+  },
+  {
+   "symbol": "?CCPalette@@3VPaletteClass@@A",
+   "address": "00838710"
   },
   {
    "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
@@ -1947,6 +1955,10 @@
    "address": null
   },
   {
+   "symbol": "?HiddenSurface@@3PAVSurface@@A",
+   "address": "00839954"
+  },
+  {
    "symbol": "?Is_Available@BufferIOFileClass@@UAE_NH@Z",
    "address": "0042f6e0"
   },
@@ -1977,6 +1989,14 @@
   {
    "symbol": "?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z",
    "address": "00495230"
+  },
+  {
+   "symbol": "?Movie_Advance_Frame@@YI_NPAVVQAMovie@@PA_N@Z",
+   "address": "005a15f0"
+  },
+  {
+   "symbol": "?Movie_Create@@YIPAVVQAMovie@@PBDPAVSurface@@VRect@@2H_N@Z",
+   "address": "005a1010"
   },
   {
    "symbol": "?Open@CCFileClass@@UAEHH@Z",
@@ -2071,12 +2091,12 @@
    "address": "005a1470"
   },
   {
-   "symbol": "?VQA_Movie_Unknown_005A15F0@@YI_NPAVVQAMovie@@PA_N@Z",
-   "address": "005a15f0"
+   "symbol": "?VideoModeHeight@@3HA",
+   "address": "008523e4"
   },
   {
-   "symbol": "?VQA_Unknown_005A1010@@YIPAVVQAMovie@@PBDPAVSurface@@VRect@@2H_N@Z",
-   "address": "005a1010"
+   "symbol": "?VideoModeWidth@@3HA",
+   "address": "008523e0"
   },
   {
    "symbol": "?Write@BufferIOFileClass@@UAEJPBXJ@Z",
@@ -2089,14 +2109,6 @@
   {
    "symbol": "?operator_delete_00781d3b@seed_005ad410@@YAXI@Z",
    "address": "00781d3b"
-  },
-  {
-   "symbol": "?unknown_8523e0@@3HA",
-   "address": "008523e0"
-  },
-  {
-   "symbol": "?unknown_8523e4@@3HA",
-   "address": "008523e4"
   },
   {
    "symbol": "?unknown_bit_font_84e9e8_ptr@@3PAVunknown_bit_font_84e9e8@@A",
@@ -2123,20 +2135,8 @@
    "address": "00495310"
   },
   {
-   "symbol": "?unknown_palette_838710@@3VPaletteClass@@A",
-   "address": "00838710"
-  },
-  {
    "symbol": "?unknown_surface_839950@@3PAVSurface@@A",
    "address": "00839950"
-  },
-  {
-   "symbol": "?unknown_surface_839954@@3PAVSurface@@A",
-   "address": "00839954"
-  },
-  {
-   "symbol": "?unknown_surface_839958@@3PAVSurface@@A",
-   "address": "00839958"
   },
   {
    "symbol": "?unknown_volume_a40b44@@3MA",

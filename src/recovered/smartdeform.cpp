@@ -492,7 +492,7 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
     delete[] unknown_undo_cells_abceac;
     unknown_undo_cells_abceac = 0;
     bound.Y -= unknown_rect_839630.Y;
-    unknown_tactical_83996c->Register_Dirty_Area(bound, false);
+    TacticalMap->Register_Dirty_Area(bound, false);
     for (int i = least.Y - 1; i <= most.Y + 1; i++) {
         for (int j = least.X - 1; j <= most.X + 1; j++) {
             Cell id(j, i);
@@ -502,7 +502,7 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
                 lat_rect = Union(lat_rect, target->Cell_Render_Rect());
                 lat_rect = lat_rect - unknown_rect_839630.Top_Left();
                 if (lat_rect.Is_Valid()) {
-                    unknown_tactical_83996c->Register_Dirty_Area(lat_rect, false);
+                    TacticalMap->Register_Dirty_Area(lat_rect, false);
                 }
             }
         }

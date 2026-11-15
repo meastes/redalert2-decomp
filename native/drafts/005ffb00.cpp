@@ -4,7 +4,7 @@
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1081 (native/drafts.json). Not original bytes.
 // @ref ?unknown_5ecc90@@YIXPAUHWND__@@H@Z=005ecc90
-// @ref ?unknown_int_a40d34@@3HA=00a40d34
+// @ref ?_dialog_count@@3HA=00a40d34
 // @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
 // @ref ?unknown_empty_wide_839d4c@@3QBGB=00839d4c
 #include "shared/win32_api.hpp"
@@ -78,7 +78,7 @@ int __fastcall unknown_dialog_proc_5ffb00(HWND window, UINT message, WPARAM wpar
     switch (message) {
     case 0x2:
         Unknown_005B6060(window);
-        unknown_int_a40d34--;
+        _dialog_count--;
         SetFocus(MainWindow);
         return 0;
     case 0x2b:
@@ -134,7 +134,7 @@ int __fastcall unknown_dialog_proc_5ffb00(HWND window, UINT message, WPARAM wpar
         break;
     }
     case 0x110:
-        unknown_int_a40d34++;
+        _dialog_count++;
         if (lparam) {
             unknown_show_dialog_5ff7e0(window, *(unsigned short *)lparam);
         } else {

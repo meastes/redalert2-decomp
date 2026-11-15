@@ -96,7 +96,7 @@ bool SerialEdDialog::Dialog_0066ca70(SerialSettingsType *settings)
             if (unknown_6000d0() == true) {
                 break;
             }
-            unknown_517370(false);
+            Title_Screen_Restore(false);
         }
         unknown_dialog_5ff6e0(Window);
         if (Result == 1) {

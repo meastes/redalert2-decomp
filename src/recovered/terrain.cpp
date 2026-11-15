@@ -88,7 +88,7 @@ TerrainClass::~TerrainClass()
 {
     Unknown_006ECB90(this, true);
     Terrains.Delete(this);
-    if (unknown_flag_a40958 && Class != 0) {
+    if (GameActive && Class != 0) {
         unknown_7d = true;
         TerrainClass::Limbo();
     }
@@ -137,7 +137,7 @@ int TerrainClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhe
             } else {
                 Start_Crumbling();
             }
-            unknown_tactical_83996c->Register_Dirty_Area(Get_Render_Rect(), 0);
+            TacticalMap->Register_Dirty_Area(Get_Render_Rect(), 0);
             unknown_slot54(true);
             Delete_Me();
         }
@@ -499,9 +499,9 @@ bool TerrainClass::Limbo()
     Cell cell = unknown_slot104();
     bool result = ObjectClass::Limbo();
     Map[cell].Recalc_Attributes(-1);
-    if (unknown_a40774 == 0) {
+    if (ScenarioInit == 0) {
         Map.Update_Cell_Zone(cell);
-        Map.Unknown_00566340(cell);
+        Map.Update_Cell_Subzones(cell);
         ((RadarClass &)Map).Radar_Background(cell);
     }
     return result;
@@ -586,7 +586,7 @@ bool TerrainClass::Render(Rect *bounds, bool forced, bool extras_only)
         Rect rect = Get_Render_Rect() + unknown_rect_839630.Top_Left();
 
         if (bounds->Is_Overlapping(rect)) {
-            unknown_tactical_83996c->Coord_To_Pixel(unknown_slot42(), point);
+            TacticalMap->Coord_To_Pixel(unknown_slot42(), point);
 
             if (bounds->X > unknown_rect_839630.X) {
                 point.X += unknown_rect_839630.X - bounds->X;
@@ -669,8 +669,8 @@ bool TerrainClass::Unlimbo(CoordStruct const *coord, int dir)
             next.unknown_122++;
         }
         Point2D &pixel = (Point2D &)unknown_b8.Width;
-        unknown_tactical_83996c->Coord_To_Pixel(unknown_slot42(), pixel);
-        Point2D offset(unknown_tactical_83996c->TacPixelX, unknown_tactical_83996c->TacPixelY);
+        TacticalMap->Coord_To_Pixel(unknown_slot42(), pixel);
+        Point2D offset(TacticalMap->TacPixelX, TacticalMap->TacPixelY);
         pixel.X += offset.X;
         pixel.Y += offset.Y;
         if (Class->SpawnsTiberium) {
@@ -699,7 +699,7 @@ ObjectTypeClass *TerrainClass::Class_Of() const
 
 Rect TerrainClass::Get_Render_Rect()
 {
-    Point2D origin(unknown_tactical_83996c->TacPixelX, unknown_tactical_83996c->TacPixelY);
+    Point2D origin(TacticalMap->TacPixelX, TacticalMap->TacPixelY);
     Point2D offset(unknown_b8.Width - origin.X, unknown_b8.Height - origin.Y);
     ShapeFileStruct const *shape = (ShapeFileStruct const *)ObjectClass::Get_Image_Data();
     if (shape == 0) {

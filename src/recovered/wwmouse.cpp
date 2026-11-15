@@ -194,8 +194,8 @@ void WWMouseClass::Draw_Mouse(Surface *surface, bool issidebar)
         background = SidebarBackground;
         rect = &SidebarBackgroundRect;
     } else {
-        xoffset = unknown_flag_a40b30 ? 0 : (-unknown_surface_839948->Get_Width() > surface->Get_Width() - unknown_int_839648
-                ? -unknown_surface_839948->Get_Width()
+        xoffset = unknown_flag_a40b30 ? 0 : (-SidebarSurface->Get_Width() > surface->Get_Width() - unknown_int_839648
+                ? -SidebarSurface->Get_Width()
                 : surface->Get_Width() - unknown_int_839648);
         background = SurfaceBackground;
         rect = &SurfaceBackgroundRect;
@@ -443,12 +443,12 @@ void WWMouseClass::Move_Cursor(int x, int y, bool force)
 {
     Block_Mouse();
     if (x != DrawX || y != DrawY || force) {
-        if (Is_Captured() && !Is_Hidden() && unknown_flag_a40d28) {
+        if (Is_Captured() && !Is_Hidden() && GameInFocus) {
             Low_Hide_Mouse();
         }
         DrawX = x;
         DrawY = y;
-        if (Is_Captured() && !Is_Hidden() && unknown_flag_a40d28) {
+        if (Is_Captured() && !Is_Hidden() && GameInFocus) {
             Low_Show_Mouse();
         }
     }

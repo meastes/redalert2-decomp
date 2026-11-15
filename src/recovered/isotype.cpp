@@ -150,7 +150,7 @@ IsometricTileTypeClass::IsometricTileTypeClass(int type, int unknown1, unsigned 
     unknown_2d6(false),
     UseCount(0)
 {
-    unknown_objects_ac0cb0.Add(this);
+    AbstractTypePtrTracker.Add(this);
     if (!skip_registration) {
         IsoTileTypes.Add(this);
     }
@@ -192,7 +192,7 @@ IsometricTileTypeClass::~IsometricTileTypeClass()
         delete owned;
     }
     IsoTileTypes.Delete(this);
-    unknown_objects_ac0cb0.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
     for (int i = unknown_274.Count() - 1; i >= 0; i--) {
         if (unknown_274[i] != 0) {
             delete unknown_274[i];
@@ -375,7 +375,7 @@ LightConvertClass *__fastcall IsometricTileTypeClass::Find_Or_Make_Drawer(int re
     if (red + green + blue < 2000) {
         shadows = 27;
     }
-    drawer = new LightConvertClass(IsoTilePalette, unknown_palette_837e10, unknown_surface_839950, red, green, blue,
+    drawer = new LightConvertClass(IsoTilePalette, GamePalette, unknown_surface_839950, red, green, blue,
         unknown_LightConvertClass_list_00832398.Count() != 0, 0, shadows);
     unknown_LightConvertClass_list_00832398.Add(drawer);
 
@@ -409,7 +409,7 @@ void IsometricTileTypeClass::Init_Drawers()
         i--;
     }
 
-    unknown_LightConvertClass_list_00832398.Add(new LightConvertClass(IsoTilePalette, unknown_palette_837e10,
+    unknown_LightConvertClass_list_00832398.Add(new LightConvertClass(IsoTilePalette, GamePalette,
         unknown_surface_839950, 1000, 1000, 1000, false, 0, 53));
 
     unknown_dummy_cell_a6f9f8.unknown_34 = 0;

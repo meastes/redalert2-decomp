@@ -76,7 +76,7 @@ struct UnknownComHolder_00402170 {
     UnknownFunctionTable_00402170 *unknown_d4;
 };
 
-void __fastcall unknown_release_and_delete_00402170(UnknownComHolder_00402170 *holder)
+void __fastcall audioChannelDestroy(UnknownComHolder_00402170 *holder)
 {
     holder->unknown_d4->unknown_08();
     operator delete(holder);

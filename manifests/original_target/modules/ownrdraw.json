@@ -8130,19 +8130,19 @@
   },
   {
    "site": "0046e520",
-   "symbol": "?Unknown_00600C80@@YI_NPBG@Z",
+   "symbol": "?Prompt_Dialog@@YI_NPBG@Z",
    "target": "00600c80",
    "function_entry": true
   },
   {
    "site": "0046e520",
-   "symbol": "?Unknown_00600C80@@YI_NPBG@Z",
+   "symbol": "?Prompt_Dialog@@YI_NPBG@Z",
    "target": "00600c80",
    "function_entry": true
   },
   {
    "site": "0046e520",
-   "symbol": "?Unknown_00600C80@@YI_NPBG@Z",
+   "symbol": "?Prompt_Dialog@@YI_NPBG@Z",
    "target": "00600c80",
    "function_entry": true
   },
@@ -8847,6 +8847,10 @@
    "address": "00411320"
   },
   {
+   "symbol": "?AlternateSurface@@3PAVSurface@@A",
+   "address": "00839958"
+  },
+  {
    "symbol": "?Audio_Update@@YAXXZ",
    "address": "00406ea0"
   },
@@ -8969,6 +8973,10 @@
   {
    "symbol": "?Fill_Rect_Trans@XSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z",
    "address": "007746b0"
+  },
+  {
+   "symbol": "?GameInFocus@@3_NA",
+   "address": "00a40d28"
   },
   {
    "symbol": "?Get@WideString@@QBEPBGXZ",
@@ -9111,8 +9119,16 @@
    "address": "00431430"
   },
   {
+   "symbol": "?SidebarWidth@@3HA",
+   "address": "007add80"
+  },
+  {
    "symbol": "?String_Pixel_Width@BitFontClass@@QBEHPBGH@Z",
    "address": "00431690"
+  },
+  {
+   "symbol": "?Title_Screen_Restore@@YIX_N@Z",
+   "address": "00517370"
   },
   {
    "symbol": "?Unknown_005B5EE0@@YAXXZ",
@@ -9207,6 +9223,14 @@
    "address": "00773ef0"
   },
   {
+   "symbol": "?VideoModeHeight@@3HA",
+   "address": "008523e4"
+  },
+  {
+   "symbol": "?VideoModeWidth@@3HA",
+   "address": "008523e0"
+  },
+  {
    "symbol": "?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z",
    "address": "00713db0"
   },
@@ -9267,10 +9291,6 @@
    "address": "005115f0"
   },
   {
-   "symbol": "?unknown_517370@@YIX_N@Z",
-   "address": "00517370"
-  },
-  {
    "symbol": "?unknown_53f460@@YA_NXZ",
    "address": "0053f460"
   },
@@ -9301,14 +9321,6 @@
   {
    "symbol": "?unknown_7add78@OwnerDraw@@3HA",
    "address": "007add78"
-  },
-  {
-   "symbol": "?unknown_8523e0@@3HA",
-   "address": "008523e0"
-  },
-  {
-   "symbol": "?unknown_8523e4@@3HA",
-   "address": "008523e4"
   },
   {
    "symbol": "?unknown_a3d2a4@@3HA",
@@ -9479,10 +9491,6 @@
    "address": "00839d4c"
   },
   {
-   "symbol": "?unknown_flag_a40d28@@3_NA",
-   "address": "00a40d28"
-  },
-  {
    "symbol": "?unknown_game_mode_a3d298@@3HA",
    "address": "00a3d298"
   },
@@ -9497,10 +9505,6 @@
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
    "address": "00a3d290"
-  },
-  {
-   "symbol": "?unknown_int_7add80@@3HA",
-   "address": "007add80"
   },
   {
    "symbol": "?unknown_kind_test_005df660@seed_005df660@@YIEH@Z",
@@ -9673,10 +9677,6 @@
   {
    "symbol": "?unknown_surface_839950@@3PAVSurface@@A",
    "address": "00839950"
-  },
-  {
-   "symbol": "?unknown_surface_839958@@3PAVSurface@@A",
-   "address": "00839958"
   },
   {
    "symbol": "?unknown_surface_count_a763d8@OwnerDraw@@3HA",
@@ -10883,19 +10883,19 @@
   {
    "site": "0046e520",
    "target": "00600c80",
-   "symbol": "?Unknown_00600C80@@YI_NPBG@Z",
+   "symbol": "?Prompt_Dialog@@YI_NPBG@Z",
    "module_symbol": "?unknown_choice_dialog_600c80@@YI_NPBG@Z"
   },
   {
    "site": "0046e520",
    "target": "00600c80",
-   "symbol": "?Unknown_00600C80@@YI_NPBG@Z",
+   "symbol": "?Prompt_Dialog@@YI_NPBG@Z",
    "module_symbol": "?unknown_choice_dialog_600c80@@YI_NPBG@Z"
   },
   {
    "site": "0046e520",
    "target": "00600c80",
-   "symbol": "?Unknown_00600C80@@YI_NPBG@Z",
+   "symbol": "?Prompt_Dialog@@YI_NPBG@Z",
    "module_symbol": "?unknown_choice_dialog_600c80@@YI_NPBG@Z"
   },
   {

@@ -306,7 +306,7 @@ char * __fastcall Random_Map_CRC_005c8420();
 // modem/serial 0x0059C880; hypotheses from the game modes).
 bool Unknown_005bbd10();
 bool Unknown_0073e100();
-bool Unknown_0059c880();
+bool ModemHostCallback();
 
 // Answers whether a slot's entry has accepted: a computer entry, or a player whose unknown_67 is 1
 // (0x005CA3B0).
@@ -463,7 +463,7 @@ bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, b
 extern int unknown_a71e9c;
 extern int unknown_a71ea0;
 extern int unknown_a71ea4;
-int Unknown_00737af0();
+int Build_Number();
 // The version object (0x00A40C88; its two values go into a join request, 0x007131B0/0x007131C0).
 // Polymorphic: its vtable 0x007A2ABC (RTTI .?AVVersionClass@@) has one slot, the scalar deleting
 // destructor 0x004D4980 of the inline virtual destructor, which the globals unit at 0x004D2BA0

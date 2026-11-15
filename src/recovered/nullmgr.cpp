@@ -766,7 +766,7 @@ DialStatusType NullModemClass::Dial_Modem(char *string, int method, bool reconne
                 Debug_Printf("Dialling cancelled\n");
                 break;
             }
-            unknown_517370(false);
+            Title_Screen_Restore(false);
             memset(buffer, 0, sizeof(buffer));
             delay = SerialPort->Get_Modem_Result(delay, buffer, 81, 15);
             if (delay == -1000) {
@@ -870,7 +870,7 @@ DialStatusType NullModemClass::Answer_Modem(bool reconnect)
                 }
                 break;
             }
-            unknown_517370(false);
+            Title_Screen_Restore(false);
             memset(buffer, 0, sizeof(buffer));
             delay = SerialPort->Get_Modem_Result(delay, buffer, 81, ring ? 15 : -1);
             Debug_Printf("Get_Modem_Result returned %d\n", delay);

@@ -25,7 +25,7 @@ void TabClass::Unknown_006A17B0()
 // radar mode switch is reset (Map.Unknown_0049CAC0(-1)). Reached by TabClass::AI.
 void Unknown_006F64B0()
 {
-    if (unknown_int_a3d548 == 0) {
+    if (MuteSWLaunches == 0) {
         Map.Unknown_0049CAC0(-1);
     }
 }

@@ -13,6 +13,6 @@ struct GameTimeClass {
 extern GameTimeClass unknown_time_stamp_866074;   // 0x00866074
 
 // Milliseconds since the startup time stamp 0x00866074 (0x004D0070; unreferenced).
-int unknown_milliseconds_004d0070();
+int Get_Game_Time();
 
 #endif

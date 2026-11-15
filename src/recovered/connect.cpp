@@ -225,7 +225,7 @@ send_ack:
         if (unknown_flag_a3fba8) ack.unknown_03 = packet->unknown_03;
         else ack.unknown_03 = 0;
         Debug_Printf("Sending ACK for packet %d to be forwarded to %02x\n", receivedID, ack.unknown_03);
-        Send((char *)&ack, sizeof(ack), 0, 0, this == unknown_connection_a409c4, 0);
+        Send((char *)&ack, sizeof(ack), 0, 0, this == PacketRouterConnection, 0);
         return 1;
     }
     Debug_Printf("Error - ConnectClass::Receive_Packet did not understand packet->Code\n");
@@ -303,7 +303,7 @@ int ConnectionClass::Service_Send_Queue()
         unsigned long time = Time();
         if (time - send->LastTime > RetryDelta) {
             Send(send->Buffer, send->BufLen, send->ExtraBuffer, send->ExtraLen,
-                this == unknown_connection_a409c4, send->unknown_20);
+                this == PacketRouterConnection, send->unknown_20);
             send->LastTime = time;
             if (send->SendCount == 0) {
                 send->FirstTime = time;

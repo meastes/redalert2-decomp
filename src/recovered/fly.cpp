@@ -427,7 +427,7 @@ void FlyLocomotionClass::unknown_4bcd50()
 {
     Cell here=LinkedTo->unknown_slot104();
     if (here!=LinkedTo->unknown_458 && Is_Moving_Now()) {
-        unknown_tracker_839ea0.Update_00413600(LinkedTo,LinkedTo->unknown_458,here);
+        AircraftTracker.Update_00413600(LinkedTo,LinkedTo->unknown_458,here);
     }
     if (LinkedTo->Get_Mission()==7 && unknown_5c) {
         unknown_5c=false;
@@ -452,7 +452,7 @@ void FlyLocomotionClass::unknown_4bcd50()
             Map.Submit(LinkedTo);
         }
         if (LinkedTo->Get_Height_AGL()<=0) {
-            unknown_tracker_839ea0.Unknown_00413310(LinkedTo);
+            AircraftTracker.Unknown_00413310(LinkedTo);
             LinkedTo->Set_Height_AGL(0);
             int damage=LinkedTo->Strength;
             if (damage==0) {
@@ -787,7 +787,7 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
         unknown_51=false;
         unknown_50=false;
         has_landed=true;
-        unknown_tracker_839ea0.Unknown_00413310(LinkedTo);
+        AircraftTracker.Unknown_00413310(LinkedTo);
         LinkedTo->unknown_slot306(0);
         unknown_48=0;
         unknown_40=0;
@@ -1028,7 +1028,7 @@ void FlyLocomotionClass::Take_Off_004bf0d0()
         unknown_51=false;
         unknown_50=true;
         if (LinkedTo->unknown_slot178()==unknown_geometry_k)
-            unknown_tracker_839ea0.Unknown_004131E0(LinkedTo);
+            AircraftTracker.Unknown_004131E0(LinkedTo);
         unknown_38=LinkedTo->Techno_Type_Class()->Flight_Level();
         if (LinkedTo->Get_Height_AGL()==0) {
             LinkedTo->unknown_2e0.Set(LinkedTo->unknown_2f8.Desired());

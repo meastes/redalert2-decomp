@@ -243,7 +243,7 @@ public:
 // copied into the target when it ends (RTTI vtable 0x007A6E04).
 class MSVQAnim : public MSAnim {
 public:
-    // Plays in `dest`; the source is a centred unknown_8523e0 x unknown_8523e4 box.
+    // Plays in `dest`; the source is a centred VideoModeWidth x VideoModeHeight box.
     MSVQAnim(Wstring const &name, Surface *surface, DynamicVectorClass<MSAnim *> *anims, Rect const &dest,
              bool unknown_2c);                                  // 0x005ADBA0
     // Plays a 640x400 movie centred on the screen.
@@ -265,14 +265,14 @@ public:
 };
 
 // Opens a VQA movie (0x005A1010, as declared in Movie_Create_Movie_Handle).
-VQAMovie *__fastcall VQA_Unknown_005A1010(char const *filename, Surface *surface, Rect unknown1, Rect area,
+VQAMovie *__fastcall Movie_Create(char const *filename, Surface *surface, Rect unknown1, Rect area,
                                           int unknown2, bool unknown3);
 
 // Loads a palette file into 0x00838710 (6-bit components scaled by 4) and
 // returns a new drawer for it, or null (0x005AC560, __fastcall; name is a
 // hypothesis).
-ConvertClass *__fastcall unknown_load_drawer_5ac560(Wstring const &filename);
-extern PaletteClass unknown_palette_838710;     // 0x00838710
+ConvertClass *__fastcall Create_Drawer(Wstring const &filename);
+extern PaletteClass CCPalette;     // 0x00838710
 
 // A PCX picture copied into the background surface, then every other
 // animation redrawn over it (RTTI vtable 0x007A6E80). Name of the loader and

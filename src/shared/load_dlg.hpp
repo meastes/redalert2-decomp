@@ -27,10 +27,10 @@ void __fastcall unknown_5e46c0(HWND control, bool value);                       
 void __fastcall unknown_5e6330(HWND control);                                              // 0x005E6330
 void __fastcall unknown_5e62d0(HWND control);                                              // 0x005E62D0
 }
-bool __fastcall Unknown_Clamp_Rect_To_Screen_00736D80(void *window, unsigned int wparam, Rect *rect);   // WM_MOVING
+bool __fastcall On_WM_MOVING(void *window, unsigned int wparam, Rect *rect);   // WM_MOVING
 
 extern int unknown_savegame_version_7f1b18;   // 0x007F1B18 (a saved game with another first value is flagged)
-extern bool unknown_flag_a40380;  // 0x00A40380
+extern bool TacticalActive;  // 0x00A40380
 WIN32_IMPORT LONG WINAPI CompareFileTime(FILETIME const *first, FILETIME const *second);   // KERNEL32
 
 // Compares the write times of two save file entries (qsort callback; newest first) (0x0053C650).

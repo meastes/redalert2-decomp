@@ -124,7 +124,7 @@ VeinholeMonsterClass::VeinholeMonsterClass(::Cell const *cell) :
         return;
     }
     VeinholeMonsters.Add(this);
-    if (unknown_a40774 == 0) {
+    if (ScenarioInit == 0) {
         for (int y = -1; y <= 1; y++) {
             for (int x = -1; x <= 1; x++) {
                 CellClass *spot = &Map[*cell + ::Cell(x, y)];
@@ -180,7 +180,7 @@ VeinholeMonsterClass::~VeinholeMonsterClass()
             if (map_cell->OverlayIndex == 0x7e || (map_cell->OverlayIndex != -1 && OverlayTypes[map_cell->OverlayIndex]->IsVeins)) {
                 Map.Radar_Background(map_cell->MapCoords);
                 RectPoint2D origin(unknown_rect_839630.Top_Left());
-                unknown_tactical_83996c->Register_Dirty_Area(Union(map_cell->Overlay_Render_Rect(), map_cell->Overlay_Shadow_Render_Rect()) - origin, false);
+                TacticalMap->Register_Dirty_Area(Union(map_cell->Overlay_Render_Rect(), map_cell->Overlay_Shadow_Render_Rect()) - origin, false);
                 map_cell->OverlayIndex = -1;
                 map_cell->OverlayData = 0;
             }
@@ -285,7 +285,7 @@ void VeinholeMonsterClass::AI()
             if(!IsToPuffGas) {
                 CoordStruct base(CellID);
                 CoordStruct position=CellID.As_Coord(Map.Get_Height_GL(base)+400);
-                ParticleClass *particle=unknown_gas_cloud_system_a40d20->Spawn_Held_Particle(ParticleTypes[ParticleTypeClass::Index_Or_Make(vein_gas_7f96cc)],position);
+                ParticleClass *particle=GasSystem->Spawn_Held_Particle(ParticleTypes[ParticleTypeClass::Index_Or_Make(vein_gas_7f96cc)],position);
                 particle->unknown_b0.Z=12;
                 double angle=Vein_Random_Double(0.0,1.0)*vein_full_angle_79c9b8;
                 particle->unknown_b0.X=(int)(Fast_Cos(angle)*vein_speed_79d558);
@@ -380,10 +380,10 @@ void VeinholeMonsterClass::Draw_It()
             frame = 0;
         }
         Point2D pixel;
-        unknown_tactical_83996c->Coord_To_Pixel(coord, pixel);
+        TacticalMap->Coord_To_Pixel(coord, pixel);
         int height = 15 * Map[CellID].unknown_11b;
         pixel.Y += -58 - height;
-        unknown_tactical_83996c->Add_To_Selectables(this, Point2D(pixel.X, unknown_rect_839630.Y + pixel.Y + 58));
+        TacticalMap->Add_To_Selectables(this, Point2D(pixel.X, unknown_rect_839630.Y + pixel.Y + 58));
         ConvertClass *drawer = ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter;
         CC_Draw_Shape(unknown_surface_83995c, drawer, (ShapeFileStruct const *)shape, frame, pixel, unknown_rect_839630, 0x2e00, 0, -17 - height, 0,
                       Map[coord].unknown_10c, 0, 0, Point2D(0, 0));
@@ -422,11 +422,11 @@ int VeinholeMonsterClass::Take_Damage(int *damage, int distance, WarheadTypeClas
 // cell, no occupier list and the same level as the cell (+0x11B).
 #include "shared/crt_memory.hpp"
 
-extern int unknown_a40774;
+extern int ScenarioInit;
 
 bool __fastcall VeinholeMonsterClass::Can_Monster_Go_Here(::Cell const &cell)
 {
-    if (unknown_a40774 > 0) {
+    if (ScenarioInit > 0) {
         return true;
     }
     for (int index = VeinholeMonsters.Count() - 1; index >= 0; index--) {
@@ -762,7 +762,7 @@ void VeinholeMonsterClass::Destroy_Monster()
     }
     Build_Shrinking_Queue();
     Map.Update_Cell_Zone(CellID);
-    Map.Unknown_00566340(CellID);
+    Map.Update_Cell_Subzones(CellID);
     IsDead = true;
 }
 

@@ -17,25 +17,25 @@ void __cdecl Restore_Video_Mode_00495e90();
 
 void Unknown_Free_Screen_Surfaces_0068E1C0()
 {
-    if (unknown_flag_852fd7) {
+    if (UseDirect3D) {
         Unknown_004B1470();
     }
     if (!unknown_flag_abd48d) {
-        if (unknown_surface_839954 != 0) {
-            delete unknown_surface_839954;
-            unknown_surface_839954 = 0;
+        if (HiddenSurface != 0) {
+            delete HiddenSurface;
+            HiddenSurface = 0;
         }
-        if (unknown_surface_839958 != 0) {
-            delete unknown_surface_839958;
-            unknown_surface_839958 = 0;
+        if (AlternateSurface != 0) {
+            delete AlternateSurface;
+            AlternateSurface = 0;
         }
         if (unknown_surface_839944 != 0) {
             delete unknown_surface_839944;
             unknown_surface_839944 = 0;
         }
-        if (unknown_surface_839948 != 0) {
-            delete unknown_surface_839948;
-            unknown_surface_839948 = 0;
+        if (SidebarSurface != 0) {
+            delete SidebarSurface;
+            SidebarSurface = 0;
         }
         if (unknown_surface_839964 != 0) {
             delete unknown_surface_839964;

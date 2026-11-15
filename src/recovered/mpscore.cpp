@@ -100,12 +100,12 @@ UnknownScore_005AAA20::UnknownScore_005AAA20()
 void UnknownScore_005AAA20::Presentation_005AAA40()
 {
     Unknown_Load_Art_Pair_006F2A30(unknown_id_source_a3d290->unknown_2239 == false);
-    Rect rect(0, 0, unknown_8523e0, unknown_8523e4);
-    Unknown_6F3CD0(unknown_surface_839954, rect);
-    Unknown_004E0C90(true, unknown_surface_839954, 0);
+    Rect rect(0, 0, VideoModeWidth, VideoModeHeight);
+    Unknown_6F3CD0(HiddenSurface, rect);
+    Unknown_004E0C90(true, HiddenSurface, 0);
     unknown_dialog_box_5eab60(0x108, MP_Score_Dialog_Proc_005AAE40, 0);
-    Unknown_6F3CD0(unknown_surface_839954, rect);
-    Unknown_004E0C90(true, unknown_surface_839954, 0);
+    Unknown_6F3CD0(HiddenSurface, rect);
+    Unknown_004E0C90(true, HiddenSurface, 0);
     Unknown_006F2AB0();
 }
 

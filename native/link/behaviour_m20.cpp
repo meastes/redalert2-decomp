@@ -17,7 +17,7 @@
 // Rules MaxWaypointPathLength (+0x98) and no waypoint is selected (+0x24 Selected
 // is -1). The unowned view (src/recovered/unowned/unknown_slot_ready_004f3120.cpp)
 // pads 0x154 bytes to reach the index.
-bool HouseClass::Unknown_004F3120() const
+bool HouseClass::Can_Add_Waypoint_To_Path() const
 {
     if (unknown_154 < 0 || unknown_154 >= 12) {
         return false;

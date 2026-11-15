@@ -6,7 +6,7 @@ HRESULT __stdcall CChatEventSink::OnChannelList(HRESULT result, WOL::Channel *ch
     memset(query, 0, sizeof(query));
     int queued = 0;
     WolChannelArray old_games;
-    if (unknown_b2abd9) return S_OK;
+    if (g_PlayingNetGame) return S_OK;
     int request = 0;
     if (result == 0x4013b) request = 0x21;
     else {

@@ -157,7 +157,7 @@ TeamTypeClass::TeamTypeClass(char const *ini_name) :
 {
     TeamTypes.Add(this);
     ArrayIndex = TeamTypes.ID(this);
-    unknown_objects_ac0cb0.Add(this);
+    AbstractTypePtrTracker.Add(this);
 }
 
 
@@ -169,7 +169,7 @@ TeamTypeClass::~TeamTypeClass()
 {
     Unknown_006ECB90(this, true);
     TeamTypes.Delete(this);
-    unknown_objects_ac0cb0.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
 }
 
 
@@ -177,7 +177,7 @@ TeamTypeClass::~TeamTypeClass()
 // Creates a team of this type for the house (the type's owner when none is
 // given), unless the type already has its maximum number of teams.
 
-extern int unknown_a40774;                  // 0x00A40774
+extern int ScenarioInit;                  // 0x00A40774
 extern int unknown_game_mode_a3d298;        // 0x00A3D298
 
 TeamClass *TeamTypeClass::Create_One_Of(HouseClass *house)
@@ -186,7 +186,7 @@ TeamClass *TeamTypeClass::Create_One_Of(HouseClass *house)
     if (house == 0) {
         house = Owner;
     }
-    if (!unknown_a40774 && Max >= 0) {
+    if (!ScenarioInit && Max >= 0) {
         if (!unknown_game_mode_a3d298) {
             if (unknown_d4 >= Max) {
                 return 0;

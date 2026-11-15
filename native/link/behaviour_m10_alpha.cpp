@@ -28,8 +28,8 @@ void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &pixel, Rect const &
     for (int index = 0; index < unknown_AlphaShapeClass_list_0083c648.Count(); index++) {
         AlphaShapeClass *alpha = unknown_AlphaShapeClass_list_0083c648[index];
         if (alpha->unknown_3c) continue;
-        int x1 = alpha->Bounds.X - unknown_tactical_83996c->TacPixelX + unknown_rect_839630.X;
-        int y1 = alpha->Bounds.Y - unknown_tactical_83996c->TacPixelY + unknown_rect_839630.Y;
+        int x1 = alpha->Bounds.X - TacticalMap->TacPixelX + unknown_rect_839630.X;
+        int y1 = alpha->Bounds.Y - TacticalMap->TacPixelY + unknown_rect_839630.Y;
         Rect r1(x1, y1, alpha->Bounds.Width, alpha->Bounds.Height);
         Rect r2 = Intersect(r1, cliprect);
         Rect r3(pixel.X, pixel.Y, 60, 30);

@@ -18,11 +18,11 @@
 // empty Rect from shared/shape_file.hpp (0x00A71808 in this unit).
 
 
-// ConvertClass *__fastcall unknown_load_drawer_5ac560(Wstring const &filename) (0x005AC560)
+// ConvertClass *__fastcall Create_Drawer(Wstring const &filename) (0x005AC560)
 // Reads a 256-colour palette (6-bit components) into 0x00838710 and returns
 // a new drawer for it; null without a name, file or data.
 
-ConvertClass *__fastcall unknown_load_drawer_5ac560(Wstring const &filename)
+ConvertClass *__fastcall Create_Drawer(Wstring const &filename)
 {
     if (filename == 0) {
         return 0;
@@ -36,11 +36,11 @@ ConvertClass *__fastcall unknown_load_drawer_5ac560(Wstring const &filename)
         return 0;
     }
     for (int index = 0; index < 256; index++) {
-        unknown_palette_838710[index] = RGBClass(palette[index * 3] << 2, palette[index * 3 + 1] << 2,
+        CCPalette[index] = RGBClass(palette[index * 3] << 2, palette[index * 3 + 1] << 2,
                                                  palette[index * 3 + 2] << 2);
     }
     operator delete(palette);
-    return new ConvertClass(unknown_palette_838710, unknown_palette_838710, unknown_surface_839950, 1, false);
+    return new ConvertClass(CCPalette, CCPalette, unknown_surface_839950, 1, false);
 }
 
 
@@ -92,7 +92,7 @@ void MSShapeAnim::Set_Frame(int frame)
     Rect old = Get_Rect();
     Frame = frame;
     if (old != Get_Rect()) {
-        unknown_surface_839954->Copy_From(old, *unknown_surface_839958, old, false, true);
+        HiddenSurface->Copy_From(old, *AlternateSurface, old, false, true);
     }
     if (Frame >= (unsigned)Shape->FrameCount) {
         Frame = Shape->FrameCount - 1;
@@ -129,7 +129,7 @@ bool MSShapeAnim::Advance(Surface *surface, Rect *dirty)
         Rect old=Frame_Rect();
         old.X=X+old.X; old.Y=old.Y+Y;
         if (Flags & 0x200) { old.X-=Shape->Width/2; old.Y-=Shape->Height/2; }
-        surface->Copy_From(old,*unknown_surface_839958,old,false,true);
+        surface->Copy_From(old,*AlternateSurface,old,false,true);
         if (++Frame>EndFrame) {
             if (!unknown_34) { *dirty=old; return true; }
             Frame=StartFrame;
@@ -225,7 +225,7 @@ bool MSFadeAnim::Advance(Surface *surface, Rect *dirty)
             old.X -= Shape->Width / 2;
             old.Y -= Shape->Height / 2;
         }
-        surface->Copy_From(old, *unknown_surface_839958, old, false, true);
+        surface->Copy_From(old, *AlternateSurface, old, false, true);
         if (Anims != 0) {
             int index = Anims->ID(this);
             for (int i = 0; i < Anims->Count(); i++) {
@@ -362,7 +362,7 @@ bool MSOverlayAnim::Advance(Surface *surface, Rect *dirty)
                 dirty->X -= Shape->Width / 2;
                 dirty->Y -= Shape->Height / 2;
             }
-            surface->Copy_From(*dirty, *unknown_surface_839958, *dirty, false, true);
+            surface->Copy_From(*dirty, *AlternateSurface, *dirty, false, true);
             unsigned level = (unsigned)unknown_40 < 3 ? unknown_40 : 3;
             CC_Draw_Shape(surface, Drawer, Shape, Frame, Point2D(X, Y), surface->Get_Rect(),
                           unknown_fade_flags_7e57f0[level] | Flags, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
@@ -375,7 +375,7 @@ bool MSOverlayAnim::Advance(Surface *surface, Rect *dirty)
                 }
             }
             if ((unsigned)++unknown_40 >= 4) {
-                CC_Draw_Shape(unknown_surface_839958, Drawer, Shape, Frame, Point2D(X, Y), surface->Get_Rect(),
+                CC_Draw_Shape(AlternateSurface, Drawer, Shape, Frame, Point2D(X, Y), surface->Get_Rect(),
                               Flags | 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
             return !unknown_48;
@@ -440,7 +440,7 @@ void MSOverlayAnim::Restore(int unknown1)
 {
     unsigned level = (unsigned)unknown_40 < 3 ? unknown_40 : 3;
     if (unknown_0C) {
-        CC_Draw_Shape(unknown_surface_839958, Drawer, Shape, Frame, Point2D(X, Y), unknown_surface_839958->Get_Rect(),
+        CC_Draw_Shape(AlternateSurface, Drawer, Shape, Frame, Point2D(X, Y), AlternateSurface->Get_Rect(),
                       unknown_fade_flags_7e57f0[level] | Flags, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
     }
 }
@@ -549,7 +549,7 @@ void MSBinkAnim::Draw(Surface *surface, Rect const *clip)
     if (clip != 0) {
         Rect area = clip->Intersect(MovieRect);
     }
-    surface->Copy_From(MovieRect, *unknown_surface_839958, MovieRect, false, true);
+    surface->Copy_From(MovieRect, *AlternateSurface, MovieRect, false, true);
 }
 
 
@@ -574,11 +574,11 @@ MSVQAnim::MSVQAnim(Wstring const &name, Surface *surface, DynamicVectorClass<MSA
     Done(false)
 {
     if (name != 0 && surface != 0) {
-        Movie = VQA_Unknown_005A1010(name.Peek_Buffer(), surface, Rect(0, 0, 0, 0), Rect(0, 0, 0, 0),
+        Movie = Movie_Create(name.Peek_Buffer(), surface, Rect(0, 0, 0, 0), Rect(0, 0, 0, 0),
                                      (int)(unknown_volume_a40b44 * 255.0), 0);
         if (Movie != 0) {
-            Movie->Source = Rect((surface->Get_Width() - unknown_8523e0) / 2,
-                                 (surface->Get_Height() - unknown_8523e4) / 2, unknown_8523e0, unknown_8523e4);
+            Movie->Source = Rect((surface->Get_Width() - VideoModeWidth) / 2,
+                                 (surface->Get_Height() - VideoModeHeight) / 2, VideoModeWidth, VideoModeHeight);
             Movie->Dest = dest;
         }
         Wstring base;
@@ -603,12 +603,12 @@ MSVQAnim::MSVQAnim(Wstring const &name, Surface *surface, DynamicVectorClass<MSA
     Done(false)
 {
     if (name != 0 && surface != 0) {
-        Movie = VQA_Unknown_005A1010(name.Peek_Buffer(), surface, Rect(0, 0, 0, 0), Rect(0, 0, 0, 0),
+        Movie = Movie_Create(name.Peek_Buffer(), surface, Rect(0, 0, 0, 0), Rect(0, 0, 0, 0),
                                      (int)(unknown_volume_a40b44 * 255.0), 0);
         if (Movie != 0) {
             Movie->Source = Rect((surface->Get_Width() - 640) / 2, (surface->Get_Height() - 400) / 2, 640, 400);
-            Movie->Dest = Rect((unknown_surface_839954->Get_Width() - 640) / 2,
-                               (unknown_surface_839954->Get_Height() - 400) / 2, 640, 400);
+            Movie->Dest = Rect((HiddenSurface->Get_Width() - 640) / 2,
+                               (HiddenSurface->Get_Height() - 400) / 2, 640, 400);
         }
         Wstring base;
         name.Get_Token(0, ".", base);
@@ -644,7 +644,7 @@ bool MSVQAnim::Advance(Surface *surface, Rect *dirty)
     if (Movie != 0) {
         bool finished = false;
         if (!Done) {
-            if (VQA_Movie_Unknown_005A15F0(Movie, &finished) == true) {
+            if (Movie_Advance_Frame(Movie, &finished) == true) {
                 Draw(surface, 0);
                 *dirty = Movie->Dest;
                 index = Anims->ID(this);
@@ -701,7 +701,7 @@ void MSVQAnim::Draw(Surface *surface, Rect const *clip)
                 return;
             }
         }
-        surface->Copy_From(Movie->Source, *unknown_surface_839958, Movie->Dest, false, true);
+        surface->Copy_From(Movie->Source, *AlternateSurface, Movie->Dest, false, true);
     }
 }
 
@@ -988,7 +988,7 @@ bool MSPrintAnim::Advance(Surface *surface, Rect *dirty)
             return !unknown_48;
         }
         if (unknown_30 == true) {
-            surface->Copy_From(TextRect, *unknown_surface_839958, TextRect, false, true);
+            surface->Copy_From(TextRect, *AlternateSurface, TextRect, false, true);
         }
         int x = X;
         bool centered = Centered;
@@ -1100,7 +1100,7 @@ bool MSPrintAnim::Unknown_5af210(Surface *surface, Rect *dirty)
             return true;
         }
         if (unknown_30 == true && unknown_54.Is_Valid()) {
-            surface->Copy_From(unknown_54, *unknown_surface_839958, unknown_54, false, true);
+            surface->Copy_From(unknown_54, *AlternateSurface, unknown_54, false, true);
         }
         int x = X;
         if (Centered) {
@@ -1201,7 +1201,7 @@ void MSPrintAnim::Draw_Completed_005af4f0(Surface *surface, Rect const *clip)
 // Loads "<name up to the first '.'>.PCX" and centres it on the background surface.
 
 MSPCXAnim::MSPCXAnim(Wstring const &name, DynamicVectorClass<MSAnim *> *anims, bool unknown_28) :
-    Background(unknown_surface_839958),
+    Background(AlternateSurface),
     Anims(anims),
     Image(0),
     unknown_28(unknown_28),
@@ -1233,7 +1233,7 @@ MSPCXAnim::MSPCXAnim(Wstring const &name, DynamicVectorClass<MSAnim *> *anims, b
 
 MSPCXAnim::MSPCXAnim(Wstring const &name, DynamicVectorClass<MSAnim *> *anims, Point2D const &position,
                      bool unknown_28) :
-    Background(unknown_surface_839958),
+    Background(AlternateSurface),
     Anims(anims),
     Image(0),
     unknown_28(unknown_28),

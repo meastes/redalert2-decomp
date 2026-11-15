@@ -8,9 +8,9 @@
 #include "shared/tool_tip.hpp"
 #include "shared/win32_window.hpp"
 #include "shared/msgloop.hpp"
-// @ref ?unknown_message_count_a52298@@3HA=00a52298
-// @ref ?unknown_peek_message_522ed0@@YIHPAUtagMSG@@PAUHWND__@@III@Z=00522ed0
-// @ref ?unknown_get_message_522e90@@YIHPAUtagMSG@@PAUHWND__@@II@Z=00522e90
+// @ref ?MessageLoopCount@@3HA=00a52298
+// @ref ?Peek_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@III@Z=00522ed0
+// @ref ?Get_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@II@Z=00522e90
 // @ref __imp__TranslateMessage@4=0079a4b0
 // @ref __imp__DispatchMessageA@4=0079a4b4
 // @ref __imp__IsDialogMessageA@8=0079a4ec
@@ -32,9 +32,9 @@ void Windows_Message_Handler()
 {
     if (MainWindow == 0) return;
     MSG msg;
-    ++unknown_message_count_a52298;
-    while (unknown_peek_message_522ed0(&msg, 0, 0, 0, 0)) {
-        if (!unknown_get_message_522e90(&msg, 0, 0, 0)) {
+    ++MessageLoopCount;
+    while (Peek_Windows_Message(&msg, 0, 0, 0, 0)) {
+        if (!Get_Windows_Message(&msg, 0, 0, 0)) {
             return;
         }
         unknown_message_4919b0(&msg);

@@ -1318,6 +1318,10 @@
    "address": "00729200"
   },
   {
+   "symbol": "?AlternateSurface@@3PAVSurface@@A",
+   "address": "00839958"
+  },
+  {
    "symbol": "?As_Integer@Wstring@@QBEHXZ",
    "address": "0076f570"
   },
@@ -1344,6 +1348,10 @@
   {
    "symbol": "?Create@Territory@WorldDominationTour@@SI?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@HABVINIClass@@ABVWstring@@11@Z",
    "address": "00730b80"
+  },
+  {
+   "symbol": "?Create_Drawer@@YIPAVConvertClass@@ABVWstring@@@Z",
+   "address": "005ac560"
   },
   {
    "symbol": "?Create_Highlight_Anim@Territory@WorldDominationTour@@QAEXPAVMSEngine@@PAVConvertClass@@ABUPoint2D@@@Z",
@@ -1412,6 +1420,10 @@
   {
    "symbol": "?Get_Token@Wstring@@QBEHHPBDAAV1@@Z",
    "address": "0076f200"
+  },
+  {
+   "symbol": "?HiddenSurface@@3PAVSurface@@A",
+   "address": "00839954"
   },
   {
    "symbol": "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAVAnimationPalette@Map@WorldDominationTour@@@Z",
@@ -1582,6 +1594,10 @@
    "address": "006f3650"
   },
   {
+   "symbol": "?VideoModeWidth@@3HA",
+   "address": "008523e0"
+  },
+  {
    "symbol": "?Wait_For@MSEngine@@QAEXPAVMSAnim@@I@Z",
    "address": "005b2f30"
   },
@@ -1630,16 +1646,8 @@
    "address": "006394e0"
   },
   {
-   "symbol": "?unknown_8523e0@@3HA",
-   "address": "008523e0"
-  },
-  {
    "symbol": "?unknown_flag_7fbd05@@3_NA",
    "address": "007fbd05"
-  },
-  {
-   "symbol": "?unknown_load_drawer_5ac560@@YIPAVConvertClass@@ABVWstring@@@Z",
-   "address": "005ac560"
   },
   {
    "symbol": "?unknown_load_pcx_60d110@@YIPAVSurface@@PAVFileClass@@PAVPaletteClass@@HH@Z",
@@ -1668,14 +1676,6 @@
   {
    "symbol": "?unknown_surface_839950@@3PAVSurface@@A",
    "address": "00839950"
-  },
-  {
-   "symbol": "?unknown_surface_839954@@3PAVSurface@@A",
-   "address": "00839954"
-  },
-  {
-   "symbol": "?unknown_surface_839958@@3PAVSurface@@A",
-   "address": "00839958"
   },
   {
    "symbol": "_MSFrameAnim_vtable_007af1bc",

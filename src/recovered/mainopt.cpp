@@ -142,7 +142,7 @@ bool __fastcall Try_Mode_Dialog()
             if (unknown_6000d0()) {
                 break;
             }
-            unknown_517370(false);
+            Title_Screen_Restore(false);
         }
         unknown_dialog_5ff6e0(dialog);
     }
@@ -212,9 +212,9 @@ void __fastcall Main_Options_Apply(HWND window)
 
 void __fastcall Main_Options_Dialog()
 {
-    bool game_flag = unknown_flag_a40958;
+    bool game_flag = GameActive;
     int result;
-    unknown_flag_a40958 = false;
+    GameActive = false;
     for (;;) {
         unknown_options_a6ec38 = Options;
         result = -1;
@@ -228,7 +228,7 @@ void __fastcall Main_Options_Dialog()
             if (unknown_6000d0() == true) {
                 break;
             }
-            unknown_517370(false);
+            Title_Screen_Restore(false);
         }
         Main_Options_Apply(dialog);
         unknown_dialog_5ff6e0(dialog);
@@ -244,7 +244,7 @@ void __fastcall Main_Options_Dialog()
                         if (unknown_6000d0() == true) {
                             break;
                         }
-                        unknown_517370(false);
+                        Title_Screen_Restore(false);
                     }
                     unknown_dialog_5ff6e0(dialog);
                 }
@@ -255,7 +255,7 @@ void __fastcall Main_Options_Dialog()
                 continue;
             default:
                 Options.Save_Settings();
-                unknown_flag_a40958 = game_flag;
+                GameActive = game_flag;
                 return;
         }
     }
@@ -426,7 +426,7 @@ int __stdcall Main_Options_Proc2(HWND window, UINT message, WPARAM wparam, LPARA
 bool __fastcall Set_Display_Mode(int width, int height)
 {
     Debug_Printf("About to set video mode\n");
-    Point2D old_size(unknown_8523e0, unknown_8523e4);
+    Point2D old_size(VideoModeWidth, VideoModeHeight);
     int red_right = Get_Red_Right();
     int red_left = Get_Red_Left();
     int green_right = Get_Green_Right();
@@ -435,10 +435,10 @@ bool __fastcall Set_Display_Mode(int width, int height)
     int blue_left = Get_Blue_Left();
     WWMouse->Hide_Mouse();
     Wait_For_Surface_Blit_004961d0();
-    if (unknown_flag_851cb0 == true) {
+    if (WindowedMode == true) {
         unknown_window_839640 = Rect(0, 0, width, height);
-        unknown_8523e0 = width;
-        unknown_8523e4 = height;
+        VideoModeWidth = width;
+        VideoModeHeight = height;
         Debug_Printf("VisibleRect: %dx%d\n", width, height);
     } else {
         if (WWMouse) {
@@ -471,32 +471,32 @@ bool __fastcall Set_Display_Mode(int width, int height)
         unknown_window_839640 = Rect(0, 0, width, height);
         Debug_Printf("VisibleRect: %dx%d\n", width, height);
     }
-    if (unknown_surface_839958) {
+    if (AlternateSurface) {
         Debug_Printf("Deleting AlternateSurface\n");
-        delete unknown_surface_839958;
-        unknown_surface_839958 = 0;
+        delete AlternateSurface;
+        AlternateSurface = 0;
     }
-    if (unknown_surface_839954) {
+    if (HiddenSurface) {
         Debug_Printf("Deleting HiddenSurface\n");
-        delete unknown_surface_839954;
-        unknown_surface_839954 = 0;
+        delete HiddenSurface;
+        HiddenSurface = 0;
     }
     if (unknown_surface_839944) {
         Debug_Printf("Deleting TileSurface\n");
         delete unknown_surface_839944;
         unknown_surface_839944 = 0;
     }
-    if (unknown_surface_839948) {
+    if (SidebarSurface) {
         Debug_Printf("Deleting SidebarSurface\n");
-        delete unknown_surface_839948;
-        unknown_surface_839948 = 0;
+        delete SidebarSurface;
+        SidebarSurface = 0;
     }
     if (unknown_surface_839964) {
         Debug_Printf("Deleting CompositeSurface\n");
         delete unknown_surface_839964;
         unknown_surface_839964 = 0;
     }
-    if (unknown_flag_851cb0 == false) {
+    if (WindowedMode == false) {
         Debug_Printf("Setting new window size to %dx%d\n", width, height);
         SetWindowPos(MainWindow, 0, 0, 0, width, height, 2);
         Debug_Printf("Creating primary surface\n");
@@ -510,12 +510,12 @@ bool __fastcall Set_Display_Mode(int width, int height)
     }
     Rect tactical = Get_Title_Screen_Area_006f1f30();
     {
-        Rect sidebar(0, 0, unknown_int_7add80, unknown_window_839640.Height);
+        Rect sidebar(0, 0, SidebarWidth, unknown_window_839640.Height);
         Rect tile(0, 0, tactical.Width, unknown_window_839640.Height);
         Rect composite(0, 0, tactical.Width, unknown_window_839640.Height);
         Allocate_Surfaces(&unknown_window_839640, &composite, &tile, &sidebar, false);
     }
-    unknown_surface_83995c = unknown_surface_839954;
+    unknown_surface_83995c = HiddenSurface;
     Debug_Printf("Recalc color remap tables\n");
     Unknown_00486010(red_right, red_left, green_right, green_left, blue_right, blue_left);
     if (WWMouse == 0) {
@@ -532,12 +532,12 @@ bool __fastcall Set_Display_Mode(int width, int height)
         ((WWMouseClass *)WWMouse)->Calc_Confining_Rect();
     }
     Map.unknown_slot42(tactical);
-    Unknown_Reset_Art_006F33B0(unknown_8523e0, unknown_8523e4);
+    Unknown_Reset_Art_006F33B0(VideoModeWidth, VideoModeHeight);
     Map.Init_IO();
     Map.unknown_slot54(1);
     Map.Reposition_Sidebar();
     Map.Flag_To_Redraw(2);
-    for (HWND dialog = Unknown_00735B10(); dialog != 0; dialog = (HWND)unknown_previous_key((int)dialog)) {
+    for (HWND dialog = WS_Top_Window(); dialog != 0; dialog = (HWND)unknown_previous_key((int)dialog)) {
         Unknown_005FF380(dialog);
         Unknown_005E9F00(dialog, &old_size);
     }
@@ -557,13 +557,13 @@ bool __fastcall Test_Display_Mode(int width, int height)
     int result = -1;
     Debug_Printf("Testing display mode @ %dx%d\n", width, height);
     WWMouse->Hide_Mouse();
-    unknown_surface_839954->Fill(0);
-    Unknown_004E0C90(true, unknown_surface_839954, 0);
+    HiddenSurface->Fill(0);
+    Unknown_004E0C90(true, HiddenSurface, 0);
     if (!Set_Display_Mode(width, height)) {
         return false;
     }
-    unknown_surface_839954->Fill(0);
-    Unknown_004E0C90(true, unknown_surface_839954, 0);
+    HiddenSurface->Fill(0);
+    Unknown_004E0C90(true, HiddenSurface, 0);
     WWMouse->Show_Mouse();
     unknown_5159b0(0, true);
     HWND dialog = unknown_create_dialog_5ff610(0xD9, Confirm_Mode_Proc, 0);
@@ -575,7 +575,7 @@ bool __fastcall Test_Display_Mode(int width, int height)
             if (unknown_6000d0() == true) {
                 break;
             }
-            unknown_517370(false);
+            Title_Screen_Restore(false);
             if (timer <= 0) {
                 PostMessageA(dialog, 0x111, 0x6CA, 0);
                 timer = 300;
@@ -585,12 +585,12 @@ bool __fastcall Test_Display_Mode(int width, int height)
         if (result != 1) {
             Debug_Printf("Resetting display mode @ %dx%d\n", Options.ScreenWidth, Options.ScreenHeight);
             Set_Display_Mode(Options.ScreenWidth, Options.ScreenHeight);
-            unknown_surface_83995c = unknown_surface_839954;
+            unknown_surface_83995c = HiddenSurface;
             return false;
         }
     }
     Debug_Printf("Keeping display mode @ %dx%d\n", width, height);
-    unknown_surface_83995c = unknown_surface_839954;
+    unknown_surface_83995c = HiddenSurface;
     return true;
 }
 

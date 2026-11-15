@@ -340,7 +340,7 @@ void __fastcall Dropship_Screen_004A6B90()
 
     int drop_height = drop_shape->Get_Height();
     int drop_width = drop_shape->Get_Width();
-    Point2D screen_origin((unknown_surface_839954->Get_Width() - drop_width) / 2, (unknown_surface_839954->Get_Height() - drop_height) / 2);
+    Point2D screen_origin((HiddenSurface->Get_Width() - drop_width) / 2, (HiddenSurface->Get_Height() - drop_height) / 2);
 
     PaletteClass palette_data;
     memmove(&palette_data, MixFileClass::Retrieve("DROPSHIP.PAL"), sizeof(palette_data));
@@ -348,20 +348,20 @@ void __fastcall Dropship_Screen_004A6B90()
         palette_data[i] = RGBClass(palette_data[i].Red * 4, palette_data[i].Green * 4, palette_data[i].Blue * 4);
     }
 
-    ConvertClass *drawer_dropship = new ConvertClass(palette_data, unknown_palette_837e10, unknown_surface_839950, 53, false);
-    ConvertClass *drawer_dropship_alpha = new ConvertClass(palette_data, unknown_palette_837e10, unknown_surface_839950, 1, false);
+    ConvertClass *drawer_dropship = new ConvertClass(palette_data, GamePalette, unknown_surface_839950, 53, false);
+    ConvertClass *drawer_dropship_alpha = new ConvertClass(palette_data, GamePalette, unknown_surface_839950, 1, false);
 
     memmove(&palette_data, MixFileClass::Retrieve("CAMEO.PAL"), sizeof(palette_data));
     for (i = 0; i < 256; ++i) {
         palette_data[i] = RGBClass(palette_data[i].Red * 4, palette_data[i].Green * 4, palette_data[i].Blue * 4);
     }
-    ConvertClass *drawer_cameo = new ConvertClass(palette_data, unknown_palette_837e10, unknown_surface_839950, 1, false);
+    ConvertClass *drawer_cameo = new ConvertClass(palette_data, GamePalette, unknown_surface_839950, 1, false);
 
     Blitter *plain_blitter = drawer_dropship->Select_Blitter_00485AA0(0);
     Blitter *cameo_alpha_blitter = drawer_cameo->Select_Blitter_00485AA0(0x40);
     Blitter *drop_alpha_blitter = drawer_dropship_alpha->Select_Blitter_00485AA0(0x40);
 
-    unknown_surface_839954->Fill(0);
+    HiddenSurface->Fill(0);
 
     DynamicVectorClass<TechnoTypeClass *> candidates;
     int type_count = InfantryTypes.Count() + UnitTypes.Count();
@@ -484,24 +484,24 @@ void __fastcall Dropship_Screen_004A6B90()
     Hide_Mouse();
     delete AlphaBuffer;
     AlphaBuffer = 0;
-    AlphaBuffer = new ABuffer(Rect(0, 0, unknown_surface_839954->Get_Width(), unknown_surface_839954->Get_Height()));
+    AlphaBuffer = new ABuffer(Rect(0, 0, HiddenSurface->Get_Width(), HiddenSurface->Get_Height()));
     Show_Mouse();
 
-    unknown_surface_83995c = unknown_surface_839954;
+    unknown_surface_83995c = HiddenSurface;
     WWKeyboard->Clear();
 
     while (!accept) {
         bool redraw = false;
 
-        if (unknown_redraw_8523dc) {
-            unknown_redraw_8523dc = false;
+        if (SurfacesRestored) {
+            SurfacesRestored = false;
             full_redraw = true;
         }
 
         if (full_redraw) {
             full_redraw = false;
             redraw = true;
-            CC_Draw_Shape(unknown_surface_839954, drawer_dropship, drop_shape, 0, Point2D(0, 0), Rect(screen_origin.X, screen_origin.Y, drop_shape->Get_Width(), drop_shape->Get_Height()), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+            CC_Draw_Shape(HiddenSurface, drawer_dropship, drop_shape, 0, Point2D(0, 0), Rect(screen_origin.X, screen_origin.Y, drop_shape->Get_Width(), drop_shape->Get_Height()), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
 
             for (i = 0; i < button_count; ++i) {
                 int usage_index = -1;
@@ -697,7 +697,7 @@ void __fastcall Dropship_Screen_004A6B90()
                     ShapeFileStruct *shape = green_shapes[i];
                     if (next_frame > shape->Get_Count()) {
                         unknown_blit_49f3a0(
-                            *unknown_surface_839954,
+                            *HiddenSurface,
                             drawer_dropship,
                             *background_surface,
                             Rect(light_x - screen_origin.X, light_y - screen_origin.Y, shape->Get_Width(), shape->Get_Height()),
@@ -708,7 +708,7 @@ void __fastcall Dropship_Screen_004A6B90()
                         light_frame[i] = (unsigned int)-1;
                     } else {
                         CC_Draw_Shape(
-                            unknown_surface_839954,
+                            HiddenSurface,
                             drawer_dropship,
                             shape,
                             frame,
@@ -780,10 +780,10 @@ void __fastcall Dropship_Screen_004A6B90()
                     if (alpha != effect->Alpha || overlap_drawn) {
                         effect->Alpha = alpha;
                         if (draw_background) {
-                            unknown_blit_49f3a0(*unknown_surface_839954, drawer_dropship, *effect->FromSurface, effect->FromRect, RectPoint2D(0, 0), effect->DestRect, 0, effect->FromBlitter, 0, 0, 1000, 0);
+                            unknown_blit_49f3a0(*HiddenSurface, drawer_dropship, *effect->FromSurface, effect->FromRect, RectPoint2D(0, 0), effect->DestRect, 0, effect->FromBlitter, 0, 0, 1000, 0);
                         }
                         AlphaBuffer->Clear_Region_00411090(effect->Alpha, effect->DestRect);
-                        unknown_blit_49f3a0(*unknown_surface_839954, drawer_cameo, *effect->ToSurface, effect->ToRect, RectPoint2D(0, 0), effect->DestRect, 0, effect->ToBlitter, 0, 0, 1000, 0);
+                        unknown_blit_49f3a0(*HiddenSurface, drawer_cameo, *effect->ToSurface, effect->ToRect, RectPoint2D(0, 0), effect->DestRect, 0, effect->ToBlitter, 0, 0, 1000, 0);
                         effect->WasDrawn = true;
                         redraw = true;
                     }
@@ -813,7 +813,7 @@ void __fastcall Dropship_Screen_004A6B90()
         int next_loadout_frame = ((::timeGetTime() - screen_start_time) / 250) % loadout_count;
         if (next_loadout_frame != loadout_anim_frame) {
             loadout_anim_frame = next_loadout_frame;
-            CC_Draw_Shape(unknown_surface_839954, drawer_dropship, loadout_shape, loadout_anim_frame, Point2D(0, 0), Rect(screen_origin + Point2D(45, 0), loadout_shape->Get_Width(), loadout_shape->Get_Height()), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+            CC_Draw_Shape(HiddenSurface, drawer_dropship, loadout_shape, loadout_anim_frame, Point2D(0, 0), Rect(screen_origin + Point2D(45, 0), loadout_shape->Get_Width(), loadout_shape->Get_Height()), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             redraw = true;
         }
 
@@ -846,11 +846,11 @@ void __fastcall Dropship_Screen_004A6B90()
             if (next_pilot_frame != pilot_frame) {
                 if (next_pilot_frame < pilotlight_shape->Get_Count()) {
                     pilot_frame = next_pilot_frame;
-                    CC_Draw_Shape(unknown_surface_839954, drawer_dropship, pilotlight_shape, pilot_frame, Point2D(0, 0), Rect(screen_origin.X + 284, screen_origin.Y + 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                    CC_Draw_Shape(HiddenSurface, drawer_dropship, pilotlight_shape, pilot_frame, Point2D(0, 0), Rect(screen_origin.X + 284, screen_origin.Y + 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                     redraw = true;
                 } else {
                     pilot_frame = -1;
-                    unknown_blit_49f3a0(*unknown_surface_839954, drawer_dropship, *background_surface, Rect(284, 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), RectPoint2D(0, 0), Rect(screen_origin.X + 284, screen_origin.Y + 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), 0, plain_blitter, 0, 0, 1000, 0);
+                    unknown_blit_49f3a0(*HiddenSurface, drawer_dropship, *background_surface, Rect(284, 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), RectPoint2D(0, 0), Rect(screen_origin.X + 284, screen_origin.Y + 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), 0, plain_blitter, 0, 0, 1000, 0);
                     pilot_timer = 60;
                     redraw = true;
                 }
@@ -860,7 +860,7 @@ void __fastcall Dropship_Screen_004A6B90()
                 if (Random_Pick(0, 0x7FFFFFFE) / (double)0x7FFFFFFE < _pilot_chance) {
                     pilot_frame = 0;
                     pilot_start_time = ::timeGetTime();
-                    CC_Draw_Shape(unknown_surface_839954, drawer_dropship, pilotlight_shape, 0, Point2D(0, 0), Rect(screen_origin.X + 284, screen_origin.Y + 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                    CC_Draw_Shape(HiddenSurface, drawer_dropship, pilotlight_shape, 0, Point2D(0, 0), Rect(screen_origin.X + 284, screen_origin.Y + 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                     redraw = true;
                 }
 
@@ -922,10 +922,10 @@ void __fastcall Dropship_Screen_004A6B90()
 
             if (hover_slot != -1) {
                 int color = hover_allowed ? Build_Hicolor_Pixel(0, 255, 0) : Build_Hicolor_Pixel(255, 0, 0);
-                unknown_surface_839954->Draw_Rect(Rect(screen_origin.X + 491 + (64 + 4) * (hover_slot % 2), screen_origin.Y + 25 + (48 + 2) * (hover_slot / 2), 64, 48), color);
+                HiddenSurface->Draw_Rect(Rect(screen_origin.X + 491 + (64 + 4) * (hover_slot % 2), screen_origin.Y + 25 + (48 + 2) * (hover_slot / 2), 64, 48), color);
             }
 
-            GScreenClass::Blit(true, unknown_surface_839954, 0);
+            GScreenClass::Blit(true, HiddenSurface, 0);
         }
     }
 
@@ -1009,11 +1009,11 @@ void __fastcall Draw_Updated_Counter_004a95c0(int current,int previous,Surface *
     Rect previous_area(previous_x,position.Y,110,15);
     Rect screen_area=Merge_Counter_Areas(current_area,previous_area);
     Rect area=screen_area;
-    area.X-=(unknown_surface_839954->Get_Width()-background->Get_Width())/2;
-    area.Y-=(unknown_surface_839954->Get_Height()-background->Get_Height())/2;
-    unknown_blit_49f3a0(*unknown_surface_839954,convert,*background,area,RectPoint2D(0,0),screen_area,0,blitter,0,0,1000,0);
-    Fancy_Text_Printf(counter_current_text_00852a68,unknown_surface_839954,
-        &unknown_surface_839954->Get_Rect(),&position,
+    area.X-=(HiddenSurface->Get_Width()-background->Get_Width())/2;
+    area.Y-=(HiddenSurface->Get_Height()-background->Get_Height())/2;
+    unknown_blit_49f3a0(*HiddenSurface,convert,*background,area,RectPoint2D(0,0),screen_area,0,blitter,0,0,1000,0);
+    Fancy_Text_Printf(counter_current_text_00852a68,HiddenSurface,
+        &HiddenSurface->Get_Rect(),&position,
         Fetch_Scheme_By_Name(counter_scheme_007d61e4,1),0,style);
 }
 
@@ -1035,13 +1035,13 @@ void __fastcall Draw_Type_Details_004a97b0(Surface *background, ConvertClass *co
     RectPoint2D offset;
     {
     Rect source_area = Rect(450,300,190,80);
-    offset = RectPoint2D((unknown_surface_839954->Get_Width()-background->Get_Width())/2,
-                   (unknown_surface_839954->Get_Height()-background->Get_Height())/2);
+    offset = RectPoint2D((HiddenSurface->Get_Width()-background->Get_Width())/2,
+                   (HiddenSurface->Get_Height()-background->Get_Height())/2);
     RectPoint2D top_left = RectPoint2D(450,300);
     Rect clip = Rect(top_left+offset,190,80);
     RectPoint2D zero(0,0);
     // Preserve the existing unresolved blit prototype's 32-bit payload spelling.
-    unknown_blit_49f3a0(*unknown_surface_839954,converter,*background,source_area,
+    unknown_blit_49f3a0(*HiddenSurface,converter,*background,source_area,
         zero,clip,0,converter->Select_Blitter_00485AA0(0),0,0,1000,0);
     }
     if (type) {
@@ -1061,22 +1061,22 @@ void __fastcall Draw_Type_Details_004a97b0(Surface *background, ConvertClass *co
         else scheme=Fetch_Scheme_By_Name(type_red_scheme_007d61f8,1);
         {
             Point2D position = Point2D(offset.X+450,offset.Y+300);
-            Fancy_Text_Printf(name,unknown_surface_839954,&unknown_surface_839954->Get_Rect(),
+            Fancy_Text_Printf(name,HiddenSurface,&HiddenSurface->Get_Rect(),
                 &position,scheme,0,0x46);
         }
         {
             Point2D position = Point2D(offset.X+450,offset.Y+315);
-            Fancy_Text_Printf(armament,unknown_surface_839954,&unknown_surface_839954->Get_Rect(),
+            Fancy_Text_Printf(armament,HiddenSurface,&HiddenSurface->Get_Rect(),
                 &position,scheme,0,0x46);
         }
         {
             Point2D position = Point2D(offset.X+450,offset.Y+330);
-            Fancy_Text_Printf(armor,unknown_surface_839954,&unknown_surface_839954->Get_Rect(),
+            Fancy_Text_Printf(armor,HiddenSurface,&HiddenSurface->Get_Rect(),
                 &position,scheme,0,0x46);
         }
         {
             Point2D position = Point2D(offset.X+450,offset.Y+345);
-            Fancy_Text_Printf(cost,unknown_surface_839954,&unknown_surface_839954->Get_Rect(),
+            Fancy_Text_Printf(cost,HiddenSurface,&HiddenSurface->Get_Rect(),
                 &position,scheme,0,0x46);
         }
     }

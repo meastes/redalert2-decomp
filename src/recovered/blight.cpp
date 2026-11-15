@@ -187,9 +187,9 @@ void BuildingLightClass::Draw_It(Point2D const &point, Rect const &window)
     Point2D arc1_px;
     Point2D arc2_px;
     Point2D caster_px;
-    unknown_tactical_83996c->Coord_To_Pixel(arc1, arc1_px);
-    unknown_tactical_83996c->Coord_To_Pixel(arc2, arc2_px);
-    unknown_tactical_83996c->Coord_To_Pixel(there + CoordStruct(0, 0, 430), caster_px);
+    TacticalMap->Coord_To_Pixel(arc1, arc1_px);
+    TacticalMap->Coord_To_Pixel(arc2, arc2_px);
+    TacticalMap->Coord_To_Pixel(there + CoordStruct(0, 0, 430), caster_px);
 
     arc1_px += unknown_rect_839630.Top_Left();
     arc2_px += unknown_rect_839630.Top_Left();

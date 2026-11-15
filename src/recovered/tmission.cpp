@@ -95,11 +95,11 @@ int ScriptMissionClass::Build_INI_Entry(char *buffer) const
 }
 
 
-// int __fastcall unknown_script_mission_6eafe0(int mission) -- 0x006EAFE0
+// int __fastcall TeamMission_Needs(int mission) -- 0x006EAFE0
 // Maps a script action number to a value (most actions give 0); no callers by direct call
 // (name, argument and result types are hypotheses).
 
-int __fastcall unknown_script_mission_6eafe0(int mission)
+int __fastcall TeamMission_Needs(int mission)
 {
     switch (mission) {
     case 0:

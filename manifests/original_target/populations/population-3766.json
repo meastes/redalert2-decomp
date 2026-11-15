@@ -4,8 +4,8 @@
     "id": "population-3766",
     "inventory_sha256": "a654ef992da11eca0f96ce4e84cb9246477d7eba1a06423be7639f251f50c498",
     "gaps_sha256": "71556148ad33fcac9e0376bb86676715f632bdca0f504ff0cfd8f5e41b873178",
-    "historical_population_sha256": "6bd03164336520d0f46ac740d04f40eca20692997abe74ccd001f5b8a942c40e",
-    "historical_acceptance_sha256": "3e67a09e7f1fe77b511a98008241f4d02c87cc1eb12c7e316d1ca0f55e330a7a"
+    "historical_population_sha256": "f7d54a35035cfa984f8eb14968bb1c7cfa9a8fd4ec25016010b4ca15c886e1a1",
+    "historical_acceptance_sha256": "ddd95a9f6ffc27f4fdf8998bd2be2435f9f792c7a9ece096527a2062c311860e"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -498,8 +498,8 @@
     "??_EWinModemClass@@": 7558672,
     "??_GWinModemClass@@": 7558672,
     "_$E2": 5046320,
-    "?unknown_ticks_004d0090@@YAKXZ": 5046416,
-    "?unknown_milliseconds_004d0070@@YAHXZ": 5046384,
+    "?Get_Game_Time_50@@YAKXZ": 5046416,
+    "?Get_Game_Time@@YAHXZ": 5046384,
     "__DAT_00a40c88": 10751112,
     "__DAT_00a40c80": 10751104,
     "__DAT_00a40c84": 10751108,
@@ -3220,7 +3220,7 @@
     "?Save@BuildingTypeClass@@UAGJPAUIStream@@H@Z": 4579360,
     "?Load@LayerClass@@QAEJPAUIStream@@@Z": 5458560,
     "?Save@LayerClass@@QAEJPAUIStream@@@Z": 5458448,
-    "?unknown_set_frame_rate_0053d820@@YIXH@Z": 5494816,
+    "?Set_Frame_Rate_Limit@@YIXH@Z": 5494816,
     "?Load@UnitClass@@UAGJPAUIStream@@@Z": 7371808,
     "?Load@FootClass@@UAGJPAUIStream@@@Z": 5020944,
     "?Save@UnitClass@@UAGJPAUIStream@@H@Z": 7372208,
@@ -3705,7 +3705,7 @@
           "resolved": 7972132
         }
       ],
-      "source_sha256": "96a23e74a42e8103da1c76f63ff54b1c236c0826cc6deb22bcc21e5947540103",
+      "source_sha256": "fcfd3540ced85b0f6cf18f2515cf5c5f0a0b1ef6f0de8115a03107b54abf99b9",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -3740,7 +3740,7 @@
           "resolved": 7972132
         }
       ],
-      "source_sha256": "96a23e74a42e8103da1c76f63ff54b1c236c0826cc6deb22bcc21e5947540103",
+      "source_sha256": "fcfd3540ced85b0f6cf18f2515cf5c5f0a0b1ef6f0de8115a03107b54abf99b9",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -3783,7 +3783,7 @@
           "resolved": 8806516
         }
       ],
-      "source_sha256": "96a23e74a42e8103da1c76f63ff54b1c236c0826cc6deb22bcc21e5947540103",
+      "source_sha256": "fcfd3540ced85b0f6cf18f2515cf5c5f0a0b1ef6f0de8115a03107b54abf99b9",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -3794,8 +3794,8 @@
     {
       "entry": 5046416,
       "method": "004d0090",
-      "symbol": "?unknown_ticks_004d0090@@YAKXZ",
-      "symbol_prefix": "?unknown_ticks_004d0090@@YAKXZ",
+      "symbol": "?Get_Game_Time_50@@YAKXZ",
+      "symbol_prefix": "?Get_Game_Time_50@@YAKXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -3826,7 +3826,7 @@
           "resolved": 8806516
         }
       ],
-      "source_sha256": "96a23e74a42e8103da1c76f63ff54b1c236c0826cc6deb22bcc21e5947540103",
+      "source_sha256": "fcfd3540ced85b0f6cf18f2515cf5c5f0a0b1ef6f0de8115a03107b54abf99b9",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -3837,8 +3837,8 @@
     {
       "entry": 5046384,
       "method": "004d0070",
-      "symbol": "?unknown_milliseconds_004d0070@@YAHXZ",
-      "symbol_prefix": "?unknown_milliseconds_004d0070@@YAHXZ",
+      "symbol": "?Get_Game_Time@@YAHXZ",
+      "symbol_prefix": "?Get_Game_Time@@YAHXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -3869,7 +3869,7 @@
           "resolved": 8806516
         }
       ],
-      "source_sha256": "96a23e74a42e8103da1c76f63ff54b1c236c0826cc6deb22bcc21e5947540103",
+      "source_sha256": "fcfd3540ced85b0f6cf18f2515cf5c5f0a0b1ef6f0de8115a03107b54abf99b9",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

@@ -88,13 +88,13 @@ extern int unknown_int_ab6474;      // 0x00AB6474 its height
 extern int unknown_int_ab6340;      // 0x00AB6340 width of the 0xF3 shape
 extern int unknown_int_ab6344;      // 0x00AB6344 its height
 // Names of the two button shapes (0x007EE064 "DIPLOBTN.SHP", 0x007EE068 "OPTBTN.SHP").
-extern char const *unknown_name_7ee064;
-extern char const *unknown_name_7ee068;
+extern char const *BriefingButtonShapeName;
+extern char const *OptionsButtonShapeName;
 // The screen width (0x007ADD80; shared/sidebar.hpp).
 // The radar's colour and a value for the radar button (0x00AC1028, 0x00AC1070;
 // rules or scenario data; hypothesis).
 class RGBClass;
-extern RGBClass unknown_color_ac1028;
+extern RGBClass TooltipColor;
 extern void *unknown_art_ac1070;   // 0x00AC1070 the radar button shape (Load_Art_Buffers 0x006F4B00 stores it)
 // Loads a shape file, noting whether it was allocated (0x00495270; shared/power.hpp).
 void const *__fastcall Unknown_Load_Shape_00495270(char const *filename, bool &allocated);
@@ -114,18 +114,18 @@ extern Rect unknown_rect_ab6338;
 class CCINIClass;
 extern int unknown_int_af8fe8;                          // 0x00AF8FE8
 // Runs after the radar's update unless it is in mode 4 (0x00716950).
-void Unknown_00716950();
+void Remove_Speech_Hold();
 // The radar's transmission sequence (mode 4) helpers (meanings not recovered).
 // Speech_Clear 0x007157B0 and Speech_Play 0x007158C0: shared/vox_class.hpp.
 #include "shared/vox_class.hpp"
-void Unknown_00716940();                                // 0x00716940
-bool __fastcall Unknown_00716690(int voice);            // 0x00716690
-void Unknown_004082B0();                                // 0x004082B0
-int Unknown_00408330();                                 // 0x00408330
+void Add_Speech_Hold();                                // 0x00716940
+bool __fastcall Is_Speech_Finished(int voice);            // 0x00716690
+void AudioStreamerFadeOutAllStreams();                                // 0x004082B0
+int AudioStreamerAllFaded();                                 // 0x00408330
 void Unknown_005A0B10();                                // 0x005A0B10
 void Unknown_005A0AC0();                                // 0x005A0AC0 (radar mode 3: after the last movie)
-// Unknown_0065C1F0 (0x0065C1F0): shared/unknown_globals.hpp.
-void Unknown_0065C310();                                // 0x0065C310
+// Hold_Scenario (0x0065C1F0): shared/unknown_globals.hpp.
+void Release_Scenario();                                // 0x0065C310
 bool Speech_Is_Playing();                               // 0x00715E20 (as shared/wdt_voices.hpp)
 // The movies queued for the radar (0x00AF8FD8; mode 3 plays the first; shared/movie.hpp).
 #include "shared/movie_queue.hpp"
@@ -140,7 +140,7 @@ struct UnknownRadar1238 {
     int unknown_08;
 };
 
-// unknown_int_a3d548 (0x00A3D548): shared/unknown_globals.hpp.
+// MuteSWLaunches (0x00A3D548): shared/unknown_globals.hpp.
 
 // The technos of the list at 0x00A40C20 (as shared/map_techno.hpp): the radar
 // clears their TechnoClass +0x37B flag when it is rebuilt.
@@ -156,7 +156,7 @@ inline HashTableClass<RadarTrackingStruct, TechnoClass *> *New_Tracking_Table(in
 
 // Index of a voice (EVA) entry by name (0x00716640, __fastcall; One_Time
 // passes "EVA_IncomingTransmission").
-int __fastcall Unknown_00716640(char const *name);
+int __fastcall Vox_From_Name(char const *name);
 
 // The radar's statistics dialog (resource 0x73; the special-dialog switch, case 8, 0x00481850):
 // runs it until it closes or the game quits (0x00634A00), with its dialog procedure 0x006340F0.

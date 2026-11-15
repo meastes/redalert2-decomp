@@ -213,29 +213,29 @@
   },
   {
    "source": "src/shared/win_util.hpp",
-   "old": "BOOL __stdcall unknown_restore_child_window_7368f0(HWND window, long parameter);",
-   "new": "BOOL __stdcall unknown_restore_child_window_7368f0(HWND window, LPARAM parameter);",
+   "old": "BOOL __stdcall read_view_from_ini(HWND window, long parameter);",
+   "new": "BOOL __stdcall read_view_from_ini(HWND window, LPARAM parameter);",
    "why": "EnumChildWindows callback and its LPARAM: on Win32 `long` and LPARAM are one type and the parameter carries an INIClass pointer; natively LPARAM is pointer-sized, so the callback and the cast are spelled LPARAM (identical on VC6).",
    "verified": true
   },
   {
    "source": "src/shared/win_util.hpp",
-   "old": "BOOL __stdcall unknown_save_child_window(HWND window, long parameter);",
-   "new": "BOOL __stdcall unknown_save_child_window(HWND window, LPARAM parameter);",
+   "old": "BOOL __stdcall write_view_to_ini(HWND window, long parameter);",
+   "new": "BOOL __stdcall write_view_to_ini(HWND window, LPARAM parameter);",
    "why": "EnumChildWindows callback and its LPARAM: on Win32 `long` and LPARAM are one type and the parameter carries an INIClass pointer; natively LPARAM is pointer-sized, so the callback and the cast are spelled LPARAM (identical on VC6).",
    "verified": true
   },
   {
    "source": "src/recovered/winfix.cpp",
-   "old": "BOOL __stdcall unknown_restore_child_window_7368f0(HWND window, long parameter)\n",
-   "new": "BOOL __stdcall unknown_restore_child_window_7368f0(HWND window, LPARAM parameter)\n",
+   "old": "BOOL __stdcall read_view_from_ini(HWND window, long parameter)\n",
+   "new": "BOOL __stdcall read_view_from_ini(HWND window, LPARAM parameter)\n",
    "why": "EnumChildWindows callback and its LPARAM: on Win32 `long` and LPARAM are one type and the parameter carries an INIClass pointer; natively LPARAM is pointer-sized, so the callback and the cast are spelled LPARAM (identical on VC6).",
    "verified": true
   },
   {
    "source": "src/recovered/winfix.cpp",
-   "old": "BOOL __stdcall unknown_save_child_window(HWND window, long parameter)\n",
-   "new": "BOOL __stdcall unknown_save_child_window(HWND window, LPARAM parameter)\n",
+   "old": "BOOL __stdcall write_view_to_ini(HWND window, long parameter)\n",
+   "new": "BOOL __stdcall write_view_to_ini(HWND window, LPARAM parameter)\n",
    "why": "EnumChildWindows callback and its LPARAM: on Win32 `long` and LPARAM are one type and the parameter carries an INIClass pointer; natively LPARAM is pointer-sized, so the callback and the cast are spelled LPARAM (identical on VC6).",
    "verified": true
   },
@@ -247,14 +247,14 @@
    "verified": true
   },
   {
-   "source": "src/recovered/winfix/unknown_save_window_position.cpp",
-   "old": "BOOL __stdcall unknown_save_child_window(HWND window, long parameter);",
-   "new": "BOOL __stdcall unknown_save_child_window(HWND window, LPARAM parameter);",
+   "source": "src/recovered/winfix/write_views_to_ini.cpp",
+   "old": "BOOL __stdcall write_view_to_ini(HWND window, long parameter);",
+   "new": "BOOL __stdcall write_view_to_ini(HWND window, LPARAM parameter);",
    "why": "EnumChildWindows callback and its LPARAM: on Win32 `long` and LPARAM are one type and the parameter carries an INIClass pointer; natively LPARAM is pointer-sized, so the callback and the cast are spelled LPARAM (identical on VC6).",
    "verified": true
   },
   {
-   "source": "src/recovered/winfix/unknown_save_window_position.cpp",
+   "source": "src/recovered/winfix/write_views_to_ini.cpp",
    "old": "(long)&ini",
    "new": "(LPARAM)&ini",
    "why": "EnumChildWindows callback and its LPARAM: on Win32 `long` and LPARAM are one type and the parameter carries an INIClass pointer; natively LPARAM is pointer-sized, so the callback and the cast are spelled LPARAM (identical on VC6).",
@@ -1863,8 +1863,8 @@
   },
   {
    "source": "src/recovered/dsurface.cpp",
-   "old": "    if (unknown_flag_851cb0 || unknown_flag_a40d28) {\n",
-   "new": "    // native: the port's surfaces are never lost (IsLost is always DD_OK), so a lock is safe whether\n    // or not the application is active; the port also keeps the game running in the background.\n    if (unknown_flag_851cb0 || unknown_flag_a40d28 || true) {\n",
+   "old": "    if (WindowedMode || GameInFocus) {\n",
+   "new": "    // native: the port's surfaces are never lost (IsLost is always DD_OK), so a lock is safe whether\n    // or not the application is active; the port also keeps the game running in the background.\n    if (WindowedMode || GameInFocus || true) {\n",
    "why": "Restore_Check's body (0x004AAF00, expanded in Lock 0x004AAC80) refuses every lock while the application is inactive in full-screen mode (0x00A40D28 clear, 0x00851CB0 clear), because a DirectDraw video surface may be lost then. The original's game loop stops while inactive; the native port keeps it running (a LAN host must keep answering), and with the lock refused the LAN host dialog's map preview (MapPreviewClass::Read_INI 0x0061DED0) decoded its PreviewPack into a null surface pointer and LZO overran memory (crashes on the mouse and audio threads, Scout1209 r9). Port surfaces cannot be lost, so the restoration test always passes, as it does in the original while active.",
    "verified": true
   },
@@ -2824,15 +2824,15 @@
   },
   {
    "source": "src/recovered/mainopt.cpp",
-   "old": "        Rect sidebar(0, 0, unknown_int_7add80, unknown_window_839640.Height);\n",
-   "new": "        int Native_Sidebar_Height(int screen_height);   // NATIVE (C3): link/native_enhancements.cpp\n        Rect sidebar(0, 0, unknown_int_7add80, Native_Sidebar_Height(unknown_window_839640.Height));\n",
+   "old": "        Rect sidebar(0, 0, SidebarWidth, unknown_window_839640.Height);\n",
+   "new": "        int Native_Sidebar_Height(int screen_height);   // NATIVE (C3): link/native_enhancements.cpp\n        Rect sidebar(0, 0, SidebarWidth, Native_Sidebar_Height(unknown_window_839640.Height));\n",
    "why": "Native addition (C3, Game interface size, enhancements v2 part 1; not original behaviour): the sidebar surface may be shorter than the screen so the host can show the sidebar column larger than the map (host.cpp split layout). Native_Sidebar_Height (link/native_enhancements.cpp) answers the screen's own height unless the player chose an interface size above 1x, so with the defaults (and the ORIGINAL preset) nothing changes. This row: the sidebar surface's height at the resolution change (Set_Display_Mode 0x005434E0).",
    "verified": false
   },
   {
    "source": "src/recovered/saveload.cpp",
-   "old": "        Rect sidebar(0, 0, unknown_int_7add80, unknown_window_839640.Height);\n",
-   "new": "        int Native_Sidebar_Height(int screen_height);   // NATIVE (C3): link/native_enhancements.cpp\n        Rect sidebar(0, 0, unknown_int_7add80, Native_Sidebar_Height(unknown_window_839640.Height));\n",
+   "old": "        Rect sidebar(0, 0, SidebarWidth, unknown_window_839640.Height);\n",
+   "new": "        int Native_Sidebar_Height(int screen_height);   // NATIVE (C3): link/native_enhancements.cpp\n        Rect sidebar(0, 0, SidebarWidth, Native_Sidebar_Height(unknown_window_839640.Height));\n",
    "why": "Native addition (C3, Game interface size, enhancements v2 part 1; not original behaviour): the sidebar surface may be shorter than the screen so the host can show the sidebar column larger than the map (host.cpp split layout). Native_Sidebar_Height (link/native_enhancements.cpp) answers the screen's own height unless the player chose an interface size above 1x, so with the defaults (and the ORIGINAL preset) nothing changes. This row: the sidebar surface's height at the surfaces after a load.",
    "verified": false
   },
@@ -2859,8 +2859,8 @@
   },
   {
    "source": "src/recovered/display.cpp",
-   "old": "    unknown_rect_839630 = rect;\n    if (unknown_tactical_83996c != 0) {\n",
-   "new": "    Rect Native_Map_View(Rect const &rect);   // NATIVE (C4): link/native_map_zoom.cpp\n    unknown_rect_839630 = Native_Map_View(rect);\n    if (unknown_tactical_83996c != 0) {\n",
+   "old": "    unknown_rect_839630 = rect;\n    if (TacticalMap != 0) {\n",
+   "new": "    Rect Native_Map_View(Rect const &rect);   // NATIVE (C4): link/native_map_zoom.cpp\n    unknown_rect_839630 = Native_Map_View(rect);\n    if (TacticalMap != 0) {\n",
    "why": "Native addition (C4, Map zoom, enhancements v2 part 2; not original behaviour): the map in play may be shown larger than the interface. The game's screen keeps its size; only the tactical view rectangle is made smaller (link/native_map_zoom.cpp) and the host shows it over the whole tactical area, larger (host.cpp zoom layout). At map zoom 1x (the default and the ORIGINAL preset) nothing changes. This row: Set_View_Dimensions 0x00498C80 keeps the view rectangle Native_Map_View answers (the tactical rectangle divided by the game's zoom, at its corner; the rectangle itself at 1x).",
    "verified": false
   },
@@ -3092,8 +3092,8 @@
   },
   {
    "source": "src/recovered/display.cpp",
-   "old": "            unknown_tactical_83996c->Unknown_006AA610(Unknown_0049C3F0);\n",
-   "new": "            void (__fastcall *Native_Modern_Band_Walk(void (__fastcall *select)(ObjectClass *)))(ObjectClass *);   // NATIVE (C16)\n            unknown_tactical_83996c->Unknown_006AA610(Native_Modern_Band_Walk(Unknown_0049C3F0));\n",
+   "old": "            TacticalMap->Unknown_006AA610(Unknown_0049C3F0);\n",
+   "new": "            void (__fastcall *Native_Modern_Band_Walk(void (__fastcall *select)(ObjectClass *)))(ObjectClass *);   // NATIVE (C16)\n            TacticalMap->Unknown_006AA610(Native_Modern_Band_Walk(Unknown_0049C3F0));\n",
    "why": "Native addition (C16, Controls: Modern; not original behaviour): with the Enhancements setting Modern, left click selects and right click orders (link/native_modern_controls.cpp). With Classic (the default and the ORIGINAL preset) every Native_Modern_* answer is the original's own value, so the code runs as before. This row: DisplayClass::Mouse_Left_Release 0x0049BB20: the selection band's walk; Modern with Shift over objects that are all selected unselects them (otherwise 0x0049C3F0, the original's).",
    "verified": false
   },

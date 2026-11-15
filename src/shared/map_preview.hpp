@@ -38,6 +38,6 @@ public:
 // The loaded scenario's preview (0x00A6FEE4).
 extern MapPreviewClass *unknown_preview_a6fee4;
 // The map preview the skirmish and multiplayer setup dialogs draw (0x00A72CE8).
-extern MapPreviewClass *unknown_dialog_preview_a72ce8;
+extern MapPreviewClass *MultiplayerMapPreview;
 
 #endif

@@ -1,9 +1,39 @@
-// credits.cpp: the original translation unit re-filed as one source (Route A): the accepted
-// bodies of its canonical compile group in address order, under the unit's own header
-// state (its switches and includes in their original order). The module map
-// manifests/original_target/modules/credits.json carries the addresses and the rows that
-// stay in their own files.
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// From mischa85/RedAlert2 392e904 src/credits.cpp (matching RA2 1.006 decomp; TibSun credits.cpp): names
+// and comments; modified (our module form and header state, Route A unit map manifests/original_target/modules/credits.json).
 
+/* $Header: /CounterStrike/CREDITS.CPP 1     3/03/97 10:24a Joe_bostic $ */
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                    File Name : CREDITS.CPP                                                  *
+ *                                                                                             *
+ *                   Programmer : Joe L. Bostic                                                *
+ *                                                                                             *
+ *                   Start Date : April 17, 1994                                               *
+ *                                                                                             *
+ *                  Last Update : March 13, 1995 [JLB]                                         *
+ *                                                                                             *
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ *   CreditClass::AI -- Handles updating the credit display.                                   *
+ *   CreditClass::CreditClass -- Default constructor for the credit class object.              *
+ *   CreditClass::Graphic_Logic -- Handles the credit redraw logic.                            *
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "shared/shape_file.hpp"
 #include "shared/unknown_geometry.hpp"
@@ -18,129 +48,115 @@
 #include "shared/id_source.hpp"
 #include "shared/crt_memory.hpp"
 
-
-// Header-static dynamic initializers of the unit at 0x00494320: the shape_file.hpp empty rect and the
-// shared/unknown_geometry.hpp constants (0x00494320-0x00494501); the other
-// drafts of this plan are emitted by these includes.
+// The unit's header-static dynamic initializers (0x00494320-0x00494501: the shape_file.hpp empty
+// rect and the unknown_geometry.hpp constants) are emitted by these includes; no source of their own.
 
 
-// Dynamic initializer (0x00494340, _$E) of diagonal from the header(s) included
-// by HeaderStatics_empty_rect_init_00494320.cpp; no source of its own.
-
-
-// Dynamic initializer (0x00494370, _$E) of b from the header(s) included
-// by HeaderStatics_empty_rect_init_00494320.cpp; no source of its own.
-
-
-// Dynamic initializer (0x00494390, _$E) of c from the header(s) included
-// by HeaderStatics_empty_rect_init_00494320.cpp; no source of its own.
-
-
-// Dynamic initializer (0x004943B0, _$E) of angle45 from the header(s) included
-// by HeaderStatics_empty_rect_init_00494320.cpp; no source of its own.
-
-
-// Dynamic initializer (0x004943D0, _$E) of angle60 from the header(s) included
-// by HeaderStatics_empty_rect_init_00494320.cpp; no source of its own.
-
-
-// Dynamic initializer (0x004943F0, _$E) of angle90 from the header(s) included
-// by HeaderStatics_empty_rect_init_00494320.cpp; no source of its own.
-
-
-// Dynamic initializer (0x00494410, _$E) of g from the header(s) included
-// by HeaderStatics_empty_rect_init_00494320.cpp; no source of its own.
-
-
-// Dynamic initializer (0x00494450, _$E) of h from the header(s) included
-// by HeaderStatics_empty_rect_init_00494320.cpp; no source of its own.
-
-
-// Dynamic initializer (0x00494480, _$E) of i from the header(s) included
-// by HeaderStatics_empty_rect_init_00494320.cpp; no source of its own.
-
-
-// Dynamic initializer (0x004944B0, _$E) of j from the header(s) included
-// by HeaderStatics_empty_rect_init_00494320.cpp; no source of its own.
-
-
-// Dynamic initializer (0x004944E0, _$E) of k from the header(s) included
-// by HeaderStatics_empty_rect_init_00494320.cpp; no source of its own.
-
-
-// Dynamic initializer (0x004944F0, _$E) of l from the header(s) included
-// by HeaderStatics_empty_rect_init_00494320.cpp; no source of its own.
-
-
-// CreditClass::CreditClass() (0x00494510): TibSun's CreditClass constructor.
-
+/***********************************************************************************************
+ * CreditClass::CreditClass -- Default constructor for the credit class object.                *
+ *                                                                                             *
+ *    This is the constructor for the credit class object. It merely sets the credit display   *
+ *    state to null.                                                                           *
+ *=============================================================================================*/
 CreditClass::CreditClass() :
-    unknown_00(0),
-    unknown_04(0),
-    unknown_08(false),
-    unknown_09(false),
-    unknown_0a(false),
-    unknown_0c(0)
+    Credits(0),
+    Current(0),
+    IsToRedraw(false),
+    IsUp(false),
+    IsAudible(false),
+    Countdown(0)
 {
 }
 
 
-// CreditClass::Unknown_00494530(bool forced) (0x00494530): TibSun's CreditClass::Graphic_Logic.
-
-void CreditClass::Unknown_00494530(bool forced)
+/***********************************************************************************************
+ * CreditClass::Graphic_Logic -- Handles the credit redraw logic.                              *
+ *                                                                                             *
+ *    This routine should be called whenever the main game screen is to be updated. It will    *
+ *    check to see if the credit display should be redrawn. If so, it will redraw it.          *
+ *                                                                                             *
+ * INPUT:   forced   -- Should the credit display be redrawn regardless of whether the redraw  *
+ *                      flag is set? This is typically the case when the screen needs to be    *
+ *                      redrawn from scratch.                                                  *
+ *=============================================================================================*/
+void CreditClass::Graphic_Logic(bool forced)
 {
-    if (forced || unknown_08) {
-        int xx = unknown_surface_839948->Get_Width() / 2;
+    if (forced || IsToRedraw) {
+        int xx = SidebarSurface->Get_Width() / 2;
 
-        if (unknown_0a && Rules->CreditTicks.Count() >= 2) {
-            if (unknown_09) {
+        /*
+        **	Play a sound effect when the money display changes, but only if a sound
+        **	effect was requested.
+        */
+        if (IsAudible && Rules->CreditTicks.Count() >= 2) {
+            if (IsUp) {
                 Voc_Play(Rules->CreditTicks[0], 0.5f, 0x2000, 0);
             } else {
                 Voc_Play(Rules->CreditTicks[1], 0.5f, 0x2000, 0);
             }
         }
 
-        Map.Unknown_006A1710();
+        /*
+        **	Display the new current value.
+        */
+        Map.Draw_Credits_Tab();
 
-        int color = Build_Hicolor_Pixel(unknown_color_ac1028.Red, unknown_color_ac1028.Green, unknown_color_ac1028.Blue);
-        Plain_Text_Print(L"%ld", unknown_surface_839948, &unknown_surface_839948->Get_Rect(), &Point2D(xx, 2), color, 0, 0x4108, unknown_04);
+        int color = Build_Hicolor_Pixel(TooltipColor.Red, TooltipColor.Green, TooltipColor.Blue);
+        Plain_Text_Print(L"%ld", SidebarSurface, &SidebarSurface->Get_Rect(), &Point2D(xx, 2), color, 0, 0x4108, Current);
 
-        unknown_08 = false;
-        unknown_0a = false;
+        IsToRedraw = false;
+        IsAudible = false;
     }
 }
 
 
-// CreditClass::Unknown_00494650(bool forced) (0x00494650): TibSun's CreditClass::AI.
-
-void CreditClass::Unknown_00494650(bool forced)
+/***********************************************************************************************
+ * CreditClass::AI -- Handles updating the credit display.                                     *
+ *                                                                                             *
+ *    This routine handles the logic that controls the rate of credit change in the credit     *
+ *    display. It doesn't actually redraw the credit display, but will flag it to be redrawn   *
+ *    if it detects that a change is to occur.                                                 *
+ *                                                                                             *
+ * INPUT:   forced   -- Should the credit display immediately reflect the current credit       *
+ *                      total for the player? This is usually desired when initially loading   *
+ *                      a scenario or saved game.                                              *
+ *=============================================================================================*/
+void CreditClass::AI(bool forced)
 {
     static int _last = 0;
 
     _last = Frame;
 
-    unknown_00 = unknown_player_a35db4->As_IHouse()->Available_Money();
-    unknown_00 = unknown_00 > 0 ? unknown_00 : 0;
+    Credits = unknown_player_a35db4->As_IHouse()->Available_Money();
+
+    /*
+    **	Make sure that the credit counter doesn't drop below zero.
+    */
+    Credits = Credits > 0 ? Credits : 0;
 
     if (unknown_id_source_a3d290->MissionTimer.Is_Active() || unknown_id_source_a3d290->MissionTimer) {
-        unknown_08 = true;
+        IsToRedraw = true;
         Map.Flag_To_Redraw();
     }
 
-    if (unknown_04 == unknown_00) return;
+    if (Current == Credits) return;
 
     if (forced) {
-        unknown_0a = false;
-        unknown_04 = unknown_00;
+        IsAudible = false;
+        Current = Credits;
     } else {
-        if (unknown_0c) unknown_0c--;
+        if (Countdown) Countdown--;
 
-        int adder = unknown_00 - unknown_04;
+        /*
+        **	Determine the amount to change the display toward the
+        **	desired value.
+        */
+        int adder = Credits - Current;
 
         if (adder > 0) {
-            unknown_0c = 1;
+            Countdown = 1;
         } else {
-            unknown_0c = 3;
+            Countdown = 3;
         }
 
         adder = abs(adder);
@@ -150,14 +166,14 @@ void CreditClass::Unknown_00494650(bool forced)
         } else if (adder > 71+72) {
             adder = 71+72;
         }
-        if (unknown_04 > unknown_00) adder = -adder;
-        unknown_04 += adder;
-        if (unknown_04 - adder != unknown_04) {
-            unknown_0a = true;
-            unknown_09 = (adder > 0);
+        if (Current > Credits) adder = -adder;
+        Current += adder;
+        if (Current - adder != Current) {
+            IsAudible = true;
+            IsUp = (adder > 0);
         }
     }
-    unknown_08 = true;
+    IsToRedraw = true;
     Map.Flag_To_Redraw();
-    Map.unknown_4ee4 = true;
+    Map.IsToRedrawCredits = true;
 }

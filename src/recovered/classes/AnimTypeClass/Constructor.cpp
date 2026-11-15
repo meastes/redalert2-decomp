@@ -10,7 +10,7 @@
 // @ref ??_7AnimTypeClass@@6BIRTTITypeInfo@@@=0079c2ec
 // @ref ??_7AnimTypeClass@@6BINoticeSink@@@=0079c310
 // @ref ??_7AnimTypeClass@@6BINoticeSource@@@=0079c308
-// @ref ?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A=00ac0cb0
+// @ref ?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A=00ac0cb0
 // @ref ?Create_ID@AbstractClass@@UAGXXZ=0040ffd0
 // @ref ?Load_Image@AnimTypeClass@@UAEXH@Z=00425490
 
@@ -91,7 +91,7 @@ AnimTypeClass::AnimTypeClass(char const *ini_name) :
     unknown_203 = true;
     unknown_205 = false;
     AnimTypes.Add(this);
-    unknown_objects_ac0cb0.Add(this);
+    AbstractTypePtrTracker.Add(this);
     if (ini_name != 0) {
         AnimTypeClass::Load_Image(-1);
     }

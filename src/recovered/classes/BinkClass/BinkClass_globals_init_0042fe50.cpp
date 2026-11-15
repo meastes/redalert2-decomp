@@ -5,12 +5,12 @@
 #include "shared/dsurface.hpp"
 // @ref _unknown_empty_rect=0084e9b0
 // @ref ?unknown_check_406f30@@YAHXZ=00406f30
-// @ref ?unknown_directsound_40a6c0@@YAPAXXZ=0040a6c0
+// @ref ?GetDirectSoundObject@@YAPAXXZ=0040a6c0
 // @ref ?unknown_volume_a40b48@@3MA=00a40b48
 // @ref ?unknown_volume_84e9a8@@3MA=0084e9a8
-// @ref ?unknown_create_companion_69b190@@YIPAVVQAMovieCompanion@@PBD@Z=0069b190
+// @ref ?Subtitles_Open@@YIPAVVQAMovieCompanion@@PBD@Z=0069b190
 // @ref ?unknown_surface_839950@@3PAVSurface@@A=00839950
-// @ref ?unknown_surface_839954@@3PAVSurface@@A=00839954
+// @ref ?HiddenSurface@@3PAVSurface@@A=00839954
 // @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
 // @ref ?Debug_Printf@@YAXPBDZZ=004068f0
 // @ref __real@4@400e8000000000000000=0079c780

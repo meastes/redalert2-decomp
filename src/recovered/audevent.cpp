@@ -428,7 +428,7 @@ AudioSource *__fastcall Audio_Event_Next_Sample(AudioEvent *event)
     if (type->unknown_58 < 0x21 || (event->Flags & 0x20)) {
         if (event->unknown_1e0 != 0 && !(event->Flags & 0x20)) {
             if (flags & AUDIO_EVENT_TYPE_RANDOM) {
-                int index = unknown_random_839218(0, event->unknown_1e0 - 1);
+                int index = NonCriticalRandomNumber(0, event->unknown_1e0 - 1);
                 event->unknown_ac = event->unknown_160[index];
                 for (int i = index; i < event->unknown_1e0 - 1; i++) {
                     event->unknown_160[i] = event->unknown_160[i + 1];
@@ -1014,7 +1014,7 @@ void __fastcall Audio_Event_Finish(AudioEvent *event)
 
 static int Audio_Random(int low, int high)
 {
-    return unknown_random_839218(low, high);
+    return NonCriticalRandomNumber(low, high);
 }
 
 static void Audio_Event_Start(AudioEvent *event)
@@ -1194,7 +1194,7 @@ int __fastcall Audio_Event_Channel_Next(AudioChannel *channel)
     if ((type->Flags & 0x88) == 0 || source != 0 || event->unknown_268 != 0) {
         unsigned int hi = type->unknown_5c;
         unsigned int lo = type->unknown_58;
-        unsigned int delay = unknown_random_839218(lo, hi);
+        unsigned int delay = NonCriticalRandomNumber(lo, hi);
         if (delay < 0x21) {
             Audio_Channel_Set_Source(channel, source);
             return 0;

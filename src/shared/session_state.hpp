@@ -71,7 +71,7 @@ struct SessionClass {
     int Unknown_00672F90(int player);
     // Original00673090: session in ECX, no stack arguments; member spelling hypothesis.
     void Allocate_Ports_00673090();
-    // Entered once while unknown_flag_a40958 is set (+0x3080 records it): keeps the game speed in
+    // Entered once while GameActive is set (+0x3080 records it): keeps the game speed in
     // unknown_game_speed_7f3230 (game mode 0 runs at speed 2), pauses the game, captures the mouse and sets the
     // global volume to full (0x00672DE0; callers around Special_Dialog 0x00481850; hypothesis).
     void Unknown_00672DE0();
@@ -143,7 +143,7 @@ struct SessionClass {
     SessionOptionsClass SkirmishOptions;     // +0x13C
     SessionOptionsClass LANOptions;          // +0x1B8
     SessionOptionsClass WonlineOptions;      // +0x234
-    int unknown_2b0;                        // +0x2B0 (also unknown_int_a3d548)
+    int unknown_2b0;                        // +0x2B0 (also MuteSWLaunches)
     
 #ifdef RA2_SESSION_CTOR_FIELDS
     int unknown_2b4;

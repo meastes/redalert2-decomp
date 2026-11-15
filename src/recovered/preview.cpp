@@ -134,8 +134,8 @@ void MapPreviewClass::Blit_Preview(HWND window)
         destrect.Y = framerect.Y + framerect.Height / 2 - (scale * srcrect.Height) / 2000;
         destrect.Width = (scale * srcrect.Width) / 1000;
         destrect.Height = (scale * srcrect.Height) / 1000;
-        unknown_surface_839958->Fill_Rect(framerect, 0);
-        unknown_surface_839958->Copy_From(destrect, *unknown_00, unknown_00->Get_Rect(), false, false);
+        AlternateSurface->Fill_Rect(framerect, 0);
+        AlternateSurface->Copy_From(destrect, *unknown_00, unknown_00->Get_Rect(), false, false);
     }
 }
 
@@ -146,7 +146,7 @@ Point2D MapPreviewClass::Cell_To_Preview_Pixel(Cell cell) const
     int y;
     // The X lepton comes from the coordinate constructor, the Y from Cell::As_Coord (the inlined
     // copies in 0x0061D660 call the two out of line differently).
-    unknown_tactical_83996c->Lepton_To_Map_Pixel(UnknownCoord434820(cell).X, cell.As_Coord().Y, x, y);
+    TacticalMap->Lepton_To_Map_Pixel(UnknownCoord434820(cell).X, cell.As_Coord().Y, x, y);
     return Point2D(x / 60, y / 30);
 }
 
@@ -303,7 +303,7 @@ bool MapPreviewClass::Write_INI(CCINIClass &ini)
 
     ini.Put_Rect(PREVIEW, "Size", (INIRect const &)unknown_00->Get_Rect());
 
-    BufferPipe bpipe(unknown_surface_839958->Lock(), unknown_surface_839958->Get_Width() * unknown_surface_839958->Get_Height() * unknown_surface_839958->Bytes_Per_Pixel());
+    BufferPipe bpipe(AlternateSurface->Lock(), AlternateSurface->Get_Width() * AlternateSurface->Get_Height() * AlternateSurface->Bytes_Per_Pixel());
     LZOPipe comp(LZOPipe::COMPRESS, 0x2000);
     comp.Put_To(&bpipe);
 
@@ -324,11 +324,11 @@ bool MapPreviewClass::Write_INI(CCINIClass &ini)
     total += comp.End();
     ini.Clear(PREVIEWPACK);
     if (total > 0) {
-        ini.Put_UUBlock(PREVIEWPACK, unknown_surface_839958->Lock(), total);
-        unknown_surface_839958->Unlock();
+        ini.Put_UUBlock(PREVIEWPACK, AlternateSurface->Lock(), total);
+        AlternateSurface->Unlock();
     }
 
-    unknown_surface_839958->Unlock();
+    AlternateSurface->Unlock();
 
     if (created) {
         delete unknown_00;
@@ -353,11 +353,11 @@ bool MapPreviewClass::Read_INI(CCINIClass const &ini)
     unknown_00 = new DSurface(rect.Width, rect.Height, true);
     unknown_00->Fill(0);
 
-    int size = unknown_surface_839958->Get_Width() * unknown_surface_839958->Get_Height() * unknown_surface_839958->Bytes_Per_Pixel();
-    int length = ini.Get_UUBlock(PREVIEWPACK, unknown_surface_839958->Lock(), size);
+    int size = AlternateSurface->Get_Width() * AlternateSurface->Get_Height() * AlternateSurface->Bytes_Per_Pixel();
+    int length = ini.Get_UUBlock(PREVIEWPACK, AlternateSurface->Lock(), size);
 
     if (length > 0) {
-        unsigned char *buffer = (unsigned char *)unknown_surface_839958->Lock();
+        unsigned char *buffer = (unsigned char *)AlternateSurface->Lock();
         BufferStraw bstraw(buffer, length);
         LZOStraw uncomp(LZOStraw::DECOMPRESS, 0x2000);
         uncomp.Get_From(&bstraw);
@@ -368,8 +368,8 @@ bool MapPreviewClass::Read_INI(CCINIClass const &ini)
             for (int x = 0; x < unknown_00->Get_Width(); x++) {
                 if (uncomp.Get(rgb, sizeof(rgb)) != sizeof(rgb)) {
                     unknown_00->Unlock();
-                    unknown_surface_839958->Unlock();
-                    unknown_surface_839958->Unlock();
+                    AlternateSurface->Unlock();
+                    AlternateSurface->Unlock();
                     return false;
                 }
                 unknown_00->Put_Pixel(Point2D(x, y), Build_Hicolor_Pixel(rgb[0], rgb[1], rgb[2]));
@@ -377,9 +377,9 @@ bool MapPreviewClass::Read_INI(CCINIClass const &ini)
         }
 
         unknown_00->Unlock();
-        unknown_surface_839958->Unlock();
+        AlternateSurface->Unlock();
     }
-    unknown_surface_839958->Unlock();
+    AlternateSurface->Unlock();
     return true;
 }
 

@@ -418,7 +418,7 @@ void EventClass::Execute()
             while (timer > 0) {
                 Service_Game_IO_00481fb0();
             }
-            unknown_surface_839954->Fill(0);
+            HiddenSurface->Fill(0);
             Map.Flag_To_Redraw(2);
             Map.Render();
         } else {

@@ -50,7 +50,7 @@ void CellClass::Place_Veins()
                         adjacent.Recalc_Attributes(-1);
                         RectPoint2D origin = unknown_rect_839630.Top_Left();
                         adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect())) - origin;
-                        unknown_tactical_83996c->Register_Dirty_Area(adjrect, 0);
+                        TacticalMap->Register_Dirty_Area(adjrect, 0);
                     }
                 } else {
                     Rect adjrect(0, 0, 0, 0);
@@ -58,7 +58,7 @@ void CellClass::Place_Veins()
                     adjacent.OverlayIndex = 0x7E;
                     adjacent.OverlayData = 2 * adjacent.unknown_11c + (abs(unknown_id_source_a3d290->Random()()) & 1) + 0x33;
                     adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-                    unknown_tactical_83996c->Register_Dirty_Area(adjrect, 0);
+                    TacticalMap->Register_Dirty_Area(adjrect, 0);
                 }
 
                 Map.Radar_Background(adjacent.MapCoords);
@@ -70,7 +70,7 @@ void CellClass::Place_Veins()
         }
 
         rect = Union(rect, Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
-        unknown_tactical_83996c->Register_Dirty_Area(rect, 0);
+        TacticalMap->Register_Dirty_Area(rect, 0);
         Recalc_Attributes(-1);
     }
 }

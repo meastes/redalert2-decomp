@@ -21,7 +21,7 @@ extern IDirectDrawClipper *unknown_clipper_852fb4;
 // surfaces (0x00852FD7).
 // Either flag enables lost-surface restoration before locking
 // (0x00851CB0, 0x00A40D28); with both clear Lock fails.
-extern bool unknown_flag_851cb0;
+extern bool WindowedMode;
 // Allows DirectDraw colour-fill blits in Fill_Rect (0x007D6294).
 extern bool unknown_flag_7d6294;
 

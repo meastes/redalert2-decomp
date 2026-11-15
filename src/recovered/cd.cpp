@@ -96,11 +96,11 @@ bool CD::Insert_Disk(int disk)
     WWKeyboard->Clear();
     bool result = true;
     if (disk == 0) {
-        if (!Unknown_00600C80(StringTable::Load_String("TXT_CD_DIALOG_A", 0, "D:\\Ra2\\CD.CPP", 0xC2))) result = false;
+        if (!Prompt_Dialog(StringTable::Load_String("TXT_CD_DIALOG_A", 0, "D:\\Ra2\\CD.CPP", 0xC2))) result = false;
     } else if (disk == 1) {
-        if (!Unknown_00600C80(StringTable::Load_String("TXT_CD_DIALOG_S", 0, "D:\\Ra2\\CD.CPP", 0xCA))) result = false;
+        if (!Prompt_Dialog(StringTable::Load_String("TXT_CD_DIALOG_S", 0, "D:\\Ra2\\CD.CPP", 0xCA))) result = false;
     } else {
-        if (!Unknown_00600C80(StringTable::Load_String("TXT_CD_DIALOG_1", 0, "D:\\Ra2\\CD.CPP", 0xD1))) result = false;
+        if (!Prompt_Dialog(StringTable::Load_String("TXT_CD_DIALOG_1", 0, "D:\\Ra2\\CD.CPP", 0xD1))) result = false;
     }
     WWKeyboard->Clear();
     while (hidden--) WWMouse->Hide_Mouse();

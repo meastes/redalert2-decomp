@@ -87,8 +87,8 @@ TriggerTypeClass::TriggerTypeClass(char const *ini_name) :
     FirstEvent(0),
     FirstAction(0)
 {
-    unknown_AbstractClass_list_00ac0c98.Add(this);
-    unknown_objects_ac0cb0.Add(this);
+    EventActionPtrTracker.Add(this);
+    AbstractTypePtrTracker.Add(this);
     ArrayIndex = TriggerTypes.Count();
     TriggerTypes.Add(this);
 }
@@ -114,8 +114,8 @@ TriggerTypeClass::~TriggerTypeClass()
         delete event;
         event = next;
     }
-    unknown_objects_ac0cb0.Delete(this);
-    unknown_AbstractClass_list_00ac0c98.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
+    EventActionPtrTracker.Delete(this);
 }
 
 

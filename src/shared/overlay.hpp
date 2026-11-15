@@ -55,7 +55,7 @@ public:
     static int __fastcall To_Tiberium(int overlay);                     // 0x005DC0B0 (the tiberium type of an ore overlay, -1)
     static void __fastcall Read_INI(CCINIClass &ini);                   // 0x005DB670 ([OverlayPack] and [OverlayDataPack])
     static void __fastcall Write_INI(CCINIClass &ini);                  // 0x005DBA30
-    static void unknown_func_5dc180();                                  // 0x005DC180 (clears overlay 0x7E, then a pass over the dense cells)
+    static void Post_Read_Vein_Fixups();                                  // 0x005DC180 (clears overlay 0x7E, then a pass over the dense cells)
 
     OverlayTypeClass *Class;                // +0x098
 };

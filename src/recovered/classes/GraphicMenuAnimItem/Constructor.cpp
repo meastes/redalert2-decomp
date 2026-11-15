@@ -19,7 +19,7 @@ GraphicMenuAnimItem::GraphicMenuAnimItem(int id, void *unknown_list, Point2D con
     if (image_file.Is_Available() && palette_file.Is_Available()) {
         {
             Wstring name(palette.Peek_Buffer());
-            Anim = (MSAnim *)unknown_load_drawer_5ac560(name);
+            Anim = (MSAnim *)Create_Drawer(name);
         }
         MSShapeAnim *shape = new MSShapeAnim(image, origin.X, origin.Y, (ConvertClass *)Anim, rate, loop, 0);
         if (shape != 0) {
