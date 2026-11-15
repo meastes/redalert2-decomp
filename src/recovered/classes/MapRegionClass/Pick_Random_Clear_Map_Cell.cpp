@@ -8,11 +8,11 @@ extern Random2Class unknown_map_random_a705c0;
 // @ref __real@8@3fdf8000000080000000=007a5dd0
 // @ref __ftol=0077f110
 // ECX hidden result, EAX same result pointer, RET0; retry limit precedes the map-clear test.
-Cell __fastcall MapRegionClass::Pick_Random_Clear_Map_Cell_0056d7a0()
+Cell __fastcall MapRegionClass::Pick_Random_Clear_Map_Cell()
 {
     int tries=0;
     for(;;) {
-        Cell position=Pick_Random_Map_Cell_0056d720();
+        Cell position=Pick_Random_Map_Cell();
         if(++tries>200)return Cell(0,0);
         if(Map[position].unknown_47b590())return position;
     }

@@ -46,7 +46,7 @@ void MapGeneratorClass::Generate_Rural_Areas()
         position.Y=0;
         int localTries=0;
         for(;;) {
-            position=MapRegionClass::Pick_Random_Clear_Map_Cell_0056d7a0();
+            position=MapRegionClass::Pick_Random_Clear_Map_Cell();
             ++localTries;
             if(localTries>=20)break;
             if(seed_0056dac0::unknown_generation_cell_clear_0056dac0((short *)&position) && Can_Place_Paved_Road_00588a30(Rect(position.X-4,position.Y-4,8,8),false,false) && Map.Unknown_0055A660(position,true))break;

@@ -673,7 +673,7 @@ Original and Enhanced under it, Cancel in the bottom slot (0x005E6860 and 0x005E
 list them, native fixups). Rows: Fullscreen (Automatic on touch hosts), Vertical sync,
 Game interface size (1x, 1.25x, 1.5x, 2x), Map zoom (1x, 1.25x, 1.5x, 2x), Picture
 scaling (Sharp, the original look; Nearest; Smooth), Menu fill (Off, the original look;
-Blurred backdrop), Queue five with Shift (Off, On; C16), Controls (Classic, Modern; C16). The page opens as the shell's other screens do (C12): the Options
+Blurred backdrop), Queue five with Shift (Off, On; C16), Controls (Classic, Modern; C16), HD vehicles (Off, 2x; C16). The page opens as the shell's other screens do (C12): the Options
 dialog's column slides out (0x005E5FC0, the original's in-place transition of the skirmish
 map dialog's Random Map button) and the dialog is hidden; when the page closes the dialog is
 shown again and its next paint slides the column back in.
@@ -730,7 +730,7 @@ the game's width only gives back the sidebar's extra width as before (the zoom d
 change the screen). Every setting is off by default;
 the Original preset sets them back (fullscreen is a choice the presets leave alone).
 The settings (`platform/sdl/enhancements.cpp`) are kept in the app's own settings
-file (`enh_vsync`, `enh_scaling`, `enh_uisize`, `enh_mapzoom`, `enh_menufill`, `enh_queuefive`, `enh_controls`), never in RA2.INI; `RA2_NATIVE_ENHANCEMENTS=
+file (`enh_vsync`, `enh_scaling`, `enh_uisize`, `enh_mapzoom`, `enh_menufill`, `enh_queuefive`, `enh_controls`, `enh_hdvehicles`), never in RA2.INI; `RA2_NATIVE_ENHANCEMENTS=
 "preset=enhanced"` or `"vsync=on,scaling=smooth"` sets them for one run (tests).
 ctest `native-enhancements-frames` (`tests/enhancements_frames.py`) runs the main
 menu with the window at 0.75x the picture (`RA2_NATIVE_WINDOW_ZOOM`) and proves the
@@ -793,7 +793,55 @@ each and check the selection, the first tank's mission and the MCV's deploy; cte
 `native-touch-modern` (`tests/touch_input.py`) plays the touch gestures with Modern. The radar's
 swap has no ctest (the build order would need a radar building, about 2,500 frames).
 
+HD vehicles (C16, the user's list: 2x units and shadows first; written from the behaviour the
+redalert2-recomp design notes describe, our own mechanism, no code taken): voxel vehicles and their
+shadows shown at twice the picture's resolution, the game's own 1x drawing unchanged
+(`link/native_hd_vehicles.cpp`). Off by default and in the Original preset; the Enhanced preset sets
+2x. A game takes the setting when it starts or loads, as the map zoom. With it on:
+VoxelDrawSystem::Render 0x007178E0 (units, aircraft, buildings' voxel parts, their shadows) and
+Render(Rect &, int &, int &) 0x007176C0 (voxel animations and debris, voxel bullets) draw each voxel
+object or shadow three more times, each pass
+starting half a pixel further left, up or both (native fixups at VoxelLibrary::Render_Object and
+Render_Shadow's start offsets; the replay of the queued sections is a fixup in voxdrsys.cpp); the
+four 1x images interleaved are the 2x image (each pass is whole, so there are no holes), and the
+voxel buffer and its depth buffer get their 1x contents back. Bit_Blit 0x00434B40 (renamed by a
+fixup; `Bit_Blit` is now the native wrapper) runs, for a source holding a 2x image, the same
+blitter over the 2x rows into the destination's 2x image (the house colours, the light from the
+alpha buffer at each 1x pixel, the shadow darkening), for the destination pixels the 1x blit
+changed (the depth buffer decided) and the transparent ones beside them: the voxel buffer, then
+the unit's 256x256 staging surface, the battlefield, the screen; plain copies and DirectDraw
+copies (DSurface::Copy_From) carry it along. Each 2x pixel group is stamped with the 1x value it
+belongs to and counts only while the surface still holds that value, so what is drawn over a unit
+later (a health bar, smoke, the cursor) shows at 1x. The host lays the screen's 2x pixels over the
+picture at the picture's scale (`host.cpp` `hd_update`: an overlay texture twice the picture's size,
+updated over the box the units cover; the regions' mapping too, so with Map zoom the units are
+sharper, not only larger). Cache policy: the game's voxel and shadow caches are off while a game
+has HD on (techno.cpp fixups add it to DisableVoxelCache / DisableShadowCache): a cached image has
+no 2x image, and since the setting is taken at a game's start no cache filled with it off is used
+with it on (the recomp's turret-facing fault came from that). `RA2_NATIVE_HD_STATS=1` logs every
+100 pictures the renders, blits and pixels made, the screen pixels shown at 2x, the 2x groups whose
+top-left pixel (the 1x render's own) disagrees with the picture (0 when the 2x image belongs to
+the frame shown) and the 2x work per picture; `RA2_NATIVE_HD_COMPARE=1` with
+`RA2_NATIVE_WINDOW_DUMP` also writes each dump without the overlay (`<file>.<n>.1x.bmp`). ctest
+`native-hd-vehicles` (`tests/hd_vehicles.py`) plays a skirmish with HD vehicles and Map zoom 1.5x,
+the units driving, two tanks force-firing in eight directions (turret facings) and the view
+scrolling, and checks that every count shows units at 2x, none disagrees, no picture falls back to
+1x after one at 2x (flicker), and the work stays under 4 ms a picture (on the Mac);
+`native-hd-vehicles-zoom2` the same at Map zoom 2x. The 2x work a picture: Mac (Apple M4) about 1.4 ms
+(the passes 0.55, the 2x blits 0.75, copies and the overlay under 0.1; about 2 ms of CPU a game frame,
+inside the game's own pacing); the Windows build under Wine (x86_64 under Rosetta) 1.9 ms at -O2
+(10 ms at -O0); the iOS Simulator 2.5 ms (20.8 frames a second, 148 MB, as without). Shadows' 2x edges are closed (a 3x3 dilation then
+erosion of the four passes' union, the 1x render's own pixels kept) so they are solid, not checkered.
+
 ### Original saves (C6, roadmap (d))
+
+End state (user, 2026-11-14): original-format saves only, as in the Outpost 2 port; the port's own
+save container is dropped. Until then RA2_NATIVE_SAVE_FORMAT=original is a temporary switch (no
+Enhancements row). The container goes once the functional proof (written saves load and play in the
+port on Mac, Windows and iOS and in the installed game on real Windows; Mac-to-iPhone transfer carries
+original-format saves) passes; that release still loads port-format saves so they can be re-saved in
+the original format, then the reader is removed.
+
 
 The user's saves from the original game (base RA2, internal version 0x288CC) are
 read in place, never copied or written. `port/src/storage.cpp` reads a compound
@@ -1314,6 +1362,15 @@ cmake -S native -B build/native-win -G Ninja \
   -DRA2_NATIVE_SDL_SOURCE=<SDL 3.4.2 source> -DRA2_NATIVE_SUBSYSTEM=all -DRA2_NATIVE_LINK_CLOSURE=ON
 cmake --build build/native-win          # build/native-win/RA2Native.exe and ra2-native.exe, self-contained (no toolchain DLLs)
 ```
+
+The toolchain file compiles at -O2 by default, as the iOS build does (no build type, so no
+NDEBUG; lane C16: before, no build type was set and the Windows build compiled at -O0);
+`-DRA2_WINDOWS_OPT=-O0` makes a debugging build. At -O2 the build needs the dialect's
+`-fno-delete-null-pointer-checks` (all targets): VC6 code tests `this` against null
+(AbstractClass::As_Techno 0x0040DC20), which clang otherwise deletes as always true; the first -O2
+Windows build called a null object's Kind_Of at the first game frame (ScrollClass::Resolve_Point
+over open ground). A build folder configured before keeps the
+flags in its cache: configure a fresh folder (or pass `-DCMAKE_CXX_FLAGS=-O2 -DCMAKE_C_FLAGS=-O2`).
 
 The toolchain is the extracted llvm-mingw release (20261020, macOS universal), found by
 `RA2_LLVM_MINGW` or under the main checkout's `private/toolchains/llvm-mingw-20261020/`;

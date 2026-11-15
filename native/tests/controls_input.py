@@ -134,7 +134,9 @@ CONTROLS_SCRIPT = ['100 click @AMCV', '120 rclick @AMCV',             # right cl
                    '230 click @MTNK+2,2',                               # left click on the ground
                    '310 click @MTNK',
                    '340 rclick @E1',                                    # right click on another unit
-                   '370 rclick @MTNK+3,3',                              # right click on the ground
+                   # right click on the ground; a second cell in case the first is blocked (a cliff or the
+                   # construction yard: the start positions vary; the first click had no order once)
+                   '370 rclick @MTNK+2,0', '395 rclick @MTNK+0,2',
                    '420 keydown Left_Shift', '421 click @MTNK:1', '425 keyup Left_Shift',
                    '445 keydown Left_Shift', '446 click @MTNK:1', '450 keyup Left_Shift',
                    '480 click @MTNK:2', '481 click @MTNK:2',            # a double click
@@ -142,39 +144,39 @@ CONTROLS_SCRIPT = ['100 click @AMCV', '120 rclick @AMCV',             # right cl
                    '553 keyup Left_Shift']
 CASES = {
     'queue-five': dict(script=QUEUE_SCRIPT, frames=1000, env=dict(BUILD_ENV, RA2_NATIVE_ENHANCEMENTS='queuefive=on'),
-                       args=BUILD_ARGS, want=[(930, 'Shift-click queues five', count('inf', 5)),
-                                              (955, 'a plain click queues one more', count('inf', 6)),
-                                              (965, 'a right click holds', count('inf', 6)),
-                                              (1000, 'Shift-right-click removes five', count('inf', 1))]),
+                       args=BUILD_ARGS, want=[((918, 934), 'Shift-click queues five', count('inf', 5)),
+                                              ((942, 959), 'a plain click queues one more', count('inf', 6)),
+                                              ((962, 969), 'a right click holds', count('inf', 6)),
+                                              ((980, 1000), 'Shift-right-click removes five', count('inf', 1))]),
     'queue-five-off': dict(script=QUEUE_SCRIPT, frames=1000, env=dict(BUILD_ENV, RA2_NATIVE_ENHANCEMENTS='queuefive=off'),
-                           args=BUILD_ARGS, want=[(930, 'Shift-click queues one (setting off)', count('inf', 1)),
-                                                  (955, 'a plain click queues one more', count('inf', 2)),
-                                                  (965, 'a right click holds', count('inf', 2)),
-                                                  (1000, 'Shift-right-click removes one (setting off)', count('inf', 1))]),
+                           args=BUILD_ARGS, want=[((918, 934), 'Shift-click queues one (setting off)', count('inf', 1)),
+                                                  ((942, 959), 'a plain click queues one more', count('inf', 2)),
+                                                  ((962, 969), 'a right click holds', count('inf', 2)),
+                                                  ((980, 1000), 'Shift-right-click removes one (setting off)', count('inf', 1))]),
     'modern': dict(script=CONTROLS_SCRIPT, frames=560, env={'RA2_NATIVE_ENHANCEMENTS': 'controls=modern'}, args=[],
-                   want=[(195, 'right click on the selected MCV deploys it', deployed()),
-                         (225, 'left click selects', first_tank(5, True)),
-                         (260, 'left click on the ground deselects', selection([])),
-                         (300, 'and orders nothing', first_tank(5, False)),
-                         (360, 'right click on a unit never selects', selection(['MTNK'])),
-                         (400, 'right click on the ground orders the move', first_tank(2, True)),
-                         (400, 'and keeps the selection', selection(['MTNK'])),
-                         (440, 'Shift-click adds', selection(['MTNK', 'MTNK'])),
-                         (465, 'Shift-click on a selected unit removes it', selection(['MTNK'])),
-                         (500, 'double click selects the type on the screen', all_tanks_only()),
-                         (515, 'a box selects', lambda state, st: (bool(selected(state)), described(state))),
-                         (535, 'Shift-box over selected objects removes them', selection([])),
-                         (555, 'Shift-box again adds them', same_as(515)),
-                         (560, 'the MCV stays deployed', deployed())]),
+                   want=[((150, 198), 'right click on the selected MCV deploys it', deployed()),
+                         ((205, 228), 'left click selects', first_tank(5, True)),
+                         ((235, 305), 'left click on the ground deselects', selection([])),
+                         ((285, 305, 'all'), 'and orders nothing', first_tank(5, False)),
+                         ((350, 368, 'all'), 'right click on a unit never selects', selection(['MTNK'])),
+                         ((375, 418), 'right click on the ground orders the move', first_tank(2, True)),
+                         ((375, 418), 'and keeps the selection', selection(['MTNK'])),
+                         ((425, 443), 'Shift-click adds', selection(['MTNK', 'MTNK'])),
+                         ((452, 478), 'Shift-click on a selected unit removes it', selection(['MTNK'])),
+                         ((485, 502), 'double click selects the type on the screen', all_tanks_only()),
+                         ((512, 517), 'a box selects', lambda state, st: (bool(selected(state)), described(state))),
+                         ((530, 537), 'Shift-box over selected objects removes them', selection([])),
+                         ((550, 560), 'Shift-box again adds them', same_as(515)),
+                         ((555, 560), 'the MCV stays deployed', deployed())]),
     'classic': dict(script=CONTROLS_SCRIPT, frames=560, env={'RA2_NATIVE_ENHANCEMENTS': 'controls=classic'}, args=[],
-                    want=[(140, 'right click on the selected MCV deselects it', selection([])),
-                          (225, 'left click selects', first_tank(5, True)),
-                          (260, 'left click on the ground orders the move', first_tank(2, True)),
-                          (360, 'right click deselects', selection([])),
-                          (440, 'Shift-click selects (nothing was selected)', selection(['MTNK'])),
-                          (500, 'a double click selects the one tank', selection(['MTNK'])),
-                          (535, 'Shift-box adds (all were selected: they stay)', same_as(515)),
-                          (560, 'the MCV stays undeployed', lambda state, st: ('AMCV' in [o[0] for o in objects(state)], described(state)))]),
+                    want=[((125, 198), 'right click on the selected MCV deselects it', selection([])),
+                          ((205, 228), 'left click selects', first_tank(5, True)),
+                          ((235, 305), 'left click on the ground orders the move', first_tank(2, True)),
+                          ((345, 368), 'right click deselects', selection([])),
+                          ((425, 443), 'Shift-click selects (nothing was selected)', selection(['MTNK'])),
+                          ((485, 502), 'a double click selects the one tank', selection(['MTNK'])),
+                          ((530, 537), 'Shift-box adds (all were selected: they stay)', same_as(515)),
+                          ((555, 560), 'the MCV stays undeployed', lambda state, st: ('AMCV' in [o[0] for o in objects(state)], described(state)))]),
 }
 
 
@@ -258,11 +260,25 @@ def main():
     problems = []
     if p.returncode != 0 or bad:
         problems.append('exit %d, %d bad lines' % (p.returncode, len(bad)))
-    for frame, what, check in case['want']:
-        ok, got = check(st.get(frame), st)
-        print('frame %d (%s): %s%s' % (frame, what, got, '' if ok else '  <- FAILED'))
+    # Each check looks at the states in its window of frames (every 5th frame is logged), from the
+    # step's own frames to the next scripted step: 'any' passes on the first state that shows the
+    # step's result (a click's event may run a few frames later under load), 'all' when every state
+    # does (nothing happened). Fixed frames failed under load (E1b's full gate, 2026-11-14).
+    for window, what, check in case['want']:
+        lo, hi = window[0], window[1]
+        mode = window[2] if len(window) > 2 else 'any'
+        frames = [f for f in sorted(st) if lo <= f <= hi]
+        results = [(f,) + tuple(check(st[f], st)) for f in frames]
+        if mode == 'all':
+            ok = bool(results) and all(r[1] for r in results)
+            shown = next((r for r in results if not r[1]), results[-1] if results else None)
+        else:
+            ok = any(r[1] for r in results)
+            shown = next((r for r in results if r[1]), results[-1] if results else None)
+        got = 'frame %d: %s' % (shown[0], shown[2]) if shown else 'no state'
+        print('frames %d-%d %s (%s): %s%s' % (lo, hi, mode, what, got, '' if ok else '  <- FAILED'))
         if not ok:
-            problems.append('frame %d: not %s (%s)' % (frame, what, got))
+            problems.append('frames %d-%d: not %s (%s)' % (lo, hi, what, got))
     for l in bad[:20]:
         print('  ' + l)
     if problems:

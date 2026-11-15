@@ -105,10 +105,12 @@ void Native_Tooltip_Zoom(bool map_side, int *x, int *y, int width, int height)
 
 // A game is loaded (Get_All, native fixup before its Set_View_Dimensions call): it takes the
 // zoom set now; its loading screen is shown whole until the first frame.
+void Native_Hd_Vehicles_Start();   // link/native_hd_vehicles.cpp (HD vehicles, C16): taken with the zoom
 void Native_Map_Zoom_Load()
 {
     ra2_enh_in_play(0);
     game_zoom = ra2_enh_map_zoom();
+    Native_Hd_Vehicles_Start();
 }
 
 // A scenario starts (Start_Scenario, native fixup at its top): the loading screen and the
@@ -127,6 +129,7 @@ void Native_Map_Zoom_Leave()
 void Native_Map_Zoom_Start()
 {
     game_zoom = ra2_enh_map_zoom();
+    Native_Hd_Vehicles_Start();
     if (game_zoom != view_zoom) {
         Rect tactical = Get_Title_Screen_Area_006f1f30();
         Map.unknown_slot42(tactical);

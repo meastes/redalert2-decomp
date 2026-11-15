@@ -64,6 +64,61 @@ class ApplyRenameTests(unittest.TestCase):
         text = '// @ref %s=00000500\n// @ref %s=00000400\n' % (mutable, mutable)
         self.assertEqual(apply_rename.rewrite(text, spec), '// @ref %s=00000500\n// @ref %s=00000400\n' % (const, mutable))
 
+    def test_overload_renames_give_two_functions_one_name(self):
+        cell = '?unknown_slot77@AircraftClass@@UAE_NHPBVCell@@0_N@Z'
+        obj = '?unknown_slot78@AircraftClass@@UAE_NHPAVObjectClass@@_N@Z'
+        new_cell = '?Active_Click_With@AircraftClass@@UAE_NHPBVCell@@0_N@Z'
+        new_obj = '?Active_Click_With@AircraftClass@@UAE_NHPAVObjectClass@@_N@Z'
+        overloads = {cell: (new_cell, 0x417560), obj: (new_obj, 0x4174b0)}
+        # A plan bound both by prefix; another population by full name; a caller relocates to both.
+        prefixed = {'?unknown_slot77@AircraftClass@@': 0x417560, '?unknown_slot78@AircraftClass@@': 0x4174b0,
+                    '?unknown_slot7': 0x500}
+        rows = [dict(region('population-1', cell, prefixed), entry=0x417560, symbol_prefix='?unknown_slot77@AircraftClass@@'),
+                dict(region('population-1', obj, prefixed), entry=0x4174b0, symbol_prefix='?unknown_slot78@AircraftClass@@'),
+                dict(region('population-2', '?F@@YAXXZ', {cell: 0x417560, obj: 0x4174b0}), entry=0x600)]
+        rows[2]['relocations'] = [dict(symbol=cell, target=0x417560), dict(symbol=obj, target=0x4174b0)]
+        catalog = dict(regions=rows)
+        self.assertEqual(apply_rename.rename_catalog(catalog, {}, {}, {}, {}, overloads), {'population-1', 'population-2'})
+        self.assertEqual(rows[0]['references'], {new_cell: 0x417560, new_obj: 0x4174b0, '?unknown_slot7': 0x500})
+        self.assertEqual([(r['symbol'], r['symbol_prefix']) for r in rows[:2]], [(new_cell, new_cell), (new_obj, new_obj)])
+        self.assertEqual(rows[2]['references'], {new_cell: 0x417560, new_obj: 0x4174b0})
+        self.assertEqual([r['symbol'] for r in rows[2]['relocations']], [new_cell, new_obj])
+        self.assertEqual(apply_rename.overload_left(catalog, overloads), [])
+        spec = dict(rules=[], renames={}, overload_renames=overloads)
+        text = ('// @ref ?unknown_slot77@AircraftClass@@=00417560\n// @ref %s=004174b0\n'
+                '// @ref ?unknown_slot77@AircraftClass@@=00999999\n' % obj)
+        self.assertEqual(apply_rename.rewrite(text, spec), '// @ref %s=00417560\n// @ref %s=004174b0\n'
+                         '// @ref ?unknown_slot77@AircraftClass@@=00999999\n' % (new_cell, new_obj))
+
+    def test_overload_rename_refuses_a_name_bound_elsewhere_or_a_shared_prefix(self):
+        old, new = '?unknown_slot77@A@@UAE_NH@Z', '?Click@A@@UAE_NH@Z'
+        overloads = {old: (new, 0x100)}
+        with self.assertRaisesRegex(SystemExit, 'bound at 00000200'):
+            apply_rename.rename_catalog(dict(regions=[region('population-1', '?F@@YAXXZ', {old: 0x200})]), {}, {}, {}, {}, overloads)
+        # A prefix key of the new name that binds another address would cover this overload too.
+        catalog = dict(regions=[region('population-1', '?F@@YAXXZ', {old: 0x100, '?Click@A@@': 0x300})])
+        with self.assertRaisesRegex(SystemExit, 'would bind two addresses'):
+            apply_rename.rename_catalog(catalog, {}, {}, {}, {}, overloads)
+
+    def test_overload_spec_needs_full_names_and_distinct_addresses(self):
+        import json, tempfile
+        def load(overloads, renames=None):
+            with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False) as handle:
+                json.dump(dict(name='t', renames=renames or {}, overload_renames=overloads), handle)
+            return apply_rename.load_spec(handle.name, dict(regions=[]))
+        good = load({'?a@X@@QAEXH@Z': dict(new='?b@X@@QAEXH@Z', at='00401000'),
+                     '?c@X@@QAEXN@Z': dict(new='?b@X@@QAEXN@Z', at='00401010')})
+        self.assertEqual(good['overload_renames']['?a@X@@QAEXH@Z'], ('?b@X@@QAEXH@Z', 0x401000))
+        for bad in ({'?a@X@@QAEXH@Z': dict(new='?b@X@@QAEXH@Z', at=['00401000'])},
+                    {'?a@X@@QAEXH@Z': dict(new='?b@X@@QAEXH@Z', at='00401000'),
+                     '?c@X@@QAEXN@Z': dict(new='?b@X@@QAEXH@Z', at='00401010')},
+                    {'?a@X@@QAEXH@Z': dict(new='?b@X@@QAEXH@Z', at='00401000'),
+                     '?c@X@@QAEXN@Z': dict(new='?b@X@@QAEXN@Z', at='00401000')}):
+            with self.assertRaises(SystemExit):
+                load(bad)
+        with self.assertRaises(SystemExit):
+            load({'?a@X@@QAEXH@Z': dict(new='?b@X@@QAEXH@Z', at='00401000')}, {'?a@X@@QAEXH@Z': '?z@X@@QAEXH@Z'})
+
     def test_rename_onto_an_existing_binding_at_another_address_refuses(self):
         catalog = dict(regions=[region('population-1', '?F@@YAXXZ', {OLD: 1, NEW: 2})])
         with self.assertRaises(SystemExit):

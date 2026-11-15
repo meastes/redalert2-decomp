@@ -71,6 +71,10 @@ const std::vector<Row> &rows()
         // the original's events. The Enhanced preset leaves it alone (a change of habit, not a look).
         {"controls", "Controls", "Modern: left click selects, right click orders, right drag scrolls.",
          {"classic", "modern"}, {"Classic", "Modern"}, true},
+        // Lane C16 (user, 2026-11-14): voxel vehicles and their shadows drawn at 2x the picture's
+        // resolution (link/native_hd_vehicles.cpp); the game's own drawing is unchanged.
+        {"hdvehicles", "HD vehicles", "Vehicles and their shadows at twice the detail. From the next game.",
+         {"off", "2"}, {"Off", "2x"}, true},
     };
     return r;
 }
@@ -79,9 +83,9 @@ const std::map<std::string, std::string> &preset_values(bool enhanced)
 {
     static const std::map<std::string, std::string> original = {{"vsync", "off"}, {"scaling", "sharp"}, {"uisize", "1"}, {"mapzoom", "1"},
                                                                          {"menufill", "off"}, {"queuefive", "off"},
-                                                                         {"controls", "classic"}};
+                                                                         {"controls", "classic"}, {"hdvehicles", "off"}};
     static const std::map<std::string, std::string> better = {{"vsync", "on"}, {"scaling", "smooth"}, {"menufill", "backdrop"},
-                                                                       {"queuefive", "on"}};
+                                                                       {"queuefive", "on"}, {"hdvehicles", "2"}};
     return enhanced ? better : original;
 }
 
@@ -142,9 +146,9 @@ void load()
         }
         store_set = nullptr;
     }
-    fprintf(stderr, "enhancements: vsync %s, scaling %s, interface %sx, map zoom %sx, menu fill %s, queue five %s, controls %s\n",
+    fprintf(stderr, "enhancements: vsync %s, scaling %s, interface %sx, map zoom %sx, menu fill %s, queue five %s, controls %s, hd vehicles %s\n",
             current["vsync"].c_str(), current["scaling"].c_str(), current["uisize"].c_str(), current["mapzoom"].c_str(),
-            current["menufill"].c_str(), current["queuefive"].c_str(), current["controls"].c_str());
+            current["menufill"].c_str(), current["queuefive"].c_str(), current["controls"].c_str(), current["hdvehicles"].c_str());
 }
 
 bool automatic(const Row &r) { return std::string(r.key) == "fullscreen" && ra2_host_touch(); }
@@ -266,6 +270,13 @@ int ra2_enh_modern_controls(void)
 {
     load();
     return current["controls"] == "modern";
+}
+// HD vehicles (lane C16): 0 off, 2 for 2x; a game takes it when it starts or loads
+// (link/native_hd_vehicles.cpp).
+int ra2_enh_hd_vehicles(void)
+{
+    load();
+    return current["hdvehicles"] == "2" ? 2 : 0;
 }
 }
 

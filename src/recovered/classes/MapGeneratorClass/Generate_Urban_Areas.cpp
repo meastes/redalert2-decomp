@@ -38,7 +38,7 @@ void MapGeneratorClass::Generate_Urban_Areas()
         position.X=0;position.Y=0;
         int localTries=0;
         for(;;) {
-            position=MapRegionClass::Pick_Random_Clear_Map_Cell_0056d7a0();
+            position=MapRegionClass::Pick_Random_Clear_Map_Cell();
             if(++localTries>=20)break;
             if(seed_0056dac0::unknown_generation_cell_clear_0056dac0((short *)&position) || Neighborhood_Is_Clear_00588380(position))break;
         }

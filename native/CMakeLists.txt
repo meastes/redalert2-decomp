@@ -71,6 +71,11 @@ target_compile_options(ra2_dialect INTERFACE
   "$<$<COMPILE_LANGUAGE:CXX>:-fms-extensions;-fms-compatibility;-fdelayed-template-parsing>"
   "$<$<COMPILE_LANGUAGE:CXX>:SHELL:-Xclang -fno-wchar>" "$<$<COMPILE_LANGUAGE:CXX>:-fshort-wchar>"
   "$<$<COMPILE_LANGUAGE:CXX>:-fwrapv;-fno-strict-aliasing>"
+  # VC6 code tests `this` against null (AbstractClass::As_Techno 0x0040DC20 `if (this)`, called on
+  # ScrollClass::Resolve_Point's object, null over open ground); clang at -O2 deletes such tests as
+  # always true. The x86_64 Windows build at -O2 (lane C16) called a null object's Kind_Of at the
+  # first game frame. -fno-delete-null-pointer-checks keeps the tests, as VC6 did.
+  "$<$<COMPILE_LANGUAGE:CXX>:-fno-delete-null-pointer-checks>"
   # VC6 bit-field layout (Scout1103): a bit-field takes a whole unit of its
   # declared type and the next non-bit-field member starts after that unit
   # (IsoTileCellStruct's `unsigned :1` flags at +0x24 put the ramp byte at
@@ -516,6 +521,19 @@ if(RA2_NATIVE_SDL)
                    ${ra2_wine_args_controls})
           set_tests_properties(native-controls-${ra2_controls_case} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
         endforeach()
+        # 12c. HD vehicles (C16): a skirmish with HD vehicles 2x and Map zoom 1.5x, units moving and
+        #      turrets turning; every picture shows units at 2x and no 2x group disagrees with its
+        #      1x pixel (tests/hd_vehicles.py).
+        add_test(NAME native-hd-vehicles COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/hd_vehicles.py"
+                 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-hd-vehicles.log"
+                 ${ra2_wine_args_hdvox})
+        set_tests_properties(native-hd-vehicles PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
+        add_test(NAME native-hd-vehicles-zoom2 COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/hd_vehicles.py"
+                 --zoom 2 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-hd-vehicles-zoom2.log"
+                 ${ra2_wine_args_hdvox})
+        set_tests_properties(native-hd-vehicles-zoom2 PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
         # 13. Touch controls (C10): the app's movies, menus and a game with the touch controls on;
         #     Skip alone during a movie, the Keys button alone in the menus (its tap turns the
         #     keyboard on), the toolbar alone in play.

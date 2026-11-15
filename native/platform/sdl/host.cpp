@@ -1455,6 +1455,57 @@ bool fill_menu_bands(float density)
     return true;
 }
 
+// HD vehicles (lane C16; link/native_hd_vehicles.cpp): the screen's 2x unit pixels that still show
+// in the picture, laid over it at the picture's scale (the regions' too, so with Map zoom the units
+// are sharper, not only larger). hd_argb is the overlay at twice the picture's size, transparent
+// but where a unit's 2x pixels show; each new picture clears the box it wrote last and writes the new.
+extern "C" __attribute__((weak)) int ra2_hd_overlay(const void *, int, int, int, uint32_t *, int (*)[4], int, int *count)
+{
+    *count = 0;
+    return 0;
+}
+SDL_Texture *hd_texture = nullptr;
+std::vector<uint32_t> hd_argb;
+int hd_w = 0, hd_h = 0;
+constexpr int kHdAreas = 64;
+int hd_areas[kHdAreas][4], hd_area_count = 0;   // the areas written last (1x pixels: x, y, w, h)
+bool hd_shown = false;
+void hd_update(const void *pixels, int width, int height, int pitch)
+{
+    if (!pixels) return;      // the last picture again: the overlay stays as it is
+    if (hd_w != width || hd_h != height) {
+        if (hd_texture) SDL_DestroyTexture(hd_texture);
+        hd_texture = nullptr;
+        hd_argb.assign((size_t)width * height * 4, 0);
+        hd_w = width;
+        hd_h = height;
+        hd_area_count = 0;
+    }
+    int W = width * 2;
+    int old_areas[kHdAreas][4], old_count = hd_area_count;
+    memcpy(old_areas, hd_areas, sizeof hd_areas);
+    for (int k = 0; k < old_count; ++k)
+        for (int y = old_areas[k][1] * 2; y < (old_areas[k][1] + old_areas[k][3]) * 2; ++y)
+            memset(&hd_argb[(size_t)y * W + old_areas[k][0] * 2], 0, (size_t)old_areas[k][2] * 2 * sizeof(uint32_t));
+    bool any = ra2_hd_overlay(pixels, pitch, width, height, hd_argb.data(), hd_areas, kHdAreas, &hd_area_count) != 0;
+    if (!any && !hd_shown) return;
+    if (!hd_texture) {
+        hd_texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, W, height * 2);
+        if (!hd_texture) return;
+        SDL_SetTextureBlendMode(hd_texture, SDL_BLENDMODE_BLEND);
+        SDL_UpdateTexture(hd_texture, nullptr, hd_argb.data(), W * sizeof(uint32_t));
+    }
+    SDL_SetTextureScaleMode(hd_texture, picture_scale_mode);
+    // The areas cleared and the areas written go up.
+    auto upload = [&](const int *a) {
+        SDL_Rect r = {a[0] * 2, a[1] * 2, a[2] * 2, a[3] * 2};
+        if (r.w > 0 && r.h > 0) SDL_UpdateTexture(hd_texture, &r, &hd_argb[(size_t)r.y * W + r.x], W * sizeof(uint32_t));
+    };
+    for (int k = 0; k < old_count; ++k) upload(old_areas[k]);
+    for (int k = 0; k < hd_area_count; ++k) upload(hd_areas[k]);
+    hd_shown = any;
+}
+
 void present_now(const void *pixels, int width, int height, int pitch)
 {
     if (in_background || !renderer) return;     // iOS: no drawing in the background
@@ -1494,22 +1545,35 @@ void present_now(const void *pixels, int width, int height, int pitch)
     }
     if (layout_dirty) update_layout();
     if (pixels) SDL_UpdateTexture(texture, nullptr, pixels, pitch);
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    SDL_RenderClear(renderer);
+    hd_update(pixels, width, height, pitch);
     float density = pixel_density();
-    SDL_FRect dst = {(float)(picture.x * density), (float)(picture.y * density), (float)(picture.w * density), (float)(picture.h * density)};
-    if (texture && !regions.empty()) {
-        // Split or zoomed: each region of the picture at its own scale (the map view larger
-        // with the zoom, the sidebar column's rows that its surface holds filling the height).
-        for (const Region &r : regions) {
-            SDL_FRect src = {(float)r.sx, (float)r.sy, (float)r.sw, (float)r.sh};
-            SDL_FRect to = {(float)(r.dx * density), (float)(r.dy * density), (float)(r.dw * density), (float)(r.dh * density)};
-            SDL_RenderTexture(renderer, texture, &src, &to);
+    // The picture (with_hd: and the HD vehicles' overlay; RA2_NATIVE_HD_COMPARE dumps it both ways).
+    auto draw_picture = [&](bool with_hd) {
+        bool hd_was = hd_shown;
+        if (!with_hd) hd_shown = false;
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderClear(renderer);
+        SDL_FRect dst = {(float)(picture.x * density), (float)(picture.y * density), (float)(picture.w * density), (float)(picture.h * density)};
+        if (texture && !regions.empty()) {
+            // Split or zoomed: each region of the picture at its own scale (the map view larger
+            // with the zoom, the sidebar column's rows that its surface holds filling the height).
+            for (const Region &r : regions) {
+                SDL_FRect src = {(float)r.sx, (float)r.sy, (float)r.sw, (float)r.sh};
+                SDL_FRect to = {(float)(r.dx * density), (float)(r.dy * density), (float)(r.dw * density), (float)(r.dh * density)};
+                SDL_RenderTexture(renderer, texture, &src, &to);
+                if (hd_shown && hd_texture) {
+                    SDL_FRect src2 = {src.x * 2, src.y * 2, src.w * 2, src.h * 2};
+                    SDL_RenderTexture(renderer, hd_texture, &src2, &to);
+                }
+            }
+        } else if (texture && !fill_menu_bands(density)) {
+            SDL_RenderTexture(renderer, texture, nullptr, &dst);
+            if (hd_shown && hd_texture) SDL_RenderTexture(renderer, hd_texture, nullptr, &dst);
         }
-    } else if (texture && !fill_menu_bands(density)) {
-        SDL_RenderTexture(renderer, texture, nullptr, &dst);
-    }
-    draw_overlay(density);
+        draw_overlay(density);
+        hd_shown = hd_was;
+    };
+    draw_picture(true);
     // RA2_NATIVE_WINDOW_DUMP=<file> (test runs): every 2 s, the whole window
     // as drawn (device pixels: the scaling, letterbox and fullscreen) to
     // <file>.<n>.bmp; RA2_NATIVE_WINDOW_DUMP_MS=<ms> sets another period (0: every present).
@@ -1525,6 +1589,18 @@ void present_now(const void *pixels, int width, int height, int pitch)
             snprintf(name, sizeof name, "%s.%d.bmp", window_dump, window_dump_count++);
             SDL_SaveBMP(shot, name);
             SDL_DestroySurface(shot);
+            // RA2_NATIVE_HD_COMPARE=1 (HD vehicles, lane C16): the same picture without the 2x overlay
+            // beside it, <file>.<n>.1x.bmp, for before/after comparisons of one frame.
+            static const bool hd_compare = getenv("RA2_NATIVE_HD_COMPARE") != nullptr;
+            if (hd_compare && hd_shown) {
+                draw_picture(false);
+                if (SDL_Surface *plain = SDL_RenderReadPixels(renderer, nullptr)) {
+                    snprintf(name, sizeof name, "%s.%d.1x.bmp", window_dump, window_dump_count - 1);
+                    SDL_SaveBMP(plain, name);
+                    SDL_DestroySurface(plain);
+                }
+                draw_picture(true);
+            }
         }
     }
     SDL_RenderPresent(renderer);

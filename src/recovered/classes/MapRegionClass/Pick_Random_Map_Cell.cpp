@@ -44,7 +44,7 @@ int Cell::Equal_004fef20(Cell const &other) const
 #include "shared/map_region.hpp"
 #include "shared/random2.hpp"
 unsigned __fastcall Map_Random_Range_005797a0(unsigned minimum,unsigned maximum);
-Cell __fastcall MapRegionClass::Pick_Random_Map_Cell_0056d720()
+Cell __fastcall MapRegionClass::Pick_Random_Map_Cell()
 {
     int gridSize=unknown_map_cell_side_84e804*unknown_map_cell_side_84e804;
     unsigned index;

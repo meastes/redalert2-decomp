@@ -42,7 +42,7 @@ void MapGeneratorClass::Generate_Arctic_Vegetation()
     }
     int remaining=(int)((SeedData.Width*0.1+0.7)*(SeedData.Vegetation*0.01)*MaxTrees);
     for(int attempts=0;remaining>0 && attempts<100;++attempts) {
-        Cell position=MapRegionClass::Pick_Random_Clear_Map_Cell_0056d7a0();
+        Cell position=MapRegionClass::Pick_Random_Clear_Map_Cell();
         remaining-=Place_Forest(&Map[position],(int)Sample_Truncated_Normal(25.0,10.0,10.0,35.0),Sample_Truncated_Normal(0.2,0.1,0.05,0.4));
     }
 }

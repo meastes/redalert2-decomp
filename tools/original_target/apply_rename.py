@@ -23,6 +23,7 @@ re-verifies exactly the affected translation units:
    "flags": {"src/recovered/ownrdraw.cpp": {"declarations_only": true, "declarations_only_note": "..."}},
    "row_flags": {"0040c690": {"unit_evidence": "xcu-prefix"}},
    "address_renames": {"OLD MANGLING": {"new": "NEW MANGLING", "at": ["004ba0b0", ...]}},
+   "overload_renames": {"OLD FULL MANGLING": {"new": "NEW FULL MANGLING", "at": "00417560"}},
    "xcu_rewrites": {"0073bd20": "initializer", "0073bd40": "0073bd20"}}
 
 `xcu_rewrites` (docs/DECISIONS.md "$E initialiser/atexit rows placed by the original .CRT$XCU
@@ -43,6 +44,16 @@ which address is which instance. A region is renamed when its entry is listed, a
 entry when its value is, a relocation when its target is, and a `// @ref OLD=ADDRESS` comment when
 its address is; the same name bound elsewhere keeps its spelling. After the batch no listed address
 may still carry the old name.
+
+`overload_renames` rename one function, keyed by its full decorated name and the one address it is
+bound at, so that overloads may take one name (`unknown_slot77` and `unknown_slot78` both becoming
+`Active_Click_With`, each with its own parameter list). The old full name is renamed wherever it
+appears and must be bound only at that address. A reference-table key, `symbol_prefix` or
+`// @ref` name that is a shorter `?`-prefix of the old name and is bound at that address (a plan
+that bound the function by prefix, `?unknown_slot77@AircraftClass@@`) becomes the new full name:
+the shared new prefix would cover the other overloads, so a prefix never survives the rename. A
+prefix bound at another address is left alone. After the batch every table that names a new full
+name must bind it, through its exact key and every `?`-prefix key, at that address only.
 
 `modules` gathers accepted regions of one population into one source file
 (the original translation unit's form): the draft becomes the module source,
@@ -162,6 +173,20 @@ def load_spec(path, catalog):
             raise SystemExit('address_renames: %s needs a new name and addresses, and no plain rename' % old)
         scoped[old] = (item['new'], {int(a, 16) for a in item['at']})
     spec['address_renames'] = scoped
+    overloads = {}
+    for old, item in spec.get('overload_renames', {}).items():
+        new, at = item.get('new'), item.get('at')
+        if not old.startswith('?') or not new or not new.startswith('?') or new == old or \
+                not isinstance(at, str) or not re.fullmatch(r'[0-9a-fA-F]{8}', at) or old in renames or old in scoped:
+            raise SystemExit('overload_renames: %s needs a full new name and one address, and no other rename' % old)
+        overloads[old] = (new, int(at, 16))
+    news = [new for new, _ in overloads.values()]
+    if len(set(news)) != len(news) or set(news) & (set(renames) | set(renames.values()) | set(overloads)) or \
+            len({at for _, at in overloads.values()}) != len(overloads):
+        raise SystemExit('overload_renames: each old name needs its own new name and its own address')
+    if any(o != p and p.startswith(o) for o in overloads for p in overloads):
+        raise SystemExit('overload_renames: an old name is a prefix of another (key them by full name)')
+    spec['overload_renames'] = overloads
     rewrites = {}
     for entry, kind in spec.get('xcu_rewrites', {}).items():
         if kind != 'initializer' and not re.fullmatch(r'[0-9a-fA-F]{8}', kind or ''):
@@ -193,7 +218,60 @@ def rewrite(text, spec):
             name = new if int(match[4], 16) in at else match[2]
             return '%s%s=%s%s' % (match[1], name, match[3] or '', match[4])
         text = refs.sub(scope, text)
+    overloads = spec.get('overload_renames') or {}
+    if overloads:
+        # The full old names anywhere (one function each), then prefix `@ref` names bound at the address.
+        names = re.compile('|'.join(map(re.escape, sorted(overloads, key=len, reverse=True))))
+        text = names.sub(lambda match: overloads[match[0]][0], text)
+        refs = re.compile(r'(@ref\s+)(\?[^=\s]+)=(0x)?([0-9a-fA-F]+)')
+
+        def overload(match):
+            name = overload_name(overloads, match[2], int(match[4], 16)) or match[2]
+            return '%s%s=%s%s' % (match[1], name, match[3] or '', match[4])
+        text = refs.sub(overload, text)
     return text
+
+
+def overload_name(overloads, name, address):
+    """The `overload_renames` new full name for `name` bound at `address`, or None: the old
+    full name itself (which must be bound at its listed address), or a shorter `?`-prefix of
+    it bound at that address."""
+    if name in overloads:
+        new, at = overloads[name]
+        if address is not None and address != at:
+            raise SystemExit('overload_renames: %s is bound at %08x, not %08x' % (name, address, at))
+        return new
+    if name.startswith('?') and address is not None:
+        for old, (new, at) in overloads.items():
+            if at == address and len(name) < len(old) and old.startswith(name):
+                return new
+    return None
+
+
+def overload_left(catalog, overloads):
+    """(name, address) pairs that still carry an overload rename's old name or prefix."""
+    left = set()
+    for region in catalog['regions']:
+        for name, value in (region.get('references') or {}).items():
+            if overload_name(overloads, name, value):
+                left.add((name, value))
+        for key in ('symbol', 'symbol_prefix'):
+            if overload_name(overloads, region[key], region.get('entry')):
+                left.add((region[key], region.get('entry')))
+        for relocation in region.get('relocations') or []:
+            if overload_name(overloads, relocation['symbol'], relocation.get('target')):
+                left.add((relocation['symbol'], relocation.get('target')))
+    return sorted(left, key=lambda item: (item[0], item[1] or 0))
+
+
+def overload_bindings(table, overloads, pid):
+    """Refuse a table that binds an overload's new full name at any address but its own,
+    through the exact key or a `?`-prefix key (a shared prefix would cover two overloads)."""
+    from verify_manifest import prefix_bound_values
+    for new, at in overloads.values():
+        values = prefix_bound_values(table, new)
+        if values and values != {at}:
+            raise SystemExit('%s: %s would bind two addresses (%s)' % (pid, new, ', '.join('%08x' % v for v in sorted(values))))
 
 
 def scoped_name(scoped, name, address):
@@ -496,9 +574,10 @@ def apply_modules(catalog, spec, files, removed, config=None):
     return affected
 
 
-def rename_catalog(catalog, renames, files, moves, scoped=None):
+def rename_catalog(catalog, renames, files, moves, scoped=None, overloads=None):
     """Rename the catalog's names exactly; return the affected population ids."""
     scoped = scoped or {}
+    overloads = overloads or {}
     affected = set()
     tables = {}
     for region in catalog['regions']:
@@ -507,19 +586,24 @@ def rename_catalog(catalog, renames, files, moves, scoped=None):
             old = region.get('references') or {}
             table = {}
             for name, value in old.items():
-                new = renames.get(name) or scoped_name(scoped, name, value) or name
+                new = renames.get(name) or scoped_name(scoped, name, value) or overload_name(overloads, name, value) or name
                 if table.setdefault(new, value) != value:
                     raise SystemExit('%s: %s would bind two addresses' % (pid, new))
+            if overloads:
+                overload_bindings(table, overloads, pid)
             tables[pid] = table
-            if any(name in renames or scoped_name(scoped, name, value) for name, value in old.items()):
+            if any(name in renames or scoped_name(scoped, name, value) or overload_name(overloads, name, value)
+                   for name, value in old.items()):
                 affected.add(pid)
         region['references'] = tables[pid]
         for key in ('symbol', 'symbol_prefix'):
-            new = renames.get(region[key]) or scoped_name(scoped, region[key], region.get('entry'))
+            new = renames.get(region[key]) or scoped_name(scoped, region[key], region.get('entry')) or \
+                overload_name(overloads, region[key], region.get('entry'))
             if new:
                 region[key] = new; affected.add(pid)
         for relocation in region.get('relocations') or []:
-            new = renames.get(relocation['symbol']) or scoped_name(scoped, relocation['symbol'], relocation.get('target'))
+            new = renames.get(relocation['symbol']) or scoped_name(scoped, relocation['symbol'], relocation.get('target')) or \
+                overload_name(overloads, relocation['symbol'], relocation.get('target'))
             if new:     # the fresh compile rewrites the receipt; known names stay current
                 relocation['symbol'] = new; affected.add(pid)
         if region['source'] in moves:
@@ -865,7 +949,8 @@ def main():
     sources = {p: d for p, d in files.items() if p.startswith('src/recovered/')}
     headers = sorted(p for p in files if p.startswith('src/shared/'))
     rewritten, stale = place_xcu_rewrites(catalog, spec['xcu_rewrites']) if spec['xcu_rewrites'] else (set(), {})
-    populations = rename_catalog(catalog, spec['renames'], sources, moves, spec['address_renames']) | modules | rewritten
+    populations = rename_catalog(catalog, spec['renames'], sources, moves, spec['address_renames'],
+                                 spec['overload_renames']) | modules | rewritten
     unknown = [p for p in sources if p not in {r['source'] for r in catalog['regions']}]
     if unknown:
         raise SystemExit('changed files are not accepted sources: %s' % unknown[:5])
@@ -877,6 +962,7 @@ def main():
     summary = dict(name=spec['name'], renames=spec['renames'],
                    address_renames={old: dict(new=new, at=['%08x' % a for a in sorted(at)])
                                     for old, (new, at) in spec['address_renames'].items()},
+                   overload_renames={old: dict(new=new, at='%08x' % at) for old, (new, at) in spec['overload_renames'].items()},
                    changed_sources=sorted(sources),
                    changed_headers=headers, moved=moves, affected_populations=sorted(populations),
                    affected_regions=sum(r['population'] in populations for r in catalog['regions']),
@@ -898,6 +984,12 @@ def main():
     renamed = symbols
     for old, new in spec['renames'].items():
         renamed = renamed.replace(json.dumps(old), json.dumps(new))
+    for old, (new, at) in spec['overload_renames'].items():
+        renamed = renamed.replace(json.dumps(old), json.dumps(new))
+        prefixes = [s for s in json.loads(symbols)['symbols'] if s.get('mangled_prefix') and
+                    s.get('address') and int(s['address'], 16) == at and overload_name({old: (new, at)}, s['mangled_prefix'], at)]
+        if prefixes:
+            raise SystemExit('overload_renames: symbols.json binds %s by prefix (rename it by hand first)' % old)
     if renamed != symbols:
         json.loads(renamed)
         files['manifests/symbols.json'] = renamed.encode()
@@ -922,7 +1014,8 @@ def main():
                 raise SystemExit('row_flags: %s is not an accepted row' % entry)
             rows[0].update(fields)
         bind_changed(catalog, populations, sources, config)
-        left = leftover(catalog_io.dumps(catalog), spec['renames']) + scoped_left(catalog, spec['address_renames'])
+        left = leftover(catalog_io.dumps(catalog), spec['renames']) + scoped_left(catalog, spec['address_renames']) + \
+            overload_left(catalog, spec['overload_renames'])
         if left:    # checked again on the final text; this refuses before compiling
             raise SystemExit('refused: old names left after the rename (tree restored): %s' % left[:10])
         phase('write and bind')
@@ -973,8 +1066,10 @@ def main():
             population['historical_population_sha256'] = sha((folder / 'population.json').read_bytes())
             population['historical_acceptance_sha256'] = sha((folder / 'accepted.json').read_bytes())
         text = catalog_io.dumps(catalog)
-        left = sorted(set(leftover(text, spec['renames'])) | set(scoped_left(catalog, spec['address_renames'])) |
-                      {old for path, data in files.items() for old in leftover(data.decode('latin-1'), spec['renames'])})
+        olds = dict(spec['renames'], **{old: new for old, (new, _) in spec['overload_renames'].items()})
+        left = sorted(set(leftover(text, olds)) | set(scoped_left(catalog, spec['address_renames'])) |
+                      set(overload_left(catalog, spec['overload_renames'])) |
+                      {old for path, data in files.items() for old in leftover(data.decode('latin-1'), olds)}, key=str)
         if left:
             raise SystemExit('refused: old names left after the rename (tree restored): %s' % left[:10])
         for path, data in files.items():

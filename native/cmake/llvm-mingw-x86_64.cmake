@@ -43,6 +43,17 @@ set(CMAKE_AR "${ra2_mingw_bin}/llvm-ar" CACHE FILEPATH "")
 set(CMAKE_RANLIB "${ra2_mingw_bin}/llvm-ranlib" CACHE FILEPATH "")
 set(CMAKE_NM "${ra2_mingw_bin}/llvm-nm" CACHE FILEPATH "")
 
+# Optimised by default (lane C16, owner 2026-11-14), as the iOS build (build-ios.command
+# RA2_IOS_OPT): -O2 and no build type, so no NDEBUG. Before this the Windows build had no
+# build type and compiled at -O0. -DRA2_WINDOWS_OPT=<flags> chooses others ("-O0" for a
+# debugging build); CMAKE_<LANG>_FLAGS given on the command line take precedence.
+if(NOT DEFINED RA2_WINDOWS_OPT)
+  set(RA2_WINDOWS_OPT "-O2")
+endif()
+set(CMAKE_C_FLAGS_INIT "${RA2_WINDOWS_OPT}")
+set(CMAKE_CXX_FLAGS_INIT "${RA2_WINDOWS_OPT}")
+list(APPEND CMAKE_TRY_COMPILE_PLATFORM_VARIABLES RA2_WINDOWS_OPT)
+
 set(CMAKE_FIND_ROOT_PATH "${RA2_LLVM_MINGW}/x86_64-w64-mingw32")
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)

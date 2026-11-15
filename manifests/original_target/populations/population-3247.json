@@ -4,8 +4,8 @@
     "id": "population-3247",
     "inventory_sha256": "e34237c20903561e9dcf9251b8f7687c9ee6433dd5736f87a0df779daed7d37d",
     "gaps_sha256": "0f9712fdce680a3e3f3da8cf387afe2fc4afaa2a04746deed47f455ed8685a32",
-    "historical_population_sha256": "ca6a39b96ee7ab58b24044e0bbc1971d58d7f862ede946fa709a0c9133d687da",
-    "historical_acceptance_sha256": "8753ee6af47b5a3c393b18d5152c7c452f9eb5cbc88b36c7401e3433b65ddf19"
+    "historical_population_sha256": "3e11d9559ada3c4588ec91a57b52467e1e6a551c45ec65e276ab0f3aec40f73e",
+    "historical_acceptance_sha256": "cbc5547e3cdce7bf19719f9bac38534ce6cd971f2a3405d47c8d4fa739572c28"
   },
   "references": {
     "??0Cell@@QAE@HH@Z": 4369712,
@@ -2102,8 +2102,8 @@
     "?Generate_Starting_Points_00576170@MapRegionClass@@QAEXH@Z": 5726576,
     "__real@8@3fe0c0000000c0000000": 8019456,
     "??GCoordStruct@@QBE?AU0@ABU0@@Z": 4409584,
-    "?Pick_Random_Map_Cell_0056d720@MapRegionClass@@SI?AVCell@@XZ": 5691168,
-    "?Pick_Random_Clear_Map_Cell_0056d7a0@MapRegionClass@@SI?AVCell@@XZ": 5691296,
+    "?Pick_Random_Map_Cell@MapRegionClass@@SI?AVCell@@XZ": 5691168,
+    "?Pick_Random_Clear_Map_Cell@MapRegionClass@@SI?AVCell@@XZ": 5691296,
     "__unlink": 7886498,
     "__real@4@3ff9a3d70a0000000000": 8053468,
     "?Update_Cell_Marks_005707a0@MapRegionClass@@QAEXXZ": 5703584,
@@ -2198,8 +2198,8 @@
     "?Generate_Rural_Roads@MapGeneratorClass@@": 5808560,
     "__real@8@3ffdf5c28f5c28f5c000": 8020048,
     "?unknown_generation_cell_clear_0056dac0@": 5692096,
-    "?Pick_Random_Map_Cell_0056d720@MapRegionClass@@": 5691168,
-    "?Pick_Random_Clear_Map_Cell_0056d7a0@MapRegionClass@@": 5691296,
+    "?Pick_Random_Map_Cell@MapRegionClass@@": 5691168,
+    "?Pick_Random_Clear_Map_Cell@MapRegionClass@@": 5691296,
     "?Generate_Arctic_Vegetation@MapGeneratorClass@@": 5790304,
     "?Generate_Urban_Areas@MapGeneratorClass@@": 5793792,
     "?Generate_Rural_Areas@MapGeneratorClass@@": 5806224,
@@ -8068,14 +8068,37 @@
     "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
     "?Reset@BitFontClass@@QAEXXZ": 4399536,
     "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
-    "?Unknown_005689D0@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376
+    "?Unknown_005689D0@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "?Which_Column@seed_00681940@@YIIHHH@Z": 6822208,
+    "?Cheer@InfantryClass@@UAEXXZ": 5281456,
+    "?Load_Dialog_0053b190@seed_0053b190@@YIXH@Z": 5484944,
+    "?Save_Dialog_0053b1b0@Owner_0053b1b0@seed_0053b1b0@@QAEXH@Z": 5484976,
+    "?Delete_Dialog_0053b1e0@seed_0053b1e0@@YIXH@Z": 5485024
   },
   "regions": [
     {
       "entry": 5691168,
       "method": "0056d720",
-      "symbol": "?Pick_Random_Map_Cell_0056d720@MapRegionClass@@SI?AVCell@@XZ",
-      "symbol_prefix": "?Pick_Random_Map_Cell_0056d720@MapRegionClass@@",
+      "symbol": "?Pick_Random_Map_Cell@MapRegionClass@@SI?AVCell@@XZ",
+      "symbol_prefix": "?Pick_Random_Map_Cell@MapRegionClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -8137,7 +8160,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "11d6b20084a3ba1a664ded378559cfb9007a1b7a602c246d8da4e9079b47bc8f",
+      "source_sha256": "48d1d08e3ce8fc6a97668001294ff337c043d73b5dbc5e645d1803713c83cc09",
       "source": "src/recovered/classes/MapRegionClass/Pick_Random_Map_Cell.cpp",
       "population": "population-3247",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -8149,8 +8172,8 @@
     {
       "entry": 5691296,
       "method": "0056d7a0",
-      "symbol": "?Pick_Random_Clear_Map_Cell_0056d7a0@MapRegionClass@@SI?AVCell@@XZ",
-      "symbol_prefix": "?Pick_Random_Clear_Map_Cell_0056d7a0@MapRegionClass@@",
+      "symbol": "?Pick_Random_Clear_Map_Cell@MapRegionClass@@SI?AVCell@@XZ",
+      "symbol_prefix": "?Pick_Random_Clear_Map_Cell@MapRegionClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -8236,7 +8259,7 @@
           "resolved": 4293975383
         }
       ],
-      "source_sha256": "b006aa01a7c43161d5804ee900ffe7c7fb198c82c9d648a8dc6d9595cd042b98",
+      "source_sha256": "e0c5492954522362449a4054c0848c21ff0d392979c5248079b430732124f8e6",
       "source": "src/recovered/classes/MapRegionClass/Pick_Random_Clear_Map_Cell.cpp",
       "population": "population-3247",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -8495,7 +8518,7 @@
           "resolved": 1132
         }
       ],
-      "source_sha256": "b915cd1688274d44d4b1443ab433c828ce936753879b32a35338213a55ab43f2",
+      "source_sha256": "b55b3dde930bf06dc45e7023e9f1975d591c264dbc20cad4c0a566ccf85832aa",
       "source": "src/recovered/classes/MapGeneratorClass/Generate_Rural_Areas.cpp",
       "population": "population-3247",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -8890,7 +8913,7 @@
           "resolved": 9629
         }
       ],
-      "source_sha256": "b94a219e673785d8e791613d26793920ae4bdc5a155bf921126972660afceea7",
+      "source_sha256": "78538eaa54e6533e90b41d975da3217e858dd96d2b1a08d88bae86b83fe721a6",
       "source": "src/recovered/classes/MapGeneratorClass/Generate_Urban_Areas.cpp",
       "population": "population-3247",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -9461,7 +9484,7 @@
           "resolved": 38
         }
       ],
-      "source_sha256": "e1f698c64f2e614f97860ec63130a1a00fa2a1b1d760618b2366391f444bdd3d",
+      "source_sha256": "71ad5eb2f85ac09128c1151a0816384acbfd52e752ab3d1dea63230f6c6ee183",
       "source": "src/recovered/classes/MapGeneratorClass/Generate_Arctic_Vegetation.cpp",
       "population": "population-3247",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

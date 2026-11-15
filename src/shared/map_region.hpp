@@ -20,8 +20,8 @@ public:
     void Place_Neutral_Tech_Building_00576cd0();
     static bool Make_Regions_00570810();
     static MapRegionClass *__fastcall Create_Region_From_Cell(CellClass *cell);
-    static Cell __fastcall Pick_Random_Map_Cell_0056d720();
-    static Cell __fastcall Pick_Random_Clear_Map_Cell_0056d7a0();
+    static Cell __fastcall Pick_Random_Map_Cell();
+    static Cell __fastcall Pick_Random_Clear_Map_Cell();
     MapRegionClass(Cell origin); //0056D870 by-value packed Cell, nominal constructor hypothesis
     void Generate_Starting_Points_00576170(int firstWaypoint); //ECXowner/RET4
     void Count_Grid_Cells_0056dbd0();
