@@ -24,6 +24,7 @@
 #include <TargetConditionals.h>
 #endif
 #include "ra2port/win32_port.hpp"
+#include "mod_import.hpp"
 #include <dirent.h>
 #include <string.h>
 #include <strings.h>
@@ -149,6 +150,7 @@ extern "C" int ra2_enh_sidebar_height(int screen_height);   // platform/sdl/enha
 void ra2_enhancements_store(std::string (*get)(const char *), void (*set)(const char *, const char *));
 void ra2_enhancements_mods(std::vector<std::string> (*list)(), const char *running, void (*switch_to)(const char *),
                            bool restarts);
+void ra2_enhancements_mod_info(bool (*info)(const char *folder, std::string *name, std::string *description));
 #endif
 
 #ifdef RA2_NATIVE_GAME
@@ -198,15 +200,27 @@ static std::vector<std::string> mods_in(const std::vector<std::string> &roots)
     std::sort(names.begin(), names.end(), [](const std::string &a, const std::string &b) { return strcasecmp(a.c_str(), b.c_str()) < 0; });
     return names;
 }
+// The folders holding a Mods folder (lane C16, level 3): the app's support folder and, on iOS, its
+// Documents (the Files app shows Documents/Mods), then the game folder.
+static std::vector<std::string> mod_roots(const char *data)
+{
+    std::vector<std::string> roots;
+#ifdef RA2_APP_MODE
+    roots.push_back(app::support_dir());
+    if (hostos::imports_game_files()) {
+        std::string writes = app::game_write_dir();
+        size_t slash = writes.find_last_of('/');
+        if (slash != std::string::npos) roots.push_back(writes.substr(0, slash));
+    }
+#endif
+    if (data) roots.push_back(data);
+    return roots;
+}
 static std::string find_mod(const char *mod, const char *data)
 {
     std::string m = mod;
     if (m.find('/') != std::string::npos || m.find('\\') != std::string::npos) return is_dir(m) ? m : std::string();
-    std::vector<std::string> roots;
-#ifdef RA2_APP_MODE
-    roots.push_back(app::support_dir());
-#endif
-    if (data) roots.push_back(data);
+    std::vector<std::string> roots = mod_roots(data);
     for (const std::string &root : roots) {
         std::string mods = child_any_case(root, "Mods");
         if (mods.empty()) continue;
@@ -220,9 +234,13 @@ static std::string find_mod(const char *mod, const char *data)
 namespace {
 std::vector<std::string> app_mods()
 {
-    std::vector<std::string> roots = {app::support_dir()};
-    if (!mods_data_dir.empty()) roots.push_back(mods_data_dir);
-    return mods_in(roots);
+    return mods_in(mod_roots(mods_data_dir.empty() ? nullptr : mods_data_dir.c_str()));
+}
+// The Mod row's name and description of a mod folder (its mod.ini, lane C16 level 3).
+bool app_mod_info(const char *folder, std::string *name, std::string *description)
+{
+    std::string found = find_mod(folder, mods_data_dir.empty() ? nullptr : mods_data_dir.c_str());
+    return !found.empty() && mods::manifest(found, name, description);
 }
 }
 #endif
@@ -378,6 +396,16 @@ int main(int argc, char **argv)
         // Mods (lane C16, level 2): without --mod or RA2_NATIVE_MOD, the one chosen on the
         // Enhancements page (the settings' "mod"); its saves and RA2.INI have their own folder.
         mods_data_dir = folder;
+        // Level 3 (lane C16): on iOS the Files app's Documents/Mods is made, and a .zip put in a
+        // Mods folder is unpacked into a folder of its name.
+        if (hostos::imports_game_files()) {
+            std::string documents = mod_roots(nullptr).back() + "/Mods";
+            app::make_dirs(documents);
+        }
+        for (const std::string &root : mod_roots(data)) {
+            std::string dir = child_any_case(root, "Mods");
+            if (!dir.empty()) mods::import_zips(dir);
+        }
         static std::string saved_mod, mod_found, mod_name;
         if (!mod || !*mod) {
             saved_mod = app_settings.get("mod");
@@ -396,6 +424,7 @@ int main(int argc, char **argv)
             mod = nullptr;      // resolved here
         }
         ra2_enhancements_mods(app_mods, mod_name.c_str(), switch_mod, hostos::relaunch_supported());
+        ra2_enhancements_mod_info(app_mod_info);
         atexit(restart_if_wanted);
         // Writes (RA2.INI, saved games) beside the settings, never into the installation; a
         // mod's in Mods/<name> below them.

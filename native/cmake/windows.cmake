@@ -57,7 +57,7 @@ endfunction()
 # The SDL3 host's sources see the same layer (whichever target compiles them;
 # host_compat.h adds the one SDL name clash).
 set_source_files_properties(
-  platform/sdl/main.cpp platform/sdl/host.cpp platform/sdl/touch.cpp platform/sdl/enhancements.cpp
+  platform/sdl/main.cpp platform/sdl/host.cpp platform/sdl/touch.cpp platform/sdl/enhancements.cpp platform/sdl/mod_import.cpp
   PROPERTIES COMPILE_OPTIONS "-include${ra2_win_dir}/host_compat.h"
              INCLUDE_DIRECTORIES "${ra2_win_dir}/posix")
 set_source_files_properties(platform/win/host_win.cpp

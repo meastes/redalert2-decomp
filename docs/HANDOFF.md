@@ -30,6 +30,8 @@ Earlier owner periods are in [history/](history/).
 4. Never ask the user to reconnect the Windows share: use ssh (mac-crash-recovery).
 5. Codex workers: never without a stocked assignment plus fallback; no assignment needing an OS/system-settings change or an approval prompt; disk cleanup run by the owner under standing approval before the worker's threshold; worker state checked every 30 minutes and reported in the heartbeat.
 
+Standing approvals (user, 2026-11-15 "Yes to all"): (a) delete codex1's finished gate-* build folders whenever C: is under 40 GB, always keeping its newest, junctions unlinked first, compiler and game.exe verified after; (b) a 30-minute owner heartbeat job (session cron) that checks the Windows workers and posts the heartbeat; (c) codex1 is ended (its names work moves to the Mac lanes); codex4 continues only until the installed-game C17 save check is done, then pauses.
+
 ## Restart checkpoint (owner, 2026-11-15 ~05:00Z, the user restarted the Mac)
 
 Main is clean and published. After the restart: C: mount (/Volumes/mike-gaming), stale wineservers (wineserver -k per prefix), one load/swap reading, then resume lanes one or two at a time under the performance lane's concurrency cap (not all at once). Each lane wrote build/RESUME.md in its worktree.

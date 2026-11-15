@@ -2,10 +2,12 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """ctest native-mod-switch (lane C16, mod support level 2): the Enhancements page's Mod row.
 
-Two empty mod folders (Another, TestMod) in Mods in a fresh settings folder (macOS: under HOME;
+Two empty mod folders (Another, TestMod) and, for level 3, ZipMod.zip (a zipped ZipMod folder with a
+mod.ini naming it "Zipped Mod") in Mods in a fresh settings folder (macOS: under HOME;
 Windows: the fresh Wine prefix's AppData\\Roaming\\RA2Native). Three app runs through the real
 menus (Options > Enhancements):
-  1. the Mod row lists None, Another, TestMod; TestMod chosen and Ok: the app saves the choice
+  1. the .zip is unpacked (Apple platforms) and the Mod row lists None, Another, TestMod, Zipped Mod;
+     TestMod chosen and Ok: the app saves the choice
      ("mod=TestMod" in its settings file) and ends to start again (RA2_NATIVE_NO_RELAUNCH=1: the
      test starts the next run itself);
   2. the app starts with TestMod (no --mod): "mod: TestMod from", its writes in Game/Mods/TestMod;
@@ -84,6 +86,12 @@ def main():
         settings_dir = os.path.join(home, 'Library', 'Application Support', 'RA2Native')
     for name in ('TestMod', 'Another'):
         os.makedirs(os.path.join(settings_dir, 'Mods', name))
+    # Level 3: a mod as a .zip of its folder with a mod.ini (unpacked at the app's start on Apple
+    # platforms; its name on the row, sorted by its folder name ZipMod after TestMod).
+    import zipfile
+    with zipfile.ZipFile(os.path.join(settings_dir, 'Mods', 'ZipMod.zip'), 'w', zipfile.ZIP_DEFLATED) as z:
+        z.writestr('ZipMod/mod.ini', '[Mod]\nName=Zipped Mod\nDescription=From a zip.\n')
+        z.writestr('ZipMod/readme.txt', 'a test mod\n')
     outs = []
     bad = []
     try:
@@ -113,6 +121,11 @@ def main():
             prefix.close()
     writes = re.compile(r'^app: writes go to (.*)$', re.M)
     one, two, three = (outs + ['', '', ''])[:3]
+    if not prefix:
+        if 'mods: ZipMod.zip unpacked into Mods/ZipMod' not in one:
+            bad.append('run 1: the .zip was not unpacked')
+        if 'enhancements: Mod row: None, Another, TestMod, Zipped Mod' not in one:
+            bad.append('run 1: the Mod row did not list None, Another, TestMod and the zip\'s mod by its mod.ini name')
     if 'enhancements: mod TestMod chosen (running none)' not in one:
         bad.append('run 1: TestMod was not chosen on the Mod row')
     if 'not started (RA2_NATIVE_NO_RELAUNCH)' not in one:

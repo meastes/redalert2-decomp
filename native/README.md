@@ -884,7 +884,7 @@ inside the game's own pacing); the Windows build under Wine (x86_64 under Rosett
 (10 ms at -O0); the iOS Simulator 2.5 ms (20.8 frames a second, 148 MB, as without). Shadows' 2x edges are closed (a 3x3 dilation then
 erosion of the four passes' union, the 1x render's own pixels kept) so they are solid, not checkered.
 
-### Mods (C16, levels 1 and 2)
+### Mods (C16, levels 1 to 3)
 
 A mod is a folder of the game's own kinds of files: loose `rules.ini`, `art.ini`, string tables,
 shapes, `expand##.mix` (Ares/Phobos and other DLL mods are out of scope). `--mod=<name or folder>`
@@ -919,6 +919,26 @@ again: the choice is used at the next start, which a message says (importing mod
 (saved, the app ends to start again; `RA2_NATIVE_NO_RELAUNCH=1` leaves the start to the test), the
 next start with TestMod and its writes in `Game/Mods/TestMod`, None chosen, then a start with no
 mod; `native-enhancements-settings` checks the row's values and switches.
+
+Level 3 (lane C16): on iOS the app's Documents/Mods (made at the start; the Files app shows it, the
+app sharing its Documents) is a Mods folder too: put a mod's folder there, or a `.zip` of it, from
+the Files app or AirDrop. At each start a `<name>.zip` in a Mods folder whose `<name>` folder does not
+exist is unpacked into it (stored or deflated entries, the system's zlib; a zip of one folder is
+unpacked without that folder level; no ZIP64 or encryption; the .zip stays) on the Apple platforms
+(`platform/sdl/mod_import.cpp`). A mod's optional `mod.ini` names it on the Mod row and describes
+it under the page:
+
+```
+[Mod]
+Name=Shown on the Mod row
+Description=Shown when the row is chosen
+```
+
+The choice applies at the next start on iOS, as level 2 says. `native-mod-switch` also checks the
+unpacking and the row's names (Mac); on the "RA2 Duo Validation" simulator a generated mod (the
+game's RULES.INI with the Grizzly at 1234, zipped with a mod.ini) copied into Documents/Mods was
+unpacked, listed as its mod.ini name, chosen, and at the next start a skirmish loaded the Grizzly at
+1234 (the Rhino unchanged) with the writes in Documents/Game/Mods/CostMod.
 
 A mod's `.VQA` movies (the installed game plays only Bink movies) go through the VQA player:
 its default configuration (0x00801470, read from game.exe at the first copy), the hi-colour

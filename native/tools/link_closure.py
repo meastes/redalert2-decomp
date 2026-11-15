@@ -80,7 +80,7 @@ def system_exports(sdk='', frameworks=('Foundation', 'AppKit'), libs=()):
     sdk_path = sdk if sdk and os.path.isabs(sdk) else subprocess.run(cmd, capture_output=True, text=True).stdout.strip()
     names = set()
     stubs = [sdk_path + '/usr/lib/libSystem.B.tbd', sdk_path + '/usr/lib/libc++.tbd', sdk_path + '/usr/lib/libc++abi.tbd',
-             sdk_path + '/usr/lib/libobjc.A.tbd'] + glob.glob(sdk_path + '/usr/lib/system/*.tbd')
+             sdk_path + '/usr/lib/libobjc.A.tbd', sdk_path + '/usr/lib/libz.tbd'] + glob.glob(sdk_path + '/usr/lib/system/*.tbd')
     # CoreFoundation re-exports the toll-free bridged classes Foundation's users name.
     for framework in list(frameworks) + (['CoreFoundation'] if frameworks else []):
         stubs += glob.glob('%s/System/Library/Frameworks/%s.framework/**/*.tbd' % (sdk_path, framework), recursive=True)

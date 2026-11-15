@@ -259,7 +259,8 @@ if(RA2_NATIVE_SDL)
   if(SDL3_FOUND)
     # The host's platform services (platform/sdl/host_os.hpp): host_apple.mm on
     # macOS and iOS, the host's only file with Apple-only calls (Scout1247).
-    set(ra2_host_sources platform/sdl/main.cpp platform/sdl/host.cpp platform/sdl/touch.cpp platform/sdl/enhancements.cpp)
+    set(ra2_host_sources platform/sdl/main.cpp platform/sdl/host.cpp platform/sdl/touch.cpp platform/sdl/enhancements.cpp
+        platform/sdl/mod_import.cpp)
     set(ra2_host_frameworks "")
     set(ra2_closure_frameworks "")
     if(APPLE)
@@ -270,6 +271,7 @@ if(RA2_NATIVE_SDL)
       else()
         set(ra2_closure_frameworks Foundation AppKit)
       endif()
+      list(APPEND ra2_host_frameworks -lz)    # mod_import.cpp's .zip unpacking (the system's zlib)
       foreach(f IN LISTS ra2_closure_frameworks)
         list(APPEND ra2_host_frameworks "-framework ${f}")
       endforeach()

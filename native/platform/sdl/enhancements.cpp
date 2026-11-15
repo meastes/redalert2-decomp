@@ -104,6 +104,9 @@ std::vector<std::string> (*mod_list)() = nullptr;
 void (*mod_switch)(const char *name) = nullptr;
 std::string mod_running;
 std::vector<std::string> mod_names;     // the row's values after None (taken when the page opens)
+// Level 3 (lane C16): a mod's mod.ini names it on the row and describes it under the page.
+bool (*mod_info)(const char *folder, std::string *name, std::string *description) = nullptr;
+std::vector<std::string> mod_titles, mod_descriptions;   // beside mod_names
 bool mod_restarts = true;               // the app starts again for a new mod (not on iOS: at the next start)
 bool mod_row() { return mod_list != nullptr; }
 void (*store_set)(const char *key, const char *value) = nullptr;
@@ -217,6 +220,11 @@ void ra2_enhancements_mods(std::vector<std::string> (*list)(), const char *runni
     mod_switch = switch_to;
 }
 
+void ra2_enhancements_mod_info(bool (*info)(const char *folder, std::string *name, std::string *description))
+{
+    mod_info = info;
+}
+
 // The page (link/native_enhancements.cpp) works on a pending copy: the dropdowns and the
 // presets edit it, ACCEPT applies and saves it, CANCEL drops it.
 extern "C" {
@@ -229,6 +237,11 @@ const char *ra2_enh_label(int i)
 }
 const char *ra2_enh_help(int i)
 {
+    if (is_mod_row(i)) {
+        static std::string text;
+        for (size_t k = 0; k < mod_names.size(); ++k)
+            if (mod_names[k] == pending["mod"] && !mod_descriptions[k].empty()) return (text = mod_descriptions[k]).c_str();
+    }
     if (is_mod_row(i))
         return mod_names.empty() ? (mod_restarts ? "No mods: put a mod's folder in a Mods folder. Restarts the game."
                                                  : "No mods: put a mod's folder in a Mods folder. From the next start.")
@@ -256,6 +269,17 @@ void ra2_enh_begin(void)
         bool listed = mod_running.empty();
         for (const std::string &n : mod_names) listed = listed || n == mod_running;
         if (!listed) mod_names.insert(mod_names.begin(), mod_running);
+        mod_titles.assign(mod_names.size(), std::string());
+        mod_descriptions.assign(mod_names.size(), std::string());
+        for (size_t k = 0; k < mod_names.size(); ++k) {
+            std::string name, description;
+            if (mod_info) mod_info(mod_names[k].c_str(), &name, &description);
+            mod_titles[k] = name.empty() ? mod_names[k] : name;
+            mod_descriptions[k] = description;
+        }
+        std::string shown = "None";
+        for (const std::string &t : mod_titles) shown += ", " + t;
+        fprintf(stderr, "enhancements: Mod row: %s\n", shown.c_str());
         pending["mod"] = mod_running;
     }
 }
@@ -269,7 +293,7 @@ int ra2_enh_value_count(int i)
 }
 const char *ra2_enh_value_name(int i, int k)
 {
-    if (is_mod_row(i)) return k <= 0 ? "None" : k <= (int)mod_names.size() ? mod_names[k - 1].c_str() : "";
+    if (is_mod_row(i)) return k <= 0 ? "None" : k <= (int)mod_titles.size() ? mod_titles[k - 1].c_str() : "";
     if (i < 0 || i >= ra2_enh_rows() || k < 0 || k >= ra2_enh_value_count(i)) return "";
     if (automatic(rows()[i])) return "Automatic";
     return rows()[i].names[k].c_str();
