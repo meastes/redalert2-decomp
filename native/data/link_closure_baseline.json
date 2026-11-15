@@ -1,12 +1,12 @@
 {
  "about": "Undefined symbols of the Mac ra2-native link closure (RA2_NATIVE_SUBSYSTEM=all, drafts and link closure on, WIN64_PARAMS on) that tests/link_closure_baseline.py allows. Names only (no bytes). Regenerate with tests/link_closure_baseline.py --build <dir> --write when the set shrinks.",
- "total": 229,
+ "total": 228,
  "by_class": {
   "c-address": 24,
   "c-data": 1,
   "c-function": 3,
   "cxx-data": 3,
-  "cxx-function": 198
+  "cxx-function": 197
  },
  "symbols": [
   {
@@ -927,11 +927,6 @@
   {
    "symbol": "__ZN14Call_4c1f80_146targetEj",
    "name": "Call_4c1f80_14::target(unsigned int)",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN16MultiplayerSiegeC1ERK10WideStringS2_RK7WstringS5_bi",
-   "name": "MultiplayerSiege::MultiplayerSiege(WideString const&, WideString const&, Wstring const&, Wstring const&, bool, int)",
    "cls": "cxx-function"
   },
   {

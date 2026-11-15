@@ -141,6 +141,7 @@ alignas(16) unsigned char ra2_orig_0036[80] __asm__("_unknown_bridge_facings_79c
 alignas(16) unsigned char ra2_orig_0037[32] __asm__("_unknown_path_passability_scores_79c4a4");
 // row	_DynamicVectorClass_UnsignedInt_VTable_0079c4dc	0x0079C4DC	32	ptr	DynamicVectorClass_UnsignedInt_VTable_0079c4dc	src/recovered/004919b0.cpp
 alignas(16) unsigned char ra2_orig_0038[64] __asm__("_DynamicVectorClass_UnsignedInt_VTable_0079c4dc");
+__asm__(".globl _PTR_FUN_0079c4dc\n.set _PTR_FUN_0079c4dc, _DynamicVectorClass_UnsignedInt_VTable_0079c4dc\n");   // the raw seeds' name for it (lane C16)
 // row	_PTR_FUN_0079c4fc	0x0079C4FC	28	ptr	PTR_FUN_0079c4fc	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
 // row	_table_42b510	0x0079C4FC	28	bytes	table_42b510	src/recovered/classes/VectorClass_unsigned_int/0042b510.cpp
 // row	_vtable_42b3d0	0x0079C4FC	28	bytes	vtable_42b3d0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
@@ -1028,6 +1029,7 @@ __asm__(".globl _vtable_5a6bf0\n.set _vtable_5a6bf0, _base_dispatch_005a62d0\n")
 alignas(16) unsigned char ra2_orig_0292[48] __asm__("_derived_dispatch_005a62d0");
 // row	_MultiplayerManBattle_VTable_007a69dc	0x007A69DC	200	ptr	MultiplayerManBattle_VTable_007a69dc	src/recovered/0042ebe0.cpp
 alignas(16) unsigned char ra2_orig_0293[400] __asm__("_MultiplayerManBattle_VTable_007a69dc");
+__asm__(".globl _PTR_FUN_007a69dc\n.set _PTR_FUN_007a69dc, _MultiplayerManBattle_VTable_007a69dc\n");   // the raw seeds' name for it (lane C16)
 // row	_Megawealth_vtable_007a6aa4	0x007A6AA4	184	ptr	Megawealth_vtable_007a6aa4	src/recovered/0042ebe0.cpp
 alignas(16) unsigned char ra2_orig_0294[368] __asm__("_Megawealth_vtable_007a6aa4");
 // row	_MultiplayerSiege_VTable_007a6b8c	0x007A6B8C	200	ptr	MultiplayerSiege_VTable_007a6b8c	src/recovered/0042ebe0.cpp
@@ -1074,6 +1076,7 @@ alignas(16) unsigned char ra2_orig_0308[32] __asm__("_vtable_5b9700");
 __asm__(".globl _vtable_5b9750\n.set _vtable_5b9750, _vtable_5b9700\n");
 // row	_MultiplayerGameMode_InitializerBase_VTable_007a72b0	0x007A72B0	12	ptr	MultiplayerGameMode_InitializerBase_VTable_007a72b0	src/recovered/004919b0.cpp
 alignas(16) unsigned char ra2_orig_0309[32] __asm__("_MultiplayerGameMode_InitializerBase_VTable_007a72b0");
+__asm__(".globl _PTR_FUN_007a72b0\n.set _PTR_FUN_007a72b0, _MultiplayerGameMode_InitializerBase_VTable_007a72b0\n");   // the raw seeds' name for it (lane C16)
 // row	_unknown_color_007a7360	0x007A7360	4	bytes	unknown_color_007a7360	src/recovered/00479ca0.cpp
 // row	_unknown_color_7a7360	0x007A7360	4	bytes	unknown_color_7a7360	src/recovered/004b3580.cpp
 alignas(16) unsigned char ra2_orig_0310[16] __asm__("_unknown_color_007a7360");
@@ -1418,12 +1421,14 @@ alignas(16) unsigned char ra2_orig_0418[48] __asm__("_VectorCursor_vtable_007af2
 alignas(16) unsigned char ra2_orig_0419[64] __asm__("_vtable_72baa0");
 // row	_WDTTerritory_VTable_007af2d8	0x007AF2D8	16	ptr	WDTTerritory_VTable_007af2d8	src/recovered/004919b0.cpp
 alignas(16) unsigned char ra2_orig_0420[32] __asm__("_WDTTerritory_VTable_007af2d8");
+__asm__(".globl _PTR_FUN_007af2d8\n.set _PTR_FUN_007af2d8, _WDTTerritory_VTable_007af2d8\n");   // the raw seeds' name for it (lane C16)
 // row	_VectorCursor_vtable_007af390	0x007AF390	20	ptr	VectorCursor_vtable_007af390	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
 alignas(16) unsigned char ra2_orig_0421[48] __asm__("_VectorCursor_vtable_007af390");
 // row	_VectorCursor_vtable_007af3a4	0x007AF3A4	40	ptr	VectorCursor_vtable_007af3a4	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
 alignas(16) unsigned char ra2_orig_0422[80] __asm__("_VectorCursor_vtable_007af3a4");
 // row	_WorldDominationTour_Voices_Anim_VTable_007af40c	0x007AF40C	56	ptr	WorldDominationTour_Voices_Anim_VTable_007af40c	src/recovered/004919b0.cpp
 alignas(16) unsigned char ra2_orig_0423[112] __asm__("_WorldDominationTour_Voices_Anim_VTable_007af40c");
+__asm__(".globl _PTR_FUN_007af40c\n.set _PTR_FUN_007af40c, _WorldDominationTour_Voices_Anim_VTable_007af40c\n");   // the raw seeds' name for it (lane C16)
 // row	_PTR_FUN_007af4e0	0x007AF4E0	60	ptr	PTR_FUN_007af4e0	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
 alignas(16) unsigned char ra2_orig_0424[128] __asm__("_PTR_FUN_007af4e0");
 // row	_PTR_FUN_007af51c	0x007AF51C	48	ptr	PTR_FUN_007af51c	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp

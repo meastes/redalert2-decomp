@@ -115,7 +115,10 @@ void ParticleSystemClass::unknown_func_60bb70()
                     if (unknown_d4 > Class->SpawnTranslucencyCutoff) {
                         npart->unknown_11f += 25;
                     }
-                    npart->Velocity = npart->Velocity - (unknown_d4 - Class->SpawnFrames) * 0.35f;
+                    // NATIVE (C16 behaviour check, 2026-11-15): the original computes this in one x87
+                    // chain at 53-bit precision and rounds to float once at the store
+                    // (0x0060BFDF-0x0060BFF7); float arithmetic rounded after each step.
+                    npart->Velocity = (float)((double)npart->Velocity - ((double)unknown_d4 - (double)Class->SpawnFrames) * (double)0.35f);
                     if (npart->Velocity < 2.0) {
                         npart->Velocity = 2.0;
                     }

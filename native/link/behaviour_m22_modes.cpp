@@ -56,3 +56,18 @@ bool UnholyAlliance::CheckStartConditions(WideString *message)
 {
     return unknown_flag_a3d2b8 && MultiplayerGameMode::CheckStartConditions(message);
 }
+
+// MultiplayerSiege (lane C16, link-closure classification): MPMODES.INI's Siege modes are made at
+// start-up (MultiplayerGameMode::unknown_init_modes_5b8bd0, Read_Game_Modes "Siege"); the
+// installed game lists none, a mod's MPMODES.INI may. The constructor (0x005AB5A0) forwards its
+// six arguments to the MultiplayerGameMode constructor and the destructor (0x005AB5E0) is the
+// base's, as FreeForAll's; slot 11 (0x005AB750, folded with other "false" leaves) allows no AI.
+MultiplayerSiege::MultiplayerSiege(WideString const &name, WideString const &description, Wstring const &ini_name,
+    Wstring const &unknown_4, bool unknown_5, int id) :
+    MultiplayerGameMode(name, description, ini_name, unknown_4, unknown_5, id)
+{
+}
+MultiplayerSiege::~MultiplayerSiege()
+{
+}
+bool MultiplayerSiege::IsAIAllowed() { return false; }

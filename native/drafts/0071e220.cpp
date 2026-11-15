@@ -47,7 +47,10 @@ static inline CoordStruct Adjacent_Coord(CoordStruct const &coord, int dir)
 
 static inline CoordStruct Move_Coord(CoordStruct const &coord, UnknownFacingDir facing, int distance)
 {
-    float angle = ((short)facing.Raw - 0x3fff) * unknown_facing_radians_79b620;
+    // NATIVE (C16 behaviour check, 2026-11-15): the original keeps the angle as a double
+    // (0x0071F3CF fstp qword) for the sin/cos table lookups; a float angle picked another table
+    // entry for 15 of the 65536 facings (e.g. 0xBFB4), moving the infantry elsewhere.
+    double angle = ((short)facing.Raw - 0x3fff) * unknown_facing_radians_79b620;
     return CoordStruct((int)(coord.X + unknown_cos_4ba4d0(angle) * distance), (int)(coord.Y - unknown_sin_4ba480(angle) * distance), coord.Z);
 }
 
@@ -142,7 +145,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                     TubeClass *tube_ptr = unknown_TubeClass_list_008661c8[tube];
                     Cell cell = tube_ptr->ExitCell;
                     unknown_28 = Cell_Coord(cell);
-                    memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
+                    memmove(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);   // NATIVE (C16): overlapping (the original's forward rep movsd)
                     LinkedTo->Path[23] = -1;
                     LinkedTo->unknown_574 = tube;
                     LinkedTo->unknown_575 = 0;
@@ -284,7 +287,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         if (LinkedTo->Path[0] == -1) {
             LinkedTo->Path[1] = -1;
         }
-        memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
+        memmove(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);   // NATIVE (C16): overlapping (the original's forward rep movsd)
         LinkedTo->Path[23] = -1;
         LinkedTo->Set_Coord(unknown_28);
         LinkedTo->unknown_450 = unknown_28.As_Cell();
