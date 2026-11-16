@@ -137,8 +137,8 @@ CDTimerClass<SystemTimerClass> ScrollClass::Counter;
 // Clears the scroll state; +0x4F29 starts true.
 
 ScrollClass::ScrollClass()
-    : unknown_4f18(0), unknown_4f1c(false), unknown_4f20(0, 0), unknown_4f28(false),
-      unknown_4f29(true), unknown_4f2a(false)
+    : Inertia(0), IsCoastScrollAllowed(false), RightPressPoint(0, 0), IsDragOperation(false),
+      IsEdgeScrollAllowed(true), IsMouseDown(false)
 {
 }
 
@@ -359,7 +359,7 @@ static inline int Scroll_Bound(int original, int minval, int maxval)
 
 void ScrollClass::Edge_Scroll_00669EC0(Point2D const &xy)
 {
-    if (unknown_4f2a != true) {
+    if (IsMouseDown != true) {
         Point2D p = Point2D(TacticalRect.X, TacticalRect.Y) + xy;
         int x = p.X;
         int y = p.Y;
@@ -373,7 +373,7 @@ void ScrollClass::Edge_Scroll_00669EC0(Point2D const &xy)
         static UnknownFacingDir dir;
         static int direction;
 
-        if (unknown_4f18 || at_screen_edge) {
+        if (Inertia || at_screen_edge) {
             if (at_screen_edge) {
                 player_scrolled = true;
 
@@ -410,11 +410,11 @@ void ScrollClass::Edge_Scroll_00669EC0(Point2D const &xy)
 
             static int _rate[9] = {448, 384, 320, 256, 192, 128, 64, 32, 16};
 
-            int rate = 8 - unknown_4f18;
+            int rate = 8 - Inertia;
 
             if (rate < Options.ScrollRate + 1) {
                 rate = Options.ScrollRate + 1;
-                unknown_4f18 = 8 - rate;
+                Inertia = 8 - rate;
             }
 
             if (WWKeyboard->Down((KeyNumType)2)) {
@@ -435,14 +435,14 @@ void ScrollClass::Edge_Scroll_00669EC0(Point2D const &xy)
 
                 if (Counter == 0 && player_scrolled) {
                     Counter = 1;
-                    unknown_4f18++;
+                    Inertia++;
                 }
             }
         }
         if (!player_scrolled) {
             if (!Counter) {
-                unknown_4f18--;
-                if (unknown_4f18 < 0) unknown_4f18++;
+                Inertia--;
+                if (Inertia < 0) Inertia++;
                 Counter = 1;
             }
         }
@@ -476,7 +476,7 @@ void ScrollClass::Scroll_AI()
     if (Planning_Mouse_Move_00617900(xy.X, xy.Y)) {
         return;
     }
-    if (unknown_4f2a == true) {
+    if (IsMouseDown == true) {
         if (WWKeyboard->Down(1)) {
             Map.Mouse_Left_Held(xy);
         } else if (WWKeyboard->Down(2)) {
@@ -491,7 +491,7 @@ void ScrollClass::Scroll_AI()
         if (Resolve_Point(xy, cell, coord, object, arg5, arg6)) {
             Map.unknown_slot46(cell, arg6, object, What_Action(cell, object, true), false);
         }
-        if (unknown_4f29 && !Debug_Map) {
+        if (IsEdgeScrollAllowed && !Debug_Map) {
             Edge_Scroll_00669EC0(xy);
         }
     }
@@ -510,7 +510,7 @@ void ScrollClass::Scroll_AI()
 
 bool ScrollClass::Is_Scrolling()
 {
-    if (unknown_4f2a || IgnoreInput) {
+    if (IsMouseDown || IgnoreInput) {
         return true;
     }
     if (TacticalMap != 0 && TacticalMap->MoveSpeed != 0.0f) {
@@ -560,13 +560,13 @@ void ScrollClass::Message_Handler(HWND hwnd, unsigned &message, unsigned &wParam
         if (Planning_Left_Down_00617340(xy.X, xy.Y)) {
             break;
         }
-        if (unknown_4f2a) {
+        if (IsMouseDown) {
             break;
         }
         Map.unknown_slot46(cell, arg6, object, What_Action(cell, object, true), false);
         Map.Mouse_Left_Press(xy);
         SetCapture(MainWindow);
-        unknown_4f2a = true;
+        IsMouseDown = true;
         break;
     }
     case 0x202: {
@@ -576,12 +576,12 @@ void ScrollClass::Message_Handler(HWND hwnd, unsigned &message, unsigned &wParam
         if (Planning_Left_Up_00617680(xy)) {
             break;
         }
-        if (!unknown_4f2a) {
+        if (!IsMouseDown) {
             break;
         }
         Resolve_Point(xy, cell, coord, object, arg5, arg6);
         Map.Mouse_Left_Release(coord, cell, object, What_Action(cell, object, false), false);
-        unknown_4f2a = false;
+        IsMouseDown = false;
         ReleaseCapture();
         break;
     }
@@ -590,7 +590,7 @@ void ScrollClass::Message_Handler(HWND hwnd, unsigned &message, unsigned &wParam
         xy.X = ((short *)&position)[0] - TacticalRect.X;
         xy.Y = ((short *)&position)[1] - TacticalRect.Y;
         Planning_Mouse_Down(xy.X, xy.Y);
-        if (unknown_4f2a) {
+        if (IsMouseDown) {
             break;
         }
         if (!Resolve_Point(xy, cell, coord, object, arg5, arg6)) {
@@ -598,24 +598,24 @@ void ScrollClass::Message_Handler(HWND hwnd, unsigned &message, unsigned &wParam
         }
         Map.Mouse_Right_Press(xy);
         SetCapture(MainWindow);
-        unknown_4f2a = true;
+        IsMouseDown = true;
         break;
     }
     case 0x205: {
         long position = lParam;
         Point2D point(((short *)&position)[0] - TacticalRect.X, ((short *)&position)[1] - TacticalRect.Y);
         Planning_Mouse_Up(point.X, point.Y);
-        if (!unknown_4f2a) {
+        if (!IsMouseDown) {
             break;
         }
         Map.Mouse_Right_Release(xy);
         DisplayClass::Abort_Drag_Select();
-        unknown_4f2a = false;
+        IsMouseDown = false;
         ReleaseCapture();
         break;
     }
     case 0x215:
-        if (lParam != (long)MainWindow && unknown_4f2a == true) {
+        if (lParam != (long)MainWindow && IsMouseDown == true) {
             Abort_Drag_Select();
         }
         break;
@@ -649,44 +649,44 @@ void ScrollClass::Scroll_Coast(Point2D const &xy)
     if (!TacticalActive && !Debug_Map) {
         return;
     }
-    if (!unknown_4f28) {
-        if (abs(xy.X - unknown_4f20.X) > GetSystemMetrics(0x44) * 2
-                || abs(xy.Y - unknown_4f20.Y) > GetSystemMetrics(0x45) * 2) {
-            unknown_4f28 = true;
+    if (!IsDragOperation) {
+        if (abs(xy.X - RightPressPoint.X) > GetSystemMetrics(0x44) * 2
+                || abs(xy.Y - RightPressPoint.Y) > GetSystemMetrics(0x45) * 2) {
+            IsDragOperation = true;
         }
     }
-    if (!unknown_4f28) {
+    if (!IsDragOperation) {
         return;
     }
-    if (!unknown_4f1c) {
+    if (!IsCoastScrollAllowed) {
         if (unknown_11cb) {
             Mouse_Right_Release(Point2D(-1, -1));
         } else {
-            unknown_4f1c = true;
+            IsCoastScrollAllowed = true;
         }
     }
-    if (unknown_4f1c) {
-        int dx = xy.X - unknown_4f20.X;
-        int dy = xy.Y - unknown_4f20.Y;
-        int direction = Facing_Between_Points(unknown_4f20, xy);
+    if (IsCoastScrollAllowed) {
+        int dx = xy.X - RightPressPoint.X;
+        int dy = xy.Y - RightPressPoint.Y;
+        int direction = Facing_Between_Points(RightPressPoint, xy);
         if (direction != _direction) {
             _direction = direction;
         }
         if (dx == 0) {
-            if (unknown_4f20.X == 0) {
+            if (RightPressPoint.X == 0) {
                 dx = -1;
-            } else if (unknown_4f20.X >= VideoModeWidth - 1) {
+            } else if (RightPressPoint.X >= VideoModeWidth - 1) {
                 dx = 1;
             }
         }
         if (dy == 0) {
-            if (unknown_4f20.Y == 0) {
+            if (RightPressPoint.Y == 0) {
                 dy = -1;
-            } else if (unknown_4f20.Y >= VideoModeHeight) {
+            } else if (RightPressPoint.Y >= VideoModeHeight) {
                 dy = 1;
             }
         }
-        if ((unknown_4f20.X < 10 && dx < 0) || (unknown_4f20.X > VideoModeWidth - 10 && dx > 0)) {
+        if ((RightPressPoint.X < 10 && dx < 0) || (RightPressPoint.X > VideoModeWidth - 10 && dx > 0)) {
             if (dx < 0 && dx > -5) {
                 dx = -5;
             }
@@ -695,7 +695,7 @@ void ScrollClass::Scroll_Coast(Point2D const &xy)
             }
             dx *= 4;
         }
-        if ((unknown_4f20.Y < 10 && dy < 0) || (unknown_4f20.Y > VideoModeHeight - 10 && dy > 0)) {
+        if ((RightPressPoint.Y < 10 && dy < 0) || (RightPressPoint.Y > VideoModeHeight - 10 && dy > 0)) {
             if (dy < 0 && dy > -5) {
                 dy = -5;
             }
@@ -723,7 +723,7 @@ void ScrollClass::Scroll_Coast(Point2D const &xy)
                 point.x = 0;
                 point.y = 0;
                 ClientToScreen(MainWindow, &point);
-                SetCursorPos(point.x + TacticalRect.X + unknown_4f20.X, point.y + TacticalRect.Y + unknown_4f20.Y);
+                SetCursorPos(point.x + TacticalRect.X + RightPressPoint.X, point.y + TacticalRect.Y + RightPressPoint.Y);
             }
             break;
         }
@@ -738,7 +738,7 @@ void ScrollClass::Scroll_Coast(Point2D const &xy)
                 point.x = 0;
                 point.y = 0;
                 ClientToScreen(MainWindow, &point);
-                SetCursorPos(point.x + TacticalRect.X + unknown_4f20.X, point.y + TacticalRect.Y + unknown_4f20.Y);
+                SetCursorPos(point.x + TacticalRect.X + RightPressPoint.X, point.y + TacticalRect.Y + RightPressPoint.Y);
             }
             break;
         }
@@ -778,9 +778,9 @@ void ScrollClass::Scroll_Coast(Point2D const &xy)
 
 void ScrollClass::Mouse_Right_Release(Point2D const &point)
 {
-    if (unknown_4f28) {
+    if (IsDragOperation) {
         Set_Default_Mouse(0, unknown_flag_83740c);
-        unknown_4f28 = false;
+        IsDragOperation = false;
         return;
     }
     DisplayClass::Mouse_Right_Release(point);
@@ -801,9 +801,9 @@ void ScrollClass::Mouse_Right_Press(Point2D const &point)
 {
     if (!IgnoreInput) {
         DisplayClass::Mouse_Right_Press(point);
-        unknown_4f20.X = point.X;
-        unknown_4f20.Y = point.Y;
-        unknown_4f28 = false;
+        RightPressPoint.X = point.X;
+        RightPressPoint.Y = point.Y;
+        IsDragOperation = false;
         WWMouse->Show_Mouse();
     }
 }
@@ -822,7 +822,7 @@ void ScrollClass::Mouse_Right_Press(Point2D const &point)
 void ScrollClass::Abort_Drag_Select()
 {
     DisplayClass::Abort_Drag_Select();
-    unknown_4f2a = false;
+    IsMouseDown = false;
     if (GetCapture() == MainWindow) {
         ReleaseCapture();
     }

@@ -626,7 +626,7 @@ bool CellClass::Is_Clear_To_Build(int speed, BuildingTypeClass const *what, Hous
 
         if (OverlayIndex == 2 || OverlayIndex == 0) {
             if (what != 0) {
-                if (what->ToOverlay != 0 && what->ToOverlay->ArrayIndex == OverlayIndex && OverlayData >= 0x10 || what == Rules->unknown_78c || what == Rules->GDIGateOne || what == Rules->unknown_780) {
+                if (what->ToOverlay != 0 && what->ToOverlay->ArrayIndex == OverlayIndex && OverlayData >= 0x10 || what == Rules->WallTower || what == Rules->GDIGateOne || what == Rules->GDIGateTwo) {
                     if (owner == who) {
                         return true;
                     }
@@ -636,7 +636,7 @@ bool CellClass::Is_Clear_To_Build(int speed, BuildingTypeClass const *what, Hous
 
         if (OverlayIndex == 0x1A) {
             if (what != 0) {
-                if ((what->ToOverlay != 0 && what->ToOverlay->ArrayIndex == 0x1A && OverlayData >= 0x10) || what == Rules->unknown_784 || what == Rules->unknown_788) {
+                if ((what->ToOverlay != 0 && what->ToOverlay->ArrayIndex == 0x1A && OverlayData >= 0x10) || what == Rules->NodGateOne || what == Rules->NodGateTwo) {
                     if (owner == who) {
                         return true;
                     }
@@ -1926,8 +1926,8 @@ bool CellClass::Has_Wall_Or_Gate(int overlay, int facing) const
                     BuildingTypeClass *type = ((BuildingClass *)object)->Type;
                     if (object->Strength > 0
                         && ((type == Rules->GDIGateOne && (facing == 2 || facing == 6))
-                            || (type == Rules->unknown_780 && (facing == 0 || facing == 4))
-                            || type == Rules->unknown_78c)) {
+                            || (type == Rules->GDIGateTwo && (facing == 0 || facing == 4))
+                            || type == Rules->WallTower)) {
                         return true;
                     }
                 }
@@ -1938,8 +1938,8 @@ bool CellClass::Has_Wall_Or_Gate(int overlay, int facing) const
                 if (object->Kind_Of() == 6) {
                     BuildingTypeClass *type = ((BuildingClass *)object)->Type;
                     if (object->Strength > 0
-                        && ((type == Rules->unknown_784 && (facing == 2 || facing == 6))
-                            || (type == Rules->unknown_788 && (facing == 0 || facing == 4)))) {
+                        && ((type == Rules->NodGateOne && (facing == 2 || facing == 6))
+                            || (type == Rules->NodGateTwo && (facing == 0 || facing == 4)))) {
                         return true;
                     }
                 }
@@ -2500,7 +2500,7 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
                     return false;
                 }
             }
-            unknown_id_source_a3d290->unknown_223c = true;
+            unknown_id_source_a3d290->IsCrateBeenPickedUp = true;
         }
 
         CrateType powerup;
@@ -2527,7 +2527,7 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
                 if (OverlayTypes[OverlayIndex] == Rules->CrateImg) {
                     powerup = Rules->SilverCrate;
                 }
-                if (OverlayTypes[OverlayIndex] == Rules->unknown_f0) {
+                if (OverlayTypes[OverlayIndex] == Rules->WoodCrateImg) {
                     powerup = Rules->WoodCrate;
                 }
                 if (OverlayTypes[OverlayIndex] == Rules->WaterCrateImg) {
@@ -2671,9 +2671,9 @@ crate_money:
                 if (utp == 0 &&
                         (object->House->unknown_5420.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex) > 0 ||
                          object->House->unknown_5420.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex) > 0) &&
-                        object->House->unknown_5430.unknown_func_491d10(Rules->unknown_9ec[0]->ArrayIndex) == 0 &&
-                        object->House->unknown_5430.unknown_func_491d10(Rules->unknown_9ec[1]->ArrayIndex) == 0) {
-                    utp = object->House->Get_First_Ownable(Rules->unknown_9ec);
+                        object->House->unknown_5430.unknown_func_491d10(Rules->HarvesterUnit[0]->ArrayIndex) == 0 &&
+                        object->House->unknown_5430.unknown_func_491d10(Rules->HarvesterUnit[1]->ArrayIndex) == 0) {
+                    utp = object->House->Get_First_Ownable(Rules->HarvesterUnit);
                 }
                 if (Rules->UnitCrateType != 0) {
                     utp = Rules->UnitCrateType;
@@ -3433,7 +3433,7 @@ void __fastcall Adjust_Tile_RGB(int &intensity, int &tile_brightness, int &red, 
 void CellClass::Init_Light(int &intensity, int &ambient, int &brightness, int &tile_brightness, int &alt_brightness, int &red, int &green, int &blue) const
 {
     if (MapCoords != Cell(0, 0) && MapCoords != Cell(-1, -1)) {
-        brightness = 1000 * unknown_id_source_a3d290->unknown_22ac / 100;
+        brightness = 1000 * unknown_id_source_a3d290->CurrentAmbientLight / 100;
         red = 1000 * unknown_id_source_a3d290->AmbientRed / 100;
         green = 1000 * unknown_id_source_a3d290->AmbientGreen / 100;
         blue = 1000 * unknown_id_source_a3d290->AmbientBlue / 100;
@@ -3468,8 +3468,8 @@ void CellClass::Init_Light(int &intensity, int &ambient, int &brightness, int &t
             brightness += Height * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
             alt_brightness += (Height + 4) * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
         } else if (NukeFlash_IsFadingIn()) {
-            brightness += Height * unknown_id_source_a3d290->unknown_22f4 - unknown_id_source_a3d290->unknown_22f0;
-            alt_brightness += (Height + 4) * unknown_id_source_a3d290->unknown_22f4 - unknown_id_source_a3d290->unknown_22f0;
+            brightness += Height * unknown_id_source_a3d290->NukeLevelLight - unknown_id_source_a3d290->NukeGroundLight;
+            alt_brightness += (Height + 4) * unknown_id_source_a3d290->NukeLevelLight - unknown_id_source_a3d290->NukeGroundLight;
         } else {
             brightness += Height * unknown_id_source_a3d290->AmbientLevel - unknown_id_source_a3d290->AmbientGround;
             alt_brightness += (Height + 4) * unknown_id_source_a3d290->AmbientLevel - unknown_id_source_a3d290->AmbientGround;
@@ -3505,15 +3505,15 @@ void CellClass::Init_Light(int &intensity, int &ambient, int &brightness, int &t
 // limited to 0..2000.
 void CellClass::Recalc_Light()
 {
-    Brightness = unknown_108 + 1000 * unknown_id_source_a3d290->unknown_22ac / 100;
+    Brightness = unknown_108 + 1000 * unknown_id_source_a3d290->CurrentAmbientLight / 100;
     AltBrightness = Brightness;
 
     if (IonStormClass_Is_Ion_Storm_Active()) {
         Brightness += Height * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
         AltBrightness += (Height + 4) * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
     } else if (NukeFlash_IsFadingIn()) {
-        Brightness += Height * unknown_id_source_a3d290->unknown_22f4 - unknown_id_source_a3d290->unknown_22f0;
-        AltBrightness += (Height + 4) * unknown_id_source_a3d290->unknown_22f4 - unknown_id_source_a3d290->unknown_22f0;
+        Brightness += Height * unknown_id_source_a3d290->NukeLevelLight - unknown_id_source_a3d290->NukeGroundLight;
+        AltBrightness += (Height + 4) * unknown_id_source_a3d290->NukeLevelLight - unknown_id_source_a3d290->NukeGroundLight;
     } else {
         Brightness += Height * unknown_id_source_a3d290->AmbientLevel - unknown_id_source_a3d290->AmbientGround;
         AltBrightness += (Height + 4) * unknown_id_source_a3d290->AmbientLevel - unknown_id_source_a3d290->AmbientGround;

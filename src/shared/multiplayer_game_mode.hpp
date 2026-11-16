@@ -188,9 +188,9 @@ public:
     WideString unknown_name_20;                             // +0x20
     WideString unknown_name_24;                             // +0x24
     int unknown_28;                                         // +0x28
-    Wstring unknown_2c;                                     // +0x2C
+    Wstring INIFilename;                                     // +0x2C
     Wstring unknown_30;                                     // +0x30
-    bool unknown_34;                                        // +0x34 (slot 11 returns it)
+    bool AIAllowed;                                        // +0x34 (slot 11 returns it)
     CCINIClass *unknown_ini_38;                             // +0x38 (made by the constructor)
     int wolTourney;                                         // +0x3C (1, or read from the INI)
 };

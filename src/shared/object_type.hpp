@@ -180,7 +180,7 @@ public:
     int MaxStrength;                         // +0x0A0
     void *ImageData;                       // +0x0A4 (the loaded image; hypothesis)
     bool ImageAllocated;                        // +0x0A8
-    int unknown_ac;                         // +0x0AC
+    int AlphaImageData;                         // +0x0AC
     UnknownObjectPair Voxel;           // +0x0B0
     UnknownObjectPair AuxVoxel;           // +0x0B8
     UnknownObjectPair AuxVoxel2;           // +0x0C0

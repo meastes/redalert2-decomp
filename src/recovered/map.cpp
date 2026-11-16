@@ -939,7 +939,7 @@ void MapClass::RevealArea1(CoordStruct const &xcoord, int sightrange, HouseClass
             }
         }
         if (house != PlayerPtr) {
-            if (house->Is_Ally(PlayerPtr) && Rules->unknown_142b) {
+            if (house->Is_Ally(PlayerPtr) && Rules->IsAllyReveal) {
                 house = PlayerPtr;
             }
         }
@@ -1044,7 +1044,7 @@ void MapClass::Sight_From(CoordStruct const &xcoord, int sightrange, HouseClass 
             }
         }
         if (house != PlayerPtr) {
-            if (house->Is_Ally(PlayerPtr) && Rules->unknown_142b) {
+            if (house->Is_Ally(PlayerPtr) && Rules->IsAllyReveal) {
                 house = PlayerPtr;
             }
         }

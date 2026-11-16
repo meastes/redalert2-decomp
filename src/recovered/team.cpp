@@ -1136,7 +1136,7 @@ void TeamClass::Coordinate_Move()
                     } else {
                         if (unit->Get_Mission() == 2
                             && (unit->unknown_494 == 0
-                                || (unit->unknown_5d4c00(unit->unknown_494) <= Rules->unknown_1380 && !unit->Locomotor.Checked()->Is_Moving()))
+                                || (unit->unknown_5d4c00(unit->unknown_494) <= Rules->CloseEnoughDistance && !unit->Locomotor.Checked()->Is_Moving()))
                             && unit->unknown_228 == 0) {
                             unit->Assign_Destination(0, true);
                             unit->unknown_slot261(false, true);
@@ -1241,7 +1241,7 @@ void __fastcall TeamClass::Suspend_Teams(int priority, HouseClass *house)
             }
             team->JustDisappeared = true;
             team->NeedsToDisappear = true;
-            team->unknown_64 = UnknownTimer423F60((long)(Rules->unknown_1150 * 900.0));
+            team->unknown_64 = UnknownTimer423F60((long)(Rules->SuspendDelay * 900.0));
             team->IsLeavingMap = true;
         }
     }
@@ -1504,7 +1504,7 @@ void TeamClass::TMission_PATROL(ScriptMissionClass const &mission, bool unknown)
             Assign_Mission_Target(cell);
         }
     }
-    if (Frame % (int)(Rules->unknown_e28 * 900.0) == 0) {
+    if (Frame % (int)(Rules->PatrolTime * 900.0) == 0) {
         FootClass *leader = Fetch_A_Leader();
         if (leader != 0) {
             AbstractClass *found = leader->unknown_slot219(1, &CoordStruct(leader->Coord), 0);
@@ -2072,7 +2072,7 @@ void TeamClass::TMission_DESTROY_MEMBERS(ScriptMissionClass const &mission, bool
 void TeamClass::TMission_ION_STORM_START(ScriptMissionClass const &mission, bool unknown)
 {
     if (!IonStormClass_Is_Ion_Storm_Active()) {
-        IonStormClass_Ion_Storm_Begin(mission.Data, Rules->unknown_13e8, unknown_geometry_k, 0);
+        IonStormClass_Ion_Storm_Begin(mission.Data, Rules->LightningDeferment, unknown_geometry_k, 0);
     }
     StepCompleted = true;
 }
@@ -2751,7 +2751,7 @@ void TeamClass::TMission_unknown_6be010(ScriptMissionClass const &mission, bool 
     if(!weapon->unknown_0x57) {
         double remaining=weapon->RechargeTimer.Value();
         double total=weapon->Type->RechargeTime;
-        if(weapon->unknown_0x55 && remaining/total <= 1.0f-Rules->unknown_b80) return;
+        if(weapon->unknown_0x55 && remaining/total <= 1.0f-Rules->AIMinorSuperReadyPercent) return;
         Complete_Step_006be010(this);
         return;
     }
@@ -2790,7 +2790,7 @@ void TeamClass::TMission_unknown_6be1c0(ScriptMissionClass const &mission, bool 
         if (!sphere->unknown_0x57) {
             double remaining = sphere->RechargeTimer.Value();
             double total = sphere->Type->RechargeTime;
-            if (sphere->unknown_0x55 && remaining / total <= 1.0f - Rules->unknown_b80) {
+            if (sphere->unknown_0x55 && remaining / total <= 1.0f - Rules->AIMinorSuperReadyPercent) {
                 return;
             }
             StepCompleted = true;
@@ -2846,7 +2846,7 @@ void TeamClass::TMission_unknown_6be440(ScriptMissionClass const &mission, bool 
         if (!sphere->unknown_0x57) {
             double remaining = sphere->RechargeTimer.Value();
             double total = sphere->Type->RechargeTime;
-            if (sphere->unknown_0x55 && remaining / total <= 1.0f - Rules->unknown_b80) {
+            if (sphere->unknown_0x55 && remaining / total <= 1.0f - Rules->AIMinorSuperReadyPercent) {
                 return;
             }
             StepCompleted = true;
@@ -2872,9 +2872,9 @@ int TeamClass::Stray_Distance()
 {
     int action = Script->Get_Current_Mission().Mission;
     if (action != 0x36 && action != 0x35) {
-        return Rules->unknown_1384;
+        return Rules->StrayDistance;
     }
-    return Rules->unknown_1388;
+    return Rules->RelaxedStray;
 }
 
 

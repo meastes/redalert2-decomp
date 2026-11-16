@@ -104,7 +104,7 @@ RulesClass::RulesClass() :
     RadarEventRotationSpeed(0.1f),
     FlashFrameTime(7),
     RadarCombatFlashTime(21),
-    unknown_98(15),
+    MaxWaypointPathLength(15),
     Wake(0),
     NukeTakeOff(0),
     InfantryExplode(0),
@@ -112,9 +112,9 @@ RulesClass::RulesClass() :
     InfantryHeadPop(0),
     InfantryNuked(0),
     Behind(0),
-    unknown_b8(1.0),
-    unknown_c0(-1.0),
-    unknown_c8(1.0),
+    AITriggerSuccessWeightDelta(1.0),
+    AITriggerFailureWeightDelta(-1.0),
+    AITriggerTrackRecordCoefficient(1.0),
     VeinholeMonsterStrength(10000),
     MaxVeinholeGrowth(1000),
     VeinholeGrowthRate(100),
@@ -123,7 +123,7 @@ RulesClass::RulesClass() :
     unknown_e4(2),
     MaximumQueuedObjects(5),
     AircraftFogReveal(6),
-    unknown_f0(0),
+    WoodCrateImg(0),
     CrateImg(0),
     WaterCrateImg(0),
     DigSound(-1),
@@ -131,8 +131,8 @@ RulesClass::RulesClass() :
     CreateInfantrySound(-1),
     CreateAircraftSound(-1),
     BaseUnderAttackSound(-1),
-    unknown_180(-1),
-    unknown_184(-1),
+    GUIMainButtonSound(-1),
+    GUIBuildSound(-1),
     GUITabSound(-1),
     GUIOpenSound(-1),
     GUICloseSound(-1),
@@ -146,7 +146,7 @@ RulesClass::RulesClass() :
     PsychicSensorDetectSound(-1),
     BuildingGarrisonedSound(-1),
     BuildingAbandonedSound(-1),
-    unknown_1bc(-1),
+    BuildingRepairedSound(-1),
     CheerSound(-1),
     PlaceBeaconSound(-1),
     DefaultChronoSound(-1),
@@ -163,7 +163,7 @@ RulesClass::RulesClass() :
     CratePromoteSound(-1),
     ImpactWaterSound(-1),
     ImpactLandSound(-1),
-    unknown_200(-1),
+    SinkingSound(-1),
     BombTickingSound(-1),
     BombAttachSound(-1),
     ChronoInSound(-1),
@@ -172,7 +172,7 @@ RulesClass::RulesClass() :
     SpySatDeactivationSound(-1),
     UpgradeVeteranSound(-1),
     UpgradeEliteSound(-1),
-    unknown_228(0),
+    Dig(0),
     IonBlast(0),
     IonBeam(0),
     WeatherConBoltExplosion(0),
@@ -301,15 +301,15 @@ RulesClass::RulesClass() :
     BuildingDrop(-1),
     RepairBay(0),
     GDIGateOne(0),
-    unknown_780(0),
-    unknown_784(0),
-    unknown_788(0),
-    unknown_78c(0),
+    GDIGateTwo(0),
+    NodGateOne(0),
+    NodGateTwo(0),
+    WallTower(0),
     GDIPowerPlant(0),
     GDIPowerTurbine(0),
     NodRegularPower(0),
     NodAdvancedPower(0),
-    unknown_7bc(0),
+    GDIFirestormGenerator(0),
     GDIHunterSeeker(0),
     NodHunterSeeker(0),
     GDIWallDefense(6.0),
@@ -319,14 +319,14 @@ RulesClass::RulesClass() :
     ComputerBaseDefenseResponse(3),
     MaximumBaseDefenseValue(60),
     Smoke(0),
-    unknown_a60(0),
+    Smoke2(0),
     FirestormActiveAnim(0),
     FirestormIdleAnim(0),
     FirestormAirAnim(0),
     FirestormGroundAnim(0),
-    unknown_a74(0),
-    unknown_a78(0),
-    unknown_a7c(0),
+    MoveFlash(0),
+    BombParachute(0),
+    Parachute(0),
     SmallFire(0),
     LargeFire(0),
     Paratrooper(0),
@@ -342,13 +342,13 @@ RulesClass::RulesClass() :
     SpyPowerBlackout(0),
     SpyMoneyStealPercent(0.5f),
     AttackCursorOnDisguise(false),
-    unknown_b80(0.8f),
+    AIMinorSuperReadyPercent(0.8f),
     AISafeDistance(8),
     HarvesterTooFarDistance(5),
     ChronoHarvTooFarDistance(50),
     AIRestrictReplaceTime(500),
-    unknown_be8(5),
-    unknown_bec(1),
+    ThreatPerOccupant(5),
+    ApproachTargetResetMultiplier(1),
     CampaignMoneyDeltaEasy(5000),
     CampaignMoneyDeltaHard(-5000),
     GuardAreaTargetingDelay(36),
@@ -363,7 +363,7 @@ RulesClass::RulesClass() :
     SovietCrew(0),
     FlameDamage(0),
     FlameDamage2(0),
-    unknown_c60(0),
+    NukeWarhead(0),
     NukeProjectile(0),
     NukeDown(0),
     EMPulseWarhead(0),
@@ -383,25 +383,25 @@ RulesClass::RulesClass() :
     BombCursorShape(0),
     IronCurtainDuration(0),
     IonCannonWarhead(0),
-    unknown_cac(0),
-    unknown_cb0(0),
+    FirestormWarhead(0),
+    VeinholeWarhead(0),
     VeinholeTypeClass(0),
     InfantryBlinkDisguiseTime(0),
     DefaultLargeGreySmokeSystem(0),
     DefaultSmallGreySmokeSystem(0),
-    unknown_ce0(0),
+    DefaultSparkSystem(0),
     DefaultLargeRedSmokeSystem(0),
     DefaultSmallRedSmokeSystem(0),
     DefaultDebrisSmokeSystem(0),
     DefaultFireStreamSystem(0),
-    unknown_cf4(0),
+    DefaultFirestormExplosionSystem(0),
     DefaultTestParticleSystem(0),
     DefaultRepairParticleSystem(0),
-    unknown_d00(0.0),
-    unknown_d08(0.0),
-    unknown_d10(0.0),
-    unknown_d18(0.0),
-    unknown_d20(0.0),
+    MyEffectivenessCoefficientDefault(0.0),
+    TargetEffectivenessCoefficientDefault(0.0),
+    TargetSpecialThreatCoefficientDefault(0.0),
+    TargetStrengthCoefficientDefault(0.0),
+    TargetDistanceCoefficientDefault(0.0),
     DumbMyEffectivenessCoefficient(0.0),
     DumbTargetEffectivenessCoefficient(0.0),
     DumbTargetSpecialThreatCoefficient(0.0),
@@ -440,7 +440,7 @@ RulesClass::RulesClass() :
     SoloCrateMoney(2000),
     TreeStrength(25),
     UnitCrateType(0),
-    unknown_e28(0.016),
+    PatrolTime(0.016),
     DissolveUnfilledTeamDelay(5000),
     AIAlternateProductionCreditCutoff(1000),
     AIUseTurbineUpgradeProbability(1.0),
@@ -452,11 +452,11 @@ RulesClass::RulesClass() :
     MaxIQ(5),
     IQSuperWeapons(4),
     IQProduction(5),
-    unknown_10a8(4),
+    IQGuardArea(4),
     IQRepairSell(3),
-    unknown_10b0(2),
+    IQCrush(2),
     IQScatter(3),
-    unknown_10b8(4),
+    IQContentScan(4),
     IQAircraft(4),
     IQHarvester(3),
     IQSellBack(2),
@@ -466,7 +466,7 @@ RulesClass::RulesClass() :
     WaterCrate((CrateType)0),
     CrateMinimum(1),
     CrateMaximum(255),
-    unknown_10e0(8192),
+    LZScanRadius(8192),
     DropZoneAnim(0),
     MinMoney(2500),
     Money(10000),
@@ -488,7 +488,7 @@ RulesClass::RulesClass() :
     CaptureTheFlag(false),
     HarvesterTruce(false),
     MultiEngineer(false),
-    unknown_111d(false),
+    AlliesAllowed(false),
     ShortGame(false),
     FogOfWar(false),
     MCVRedeploys(true),
@@ -500,16 +500,16 @@ RulesClass::RulesClass() :
     MaxPlayers(8),
     BaseDefenseDelay(0.25),
     SuspendPriority(20),
-    unknown_1150(2.0),
+    SuspendDelay(2.0),
     SurvivorRate(0.5),
-    unknown_1160(200),
-    unknown_1164(100),
+    AlliedSurvivorDivisor(200),
+    SovietSurvivorDivisor(100),
     ReloadRate(0.05),
     AutocreateTime(5.0),
-    unknown_1178(0.05),
-    unknown_1180(2),
+    BuildupTime(0.05),
+    HarvesterLoadRate(2),
     HarvesterDumpRate(0.016),
-    unknown_1190(1000),
+    AtomDamage(1000),
     GrowthRate(2.0),
     ShroudRate(4.0),
     FogRate(0.05),
@@ -520,45 +520,45 @@ RulesClass::RulesClass() :
     AmbientChangeStep(0.1),
     CrateRegen(10.0),
     TimerWarning(2.0),
-    unknown_12f0(14.0),
-    unknown_12f8(5.0),
-    unknown_1300(10.0),
-    unknown_1308(10.0),
+    NukeTime(14.0),
+    EMPulseTime(5.0),
+    IonCannonTime(10.0),
+    FirestormTime(10.0),
     SpeakDelay(2.0),
     DamageDelay(1.0),
-    unknown_1320(3),
-    unknown_1324(50),
-    unknown_1328(0),
+    Gravity(3),
+    LeptonsPerSightIncrease(50),
+    Incoming(0),
     MinDamage(1),
     MaxDamage(1000),
     RepairStep(5),
     RepairPercent(0.25),
     IRepairStep(1),
-    unknown_1348(0.016),
+    RepairRate(0.016),
     URepairRate(0.016),
     IRepairRate(0.016),
-    unknown_1360(1.0),
-    unknown_1368(0.5),
-    unknown_1370(0.5),
+    ConditionGreen(1.0),
+    ConditionYellow(0.5),
+    ConditionRed(0.5),
     IdleActionFrequency(0.083),
-    unknown_1380(640),
-    unknown_1384(512),
-    unknown_1388(512),
-    unknown_1390(384),
+    CloseEnoughDistance(640),
+    StrayDistance(512),
+    RelaxedStray(512),
+    CrushDistance(384),
     CrateRadius(640),
     HomingScatter(512),
-    unknown_139c(256),
-    unknown_13a0(0.5),
-    unknown_13a8(1000),
+    BallisticScatter(256),
+    RefundPercent(0.5),
+    BridgeStrength(1000),
     BuildSpeedBias(1.0),
-    unknown_13b8(0.03),
+    C4Delay(0.03),
     CreditReserve(1000),
-    unknown_13c8(0.016),
+    PathDelay(0.016),
     BlockagePathDelay(60),
     MovieTime(0.25),
     TiberiumNearScan(1536),
     TiberiumFarScan(8192),
-    unknown_13e8(250),
+    LightningDeferment(250),
     LightningDamage(200),
     LightningStormDuration(900),
     LightningHitDelay(90),
@@ -567,7 +567,7 @@ RulesClass::RulesClass() :
     LightningSeparation(3),
     LightningPrintText(true),
     LightningWarhead(0),
-    unknown_140c(100),
+    CollapseChance(100),
     WeedCapacity(0),
     HarvestersPerRefinery(2),
     ExtraUnitLight(0),
@@ -578,13 +578,13 @@ RulesClass::RulesClass() :
     BlendedFog(true),
     CompEasyBonus(true),
     FineDiffControl(false),
-    unknown_1429(false),
+    IsExplosiveHarvester(false),
     EnemyHealth(true),
-    unknown_142b(true),
+    IsAllyReveal(true),
     IsSeparate(false),
-    unknown_142d(false),
+    IsTreeTarget(false),
     NamedCivilians(false),
-    unknown_142f(false),
+    IsAutoCrush(false),
     PlayerReturnFire(false),
     IsScatter(false),
     RevealByHeight(true),
@@ -592,24 +592,24 @@ RulesClass::RulesClass() :
     ShroudGrow(false),
     NodAIBuildsWalls(true),
     AIBuildsWalls(true),
-    unknown_1437(true),
-    unknown_1438(0),
+    UseMinDefenseRule(true),
+    EMPulseSparkles(0),
     unknown_143c(1.0f),
     EngineerCaptureLevel(0.0f),
     TalkBubbleTime(300),
     RadDurationMultiple(0),
-    unknown_144c(0),
+    RadApplicationDelay(0),
     RadLevelMax(0),
     RadLevelDelay(0),
     RadLightDelay(0),
-    unknown_1460(0.0),
+    RadLevelFactor(0.0),
     RadLightFactor(0.0),
     RadTintFactor(0.0),
-    unknown_147c(0),
-    unknown_1480(0),
-    unknown_1488(1.0),
-    unknown_1490(0.0),
-    unknown_1498(false),
+    RadSiteWarhead(0),
+    ElevationIncrement(0),
+    ElevationIncrementBonus(1.0),
+    ElevationBonusCap(0.0),
+    AlliedWallTransparency(false),
     WallPenetratorThreshold(0.5),
     LocalRadarColor(255, 255, 255),
     OreTwinkleChance(50),
@@ -782,7 +782,7 @@ bool RulesClass::Special_Weapons(CCINIClass &ini)
 {
     if (ini.Is_Present(RulesSection_SpecialWeapons)) {
         HSBuilding = TypeListReader<BuildingTypeClass>::Get(ini, RulesSection_SpecialWeapons, "HSBuilding", HSBuilding);
-        unknown_c60 = Get_Type(ini, RulesSection_SpecialWeapons, "NukeWarhead", unknown_c60);
+        NukeWarhead = Get_Type(ini, RulesSection_SpecialWeapons, "NukeWarhead", NukeWarhead);
         NukeProjectile = Get_Type(ini, RulesSection_SpecialWeapons, "NukeProjectile", NukeProjectile);
         NukeDown = Get_Type(ini, RulesSection_SpecialWeapons, "NukeDown", NukeDown);
         EMPulseWarhead = Get_Type(ini, RulesSection_SpecialWeapons, "EMPulseWarhead", EMPulseWarhead);
@@ -829,10 +829,10 @@ bool RulesClass::Audio_Visual(CCINIClass &ini)
         DropPod = TypeListReader<AnimTypeClass>::Get(ini, RulesSection_AudioVisual, "DropPod", DropPod);
         VocType dig_sound = Get_VocType(ini, RulesSection_AudioVisual, "DigSound", (VocType)DigSound);
         DigSound = dig_sound;
-        VocType guimain_button_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUIMainButtonSound", (VocType)unknown_180);
-        unknown_180 = guimain_button_sound;
-        VocType guibuild_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUIBuildSound", (VocType)unknown_184);
-        unknown_184 = guibuild_sound;
+        VocType guimain_button_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUIMainButtonSound", (VocType)GUIMainButtonSound);
+        GUIMainButtonSound = guimain_button_sound;
+        VocType guibuild_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUIBuildSound", (VocType)GUIBuildSound);
+        GUIBuildSound = guibuild_sound;
         VocType guitab_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUITabSound", (VocType)GUITabSound);
         GUITabSound = guitab_sound;
         VocType guiopen_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUIOpenSound", (VocType)GUIOpenSound);
@@ -877,8 +877,8 @@ bool RulesClass::Audio_Visual(CCINIClass &ini)
         ImpactWaterSound = impact_water_sound;
         VocType impact_land_sound = Get_VocType(ini, RulesSection_AudioVisual, "ImpactLandSound", (VocType)ImpactLandSound);
         ImpactLandSound = impact_land_sound;
-        VocType sinking_sound = Get_VocType(ini, RulesSection_AudioVisual, "SinkingSound", (VocType)unknown_200);
-        unknown_200 = sinking_sound;
+        VocType sinking_sound = Get_VocType(ini, RulesSection_AudioVisual, "SinkingSound", (VocType)SinkingSound);
+        SinkingSound = sinking_sound;
         VocType chrono_in_sound = Get_VocType(ini, RulesSection_AudioVisual, "ChronoInSound", (VocType)ChronoInSound);
         ChronoInSound = chrono_in_sound;
         VocType chrono_out_sound = Get_VocType(ini, RulesSection_AudioVisual, "ChronoOutSound", (VocType)ChronoOutSound);
@@ -899,8 +899,8 @@ bool RulesClass::Audio_Visual(CCINIClass &ini)
         BuildingGarrisonedSound = building_garrisoned_sound;
         VocType building_abandoned_sound = Get_VocType(ini, RulesSection_AudioVisual, "BuildingAbandonedSound", (VocType)BuildingAbandonedSound);
         BuildingAbandonedSound = building_abandoned_sound;
-        VocType building_repaired_sound = Get_VocType(ini, RulesSection_AudioVisual, "BuildingRepairedSound", (VocType)unknown_1bc);
-        unknown_1bc = building_repaired_sound;
+        VocType building_repaired_sound = Get_VocType(ini, RulesSection_AudioVisual, "BuildingRepairedSound", (VocType)BuildingRepairedSound);
+        BuildingRepairedSound = building_repaired_sound;
         VocType base_under_attack_sound = Get_VocType(ini, RulesSection_AudioVisual, "BaseUnderAttackSound", (VocType)BaseUnderAttackSound);
         BaseUnderAttackSound = base_under_attack_sound;
         VocType upgrade_veteran_sound = Get_VocType(ini, RulesSection_AudioVisual, "UpgradeVeteranSound", (VocType)UpgradeVeteranSound);
@@ -921,7 +921,7 @@ bool RulesClass::Audio_Visual(CCINIClass &ini)
         SpySatActivationSound = spy_sat_activation_sound;
         VocType spy_sat_deactivation_sound = Get_VocType(ini, RulesSection_AudioVisual, "SpySatDeactivationSound", (VocType)SpySatDeactivationSound);
         SpySatDeactivationSound = spy_sat_deactivation_sound;
-        unknown_228 = Get_Type(ini, RulesSection_AudioVisual, "Dig", unknown_228);
+        Dig = Get_Type(ini, RulesSection_AudioVisual, "Dig", Dig);
         IonBlast = Get_Type(ini, RulesSection_AudioVisual, "IonBlast", IonBlast);
         IonBeam = Get_Type(ini, RulesSection_AudioVisual, "IonBeam", IonBeam);
         ChronoBeam = Get_Type(ini, RulesSection_AudioVisual, "ChronoBeam", ChronoBeam);
@@ -1016,27 +1016,27 @@ bool RulesClass::Audio_Visual(CCINIClass &ini)
         WeatherConBoltExplosion = Get_Type(ini, RulesSection_AudioVisual, "WeatherConBoltExplosion", WeatherConBoltExplosion);
         OnFire = TypeListReader<AnimTypeClass>::Get(ini, RulesSection_AudioVisual, "OnFire", OnFire);
         Smoke = Get_Type(ini, RulesSection_AudioVisual, "Smoke", Smoke);
-        unknown_a60 = Get_Type(ini, RulesSection_AudioVisual, "Smoke", unknown_a60);
+        Smoke2 = Get_Type(ini, RulesSection_AudioVisual, "Smoke", Smoke2);
         FirestormActiveAnim = Get_Type(ini, RulesSection_AudioVisual, "FirestormActiveAnim", FirestormActiveAnim);
         FirestormIdleAnim = Get_Type(ini, RulesSection_AudioVisual, "FirestormIdleAnim", FirestormIdleAnim);
         FirestormAirAnim = Get_Type(ini, RulesSection_AudioVisual, "FirestormAirAnim", FirestormAirAnim);
         FirestormGroundAnim = Get_Type(ini, RulesSection_AudioVisual, "FirestormGroundAnim", FirestormGroundAnim);
-        unknown_a74 = Get_Type(ini, RulesSection_AudioVisual, "MoveFlash", unknown_a74);
+        MoveFlash = Get_Type(ini, RulesSection_AudioVisual, "MoveFlash", MoveFlash);
         EliteFlashTimer = ini.Get_Int(RulesSection_AudioVisual, "EliteFlashTimer", EliteFlashTimer);
-        unknown_a7c = Get_Type(ini, RulesSection_AudioVisual, "Parachute", unknown_a7c);
-        unknown_a78 = Get_Type(ini, RulesSection_AudioVisual, "BombParachute", unknown_a78);
+        Parachute = Get_Type(ini, RulesSection_AudioVisual, "Parachute", Parachute);
+        BombParachute = Get_Type(ini, RulesSection_AudioVisual, "BombParachute", BombParachute);
         SmallFire = Get_Type(ini, RulesSection_AudioVisual, "SmallFire", SmallFire);
         LargeFire = Get_Type(ini, RulesSection_AudioVisual, "LargeFire", LargeFire);
-        unknown_142b = ini.Get_Bool(RulesSection_AudioVisual, "AllyReveal", unknown_142b);
-        unknown_1360 = 1;
-        double condition_red = ini.Get_Double(RulesSection_AudioVisual, "ConditionRed", unknown_1370);
-        unknown_1370 = condition_red;
-        double condition_yellow = ini.Get_Double(RulesSection_AudioVisual, "ConditionYellow", unknown_1368);
-        unknown_1368 = condition_yellow;
+        IsAllyReveal = ini.Get_Bool(RulesSection_AudioVisual, "AllyReveal", IsAllyReveal);
+        ConditionGreen = 1;
+        double condition_red = ini.Get_Double(RulesSection_AudioVisual, "ConditionRed", ConditionRed);
+        ConditionRed = condition_red;
+        double condition_yellow = ini.Get_Double(RulesSection_AudioVisual, "ConditionYellow", ConditionYellow);
+        ConditionYellow = condition_yellow;
         DropZoneRadius = ini.Get_Lepton(RulesSection_AudioVisual, "DropZoneRadius", DropZoneRadius);
         DropZoneAnim = Get_Type(ini, RulesSection_AudioVisual, "DropZoneAnim", DropZoneAnim);
         EnemyHealth = ini.Get_Bool(RulesSection_AudioVisual, "EnemyHealth", EnemyHealth);
-        unknown_1320 = ini.Get_Int(RulesSection_AudioVisual, "Gravity", unknown_1320);
+        Gravity = ini.Get_Int(RulesSection_AudioVisual, "Gravity", Gravity);
         double idle_action_frequency = ini.Get_Double(RulesSection_AudioVisual, "IdleActionFrequency", IdleActionFrequency);
         IdleActionFrequency = idle_action_frequency;
         double message_delay = ini.Get_Double(RulesSection_AudioVisual, "MessageDelay", MessageDelay);
@@ -1068,7 +1068,7 @@ bool RulesClass::Audio_Visual(CCINIClass &ini)
         ExtraUnitLight = ini.Get_Double(RulesSection_AudioVisual, "ExtraUnitLight", ExtraUnitLight / 1000) * 1000.0;
         ExtraInfantryLight = ini.Get_Double(RulesSection_AudioVisual, "ExtraInfantryLight", ExtraInfantryLight / 1000) * 1000.0;
         ExtraAircraftLight = ini.Get_Double(RulesSection_AudioVisual, "ExtraAircraftLight", ExtraAircraftLight / 1000) * 1000.0;
-        unknown_1438 = Get_Type(ini, RulesSection_AudioVisual, "EMPulseSparkles", unknown_1438);
+        EMPulseSparkles = Get_Type(ini, RulesSection_AudioVisual, "EMPulseSparkles", EMPulseSparkles);
         LocalRadarColor = ini.Get_RGB(RulesSection_AudioVisual, "LocalRadarColor", LocalRadarColor);
         LineTrailColorOverride = ini.Get_RGB(RulesSection_AudioVisual, "LineTrailColorOverride", LineTrailColorOverride);
         ChronoBeamColor = ini.Get_RGB(RulesSection_AudioVisual, "ChronoBeamColor", ChronoBeamColor);
@@ -1086,7 +1086,7 @@ bool RulesClass::Crate_Rules(CCINIClass &ini)
 {
     if (ini.Is_Present(RulesSection_CrateRules)) {
         FreeMCV = ini.Get_Bool(RulesSection_CrateRules, "FreeMCV", FreeMCV);
-        unknown_f0 = Get_Type(ini, RulesSection_CrateRules, "WoodCrateImg", unknown_f0);
+        WoodCrateImg = Get_Type(ini, RulesSection_CrateRules, "WoodCrateImg", WoodCrateImg);
         CrateImg = Get_Type(ini, RulesSection_CrateRules, "CrateImg", CrateImg);
         WaterCrateImg = Get_Type(ini, RulesSection_CrateRules, "WaterCrateImg", WaterCrateImg);
         HealCrateSound = Get_Sound(ini, RulesSection_CrateRules, "HealCrateSound", HealCrateSound);
@@ -1152,12 +1152,12 @@ bool RulesClass::Combat_Damage(CCINIClass &ini)
         int iron_curtain_duration = ini.Get_Int(RulesSection_CombatDamage, "IronCurtainDuration", IronCurtainDuration);
         IronCurtainDuration = iron_curtain_duration;
         IonCannonWarhead = Get_Type(ini, RulesSection_CombatDamage, "IonCannonWarhead", IonCannonWarhead);
-        unknown_cac = Get_Type(ini, RulesSection_CombatDamage, "FirestormWarhead", unknown_cac);
-        unknown_cb0 = Get_Type(ini, RulesSection_CombatDamage, "VeinholeWarhead", unknown_cb0);
-        unknown_cf4 = Get_Type(ini, RulesSection_CombatDamage, "DefaultFirestormExplosionSystem", unknown_cf4);
+        FirestormWarhead = Get_Type(ini, RulesSection_CombatDamage, "FirestormWarhead", FirestormWarhead);
+        VeinholeWarhead = Get_Type(ini, RulesSection_CombatDamage, "VeinholeWarhead", VeinholeWarhead);
+        DefaultFirestormExplosionSystem = Get_Type(ini, RulesSection_CombatDamage, "DefaultFirestormExplosionSystem", DefaultFirestormExplosionSystem);
         DefaultLargeGreySmokeSystem = Get_Type(ini, RulesSection_CombatDamage, "DefaultLargeGreySmokeSystem", DefaultLargeGreySmokeSystem);
         DefaultSmallGreySmokeSystem = Get_Type(ini, RulesSection_CombatDamage, "DefaultSmallGreySmokeSystem", DefaultSmallGreySmokeSystem);
-        unknown_ce0 = Get_Type(ini, RulesSection_CombatDamage, "DefaultSparkSystem", unknown_ce0);
+        DefaultSparkSystem = Get_Type(ini, RulesSection_CombatDamage, "DefaultSparkSystem", DefaultSparkSystem);
         DefaultLargeRedSmokeSystem = Get_Type(ini, RulesSection_CombatDamage, "DefaultLargeRedSmokeSystem", DefaultLargeRedSmokeSystem);
         DefaultSmallRedSmokeSystem = Get_Type(ini, RulesSection_CombatDamage, "DefaultSmallRedSmokeSystem", DefaultSmallRedSmokeSystem);
         DefaultDebrisSmokeSystem = Get_Type(ini, RulesSection_CombatDamage, "DefaultDebrisSmokeSystem", DefaultDebrisSmokeSystem);
@@ -1166,15 +1166,15 @@ bool RulesClass::Combat_Damage(CCINIClass &ini)
         DefaultRepairParticleSystem = Get_Type(ini, RulesSection_CombatDamage, "DefaultRepairParticleSystem", DefaultRepairParticleSystem);
         BerzerkAllowed = ini.Get_Bool(RulesSection_CombatDamage, "BerzerkAllowed", BerzerkAllowed);
         TurboBoost = ini.Get_Double(RulesSection_CombatDamage, "TurboBoost", TurboBoost);
-        int atom_damage = ini.Get_Int(RulesSection_CombatDamage, "AtomDamage", unknown_1190);
-        unknown_1190 = atom_damage;
-        int ballistic_scatter = ini.Get_Lepton(RulesSection_CombatDamage, "BallisticScatter", unknown_139c);
-        unknown_139c = ballistic_scatter;
-        int bridge_strength = ini.Get_Int(RulesSection_CombatDamage, "BridgeStrength", unknown_13a8);
-        unknown_13a8 = bridge_strength;
-        unknown_13b8 = ini.Get_Double(RulesSection_CombatDamage, "C4Delay", unknown_13b8);
-        int crush = ini.Get_Lepton(RulesSection_CombatDamage, "Crush", unknown_1390);
-        unknown_1390 = crush;
+        int atom_damage = ini.Get_Int(RulesSection_CombatDamage, "AtomDamage", AtomDamage);
+        AtomDamage = atom_damage;
+        int ballistic_scatter = ini.Get_Lepton(RulesSection_CombatDamage, "BallisticScatter", BallisticScatter);
+        BallisticScatter = ballistic_scatter;
+        int bridge_strength = ini.Get_Int(RulesSection_CombatDamage, "BridgeStrength", BridgeStrength);
+        BridgeStrength = bridge_strength;
+        C4Delay = ini.Get_Double(RulesSection_CombatDamage, "C4Delay", C4Delay);
+        int crush = ini.Get_Lepton(RulesSection_CombatDamage, "Crush", CrushDistance);
+        CrushDistance = crush;
         ExpSpread = ini.Get_Double(RulesSection_CombatDamage, "ExpSpread", ExpSpread);
         int fire_supress = ini.Get_Lepton(RulesSection_CombatDamage, "FireSupress", FireSupress);
         FireSupress = fire_supress;
@@ -1184,14 +1184,14 @@ bool RulesClass::Combat_Damage(CCINIClass &ini)
         MaxDamage = max_damage;
         int min_damage = ini.Get_Int(RulesSection_CombatDamage, "MinDamage", MinDamage);
         MinDamage = min_damage;
-        unknown_1429 = ini.Get_Bool(RulesSection_CombatDamage, "TiberiumExplosive", unknown_1429);
-        unknown_142f = ini.Get_Bool(RulesSection_CombatDamage, "PlayerAutoCrush", unknown_142f);
+        IsExplosiveHarvester = ini.Get_Bool(RulesSection_CombatDamage, "TiberiumExplosive", IsExplosiveHarvester);
+        IsAutoCrush = ini.Get_Bool(RulesSection_CombatDamage, "PlayerAutoCrush", IsAutoCrush);
         PlayerReturnFire = ini.Get_Bool(RulesSection_CombatDamage, "PlayerReturnFire", PlayerReturnFire);
         IsScatter = ini.Get_Bool(RulesSection_CombatDamage, "PlayerScatter", IsScatter);
-        unknown_142d = ini.Get_Bool(RulesSection_CombatDamage, "TreeTargeting", unknown_142d);
-        unknown_1328 = ini.Get_Percent(RulesSection_CombatDamage, "Incoming", unknown_1328);
-        int collapse_chance = ini.Get_Int(RulesSection_CombatDamage, "CollapseChance", unknown_140c);
-        unknown_140c = collapse_chance;
+        IsTreeTarget = ini.Get_Bool(RulesSection_CombatDamage, "TreeTargeting", IsTreeTarget);
+        Incoming = ini.Get_Percent(RulesSection_CombatDamage, "Incoming", Incoming);
+        int collapse_chance = ini.Get_Int(RulesSection_CombatDamage, "CollapseChance", CollapseChance);
+        CollapseChance = collapse_chance;
         return true;
     }
     return false;
@@ -1204,15 +1204,15 @@ bool RulesClass::Radiation(CCINIClass &ini)
 {
     if (ini.Is_Present(RulesSection_Radiation)) {
         RadDurationMultiple = ini.Get_Int(RulesSection_Radiation, "RadDurationMultiple", RadDurationMultiple);
-        unknown_144c = ini.Get_Int(RulesSection_Radiation, "RadApplicationDelay", unknown_144c);
+        RadApplicationDelay = ini.Get_Int(RulesSection_Radiation, "RadApplicationDelay", RadApplicationDelay);
         RadLevelMax = ini.Get_Int(RulesSection_Radiation, "RadLevelMax", RadLevelMax);
         RadLevelDelay = ini.Get_Int(RulesSection_Radiation, "RadLevelDelay", RadLevelDelay);
         RadLightDelay = ini.Get_Int(RulesSection_Radiation, "RadLightDelay", RadLightDelay);
-        unknown_1460 = ini.Get_Double(RulesSection_Radiation, "RadLevelFactor", unknown_1460);
+        RadLevelFactor = ini.Get_Double(RulesSection_Radiation, "RadLevelFactor", RadLevelFactor);
         RadLightFactor = ini.Get_Double(RulesSection_Radiation, "RadLightFactor", RadLightFactor);
         RadTintFactor = ini.Get_Double(RulesSection_Radiation, "RadTintFactor", RadTintFactor);
         RadColor = ini.Get_RGB(RulesSection_Radiation, "RadColor", RadColor);
-        unknown_147c = Get_Type(ini, RulesSection_Radiation, "RadSiteWarhead", unknown_147c);
+        RadSiteWarhead = Get_Type(ini, RulesSection_Radiation, "RadSiteWarhead", RadSiteWarhead);
         return true;
     }
     return false;
@@ -1224,9 +1224,9 @@ bool RulesClass::Radiation(CCINIClass &ini)
 bool RulesClass::Elevation_Model(CCINIClass &ini)
 {
     if (ini.Is_Present(RulesSection_ElevationModel)) {
-        unknown_1480 = ini.Get_Int(RulesSection_ElevationModel, "ElevationIncrement", unknown_1480);
-        unknown_1488 = ini.Get_Double(RulesSection_ElevationModel, "ElevationIncrementBonus", unknown_1488);
-        unknown_1490 = ini.Get_Double(RulesSection_ElevationModel, "ElevationBonusCap", unknown_1490);
+        ElevationIncrement = ini.Get_Int(RulesSection_ElevationModel, "ElevationIncrement", ElevationIncrement);
+        ElevationIncrementBonus = ini.Get_Double(RulesSection_ElevationModel, "ElevationIncrementBonus", ElevationIncrementBonus);
+        ElevationBonusCap = ini.Get_Double(RulesSection_ElevationModel, "ElevationBonusCap", ElevationBonusCap);
         return true;
     }
     return false;
@@ -1238,7 +1238,7 @@ bool RulesClass::Elevation_Model(CCINIClass &ini)
 bool RulesClass::Wall_Model(CCINIClass &ini)
 {
     if (ini.Is_Present(RulesSection_WallModel)) {
-        unknown_1498 = ini.Get_Bool(RulesSection_WallModel, "AlliedWallTransparency", unknown_1498);
+        AlliedWallTransparency = ini.Get_Bool(RulesSection_WallModel, "AlliedWallTransparency", AlliedWallTransparency);
         WallPenetratorThreshold = ini.Get_Double(RulesSection_WallModel, "WallPenetratorThreshold", WallPenetratorThreshold);
         return true;
     }
@@ -1347,20 +1347,20 @@ bool RulesClass::General(CCINIClass &ini)
         NoParachuteMaxFallRate = ini.Get_Int(RulesSection_General, "NoParachuteMaxFallRate", NoParachuteMaxFallRate);
         RepairBay = Get_Type(ini, RulesSection_General, "RepairBay", RepairBay);
         GDIGateOne = Get_Type(ini, RulesSection_General, "GDIGateOne", GDIGateOne);
-        unknown_780 = Get_Type(ini, RulesSection_General, "GDIGateTwo", unknown_780);
-        unknown_784 = Get_Type(ini, RulesSection_General, "NodGateOne", unknown_784);
-        unknown_788 = Get_Type(ini, RulesSection_General, "NodGateTwo", unknown_788);
-        unknown_78c = Get_Type(ini, RulesSection_General, "WallTower", unknown_78c);
+        GDIGateTwo = Get_Type(ini, RulesSection_General, "GDIGateTwo", GDIGateTwo);
+        NodGateOne = Get_Type(ini, RulesSection_General, "NodGateOne", NodGateOne);
+        NodGateTwo = Get_Type(ini, RulesSection_General, "NodGateTwo", NodGateTwo);
+        WallTower = Get_Type(ini, RulesSection_General, "WallTower", WallTower);
         Shipyard = TypeListReader<BuildingTypeClass>::Get(ini, RulesSection_General, "Shipyard", Shipyard);
         GDIPowerPlant = Get_Type(ini, RulesSection_General, "GDIPowerPlant", GDIPowerPlant);
         GDIPowerTurbine = Get_Type(ini, RulesSection_General, "GDIPowerTurbine", GDIPowerTurbine);
         NodRegularPower = Get_Type(ini, RulesSection_General, "NodRegularPower", NodRegularPower);
         NodAdvancedPower = Get_Type(ini, RulesSection_General, "NodAdvancedPower", NodAdvancedPower);
-        unknown_7bc = Get_Type(ini, RulesSection_General, "GDIFirestormGenerator", unknown_7bc);
+        GDIFirestormGenerator = Get_Type(ini, RulesSection_General, "GDIFirestormGenerator", GDIFirestormGenerator);
         GDIHunterSeeker = Get_Type(ini, RulesSection_General, "GDIHunterSeeker", GDIHunterSeeker);
         NodHunterSeeker = Get_Type(ini, RulesSection_General, "NodHunterSeeker", NodHunterSeeker);
         BaseUnit = TypeListReader<UnitTypeClass>::Get(ini, RulesSection_General, "BaseUnit", BaseUnit);
-        unknown_9ec = TypeListReader<UnitTypeClass>::Get(ini, RulesSection_General, "HarvesterUnit", unknown_9ec);
+        HarvesterUnit = TypeListReader<UnitTypeClass>::Get(ini, RulesSection_General, "HarvesterUnit", HarvesterUnit);
         PadAircraft = TypeListReader<AircraftTypeClass>::Get(ini, RulesSection_General, "PadAircraft", PadAircraft);
         Paratrooper = Get_Type(ini, RulesSection_General, "Paratrooper", Paratrooper);
         ChronoDelay = ini.Get_Int(RulesSection_General, "ChronoDelay", ChronoDelay);
@@ -1374,19 +1374,19 @@ bool RulesClass::General(CCINIClass &ini)
         SpyPowerBlackout = ini.Get_Int(RulesSection_General, "SpyPowerBlackout", SpyPowerBlackout);
         SpyMoneyStealPercent = ini.Get_Double(RulesSection_General, "SpyMoneyStealPercent", SpyMoneyStealPercent);
         AttackCursorOnDisguise = ini.Get_Bool(RulesSection_General, "AttackCursorOnDisguise", AttackCursorOnDisguise);
-        unknown_b80 = ini.Get_Double(RulesSection_General, "AIMinorSuperReadyPercent", unknown_b80);
+        AIMinorSuperReadyPercent = ini.Get_Double(RulesSection_General, "AIMinorSuperReadyPercent", AIMinorSuperReadyPercent);
         AISafeDistance = ini.Get_Int(RulesSection_General, "AISafeDistance", AISafeDistance);
         AINavalYardAdjacency = ini.Get_Int(RulesSection_General, "AINavalYardAdjacency", AINavalYardAdjacency);
         MaximumBuildingPlacementFailures = ini.Get_Int(RulesSection_General, "MaximumBuildingPlacementFailures", MaximumBuildingPlacementFailures);
         HarvesterTooFarDistance = ini.Get_Int(RulesSection_General, "HarvesterTooFarDistance", HarvesterTooFarDistance);
-        unknown_bec = ini.Get_Int(RulesSection_General, "ApproachTargetResetMultiplier", unknown_bec);
+        ApproachTargetResetMultiplier = ini.Get_Int(RulesSection_General, "ApproachTargetResetMultiplier", ApproachTargetResetMultiplier);
         CampaignMoneyDeltaEasy = ini.Get_Int(RulesSection_General, "CampaignMoneyDeltaEasy", CampaignMoneyDeltaEasy);
         CampaignMoneyDeltaHard = ini.Get_Int(RulesSection_General, "CampaignMoneyDeltaHard", CampaignMoneyDeltaHard);
         GuardAreaTargetingDelay = ini.Get_Int(RulesSection_General, "GuardAreaTargetingDelay", GuardAreaTargetingDelay);
         NormalTargetingDelay = ini.Get_Int(RulesSection_General, "NormalTargetingDelay", NormalTargetingDelay);
         ChronoHarvTooFarDistance = ini.Get_Int(RulesSection_General, "ChronoHarvTooFarDistance", ChronoHarvTooFarDistance);
         AIRestrictReplaceTime = ini.Get_Int(RulesSection_General, "AIRestrictReplaceTime", AIRestrictReplaceTime);
-        unknown_be8 = ini.Get_Int(RulesSection_General, "ThreatPerOccupant", unknown_be8);
+        ThreatPerOccupant = ini.Get_Int(RulesSection_General, "ThreatPerOccupant", ThreatPerOccupant);
         PurifierBonus = ini.Get_Double(RulesSection_General, "PurifierBonus", PurifierBonus);
         Engineer = Get_Type(ini, RulesSection_General, "Engineer", Engineer);
         Technician = Get_Type(ini, RulesSection_General, "Technician", Technician);
@@ -1410,7 +1410,7 @@ bool RulesClass::General(CCINIClass &ini)
         MinimumAIDefensiveTeams = ini.Get_Integer_List(RulesSection_General, "MinimumAIDefensiveTeams", MinimumAIDefensiveTeams);
         MaximumAIDefensiveTeams = ini.Get_Integer_List(RulesSection_General, "MaximumAIDefensiveTeams", MaximumAIDefensiveTeams);
         TotalAITeamCap = ini.Get_Integer_List(RulesSection_General, "TotalAITeamCap", TotalAITeamCap);
-        unknown_1437 = ini.Get_Bool(RulesSection_General, "UseMinDefenseRule", unknown_1437);
+        UseMinDefenseRule = ini.Get_Bool(RulesSection_General, "UseMinDefenseRule", UseMinDefenseRule);
         DissolveUnfilledTeamDelay = ini.Get_Int(RulesSection_General, "DissolveUnfilledTeamDelay", DissolveUnfilledTeamDelay);
         MultiplayerAICM = ini.Get_Integer_List(RulesSection_General, "MultiplayerAICM", MultiplayerAICM);
         AIVirtualPurifiers = ini.Get_Integer_List(RulesSection_General, "AIVirtualPurifiers", AIVirtualPurifiers);
@@ -1438,33 +1438,33 @@ bool RulesClass::General(CCINIClass &ini)
         IsSeparate = ini.Get_Bool(RulesSection_General, "SeparateAircraft", IsSeparate);
         BaseDefenseDelay = ini.Get_Double(RulesSection_General, "BaseDefenseDelay", BaseDefenseDelay);
         SuspendPriority = ini.Get_Int(RulesSection_General, "SuspendPriority", SuspendPriority);
-        unknown_1150 = ini.Get_Double(RulesSection_General, "SuspendDelay", unknown_1150);
+        SuspendDelay = ini.Get_Double(RulesSection_General, "SuspendDelay", SuspendDelay);
         SurvivorRate = ini.Get_Double(RulesSection_General, "SurvivorRate", SurvivorRate);
-        unknown_1160 = ini.Get_Int(RulesSection_General, "AlliedSurvivorDivisor", unknown_1160);
-        unknown_1164 = ini.Get_Int(RulesSection_General, "SovietSurvivorDivisor", unknown_1164);
+        AlliedSurvivorDivisor = ini.Get_Int(RulesSection_General, "AlliedSurvivorDivisor", AlliedSurvivorDivisor);
+        SovietSurvivorDivisor = ini.Get_Int(RulesSection_General, "SovietSurvivorDivisor", SovietSurvivorDivisor);
         ReloadRate = ini.Get_Double(RulesSection_General, "ReloadRate", ReloadRate);
-        unknown_1178 = ini.Get_Double(RulesSection_General, "BuildupTime", unknown_1178);
+        BuildupTime = ini.Get_Double(RulesSection_General, "BuildupTime", BuildupTime);
         HarvesterDumpRate = ini.Get_Double(RulesSection_General, "HarvesterDumpRate", HarvesterDumpRate);
-        unknown_1180 = ini.Get_Int(RulesSection_General, "HarvesterLoadRate", unknown_1180);
+        HarvesterLoadRate = ini.Get_Int(RulesSection_General, "HarvesterLoadRate", HarvesterLoadRate);
         BuildSpeedBias = ini.Get_Double(RulesSection_General, "BuildSpeed", BuildSpeedBias);
         DamageDelay = ini.Get_Double(RulesSection_General, "DamageDelay", DamageDelay);
         GrowthRate = ini.Get_Double(RulesSection_General, "GrowthRate", GrowthRate);
-        unknown_13a0 = ini.Get_Double(RulesSection_General, "RefundPercent", unknown_13a0);
+        RefundPercent = ini.Get_Double(RulesSection_General, "RefundPercent", RefundPercent);
         RepairPercent = ini.Get_Double(RulesSection_General, "RepairPercent", RepairPercent);
         RepairStep = ini.Get_Int(RulesSection_General, "RepairStep", RepairStep);
         IRepairStep = ini.Get_Int(RulesSection_General, "IRepairStep", IRepairStep);
-        unknown_1348 = ini.Get_Double(RulesSection_General, "RepairRate", unknown_1348);
+        RepairRate = ini.Get_Double(RulesSection_General, "RepairRate", RepairRate);
         URepairRate = ini.Get_Double(RulesSection_General, "URepairRate", URepairRate);
         IRepairRate = ini.Get_Double(RulesSection_General, "IRepairRate", IRepairRate);
-        unknown_1384 = ini.Get_Lepton(RulesSection_General, "Stray", unknown_1384);
-        unknown_1388 = ini.Get_Lepton(RulesSection_General, "RelaxedStray", unknown_1388);
+        StrayDistance = ini.Get_Lepton(RulesSection_General, "Stray", StrayDistance);
+        RelaxedStray = ini.Get_Lepton(RulesSection_General, "RelaxedStray", RelaxedStray);
         GuardModeStray = ini.Get_Lepton(RulesSection_General, "GuardModeStray", GuardModeStray);
-        unknown_1380 = ini.Get_Lepton(RulesSection_General, "CloseEnough", unknown_1380);
+        CloseEnoughDistance = ini.Get_Lepton(RulesSection_General, "CloseEnough", CloseEnoughDistance);
         BlendedFog = ini.Get_Bool(RulesSection_General, "BlendedFog", BlendedFog);
         AttackingAircraftSightRange = ini.Get_Int(RulesSection_General, "AttackingAircraftSightRange", AttackingAircraftSightRange);
-        unknown_1324 = ini.Get_Int(RulesSection_General, "LeptonsPerSightIncrease", unknown_1324);
+        LeptonsPerSightIncrease = ini.Get_Int(RulesSection_General, "LeptonsPerSightIncrease", LeptonsPerSightIncrease);
         TiberiumTransmogrify = ini.Get_Int(RulesSection_General, "TiberiumTransmogrify", TiberiumTransmogrify);
-        unknown_13e8 = ini.Get_Int(RulesSection_General, "LightningDeferment", unknown_13e8);
+        LightningDeferment = ini.Get_Int(RulesSection_General, "LightningDeferment", LightningDeferment);
         LightningDamage = ini.Get_Int(RulesSection_General, "LightningDamage", LightningDamage);
         LightningStormDuration = ini.Get_Int(RulesSection_General, "LightningStormDuration", LightningStormDuration);
         LightningHitDelay = ini.Get_Int(RulesSection_General, "LightningHitDelay", LightningHitDelay);
@@ -1516,9 +1516,9 @@ bool RulesClass::General(CCINIClass &ini)
         WallBuildSpeedCoefficient = ini.Get_Double(RulesSection_General, "WallBuildSpeedCoefficient", WallBuildSpeedCoefficient);
         ConditionYellowSparkingProbability = ini.Get_Double(RulesSection_General, "ConditionYellowSparkingProbability", ConditionYellowSparkingProbability);
         ConditionRedSparkingProbability = ini.Get_Double(RulesSection_General, "ConditionRedSparkingProbability", ConditionRedSparkingProbability);
-        unknown_b8 = ini.Get_Double(RulesSection_General, "AITriggerSuccessWeightDelta", unknown_b8);
-        unknown_c0 = ini.Get_Double(RulesSection_General, "AITriggerFailureWeightDelta", unknown_c0);
-        unknown_c8 = ini.Get_Double(RulesSection_General, "AITriggerTrackRecordCoefficient", unknown_c8);
+        AITriggerSuccessWeightDelta = ini.Get_Double(RulesSection_General, "AITriggerSuccessWeightDelta", AITriggerSuccessWeightDelta);
+        AITriggerFailureWeightDelta = ini.Get_Double(RulesSection_General, "AITriggerFailureWeightDelta", AITriggerFailureWeightDelta);
+        AITriggerTrackRecordCoefficient = ini.Get_Double(RulesSection_General, "AITriggerTrackRecordCoefficient", AITriggerTrackRecordCoefficient);
         WeedCapacity = ini.Get_Int(RulesSection_General, "WeedCapacity", WeedCapacity);
         HarvestersPerRefinery = ini.Get_Int(RulesSection_General, "HarvestersPerRefinery", HarvestersPerRefinery);
         FlashFrameTime = ini.Get_Int(RulesSection_General, "FlashFrameTime", FlashFrameTime);
@@ -1535,11 +1535,11 @@ bool RulesClass::General(CCINIClass &ini)
         HunterSeekerDescentSpeed = ini.Get_Int(RulesSection_General, "HunterSeekerDescentSpeed", HunterSeekerDescentSpeed);
         HunterSeekerAscentSpeed = ini.Get_Int(RulesSection_General, "HunterSeekerAscentSpeed", HunterSeekerAscentSpeed);
         HunterSeekerEmergeSpeed = ini.Get_Int(RulesSection_General, "HunterSeekerEmergeSpeed", HunterSeekerEmergeSpeed);
-        unknown_d00 = ini.Get_Double(RulesSection_General, "MyEffectivenessCoefficientDefault", unknown_d00);
-        unknown_d08 = ini.Get_Double(RulesSection_General, "TargetEffectivenessCoefficientDefault", unknown_d08);
-        unknown_d10 = ini.Get_Double(RulesSection_General, "TargetSpecialThreatCoefficientDefault", unknown_d10);
-        unknown_d18 = ini.Get_Double(RulesSection_General, "TargetStrengthCoefficientDefault", unknown_d18);
-        unknown_d20 = ini.Get_Double(RulesSection_General, "TargetDistanceCoefficientDefault", unknown_d20);
+        MyEffectivenessCoefficientDefault = ini.Get_Double(RulesSection_General, "MyEffectivenessCoefficientDefault", MyEffectivenessCoefficientDefault);
+        TargetEffectivenessCoefficientDefault = ini.Get_Double(RulesSection_General, "TargetEffectivenessCoefficientDefault", TargetEffectivenessCoefficientDefault);
+        TargetSpecialThreatCoefficientDefault = ini.Get_Double(RulesSection_General, "TargetSpecialThreatCoefficientDefault", TargetSpecialThreatCoefficientDefault);
+        TargetStrengthCoefficientDefault = ini.Get_Double(RulesSection_General, "TargetStrengthCoefficientDefault", TargetStrengthCoefficientDefault);
+        TargetDistanceCoefficientDefault = ini.Get_Double(RulesSection_General, "TargetDistanceCoefficientDefault", TargetDistanceCoefficientDefault);
         DumbMyEffectivenessCoefficient = ini.Get_Double(RulesSection_General, "DumbMyEffectivenessCoefficient", DumbMyEffectivenessCoefficient);
         DumbTargetEffectivenessCoefficient = ini.Get_Double(RulesSection_General, "DumbTargetEffectivenessCoefficient", DumbTargetEffectivenessCoefficient);
         DumbTargetSpecialThreatCoefficient = ini.Get_Double(RulesSection_General, "DumbTargetSpecialThreatCoefficient", DumbTargetSpecialThreatCoefficient);
@@ -1555,7 +1555,7 @@ bool RulesClass::General(CCINIClass &ini)
         DefaultMirageDisguises = TypeListReader<TerrainTypeClass>::Get(ini, RulesSection_General, "DefaultMirageDisguises", DefaultMirageDisguises);
         InfantryBlinkDisguiseTime = ini.Get_Int(RulesSection_General, "InfantryBlinkDisguiseTime", InfantryBlinkDisguiseTime);
         MaximumQueuedObjects = ini.Get_Int(RulesSection_General, "MaximumQueuedObjects", MaximumQueuedObjects);
-        unknown_98 = ini.Get_Int(RulesSection_General, "MaxWaypointPathLength", unknown_98);
+        MaxWaypointPathLength = ini.Get_Int(RulesSection_General, "MaxWaypointPathLength", MaxWaypointPathLength);
         TreeStrength = ini.Get_Int(RulesSection_General, "TreeStrength", TreeStrength);
         unknown_143c = ini.Get_Double(RulesSection_General, "EngineerCaptureLevel", unknown_143c);
         EngineerCaptureLevel = ini.Get_Double(RulesSection_General, "EngineerCaptureLevel", EngineerCaptureLevel);
@@ -1594,7 +1594,7 @@ bool RulesClass::MPlayer(CCINIClass &ini)
         CaptureTheFlag = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "CaptureTheFlag", CaptureTheFlag);
         HarvesterTruce = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "HarvesterTruce", HarvesterTruce);
         MultiEngineer = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "MultiEngineer", MultiEngineer);
-        unknown_111d = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "AlliesAllowed", unknown_111d);
+        AlliesAllowed = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "AlliesAllowed", AlliesAllowed);
         ShortGame = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "ShortGame", ShortGame);
         SuperWeaponsAllowed = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "SuperWeaponsAllowed", SuperWeaponsAllowed);
         BuildOffAlly = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "BuildOffAlly", BuildOffAlly);
@@ -1903,7 +1903,7 @@ bool RulesClass::Particle_Systems(CCINIClass &ini)
 bool RulesClass::AI(CCINIClass &ini)
 {
     if (ini.Is_Present(RulesSection_AI)) {
-        unknown_7c8 = TypeListReader<BuildingTypeClass>::Get(ini, RulesSection_AI, "BuildConst", unknown_7c8);
+        BuildConst = TypeListReader<BuildingTypeClass>::Get(ini, RulesSection_AI, "BuildConst", BuildConst);
         BuildPower = TypeListReader<BuildingTypeClass>::Get(ini, RulesSection_AI, "BuildPower", BuildPower);
         BuildRefinery = TypeListReader<BuildingTypeClass>::Get(ini, RulesSection_AI, "BuildRefinery", BuildRefinery);
         BuildBarracks = TypeListReader<BuildingTypeClass>::Get(ini, RulesSection_AI, "BuildBarracks", BuildBarracks);
@@ -1922,10 +1922,10 @@ bool RulesClass::AI(CCINIClass &ini)
         NeutralTechBuildings = TypeListReader<BuildingTypeClass>::Get(ini, RulesSection_AI, "NeutralTechBuildings", NeutralTechBuildings);
         AttackInterval = ini.Get_Double(RulesSection_AI, "AttackInterval", AttackInterval);
         AttackDelay = ini.Get_Double(RulesSection_AI, "AttackDelay", AttackDelay);
-        unknown_e28 = ini.Get_Double(RulesSection_AI, "PatrolScan", unknown_e28);
+        PatrolTime = ini.Get_Double(RulesSection_AI, "PatrolScan", PatrolTime);
         int credit_reserve = ini.Get_Int(RulesSection_AI, "CreditReserve", CreditReserve);
         CreditReserve = credit_reserve;
-        unknown_13c8 = ini.Get_Double(RulesSection_AI, "PathDelay", unknown_13c8);
+        PathDelay = ini.Get_Double(RulesSection_AI, "PathDelay", PathDelay);
         int blockage_path_delay = ini.Get_Int(RulesSection_AI, "BlockagePathDelay", BlockagePathDelay);
         BlockagePathDelay = blockage_path_delay;
         int tiberium_near_scan = ini.Get_Lepton(RulesSection_AI, "TiberiumNearScan", TiberiumNearScan);
@@ -2073,11 +2073,11 @@ bool RulesClass::IQ(CCINIClass &ini)
         MaxIQ = ini.Get_Int(RulesSection_IQ, "MaxIQLevels", MaxIQ);
         IQSuperWeapons = ini.Get_Int(RulesSection_IQ, "SuperWeapons", IQSuperWeapons);
         IQProduction = ini.Get_Int(RulesSection_IQ, "Production", IQProduction);
-        unknown_10a8 = ini.Get_Int(RulesSection_IQ, "GuardArea", unknown_10a8);
+        IQGuardArea = ini.Get_Int(RulesSection_IQ, "GuardArea", IQGuardArea);
         IQRepairSell = ini.Get_Int(RulesSection_IQ, "RepairSell", IQRepairSell);
-        unknown_10b0 = ini.Get_Int(RulesSection_IQ, "AutoCrush", unknown_10b0);
+        IQCrush = ini.Get_Int(RulesSection_IQ, "AutoCrush", IQCrush);
         IQScatter = ini.Get_Int(RulesSection_IQ, "Scatter", IQScatter);
-        unknown_10b8 = ini.Get_Int(RulesSection_IQ, "ContentScan", unknown_10b8);
+        IQContentScan = ini.Get_Int(RulesSection_IQ, "ContentScan", IQContentScan);
         IQAircraft = ini.Get_Int(RulesSection_IQ, "Aircraft", IQAircraft);
         IQHarvester = ini.Get_Int(RulesSection_IQ, "Harvester", IQHarvester);
         IQSellBack = ini.Get_Int(RulesSection_IQ, "SellBack", IQSellBack);
@@ -2249,7 +2249,7 @@ void RulesClass::Save(IStream *stream)
     Scorches3.Save(stream);
     Scorches4.Save(stream);
     Shipyard.Save(stream);
-    unknown_7c8.Save(stream);
+    BuildConst.Save(stream);
     BuildPower.Save(stream);
     BuildRefinery.Save(stream);
     BuildBarracks.Save(stream);
@@ -2272,7 +2272,7 @@ void RulesClass::Save(IStream *stream)
     SplashList.Save(stream);
     BaseUnit.Save(stream);
     DefaultMirageDisguises.Save(stream);
-    unknown_9ec.Save(stream);
+    HarvesterUnit.Save(stream);
     DeadBodies.Save(stream);
     DropPod.Save(stream);
     MetallicDebris.Save(stream);
@@ -2343,7 +2343,7 @@ void RulesClass::Load(IStream *stream)
     Scorches3.Clear();
     Scorches4.Clear();
     Shipyard.Clear();
-    unknown_7c8.Clear();
+    BuildConst.Clear();
     BuildPower.Clear();
     BuildRefinery.Clear();
     BuildBarracks.Clear();
@@ -2366,7 +2366,7 @@ void RulesClass::Load(IStream *stream)
     SplashList.Clear();
     BaseUnit.Clear();
     DefaultMirageDisguises.Clear();
-    unknown_9ec.Clear();
+    HarvesterUnit.Clear();
     IceCrackSounds.Clear();
     HSBuilding.Clear();
     AmerParaDropInf.Clear();
@@ -2421,7 +2421,7 @@ void RulesClass::Load(IStream *stream)
     Scorches3.Load(stream);
     Scorches4.Load(stream);
     Shipyard.Load(stream);
-    unknown_7c8.Load(stream);
+    BuildConst.Load(stream);
     BuildPower.Load(stream);
     BuildRefinery.Load(stream);
     BuildBarracks.Load(stream);
@@ -2444,7 +2444,7 @@ void RulesClass::Load(IStream *stream)
     SplashList.Load(stream);
     BaseUnit.Load(stream);
     DefaultMirageDisguises.Load(stream);
-    unknown_9ec.Load(stream);
+    HarvesterUnit.Load(stream);
     DeadBodies.Load(stream);
     DropPod.Load(stream);
     MetallicDebris.Load(stream);
@@ -2460,7 +2460,7 @@ void RulesClass::Load(IStream *stream)
     DamageFireTypes.Load(stream);
     WeatherConClouds.Load(stream);
     WeatherConBolts.Load(stream);
-    Swizzle_Pointer(unknown_c60);
+    Swizzle_Pointer(NukeWarhead);
     Swizzle_Pointer(FlameDamage);
     Swizzle_Pointer(FlameDamage2);
     Swizzle_Pointer(LargeVisceroid);
@@ -2479,12 +2479,12 @@ void RulesClass::Load(IStream *stream)
     Swizzle_Pointer(IvanWarhead);
     Swizzle_Pointer(DeathWeapon);
     Swizzle_Pointer(IonCannonWarhead);
-    Swizzle_Pointer(unknown_cac);
-    Swizzle_Pointer(unknown_cb0);
-    Swizzle_Pointer(unknown_cf4);
+    Swizzle_Pointer(FirestormWarhead);
+    Swizzle_Pointer(VeinholeWarhead);
+    Swizzle_Pointer(DefaultFirestormExplosionSystem);
     Swizzle_Pointer(DefaultLargeGreySmokeSystem);
     Swizzle_Pointer(DefaultSmallGreySmokeSystem);
-    Swizzle_Pointer(unknown_ce0);
+    Swizzle_Pointer(DefaultSparkSystem);
     Swizzle_Pointer(DefaultLargeRedSmokeSystem);
     Swizzle_Pointer(DefaultSmallRedSmokeSystem);
     Swizzle_Pointer(DefaultDebrisSmokeSystem);
@@ -2494,10 +2494,10 @@ void RulesClass::Load(IStream *stream)
     Swizzle_Pointer(VeinholeTypeClass);
     Swizzle_Pointer(WeatherConBoltExplosion);
     Swizzle_Pointer(Smoke);
-    Swizzle_Pointer(unknown_a60);
-    Swizzle_Pointer(unknown_a74);
-    Swizzle_Pointer(unknown_a78);
-    Swizzle_Pointer(unknown_a7c);
+    Swizzle_Pointer(Smoke2);
+    Swizzle_Pointer(MoveFlash);
+    Swizzle_Pointer(BombParachute);
+    Swizzle_Pointer(Parachute);
     Swizzle_Pointer(SmallFire);
     Swizzle_Pointer(LargeFire);
     Swizzle_Pointer(DropZoneAnim);
@@ -2512,15 +2512,15 @@ void RulesClass::Load(IStream *stream)
     Swizzle_Pointer(SovietCrew);
     Swizzle_Pointer(RepairBay);
     Swizzle_Pointer(GDIGateOne);
-    Swizzle_Pointer(unknown_780);
-    Swizzle_Pointer(unknown_784);
-    Swizzle_Pointer(unknown_788);
-    Swizzle_Pointer(unknown_78c);
+    Swizzle_Pointer(GDIGateTwo);
+    Swizzle_Pointer(NodGateOne);
+    Swizzle_Pointer(NodGateTwo);
+    Swizzle_Pointer(WallTower);
     Swizzle_Pointer(GDIPowerPlant);
     Swizzle_Pointer(GDIPowerTurbine);
     Swizzle_Pointer(NodRegularPower);
     Swizzle_Pointer(NodAdvancedPower);
-    Swizzle_Pointer(unknown_7bc);
+    Swizzle_Pointer(GDIFirestormGenerator);
     Swizzle_Pointer(GDIHunterSeeker);
     Swizzle_Pointer(NodHunterSeeker);
     Swizzle_Pointer(NukeProjectile);
@@ -2542,12 +2542,12 @@ void RulesClass::Load(IStream *stream)
     Swizzle_Pointer(ChronoSparkle1);
     Swizzle_Pointer(IronCurtainInvokeAnim);
     Swizzle_Pointer(WeaponNullifyAnim);
-    Swizzle_Pointer(unknown_228);
+    Swizzle_Pointer(Dig);
     Swizzle_Pointer(FirestormIdleAnim);
     Swizzle_Pointer(FirestormAirAnim);
     Swizzle_Pointer(FirestormGroundAnim);
     Swizzle_Pointer(FirestormActiveAnim);
-    Swizzle_Pointer(unknown_1438);
+    Swizzle_Pointer(EMPulseSparkles);
     Swizzle_Pointer(Wake);
     Swizzle_Pointer(OreTwinkle);
     Swizzle_Pointer(FlamingInfantry);
@@ -2560,8 +2560,8 @@ void RulesClass::Load(IStream *stream)
     Swizzle_Pointer(BarrelParticle);
     Swizzle_Pointer(DropPodPuff);
     Swizzle_Pointer(LightningWarhead);
-    Swizzle_Pointer(unknown_147c);
-    Swizzle_Pointer(unknown_f0);
+    Swizzle_Pointer(RadSiteWarhead);
+    Swizzle_Pointer(WoodCrateImg);
     Swizzle_Pointer(CrateImg);
     Swizzle_Pointer(WaterCrateImg);
     BombCursorShape = MixFileClass::Retrieve("BOMBCURS.SHP");
@@ -2598,14 +2598,14 @@ void RulesClass::Load(IStream *stream)
     for (index = 0; index < DefaultMirageDisguises.Count(); index++) {
         Swizzle_Pointer(DefaultMirageDisguises[index]);
     }
-    for (index = 0; index < unknown_9ec.Count(); index++) {
-        Swizzle_Pointer(unknown_9ec[index]);
+    for (index = 0; index < HarvesterUnit.Count(); index++) {
+        Swizzle_Pointer(HarvesterUnit[index]);
     }
     for (index = 0; index < Shipyard.Count(); index++) {
         Swizzle_Pointer(Shipyard[index]);
     }
-    for (index = 0; index < unknown_7c8.Count(); index++) {
-        Swizzle_Pointer(unknown_7c8[index]);
+    for (index = 0; index < BuildConst.Count(); index++) {
+        Swizzle_Pointer(BuildConst[index]);
     }
     for (index = 0; index < BuildPower.Count(); index++) {
         Swizzle_Pointer(BuildPower[index]);
@@ -2747,8 +2747,8 @@ void RulesClass::Detach(AbstractClass const *target, bool all)
     if (target == FlameDamage2) {
         FlameDamage2 = 0;
     }
-    if (target == unknown_c60) {
-        unknown_c60 = 0;
+    if (target == NukeWarhead) {
+        NukeWarhead = 0;
     }
     if (target == EMPulseWarhead) {
         EMPulseWarhead = 0;
@@ -2783,17 +2783,17 @@ void RulesClass::Detach(AbstractClass const *target, bool all)
     if (target == IonCannonWarhead) {
         IonCannonWarhead = 0;
     }
-    if (target == unknown_cac) {
-        unknown_cac = 0;
+    if (target == FirestormWarhead) {
+        FirestormWarhead = 0;
     }
-    if (target == unknown_1438) {
-        unknown_1438 = 0;
+    if (target == EMPulseSparkles) {
+        EMPulseSparkles = 0;
     }
-    if (target == unknown_cb0) {
-        unknown_cb0 = 0;
+    if (target == VeinholeWarhead) {
+        VeinholeWarhead = 0;
     }
-    if (target == unknown_cf4) {
-        unknown_cf4 = 0;
+    if (target == DefaultFirestormExplosionSystem) {
+        DefaultFirestormExplosionSystem = 0;
     }
     if (target == DefaultLargeGreySmokeSystem) {
         DefaultLargeGreySmokeSystem = 0;
@@ -2801,8 +2801,8 @@ void RulesClass::Detach(AbstractClass const *target, bool all)
     if (target == DefaultSmallGreySmokeSystem) {
         DefaultSmallGreySmokeSystem = 0;
     }
-    if (target == unknown_ce0) {
-        unknown_ce0 = 0;
+    if (target == DefaultSparkSystem) {
+        DefaultSparkSystem = 0;
     }
     if (target == DefaultLargeRedSmokeSystem) {
         DefaultLargeRedSmokeSystem = 0;
@@ -2831,17 +2831,17 @@ void RulesClass::Detach(AbstractClass const *target, bool all)
     if (target == Smoke) {
         Smoke = 0;
     }
-    if (target == unknown_a60) {
-        unknown_a60 = 0;
+    if (target == Smoke2) {
+        Smoke2 = 0;
     }
-    if (target == unknown_a74) {
-        unknown_a74 = 0;
+    if (target == MoveFlash) {
+        MoveFlash = 0;
     }
-    if (target == unknown_a78) {
-        unknown_a78 = 0;
+    if (target == BombParachute) {
+        BombParachute = 0;
     }
-    if (target == unknown_a7c) {
-        unknown_a7c = 0;
+    if (target == Parachute) {
+        Parachute = 0;
     }
     if (target == SmallFire) {
         SmallFire = 0;
@@ -2885,17 +2885,17 @@ void RulesClass::Detach(AbstractClass const *target, bool all)
     if (target == GDIGateOne) {
         GDIGateOne = 0;
     }
-    if (target == unknown_780) {
-        unknown_780 = 0;
+    if (target == GDIGateTwo) {
+        GDIGateTwo = 0;
     }
-    if (target == unknown_784) {
-        unknown_784 = 0;
+    if (target == NodGateOne) {
+        NodGateOne = 0;
     }
-    if (target == unknown_788) {
-        unknown_788 = 0;
+    if (target == NodGateTwo) {
+        NodGateTwo = 0;
     }
-    if (target == unknown_78c) {
-        unknown_78c = 0;
+    if (target == WallTower) {
+        WallTower = 0;
     }
     if (target == GDIPowerPlant) {
         GDIPowerPlant = 0;
@@ -2909,8 +2909,8 @@ void RulesClass::Detach(AbstractClass const *target, bool all)
     if (target == NodAdvancedPower) {
         NodAdvancedPower = 0;
     }
-    if (target == unknown_7bc) {
-        unknown_7bc = 0;
+    if (target == GDIFirestormGenerator) {
+        GDIFirestormGenerator = 0;
     }
     if (target == GDIHunterSeeker) {
         GDIHunterSeeker = 0;
@@ -2975,8 +2975,8 @@ void RulesClass::Detach(AbstractClass const *target, bool all)
     if (target == WeaponNullifyAnim) {
         WeaponNullifyAnim = 0;
     }
-    if (target == unknown_228) {
-        unknown_228 = 0;
+    if (target == Dig) {
+        Dig = 0;
     }
     if (target == FirestormIdleAnim) {
         FirestormIdleAnim = 0;
@@ -3002,8 +3002,8 @@ void RulesClass::Detach(AbstractClass const *target, bool all)
     if (target == LightningWarhead) {
         LightningWarhead = 0;
     }
-    if (target == unknown_147c) {
-        unknown_147c = 0;
+    if (target == RadSiteWarhead) {
+        RadSiteWarhead = 0;
     }
     BarrelDebris.Delete((VoxelAnimTypeClass *)target);
     OnFire.Delete((AnimTypeClass *)target);
@@ -3016,9 +3016,9 @@ void RulesClass::Detach(AbstractClass const *target, bool all)
     Scorches4.Delete((SmudgeTypeClass *)target);
     BaseUnit.Delete((UnitTypeClass *)target);
     DefaultMirageDisguises.Delete((TerrainTypeClass *)target);
-    unknown_9ec.Delete((UnitTypeClass *)target);
+    HarvesterUnit.Delete((UnitTypeClass *)target);
     Shipyard.Delete((BuildingTypeClass *)target);
-    unknown_7c8.Delete((BuildingTypeClass *)target);
+    BuildConst.Delete((BuildingTypeClass *)target);
     BuildPower.Delete((BuildingTypeClass *)target);
     BuildRefinery.Delete((BuildingTypeClass *)target);
     BuildBarracks.Delete((BuildingTypeClass *)target);

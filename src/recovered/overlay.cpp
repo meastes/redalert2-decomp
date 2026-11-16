@@ -398,7 +398,7 @@ bool OverlayClass::Mark(int mark)
                 if (!ScenarioInit) {
                     if (Class == Rules->WaterCrateImg) {
                         clear = cellptr->Is_Clear_To_Move(5, false, false, -1, 0, -1, true);
-                    } else if (Class == Rules->CrateImg || Class == Rules->unknown_f0) {
+                    } else if (Class == Rules->CrateImg || Class == Rules->WoodCrateImg) {
                         clear = cellptr->Is_Clear_To_Move(1, false, false, -1, 0, -1, true);
                     } else {
                         if (Class->ArrayIndex == 0x18 || Class->ArrayIndex == 0x19 ||

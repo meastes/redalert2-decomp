@@ -758,7 +758,7 @@ int BuildingTypeClass::Flush_For_Placement(Cell const &origin,HouseClass *house)
   if(!Map.In_Radar(cell))continue;
   CellClass &map_cell=Map[cell];
   if(map_cell.OverlayIndex!=-1) {
-   if(this!=Rules->unknown_78c || map_cell.OverlayIndex!=2)return 2;
+   if(this!=Rules->WallTower || map_cell.OverlayIndex!=2)return 2;
   }
   ObjectClass *object=map_cell.OccupierPtr;
   if(!object)continue;
@@ -869,7 +869,7 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(int theater)
             int rate=1;
             int frames=((ShapeFileStruct *)shape)->FrameCount/2;
             if(Gate) frames=(int)((unsigned int)GateStages+1u);
-            if(frames>0) rate=(int)(Rules->unknown_1178*900.0/frames);
+            if(frames>0) rate=(int)(Rules->BuildupTime*900.0/frames);
             AnimFrames[0].unknown_00=0;
             AnimFrames[0].unknown_04=frames;
             AnimFrames[0].unknown_08=rate;
@@ -1766,7 +1766,7 @@ void *BuildingTypeClass::Get_Buildup_Data()
                 BuildupDataAllocated=true;
                 int frames=((ShapeFileStruct *)shape)->FrameCount/2;
                 if(Gate) frames=(int)((unsigned int)GateStages+1u);
-                if(frames>0) rate=(int)(Rules->unknown_1178*900.0/frames);
+                if(frames>0) rate=(int)(Rules->BuildupTime*900.0/frames);
                 AnimFrames[0].unknown_00=0;
                 AnimFrames[0].unknown_04=frames;
                 AnimFrames[0].unknown_08=rate;

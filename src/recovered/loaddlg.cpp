@@ -619,8 +619,8 @@ void LoadOptionsClass::Fill_List_0053c040(HWND list)
         swprintf(entry->Description, StringTable::Load_String("TXT_EMPTY_SLOT", 0, "D:\\Ra2\\LoadDlg.CPP", 0x2f8));
         if (PlayerPtr != 0) {
             entry->unknown_120 = unknown_id_source_a3d290->TechLevel;
-            entry->unknown_124 = unknown_id_source_a3d290->unknown_11fc;
-            entry->unknown_1a8 = unknown_id_source_a3d290->unknown_224c;
+            entry->unknown_124 = unknown_id_source_a3d290->PlayerHouse;
+            entry->unknown_1a8 = unknown_id_source_a3d290->Campaign;
             wcscpy((wchar_t *)entry->unknown_128, PlayerPtr->Type->UIName);
         } else {
             entry->unknown_120 = 0;

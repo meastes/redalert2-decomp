@@ -143,10 +143,10 @@ void InfantryClass::unknown_slot93(int why)
                     } else {
                         bool capturable=false;
                         if (As_Building(building)) capturable=building->Type->Capturable;
-                        if (unknown_game_mode_a3d298!=0 && unknown_session_a3d298.unknown_34 && building->Health_Ratio()>Rules->unknown_1370) {
-                            int max_damage=building->Strength-int(building->Techno_Type_Class()->MaxStrength*Rules->unknown_1370*0.5);
+                        if (unknown_game_mode_a3d298!=0 && unknown_session_a3d298.unknown_34 && building->Health_Ratio()>Rules->ConditionRed) {
+                            int max_damage=building->Strength-int(building->Techno_Type_Class()->MaxStrength*Rules->ConditionRed*0.5);
                             double cap=max_damage;
-                            int damage=int((building->Techno_Type_Class()->MaxStrength*((1.0-Rules->unknown_1370*0.5)*0.5) < cap) ? building->Techno_Type_Class()->MaxStrength*((1.0-Rules->unknown_1370*0.5)*0.5) : cap);
+                            int damage=int((building->Techno_Type_Class()->MaxStrength*((1.0-Rules->ConditionRed*0.5)*0.5) < cap) ? building->Techno_Type_Class()->MaxStrength*((1.0-Rules->ConditionRed*0.5)*0.5) : cap);
                             building->Take_Damage(&damage,0,Rules->C4Warhead,this,true,0);
                         } else if (capturable) {
                             if (building->Mission==19) {
@@ -236,10 +236,10 @@ void InfantryClass::unknown_slot93(int why)
                         return;
                     }
                     Native_Building_Set_Going_To_Blow_00500AA0(building);
-                    double warning_delay=Rules->unknown_13b8*900.0;
+                    double warning_delay=Rules->C4Delay*900.0;
                     warning_delay*=0.5;
                     building->Clicked_As_Target(int(warning_delay));
-                    Native_Building_Arm_C4_00500AA0(building,int(Rules->unknown_13b8*900.0),this);
+                    Native_Building_Arm_C4_00500AA0(building,int(Rules->C4Delay*900.0),this);
                 }
                 Abort_Motion();
                 unknown_slot252(false);
@@ -248,13 +248,13 @@ void InfantryClass::unknown_slot93(int why)
                 return;
             }
             if (reinterpret_cast<AbstractClass *>(Map_Cell(Center_Coord()))==unknown_494) {
-                Explosion_Damage(CoordStruct(Coord),Rules->unknown_13a8,this,Rules->C4Warhead,true);
+                Explosion_Damage(CoordStruct(Coord),Rules->BridgeStrength,this,Rules->C4Warhead,true);
                 Stop_Driver();
                 Scatter(Adjacent_Cell(CoordStruct(Coord),Dir_To_8(PrimaryFacing.Current())),true,true);
                 QueueMission(2,false);
                 if (!unknown_494 || Map_Cell(unknown_494->Center_Coord())->unknown_ec==2) Mark(1);
-                Explosion_Damage(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
-                Explosion_Damage(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
+                Explosion_Damage(CoordStruct(Coord),Rules->BridgeStrength,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
+                Explosion_Damage(CoordStruct(Coord),Rules->BridgeStrength,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
                 if (!IsActive) return;
                 Mark(1);
             }

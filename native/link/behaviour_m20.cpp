@@ -23,5 +23,5 @@ bool HouseClass::Can_Add_Waypoint_To_Path() const
         return false;
     }
     WaypointPathClass const *path = WaypointPaths[unknown_154];
-    return path->Waypoints.Count() < Rules->unknown_98 && path->Selected == -1;
+    return path->Waypoints.Count() < Rules->MaxWaypointPathLength && path->Selected == -1;
 }

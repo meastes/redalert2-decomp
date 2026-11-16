@@ -383,7 +383,7 @@ void BulletClass::AI()
         position.X = coord.X;
         position.Y = coord.Y;
         position.Z = coord.Z;
-        double gravity = Rules->unknown_1320;
+        double gravity = Rules->Gravity;
         if (Type->Floater) {
             gravity = Get_Floater_Gravity();
         }
@@ -780,7 +780,7 @@ bool BulletClass::unknown_slot118(CoordStruct const &source, TVelocity3D<double>
         TargetCoords = target;
         if (Type->FlakScatter && Type->Inviso) {
             float distance=Projectile_Launch_Distance(source,target);
-            int maximum=Rules->unknown_139c*2;
+            int maximum=Rules->BallisticScatter*2;
             int scatter=unknown_id_source_a3d290->Random()(0,maximum);
             int product = (int)((unsigned int)scatter * (unsigned int)(int)distance); // original32-bit IMUL before signed IDIV
             int radius = product / WeaponType->unknown_b4;
@@ -1069,7 +1069,7 @@ void BulletClass::Detonate(CoordStruct const &position)
     } else {
         if (animation != 0) {
             AnimClass *created = new AnimClass(animation, impact, 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(impact));
-            if (created == 0 && WH == Rules->unknown_c60) {
+            if (created == 0 && WH == Rules->NukeWarhead) {
                 int house_type = -1;
                 if (Owner != 0) house_type = Owner->House->Type->House;
                 Unknown_00422BA0(house_type, Coord_Cell(impact));

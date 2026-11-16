@@ -521,7 +521,7 @@ bool TActionClass::unknown_hunt_technos_with_tag(HouseClass *house, ObjectClass 
 
 bool TActionClass::unknown_set_session_flag_222b(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->unknown_222b = Data.Boolean;
+    unknown_id_source_a3d290->IsVeinGrowth = Data.Boolean;
     return true;
 }
 
@@ -541,7 +541,7 @@ bool TActionClass::unknown_set_session_flag_222a(HouseClass *house, ObjectClass 
 
 bool TActionClass::unknown_set_session_flag_222c(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->unknown_222c = Data.Boolean;
+    unknown_id_source_a3d290->IsIceGrowth = Data.Boolean;
     return true;
 }
 
@@ -822,7 +822,7 @@ bool TActionClass::unknown_show_text(HouseClass *house, ObjectClass *object, Tri
 {
     char const *text = Get_Text();
     ScenarioClass *scenario = unknown_id_source_a3d290;
-    int color_scheme = scenario->unknown_2239 ? 2 : 1;
+    int color_scheme = scenario->IsGDI ? 2 : 1;
     int color = unknown_session_a3d298.Color_Index_To_Scheme(color_scheme);
     if (text != 0) {
         unknown_messages_a3dc70.Add_Message(0, 0, StringTable::Load_String(text, 0, "D:\\Ra2\\TAction.CPP", 0x62E), color, TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rules->MessageDelay * 900.0), 0);
@@ -1576,7 +1576,7 @@ bool TActionClass::TAction_ION_STORM_START(HouseClass *house, ObjectClass *objec
     if (IonStormClass_Is_Ion_Storm_Active()) {
         return false;
     }
-    IonStormClass_Ion_Storm_Begin(Data.Value, Rules->unknown_13e8, unknown_geometry_k, 0);
+    IonStormClass_Ion_Storm_Begin(Data.Value, Rules->LightningDeferment, unknown_geometry_k, 0);
     return true;
 }
 
@@ -1666,7 +1666,7 @@ bool TActionClass::TAction_ZOOM_OUT(HouseClass *house, ObjectClass *object, Trig
 {
     TacticalMap->unknown_c0 = 1.0;
     WWKeyboard->Clear();
-    IgnoreInput = unknown_id_source_a3d290->unknown_2306;
+    IgnoreInput = unknown_id_source_a3d290->IsInputLocked;
     WWMouse->Show_Mouse();
     Map.Flag_To_Redraw(0);
     Map.Render();
@@ -1893,9 +1893,9 @@ bool TActionClass::TAction_SET_AMBIENT_RATE(HouseClass *house, ObjectClass *obje
 
 bool TActionClass::unknown_set_session_22a8(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->unknown_22a8 = Data.Value;
+    unknown_id_source_a3d290->AmbientLight = Data.Value;
     if (!IonStormClass_Is_Ion_Storm_Active()) {
-        unknown_id_source_a3d290->unknown_22b0 = unknown_id_source_a3d290->unknown_22a8;
+        unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->AmbientLight;
     }
     return true;
 }
@@ -2029,7 +2029,7 @@ bool TActionClass::TAction_LIGHTNING_STORM(HouseClass *house, ObjectClass *objec
     }
     Cell target = coord.As_Cell();
     if (!IonStormClass_Is_Ion_Storm_Active()) {
-        IonStormClass_Ion_Storm_Begin(Rules->LightningStormDuration, Rules->unknown_13e8, target, house);
+        IonStormClass_Ion_Storm_Begin(Rules->LightningStormDuration, Rules->LightningDeferment, target, house);
         return true;
     }
     return false;
@@ -2130,7 +2130,7 @@ bool TActionClass::unknown_chem_missile_at_waypoint(HouseClass *house, ObjectCla
 
 bool TActionClass::unknown_toggle_session_flag_2229(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->unknown_2229 = !unknown_id_source_a3d290->unknown_2229;
+    unknown_id_source_a3d290->IsTrainCargo = !unknown_id_source_a3d290->IsTrainCargo;
     return true;
 }
 

@@ -106,8 +106,8 @@ public:
     int unknown_58;                                 // +0x58 light colour (red; hypothesis)
     int unknown_5c;                                 // +0x5C (green)
     int unknown_60;                                 // +0x60 (blue)
-    int unknown_64;                                 // +0x64
-    int unknown_68;                                 // +0x68 light intensity offset
+    int IntensitySteps;                                 // +0x64
+    int IntensityDecrement;                                 // +0x68 light intensity offset
     int RadDuration;                                // +0x6C total time (level x RadDurationMultiple)
     int RadTimeLeft;                                // +0x70 counted down by AI
 };

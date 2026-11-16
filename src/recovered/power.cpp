@@ -392,14 +392,14 @@ void PowerClass::Draw_It(bool complete)
     if ((complete || IsToRedraw) && unknown_flag_8373c1) {
         IsToRedraw = false;
         SidebarClass_IsToBlitSidebar = true;
-        bool side = unknown_id_source_a3d290->unknown_2239;
+        bool side = unknown_id_source_a3d290->IsGDI;
         int shift;
         if (side) {
             shift = 5;
         } else {
             shift = 0;
         }
-        side = unknown_id_source_a3d290->unknown_2239;
+        side = unknown_id_source_a3d290->IsGDI;
         int yoff;
         if (side) {
             yoff = 0x45;
@@ -622,7 +622,7 @@ void PowerClass::Reposition_Sidebar()
         tip.Label = 0;
         tip.ID = 999;
         int shift;
-        if (unknown_id_source_a3d290->unknown_2239) {
+        if (unknown_id_source_a3d290->IsGDI) {
             shift = 5;
         } else {
             shift = 0;

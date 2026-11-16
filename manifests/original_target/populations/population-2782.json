@@ -4,8 +4,8 @@
     "id": "population-2782",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "ff107fdffaea73971dc6c7998052331245cfd6d40d8119c1efb11e9e82b6448d",
-    "historical_acceptance_sha256": "a1c400887ed21324de418d40da6927bdcf69ab8385362c4b4792e41368acb753",
+    "historical_population_sha256": "7599121f25877047cb40ccc90ac412e02c3017f136c3614fd1bf99bd90e46c89",
+    "historical_acceptance_sha256": "9c9ac4258be144bef0cb049fa1f75c4dd7b25f76e407928c529cdf133484e5f6",
     "separate_units": true
   },
   "references": {
@@ -5272,7 +5272,22 @@
     "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
     "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
     "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A": 8624592,
-    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
+    "??_GCellClass@@UAEPAXI@Z": 4706208,
+    "?Clear@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEXXZ": 4936880,
+    "??_GFoggedObjectClass@@UAEPAXI@Z": 4989056,
+    "??_GFootClass@@UAEPAXI@Z": 5037584,
+    "?Clear@?$DynamicVectorClass@PAVCCINIClass@@@@UAEXXZ": 5365920,
+    "?Compute_CRC@LightSourceClass@@UBEXAAVWWCRCEngine@@@Z": 5471056,
+    "??0Campaign@WorldDominationTour@@QAE@ABVWstring@@ABV?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@@Z": 7495488,
+    "??1Campaign@WorldDominationTour@@UAE@XZ": 7496416,
+    "??_7Campaign@WorldDominationTour@@6B@": 8056820,
+    "??_GCampaign@WorldDominationTour@@UAEPAXI@Z": 7498160,
+    "?Graphic_Logic@CreditClass@@QAEX_N@Z": 4801840,
+    "??_ECellClass@@UAEPAXI@Z": 4706208,
+    "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056,
+    "??_EFootClass@@UAEPAXI@Z": 5037584,
+    "??_ECampaign@WorldDominationTour@@UAEPAXI@Z": 7498160
   },
   "regions": [
     {
@@ -5936,7 +5951,7 @@
           "resolved": 4293070286
         }
       ],
-      "source_sha256": "52036d8b3ff9a5e7f21046a3086ca15ba6959961f10203d115d1e7864ff9656d",
+      "source_sha256": "a9f3cc161f28d62eab0369a77b946d7f42fd8a9de54d3ad674231e0acca80150",
       "source": "src/recovered/classes/ScenarioClass/Compute_CRC.cpp",
       "population": "population-2782",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

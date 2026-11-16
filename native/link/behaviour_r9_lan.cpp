@@ -6,14 +6,14 @@
 // (inventory/decompiled/006729f0.c; Net_Join_Dialog 0x005BD070 seats the host with it).
 int SessionClass::Value_0124_006729f0()
 {
-    return unknown_128 != -2 ? unknown_124 : -2;
+    return idxSide2 != -2 ? House : -2;
 }
 
 // 0x00672A10: the session player's colour (+0x11C), -2 (random) while +0x120 holds -2
 // (inventory/decompiled/00672a10.c).
 int SessionClass::Value_011c_00672a10()
 {
-    return unknown_120 != -2 ? unknown_11c : -2;
+    return ColorIdx != -2 ? unknown_11c : -2;
 }
 
 #include "shared/lobby.hpp"

@@ -46,7 +46,7 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
                 int y1 = r1.Y;
                 ShapeFileStruct const *shape = AlphaShapes[index]->Image;
                 if (shape == 0) {
-                    AlphaShapes[index]->Image = (ShapeFileStruct *)Native_Pointer_From_Handle(AlphaShapes[index]->Owner->Class_Of()->unknown_ac);   // NATIVE: 32-bit handle (Scout1246)
+                    AlphaShapes[index]->Image = (ShapeFileStruct *)Native_Pointer_From_Handle(AlphaShapes[index]->Owner->Class_Of()->AlphaImageData);   // NATIVE: 32-bit handle (Scout1246)
                     shape = AlphaShapes[index]->Image;
                 }
                 Rect shape_rect = shape->Get_Frame_Rect(0);

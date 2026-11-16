@@ -353,8 +353,8 @@ public:
     ObjectClass *unknown_30;                // +0x30
     TagClass *unknown_34;                   // +0x34 (tag hypothesis: Attach_Tag counts on +0x2C)
     BombClass *unknown_38;                  // +0x38
-    UnknownAudioController unknown_3c;      // +0x3C
-    UnknownAudioController unknown_50;      // +0x50
+    UnknownAudioController AmbientSoundController;      // +0x3C
+    UnknownAudioController CustomSoundController;      // +0x50
     int CustomSound;                         // +0x64
     bool BombVisible;                        // +0x68
     int Strength;                           // +0x6C health (0xFF when constructed; hypothesis)
@@ -367,7 +367,7 @@ public:
     bool IsOnBridge;                        // +0x79
     bool IsFalling;                        // +0x7A
     bool IsABomb;                        // +0x7B
-    bool unknown_7c;                        // +0x7C
+    bool IsToExplode;                        // +0x7C
     bool IsActive;                        // +0x7D
     int Layer;                         // +0x80
     bool IsSubmittedToLayer;                        // +0x84

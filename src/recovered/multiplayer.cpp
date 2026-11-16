@@ -102,9 +102,9 @@ MultiplayerGameMode::MultiplayerGameMode(WideString const &name, WideString cons
     unknown_name_20(name),
     unknown_name_24(description),
     unknown_28(id),
-    unknown_2c(ini_name),
+    INIFilename(ini_name),
     unknown_30(unknown_4),
-    unknown_34(unknown_5),
+    AIAllowed(unknown_5),
     unknown_ini_38(0)
 {
     unknown_04 = false;
@@ -274,7 +274,7 @@ bool MultiplayerGameMode::AssignTeamsAtStart()
 
 bool MultiplayerGameMode::IsAIAllowed()
 {
-    return unknown_34;
+    return AIAllowed;
 }
 
 
@@ -481,7 +481,7 @@ CCINIClass *MultiplayerGameMode::GetINI()
 {
     if (unknown_ini_38 == 0) {
         unknown_ini_38 = new CCINIClass;
-        CCFileClass file(unknown_2c);
+        CCFileClass file(INIFilename);
         if (file.Is_Available()) {
             unknown_ini_38->Load(file, false, false);
         }

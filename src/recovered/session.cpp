@@ -380,22 +380,22 @@ SessionClass::SessionClass() : Mode(0)
  unknown_2a=false; unknown_2b=false; unknown_2c=false; GameSpeed_30=0; unknown_34=false;
  unknown_a4=false; unknown_a5=false; unknown_a6=false; unknown_fog_a7=false; unknown_a8=false;
  unknown_difficulty_40=1; UniqueID=0; Handle[0]=0;
- unknown_124=0; unknown_128=-1; unknown_11c=2; unknown_120=-1;
- unknown_134=unknown_124; unknown_138=unknown_128; unknown_12c=unknown_11c; unknown_130=unknown_120;
+ House=0; idxSide2=-1; unknown_11c=2; ColorIdx=-1;
+ Side=House; unknown_138=idxSide2; Color=unknown_11c; Color2=ColorIdx;
  WOLTaunts=true; LANTaunts=true; WOLScrollText=true; LANScrollText=true;
  for(int i=0;i<8;++i) unknown_3022.unknown[i]=0;
  unknown_3020=false; unknown_3014=false; unknown_3016=0; unknown_3018=0;
  PortBase=1250; unknown_2f9c=0; unknown_2fc0=true; SendDelay=false; PortNumberOverride=0;
  memset(session_ctor_trace_b26cbc,0,sizeof(session_ctor_trace_b26cbc));
  memset(session_ctor_trace_b291a4,0,sizeof(session_ctor_trace_b291a4));
- unknown_2b0=0; unknown_2b4=0; LastNickSlot=-1; WOLLimitResolution=false; ViaPacketRouter=false;
+ MultiplayerObserver=0; unknown_2b4=0; LastNickSlot=-1; WOLLimitResolution=false; ViaPacketRouter=false;
  MasterPlayerID=-1; memset(MasterPlayerName,0,sizeof(MasterPlayerName));
  unknown_3034=0; unknown_3038=true; unknown_303c=-1; unknown_3040[0]=false;
  unknown_3044=20; unknown_3048=0; unknown_304c=0; unknown_3050=-1; unknown_292c=0;
- unknown_638=false; unknown_639=false; unknown_63a=false;
- unknown_2c0=8; NumPlayers=0; unknown_2cc=5; MaxAhead_2c8=unknown_2cc*3; unknown_2e0=MaxAhead_2c8;
- memset(unknown_2ec,0,sizeof(unknown_2ec)); unknown_2e4=0; unknown_2e8=0;
- unknown_62c=false; unknown_62d=false; LoadGame=0; unknown_634=0;
+ SquadAlliances=false; SawGameCompletion=false; OutOfSync=false;
+ MaxPlayers=8; NumPlayers=0; FrameSendRate=5; MaxAhead_2c8=FrameSendRate*3; MaxMaxAhead=MaxAhead_2c8;
+ memset(unknown_2ec,0,sizeof(unknown_2ec)); PrecalcMaxAhead=0; PrecalcDesiredFrameRate=0;
+ unknown_62c=false; unknown_62d=false; LoadGame=0; EmergencySave=0;
  LastMessage[0]=0; WWChat=0;
  RecordFile.Set_Name("RECORD.BIN");
  Record=false; Play=false; Attract=false;
@@ -641,20 +641,20 @@ void SessionClass::Read_MultiPlayer_Settings()
                                    StringTable::Load_String("TXT_NONAME", 0, "D:\\Ra2\\Session.CPP", 0x4b2), handle, 20);
     WideToCharString_006fa0f0(Handle, handle, -1);
 
-    unknown_12c = ConfigINI.Get_Int("MultiPlayer", "Color", unknown_12c);
-    unknown_130 = ConfigINI.Get_Int("MultiPlayer", "ColorEx", unknown_130);
-    unknown_134 = ConfigINI.Get_HousesType("MultiPlayer", "Side", unknown_134);
+    Color = ConfigINI.Get_Int("MultiPlayer", "Color", Color);
+    Color2 = ConfigINI.Get_Int("MultiPlayer", "ColorEx", Color2);
+    Side = ConfigINI.Get_HousesType("MultiPlayer", "Side", Side);
     unknown_138 = ConfigINI.Get_Int("MultiPlayer", "SideEx", unknown_138);
     WOLTaunts = ConfigINI.Get_Bool("MultiPlayer", "WOLTaunts", WOLTaunts);
     LANTaunts = ConfigINI.Get_Bool("MultiPlayer", "LANTaunts", LANTaunts);
     WOLScrollText = ConfigINI.Get_Bool("MultiPlayer", "WOLScrollText", WOLScrollText);
     LANScrollText = ConfigINI.Get_Bool("MultiPlayer", "LANScrollText", LANScrollText);
 
-    unknown_124 = unknown_134;
-    if (unknown_124 == -2) {
-        unknown_124 = 0;
+    House = Side;
+    if (House == -2) {
+        House = 0;
     }
-    unknown_128 = unknown_138;
+    idxSide2 = unknown_138;
 
     Mode = MultiplayerGameMode::unknown_find_mode_5b6fe0(ConfigINI.Get_Int("MultiPlayer", "GameMode", 1));
     if (!Mode) {
@@ -885,9 +885,9 @@ bool SessionClass::Log_To_File(_iobuf *out)
     fprintf(out, "\n\n");
     fprintf(out, "MaxAhead = %d\n", MaxAhead_2c8);
     fprintf(out, "LoadGame = %d\n", LoadGame);
-    fprintf(out, "PrefColor = %d\n", unknown_12c);
+    fprintf(out, "PrefColor = %d\n", Color);
     fprintf(out, "ColorIdx = %d\n", unknown_11c);
-    fprintf(out, "House = %d\n", unknown_124);
+    fprintf(out, "House = %d\n", House);
     fprintf(out, "NumPlayers = %d\n", NumPlayers);
     fprintf(out, "Options.Bases = %d\n", unknown_bases_20);
     fprintf(out, "Options.Credits = %d\n", unknown_24);
@@ -897,7 +897,7 @@ bool SessionClass::Log_To_File(_iobuf *out)
     fprintf(out, "Options.UnitCount = %d\n", UnitCount);
     fprintf(out, "Options.AIPlayers = %d\n", AICount);
     fprintf(out, "Options.AIDifficulty = %d\n", unknown_difficulty_40);
-    fprintf(out, "ObiWan = %d\n", unknown_2b0);
+    fprintf(out, "ObiWan = %d\n", MultiplayerObserver);
 
     if (unknown_session_a3d298.Type == 3) {
         fprintf(out, "Type = IPX\n");
@@ -943,9 +943,9 @@ void SessionClass::Write_MultiPlayer_Settings()
     ConfigINI.Put_Bool("MultiPlayer", "WOLLimitResolution", WOLLimitResolution);
     ConfigINI.Put_Int("MultiPlayer", "LastNickSlot", LastNickSlot);
     ConfigINI.Put_Unicode("MultiPlayer", "Handle", Narrow_To_Wide_006fa180(Handle));
-    ConfigINI.Put_Int("MultiPlayer", "Color", unknown_12c);
-    ConfigINI.Put_Int("MultiPlayer", "ColorEx", unknown_130);
-    ConfigINI.Put_HousesType("MultiPlayer", "Side", unknown_134);
+    ConfigINI.Put_Int("MultiPlayer", "Color", Color);
+    ConfigINI.Put_Int("MultiPlayer", "ColorEx", Color2);
+    ConfigINI.Put_HousesType("MultiPlayer", "Side", Side);
     ConfigINI.Put_Int("MultiPlayer", "SideEx", unknown_138);
     if (Mode) {
         ConfigINI.Put_Int("MultiPlayer", "GameMode", Mode->Get_ID());
@@ -1517,7 +1517,7 @@ void SessionClass::Update_Progress(int percent)
         return;
     }
     int progress = percent;
-    if (unknown_id_source_a3d290->unknown_223b) {
+    if (unknown_id_source_a3d290->IsRandom) {
         progress = progress / 2;
     }
     if (ProgressScreen.Get_Progress(0) * 100.0 < progress) {
@@ -1586,7 +1586,7 @@ inline DynamicVectorClass<HouseClass *>::DynamicVectorClass(unsigned size, House
 // Makes each squad's members allies of one another (game mode 4, after the load wait of 0x0065C7D0).
 void SessionClass::Unknown_00672440()
 {
-    unknown_638 = false;
+    SquadAlliances = false;
     if (Type != 4) {
         return;
     }
@@ -1639,7 +1639,7 @@ void SessionClass::Unknown_00672440()
         }
     }
     delete names;
-    unknown_638 = true;
+    SquadAlliances = true;
     unknown_id_source_a3d290->Special().FixedAlliance = true;
 }
 
@@ -1703,17 +1703,17 @@ void SessionClass::Set_Value_00672a30(int value, bool update)
 {
     if (value == -2) {
         if (update) {
-            unknown_134 = Random_Side();
+            Side = Random_Side();
         } else {
-            unknown_134 = 0;
+            Side = 0;
         }
         unknown_138 = -2;
     } else {
-        unknown_134 = value;
+        Side = value;
         unknown_138 = -1;
     }
-    unknown_124 = unknown_134;
-    unknown_128 = unknown_138;
+    House = Side;
+    idxSide2 = unknown_138;
 }
 
 
@@ -1723,17 +1723,17 @@ void SessionClass::Set_Value_00672ae0(int value, bool update)
 {
     if (value == -2) {
         if (update) {
-            unknown_12c = Unknown_00672980();
+            Color = Unknown_00672980();
         } else {
-            unknown_12c = 0;
+            Color = 0;
         }
-        unknown_130 = -2;
+        Color2 = -2;
     } else {
-        unknown_12c = value;
-        unknown_130 = -1;
+        Color = value;
+        Color2 = -1;
     }
-    unknown_11c = unknown_12c;
-    unknown_120 = unknown_130;
+    unknown_11c = Color;
+    ColorIdx = Color2;
 }
 
 
@@ -1861,7 +1861,7 @@ void SessionClass::Unknown_00672DE0()
         if (Type == 0) {
             Options.GameSpeed = 2;
         }
-        if (!unknown_id_source_a3d290->unknown_2306) {
+        if (!unknown_id_source_a3d290->IsInputLocked) {
             Pause_Game_0065c3d0();
             UnlockInputFrame = Frame + 3;
         }

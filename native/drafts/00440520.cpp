@@ -353,7 +353,7 @@ exitcell.X += random; exitcell.Y += random;
                                 Map.Unknown_0056A660(Cell(placementcoord), House, building->Type);
                             }
                         }
-                        if (building->Type == Rules->unknown_78c) {
+                        if (building->Type == Rules->WallTower) {
                             int index = House->unknown_55f0.Nodes.ID(node) + 1;
                             int count = House->unknown_55f0.Nodes.Count();
                             for (; index < count; index++) {

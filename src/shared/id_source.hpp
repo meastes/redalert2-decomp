@@ -98,20 +98,20 @@ public:
     long UniqueID;                              // +0x214 the last object ID given out (Next_ID; 1000000 by default; name hypothesis)
     Random2Class RandomNumber;                  // +0x218 the scenario's generator (Random())
     int Difficulty;                             // +0x60C (0 easy, 1 normal, 2 hard; hypothesis)
-    int unknown_610;                            // +0x610 (the difficulty of computer houses; hypothesis)
+    int CDifficulty;                            // +0x610 (the difficulty of computer houses; hypothesis)
     TTimerClass<SystemTimerClass> ElapsedTime;  // +0x614 the elapsed game time
-    CDTimerClass<SystemTimerClass> unknown_620; // +0x620
+    CDTimerClass<SystemTimerClass> PauseTimer; // +0x620
     int unknown_62c;                            // +0x62C
-    bool unknown_630;                           // +0x630
+    bool IsGamePaused;                           // +0x630
     Cell Waypoints[101];                        // +0x632 the waypoint cells (Get_Waypoint_Location; set to the empty cell by the constructor)
     CDTimerClass<FrameTimerClass> MissionTimer; // +7c8,original countdown
     unsigned short const *MissionTimerText;     // +0x7D4 the text of MissionTimerLabel (empty without one; 0x0065B780)
     FixedString<32> MissionTimerLabel;          // +0x7D8 its string-table label
-    CDTimerClass<FrameTimerClass> unknown_7f8;  // +0x7F8
-    CDTimerClass<FrameTimerClass> unknown_804;  // +0x804
-    CDTimerClass<FrameTimerClass> unknown_810;  // +0x810
-    CDTimerClass<FrameTimerClass> unknown_81c;  // +0x81C
-    CDTimerClass<FrameTimerClass> unknown_828;  // +0x828
+    CDTimerClass<FrameTimerClass> ShroudTimer;  // +0x7F8
+    CDTimerClass<FrameTimerClass> FogTimer;  // +0x804
+    CDTimerClass<FrameTimerClass> IceGrowthTimer;  // +0x810
+    CDTimerClass<FrameTimerClass> VeinGrowthTimer;  // +0x81C
+    CDTimerClass<FrameTimerClass> AmbientChangeTimer;  // +0x828
     int TechLevel;                              // +0x834 (the houses' default TechLevel; hypothesis)
     int Theater;                                // +0x838 (theater index; hypothesis)
     char FileName[0x104];                       // +0x83C the scenario's name (its MISSION.INI section; Read_Scenario_INI)
@@ -127,38 +127,38 @@ public:
     unsigned short BriefingText[0x400];         // +0x9D8 the briefing (MISSION.INI Briefing through the string table)
     char Briefing[32];                          // +0x11D8 [Basic] Briefing
     int Theme;                                  // +0x11F8 [Basic] Theme
-    int unknown_11fc;                           // +0x11FC (the player's HouseType index, set by Read_Basic)
+    int PlayerHouse;                           // +0x11FC (the player's HouseType index, set by Read_Basic)
     double CarryOverMoney;                      // +0x1200 [Basic] CarryOverMoney
-    int unknown_1208;                           // +0x1208 [Basic] CarryOverCap (percent; stored times 100)
+    int CarryOverCap;                           // +0x1208 [Basic] CarryOverCap (percent; stored times 100)
     int Percent;                                // +0x120C [Basic] Percent
     UnknownScenarioVariable_004B5AB0 Variables[50]; // +1210,value bytes+1238 atstride41
     UnknownScenarioVariable_004B5AB0 LocalVariables[50]; // +0x1A12 [VariableNames] (name, value byte at +0x28)
     Cell Views[4];                              // +0x2214 the remembered views, all the home waypoint at the start (Fill_In_Data)
-    int unknown_2224;                           // +0x2224
+    int BridgeCount;                           // +0x2224
     bool FreeRadar;                             // +0x2228 [Basic] FreeRadar
-    bool unknown_2229;                          // +0x2229 (toggled by a trigger action 0x006ADB18)
+    bool IsTrainCargo;                          // +0x2229 (toggled by a trigger action 0x006ADB18)
     bool IsTibGrowth;                          // +0x222A (set from a trigger action's data, 0x006AFB60)
-    bool unknown_222b;                          // +0x222B (set from a trigger action's data, 0x006AFB40)
-    bool unknown_222c;                          // +0x222C (set from a trigger action's data, 0x006AFB80)
-    bool unknown_222d;                          // +0x222D
-    bool unknown_222e;                          // +0x222E (set when a variable changes, 0x0065B4F0)
-    bool unknown_222f;                          // +0x222F
+    bool IsVeinGrowth;                          // +0x222B (set from a trigger action's data, 0x006AFB40)
+    bool IsIceGrowth;                          // +0x222C (set from a trigger action's data, 0x006AFB80)
+    bool IsBridgeChanged;                          // +0x222D
+    bool IsGlobalChanged;                          // +0x222E (set when a variable changes, 0x0065B4F0)
+    bool IsAmbientLightChanged;                          // +0x222F
     bool EndOfGame;                             // +0x2230 [Basic] EndOfGame
-    bool unknown_2231;                          // +0x2231 [Basic] TimerInherit
+    bool IsInheritTimer;                          // +0x2231 [Basic] TimerInherit
     bool SkipScore;                             // +0x2232 [Basic] SkipScore
     bool OneTimeOnly;                           // +0x2233 [Basic] OneTimeOnly
     bool SkipMapSelect;                         // +0x2234 [Basic] SkipMapSelect
     bool TruckCrate;                            // +0x2235 [Basic] TruckCrate
     bool FillSilos;                             // +0x2236 [Basic] FillSilos
     bool TiberiumDeathToVisceroid;              // +0x2237 [Basic] TiberiumDeathToVisceroid
-    bool unknown_2238;                          // +0x2238 (AITriggerType 0x0041C990: global AI triggers off)
-    bool unknown_2239;                          // +0x2239 (PowerClass: shifts the help region5 pixels down)
+    bool IsIgnoreGlobalAITriggers;                          // +0x2238 (AITriggerType 0x0041C990: global AI triggers off)
+    bool IsGDI;                          // +0x2239 (PowerClass: shifts the help region5 pixels down)
     bool MultiplayerOnly;                       // +0x223A [Basic] MultiplayerOnly (written as a number)
-    bool unknown_223b;                          // +0x223B (cleared by the constructor)
-    bool unknown_223c;                          // +0x223C
+    bool IsRandom;                          // +0x223B (cleared by the constructor)
+    bool IsCrateBeenPickedUp;                          // +0x223C
     char unknown_223d[0x2240 - 0x223D];
-    CDTimerClass<FrameTimerClass> unknown_2240; // +0x2240
-    int unknown_224c;                           // +0x224C the campaign (Campaigns index; -1: none)
+    CDTimerClass<FrameTimerClass> FadeTimer; // +0x2240
+    int Campaign;                           // +0x224C the campaign (Campaigns index; -1: none)
     int StartingDropships;                      // +0x2250 [Basic] StartingDropships
     // The loadout lists (TypeList vptrs and the 28-byte stride at 0x0066112F,
     // 0x00661187, 0x006611DF; padded by Read_Basic to one limit and one count
@@ -166,9 +166,9 @@ public:
     TypeList<TechnoTypeClass *> AllowableUnits; // +0x2254 [Basic] AllowableUnits
     TypeList<int> AllowableUnitMaximums;        // +0x2270 [Basic] AllowableUnitMaximums (-1: no limit)
     TypeList<int> AllowableUnitCounts;          // +0x228C the number taken of each type (DropshipLoadoutClass; name hypothesis)
-    int unknown_22a8;                           // +0x22A8 [Lighting] Ambient, hundredths (set from a trigger action's data, 0x006B2260)
-    int unknown_22ac;                           // +0x22AC (receives the [Lighting] Ambient level too)
-    int unknown_22b0;                           // +0x22B0 (receives +0x22A8 unless IonStormClass_Is_Ion_Storm_Active holds)
+    int AmbientLight;                           // +0x22A8 [Lighting] Ambient, hundredths (set from a trigger action's data, 0x006B2260)
+    int CurrentAmbientLight;                           // +0x22AC (receives the [Lighting] Ambient level too)
+    int DesiredAmbientLight;                           // +0x22B0 (receives +0x22A8 unless IonStormClass_Is_Ion_Storm_Active holds)
     int AmbientRed;                             // +0x22B4 [Lighting] Red, hundredths
     int AmbientGreen;                           // +0x22B8 [Lighting] Green
     int AmbientBlue;                            // +0x22BC [Lighting] Blue
@@ -180,18 +180,18 @@ public:
     int IonBlue;                                // +0x22D4 [Lighting] IonBlue
     int IonGround;                              // +0x22D8 [Lighting] IonGround, thousandths
     int IonLevel;                               // +0x22DC [Lighting] IonLevel, thousandths
-    int unknown_22e0;                           // +0x22E0 (200 by default)
-    int unknown_22e4;                           // +0x22E4 (175)
-    int unknown_22e8;                           // +0x22E8 (150)
-    int unknown_22ec;                           // +0x22EC (125)
-    int unknown_22f0;                           // +0x22F0 (100)
-    int unknown_22f4;                           // +0x22F4 (100)
+    int NukeAmbient;                           // +0x22E0 (200 by default)
+    int NukeRedTint;                           // +0x22E4 (175)
+    int NukeGreenTint;                           // +0x22E8 (150)
+    int NukeBlueTint;                           // +0x22EC (125)
+    int NukeGroundLight;                           // +0x22F0 (100)
+    int NukeLevelLight;                           // +0x22F4 (100)
     int NukeAmbientChangeRate;                  // +0x22F8 [Lighting] NukeAmbientChangeRate
-    bool unknown_22fc; // observed byte read by serial progress poll00481F00
+    bool IsReadingScenario; // observed byte read by serial progress poll00481F00
     char unknown_22fd[0x2300 - 0x22FD];
     int InitTime;                               // +0x2300 [Basic] InitTime
-    unsigned short unknown_2304;
-    bool unknown_2306;                          // +0x2306 the game is paused (Pause_Game_0065c3d0)
+    unsigned short Stage;
+    bool IsInputLocked;                          // +0x2306 the game is paused (Pause_Game_0065c3d0)
     char unknown_2307;
     int ParTimeEasy;                            // +0x2308 [Ranking] ParTimeEasy
     int ParTimeMedium;                          // +0x230C [Ranking] ParTimeMedium

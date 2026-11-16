@@ -531,7 +531,7 @@ void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> sco
     }
     unknown_465d10();
     unknown_sort_session_scores_465ee0();
-    Unknown_Load_Art_Once_006F2710(unknown_id_source_a3d290->unknown_2239 == false);
+    Unknown_Load_Art_Once_006F2710(unknown_id_source_a3d290->IsGDI == false);
     Darken_Surface(0, true);
     if (unknown_game_mode_a3d298 == 4) {
         Ipx.Global_Channel_Clear_FieldC8();
@@ -853,7 +853,7 @@ void CampaignEndScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> 
     unknown_end_score_campaign_850488 = campaign;
     unknown_end_score_difficulty_8504d0 = difficulty;
     unknown_end_score_time_85049c = time;
-    int alternate = unknown_id_source_a3d290->unknown_2239 == false;
+    int alternate = unknown_id_source_a3d290->IsGDI == false;
     Unknown_Load_Art_Once_006F2710(alternate);
     Unknown_Load_Art_Pair_006F2A30(alternate);
     Darken_Surface(0, true);

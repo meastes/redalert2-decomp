@@ -231,7 +231,7 @@ void BulletClass::AI()
         position.X = coord.X;
         position.Y = coord.Y;
         position.Z = coord.Z;
-        double gravity = Rules->unknown_1320;
+        double gravity = Rules->Gravity;
         if (Type->Floater) {
             gravity = Get_Floater_Gravity();
         }

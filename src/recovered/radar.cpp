@@ -359,7 +359,7 @@ void RadarClass::Init_For_House()
 {
     Debug_Printf("RadarClass::Init_For_House()\n");
     DisposeOfArt();
-    if(unknown_id_source_a3d290->unknown_2239) {
+    if(unknown_id_source_a3d290->IsGDI) {
         RadHeight=(SidebarWidth-144)/2+4;
         unknown_int_ab6468=RadX+11;
         unknown_int_ab646c=RadY+4;
@@ -2671,7 +2671,7 @@ int __stdcall Unknown_006340F0(HWND window, UINT message, WPARAM wparam, LPARAM 
                 }
                 HouseClass *house;
                 if (house_index < count && (house = Houses[house_index]) != 0 && house->Type->Multiplay) {
-                    if (Rules->unknown_111d && house->Unknown_004F52F0()) {
+                    if (Rules->AlliesAllowed && house->Unknown_004F52F0()) {
                         if (unknown_house_a72d28 != PlayerPtr) {
                         unknown_send_byte_message_005e1fb0(ally, 1);
                         bool allied = PlayerPtr->Is_Ally(house);
@@ -2856,7 +2856,7 @@ void __fastcall Unknown_00634A00(MouseClass *map)
         unknown_dialog_5ff6e0(window);
     }
     WWKeyboard->Clear();
-    IgnoreInput = unknown_id_source_a3d290->unknown_2306;
+    IgnoreInput = unknown_id_source_a3d290->IsInputLocked;
     Map.Flag_To_Redraw(2);
 }
 

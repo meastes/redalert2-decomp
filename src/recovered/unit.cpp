@@ -269,8 +269,8 @@ void UnitClass::AI()
     if (countdown < -1) countdown = -1;
     unknown_5a8 = countdown;
     if (Type->DeploysInto) {
-        for (int index = 0; index < Rules->unknown_7c8.Count(); index++) {
-            if (Rules->unknown_7c8[index] == Type->DeploysInto) {
+        for (int index = 0; index < Rules->BuildConst.Count(); index++) {
+            if (Rules->BuildConst[index] == Type->DeploysInto) {
                 if (House->unknown_13b && !House->Is_Human_Player() && unknown_game_mode_a3d298 != 0 && House->unknown_50.Count() == 0 && Mission != 15 && Mission != 16) {
                     QueueMission(15, false);
                 }
@@ -595,7 +595,7 @@ void UnitClass::unknown_6fbc90()
         if (unknown_6c16f0(weapon) < 0) {
             AbstractClass *target = unknown_228;
             if (target && target->AbstractFlags.IsObject && target->Kind_Of() == 1) {
-                if (((ObjectClass *)target)->Health_Ratio() >= Rules->unknown_1360) {
+                if (((ObjectClass *)target)->Health_Ratio() >= Rules->ConditionGreen) {
                     unknown_slot220(0);
                     return;
                 }
@@ -896,16 +896,16 @@ int UnitClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
                 }
             }
             unknown_slot216((int)source);
-            if (warhead == Rules->unknown_cac) {
+            if (warhead == Rules->FirestormWarhead) {
                 int count = abs(unknown_id_source_a3d290->Random()() % 3) + 7;
                 while (count > 0) {
-                    ParticleSystemClass *system = new ParticleSystemClass(Rules->unknown_cf4,
+                    ParticleSystemClass *system = new ParticleSystemClass(Rules->DefaultFirestormExplosionSystem,
                         Center_Coord(), 0, this, unknown_geometry_l);
                     system->IsRandomSparkDirection = true;
                     --count;
                 }
             } else {
-                if (Get_Height_AGL() <= 10 && unknown_7c) {
+                if (Get_Height_AGL() <= 10 && IsToExplode) {
                     animation_position = Coord;
                     if (Map[animation_position].Land == 2) {
                         new AnimClass(Rules->Wake, (animation_position = Coord), 0, 1, 0x600, 0);
@@ -930,7 +930,7 @@ remove_passengers:
                 passenger->IsOnBridge = IsOnBridge;
                 animation_position = Coord;
                 animation_position.Z = Get_Cell_Ptr()->Center_Coord().Z;
-                if (!forced && !unknown_7c && can_place) {
+                if (!forced && !IsToExplode && can_place) {
                     int facing = Dir_To_256(PrimaryFacing.Current());
                     if (passenger->Unlimbo(&animation_position, facing)) {
                         passenger->Scatter(unknown_geometry_l, true, false);
@@ -981,7 +981,7 @@ passenger_removed:
 drop_crate:
         if (Type->CarriesCrate &&
             ((unknown_id_source_a3d290->TruckCrate && !Type->IsTrain) ||
-             (unknown_id_source_a3d290->unknown_2229 && Type->IsTrain))) {
+             (unknown_id_source_a3d290->IsTrainCargo && Type->IsTrain))) {
             Cell destination;
             destination = Map.Nearby_Location(unknown_slot104(), 1, -1, 0, false,
                 Point2D(1, 1), 1, 0, 0, 1, Cell(0, 0), 0);
@@ -1007,7 +1007,7 @@ drop_crate:
             return result;
         }
         if (!(Type->Harvester || Type->Weeder) || unknown_slot166() <= 0 ||
-            Health_Ratio() > Rules->unknown_1368) return result;
+            Health_Ratio() > Rules->ConditionYellow) return result;
         TechnoClass *dock = 0;
         for (int index = 0; index < Type->Dock.Count(); ++index) {
             dock = unknown_slot301(Type->Dock[index], 0, 0);
@@ -1033,7 +1033,7 @@ void UnitClass::Explode()
             animation=Type->Explosion[Type->Explosion.Count()-1];
         }
         new AnimClass(animation,Position_Coord_004f3f40(),0,1,0x600,0);
-        if (unknown_294.Get_Total_Amount()>0 && Rules->unknown_1429 && !(unknown_id_source_a3d290->unknown_000&0x800)) {
+        if (unknown_294.Get_Total_Amount()>0 && Rules->IsExplosiveHarvester && !(unknown_id_source_a3d290->unknown_000&0x800)) {
             int power=0;
             for (int i=0;i<Tiberiums.Count();i++) {
                 power+=unknown_294.Get_Amount(i)*Tiberiums[i]->Power;
@@ -1149,7 +1149,7 @@ bool UnitClass::unknown_slot261(bool arg1, bool arg2)
         if (Get_Mission() != -1 && (Control()->IsParalyzed || Control()->IsZombie)) {
             return result;
         }
-        if (!(House->IQ >= Rules->unknown_10a8 || Has_Ability(16) || Type->DefaultToGuardArea)
+        if (!(House->IQ >= Rules->IQGuardArea || Has_Ability(16) || Type->DefaultToGuardArea)
             || Team) {
             mission = 5;
         } else {
@@ -1223,8 +1223,8 @@ bool UnitClass::unknown_6fd930()
 {
     if (Type->DeploysInto == 0) return true;
     Mark(0);
-    for (int index = 0; index < Rules->unknown_7c8.Count(); index++) {
-        if (Rules->unknown_7c8[index] == Type->DeploysInto) {
+    for (int index = 0; index < Rules->BuildConst.Count(); index++) {
+        if (Rules->BuildConst[index] == Type->DeploysInto) {
             if (Owning_House()->unknown_139) {
                 if (!unknown_494) {
                     Cell first;
@@ -1234,7 +1234,7 @@ bool UnitClass::unknown_6fd930()
                     }
                     {
                         Cell zero(0, 0);
-                        first = Map.Nearby_Location(first, 1, -1, 0, false, Point2D(House->unknown_func_4ef600(Rules->unknown_7c8)->Width() + 1, House->unknown_func_4ef600(Rules->unknown_7c8)->Foundation_Height(false) + 1), 0, 0, 0, 1, zero, 0);
+                        first = Map.Nearby_Location(first, 1, -1, 0, false, Point2D(House->unknown_func_4ef600(Rules->BuildConst)->Width() + 1, House->unknown_func_4ef600(Rules->BuildConst)->Foundation_Height(false) + 1), 0, 0, 0, 1, zero, 0);
                     }
                     if (first != unknown_geometry_k) Assign_Destination(&Map[first], true);
                     Owning_House()->unknown_139 = false;
@@ -2073,7 +2073,7 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
             if (IonStormClass_Is_Ion_Storm_Active()) {
                 level = unknown_id_source_a3d290->IonLevel;
             } else if (NukeFlash_IsFadingIn()) {
-                level = unknown_id_source_a3d290->unknown_22f4;
+                level = unknown_id_source_a3d290->NukeLevelLight;
             } else {
                 level = unknown_id_source_a3d290->AmbientLevel;
             }
@@ -2167,7 +2167,7 @@ bool UnitClass::Harvesting()
             cell->Reduce_Weed();
             unknown_294.Add_Amount(1.0f, 0);
             StageClass::Stage = 0;
-            StageClass::Set_Rate(Rules->unknown_1180 * 3);
+            StageClass::Set_Rate(Rules->HarvesterLoadRate * 3);
             goto harvested;
         }
         int resource = cell->Tiberium_Type_Here();
@@ -2178,7 +2178,7 @@ bool UnitClass::Harvesting()
         if (taken > 0) {
             unknown_294.Add_Amount((float)taken, resource);
             StageClass::Stage = 0;
-            StageClass::Set_Rate(Rules->unknown_1180);
+            StageClass::Set_Rate(Rules->HarvesterLoadRate);
             goto harvested;
         }
         return false;
@@ -2326,7 +2326,7 @@ int UnitClass::Do_MISSION_UNLOAD()
         StageClass::Set_Rate(1);
         if (Type->Harvester) {
             BuildingClass *building=(BuildingClass *)Map[unknown_slot104()+AdjacentCell[6]].Cell_Building();
-            if (building) building->PlayNthAnim(7,building->Health_Ratio()<=Rules->unknown_1368,false,0);
+            if (building) building->PlayNthAnim(7,building->Health_Ratio()<=Rules->ConditionYellow,false,0);
         }
         Status=3;
     } else {
@@ -2380,7 +2380,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                             CoordStruct &o=type->RefnSmokeOffsetTwo; CoordStruct offset=o;
                             building->unknown_25c[6]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(smoke[unknown_id_source_a3d290->Random()(0,smoke.Count()-1)]),building->Position_Coord_004f3f40()+offset,0,building,unknown_geometry_l);
                         }
-                        if (!building->unknown_454[10]) building->PlayNthAnim(10,building->Health_Ratio()<=Rules->unknown_1368,false,0);
+                        if (!building->unknown_454[10]) building->PlayNthAnim(10,building->Health_Ratio()<=Rules->ConditionYellow,false,0);
                         int slot=unknown_294.First_Used_Slot();
                         HouseClass *owner=building->Owning_House();
                         int purifiers=owner->unknown_52cc;
@@ -2399,7 +2399,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                                 StageClass::Stage=0;
                             }
                         } else {
-                            if (building->Type->Refinery) building->PlayNthAnim(8,building->Health_Ratio()<=Rules->unknown_1368,false,0);
+                            if (building->Type->Refinery) building->PlayNthAnim(8,building->Health_Ratio()<=Rules->ConditionYellow,false,0);
                             Status=4;
                             if (building->unknown_25c[5]) building->unknown_25c[5]->Delete_Me();
                             if (building->unknown_25c[6]) building->unknown_25c[6]->Delete_Me();
@@ -2407,7 +2407,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                         }
                     }
                     if (unknown_494 && MissionQueue!=-1 && MissionQueue!=10) {
-                        if (building->Type->Refinery) building->PlayNthAnim(8,building->Health_Ratio()<=Rules->unknown_1368,false,0);
+                        if (building->Type->Refinery) building->PlayNthAnim(8,building->Health_Ratio()<=Rules->ConditionYellow,false,0);
                         Status=4;
                         if (building->unknown_25c[5]) building->unknown_25c[5]->Delete_Me();
                         if (building->unknown_25c[6]) building->unknown_25c[6]->Delete_Me();
@@ -2541,7 +2541,7 @@ int UnitClass::Do_MISSION_HARVEST()
         case HARVESTING:
             if (StageClass::Rate == 0) {
                 StageClass::Stage = 0;
-                StageClass::Set_Rate(Rules->unknown_1180);
+                StageClass::Set_Rate(Rules->HarvesterLoadRate);
             }
             if (StageClass::Stage < 9) {
                 return 1;
@@ -2650,7 +2650,7 @@ int UnitClass::Do_MISSION_HARVEST()
 int UnitClass::Do_MISSION_HUNT()
 {
     BuildingTypeClass *building = Type->DeploysInto;
-    if (building && (Is_Listed(Rules->unknown_7c8, building) || unknown_228 || House->Unknown_004F52F0())) {
+    if (building && (Is_Listed(Rules->BuildConst, building) || unknown_228 || House->Unknown_004F52F0())) {
         switch (Status) {
         case 0:
             if (unknown_6fd930() && unknown_6fdfc0()) {
@@ -2932,7 +2932,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
         if (House->Is_Ally((TechnoClass *)object)) {
             if (object->Considered_Vehicle() && object != this && object->Not_Underground()) {
                 if (object->Kind_Of() != 2 || Map[object->Center_Coord()].Cell_Building() == 0) {
-                    if (object->Health_Ratio() < Rules->unknown_1360) {
+                    if (object->Health_Ratio() < Rules->ConditionGreen) {
                         action = 0x1d;
                     }
                 }
@@ -2955,8 +2955,8 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
         if (Infantry_Action_Allowed_00614b50(action)) {
             if (Type->DeploysInto != 0) {
                 Cell cell = Cell(Center_Coord());
-                for (int index = 0; index < Rules->unknown_7c8.Count(); index++) {
-                    if (Rules->unknown_7c8[index] == Type->DeploysInto) {
+                for (int index = 0; index < Rules->BuildConst.Count(); index++) {
+                    if (Rules->BuildConst[index] == Type->DeploysInto) {
                         cell = cell + AdjacentCell[7];
                         break;
                     }
@@ -3168,7 +3168,7 @@ int UnitClass::Do_MISSION_GUARD()
         }
     }
     BuildingTypeClass *building = Type->DeploysInto;
-    if (building && Is_Listed(Rules->unknown_7c8, building)
+    if (building && Is_Listed(Rules->BuildConst, building)
         && House->unknown_13b && !House->Unknown_004F52F0()) {
         QueueMission(16, false);
         int delay = (int)(Control()->unknown_10 * 900.0);
@@ -3433,7 +3433,7 @@ int UnitClass::unknown_slot218(AbstractClass *target, int weapon, bool check_ran
         WeaponTypeClass *weapon_type = unknown_slot231(weapon)->WeaponType;
         if (unknown_6c16f0(-1) < 0) {
             TechnoClass *object = As_Techno_0040dbd0(target);
-            if (!object || !object->Considered_Vehicle() || object->Health_Ratio() >= Rules->unknown_1360) return 5;
+            if (!object || !object->Considered_Vehicle() || object->Health_Ratio() >= Rules->ConditionGreen) return 5;
         }
         if (!Type->MobileFire && unknown_494) return 7;
         if ((weapon_type->unknown_106 || weapon_type->unknown_105) && unknown_494) return 7;
@@ -3544,7 +3544,7 @@ void UnitClass::unknown_slot304()
 {
     if (!House->Unknown_004F52F0() && unknown_228 && !unknown_494) {
         ObjectClass *object = As_Object(unknown_228);
-        if ((Type->Crusher || Has_Ability(17)) && unknown_5d4c00(unknown_228) < Rules->unknown_1390
+        if ((Type->Crusher || Has_Ability(17)) && unknown_5d4c00(unknown_228) < Rules->CrushDistance
             && object && object->Class_Of()->IsCrushable && (Type->AutoCrush || !House->Unknown_004F52F0())) {
             Assign_Destination(unknown_228, true);
             return;
@@ -3784,7 +3784,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 					**	The refinery must NOT have the navcom assigned by this routine.
 					*/
 					if (b->Type->UnitRepair) {
-						if(Health_Ratio()<Rules->unknown_1360) {target=0;unknown_3f8=b;}
+						if(Health_Ratio()<Rules->ConditionGreen) {target=0;unknown_3f8=b;}
                         else {unknown_slot149(3);target=0;}
 					}
 				} else {
@@ -4304,10 +4304,10 @@ bool UnitClass::unknown_707170(TechnoClass *target)
         return false;
     }
     if (target && target->Techno_Type_Class()->IsCrushable) {
-        if (Coord_Distance(Center_Coord(), target->Center_Coord()) <= Rules->unknown_1390
-            && (!House->Unknown_004F52F0() || Rules->unknown_142f || Type->AutoCrush)
+        if (Coord_Distance(Center_Coord(), target->Center_Coord()) <= Rules->CrushDistance
+            && (!House->Unknown_004F52F0() || Rules->IsAutoCrush || Type->AutoCrush)
             && House->unknown_c8 != 2
-            && (House->Unknown_004F52F0() || House->IQ >= Rules->unknown_10b0)) {
+            && (House->Unknown_004F52F0() || House->IQ >= Rules->IQCrush)) {
             if (target->IsDisguisedAs(House)) {
                 return false;
             }

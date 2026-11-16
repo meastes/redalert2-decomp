@@ -611,11 +611,11 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
                 strtok(0, ",:");
             }
             unknown_a72d08 = 1;
-            if (_stricmp(name, unknown_session_a3d298.Handle) == 0 && color != unknown_session_a3d298.unknown_12c) {
+            if (_stricmp(name, unknown_session_a3d298.Handle) == 0 && color != unknown_session_a3d298.Color) {
                 if (unknown_a72d08 == 0) {
                     Unknown_005C2C80(-1, StringTable::Load_String("TXT_COLOR_IN_USE", 0, "D:\\Ra2\\netshare.cpp", 0x7A2));
                 }
-                unknown_session_a3d298.unknown_12c = color;
+                unknown_session_a3d298.Color = color;
             }
             if (_stricmp(name, unknown_session_a3d298.Handle) == 0) {
                 unknown_a72d08 = 0;

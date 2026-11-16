@@ -172,7 +172,7 @@ void EventClass::Execute()
         }
         AnimClass *anim;
         if (Data.LongsCell.Long1 == -1) {
-            anim = new AnimClass(Rules->unknown_a74, coord, 0, 1, 0x600, 0);
+            anim = new AnimClass(Rules->MoveFlash, coord, 0, 1, 0x600, 0);
         } else {
             anim = new AnimClass(AnimTypes[Data.LongsCell.Long1], coord, 0, 1, 0x600, 0);
         }
@@ -543,19 +543,19 @@ void EventClass::Execute()
 
     case 0x20:
         Data.Timing.MaxAhead -= (unknown_id_source_a3d290->unknown_000 & 0x1000) ? 10 : 0;
-        if (Data.Timing.MaxAhead > unknown_session_a3d298.MaxAhead_2c8 || Data.Timing.FrameSendRate > unknown_session_a3d298.unknown_2cc) {
+        if (Data.Timing.MaxAhead > unknown_session_a3d298.MaxAhead_2c8 || Data.Timing.FrameSendRate > unknown_session_a3d298.FrameSendRate) {
             unknown_a3d258 = Frame;
             unknown_a3d23c = Data.Timing.FrameSendRate * ((Frame + Data.Timing.MaxAhead + Data.Timing.FrameSendRate - 1) / Data.Timing.FrameSendRate);
         } else {
             unknown_a3d258 = 0;
             unknown_a3d23c = 0;
         }
-        unknown_session_a3d298.unknown_2d0 = Data.Timing.DesiredFrameRate;
+        unknown_session_a3d298.DesiredFrameRate = Data.Timing.DesiredFrameRate;
         unknown_session_a3d298.MaxAhead_2c8 = Data.Timing.MaxAhead;
-        if (unknown_session_a3d298.unknown_2e0 <= unknown_session_a3d298.MaxAhead_2c8) {
-            unknown_session_a3d298.unknown_2e0 = unknown_session_a3d298.MaxAhead_2c8;
+        if (unknown_session_a3d298.MaxMaxAhead <= unknown_session_a3d298.MaxAhead_2c8) {
+            unknown_session_a3d298.MaxMaxAhead = unknown_session_a3d298.MaxAhead_2c8;
         }
-        unknown_session_a3d298.unknown_2cc = Data.Timing.FrameSendRate;
+        unknown_session_a3d298.FrameSendRate = Data.Timing.FrameSendRate;
         break;
 
     case 0x21: {

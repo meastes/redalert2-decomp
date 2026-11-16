@@ -24,11 +24,11 @@ public:
     int Normal_Delay() const { return int(900.0 * unknown_10); }
 
     int Mission;                // +0x00 (-1)
-    bool unknown_04;            // +0x04
+    bool IsNoThreat;            // +0x04
     bool IsZombie;            // +0x05
     bool IsRecruitable;            // +0x06 true
     bool IsParalyzed;            // +0x07
-    bool unknown_08;            // +0x08 true
+    bool IsRetaliate;            // +0x08 true
     bool IsScatter;            // +0x09 true
     int unknown_0c;             // +0x0C
     double unknown_10;          // +0x10 0.016

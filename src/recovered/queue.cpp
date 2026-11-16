@@ -438,16 +438,16 @@ static void __fastcall Generate_Real_Timing_Event_00623b00(ConnManClass *net, in
     EventClass packet;
     int i;
         Debug_Printf("Generate_Real_Timing_Event\n");
-        if(unknown_session_a3d298.unknown_2e4!=0 || unknown_session_a3d298.unknown_2e8!=0) {
+        if(unknown_session_a3d298.PrecalcMaxAhead!=0 || unknown_session_a3d298.PrecalcDesiredFrameRate!=0) {
             Debug_Printf("Sending precalculated network timings on frame %d\n");
             packet.Type=0x20;
             packet.Data.Timing.DesiredFrameRate=unknown_a3d580;
-            packet.Data.Timing.MaxAhead=unknown_session_a3d298.unknown_2e4;
-            packet.Data.Timing.FrameSendRate=(unsigned int)unknown_session_a3d298.unknown_2e8>30U?10:5;
+            packet.Data.Timing.MaxAhead=unknown_session_a3d298.PrecalcMaxAhead;
+            packet.Data.Timing.FrameSendRate=(unsigned int)unknown_session_a3d298.PrecalcDesiredFrameRate>30U?10:5;
             packet.Frame=Frame;
             packet.House=PlayerPtr->ArrayIndex;
             OutList.Add(packet);
-            unknown_session_a3d298.unknown_2e4=0;unknown_session_a3d298.unknown_2e8=0;
+            unknown_session_a3d298.PrecalcMaxAhead=0;unknown_session_a3d298.PrecalcDesiredFrameRate=0;
         
             return;
         }
@@ -616,7 +616,7 @@ static void __fastcall Queue_AI_Multiplayer()
         Generate_Process_Time_Event_00623b00(net);
     }
     if (unknown_session_a3d298.Am_I_Master(0) &&
-        (unknown_session_a3d298.unknown_2e4!=0 || unknown_session_a3d298.unknown_2e8!=0 || !(char)Frame)) {
+        (unknown_session_a3d298.PrecalcMaxAhead!=0 || unknown_session_a3d298.PrecalcDesiredFrameRate!=0 || !(char)Frame)) {
         Generate_Real_Timing_Event_00623b00(net,unknown_my_sent_aabe78);
     }
     if(unknown_session_a3d2ac==2) {
@@ -1069,7 +1069,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                     if (unknown_session_a3d298.Type == 4) {
                         Ipx.Global_Channel_Clear_FieldC8();
                     }
-                    unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
+                    unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->IsRandom ? 200 : 100);
                     progress_timer = 180;
                 }
             }

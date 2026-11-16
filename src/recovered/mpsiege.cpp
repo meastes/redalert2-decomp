@@ -230,7 +230,7 @@ bool MultiplayerSiege::SpawnBaseUnits(HouseClass *house, int *money)
         if (unknown_players_a3fa7c[index]->Team != 1) {
             return MultiplayerGameMode::SpawnBaseUnits(house, money);
         }
-        BuildingTypeClass *type = house->unknown_func_4ef600(Rules->unknown_7c8);
+        BuildingTypeClass *type = house->unknown_func_4ef600(Rules->BuildConst);
         if (type != 0) {
             TechnoClass *building = (TechnoClass *)new BuildingClass(type, house);
             if (building != 0) {

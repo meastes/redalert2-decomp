@@ -46,7 +46,7 @@ public:
     CoordStruct unknown_18;                     // +0x18
     UnknownSlopeTimer unknown_24;               // +0x24 (a frame timer and, +0x30, the duration it was set to; Move_To assigns a fresh one)
     CDTimerClass<FrameTimerClass> unknown_34;   // +0x34
-    int unknown_40;                             // +0x40 (state)
+    int MissionState;                             // +0x40 (state)
     int unknown_44;                             // +0x44
     double unknown_48;                          // +0x48
     float unknown_50;                           // +0x50 (the pitch; Draw_Matrix tilts by it)

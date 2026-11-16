@@ -292,7 +292,7 @@ void EBolt::Setup_004B2430(CoordStruct start,CoordStruct end,int value)
  unknown_18=value;
  unknown_1c=NonCriticalRandomNumber(0,256);
  unknown_EBolt_list_00853050.Add(this);
- new ParticleSystemClass(Rules->unknown_ce0,end,0,0,unknown_geometry_l);
+ new ParticleSystemClass(Rules->DefaultSparkSystem,end,0,0,unknown_geometry_l);
 }
 
 

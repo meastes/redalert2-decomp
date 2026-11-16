@@ -452,7 +452,7 @@ void AircraftClass::AI()
         IsToSpendAmmo = false;
         --unknown_254;
     }
-    if (Health_Ratio() < Rules->unknown_1370 && Get_Height_AGL() > 0) {
+    if (Health_Ratio() < Rules->ConditionRed && Get_Height_AGL() > 0) {
         int chance = Strength != 0 ? 10 : 80;
         if (unknown_id_source_a3d290->Random()(0, 99) < chance)
             new AnimClass(AnimTypes[AnimTypeClass::From_Name("SGRYSMK1")], CoordStruct(Coord), 0, 1, 0x600, 0);
@@ -849,10 +849,10 @@ int AircraftClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
     switch (result) {
     case 4: {
         unknown_slot216(0);
-        if (warhead == Rules->unknown_cac) {
+        if (warhead == Rules->FirestormWarhead) {
             int count = abs(unknown_id_source_a3d290->Random()() % 3) + 7;
             for (int remaining = count; remaining > 0; --remaining) {
-                ParticleSystemClass *system = new ParticleSystemClass(Rules->unknown_cf4, Center_Coord(), 0, this, unknown_geometry_l);
+                ParticleSystemClass *system = new ParticleSystemClass(Rules->DefaultFirestormExplosionSystem, Center_Coord(), 0, this, unknown_geometry_l);
                 system->IsRandomSparkDirection = true;
             }
         } else if (Type->Explosion.Count() > 0) {
@@ -1857,7 +1857,7 @@ AbstractClass *AircraftClass::New_LZ(AbstractClass *desired)
         }
         CoordStruct coord = desired->Center_Coord();
         if (!ScenarioInit) {
-            for (int radius = 0; radius < Rules->unknown_10e0 / 256; radius++) {
+            for (int radius = 0; radius < Rules->LZScanRadius / 256; radius++) {
                 int phase = unknown_id_source_a3d290->Random()(0, 7);
                 Cell previous(0, 0);
                 for (int direction = 0; direction < 8; direction++) {

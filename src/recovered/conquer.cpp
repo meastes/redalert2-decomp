@@ -236,7 +236,7 @@ void __fastcall Special_Dialog_00481850()
         }
     }
     UpdateWindow(MainWindow);
-    if (unknown_id_source_a3d290->unknown_2306) {
+    if (unknown_id_source_a3d290->IsInputLocked) {
         WWMouse->Hide_Mouse();
     }
     WWMouse->Capture_Mouse();
@@ -251,7 +251,7 @@ void __cdecl Process_Serial_Progress_Packets_00481f00()
     int length;
     if (unknown_game_mode_a3d298 == 2 || (serial_session_flags_00a3fac0 & 1)) {
         serial_manager_00a40a28.Service();
-        if (unknown_id_source_a3d290->unknown_22fc) {
+        if (unknown_id_source_a3d290->IsReadingScenario) {
             while (serial_manager_00a40a28.Get_Message(packet, &length) > 0) {
                 // Preserve the original DWORD sender read and overlapping unaligned
                 // signed progress read. Complete packet format remains unknown.
@@ -289,7 +289,7 @@ void __fastcall Service_Game_IO_00481fb0()
             unsigned char packet[252];
             int length;
             serial_manager_00a40a28.Service();
-            if (unknown_id_source_a3d290->unknown_22fc) {
+            if (unknown_id_source_a3d290->IsReadingScenario) {
                 while (serial_manager_00a40a28.Get_Message(packet,&length)>0) {
                     if (*(int *)packet==108 &&
                         (*(unsigned int *)(packet+24)&255)!=serial_local_player_00a3fb38) {

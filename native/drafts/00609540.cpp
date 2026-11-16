@@ -70,10 +70,10 @@ static inline void Limit(int &value, int low, int high)
 void ParticleClass::Spark_Behavior_AI()
 {
     CoordStruct coord = Coord;
-    MovementDirection.Z -= Rules->unknown_1320;
+    MovementDirection.Z -= Rules->Gravity;
     Vector3 velocity(MovementDirection.X, MovementDirection.Y, MovementDirection.Z);
     Vector3 position(coord.X, coord.Y, coord.Z);
-    double gravity = Rules->unknown_1320;
+    double gravity = Rules->Gravity;
     velocity.Z -= gravity;
 
     CoordStruct old_coord;

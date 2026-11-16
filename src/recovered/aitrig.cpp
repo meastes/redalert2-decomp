@@ -183,7 +183,7 @@ bool AITriggerTypeClass::Is_Ready(HouseClass *house, HouseClass *enemy, bool unk
     if (TeamTypeOne == 0) {
         return false;
     }
-    if (enemy == 0 || (Rules->unknown_1437 && house->BaseDefenseTeamCount < Rules->MinimumAIDefensiveTeams[house->unknown_c8])) {
+    if (enemy == 0 || (Rules->UseMinDefenseRule && house->BaseDefenseTeamCount < Rules->MinimumAIDefensiveTeams[house->unknown_c8])) {
         if (!teams_ok) {
             return false;
         }
@@ -191,7 +191,7 @@ bool AITriggerTypeClass::Is_Ready(HouseClass *house, HouseClass *enemy, bool unk
     if (teams_ok && unknown_arg3) {
         return false;
     }
-    if (Scope == 1 && unknown_id_source_a3d290->unknown_2238 == true) {
+    if (Scope == 1 && unknown_id_source_a3d290->IsIgnoreGlobalAITriggers == true) {
         return false;
     }
     if (!IsEnabled) {
@@ -495,7 +495,7 @@ bool AITriggerTypeClass::Iron_Curtain_Ready(HouseClass *house, HouseClass *enemy
                 if (super != 0 && super->unknown_0x55) {
                     double remaining = super->RechargeTimer.Value();
                     double total = super->Type->RechargeTime;
-                    if (remaining / total > 1.0f - Rules->unknown_b80) {
+                    if (remaining / total > 1.0f - Rules->AIMinorSuperReadyPercent) {
                         return false;
                     }
                     return true;
@@ -522,7 +522,7 @@ bool AITriggerTypeClass::Chronosphere_Ready(HouseClass *house, HouseClass *enemy
                 if (super != 0 && super->unknown_0x55) {
                     double remaining = super->RechargeTimer.Value();
                     double total = super->Type->RechargeTime;
-                    if (remaining / total > 1.0f - Rules->unknown_b80) {
+                    if (remaining / total > 1.0f - Rules->AIMinorSuperReadyPercent) {
                         return false;
                     }
                     return true;
@@ -937,7 +937,7 @@ void AITriggerTypeClass::Register_Success()
             bonus = 0.0;
         }
     }
-    Weight = Rules->unknown_b8 + Weight + bonus;
+    Weight = Rules->AITriggerSuccessWeightDelta + Weight + bonus;
     if (Weight < MinWeight) {
         Weight = MinWeight;
     }
@@ -958,12 +958,12 @@ void AITriggerTypeClass::Register_Failure()
 {
     double bonus = 0.0;
     if (TimesExecuted > 0) {
-        bonus = (TimesSucceded / (double)TimesExecuted - 0.5) * Rules->unknown_c8 * TimesExecuted;
+        bonus = (TimesSucceded / (double)TimesExecuted - 0.5) * Rules->AITriggerTrackRecordCoefficient * TimesExecuted;
         if (bonus > 0.0) {
             bonus = 0.0;
         }
     }
-    Weight = Rules->unknown_c0 + Weight + bonus;
+    Weight = Rules->AITriggerFailureWeightDelta + Weight + bonus;
     if (Weight < MinWeight) {
         Weight = MinWeight;
     }

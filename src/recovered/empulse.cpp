@@ -200,7 +200,7 @@ void EMPulseClass::Apply_004B4E30(TechnoClass *source)
                                     AnimClass *effect=(AnimClass *)operator new(sizeof(AnimClass));
                                     if (effect) {
                                         int delay=unknown_id_source_a3d290->Random()(0,25);
-                                        effect=new(effect) AnimClass(Rules->unknown_1438,foot->Center_Coord(),delay,1,0x600,0);
+                                        effect=new(effect) AnimClass(Rules->EMPulseSparkles,foot->Center_Coord(),delay,1,0x600,0);
                                     }
                                     if (effect) effect->Attach_To(foot);
                                 }

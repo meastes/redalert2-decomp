@@ -194,7 +194,7 @@ int BuildingClass::Do_MISSION_MISSILE()
             Map.Get_Height_GL(position);
             CoordStruct to(House->EMPDest.X * 256 + 128, House->EMPDest.Y * 256 + 128, 0);
             UnknownFacingDir yaw = Radian_Dir_m26(unknown_math_4ba600(double(fire.Y) - to.Y, double(to.X) - fire.X));
-            int speed = Calculate_Projectile_Speed(unknown_5d4c00(target), Rules->unknown_1320);
+            int speed = Calculate_Projectile_Speed(unknown_5d4c00(target), Rules->Gravity);
 
             BulletClass *bullet = Create_Bullet(weapon->Projectile, target, this, weapon->unknown_a4,
                 weapon->Warhead, 3 * speed / 4, weapon->unknown_10b);
@@ -211,9 +211,9 @@ int BuildingClass::Do_MISSION_MISSILE()
             int distance = (int)unknown_sqrt_4ba410((double)(dx * dx + dy * dy));
 
             UnknownFacingDir pitch;
-            bool valid = Calculate_Projectile_Pitch(Should_Use_High_Arc(0), speed, distance, dz, Rules->unknown_1320, &pitch);
+            bool valid = Calculate_Projectile_Pitch(Should_Use_High_Arc(0), speed, distance, dz, Rules->Gravity, &pitch);
             if (!valid) {
-                valid = Calculate_Projectile_Pitch(Should_Use_High_Arc(0), speed * 10 / 8, distance, dz, Rules->unknown_1320, &pitch);
+                valid = Calculate_Projectile_Pitch(Should_Use_High_Arc(0), speed * 10 / 8, distance, dz, Rules->Gravity, &pitch);
                 if (!valid) {
                     pitch = UnknownFacingDir(0xFA00);
                     valid = true;

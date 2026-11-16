@@ -241,9 +241,9 @@ int InfantryClass::Take_Damage(int *damage,int distance,WarheadTypeClass *warhea
         bool delete_after_sequence=false;
         if (forced && Type->Cyborg) {
             delete_after_sequence=true;
-            if (unknown_7c) new AnimClass(Rules->InfantryExplode,CoordStruct(Coord),0,1,0x600,0);
+            if (IsToExplode) new AnimClass(Rules->InfantryExplode,CoordStruct(Coord),0,1,0x600,0);
         }
-        if (Get_Height_AGL()<=10 && Map[CoordStruct(Coord)].Land==2 && unknown_7c) {
+        if (Get_Height_AGL()<=10 && Map[CoordStruct(Coord)].Land==2 && IsToExplode) {
             new AnimClass(Rules->Wake,CoordStruct(Coord),0,1,0x600,0);
             new AnimClass(Rules->SplashList[0],CoordStruct(Coord)+CoordStruct(0,0,3),0,1,0x600,0);
             delete_after_sequence=true;
@@ -316,8 +316,8 @@ int InfantryClass::Take_Damage(int *damage,int distance,WarheadTypeClass *warhea
             else if (!Type->Fearless && !Has_Ability(13)) unknown_5bc=100;
         } else if (!Type->Fearless && !Has_Ability(13)) {
             int more_fear=50;
-            if (Health_Ratio()>Rules->unknown_1370) more_fear/=2;
-            if (Health_Ratio()>Rules->unknown_1368) more_fear/=2;
+            if (Health_Ratio()>Rules->ConditionRed) more_fear/=2;
+            if (Health_Ratio()>Rules->ConditionYellow) more_fear/=2;
             unknown_5bc=unknown_5bc+more_fear<300 ? unknown_5bc+more_fear : 300;
         }
     }
@@ -402,7 +402,7 @@ void InfantryClass::Draw_It(Point2D const &input, Rect const &window)
             TacticalMap->Add_To_Selectables(this, point);
             int level_light;
             if (IonStormClass_Is_Ion_Storm_Active()) level_light=unknown_id_source_a3d290->IonLevel;
-            else if (NukeFlash_IsFadingIn()) level_light=unknown_id_source_a3d290->unknown_22f4;
+            else if (NukeFlash_IsFadingIn()) level_light=unknown_id_source_a3d290->NukeLevelLight;
             else level_light=unknown_id_source_a3d290->AmbientLevel;
             int brightness;
             if (IsOnBridge || ((Map[Position_Coord_004f3f40()].unknown_140&0x10000) &&
@@ -552,9 +552,9 @@ void InfantryClass::unknown_slot93(int why)
                     } else {
                         bool capturable=false;
                         if (building->Kind_Of()==6) capturable=building->Type->Capturable;
-                        if (unknown_game_mode_a3d298!=0 && unknown_session_a3d298.unknown_34 && building->Health_Ratio()>Rules->unknown_1370) {
-                            int max_damage=building->Strength-int(building->Techno_Type_Class()->MaxStrength*Rules->unknown_1370*0.5);
-                            int damage=MIN(building->Techno_Type_Class()->MaxStrength*((1-Rules->unknown_1370/2)/2),max_damage);
+                        if (unknown_game_mode_a3d298!=0 && unknown_session_a3d298.unknown_34 && building->Health_Ratio()>Rules->ConditionRed) {
+                            int max_damage=building->Strength-int(building->Techno_Type_Class()->MaxStrength*Rules->ConditionRed*0.5);
+                            int damage=MIN(building->Techno_Type_Class()->MaxStrength*((1-Rules->ConditionRed/2)/2),max_damage);
                             building->Take_Damage(&damage,0,Rules->C4Warhead,this,true,0);
                         } else if (capturable) {
                             if (building->Mission==19) {
@@ -641,10 +641,10 @@ void InfantryClass::unknown_slot93(int why)
                         return;
                     }
                     going_to_blow=true;
-                    double warning_delay=Rules->unknown_13b8*900.0;
+                    double warning_delay=Rules->C4Delay*900.0;
                     warning_delay*=0.5;
                     building->Clicked_As_Target(int(warning_delay));
-                    *reinterpret_cast<CDTimerClass<FrameTimerClass> *>(reinterpret_cast<char *>(building)+0x420)=int(Rules->unknown_13b8*900.0);
+                    *reinterpret_cast<CDTimerClass<FrameTimerClass> *>(reinterpret_cast<char *>(building)+0x420)=int(Rules->C4Delay*900.0);
                     *reinterpret_cast<AbstractClass **>(reinterpret_cast<char *>(building)+0x438)=this;
                 }
                 Abort_Motion();
@@ -654,13 +654,13 @@ void InfantryClass::unknown_slot93(int why)
                 return;
             }
             if (&Map[Center_Coord()]==unknown_494) {
-                Explosion_Damage(CoordStruct(Coord),Rules->unknown_13a8,this,Rules->C4Warhead,true);
+                Explosion_Damage(CoordStruct(Coord),Rules->BridgeStrength,this,Rules->C4Warhead,true);
                 Stop_Driver();
                 Scatter(Adjacent_Cell(CoordStruct(Coord),Dir_To_8(PrimaryFacing.Current())),true,true);
                 QueueMission(2,false);
                 if (!unknown_494 || Map[unknown_494->Center_Coord()].Land==2) Mark(1);
-                Explosion_Damage(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
-                Explosion_Damage(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
+                Explosion_Damage(CoordStruct(Coord),Rules->BridgeStrength,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
+                Explosion_Damage(CoordStruct(Coord),Rules->BridgeStrength,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
                 if (!IsActive) return;
                 Mark(1);
             }
@@ -1207,7 +1207,7 @@ int InfantryClass::unknown_slot218(AbstractClass *target, int weapon, bool check
     }
     if (unknown_6c16f0(-1) < 0) {
         if (target == 0 || target->Kind_Of() != 15
-            || !(((ObjectClass *)target)->Health_Ratio() < Rules->unknown_1360)) {
+            || !(((ObjectClass *)target)->Health_Ratio() < Rules->ConditionGreen)) {
             return 5;
         }
     }
@@ -1285,7 +1285,7 @@ bool InfantryClass::unknown_slot261(bool arg1, bool arg2)
                 return false;
             }
             if (!House->Unknown_004F52F0() && Team == 0) {
-                if (House->IQ < Rules->unknown_10a8 && Mission != 11) {
+                if (House->IQ < Rules->IQGuardArea && Mission != 11) {
                     mission = 5;
                 } else if (!unknown_slot163() && !Type->Engineer && !Type->VehicleThief) {
                     mission = 5;
@@ -1796,8 +1796,8 @@ clear_force_fire:
                 return Map.Unknown_00569320(cell) ? 0x1d : 0x20;
             }
             if (House->Is_Ally(target) || (building->House->Type->MultiplayPassive && building->Type->CanBeOccupied)) {
-                if (building->Type->Hospital && Health_Ratio() < Rules->unknown_1360) return 3;
-                if (object->Health_Ratio() == Rules->unknown_1360) return 0x20;
+                if (building->Type->Hospital && Health_Ratio() < Rules->ConditionGreen) return 3;
+                if (object->Health_Ratio() == Rules->ConditionGreen) return 0x20;
                 return 0x1d;
             }
             if (building->Type->Capturable) {
@@ -1814,7 +1814,7 @@ return_capture_action:
             if (House->Is_Ally(target)) {
                 if (object->Kind_Of() == 15) {
                     if (object != this) {
-                        if (object->Health_Ratio() < Rules->unknown_1360) return 0x1b;
+                        if (object->Health_Ratio() < Rules->ConditionGreen) return 0x1b;
                     } else return 0x1a;
                 }
                 TechnoClass *transport = As_Techno_0040dbd0(object);
@@ -1828,8 +1828,8 @@ return_capture_action:
             if (target->Techno_Type_Class()->IsTrain) return 7;
             if (target->House != House) {
                 if ((unknown_id_source_a3d290->unknown_000 & 0x800) != 0) {
-                    for (int i = 0; i < Rules->unknown_9ec.Count(); ++i) {
-                        if (Rules->unknown_9ec[i] == (UnitTypeClass *)object) return 7;
+                    for (int i = 0; i < Rules->HarvesterUnit.Count(); ++i) {
+                        if (Rules->HarvesterUnit[i] == (UnitTypeClass *)object) return 7;
                     }
                 }
                 return 9;
@@ -2549,7 +2549,7 @@ void InfantryClass::Update_Fire_00507530()
             if (unknown_6c16f0(weapon) < 0) {
                 AbstractClass *target = unknown_228;
                 if (target != 0 && target->AbstractFlags.IsObject && target->Kind_Of() == 15) {
-                    if (((ObjectClass *)target)->Health_Ratio() >= Rules->unknown_1360) {
+                    if (((ObjectClass *)target)->Health_Ratio() >= Rules->ConditionGreen) {
                         unknown_slot220(0);
                     }
                 } else {
@@ -2582,7 +2582,7 @@ void InfantryClass::Update_Fire_00507530()
                 unknown_slot311(0, false, false);
             }
         }
-        if (unknown_228 != 0 && unknown_slot231(0)->WeaponType->unknown_a8 < Rules->unknown_1328) {
+        if (unknown_228 != 0 && unknown_slot231(0)->WeaponType->unknown_a8 < Rules->Incoming) {
             ((UnknownCellClass *)&Map[unknown_228->Center_Coord()])->Unknown_00476920(&CoordStruct(Coord), true, false, false);
         }
     }

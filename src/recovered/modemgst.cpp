@@ -248,7 +248,7 @@ void ModemGuest::Init_Dialog_00596540()
         for (int index = 0; index < 8; index++) {
             Send_Message(control, 0x498, index, PlayerColorTable[index]);
         }
-        Game_PlayerColor = unknown_session_a3d298.unknown_12c;
+        Game_PlayerColor = unknown_session_a3d298.Color;
         Send_Message(control, 0x14E, Game_PlayerColor, 0);
     }
     Debug_Printf("Color: %d\n", Game_PlayerColor);
@@ -720,10 +720,10 @@ bool ModemGuest::Process_Messages_00597680()
                 ReceiveTime = TickCount.Time();
             }
             strcpy(unknown_id_source_a3d290->FileName, unknown_session_a3d298.ScenarioFileName_658);
-            unknown_session_a3d298.unknown_2cc = 5;
+            unknown_session_a3d298.FrameSendRate = 5;
             unknown_a3fba4 = 0;
-            unknown_session_a3d298.unknown_2e4 = 0;
-            unknown_session_a3d298.unknown_2e8 = 0;
+            unknown_session_a3d298.PrecalcMaxAhead = 0;
+            unknown_session_a3d298.PrecalcDesiredFrameRate = 0;
             if (unknown_session_a3d2ac == 2) {
                 unsigned int ahead = ((packet.Timing.ResponseTime >> 3) + 4) / 5 * 5;
                 if (ahead > 10) {

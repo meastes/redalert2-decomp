@@ -826,12 +826,12 @@ bool __fastcall Net_Join_Dialog_005bd070()
             }
             unknown_lobby_result_a71e8c = 0;
             PregameSetup();
-            unknown_session_a3d298.unknown_2cc = 5;
+            unknown_session_a3d298.FrameSendRate = 5;
             unknown_a3fba4 = 0;
-            unknown_session_a3d298.unknown_2e4 = 0;
+            unknown_session_a3d298.PrecalcMaxAhead = 0;
             unknown_a3d580 = 0;
             if (unknown_session_a3d2ac == 2) {
-                unknown_max_ahead_a3d560 = ((Ipx.Global_Response_Time() / 8 + unknown_session_a3d298.unknown_2cc - 1) / unknown_session_a3d298.unknown_2cc) * unknown_session_a3d298.unknown_2cc > unknown_session_a3d298.unknown_2cc * 2 ? ((Ipx.Global_Response_Time() / 8 + unknown_session_a3d298.unknown_2cc - 1) / unknown_session_a3d298.unknown_2cc) * unknown_session_a3d298.unknown_2cc : unknown_session_a3d298.unknown_2cc * 2;
+                unknown_max_ahead_a3d560 = ((Ipx.Global_Response_Time() / 8 + unknown_session_a3d298.FrameSendRate - 1) / unknown_session_a3d298.FrameSendRate) * unknown_session_a3d298.FrameSendRate > unknown_session_a3d298.FrameSendRate * 2 ? ((Ipx.Global_Response_Time() / 8 + unknown_session_a3d298.FrameSendRate - 1) / unknown_session_a3d298.FrameSendRate) * unknown_session_a3d298.FrameSendRate : unknown_session_a3d298.FrameSendRate * 2;
             } else {
                 unknown_max_ahead_a3d560 = (int)Ipx.Global_Response_Time() / 8 > 2 ? (int)Ipx.Global_Response_Time() / 8 : 2;
             }
@@ -927,12 +927,12 @@ bool __fastcall Net_Join_Dialog_005bd070()
                         MultiplayerMapPreview = 0;
                     }
                     PregameSetup();
-                    unknown_session_a3d298.unknown_2cc = 5;
+                    unknown_session_a3d298.FrameSendRate = 5;
                     unknown_a3fba4 = 0;
-                    unknown_session_a3d298.unknown_2e4 = 0;
+                    unknown_session_a3d298.PrecalcMaxAhead = 0;
                     unknown_a3d580 = 0;
                     if (unknown_session_a3d2ac == 2) {
-                        unknown_max_ahead_a3d560 = ((Ipx.Global_Response_Time() / 8 + unknown_session_a3d298.unknown_2cc - 1) / unknown_session_a3d298.unknown_2cc) * unknown_session_a3d298.unknown_2cc > unknown_session_a3d298.unknown_2cc * 2 ? ((Ipx.Global_Response_Time() / 8 + unknown_session_a3d298.unknown_2cc - 1) / unknown_session_a3d298.unknown_2cc) * unknown_session_a3d298.unknown_2cc : unknown_session_a3d298.unknown_2cc * 2;
+                        unknown_max_ahead_a3d560 = ((Ipx.Global_Response_Time() / 8 + unknown_session_a3d298.FrameSendRate - 1) / unknown_session_a3d298.FrameSendRate) * unknown_session_a3d298.FrameSendRate > unknown_session_a3d298.FrameSendRate * 2 ? ((Ipx.Global_Response_Time() / 8 + unknown_session_a3d298.FrameSendRate - 1) / unknown_session_a3d298.FrameSendRate) * unknown_session_a3d298.FrameSendRate : unknown_session_a3d298.FrameSendRate * 2;
                     } else {
                         unknown_max_ahead_a3d560 = (int)Ipx.Global_Response_Time() / 8 > 2 ? (int)Ipx.Global_Response_Time() / 8 : 2;
                     }
@@ -1201,8 +1201,8 @@ long __stdcall Join_Dialog_Proc_005be6b0(HWND window, unsigned message, unsigned
         HWND edit = GetDlgItem(window, 0x541);
         SendMessageA(edit, 0x4B2, 0, (LPARAM)name);
         unknown_map_name_a3d342[0] = 0;
-        Game_PlayerColor = unknown_session_a3d298.unknown_12c;
-        unknown_session_a3d298.unknown_120 = unknown_session_a3d298.unknown_130;
+        Game_PlayerColor = unknown_session_a3d298.Color;
+        unknown_session_a3d298.ColorIdx = unknown_session_a3d298.Color2;
         Free_Pointers_005a7480(&unknown_games_a3fa64);
         Free_Pointers_005a7480(&unknown_players_a3fa7c);
         Free_Pointers_005a7480(&unknown_chat_a3fa4c);

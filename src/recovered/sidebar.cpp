@@ -219,7 +219,7 @@ void SidebarClass::Unknown_0067B910()
     unknown_int_839628 = SidebarWidth;
     unknown_int_839624 = 0x9E;
     unknown_int_83962c = unknown_int_839634 + unknown_int_83963c + TabBarHeight - 0x9E;
-    if (unknown_id_source_a3d290->unknown_2239) {
+    if (unknown_id_source_a3d290->IsGDI) {
         SidebarClass_TopButtonY = 0xA6;
         SidebarClass_TopButtonSpacing = 0x40;
         SidebarClass_TabButtonY = 0xC5;
@@ -236,13 +236,13 @@ void SidebarClass::Unknown_0067B910()
     }
     SidebarClass_CameoHeight = 0x32;
     int extra;
-    if (unknown_id_source_a3d290->unknown_2239) {
+    if (unknown_id_source_a3d290->IsGDI) {
         extra = 26;
     } else {
         extra = 18;
     }
     PowerBarHeight = (unknown_int_83962c - extra - 0x4C) / 50 * 50;
-    if (unknown_id_source_a3d290->unknown_2239) {
+    if (unknown_id_source_a3d290->IsGDI) {
         SidebarClass_SidebarBottomY = PowerBarHeight + 0xEA;
         SidebarClass_SidebarEdgeWidth = 0x2E;
         SidebarClass_SidebarEdgeStep = 0x32;
@@ -263,7 +263,7 @@ void SidebarClass::Unknown_0067BA60()
     int x = unknown_flag_a40b30 ? unknown_int_839630 + unknown_int_839638 : 0;
     unknown_int_839620 = x;
     SidebarClass_StripLeft = x + 22;
-    if (unknown_id_source_a3d290->unknown_2239) {
+    if (unknown_id_source_a3d290->IsGDI) {
         SidebarClass_TopButtonX = x + 20;
         SidebarClass_TabButtonX = x + 26;
         SidebarClass_PowerBarLeft = x + 39;
@@ -954,10 +954,10 @@ void SidebarClass::AI(int &input, Point2D const &xy)
         Unknown_0067C4C0(PlayerPtr->unknown_230 > 0);
 
         if (input == 0x8066) {
-            Voc_Play(Rules->unknown_180, 1.0f, 0x2000, 0);
+            Voc_Play(Rules->GUIMainButtonSound, 1.0f, 0x2000, 0);
             Unknown_0049C7C0(-1);
         } else if (input == 0x8065) {
-            Voc_Play(Rules->unknown_180, 1.0f, 0x2000, 0);
+            Voc_Play(Rules->GUIMainButtonSound, 1.0f, 0x2000, 0);
             Unknown_0049CA20(-1);
         } else if (input >= 0x80CB && input < 0x80CF) {
             Select_Tab(input - 0x80CB);
@@ -965,7 +965,7 @@ void SidebarClass::AI(int &input, Point2D const &xy)
         } else if ((input & ~0x4000) == (unknown_button_abcbe8.ID | 0x8000)) {
             unknown_button_abcbe8.IsPressed = false;
             StripClass &strip = Column[unknown_4ed8];
-            if (!strip.Scroll(false, (unknown_int_839624 + unknown_int_83962c - SidebarClass_StripTop - (unknown_id_source_a3d290->unknown_2239 ? 26 : 18) - 7) / 50)) {
+            if (!strip.Scroll(false, (unknown_int_839624 + unknown_int_83962c - SidebarClass_StripTop - (unknown_id_source_a3d290->IsGDI ? 26 : 18) - 7) / 50)) {
                 Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
             } else {
                 Voc_Play(Rules->GUITabSound, 1.0f, 0x2000, 0);
@@ -1663,7 +1663,7 @@ int SidebarClass::StripClass::Unknown_0067F7C0(int index)
 
 static inline int Bottom_Extra()
 {
-    if (unknown_id_source_a3d290->unknown_2239) {
+    if (unknown_id_source_a3d290->IsGDI) {
         return 26;
     }
     return 18;
@@ -2055,7 +2055,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
         }
         if (flags & 1) {
             if ((unsigned)spc < (unsigned)PlayerPtr->Supers.Count()) {
-                Unknown_Play_Sound(Rules->unknown_184);
+                Unknown_Play_Sound(Rules->GUIBuildSound);
                 SuperClass *super = PlayerPtr->Supers[spc];
                 if (super->Unknown_0069D820()) {
                     if (PlayerPtr->Supers[spc]->Type->Action == 0) {
@@ -2097,11 +2097,11 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                     Map.Unknown_00498F10(0);
                 }
                 if (!factory->Is_Building()) {
-                    Unknown_Play_Sound(Rules->unknown_184);
+                    Unknown_Play_Sound(Rules->GUIBuildSound);
                     Speech_Play_Name("EVA_Canceled", -1, -1);
                     OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x10, kind, id, choice->Naval));
                 } else {
-                    Unknown_Play_Sound(Rules->unknown_184);
+                    Unknown_Play_Sound(Rules->GUIBuildSound);
                     Speech_Play_Name("EVA_OnHold", -1, -1);
                     OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0xF, kind, id, choice->Naval));
                     Map.Column[Strip->unknown_34].unknown_38 = true;
@@ -2110,13 +2110,13 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                 if (Strip->Buildables[index].unknown_10 == 1) {
                     Strip->Buildables[index].unknown_10 = 2;
                     Strip->Flag_To_Redraw();
-                    Unknown_Play_Sound(Rules->unknown_184);
+                    Unknown_Play_Sound(Rules->GUIBuildSound);
                     Speech_Play_Name("EVA_OnHold", -1, -1);
                     OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0xF, kind, id, choice->Naval));
                 }
                 FactoryClass *fptr = ((UnknownSidebarHouse *)PlayerPtr)->Unknown_004EB580(kind, choice->Naval, arg);
                 if (fptr != 0 && fptr->Has_Queued_004B9E80(choice)) {
-                    Unknown_Play_Sound(Rules->unknown_184);
+                    Unknown_Play_Sound(Rules->GUIBuildSound);
                     OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x10, kind, id, choice->Naval));
                 }
             }
@@ -2131,7 +2131,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                             Map.unknown_11b4 = 1;
                         }
                     } else {
-                        Unknown_Play_Sound(Rules->unknown_184);
+                        Unknown_Play_Sound(Rules->GUIBuildSound);
                         BuildingClass *builder = pending->Who_Can_Build_Me(false, false);
                         if (!builder) {
                             OutList.Add(EventClass(pending->Owner(), 0x10, kind, id, choice->Naval));
@@ -2143,7 +2143,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                         }
                     }
                 } else {
-                    Unknown_Play_Sound(Rules->unknown_184);
+                    Unknown_Play_Sound(Rules->GUIBuildSound);
                     if (kind == 16) {
                         Speech_Play_Name("EVA_Training", -1, -1);
                     } else {
@@ -2192,7 +2192,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                     bool queued = ((UnknownSidebarHouse *)PlayerPtr)->Is_Production_Pending(kind, choice->Naval, arg);
                     bool started = false;
                     if (!limited) {
-                        Unknown_Play_Sound(Rules->unknown_184);
+                        Unknown_Play_Sound(Rules->GUIBuildSound);
                         if (factory == 0 && !queued) {
                             ((UnknownSidebarHouse *)PlayerPtr)->Set_Production_Pending(kind, choice->Naval, arg);
                             started = true;
@@ -2450,7 +2450,7 @@ static inline int Max_Visible_Cameos()
 {
     int top = SidebarClass_StripTop;
     int reserved;
-    if (unknown_id_source_a3d290->unknown_2239) {
+    if (unknown_id_source_a3d290->IsGDI) {
         reserved = 26;
     } else {
         reserved = 18;
@@ -2468,7 +2468,7 @@ void SidebarClass::Reposition_Sidebar()
         unknown_rect_839620.X = 0;
     }
     SidebarClass_StripLeft = unknown_rect_839620.X + 0x16;
-    if (unknown_id_source_a3d290->unknown_2239) {
+    if (unknown_id_source_a3d290->IsGDI) {
         SidebarClass_TopButtonX = unknown_rect_839620.X + 0x14;
         SidebarClass_TabButtonX = unknown_rect_839620.X + 0x1A;
         SidebarClass_PowerBarLeft = unknown_rect_839620.X + 0x27;
@@ -2642,7 +2642,7 @@ wchar_t const *SidebarClass::Help_Text(int id)
 int SidebarClass::Unknown_006820A0()
 {
     int extra;
-    if (unknown_id_source_a3d290->unknown_2239) {
+    if (unknown_id_source_a3d290->IsGDI) {
         extra = 26;
     } else {
         extra = 18;

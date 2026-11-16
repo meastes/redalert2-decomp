@@ -81,8 +81,8 @@ RadSiteClass::RadSiteClass() :
     RadLevel(0),
     unknown_50(0),
     unknown_54(0),
-    unknown_64(0),
-    unknown_68(0),
+    IntensitySteps(0),
+    IntensityDecrement(0),
     RadDuration(0),
     RadTimeLeft(0)
 {
@@ -280,8 +280,8 @@ void RadSiteClass::Unknown_00637640()
     unknown_60 = b;
     unknown_54 = intensity;
     unknown_50 = RadDuration / level_delay;
-    unknown_64 = RadDuration / light_delay;
-    unknown_68 = intensity / unknown_64;
+    IntensitySteps = RadDuration / light_delay;
+    IntensityDecrement = intensity / IntensitySteps;
     RadSiteCell &cell = (RadSiteCell &)Map[BaseCell];
     CoordStruct coord = cell.Center_Coord();
     if (LightSource == 0) {
@@ -402,7 +402,7 @@ void RadSiteClass::Unknown_00637DC0()
 
 void RadSiteClass::Update_Light()
 {
-    LightSource->Change(LightSource->Intensity - unknown_68,
+    LightSource->Change(LightSource->Intensity - IntensityDecrement,
                         unknown_58 * RadTimeLeft / RadDuration,
                         unknown_5c * RadTimeLeft / RadDuration,
                         unknown_60 * RadTimeLeft / RadDuration, 0);

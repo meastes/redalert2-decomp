@@ -813,7 +813,7 @@ int TechnoClass::Receive_Message(RadioClass *from, int message, AbstractClass *&
         unknown_254++;
         return 1;
     case 28:
-        if (Health_Ratio() < Rules->unknown_1360) {
+        if (Health_Ratio() < Rules->ConditionGreen) {
             int cost = Techno_Type_Class()->Repair_Cost();
             int step = Techno_Type_Class()->Repair_Step();
             if (step <= 1) {
@@ -833,12 +833,12 @@ int TechnoClass::Receive_Message(RadioClass *from, int message, AbstractClass *&
                     ((FootClass *)this)->unknown_580->unknown_588->unknown_2c = 50;
                     ((FootClass *)this)->unknown_580->unknown_588->Unknown_00607440();
                 }
-                if (Health_Ratio() > Rules->unknown_1368 || Get_Height_AGL() < -10) {
+                if (Health_Ratio() > Rules->ConditionYellow || Get_Height_AGL() < -10) {
                     if (unknown_25c[3] != 0) {
                         unknown_25c[3]->Delete_Me();
                     }
                 }
-                if (Health_Ratio() < Rules->unknown_1360) {
+                if (Health_Ratio() < Rules->ConditionGreen) {
                     return 1;
                 }
                 int strength = Techno_Type_Class()->MaxStrength;
@@ -1171,10 +1171,10 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             count = length;
         }
         int frame = 15;
-        if (Health_Ratio() <= Rules->unknown_1368) {
+        if (Health_Ratio() <= Rules->ConditionYellow) {
             frame = 16;
         }
-        if (Health_Ratio() <= Rules->unknown_1370) {
+        if (Health_Ratio() <= Rules->ConditionRed) {
             frame = 17;
         }
         Point2D position;
@@ -1283,7 +1283,7 @@ bool TechnoClass::Unlimbo(CoordStruct const *coord, int dir)
         if (Ready_To_Commence()) {
             Commence();
         }
-        unknown_378 = (char)(coord->Z / Rules->unknown_1324) * 10;
+        unknown_378 = (char)(coord->Z / Rules->LeptonsPerSightIncrease) * 10;
         if (!Map.Unknown_0055A660(Coord_Cell(*coord), true)) {
             unknown_373 = false;
         }
@@ -1343,10 +1343,10 @@ int TechnoClass::Elevation_Distance(ObjectClass *other)
         } else {
             rise = source->GetLevel() - target->GetLevel();
         }
-        double scaled = rise / Rules->unknown_1480 * Rules->unknown_1488;
-        double limit = Rules->unknown_1490;
+        double scaled = rise / Rules->ElevationIncrement * Rules->ElevationIncrementBonus;
+        double limit = Rules->ElevationBonusCap;
         if (scaled >= limit) {
-            scaled = Rules->unknown_1490;
+            scaled = Rules->ElevationBonusCap;
         }
         int vertical = unknown_geometry_g * rise;
         int horizontal = (int)scaled << 8;
@@ -1374,10 +1374,10 @@ int TechnoClass::Elevation_Range_Bonus(ObjectClass *other)
         } else {
             rise = source->GetLevel() - target->GetLevel();
         }
-        double scaled = rise / Rules->unknown_1480 * Rules->unknown_1488;
-        double limit = Rules->unknown_1490;
+        double scaled = rise / Rules->ElevationIncrement * Rules->ElevationIncrementBonus;
+        double limit = Rules->ElevationBonusCap;
         if (scaled >= limit) {
-            scaled = Rules->unknown_1490;
+            scaled = Rules->ElevationBonusCap;
         }
         return (int)scaled << 8;
     }
@@ -1457,7 +1457,7 @@ bool TechnoClass::unknown_6c4bb0(CoordStruct const *coord, AbstractClass *target
             if (dist > arcrange) {
                 return false;
             }
-            double gravity = weapon->Projectile->Floater ? Get_Floater_Gravity() : Rules->unknown_1320;
+            double gravity = weapon->Projectile->Floater ? Get_Floater_Gravity() : Rules->Gravity;
             int speed = Calculate_Projectile_Speed(arcrange, gravity);
             if (!Is_Projectile_Trajectory_Valid(speed, dist, delta.Z, gravity)) {
                 return false;
@@ -1603,12 +1603,12 @@ bool TechnoClass::Evaluate_Cell(int method,int mask,Cell const *cell,int range,O
             }
             if(tech) {
                 if(unknown_6c16f0(-1)<0) {
-                    if(tech->Health_Ratio()<Rules->unknown_1360 && House->Is_Ally(tech)) break;
+                    if(tech->Health_Ratio()<Rules->ConditionGreen && House->Is_Ally(tech)) break;
                 } else {
                     if(!House->Is_Ally(tech) || Techno_Type_Class()->AttackFriendlies
                        || (Kind_Of()==15 && (static_cast<InfantryClass *>(this)->unknown_5c0
                        || (static_cast<InfantryClass *>(this)->Type->Engineer && Mission==11
-                           && tech->Health_Ratio()<=Rules->unknown_1370 && tech->Kind_Of()==6
+                           && tech->Health_Ratio()<=Rules->ConditionRed && tech->Kind_Of()==6
                            && reinterpret_cast<TechnoTypeClass *>(static_cast<BuildingClass *>(tech)->Type)->Cost_Of(tech->House)>0)))) break;
                 }
             }
@@ -1722,13 +1722,13 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
         if(!Map[object->Center_Coord()].Is_Sensed(House->ArrayIndex) && House!=tech->House) return false;
     }
     if(!tech->unknown_32d) return false;
-    if(tech->Control()->unknown_04) return false;
+    if(tech->Control()->IsNoThreat) return false;
     if(object->Get_Height_AGL()<-20) return false;
     CoordStruct objectcoord=object->Center_Coord();
     if(zone!=-1 && Map.Zone(Coord_Cell(objectcoord),Techno_Type_Class()->MovementZone,object->IsOnBridge)!=zone) return false;
     if((Kind_Of()!=15 || !static_cast<InfantryClass *>(this)->unknown_5c0) && !Techno_Type_Class()->AttackFriendlies && House->Is_Ally(tech)) {
         if(unknown_6c16f0(-1)>=0 && !engineer) return false;
-        if(object->Health_Ratio()==Rules->unknown_1360) return false;
+        if(object->Health_Ratio()==Rules->ConditionGreen) return false;
         if(object->Kind_Of()==2 && Kind_Of()==1) {
             if(object->Get_Height_AGL()>0) return false;
             if(Map[object->Center_Coord()].Cell_Building()) return false;
@@ -1736,8 +1736,8 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     }
     if(unknown_id_source_a3d290->unknown_000&0x800) {
         ObjectTypeClass *type=object->Class_Of();
-        for(int i=0;i<Rules->unknown_9ec.Count();i++) {
-            if(Rules->unknown_9ec[i]==type) return false;
+        for(int i=0;i<Rules->HarvesterUnit.Count();i++) {
+            if(Rules->HarvesterUnit[i]==type) return false;
         }
     }
     int dist;
@@ -1806,7 +1806,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     if(engineer) {
         if(object->Kind_Of()!=6) return false;
         if(House->Is_Ally(tech->House)) {
-            if(object->Health_Ratio()>Rules->unknown_1370) return false;
+            if(object->Health_Ratio()>Rules->ConditionRed) return false;
             if(!static_cast<BuildingClass *>(object)->Type->Cost_Of(House)) return false;
         }
     }
@@ -2190,7 +2190,7 @@ void TechnoClass::AI()
     if (!IsActive) return;
     if (unknown_slot157()) {
         ++Strength;
-        if ((Health_Ratio()>Rules->unknown_1368 || Get_Height_AGL()<-10) && unknown_25c[3]) unknown_25c[3]->Delete_Me();
+        if ((Health_Ratio()>Rules->ConditionYellow || Get_Height_AGL()<-10) && unknown_25c[3]) unknown_25c[3]->Delete_Me();
     }
     Cloaking_AI(0);
     if (SpawnManager) SpawnManager->AI();
@@ -2224,13 +2224,13 @@ void TechnoClass::AI()
         static_cast<BuildingClass *>(this)->Update_Anim_Appearance_0044d190();
     }
     TechnoTypeClass const *type=Techno_Type_Class();
-    if (type->unknown_a9b && Health_Ratio()<Rules->unknown_1368 && Get_Height_AGL()>-10) {
+    if (type->unknown_a9b && Health_Ratio()<Rules->ConditionYellow && Get_Height_AGL()>-10) {
         DynamicVectorClass<ParticleSystemTypeClass const *> sparks;
         for (int i=0;i<type->DamageParticleSystems.Count();++i) {
             if (type->DamageParticleSystems[i]->BehavesLike==3) sparks.Add(type->DamageParticleSystems[i]);
         }
         if (!unknown_25c[1] && sparks.Count()>0) {
-            double probability=Health_Ratio()<Rules->unknown_1370 ? Rules->ConditionRedSparkingProbability:Rules->ConditionYellowSparkingProbability;
+            double probability=Health_Ratio()<Rules->ConditionRed ? Rules->ConditionRedSparkingProbability:Rules->ConditionYellowSparkingProbability;
             if (double(unknown_id_source_a3d290->Random()(0,0x7ffffffe))*unknown_random_scale_79c280<probability) {
                 unknown_25c[1]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(sparks[unknown_id_source_a3d290->Random()(0,sparks.Count()-1)]),Techno_Type_Class()->Damage_Smoke_Offset()+Center_Coord(),0,this,unknown_geometry_l);
             }
@@ -2249,7 +2249,7 @@ void TechnoClass::AI()
                 if (foot->Locomotor) foot->Locomotor.Checked()->Power_On();
                 for (int i=0;i<Anims.Count();++i) {
                     AnimClass *anim=Anims[i];
-                    if (anim && anim->xObject==this && anim->Class==Rules->unknown_1438) anim->Loops=0;
+                    if (anim && anim->xObject==this && anim->Class==Rules->EMPulseSparkles) anim->Loops=0;
                 }
             }
         }
@@ -2397,7 +2397,7 @@ void TechnoClass::Cloaking_AI(int arg1)
             if (contact == 0 || !(contact->Kind_Of() == 6 && ((BuildingClass *)contact)->Type->WeaponsFactory)) {
                 unknown_1bc.Graphic_Logic();
                 if (unknown_slot160()) {
-                    if (Health_Ratio() > Rules->unknown_1370) {
+                    if (Health_Ratio() > Rules->ConditionRed) {
                         unknown_slot253(false);
                     } else {
                         if (unknown_id_source_a3d290->Random()(0, 99) < 4) {
@@ -2437,7 +2437,7 @@ void TechnoClass::Cloaking_AI(int arg1)
             }
             switch (unknown_slot25(true, 0)) {
             case 2:
-                if (Health_Ratio() <= Rules->unknown_1370 && unknown_id_source_a3d290->Random()(0, 99) < 10) {
+                if (Health_Ratio() <= Rules->ConditionRed && unknown_id_source_a3d290->Random()(0, 99) < 10) {
                     unknown_slot252(true);
                 }
                 break;
@@ -3017,7 +3017,7 @@ UnknownFacingDir TechnoClass::unknown_slot170(AbstractClass *target)
         }
         CoordStruct delta = end - Turret_Coord(weapon);
         WeaponTypeClass *type = unknown_slot231(weapon)->WeaponType;
-        double speed = Rules->unknown_1320;
+        double speed = Rules->Gravity;
         if (type->Projectile != 0 && type->Projectile->Floater) {
             speed = Get_Floater_Gravity();
         }
@@ -3268,12 +3268,12 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
         displacement = Predict_Target_Coord() - fire_coord;
         if (btype->Inaccurate && btype->Arcing) {
             if (!btype->FlakScatter || btype->Inviso) {
-                int spread = unknown_id_source_a3d290->Random()(Rules->unknown_139c / 2, Rules->unknown_139c);
+                int spread = unknown_id_source_a3d290->Random()(Rules->BallisticScatter / 2, Rules->BallisticScatter);
                 UnknownFacingDir facing(Random_Direction_006ca890());
                 displacement = Move_Coord_006ca890(displacement, facing, spread);
             } else {
                 float length = Point3F_006ca890((float)displacement.X, (float)displacement.Y, (float)displacement.Z).Length();
-                int spread = Random_Pick(0, Rules->unknown_139c);
+                int spread = Random_Pick(0, Rules->BallisticScatter);
                 spread *= (int)length;
                 spread /= Weapon_Range(which);
                 UnknownFacingDir facing(Random_Direction_006ca890());
@@ -3325,7 +3325,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
         UnknownFacingDir pitch(0x3FFF);
         bool valid = true;
         if (bullet->Type->Arcing) {
-            double gravity = (double)Rules->unknown_1320;
+            double gravity = (double)Rules->Gravity;
             if (bullet->Type->Floater) {
                 gravity = Get_Floater_Gravity();
             }
@@ -4025,19 +4025,19 @@ int TechnoClass::Elevation_Bonus()
     if (In_Air()) {
         return 0;
     }
-    int increment = Rules->unknown_1480;
+    int increment = Rules->ElevationIncrement;
     if (increment == 0) {
         return 0;
     }
-    double bonus = Rules->unknown_1488;
+    double bonus = Rules->ElevationIncrementBonus;
     Cell here = Coord_Cell(Center_Coord());
     UnknownCellClass *cell = (UnknownCellClass *)&Map[here];
     int lowest = Map.Get_Max_Level();
     char level = cell->unknown_11b;
     double scaled = (level - lowest) / increment * bonus;
-    double limit = Rules->unknown_1490;
+    double limit = Rules->ElevationBonusCap;
     if (scaled >= limit) {
-        scaled = Rules->unknown_1490;
+        scaled = Rules->ElevationBonusCap;
     }
     int vertical = level * unknown_geometry_g;
     int horizontal = (int)scaled << 8;
@@ -4096,8 +4096,8 @@ void TechnoClass::unknown_slot233()
     unknown_70 = strength;
     if (Kind_Of() == 6) {
         Repair(0);
-        ((BuildingClass *)this)->Set_Anim_Damage_State(Health_Ratio() <= Rules->unknown_1368);
-        Voc_Play_At(Rules->unknown_1bc, Center_Coord(), 0);
+        ((BuildingClass *)this)->Set_Anim_Damage_State(Health_Ratio() <= Rules->ConditionYellow);
+        Voc_Play_At(Rules->BuildingRepairedSound, Center_Coord(), 0);
     }
 }
 
@@ -4286,7 +4286,7 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
             SendToEachLink(3);
             unknown_slot210();
             if (unknown_25c[0]) { unknown_25c[0]->Delete_Me(); unknown_25c[0]=0; }
-            if (!(Get_Height_AGL()<=10 && unknown_7c && Map[Position_Coord_004f3f40()].Land==2)) {
+            if (!(Get_Height_AGL()<=10 && IsToExplode && Map[Position_Coord_004f3f40()].Land==2)) {
                 if (Techno_Type_Class()->MaxDebris>0) {
                     int maximum=Techno_Type_Class()->MaxDebris-1;
                     int debris=Random_Pick(Techno_Type_Class()->MinDebris,maximum);
@@ -4348,7 +4348,7 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
     if (result!=4) {
     if (attacker && !House->Is_Ally(attacker)) unknown_329=true;
     Do_Shimmer();
-    if (Health_Ratio()>Rules->unknown_1368) {
+    if (Health_Ratio()>Rules->ConditionYellow) {
         if (unknown_25c[3]) unknown_25c[3]->Delete_Me();
     } else if (result==2 || result==3) {
             DynamicVectorClass<ParticleSystemTypeClass const *> smoke_types;
@@ -5682,7 +5682,7 @@ int TechnoClass::Value()
 {
     int passengers = 0;
     HouseClass *house = House;
-    if (Rules->Diff[house->unknown_c8].ContentScan || house->IQ >= Rules->unknown_10b8) {
+    if (Rules->Diff[house->unknown_c8].ContentScan || house->IQ >= Rules->IQContentScan) {
         if (Cargo.Object != 0) {
             for (ObjectClass *object = Cargo.Attached_Object(); object != 0; object = object->unknown_30) {
                 passengers += object->Value();
@@ -5891,7 +5891,7 @@ bool TechnoClass::unknown_6d3b60(TechnoClass *source, int arg2)
     if (House->Unknown_004F52F0() && unknown_228 != 0) {
         return false;
     }
-    if (!Control()->unknown_08) {
+    if (!Control()->IsRetaliate) {
         return false;
     }
     if (House->Is_Ally(source)) {
@@ -5976,7 +5976,7 @@ int TechnoClass::unknown_slot168()
     TechnoTypeClass *type = Techno_Type_Class();
     if (type) {
         if (Kind_Of() == 6 && ((BuildingClass *)this)->GetOccupantCount() > 0) {
-            int value = Rules->unknown_be8;
+            int value = Rules->ThreatPerOccupant;
             return value * ((BuildingClass *)this)->GetOccupantCount();
         }
         return type->ThreatPosed;
@@ -6809,7 +6809,7 @@ void TechnoClass::Look(bool arg1, bool arg2)
     if (House->Type->MultiplayPassive && unknown_game_mode_a3d298 != 0) {
         return;
     }
-    int level = CoordStruct(Coord).Z / Rules->unknown_1324 * 10;
+    int level = CoordStruct(Coord).Z / Rules->LeptonsPerSightIncrease * 10;
     if (level > unknown_378) {
         arg1 = false;
     }
@@ -6844,7 +6844,7 @@ void TechnoClass::unknown_slot262(bool arg1, bool arg2, bool arg3, HouseClass *h
     if (!unknown_32d || House->Type->MultiplayPassive) {
         return;
     }
-    int level = CoordStruct(Coord).Z / Rules->unknown_1324 * 10;
+    int level = CoordStruct(Coord).Z / Rules->LeptonsPerSightIncrease * 10;
     if (level > unknown_378) {
         arg1 = false;
     }
@@ -7123,7 +7123,7 @@ bool TechnoClass::unknown_slot157()
     if (!Techno_Type_Class()->SelfHealing && !Has_Ability(9)) {
         return false;
     }
-    if (Frame % (int)(Rules->unknown_1348 * 900.0) != 0) {
+    if (Frame % (int)(Rules->RepairRate * 900.0) != 0) {
         return false;
     }
     int strength = Strength;
@@ -7409,7 +7409,7 @@ CoordStruct TechnoClass::Railgun_Beam_Damage(CoordStruct const &coord, AbstractC
             }
             if (Map.Get_Height_GL(final_impact) > final_impact.Z) {
                 if (Map[final_impact].Is_Tile_Destroyable_Cliff()) {
-                    if (Percent_Chance(Rules->unknown_140c)) {
+                    if (Percent_Chance(Rules->CollapseChance)) {
                         Map.Collapse_Cliff(&Map[final_impact]);
                     }
                 }
@@ -7428,7 +7428,7 @@ CoordStruct TechnoClass::Railgun_Beam_Damage(CoordStruct const &coord, AbstractC
         targets[j]->Take_Damage(&damage, 0, weapon->Warhead, this, false, 0);
     }
     if (abstract->Kind_Of() == 11 && ((CellClass *)abstract)->Is_Tile_Destroyable_Cliff()) {
-        if (Percent_Chance(Rules->unknown_140c)) {
+        if (Percent_Chance(Rules->CollapseChance)) {
             Map.Collapse_Cliff((CellClass *)abstract);
         }
     }
@@ -7767,7 +7767,7 @@ int TechnoClass::FireDeathWeapon(int extra)
 
 void TechnoClass::Remove_Damage_Particle()
 {
-    if (Health_Ratio() > Rules->unknown_1368 || Get_Height_AGL() < -10) {
+    if (Health_Ratio() > Rules->ConditionYellow || Get_Height_AGL() < -10) {
         if (unknown_25c[3] != 0) {
             unknown_25c[3]->Delete_Me();
         }
@@ -8376,7 +8376,7 @@ bool TechnoClass::unknown_slot208(ObjectClass *target)
         return false;
     }
     if (target->Kind_Of() == 36) {
-        if (Rules->unknown_142d || weapon->unknown_114) {
+        if (Rules->IsTreeTarget || weapon->unknown_114) {
             return true;
         }
         return false;

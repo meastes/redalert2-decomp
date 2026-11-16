@@ -434,7 +434,7 @@ void __fastcall Fill_Side_Combos_4d16d0(HWND dialog)
 
 void __fastcall Select_Player_Side_4d1820(HWND dialog, int player)
 {
-    int side = unknown_session_a3d298.unknown_134;
+    int side = unknown_session_a3d298.Side;
     if (unknown_session_a3d298.unknown_138 == -2) {
         side = -2;
     } else if (unknown_session_a3d298.unknown_138 == -3) {
@@ -718,8 +718,8 @@ void __fastcall Fill_Color_Combos_4d2300(HWND dialog)
 
 void __fastcall Select_Player_Color_4d23c0(HWND dialog, int player)
 {
-    int color = unknown_session_a3d298.unknown_12c;
-    if (unknown_session_a3d298.unknown_130 == -2) {
+    int color = unknown_session_a3d298.Color;
+    if (unknown_session_a3d298.Color2 == -2) {
         color = -2;
     }
     int id = Player_Color_Combo_ID_4d1cb0(player);

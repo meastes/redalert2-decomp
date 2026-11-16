@@ -543,7 +543,7 @@ void __fastcall Unknown_006F61F0(int group)
 
 void __fastcall Unknown_006F62D0(unsigned long argument)
 {
-    if (unknown_game_mode_a3d298 != 0 && !(unknown_id_source_a3d290->unknown_000 & 0x400) && Rules->unknown_111d) {
+    if (unknown_game_mode_a3d298 != 0 && !(unknown_id_source_a3d290->unknown_000 & 0x400) && Rules->AlliesAllowed) {
         OutList.Add(EventClass(PlayerPtr->ArrayIndex, 3, argument));
     }
 }
@@ -558,7 +558,7 @@ void Unknown_006F6380()
     if (CurrentObject.Count() != 0 && !PlayerPtr->unknown_13d) {
         if (CurrentObject[0]->Owning_House() != PlayerPtr && CurrentObject[0]->Owning_House()->unknown_134) {
             unsigned long owner = CurrentObject[0]->Owner();
-            if (unknown_game_mode_a3d298 != 0 && !(unknown_id_source_a3d290->unknown_000 & 0x400) && Rules->unknown_111d) {
+            if (unknown_game_mode_a3d298 != 0 && !(unknown_id_source_a3d290->unknown_000 & 0x400) && Rules->AlliesAllowed) {
                 OutList.Add(EventClass(PlayerPtr->ArrayIndex, 3, owner));
             }
         }

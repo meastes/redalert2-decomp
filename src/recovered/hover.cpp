@@ -133,11 +133,11 @@ void HoverLocomotionClass::Gravity_AI_004fb9d0()
     LinkedTo->IsDown=wasdown;
     if (clearance<Rules->HoverHeight) {
         if (LocomotionClass::Is_Powered()) {
-            unknown_60+=((double)Rules->HoverHeight+(double)Rules->HoverHeight-(double)clearance)/(double)Rules->HoverHeight*(double)Rules->unknown_1320;
+            unknown_60+=((double)Rules->HoverHeight+(double)Rules->HoverHeight-(double)clearance)/(double)Rules->HoverHeight*(double)Rules->Gravity;
         }
-        if (clearance<Rules->HoverHeight/4) unknown_60+=(double)(Rules->unknown_1320/3);
+        if (clearance<Rules->HoverHeight/4) unknown_60+=(double)(Rules->Gravity/3);
     }
-    unknown_60-=Rules->unknown_1320;
+    unknown_60-=Rules->Gravity;
     unknown_60*=Rules->HoverDampen;
 }
 
@@ -598,7 +598,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
                 ok = While_Moving_004fcbc0(false);
                 break;
             } else {
-                if (Hover_Distance(LinkedTo->Center_Coord(), unknown_18) < Rules->unknown_1380
+                if (Hover_Distance(LinkedTo->Center_Coord(), unknown_18) < Rules->CloseEnoughDistance
                     && abs(unknown_18.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g
                     && Map[Object_Coord(LinkedTo)].Land_Type() != 10) {
                     Stop_Moving();
@@ -861,12 +861,12 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
     if (LinkedTo->unknown_slot104()==Coord_Cell(unknown_18) && abs(LinkedTo->unknown_slot19(0).Z-unknown_18.Z)<=2*unknown_geometry_g) return;
     if (LinkedTo->unknown_530!=0) return;
     if (!LinkedTo->unknown_4c3000(Coord_Cell(unknown_18),0,num)) {
-        LinkedTo->unknown_530=CDTimerClass<FrameTimerClass>((int)(Rules->unknown_13c8*900));
+        LinkedTo->unknown_530=CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay*900));
         if (!LinkedTo->unknown_slot171(unknown_18)) {
             LinkedTo->Assign_Destination(0,true);
             return;
         }
-        if (!LinkedTo->Is_On_Priority_Mission() && Hover_Foot_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->unknown_1380 && (LinkedTo->Get_Mission()==2 || LinkedTo->Get_Mission()==11)) {
+        if (!LinkedTo->Is_On_Priority_Mission() && Hover_Foot_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->CloseEnoughDistance && (LinkedTo->Get_Mission()==2 || LinkedTo->Get_Mission()==11)) {
             LinkedTo->Assign_Destination(0,true);
             if (!LinkedTo->IsActive) return;
         } else {
@@ -890,7 +890,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
         Stop_Moving();
         return;
     } else {
-    LinkedTo->unknown_530=CDTimerClass<FrameTimerClass>((int)(Rules->unknown_13c8*900));
+    LinkedTo->unknown_530=CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay*900));
     Cell cell=Coord_Cell(LinkedTo->Center_Coord())+AdjacentCell[LinkedTo->Path[0]&7];
     if (Map.Unknown_0055A660(cell,true)) {
         int ok=LinkedTo->Can_Enter_Cell(&Map[cell],LinkedTo->Path[0],LinkedTo->unknown_5d47d0(),0,true);
@@ -898,7 +898,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
             CellClass *cellptr=&Map[cell];
             TechnoClass *blockage=static_cast<TechnoClass *>(cellptr->Cell_Techno(Point2D(0,0),Object_Coord(LinkedTo).Z>Map.Get_Height_GL(CoordStruct(cell.X*256+128,cell.Y*256+128,0))+3*unknown_geometry_g,0));
             if (blockage && LinkedTo->House->Is_Ally(blockage)) {
-                if (Hover_Close_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->unknown_1380 && !LinkedTo->HasAnyLink() && abs(unknown_18.Z-Object_Coord(LinkedTo).Z)<2*unknown_geometry_g && Map[Object_Coord(LinkedTo)].Land!=10) {
+                if (Hover_Close_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink() && abs(unknown_18.Z-Object_Coord(LinkedTo).Z)<2*unknown_geometry_g && Map[Object_Coord(LinkedTo)].Land!=10) {
                     Stop_Moving();
                     LinkedTo->Assign_Destination(0,true);
                     return;

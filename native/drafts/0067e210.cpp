@@ -32,7 +32,7 @@
 
 static inline int Bottom_Extra_67e210()
 {
-    if (unknown_id_source_a3d290->unknown_2239) {
+    if (unknown_id_source_a3d290->IsGDI) {
         return 26;
     }
     return 18;

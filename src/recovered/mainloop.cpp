@@ -518,8 +518,8 @@ bool __fastcall Main_Loop()
     }
 
     if (unknown_session_a3d298.Type == 0) {
-        if (unknown_id_source_a3d290->unknown_630 && unknown_id_source_a3d290->unknown_620.Value() <= 0) {
-            unknown_id_source_a3d290->unknown_630 = false;
+        if (unknown_id_source_a3d290->IsGamePaused && unknown_id_source_a3d290->PauseTimer.Value() <= 0) {
+            unknown_id_source_a3d290->IsGamePaused = false;
             Release_Pause_0065c310();
         }
         if (unknown_id_source_a3d290->unknown_62c) {

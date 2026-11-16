@@ -292,7 +292,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
         return false;
     }
     int distance=Path_Distance3(Center_Coord(),Cell_Center(cell));
-    int close_enough=Team?Team->Stray_Distance():Rules->unknown_1380;
+    int close_enough=Team?Team->Stray_Distance():Rules->CloseEnoughDistance;
     int max_distance=0;
     bool train=Techno_Type_Class()->IsTrain;
     int move=Can_Enter_Cell(&Map[cell],-1,-1,0,true);
@@ -364,7 +364,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
         unknown_450=unknown_slot104();
         return true;
     }
-    unknown_530=(int)(Rules->unknown_13c8*900.0);
+    unknown_530=(int)(Rules->PathDelay*900.0);
     Stop_Driver();
     CoordStruct coord=Coord;
     Cell current=Coord_Cell(coord);
@@ -486,7 +486,7 @@ int FootClass::Do_MISSION_PATROL()
         ObjectClass *optr = unknown_228 == 0 ? 0 : (unknown_228->AbstractFlags.IsObject ? (ObjectClass *)unknown_228 : 0);
         int primary = What_Weapon_Should_I_Use(optr);
 
-        if (Is_Renovator() && optr != 0 && optr->Kind_Of() == 6 && House->Is_Ally(((TechnoClass *)optr)->House) && optr->Health_Ratio() > Rules->unknown_1370) {
+        if (Is_Renovator() && optr != 0 && optr->Kind_Of() == 6 && House->Is_Ally(((TechnoClass *)optr)->House) && optr->Health_Ratio() > Rules->ConditionRed) {
             unknown_slot220(0);
         } else if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
             unknown_slot304();
@@ -926,7 +926,7 @@ void FootClass::unknown_slot304()
     if (unknown_494) {
         if (unknown_228 && Techno_Type_Class()->CanRecalcApproachTarget && !in_range) {
             int separation=Approach_Coord_Distance_004c4c30(unknown_494->Center_Coord(),unknown_228->Center_Coord());
-            if (separation>Rules->unknown_bec*maximum_range) {
+            if (separation>Rules->ApproachTargetResetMultiplier*maximum_range) {
                 unknown_490=0;
                 unknown_494=0;
             }
@@ -1226,7 +1226,7 @@ int FootClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
             }
             unknown_6d3400(source);
         }
-        if (source != 0 && Control()->unknown_04 && !Control()->IsZombie) {
+        if (source != 0 && Control()->IsNoThreat && !Control()->IsZombie) {
             unknown_slot261(0, true);
         }
     }
@@ -1446,9 +1446,9 @@ bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, b
             long scenid = unknown_id_source_a3d290->UniqueID;
             if (unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5) {
                 unknown_id_source_a3d290->UniqueID = -3;
-                Rules->unknown_a74->YSortAdjust = -5000;
+                Rules->MoveFlash->YSortAdjust = -5000;
             }
-            AnimClass *moveflash = new AnimClass(Rules->unknown_a74, coord, 0, 1, 0x600, 0);
+            AnimClass *moveflash = new AnimClass(Rules->MoveFlash, coord, 0, 1, 0x600, 0);
             if (unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5) {
                 unknown_id_source_a3d290->UniqueID = scenid;
                 Anims.Delete(moveflash);
@@ -2480,12 +2480,12 @@ void FootClass::AI()
         return;
     }
     unknown_59d = false;
-    if (Frame % Rules->unknown_144c == 0 && !Techno_Type_Class()->ImmuneToRadiation && !In_Air()) {
+    if (Frame % Rules->RadApplicationDelay == 0 && !Techno_Type_Class()->ImmuneToRadiation && !In_Air()) {
         Cell cell = Coord_Cell(Center_Coord());
         int amount = Map_Cell_At(cell)->Unknown_0047CE70();
         if (amount > 0) {
-            int damage = (int)(amount * Rules->unknown_1460);
-            Take_Damage(&damage, 0, Rules->unknown_147c, 0, false, 1);
+            int damage = (int)(amount * Rules->RadLevelFactor);
+            Take_Damage(&damage, 0, Rules->RadSiteWarhead, 0, false, 1);
             if (!IsActive) {
                 return;
             }
@@ -2540,7 +2540,7 @@ void FootClass::AI()
     }
 
     if (IsFalling != IsABomb) {
-        if (IsFalling && Techno_Type_Class()->VoiceFalling != -1 && unknown_7c) {
+        if (IsFalling && Techno_Type_Class()->VoiceFalling != -1 && IsToExplode) {
             Voc_Play_At(Techno_Type_Class()->VoiceFalling, CoordStruct(Coord), 0);
         }
         IsABomb = IsFalling;
@@ -2552,8 +2552,8 @@ void FootClass::AI()
             }
             if (Techno_Type_Class()->SinkingSound != -1) {
                 Voc_Play_At(Techno_Type_Class()->SinkingSound, CoordStruct(Coord), &unknown_43c);
-            } else if (Rules->unknown_200 != -1) {
-                Voc_Play_At(Rules->unknown_200, CoordStruct(Coord), &unknown_43c);
+            } else if (Rules->SinkingSound != -1) {
+                Voc_Play_At(Rules->SinkingSound, CoordStruct(Coord), &unknown_43c);
             }
         } else if (!unknown_434) {
             unknown_43c.Unknown_00406070();
@@ -3468,7 +3468,7 @@ Cell FootClass::unknown_4cbb40(int radius)
         return center;
     }
 
-    int numharv = House->unknown_5470.unknown_func_491d10(House->Get_First_Ownable(Rules->unknown_9ec)->ArrayIndex);
+    int numharv = House->unknown_5470.unknown_func_491d10(House->Get_First_Ownable(Rules->HarvesterUnit)->ArrayIndex);
     if (numharv < 1) {
         numharv = 1;
     }

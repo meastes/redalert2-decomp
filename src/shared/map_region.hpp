@@ -75,11 +75,11 @@ public:
     int Index; // +08, assigned increasing ID by0056D870
     int CellCount;
     int unknown_10;
-    unsigned char unknown_14;
+    unsigned char ContainsWater;
     ::Cell Origin; // +16; one preceding padding byte
     bool Unsplittable,HasConnections;
     int unknown_1c,unknown_20;
-    bool unknown_24;
+    bool Discardable;
     DynamicVectorClass< ::Cell > Cells; // +28
     ::Rect Bounds; // +40
 };

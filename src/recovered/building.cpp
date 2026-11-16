@@ -643,7 +643,7 @@ int BuildingClass::Receive_Message(RadioClass *radio,int message,AbstractClass *
             if (Type->ConstructionYard) {
                 DestroyNthAnim(7);
                 DestroyNthAnim(17);
-                PlayNthAnim(8,Health_Ratio()<=Rules->unknown_1368,false,0);
+                PlayNthAnim(8,Health_Ratio()<=Rules->ConditionYellow,false,0);
             }
         }
         TechnoClass::Receive_Message(radio,message,param);
@@ -781,7 +781,7 @@ void BuildingClass::Draw_It(Point2D const &draw_point, Rect const &bounds)
         if(stage>=Type->GateStages) stage=Type->GateStages-1;
         if(stage<0) stage=0;
         ShapeFileStruct const *gate_shape=(ShapeFileStruct const *)Get_Image_Data();
-        stage+=(Health_Ratio()<=Rules->unknown_1368 ? Type->GateStages+1 : 0);
+        stage+=(Health_Ratio()<=Rules->ConditionYellow ? Type->GateStages+1 : 0);
         Techno_Draw_Object(gate_shape,stage,&draw_point,&bounds,0,256,
             z_adjust-Tactical_Z_Lepton_To_Pixel(Get_Height()),2,1,Map[cell].Brightness,0,0,Point2D(0,0),0);
         return;
@@ -811,10 +811,10 @@ void BuildingClass::Draw_It(Point2D const &draw_point, Rect const &bounds)
     }
     if(Get_Mission()==16 && ((air_product && Type->UnderRoofDoorAnim!=0) || (!air_product && Type->UnderDoorAnim!=0))) {
         if(air_product) {
-            Techno_Draw_Object(Type->UnderRoofDoorAnim,Health_Ratio()<=Rules->unknown_1368,&draw_point,&bounds,0,256,
+            Techno_Draw_Object(Type->UnderRoofDoorAnim,Health_Ratio()<=Rules->ConditionYellow,&draw_point,&bounds,0,256,
                 -Tactical_Z_Lepton_To_Pixel(Get_Height()),0,1,Map[cell].Brightness+Type->ExtraLight,0,0,Point2D(0,0),0);
         } else {
-            Techno_Draw_Object(Type->UnderDoorAnim,Health_Ratio()<=Rules->unknown_1368,&draw_point,&bounds,0,256,
+            Techno_Draw_Object(Type->UnderDoorAnim,Health_Ratio()<=Rules->ConditionYellow,&draw_point,&bounds,0,256,
                 -Tactical_Z_Lepton_To_Pixel(Get_Height()),0,1,Map[cell].Brightness+Type->ExtraLight,0,0,Point2D(0,0),0);
         }
     }
@@ -861,7 +861,7 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
             if(Door.Is_Count_Down_Complete()) stage=0;
             if(stage>=Type->DoorStages) stage=Type->DoorStages-1;
             if(stage<0) stage=0;
-            if(Health_Ratio()<=Rules->unknown_1368 && Type->DamagedDoor) stage+=Type->DoorStages;
+            if(Health_Ratio()<=Rules->ConditionYellow && Type->DamagedDoor) stage+=Type->DoorStages;
             int z_adjust=-5-Tactical_Z_Lepton_To_Pixel(Get_Height());
             Techno_Draw_Object(Type->DoorAnimData_11c0,stage,&xy,&bounds,0,256,z_adjust,0,0,Map[cell].Brightness,0,0,Point2D(0,0),0);
             if(Door.Is_Count_Down_Active() && stage==0) IsToDisplay=true;
@@ -1066,16 +1066,16 @@ UnknownFacingDir BuildingClass::unknown_slot170(AbstractClass *target)
         CoordStruct tcoord = XY_0043b7e0(target->Center_Coord(), Map.Get_Height_GL(target->Center_Coord()));
         CoordStruct fcoord = unknown_slot43(0);
         Direction_0043b7e0(fcoord, tcoord);
-        int max_speed = Calculate_Projectile_Speed(unknown_5d4c00(target), Rules->unknown_1320);
+        int max_speed = Calculate_Projectile_Speed(unknown_5d4c00(target), Rules->Gravity);
 
         CoordStruct ucoord = Turret_Coord(0);
         CoordStruct disp = target->Center_Coord() - ucoord;
         int distance2 = disp.X * disp.X + disp.Y * disp.Y;
 
         UnknownFacingDir pitch;
-        bool valid = Calculate_Projectile_Pitch(Should_Use_High_Arc(0), max_speed, (int)Fast_Sqrt(distance2), disp.Z, Rules->unknown_1320, &pitch);
+        bool valid = Calculate_Projectile_Pitch(Should_Use_High_Arc(0), max_speed, (int)Fast_Sqrt(distance2), disp.Z, Rules->Gravity, &pitch);
         if (!valid) {
-            valid = Calculate_Projectile_Pitch(Should_Use_High_Arc(0), max_speed * 10 / 8, (int)Fast_Sqrt(distance2), disp.Z, Rules->unknown_1320, &pitch);
+            valid = Calculate_Projectile_Pitch(Should_Use_High_Arc(0), max_speed * 10 / 8, (int)Fast_Sqrt(distance2), disp.Z, Rules->Gravity, &pitch);
         }
         return pitch;
     } else {
@@ -1173,14 +1173,14 @@ int BuildingClass::unknown_43be20()
         }
     } else {
         if(type->CanBeOccupied) {
-            if(Health_Ratio()<=Rules->unknown_1370) return 1;
+            if(Health_Ratio()<=Rules->ConditionRed) return 1;
             return unknown_554.Count()>0?2:0;
         }
         if(type->Gate) {
-            if(Health_Ratio()<=Rules->unknown_1368) return (unsigned int)Type->GateStages+1;
+            if(Health_Ratio()<=Rules->ConditionYellow) return (unsigned int)Type->GateStages+1;
             return 0;
         }
-        if(Health_Ratio()<=Rules->unknown_1368) {
+        if(Health_Ratio()<=Rules->ConditionYellow) {
             if(BState==1) ++frame;
             else {
             type=Type;
@@ -1373,9 +1373,9 @@ void BuildingClass::AI()
     }
     bool damaged;
     if (Type->CanBeOccupied) {
-        damaged = Health_Ratio() <= Rules->unknown_1370;
+        damaged = Health_Ratio() <= Rules->ConditionRed;
     } else {
-        damaged = Health_Ratio() <= Rules->unknown_1368;
+        damaged = Health_Ratio() <= Rules->ConditionYellow;
     }
     if (damaged != RequiresDamageFires) {
         if (damaged) {
@@ -1557,7 +1557,7 @@ bool BuildingClass::Unlimbo(CoordStruct const *coord, int dir)
     bool ok = Can_Enter_Cell(&Map[*coord], -1, -1, 0, true) == 0;
 
     if (ok) {
-        if (Type == Rules->unknown_78c) {
+        if (Type == Rules->WallTower) {
             CellClass *cellptr = &Map[*coord];
             HouseClass *owner = 0;
             if (cellptr->unknown_50 >= 0) {
@@ -1766,7 +1766,7 @@ bool BuildingClass::Unlimbo(CoordStruct const *coord, int dir)
             unknown_25c[2] = new ParticleSystemClass(Type->NaturalParticleSystem, sysloc + Position_Coord_004f3f40(), &Map[Position_Coord_004f3f40()], 0, unknown_geometry_l);
         }
 
-        if (Type == Rules->unknown_78c) {
+        if (Type == Rules->WallTower) {
             Cell cell = Map[*coord].Fetch_CellID();
             Map[cell + Cell(1, 0)].Wall_Update(false);
             Map[cell + Cell(-1, 0)].Wall_Update(false);
@@ -1774,13 +1774,13 @@ bool BuildingClass::Unlimbo(CoordStruct const *coord, int dir)
             Map[cell + Cell(0, -1)].Wall_Update(false);
         }
 
-        if (Type == Rules->GDIGateOne || Type == Rules->unknown_784) {
+        if (Type == Rules->GDIGateOne || Type == Rules->NodGateOne) {
             Cell cell = Map[*coord].Fetch_CellID();
             Map[cell + Cell(-1, 0)].Wall_Update(false);
             Map[cell + Cell(3, 0)].Wall_Update(false);
         }
 
-        if (Type == Rules->unknown_780 || Type == Rules->unknown_788) {
+        if (Type == Rules->GDIGateTwo || Type == Rules->NodGateTwo) {
             Cell cell = Map[*coord].Fetch_CellID();
             Map[cell + Cell(0, -1)].Wall_Update(false);
             Map[cell + Cell(0, 3)].Wall_Update(false);
@@ -1795,8 +1795,8 @@ bool BuildingClass::Unlimbo(CoordStruct const *coord, int dir)
             Become_Primary(false);
         }
 
-        for (int i = 0; i < Rules->unknown_7c8.Count(); i++) {
-            if (Rules->unknown_7c8[i] == Type) {
+        for (int i = 0; i < Rules->BuildConst.Count(); i++) {
+            if (Rules->BuildConst[i] == Type) {
                 House->unknown_50.Add(this);
                 break;
             }
@@ -2123,7 +2123,7 @@ int BuildingClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
             } else unknown_slot220(source);
         }
     }
-    if (result!=0) Set_Anim_Damage_State(Health_Ratio()<=Rules->unknown_1368);
+    if (result!=0) Set_Anim_Damage_State(Health_Ratio()<=Rules->ConditionYellow);
 refresh_frame:
     if (old_frame!=unknown_43be20()) IsToDisplay=true;
     }
@@ -2718,7 +2718,7 @@ exitcell.X += random; exitcell.Y += random;
                                 Map.Unknown_0056A660(Cell(placementcoord), House, building->Type);
                             }
                         }
-                        if (building->Type == Rules->unknown_78c) {
+                        if (building->Type == Rules->WallTower) {
                             int index = House->unknown_55f0.Nodes.ID(node) + 1;
                             int count = House->unknown_55f0.Nodes.Count();
                             for (; index < count; index++) {
@@ -2867,7 +2867,7 @@ bool BuildingClass::Limbo()
             result = true;
             goto fence;
         }
-        if (Type == Rules->unknown_78c) {
+        if (Type == Rules->WallTower) {
             for (int facing = 0; facing < 8; facing += 2) {
                 UnknownBuildingCell52 &near_cell = MAP_CELL(Adjacent_Cell(cell, facing));
                 near_cell.Unknown_00475960(0);
@@ -2877,11 +2877,11 @@ bool BuildingClass::Limbo()
                 }
             }
         }
-        if (Type == Rules->GDIGateOne || Type == Rules->unknown_784) {
+        if (Type == Rules->GDIGateOne || Type == Rules->NodGateOne) {
             MAP_CELL(Cell(cell.X - 1, cell.Y)).Unknown_00475960(0);
             MAP_CELL(Cell(cell.X + 3, cell.Y)).Unknown_00475960(0);
         }
-        if (Type == Rules->unknown_780 || Type == Rules->unknown_788) {
+        if (Type == Rules->GDIGateTwo || Type == Rules->NodGateTwo) {
             MAP_CELL(Cell(cell.X, cell.Y - 1)).Unknown_00475960(0);
             MAP_CELL(Cell(cell.X, cell.Y + 3)).Unknown_00475960(0);
         }
@@ -2985,20 +2985,20 @@ void BuildingClass::unknown_slot282(bool captured)
             if (storage_stage != 0) storage_stage = ((int)unknown_294.Get_Total_Amount() << 2) / Type->Storage;
             StorageFilledSlots = storage_stage;
             if (storage_stage >= 3) {
-                PlayNthAnim(6, Health_Ratio() <= Rules->unknown_1368, false, 0);
+                PlayNthAnim(6, Health_Ratio() <= Rules->ConditionYellow, false, 0);
             } else if (storage_stage >= 2) {
-                PlayNthAnim(5, Health_Ratio() <= Rules->unknown_1368, false, 0);
+                PlayNthAnim(5, Health_Ratio() <= Rules->ConditionYellow, false, 0);
             } else if (storage_stage >= 1) {
-                PlayNthAnim(4, Health_Ratio() <= Rules->unknown_1368, false, 0);
+                PlayNthAnim(4, Health_Ratio() <= Rules->ConditionYellow, false, 0);
             } else if (storage_stage >= 0) {
-                PlayNthAnim(3, Health_Ratio() <= Rules->unknown_1368, false, 0);
+                PlayNthAnim(3, Health_Ratio() <= Rules->ConditionYellow, false, 0);
             }
         } else {
-            PlayNthAnim(17, Health_Ratio() <= Rules->unknown_1368, unknown_554.Count() > 0, 0);
-            PlayNthAnim(3, Health_Ratio() <= Rules->unknown_1368, unknown_554.Count() > 0, 0);
-            PlayNthAnim(4, Health_Ratio() <= Rules->unknown_1368, false, 0);
-            PlayNthAnim(5, Health_Ratio() <= Rules->unknown_1368, false, 0);
-            PlayNthAnim(6, Health_Ratio() <= Rules->unknown_1368, false, 0);
+            PlayNthAnim(17, Health_Ratio() <= Rules->ConditionYellow, unknown_554.Count() > 0, 0);
+            PlayNthAnim(3, Health_Ratio() <= Rules->ConditionYellow, unknown_554.Count() > 0, 0);
+            PlayNthAnim(4, Health_Ratio() <= Rules->ConditionYellow, false, 0);
+            PlayNthAnim(5, Health_Ratio() <= Rules->ConditionYellow, false, 0);
+            PlayNthAnim(6, Health_Ratio() <= Rules->ConditionYellow, false, 0);
         }
         if (Type->OrePurifier) ++House->unknown_52cc;
         if (Type->Helipad) {
@@ -3011,9 +3011,9 @@ void BuildingClass::unknown_slot282(bool captured)
                 SuperClass *super = House->Supers[i];
                 if (super->Type->Type == Type->SuperWeapon) {
                     if ((super->RechargeTimer.Value() / 15) * 60 <= 4) {
-                        PlayNthAnim(15, Health_Ratio() <= Rules->unknown_1368, unknown_554.Count() > 0, 0);
+                        PlayNthAnim(15, Health_Ratio() <= Rules->ConditionYellow, unknown_554.Count() > 0, 0);
                     } else {
-                        PlayNthAnim(13, Health_Ratio() <= Rules->unknown_1368, unknown_554.Count() > 0, 0);
+                        PlayNthAnim(13, Health_Ratio() <= Rules->ConditionYellow, unknown_554.Count() > 0, 0);
                     }
                 }
             }
@@ -3334,15 +3334,15 @@ void BuildingClass::Begin_Mode(int state)
         BState=state;
         BuildingTriple const *control=&Type->AnimFrames[state];
         if(ScenarioInit) {
-            PlayNthAnim(17,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
+            PlayNthAnim(17,Health_Ratio()<=Rules->ConditionYellow,unknown_554.Count()>0,0);
             if(ScenarioInit) {
-                PlayNthAnim(3,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
+                PlayNthAnim(3,Health_Ratio()<=Rules->ConditionYellow,unknown_554.Count()>0,0);
                 if(ScenarioInit) {
-                    PlayNthAnim(4,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
+                    PlayNthAnim(4,Health_Ratio()<=Rules->ConditionYellow,unknown_554.Count()>0,0);
                     if(ScenarioInit) {
-                        PlayNthAnim(5,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
+                        PlayNthAnim(5,Health_Ratio()<=Rules->ConditionYellow,unknown_554.Count()>0,0);
                         if(ScenarioInit) {
-                            PlayNthAnim(6,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
+                            PlayNthAnim(6,Health_Ratio()<=Rules->ConditionYellow,unknown_554.Count()>0,0);
                         }
                     }
                 }
@@ -3625,7 +3625,7 @@ bool BuildingClass::Captured(HouseClass *newowner, int announce)
     HouseClass *oldowner=House;
     TargetClass to_capture(this);
     IsCaptured=true;
-    if(Rules->unknown_7c8.Is_Present(Type)) { oldowner->unknown_50.Delete(this); }
+    if(Rules->BuildConst.Is_Present(Type)) { oldowner->unknown_50.Delete(this); }
     if(Type->UnitRepair) { oldowner->unknown_80.Delete(this); }
     if(Type->Cloning) { oldowner->unknown_98.Delete(this); }
     if(Type->PsychicDetectionRadius>0) { oldowner->unknown_b0.Delete(this); }
@@ -3661,7 +3661,7 @@ bool BuildingClass::Captured(HouseClass *newowner, int announce)
     if(House->Is_Player_Control()) {unknown_slot262(false,false,false,0);Map.Flag_To_Redraw(1);}
     if(unknown_1a8 & (1<<newowner->Type->House)) { unknown_1a8 &= ~(1<<newowner->Type->House); }
     Update_Anim_Appearance_0044d190();
-    if(Rules->unknown_7c8.Is_Present(Type)) { newowner->unknown_50.Add(this); }
+    if(Rules->BuildConst.Is_Present(Type)) { newowner->unknown_50.Add(this); }
     if(Type->UnitRepair) { newowner->unknown_80.Add(this); }
     if(Type->Cloning) { newowner->unknown_98.Add(this); }
     if(Type->PsychicDetectionRadius>0) { newowner->unknown_b0.Add(this); }
@@ -4176,7 +4176,7 @@ int BuildingClass::Do_MISSION_REPAIR()
         switch (Status) {
         case 0: {
                 Begin_Mode(2);
-                PlayNthAnim(7, Health_Ratio() <= Rules->unknown_1368, false, 0);
+                PlayNthAnim(7, Health_Ratio() <= Rules->ConditionYellow, false, 0);
                 Status = 2;
 
                 break;
@@ -4268,8 +4268,8 @@ int BuildingClass::Do_MISSION_REPAIR()
                 if (!HasAnyLink()) {
                     DestroyNthAnim(8);
                     DestroyNthAnim(11);
-                    PlayNthAnim(12, Health_Ratio() <= Rules->unknown_1368, false, 0);
-                    PlayNthAnim(3, Health_Ratio() <= Rules->unknown_1368, false, 0);
+                    PlayNthAnim(12, Health_Ratio() <= Rules->ConditionYellow, false, 0);
+                    PlayNthAnim(3, Health_Ratio() <= Rules->ConditionYellow, false, 0);
                     QueueMission(5, true);
                     return 1;
                 }
@@ -4293,8 +4293,8 @@ int BuildingClass::Do_MISSION_REPAIR()
                 if (!HasAnyLink()) {
                     DestroyNthAnim(8);
                     DestroyNthAnim(11);
-                    PlayNthAnim(12, Health_Ratio() <= Rules->unknown_1368, false, 0);
-                    PlayNthAnim(3, Health_Ratio() <= Rules->unknown_1368, false, 0);
+                    PlayNthAnim(12, Health_Ratio() <= Rules->ConditionYellow, false, 0);
+                    PlayNthAnim(3, Health_Ratio() <= Rules->ConditionYellow, false, 0);
                     Status = 1;
                     return 1;
                 }
@@ -4310,8 +4310,8 @@ int BuildingClass::Do_MISSION_REPAIR()
                             if (unknown_372 && House->Available_Money() == 0) Speech_Play_Name("EVA_InsufficientFunds", -1, -1);
                             DestroyNthAnim(8);
                             DestroyNthAnim(11);
-                            PlayNthAnim(12, Health_Ratio() <= Rules->unknown_1368, false, 0);
-                            PlayNthAnim(3, Health_Ratio() <= Rules->unknown_1368, false, 0);
+                            PlayNthAnim(12, Health_Ratio() <= Rules->ConditionYellow, false, 0);
+                            PlayNthAnim(3, Health_Ratio() <= Rules->ConditionYellow, false, 0);
                             Status = 1;
 
                             break;
@@ -4320,8 +4320,8 @@ int BuildingClass::Do_MISSION_REPAIR()
                             if (unknown_372 && Unknown_0063B5B0(8, unknown_slot104())) Speech_Play_Name("EVA_UnitRepaired", -1, -1);
                             DestroyNthAnim(8);
                             DestroyNthAnim(11);
-                            PlayNthAnim(12, Health_Ratio() <= Rules->unknown_1368, false, 0);
-                            PlayNthAnim(3, Health_Ratio() <= Rules->unknown_1368, false, 0);
+                            PlayNthAnim(12, Health_Ratio() <= Rules->ConditionYellow, false, 0);
+                            PlayNthAnim(3, Health_Ratio() <= Rules->ConditionYellow, false, 0);
                             Status = 1;
                             FootClass *mover = Building_Radio_Foot_004397f0(Contact_With_Whom());
                             if (mover->unknown_1b0 && !mover->House->Is_Human_Player()) {
@@ -4352,8 +4352,8 @@ int BuildingClass::Do_MISSION_REPAIR()
         case 1: {
                 if (!HasAnyLink()) {
                     if (unknown_454[8] || unknown_454[11]) {
-                        PlayNthAnim(12, Health_Ratio() <= Rules->unknown_1368, false, 0);
-                        PlayNthAnim(3, Health_Ratio() <= Rules->unknown_1368, false, 0);
+                        PlayNthAnim(12, Health_Ratio() <= Rules->ConditionYellow, false, 0);
+                        PlayNthAnim(3, Health_Ratio() <= Rules->ConditionYellow, false, 0);
                         DestroyNthAnim(8);
                         DestroyNthAnim(11);
                     }
@@ -4376,13 +4376,13 @@ int BuildingClass::Do_MISSION_REPAIR()
                 }
                 if (unknown_slot149(19) == 1) {
                     TechnoClass *client = Contact_With_Whom();
-                    bool damaged = client->Health_Ratio() < Rules->unknown_1360;
+                    bool damaged = client->Health_Ratio() < Rules->ConditionGreen;
                     bool manual_reload = client->Techno_Type_Class()->ManualReload;
                     int reply = unknown_slot149(28);
                     bool roger = reply == 1;
                     bool all_done = reply == 33;
                     if ((!damaged && !manual_reload) || (!roger && !all_done)) {
-                        if (client->Health_Ratio() == Rules->unknown_1360 && !((FootClass *)client)->Locomotor.Checked()->Is_Powered()) {
+                        if (client->Health_Ratio() == Rules->ConditionGreen && !((FootClass *)client)->Locomotor.Checked()->Is_Powered()) {
                             FootClass *mover = Building_Radio_Foot_004397f0(Contact_With_Whom());
                             mover->Locomotor.Checked()->Power_On();
                             if (mover->unknown_1b0 && !mover->House->Is_Human_Player()) {
@@ -4406,7 +4406,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                     } else if (!client->unknown_328 || client->House->Is_Human_Player()) {
                         if (unknown_372) Speech_Play_Name("EVA_Repairing", -1, -1);
                         Status = 2;
-                        PlayNthAnim(10, Health_Ratio() <= Rules->unknown_1368, false, 0);
+                        PlayNthAnim(10, Health_Ratio() <= Rules->ConditionYellow, false, 0);
                         DestroyNthAnim(3);
                         DestroyNthAnim(17);
                         IsReadyToCommence = false;
@@ -4580,7 +4580,7 @@ int BuildingClass::Do_MISSION_UNLOAD()
             Status=Type->Naval ? 4 : 1;
             IsToDisplay=true;
             DestroyNthAnim(17);
-            PlayNthAnim(8,Health_Ratio()<=Rules->unknown_1368,false,0);
+            PlayNthAnim(8,Health_Ratio()<=Rules->ConditionYellow,false,0);
             break;
         }
         case 1:
@@ -4842,7 +4842,7 @@ void BuildingClass::Detach(AbstractClass *target, bool all)
         LightSource = 0;
     }
     if (unknown_454[8] == target) {
-        PlayNthAnim(17, Health_Ratio() <= Rules->unknown_1368, false, 0);
+        PlayNthAnim(17, Health_Ratio() <= Rules->ConditionYellow, false, 0);
     }
     if (target && target->What_Am_I() == 4) {
         for (int index = 0; index < 8; index++) {
@@ -5421,7 +5421,7 @@ void BuildingClass::Start_Delayed_Fire(int arg1, CoordStruct const &coord)
     PrismStage = arg1;
     memcpy(&unknown_5cc, &coord, sizeof(unknown_5cc));
     DestroyNthAnim(3);
-    PlayNthAnim(10, Health_Ratio() <= Rules->unknown_1368, false, 0);
+    PlayNthAnim(10, Health_Ratio() <= Rules->ConditionYellow, false, 0);
 }
 
 
@@ -5459,12 +5459,12 @@ void BuildingClass::Repair_AI_0044b9b0()
                 }
             }
         } else {
-            if ((unknown_game_mode_a3d298 != 0 || IsAllowedToSell) && unknown_329 && (unsigned)House->unknown_118 >= (unsigned)Rules->IQSellBack && (unsigned)Random_Pick(0, 50) < (unsigned)House->unknown_11c && unknown_34 == 0 && Type->Factory != 7 && Health_Ratio() < Rules->unknown_1370) {
+            if ((unknown_game_mode_a3d298 != 0 || IsAllowedToSell) && unknown_329 && (unsigned)House->unknown_118 >= (unsigned)Rules->IQSellBack && (unsigned)Random_Pick(0, 50) < (unsigned)House->unknown_11c && unknown_34 == 0 && Type->Factory != 7 && Health_Ratio() < Rules->ConditionRed) {
                 Sell_Back(1);
             }
         }
     }
-    if (IsRepairing && Frame % (int)(Rules->unknown_1348 * 900.0) == 0) {
+    if (IsRepairing && Frame % (int)(Rules->RepairRate * 900.0) == 0) {
         IsWrenchVisible = !IsWrenchVisible;
         int cost = Type->Repair_Cost();
         int step = Type->Repair_Step();
@@ -5477,8 +5477,8 @@ void BuildingClass::Repair_AI_0044b9b0()
                 unknown_70 = Strength = Type->MaxStrength;
                 IsRepairing = false;
             }
-            Set_Anim_Damage_State(Health_Ratio() <= Rules->unknown_1368);
-            if (Health_Ratio() > Rules->unknown_1368 && unknown_25c[3]) unknown_25c[3]->Delete_Me();
+            Set_Anim_Damage_State(Health_Ratio() <= Rules->ConditionYellow);
+            if (Health_Ratio() > Rules->ConditionYellow && unknown_25c[3]) unknown_25c[3]->Delete_Me();
             if (unknown_43be20() != old_frame) IsToDisplay = true;
         } else {
             IsRepairing = false;
@@ -5536,7 +5536,7 @@ void BuildingClass::Update_Animations_0044BD40()
     bool finished=false;
     Refresh_Building_Frame_0044BD40(this);
     if(Type->UnitRepair && Get_Mission()!=20 && (unknown_454[8] || unknown_454[11]) && !Type->Naval) {
-        Start_Condition_Animation_0044BD40(this,12,!(Health_Ratio()>Rules->unknown_1368));
+        Start_Condition_Animation_0044BD40(this,12,!(Health_Ratio()>Rules->ConditionYellow));
         DestroyNthAnim(8);
         DestroyNthAnim(11);
     }
@@ -5545,7 +5545,7 @@ void BuildingClass::Update_Animations_0044BD40()
         AnimClass *animation=static_cast<AnimClass *>(unknown_454[10]);
         if(stage!=0) {
             if(!animation) {
-                Start_Condition_Animation_0044BD40(this,10,!(Health_Ratio()>Rules->unknown_1368));
+                Start_Condition_Animation_0044BD40(this,10,!(Health_Ratio()>Rules->ConditionYellow));
             }
             static_cast<AnimClass *>(unknown_454[10])->Stage=stage;
         }else if(animation)DestroyNthAnim(10);
@@ -5559,10 +5559,10 @@ void BuildingClass::Update_Animations_0044BD40()
             else if(previous>=1)DestroyNthAnim(4);
             else if(previous>=0)DestroyNthAnim(3);
             StorageFilledSlots=Refinery_Storage_Stage_0044BD40(this);
-            if(StorageFilledSlots>=3)Start_Condition_Animation_0044BD40(this,6,!(Health_Ratio()>Rules->unknown_1368));
-            else if(StorageFilledSlots>=2)Start_Condition_Animation_0044BD40(this,5,!(Health_Ratio()>Rules->unknown_1368));
-            else if(StorageFilledSlots>=1)Start_Condition_Animation_0044BD40(this,4,!(Health_Ratio()>Rules->unknown_1368));
-            else if(StorageFilledSlots>=0)Start_Condition_Animation_0044BD40(this,3,!(Health_Ratio()>Rules->unknown_1368));
+            if(StorageFilledSlots>=3)Start_Condition_Animation_0044BD40(this,6,!(Health_Ratio()>Rules->ConditionYellow));
+            else if(StorageFilledSlots>=2)Start_Condition_Animation_0044BD40(this,5,!(Health_Ratio()>Rules->ConditionYellow));
+            else if(StorageFilledSlots>=1)Start_Condition_Animation_0044BD40(this,4,!(Health_Ratio()>Rules->ConditionYellow));
+            else if(StorageFilledSlots>=0)Start_Condition_Animation_0044BD40(this,3,!(Health_Ratio()>Rules->ConditionYellow));
         }
     }
     if(Type->SuperWeapon!=-1 && Get_Mission()!=18 && Get_Mission()!=19 && !(Type->ChargedAnimTime>unknown_charge_limit_0079d14c)) {
@@ -5573,11 +5573,11 @@ void BuildingClass::Update_Animations_0044BD40()
                 if(!(Type->ChargedAnimTime<super->RechargeTimer.Value()*unknown_charge_scale_0079d148)) {
                     if(unknown_454[13]) {
                         DestroyNthAnim(13);
-                        Start_Condition_Animation_0044BD40(this,14,!(Health_Ratio()>Rules->unknown_1368));
+                        Start_Condition_Animation_0044BD40(this,14,!(Health_Ratio()>Rules->ConditionYellow));
                     }
                 }else if(unknown_454[15]) {
                     DestroyNthAnim(15);
-                    Start_Condition_Animation_0044BD40(this,16,!(Health_Ratio()>Rules->unknown_1368));
+                    Start_Condition_Animation_0044BD40(this,16,!(Health_Ratio()>Rules->ConditionYellow));
                 }
             }
         }
@@ -5623,7 +5623,7 @@ void BuildingClass::Update_Animations_0044BD40()
 int BuildingClass::unknown_slot172()
 {
     if (!unknown_5b0 && Type->Crewed) {
-        int step = (unknown_114 == 1) ? Rules->unknown_1164 : Rules->unknown_1160;
+        int step = (unknown_114 == 1) ? Rules->SovietSurvivorDivisor : Rules->AlliedSurvivorDivisor;
         if (step) {
             if (IsCaptured) {
                 step += step;
@@ -5677,7 +5677,7 @@ bool BuildingClass::Advance_Upgrade_Animation_0044c5d0()
                 }
             }
         }
-        if(Health_Ratio()>Rules->unknown_1368 && unknown_25c[3]) unknown_25c[3]->Delete_Me();
+        if(Health_Ratio()>Rules->ConditionYellow && unknown_25c[3]) unknown_25c[3]->Delete_Me();
         for(int index=3;index<=6;++index) {
             if(!unknown_454[index]) {
                 char const *name=Type->Anims[index].Anim.Buffer;
@@ -5686,7 +5686,7 @@ bool BuildingClass::Advance_Upgrade_Animation_0044c5d0()
         }
         IsToDisplay=true;
     }
-    if(Type==Rules->unknown_78c) {
+    if(Type==Rules->WallTower) {
     int frame=(int)((unsigned int)TurretIndex+1u);
     if(frame>2)frame=0;
     if(frame!=TurretIndex && !Type->TurretAnimIsVoxel) {
@@ -5707,7 +5707,7 @@ bool BuildingClass::Advance_Upgrade_Animation_0044c5d0()
     }
     if((int)UpgradeLevel==Type->Upgrades)return false;
     UpgradeLevel=(char)((unsigned char)UpgradeLevel+1u);
-    Start_Upgrade_Animation_0044c5d0(this,(int)UpgradeLevel-1,Health_Ratio()<=Rules->unknown_1368);
+    Start_Upgrade_Animation_0044c5d0(this,(int)UpgradeLevel-1,Health_Ratio()<=Rules->ConditionYellow);
     return true;
 }
 
@@ -5841,25 +5841,25 @@ void BuildingClass::Detach_Anim(AbstractClass *object)
         case 10:
             if(Type->UnitRepair) {
                 if(HasAnyLink() && Get_Mission()==20) {
-                    PlayNthAnim(11,Health_Ratio()<=Rules->unknown_1368,false,0);
+                    PlayNthAnim(11,Health_Ratio()<=Rules->ConditionYellow,false,0);
                     return;
                 }
-                PlayNthAnim(17,Health_Ratio()<=Rules->unknown_1368,false,0);
+                PlayNthAnim(17,Health_Ratio()<=Rules->ConditionYellow,false,0);
             } else if(Type->IsAnimDelayedFire && animation->TimeToDie) {
-                PlayNthAnim(3,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
+                PlayNthAnim(3,Health_Ratio()<=Rules->ConditionYellow,unknown_554.Count()>0,0);
             }
             break;
         case 12:
             if(Type->UnitRepair && animation->TimeToDie)
-                PlayNthAnim(17,Health_Ratio()<=Rules->unknown_1368,false,0);
+                PlayNthAnim(17,Health_Ratio()<=Rules->ConditionYellow,false,0);
             break;
         case 14:
             if(animation->TimeToDie)
-                PlayNthAnim(15,Health_Ratio()<=Rules->unknown_1368,false,0);
+                PlayNthAnim(15,Health_Ratio()<=Rules->ConditionYellow,false,0);
             break;
         case 16:
             if(animation->TimeToDie)
-                PlayNthAnim(13,Health_Ratio()<=Rules->unknown_1368,false,0);
+                PlayNthAnim(13,Health_Ratio()<=Rules->ConditionYellow,false,0);
             break;
         }
         return;
@@ -6106,7 +6106,7 @@ void BuildingClass::unknown_44d530()
         if (Type->Factory) {
             House->unknown_func_4f3170(Type->Factory, Type->Naval, 0);
         }
-        if (Type == Rules->unknown_7bc) {
+        if (Type == Rules->GDIFirestormGenerator) {
             House->unknown_func_4eeb90();
         }
     }
@@ -6985,7 +6985,7 @@ void BuildingClass::Enable_Powered_Anims()
             }
         } else if (Type->Anims[index].PoweredLight && !unknown_454[index] && unknown_5b4) {
             if (!(Type->IsAnimDelayedFire && index == 10)) {
-                PlayNthAnim(index, Health_Ratio() <= Rules->unknown_1368, false, 0);
+                PlayNthAnim(index, Health_Ratio() <= Rules->ConditionYellow, false, 0);
             }
         }
     }
@@ -7009,7 +7009,7 @@ void BuildingClass::Disable_Powered_Anims()
             if (unknown_454[index]) {
                 DestroyNthAnim(index);
                 if (index == 10 && Type->IsAnimDelayedFire && Type->Anims[3].Powered) {
-                    PlayNthAnim(3, Health_Ratio() <= Rules->unknown_1368, false, 0);
+                    PlayNthAnim(3, Health_Ratio() <= Rules->ConditionYellow, false, 0);
                 }
             }
         }
@@ -7487,7 +7487,7 @@ bool BuildingClass::Crossing_Firestorm(ObjectClass *object, bool damage)
 {
     if(object && object->Strength > 0) {
         if(damage) {
-            object->Take_Damage(&object->Strength, 0, Rules->unknown_cac, 0, true, 1);
+            object->Take_Damage(&object->Strength, 0, Rules->FirestormWarhead, 0, true, 1);
         }
         if(object->Get_Height_AGL() > 100) {
             new AnimClass(Rules->FirestormAirAnim, CoordStruct(object->Coord), 0, 1, 0x600, -10);
@@ -8396,19 +8396,19 @@ void BuildingClass::Update_Garrison_Owner()
 void BuildingClass::Refresh_State_Animations_00453450()
 {
     if(unknown_454[17]) {
-        PlayNthAnim(17,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
+        PlayNthAnim(17,Health_Ratio()<=Rules->ConditionYellow,unknown_554.Count()>0,0);
     }
     if(unknown_454[3]) {
-        PlayNthAnim(3,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
+        PlayNthAnim(3,Health_Ratio()<=Rules->ConditionYellow,unknown_554.Count()>0,0);
     }
     if(unknown_454[4]) {
-        PlayNthAnim(4,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
+        PlayNthAnim(4,Health_Ratio()<=Rules->ConditionYellow,unknown_554.Count()>0,0);
     }
     if(unknown_454[5]) {
-        PlayNthAnim(5,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
+        PlayNthAnim(5,Health_Ratio()<=Rules->ConditionYellow,unknown_554.Count()>0,0);
     }
     if(unknown_454[6]) {
-        PlayNthAnim(6,Health_Ratio()<=Rules->unknown_1368,unknown_554.Count()>0,0);
+        PlayNthAnim(6,Health_Ratio()<=Rules->ConditionYellow,unknown_554.Count()>0,0);
     }
 }
 

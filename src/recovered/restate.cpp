@@ -126,7 +126,7 @@ void __fastcall Restate_Mission(ScenarioClass *scenario)
             unknown_dialog_5ff6e0(dialog);
         }
         WWKeyboard->Clear();
-        IgnoreInput = unknown_id_source_a3d290->unknown_2306;
+        IgnoreInput = unknown_id_source_a3d290->IsInputLocked;
         Map.Flag_To_Redraw(2);
     }
 

@@ -30,12 +30,12 @@ ParticleSystemClass::ParticleSystemClass(ParticleSystemTypeClass *type, CoordStr
     CoordOffset(0, 0, 0),
     TargetCoord(unknown_geometry_l),
     Owner(0),
-    unknown_d0(0),
+    Target(0),
     SpawnFrames((float)Class->SpawnFrames),
     Lifetime(Class->Lifetime),
     SparkSpawnFrames(Class->SparkSpawnFrames),
     SparkRadius(0x1d),
-    unknown_e4(false),
+    IsMarkedForDeletion(false),
     IsRandomSparkDirection(false)
 {
     AbstractClass::Create_ID();
@@ -56,11 +56,11 @@ ParticleSystemClass::ParticleSystemClass(ParticleSystemTypeClass *type, CoordStr
         Owner = owner;
         TechnoClass *techno = owner->As_Techno();
         if (techno != 0) {
-            unknown_d0 = techno->unknown_228;
+            Target = techno->unknown_228;
         }
     } else {
         Owner = 0;
-        unknown_d0 = target;
+        Target = target;
     }
     ObjectClass::Unlimbo(&place, 0);
     if (Owner != 0) {
@@ -79,12 +79,12 @@ ParticleSystemClass::ParticleSystemClass() :
     Class(0),
     TargetCoord(unknown_geometry_l),
     Owner(0),
-    unknown_d0(0),
+    Target(0),
     SpawnFrames(0),
     Lifetime(0),
     SparkSpawnFrames(0),
     SparkRadius(0),
-    unknown_e4(false),
+    IsMarkedForDeletion(false),
     IsRandomSparkDirection(false)
 {
     Particles.Clear();
@@ -302,7 +302,7 @@ void ParticleSystemClass::Spark_AI()
             }
         }
         --SparkSpawnFrames;
-        if (SparkSpawnFrames<=0) unknown_e4=true;
+        if (SparkSpawnFrames<=0) IsMarkedForDeletion=true;
         double chance=Random_Double(0.0,1.0);
         if (chance<0.3) {
             int radius;
@@ -417,7 +417,7 @@ void ParticleSystemClass::Smoke_AI()
         }
     }
 
-    if (!unknown_e4 && IsActive && Frame % (int)SpawnFrames == 0) {
+    if (!IsMarkedForDeletion && IsActive && Frame % (int)SpawnFrames == 0) {
         FootClass *foot = Foot_Of(Owner);
         if (foot == 0 || foot->unknown_574 < 0) {
             Random2Class &random = unknown_id_source_a3d290->Random();
@@ -443,7 +443,7 @@ void ParticleSystemClass::Smoke_AI()
 
     SpawnFrames = Class->Slowdown + SpawnFrames;
     if (SpawnFrames > Class->SpawnCutoff) {
-        unknown_e4 = true;
+        IsMarkedForDeletion = true;
     }
 }
 #endif
@@ -484,7 +484,7 @@ static inline double Velocity_Limit(ParticleSystemTypeClass const *type)
 void ParticleSystemClass::Railgun_AI()
 {
     int i;
-    if (!unknown_e4 && Particles.Count() == 0) {
+    if (!IsMarkedForDeletion && Particles.Count() == 0) {
         CoordStruct delta = TargetCoord - Position_Coord_004f3f40();
         int dx = delta.X;
         int dy = delta.Y;
@@ -548,7 +548,7 @@ void ParticleSystemClass::Railgun_AI()
             new LaserDrawClass(Position_Coord_004f3f40(), TargetCoord, 0, true, Class->LaserColor, RGBClass(0, 0, 0),
                                RGBClass(0, 0, 0), 10, false, true, 0.5f, 0.0f);
         }
-        unknown_e4 = true;
+        IsMarkedForDeletion = true;
     }
     for (i = 0; i < Particles.Count(); i++) {
         Particles[i]->Behavior_AI();
@@ -606,7 +606,7 @@ void ParticleSystemClass::Fire_AI()
         }
         if (!source->IsActive) Delete_Me();
     } else Delete_Me();
-    if (!unknown_e4 && (!(Frame % Class->SpawnFrames) || (!(Frame % 3) && reaimed))) {
+    if (!IsMarkedForDeletion && (!(Frame % Class->SpawnFrames) || (!(Frame % 3) && reaimed))) {
         int index = Frame % 500;
         CoordStruct delta = Position_Coord_004f3f40() - TargetCoord;
         int squared = delta.X * delta.X + delta.Y * delta.Y + delta.Z * delta.Z;
@@ -650,7 +650,7 @@ void ParticleSystemClass::AI()
     if (--Lifetime == 0) {
         Delete_Me();
     }
-    if (IsActive && unknown_e4 && Particles.Count() == 0) {
+    if (IsActive && IsMarkedForDeletion && Particles.Count() == 0) {
         Limbo();
         IsActive = false;
         ObjectsToDelete.Add(this);
@@ -663,7 +663,7 @@ void ParticleSystemClass::AI()
 
 bool ParticleSystemClass::Is_Inactive() const
 {
-    return unknown_e4 && Particles.Count() == 0;
+    return IsMarkedForDeletion && Particles.Count() == 0;
 }
 
 
@@ -687,11 +687,11 @@ void ParticleSystemClass::Detach(AbstractClass *target, bool all)
     if (target == Class) {
         Class = 0;
     }
-    if (target == unknown_d0) {
-        unknown_d0 = 0;
+    if (target == Target) {
+        Target = 0;
     }
     if (target == Owner) {
-        unknown_e4 = true;
+        IsMarkedForDeletion = true;
         Owner = 0;
     }
 }
@@ -709,7 +709,7 @@ HRESULT __stdcall ParticleSystemClass::Load(IStream *stream)
     }
     new (this) ParticleSystemClass(NoInitClass());
     Swizzler.Swizzle((void **)&Class);
-    Swizzler.Swizzle((void **)&unknown_d0);
+    Swizzler.Swizzle((void **)&Target);
     Swizzler.Swizzle((void **)&Owner);
 
     int count = 0;
@@ -766,8 +766,8 @@ void ParticleSystemClass::Compute_CRC(WWCRCEngine &crc) const
     if (Owner != 0) {
         crc(Owner->Fetch_ID());
     }
-    if (unknown_d0 != 0) {
-        crc(unknown_d0->Fetch_ID());
+    if (Target != 0) {
+        crc(Target->Fetch_ID());
     }
     crc(SpawnFrames);
     crc((long)Lifetime);

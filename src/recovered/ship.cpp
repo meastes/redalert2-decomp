@@ -1189,7 +1189,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
         if (LinkedTo->unknown_530 != 0) {
             return false;
         }
-        LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>((int)(Rules->unknown_13c8 * 900.0));
+        LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay * 900.0));
 
         if (!LinkedTo->unknown_4c3000((unknown_34).As_Cell(), 0, 0)) {
             if (LinkedTo == 0) {
@@ -1203,7 +1203,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
 
                 if (unknown_34 == unknown_geometry_l) return false;
 
-                if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && (LinkedTo->Get_Mission() == 2 || LinkedTo->Get_Mission() == 11)) {
+                if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(unknown_34) < Rules->CloseEnoughDistance && (LinkedTo->Get_Mission() == 2 || LinkedTo->Get_Mission() == 11)) {
                     Stop_Driver();
                     if (unknown_67a7a0()) return true;
                     if (!LinkedTo->IsActive) return false;
@@ -1217,7 +1217,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                             CellClass *cellptr = &Map[cell];
                             TechnoClass *blockage = (TechnoClass *)cellptr->Cell_Techno(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0)) + 2 * unknown_geometry_g, 0);
                             if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->Techno_Type_Class()->IsTrain) {
-                                if (LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && !LinkedTo->HasAnyLink()) {
+                                if (LinkedTo->Distance(unknown_34) < Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
                                     if (abs(unknown_34.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
                                         if (Map[Object_Coord(LinkedTo)].Land_Type() != 10) {
                                             Stop_Driver();
@@ -1277,7 +1277,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                     blockage = (TechnoClass *)cellptr->Cell_Techno(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(center) + 2 * unknown_geometry_g, 0);
                 }
                 if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->Techno_Type_Class()->IsTrain) {
-                    if (LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && !LinkedTo->HasAnyLink()) {
+                    if (LinkedTo->Distance(unknown_34) < Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
                         if (abs(unknown_34.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
                             if (Map[Object_Coord(LinkedTo)].Land_Type() != 10) {
                                 Stop_Driver();
@@ -1354,7 +1354,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                         return Start_Of_Move(stop_processing, false, false);
                     }
                     int dist = unit->Distance(unknown_34);
-                    if (dist >= Rules->unknown_1380
+                    if (dist >= Rules->CloseEnoughDistance
                         || abs(unknown_34.Z - Object_Coord(LinkedTo).Z) >= 2 * unknown_geometry_g
                         || Map[Object_Coord(LinkedTo)].Land_Type() == 10) {
                         bool is_bridge;
@@ -1395,7 +1395,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                         return false;
                     }
                     if (ok || LinkedTo->unknown_slot171(unknown_34)) {
-                        LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>((int)(Rules->unknown_13c8 * 900.0));
+                        LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay * 900.0));
                         return true;
                     }
                     LinkedTo->Assign_Destination(0, true);
@@ -1467,7 +1467,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
         }
         if (speed == 0.0) speed = 0.5;
 
-        if (LinkedTo->Health_Ratio() <= Rules->unknown_1368) {
+        if (LinkedTo->Health_Ratio() <= Rules->ConditionYellow) {
             speed *= 0.75;
         }
         if (unknown_58 < 0x40) {
@@ -1548,7 +1548,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                             LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>(0);
                             return Start_Of_Move(stop_processing, false, false);
                         }
-                        if (LinkedTo->Distance_YZX(unknown_34) >= Rules->unknown_1380
+                        if (LinkedTo->Distance_YZX(unknown_34) >= Rules->CloseEnoughDistance
                             || abs(unknown_34.Z - Object_Coord(LinkedTo).Z) >= 2 * unknown_geometry_g
                             || Map[Object_Coord(LinkedTo)].Land_Type() == 10) {
                             CellClass *cellptr = &Map[destcell];

@@ -387,7 +387,7 @@ public:
     bool IsQueued;                                            // +0x1C
     DynamicVectorClass<PlanningBranchClass *> Branches;       // +0x20
     PlanningBranchClass Branch;                               // +0x38
-    int unknown_b0;                                           // +0xB0
+    int LoopBranchIndex;                                           // +0xB0
     int unknown_b4;                                           // +0xB4
 
     static DynamicVectorClass<PlanningNodeClass *> unknown_list_00a76758;   // 0x00A76758 (queued)

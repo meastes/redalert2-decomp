@@ -702,7 +702,7 @@ have_rules:
     unknown_session_a3d298.unknown_a6 = Rules->CaptureTheFlag;
     unknown_session_a3d298.unknown_a5 = Rules->HarvesterTruce;
     unknown_session_a3d298.unknown_34 = Rules->MultiEngineer;
-    unknown_session_a3d298.unknown_a4 = Rules->unknown_111d;
+    unknown_session_a3d298.unknown_a4 = Rules->AlliesAllowed;
     unknown_session_a3d298.unknown_2a = Rules->ShortGame;
     unknown_session_a3d298.unknown_2b = Rules->SuperWeaponsAllowed;
     unknown_session_a3d298.unknown_2c = Rules->BuildOffAlly;
@@ -1173,13 +1173,13 @@ top:
         Frame = 0;
         unknown_id_source_a3d290->MissionTimer = 0;
         unknown_id_source_a3d290->MissionTimer.Stop();
-        unknown_id_source_a3d290->unknown_610 = 1;
+        unknown_id_source_a3d290->CDifficulty = 1;
         unknown_id_source_a3d290->Difficulty = 1;
         unknown_flag_a35db1 = 0;
         unknown_flag_a40c78 = 0;
         unknown_flag_00866250 = false;
         unknown_flag_a35db0 = 0;
-        unknown_session_a3d298.unknown_2b0 = 0;
+        unknown_session_a3d298.MultiplayerObserver = 0;
         Map.Unknown_00498F10(0);
         unknown_833680 = 0;
         unknown_833684 = 0;
@@ -1333,31 +1333,31 @@ top:
                     break;
                 case 8: {
                     new (&unknown_scenario_checkpoint_00855a90) EnvironmentClass;
-                    unknown_id_source_a3d290->unknown_224c = Choose_Campaign();
-                    if (unknown_id_source_a3d290->unknown_224c == -1) {
+                    unknown_id_source_a3d290->Campaign = Choose_Campaign();
+                    if (unknown_id_source_a3d290->Campaign == -1) {
                         process = true;
                         selection = 1;
                         break;
                     }
                     switch (unknown_difficulty_a40b1c) {
                     case 0:
-                        unknown_id_source_a3d290->unknown_610 = 2;
+                        unknown_id_source_a3d290->CDifficulty = 2;
                         unknown_id_source_a3d290->Difficulty = 0;
                         break;
                     case 1:
-                        unknown_id_source_a3d290->unknown_610 = 2;
+                        unknown_id_source_a3d290->CDifficulty = 2;
                         unknown_id_source_a3d290->Difficulty = 1;
                         break;
                     case 2:
-                        unknown_id_source_a3d290->unknown_610 = 1;
+                        unknown_id_source_a3d290->CDifficulty = 1;
                         unknown_id_source_a3d290->Difficulty = 1;
                         break;
                     case 3:
-                        unknown_id_source_a3d290->unknown_610 = 0;
+                        unknown_id_source_a3d290->CDifficulty = 0;
                         unknown_id_source_a3d290->Difficulty = 1;
                         break;
                     case 4:
-                        unknown_id_source_a3d290->unknown_610 = 0;
+                        unknown_id_source_a3d290->CDifficulty = 0;
                         unknown_id_source_a3d290->Difficulty = 2;
                         break;
                     }
@@ -1532,7 +1532,7 @@ top:
                 }
             }
             if (unknown_session_a3d298.Type == 0 && !Debug_ForceScenario && !unknown_session_a3d298.Play) {
-                if (!Start_Scenario_0065bc70(Campaigns[unknown_id_source_a3d290->unknown_224c]->Scenario, true, unknown_id_source_a3d290->unknown_224c)) {
+                if (!Start_Scenario_0065bc70(Campaigns[unknown_id_source_a3d290->Campaign]->Scenario, true, unknown_id_source_a3d290->Campaign)) {
                     if (Debug_Map) {
                         return false;
                     }

@@ -351,7 +351,7 @@ Point2D PlanningBranchClass::Pixel() const
 PlanningNodeClass::PlanningNodeClass(int unknown_18) :
     unknown_18(unknown_18),
     IsQueued(false),
-    unknown_b0(-1),
+    LoopBranchIndex(-1),
     unknown_b4(-1)
 {
 }
@@ -690,7 +690,7 @@ bool PlanningNodeClass::Has_Branch_Members() const
 
 int PlanningNodeClass::unknown_6114e0() const
 {
-    if (Branch.Count > 0 && unknown_b0 == -1) {
+    if (Branch.Count > 0 && LoopBranchIndex == -1) {
         return 1;
     }
     return 0;
@@ -844,7 +844,7 @@ void PlanningNodeClass::unknown_611770()
             }
         }
     }
-    unknown_b0 = -1;
+    LoopBranchIndex = -1;
     if (Branch.Get_Count() != 0) {
         int branches = Branches.Count();
         EventClass event = Branch.Get_Event();
@@ -853,7 +853,7 @@ void PlanningNodeClass::unknown_611770()
             CoordStruct coord = Planning_Event_Coord(event);
             CoordStruct branch_coord = Planning_Event_Coord(branch_event);
             if (coord == branch_coord) {
-                unknown_b0 = i;
+                LoopBranchIndex = i;
                 return;
             }
         }
@@ -888,7 +888,7 @@ void PlanningNodeClass::Dump() const
     if (loop_count > 0) {
         EventClass event = Branch.Event;
         CoordStruct coord = Planning_Event_Coord(event);
-        Debug_Printf("Loop Branch [%d];  Member count[%d];  Origin event location[%d, %d, %d]\n", unknown_b0, loop_count, coord.X, coord.Y, coord.Z);
+        Debug_Printf("Loop Branch [%d];  Member count[%d];  Origin event location[%d, %d, %d]\n", LoopBranchIndex, loop_count, coord.X, coord.Y, coord.Z);
         int members = Members.Count();
         for (int m = 0; m < members; m++) {
             PlanningMemberClass *member = Members[m];
@@ -1009,7 +1009,7 @@ void PlanningNodeClass::unknown_611ee0()
         member->Active = false;
     }
     Branch.Clear_Count();
-    unknown_b0 = -1;
+    LoopBranchIndex = -1;
 }
 
 
@@ -1034,7 +1034,7 @@ void PlanningNodeClass::unknown_611fa0(PlanningMemberClass *member)
     member->Set_unknown_0c(false);
     Branch.Set_Count(Branch.Get_Count() - 1);
     if (Branch.Get_Count() == 0) {
-        unknown_b0 = -1;
+        LoopBranchIndex = -1;
     }
 }
 
@@ -1045,7 +1045,7 @@ void PlanningNodeClass::unknown_611fa0(PlanningMemberClass *member)
 
 void PlanningNodeClass::Locate_Loop_Branch()
 {
-    unknown_b0 = -1;
+    LoopBranchIndex = -1;
     if (Branch.Get_Count()) {
         EventClass event = Branch.Event;
         int branches = Branches.Count();
@@ -1054,7 +1054,7 @@ void PlanningNodeClass::Locate_Loop_Branch()
             CoordStruct here = Planning_Event_Coord(event);
             CoordStruct there = Planning_Event_Coord(other);
             if (here == there) {
-                unknown_b0 = b;
+                LoopBranchIndex = b;
                 return;
             }
         }

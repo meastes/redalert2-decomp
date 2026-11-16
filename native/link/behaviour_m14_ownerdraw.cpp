@@ -182,7 +182,7 @@ void Paint_Button(HWND window, WinData *record, bool lit)
         if (disabled) {
             if (!unknown_session_a3d298.Is_In_Game())
                 text_color = Side_Text_Color((unsigned char const *)&unknown_mode_ac109c);
-            else if (unknown_id_source_a3d290->unknown_2239)
+            else if (unknown_id_source_a3d290->IsGDI)
                 text_color = Side_Text_Color((unsigned char const *)&unknown_color_ac1008);
             else
                 text_color = Side_Text_Color((unsigned char const *)&unknown_color_ac1100);
@@ -256,7 +256,7 @@ LRESULT __stdcall unknown_button_proc_5f0320(HWND window, UINT message, WPARAM w
         break;                                      // then the default procedure (0x005F0DC8; C16 audit)
     case 0x201: case 0x203:                         // WM_LBUTTONDOWN / DBLCLK
         if (record->unknown_bc) return 0;
-        Voc_Play(Rules->unknown_180, 1.0f, 0x2000, 0);   // GUIMainButtonSound
+        Voc_Play(Rules->GUIMainButtonSound, 1.0f, 0x2000, 0);   // GUIMainButtonSound
         break;
     case 0x4DC:                                     // flash on (lparam 1) / off
         if (lparam == 1) {

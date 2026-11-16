@@ -158,7 +158,7 @@ int TechnoTypeClass::Cost_Of(HouseClass *house) const
 
 int TechnoTypeClass::GetRefund(HouseClass *house, bool full) const
 {
-    float percent = (float)Rules->unknown_13a0;
+    float percent = (float)Rules->RefundPercent;
     if (full) {
         percent = 1.0f;
     }
@@ -516,11 +516,11 @@ bool TechnoTypeClass::Read_INI(CCINIClass &ini)
         ZFudgeBridge = ini.Get_Int(ID, "ZFudgeBridge", ZFudgeBridge);
         VeteranAbilities = ini.Get_Abilities(ID, "VeteranAbilities", VeteranAbilities);
         EliteAbilities = ini.Get_Abilities(ID, "EliteAbilities", EliteAbilities);
-        MyEffectivenessCoefficient = ini.Get_Double(ID, "MyEffectivenessCoefficient", MyEffectivenessCoefficient == 0.0 ? Rules->unknown_d00 : MyEffectivenessCoefficient);
-        TargetEffectivenessCoefficient = ini.Get_Double(ID, "TargetEffectivenessCoefficient", TargetEffectivenessCoefficient == 0.0 ? Rules->unknown_d08 : TargetEffectivenessCoefficient);
-        TargetSpecialThreatCoefficient = ini.Get_Double(ID, "TargetSpecialThreatCoefficient", TargetSpecialThreatCoefficient == 0.0 ? Rules->unknown_d10 : TargetSpecialThreatCoefficient);
-        TargetStrengthCoefficient = ini.Get_Double(ID, "TargetStrengthCoefficient", TargetStrengthCoefficient == 0.0 ? Rules->unknown_d18 : TargetStrengthCoefficient);
-        TargetDistanceCoefficient = ini.Get_Double(ID, "TargetDistanceCoefficient", TargetDistanceCoefficient == 0.0 ? Rules->unknown_d20 : TargetDistanceCoefficient);
+        MyEffectivenessCoefficient = ini.Get_Double(ID, "MyEffectivenessCoefficient", MyEffectivenessCoefficient == 0.0 ? Rules->MyEffectivenessCoefficientDefault : MyEffectivenessCoefficient);
+        TargetEffectivenessCoefficient = ini.Get_Double(ID, "TargetEffectivenessCoefficient", TargetEffectivenessCoefficient == 0.0 ? Rules->TargetEffectivenessCoefficientDefault : TargetEffectivenessCoefficient);
+        TargetSpecialThreatCoefficient = ini.Get_Double(ID, "TargetSpecialThreatCoefficient", TargetSpecialThreatCoefficient == 0.0 ? Rules->TargetSpecialThreatCoefficientDefault : TargetSpecialThreatCoefficient);
+        TargetStrengthCoefficient = ini.Get_Double(ID, "TargetStrengthCoefficient", TargetStrengthCoefficient == 0.0 ? Rules->TargetStrengthCoefficientDefault : TargetStrengthCoefficient);
+        TargetDistanceCoefficient = ini.Get_Double(ID, "TargetDistanceCoefficient", TargetDistanceCoefficient == 0.0 ? Rules->TargetDistanceCoefficientDefault : TargetDistanceCoefficient);
         SpecialThreatValue = ini.Get_Double(ID, "SpecialThreatValue", SpecialThreatValue);
         IsSelectableCombatant = ini.Get_Bool(ID, "IsSelectableCombatant", IsSelectableCombatant);
 

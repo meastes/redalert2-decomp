@@ -164,11 +164,11 @@ public:
     CoordStruct FireOrigin;                 // +0x0E4
     CoordStruct FireMoveDelta;                 // +0x0F0
     Vector3 MovementDirection;                     // +0x0FC
-    Vector3 unknown_108;                    // +0x108
+    Vector3 PrecisePosition;                    // +0x108
     ParticleSystemClass *System;            // +0x114
     unsigned short Lifetime;                // +0x118
     short RemainingDC;                      // +0x11A
-    char unknown_11c;                       // +0x11C
+    char StateAIAdvance;                       // +0x11C
     char IsFireBelowGround;                       // +0x11D
     char StateAI;                       // +0x11E
     char Translucency;                       // +0x11F

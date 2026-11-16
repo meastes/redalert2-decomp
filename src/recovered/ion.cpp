@@ -115,7 +115,7 @@ void __fastcall Init_Storm_0051F2F0()
     IonStormClass::CloudsManifesting.Clear();
     IonStormClass::CloudsPresent.Clear();
     IonStormClass::BoltsPresent.Clear();
-    unknown_id_source_a3d290->unknown_22b0 = unknown_id_source_a3d290->unknown_22a8;
+    unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->AmbientLight;
     Set_Lighting_00520B00(-1, -1, -1, false);
 }
 
@@ -361,7 +361,7 @@ void __fastcall IonStormClass_Ion_Storm_Begin(int duration, int deferment, Cell 
         PlayerPtr->RecalcRadar = true;
     }
     if (unknown_dominator_state_a5193c != 1) {
-        unknown_id_source_a3d290->unknown_22b0 = unknown_id_source_a3d290->IonAmbient;
+        unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->IonAmbient;
         Set_Lighting_00520B00(unknown_id_source_a3d290->IonRed * 1000 / 100,
             unknown_id_source_a3d290->IonGreen * 1000 / 100,
             unknown_id_source_a3d290->IonBlue * 1000 / 100, true);
@@ -400,7 +400,7 @@ void __fastcall Stop_Storm_0051FBD0()
         StormCoords = unknown_geometry_k;
         StormOwner = 0;
         if (unknown_dominator_state_a5193c != 1) {
-            unknown_id_source_a3d290->unknown_22b0 = unknown_id_source_a3d290->unknown_22a8;
+            unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->AmbientLight;
             Set_Lighting_00520B00(-1, -1, -1, false);
             Map.Flag_To_Redraw(true);
         }
@@ -674,13 +674,13 @@ void __fastcall Update_Storm_00520200()
 void IonStormClass_Apply_Secondary_Effect()
 {
     if (unknown_dominator_state_a5193c == 1) {
-        unknown_id_source_a3d290->unknown_22b0 = unknown_id_source_a3d290->unknown_22e0;
-        Set_Lighting_00520B00(unknown_id_source_a3d290->unknown_22e4 * 1000 / 100,
-            unknown_id_source_a3d290->unknown_22e8 * 1000 / 100,
-            unknown_id_source_a3d290->unknown_22ec * 1000 / 100, true);
+        unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->NukeAmbient;
+        Set_Lighting_00520B00(unknown_id_source_a3d290->NukeRedTint * 1000 / 100,
+            unknown_id_source_a3d290->NukeGreenTint * 1000 / 100,
+            unknown_id_source_a3d290->NukeBlueTint * 1000 / 100, true);
     } else if (StormActive) {
         PlayerPtr->RecalcRadar = true;
-        unknown_id_source_a3d290->unknown_22b0 = unknown_id_source_a3d290->IonAmbient;
+        unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->IonAmbient;
         Set_Lighting_00520B00(unknown_id_source_a3d290->IonRed * 1000 / 100,
             unknown_id_source_a3d290->IonGreen * 1000 / 100,
             unknown_id_source_a3d290->IonBlue * 1000 / 100, true);
@@ -696,11 +696,11 @@ void __fastcall Start_Dominator_Lighting_005208A0()
     unknown_dominator_state_a5193c = 1;
     unknown_dominator_delay_7ddb1c = 30;
     unknown_dominator_start_7ddb18 = Frame;
-    unknown_id_source_a3d290->unknown_828 = 1;
-    unknown_id_source_a3d290->unknown_22b0 = unknown_id_source_a3d290->unknown_22e0;
-    Set_Lighting_00520B00(unknown_id_source_a3d290->unknown_22e4 * 1000 / 100,
-        unknown_id_source_a3d290->unknown_22e8 * 1000 / 100,
-        unknown_id_source_a3d290->unknown_22ec * 1000 / 100, true);
+    unknown_id_source_a3d290->AmbientChangeTimer = 1;
+    unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->NukeAmbient;
+    Set_Lighting_00520B00(unknown_id_source_a3d290->NukeRedTint * 1000 / 100,
+        unknown_id_source_a3d290->NukeGreenTint * 1000 / 100,
+        unknown_id_source_a3d290->NukeBlueTint * 1000 / 100, true);
     Map.Flag_To_Redraw(true);
 }
 
@@ -714,12 +714,12 @@ void __fastcall End_Dominator_Lighting_00520980()
     unknown_dominator_start_7ddb18 = Frame;
     unknown_dominator_delay_7ddb1c = 15;
     if (StormActive) {
-        unknown_id_source_a3d290->unknown_22b0 = unknown_id_source_a3d290->IonAmbient;
+        unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->IonAmbient;
         Set_Lighting_00520B00(unknown_id_source_a3d290->IonRed * 1000 / 100,
             unknown_id_source_a3d290->IonGreen * 1000 / 100,
             unknown_id_source_a3d290->IonBlue * 1000 / 100, true);
     } else {
-        unknown_id_source_a3d290->unknown_22b0 = unknown_id_source_a3d290->unknown_22a8;
+        unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->AmbientLight;
         Set_Lighting_00520B00(-1, -1, -1, false);
     }
     Map.Flag_To_Redraw(true);

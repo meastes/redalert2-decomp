@@ -218,7 +218,7 @@ HouseClass::HouseClass(HouseTypeClass *type)
     : AbstractClass(),
       ArrayIndex(-1),
       Type(type),
-      unknown_c8(unknown_id_source_a3d290->unknown_610),
+      unknown_c8(unknown_id_source_a3d290->CDifficulty),
       unknown_d0(1.0),
       unknown_d8(1.0),
       unknown_e0(1.0),
@@ -448,11 +448,11 @@ bool HouseClass::Can_Make_Money_004e27e0()
 {
     int credits=Available_Money();
     int refinery_cost=unknown_func_4ef600(Rules->BuildRefinery)->Cost_Of(this);
-    int harvester_cost=Get_First_Ownable(Rules->unknown_9ec)->Cost_Of(this);
+    int harvester_cost=Get_First_Ownable(Rules->HarvesterUnit)->Cost_Of(this);
     bool has_refinery=unknown_5460.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex)>0 ||
                       unknown_5460.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex)>0;
-    bool has_harvester=unknown_5470.unknown_func_491d10(Rules->unknown_9ec[0]->ArrayIndex)>0 ||
-                       unknown_5470.unknown_func_491d10(Rules->unknown_9ec[1]->ArrayIndex)>0;
+    bool has_harvester=unknown_5470.unknown_func_491d10(Rules->HarvesterUnit[0]->ArrayIndex)>0 ||
+                       unknown_5470.unknown_func_491d10(Rules->HarvesterUnit[1]->ArrayIndex)>0;
     if (has_refinery) {
         if (has_harvester) return true;
         bool has_factory=false;
@@ -1144,8 +1144,8 @@ void HouseClass::AI()
                 }
             }
             if (Power_Fraction()<1.0) {
-                if (unknown_5460.unknown_func_491d10(Rules->unknown_7c8[0]->ArrayIndex)>0 ||
-                    unknown_5460.unknown_func_491d10(Rules->unknown_7c8[1]->ArrayIndex)>0) {
+                if (unknown_5460.unknown_func_491d10(Rules->BuildConst[0]->ArrayIndex)>0 ||
+                    unknown_5460.unknown_func_491d10(Rules->BuildConst[1]->ArrayIndex)>0) {
                     if (!low_power_notice_a40fc8) {
                         Speech_Play_Name("EVA_LowPower",-1,-1);
                         unknown_session_a3d298.Messages.Add_Message(0,0,StringTable::Load_String(txt_low_power_007da260,0,house_cpp_path_007da270,0x892),
@@ -1179,8 +1179,8 @@ void HouseClass::AI()
         } else if (!CurBuildings && !unknown_238 && !unknown_234) {
             int units=unknown_228;
             if (units && unknown_id_source_a3d290->Special().HarvesterImmune) {
-                int immune=unknown_5430.unknown_func_491d10(Rules->unknown_9ec[0]->ArrayIndex)
-                    + unknown_5430.unknown_func_491d10(Rules->unknown_9ec[1]->ArrayIndex);
+                int immune=unknown_5430.unknown_func_491d10(Rules->HarvesterUnit[0]->ArrayIndex)
+                    + unknown_5430.unknown_func_491d10(Rules->HarvesterUnit[1]->ArrayIndex);
                 units-=immune;
             }
             if (units<=0) defeated=true;
@@ -1215,7 +1215,7 @@ defeat_checked:;
             }
         } else if (mode==2) {
             AI_Unit();
-            UnitTypeClass *harvester=Get_First_Ownable(Rules->unknown_9ec);
+            UnitTypeClass *harvester=Get_First_Ownable(Rules->HarvesterUnit);
             if (unknown_5540!=harvester->ArrayIndex) {
                 AI_Infantry();
                 AI_Aircraft();
@@ -2787,17 +2787,17 @@ int HouseClass::Check_Raise_Money_004e8d80()
                     (building->Type==Rules->BuildRefinery[0] || building->Type==Rules->BuildRefinery[1]) &&
                     building->Mission==18) return 0;
             }
-            if (unknown_5540!=Rules->unknown_9ec[0]->ArrayIndex &&
-                unknown_5540!=Rules->unknown_9ec[1]->ArrayIndex) {
-                if (Available_Money()<Rules->unknown_9ec[0]->Cost_Of(this) &&
-                    Available_Money()<Rules->unknown_9ec[1]->Cost_Of(this)) urgency=1;
+            if (unknown_5540!=Rules->HarvesterUnit[0]->ArrayIndex &&
+                unknown_5540!=Rules->HarvesterUnit[1]->ArrayIndex) {
+                if (Available_Money()<Rules->HarvesterUnit[0]->Cost_Of(this) &&
+                    Available_Money()<Rules->HarvesterUnit[1]->Cost_Of(this)) urgency=1;
             } else {
             FactoryClass *pending=0;
             for (int factory_index=0;factory_index<Factories.Count();++factory_index) {
                 if (Factories[factory_index]->Get_House_004e4090()==this && Factories[factory_index]->Get_Object()!=0) {
                     UnitClass *unit=(UnitClass *)Factories[factory_index]->Get_Object();
                     if (unit->Kind_Of()==1 &&
-                        (unit->Type==Rules->unknown_9ec[0] || unit->Type==Rules->unknown_9ec[1])) {
+                        (unit->Type==Rules->HarvesterUnit[0] || unit->Type==Rules->HarvesterUnit[1])) {
                         pending=Factories[factory_index];
                         break;
                     }
@@ -2861,7 +2861,7 @@ bool HouseClass::AI_Raise_Money_004e90f0(int urgency)
                               unknown_5460.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex)>0) &&
                              (unknown_5460.unknown_func_491d10(Rules->BuildWeapons[0]->ArrayIndex)>0 ||
                               unknown_5460.unknown_func_491d10(Rules->BuildWeapons[1]->ArrayIndex)>0);
-    if (can_build_harvester) needed=Get_First_Ownable(Rules->unknown_9ec)->Cost_Of(this);
+    if (can_build_harvester) needed=Get_First_Ownable(Rules->HarvesterUnit)->Cost_Of(this);
     else needed=unknown_func_4ef600(Rules->BuildRefinery)->Cost_Of(this);
     int i=unknown_55f0.Nodes.Count()-1;
     for (;i>=0;--i) {
@@ -2898,7 +2898,7 @@ bool HouseClass::AI_Raise_Money_004e90f0(int urgency)
             unknown_5548=-1;
             unknown_553c=-1;
             if (can_build_harvester) {
-                unknown_5540=Get_First_Ownable(Rules->unknown_9ec)->ArrayIndex;
+                unknown_5540=Get_First_Ownable(Rules->HarvesterUnit)->ArrayIndex;
                 unknown_12c=2;
             } else {
                 int next=unknown_55f0.Next_Buildable_Index();
@@ -2956,7 +2956,7 @@ int HouseClass::AI_Building()
         }
 
         BaseNodeClass copy = *node;
-        if (copy.Type == -1 || (BuildingTypes[copy.Type] == Rules->unknown_78c && node->Cell == Cell(0, 0))) {
+        if (copy.Type == -1 || (BuildingTypes[copy.Type] == Rules->WallTower && node->Cell == Cell(0, 0))) {
             int index = unknown_55f0.Nodes.ID(node);
             if (Random_Pick(0, 99) < Rules->AIPickWallDefensePercent[unknown_c8] && unknown_func_4f5d30(index)) {
                 unknown_55f0.Nodes.Delete(unknown_55f0.Nodes.ID(copy));
@@ -2965,7 +2965,7 @@ int HouseClass::AI_Building()
             DynamicVectorClass<Cell> *cells = 0;
             if (unknown_55f0.unknown_38.Count() > 0) cells = &unknown_55f0.unknown_38;
             if (!AI_Build_Defense(index, cells)) {
-                if (node->Type == Rules->unknown_78c->ArrayIndex) {
+                if (node->Type == Rules->WallTower->ArrayIndex) {
                     unknown_55f0.Nodes.Delete(index);
                 }
                 unknown_55f0.Nodes.Delete(index);
@@ -2978,8 +2978,8 @@ int HouseClass::AI_Building()
         BuildingTypeClass *type = BuildingTypes[node->Type];
         if (Drain + type->PowerDrain_c6c > Power - unknown_15f88) {
             bool found = false;
-            for (int index = 0; index < Rules->unknown_7c8.Count(); index++) {
-                if (Rules->unknown_7c8[index] == type) {
+            for (int index = 0; index < Rules->BuildConst.Count(); index++) {
+                if (Rules->BuildConst[index] == type) {
                     found = true;
                     break;
                 }
@@ -3030,14 +3030,14 @@ int HouseClass::AI_Unit()
 {
     if (unknown_5540 != -1) return 15;
 
-    int harvesters = unknown_5470.unknown_func_491d10(Get_First_Ownable(Rules->unknown_9ec)->ArrayIndex);
+    int harvesters = unknown_5470.unknown_func_491d10(Get_First_Ownable(Rules->HarvesterUnit)->ArrayIndex);
     int refineries = unknown_5460.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex)
         + unknown_5460.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex);
     int per_refinery = Rules->HarvestersPerRefinery;
     if (IQ >= Rules->IQHarvester && !unknown_189 && !Is_Human_Control()
             && per_refinery * refineries > harvesters) {
-        if ((unsigned)Get_First_Ownable(Rules->unknown_9ec)->TechLevel <= (unsigned)unknown_11c) {
-            unknown_5540 = Get_First_Ownable(Rules->unknown_9ec)->ArrayIndex;
+        if ((unsigned)Get_First_Ownable(Rules->HarvesterUnit)->TechLevel <= (unsigned)unknown_11c) {
+            unknown_5540 = Get_First_Ownable(Rules->HarvesterUnit)->ArrayIndex;
             return 15;
         }
     }
@@ -3828,7 +3828,7 @@ void __fastcall HouseClass::Read_Scenario_INI(CCINIClass &ini)
         if (!unknown_game_mode_a3d298 && (house->unknown_134 || house->unknown_135)) {
             house->Assign_Handicap(unknown_id_source_a3d290->Difficulty);
         } else if (!unknown_game_mode_a3d298) {
-            house->Assign_Handicap(unknown_id_source_a3d290->unknown_610);
+            house->Assign_Handicap(unknown_id_source_a3d290->CDifficulty);
         }
     }
 
@@ -4111,7 +4111,7 @@ inline bool Is_Human_4ec5e0(HouseClass const *house)
 
 void HouseClass::Computer_Paranoid()
 {
-    bool forced = Rules->unknown_111d;
+    bool forced = Rules->AlliesAllowed;
     if ((unknown_a3d29c != 0 && unknown_a3d29c->unknown_slot1()) || forced) {
         for (int index = 0; index < Houses.Count(); index++) {
             HouseClass *house = Houses[index];
@@ -5269,7 +5269,7 @@ void HouseClass::unknown_func_4ef890()
     }
     int eligible_count=eligible.Count();
     DynamicVectorClass<BuildingTypeClass const *> ordered;
-    BuildingTypeClass const *yard=unknown_func_4ef600(Rules->unknown_7c8);
+    BuildingTypeClass const *yard=unknown_func_4ef600(Rules->BuildConst);
     for (i=0;i<eligible_count;++i) {
         if (yard==eligible[i]) { included[i]=true; ordered.Add(yard); break; }
     }
@@ -5708,7 +5708,7 @@ bool HouseClass::AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells)
     for (i = 0; i < count; i++) {
         BuildingClass *building = Buildings[i];
         BuildingTypeClass *type = building->Type;
-        if (!type->IsBaseDefense && type != Rules->unknown_78c) {
+        if (!type->IsBaseDefense && type != Rules->WallTower) {
             owned.Add(building->Type);
         }
     }
@@ -6144,7 +6144,7 @@ bool __fastcall unknown_slot_ready_004f3120(UnknownSlotOwner_004f3120 const *own
         return false;
     }
     UnknownSlotRecord_004f3120 const *record = owner->records[owner->current];
-    return record->unknown_38 < Rules->unknown_98 && record->unknown_24 == -1;
+    return record->unknown_38 < Rules->MaxWaypointPathLength && record->unknown_24 == -1;
 }
 
 
@@ -6621,8 +6621,8 @@ void HouseClass::AI_Takeover()
     for (index=Buildings.Count()-1;index>=0;--index) {
         BuildingClass *building=Buildings[index];
         bool owned_type=false;
-        for (int candidate=0;candidate<Rules->unknown_7c8.Count();++candidate) {
-            if (Rules->unknown_7c8[candidate]==building->Type) { owned_type=true; break; }
+        for (int candidate=0;candidate<Rules->BuildConst.Count();++candidate) {
+            if (Rules->BuildConst[candidate]==building->Type) { owned_type=true; break; }
         }
         if (!owned_type) continue;
         if (!building->IsInLimbo) { conyard=building; break; }
@@ -6670,11 +6670,11 @@ void HouseClass::AI_Takeover()
         BuildingClass *building=Buildings[index];
         if (building->IsInLimbo) continue;
         BuildingTypeClass *building_type=building->Type;
-        if (!building_type->IsBaseDefense && !(building_type==Rules->unknown_78c && building->UpgradeLevel>0)) continue;
+        if (!building_type->IsBaseDefense && !(building_type==Rules->WallTower && building->UpgradeLevel>0)) continue;
         if (!building_type->Who_Can_Build_Me(true,false,true,this)) continue;
         while (defense_node<unknown_55f0.Nodes.Count()) {
             if (unknown_55f0.Nodes[defense_node].Type==-1) {
-                if (building->Type==Rules->unknown_78c) {
+                if (building->Type==Rules->WallTower) {
                     unknown_55f0.Nodes.Insert_After(defense_node,BaseNodeClass(
                         ((BuildingTypeClass *)building->unknown_4c0[building->UpgradeLevel-1])->ArrayIndex,
                         Coord_Cell(building->Position_Coord_004f3f40())));
@@ -7175,8 +7175,8 @@ void HouseClass::Begin_Construction()
     for (int index=Buildings.Count()-1;index>=0;--index) {
         BuildingClass *building=Buildings[index];
         bool is_construction_yard=false;
-        for (int type_index=0;type_index<Rules->unknown_7c8.Count();++type_index) {
-            if (Rules->unknown_7c8[type_index]==building->Type) {
+        for (int type_index=0;type_index<Rules->BuildConst.Count();++type_index) {
+            if (Rules->BuildConst[type_index]==building->Type) {
                 is_construction_yard=true;
                 break;
             }
@@ -7365,8 +7365,8 @@ Cell HouseClass::unknown_func_4f65a0()
                 UnitTypeClass *type=((UnitClass *)techno)->Type;
                 if (type->Harvester) value=Rules->AIIonCannonHarvesterValue[unknown_c8];
                 else {
-                    for (int j=0;j<Rules->unknown_7c8.Count();++j) {
-                        if (Rules->unknown_7c8[j]==type->DeploysInto) {
+                    for (int j=0;j<Rules->BuildConst.Count();++j) {
+                        if (Rules->BuildConst[j]==type->DeploysInto) {
                             value=Rules->AIIonCannonMCVValue[unknown_c8];
                             goto CLASSIFIED;
                         }

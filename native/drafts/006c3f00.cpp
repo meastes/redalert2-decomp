@@ -106,10 +106,10 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             count = length;
         }
         int frame = 15;
-        if (Health_Ratio() <= Rules->unknown_1368) {
+        if (Health_Ratio() <= Rules->ConditionYellow) {
             frame = 16;
         }
-        if (Health_Ratio() <= Rules->unknown_1370) {
+        if (Health_Ratio() <= Rules->ConditionRed) {
             frame = 17;
         }
         Point2D position;

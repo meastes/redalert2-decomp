@@ -4,8 +4,8 @@
     "id": "population-4434",
     "inventory_sha256": "31667cb6477e0ff8d62b23293a38d811ec11c6490943468b4e0384a70daf5492",
     "gaps_sha256": "649aa888b2351b49997ac7145d2b34f4ccc321a171428b48257dbb0bdc68a552",
-    "historical_population_sha256": "4141f54cd62218c305d4ca571eb5483a835debd156a2d496901ec4eac36b6125",
-    "historical_acceptance_sha256": "2a1cfe75c608c744da25206e99d682c36b45fdb67ea1e07312effc92592c2ca3"
+    "historical_population_sha256": "2a436cfcd2ac844908a299a3513b5f9d8200e0e3bf9bbb23ed3dd7f1e943fb62",
+    "historical_acceptance_sha256": "3c9c7cbdbcdfec19b93d43285b3633d7f25ee251c7bc09614c9b00e61c230ab6"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -10789,7 +10789,24 @@
     "?Play_Ingame_Movie@@YIXH_N@Z": 5900576,
     "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
     "__ramp_corners": 8339828,
-    "?Unknown_005689D0@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376
+    "?Unknown_005689D0@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376,
+    "??_GRLEBlitter@@UAEPAXI@Z": 4769936,
+    "??_GToggleClass@@UAEPAXI@Z": 4872128,
+    "?Set_Position@ListClass@@UAEXHH@Z": 5480240,
+    "??0Campaign@WorldDominationTour@@QAE@ABVWstring@@ABV?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@@Z": 7495488,
+    "??1Campaign@WorldDominationTour@@UAE@XZ": 7496416,
+    "??_7Campaign@WorldDominationTour@@6B@": 8056820,
+    "??_GCampaign@WorldDominationTour@@UAEPAXI@Z": 7498160,
+    "??_ECellClass@@UAEPAXI@Z": 4706208,
+    "??_EEditClass@@UAEPAXI@Z": 4872064,
+    "??_EShapeButtonClass@@UAEPAXI@Z": 4872096,
+    "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056,
+    "??_EFootClass@@UAEPAXI@Z": 5037584,
+    "??_EINIClass@@UAEPAXI@Z": 5107440,
+    "??_EIsometricTileTypeClass@@UAEPAXI@Z": 5433008,
+    "??_ERLEBlitter@@UAEPAXI@Z": 4769936,
+    "??_EToggleClass@@UAEPAXI@Z": 4872128,
+    "??_ECampaign@WorldDominationTour@@UAEPAXI@Z": 7498160
   },
   "regions": [
     {
@@ -11578,7 +11595,7 @@
           "resolved": 4294709456
         }
       ],
-      "source_sha256": "cecad3e4cbf503700c15dc3387a855064fbd48f33178dd1dc77ce404fd360c8e",
+      "source_sha256": "61ba9779eaaf640a6dc71c6e12e450ddfe3846cb5d4f66f84c2ed86118bb3012",
       "source": "src/recovered/findpath2.cpp",
       "population": "population-4434",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11637,7 +11654,7 @@
           "resolved": 169591
         }
       ],
-      "source_sha256": "cecad3e4cbf503700c15dc3387a855064fbd48f33178dd1dc77ce404fd360c8e",
+      "source_sha256": "61ba9779eaaf640a6dc71c6e12e450ddfe3846cb5d4f66f84c2ed86118bb3012",
       "source": "src/recovered/findpath2.cpp",
       "population": "population-4434",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11680,7 +11697,7 @@
           "resolved": 4294679928
         }
       ],
-      "source_sha256": "cecad3e4cbf503700c15dc3387a855064fbd48f33178dd1dc77ce404fd360c8e",
+      "source_sha256": "61ba9779eaaf640a6dc71c6e12e450ddfe3846cb5d4f66f84c2ed86118bb3012",
       "source": "src/recovered/findpath2.cpp",
       "population": "population-4434",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -11763,7 +11780,7 @@
           "resolved": 575001
         }
       ],
-      "source_sha256": "cecad3e4cbf503700c15dc3387a855064fbd48f33178dd1dc77ce404fd360c8e",
+      "source_sha256": "61ba9779eaaf640a6dc71c6e12e450ddfe3846cb5d4f66f84c2ed86118bb3012",
       "source": "src/recovered/findpath2.cpp",
       "population": "population-4434",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -11966,7 +11983,7 @@
           "resolved": 169830
         }
       ],
-      "source_sha256": "cecad3e4cbf503700c15dc3387a855064fbd48f33178dd1dc77ce404fd360c8e",
+      "source_sha256": "61ba9779eaaf640a6dc71c6e12e450ddfe3846cb5d4f66f84c2ed86118bb3012",
       "source": "src/recovered/findpath2.cpp",
       "population": "population-4434",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

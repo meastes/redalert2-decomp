@@ -36,13 +36,13 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
         if(!Map[object->Center_Coord()].Is_Sensed(House->ArrayIndex) && House!=tech->House) return false;
     }
     if(!tech->unknown_32d) return false;
-    if(tech->Control()->unknown_04) return false;
+    if(tech->Control()->IsNoThreat) return false;
     if(object->Get_Height_AGL()<-20) return false;
     CoordStruct objectcoord=object->Center_Coord();
     if(zone!=-1 && Map.Zone(Coord_Cell(objectcoord),Techno_Type_Class()->MovementZone,object->IsOnBridge)!=zone) return false;
     if((Kind_Of()!=15 || !static_cast<InfantryClass *>(this)->unknown_5c0) && !Techno_Type_Class()->AttackFriendlies && House->Is_Ally(tech)) {
         if(unknown_6c16f0(-1)>=0 && !engineer) return false;
-        if(object->Health_Ratio()==Rules->unknown_1360) return false;
+        if(object->Health_Ratio()==Rules->ConditionGreen) return false;
         if(object->Kind_Of()==2 && Kind_Of()==1) {
             if(object->Get_Height_AGL()>0) return false;
             if(Map[object->Center_Coord()].Cell_Building()) return false;
@@ -50,8 +50,8 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     }
     if(unknown_id_source_a3d290->unknown_000&0x800) {
         ObjectTypeClass *type=object->Class_Of();
-        for(int i=0;i<Rules->unknown_9ec.Count();i++) {
-            if(Rules->unknown_9ec[i]==type) return false;
+        for(int i=0;i<Rules->HarvesterUnit.Count();i++) {
+            if(Rules->HarvesterUnit[i]==type) return false;
         }
     }
     int dist;
@@ -120,7 +120,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     if(engineer) {
         if(object->Kind_Of()!=6) return false;
         if(House->Is_Ally(tech->House)) {
-            if(object->Health_Ratio()>Rules->unknown_1370) return false;
+            if(object->Health_Ratio()>Rules->ConditionRed) return false;
             if(!static_cast<BuildingClass *>(object)->Type->Cost_Of(House)) return false;
         }
     }

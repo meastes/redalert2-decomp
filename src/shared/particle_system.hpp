@@ -123,7 +123,7 @@ public:
     virtual void AI();                                                  // 0x0060CB70 slot 23
     virtual int In_Which_Layer() const;                                 // 0x0060CC90 (2)
     virtual ObjectTypeClass *Class_Of() const { return Class; }         // 0x0060D020 slot 33 (inline)
-    virtual void Delete_Me() { unknown_e4 = true; }                // 0x0060CFF0 (inline)
+    virtual void Delete_Me() { IsMarkedForDeletion = true; }                // 0x0060CFF0 (inline)
     virtual void Draw_It(Point2D const &point, Rect const &window);                    // 0x0060B090
 
     ParticleClass *Spawn_Particle(CoordStruct const &coord, CoordStruct const &target);            // 0x0060B190
@@ -142,12 +142,12 @@ public:
     DynamicVectorClass<ParticleClass *> Particles;  // +0x0A8
     CoordStruct TargetCoord;                        // +0x0C0
     ObjectClass *Owner;                             // +0x0CC (a TechnoClass; hypothesis)
-    AbstractClass *unknown_d0;                      // +0x0D0
+    AbstractClass *Target;                      // +0x0D0
     float SpawnFrames;                               // +0x0D4
     int Lifetime;                                   // +0x0D8
     int SparkSpawnFrames;                                 // +0x0DC
     int SparkRadius;                                 // +0x0E0
-    bool unknown_e4;                                // +0x0E4
+    bool IsMarkedForDeletion;                                // +0x0E4
     bool IsRandomSparkDirection;                                // +0x0E5
 };
 

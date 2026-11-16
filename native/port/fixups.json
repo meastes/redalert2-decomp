@@ -2310,8 +2310,8 @@
   },
   {
    "source": "src/recovered/objtype.cpp",
-   "old": "            unknown_ac = (int)MixFileClass::Retrieve(filename);",
-   "new": "            unknown_ac = Native_Pointer_Handle(MixFileClass::Retrieve(filename));   /* NATIVE: 32-bit handle */",
+   "old": "            AlphaImageData = (int)MixFileClass::Retrieve(filename);",
+   "new": "            AlphaImageData = Native_Pointer_Handle(MixFileClass::Retrieve(filename));   /* NATIVE: 32-bit handle */",
    "why": "ObjectTypeClass +0xAC holds the AlphaImage shape (MixFileClass::Retrieve in Read_INI 0x005D7810 and Load 0x005D7C30; read back as ShapeFileStruct * by AlphaShapeClass 0x0041EBE0 and 0x0041F5E0). Stored as an int it cut the 64-bit address, so an object type with AlphaImage= handed its alpha shape a dead pointer. The class's native layout is pinned (link/check_real_offsets_object_type.cpp), so the field keeps its int and carries a 32-bit handle (native/link/native_pointer_handles.cpp); 0 stays 0. Scout1246 (64/32 audit, Scout1242 finding).",
    "verified": false
   },
@@ -2324,8 +2324,8 @@
   },
   {
    "source": "src/recovered/objtype.cpp",
-   "old": "unknown_ac = (int)MixFileClass::Retrieve(filename);",
-   "new": "unknown_ac = Native_Pointer_Handle(MixFileClass::Retrieve(filename));   /* NATIVE: 32-bit handle */",
+   "old": "AlphaImageData = (int)MixFileClass::Retrieve(filename);",
+   "new": "AlphaImageData = Native_Pointer_Handle(MixFileClass::Retrieve(filename));   /* NATIVE: 32-bit handle */",
    "why": "ObjectTypeClass +0xAC holds the AlphaImage shape (MixFileClass::Retrieve in Read_INI 0x005D7810 and Load 0x005D7C30; read back as ShapeFileStruct * by AlphaShapeClass 0x0041EBE0 and 0x0041F5E0). Stored as an int it cut the 64-bit address, so an object type with AlphaImage= handed its alpha shape a dead pointer. The class's native layout is pinned (link/check_real_offsets_object_type.cpp), so the field keeps its int and carries a 32-bit handle (native/link/native_pointer_handles.cpp); 0 stays 0. Scout1246 (64/32 audit, Scout1242 finding).",
    "verified": false
   },
@@ -2338,8 +2338,8 @@
   },
   {
    "source": "src/recovered/alphashp.cpp",
-   "old": "(ShapeFileStruct *)object->Class_Of()->unknown_ac;",
-   "new": "(ShapeFileStruct *)Native_Pointer_From_Handle(object->Class_Of()->unknown_ac);   /* NATIVE: 32-bit handle */",
+   "old": "(ShapeFileStruct *)object->Class_Of()->AlphaImageData;",
+   "new": "(ShapeFileStruct *)Native_Pointer_From_Handle(object->Class_Of()->AlphaImageData);   /* NATIVE: 32-bit handle */",
    "why": "ObjectTypeClass +0xAC holds the AlphaImage shape (MixFileClass::Retrieve in Read_INI 0x005D7810 and Load 0x005D7C30; read back as ShapeFileStruct * by AlphaShapeClass 0x0041EBE0 and 0x0041F5E0). Stored as an int it cut the 64-bit address, so an object type with AlphaImage= handed its alpha shape a dead pointer. The class's native layout is pinned (link/check_real_offsets_object_type.cpp), so the field keeps its int and carries a 32-bit handle (native/link/native_pointer_handles.cpp); 0 stays 0. Scout1246 (64/32 audit, Scout1242 finding).",
    "verified": false
   },
@@ -2859,8 +2859,8 @@
   },
   {
    "source": "src/recovered/scenario.cpp",
-   "old": "    unknown_id_source_a3d290->unknown_224c = campaign;\n    Debug_Printf(\"\\n----- Starting scnenario: %s -----\\n\", name);\n",
-   "new": "    unknown_id_source_a3d290->unknown_224c = campaign;\n    void Native_Map_Zoom_Leave();   // NATIVE (C4): link/native_map_zoom.cpp\n    Native_Map_Zoom_Leave();\n    Debug_Printf(\"\\n----- Starting scnenario: %s -----\\n\", name);\n",
+   "old": "    unknown_id_source_a3d290->Campaign = campaign;\n    Debug_Printf(\"\\n----- Starting scnenario: %s -----\\n\", name);\n",
+   "new": "    unknown_id_source_a3d290->Campaign = campaign;\n    void Native_Map_Zoom_Leave();   // NATIVE (C4): link/native_map_zoom.cpp\n    Native_Map_Zoom_Leave();\n    Debug_Printf(\"\\n----- Starting scnenario: %s -----\\n\", name);\n",
    "why": "Native addition (C4, Map zoom, enhancements v2 part 2; not original behaviour): the map in play may be shown larger than the interface. The game's screen keeps its size; only the tactical view rectangle is made smaller (link/native_map_zoom.cpp) and the host shows it over the whole tactical area, larger (host.cpp zoom layout). At map zoom 1x (the default and the ORIGINAL preset) nothing changes. This row: Start_Scenario 0x0065BC70 tells the host a scenario is starting, so its loading screen and movies are shown whole until the game's first frame.",
    "verified": false
   },
@@ -3079,7 +3079,7 @@
   {
    "source": "src/recovered/scroll.cpp",
    "old": "        Map.Mouse_Right_Release(xy);\n        DisplayClass::Abort_Drag_Select();\n",
-   "new": "        if (Native_Modern_Right_Order(unknown_4f28)) {\n            Resolve_Point(point, cell, coord, object, arg5, arg6);\n            int action = Native_Modern_Right_Action(object, What_Action(cell, object, false));\n            if (action != 0) Map.Mouse_Left_Release(coord, cell, object, action, false);\n        } else {\n            Map.Mouse_Right_Release(xy);\n        }\n        DisplayClass::Abort_Drag_Select();\n",
+   "new": "        if (Native_Modern_Right_Order(IsDragOperation)) {\n            Resolve_Point(point, cell, coord, object, arg5, arg6);\n            int action = Native_Modern_Right_Action(object, What_Action(cell, object, false));\n            if (action != 0) Map.Mouse_Left_Release(coord, cell, object, action, false);\n        } else {\n            Map.Mouse_Right_Release(xy);\n        }\n        DisplayClass::Abort_Drag_Select();\n",
    "why": "Native addition (C16, Controls: Modern; not original behaviour): with the Enhancements setting Modern, left click selects and right click orders (link/native_modern_controls.cpp). With Classic (the default and the ORIGINAL preset) every Native_Modern_* answer is the original's own value, so the code runs as before. This row: ScrollClass::Message_Handler 0x0066A400, WM_RBUTTONUP: Modern takes a right click (no scroll ran, no mode on) as the order the original's left click would give there, never a selection; Classic, a scroll or a mode: Mouse_Right_Release as before.",
    "verified": false
   },

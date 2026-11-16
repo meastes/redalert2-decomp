@@ -186,7 +186,7 @@ bool MapRegionClass::Split_Region_0056ef20()
 
     for (int i = made.Count() - 1; i >= 0; --i) {
         MapRegionClass *region = made[i];
-        if (region->unknown_24) continue;
+        if (region->Discardable) continue;
         DynamicVectorClass<Cell> *border = region->Collect_Region_Boundary_0056fed0();
         int total = unknown_map_region_next_index_a70a28;
         bool *adjacent = new bool[total > 0 ? total : 1];
@@ -209,8 +209,8 @@ bool MapRegionClass::Split_Region_0056ef20()
             for (int k = 0; k < MapRegionClass_MapRegions.Count(); ++k) {
                 if (MapRegionClass_MapRegions[k]->Index == j) { other = MapRegionClass_MapRegions[k]; break; }
             }
-            if (other == 0 || other->unknown_24) continue;
-            if (other->CellCount > max_count && !other->unknown_14) {
+            if (other == 0 || other->Discardable) continue;
+            if (other->CellCount > max_count && !other->ContainsWater) {
                 max_count = other->CellCount;
                 merge_height = other->unknown_10;
                 merge_target = other;
@@ -251,7 +251,7 @@ bool MapRegionClass::Split_Region_0056ef20()
                     merge_target->CellCount++;
                     Split_Cell_Data(c).RegionIndex = merge_target->Index;
                 }
-                region->unknown_24 = true;
+                region->Discardable = true;
             }
         } else if (heights.Count() > 0) {
             int old_height = region->unknown_10;
@@ -263,7 +263,7 @@ bool MapRegionClass::Split_Region_0056ef20()
 
     for (int k = MapRegionClass_MapRegions.Count() - 1; k >= 0; --k) {
         MapRegionClass *region = MapRegionClass_MapRegions[k];
-        if (region != this && region != 0 && region->unknown_24) delete region;
+        if (region != this && region != 0 && region->Discardable) delete region;
     }
     ++unknown_1c;
     return true;

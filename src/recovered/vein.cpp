@@ -578,7 +578,7 @@ void VeinholeMonsterClass::Grow()
     if (VeinCount > Rules_Vein_Node_Count() - 100) {
         return;
     }
-    if (!unknown_id_source_a3d290->unknown_222b) {
+    if (!unknown_id_source_a3d290->IsVeinGrowth) {
         return;
     }
     int count = 0;

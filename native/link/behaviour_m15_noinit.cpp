@@ -34,7 +34,7 @@ extern "C" void *ra2_m16_noinit_scenario2(ScenarioClass *self, void const *) __a
 void *ra2_m16_noinit_scenario(ScenarioClass *self, void const *)
 {
     new (&self->RandomNumber) Random2Class(0);
-    new (&self->unknown_620) CDTimerClass<SystemTimerClass>();
+    new (&self->PauseTimer) CDTimerClass<SystemTimerClass>();
     new (&self->AllowableUnits) TypeList<TechnoTypeClass *>;
     new (&self->AllowableUnitMaximums) TypeList<int>;
     new (&self->AllowableUnitCounts) TypeList<int>;

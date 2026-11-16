@@ -114,8 +114,8 @@ public:
     unsigned short GuestName[20];   // +0x22 the guest's name as shown
     int GuestColor;                 // +0x4C (-1 unknown)
     int GuestHouse;                 // +0x50 (-1 unknown)
-    int unknown_54;                 // +0x54 RulesClass_Get_Rule_Unique_ID (the INI checksum sum)
-    int unknown_58;                 // +0x58 unknown_art_ini_unique_id
+    int CheatCheck;                 // +0x54 RulesClass_Get_Rule_Unique_ID (the INI checksum sum)
+    int ArtCheatCheck;                 // +0x58 unknown_art_ini_unique_id
     int AICheatCheck;                 // +0x5C unknown_ini_8397a0_unique_id
 };
 

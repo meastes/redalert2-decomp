@@ -674,11 +674,11 @@ bool __fastcall MissionClass::Is_Recruitable_Mission(int mission)
 
 MissionControlClass::MissionControlClass() :
     Mission(-1),
-    unknown_04(false),
+    IsNoThreat(false),
     IsZombie(false),
     IsRecruitable(true),
     IsParalyzed(false),
-    unknown_08(true),
+    IsRetaliate(true),
     IsScatter(true),
     unknown_10(0.016),
     unknown_18(0.016)
@@ -715,11 +715,11 @@ char const *MissionControlClass::Name() const
 bool MissionControlClass::Read_INI(CCINIClass &ini)
 {
     if (ini.Is_Present(Name())) {
-        unknown_04 = ini.Get_Bool(Name(), "NoThreat", unknown_04);
+        IsNoThreat = ini.Get_Bool(Name(), "NoThreat", IsNoThreat);
         IsZombie = ini.Get_Bool(Name(), "Zombie", IsZombie);
         IsRecruitable = ini.Get_Bool(Name(), "Recruitable", IsRecruitable);
         IsParalyzed = ini.Get_Bool(Name(), "Paralyzed", IsParalyzed);
-        unknown_08 = ini.Get_Bool(Name(), "Retaliate", unknown_08);
+        IsRetaliate = ini.Get_Bool(Name(), "Retaliate", IsRetaliate);
         IsScatter = ini.Get_Bool(Name(), "Scatter", IsScatter);
         unknown_10 = ini.Get_Double(Name(), "Rate", unknown_10);
         unknown_18 = ini.Get_Double(Name(), "AARate", 0);

@@ -123,9 +123,9 @@ ParticleClass::ParticleClass(ParticleTypeClass *type, CoordStruct const &coord, 
     FireOrigin(coord),
     FireMoveDelta(unknown_geometry_l),
     MovementDirection((float)(target.X - coord.X), (float)(target.Y - coord.Y), (float)(target.Z - coord.Z)),
-    unknown_108((float)coord.X, (float)coord.Y, (float)coord.Z),
+    PrecisePosition((float)coord.X, (float)coord.Y, (float)coord.Z),
     System(system),
-    unknown_11c(Class->StateAIAdvance),
+    StateAIAdvance(Class->StateAIAdvance),
     IsFireBelowGround(0),
     StateAI(Class->StartStateAI),
     Translucency(Class->Translucency),
@@ -164,7 +164,7 @@ ParticleClass::ParticleClass(ParticleTypeClass *type, CoordStruct const &coord, 
                 steps = other;
             }
         }
-        unknown_11c = (char)(steps / (Class->FinalDamageState + 1) + 1.0);
+        StateAIAdvance = (char)(steps / (Class->FinalDamageState + 1) + 1.0);
     }
     if (Class->ColorList.Count() > 0) {
         if (Class->StartColor1.Red == 0 && Class->StartColor1.Green == 0 && Class->StartColor1.Blue == 0
@@ -191,9 +191,9 @@ ParticleClass::ParticleClass() :
     FireOrigin(unknown_geometry_l),
     FireMoveDelta(unknown_geometry_l),
     MovementDirection(0, 0, 0),
-    unknown_108(0, 0, 0),
+    PrecisePosition(0, 0, 0),
     System(0),
-    unknown_11c(0),
+    StateAIAdvance(0),
     IsFireBelowGround(0),
     StateAI(0),
     Translucency(0),
@@ -278,7 +278,7 @@ void ParticleClass::Gas_Behavior_AI()
         Vector3 position(coord.X, coord.Y, coord.Z);
         Vector3 &velocity = GasVelocity;
         velocity = Vector3(0, 0, -2);
-        double gravity = Rules->unknown_1320;
+        double gravity = Rules->Gravity;
         velocity.Z -= gravity;
 
         CoordStruct old_coord;
@@ -383,8 +383,8 @@ void ParticleClass::Railgun_Behavior_AI()
     float speed = Velocity;
     Vector3 step; step.X = direction.X * speed; step.Y = direction.Y * speed; step.Z = direction.Z * speed;
     Velocity += (unknown_id_source_a3d290->Random()(0, 0x7ffffffe) * 4.656612877414201e-10 - 0.5) * 0.1;
-    Advance_Particle_Position(unknown_108, step);
-    CoordStruct coord; coord.X = (int)unknown_108.X; coord.Y = (int)unknown_108.Y; coord.Z = (int)unknown_108.Z;
+    Advance_Particle_Position(PrecisePosition, step);
+    CoordStruct coord; coord.X = (int)PrecisePosition.X; coord.Y = (int)PrecisePosition.Y; coord.Z = (int)PrecisePosition.Z;
     Set_Coord(coord);
     double color_change = unknown_id_source_a3d290->Random()(0, 0x7ffffffe) * 4.656612877414201e-10;
     color_change *= Particle_Color_Step_007a10f8;
@@ -450,7 +450,7 @@ void ParticleClass::Fire_Behavior_AI()
     int dz = (int)(step.Z * Velocity);
     FireMoveDelta = CoordStruct(dx, dy, dz);
     if (StateAI < Class->EndStateAI) {
-        if ((Fetch_ID() + (Class->MaxEC - Lifetime)) % ((Fetch_ID() & 1) + unknown_11c) == 0) {
+        if ((Fetch_ID() + (Class->MaxEC - Lifetime)) % ((Fetch_ID() & 1) + StateAIAdvance) == 0) {
             ++StateAI;
             if (StateAI == Class->Translucent25State) Translucency = 25;
             if (StateAI == Class->Translucent50State) Translucency = 50;
@@ -500,10 +500,10 @@ extern "C" double const Particle_Color_Step_007a10f8;
 void ParticleClass::Spark_Behavior_AI()
 {
     CoordStruct coord = Coord;
-    MovementDirection.Z -= Rules->unknown_1320;
+    MovementDirection.Z -= Rules->Gravity;
     Vector3 velocity(MovementDirection.X, MovementDirection.Y, MovementDirection.Z);
     Vector3 position(coord.X, coord.Y, coord.Z);
-    double gravity = Rules->unknown_1320;
+    double gravity = Rules->Gravity;
     velocity.Z -= gravity;
 
     CoordStruct old_coord;

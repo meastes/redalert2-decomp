@@ -216,7 +216,7 @@ void Unknown535910::Unknown_00535B90()
         }
     }
     if (unknown_game_mode_a3d298 == 0) {
-        Unknown_006f24a0(unknown_id_source_a3d290->unknown_2239 == 0);
+        Unknown_006f24a0(unknown_id_source_a3d290->IsGDI == 0);
     } else {
         Unknown_006f25c0();
     }

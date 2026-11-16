@@ -116,7 +116,7 @@ void EnvironmentClass::Capture_004B5AB0()
  Credits=PlayerPtr->Available_Money();
  TimerRemaining=unknown_id_source_a3d290->MissionTimer.Value();
  Difficulty=PlayerPtr->unknown_c8;
- unknown_40=unknown_id_source_a3d290->unknown_2304;
+ unknown_40=unknown_id_source_a3d290->Stage;
 }
 
 
@@ -131,7 +131,7 @@ void EnvironmentClass::Restore_004B5B40()
     for (int i = 0; i < 50; ++i) {
         unknown_id_source_a3d290->Set_Global_To(i, Variables[i]);
     }
-    int cap = unknown_id_source_a3d290->unknown_1208;
+    int cap = unknown_id_source_a3d290->CarryOverCap;
     double money = Credits * unknown_id_source_a3d290->CarryOverMoney;
     if (cap != -1) {
         money = money < (double)cap ? money : (double)cap;
@@ -140,13 +140,13 @@ void EnvironmentClass::Restore_004B5B40()
     PlayerPtr->Refund_Money(credits);
     PlayerPtr->unknown_124 += credits;
     PlayerPtr->Assign_Handicap(Difficulty);
-    if (unknown_id_source_a3d290->unknown_2231) {
+    if (unknown_id_source_a3d290->IsInheritTimer) {
         if (TimerRemaining > 0) {
             unknown_id_source_a3d290->MissionTimer = CDTimerClass<FrameTimerClass>(TimerRemaining);
             unknown_id_source_a3d290->MissionTimer.Start();
         }
     }
-    unknown_id_source_a3d290->unknown_2304 = unknown_40;
+    unknown_id_source_a3d290->Stage = unknown_40;
 }
 
 

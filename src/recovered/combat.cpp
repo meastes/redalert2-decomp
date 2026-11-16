@@ -270,7 +270,7 @@ int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoCl
         for (; object; object = object->unknown_30) {
             if (object != source && object->IsActive) {
                 if (object->Kind_Of() == 1 && unknown_id_source_a3d290->Special().HarvesterImmune) {
-                    if (Rules->unknown_9ec.Is_Present((UnitTypeClass *)object->Class_Of())) {
+                    if (Rules->HarvesterUnit.Is_Present((UnitTypeClass *)object->Class_Of())) {
                         continue;
                     }
                 }
@@ -365,7 +365,7 @@ int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoCl
         if ((bcptr != 0 && (bcptr->OverlayIndex == 0x18 || bcptr->OverlayIndex == 0x19)) ||
             Is_Bridge_Tile(ittype)) {
             if (!(cptr->unknown_140 & 0x100) || (coord.Z <= unknown_geometry_j + unknown_geometry_g * (cptr->Height + 1) && coord.Z > unknown_geometry_j + unknown_geometry_g * (cptr->Height - 2))) {
-                if (warhead->Wall && (warhead == Rules->IonCannonWarhead || Random_Pick(1, Rules->unknown_13a8) < strength)) {
+                if (warhead->Wall && (warhead == Rules->IonCannonWarhead || Random_Pick(1, Rules->BridgeStrength) < strength)) {
                     bool damaged = Map.Damage_Bridge(&cell);
                     int tries = 3;
                     while (!damaged && ion && tries > 0) {
@@ -386,7 +386,7 @@ int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoCl
         if ((bcptr != 0 && (bcptr->OverlayIndex == 0xED || bcptr->OverlayIndex == 0xEE)) ||
             Is_Bridge_Tile(ittype2)) {
             if (!(cptr->unknown_140 & 0x100) || (coord.Z <= unknown_geometry_j + unknown_geometry_g * (cptr->Height + 1) && coord.Z > unknown_geometry_j + unknown_geometry_g * (cptr->Height - 2))) {
-                if (warhead->Wall && (warhead == Rules->IonCannonWarhead || Random_Pick(1, Rules->unknown_13a8) < strength)) {
+                if (warhead->Wall && (warhead == Rules->IonCannonWarhead || Random_Pick(1, Rules->BridgeStrength) < strength)) {
                     bool damaged = Map.Damage_Bridge(&cell);
                     int tries = 3;
                     while (!damaged && ion && tries > 0) {
@@ -404,14 +404,14 @@ int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoCl
         }
 
         if (cptr->OverlayIndex >= 0x4A && cptr->OverlayIndex <= 0x63) {
-            if (warhead == Rules->IonCannonWarhead || Random_Pick(1, Rules->unknown_13a8) < strength) {
+            if (warhead == Rules->IonCannonWarhead || Random_Pick(1, Rules->BridgeStrength) < strength) {
                 if (Map.Damage_Low_Bridge(cell)) {
                     Unknown_006D7C80((AbstractClass *)cptr);
                 }
             }
         }
         if (cptr->OverlayIndex >= 0xCD && cptr->OverlayIndex <= 0xE6) {
-            if (warhead == Rules->IonCannonWarhead || Random_Pick(1, Rules->unknown_13a8) < strength) {
+            if (warhead == Rules->IonCannonWarhead || Random_Pick(1, Rules->BridgeStrength) < strength) {
                 if (Map.Unknown_0055EDB0(cell)) {
                     Unknown_006D7C80((AbstractClass *)cptr);
                 }
@@ -723,7 +723,7 @@ bool __fastcall Is_Projectile_Trajectory_Valid(int speed, int distance, int heig
 
 double __cdecl Get_Floater_Gravity()
 {
-    return Rules->unknown_1320 * 0.5;
+    return Rules->Gravity * 0.5;
 }
 
 

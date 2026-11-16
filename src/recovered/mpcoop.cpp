@@ -912,7 +912,7 @@ void MPCooperative::unknown_slot34(bool player_wins)
     unknown_198 = unknown_session_a3d298.unknown_3022;
     wcscpy(unknown_master_name_168, unknown_session_a3d298.MasterPlayerName);
     unknown_master_id_194 = unknown_session_a3d298.MasterPlayerID;
-    unknown_74 = unknown_session_a3d298.unknown_124;
+    unknown_74 = unknown_session_a3d298.House;
     unknown_a0 = Seed;
     unknown_a4 = BuildLevel;
     unknown_units_a8 = unknown_session_a3d298.UnitCount;
@@ -932,7 +932,7 @@ void MPCooperative::unknown_slot34(bool player_wins)
     unknown_c2 = unknown_session_a3d298.unknown_2c;
     unknown_c3 = unknown_session_a3d298.unknown_34;
     unknown_game_speed_c4 = unknown_session_a3d298.GameSpeed_30;
-    unknown_session_a3d298.unknown_2b0 = 0;
+    unknown_session_a3d298.MultiplayerObserver = 0;
     Map.Unknown_00498F10(0);
     unknown_833680 = 0;
     unknown_833684 = 0;
@@ -1310,7 +1310,7 @@ void MPCooperative::unknown_slot37()
     char name[260];
     sprintf(name, "%s.MAP", map);
     strcpy(unknown_id_source_a3d290->NextScenario, name);
-    unknown_id_source_a3d290->unknown_224c = -1;
+    unknown_id_source_a3d290->Campaign = -1;
     unknown_id_source_a3d290->SkipScore = true;
     int count = unknown_multi_missions_a3d8d8.Count();
     sprintf(name, "%s.MAP", map);
@@ -1374,7 +1374,7 @@ void MPCooperative::unknown_slot37()
     unknown_address_a3db2c = unknown_players_a3fa7c[unknown_58]->Address;
     wcscpy(unknown_session_a3d298.MasterPlayerName, unknown_players_a3fa7c[unknown_58]->Name);
     unknown_session_a3d298.MasterPlayerID = -1;
-    unknown_session_a3d298.unknown_124 = unknown_74;
+    unknown_session_a3d298.House = unknown_74;
     PacketTransport->Clear_Broadcast_Addresses();
     char address[32] = "xxx.xxx.xxx.xxx";
     for (int n = 1; n < unknown_players_a3fa7c.Count(); n++) {
@@ -1411,38 +1411,38 @@ void MPCooperative::unknown_slot37()
     switch (unknown_session_a3d298.GameSpeed_30) {
     case 0:
         unknown_session_a3d298.MaxAhead_2c8 = 40;
-        unknown_session_a3d298.unknown_2e8 = 60;
-        unknown_session_a3d298.unknown_2cc = 10;
+        unknown_session_a3d298.PrecalcDesiredFrameRate = 60;
+        unknown_session_a3d298.FrameSendRate = 10;
         break;
     case 1:
         unknown_session_a3d298.MaxAhead_2c8 = 40;
-        unknown_session_a3d298.unknown_2e8 = 45;
-        unknown_session_a3d298.unknown_2cc = 10;
+        unknown_session_a3d298.PrecalcDesiredFrameRate = 45;
+        unknown_session_a3d298.FrameSendRate = 10;
         break;
     case 2:
         unknown_session_a3d298.MaxAhead_2c8 = 30;
-        unknown_session_a3d298.unknown_2e8 = 30;
+        unknown_session_a3d298.PrecalcDesiredFrameRate = 30;
         break;
     case 3:
         unknown_session_a3d298.MaxAhead_2c8 = 20;
-        unknown_session_a3d298.unknown_2e8 = 20;
+        unknown_session_a3d298.PrecalcDesiredFrameRate = 20;
         break;
     case 4:
         unknown_session_a3d298.MaxAhead_2c8 = 20;
-        unknown_session_a3d298.unknown_2e8 = 15;
+        unknown_session_a3d298.PrecalcDesiredFrameRate = 15;
         break;
     case 5:
         unknown_session_a3d298.MaxAhead_2c8 = 20;
-        unknown_session_a3d298.unknown_2e8 = 12;
+        unknown_session_a3d298.PrecalcDesiredFrameRate = 12;
         break;
     default:
         unknown_session_a3d298.MaxAhead_2c8 = 10;
-        unknown_session_a3d298.unknown_2e8 = 10;
+        unknown_session_a3d298.PrecalcDesiredFrameRate = 10;
         break;
     }
-    unknown_session_a3d298.unknown_2e4 = 0;
+    unknown_session_a3d298.PrecalcMaxAhead = 0;
     if (!unknown_04) {
-        unknown_session_a3d298.unknown_2e8 = 0;
+        unknown_session_a3d298.PrecalcDesiredFrameRate = 0;
     }
     int ping = 0;
     for (int k = 0; k < unknown_players_a3fa7c.Count(); k++) {
@@ -1452,7 +1452,7 @@ void MPCooperative::unknown_slot37()
     }
     unknown_session_a3d298.unknown_290c = 1;
     if (ping == 0 || ping == 1000) {
-        unknown_session_a3d298.unknown_2e8 = 0;
+        unknown_session_a3d298.PrecalcDesiredFrameRate = 0;
         Debug_Printf("Ping times not available\n");
     } else {
         Debug_Printf("Max ping is %d ms\n", ping);
@@ -1470,20 +1470,20 @@ void MPCooperative::unknown_slot37()
                 switch (unknown_session_a3d298.unknown_290c) {
                 case 0:
                 case 1:
-                    unknown_session_a3d298.unknown_2e4 = unknown_session_a3d298.MaxAhead_2c8;
+                    unknown_session_a3d298.PrecalcMaxAhead = unknown_session_a3d298.MaxAhead_2c8;
                     break;
                 case 2:
-                    unknown_session_a3d298.unknown_2e4 = unknown_session_a3d298.MaxAhead_2c8 / 2 + unknown_session_a3d298.MaxAhead_2c8;
+                    unknown_session_a3d298.PrecalcMaxAhead = unknown_session_a3d298.MaxAhead_2c8 / 2 + unknown_session_a3d298.MaxAhead_2c8;
                     break;
                 case 3:
-                    unknown_session_a3d298.unknown_2e4 = unknown_session_a3d298.MaxAhead_2c8 * 2;
+                    unknown_session_a3d298.PrecalcMaxAhead = unknown_session_a3d298.MaxAhead_2c8 * 2;
                     break;
                 }
-                unknown_session_a3d298.unknown_2e4 = unknown_session_a3d298.unknown_2e4 / 10 * 10;
+                unknown_session_a3d298.PrecalcMaxAhead = unknown_session_a3d298.PrecalcMaxAhead / 10 * 10;
             }
         }
     }
-    unknown_session_a3d298.unknown_2e0 = unknown_session_a3d298.MaxAhead_2c8;
+    unknown_session_a3d298.MaxMaxAhead = unknown_session_a3d298.MaxAhead_2c8;
     memset(player_statistics_00a3d584, 0, sizeof(player_statistics_00a3d584));
     unknown_squad_1_b2a820[0] = '\0';
     Options.GameSpeed = unknown_session_a3d298.GameSpeed_30;

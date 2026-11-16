@@ -122,8 +122,8 @@ LightConvertClass::LightConvertClass(PaletteClass const &artpalette, PaletteClas
                 Green = green_tint;
                 Blue = blue_tint;
             }
-            Set_Tint(unknown_id_source_a3d290->unknown_22e4 * 1000 / 100, unknown_id_source_a3d290->unknown_22e8 * 1000 / 100,
-                     unknown_id_source_a3d290->unknown_22ec * 1000 / 100, true);
+            Set_Tint(unknown_id_source_a3d290->NukeRedTint * 1000 / 100, unknown_id_source_a3d290->NukeGreenTint * 1000 / 100,
+                     unknown_id_source_a3d290->NukeBlueTint * 1000 / 100, true);
         } else {
             Set_Tint(red_tint, green_tint, blue_tint, false);
         }

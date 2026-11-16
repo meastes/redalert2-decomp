@@ -114,9 +114,9 @@ bool TEventClass::unknown_func_6e6050(int event, HouseClass *house, ObjectClass 
 {
     switch (Type) {
     case 0x2D:
-        return unknown_id_source_a3d290->unknown_22ac <= Data;
+        return unknown_id_source_a3d290->CurrentAmbientLight <= Data;
     case 0x2E:
-        return unknown_id_source_a3d290->unknown_22ac >= Data;
+        return unknown_id_source_a3d290->CurrentAmbientLight >= Data;
     case 0x2F:
         if (Data > Frame / 15) {
             return false;

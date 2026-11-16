@@ -2401,20 +2401,20 @@ bool __fastcall Select_Control_Rect_005e6450(HWND dialog,HWND control,Rect *boun
     else if (kind == 0x103) {
         if (id != 0x72b) return false;
         if (VideoModeWidth >= ScreenWidths[1]) {
-            if (unknown_id_source_a3d290->unknown_2239) selected = new Rect(0x68,0x8e,0x1a8,0xdc);
+            if (unknown_id_source_a3d290->IsGDI) selected = new Rect(0x68,0x8e,0x1a8,0xdc);
             else selected = new Rect(0x67,0x82,0x1a8,0xe6);
         } else {
-            if (unknown_id_source_a3d290->unknown_2239) selected = new Rect(0x18,0x8e,0x1a8,0xdc);
+            if (unknown_id_source_a3d290->IsGDI) selected = new Rect(0x18,0x8e,0x1a8,0xdc);
             else selected = new Rect(0x17,0x82,0x1a8,0xe6);
         }
     }
     else if (kind == 0xbc7) {
         if (id != 0x72b) return false;
         if (VideoModeWidth >= ScreenWidths[1]) {
-            if (unknown_id_source_a3d290->unknown_2239) selected = new Rect(0x68,0x8e,0x1a8,0xdc);
+            if (unknown_id_source_a3d290->IsGDI) selected = new Rect(0x68,0x8e,0x1a8,0xdc);
             else selected = new Rect(0x67,0x82,0x1a8,0xe6);
         } else {
-            if (unknown_id_source_a3d290->unknown_2239) selected = new Rect(0x18,0x8e,0x1a8,0xdc);
+            if (unknown_id_source_a3d290->IsGDI) selected = new Rect(0x18,0x8e,0x1a8,0xdc);
             else selected = new Rect(0x17,0x82,0x1a8,0xe6);
         }
     }
@@ -7492,7 +7492,7 @@ void __fastcall unknown_draw_dialog_back_5fee70(HWND window)
                 surface->Copy_From(to, *AlternateSurface, full, false, true);
                 void *shape;
                 if (unknown_session_a3d298.Is_In_Game()) {
-                    if (unknown_id_source_a3d290->unknown_2239) {
+                    if (unknown_id_source_a3d290->IsGDI) {
                         shape = unknown_art_ac121c;
                     } else {
                         shape = unknown_art_ac1220;

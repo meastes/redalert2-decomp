@@ -291,13 +291,13 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                     LinkedTo->Stop_Movement_Animation();
                     return;
                 }
-                LinkedTo->unknown_530 = Rules->unknown_13c8 * 900.0;
+                LinkedTo->unknown_530 = Rules->PathDelay * 900.0;
                 if (!LinkedTo->unknown_4c3000(unknown_18.As_Cell(), 0, 0)) {
                     if (!LinkedTo->unknown_slot171(unknown_18)) {
                         LinkedTo->Assign_Destination(0, true);
                         return;
                     }
-                    if (Coord_Length(LinkedTo->Center_Coord(), unknown_18) < Rules->unknown_1380 && !LinkedTo->unknown_370) {
+                    if (Coord_Length(LinkedTo->Center_Coord(), unknown_18) < Rules->CloseEnoughDistance && !LinkedTo->unknown_370) {
                         LinkedTo->Assign_Destination(0, true);
                     } else if (LinkedTo->unknown_53c != 0) {
                         LinkedTo->unknown_53c--;
@@ -379,7 +379,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                             return;
                         }
                         int dist = Distance3(LinkedTo->Center_Coord(), unknown_18);
-                        if (dist < Rules->unknown_1380 && !LinkedTo->HasAnyLink()
+                        if (dist < Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink()
                             && abs(unknown_18.Z - Object_Coord(LinkedTo).Z) < unknown_geometry_g * 2
                             && Map[Object_Coord(LinkedTo)].Land != 10) {
                             LinkedTo->unknown_slot306(0.0);
@@ -411,7 +411,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         if (LinkedTo->unknown_530 == 0) {
                             bool blocked = LinkedTo->unknown_5a1 && LinkedTo->unknown_558 == 0;
                             bool found = LinkedTo->unknown_4c3000(unknown_18.As_Cell(), 0, blocked ? 2 : 1);
-                            LinkedTo->unknown_530 = Rules->unknown_13c8 * 900.0;
+                            LinkedTo->unknown_530 = Rules->PathDelay * 900.0;
                             if (!found) {
                                 if (!LinkedTo->unknown_slot171(unknown_18)) {
                                     LinkedTo->Assign_Destination(0, true);

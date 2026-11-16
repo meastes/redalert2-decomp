@@ -298,7 +298,7 @@ bool WeaponTypeClass::Read_INI(CCINIClass &ini)
 void WeaponTypeClass::Init_Max_Speed()
 {
     if (Projectile != 0 && Projectile->ROT == 0) {
-        double gravity = Rules->unknown_1320;
+        double gravity = Rules->Gravity;
         if (Projectile->Floater) {
             gravity = Get_Floater_Gravity();
         }
@@ -562,7 +562,7 @@ int __fastcall WeaponTypeClass::Index_From_Name(char const *name)
 int WeaponTypeClass::Get_Speed(int range) const
 {
     if (Projectile != 0 && Projectile->ROT == 0) {
-        double gravity = Projectile->Floater ? Get_Floater_Gravity() : Rules->unknown_1320;
+        double gravity = Projectile->Floater ? Get_Floater_Gravity() : Rules->Gravity;
         return Calculate_Projectile_Speed(range, gravity);
     }
     return unknown_a8;

@@ -309,7 +309,7 @@ void WaveClass::Damage_Cell_00721eb0(CoordStruct const &coord)
             if (overlay->Wall) cell.Reduce_Wall(weapon->unknown_98);
         }
         if (cell.Is_Tile_Destroyable_Cliff()) {
-            int chance = Rules->unknown_140c;
+            int chance = Rules->CollapseChance;
             if (unknown_id_source_a3d290->Random()(0, 99) < chance) Map.Unknown_00562F50(&cell);
         }
     }

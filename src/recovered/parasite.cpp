@@ -420,7 +420,7 @@ void ParasiteClass::AI()
         damage = unknown_28->Strength;
         unknown_28->Take_Damage(&damage, 0, warhead, Owner, true, true);
     } else {
-        new ParticleSystemClass(Rules->unknown_ce0, coord, 0, 0, unknown_geometry_l);
+        new ParticleSystemClass(Rules->DefaultSparkSystem, coord, 0, 0, unknown_geometry_l);
         UnknownFacingDir dir = unknown_28->PrimaryFacing.Current();
         if (weapon->Anim.Count() != 0) {
             AnimTypeClass *anim = weapon->Anim[Dir_To_8(dir)];

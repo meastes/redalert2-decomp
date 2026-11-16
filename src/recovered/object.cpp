@@ -114,7 +114,7 @@ ObjectClass::ObjectClass() :
     IsOnBridge(false),
     IsFalling(false),
     IsABomb(false),
-    unknown_7c(false),
+    IsToExplode(false),
     IsActive(true),
     Layer(-1),
     IsSubmittedToLayer(false),
@@ -122,8 +122,8 @@ ObjectClass::ObjectClass() :
     Coord(unknown_geometry_l),
     LineTrailer(0)
 {
-    unknown_3c.Init();
-    unknown_50.Init();
+    AmbientSoundController.Init();
+    CustomSoundController.Init();
     unknown_objects_a40368.Add(this);
     ObjectPtrTracker.Add(this);
     AbstractTypePtrTracker.Add(this);
@@ -152,10 +152,10 @@ ObjectClass::~ObjectClass()
     TagPtrTracker.Delete(this);
     unknown_30 = 0;
     IsActive = false;
-    unknown_3c.Unknown_00405D50();
-    unknown_50.Unknown_00405D50();
-    unknown_3c.Unknown_00405C10();
-    unknown_50.Unknown_00405C10();
+    AmbientSoundController.Unknown_00405D50();
+    CustomSoundController.Unknown_00405D50();
+    AmbientSoundController.Unknown_00405C10();
+    CustomSoundController.Unknown_00405C10();
     unknown_func_5d2710();
 }
 
@@ -223,12 +223,12 @@ void ObjectClass::AI()
     if (!IsInLimbo) {
         if (Class_Of() && Class_Of()->AmbientSound != -1) {
             CoordStruct current = Coord;
-            Voc_Play_At(Class_Of()->AmbientSound, current, &unknown_3c);
+            Voc_Play_At(Class_Of()->AmbientSound, current, &AmbientSoundController);
         }
         int sound = CustomSound;
         if (sound != -1) {
             CoordStruct current = Coord;
-            Voc_Play_At(sound, current, &unknown_50);
+            Voc_Play_At(sound, current, &CustomSoundController);
         }
     }
     if (!IsFalling) return;
@@ -257,7 +257,7 @@ void ObjectClass::AI()
         unknown_24.unknown_08 = velocity;
         if (previous_state != In_Which_Layer()) Map.Submit(this);
         if (!IsFalling) {
-        if (unknown_7c && Strength > 0) {
+        if (IsToExplode && Strength > 0) {
             int damage = Strength;
             Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 1);
         }
@@ -290,7 +290,7 @@ void ObjectClass::AI()
 void ObjectClass::Fall_From_Height()
 {
     IsFalling = true;
-    unknown_7c = true;
+    IsToExplode = true;
     Mark(0);
     Map.Remove(this);
     IsOnBridge = false;
@@ -689,18 +689,18 @@ bool ObjectClass::Limbo()
     unknown_slot54(true);
     Mark(0);
     Map.Remove(this);
-    unknown_3c.Unknown_00405D50();
-    unknown_50.Unknown_00405FE0();
+    AmbientSoundController.Unknown_00405D50();
+    CustomSoundController.Unknown_00405FE0();
     if (Class_Of() && Class_Of()->IsSentient) {
         if (unknown_game_mode_a3d298 == 0 || unknown_game_mode_a3d298 == 5 ||
             Fetch_ID() != -2)
             unknown_list_832470.Remove(this);
     }
-    if (Class_Of() && Class_Of()->unknown_ac) {
+    if (Class_Of() && Class_Of()->AlphaImageData) {
         Point2D pixel;
         CoordStruct location = Center_Coord();
         TacticalMap->Coord_To_Pixel(location, pixel);
-        ShapeFileStruct *shape = reinterpret_cast<ShapeFileStruct *>(Class_Of()->unknown_ac);
+        ShapeFileStruct *shape = reinterpret_cast<ShapeFileStruct *>(Class_Of()->AlphaImageData);
         Point2D half;
         half.X = shape->Width / 2;
         half.Y = shape->Height / 2;
@@ -747,12 +747,12 @@ bool ObjectClass::Unlimbo(CoordStruct const *coord, int direction)
                      (Kind_Of() == 0x24 && static_cast<TerrainTypeClass *>(type)->SpawnsTiberium)) &&
                     (unknown_game_mode_a3d298 == 0 || unknown_game_mode_a3d298 == 5 || Fetch_ID() != -2))
                     unknown_list_832470.Submit(this, false);
-                if (type->unknown_ac) {
+                if (type->AlphaImageData) {
                     CoordStruct location = Center_Coord();
                     Point2D pixel;
                     TacticalMap->Coord_To_Pixel(location, pixel);
                     Object_Placement_Add_Point(pixel, Point2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY));
-                    ShapeFileStruct *shape = reinterpret_cast<ShapeFileStruct *>(Class_Of()->unknown_ac);
+                    ShapeFileStruct *shape = reinterpret_cast<ShapeFileStruct *>(Class_Of()->AlphaImageData);
                     Point2D half;
                     half.X = shape->Width / 2;
                     half.Y = shape->Height / 2;
@@ -844,7 +844,7 @@ int ObjectClass::Receive_Message(RadioClass *from, int message, AbstractClass *&
 {
     switch (message) {
     case 0x22:
-        if (Health_Ratio() < Rules->unknown_1360) {
+        if (Health_Ratio() < Rules->ConditionGreen) {
             return 1;
         }
         return 10;
@@ -883,7 +883,7 @@ int ObjectClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
         if (old_strength >= (maximum_strength >> 1) &&
             (int)((unsigned int)old_strength - (unsigned int)*damage) < (maximum_strength >> 1)) state = 2;
     } else *damage = old_strength;
-    double threshold = (double)maximum_strength * Rules->unknown_1370;
+    double threshold = (double)maximum_strength * Rules->ConditionRed;
     if ((double)old_strength > threshold &&
         (double)(int)((unsigned int)old_strength - (unsigned int)*damage) < threshold) state = 3;
     Strength = (int)((unsigned int)old_strength - (unsigned int)*damage);
@@ -1026,11 +1026,11 @@ bool ObjectClass::unknown_slot56(CoordStruct const &coord)
                     Set_Coord(coord);
                     AnimClass *anim;
                     if (Kind_Of() == 8) {
-                        anim = new AnimClass(Rules->unknown_a78, coord, 0, 1, 0x600, 0);
+                        anim = new AnimClass(Rules->BombParachute, coord, 0, 1, 0x600, 0);
                     } else {
                         CoordStruct above = coord;
                         above.Z += 0x4B;
-                        anim = new AnimClass(Rules->unknown_a7c, above, 0, 1, 0x600, 0);
+                        anim = new AnimClass(Rules->Parachute, above, 0, 1, 0x600, 0);
                     }
                     if (anim != 0) {
                         anim->Attach_To(this);
@@ -1121,7 +1121,7 @@ void ObjectClass::Set_Health_Ratio(double ratio)
 
 int ObjectClass::Is_Red_HP() const
 {
-    if (Health_Ratio() <= Rules->unknown_1370 && Strength > 0) {
+    if (Health_Ratio() <= Rules->ConditionRed && Strength > 0) {
         return 1;
     }
     return 0;
@@ -1132,7 +1132,7 @@ int ObjectClass::Is_Red_HP() const
 
 int ObjectClass::Is_Yellow_HP() const
 {
-    if (Health_Ratio() > Rules->unknown_1370 && Health_Ratio() <= Rules->unknown_1368) {
+    if (Health_Ratio() > Rules->ConditionRed && Health_Ratio() <= Rules->ConditionYellow) {
         return 1;
     }
     return 0;
@@ -1143,7 +1143,7 @@ int ObjectClass::Is_Yellow_HP() const
 
 int ObjectClass::Is_Green_HP() const
 {
-    if (Health_Ratio() > Rules->unknown_1368) {
+    if (Health_Ratio() > Rules->ConditionYellow) {
         return 1;
     }
     return 0;
@@ -1154,10 +1154,10 @@ int ObjectClass::Is_Green_HP() const
 
 int ObjectClass::GetHealthStatus() const
 {
-    if (Health_Ratio() <= Rules->unknown_1370 && Strength > 0) {
+    if (Health_Ratio() <= Rules->ConditionRed && Strength > 0) {
         return 0;
     }
-    if (Health_Ratio() > Rules->unknown_1370 && Health_Ratio() <= Rules->unknown_1368) {
+    if (Health_Ratio() > Rules->ConditionRed && Health_Ratio() <= Rules->ConditionYellow) {
         return 1;
     }
     return 2;
@@ -1176,8 +1176,8 @@ HRESULT __stdcall ObjectClass::Load(IStream *stream)
     Swizzler.Swizzle((void **)&unknown_34);
     Swizzler.Swizzle((void **)&unknown_38);
     Swizzler.Swizzle((void **)&unknown_18);
-    unknown_3c.Init();
-    unknown_50.Init();
+    AmbientSoundController.Init();
+    CustomSoundController.Init();
     LineTrailer = 0;
     return S_OK;
 }
@@ -1323,7 +1323,7 @@ void ObjectClass::Compute_CRC(WWCRCEngine &crc) const
     crc(IsAnimAttached);
     crc(IsOnBridge);
     crc(IsFalling);
-    crc(unknown_7c);
+    crc(IsToExplode);
     crc(IsActive);
     crc((long)Coord.X);
     crc((long)Coord.Y);
@@ -1672,6 +1672,6 @@ void ObjectClass::Set_Ambient_Sound(int value)
 {
     CustomSound = value;
     if (value == -1) {
-        unknown_50.Unknown_00405FE0();
+        CustomSoundController.Unknown_00405FE0();
     }
 }

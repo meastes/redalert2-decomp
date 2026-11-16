@@ -295,9 +295,9 @@ UnknownMapGenerationCell::UnknownMapGenerationCell()
 extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 MapRegionClass::MapRegionClass(Cell origin)
     : unknown_00(0), NeighborRegionIndices(0), Index(unknown_map_region_next_index_a70a28),
-      CellCount(0), unknown_10(Map[origin].Height), unknown_14(Map[origin].Is_Tile_With_Water()),
+      CellCount(0), unknown_10(Map[origin].Height), ContainsWater(Map[origin].Is_Tile_With_Water()),
       Origin(origin), Unsplittable(false), HasConnections(true), unknown_1c(0), unknown_20(0),
-      unknown_24(false), Cells(), Bounds(0,0,0,0)
+      Discardable(false), Cells(), Bounds(0,0,0,0)
 {
     Cells.Set_Growth_Step(100000);
     unknown_map_region_next_index_a70a28 = (int)((unsigned)unknown_map_region_next_index_a70a28 + 1u);
@@ -644,7 +644,7 @@ MapRegionClass *__fastcall MapRegionClass::Create_Region_From_Cell(CellClass *ce
 
     MapRegionClass *region = new MapRegionClass(cell_ptr->Fetch_CellID());
     region->unknown_10 = cell_height;
-    region->unknown_14 = has_water;
+    region->ContainsWater = has_water;
     region->CellCount = 0;
     region->Count_Grid_Cells_0056dbd0();
     return region;
@@ -1039,7 +1039,7 @@ void MapRegionClass::Make_Ice_Regions_005704c0()
         bool restart=false;
         for(index=0;index<MapRegionClass_MapRegions.Count();++index) {
             MapRegionClass *region=MapRegionClass_MapRegions[index];
-            if(!region->Unsplittable && !region->unknown_14) {
+            if(!region->Unsplittable && !region->ContainsWater) {
                 if(region->CellCount>limit) {
                     if(region->Split_Region_0056ef20()) {
                         delete region;
@@ -1342,13 +1342,13 @@ extern float const unknown_ramp_attempt_scale_7a5df0;
 // Original ECX MapRegion receiver; plain RET. Reference name; unknown fields remain explicit.
 void MapRegionClass::Make_Region_Connections_00571ed0()
 {
-    if(unknown_14) {
+    if(ContainsWater) {
         for(int index=0;index<NeighborRegionIndices->Count()-1;++index) {
             MapRegionClass *first=Find_Map_Region_By_Index_00575ce0((*NeighborRegionIndices)[index]);
             if(first->NeighborRegionIndices->Count()>1 || first->CellCount>50) {
                 for(int next=index+1;next<NeighborRegionIndices->Count();++next) {
                     MapRegionClass *second=Find_Map_Region_By_Index_00575ce0((*NeighborRegionIndices)[next]);
-                    if((second->NeighborRegionIndices->Count()>1 || second->CellCount>50) && !second->unknown_14 &&
+                    if((second->NeighborRegionIndices->Count()>1 || second->CellCount>50) && !second->ContainsWater &&
                        second->unknown_10==first->unknown_10 && first->unknown_10==unknown_10) {
                         Connect_Regions_With_Bridge_00570bc0(first,second);
                     }
@@ -2907,7 +2907,7 @@ extern "C" char unknown_rmg_radar_message[];
 // Its accepted out-of-line copy lives in another population; this is the same real body.
 void __stdcall Report_Generation_Progress_0057be50(int progress)
 {
-    if (unknown_id_source_a3d290->unknown_22fc) {
+    if (unknown_id_source_a3d290->IsReadingScenario) {
         unknown_session_a3d298.Update_Progress((int)((unsigned int)progress + 99u));
     } else {
         ProgressScreen.Set_Progress_Percent(0, (double)progress, Point2D(-1, -1));
@@ -2923,7 +2923,7 @@ inline void MapGeneratorClass::Init_Regions()
     Make_Water_Regions_0056e890();
     for(index=0;index<MapRegionClass_MapRegions.Count();++index) {
         MapRegionClass *region=MapRegionClass_MapRegions[index];
-        if(region->unknown_14) {
+        if(region->ContainsWater) {
             int wetMap=SeedData.MapType==3 || SeedData.MapType==4;
             region->Grow_Border_00570040((region->CellCount>8000)+4+!(unsigned char)wetMap);
             region->Expand_Cells_005702b0();
@@ -2941,7 +2941,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     RMGRandom=Random2Class(SeedData.Seed);
     unknown_map_gaussian_a6fd50=MapGaussianClass(Map_Random_Fraction_00579770);
     if(RMGCallback)RMGCallback();
-    bool showProgress=!unknown_id_source_a3d290->unknown_22fc;
+    bool showProgress=!unknown_id_source_a3d290->IsReadingScenario;
     if(showProgress) {
         ProgressScreen.Init(100.0,1,window);
         ProgressScreen.Load_Shape(unknown_rmg_progress_shape_7e19cc,0,0);
@@ -3186,7 +3186,7 @@ void MapGeneratorClass::Init_Map(int fullInit)
     ini.Put_Double("Lighting","IonBlue",0.75);
     ini.Put_Double("Lighting","IonGround",0.0);
     ini.Put_Double("Lighting","IonLevel",0.0);
-    if(!unknown_id_source_a3d290->unknown_22fc)ProgressScreen.Set_Progress_Percent(0,1.0,Point2D(-1,-1));
+    if(!unknown_id_source_a3d290->IsReadingScenario)ProgressScreen.Set_Progress_Percent(0,1.0,Point2D(-1,-1));
     if(RMGCallback)RMGCallback();
     Clear_Tiberium_Spread_006e9670();
     Clear_Tiberium_Growth_006ea130();
@@ -3303,7 +3303,7 @@ void MapGeneratorClass::Init_Map(int fullInit)
     SeededWaterAmount=0;WorkingRegionID=0;
     PlaceWaterfall=Map_Random_Fraction_00579770()<unknown_waterfall_probability_7a5b68;
     Map.Clear_Radar();Map.RadarClass::Set_Local_Dimensions(localSize);Map.Init_Radar();Map.Compute_Radar_Image();
-    unknown_id_source_a3d290->unknown_22a8=SeedData.Theater==0 ? TemperateAmbientLight[SeedData.Time] : SnowAmbientLight[SeedData.Time];
+    unknown_id_source_a3d290->AmbientLight=SeedData.Theater==0 ? TemperateAmbientLight[SeedData.Time] : SnowAmbientLight[SeedData.Time];
     unknown_id_source_a3d290->AmbientLevel=RMGLevelLightSettings[SeedData.Time];
     unknown_id_source_a3d290->AmbientRed=SeedData.Theater==0 ? TemperateAmbientRed[SeedData.Time] : SnowAmbientRed[SeedData.Time];
     unknown_id_source_a3d290->AmbientGreen=SeedData.Theater==0 ? TemperateAmbientGreen[SeedData.Time] : SnowAmbientGreen[SeedData.Time];
@@ -3790,7 +3790,7 @@ bool MapRegionClass::Split_Region_0056ef20()
 
     for (i = new_regions.Count() - 1; i >= 0; i--) {
         MapRegionClass *region = new_regions[i];
-        if (region->unknown_24) {
+        if (region->Discardable) {
             continue;
         }
 
@@ -3825,8 +3825,8 @@ bool MapRegionClass::Split_Region_0056ef20()
             if (adjacent[j]) {
                 MapRegionClass *other = Split_From_ID(j);
 
-                if (!other->unknown_24) {
-                    if (other->CellCount > max_count && !other->unknown_14) {
+                if (!other->Discardable) {
+                    if (other->CellCount > max_count && !other->ContainsWater) {
                         max_count = other->CellCount;
                         merge_height = other->unknown_10;
                         merge_target = other;
@@ -3897,14 +3897,14 @@ bool MapRegionClass::Split_Region_0056ef20()
                     MapRegionClass::Get_Cell_Data(c).RegionIndex = merge_target->Index;
                 }
 
-                region->unknown_24 = true;
+                region->Discardable = true;
             }
         }
     }
 
     for (i = MapRegionClass_MapRegions.Count() - 1; i >= 0; i--) {
         MapRegionClass *region = MapRegionClass_MapRegions[i];
-        if (region != this && region->unknown_24) {
+        if (region != this && region->Discardable) {
             delete region;
         }
     }
@@ -5457,7 +5457,7 @@ void __fastcall Rebuild_Region_Grid_00583450(MapSeedClass const &options)
     }
     for(int index=0;index<MapRegionClass_MapRegions.Count();++index) {
         MapRegionClass *region=MapRegionClass_MapRegions[index];
-        if(region->unknown_14!=0) {
+        if(region->ContainsWater!=0) {
             int special;
             if(options.MapType==3 || options.MapType==4)special=1;
             else special=0;

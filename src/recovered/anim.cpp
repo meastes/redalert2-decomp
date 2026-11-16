@@ -916,7 +916,7 @@ void __fastcall Unknown_00422BA0(int arg1, Cell const &cell)
     coord.Z = 0;
     coord.X = cell.X * 256 + 128;
     coord.Y = cell.Y * 256 + 128;
-    Explosion_Damage(coord, Rules->unknown_1190, 0, Rules->unknown_c60, 0);
+    Explosion_Damage(coord, Rules->AtomDamage, 0, Rules->NukeWarhead, 0);
     if (unknown_game_mode_a3d298 == 0) {
         Set_Palette(&GamePalette, 30, Call_Back);
     }
@@ -1085,7 +1085,7 @@ void AnimClass::Vein_Attack_AI()
             if (techno != 0 && !((UnknownAnimTechnoType *)techno->Techno_Type_Class())->ImmuneToVeins &&
                 !techno->Unknown_006D7910(8) && techno->Strength > 0 && techno->IsActive &&
                 techno->Get_Height_AGL() <= 5) {
-                techno->Take_Damage(&damage, 0, (WarheadTypeClass *)Rules->unknown_cb0, 0, 0, 0);
+                techno->Take_Damage(&damage, 0, (WarheadTypeClass *)Rules->VeinholeWarhead, 0, 0, 0);
             }
             object = next;
         }

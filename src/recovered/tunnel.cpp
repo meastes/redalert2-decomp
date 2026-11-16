@@ -299,7 +299,7 @@ void TunnelLocomotionClass::Process_Turning()
         DigTimer = UnknownTunnelTimer(delay);
         unknown_18 = 2;
         Voc_Play_At(Rules->DigSound, CoordStruct(LinkedTo->Coord), 0);
-        new AnimClass(Rules->unknown_228, CoordStruct(LinkedTo->Coord), 0, 1, 0x600, 0);
+        new AnimClass(Rules->Dig, CoordStruct(LinkedTo->Coord), 0, 1, 0x600, 0);
         IsUnderground = false;
     }
 }
@@ -311,7 +311,7 @@ void TunnelLocomotionClass::Process_Digging_In()
         LinkedTo->unknown_slot306(1.0);
         unknown_18 = 3;
         Voc_Play_At(Rules->DigSound, CoordStruct(LinkedTo->Coord), 0);
-        new AnimClass(Rules->unknown_228, CoordStruct(LinkedTo->Coord), 0, 1, 0x600, 0);
+        new AnimClass(Rules->Dig, CoordStruct(LinkedTo->Coord), 0, 1, 0x600, 0);
         LinkedTo->unknown_slot54(false);
     }
 }
@@ -406,7 +406,7 @@ void TunnelLocomotionClass::Process_Ascending()
         LinkedTo->Set_Coord(coord);
         if (height <= -0x32 && LinkedTo->Get_Height_AGL() > -0x32) {
             Voc_Play_At(Rules->DigSound, CoordStruct(LinkedTo->Coord), 0);
-            new AnimClass(Rules->unknown_228, CoordStruct(LinkedTo->Coord), 0, 1, 0x600, 0);
+            new AnimClass(Rules->Dig, CoordStruct(LinkedTo->Coord), 0, 1, 0x600, 0);
         }
     } else {
         LinkedTo->Look(0, 0);

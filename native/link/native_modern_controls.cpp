@@ -115,8 +115,8 @@ bool Band_Takes(ObjectClass *object)
     if (object->Kind_Of() == kKindBuilding) {
         BuildingTypeClass *type = static_cast<BuildingClass *>(object)->Type;
         if (type->UndeploysInto == 0) return false;
-        for (int i = 0; i < Rules->unknown_7c8.Count(); ++i)
-            if (Rules->unknown_7c8[i] == type) return false;
+        for (int i = 0; i < Rules->BuildConst.Count(); ++i)
+            if (Rules->BuildConst[i] == type) return false;
     }
     return true;
 }

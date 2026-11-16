@@ -45,12 +45,12 @@ public:
     // Scroll rate timer (0x00AB7048; TS ScrollClass::Counter).
     static CDTimerClass<SystemTimerClass> Counter;
 
-    int unknown_4f18;                                           // +0x4F18
-    bool unknown_4f1c;                                          // +0x4F1C
-    Point2D unknown_4f20;                                       // +0x4F20 the last point (slot 44)
-    bool unknown_4f28;                                          // +0x4F28
-    bool unknown_4f29;                                          // +0x4F29 true at construction
-    bool unknown_4f2a;                                          // +0x4F2A drag-select in progress
+    int Inertia;                                           // +0x4F18
+    bool IsCoastScrollAllowed;                                          // +0x4F1C
+    Point2D RightPressPoint;                                       // +0x4F20 the last point (slot 44)
+    bool IsDragOperation;                                          // +0x4F28
+    bool IsEdgeScrollAllowed;                                          // +0x4F29 true at construction
+    bool IsMouseDown;                                          // +0x4F2A drag-select in progress
 };
 
 class ObjectClass;

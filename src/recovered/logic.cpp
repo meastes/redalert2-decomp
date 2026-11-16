@@ -138,16 +138,16 @@ void LogicClass::AI()
     for (LogicTriggerID = 0; LogicTriggerID < LogicTags.Count(); LogicTriggerID++) {
         TagClass *trig = LogicTags[LogicTriggerID];
 
-        if (unknown_id_source_a3d290->unknown_223c) {
+        if (unknown_id_source_a3d290->IsCrateBeenPickedUp) {
             if (trig->Spring(0x32, 0, unknown_geometry_k)) continue;
         }
-        if (unknown_id_source_a3d290->unknown_222e) {
+        if (unknown_id_source_a3d290->IsGlobalChanged) {
             if (trig->Spring(0x1B, 0, unknown_geometry_k)) continue;
             if (trig->Spring(0x1C, 0, unknown_geometry_k)) continue;
             if (trig->Spring(0x24, 0, unknown_geometry_k)) continue;
             if (trig->Spring(0x25, 0, unknown_geometry_k)) continue;
         }
-        if (unknown_id_source_a3d290->unknown_222f) {
+        if (unknown_id_source_a3d290->IsAmbientLightChanged) {
             if (trig->Spring(0x2D, 0, unknown_geometry_k)) continue;
             if (trig->Spring(0x2E, 0, unknown_geometry_k)) continue;
         }
@@ -163,39 +163,39 @@ void LogicClass::AI()
         unknown_id_source_a3d290->MissionTimer.Stop();
         Map.Flag_To_Redraw(2);
     }
-    unknown_id_source_a3d290->unknown_222e = false;
-    unknown_id_source_a3d290->unknown_222d = false;
-    unknown_id_source_a3d290->unknown_222f = false;
-    unknown_id_source_a3d290->unknown_223c = false;
+    unknown_id_source_a3d290->IsGlobalChanged = false;
+    unknown_id_source_a3d290->IsBridgeChanged = false;
+    unknown_id_source_a3d290->IsAmbientLightChanged = false;
+    unknown_id_source_a3d290->IsCrateBeenPickedUp = false;
 
-    if (Rules->ShroudGrow && Rules->ShroudRate != 0 && unknown_id_source_a3d290->unknown_7f8 == 0) {
-        unknown_id_source_a3d290->unknown_7f8 = 900 * Rules->ShroudRate;
+    if (Rules->ShroudGrow && Rules->ShroudRate != 0 && unknown_id_source_a3d290->ShroudTimer == 0) {
+        unknown_id_source_a3d290->ShroudTimer = 900 * Rules->ShroudRate;
         Map.Encroach_Shadow();
     }
     if (Frame % 120 == 0) {
         Map.Refresh_Shroud();
     }
-    if (((SpecialClass *)unknown_id_source_a3d290)->FogOfWar && Rules->FogRate != 0 && unknown_id_source_a3d290->unknown_804 == 0) {
-        unknown_id_source_a3d290->unknown_804 = 900 * Rules->FogRate;
+    if (((SpecialClass *)unknown_id_source_a3d290)->FogOfWar && Rules->FogRate != 0 && unknown_id_source_a3d290->FogTimer == 0) {
+        unknown_id_source_a3d290->FogTimer = 900 * Rules->FogRate;
         Map.Encroach_Fog();
     }
 
-    if (unknown_id_source_a3d290->unknown_22b0 != unknown_id_source_a3d290->unknown_22ac && Rules->AmbientChangeRate != 0 && unknown_id_source_a3d290->unknown_828 == 0) {
+    if (unknown_id_source_a3d290->DesiredAmbientLight != unknown_id_source_a3d290->CurrentAmbientLight && Rules->AmbientChangeRate != 0 && unknown_id_source_a3d290->AmbientChangeTimer == 0) {
         if (NukeFlash_IsFadingIn() || Unknown_0051FC70()) {
-            unknown_id_source_a3d290->unknown_828 = unknown_id_source_a3d290->NukeAmbientChangeRate;
+            unknown_id_source_a3d290->AmbientChangeTimer = unknown_id_source_a3d290->NukeAmbientChangeRate;
         } else {
-            unknown_id_source_a3d290->unknown_828 = 900 * Rules->AmbientChangeRate;
+            unknown_id_source_a3d290->AmbientChangeTimer = 900 * Rules->AmbientChangeRate;
         }
-        unknown_id_source_a3d290->unknown_22b0 = MAX(unknown_id_source_a3d290->unknown_22b0, 0);
+        unknown_id_source_a3d290->DesiredAmbientLight = MAX(unknown_id_source_a3d290->DesiredAmbientLight, 0);
         int value = 100.0 * Rules->AmbientChangeStep;
-        if (unknown_id_source_a3d290->unknown_22b0 < unknown_id_source_a3d290->unknown_22ac) {
-            unknown_id_source_a3d290->unknown_22ac -= value;
-            unknown_id_source_a3d290->unknown_22ac = MAX(unknown_id_source_a3d290->unknown_22ac, unknown_id_source_a3d290->unknown_22b0);
+        if (unknown_id_source_a3d290->DesiredAmbientLight < unknown_id_source_a3d290->CurrentAmbientLight) {
+            unknown_id_source_a3d290->CurrentAmbientLight -= value;
+            unknown_id_source_a3d290->CurrentAmbientLight = MAX(unknown_id_source_a3d290->CurrentAmbientLight, unknown_id_source_a3d290->DesiredAmbientLight);
         } else {
-            unknown_id_source_a3d290->unknown_22ac += value;
-            unknown_id_source_a3d290->unknown_22ac = MIN(unknown_id_source_a3d290->unknown_22ac, unknown_id_source_a3d290->unknown_22b0);
+            unknown_id_source_a3d290->CurrentAmbientLight += value;
+            unknown_id_source_a3d290->CurrentAmbientLight = MIN(unknown_id_source_a3d290->CurrentAmbientLight, unknown_id_source_a3d290->DesiredAmbientLight);
         }
-        unknown_id_source_a3d290->unknown_222f = true;
+        unknown_id_source_a3d290->IsAmbientLightChanged = true;
         Map.Unknown_0049E5E0();
         Map.Flag_To_Redraw(1);
     }
@@ -260,14 +260,14 @@ void LogicClass::AI()
 void LogicClass::Environment_AI()
 {
     if (Rules->ShroudGrow && Rules->ShroudRate != 0) {
-        if (unknown_id_source_a3d290->unknown_7f8 == 0) {
-            unknown_id_source_a3d290->unknown_7f8 = 900 * Rules->ShroudRate;
+        if (unknown_id_source_a3d290->ShroudTimer == 0) {
+            unknown_id_source_a3d290->ShroudTimer = 900 * Rules->ShroudRate;
             Map.Encroach_Shadow();
         }
     }
     if (((SpecialClass *)unknown_id_source_a3d290)->FogOfWar && Rules->FogRate != 0) {
-        if (unknown_id_source_a3d290->unknown_804 == 0) {
-            unknown_id_source_a3d290->unknown_804 = 900 * Rules->FogRate;
+        if (unknown_id_source_a3d290->FogTimer == 0) {
+            unknown_id_source_a3d290->FogTimer = 900 * Rules->FogRate;
             Map.Encroach_Fog();
         }
     }

@@ -88,7 +88,7 @@
 
 RocketLocomotionClass::RocketLocomotionClass() :
     unknown_18(unknown_geometry_l),
-    unknown_40(0),
+    MissionState(0),
     unknown_48(0),
     unknown_50(0),
     unknown_54(0)
@@ -117,7 +117,7 @@ bool __stdcall RocketLocomotionClass::Is_Moving()
 
 bool __stdcall RocketLocomotionClass::Is_Moving_Now()
 {
-    if (unknown_40 >= 3 && unknown_40 <= 5) {
+    if (MissionState >= 3 && MissionState <= 5) {
         return true;
     }
     return false;
@@ -279,11 +279,11 @@ bool __stdcall RocketLocomotionClass::Process()
         rocket = &Rules->DMisl;
     }
     bool exploded = false;
-    switch (unknown_40) {
+    switch (MissionState) {
     case 1:
         unknown_48 = 0;
         if (unknown_24.Progress() == 1.0) {
-            unknown_40 = 2;
+            MissionState = 2;
             unknown_24 = UnknownSlopeTimer(rocket->TiltFrames);
         }
         break;
@@ -291,7 +291,7 @@ bool __stdcall RocketLocomotionClass::Process()
         unknown_48 = 0;
         if (unknown_24.Progress() == 1.0) {
             unknown_50 = rocket->PitchFinal * 1.5707963267948966;
-            unknown_40 = 3;
+            MissionState = 3;
             if (LinkedTo->unknown_slot178() == unknown_geometry_k) {
                 AircraftTracker.Unknown_004131E0(LinkedTo);
             }
@@ -309,7 +309,7 @@ bool __stdcall RocketLocomotionClass::Process()
             unknown_48 = LinkedTo->Techno_Type_Class()->Speed;
         }
         if (LinkedTo->Get_Height_AGL() >= rocket->Altitude) {
-            unknown_40 = 4;
+            MissionState = 4;
             unknown_54 = Ground_Distance(unknown_18, LinkedTo);
         }
         break;
@@ -339,7 +339,7 @@ bool __stdcall RocketLocomotionClass::Process()
             int height = coord.Z - dest.Z;
             dest.Z = Object_Coord(LinkedTo).Z;
             if (Distance_To(LinkedTo, dest) <= height) {
-                unknown_40 = 5;
+                MissionState = 5;
             }
         }
         LinkedTo->PrimaryFacing.Set_Desired(Direction_To(LinkedTo, unknown_18));
@@ -448,10 +448,10 @@ void __stdcall RocketLocomotionClass::Move_To(COMCoordStruct to)
     }
     if (unknown_18 == unknown_geometry_l) {
         if (rocket->PauseFrames != 0) {
-            unknown_40 = 1;
+            MissionState = 1;
             unknown_24 = rocket->PauseFrames;
         } else {
-            unknown_40 = 2;
+            MissionState = 2;
             unknown_24 = rocket->TiltFrames;
         }
         unknown_50 = rocket->PitchInitial * 1.5707963267948966;

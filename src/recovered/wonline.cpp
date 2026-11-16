@@ -664,7 +664,7 @@ void __fastcall Unknown_0073c230()
     ShowWindow(dialog, 1);
     WS_Wait_Dialog(dialog, unknown_6000d0, 0, 1, 1);
     WWKeyboard->Clear();
-    IgnoreInput = unknown_id_source_a3d290->unknown_2306;
+    IgnoreInput = unknown_id_source_a3d290->IsInputLocked;
     Map.Flag_To_Redraw(2);
 }
 
@@ -6571,21 +6571,21 @@ void __fastcall Start_Game_Now_0074f300()
     }
     HWND wait=WS_Find_Dialog_00735940(300);
     if(wait) End_Dialog_007357e0(wait,0);
-    if(unknown_session_a3d298.Type!=4 || unknown_a3d2a4!=2) unknown_session_a3d298.unknown_124=0;
-    unknown_session_a3d298.unknown_2cc=5;
+    if(unknown_session_a3d298.Type!=4 || unknown_a3d2a4!=2) unknown_session_a3d298.House=0;
+    unknown_session_a3d298.FrameSendRate=5;
     switch(unknown_session_a3d298.GameSpeed_30) {
-    case 0: unknown_session_a3d298.MaxAhead_2c8=40;unknown_session_a3d298.unknown_2e8=60;unknown_session_a3d298.unknown_2cc=10;break;
-    case 1: unknown_session_a3d298.MaxAhead_2c8=40;unknown_session_a3d298.unknown_2e8=45;unknown_session_a3d298.unknown_2cc=10;break;
-    case 2: unknown_session_a3d298.MaxAhead_2c8=30;unknown_session_a3d298.unknown_2e8=30;break;
-    case 3: unknown_session_a3d298.MaxAhead_2c8=20;unknown_session_a3d298.unknown_2e8=20;break;
-    case 4: unknown_session_a3d298.MaxAhead_2c8=20;unknown_session_a3d298.unknown_2e8=15;break;
-    case 5: unknown_session_a3d298.MaxAhead_2c8=20;unknown_session_a3d298.unknown_2e8=12;break;
-    default: unknown_session_a3d298.MaxAhead_2c8=10;unknown_session_a3d298.unknown_2e8=10;break;
+    case 0: unknown_session_a3d298.MaxAhead_2c8=40;unknown_session_a3d298.PrecalcDesiredFrameRate=60;unknown_session_a3d298.FrameSendRate=10;break;
+    case 1: unknown_session_a3d298.MaxAhead_2c8=40;unknown_session_a3d298.PrecalcDesiredFrameRate=45;unknown_session_a3d298.FrameSendRate=10;break;
+    case 2: unknown_session_a3d298.MaxAhead_2c8=30;unknown_session_a3d298.PrecalcDesiredFrameRate=30;break;
+    case 3: unknown_session_a3d298.MaxAhead_2c8=20;unknown_session_a3d298.PrecalcDesiredFrameRate=20;break;
+    case 4: unknown_session_a3d298.MaxAhead_2c8=20;unknown_session_a3d298.PrecalcDesiredFrameRate=15;break;
+    case 5: unknown_session_a3d298.MaxAhead_2c8=20;unknown_session_a3d298.PrecalcDesiredFrameRate=12;break;
+    default: unknown_session_a3d298.MaxAhead_2c8=10;unknown_session_a3d298.PrecalcDesiredFrameRate=10;break;
     }
     if(use_router_a402d0) unknown_session_a3d298.MaxAhead_2c8+=20;
-    unknown_session_a3d298.unknown_2e4=0;
+    unknown_session_a3d298.PrecalcMaxAhead=0;
     owner=Unknown_0074DA60();
-    if(!owner || _stricmp(owner->name,unknown_wstring_b26cb8.Peek_Buffer())) unknown_session_a3d298.unknown_2e8=0;
+    if(!owner || _stricmp(owner->name,unknown_wstring_b26cb8.Peek_Buffer())) unknown_session_a3d298.PrecalcDesiredFrameRate=0;
     int worst_ping=0;
     for(int p=0;p<8;++p) if(unknown_pings_b2a734[p]>worst_ping) worst_ping=unknown_pings_b2a734[p];
     if(use_router_a402d0) worst_ping*=2;
@@ -6600,22 +6600,22 @@ void __fastcall Start_Game_Now_0074f300()
         owner=Unknown_0074DA60();
         if(owner && !_stricmp(owner->name,unknown_wstring_b26cb8.Peek_Buffer())) {
             switch(unknown_session_a3d298.unknown_290c) {
-            case 0:case 1:unknown_session_a3d298.unknown_2e4=unknown_session_a3d298.MaxAhead_2c8;break;
-            case 2:unknown_session_a3d298.unknown_2e4=unknown_session_a3d298.MaxAhead_2c8+(unknown_session_a3d298.MaxAhead_2c8>>1);break;
-            case 3:unknown_session_a3d298.unknown_2e4=unknown_session_a3d298.MaxAhead_2c8*2;break;
+            case 0:case 1:unknown_session_a3d298.PrecalcMaxAhead=unknown_session_a3d298.MaxAhead_2c8;break;
+            case 2:unknown_session_a3d298.PrecalcMaxAhead=unknown_session_a3d298.MaxAhead_2c8+(unknown_session_a3d298.MaxAhead_2c8>>1);break;
+            case 3:unknown_session_a3d298.PrecalcMaxAhead=unknown_session_a3d298.MaxAhead_2c8*2;break;
             }
-            unknown_session_a3d298.unknown_2e4=((unsigned int)unknown_session_a3d298.unknown_2e4/10)*10;
+            unknown_session_a3d298.PrecalcMaxAhead=((unsigned int)unknown_session_a3d298.PrecalcMaxAhead/10)*10;
         }
     } else {
         Debug_Printf(start_text_007ff2d0);
-        unknown_session_a3d298.unknown_2e4=(unknown_session_a3d298.MaxAhead_2c8/10)*10;
-        if(unknown_session_a3d298.unknown_2e4<=10) unknown_session_a3d298.unknown_2e4=10;
+        unknown_session_a3d298.PrecalcMaxAhead=(unknown_session_a3d298.MaxAhead_2c8/10)*10;
+        if(unknown_session_a3d298.PrecalcMaxAhead<=10) unknown_session_a3d298.PrecalcMaxAhead=10;
     }
-    Debug_Printf(start_text_007ff334,unknown_session_a3d298.unknown_2e4);
-    Debug_Printf(start_text_007ff314,unknown_session_a3d298.unknown_2e8);
+    Debug_Printf(start_text_007ff334,unknown_session_a3d298.PrecalcMaxAhead);
+    Debug_Printf(start_text_007ff314,unknown_session_a3d298.PrecalcDesiredFrameRate);
     Debug_Printf(start_text_007d68f4,unknown_session_a3d298.unknown_290c);
-    Debug_Printf(start_text_007ff2fc,unknown_session_a3d298.unknown_2cc);
-    unknown_session_a3d298.unknown_2e0=unknown_session_a3d298.MaxAhead_2c8;
+    Debug_Printf(start_text_007ff2fc,unknown_session_a3d298.FrameSendRate);
+    unknown_session_a3d298.MaxMaxAhead=unknown_session_a3d298.MaxAhead_2c8;
     memset(unknown_session_a3d298.unknown_2ec,0,sizeof(player_statistics_00a3d584));
     unknown_a40b18=unknown_session_a3d298.GameSpeed_30;
     UDPInterfaceClass_UDPListenPort=1234;
@@ -7375,7 +7375,7 @@ void __fastcall Start_Test_Network_Game_007516c0()
     Debug_Printf(test_start_debug_007fded4,unknown_session_a3d298.NumPlayers);
     Char_To_Wide_006fa0c0(unknown_session_a3d298.MasterPlayerName,test_master_name_007ff954,-1);
     unknown_session_a3d298.MasterPlayerID=-1;
-    unknown_session_a3d298.unknown_124=0;
+    unknown_session_a3d298.House=0;
     unknown_a40d3c=1;
     BuildLevel=10;
     unknown_session_a3d298.UnitCount=10;
@@ -7400,23 +7400,23 @@ void __fastcall Start_Test_Network_Game_007516c0()
     unknown_session_a3d298.GameSpeed_30=2;
     unknown_a40b18=2;
     unknown_id_source_a3d290->TechLevel=unknown_session_a3d298.ScenarioIndex;
-    unknown_session_a3d298.unknown_2cc=5;
+    unknown_session_a3d298.FrameSendRate=5;
     switch(unknown_session_a3d298.GameSpeed_30) {
-    case 0:unknown_session_a3d298.MaxAhead_2c8=40;unknown_session_a3d298.unknown_2e8=60;unknown_session_a3d298.unknown_2cc=10;break;
-    case 1:unknown_session_a3d298.MaxAhead_2c8=40;unknown_session_a3d298.unknown_2e8=45;unknown_session_a3d298.unknown_2cc=10;break;
-    case 2:unknown_session_a3d298.MaxAhead_2c8=30;unknown_session_a3d298.unknown_2e8=30;break;
-    case 3:unknown_session_a3d298.MaxAhead_2c8=20;unknown_session_a3d298.unknown_2e8=20;break;
-    case 4:unknown_session_a3d298.MaxAhead_2c8=20;unknown_session_a3d298.unknown_2e8=15;break;
-    case 5:unknown_session_a3d298.MaxAhead_2c8=20;unknown_session_a3d298.unknown_2e8=12;break;
-    default:unknown_session_a3d298.MaxAhead_2c8=10;unknown_session_a3d298.unknown_2e8=10;break;
+    case 0:unknown_session_a3d298.MaxAhead_2c8=40;unknown_session_a3d298.PrecalcDesiredFrameRate=60;unknown_session_a3d298.FrameSendRate=10;break;
+    case 1:unknown_session_a3d298.MaxAhead_2c8=40;unknown_session_a3d298.PrecalcDesiredFrameRate=45;unknown_session_a3d298.FrameSendRate=10;break;
+    case 2:unknown_session_a3d298.MaxAhead_2c8=30;unknown_session_a3d298.PrecalcDesiredFrameRate=30;break;
+    case 3:unknown_session_a3d298.MaxAhead_2c8=20;unknown_session_a3d298.PrecalcDesiredFrameRate=20;break;
+    case 4:unknown_session_a3d298.MaxAhead_2c8=20;unknown_session_a3d298.PrecalcDesiredFrameRate=15;break;
+    case 5:unknown_session_a3d298.MaxAhead_2c8=20;unknown_session_a3d298.PrecalcDesiredFrameRate=12;break;
+    default:unknown_session_a3d298.MaxAhead_2c8=10;unknown_session_a3d298.PrecalcDesiredFrameRate=10;break;
     }
-    unknown_session_a3d298.unknown_2e4=0;
-    if(!precalculate) unknown_session_a3d298.unknown_2e8=0;
+    unknown_session_a3d298.PrecalcMaxAhead=0;
+    if(!precalculate) unknown_session_a3d298.PrecalcDesiredFrameRate=0;
     int maximum_ping=0;
     for(i=0;i<unknown_players_a3fa7c.Count();++i) if(unknown_pings_b2a734[i]>maximum_ping) maximum_ping=unknown_pings_b2a734[i];
     unknown_a3fba4=1;
     if(maximum_ping==0 || maximum_ping==1000) {
-        unknown_session_a3d298.unknown_2e8=0;
+        unknown_session_a3d298.PrecalcDesiredFrameRate=0;
         Debug_Printf(test_no_ping_debug_007e38a0);
     } else {
         Debug_Printf(test_max_ping_debug_007e38bc,maximum_ping);
@@ -7428,18 +7428,18 @@ void __fastcall Start_Test_Network_Game_007516c0()
         if(precalculate) {
             Ipx.unknown_slot18(5,(unsigned long)-1,120);
             switch(unknown_a3fba4) {
-            case 0:case 1:unknown_session_a3d298.unknown_2e4=unknown_session_a3d298.MaxAhead_2c8;break;
-            case 2:unknown_session_a3d298.unknown_2e4=(unknown_session_a3d298.MaxAhead_2c8>>1)+unknown_session_a3d298.MaxAhead_2c8;break;
-            case 3:unknown_session_a3d298.unknown_2e4=unknown_session_a3d298.MaxAhead_2c8*2;break;
+            case 0:case 1:unknown_session_a3d298.PrecalcMaxAhead=unknown_session_a3d298.MaxAhead_2c8;break;
+            case 2:unknown_session_a3d298.PrecalcMaxAhead=(unknown_session_a3d298.MaxAhead_2c8>>1)+unknown_session_a3d298.MaxAhead_2c8;break;
+            case 3:unknown_session_a3d298.PrecalcMaxAhead=unknown_session_a3d298.MaxAhead_2c8*2;break;
             }
-            unknown_session_a3d298.unknown_2e4=unknown_session_a3d298.unknown_2e4/10*10;
+            unknown_session_a3d298.PrecalcMaxAhead=unknown_session_a3d298.PrecalcMaxAhead/10*10;
         }
     }
-    Debug_Printf(test_precalc_debug_007ff334,unknown_session_a3d298.unknown_2e4);
-    Debug_Printf(test_frame_rate_debug_007ff314,unknown_session_a3d298.unknown_2e8);
+    Debug_Printf(test_precalc_debug_007ff334,unknown_session_a3d298.PrecalcMaxAhead);
+    Debug_Printf(test_frame_rate_debug_007ff314,unknown_session_a3d298.PrecalcDesiredFrameRate);
     Debug_Printf(test_latency_debug_007d68f4,unknown_a3fba4);
-    Debug_Printf(test_send_rate_debug_007ff2fc,unknown_session_a3d298.unknown_2cc);
-    unknown_session_a3d298.unknown_2e0=unknown_session_a3d298.MaxAhead_2c8;
+    Debug_Printf(test_send_rate_debug_007ff2fc,unknown_session_a3d298.FrameSendRate);
+    unknown_session_a3d298.MaxMaxAhead=unknown_session_a3d298.MaxAhead_2c8;
     memset(unknown_session_a3d298.unknown_2ec,0,sizeof(player_statistics_00a3d584));
     test_network_ids_007f60d0[0]=1234;
     unknown_a40b18=unknown_session_a3d298.GameSpeed_30;

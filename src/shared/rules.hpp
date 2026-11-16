@@ -149,7 +149,7 @@ public:
     float                    RadarEventRotationSpeed;   // +0x8C
     int                      FlashFrameTime;   // +0x90
     int                      RadarCombatFlashTime;   // +0x94
-    int                      unknown_98;   // +0x98 MaxWaypointPathLength; (0x004F3120: a slot readiness count)
+    int                      MaxWaypointPathLength;   // +0x98 MaxWaypointPathLength; (0x004F3120: a slot readiness count)
     AnimTypeClass *          Wake;   // +0x9C Wake; (a falling-aircraft smoke animation; AircraftClass::AI)
     AnimTypeClass *          NukeTakeOff;   // +0xA0
     AnimTypeClass *          InfantryExplode;   // +0xA4
@@ -157,9 +157,9 @@ public:
     AnimTypeClass *          InfantryHeadPop;   // +0xAC
     AnimTypeClass *          InfantryNuked;   // +0xB0
     AnimTypeClass *          Behind;   // +0xB4
-    double                   unknown_b8;   // +0xB8 AITriggerSuccessWeightDelta; AI trigger weight bonus on success (AITriggerType 0x0041DFB0; hypothesis)
-    double                   unknown_c0;   // +0xC0 AITriggerFailureWeightDelta; AI trigger weight change on failure (0x0041E070; hypothesis)
-    double                   unknown_c8;   // +0xC8 AITriggerTrackRecordCoefficient; AI trigger failure scale (0x0041E070; hypothesis)
+    double                   AITriggerSuccessWeightDelta;   // +0xB8 AITriggerSuccessWeightDelta; AI trigger weight bonus on success (AITriggerType 0x0041DFB0; hypothesis)
+    double                   AITriggerFailureWeightDelta;   // +0xC0 AITriggerFailureWeightDelta; AI trigger weight change on failure (0x0041E070; hypothesis)
+    double                   AITriggerTrackRecordCoefficient;   // +0xC8 AITriggerTrackRecordCoefficient; AI trigger failure scale (0x0041E070; hypothesis)
     int                      VeinholeMonsterStrength;   // +0xD0
     int                      MaxVeinholeGrowth;   // +0xD4 MaxVeinholeGrowth; vein nodes per veinhole monster (VeinholeMonsterClass)
     int                      VeinholeGrowthRate;   // +0xD8
@@ -168,7 +168,7 @@ public:
     int                      unknown_e4;   // +0xE4 VeinDamage; vein damage (AnimClass 0x00422F50)
     int                      MaximumQueuedObjects;   // +0xE8
     int                      AircraftFogReveal;   // +0xEC AircraftFogReveal; a sight range (AircraftClass slot 70)
-    OverlayTypeClass *       unknown_f0;   // +0xF0 WoodCrateImg; (OverlayClass slot 71: an overlay type placed without a house; hypothesis)
+    OverlayTypeClass *       WoodCrateImg;   // +0xF0 WoodCrateImg; (OverlayClass slot 71: an overlay type placed without a house; hypothesis)
     OverlayTypeClass *       CrateImg;   // +0xF4 CrateImg
     OverlayTypeClass *       WaterCrateImg;   // +0xF8 WaterCrateImg
     TypeList<AnimTypeClass *> DropPod;   // +0xFC
@@ -180,8 +180,8 @@ public:
     int                      CreateInfantrySound;   // +0x174
     int                      CreateAircraftSound;   // +0x178
     int                      BaseUnderAttackSound;   // +0x17C
-    int                      unknown_180;   // +0x180 GUIMainButtonSound; sound: sidebar shown/hidden (SidebarClass::AI; hypothesis)
-    int                      unknown_184;   // +0x184 GUIBuildSound
+    int                      GUIMainButtonSound;   // +0x180 GUIMainButtonSound; sound: sidebar shown/hidden (SidebarClass::AI; hypothesis)
+    int                      GUIBuildSound;   // +0x184 GUIBuildSound
     int                      GUITabSound;   // +0x188 GUITabSound; sound: sidebar tab/scroll click (SidebarClass::AI)
     int                      GUIOpenSound;   // +0x18C GUIOpenSound; sound: the tab bar opens (TabClass::AI)
     int                      GUICloseSound;   // +0x190 GUICloseSound; sound: the tab bar closes (TabClass::AI)
@@ -195,7 +195,7 @@ public:
     int                      PsychicSensorDetectSound;   // +0x1B0
     int                      BuildingGarrisonedSound;   // +0x1B4
     int                      BuildingAbandonedSound;   // +0x1B8
-    int                      unknown_1bc;   // +0x1BC BuildingRepairedSound; a sound (TechnoClass slot 233 plays it for buildings)
+    int                      BuildingRepairedSound;   // +0x1BC BuildingRepairedSound; a sound (TechnoClass slot 233 plays it for buildings)
     int                      CheerSound;   // +0x1C0
     int                      PlaceBeaconSound;   // +0x1C4
     int                      DefaultChronoSound;   // +0x1C8
@@ -212,7 +212,7 @@ public:
     int                      CratePromoteSound;   // +0x1F4
     int                      ImpactWaterSound;   // +0x1F8
     int                      ImpactLandSound;   // +0x1FC
-    int                      unknown_200;   // +0x200 SinkingSound; a sound: a unit starts sinking (FootClass::AI; hypothesis)
+    int                      SinkingSound;   // +0x200 SinkingSound; a sound: a unit starts sinking (FootClass::AI; hypothesis)
     int                      BombTickingSound;   // +0x204
     int                      BombAttachSound;   // +0x208
     int                      YuriMindControlSound;   // +0x20C
@@ -222,7 +222,7 @@ public:
     int                      SpySatDeactivationSound;   // +0x21C
     int                      UpgradeVeteranSound;   // +0x220
     int                      UpgradeEliteSound;   // +0x224
-    AnimTypeClass *          unknown_228;   // +0x228 Dig; an animation (Tunnel.cpp: dust where a unit digs in or out)
+    AnimTypeClass *          Dig;   // +0x228 Dig; an animation (Tunnel.cpp: dust where a unit digs in or out)
     AnimTypeClass *          IonBlast;   // +0x22C
     AnimTypeClass *          IonBeam;   // +0x230
     TypeList<AnimTypeClass *> DamageFireTypes;   // +0x234
@@ -379,19 +379,19 @@ public:
     TypeList<SmudgeTypeClass *> Scorches4;   // +0x75C
     BuildingTypeClass *      RepairBay;   // +0x778 RepairBay; a building type (AircraftClass slot 28)
     BuildingTypeClass *      GDIGateOne;   // +0x77C GDIGateOne; (BuildingClass slot 52: a type whose X neighbours are refreshed)
-    BuildingTypeClass *      unknown_780;   // +0x780 GDIGateTwo; (Y neighbours)
-    BuildingTypeClass *      unknown_784;   // +0x784 NodGateOne; (X neighbours)
-    BuildingTypeClass *      unknown_788;   // +0x788 NodGateTwo; (Y neighbours)
-    BuildingTypeClass *      unknown_78c;   // +0x78C WallTower; (the surrounding cells' wall overlays)
+    BuildingTypeClass *      GDIGateTwo;   // +0x780 GDIGateTwo; (Y neighbours)
+    BuildingTypeClass *      NodGateOne;   // +0x784 NodGateOne; (X neighbours)
+    BuildingTypeClass *      NodGateTwo;   // +0x788 NodGateTwo; (Y neighbours)
+    BuildingTypeClass *      WallTower;   // +0x78C WallTower; (the surrounding cells' wall overlays)
     TypeList<BuildingTypeClass *> Shipyard;   // +0x790
     BuildingTypeClass *      GDIPowerPlant;   // +0x7AC
     BuildingTypeClass *      GDIPowerTurbine;   // +0x7B0
     BuildingTypeClass *      NodRegularPower;   // +0x7B4
     BuildingTypeClass *      NodAdvancedPower;   // +0x7B8
-    BuildingTypeClass *      unknown_7bc;   // +0x7BC GDIFirestormGenerator; a building type (BuildingClass 0x0044D530: powering it down tells the house)
+    BuildingTypeClass *      GDIFirestormGenerator;   // +0x7BC GDIFirestormGenerator; a building type (BuildingClass 0x0044D530: powering it down tells the house)
     UnitTypeClass *          GDIHunterSeeker;   // +0x7C0
     UnitTypeClass *          NodHunterSeeker;   // +0x7C4
-    TypeList<BuildingTypeClass *> unknown_7c8;   // +0x7C8 BuildConst; building types a deployed unit may become (UnitClass slot 132; hypothesis: BuildConst)
+    TypeList<BuildingTypeClass *> BuildConst;   // +0x7C8 BuildConst; building types a deployed unit may become (UnitClass slot 132; hypothesis: BuildConst)
     TypeList<BuildingTypeClass *> BuildPower;   // +0x7E4
     TypeList<BuildingTypeClass *> BuildRefinery;   // +0x800
     TypeList<BuildingTypeClass *> BuildBarracks;   // +0x81C
@@ -416,19 +416,19 @@ public:
     int                      ComputerBaseDefenseResponse;   // +0x9C8
     int                      MaximumBaseDefenseValue;   // +0x9CC
     TypeList<UnitTypeClass *> BaseUnit;   // +0x9D0
-    TypeList<UnitTypeClass *> unknown_9ec;   // +0x9EC HarvesterUnit; objects a VehicleThief may always take (InfantryClass slot 28; element type hypothesis)
+    TypeList<UnitTypeClass *> HarvesterUnit;   // +0x9EC HarvesterUnit; objects a VehicleThief may always take (InfantryClass slot 28; element type hypothesis)
     TypeList<AircraftTypeClass *> PadAircraft;   // +0xA08
     TypeList<AnimTypeClass *> OnFire;   // +0xA24
     TypeList<AnimTypeClass *> TreeFire;   // +0xA40
     AnimTypeClass *          Smoke;   // +0xA5C
-    AnimTypeClass *          unknown_a60;   // +0xA60
+    AnimTypeClass *          Smoke2;   // +0xA60
     AnimTypeClass *          FirestormActiveAnim;   // +0xA64
     AnimTypeClass *          FirestormIdleAnim;   // +0xA68
     AnimTypeClass *          FirestormAirAnim;   // +0xA6C
     AnimTypeClass *          FirestormGroundAnim;   // +0xA70
-    AnimTypeClass *          unknown_a74;   // +0xA74 MoveFlash; the move-flash animation type (FootClass slot 77; hypothesis)
-    AnimTypeClass *          unknown_a78;   // +0xA78 BombParachute; an animation for kind 8 placed by ObjectClass slot 56
-    AnimTypeClass *          unknown_a7c;   // +0xA7C Parachute; an animation for the other kinds (ObjectClass slot 56, 0x4B above)
+    AnimTypeClass *          MoveFlash;   // +0xA74 MoveFlash; the move-flash animation type (FootClass slot 77; hypothesis)
+    AnimTypeClass *          BombParachute;   // +0xA78 BombParachute; an animation for kind 8 placed by ObjectClass slot 56
+    AnimTypeClass *          Parachute;   // +0xA7C Parachute; an animation for the other kinds (ObjectClass slot 56, 0x4B above)
     TypeList<AnimTypeClass *> SplashList;   // +0xA80
     AnimTypeClass *          SmallFire;   // +0xA9C
     AnimTypeClass *          LargeFire;   // +0xAA0
@@ -453,7 +453,7 @@ public:
     float                    SpyMoneyStealPercent;   // +0xB78
     bool                     AttackCursorOnDisguise;   // +0xB7C
     char unknown_b7d[0xB80 - 0xB7D];
-    float                    unknown_b80;   // +0xB80 AIMinorSuperReadyPercent; the recharge fraction AI triggers wait for (AITriggerType conditions)
+    float                    AIMinorSuperReadyPercent;   // +0xB80 AIMinorSuperReadyPercent; the recharge fraction AI triggers wait for (AITriggerType conditions)
     int                      AISafeDistance;   // +0xB84
     int                      HarvesterTooFarDistance;   // +0xB88
     int                      ChronoHarvTooFarDistance;   // +0xB8C
@@ -461,8 +461,8 @@ public:
     TypeList<int>            SovietBaseDefenseCounts;   // +0xBAC
     TypeList<int>            AIPickWallDefensePercent;   // +0xBC8
     int                      AIRestrictReplaceTime;   // +0xBE4
-    int                      unknown_be8;   // +0xBE8 ThreatPerOccupant; TechnoClass slot 168
-    int                      unknown_bec;   // +0xBEC ApproachTargetResetMultiplier; (Building)
+    int                      ThreatPerOccupant;   // +0xBE8 ThreatPerOccupant; TechnoClass slot 168
+    int                      ApproachTargetResetMultiplier;   // +0xBEC ApproachTargetResetMultiplier; (Building)
     int                      CampaignMoneyDeltaEasy;   // +0xBF0
     int                      CampaignMoneyDeltaHard;   // +0xBF4
     int                      GuardAreaTargetingDelay;   // +0xBF8
@@ -479,7 +479,7 @@ public:
     InfantryTypeClass *      SovietCrew;   // +0xC54 (slot 184: crew for house +0x130 = 1)
     WarheadTypeClass *       FlameDamage;   // +0xC58
     WarheadTypeClass *       FlameDamage2;   // +0xC5C
-    WarheadTypeClass *       unknown_c60;   // +0xC60 NukeWarhead; (AnimClass 0x00422BA0)
+    WarheadTypeClass *       NukeWarhead;   // +0xC60 NukeWarhead; (AnimClass 0x00422BA0)
     BulletTypeClass *        NukeProjectile;   // +0xC64
     BulletTypeClass *        NukeDown;   // +0xC68
     WarheadTypeClass *       EMPulseWarhead;   // +0xC6C
@@ -500,26 +500,26 @@ public:
     void const *             BombCursorShape;   // +0xCA0
     int                      IronCurtainDuration;   // +0xCA4
     WarheadTypeClass *       IonCannonWarhead;   // +0xCA8
-    WarheadTypeClass *       unknown_cac;   // +0xCAC FirestormWarhead; a warhead (AircraftClass slot 86)
-    WarheadTypeClass *       unknown_cb0;   // +0xCB0 VeinholeWarhead; the veins' warhead (AnimClass 0x00422F50)
+    WarheadTypeClass *       FirestormWarhead;   // +0xCAC FirestormWarhead; a warhead (AircraftClass slot 86)
+    WarheadTypeClass *       VeinholeWarhead;   // +0xCB0 VeinholeWarhead; the veins' warhead (AnimClass 0x00422F50)
     TerrainTypeClass *       VeinholeTypeClass;   // +0xCB4 VeinholeTypeClass; the veinhole monster's type (VeinholeMonsterClass slot 33)
     TypeList<TerrainTypeClass *> DefaultMirageDisguises;   // +0xCB8
     int                      InfantryBlinkDisguiseTime;   // +0xCD4
     ParticleSystemTypeClass * DefaultLargeGreySmokeSystem;   // +0xCD8
     ParticleSystemTypeClass * DefaultSmallGreySmokeSystem;   // +0xCDC
-    ParticleSystemTypeClass * unknown_ce0;   // +0xCE0 DefaultSparkSystem; particle system created by EBolt setup
+    ParticleSystemTypeClass * DefaultSparkSystem;   // +0xCE0 DefaultSparkSystem; particle system created by EBolt setup
     ParticleSystemTypeClass * DefaultLargeRedSmokeSystem;   // +0xCE4
     ParticleSystemTypeClass * DefaultSmallRedSmokeSystem;   // +0xCE8
     ParticleSystemTypeClass * DefaultDebrisSmokeSystem;   // +0xCEC
     ParticleSystemTypeClass * DefaultFireStreamSystem;   // +0xCF0
-    ParticleSystemTypeClass * unknown_cf4;   // +0xCF4 DefaultFirestormExplosionSystem; the particle system that warhead makes
+    ParticleSystemTypeClass * DefaultFirestormExplosionSystem;   // +0xCF4 DefaultFirestormExplosionSystem; the particle system that warhead makes
     ParticleSystemTypeClass * DefaultTestParticleSystem;   // +0xCF8
     ParticleSystemTypeClass * DefaultRepairParticleSystem;   // +0xCFC
-    double                   unknown_d00;   // +0xD00 MyEffectivenessCoefficientDefault; default MyEffectivenessCoefficient (TechnoType Read_INI)
-    double                   unknown_d08;   // +0xD08 TargetEffectivenessCoefficientDefault; default TargetEffectivenessCoefficient
-    double                   unknown_d10;   // +0xD10 TargetSpecialThreatCoefficientDefault; default TargetSpecialThreatCoefficient
-    double                   unknown_d18;   // +0xD18 TargetStrengthCoefficientDefault; default TargetStrengthCoefficient
-    double                   unknown_d20;   // +0xD20 TargetDistanceCoefficientDefault; default TargetDistanceCoefficient
+    double                   MyEffectivenessCoefficientDefault;   // +0xD00 MyEffectivenessCoefficientDefault; default MyEffectivenessCoefficient (TechnoType Read_INI)
+    double                   TargetEffectivenessCoefficientDefault;   // +0xD08 TargetEffectivenessCoefficientDefault; default TargetEffectivenessCoefficient
+    double                   TargetSpecialThreatCoefficientDefault;   // +0xD10 TargetSpecialThreatCoefficientDefault; default TargetSpecialThreatCoefficient
+    double                   TargetStrengthCoefficientDefault;   // +0xD18 TargetStrengthCoefficientDefault; default TargetStrengthCoefficient
+    double                   TargetDistanceCoefficientDefault;   // +0xD20 TargetDistanceCoefficientDefault; default TargetDistanceCoefficient
     double                   DumbMyEffectivenessCoefficient;   // +0xD28
     double                   DumbTargetEffectivenessCoefficient;   // +0xD30
     double                   DumbTargetSpecialThreatCoefficient;   // +0xD38
@@ -566,7 +566,7 @@ public:
     int                      TreeStrength;   // +0xE1C TreeStrength; default terrain strength (TerrainTypeClass::Read_INI)
     UnitTypeClass *          UnitCrateType;   // +0xE20
     char unknown_e24[0xE28 - 0xE24];
-    double                   unknown_e28;   // +0xE28 PatrolScan; minutes (TeamClass script handler 0x006BB0F0: how often a team re-aims, times 900 frames; hypothesis)
+    double                   PatrolTime;   // +0xE28 PatrolScan; minutes (TeamClass script handler 0x006BB0F0: how often a team re-aims, times 900 frames; hypothesis)
     TypeList<int>            TeamDelays;   // +0xE30
     TypeList<int>            AIHateDelays;   // +0xE4C
     int                      DissolveUnfilledTeamDelay;   // +0xE68
@@ -600,11 +600,11 @@ public:
     int                      MaxIQ;   // +0x109C
     int                      IQSuperWeapons;   // +0x10A0
     int                      IQProduction;   // +0x10A4
-    int                      unknown_10a8;   // +0x10A8 IQGuardArea; (UnitClass slot 261: compared with the house +0x194)
+    int                      IQGuardArea;   // +0x10A8 IQGuardArea; (UnitClass slot 261: compared with the house +0x194)
     int                      IQRepairSell;   // +0x10AC
-    int                      unknown_10b0;   // +0x10B0 IQCrush; (UnitClass 0x00707170: a minimum house value)
+    int                      IQCrush;   // +0x10B0 IQCrush; (UnitClass 0x00707170: a minimum house value)
     int                      IQScatter;   // +0x10B4
-    int                      unknown_10b8;   // +0x10B8 IQContentScan; (TechnoClass slot 90: compared with the house +0x194)
+    int                      IQContentScan;   // +0x10B8 IQContentScan; (TechnoClass slot 90: compared with the house +0x194)
     int                      IQAircraft;   // +0x10BC
     int                      IQHarvester;   // +0x10C0
     int                      IQSellBack;   // +0x10C4
@@ -614,7 +614,7 @@ public:
     CrateType                WaterCrate;   // +0x10D4
     int                      CrateMinimum;   // +0x10D8
     int                      CrateMaximum;   // +0x10DC
-    int                      unknown_10e0;   // +0x10E0
+    int                      LZScanRadius;   // +0x10E0
     AnimTypeClass *          DropZoneAnim;   // +0x10E4
     int                      MinMoney;   // +0x10E8
     int                      Money;   // +0x10EC
@@ -636,7 +636,7 @@ public:
     bool                     CaptureTheFlag;   // +0x111A
     bool                     HarvesterTruce;   // +0x111B
     bool                     MultiEngineer;   // +0x111C
-    bool                     unknown_111d;   // +0x111D AlliesAllowed; computers ally against the humans (House.cpp; hypothesis)
+    bool                     AlliesAllowed;   // +0x111D AlliesAllowed; computers ally against the humans (House.cpp; hypothesis)
     bool                     ShortGame;   // +0x111E
     bool                     FogOfWar;   // +0x111F
     bool                     MCVRedeploys;   // +0x1120
@@ -651,17 +651,17 @@ public:
     double                   BaseDefenseDelay;   // +0x1140
     int                      SuspendPriority;   // +0x1148
     char unknown_114c[0x1150 - 0x114C];
-    double                   unknown_1150;   // +0x1150 SuspendDelay; minutes (TeamClass 0x006BA8E0: a team's leaving timer, times 900 frames; hypothesis)
+    double                   SuspendDelay;   // +0x1150 SuspendDelay; minutes (TeamClass 0x006BA8E0: a team's leaving timer, times 900 frames; hypothesis)
     double                   SurvivorRate;   // +0x1158
-    int                      unknown_1160;   // +0x1160 AlliedSurvivorDivisor; BuildingClass slot 172
-    int                      unknown_1164;   // +0x1164 SovietSurvivorDivisor; BuildingClass slot 172, owner index 1
+    int                      AlliedSurvivorDivisor;   // +0x1160 AlliedSurvivorDivisor; BuildingClass slot 172
+    int                      SovietSurvivorDivisor;   // +0x1164 SovietSurvivorDivisor; BuildingClass slot 172, owner index 1
     double                   ReloadRate;   // +0x1168
     double                   AutocreateTime;   // +0x1170
-    double                   unknown_1178;   // +0x1178 BuildupTime; buildup time in minutes (BuildingType slot 48; hypothesis)
-    int                      unknown_1180;   // +0x1180 HarvesterLoadRate; (UnitClass 0x007013A0: a harvesting pause in frames)
+    double                   BuildupTime;   // +0x1178 BuildupTime; buildup time in minutes (BuildingType slot 48; hypothesis)
+    int                      HarvesterLoadRate;   // +0x1180 HarvesterLoadRate; (UnitClass 0x007013A0: a harvesting pause in frames)
     char unknown_1184[0x1188 - 0x1184];
     double                   HarvesterDumpRate;   // +0x1188
-    int                      unknown_1190;   // +0x1190 AtomDamage; damage (AnimClass 0x00422BA0)
+    int                      AtomDamage;   // +0x1190 AtomDamage; damage (AnimClass 0x00422BA0)
     char unknown_1194[0x1198 - 0x1194];
     DifficultyClass          Diff[3];   // +0x1198
     char unknown_1288[0x1298 - 0x1288];
@@ -678,50 +678,50 @@ public:
     double                   TimerWarning;   // +0x12E0
     int                      TiberiumTransmogrify;   // +0x12E8
     char unknown_12ec[0x12F0 - 0x12EC];
-    double                   unknown_12f0;   // +0x12F0
-    double                   unknown_12f8;   // +0x12F8
-    double                   unknown_1300;   // +0x1300
-    double                   unknown_1308;   // +0x1308
+    double                   NukeTime;   // +0x12F0
+    double                   EMPulseTime;   // +0x12F8
+    double                   IonCannonTime;   // +0x1300
+    double                   FirestormTime;   // +0x1308
     double                   SpeakDelay;   // +0x1310
     double                   DamageDelay;   // +0x1318
-    int                      unknown_1320;   // +0x1320 Gravity; WeaponTypeClass speed default; hypothesis
-    int                      unknown_1324;   // +0x1324 LeptonsPerSightIncrease; height per level step (TechnoClass slot 70: Z / this * 10)
-    int                      unknown_1328;   // +0x1328 Incoming; Infantry firing range threshold (00507530)
+    int                      Gravity;   // +0x1320 Gravity; WeaponTypeClass speed default; hypothesis
+    int                      LeptonsPerSightIncrease;   // +0x1324 LeptonsPerSightIncrease; height per level step (TechnoClass slot 70: Z / this * 10)
+    int                      Incoming;   // +0x1328 Incoming; Infantry firing range threshold (00507530)
     int                      MinDamage;   // +0x132C
     int                      MaxDamage;   // +0x1330
     int                      RepairStep;   // +0x1334 RepairStep; repair step (TechnoType slots 44, 45; hypothesis)
     double                   RepairPercent;   // +0x1338 RepairPercent; repair cost factor (slot 44; hypothesis)
     int                      IRepairStep;   // +0x1340 IRepairStep; InfantryType repair step (slot 45)
     char unknown_1344[0x1348 - 0x1344];
-    double                   unknown_1348;   // +0x1348 RepairRate; self-heal interval in minutes (TechnoClass slot 157)
+    double                   RepairRate;   // +0x1348 RepairRate; self-heal interval in minutes (TechnoClass slot 157)
     double                   URepairRate;   // +0x1350
     double                   IRepairRate;   // +0x1358
-    double                   unknown_1360;   // +0x1360
-    double                   unknown_1368;   // +0x1368 ConditionYellow; health-ratio thresholds (hypothesis: the condition yellow/red values)
-    double                   unknown_1370;   // +0x1370 ConditionRed
+    double                   ConditionGreen;   // +0x1360
+    double                   ConditionYellow;   // +0x1368 ConditionYellow; health-ratio thresholds (hypothesis: the condition yellow/red values)
+    double                   ConditionRed;   // +0x1370 ConditionRed
     double                   IdleActionFrequency;   // +0x1378
-    int                      unknown_1380;   // +0x1380 CloseEnough; how far a unit outside a team may stray when pathing (FootClass 0x004C3000; hypothesis)
-    int                      unknown_1384;   // +0x1384 Stray; (TeamClass 0x006BE6A0: a distance for team scripts; hypothesis)
-    int                      unknown_1388;   // +0x1388 RelaxedStray; (TeamClass 0x006BE6A0)
+    int                      CloseEnoughDistance;   // +0x1380 CloseEnough; how far a unit outside a team may stray when pathing (FootClass 0x004C3000; hypothesis)
+    int                      StrayDistance;   // +0x1384 Stray; (TeamClass 0x006BE6A0: a distance for team scripts; hypothesis)
+    int                      RelaxedStray;   // +0x1388 RelaxedStray; (TeamClass 0x006BE6A0)
     int                      GuardModeStray;   // +0x138C
-    int                      unknown_1390;   // +0x1390 Crush; a distance (UnitClass slot 304: crush range; hypothesis)
+    int                      CrushDistance;   // +0x1390 Crush; a distance (UnitClass slot 304: crush range; hypothesis)
     int                      CrateRadius;   // +0x1394
     int                      HomingScatter;   // +0x1398
-    int                      unknown_139c;   // +0x139C BallisticScatter; a scatter distance (BulletClass slot 118: twice it bounds a flak bullet's random miss; hypothesis: BallisticScatter)
-    double                   unknown_13a0;   // +0x13A0 RefundPercent; refund factor (TechnoType slot 46; hypothesis)
-    int                      unknown_13a8;   // +0x13A8 BridgeStrength; damage (InfantryClass slot 93: a C4 charge)
+    int                      BallisticScatter;   // +0x139C BallisticScatter; a scatter distance (BulletClass slot 118: twice it bounds a flak bullet's random miss; hypothesis: BallisticScatter)
+    double                   RefundPercent;   // +0x13A0 RefundPercent; refund factor (TechnoType slot 46; hypothesis)
+    int                      BridgeStrength;   // +0x13A8 BridgeStrength; damage (InfantryClass slot 93: a C4 charge)
     char unknown_13ac[0x13B0 - 0x13AC];
     double                   BuildSpeedBias;   // +0x13B0 BuildSpeed; cost factor (TechnoType slot 34)
-    double                   unknown_13b8;   // +0x13B8 C4Delay; C4 delay in minutes (InfantryClass slot 93; hypothesis)
+    double                   C4Delay;   // +0x13B8 C4Delay; C4 delay in minutes (InfantryClass slot 93; hypothesis)
     int                      CreditReserve;   // +0x13C0
     char unknown_13c4[0x13C8 - 0x13C4];
-    double                   unknown_13c8;   // +0x13C8 PathDelay; minutes to wait after a failed path (FootClass 0x004C3000)
+    double                   PathDelay;   // +0x13C8 PathDelay; minutes to wait after a failed path (FootClass 0x004C3000)
     int                      BlockagePathDelay;   // +0x13D0 BlockagePathDelay; frames of the movement timer (FootClass slot 260)
     char unknown_13d4[0x13D8 - 0x13D4];
     double                   MovieTime;   // +0x13D8
     int                      TiberiumNearScan;   // +0x13E0
     int                      TiberiumFarScan;   // +0x13E4
-    int                      unknown_13e8;   // +0x13E8 LightningDeferment; (TeamClass script handler 0x006BC460)
+    int                      LightningDeferment;   // +0x13E8 LightningDeferment; (TeamClass script handler 0x006BC460)
     int                      LightningDamage;   // +0x13EC
     int                      LightningStormDuration;   // +0x13F0
     int                      LightningHitDelay;   // +0x13F4
@@ -731,7 +731,7 @@ public:
     bool                     LightningPrintText;   // +0x1404
     char unknown_1405[0x1408 - 0x1405];
     WarheadTypeClass *       LightningWarhead;   // +0x1408
-    int                      unknown_140c;   // +0x140C CollapseChance; signed random threshold (Wave damage)
+    int                      CollapseChance;   // +0x140C CollapseChance; signed random threshold (Wave damage)
     int                      WeedCapacity;   // +0x1410 WeedCapacity; silo storage (House.cpp; BuildingType slot 29 weeder)
     int                      HarvestersPerRefinery;   // +0x1414
     int                      ExtraUnitLight;   // +0x1418
@@ -742,13 +742,13 @@ public:
     bool                     BlendedFog;   // +0x1426
     bool                     CompEasyBonus;   // +0x1427
     bool                     FineDiffControl;   // +0x1428
-    bool                     unknown_1429;   // +0x1429 TiberiumExplosive; (UnitClass 0x006FD3A0)
+    bool                     IsExplosiveHarvester;   // +0x1429 TiberiumExplosive; (UnitClass 0x006FD3A0)
     bool                     EnemyHealth;   // +0x142A
-    bool                     unknown_142b;   // +0x142B AllyReveal; (DisplayClass 0x0049E110/0x0049E000: allied buildings too)
+    bool                     IsAllyReveal;   // +0x142B AllyReveal; (DisplayClass 0x0049E110/0x0049E000: allied buildings too)
     bool                     IsSeparate;   // +0x142C SeparateAircraft; BuildingType slots 33/43: no harvester discount
-    bool                     unknown_142d;   // +0x142D TreeTargeting; (TechnoClass slot 208: any weapon may target kind 36)
+    bool                     IsTreeTarget;   // +0x142D TreeTargeting; (TechnoClass slot 208: any weapon may target kind 36)
     bool                     NamedCivilians;   // +0x142E
-    bool                     unknown_142f;   // +0x142F PlayerAutoCrush; (UnitClass 0x00707170)
+    bool                     IsAutoCrush;   // +0x142F PlayerAutoCrush; (UnitClass 0x00707170)
     bool                     PlayerReturnFire;   // +0x1430
     bool                     IsScatter;   // +0x1431 PlayerScatter; (InfantryClass slot 87: scatter freely)
     bool                     RevealByHeight;   // +0x1432
@@ -756,28 +756,28 @@ public:
     bool                     ShroudGrow;   // +0x1434
     bool                     NodAIBuildsWalls;   // +0x1435
     bool                     AIBuildsWalls;   // +0x1436
-    bool                     unknown_1437;   // +0x1437 UseMinDefenseRule; AI triggers wait for the minimum (AITriggerType 0x0041C990; hypothesis)
-    AnimTypeClass const *    unknown_1438;   // +0x1438 EMPulseSparkles; EMPulse animation, observed 004B4E30
+    bool                     UseMinDefenseRule;   // +0x1437 UseMinDefenseRule; AI triggers wait for the minimum (AITriggerType 0x0041C990; hypothesis)
+    AnimTypeClass const *    EMPulseSparkles;   // +0x1438 EMPulseSparkles; EMPulse animation, observed 004B4E30
     float                    unknown_143c;   // +0x143C EngineerCaptureLevel; an Engineer captures a building above this health ratio (InfantryClass slot 28)
     float                    EngineerCaptureLevel;   // +0x1440
     unsigned int             TalkBubbleTime;   // +0x1444
     int                      RadDurationMultiple;   // +0x1448 RadDurationMultiple; (RadSiteClass; hypothesis)
-    int                      unknown_144c;   // +0x144C RadApplicationDelay; frames between tiberium damage checks (FootClass::AI; hypothesis)
+    int                      RadApplicationDelay;   // +0x144C RadApplicationDelay; frames between tiberium damage checks (FootClass::AI; hypothesis)
     int                      RadLevelMax;   // +0x1450
     int                      RadLevelDelay;   // +0x1454 RadLevelDelay; (RadSiteClass; hypothesis)
     int                      RadLightDelay;   // +0x1458 RadLightDelay; (RadSiteClass; hypothesis)
     char unknown_145c[0x1460 - 0x145C];
-    double                   unknown_1460;   // +0x1460 RadLevelFactor; tiberium damage factor (FootClass::AI)
+    double                   RadLevelFactor;   // +0x1460 RadLevelFactor; tiberium damage factor (FootClass::AI)
     double                   RadLightFactor;   // +0x1468
     double                   RadTintFactor;   // +0x1470
     RGBClass                 RadColor;   // +0x1478
     char unknown_147b[0x147C - 0x147B];
-    WarheadTypeClass *       unknown_147c;   // +0x147C RadSiteWarhead; the tiberium damage warhead (FootClass::AI)
-    int                      unknown_1480;   // +0x1480 ElevationIncrement; (divisor of a height difference; TechnoClass 0x006C4A70)
+    WarheadTypeClass *       RadSiteWarhead;   // +0x147C RadSiteWarhead; the tiberium damage warhead (FootClass::AI)
+    int                      ElevationIncrement;   // +0x1480 ElevationIncrement; (divisor of a height difference; TechnoClass 0x006C4A70)
     char unknown_1484[0x1488 - 0x1484];
-    double                   unknown_1488;   // +0x1488 ElevationIncrementBonus; (scale)
-    double                   unknown_1490;   // +0x1490 ElevationBonusCap; (limit)
-    bool                     unknown_1498;   // +0x1498 AlliedWallTransparency; observed condition in wall-transition helper004BBE60
+    double                   ElevationIncrementBonus;   // +0x1488 ElevationIncrementBonus; (scale)
+    double                   ElevationBonusCap;   // +0x1490 ElevationBonusCap; (limit)
+    bool                     AlliedWallTransparency;   // +0x1498 AlliedWallTransparency; observed condition in wall-transition helper004BBE60
     char unknown_1499[0x14A0 - 0x1499];
     double                   WallPenetratorThreshold;   // +0x14A0
     RGBClass                 LocalRadarColor;   // +0x14A8

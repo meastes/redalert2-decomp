@@ -1758,8 +1758,8 @@ void __fastcall Unknown_0049C3F0(ObjectClass *object)
             if (type->UndeploysInto == 0) {
                 return;
             }
-            for (int index = 0; index < Rules->unknown_7c8.Count(); index++) {
-                if (Rules->unknown_7c8[index] == type) {
+            for (int index = 0; index < Rules->BuildConst.Count(); index++) {
+                if (Rules->BuildConst[index] == type) {
                     return;
                 }
             }
@@ -2392,7 +2392,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     unknown_session_a3d298.Update_Progress(68);
     Call_Back();
 
-    Unknown_0052B2E0(Debug_Map || Debug_ForceScenario, unknown_id_source_a3d290->unknown_223b);
+    Unknown_0052B2E0(Debug_Map || Debug_ForceScenario, unknown_id_source_a3d290->IsRandom);
 
     unknown_session_a3d298.Update_Progress(69);
     Call_Back();
@@ -2598,7 +2598,7 @@ void DisplayClass::Reveal_Technos(bool skip_buildings, bool arg2)
                     techno->unknown_slot235();
                 }
             }
-        } else if (techno->Kind_Of() == 6 && Rules->unknown_142b && techno->House->Is_Ally(PlayerPtr)) {
+        } else if (techno->Kind_Of() == 6 && Rules->IsAllyReveal && techno->House->Is_Ally(PlayerPtr)) {
             techno->unknown_slot262(0, arg2, false, 0);
             CoordStruct coord = techno->Coord;
             Map.Unknown_0054A550(coord, 0, techno->unknown_1f4 + 3, 0);
@@ -2637,7 +2637,7 @@ void DisplayClass::Update_Technos_Visibility(bool skip_buildings, bool arg2)
                     techno->unknown_slot236();
                 }
             }
-        } else if (techno->Kind_Of() == 6 && Rules->unknown_142b && techno->House->Is_Ally(PlayerPtr)) {
+        } else if (techno->Kind_Of() == 6 && Rules->IsAllyReveal && techno->House->Is_Ally(PlayerPtr)) {
             techno->unknown_slot263(0, arg2, false, 0);
         } else if (techno->Techno_Type_Class()->GapGenerator) {
             techno->unknown_slot236();
@@ -2665,7 +2665,7 @@ void DisplayClass::All_To_Look(bool skip_buildings, bool arg2)
             if (techno->unknown_373) {
                 techno->Look(false, arg2);
             }
-        } else if (techno->Kind_Of() == 6 && Rules->unknown_142b && techno->House->Is_Ally(PlayerPtr)) {
+        } else if (techno->Kind_Of() == 6 && Rules->IsAllyReveal && techno->House->Is_Ally(PlayerPtr)) {
             techno->Look(arg2, 0);
         }
     }
@@ -2687,7 +2687,7 @@ void DisplayClass::Constrained_Look(CoordStruct const &center, int distance)
                     techno->Look(false, false);
                 }
             } else {
-                if (techno->Kind_Of() == 6 && Rules->unknown_142b && techno->House->Is_Ally(PlayerPtr)
+                if (techno->Kind_Of() == 6 && Rules->IsAllyReveal && techno->House->Is_Ally(PlayerPtr)
                     && Coord_Distance(techno->Center_Coord(), center) <= techno->Techno_Type_Class()->Sight * 256 + distance) {
                     techno->Look(false, false);
                 }

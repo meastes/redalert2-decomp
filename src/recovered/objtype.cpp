@@ -106,7 +106,7 @@ template <> inline bool DynamicVectorClass<ObjectTypeClass *>::Add(ObjectTypeCla
 }
 ObjectTypeClass::ObjectTypeClass(char const *ini_name)
     : AbstractTypeClass(ini_name),
-      Armor(0), MaxStrength(0), ImageData(0), ImageAllocated(false), unknown_ac(0),
+      Armor(0), MaxStrength(0), ImageData(0), ImageAllocated(false), AlphaImageData(0),
       NoSpawnAlt(false), MaxSize(0), CrushSound(-1), AmbientSound(-1),
       AlternateArcticArt(false), ArcticArtInUse(false),
       IsTheater(false), IsCrushable(false), IsBombable(true), IsStealthy(false),
@@ -877,7 +877,7 @@ bool ObjectTypeClass::Read_INI(CCINIClass &ini)
         if (AlphaGraphicName[0] != 0) {
             char filename[260];
             _makepath(filename, 0, 0, AlphaGraphicName, ".SHP");
-            unknown_ac = (int)MixFileClass::Retrieve(filename);
+            AlphaImageData = (int)MixFileClass::Retrieve(filename);
         }
         return true;
     }
@@ -959,7 +959,7 @@ HRESULT __stdcall ObjectTypeClass::Load(IStream *stream)
 
     ImageData = 0;
     ImageAllocated = false;
-    unknown_ac = 0;
+    AlphaImageData = 0;
     new (&unknown_214) UnknownBuffer;
     new (&AuxVoxelIndex) UnknownBuffer;
     new (&ShadowVoxelIndex) UnknownBuffer;
@@ -977,7 +977,7 @@ HRESULT __stdcall ObjectTypeClass::Load(IStream *stream)
     if (AlphaGraphicName.Buffer[0] != 0) {
         char filename[260];
         _makepath(filename, 0, 0, AlphaGraphicName.Buffer, ".SHP");
-        unknown_ac = (int)MixFileClass::Retrieve(filename);
+        AlphaImageData = (int)MixFileClass::Retrieve(filename);
     }
     return S_OK;
 }

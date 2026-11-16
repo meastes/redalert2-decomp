@@ -228,11 +228,11 @@ void  unknown_timer_atexit_0065b4e0(void)
 ScenarioClass::ScenarioClass()
 {
     Set_Defaults();
-    unknown_22fc = false;
-    unknown_223b = false;
+    IsReadingScenario = false;
+    IsRandom = false;
     Special().Init();
     TechLevel = 1;
-    unknown_224c = -1;
+    Campaign = -1;
     NextScenario[0] = '\0';
     AltNextScenario[0] = '\0';
     for (int index = 0; index < 101; index++) {
@@ -269,12 +269,12 @@ ScenarioClass::ScenarioClass(NoInitClass const &noinit) :
     ElapsedTime(noinit),
     MissionTimer(noinit),
     MissionTimerLabel(noinit),
-    unknown_7f8(noinit),
-    unknown_804(noinit),
-    unknown_810(noinit),
-    unknown_81c(noinit),
-    unknown_828(noinit),
-    unknown_2240(noinit)
+    ShroudTimer(noinit),
+    FogTimer(noinit),
+    IceGrowthTimer(noinit),
+    VeinGrowthTimer(noinit),
+    AmbientChangeTimer(noinit),
+    FadeTimer(noinit)
 {
     if (MissionTimerLabel[0] != 0) {
         MissionTimerText = StringTable::Load_String(MissionTimerLabel, 0, "D:\\Ra2\\Scenario.CPP", 340);
@@ -292,22 +292,22 @@ void ScenarioClass::Set_Defaults()
     AltHomeCell = 98;
     UniqueID = 1000000;
     Difficulty = 1;
-    unknown_610 = 1;
+    CDifficulty = 1;
     ElapsedTime = 0;
     ElapsedTime.Stop();
-    unknown_620 = 0;
-    unknown_620.Stop();
+    PauseTimer = 0;
+    PauseTimer.Stop();
     unknown_62c = 0;
-    unknown_630 = false;
+    IsGamePaused = false;
     MissionTimer = 0;
     MissionTimer.Stop();
     MissionTimerText = unknown_empty_wide_839d4c;
     MissionTimerLabel = FixedString<32>(unknown_string_83c55c);
-    unknown_7f8 = 0;
-    unknown_804 = 0;
-    unknown_810 = 0;
-    unknown_81c = 0;
-    unknown_828 = 0;
+    ShroudTimer = 0;
+    FogTimer = 0;
+    IceGrowthTimer = 0;
+    VeinGrowthTimer = 0;
+    AmbientChangeTimer = 0;
     Theater = -1;
     IntroMovie = -1;
     BriefMovie = -1;
@@ -317,35 +317,35 @@ void ScenarioClass::Set_Defaults()
     PostScoreMovie = -1;
     PreMapSelectMovie = -1;
     Theme = -1;
-    unknown_11fc = 0;
+    PlayerHouse = 0;
     CarryOverMoney = 0;
-    unknown_1208 = 0;
+    CarryOverCap = 0;
     Percent = 0;
-    unknown_2224 = 0;
+    BridgeCount = 0;
     FreeRadar = false;
-    unknown_2229 = false;
+    IsTrainCargo = false;
     IsTibGrowth = true;
-    unknown_222b = true;
-    unknown_222c = true;
-    unknown_222d = false;
-    unknown_222e = false;
-    unknown_222f = false;
+    IsVeinGrowth = true;
+    IsIceGrowth = true;
+    IsBridgeChanged = false;
+    IsGlobalChanged = false;
+    IsAmbientLightChanged = false;
     EndOfGame = false;
-    unknown_2231 = false;
+    IsInheritTimer = false;
     SkipScore = false;
     OneTimeOnly = false;
     SkipMapSelect = false;
     TruckCrate = false;
     FillSilos = false;
-    unknown_2238 = false;
-    unknown_2239 = true;
+    IsIgnoreGlobalAITriggers = false;
+    IsGDI = true;
     MultiplayerOnly = false;
-    unknown_223c = false;
-    unknown_2240 = 0;
+    IsCrateBeenPickedUp = false;
+    FadeTimer = 0;
     StartingDropships = 0;
-    unknown_22a8 = 100;
-    unknown_22ac = 100;
-    unknown_22b0 = 100;
+    AmbientLight = 100;
+    CurrentAmbientLight = 100;
+    DesiredAmbientLight = 100;
     AmbientRed = 100;
     AmbientGreen = 100;
     AmbientBlue = 100;
@@ -357,16 +357,16 @@ void ScenarioClass::Set_Defaults()
     IonBlue = 0;
     IonGround = 100;
     IonLevel = 16;
-    unknown_22e0 = 200;
-    unknown_22e4 = 175;
-    unknown_22e8 = 150;
-    unknown_22ec = 125;
-    unknown_22f0 = 100;
-    unknown_22f4 = 100;
+    NukeAmbient = 200;
+    NukeRedTint = 175;
+    NukeGreenTint = 150;
+    NukeBlueTint = 125;
+    NukeGroundLight = 100;
+    NukeLevelLight = 100;
     NukeAmbientChangeRate = 1;
     InitTime = 10000;
-    unknown_2304 = 0;
-    unknown_2306 = false;
+    Stage = 0;
+    IsInputLocked = false;
     TiberiumDeathToVisceroid = true;
     ParTimeEasy = 3600;
     ParTimeMedium = 3600;
@@ -413,7 +413,7 @@ bool __fastcall Start_Scenario_0065bc70(char const *name, bool briefing, int cam
             name = Campaigns[campaign]->Scenario;
         }
     }
-    unknown_id_source_a3d290->unknown_224c = campaign;
+    unknown_id_source_a3d290->Campaign = campaign;
     Debug_Printf("\n----- Starting scnenario: %s -----\n", name);
     Debug_Printf("Player Count: %d\n", unknown_players_a3fa7c.Count());
     strcpy(unknown_id_source_a3d290->FileName, name);
@@ -421,8 +421,8 @@ bool __fastcall Start_Scenario_0065bc70(char const *name, bool briefing, int cam
 
     CD::Set_Required_CD(-1);
     if (unknown_game_mode_a3d298 == 0) {
-        if (unknown_id_source_a3d290->unknown_224c != -1) {
-            CD::Set_Required_CD(Campaigns[unknown_id_source_a3d290->unknown_224c]->CDNumber);
+        if (unknown_id_source_a3d290->Campaign != -1) {
+            CD::Set_Required_CD(Campaigns[unknown_id_source_a3d290->Campaign]->CDNumber);
         }
     } else if (unknown_session_a3d298.ScenarioIndex != -1) {
         MultiMission *mission = unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex];
@@ -544,18 +544,18 @@ void Focus_Restore_0065c140()
 void __fastcall Pause_Count_0065c1f0(int seconds)
 {
     if (seconds) {
-        unknown_id_source_a3d290->unknown_620 = seconds * 60;
-        if (unknown_id_source_a3d290->unknown_630) {
+        unknown_id_source_a3d290->PauseTimer = seconds * 60;
+        if (unknown_id_source_a3d290->IsGamePaused) {
             return;
         }
-        unknown_id_source_a3d290->unknown_630 = true;
+        unknown_id_source_a3d290->IsGamePaused = true;
     }
     if (unknown_id_source_a3d290->unknown_62c == 0) {
         Audio_Pause_All();
         if (unknown_game_mode_a3d298 == 0 || unknown_game_mode_a3d298 == 5) {
             unknown_id_source_a3d290->ElapsedTime.Stop();
         }
-        InputLockedBeforeHold = unknown_id_source_a3d290->unknown_2306;
+        InputLockedBeforeHold = unknown_id_source_a3d290->IsInputLocked;
         if (!InputLockedBeforeHold) {
             Pause_Game_0065c3d0();
         }
@@ -594,7 +594,7 @@ void Pause_Game_0065c3d0()
     if (WWMouse->Get_Mouse_State() == 0) {
         WWMouse->Hide_Mouse();
     }
-    unknown_id_source_a3d290->unknown_2306 = true;
+    unknown_id_source_a3d290->IsInputLocked = true;
     IgnoreInput = true;
     WWKeyboard->Clear();
     UnlockInputFrame = 0;
@@ -607,12 +607,12 @@ void Pause_Game_0065c3d0()
 
 void Resume_Game_0065c420()
 {
-    if (unknown_id_source_a3d290->unknown_2306 == true) {
+    if (unknown_id_source_a3d290->IsInputLocked == true) {
         while (WWMouse->Get_Mouse_State() != 0) {
             WWMouse->Show_Mouse();
         }
     }
-    unknown_id_source_a3d290->unknown_2306 = false;
+    unknown_id_source_a3d290->IsInputLocked = false;
     IgnoreInput = false;
     WWKeyboard->Clear();
     UnlockInputFrame = 0;
@@ -695,7 +695,7 @@ bool __fastcall Wait_For_Players_0065c520()
         }
         double progress = ProgressScreen.Average_Progress();
         if (progress >= 0.9995) {
-            unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
+            unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->IsRandom ? 200 : 100);
             return true;
         }
         if (progress != last) {
@@ -704,7 +704,7 @@ bool __fastcall Wait_For_Players_0065c520()
         }
         if (resend.Value() <= 0) {
             resend = 60;
-            unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
+            unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->IsRandom ? 200 : 100);
         }
     }
 }
@@ -729,14 +729,14 @@ bool __fastcall Unknown_0065c7d0(char const *name)
     char filename[260];
     strcpy(filename, name);
     Frame = 0;
-    unknown_id_source_a3d290->unknown_22fc = true;
+    unknown_id_source_a3d290->IsReadingScenario = true;
     ScenarioInit++;
     char *extension = &filename[strlen(filename) - 4];
     if (_stricmp(extension, ".SED") == 0) {
-        unknown_id_source_a3d290->unknown_223b = true;
+        unknown_id_source_a3d290->IsRandom = true;
         Debug_Printf("Scen->IsRandom = true\n");
     } else {
-        unknown_id_source_a3d290->unknown_223b = false;
+        unknown_id_source_a3d290->IsRandom = false;
         Debug_Printf("Scen->IsRandom = false\n");
     }
 
@@ -758,8 +758,8 @@ bool __fastcall Unknown_0065c7d0(char const *name)
         ProgressScreen.Set_Listener(loader);
         int side = 0;
         if (unknown_game_mode_a3d298 == 0) {
-            if (unknown_id_source_a3d290->unknown_224c != -1) {
-                side = Campaigns[unknown_id_source_a3d290->unknown_224c]->CDNumber;
+            if (unknown_id_source_a3d290->Campaign != -1) {
+                side = Campaigns[unknown_id_source_a3d290->Campaign]->CDNumber;
             }
         } else {
             int country = unknown_players_a3fa7c[0]->unknown_4b;
@@ -768,7 +768,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
             }
             side = HouseTypes[country]->Side;
         }
-        unknown_id_source_a3d290->unknown_2239 = side == 0;
+        unknown_id_source_a3d290->IsGDI = side == 0;
         ProgressScreen.Set_Side(side);
         Unknown_00535910()->Unknown_00535B90();
         if (unknown_game_mode_a3d298 == 0) {
@@ -796,7 +796,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
     }
 
     bool ok;
-    if (unknown_id_source_a3d290->unknown_223b) {
+    if (unknown_id_source_a3d290->IsRandom) {
         ok = RandomMapGen.SeedData.Load_Or_Prompt_005791a0(filename);
         if (ok) {
             RandomMapGen.Unknown_0057A0D0(0, 0);
@@ -816,7 +816,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
             StringTable::Load_String("TXT_UNABLE_READ_SCENARIO", 0, "D:\\Ra2\\Scenario.CPP", 1394),
             StringTable::Load_String("TXT_OK", 0, "D:\\Ra2\\Scenario.CPP", 1394), 0, 0, false);
         ScenarioInit--;
-        unknown_id_source_a3d290->unknown_22fc = false;
+        unknown_id_source_a3d290->IsReadingScenario = false;
         if (loader != 0) {
             ProgressScreen.Set_Listener(0);
             delete loader;
@@ -832,9 +832,9 @@ bool __fastcall Unknown_0065c7d0(char const *name)
             OwnerTalk.Wait_For_Router_Shutdown(15000, true);
         }
     }
-    unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->unknown_223b ? 200 : 100);
-    unknown_session_a3d298.unknown_639 = false;
-    unknown_session_a3d298.unknown_63a = false;
+    unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->IsRandom ? 200 : 100);
+    unknown_session_a3d298.SawGameCompletion = false;
+    unknown_session_a3d298.OutOfSync = false;
     ok = Wait_For_Players_0065c520();
     if (unknown_game_mode_a3d298 == 4) {
         unknown_session_a3d298.Unknown_00672440();
@@ -848,7 +848,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
             }
         }
     }
-    unknown_id_source_a3d290->unknown_22fc = false;
+    unknown_id_source_a3d290->IsReadingScenario = false;
     ProgressScreen.End();
     if (loader != 0) {
         ProgressScreen.Set_Listener(0);
@@ -1056,7 +1056,7 @@ void Clear_Scenario_0065d370()
                 bool old_value = state.Value;
                 if (old_value != false) {
                     state.Value = false;
-                    scenario->unknown_222e = true;
+                    scenario->IsGlobalChanged = true;
                     TagClass::All_Timer_Global_Reset(variable);
                 }
         }
@@ -1206,8 +1206,8 @@ void __fastcall Do_Win_0065d7f0()
             return;
         }
         if (unknown_id_source_a3d290->EndOfGame) {
-            if (unknown_id_source_a3d290->unknown_224c != -1) {
-                Unknown_005A07F0(Campaigns[unknown_id_source_a3d290->unknown_224c]->FinalMovie, -1, 1, 1, 1);
+            if (unknown_id_source_a3d290->Campaign != -1) {
+                Unknown_005A07F0(Campaigns[unknown_id_source_a3d290->Campaign]->FinalMovie, -1, 1, 1, 1);
             }
             Unknown_004B37C0();
             GameActive = false;
@@ -1270,7 +1270,7 @@ void __fastcall Do_Win_0065d7f0()
         WWMouse->Show_Mouse();
         return;
     }
-    Start_Scenario_0065bc70(unknown_id_source_a3d290->FileName, true, unknown_id_source_a3d290->unknown_224c);
+    Start_Scenario_0065bc70(unknown_id_source_a3d290->FileName, true, unknown_id_source_a3d290->Campaign);
     if ((unknown_game_mode_a3d298 == 3 || unknown_game_mode_a3d298 == 4) && unknown_session_a3d29c != 0
         && unknown_session_a3d29c->unknown_slot2()) {
         unknown_session_a3d298.Create_Connections();
@@ -1399,7 +1399,7 @@ void __fastcall Do_Lose_0065dec0()
             }
             WWKeyboard->Clear();
         }
-        Start_Scenario_0065bc70(unknown_id_source_a3d290->FileName, false, unknown_id_source_a3d290->unknown_224c);
+        Start_Scenario_0065bc70(unknown_id_source_a3d290->FileName, false, unknown_id_source_a3d290->Campaign);
         if ((unknown_game_mode_a3d298 == 3 || unknown_game_mode_a3d298 == 4) && unknown_session_a3d29c != 0
             && unknown_session_a3d29c->unknown_slot2()) {
             unknown_session_a3d298.Create_Connections();
@@ -1447,7 +1447,7 @@ void __fastcall Do_Restart_0065e440()
     Aux_Stream_Stop();
     Map.Set_Default_Mouse(0, false);
     WWKeyboard->Clear();
-    Start_Scenario_0065bc70(unknown_id_source_a3d290->FileName, false, unknown_id_source_a3d290->unknown_224c);
+    Start_Scenario_0065bc70(unknown_id_source_a3d290->FileName, false, unknown_id_source_a3d290->Campaign);
     unknown_scenario_checkpoint_00855a90.Restore_004B5B40();
     while (timer.Value() > 0) {
         Service_Game_IO_00481fb0();
@@ -1611,12 +1611,12 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     Clear_Scenario_0065d370();
     if (unknown_game_mode_a3d298 == 0) {
         unknown_id_source_a3d290->Difficulty = unknown_difficulty_a40b1c;
-        unknown_id_source_a3d290->unknown_610 = 2 - unknown_difficulty_a40b1c;
+        unknown_id_source_a3d290->CDifficulty = 2 - unknown_difficulty_a40b1c;
         unknown_id_source_a3d290->Special().FogOfWar = false;
         unknown_special_a40920.FogOfWar = false;
     } else {
         unknown_id_source_a3d290->Difficulty = unknown_session_difficulty_a3d2d8;
-        unknown_id_source_a3d290->unknown_610 = 2 - unknown_id_source_a3d290->Difficulty;
+        unknown_id_source_a3d290->CDifficulty = 2 - unknown_id_source_a3d290->Difficulty;
         unknown_id_source_a3d290->Special().FogOfWar = unknown_session_fog_a3d33f;
         unknown_special_a40920.FogOfWar = unknown_session_fog_a3d33f;
     }
@@ -1720,8 +1720,8 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     scenario = unknown_id_source_a3d290;
     int side = 0;
     if (unknown_game_mode_a3d298 == 0) {
-        if (scenario->unknown_224c != -1) {
-            side = Campaigns[scenario->unknown_224c]->CDNumber;
+        if (scenario->Campaign != -1) {
+            side = Campaigns[scenario->Campaign]->CDNumber;
         }
     } else {
         int country = unknown_players_a3fa7c[0]->unknown_4b;
@@ -1740,13 +1740,13 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
         } else {
             allied = false;
         }
-        unknown_id_source_a3d290->unknown_2239 = allied;
+        unknown_id_source_a3d290->IsGDI = allied;
         if (!Unknown_0051a330(!allied)) {
             ScenarioInit--;
             return false;
         }
     } else {
-        scenario->unknown_2239 = allied;
+        scenario->IsGDI = allied;
         if (!Unknown_0051a330(!allied)) {
             ScenarioInit--;
             return false;
@@ -1771,9 +1771,9 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
             ScenarioInit--;
             return false;
         }
-        unknown_id_source_a3d290->unknown_2239 = allied;
+        unknown_id_source_a3d290->IsGDI = allied;
     } else {
-        unknown_id_source_a3d290->unknown_2239 = allied;
+        unknown_id_source_a3d290->IsGDI = allied;
         if (unknown_session_a3d29c) {
             unknown_session_a3d29c->unknown_slot26();
         }
@@ -2374,7 +2374,7 @@ bool ScenarioClass::Set_Global_To(unsigned index, bool value)
         bool old = Variables[index].Value;
         if (old != value) {
             Variables[index].Value = value;
-            unknown_222e = true;
+            IsGlobalChanged = true;
             TagClass::All_Timer_Global_Reset(index);
         }
         return old;
@@ -2459,7 +2459,7 @@ bool ScenarioClass::Set_Local_To(unsigned index, bool value)
         bool old = LocalVariables[index].Value;
         if (old != value) {
             LocalVariables[index].Value = value;
-            unknown_222e = true;
+            IsGlobalChanged = true;
             TagClass::All_Timer_Local_Reset(index);
         }
         return old;
@@ -2654,27 +2654,27 @@ bool ScenarioClass::Read_Basic(CCINIClass &ini)
     PostScoreMovie = ini.Get_Listed_Name("Basic", "PostScore", PostScoreMovie);
     PreMapSelectMovie = ini.Get_Listed_Name("Basic", "PreMapSelect", PreMapSelectMovie);
     MultiplayerOnly = ini.Get_Bool("Basic", "MultiplayerOnly", MultiplayerOnly);
-    unknown_2231 = ini.Get_Bool("Basic", "TimerInherit", unknown_2231);
+    IsInheritTimer = ini.Get_Bool("Basic", "TimerInherit", IsInheritTimer);
     EndOfGame = ini.Get_Bool("Basic", "EndOfGame", EndOfGame);
     Theme = ini.Get_ThemeType("Basic", "Theme", Theme);
     NewINIFormat = ini.Get_Int("Basic", "NewINIFormat", 0);
     CarryOverMoney = ini.Get_Double("Basic", "CarryOverMoney", CarryOverMoney);
     CarryOverMoney = Min(CarryOverMoney, 1.0);
-    unknown_1208 = ini.Get_Int("Basic", "CarryOverCap", unknown_1208);
+    CarryOverCap = ini.Get_Int("Basic", "CarryOverCap", CarryOverCap);
     SkipScore = ini.Get_Bool("Basic", "SkipScore", SkipScore);
     OneTimeOnly = ini.Get_Bool("Basic", "OneTimeOnly", OneTimeOnly);
     SkipMapSelect = ini.Get_Bool("Basic", "SkipMapSelect", SkipMapSelect);
     TruckCrate = ini.Get_Bool("Basic", "TruckCrate", TruckCrate);
-    unknown_2229 = ini.Get_Bool("Basic", "TrainCrate", unknown_2229);
+    IsTrainCargo = ini.Get_Bool("Basic", "TrainCrate", IsTrainCargo);
     FillSilos = ini.Get_Bool("Basic", "FillSilos", FillSilos);
-    unknown_2238 = ini.Get_Bool("Basic", "IgnoreGlobalAITriggers", unknown_2238);
+    IsIgnoreGlobalAITriggers = ini.Get_Bool("Basic", "IgnoreGlobalAITriggers", IsIgnoreGlobalAITriggers);
     Percent = ini.Get_Int("Basic", "Percent", Percent);
     StartingDropships = ini.Get_Int("Basic", "StartingDropships", StartingDropships);
     AllowableUnits = ini.Get_Techno_List("Basic", "AllowableUnits", AllowableUnits);
     AllowableUnitMaximums = ini.Get_Integer_List("Basic", "AllowableUnitMaximums", AllowableUnitMaximums);
     IsTibGrowth = ini.Get_Bool("Basic", "TiberiumGrowthEnabled", IsTibGrowth);
-    unknown_222b = ini.Get_Bool("Basic", "VeinGrowthEnabled", unknown_222b);
-    unknown_222c = ini.Get_Bool("Basic", "IceGrowthEnabled", unknown_222c);
+    IsVeinGrowth = ini.Get_Bool("Basic", "VeinGrowthEnabled", IsVeinGrowth);
+    IsIceGrowth = ini.Get_Bool("Basic", "IceGrowthEnabled", IsIceGrowth);
     TiberiumDeathToVisceroid = ini.Get_Bool("Basic", "TiberiumDeathToVisceroid", TiberiumDeathToVisceroid);
     FreeRadar = ini.Get_Bool("Basic", "FreeRadar", FreeRadar);
     HomeCell = ini.Get_Int("Basic", "HomeCell", HomeCell);
@@ -2700,13 +2700,13 @@ bool ScenarioClass::Read_Basic(CCINIClass &ini)
     ini.Get_String("Ranking", "OverParTitle", "GUI:NoOverParTitle", OverParTitle, sizeof(OverParTitle));
     ini.Get_String("Ranking", "OverParMessage", "GUI:NoOverParMessage", OverParMessage, sizeof(OverParMessage));
 
-    unknown_22b0 = unknown_22ac = unknown_22a8 = ini.Get_Double("Lighting", "Ambient", unknown_22a8 * 0.01) * 100.0;
+    DesiredAmbientLight = CurrentAmbientLight = AmbientLight = ini.Get_Double("Lighting", "Ambient", AmbientLight * 0.01) * 100.0;
     AmbientRed = ini.Get_Double("Lighting", "Red", AmbientRed * 0.01) * 100.0;
     AmbientGreen = ini.Get_Double("Lighting", "Green", AmbientGreen * 0.01) * 100.0;
     AmbientBlue = ini.Get_Double("Lighting", "Blue", AmbientBlue * 0.01) * 100.0;
     AmbientGround = ini.Get_Double("Lighting", "Ground", AmbientGround / 1000) * 1000.0;
     AmbientLevel = ini.Get_Double("Lighting", "Level", AmbientLevel / 1000) * 1000.0;
-    IonAmbient = ini.Get_Double("Lighting", "IonAmbient", unknown_22a8 * 0.01) * 100.0;
+    IonAmbient = ini.Get_Double("Lighting", "IonAmbient", AmbientLight * 0.01) * 100.0;
     IonRed = ini.Get_Double("Lighting", "IonRed", AmbientRed * 0.01) * 100.0;
     IonGreen = ini.Get_Double("Lighting", "IonGreen", AmbientGreen * 0.01) * 100.0;
     IonBlue = ini.Get_Double("Lighting", "IonBlue", AmbientBlue * 0.01) * 100.0;
@@ -2724,7 +2724,7 @@ bool ScenarioClass::Read_Basic(CCINIClass &ini)
             house = 0;
         }
         PlayerPtr = Houses[house];
-        unknown_11fc = PlayerPtr->Type->House;
+        PlayerHouse = PlayerPtr->Type->House;
     } else {
         Assign_Houses_0065fbb0();
     }
@@ -2765,15 +2765,15 @@ bool ScenarioClass::Write_Basic(CCINIClass &ini, bool skip_player)
     ini.Put_String(unknown_basic_section_7a9204, "AltNextScenario", AltNextScenario);
     ini.Put_Unicode(unknown_basic_section_7a9204, "Name", Name);
     ini.Put_Int(unknown_basic_section_7a9204, "NewINIFormat", 4);
-    ini.Put_Int(unknown_basic_section_7a9204, "CarryOverCap", unknown_1208 / 100);
+    ini.Put_Int(unknown_basic_section_7a9204, "CarryOverCap", CarryOverCap / 100);
     ini.Put_Bool(unknown_basic_section_7a9204, "EndOfGame", EndOfGame);
     ini.Put_Bool(unknown_basic_section_7a9204, "SkipScore", SkipScore);
     ini.Put_Bool(unknown_basic_section_7a9204, "OneTimeOnly", OneTimeOnly);
     ini.Put_Bool(unknown_basic_section_7a9204, "SkipMapSelect", SkipMapSelect);
     ini.Put_Bool(unknown_basic_section_7a9204, "Official", true);
-    ini.Put_Bool(unknown_basic_section_7a9204, "IgnoreGlobalAITriggers", unknown_2238);
+    ini.Put_Bool(unknown_basic_section_7a9204, "IgnoreGlobalAITriggers", IsIgnoreGlobalAITriggers);
     ini.Put_Bool(unknown_basic_section_7a9204, "TruckCrate", TruckCrate);
-    ini.Put_Bool(unknown_basic_section_7a9204, "TrainCrate", unknown_2229);
+    ini.Put_Bool(unknown_basic_section_7a9204, "TrainCrate", IsTrainCargo);
     ini.Put_Int(unknown_basic_section_7a9204, "Percent", Percent);
     ini.Put_Techno_List(unknown_basic_section_7a9204, "AllowableUnits", AllowableUnits);
     ini.Put_Integer_List(unknown_basic_section_7a9204, "AllowableUnitMaximums", AllowableUnitMaximums);
@@ -2791,7 +2791,7 @@ bool ScenarioClass::Write_Basic(CCINIClass &ini, bool skip_player)
         ini.Put_Listed_Name(unknown_basic_section_7a9204, "PostScore", PostScoreMovie);
         ini.Put_Listed_Name(unknown_basic_section_7a9204, "PreMapSelect", PreMapSelectMovie);
         ini.Put_Double(unknown_basic_section_7a9204, "CarryOverMoney", CarryOverMoney);
-        ini.Put_Bool(unknown_basic_section_7a9204, "TimerInherit", unknown_2231);
+        ini.Put_Bool(unknown_basic_section_7a9204, "TimerInherit", IsInheritTimer);
         ini.Put_Bool(unknown_basic_section_7a9204, "FillSilos", FillSilos);
         ini.Put_Int(unknown_basic_section_7a9204, "StartingDropships", StartingDropships);
         ini.Put_Int(unknown_basic_section_7a9204, "HomeCell", HomeCell);
@@ -2799,8 +2799,8 @@ bool ScenarioClass::Write_Basic(CCINIClass &ini, bool skip_player)
     }
     ini.Put_Int(unknown_basic_section_7a9204, "MultiplayerOnly", MultiplayerOnly);
     ini.Put_Bool(unknown_basic_section_7a9204, "TiberiumGrowthEnabled", IsTibGrowth);
-    ini.Put_Bool(unknown_basic_section_7a9204, "VeinGrowthEnabled", unknown_222b);
-    ini.Put_Bool(unknown_basic_section_7a9204, "IceGrowthEnabled", unknown_222c);
+    ini.Put_Bool(unknown_basic_section_7a9204, "VeinGrowthEnabled", IsVeinGrowth);
+    ini.Put_Bool(unknown_basic_section_7a9204, "IceGrowthEnabled", IsIceGrowth);
     ini.Put_Bool(unknown_basic_section_7a9204, "TiberiumDeathToVisceroid", TiberiumDeathToVisceroid);
     ini.Put_Bool(unknown_basic_section_7a9204, "FreeRadar", FreeRadar);
     ini.Put_Int(unknown_basic_section_7a9204, "InitTime", InitTime);
@@ -2826,7 +2826,7 @@ bool ScenarioClass::Write_Basic(CCINIClass &ini, bool skip_player)
     ini.Put_String("Ranking", "OverParMessage", OverParMessage);
 
     ini.Clear("Lighting");
-    double ambient = unknown_22a8 * 0.01;
+    double ambient = AmbientLight * 0.01;
     ini.Put_Double("Lighting", "Ambient", ambient);
     double red = AmbientRed * 0.01;
     ini.Put_Double("Lighting", "Red", red);

@@ -133,17 +133,17 @@ struct SessionClass {
     unsigned long UniqueID;                 // +0x104 (One_Time: Compute_Unique_ID)
     char Handle[20];                        // +0x108 the player's name (also unknown_name_a3d3a0)
     int unknown_11c;                        // +0x11C (also Game_PlayerColor; with +0x120 the colour 0x00672AE0 copies from +0x12C)
-    int unknown_120;                        // +0x120 (the join dialog copies +0x130 here)
-    int unknown_124;                        // +0x124 (also unknown_a3d3bc)
-    int unknown_128;                        // +0x128 (with +0x124 the country 0x00672A30 copies from +0x134)
-    int unknown_12c;                        // +0x12C the player's colour (GDlgSupp 0x004D23C0)
-    int unknown_130;                        // +0x130 (-2: the colour shows as random; 0x004D23C0)
-    int unknown_134;                        // +0x134 the player's country (GDlgSupp 0x004D1820)
+    int ColorIdx;                        // +0x120 (the join dialog copies +0x130 here)
+    int House;                        // +0x124 (also unknown_a3d3bc)
+    int idxSide2;                        // +0x128 (with +0x124 the country 0x00672A30 copies from +0x134)
+    int Color;                        // +0x12C the player's colour (GDlgSupp 0x004D23C0)
+    int Color2;                        // +0x130 (-2: the colour shows as random; 0x004D23C0)
+    int Side;                        // +0x134 the player's country (GDlgSupp 0x004D1820)
     int unknown_138;                        // +0x138 (-2 random, -3 observer: the country shows as that; 0x004D1820)
     SessionOptionsClass SkirmishOptions;     // +0x13C
     SessionOptionsClass LANOptions;          // +0x1B8
     SessionOptionsClass WonlineOptions;      // +0x234
-    int unknown_2b0;                        // +0x2B0 (also MuteSWLaunches)
+    int MultiplayerObserver;                        // +0x2B0 (also MuteSWLaunches)
     
 #ifdef RA2_SESSION_CTOR_FIELDS
     int unknown_2b4;
@@ -154,18 +154,18 @@ struct SessionClass {
     int LastNickSlot;                       // +0x2BC
     
 #ifdef RA2_SESSION_CTOR_FIELDS
-    int unknown_2c0;
+    int MaxPlayers;
 #else
     char unknown_2c0[0x2C4 - 0x2C0];
 #endif
     int NumPlayers;                         // +0x2C4 the players in the game (Red Alert's Session.NumPlayers; Log_To_File)
     unsigned int MaxAhead_2c8;              // +0x2C8 the frames ahead (set by the game speed; also unknown_max_ahead_a3d560)
-    unsigned int unknown_2cc;               // +0x2CC
-    int unknown_2d0;                        // +0x2D0 (also unknown_a3d568; the TIMING event sets it)
+    unsigned int FrameSendRate;               // +0x2CC
+    int DesiredFrameRate;                        // +0x2D0 (also unknown_a3d568; the TIMING event sets it)
     char unknown_2d4[0x2E0 - 0x2D4];
-    unsigned int unknown_2e0;               // +0x2E0 (MaxAhead_2c8 at the start of a cooperative map)
-    unsigned int unknown_2e4;               // +0x2E4 (from MaxAhead_2c8 by the ping class, a multiple of 10)
-    unsigned int unknown_2e8;               // +0x2E8 (by the game speed; 0 without pings; also unknown_a3d580)
+    unsigned int MaxMaxAhead;               // +0x2E0 (MaxAhead_2c8 at the start of a cooperative map)
+    unsigned int PrecalcMaxAhead;               // +0x2E4 (from MaxAhead_2c8 by the ping class, a multiple of 10)
+    unsigned int PrecalcDesiredFrameRate;               // +0x2E8 (by the game speed; 0 without pings; also unknown_a3d580)
     
 #ifdef RA2_SESSION_CTOR_FIELDS
     UnknownNetworkPlayerStatistics unknown_2ec[8];
@@ -176,13 +176,13 @@ struct SessionClass {
     int LoadGame;                           // +0x630 (Red Alert's Session.LoadGame; Log_To_File prints it)
     
 #ifdef RA2_SESSION_CTOR_FIELDS
-    int unknown_634;
+    int EmergencySave;
 #else
     char unknown_634[0x638 - 0x634];
 #endif
-    bool unknown_638;                       // +0x638 (cleared by 0x00672440)
-    bool unknown_639;                       // +0x639 (cleared before the load wait, 0x0065C7D0)
-    bool unknown_63a;                       // +0x63A (cleared before the load wait, 0x0065C7D0)
+    bool SquadAlliances;                       // +0x638 (cleared by 0x00672440)
+    bool SawGameCompletion;                       // +0x639 (cleared before the load wait, 0x0065C7D0)
+    bool OutOfSync;                       // +0x63A (cleared before the load wait, 0x0065C7D0)
     char unknown_63b[0x640 - 0x63B];
     // The multiplayer maps (also unknown_multi_missions_a3d8d8; Red Alert's Scenarios).
     DynamicVectorClass<MultiMission *> Scenarios;   // +0x640

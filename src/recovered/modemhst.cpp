@@ -123,9 +123,9 @@ bool ModemHost::Dialog_00598e10()
         GuestColor = -1;
         GuestHouse = -1;
         _ModemHost = this;
-        unknown_54 = RulesClass_Get_Rule_Unique_ID();
+        CheatCheck = RulesClass_Get_Rule_Unique_ID();
         Read_Art_INI();
-        unknown_58 = unknown_art_ini_unique_id();
+        ArtCheatCheck = unknown_art_ini_unique_id();
         AICheatCheck = unknown_ini_8397a0_unique_id();
         for (;;) {
             Result = -1;
@@ -353,7 +353,7 @@ void ModemHost::Init_Dialog_00599920()
         for (int index = 0; index < 8; index++) {
             SendMessageA(control, 0x498, index, PlayerColorTable[index]);
         }
-        Game_PlayerColor = unknown_session_a3d298.unknown_12c;
+        Game_PlayerColor = unknown_session_a3d298.Color;
         SendMessageA(control, 0x14E, Game_PlayerColor, 0);
     }
     Debug_Printf("Color: %d\n", Game_PlayerColor);
@@ -1153,13 +1153,13 @@ bool ModemHost::Process_Messages_0059b690(bool quiet)
                 return true;
             }
             bool match = true;
-            if (packet.Options.Checksum != unknown_54) {
+            if (packet.Options.Checksum != CheatCheck) {
                 match = false;
             }
             if (packet.Options.INIID != AICheatCheck) {
                 match = false;
             }
-            if (packet.Options.ArtID != unknown_58) {
+            if (packet.Options.ArtID != ArtCheatCheck) {
                 match = false;
             }
             if (!match) {
@@ -1231,8 +1231,8 @@ void ModemHost::Send_Options_0059bc90()
     UnknownSerialPacket packet;
     memset(&packet, 0, sizeof(packet));
     packet.Command = 0x65;
-    packet.Options.Checksum = unknown_54;
-    packet.Options.ArtID = unknown_58;
+    packet.Options.Checksum = CheatCheck;
+    packet.Options.ArtID = ArtCheatCheck;
     packet.Options.INIID = AICheatCheck;
     packet.Options.Version = Build_Number();
     packet.Options.MinVersion = VerNum.Min_Version();
@@ -1353,7 +1353,7 @@ bool ModemHost::Start_Game_0059c290(bool load_game)
     }
     unknown_id_source_a3d290->TechLevel = unknown_session_a3d298.ScenarioIndex;
     strcpy(unknown_id_source_a3d290->FileName, unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->unknown_58);
-    unknown_id_source_a3d290->unknown_610 = 1;
+    unknown_id_source_a3d290->CDifficulty = 1;
     unknown_id_source_a3d290->Difficulty = 1;
     unknown_session_a3d55c = 0;
     NodeNameType *node = new NodeNameType;
@@ -1383,10 +1383,10 @@ bool ModemHost::Start_Game_0059c290(bool load_game)
         packet.Timing.ResponseTime = GuestResponseTime;
     }
     unknown_a40b18 = unknown_session_a3d298.GameSpeed_30;
-    unknown_session_a3d298.unknown_2cc = 5;
+    unknown_session_a3d298.FrameSendRate = 5;
     unknown_a3fba4 = 0;
-    unknown_session_a3d298.unknown_2e4 = 0;
-    unknown_session_a3d298.unknown_2e8 = 0;
+    unknown_session_a3d298.PrecalcMaxAhead = 0;
+    unknown_session_a3d298.PrecalcDesiredFrameRate = 0;
     if (unknown_session_a3d2ac == 2) {
         unsigned int ahead = ((packet.Timing.ResponseTime >> 3) + 4) / 5 * 5;
         if (ahead > 10) {

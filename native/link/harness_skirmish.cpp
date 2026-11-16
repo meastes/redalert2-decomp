@@ -191,7 +191,7 @@ void Set_Up_Skirmish(char const *map)
     if (node) {
         static char const name[] = "Native";
         for (int i = 0; i < 20; ++i) node->Name[i] = i < 6 ? (unsigned short)name[i] : 0;
-        node->unknown_4b = session.unknown_124;
+        node->unknown_4b = session.House;
         node->unknown_53 = session.unknown_11c;
         node->unknown_63 = -1;
         session.Players.Add(node);
@@ -376,7 +376,7 @@ static void Native_Net_Timing_Log(uint64_t work_ns)
     SessionClass &session = unknown_session_a3d298;
     int frames = unknown_process_frames_a3d574;
     fprintf(stderr, "net-timing: desired fps %d, max ahead %u, send rate %u, process ticks %d ms/frame (%d frames), work %.1f ms/frame\n",
-            session.unknown_2d0, session.MaxAhead_2c8, session.unknown_2cc,
+            session.DesiredFrameRate, session.MaxAhead_2c8, session.FrameSendRate,
             frames ? unknown_process_ticks_a3d570 / frames : -1, frames, work_sum / 1e6 / work_frames);
     last = now;
     work_sum = 0;

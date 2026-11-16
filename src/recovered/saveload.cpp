@@ -372,7 +372,7 @@ bool __fastcall Save_Game(char const *filename, wchar_t const *description, int 
     info.Set_Scenario_Description(description);
     info.Set_Version(1);
     info.Set_Player_House(PlayerPtr->Type->UIName);
-    info.Set_Campaign_Number(unknown_id_source_a3d290->unknown_224c);
+    info.Set_Campaign_Number(unknown_id_source_a3d290->Campaign);
     info.Set_Scenario_Number(unknown_id_source_a3d290->TechLevel);
     info.Set_Executable_Name("SUN.EXE");
     info.Set_Game_Type(unknown_game_mode_a3d298);
@@ -805,7 +805,7 @@ bool __fastcall Get_All(IStream *stream, bool save_net)
 {
     Clear_Scenario_0065d370();
     unknown_id_source_a3d290->Load(stream);
-    if (!Unknown_0051a330(unknown_id_source_a3d290->unknown_2239 ? 0 : 1)) {
+    if (!Unknown_0051a330(unknown_id_source_a3d290->IsGDI ? 0 : 1)) {
         DebugString("\t***** FAILED!\n");
         return false;
     }

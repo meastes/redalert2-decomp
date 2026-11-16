@@ -99,7 +99,7 @@ UnknownScore_005AAA20::UnknownScore_005AAA20()
 
 void UnknownScore_005AAA20::Presentation_005AAA40()
 {
-    Unknown_Load_Art_Pair_006F2A30(unknown_id_source_a3d290->unknown_2239 == false);
+    Unknown_Load_Art_Pair_006F2A30(unknown_id_source_a3d290->IsGDI == false);
     Rect rect(0, 0, VideoModeWidth, VideoModeHeight);
     Unknown_6F3CD0(HiddenSurface, rect);
     Update_Visible_Surface(true, HiddenSurface, 0);

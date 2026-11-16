@@ -85,7 +85,7 @@ char const *__fastcall Map_Selection_0058f510(ScenarioClass *scenario)
             StringTable::Load_String(unknown_txt_ok_7db8f4,0,unknown_mapselect_file_7e1bd4,134),0,0,false);
         return 0;
     }
-    Debug_Printf(unknown_mapselect_format_7e1b98,scenario->FileName,scenario->unknown_2304);
+    Debug_Printf(unknown_mapselect_format_7e1b98,scenario->FileName,scenario->Stage);
     return strlen(scenario->FileName)==0?0:scenario->FileName;
 }
 
@@ -114,7 +114,7 @@ extern char const unknown_mapselect_empty_83c55c[];
 bool MapSelect::Advance_Progression_0058f720(ScenarioClass *scenario,Wstring const &name)
 {
     if(!scenario || name==(char const *)0)return false;
-    SideClass *side=Sides[HouseTypes[scenario->unknown_11fc]->Side];
+    SideClass *side=Sides[HouseTypes[scenario->PlayerHouse]->Side];
     if(!side) {
         Debug_Printf(unknown_mapselect_invalid_side_7e1c44);
         return false;
@@ -130,7 +130,7 @@ bool MapSelect::Advance_Progression_0058f720(ScenarioClass *scenario,Wstring con
         Debug_Printf(unknown_mapselect_invalid_choices_7e1c04);
         return false;
     }
-    MapStage *stage=Choices.Get_Stage(scenario->unknown_2304);
+    MapStage *stage=Choices.Get_Stage(scenario->Stage);
     if(!stage) {
         Choices.Clear();
         Debug_Printf(unknown_mapselect_invalid_stage_7e1be8);
@@ -147,7 +147,7 @@ bool MapSelect::Advance_Progression_0058f720(ScenarioClass *scenario,Wstring con
             requested.To_Lower();
             if(next && candidate==requested) {
                 scenario->Set_Scenario_Name_0065e730(next->Scenario.Peek_Buffer());
-                scenario->unknown_2304=(unsigned short)Choices.Stage_Index(next);
+                scenario->Stage=(unsigned short)Choices.Stage_Index(next);
                 break;
             }
         }
@@ -183,7 +183,7 @@ bool MapSelect::Presentation_0058f900(ScenarioClass *scenario)
             Wstring scenarioName(stage->Scenario);
             if(scenarioName.Length()!=0) {
                 scenario->Set_Scenario_Name_0065e730(scenarioName.Get());
-                scenario->unknown_2304=(unsigned short)Choices.Stage_Index(stage);
+                scenario->Stage=(unsigned short)Choices.Stage_Index(stage);
             }
         }
     }
@@ -207,7 +207,7 @@ bool MapSelect::Init_0058fa20(ScenarioClass *scenario)
         Debug_Printf(unknown_mapselect_invalid_scenario_7e1cb4);
         return false;
     }
-    SideClass *side=Sides[HouseTypes[scenario->unknown_11fc]->Side];
+    SideClass *side=Sides[HouseTypes[scenario->PlayerHouse]->Side];
     if(!side) {
         Debug_Printf(unknown_mapselect_invalid_side_7e1c44);
         return false;
