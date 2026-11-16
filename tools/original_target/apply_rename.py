@@ -236,6 +236,7 @@ def member_plans(spec, catalog, renames, overloads):
     names |= {s['mangled_prefix'] for s in json.loads(SYMBOLS.read_text())['symbols'] if s.get('mangled_prefix')}
     by_symbol = {r['symbol']: r['entry'] for r in catalog['regions']}
     edits = {}
+    member_rename.prime([i['old'] for i in items], [i['new'] for i in items])
     for item in items:
         klass, old, new = item['class'], item['old'], item['new']
         result = member_rename.plan(klass, old, new, item.get('mangled'), allow_hiding=bool(item.get('allow_hiding')))

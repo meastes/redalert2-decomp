@@ -115,6 +115,18 @@ class MemberRenameTests(unittest.TestCase):
         result = member_rename.plan('Base', 'Count', 'Number')
         self.assertNotIn('src/shared/orphan.hpp', result['edits'])
 
+    def test_a_primed_batch_plans_as_single_renames_do(self):
+        single = [member_rename.plan('Base', 'Get_Cell', 'Get_Position'), member_rename.plan('Base', 'Count', 'Number')]
+        member_rename.prime(['Get_Cell', 'Count'], ['Get_Position', 'Number'])
+        try:
+            primed = [member_rename.plan('Base', 'Get_Cell', 'Get_Position'), member_rename.plan('Base', 'Count', 'Number')]
+            with self.assertRaises(SystemExit):
+                member_rename.plan('Base', 'Count', 'Get_Cell')   # a clash the primed parse must still see
+        finally:
+            member_rename.prime([])
+        self.assertEqual([r['edits'] for r in single], [r['edits'] for r in primed])
+        self.assertEqual([r['manglings'] for r in single], [r['manglings'] for r in primed])
+
     def test_a_new_name_the_hierarchy_already_has_refuses(self):
         with self.assertRaises(SystemExit) as caught:
             member_rename.plan('Base', 'Get_Cell', 'Use')

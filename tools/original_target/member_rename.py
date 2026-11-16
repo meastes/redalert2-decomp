@@ -126,54 +126,86 @@ def location(cursor):
     return rel, soff, (sfile, soff) != (efile, eoff)
 
 
+# A batch (apply_rename's member_renames, or a pre-check over many pairs) primes the names it
+# will plan: each translation unit is then parsed once for all of them and the per-name results
+# are kept, instead of one parse per unit per rename.
+_PRIMED = {'names': frozenset(), 'news': frozenset(), 'cache': {}}
+
+
+def prime(names, news=()):
+    """Plan these member names (and check these new names) from one parse per unit."""
+    _PRIMED['names'] = frozenset(names)
+    _PRIMED['news'] = frozenset(n for n in news if n)
+    _PRIMED['cache'] = {}
+
+
 class Unit:
     """One parsed translation unit: every cursor spelled `name` that declares or references
     something, by location: {(file, offset): {USR, ...}}, plus the declarations of `name`."""
     def __init__(self, path, name, new=None, extra=()):
-        L = lib()
         self.path, self.name = path, name
-        import os
-        os.chdir(REPOSITORY)
-        index = L.clang_createIndex(0, 0)
-        args = [a.encode() for a in list(CLANG_ARGS) + list(extra)]
-        self.tu = L.clang_parseTranslationUnit(index, str(REPOSITORY / path).encode(),
-                                               (ctypes.c_char_p * len(args))(*args), len(args), None, 0, 0x1)
-        if not self.tu:
-            raise SystemExit('member_rename: clang could not parse %s' % path)
-        self.at, self.decls, self.macro = {}, {}, set()
-        self.bases, self.new_owners, self.new_virtual = set(), set(), set()
+        primed = name in _PRIMED['names'] and (not new or new in _PRIMED['news'])
+        names = _PRIMED['names'] if primed else frozenset([name])
+        news = _PRIMED['news'] if primed else frozenset([new] if new else [])
+        key = (REPOSITORY, path, tuple(extra), names, news)
+        parsed = _PRIMED['cache'].get(key) if primed else None
+        if parsed is None:
+            parsed = parse_unit(path, names, news, extra)
+            if primed:
+                _PRIMED['cache'][key] = parsed
+        self.bases = parsed['bases']
+        self.at = parsed['at'].get(name, {})
+        self.decls = parsed['decls'].get(name, {})
+        self.macro = parsed['macro'].get(name, set())
+        self.new_owners = parsed['new_owners'].get(new, set()) if new else set()
+        self.new_virtual = parsed['new_virtual'].get(new, set()) if new else set()
 
-        @VISITOR
-        def visit(cursor, parent, data):
-            if cursor.kind == CXX_BASE_SPECIFIER:
-                base = L.clang_getCursorReferenced(cursor)
-                if not L.clang_Cursor_isNull(base):
-                    self.bases.add((text_of(L.clang_getCursorSpelling(parent)), text_of(L.clang_getCursorSpelling(base))))
-                return CHILD_VISIT_RECURSE
-            referenced = L.clang_getCursorReferenced(cursor)
-            spelled = text_of(L.clang_getCursorSpelling(referenced)) if not L.clang_Cursor_isNull(referenced) else ''
-            if new and spelled == new and cursor.kind in (CXX_METHOD, FIELD_DECL, VAR_DECL, FUNCTION_TEMPLATE):
-                self.new_owners.add(text_of(L.clang_getCursorSpelling(L.clang_getCursorSemanticParent(cursor))))
-                if cursor.kind == CXX_METHOD and L.clang_CXXMethod_isVirtual(cursor):
-                    self.new_virtual.add(text_of(L.clang_getCursorSpelling(L.clang_getCursorSemanticParent(cursor))))
-            if spelled == name:
-                usr = text_of(L.clang_getCursorUSR(L.clang_getCanonicalCursor(referenced)))
-                where, offset, in_macro = location(cursor)
-                if where is not None and usr:
-                    self.at.setdefault((where, offset), set()).add(usr)
-                    if in_macro:
-                        self.macro.add((where, offset))
-                if cursor.kind in (CXX_METHOD, FIELD_DECL, VAR_DECL, FUNCTION_TEMPLATE) and usr:
-                    owner = L.clang_getCursorSemanticParent(cursor)
-                    self.decls.setdefault(usr, dict(
-                        owner=text_of(L.clang_getCursorSpelling(owner)),
-                        owner_usr=text_of(L.clang_getCursorUSR(owner)), kind=cursor.kind,
-                        mangled=text_of(L.clang_Cursor_getMangling(cursor)),
-                        virtual=bool(cursor.kind == CXX_METHOD and L.clang_CXXMethod_isVirtual(cursor)),
-                        overrides=overridden_usrs(cursor)))
+
+def parse_unit(path, names, news, extra=()):
+    L = lib()
+    import os
+    os.chdir(REPOSITORY)
+    index = L.clang_createIndex(0, 0)
+    args = [a.encode() for a in list(CLANG_ARGS) + list(extra)]
+    tu = L.clang_parseTranslationUnit(index, str(REPOSITORY / path).encode(),
+                                      (ctypes.c_char_p * len(args))(*args), len(args), None, 0, 0x1)
+    if not tu:
+        raise SystemExit('member_rename: clang could not parse %s' % path)
+    out = dict(at={}, decls={}, macro={}, bases=set(), new_owners={}, new_virtual={})
+
+    @VISITOR
+    def visit(cursor, parent, data):
+        if cursor.kind == CXX_BASE_SPECIFIER:
+            base = L.clang_getCursorReferenced(cursor)
+            if not L.clang_Cursor_isNull(base):
+                out['bases'].add((text_of(L.clang_getCursorSpelling(parent)), text_of(L.clang_getCursorSpelling(base))))
             return CHILD_VISIT_RECURSE
-        L.clang_visitChildren(L.clang_getTranslationUnitCursor(self.tu), visit, None)
-        L.clang_disposeTranslationUnit(self.tu)
+        referenced = L.clang_getCursorReferenced(cursor)
+        spelled = text_of(L.clang_getCursorSpelling(referenced)) if not L.clang_Cursor_isNull(referenced) else ''
+        if spelled in news and cursor.kind in (CXX_METHOD, FIELD_DECL, VAR_DECL, FUNCTION_TEMPLATE):
+            owner = text_of(L.clang_getCursorSpelling(L.clang_getCursorSemanticParent(cursor)))
+            out['new_owners'].setdefault(spelled, set()).add(owner)
+            if cursor.kind == CXX_METHOD and L.clang_CXXMethod_isVirtual(cursor):
+                out['new_virtual'].setdefault(spelled, set()).add(owner)
+        if spelled in names:
+            usr = text_of(L.clang_getCursorUSR(L.clang_getCanonicalCursor(referenced)))
+            where, offset, in_macro = location(cursor)
+            if where is not None and usr:
+                out['at'].setdefault(spelled, {}).setdefault((where, offset), set()).add(usr)
+                if in_macro:
+                    out['macro'].setdefault(spelled, set()).add((where, offset))
+            if cursor.kind in (CXX_METHOD, FIELD_DECL, VAR_DECL, FUNCTION_TEMPLATE) and usr:
+                owner = L.clang_getCursorSemanticParent(cursor)
+                out['decls'].setdefault(spelled, {}).setdefault(usr, dict(
+                    owner=text_of(L.clang_getCursorSpelling(owner)),
+                    owner_usr=text_of(L.clang_getCursorUSR(owner)), kind=cursor.kind,
+                    mangled=text_of(L.clang_Cursor_getMangling(cursor)),
+                    virtual=bool(cursor.kind == CXX_METHOD and L.clang_CXXMethod_isVirtual(cursor)),
+                    overrides=overridden_usrs(cursor)))
+        return CHILD_VISIT_RECURSE
+    L.clang_visitChildren(L.clang_getTranslationUnitCursor(tu), visit, None)
+    L.clang_disposeTranslationUnit(tu)
+    return out
 
 
 def overridden_usrs(cursor):
