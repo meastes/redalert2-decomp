@@ -901,56 +901,56 @@
    "address": "007b3d18",
    "bytes": 24,
    "kind": "rtti",
-   "section": 185
+   "section": 186
   },
   {
    "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@VCell@@@@8",
    "address": "007b3d30",
    "bytes": 24,
    "kind": "rtti",
-   "section": 186
+   "section": 181
   },
   {
    "symbol": "??_R2?$DynamicVectorClass@VCell@@@@8",
    "address": "007b3d48",
    "bytes": 9,
    "kind": "rtti",
-   "section": 187
+   "section": 182
   },
   {
    "symbol": "??_R3?$DynamicVectorClass@VCell@@@@8",
    "address": "007b3d58",
    "bytes": 16,
    "kind": "rtti",
-   "section": 188
+   "section": 183
   },
   {
    "symbol": "??_R4?$DynamicVectorClass@VCell@@@@6B@",
    "address": "007b3d68",
    "bytes": 20,
    "kind": "rtti",
-   "section": 190
+   "section": 185
   },
   {
    "symbol": "??_R2?$VectorClass@VCell@@@@8",
    "address": "007b3d7c",
    "bytes": 5,
    "kind": "rtti",
-   "section": 181
+   "section": 187
   },
   {
    "symbol": "??_R3?$VectorClass@VCell@@@@8",
    "address": "007b3d88",
    "bytes": 16,
    "kind": "rtti",
-   "section": 182
+   "section": 188
   },
   {
    "symbol": "??_R4?$VectorClass@VCell@@@@6B@",
    "address": "007b3d98",
    "bytes": 20,
    "kind": "rtti",
-   "section": 183
+   "section": 190
   },
   {
    "symbol": "??_R1A@?0A@A@LinkClass@@8",
@@ -971,7 +971,7 @@
    "address": "007b4b50",
    "bytes": 24,
    "kind": "rtti",
-   "section": 243
+   "section": 242
   },
   {
    "symbol": "??_R2?$DynamicVectorClass@PAVObjectClass@@@@8",
@@ -1076,49 +1076,49 @@
    "address": "007b7960",
    "bytes": 24,
    "kind": "rtti",
-   "section": 238
+   "section": 243
   },
   {
    "symbol": "??_R2BufferStraw@@8",
    "address": "007b7978",
    "bytes": 9,
    "kind": "rtti",
-   "section": 239
+   "section": 244
   },
   {
    "symbol": "??_R3BufferStraw@@8",
    "address": "007b7988",
    "bytes": 16,
    "kind": "rtti",
-   "section": 240
+   "section": 245
   },
   {
    "symbol": "??_R4BufferStraw@@6B@",
    "address": "007b7998",
    "bytes": 20,
    "kind": "rtti",
-   "section": 242
+   "section": 247
   },
   {
    "symbol": "??_R2Straw@@8",
    "address": "007b79ac",
    "bytes": 5,
    "kind": "rtti",
-   "section": 244
+   "section": 238
   },
   {
    "symbol": "??_R3Straw@@8",
    "address": "007b79b8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 245
+   "section": 239
   },
   {
    "symbol": "??_R4Straw@@6B@",
    "address": "007b79c8",
    "bytes": 20,
    "kind": "rtti",
-   "section": 247
+   "section": 240
   },
   {
    "symbol": "??_R2Pipe@@8",
@@ -1286,14 +1286,14 @@
    "address": "007cf2e8",
    "bytes": 36,
    "kind": "rtti",
-   "section": 184
+   "section": 189
   },
   {
    "symbol": "??_R0?AV?$DynamicVectorClass@VCell@@@@@8",
    "address": "007cf310",
    "bytes": 43,
    "kind": "rtti",
-   "section": 189
+   "section": 184
   },
   {
    "symbol": "??_C@_05PGGH@Level?$AA@",
@@ -1328,7 +1328,7 @@
    "address": "007d1ec0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 246
+   "section": 241
   },
   {
    "symbol": "??_R0?AVGadgetClass@@@8",
@@ -1468,7 +1468,7 @@
    "address": "007d5df8",
    "bytes": 26,
    "kind": "rtti",
-   "section": 241
+   "section": 246
   },
   {
    "symbol": "??_C@_09OOBE@LocalSize?$AA@",
@@ -4185,6 +4185,10 @@
    "address": "00534a10"
   },
   {
+   "symbol": "?Scen@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
    "symbol": "?ScenarioActive@@3_NA",
    "address": "00a40d04"
   },
@@ -4451,10 +4455,6 @@
   {
    "symbol": "?unknown_height_step_852948@@3HA",
    "address": "00852948"
-  },
-  {
-   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
-   "address": "00a3d290"
   },
   {
    "symbol": "?unknown_int_a6fa2c@@3HA",

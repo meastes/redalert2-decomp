@@ -4,12 +4,12 @@
     "id": "population-3640",
     "inventory_sha256": "b4f4c2350aa5ed52ee94624f4b27c8d989691e7d3acb8e99e97cc2a8748be7fe",
     "gaps_sha256": "f4a5305718e51741ea7a3dbdd4bf1a6eb33e075cdd673f6c9fe7b8e4d7377014",
-    "historical_population_sha256": "775c9a3d876b9cf0886de1bca4300d31004377f85b387f2b3e00b0397a5839cc",
-    "historical_acceptance_sha256": "b0c1e2b19af111e8759a806a2b0cf2b2213b1f49dad49d70841a378d664c09b3"
+    "historical_population_sha256": "559af5c66e9e314e5a5f19418345159c9d261e1eeee5d7eac9b4e4bcc8a1d414",
+    "historical_acceptance_sha256": "d8408e93a851b668368c8d260ea050522a928973fc004127e8a79995d90174c0"
   },
   "references": {
-    "?unknown_cpu_probe_77f14d@@YAEXZ": 7860557,
-    "?unknown_cpu_family_probe_77f20f@@YAXXZ": 7860751,
+    "?Detect_MMX_Availability@@YAEXZ": 7860557,
+    "?Detect_CMOV_Availability@@YAXXZ": 7860751,
     "?CPUType@@3DA": 8394147,
     "?VendorID@@3PADA": 8394149,
     "_strncpy": 7873488,
@@ -5878,7 +5878,7 @@
     "?Unknown_Slot26@Surface@@UAE_NUPoint2D@@@Z": 4264576,
     "?Create_And_Place@AircraftTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 4308880,
     "?Create_And_Place@AnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 4351904,
-    "?unknown_com_objects_a6eb14@@3JA": 10939156,
+    "?COMRefCount@@3JA": 10939156,
     "?Create_And_Place@BulletTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 4608384,
     "?Is_Input_Key@GraphicMenuItem@@UAE_NH@Z": 5112272,
     "?unknown_slot3@MultiplayerGameMode@@UAE_NPAVWideString@@@Z": 5907360,
@@ -7520,7 +7520,7 @@
         {
           "offset": 7,
           "kind": 20,
-          "symbol": "?unknown_cpu_probe_77f14d@@YAEXZ",
+          "symbol": "?Detect_MMX_Availability@@YAEXZ",
           "target": 7860557,
           "addend": 0,
           "resolved": 2803490
@@ -7528,7 +7528,7 @@
         {
           "offset": 14,
           "kind": 20,
-          "symbol": "?unknown_cpu_family_probe_77f20f@@YAXXZ",
+          "symbol": "?Detect_CMOV_Availability@@YAXXZ",
           "target": 7860751,
           "addend": 0,
           "resolved": 2803677
@@ -7558,7 +7558,7 @@
           "resolved": 2816379
         }
       ],
-      "source_sha256": "da617513c6e66a68e9581af4e70aab63dfc5a2b7f08271739e5abbd6fe9e3989",
+      "source_sha256": "8e98f389600e9e1f96324581b25d280154f9c8678dd0e4190b437c87c693e862",
       "source": "src/recovered/getcpu.cpp",
       "population": "population-3640",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -7587,7 +7587,7 @@
         {
           "offset": 5,
           "kind": 20,
-          "symbol": "?unknown_cpu_probe_77f14d@@YAEXZ",
+          "symbol": "?Detect_MMX_Availability@@YAEXZ",
           "target": 7860557,
           "addend": 0,
           "resolved": 2803428
@@ -7595,7 +7595,7 @@
         {
           "offset": 10,
           "kind": 20,
-          "symbol": "?unknown_cpu_family_probe_77f20f@@YAXXZ",
+          "symbol": "?Detect_CMOV_Availability@@YAXXZ",
           "target": 7860751,
           "addend": 0,
           "resolved": 2803617
@@ -7745,7 +7745,7 @@
           "resolved": 5057319
         }
       ],
-      "source_sha256": "da617513c6e66a68e9581af4e70aab63dfc5a2b7f08271739e5abbd6fe9e3989",
+      "source_sha256": "8e98f389600e9e1f96324581b25d280154f9c8678dd0e4190b437c87c693e862",
       "switch_data_bytes": 32,
       "source": "src/recovered/getcpu.cpp",
       "population": "population-3640",

@@ -180,7 +180,7 @@ bool ScrollClass::Resolve_Point(Point2D const &point,Cell &cell,CoordStruct &coo
         UnknownCoord434820 adjusted = UnknownCoord434820(cell,Map.Get_Height_GL(UnknownCoord434820(cell)));
         shadow=Map.Is_Shrouded(adjusted) && unknown_b263d8!=0;
         fog=false;
-        if (unknown_id_source_a3d290->Special().FogOfWar) {
+        if (Scen->Special().FogOfWar) {
             BuildingClass *building=static_cast<BuildingClass *>(Map[adjusted].Cell_Building());
             if (building) fog=building->IsFogged;
             else fog=Map.Is_Fogged(adjusted) && unknown_b263d8!=0;

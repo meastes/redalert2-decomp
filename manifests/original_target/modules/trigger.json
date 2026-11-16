@@ -442,8 +442,7 @@
    "address": "007c4580",
    "bytes": 16,
    "kind": "rtti",
-   "section": 60,
-   "known_difference": "hierarchy ambiguous bit"
+   "section": 60
   },
   {
    "symbol": "??_R4TriggerClass@@6BIPersistStream@@@",
@@ -673,8 +672,7 @@
    "symbol": "??_R3TriggerClass@@8",
    "address": "007c4580",
    "bytes": 16,
-   "kind": "rtti",
-   "known_difference": "hierarchy ambiguous bit"
+   "kind": "rtti"
   },
   {
    "symbol": "??_R4TriggerClass@@6BIPersistStream@@@",
@@ -1014,6 +1012,10 @@
    "address": "004100c0"
   },
   {
+   "symbol": "?Scen@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
    "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
    "address": "0069fb20"
   },
@@ -1036,10 +1038,6 @@
   {
    "symbol": "?unknown_func_6e6050@TEventClass@@QAE_NHPAVHouseClass@@PAVObjectClass@@PAV?$CDTimerClass@VFrameTimerClass@@@@PA_NH@Z",
    "address": "006e6050"
-  },
-  {
-   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
-   "address": "00a3d290"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",

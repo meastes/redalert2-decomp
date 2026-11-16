@@ -478,7 +478,7 @@ void BuildingClass::Create_Damage_Fires_004395f0()
 {
     int type_count = Rules->DamageFireTypes.Count();
     if (type_count != 0) {
-        int type_index = unknown_id_source_a3d290->Random()(0, type_count - 1);
+        int type_index = Scen->Random()(0, type_count - 1);
         for (int index = 0; index < 8; ++index) {
             if (Type->DamageFireOffset[index] == Damage_Fire_Offset_End_0084ed30) return;
             if (unknown_49c[index] != 0) return;
@@ -490,7 +490,7 @@ void BuildingClass::Create_Damage_Fires_004395f0()
                 fire->ZAdjust = ((Type->DamageFireOffset[index].Y - (Type->Width() + Type->Foundation_Height(false)) * 15) * 3 >> 1) - 10;
                 if (fire->ZAdjust > 0) fire->ZAdjust = 0;
                 int frames = fire->Class->End;
-                if (frames > 0) fire->Stage = unknown_id_source_a3d290->Random()(0, frames - 1);
+                if (frames > 0) fire->Stage = Scen->Random()(0, frames - 1);
                 ++type_index;
                 if (type_index >= type_count) type_index = 0;
             }
@@ -845,7 +845,7 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
             if(product && !product->IsInLimbo && product->Kind_Of()!=6) {
                 CoordStruct destination=product->unknown_slot19(0);
                 destination.Z=product->Position_Coord_004f3f40().Z;
-                if(!unknown_b263d8 || Debug_Map || !(unknown_id_source_a3d290->unknown_000&0x1000) ||
+                if(!unknown_b263d8 || Debug_Map || !(Scen->unknown_000&0x1000) ||
                    (!Map.Is_Fogged(product->Position_Coord_004f3f40()) && !Map.Is_Fogged(destination))) {
                     Point2D point;
                     TacticalMap->Coord_To_Pixel(product->unknown_slot42(),point);
@@ -1520,7 +1520,7 @@ void BuildingClass::AI()
     if (Type->FirestormWall && (Frame & 7) == 0) {
         int frame = FirestormWallFrame & 15;
         if (House->unknown_142) {
-            if (frame != 10 && frame != 5 && unknown_454[11] == 0 && (unknown_id_source_a3d290->Random()() & 15) == 0) {
+            if (frame != 10 && frame != 5 && unknown_454[11] == 0 && (Scen->Random()() & 15) == 0) {
                 unknown_454[11] = new AnimClass(Rules->FirestormIdleAnim, Position_Coord_004f3f40() + CoordStruct(-740,-740,0), 0, 1, 0x604, -10);
             }
         }
@@ -1696,7 +1696,7 @@ bool BuildingClass::Unlimbo(CoordStruct const *coord, int dir)
             IsToRepair = true;
         }
 
-        if (unknown_id_source_a3d290->unknown_000 & 0x1000) {
+        if (Scen->unknown_000 & 0x1000) {
             if (unknown_452be0()) {
                 Create_Fogged_Copy_00452c70(0, 0, false);
             }
@@ -1891,7 +1891,7 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
         if (Type->Explosion.Count()>0) {
             height_offset.Z=Position_Coord_00450950(*this).Z;
             position=height_offset+Coord_Scatter(CoordStruct(cell),64,false);
-            new AnimClass(Type->Explosion.Pick(unknown_id_source_a3d290->Random()()),position,Random_Pick(0,3),1,0x600,0);
+            new AnimClass(Type->Explosion.Pick(Scen->Random()()),position,Random_Pick(0,3),1,0x600,0);
         }
     }
     if (Type->Explodes) {
@@ -1916,7 +1916,7 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
         StageClass::Set_Rate(0);
     } else unknown_420=CDTimerClass<FrameTimerClass>(8);
     if (Type->DestroyAnim.Count()>0) {
-        AnimTypeClass *type=Type->DestroyAnim.Pick(unknown_id_source_a3d290->Random()());
+        AnimTypeClass *type=Type->DestroyAnim.Pick(Scen->Random()());
         if (type) {
             AnimClass *animation=new AnimClass(type,unknown_slot42(),0,1,0x600,0);
             if (Techno_Type_Class()->Palette) {
@@ -2020,7 +2020,7 @@ inline UnknownFacingDir Damage_Random_Direction_0043ee70()
         struct { unsigned low_byte:8; unsigned direction_byte:8; };
     } bits;
     bits.halves[0]=0;
-    bits.direction_byte=unknown_id_source_a3d290->Random()();
+    bits.direction_byte=Scen->Random()();
     UnknownFacingDir result;
     *reinterpret_cast<unsigned *>(&result)=bits.packed;
     return result;
@@ -2189,7 +2189,7 @@ void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
     while(offset->X!=32767 || offset->Y!=32767) {
         Cell location=*offset++ + origin;
         CellClass *cell=&Map[location];
-        if(!House->unknown_13e && remaining>0 && unknown_id_source_a3d290->Random()(0,odds)==1) {
+        if(!House->unknown_13e && remaining>0 && Scen->Random()(0,odds)==1) {
             InfantryClass *survivor=0;
             InfantryTypeClass *crew=Crew_Type();
             if(crew)survivor=new InfantryClass(crew,House);
@@ -2205,7 +2205,7 @@ void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
                     Debug_Printf("Survivor unlimbo OK\n");
                     --remaining;
                     int maximumStrength=survivor->Type->MaxStrength;
-                    survivor->Strength=unknown_id_source_a3d290->Random()(5,maximumStrength);
+                    survivor->Strength=Scen->Random()(5,maximumStrength);
                     survivor->Scatter(unknown_geometry_l,true,false);
                     if(attacker && !House->Is_Ally(attacker)) {
                         survivor->QueueMission(1,false);
@@ -2220,7 +2220,7 @@ void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
             }
         }
         if(cell->Is_Clear_To_Move(1,1,1,-1,0,-1,1)) {
-            if(unknown_id_source_a3d290->Random()(0,99)<50) {
+            if(Scen->Random()(0,99)<50) {
                 Cell hit=Coord_Cell(Coord_Scatter(CoordStruct(location.X*256+128,location.Y*256+128,0),128,false));
                 CoordStruct center(hit.X*256+128,hit.Y*256+128,0);
                 SmudgeTypeClass::Create_Scorch(center,100,100,false);
@@ -3812,7 +3812,7 @@ check_occupants:
             }
         }
         int delay = (int)(Control()->unknown_18 * 900.0);
-        return delay + unknown_id_source_a3d290->Random()(0, 2);
+        return delay + Scen->Random()(0, 2);
     }
     if (Type->HasStupidGuardMode) {
         return 100;
@@ -3852,10 +3852,10 @@ check_occupants:
     }
     if (Type->UnitRepair) {
         int delay = (int)(Control()->unknown_10 * 900.0);
-        return delay + unknown_id_source_a3d290->Random()(0, 2);
+        return delay + Scen->Random()(0, 2);
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay * 3 + unknown_id_source_a3d290->Random()(0, 2);
+    return delay * 3 + Scen->Random()(0, 2);
 }
 
 
@@ -3998,7 +3998,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                     if(crew) infantry=new InfantryClass(crew,House);
                     if(infantry) {
                         ++ScenarioInit;
-                        Cell cell=unknown_slot104()+foundation[unknown_id_source_a3d290->RandomNumber(0,cells-1)];
+                        Cell cell=unknown_slot104()+foundation[Scen->RandomNumber(0,cells-1)];
                         CoordStruct position=CoordStruct(cell)+CoordStruct(0,36,0);
                         position=Map[position].Closest_Free_Spot(position,false,false);
                         if(position==unknown_geometry_l || !infantry->Unlimbo(&position,0)) {
@@ -4635,7 +4635,7 @@ int BuildingClass::Do_MISSION_UNLOAD()
             break;
         }
         int delay=Control()->Normal_Delay();
-        return delay+unknown_id_source_a3d290->Random()(0,2);
+        return delay+Scen->Random()(0,2);
     }
     if(Type->GapGenerator && Type->SuperGapRadiusInCells) {
         if(!GapSuperCharged) {
@@ -4756,7 +4756,7 @@ int BuildingClass::Do_MISSION_OPEN()
             return 0;
         }
         int delay = (int)(Control()->unknown_10 * 900.0);
-        return delay + unknown_id_source_a3d290->Random()(0, 2);
+        return delay + Scen->Random()(0, 2);
     }
     QueueMission(5, false);
     return 1;
@@ -4874,7 +4874,7 @@ void BuildingClass::Detach(AbstractClass *target, bool all)
 
 InfantryTypeClass *BuildingClass::Crew_Type()
 {
-    if (!IsCaptured && unknown_id_source_a3d290->Random()(0, 99) < 25 && Type->Factory == 7) {
+    if (!IsCaptured && Scen->Random()(0, 99) < 25 && Type->Factory == 7) {
         return Rules->Engineer;
     }
     return TechnoClass::Crew_Type();

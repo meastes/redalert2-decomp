@@ -291,8 +291,8 @@ void UnitClass::AI()
             return;
         }
         if ((Frame & 3) == 0) {
-            int y_offset = unknown_id_source_a3d290->Random()(-170, 170);
-            int x_offset = unknown_id_source_a3d290->Random()(-170, 170);
+            int y_offset = Scen->Random()(-170, 170);
+            int x_offset = Scen->Random()(-170, 170);
             int height = Get_Height_AGL();
             CoordStruct offset(x_offset, y_offset, -height);
             CoordStruct origin = Coord;
@@ -426,10 +426,10 @@ extern double const unknown_diagonal_lepton_7a3a20;   // 0x007A3A20
 extern double const unknown_lepton_79a700;   // 0x0079A700
 extern double const unknown_facing_radians_79b620;
 #include "shared/rect.hpp"
-extern Point2D const unknown_adjacent_offsets_00851ac0[8];   // 0x00851AC0
+extern Point2D const AdjacentPoint[8];   // 0x00851AC0
 inline CoordStruct Adjacent_Coord_006faa30(CoordStruct const &coord, int dir)
 {
-    return coord + unknown_adjacent_offsets_00851ac0[dir & 7];
+    return coord + AdjacentPoint[dir & 7];
 }
 // Hypotheses: the out-of-line length (0x0041B780) reads the coordinate difference as UnknownVector3.
 inline int Distance_006faa30(CoordStruct const &a, CoordStruct const &b)
@@ -654,12 +654,12 @@ void UnitClass::unknown_6fbf40()
     Cell position = unknown_slot104();
     if (StageClass::Stage >= 90) {
         if (StageClass::Stage % 5 != 4) return;
-        StageClass::Stage = unknown_id_source_a3d290->Random()(0, 2) * 30;
+        StageClass::Stage = Scen->Random()(0, 2) * 30;
         StageClass::Set_Rate(1);
         return;
     }
     if (StageClass::Stage % 30 == 29) {
-        StageClass::Stage = unknown_id_source_a3d290->Random()(0, 2) * 30;
+        StageClass::Stage = Scen->Random()(0, 2) * 30;
     }
     StageClass::Set_Rate(1);
     if (Locomotor.Checked()->Is_Moving()) return;
@@ -679,8 +679,8 @@ void UnitClass::unknown_6fbf40()
     }
     if (NavCom || TarCom) return;
     int direction;
-    if (unknown_5bc == -1 || unknown_id_source_a3d290->Random()(0, 2) == 0) {
-        direction = unknown_id_source_a3d290->Random()(0, 7);
+    if (unknown_5bc == -1 || Scen->Random()(0, 2) == 0) {
+        direction = Scen->Random()(0, 7);
         unknown_5bc = direction;
     } else {
         direction = unknown_5bc;
@@ -845,7 +845,7 @@ bool UnitClass::Unlimbo(CoordStruct const *coord, int dir)
             StageClass::Rate = 0;
             return true;
         }
-        StageClass::Stage = unknown_id_source_a3d290->Random()(0, 29);
+        StageClass::Stage = Scen->Random()(0, 29);
         static_cast<CDTimerClass<FrameTimerClass> &>(StageClass::StageTimer) = CDTimerClass<FrameTimerClass>(1);
         StageClass::Rate = 1;
         return true;
@@ -897,7 +897,7 @@ int UnitClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
             }
             unknown_slot216((int)source);
             if (warhead == Rules->FirestormWarhead) {
-                int count = abs(unknown_id_source_a3d290->Random()() % 3) + 7;
+                int count = abs(Scen->Random()() % 3) + 7;
                 while (count > 0) {
                     ParticleSystemClass *system = new ParticleSystemClass(Rules->DefaultFirestormExplosionSystem,
                         Center_Coord(), 0, this, unknown_geometry_l);
@@ -952,7 +952,7 @@ passenger_removed:
             InfantryClass *crew;
             if (EnteredByInfType == -1) {
                 if ((unsigned char)arg6 || !Type->Crewed || Type->Passengers != 0 ||
-                    (double)unknown_id_source_a3d290->Random()(0, 0x7ffffffe) *
+                    (double)Scen->Random()(0, 0x7ffffffe) *
                         (1.0 / 2147483646.0) >= Rules->CrewEscape)
                     goto drop_crate;
             }
@@ -967,7 +967,7 @@ passenger_removed:
                 crew->IsOnBridge = IsOnBridge;
                 CoordStruct position = Coord;
                 if (crew->Unlimbo(&position, 0)) {
-                    crew->Strength = unknown_id_source_a3d290->Random()(5, crew->Type->MaxStrength / 2);
+                    crew->Strength = Scen->Random()(5, crew->Type->MaxStrength / 2);
                     crew->Scatter(unknown_geometry_l, true, false);
                     if (!House->Unknown_004F52F0()) crew->QueueMission(15, false);
                     else crew->QueueMission(5, false);
@@ -980,8 +980,8 @@ passenger_removed:
         }
 drop_crate:
         if (Type->CarriesCrate &&
-            ((unknown_id_source_a3d290->TruckCrate && !Type->IsTrain) ||
-             (unknown_id_source_a3d290->IsTrainCargo && Type->IsTrain))) {
+            ((Scen->TruckCrate && !Type->IsTrain) ||
+             (Scen->IsTrainCargo && Type->IsTrain))) {
             Cell destination;
             destination = Map.Nearby_Location(unknown_slot104(), 1, -1, 0, false,
                 Point2D(1, 1), 1, 0, 0, 1, Cell(0, 0), 0);
@@ -1028,12 +1028,12 @@ void __fastcall Shake_The_Screen(int magnitude);
 void UnitClass::Explode()
 {
     if (Type->Explosion.Count()>0) {
-        AnimTypeClass *animation=Type->Explosion.Pick(unknown_id_source_a3d290->Random());
+        AnimTypeClass *animation=Type->Explosion.Pick(Scen->Random());
         if ((Type->Explodes || Has_Ability(10)) && (Type->Ammo==-1 || Ammo>0)) {
             animation=Type->Explosion[Type->Explosion.Count()-1];
         }
         new AnimClass(animation,Position_Coord_004f3f40(),0,1,0x600,0);
-        if (unknown_294.Get_Total_Amount()>0 && Rules->IsExplosiveHarvester && !(unknown_id_source_a3d290->unknown_000&0x800)) {
+        if (unknown_294.Get_Total_Amount()>0 && Rules->IsExplosiveHarvester && !(Scen->unknown_000&0x800)) {
             int power=0;
             for (int i=0;i<Tiberiums.Count();i++) {
                 power+=unknown_294.Get_Amount(i)*Tiberiums[i]->Power;
@@ -1045,7 +1045,7 @@ void UnitClass::Explode()
         }
     }
     if (Type->DestroyAnim.Count()>0) {
-        AnimTypeClass *animation=Type->DestroyAnim.Pick(unknown_id_source_a3d290->Random());
+        AnimTypeClass *animation=Type->DestroyAnim.Pick(Scen->Random());
         new AnimClass(animation,Position_Coord_004f3f40(),0,1,0x600,0);
     }
 }
@@ -2071,11 +2071,11 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
                 || (!(cptr->unknown_140 & 0x800) && (cptr->Adjacent_Cell(6).unknown_140 & 0x100)))) {
             int level;
             if (IonStormClass_Is_Ion_Storm_Active()) {
-                level = unknown_id_source_a3d290->IonLevel;
+                level = Scen->IonLevel;
             } else if (NukeFlash_IsFadingIn()) {
-                level = unknown_id_source_a3d290->NukeLevelLight;
+                level = Scen->NukeLevelLight;
             } else {
-                level = unknown_id_source_a3d290->AmbientLevel;
+                level = Scen->AmbientLevel;
             }
             brightness = Map[cell].Brightness + 4 * level;
         } else {
@@ -2373,12 +2373,12 @@ int UnitClass::Do_MISSION_UNLOAD()
                         if (!building->unknown_25c[5] && smoke.Count()>0 && Get_Height_AGL()>-10) {
                             TechnoTypeClass *type=building->Techno_Type_Class();
                             CoordStruct &o=type->RefnSmokeOffsetOne; CoordStruct offset=o;
-                            building->unknown_25c[5]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(smoke[unknown_id_source_a3d290->Random()(0,smoke.Count()-1)]),building->Position_Coord_004f3f40()+offset,0,building,unknown_geometry_l);
+                            building->unknown_25c[5]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(smoke[Scen->Random()(0,smoke.Count()-1)]),building->Position_Coord_004f3f40()+offset,0,building,unknown_geometry_l);
                         }
                         if (!building->unknown_25c[6] && smoke.Count()>0 && Get_Height_AGL()>-10) {
                             TechnoTypeClass *type=building->Techno_Type_Class();
                             CoordStruct &o=type->RefnSmokeOffsetTwo; CoordStruct offset=o;
-                            building->unknown_25c[6]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(smoke[unknown_id_source_a3d290->Random()(0,smoke.Count()-1)]),building->Position_Coord_004f3f40()+offset,0,building,unknown_geometry_l);
+                            building->unknown_25c[6]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(smoke[Scen->Random()(0,smoke.Count()-1)]),building->Position_Coord_004f3f40()+offset,0,building,unknown_geometry_l);
                         }
                         if (!building->unknown_454[10]) building->PlayNthAnim(10,building->Health_Ratio()<=Rules->ConditionYellow,false,0);
                         int slot=unknown_294.First_Used_Slot();
@@ -2664,7 +2664,7 @@ int UnitClass::Do_MISSION_HUNT()
             break;
         }
         int delay = (int)(Control()->unknown_10 * 900.0);
-        return delay + unknown_id_source_a3d290->Random()(0, 2);
+        return delay + Scen->Random()(0, 2);
     }
     return FootClass::Do_MISSION_HUNT();
 }
@@ -3080,7 +3080,7 @@ int UnitClass::What_Action(Cell const *where, bool arg2, bool arg3)
         action = 59;
     }
     int overlay = -1;
-    if (arg2 && (unknown_id_source_a3d290->unknown_000 & 0x1000) && cell->FoggedObjects) {
+    if (arg2 && (Scen->unknown_000 & 0x1000) && cell->FoggedObjects) {
         for (int index = 0; index < cell->FoggedObjects->Count(); index++) {
             FoggedObjectClass *fogged = (*cell->FoggedObjects)[index];
             if (fogged->CanDraw && fogged->unknown_30 == 20) {
@@ -3172,7 +3172,7 @@ int UnitClass::Do_MISSION_GUARD()
         && House->IsBaseBuilding && !House->Unknown_004F52F0()) {
         QueueMission(16, false);
         int delay = (int)(Control()->unknown_10 * 900.0);
-        return delay + unknown_id_source_a3d290->Random()(0, 2);
+        return delay + Scen->Random()(0, 2);
     }
     if (Type->Weeder && IsDroppedFromTeam) {
         IsDroppedFromTeam = false;
@@ -5166,7 +5166,7 @@ void UnitClass::UpdateDisguise()
             }
         }
         if (!can_disguise || InfantryBlinkTimer.Value() != 0) return;
-        int choice = unknown_id_source_a3d290->Random()(0, Unit_Default_Mirage_Disguises().Count() - 1);
+        int choice = Scen->Random()(0, Unit_Default_Mirage_Disguises().Count() - 1);
         int last = Unit_Default_Mirage_Disguises().Count() - 1;
         if (choice >= last) choice = last;
         ObjectTypeClass *type = Unit_Default_Mirage_Disguises()[choice];

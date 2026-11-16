@@ -8,8 +8,8 @@
 
 typedef int (WINAPI *DialogProc)(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 
-HWND __fastcall unknown_create_dialog_5ff610(int resource, DialogProc proc, int unknown3);  // 0x005FF610
+HWND __fastcall OwnerDraw_Begin_Dialog(int resource, DialogProc proc, int unknown3);  // 0x005FF610
 
-bool unknown_6000d0();                                                               // 0x006000D0 ends the wait when true
+bool OwnerDraw_Dialog_Message_Handler();                                                               // 0x006000D0 ends the wait when true
 
 #endif

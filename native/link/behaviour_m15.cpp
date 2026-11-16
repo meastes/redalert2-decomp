@@ -46,7 +46,7 @@ void __fastcall Shake_The_Screen(int)
 #include "shared/id_source.hpp"
 
 #include "shared/load_dlg.hpp"   // WWMouse, the dialog helpers
-#include "shared/dialog_create.hpp"   // unknown_create_dialog_5ff610
+#include "shared/dialog_create.hpp"   // OwnerDraw_Begin_Dialog
 #include <stdio.h>
 #include <stdlib.h>
 #include "shared/cd.hpp"
@@ -67,7 +67,7 @@ char LoadOptionsClass::Load_Dialog_0053b190()
     // Select_Game as after a load from the list; a failed load shows the dialog as usual.
     char const *file = ra2port_take_resume();
     if (file) {
-        HWND dialog = unknown_create_dialog_5ff610(0xB7, (DialogProc)Load_Dialog_Proc, 0);
+        HWND dialog = OwnerDraw_Begin_Dialog(0xB7, (DialogProc)Load_Dialog_Proc, 0);
         if (dialog) {
             ra2port_set_dialog_user(dialog, this);   // DWL_USER, pointer-sized natively
             if (HWND list = GetDlgItem(dialog, 0x525)) Fill_List_0053c040(list);
@@ -89,7 +89,7 @@ char LoadOptionsClass::Load_Dialog_0053b190()
             delete Files[i];
         }
         Files.Clear();
-        if (dialog) unknown_dialog_5ff6e0(dialog);
+        if (dialog) OwnerDraw_End_Dialog(dialog);
         if (loaded) {
             fprintf(stderr, "resume: loaded %s\n", file);
             // RA2_NATIVE_SAVE_AFTER_LOAD=<file> (test scaffolding, lane C17): the game just
@@ -115,7 +115,7 @@ char LoadOptionsClass::Save_Dialog_0053b1b0(wchar_t *description)
 {
     unknown_04 = 2;
     if (description == 0) {
-        description = (wchar_t *)unknown_id_source_a3d290->Name;
+        description = (wchar_t *)Scen->Name;
     }
     Description = description;
     return Dialog();

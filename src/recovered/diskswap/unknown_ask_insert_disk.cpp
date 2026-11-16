@@ -11,7 +11,7 @@
 extern "C" int __cdecl sprintf(char *buffer, char const *format, ...);
 WIN32_IMPORT int __stdcall MessageBoxA(HWND window, char const *text, char const *caption, unsigned int type);
 
-bool __stdcall unknown_ask_insert_disk_00498710(int disk)
+bool __stdcall DiskSwap_Swap(int disk)
 {
     char text[256];
     sprintf(text, "Please insert disk %d", disk);

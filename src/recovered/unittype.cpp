@@ -210,7 +210,7 @@ bool UnitTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const
         // A random facing in the direction's high byte (the 32-bit value
         // is rewritten, as the Dir_To_* readers read it).
         UnknownFacingDir dir(0);
-        *(unsigned *)&dir = (*(unsigned *)&dir & 0xFFFF00FF) | ((unknown_id_source_a3d290->Random()() & 0xFF) << 8);
+        *(unsigned *)&dir = (*(unsigned *)&dir & 0xFFFF00FF) | ((Scen->Random()() & 0xFF) << 8);
         CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
         return unit->Unlimbo(&coord, Dir_To_256(dir));
     }

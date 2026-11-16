@@ -401,9 +401,9 @@ void InfantryClass::Draw_It(Point2D const &input, Rect const &window)
             Cell target_cell=Get_Target_Cell();
             TacticalMap->Add_To_Selectables(this, point);
             int level_light;
-            if (IonStormClass_Is_Ion_Storm_Active()) level_light=unknown_id_source_a3d290->IonLevel;
-            else if (NukeFlash_IsFadingIn()) level_light=unknown_id_source_a3d290->NukeLevelLight;
-            else level_light=unknown_id_source_a3d290->AmbientLevel;
+            if (IonStormClass_Is_Ion_Storm_Active()) level_light=Scen->IonLevel;
+            else if (NukeFlash_IsFadingIn()) level_light=Scen->NukeLevelLight;
+            else level_light=Scen->AmbientLevel;
             int brightness;
             if (IsOnBridge || ((Map[Position_Coord_004f3f40()].unknown_140&0x10000) &&
                 Position_Coord_004f3f40().Z>Map.Get_Height_GL(Position_Coord_004f3f40())+unknown_geometry_j/2)) {
@@ -1310,14 +1310,14 @@ bool InfantryClass::unknown_slot261(bool arg1, bool arg2)
 // Full independent extent includes the ten-entry switch table: 800 bytes.
 inline double Infantry_Idle_Interval(double low, double high)
 {
-    int draw = unknown_id_source_a3d290->Random()(0, 0x7ffffffe);
+    int draw = Scen->Random()(0, 0x7ffffffe);
     return (high - low) * ((double)draw * (1.0 / 2147483646.0)) + low;
 }
 inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
 {
-    int action = unknown_id_source_a3d290->Random()(0, 10);
+    int action = Scen->Random()(0, 10);
     bool is_cow = infantry->unknown_func_5d27d0("COW");
-    if (is_cow && unknown_id_source_a3d290->Random()(0, 10) < 5) {
+    if (is_cow && Scen->Random()(0, 10) < 5) {
         action = 8;
     }
     switch (action) {
@@ -1325,7 +1325,7 @@ inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
         infantry->unknown_slot311(9, false, false);
         return true;
     case 6: {
-        UnknownFacingDir facing((unsigned short)(unknown_id_source_a3d290->Random()(0,7)<<13));
+        UnknownFacingDir facing((unsigned short)(Scen->Random()(0,7)<<13));
         infantry->PrimaryFacing.Set(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
         return true;
     }
@@ -1339,7 +1339,7 @@ inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
         }
         break;
     case 8: {
-        UnknownFacingDir facing((unsigned short)(unknown_id_source_a3d290->Random()(0,7)<<13));
+        UnknownFacingDir facing((unsigned short)(Scen->Random()(0,7)<<13));
         infantry->PrimaryFacing.Set(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
         if (is_cow || (!infantry->House->Unknown_004F52F0() && infantry->Type->Fraidycat)) {
             infantry->Scatter(unknown_geometry_l, true, false);
@@ -1348,7 +1348,7 @@ inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
         break;
     }
     case 9: case 10: {
-        UnknownFacingDir facing((unsigned short)(unknown_id_source_a3d290->Random()(0,7)<<13));
+        UnknownFacingDir facing((unsigned short)(Scen->Random()(0,7)<<13));
         infantry->PrimaryFacing.Set(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
         break;
     }
@@ -1417,12 +1417,12 @@ void InfantryClass::Scatter(CoordStruct const &threat, bool forced, bool nokiddi
         if (threat!=unknown_geometry_l) {
             CoordStruct position=Coord;
             facing=Dir_To_8(Coord_Direction(threat,position));
-            facing=facing+unknown_id_source_a3d290->Random()(0,4)-2;
+            facing=facing+Scen->Random()(0,4)-2;
         } else {
             Point2D position=Cell_Fraction(Center_Coord(),Center_Coord());
             if (position!=Point2D(128,128)) facing=Dir_To_8(Direction_00504120(Point2D(128,128),position));
             else facing=Dir_To_8(PrimaryFacing.Current());
-            facing=facing+unknown_id_source_a3d290->Random()(0,4)-2;
+            facing=facing+Scen->Random()(0,4)-2;
             Cell nearby=Map.Nearby_Location(Cell(unknown_slot19(0)),Type->SpeedType,-1,0,IsOnBridge,Point2D(1,1),0,1,0,1,Cell(0,0),0);
             if (nearby!=unknown_geometry_k) {
                 Assign_Destination(&Map[nearby],true);
@@ -1522,7 +1522,7 @@ bool InfantryClass::unknown_slot311(int sequence, bool force, bool random_start)
     if (random_start) {
         int count = Type->DoControls[sequence].Count;
         if (count <= 1) count = 1;
-        StageClass::Stage = unknown_id_source_a3d290->Random()(0, count - 1);
+        StageClass::Stage = Scen->Random()(0, count - 1);
     } else {
         StageClass::Stage = 0;
     }
@@ -1827,7 +1827,7 @@ return_capture_action:
         if (House->Is_Player_Control() && Type->VehicleThief && object->Considered_Vehicle()) {
             if (target->Techno_Type_Class()->IsTrain) return 7;
             if (target->House != House) {
-                if ((unknown_id_source_a3d290->unknown_000 & 0x800) != 0) {
+                if ((Scen->unknown_000 & 0x800) != 0) {
                     for (int i = 0; i < Rules->HarvesterUnit.Count(); ++i) {
                         if (Rules->HarvesterUnit[i] == (UnitTypeClass *)object) return 7;
                     }
@@ -2090,7 +2090,7 @@ int InfantryClass::Do_MISSION_ATTACK()
     if (House->Unknown_004F52F0() && Is_Deploying()) {
         unknown_slot240();
         int delay = (int)(Control()->unknown_10 * 900.0);
-        return delay + unknown_id_source_a3d290->Random()(0, 2);   // the scenario's Random()
+        return delay + Scen->Random()(0, 2);   // the scenario's Random()
     }
     return FootClass::Do_MISSION_ATTACK();
 }
@@ -2236,7 +2236,7 @@ int InfantryClass::What_Action(Cell const *cell, bool arg2, bool arg3)
     CellClass &target_cell = Map[*cell];
     BuildingTypeClass *remembered_type = 0;
     FoggedObjectClass *remembered = 0;
-    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && arg2 && target_cell.FoggedObjects != 0) {
+    if ((Scen->unknown_000 & 0x1000) && arg2 && target_cell.FoggedObjects != 0) {
         for (int index = 0; index < target_cell.FoggedObjects->Count(); ++index) {
             remembered = (*target_cell.FoggedObjects)[index];
             if (remembered->CanDraw && remembered->unknown_30 == 6) {
@@ -2604,7 +2604,7 @@ inline AnimTypeClass *Pick_Animation(TypeList<AnimTypeClass *> const &list, unsi
 // A corpse animation is chosen after allocation, with one scenario draw.
 inline AnimTypeClass *InfantryClass::Pick_Dead_Body(bool use_type) const
 {
-    unsigned draw = (unsigned)unknown_id_source_a3d290->Random()();
+    unsigned draw = (unsigned)Scen->Random()();
     if (use_type) {
         return Pick_Animation(Type->DeadBodies, draw);
     }
@@ -2758,11 +2758,11 @@ int InfantryClass::Update_Deployed_Attack()
                     unknown_slot220(0);
                 }
                 int delay = int(Control()->unknown_10 * 900.0);
-                return delay + unknown_id_source_a3d290->Random()(10, 20);
+                return delay + Scen->Random()(10, 20);
             }
             unknown_slot240();
             int delay = int(Control()->unknown_10 * 900.0);
-            return delay + unknown_id_source_a3d290->Random()(0, 2);
+            return delay + Scen->Random()(0, 2);
         }
     } else {
         if (!Owning_House()->Unknown_004F52F0() && Type->Deployer && Type->DeployFire &&
@@ -2781,7 +2781,7 @@ int InfantryClass::Update_Deployed_Attack()
                 Locomotor.Checked()->Stop_Moving();
                 unknown_5cc = true;
                 int delay = int(Control()->unknown_10 * 900.0);
-                return delay + unknown_id_source_a3d290->Random()(0, 2);
+                return delay + Scen->Random()(0, 2);
             }
         }
     }
@@ -3225,7 +3225,7 @@ void InfantryClass::unknown_slot304()
     Locomotor.Checked()->Stop_Moving();
     unknown_5cc = true;
     Control();
-    unknown_id_source_a3d290->Random()(0, 2);   // the scenario's Random() (src/shared/abstract.hpp)
+    Scen->Random()(0, 2);   // the scenario's Random() (src/shared/abstract.hpp)
 }
 
 
@@ -3290,7 +3290,7 @@ int InfantryClass::Deploy_Or_Stop()
     Locomotor.Checked()->Stop_Moving();
     unknown_5cc = true;
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay + unknown_id_source_a3d290->Random()(0, 2);
+    return delay + Scen->Random()(0, 2);
 }
 
 

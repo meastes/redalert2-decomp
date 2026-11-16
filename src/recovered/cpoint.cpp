@@ -197,7 +197,7 @@ HRESULT __stdcall ConnectionPointClass::GetConnectionPointContainer(IConnectionP
 HRESULT __stdcall ConnectionPointClass::Advise(IUnknown *pUnkSink,unsigned long *pdwCookie) {
  if (!pUnkSink || !pdwCookie) return E_POINTER;
  tagCONNECTDATA connection;
- connection.dwCookie=unknown_id_source_a3d290->Next_ID();
+ connection.dwCookie=Scen->Next_ID();
  if (FAILED(pUnkSink->QueryInterface(InterfaceID,(void **)&connection.pUnk))) return (HRESULT)0x80040202;
  if (!Connections.Add(connection)) return (HRESULT)0x80040201;
  *pdwCookie=connection.dwCookie; return 0;

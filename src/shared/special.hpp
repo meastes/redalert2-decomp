@@ -39,6 +39,6 @@ public:
 
 // The game options outside a scenario (0x00A40920; copied into the scenario's
 // own by Read_Scenario_INI in a multiplayer game).
-extern SpecialClass unknown_special_a40920;
+extern SpecialClass Special;
 
 #endif

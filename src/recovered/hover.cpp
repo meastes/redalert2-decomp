@@ -1010,8 +1010,8 @@ bool __stdcall HoverLocomotionClass::Shove(UnknownFacingDir dir)
 void HoverLocomotionClass::Start_Drift()
 {
     unknown_68 = true;
-    unknown_6c = unknown_id_source_a3d290->Random()(20, 30);
-    if (unknown_id_source_a3d290->Random()(0, 99) < 50) {
+    unknown_6c = Scen->Random()(20, 30);
+    if (Scen->Random()(0, 99) < 50) {
         unknown_6c = -unknown_6c;
     }
 }

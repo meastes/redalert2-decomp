@@ -282,17 +282,17 @@ void Unknown535910::Unknown_00535BF0()
     unknown_5c->Fill_Rect(screen, screen, background);
 
     if (unknown_game_mode_a3d298 == 0) {
-        char const *name = small ? unknown_id_source_a3d290->LS640BkgdName : unknown_id_source_a3d290->LS800BkgdName;
+        char const *name = small ? Scen->LS640BkgdName : Scen->LS800BkgdName;
         if (*name == 0) {
             return;
         }
         unknown_38 = 0;
-        if (unknown_id_source_a3d290->LSLoadMessage[0] != 0) {
-            unknown_38 = StringTable::Load_String(unknown_id_source_a3d290->LSLoadMessage, 0, "D:\\Ra2\\LdPrgMgr.cpp", 0x24F);
+        if (Scen->LSLoadMessage[0] != 0) {
+            unknown_38 = StringTable::Load_String(Scen->LSLoadMessage, 0, "D:\\Ra2\\LdPrgMgr.cpp", 0x24F);
         }
         unknown_3c = 0;
-        if (unknown_id_source_a3d290->LSLoadBriefing[0] != 0) {
-            unknown_3c = StringTable::Load_String(unknown_id_source_a3d290->LSLoadBriefing, 0, "D:\\Ra2\\LdPrgMgr.cpp", 0x253);
+        if (Scen->LSLoadBriefing[0] != 0) {
+            unknown_3c = StringTable::Load_String(Scen->LSLoadBriefing, 0, "D:\\Ra2\\LdPrgMgr.cpp", 0x253);
         }
         int side = ProgressScreen.Get_Side();
         char const *top_name = (char const *)Unknown_Select_Title_Bar_6f2400(VideoModeWidth, VideoModeHeight, side);
@@ -329,11 +329,11 @@ void Unknown535910::Unknown_00535BF0()
             return;
         }
         if (small) {
-            point.X = unknown_id_source_a3d290->LS640BriefLocX + unknown_18.X;
-            point.Y = unknown_id_source_a3d290->LS640BriefLocY + unknown_18.Y;
+            point.X = Scen->LS640BriefLocX + unknown_18.X;
+            point.Y = Scen->LS640BriefLocY + unknown_18.Y;
         } else {
-            point.X = unknown_id_source_a3d290->LS800BriefLocX + unknown_18.X;
-            point.Y = unknown_id_source_a3d290->LS800BriefLocY + unknown_18.Y;
+            point.X = Scen->LS800BriefLocX + unknown_18.X;
+            point.Y = Scen->LS800BriefLocY + unknown_18.Y;
         }
         wcscpy(text, unknown_3c);
         int pixel = Scheme_Pixel(scheme);

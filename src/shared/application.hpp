@@ -8,7 +8,7 @@
 #include "shared/com_persist.hpp"
 #include "shared/system_timer.hpp"
 #include "shared/comm_buffer.hpp"
-#include "shared/abstract.hpp"   // unknown_id_source_a3d290 (the scenario)
+#include "shared/abstract.hpp"   // Scen (the scenario)
 
 #ifndef _WCHAR_T_DEFINED
 typedef unsigned short wchar_t;
@@ -29,7 +29,7 @@ extern "C" __declspec(dllimport) BSTR __stdcall SysAllocString(wchar_t const *te
 extern "C" GUID const IID_IApplication_79c3d0;   // 0x0079C3D0 (hypothesis)
 // A third interface ID QueryInterface answers with the object at 0x008324E0
 // (the map/screen global); not identified.
-extern "C" GUID const unknown_iid_7a2c28;         // 0x007A2C28
+extern "C" GUID const IID_IGameMap;         // 0x007A2C28
 extern char unknown_map_object_8324e0;            // 0x008324E0 (only its address is used)
 
 struct ISwizzle;

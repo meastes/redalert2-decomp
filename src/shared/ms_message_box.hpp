@@ -42,7 +42,7 @@ void __fastcall unknown_set_dialog_item_5b0(HWND dialog, LPARAM value);
 // keeping its size and without repainting (0x00600120).
 void __fastcall unknown_move_window_600120(HWND window, int x, int y);
 void __fastcall Display_Dialog(HWND window);                                  // 0x005FF7C0 (after setup)
-void __fastcall unknown_dialog_5ff6e0(HWND window);                                  // 0x005FF6E0 (when done)
+void __fastcall OwnerDraw_End_Dialog(HWND window);                                  // 0x005FF6E0 (when done)
 #include "shared/dialog_default_proc.hpp"
 // A dialog procedure: the common handler first, then WM_COMMAND from controls 0x5C0-0x5C1 stores the id in *DWL_USER (0x00600D50).
 int __stdcall unknown_choice_dialog_proc_600d50(HWND window, UINT message, WPARAM wparam, LPARAM lparam);

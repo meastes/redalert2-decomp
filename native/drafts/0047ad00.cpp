@@ -27,7 +27,7 @@ void CellClass::Place_Veins()
         OverlayIndex = 0x7E;
 
         if (Ramp == 0) {
-            OverlayData = abs(unknown_id_source_a3d290->Random()()) % 3 + 0x30;
+            OverlayData = abs(Scen->Random()()) % 3 + 0x30;
 
             int dir;
             for (dir = 0; dir < 8; dir += 2) {
@@ -46,7 +46,7 @@ void CellClass::Place_Veins()
                         Rect adjrect(0, 0, 0, 0);
                         adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect()));
                         adjacent.OverlayIndex = 0x7E;
-                        adjacent.OverlayData = 3 * frame + abs(unknown_id_source_a3d290->Random()() % 3);
+                        adjacent.OverlayData = 3 * frame + abs(Scen->Random()() % 3);
                         adjacent.Recalc_Attributes(-1);
                         RectPoint2D origin = TacticalRect.Top_Left();
                         adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect())) - origin;
@@ -56,7 +56,7 @@ void CellClass::Place_Veins()
                     Rect adjrect(0, 0, 0, 0);
                     adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect()));
                     adjacent.OverlayIndex = 0x7E;
-                    adjacent.OverlayData = 2 * adjacent.Ramp + (abs(unknown_id_source_a3d290->Random()()) & 1) + 0x33;
+                    adjacent.OverlayData = 2 * adjacent.Ramp + (abs(Scen->Random()()) & 1) + 0x33;
                     adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
                     TacticalMap->Register_Dirty_Area(adjrect, 0);
                 }
@@ -66,7 +66,7 @@ void CellClass::Place_Veins()
 
             Trigger_Veins();
         } else {
-            OverlayData = 2 * Ramp + (abs(unknown_id_source_a3d290->Random()()) & 1) + 0x33;
+            OverlayData = 2 * Ramp + (abs(Scen->Random()()) & 1) + 0x33;
         }
 
         rect = Union(rect, Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();

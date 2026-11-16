@@ -66,14 +66,14 @@ Cell HouseClass::Random_Cell_In_Zone(int zone)
         break;
     case 1: {
         int distance = Random_Pick(radius, maxdist);
-        DirType dir(unknown_id_source_a3d290->Random()());
+        DirType dir(Scen->Random()());
         dir.Raw &= ~0xC000;
         coord = Move_Coord(BaseCenter, Rotate_Back_One_Facing(dir), distance);
         break;
     }
     case 2: {
         int distance = Random_Pick(radius, maxdist);
-        DirType dir(unknown_id_source_a3d290->Random()());
+        DirType dir(Scen->Random()());
         dir.Raw &= ~0x8000;
         dir.Raw |= 0x4000;
         coord = Move_Coord(BaseCenter, Rotate_Back_One_Facing(dir), distance);
@@ -81,7 +81,7 @@ Cell HouseClass::Random_Cell_In_Zone(int zone)
     }
     case 3: {
         int distance = Random_Pick(radius, maxdist);
-        DirType dir(unknown_id_source_a3d290->Random()());
+        DirType dir(Scen->Random()());
         dir.Raw &= ~0x4000;
         dir.Raw |= 0x8000;
         coord = Move_Coord(BaseCenter, Rotate_Back_One_Facing(dir), distance);
@@ -89,7 +89,7 @@ Cell HouseClass::Random_Cell_In_Zone(int zone)
     }
     case 4: {
         int distance = Random_Pick(radius, maxdist);
-        DirType dir(unknown_id_source_a3d290->Random()());
+        DirType dir(Scen->Random()());
         dir.Raw |= 0xC000;
         coord = Move_Coord(BaseCenter, Rotate_Back_One_Facing(dir), distance);
         break;

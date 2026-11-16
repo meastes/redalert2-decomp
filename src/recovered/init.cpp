@@ -148,7 +148,7 @@ extern MouseClass Map;                          // 0x008324E0
 extern unsigned __int64 unknown_loading_time_a41668;
 extern ConvertClass *unknown_drawer_8323c8;     // 0x008323C8 (TS MouseDrawer)    // 0x00A41668 when the loading screen may go
 
-MonoClass *__fastcall Unknown_0059DA50(int page);       // 0x0059DA50
+MonoClass *__fastcall MonoClass_Get_Page(int page);       // 0x0059DA50
 bool __fastcall Init_Bootstrap_Mixfiles();              // 0x00515C90
 void __fastcall Unknown_005EAC10();                     // 0x005EAC10
 void __fastcall Unknown_Load_Interface_Art_006F1B60();                     // 0x006F1B60
@@ -183,8 +183,8 @@ int __fastcall Init_Game()
 {
     Debug_Printf("Init Game\n");
 
-    unknown_id_source_a3d290 = new ScenarioClass;
-    if (unknown_id_source_a3d290 == 0) {
+    Scen = new ScenarioClass;
+    if (Scen == 0) {
         Debug_Printf("Failed to instantiate Scenario!\n");
         return -1;
     }
@@ -305,9 +305,9 @@ int __fastcall Init_Game()
     while (Audio_Now() < unknown_loading_time_a41668) {
     }
 
-    if (unknown_special_a40920.IsFromInstall == true) {
+    if (Special.IsFromInstall == true) {
         Debug_Printf("Playing first time intro sequence.\n");
-        if (unknown_special_a40920.EscapeMovies) {
+        if (Special.EscapeMovies) {
             Play_Movie_005A02D0("WESTLOGO", -1, true, true, true, false);
             Play_Movie_005A02D0("A00_F00E", -1, false, true, true, false);
         } else {
@@ -364,7 +364,7 @@ static bool Bootstrap()
     } while (!GameInFocus);
 
     SurfacesRestored = false;
-    Unknown_0059DA50(4)->Clear();
+    MonoClass_Get_Page(4)->Clear();
 
     if (!Init_Bootstrap_Mixfiles()) {
         Debug_Printf("Failed to initialize bootstrap mixfiles!\n");
@@ -543,20 +543,20 @@ static bool Init_CDROM_Access()
         }
 
         int disk = CD_Get_Current_Disk(60);
-        if (!unknown_special_a40920.IsFromInstall && disk > -1) {
-            unknown_special_a40920.IsFromInstall = ConfigINI.Get_Bool("Intro", "Play", true);
+        if (!Special.IsFromInstall && disk > -1) {
+            Special.IsFromInstall = ConfigINI.Get_Bool("Intro", "Play", true);
         }
 
         WolRegistryOptions options;
         options.Read_004ff200();
         if (!options.unknown_004ff2b0() && !options.unknown_004ff2d0() && !options.unknown_004ff2c0()) {
-            unknown_special_a40920.EscapeMovies = true;
+            Special.EscapeMovies = true;
         }
 
-        if (unknown_special_a40920.IsFromInstall == true) {
+        if (Special.IsFromInstall == true) {
             CCFileClass ra2_ini("RA2.INI");
             if (disk > -1) {
-                unknown_special_a40920.IsFromInstall = ConfigINI.Put_Bool("Intro", "Play", false);
+                Special.IsFromInstall = ConfigINI.Put_Bool("Intro", "Play", false);
             }
             ConfigINI.Save(ra2_ini, false);
         }
@@ -1097,12 +1097,12 @@ static int Choose_Campaign()
     Audio_Event_Handle_Clear(&unknown_side_sound_a411e8);
     unknown_hover_time_a41680 = 0;
     unknown_hover_id_a41688 = 0;
-    HWND window = unknown_create_dialog_5ff610(0x94, Unknown_005147A0, 0);
+    HWND window = OwnerDraw_Begin_Dialog(0x94, Unknown_005147A0, 0);
     if (window != 0) {
         SetWindowLongA(window, 8, (LONG)&choice);
         Unknown_00737080(window, MainWindow);
         Display_Dialog(window);
-        while (!choice.Chosen && unknown_6000d0() != true) {
+        while (!choice.Chosen && OwnerDraw_Dialog_Message_Handler() != true) {
             if (unknown_side_voc_7db4f8 != -1 && (unsigned __int64)unknown_hover_time_a41680 < (unsigned __int64)Audio_Now()) {
                 Audio_Event_Handle_Stop(&unknown_side_sound_a411e8);
                 Voc_Play(unknown_side_voc_7db4f8, 1.0f, 0x2000, &unknown_side_sound_a411e8);
@@ -1114,7 +1114,7 @@ static int Choose_Campaign()
                 Update_Visible_Surface(false, HiddenSurface, 0);
             }
         }
-        unknown_dialog_5ff6e0(window);
+        OwnerDraw_End_Dialog(window);
     }
     unknown_hover_time_a41680 = (unsigned __int64)Audio_Now() + 3000;
     while (Audio_Event_Handle_Event(&unknown_side_sound_a411e8) != 0 && (unsigned __int64)unknown_hover_time_a41680 > (unsigned __int64)Audio_Now()) {
@@ -1138,10 +1138,10 @@ top:
         DoList.Init();
         OutList.Init();
         Frame = 0;
-        unknown_id_source_a3d290->MissionTimer = 0;
-        unknown_id_source_a3d290->MissionTimer.Stop();
-        unknown_id_source_a3d290->CDifficulty = 1;
-        unknown_id_source_a3d290->Difficulty = 1;
+        Scen->MissionTimer = 0;
+        Scen->MissionTimer.Stop();
+        Scen->CDifficulty = 1;
+        Scen->Difficulty = 1;
         unknown_flag_a35db1 = 0;
         unknown_flag_a40c78 = 0;
         unknown_flag_00866250 = false;
@@ -1300,32 +1300,32 @@ top:
                     break;
                 case 8: {
                     new (&unknown_scenario_checkpoint_00855a90) EnvironmentClass;
-                    unknown_id_source_a3d290->Campaign = Choose_Campaign();
-                    if (unknown_id_source_a3d290->Campaign == -1) {
+                    Scen->Campaign = Choose_Campaign();
+                    if (Scen->Campaign == -1) {
                         process = true;
                         selection = 1;
                         break;
                     }
                     switch (unknown_difficulty_a40b1c) {
                     case 0:
-                        unknown_id_source_a3d290->CDifficulty = 2;
-                        unknown_id_source_a3d290->Difficulty = 0;
+                        Scen->CDifficulty = 2;
+                        Scen->Difficulty = 0;
                         break;
                     case 1:
-                        unknown_id_source_a3d290->CDifficulty = 2;
-                        unknown_id_source_a3d290->Difficulty = 1;
+                        Scen->CDifficulty = 2;
+                        Scen->Difficulty = 1;
                         break;
                     case 2:
-                        unknown_id_source_a3d290->CDifficulty = 1;
-                        unknown_id_source_a3d290->Difficulty = 1;
+                        Scen->CDifficulty = 1;
+                        Scen->Difficulty = 1;
                         break;
                     case 3:
-                        unknown_id_source_a3d290->CDifficulty = 0;
-                        unknown_id_source_a3d290->Difficulty = 1;
+                        Scen->CDifficulty = 0;
+                        Scen->Difficulty = 1;
                         break;
                     case 4:
-                        unknown_id_source_a3d290->CDifficulty = 0;
-                        unknown_id_source_a3d290->Difficulty = 2;
+                        Scen->CDifficulty = 0;
+                        Scen->Difficulty = 2;
                         break;
                     }
                     unknown_session_a3d298.Type = 0;
@@ -1499,13 +1499,13 @@ top:
                 }
             }
             if (unknown_session_a3d298.Type == 0 && !Debug_ForceScenario && !unknown_session_a3d298.Play) {
-                if (!Start_Scenario_0065bc70(Campaigns[unknown_id_source_a3d290->Campaign]->Scenario, true, unknown_id_source_a3d290->Campaign)) {
+                if (!Start_Scenario_0065bc70(Campaigns[Scen->Campaign]->Scenario, true, Scen->Campaign)) {
                     if (Debug_Map) {
                         return false;
                     }
                     goto top;
                 }
-            } else if (!Start_Scenario_0065bc70(unknown_id_source_a3d290->FileName, true, -1)) {
+            } else if (!Start_Scenario_0065bc70(Scen->FileName, true, -1)) {
                 if (Debug_Map) {
                     return false;
                 }
@@ -1518,10 +1518,10 @@ top:
                     unknown_session_a3d298.Record = false;
                 }
             }
-            unknown_special_a40920.IsFromInstall = false;
+            Special.IsFromInstall = false;
         }
-        Debug_Printf("IsTGrowth = %d\n", unknown_special_a40920.TiberiumGrows);
-        Debug_Printf("IsTSpread = %d\n", unknown_special_a40920.TiberiumSpreads);
+        Debug_Printf("IsTGrowth = %d\n", Special.TiberiumGrows);
+        Debug_Printf("IsTSpread = %d\n", Special.TiberiumSpreads);
         if (unknown_session_a3d298.Type != 0 && unknown_session_a3d298.Type != 5 && !unknown_session_a3d298.Play) {
             unknown_session_a3d298.Create_Connections();
             if (unknown_session_a3d298.Type == 3) {
@@ -1904,7 +1904,7 @@ extern char Debug_Quiet;                // 0x00A40D0C set by -XQ (TS's Debug_Qui
 
 bool __fastcall Parse_Command_Line(int argc, char *argv[])
 {
-    unknown_special_a40920.Init();
+    Special.Init();
 
     Debug_Map = false;
 
@@ -1939,7 +1939,7 @@ bool __fastcall Parse_Command_Line(int argc, char *argv[])
             long ob = Obfuscate(string);
             switch (ob) {
                 case PARM_INSTALL:
-                    unknown_special_a40920.IsFromInstall = true;
+                    Special.IsFromInstall = true;
                     break;
 
                 default:
@@ -2084,7 +2084,7 @@ void __fastcall Init_Random()
 {
     Debug_Printf("Init random number\n");
     if (unknown_a3d8c8 != 0 || (unknown_flags_a3f600 & 2) != 0 || Get_Input_Record_Mode() != 0) {
-        unknown_id_source_a3d290->RandomNumber = Seed;
+        Scen->RandomNumber = Seed;
         NonCriticalRandomNumber = Seed;
         Debug_Printf("Seed is %08x\n", Seed);
         return;
@@ -2116,7 +2116,7 @@ void __fastcall Init_Random()
         }
     }
     Debug_Printf("Seed is %08x\n", Seed);
-    unknown_id_source_a3d290->RandomNumber = Seed;
+    Scen->RandomNumber = Seed;
     NonCriticalRandomNumber = Seed;
 }
 
@@ -2516,13 +2516,13 @@ bool __fastcall Init_Bulk_Data()
 
 bool __fastcall Save_Recording_Values(CCFileClass &file)
 {
-    Debug_Printf("Saving recording values for scenario : %s\n", unknown_id_source_a3d290->FileName);
+    Debug_Printf("Saving recording values for scenario : %s\n", Scen->FileName);
     file.Write(&BuildLevel, sizeof(BuildLevel));
     file.Write(&unknown_a40d3c, sizeof(unknown_a40d3c));
-    file.Write(&unknown_id_source_a3d290->TechLevel, sizeof(unknown_id_source_a3d290->TechLevel));
-    file.Write(unknown_id_source_a3d290->FileName, sizeof(unknown_id_source_a3d290->FileName));
+    file.Write(&Scen->TechLevel, sizeof(Scen->TechLevel));
+    file.Write(Scen->FileName, sizeof(Scen->FileName));
     file.Write(&unknown_a40c38, sizeof(unknown_a40c38));
-    file.Write(&unknown_special_a40920, sizeof(unknown_special_a40920));
+    file.Write(&Special, sizeof(Special));
     file.Write(&Options, sizeof(Options));
     return true;
 }
@@ -2537,12 +2537,12 @@ bool __fastcall Load_Recording_Values(CCFileClass &file)
 {
     file.Read(&BuildLevel, sizeof(BuildLevel));
     file.Read(&unknown_a40d3c, sizeof(unknown_a40d3c));
-    file.Read(&unknown_id_source_a3d290->TechLevel, sizeof(unknown_id_source_a3d290->TechLevel));
-    file.Read(unknown_id_source_a3d290->FileName, sizeof(unknown_id_source_a3d290->FileName));
+    file.Read(&Scen->TechLevel, sizeof(Scen->TechLevel));
+    file.Read(Scen->FileName, sizeof(Scen->FileName));
     file.Read(&unknown_a40c38, sizeof(unknown_a40c38));
-    file.Read(&unknown_special_a40920, sizeof(unknown_special_a40920));
+    file.Read(&Special, sizeof(Special));
     file.Read(&Options, sizeof(Options));
-    Debug_Printf("Loaded recording values for scenario : %s\n", unknown_id_source_a3d290->FileName);
+    Debug_Printf("Loaded recording values for scenario : %s\n", Scen->FileName);
     return true;
 }
 
@@ -2618,17 +2618,17 @@ void __fastcall Title_Screen_Restore(bool force);
 void __fastcall Unknown_00516E70()
 {
     int result = 0;
-    HWND window = unknown_create_dialog_5ff610(0xD4, Unknown_00516C40, 0);
+    HWND window = OwnerDraw_Begin_Dialog(0xD4, Unknown_00516C40, 0);
     if (window) {
         SetWindowLongA(window, 8, (LONG)&result);
         Display_Dialog(window);
         while (!result) {
-            if (unknown_6000d0() == true) {
+            if (OwnerDraw_Dialog_Message_Handler() == true) {
                 break;
             }
         Title_Screen_Restore(false);
         }
-        unknown_dialog_5ff6e0(window);
+        OwnerDraw_End_Dialog(window);
     }
 }
 
@@ -2689,7 +2689,7 @@ int __fastcall Unknown_00516F00(int unknown_timeout)
     if (!CD().Force_Available(CD::RequiredCD)) {
         return 7;
     }
-    HWND window = unknown_create_dialog_5ff610(0xE2, Unknown_005171D0, 0);
+    HWND window = OwnerDraw_Begin_Dialog(0xE2, Unknown_005171D0, 0);
     if (window != 0) {
         SetWindowLongA(window, 8, (LONG)&choice);
         Center_Window_Within_Window(window, MainWindow);
@@ -2697,7 +2697,7 @@ int __fastcall Unknown_00516F00(int unknown_timeout)
         SetFocus(MainWindow);
         unknown_5115f0(window);
         do {
-            if (unknown_6000d0()) {
+            if (OwnerDraw_Dialog_Message_Handler()) {
                 choice = 7;
             }
             Title_Screen_Restore(false);
@@ -2711,7 +2711,7 @@ int __fastcall Unknown_00516F00(int unknown_timeout)
                 }
             }
         } while (choice == 0x12);
-        unknown_dialog_5ff6e0(window);
+        OwnerDraw_End_Dialog(window);
         SYSTEMTIME time;
         GetSystemTime(&time);
         CryptRandom.Seed_Byte((char)time.wMilliseconds);
@@ -3312,10 +3312,10 @@ void __fastcall Init_Theater_00519e70(int theater)
     wsprintfA(shortname, "%s.MIX", Theaters[theater].Suffix);
     Debug_Printf("Init theater %s\n", Theaters[theater].Name);
 
-    unknown_id_source_a3d290->Theater = theater;
+    Scen->Theater = theater;
     unknown_session_a3d298.Update_Progress(8);
 
-    if (unknown_id_source_a3d290->Theater != 1
+    if (Scen->Theater != 1
         && (LastTheater == 1 || LastTheater == -1)) {
         if (unknown_theater_mix_8374c8 != 0) {
             delete unknown_theater_mix_8374c8;
@@ -3324,7 +3324,7 @@ void __fastcall Init_Theater_00519e70(int theater)
         unknown_theater_mix_8374c8->Cache();
     }
 
-    if (unknown_id_source_a3d290->Theater != LastTheater) {
+    if (Scen->Theater != LastTheater) {
         if (unknown_theater_mix_8374c0 != 0) {
             delete unknown_theater_mix_8374c0;
         }
@@ -5964,7 +5964,7 @@ wchar_t const *View1CommandClass::Get_Description() const
 
 void View1CommandClass::Execute(int key) const
 {
-    CoordStruct coord(unknown_id_source_a3d290->Views[0].X * 256 + 128, unknown_id_source_a3d290->Views[0].Y * 256 + 128, 0);
+    CoordStruct coord(Scen->Views[0].X * 256 + 128, Scen->Views[0].Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
     TacticalMap->Set_Tactical_Position_006a66b0(coord);
     if (Map.PendingObject != 0) {
@@ -6015,7 +6015,7 @@ wchar_t const *View2CommandClass::Get_Description() const
 
 void View2CommandClass::Execute(int key) const
 {
-    CoordStruct coord(unknown_id_source_a3d290->Views[1].X * 256 + 128, unknown_id_source_a3d290->Views[1].Y * 256 + 128, 0);
+    CoordStruct coord(Scen->Views[1].X * 256 + 128, Scen->Views[1].Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
     TacticalMap->Set_Tactical_Position_006a66b0(coord);
     if (Map.PendingObject != 0) {
@@ -6066,7 +6066,7 @@ wchar_t const *View3CommandClass::Get_Description() const
 
 void View3CommandClass::Execute(int key) const
 {
-    CoordStruct coord(unknown_id_source_a3d290->Views[2].X * 256 + 128, unknown_id_source_a3d290->Views[2].Y * 256 + 128, 0);
+    CoordStruct coord(Scen->Views[2].X * 256 + 128, Scen->Views[2].Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
     TacticalMap->Set_Tactical_Position_006a66b0(coord);
     if (Map.PendingObject != 0) {
@@ -6117,7 +6117,7 @@ wchar_t const *View4CommandClass::Get_Description() const
 
 void View4CommandClass::Execute(int key) const
 {
-    CoordStruct coord(unknown_id_source_a3d290->Views[3].X * 256 + 128, unknown_id_source_a3d290->Views[3].Y * 256 + 128, 0);
+    CoordStruct coord(Scen->Views[3].X * 256 + 128, Scen->Views[3].Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
     TacticalMap->Set_Tactical_Position_006a66b0(coord);
     if (Map.PendingObject != 0) {
@@ -6168,7 +6168,7 @@ wchar_t const *SetView1CommandClass::Get_Description() const
 void SetView1CommandClass::Execute(int key) const
 {
     Point2D point = TacticalMap->Get_Relative_Tactical_Position();
-    unknown_id_source_a3d290->Views[0] = TacticalMap->Pixel_To_Cell(point);
+    Scen->Views[0] = TacticalMap->Pixel_To_Cell(point);
 }
 
 
@@ -6214,7 +6214,7 @@ wchar_t const *SetView2CommandClass::Get_Description() const
 void SetView2CommandClass::Execute(int key) const
 {
     Point2D point = TacticalMap->Get_Relative_Tactical_Position();
-    unknown_id_source_a3d290->Views[1] = TacticalMap->Pixel_To_Cell(point);
+    Scen->Views[1] = TacticalMap->Pixel_To_Cell(point);
 }
 
 
@@ -6260,7 +6260,7 @@ wchar_t const *SetView3CommandClass::Get_Description() const
 void SetView3CommandClass::Execute(int key) const
 {
     Point2D point = TacticalMap->Get_Relative_Tactical_Position();
-    unknown_id_source_a3d290->Views[2] = TacticalMap->Pixel_To_Cell(point);
+    Scen->Views[2] = TacticalMap->Pixel_To_Cell(point);
 }
 
 
@@ -6306,7 +6306,7 @@ wchar_t const *SetView4CommandClass::Get_Description() const
 void SetView4CommandClass::Execute(int key) const
 {
     Point2D point = TacticalMap->Get_Relative_Tactical_Position();
-    unknown_id_source_a3d290->Views[3] = TacticalMap->Pixel_To_Cell(point);
+    Scen->Views[3] = TacticalMap->Pixel_To_Cell(point);
 }
 
 

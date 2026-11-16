@@ -148,7 +148,7 @@ ret_addr:
             ToolTips->Enable(Options.ToolTips);
         }
 
-        IgnoreInput = unknown_id_source_a3d290->IsInputLocked;
+        IgnoreInput = Scen->IsInputLocked;
         SpecialDialog = 0;
         unknown_flag_007d88e0 = true;
         unknown_session_a3d298.Unknown_00672DE0();

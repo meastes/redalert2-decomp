@@ -182,7 +182,7 @@ void Paint_Button(HWND window, WinData *record, bool lit)
         if (disabled) {
             if (!unknown_session_a3d298.Is_In_Game())
                 text_color = Side_Text_Color((unsigned char const *)&unknown_mode_ac109c);
-            else if (unknown_id_source_a3d290->IsGDI)
+            else if (Scen->IsGDI)
                 text_color = Side_Text_Color((unsigned char const *)&unknown_color_ac1008);
             else
                 text_color = Side_Text_Color((unsigned char const *)&unknown_color_ac1100);

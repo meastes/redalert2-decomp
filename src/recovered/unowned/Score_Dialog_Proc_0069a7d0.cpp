@@ -24,7 +24,7 @@
 // @ref ?Play_Song@ThemeClass@@QAEHH@Z=006e7eb0
 // @ref ?Theme@@3VThemeClass@@A=00a35d78
 // @ref ?Load_String@StringTable@@SIPBGPBDPAD0H@Z=006f9ec0
-// @ref ?unknown_id_source_a3d290@@3PAVScenarioClass@@A=00a3d290
+// @ref ?Scen@@3PAVScenarioClass@@A=00a3d290
 // @ref ?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A=00a32298
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref _swprintf=00783764
@@ -58,12 +58,12 @@ int __stdcall Score_Dialog_Proc_0069A7D0(HWND window, UINT message, WPARAM wpara
         unknown_score_audio_abd6a0.Init();
         unknown_score_audio_on_abd6d4 = 1;
         int par = 0;
-        if (unknown_id_source_a3d290->Difficulty == 0) {
-            par = unknown_id_source_a3d290->ParTimeEasy;
-        } else if (unknown_id_source_a3d290->Difficulty == 1) {
-            par = unknown_id_source_a3d290->ParTimeMedium;
-        } else if (unknown_id_source_a3d290->Difficulty == 2) {
-            par = unknown_id_source_a3d290->ParTimeHard;
+        if (Scen->Difficulty == 0) {
+            par = Scen->ParTimeEasy;
+        } else if (Scen->Difficulty == 1) {
+            par = Scen->ParTimeMedium;
+        } else if (Scen->Difficulty == 2) {
+            par = Scen->ParTimeHard;
         }
         wchar_t text[32];
         HWND item;
@@ -74,7 +74,7 @@ int __stdcall Score_Dialog_Proc_0069A7D0(HWND window, UINT message, WPARAM wpara
         item = GetDlgItem(window, 0x6F1);
         SendMessageA(item, 0x4B2, 0, (LPARAM)text);
 
-        int elapsed = unknown_id_source_a3d290->ElapsedTime.Time();
+        int elapsed = Scen->ElapsedTime.Time();
         int seconds = elapsed / 60;
         minutes = seconds / 60;
         hours = minutes / 60;
@@ -85,11 +85,11 @@ int __stdcall Score_Dialog_Proc_0069A7D0(HWND window, UINT message, WPARAM wpara
         char const *title;
         char const *message_text;
         if (seconds <= par_seconds) {
-            title = unknown_id_source_a3d290->UnderParTitle;
-            message_text = unknown_id_source_a3d290->UnderParMessage;
+            title = Scen->UnderParTitle;
+            message_text = Scen->UnderParMessage;
         } else {
-            title = unknown_id_source_a3d290->OverParTitle;
-            message_text = unknown_id_source_a3d290->OverParMessage;
+            title = Scen->OverParTitle;
+            message_text = Scen->OverParMessage;
         }
         wchar_t const *title_string = StringTable::Load_String(title, 0, "D:\\Ra2\\stlscore.cpp", 0x89);
         wchar_t const *message_string = StringTable::Load_String(message_text, 0, "D:\\Ra2\\stlscore.cpp", 0x8A);

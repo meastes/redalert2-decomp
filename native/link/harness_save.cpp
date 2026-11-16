@@ -75,7 +75,7 @@ void Native_Harness_Save(int frame)
         if (end_lose) player_loses_a40c78 = true; else player_wins_a35db1 = true;
         // The scenario each entry ends (a campaign chain's test reads which missions it reached).
         fprintf(stderr, "force-end: %s at frame %d in %s\n", end_lose ? "loss" : "win", frame,
-                unknown_id_source_a3d290 ? unknown_id_source_a3d290->FileName : "?");
+                Scen ? Scen->FileName : "?");
     }
     if (at < 0 || frame != at) return;
     bool saved = Save_Game(file, L"Native M15 harness save", 0);

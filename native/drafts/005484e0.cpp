@@ -29,7 +29,7 @@
 // @ref ?unknown_objects_a40368@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40368
 // @ref ?Anims@@3V?$DynamicVectorClass@PAVAnimClass@@@@A=00a40960
 // @ref ?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A=008661c8
-// @ref ?unknown_id_source_a3d290@@3PAVScenarioClass@@A=00a3d290
+// @ref ?Scen@@3PAVScenarioClass@@A=00a3d290
 // @ref ?ScenarioInit@@3HA=00a40774
 // @ref ?MapRegionClass_MapStartDiagonal@@3HA=00a70a1c
 // @ref ?MapRegionClass_MapEndDiagonal@@3HA=00a70a20
@@ -178,8 +178,8 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         }
 
         for (i = 0; i < 101; i++) {
-            if (unknown_id_source_a3d290->Is_Valid_Waypoint(i)) {
-                unknown_id_source_a3d290->Set_Waypoint_Location(i, unknown_id_source_a3d290->Get_Waypoint_Location(i) + offset);
+            if (Scen->Is_Valid_Waypoint(i)) {
+                Scen->Set_Waypoint_Location(i, Scen->Get_Waypoint_Location(i) + offset);
             }
         }
 

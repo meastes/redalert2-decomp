@@ -401,7 +401,7 @@ int FootClass::Do_MISSION_MOVE()
         return 1;
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay + unknown_id_source_a3d290->Random()(0, 2);
+    return delay + Scen->Random()(0, 2);
 }
 
 
@@ -565,7 +565,7 @@ int FootClass::Do_MISSION_PATROL()
     }
 
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay + unknown_id_source_a3d290->Random()(0, 2);
+    return delay + Scen->Random()(0, 2);
 }
 
 
@@ -598,7 +598,7 @@ int FootClass::Do_MISSION_CAPTURE()
         QueueMission(15, false);
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay + unknown_id_source_a3d290->Random()(0, 2);
+    return delay + Scen->Random()(0, 2);
 }
 
 
@@ -629,7 +629,7 @@ int FootClass::Do_MISSION_EATEN()
         QueueMission(5, false);
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay + unknown_id_source_a3d290->Random()(0, 2);
+    return delay + Scen->Random()(0, 2);
 }
 
 
@@ -658,7 +658,7 @@ int FootClass::Do_MISSION_ATTACK()
         unknown_slot261(0, true);
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay + unknown_id_source_a3d290->Random()(0, 2);
+    return delay + Scen->Random()(0, 2);
 }
 
 
@@ -733,7 +733,7 @@ int FootClass::Do_MISSION_GUARD()
     if (Arm.Value() != 0) {
         result = Arm.Value();
     } else if (!Techno_Type_Class()->DistributedFire || unknown_3a8.Count() <= 0) {
-        result = delay + unknown_id_source_a3d290->Random()(0, 2);
+        result = delay + Scen->Random()(0, 2);
     }
     return result;
 }
@@ -792,7 +792,7 @@ int FootClass::Do_MISSION_HUNT()
         unknown_slot258();
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay + unknown_id_source_a3d290->Random()(0, 2);
+    return delay + Scen->Random()(0, 2);
 }
 
 
@@ -1079,7 +1079,7 @@ int FootClass::Do_MISSION_GUARD_AREA()
     if (Kind_Of() == 1 && ((UnitClass *)this)->Type->Harvester) {
         QueueMission(10, false);
         Commence();
-        return 1 + unknown_id_source_a3d290->Random()(1, 10);
+        return 1 + Scen->Random()(1, 10);
     }
 
     if (ArchivedTarget == 0 && MissionQueue == -1) {
@@ -1142,7 +1142,7 @@ int FootClass::Do_MISSION_GUARD_AREA()
     if (Kind_Of() == 2) {
         delay *= 2;
     }
-    return delay + unknown_id_source_a3d290->Random()(1, 5);
+    return delay + Scen->Random()(1, 5);
 }
 
 
@@ -1443,14 +1443,14 @@ bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, b
             if (((UnknownCellClass *)&Map[coord])->Flags & 0x100) {
                 coord.Z += unknown_geometry_j;
             }
-            long scenid = unknown_id_source_a3d290->UniqueID;
+            long scenid = Scen->UniqueID;
             if (unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5) {
-                unknown_id_source_a3d290->UniqueID = -3;
+                Scen->UniqueID = -3;
                 Rules->MoveFlash->YSortAdjust = -5000;
             }
             AnimClass *moveflash = new AnimClass(Rules->MoveFlash, coord, 0, 1, 0x600, 0);
             if (unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5) {
-                unknown_id_source_a3d290->UniqueID = scenid;
+                Scen->UniqueID = scenid;
                 Anims.Delete(moveflash);
                 unknown_anims_a35e60.Add(moveflash);
             }
@@ -1900,7 +1900,7 @@ int FootClass::Do_MISSION_ENTER()
         Commence();
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay + unknown_id_source_a3d290->Random()(0, 2);
+    return delay + Scen->Random()(0, 2);
 }
 
 
@@ -2391,7 +2391,7 @@ int FootClass::Do_MISSION_RETREAT()
         break;
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay + unknown_id_source_a3d290->Random()(0, 2);
+    return delay + Scen->Random()(0, 2);
 }
 
 
@@ -3809,7 +3809,7 @@ int FootClass::Do_MISSION_RESCUE()
         break;
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay + unknown_id_source_a3d290->Random()(0, 2);
+    return delay + Scen->Random()(0, 2);
 }
 
 
@@ -4105,14 +4105,14 @@ bool FootClass::unknown_slot224(int source)
         unknown_slot210();
         Kill_Cargo((TechnoClass *)source);
         if (Kind_Of() != 15 && ScenarioInit == 0) {
-            double spin = unknown_id_source_a3d290->Random()(0, 0x7FFFFFFE);
+            double spin = Scen->Random()(0, 0x7FFFFFFE);
             spin *= 1.0 / 2147483646.0;
             spin *= 0.15;
             RockingSidewaysPerFrame = (float)(spin + 0.1);
-            if (unknown_id_source_a3d290->Random()(0, 1) == 0) {
+            if (Scen->Random()(0, 1) == 0) {
                 RockingSidewaysPerFrame = -RockingSidewaysPerFrame;
             }
-            double tilt = unknown_id_source_a3d290->Random()(0, 0x7FFFFFFE);
+            double tilt = Scen->Random()(0, 0x7FFFFFFE);
             tilt *= 1.0 / 2147483646.0;
             RockingForwardsPerFrame = (float)(tilt * 0.1);
         }

@@ -462,7 +462,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
             same = false;
         }
         strncpy(unknown_session_a3d298.ScenarioFileName_658, token, 0x202);
-        strcpy(unknown_id_source_a3d290->FileName, unknown_session_a3d298.ScenarioFileName_658);
+        strcpy(Scen->FileName, unknown_session_a3d298.ScenarioFileName_658);
     }
     char *digest = strtok(0, ":");
     if (digest != 0) {
@@ -520,7 +520,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
     HWND dialog = Find_Lobby_Window_005c2c40();
     SendMessageA(GetDlgItem(dialog, 0x6EC), 0x4B2, 0, (LPARAM)mode->unknown_name_20.unknown_text_770430());
     SendMessageA(GetDlgItem(dialog, 0x5A8), 0x4B2, 0, (LPARAM)unknown_scenario_name_a3d342);
-    unknown_id_source_a3d290->TechLevel = -1;
+    Scen->TechLevel = -1;
     Frame = 0;
     unknown_session_a3d2ac = 2;
     if (old_official != unknown_session_a3d298.ScenarioIsOfficial_880

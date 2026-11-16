@@ -914,7 +914,7 @@ bool NullModemClass::Detect_Modem(SerialSettingsType *settings, bool reconnect)
                                 StringTable::Load_String("TXT_IGNORE", 0, "D:\\Ra2\\NullMgr.CPP", 0x4BF),
                                 StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullMgr.CPP", 0x4BF), 0, false)) {
                             delete istr;
-                            unknown_dialog_5ff6e0(dialog);
+                            OwnerDraw_End_Dialog(dialog);
                             SerialPort->Leave_Failsafe_Mode();
                             return false;
                         }
@@ -937,7 +937,7 @@ bool NullModemClass::Detect_Modem(SerialSettingsType *settings, bool reconnect)
                         if (WWMessageBox(L" ").Process(StringTable::Load_String("TXT_NO_FLOW_CONTROL_RESPONSE", 0, "D:\\Ra2\\NullMgr.CPP", 0x4DF),
                                 StringTable::Load_String("TXT_IGNORE", 0, "D:\\Ra2\\NullMgr.CPP", 0x4DF),
                                 StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullMgr.CPP", 0x4DF), 0, false)) {
-                            unknown_dialog_5ff6e0(dialog);
+                            OwnerDraw_End_Dialog(dialog);
                             SerialPort->Leave_Failsafe_Mode();
                             return false;
                         }
@@ -953,7 +953,7 @@ bool NullModemClass::Detect_Modem(SerialSettingsType *settings, bool reconnect)
                             if (WWMessageBox(L" ").Process(StringTable::Load_String("TXT_NO_COMP_ENABLE_RESPONSE", 0, "D:\\Ra2\\NullMgr.CPP", 0x4F2),
                                     StringTable::Load_String("TXT_IGNORE", 0, "D:\\Ra2\\NullMgr.CPP", 0x4F2),
                                     StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullMgr.CPP", 0x4F2), 0, false)) {
-                                unknown_dialog_5ff6e0(dialog);
+                                OwnerDraw_End_Dialog(dialog);
                                 SerialPort->Leave_Failsafe_Mode();
                                 return false;
                             }
@@ -969,7 +969,7 @@ bool NullModemClass::Detect_Modem(SerialSettingsType *settings, bool reconnect)
                             if (WWMessageBox(L" ").Process(StringTable::Load_String("TXT_NO_COMP_DISABLE_RESPONSE", 0, "D:\\Ra2\\NullMgr.CPP", 0x501),
                                     StringTable::Load_String("TXT_IGNORE", 0, "D:\\Ra2\\NullMgr.CPP", 0x501),
                                     StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullMgr.CPP", 0x501), 0, false)) {
-                                unknown_dialog_5ff6e0(dialog);
+                                OwnerDraw_End_Dialog(dialog);
                                 SerialPort->Leave_Failsafe_Mode();
                                 return false;
                             }
@@ -986,7 +986,7 @@ bool NullModemClass::Detect_Modem(SerialSettingsType *settings, bool reconnect)
                             if (WWMessageBox(L" ").Process(StringTable::Load_String("TXT_NO_EC_ENABLE_RESPONSE", 0, "D:\\Ra2\\NullMgr.CPP", 0x515),
                                     StringTable::Load_String("TXT_IGNORE", 0, "D:\\Ra2\\NullMgr.CPP", 0x515),
                                     StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullMgr.CPP", 0x515), 0, false)) {
-                                unknown_dialog_5ff6e0(dialog);
+                                OwnerDraw_End_Dialog(dialog);
                                 SerialPort->Leave_Failsafe_Mode();
                                 return false;
                             }
@@ -1002,7 +1002,7 @@ bool NullModemClass::Detect_Modem(SerialSettingsType *settings, bool reconnect)
                             if (WWMessageBox(L" ").Process(StringTable::Load_String("TXT_NO_EC_DISABLE_RESPONSE", 0, "D:\\Ra2\\NullMgr.CPP", 0x524),
                                     StringTable::Load_String("TXT_IGNORE", 0, "D:\\Ra2\\NullMgr.CPP", 0x524),
                                     StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullMgr.CPP", 0x524), 0, false)) {
-                                unknown_dialog_5ff6e0(dialog);
+                                OwnerDraw_End_Dialog(dialog);
                                 SerialPort->Leave_Failsafe_Mode();
                                 return false;
                             }
@@ -1018,7 +1018,7 @@ bool NullModemClass::Detect_Modem(SerialSettingsType *settings, bool reconnect)
                 if (WWMessageBox(L" ").Process(StringTable::Load_String("TXT_ERROR_NO_DISABLE", 0, "D:\\Ra2\\NullMgr.CPP", 0x536),
                         StringTable::Load_String("TXT_IGNORE", 0, "D:\\Ra2\\NullMgr.CPP", 0x536),
                         StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullMgr.CPP", 0x536), 0, false)) {
-                    unknown_dialog_5ff6e0(dialog);
+                    OwnerDraw_End_Dialog(dialog);
                     SerialPort->Leave_Failsafe_Mode();
                     return false;
                 }
@@ -1028,12 +1028,12 @@ bool NullModemClass::Detect_Modem(SerialSettingsType *settings, bool reconnect)
             if (error_count >= 3) {
                 WWMessageBox(L" ").Process(StringTable::Load_String("TXT_ERROR_TOO_MANY", 0, "D:\\Ra2\\NullMgr.CPP", 0x543),
                     StringTable::Load_String("TXT_OK", 0, "D:\\Ra2\\NullMgr.CPP", 0x543), 0, 0, false);
-                unknown_dialog_5ff6e0(dialog);
+                OwnerDraw_End_Dialog(dialog);
                 SerialPort->Leave_Failsafe_Mode();
                 return false;
             }
 
-            unknown_dialog_5ff6e0(dialog);
+            OwnerDraw_End_Dialog(dialog);
             Debug_Printf("Modem detected OK\n");
             SerialPort->Leave_Failsafe_Mode();
             status = SerialPort->Send_Command_To_Modem("AT", '\r', buffer, 81, 90, 2, -1);
@@ -1043,7 +1043,7 @@ bool NullModemClass::Detect_Modem(SerialSettingsType *settings, bool reconnect)
             }
             return true;
             }
-            unknown_dialog_5ff6e0(dialog);
+            OwnerDraw_End_Dialog(dialog);
         }
         SerialPort->Leave_Failsafe_Mode();
     }
@@ -1106,7 +1106,7 @@ DialStatusType NullModemClass::Dial_Modem(char *string, int method, bool reconne
         delay = unknown_24;
         Debug_Printf("Waiting for dial result\n");
         while (process == true) {
-            if (unknown_6000d0() == true || ModemDialogIsOpen) {
+            if (OwnerDraw_Dialog_Message_Handler() == true || ModemDialogIsOpen) {
                 dialstatus = DIAL_CANCELED;
                 if (SerialPort) {
                     char abort[3] = "\r";
@@ -1170,7 +1170,7 @@ DialStatusType NullModemClass::Dial_Modem(char *string, int method, bool reconne
 
         SerialPort->Set_Abort_Function(0);
         ModemDialogIsOpen = false;
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
     return dialstatus;
 }
@@ -1226,7 +1226,7 @@ DialStatusType NullModemClass::Answer_Modem(bool reconnect)
 
         delay = 3600;
         while (process == true) {
-            if (unknown_6000d0() == true || ModemDialogIsOpen) {
+            if (OwnerDraw_Dialog_Message_Handler() == true || ModemDialogIsOpen) {
                 dialstatus = DIAL_CANCELED;
                 Debug_Printf("Answering cancelled\n");
                 if (SerialPort) {
@@ -1305,7 +1305,7 @@ DialStatusType NullModemClass::Answer_Modem(bool reconnect)
 
         SerialPort->Set_Abort_Function(0);
         ModemDialogIsOpen = false;
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
     return dialstatus;
 }

@@ -271,8 +271,8 @@ void MapPreviewClass::Create_Preview()
     }
 
     for (int i = 0; i < 8; i++) {
-        if (unknown_id_source_a3d290->Is_Valid_Waypoint(i)) {
-            Cell cell = unknown_id_source_a3d290->Get_Waypoint_Location(i);
+        if (Scen->Is_Valid_Waypoint(i)) {
+            Cell cell = Scen->Get_Waypoint_Location(i);
             Point2D pixel = Cell_To_Preview_Pixel(cell);
             pixel = pixel - Point2D(minx, miny);
             Rect rect;

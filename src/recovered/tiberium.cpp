@@ -381,7 +381,7 @@ void TiberiumClass::Detach(AbstractClass *target, bool all)
 
 void TiberiumClass::Spread_AI()
 {
-    if (unknown_id_source_a3d290->IsTibGrowth) {
+    if (Scen->IsTibGrowth) {
         for (int index = 0; index < Tiberiums.Count(); index++) {
             if (Tiberiums[index]->SpreadTimer == 0) {
                 Tiberiums[index]->Process_Spread();
@@ -509,7 +509,7 @@ void TiberiumClass::Process_Spread()
 {
     if (SpreadQueue != 0 && SpreadQueue->Count != 0 && unknown_a0 > 0.00001) {
         int count = MIN(25, MAX(5, (int)(SpreadQueue->Count * unknown_a0)));
-        count = abs(unknown_id_source_a3d290->Random()()) % count + 1;
+        count = abs(Scen->Random()()) % count + 1;
         if (SpreadQueue->Active_Count() > Map_Cell_Count() - 20) {
             Rebuild_Spread();
         }
@@ -670,7 +670,7 @@ void TiberiumClass::Add_Spread_Cell(Cell const &cell)
             Rebuild_Spread();
         }
         SpreadData[SpreadCount].Position = cell;
-        SpreadData[SpreadCount].Key = abs(unknown_id_source_a3d290->Random()()) % 50 + Frame;
+        SpreadData[SpreadCount].Key = abs(Scen->Random()()) % 50 + Frame;
         SpreadQueue->Insert(&SpreadData[SpreadCount++]);
         SpreadMap[Map_Cell_Index(cell)] = true;
     }
@@ -689,11 +689,11 @@ void TiberiumClass::Add_Spread_Cell(Cell const &cell)
 
 void TiberiumClass::Growth_AI()
 {
-    if (unknown_id_source_a3d290->IsTibGrowth) {
+    if (Scen->IsTibGrowth) {
         for (int index = 0; index < Tiberiums.Count(); index++) {
             if (Tiberiums[index]->GrowthTimer == 0) {
                 Tiberiums[index]->Process_Growth();
-                double factor = unknown_id_source_a3d290->Special().TiberiumGrows ? 0.3 : 1.0;
+                double factor = Scen->Special().TiberiumGrows ? 0.3 : 1.0;
                 Tiberiums[index]->GrowthTimer =
                     CDTimerClass<FrameTimerClass>(Tiberiums[index]->Growth * factor);
             }
@@ -819,7 +819,7 @@ void TiberiumClass::Process_Growth()
 {
     if (GrowthQueue != 0 && GrowthQueue->Active_Count() != 0 && GrowthPercentage > 0.00001) {
         int count = MIN(50, MAX(5, (int)(GrowthQueue->Active_Count() * GrowthPercentage)));
-        count = abs(unknown_id_source_a3d290->Random()()) % count + 1;
+        count = abs(Scen->Random()()) % count + 1;
         if (GrowthQueue->Active_Count() > Map_Cell_Count() - 2 * count) {
             Rebuild_Growth();
         }
@@ -831,7 +831,7 @@ void TiberiumClass::Process_Growth()
                 cellptr->Grow_Tiberium();
                 if (cellptr->OverlayData < 11) {
                     GrowthData[GrowthCount].Position = node->Position;
-                    GrowthData[GrowthCount].Key = float(Frame + abs(unknown_id_source_a3d290->Random()() % 50));
+                    GrowthData[GrowthCount].Key = float(Frame + abs(Scen->Random()() % 50));
                     GrowthMap[Map_Cell_Index(node->Position)] = true;
                     GrowthQueue->Insert(&GrowthData[GrowthCount++]);
                     Add_Spread_Cell(node->Position);
@@ -962,7 +962,7 @@ void TiberiumClass::Add_Growth_Cell(Cell const &cell)
             Rebuild_Growth();
         }
         GrowthData[GrowthCount].Position = cell;
-        GrowthData[GrowthCount].Key = abs(unknown_id_source_a3d290->Random()()) % 50 + Frame;
+        GrowthData[GrowthCount].Key = abs(Scen->Random()()) % 50 + Frame;
         GrowthQueue->Insert(&GrowthData[GrowthCount++]);
         GrowthMap[index] = true;
     }

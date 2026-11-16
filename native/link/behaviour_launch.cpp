@@ -50,7 +50,7 @@ unsigned char cpu_cmov_8015a1;      // 0x008015A1
 unsigned char cpu_mmx_8015a2;       // 0x008015A2
 }
 
-unsigned char unknown_cpu_probe_77f14d()
+unsigned char Detect_MMX_Availability()
 {
     unknown_cpu_model_8015a4 = 0;
     CPUType = 6;
@@ -58,7 +58,7 @@ unsigned char unknown_cpu_probe_77f14d()
     return 0;
 }
 
-void unknown_cpu_family_probe_77f20f()
+void Detect_CMOV_Availability()
 {
     cpu_cmov_p6_8015a0 = 0;
     cpu_cmov_8015a1 = 0;

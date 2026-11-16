@@ -28,16 +28,16 @@
 // then reports the family byte and copies the unavailable-feature text.
 
 
-extern unsigned char unknown_cpu_probe_77f14d();
-extern void unknown_cpu_family_probe_77f20f();
+extern unsigned char Detect_MMX_Availability();
+extern void Detect_CMOV_Availability();
 extern char CPUType;
 extern char VendorID[];
 extern "C" char *__cdecl strncpy(char *, const char *, unsigned int);
 
 void __fastcall Get_CPU_Info(int *family, unsigned char *has_cpuid, char *text, unsigned int size)
 {
-    *has_cpuid = unknown_cpu_probe_77f14d();
-    unknown_cpu_family_probe_77f20f();
+    *has_cpuid = Detect_MMX_Availability();
+    Detect_CMOV_Availability();
     *family = CPUType;
     if (text != 0) {
         strncpy(text, VendorID, size);

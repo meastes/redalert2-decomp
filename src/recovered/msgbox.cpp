@@ -41,7 +41,7 @@ int WWMessageBox::Process(unsigned short const *msg, unsigned short const *b1txt
     } else if (has_button2) {
         resource = 0x120;
     }
-    HWND dialog = unknown_create_dialog_5ff610(resource, Message_Box_Proc, 0);
+    HWND dialog = OwnerDraw_Begin_Dialog(resource, Message_Box_Proc, 0);
     if (dialog != 0) {
         SetWindowLongA(dialog, 8, (LONG)&result);
         if (has_text) {
@@ -69,7 +69,7 @@ int WWMessageBox::Process(unsigned short const *msg, unsigned short const *b1txt
                 WWMouse->Show_Mouse();
             }
             while (result < 0) {
-                if (unknown_6000d0()) {
+                if (OwnerDraw_Dialog_Message_Handler()) {
                     break;
                 }
                 if (!GameActive) {
@@ -79,7 +79,7 @@ int WWMessageBox::Process(unsigned short const *msg, unsigned short const *b1txt
         } else {
             result = 0;
         }
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
     while (state < WWMouse->Get_Mouse_State()) {
         WWMouse->Hide_Mouse();

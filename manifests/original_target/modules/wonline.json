@@ -6124,6 +6124,18 @@
    "address": "00a40b18"
   },
   {
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "address": "005ff610"
+  },
+  {
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
+   "address": "006000d0"
+  },
+  {
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
+   "address": "005ff6e0"
+  },
+  {
    "symbol": "?OwnerTalk@@3VOwnerTalkClass@@A",
    "address": "00ab6d18"
   },
@@ -6278,6 +6290,10 @@
   {
    "symbol": "?Save_Settings@OptionsClass@@QAEXXZ",
    "address": "005d91b0"
+  },
+  {
+   "symbol": "?Scen@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
   },
   {
    "symbol": "?Scenario_Slot_Limit_005c65a0@@YIHH@Z",
@@ -8424,10 +8440,6 @@
    "address": "005eab00"
   },
   {
-   "symbol": "?unknown_6000d0@@YA_NXZ",
-   "address": "006000d0"
-  },
-  {
    "symbol": "?unknown_66e2a0@NodeNameType@@QAEHXZ",
    "address": "0066e2a0"
   },
@@ -8780,16 +8792,8 @@
    "address": "00a3fe54"
   },
   {
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
-   "address": "005ff610"
-  },
-  {
    "symbol": "?unknown_dialog_5ecf40@@YGXPAUHWND__@@H@Z",
    "address": "005ecf40"
-  },
-  {
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
-   "address": "005ff6e0"
   },
   {
    "symbol": "?unknown_download_a72d04@@3PAUIDownload@WOL@@A",
@@ -8870,10 +8874,6 @@
   {
    "symbol": "?unknown_icons_b2acc4@@3HA",
    "address": "00b2acc4"
-  },
-  {
-   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
-   "address": "00a3d290"
   },
   {
    "symbol": "?unknown_ini_8397a0_unique_id@@YIHXZ",

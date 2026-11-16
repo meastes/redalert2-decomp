@@ -1517,7 +1517,7 @@ void SessionClass::Update_Progress(int percent)
         return;
     }
     int progress = percent;
-    if (unknown_id_source_a3d290->IsRandom) {
+    if (Scen->IsRandom) {
         progress = progress / 2;
     }
     if (ProgressScreen.Get_Progress(0) * 100.0 < progress) {
@@ -1590,7 +1590,7 @@ void SessionClass::Unknown_00672440()
     if (Type != 4) {
         return;
     }
-    unknown_id_source_a3d290->Special().FixedAlliance = false;
+    Scen->Special().FixedAlliance = false;
     Debug_Printf("Squad 1 = %s\n", unknown_squad_1_b2a820);
     Debug_Printf("Squad 2 = %s\n", unknown_squad_2_b293d8);
     if (strlen(unknown_squad_1_b2a820) == 0 || strlen(unknown_squad_2_b293d8) == 0) {
@@ -1640,7 +1640,7 @@ void SessionClass::Unknown_00672440()
     }
     delete names;
     SquadAlliances = true;
-    unknown_id_source_a3d290->Special().FixedAlliance = true;
+    Scen->Special().FixedAlliance = true;
 }
 
 
@@ -1679,7 +1679,7 @@ int SessionClass::Random_Side()
     int last = HouseTypes.Count() - 1;
     int index;
     do {
-        index = unknown_id_source_a3d290->Random()(0, last);
+        index = Scen->Random()(0, last);
     } while (!HouseTypes[index]->Multiplay || HouseTypes[index]->MultiplayPassive);
     return index;
 }
@@ -1691,7 +1691,7 @@ int SessionClass::Unknown_00672980()
 {
     int color;
     do {
-        color = unknown_id_source_a3d290->Random()(0, 7);
+        color = Scen->Random()(0, 7);
     } while (Is_Color_Used(color));
     return color;
 }
@@ -1861,7 +1861,7 @@ void SessionClass::Unknown_00672DE0()
         if (Type == 0) {
             Options.GameSpeed = 2;
         }
-        if (!unknown_id_source_a3d290->IsInputLocked) {
+        if (!Scen->IsInputLocked) {
             Pause_Game_0065c3d0();
             UnlockInputFrame = Frame + 3;
         }

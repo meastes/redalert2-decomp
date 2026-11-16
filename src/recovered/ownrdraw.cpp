@@ -2278,7 +2278,7 @@ bool __fastcall unknown_5e5fc0(HWND dialog)
     record->unknown_be = true;
     InvalidateRect(dialog, 0, FALSE);
     DWORD start = GetTickCount();
-    while (!unknown_6000d0()) {
+    while (!OwnerDraw_Dialog_Message_Handler()) {
         int done = !record->unknown_be;
         if ((int)(GetTickCount() - start) > 5000 || done) {
             break;
@@ -2401,20 +2401,20 @@ bool __fastcall Select_Control_Rect_005e6450(HWND dialog,HWND control,Rect *boun
     else if (kind == 0x103) {
         if (id != 0x72b) return false;
         if (VideoModeWidth >= ScreenWidths[1]) {
-            if (unknown_id_source_a3d290->IsGDI) selected = new Rect(0x68,0x8e,0x1a8,0xdc);
+            if (Scen->IsGDI) selected = new Rect(0x68,0x8e,0x1a8,0xdc);
             else selected = new Rect(0x67,0x82,0x1a8,0xe6);
         } else {
-            if (unknown_id_source_a3d290->IsGDI) selected = new Rect(0x18,0x8e,0x1a8,0xdc);
+            if (Scen->IsGDI) selected = new Rect(0x18,0x8e,0x1a8,0xdc);
             else selected = new Rect(0x17,0x82,0x1a8,0xe6);
         }
     }
     else if (kind == 0xbc7) {
         if (id != 0x72b) return false;
         if (VideoModeWidth >= ScreenWidths[1]) {
-            if (unknown_id_source_a3d290->IsGDI) selected = new Rect(0x68,0x8e,0x1a8,0xdc);
+            if (Scen->IsGDI) selected = new Rect(0x68,0x8e,0x1a8,0xdc);
             else selected = new Rect(0x67,0x82,0x1a8,0xe6);
         } else {
-            if (unknown_id_source_a3d290->IsGDI) selected = new Rect(0x18,0x8e,0x1a8,0xdc);
+            if (Scen->IsGDI) selected = new Rect(0x18,0x8e,0x1a8,0xdc);
             else selected = new Rect(0x17,0x82,0x1a8,0xe6);
         }
     }
@@ -3611,7 +3611,7 @@ int __fastcall unknown_5eab00(HWND control)
 
 int __fastcall unknown_dialog_box_5eab60(int resource, int (__stdcall *proc)(struct HWND__ *, unsigned int, unsigned int, long), bool show_5115f0)
 {
-    HWND dialog = unknown_create_dialog_5ff610(resource, proc, 0);
+    HWND dialog = OwnerDraw_Begin_Dialog(resource, proc, 0);
     int result = 0;
     if (dialog) {
         SetWindowLongA(dialog, DWL_USER, (LONG)&result);
@@ -3620,11 +3620,11 @@ int __fastcall unknown_dialog_box_5eab60(int resource, int (__stdcall *proc)(str
             unknown_5115f0(dialog);
         }
         while (result == 0) {
-            if (unknown_6000d0()) {
+            if (OwnerDraw_Dialog_Message_Handler()) {
                 break;
             }
         }
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
     return result;
 }
@@ -7492,7 +7492,7 @@ void __fastcall unknown_draw_dialog_back_5fee70(HWND window)
                 surface->Copy_From(to, *AlternateSurface, full, false, true);
                 void *shape;
                 if (unknown_session_a3d298.Is_In_Game()) {
-                    if (unknown_id_source_a3d290->IsGDI) {
+                    if (Scen->IsGDI) {
                         shape = unknown_art_ac121c;
                     } else {
                         shape = unknown_art_ac1220;
@@ -7629,7 +7629,7 @@ int unknown_5ff5d0()
 
 // Creates a modeless dialog from template resource with the main window as its parent and pushes it
 // on the dialog stack as the current dialog; 0 when the template is missing or creation fails (0x005FF610).
-HWND __fastcall unknown_create_dialog_5ff610(int resource, DialogProc proc, int unknown3)
+HWND __fastcall OwnerDraw_Begin_Dialog(int resource, DialogProc proc, int unknown3)
 {
     unsigned short id = (unsigned short)resource;
     DLGTEMPLATE const *dialog_template = (DLGTEMPLATE const *)Load_Resource_004954e0(id, (char const *)5);
@@ -7659,7 +7659,7 @@ HWND __fastcall unknown_create_dialog_5ff610(int resource, DialogProc proc, int 
 
 // Clears the keyboard buffer, destroys a dialog and removes it from the dialog stack; the new top
 // (or the main window) becomes the foreground window with the focus (0x005FF6E0).
-void __fastcall unknown_dialog_5ff6e0(HWND window)
+void __fastcall OwnerDraw_End_Dialog(HWND window)
 {
     WWKeyboard->Clear();
     OwnerDraw::unknown_5e5fc0(window);
@@ -7756,7 +7756,7 @@ void __fastcall unknown_show_dialog_5ff7e0(void *handle, int kind)
 
 
 // Services the game for a modal dialog loop (0x006000D0).
-bool unknown_6000d0()
+bool OwnerDraw_Dialog_Message_Handler()
 {
     Windows_Message_Handler();
     if (unknown_game_mode_a3d298 == 0 || unknown_game_mode_a3d298 == 5 || unknown_session_a3f616 ||
@@ -7792,7 +7792,7 @@ void __fastcall unknown_move_window_600120(HWND window, int x, int y)
 
 HWND __fastcall Custom_Message_Box(unsigned short const *text, unsigned short const *button, bool *cancelled)
 {
-    HWND dialog = unknown_create_dialog_5ff610(0xf0, unknown_cancel_dialog_proc_600260, 0);
+    HWND dialog = OwnerDraw_Begin_Dialog(0xf0, unknown_cancel_dialog_proc_600260, 0);
     if (dialog) {
         SetWindowLongA(dialog, DWL_USER, (LONG)cancelled);
         HWND label = GetDlgItem(dialog, 0x5b0);
@@ -8138,7 +8138,7 @@ void __fastcall unknown_draw_edit_text_600830(Surface *surface, Rect &rect, wcha
 bool __fastcall Prompt_Dialog(unsigned short const *text)
 {
     int result = -1;
-    HWND dialog = unknown_create_dialog_5ff610(0x10d, unknown_choice_dialog_proc_600d50, 0);
+    HWND dialog = OwnerDraw_Begin_Dialog(0x10d, unknown_choice_dialog_proc_600d50, 0);
     if (dialog) {
         HWND item = GetDlgItem(dialog, 0x5b0);
         SendMessageA(item, 0x4b2, 0, (LPARAM)text);
@@ -8151,7 +8151,7 @@ bool __fastcall Prompt_Dialog(unsigned short const *text)
                 break;
             }
         }
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
     return result == 0x5c1;
 }
@@ -8187,7 +8187,7 @@ OwnerDraw::DialogControl::DialogControl() {}
 namespace OwnerDraw {
 int __fastcall unknown_controlled_dialog_6011a0(int resource,DialogProc procedure,DialogControl *control)
 {
-    HWND window=unknown_create_dialog_5ff610(resource,procedure,(int)control);
+    HWND window=OwnerDraw_Begin_Dialog(resource,procedure,(int)control);
     if(!window) {
         control->Set_Window_006010f0(0,0);
         return 0;
@@ -8196,10 +8196,10 @@ int __fastcall unknown_controlled_dialog_6011a0(int resource,DialogProc procedur
     SetForegroundWindow(window);
     WWKeyboard->Clear();
     while(!control->unknown_slot2()&&!control->unknown_slot4()) {
-        if(unknown_6000d0())break;
+        if(OwnerDraw_Dialog_Message_Handler())break;
         Title_Screen_Restore(false);
     }
-    unknown_dialog_5ff6e0(window);
+    OwnerDraw_End_Dialog(window);
     return (int)control->Get_Window_00601180();
 }
 }

@@ -342,7 +342,7 @@ bool SmudgeTypeClass::Read_INI(CCINIClass &ini)
         if (!IsTheater) {
             _makepath(fullname, 0, 0, unknown_1c8, ".SHP");
         } else {
-            _makepath(fullname, 0, 0, unknown_1c8, Theaters[unknown_id_source_a3d290->Theater].Suffix);
+            _makepath(fullname, 0, 0, unknown_1c8, Theaters[Scen->Theater].Suffix);
         }
         ImageData = (void *)MixFileClass::Retrieve(fullname);
         return true;
@@ -485,9 +485,9 @@ bool __fastcall SmudgeTypeClass::Create_Scorch(CoordStruct const &coord, int wid
         }
     }
     if (fits.Count() > 0) {
-        new SmudgeClass(fits[unknown_id_source_a3d290->Random()(0, fits.Count() - 1)], coord, -1);
+        new SmudgeClass(fits[Scen->Random()(0, fits.Count() - 1)], coord, -1);
     } else if (scorches.Count() > 0) {
-        new SmudgeClass(scorches[unknown_id_source_a3d290->Random()(0, scorches.Count() - 1)], coord, -1);
+        new SmudgeClass(scorches[Scen->Random()(0, scorches.Count() - 1)], coord, -1);
     }
     return false;
 }
@@ -524,9 +524,9 @@ bool __fastcall SmudgeTypeClass::Create_Crater(CoordStruct const &coord, int wid
         }
     }
     if (fits.Count() > 0) {
-        new SmudgeClass(fits[unknown_id_source_a3d290->Random()(0, fits.Count() - 1)], coord, -1);
+        new SmudgeClass(fits[Scen->Random()(0, fits.Count() - 1)], coord, -1);
     } else if (scorches.Count() > 0) {
-        new SmudgeClass(scorches[unknown_id_source_a3d290->Random()(0, scorches.Count() - 1)], coord, -1);
+        new SmudgeClass(scorches[Scen->Random()(0, scorches.Count() - 1)], coord, -1);
     }
     return false;
 }

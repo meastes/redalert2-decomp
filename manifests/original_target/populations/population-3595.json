@@ -4,8 +4,8 @@
     "id": "population-3595",
     "inventory_sha256": "52b738f935747298be3c1947829e4971d8777d799b0e5d1318d0b546473e6b7c",
     "gaps_sha256": "1801de4a64892115a246b4046ee4447ef6de69fcd3c50f221ddfcd70fac685cb",
-    "historical_population_sha256": "1377855d064755210a021e44d6999eb81b0ed2537cad977dad2b0b236a7331d1",
-    "historical_acceptance_sha256": "ac74cae73b2046f18aea11c466794f64899f58a6e9f1d802a30392e0e3a52baf"
+    "historical_population_sha256": "69762a273af1e9462121fb33e88ab88f994aaa993cfa2ef931c79d6a5a81f1d9",
+    "historical_acceptance_sha256": "ae082eb6b80e660e2dfbaffaa610c77566ab236dfa94d6180e52bc7f7d63c79e"
   },
   "references": {
     "_unknown_empty_rect": 10751560,
@@ -249,7 +249,7 @@
     "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
     "?HousePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
     "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
-    "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
     "?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A": 10748728,
     "?unknown_rules_839848@@3PAUUnknownRules839848@@A": 8624200,
@@ -3512,7 +3512,7 @@
     "?Save@AlphaShapeClass@@UAGJPAUIStream@@H@Z": 4321472,
     "?Create_And_Place@AnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 4351904,
     "?Save@NeuronClass@@UAGJPAUIStream@@H@Z": 4422512,
-    "?unknown_com_objects_a6eb14@@3JA": 10939156,
+    "?COMRefCount@@3JA": 10939156,
     "?Create_And_Place@BulletTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 4608384,
     "__imp__SendDlgItemMessageA@20": 7971972,
     "?unknown_slot3@MultiplayerGameMode@@UAE_NPAVWideString@@@Z": 5907360,

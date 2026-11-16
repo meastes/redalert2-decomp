@@ -754,7 +754,7 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
     if (changed) {
         Map.Reveal_Nearby_Technos(&target, house, mapped);
     }
-    if ((target.unknown_140 & 2) && unmapped && (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
+    if ((target.unknown_140 & 2) && unmapped && (Scen->unknown_000 & 0x1000)) {
         target.Unfog_Cell();
     }
     return changed;
@@ -799,7 +799,7 @@ bool DisplayClass::RevealFogShroud(Cell const &cell, HouseClass *house, bool arg
         TacticalMap->Flag_Cell(&target);
         Map.Reveal_Nearby_Technos(&target, house, mapped);
     }
-    if ((target.unknown_140 & 2) && unmapped && (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
+    if ((target.unknown_140 & 2) && unmapped && (Scen->unknown_000 & 0x1000)) {
         target.Unfog_Cell();
     }
     return changed;
@@ -867,7 +867,7 @@ bool DisplayClass::unknown_slot38(Cell const &cell, HouseClass *house)
     if (changed) {
         Map.Reveal_Nearby_Technos(&target, house, mapped);
     }
-    if ((target.unknown_140 & 2) && unmapped && (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
+    if ((target.unknown_140 & 2) && unmapped && (Scen->unknown_000 & 0x1000)) {
         target.Unfog_Cell();
     }
     return changed;
@@ -1849,8 +1849,8 @@ void DisplayClass::Compute_Start_Pos()
         center.X=PlayerPtr->BaseCenter.X;
         center.Y=PlayerPtr->BaseCenter.Y;
     }
-    unknown_id_source_a3d290->Views[0]=unknown_id_source_a3d290->Views[1]=unknown_id_source_a3d290->Views[2]=unknown_id_source_a3d290->Views[3]=Cell(center);
-    unknown_id_source_a3d290->AltHomeCell=unknown_id_source_a3d290->HomeCell;
+    Scen->Views[0]=Scen->Views[1]=Scen->Views[2]=Scen->Views[3]=Cell(center);
+    Scen->AltHomeCell=Scen->HomeCell;
     if (TacticalMap) TacticalMap->Set_Tactical_Position_006a66b0(center);
 }
 
@@ -2267,39 +2267,39 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
         cptr = Iterate();
     }
 
-    unknown_id_source_a3d290->Theater = ini.Get_TheaterType(name, "Theater", (TheaterType)0);
+    Scen->Theater = ini.Get_TheaterType(name, "Theater", (TheaterType)0);
 
-    Init(unknown_id_source_a3d290->Theater);
+    Init(Scen->Theater);
 
     unknown_session_a3d298.Update_Progress(63);
     Call_Back();
 
-    long uniqueid = unknown_id_source_a3d290->UniqueID;
-    TerrainTypeClass::Init(unknown_id_source_a3d290->Theater);
-    if (unknown_id_source_a3d290->Theater != LastTheater) {
-        IsometricTileTypeClass_Read_Control_File(unknown_id_source_a3d290->Theater, true);
+    long uniqueid = Scen->UniqueID;
+    TerrainTypeClass::Init(Scen->Theater);
+    if (Scen->Theater != LastTheater) {
+        IsometricTileTypeClass_Read_Control_File(Scen->Theater, true);
     } else {
         Unknown_0052B650();
     }
-    unknown_id_source_a3d290->UniqueID = uniqueid + 10000;
-    OverlayTypeClass::Init(unknown_id_source_a3d290->Theater);
-    BuildingTypeClass::Init(unknown_id_source_a3d290->Theater);
-    AnimTypeClass::Init(unknown_id_source_a3d290->Theater);
-    SmudgeTypeClass::Init(unknown_id_source_a3d290->Theater);
-    VeinholeMonsterClass::Init(unknown_id_source_a3d290->Theater);
+    Scen->UniqueID = uniqueid + 10000;
+    OverlayTypeClass::Init(Scen->Theater);
+    BuildingTypeClass::Init(Scen->Theater);
+    AnimTypeClass::Init(Scen->Theater);
+    SmudgeTypeClass::Init(Scen->Theater);
+    VeinholeMonsterClass::Init(Scen->Theater);
 
     unknown_session_a3d298.Update_Progress(65);
     Call_Back();
 
-    unknown_id_source_a3d290->Read_Waypoints(ini);
+    Scen->Read_Waypoints(ini);
 
-    if (!unknown_id_source_a3d290->Is_Valid_Waypoint(unknown_id_source_a3d290->HomeCell)) {
-        unknown_id_source_a3d290->Set_Waypoint_Location(unknown_id_source_a3d290->HomeCell,
+    if (!Scen->Is_Valid_Waypoint(Scen->HomeCell)) {
+        Scen->Set_Waypoint_Location(Scen->HomeCell,
             Cell((MapSize.Width + MapSize.Height) / 2, (MapSize.Width + MapSize.Height) / 2));
     }
 
-    Cell homecell = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_id_source_a3d290->Variables[0].Value ? unknown_id_source_a3d290->AltHomeCell : unknown_id_source_a3d290->HomeCell);
-    unknown_id_source_a3d290->Views[0] = unknown_id_source_a3d290->Views[1] = unknown_id_source_a3d290->Views[2] = unknown_id_source_a3d290->Views[3] = homecell;
+    Cell homecell = Scen->Get_Waypoint_Location(Scen->Variables[0].Value ? Scen->AltHomeCell : Scen->HomeCell);
+    Scen->Views[0] = Scen->Views[1] = Scen->Views[2] = Scen->Views[3] = homecell;
     CoordStruct homecoord;
     homecoord.X = homecell.X * 256 + 128;
     homecoord.Y = homecell.Y * 256 + 128;
@@ -2392,7 +2392,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     unknown_session_a3d298.Update_Progress(68);
     Call_Back();
 
-    Unknown_0052B2E0(Debug_Map || Debug_ForceScenario, unknown_id_source_a3d290->IsRandom);
+    Unknown_0052B2E0(Debug_Map || Debug_ForceScenario, Scen->IsRandom);
 
     unknown_session_a3d298.Update_Progress(69);
     Call_Back();
@@ -2401,7 +2401,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     Map.Unknown_00630840(MapLocalSize);
     Map.Get_Max_Level();
 
-    LastTheater = unknown_id_source_a3d290->Theater;
+    LastTheater = Scen->Theater;
 }
 
 
@@ -2416,11 +2416,11 @@ void DisplayClass::Write_INI_0049D910(CCINIClass &ini)
 
     static char const * const NAME = "Map";
     ini.Clear(NAME);
-    ini.Put_TheaterType(NAME, "Theater", (TheaterType)unknown_id_source_a3d290->Theater);
+    ini.Put_TheaterType(NAME, "Theater", (TheaterType)Scen->Theater);
     ini.Put_Rect(NAME, "Size", (INIRect const &)MapSize);
     ini.Put_Rect(NAME, "LocalSize", (INIRect const &)MapLocalSize);
 
-    unknown_id_source_a3d290->Write_Waypoints(ini);
+    Scen->Write_Waypoints(ini);
 
     static char const * const CELLTRIG = "CellTags";
     ini.Clear(CELLTRIG);
@@ -2465,7 +2465,7 @@ void DisplayClass::Write_INI_0049D910(CCINIClass &ini)
 int DisplayClass::Unknown_0049DB60(void *buffer, int arg2)
 {
     char *out = (char *)buffer;
-    *(int *)out = unknown_id_source_a3d290->Theater;
+    *(int *)out = Scen->Theater;
     out += 4;
     *(Rect *)out = MapSize;
     out += sizeof(Rect);
@@ -2475,11 +2475,11 @@ int DisplayClass::Unknown_0049DB60(void *buffer, int arg2)
     out += 4;
     int waypoints = 0;
     for (int waypoint = 0; waypoint < 101; waypoint++) {
-        if (unknown_id_source_a3d290->Is_Valid_Waypoint(waypoint)) {
+        if (Scen->Is_Valid_Waypoint(waypoint)) {
             *(int *)out = waypoint;
             out += 4;
-            *(int *)out = unknown_id_source_a3d290->Get_Waypoint_Location(waypoint).Y * 1000 +
-                          unknown_id_source_a3d290->Get_Waypoint_Location(waypoint).X;
+            *(int *)out = Scen->Get_Waypoint_Location(waypoint).Y * 1000 +
+                          Scen->Get_Waypoint_Location(waypoint).X;
             out += 4;
             waypoints++;
         }
@@ -2527,7 +2527,7 @@ int DisplayClass::Unknown_0049DB60(void *buffer, int arg2)
 void DisplayClass::Unknown_0049DCD0(void *buffer)
 {
     char *in = (char *)buffer;
-    unknown_id_source_a3d290->Theater = *(int *)in;
+    Scen->Theater = *(int *)in;
     in += 4;
     MapSize = *(Rect *)in;
     in += sizeof(Rect);
@@ -2543,7 +2543,7 @@ void DisplayClass::Unknown_0049DCD0(void *buffer)
         Cell cell;
         cell.X = packed % 1000;
         cell.Y = packed / 1000;
-        unknown_id_source_a3d290->Set_Waypoint_Location(waypoint, cell);
+        Scen->Set_Waypoint_Location(waypoint, cell);
     }
     in += 4;
     Reset_Iterator();

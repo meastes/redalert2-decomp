@@ -4,8 +4,8 @@
     "id": "population-2930",
     "inventory_sha256": "7dfe89dbb948e0c622af0adbb588c03f76fecf8bd0a3e42a6b29941ab396c24d",
     "gaps_sha256": "91c631d866f95b939d8d24bf48f884c386ee7ab760d6ff390b942a5688445205",
-    "historical_population_sha256": "1426995a40e5cf9a7c99c773d6239652d640617d72bf356ae24a6a4888cdb100",
-    "historical_acceptance_sha256": "4a0d767698ac8d53ba8d004c37b95e2ee8343d5283efd558c8970251ac1bd51a"
+    "historical_population_sha256": "202f36e98f675c4cd1a51cec1eea1303d2718b9d4e1fdb92fa5a12ffa079adfe",
+    "historical_acceptance_sha256": "721ec8bdc9063e63619703a4cbd1c101a5a6d32757c23ce2507c202688311729"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -1358,7 +1358,7 @@
     "?Save@AnimTypeClass@@UAGJPAUIStream@@H@Z": 4350624,
     "?Create_And_Place@AnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 4351904,
     "?Save@NeuronClass@@UAGJPAUIStream@@H@Z": 4422512,
-    "?unknown_com_objects_a6eb14@@3JA": 10939156,
+    "?COMRefCount@@3JA": 10939156,
     "?Save@BulletTypeClass@@UAGJPAUIStream@@H@Z": 4608064,
     "?Create_And_Place@BulletTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 4608384,
     "?Save@CampaignClass@@UAGJPAUIStream@@H@Z": 4610352,
@@ -1683,7 +1683,7 @@
     "__strupr": 7954916,
     "?Length@Wstring@@QBEIXZ": 7792544,
     "?ScenarioInit@@3HA": 10749812,
-    "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
     "?Create_And_Place@ParticleSystemTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 6426272,
     "?Create_And_Place@ParticleTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 6430304,
     "?Save@ScriptClass@@UAGJPAUIStream@@H@Z": 6720000,
@@ -5802,7 +5802,8 @@
     "??_ECellClass@@UAEPAXI@Z": 4706208,
     "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056,
     "??_EFootClass@@UAEPAXI@Z": 5037584,
-    "??_ECampaign@WorldDominationTour@@UAEPAXI@Z": 7498160
+    "??_ECampaign@WorldDominationTour@@UAEPAXI@Z": 7498160,
+    "?Special@@3VSpecialClass@@A": 10750240
   },
   "regions": [
     {
@@ -5825,7 +5826,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
           "target": 10736272,
           "addend": 0,
           "resolved": 10736272
@@ -5863,7 +5864,7 @@
           "resolved": 672558
         }
       ],
-      "source_sha256": "4710c45dd7125d4bbe0e6222e45e11268e0de3665b8097e14f7dbf4de7f57d5c",
+      "source_sha256": "9db211ad7418c2a3487edbecbe7a28d3148cadf8ef5a59f5e9957206fb1d66ba",
       "source": "src/recovered/mapgen/Report_Generation_Progress.cpp",
       "population": "population-2930",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

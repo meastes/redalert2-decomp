@@ -115,7 +115,7 @@ void __fastcall Init_Storm_0051F2F0()
     IonStormClass::CloudsManifesting.Clear();
     IonStormClass::CloudsPresent.Clear();
     IonStormClass::BoltsPresent.Clear();
-    unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->AmbientLight;
+    Scen->DesiredAmbientLight = Scen->AmbientLight;
     Set_Lighting_00520B00(-1, -1, -1, false);
 }
 
@@ -361,10 +361,10 @@ void __fastcall IonStormClass_Ion_Storm_Begin(int duration, int deferment, Cell 
         PlayerPtr->RecalcRadar = true;
     }
     if (unknown_dominator_state_a5193c != 1) {
-        unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->IonAmbient;
-        Set_Lighting_00520B00(unknown_id_source_a3d290->IonRed * 1000 / 100,
-            unknown_id_source_a3d290->IonGreen * 1000 / 100,
-            unknown_id_source_a3d290->IonBlue * 1000 / 100, true);
+        Scen->DesiredAmbientLight = Scen->IonAmbient;
+        Set_Lighting_00520B00(Scen->IonRed * 1000 / 100,
+            Scen->IonGreen * 1000 / 100,
+            Scen->IonBlue * 1000 / 100, true);
     }
     if (Rules->LightningPrintText) {
         int color = 3;
@@ -400,7 +400,7 @@ void __fastcall Stop_Storm_0051FBD0()
         StormCoords = unknown_geometry_k;
         StormOwner = 0;
         if (unknown_dominator_state_a5193c != 1) {
-            unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->AmbientLight;
+            Scen->DesiredAmbientLight = Scen->AmbientLight;
             Set_Lighting_00520B00(-1, -1, -1, false);
             Map.Flag_To_Redraw(true);
         }
@@ -488,7 +488,7 @@ void __stdcall IonStormClass_Lightning_Bolt(Cell cell)
     if (coord == unknown_geometry_l) {
         return;
     }
-    int pick = unknown_id_source_a3d290->Random()();
+    int pick = Scen->Random()();
     AnimTypeClass *type = Rules->WeatherConClouds[(unsigned)pick % Rules->WeatherConClouds.Count()];
     AnimClass *anim = new AnimClass(type, coord, 0, 1, 0x600, 0);
     IonStormClass::CloudsManifesting.Add(anim);
@@ -507,7 +507,7 @@ void __fastcall Storm_Strike_0051FE50(CoordStruct coord)
 {
     CellClass &cellptr = Map[coord];
     CoordStruct center = CoordStruct(cellptr.unknown_475d60());
-    int pick = unknown_id_source_a3d290->Random()();
+    int pick = Scen->Random()();
     AnimTypeClass *type = Rules->WeatherConBolts[(unsigned)pick % Rules->WeatherConBolts.Count()];
     AnimClass *bolt = new AnimClass(type, center, 0, 1, 0x600, 0);
     IonStormClass::BoltsPresent.Add(bolt);
@@ -520,7 +520,7 @@ void __fastcall Storm_Strike_0051FE50(CoordStruct coord)
         return;
     }
     if (Rules->LightningSounds.Count() > 0) {
-        int sound = unknown_id_source_a3d290->Random()();
+        int sound = Scen->Random()();
         Voc_Play_At(Rules->LightningSounds[(unsigned)sound % Rules->LightningSounds.Count()], where, 0);
     }
     int land = cellptr.Land;
@@ -674,16 +674,16 @@ void __fastcall Update_Storm_00520200()
 void IonStormClass_Apply_Secondary_Effect()
 {
     if (unknown_dominator_state_a5193c == 1) {
-        unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->NukeAmbient;
-        Set_Lighting_00520B00(unknown_id_source_a3d290->NukeRedTint * 1000 / 100,
-            unknown_id_source_a3d290->NukeGreenTint * 1000 / 100,
-            unknown_id_source_a3d290->NukeBlueTint * 1000 / 100, true);
+        Scen->DesiredAmbientLight = Scen->NukeAmbient;
+        Set_Lighting_00520B00(Scen->NukeRedTint * 1000 / 100,
+            Scen->NukeGreenTint * 1000 / 100,
+            Scen->NukeBlueTint * 1000 / 100, true);
     } else if (StormActive) {
         PlayerPtr->RecalcRadar = true;
-        unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->IonAmbient;
-        Set_Lighting_00520B00(unknown_id_source_a3d290->IonRed * 1000 / 100,
-            unknown_id_source_a3d290->IonGreen * 1000 / 100,
-            unknown_id_source_a3d290->IonBlue * 1000 / 100, true);
+        Scen->DesiredAmbientLight = Scen->IonAmbient;
+        Set_Lighting_00520B00(Scen->IonRed * 1000 / 100,
+            Scen->IonGreen * 1000 / 100,
+            Scen->IonBlue * 1000 / 100, true);
     }
 }
 
@@ -696,11 +696,11 @@ void __fastcall Start_Dominator_Lighting_005208A0()
     unknown_dominator_state_a5193c = 1;
     unknown_dominator_delay_7ddb1c = 30;
     unknown_dominator_start_7ddb18 = Frame;
-    unknown_id_source_a3d290->AmbientChangeTimer = 1;
-    unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->NukeAmbient;
-    Set_Lighting_00520B00(unknown_id_source_a3d290->NukeRedTint * 1000 / 100,
-        unknown_id_source_a3d290->NukeGreenTint * 1000 / 100,
-        unknown_id_source_a3d290->NukeBlueTint * 1000 / 100, true);
+    Scen->AmbientChangeTimer = 1;
+    Scen->DesiredAmbientLight = Scen->NukeAmbient;
+    Set_Lighting_00520B00(Scen->NukeRedTint * 1000 / 100,
+        Scen->NukeGreenTint * 1000 / 100,
+        Scen->NukeBlueTint * 1000 / 100, true);
     Map.Flag_To_Redraw(true);
 }
 
@@ -714,12 +714,12 @@ void __fastcall End_Dominator_Lighting_00520980()
     unknown_dominator_start_7ddb18 = Frame;
     unknown_dominator_delay_7ddb1c = 15;
     if (StormActive) {
-        unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->IonAmbient;
-        Set_Lighting_00520B00(unknown_id_source_a3d290->IonRed * 1000 / 100,
-            unknown_id_source_a3d290->IonGreen * 1000 / 100,
-            unknown_id_source_a3d290->IonBlue * 1000 / 100, true);
+        Scen->DesiredAmbientLight = Scen->IonAmbient;
+        Set_Lighting_00520B00(Scen->IonRed * 1000 / 100,
+            Scen->IonGreen * 1000 / 100,
+            Scen->IonBlue * 1000 / 100, true);
     } else {
-        unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->AmbientLight;
+        Scen->DesiredAmbientLight = Scen->AmbientLight;
         Set_Lighting_00520B00(-1, -1, -1, false);
     }
     Map.Flag_To_Redraw(true);

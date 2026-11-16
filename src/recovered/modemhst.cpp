@@ -106,7 +106,7 @@ bool ModemHost::Dialog_00598e10()
     bool result = false;
     Debug_Printf("ModemHost.Dialog(enter)\n");
     Result = -1;
-    Window = unknown_create_dialog_5ff610(0xF1, Dialog_Proc_00598fa0, 0);
+    Window = OwnerDraw_Begin_Dialog(0xF1, Dialog_Proc_00598fa0, 0);
     if (Window) {
         SetWindowLongA(Window, 8, (LONG)this);
         Init_Dialog_00599920();
@@ -130,7 +130,7 @@ bool ModemHost::Dialog_00598e10()
         for (;;) {
             Result = -1;
             while (Result < 0) {
-                if (unknown_6000d0() == true) {
+                if (OwnerDraw_Dialog_Message_Handler() == true) {
                     break;
                 }
                 Service_0059b560(false);
@@ -149,7 +149,7 @@ bool ModemHost::Dialog_00598e10()
             }
             ShowWindow(Window, 5);
         }
-        unknown_dialog_5ff6e0(Window);
+        OwnerDraw_End_Dialog(Window);
         _ModemHost = 0;
         if (Changed == true) {
             unknown_session_a3d298.Write_MultiPlayer_Settings();
@@ -320,7 +320,7 @@ void ModemHost::Init_Dialog_00599920()
     Debug_Printf("ModemHost.InitDialog(enter)\n");
     if (unknown_modem_host_first_7e2410 == true) {
         unknown_modem_host_first_7e2410 = false;
-        unknown_special_a40920.Unknown_0068B420();
+        Special.Unknown_0068B420();
         unknown_session_a3d298.unknown_24 = Rules->Money;
         unknown_session_a3d298.unknown_bases_20 = Rules->Bases;
         unknown_session_a3d298.unknown_28 = Rules->BridgeDestruction;
@@ -465,7 +465,7 @@ void ModemHost::Init_Dialog_00599920()
     VerNum.Init_Clipping();
     srand(NonCriticalRandomNumber(1, 0x7FFF));
     Seed = rand();
-    unknown_special_a40920.unknown_bit_4 = Rules->CaptureTheFlag;
+    Special.unknown_bit_4 = Rules->CaptureTheFlag;
     if (MultiplayerMapPreview) {
         delete MultiplayerMapPreview;
         MultiplayerMapPreview = 0;
@@ -1062,7 +1062,7 @@ void ModemHost::Select_Random_Map_0059b2c0()
         if (Select_Scenario_005c7c30(index) == true) {
             unknown_session_a3d298.ScenarioIndex = index;
             strcpy(unknown_session_a3d298.ScenarioFileName_658, "RandMap.Sed");
-            strcpy(unknown_id_source_a3d290->FileName, unknown_session_a3d298.ScenarioFileName_658);
+            strcpy(Scen->FileName, unknown_session_a3d298.ScenarioFileName_658);
             if (CCFileClass(unknown_session_a3d298.ScenarioFileName_658).Is_Available()) {
                 MultiplayerMapPreview = new MapPreviewClass;
                 MultiplayerMapPreview->Read_PCX_Preview("RandMap.img");
@@ -1238,7 +1238,7 @@ void ModemHost::Send_Options_0059bc90()
     packet.Options.MinVersion = VerNum.Min_Version();
     packet.Options.MaxVersion = VerNum.Max_Version();
     packet.Options.Seed = Seed;
-    packet.Options.Special = unknown_special_a40920;
+    packet.Options.Special = Special;
     packet.Options.GameSpeed = unknown_session_a3d298.GameSpeed_30;
     packet.Options.unknown_2a = unknown_session_a3d298.unknown_2a;
     packet.Options.unknown_2b = unknown_session_a3d298.unknown_2b;
@@ -1337,7 +1337,7 @@ void ModemHost::Sign_Off_0059c130()
     }
     Shutdown_Modem();
     if (dialog) {
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
 }
 
@@ -1351,10 +1351,10 @@ bool ModemHost::Start_Game_0059c290(bool load_game)
     if (load_game == true) {
         return false;
     }
-    unknown_id_source_a3d290->TechLevel = unknown_session_a3d298.ScenarioIndex;
-    strcpy(unknown_id_source_a3d290->FileName, unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->unknown_58);
-    unknown_id_source_a3d290->CDifficulty = 1;
-    unknown_id_source_a3d290->Difficulty = 1;
+    Scen->TechLevel = unknown_session_a3d298.ScenarioIndex;
+    strcpy(Scen->FileName, unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->unknown_58);
+    Scen->CDifficulty = 1;
+    Scen->Difficulty = 1;
     unknown_session_a3d55c = 0;
     NodeNameType *node = new NodeNameType;
     if (node) {
@@ -1439,27 +1439,27 @@ bool ModemHost::Start_Game_0059c290(bool load_game)
             }
             if (reply.Command == 0x6E) {
                 Debug_Printf("About to call 'Send_Remote_File'.\n");
-                Send_Remote_File_0066bb20(unknown_id_source_a3d290->FileName, 1, 0, 0);
+                Send_Remote_File_0066bb20(Scen->FileName, 1, 0, 0);
                 break;
             }
         }
     } while (TickCount.Time() - start < 1200);
     if (dialog) {
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
     serial_manager_00a40a28.Init_Send_Queue();
     unknown_session_a3f616 = 0;
-    unknown_id_source_a3d290->TechLevel = unknown_session_a3d298.ScenarioIndex;
+    Scen->TechLevel = unknown_session_a3d298.ScenarioIndex;
     unknown_session_a3d55c = unknown_players_a3fa7c.Count();
     Frame = 0;
     unknown_session_a3d2ac = 2;
-    unknown_special_a40920.DestroyableBridges = unknown_session_a3d298.unknown_28;
-    unknown_special_a40920.HarvesterImmune = unknown_session_a3d298.unknown_a5;
-    unknown_special_a40920.TiberiumGrows = true;
-    unknown_special_a40920.TiberiumSpreads = true;
-    unknown_id_source_a3d290->Special().FixedAlliance = false;
+    Special.DestroyableBridges = unknown_session_a3d298.unknown_28;
+    Special.HarvesterImmune = unknown_session_a3d298.unknown_a5;
+    Special.TiberiumGrows = true;
+    Special.TiberiumSpreads = true;
+    Scen->Special().FixedAlliance = false;
     unknown_session_a3d298.unknown_a4 = true;
-    unknown_special_a40920.Apply_To_Game();
+    Special.Apply_To_Game();
     Debug_Printf("ModemHost.StartGame(exit)\n");
     return true;
 }

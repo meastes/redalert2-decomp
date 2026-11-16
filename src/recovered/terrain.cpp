@@ -217,7 +217,7 @@ bool TerrainClass::Mark(int arg1)
 void TerrainClass::Clear_Occupy_Bit(CoordStruct const &coord)
 {
     int bits;
-    if (unknown_id_source_a3d290->Theater != 1) {
+    if (Scen->Theater != 1) {
         bits = Class->TemperateOccupationBits;
     } else {
         bits = Class->SnowOccupationBits;
@@ -242,7 +242,7 @@ void TerrainClass::Clear_Occupy_Bit(CoordStruct const &coord)
 void TerrainClass::Set_Occupy_Bit(CoordStruct const &coord)
 {
     int bits;
-    if (unknown_id_source_a3d290->Theater != 1) {
+    if (Scen->Theater != 1) {
         bits = Class->TemperateOccupationBits;
     } else {
         bits = Class->SnowOccupationBits;
@@ -398,7 +398,7 @@ int TerrainClass::Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass 
 bool TerrainClass::Catch_Fire()
 {
     if (!unknown_b5 && !unknown_b4 && Class->Armor == 6 && !Class->SpawnsTiberium) {
-        int pick = unknown_id_source_a3d290->Random()();
+        int pick = Scen->Random()();
         AnimClass *anim = new AnimClass(Rules->TreeFire[pick & 1], Center_Coord() + CoordStruct(0, 0, 80), 0, 255, 0x600, 0);
         if (anim) {
             anim->Attach_To(this);
@@ -439,7 +439,7 @@ void TerrainClass::AI()
 {
     ObjectClass::AI();
     if (Class->IsAnimated && Animation.Fetch_Rate() == 0) {
-        double chance = abs(unknown_id_source_a3d290->Random()()) % 1000000 * 0.000001;
+        double chance = abs(Scen->Random()()) % 1000000 * 0.000001;
         if (chance < Class->AnimationProbability) {
             Animation.Set_Stage(0);
             Animation.Set_Rate(Class->AnimationRate);

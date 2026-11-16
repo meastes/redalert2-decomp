@@ -164,7 +164,7 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
     }
     int rate = Class->Rate;
     if ((Class->RandomRateMin != 0 || Class->RandomRateMax != 0) && Class->RandomRateMin <= Class->RandomRateMax) {
-        rate = unknown_id_source_a3d290->Random()(Class->RandomRateMin, Class->RandomRateMax);
+        rate = Scen->Random()(Class->RandomRateMin, Class->RandomRateMax);
     }
     if (Class->Normalized) {
         rate = Options.Normalize_Delay(rate);
@@ -187,8 +187,8 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
     } else {
         IsBouncing = true;
         if (Class->IsMeteor) {
-            int rand_y = unknown_id_source_a3d290->Random()();
-            int rand_x = unknown_id_source_a3d290->Random()();
+            int rand_y = Scen->Random()();
+            int rand_x = Scen->Random()();
             Vector3 velocity(
                 abs(rand_x) % (int)(Class->MaxXYVel * 2) - Class->MaxXYVel,
                 abs(rand_y) % (int)(Class->MaxXYVel * 2) - Class->MaxXYVel,
@@ -197,7 +197,7 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
                 velocity.X = -velocity.X;
                 velocity.Y = -velocity.Y;
             }
-            int height = 70 - abs(unknown_id_source_a3d290->Random()() % 20);
+            int height = 70 - abs(Scen->Random()() % 20);
             CoordStruct start((int)(coord.X - height * velocity.X), (int)(coord.Y - height * velocity.Y), (int)(coord.Z - height * velocity.Z));
             ObjectClass::Unlimbo(&start, 0);
             ((BounceClass *)&unknown_108)->Init(Center_Coord(), Class->Elasticity, 1.4f, 0, velocity, 0);
@@ -205,9 +205,9 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
             ObjectClass::Unlimbo(&coord, 0);
             CoordStruct position;
             position = Center_Coord() + CoordStruct(0, 0, 10);
-            int rand_z = unknown_id_source_a3d290->Random()();
-            int rand_y = unknown_id_source_a3d290->Random()();
-            int rand_x = unknown_id_source_a3d290->Random()();
+            int rand_z = Scen->Random()();
+            int rand_y = Scen->Random()();
+            int rand_x = Scen->Random()();
             float vy = abs(rand_y) % (int)(Class->MaxXYVel * 2) - Class->MaxXYVel;
             Vector3 velocity(
                 abs(rand_x) % (int)(Class->MaxXYVel * 2) - Class->MaxXYVel,
@@ -828,9 +828,9 @@ void AnimClass::unknown_func_4226d0()
         if (index != -1) {
             UnknownAnimTiberium *tiberium = unknown_tiberiums_ac0b30[index];
             cell->Unknown_00475DB0(cell->unknown_11e + 1);
-            if (tiberium->unknown_c4.Count() > 0 && abs(unknown_id_source_a3d290->Random()()) % 3 == 0) {
+            if (tiberium->unknown_c4.Count() > 0 && abs(Scen->Random()()) % 3 == 0) {
                 AnimClass *anim = new AnimClass(
-                    tiberium->unknown_c4[unknown_id_source_a3d290->Random()(0, tiberium->unknown_c4.Count() - 1)],
+                    tiberium->unknown_c4[Scen->Random()(0, tiberium->unknown_c4.Count() - 1)],
                     Center_Coord() + CoordStruct(0, 0, 10), 0, 1, 0x600, 0);
                 anim->unknown_bc = ColorSchemes[tiberium->unknown_c0]->Converter;
                 anim->AlternativeBrightness = cell->unknown_10a;
@@ -866,7 +866,7 @@ void AnimClass::Middle()
     }
     if (Get_Height_AGL() < 30) {
         if (Class->Scorch &&
-            (!Class->Crater || unknown_id_source_a3d290->Random()(0, 0x7FFFFFFE) * (1.0 / 0x7FFFFFFE) < 0.5)) {
+            (!Class->Crater || Scen->Random()(0, 0x7FFFFFFE) * (1.0 / 0x7FFFFFFE) < 0.5)) {
             Unknown_00688460(Center_Coord(), width, height, false);
             return;
         }
@@ -1317,7 +1317,7 @@ CoordStruct AnimClass::unknown_func_4237b0()
         }
     }
     if (unknown_geometry_k.X == 0 && unknown_geometry_k.Y == 0) {
-        int dir = unknown_id_source_a3d290->Random()(0, 7);
+        int dir = Scen->Random()(0, 7);
         for (int i = 0; i < 8; i++) {
             int facing = (dir + i) % 8;
             Cell const &offset = AdjacentCell[facing & 7];

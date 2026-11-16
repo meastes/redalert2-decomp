@@ -80,7 +80,7 @@ bool __fastcall Do_Chrono_Reinforcements(TeamTypeClass *teamtype, int wp)
 
     Cell origin = teamtype->Waypoint_Location();
     if (wp != -1) {
-        origin = unknown_id_source_a3d290->Get_Waypoint_Location(wp);
+        origin = Scen->Get_Waypoint_Location(wp);
     }
 
     FootClass *o = (FootClass *)object->unknown_30;

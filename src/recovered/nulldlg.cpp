@@ -187,7 +187,7 @@ static int Test_Null_Modem()
                 Display_Dialog(dialog);
                 starttime = TickCount;
                 while (true) {
-                    if (unknown_6000d0() == true || ModemDialogIsOpen) {
+                    if (OwnerDraw_Dialog_Message_Handler() == true || ModemDialogIsOpen) {
                         retval = 0;
                         break;
                     }
@@ -229,7 +229,7 @@ static int Test_Null_Modem()
                         break;
                     }
                 }
-                unknown_dialog_5ff6e0(dialog);
+                OwnerDraw_End_Dialog(dialog);
             }
         }
     }
@@ -242,7 +242,7 @@ int __fastcall Select_Serial_Dialog()
     int retval = -1;
     SerialSettingsType *settings;
 
-    HWND dialog = unknown_create_dialog_5ff610(0xEC, Select_Serial_Dialog_Proc, 0);
+    HWND dialog = OwnerDraw_Begin_Dialog(0xEC, Select_Serial_Dialog_Proc, 0);
     if (dialog) {
         SetWindowLongA(dialog, DWL_USER, (LONG)&rc);
         unknown_move_window_600120(dialog, -1, ((HiddenSurface->Get_Height() - 400) / 2) + 147);
@@ -257,7 +257,7 @@ int __fastcall Select_Serial_Dialog()
 
         while (retval == -1) {
             while (rc < 0) {
-                if (unknown_6000d0() == true) {
+                if (OwnerDraw_Dialog_Message_Handler() == true) {
                     break;
                 }
                 Title_Screen_Restore(false);
@@ -385,7 +385,7 @@ int __fastcall Select_Serial_Dialog()
             }
             rc = -1;
         }
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
         return retval;
     }
     return 0;
@@ -601,7 +601,7 @@ bool __fastcall Reconnect_Null_Modem()
         Display_Dialog(dialog);
         starttime = lastmsgtime = TickCount.Time();
         while (process == true) {
-            if (unknown_6000d0() == true || ModemDialogIsOpen) {
+            if (OwnerDraw_Dialog_Message_Handler() == true || ModemDialogIsOpen) {
                 retval = false;
                 break;
             }
@@ -639,7 +639,7 @@ bool __fastcall Reconnect_Null_Modem()
                 process = false;
             }
         }
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
     return retval;
 }

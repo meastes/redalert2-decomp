@@ -32,8 +32,8 @@ struct UnknownBuilding {
 // The player's house: shared/house.hpp (HouseClass Buildings, PowerOutput, PowerDrain).
 
 // Unidentified globals used by the power bar's help region (0x00A3D290 is
-// also shared/abstract.hpp's unknown_id_source_a3d290).
-// (0x00A3D290: unknown_id_source_a3d290->unknown_2239 shifts the region 5 pixels down.)
+// also shared/abstract.hpp's Scen).
+// (0x00A3D290: Scen->unknown_2239 shifts the region 5 pixels down.)
 extern int unknown_int_839620;      // 0x00839620 sidebar origin X
 extern int unknown_int_839624;      // 0x00839624 sidebar origin Y
 extern int PowerBarHeight;      // 0x00ABCD70

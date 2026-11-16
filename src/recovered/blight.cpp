@@ -140,7 +140,7 @@ void BuildingLightClass::Draw_It(Point2D const &point, Rect const &window)
     if (building == 0 || !building->IsActive || !building->unknown_slot195() || building->IsFogged) {
         return;
     }
-    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(Position_Coord_004f3f40())) {
+    if ((Scen->unknown_000 & 0x1000) && Map.Is_Fogged(Position_Coord_004f3f40())) {
         return;
     }
 

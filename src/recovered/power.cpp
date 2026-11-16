@@ -392,14 +392,14 @@ void PowerClass::Draw_It(bool complete)
     if ((complete || IsToRedraw) && unknown_flag_8373c1) {
         IsToRedraw = false;
         SidebarClass_IsToBlitSidebar = true;
-        bool side = unknown_id_source_a3d290->IsGDI;
+        bool side = Scen->IsGDI;
         int shift;
         if (side) {
             shift = 5;
         } else {
             shift = 0;
         }
-        side = unknown_id_source_a3d290->IsGDI;
+        side = Scen->IsGDI;
         int yoff;
         if (side) {
             yoff = 0x45;
@@ -612,7 +612,7 @@ void PowerClass::AI(int &input, Point2D const &xy)
 // (0x0061D130, slot 34)
 // After the radar's, registers the power bar's help region (id 999): 8
 // pixels wide at the sidebar origin (5 pixels further right when
-// unknown_id_source_a3d290->unknown_2239 is set), 0x45 below its top.
+// Scen->unknown_2239 is set), 0x45 below its top.
 
 void PowerClass::Reposition_Sidebar()
 {
@@ -622,7 +622,7 @@ void PowerClass::Reposition_Sidebar()
         tip.Label = 0;
         tip.ID = 999;
         int shift;
-        if (unknown_id_source_a3d290->IsGDI) {
+        if (Scen->IsGDI) {
             shift = 5;
         } else {
             shift = 0;

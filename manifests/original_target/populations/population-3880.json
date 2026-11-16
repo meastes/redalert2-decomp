@@ -4,8 +4,8 @@
     "id": "population-3880",
     "inventory_sha256": "f76ecb6524d00fc7dad17a76698b2b7883e62f8ad53a5af50b4999d80f78bcd6",
     "gaps_sha256": "65abb042d3265e6e1469d6f8e8f15b39872b21c2a71d1de2bdc59eddc2cca64c",
-    "historical_population_sha256": "88ccf1e98374116bcb9249d86e2b2178ad14fbbfb228e1475dd900b68a712b1d",
-    "historical_acceptance_sha256": "82ac0bd7849793ad4617a3f0a458056a626ea843bfbcec3bc4f56bf76614abe1"
+    "historical_population_sha256": "2be7aa18f96ce9e432d91108b56a63ae0a979ac48ff567ff9560dc7b87eea9f7",
+    "historical_acceptance_sha256": "2fe4cfd2ad273e65c8b3a963497c406a66f670a223664196c60db716ad0fc771"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1877,9 +1877,9 @@
     "?Select_Color_Combo_4d2480@@YIXPAUHWND__@@HH@Z": 5055616,
     "?Select_Side_Combo_4d1a90@@YIXPAUHWND__@@HH@Z": 5053072,
     "?Title_Screen_Restore@@YIX_N@Z": 5337968,
-    "?unknown_6000d0@@YA_NXZ": 6291664,
-    "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z": 6288912,
-    "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z": 6289120,
+    "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ": 6291664,
+    "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z": 6288912,
+    "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z": 6289120,
     "?Display_Dialog@@YIXPAUHWND__@@@Z": 6289344,
     "?MultiplayerMapPreview@@3PAVMapPreviewClass@@A": 10956008,
     "?Skirmish_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 6831376,
@@ -1976,7 +1976,7 @@
     "?Retrieve@MixFileClass@@SIPBXPBD@Z": 5854912,
     "?unknown_shape_ab9480@SidebarClass@@2PBXB": 11244672,
     "??_C@_0L@FJLO@DARKEN?4SHP?$AA@": 8338876,
-    "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
     "?SidebarWidth@@3HA": 8052096,
     "?TabBarHeight@@3HA": 8052100,
     "?unknown_int_83963c@@3HA": 8623676,
@@ -7876,7 +7876,7 @@
     "?Get_Num_Local_Addresses@UDPInterfaceClass@@UAEHXZ": 7787568,
     "?unknown_slot18@IPXManagerClass@@UAEXKKK@Z": 5395648,
     "??1MultiplayerGameMode@@UAE@XZ": 5991968,
-    "?unknown_com_objects_a6eb14@@3JA": 10939156,
+    "?COMRefCount@@3JA": 10939156,
     "?Save@OverlayTypeClass@@UAGJPAUIStream@@H@Z": 6147856,
     "?Save@SmudgeTypeClass@@UAGJPAUIStream@@H@Z": 6849392,
     "?Save@TerrainTypeClass@@UAGJPAUIStream@@H@Z": 7231936,
@@ -11991,7 +11991,13 @@
     "??_E?$VectorClass@PAVLaserDrawClass@@@@UAEPAXI@Z": 5457424,
     "??_E?$VectorClass@PAVLightSourceClass@@@@UAEPAXI@Z": 5472864,
     "??_E?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEPAXI@Z": 5473024,
-    "??_E?$VectorClass@PAVFileEntryClass@@@@UAEPAXI@Z": 5492016
+    "??_E?$VectorClass@PAVFileEntryClass@@@@UAEPAXI@Z": 5492016,
+    "??0Campaign@WorldDominationTour@@QAE@ABVWstring@@ABV?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@@Z": 7495488,
+    "??1Campaign@WorldDominationTour@@UAE@XZ": 7496416,
+    "??_7Campaign@WorldDominationTour@@6B@": 8056820,
+    "??_GCampaign@WorldDominationTour@@UAEPAXI@Z": 7498160,
+    "?Special@@3VSpecialClass@@A": 10750240,
+    "??_ECampaign@WorldDominationTour@@UAEPAXI@Z": 7498160
   },
   "regions": [
     {
@@ -13712,7 +13718,7 @@
         {
           "offset": 100,
           "kind": 20,
-          "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+          "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
           "target": 6288912,
           "addend": 0,
           "resolved": 4294425016
@@ -13744,7 +13750,7 @@
         {
           "offset": 156,
           "kind": 20,
-          "symbol": "?unknown_6000d0@@YA_NXZ",
+          "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
           "target": 6291664,
           "addend": 0,
           "resolved": 4294427712
@@ -13760,7 +13766,7 @@
         {
           "offset": 185,
           "kind": 20,
-          "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+          "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
           "target": 6289120,
           "addend": 0,
           "resolved": 4294425139
@@ -13830,7 +13836,7 @@
           "resolved": 4293467318
         }
       ],
-      "source_sha256": "c334869ff91de6f6dbef5c7d9ef7e12510582bf5ab1d8fa4a8d2b1731932a4a2",
+      "source_sha256": "026a749c63d48e87f18a2cafe6d44d2b17d9d635fdc06c4d2d490fbc89c96d2c",
       "source": "src/recovered/skirmish/Skirmish_Dialog.cpp",
       "population": "population-3880",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

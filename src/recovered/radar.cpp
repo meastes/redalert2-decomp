@@ -359,7 +359,7 @@ void RadarClass::Init_For_House()
 {
     Debug_Printf("RadarClass::Init_For_House()\n");
     DisposeOfArt();
-    if(unknown_id_source_a3d290->IsGDI) {
+    if(Scen->IsGDI) {
         RadHeight=(SidebarWidth-144)/2+4;
         unknown_int_ab6468=RadX+11;
         unknown_int_ab646c=RadY+4;
@@ -2836,7 +2836,7 @@ void RadarClass::Unknown_00634970(int arg1)
 
 void __fastcall Unknown_00634A00(MouseClass *map)
 {
-    HWND window = unknown_create_dialog_5ff610(0x73, Unknown_006340F0, 0);
+    HWND window = OwnerDraw_Begin_Dialog(0x73, Unknown_006340F0, 0);
     IgnoreInput = true;
     WWKeyboard->Clear();
     if (window) {
@@ -2845,7 +2845,7 @@ void __fastcall Unknown_00634A00(MouseClass *map)
         Display_Dialog(window);
         result = 0;
         while (true) {
-            if (unknown_6000d0()) {
+            if (OwnerDraw_Dialog_Message_Handler()) {
                 result = 0x423;
                 break;
             }
@@ -2853,10 +2853,10 @@ void __fastcall Unknown_00634A00(MouseClass *map)
                 break;
             }
         }
-        unknown_dialog_5ff6e0(window);
+        OwnerDraw_End_Dialog(window);
     }
     WWKeyboard->Clear();
-    IgnoreInput = unknown_id_source_a3d290->IsInputLocked;
+    IgnoreInput = Scen->IsInputLocked;
     Map.Flag_To_Redraw(2);
 }
 

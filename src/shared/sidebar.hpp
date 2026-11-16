@@ -250,7 +250,7 @@ public:
         static int Max_Visible_Rows()
         {
             return (unknown_int_839624 + unknown_int_83962c - SidebarClass_StripTop
-                - (unknown_id_source_a3d290->IsGDI ? 26 : 18) - 7) / 50;
+                - (Scen->IsGDI ? 26 : 18) - 7) / 50;
         }
         bool Unknown_006816D0(FactoryClass *factory, int type, int id);  // 0x006816D0 sets a buildable's +0x0C by type and id
 

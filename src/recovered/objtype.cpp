@@ -770,7 +770,7 @@ extern "C" void __cdecl _makepath(char *path, char const *drive, char const *dir
 void ObjectTypeClass::Fetch_Normal_Image()
 {
     char fullname[260];
-    if (AlternateArcticArt && unknown_id_source_a3d290->Theater == 1 && !ImageAllocated) {
+    if (AlternateArcticArt && Scen->Theater == 1 && !ImageAllocated) {
         if (!ArcticArtInUse) {
             char buffer[256];
             sprintf(buffer, "%sA", (char const *)unknown_1c8);
@@ -783,9 +783,9 @@ void ObjectTypeClass::Fetch_Normal_Image()
 
     _makepath(fullname, 0, 0, unknown_1c8, ".SHP");
     if (IsTheater) {
-        _makepath(fullname, 0, 0, unknown_1c8, Theaters[unknown_id_source_a3d290->Theater].Suffix);
+        _makepath(fullname, 0, 0, unknown_1c8, Theaters[Scen->Theater].Suffix);
     } else if (IsNewTheater) {
-        Theater_Naming_Convention(fullname, unknown_id_source_a3d290->Theater);
+        Theater_Naming_Convention(fullname, Scen->Theater);
     }
 
     if (ImageAllocated && ImageData != 0) {

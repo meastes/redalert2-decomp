@@ -218,7 +218,7 @@ HouseClass::HouseClass(HouseTypeClass *type)
     : AbstractClass(),
       ArrayIndex(-1),
       Type(type),
-      Difficulty(unknown_id_source_a3d290->CDifficulty),
+      Difficulty(Scen->CDifficulty),
       FirepowerBias(1.0),
       GroundspeedBias(1.0),
       unknown_e0(1.0),
@@ -1178,7 +1178,7 @@ void HouseClass::AI()
             if (!CurBuildings && units<=0) defeated=true;
         } else if (!CurBuildings && !unknown_238 && !unknown_234) {
             int units=unknown_228;
-            if (units && unknown_id_source_a3d290->Special().HarvesterImmune) {
+            if (units && Scen->Special().HarvesterImmune) {
                 int immune=unknown_5430.unknown_func_491d10(Rules->HarvesterUnit[0]->ArrayIndex)
                     + unknown_5430.unknown_func_491d10(Rules->HarvesterUnit[1]->ArrayIndex);
                 units-=immune;
@@ -2224,11 +2224,11 @@ void HouseClass::MPlayer_Defeated_004e77f0()
     bool all_allies;
     IsDefeated=true;
     if (IQ==Rules->MaxIQ && !Is_Human_Control() && Rules->Paranoid && unknown_game_mode_a3d298!=0) Computer_Paranoid();
-    if (unknown_id_source_a3d290->unknown_000 & 0x10) {
+    if (Scen->unknown_000 & 0x10) {
         if (unknown_5308) unknown_func_4e7580(unknown_5308,true);
         else if (unknown_530c!=unknown_cell_a40f10) unknown_func_4e7580((AbstractClass *)&Map[unknown_530c],true);
     }
-    if (unknown_game_mode_a3d298!=0 && (unknown_id_source_a3d290->unknown_000 & 0x800)) {
+    if (unknown_game_mode_a3d298!=0 && (Scen->unknown_000 & 0x800)) {
         for (i=0;i<Units.Count();++i) {
             UnitClass *unit=Units[i];
             if (unit->House==this && unit->IsActive) unit->Delete_Me();
@@ -3826,9 +3826,9 @@ void __fastcall HouseClass::Read_Scenario_INI(CCINIClass &ini)
         HouseClass *house = Houses[i];
         house->Read_INI(ini);
         if (!unknown_game_mode_a3d298 && (house->unknown_134 || house->IsPlayerControl)) {
-            house->Assign_Handicap(unknown_id_source_a3d290->Difficulty);
+            house->Assign_Handicap(Scen->Difficulty);
         } else if (!unknown_game_mode_a3d298) {
-            house->Assign_Handicap(unknown_id_source_a3d290->CDifficulty);
+            house->Assign_Handicap(Scen->CDifficulty);
         }
     }
 
@@ -3853,7 +3853,7 @@ void HouseClass::Read_INI(CCINIClass &ini)
     char section[20];
     strcpy(section, IniName);
 
-    unknown_11c = ini.Get_Int(section, "TechLevel", unknown_id_source_a3d290->TechLevel);
+    unknown_11c = ini.Get_Int(section, "TechLevel", Scen->TechLevel);
     unknown_124 = ini.Get_Int(section, "Credits", 0) * 100;
     IsPlayerControl = ini.Get_Bool(section, "PlayerControl", false);
     if (IsPlayerControl && !unknown_game_mode_a3d298) {
@@ -4297,14 +4297,14 @@ Cell HouseClass::Random_Cell_In_Zone(int zone)
         break;
     case 1: {
         int distance = Random_Pick(radius, maxdist);
-        DirType dir(unknown_id_source_a3d290->Random()());
+        DirType dir(Scen->Random()());
         dir.Raw &= ~0xC000;
         coord = Move_Coord(BaseCenter, Rotate_Back_One_Facing(dir), distance);
         break;
     }
     case 2: {
         int distance = Random_Pick(radius, maxdist);
-        DirType dir(unknown_id_source_a3d290->Random()());
+        DirType dir(Scen->Random()());
         dir.Raw &= ~0x8000;
         dir.Raw |= 0x4000;
         coord = Move_Coord(BaseCenter, Rotate_Back_One_Facing(dir), distance);
@@ -4312,7 +4312,7 @@ Cell HouseClass::Random_Cell_In_Zone(int zone)
     }
     case 3: {
         int distance = Random_Pick(radius, maxdist);
-        DirType dir(unknown_id_source_a3d290->Random()());
+        DirType dir(Scen->Random()());
         dir.Raw &= ~0x4000;
         dir.Raw |= 0x8000;
         coord = Move_Coord(BaseCenter, Rotate_Back_One_Facing(dir), distance);
@@ -4320,7 +4320,7 @@ Cell HouseClass::Random_Cell_In_Zone(int zone)
     }
     case 4: {
         int distance = Random_Pick(radius, maxdist);
-        DirType dir(unknown_id_source_a3d290->Random()());
+        DirType dir(Scen->Random()());
         dir.Raw |= 0xC000;
         coord = Move_Coord(BaseCenter, Rotate_Back_One_Facing(dir), distance);
         break;
@@ -6040,7 +6040,7 @@ void HouseClass::unknown_func_4f2e50()
     if (this == PlayerPtr) {
         bool radar = false;
         if (unknown_1f8 == 0) {
-            if (unknown_id_source_a3d290->FreeRadar) {
+            if (Scen->FreeRadar) {
                 radar = true;
             } else if (Power_Fraction() >= 1.0) {
                 for (int index = 0; index < Buildings.Count(); index++) {

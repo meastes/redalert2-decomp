@@ -110,8 +110,8 @@ LightConvertClass::LightConvertClass(PaletteClass const &artpalette, PaletteClas
                 Green = green_tint;
                 Blue = blue_tint;
             }
-            Set_Tint(unknown_id_source_a3d290->IonRed * 1000 / 100, unknown_id_source_a3d290->IonGreen * 1000 / 100,
-                     unknown_id_source_a3d290->IonBlue * 1000 / 100, true);
+            Set_Tint(Scen->IonRed * 1000 / 100, Scen->IonGreen * 1000 / 100,
+                     Scen->IonBlue * 1000 / 100, true);
         } else if (NukeFlash_IsFadingIn()) {
             if (red_tint == -1) {
                 Red = 1000;
@@ -122,8 +122,8 @@ LightConvertClass::LightConvertClass(PaletteClass const &artpalette, PaletteClas
                 Green = green_tint;
                 Blue = blue_tint;
             }
-            Set_Tint(unknown_id_source_a3d290->NukeRedTint * 1000 / 100, unknown_id_source_a3d290->NukeGreenTint * 1000 / 100,
-                     unknown_id_source_a3d290->NukeBlueTint * 1000 / 100, true);
+            Set_Tint(Scen->NukeRedTint * 1000 / 100, Scen->NukeGreenTint * 1000 / 100,
+                     Scen->NukeBlueTint * 1000 / 100, true);
         } else {
             Set_Tint(red_tint, green_tint, blue_tint, false);
         }

@@ -95,8 +95,8 @@ Cell const AdjacentCell[8] = {
 };
 
 
-extern Point2D const unknown_adjacent_offsets_00851ac0[8];
-Point2D const unknown_adjacent_offsets_00851ac0[8] = {
+extern Point2D const AdjacentPoint[8];
+Point2D const AdjacentPoint[8] = {
  Point2D(0,-256),Point2D(256,-256),Point2D(256,0),Point2D(256,256),
  Point2D(0,256),Point2D(-256,256),Point2D(-256,0),Point2D(-256,-256)
 };
@@ -141,7 +141,7 @@ CoordStruct __fastcall Coord_Scatter(CoordStruct const &coord, int distance, boo
 {
     {
     UnknownFacingDir direction(0);
-    unsigned direction_word = (*(unsigned *)&direction & 0xFFFF00FF) | ((unknown_id_source_a3d290->Random()() & 255) << 8);
+    unsigned direction_word = (*(unsigned *)&direction & 0xFFFF00FF) | ((Scen->Random()() & 255) << 8);
     double radians = ((short)direction_word - 0x3FFF) * unknown_facing_radians_79b620;
     UnknownVector3 offset=Compute_Scatter_Vector(coord,radians,distance);
     CoordStruct result(offset.X,offset.Y,offset.Z);
@@ -171,7 +171,7 @@ CoordStruct __fastcall Coord_Scatter(CoordStruct const &coord, int distance, boo
 
 CoordStruct __fastcall Adjacent_Coord_With_Height(CoordStruct const &coord, int dir)
 {
-    CoordStruct newcoord = (coord + unknown_adjacent_offsets_00851ac0[dir]);
+    CoordStruct newcoord = (coord + AdjacentPoint[dir]);
     newcoord.Z += Map.Get_Height_GL(newcoord) - Map.Get_Height_GL(coord);
     return newcoord;
 }

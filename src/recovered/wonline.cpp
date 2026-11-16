@@ -658,13 +658,13 @@ void __fastcall Unknown_0073c1b0(bool online)
 
 void __fastcall Unknown_0073c230()
 {
-    HWND dialog = unknown_create_dialog_5ff610(0xCF, Unknown_Dialog_Proc_007485d0, 0);
+    HWND dialog = OwnerDraw_Begin_Dialog(0xCF, Unknown_Dialog_Proc_007485d0, 0);
     IgnoreInput = true;
     WWKeyboard->Clear();
     ShowWindow(dialog, 1);
-    WS_Wait_Dialog(dialog, unknown_6000d0, 0, 1, 1);
+    WS_Wait_Dialog(dialog, OwnerDraw_Dialog_Message_Handler, 0, 1, 1);
     WWKeyboard->Clear();
-    IgnoreInput = unknown_id_source_a3d290->IsInputLocked;
+    IgnoreInput = Scen->IsInputLocked;
     Map.Flag_To_Redraw(2);
 }
 
@@ -2544,9 +2544,9 @@ Wstring __fastcall WOL_Last_Valid_Persona();
 void __fastcall Unknown_007391f0(Wstring const &);
 void __fastcall Darken_Surface(int, bool);
 void __fastcall Title_Screen_Restore(bool);
-HWND __fastcall unknown_create_dialog_5ff610(int, DLGPROC, int);
+HWND __fastcall OwnerDraw_Begin_Dialog(int, DLGPROC, int);
 void __fastcall Display_Dialog(HWND);
-void __fastcall unknown_dialog_5ff6e0(HWND);
+void __fastcall OwnerDraw_End_Dialog(HWND);
 int __fastcall Run_Control_Dialog_006011a0(int, DLGPROC, OwnerDraw::DialogControl *);
 long __stdcall Wonline_Account_Dialog_007540a0(HWND, UINT, WPARAM, LPARAM);
 long __stdcall Wonline_Dialog_00755070(HWND, UINT, WPARAM, LPARAM);
@@ -2675,13 +2675,13 @@ int __fastcall Login_Wonline_00742fd0()
             SimpleWonlineDialogControl control;
             int dialog_id = options.unknown_004ff2c0() ? 0x10f : 0x11d;
             Darken_Surface(0, true);
-            HWND window = unknown_create_dialog_5ff610(dialog_id, (DLGPROC)Wonline_Account_Dialog_007540a0, (int)&control);
+            HWND window = OwnerDraw_Begin_Dialog(dialog_id, (DLGPROC)Wonline_Account_Dialog_007540a0, (int)&control);
             Display_Dialog(window);
             Set_Login_Focus(window);
-            while (!control.unknown_slot2() && !Unknown_0073e100() && !unknown_6000d0()) {
+            while (!control.unknown_slot2() && !Unknown_0073e100() && !OwnerDraw_Dialog_Message_Handler()) {
                 Title_Screen_Restore(false);
             }
-            unknown_dialog_5ff6e0(window);
+            OwnerDraw_End_Dialog(window);
             if ((int)control.Get_Window_00601180() == 2) {
                 failed = true;
             } else {
@@ -2740,7 +2740,7 @@ extern int unknown_time_b2abd0, unknown_time_b2abd4;
 extern HWND game_window_00b263d8;
 void __fastcall Open_Wait_Window_0074d4d0(unsigned int, WideString const &, bool);
 void __fastcall Darken_Surface(int, bool);
-HWND __fastcall unknown_create_dialog_5ff610(int, DLGPROC, int);
+HWND __fastcall OwnerDraw_Begin_Dialog(int, DLGPROC, int);
 int __stdcall Wonline_Main_Dialog_007469c0(HWND, UINT, WPARAM, LPARAM);
 bool __fastcall Get_Channel_List_0073d8f0();
 bool __fastcall Request_Chat_Channel_List_0073dd20(bool wait);
@@ -2836,7 +2836,7 @@ int __fastcall Unknown_00743720(HWND window, bool first_time)
     }
     if (window == 0) {
         Darken_Surface(0, true);
-        window = unknown_create_dialog_5ff610(0x113, (DLGPROC)Wonline_Main_Dialog_007469c0, 0);
+        window = OwnerDraw_Begin_Dialog(0x113, (DLGPROC)Wonline_Main_Dialog_007469c0, 0);
         Print_Message_Of_The_Day();
         {
             WideString title(StringTable::Load_String(wol_login_complete_label_7fe694, 0, wol_source_file_007fd62c, 0x2373));
@@ -3533,7 +3533,7 @@ inline void Show_Game_Options()
             Darken_Surface(0,true);
         }
         Darken_Surface(0,true);
-        HWND dialog=unknown_create_dialog_5ff610(0xc2,(DialogProc)WOL_Game_Options_Proc_0074a710,0);
+        HWND dialog=OwnerDraw_Begin_Dialog(0xc2,(DialogProc)WOL_Game_Options_Proc_0074a710,0);
         unknown_session_a3d298.Mode->unknown_slot33();
         unknown_session_a3d298.Mode->unknown_slot8();
         unknown_session_a3d298.Mode->AssignTeamsAtStart();
@@ -3873,7 +3873,7 @@ bool __fastcall Can_Join_Channel_00755cd0(WOL::Channel const *,bool,bool);
 bool __fastcall Join_Game_Channel_00745780(WOL::Channel const *,bool);
 bool __fastcall Host_Game_007459a0();
 void __fastcall View_HTML_0073c580(char const *,int);
-HWND __fastcall unknown_create_dialog_5ff610(int,int (__stdcall *)(HWND,UINT,WPARAM,LPARAM),int);
+HWND __fastcall OwnerDraw_Begin_Dialog(int,int (__stdcall *)(HWND,UINT,WPARAM,LPARAM),int);
 int __fastcall Dialog_Loop_007359e0(HWND,bool (*)(),int,bool,bool);
 bool connection_wait_callback_0073c120();
 int __stdcall Wonline_Options_Dialog_00749b50(HWND,UINT,WPARAM,LPARAM);
@@ -4144,7 +4144,7 @@ int __stdcall Wonline_Main_Dialog_007469c0(HWND window,UINT message,WPARAM wpara
         case 0x61f: {
             OwnerDraw::unknown_5e5150(window,false);
             Darken_Surface(0,true);
-            HWND dialog=unknown_create_dialog_5ff610(700,Wonline_Options_Dialog_00749b50,0);
+            HWND dialog=OwnerDraw_Begin_Dialog(700,Wonline_Options_Dialog_00749b50,0);
             ShowWindow(dialog,1);
             int result=Dialog_Loop_007359e0(dialog,connection_wait_callback_0073c120,0,true,true);
             InvalidateRect(window,0,0);
@@ -6966,7 +6966,7 @@ int __fastcall Sync_Scenario_With_Guests_00750330(bool connected)
             for(int j=1;j<unknown_session_a3d298.Players.Count();++j) {
                 if(responses[j]==16) unknown_session_a3d298.ScenarioRequests[unknown_session_a3d298.RequestCount++]=(char)j;
             }
-            if(!Send_Remote_File_0066bb20(unknown_id_source_a3d290->FileName,4,false,true)) {
+            if(!Send_Remote_File_0066bb20(Scen->FileName,4,false,true)) {
                 result=2;
                 failed=false;
             }
@@ -7023,7 +7023,7 @@ int __fastcall Sync_Scenario_With_Guests_00750330(bool connected)
                 if(!Get_File_From_Host_0066aef0(unknown_session_a3d298.ScenarioFileName_658,4,true)) { result=2; failed=true; }
             }
         }
-        strcpy(unknown_id_source_a3d290->FileName,unknown_session_a3d298.ScenarioFileName_658);
+        strcpy(Scen->FileName,unknown_session_a3d298.ScenarioFileName_658);
         Debug_Printf(scenario_debug_007ff804);
         CDTimerClass<SystemTimerClass> response_timer;
         response_timer=1200;
@@ -7399,7 +7399,7 @@ void __fastcall Start_Test_Network_Game_007516c0()
     Select_Scenario_005c7c30(1);
     unknown_session_a3d298.GameSpeed_30=2;
     unknown_a40b18=2;
-    unknown_id_source_a3d290->TechLevel=unknown_session_a3d298.ScenarioIndex;
+    Scen->TechLevel=unknown_session_a3d298.ScenarioIndex;
     unknown_session_a3d298.FrameSendRate=5;
     switch(unknown_session_a3d298.GameSpeed_30) {
     case 0:unknown_session_a3d298.MaxAhead_2c8=40;unknown_session_a3d298.PrecalcDesiredFrameRate=60;unknown_session_a3d298.FrameSendRate=10;break;
@@ -9651,9 +9651,9 @@ bool __fastcall Host_Game_007459a0();
 bool __fastcall Find_Channel_By_Name_007592d0(Wstring const &name,WolChannelArray const &channels,WOL::Channel &channel);
 bool __fastcall Request_Chat_Channel_List_0073dd20(bool wait);
 bool connection_wait_callback_0073c120();
-HWND __fastcall unknown_create_dialog_5ff610(int,DLGPROC,int);
+HWND __fastcall OwnerDraw_Begin_Dialog(int,DLGPROC,int);
 void __fastcall Display_Dialog(HWND);
-void __fastcall unknown_dialog_5ff6e0(HWND);
+void __fastcall OwnerDraw_End_Dialog(HWND);
 void __fastcall Title_Screen_Restore(bool);
 bool __fastcall End_Dialog_007357e0(HWND dialog,int result);
 int __stdcall Buddy_Dialog_Proc_00758750(HWND,UINT,WPARAM,LPARAM);
@@ -9672,7 +9672,7 @@ inline bool Refresh_Game_List()
 inline void Disconnected(HWND dialog, int line)
 {
     Close_Wonline_Wait(~0u);
-    unknown_dialog_5ff6e0(dialog);
+    OwnerDraw_End_Dialog(dialog);
     unknown_online_option_a3d2a8 = 0;
     Message_Box_005c3230(StringTable::Load_String(wol_youre_discon_label_7fe1fc, 0, wol_source_file_007fd62c, line), 0, connection_wait_callback_0073c120, false);
 }
@@ -9701,7 +9701,7 @@ int __fastcall Unknown_00759370(bool first_time)
     for (;;) {
         SimpleWonlineDialogControl control;
         Reset_Wait_Events();
-        HWND dialog = unknown_create_dialog_5ff610(0x116, Buddy_Dialog_Proc_00758750, (int)&control);
+        HWND dialog = OwnerDraw_Begin_Dialog(0x116, Buddy_Dialog_Proc_00758750, (int)&control);
         Display_Dialog(dialog);
         while (!control.unknown_slot2()) {
             DWORD event = WaitForMultipleObjects(18, wol_wait_events_b264f8, 0, 100);
@@ -9720,7 +9720,7 @@ int __fastcall Unknown_00759370(bool first_time)
             }
             Title_Screen_Restore(false);
         }
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
         switch ((int)control.Get_Window_00601180()) {
         case 0x62b:
             Reset_Wait_Events();
@@ -10010,7 +10010,7 @@ int __fastcall Start_Quick_Match_00759e20()
         }
         else if(event==0x10) {
             if(Start_Match_0075be10()&&unknown_a3d2a4==2) {
-                HWND download=unknown_create_dialog_5ff610(0x11f,(DialogProc)Wonline_Map_Download_Dialog_0075c830,0);
+                HWND download=OwnerDraw_Begin_Dialog(0x11f,(DialogProc)Wonline_Map_Download_Dialog_0075c830,0);
                 Set_Matchmaking_State(10,180,0);
                 SendMessageA(download,0x4a9,0,1);
                 ShowWindow(download,1);
@@ -11178,7 +11178,7 @@ HRESULT __stdcall CChatEventSink::OnUpdateList(HRESULT result, WOL::Update *upda
             swprintf(text, StringTable::Load_String("TXT_DOWNLOADING_X_OF_Y", 0, "D:\\Ra2\\wonline.cpp", 0x10f4), index, count);
             WideString message(text);
             SimpleWonlineDialogControl control;
-            HWND dialog = unknown_create_dialog_5ff610(0xd3, Download_Dialog_Proc_00748cd0, 0);
+            HWND dialog = OwnerDraw_Begin_Dialog(0xd3, Download_Dialog_Proc_00748cd0, 0);
             HWND item = GetDlgItem(dialog, 0x5c7);
             SendMessageA(item, 0x4b2, 0, (LPARAM)message.unknown_text_770430());
             if (WS_Wait_Dialog(dialog, (bool (*)())Unknown_0073c120, 0, 1, 1) == 2) {
@@ -12200,7 +12200,7 @@ HRESULT __stdcall CChatEventSink::OnPaged(HRESULT result, WOL::User *user, char 
         if (!dialog) {
             ReleaseCapture();
             Darken_Surface(0, true);
-            dialog = unknown_create_dialog_5ff610(0x11e, Page_Dialog_Proc_00757d80, 0);
+            dialog = OwnerDraw_Begin_Dialog(0x11e, Page_Dialog_Proc_00757d80, 0);
             if (dialog) {
                 SetFocus(dialog);
                 Unknown_005C2C80(unknown_color_7a7378, L"(%hs) %s", user->name, wide.Get());
@@ -12242,7 +12242,7 @@ HRESULT __stdcall CChatEventSink::OnPagedUnicode(HRESULT result, WOL::User *user
         if (!dialog) {
             ReleaseCapture();
             Darken_Surface(0, true);
-            dialog = unknown_create_dialog_5ff610(0x11e, Page_Dialog_Proc_00757d80, 0);
+            dialog = OwnerDraw_Begin_Dialog(0x11e, Page_Dialog_Proc_00757d80, 0);
             SetFocus(dialog);
             Unknown_005C2C80(unknown_color_7a7378, L"(%hs) %s", user->name, message);
             ShowWindow(dialog, 1);

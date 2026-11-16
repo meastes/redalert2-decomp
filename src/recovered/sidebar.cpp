@@ -219,7 +219,7 @@ void SidebarClass::Unknown_0067B910()
     unknown_int_839628 = SidebarWidth;
     unknown_int_839624 = 0x9E;
     unknown_int_83962c = unknown_int_839634 + unknown_int_83963c + TabBarHeight - 0x9E;
-    if (unknown_id_source_a3d290->IsGDI) {
+    if (Scen->IsGDI) {
         SidebarClass_TopButtonY = 0xA6;
         SidebarClass_TopButtonSpacing = 0x40;
         SidebarClass_TabButtonY = 0xC5;
@@ -236,13 +236,13 @@ void SidebarClass::Unknown_0067B910()
     }
     SidebarClass_CameoHeight = 0x32;
     int extra;
-    if (unknown_id_source_a3d290->IsGDI) {
+    if (Scen->IsGDI) {
         extra = 26;
     } else {
         extra = 18;
     }
     PowerBarHeight = (unknown_int_83962c - extra - 0x4C) / 50 * 50;
-    if (unknown_id_source_a3d290->IsGDI) {
+    if (Scen->IsGDI) {
         SidebarClass_SidebarBottomY = PowerBarHeight + 0xEA;
         SidebarClass_SidebarEdgeWidth = 0x2E;
         SidebarClass_SidebarEdgeStep = 0x32;
@@ -263,7 +263,7 @@ void SidebarClass::Unknown_0067BA60()
     int x = unknown_flag_a40b30 ? unknown_int_839630 + unknown_int_839638 : 0;
     unknown_int_839620 = x;
     SidebarClass_StripLeft = x + 22;
-    if (unknown_id_source_a3d290->IsGDI) {
+    if (Scen->IsGDI) {
         SidebarClass_TopButtonX = x + 20;
         SidebarClass_TabButtonX = x + 26;
         SidebarClass_PowerBarLeft = x + 39;
@@ -965,7 +965,7 @@ void SidebarClass::AI(int &input, Point2D const &xy)
         } else if ((input & ~0x4000) == (unknown_button_abcbe8.ID | 0x8000)) {
             unknown_button_abcbe8.IsPressed = false;
             StripClass &strip = Column[ActiveTabIndex];
-            if (!strip.Scroll(false, (unknown_int_839624 + unknown_int_83962c - SidebarClass_StripTop - (unknown_id_source_a3d290->IsGDI ? 26 : 18) - 7) / 50)) {
+            if (!strip.Scroll(false, (unknown_int_839624 + unknown_int_83962c - SidebarClass_StripTop - (Scen->IsGDI ? 26 : 18) - 7) / 50)) {
                 Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
             } else {
                 Voc_Play(Rules->GUITabSound, 1.0f, 0x2000, 0);
@@ -1663,7 +1663,7 @@ int SidebarClass::StripClass::Unknown_0067F7C0(int index)
 
 static inline int Bottom_Extra()
 {
-    if (unknown_id_source_a3d290->IsGDI) {
+    if (Scen->IsGDI) {
         return 26;
     }
     return 18;
@@ -2450,7 +2450,7 @@ static inline int Max_Visible_Cameos()
 {
     int top = SidebarClass_StripTop;
     int reserved;
-    if (unknown_id_source_a3d290->IsGDI) {
+    if (Scen->IsGDI) {
         reserved = 26;
     } else {
         reserved = 18;
@@ -2468,7 +2468,7 @@ void SidebarClass::Reposition_Sidebar()
         unknown_rect_839620.X = 0;
     }
     SidebarClass_StripLeft = unknown_rect_839620.X + 0x16;
-    if (unknown_id_source_a3d290->IsGDI) {
+    if (Scen->IsGDI) {
         SidebarClass_TopButtonX = unknown_rect_839620.X + 0x14;
         SidebarClass_TabButtonX = unknown_rect_839620.X + 0x1A;
         SidebarClass_PowerBarLeft = unknown_rect_839620.X + 0x27;
@@ -2642,7 +2642,7 @@ wchar_t const *SidebarClass::Help_Text(int id)
 int SidebarClass::Unknown_006820A0()
 {
     int extra;
-    if (unknown_id_source_a3d290->IsGDI) {
+    if (Scen->IsGDI) {
         extra = 26;
     } else {
         extra = 18;

@@ -19,8 +19,8 @@ constexpr Crc32Table crc32_values;
 // The recovered code declares it `unsigned long const[256]`, which the native
 // view spells as the 32-bit RA2_ULONG; this file is not port-rewritten, so it
 // says unsigned int (same 4-byte elements, same symbol name).
-extern unsigned int const unknown_crc_table_007d5504[256];
-unsigned int const unknown_crc_table_007d5504[256] = {
+extern unsigned int const CRC_Table[256];
+unsigned int const CRC_Table[256] = {
 #define R(i) crc32_values.v[i], crc32_values.v[i + 1], crc32_values.v[i + 2], crc32_values.v[i + 3]
 #define R16(i) R(i), R(i + 4), R(i + 8), R(i + 12)
     R16(0), R16(16), R16(32), R16(48), R16(64), R16(80), R16(96), R16(112),

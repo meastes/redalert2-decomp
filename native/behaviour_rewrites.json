@@ -302,8 +302,8 @@
   },
   {
    "entry": "0x0077F14D",
-   "name": "unknown_cpu_probe_77f14d",
-   "symbol": "__Z24unknown_cpu_probe_77f14dv",
+   "name": "Detect_MMX_Availability",
+   "symbol": "__Z23Detect_MMX_Availabilityv",
    "origin_class": "handwritten assembly",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -315,8 +315,8 @@
   },
   {
    "entry": "0x0077F20F",
-   "name": "unknown_cpu_family_probe_77f20f",
-   "symbol": "__Z31unknown_cpu_family_probe_77f20fv",
+   "name": "Detect_CMOV_Availability",
+   "symbol": "__Z24Detect_CMOV_Availabilityv",
    "origin_class": "handwritten assembly",
    "plan": "behaviour rewrite",
    "exact": false,

@@ -293,7 +293,7 @@ extern double const vein_random_unit_79c280,vein_full_angle_79c9b8,vein_speed_79
 extern double const vein_idle_scale_7a5fe8,vein_idle_chance_7ae718,vein_attack_chance_7ae720;
 inline double Vein_Random_Double(double low,double high)
 {
-    int sample=unknown_id_source_a3d290->Random()(0,0x7ffffffe);
+    int sample=Scen->Random()(0,0x7ffffffe);
     return (high-low)*((double)sample*vein_random_unit_79c280)+low;
 }
 /// <summary>
@@ -314,7 +314,7 @@ void VeinholeMonsterClass::AI()
         } else if(DesiredState!=3) {
             if(Map.Is_Something_Nearby(CellID,2)) DesiredState=1;
             else if(((StageClass *)&Control)->Fetch_Stage()==vein_transition_7f95e4[CurrentState]) {
-                if((double)(abs(unknown_id_source_a3d290->Random()())%10000)*vein_idle_scale_7a5fe8<vein_idle_chance_7ae718) {
+                if((double)(abs(Scen->Random()())%10000)*vein_idle_scale_7a5fe8<vein_idle_chance_7ae718) {
                     ((StageClass *)&Control)->Set_Stage(vein_loop_7f95f4[CurrentState]-1);
                     ((StageClass *)&Control)->Set_Step(-1);
                 }
@@ -578,11 +578,11 @@ void VeinholeMonsterClass::Grow()
     if (VeinCount > Rules_Vein_Node_Count() - 100) {
         return;
     }
-    if (!unknown_id_source_a3d290->IsVeinGrowth) {
+    if (!Scen->IsVeinGrowth) {
         return;
     }
     int count = 0;
-    Random2Class &random = unknown_id_source_a3d290->Random();
+    Random2Class &random = Scen->Random();
     int steps = abs(random()) % 5 + 1;
     UnknownVeinNode *node = GrowthQueue->Remove_Min();
     while (count < steps && node != 0) {
@@ -613,7 +613,7 @@ void VeinholeMonsterClass::Grow()
                 }
                 if (adjacent->Can_Place_Veins() && GlobalGrowthState[index] == 0 && GrowthCount < Rules_Vein_Node_Count()) {
                     GrowthNodes[GrowthCount].Position = spot;
-                    GrowthNodes[GrowthCount].Key = Frame / 50 + abs(unknown_id_source_a3d290->Random()() % 50) + 1;
+                    GrowthNodes[GrowthCount].Key = Frame / 50 + abs(Scen->Random()() % 50) + 1;
                     GlobalGrowthState[index] = 1;
                     GrowthQueue->Insert(&GrowthNodes[GrowthCount++]);
                 }
@@ -644,7 +644,7 @@ void VeinholeMonsterClass::Shrink()
         return;
     }
     int count = 0;
-    int steps = abs(unknown_id_source_a3d290->Random()()) % 4 + 1;
+    int steps = abs(Scen->Random()()) % 4 + 1;
     UnknownVeinNode *node = GrowthQueue->Remove_Min();
     while (count < steps && node != 0) {
         Reduce_Veins_At(&Map[Map[node->Position].MapCoords]);
@@ -1101,7 +1101,7 @@ void VeinholeMonsterClass::Reduce_Veins_At(CellClass *cellptr)
             } else if (!IsDead) {
                 if (GrowthCount < Rules->MaxVeinholeGrowth) {
                     GrowthNodes[GrowthCount].Position = cell;
-                    GrowthNodes[GrowthCount].Key = float(Frame / 50 + abs(unknown_id_source_a3d290->Random()() % 50) + 1);
+                    GrowthNodes[GrowthCount].Key = float(Frame / 50 + abs(Scen->Random()() % 50) + 1);
                     GrowthQueue->Insert(&GrowthNodes[GrowthCount++]);
                     GrowthState[cindex] = true;
                     GlobalGrowthState[cindex] = true;

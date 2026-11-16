@@ -952,7 +952,8 @@
    "address": "007c3a70",
    "bytes": 16,
    "kind": "rtti",
-   "section": 62
+   "section": 62,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4TeamClass@@6BIPersistStream@@@",
@@ -1296,7 +1297,8 @@
    "symbol": "??_R3TeamClass@@8",
    "address": "007c3a70",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4TeamClass@@6BIPersistStream@@@",
@@ -2102,6 +2104,10 @@
    "address": "004100c0"
   },
   {
+   "symbol": "?Scen@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
    "symbol": "?ScenarioInit@@3HA",
    "address": "00a40774"
   },
@@ -2256,10 +2262,6 @@
   {
    "symbol": "?unknown_game_mode_a3d298@@3HA",
    "address": "00a3d298"
-  },
-  {
-   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
-   "address": "00a3d290"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",

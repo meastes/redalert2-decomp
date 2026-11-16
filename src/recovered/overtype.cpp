@@ -335,10 +335,10 @@ HRESULT __stdcall OverlayTypeClass::Load(IStream *stream)
         if (!DemandLoad) {
             char fullname[512];
             if (IsTheater) {
-                _makepath(fullname, 0, 0, unknown_1c8, Theaters[unknown_id_source_a3d290->Theater].Suffix);
+                _makepath(fullname, 0, 0, unknown_1c8, Theaters[Scen->Theater].Suffix);
             } else {
                 _makepath(fullname, 0, 0, unknown_1c8, ".SHP");
-                Theater_Naming_Convention(fullname, unknown_id_source_a3d290->Theater);
+                Theater_Naming_Convention(fullname, Scen->Theater);
             }
             ImageData = (void *)MixFileClass::Retrieve(fullname);
         }
@@ -424,10 +424,10 @@ void *OverlayTypeClass::Get_Image_Data() const
         Debug_Printf("Demand loading image for %s\n", (char const *)Name);
         char fullname[512];
         if (IsTheater) {
-            _makepath(fullname, 0, 0, unknown_1c8, Theaters[unknown_id_source_a3d290->Theater].Suffix);
+            _makepath(fullname, 0, 0, unknown_1c8, Theaters[Scen->Theater].Suffix);
         } else if (IsNewTheater) {
             _makepath(fullname, 0, 0, unknown_1c8, ".SHP");
-            Theater_Naming_Convention(fullname, unknown_id_source_a3d290->Theater);
+            Theater_Naming_Convention(fullname, Scen->Theater);
         }
         CCFileClass file(fullname);
         self->ImageData = Load_Alloc_Data(file);

@@ -22,7 +22,7 @@ class ObjectClass;
 
 inline int Scenario_Difficulty()
 {
-    return unknown_id_source_a3d290->Difficulty;
+    return Scen->Difficulty;
 }
 
 extern "C" GUID const CLSID_TriggerClass;       // 0x007A1D50

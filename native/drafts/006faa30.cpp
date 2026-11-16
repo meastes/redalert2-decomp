@@ -16,10 +16,10 @@ static double const unknown_diagonal_lepton_7a3a20 = 362.03867196751236;   // na
 static double const unknown_lepton_79a700 = 256.0;   // native: the value at 0x0079A700
 extern double const unknown_facing_radians_79b620;
 #include "shared/rect.hpp"
-extern Point2D const unknown_adjacent_offsets_00851ac0[8];   // 0x00851AC0
+extern Point2D const AdjacentPoint[8];   // 0x00851AC0
 inline CoordStruct Adjacent_Coord_006faa30(CoordStruct const &coord, int dir)
 {
-    return coord + unknown_adjacent_offsets_00851ac0[dir & 7];
+    return coord + AdjacentPoint[dir & 7];
 }
 // @ref ?unknown_tube_speed_79d568@@=0079d568
 // @ref ?unknown_diagonal_lepton_7a3a20@@=007a3a20

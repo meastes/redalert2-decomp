@@ -191,7 +191,7 @@ WWCRCEngine __fastcall Game_CRC()
 {
     WWCRCEngine crc;
     int index;
-    unknown_id_source_a3d290->Compute_CRC(crc);
+    Scen->Compute_CRC(crc);
     for (index = 0; index < HouseTypes.Count(); index++) {
         HouseTypes[index]->Compute_CRC(crc);
     }
@@ -372,8 +372,8 @@ bool __fastcall Save_Game(char const *filename, wchar_t const *description, int 
     info.Set_Scenario_Description(description);
     info.Set_Version(1);
     info.Set_Player_House(PlayerPtr->Type->UIName);
-    info.Set_Campaign_Number(unknown_id_source_a3d290->Campaign);
-    info.Set_Scenario_Number(unknown_id_source_a3d290->TechLevel);
+    info.Set_Campaign_Number(Scen->Campaign);
+    info.Set_Scenario_Number(Scen->TechLevel);
     info.Set_Executable_Name("SUN.EXE");
     info.Set_Game_Type(unknown_game_mode_a3d298);
     FILETIME time;
@@ -428,7 +428,7 @@ bool __fastcall Save_Game(char const *filename, wchar_t const *description, int 
 
 bool __fastcall Put_All(IStream *stream, int save_net)
 {
-    unknown_id_source_a3d290->Save(stream);
+    Scen->Save(stream);
     unknown_scenario_checkpoint_00855a90.Write_004B5C70(stream);
     Rules->Save(stream);
     if (FAILED(Save_Vector(stream, AnimTypes))) {
@@ -804,8 +804,8 @@ bool __fastcall Unknown_00656890(char const *filename)
 bool __fastcall Get_All(IStream *stream, bool save_net)
 {
     Clear_Scenario_0065d370();
-    unknown_id_source_a3d290->Load(stream);
-    if (!Unknown_0051a330(unknown_id_source_a3d290->IsGDI ? 0 : 1)) {
+    Scen->Load(stream);
+    if (!Unknown_0051a330(Scen->IsGDI ? 0 : 1)) {
         DebugString("\t***** FAILED!\n");
         return false;
     }
@@ -818,7 +818,7 @@ bool __fastcall Get_All(IStream *stream, bool save_net)
     }
     Map.unknown_slot42(temp);
     unknown_scenario_checkpoint_00855a90.Read_004B5C50(stream);
-    Init_Theater_00519e70(unknown_id_source_a3d290->Theater);
+    Init_Theater_00519e70(Scen->Theater);
     Rules->Load(stream);
     if (FAILED(Skip_Objects(stream))) {    // AnimTypes
         DebugString("\t***** FAILED!\n");

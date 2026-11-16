@@ -202,7 +202,7 @@ bool __stdcall JumpjetLocomotionClass::Process()
         }
         if (LinkedTo->IsSelected && LinkedTo->House != PlayerPtr) {
             if (Map.Is_Shrouded(Object_Coord(LinkedTo)) ||
-                ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
+                ((Scen->unknown_000 & 0x1000) && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
                 LinkedTo->Unselect();
             }
         }

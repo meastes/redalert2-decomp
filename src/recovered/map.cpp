@@ -712,8 +712,8 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         }
 
         for (i = 0; i < 101; i++) {
-            if (unknown_id_source_a3d290->Is_Valid_Waypoint(i)) {
-                unknown_id_source_a3d290->Set_Waypoint_Location(i, unknown_id_source_a3d290->Get_Waypoint_Location(i) + offset);
+            if (Scen->Is_Valid_Waypoint(i)) {
+                Scen->Set_Waypoint_Location(i, Scen->Get_Waypoint_Location(i) + offset);
             }
         }
 
@@ -9194,7 +9194,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
                 Cell piece = Cell(x, y);
                 AnimTypeClass *type = 0;
                 for (int i = 0; i < 2; i++) {
-                    switch (unknown_id_source_a3d290->RandomNumber(0, 2)) {
+                    switch (Scen->RandomNumber(0, 2)) {
                     case 0:
                         type = med1;
                         break;
@@ -9205,7 +9205,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
                         type = sml1;
                         break;
                     }
-                    AnimClass *anim = new AnimClass(type, CoordStruct(piece, Map[piece].Height * unknown_geometry_g) + CoordStruct(unknown_id_source_a3d290->RandomNumber(-12, 12), unknown_id_source_a3d290->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, 0x600, 0);
+                    AnimClass *anim = new AnimClass(type, CoordStruct(piece, Map[piece].Height * unknown_geometry_g) + CoordStruct(Scen->RandomNumber(-12, 12), Scen->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, 0x600, 0);
                 }
             }
         }
@@ -9279,7 +9279,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
                 Cell piece = Cell(x, y);
                 AnimTypeClass *type = 0;
                 for (int i = 0; i < 2; i++) {
-                    switch (unknown_id_source_a3d290->RandomNumber(0, 2)) {
+                    switch (Scen->RandomNumber(0, 2)) {
                     case 0:
                         type = med1;
                         break;
@@ -9290,7 +9290,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
                         type = sml1;
                         break;
                     }
-                    AnimClass *anim = new AnimClass(type, CoordStruct(piece, Map[piece].Height * unknown_geometry_g) + CoordStruct(unknown_id_source_a3d290->RandomNumber(-12, 12), unknown_id_source_a3d290->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, 0x600, 0);
+                    AnimClass *anim = new AnimClass(type, CoordStruct(piece, Map[piece].Height * unknown_geometry_g) + CoordStruct(Scen->RandomNumber(-12, 12), Scen->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, 0x600, 0);
                 }
             }
         }

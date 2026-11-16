@@ -114,9 +114,9 @@ bool TEventClass::unknown_func_6e6050(int event, HouseClass *house, ObjectClass 
 {
     switch (Type) {
     case 0x2D:
-        return unknown_id_source_a3d290->CurrentAmbientLight <= Data;
+        return Scen->CurrentAmbientLight <= Data;
     case 0x2E:
-        return unknown_id_source_a3d290->CurrentAmbientLight >= Data;
+        return Scen->CurrentAmbientLight >= Data;
     case 0x2F:
         if (Data > Frame / 15) {
             return false;
@@ -125,26 +125,26 @@ bool TEventClass::unknown_func_6e6050(int event, HouseClass *house, ObjectClass 
         }
     case 0x1B: {
         bool value;
-        unknown_id_source_a3d290->Get_Global_Variable(Data, &value);
+        Scen->Get_Global_Variable(Data, &value);
         return value;
     }
     case 0x1C: {
         bool value;
-        unknown_id_source_a3d290->Get_Global_Variable(Data, &value);
+        Scen->Get_Global_Variable(Data, &value);
         return !value;
     }
     case 0x24: {
         bool value;
-        unknown_id_source_a3d290->Get_Local_Variable(Data, &value);
+        Scen->Get_Local_Variable(Data, &value);
         return value;
     }
     case 0x25: {
         bool value;
-        unknown_id_source_a3d290->Get_Local_Variable(Data, &value);
+        Scen->Get_Local_Variable(Data, &value);
         return !value;
     }
     case 0x0E:
-        if (!unknown_id_source_a3d290->MissionTimer.Is_Active() || unknown_id_source_a3d290->MissionTimer != 0) return false;
+        if (!Scen->MissionTimer.Is_Active() || Scen->MissionTimer != 0) return false;
         return true;
     case 0x0D:
     case 0x33:
@@ -196,7 +196,7 @@ bool TEventClass::unknown_func_6e6050(int event, HouseClass *house, ObjectClass 
         return true;
     } else if (Type == 0x22) {
         if (event != Type) return false;
-        CoordStruct waypoint = unknown_id_source_a3d290->Waypoint_Coord(Data);
+        CoordStruct waypoint = Scen->Waypoint_Coord(Data);
         if (Coord_Distance(object->Center_Coord(), waypoint) > 0x500) {
             return false;
         }

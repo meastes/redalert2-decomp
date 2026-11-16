@@ -104,11 +104,11 @@ void Choose_Map(char const *map)
     char detail[400];
     if (index >= 0) {
         session.ScenarioIndex = index;
-        Copy(unknown_id_source_a3d290->FileName, session.Scenarios[index]->Get_Filename(), sizeof(unknown_id_source_a3d290->FileName));
+        Copy(Scen->FileName, session.Scenarios[index]->Get_Filename(), sizeof(Scen->FileName));
     } else {
-        Copy(unknown_id_source_a3d290->FileName, map, sizeof(unknown_id_source_a3d290->FileName));
+        Copy(Scen->FileName, map, sizeof(Scen->FileName));
     }
-    Copy(detail, unknown_id_source_a3d290->FileName, sizeof detail);
+    Copy(detail, Scen->FileName, sizeof detail);
     Append(detail, " (", sizeof detail);
     Append_Int(detail, count, sizeof detail);
     Append(detail, index >= 0 ? " scenario descriptions)" : " scenario descriptions; not among them, passed as a file name)", sizeof detail);
@@ -230,12 +230,12 @@ bool Native_Select_Game_Seam(bool fade)
     Set_Up_Skirmish(map);
     // Select_Game resets the per-game state, skips its menu loop (the
     // Native_Skirmish_Menu_Bypass seam) and starts the scenario in
-    // unknown_id_source_a3d290->FileName. Debug_Map stays false: it is
+    // Scen->FileName. Debug_Map stays false: it is
     // Westwood's editor flag, under which the multiplayer setup makes no
     // computer houses or start units (0x0065E8C0) and the view runs in editor mode.
     bool started_game = Select_Game(fade);
     if (started_game) {
-        ra2port_progress("scenario", unknown_id_source_a3d290->FileName);
+        ra2port_progress("scenario", Scen->FileName);
         // What the scenario start made: the technos (0x00A40C20) and the
         // session's start-unit settings (Create_Units 0x00660320 / the game mode).
         char made[96] = "technos ";

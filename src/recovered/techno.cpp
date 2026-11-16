@@ -211,7 +211,7 @@ TechnoClass::TechnoClass(HouseClass *house) :
     HousePtrTracker.Add(this);
     AbstractFlags.IsTechno=true;
     for (int i=0;i<8;++i) unknown_25c[i]=0;
-    SoundRandomSeed=short(unknown_id_source_a3d290->Random()());
+    SoundRandomSeed=short(Scen->Random()());
 }
 
 
@@ -1734,7 +1734,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
             if(Map[object->Center_Coord()].Cell_Building()) return false;
         } else if(Kind_Of()==1 && !object->Considered_Vehicle()) return false;
     }
-    if(unknown_id_source_a3d290->unknown_000&0x800) {
+    if(Scen->unknown_000&0x800) {
         ObjectTypeClass *type=object->Class_Of();
         for(int i=0;i<Rules->HarvesterUnit.Count();i++) {
             if(Rules->HarvesterUnit[i]==type) return false;
@@ -1789,7 +1789,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     if(object->IsDisguisedAs(House) && !Techno_Type_Class()->DetectDisguise) {
         if(!tech->DisguiseBlinkTimer.Value()) return false;
         if(House->Is_Human_Player()) return false;
-        int roll=unknown_id_source_a3d290->Random()(0,99);
+        int roll=Scen->Random()(0,99);
         if(roll>Rules->DisabledDisguiseDetectionPercent[House->Difficulty]) return false;
     }
     if(method&0x100) {
@@ -2231,8 +2231,8 @@ void TechnoClass::AI()
         }
         if (!unknown_25c[1] && sparks.Count()>0) {
             double probability=Health_Ratio()<Rules->ConditionRed ? Rules->ConditionRedSparkingProbability:Rules->ConditionYellowSparkingProbability;
-            if (double(unknown_id_source_a3d290->Random()(0,0x7ffffffe))*unknown_random_scale_79c280<probability) {
-                unknown_25c[1]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(sparks[unknown_id_source_a3d290->Random()(0,sparks.Count()-1)]),Techno_Type_Class()->Damage_Smoke_Offset()+Center_Coord(),0,this,unknown_geometry_l);
+            if (double(Scen->Random()(0,0x7ffffffe))*unknown_random_scale_79c280<probability) {
+                unknown_25c[1]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(sparks[Scen->Random()(0,sparks.Count()-1)]),Techno_Type_Class()->Damage_Smoke_Offset()+Center_Coord(),0,this,unknown_geometry_l);
             }
         }
     }
@@ -2400,7 +2400,7 @@ void TechnoClass::Cloaking_AI(int arg1)
                     if (Health_Ratio() > Rules->ConditionRed) {
                         unknown_slot253(false);
                     } else {
-                        if (unknown_id_source_a3d290->Random()(0, 99) < 4) {
+                        if (Scen->Random()(0, 99) < 4) {
                             unknown_slot253(false);
                         }
                     }
@@ -2437,7 +2437,7 @@ void TechnoClass::Cloaking_AI(int arg1)
             }
             switch (unknown_slot25(true, 0)) {
             case 2:
-                if (Health_Ratio() <= Rules->ConditionRed && unknown_id_source_a3d290->Random()(0, 99) < 10) {
+                if (Health_Ratio() <= Rules->ConditionRed && Scen->Random()(0, 99) < 10) {
                     unknown_slot252(true);
                 }
                 break;
@@ -3103,7 +3103,7 @@ extern double const unknown_facing_radians_79b620;
 extern double const unknown_two_pi_79c9b8;
 inline double Random_Double_006ca890(double low, double high)
 {
-    int sample = unknown_id_source_a3d290->Random()(0, 0x7FFFFFFE);
+    int sample = Scen->Random()(0, 0x7FFFFFFE);
     return (high - low) * ((double)sample * unknown_random_scale_79c280) + low;
 }
 inline unsigned short Random_Direction_006ca890()
@@ -3268,7 +3268,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
         displacement = Predict_Target_Coord() - fire_coord;
         if (btype->Inaccurate && btype->Arcing) {
             if (!btype->FlakScatter || btype->Inviso) {
-                int spread = unknown_id_source_a3d290->Random()(Rules->BallisticScatter / 2, Rules->BallisticScatter);
+                int spread = Scen->Random()(Rules->BallisticScatter / 2, Rules->BallisticScatter);
                 UnknownFacingDir facing(Random_Direction_006ca890());
                 displacement = Move_Coord_006ca890(displacement, facing, spread);
             } else {
@@ -3773,7 +3773,7 @@ int TechnoClass::What_Action(Cell const *cell, bool arg2, bool arg3)
     if (unknown_slot111() || unknown_slot112()) {
         return 0;
     }
-    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && arg2 && cellptr->unknown_28 != 0) {
+    if ((Scen->unknown_000 & 0x1000) && arg2 && cellptr->unknown_28 != 0) {
         for (int index = 0; index < cellptr->unknown_28->Count(); index++) {
             UnknownCellEntry28 *entry = (*cellptr->unknown_28)[index];
             if (entry->unknown_74) {
@@ -4293,7 +4293,7 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
                     if (Techno_Type_Class()->DebrisTypes.Count()>0) {
                         int index=0;
                         while (debris>0) {
-                            int pieces=abs(unknown_id_source_a3d290->RandomNumber)%(Techno_Type_Class()->DebrisMaximums[index]+1);
+                            int pieces=abs(Scen->RandomNumber)%(Techno_Type_Class()->DebrisMaximums[index]+1);
                             if (pieces>=debris) pieces=debris;
                             for (int n=pieces;n>0;--n) {
                                 new VoxelAnimClass(Techno_Type_Class()->DebrisTypes[index],Center_Coord(),House);
@@ -5554,7 +5554,7 @@ void TechnoClass::Detach(AbstractClass *target, bool all)
     }
     if (TarCom == target && forget && (all || target->Owning_House() != House)) {
         if (unknown_148.Value() > 10 && ScenarioInit == 0) {
-            unknown_148 = unknown_id_source_a3d290->Random()(4, 8);
+            unknown_148 = Scen->Random()(4, 8);
         }
         unknown_slot220(0);
         if (Has_Suspended_Mission()) {
@@ -5663,7 +5663,7 @@ InfantryTypeClass *TechnoClass::Crew_Type()
         crew = Rules->Technician;
     }
     if (House->Type->Side != -1) {
-        if (unknown_slot163() && unknown_id_source_a3d290->Random()(0, 99) < 15) {
+        if (unknown_slot163() && Scen->Random()(0, 99) < 15) {
             crew = Rules->Technician;
         }
     } else {
@@ -5848,7 +5848,7 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
         for (int chosen=0;chosen<count;++chosen) {
             FootClass *member=responders[chosen];
             bool base_defense=member->Team && member->Team->Class->IsBaseDefense;
-            if (unknown_id_source_a3d290->Random()(0,99)>=66 || base_defense) {
+            if (Scen->Random()(0,99)>=66 || base_defense) {
                 member->QueueMission(11,false);
                 member->ArchivedTarget=this;
             } else {
@@ -6376,10 +6376,10 @@ bool TechnoClass::unknown_slot209(CoordStruct const *coord, int arg2)
 {
     unknown_3f4 = Frame;
     if (Mission == 11) {
-        int random = unknown_id_source_a3d290->Random()(0, 2);
+        int random = Scen->Random()(0, 2);
         unknown_148 = Rules->GuardAreaTargetingDelay + random;
     } else {
-        int random = unknown_id_source_a3d290->Random()(0, 2);
+        int random = Scen->Random()(0, 2);
         unknown_148 = Rules->NormalTargetingDelay + random;
     }
     int method = arg2 & 3;
@@ -7614,7 +7614,7 @@ bool TechnoClass::unknown_slot190(int *out_kind)
     int value = Get_Height_AGL();
     bool ability = Has_Ability(11);
     bool hidden = Map.Is_Shrouded(CoordStruct(Coord)) && unknown_b263d8 != 0;
-    bool tunnel = (unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(CoordStruct(Coord));
+    bool tunnel = (Scen->unknown_000 & 0x1000) && Map.Is_Fogged(CoordStruct(Coord));
     if (!tunnel && Cloak != 2 && value >= -20 && !ability && !hidden) {
         return true;
     }
@@ -8632,7 +8632,7 @@ void TechnoClass::unknown_6d9670(long delay)
 void TechnoClass::unknown_6d96a0()
 {
     if (unknown_148.Value() > 10 && ScenarioInit == 0) {
-        unknown_148 = CDTimerClass<FrameTimerClass>(unknown_id_source_a3d290->Random()(4, 8));
+        unknown_148 = CDTimerClass<FrameTimerClass>(Scen->Random()(4, 8));
     }
 }
 

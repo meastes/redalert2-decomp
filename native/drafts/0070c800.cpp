@@ -23,7 +23,7 @@
 // @ref ??_7VoxelAnimClass@@6BIRTTITypeInfo@@@=007ae40c
 // @ref ??_7VoxelAnimClass@@6BINoticeSink@@@=007ae404
 // @ref ??_7VoxelAnimClass@@6BINoticeSource@@@=007ae3fc
-// @ref ?unknown_id_source_a3d290@@3PAVScenarioClass@@A=00a3d290
+// @ref ?Scen@@3PAVScenarioClass@@A=00a3d290
 // @ref ??RRandom2Class@@QAEHXZ=00638840
 // @ref ?Init@BounceClass@@QAEXABUCoordStruct@@NNNABUVector3@@N@Z=00436dc0
 
@@ -44,10 +44,10 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass *type, CoordStruct const &coor
     if (!Class->IsMeteor) {
         ObjectClass::Unlimbo(&coord, 0);
         CoordStruct center = ObjectClass::Center_Coord() + CoordStruct(0, 0, 10);
-        int spin_roll = unknown_id_source_a3d290->Random()();
-        int z_roll = unknown_id_source_a3d290->Random()();
-        int y_roll = unknown_id_source_a3d290->Random()();
-        int x_roll = unknown_id_source_a3d290->Random()();
+        int spin_roll = Scen->Random()();
+        int z_roll = Scen->Random()();
+        int y_roll = Scen->Random()();
+        int x_roll = Scen->Random()();
         float y = abs(y_roll) % (int)(Class->MaxXYVel + Class->MaxXYVel) - Class->MaxXYVel;
         float z = abs(z_roll) % (int)(Class->MaxZVel - Class->MinZVel + 1.0) + Class->MinZVel;
         float x = abs(x_roll) % (int)(Class->MaxXYVel + Class->MaxXYVel) - Class->MaxXYVel;
@@ -55,8 +55,8 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass *type, CoordStruct const &coor
         double rotation = abs(spin_roll) % (int)(Class->MaxAngularVelocity - Class->MinAngularVelocity + 1.0) + Class->MinAngularVelocity;
         BounceClass::Init(center, Class->Elasticity, 1.4f, 0, velocity, rotation);
     } else {
-        int y_roll = unknown_id_source_a3d290->Random()();
-        int x_roll = unknown_id_source_a3d290->Random()();
+        int y_roll = Scen->Random()();
+        int x_roll = Scen->Random()();
         Vector3 velocity(abs(x_roll) % (int)(Class->MaxXYVel + Class->MaxXYVel) - Class->MaxXYVel,
                          abs(y_roll) % (int)(Class->MaxXYVel + Class->MaxXYVel) - Class->MaxXYVel,
                          Class->MinZVel);
@@ -64,13 +64,13 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass *type, CoordStruct const &coor
             velocity.X = -velocity.X;
             velocity.Y = -velocity.Y;
         }
-        unknown_128 -= abs(unknown_id_source_a3d290->Random()() % 20);
+        unknown_128 -= abs(Scen->Random()() % 20);
         int x = coord.X - unknown_128 * velocity.X;
         int y = coord.Y - unknown_128 * velocity.Y;
         int z = coord.Z - unknown_128 * velocity.Z;
         CoordStruct start(x, y, z);
         ObjectClass::Unlimbo(&start, 0);
-        int spin_roll = unknown_id_source_a3d290->Random()();
+        int spin_roll = Scen->Random()();
         BounceClass::Init(ObjectClass::Center_Coord(), Class->Elasticity, 1.4f, 0, velocity,
             abs(spin_roll) % (int)(Class->MaxAngularVelocity - Class->MinAngularVelocity + 1.0) + Class->MinAngularVelocity);
     }

@@ -4845,7 +4845,7 @@ extern "C" unsigned char ra2_place_1935[] __asm__("_SpareTicks");
 extern "C" unsigned char ra2_place_1936[] __asm__("_TacticalActive");
 extern "C" unsigned char ra2_place_1937[] __asm__("_unknown_a40770");
 extern "C" unsigned char ra2_place_1938[] __asm__("_ScenarioInit");
-extern "C" unsigned char ra2_place_1939[] __asm__("_unknown_special_a40920");
+extern "C" unsigned char ra2_place_1939[] __asm__("_Special");
 extern "C" unsigned char ra2_place_1940[] __asm__("_GameActive_00a40958");
 extern "C" unsigned char ra2_place_1941[] __asm__("_unknown_placing_a40b32");
 extern "C" unsigned char ra2_place_1942[] __asm__("_LParam");

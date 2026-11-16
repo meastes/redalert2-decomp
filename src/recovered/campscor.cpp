@@ -531,12 +531,12 @@ void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> sco
     }
     unknown_465d10();
     unknown_sort_session_scores_465ee0();
-    Unknown_Load_Art_Once_006F2710(unknown_id_source_a3d290->IsGDI == false);
+    Unknown_Load_Art_Once_006F2710(Scen->IsGDI == false);
     Darken_Surface(0, true);
     if (unknown_game_mode_a3d298 == 4) {
         Ipx.Global_Channel_Clear_FieldC8();
     }
-    HWND window = unknown_create_dialog_5ff610(0xBC6, unknown_score_dialog_proc_465fc0, 0);
+    HWND window = OwnerDraw_Begin_Dialog(0xBC6, unknown_score_dialog_proc_465fc0, 0);
     int result = 0;
     if (window) {
         SetWindowLongA(window, 8, (LONG)&result);
@@ -629,7 +629,7 @@ void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> sco
             }
         }
         Darken_Surface(0, true);
-        unknown_dialog_5ff6e0(window);
+        OwnerDraw_End_Dialog(window);
         Darken_Surface(0, true);
     }
     if (unknown_game_mode_a3d298 == 4) {
@@ -853,7 +853,7 @@ void CampaignEndScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> 
     unknown_end_score_campaign_850488 = campaign;
     unknown_end_score_difficulty_8504d0 = difficulty;
     unknown_end_score_time_85049c = time;
-    int alternate = unknown_id_source_a3d290->IsGDI == false;
+    int alternate = Scen->IsGDI == false;
     Unknown_Load_Art_Once_006F2710(alternate);
     Unknown_Load_Art_Pair_006F2A30(alternate);
     Darken_Surface(0, true);

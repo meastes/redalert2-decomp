@@ -96,7 +96,7 @@ static int __cdecl Phone_Compare(void const *p1, void const *p2);
 // 0x0060D970
 bool PhoneEdit::Dialog()
 {
-    _Dialog = unknown_create_dialog_5ff610(0xEE, Phone_Dialog_Proc, 0);
+    _Dialog = OwnerDraw_Begin_Dialog(0xEE, Phone_Dialog_Proc, 0);
     if (_Dialog) {
         Changed = false;
         RC = -1;
@@ -104,12 +104,12 @@ bool PhoneEdit::Dialog()
         Build_Phone_Listbox();
         Display_Dialog(_Dialog);
         while (RC < 0) {
-            if (unknown_6000d0() == true) {
+            if (OwnerDraw_Dialog_Message_Handler() == true) {
                 break;
             }
             Title_Screen_Restore(false);
         }
-        unknown_dialog_5ff6e0(_Dialog);
+        OwnerDraw_End_Dialog(_Dialog);
         if (Changed == true) {
             unknown_session_a3d298.Write_MultiPlayer_Settings();
         }
@@ -406,7 +406,7 @@ bool PhoneEntryEdit::Dialog(PhoneEntryClass *phone)
     if (phone == 0) {
         return false;
     }
-    _Dialog = unknown_create_dialog_5ff610(0xEF, Edit_Phone_Dialog_Proc, 0);
+    _Dialog = OwnerDraw_Begin_Dialog(0xEF, Edit_Phone_Dialog_Proc, 0);
     if (_Dialog) {
         Phone = phone;
         RC = -1;
@@ -414,12 +414,12 @@ bool PhoneEntryEdit::Dialog(PhoneEntryClass *phone)
         Init();
         Display_Dialog(_Dialog);
         while (RC < 0) {
-            if (unknown_6000d0() == true) {
+            if (OwnerDraw_Dialog_Message_Handler() == true) {
                 break;
             }
             Title_Screen_Restore(false);
         }
-        unknown_dialog_5ff6e0(_Dialog);
+        OwnerDraw_End_Dialog(_Dialog);
     }
     if (RC != 1) {
         return false;

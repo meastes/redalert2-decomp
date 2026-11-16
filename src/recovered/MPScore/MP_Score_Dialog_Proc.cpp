@@ -48,7 +48,7 @@ int __stdcall MP_Score_Dialog_Proc_005AAE40(HWND window, UINT message, WPARAM wp
         SendMessageA(item, 0x4B2, 0, (LPARAM)title);
         item = GetDlgItem(window, 0x6D2);
         SendMessageA(item, 0x4B2, 0, (LPARAM)text);
-        MP_Format_Time_005AAAE0(text, unknown_id_source_a3d290->ElapsedTime.Time() / 60);
+        MP_Format_Time_005AAAE0(text, Scen->ElapsedTime.Time() / 60);
         item = GetDlgItem(window, 0x3EA);
         SendMessageA(item, 0x4B2, 0, (LPARAM)text);
         MP_Tally_Scores_005AABD0();
@@ -101,7 +101,7 @@ int __stdcall MP_Score_Dialog_Proc_005AAE40(HWND window, UINT message, WPARAM wp
 // @ref ?To_RGB@HSVClass@@QBE?AVRGBClass@@XZ=004ff050
 // @ref ?unknown_a3f58c@@3HA=00a3f58c
 // @ref ?unknown_b2a7fc@@3HA=00b2a7fc
-// @ref ?unknown_id_source_a3d290@@3PAVScenarioClass@@A=00a3d290
+// @ref ?Scen@@3PAVScenarioClass@@A=00a3d290
 // @ref ?unknown_mp_score_controls_7e5518@@3PAY04HA=007e5518
 // @ref ?unknown_session_a3d298@@3USessionClass@@A=00a3d298
 // @ref __imp__GetDlgItem@8=0079a49c

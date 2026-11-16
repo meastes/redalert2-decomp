@@ -262,7 +262,7 @@ bool __fastcall Do_Reinforcements(TeamTypeClass *teamtype, int wp)
     atwaypoint = wp != -1;
     Cell origin;
     if (atwaypoint) {
-        origin = unknown_id_source_a3d290->Get_Waypoint_Location(wp);
+        origin = Scen->Get_Waypoint_Location(wp);
     } else {
         origin = teamtype->Waypoint_Location();
     }

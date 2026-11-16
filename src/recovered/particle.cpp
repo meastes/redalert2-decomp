@@ -99,7 +99,7 @@
 // The game's uniform random value in [a, b].
 static inline double Random_Double(double a, double b)
 {
-    int value = unknown_id_source_a3d290->Random()(0, 0x7ffffffe);
+    int value = Scen->Random()(0, 0x7ffffffe);
     return (b - a) * (value * 4.656612877414201e-10) + a;
 }
 
@@ -135,13 +135,13 @@ ParticleClass::ParticleClass(ParticleTypeClass *type, CoordStruct const &coord, 
     AbstractClass::Create_ID();
     unknown_ParticleClass_list_00a35e28.Add(this);
     if (Class->BehavesLike == 1) {
-        Velocity += (float)(unknown_id_source_a3d290->Random()() % 2);
+        Velocity += (float)(Scen->Random()() % 2);
     }
     RemainingDC = (short)Class->MaxDC;
     if (Class->BehavesLike == 4) {
-        Lifetime = (unsigned short)(Class->MaxEC + abs(unknown_id_source_a3d290->Random()() % 10));
+        Lifetime = (unsigned short)(Class->MaxEC + abs(Scen->Random()() % 10));
     } else {
-        int random = unknown_id_source_a3d290->Random()();
+        int random = Scen->Random()();
         Lifetime = (unsigned short)(Class->MaxEC + abs(random % Class->MaxEC));
     }
     CoordStruct place(coord.X, coord.Y, coord.Z);
@@ -261,13 +261,13 @@ void ParticleClass::Gas_Behavior_AI()
 {
     if ((Frame & 1) == 0) {
         CoordStruct coord = Coord;
-        if ((abs(unknown_id_source_a3d290->Random()()) & 7) == 0) {
+        if ((abs(Scen->Random()()) & 7) == 0) {
             int dx = 0;
             int dy = 0;
-            if ((abs(unknown_id_source_a3d290->Random()()) & 1) == 0) {
-                dx = abs(unknown_id_source_a3d290->Random()()) % 3 - 1;
+            if ((abs(Scen->Random()()) & 1) == 0) {
+                dx = abs(Scen->Random()()) % 3 - 1;
             } else {
-                dy = abs(unknown_id_source_a3d290->Random()()) % 3 - 1;
+                dy = abs(Scen->Random()()) % 3 - 1;
             }
             GasDrift.X += dx;
             GasDrift.Y += dy;
@@ -382,11 +382,11 @@ void ParticleClass::Railgun_Behavior_AI()
     Vector3 direction(MovementDirection.X, MovementDirection.Y, MovementDirection.Z);
     float speed = Velocity;
     Vector3 step; step.X = direction.X * speed; step.Y = direction.Y * speed; step.Z = direction.Z * speed;
-    Velocity += (unknown_id_source_a3d290->Random()(0, 0x7ffffffe) * 4.656612877414201e-10 - 0.5) * 0.1;
+    Velocity += (Scen->Random()(0, 0x7ffffffe) * 4.656612877414201e-10 - 0.5) * 0.1;
     Advance_Particle_Position(PrecisePosition, step);
     CoordStruct coord; coord.X = (int)PrecisePosition.X; coord.Y = (int)PrecisePosition.Y; coord.Z = (int)PrecisePosition.Z;
     Set_Coord(coord);
-    double color_change = unknown_id_source_a3d290->Random()(0, 0x7ffffffe) * 4.656612877414201e-10;
+    double color_change = Scen->Random()(0, 0x7ffffffe) * 4.656612877414201e-10;
     color_change *= Particle_Color_Step_007a10f8;
     color_change += Class->ColorSpeed;
     ColorState.Fraction = color_change + ColorState.Fraction;
@@ -409,13 +409,13 @@ void ParticleClass::Railgun_Behavior_AI()
 void ParticleClass::Smoke_Behavior_AI()
 {
     if (Frame & 1) {
-        if ((abs(unknown_id_source_a3d290->Random()()) & 3) == 0) {
+        if ((abs(Scen->Random()()) & 3) == 0) {
             int dx = 0;
             int dy = 0;
-            if ((abs(unknown_id_source_a3d290->Random()()) & 1) == 0) {
-                dx = abs(unknown_id_source_a3d290->Random()()) % 3 - 1;
+            if ((abs(Scen->Random()()) & 1) == 0) {
+                dx = abs(Scen->Random()()) % 3 - 1;
             } else {
-                dy = abs(unknown_id_source_a3d290->Random()()) % 3 - 1;
+                dy = abs(Scen->Random()()) % 3 - 1;
             }
             GasDrift.X += dx;
             GasDrift.Y += dy;
@@ -443,7 +443,7 @@ static inline int Particle_Distance(CoordStruct const &delta) { return (int)unkn
 void ParticleClass::Fire_Behavior_AI()
 {
     if (Velocity > 0.0) {
-    float jitter = (unknown_id_source_a3d290->Random()() % 10 - 5) * 0.02 + 1.0;
+    float jitter = (Scen->Random()() % 10 - 5) * 0.02 + 1.0;
     Vector3 step(MovementDirection.X * jitter, MovementDirection.Y * jitter, MovementDirection.Z * jitter);
     int dx = (int)(step.X * Velocity);
     int dy = (int)(step.Y * Velocity);
@@ -570,7 +570,7 @@ void ParticleClass::Spark_Behavior_AI()
     }
 
     Set_Coord((CoordStruct const &)UnknownVector3(position.X, position.Y, position.Z));
-    double color_change = unknown_id_source_a3d290->Random()(0, 0x7ffffffe) * 4.656612877414201e-10;
+    double color_change = Scen->Random()(0, 0x7ffffffe) * 4.656612877414201e-10;
     color_change *= Particle_Color_Step_007a10f8;
     color_change += Class->ColorSpeed;
     ColorState.Fraction = color_change + ColorState.Fraction;
@@ -629,7 +629,7 @@ void ParticleClass::Draw_It(Point2D const &point, Rect const &cliprect)
         return;
     }
     if (unknown_a40b2c != 0 || Class->BehavesLike != 1 && Class->BehavesLike != 3) {
-        if (!Debug_Map && unknown_b263d8 != 0 && unknown_id_source_a3d290->Special().FogOfWar && Map.Is_Fogged(Position_Coord_004f3f40())) {
+        if (!Debug_Map && unknown_b263d8 != 0 && Scen->Special().FogOfWar && Map.Is_Fogged(Position_Coord_004f3f40())) {
             return;
         }
 

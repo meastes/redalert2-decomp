@@ -6,7 +6,7 @@
 #include "shared/raw_file_class.hpp"
 // @ref ??2@YAPAXI@Z=00782017
 
-void *__fastcall unknown_load_alloc_data_00495550(FileClass &file)
+void *__fastcall Hires_Load(FileClass &file)
 {
     if (file.Is_Available()) {
         long size = file.Size();

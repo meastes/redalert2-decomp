@@ -4,8 +4,8 @@
     "id": "population-2854",
     "inventory_sha256": "f78333c7cfd86911f0f0d857e2cdfa5caee4ad9fdd949b9d69b7767f25a031a5",
     "gaps_sha256": "34fc2dd60a38a16663859f31a7bfe84a7596fb537c2d0c263970e70605657b4b",
-    "historical_population_sha256": "46d4756c5c20828d1540a3766106aefd8c8d48e52448fe847090d67c01d1c2ed",
-    "historical_acceptance_sha256": "02a08deadf70ea8e0ff66856ead92013af9cce2e06056e09335c85532dce4a67"
+    "historical_population_sha256": "a9b44219f7ce548b2e0fb6a281e1af741ba997156ca9dec1911b1f099c953a7b",
+    "historical_acceptance_sha256": "90e6ad8b55aa3453d39c1f308d48e130f5506132bdb5cf7a47bafe48ad16276b"
   },
   "references": {
     "??_V@YAXPAX@Z": 7871803,
@@ -162,7 +162,7 @@
     "?Debug_Printf@@YAXPBDZZ": 4221168,
     "_sprintf": 7872756,
     "??BSystemTimerClass@@QBEJXZ": 6923312,
-    "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
     "?next_map_log_007d4f38@@3QBDB": 8212280,
     "?local_player_log_007d4f24@@3QBDB": 8212260,
     "?assume_local_player_log_007d4f08@@3QBDB": 8212232,
@@ -5359,7 +5359,7 @@
     "?Detach@TriggerClass@@UAEXPAVAbstractClass@@_N@Z": 7264512,
     "?Detach@VoxelAnimTypeClass@@UAEXPAVAbstractClass@@_N@Z": 7400720,
     "?BeaconManager@@3VBeaconManagerClass@@A": 8710352,
-    "?unknown_com_objects_a6eb14@@3JA": 10939156,
+    "?COMRefCount@@3JA": 10939156,
     "?ScenarioInit@@3HA": 10749812,
     "??0DSurface@@QAE@PAUIDirectDrawSurface@@@Z": 4893536,
     "??_7DSurface@@6B@": 7998436,
@@ -7948,7 +7948,57 @@
     "??_E?$VectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z": 4245968,
     "??_E?$VectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249296,
     "??_E?$VectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z": 4257408,
-    "??_E?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845232
+    "??_E?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845232,
+    "??0Campaign@WorldDominationTour@@QAE@ABVWstring@@ABV?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@@Z": 7495488,
+    "??1Campaign@WorldDominationTour@@UAE@XZ": 7496416,
+    "??_7Campaign@WorldDominationTour@@6B@": 8056820,
+    "??_GCampaign@WorldDominationTour@@UAEPAXI@Z": 7498160,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
+    "?Special@@3VSpecialClass@@A": 10750240,
+    "??_E?$VectorClass@PAVAlphaLightingRemapClass@@@@UAEPAXI@Z": 4319440,
+    "??_E?$VectorClass@PAVAlphaShapeClass@@@@UAEPAXI@Z": 4324688,
+    "??_E?$VectorClass@I@@UAEPAXI@Z": 4371408,
+    "??_E?$VectorClass@G@@UAEPAXI@Z": 4371568,
+    "??_E?$VectorClass@VBaseNodeClass@@@@UAEPAXI@Z": 4379456,
+    "??_E?$VectorClass@VCell@@@@UAEPAXI@Z": 4379536,
+    "??_E?$VectorClass@PAVNeuronClass@@@@UAEPAXI@Z": 4424304,
+    "??_E?$VectorClass@PBVParticleSystemTypeClass@@@@UAEPAXI@Z": 4540176,
+    "??_E?$VectorClass@PAVInfantryClass@@@@UAEPAXI@Z": 4540336,
+    "??_E?$VectorClass@PAVFoggedObjectClass@@@@UAEPAXI@Z": 4540896,
+    "??_E?$VectorClass@PAVReestablish@@@@UAEPAXI@Z": 4540976,
+    "??_E?$VectorClass@PAVBulletClass@@@@UAEPAXI@Z": 4604416,
+    "??_E?$VectorClass@H@@UAEPAXI@Z": 4643440,
+    "??_E?$VectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z": 4643520,
+    "??_E?$VectorClass@VRGBClass@@@@UAEPAXI@Z": 4643600,
+    "??_ECellClass@@UAEPAXI@Z": 4706208,
+    "??_E?$VectorClass@PAVConvertClass@@@@UAEPAXI@Z": 4774864,
+    "??_E?$VectorClass@PAUDDSURFACEDESC@@@@UAEPAXI@Z": 4810544,
+    "??_E?$VectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z": 4890832,
+    "??_E?$VectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z": 4890992,
+    "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056,
+    "??_E?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEPAXI@Z": 4990080,
+    "??_EFootClass@@UAEPAXI@Z": 5037584,
+    "??_E?$VectorClass@PAVAbstractClass@@@@UAEPAXI@Z": 5037968,
+    "??_E?$VectorClass@PAVFootClass@@@@UAEPAXI@Z": 5040624,
+    "??_EINIClass@@UAEPAXI@Z": 5107440,
+    "??_E?$VectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z": 5108288,
+    "??_E?$VectorClass@PBVBuildingTypeClass@@@@UAEPAXI@Z": 5211280,
+    "??_E?$VectorClass@UAngerStruct@@@@UAEPAXI@Z": 5211440,
+    "??_E?$VectorClass@UScoutStruct@@@@UAEPAXI@Z": 5211600,
+    "??_E?$VectorClass@PAUBuildChoiceClass@HouseClass@@@@UAEPAXI@Z": 5211760,
+    "??_E?$VectorClass@PBVTeamTypeClass@@@@UAEPAXI@Z": 5211920,
+    "??_E?$VectorClass@_N@@UAEPAXI@Z": 5212000,
+    "??_E?$VectorClass@PAVAnimTypeClass@@@@UAEPAXI@Z": 5288624,
+    "??_E?$VectorClass@PAVCCINIClass@@@@UAEPAXI@Z": 5367408,
+    "??_E?$VectorClass@PAVAnimClass@@@@UAEPAXI@Z": 5377792,
+    "??_E?$VectorClass@PAVIonBlastClass@@@@UAEPAXI@Z": 5383264,
+    "??_E?$VectorClass@PAG@@UAEPAXI@Z": 5434448,
+    "??_E?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@UAEPAXI@Z": 5434608,
+    "??_E?$VectorClass@PAVLaserDrawClass@@@@UAEPAXI@Z": 5457424,
+    "??_E?$VectorClass@PAVLightSourceClass@@@@UAEPAXI@Z": 5472864,
+    "??_E?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEPAXI@Z": 5473024,
+    "??_E?$VectorClass@PAVFileEntryClass@@@@UAEPAXI@Z": 5492016,
+    "??_ECampaign@WorldDominationTour@@UAEPAXI@Z": 7498160
   },
   "regions": [
     {
@@ -7995,7 +8045,7 @@
         }
       ],
       "source": "src/recovered/coopcamp.cpp",
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source_order": 243168,
       "population": "population-2854",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -8046,7 +8096,7 @@
         }
       ],
       "source": "src/recovered/coopcamp.cpp",
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source_order": 243169,
       "population": "population-2854",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -8089,7 +8139,7 @@
         }
       ],
       "source": "src/recovered/coopcamp.cpp",
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source_order": 243170,
       "population": "population-2854",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -8131,7 +8181,7 @@
           "resolved": 3095475
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -8157,7 +8207,7 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "8f80daf1d0cf709be0dd005b8c07e867fc77f664f1c7c92dec671fbb2ad12d62",
       "relocations": [],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -8183,7 +8233,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "c442ec128ec7d56719a199df9e217bae407db6f9c4bc1ca82969b46ceb1f932e",
       "relocations": [],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -8209,7 +8259,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "57e4653c0e6895308fb526ce5a2c1d378fa1b657f1dd05968ceb8e98edcb8723",
       "relocations": [],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -8235,7 +8285,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "7bbae94c1550b7a4a6127d24e8bc2bfca49bb15bc6c8782db0a2e289e02d58b1",
       "relocations": [],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -8261,7 +8311,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "88cd9461d822856e3267d826f261db78852ef6891e85c88f7dca70278ee3d322",
       "relocations": [],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -8287,7 +8337,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "5a9774be17d1ad510e0e850a8e8eda732d12621447c35aead857a6550f77c5dd",
       "relocations": [],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -8313,7 +8363,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "cc754ad1e591edd09a7f29be43c3ffcb35ff1d94a43f8ab1910878a18181bb2c",
       "relocations": [],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -8339,7 +8389,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "07ab3c6535210f5176015bbbbc3793877f054f6fd32d530dbfdeb79de9a73861",
       "relocations": [],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -8382,7 +8432,7 @@
           "resolved": 8721776
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -8408,7 +8458,7 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "e2edae307e812e9cc1f0f89c387884ac829fdf13762471b60656f882283f9421",
       "relocations": [],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -8451,7 +8501,7 @@
           "resolved": 2539594
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -8494,7 +8544,7 @@
           "resolved": 2539341
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -8611,7 +8661,7 @@
         {
           "offset": 405,
           "kind": 6,
-          "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
           "target": 10736272,
           "addend": 0,
           "resolved": 10736272
@@ -8643,7 +8693,7 @@
         {
           "offset": 602,
           "kind": 6,
-          "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
           "target": 10736272,
           "addend": 0,
           "resolved": 10736272
@@ -8689,7 +8739,7 @@
           "resolved": 4294410852
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9004,7 +9054,7 @@
           "resolved": 4294576196
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -9671,7 +9721,7 @@
           "resolved": 4294574882
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -10362,7 +10412,7 @@
           "resolved": 3090372
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -10431,7 +10481,7 @@
         {
           "offset": 225,
           "kind": 6,
-          "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
           "target": 10736272,
           "addend": 0,
           "resolved": 10736272
@@ -10493,7 +10543,7 @@
           "resolved": 3089953
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10519,7 +10569,7 @@
       "full_extent_bytes": 160,
       "full_extent_sha256": "c20de3612b0abb328ba8e53c533ec86e814018f9c6464ab0a9eeecfe25a1eae7",
       "relocations": [],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10650,7 +10700,7 @@
           "resolved": 3088910
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -10965,7 +11015,7 @@
           "resolved": 4294571245
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -11232,7 +11282,7 @@
           "resolved": 4294403170
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -11587,7 +11637,7 @@
           "resolved": 4294570517
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11662,7 +11712,7 @@
           "resolved": 2537855
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -11761,7 +11811,7 @@
           "resolved": 8720752
         }
       ],
-      "source_sha256": "172d9506c0f5247da1091a09fd780965aeb953d4ce5518e1f844e236ef463a93",
+      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

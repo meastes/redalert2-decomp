@@ -409,8 +409,8 @@
   },
   {
    "source": "src/recovered/scenario.cpp",
-   "old": "Clear_All_Waypoints_00663220((int)unknown_id_source_a3d290);",
-   "new": "Clear_All_Waypoints_00663220(unknown_id_source_a3d290);   // NATIVE",
+   "old": "Clear_All_Waypoints_00663220((int)Scen);",
+   "new": "Clear_All_Waypoints_00663220(Scen);   // NATIVE",
    "why": "Clear_All_Waypoints (0x00663220, expanded) takes the scenario pointer as a 32-bit int and writes 101 cells at +0x632. Natively the pointer is 64-bit (the int cast truncates it) and the layout differs; the native view passes the pointer and writes ScenarioClass::Waypoints (+0x632, id_source.hpp). Same meaning; the exact build is unchanged.",
    "verified": false
   },
@@ -1411,8 +1411,8 @@
   },
   {
    "source": "src/recovered/init.cpp",
-   "old": "    HWND window = unknown_create_dialog_5ff610(0xE2, Unknown_005171D0, 0);\n    if (window != 0) {\n        SetWindowLongA(window, 8, (LONG)&choice);\n",
-   "new": "    HWND window = unknown_create_dialog_5ff610(0xE2, Unknown_005171D0, 0);\n    if (window != 0) {\n        EnableWindow(GetDlgItem(window, 0x684), FALSE);   /* NATIVE: no Internet play (lane C20) */\n        SetWindowLongA(window, 8, (LONG)&choice);\n",
+   "old": "    HWND window = OwnerDraw_Begin_Dialog(0xE2, Unknown_005171D0, 0);\n    if (window != 0) {\n        SetWindowLongA(window, 8, (LONG)&choice);\n",
+   "new": "    HWND window = OwnerDraw_Begin_Dialog(0xE2, Unknown_005171D0, 0);\n    if (window != 0) {\n        EnableWindow(GetDlgItem(window, 0x684), FALSE);   /* NATIVE: no Internet play (lane C20) */\n        SetWindowLongA(window, 8, (LONG)&choice);\n",
    "why": "Native (lane C20, user 2026-11-16): the native build has no Internet play (Westwood Online; its code stays link-closure traps). The main menu dialog 0xE2's Internet button 0x684 (STT:MainButtonWWOnline) is disabled as soon as the dialog is made: it draws with the original's own disabled shape-button look (0x005F0320, lane C16) and a click does nothing. It replaces the message box the click showed (Native_Multiplayer_Unavailable, Scout1187 M23)."
   },
   {
@@ -1526,8 +1526,8 @@
   },
   {
    "source": "src/recovered/mapgen.cpp",
-   "old": "seed_00663220::Clear_All_Waypoints_00663220(reinterpret_cast<int>(unknown_id_source_a3d290));",
-   "new": "seed_00663220::Clear_All_Waypoints_00663220(unknown_id_source_a3d290);   // NATIVE",
+   "old": "seed_00663220::Clear_All_Waypoints_00663220(reinterpret_cast<int>(Scen));",
+   "new": "seed_00663220::Clear_All_Waypoints_00663220(Scen);   // NATIVE",
    "why": "Init_Map (0x0057AE00) calls Clear_All_Waypoints (0x00663220, the seed in src/recovered/scenario/Clear_All_Waypoints.cpp) with the scenario pointer cast to a 32-bit int; the seed writes 101 cells at +0x632. Natively the cast truncates the pointer (the skirmish Random Map's Generate Map faulted, Scout1208 M27) and the layout differs. As Clear_Scenario's fixups: a native inline that takes the pointer and writes ScenarioClass::Waypoints with the empty cell (0x00AB6E88). Same meaning; the exact build is unchanged.",
    "verified": false
   },
@@ -2712,43 +2712,43 @@
   },
   {
    "source": "src/shared/dialog_create.hpp",
-   "old": "HWND __fastcall unknown_create_dialog_5ff610(int resource, DialogProc proc, int unknown3);",
-   "new": "// NATIVE (C3): the WM_INITDIALOG block (moved here from shared/ms_message_box.hpp natively).\nstruct UnknownDialogCreateParam {\n    unsigned short Resource;    // +0x00\n    intptr_t Param;             // +0x04 (NATIVE: pointer-sized; arm64 +0x08)\n};\nHWND __fastcall unknown_create_dialog_5ff610(int resource, DialogProc proc, intptr_t unknown3);   // NATIVE: pointer-sized third argument",
+   "old": "HWND __fastcall OwnerDraw_Begin_Dialog(int resource, DialogProc proc, int unknown3);",
+   "new": "// NATIVE (C3): the WM_INITDIALOG block (moved here from shared/ms_message_box.hpp natively).\nstruct UnknownDialogCreateParam {\n    unsigned short Resource;    // +0x00\n    intptr_t Param;             // +0x04 (NATIVE: pointer-sized; arm64 +0x08)\n};\nHWND __fastcall OwnerDraw_Begin_Dialog(int resource, DialogProc proc, intptr_t unknown3);   // NATIVE: pointer-sized third argument",
    "why": "Dialog creation 0x005FF610 passes its third argument to the dialog procedure in the WM_INITDIALOG block {unsigned short Resource; Param}; the online dialogs (Run_Control_Dialog 0x006011A0 with its DialogControl *, the account dialog 0x007540A0 and the buddy dialog 0x00758750 with &control) put a pointer there and their procedures keep it as the DWL_USER value. On VC6 int and pointers are 32 bits. Natively an int Param cut the 64-bit pointer, so every such dialog read back a cut DialogControl * through ra2port_get_dialog_user. Native only (C3): Param, the argument and the casts are pointer-sized (intptr_t, which is int on i686, so the i686 text and mangling are unchanged); the readers keep the pointer through the port's pointer-sized DWL_USER store. Same meaning. This row: the declaration, and the block with its pointer-sized Param (moved from shared/ms_message_box.hpp so every reader sees it).",
    "verified": false
   },
   {
    "source": "src/recovered/ownrdraw.cpp",
-   "old": "HWND __fastcall unknown_create_dialog_5ff610(int resource, DialogProc proc, int unknown3)",
-   "new": "HWND __fastcall unknown_create_dialog_5ff610(int resource, DialogProc proc, intptr_t unknown3)",
+   "old": "HWND __fastcall OwnerDraw_Begin_Dialog(int resource, DialogProc proc, int unknown3)",
+   "new": "HWND __fastcall OwnerDraw_Begin_Dialog(int resource, DialogProc proc, intptr_t unknown3)",
    "why": "Dialog creation 0x005FF610 passes its third argument to the dialog procedure in the WM_INITDIALOG block {unsigned short Resource; Param}; the online dialogs (Run_Control_Dialog 0x006011A0 with its DialogControl *, the account dialog 0x007540A0 and the buddy dialog 0x00758750 with &control) put a pointer there and their procedures keep it as the DWL_USER value. On VC6 int and pointers are 32 bits. Natively an int Param cut the 64-bit pointer, so every such dialog read back a cut DialogControl * through ra2port_get_dialog_user. Native only (C3): Param, the argument and the casts are pointer-sized (intptr_t, which is int on i686, so the i686 text and mangling are unchanged); the readers keep the pointer through the port's pointer-sized DWL_USER store. Same meaning. This row: the definition 0x005FF610.",
    "verified": false
   },
   {
    "source": "src/recovered/ownrdraw.cpp",
-   "old": "HWND window=unknown_create_dialog_5ff610(resource,procedure,(int)control);",
-   "new": "HWND window=unknown_create_dialog_5ff610(resource,procedure,(intptr_t)control);",
+   "old": "HWND window=OwnerDraw_Begin_Dialog(resource,procedure,(int)control);",
+   "new": "HWND window=OwnerDraw_Begin_Dialog(resource,procedure,(intptr_t)control);",
    "why": "Dialog creation 0x005FF610 passes its third argument to the dialog procedure in the WM_INITDIALOG block {unsigned short Resource; Param}; the online dialogs (Run_Control_Dialog 0x006011A0 with its DialogControl *, the account dialog 0x007540A0 and the buddy dialog 0x00758750 with &control) put a pointer there and their procedures keep it as the DWL_USER value. On VC6 int and pointers are 32 bits. Natively an int Param cut the 64-bit pointer, so every such dialog read back a cut DialogControl * through ra2port_get_dialog_user. Native only (C3): Param, the argument and the casts are pointer-sized (intptr_t, which is int on i686, so the i686 text and mangling are unchanged); the readers keep the pointer through the port's pointer-sized DWL_USER store. Same meaning. This row: Run_Control_Dialog 0x006011A0 passes its DialogControl *.",
    "verified": false
   },
   {
    "source": "src/recovered/wonline.cpp",
-   "old": "HWND __fastcall unknown_create_dialog_5ff610(int, DLGPROC, int);",
-   "new": "HWND __fastcall unknown_create_dialog_5ff610(int, DLGPROC, intptr_t);",
+   "old": "HWND __fastcall OwnerDraw_Begin_Dialog(int, DLGPROC, int);",
+   "new": "HWND __fastcall OwnerDraw_Begin_Dialog(int, DLGPROC, intptr_t);",
    "why": "Dialog creation 0x005FF610 passes its third argument to the dialog procedure in the WM_INITDIALOG block {unsigned short Resource; Param}; the online dialogs (Run_Control_Dialog 0x006011A0 with its DialogControl *, the account dialog 0x007540A0 and the buddy dialog 0x00758750 with &control) put a pointer there and their procedures keep it as the DWL_USER value. On VC6 int and pointers are 32 bits. Natively an int Param cut the 64-bit pointer, so every such dialog read back a cut DialogControl * through ra2port_get_dialog_user. Native only (C3): Param, the argument and the casts are pointer-sized (intptr_t, which is int on i686, so the i686 text and mangling are unchanged); the readers keep the pointer through the port's pointer-sized DWL_USER store. Same meaning. This row: two in-file declarations.",
    "verified": false
   },
   {
    "source": "src/recovered/wonline.cpp",
-   "old": "HWND __fastcall unknown_create_dialog_5ff610(int,int (__stdcall *)(HWND,UINT,WPARAM,LPARAM),int);",
-   "new": "HWND __fastcall unknown_create_dialog_5ff610(int,int (__stdcall *)(HWND,UINT,WPARAM,LPARAM),intptr_t);",
+   "old": "HWND __fastcall OwnerDraw_Begin_Dialog(int,int (__stdcall *)(HWND,UINT,WPARAM,LPARAM),int);",
+   "new": "HWND __fastcall OwnerDraw_Begin_Dialog(int,int (__stdcall *)(HWND,UINT,WPARAM,LPARAM),intptr_t);",
    "why": "Dialog creation 0x005FF610 passes its third argument to the dialog procedure in the WM_INITDIALOG block {unsigned short Resource; Param}; the online dialogs (Run_Control_Dialog 0x006011A0 with its DialogControl *, the account dialog 0x007540A0 and the buddy dialog 0x00758750 with &control) put a pointer there and their procedures keep it as the DWL_USER value. On VC6 int and pointers are 32 bits. Natively an int Param cut the 64-bit pointer, so every such dialog read back a cut DialogControl * through ra2port_get_dialog_user. Native only (C3): Param, the argument and the casts are pointer-sized (intptr_t, which is int on i686, so the i686 text and mangling are unchanged); the readers keep the pointer through the port's pointer-sized DWL_USER store. Same meaning. This row: an in-file declaration.",
    "verified": false
   },
   {
    "source": "src/recovered/wonline.cpp",
-   "old": "HWND __fastcall unknown_create_dialog_5ff610(int,DLGPROC,int);",
-   "new": "HWND __fastcall unknown_create_dialog_5ff610(int,DLGPROC,intptr_t);",
+   "old": "HWND __fastcall OwnerDraw_Begin_Dialog(int,DLGPROC,int);",
+   "new": "HWND __fastcall OwnerDraw_Begin_Dialog(int,DLGPROC,intptr_t);",
    "why": "Dialog creation 0x005FF610 passes its third argument to the dialog procedure in the WM_INITDIALOG block {unsigned short Resource; Param}; the online dialogs (Run_Control_Dialog 0x006011A0 with its DialogControl *, the account dialog 0x007540A0 and the buddy dialog 0x00758750 with &control) put a pointer there and their procedures keep it as the DWL_USER value. On VC6 int and pointers are 32 bits. Natively an int Param cut the 64-bit pointer, so every such dialog read back a cut DialogControl * through ra2port_get_dialog_user. Native only (C3): Param, the argument and the casts are pointer-sized (intptr_t, which is int on i686, so the i686 text and mangling are unchanged); the readers keep the pointer through the port's pointer-sized DWL_USER store. Same meaning. This row: an in-file declaration.",
    "verified": false
   },
@@ -2859,15 +2859,15 @@
   },
   {
    "source": "src/recovered/scenario.cpp",
-   "old": "    unknown_id_source_a3d290->Campaign = campaign;\n    Debug_Printf(\"\\n----- Starting scnenario: %s -----\\n\", name);\n",
-   "new": "    unknown_id_source_a3d290->Campaign = campaign;\n    void Native_Map_Zoom_Leave();   // NATIVE (C4): link/native_map_zoom.cpp\n    Native_Map_Zoom_Leave();\n    Debug_Printf(\"\\n----- Starting scnenario: %s -----\\n\", name);\n",
+   "old": "    Scen->Campaign = campaign;\n    Debug_Printf(\"\\n----- Starting scnenario: %s -----\\n\", name);\n",
+   "new": "    Scen->Campaign = campaign;\n    void Native_Map_Zoom_Leave();   // NATIVE (C4): link/native_map_zoom.cpp\n    Native_Map_Zoom_Leave();\n    Debug_Printf(\"\\n----- Starting scnenario: %s -----\\n\", name);\n",
    "why": "Native addition (C4, Map zoom, enhancements v2 part 2; not original behaviour): the map in play may be shown larger than the interface. The game's screen keeps its size; only the tactical view rectangle is made smaller (link/native_map_zoom.cpp) and the host shows it over the whole tactical area, larger (host.cpp zoom layout). At map zoom 1x (the default and the ORIGINAL preset) nothing changes. This row: Start_Scenario 0x0065BC70 tells the host a scenario is starting, so its loading screen and movies are shown whole until the game's first frame.",
    "verified": false
   },
   {
    "source": "src/recovered/scenario.cpp",
-   "old": "    Toggle_Display_Mode_0065c480(true);\n    unknown_id_source_a3d290->ElapsedTime.Start();\n",
-   "new": "    Toggle_Display_Mode_0065c480(true);\n    void Native_Map_Zoom_Start();   // NATIVE (C4): link/native_map_zoom.cpp\n    Native_Map_Zoom_Start();\n    unknown_id_source_a3d290->ElapsedTime.Start();\n",
+   "old": "    Toggle_Display_Mode_0065c480(true);\n    Scen->ElapsedTime.Start();\n",
+   "new": "    Toggle_Display_Mode_0065c480(true);\n    void Native_Map_Zoom_Start();   // NATIVE (C4): link/native_map_zoom.cpp\n    Native_Map_Zoom_Start();\n    Scen->ElapsedTime.Start();\n",
    "why": "Native addition (C4, Map zoom, enhancements v2 part 2; not original behaviour): the map in play may be shown larger than the interface. The game's screen keeps its size; only the tactical view rectangle is made smaller (link/native_map_zoom.cpp) and the host shows it over the whole tactical area, larger (host.cpp zoom layout). At map zoom 1x (the default and the ORIGINAL preset) nothing changes. This row: the end of Start_Scenario 0x0065BC70 (after its display mode toggle): the game takes the zoom set now and the view is made for it (Set_View_Dimensions with the tactical rectangle) when it differs from the last.",
    "verified": false
   },

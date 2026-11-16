@@ -138,64 +138,64 @@ void LogicClass::AI()
     for (LogicTriggerID = 0; LogicTriggerID < LogicTags.Count(); LogicTriggerID++) {
         TagClass *trig = LogicTags[LogicTriggerID];
 
-        if (unknown_id_source_a3d290->IsCrateBeenPickedUp) {
+        if (Scen->IsCrateBeenPickedUp) {
             if (trig->Spring(0x32, 0, unknown_geometry_k)) continue;
         }
-        if (unknown_id_source_a3d290->IsGlobalChanged) {
+        if (Scen->IsGlobalChanged) {
             if (trig->Spring(0x1B, 0, unknown_geometry_k)) continue;
             if (trig->Spring(0x1C, 0, unknown_geometry_k)) continue;
             if (trig->Spring(0x24, 0, unknown_geometry_k)) continue;
             if (trig->Spring(0x25, 0, unknown_geometry_k)) continue;
         }
-        if (unknown_id_source_a3d290->IsAmbientLightChanged) {
+        if (Scen->IsAmbientLightChanged) {
             if (trig->Spring(0x2D, 0, unknown_geometry_k)) continue;
             if (trig->Spring(0x2E, 0, unknown_geometry_k)) continue;
         }
         if (trig->Spring(0x0D, 0, unknown_geometry_k)) continue;
         if (trig->Spring(0x33, 0, unknown_geometry_k)) continue;
 
-        if (unknown_id_source_a3d290->MissionTimer.Is_Active() && unknown_id_source_a3d290->MissionTimer == 0) {
+        if (Scen->MissionTimer.Is_Active() && Scen->MissionTimer == 0) {
             if (trig->Spring(0x0E, 0, unknown_geometry_k)) continue;
         }
     }
 
-    if (unknown_id_source_a3d290->MissionTimer.Is_Active() && unknown_id_source_a3d290->MissionTimer == 0) {
-        unknown_id_source_a3d290->MissionTimer.Stop();
+    if (Scen->MissionTimer.Is_Active() && Scen->MissionTimer == 0) {
+        Scen->MissionTimer.Stop();
         Map.Flag_To_Redraw(2);
     }
-    unknown_id_source_a3d290->IsGlobalChanged = false;
-    unknown_id_source_a3d290->IsBridgeChanged = false;
-    unknown_id_source_a3d290->IsAmbientLightChanged = false;
-    unknown_id_source_a3d290->IsCrateBeenPickedUp = false;
+    Scen->IsGlobalChanged = false;
+    Scen->IsBridgeChanged = false;
+    Scen->IsAmbientLightChanged = false;
+    Scen->IsCrateBeenPickedUp = false;
 
-    if (Rules->ShroudGrow && Rules->ShroudRate != 0 && unknown_id_source_a3d290->ShroudTimer == 0) {
-        unknown_id_source_a3d290->ShroudTimer = 900 * Rules->ShroudRate;
+    if (Rules->ShroudGrow && Rules->ShroudRate != 0 && Scen->ShroudTimer == 0) {
+        Scen->ShroudTimer = 900 * Rules->ShroudRate;
         Map.Encroach_Shadow();
     }
     if (Frame % 120 == 0) {
         Map.Refresh_Shroud();
     }
-    if (((SpecialClass *)unknown_id_source_a3d290)->FogOfWar && Rules->FogRate != 0 && unknown_id_source_a3d290->FogTimer == 0) {
-        unknown_id_source_a3d290->FogTimer = 900 * Rules->FogRate;
+    if (((SpecialClass *)Scen)->FogOfWar && Rules->FogRate != 0 && Scen->FogTimer == 0) {
+        Scen->FogTimer = 900 * Rules->FogRate;
         Map.Encroach_Fog();
     }
 
-    if (unknown_id_source_a3d290->DesiredAmbientLight != unknown_id_source_a3d290->CurrentAmbientLight && Rules->AmbientChangeRate != 0 && unknown_id_source_a3d290->AmbientChangeTimer == 0) {
+    if (Scen->DesiredAmbientLight != Scen->CurrentAmbientLight && Rules->AmbientChangeRate != 0 && Scen->AmbientChangeTimer == 0) {
         if (NukeFlash_IsFadingIn() || Unknown_0051FC70()) {
-            unknown_id_source_a3d290->AmbientChangeTimer = unknown_id_source_a3d290->NukeAmbientChangeRate;
+            Scen->AmbientChangeTimer = Scen->NukeAmbientChangeRate;
         } else {
-            unknown_id_source_a3d290->AmbientChangeTimer = 900 * Rules->AmbientChangeRate;
+            Scen->AmbientChangeTimer = 900 * Rules->AmbientChangeRate;
         }
-        unknown_id_source_a3d290->DesiredAmbientLight = MAX(unknown_id_source_a3d290->DesiredAmbientLight, 0);
+        Scen->DesiredAmbientLight = MAX(Scen->DesiredAmbientLight, 0);
         int value = 100.0 * Rules->AmbientChangeStep;
-        if (unknown_id_source_a3d290->DesiredAmbientLight < unknown_id_source_a3d290->CurrentAmbientLight) {
-            unknown_id_source_a3d290->CurrentAmbientLight -= value;
-            unknown_id_source_a3d290->CurrentAmbientLight = MAX(unknown_id_source_a3d290->CurrentAmbientLight, unknown_id_source_a3d290->DesiredAmbientLight);
+        if (Scen->DesiredAmbientLight < Scen->CurrentAmbientLight) {
+            Scen->CurrentAmbientLight -= value;
+            Scen->CurrentAmbientLight = MAX(Scen->CurrentAmbientLight, Scen->DesiredAmbientLight);
         } else {
-            unknown_id_source_a3d290->CurrentAmbientLight += value;
-            unknown_id_source_a3d290->CurrentAmbientLight = MIN(unknown_id_source_a3d290->CurrentAmbientLight, unknown_id_source_a3d290->DesiredAmbientLight);
+            Scen->CurrentAmbientLight += value;
+            Scen->CurrentAmbientLight = MIN(Scen->CurrentAmbientLight, Scen->DesiredAmbientLight);
         }
-        unknown_id_source_a3d290->IsAmbientLightChanged = true;
+        Scen->IsAmbientLightChanged = true;
         Map.Unknown_0049E5E0();
         Map.Flag_To_Redraw(1);
     }
@@ -260,14 +260,14 @@ void LogicClass::AI()
 void LogicClass::Environment_AI()
 {
     if (Rules->ShroudGrow && Rules->ShroudRate != 0) {
-        if (unknown_id_source_a3d290->ShroudTimer == 0) {
-            unknown_id_source_a3d290->ShroudTimer = 900 * Rules->ShroudRate;
+        if (Scen->ShroudTimer == 0) {
+            Scen->ShroudTimer = 900 * Rules->ShroudRate;
             Map.Encroach_Shadow();
         }
     }
-    if (((SpecialClass *)unknown_id_source_a3d290)->FogOfWar && Rules->FogRate != 0) {
-        if (unknown_id_source_a3d290->FogTimer == 0) {
-            unknown_id_source_a3d290->FogTimer = 900 * Rules->FogRate;
+    if (((SpecialClass *)Scen)->FogOfWar && Rules->FogRate != 0) {
+        if (Scen->FogTimer == 0) {
+            Scen->FogTimer = 900 * Rules->FogRate;
             Map.Encroach_Fog();
         }
     }

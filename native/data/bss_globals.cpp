@@ -280,7 +280,7 @@ __asm__(".globl _unknown_max_ahead_frame2_a3d23c\n.set _unknown_max_ahead_frame2
 alignas(16) unsigned char ra2_bss_0215[16] __asm__("_unknown_a3d258");  // 0x00A3D258 unknown_a3d258 (?unknown_a3d258@@3HA)
 __asm__(".globl _unknown_max_ahead_frame1_a3d258\n.set _unknown_max_ahead_frame1_a3d258, _unknown_a3d258\n");  // same address: unknown_max_ahead_frame1_a3d258
 alignas(16) unsigned char ra2_bss_0216[16] __asm__("_Scen_00a3d290");  // 0x00A3D290 Scen_00a3d290
-__asm__(".globl _unknown_id_source_a3d290\n.set _unknown_id_source_a3d290, _Scen_00a3d290\n");  // same address: unknown_id_source_a3d290
+__asm__(".globl _Scen\n.set _Scen, _Scen_00a3d290\n");  // same address: Scen
 alignas(16) unsigned char ra2_bss_0217[16] __asm__("_unknown_lobby_state_a3d2b0");  // 0x00A3D2B0 unknown_lobby_state_a3d2b0 (?unknown_lobby_state_a3d2b0@@3VGameOptionsType@@A)
 alignas(16) unsigned char ra2_bss_0218[832] __asm__("_player_statistics_00a3d584");  // 0x00A3D584 player_statistics_00a3d584 (?player_statistics_00a3d584@@3PAUUnknownNetworkPlayerStatistics@@A)
 alignas(16) unsigned char ra2_bss_0219[40] __asm__("_unknown_item_data_00a3d8dc");  // 0x00A3D8DC unknown_item_data_00a3d8dc
@@ -298,7 +298,7 @@ alignas(16) unsigned char ra2_bss_0229[48] __asm__("_TacticalActive");  // 0x00A
 alignas(16) unsigned char ra2_bss_0230[16] __asm__("_unknown_a40770");  // 0x00A40770 unknown_a40770 (?unknown_a40770@@3HA)
 __asm__(".globl _unknown_crc_a40770\n.set _unknown_crc_a40770, _unknown_a40770\n");  // same address: unknown_crc_a40770
 alignas(16) unsigned char ra2_bss_0231[16] __asm__("_ScenarioInit");  // 0x00A40774 ScenarioInit (?ScenarioInit@@3HA)
-alignas(16) unsigned char ra2_bss_0232[16] __asm__("_unknown_special_a40920");  // 0x00A40920 unknown_special_a40920 (?unknown_special_a40920@@3VSpecialClass@@A)
+alignas(16) unsigned char ra2_bss_0232[16] __asm__("_Special");  // 0x00A40920 Special (?Special@@3VSpecialClass@@A)
 alignas(16) unsigned char ra2_bss_0233[16] __asm__("_GameActive_00a40958");  // 0x00A40958 GameActive_00a40958
 __asm__(".globl _GameActive\n.set _GameActive, _GameActive_00a40958\n");  // same address: GameActive
 alignas(16) unsigned char ra2_bss_0234[16] __asm__("_unknown_placing_a40b32");  // 0x00A40B32 unknown_placing_a40b32
@@ -494,7 +494,7 @@ __asm__(".globl _unknown_block_a6e38c\n.set _unknown_block_a6e38c, _IsometricTil
 alignas(16) unsigned char ra2_bss_0401[160] __asm__("_TileSetLookupCount");  // 0x00A6E390 TileSetLookupCount (?TileSetLookupCount@@3HA)
 alignas(16) unsigned char ra2_bss_0402[16] __asm__("_unknown_load_progress_a6e7c4");  // 0x00A6E7C4 unknown_load_progress_a6e7c4 (?unknown_load_progress_a6e7c4@@3PAUUnknown535910@@A)
 alignas(16) unsigned char ra2_bss_0403[16] __asm__("_COMReferences_00a6eb14");  // 0x00A6EB14 COMReferences_00a6eb14
-__asm__(".globl _unknown_com_objects_a6eb14\n.set _unknown_com_objects_a6eb14, _COMReferences_00a6eb14\n");  // same address: unknown_com_objects_a6eb14
+__asm__(".globl _COMRefCount\n.set _COMRefCount, _COMReferences_00a6eb14\n");  // same address: COMRefCount
 alignas(16) unsigned char ra2_bss_0404[16] __asm__("_FramesThisSecond");  // 0x00A6EB18 FramesThisSecond (?FramesThisSecond@@3IA)
 alignas(16) unsigned char ra2_bss_0405[16] __asm__("_FPSCounter_CurrentFrameRate");  // 0x00A6EB1C FPSCounter_CurrentFrameRate (?FPSCounter_CurrentFrameRate@@3IA)
 alignas(16) unsigned char ra2_bss_0406[16] __asm__("_accumulated_fps_00a6eb20");  // 0x00A6EB20 accumulated_fps_00a6eb20 (?accumulated_fps_00a6eb20@@3IA)

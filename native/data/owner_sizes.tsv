@@ -271,7 +271,7 @@ _unknown_address_a3db2c	12	unknown_address_a3db2c	IPXAddressClass
 _unknown_address_a3f80c	12	unknown_address_a3f80c	IPXAddressClass
 _unknown_address_a3fbc8	12	unknown_address_a3fbc8	IPXAddressClass
 _unknown_addresses_a3fbd4	96	unknown_addresses_a3fbd4	IPXAddressClass[8]
-_unknown_adjacent_offsets_00851ac0	64	unknown_adjacent_offsets_00851ac0	Point2D[8]
+_AdjacentPoint	64	AdjacentPoint	Point2D[8]
 _unknown_anims_a35e60	32	unknown_anims_a35e60	DynamicVectorClass<AnimClass*>
 _ApplicationInstance	8	ApplicationInstance	ApplicationClass
 _unknown_audio_file_lock_a52268	40	unknown_audio_file_lock_a52268	CRITICAL_SECTION
@@ -335,7 +335,6 @@ _unknown_gpacket_a3f640	455	unknown_gpacket_a3f640	UnknownGlobalPacket
 _HotkeyCommands	32	HotkeyCommands	IndexClass<int,CommandClass*>
 _unknown_iid_7a1ac0	16	unknown_iid_7a1ac0	GUID
 _unknown_iid_7a2030	16	unknown_iid_7a2030	GUID
-_unknown_iid_7a2c28	16	unknown_iid_7a2c28	GUID
 _unknown_ini_8396e0	128	unknown_ini_8396e0	CCINIClass
 _ConfigINI	128	ConfigINI	CCINIClass
 _AIINI	128	AIINI	CCINIClass
@@ -442,7 +441,7 @@ _SidebarClass_SidebarShapes	64	SidebarClass_SidebarShapes	void*[8]
 _unknown_shore_offsets_a6f91c	168	unknown_shore_offsets_a6f91c	Cell[42]
 _unknown_side_sound_a411e8	32	unknown_side_sound_a411e8	AudioEventHandle
 _unknown_sorted_scores_a715f0	64	unknown_sorted_scores_a715f0	MPlayerScoreType*[8]
-_unknown_special_a40920	4	unknown_special_a40920	SpecialClass
+_Special	4	Special	SpecialClass
 _VoxelSurface	40	VoxelSurface	BSurface
 _unknown_sync_states_a780d8	220160	unknown_sync_states_a780d8	UnknownSyncState[256]
 _unknown_tab_a35e78	16	unknown_tab_a35e78	CreditClass
@@ -451,7 +450,7 @@ _LogicTags	32	LogicTags	DynamicVectorClass<TagClass*>
 _MapTags	32	MapTags	DynamicVectorClass<TagClass*>
 _unknown_their_timing_aabdd0	168	unknown_their_timing_aabdd0	FrameSyncStruct[7]
 _unknown_tiberiums_ac0b30	32	unknown_tiberiums_ac0b30	DynamicVectorClass<UnknownAnimTiberium*>
-_unknown_time_stamp_866074	4	unknown_time_stamp_866074	GameTimeClass
+_Game_Time	4	Game_Time	GameTimeClass
 _unknown_timer_a780c0	8	unknown_timer_a780c0	UnknownElapsedTimer
 _unknown_timer_ac0168	12	unknown_timer_ac0168	CDTimerClass<SystemTimerClass>
 _unknown_timer_ac0178	12	unknown_timer_ac0178	CDTimerClass<FrameTimerClass>

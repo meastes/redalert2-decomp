@@ -259,7 +259,7 @@ void RadSiteClass::Unknown_00637640()
     int red = Rules->RadColor.Red;
     int green = Rules->RadColor.Green;
     int blue = Rules->RadColor.Blue;
-    if (unknown_id_source_a3d290->Theater == 1) {
+    if (Scen->Theater == 1) {
         red = blue = -128;
     }
     red = red * 1000 / 255;

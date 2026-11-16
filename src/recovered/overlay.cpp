@@ -320,7 +320,7 @@ bool OverlayClass::Mark(int mark)
                             for (int j = 0; j < 3; j++) {
                                 TPoint2D<short> sum = _offset_fixup[(fixup_direction % 4) / 2][j] + work_cell;
                                 CellClass *cptr = &Map[sum];
-                                cptr->OverlayIndex = _overlay_fixup[(fixup_direction % 4) / 2] + (unknown_id_source_a3d290->RandomNumber() & 0x03);
+                                cptr->OverlayIndex = _overlay_fixup[(fixup_direction % 4) / 2] + (Scen->RandomNumber() & 0x03);
                                 cptr->OverlayData = j;
                                 cptr->Recalc_Attributes(-1);
                             }
@@ -385,7 +385,7 @@ bool OverlayClass::Mark(int mark)
                             for (int j = 0; j < 3; j++) {
                                 TPoint2D<short> sum = _offset_fixup2[(fixup_direction % 4) / 2][j] + work_cell;
                                 CellClass *cptr = &Map[sum];
-                                cptr->OverlayIndex = _overlay_fixup2[(fixup_direction % 4) / 2] + (unknown_id_source_a3d290->RandomNumber() & 0x03);
+                                cptr->OverlayIndex = _overlay_fixup2[(fixup_direction % 4) / 2] + (Scen->RandomNumber() & 0x03);
                                 cptr->OverlayData = j;
                                 cptr->Recalc_Attributes(-1);
                             }

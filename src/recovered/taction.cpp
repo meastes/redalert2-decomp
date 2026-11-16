@@ -459,7 +459,7 @@ void __stdcall IonStormClass_Lightning_Bolt(Cell cell);   // 0x0051FC90
 
 bool TActionClass::TAction_ION_LIGHTNING_STRIKE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    IonStormClass_Lightning_Bolt(unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation));
+    IonStormClass_Lightning_Bolt(Scen->Get_Waypoint_Location(EffectLocation));
     return true;
 }
 
@@ -470,7 +470,7 @@ bool TActionClass::TAction_ION_LIGHTNING_STRIKE(HouseClass *house, ObjectClass *
 
 bool TActionClass::TAction_REMOVE_PARTICLE_ANIM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     for (int index = 0; index < ParticleSystems.Count(); index++) {
         ParticleSystemClass *system = ParticleSystems[index];
         if (system->IsActive && system->unknown_slot104() == waypoint) {
@@ -487,7 +487,7 @@ bool TActionClass::TAction_REMOVE_PARTICLE_ANIM(HouseClass *house, ObjectClass *
 
 bool TActionClass::unknown_particle_system_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(CoordStruct(waypoint));
     new ParticleSystemClass(ParticleSystemTypes[Data.Value], coord, 0, 0, unknown_geometry_l);
@@ -521,7 +521,7 @@ bool TActionClass::unknown_hunt_technos_with_tag(HouseClass *house, ObjectClass 
 
 bool TActionClass::unknown_set_session_flag_222b(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->IsVeinGrowth = Data.Boolean;
+    Scen->IsVeinGrowth = Data.Boolean;
     return true;
 }
 
@@ -531,7 +531,7 @@ bool TActionClass::unknown_set_session_flag_222b(HouseClass *house, ObjectClass 
 
 bool TActionClass::unknown_set_session_flag_222a(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->IsTibGrowth = Data.Boolean;
+    Scen->IsTibGrowth = Data.Boolean;
     return true;
 }
 
@@ -541,7 +541,7 @@ bool TActionClass::unknown_set_session_flag_222a(HouseClass *house, ObjectClass 
 
 bool TActionClass::unknown_set_session_flag_222c(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->IsIceGrowth = Data.Boolean;
+    Scen->IsIceGrowth = Data.Boolean;
     return true;
 }
 
@@ -644,9 +644,9 @@ bool TActionClass::TAction_DAMAGE(HouseClass *house, ObjectClass *object, Trigge
     Explosion_Damage(Waypoint_As_Coord() + CoordStruct(85, -85, 0), damage, 0, Rules->C4Warhead, 1);
     damage = 100;
     Explosion_Damage(Waypoint_As_Coord() + CoordStruct(-85, -85, 0), damage, 0, Rules->C4Warhead, 1);
-    bool valid_waypoint = unknown_id_source_a3d290->Is_Valid_Waypoint(Data.Value);
+    bool valid_waypoint = Scen->Is_Valid_Waypoint(Data.Value);
     if (valid_waypoint) {
-        Cell spot = unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value);
+        Cell spot = Scen->Get_Waypoint_Location(Data.Value);
         int tries = 3;
         while (!Map.Damage_Bridge(&spot) && tries-- > 0) {}
         Point2D point;
@@ -665,7 +665,7 @@ bool TActionClass::TAction_DAMAGE(HouseClass *house, ObjectClass *object, Trigge
 
 bool TActionClass::unknown_explosion_50_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Combat_Lighting(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 50, Rules->C4Warhead, 0, 0);
+    Combat_Lighting(Scen->Waypoint_Coord(Data.Value), 50, Rules->C4Warhead, 0, 0);
     return true;
 }
 
@@ -675,7 +675,7 @@ bool TActionClass::unknown_explosion_50_at_waypoint(HouseClass *house, ObjectCla
 
 bool TActionClass::unknown_explosion_100_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Combat_Lighting(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 100, Rules->C4Warhead, 0, 0);
+    Combat_Lighting(Scen->Waypoint_Coord(Data.Value), 100, Rules->C4Warhead, 0, 0);
     return true;
 }
 
@@ -685,7 +685,7 @@ bool TActionClass::unknown_explosion_100_at_waypoint(HouseClass *house, ObjectCl
 
 bool TActionClass::unknown_explosion_300_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Combat_Lighting(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 300, Rules->C4Warhead, 0, 0);
+    Combat_Lighting(Scen->Waypoint_Coord(Data.Value), 300, Rules->C4Warhead, 0, 0);
     return true;
 }
 
@@ -821,7 +821,7 @@ inline TextPrintType operator|(TextPrintType left, TextPrintType right)
 bool TActionClass::unknown_show_text(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     char const *text = Get_Text();
-    ScenarioClass *scenario = unknown_id_source_a3d290;
+    ScenarioClass *scenario = Scen;
     int color_scheme = scenario->IsGDI ? 2 : 1;
     int color = unknown_session_a3d298.Color_Index_To_Scheme(color_scheme);
     if (text != 0) {
@@ -907,7 +907,7 @@ bool TActionClass::unknown_map_49cc20(HouseClass *house, ObjectClass *object, Tr
 
 bool TActionClass::unknown_set_local_variable(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->Set_Global_To(Data.Value, true);
+    Scen->Set_Global_To(Data.Value, true);
     return true;
 }
 
@@ -917,7 +917,7 @@ bool TActionClass::unknown_set_local_variable(HouseClass *house, ObjectClass *ob
 
 bool TActionClass::unknown_clear_local_variable(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->Set_Global_To(Data.Value, false);
+    Scen->Set_Global_To(Data.Value, false);
     return true;
 }
 
@@ -930,7 +930,7 @@ bool TActionClass::unknown_clear_local_variable(HouseClass *house, ObjectClass *
 bool TActionClass::unknown_reveal_around_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (!PlayerPtr->IsVisionary) {
-        Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value);
+        Cell waypoint = Scen->Get_Waypoint_Location(Data.Value);
         int extra;
         if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
             extra = 4;
@@ -953,7 +953,7 @@ bool TActionClass::unknown_reveal_around_waypoint(HouseClass *house, ObjectClass
 
 bool TActionClass::unknown_map_55d990_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value);
+    Cell waypoint = Scen->Get_Waypoint_Location(Data.Value);
     Map.Area_Reduce_Tiberium(waypoint);
     return true;
 }
@@ -970,7 +970,7 @@ bool TActionClass::unknown_map_55d990_at_waypoint(HouseClass *house, ObjectClass
 bool TActionClass::unknown_reveal_zone_of_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (!PlayerPtr->IsVisionary) {
-        int zone = Map.Zone(unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value), 1, false);
+        int zone = Map.Zone(Scen->Get_Waypoint_Location(Data.Value), 1, false);
         Map.Unknown_0055AA50();
         CellClass *cellptr;
         while ((cellptr = Map.Unknown_0055A910()) != 0) {
@@ -1013,8 +1013,8 @@ bool TActionClass::unknown_reveal_whole_map(HouseClass *house, ObjectClass *obje
 
 bool TActionClass::unknown_start_mission_timer(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (unknown_id_source_a3d290->MissionTimer.Started == -1) {
-        unknown_id_source_a3d290->MissionTimer.Start();
+    if (Scen->MissionTimer.Started == -1) {
+        Scen->MissionTimer.Start();
         Map.Unknown_006A17B0();
     }
     return true;
@@ -1026,8 +1026,8 @@ bool TActionClass::unknown_start_mission_timer(HouseClass *house, ObjectClass *o
 
 bool TActionClass::unknown_stop_mission_timer(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (unknown_id_source_a3d290->MissionTimer.Started != -1) {
-        unknown_id_source_a3d290->MissionTimer.Stop();
+    if (Scen->MissionTimer.Started != -1) {
+        Scen->MissionTimer.Stop();
         Map.Unknown_006A17B0();
     }
     return true;
@@ -1040,7 +1040,7 @@ bool TActionClass::unknown_stop_mission_timer(HouseClass *house, ObjectClass *ob
 
 bool TActionClass::unknown_func_6b0ac0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->MissionTimer = unknown_id_source_a3d290->MissionTimer + Data.Value * 15;
+    Scen->MissionTimer = Scen->MissionTimer + Data.Value * 15;
     Map.Unknown_006A17B0();
     return true;
 }
@@ -1052,10 +1052,10 @@ bool TActionClass::unknown_func_6b0ac0(HouseClass *house, ObjectClass *object, T
 
 bool TActionClass::unknown_func_6b0b20(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (unknown_id_source_a3d290->MissionTimer <= Data.Value * 15) {
-        unknown_id_source_a3d290->MissionTimer = 0;
+    if (Scen->MissionTimer <= Data.Value * 15) {
+        Scen->MissionTimer = 0;
     } else {
-        unknown_id_source_a3d290->MissionTimer = unknown_id_source_a3d290->MissionTimer - Data.Value * 15;
+        Scen->MissionTimer = Scen->MissionTimer - Data.Value * 15;
     }
     Map.Unknown_006A17B0();
     return true;
@@ -1069,11 +1069,11 @@ bool TActionClass::unknown_func_6b0b20(HouseClass *house, ObjectClass *object, T
 
 bool TActionClass::unknown_func_6b0ba0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->MissionTimer = Data.Value * 15;
-    unknown_id_source_a3d290->MissionTimer.Start();
-    unknown_id_source_a3d290->MissionTimerText = unknown_empty_wide_839d4c;
+    Scen->MissionTimer = Data.Value * 15;
+    Scen->MissionTimer.Start();
+    Scen->MissionTimerText = unknown_empty_wide_839d4c;
     FixedString<32> label(unknown_string_83c55c);
-    unknown_id_source_a3d290->MissionTimerLabel = label;
+    Scen->MissionTimerLabel = label;
     Map.Unknown_006A17B0();
     return true;
 }
@@ -1087,12 +1087,12 @@ bool TActionClass::unknown_set_mission_timer_text(HouseClass *house, ObjectClass
     char const *text = Get_Text();
     FixedString<32> label(text);
     if (text != 0) {
-        unknown_id_source_a3d290->MissionTimerText = StringTable::Load_String(text, 0, "D:\\Ra2\\TAction.CPP", 0x802);
-        unknown_id_source_a3d290->MissionTimerLabel = label;
+        Scen->MissionTimerText = StringTable::Load_String(text, 0, "D:\\Ra2\\TAction.CPP", 0x802);
+        Scen->MissionTimerLabel = label;
     } else {
-        unknown_id_source_a3d290->MissionTimerText = unknown_empty_wide_839d4c;
+        Scen->MissionTimerText = unknown_empty_wide_839d4c;
         FixedString<32> empty_label(unknown_string_83c55c);
-        unknown_id_source_a3d290->MissionTimerLabel = empty_label;
+        Scen->MissionTimerLabel = empty_label;
     }
     Map.Unknown_006A17B0();
     return true;
@@ -1149,8 +1149,8 @@ bool TActionClass::unknown_sound_at_random_waypoint(HouseClass *house, ObjectCla
     Cell cells[100];
     int count = 0;
     for (int waypoint = 0; waypoint < 101; waypoint++) {
-        if (unknown_id_source_a3d290->Is_Valid_Waypoint(waypoint)) {
-            cells[count++] = unknown_id_source_a3d290->Get_Waypoint_Location(waypoint);
+        if (Scen->Is_Valid_Waypoint(waypoint)) {
+            cells[count++] = Scen->Get_Waypoint_Location(waypoint);
             if (count == sizeof(cells)) {
                 break;
             }
@@ -1185,7 +1185,7 @@ ObjectClass *__fastcall Building_Or_Terrain_At_006B0E40(CoordStruct const &coord
 
 bool TActionClass::TAction_PLAY_SOUND_AT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    CoordStruct coord = unknown_id_source_a3d290->Waypoint_Coord(EffectLocation);
+    CoordStruct coord = Scen->Waypoint_Coord(EffectLocation);
     ObjectClass *target = Building_Or_Terrain_At_006B0E40(coord);
     if (target != 0) {
         target->Set_Ambient_Sound(Data.Value);
@@ -1201,7 +1201,7 @@ bool TActionClass::TAction_PLAY_SOUND_AT(HouseClass *house, ObjectClass *object,
 
 bool TActionClass::TAction_STOP_SOUND_AT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    CoordStruct coord = unknown_id_source_a3d290->Waypoint_Coord(EffectLocation);
+    CoordStruct coord = Scen->Waypoint_Coord(EffectLocation);
     ObjectClass *target = Building_Or_Terrain_At_006B0E40(coord);
     if (target != 0) {
         target->Set_Ambient_Sound(-1);
@@ -1220,7 +1220,7 @@ bool TActionClass::TAction_STOP_SOUND_AT(HouseClass *house, ObjectClass *object,
 bool TActionClass::TAction_REVEAL_AROUND_WAYPOINT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (!PlayerPtr->IsVisionary) {
-        Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value);
+        Cell waypoint = Scen->Get_Waypoint_Location(Data.Value);
         int extra;
         if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
             extra = 4;
@@ -1294,7 +1294,7 @@ bool TActionClass::TAction_FULL_SPECIAL(HouseClass *house, ObjectClass *object, 
 
 bool TActionClass::TAction_DZ(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     unsigned int bridge_flags = Map[waypoint].unknown_140;
@@ -1509,7 +1509,7 @@ bool TActionClass::unknown_func_6b1650(HouseClass *house, ObjectClass *object, T
 
 bool TActionClass::TAction_PLAY_ANIM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
@@ -1526,7 +1526,7 @@ bool TActionClass::TAction_PLAY_ANIM(HouseClass *house, ObjectClass *object, Tri
 
 bool TActionClass::unknown_weapon_explosion_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
@@ -1553,7 +1553,7 @@ bool TActionClass::unknown_weapon_explosion_at_waypoint(HouseClass *house, Objec
 
 bool TActionClass::TAction_METEOR_IMPACT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     unsigned int bridge_flags = Map[waypoint].unknown_140;
@@ -1612,7 +1612,7 @@ bool TActionClass::TAction_UNLOCK_INPUT(HouseClass *house, ObjectClass *object, 
 
 bool TActionClass::unknown_look_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     UnknownCoord434820 coord = UnknownCoord434820(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
@@ -1628,7 +1628,7 @@ bool TActionClass::unknown_look_at_waypoint(HouseClass *house, ObjectClass *obje
 
 bool TActionClass::unknown_center_on_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
@@ -1666,7 +1666,7 @@ bool TActionClass::TAction_ZOOM_OUT(HouseClass *house, ObjectClass *object, Trig
 {
     TacticalMap->unknown_c0 = 1.0;
     WWKeyboard->Clear();
-    IgnoreInput = unknown_id_source_a3d290->IsInputLocked;
+    IgnoreInput = Scen->IsInputLocked;
     WWMouse->Show_Mouse();
     Map.Flag_To_Redraw(0);
     Map.Render();
@@ -1771,9 +1771,9 @@ bool TActionClass::TAction_ENABLE_TRIGGER(HouseClass *house, ObjectClass *object
         for (int index = 0; index < Triggers.Count(); index++) {
             TriggerTypeClass *type = Triggers[index]->Class;
             if ((AbstractClass *)type == unknown_50) {
-                if ((unknown_id_source_a3d290->Difficulty != 0 || type->IsEnabledOnEasy)
-                        && (unknown_id_source_a3d290->Difficulty != 1 || type->IsEnabledOnMedium)
-                        && (unknown_id_source_a3d290->Difficulty != 2 || type->IsEnabledOnHard)) {
+                if ((Scen->Difficulty != 0 || type->IsEnabledOnEasy)
+                        && (Scen->Difficulty != 1 || type->IsEnabledOnMedium)
+                        && (Scen->Difficulty != 2 || type->IsEnabledOnHard)) {
                     Triggers[index]->Enable();
                 }
             }
@@ -1805,7 +1805,7 @@ bool __fastcall Unknown_0063B5B0(int kind, Cell cell);   // 0x0063B5B0
 
 bool TActionClass::unknown_63b5b0_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Unknown_0063B5B0(Data.Value, unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation));
+    Unknown_0063B5B0(Data.Value, Scen->Get_Waypoint_Location(EffectLocation));
     return true;
 }
 
@@ -1815,7 +1815,7 @@ bool TActionClass::unknown_63b5b0_at_waypoint(HouseClass *house, ObjectClass *ob
 
 bool TActionClass::unknown_set_global_variable(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->Set_Local_To(Data.Value, true);
+    Scen->Set_Local_To(Data.Value, true);
     return true;
 }
 
@@ -1825,7 +1825,7 @@ bool TActionClass::unknown_set_global_variable(HouseClass *house, ObjectClass *o
 
 bool TActionClass::unknown_clear_global_variable(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->Set_Local_To(Data.Value, false);
+    Scen->Set_Local_To(Data.Value, false);
     return true;
 }
 
@@ -1838,7 +1838,7 @@ extern int const unknown_meteor_counts_7f6ad8[4];    // 0x007F6AD8 (1, 5, 9, 15:
 // A random offset of up to radius leptons in X and Y (inline; name hypothesis).
 inline CoordStruct Random_Offset(int radius)
 {
-    Random2Class &random = unknown_id_source_a3d290->Random();
+    Random2Class &random = Scen->Random();
     int x = random() % radius;
     int y = random() % radius;
     return CoordStruct(x, y, 0);
@@ -1846,20 +1846,20 @@ inline CoordStruct Random_Offset(int radius)
 
 bool TActionClass::unknown_meteor_shower_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
         coord.Z += unknown_geometry_j;
     }
-    int count = abs(unknown_id_source_a3d290->Random()()) % 3 + unknown_meteor_counts_7f6ad8[Data.Value];
+    int count = abs(Scen->Random()()) % 3 + unknown_meteor_counts_7f6ad8[Data.Value];
     int large = Anim_From_Name("METLARGE");
     int small = Anim_From_Name("METSMALL");
     int radius = count * 70;
     for (int index = 0; index < count; index++) {
         CoordStruct spot = coord + Random_Offset(radius);
         spot.Z = Map.Get_Height_GL(spot);
-        new AnimClass(AnimTypes[(abs(unknown_id_source_a3d290->Random()()) % 2) ? large : small], spot, 0, 1, 0x600, 0);
+        new AnimClass(AnimTypes[(abs(Scen->Random()()) % 2) ? large : small], spot, 0, 1, 0x600, 0);
     }
     return true;
 }
@@ -1893,9 +1893,9 @@ bool TActionClass::TAction_SET_AMBIENT_RATE(HouseClass *house, ObjectClass *obje
 
 bool TActionClass::unknown_set_session_22a8(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->AmbientLight = Data.Value;
+    Scen->AmbientLight = Data.Value;
     if (!IonStormClass_Is_Ion_Storm_Active()) {
-        unknown_id_source_a3d290->DesiredAmbientLight = unknown_id_source_a3d290->AmbientLight;
+        Scen->DesiredAmbientLight = Scen->AmbientLight;
     }
     return true;
 }
@@ -1975,7 +1975,7 @@ bool TActionClass::TAction_SET_TEAM_UNIT_RATIO(HouseClass *house, ObjectClass *o
 
 bool TActionClass::unknown_ion_blast_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     new IonBlastClass(coord);
@@ -1989,7 +1989,7 @@ bool TActionClass::unknown_ion_blast_at_waypoint(HouseClass *house, ObjectClass 
 
 bool TActionClass::unknown_nuke_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if (Map[waypoint].unknown_140 & 0x100) {
@@ -2021,7 +2021,7 @@ bool TActionClass::unknown_nuke_at_waypoint(HouseClass *house, ObjectClass *obje
 
 bool TActionClass::TAction_LIGHTNING_STORM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if (Map[waypoint].unknown_140 & 0x100) {
@@ -2043,7 +2043,7 @@ extern Cell const unknown_cell_offsets_a6f248[];
 bool TActionClass::unknown_iron_curtain_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Cell target_cell;
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     CoordStruct position = Map[waypoint].Center_Coord();
     new AnimClass(Rules->IronCurtainInvokeAnim, position + CoordStruct(0,0,5), 0,1,0x600,0);
     int count = MapClass_RadiusCount[1];
@@ -2089,7 +2089,7 @@ bool TActionClass::TAction_CHRONO_IN_TEAM(HouseClass *house, ObjectClass *object
 
 bool TActionClass::unknown_map_54e580_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     return Map.Place_Crate(waypoint, Data.Value);
 }
 
@@ -2099,7 +2099,7 @@ bool TActionClass::unknown_map_54e580_at_waypoint(HouseClass *house, ObjectClass
 
 bool TActionClass::unknown_chem_missile_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
+    Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if (Map[waypoint].unknown_140 & 0x100) {
@@ -2130,7 +2130,7 @@ bool TActionClass::unknown_chem_missile_at_waypoint(HouseClass *house, ObjectCla
 
 bool TActionClass::unknown_toggle_session_flag_2229(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_id_source_a3d290->IsTrainCargo = !unknown_id_source_a3d290->IsTrainCargo;
+    Scen->IsTrainCargo = !Scen->IsTrainCargo;
     return true;
 }
 
@@ -2358,7 +2358,7 @@ int __fastcall TActionClass::Action_Flags(int type)
 
 CoordStruct TActionClass::Waypoint_As_Coord() const
 {
-    return unknown_id_source_a3d290->Waypoint_Coord(Data.Value);
+    return Scen->Waypoint_Coord(Data.Value);
 }
 
 

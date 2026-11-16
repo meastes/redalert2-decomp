@@ -268,7 +268,7 @@ bool __stdcall LocomotionClass::Is_Ion_Sensitive()
 
 unsigned long __stdcall LocomotionClass::AddRef()
 {
-    unknown_com_objects_a6eb14++;
+    COMRefCount++;
     return InterlockedIncrement(&RefCount);
 }
 
@@ -284,7 +284,7 @@ unsigned long __stdcall LocomotionClass::AddRef()
 
 unsigned long __stdcall LocomotionClass::Release()
 {
-    unknown_com_objects_a6eb14--;
+    COMRefCount--;
     long count = InterlockedDecrement(&RefCount);
     if (count == 0) {
         delete this;

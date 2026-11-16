@@ -98,7 +98,7 @@ bool ModemGuest::Dialog_00596010()
     bool result = false;
     Debug_Printf("ModemGuest.Dialog(enter)\n");
     Result = -1;
-    Window = unknown_create_dialog_5ff610(0xF2, Dialog_Proc_00596170, 0);
+    Window = OwnerDraw_Begin_Dialog(0xF2, Dialog_Proc_00596170, 0);
     if (Window) {
         SetWindowLongA(Window, 8, (LONG)this);
         Init_Dialog_00596540();
@@ -118,7 +118,7 @@ bool ModemGuest::Dialog_00596010()
         ArtCheatCheck = unknown_art_ini_unique_id();
         AICheatCheck = unknown_ini_8397a0_unique_id();
         while (Result < 0) {
-            if (unknown_6000d0() == true) {
+            if (OwnerDraw_Dialog_Message_Handler() == true) {
                 break;
             }
             Service_00597550(false);
@@ -127,7 +127,7 @@ bool ModemGuest::Dialog_00596010()
             }
             Title_Screen_Restore(false);
         }
-        unknown_dialog_5ff6e0(Window);
+        OwnerDraw_End_Dialog(Window);
         if (Changed == true) {
             unknown_session_a3d298.Write_MultiPlayer_Settings();
         }
@@ -719,7 +719,7 @@ bool ModemGuest::Process_Messages_00597680()
                 }
                 ReceiveTime = TickCount.Time();
             }
-            strcpy(unknown_id_source_a3d290->FileName, unknown_session_a3d298.ScenarioFileName_658);
+            strcpy(Scen->FileName, unknown_session_a3d298.ScenarioFileName_658);
             unknown_session_a3d298.FrameSendRate = 5;
             unknown_a3fba4 = 0;
             unknown_session_a3d298.PrecalcMaxAhead = 0;
@@ -796,7 +796,7 @@ bool ModemGuest::Receive_Options_00597e50(UnknownSerialPacket const *packet)
         && unknown_session_a3d298.unknown_24 == packet->Options.Credits
         && unknown_session_a3d298.UnitCount == packet->Options.UnitCount
         && Seed == packet->Options.Seed
-        && unknown_special_a40920.Equals_Options(packet->Options.Special)
+        && Special.Equals_Options(packet->Options.Special)
         && unknown_session_a3d298.GameSpeed_30 == packet->Options.GameSpeed
         && unknown_session_a3d298.unknown_2a == (bool)packet->Options.unknown_2a
         && unknown_session_a3d298.unknown_2b == (bool)packet->Options.unknown_2b
@@ -811,7 +811,7 @@ bool ModemGuest::Receive_Options_00597e50(UnknownSerialPacket const *packet)
     unknown_session_a3d298.unknown_bases_20 = packet->Options.Bases;
     unknown_session_a3d298.unknown_a8 = packet->Options.unknown_a8;
     unknown_session_a3d298.unknown_28 = packet->Options.unknown_28;
-    unknown_special_a40920.DestroyableBridges = packet->Options.unknown_28;
+    Special.DestroyableBridges = packet->Options.unknown_28;
     unknown_session_a3d298.unknown_crates_29 = packet->Options.Crates;
     unknown_session_a3d298.unknown_fog_a7 = packet->Options.FogOfWar;
     unknown_session_a3d298.unknown_a5 = packet->Options.unknown_a5;
@@ -821,17 +821,17 @@ bool ModemGuest::Receive_Options_00597e50(UnknownSerialPacket const *packet)
     unknown_session_a3d298.unknown_24 = packet->Options.Credits;
     unknown_session_a3d298.UnitCount = packet->Options.UnitCount;
     Seed = packet->Options.Seed;
-    unknown_special_a40920 = packet->Options.Special;
+    Special = packet->Options.Special;
     unknown_a40b18 = unknown_session_a3d298.GameSpeed_30 = packet->Options.GameSpeed;
     unknown_session_a3d298.unknown_2a = packet->Options.unknown_2a;
     unknown_session_a3d298.unknown_2b = packet->Options.unknown_2b;
     unknown_session_a3d298.unknown_2c = packet->Options.unknown_2c;
     unknown_session_a3d298.unknown_34 = packet->Options.unknown_34;
-    unknown_special_a40920.TiberiumGrows = true;
-    unknown_special_a40920.TiberiumSpreads = true;
-    unknown_id_source_a3d290->Special().FixedAlliance = false;
+    Special.TiberiumGrows = true;
+    Special.TiberiumSpreads = true;
+    Scen->Special().FixedAlliance = false;
     unknown_session_a3d298.unknown_a4 = true;
-    unknown_special_a40920.Apply_To_Game();
+    Special.Apply_To_Game();
     if (Compare_Narrow_00781f20(unknown_session_a3d298.ScenarioFileName_658, packet->Options.FileName)
         || Compare_Narrow_00781f20(unknown_session_a3d298.ScenarioDigest_85a, packet->Options.Digest)
         || unknown_session_a3d298.ScenarioIsOfficial_880 != (bool)packet->Options.IsOfficial
@@ -951,7 +951,7 @@ void ModemGuest::Sign_Off_00598590()
     }
     Shutdown_Modem();
     if (dialog) {
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
 }
 
@@ -999,20 +999,20 @@ bool ModemGuest::Start_Game_005986f0(bool unknown)
         serial_manager_00a40a28.Service();
     }
     if (dialog) {
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
     serial_manager_00a40a28.Init_Send_Queue();
     unknown_session_a3f616 = 0;
     int techLevel = unknown_session_a3d298.ScenarioIndex;
-    unknown_id_source_a3d290->TechLevel = techLevel;
+    Scen->TechLevel = techLevel;
     unknown_session_a3d55c = unknown_players_a3fa7c.Count();
     Frame = 0;
     unknown_session_a3d2ac = 2;
-    unknown_special_a40920.DestroyableBridges = unknown_session_a3d298.unknown_28;
-    unknown_special_a40920.HarvesterImmune = unknown_session_a3d298.unknown_a5;
-    unknown_special_a40920.TiberiumGrows = true;
-    unknown_special_a40920.TiberiumSpreads = true;
-    unknown_special_a40920.Apply_To_Game();
+    Special.DestroyableBridges = unknown_session_a3d298.unknown_28;
+    Special.HarvesterImmune = unknown_session_a3d298.unknown_a5;
+    Special.TiberiumGrows = true;
+    Special.TiberiumSpreads = true;
+    Special.Apply_To_Game();
     return true;
 }
 

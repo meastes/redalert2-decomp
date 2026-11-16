@@ -549,7 +549,7 @@ bool MPCooperative::unknown_slot21()
                 int color;
                 bool taken;
                 do {
-                    color = unknown_id_source_a3d290->RandomNumber(0, 7);
+                    color = Scen->RandomNumber(0, 7);
                     taken = false;
                     if (color != -2) {
                         for (int i = 0; i < 8; i++) {
@@ -652,7 +652,7 @@ Cell MPCooperative::AssignStartingPositionsToHouse(int house, DynamicVectorClass
     }
     int index;
     if (count == 0) {
-        index = unknown_id_source_a3d290->RandomNumber(0, cells.Count() - 1);
+        index = Scen->RandomNumber(0, cells.Count() - 1);
         taken[index] = true;
         return cells[index];
     } else {
@@ -807,7 +807,7 @@ int MPCooperative::RandomHumanCountryIndex()
     unknown_campaigns_40->Get_Record_00490C50(campaign, &record);
     int house;
     do {
-        house = unknown_id_source_a3d290->Random()(0, count - 1);
+        house = Scen->Random()(0, count - 1);
         for (int i = 0; i < record->Players.Count(); i++) {
             if (house == Find_Country_Index_004904A0(record->Players[i])) {
                 found = true;
@@ -831,7 +831,7 @@ int MPCooperative::RandomAICountryIndex()
     unknown_campaigns_40->Get_Record_00490C50(campaign, &record);
     int house;
     do {
-        house = unknown_id_source_a3d290->Random()(0, count - 1);
+        house = Scen->Random()(0, count - 1);
         for (int i = 0; i < record->Enemies.Count(); i++) {
             if (house == Find_Country_Index_004904A0(record->Enemies[i])) {
                 found = true;
@@ -880,10 +880,10 @@ void MPCooperative::unknown_slot34(bool player_wins)
         }
     }
     wcscpy(unknown_host_name_78, unknown_session_a3d298.HostName_2380);
-    unknown_id_source_a3d290->SkipScore = true;
-    unknown_id_source_a3d290->EndOfGame = false;
-    unknown_id_source_a3d290->SkipMapSelect = true;
-    unknown_id_source_a3d290->OneTimeOnly = false;
+    Scen->SkipScore = true;
+    Scen->EndOfGame = false;
+    Scen->SkipMapSelect = true;
+    Scen->OneTimeOnly = false;
     Free_Pointers_005a7480(&unknown_players_5c);
     LocalPlayer = 0;
     for (int p = 0; p < unknown_players_a3fa7c.Count(); p++) {
@@ -1110,7 +1110,7 @@ void MPCooperative::unknown_slot30()
                 }
             }
             unknown_session_a3d298.ScenarioIndex = i;
-            unknown_id_source_a3d290->TechLevel = i;
+            Scen->TechLevel = i;
             Select_Scenario_005c7c30(i);
         }
         HWND dialog = Get_Lobby_Dialog_005c2c40();
@@ -1220,9 +1220,9 @@ bool MPCooperative::unknown_slot36()
     int current;
     unknown_campaign_44->Get_Current_Map_0048e6f0(&current);
     if (record != 0) {
-        unknown_score_54->Presentation(scores, unknown_id_source_a3d290->ElapsedTime.Time(), current < count, difficulty, record->Name);
+        unknown_score_54->Presentation(scores, Scen->ElapsedTime.Time(), current < count, difficulty, record->Name);
     } else {
-        unknown_score_54->Presentation(scores, unknown_id_source_a3d290->ElapsedTime.Time(), current < count, difficulty, unknown_empty_wide_839d4c);
+        unknown_score_54->Presentation(scores, Scen->ElapsedTime.Time(), current < count, difficulty, unknown_empty_wide_839d4c);
     }
     while (scores.Count() != 0) {
         if (scores[0] != 0) {
@@ -1309,9 +1309,9 @@ void MPCooperative::unknown_slot37()
     unknown_campaign_44->Get_Map_Name_0048fb40(&map, -1);
     char name[260];
     sprintf(name, "%s.MAP", map);
-    strcpy(unknown_id_source_a3d290->NextScenario, name);
-    unknown_id_source_a3d290->Campaign = -1;
-    unknown_id_source_a3d290->SkipScore = true;
+    strcpy(Scen->NextScenario, name);
+    Scen->Campaign = -1;
+    Scen->SkipScore = true;
     int count = unknown_multi_missions_a3d8d8.Count();
     sprintf(name, "%s.MAP", map);
     for (int i = 0; i < count; i++) {
@@ -1407,7 +1407,7 @@ void MPCooperative::unknown_slot37()
     unknown_session_a3d298.GameSpeed_30 = unknown_game_speed_c4;
     Select_Scenario_005c7c30(unknown_session_a3d298.ScenarioIndex);
     Options.GameSpeed = unknown_session_a3d298.GameSpeed_30;
-    unknown_id_source_a3d290->TechLevel = unknown_session_a3d298.ScenarioIndex;
+    Scen->TechLevel = unknown_session_a3d298.ScenarioIndex;
     switch (unknown_session_a3d298.GameSpeed_30) {
     case 0:
         unknown_session_a3d298.MaxAhead_2c8 = 40;

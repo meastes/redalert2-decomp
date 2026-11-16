@@ -934,7 +934,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
         }
     }
     if (LinkedTo->IsSelected && !LinkedTo->House->Is_Player_Control()) {
-        if (Map.Is_Shrouded(Object_Coord(LinkedTo)) || ((*(unsigned int *)unknown_id_source_a3d290&0x1000) && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
+        if (Map.Is_Shrouded(Object_Coord(LinkedTo)) || ((*(unsigned int *)Scen&0x1000) && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
             LinkedTo->Unselect();
         }
     }
@@ -1184,8 +1184,8 @@ bool __stdcall FlyLocomotionClass::Is_Ion_Sensitive()
 void FlyLocomotionClass::Start_Drift()
 {
     IsTumbling = true;
-    unknown_54 = unknown_id_source_a3d290->Random()(20, 30);
-    if (unknown_id_source_a3d290->Random()(0, 99) < 50) {
+    unknown_54 = Scen->Random()(20, 30);
+    if (Scen->Random()(0, 99) < 50) {
         unknown_54 = -unknown_54;
     }
 }
@@ -1239,7 +1239,7 @@ void __stdcall FlyLocomotionClass::Acquire_Hunter_Seeker_Target()
 
             if (enemy && techno->Strength > 0 && !techno->IsInLimbo && techno->IsActive &&
                 !techno->Techno_Type_Class()->Invisible && techno->Techno_Type_Class()->IsLegalTarget &&
-                !(unknown_id_source_a3d290->Special().HarvesterImmune && techno->Kind_Of() == 1 && ((UnitClass *)techno)->Type->Harvester)) {
+                !(Scen->Special().HarvesterImmune && techno->Kind_Of() == 1 && ((UnitClass *)techno)->Type->Harvester)) {
 
                 if (unknown_game_mode_a3d298 != 0 && LinkedTo->House->Is_Human_Player() && !techno->House->Type->MultiplayPassive &&
                     (techno->Kind_Of() == 1 || techno->Kind_Of() == 6 || techno->Kind_Of() == 15 || techno->Kind_Of() == 2)) {
@@ -1251,9 +1251,9 @@ void __stdcall FlyLocomotionClass::Acquire_Hunter_Seeker_Target()
         }
 
         if (humantargets.Count() > 0) {
-            LinkedTo->unknown_slot220(humantargets[unknown_id_source_a3d290->Random()(0, humantargets.Count() - 1)]);
+            LinkedTo->unknown_slot220(humantargets[Scen->Random()(0, humantargets.Count() - 1)]);
         } else if (aitargets.Count() > 0) {
-            LinkedTo->unknown_slot220(aitargets[unknown_id_source_a3d290->Random()(0, aitargets.Count() - 1)]);
+            LinkedTo->unknown_slot220(aitargets[Scen->Random()(0, aitargets.Count() - 1)]);
         }
     }
 }

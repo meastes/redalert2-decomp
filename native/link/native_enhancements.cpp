@@ -19,7 +19,7 @@
 #include <stdio.h>
 
 void __fastcall Display_Dialog(HWND window);    // 0x005FF7C0 shows a created dialog
-void __fastcall unknown_dialog_5ff6e0(HWND window);    // 0x005FF6E0 closes it
+void __fastcall OwnerDraw_End_Dialog(HWND window);    // 0x005FF6E0 closes it
 void __fastcall Title_Screen_Restore(bool unknown1);         // 0x00517370 the shell's idle step
 namespace OwnerDraw {
 bool __fastcall unknown_5e5fc0(HWND dialog);           // 0x005E5FC0 a dialog's buttons slide out
@@ -163,7 +163,7 @@ void Native_Run_Enhancements(HWND options)
         ShowWindow(options, 0);
     }
     ra2port_native_page(1);     // the page's template under the Options id (port/src/native_dialogs.cpp)
-    HWND dialog = unknown_create_dialog_5ff610(0xD5, Native_Enhancements_Proc, 0);
+    HWND dialog = OwnerDraw_Begin_Dialog(0xD5, Native_Enhancements_Proc, 0);
     ra2port_native_page(0);
     if (!dialog) {
         if (options) ShowWindow(options, 5);
@@ -172,10 +172,10 @@ void Native_Run_Enhancements(HWND options)
     ra2port_set_dialog_user(dialog, &result);
     Display_Dialog(dialog);
     while (result < 0) {
-        if (unknown_6000d0() == true) break;
+        if (OwnerDraw_Dialog_Message_Handler() == true) break;
         Title_Screen_Restore(false);
     }
-    unknown_dialog_5ff6e0(dialog);
+    OwnerDraw_End_Dialog(dialog);
     if (options) {
         ShowWindow(options, 5);
         InvalidateRect(options, 0, FALSE);

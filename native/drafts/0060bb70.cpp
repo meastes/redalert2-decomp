@@ -19,7 +19,7 @@
 // @ref ?Behavior_AI@ParticleClass@@QAEXXZ=00609c90
 // @ref ?Motion_AI@ParticleClass@@QAEXXZ=0060a420
 // @ref ??RRandom2Class@@QAEHXZ=00638840
-// @ref ?unknown_id_source_a3d290@@3PAVScenarioClass@@A=00a3d290
+// @ref ?Scen@@3PAVScenarioClass@@A=00a3d290
 
 // @ref __real@4@3ffdb333330000000000=007a7f40
 static inline bool Object_Flag_Set(ObjectClass const *object)
@@ -56,7 +56,7 @@ void ParticleSystemClass::Smoke_AI()
                 int x = coord.X;
 
                 int xspread = particle->Class->Radius >> 3;
-                int xrand = unknown_id_source_a3d290->Random()() % xspread;
+                int xrand = Scen->Random()() % xspread;
                 if (xrand <= 0) {
                     xrand = xrand - xspread;
                 } else {
@@ -65,7 +65,7 @@ void ParticleSystemClass::Smoke_AI()
 
                 ParticleTypeClass *type = particle->Class;
                 int yspread = type->Radius >> 3;
-                int yrand = unknown_id_source_a3d290->Random()() % yspread;
+                int yrand = Scen->Random()() % yspread;
                 if (yrand <= 0) {
                     yrand = yrand - yspread;
                 } else {
@@ -81,7 +81,7 @@ void ParticleSystemClass::Smoke_AI()
                 ParticleClass *npart = Spawn_Held_Particle(next, ncoord);
                 if (npart != 0) {
                     npart->Velocity = particle->Velocity;
-                    npart->Translucency = particle->Translucency + (unknown_id_source_a3d290->Random() % 6 != 0 ? 25 : 0);
+                    npart->Translucency = particle->Translucency + (Scen->Random() % 6 != 0 ? 25 : 0);
                 }
 
                 CoordStruct pcoord;
@@ -91,7 +91,7 @@ void ParticleSystemClass::Smoke_AI()
                 ParticleClass *ppart = Spawn_Held_Particle(next, pcoord);
                 if (ppart != 0) {
                     ppart->Velocity = particle->Velocity;
-                    ppart->Translucency = particle->Translucency + (unknown_id_source_a3d290->Random() % 6 != 0 ? 25 : 0);
+                    ppart->Translucency = particle->Translucency + (Scen->Random() % 6 != 0 ? 25 : 0);
                 }
             }
             particle->Delete_Me();
@@ -103,7 +103,7 @@ void ParticleSystemClass::Smoke_AI()
     if (!IsMarkedForDeletion && IsActive && Frame % (int)SpawnFrames == 0) {
         FootClass *foot = Foot_Of(Owner);
         if (foot == 0 || foot->CurrentTube < 0) {
-            Random2Class &random = unknown_id_source_a3d290->Random();
+            Random2Class &random = Scen->Random();
             int xrand = random;
             int yrand = random;
             int range = Class->SpawnRadius + 1;

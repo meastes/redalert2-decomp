@@ -27,7 +27,7 @@
 // The global GameTimeClass at 0x00866074; its dynamic
 // initializer 0x004D0030 is the constructor 0x004D0040 expanded inline.
 
-GameTimeClass unknown_time_stamp_866074;
+GameTimeClass Game_Time;
 
 
 /***************************************************************************
@@ -86,7 +86,7 @@ int GameTimeClass::unknown_elapsed_004d0050() const
 
 int Get_Game_Time()
 {
-    return unknown_time_stamp_866074.unknown_elapsed_004d0050();
+    return Game_Time.unknown_elapsed_004d0050();
 }
 
 
@@ -102,5 +102,5 @@ int Get_Game_Time()
 
 unsigned long Get_Game_Time_50()
 {
-    return (unsigned long)unknown_time_stamp_866074.unknown_elapsed_004d0050() * 3 / 50;
+    return (unsigned long)Game_Time.unknown_elapsed_004d0050() * 3 / 50;
 }

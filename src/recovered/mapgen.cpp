@@ -2185,8 +2185,8 @@ void MapRegionClass::Generate_Starting_Points_00576170(int firstWaypoint)
     if(!layout)return;
     {
         for(int index=0;index<unknown_20;++index) {
-            unknown_id_source_a3d290->Set_Waypoint_Location(firstWaypoint+index,(*layout)[index]);
-            Map[unknown_id_source_a3d290->Get_Waypoint_Location(firstWaypoint+index)].unknown_140|=4;
+            Scen->Set_Waypoint_Location(firstWaypoint+index,(*layout)[index]);
+            Map[Scen->Get_Waypoint_Location(firstWaypoint+index)].unknown_140|=4;
         }
         for(index=0;index<unknown_20;++index)layout->Delete(0);
         delete (DynamicVectorClass<Cell> *)unknown_00;
@@ -2316,7 +2316,7 @@ MapGeneratorClass::~MapGeneratorClass()
 class Surface;
 int __fastcall Write_PCX_File(FileClass &file,Surface &picture,PaletteClass *palette);
 void __fastcall Display_Dialog(HWND window);
-void __fastcall unknown_dialog_5ff6e0(HWND window);
+void __fastcall OwnerDraw_End_Dialog(HWND window);
 void __fastcall Title_Screen_Restore(bool flag);
 int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND,UINT,WPARAM,LPARAM);
 bool Default_Map_Generation_Callback_00482100();
@@ -2327,7 +2327,7 @@ int __fastcall Do_Random_Map_Dialog_00577490(bool (*callback)())
 {
     int result=0;
     RandomMapGen.Read_Settings_00579960();
-    HWND dialog=unknown_create_dialog_5ff610(0x105,Map_Seed_Dialog_Proc_00577bd0,0);
+    HWND dialog=OwnerDraw_Begin_Dialog(0x105,Map_Seed_Dialog_Proc_00577bd0,0);
     if(dialog!=0) {
         rmg_callback_7e09c4=callback;
         RandomMapGen.SeedData.unknown_14=(int)callback;
@@ -2335,11 +2335,11 @@ int __fastcall Do_Random_Map_Dialog_00577490(bool (*callback)())
         SendMessageA(dialog,0x4a9,0,1);
         Display_Dialog(dialog);
         while(result==0) {
-            if(unknown_6000d0()==true)break;
+            if(OwnerDraw_Dialog_Message_Handler()==true)break;
             if(callback!=0)callback();
             Title_Screen_Restore(false);
         }
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
     rmg_callback_7e09c4=Default_Map_Generation_Callback_00482100;
     RandomMapGen.SeedData.unknown_14=0;
@@ -2471,7 +2471,7 @@ void __fastcall Do_Random_Map_00577880(HWND dialog,bool (*callback)())
     if(RandomMapGen.MapSeeder!=0)delete reinterpret_cast<MapSeedClass *>(RandomMapGen.MapSeeder);
     RandomMapGen.MapSeeder=(int)new MapSeedClass;
     memcpy((void*)RandomMapGen.MapSeeder,&RandomMapGen.SeedData,sizeof(MapSeedClass));
-    unknown_id_source_a3d290->Set_Scenario_Name_0065e730(rmg_description_7e15dc);
+    Scen->Set_Scenario_Name_0065e730(rmg_description_7e15dc);
     Title_Screen_Restore(false);
     if(unknown_preview_a6fee4!=0) {
         if(unknown_preview_a6fee4->unknown_00!=0) {
@@ -2658,12 +2658,12 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
             RandomMapGen.SeedData.Read_Dialog_Parameters_00578420(window);
             if(Debug_Map) {
                 RandomMapGen.Unknown_0057A0D0(0,(int)window);
-                unknown_id_source_a3d290->Set_Scenario_Name_0065e730(unknown_random_map_name_7e1608);
+                Scen->Set_Scenario_Name_0065e730(unknown_random_map_name_7e1608);
                 Write_Scenario_INI_0065f980(unknown_random_map_file_7e15fc,true);
             } else if(!unknown_preview_a6fee4 || !unknown_preview_a6fee4->Is_Present()) {
                 RandomMapGen.Unknown_0057A0D0(1,(int)window);
                 if(Debug_Map) {
-                    unknown_id_source_a3d290->Set_Scenario_Name_0065e730(unknown_random_map_name_7e1608);
+                    Scen->Set_Scenario_Name_0065e730(unknown_random_map_name_7e1608);
                     Write_Scenario_INI_0065f980(unknown_random_map_file_7e15fc,true);
                 }
             }
@@ -2677,7 +2677,7 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
         if(Debug_Map)EnableWindow(preview_handle,0);
         else EnableWindow(preview_handle,1);
         if(RandomMapGen.SeedData.Seed==-1) {
-            RandomMapGen.SeedData.Seed=unknown_id_source_a3d290->Random()(0,65535);
+            RandomMapGen.SeedData.Seed=Scen->Random()(0,65535);
             unknown_generate_flag_a70068=true;
         }
         unknown_preview_flag_7e0ae0=true;
@@ -2907,7 +2907,7 @@ extern "C" char unknown_rmg_radar_message[];
 // Its accepted out-of-line copy lives in another population; this is the same real body.
 void __stdcall Report_Generation_Progress_0057be50(int progress)
 {
-    if (unknown_id_source_a3d290->IsReadingScenario) {
+    if (Scen->IsReadingScenario) {
         unknown_session_a3d298.Update_Progress((int)((unsigned int)progress + 99u));
     } else {
         ProgressScreen.Set_Progress_Percent(0, (double)progress, Point2D(-1, -1));
@@ -2941,7 +2941,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     RMGRandom=Random2Class(SeedData.Seed);
     unknown_map_gaussian_a6fd50=MapGaussianClass(Map_Random_Fraction_00579770);
     if(RMGCallback)RMGCallback();
-    bool showProgress=!unknown_id_source_a3d290->IsReadingScenario;
+    bool showProgress=!Scen->IsReadingScenario;
     if(showProgress) {
         ProgressScreen.Init(100.0,1,window);
         ProgressScreen.Load_Shape(unknown_rmg_progress_shape_7e19cc,0,0);
@@ -3186,29 +3186,29 @@ void MapGeneratorClass::Init_Map(int fullInit)
     ini.Put_Double("Lighting","IonBlue",0.75);
     ini.Put_Double("Lighting","IonGround",0.0);
     ini.Put_Double("Lighting","IonLevel",0.0);
-    if(!unknown_id_source_a3d290->IsReadingScenario)ProgressScreen.Set_Progress_Percent(0,1.0,Point2D(-1,-1));
+    if(!Scen->IsReadingScenario)ProgressScreen.Set_Progress_Percent(0,1.0,Point2D(-1,-1));
     if(RMGCallback)RMGCallback();
     Clear_Tiberium_Spread_006e9670();
     Clear_Tiberium_Growth_006ea130();
     if(!(unsigned char)fullInit) {
         ScenarioInit=(int)((unsigned)ScenarioInit+1u);
-        unknown_id_source_a3d290->Set_Scenario_Name_0065e730("");
+        Scen->Set_Scenario_Name_0065e730("");
         if(Debug_Map)Clear_Scenario_0065d370();
         Read_Scenario_INI(ini,true);
         Fill_In_Data_0065cdd0();
         Cell center(Map.MapSize.Width/2+Map.MapSize.Height/2+1,Map.MapSize.Width/2+Map.MapSize.Height/2);
-        unknown_id_source_a3d290->Set_Waypoint_Location(99,center);
-        unknown_id_source_a3d290->Set_Waypoint_Location(unknown_id_source_a3d290->HomeCell,unknown_id_source_a3d290->Get_Waypoint_Location(99));
-        Map[unknown_id_source_a3d290->Get_Waypoint_Location(unknown_id_source_a3d290->HomeCell)].unknown_140|=4;
-        Map.RadarClass::Set_Tactical_Position(unknown_id_source_a3d290->Waypoint_Coord(unknown_id_source_a3d290->HomeCell));
+        Scen->Set_Waypoint_Location(99,center);
+        Scen->Set_Waypoint_Location(Scen->HomeCell,Scen->Get_Waypoint_Location(99));
+        Map[Scen->Get_Waypoint_Location(Scen->HomeCell)].unknown_140|=4;
+        Map.RadarClass::Set_Tactical_Position(Scen->Waypoint_Coord(Scen->HomeCell));
         ScenarioInit--;
     } else {
-        unknown_id_source_a3d290->Set_Defaults();
+        Scen->Set_Defaults();
         if(!MapPreview)MapPreview=(int)new MapPreviewClass;
         Report_Generation_Progress_0057be50(2);
         int theater=SeedData.Theater;
         bool changed=true;
-        int lastTheater=unknown_id_source_a3d290->Theater;
+        int lastTheater=Scen->Theater;
         if(MapSeeder) {
             MapSeedClass const *previous=(MapSeedClass*)MapSeeder;
             lastTheater=previous->Theater;
@@ -3251,39 +3251,39 @@ void MapGeneratorClass::Init_Map(int fullInit)
         Report_Generation_Progress_0057be50(20);
         if(RMGCallback)RMGCallback();
         // The canonical legacy provider takes the scenario address as a 32-bit ECX argument.
-        seed_00663220::Clear_All_Waypoints_00663220(reinterpret_cast<int>(unknown_id_source_a3d290));
+        seed_00663220::Clear_All_Waypoints_00663220(reinterpret_cast<int>(Scen));
         Cell center(Map.MapSize.Width/2+Map.MapSize.Height/2+1,Map.MapSize.Width/2+Map.MapSize.Height/2);
-        unknown_id_source_a3d290->Set_Waypoint_Location(99,center);
-        unknown_id_source_a3d290->Set_Waypoint_Location(98,unknown_id_source_a3d290->Get_Waypoint_Location(99));
-        Map[unknown_id_source_a3d290->Get_Waypoint_Location(98)].unknown_140|=4;
-        Map.RadarClass::Set_Tactical_Position(unknown_id_source_a3d290->Waypoint_Coord(98));
+        Scen->Set_Waypoint_Location(99,center);
+        Scen->Set_Waypoint_Location(98,Scen->Get_Waypoint_Location(99));
+        Map[Scen->Get_Waypoint_Location(98)].unknown_140|=4;
+        Map.RadarClass::Set_Tactical_Position(Scen->Waypoint_Coord(98));
         Report_Generation_Progress_0057be50(25);
         if(RMGCallback)RMGCallback();
         ScenarioInit=(int)((unsigned)ScenarioInit+1u);
-        if(theater!=unknown_id_source_a3d290->Theater) {Init_Theater_00519e70(theater);unknown_id_source_a3d290->Theater=theater;}
+        if(theater!=Scen->Theater) {Init_Theater_00519e70(theater);Scen->Theater=theater;}
         Report_Generation_Progress_0057be50(30);
         if(RMGCallback)RMGCallback();
-        if(!MapSeeder || theater!=lastTheater || changed) {Rules->Process(*RuleINI);unknown_id_source_a3d290->Read_Global_Variables(*RuleINI);}
+        if(!MapSeeder || theater!=lastTheater || changed) {Rules->Process(*RuleINI);Scen->Read_Global_Variables(*RuleINI);}
         Report_Generation_Progress_0057be50(35);
         if(RMGCallback)RMGCallback();
         if(!MapSeeder || theater!=lastTheater || changed) {
             if(Houses.Count()==0)for(index=0;index<HouseTypes.Count();++index) {HouseClass *house=new HouseClass(HouseTypes[index]);house->Read_INI(ini);}
             if(RMGCallback)RMGCallback();
-            TerrainTypeClass::Init(unknown_id_source_a3d290->Theater);
-            if(unknown_id_source_a3d290->Theater!=LastTheater)Read_Tile_Control_00529870(unknown_id_source_a3d290->Theater,true);else Clear_Tile_Use_Counts_0052b650();
-            OverlayTypeClass::Init(unknown_id_source_a3d290->Theater);
+            TerrainTypeClass::Init(Scen->Theater);
+            if(Scen->Theater!=LastTheater)Read_Tile_Control_00529870(Scen->Theater,true);else Clear_Tile_Use_Counts_0052b650();
+            OverlayTypeClass::Init(Scen->Theater);
             if(RMGCallback)RMGCallback();
             if(RMGCallback)RMGCallback();
             if(RMGCallback)RMGCallback();
-            BuildingTypeClass::Init(unknown_id_source_a3d290->Theater);
+            BuildingTypeClass::Init(Scen->Theater);
             if(RMGCallback)RMGCallback();
-            AnimTypeClass::Init(unknown_id_source_a3d290->Theater);
+            AnimTypeClass::Init(Scen->Theater);
             if(RMGCallback)RMGCallback();
-            SmudgeTypeClass::Init(unknown_id_source_a3d290->Theater);
+            SmudgeTypeClass::Init(Scen->Theater);
             if(RMGCallback)RMGCallback();
             Load_Isometric_Tiles_0052b2e0(false,true);
         }
-        LastTheater=unknown_id_source_a3d290->Theater;
+        LastTheater=Scen->Theater;
         ScenarioInit--;
     }
     Report_Generation_Progress_0057be50(40);
@@ -3303,12 +3303,12 @@ void MapGeneratorClass::Init_Map(int fullInit)
     SeededWaterAmount=0;WorkingRegionID=0;
     PlaceWaterfall=Map_Random_Fraction_00579770()<unknown_waterfall_probability_7a5b68;
     Map.Clear_Radar();Map.RadarClass::Set_Local_Dimensions(localSize);Map.Init_Radar();Map.Compute_Radar_Image();
-    unknown_id_source_a3d290->AmbientLight=SeedData.Theater==0 ? TemperateAmbientLight[SeedData.Time] : SnowAmbientLight[SeedData.Time];
-    unknown_id_source_a3d290->AmbientLevel=RMGLevelLightSettings[SeedData.Time];
-    unknown_id_source_a3d290->AmbientRed=SeedData.Theater==0 ? TemperateAmbientRed[SeedData.Time] : SnowAmbientRed[SeedData.Time];
-    unknown_id_source_a3d290->AmbientGreen=SeedData.Theater==0 ? TemperateAmbientGreen[SeedData.Time] : SnowAmbientGreen[SeedData.Time];
-    unknown_id_source_a3d290->AmbientBlue=SeedData.Theater==0 ? TemperateAmbientBlue[SeedData.Time] : SnowAmbientBlue[SeedData.Time];
-    unknown_id_source_a3d290->IonAmbient=87;unknown_id_source_a3d290->IonRed=30;unknown_id_source_a3d290->IonGreen=40;unknown_id_source_a3d290->IonBlue=75;unknown_id_source_a3d290->IonGround=0;unknown_id_source_a3d290->IonLevel=0;
+    Scen->AmbientLight=SeedData.Theater==0 ? TemperateAmbientLight[SeedData.Time] : SnowAmbientLight[SeedData.Time];
+    Scen->AmbientLevel=RMGLevelLightSettings[SeedData.Time];
+    Scen->AmbientRed=SeedData.Theater==0 ? TemperateAmbientRed[SeedData.Time] : SnowAmbientRed[SeedData.Time];
+    Scen->AmbientGreen=SeedData.Theater==0 ? TemperateAmbientGreen[SeedData.Time] : SnowAmbientGreen[SeedData.Time];
+    Scen->AmbientBlue=SeedData.Theater==0 ? TemperateAmbientBlue[SeedData.Time] : SnowAmbientBlue[SeedData.Time];
+    Scen->IonAmbient=87;Scen->IonRed=30;Scen->IonGreen=40;Scen->IonBlue=75;Scen->IonGround=0;Scen->IonLevel=0;
     Report_Generation_Progress_0057be50(50);
     if(wcslen(SeedData.DescriptionBuffer)==0)wcscpy(SeedData.DescriptionBuffer,StringTable::Load_String("TXT_RANDOM_MAP_DESCRIPTION",0,"D:\\Ra2\\MapGen.cpp",0x19b5));
 }
@@ -5526,7 +5526,7 @@ bool MapGeneratorClass::Init_Start_Points()
     int player=0;
     if(SeedData.NumPlayers>0) {
         do {
-            Cell seed=unknown_id_source_a3d290->Get_Waypoint_Location(player);
+            Cell seed=Scen->Get_Waypoint_Location(player);
             UnknownVeinNode *nodes=new UnknownVeinNode[800];
             UnknownVeinHeap *heap=new UnknownVeinHeap(800);
             Map.Reset_Iterator();
@@ -5629,7 +5629,7 @@ void MapGeneratorClass::Create_Tiberium()
             Cell center(0,0);
             if(region->unknown_20>0) {
                 for(int player=0;player<region->unknown_20;player++) {
-                    Cell start=unknown_id_source_a3d290->Get_Waypoint_Location(player+waypoint);
+                    Cell start=Scen->Get_Waypoint_Location(player+waypoint);
                     center.Y+=start.Y;
                     center.X+=start.X;
                 }
@@ -5668,7 +5668,7 @@ void MapGeneratorClass::Create_Tiberium()
         DynamicVectorClass<double> distances;
         for(int player=0;player<Start_Count(region);player++) {
             double total_distance=0.0;
-            Cell start=unknown_id_source_a3d290->Get_Waypoint_Location(player+waypoint);
+            Cell start=Scen->Get_Waypoint_Location(player+waypoint);
             for(int cell=0;cell<layout->Count();cell++) {
                 Cell position=(*layout)[cell];
                 total_distance+=Cell_Distance(position,start.X,start.Y);
@@ -5686,7 +5686,7 @@ void MapGeneratorClass::Create_Tiberium()
         bool rich=Rich_Starts(SeedData);
         for(int spot=0;spot<Start_Count(region);spot++) {
             int size=(int)((distances[spot]-closest)*15.0);
-            Create_Tiberium_Patch(unknown_id_source_a3d290->Get_Waypoint_Location(spot+waypoint),size+500,spot+waypoint+1,rich);
+            Create_Tiberium_Patch(Scen->Get_Waypoint_Location(spot+waypoint),size+500,spot+waypoint+1,rich);
         }
         waypoint+=Start_Count(region);
     }
@@ -7433,7 +7433,7 @@ void MapGeneratorClass::Generate_Lights()
             bool old=Debug_Map;
             Debug_Map=true;
             for(int player=0;player<SeedData.NumPlayers;++player) {
-                Cell waypoint=unknown_id_source_a3d290->Get_Waypoint_Location(player);
+                Cell waypoint=Scen->Get_Waypoint_Location(player);
                 int tries=20;
                 int lightCount=unknown_light_counts_7a5d7c[SeedData.Time];
                 bool clear=false;

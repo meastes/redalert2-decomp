@@ -72,7 +72,7 @@ void const *__fastcall Unknown_Load_Shape_00495270(char const *filename, bool &a
 
 
 void const *__fastcall Unknown_Load_Shape_00495270(char const *filename, bool &allocated);
-void const *__fastcall Unknown_Load_Shape_00495310(Wstring const &filename, bool &allocated)
+void const *__fastcall Load_Alloc_Data(Wstring const &filename, bool &allocated)
 {
     return Unknown_Load_Shape_00495270(filename.Peek_Buffer(), allocated);
 }

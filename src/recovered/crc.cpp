@@ -120,24 +120,24 @@ long CRCEngine::operator()(void const *buffer, int length)
 }
 
 
-extern unsigned long const unknown_crc_table_007d5504[256];
+extern unsigned long const CRC_Table[256];
 unsigned long __fastcall CRC_Memory_00494190(void const *buffer, unsigned int length, unsigned long initial)
 {
     unsigned char const *data = (unsigned char const *)buffer;
     unsigned long crc = ~initial;
     while (length-- != 0) {
-        crc = (crc >> 8) ^ unknown_crc_table_007d5504[(crc & 255) ^ *data++];
+        crc = (crc >> 8) ^ CRC_Table[(crc & 255) ^ *data++];
     }
     return ~crc;
 }
 
 
-extern unsigned long const unknown_crc_table_007d5504[256];
+extern unsigned long const CRC_Table[256];
 unsigned long __fastcall CRC_String_004941d0(char const *string, unsigned long initial)
 {
     unsigned long crc = ~initial;
     while (*string != 0) {
-        crc = (crc >> 8) ^ unknown_crc_table_007d5504[(unsigned char)*string++ ^ (unsigned char)crc];
+        crc = (crc >> 8) ^ CRC_Table[(unsigned char)*string++ ^ (unsigned char)crc];
     }
     return ~crc;
 }

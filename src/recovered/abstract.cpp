@@ -164,7 +164,7 @@ long __stdcall AbstractClass::Fetch_ID()
 
 void __stdcall AbstractClass::Create_ID()
 {
-    UniqueID = unknown_id_source_a3d290 == 0 ? 0 : unknown_id_source_a3d290->Next_ID();
+    UniqueID = Scen == 0 ? 0 : Scen->Next_ID();
 }
 
 

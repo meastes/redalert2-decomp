@@ -127,11 +127,11 @@ bool DropshipLoadoutClass::Add_Type_004A6940(TechnoTypeClass *type)
 {
     if (Count < 5) {
         int index = Find_Type_Index_004A6B50(type);
-        if (index == -1 || unknown_id_source_a3d290->AllowableUnitCounts[index]
-            < unknown_id_source_a3d290->AllowableUnitMaximums[index]) {
+        if (index == -1 || Scen->AllowableUnitCounts[index]
+            < Scen->AllowableUnitMaximums[index]) {
             Types[Count++] = type;
             Cost += type->Raw_Cost();
-            if (index != -1) ++unknown_id_source_a3d290->AllowableUnitCounts[index];
+            if (index != -1) ++Scen->AllowableUnitCounts[index];
             return true;
         }
     }
@@ -143,7 +143,7 @@ bool DropshipLoadoutClass::Remove_Index_004A6A10(int index)
 {
     if (Count <= 0 || index < 0 || index >= Count) return false;
     int scenarioIndex = Find_Type_Index_004A6B50(Types[index]);
-    if (scenarioIndex != -1) --unknown_id_source_a3d290->AllowableUnitCounts[scenarioIndex];
+    if (scenarioIndex != -1) --Scen->AllowableUnitCounts[scenarioIndex];
     Cost -= Types[index]->Raw_Cost();
     for (int slot = index; slot < Count - 1; ++slot) {
         Types[slot] = Types[slot + 1];
@@ -178,10 +178,10 @@ TechnoTypeClass *DropshipLoadoutClass::Get_Type_004A6B40(int index)
 
 int __fastcall DropshipLoadoutClass::Find_Type_Index_004A6B50(TechnoTypeClass *type)
 {
-    TypeList<TechnoTypeClass *> &units = unknown_id_source_a3d290->AllowableUnits;
+    TypeList<TechnoTypeClass *> &units = Scen->AllowableUnits;
     if (!units.Count()) return -1;
     for (int index = 0; index < units.Count(); ++index) {
-        if (units[index] == type && unknown_id_source_a3d290->AllowableUnitMaximums[index] != -1) return index;
+        if (units[index] == type && Scen->AllowableUnitMaximums[index] != -1) return index;
     }
     return -1;
 }
@@ -254,7 +254,7 @@ void __fastcall Dropship_Screen_004A6B90()
     int j;
     int k;
 
-    int dropship_count = unknown_id_source_a3d290->StartingDropships;
+    int dropship_count = Scen->StartingDropships;
     int money = PlayerPtr->Available_Money();
     unsigned int money_display = 0;
 
@@ -382,10 +382,10 @@ void __fastcall Dropship_Screen_004A6B90()
 
     unsigned int ownable_mask = 1 << HouseTypes.ID(PlayerPtr->Type);
 
-    if (unknown_id_source_a3d290->AllowableUnits.Count() > 0) {
-        for (i = 0; i < unknown_id_source_a3d290->AllowableUnits.Count(); ++i) {
-            TechnoTypeClass *techtype = unknown_id_source_a3d290->AllowableUnits[i];
-            if ((techtype->Owner & ownable_mask) && unknown_id_source_a3d290->AllowableUnitMaximums[i] != 0) {
+    if (Scen->AllowableUnits.Count() > 0) {
+        for (i = 0; i < Scen->AllowableUnits.Count(); ++i) {
+            TechnoTypeClass *techtype = Scen->AllowableUnits[i];
+            if ((techtype->Owner & ownable_mask) && Scen->AllowableUnitMaximums[i] != 0) {
                 candidates.Add(techtype);
             }
         }
@@ -523,7 +523,7 @@ void __fastcall Dropship_Screen_004A6B90()
                     usage_index = DropshipLoadoutClass::Find_Type_Index_004A6B50(candidates[cameo_top + i]);
                 }
 
-                if (i >= 8 || usage_index == -1 || unknown_id_source_a3d290->AllowableUnitCounts[usage_index] < unknown_id_source_a3d290->AllowableUnitMaximums[usage_index]) {
+                if (i >= 8 || usage_index == -1 || Scen->AllowableUnitCounts[usage_index] < Scen->AllowableUnitMaximums[usage_index]) {
                     AlphaBuffer->Clear_Region_00411090(127, Rect(screen_origin.X + buttons[i]->X, screen_origin.Y + buttons[i]->Y, 64, 48));
                 } else {
                     AlphaBuffer->Clear_Region_00411090(63, Rect(screen_origin.X + buttons[i]->X, screen_origin.Y + buttons[i]->Y, 64, 48));
@@ -545,7 +545,7 @@ void __fastcall Dropship_Screen_004A6B90()
                     TechnoTypeClass *techtype = candidates[cameo_top + input - 1];
 
                     int usage_index = DropshipLoadoutClass::Find_Type_Index_004A6B50(techtype);
-                    if (money - techtype->Raw_Cost() >= 0 && (usage_index == -1 || unknown_id_source_a3d290->AllowableUnitCounts[usage_index] < unknown_id_source_a3d290->AllowableUnitMaximums[usage_index])) {
+                    if (money - techtype->Raw_Cost() >= 0 && (usage_index == -1 || Scen->AllowableUnitCounts[usage_index] < Scen->AllowableUnitMaximums[usage_index])) {
                         buttons[10 + selected_count]->Set_Shape((ShapeFileStruct const *)techtype->unknown_slot38(), 0, 0);
 
                         ShapeFileStruct const *cameo_shape = (ShapeFileStruct const *)techtype->unknown_slot38();
@@ -563,7 +563,7 @@ void __fastcall Dropship_Screen_004A6B90()
                         cross_dissolves.Add(dissolve_effect);
 
                         if (usage_index != -1) {
-                            unknown_id_source_a3d290->AllowableUnitCounts[usage_index]++;
+                            Scen->AllowableUnitCounts[usage_index]++;
                         }
                         selections.Add(techtype);
 
@@ -581,7 +581,7 @@ void __fastcall Dropship_Screen_004A6B90()
                         for (j = 0; ; ++j) {
                             if (j >= button_fades.Count()) {
                                 ButtonFadeEffect *fade = new ButtonFadeEffect(::timeGetTime(), candidate_index, 127.0f, -1.0f, false);
-                                if (usage_index != -1 && unknown_id_source_a3d290->AllowableUnitCounts[usage_index] >= unknown_id_source_a3d290->AllowableUnitMaximums[usage_index]) {
+                                if (usage_index != -1 && Scen->AllowableUnitCounts[usage_index] >= Scen->AllowableUnitMaximums[usage_index]) {
                                     force_info_redraw = true;
                                     fade->StopAtLow = true;
                                 }
@@ -611,7 +611,7 @@ void __fastcall Dropship_Screen_004A6B90()
                     if (candidate_index < candidates.Count()) {
                         usage_index = DropshipLoadoutClass::Find_Type_Index_004A6B50(candidates[candidate_index]);
                     }
-                    if (usage_index == -1 || unknown_id_source_a3d290->AllowableUnitCounts[usage_index] < unknown_id_source_a3d290->AllowableUnitMaximums[usage_index]) {
+                    if (usage_index == -1 || Scen->AllowableUnitCounts[usage_index] < Scen->AllowableUnitMaximums[usage_index]) {
                         AlphaBuffer->Clear_Region_00411090(127, Rect(buttons[i]->X, buttons[i]->Y, 64, 48));
                     } else {
                         AlphaBuffer->Clear_Region_00411090(63, Rect(buttons[i]->X, buttons[i]->Y, 64, 48));
@@ -630,7 +630,7 @@ void __fastcall Dropship_Screen_004A6B90()
                 if (remove_index < selections.Count()) {
                     int usage_index = DropshipLoadoutClass::Find_Type_Index_004A6B50(selections[remove_index]);
                     if (usage_index != -1) {
-                        if (unknown_id_source_a3d290->AllowableUnitCounts[usage_index] >= unknown_id_source_a3d290->AllowableUnitMaximums[usage_index]) {
+                        if (Scen->AllowableUnitCounts[usage_index] >= Scen->AllowableUnitMaximums[usage_index]) {
                             for (j = 0; j < candidates.Count(); ++j) {
                                 if (candidates[j] == selections[remove_index]) {
                                     ButtonFadeEffect *fade = new ButtonFadeEffect(::timeGetTime(), j, 127.0f, -1.0f, false);
@@ -641,7 +641,7 @@ void __fastcall Dropship_Screen_004A6B90()
                                 }
                             }
                         }
-                        unknown_id_source_a3d290->AllowableUnitCounts[usage_index]--;
+                        Scen->AllowableUnitCounts[usage_index]--;
                     }
 
                     money += selections[remove_index]->Raw_Cost();
@@ -917,7 +917,7 @@ void __fastcall Dropship_Screen_004A6B90()
         bool hover_allowed;
         int usage_index = DropshipLoadoutClass::Find_Type_Index_004A6B50(hover_type);
         if (usage_index != -1) {
-            hover_allowed = unknown_id_source_a3d290->AllowableUnitCounts[usage_index] < unknown_id_source_a3d290->AllowableUnitMaximums[usage_index];
+            hover_allowed = Scen->AllowableUnitCounts[usage_index] < Scen->AllowableUnitMaximums[usage_index];
         } else {
             hover_allowed = true;
         }

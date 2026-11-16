@@ -388,19 +388,19 @@ HRESULT MouseClass::Load(IStream *stream)
         }
         PendingBridgeCells.Add(cell);
     }
-    TerrainTypeClass::Init(unknown_id_source_a3d290->Theater);
-    if (unknown_id_source_a3d290->Theater != LastTheater) {
-        IsometricTileTypeClass_Read_Control_File(unknown_id_source_a3d290->Theater, true);
+    TerrainTypeClass::Init(Scen->Theater);
+    if (Scen->Theater != LastTheater) {
+        IsometricTileTypeClass_Read_Control_File(Scen->Theater, true);
     } else {
         Unknown_0052B650();
     }
     Unknown_0052B2E0(false, false);
-    OverlayTypeClass::Init(unknown_id_source_a3d290->Theater);
-    BuildingTypeClass::Init(unknown_id_source_a3d290->Theater);
-    AnimTypeClass::Init(unknown_id_source_a3d290->Theater);
-    SmudgeTypeClass::Init(unknown_id_source_a3d290->Theater);
+    OverlayTypeClass::Init(Scen->Theater);
+    BuildingTypeClass::Init(Scen->Theater);
+    AnimTypeClass::Init(Scen->Theater);
+    SmudgeTypeClass::Init(Scen->Theater);
     DraggedWaypoint = 0;
-    LastTheater = unknown_id_source_a3d290->Theater;
+    LastTheater = Scen->Theater;
     return 0;
 }
 
@@ -416,7 +416,7 @@ HRESULT MouseClass::Save(IStream *stream)
     if (result < 0) {
         return result;
     }
-    int value = unknown_id_source_a3d290->Theater;
+    int value = Scen->Theater;
     result = stream->Write(&value, 4, 0);
     if (result < 0) {
         return result;

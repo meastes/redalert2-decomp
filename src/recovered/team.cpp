@@ -1254,7 +1254,7 @@ bool TeamClass::Is_Leaving_Map()
 {
     if (IsMoving && Script->Has_Mission()) {
         ScriptMissionClass mission = Script->Get_Current_Mission();
-        if (mission.Mission == 3 && !Map.Unknown_0055A660(unknown_id_source_a3d290->Get_Waypoint_Location(mission.Data), true)) {
+        if (mission.Mission == 3 && !Map.Unknown_0055A660(Scen->Get_Waypoint_Location(mission.Data), true)) {
             return true;
         }
     }
@@ -1436,12 +1436,12 @@ void TeamClass::TMission_MOVE(ScriptMissionClass const &mission, bool unknown)
 {
     if (unknown) {
         FootClass *leader = Fetch_A_Leader();
-        Cell cell = unknown_id_source_a3d290->Get_Waypoint_Location(mission.Data);
+        Cell cell = Scen->Get_Waypoint_Location(mission.Data);
         Assign_Mission_Target(&Map[cell]);
         bool adjust = true;
         if (IsMoving && Script->Has_Mission()) {
             ScriptMissionClass next = Script->Get_Current_Mission();
-            if (next.Mission == 3 && !Map.Unknown_0055A660(unknown_id_source_a3d290->Get_Waypoint_Location(next.Data), true)) {
+            if (next.Mission == 3 && !Map.Unknown_0055A660(Scen->Get_Waypoint_Location(next.Data), true)) {
                 adjust = false;
             }
         }
@@ -1467,7 +1467,7 @@ void TeamClass::TMission_MOVE(ScriptMissionClass const &mission, bool unknown)
 void TeamClass::TMission_ATT_WAYPT(ScriptMissionClass const &mission, bool unknown)
 {
     if (unknown) {
-        CellClass *cell = unknown_id_source_a3d290->Get_Waypoint_Target(mission.Data);
+        CellClass *cell = Scen->Get_Waypoint_Target(mission.Data);
         if (cell != 0 && cell->Kind_Of() == 0xB) {
             ObjectClass *occupant = cell->Cell_Object(Point2D(0, 0), cell->unknown_140 >> 8 & 1);
             if (occupant != 0) {
@@ -1494,7 +1494,7 @@ void TeamClass::TMission_ATT_WAYPT(ScriptMissionClass const &mission, bool unkno
 
 void TeamClass::TMission_PATROL(ScriptMissionClass const &mission, bool unknown)
 {
-    CellClass *cell = unknown_id_source_a3d290->Get_Waypoint_Target(mission.Data);
+    CellClass *cell = Scen->Get_Waypoint_Target(mission.Data);
     if (unknown) {
         Assign_Mission_Target(cell);
     }
@@ -1529,7 +1529,7 @@ void TeamClass::TMission_PATROL(ScriptMissionClass const &mission, bool unknown)
 void TeamClass::TMission_unknown_6bb260(ScriptMissionClass const &mission, bool unknown)
 {
     if (unknown) {
-        Assign_Mission_Target(unknown_id_source_a3d290->Get_Waypoint_Target(mission.Data));
+        Assign_Mission_Target(Scen->Get_Waypoint_Target(mission.Data));
     }
     if (MissionTarget != 0 && MissionTarget->Kind_Of() == 0xB) {
         CellClass *cell = As_Cell(MissionTarget);
@@ -1787,7 +1787,7 @@ void TeamClass::TMission_DO(ScriptMissionClass const &mission, bool unknown)
 
 void TeamClass::TMission_SET_GLOBAL(ScriptMissionClass const &mission, bool unknown)
 {
-    unknown_id_source_a3d290->Set_Global_To(mission.Data, true);
+    Scen->Set_Global_To(mission.Data, true);
     StepCompleted = true;
 }
 
@@ -1797,7 +1797,7 @@ void TeamClass::TMission_SET_GLOBAL(ScriptMissionClass const &mission, bool unkn
 
 void TeamClass::TMission_CLEAR_GLOBAL(ScriptMissionClass const &mission, bool unknown)
 {
-    unknown_id_source_a3d290->Set_Global_To(mission.Data, false);
+    Scen->Set_Global_To(mission.Data, false);
     StepCompleted = true;
 }
 
@@ -1807,7 +1807,7 @@ void TeamClass::TMission_CLEAR_GLOBAL(ScriptMissionClass const &mission, bool un
 
 void TeamClass::TMission_SET_LOCAL(ScriptMissionClass const &mission, bool unknown)
 {
-    unknown_id_source_a3d290->Set_Local_To(mission.Data, true);
+    Scen->Set_Local_To(mission.Data, true);
     StepCompleted = true;
 }
 
@@ -1817,7 +1817,7 @@ void TeamClass::TMission_SET_LOCAL(ScriptMissionClass const &mission, bool unkno
 
 void TeamClass::TMission_CLEAR_LOCAL(ScriptMissionClass const &mission, bool unknown)
 {
-    unknown_id_source_a3d290->Set_Local_To(mission.Data, false);
+    Scen->Set_Local_To(mission.Data, false);
     StepCompleted = true;
 }
 
@@ -2285,7 +2285,7 @@ void TeamClass::TMission_SCOUT(ScriptMissionClass const &mission, bool unknown)
             }
         }
         if (count > 0) {
-            int pick = unknown_id_source_a3d290->Random()(0, count - 1);
+            int pick = Scen->Random()(0, count - 1);
             for (index = 0; index < Owner->ScoutNodes.Count(); index++) {
                 if (!Owner->ScoutNodes[index].IsPreferred) {
                     if (pick == 0) {
@@ -2302,7 +2302,7 @@ void TeamClass::TMission_SCOUT(ScriptMissionClass const &mission, bool unknown)
                 }
             }
             if (list.Count() > 0) {
-                BuildingClass *building = list[unknown_id_source_a3d290->Random()(0, list.Count() - 1)];
+                BuildingClass *building = list[Scen->Random()(0, list.Count() - 1)];
                 FootClass *leader = Fetch_A_Leader();
                 Point2D radius(1, 1);
                 Cell no_cell(0, 0);
@@ -2710,7 +2710,7 @@ void TeamClass::TMission_MOVE_TO_BASE_FRONT(ScriptMissionClass const &mission, b
         CoordStruct center = leader->House->BaseCenter;
         UnknownFacingDir dir;
         if (enemy == 0) {
-            dir = UnknownFacingDir((unsigned short)((unsigned char)unknown_id_source_a3d290->Random()(0, 255) << 8));
+            dir = UnknownFacingDir((unsigned short)((unsigned char)Scen->Random()(0, 255) << 8));
         } else {
             CoordStruct there = enemy->BaseCenter;
             CoordStruct delta = there - center;

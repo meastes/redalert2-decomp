@@ -59,7 +59,7 @@ CStreamClass::~CStreamClass()
 
 unsigned long __stdcall CStreamClass::AddRef()
 {
-    unknown_com_objects_a6eb14++;
+    COMRefCount++;
     return InterlockedIncrement(&RefCount);
 }
 
@@ -75,7 +75,7 @@ unsigned long __stdcall CStreamClass::AddRef()
 
 unsigned long __stdcall CStreamClass::Release()
 {
-    unknown_com_objects_a6eb14--;
+    COMRefCount--;
     long count = InterlockedDecrement(&RefCount);
     if (count == 0) {
         delete this;

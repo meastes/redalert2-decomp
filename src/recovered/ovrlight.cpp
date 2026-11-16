@@ -188,7 +188,7 @@ void SpotLightClass::unknown_func_5ddb90()
 
     Point2D drawpoint;
     if (TacticalMap->Coord_To_Pixel(Coord, drawpoint)) {
-        if (!(unknown_id_source_a3d290->unknown_000 & 0x1000) || !Map.Is_Fogged(Coord)) {
+        if (!(Scen->unknown_000 & 0x1000) || !Map.Is_Fogged(Coord)) {
             Surface *dsurf = LogicalSurface;
             Rect drect(drawpoint.X - 128, drawpoint.Y - 64, 255, 127);
             Rect dcliprect = TacticalRect;

@@ -937,13 +937,13 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "entry": "005ff610",
    "body_bytes": 193,
    "padding_bytes": 15
   },
   {
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "entry": "005ff6e0",
    "body_bytes": 224,
    "padding_bytes": 0
@@ -961,7 +961,7 @@
    "padding_bytes": 4
   },
   {
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "entry": "006000d0",
    "body_bytes": 66,
    "padding_bytes": 14
@@ -6450,7 +6450,7 @@
   },
   {
    "site": "004cf920",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -6462,19 +6462,19 @@
   },
   {
    "site": "004cf920",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "004cf920",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
   {
    "site": "004ddf20",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -6486,13 +6486,13 @@
   },
   {
    "site": "004ddf20",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "004ddf20",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -6522,13 +6522,13 @@
   },
   {
    "site": "005d09a0",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
   {
    "site": "005d09a0",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -6546,13 +6546,13 @@
   },
   {
    "site": "005d1350",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "005d1350",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -6570,13 +6570,13 @@
   },
   {
    "site": "005d16e0",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "005d16e0",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -6594,13 +6594,13 @@
   },
   {
    "site": "005cedd0",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "005cedd0",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -6648,7 +6648,7 @@
   },
   {
    "site": "00598e10",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -6660,13 +6660,13 @@
   },
   {
    "site": "00598e10",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "00598e10",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -6684,7 +6684,7 @@
   },
   {
    "site": "0059c130",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -6738,7 +6738,7 @@
   },
   {
    "site": "00596010",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -6750,13 +6750,13 @@
   },
   {
    "site": "00596010",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "00596010",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -6774,7 +6774,7 @@
   },
   {
    "site": "00598590",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -6846,13 +6846,13 @@
   },
   {
    "site": "0059c290",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
   {
    "site": "00542210",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -6864,19 +6864,19 @@
   },
   {
    "site": "00542210",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "00542210",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
   {
    "site": "00543a70",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -6888,13 +6888,13 @@
   },
   {
    "site": "00543a70",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "00543a70",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -6912,7 +6912,7 @@
   },
   {
    "site": "0053c680",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -6930,7 +6930,7 @@
   },
   {
    "site": "0053c760",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -6948,7 +6948,7 @@
   },
   {
    "site": "005986f0",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -6966,7 +6966,7 @@
   },
   {
    "site": "0066ca70",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -6978,13 +6978,13 @@
   },
   {
    "site": "0066ca70",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "0066ca70",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -7002,7 +7002,7 @@
   },
   {
    "site": "004dd7d0",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -7014,13 +7014,13 @@
   },
   {
    "site": "004dd7d0",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "004dd7d0",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -7056,13 +7056,13 @@
   },
   {
    "site": "007629b0",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
   {
    "site": "00762c20",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -7086,19 +7086,19 @@
   },
   {
    "site": "0073c230",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
   {
    "site": "0073c230",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "0075ea50",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -7212,7 +7212,7 @@
   },
   {
    "site": "00577490",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -7224,13 +7224,13 @@
   },
   {
    "site": "00577490",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "00577490",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -7464,7 +7464,7 @@
   },
   {
    "site": "00634a00",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -7476,13 +7476,13 @@
   },
   {
    "site": "00634a00",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "00634a00",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -7686,7 +7686,7 @@
   },
   {
    "site": "00516e70",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -7698,19 +7698,19 @@
   },
   {
    "site": "00516e70",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "00516e70",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
   {
    "site": "00542460",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -7722,19 +7722,19 @@
   },
   {
    "site": "00542460",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "00542460",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
   {
    "site": "00542460",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -7746,13 +7746,13 @@
   },
   {
    "site": "00542460",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "00542460",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -7764,7 +7764,7 @@
   },
   {
    "site": "00683bf0",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -7776,13 +7776,13 @@
   },
   {
    "site": "00683bf0",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "00683bf0",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -7824,7 +7824,7 @@
   },
   {
    "site": "00688cd0",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -7836,19 +7836,19 @@
   },
   {
    "site": "00688cd0",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "00688cd0",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
   {
    "site": "005da360",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -7860,13 +7860,13 @@
   },
   {
    "site": "005da360",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "005da360",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -7878,7 +7878,7 @@
   },
   {
    "site": "0060d970",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -7890,19 +7890,19 @@
   },
   {
    "site": "0060d970",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "0060d970",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
   {
    "site": "0060e4c0",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -7914,19 +7914,19 @@
   },
   {
    "site": "0060e4c0",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "0060e4c0",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
   {
    "site": "0063b090",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -7938,13 +7938,13 @@
   },
   {
    "site": "0063b090",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "0063b090",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -7992,19 +7992,19 @@
   },
   {
    "site": "0053b770",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
   {
    "site": "0053b770",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
   {
    "site": "0053b770",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -8022,7 +8022,7 @@
   },
   {
    "site": "0053b770",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
@@ -8064,7 +8064,7 @@
   },
   {
    "site": "0053b770",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -8076,7 +8076,7 @@
   },
   {
    "site": "005b46b0",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -8088,13 +8088,13 @@
   },
   {
    "site": "005b46b0",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "005b46b0",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -8106,7 +8106,7 @@
   },
   {
    "site": "00516f00",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -8118,13 +8118,13 @@
   },
   {
    "site": "00516f00",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "00516f00",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -8172,7 +8172,7 @@
   },
   {
    "site": "00466a50",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -8184,7 +8184,7 @@
   },
   {
    "site": "00466a50",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -8406,7 +8406,7 @@
   },
   {
    "site": "00742fd0",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -8418,13 +8418,13 @@
   },
   {
    "site": "00742fd0",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "00742fd0",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -8436,7 +8436,7 @@
   },
   {
    "site": "00743720",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -8478,7 +8478,7 @@
   },
   {
    "site": "007469c0",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -8532,7 +8532,7 @@
   },
   {
    "site": "007459a0",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -8610,13 +8610,13 @@
   },
   {
    "site": "00759e20",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
   {
    "site": "00759370",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -8628,19 +8628,19 @@
   },
   {
    "site": "00759370",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
   {
    "site": "00759370",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
   {
    "site": "00759370",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -8676,7 +8676,7 @@
   },
   {
    "site": "005135f0",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -8688,19 +8688,19 @@
   },
   {
    "site": "005135f0",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "005135f0",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
   {
    "site": "005cdf00",
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "target": "005ff610",
    "function_entry": true
   },
@@ -8718,7 +8718,7 @@
   },
   {
    "site": "005cdf00",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
@@ -8736,19 +8736,19 @@
   },
   {
    "site": "005cdf00",
-   "symbol": "?unknown_6000d0@@YA_NXZ",
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
    "target": "006000d0",
    "function_entry": true
   },
   {
    "site": "005cdf00",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
   {
    "site": "005cdf00",
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
    "target": "005ff6e0",
    "function_entry": true
   },
@@ -9159,6 +9159,10 @@
    "address": "00839848"
   },
   {
+   "symbol": "?Scen@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
    "symbol": "?ScreenHeights@@3PAHA",
    "address": "007add74"
   },
@@ -9541,10 +9545,6 @@
   {
    "symbol": "?unknown_hash_window_5de970@@YIIABQAUHWND__@@@Z",
    "address": "005de970"
-  },
-  {
-   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
-   "address": "00a3d290"
   },
   {
    "symbol": "?unknown_kind_test_005df660@seed_005df660@@YIEH@Z",
@@ -10557,7 +10557,7 @@
    "site": "004b87f0",
    "target": "005ff6e0",
    "symbol": "?Destroy_Exception_Window_005ff6e0@@YIXPAUHWND__@@@Z",
-   "module_symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z"
+   "module_symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z"
   },
   {
    "site": "00627350",

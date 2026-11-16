@@ -1261,7 +1261,7 @@ bool BuildingTypeClass::Read_INI(CCINIClass &ini)
         if (strlen(key) != 0) {
             strcpy(BuildupFile, key);
         }
-        Fetch_Building_Normal_Image(unknown_id_source_a3d290->Theater);
+        Fetch_Building_Normal_Image(Scen->Theater);
         sprintf(triple_def, "%d,%d,%d", AnimFrames[1].unknown_00, AnimFrames[1].unknown_04, AnimFrames[1].unknown_08);
         if (ArtINI.Get_String(unknown_1c8, "AnimIdle", triple_def, triple_out, 64) > 0) {
             sscanf(triple_out, "%d,%d,%d", &AnimFrames[1].unknown_00, &AnimFrames[1].unknown_04, &AnimFrames[1].unknown_08);
@@ -1539,7 +1539,7 @@ HRESULT __stdcall BuildingTypeClass::Load(IStream *stream)
         RoofDeployingAnimLoaded = false;
         UnderRoofDoorAnim = 0;
         UnderRoofDoorAnimLoaded = false;
-        Fetch_Building_Normal_Image(unknown_id_source_a3d290->Theater);
+        Fetch_Building_Normal_Image(Scen->Theater);
         return S_OK;
     }
     return result;
@@ -1752,7 +1752,7 @@ void *BuildingTypeClass::Get_Buildup_Data()
         if(strlen(BuildupFile)!=0) {
             char fullname[260];
             _makepath(fullname,0,0,BuildupFile,".SHP");
-            Theater_Naming_Convention(fullname,unknown_id_source_a3d290->Theater);
+            Theater_Naming_Convention(fullname,Scen->Theater);
             CCFileClass file(fullname);
             void *shape=Load_Alloc_Data(file);
             if(shape==0) {

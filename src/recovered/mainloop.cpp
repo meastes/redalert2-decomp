@@ -518,11 +518,11 @@ bool __fastcall Main_Loop()
     }
 
     if (unknown_session_a3d298.Type == 0) {
-        if (unknown_id_source_a3d290->IsGamePaused && unknown_id_source_a3d290->PauseTimer.Value() <= 0) {
-            unknown_id_source_a3d290->IsGamePaused = false;
+        if (Scen->IsGamePaused && Scen->PauseTimer.Value() <= 0) {
+            Scen->IsGamePaused = false;
             Release_Pause_0065c310();
         }
-        if (unknown_id_source_a3d290->unknown_62c) {
+        if (Scen->unknown_62c) {
             Windows_Message_Handler();
             Service_Game_IO_00481fb0();
             TacticalMap->AI();
@@ -560,14 +560,14 @@ bool __fastcall Main_Loop()
         wchar_t description[56];
         char name[261];
         unknown_flag_a6ebd0 = true;
-        strcpy(name, unknown_id_source_a3d290->FileName);
+        strcpy(name, Scen->FileName);
         name[260] = '\0';
         char *dot = strrchr(name, '.');
         if (dot != 0) {
             *dot = '\0';
         }
         strcat(name, ".sav");
-        swprintf(description, L"[%s]", unknown_id_source_a3d290->Name);
+        swprintf(description, L"[%s]", Scen->Name);
         Save_Game(name, description, 0);
     }
 
@@ -1080,7 +1080,7 @@ void __fastcall Draw_Multiplayer_Debug(bool noframecheck)
     if (DebugTime != -1) {
         double seconds = DebugTime * 0.001;
         Fancy_Text_Printf(L"%.2f", CompositeSurface, &Rect(0, 0, 500, 15), &Point2D(100, 0),
-            ColorSchemes[Gadget_Color_Scheme()], 0x1F, 6, seconds, unknown_id_source_a3d290->FileName);
+            ColorSchemes[Gadget_Color_Scheme()], 0x1F, 6, seconds, Scen->FileName);
     }
 
     if (unknown_debug_display_a3d8c5 && unknown_session_a3d298.Type != 0 && unknown_session_a3d298.Type != 1 && unknown_session_a3d298.Type != 2) {

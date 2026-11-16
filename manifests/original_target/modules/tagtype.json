@@ -591,7 +591,8 @@
    "address": "007c3908",
    "bytes": 16,
    "kind": "rtti",
-   "section": 78
+   "section": 78,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4TagTypeClass@@6BIPersistStream@@@",
@@ -943,7 +944,8 @@
    "symbol": "??_R3TagTypeClass@@8",
    "address": "007c3908",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4TagTypeClass@@6BIPersistStream@@@",

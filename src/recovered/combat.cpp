@@ -111,7 +111,7 @@ void Leaf_47e2b0::get() {  }
 
 int __fastcall Modify_Damage(int damage, WarheadTypeClass *warhead, int armour, int distance)
 {
-    if (!damage || unknown_id_source_a3d290->Special().Inert || warhead == 0) {
+    if (!damage || Scen->Special().Inert || warhead == 0) {
         return 0;
     }
     if (damage < 0) {
@@ -206,7 +206,7 @@ int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoCl
     DynamicVectorClass<DamageGroup *> groups;
     int i;
 
-    if (!strength || unknown_id_source_a3d290->Special().Inert || warhead == 0) {
+    if (!strength || Scen->Special().Inert || warhead == 0) {
         return 1;
     }
 
@@ -269,7 +269,7 @@ int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoCl
         object = cptr->Cell_Occupier(isbridge);
         for (; object; object = object->unknown_30) {
             if (object != source && object->IsActive) {
-                if (object->Kind_Of() == 1 && unknown_id_source_a3d290->Special().HarvesterImmune) {
+                if (object->Kind_Of() == 1 && Scen->Special().HarvesterImmune) {
                     if (Rules->HarvesterUnit.Is_Present((UnitTypeClass *)object->Class_Of())) {
                         continue;
                     }
@@ -351,7 +351,7 @@ int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoCl
 
     bool ion = warhead == Rules->IonCannonWarhead;
     cptr = &Map[cell];
-    if (unknown_id_source_a3d290->Special().DestroyableBridges && warhead->Wall) {
+    if (Scen->Special().DestroyableBridges && warhead->Wall) {
         int ittype = cptr->IsoTileIndex - IsometricTileTypeClass_BridgeSet + 1;
         CellClass *bcptr = 0;
         if (cptr->unknown_140 & 0x100) {
@@ -482,7 +482,7 @@ AnimTypeClass *__fastcall Select_Damage_Anim(int damage, WarheadTypeClass *warhe
         int count = warhead->AnimList.Count();
         if (count != 0) {
             if (warhead->EMEffect) {
-                return warhead->AnimList[unknown_id_source_a3d290->Random()(0, count - 1)];
+                return warhead->AnimList[Scen->Random()(0, count - 1)];
             }
             count = count * 25 - 1;
             if (damage >= count) {

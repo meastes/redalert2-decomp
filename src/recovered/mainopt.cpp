@@ -134,17 +134,17 @@ int __stdcall Try_Mode_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 bool __fastcall Try_Mode_Dialog()
 {
     int result = -1;
-    HWND dialog = unknown_create_dialog_5ff610(0xD9, Try_Mode_Proc, 0);
+    HWND dialog = OwnerDraw_Begin_Dialog(0xD9, Try_Mode_Proc, 0);
     if (dialog) {
         SetWindowLongA(dialog, 8, (LONG)&result);
         Display_Dialog(dialog);
         while (result < 0) {
-            if (unknown_6000d0()) {
+            if (OwnerDraw_Dialog_Message_Handler()) {
                 break;
             }
             Title_Screen_Restore(false);
         }
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
     return result == 1;
 }
@@ -218,35 +218,35 @@ void __fastcall Main_Options_Dialog()
     for (;;) {
         unknown_options_a6ec38 = Options;
         result = -1;
-        HWND dialog = unknown_create_dialog_5ff610(0xD5, Main_Options_Proc, 0);
+        HWND dialog = OwnerDraw_Begin_Dialog(0xD5, Main_Options_Proc, 0);
         if (!dialog) {
             continue;
         }
         SetWindowLongA(dialog, 8, (LONG)&result);
         Display_Dialog(dialog);
         while (result < 0) {
-            if (unknown_6000d0() == true) {
+            if (OwnerDraw_Dialog_Message_Handler() == true) {
                 break;
             }
             Title_Screen_Restore(false);
         }
         Main_Options_Apply(dialog);
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
         switch (result) {
             case 0x5CD: {
                 int confirm = -1;
                 unknown_session_a3d298.Read_MultiPlayer_Settings();
-                dialog = unknown_create_dialog_5ff610(0xD7, Main_Options_Proc2, 0);
+                dialog = OwnerDraw_Begin_Dialog(0xD7, Main_Options_Proc2, 0);
                 if (dialog) {
                     SetWindowLongA(dialog, 8, (LONG)&confirm);
                     Display_Dialog(dialog);
                     while (confirm < 0) {
-                        if (unknown_6000d0() == true) {
+                        if (OwnerDraw_Dialog_Message_Handler() == true) {
                             break;
                         }
                         Title_Screen_Restore(false);
                     }
-                    unknown_dialog_5ff6e0(dialog);
+                    OwnerDraw_End_Dialog(dialog);
                 }
                 continue;
             }
@@ -566,13 +566,13 @@ bool __fastcall Test_Display_Mode(int width, int height)
     Update_Visible_Surface(true, HiddenSurface, 0);
     WWMouse->Show_Mouse();
     Darken_Surface(0, true);
-    HWND dialog = unknown_create_dialog_5ff610(0xD9, Confirm_Mode_Proc, 0);
+    HWND dialog = OwnerDraw_Begin_Dialog(0xD9, Confirm_Mode_Proc, 0);
     if (dialog) {
         SetWindowLongA(dialog, 8, (LONG)&result);
         Display_Dialog(dialog);
         CDTimerClass<SystemTimerClass> timer(600);
         while (result < 0) {
-            if (unknown_6000d0() == true) {
+            if (OwnerDraw_Dialog_Message_Handler() == true) {
                 break;
             }
             Title_Screen_Restore(false);
@@ -581,7 +581,7 @@ bool __fastcall Test_Display_Mode(int width, int height)
                 timer = 300;
             }
         }
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
         if (result != 1) {
             Debug_Printf("Resetting display mode @ %dx%d\n", Options.ScreenWidth, Options.ScreenHeight);
             Set_Display_Mode(Options.ScreenWidth, Options.ScreenHeight);

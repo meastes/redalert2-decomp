@@ -190,5 +190,5 @@ int BuildingClass::Do_MISSION_ATTACK()
         Status = 0;
         return 1;
     }
-    return (int)(Control()->unknown_18 * 900.0) + unknown_id_source_a3d290->RandomNumber(0, 2);
+    return (int)(Control()->unknown_18 * 900.0) + Scen->RandomNumber(0, 2);
 }

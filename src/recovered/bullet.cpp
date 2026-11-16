@@ -648,7 +648,7 @@ Matrix3D __fastcall Bullet_Isometric_View();
 int __fastcall Bullet_Height_Pixel(int height);
 void BulletClass::Draw_It(Point2D const &point, Rect const &clip)
 {
-    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(CoordStruct(Coord))) return;
+    if ((Scen->unknown_000 & 0x1000) && Map.Is_Fogged(CoordStruct(Coord))) return;
     if (Type->Inviso || SpawnNextAnim) return;
     if (Type->IsVoxel) {
         Matrix3D matrix;
@@ -781,10 +781,10 @@ bool BulletClass::unknown_slot118(CoordStruct const &source, TVelocity3D<double>
         if (Type->FlakScatter && Type->Inviso) {
             float distance=Projectile_Launch_Distance(source,target);
             int maximum=Rules->BallisticScatter*2;
-            int scatter=unknown_id_source_a3d290->Random()(0,maximum);
+            int scatter=Scen->Random()(0,maximum);
             int product = (int)((unsigned int)scatter * (unsigned int)(int)distance); // original32-bit IMUL before signed IDIV
             int radius = product / WeaponType->unknown_b4;
-            int random_direction = unknown_id_source_a3d290->Random()(0, 0x7ffffffe);
+            int random_direction = Scen->Random()(0, 0x7ffffffe);
             // Full original conversion payloads verified in R1415 launch-data-proof.json.
             double random_angle = random_direction * 4.656612877414201e-10;
             random_angle *= 6.283185307179586;
@@ -931,7 +931,7 @@ void BulletClass::Bullet_Explodes(bool forced)
             if (!IsActive) {
                 return;
             }
-            int distance = unknown_id_source_a3d290->Random()(0x100, 0x200);
+            int distance = Scen->Random()(0x100, 0x200);
             coord = Coord_Scatter(origin, distance, false);
         }
     } else {
@@ -1086,7 +1086,7 @@ void BulletClass::Detonate(CoordStruct const &position)
                 facing = (facing + 1) & 7;
                 BulletClass *fragment = Create_Bullet(projectile, &neighbor, Owner, weapon->unknown_a4, weapon->Warhead, 50, false);
                 if (fragment != 0) {
-                    int random_direction = unknown_id_source_a3d290->Random()(0, 32);
+                    int random_direction = Scen->Random()(0, 32);
                     short raw = (short)((unsigned short)(unsigned char)random_direction << 8);
                     double speed = (double)(weapon->unknown_a8 / 10);
                     double angle = ((int)raw - 0x3fff) * -9.587672516830327e-05;
@@ -1099,7 +1099,7 @@ void BulletClass::Detonate(CoordStruct const &position)
             } while (--remaining != 0);
             BulletClass *fragment = Create_Bullet(projectile, center, Owner, weapon->unknown_a4, weapon->Warhead, 50, false);
             if (fragment != 0) {
-                int random_direction = unknown_id_source_a3d290->Random()(0, 32);
+                int random_direction = Scen->Random()(0, 32);
                 short raw = (short)((unsigned short)(unsigned char)random_direction << 8);
                 double speed = (double)(weapon->unknown_a8 / 10);
                 double angle = ((int)raw - 0x3fff) * -9.587672516830327e-05;
@@ -1261,7 +1261,7 @@ HRESULT __stdcall BulletClass::Save(IStream *stream, BOOL clear_dirty)
 
 unsigned long __stdcall BulletClass::AddRef()
 {
-    unknown_com_objects_a6eb14++;
+    COMRefCount++;
     return InterlockedIncrement(&RefCount);
 }
 
@@ -1270,7 +1270,7 @@ unsigned long __stdcall BulletClass::AddRef()
 
 unsigned long __stdcall BulletClass::Release()
 {
-    unknown_com_objects_a6eb14--;
+    COMRefCount--;
     long count = InterlockedDecrement(&RefCount);
     if (count == 0) {
         delete this;

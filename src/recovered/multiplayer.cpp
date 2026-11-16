@@ -459,7 +459,7 @@ void MultiplayerGameMode::unknown_clear_teams_5b77e0()
 
 bool MultiplayerGameMode::UnfixAlliances()
 {
-    unknown_id_source_a3d290->unknown_000 &= ~0x400;
+    Scen->unknown_000 &= ~0x400;
     return true;
 }
 
@@ -522,13 +522,13 @@ Cell MultiplayerGameMode::AssignStartingPositionsToHouse(int house, DynamicVecto
             }
         }
         if (observer) {
-            index = unknown_id_source_a3d290->RandomNumber(0, cells.Count() - 1);
+            index = Scen->RandomNumber(0, cells.Count() - 1);
             taken[index] = true;
             unknown_flag_a71a3c = true;
             Debug_Printf("Observer observing random cell: %d (%d,%d)\n", index, cells[index].X, cells[index].Y);
             return cells[index];
         }
-        index = unknown_id_source_a3d290->RandomNumber(0, cells.Count() - 1);
+        index = Scen->RandomNumber(0, cells.Count() - 1);
         Debug_Printf("First cell taken: %d (%d,%d)\n", index, cells[index].X, cells[index].Y);
         taken[index] = true;
         return cells[index];
@@ -730,9 +730,9 @@ bool MultiplayerGameMode::GenerateStartingUnits(HouseClass *house, int *money)
         while (*money > 0 && tries > 0) {
             TechnoTypeClass *type;
             if (*money > start / 3 && unit_list.Count() != 0) {
-                type = unit_list[unknown_id_source_a3d290->Random()(0, unit_list.Count() - 1)];
+                type = unit_list[Scen->Random()(0, unit_list.Count() - 1)];
             } else {
-                type = infantry_list[unknown_id_source_a3d290->Random()(0, infantry_list.Count() - 1)];
+                type = infantry_list[Scen->Random()(0, infantry_list.Count() - 1)];
             }
             ObjectClass *object = type->Create_One_Of(house);
             TechnoClass *techno = dynamic_cast<TechnoClass *>(object);
@@ -742,7 +742,7 @@ bool MultiplayerGameMode::GenerateStartingUnits(HouseClass *house, int *money)
                 tries--;
             } else {
                 *money -= type->Raw_Cost();
-                if (unknown_id_source_a3d290->Special().InitialVeteran) {
+                if (Scen->Special().InitialVeteran) {
                     techno->Veterancy.Set_Elite(true);
                 }
                 if (house->Is_Human_Player()) {

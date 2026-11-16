@@ -106,7 +106,7 @@ void __fastcall Restate_Mission(ScenarioClass *scenario)
             Restate_Text_00ab66e8 = StringTable::Load_String("Brief:Error", 0, "D:\\Ra2\\Restate.cpp", 0x8A);
         }
 
-        HWND dialog = unknown_create_dialog_5ff610(0x10C, Restate_Dialog_Proc_0063b270, 0);
+        HWND dialog = OwnerDraw_Begin_Dialog(0x10C, Restate_Dialog_Proc_0063b270, 0);
         IgnoreInput = true;
         WWKeyboard->Clear();
         if (dialog) {
@@ -115,7 +115,7 @@ void __fastcall Restate_Mission(ScenarioClass *scenario)
             Display_Dialog(dialog);
             result = 0;
             while (true) {
-                if (unknown_6000d0()) {
+                if (OwnerDraw_Dialog_Message_Handler()) {
                     result = 0x423;
                     break;
                 }
@@ -123,10 +123,10 @@ void __fastcall Restate_Mission(ScenarioClass *scenario)
                     break;
                 }
             }
-            unknown_dialog_5ff6e0(dialog);
+            OwnerDraw_End_Dialog(dialog);
         }
         WWKeyboard->Clear();
-        IgnoreInput = unknown_id_source_a3d290->IsInputLocked;
+        IgnoreInput = Scen->IsInputLocked;
         Map.Flag_To_Redraw(2);
     }
 

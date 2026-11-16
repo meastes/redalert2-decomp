@@ -28,10 +28,10 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass *type, CoordStruct const &coor
     if (!Class->IsMeteor) {
         ObjectClass::Unlimbo(&coord,0);
         CoordStruct center=Center_Coord()+CoordStruct(0,0,10);
-        int r1=unknown_id_source_a3d290->RandomNumber;
-        int r2=unknown_id_source_a3d290->RandomNumber;
-        int r3=unknown_id_source_a3d290->RandomNumber;
-        int r4=unknown_id_source_a3d290->RandomNumber;
+        int r1=Scen->RandomNumber;
+        int r2=Scen->RandomNumber;
+        int r3=Scen->RandomNumber;
+        int r4=Scen->RandomNumber;
         float y=(abs(r3)%int(Class->MaxXYVel+Class->MaxXYVel))-Class->MaxXYVel;
         float z=(abs(r2)%int(Class->MaxZVel-Class->MinZVel+1.0))+Class->MinZVel;
         float x=(abs(r4)%int(Class->MaxXYVel+Class->MaxXYVel))-Class->MaxXYVel;
@@ -39,19 +39,19 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass *type, CoordStruct const &coor
         double rotation=(abs(r1)%int(Class->MaxAngularVelocity-Class->MinAngularVelocity+1.0))+Class->MinAngularVelocity;
         BounceClass::Init(center,Class->Elasticity,1.4f,0.0,velocity,rotation);
     } else {
-        Vector3 velocity((abs(unknown_id_source_a3d290->RandomNumber)%int(Class->MaxXYVel+Class->MaxXYVel))-Class->MaxXYVel,
-            (abs(unknown_id_source_a3d290->RandomNumber)%int(Class->MaxXYVel+Class->MaxXYVel))-Class->MaxXYVel,Class->MinZVel);
+        Vector3 velocity((abs(Scen->RandomNumber)%int(Class->MaxXYVel+Class->MaxXYVel))-Class->MaxXYVel,
+            (abs(Scen->RandomNumber)%int(Class->MaxXYVel+Class->MaxXYVel))-Class->MaxXYVel,Class->MinZVel);
         if (velocity.X < -velocity.Y) {
             velocity.X=-velocity.X;
             velocity.Y=-velocity.Y;
         }
-        unknown_128-=abs(unknown_id_source_a3d290->RandomNumber%20);
+        unknown_128-=abs(Scen->RandomNumber%20);
         int x=coord.X-unknown_128*velocity.X;
         int y=coord.Y-unknown_128*velocity.Y;
         int z=coord.Z-unknown_128*velocity.Z;
         CoordStruct origin(x,y,z);
         ObjectClass::Unlimbo(&origin,0);
-        int random=unknown_id_source_a3d290->RandomNumber;
+        int random=Scen->RandomNumber;
         BounceClass::Init(Center_Coord(),Class->Elasticity,1.4f,0.0,velocity,
             (abs(random)%int(Class->MaxAngularVelocity-Class->MinAngularVelocity+1.0))+Class->MinAngularVelocity);
     }

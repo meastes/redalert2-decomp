@@ -18,7 +18,7 @@
 // static empty rect (population-20 units compile separately and must not emit a header initializer).
 HWND __fastcall Custom_Message_Box(unsigned short const *text, unsigned short const *button, bool *cancelled);
 void __fastcall Display_Dialog(HWND window);
-void __fastcall unknown_dialog_5ff6e0(HWND window);
+void __fastcall OwnerDraw_End_Dialog(HWND window);
 void __fastcall Slide_Pending_Dialog(HWND window);                                       // 0x005E5F20 (WM_PAINT)
 wchar_t *__fastcall wcstrim(wchar_t *buffer);                                            // 0x006EEF80 (also trigger_type.hpp)
 class Rect;

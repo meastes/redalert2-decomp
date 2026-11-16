@@ -354,7 +354,7 @@ bool LoadOptionsClass::Dialog()
 
     switch (unknown_04) {
     case 1: {
-        dialog = unknown_create_dialog_5ff610(0xb7, (DialogProc)Load_Dialog_Proc, 0);
+        dialog = OwnerDraw_Begin_Dialog(0xb7, (DialogProc)Load_Dialog_Proc, 0);
         list = GetDlgItem(dialog, 0x525);
         HWND title = GetDlgItem(dialog, 0x694);
         SendMessageA(title, 0x4b2, 0, (LPARAM)Load_Menu_Name());
@@ -370,7 +370,7 @@ bool LoadOptionsClass::Dialog()
                 StringTable::Load_String("TXT_OK", 0, "D:\\Ra2\\LoadDlg.CPP", 0x1ad), 0, 0, false);
             return false;
         }
-        dialog = unknown_create_dialog_5ff610(0x2b4, (DialogProc)Save_Dialog_Proc, 0);
+        dialog = OwnerDraw_Begin_Dialog(0x2b4, (DialogProc)Save_Dialog_Proc, 0);
         list = GetDlgItem(dialog, 0x527);
         wchar_t *description = Description;
         HWND edit = GetDlgItem(dialog, 0x526);
@@ -384,7 +384,7 @@ bool LoadOptionsClass::Dialog()
         break;
     }
     case 3: {
-        dialog = unknown_create_dialog_5ff610(0x2b5, (DialogProc)Delete_Dialog_Proc, 0);
+        dialog = OwnerDraw_Begin_Dialog(0x2b5, (DialogProc)Delete_Dialog_Proc, 0);
         list = GetDlgItem(dialog, 0x528);
         HWND title = GetDlgItem(dialog, 0x694);
         SendMessageA(title, 0x4b2, 0, (LPARAM)Delete_Menu_Name());
@@ -407,7 +407,7 @@ bool LoadOptionsClass::Dialog()
 
         do {
             while (State == -1) {
-                if (unknown_6000d0() == true) {
+                if (OwnerDraw_Dialog_Message_Handler() == true) {
                     State = 2;
                 }
                 if (unknown_14) {
@@ -546,7 +546,7 @@ bool LoadOptionsClass::Dialog()
             delete Files[i];
         }
         Files.Clear();
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
     return State == 0x40f ? true : false;
 }
@@ -618,9 +618,9 @@ void LoadOptionsClass::Fill_List_0053c040(HWND list)
         FileEntryClass *entry = new FileEntryClass;
         swprintf(entry->Description, StringTable::Load_String("TXT_EMPTY_SLOT", 0, "D:\\Ra2\\LoadDlg.CPP", 0x2f8));
         if (PlayerPtr != 0) {
-            entry->unknown_120 = unknown_id_source_a3d290->TechLevel;
-            entry->unknown_124 = unknown_id_source_a3d290->PlayerHouse;
-            entry->unknown_1a8 = unknown_id_source_a3d290->Campaign;
+            entry->unknown_120 = Scen->TechLevel;
+            entry->unknown_124 = Scen->PlayerHouse;
+            entry->unknown_1a8 = Scen->Campaign;
             wcscpy((wchar_t *)entry->unknown_128, PlayerPtr->Type->UIName);
         } else {
             entry->unknown_120 = 0;
@@ -771,7 +771,7 @@ bool __stdcall Load_Game_With_Dialog(char const *filename)
         WWMouse->Hide_Mouse();
     }
     if (dialog) {
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
     return loaded;
 }
@@ -790,7 +790,7 @@ bool __stdcall Save_Game_With_Dialog(char const *filename, wchar_t const *descri
     bool saved = Save_Game(filename, description, 0);
     WWMouse->Show_Mouse();
     if (dialog) {
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
     return saved;
 }

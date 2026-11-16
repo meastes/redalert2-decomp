@@ -205,8 +205,8 @@ bool CoopCampaignClass::Next_Map_0048e360()
         Score[1]+=first.Score; Score[0]+=second.Score;
     }
     char game_time[256];
-    Format_Time(unknown_id_source_a3d290->Elapsed_Time().Time()/60,game_time);
-    Time+=unknown_id_source_a3d290->Elapsed_Time().Time();
+    Format_Time(Scen->Elapsed_Time().Time()/60,game_time);
+    Time+=Scen->Elapsed_Time().Time();
     char total_time[256];
     Format_Time(Time,total_time);
     Debug_Printf(game_time_log_007d4ed4,game_time,total_time);
@@ -473,7 +473,7 @@ bool CoopCampaignClass::Load_Campaign_0048f590(int index)
             MapCount=0;
             MapNames=new char *[(signed char)record->MapCount];
             for(int m=0;m<(signed char)record->MapCount;++m) {
-                int choice=unknown_id_source_a3d290->Random()(0,2);
+                int choice=Scen->Random()(0,2);
                 MapNames[m]=new char[260];
                 strncpy(MapNames[m],record->Maps+(m*3+choice)*260,259);
             }

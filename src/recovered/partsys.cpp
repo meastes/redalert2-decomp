@@ -178,7 +178,7 @@ ParticleClass *ParticleSystemClass::Spawn_Particle(CoordStruct const &coord, Coo
     ParticleClass **data = &Particles[0];
     int limited_range = range;
     if (count < limited_range) limited_range = count;
-    int offset = abs(unknown_id_source_a3d290->Random()()) % limited_range;
+    int offset = abs(Scen->Random()()) % limited_range;
     int source = count - 2;
     int stop = count - offset - 2;
     int insert = count - offset;
@@ -258,7 +258,7 @@ extern "C" int __cdecl abs(int value);
 #pragma intrinsic(abs)
 inline double Random_Double(double low,double high)
 {
-    int number=unknown_id_source_a3d290->Random()(0,0x7ffffffe);
+    int number=Scen->Random()(0,0x7ffffffe);
     return (high-low)*(number/2147483646.0)+low;
 }
 static inline Vector3 Normalize(Vector3 const &vector);
@@ -270,12 +270,12 @@ void ParticleSystemClass::Spark_AI()
 {
     if (SparkSpawnFrames>0) {
         if (SparkSpawnFrames==1 || Random_Double(0.0,1.0)<=Class->SpawnSparkPercentage) {
-            int random=unknown_id_source_a3d290->Random();
+            int random=Scen->Random();
             int count=Class->ParticleCap/2+abs(random)%(Class->ParticleCap/2);
             ParticleTypeClass *held=ParticleTypes[Class->HoldsWhat];
-            Random2Class &generator=unknown_id_source_a3d290->Random();
+            Random2Class &generator=Scen->Random();
             int rand_y=generator;
-            int rand_x=unknown_id_source_a3d290->Random();
+            int rand_x=Scen->Random();
             Vector3 spark;
             float vertical_velocity=(float)(int(generator)%held->ZVelocityRange);
             spark.X=(float)(rand_x%held->XVelocity);
@@ -285,9 +285,9 @@ void ParticleSystemClass::Spark_AI()
                 ParticleClass *particle=Spawn_Particle(Position_Coord_004f3f40(),Position_Coord_004f3f40());
                 ParticleTypeClass const *type=particle->Class;
                 Vector3 &direction=particle->MovementDirection;
-                particle->MovementDirection.X=(float)(int(unknown_id_source_a3d290->Random())%type->XVelocity);
-                particle->MovementDirection.Y=(float)(int(unknown_id_source_a3d290->Random())%type->YVelocity);
-                particle->MovementDirection.Z=(float)(type->MinZVelocity+abs(int(unknown_id_source_a3d290->Random()))%type->ZVelocityRange);
+                particle->MovementDirection.X=(float)(int(Scen->Random())%type->XVelocity);
+                particle->MovementDirection.Y=(float)(int(Scen->Random())%type->YVelocity);
+                particle->MovementDirection.Z=(float)(type->MinZVelocity+abs(int(Scen->Random()))%type->ZVelocityRange);
                 float speed=direction.Length();
                 if (IsRandomSparkDirection) particle->MovementDirection=spark+particle->MovementDirection;
                 else { Vector3 &spawn_direction=(Vector3 &)Class->SpawnDirection;
@@ -373,7 +373,7 @@ void ParticleSystemClass::Smoke_AI()
                 int x = coord.X;
 
                 int xspread = particle->Class->Radius >> 3;
-                int xrand = unknown_id_source_a3d290->Random()() % xspread;
+                int xrand = Scen->Random()() % xspread;
                 if (xrand <= 0) {
                     xrand = xrand - xspread;
                 } else {
@@ -382,7 +382,7 @@ void ParticleSystemClass::Smoke_AI()
 
                 ParticleTypeClass *type = particle->Class;
                 int yspread = type->Radius >> 3;
-                int yrand = unknown_id_source_a3d290->Random()() % yspread;
+                int yrand = Scen->Random()() % yspread;
                 if (yrand <= 0) {
                     yrand = yrand - yspread;
                 } else {
@@ -398,7 +398,7 @@ void ParticleSystemClass::Smoke_AI()
                 ParticleClass *npart = Spawn_Held_Particle(next, ncoord);
                 if (npart != 0) {
                     npart->Velocity = particle->Velocity;
-                    npart->Translucency = particle->Translucency + (unknown_id_source_a3d290->Random() % 6 != 0 ? 25 : 0);
+                    npart->Translucency = particle->Translucency + (Scen->Random() % 6 != 0 ? 25 : 0);
                 }
 
                 CoordStruct pcoord;
@@ -408,7 +408,7 @@ void ParticleSystemClass::Smoke_AI()
                 ParticleClass *ppart = Spawn_Held_Particle(next, pcoord);
                 if (ppart != 0) {
                     ppart->Velocity = particle->Velocity;
-                    ppart->Translucency = particle->Translucency + (unknown_id_source_a3d290->Random() % 6 != 0 ? 25 : 0);
+                    ppart->Translucency = particle->Translucency + (Scen->Random() % 6 != 0 ? 25 : 0);
                 }
             }
             particle->Delete_Me();
@@ -420,7 +420,7 @@ void ParticleSystemClass::Smoke_AI()
     if (!IsMarkedForDeletion && IsActive && Frame % (int)SpawnFrames == 0) {
         FootClass *foot = Foot_Of(Owner);
         if (foot == 0 || foot->CurrentTube < 0) {
-            Random2Class &random = unknown_id_source_a3d290->Random();
+            Random2Class &random = Scen->Random();
             int xrand = random;
             int yrand = random;
             int range = Class->SpawnRadius + 1;

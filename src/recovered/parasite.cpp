@@ -284,7 +284,7 @@ void ParasiteClass::Unknown_00606780()
         }
         case 1:
             if (Grapple_Frame_006066B0()) {
-                unknown_48 = unknown_id_source_a3d290->Random()(0, 1) ? 2 : 3;
+                unknown_48 = Scen->Random()(0, 1) ? 2 : 3;
                 Reset_Grapple_Counters_006066a0();
                 Grapple_Frame_006066B0();
                 Make_Wakes_00606E10(unknown_28, coord);
@@ -311,11 +311,11 @@ void ParasiteClass::Unknown_00606780()
             for (int index = 0; index < 3; ++index) {
                 double across = 64.0;
                 double along = index * 128.0 - 128.0;
-                if (unknown_id_source_a3d290->Random()(0, 1)) across = -64.0;
+                if (Scen->Random()(0, 1)) across = -64.0;
                 int x = (int)(along * cosine - across * sine);
                 int y = (int)(along * sine + across * cosine);
                 CoordStruct splash = coord + CoordStruct(x, y, 0);
-                new AnimClass(Rules->SplashList[unknown_id_source_a3d290->Random()(0, count - 1)], splash, 2, 1, 0x600, -10);
+                new AnimClass(Rules->SplashList[Scen->Random()(0, count - 1)], splash, 2, 1, 0x600, -10);
             }
             if (warhead->Culling && (unknown_28->GetHealthStatus() == 0 ||
                 (unknown_28->GetHealthStatus() == 1 && Owner->Veterancy.Is_Elite()))) {
@@ -337,7 +337,7 @@ void ParasiteClass::Unknown_00606780()
             damage = weapon->unknown_a4;
             unknown_28->Take_Damage(&damage, 0, warhead, Owner, false, true);
             if (unknown_28) {
-                unknown_48 = unknown_id_source_a3d290->Random()(0, 1) ? 2 : 3;
+                unknown_48 = Scen->Random()(0, 1) ? 2 : 3;
                 Reset_Grapple_Counters_006066a0();
                 Grapple_Frame_006066B0();
                 Make_Wakes_00606E10(unknown_28, coord);
@@ -383,8 +383,8 @@ void __fastcall Make_Wakes_00606E10(FootClass *victim, CoordStruct coord)
     double cosine = unknown_cos_4ba4d0(angle);
     double sine = unknown_sin_4ba480(angle);
     for (int i = 0; i < 3; i++) {
-        double along = unknown_id_source_a3d290->Random()(-180, 180);
-        double across = unknown_id_source_a3d290->Random()(-64, 64);
+        double along = Scen->Random()(-180, 180);
+        double across = Scen->Random()(-64, 64);
         CoordStruct spot = coord + CoordStruct((int)(along * cosine - across * sine), (int)(along * sine + across * cosine), 0);
         new AnimClass(Rules->Wake, spot, 0, 1, 0x600, 0);
     }
@@ -429,7 +429,7 @@ void ParasiteClass::AI()
             }
         }
         UnknownFacingDir perpendicular = dir.Left_90();
-        int distance = unknown_id_source_a3d290->Random()(0, 1) ? -2 : 2;
+        int distance = Scen->Random()(0, 1) ? -2 : 2;
         double angle = perpendicular.As_Radian();
         int z = coord.Z;
         int y = (int)(coord.Y - unknown_sin_4ba480(angle) * distance);

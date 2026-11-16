@@ -867,19 +867,19 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
 
         int disk_number = CD_Get_Current_Disk(60);
         Get_Performance_Profile();
-        if (!unknown_special_a40920.IsFromInstall && disk_number > -1) {
-            unknown_special_a40920.IsFromInstall = ConfigINI.Get_Bool("Intro", "Play", true);
+        if (!Special.IsFromInstall && disk_number > -1) {
+            Special.IsFromInstall = ConfigINI.Get_Bool("Intro", "Play", true);
         }
 
         WolRegistryOptions wolopt;
         wolopt.Read_004ff200();
         if (!wolopt.unknown_004ff2b0() && !wolopt.unknown_004ff2d0() && !wolopt.unknown_004ff2c0()) {
-            unknown_special_a40920.EscapeMovies = true;
+            Special.EscapeMovies = true;
         }
 
-        if (unknown_special_a40920.IsFromInstall == true) {
+        if (Special.IsFromInstall == true) {
             if (disk_number > -1) {
-                unknown_special_a40920.IsFromInstall = ConfigINI.Put_Bool("Intro", "Play", false);
+                Special.IsFromInstall = ConfigINI.Put_Bool("Intro", "Play", false);
             }
             cfile->Close();
             cfile->Open(1);
@@ -1249,9 +1249,9 @@ void __cdecl Prog_End()
         delete Rules;
         Rules = 0;
     }
-    if (unknown_id_source_a3d290) {
-        delete unknown_id_source_a3d290;
-        unknown_id_source_a3d290 = 0;
+    if (Scen) {
+        delete Scen;
+        Scen = 0;
     }
 
     for (int com = 0; com < unknown_unsigned_long_list_00abd428.Count(); com++) {

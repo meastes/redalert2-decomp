@@ -4,8 +4,8 @@
     "id": "population-3772",
     "inventory_sha256": "7027007fc497e35b8ea7db7f028d112cc67b1a2cd185151697be95118fff65f2",
     "gaps_sha256": "d18e52d3777afc02df6c7124a8190ae7f44e7390783121c7b155d5c23192fd63",
-    "historical_population_sha256": "706dd8ea0ed38437f4b86b2823609be39c0d11c8bc13ce7d3f3d7137b757a1b7",
-    "historical_acceptance_sha256": "28811df2fae8a77180a957cf70db5ce309c4e665659bee98c49c6c596dde80ae",
+    "historical_population_sha256": "c79fc600c5884cefb920c27af056387b5e14391029e31a8c84ce6578260f6eff",
+    "historical_acceptance_sha256": "e2c14274e884ab3c0042dcce3b7f7bf5feae98b81889f516b09aac48007ace05",
     "separate_units": true
   },
   "references": {
@@ -223,8 +223,8 @@
     "?Rules@@3PAVRulesClass@@A": 8624200,
     "?unknown_table_7de4ec@@3PAHA": 8250604,
     "__imp__SendDlgItemMessageA@20": 7971972,
-    "?unknown_load_alloc_data_00495550@@YIPAXAAVFileClass@@@Z": 4805968,
-    "?unknown_ask_insert_disk_00498710@@YG_NH@Z": 4818704,
+    "?Hires_Load@@YIPAXAAVFileClass@@@Z": 4805968,
+    "?DiskSwap_Swap@@YG_NH@Z": 4818704,
     "?unknown_slot_ready_004f3120@@YI_NPBUUnknownSlotOwner_004f3120@@@Z": 5189920,
     "?Land_Type@IsometricTileTypeClass@@QAEHH@Z": 5411584,
     "?unknown_combo_selected_data_005c99d0@@YIHPAUHWND__@@HH@Z": 6068688,
@@ -4222,7 +4222,7 @@
     "??_7MSShapeAnim@@6B@": 8023396,
     "??_GTerrainClass@@UAEPAXI@Z": 7228240,
     "??1TerrainClass@@UAE@XZ": 7221248,
-    "?unknown_com_objects_a6eb14@@3JA": 10939156,
+    "?COMRefCount@@3JA": 10939156,
     "??0CoordStruct@@QAE@XZ": 4924896,
     "?Contains@GraphicMenuItem@@UAE_NABUPoint2D@@@Z": 5112256,
     "?Connection_ID@IPXManagerClass@@UAEHH@Z": 5396192,
@@ -5326,7 +5326,9 @@
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
     "__real@8@bff6b6db6db6db6db800": 8026880,
     "??_EXSurface@@UAEPAXI@Z": 4264736,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?Load_Alloc_Data@@YIPBXABVWstring@@AA_N@Z": 4805392,
+    "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488
   },
   "regions": [
     {
@@ -5375,8 +5377,8 @@
     {
       "entry": 4818704,
       "method": "00498710",
-      "symbol": "?unknown_ask_insert_disk_00498710@@YG_NH@Z",
-      "symbol_prefix": "?unknown_ask_insert_disk_00498710@@YG_NH@Z",
+      "symbol": "?DiskSwap_Swap@@YG_NH@Z",
+      "symbol_prefix": "?DiskSwap_Swap@@YG_NH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -5422,7 +5424,7 @@
           "resolved": 7971964
         }
       ],
-      "source_sha256": "58e01708c80f5a6453690fa9af63a3fc0c0482683adec617a255d84572105dcf",
+      "source_sha256": "d4b50f95a361757ec82de51006e472c7c7a70f49f2a53b4693619e5467dd5431",
       "source": "src/recovered/diskswap/unknown_ask_insert_disk.cpp",
       "population": "population-3772",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -5469,8 +5471,8 @@
     {
       "entry": 4805968,
       "method": "00495550",
-      "symbol": "?unknown_load_alloc_data_00495550@@YIPAXAAVFileClass@@@Z",
-      "symbol_prefix": "?unknown_load_alloc_data_00495550@@YIPAXAAVFileClass@@@Z",
+      "symbol": "?Hires_Load@@YIPAXAAVFileClass@@@Z",
+      "symbol_prefix": "?Hires_Load@@YIPAXAAVFileClass@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -5492,7 +5494,7 @@
           "resolved": 3066536
         }
       ],
-      "source_sha256": "12a68caf16f118973bdd1e924cd2ccebed7f5492dc95f9f2861bf70dbfba6645",
+      "source_sha256": "591199ec60439b16ba1cc3b578b10610a4cbae3722265df55181432cd58627cf",
       "source": "src/recovered/data/unknown_load_alloc_data.cpp",
       "population": "population-3772",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

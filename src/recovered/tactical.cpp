@@ -1867,9 +1867,9 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
         surface->Unlock();
 
         int line = 0;
-        if (unknown_id_source_a3d290->MissionTimer.Started != -1) {
-            Draw_Timer(0, ColorSchemes[PlayerPtr->ColorSchemeIndex], unknown_id_source_a3d290->MissionTimer / 15,
-                unknown_id_source_a3d290->MissionTimerText, 0, 0);
+        if (Scen->MissionTimer.Started != -1) {
+            Draw_Timer(0, ColorSchemes[PlayerPtr->ColorSchemeIndex], Scen->MissionTimer / 15,
+                Scen->MissionTimerText, 0, 0);
             line = 1;
         }
 
@@ -2519,7 +2519,7 @@ void Tactical::Draw_Objects(bool forced)
                 position = obj->Position_Coord_004f3f40();
                 if (view.Is_Point_Within(Point2D(position.X, position.Y))) {
                     obj->unknown_slot19(0);
-                    if (unknown_id_source_a3d290->Special().FogOfWar && Map.Is_Fogged(position)) {
+                    if (Scen->Special().FogOfWar && Map.Is_Fogged(position)) {
                         continue;
                     }
                     Point2D pixel;
@@ -2596,7 +2596,7 @@ void Tactical::Draw_Objects(bool forced)
             if (obj2->IsVisible && obj2 != 0 && Is_Techno_Object(obj2)) {
                 if (Is_Foot_Object(obj2)) {
                     obj2->unknown_slot19(0);
-                    if (unknown_b263d8 && !Debug_Map && unknown_id_source_a3d290->Special().FogOfWar && Map.Is_Fogged(obj2->Position_Coord_004f3f40())) {
+                    if (unknown_b263d8 && !Debug_Map && Scen->Special().FogOfWar && Map.Is_Fogged(obj2->Position_Coord_004f3f40())) {
                         continue;
                     }
                 }
@@ -3266,7 +3266,7 @@ void Tactical::Draw_Waypoints(bool inshroud)
         Waypoint_Mouse_Shapes = (void *)MixFileClass::Retrieve("MOUSE.SHP");
     }
     Point2D offset(0, TacticalRect.Y + 1);
-    int coloridx = unknown_id_source_a3d290->Theater != 1 ? 14 : 12;
+    int coloridx = Scen->Theater != 1 ? 14 : 12;
     for (int path = 0; path < 12; path++) {
         PlayerPtr->Make_Waypoint_Path(path);
         int count = PlayerPtr->WaypointPaths[path]->Waypoints.Count();

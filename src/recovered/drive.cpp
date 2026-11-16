@@ -716,7 +716,7 @@ void __stdcall DriveLocomotionClass::Do_Turn(UnknownFacingDir dir)
 // it along its track by the accumulated speed, handling tunnels, crushing,
 // track jumps at turns and arrival at the head-to coordinate.
 
-extern Point2D const unknown_adjacent_offsets_00851ac0[8];
+extern Point2D const AdjacentPoint[8];
 CoordStruct __fastcall Lerp(CoordStruct const &from, CoordStruct const &to, float t);
 
 static const double _deaccel = 0.3f;
@@ -735,7 +735,7 @@ inline Cell Adjacent_Cell(Cell cell, int facing)
 // TibSun Adjacent_Cell(Coord const &, FacingType): the coordinate one cell away (Coord + AdjacentPoint).
 inline CoordStruct Adjacent_Coord(CoordStruct const &coord, int facing)
 {
-    Point2D const &offset = unknown_adjacent_offsets_00851ac0[facing & 7];
+    Point2D const &offset = AdjacentPoint[facing & 7];
     return CoordStruct(coord.X + offset.X, coord.Y + offset.Y, coord.Z);
 }
 
@@ -1153,7 +1153,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 // TibSun DriveClass::Start_Of_Move: prepares the path and picks the next
 // track, handling blockages at the next cell.
 
-extern Point2D const unknown_adjacent_offsets_00851ac0[8];
+extern Point2D const AdjacentPoint[8];
 
 #ifndef RA2_ADJACENT_CELL
 #define RA2_ADJACENT_CELL
@@ -1171,7 +1171,7 @@ inline TPoint3D<int> const operator+(CoordStruct const &coord, Point2D const &po
 
 inline CoordStruct Adjacent_Coord_SOM(CoordStruct const &coord, int facing)
 {
-    return coord + unknown_adjacent_offsets_00851ac0[facing & 7];
+    return coord + AdjacentPoint[facing & 7];
 }
 
 bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool force_straight)

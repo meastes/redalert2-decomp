@@ -563,7 +563,7 @@ extern int unknown_saved_volume_7f1dec;
 extern bool unknown_tooltips_enabled_a40b34;
 // Pauses or resumes the first queued radar movie (0x005A0A90; its slot 3).
 void __fastcall Pause_Radar_Movie_005a0a90(bool pause);
-extern long unknown_com_objects_a6eb14;  // 0x00A6EB14 (live COM object count; hypothesis)
+extern long COMRefCount;  // 0x00A6EB14 (live COM object count; hypothesis)
 extern bool SidebarClass_IsToBlitSidebar;  // 0x00ABCD84
 extern int unknown_b263d8;  // 0x00B263D8
 

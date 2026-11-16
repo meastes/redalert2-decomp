@@ -140,7 +140,7 @@ HRESULT __stdcall TiberianSunClassFactory::CreateInstance(IUnknown *pUnkOuter, G
             delete application;
         }
     }
-    if (riid == unknown_iid_7a2c28) {
+    if (riid == IID_IGameMap) {
         IUnknown *map = (IUnknown *)&unknown_map_object_8324e0;
         if (map == 0) {
             return E_OUTOFMEMORY;
@@ -176,7 +176,7 @@ HRESULT __stdcall ApplicationClass::QueryInterface(GUID const &riid, void **ppvO
         AddRef();
         return S_OK;
     }
-    if (riid == unknown_iid_7a2c28) {
+    if (riid == IID_IGameMap) {
         *ppvObject = &unknown_map_object_8324e0;
         return S_OK;
     }
@@ -311,7 +311,7 @@ HRESULT __stdcall ApplicationClass::get_ScenarioName(BSTR *retval)
         return E_POINTER;
     }
     wchar_t psz[32];
-    MultiByteToWideChar(0, 1, unknown_id_source_a3d290->FileName, -1, psz, 32);
+    MultiByteToWideChar(0, 1, Scen->FileName, -1, psz, 32);
     *retval = SysAllocString(psz);
     return S_OK;
 }
@@ -329,7 +329,7 @@ HRESULT __stdcall ApplicationClass::get_FrameCount(long *retval)
     if (retval == 0) {
         return E_POINTER;
     }
-    *retval = unknown_id_source_a3d290->Elapsed_Time().Time();
+    *retval = Scen->Elapsed_Time().Time();
     return S_OK;
 }
 

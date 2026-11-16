@@ -549,7 +549,7 @@ Cell TeamTypeClass::Waypoint_Location() const
     if (Waypoint == -1) {
         return unknown_geometry_k;
     }
-    return unknown_id_source_a3d290->Get_Waypoint_Location(Waypoint);
+    return Scen->Get_Waypoint_Location(Waypoint);
 }
 
 
@@ -563,7 +563,7 @@ Cell TeamTypeClass::Transport_Waypoint_Location() const
     if (TransportWaypoint == -1) {
         return unknown_geometry_k;
     }
-    return unknown_id_source_a3d290->Get_Waypoint_Location(TransportWaypoint);
+    return Scen->Get_Waypoint_Location(TransportWaypoint);
 }
 
 

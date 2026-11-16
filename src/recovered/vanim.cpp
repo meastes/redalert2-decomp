@@ -156,7 +156,7 @@ extern ConvertClass *unknown_drawer_8323b4;
 extern ConvertClass *TiberiumDrawer;
 void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
 {
-    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) != 0) {
+    if ((Scen->unknown_000 & 0x1000) != 0) {
         CoordStruct coord = Coord;
         if (Map.Is_Fogged(coord)) return;
     }

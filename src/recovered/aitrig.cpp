@@ -191,7 +191,7 @@ bool AITriggerTypeClass::Is_Ready(HouseClass *house, HouseClass *enemy, bool unk
     if (teams_ok && unknown_arg3) {
         return false;
     }
-    if (Scope == 1 && unknown_id_source_a3d290->IsIgnoreGlobalAITriggers == true) {
+    if (Scope == 1 && Scen->IsIgnoreGlobalAITriggers == true) {
         return false;
     }
     if (!IsEnabled) {
@@ -201,15 +201,15 @@ bool AITriggerTypeClass::Is_Ready(HouseClass *house, HouseClass *enemy, bool unk
         return false;
     }
     if (unknown_game_mode_a3d298 == 0) {
-        if (unknown_id_source_a3d290->Difficulty == 0) {
+        if (Scen->Difficulty == 0) {
             if (!IsEnabledInEasy) {
                 return false;
             }
-        } else if (unknown_id_source_a3d290->Difficulty == 1) {
+        } else if (Scen->Difficulty == 1) {
             if (!IsEnabledInMedium) {
                 return false;
             }
-        } else if (unknown_id_source_a3d290->Difficulty == 2) {
+        } else if (Scen->Difficulty == 2) {
             if (!IsEnabledInHard) {
                 return false;
             }

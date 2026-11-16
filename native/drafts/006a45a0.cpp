@@ -284,9 +284,9 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
         surface->Unlock();
 
         int line = 0;
-        if (unknown_id_source_a3d290->MissionTimer.Started != -1) {
-            Draw_Timer(0, ColorSchemes[PlayerPtr->ColorSchemeIndex], unknown_id_source_a3d290->MissionTimer / 15,
-                unknown_id_source_a3d290->MissionTimerText, 0, 0);
+        if (Scen->MissionTimer.Started != -1) {
+            Draw_Timer(0, ColorSchemes[PlayerPtr->ColorSchemeIndex], Scen->MissionTimer / 15,
+                Scen->MissionTimerText, 0, 0);
             line = 1;
         }
 

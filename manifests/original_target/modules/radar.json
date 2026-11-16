@@ -2688,6 +2688,18 @@
    "address": "0059f250"
   },
   {
+   "symbol": "?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
+   "address": "005ff610"
+  },
+  {
+   "symbol": "?OwnerDraw_Dialog_Message_Handler@@YA_NXZ",
+   "address": "006000d0"
+  },
+  {
+   "symbol": "?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z",
+   "address": "005ff6e0"
+  },
+  {
    "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
    "address": "006a6bd0"
   },
@@ -2774,6 +2786,10 @@
   {
    "symbol": "?Save@DisplayClass@@UAEJPAUIStream@@@Z",
    "address": "0049e840"
+  },
+  {
+   "symbol": "?Scen@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
   },
   {
    "symbol": "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z",
@@ -2948,10 +2964,6 @@
    "address": "005e1fd0"
   },
   {
-   "symbol": "?unknown_6000d0@@YA_NXZ",
-   "address": "006000d0"
-  },
-  {
    "symbol": "?unknown_art_ac1070@@3PAXA",
    "address": "00ac1070"
   },
@@ -2966,14 +2978,6 @@
   {
    "symbol": "?unknown_button_ab96b8@SidebarClass@@2VShapeButtonClass@@A",
    "address": "00ab96b8"
-  },
-  {
-   "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
-   "address": "005ff610"
-  },
-  {
-   "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
-   "address": "005ff6e0"
   },
   {
    "symbol": "?unknown_flag_8373c1@@3_NA",
@@ -2994,10 +2998,6 @@
   {
    "symbol": "?unknown_house_a72d28@@3PAVHouseClass@@A",
    "address": "00a72d28"
-  },
-  {
-   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
-   "address": "00a3d290"
   },
   {
    "symbol": "?unknown_int_8325d0@@3HA",

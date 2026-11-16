@@ -130,8 +130,8 @@ void EventClass::Execute()
 
     case 0x18:
         if (house) {
-            unknown_special_a40920 = SpecialAt(0x07);
-            unknown_id_source_a3d290->unknown_000 = Data.LongsCell.Long1;
+            Special = SpecialAt(0x07);
+            Scen->unknown_000 = Data.LongsCell.Long1;
             swprintf(txt, StringTable::Load_String("TXT_SPECIAL_WARNING", 0, "D:\\Ra2\\Event.CPP", 0x3B6), house->UIName);
             unknown_session_a3d298.Messages.Add_Message(0, 0, txt, house->ColorSchemeIndex, 0x4046, 0x4B0, false);
             Map.Flag_To_Redraw(false);
@@ -542,7 +542,7 @@ void EventClass::Execute()
     }
 
     case 0x20:
-        Data.Timing.MaxAhead -= (unknown_id_source_a3d290->unknown_000 & 0x1000) ? 10 : 0;
+        Data.Timing.MaxAhead -= (Scen->unknown_000 & 0x1000) ? 10 : 0;
         if (Data.Timing.MaxAhead > unknown_session_a3d298.MaxAhead_2c8 || Data.Timing.FrameSendRate > unknown_session_a3d298.FrameSendRate) {
             unknown_a3d258 = Frame;
             unknown_a3d23c = Data.Timing.FrameSendRate * ((Frame + Data.Timing.MaxAhead + Data.Timing.FrameSendRate - 1) / Data.Timing.FrameSendRate);

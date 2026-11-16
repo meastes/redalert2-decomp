@@ -4,8 +4,8 @@
     "id": "population-3655",
     "inventory_sha256": "8123e43e975adfdec36fcb2f277ae221d3b2dd8ea22dcc7da0a71d661dfe4696",
     "gaps_sha256": "9772e28b0629154cf368f017f6b3eec17bdff5a99c1871e5fe89bb358c7e751a",
-    "historical_population_sha256": "2420860009db670a414465f22942239311deb39a850b642ff7c1e4fef7cf5294",
-    "historical_acceptance_sha256": "e01a94b739e30baa31cdae24e99b1f46aff658a96eb3a5bb40d71d312b846469"
+    "historical_population_sha256": "38f09c7282a48e2e40ec11d7431a583841685c78b7b298ab640a3446883070a3",
+    "historical_acceptance_sha256": "54490275ceb38442f86c26fb9820ca10af543031c81c618c907ae52102512ee2"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1714,7 +1714,7 @@
     "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
     "?HousePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
     "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
-    "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
     "?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A": 10748728,
     "?unknown_rules_839848@@3PAUUnknownRules839848@@A": 8624200,
@@ -4359,7 +4359,7 @@
     "??1TerrainClass@@UAE@XZ": 7221248,
     "?Create_And_Place@AircraftTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 4308880,
     "?Create_And_Place@AnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 4351904,
-    "?unknown_com_objects_a6eb14@@3JA": 10939156,
+    "?COMRefCount@@3JA": 10939156,
     "__imp__InterlockedIncrement@4": 7971260,
     "?Create_And_Place@BulletTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 4608384,
     "?Is_Input_Key@GraphicMenuItem@@UAE_NH@Z": 5112272,

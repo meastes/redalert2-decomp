@@ -262,7 +262,7 @@ void ScoreClass::Presentation()
     x = XOffset - Font->String_Pixel_Width(str) / 2 + 542;
     PRINT(str, x, YOffset + 366, Font);
     WAIT();
-    Print_Time(unknown_id_source_a3d290->ElapsedTime.Time() / 60);
+    Print_Time(Scen->ElapsedTime.Time() / 60);
 
     Play_Sound("Emblem", 256);
     for (i = 0; i < 10; i++) {
@@ -331,7 +331,7 @@ void ScoreClass::Presentation()
             }
             hallfame[index].name[0] = 0;
             hallfame[index].score = total;
-            hallfame[index].level = unknown_id_source_a3d290->TechLevel;
+            hallfame[index].level = Scen->TechLevel;
             hallfame[index].side = PlayerPtr->Type->Side;
             break;
         }

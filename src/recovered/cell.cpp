@@ -449,7 +449,7 @@ void CellClass::Cell_Color(RGBClass &lowcolor, RGBClass &highcolor) const
     if (image->Tiles[(unsigned char)SubTile] != 0) {
         IsoTileCellStruct const *record = (IsoTileCellStruct const *)image->Tiles[(unsigned char)SubTile];
         RGBClass lowest(record->LowRed, record->LowGreen, record->LowBlue);
-        lowest = RGBClass(NoInitClass()).Set(lowest, Theaters[unknown_id_source_a3d290->Theater].unknown_50);
+        lowest = RGBClass(NoInitClass()).Set(lowest, Theaters[Scen->Theater].unknown_50);
         int red = lowest.Get_Red() >> 1;
         int green = lowest.Get_Green() >> 1;
         int blue = lowest.Get_Blue() >> 1;
@@ -1813,7 +1813,7 @@ void CellClass::Draw_Shroud_And_Fog(Point2D const &point, Rect const &clip)
     }
     Draw_Shroud_Or_Fog_Shape(point, clip, frame);
     FogFrame = TacticalMap->Cell_Shadow(MapCoords, 1);
-    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && !PlayerPtr->IsDefeated) {
+    if ((Scen->unknown_000 & 0x1000) && !PlayerPtr->IsDefeated) {
         frame = FogFrame;
         if (frame == -2) {
             frame = 15;
@@ -2500,7 +2500,7 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
                     return false;
                 }
             }
-            unknown_id_source_a3d290->IsCrateBeenPickedUp = true;
+            Scen->IsCrateBeenPickedUp = true;
         }
 
         CrateType powerup;
@@ -3006,7 +3006,7 @@ bool CellClass::Is_Bridge_Here() const
 
 bool CellClass::Can_Tiberium_Grow() const
 {
-    if (!unknown_id_source_a3d290->IsTibGrowth) {
+    if (!Scen->IsTibGrowth) {
         return false;
     }
     int tiberium = OverlayClass::To_Tiberium(OverlayIndex);
@@ -3035,7 +3035,7 @@ bool CellClass::Can_Tiberium_Grow() const
 
 bool CellClass::Can_Tiberium_Spread() const
 {
-    if (!(unknown_id_source_a3d290->unknown_000 & 0x80)) {
+    if (!(Scen->unknown_000 & 0x80)) {
         return false;
     }
     int tiberium = OverlayClass::To_Tiberium(OverlayIndex);
@@ -3064,7 +3064,7 @@ bool CellClass::Can_Tiberium_Spread() const
 
 bool CellClass::Grow_Tiberium()
 {
-    if (unknown_id_source_a3d290->IsTibGrowth) {
+    if (Scen->IsTibGrowth) {
         int tiberium = OverlayClass::To_Tiberium(OverlayIndex);
         if (tiberium != -1) {
             TiberiumClass *type = Tiberiums[tiberium];
@@ -3283,8 +3283,8 @@ void CellClass::Recalc_Passability()
                 break;
 
             case 0x24:
-                if ((unknown_id_source_a3d290->Theater != 1 && ((TerrainClass *)occupier)->Class->TemperateOccupationBits != 7)
-                    || (unknown_id_source_a3d290->Theater == 1 && ((TerrainClass *)occupier)->Class->SnowOccupationBits != 7)) {
+                if ((Scen->Theater != 1 && ((TerrainClass *)occupier)->Class->TemperateOccupationBits != 7)
+                    || (Scen->Theater == 1 && ((TerrainClass *)occupier)->Class->SnowOccupationBits != 7)) {
                     Passability = 5;
                     return;
                 }
@@ -3433,10 +3433,10 @@ void __fastcall Adjust_Tile_RGB(int &intensity, int &tile_brightness, int &red, 
 void CellClass::Init_Light(int &intensity, int &ambient, int &brightness, int &tile_brightness, int &alt_brightness, int &red, int &green, int &blue) const
 {
     if (MapCoords != Cell(0, 0) && MapCoords != Cell(-1, -1)) {
-        brightness = 1000 * unknown_id_source_a3d290->CurrentAmbientLight / 100;
-        red = 1000 * unknown_id_source_a3d290->AmbientRed / 100;
-        green = 1000 * unknown_id_source_a3d290->AmbientGreen / 100;
-        blue = 1000 * unknown_id_source_a3d290->AmbientBlue / 100;
+        brightness = 1000 * Scen->CurrentAmbientLight / 100;
+        red = 1000 * Scen->AmbientRed / 100;
+        green = 1000 * Scen->AmbientGreen / 100;
+        blue = 1000 * Scen->AmbientBlue / 100;
         ambient = 0;
 
         for (int i = 0; i < LightSources.Count(); i++) {
@@ -3465,14 +3465,14 @@ void CellClass::Init_Light(int &intensity, int &ambient, int &brightness, int &t
         alt_brightness = brightness;
 
         if (IonStormClass_Is_Ion_Storm_Active()) {
-            brightness += Height * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
-            alt_brightness += (Height + 4) * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
+            brightness += Height * Scen->IonLevel - Scen->IonGround;
+            alt_brightness += (Height + 4) * Scen->IonLevel - Scen->IonGround;
         } else if (NukeFlash_IsFadingIn()) {
-            brightness += Height * unknown_id_source_a3d290->NukeLevelLight - unknown_id_source_a3d290->NukeGroundLight;
-            alt_brightness += (Height + 4) * unknown_id_source_a3d290->NukeLevelLight - unknown_id_source_a3d290->NukeGroundLight;
+            brightness += Height * Scen->NukeLevelLight - Scen->NukeGroundLight;
+            alt_brightness += (Height + 4) * Scen->NukeLevelLight - Scen->NukeGroundLight;
         } else {
-            brightness += Height * unknown_id_source_a3d290->AmbientLevel - unknown_id_source_a3d290->AmbientGround;
-            alt_brightness += (Height + 4) * unknown_id_source_a3d290->AmbientLevel - unknown_id_source_a3d290->AmbientGround;
+            brightness += Height * Scen->AmbientLevel - Scen->AmbientGround;
+            alt_brightness += (Height + 4) * Scen->AmbientLevel - Scen->AmbientGround;
         }
 
         brightness = (brightness < 2000) ? brightness : 2000;
@@ -3505,18 +3505,18 @@ void CellClass::Init_Light(int &intensity, int &ambient, int &brightness, int &t
 // limited to 0..2000.
 void CellClass::Recalc_Light()
 {
-    Brightness = unknown_108 + 1000 * unknown_id_source_a3d290->CurrentAmbientLight / 100;
+    Brightness = unknown_108 + 1000 * Scen->CurrentAmbientLight / 100;
     AltBrightness = Brightness;
 
     if (IonStormClass_Is_Ion_Storm_Active()) {
-        Brightness += Height * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
-        AltBrightness += (Height + 4) * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
+        Brightness += Height * Scen->IonLevel - Scen->IonGround;
+        AltBrightness += (Height + 4) * Scen->IonLevel - Scen->IonGround;
     } else if (NukeFlash_IsFadingIn()) {
-        Brightness += Height * unknown_id_source_a3d290->NukeLevelLight - unknown_id_source_a3d290->NukeGroundLight;
-        AltBrightness += (Height + 4) * unknown_id_source_a3d290->NukeLevelLight - unknown_id_source_a3d290->NukeGroundLight;
+        Brightness += Height * Scen->NukeLevelLight - Scen->NukeGroundLight;
+        AltBrightness += (Height + 4) * Scen->NukeLevelLight - Scen->NukeGroundLight;
     } else {
-        Brightness += Height * unknown_id_source_a3d290->AmbientLevel - unknown_id_source_a3d290->AmbientGround;
-        AltBrightness += (Height + 4) * unknown_id_source_a3d290->AmbientLevel - unknown_id_source_a3d290->AmbientGround;
+        Brightness += Height * Scen->AmbientLevel - Scen->AmbientGround;
+        AltBrightness += (Height + 4) * Scen->AmbientLevel - Scen->AmbientGround;
     }
 
     TileBrightness = (Brightness * unknown_104) >> 16;
@@ -3897,7 +3897,7 @@ void CellClass::Redraw_Veins()
     OverlayData=0;
     int frame=Get_Vein_Frame();
     if(frame==0 || Ramp) OverlayIndex=-1;
-    else OverlayData=3*frame+abs(unknown_id_source_a3d290->Random()()%3);
+    else OverlayData=3*frame+abs(Scen->Random()()%3);
     Map.Radar_Background(MapCoords);
     for(int direction=0;direction<8;direction+=2) {
         CellClass &adjacent=(CellClass&)((CellClass const*)this)->Adjacent_Cell(direction);
@@ -3906,7 +3906,7 @@ void CellClass::Redraw_Veins()
             Rect area(0,0,0,0);
             area=Union(area,Union(adjacent.Overlay_Render_Rect(),adjacent.Overlay_Shadow_Render_Rect()));
             if(neighbor_frame==0) adjacent.OverlayIndex=-1;
-            else adjacent.OverlayData=3*neighbor_frame+abs(unknown_id_source_a3d290->Random()()%3);
+            else adjacent.OverlayData=3*neighbor_frame+abs(Scen->Random()()%3);
             adjacent.Recalc_Attributes(-1);
             area=Union(area,Union(adjacent.Overlay_Render_Rect(),adjacent.Overlay_Shadow_Render_Rect()))-TacticalRect.Top_Left();
             TacticalMap->Register_Dirty_Area(area,false);
@@ -4193,7 +4193,7 @@ void CellClass::Place_Veins()
         OverlayIndex = 0x7E;
 
         if (Ramp == 0) {
-            OverlayData = abs(unknown_id_source_a3d290->Random()()) % 3 + 0x30;
+            OverlayData = abs(Scen->Random()()) % 3 + 0x30;
 
             int dir;
             for (dir = 0; dir < 8; dir += 2) {
@@ -4212,7 +4212,7 @@ void CellClass::Place_Veins()
                         Rect adjrect(0, 0, 0, 0);
                         adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect()));
                         adjacent.OverlayIndex = 0x7E;
-                        adjacent.OverlayData = 3 * frame + abs(unknown_id_source_a3d290->Random()() % 3);
+                        adjacent.OverlayData = 3 * frame + abs(Scen->Random()() % 3);
                         adjacent.Recalc_Attributes(-1);
                         RectPoint2D origin = TacticalRect.Top_Left();
                         adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect())) - origin;
@@ -4222,7 +4222,7 @@ void CellClass::Place_Veins()
                     Rect adjrect(0, 0, 0, 0);
                     adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect()));
                     adjacent.OverlayIndex = 0x7E;
-                    adjacent.OverlayData = 2 * adjacent.Ramp + (abs(unknown_id_source_a3d290->Random()()) & 1) + 0x33;
+                    adjacent.OverlayData = 2 * adjacent.Ramp + (abs(Scen->Random()()) & 1) + 0x33;
                     adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
                     TacticalMap->Register_Dirty_Area(adjrect, 0);
                 }
@@ -4232,7 +4232,7 @@ void CellClass::Place_Veins()
 
             Trigger_Veins();
         } else {
-            OverlayData = 2 * Ramp + (abs(unknown_id_source_a3d290->Random()()) & 1) + 0x33;
+            OverlayData = 2 * Ramp + (abs(Scen->Random()()) & 1) + 0x33;
         }
 
         rect = Union(rect, Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect())) - TacticalRect.Top_Left();
@@ -4341,7 +4341,7 @@ void CellClass::Trigger_Veins()
 // a new list, other units are unselected.
 void CellClass::Fog_Cell()
 {
-    if (unknown_id_source_a3d290->unknown_000 & 0x1000) {
+    if (Scen->unknown_000 & 0x1000) {
         Cell cell = MapCoords;
         for (int level = 1; level <= 15; level += 2) {
             CellClass &other = Map[cell];

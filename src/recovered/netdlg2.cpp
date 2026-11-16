@@ -993,7 +993,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
                                 unknown_session_a3d298.RequestCount++;
                             }
                         }
-                        Send_Remote_File_0066bb20(unknown_id_source_a3d290->FileName, 3, false, true);
+                        Send_Remote_File_0066bb20(Scen->FileName, 3, false, true);
                     }
                     Ipx.Set_Timing(Ipx.Global_Response_Time() + 2 > 30 ? Ipx.Global_Response_Time() + 2 : 30,
                         -1, 120 > Ipx.Global_Response_Time() * 8 ? 120 : Ipx.Global_Response_Time() * 8, true);
@@ -1051,7 +1051,7 @@ bool __fastcall Start_Joined_Game_005be3b0(int unknown)
             return false;
         }
     }
-    strcpy(unknown_id_source_a3d290->FileName, unknown_session_a3d298.ScenarioFileName_658);
+    strcpy(Scen->FileName, unknown_session_a3d298.ScenarioFileName_658);
     int response = Ipx.Global_Response_Time();
     if (response < 20) {
         Debug_Printf("IPX.Global_Response_Time() == %d. Adjusting to 20\n", response);

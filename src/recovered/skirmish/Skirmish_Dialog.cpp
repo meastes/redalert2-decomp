@@ -17,9 +17,9 @@
 #include "shared/load_dlg.hpp"
 
 // @ref ?Title_Screen_Restore@@YIX_N@Z=00517370
-// @ref ?unknown_6000d0@@YA_NXZ=006000d0
-// @ref ?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z=005ff610
-// @ref ?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z=005ff6e0
+// @ref ?OwnerDraw_Dialog_Message_Handler@@YA_NXZ=006000d0
+// @ref ?OwnerDraw_Begin_Dialog@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z=005ff610
+// @ref ?OwnerDraw_End_Dialog@@YIXPAUHWND__@@@Z=005ff6e0
 // @ref ?Display_Dialog@@YIXPAUHWND__@@@Z=005ff7c0
 // @ref ?SkirmishDialog@@3PAUHWND__@@A=00abcdfc
 // @ref ?MultiplayerMapPreview@@3PAVMapPreviewClass@@A=00a72ce8
@@ -33,15 +33,15 @@ bool __fastcall Skirmish_Dialog()
     for (int index = 0; index < HouseTypes.Count(); index++) {
         HouseTypes[index]->Read_INI(*RuleINI);
     }
-    HWND dialog = unknown_create_dialog_5ff610(0x102, Skirmish_Dialog_Proc, 0);
+    HWND dialog = OwnerDraw_Begin_Dialog(0x102, Skirmish_Dialog_Proc, 0);
     if (dialog != 0) {
         SkirmishDialog = dialog;
         SetWindowLongA(dialog, 8, (LONG)&result);
         Display_Dialog(dialog);
-        while (result != 0x617 && result != 0x5C0 && unknown_6000d0() != true) {
+        while (result != 0x617 && result != 0x5C0 && OwnerDraw_Dialog_Message_Handler() != true) {
             Title_Screen_Restore(false);
         }
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
         SkirmishDialog = 0;
     }
     if (MultiplayerMapPreview != 0) {

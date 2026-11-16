@@ -84,28 +84,28 @@ void Unknown_004DD7D0()
     int result = 0;
     HWND window;
     if (unknown_game_mode_a3d298 == 0 || unknown_game_mode_a3d298 == 5) {
-        window = unknown_create_dialog_5ff610(0xB5, Options_Menu_Proc, 0);
+        window = OwnerDraw_Begin_Dialog(0xB5, Options_Menu_Proc, 0);
     } else if (unknown_game_mode_a3d298 == 4) {
         if (MuteSWLaunches) {
-            window = unknown_create_dialog_5ff610(0xBBA, Options_Menu_Proc, 0);
+            window = OwnerDraw_Begin_Dialog(0xBBA, Options_Menu_Proc, 0);
         } else {
-            window = unknown_create_dialog_5ff610(0xFF, Options_Menu_Proc, 0);
+            window = OwnerDraw_Begin_Dialog(0xFF, Options_Menu_Proc, 0);
         }
     } else {
-        window = unknown_create_dialog_5ff610(0xBBA, Options_Menu_Proc, 0);
+        window = OwnerDraw_Begin_Dialog(0xBBA, Options_Menu_Proc, 0);
     }
     if (window) {
         SetWindowLongA(window, 8, (LONG)&result);
         Display_Dialog(window);
         while (!result) {
-            if (unknown_6000d0() == true) {
+            if (OwnerDraw_Dialog_Message_Handler() == true) {
                 result = 1;
             }
         }
-        unknown_dialog_5ff6e0(window);
+        OwnerDraw_End_Dialog(window);
     }
     if (result == 0x3EC) {
-        Restate_Mission(unknown_id_source_a3d290);
+        Restate_Mission(Scen);
     }
     Map.Flag_To_Redraw(2);
 }
@@ -147,7 +147,7 @@ static void __fastcall Options_Menu_Command(HWND window, int id, HWND control, u
                 if (unknown_game_mode_a3d298 == 0 || unknown_game_mode_a3d298 == 5) {
                     ShowWindow(window, SW_HIDE);
                     wchar_t description[512];
-                    wchar_t const *name = (wchar_t const *)unknown_id_source_a3d290->Name;
+                    wchar_t const *name = (wchar_t const *)Scen->Name;
                     swprintf(description, L"%s", name);
                     LoadOptionsClass().Save_Dialog_0053b1b0(description);
                     Options_Menu_Init(window);

@@ -262,7 +262,7 @@ Matrix3D __fastcall Aircraft_Isometric_View_Matrix_00717f90();
 void AircraftClass::Draw_It(Point2D const &point, Rect const &window)
 {
     if (!Debug_Map && unknown_b263d8 &&
-        (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
+        (Scen->unknown_000 & 0x1000)) {
         CoordStruct destination = (CoordStruct)Locomotor.Checked()->Head_To_Coord();
         destination.Z = Position_Coord_004f3f40().Z;
         if (Map.Is_Fogged(destination) &&
@@ -316,8 +316,8 @@ void AircraftClass::Draw_It(Point2D const &point, Rect const &window)
         TacticalMap->Add_To_Selectables(this, draw_point);
 
         int scenario_scale;
-        if (IonStormClass_Is_Ion_Storm_Active()) scenario_scale = unknown_id_source_a3d290->IonLevel;
-        else scenario_scale = unknown_id_source_a3d290->AmbientLevel;
+        if (IonStormClass_Is_Ion_Storm_Active()) scenario_scale = Scen->IonLevel;
+        else scenario_scale = Scen->AmbientLevel;
         int level = Get_Height_AGL() / (unknown_geometry_g + unknown_geometry_g);
         int altitude_term = level * scenario_scale;
         UnknownCellClass *ground_cell = reinterpret_cast<UnknownCellClass *>(&Map[ground]);
@@ -358,7 +358,7 @@ int AircraftClass::Do_MISSION_HUNT()
         }
         unknown_slot261(0, 1);
         int delay = (int)(Control()->unknown_10 * 900.0);
-        return delay + unknown_id_source_a3d290->Random()(0, 2);
+        return delay + Scen->Random()(0, 2);
     }
     if (TarCom == 0) {
         if (unknown_game_mode_a3d298 != 0) {
@@ -422,8 +422,8 @@ void AircraftClass::AI()
             return;
         }
         if ((Frame & 3) == 0) {
-            int offset_y = unknown_id_source_a3d290->Random()(-170, 170);
-            int offset_x = unknown_id_source_a3d290->Random()(-170, 170);
+            int offset_y = Scen->Random()(-170, 170);
+            int offset_x = Scen->Random()(-170, 170);
             CoordStruct offset(offset_x, offset_y, -Get_Height_AGL());
             current = Coord;
             current = current + offset;
@@ -454,7 +454,7 @@ void AircraftClass::AI()
     }
     if (Health_Ratio() < Rules->ConditionRed && Get_Height_AGL() > 0) {
         int chance = Strength != 0 ? 10 : 80;
-        if (unknown_id_source_a3d290->Random()(0, 99) < chance)
+        if (Scen->Random()(0, 99) < chance)
             new AnimClass(AnimTypes[AnimTypeClass::From_Name("SGRYSMK1")], CoordStruct(Coord), 0, 1, 0x600, 0);
     }
     if (Cargo.Object && Type->Carryall) {
@@ -481,7 +481,7 @@ int AircraftClass::Do_MISSION_UNLOAD()
 mission_delay:
     default: {
         int delay = (int)(Control()->unknown_10 * 900.0);
-        return unknown_id_source_a3d290->Random()(0, 2) + delay;
+        return Scen->Random()(0, 2) + delay;
     }
 
         }
@@ -495,7 +495,7 @@ choose_destination:
         } else if (unknown_slot309(NavCom)) {
             FootClass *passenger = (FootClass *)Cargo.Attached_Object();
             if (!passenger || !passenger->Team || passenger->Team->Class->Waypoint_Location() == unknown_geometry_k) {
-                Assign_Destination(New_LZ(&Map[unknown_id_source_a3d290->Get_Waypoint_Location(99)]), true);
+                Assign_Destination(New_LZ(&Map[Scen->Get_Waypoint_Location(99)]), true);
                 if (Team) Team->Assign_Mission_Target(NavCom);
             } else {
                 Assign_Destination(New_LZ(&Map[passenger->Team->Class->Waypoint_Location()]), true);
@@ -850,7 +850,7 @@ int AircraftClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
     case 4: {
         unknown_slot216(0);
         if (warhead == Rules->FirestormWarhead) {
-            int count = abs(unknown_id_source_a3d290->Random()() % 3) + 7;
+            int count = abs(Scen->Random()() % 3) + 7;
             for (int remaining = count; remaining > 0; --remaining) {
                 ParticleSystemClass *system = new ParticleSystemClass(Rules->DefaultFirestormExplosionSystem, Center_Coord(), 0, this, unknown_geometry_l);
                 system->IsRandomSparkDirection = true;
@@ -860,7 +860,7 @@ int AircraftClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
             TypeList<AnimTypeClass *> *explosions;
             AnimTypeClass *selected;
             // Preserve RNG, list-count and selected-value reads before the position call.
-            new AnimClass((choice = (unsigned)unknown_id_source_a3d290->Random()(),
+            new AnimClass((choice = (unsigned)Scen->Random()(),
                            explosions = &Type->Explosion,
                            selected = (*explosions)[choice % explosions->Count()]),
                           unknown_slot40(), 0, 1, 0x600, 0);
@@ -963,7 +963,7 @@ int AircraftClass::Do_MISSION_MOVE_Normal()
         return 1;
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay + unknown_id_source_a3d290->Random()(0, 2);
+    return delay + Scen->Random()(0, 2);
 }
 
 
@@ -1143,7 +1143,7 @@ finalize_pickup:
     }
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay + unknown_id_source_a3d290->Random()(0, 2);
+    return delay + Scen->Random()(0, 2);
 }
 
 
@@ -1242,7 +1242,7 @@ int AircraftClass::Do_MISSION_PATROL()
         return 1;
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay + unknown_id_source_a3d290->Random()(0, 2);
+    return delay + Scen->Random()(0, 2);
 }
 
 
@@ -1825,7 +1825,7 @@ int AircraftClass::Do_MISSION_ATTACK()
         return 1;
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
-    return delay + unknown_id_source_a3d290->Random()(0, 2);
+    return delay + Scen->Random()(0, 2);
 }
 
 
@@ -1858,7 +1858,7 @@ AbstractClass *AircraftClass::New_LZ(AbstractClass *desired)
         CoordStruct coord = desired->Center_Coord();
         if (!ScenarioInit) {
             for (int radius = 0; radius < Rules->LZScanRadius / 256; radius++) {
-                int phase = unknown_id_source_a3d290->Random()(0, 7);
+                int phase = Scen->Random()(0, 7);
                 Cell previous(0, 0);
                 for (int direction = 0; direction < 8; direction++) {
                     Cell cell = Move_Cell(Coord_Cell(coord), UnknownFacingDir((unsigned short)(Facing_Dir(direction + phase).Raw & ~0x1fff)), radius);
@@ -2137,7 +2137,7 @@ AbstractClass *AircraftClass::Good_Fire_Location(AbstractClass *desired)
         }
         if (previous_record_distance == -1) previous_record_cell = best_cell;
         if (best_distance != -1) {
-            if (unknown_id_source_a3d290->Random()(0, 99) < 50) return &Map[best_cell];
+            if (Scen->Random()(0, 99) < 50) return &Map[best_cell];
             return &Map[previous_record_cell];
         }
     }
@@ -2476,7 +2476,7 @@ reloading:
     }
     if (House->Unknown_004F52F0() && !In_Air()) {
         int delay = (int)(Control()->unknown_10 * 900.0);
-        return delay + unknown_id_source_a3d290->Random()(0, 2);
+        return delay + Scen->Random()(0, 2);
     }
     return FootClass::Do_MISSION_GUARD();
 rearm:
@@ -2658,7 +2658,7 @@ void AircraftClass::Look(bool arg1, bool arg2)
         Map.Sight_From(coord, sight, House, arg1, arg2, 0, 1, 0);
         coord = Coord;
         Map.Sight_From(coord, sight, House, arg1, arg2, 0, 1, 1);
-    } else if (unknown_id_source_a3d290->unknown_000 & 0x1000) {
+    } else if (Scen->unknown_000 & 0x1000) {
         sight = Rules->AircraftFogReveal;
         coord = Coord;
         Map.Sight_From(coord, sight, House, 0, 0, 1, Get_Height_AGL() < Rules->FlightLevel / 2, 0);

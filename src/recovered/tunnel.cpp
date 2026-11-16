@@ -253,7 +253,7 @@ bool __stdcall TunnelLocomotionClass::Process()
         }
         if (LinkedTo->IsSelected) {
             if (!LinkedTo->House->Is_Player_Control()) {
-                if (Map.Is_Shrouded(Object_Coord(LinkedTo)) || (unknown_id_source_a3d290->Special().FogOfWar && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
+                if (Map.Is_Shrouded(Object_Coord(LinkedTo)) || (Scen->Special().FogOfWar && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
                     LinkedTo->Unselect();
                 }
             }

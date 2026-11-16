@@ -310,7 +310,7 @@ void WaveClass::Damage_Cell_00721eb0(CoordStruct const &coord)
         }
         if (cell.Is_Tile_Destroyable_Cliff()) {
             int chance = Rules->CollapseChance;
-            if (unknown_id_source_a3d290->Random()(0, 99) < chance) Map.Unknown_00562F50(&cell);
+            if (Scen->Random()(0, 99) < chance) Map.Unknown_00562F50(&cell);
         }
     }
 }
@@ -486,7 +486,7 @@ bool WaveClass::Limbo()
 
 void WaveClass::Draw_It(Point2D const &point, Rect const &window)
 {
-    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(StartCoord) && Map.Is_Fogged(EndCoord)) {
+    if ((Scen->unknown_000 & 0x1000) && Map.Is_Fogged(StartCoord) && Map.Is_Fogged(EndCoord)) {
         return;
     }
     switch (Type) {

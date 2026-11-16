@@ -85,7 +85,7 @@ int __stdcall Score_Dialog_Proc_0069A7D0(HWND__ *dialog, unsigned int message, u
 
 void UnknownScore_0069A640::Presentation_0069A650()
 {
-    Unknown_Load_Art_Once_006F2710(unknown_id_source_a3d290->IsGDI == false);
+    Unknown_Load_Art_Once_006F2710(Scen->IsGDI == false);
     Rect rect(0, 0, VideoModeWidth, VideoModeHeight);
     Unknown_Draw_Score_Screen_6F3BF0(HiddenSurface, rect);
     Update_Visible_Surface(true, HiddenSurface, 0);

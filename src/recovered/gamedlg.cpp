@@ -90,15 +90,15 @@ void GameControlsDialog::Run()
     int result = -1;
     Debug_Printf("GameControls: GameSpeed = %d, ScrollRate = %d, Detail = %d\n", Options.GameSpeed, Options.ScrollRate, Options.DetailLevel);
     if (GameActive == 1) {
-        Window = unknown_create_dialog_5ff610(0xBBB, Game_Controls_Proc, 0);
+        Window = OwnerDraw_Begin_Dialog(0xBBB, Game_Controls_Proc, 0);
     } else {
-        Window = unknown_create_dialog_5ff610(0xF5, Game_Controls_Proc, 0);
+        Window = OwnerDraw_Begin_Dialog(0xF5, Game_Controls_Proc, 0);
     }
     if (Window) {
         SetWindowLongA(Window, 8, (LONG)&result);
         Display_Dialog(Window);
         while (result == -1) {
-            if (unknown_6000d0() == true) {
+            if (OwnerDraw_Dialog_Message_Handler() == true) {
                 result = 2;
             }
             if (!GameActive) {
@@ -109,7 +109,7 @@ void GameControlsDialog::Run()
             Apply_Settings();
             Options.Save_Settings();
         }
-        unknown_dialog_5ff6e0(Window);
+        OwnerDraw_End_Dialog(Window);
     }
     Debug_Printf("GameControls: GameSpeed = %d, ScrollRate = %d, Detail = %d\n", Options.GameSpeed, Options.ScrollRate, Options.DetailLevel);
 }

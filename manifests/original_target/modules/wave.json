@@ -590,8 +590,7 @@
    "address": "007c5030",
    "bytes": 16,
    "kind": "rtti",
-   "section": 62,
-   "known_difference": "hierarchy ambiguous bit"
+   "section": 62
   },
   {
    "symbol": "??_R4WaveClass@@6BIPersistStream@@@",
@@ -938,8 +937,7 @@
    "symbol": "??_R3WaveClass@@8",
    "address": "007c5030",
    "bytes": 16,
-   "kind": "rtti",
-   "known_difference": "hierarchy ambiguous bit"
+   "kind": "rtti"
   },
   {
    "symbol": "??_R4WaveClass@@6BIPersistStream@@@",
@@ -1515,6 +1513,10 @@
    "address": "005d2cf0"
   },
   {
+   "symbol": "?Scen@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
    "symbol": "?ScenarioInit@@3HA",
    "address": "00a40774"
   },
@@ -1629,10 +1631,6 @@
   {
    "symbol": "?unknown_475d60@CellClass@@QBE?AUCoordStruct@@XZ",
    "address": "00475d60"
-  },
-  {
-   "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
-   "address": "00a3d290"
   },
   {
    "symbol": "?unknown_list_832470@@3VUnknownList832470@@A",

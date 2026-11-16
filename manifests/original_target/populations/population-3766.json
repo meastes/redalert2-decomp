@@ -4,8 +4,8 @@
     "id": "population-3766",
     "inventory_sha256": "a654ef992da11eca0f96ce4e84cb9246477d7eba1a06423be7639f251f50c498",
     "gaps_sha256": "71556148ad33fcac9e0376bb86676715f632bdca0f504ff0cfd8f5e41b873178",
-    "historical_population_sha256": "a151a08e32daa16400e56ccb4ecbf0a41a2ada43bd1c3182565843ed36fc86e3",
-    "historical_acceptance_sha256": "027ab6ed9f2fb15087b7ff17d5803a4ce77492b6867c405db98039f5b2a14be3"
+    "historical_population_sha256": "5622930a7542fbd990ef230cc208223609e96412e808b1528b5d63ae1819a6da",
+    "historical_acceptance_sha256": "6a858a76f00c30c573c909234071aa664b922758b3dedc38326804219fdf6664"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -188,7 +188,7 @@
     "__real@8@4005c000000000000000": 8007496,
     "__real@4@400d8000000000000000": 8026028,
     "__real@8@3fdf8000000080000000": 8019408,
-    "?unknown_time_stamp_866074@@3UGameTimeClass@@A": 8806516,
+    "?Game_Time@@3UGameTimeClass@@A": 8806516,
     "__imp__SetRect@20": 7972008,
     "__imp__GetKeyState@4": 7971756,
     "__imp__GetAsyncKeyState@4": 7971764,
@@ -596,9 +596,9 @@
     "?Init_Null_Modem@@YI_NPAUSerialSettingsType@@@Z": 6089264,
     "?unknown_notify_00536e00@UnknownNotifyOwner_00536e00@@QAEXPAVUnknownListener_00536e00@@@Z": 5467648,
     "?unknown_slot_ready_004f3120@@YI_NPBUUnknownSlotOwner_004f3120@@@Z": 5189920,
-    "?unknown_ask_insert_disk_00498710@@YG_NH@Z": 4818704,
+    "?DiskSwap_Swap@@YG_NH@Z": 4818704,
     "?unknown_combo_selected_data_005c99d0@@YIHPAUHWND__@@HH@Z": 6068688,
-    "?unknown_load_alloc_data_00495550@@YIPAXAAVFileClass@@@Z": 4805968,
+    "?Hires_Load@@YIPAXAAVFileClass@@@Z": 4805968,
     "?Land_Type@IsometricTileTypeClass@@QAEHH@Z": 5411584,
     "??_7CD@@6B@": 7985256,
     "__imp__MessageBoxA": 7971964,
@@ -3707,7 +3707,7 @@
           "resolved": 7972132
         }
       ],
-      "source_sha256": "943c0d8fecd8ccc8d259e919cfe20d770e02c29bd19f75493e4bbf0671804717",
+      "source_sha256": "3e25e65ef516d2df273c2d01e45764361e43c49524e7ca2bc1365494f62391f0",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -3742,7 +3742,7 @@
           "resolved": 7972132
         }
       ],
-      "source_sha256": "943c0d8fecd8ccc8d259e919cfe20d770e02c29bd19f75493e4bbf0671804717",
+      "source_sha256": "3e25e65ef516d2df273c2d01e45764361e43c49524e7ca2bc1365494f62391f0",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -3779,13 +3779,13 @@
         {
           "offset": 7,
           "kind": 6,
-          "symbol": "?unknown_time_stamp_866074@@3UGameTimeClass@@A",
+          "symbol": "?Game_Time@@3UGameTimeClass@@A",
           "target": 8806516,
           "addend": 0,
           "resolved": 8806516
         }
       ],
-      "source_sha256": "943c0d8fecd8ccc8d259e919cfe20d770e02c29bd19f75493e4bbf0671804717",
+      "source_sha256": "3e25e65ef516d2df273c2d01e45764361e43c49524e7ca2bc1365494f62391f0",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -3822,13 +3822,13 @@
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "?unknown_time_stamp_866074@@3UGameTimeClass@@A",
+          "symbol": "?Game_Time@@3UGameTimeClass@@A",
           "target": 8806516,
           "addend": 0,
           "resolved": 8806516
         }
       ],
-      "source_sha256": "943c0d8fecd8ccc8d259e919cfe20d770e02c29bd19f75493e4bbf0671804717",
+      "source_sha256": "3e25e65ef516d2df273c2d01e45764361e43c49524e7ca2bc1365494f62391f0",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -3865,13 +3865,13 @@
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "?unknown_time_stamp_866074@@3UGameTimeClass@@A",
+          "symbol": "?Game_Time@@3UGameTimeClass@@A",
           "target": 8806516,
           "addend": 0,
           "resolved": 8806516
         }
       ],
-      "source_sha256": "943c0d8fecd8ccc8d259e919cfe20d770e02c29bd19f75493e4bbf0671804717",
+      "source_sha256": "3e25e65ef516d2df273c2d01e45764361e43c49524e7ca2bc1365494f62391f0",
       "source": "src/recovered/gametime.cpp",
       "population": "population-3766",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

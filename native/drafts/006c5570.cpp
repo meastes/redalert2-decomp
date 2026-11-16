@@ -48,7 +48,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
             if(Map[object->Center_Coord()].Cell_Building()) return false;
         } else if(Kind_Of()==1 && !object->Considered_Vehicle()) return false;
     }
-    if(unknown_id_source_a3d290->unknown_000&0x800) {
+    if(Scen->unknown_000&0x800) {
         ObjectTypeClass *type=object->Class_Of();
         for(int i=0;i<Rules->HarvesterUnit.Count();i++) {
             if(Rules->HarvesterUnit[i]==type) return false;
@@ -103,7 +103,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     if(object->IsDisguisedAs(House) && !Techno_Type_Class()->DetectDisguise) {
         if(!tech->DisguiseBlinkTimer.Value()) return false;
         if(House->Is_Human_Player()) return false;
-        int roll=unknown_id_source_a3d290->Random()(0,99);
+        int roll=Scen->Random()(0,99);
         if(roll>Rules->DisabledDisguiseDetectionPercent[House->Difficulty]) return false;
     }
     if(method&0x100) {

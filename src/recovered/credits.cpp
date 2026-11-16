@@ -134,7 +134,7 @@ void CreditClass::AI(bool forced)
     */
     Credits = Credits > 0 ? Credits : 0;
 
-    if (unknown_id_source_a3d290->MissionTimer.Is_Active() || unknown_id_source_a3d290->MissionTimer) {
+    if (Scen->MissionTimer.Is_Active() || Scen->MissionTimer) {
         IsToRedraw = true;
         Map.Flag_To_Redraw();
     }

@@ -87,18 +87,18 @@ extern "C" char *__cdecl strncpy(char *destination, char const *source, unsigned
 bool SerialEdDialog::Dialog_0066ca70(SerialSettingsType *settings)
 {
     Result = -1;
-    Window = unknown_create_dialog_5ff610(0xED, Dialog_Proc_0066cb00, 0);
+    Window = OwnerDraw_Begin_Dialog(0xED, Dialog_Proc_0066cb00, 0);
     if (Window) {
         SetWindowLongA(Window, DWL_USER, (LONG)this);
         Init_0066d370(settings);
         Display_Dialog(Window);
         while (Result < 0) {
-            if (unknown_6000d0() == true) {
+            if (OwnerDraw_Dialog_Message_Handler() == true) {
                 break;
             }
             Title_Screen_Restore(false);
         }
-        unknown_dialog_5ff6e0(Window);
+        OwnerDraw_End_Dialog(Window);
         if (Result == 1) {
             *settings = Settings;
         }

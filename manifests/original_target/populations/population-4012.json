@@ -4,8 +4,8 @@
     "id": "population-4012",
     "inventory_sha256": "81e5d059aefbf564a4b2f987bc1c6099d35bf231843ba49b3ea145f53eda3818",
     "gaps_sha256": "a4f02601cae871a60adb39d343101319404227bfa1f4209348327feeeb559704",
-    "historical_population_sha256": "8967683999e5527c9a8740bec44fc3b7f724edf106e38efd7128a3ffce5ca1b5",
-    "historical_acceptance_sha256": "833e98d758a170da3d3eb2baae862332595841ac4ff44e45ffd9a301b9872343"
+    "historical_population_sha256": "4de8a64fb19ea93689e5d6bd571e9f57a6bdd7e7d41ceb5f5feac62af3a69fce",
+    "historical_acceptance_sha256": "9433401e09a6f0c9b5048d531f5574436bb6d606abb1895cffe84fdc1cbc2b77"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -1366,7 +1366,7 @@
     "??1TerrainClass@@UAE@XZ": 7221248,
     "?Create_And_Place@AircraftTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 4308880,
     "?Create_And_Place@AnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 4351904,
-    "?unknown_com_objects_a6eb14@@3JA": 10939156,
+    "?COMRefCount@@3JA": 10939156,
     "__imp__InterlockedIncrement@4": 7971260,
     "?Create_And_Place@BulletTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 4608384,
     "__imp__SendDlgItemMessageA@20": 7971972,
@@ -3524,7 +3524,7 @@
     "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
     "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275256,
     "?HousePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275528,
-    "?unknown_id_source_a3d290@@3PAVScenarioClass@@A": 10736272,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
     "?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A": 10748728,
     "?unknown_rules_839848@@3PAUUnknownRules839848@@A": 8624200,

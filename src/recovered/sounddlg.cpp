@@ -44,23 +44,23 @@ void SoundControlsDialog::Run_00688CD0()
 
     HWND dialog;
     if (!GameActive) {
-        dialog = unknown_create_dialog_5ff610(0xD6, Sound_Option_Dialog_Func, 0);
+        dialog = OwnerDraw_Begin_Dialog(0xD6, Sound_Option_Dialog_Func, 0);
     } else {
-        dialog = unknown_create_dialog_5ff610(0xB8, Sound_Option_Dialog_Func, 0);
+        dialog = OwnerDraw_Begin_Dialog(0xB8, Sound_Option_Dialog_Func, 0);
     }
 
     if (dialog) {
         SetWindowLongA(dialog, 8, (LONG)&rc);
         Display_Dialog(dialog);
         while (rc == -1) {
-            if (unknown_6000d0() == true) {
+            if (OwnerDraw_Dialog_Message_Handler() == true) {
                 rc = 2;
             }
             if (!GameActive) {
                 Title_Screen_Restore(false);
             }
         }
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
 
     Debug_Printf("SoundControls: GameSpeed = %d, ScrollRate = %d, Detail = %d\n", Options.GameSpeed,

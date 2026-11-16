@@ -503,7 +503,7 @@ timing_latency_done:
                 packet.Data.Timing.DesiredFrameRate=desired;
                 packet.Frame=Frame;
                 packet.House=PlayerPtr->ArrayIndex;
-                packet.Data.Timing.MaxAhead=ahead+(unknown_id_source_a3d290->Special().FogOfWar?10:0);
+                packet.Data.Timing.MaxAhead=ahead+(Scen->Special().FogOfWar?10:0);
                 packet.Data.Timing.FrameSendRate=send_rate;
                 OutList.Add(packet);
                 int timeout=connection_response*8+15;
@@ -1069,7 +1069,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                     if (unknown_session_a3d298.Type == 4) {
                         Ipx.Global_Channel_Clear_FieldC8();
                     }
-                    unknown_session_a3d298.Update_Progress(unknown_id_source_a3d290->IsRandom ? 200 : 100);
+                    unknown_session_a3d298.Update_Progress(Scen->IsRandom ? 200 : 100);
                     progress_timer = 180;
                 }
             }
@@ -2942,7 +2942,7 @@ void __fastcall Compute_Game_CRC()
         }
     }
 
-    Add_CRC(&GameCRC, unknown_id_source_a3d290->RandomNumber());
+    Add_CRC(&GameCRC, Scen->RandomNumber());
     Unknown_0062CF40(::Frame % 256);
 }
 
@@ -3285,7 +3285,7 @@ void __fastcall Print_CRCs(EventClass *event)
     }
     mono->Printf("Logic:%x  \n", GameCRC);
 
-    int random = unknown_id_source_a3d290->RandomNumber();
+    int random = Scen->RandomNumber();
     mono->Printf("Random Number:%x  \n", random);
     fprintf(file, "\nRandom Number:%d\n", random);
     mono->Printf("My Frame:%d  \n", ::Frame);
@@ -3379,13 +3379,13 @@ void __fastcall Print_CRCs(EventClass *event)
 void __fastcall Unknown_0062CF40(int index)
 {
     if (!unknown_flag_ab62e8) {
-        unknown_random_aabce0 = unknown_id_source_a3d290->RandomNumber();
+        unknown_random_aabce0 = Scen->RandomNumber();
         return;
     }
 
     UnknownSyncState *state = &unknown_sync_states_a780d8[index];
     state->unknown_000 = GameCRC;
-    state->RandomNumber = unknown_id_source_a3d290->RandomNumber();
+    state->RandomNumber = Scen->RandomNumber();
     state->Frame = ::Frame;
 
     int i, j;

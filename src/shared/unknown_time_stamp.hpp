@@ -10,7 +10,7 @@ struct GameTimeClass {
     unsigned long Time;     // +0x00
 };
 
-extern GameTimeClass unknown_time_stamp_866074;   // 0x00866074
+extern GameTimeClass Game_Time;   // 0x00866074
 
 // Milliseconds since the startup time stamp 0x00866074 (0x004D0070; unreferenced).
 int Get_Game_Time();

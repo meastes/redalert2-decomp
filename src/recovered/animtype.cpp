@@ -405,12 +405,12 @@ HRESULT __stdcall AnimTypeClass::Load(IStream *stream)
     if (!DemandLoad) {
         if (IsTheater) {
             char fullname[512];
-            _makepath(fullname, 0, 0, ID, Theaters[unknown_id_source_a3d290->Theater].Suffix);
+            _makepath(fullname, 0, 0, ID, Theaters[Scen->Theater].Suffix);
             ImageData = (void *)MixFileClass::Retrieve(fullname);
             return S_OK;
         }
         if (IsNewTheater) {
-            Load_Image(unknown_id_source_a3d290->Theater);
+            Load_Image(Scen->Theater);
         }
     }
     return S_OK;
@@ -515,9 +515,9 @@ void *AnimTypeClass::Get_Image_Data() const
         char fullname[512];
         _makepath(fullname, 0, 0, unknown_1c8[0] != 0 ? (char const *)unknown_1c8 : (char const *)ID, ".SHP");
         if (IsTheater) {
-            _makepath(fullname, 0, 0, ID, Theaters[unknown_id_source_a3d290->Theater].Suffix);
+            _makepath(fullname, 0, 0, ID, Theaters[Scen->Theater].Suffix);
         } else if (IsNewTheater) {
-            Theater_Naming_Convention(fullname, unknown_id_source_a3d290->Theater);
+            Theater_Naming_Convention(fullname, Scen->Theater);
         }
         CCFileClass file(fullname);
         self->ImageData = Load_Alloc_Data(file);
@@ -531,7 +531,7 @@ void *AnimTypeClass::Get_Image_Data() const
                 self->ImageAllocated = true;
             }
         }
-        self->Load_Image(unknown_id_source_a3d290->Theater);
+        self->Load_Image(Scen->Theater);
         return ImageData;
     }
     return ImageData;

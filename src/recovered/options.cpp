@@ -686,26 +686,26 @@ int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WP
 // outside a game the title screen keeps being serviced. Does not use its receiver; always true.
 
 void __fastcall Display_Dialog(HWND window);      // 0x005FF7C0 (shared/ms_message_box.hpp)
-void __fastcall unknown_dialog_5ff6e0(HWND window);      // 0x005FF6E0
+void __fastcall OwnerDraw_End_Dialog(HWND window);      // 0x005FF6E0
 void __fastcall Title_Screen_Restore(bool unknown1);           // 0x00517370
 int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 
 bool OptionsClass::Hotkey_Dialog()
 {
     int rc = -1;
-    HWND dialog = unknown_create_dialog_5ff610(0xA3, Unknown_Options_Dialog_Proc_005d97a0, 0);
+    HWND dialog = OwnerDraw_Begin_Dialog(0xA3, Unknown_Options_Dialog_Proc_005d97a0, 0);
     if (dialog) {
         SetWindowLongA(dialog, 8, (LONG)&rc);
         Display_Dialog(dialog);
         while (rc < 0) {
-            if (unknown_6000d0() == true) {
+            if (OwnerDraw_Dialog_Message_Handler() == true) {
                 rc = 2;
             }
             if (!GameActive) {
                 Title_Screen_Restore(false);
             }
         }
-        unknown_dialog_5ff6e0(dialog);
+        OwnerDraw_End_Dialog(dialog);
     }
     return true;
 }
