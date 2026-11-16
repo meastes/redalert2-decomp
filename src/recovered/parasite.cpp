@@ -262,7 +262,7 @@ void ParasiteClass::Unknown_00606780()
     CellClass *cell = (CellClass *)unknown_28->Get_Cell_Ptr();
     double sign = 1.0;
     if (!cell || cell->Is_Tile_Water()) {
-        unknown_28->unknown_58c = CDTimerClass<FrameTimerClass>(warhead->Paralyzes);
+        unknown_28->ParalysisTimer = CDTimerClass<FrameTimerClass>(warhead->Paralyzes);
         switch (unknown_48) {
         case 0: {
             unknown_28->unknown_280 = 0.0f;
@@ -331,7 +331,7 @@ void ParasiteClass::Unknown_00606780()
                 victim->unknown_slot216((int)Owner);
                 victim->unknown_slot210();
                 Unknown_006064C0();
-                Owner->unknown_58c = CDTimerClass<FrameTimerClass>(0);
+                Owner->ParalysisTimer = CDTimerClass<FrameTimerClass>(0);
                 return;
             }
             damage = weapon->unknown_a4;
@@ -359,7 +359,7 @@ void ParasiteClass::Unknown_00606780()
         }
     } else {
         Unknown_00607440();
-        if (Owner) Owner->unknown_58c = CDTimerClass<FrameTimerClass>(0);
+        if (Owner) Owner->ParalysisTimer = CDTimerClass<FrameTimerClass>(0);
     }
 }
 
@@ -414,7 +414,7 @@ void ParasiteClass::AI()
         return;
     }
     unknown_38 = CDTimerClass<FrameTimerClass>(weapon->unknown_b0);
-    unknown_28->unknown_58c = CDTimerClass<FrameTimerClass>(warhead->Paralyzes);
+    unknown_28->ParalysisTimer = CDTimerClass<FrameTimerClass>(warhead->Paralyzes);
     int damage;
     if (unknown_28->Kind_Of() == 15) {
         damage = unknown_28->Strength;
@@ -464,7 +464,7 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
             return;
         }
         if (unknown_2c.Value() > 0 && !Owner->unknown_slot203()) {
-            unknown_28->unknown_580 = 0;
+            unknown_28->ParasiteEatingMe = 0;
             unknown_28 = 0;
             Owner->Delete_Me();
             return;
@@ -526,8 +526,8 @@ void ParasiteClass::Unknown_00607440()
         cell = unknown_28->unknown_slot104();
     } else {
         Owner->Strength = 0;
-        unknown_28->unknown_58c = CDTimerClass<FrameTimerClass>(0);
-        unknown_28->unknown_580 = 0;
+        unknown_28->ParalysisTimer = CDTimerClass<FrameTimerClass>(0);
+        unknown_28->ParasiteEatingMe = 0;
         Owner->Delete_Me();
         unknown_28 = 0;
         return;
@@ -566,15 +566,15 @@ void ParasiteClass::Unknown_00607440()
         }
         Owner->unknown_slot261(false, true);
         Owner->unknown_slot262(false, false, false, 0);
-        Owner->unknown_58c = CDTimerClass<FrameTimerClass>(Owner->unknown_slot231(0)->WeaponType->unknown_b0 * 3);
+        Owner->ParalysisTimer = CDTimerClass<FrameTimerClass>(Owner->unknown_slot231(0)->WeaponType->unknown_b0 * 3);
         Unknown_006064C0();
     } else {
         Owner->Strength = 0;
         Owner->Delete_Me();
     }
     unknown_28->unknown_280 = 0.0f;
-    unknown_28->unknown_58c = CDTimerClass<FrameTimerClass>(0);
-    unknown_28->unknown_580 = 0;
+    unknown_28->ParalysisTimer = CDTimerClass<FrameTimerClass>(0);
+    unknown_28->ParasiteEatingMe = 0;
     unknown_28 = 0;
 }
 
@@ -587,7 +587,7 @@ void ParasiteClass::Unknown_00607440()
 bool ParasiteClass::Can_Infect_006078F0(FootClass *target)
 {
     if (target != 0 && !target->IsInLimbo && target->IsActive && target->Strength != 0
-        && target->unknown_580 == 0 && target->Techno_Type_Class()->Parasiteable) {
+        && target->ParasiteEatingMe == 0 && target->Techno_Type_Class()->Parasiteable) {
         if (Owner == 0 || !Owner->Techno_Type_Class()->Naval || target->Get_Cell_Ptr() == 0
             || ((CellClass *)target->Get_Cell_Ptr())->Is_Tile_Water()) {
             return true;
@@ -601,7 +601,7 @@ bool ParasiteClass::Can_Infect_006078F0(FootClass *target)
 // Starts a parasite attachment, or returns the owner to its cell.
 // Small accessors for the host and owner fields.
 inline int Unknown_1f4_Of_00607980(FootClass *foot) { return foot->unknown_1f4; }
-inline void Set_Parasite_00607980(FootClass *host, FootClass *parasite) { host->unknown_580 = parasite; }
+inline void Set_Parasite_00607980(FootClass *host, FootClass *parasite) { host->ParasiteEatingMe = parasite; }
 void ParasiteClass::Unknown_00607980(FootClass *target)
 {
     Unknown_006064C0();

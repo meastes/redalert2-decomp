@@ -60,11 +60,11 @@ void Tactical::Draw_Pixel_Effects(Rect const &area, Rect const &cliprect)
                     && (cell.Land == 2 || value != 0)
                     && cell.OccupierPtr == 0
                     && !(cell.unknown_140 & 0x1000)) {
-                    PixelFXClass *effect = (PixelFXClass *)cell.unknown_fc;
+                    PixelFXClass *effect = (PixelFXClass *)cell.PixelFX;
                     int type = value != 0;
                     if (effect == 0) {
                         effect = new PixelFXClass(type);
-                        cell.unknown_fc = (UnknownCellOwned *)effect;
+                        cell.PixelFX = (UnknownCellOwned *)effect;
                     } else if (effect->Phase >= 0x2000) {
                         effect->Init(type);
                     }

@@ -349,7 +349,7 @@ FootClass * __fastcall _Create_Group(TeamTypeClass *teamtype)
                     ScenarioInit++;
                     team->Add(temp);
                     ScenarioInit--;
-                    temp->unknown_579 = true;
+                    temp->IsInitiated = true;
                 }
 
                 bool transporter = false;

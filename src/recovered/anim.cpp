@@ -120,7 +120,7 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
     UnderTemporal(false),
     Paused(false),
     Unpaused(false),
-    unknown_104(0),
+    PausedAnimFrame(0),
     unknown_138(0.0f, 0.0f, 0.0f, 1.0f),
     unknown_148(0.0f, 0.0f, 0.0f, 1.0f),
     TranslucencyLevel(false),
@@ -247,7 +247,7 @@ AnimClass::AnimClass() :
     UnderTemporal(false),
     Paused(false),
     Unpaused(false),
-    unknown_104(0),
+    PausedAnimFrame(0),
     unknown_138(0.0f, 0.0f, 0.0f, 1.0f),
     unknown_148(0.0f, 0.0f, 0.0f, 1.0f),
     TimeToDie(false),
@@ -585,7 +585,7 @@ void AnimClass::AI()
         if (!cell || !cell->Get_Tiberium_Value()) IsInvisible=true;
         else IsInvisible=false;
     }
-    if (Unpaused && unknown_104==Stage) Unpaused=false;
+    if (Unpaused && PausedAnimFrame==Stage) Unpaused=false;
     if (IsBouncing) {
         int result=unknown_slot116();
         if (result==2 || result==1) {

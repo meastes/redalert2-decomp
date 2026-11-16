@@ -67,15 +67,15 @@ public:
     char unknown_080[0x130 - 0x80];
     int ActLike;                    // +0x130 (TechnoClass constructor)
     bool unknown_134;                   // +0x134 (as shared/house.hpp)
-    bool unknown_135;                   // +0x135 (as shared/house.hpp; Tactical 0x006AAD70 tests it in the campaign)
+    bool IsPlayerControl;                   // +0x135 (as shared/house.hpp; Tactical 0x006AAD70 tests it in the campaign)
     char unknown_136[0x13D - 0x136];
-    bool unknown_13d;                   // +0x13D (radar: forces mode 1 in multiplayer)
+    bool IsDefeated;                   // +0x13D (radar: forces mode 1 in multiplayer)
     char unknown_13e[0x142 - 0x13E];
     bool FirestormActive;               // +0x142 (TibSun FirestormDefenseActivated; Map 0x00569FB0)
     char unknown_143[0x154 - 0x143];
-    int unknown_154;                    // +0x154 the current waypoint path (-1)
+    int SelectedPath;                    // +0x154 the current waypoint path (-1)
     class WaypointPathClass *WaypointPaths[12];   // +0x158 (overlay)
-    bool unknown_188;                   // +0x188 (cleared by MapClass 0x00559F10 / 0x00559FD0)
+    bool IsVisionary;                   // +0x188 (cleared by MapClass 0x00559F10 / 0x00559FD0)
     char unknown_189[0x19C - 0x189];
     DynamicVectorClass<SuperClass *> Supers;    // +0x19C (Vector +0x1A0, ActiveCount +0x1AC)
     char unknown_1b4[0x206 - 0x1B4];

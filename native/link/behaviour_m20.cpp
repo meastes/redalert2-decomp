@@ -19,9 +19,9 @@
 // pads 0x154 bytes to reach the index.
 bool HouseClass::Can_Add_Waypoint_To_Path() const
 {
-    if (unknown_154 < 0 || unknown_154 >= 12) {
+    if (SelectedPath < 0 || SelectedPath >= 12) {
         return false;
     }
-    WaypointPathClass const *path = WaypointPaths[unknown_154];
+    WaypointPathClass const *path = WaypointPaths[SelectedPath];
     return path->Waypoints.Count() < Rules->MaxWaypointPathLength && path->Selected == -1;
 }

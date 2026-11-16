@@ -29,7 +29,7 @@ int Unknown_006F6730();
 
 void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *object, int action, bool small_mouse)
 {
-    unknown_11cc = false;
+    IsTentative = false;
 
     AbstractClass *target = 0;
     if (object != 0) {
@@ -46,10 +46,10 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
         }
     }
 
-    if (unknown_11af && unknown_11b8 != 0) {
+    if (IsWaypointMode && DraggedWaypoint != 0) {
         if (PlayerPtr->Waypoint_At(cell) == 0 && Map.Unknown_0055A660(cell, true)) {
-            *unknown_11b8 = Cell_Coord(cell);
-            unknown_11b8->Z = Map.Get_Height_GL(*unknown_11b8) + ((Map[cell].unknown_140 & 0x100) ? unknown_geometry_j : 0);
+            *DraggedWaypoint = Cell_Coord(cell);
+            DraggedWaypoint->Z = Map.Get_Height_GL(*DraggedWaypoint) + ((Map[cell].unknown_140 & 0x100) ? unknown_geometry_j : 0);
         }
     }
 
@@ -64,7 +64,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
     case 0x2A:
     case 0x2B:
     case 0x2F:
-        Update_Waypoint_Color(PlayerPtr->unknown_154);
+        Update_Waypoint_Color(PlayerPtr->SelectedPath);
         break;
 
     case 0x2C:
@@ -77,8 +77,8 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
         char id;
         WaypointClass *waypoint = PlayerPtr->Waypoint_At(cell);
         PlayerPtr->Fetch_Waypoint_Data(waypoint, &path, &id);
-        if (!unknown_11af) {
-            PlayerPtr->unknown_154 = path;
+        if (!IsWaypointMode) {
+            PlayerPtr->SelectedPath = path;
         }
         Update_Waypoint_Color(path);
         break;
@@ -88,8 +88,8 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
         unsigned short *table = (unsigned short *)unknown_drawer_8323c8->Table;
         table[1] = Build_Hicolor_Pixel(WaypointColor.Red, WaypointColor.Green, WaypointColor.Blue);
         Update_Waypoint_Color(-1);
-        if (!unknown_11af) {
-            PlayerPtr->unknown_154 = -1;
+        if (!IsWaypointMode) {
+            PlayerPtr->SelectedPath = -1;
         }
         break;
     }

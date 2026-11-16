@@ -22,9 +22,9 @@ static inline UnknownVector3 Detector_Offset(CoordStruct const &a, CoordStruct c
 bool __fastcall Building_Player_Detector_Covers_Target_004386f0(FootClass *object)
 {
     if (!PlayerPtr->Is_Ally(object->House)) {
-    int count = PlayerPtr->unknown_b0.Count();
+    int count = PlayerPtr->PsychicDetectionBuildings.Count();
     for (int index = 0; index < count; ++index) {
-        BuildingClass *detector = PlayerPtr->unknown_b0.Fetch(index);
+        BuildingClass *detector = PlayerPtr->PsychicDetectionBuildings.Fetch(index);
         if (detector->unknown_slot195()) {
             AbstractClass *target = object->unknown_228;
             if (target != 0) {
@@ -52,7 +52,7 @@ bool __fastcall Building_Player_Detector_Covers_Target_004386f0(FootClass *objec
             if (object != 0) {
             bool const &is_foot = object->AbstractFlags.IsFoot;
             if (is_foot) {
-                AbstractClass *nav = object->unknown_478.Count() == 0 ? object->unknown_494 : object->unknown_478[object->unknown_478.Count() - 1];
+                AbstractClass *nav = object->unknown_478.Count() == 0 ? object->NavCom : object->unknown_478[object->unknown_478.Count() - 1];
                 if (nav != 0) {
                     bool hit = nav->Kind_Of() == 11;
                     if (hit) {

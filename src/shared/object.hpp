@@ -97,8 +97,8 @@ public:
     int PlantingFrame;                     // +0x34 (the frame it was planted; the flicker counts from it)
     int unknown_38;                     // +0x38 (the frame it goes off)
     UnknownAudioController unknown_3c;  // +0x3C (the ticking sound)
-    int unknown_50;                     // +0x50 (Rules BombTickingSound)
-    int unknown_54;                     // +0x54
+    int TickSound;                     // +0x50 (Rules BombTickingSound)
+    int ShouldPlayTickingSound;                     // +0x54
     bool Harmless;                    // +0x58 (disarmed or gone off)
 };
 

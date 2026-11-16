@@ -518,7 +518,7 @@ void TechnoClass::Init()
         unknown_230 = new CaptureManagerClass(this);
     }
     if (Kind_Of() != 6 && unknown_slot231(0)->WeaponType != 0 && unknown_slot231(0)->WeaponType->Warhead->Parasite) {
-        ((FootClass *)this)->unknown_588 = new ParasiteClass(this);
+        ((FootClass *)this)->ParasiteImUsing = new ParasiteClass(this);
     }
     if (unknown_slot231(0)->WeaponType != 0 && unknown_slot231(0)->WeaponType->Warhead->Temporal) {
         TemporalImUsing = (UnknownTechno208 *)new TemporalClass(this);
@@ -829,9 +829,9 @@ int TechnoClass::Receive_Message(RadioClass *from, int message, AbstractClass *&
                 if (this != 0) {
                     foot = AbstractFlags.IsFoot;
                 }
-                if (this != 0 && foot && ((FootClass *)this)->unknown_580 != 0) {
-                    ((FootClass *)this)->unknown_580->unknown_588->unknown_2c = 50;
-                    ((FootClass *)this)->unknown_580->unknown_588->Unknown_00607440();
+                if (this != 0 && foot && ((FootClass *)this)->ParasiteEatingMe != 0) {
+                    ((FootClass *)this)->ParasiteEatingMe->ParasiteImUsing->unknown_2c = 50;
+                    ((FootClass *)this)->ParasiteEatingMe->ParasiteImUsing->Unknown_00607440();
                 }
                 if (Health_Ratio() > Rules->ConditionYellow || Get_Height_AGL() < -10) {
                     if (unknown_25c[3] != 0) {
@@ -1790,7 +1790,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
         if(!tech->unknown_184.Value()) return false;
         if(House->Is_Human_Player()) return false;
         int roll=unknown_id_source_a3d290->Random()(0,99);
-        if(roll>Rules->DisabledDisguiseDetectionPercent[House->unknown_c8]) return false;
+        if(roll>Rules->DisabledDisguiseDetectionPercent[House->Difficulty]) return false;
     }
     if(method&0x100) {
         object->Owning_House();
@@ -1868,7 +1868,7 @@ int TechnoClass::Evaluate_Just_Cell(Cell const *cell)
     if (House->Unknown_004F52F0()) {
         return 0;
     }
-    if (!Rules->Diff[House->unknown_c8].DestroyWalls) {
+    if (!Rules->Diff[House->Difficulty].DestroyWalls) {
         return 0;
     }
     UnknownCellClass *wall = (UnknownCellClass *)&Map[*cell];
@@ -2205,10 +2205,10 @@ void TechnoClass::AI()
     if (Kind_Of()!=2 && unknown_228 && !unknown_slot156()) {
         FootClass *foot=0;
         if (Is_Foot(this)) foot=static_cast<FootClass *>(this);
-        if (!foot || !foot->unknown_494) {
+        if (!foot || !foot->NavCom) {
             if (!unknown_slot169(unknown_228)) {
                 if (Is_Foot(this)) foot->unknown_slot304();
-                if (!foot || !foot->unknown_494) {
+                if (!foot || !foot->NavCom) {
                     int primary=What_Weapon_Should_I_Use(unknown_228);
                     if (!unknown_slot212(unknown_228,primary)) unknown_slot220(0);
                 }
@@ -2307,23 +2307,23 @@ void TechnoClass::unknown_slot235()
             for (int y=-radius-2; y<radius+2; ++y) {
                 if (x*x+y*y<(radius+1)*(radius+1)) {
                     Cell cell=Cell(center.X+x,center.Y+y);
-                    if (!Owning_House()->Is_Player_Control() && !House->Is_Ally(PlayerPtr) && !PlayerPtr->unknown_13d) {
-                        if (Map[cell].unknown_130!=1 && Map[cell].unknown_130>=0) {
-                            ++Map[cell].unknown_130;
+                    if (!Owning_House()->Is_Player_Control() && !House->Is_Ally(PlayerPtr) && !PlayerPtr->IsDefeated) {
+                        if (Map[cell].ShroudCounter!=1 && Map[cell].ShroudCounter>=0) {
+                            ++Map[cell].ShroudCounter;
                         }
-                        ++Map[cell].unknown_134;
-                        if (Map[cell].unknown_130>=1) {
+                        ++Map[cell].GapsCoveringThisCell;
+                        if (Map[cell].ShroudCounter>=1) {
                             Map[cell].unknown_12c&=~0x10u;
                             Map[cell].unknown_12c&=~0x08u;
                         }
                     }
-                    if (Owning_House()->Is_Player_Control() || House->Is_Ally(PlayerPtr) || PlayerPtr->unknown_13d) {
-                        ++Map[cell].unknown_13c;
+                    if (Owning_House()->Is_Player_Control() || House->Is_Ally(PlayerPtr) || PlayerPtr->IsDefeated) {
+                        ++Map[cell].AlliedGapsCoveringThisCell;
                     }
                 }
             }
         }
-        if (PlayerPtr) PlayerPtr->unknown_188=false;
+        if (PlayerPtr) PlayerPtr->IsVisionary=false;
         Map.Complete_Radar_Refresh();
         Map.Flag_To_Redraw(2);
     }
@@ -2345,23 +2345,23 @@ void TechnoClass::unknown_slot236()
             for (int y=-radius-2; y<radius+2; ++y) {
                 if (x*x+y*y<(radius+1)*(radius+1)) {
                     Cell cell=Cell(center.X+x,center.Y+y);
-                    if (!Owning_House()->Is_Player_Control() && !House->Is_Ally(PlayerPtr) && !PlayerPtr->unknown_13d) {
-                        --Map[cell].unknown_134;
-                        if (PlayerPtr->unknown_566a && Map[cell].unknown_134<=0) {
-                            --Map[cell].unknown_130;
-                            if (Map[cell].unknown_130<=0) {
+                    if (!Owning_House()->Is_Player_Control() && !House->Is_Ally(PlayerPtr) && !PlayerPtr->IsDefeated) {
+                        --Map[cell].GapsCoveringThisCell;
+                        if (PlayerPtr->unknown_566a && Map[cell].GapsCoveringThisCell<=0) {
+                            --Map[cell].ShroudCounter;
+                            if (Map[cell].ShroudCounter<=0) {
                                 Map[cell].unknown_12c|=0x08u;
                                 Map[cell].unknown_12c|=0x10u;
                             }
                         }
                     }
-                    if (Owning_House()->Is_Player_Control() || House->Is_Ally(PlayerPtr) || PlayerPtr->unknown_13d) {
-                        --Map[cell].unknown_13c;
+                    if (Owning_House()->Is_Player_Control() || House->Is_Ally(PlayerPtr) || PlayerPtr->IsDefeated) {
+                        --Map[cell].AlliedGapsCoveringThisCell;
                     }
                 }
             }
         }
-        if (PlayerPtr) PlayerPtr->unknown_188=false;
+        if (PlayerPtr) PlayerPtr->IsVisionary=false;
         Map.Complete_Radar_Refresh();
         Map.Flag_To_Redraw(2);
     }
@@ -2658,10 +2658,10 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
         if(Techno_Type_Class()->HunterSeeker) return 8;
         if(weapon->Warhead->Parasite && this && AbstractFlags.IsFoot) {
             foot=target->AbstractFlags.IsFoot?static_cast<FootClass *>(target):0;
-            if(!static_cast<FootClass *>(this)->unknown_588->Can_Infect_006078F0(foot)) return 5;
+            if(!static_cast<FootClass *>(this)->ParasiteImUsing->Can_Infect_006078F0(foot)) return 5;
         }
         parasite=weapon->Warhead->Parasite;
-        if(parasite && target->AbstractFlags.IsFoot && Frame<static_cast<FootClass *>(target)->unknown_584) return 5;
+        if(parasite && target->AbstractFlags.IsFoot && Frame<static_cast<FootClass *>(target)->LastBeParasitedStartFrame) return 5;
         if(techno) {
             if(parasite && techno->unknown_slot203()) return 5;
             if(weapon->Warhead->MindControl && !reinterpret_cast<CaptureManagerClass *>(unknown_230)->Can_Capture(techno)) return 5;
@@ -2882,7 +2882,7 @@ EBolt *TechnoClass::CreateEBolt(AbstractClass *target, WeaponTypeClass *weapon, 
         coord = target->unknown_slot22();
     }
     if (weapon != 0) {
-        bolt->unknown_2c = weapon->unknown_129;
+        bolt->AlternateColor = weapon->unknown_129;
     }
     bolt->Setup_004B2430(source, coord, depth);
     return bolt;
@@ -3050,7 +3050,7 @@ int TechnoClass::Estimate_Damage(TechnoClass *target, WeaponTypeClass *weapon)
         return 0;
     }
     if (damage > 0) {
-        damage = House->unknown_d0 * unknown_128 * damage;
+        damage = House->FirepowerBias * unknown_128 * damage;
         if (Veterancy.Is_Veteran() || Veterancy.Is_Elite()) {
             TechnoTypeClass *type = Techno_Type_Class();
             if ((Veterancy.Is_Veteran() && type->VeteranAbilities.Ability[2])
@@ -3240,7 +3240,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
         firepower = 0;
     }
     if (firepower > 0) {
-        firepower = (int)(House->unknown_d0 * unknown_128 * attack);
+        firepower = (int)(House->FirepowerBias * unknown_128 * attack);
         if (Has_Ability_006ca890(this, 2)) {
             firepower = (int)(firepower * Rules->VeteranCombat);
         }
@@ -3493,7 +3493,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
         Limbo();
         if (weapon->Warhead->Parasite) {
             if (target->AbstractFlags.IsFoot) {
-                static_cast<FootClass *>(target)->unknown_584 = Frame + 20;
+                static_cast<FootClass *>(target)->LastBeParasitedStartFrame = Frame + 20;
             }
             bullet->Limbo();
             bullet->Construct(weapon->Projectile, target, this, firepower, weapon->Warhead, weapon->unknown_a8, weapon->unknown_10b);
@@ -3708,7 +3708,7 @@ attack:
             if (weapon_type != 0 && weapon_type->Warhead->Sonic) {
                 foot = object->AbstractFlags.IsFoot;
             }
-            bool sonic = foot && ((FootClass *)object)->unknown_580 != 0;
+            bool sonic = foot && ((FootClass *)object)->ParasiteEatingMe != 0;
             bool friendly = Techno_Type_Class()->AttackFriendlies || (Techno_Type_Class()->AttackCursorOnFriendlies && !ivan) || sonic;
             bool enemy = !House->Is_Ally((TechnoClass *)object) || friendly;
             bool owned_friendly = owned && friendly;
@@ -3881,7 +3881,7 @@ bool TechnoClass::unknown_slot185()
             return true;
         }
         FootClass *foot = (FootClass *)this;
-        if ((foot->unknown_574 >= 0 && foot->Deploy_To_Fire()) || unknown_slot201()) {
+        if ((foot->CurrentTube >= 0 && foot->Deploy_To_Fire()) || unknown_slot201()) {
             return false;
         }
     }
@@ -3910,7 +3910,7 @@ bool TechnoClass::unknown_slot186()
             if (unknown_slot201()) {
                 break;
             }
-            if (((FootClass *)this)->unknown_574 >= 0) {
+            if (((FootClass *)this)->CurrentTube >= 0) {
                 break;
             }
             UnitTypeClass *type = ((UnitClass *)this)->Type;
@@ -3918,7 +3918,7 @@ bool TechnoClass::unknown_slot186()
                 break;
             }
             if (type->DeploysInto != 0 && type->DeploysInto->ConstructionYard
-                && ((FootClass *)this)->unknown_580 != 0) {
+                && ((FootClass *)this)->ParasiteEatingMe != 0) {
                 break;
             }
             if (type->Passengers > 0) {
@@ -4382,7 +4382,7 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
         }
         FootClass *foot=As_Foot_L(this);
         if (foot) {
-            if (!unknown_228 && !foot->unknown_494) {
+            if (!unknown_228 && !foot->NavCom) {
                 if (Rules->IsScatter || Has_Ability_L(this,3)) {
                     Scatter(unknown_geometry_l,true,false);
                 }
@@ -4393,7 +4393,7 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
         if (foot) {
             if (Control()->IsScatter) {
                 if (!unknown_370) {
-                    if (!foot->Locomotor.Checked()->Is_Moving() && !unknown_228 && !foot->unknown_494 && Kind_Of()!=2) {
+                    if (!foot->Locomotor.Checked()->Is_Moving() && !unknown_228 && !foot->NavCom && Kind_Of()!=2) {
                         if (!House->Is_Human_Player() || Rules->IsScatter || Has_Ability_L(this,3)) {
                             Scatter(unknown_geometry_l,true,false);
                         }
@@ -5682,7 +5682,7 @@ int TechnoClass::Value()
 {
     int passengers = 0;
     HouseClass *house = House;
-    if (Rules->Diff[house->unknown_c8].ContentScan || house->IQ >= Rules->IQContentScan) {
+    if (Rules->Diff[house->Difficulty].ContentScan || house->IQ >= Rules->IQContentScan) {
         if (Cargo.Object != 0) {
             for (ObjectClass *object = Cargo.Attached_Object(); object != 0; object = object->unknown_30) {
                 passengers += object->Value();
@@ -5772,7 +5772,7 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
     if (Techno_Type_Class()->IsInsignificant) return;
     bool is_foot;
     if (attacker) is_foot=attacker->AbstractFlags.IsFoot;
-    if (attacker && is_foot && static_cast<FootClass *>(attacker)->unknown_540!=0) return;
+    if (attacker && is_foot && static_cast<FootClass *>(attacker)->BaseAttackTimer!=0) return;
     TeamClass::Suspend_Teams(Rules->SuspendPriority,House);
     for (int index=0;index<Infantry.Count();++index) {
         if (required<=0) break;
@@ -5862,7 +5862,7 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
     }
     if (recruited>required) {
         if (attacker) is_foot=attacker->AbstractFlags.IsFoot;
-        if (attacker && is_foot) static_cast<FootClass *>(attacker)->unknown_540=(int)(Rules->BaseDefenseDelay*900.0);
+        if (attacker && is_foot) static_cast<FootClass *>(attacker)->BaseAttackTimer=(int)(Rules->BaseDefenseDelay*900.0);
     }
 }
 
@@ -5952,7 +5952,7 @@ bool TechnoClass::unknown_6d3b60(TechnoClass *source, int arg2)
     if (this != 0) {
         foot2 = AbstractFlags.IsFoot;
     }
-    if (this != 0 && foot2 && source == ((FootClass *)this)->unknown_580) {
+    if (this != 0 && foot2 && source == ((FootClass *)this)->ParasiteEatingMe) {
         return false;
     }
     return true;
@@ -6146,7 +6146,7 @@ bool TechnoClass::Should_Scan_For_Target()
         if (!foot2) {
             return false;
         }
-        if (((FootClass *)this)->unknown_494 == Get_Cell_Ptr()) {
+        if (((FootClass *)this)->NavCom == Get_Cell_Ptr()) {
             if (unknown_408 == 0) {
                 return true;
             }
@@ -7031,7 +7031,7 @@ void TechnoClass::unknown_slot237()
         float limit = 0.7853982f;
         bool foot;
         if (this != 0) foot = AbstractFlags.IsFoot;
-        if (this != 0 && foot && ((FootClass *)this)->unknown_59f) {
+        if (this != 0 && foot && ((FootClass *)this)->IsCrushing) {
             limit = 0.31415927f;
         }
         if (roll > limit) {
@@ -7485,7 +7485,7 @@ double TechnoClass::Target_Threat(ObjectClass *target, CoordStruct const &coord)
     double target_special_threat;
     double target_strength;
     double target_distance;
-    if (House->unknown_143) {
+    if (House->IsThreatRatingNodeActive) {
         my_effectiveness = type->MyEffectivenessCoefficient;
         target_effectiveness = type->TargetEffectivenessCoefficient;
         target_special_threat = type->TargetSpecialThreatCoefficient;
@@ -7876,7 +7876,7 @@ void TechnoClass::unknown_slot267(bool arg1)
         if (this != 0) {
             foot = AbstractFlags.IsFoot;
         }
-        if (this == 0 || !foot || ((FootClass *)this)->unknown_574 < 0) {
+        if (this == 0 || !foot || ((FootClass *)this)->CurrentTube < 0) {
             Unknown_0063B5B0(5, Coord_Cell(CoordStruct(Coord)));
         }
     }

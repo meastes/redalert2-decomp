@@ -183,7 +183,7 @@ bool AITriggerTypeClass::Is_Ready(HouseClass *house, HouseClass *enemy, bool unk
     if (TeamTypeOne == 0) {
         return false;
     }
-    if (enemy == 0 || (Rules->UseMinDefenseRule && house->BaseDefenseTeamCount < Rules->MinimumAIDefensiveTeams[house->unknown_c8])) {
+    if (enemy == 0 || (Rules->UseMinDefenseRule && house->BaseDefenseTeamCount < Rules->MinimumAIDefensiveTeams[house->Difficulty])) {
         if (!teams_ok) {
             return false;
         }
@@ -215,15 +215,15 @@ bool AITriggerTypeClass::Is_Ready(HouseClass *house, HouseClass *enemy, bool unk
             }
         }
     } else {
-        if (house->unknown_c8 == 0) {
+        if (house->Difficulty == 0) {
             if (!IsEnabledInHard) {
                 return false;
             }
-        } else if (house->unknown_c8 == 1) {
+        } else if (house->Difficulty == 1) {
             if (!IsEnabledInMedium) {
                 return false;
             }
-        } else if (house->unknown_c8 == 2) {
+        } else if (house->Difficulty == 2) {
             if (!IsEnabledInEasy) {
                 return false;
             }

@@ -445,7 +445,7 @@ public:
     LightConvertClass *Drawer;              // +0x034 the tile drawer (Westwood's Drawer)
     int IsoTileIndex;                           // +0x038
     TagClass *Tag;                       // +0x03C
-    void *unknown_40;                           // +0x040
+    void *Rubble;                           // +0x040
     int OverlayIndex;                           // +0x044
     int SmudgeIndex;                            // +0x048
     int Passability;                             // +0x04C
@@ -454,7 +454,7 @@ public:
     int BridgeInfType;                             // +0x058
     int LastRedrawFrame;                             // +0x05C
     int LastUnknownDrawFrame;                             // +0x060
-    int unknown_64;                             // +0x064
+    int LastBridgeDrawFrame;                             // +0x064
     Rect LastBridgeDrawRect;                            // +0x068 (Westwood's LastBridgeDrawRect)
     unsigned int CloakedBy;                    // +0x078
     short SensorsOfHouses[24];                       // +0x07C
@@ -464,7 +464,7 @@ public:
     int unknown_ac[12];                         // +0x0AC
 #endif
     int OccupiedBy;                             // +0x0DC
-    void *unknown_e0;                           // +0x0E0
+    void *Jumpjet;                           // +0x0E0
     ObjectClass *OccupierPtr;                   // +0x0E4
     ObjectClass *AltOccupierPtr;                // +0x0E8
 #ifdef RA2_CELL_OCCUPIER
@@ -475,7 +475,7 @@ public:
     int Land;                             // +0x0EC
     double unknown_f0;                          // +0x0F0
     void *RadSite;                           // +0x0F8
-    UnknownCellOwned *unknown_fc;               // +0x0FC
+    UnknownCellOwned *PixelFX;               // +0x0FC
     int unknown_100;                            // +0x100
     int unknown_104;                            // +0x104
     short unknown_108;                          // +0x108
@@ -510,10 +510,10 @@ public:
     unsigned IsFoundationCopyHere:1;            // bit 2
     unsigned IsMapped:1;                        // bit 3 (IGameMap::Is_Visible reads it)
     unsigned IsVisible:1;                       // bit 4
-    int unknown_130;                            // +0x130
-    int unknown_134;                            // +0x134
+    int ShroudCounter;                            // +0x130
+    int GapsCoveringThisCell;                            // +0x134
     bool unknown_138;                           // +0x138
-    int unknown_13c;                            // +0x13C
+    int AlliedGapsCoveringThisCell;                            // +0x13C
     unsigned IsFogVisible:1;                    // +0x140 bit 0 (set when layer 1 is fully shrouded)
     unsigned IsFogMapped:1;                     // bit 1
     unsigned IsWaypoint:1;                      // bit 2
@@ -568,10 +568,10 @@ public:
         };
 #endif
     };
-    int unknown_130;                            // +0x130
-    int unknown_134;                            // +0x134
+    int ShroudCounter;                            // +0x130
+    int GapsCoveringThisCell;                            // +0x134
     bool unknown_138;                           // +0x138
-    int unknown_13c;                            // +0x13C
+    int AlliedGapsCoveringThisCell;                            // +0x13C
     union {                                     // +0x140 flags
         unsigned int unknown_140;
         struct {

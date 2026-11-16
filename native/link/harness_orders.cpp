@@ -505,7 +505,7 @@ void Native_Alliance_Log(int frame)
     for (int i = 0; i < count && i < 16 && n + 64 < sizeof now; ++i) {
         HouseClass *h = Houses[i];
         if (!h || !h->Type || !h->Type->Multiplay) continue;
-        n += snprintf(now + n, sizeof now - n, " %d:%s%s", i, h->IniName.Buffer, h->unknown_13d ? " defeated" : "");
+        n += snprintf(now + n, sizeof now - n, " %d:%s%s", i, h->IniName.Buffer, h->IsDefeated ? " defeated" : "");
     }
     n += snprintf(now + n, sizeof now - n, " allies");
     for (int i = 0; i < count && i < 16; ++i) {

@@ -89,61 +89,61 @@ DynamicVectorClass<FootClass *> Feet;
 
 FootClass::FootClass(HouseClass *house) :
     TechnoClass(house),
-    unknown_418(-1),
-    unknown_41c(0, 0),
-    unknown_420(0, 0),
-    unknown_428(0.0),
-    unknown_430(0),
-    unknown_434(false),
-    unknown_438(0),
-    unknown_450(0, 0),
+    CurrentPath(-1),
+    WaypointOffsetCell(0, 0),
+    WaypointTargetCell(0, 0),
+    ThreatAvoidanceCoefficient(0.0),
+    TotalFramesWalked(0),
+    IsMoveSoundPlaying(false),
+    MoveSoundDelay(0),
+    LastPathingCell(0, 0),
     unknown_454(0, 0),
-    unknown_458(0, 0),
+    LastFlightMapCoords(0, 0),
     unknown_45c(0, 0, 0),
     Speed(0.0),
-    unknown_470(1.0),
+    SpeedBias(1.0),
     unknown_478(0, 0),
-    unknown_490(0),
-    unknown_494(0),
-    unknown_498(0),
+    FollowTarget(0),
+    NavCom(0),
+    SuspendedNavCom(0),
     unknown_49c(0, 0),
-    unknown_4b4(-1),
-    unknown_4b8(0),
-    unknown_4bc(0),
-    unknown_4c1(false),
+    MegaMission(-1),
+    MegaDestination(0),
+    MegaTarget(0),
+    HasAttackMoveTarget(false),
     Team(0),
     Member(0),
-    unknown_4cc(0),
+    PatrolCell(0),
     unknown_53c(10),
-    unknown_568(unknown_geometry_l),
-    unknown_574(-1),
-    unknown_575(false),
-    unknown_576(0),
-    unknown_577(false),
-    unknown_578(false),
-    unknown_579(false),
-    unknown_57a(false),
-    unknown_57b(false),
-    unknown_57c(false),
-    unknown_57d(false),
-    unknown_57e(false),
-    unknown_580(0),
-    unknown_584(0),
-    unknown_588(0),
-    unknown_598(false),
+    HeadToCoord(unknown_geometry_l),
+    CurrentTube(-1),
+    CurrentTubeDir(false),
+    NextWaypoint(0),
+    IsToScatter(false),
+    IsScanLimited(false),
+    IsInitiated(false),
+    IsNewNavCom(false),
+    IsPlanningToLook(false),
+    IsDeploying(false),
+    IsFiring(false),
+    IsOverpowering(false),
+    ParasiteEatingMe(0),
+    LastBeParasitedStartFrame(0),
+    ParasiteImUsing(0),
+    IsMoveToSkipped(false),
     unknown_599(false),
-    unknown_59a(false),
-    unknown_59b(false),
-    unknown_59c(false),
-    unknown_59d(false),
-    unknown_59e(false),
-    unknown_59f(false),
-    unknown_5a0(true),
-    unknown_5a1(false),
-    unknown_5a2(false)
+    IsUnloading(false),
+    IsNavQueueLoop(false),
+    IsScattering(false),
+    IsIdle(false),
+    IonBlastYDrawOffset(false),
+    IsCrushing(false),
+    IsOccupyingCell(true),
+    IsToPathAroundBlockage(false),
+    IsDroppedFromTeam(false)
 {
     unknown_4d0 = -1;
-    unknown_43c.Init();
+    MoveSoundAudioController.Init();
     Feet.Add(this);
     AbstractFlags.IsFoot = 1;
     TeamPtrTracker.Add(this);
@@ -157,11 +157,11 @@ FootClass::FootClass(NoInitClass const &noinit) :
     TechnoClass(noinit),
     unknown_478(noinit),
     unknown_49c(noinit),
-    unknown_530(noinit),
-    unknown_540(noinit),
-    unknown_54c(noinit),
-    unknown_558(noinit),
-    unknown_58c(noinit)
+    PathDelay(noinit),
+    BaseAttackTimer(noinit),
+    SightTimer(noinit),
+    BlockagePathDelay(noinit),
+    ParalysisTimer(noinit)
 {
 }
 
@@ -179,12 +179,12 @@ FootClass::~FootClass()
     }
     Feet.Delete(this);
     TeamPtrTracker.Delete(this);
-    if (unknown_588 != 0) {
-        delete unknown_588;
-        unknown_588 = 0;
+    if (ParasiteImUsing != 0) {
+        delete ParasiteImUsing;
+        ParasiteImUsing = 0;
     }
-    unknown_43c.Unknown_00406070();
-    unknown_43c.Unknown_00405C10();
+    MoveSoundAudioController.Unknown_00406070();
+    MoveSoundAudioController.Unknown_00405C10();
 }
 
 
@@ -339,7 +339,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
         memcpy(&Path[path_offset],work_path,Path_Min(path->Length,24-path_offset)*sizeof(Path[0]));
     }
     Mark(1);
-    unknown_530=0;
+    PathDelay=0;
     if(Kind_Of()==1 && Path[0]!=-1) {
         UnitClass *unit=static_cast<UnitClass *>(this);
         FootClass *follower=unit->unknown_5b0;
@@ -350,7 +350,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
             while(follower) {
                 CellClass *current=&Map[next_cell];
                 next_cell=current->Adjacent_Cell((work_path[length]+4)%8).MapCoords;
-                AbstractClass *destination=follower->unknown_494;
+                AbstractClass *destination=follower->NavCom;
                 if(!destination || Coord_Cell(destination->unknown_slot19(0))!=next_cell) {
                     follower->QueueMission(2,false);
                     follower->Assign_Destination(&Map[next_cell],true);
@@ -361,10 +361,10 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
         }
     }
     if(path) {
-        unknown_450=unknown_slot104();
+        LastPathingCell=unknown_slot104();
         return true;
     }
-    unknown_530=(int)(Rules->PathDelay*900.0);
+    PathDelay=(int)(Rules->PathDelay*900.0);
     Stop_Driver();
     CoordStruct coord=Coord;
     Cell current=Coord_Cell(coord);
@@ -396,7 +396,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
 
 int FootClass::Do_MISSION_MOVE()
 {
-    if (unknown_494 == 0 && !Locomotor.Checked()->Is_Moving() && MissionQueue == -1) {
+    if (NavCom == 0 && !Locomotor.Checked()->Is_Moving() && MissionQueue == -1) {
         unknown_slot261(0, true);
         return 1;
     }
@@ -436,7 +436,7 @@ int FootClass::Do_MISSION_PATROL()
 
     switch (Status) {
     case 3:
-        if (unknown_494 != 0) {
+        if (NavCom != 0) {
             Status = 0;
             return 1;
         }
@@ -449,13 +449,13 @@ int FootClass::Do_MISSION_PATROL()
         int primary = What_Weapon_Should_I_Use(optr);
 
         if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(Coord_Cell(unknown_slot19(0)), Coord_Cell(optr->unknown_slot19(0)), this, Is_Moving_Onto_Bridge(0), optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
-            unknown_4cc = (AbstractClass *)Get_Target_Cell_Ptr();
-            if ((((UnknownCellClass *)unknown_4cc)->Flags & 0x100) && !Is_Moving_Onto_Bridge(0)) {
-                Cell cell = Map.Nearby_Location(((UnknownCellClass *)unknown_4cc)->unknown_24, Techno_Type_Class()->SpeedType, Map.Zone(((UnknownCellClass *)unknown_4cc)->unknown_24, Techno_Type_Class()->MovementZone, false), Techno_Type_Class()->MovementZone, false, Point2D(1, 1), 0, 1, 0, 0, Cell(0, 0), 0);
+            PatrolCell = (AbstractClass *)Get_Target_Cell_Ptr();
+            if ((((UnknownCellClass *)PatrolCell)->Flags & 0x100) && !Is_Moving_Onto_Bridge(0)) {
+                Cell cell = Map.Nearby_Location(((UnknownCellClass *)PatrolCell)->unknown_24, Techno_Type_Class()->SpeedType, Map.Zone(((UnknownCellClass *)PatrolCell)->unknown_24, Techno_Type_Class()->MovementZone, false), Techno_Type_Class()->MovementZone, false, Point2D(1, 1), 0, 1, 0, 0, Cell(0, 0), 0);
                 if (cell != unknown_geometry_k) {
-                    unknown_4cc = (AbstractClass *)&Map[cell];
+                    PatrolCell = (AbstractClass *)&Map[cell];
                 } else {
-                    unknown_4cc = 0;
+                    PatrolCell = 0;
                     return 60;
                 }
             }
@@ -463,10 +463,10 @@ int FootClass::Do_MISSION_PATROL()
             if (unknown_1b0 == 0) {
                 if (unknown_478.Count() > 0) {
                     Assign_Archive_Target(unknown_478[unknown_478.Count() - 1]);
-                } else if (unknown_494 != 0) {
-                    Assign_Archive_Target(unknown_494);
+                } else if (NavCom != 0) {
+                    Assign_Archive_Target(NavCom);
                 } else {
-                    Assign_Archive_Target(unknown_4cc);
+                    Assign_Archive_Target(PatrolCell);
                 }
             }
 
@@ -474,7 +474,7 @@ int FootClass::Do_MISSION_PATROL()
             unknown_slot220(target);
             Status = 1;
 
-        } else if (unknown_494 == 0 || !Locomotor.Checked()->Is_Moving()) {
+        } else if (NavCom == 0 || !Locomotor.Checked()->Is_Moving()) {
             unknown_slot261(false, true);
             Status = 3;
             return 1;
@@ -488,23 +488,23 @@ int FootClass::Do_MISSION_PATROL()
 
         if (Is_Renovator() && optr != 0 && optr->Kind_Of() == 6 && House->Is_Ally(((TechnoClass *)optr)->House) && optr->Health_Ratio() > Rules->ConditionRed) {
             unknown_slot220(0);
-        } else if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
+        } else if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(((UnknownCellClass *)PatrolCell)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)PatrolCell)->Flags >> 8 & 1, optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
             unknown_slot304();
             if (unknown_228 != 0) {
                 break;
             }
             Assign_Destination(unknown_1b0, true);
             Assign_Archive_Target(0);
-            unknown_4cc = 0;
+            PatrolCell = 0;
             Status = 0;
             return 45;
         }
 
         if (unknown_228 == 0) {
-            AbstractClass *target = unknown_slot219(2, &unknown_4cc->Center_Coord(), false);
+            AbstractClass *target = unknown_slot219(2, &PatrolCell->Center_Coord(), false);
             ObjectClass *scan = target == 0 ? 0 : (target->AbstractFlags.IsObject ? (ObjectClass *)target : 0);
             int weapon = What_Weapon_Should_I_Use(scan);
-            if (scan != 0 && (unknown_slot212(scan, weapon) || Search.Test_Cell_Walk(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(scan->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, scan->Is_Moving_Onto_Bridge(0), -1) < dist)) {
+            if (scan != 0 && (unknown_slot212(scan, weapon) || Search.Test_Cell_Walk(((UnknownCellClass *)PatrolCell)->unknown_24, Coord_Cell(scan->unknown_slot19(0)), this, ((UnknownCellClass *)PatrolCell)->Flags >> 8 & 1, scan->Is_Moving_Onto_Bridge(0), -1) < dist)) {
                 unknown_slot220(target);
                 Assign_Destination(0, true);
                 return 1;
@@ -517,9 +517,9 @@ int FootClass::Do_MISSION_PATROL()
             UnknownCellClass *tcell = (UnknownCellClass *)Get_Target_Cell_Ptr();
             bool onbridge = Is_Moving_Onto_Bridge(0);
             UnknownCellClass *acell = (UnknownCellClass *)&Map[unknown_1b0->Center_Coord()];
-            int patrolwalk = Search.Test_Cell_Walk(tcell->unknown_24, ((UnknownCellClass *)unknown_4cc)->unknown_24, this, onbridge, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, -1);
+            int patrolwalk = Search.Test_Cell_Walk(tcell->unknown_24, ((UnknownCellClass *)PatrolCell)->unknown_24, this, onbridge, ((UnknownCellClass *)PatrolCell)->Flags >> 8 & 1, -1);
             if (patrolwalk < Search.Test_Cell_Walk(tcell->unknown_24, acell->unknown_24, this, onbridge, acell->Flags >> 8 & 1, -1)) {
-                Assign_Destination(unknown_4cc, true);
+                Assign_Destination(PatrolCell, true);
             } else {
                 Assign_Destination(unknown_1b0, true);
             }
@@ -532,24 +532,24 @@ int FootClass::Do_MISSION_PATROL()
     }
 
     case 2: {
-        AbstractClass *target = unknown_slot219(2, &unknown_4cc->Center_Coord(), false);
+        AbstractClass *target = unknown_slot219(2, &PatrolCell->Center_Coord(), false);
         ObjectClass *optr = target == 0 ? 0 : (target->AbstractFlags.IsObject ? (ObjectClass *)target : 0);
         int primary = What_Weapon_Should_I_Use(optr);
 
-        if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
+        if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(((UnknownCellClass *)PatrolCell)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)PatrolCell)->Flags >> 8 & 1, optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
             unknown_slot220(target);
             Assign_Destination(0, true);
             Status = 1;
             break;
         }
 
-        if (unknown_494 == 0) {
+        if (NavCom == 0) {
             unknown_slot220(0);
             if (unknown_1b0 != 0) {
                 Assign_Destination(unknown_1b0, true);
                 Assign_Archive_Target(0);
                 Status = 0;
-                unknown_4cc = 0;
+                PatrolCell = 0;
             } else {
                 Status = 0;
                 unknown_slot261(false, true);
@@ -579,13 +579,13 @@ int FootClass::Do_MISSION_PATROL()
 int FootClass::Do_MISSION_CAPTURE()
 {
     InfantryClass *infantry = As_Infantry(this);
-    if (unknown_228 != 0 && unknown_228->Kind_Of() == 6 && unknown_494 == 0 && infantry != 0) {
+    if (unknown_228 != 0 && unknown_228->Kind_Of() == 6 && NavCom == 0 && infantry != 0) {
         if (infantry->Type->C4 || infantry->Has_Ability(14) || infantry->Type->Engineer
             || infantry->Type->Occupier || infantry->Type->Assaulter || infantry->Type->Infiltrate) {
             Assign_Destination(unknown_228, true);
         }
     }
-    if (unknown_494 == 0) {
+    if (NavCom == 0) {
         unknown_slot261(0, true);
         if (((UnknownCellClass *)&Map[Center_Coord()])->Unknown_004717B0() != 0) {
             Scatter(unknown_geometry_l, 1 != 0, 0 != 0);
@@ -612,12 +612,12 @@ int FootClass::Do_MISSION_CAPTURE()
 int FootClass::Do_MISSION_EATEN()
 {
     InfantryClass *infantry = As_Infantry(this);
-    if (unknown_228 != 0 && unknown_228->Kind_Of() == 6 && unknown_494 == 0 && infantry != 0) {
+    if (unknown_228 != 0 && unknown_228->Kind_Of() == 6 && NavCom == 0 && infantry != 0) {
         if (infantry->Type->C4 || infantry->Has_Ability(14) || infantry->Type->Engineer) {
             Assign_Destination(unknown_228, true);
         }
     }
-    if (unknown_494 == 0) {
+    if (NavCom == 0) {
         unknown_slot261(0, true);
         if (((UnknownCellClass *)&Map[Center_Coord()])->Unknown_004717B0() != 0) {
             Scatter(unknown_geometry_l, 1 != 0, 0 != 0);
@@ -644,12 +644,12 @@ int FootClass::Do_MISSION_ATTACK()
     if (Techno_Type_Class()->HoverAttack && Get_Height_AGL() == 0) {
         Assign_Destination((AbstractClass *)&Map[unknown_6cf130(this)], true);
     }
-    if (unknown_57e) {
+    if (IsOverpowering) {
         CoordStruct coord = Coord;
         AbstractClass *target = unknown_slot219(1, &coord, 0);
         if (target != 0) {
             unknown_slot220(target);
-            unknown_57e = false;
+            IsOverpowering = false;
         }
     }
     if (unknown_228 != 0) {
@@ -712,7 +712,7 @@ int FootClass::Do_MISSION_GUARD()
             }
             if (building != 0) {
                 unknown_slot220(building);
-                unknown_57e = true;
+                IsOverpowering = true;
                 QueueMission(1, false);
             } else {
                 unknown_slot258();
@@ -923,16 +923,16 @@ void FootClass::unknown_slot304()
     GUID class_id;
     persist.Checked()->GetClassID(&class_id);
     if (class_id==CLSID_JumpjetLocomotionClass) flyer=true;
-    if (unknown_494) {
+    if (NavCom) {
         if (unknown_228 && Techno_Type_Class()->CanRecalcApproachTarget && !in_range) {
-            int separation=Approach_Coord_Distance_004c4c30(unknown_494->Center_Coord(),unknown_228->Center_Coord());
+            int separation=Approach_Coord_Distance_004c4c30(NavCom->Center_Coord(),unknown_228->Center_Coord());
             if (separation>Rules->ApproachTargetResetMultiplier*maximum_range) {
-                unknown_490=0;
-                unknown_494=0;
+                FollowTarget=0;
+                NavCom=0;
             }
         }
     }
-    if ((!unknown_494 || In_Air()) && (!in_range || !unknown_32d || require_deploy_cell)) {
+    if ((!NavCom || In_Air()) && (!in_range || !unknown_32d || require_deploy_cell)) {
     if (unknown_478.Count()>0) {
         Assign_Destination(unknown_478[0],false);
         unknown_478.Delete(0);
@@ -1056,7 +1056,7 @@ inline Cell Coord_Cell_Value(CoordStruct coord)
 
 inline void Guard_Navigation(FootClass *foot)
 {
-    if (!foot->House->Unknown_004F52F0() && foot->unknown_49c.Count() > 0 && foot->unknown_494 == 0 && foot->unknown_49c[0] == foot->unknown_1b0) {
+    if (!foot->House->Unknown_004F52F0() && foot->unknown_49c.Count() > 0 && foot->NavCom == 0 && foot->unknown_49c[0] == foot->unknown_1b0) {
         foot->Handle_Navigation_List();
     }
 }
@@ -1105,7 +1105,7 @@ int FootClass::Do_MISSION_GUARD_AREA()
     }
 
     if (unknown_1b0 != 0) {
-        if (!unknown_57d && unknown_494 == 0 && unknown_5d4c00(unknown_1b0) > maxrange) {
+        if (!IsFiring && NavCom == 0 && unknown_5d4c00(unknown_1b0) > maxrange) {
             unknown_slot220(0);
             Assign_Destination(unknown_1b0, true);
         }
@@ -1130,7 +1130,7 @@ int FootClass::Do_MISSION_GUARD_AREA()
             if (candidate != 0 && candidate->Type->Overpowerable && candidate->Owning_House() == Owning_House()) {
                 if (candidate != 0) {
                     unknown_slot220(candidate);
-                    unknown_57e = true;
+                    IsOverpowering = true;
                     QueueMission(1, false);
                 }
                 break;
@@ -1176,7 +1176,7 @@ bool FootClass::Unlimbo(CoordStruct const *coord, int dir)
             AircraftTracker.Unknown_004131E0(this);
         }
         double threat = Techno_Type_Class()->ThreatAvoidanceCoefficient;
-        unknown_428 = threat;
+        ThreatAvoidanceCoefficient = threat;
         if (Techno_Type_Class()->SensorsSight != 0) {
             unknown_slot285(unknown_geometry_k);
         }
@@ -1198,18 +1198,18 @@ bool FootClass::Unlimbo(CoordStruct const *coord, int dir)
 
 int FootClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6)
 {
-    if (warhead->Sonic && unknown_580 != 0) {
-        unknown_580->unknown_588->Unknown_00607440();
+    if (warhead->Sonic && ParasiteEatingMe != 0) {
+        ParasiteEatingMe->ParasiteImUsing->Unknown_00607440();
         if (source != 0) {
             source->unknown_slot220(0);
         }
     }
-    if (unknown_580 != 0 && source != unknown_580 && *damage > unknown_580->Techno_Type_Class()->SuppressionThreshold) {
-        unknown_580->unknown_588->unknown_2c = CDTimerClass<FrameTimerClass>(*damage * 2 - unknown_580->Techno_Type_Class()->SuppressionThreshold);
+    if (ParasiteEatingMe != 0 && source != ParasiteEatingMe && *damage > ParasiteEatingMe->Techno_Type_Class()->SuppressionThreshold) {
+        ParasiteEatingMe->ParasiteImUsing->unknown_2c = CDTimerClass<FrameTimerClass>(*damage * 2 - ParasiteEatingMe->Techno_Type_Class()->SuppressionThreshold);
     }
-    if (unknown_580 != 0 && *damage < 0) {
-        unknown_580->unknown_588->unknown_2c = CDTimerClass<FrameTimerClass>(50);
-        unknown_580->unknown_588->Unknown_00607440();
+    if (ParasiteEatingMe != 0 && *damage < 0) {
+        ParasiteEatingMe->ParasiteImUsing->unknown_2c = CDTimerClass<FrameTimerClass>(50);
+        ParasiteEatingMe->ParasiteImUsing->Unknown_00607440();
     }
     int result = TechnoClass::Take_Damage(damage, distance, warhead, source, forced, arg6);
     if (result == 5) {
@@ -1515,11 +1515,11 @@ bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, b
 extern "C" GUID const unknown_uuid_IPiggyback_7cfc30;
 bool FootClass::unknown_slot261(bool initial,bool resume_waypoint)
 {
-    if (!unknown_59d) {
-        unknown_59d=true;
+    if (!IsIdle) {
+        IsIdle=true;
         TechnoClass::unknown_slot261(initial,resume_waypoint);
-        if (unknown_577) {
-            unknown_577=false;
+        if (IsToScatter) {
+            IsToScatter=false;
             Scatter(unknown_geometry_l,true,false);
         }
         bool was_piggybacking=false;
@@ -1535,9 +1535,9 @@ bool FootClass::unknown_slot261(bool initial,bool resume_waypoint)
             return true;
         }
         if (Mission!=25 || Status==0) {
-            if (unknown_418!=-1 && resume_waypoint) {
-                WaypointClass *waypoint=PlayerPtr->WaypointPaths[unknown_418]->Get_Waypoint(unknown_576);
-                WaypointClass *next_waypoint=PlayerPtr->WaypointPaths[unknown_418]->Next_Waypoint(waypoint);
+            if (CurrentPath!=-1 && resume_waypoint) {
+                WaypointClass *waypoint=PlayerPtr->WaypointPaths[CurrentPath]->Get_Waypoint(NextWaypoint);
+                WaypointClass *next_waypoint=PlayerPtr->WaypointPaths[CurrentPath]->Next_Waypoint(waypoint);
                 unknown_4cb110(next_waypoint);
             }
         }
@@ -1565,11 +1565,11 @@ bool FootClass::unknown_slot261(bool initial,bool resume_waypoint)
 CoordStruct FootClass::unknown_slot241()
 {
     if (Get_Mission() != 1) {
-        if (unknown_490 != 0) {
-            return unknown_490->unknown_slot22();
+        if (FollowTarget != 0) {
+            return FollowTarget->unknown_slot22();
         }
-        if (unknown_494 != 0) {
-            return unknown_494->unknown_slot22();
+        if (NavCom != 0) {
+            return NavCom->unknown_slot22();
         }
     }
     return TechnoClass::unknown_slot241();
@@ -1599,8 +1599,8 @@ CoordStruct FootClass::unknown_slot241()
 void FootClass::unknown_slot93(int why)
 {
     if (why == 2) {
-        unknown_59c = false;
-        unknown_59a = false;
+        IsScattering = false;
+        IsUnloading = false;
 
         if (Techno_Type_Class()->SensorsSight != 0) {
             unknown_slot286(unknown_454);
@@ -1728,22 +1728,22 @@ void FootClass::unknown_slot93(int why)
         }
     }
 
-    if (unknown_418 != -1) {
-        WaypointPathClass *path = PlayerPtr->WaypointPaths[unknown_418];
-        WaypointClass *next = path->Get_Waypoint(unknown_576);
+    if (CurrentPath != -1) {
+        WaypointPathClass *path = PlayerPtr->WaypointPaths[CurrentPath];
+        WaypointClass *next = path->Get_Waypoint(NextWaypoint);
         if (next != 0) {
             Cell wp_cell = Coord_Cell(next->Coord);
             if (Map.unknown_11b8 == &next->Coord) {
                 wp_cell = Coord_Cell(Map.unknown_11bc);
             }
-            if (unknown_41c + wp_cell != unknown_420) {
+            if (WaypointOffsetCell + wp_cell != WaypointTargetCell) {
                 unknown_4cb110(next);
             }
         } else {
-            unknown_418 = -1;
-            unknown_576 = 0;
-            unknown_41c = Cell(0, 0);
-            unknown_420 = Cell(0, 0);
+            CurrentPath = -1;
+            NextWaypoint = 0;
+            WaypointOffsetCell = Cell(0, 0);
+            WaypointTargetCell = Cell(0, 0);
         }
     }
 
@@ -1758,7 +1758,7 @@ void FootClass::unknown_slot93(int why)
 
 void FootClass::Override_Mission(int mission, AbstractClass *target, AbstractClass *destination)
 {
-    unknown_498 = unknown_494;
+    SuspendedNavCom = NavCom;
     TechnoClass::Override_Mission(mission, target, destination);
     Assign_Destination(destination, true);
 }
@@ -1770,7 +1770,7 @@ void FootClass::Override_Mission(int mission, AbstractClass *target, AbstractCla
 bool FootClass::Restore_Mission()
 {
     if (TechnoClass::Restore_Mission()) {
-        Assign_Destination(unknown_498, true);
+        Assign_Destination(SuspendedNavCom, true);
         return true;
     }
     return false;
@@ -1799,12 +1799,12 @@ int FootClass::Receive_Message(RadioClass *from, int message, AbstractClass *&pa
     case 35:
         return Map_Cell(Center_Coord())->Unknown_004717B0() == (BuildingClass *)from ? 1 : 10;
     case 28:
-        if (unknown_494 != 0) {
+        if (NavCom != 0) {
             return 10;
         }
         break;
     case 23:
-        if (HasAnyLink() && unknown_494 == Contact(0)) {
+        if (HasAnyLink() && NavCom == Contact(0)) {
             Assign_Destination(0, true);
         }
         if (Get_Mission() == 0) {
@@ -1816,13 +1816,13 @@ int FootClass::Receive_Message(RadioClass *from, int message, AbstractClass *&pa
         if (Get_Mission() == 7) {
             QueueMission(5, false);
         }
-        if (!unknown_599 && unknown_494 == 0) {
+        if (!unknown_599 && NavCom == 0) {
             Scatter(unknown_geometry_l, 1 != 0, 1 != 0);
         }
         break;
     case 19:
-        param = unknown_494;
-        if (unknown_494 != 0 && Locomotor.Checked()->Is_Moving()) {
+        param = NavCom;
+        if (NavCom != 0 && Locomotor.Checked()->Is_Moving()) {
             return 10;
         }
         return 1;
@@ -1877,7 +1877,7 @@ int FootClass::Do_MISSION_ENTER()
         if (unknown_slot150(0xE, contact) != 1 && !unknown_370) {
             unknown_slot149(3);
             unknown_slot261(0, true);
-        } else if (unknown_494 == 0 && unknown_478.Count() > 0) {
+        } else if (NavCom == 0 && unknown_478.Count() > 0) {
             UnknownComPtr<IPiggyback, &unknown_uuid_IPiggyback_7cfc30> piggyback(Locomotor);
             if (piggyback != 0 && piggyback->Is_Ok_To_End()) {
                 Locomotor.Attach(0);
@@ -1888,13 +1888,13 @@ int FootClass::Do_MISSION_ENTER()
                 unknown_478.Delete(0);
             }
         } else if (Techno_Type_Class()->Teleporter) {
-            AbstractClass *target = unknown_494;
-            unknown_490 = 0;
-            unknown_494 = 0;
+            AbstractClass *target = NavCom;
+            FollowTarget = 0;
+            NavCom = 0;
             Assign_Destination(target, true);
         }
     } else {
-        if (!Move_To_Object_Nearby() && (unknown_494 == 0 || (unknown_494->Kind_Of() != 1 && unknown_494->Kind_Of() != 2))) {
+        if (!Move_To_Object_Nearby() && (NavCom == 0 || (NavCom->Kind_Of() != 1 && NavCom->Kind_Of() != 2))) {
             unknown_slot261(0, true);
         }
         Commence();
@@ -1908,7 +1908,7 @@ int FootClass::Do_MISSION_ENTER()
 
 void FootClass::unknown_slot259(int arg1)
 {
-    unknown_490 = (AbstractClass *)arg1;   // the base signature (int) is a placeholder
+    FollowTarget = (AbstractClass *)arg1;   // the base signature (int) is a placeholder
 }
 
 
@@ -1924,8 +1924,8 @@ extern "C" GUID const CLSID_HoverLocomotionClass;   // 0x007A1F80
 
 void FootClass::Assign_Destination(AbstractClass *target, bool immediate)
 {
-    unknown_490 = 0;
-    unknown_494 = target;
+    FollowTarget = 0;
+    NavCom = target;
     if (target != 0) {
         if (unknown_25c[0] != 0) {
             unknown_25c[0]->Delete_Me();
@@ -1934,22 +1934,22 @@ void FootClass::Assign_Destination(AbstractClass *target, bool immediate)
         UnknownComPtr<IPersist, &unknown_uuid_IPersist_7cf208> persist(Locomotor);
         GUID clsid;
         persist.Checked()->GetClassID(&clsid);
-        if (memcmp(&clsid, &CLSID_HoverLocomotionClass, sizeof(GUID)) == 0 && unknown_530.Value() == 0) {
-            unknown_530 = CDTimerClass<FrameTimerClass>(1);
+        if (memcmp(&clsid, &CLSID_HoverLocomotionClass, sizeof(GUID)) == 0 && PathDelay.Value() == 0) {
+            PathDelay = CDTimerClass<FrameTimerClass>(1);
         }
-        if (unknown_598) {
-            unknown_598 = false;
+        if (IsMoveToSkipped) {
+            IsMoveToSkipped = false;
         } else {
-            CoordStruct coord = unknown_494->unknown_slot19(this);
+            CoordStruct coord = NavCom->unknown_slot19(this);
             Locomotor.Checked()->Move_To(coord);
         }
     } else if (Kind_Of() != 2 || (Mission != 1 && MissionQueue != 1) || unknown_228 == 0) {
         Locomotor.Checked()->Stop_Moving();
-        unknown_494 = 0;
+        NavCom = 0;
     }
-    unknown_5a1 = false;
-    unknown_558 = CDTimerClass<FrameTimerClass>(Rules->BlockagePathDelay);
-    unknown_530 = CDTimerClass<FrameTimerClass>(0);
+    IsToPathAroundBlockage = false;
+    BlockagePathDelay = CDTimerClass<FrameTimerClass>(Rules->BlockagePathDelay);
+    PathDelay = CDTimerClass<FrameTimerClass>(0);
 }
 
 
@@ -2040,12 +2040,12 @@ void FootClass::unknown_slot216(int arg1)
 
 AbstractClass *FootClass::unknown_slot219(int arg1, CoordStruct const *coord, bool arg3)
 {
-    if (unknown_578) {
+    if (IsScanLimited) {
         arg1 = (arg1 & ~2) | 1;
     }
     AbstractClass *result = TechnoClass::unknown_slot219(arg1, coord, arg3);
-    if (unknown_578 && result == 0) {
-        unknown_578 = false;
+    if (IsScanLimited && result == 0) {
+        IsScanLimited = false;
     }
     return result;
 }
@@ -2064,14 +2064,14 @@ void FootClass::Detach(AbstractClass *target, bool all)
     if (Team == target) {
         Team = 0;
     }
-    if (unknown_580 == target && (unknown_580->Strength == 0 || !ScenarioActive)) {
-        unknown_580 = 0;
+    if (ParasiteEatingMe == target && (ParasiteEatingMe->Strength == 0 || !ScenarioActive)) {
+        ParasiteEatingMe = 0;
     }
-    if (unknown_580 != 0 && unknown_580->Strength > 0) {
-        unknown_580->unknown_588->Detach(target, true);
+    if (ParasiteEatingMe != 0 && ParasiteEatingMe->Strength > 0) {
+        ParasiteEatingMe->ParasiteImUsing->Detach(target, true);
     }
     if (target == this) {
-        unknown_580 = 0;
+        ParasiteEatingMe = 0;
     }
     if (Member == target && all && target != 0) {
         Member = ((FootClass *)Member)->Member;
@@ -2079,10 +2079,10 @@ void FootClass::Detach(AbstractClass *target, bool all)
     if (unknown_1b0 == target) {
         Assign_Archive_Target(0);
     }
-    if (unknown_498 == target) {
-        unknown_498 = 0;
+    if (SuspendedNavCom == target) {
+        SuspendedNavCom = 0;
     }
-    if (unknown_494 == target) {
+    if (NavCom == target) {
         bool forget = true;
         bool object;
         if (!all && target != 0) {
@@ -2094,14 +2094,14 @@ void FootClass::Detach(AbstractClass *target, bool all)
                 forget = false;
             }
         }
-        if (Get_Mission() == 8 && Kind_Of() == 15 && ((InfantryClass *)this)->Type->Occupier && unknown_494 != 0
-            && unknown_494->AbstractFlags.IsObject && ((ObjectClass *)unknown_494)->IsActive && ((ObjectClass *)unknown_494)->Strength > 0) {
+        if (Get_Mission() == 8 && Kind_Of() == 15 && ((InfantryClass *)this)->Type->Occupier && NavCom != 0
+            && NavCom->AbstractFlags.IsObject && ((ObjectClass *)NavCom)->IsActive && ((ObjectClass *)NavCom)->Strength > 0) {
         } else if (forget) {
-            unknown_490 = 0;
-            unknown_494 = 0;
+            FollowTarget = 0;
+            NavCom = 0;
         }
     }
-    if (unknown_4bc == target) {
+    if (MegaTarget == target) {
         unknown_4cdb60();
     }
     for (int index = 0; index < unknown_49c.Count(); index++) {
@@ -2255,12 +2255,12 @@ Cell FootClass::Adjust_Dest(Cell const &cell)
 
 void FootClass::Handle_Navigation_List()
 {
-    if (unknown_494 == 0 && unknown_49c.Count() != 0) {
+    if (NavCom == 0 && unknown_49c.Count() != 0) {
         AbstractClass *next = unknown_49c[0];
         if (next != 0) {
             Assign_Destination(next, true);
             unknown_49c.Delete(0);
-            if (unknown_59b) {
+            if (IsNavQueueLoop) {
                 unknown_49c.Add(next);
             }
         }
@@ -2278,14 +2278,14 @@ void FootClass::unknown_4c8bb0(AbstractClass *target)
 {
     if (target != 0) {
         if (target == this && unknown_49c.Count() > 0) {
-            unknown_59b = true;
+            IsNavQueueLoop = true;
         } else {
             if (unknown_49c.Count() == 0) {
-                unknown_59b = false;
+                IsNavQueueLoop = false;
             }
             unknown_49c.Add(target);
         }
-        if (unknown_494 == 0 && Get_Mission() == 5) {
+        if (NavCom == 0 && Get_Mission() == 5) {
             TechnoClass *contact = Contact(0);
             if (contact == 0 || contact->Kind_Of() != 6 || !((BuildingClass *)contact)->Type->WeaponsFactory) {
                 unknown_slot261(0, true);
@@ -2368,7 +2368,7 @@ int FootClass::Do_MISSION_RETREAT()
 {
     switch (Status) {
     case 0:
-        if (unknown_494 != 0) {
+        if (NavCom != 0) {
             Status = 1;
         } else {
             Cell cell(0, 0);
@@ -2385,7 +2385,7 @@ int FootClass::Do_MISSION_RETREAT()
         }
         break;
     case 1:
-        if (unknown_494 == 0) {
+        if (NavCom == 0) {
             Status = 0;
         }
         break;
@@ -2479,7 +2479,7 @@ void FootClass::AI()
     if (!IsActive) {
         return;
     }
-    unknown_59d = false;
+    IsIdle = false;
     if (Frame % Rules->RadApplicationDelay == 0 && !Techno_Type_Class()->ImmuneToRadiation && !In_Air()) {
         Cell cell = Coord_Cell(Center_Coord());
         int amount = Map_Cell_At(cell)->Unknown_0047CE70();
@@ -2496,7 +2496,7 @@ void FootClass::AI()
         unknown_32d = true;
     }
     if (Locomotor.Checked()->Is_Moving_Now() && In_Air() && House->Is_Ally(PlayerPtr)
-        && unknown_54c.Value() == 0) {
+        && SightTimer.Value() == 0) {
         unknown_slot263(0, 0, 0, 0);
         unknown_slot262(0, 0, 0, 0);
         if (unknown_1f8 != Get_Height_AGL()) {
@@ -2505,10 +2505,10 @@ void FootClass::AI()
             Map.Unknown_0054A550(CoordStruct(Coord), unknown_1f4 - 3, unknown_1f4 + 3, 0);
         }
         unknown_1f8 = Get_Height_AGL();
-        unknown_54c = CDTimerClass<FrameTimerClass>(15);
+        SightTimer = CDTimerClass<FrameTimerClass>(15);
     }
 
-    int frame = unknown_430;
+    int frame = TotalFramesWalked;
     if (Locomotor != 0 && !unknown_325 && !IsFalling) {
         Locomotor.Checked()->Process();
         if (!IsActive) {
@@ -2519,23 +2519,23 @@ void FootClass::AI()
             && Frame % Techno_Type_Class()->WalkRate == 0 && !unknown_slot111() && !unknown_slot112()
             || Techno_Type_Class()->IdleRate != 0 && !Locomotor.Checked()->Is_Moving_Now()
             && Frame % Techno_Type_Class()->IdleRate == 0 && !unknown_slot111() && !unknown_slot112()) {
-            unknown_430++;
+            TotalFramesWalked++;
         }
     }
-    if ((frame != unknown_430 || Locomotor.Checked()->Is_Moving_Now()) && !IsFalling && !unknown_37d) {
-        if (!unknown_434 && Techno_Type_Class()->MoveSound.Count() > 0) {
-            unknown_43c.Unknown_00405D50();
-            Voc_Play_At(Random_Sound(Techno_Type_Class()->MoveSound), CoordStruct(Coord), &unknown_43c);
-            unknown_434 = true;
+    if ((frame != TotalFramesWalked || Locomotor.Checked()->Is_Moving_Now()) && !IsFalling && !unknown_37d) {
+        if (!IsMoveSoundPlaying && Techno_Type_Class()->MoveSound.Count() > 0) {
+            MoveSoundAudioController.Unknown_00405D50();
+            Voc_Play_At(Random_Sound(Techno_Type_Class()->MoveSound), CoordStruct(Coord), &MoveSoundAudioController);
+            IsMoveSoundPlaying = true;
         }
-        unknown_438 = 3;
-    } else if (unknown_434) {
-        if (unknown_438 != 0 && !IsFalling && !unknown_37d) {
-            unknown_438--;
+        MoveSoundDelay = 3;
+    } else if (IsMoveSoundPlaying) {
+        if (MoveSoundDelay != 0 && !IsFalling && !unknown_37d) {
+            MoveSoundDelay--;
         } else {
-            unknown_43c.Unknown_00406070();
-            unknown_434 = false;
-            unknown_438 = 0;
+            MoveSoundAudioController.Unknown_00406070();
+            IsMoveSoundPlaying = false;
+            MoveSoundDelay = 0;
         }
     }
 
@@ -2551,32 +2551,32 @@ void FootClass::AI()
                 Voc_Play_At(Techno_Type_Class()->VoiceSinking, CoordStruct(Coord), 0);
             }
             if (Techno_Type_Class()->SinkingSound != -1) {
-                Voc_Play_At(Techno_Type_Class()->SinkingSound, CoordStruct(Coord), &unknown_43c);
+                Voc_Play_At(Techno_Type_Class()->SinkingSound, CoordStruct(Coord), &MoveSoundAudioController);
             } else if (Rules->SinkingSound != -1) {
-                Voc_Play_At(Rules->SinkingSound, CoordStruct(Coord), &unknown_43c);
+                Voc_Play_At(Rules->SinkingSound, CoordStruct(Coord), &MoveSoundAudioController);
             }
-        } else if (!unknown_434) {
-            unknown_43c.Unknown_00406070();
+        } else if (!IsMoveSoundPlaying) {
+            MoveSoundAudioController.Unknown_00406070();
         }
         unknown_326 = unknown_325;
     }
     if (unknown_37d != unknown_37e) {
         if (unknown_37d) {
-            unknown_43c.Unknown_00406070();
+            MoveSoundAudioController.Unknown_00406070();
             if (Techno_Type_Class()->VoiceCrashing != -1 && House->Is_Player_Control()) {
                 Voc_Play_At(Techno_Type_Class()->VoiceCrashing, CoordStruct(Coord), 0);
             }
             if (Techno_Type_Class()->CrashingSound != -1) {
-                Voc_Play_At(Techno_Type_Class()->CrashingSound, CoordStruct(Coord), &unknown_43c);
+                Voc_Play_At(Techno_Type_Class()->CrashingSound, CoordStruct(Coord), &MoveSoundAudioController);
             }
-        } else if (!unknown_434) {
-            unknown_43c.Unknown_00406070();
+        } else if (!IsMoveSoundPlaying) {
+            MoveSoundAudioController.Unknown_00406070();
         }
         unknown_37e = unknown_37d;
     }
-    Voc_Update_At(CoordStruct(Coord), &unknown_43c);
+    Voc_Update_At(CoordStruct(Coord), &MoveSoundAudioController);
 
-    if ((Frame & 0x3F) == 0x3F && unknown_494 == 0 && !IsOnBridge
+    if ((Frame & 0x3F) == 0x3F && NavCom == 0 && !IsOnBridge
         && !((UnknownCellClass *)Get_Cell_Ptr())->unknown_11c && (unsigned char)unknown_slot164() && Get_Height_AGL() == 0) {
         Scatter(CoordStruct(0, 0, 0), 1 != 0, 0 != 0);
     }
@@ -2586,10 +2586,10 @@ void FootClass::AI()
         Locomotor.Attach(0);
         piggyback->End_Piggyback(&Locomotor.Pointer);
     }
-    unknown_59e = false;
+    IonBlastYDrawOffset = false;
     Enter_Object_Nearby();
-    if (unknown_580 != 0) {
-        unknown_580->unknown_588->AI();
+    if (ParasiteEatingMe != 0) {
+        ParasiteEatingMe->ParasiteImUsing->AI();
     }
 }
 
@@ -2687,7 +2687,7 @@ void FootClass::Draw_Voxel_Shadow(UnknownObjectPair const &voxel, int layer, int
 
 int FootClass::Current_Speed()
 {
-    int speed = (int)(unknown_slot206() * House->Unknown_004F5A20(Techno_Type_Class()) * unknown_470);
+    int speed = (int)(unknown_slot206() * House->Unknown_004F5A20(Techno_Type_Class()) * SpeedBias);
     if (Has_Ability(0)) {
         speed = (int)(speed * Rules->VeteranSpeed);
     }
@@ -2727,7 +2727,7 @@ bool FootClass::Limbo()
         if (Locomotor) {
             Locomotor.Checked()->Mark_All_Occupation_Bits(0);
         }
-        unknown_43c.Unknown_00405FE0();
+        MoveSoundAudioController.Unknown_00405FE0();
         if (Techno_Type_Class()->SensorsSight != 0) {
             unknown_slot286(unknown_geometry_k);
         }
@@ -2783,19 +2783,19 @@ HRESULT __stdcall FootClass::Load(IStream *stream)
 
         Locomotor.Detach();
         OleLoadFromStream(stream, IID_ILocomotion, (void **)&Locomotor);
-        unknown_490 = 0;
+        FollowTarget = 0;
         Swizzle_Pointer(Team);
         Swizzle_Pointer(Member);
-        Swizzle_Pointer(unknown_494);
-        Swizzle_Pointer(unknown_498);
-        Swizzle_Pointer(unknown_4b8);
-        Swizzle_Pointer(unknown_4bc);
-        Swizzle_Pointer(unknown_4cc);
-        Swizzle_Pointer(unknown_580);
-        Swizzle_Pointer(unknown_588);
-        unknown_43c.Init();
-        unknown_434 = false;
-        unknown_438 = 0;
+        Swizzle_Pointer(NavCom);
+        Swizzle_Pointer(SuspendedNavCom);
+        Swizzle_Pointer(MegaDestination);
+        Swizzle_Pointer(MegaTarget);
+        Swizzle_Pointer(PatrolCell);
+        Swizzle_Pointer(ParasiteEatingMe);
+        Swizzle_Pointer(ParasiteImUsing);
+        MoveSoundAudioController.Init();
+        IsMoveSoundPlaying = false;
+        MoveSoundDelay = 0;
         for (index = 0; index < unknown_49c.Count(); index++) {
             Swizzle_Pointer(unknown_49c[index]);
         }
@@ -2902,7 +2902,7 @@ void FootClass::Link_DropPod()
 
 bool FootClass::unknown_slot292()
 {
-    if (unknown_494 == 0 && unknown_228 == 0) {
+    if (NavCom == 0 && unknown_228 == 0) {
         TechnoClass *contact = Contact(0);
         BuildingClass *building = 0;
         if (contact != 0 && contact->Kind_Of() == 6) {
@@ -2948,16 +2948,16 @@ bool FootClass::unknown_slot169(AbstractClass *target)
 void FootClass::Compute_CRC(WWCRCEngine &crc) const
 {
     TechnoClass::Compute_CRC(crc);
-    crc(unknown_428);
-    crc((short)Short_Length(unknown_450.X, unknown_450.Y));
+    crc(ThreatAvoidanceCoefficient);
+    crc((short)Short_Length(LastPathingCell.X, LastPathingCell.Y));
     crc((long)Coord_Length(unknown_45c));
     crc(Speed);
-    crc(unknown_470);
-    if (unknown_494 != 0) {
-        crc(unknown_494->Fetch_ID());
+    crc(SpeedBias);
+    if (NavCom != 0) {
+        crc(NavCom->Fetch_ID());
     }
-    if (unknown_498 != 0) {
-        crc(unknown_498->Fetch_ID());
+    if (SuspendedNavCom != 0) {
+        crc(SuspendedNavCom->Fetch_ID());
     }
     if (Team != 0) {
         crc(Team->Fetch_ID());
@@ -2965,24 +2965,24 @@ void FootClass::Compute_CRC(WWCRCEngine &crc) const
     if (Member != 0) {
         crc(Member->Fetch_ID());
     }
-    crc(unknown_530.Value());
+    crc(PathDelay.Value());
     crc((long)unknown_53c);
-    crc(unknown_540.Value());
-    crc((long)Coord_Length(unknown_568));
-    crc((char)unknown_574);
-    crc((char)unknown_575);
-    crc(unknown_578);
-    crc(unknown_579);
-    crc(unknown_57a);
-    crc(unknown_57b);
-    crc(unknown_57c);
-    crc(unknown_57d);
+    crc(BaseAttackTimer.Value());
+    crc((long)Coord_Length(HeadToCoord));
+    crc((char)CurrentTube);
+    crc((char)CurrentTubeDir);
+    crc(IsScanLimited);
+    crc(IsInitiated);
+    crc(IsNewNavCom);
+    crc(IsPlanningToLook);
+    crc(IsDeploying);
+    crc(IsFiring);
     crc(unknown_599);
-    crc(unknown_59a);
-    crc(unknown_59b);
-    crc(unknown_59c);
-    crc(unknown_59d);
-    crc((char)unknown_59e);
+    crc(IsUnloading);
+    crc(IsNavQueueLoop);
+    crc(IsScattering);
+    crc(IsIdle);
+    crc((char)IonBlastYDrawOffset);
 }
 
 
@@ -3008,8 +3008,8 @@ bool FootClass::unknown_slot154()
 
 CoordStruct FootClass::unknown_slot19(TechnoClass *techno) const
 {
-    if (unknown_574 >= 0) {
-        Cell cell = Tubes[unknown_574]->ExitCell;
+    if (CurrentTube >= 0) {
+        Cell cell = Tubes[CurrentTube]->ExitCell;
         return CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
     }
     CoordStruct coord = Locomotor.Checked()->Head_To_Coord();
@@ -3079,7 +3079,7 @@ void FootClass::unknown_slot243(bool force, int arg2)
 {
     CoordStruct from;
     CoordStruct to;
-    if (unknown_228 != 0 || unknown_494 != 0) {
+    if (unknown_228 != 0 || NavCom != 0) {
         if (!force && unknown_timer_ac0178.Value() <= 0) {
             return;
         }
@@ -3091,7 +3091,7 @@ void FootClass::unknown_slot243(bool force, int arg2)
         }
         from = Coord;
         if (unknown_478.Count() == 0) {
-            to = unknown_494->Center_Coord();
+            to = NavCom->Center_Coord();
         } else {
             to = unknown_478[unknown_478.Count() - 1]->Center_Coord();
         }
@@ -3132,7 +3132,7 @@ void FootClass::Draw_Action_Line()
 {
     RGBClass white(255, 255, 255);
     RGBClass color;
-    if (unknown_228 == 0 && unknown_494 == 0) return;
+    if (unknown_228 == 0 && NavCom == 0) return;
     CoordStruct start_coord;
     CoordStruct end_coord;
     if (unknown_228 != 0) {
@@ -3141,7 +3141,7 @@ void FootClass::Draw_Action_Line()
     } else {
         start_coord = Coord;
         if (unknown_478.Count() == 0) {
-            end_coord = unknown_494->Center_Coord();
+            end_coord = NavCom->Center_Coord();
         } else {
             end_coord = unknown_478[unknown_478.Count() - 1]->Center_Coord();
         }
@@ -3179,7 +3179,7 @@ double FootClass::Threat_Avoidance_Value() const
     if (Team != 0 && Team->Class->AvoidThreats) {
         return 1.0;
     }
-    return unknown_428;
+    return ThreatAvoidanceCoefficient;
 }
 
 
@@ -3193,8 +3193,8 @@ bool FootClass::unknown_slot282()
     if (Team != 0 && !Team->Is_Leaving_Map()) {
         return false;
     }
-    if (Techno_Type_Class()->IsTrain && unknown_494 != 0) {
-        if (Map.Unknown_0055A7F0(unknown_494->Center_Coord())) {
+    if (Techno_Type_Class()->IsTrain && NavCom != 0) {
+        if (Map.Unknown_0055A7F0(NavCom->Center_Coord())) {
             return false;
         }
     }
@@ -3209,15 +3209,15 @@ bool FootClass::unknown_slot282()
 void FootClass::Set_Waypoint_Path(int path, char waypoint)
 {
     if (path != -1) {
-        unknown_418 = path;
-        unknown_576 = waypoint;
-        unknown_420 = Coord_Cell(PlayerPtr->WaypointPaths[path]->Get_Waypoint(waypoint)->Coord);
+        CurrentPath = path;
+        NextWaypoint = waypoint;
+        WaypointTargetCell = Coord_Cell(PlayerPtr->WaypointPaths[path]->Get_Waypoint(waypoint)->Coord);
     } else {
-        unknown_418 = -1;
-        unknown_576 = 0;
-        unknown_420 = Cell(0, 0);
+        CurrentPath = -1;
+        NextWaypoint = 0;
+        WaypointTargetCell = Cell(0, 0);
     }
-    unknown_41c = Cell(0, 0);
+    WaypointOffsetCell = Cell(0, 0);
 }
 
 
@@ -3245,13 +3245,13 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
     }
 
     if (waypoint != 0) {
-        PlayerPtr->Fetch_Waypoint_Data(waypoint, &unknown_418, &unknown_576);
+        PlayerPtr->Fetch_Waypoint_Data(waypoint, &CurrentPath, &NextWaypoint);
 
         CoordStruct coord = waypoint->Coord;
         ObjectClass *occupier = ((UnknownCellClass *)&Map[coord])->unknown_e4;
         TechnoClass *techno = occupier->As_Techno();
 
-        unknown_420 = Coord_Cell(coord);
+        WaypointTargetCell = Coord_Cell(coord);
 
         bool sound = AllowVoice;
         AllowVoice = false;
@@ -3281,7 +3281,7 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
             if (!click) {
                 Cell nearby = Map.Nearby_Location(cell, Techno_Type_Class()->SpeedType, Map.Zone(cell, Techno_Type_Class()->MovementZone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1), Techno_Type_Class()->MovementZone, false, Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
                 if (nearby != unknown_geometry_k) {
-                    unknown_41c = nearby - cell;
+                    WaypointOffsetCell = nearby - cell;
                     direct = false;
                 }
             }
@@ -3290,10 +3290,10 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
         if (click) {
             action = unknown_slot28(occupier, true);
             succeeded = unknown_slot78(action, occupier, true);
-            unknown_41c = Cell(0, 0);
+            WaypointOffsetCell = Cell(0, 0);
         } else {
             action = What_Action(&cell, false, true);
-            Cell offset = unknown_41c;
+            Cell offset = WaypointOffsetCell;
             Cell adjusted = cell + offset;
             UnknownCellClass *adjusted_cell = (UnknownCellClass *)&Map[adjusted];
             UnknownCellClass *cell_ptr = (UnknownCellClass *)&Map[cell];
@@ -3310,11 +3310,11 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
                 && (!direct || Search.Test_Cell_Walk(adjusted, cell, this, adjusted_cell->Flags >> 8 & 1, cell_ptr->Flags >> 8 & 1, -1) <= limit)) {
                 Cell none(-1, -1);
                 succeeded = unknown_slot77(action, &adjusted, &none, true);
-                unknown_420 = adjusted;
+                WaypointTargetCell = adjusted;
             } else {
                 Cell none(-1, -1);
                 succeeded = unknown_slot77(action, &cell, &none, true);
-                unknown_41c = Cell(0, 0);
+                WaypointOffsetCell = Cell(0, 0);
             }
         }
 
@@ -3324,10 +3324,10 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
     }
 
     if (!succeeded) {
-        unknown_418 = -1;
-        unknown_576 = 0;
-        unknown_41c = Cell(0, 0);
-        unknown_420 = Cell(0, 0);
+        CurrentPath = -1;
+        NextWaypoint = 0;
+        WaypointOffsetCell = Cell(0, 0);
+        WaypointTargetCell = Cell(0, 0);
     }
 
     unknown_388 = false;
@@ -3370,7 +3370,7 @@ bool FootClass::Tiberium_Check(Cell const &cell)
 
 bool FootClass::Goto_Tiberium(int arg1, bool arg2)
 {
-    if (unknown_494 == 0) {
+    if (NavCom == 0) {
         Cell cell = ScanForTiberium(arg1, arg2);
         if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
             Cell here = Coord_Cell(Center_Coord());
@@ -3643,7 +3643,7 @@ bool FootClass::Weed_Check(Cell &cell, int dx, int dy)
 
 bool FootClass::Goto_Weed(int arg1)
 {
-    if (unknown_494 == 0) {
+    if (NavCom == 0) {
         Cell cell = Search_For_Weed(arg1);
         if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
             Cell here = Coord_Cell(Center_Coord());
@@ -3662,7 +3662,7 @@ bool FootClass::Goto_Weed(int arg1)
 
 bool FootClass::Is_Moving_Onto_Bridge(TechnoClass *techno)
 {
-    if (unknown_574 >= 0) {
+    if (CurrentTube >= 0) {
         return false;
     }
     return ObjectClass::Is_Moving_Onto_Bridge(techno);
@@ -3698,7 +3698,7 @@ bool FootClass::unknown_slot309(AbstractClass *target)
         }
         for (int index = 0; index < Aircraft.Count(); index++) {
             AircraftClass *aircraft = Aircraft[index];
-            if (aircraft->IsActive && !aircraft->IsInLimbo && aircraft->unknown_494 == target && aircraft != this) {
+            if (aircraft->IsActive && !aircraft->IsInLimbo && aircraft->NavCom == target && aircraft != this) {
                 return false;
             }
         }
@@ -3776,7 +3776,7 @@ int FootClass::Do_MISSION_RESCUE()
             coord = Coord;
             Assign_Archive_Target((AbstractClass *)&Map[coord]);
         }
-        unknown_578 = false;
+        IsScanLimited = false;
         {
             AbstractClass *target = unknown_slot219(0, &unknown_1b0->Center_Coord(), 0);
             if (target != 0) {
@@ -3801,7 +3801,7 @@ int FootClass::Do_MISSION_RESCUE()
         Assign_Archive_Target(0);
         break;
     case 1:
-        if (unknown_494 == 0) {
+        if (NavCom == 0) {
             Assign_Archive_Target(0);
             QueueMission(11, false);
             Commence();
@@ -3875,9 +3875,9 @@ Cell FootClass::unknown_4cca40(Cell const &cell, bool arg2)
 
 void FootClass::unknown_slot194()
 {
-    if (unknown_418 != -1) {
-        unknown_4cb110(PlayerPtr->WaypointPaths[unknown_418]->Next_Waypoint(
-            PlayerPtr->WaypointPaths[unknown_418]->Get_Waypoint(unknown_576)));
+    if (CurrentPath != -1) {
+        unknown_4cb110(PlayerPtr->WaypointPaths[CurrentPath]->Next_Waypoint(
+            PlayerPtr->WaypointPaths[CurrentPath]->Get_Waypoint(NextWaypoint)));
     }
 }
 
@@ -3972,7 +3972,7 @@ void Leaf_4cd070::get(unsigned int unused_argument_1) { unsigned int unused_this
 
 bool FootClass::unknown_slot202()
 {
-    return unknown_58c.Value() != 0;
+    return ParalysisTimer.Value() != 0;
 }
 
 
@@ -4063,11 +4063,11 @@ void FootClass::IronCurtain(int arg1)
         Take_Damage(&damage, 0, Rules->C4Warhead, 0, false, 0);
         return;
     }
-    if (unknown_580 != 0) {
-        unknown_580->unknown_588->unknown_2c = CDTimerClass<FrameTimerClass>(50);
-        unknown_580->unknown_588->Unknown_00607440();
+    if (ParasiteEatingMe != 0) {
+        ParasiteEatingMe->ParasiteImUsing->unknown_2c = CDTimerClass<FrameTimerClass>(50);
+        ParasiteEatingMe->ParasiteImUsing->Unknown_00607440();
     }
-    unknown_58c = CDTimerClass<FrameTimerClass>(0);
+    ParalysisTimer = CDTimerClass<FrameTimerClass>(0);
     TechnoClass::IronCurtain(arg1);
 }
 
@@ -4216,8 +4216,8 @@ TechnoClass *FootClass::unknown_slot299(DynamicVectorClass<TechnoTypeClass *> co
 
 void FootClass::Abort_Motion()
 {
-    unknown_490 = 0;
-    unknown_494 = 0;
+    FollowTarget = 0;
+    NavCom = 0;
 }
 
 
@@ -4236,14 +4236,14 @@ int FootClass::unknown_slot268(UnknownSlot268Arg const *arg)
         if (!CanAttackOnTheMove()) {
             return first ? 1 : 2;
         }
-        unknown_4c1 = false;
-        unknown_4b4 = 0x1D;
+        HasAttackMoveTarget = false;
+        MegaMission = 0x1D;
         if (second) {
-            unknown_4b8 = arg->unknown_13.Unknown_006B5810();
+            MegaDestination = arg->unknown_13.Unknown_006B5810();
             return 2;
         }
         if (first) {
-            unknown_4bc = arg->unknown_0e.Unknown_006B5810();
+            MegaTarget = arg->unknown_0e.Unknown_006B5810();
             return 1;
         }
         unknown_slot269();
@@ -4312,11 +4312,11 @@ unsigned int Leaf_4cdac0::get() { return *(unsigned int*)((char*)this + 0x4b4); 
 
 CoordStruct FootClass::unknown_slot273()
 {
-    if (unknown_4b8 != 0) {
-        return unknown_4b8->Center_Coord();
+    if (MegaDestination != 0) {
+        return MegaDestination->Center_Coord();
     }
-    if (unknown_4bc != 0) {
-        return unknown_4bc->Center_Coord();
+    if (MegaTarget != 0) {
+        return MegaTarget->Center_Coord();
     }
     return CoordStruct(-1, -1, -1);
 }
@@ -4328,9 +4328,9 @@ CoordStruct FootClass::unknown_slot273()
 
 void FootClass::unknown_4cdb60()
 {
-    Cell cell = Coord_Cell(unknown_4bc->Center_Coord());
-    unknown_4b8 = (AbstractClass *)&Map[cell];
-    unknown_4bc = 0;
+    Cell cell = Coord_Cell(MegaTarget->Center_Coord());
+    MegaDestination = (AbstractClass *)&Map[cell];
+    MegaTarget = 0;
 }
 
 
@@ -4350,13 +4350,13 @@ bool __fastcall FootClass_MegaMissionIsAttackMove(int foot_address)
 bool FootClass::unknown_slot277()
 {
     bool result = true;
-    unknown_4c1 = false;
-    if (unknown_4b8 != 0) {
+    HasAttackMoveTarget = false;
+    if (MegaDestination != 0) {
         QueueMission(2, true);
-        Assign_Destination(unknown_4b8, true);
-    } else if (unknown_4bc != 0) {
+        Assign_Destination(MegaDestination, true);
+    } else if (MegaTarget != 0) {
         QueueMission(1, true);
-        unknown_slot220(unknown_4bc);
+        unknown_slot220(MegaTarget);
     } else {
         unknown_slot269();
         result = false;
@@ -4372,8 +4372,8 @@ bool FootClass::unknown_slot277()
 
 void FootClass::unknown_slot278()
 {
-    if (unknown_4b8 != 0) {
-        if (unknown_4c1) {
+    if (MegaDestination != 0) {
+        if (HasAttackMoveTarget) {
             if (unknown_slot215(unknown_228)) {
                 return;
             }
@@ -4382,22 +4382,22 @@ void FootClass::unknown_slot278()
         CoordStruct coord = Coord;
         if (unknown_slot209(&coord, 1)) {
             QueueMission(1, true);
-            unknown_4c1 = true;
+            HasAttackMoveTarget = true;
         }
     } else {
-        if (unknown_4bc != 0 && unknown_slot215(unknown_4bc)) {
+        if (MegaTarget != 0 && unknown_slot215(MegaTarget)) {
             return;
         }
-        if (unknown_4c1 && unknown_slot215(unknown_228)) {
+        if (HasAttackMoveTarget && unknown_slot215(unknown_228)) {
             return;
         }
         unknown_228 = 0;
         CoordStruct coord = Coord;
         if (unknown_slot209(&coord, 1)) {
             QueueMission(1, true);
-            unknown_4c1 = true;
+            HasAttackMoveTarget = true;
         } else {
-            unknown_228 = unknown_4bc;
+            unknown_228 = MegaTarget;
         }
     }
 }
@@ -4410,9 +4410,9 @@ void FootClass::unknown_slot278()
 bool FootClass::unknown_slot279()
 {
     bool result = false;
-    if (unknown_4b4 == 0x1D) {
-        if (unknown_4c1) {
-            unknown_4c1 = false;
+    if (MegaMission == 0x1D) {
+        if (HasAttackMoveTarget) {
+            HasAttackMoveTarget = false;
             result = unknown_slot277();
         } else if (Get_Mission() == 5 || Get_Mission() == 5) {
             result = unknown_slot277();

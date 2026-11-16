@@ -32,7 +32,7 @@ int TechnoClass::Exit_Object(TechnoClass *techno) { (void)techno; return 0; }   
 // 0x004F3160 (pass-6a decompile): sets +0x143. Reached by BuildingClass slots 52 and 53.
 void HouseClass::unknown_func_4f3160()
 {
-    unknown_143 = true;
+    IsThreatRatingNodeActive = true;
 }
 
 // TechnoClass defaults in live vtables (pass-6a decompiles).

@@ -136,8 +136,8 @@ void BulletClass::AI()
             if (Speed >= 40 || speed + 0.5 >= max_speed) {
                 IsLaunching = false;
             }
-        } else if (unknown_f0 < Type->CourseLockDuration) {
-            if (++unknown_f0 >= Type->CourseLockDuration) {
+        } else if (CourseLockCounter < Type->CourseLockDuration) {
+            if (++CourseLockCounter >= Type->CourseLockDuration) {
                 IsLaunching = false;
             }
         }
@@ -197,12 +197,12 @@ void BulletClass::AI()
         }
         int delta = Coord_Distance_lab(old_coord, target_coord) - Coord_Distance_lab(coord, target_coord);
         if (!IsLaunching) {
-            if (unknown_100 < 60) {
-                unknown_100++;
-                unknown_108 += delta;
+            if (ClosureSamples < 60) {
+                ClosureSamples++;
+                SmoothedClosure += delta;
             } else {
-                unknown_108 = unknown_108 * (59.0 / 60) + delta;
-                if (unknown_108 >= 0 && unknown_108 < 60.0 && !Type->Airburst && !Type->VeryHigh) {
+                SmoothedClosure = SmoothedClosure * (59.0 / 60) + delta;
+                if (SmoothedClosure >= 0 && SmoothedClosure < 60.0 && !Type->Airburst && !Type->VeryHigh) {
                     forced = true;
                     impact = 1;
                     goto flown;

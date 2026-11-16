@@ -352,7 +352,7 @@ void __fastcall IonStormClass_Ion_Storm_Begin(int duration, int deferment, Cell 
     StormActive = true;
     for (int index = 0; index < Houses.Count(); index++) {
         if (StormOwner == 0 || !StormOwner->Is_Ally(Houses[index])) {
-            if (!Houses[index]->unknown_13d && !MuteSWLaunches) {
+            if (!Houses[index]->IsDefeated && !MuteSWLaunches) {
                 Houses[index]->unknown_func_4f5840(duration);
             }
         }

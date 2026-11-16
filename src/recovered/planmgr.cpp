@@ -4043,7 +4043,7 @@ bool __fastcall Planning_Idle_Mover(TechnoClass *techno)
             flagged = techno->AbstractFlags.IsFoot;
         }
         if (techno && flagged) {
-            if (((FootClass *)techno)->unknown_494 || techno->unknown_228) {
+            if (((FootClass *)techno)->NavCom || techno->unknown_228) {
                 return false;
             }
         }

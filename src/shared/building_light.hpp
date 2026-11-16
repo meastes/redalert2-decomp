@@ -64,10 +64,10 @@ public:
     virtual void Draw_It(Point2D const &point, Rect const &window);                // 0x00433380
 
     double unknown_98;              // +0x98
-    CoordStruct unknown_a0;         // +0xA0
-    CoordStruct unknown_ac;         // +0xAC
-    double unknown_b8;              // +0xB8
-    bool unknown_c0;                // +0xC0
+    CoordStruct RotationPivot;         // +0xA0
+    CoordStruct RotationTarget;         // +0xAC
+    double Acceleration;              // +0xB8
+    bool IsOppositeDirection;                // +0xC0
     int Behavior;                   // +0xC4
     ObjectClass *Following;         // +0xC8
     TechnoClass *Owner;             // +0xCC

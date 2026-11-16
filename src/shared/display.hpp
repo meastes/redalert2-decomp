@@ -206,36 +206,36 @@ public:
     static void const *ShadowShapes;                // 0x00852934 "SHADOW.SHP"
     static int unknown_852630;                      // 0x00852630
 
-    Cell unknown_1170;        // +0x1170
-    Cell unknown_1174;        // +0x1174
-    Cell const *unknown_1178; // +0x1178 a cell list (offsets ending with 0x7FFF, 0x7FFF) marked with flag 2
-    bool unknown_117c;              // +0x117C
-    bool unknown_117d;              // +0x117D
-    Cell unknown_117e;        // +0x117E
-    Cell unknown_1182;        // +0x1182
-    Cell const *unknown_1188; // +0x1188 a cell list marked with flag 4
+    Cell ZoneCell;        // +0x1170
+    Cell ZoneOffset;        // +0x1174
+    Cell const *CursorSize; // +0x1178 a cell list (offsets ending with 0x7FFF, 0x7FFF) marked with flag 2
+    bool ProximityCheck;              // +0x117C
+    bool ShroudCheck;              // +0x117D
+    Cell CopyZoneCell;        // +0x117E
+    Cell CopyZoneOffset;        // +0x1182
+    Cell const *CopyCursorSize; // +0x1188 a cell list marked with flag 4
     ObjectClass *CopyPendingObjectPtr;      // +0x118C the placement object (copied from +0x11A0)
     ObjectTypeClass const *CopyPendingObject; // +0x1190 its type (copied from +0x11A4)
     int CopyPendingHouse;               // +0x1194 -1
-    bool unknown_1198;              // +0x1198
-    void *unknown_119c;             // +0x119C (a pointer: the load swizzles it)
+    bool FollowingObject;              // +0x1198
+    void *FollowingObjectPtr;             // +0x119C (a pointer: the load swizzles it)
     ObjectClass *PendingObjectPtr;   // +0x11A0 an object waiting for placement (cancelled by slot 49)
     ObjectTypeClass const *PendingObject;             // +0x11A4 (a pointer: the load swizzles it)
-    int unknown_11a8;               // +0x11A8 -1
-    bool unknown_11ac;              // +0x11AC
-    bool unknown_11ad;              // +0x11AD
-    bool unknown_11ae;              // +0x11AE
-    bool unknown_11af;              // +0x11AF
-    bool unknown_11b0;              // +0x11B0
-    int unknown_11b4;               // +0x11B4 -1
-    CoordStruct *unknown_11b8;      // +0x11B8 where 0x0049C860 puts back the coordinate at +0x11BC
+    int PendingHouse;               // +0x11A8 -1
+    bool IsRepairMode;              // +0x11AC
+    bool IsSellMode;              // +0x11AD
+    bool IsPowerMode;              // +0x11AE
+    bool IsWaypointMode;              // +0x11AF
+    bool IsBeaconMode;              // +0x11B0
+    int IsTargettingMode;               // +0x11B4 -1
+    CoordStruct *DraggedWaypoint;      // +0x11B8 where 0x0049C860 puts back the coordinate at +0x11BC
     int unknown_11bc;               // +0x11BC
     int unknown_11c0;               // +0x11C0
     int unknown_11c4;               // +0x11C4
     RGBClass WaypointColor;        // +0x11C8 original three-byte mouse waypoint color
-    bool unknown_11cb;              // +0x11CB
-    bool unknown_11cc;              // +0x11CC
-    bool unknown_11cd;              // +0x11CD
+    bool IsRubberBand;              // +0x11CB
+    bool IsTentative;              // +0x11CC
+    bool IsShadowPresent;              // +0x11CD
     Point2D unknown_11d0;           // +0x11D0 where a drag select started (slot 47)
     Point2D unknown_11d8;           // +0x11D8 the drag select's last point (slot 47)
 };

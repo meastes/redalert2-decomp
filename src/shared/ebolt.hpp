@@ -23,6 +23,6 @@ public:
  UnitClass *Owner; // +20
  int unknown_24;
  int unknown_28;
- bool unknown_2c;
+ bool AlternateColor;
 };
 #endif

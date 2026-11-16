@@ -104,7 +104,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
         if(!tech->unknown_184.Value()) return false;
         if(House->Is_Human_Player()) return false;
         int roll=unknown_id_source_a3d290->Random()(0,99);
-        if(roll>Rules->DisabledDisguiseDetectionPercent[House->unknown_c8]) return false;
+        if(roll>Rules->DisabledDisguiseDetectionPercent[House->Difficulty]) return false;
     }
     if(method&0x100) {
         object->Owning_House();

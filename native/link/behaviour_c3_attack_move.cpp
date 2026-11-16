@@ -15,32 +15,32 @@
 // 0x004CDA80 (slot 269): clears the pending order.
 void FootClass::unknown_slot269()
 {
-    unknown_4b4 = -1;
-    unknown_4b8 = 0;
-    unknown_4bc = 0;
-    unknown_4c1 = false;
+    MegaMission = -1;
+    MegaDestination = 0;
+    MegaTarget = 0;
+    HasAttackMoveTarget = false;
 }
 
 // 0x004CDAA0 (slot 270): an order is pending.
 bool FootClass::unknown_slot270()
 {
-    return unknown_4b4 != -1;
+    return MegaMission != -1;
 }
 
 // 0x004CDAB0 (slot 271): the pending order has been resumed (+0x4C1).
 bool FootClass::unknown_slot271()
 {
-    return unknown_4c1;
+    return HasAttackMoveTarget;
 }
 
 // 0x004CDAC0 (slot 272): the pending order's kind (-1 for none).
 int FootClass::unknown_slot272()
 {
-    return unknown_4b4;
+    return MegaMission;
 }
 
 // 0x004CDBD0 (slot 276): the pending order is an attack-move.
 bool FootClass::unknown_slot276()
 {
-    return unknown_4b4 == 0x1D;
+    return MegaMission == 0x1D;
 }

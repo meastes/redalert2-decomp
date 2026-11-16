@@ -290,11 +290,11 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
     if (unknown_28 == unknown_coord_af9060) {
         if (unknown_1c != unknown_coord_af9060) {
             if (LinkedTo->Path[0] == -1) {
-                if (LinkedTo->unknown_530 != 0) {
+                if (LinkedTo->PathDelay != 0) {
                     LinkedTo->Stop_Movement_Animation();
                     return;
                 }
-                LinkedTo->unknown_530 = Rules->PathDelay * 900.0;
+                LinkedTo->PathDelay = Rules->PathDelay * 900.0;
                 if (!LinkedTo->unknown_4c3000(unknown_1c.As_Cell(), 0, 0)) {
                     unknown_36 = false;
                     if (LinkedTo->unknown_slot171(unknown_1c)) {
@@ -304,10 +304,10 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                         } else if (LinkedTo->unknown_53c != 0) {
                             LinkedTo->unknown_53c--;
                         } else {
-                            if (LinkedTo->unknown_57a) {
+                            if (LinkedTo->IsNewNavCom) {
                                 Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
                             }
-                            LinkedTo->unknown_57a = false;
+                            LinkedTo->IsNewNavCom = false;
                             Cell dest = unknown_1c.As_Cell();
                             if (LinkedTo->unknown_32d) {
                                 Cell nav_dest = LinkedTo->unknown_slot19(0).As_Cell();
@@ -349,8 +349,8 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                     unknown_28 = Cell_Coord(cell);
                     memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
                     LinkedTo->Path[23] = -1;
-                    LinkedTo->unknown_574 = tube;
-                    LinkedTo->unknown_575 = 0;
+                    LinkedTo->CurrentTube = tube;
+                    LinkedTo->CurrentTubeDir = 0;
                     TPoint2D<short> const &enter = tube_ptr->EnterCell;
                     CoordStruct enter_coord = Cell_Coord(Cell(enter));
                     Cell visual_cell = Adjacent_Tube(Cell(enter), tube_ptr->Directions[0]);
@@ -369,7 +369,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                 CoordStruct coord = Adjacent_Coord(Object_Coord(LinkedTo), dir);
                 Cell cell = coord.As_Cell();
                 if (LinkedTo->IsOnBridge ^ Map[Adjacent_Coord(Object_Coord(LinkedTo), dir)].IsUnderBridge) {
-                    LinkedTo->unknown_57b = true;
+                    LinkedTo->IsPlanningToLook = true;
                 }
                 int move = LinkedTo->Can_Enter_Cell(&Map[cell], dir, LinkedTo->Unknown_005D47D0(), 0, true);
                 if (move != 0) {
@@ -380,7 +380,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                         if (first_pass) {
                             LinkedTo->Path[0] = -1;
                             unknown_28 = unknown_coord_af9060;
-                            LinkedTo->unknown_530 = 0;
+                            LinkedTo->PathDelay = 0;
                             unknown_71e220(false);
                         } else {
                             int dist = Distance3(LinkedTo->Center_Coord(), unknown_1c);
@@ -400,16 +400,16 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                         return;
                     }
                     if (move == 2) {
-                        if (!LinkedTo->unknown_5a1) {
-                            LinkedTo->unknown_5a1 = true;
-                            LinkedTo->unknown_558 = Rules->BlockagePathDelay;
+                        if (!LinkedTo->IsToPathAroundBlockage) {
+                            LinkedTo->IsToPathAroundBlockage = true;
+                            LinkedTo->BlockagePathDelay = Rules->BlockagePathDelay;
                         }
-                        if (LinkedTo->unknown_530 != 0) {
+                        if (LinkedTo->PathDelay != 0) {
                             return;
                         }
-                        bool blocked = LinkedTo->unknown_5a1 && LinkedTo->unknown_558 == 0;
+                        bool blocked = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0;
                         bool found = LinkedTo->unknown_4c3000(unknown_1c.As_Cell(), 0, blocked ? 2 : 1);
-                        LinkedTo->unknown_530 = Rules->PathDelay * 900.0;
+                        LinkedTo->PathDelay = Rules->PathDelay * 900.0;
                         if (!found) {
                             if (!LinkedTo->unknown_slot171(unknown_1c)) {
                                 LinkedTo->Assign_Destination(0, true);
@@ -431,7 +431,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                         if (first_pass) {
                             LinkedTo->Path[0] = -1;
                             unknown_28 = unknown_coord_af9060;
-                            LinkedTo->unknown_530 = 0;
+                            LinkedTo->PathDelay = 0;
                             unknown_71e220(false);
                             return;
                         }
@@ -448,8 +448,8 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                             LinkedTo->Path[0] = -1;
                             LinkedTo->unknown_slot306(0.0);
                             Stop_Moving();
-                            LinkedTo->unknown_57a = false;
-                            LinkedTo->unknown_57a = false;
+                            LinkedTo->IsNewNavCom = false;
+                            LinkedTo->IsNewNavCom = false;
                             return;
                         }
                     } else {
@@ -458,7 +458,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                     if (first_pass) {
                         LinkedTo->Path[0] = -1;
                         unknown_28 = unknown_coord_af9060;
-                        LinkedTo->unknown_530 = 0;
+                        LinkedTo->PathDelay = 0;
                         unknown_71e220(false);
                     }
                     return;
@@ -474,13 +474,13 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                 } else {
                     LinkedTo->unknown_slot306(0.0);
                 }
-                LinkedTo->unknown_57a = false;
+                LinkedTo->IsNewNavCom = false;
             }
         } else {
             if (LinkedTo->Speed > 0.0) {
                 LinkedTo->unknown_slot306(0.0);
             }
-            LinkedTo->unknown_57a = false;
+            LinkedTo->IsNewNavCom = false;
         }
     } else {
     unknown_36 = true;
@@ -492,9 +492,9 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
         LinkedTo->Path[23] = -1;
         LinkedTo->Set_Coord(unknown_28);
-        LinkedTo->unknown_450 = unknown_28.As_Cell();
+        LinkedTo->LastPathingCell = unknown_28.As_Cell();
         LinkedTo->Set_Height_AGL(0);
-        LinkedTo->unknown_5a1 = false;
+        LinkedTo->IsToPathAroundBlockage = false;
         Mark_Head_To(unknown_coord_af9060);
         if (LinkedTo->Path[0] == -1) {
             LinkedTo->unknown_slot306(0.0);
@@ -511,18 +511,18 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                 unknown_36 = false;
             }
             LinkedTo->Mark(1);
-            LinkedTo->unknown_57a = false;
+            LinkedTo->IsNewNavCom = false;
         }
         return;
     }
     if (LinkedTo->unknown_slot201()) {
         unknown_36 = false;
-        LinkedTo->unknown_57a = false;
+        LinkedTo->IsNewNavCom = false;
         return;
     }
     LinkedTo->unknown_slot306(1.0);
     int speed = LinkedTo->Current_Speed();
-    LinkedTo->unknown_5a1 = false;
+    LinkedTo->IsToPathAroundBlockage = false;
     UnknownFacingDir face = Direction(LinkedTo->Center_Coord(), unknown_28);
     Do_Turn(face);
     Cell old_cell = LinkedTo->unknown_slot104();
@@ -544,14 +544,14 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         LinkedTo->Set_Height_AGL(0);
         LinkedTo->Mark(1);
         Map[Object_Coord(LinkedTo)].Trigger_Veins();
-        LinkedTo->unknown_57a = false;
+        LinkedTo->IsNewNavCom = false;
     } else {
         bool was_down = LinkedTo->IsDown;
         LinkedTo->IsDown = false;
         LinkedTo->Set_Coord(new_coord);
         LinkedTo->Set_Height_AGL(0);
         LinkedTo->IsDown = was_down;
-        LinkedTo->unknown_57a = false;
+        LinkedTo->IsNewNavCom = false;
     }
     }
 }
@@ -579,15 +579,15 @@ bool WalkLocomotionClass::Mark_Head_To(CoordStruct const &coord)
     if (coord != unknown_geometry_l) {
         if (LinkedTo->Get_Mission() == 8 || LinkedTo->Get_Mission() == 9 || LinkedTo->Get_Mission() == 7
             || LinkedTo->Get_Mission() == 11 || LinkedTo->Get_Mission() == 25) {
-            ObjectClass *unit = (ObjectClass *)LinkedTo->unknown_494;
+            ObjectClass *unit = (ObjectClass *)LinkedTo->NavCom;
             if (unit != 0 && unit->Kind_Of() == 1 && unit->unknown_slot104() == coord.As_Cell()) {
                 any_spot = true;
             }
-            ObjectClass *aircraft = (ObjectClass *)LinkedTo->unknown_494;
+            ObjectClass *aircraft = (ObjectClass *)LinkedTo->NavCom;
             if (aircraft != 0 && aircraft->Kind_Of() == 2 && aircraft->unknown_slot104() == coord.As_Cell()) {
                 any_spot = true;
             }
-            ObjectClass *building = (ObjectClass *)LinkedTo->unknown_494;
+            ObjectClass *building = (ObjectClass *)LinkedTo->NavCom;
             if (building != 0 && building->Kind_Of() == 6 && Map[coord].Cell_Building() == building) {
                 any_spot = true;
             }

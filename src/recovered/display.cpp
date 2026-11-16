@@ -142,12 +142,12 @@ DisplayClass::TacticalClass DisplayClass::TacButton;
 // shape and counter statics.
 
 DisplayClass::DisplayClass()
-    : unknown_1170(unknown_geometry_k), unknown_1174(0, 0), unknown_1178(0), unknown_117c(false),
-      unknown_117d(false), unknown_117e(unknown_geometry_k), unknown_1182(0, 0), unknown_1188(0),
-      CopyPendingObjectPtr(0), CopyPendingObject(0), CopyPendingHouse(-1), unknown_1198(false), unknown_119c(0),
-      PendingObjectPtr(0), PendingObject(0), unknown_11a8(-1), unknown_11ac(false), unknown_11ad(false),
-      unknown_11ae(false), unknown_11af(false), unknown_11b0(false), unknown_11b4(-1), unknown_11b8(0),
-      unknown_11bc(0), unknown_11c0(0), unknown_11c4(0), WaypointColor(0, 0, 0), unknown_11cb(false), unknown_11cc(false), unknown_11cd(false), unknown_11d0(0, 0),
+    : ZoneCell(unknown_geometry_k), ZoneOffset(0, 0), CursorSize(0), ProximityCheck(false),
+      ShroudCheck(false), CopyZoneCell(unknown_geometry_k), CopyZoneOffset(0, 0), CopyCursorSize(0),
+      CopyPendingObjectPtr(0), CopyPendingObject(0), CopyPendingHouse(-1), FollowingObject(false), FollowingObjectPtr(0),
+      PendingObjectPtr(0), PendingObject(0), PendingHouse(-1), IsRepairMode(false), IsSellMode(false),
+      IsPowerMode(false), IsWaypointMode(false), IsBeaconMode(false), IsTargettingMode(-1), DraggedWaypoint(0),
+      unknown_11bc(0), unknown_11c0(0), unknown_11c4(0), WaypointColor(0, 0, 0), IsRubberBand(false), IsTentative(false), IsShadowPresent(false), unknown_11d0(0, 0),
       unknown_11d8(0, 0)
 {
     ShadowShapes = 0;
@@ -177,14 +177,14 @@ void DisplayClass::Init_Clear()
     MapClass::Init_Clear();
     PendingObjectPtr = 0;
     PendingObject = 0;
-    unknown_11a8 = -1;
-    unknown_1178 = 0;
-    unknown_11b4 = -1;
-    unknown_11ac = false;
-    unknown_11cb = false;
-    unknown_11cc = false;
-    unknown_11ad = false;
-    unknown_11ae = false;
+    PendingHouse = -1;
+    CursorSize = 0;
+    IsTargettingMode = -1;
+    IsRepairMode = false;
+    IsRubberBand = false;
+    IsTentative = false;
+    IsSellMode = false;
+    IsPowerMode = false;
     for (int layer = 0; layer < 5; layer++) {
         LayerClass &list = Layer[layer];
         list.Clear();
@@ -266,22 +266,22 @@ void DisplayClass::unknown_slot42(Rect const &rect)
 
 void DisplayClass::Unknown_00498F10(Cell const *list)
 {
-    if (unknown_1178) {
-        Unknown_004998C0(unknown_1170 + unknown_1174, false);
+    if (CursorSize) {
+        Unknown_004998C0(ZoneCell + ZoneOffset, false);
     }
-    unknown_1174 = unknown_geometry_k;
+    ZoneOffset = unknown_geometry_k;
 
     if (list) {
         static Cell _list[120];
 
         memcpy(_list, list, sizeof(_list));
-        unknown_1178 = _list;
-        Cell size = Get_Occupy_Dimensions(unknown_1178);
+        CursorSize = _list;
+        Cell size = Get_Occupy_Dimensions(CursorSize);
         size -= Cell(1, 1);
-        unknown_1174 = -size / 2;
-        Unknown_004998C0(unknown_1170 + unknown_1174, true);
+        ZoneOffset = -size / 2;
+        Unknown_004998C0(ZoneCell + ZoneOffset, true);
     } else {
-        unknown_1178 = 0;
+        CursorSize = 0;
     }
 }
 
@@ -299,22 +299,22 @@ void DisplayClass::Unknown_00498F10(Cell const *list)
 
 void DisplayClass::Set_Cursor_Shape(Cell const *list)
 {
-    if (unknown_1188) {
-        Unknown_00499970(unknown_117e + unknown_1182, false);
+    if (CopyCursorSize) {
+        Unknown_00499970(CopyZoneCell + CopyZoneOffset, false);
     }
-    unknown_1182 = unknown_geometry_k;
+    CopyZoneOffset = unknown_geometry_k;
 
     if (list) {
         static Cell _list[50];
 
         memcpy(_list, list, sizeof(_list));
-        unknown_1188 = _list;
-        Cell size = Get_Occupy_Dimensions(unknown_1188);
+        CopyCursorSize = _list;
+        Cell size = Get_Occupy_Dimensions(CopyCursorSize);
         size -= Cell(1, 1);
-        unknown_1182 = -size / 2;
-        Unknown_00499970(unknown_117e + unknown_1182, true);
+        CopyZoneOffset = -size / 2;
+        Unknown_00499970(CopyZoneCell + CopyZoneOffset, true);
     } else {
-        unknown_1188 = 0;
+        CopyCursorSize = 0;
     }
 }
 
@@ -468,32 +468,32 @@ Cell DisplayClass::Set_Cursor_Pos(Cell const &xpos)
         }
     }
 
-    if (unknown_1178 == 0) {
-        prevpos = unknown_1170;
-        unknown_1170 = pos;
+    if (CursorSize == 0) {
+        prevpos = ZoneCell;
+        ZoneCell = pos;
         return prevpos;
     }
 
     if (!Debug_Map) {   // NATIVE: unknown_a40d13
-        pos = TacticalMap->Clamp_Cursor_To_Tactical(pos + unknown_1174, unknown_1178) - unknown_1174;
+        pos = TacticalMap->Clamp_Cursor_To_Tactical(pos + ZoneOffset, CursorSize) - ZoneOffset;
     }
 
-    if (pos == unknown_1170) return pos;
+    if (pos == ZoneCell) return pos;
 
-    prevpos = unknown_1170;
+    prevpos = ZoneCell;
 
-    if (unknown_1178 != 0) {
-        if (pos != unknown_1170 && unknown_1170 != unknown_geometry_k) {
-            Unknown_004998C0(unknown_1170 + unknown_1174, false);
+    if (CursorSize != 0) {
+        if (pos != ZoneCell && ZoneCell != unknown_geometry_k) {
+            Unknown_004998C0(ZoneCell + ZoneOffset, false);
         }
         if (pos != unknown_geometry_k) {
-            Unknown_004998C0(pos + unknown_1174, true);
+            Unknown_004998C0(pos + ZoneOffset, true);
         }
     }
-    unknown_1170 = pos;
-    unknown_117c = Passes_Proximity_Check_004991D0(PendingObject, unknown_11a8, unknown_1178, unknown_1170 + unknown_1174);
-    Cell cell = unknown_1170 + unknown_1174;
-    unknown_117d = Unknown_00499390((BuildingTypeClass *)PendingObject, unknown_11a8, (int)unknown_1178, &cell);
+    ZoneCell = pos;
+    ProximityCheck = Passes_Proximity_Check_004991D0(PendingObject, PendingHouse, CursorSize, ZoneCell + ZoneOffset);
+    Cell cell = ZoneCell + ZoneOffset;
+    ShroudCheck = Unknown_00499390((BuildingTypeClass *)PendingObject, PendingHouse, (int)CursorSize, &cell);
 
     return prevpos;
 }
@@ -544,7 +544,7 @@ void DisplayClass::Unknown_004998C0(Cell const &cell, bool set)
     if (cell.X == unknown_geometry_k.X && cell.Y == unknown_geometry_k.Y) {
         return;
     }
-    Cell const *offset = unknown_1178;
+    Cell const *offset = CursorSize;
     while (*offset != Cell(0x7FFF, 0x7FFF)) {
         Cell target = cell + *offset++;
         if (In_Radar(target)) {
@@ -570,7 +570,7 @@ void DisplayClass::Unknown_00499970(Cell const &cell, bool set)
     if (cell.X == unknown_geometry_k.X && cell.Y == unknown_geometry_k.Y) {
         return;
     }
-    Cell const *offset = unknown_1188;
+    Cell const *offset = CopyCursorSize;
     while (*offset != Cell(0x7FFF, 0x7FFF)) {
         Cell target = cell + *offset++;
         if (In_Radar(target)) {
@@ -1219,7 +1219,7 @@ int DisplayClass::TacticalClass::Action(unsigned flags, unsigned &key)
     bool arg5;
     bool arg6;
     Map.Resolve_Point(xy, cell, coord, object, arg5, arg6);
-    if (cell != Map.unknown_1170) {
+    if (cell != Map.ZoneCell) {
         Map.Set_Cursor_Pos(cell);
     }
     return GadgetClass::Action(0, key);
@@ -1252,37 +1252,37 @@ void DisplayClass::Mouse_Right_Release(Point2D const &xy)
     if (pending != 0 && techno) {
         PendingObjectPtr = 0;
         PendingObject = 0;
-        unknown_11a8 = -1;
+        PendingHouse = -1;
         Unknown_00498F10(0);
         Set_Default_Mouse(0, unknown_flag_83740c);
         return;
     }
-    if (unknown_11ac) {
+    if (IsRepairMode) {
         Unknown_0049CA20(0);
         Set_Default_Mouse(0, unknown_flag_83740c);
         return;
     }
-    if (unknown_11ad) {
+    if (IsSellMode) {
         Unknown_0049C7C0(0);
         Set_Default_Mouse(0, unknown_flag_83740c);
         return;
     }
-    if (unknown_11ae) {
+    if (IsPowerMode) {
         Unknown_0049C980(0);
         Set_Default_Mouse(0, unknown_flag_83740c);
         return;
     }
-    if (unknown_11b4 != -1) {
-        unknown_11b4 = -1;
+    if (IsTargettingMode != -1) {
+        IsTargettingMode = -1;
         Set_Default_Mouse(0, unknown_flag_83740c);
         return;
     }
-    if (unknown_11af) {
+    if (IsWaypointMode) {
         Unknown_0049C860(0, false);
         Set_Default_Mouse(0, unknown_flag_83740c);
         return;
     }
-    if (unknown_11b0) {
+    if (IsBeaconMode) {
         Unknown_0049CAC0(0);
         Set_Default_Mouse(0, unknown_flag_83740c);
         return;
@@ -1309,18 +1309,18 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
     if (PendingObjectPtr) {
         if (PendingObject->Kind_Of() == 7) {
             TPoint2D<short> const *placement=&cell;
-            Cell const where=placement->operator+(unknown_1174);
-            unknown_117c = Passes_Proximity_Check_004991D0(PendingObject, unknown_11a8, unknown_1178, where);
+            Cell const where=placement->operator+(ZoneOffset);
+            ProximityCheck = Passes_Proximity_Check_004991D0(PendingObject, PendingHouse, CursorSize, where);
         }
         if (PendingObject->Kind_Of() == 7 && object && object->Kind_Of() == 6 &&
             static_cast<BuildingClass *>(object)->Can_Upgrade(static_cast<BuildingTypeClass const *>(PendingObject), PlayerPtr))
-            unknown_117c = true;
-        if (unknown_117c && unknown_117d) {
+            ProximityCheck = true;
+        if (ProximityCheck && ShroudCheck) {
             TechnoTypeClass const *techno_type = dynamic_cast<TechnoTypeClass const *>(PendingObject);
             bool naval = techno_type && techno_type->Naval;
             ObjectClass *pending = PendingObjectPtr;
             OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0xb, pending->Kind_Of(),
-                PendingObject->Fetch_Heap_ID(), naval, cell + unknown_1174));
+                PendingObject->Fetch_Heap_ID(), naval, cell + ZoneOffset));
             pending = PendingObjectPtr;
             BuildingClass *placed;
             if (!pending) placed = 0;
@@ -1329,22 +1329,22 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
             if (!Debug_Map) {
                 CopyPendingObject = PendingObject;
                 CopyPendingObjectPtr = PendingObjectPtr;
-                unknown_117e = cell;
-                unknown_1182 = unknown_1174;
-                unknown_1188 = unknown_1178;
-                CopyPendingHouse = unknown_11a8;
+                CopyZoneCell = cell;
+                CopyZoneOffset = ZoneOffset;
+                CopyCursorSize = CursorSize;
+                CopyPendingHouse = PendingHouse;
                 if (PendingObject) Map.Set_Cursor_Shape(PendingObject->Occupy_List(true));
                 Map.Unknown_00498F10(0);
                 Map.PendingObjectPtr = 0;
                 Map.PendingObject = 0;
-                Map.unknown_11a8 = -1;
+                Map.PendingHouse = -1;
             }
         } else {
             Speech_Play_Name("EVA_CannotDeployHere", -1, -1);
         }
     } else {
         int continue_select = 0;
-        if (unknown_11cb) {
+        if (IsRubberBand) {
             TacticalMap->IsToRedraw = true;
             if (!WWKeyboard->Down(0x10)) {
                 if (TacticalMap->Rubber_Band_Contains_Selectable()) Clear_Selected_Objects_00482bc0();
@@ -1352,9 +1352,9 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
             }
             TacticalMap->Select_Rubber_Band(Unknown_0049C3F0);
             TechnoClass::Reset_Action_Line_Timer();
-            unknown_11cb = false;
+            IsRubberBand = false;
             Set_Default_Mouse(0, small_mouse);
-            unknown_11cc = false;
+            IsTentative = false;
             drag_select_aborted = true;
             if (!continue_select) { Unknown_Click_End_006F6770(); return; }
         }
@@ -1372,7 +1372,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
             }
             if ((action == 7 && object) || (action == 0 && object && object->CanBeSelected() && !object->IsSelected)) {
                 if (object->Kind_Of() != 6 || static_cast<BuildingClass *>(object)->House->Is_Player_Control() ||
-                    static_cast<BuildingClass *>(object)->unknown_5bd != 15 || static_cast<TechnoClass *>(object)->unknown_slot191()) {
+                    static_cast<BuildingClass *>(object)->TranslucencyLevel != 15 || static_cast<TechnoClass *>(object)->unknown_slot191()) {
                     Clear_Selected_Objects_00482bc0();
                     if (Unknown_006F76B0()) Unknown_006F71E0(object->Class_Of()->ID);
                     else object->unknown_slot80();
@@ -1423,7 +1423,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
                     if (type) OutList.Add(EventClass(PlayerPtr->ArrayIndex, static_cast<unsigned char>(0x12), type->ArrayIndex, cell));
                 }
             }
-            unknown_11cc = false;
+            IsTentative = false;
         }
     }
     Unknown_Click_End_006F6770();
@@ -1449,7 +1449,7 @@ int Unknown_006F6730();
 
 void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *object, int action, bool small_mouse)
 {
-    unknown_11cc = false;
+    IsTentative = false;
 
     AbstractClass *target = 0;
     if (object != 0) {
@@ -1466,10 +1466,10 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
         }
     }
 
-    if (unknown_11af && unknown_11b8 != 0) {
+    if (IsWaypointMode && DraggedWaypoint != 0) {
         if (PlayerPtr->Waypoint_At(cell) == 0 && Map.Unknown_0055A660(cell, true)) {
-            *unknown_11b8 = Cell_Coord(cell);
-            unknown_11b8->Z = Map.Get_Height_GL(*unknown_11b8) + ((Map[cell].unknown_140 & 0x100) ? unknown_geometry_j : 0);
+            *DraggedWaypoint = Cell_Coord(cell);
+            DraggedWaypoint->Z = Map.Get_Height_GL(*DraggedWaypoint) + ((Map[cell].unknown_140 & 0x100) ? unknown_geometry_j : 0);
         }
     }
 
@@ -1484,7 +1484,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
     case 0x2A:
     case 0x2B:
     case 0x2F:
-        Update_Waypoint_Color(PlayerPtr->unknown_154);
+        Update_Waypoint_Color(PlayerPtr->SelectedPath);
         break;
 
     case 0x2C:
@@ -1497,8 +1497,8 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
         char id;
         WaypointClass *waypoint = PlayerPtr->Waypoint_At(cell);
         PlayerPtr->Fetch_Waypoint_Data(waypoint, &path, &id);
-        if (!unknown_11af) {
-            PlayerPtr->unknown_154 = path;
+        if (!IsWaypointMode) {
+            PlayerPtr->SelectedPath = path;
         }
         Update_Waypoint_Color(path);
         break;
@@ -1508,8 +1508,8 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
         unsigned short *table = (unsigned short *)unknown_drawer_8323c8->Table;
         table[1] = Build_Hicolor_Pixel(WaypointColor.Red, WaypointColor.Green, WaypointColor.Blue);
         Update_Waypoint_Color(-1);
-        if (!unknown_11af) {
-            PlayerPtr->unknown_154 = -1;
+        if (!IsWaypointMode) {
+            PlayerPtr->SelectedPath = -1;
         }
         break;
     }
@@ -1779,8 +1779,8 @@ void __fastcall Unknown_0049C3F0(ObjectClass *object)
 
 void DisplayClass::Mouse_Left_Press(Point2D const &xy)
 {
-    if (!unknown_11ac && !unknown_11ae && !unknown_11ad && unknown_11b4 == -1 && PendingObject == 0) {
-        unknown_11cc = true;
+    if (!IsRepairMode && !IsPowerMode && !IsSellMode && IsTargettingMode == -1 && PendingObject == 0) {
+        IsTentative = true;
         unknown_11d0 = xy;
         unknown_11d8 = xy;
     }
@@ -1795,7 +1795,7 @@ void DisplayClass::Mouse_Left_Press(Point2D const &xy)
 
 void DisplayClass::Mouse_Left_Held(Point2D const &xy)
 {
-    if (unknown_11cb && !unknown_11af && !unknown_11b0) {
+    if (IsRubberBand && !IsWaypointMode && !IsBeaconMode) {
         Rect area = TacticalRect;
         int x = xy.X;
         int y = xy.Y;
@@ -1816,13 +1816,13 @@ void DisplayClass::Mouse_Left_Held(Point2D const &xy)
             TacticalMap->IsToRedraw = true;
             TacticalMap->Modify_Rubber_Band(point);
         }
-    } else if (unknown_11cc) {
+    } else if (IsTentative) {
         Point2D const &start = unknown_11d0;
         Point2D delta(xy.X - start.X, xy.Y - start.Y);
         if ((int)unknown_sqrt_4ba410((double)delta.X * delta.X + (double)delta.Y * delta.Y) > 4) {
-            unknown_11cb = true;
-            unknown_11cc = false;
-            if (!unknown_11af && !unknown_11b0) {
+            IsRubberBand = true;
+            IsTentative = false;
+            if (!IsWaypointMode && !IsBeaconMode) {
                 TacticalMap->IsToRedraw = true;
                 TacticalMap->Start_Rubber_Band(start);
                 Map.Override_Mouse_Shape(0, false);
@@ -1865,10 +1865,10 @@ void Unselect_All();
 
 void DisplayClass::Unknown_0049C7C0(int control)
 {
-    bool mode = unknown_11ad;
+    bool mode = IsSellMode;
     switch (control) {
     case -1:
-        mode = !unknown_11ad;
+        mode = !IsSellMode;
         break;
     case 0:
         mode = false;
@@ -1877,17 +1877,17 @@ void DisplayClass::Unknown_0049C7C0(int control)
         mode = true;
         break;
     }
-    if (mode != unknown_11ad && !PendingObject) {
+    if (mode != IsSellMode && !PendingObject) {
         Set_Default_Mouse(0, false);
-        unknown_11ac = false;
-        unknown_11ae = false;
-        unknown_11af = false;
-        unknown_11b0 = false;
+        IsRepairMode = false;
+        IsPowerMode = false;
+        IsWaypointMode = false;
+        IsBeaconMode = false;
         if (mode && PlayerPtr->unknown_230 > 0) {
-            unknown_11ad = true;
+            IsSellMode = true;
             Unselect_All();
         } else {
-            unknown_11ad = false;
+            IsSellMode = false;
             Revert_Mouse_Shape();
         }
     }
@@ -1905,7 +1905,7 @@ void Unselect_All();
 
 void DisplayClass::Unknown_0049C860(int control, bool keep)
 {
-    bool mode = unknown_11af;
+    bool mode = IsWaypointMode;
     switch (control) {
     case -1:
         mode = !mode;
@@ -1917,31 +1917,31 @@ void DisplayClass::Unknown_0049C860(int control, bool keep)
         mode = true;
         break;
     }
-    if (mode != unknown_11af && !PendingObject) {
-        unknown_11ac = false;
-        unknown_11ad = false;
-        unknown_11ae = false;
-        unknown_11b0 = false;
+    if (mode != IsWaypointMode && !PendingObject) {
+        IsRepairMode = false;
+        IsSellMode = false;
+        IsPowerMode = false;
+        IsBeaconMode = false;
         int path = PlayerPtr->Unknown_004F30D0();
         if (mode) {
-            if (path == -1 && (!keep || PlayerPtr->unknown_154 == -1)) {
-                unknown_11af = false;
+            if (path == -1 && (!keep || PlayerPtr->SelectedPath == -1)) {
+                IsWaypointMode = false;
                 Revert_Mouse_Shape();
-                unknown_11b8 = 0;
+                DraggedWaypoint = 0;
                 return;
             }
-            unknown_11af = true;
+            IsWaypointMode = true;
             if (!keep) {
-                PlayerPtr->unknown_154 = path;
+                PlayerPtr->SelectedPath = path;
             }
             Unselect_All();
             return;
         }
-        unknown_11af = false;
+        IsWaypointMode = false;
         Revert_Mouse_Shape();
-        if (unknown_11b8) {
-            *unknown_11b8 = *(CoordStruct *)&unknown_11bc;
-            unknown_11b8 = 0;
+        if (DraggedWaypoint) {
+            *DraggedWaypoint = *(CoordStruct *)&unknown_11bc;
+            DraggedWaypoint = 0;
             WWMouse->Show_Mouse();
         }
     }
@@ -1958,10 +1958,10 @@ void Unselect_All();
 
 void DisplayClass::Unknown_0049C980(int control)
 {
-    bool mode = unknown_11ae;
+    bool mode = IsPowerMode;
     switch (control) {
     case -1:
-        mode = !unknown_11ae;
+        mode = !IsPowerMode;
         break;
     case 0:
         mode = false;
@@ -1970,17 +1970,17 @@ void DisplayClass::Unknown_0049C980(int control)
         mode = true;
         break;
     }
-    if (mode != unknown_11ae && !PendingObject) {
+    if (mode != IsPowerMode && !PendingObject) {
         Set_Default_Mouse(0, false);
-        unknown_11ac = false;
-        unknown_11ad = false;
-        unknown_11af = false;
-        unknown_11b0 = false;
+        IsRepairMode = false;
+        IsSellMode = false;
+        IsWaypointMode = false;
+        IsBeaconMode = false;
         if (mode && PlayerPtr->unknown_230 > 0) {
-            unknown_11ae = true;
+            IsPowerMode = true;
             Unselect_All();
         } else {
-            unknown_11ae = false;
+            IsPowerMode = false;
             Revert_Mouse_Shape();
         }
     }
@@ -1997,10 +1997,10 @@ void Unselect_All();
 
 void DisplayClass::Unknown_0049CA20(int control)
 {
-    bool mode = unknown_11ac;
+    bool mode = IsRepairMode;
     switch (control) {
     case -1:
-        mode = !unknown_11ac;
+        mode = !IsRepairMode;
         break;
     case 0:
         mode = false;
@@ -2009,17 +2009,17 @@ void DisplayClass::Unknown_0049CA20(int control)
         mode = true;
         break;
     }
-    if (mode != unknown_11ac && !PendingObject) {
-        unknown_11ad = false;
-        unknown_11ae = false;
-        unknown_11af = false;
-        unknown_11b0 = false;
+    if (mode != IsRepairMode && !PendingObject) {
+        IsSellMode = false;
+        IsPowerMode = false;
+        IsWaypointMode = false;
+        IsBeaconMode = false;
         Set_Default_Mouse(0, false);
         if (mode && PlayerPtr->unknown_230 > 0) {
-            unknown_11ac = true;
+            IsRepairMode = true;
             Unselect_All();
         } else {
-            unknown_11ac = false;
+            IsRepairMode = false;
             Revert_Mouse_Shape();
         }
     }
@@ -2037,7 +2037,7 @@ void Unselect_All();
 
 void DisplayClass::Unknown_0049CAC0(int control)
 {
-    bool mode = unknown_11ac;
+    bool mode = IsRepairMode;
     switch (control) {
     case -1:
         mode = !mode;
@@ -2049,20 +2049,20 @@ void DisplayClass::Unknown_0049CAC0(int control)
         mode = true;
         break;
     }
-    if (mode != unknown_11b0 && !PendingObject) {
+    if (mode != IsBeaconMode && !PendingObject) {
         if (mode && !BeaconManager.Unknown_0042E700(PlayerPtr->ArrayIndex)) {
             mode = false;
         }
-        unknown_11ad = false;
-        unknown_11ae = false;
-        unknown_11af = false;
-        unknown_11ac = false;
+        IsSellMode = false;
+        IsPowerMode = false;
+        IsWaypointMode = false;
+        IsRepairMode = false;
         Set_Default_Mouse(0, false);
         if (mode) {
-            unknown_11b0 = true;
+            IsBeaconMode = true;
             Unselect_All();
         } else {
-            unknown_11b0 = false;
+            IsBeaconMode = false;
             Revert_Mouse_Shape();
         }
     }
@@ -3002,8 +3002,8 @@ void DisplayClass::Abort_Drag_Select()
     if (TacticalMap != 0) {
         TacticalMap->End_Rubber_Band();
     }
-    unknown_11cb = false;
-    unknown_11cc = false;
+    IsRubberBand = false;
+    IsTentative = false;
     drag_select_aborted = true;
     Set_Default_Mouse(0, false);
     Debug_Printf("Display: Abort_Drag_Select()\n");
@@ -3029,8 +3029,8 @@ int __fastcall DisplayClass_Object_To_Follow(int display_address)
 
 void DisplayClass::Unknown_0049EC60(ObjectClass *object)
 {
-    unknown_119c = object;
-    unknown_1198 = object != 0;
+    FollowingObjectPtr = object;
+    FollowingObject = object != 0;
 }
 
 

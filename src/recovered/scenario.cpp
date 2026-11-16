@@ -1568,9 +1568,9 @@ void __fastcall Unknown_0065e8c0(bool official)
     for (int house = 0; house < Houses.Count(); house++) {
         Houses[house]->unknown_55f0.House = Houses[house];
         if (!Houses[house]->unknown_134 && !Houses[house]->Type->MultiplayPassive) {
-            Houses[house]->unknown_5530 = CDTimerClass<FrameTimerClass>(Rules->AIHateDelays[Houses[house]->unknown_c8]);
+            Houses[house]->unknown_5530 = CDTimerClass<FrameTimerClass>(Rules->AIHateDelays[Houses[house]->Difficulty]);
             int money = Houses[house]->Available_Money();
-            Houses[house]->Refund_Money(money * (Rules->MultiplayerAICM[Houses[house]->unknown_c8] * 0.01));
+            Houses[house]->Refund_Money(money * (Rules->MultiplayerAICM[Houses[house]->Difficulty] * 0.01));
         }
         if (Houses[house]->Type->MultiplayPassive) {
             Houses[house]->Type->WallOwner = false;
@@ -1974,7 +1974,7 @@ void __fastcall Assign_Houses_0065fbb0()
         house->Update_Laser_Color();
         if (pick == 0) {
             PlayerPtr = house;
-            house->unknown_135 = true;
+            house->IsPlayerControl = true;
         }
         if (player->Team == -1) {
             unknown_house_a72d28 = house;
@@ -2729,7 +2729,7 @@ bool ScenarioClass::Read_Basic(CCINIClass &ini)
         Assign_Houses_0065fbb0();
     }
     PlayerPtr->unknown_134 = true;
-    PlayerPtr->unknown_135 = true;
+    PlayerPtr->IsPlayerControl = true;
     PlayerPtr->unknown_55e4 = 0;
     unknown_session_a3d298.Update_Progress(58);
     Service_Game_IO_00481fb0();

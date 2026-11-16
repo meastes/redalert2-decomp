@@ -71,7 +71,7 @@ CoordStruct __stdcall TeleportLocomotionClass::Destination()
 void __stdcall TeleportLocomotionClass::Move_To(CoordStruct to)
 {
     if (LinkedTo->unknown_slot201() || LinkedTo->unknown_slot202() || LinkedTo->unknown_slot111() || LinkedTo->unknown_slot112()) {
-        LinkedTo->unknown_494 = 0;
+        LinkedTo->NavCom = 0;
         return;
     }
     CoordStruct coord = CoordStruct(to.X, to.Y, to.Z);
@@ -261,19 +261,19 @@ bool TeleportLocomotionClass::Pick_Arrival(CoordStruct const &to)
             bool target_here = false;
             if (LinkedTo->Get_Mission() == 8 || LinkedTo->Get_Mission() == 9 || LinkedTo->Get_Mission() == 7 || LinkedTo->Get_Mission() == 25) {
                 {
-                    ObjectClass *target = (ObjectClass *)LinkedTo->unknown_494;
+                    ObjectClass *target = (ObjectClass *)LinkedTo->NavCom;
                     if (target != 0 && target->Kind_Of() == 1 && target->unknown_slot104() == Coord_Cell(to)) {
                         target_here = true;
                     }
                 }
                 {
-                    ObjectClass *target = (ObjectClass *)LinkedTo->unknown_494;
+                    ObjectClass *target = (ObjectClass *)LinkedTo->NavCom;
                     if (target != 0 && target->Kind_Of() == 2 && target->unknown_slot104() == Coord_Cell(to)) {
                         target_here = true;
                     }
                 }
                 {
-                    ObjectClass *target = (ObjectClass *)LinkedTo->unknown_494;
+                    ObjectClass *target = (ObjectClass *)LinkedTo->NavCom;
                     if (target != 0 && target->Kind_Of() == 6 && Map[to].Cell_Building() == target) {
                         target_here = true;
                     }
@@ -286,7 +286,7 @@ bool TeleportLocomotionClass::Pick_Arrival(CoordStruct const &to)
             }
             Map[old].Center_Coord();    // (the result is unused)
             if (unknown_28 == unknown_geometry_l) {
-                AbstractClass *target = LinkedTo->unknown_494;
+                AbstractClass *target = LinkedTo->NavCom;
                 if (target != 0 && target->AbstractFlags.IsObject) {
                     int zone = LinkedTo->Techno_Type_Class()->MovementZone;
                     Cell target_cell = Coord_Cell(target->unknown_slot19(0));
@@ -388,8 +388,8 @@ bool __stdcall TeleportLocomotionClass::Process()
                         unknown_3c = 0;
                         LinkedTo->WarpingOut = false;
                     }
-                    if (LinkedTo->unknown_580 != 0) {
-                        LinkedTo->unknown_580->unknown_588->Unknown_00607440();
+                    if (LinkedTo->ParasiteEatingMe != 0) {
+                        LinkedTo->ParasiteEatingMe->ParasiteImUsing->Unknown_00607440();
                     }
                     LinkedTo->Mark(0);
                     {

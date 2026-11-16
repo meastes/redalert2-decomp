@@ -52,32 +52,32 @@ Cell DisplayClass::Set_Cursor_Pos(Cell const &xpos)
         }
     }
 
-    if (unknown_1178 == 0) {
-        prevpos = unknown_1170;
-        unknown_1170 = pos;
+    if (CursorSize == 0) {
+        prevpos = ZoneCell;
+        ZoneCell = pos;
         return prevpos;
     }
 
     if (!Debug_Map) {   // NATIVE: unknown_a40d13
-        pos = TacticalMap->Clamp_Cursor_To_Tactical(pos + unknown_1174, unknown_1178) - unknown_1174;
+        pos = TacticalMap->Clamp_Cursor_To_Tactical(pos + ZoneOffset, CursorSize) - ZoneOffset;
     }
 
-    if (pos == unknown_1170) return pos;
+    if (pos == ZoneCell) return pos;
 
-    prevpos = unknown_1170;
+    prevpos = ZoneCell;
 
-    if (unknown_1178 != 0) {
-        if (pos != unknown_1170 && unknown_1170 != unknown_geometry_k) {
-            Unknown_004998C0(unknown_1170 + unknown_1174, false);
+    if (CursorSize != 0) {
+        if (pos != ZoneCell && ZoneCell != unknown_geometry_k) {
+            Unknown_004998C0(ZoneCell + ZoneOffset, false);
         }
         if (pos != unknown_geometry_k) {
-            Unknown_004998C0(pos + unknown_1174, true);
+            Unknown_004998C0(pos + ZoneOffset, true);
         }
     }
-    unknown_1170 = pos;
-    unknown_117c = Passes_Proximity_Check_004991D0(PendingObject, unknown_11a8, unknown_1178, unknown_1170 + unknown_1174);
-    Cell cell = unknown_1170 + unknown_1174;
-    unknown_117d = Unknown_00499390((BuildingTypeClass *)PendingObject, unknown_11a8, (int)unknown_1178, &cell);
+    ZoneCell = pos;
+    ProximityCheck = Passes_Proximity_Check_004991D0(PendingObject, PendingHouse, CursorSize, ZoneCell + ZoneOffset);
+    Cell cell = ZoneCell + ZoneOffset;
+    ShroudCheck = Unknown_00499390((BuildingTypeClass *)PendingObject, PendingHouse, (int)CursorSize, &cell);
 
     return prevpos;
 }

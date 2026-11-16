@@ -115,7 +115,7 @@ void EnvironmentClass::Capture_004B5AB0()
  for(int i=0;i<50;++i) Variables[i]=unknown_id_source_a3d290->Variables[i].Value;
  Credits=PlayerPtr->Available_Money();
  TimerRemaining=unknown_id_source_a3d290->MissionTimer.Value();
- Difficulty=PlayerPtr->unknown_c8;
+ Difficulty=PlayerPtr->Difficulty;
  unknown_40=unknown_id_source_a3d290->Stage;
 }
 

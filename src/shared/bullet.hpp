@@ -355,13 +355,13 @@ public:
     int BounceCount;                         // +0x0E8
     bool unknown_ec;                        // +0x0EC
     bool IsLaunching;                        // +0x0ED
-    int unknown_f0;                         // +0x0F0
+    int CourseLockCounter;                         // +0x0F0
     AbstractClass *Target;                  // +0x0F4
     int Speed;                              // +0x0F8
     int InheritedColor;                     // +0x0FC
-    int unknown_100;                        // +0x100
+    int ClosureSamples;                        // +0x100
     int unknown_104;                        // +0x104
-    double unknown_108;                     // +0x108
+    double SmoothedClosure;                     // +0x108
     WarheadTypeClass *WH;                   // +0x110
     unsigned char AnimFrame;                // +0x114
     unsigned char AnimRateCounter;          // +0x115

@@ -233,7 +233,7 @@ void IonBlastClass::AI()
                             if (*displacement > 0) {
                                 foot->unknown_slot306(0.0);
                                 int draw_offset = Spiral_Index_To_Point(*displacement).Y;
-                                *(signed char *)&foot->unknown_59e = 2 * draw_offset;
+                                *(signed char *)&foot->IonBlastYDrawOffset = 2 * draw_offset;
                             }
 
                             VoxelLibrary *voxel;

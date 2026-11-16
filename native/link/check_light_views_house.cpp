@@ -8,7 +8,7 @@ static_assert(offsetof(HouseClass, ArrayIndex) == 0x50, "house_screen.hpp ArrayI
 static_assert(offsetof(HouseClass, Type) == 0x58, "house_screen.hpp Type");
 static_assert(offsetof(HouseClass, Buildings) == 0xA0, "house_screen.hpp Buildings");
 static_assert(offsetof(HouseClass, ActLike) == 0x188, "house_screen.hpp unknown_130");
-static_assert(offsetof(HouseClass, unknown_13d) == 0x195, "house_screen.hpp unknown_13d");
+static_assert(offsetof(HouseClass, IsDefeated) == 0x195, "house_screen.hpp unknown_13d");
 static_assert(offsetof(HouseClass, FirestormActive) == 0x19A, "house_screen.hpp FirestormActive");
 static_assert(offsetof(HouseClass, WaypointPaths) == 0x1B0, "house_screen.hpp WaypointPaths");
 static_assert(offsetof(HouseClass, Supers) == 0x228, "house_screen.hpp Supers");

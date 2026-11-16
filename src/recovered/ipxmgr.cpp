@@ -1134,8 +1134,8 @@ void IPXManagerClass::Store_Stats()
             int avground = (int)(1000 * avgtime / 60);
             stats.MaxAverageRoundTrip = (avground > (int)stats.MaxAverageRoundTrip) ? avground : stats.MaxAverageRoundTrip;
 
-            stats.Resends = Connection[i]->unknown_08;
-            stats.Lost = Connection[i]->unknown_0c;
+            stats.Resends = Connection[i]->NumResends;
+            stats.Lost = Connection[i]->NumLost;
             stats.PercentLost = Connection[i]->unknown_10;
         }
     }
@@ -1205,11 +1205,11 @@ void IPXManagerClass::Multiplayer_Debug_Print_00526d90()
             swprintf(buffer, L"Max      : %d", 1000 * max / 60);
             Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(x, 319), ColorSchemes[scheme], 0, 0x19);
 
-            int resends = Connection[i]->unknown_08;
+            int resends = Connection[i]->NumResends;
             swprintf(buffer, L"Resends  : %d", resends);
             Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(x, 327), ColorSchemes[scheme], 0, 0x19);
 
-            int numlost = (0 > (int)Connection[i]->unknown_0c) ? 0 : (int)Connection[i]->unknown_0c;
+            int numlost = (0 > (int)Connection[i]->NumLost) ? 0 : (int)Connection[i]->NumLost;
             swprintf(buffer, L"Num lost : %d", numlost);
             Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(x, 335), ColorSchemes[scheme], 0, 0x19);
 
@@ -1233,7 +1233,7 @@ void IPXManagerClass::Multiplayer_Debug_Print_00526d90()
             swprintf(buffer, L"Queue s/r: %d/%d", Connection[i]->Queue->SendCount, Connection[i]->Queue->ReceiveCount);
             Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(x, 367), ColorSchemes[scheme], 0, 0x19);
 
-            swprintf(buffer, L"Missed o/m: %d/%d", Connection[i]->unknown_14, Connection[i]->unknown_18);
+            swprintf(buffer, L"Missed o/m: %d/%d", Connection[i]->MissedOverall, Connection[i]->unknown_18);
             Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(x, 375), ColorSchemes[scheme], 0, 0x19);
 
             if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8) {

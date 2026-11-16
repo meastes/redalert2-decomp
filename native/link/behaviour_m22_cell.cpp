@@ -56,7 +56,7 @@ bool CellClass::unknown_47c300(int house) const
 void CellClass::Unshroud()
 {
     unknown_12c |= 0x18;
-    if (unknown_130 > 0) {
+    if (ShroudCounter > 0) {
         unknown_140 |= 0x20;
     }
 }

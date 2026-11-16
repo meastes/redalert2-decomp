@@ -168,10 +168,10 @@ void ConnectionClass::Init()
     NumRecAck = 0;
     NumSendNoAck = 0;
     NumSendAck = 0;
-    unknown_08 = 0;
-    unknown_0c = 0;
+    NumResends = 0;
+    NumLost = 0;
     unknown_10 = 0;
-    unknown_14 = 0;
+    MissedOverall = 0;
     unknown_18 = 0;
     LastSeqID = 0xFFFFFFFF;
     LastReadID = 0xFFFFFFFF;
@@ -271,17 +271,17 @@ int ConnectionClass::Receive_Packet(void *buf, int buflen)
     }
     if (packet->Code == PACKET_DATA_NOACK) {
         if (Queue->MaxReceive - Queue->ReceiveCount <= 1) {
-            ++unknown_14;
+            ++MissedOverall;
             Debug_Printf("Error - ConnectClass::Receive_Packet Queue full on PACKET_DATA_NOACK\n");
             return 0;
         }
         if (!Queue->Queue_Receive(buf, buflen, 0, 0)) {
             Debug_Printf("Error - unable to queue incoming packet. %s %s\n", "D:\\Ra2\\Connect.CPP", 0x14c);
-            ++unknown_14;
+            ++MissedOverall;
             return 0;
         }
         ++NumRecNoAck;
-        unknown_0c = packet->PacketID - NumRecNoAck + 1;
+        NumLost = packet->PacketID - NumRecNoAck + 1;
         if (packet->PacketID != 0)
             unknown_10 = 100 - NumRecNoAck * 100 / (packet->PacketID + 1);
         return 1;
@@ -464,7 +464,7 @@ int ConnectionClass::Service_Send_Queue()
                     send->IsACK = 1;
                 }
             } else {
-                unknown_08++;
+                NumResends++;
             }
             send->SendCount++;
             if (MaxRetries != 0xFFFFFFFF && send->SendCount > MaxRetries) {

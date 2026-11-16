@@ -52,10 +52,10 @@ inline CoordStruct Move_Coord_006faa30(CoordStruct const &start, UnknownFacingDi
 void UnitClass::Unknown_006FAA30()
 {
     CoordStruct coord;
-    bool finished = Tubes[unknown_574]->Directions[unknown_575] == -1;
+    bool finished = Tubes[CurrentTube]->Directions[CurrentTubeDir] == -1;
     if (!finished) {
         int distance = Distance_006faa30(Center_Coord(), unknown_45c);
-        TubeClass *tube = Tubes[unknown_574];
+        TubeClass *tube = Tubes[CurrentTube];
         UnknownFacingDir direction_temp;
         UnknownFacingDir direction = direction_temp.Direction(Center_Coord(), unknown_45c);
         int speed = (int)(Type->Speed * unknown_tube_speed_79d568);
@@ -65,8 +65,8 @@ void UnitClass::Unknown_006FAA30()
         int enter_height = Map.Get_Height_GL(enter);
         height_step = (Map.Get_Height_GL(exit) - enter_height) / height_step;
         if (distance <= speed) {
-            unknown_575++;
-            int tube_dir = tube->Directions[unknown_575];
+            CurrentTubeDir++;
+            int tube_dir = tube->Directions[CurrentTubeDir];
             finished = tube_dir == -1;
             Set_Coord(unknown_45c);
             if (!finished) {
@@ -87,7 +87,7 @@ void UnitClass::Unknown_006FAA30()
                 return;
             }
         } else {
-            int tube_dir = tube->Directions[unknown_575];
+            int tube_dir = tube->Directions[CurrentTubeDir];
             CoordStruct new_coord = Move_Coord_006faa30(Coord, direction, speed);
             double divisor;
             if (tube_dir % 2) {
@@ -118,15 +118,15 @@ void UnitClass::Unknown_006FAA30()
         }
         unknown_slot306(0.0);
     } else {
-        TubeClass *tube = Tubes[unknown_574];
+        TubeClass *tube = Tubes[CurrentTube];
         CoordStruct exit_coord = Cell_Center_006faa30(tube->ExitCell, unknown_45c.Z);
         Set_Coord(exit_coord);
-        unknown_574 = -1;
+        CurrentTube = -1;
         Mark(1);
-        if (unknown_494 == cell) {
+        if (NavCom == cell) {
             Scatter(CoordStruct(0, 0, 0), true, true);
         }
-        unknown_57b = true;
+        IsPlanningToLook = true;
         unknown_slot93(2);
         unknown_slot306(1.0);
         TubeClass *here = Cell_Tube_0047a130(&Map[CoordStruct(Coord)]);

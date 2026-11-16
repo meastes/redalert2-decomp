@@ -275,11 +275,11 @@ void __fastcall Send_Statistics_Packet(bool arg)
             completion[i] = 1 << 3;
         } else {
             HouseClass *hptr = houses[i];
-            if (hptr->unknown_150) {
+            if (hptr->LostConnection) {
                 completion[i] = 1 << 1;
             } else if (hptr->unknown_18f || hptr->unknown_18e) {
                 completion[i] = (1 << 9) | (1 << 4);
-            } else if (hptr->unknown_13d) {
+            } else if (hptr->IsDefeated) {
                 completion[i] = 1 << 9;
             } else {
                 completion[i] = 1 << 8;
@@ -339,11 +339,11 @@ void __fastcall Send_Statistics_Packet(bool arg)
         field_player_handle[3] = digit;
         stats.Add_Field(field_player_handle, (char const *)player->IniName);
 
-        temp = player->unknown_148;
+        temp = player->IPAddress;
         field_player_ip[3] = digit;
         stats.Add_Field(field_player_ip, (unsigned int)temp);
 
-        temp = player->unknown_14c;
+        temp = player->SquadID;
         field_player_clan[3] = digit;
         stats.Add_Field(field_player_clan, (unsigned int)temp);
 
@@ -353,7 +353,7 @@ void __fastcall Send_Statistics_Packet(bool arg)
         field_player_t_team[3] = digit;
         temp = i;
         if (WestwoodOnline_Tournament == 2) {
-            temp = player->unknown_14c;
+            temp = player->SquadID;
         }
         stats.Add_Field(field_player_t_team, (unsigned int)temp);
 
@@ -362,7 +362,7 @@ void __fastcall Send_Statistics_Packet(bool arg)
 
         field_player_lost_connection[3] = digit;
         bool lcn = false;
-        if (player->unknown_150 && !player->unknown_18e) {
+        if (player->LostConnection && !player->unknown_18e) {
             lcn = true;
         }
         stats.Add_Field(field_player_lost_connection, (unsigned char)lcn);

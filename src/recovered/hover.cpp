@@ -289,8 +289,8 @@ unsigned char __stdcall HoverLocomotionClass::Process()
         }
 
         if (speed >= Hover_Distance_004fbfc0(Object_Coord(LinkedTo), unknown_24)) {
-            LinkedTo->unknown_5a0 = true;
-            LinkedTo->unknown_5a1 = false;
+            LinkedTo->IsOccupyingCell = true;
+            LinkedTo->IsToPathAroundBlockage = false;
             unknown_70 = false;
 
             Start_Of_Move_004fe0f0(0);
@@ -313,7 +313,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
                     if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return false;
                 }
                 if (ok == 7) {
-                    if (LinkedTo->unknown_574 >= 0) return false;
+                    if (LinkedTo->CurrentTube >= 0) return false;
                     Stop();
                 } else if (ok != 0) {
                     unknown_4fda80();
@@ -327,8 +327,8 @@ unsigned char __stdcall HoverLocomotionClass::Process()
 
             if (LinkedTo->unknown_slot47() && unknown_24 != unknown_geometry_l) {
                 LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
-                LinkedTo->unknown_5a0 = false;
-                LinkedTo->unknown_5a1 = false;
+                LinkedTo->IsOccupyingCell = false;
+                LinkedTo->IsToPathAroundBlockage = false;
             }
 
             TPoint2D<int> moved = Hover_Move_Point_004fbfc0(Hover_Point_004fbfc0(coord), unknown_30.Current(), speed);
@@ -515,10 +515,10 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             Cell exit = tube->ExitCell;
             unknown_24 = exit.As_Coord();
             memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
-            LinkedTo->unknown_450 = unknown_24.As_Cell();
+            LinkedTo->LastPathingCell = unknown_24.As_Cell();
             LinkedTo->Path[23] = -1;
-            LinkedTo->unknown_574 = tubenum;
-            LinkedTo->unknown_575 = 0;
+            LinkedTo->CurrentTube = tubenum;
+            LinkedTo->CurrentTubeDir = 0;
             TPoint2D<short> const &enter = tube->EnterCell;
             CoordStruct diff = Map[Adjacent_Cell(Cell(enter), tube->Directions[0])].unknown_475d60() - CoordStruct(Cell(enter));
             LinkedTo->unknown_45c = diff + Object_Coord(LinkedTo);
@@ -559,7 +559,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
 
         CellClass &adjacent = Map[Adjacent_Coord(Object_Coord(LinkedTo), nextface)];
         if (adjacent.IsUnderBridge ^ LinkedTo->IsOnBridge) {
-            LinkedTo->unknown_57b = true;
+            LinkedTo->IsPlanningToLook = true;
         }
 
         Cell c = unknown_24.As_Cell();
@@ -571,7 +571,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             Map[unknown_24].Shimmer();
             if (first_pass) {
                 unknown_4fda80();
-                LinkedTo->unknown_530 = 0;
+                LinkedTo->PathDelay = 0;
                 LinkedTo->Path[0] = -1;
                 Start_Of_Move_004fe0f0(0);
                 ok = While_Moving_004fcbc0(false);
@@ -592,7 +592,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             if (first_pass) {
                 unknown_24 = unknown_geometry_l;
                 unknown_4fda80();
-                LinkedTo->unknown_530 = 0;
+                LinkedTo->PathDelay = 0;
                 LinkedTo->Path[0] = -1;
                 Start_Of_Move_004fe0f0(0);
                 ok = While_Moving_004fcbc0(false);
@@ -627,7 +627,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             }
             memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
             LinkedTo->Path[23] = -1;
-            LinkedTo->unknown_450 = unknown_24.As_Cell();
+            LinkedTo->LastPathingCell = unknown_24.As_Cell();
             break;
 
         case 4:
@@ -635,7 +635,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             unknown_24 = unknown_geometry_l;
             if (first_pass) {
                 unknown_4fda80();
-                LinkedTo->unknown_530 = 0;
+                LinkedTo->PathDelay = 0;
                 LinkedTo->Path[0] = -1;
                 Start_Of_Move_004fe0f0(0);
                 ok = While_Moving_004fcbc0(false);
@@ -655,14 +655,14 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
         case 2:
             unknown_24 = unknown_geometry_l;
             unknown_4fda80();
-            if (!LinkedTo->unknown_5a1) {
-                LinkedTo->unknown_5a1 = true;
-                LinkedTo->unknown_558 = Rules->BlockagePathDelay;
+            if (!LinkedTo->IsToPathAroundBlockage) {
+                LinkedTo->IsToPathAroundBlockage = true;
+                LinkedTo->BlockagePathDelay = Rules->BlockagePathDelay;
             }
-            if (LinkedTo->unknown_530 == 0) {
+            if (LinkedTo->PathDelay == 0) {
                 LinkedTo->Path[0] = -1;
             }
-            bool blocked = LinkedTo->unknown_5a1 && LinkedTo->unknown_558 == 0;
+            bool blocked = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0;
             Start_Of_Move_004fe0f0((blocked != 0) + 1);
             break;
         }
@@ -818,8 +818,8 @@ inline int Hover_Distance_004fdfd0(CoordStruct const &from,CoordStruct const &to
 bool HoverLocomotionClass::Reduce_Path_Length_004fdfd0()
 {
     if (Is_Moving() && LinkedTo->Path[0]!=-1) {
-        if ((LinkedTo->unknown_494 && LinkedTo->unknown_494->Kind_Of()==1) ||
-            (LinkedTo->unknown_494 && LinkedTo->unknown_494->Kind_Of()==15)) {
+        if ((LinkedTo->NavCom && LinkedTo->NavCom->Kind_Of()==1) ||
+            (LinkedTo->NavCom && LinkedTo->NavCom->Kind_Of()==15)) {
             int distance=Hover_Distance_004fdfd0(LinkedTo->Center_Coord(),unknown_18)/256;
             if (distance<24) { LinkedTo->Path[distance]=-1; return true; }
         }
@@ -859,9 +859,9 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
     if (facing!=-1) return;
     if (unknown_18==unknown_geometry_l) return;
     if (LinkedTo->unknown_slot104()==Coord_Cell(unknown_18) && abs(LinkedTo->unknown_slot19(0).Z-unknown_18.Z)<=2*unknown_geometry_g) return;
-    if (LinkedTo->unknown_530!=0) return;
+    if (LinkedTo->PathDelay!=0) return;
     if (!LinkedTo->unknown_4c3000(Coord_Cell(unknown_18),0,num)) {
-        LinkedTo->unknown_530=CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay*900));
+        LinkedTo->PathDelay=CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay*900));
         if (!LinkedTo->unknown_slot171(unknown_18)) {
             LinkedTo->Assign_Destination(0,true);
             return;
@@ -874,12 +874,12 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
             else {
                 LinkedTo->Assign_Destination(0,true);
                 if (!LinkedTo->IsActive) return;
-                if (LinkedTo->unknown_57a) Voc_Play(Rules->ScoldSound,1.0f,0x2000,0);
-                LinkedTo->unknown_57a=false;
+                if (LinkedTo->IsNewNavCom) Voc_Play(Rules->ScoldSound,1.0f,0x2000,0);
+                LinkedTo->IsNewNavCom=false;
             }
         }
         if (!Is_Moving() && LinkedTo->unknown_228 && !LinkedTo->unknown_slot213(LinkedTo->unknown_228)) {
-            LinkedTo->unknown_578=true;
+            LinkedTo->IsScanLimited=true;
             if (LinkedTo->Team) LinkedTo->Team->Scan_Limit();
             LinkedTo->unknown_slot220(0);
         }
@@ -890,7 +890,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
         Stop_Moving();
         return;
     } else {
-    LinkedTo->unknown_530=CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay*900));
+    LinkedTo->PathDelay=CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay*900));
     Cell cell=Coord_Cell(LinkedTo->Center_Coord())+AdjacentCell[LinkedTo->Path[0]&7];
     if (Map.Unknown_0055A660(cell,true)) {
         int ok=LinkedTo->Can_Enter_Cell(&Map[cell],LinkedTo->Path[0],LinkedTo->unknown_5d47d0(),0,true);

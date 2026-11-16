@@ -182,7 +182,7 @@ bool ScrollClass::Resolve_Point(Point2D const &point,Cell &cell,CoordStruct &coo
         fog=false;
         if (unknown_id_source_a3d290->Special().FogOfWar) {
             BuildingClass *building=static_cast<BuildingClass *>(Map[adjusted].Cell_Building());
-            if (building) fog=building->unknown_5b7;
+            if (building) fog=building->IsFogged;
             else fog=Map.Is_Fogged(adjusted) && unknown_b263d8!=0;
         }
         if (!shadow && !fog) {
@@ -193,7 +193,7 @@ bool ScrollClass::Resolve_Point(Point2D const &point,Cell &cell,CoordStruct &coo
             }
             if (object && object->Kind_Of()==6) {
                 BuildingClass *building=static_cast<BuildingClass *>(object);
-                if (!building->unknown_372 && ((building->unknown_5bd==15 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) || building->Type->InvisibleInGame)) object=0;
+                if (!building->unknown_372 && ((building->TranslucencyLevel==15 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) || building->Type->InvisibleInGame)) object=0;
             }
         }
         return true;
@@ -242,13 +242,13 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
         }
 
         if (object != 0 && object->Kind_Of() == 6 && !((BuildingClass *)object)->unknown_372
-                && ((BuildingClass *)object)->unknown_5bd == 15
+                && ((BuildingClass *)object)->TranslucencyLevel == 15
                 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) {
             visible = false;
         }
         if (visible) {
             if (object != 0 && object->CanBeSelected()
-                    && (object->Kind_Of() != 6 || !((BuildingClass *)object)->unknown_5b7)
+                    && (object->Kind_Of() != 6 || !((BuildingClass *)object)->IsFogged)
                     && (techno == 0 || !techno->unknown_32c)) {
                 action = 7;
             }
@@ -257,7 +257,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
             }
         }
 
-        if (Map.unknown_11ac) {
+        if (Map.IsRepairMode) {
             if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Is_Player_Control() && object->Can_Repair()) {
                 action = 10;
             } else {
@@ -265,7 +265,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
             }
         }
 
-        if (Map.unknown_11ae) {
+        if (Map.IsPowerMode) {
             action = 0x22;
             if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Is_Player_Control()
                     && object->Kind_Of() == 6 && object->CanBeSelected() && !object->Considered_Vehicle()) {
@@ -277,22 +277,22 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
         }
 
         WaypointClass *waypoint = PlayerPtr->Waypoint_At(cell);
-        if (Map.unknown_11af) {
+        if (Map.IsWaypointMode) {
             bool force = Scroll_Key_Down(KeyForceMove1) || Scroll_Key_Down(KeyForceMove2);
             int path = -1;
             char position;
             if (waypoint != 0) {
                 PlayerPtr->Fetch_Waypoint_Data(waypoint, &path, &position);
             }
-            if (Map.unknown_11b8 != 0) {
+            if (Map.DraggedWaypoint != 0) {
                 action = 0x30;
-            } else if (force && waypoint != 0 && path == PlayerPtr->unknown_154
+            } else if (force && waypoint != 0 && path == PlayerPtr->SelectedPath
                     && PlayerPtr->Can_Add_Waypoint_To_Path()
                     && PlayerPtr->WaypointPaths[path]->Next_Waypoint(waypoint) != 0) {
                 action = 0x2F;
             } else if (waypoint != 0) {
                 action = 0x2E;
-            } else if (PlayerPtr->unknown_154 != -1 && PlayerPtr->Can_Add_Waypoint_To_Path()
+            } else if (PlayerPtr->SelectedPath != -1 && PlayerPtr->Can_Add_Waypoint_To_Path()
                     && Map.Unknown_0055A660(cell, true)) {
                 action = 0x2A;
             } else {
@@ -300,11 +300,11 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
             }
         }
 
-        if (Map.unknown_11b0) {
+        if (Map.IsBeaconMode) {
             action = 0x3C;
         }
 
-        if (Map.unknown_11ad) {
+        if (Map.IsSellMode) {
             if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Is_Player_Control() && object->Can_Demolish()) {
                 if (object->Kind_Of() == 6) {
                     action = object->Considered_Vehicle() ? 14 : 12;
@@ -324,8 +324,8 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
             }
         }
 
-        if (Map.unknown_11b4 != -1) {
-            int super_action = SuperWeaponTypes[Map.unknown_11b4]->unknown_slot27(&cell, object);
+        if (Map.IsTargettingMode != -1) {
+            int super_action = SuperWeaponTypes[Map.IsTargettingMode]->unknown_slot27(&cell, object);
             if (super_action != 0) {
                 action = super_action;
             }
@@ -659,7 +659,7 @@ void ScrollClass::Scroll_Coast(Point2D const &xy)
         return;
     }
     if (!IsCoastScrollAllowed) {
-        if (unknown_11cb) {
+        if (IsRubberBand) {
             Mouse_Right_Release(Point2D(-1, -1));
         } else {
             IsCoastScrollAllowed = true;

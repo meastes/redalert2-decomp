@@ -57,7 +57,7 @@ void RadarClass::Unknown_00634670(int arg1, int index, HouseClass *house)
     ColorScheme *scheme;
     if (house == unknown_house_a72d28) {
         scheme = Fetch_Scheme_By_Name("LightGrey", 1);
-    } else if (house->unknown_13d) {
+    } else if (house->IsDefeated) {
         scheme = Fetch_Scheme_By_Name("Grey", 1);
     } else {
         scheme = ColorSchemes[house->ColorSchemeIndex];
@@ -73,7 +73,7 @@ void RadarClass::Unknown_00634670(int arg1, int index, HouseClass *house)
     OwnerDraw::unknown_5e1f30(flag, image);
     HWND ally = GetDlgItem(dialog, ally_ids[index]);
     if (MuteSWLaunches) EnableWindow(ally, FALSE);
-    if (house->unknown_13d) {
+    if (house->IsDefeated) {
         ShowWindow(ally, 0);
     } else {
         SendMessageA(ally, 0xF1, PlayerPtr->Is_Ally(house) ? 1 : 0, 0);

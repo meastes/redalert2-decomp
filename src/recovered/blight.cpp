@@ -86,10 +86,10 @@
 
 BuildingLightClass::BuildingLightClass(TechnoClass *owner) :
     unknown_98(0),
-    unknown_a0(unknown_geometry_l),
-    unknown_ac(unknown_geometry_l),
-    unknown_b8(0),
-    unknown_c0(false),
+    RotationPivot(unknown_geometry_l),
+    RotationTarget(unknown_geometry_l),
+    Acceleration(0),
+    IsOppositeDirection(false),
     Behavior(0),
     Following(0),
     Owner(owner)
@@ -99,7 +99,7 @@ BuildingLightClass::BuildingLightClass(TechnoClass *owner) :
         Init_Rotation_Arc(owner);
         BuildingLightClass::Unlimbo(&CoordStruct(Coord), 0);
         Set_Behavior(1);
-        unknown_c0 = BuildingLights.ID(this) % 2 != 0;
+        IsOppositeDirection = BuildingLights.ID(this) % 2 != 0;
     }
 }
 
@@ -137,7 +137,7 @@ void BuildingLightClass::Draw_It(Point2D const &point, Rect const &window)
         return;
     }
     BuildingClass *building = (BuildingClass *)Owner;
-    if (building == 0 || !building->IsActive || !building->unknown_slot195() || building->unknown_5b7) {
+    if (building == 0 || !building->IsActive || !building->unknown_slot195() || building->IsFogged) {
         return;
     }
     if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(Position_Coord_004f3f40())) {
@@ -242,26 +242,26 @@ void BuildingLightClass::AI()
         break;
 
     case 1: {
-        unknown_98 += unknown_b8;
-        if (unknown_c0) {
+        unknown_98 += Acceleration;
+        if (IsOppositeDirection) {
             if (unknown_98 > Rules->SpotlightAngle / 2) {
-                unknown_b8 -= Rules->SpotlightAcceleration;
-                if (unknown_b8 < 0) {
-                    unknown_b8 = 0;
-                    unknown_c0 = false;
+                Acceleration -= Rules->SpotlightAcceleration;
+                if (Acceleration < 0) {
+                    Acceleration = 0;
+                    IsOppositeDirection = false;
                 }
-            } else if (unknown_b8 < Rules->SpotlightSpeed) {
-                unknown_b8 += Rules->SpotlightAcceleration;
+            } else if (Acceleration < Rules->SpotlightSpeed) {
+                Acceleration += Rules->SpotlightAcceleration;
             }
         } else {
             if (unknown_98 < Rules->SpotlightAngle / -2) {
-                unknown_b8 += Rules->SpotlightAcceleration;
-                if (unknown_b8 > 0.0) {
-                    unknown_b8 = 0.0;
-                    unknown_c0 = true;
+                Acceleration += Rules->SpotlightAcceleration;
+                if (Acceleration > 0.0) {
+                    Acceleration = 0.0;
+                    IsOppositeDirection = true;
                 }
-            } else if (-Rules->SpotlightSpeed < unknown_b8) {
-                unknown_b8 -= Rules->SpotlightAcceleration;
+            } else if (-Rules->SpotlightSpeed < Acceleration) {
+                Acceleration -= Rules->SpotlightAcceleration;
             }
         }
 
@@ -269,9 +269,9 @@ void BuildingLightClass::AI()
         mtx.Make_Identity();
         mtx.Rotate_Z(unknown_98);
 
-        Vector3 v(unknown_ac.X - unknown_a0.X, unknown_ac.Y - unknown_a0.Y, unknown_ac.Z - unknown_a0.Z);
+        Vector3 v(RotationTarget.X - RotationPivot.X, RotationTarget.Y - RotationPivot.Y, RotationTarget.Z - RotationPivot.Z);
         v = mtx * v;
-        coord = CoordStruct(unknown_a0.X + v.X, unknown_a0.Y + v.Y, unknown_a0.Z + v.Z);
+        coord = CoordStruct(RotationPivot.X + v.X, RotationPivot.Y + v.Y, RotationPivot.Z + v.Z);
     }
     break;
     case 2: {
@@ -286,7 +286,7 @@ void BuildingLightClass::AI()
         mtx.Make_Identity();
         mtx.Rotate_Z(unknown_98);
 
-        Vector3 v(unknown_ac.X - owner_coord.X, unknown_ac.Y - owner_coord.Y, unknown_ac.Z - owner_coord.Z);
+        Vector3 v(RotationTarget.X - owner_coord.X, RotationTarget.Y - owner_coord.Y, RotationTarget.Z - owner_coord.Z);
         v = mtx * v;
         coord = CoordStruct(owner_coord.X + v.X, owner_coord.Y + v.Y, owner_coord.Z + v.Z);
     }
@@ -424,8 +424,8 @@ static inline void Move_To(BuildingLightClass *light, CoordStruct const &coord)
 void BuildingLightClass::Init_Rotation_Arc(TechnoClass *object)
 {
     CoordStruct near_point = Coord_Along_Facing(object->PrimaryFacing.Current(), Rules->SpotlightLocationRadius, object->Coord);
-    unknown_ac = near_point;
-    unknown_a0 = Coord_Along_Facing(object->PrimaryFacing.Current(), -Rules->SpotlightMovementRadius, object->Position_Coord_004f3f40());
+    RotationTarget = near_point;
+    RotationPivot = Coord_Along_Facing(object->PrimaryFacing.Current(), -Rules->SpotlightMovementRadius, object->Position_Coord_004f3f40());
     Move_To(this, near_point);
 }
 
@@ -512,14 +512,14 @@ void BuildingLightClass::Compute_CRC(WWCRCEngine &crc) const
 {
     ObjectClass::Compute_CRC(crc);
     crc(unknown_98);
-    crc((long)unknown_a0.X);
-    crc((long)unknown_a0.Y);
-    crc((long)unknown_a0.Z);
-    crc((long)unknown_ac.X);
-    crc((long)unknown_ac.Y);
-    crc((long)unknown_ac.Z);
-    crc(unknown_b8);
-    crc(unknown_c0);
+    crc((long)RotationPivot.X);
+    crc((long)RotationPivot.Y);
+    crc((long)RotationPivot.Z);
+    crc((long)RotationTarget.X);
+    crc((long)RotationTarget.Y);
+    crc((long)RotationTarget.Z);
+    crc(Acceleration);
+    crc(IsOppositeDirection);
     crc((long)Behavior);
     if (Following != 0) {
         crc(Following->Fetch_ID());

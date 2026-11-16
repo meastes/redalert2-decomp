@@ -23,8 +23,8 @@ static_assert(offsetof(MapClass, MapLocalSize) == 0x178, "full MapClass::MapLoca
 static_assert(offsetof(MapClass, unknown_120) == 0x1A8, "full MapClass::unknown_120");
 static_assert(sizeof(MapClass) == 0x1210, "full MapClass");
 static_assert(offsetof(DisplayClass, PendingObjectPtr) == 0x1258, "full DisplayClass::PendingObjectPtr");
-static_assert(offsetof(DisplayClass, unknown_11b4) == 0x1274, "full DisplayClass::unknown_11b4");
-static_assert(offsetof(RadarClass, unknown_11b8) == 0x1278, "full RadarClass::unknown_11b8");
+static_assert(offsetof(DisplayClass, IsTargettingMode) == 0x1274, "full DisplayClass::IsTargettingMode");
+static_assert(offsetof(RadarClass, DraggedWaypoint) == 0x1278, "full RadarClass::DraggedWaypoint");
 static_assert(offsetof(RadarClass, unknown_1220) == 0x12F0, "full RadarClass::unknown_1220");
 static_assert(offsetof(SidebarClass, Column) == 0x16E8, "full SidebarClass::Column");
 static_assert(sizeof(SidebarClass::StripClass) == 0x10C0, "full StripClass");

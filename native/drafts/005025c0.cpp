@@ -69,10 +69,10 @@ inline CoordStruct Move_Coord(CoordStruct const &start, UnknownFacingDir const &
 // TibSun InfantryClass::Tunnel_AI: walks the soldier along its tube and sets it down at the exit.
 void InfantryClass::unknown_5025c0()
 {
-    bool finished = Tubes[unknown_574]->Directions[unknown_575] == -1;
+    bool finished = Tubes[CurrentTube]->Directions[CurrentTubeDir] == -1;
     if (!finished) {
         int distance = Tube_Distance(this, unknown_45c);
-        TubeClass *tube = Tubes[unknown_574];
+        TubeClass *tube = Tubes[CurrentTube];
         UnknownFacingDir facing;
         UnknownFacingDir direction = facing.Direction(Center_Coord(), unknown_45c);
         int speed = Type->Speed;
@@ -86,12 +86,12 @@ void InfantryClass::unknown_5025c0()
             height_step = (Map.Get_Height_GL(exit_coord) - Map.Get_Height_GL(enter_coord)) / height_step;
         }
         if (distance <= speed) {
-            unknown_575++;
-            int tube_dir = tube->Directions[unknown_575];
+            CurrentTubeDir++;
+            int tube_dir = tube->Directions[CurrentTubeDir];
             finished = tube_dir == -1;
             Set_Coord(unknown_45c);
             if (!finished) {
-                CoordStruct coord = Tube_Adjacent(unknown_45c, tube->Directions[unknown_575]);
+                CoordStruct coord = Tube_Adjacent(unknown_45c, tube->Directions[CurrentTubeDir]);
                 unknown_45c = Tube_Plus(unknown_45c, reinterpret_cast<TPoint2D<int> const &>(Map[coord].unknown_475d60()) - reinterpret_cast<TPoint2D<int> const &>(Map[unknown_45c].unknown_475d60()));
                 unknown_45c.Z += height_step;
                 UnknownFacingDir dir = UnknownFacingDir().Direction(Center_Coord(), unknown_45c);
@@ -107,7 +107,7 @@ void InfantryClass::unknown_5025c0()
                 return;
             }
         } else {
-            int tube_dir = tube->Directions[unknown_575];
+            int tube_dir = tube->Directions[CurrentTubeDir];
             CoordStruct new_coord = Move_Coord(Object_Coord(this), direction, speed);
             double divisor;
             if (tube_dir % 2) {
@@ -147,13 +147,13 @@ void InfantryClass::unknown_5025c0()
             Locomotor.Checked()->Stop_Movement_Animation();
             Mark(1);
             Set_Occupy_Bit(Object_Coord(this));
-            if (unknown_494 == cell) {
+            if (NavCom == cell) {
                 Scatter(CoordStruct(0, 0, 0), true, true);
             } else {
                 unknown_slot306(1.0);
             }
-            unknown_574 = -1;
-            unknown_57b = true;
+            CurrentTube = -1;
+            IsPlanningToLook = true;
             unknown_slot93(2);
         }
     }

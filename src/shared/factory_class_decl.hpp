@@ -42,14 +42,14 @@ public:
  DynamicVectorClass<TechnoTypeClass *> Queue; // +3c, pointer queue (RTTI at the neighboring container methods)
  TechnoClass *Object; // +54
  bool unknown_58;
- bool unknown_59;
+ bool IsDifferent;
  char unknown_5a[2];
  int UnspentCost; // +5c, subtracted from the type cost on refund
  int unknown_60;
  int unknown_64;
  HouseClass *Owner; // +68
  bool unknown_6c;
- bool unknown_6d;
+ bool IsOnHold;
 };
 extern DynamicVectorClass<FactoryClass *> Factories; // 00a35e90
 #endif

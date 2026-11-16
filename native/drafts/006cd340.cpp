@@ -25,7 +25,7 @@ bool TechnoClass::unknown_slot186()
             if (unknown_slot201()) {
                 break;
             }
-            if (((FootClass *)this)->unknown_574 >= 0) {
+            if (((FootClass *)this)->CurrentTube >= 0) {
                 break;
             }
             UnitTypeClass *type = ((UnitClass *)this)->Type;
@@ -33,7 +33,7 @@ bool TechnoClass::unknown_slot186()
                 break;
             }
             if (type->DeploysInto != 0 && type->DeploysInto->ConstructionYard
-                && ((FootClass *)this)->unknown_580 != 0) {
+                && ((FootClass *)this)->ParasiteEatingMe != 0) {
                 break;
             }
             if (type->Passengers > 0) {

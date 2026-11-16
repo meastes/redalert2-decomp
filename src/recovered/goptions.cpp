@@ -336,11 +336,11 @@ int __stdcall Game_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
                 int humans = 0;
                 for (int index = 0; index < Houses.Count(); index++) {
                     HouseClass *house = Houses[index];
-                    if (house->unknown_134 && !house->unknown_13d) {
+                    if (house->unknown_134 && !house->IsDefeated) {
                         humans++;
                     }
                 }
-                if (humans >= 2 && !PlayerPtr->unknown_13d) {
+                if (humans >= 2 && !PlayerPtr->IsDefeated) {
                     Leave_Result = 3;
                     SendMessageA(other, 0x4B2, 0, (LPARAM)StringTable::Load_String("GUI:Observe", 0, "D:\\Ra2\\GOptions.CPP", 0x246));
                     Other_Result = 4;

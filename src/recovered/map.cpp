@@ -1157,8 +1157,8 @@ void MapClass::Shroud_Gap_Area(CoordStruct const &coord, int radius)
         for (int y = -2 - radius; y < radius + 2; y++) {
             if (x * x + y * y < (radius + 1) * (radius + 1)) {
                 Cell newcell = XY_Cell(cell.X + x, cell.Y + y);
-                if (Map[newcell].unknown_130 == 0) {
-                    Map[newcell].unknown_130 = 1;
+                if (Map[newcell].ShroudCounter == 0) {
+                    Map[newcell].ShroudCounter = 1;
                     Map[newcell].IsMapped = false;
                     Map[newcell].IsVisible = false;
                 }
@@ -1184,8 +1184,8 @@ void MapClass::Unshroud_Gap_Area(CoordStruct const &coord, int radius)
         for (int y = -2 - radius; y < radius + 2; y++) {
             if (x * x + y * y < (radius + 1) * (radius + 1)) {
                 Cell newcell = XY_Cell(cell.X + x, cell.Y + y);
-                Map[newcell].unknown_130 = 0;
-                Map[newcell].unknown_134 = 0;
+                Map[newcell].ShroudCounter = 0;
+                Map[newcell].GapsCoveringThisCell = 0;
                 Map[newcell].IsVisible = true;
                 Map[newcell].IsMapped = true;
             }
@@ -3362,7 +3362,7 @@ bool MapClass::Base_Region(Cell const &cell, int &house, int &zone)
         for (int index = 0; index < Houses.Count(); index++) {
             HouseClass *h = Houses[index];
 
-            if (h && !h->unknown_13d && h->BaseCenter != unknown_geometry_l) {
+            if (h && !h->IsDefeated && h->BaseCenter != unknown_geometry_l) {
                 zone = h->Which_Zone(cell);
                 if (zone != -1) {
                     house = h->Type->House;
@@ -6373,12 +6373,12 @@ void MapClass::Spy_Satellite_Hide()
     Reset_Iterator();
     for (CellClass *cell = Iterate(); cell != 0; cell = Iterate()) {
         cell->IsMapped = false; cell->IsVisible = false;
-        cell->unknown_130 = 1;
-        cell->unknown_134 = 0;
+        cell->ShroudCounter = 1;
+        cell->GapsCoveringThisCell = 0;
         cell->IsFogVisible = false; cell->IsFogMapped = false;
     }
     Map.Reveal_Technos(false, false);
-    PlayerPtr->unknown_188 = false;
+    PlayerPtr->IsVisionary = false;
     Map.Complete_Radar_Refresh();
     Flag_To_Redraw(2);
 }
@@ -6397,7 +6397,7 @@ void MapClass::Shroud_The_Map()
         cell->IsFogVisible = false; cell->IsFogMapped = false;
     }
     Map.All_To_Look(false, false);
-    PlayerPtr->unknown_188 = false;
+    PlayerPtr->IsVisionary = false;
     Map.Complete_Radar_Refresh();
     Flag_To_Redraw(2);
 }
@@ -6414,13 +6414,13 @@ void MapClass::Unknown_0055A070()
     Reset_Iterator();
     for (CellClass *cell = Iterate(); cell != 0; cell = Iterate()) {
         cell->IncreaseShroudCounter();
-        if (cell->unknown_130 >= 0) {
+        if (cell->ShroudCounter >= 0) {
             cell->IsMapped = false; cell->IsVisible = false;
             cell->IsFogVisible = false; cell->IsFogMapped = false;
         }
     }
     Map.All_To_Look(false, false);
-    PlayerPtr->unknown_188 = false;
+    PlayerPtr->IsVisionary = false;
     Map.Complete_Radar_Refresh();
     Flag_To_Redraw(2);
 }
@@ -6434,14 +6434,14 @@ void MapClass::Unknown_0055A070()
 
 void MapClass::Spy_Satellite_Reveal()
 {
-    if (!PlayerPtr->unknown_188) {
+    if (!PlayerPtr->IsVisionary) {
         Map.Update_Technos_Visibility(false, false);
-        PlayerPtr->unknown_188 = true;
+        PlayerPtr->IsVisionary = true;
         Map.Reset_Iterator();
         for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
             cell->IsMapped = true; cell->IsVisible = true;
-            cell->unknown_130 = 0;
-            cell->unknown_134 = 0;
+            cell->ShroudCounter = 0;
+            cell->GapsCoveringThisCell = 0;
             cell->IsFogVisible = true; cell->IsFogMapped = true;
         }
         Map.Reveal_Technos(false, false);
@@ -6457,8 +6457,8 @@ void MapClass::Spy_Satellite_Reveal()
 
 void MapClass::Reveal_The_Map()
 {
-    if (!PlayerPtr->unknown_188) {
-        PlayerPtr->unknown_188 = true;
+    if (!PlayerPtr->IsVisionary) {
+        PlayerPtr->IsVisionary = true;
         Map.Reset_Iterator();
         for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
             Map.unknown_slot39(cell->MapCoords, PlayerPtr);
@@ -7718,7 +7718,7 @@ bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int reg
         if (image != 0) {
             for (int row = 0; row < type->unknown_2b8; ++row) {
                 for (int column = 0; column < type->unknown_2b4; ++column) {
-                    Cell cell = XY_Cell(column + Map.unknown_1170.X, row + Map.unknown_1170.Y);
+                    Cell cell = XY_Cell(column + Map.ZoneCell.X, row + Map.ZoneCell.Y);
                     if (cell.X + cell.Y <= Map.MapSize.Width || cell.X - cell.Y >= Map.MapSize.Width ||
                         cell.Y - cell.X >= Map.MapSize.Width || cell.X + cell.Y > Map.MapSize.Width + 2 * Map.MapSize.Height)
                         continue;
@@ -10867,17 +10867,17 @@ bool MapClass::Is_Under_Fog(CoordStruct const &coord)
         int offset = level / 2 + 1;
         Cell cell = Cell(coord.X / 256, coord.Y / 256);
         CellClass *cellptr = &Map[Cell(cell.X - offset, cell.Y - offset)];
-        if (cellptr->unknown_13c <= 0) {
+        if (cellptr->AlliedGapsCoveringThisCell <= 0) {
             return false;
         }
-        if (cellptr->Adjacent_Cell(3).unknown_13c > 0) {
+        if (cellptr->Adjacent_Cell(3).AlliedGapsCoveringThisCell > 0) {
             return true;
         }
     } else {
         int offset = level / 2;
         Cell cell = Cell(coord.X / 256, coord.Y / 256);
         CellClass *cellptr = &Map[Cell(cell.X - offset, cell.Y - offset)];
-        if (cellptr->unknown_13c > 0) {
+        if (cellptr->AlliedGapsCoveringThisCell > 0) {
             return true;
         }
     }
@@ -10894,7 +10894,7 @@ bool MapClass::Is_Under_Fog(CoordStruct const &coord)
 bool MapClass::Is_Fogged(CoordStruct const &coord)
 {
     CellClass *cellptr;
-    if (unknown_game_mode_a3d298 == 0 || !PlayerPtr->unknown_13d || !MuteSWLaunches) {
+    if (unknown_game_mode_a3d298 == 0 || !PlayerPtr->IsDefeated || !MuteSWLaunches) {
         int level = coord.Z / unknown_geometry_g;
         if ((level & 1) != 0) {
             int offset = level / 2 + 1;

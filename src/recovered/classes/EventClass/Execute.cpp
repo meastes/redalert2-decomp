@@ -270,7 +270,7 @@ void EventClass::Execute()
                 footp = 0;
             }
             if (footp) {
-                footp->unknown_498 = 0;
+                footp->SuspendedNavCom = 0;
             }
             techno->unknown_22c = 0;
             if (ByteAt(0x0C) == 0x0B) {
@@ -312,10 +312,10 @@ void EventClass::Execute()
             if (techno && foot) {
                 ((FootClass *)techno)->unknown_49c.Clear();
                 ((FootClass *)techno)->Clear_Navigation_List();
-                ((FootClass *)techno)->unknown_418 = -1;
-                ((FootClass *)techno)->unknown_576 = 0;
-                ((FootClass *)techno)->unknown_41c = Cell(0, 0);
-                ((FootClass *)techno)->unknown_420 = Cell(0, 0);
+                ((FootClass *)techno)->CurrentPath = -1;
+                ((FootClass *)techno)->NextWaypoint = 0;
+                ((FootClass *)techno)->WaypointOffsetCell = Cell(0, 0);
+                ((FootClass *)techno)->WaypointTargetCell = Cell(0, 0);
             }
             techno->SendToEachLink(3);
             techno->Assign_Destination(0, true);
@@ -370,7 +370,7 @@ void EventClass::Execute()
             foot = techno->AbstractFlags.IsFoot;
         }
         if (techno && foot && techno->IsActive && !techno->IsInLimbo && !techno->unknown_370) {
-            ((FootClass *)techno)->unknown_59c = true;
+            ((FootClass *)techno)->IsScattering = true;
             techno->Scatter(unknown_geometry_l, true, false);
         }
         break;

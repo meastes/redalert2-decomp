@@ -119,12 +119,12 @@ BulletClass::BulletClass() :
     BounceCount(0),
     unknown_ec(true),
     IsLaunching(true),
-    unknown_f0(0),
+    CourseLockCounter(0),
     Target(0),
     Speed(0),
     InheritedColor(-1),
-    unknown_100(0),
-    unknown_108(0),
+    ClosureSamples(0),
+    SmoothedClosure(0),
     WH(0),
     AnimFrame(0),
     AnimRateCounter(0),
@@ -288,8 +288,8 @@ void BulletClass::AI()
             if (Speed >= 40 || speed + 0.5 >= max_speed) {
                 IsLaunching = false;
             }
-        } else if (unknown_f0 < Type->CourseLockDuration) {
-            if (++unknown_f0 >= Type->CourseLockDuration) {
+        } else if (CourseLockCounter < Type->CourseLockDuration) {
+            if (++CourseLockCounter >= Type->CourseLockDuration) {
                 IsLaunching = false;
             }
         }
@@ -349,12 +349,12 @@ void BulletClass::AI()
         }
         int delta = ::Distance(old_coord, target_coord) - ::Distance(coord, target_coord);
         if (!IsLaunching) {
-            if (unknown_100 < 60) {
-                unknown_100++;
-                unknown_108 += delta;
+            if (ClosureSamples < 60) {
+                ClosureSamples++;
+                SmoothedClosure += delta;
             } else {
-                unknown_108 = unknown_108 * (59.0 / 60) + delta;
-                if (unknown_108 >= 0 && unknown_108 < 60.0 && !Type->Airburst && !Type->VeryHigh) {
+                SmoothedClosure = SmoothedClosure * (59.0 / 60) + delta;
+                if (SmoothedClosure >= 0 && SmoothedClosure < 60.0 && !Type->Airburst && !Type->VeryHigh) {
                     forced = true;
                     impact = 1;
                     goto flown;
@@ -1018,7 +1018,7 @@ void BulletClass::Detonate(CoordStruct const &position)
         if (Owner != 0) {
             FootClass *target = Target == 0 ? 0 :
                 (Target->AbstractFlags.IsFoot ? static_cast<FootClass *>(Target) : 0);
-            static_cast<FootClass *>(Owner)->unknown_588->Unknown_00607980(target);
+            static_cast<FootClass *>(Owner)->ParasiteImUsing->Unknown_00607980(target);
         }
     } else if (WH->Temporal) {
         if (Owner != 0 && Target != 0) {

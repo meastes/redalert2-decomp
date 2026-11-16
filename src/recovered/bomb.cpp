@@ -69,13 +69,13 @@ DynamicVectorClass<BombClass *> unknown_BombClass_list_0084eb78;
 // sound from Rules; added to the bomb list.
 
 BombClass::BombClass() :
-    unknown_54(0)
+    ShouldPlayTickingSound(0)
 {
     unknown_28 = 0;
     Target = 0;
     Harmless = false;
     unknown_3c.Init();
-    unknown_50 = Rules->BombTickingSound;
+    TickSound = Rules->BombTickingSound;
     unknown_BombClass_list_0084eb78.Add(this);
 }
 
@@ -157,7 +157,7 @@ void BombClass::Unknown_00435D30()
     Target = 0;
     unknown_28 = 0;
     unknown_3c.Unknown_00405FE0();
-    unknown_54 = 0;
+    ShouldPlayTickingSound = 0;
 }
 
 
@@ -266,7 +266,7 @@ HRESULT __stdcall BombClass::Load(IStream *stream)
     if (SUCCEEDED(result)) {
         new (this) BombClass(NoInitClass());
         unknown_3c.Init();
-        unknown_54 = 0;
+        ShouldPlayTickingSound = 0;
         Swizzler.Swizzle((void **)&unknown_28);
         Swizzler.Swizzle((void **)&Owner);
         Swizzler.Swizzle((void **)&Target);
@@ -287,13 +287,13 @@ void BombListClass::Unknown_004361F0()
     }
     for(index=Bombs.Count()-1;index>=0;--index) {
         BombClass *bomb=Bombs[index];
-        if(bomb->unknown_50!=-1) {
+        if(bomb->TickSound!=-1) {
             if(bomb->Target->IsInLimbo) {
                 bomb->unknown_3c.Unknown_00405D50();
-                bomb->unknown_54=0;
-            } else if(bomb->unknown_54==0) {
-                Voc_Play_At(bomb->unknown_50,bomb->Target->Position_Coord_004f3f40(),&bomb->unknown_3c);
-                bomb->unknown_54=1;
+                bomb->ShouldPlayTickingSound=0;
+            } else if(bomb->ShouldPlayTickingSound==0) {
+                Voc_Play_At(bomb->TickSound,bomb->Target->Position_Coord_004f3f40(),&bomb->unknown_3c);
+                bomb->ShouldPlayTickingSound=1;
             } else {
                 Voc_Update_At(bomb->Target->Position_Coord_004f3f40(),&bomb->unknown_3c);
             }

@@ -131,7 +131,7 @@ public:
     bool UnderTemporal;                       // +0x101
     bool Paused;                       // +0x102
     bool Unpaused;                       // +0x103
-    int unknown_104;                        // +0x104
+    int PausedAnimFrame;                        // +0x104
     UnknownBounce unknown_108;              // +0x108
     UnknownQuaternion unknown_138;          // +0x138
     UnknownQuaternion unknown_148;          // +0x148

@@ -231,9 +231,9 @@ CellClass::~CellClass()
         delete FoggedObjects;
         FoggedObjects = 0;
     }
-    if (unknown_fc != 0) {
-        delete unknown_fc;
-        unknown_fc = 0;
+    if (PixelFX != 0) {
+        delete PixelFX;
+        PixelFX = 0;
     }
     OccupierPtr = 0;
     if (MapCoords != unknown_geometry_k && Drawer != 0) {
@@ -259,7 +259,7 @@ CellClass::CellClass() :
     Drawer(0),
     IsoTileIndex(0xFFFF),
     Tag(0),
-    unknown_40(0),
+    Rubble(0),
     OverlayIndex(-1),
     SmudgeIndex(-1),
     Passability(0),
@@ -268,17 +268,17 @@ CellClass::CellClass() :
     BridgeInfType(-1),
     LastRedrawFrame(-1),
     LastUnknownDrawFrame(-1),
-    unknown_64(-1),
+    LastBridgeDrawFrame(-1),
     LastBridgeDrawRect(Rect(0, 0, 0, 0)),
     CloakedBy(0),
     OccupiedBy(0),
-    unknown_e0(0),
+    Jumpjet(0),
     OccupierPtr(0),
     AltOccupierPtr(0),
     Land(0),
     unknown_f0(0),
     RadSite(0),
-    unknown_fc(0),
+    PixelFX(0),
     unknown_100(0),
     unknown_104(0x10000),
     unknown_108(0),
@@ -301,10 +301,10 @@ CellClass::CellClass() :
     FogFrame(-2),
     AdjacentObjectCount(0),
     Flags_12c(0),
-    unknown_130(1),
-    unknown_134(0),
+    ShroudCounter(1),
+    GapsCoveringThisCell(0),
     unknown_138(false),
-    unknown_13c(0),
+    AlliedGapsCoveringThisCell(0),
     Flags_140(0)
 {
     int index;
@@ -1404,7 +1404,7 @@ bool CellClass::Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bo
             coord.Z = Map.Get_Height_GL(coord);
 
             if (Map.Is_Shrouded(coord)) {
-                if (Map.unknown_117c && Map.PendingObject != 0 && ((ObjectTypeClass const *)Map.PendingObject)->Kind_Of() == 7 && ((BuildingTypeClass *)Map.PendingObject)->ToTile != 0) {
+                if (Map.ProximityCheck && Map.PendingObject != 0 && ((ObjectTypeClass const *)Map.PendingObject)->Kind_Of() == 7 && ((BuildingTypeClass *)Map.PendingObject)->ToTile != 0) {
                     ok = true;
                 } else {
                     ok = false;
@@ -1418,7 +1418,7 @@ bool CellClass::Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bo
                     }
                 }
             } else {
-                if (Map.unknown_117c && Map.PendingObject != 0 && ((ObjectTypeClass const *)Map.PendingObject)->Kind_Of() == 7
+                if (Map.ProximityCheck && Map.PendingObject != 0 && ((ObjectTypeClass const *)Map.PendingObject)->Kind_Of() == 7
                         && Is_Clear_To_Build(loco, static_cast<BuildingTypeClass const *>(Map.PendingObject), PlayerPtr)
                         && !(((BuildingTypeClass *)Map.PendingObject)->ToTile != 0 && Land == 1)) {
                     ok = true;
@@ -1541,10 +1541,10 @@ void CellClass::Draw_Overlay_Shadow(Point2D const &xpoint, Rect const &clip)
     if (overlay->Crate) {
         frame = 0;
     } else if (overlay->IsRubble) {
-        if (unknown_40 != 0) {
+        if (Rubble != 0) {
             ShapeFileStruct *image;
             int rubble;
-            if (((BuildingTypeClass *)unknown_40)->Get_Rubble_Shadow((void **)&image, &rubble)) {
+            if (((BuildingTypeClass *)Rubble)->Get_Rubble_Shadow((void **)&image, &rubble)) {
                 CC_Draw_Shape(LogicalSurface, Drawer, image, rubble, point, clip, 0x4601, 0, -2 - yoffset, 0, 1000, 0, 0, Point2D(0, 0));
             }
         }
@@ -1578,14 +1578,14 @@ void CellClass::Draw_Overlay(Point2D const &xpoint, Rect const &clip)
     }
     ShapeFileStruct *shape = (ShapeFileStruct *)otype->Get_Image_Data();
     if (IsBridgeDeck) {
-        if (unknown_64 != Frame || LastBridgeDrawRedraws != unknown_redraws_833634
+        if (LastBridgeDrawFrame != Frame || LastBridgeDrawRedraws != unknown_redraws_833634
             || LastBridgeDrawRect != clip) {
             int shapenum = OverlayData;
             if (shapenum == 0 || shapenum == 9) {
                 shapenum += unknown_bridge_variation_7d2b18[(MapCoords.X & 3) | (4 * (MapCoords.Y & 3))];
             }
             CC_Draw_Shape(LogicalSurface, Drawer, shape, shapenum, point, clip, 0x4E00, 0, -2 - yoffset, 0, AltBrightness, 0, 0, Point2D(0, 0));
-            unknown_64 = Frame;
+            LastBridgeDrawFrame = Frame;
             LastBridgeDrawRect = TacticalRect;
             LastBridgeDrawRedraws = unknown_redraws_833634;
         }
@@ -1626,10 +1626,10 @@ void CellClass::Draw_Overlay(Point2D const &xpoint, Rect const &clip)
         if (otype->Crate) {
             CC_Draw_Shape(LogicalSurface, Drawer, shape, 0, point, clip, 0x4E00, 0, offsety - yoffset - 2, flat ? 0 : 2, TileBrightness, 0, 0, Point2D(0, 0));
         } else if (otype->IsRubble) {
-            if (unknown_40 != 0) {
+            if (Rubble != 0) {
                 ShapeFileStruct *image;
                 int frame;
-                if (((BuildingTypeClass *)unknown_40)->Get_Rubble_Shape((void **)&image, &frame)) {
+                if (((BuildingTypeClass *)Rubble)->Get_Rubble_Shape((void **)&image, &frame)) {
                     CC_Draw_Shape(LogicalSurface, Drawer, image, frame, point, clip, 0x4E00, 0, offsety - yoffset - 2, flat ? 0 : 2, TileBrightness, 0, 0, Point2D(0, 0));
                 }
             }
@@ -1664,8 +1664,8 @@ Rect CellClass::Overlay_Render_Rect() const
         }
     } else if (overlay->IsRubble) {
         image = 0;
-        if (unknown_40 != 0) {
-            ((BuildingTypeClass *)unknown_40)->Get_Rubble_Shape((void **)&image, &frame);
+        if (Rubble != 0) {
+            ((BuildingTypeClass *)Rubble)->Get_Rubble_Shape((void **)&image, &frame);
         }
     } else {
         image = (ShapeFileStruct *)overlay->Get_Image_Data();
@@ -1813,7 +1813,7 @@ void CellClass::Draw_Shroud_And_Fog(Point2D const &point, Rect const &clip)
     }
     Draw_Shroud_Or_Fog_Shape(point, clip, frame);
     FogFrame = TacticalMap->Cell_Shadow(MapCoords, 1);
-    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && !PlayerPtr->unknown_13d) {
+    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && !PlayerPtr->IsDefeated) {
         frame = FogFrame;
         if (frame == -2) {
             frame = 15;
@@ -2569,7 +2569,7 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
                     break;
 
                 case CRATE_SPEED:
-                    if (object->unknown_470 != 1 || object->Kind_Of() == 2) powerup = CRATE_MONEY;
+                    if (object->SpeedBias != 1 || object->Kind_Of() == 2) powerup = CRATE_MONEY;
                     break;
 
                 case CRATE_FIREPOWER:
@@ -2838,9 +2838,9 @@ crate_money:
                 for (int i = 0; i < DisplayClass::Layer[2].Count(); i++) {
                     ObjectClass *obj = DisplayClass::Layer[2][i];
                     if (obj != 0 && obj->Is_Foot() && Length3(Ground_Coord() - obj->Center_Coord()) < Rules->CrateRadius &&
-                            ((FootClass *)obj)->unknown_470 == 1 && obj->Kind_Of() != 2) {
-                        ((FootClass *)obj)->unknown_470 = data * ((FootClass *)obj)->unknown_470;
-                        if (((FootClass *)obj)->House->unknown_135) tospeak = true;
+                            ((FootClass *)obj)->SpeedBias == 1 && obj->Kind_Of() != 2) {
+                        ((FootClass *)obj)->SpeedBias = data * ((FootClass *)obj)->SpeedBias;
+                        if (((FootClass *)obj)->House->IsPlayerControl) tospeak = true;
                     }
                 }
                 }
@@ -3166,7 +3166,7 @@ HRESULT __stdcall CellClass::Load(IStream *stream)
                 Swizzle_Pointer((*FoggedObjects)[index2]);
             }
         }
-        unknown_fc = 0;
+        PixelFX = 0;
         int id = MapCoords.X + MapCoords.Y * 512;
         if (unknown_map_cells_832614[id] != 0) {
             delete unknown_map_cells_832614[id];
@@ -3176,11 +3176,11 @@ HRESULT __stdcall CellClass::Load(IStream *stream)
         Swizzle_Pointer(BridgeDeckCell);
         Swizzle_Pointer(unknown_30);
         Swizzle_Pointer(Tag);
-        Swizzle_Pointer(unknown_e0);
+        Swizzle_Pointer(Jumpjet);
         Swizzle_Pointer(OccupierPtr);
         Swizzle_Pointer(AltOccupierPtr);
         Swizzle_Pointer(RadSite);
-        Swizzle_Pointer(unknown_40);
+        Swizzle_Pointer(Rubble);
         if (OverlayIndex == 0xb3 || OverlayIndex == 0xf2) {
             OverlayIndex = -1;
             OverlayData = 0;
@@ -4358,7 +4358,7 @@ void CellClass::Fog_Cell()
                             building->unknown_slot104();
                             if (building->unknown_452be0()) {
                                 bool fade;
-                                if (building->Considered_Vehicle() || building->unknown_5bd == 15) {
+                                if (building->Considered_Vehicle() || building->TranslucencyLevel == 15) {
                                     fade = false;
                                 } else {
                                     fade = true;
@@ -4618,16 +4618,16 @@ bool CellClass::Place_Tiberium(int tib, int data)
 
 void CellClass::ReduceShroudCounter()
 {
-    if (unknown_130 == 1) {
-        unknown_130 = 0;
+    if (ShroudCounter == 1) {
+        ShroudCounter = 0;
     }
-    unknown_130--;
+    ShroudCounter--;
     bool both = (unknown_12c & 8) && (unknown_12c & 0x10);
     if (!both) {
-        if (unknown_130 <= 0) {
+        if (ShroudCounter <= 0) {
             unknown_12c |= 0x18;
         }
-    } else if (unknown_130 <= 0 && (unknown_140 & 0x20) == 0x20) {
+    } else if (ShroudCounter <= 0 && (unknown_140 & 0x20) == 0x20) {
         unknown_140 &= ~0x20;
     }
 }
@@ -4639,15 +4639,15 @@ void CellClass::ReduceShroudCounter()
 
 void CellClass::IncreaseShroudCounter()
 {
-    int old = unknown_130;
+    int old = ShroudCounter;
     if (old == -1) {
-        unknown_130 = 0;
+        ShroudCounter = 0;
     }
-    unknown_130++;
-    if (unknown_130 > unknown_134) {
-        unknown_130 = unknown_134;
+    ShroudCounter++;
+    if (ShroudCounter > GapsCoveringThisCell) {
+        ShroudCounter = GapsCoveringThisCell;
     }
-    if (old <= 0 && unknown_130 > 0) {
+    if (old <= 0 && ShroudCounter > 0) {
         unknown_140 |= 0x20;
     }
 }
@@ -4872,13 +4872,13 @@ void CellClass::Reduce_f0(double amount)
 bool CellClass::Set_unknown_e0(void *value)
 {
     if (value == 0) {
-        unknown_e0 = 0;
+        Jumpjet = 0;
         return true;
     }
-    if (unknown_e0 != 0 && unknown_e0 != value) {
+    if (Jumpjet != 0 && Jumpjet != value) {
         return false;
     }
-    unknown_e0 = value;
+    Jumpjet = value;
     return true;
 }
 

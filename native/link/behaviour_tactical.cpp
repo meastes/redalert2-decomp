@@ -10,8 +10,8 @@
 // +0x1198 is set, else null.
 ObjectClass *DisplayClass::Unknown_0049EC40()
 {
-    if (!unknown_1198 || unknown_119c == 0) {
+    if (!FollowingObject || FollowingObjectPtr == 0) {
         return 0;
     }
-    return (ObjectClass *)unknown_119c;
+    return (ObjectClass *)FollowingObjectPtr;
 }

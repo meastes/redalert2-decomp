@@ -86,8 +86,8 @@ bool Held(KeyNumType key) { return WWKeyboard != 0 && WWKeyboard->Down(key); }
 bool In_Mode()
 {
     ObjectClass *pending = Map.PendingObjectPtr;
-    return (pending != 0 && pending->AbstractFlags.IsTechno) || Map.PendingObject != 0 || Map.unknown_11ac
-           || Map.unknown_11ad || Map.unknown_11ae || Map.unknown_11b4 != -1 || Map.unknown_11af || Map.unknown_11b0;
+    return (pending != 0 && pending->AbstractFlags.IsTechno) || Map.PendingObject != 0 || Map.IsRepairMode
+           || Map.IsSellMode || Map.IsPowerMode || Map.IsTargettingMode != -1 || Map.IsWaypointMode || Map.IsBeaconMode;
 }
 
 bool Selectable(ObjectClass *object) { return object != 0 && object->CanBeSelected(); }
@@ -161,7 +161,7 @@ int Native_Modern_Left_Up(Cell const &cell, ObjectClass *&object, int action)
     }
     if (!ra2_enh_modern_controls() || In_Mode() || Held(kCtrl) || Held(kAlt)) return action;
     bool shift = Held(kShift);
-    if (Map.unknown_11cb) {
+    if (Map.IsRubberBand) {
         // The selection band: Mouse_Left_Release walks it. When it took nothing, the
         // original goes on as a click at the release point; Modern orders nothing there.
         last_object = 0;

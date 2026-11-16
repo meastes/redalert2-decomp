@@ -213,7 +213,7 @@ bool __fastcall Queue_Mission(TargetClass whom, int mission, TargetClass const &
 
 bool __fastcall Queue_Options()
 {
-    if (PlayerPtr->unknown_13f || PlayerPtr->unknown_140 || PlayerPtr->unknown_13e) {
+    if (PlayerPtr->IsToWin || PlayerPtr->unknown_140 || PlayerPtr->unknown_13e) {
         return false;
     }
     if (!OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x0C))) {
@@ -227,7 +227,7 @@ bool __fastcall Queue_Options()
 
 bool __fastcall Queue_Event_22()
 {
-    if (PlayerPtr->unknown_13f || PlayerPtr->unknown_140 || PlayerPtr->unknown_13e) {
+    if (PlayerPtr->IsToWin || PlayerPtr->unknown_140 || PlayerPtr->unknown_13e) {
         return false;
     }
     if (!OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x22))) {
@@ -1929,7 +1929,7 @@ void __fastcall Kick_Player_Now(ConnManClass *net, int index, FrameSyncStruct *t
         Debug_Printf("Kick_Player_Now bailing - bad house ID\n");
         return;
     }
-    Houses[id]->unknown_150 = true;
+    Houses[id]->LostConnection = true;
     if (Unknown_005C3150(Houses[id]) == 1 && unknown_game_mode_a3d298 == 4 && !GameStatisticsPacketSent) {
         Unknown_0069A160();
         unknown_flag_abd500 = true;
@@ -1938,8 +1938,8 @@ void __fastcall Kick_Player_Now(ConnManClass *net, int index, FrameSyncStruct *t
         }
         for (i = 0; i < Houses.Count(); i++) {
             HouseClass *house = Houses[i];
-            if (house && !house->unknown_13d && house->unknown_134) {
-                house->unknown_150 = true;
+            if (house && !house->IsDefeated && house->unknown_134) {
+                house->LostConnection = true;
             }
         }
         Send_Statistics_Packet(false);
@@ -2449,7 +2449,7 @@ int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
         if (!hptr) {
             continue;
         }
-        if (!hptr->unknown_134 && !hptr->unknown_135) {
+        if (!hptr->unknown_134 && !hptr->IsPlayerControl) {
             continue;
         }
 
@@ -2739,7 +2739,7 @@ void __fastcall Unknown_00629290(int start, int count)
         if (techno != 0) {
             foot = techno->AbstractFlags.IsFoot;
         }
-        if (foot && ((FootClass *)techno)->unknown_574 < 0) {
+        if (foot && ((FootClass *)techno)->CurrentTube < 0) {
             list.Add(techno);
         }
     }
@@ -3152,7 +3152,7 @@ void __fastcall Print_CRCs(EventClass *event)
                 unsigned long val = Coord_CRC(infp->Coord) + Dir_To_256(infp->PrimaryFacing.Current());
                 Add_CRC(&GameCRC, val);
                 target_name = Sync_Target_Name(infp->unknown_228, target_id);
-                navcom_name = Sync_Target_Name(infp->unknown_494, navcom_id);
+                navcom_name = Sync_Target_Name(infp->NavCom, navcom_id);
                 fprintf(file, "COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%s(%d) Speed:%d NavCom:%s(%d)\n",
                     Coord_CRC(infp->Coord), Dir_To_256(infp->PrimaryFacing.Current()), infp->Get_Mission(),
                     infp->Type->ArrayIndex, (char const *)infp->Type->ID, target_name, target_id, int(infp->Speed * 256.0),
@@ -3176,7 +3176,7 @@ void __fastcall Print_CRCs(EventClass *event)
                     + Dir_To_256(unitp->SecondaryFacing.Current());
                 Add_CRC(&GameCRC, val);
                 target_name = Sync_Target_Name(unitp->unknown_228, target_id);
-                navcom_name = Sync_Target_Name(unitp->unknown_494, navcom_id);
+                navcom_name = Sync_Target_Name(unitp->NavCom, navcom_id);
                 fprintf(file, "COORD:%x   Facing:%d   Facing2:%d   Mission:%d   Type:%d(%s)   Tgt:%s(%d)  NavCom:%s(%d)   TrkNum:%d TrkInd:%d SpdAc:%d\n",
                     Coord_CRC(unitp->Coord), Dir_To_256(unitp->PrimaryFacing.Current()), Dir_To_256(unitp->SecondaryFacing.Current()),
                     unitp->Get_Mission(), unitp->Type->ArrayIndex, (char const *)unitp->Type->ID, target_name, target_id,
@@ -3447,7 +3447,7 @@ void __fastcall Unknown_0062CF40(int index)
         obj->Owner = infp->House->ArrayIndex;
         obj->TypeName[sizeof(obj->TypeName) - 1] = 0;
         strncpy(obj->TypeName, infp->Type->ID, sizeof(obj->TypeName) - 1);
-        target = infp->unknown_494;
+        target = infp->NavCom;
         id = 0;
         if (target) {
             is_object = target->AbstractFlags.IsTechno;
@@ -3503,7 +3503,7 @@ void __fastcall Unknown_0062CF40(int index)
         obj->SpeedAccum = unitp->Locomotor.Checked()->Get_Speed_Accum();
         obj->TypeName[sizeof(obj->TypeName) - 1] = 0;
         strncpy(obj->TypeName, unitp->Type->ID, sizeof(obj->TypeName) - 1);
-        target = unitp->unknown_494;
+        target = unitp->NavCom;
         id = 0;
         if (target) {
             is_object = target->AbstractFlags.IsTechno;
@@ -3556,7 +3556,7 @@ void __fastcall Unknown_0062CF40(int index)
         obj->Owner = aircraftp->House->ArrayIndex;
         obj->TypeName[sizeof(obj->TypeName) - 1] = 0;
         strncpy(obj->TypeName, aircraftp->Type->ID, sizeof(obj->TypeName) - 1);
-        target = aircraftp->unknown_494;
+        target = aircraftp->NavCom;
         id = 0;
         if (target) {
             is_object = target->AbstractFlags.IsTechno;

@@ -87,7 +87,7 @@ FoggedObjectClass::FoggedObjectClass(NoInitClass const &noinit)
 // An empty fogged object, listed in Array.
 FoggedObjectClass::FoggedObjectClass()
     : unknown_24(-1), unknown_28(0), unknown_2c(0), unknown_30(0), Coord(0, 0, 0),
-      unknown_40(0, 0, 0, 0), unknown_50(0), unknown_54(-1), unknown_58(0), unknown_74(true)
+      unknown_40(0, 0, 0, 0), unknown_50(0), unknown_54(-1), unknown_58(0), CanDraw(true)
 {
     Array.Add(this);
 }
@@ -102,7 +102,7 @@ FoggedObjectClass::FoggedObjectClass()
 #include "shared/tactical.hpp"
 FoggedObjectClass::FoggedObjectClass(CoordStruct const &coord, int arg24, int arg2c)
     : unknown_24(arg24), unknown_28(0), unknown_2c(arg2c), unknown_30(0x14), Coord(coord),
-      unknown_50(Map[coord].Height), unknown_54(-1), unknown_58(0), unknown_74(true)
+      unknown_50(Map[coord].Height), unknown_54(-1), unknown_58(0), CanDraw(true)
 {
     CellClass &cell = Map[coord];
     unknown_40 = Union(cell.Overlay_Render_Rect(), cell.Overlay_Shadow_Render_Rect());
@@ -119,7 +119,7 @@ FoggedObjectClass::FoggedObjectClass(CoordStruct const &coord, int arg24, int ar
 // rectangle around its screen position, listed in Array and Index.
 FoggedObjectClass::FoggedObjectClass(CoordStruct const &coord, int arg54, unsigned int arg58)
     : unknown_24(-1), unknown_28(0), unknown_2c(0), unknown_30(0x1D),
-      unknown_50(Map[coord].Height), unknown_54(arg54), unknown_58(arg58), unknown_74(true)
+      unknown_50(Map[coord].Height), unknown_54(arg54), unknown_58(arg58), CanDraw(true)
 {
     CellClass &cell = Map[coord];
     CoordStruct position = coord;
@@ -142,12 +142,12 @@ FoggedObjectClass::FoggedObjectClass(CoordStruct const &coord, int arg54, unsign
 #include "shared/anim.hpp"
 FoggedObjectClass::FoggedObjectClass(BuildingClass *building,bool fade)
     : unknown_24(-1),unknown_28(building->House),unknown_2c(0),unknown_30(6),Coord(building->Coord),
-      unknown_50(Map[CoordStruct(building->Coord)].Height),unknown_54(-1),unknown_58(0),unknown_74(fade)
+      unknown_50(Map[CoordStruct(building->Coord)].Height),unknown_54(-1),unknown_58(0),CanDraw(fade)
 {
     unknown_40=building->Get_Render_Rect();
     Array.Add(this);
     Index.Add_Index(unknown_index_key(unknown_coord_cell(Coord),unknown_30),this);
-    building->unknown_5b7=true;
+    building->IsFogged=true;
     int shape=building->unknown_43be20();
     DrawRecord record;
     record.Type=building->Type;
@@ -180,7 +180,7 @@ FoggedObjectClass::FoggedObjectClass(BuildingClass *building,bool fade)
 // A fogged copy of an animation: one draw record for its type, listed in Array and Index.
 FoggedObjectClass::FoggedObjectClass(AnimClass *anim)
     : unknown_24(-1), unknown_28(0), unknown_2c(0), unknown_30(0x24), Coord(anim->Coord),
-      unknown_50(Map[CoordStruct(anim->Coord)].Height), unknown_54(-1), unknown_58(0), unknown_74(true)
+      unknown_50(Map[CoordStruct(anim->Coord)].Height), unknown_54(-1), unknown_58(0), CanDraw(true)
 {
     unknown_40 = anim->Get_Render_Rect();
     unknown_40.X += TacticalMap->TacPixelX;
@@ -206,7 +206,7 @@ FoggedObjectClass::~FoggedObjectClass()
     if (unknown_30 == 6) {
         BuildingClass *building = (BuildingClass *)Map[cell].Cell_Building();
         if (building != 0) {
-            building->unknown_5b7 = false;
+            building->IsFogged = false;
             for (int index = 0; index < 18; index++) {
                 if (building->unknown_454[index] != 0) {
                     ((AnimClass *)building->unknown_454[index])->IsFogged = false;
@@ -265,7 +265,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
 
         FoggedObjectClass *data = FoggedObjectClass::Index.Fetch_By_Position(index);
 
-        if (!data->unknown_74) {
+        if (!data->CanDraw) {
             continue;
         }
 

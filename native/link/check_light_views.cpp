@@ -15,7 +15,7 @@ static_assert(offsetof(MapClass, MapSize) == 0x168, "map_view.hpp MapClass::MapS
 static_assert(offsetof(MapClass, MapLocalSize) == 0x178, "map_view.hpp MapClass::MapLocalSize");
 static_assert(offsetof(MapClass, unknown_120) == 0x1A8, "map_view.hpp MapClass::unknown_120");
 static_assert(offsetof(DisplayClass, PendingObjectPtr) == 0x1258, "map_view.hpp DisplayClass::PendingObjectPtr");
-static_assert(offsetof(DisplayClass, unknown_11b4) == 0x1274, "map_view.hpp DisplayClass::unknown_11b4");
+static_assert(offsetof(DisplayClass, IsTargettingMode) == 0x1274, "map_view.hpp DisplayClass::IsTargettingMode");
 static_assert(offsetof(RadarClass, unknown_11b8) == 0x1278, "map_view.hpp RadarClass::unknown_11b8");
 static_assert(offsetof(RadarClass, unknown_1220) == 0x12F0, "map_view.hpp RadarClass::unknown_1220");
 static_assert(offsetof(SidebarClass, Column) == 0x16E8, "map_view.hpp SidebarClass::Column");

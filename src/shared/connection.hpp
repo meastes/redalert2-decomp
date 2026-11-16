@@ -53,10 +53,10 @@ public:
     static char *Commands[PACKET_COUNT];                                // 0x007D30DC
 
     CommBufferClass *Queue;             // +0x04
-    unsigned long unknown_08;           // +0x08 resends
-    unsigned long unknown_0c;           // +0x0C packets lost (no-ACK stream)
+    unsigned long NumResends;           // +0x08 resends
+    unsigned long NumLost;           // +0x0C packets lost (no-ACK stream)
     unsigned long unknown_10;           // +0x10 percent received (no-ACK stream)
-    unsigned long unknown_14;           // +0x14 receive failures
+    unsigned long MissedOverall;           // +0x14 receive failures
     unsigned long unknown_18;           // +0x18 bad magic numbers
     int MaxPacketLen;                   // +0x1C
     char *PacketBuf;                    // +0x20

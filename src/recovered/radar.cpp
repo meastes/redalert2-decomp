@@ -972,7 +972,7 @@ void RadarClass::Draw_Names()
                 ColorScheme *scheme;
                 unsigned flags;
                 int color = house->ColorSchemeIndex;
-                if (house->unknown_13d) {
+                if (house->IsDefeated) {
                     scheme = Fetch_Scheme_By_Name("Grey", 1);
                     flags = 0x19;
                 } else {
@@ -2214,7 +2214,7 @@ bool __fastcall RadarClass_Is_Radar_Active(int radar_address)
 // when the radar is up, otherwise turn it on or off (0x00632F30).
 void RadarClass::Radar_Activate(int control, bool sound)
 {
-    if (unknown_game_mode_a3d298 && PlayerPtr->unknown_13d && MuteSWLaunches) {
+    if (unknown_game_mode_a3d298 && PlayerPtr->IsDefeated && MuteSWLaunches) {
         control = 1;
     }
     if (RadarMode == control) {

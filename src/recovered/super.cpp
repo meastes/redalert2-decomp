@@ -660,7 +660,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                             foot->Locomotor.Checked()->Mark_All_Occupation_Bits(0);
                             foot->Locomotor.Checked()->Force_Track(-1, CoordStruct(coord));
                             object->Clear_Occupy_Bit(coord);
-                            foot->unknown_5a0 = true;
+                            foot->IsOccupyingCell = true;
                         }
                         teleport.Checked()->Link_To_Object(object);
                         piggyback = UnknownComPtr<IPiggyback, &unknown_uuid_IPiggyback_7cfc30>(teleport);

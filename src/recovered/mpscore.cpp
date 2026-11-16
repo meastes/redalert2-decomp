@@ -157,7 +157,7 @@ void MP_Tally_Scores_005AABD0()
             unknown_session_a3d298.Scores[index].Built = 0;
             unknown_session_a3d298.Scores[index].Score = 0;
             unknown_session_a3d298.Scores[index].Scheme = house->ColorSchemeIndex;
-            if (!house->unknown_13d) {
+            if (!house->IsDefeated) {
                 unknown_session_a3d298.Scores[index].Winner++;
                 unknown_session_a3d298.ScoreWinner = index;
             }
@@ -179,7 +179,7 @@ void MP_Tally_Scores_005AABD0()
             if (house->unknown_5418 > 0) {
                 unknown_session_a3d298.Scores[index].Score += house->unknown_5418;
             }
-            if (!house->unknown_13d) {
+            if (!house->IsDefeated) {
                 int score = unknown_session_a3d298.Scores[index].Score;
                 unknown_session_a3d298.Scores[index].Score = Random_Pick(score / 2, score) + score / 2 + score;
             }

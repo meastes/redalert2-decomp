@@ -376,14 +376,14 @@ public:
     // +0x00 three owned blocks per house (8 houses): the static initializer 0x0042D960
     // clears the 0x18 words, its atexit 0x0042D990 deletes each non-null one.
     UnknownBeacon *unknown_00[8][3];
-    int unknown_60;                 // the beacons are enabled
+    int AllocatedCount;                 // the beacons are enabled
     int unknown_64;                 // +0x64..+0x6C the PBEACON.SHP width, height and frame count
     int unknown_68;
-    int unknown_6c;
+    int BeaconFrameCount;
     int unknown_70;                 // +0x70..+0x78 the RDRBEACN.SHP width, height and frame count
     int unknown_74;
-    int unknown_78;
-    int unknown_7c;                 // +0x7C the radar beacon's blink cycle (frames << 2)
+    int RadarBeaconFrameCount;
+    int RadarBeaconAnimPeriod;                 // +0x7C the radar beacon's blink cycle (frames << 2)
     CoordStruct unknown_80;         // +0x80 the position a new beacon starts at
 };
 extern BeaconManagerClass BeaconManager;

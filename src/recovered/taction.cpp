@@ -875,7 +875,7 @@ bool TActionClass::TAction_PREFERRED_TARGET(HouseClass *house, ObjectClass *obje
 bool TActionClass::unknown_base_building(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (Data.Boolean) {
-        house->unknown_13b = true;
+        house->IsBaseBuilding = true;
         if (house->unknown_50.Count() > 0) {
             CoordStruct coord = house->unknown_50[0]->Coord;
             Cell center = coord.As_Cell();
@@ -886,7 +886,7 @@ bool TActionClass::unknown_base_building(HouseClass *house, ObjectClass *object,
             house->Begin_Construction();
         }
     } else {
-        house->unknown_13b = false;
+        house->IsBaseBuilding = false;
     }
     return true;
 }
@@ -929,7 +929,7 @@ bool TActionClass::unknown_clear_local_variable(HouseClass *house, ObjectClass *
 
 bool TActionClass::unknown_reveal_around_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (!PlayerPtr->unknown_188) {
+    if (!PlayerPtr->IsVisionary) {
         Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value);
         int extra;
         if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
@@ -969,7 +969,7 @@ bool TActionClass::unknown_map_55d990_at_waypoint(HouseClass *house, ObjectClass
 
 bool TActionClass::unknown_reveal_zone_of_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (!PlayerPtr->unknown_188) {
+    if (!PlayerPtr->IsVisionary) {
         int zone = Map.Zone(unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value), 1, false);
         Map.Unknown_0055AA50();
         CellClass *cellptr;
@@ -994,8 +994,8 @@ bool TActionClass::unknown_reveal_zone_of_waypoint(HouseClass *house, ObjectClas
 
 bool TActionClass::unknown_reveal_whole_map(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (!PlayerPtr->unknown_188) {
-        PlayerPtr->unknown_188 = true;
+    if (!PlayerPtr->IsVisionary) {
+        PlayerPtr->IsVisionary = true;
         Map.Reset_Iterator();
         CellClass *cell;
         while ((cell = Map.Iterate()) != 0) {
@@ -1219,7 +1219,7 @@ bool TActionClass::TAction_STOP_SOUND_AT(HouseClass *house, ObjectClass *object,
 
 bool TActionClass::TAction_REVEAL_AROUND_WAYPOINT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (!PlayerPtr->unknown_188) {
+    if (!PlayerPtr->IsVisionary) {
         Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value);
         int extra;
         if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
@@ -1342,7 +1342,7 @@ bool TActionClass::TAction_LOSE(HouseClass *house, ObjectClass *object, TriggerC
 bool TActionClass::unknown_set_house_136(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (Data.Value != -1) {
-        HouseClass::As_Pointer(Data.Value)->unknown_136 = true;
+        HouseClass::As_Pointer(Data.Value)->IsStarted = true;
     }
     return true;
 }
@@ -1366,7 +1366,7 @@ bool TActionClass::unknown_set_house_198(HouseClass *house, ObjectClass *object,
 bool TActionClass::unknown_set_house_137(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (Data.Value != -1) {
-        HouseClass::As_Pointer(Data.Value)->unknown_137 = true;
+        HouseClass::As_Pointer(Data.Value)->IsAlerted = true;
     }
     return true;
 }
@@ -1907,7 +1907,7 @@ bool TActionClass::unknown_set_session_22a8(HouseClass *house, ObjectClass *obje
 bool TActionClass::TAction_BEGIN_AI_TRIGGERS(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (Data.Value != -1) {
-        HouseClass::As_Pointer(Data.Value)->unknown_13a = true;
+        HouseClass::As_Pointer(Data.Value)->IsAITriggersOn = true;
     }
     return true;
 }
@@ -1919,7 +1919,7 @@ bool TActionClass::TAction_BEGIN_AI_TRIGGERS(HouseClass *house, ObjectClass *obj
 bool TActionClass::TAction_STOP_AI_TRIGGERS(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (Data.Value != -1) {
-        HouseClass::As_Pointer(Data.Value)->unknown_13a = false;
+        HouseClass::As_Pointer(Data.Value)->IsAITriggersOn = false;
     }
     return true;
 }

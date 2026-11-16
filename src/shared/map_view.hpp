@@ -243,31 +243,31 @@ public:
     void Unknown_00498F10(Cell const *list);                                    // 0x00498F10 (the placement cursor's cell list)
     // The pending placement (as shared/display.hpp; HouseClass::Manual_Place sets them).
 #ifdef RA2_SHARED_MAP_HPP
-    Cell unknown_1170;
-    Cell unknown_1174;
-    Cell const *unknown_1178;
-    bool unknown_117c;
-    bool unknown_117d;
-    Cell unknown_117e;
-    Cell unknown_1182;
-    Cell const *unknown_1188;
+    Cell ZoneCell;
+    Cell ZoneOffset;
+    Cell const *CursorSize;
+    bool ProximityCheck;
+    bool ShroudCheck;
+    Cell CopyZoneCell;
+    Cell CopyZoneOffset;
+    Cell const *CopyCursorSize;
     ObjectClass *CopyPendingObjectPtr;
     ObjectTypeClass *CopyPendingObject;
     int CopyPendingHouse;
-    bool unknown_1198;
-    void *unknown_119c;
+    bool FollowingObject;
+    void *FollowingObjectPtr;
 #else
     char unknown_130[0x11A0 - 0x130];
 #endif
     ObjectClass *PendingObjectPtr;      // +0x11A0 the object waiting for placement
     void *PendingObject;             // +0x11A4 its type
-    int unknown_11a8;               // +0x11A8 its house (-1)
-    bool unknown_11ac;              // +0x11AC
-    bool unknown_11ad;              // +0x11AD
-    bool unknown_11ae;              // +0x11AE
-    bool unknown_11af;              // +0x11AF
-    bool unknown_11b0;              // +0x11B0
-    int unknown_11b4;               // +0x11B4 -1
+    int PendingHouse;               // +0x11A8 its house (-1)
+    bool IsRepairMode;              // +0x11AC
+    bool IsSellMode;              // +0x11AD
+    bool IsPowerMode;              // +0x11AE
+    bool IsWaypointMode;              // +0x11AF
+    bool IsBeaconMode;              // +0x11B0
+    int IsTargettingMode;               // +0x11B4 -1
 };
 #endif
 

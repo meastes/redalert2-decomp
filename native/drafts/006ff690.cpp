@@ -72,7 +72,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     Point2D drawpoint=point;
     TechnoTypeClass *type=Type;
     if (!unknown_slot245(unknown_player_house_a35db4)) type=static_cast<TechnoTypeClass *>(GetDisguise(true));
-    int frame=unknown_430 % (int)type->Voxel.unknown_04->unknown_frame_count;
+    int frame=TotalFramesWalked % (int)type->Voxel.unknown_04->unknown_frame_count;
     Rect cliprect=window;
     Surface *old_surface=LogicalSurface;
     int key=0;

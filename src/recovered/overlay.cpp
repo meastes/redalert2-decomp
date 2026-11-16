@@ -254,7 +254,7 @@ bool OverlayClass::Mark(int mark)
                     }
 
                     if (OverlayClass_ToOwn != -1) {
-                        cellptr->unknown_50 = Map.unknown_11a8;
+                        cellptr->unknown_50 = Map.PendingHouse;
                     }
 
                     for (int face = 0; face < 8; face++) {

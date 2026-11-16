@@ -327,7 +327,7 @@ public:
     bool Is_Player_Control() const
     {
         if (unknown_game_mode_a3d298 == 0) {
-            return unknown_134 || unknown_135;
+            return unknown_134 || IsPlayerControl;
         }
         return this == PlayerPtr;
     }
@@ -336,7 +336,7 @@ public:
     bool Is_Human_Control() const
     {
         if (unknown_game_mode_a3d298 == 0) {
-            bool result = unknown_134 || unknown_135;
+            bool result = unknown_134 || IsPlayerControl;
             return result;
         }
         return unknown_134;
@@ -432,54 +432,54 @@ public:
     DynamicVectorClass<TagClass *> unknown_38;            // +0x00038 (vtable 0x007A2AE4)
     DynamicVectorClass<BuildingClass *> unknown_50;       // +0x00050 (vtable 0x007A2364)
     DynamicVectorClass<BuildingClass *> Buildings;        // +0x00068 (vtable 0x007A2364)
-    DynamicVectorClass<BuildingClass *> unknown_80;       // +0x00080 (vtable 0x007A2364)
-    DynamicVectorClass<BuildingClass *> unknown_98;       // +0x00098 (vtable 0x007A2364)
-    DynamicVectorClass<BuildingClass *> unknown_b0;       // +0x000B0 (vtable 0x007A2364)
-    int unknown_c8;                                       // +0x000C8 the scenario's computer difficulty when made
+    DynamicVectorClass<BuildingClass *> UnitRepairStations;       // +0x00080 (vtable 0x007A2364)
+    DynamicVectorClass<BuildingClass *> CloningVats;       // +0x00098 (vtable 0x007A2364)
+    DynamicVectorClass<BuildingClass *> PsychicDetectionBuildings;       // +0x000B0 (vtable 0x007A2364)
+    int Difficulty;                                       // +0x000C8 the scenario's computer difficulty when made
     int unknown_cc;                                       // +0x000CC
-    double unknown_d0;                                    // +0x000D0 (1.0)
-    double unknown_d8;                                    // +0x000D8 (1.0)
+    double FirepowerBias;                                    // +0x000D0 (1.0)
+    double GroundspeedBias;                                    // +0x000D8 (1.0)
     double unknown_e0;                                    // +0x000E0 (1.0)
-    double unknown_e8;                                    // +0x000E8 (1.0)
+    double ArmorBias;                                    // +0x000E8 (1.0)
     double unknown_f0;                                    // +0x000F0 (1.0)
-    double unknown_f8;                                    // +0x000F8 (1.0)
+    double CostBias;                                    // +0x000F8 (1.0)
     double unknown_100;                                   // +0x00100 (1.0)
     double unknown_108;                                   // +0x00108
-    double unknown_110;                                   // +0x00110
+    double BuildDelay;                                   // +0x00110
     int unknown_118;                                      // +0x00118
     int unknown_11c;                                      // +0x0011C (1)
     int unknown_120;                                      // +0x00120
     int unknown_124;                                      // +0x00124
     int unknown_128;                                      // +0x00128
-    int unknown_12c;                                      // +0x0012C
+    int ProductionMode;                                      // +0x0012C
     int ActLike;                                      // +0x00130 (TechnoClass constructor)
     bool unknown_134;                                     // +0x00134
-    bool unknown_135;                                     // +0x00135
-    bool unknown_136;                                     // +0x00136
-    bool unknown_137;                                     // +0x00137
+    bool IsPlayerControl;                                     // +0x00135
+    bool IsStarted;                                     // +0x00136
+    bool IsAlerted;                                     // +0x00137
     bool unknown_138;                                     // +0x00138 (true)
-    bool unknown_139;                                     // +0x00139
-    bool unknown_13a;                                     // +0x0013A
-    bool unknown_13b;                                     // +0x0013B
+    bool IsShipyardConYardWanted;                                     // +0x00139
+    bool IsAITriggersOn;                                     // +0x0013A
+    bool IsBaseBuilding;                                     // +0x0013B
     bool IsDiscovered;                                     // +0x0013C
-    bool unknown_13d;                                     // +0x0013D
+    bool IsDefeated;                                     // +0x0013D
     bool unknown_13e;                                     // +0x0013E
-    bool unknown_13f;                                     // +0x0013F
+    bool IsToWin;                                     // +0x0013F
     bool unknown_140;                                     // +0x00140
-    bool unknown_141;                                     // +0x00141
+    bool IsCivEvacuated;                                     // +0x00141
     bool unknown_142;                                     // +0x00142
-    bool unknown_143;                                     // +0x00143
+    bool IsThreatRatingNodeActive;                                     // +0x00143
     bool IsRecalcNeeded;                                     // +0x00144 (true)
-    int unknown_148;                                      // +0x00148
-    int unknown_14c;                                      // +0x0014C
-    bool unknown_150;                                     // +0x00150
-    int unknown_154;                                      // +0x00154 (-1; the current waypoint path)
+    int IPAddress;                                      // +0x00148
+    int SquadID;                                      // +0x0014C
+    bool LostConnection;                                     // +0x00150
+    int SelectedPath;                                      // +0x00154 (-1; the current waypoint path)
     WaypointPathClass *WaypointPaths[12];                 // +0x00158 (made on demand, 0x004EE8A0)
-    bool unknown_188;                                     // +0x00188
-    bool unknown_189;                                     // +0x00189
-    bool unknown_18a;                                     // +0x0018A
-    bool unknown_18b;                                     // +0x0018B
-    bool unknown_18c;                                     // +0x0018C
+    bool IsVisionary;                                     // +0x00188
+    bool IsTiberiumShort;                                     // +0x00189
+    bool IsSpied;                                     // +0x0018A
+    bool IsThieved;                                     // +0x0018B
+    bool DidRepair;                                     // +0x0018C
     bool unknown_18d;                                     // +0x0018D
     bool unknown_18e;                                     // +0x0018E
     bool unknown_18f;                                     // +0x0018F

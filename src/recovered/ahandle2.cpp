@@ -258,7 +258,7 @@ void AircraftTrackerClass::Unknown_004131E0(FootClass *foot)
 // Whether another object occupies the cell beneath this foot.
 bool AircraftTrackerClass::Unknown_004132E0(FootClass *foot)
 {
-    void *occupant=static_cast<CellClass *>(foot->Get_Cell_Ptr())->unknown_e0;
+    void *occupant=static_cast<CellClass *>(foot->Get_Cell_Ptr())->Jumpjet;
     if (occupant && occupant!=foot) return true;
     return false;
 }

@@ -19,7 +19,7 @@ void BombClass::Disarm()
     Target = 0;
     unknown_28 = 0;
     unknown_3c.Unknown_00405FE0();
-    unknown_54 = 0;
+    ShouldPlayTickingSound = 0;
 }
 
 // ObjectClass's base bodies of three virtuals (pass-6a decompiles: one-line leaves,

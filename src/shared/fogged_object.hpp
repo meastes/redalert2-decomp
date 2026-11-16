@@ -82,7 +82,7 @@ public:
     int unknown_54;                                 // +0x54 (-1)
     int unknown_58;                                 // +0x58
     DynamicVectorClass<DrawRecord> DrawRecords;     // +0x5C
-    bool unknown_74;                                // +0x74 (true)
+    bool CanDraw;                                // +0x74 (true)
 };
 
 #endif

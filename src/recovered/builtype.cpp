@@ -740,9 +740,9 @@ inline bool Scatter_Allied_Occupant_00458B10(TechnoClass *techno,Cell const &cel
  FootClass *foot=Mobile_Occupant_00458B10(techno);
  if(!foot)return false;
  scattered=true;
- if(foot->unknown_494) {
+ if(foot->NavCom) {
   CoordStruct position=foot->Coord;
-  if(&Map[position]!=foot->unknown_494)return true;
+  if(&Map[position]!=foot->NavCom)return true;
  }
  Map[cell].Incoming(&unknown_geometry_l,true,true,false);
  return true;

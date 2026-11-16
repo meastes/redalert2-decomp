@@ -25,7 +25,7 @@ public:
     // Fills the session's score records from the houses (0x00465D10).
     void unknown_465d10();
 
-    int unknown_04;                                              // +0x04
+    int Field4;                                              // +0x04
 };
 
 // Shown when the cooperative campaign ends.

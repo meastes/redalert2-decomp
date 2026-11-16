@@ -104,18 +104,18 @@
 DriveLocomotionClass::DriveLocomotionClass() :
     unknown_1c(0),
     unknown_20(0),
-    unknown_34(unknown_geometry_l),
+    DestinationCoord(unknown_geometry_l),
     unknown_40(unknown_geometry_l),
-    unknown_4c(0),
+    SpeedAccum(0),
     unknown_50(0),
-    unknown_58(-1),
-    unknown_5c(-1),
+    TrackNumber(-1),
+    TrackIndex(-1),
     unknown_60(false),
-    unknown_61(false),
-    unknown_62(false),
-    unknown_63(false),
+    IsTurretLockedDown(false),
+    IsRotating(false),
+    IsDriving(false),
     unknown_64(false),
-    unknown_65(true)
+    IsLocomotorUnlocked(true)
 {
 }
 
@@ -252,7 +252,7 @@ HRESULT __stdcall DriveLocomotionClass::End_Piggyback(ILocomotion **pointer)
 
 bool __stdcall DriveLocomotionClass::Is_Ok_To_End()
 {
-    if (!Is_Moving() && Piggybacker != 0 && unknown_65) {
+    if (!Is_Moving() && Piggybacker != 0 && IsLocomotorUnlocked) {
         return true;
     }
     return false;
@@ -269,7 +269,7 @@ Matrix3D *DriveLocomotionClass::unknown_49faa0(Matrix3D *matrix)
 {
     Matrix3D tilt;
     tilt.Make_Identity();
-    if (!unknown_24.Has_Completed2()) {
+    if (!RampTimer.Has_Completed2()) {
         Matrix3D blend;
         double ratio = Slope_Ratio();
         tilt = *Get_Slope_Transition_Matrix(&blend, unknown_20, unknown_1c, ratio);
@@ -287,7 +287,7 @@ Matrix3D *DriveLocomotionClass::unknown_49faa0(Matrix3D *matrix)
 
 double DriveLocomotionClass::Slope_Ratio()
 {
-    return unknown_24.Progress();
+    return RampTimer.Progress();
 }
 
 
@@ -299,7 +299,7 @@ void DriveLocomotionClass::Set_Slope(int ramp)
     if (ramp != unknown_1c) {
         unknown_20 = unknown_1c;
         unknown_1c = ramp;
-        unknown_24 = UnknownSlopeTimer(3);
+        RampTimer = UnknownSlopeTimer(3);
     }
 }
 
@@ -311,7 +311,7 @@ void __stdcall DriveLocomotionClass::Force_New_Slope(int ramp)
 {
     unknown_20 = ramp;
     unknown_1c = ramp;
-    unknown_24 = UnknownSlopeTimer();
+    RampTimer = UnknownSlopeTimer();
 }
 
 
@@ -321,7 +321,7 @@ void __stdcall DriveLocomotionClass::Force_New_Slope(int ramp)
 
 bool __stdcall DriveLocomotionClass::Is_Moving()
 {
-    if (unknown_34 != unknown_geometry_l) {
+    if (DestinationCoord != unknown_geometry_l) {
         return true;
     }
     if (unknown_40 != unknown_geometry_l) {
@@ -352,7 +352,7 @@ bool __stdcall DriveLocomotionClass::Is_Moving_Now()
 
 CoordStruct __stdcall DriveLocomotionClass::Destination()
 {
-    return CoordStruct(unknown_34.X, unknown_34.Y, unknown_34.Z);
+    return CoordStruct(DestinationCoord.X, DestinationCoord.Y, DestinationCoord.Z);
 }
 
 
@@ -376,11 +376,11 @@ CoordStruct __stdcall DriveLocomotionClass::Head_To_Coord()
 void __stdcall DriveLocomotionClass::Move_To(COMCoordStruct to)
 {
     if (!LinkedTo->unknown_slot201() && !LinkedTo->unknown_slot202() && !LinkedTo->unknown_slot111() && !LinkedTo->unknown_slot112()) {
-        unknown_34 = CoordStruct(to.X, to.Y, to.Z);
+        DestinationCoord = CoordStruct(to.X, to.Y, to.Z);
         if (to != unknown_geometry_l) {
             to = CoordStruct(to.X, to.Y, to.Z);
             if (Loco_Cell(to)->Flags & 0x100) {
-                unknown_34.Z += unknown_geometry_j;
+                DestinationCoord.Z += unknown_geometry_j;
             }
         }
     }
@@ -405,7 +405,7 @@ void __stdcall DriveLocomotionClass::Stop_Moving()
         }
     }
     unknown_50 = Min(unknown_50, 0.3f);
-    unknown_34 = unknown_geometry_l;
+    DestinationCoord = unknown_geometry_l;
 }
 
 
@@ -517,19 +517,19 @@ void __stdcall DriveLocomotionClass::Unlimbo()
 bool __stdcall DriveLocomotionClass::Process()
 {
     Set_Slope(static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->Ramp);
-    if (unknown_58 != -1 && unknown_63) {
+    if (TrackNumber != -1 && IsDriving) {
         if (While_Moving(false)) {
             return false;
         }
         if (!LinkedTo->IsActive) {
             return false;
         }
-        if (unknown_58 == -1 && (Is_Moving() || LinkedTo->unknown_4d0 != -1)
+        if (TrackNumber == -1 && (Is_Moving() || LinkedTo->unknown_4d0 != -1)
             && (LinkedTo->Kind_Of() != 1 || !((UnitClass *)LinkedTo)->unknown_5b9)) {
             bool stop = false;
-            if (LinkedTo->Kind_Of() == 1 && LinkedTo->unknown_494 != 0 && LinkedTo->unknown_494->Kind_Of() == 15) {
-                CoordStruct coord = LinkedTo->unknown_494->unknown_slot19(LinkedTo);
-                if (coord != unknown_34) {
+            if (LinkedTo->Kind_Of() == 1 && LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 15) {
+                CoordStruct coord = LinkedTo->NavCom->unknown_slot19(LinkedTo);
+                if (coord != DestinationCoord) {
                     Move_To(coord);
                 }
             }
@@ -546,22 +546,22 @@ bool __stdcall DriveLocomotionClass::Process()
             }
         }
     } else {
-        if (LinkedTo->unknown_494 != 0 && LinkedTo->unknown_494->Kind_Of() == 11) {
-            CellClass *cell = (CellClass *)LinkedTo->unknown_494;
+        if (LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 11) {
+            CellClass *cell = (CellClass *)LinkedTo->NavCom;
             if (LinkedTo->unknown_slot104() == cell->Fetch_CellID()) {
                 Abandon_Navigation();
                 return false;
             }
         }
-        if (LinkedTo->Mission == 5 && !unknown_63 && unknown_34 != unknown_geometry_l && Object_Coord(LinkedTo) == unknown_34) {
+        if (LinkedTo->Mission == 5 && !IsDriving && DestinationCoord != unknown_geometry_l && Object_Coord(LinkedTo) == DestinationCoord) {
             Abandon_Navigation();
             return false;
         }
         if (LinkedTo->PrimaryFacing.Is_Rotating()) {
-            unknown_62 = true;
+            IsRotating = true;
         } else {
-            if (unknown_62) {
-                unknown_62 = false;
+            if (IsRotating) {
+                IsRotating = false;
                 LinkedTo->unknown_slot93(0);
                 if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) {
                     return false;
@@ -569,7 +569,7 @@ bool __stdcall DriveLocomotionClass::Process()
             }
             if ((LinkedTo->Get_Mission() != 5 || Is_Moving()) && LinkedTo->Get_Mission() != 16) {
                 if (Is_Moving() || LinkedTo->unknown_4d0 != -1) {
-                    if (LinkedTo->unknown_32d && LinkedTo->Get_Mission() != 7 && Is_Moving() && !LinkedTo->unknown_slot171(unknown_34)) {
+                    if (LinkedTo->unknown_32d && LinkedTo->Get_Mission() != 7 && Is_Moving() && !LinkedTo->unknown_slot171(DestinationCoord)) {
                         Stop_Driver();
                         if (Abandon_Navigation()) {
                             return false;
@@ -591,8 +591,8 @@ bool __stdcall DriveLocomotionClass::Process()
                 } else if (LinkedTo->unknown_325) {
                     Stop_Driver();
                     unknown_50 = 0;
-                } else if (LinkedTo->unknown_494 != 0) {
-                    Move_To(LinkedTo->unknown_494->unknown_slot19(LinkedTo));
+                } else if (LinkedTo->NavCom != 0) {
+                    Move_To(LinkedTo->NavCom->unknown_slot19(LinkedTo));
                 }
             }
         }
@@ -601,7 +601,7 @@ bool __stdcall DriveLocomotionClass::Process()
         && static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->Land_Type() == 2 && Rules->Wake != 0) {
         new AnimClass(Rules->Wake, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
     }
-    if (unknown_34 == unknown_geometry_l && unknown_40 == unknown_geometry_l && LinkedTo->unknown_4d0 == -1 && LinkedTo->Speed > 0.0) {
+    if (DestinationCoord == unknown_geometry_l && unknown_40 == unknown_geometry_l && LinkedTo->unknown_4d0 == -1 && LinkedTo->Speed > 0.0) {
         LinkedTo->unknown_slot306(0.0);
     }
     return Is_Moving();
@@ -617,14 +617,14 @@ void DriveLocomotionClass::unknown_4a0bc0(CoordStruct const &headto, int mark)
     if (headto == unknown_geometry_l) {
         return;
     }
-    if (!unknown_60 && unknown_58 != -1) {
-        int track = DriveTrackControl[unknown_58].Track;
+    if (!unknown_60 && TrackNumber != -1) {
+        int track = DriveTrackControl[TrackNumber].Track;
         if (track) {
             TrackType const *points = DriveRawTracks[track - 1].Track;
             int cell = DriveRawTracks[track - 1].Cell;
             if (cell > -1) {
                 int facing = points[cell].Facing;
-                if (unknown_5c < cell) {
+                if (TrackIndex < cell) {
                     Point2D offset = points[cell].Offset;
                     Point2D point = Smooth_Turn(offset, facing);
                     if (mark == 0) {
@@ -652,11 +652,11 @@ void DriveLocomotionClass::unknown_4a0bc0(CoordStruct const &headto, int mark)
 
 void __stdcall DriveLocomotionClass::Force_Track(int track, CoordStruct coord)
 {
-    unknown_58 = track;
-    unknown_5c = 0;
+    TrackNumber = track;
+    TrackIndex = 0;
     if (coord != unknown_geometry_l) {
         if (Start_Driver(CoordStruct(coord.X, coord.Y, coord.Z))) {
-            unknown_34 = coord;
+            DestinationCoord = coord;
             unknown_50 = 1.0;
         }
     }
@@ -671,7 +671,7 @@ bool DriveLocomotionClass::Stop_Driver()
 {
     if (unknown_40 != unknown_geometry_l) {
         unknown_40 = unknown_geometry_l;
-        unknown_63 = false;
+        IsDriving = false;
         return true;
     }
     return false;
@@ -689,14 +689,14 @@ bool DriveLocomotionClass::Start_Driver(CoordStruct const &headto)
     Stop_Driver();
     if (headto != unknown_geometry_l) {
         unknown_40 = headto;
-        unknown_63 = true;
+        IsDriving = true;
         if (Map[headto].Goodie_Check(LinkedTo) && !LinkedTo->IsInLimbo) {
             unknown_4a0bc0(headto, 1);
             return true;
         }
         if (LinkedTo->IsActive) {
             unknown_40 = unknown_geometry_l;
-            unknown_63 = false;
+            IsDriving = false;
         }
     }
     return false;
@@ -756,14 +756,14 @@ inline CoordStruct::CoordStruct(Point2D const &point, int z) : BASECLASS(point.X
 
 bool DriveLocomotionClass::While_Moving(bool just_started)
 {
-    if ((!unknown_63 || unknown_58 == -1) && LinkedTo->Path[0] != 8 || (unknown_62 && !LinkedTo->Techno_Type_Class()->Turret)) {
-        unknown_4c = 0;
+    if ((!IsDriving || TrackNumber == -1) && LinkedTo->Path[0] != 8 || (IsRotating && !LinkedTo->Techno_Type_Class()->Turret)) {
+        SpeedAccum = 0;
         return false;
     }
     if (LinkedTo->Techno_Type_Class()->Accelerates) {
         bool not_passive = LinkedTo->Kind_Of() != 1 || !((UnitClass *)LinkedTo)->Type->Passive;
-        if (unknown_58 < 0x40 && not_passive) {
-            CoordStruct dest_coord = unknown_34;
+        if (TrackNumber < 0x40 && not_passive) {
+            CoordStruct dest_coord = DestinationCoord;
             dest_coord.Z = Map.Get_Height_GL(dest_coord) + (Map[dest_coord].IsUnderBridge ? unknown_geometry_j : 0);
             int distance = (Object_Coord(LinkedTo) - CoordStruct(dest_coord)).Length();
 
@@ -781,7 +781,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                 forced_speed = true;
             }
 
-            if (LinkedTo->unknown_59f) {
+            if (LinkedTo->IsCrushing) {
                 unknown_50 = MIN(unknown_50, 0.2);
                 LinkedTo->unknown_slot306(unknown_50);
             } else if (forced_speed) {
@@ -810,12 +810,12 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
     int current_speed = LinkedTo->Current_Speed();
 
     int actual;
-    actual = unknown_4c + (just_started ? 0 : current_speed);
+    actual = SpeedAccum + (just_started ? 0 : current_speed);
 
     int nextface;
     nextface = LinkedTo->Path[0];
 
-    if (nextface == 8 && unknown_58 == -1) {
+    if (nextface == 8 && TrackNumber == -1) {
         LinkedTo->Mark(0);
         Stop_Driver();
 
@@ -827,19 +827,19 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
             unknown_40 = c.As_Coord();
             memcpy((char *)&LinkedTo->Path, (char *)&LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
             LinkedTo->Path[23] = -1;
-            LinkedTo->unknown_574 = tubenum;
+            LinkedTo->CurrentTube = tubenum;
             TPoint2D<short> const &enter = tube->EnterCell;
-            LinkedTo->unknown_575 = 0;
+            LinkedTo->CurrentTubeDir = 0;
             LinkedTo->unknown_45c = Map[Adjacent_Cell(Cell(enter), tube->Directions[0])].unknown_475d60();
             int current_height = Map.Get_Height_GL(Object_Coord(LinkedTo));
             Cell exit = tube->ExitCell;
             int count = tube->unknown_1c0;
             LinkedTo->unknown_45c.Z = current_height + (Map.Get_Height_GL(exit) - current_height) / count;
-            unknown_63 = true;
-            unknown_58 = -1;
+            IsDriving = true;
+            TrackNumber = -1;
         } else {
             LinkedTo->Path[0] = -1;
-            unknown_58 = -1;
+            TrackNumber = -1;
             unknown_40 = unknown_geometry_l;
             Stop_Driver();
         }
@@ -852,7 +852,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
         int tracknum;
         bool adj;
 
-        track = &DriveTrackControl[unknown_58];
+        track = &DriveTrackControl[TrackNumber];
         if (unknown_60) {
             tracknum = track->StartTrack;
         } else {
@@ -876,24 +876,24 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
             actual -= 7;
 
-            offset = ptr[unknown_5c].Offset;
-            if (offset != Point2D(0, 0) || !unknown_5c) {
+            offset = ptr[TrackIndex].Offset;
+            if (offset != Point2D(0, 0) || !TrackIndex) {
                 if (LinkedTo->unknown_slot47()) {
                     LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
-                    LinkedTo->unknown_5a0 = false;
-                    LinkedTo->unknown_5a1 = false;
+                    LinkedTo->IsOccupyingCell = false;
+                    LinkedTo->IsToPathAroundBlockage = false;
                 }
 
                 Cell oldcell;
-                if (!unknown_5c) {
+                if (!TrackIndex) {
                     oldcell = LinkedTo->unknown_slot104();
                 } else {
-                    dir = ptr[unknown_5c - 1].Facing;
-                    Point2D prevoffset = ptr[unknown_5c - 1].Offset;
+                    dir = ptr[TrackIndex - 1].Facing;
+                    Point2D prevoffset = ptr[TrackIndex - 1].Offset;
                     oldcell = CoordStruct(Smooth_Turn(prevoffset, dir), 0).As_Cell();
                 }
 
-                dir = ptr[unknown_5c].Facing;
+                dir = ptr[TrackIndex].Facing;
                 CoordStruct newcoord = Point_Coord(Smooth_Turn(offset, dir), 0);
                 Cell newcoord_cell = newcoord.As_Cell();
                 Cell linked_coord_cell = Object_Coord(LinkedTo).As_Cell();
@@ -933,7 +933,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                     if (newcellptr->OverlayIndex != -1) {
                         OverlayTypeClass *otype = OverlayTypes[newcellptr->OverlayIndex];
                         if (unknown_64 && (LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->Has_Ability(0x11)) && otype->ArrayIndex == 0) {
-                            LinkedTo->unknown_59f = true;
+                            LinkedTo->IsCrushing = true;
                             TechnoTypeClass const *ttype = LinkedTo->Techno_Type_Class();
                             if (ttype->TiltsWhenCrushes) {
                                 LinkedTo->unknown_28c = -0.02f;
@@ -958,11 +958,11 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
                 LinkedTo->PrimaryFacing.Set(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
 
-                if (unknown_5c && DriveRawTracks[tracknum - 1].Cell == unknown_5c) {
+                if (TrackIndex && DriveRawTracks[tracknum - 1].Cell == TrackIndex) {
                     LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
                 }
 
-                if (nextface != 8 && nextface != -1 && adj && DriveRawTracks[tracknum - 1].Jump == unknown_5c && unknown_5c) {
+                if (nextface != 8 && nextface != -1 && adj && DriveRawTracks[tracknum - 1].Jump == TrackIndex && TrackIndex) {
                     TrackControlStruct const *newtrack;
                     int tnum;
 
@@ -978,18 +978,18 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                             case 2:
                                 if (LinkedTo->Kind_Of() == 1 && !((UnitClass *)LinkedTo)->Type->Passive) break;
                                 unknown_60 = false;
-                                unknown_58 = tnum;
+                                TrackNumber = tnum;
                                 track = newtrack;
 
                                 tracknum = track->Track;
-                                unknown_5c = DriveRawTracks[tracknum - 1].Entry - 1;
+                                TrackIndex = DriveRawTracks[tracknum - 1].Entry - 1;
                                 ptr = DriveRawTracks[tracknum - 1].Track;
                                 adj = false;
 
                                 Stop_Driver();
-                                unknown_63 = true;
+                                IsDriving = true;
                                 LinkedTo->unknown_slot93(2);
-                                unknown_63 = false;
+                                IsDriving = false;
                                 if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return false;
                                 if (Start_Driver(c)) {
                                     LinkedTo->unknown_slot306(oldspeed);
@@ -1022,14 +1022,14 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                         }
                     }
                 }
-                unknown_5c++;
+                TrackIndex++;
 
             } else {
                 CoordStruct dc = unknown_40 - Object_Coord(LinkedTo);
                 int d = abs(dc.X) + abs(dc.Y);
                 actual += (int)((1.0 - (double)d / 11.0) * 7.0);
-                LinkedTo->unknown_5a0 = true;
-                LinkedTo->unknown_5a1 = false;
+                LinkedTo->IsOccupyingCell = true;
+                LinkedTo->IsToPathAroundBlockage = false;
 
                 Cell here = Object_Coord(LinkedTo).As_Cell();
                 if (here != unknown_40.As_Cell()) {
@@ -1046,16 +1046,16 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                 }
 
                 Stop_Driver();
-                unknown_58 = -1;
-                unknown_5c = 0;
+                TrackNumber = -1;
+                TrackIndex = 0;
 
                 bool arrived = false;
-                if (LinkedTo->unknown_494 != 0 && LinkedTo->unknown_slot104() == LinkedTo->unknown_494->unknown_slot19(LinkedTo).As_Cell()) {
-                    if (abs(LinkedTo->unknown_slot19(LinkedTo).Z - unknown_34.Z) < 2 * unknown_geometry_g) {
+                if (LinkedTo->NavCom != 0 && LinkedTo->unknown_slot104() == LinkedTo->NavCom->unknown_slot19(LinkedTo).As_Cell()) {
+                    if (abs(LinkedTo->unknown_slot19(LinkedTo).Z - DestinationCoord.Z) < 2 * unknown_geometry_g) {
                         arrived = true;
-                        unknown_34 = unknown_geometry_l;
+                        DestinationCoord = unknown_geometry_l;
                         Stop_Driver();
-                        unknown_63 = false;
+                        IsDriving = false;
                     }
                 }
 
@@ -1081,14 +1081,14 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
         }
     }
 
-    unknown_4c = actual;
+    SpeedAccum = actual;
 
-    if (actual > 0 && unknown_58 > -1) {
+    if (actual > 0 && TrackNumber > -1) {
         TrackControlStruct const *track;
         TrackType const *ptr;
         int tracknum;
 
-        track = &DriveTrackControl[unknown_58];
+        track = &DriveTrackControl[TrackNumber];
         if (unknown_60) {
             tracknum = track->StartTrack;
         } else {
@@ -1097,18 +1097,18 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
         ptr = DriveRawTracks[tracknum - 1].Track;
 
         int dir;
-        Point2D offset = ptr[unknown_5c].Offset;
-        if (offset != Point2D(0, 0) || !unknown_5c) {
+        Point2D offset = ptr[TrackIndex].Offset;
+        if (offset != Point2D(0, 0) || !TrackIndex) {
 
             CoordStruct oldcoord = Object_Coord(LinkedTo);
 
-            dir = ptr[unknown_5c].Facing;
+            dir = ptr[TrackIndex].Facing;
             CoordStruct movement(Point_Difference(Smooth_Turn(offset, dir), Object_Coord(LinkedTo)), 0);
             CoordStruct stepcoord = movement + Object_Coord(LinkedTo);
             CellClass *stepcellptr = &Map[stepcoord];
 
             CoordStruct partial(0, 0, 0);
-            movement = Lerp(partial, movement, unknown_4c / 7.0);
+            movement = Lerp(partial, movement, SpeedAccum / 7.0);
             CoordStruct partialcoord = oldcoord + movement;
 
             CellClass *oldcellptr = &Map[oldcoord];
@@ -1117,7 +1117,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
             CoordStruct coord = Object_Coord(LinkedTo);
 
             if (partialcellptr != stepcellptr && partialcellptr != oldcellptr) {
-                if (unknown_4c > 3) {
+                if (SpeedAccum > 3) {
                     coord = stepcoord;
                 }
             } else {
@@ -1179,7 +1179,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
     int facing = LinkedTo->Path[0];
 
     if (!Is_Moving() && facing == -1) {
-        unknown_61 = false;
+        IsTurretLockedDown = false;
         Stop_Driver();
         if (LinkedTo->Get_Mission() == 2) {
             stop_processing = LinkedTo->unknown_slot261(false, true);
@@ -1187,15 +1187,15 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
         return false;
     }
 
-    if (!(unknown_34 != unknown_geometry_l)) return false;
+    if (!(DestinationCoord != unknown_geometry_l)) return false;
 
     if (LinkedTo->unknown_slot111() || LinkedTo->unknown_slot112()) return false;
     if (LinkedTo->SpawnManager != 0 && LinkedTo->SpawnManager->Launching_Count() != 0) return true;
     if (LinkedTo->unknown_slot201() || LinkedTo->unknown_slot202()) return true;
 
     if (facing != -1) {
-        if (LinkedTo->unknown_494 != 0 && LinkedTo->unknown_494->Kind_Of() == 1 || LinkedTo->unknown_494 != 0 && LinkedTo->unknown_494->Kind_Of() == 15) {
-            int dist = LinkedTo->Distance(unknown_34) / 256;
+        if (LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 1 || LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 15) {
+            int dist = LinkedTo->Distance(DestinationCoord) / 256;
             if (dist < 24) {
                 LinkedTo->Path[dist] = -1;
                 facing = LinkedTo->Path[0];
@@ -1204,24 +1204,24 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
     }
 
     if (facing == -1) {
-        if (LinkedTo->unknown_530 != 0) {
+        if (LinkedTo->PathDelay != 0) {
             return false;
         }
-        LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay * 900.0));
+        LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay * 900.0));
 
-        if (!LinkedTo->unknown_4c3000((unknown_34).As_Cell(), 0, 0)) {
+        if (!LinkedTo->unknown_4c3000((DestinationCoord).As_Cell(), 0, 0)) {
             if (LinkedTo == 0) {
                 stop_processing = true;
                 return false;
             }
-            if (!LinkedTo->unknown_slot171(unknown_34)) {
+            if (!LinkedTo->unknown_slot171(DestinationCoord)) {
                 LinkedTo->Assign_Destination(0, true);
                 return false;
             }
 
-                if (unknown_34 == unknown_geometry_l) return false;
+                if (DestinationCoord == unknown_geometry_l) return false;
 
-                if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(unknown_34) < Rules->CloseEnoughDistance && (LinkedTo->Get_Mission() == 2 || LinkedTo->Get_Mission() == 11)) {
+                if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(DestinationCoord) < Rules->CloseEnoughDistance && (LinkedTo->Get_Mission() == 2 || LinkedTo->Get_Mission() == 11)) {
                     Stop_Driver();
                     if (Abandon_Navigation()) return true;
                     if (!LinkedTo->IsActive) return false;
@@ -1235,8 +1235,8 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                             CellClass *cellptr = &Map[cell];
                             TechnoClass *blockage = (TechnoClass *)cellptr->Cell_Techno(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0)) + 2 * unknown_geometry_g, 0);
                             if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->Techno_Type_Class()->IsTrain) {
-                                if (LinkedTo->Distance(unknown_34) < Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
-                                    if (abs(unknown_34.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
+                                if (LinkedTo->Distance(DestinationCoord) < Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
+                                    if (abs(DestinationCoord.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
                                         if (Map[Object_Coord(LinkedTo)].Land_Type() != 10) {
                                             Stop_Driver();
                                             if (Abandon_Navigation()) return true; return false;
@@ -1260,20 +1260,20 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                         Stop_Driver();
                         if (Abandon_Navigation()) return true;
                         if (!LinkedTo->IsActive) return false;
-                        if (LinkedTo->unknown_57a) Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
-                        LinkedTo->unknown_57a = false;
+                        if (LinkedTo->IsNewNavCom) Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
+                        LinkedTo->IsNewNavCom = false;
                     }
                 }
 
                 if (!Is_Moving() && LinkedTo->unknown_228 != 0 && !LinkedTo->unknown_slot213(LinkedTo->unknown_228)) {
-                    LinkedTo->unknown_578 = true;
+                    LinkedTo->IsScanLimited = true;
                     if (LinkedTo->Team != 0) LinkedTo->Team->Scan_Limit();
                     LinkedTo->unknown_slot220(0);
                 }
 
                 Stop_Driver();
-                unknown_58 = -1;
-                unknown_61 = false;
+                TrackNumber = -1;
+                IsTurretLockedDown = false;
                 return false;
             
         }
@@ -1295,8 +1295,8 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                     blockage = (TechnoClass *)cellptr->Cell_Techno(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(center) + 2 * unknown_geometry_g, 0);
                 }
                 if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->Techno_Type_Class()->IsTrain) {
-                    if (LinkedTo->Distance(unknown_34) < Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
-                        if (abs(unknown_34.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
+                    if (LinkedTo->Distance(DestinationCoord) < Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
+                        if (abs(DestinationCoord.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
                             if (Map[Object_Coord(LinkedTo)].Land_Type() != 10) {
                                 Stop_Driver();
                                 return Abandon_Navigation();
@@ -1329,7 +1329,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
 
     CellClass const &next = Map[Adjacent_Coord_SOM(Object_Coord(LinkedTo), facing)];
     if (LinkedTo->IsOnBridge ^ next.IsUnderBridge) {
-        LinkedTo->unknown_57b = true;
+        LinkedTo->IsPlanningToLook = true;
     }
     if (!LinkedTo->Is_Ready_To_Move()) {
         return true;
@@ -1368,12 +1368,12 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                     FootClass *unit = LinkedTo;
                     if (retry) {
                         unit->Path[0] = -1;
-                        LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>(0);
+                        LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
                         return Start_Of_Move(stop_processing, false, false);
                     }
-                    int dist = unit->Distance(unknown_34);
+                    int dist = unit->Distance(DestinationCoord);
                     if (dist >= Rules->CloseEnoughDistance
-                        || abs(unknown_34.Z - Object_Coord(LinkedTo).Z) >= 2 * unknown_geometry_g
+                        || abs(DestinationCoord.Z - Object_Coord(LinkedTo).Z) >= 2 * unknown_geometry_g
                         || Map[Object_Coord(LinkedTo)].Land_Type() == 10) {
                         bool is_bridge;
                         if (!(Map[destcell].unknown_140 & 0x100) || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - Map[destcell].Height) <= 2) {
@@ -1401,19 +1401,19 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
 
             Stop_Driver();
             if (cando == 2) {
-                if (!LinkedTo->unknown_5a1) {
-                    LinkedTo->unknown_5a1 = true;
-                    LinkedTo->unknown_558 = CDTimerClass<FrameTimerClass>(Rules->BlockagePathDelay);
+                if (!LinkedTo->IsToPathAroundBlockage) {
+                    LinkedTo->IsToPathAroundBlockage = true;
+                    LinkedTo->BlockagePathDelay = CDTimerClass<FrameTimerClass>(Rules->BlockagePathDelay);
                 }
-                if (LinkedTo->unknown_530 == 0) {
-                    bool around_blockage = LinkedTo->unknown_5a1 && LinkedTo->unknown_558 == 0;
-                    bool ok = LinkedTo->unknown_4c3000((unknown_34).As_Cell(), 0, (around_blockage != 0) + 1);
+                if (LinkedTo->PathDelay == 0) {
+                    bool around_blockage = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0;
+                    bool ok = LinkedTo->unknown_4c3000((DestinationCoord).As_Cell(), 0, (around_blockage != 0) + 1);
                     if (LinkedTo == 0) {
                         stop_processing = true;
                         return false;
                     }
-                    if (ok || LinkedTo->unknown_slot171(unknown_34)) {
-                        LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay * 900.0));
+                    if (ok || LinkedTo->unknown_slot171(DestinationCoord)) {
+                        LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay * 900.0));
                         return true;
                     }
                     LinkedTo->Assign_Destination(0, true);
@@ -1424,7 +1424,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
             if (cando == 5 || cando == 4) {
                 if (retry) {
                     LinkedTo->Path[0] = -1;
-                    LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>(0);
+                    LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
                     return Start_Of_Move(stop_processing, false, false);
                 }
                 if (Map[destcell].Cell_Object(Point2D(0, 0), 0)) {
@@ -1437,20 +1437,20 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                     }
                 }
             } else {
-                if (LinkedTo->unknown_57a) Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
+                if (LinkedTo->IsNewNavCom) Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
             }
 
             if (cando == 7 && retry) {
                 LinkedTo->Path[0] = -1;
-                LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>(0);
+                LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
                 return Start_Of_Move(stop_processing, false, false);
             } else if (cando == 7 && !retry) {
                 Stop_Driver();
                 return Abandon_Navigation();
             }
 
-            LinkedTo->unknown_57a = false;
-            unknown_58 = -1;
+            LinkedTo->IsNewNavCom = false;
+            TrackNumber = -1;
             return true;
         }
 
@@ -1488,7 +1488,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
         if (LinkedTo->Health_Ratio() <= Rules->ConditionYellow) {
             speed *= 0.75;
         }
-        if (unknown_58 < 0x40) {
+        if (TrackNumber < 0x40) {
             unknown_50 = speed;
         } else {
             if (speed != LinkedTo->Speed) {
@@ -1501,16 +1501,16 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
 
         int nextface = LinkedTo->Path[1];
         if (nextface == -1) {
-            if (LinkedTo->Distance(unknown_34) > 0x200) {
+            if (LinkedTo->Distance(DestinationCoord) > 0x200) {
                 int patharg = LinkedTo->Techno_Type_Class()->IsTrain ? 1 : 0;
-                bool found = LinkedTo->unknown_4c3000((unknown_34).As_Cell(), patharg, 0);
+                bool found = LinkedTo->unknown_4c3000((DestinationCoord).As_Cell(), patharg, 0);
                 bool &result = found;
                 if (!result) {
                     if (LinkedTo == 0) {
                         stop_processing = true;
                         return found;
                     }
-                    if (!LinkedTo->unknown_slot171(unknown_34)) {
+                    if (!LinkedTo->unknown_slot171(DestinationCoord)) {
                         LinkedTo->Assign_Destination(0, true);
                     }
                 }
@@ -1531,12 +1531,12 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
         }
 
         unknown_60 = false;
-        unknown_58 = facing * 8 + nextface;
-        if (DriveTrackControl[unknown_58].Track == 0) {
-            unknown_58 = facing * 8 + facing;
+        TrackNumber = facing * 8 + nextface;
+        if (DriveTrackControl[TrackNumber].Track == 0) {
+            TrackNumber = facing * 8 + facing;
         }
 
-        if (DriveTrackControl[unknown_58].Flag & 8) {
+        if (DriveTrackControl[TrackNumber].Flag & 8) {
             int nextcando;
             if (!Map[destcell].Goodie_Check(LinkedTo) && !LinkedTo->IsInLimbo) {
                 nextcando = 7;
@@ -1563,11 +1563,11 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                     if (!LinkedTo->Techno_Type_Class()->IsTrain) {
                         if (retry) {
                             LinkedTo->Path[0] = -1;
-                            LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>(0);
+                            LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
                             return Start_Of_Move(stop_processing, false, false);
                         }
-                        if (LinkedTo->Distance_YZX(unknown_34) >= Rules->CloseEnoughDistance
-                            || abs(unknown_34.Z - Object_Coord(LinkedTo).Z) >= 2 * unknown_geometry_g
+                        if (LinkedTo->Distance_YZX(DestinationCoord) >= Rules->CloseEnoughDistance
+                            || abs(DestinationCoord.Z - Object_Coord(LinkedTo).Z) >= 2 * unknown_geometry_g
                             || Map[Object_Coord(LinkedTo)].Land_Type() == 10) {
                             CellClass *cellptr = &Map[destcell];
                             bool is_bridge;
@@ -1595,7 +1595,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                 } else if (nextcando == 7) {
                     if (retry) {
                         LinkedTo->Path[0] = -1;
-                        LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>(0);
+                        LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
                         return Start_Of_Move(stop_processing, false, false);
                     }
                     Stop_Driver();
@@ -1603,7 +1603,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                 }
 
                 LinkedTo->Path[0] = -1;
-                unknown_58 = -1;
+                TrackNumber = -1;
                 dest = unknown_geometry_l;
                 if (nextcando == 5 || nextcando == 4) {
                     return Start_Of_Move(stop_processing, retry, true);
@@ -1611,18 +1611,18 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
             } else {
                 memcpy(&LinkedTo->Path[0], &LinkedTo->Path[2], sizeof(LinkedTo->Path[0]) * 22);
                 LinkedTo->Path[22] = -1;
-                LinkedTo->unknown_57b = true;
+                LinkedTo->IsPlanningToLook = true;
             }
         } else {
             memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
         }
 
         LinkedTo->Path[23] = -1;
-        LinkedTo->unknown_450 = (dest).As_Cell();
-        LinkedTo->unknown_57a = false;
-        unknown_5c = 0;
+        LinkedTo->LastPathingCell = (dest).As_Cell();
+        LinkedTo->IsNewNavCom = false;
+        TrackIndex = 0;
         if (!Start_Driver(dest)) {
-            unknown_58 = -1;
+            TrackNumber = -1;
             LinkedTo->Path[0] = -1;
             LinkedTo->unknown_slot306(0);
         }
@@ -1649,7 +1649,7 @@ void  DriveLocomotionClass_Lay_Track(void)
 Point2D DriveLocomotionClass::Smooth_Turn(Point2D const &offset, int &facing)
 {
     int workdir = facing;
-    int flags = DriveTrackControl[unknown_58].Flag;
+    int flags = DriveTrackControl[TrackNumber].Flag;
     int x = offset.X;
     int y = offset.Y;
     if (flags & 1) {
@@ -1752,14 +1752,14 @@ bool __stdcall DriveLocomotionClass::Is_Moving_Here(CoordStruct to)
     if (head == unknown_geometry_l) {
         return false;
     }
-    if (!unknown_60 && unknown_58 != -1) {
-        int track = DriveTrackControl[unknown_58].Track;
+    if (!unknown_60 && TrackNumber != -1) {
+        int track = DriveTrackControl[TrackNumber].Track;
         if (track) {
             TrackType const *points = DriveRawTracks[track - 1].Track;
             int cell = DriveRawTracks[track - 1].Cell;
             if (cell > -1) {
                 int facing = points[cell].Facing;
-                if (unknown_5c < cell) {
+                if (TrackIndex < cell) {
                     Point2D offset = points[cell].Offset;
                     Point2D point = Smooth_Turn(offset, facing);
                     CoordStruct coord(point.X, point.Y, Object_Coord(LinkedTo).Z);
@@ -1781,13 +1781,13 @@ bool __stdcall DriveLocomotionClass::Will_Jump_Tracks()
 {
     int next_face=LinkedTo->Path[0];
     if (next_face>=-1 && next_face<=8) {
-        TrackControlStruct const *track=&DriveTrackControl[unknown_58];
+        TrackControlStruct const *track=&DriveTrackControl[TrackNumber];
         int track_number;
         if (unknown_60) track_number=track->StartTrack;
         else track_number=track->Track;
         bool turn=false;
         if (next_face!=8 && next_face!=-1 && Dir_To_8(UnknownFacingDir((unsigned short)((unsigned char)track->Facing<<8)))!=next_face) turn=true;
-        if (next_face!=8 && next_face!=-1 && turn && DriveRawTracks[track_number-1].Jump==unknown_5c && unknown_5c) {
+        if (next_face!=8 && next_face!=-1 && turn && DriveRawTracks[track_number-1].Jump==TrackIndex && TrackIndex) {
             int next_track=Dir_To_8(UnknownFacingDir((unsigned short)((unsigned char)track->Facing<<8)))*8+next_face;
             TrackControlStruct const *jump=&DriveTrackControl[next_track];
             if (jump->Track && DriveRawTracks[jump->Track-1].Entry) return true;
@@ -1801,7 +1801,7 @@ bool __stdcall DriveLocomotionClass::Will_Jump_Tracks()
 
 void __stdcall DriveLocomotionClass::Lock()
 {
-    unknown_65 = false;
+    IsLocomotorUnlocked = false;
 }
 
 
@@ -1809,7 +1809,7 @@ void __stdcall DriveLocomotionClass::Lock()
 
 void __stdcall DriveLocomotionClass::Unlock()
 {
-    unknown_65 = true;
+    IsLocomotorUnlocked = true;
 }
 
 
@@ -1817,7 +1817,7 @@ void __stdcall DriveLocomotionClass::Unlock()
 
 int __stdcall DriveLocomotionClass::Get_Track_Number()
 {
-    return unknown_58;
+    return TrackNumber;
 }
 
 
@@ -1825,7 +1825,7 @@ int __stdcall DriveLocomotionClass::Get_Track_Number()
 
 int __stdcall DriveLocomotionClass::Get_Track_Index()
 {
-    return unknown_5c;
+    return TrackIndex;
 }
 
 
@@ -1833,7 +1833,7 @@ int __stdcall DriveLocomotionClass::Get_Track_Index()
 
 int __stdcall DriveLocomotionClass::Get_Speed_Accum()
 {
-    return unknown_4c;
+    return SpeedAccum;
 }
 
 

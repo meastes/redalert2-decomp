@@ -23,7 +23,7 @@ void Native_Building_Temporal_Freeze_0044D320(TechnoClass *techno)
         if (building->Type->Anims[i].Powered && anim != 0) {
             anim->Paused = true;
             anim->Unpaused = false;
-            anim->unknown_104 = anim->Fetch_Stage();
+            anim->PausedAnimFrame = anim->Fetch_Stage();
             anim->UnderTemporal = true;
         }
     }

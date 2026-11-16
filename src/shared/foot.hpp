@@ -128,9 +128,9 @@ public:
     virtual void Detach(AbstractClass *target, bool all = true);    // slot 10 0x004C8460
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // slot 13 0x004CA3D0
     virtual bool In_Air() const;                        // slot 21 0x004CCE70 (ObjectClass's)
-    virtual bool unknown_slot47() { return unknown_5a0; }       // slot 47 (kept copy 0x0041B470)
-    virtual Cell unknown_slot178() { return unknown_458; }    // slot 178 (kept copy 0x0041B550)
-    virtual void unknown_slot179(Cell cell) { unknown_458 = cell; }   // slot 179 (kept copy 0x0041B560)
+    virtual bool unknown_slot47() { return IsOccupyingCell; }       // slot 47 (kept copy 0x0041B470)
+    virtual Cell unknown_slot178() { return LastFlightMapCoords; }    // slot 178 (kept copy 0x0041B550)
+    virtual void unknown_slot179(Cell cell) { LastFlightMapCoords = cell; }   // slot 179 (kept copy 0x0041B560)
     virtual int In_Which_Layer() const;                         // slot 29 0x004CA130 (ILocomotion::Layer)
     virtual void Set_Coord(CoordStruct const &coord);     // slot 103 0x004CA160
     virtual bool unknown_slot154();                             // slot 154 0x004CA6A0
@@ -275,72 +275,72 @@ public:
     virtual void unknown_slot308();                             // slot 308 0x004CA340 (nothing)
     virtual bool unknown_slot309(AbstractClass *target);         // slot 309 0x004CC4D0 (whether the target's cell is free to dock at; hypothesis)
 
-    int unknown_418;                            // +0x418
-    Cell unknown_41c;                     // +0x41C
-    Cell unknown_420;                     // +0x420
+    int CurrentPath;                            // +0x418
+    Cell WaypointOffsetCell;                     // +0x41C
+    Cell WaypointTargetCell;                     // +0x420
     int unknown_424;                            // +0x424
-    double unknown_428;                         // +0x428 (Compute_CRC hashes it as a double)
-    int unknown_430;                            // +0x430
-    bool unknown_434;                           // +0x434
-    int unknown_438;                            // +0x438
-    UnknownAudioController unknown_43c;         // +0x43C
-    Cell unknown_450;                     // +0x450 (Compute_CRC hashes its length)
+    double ThreatAvoidanceCoefficient;                         // +0x428 (Compute_CRC hashes it as a double)
+    int TotalFramesWalked;                            // +0x430
+    bool IsMoveSoundPlaying;                           // +0x434
+    int MoveSoundDelay;                            // +0x438
+    UnknownAudioController MoveSoundAudioController;         // +0x43C
+    Cell LastPathingCell;                     // +0x450 (Compute_CRC hashes its length)
     Cell unknown_454;                     // +0x454
-    Cell unknown_458;                     // +0x458
+    Cell LastFlightMapCoords;                     // +0x458
     CoordStruct unknown_45c;                    // +0x45C (Compute_CRC hashes its length)
     double Speed;                         // +0x468
-    double unknown_470;                         // +0x470
+    double SpeedBias;                         // +0x470
     DynamicVectorClass<AbstractClass *> unknown_478;    // +0x478
-    AbstractClass *unknown_490;                 // +0x490 (slot 259 sets it; slot 241 takes its coordinate; not saved)
-    AbstractClass *unknown_494;   // +0x494 (swizzled)
-    AbstractClass *unknown_498;   // +0x498 (swizzled)
+    AbstractClass *FollowTarget;                 // +0x490 (slot 259 sets it; slot 241 takes its coordinate; not saved)
+    AbstractClass *NavCom;   // +0x494 (swizzled)
+    AbstractClass *SuspendedNavCom;   // +0x498 (swizzled)
     DynamicVectorClass<AbstractClass *> unknown_49c;    // +0x49C
-    int unknown_4b4;                            // +0x4B4
-    AbstractClass *unknown_4b8;   // +0x4B8 (swizzled)
-    AbstractClass *unknown_4bc;   // +0x4BC (swizzled)
+    int MegaMission;                            // +0x4B4
+    AbstractClass *MegaDestination;   // +0x4B8 (swizzled)
+    AbstractClass *MegaTarget;   // +0x4BC (swizzled)
     bool unknown_4c0;                           // +0x4C0
-    bool unknown_4c1;                           // +0x4C1
+    bool HasAttackMoveTarget;                           // +0x4C1
     TeamClass *Team;                            // +0x4C4
     AbstractClass *Member;   // +0x4C8 (swizzled)
-    AbstractClass *unknown_4cc;   // +0x4CC (swizzled)
+    AbstractClass *PatrolCell;   // +0x4CC (swizzled)
     union {
         int unknown_4d0;                        // +0x4D0 (the first path facing, -1 none)
         int Path[24];                           // +0x4D0 path facings (FootClass 0x004C3000)
     };
 
-    CDTimerClass<FrameTimerClass> unknown_530; // +0x530
+    CDTimerClass<FrameTimerClass> PathDelay; // +0x530
     int unknown_53c;                            // +0x53C
-    CDTimerClass<FrameTimerClass> unknown_540; // +0x540
-    CDTimerClass<FrameTimerClass> unknown_54c; // +0x54C
-    CDTimerClass<FrameTimerClass> unknown_558; // +0x558
+    CDTimerClass<FrameTimerClass> BaseAttackTimer; // +0x540
+    CDTimerClass<FrameTimerClass> SightTimer; // +0x54C
+    CDTimerClass<FrameTimerClass> BlockagePathDelay; // +0x558
     UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600> Locomotor;  // +0x564 (ILocomotionPtr)
-    CoordStruct unknown_568;                    // +0x568
-    signed char unknown_574;                    // +0x574 (-1; slot 46 tests its sign)
-    signed char unknown_575;                           // +0x575
-    char unknown_576;                           // +0x576 (the waypoint index in the path, slot 99)
-    bool unknown_577;                           // +0x577
-    bool unknown_578;                           // +0x578
-    bool unknown_579;                           // +0x579
-    bool unknown_57a;                           // +0x57A
-    bool unknown_57b;                           // +0x57B
-    bool unknown_57c;                           // +0x57C
-    bool unknown_57d;                           // +0x57D
-    bool unknown_57e;                           // +0x57E
-    FootClass *unknown_580;                     // +0x580 (swizzled)
-    int unknown_584;                            // +0x584
-    ParasiteClass *unknown_588;                 // +0x588 (owned; the parasite attached to this unit, hypothesis)
-    CDTimerClass<FrameTimerClass> unknown_58c; // +0x58C
-    bool unknown_598;                           // +0x598
+    CoordStruct HeadToCoord;                    // +0x568
+    signed char CurrentTube;                    // +0x574 (-1; slot 46 tests its sign)
+    signed char CurrentTubeDir;                           // +0x575
+    char NextWaypoint;                           // +0x576 (the waypoint index in the path, slot 99)
+    bool IsToScatter;                           // +0x577
+    bool IsScanLimited;                           // +0x578
+    bool IsInitiated;                           // +0x579
+    bool IsNewNavCom;                           // +0x57A
+    bool IsPlanningToLook;                           // +0x57B
+    bool IsDeploying;                           // +0x57C
+    bool IsFiring;                           // +0x57D
+    bool IsOverpowering;                           // +0x57E
+    FootClass *ParasiteEatingMe;                     // +0x580 (swizzled)
+    int LastBeParasitedStartFrame;                            // +0x584
+    ParasiteClass *ParasiteImUsing;                 // +0x588 (owned; the parasite attached to this unit, hypothesis)
+    CDTimerClass<FrameTimerClass> ParalysisTimer; // +0x58C
+    bool IsMoveToSkipped;                           // +0x598
     bool unknown_599;                           // +0x599
-    bool unknown_59a;                           // +0x59A
-    bool unknown_59b;                           // +0x59B
-    bool unknown_59c;                           // +0x59C
-    bool unknown_59d;                           // +0x59D
-    bool unknown_59e;                           // +0x59E
-    bool unknown_59f;                           // +0x59F
-    bool unknown_5a0;                           // +0x5A0
-    bool unknown_5a1;                           // +0x5A1
-    bool unknown_5a2;                           // +0x5A2
+    bool IsUnloading;                           // +0x59A
+    bool IsNavQueueLoop;                           // +0x59B
+    bool IsScattering;                           // +0x59C
+    bool IsIdle;                           // +0x59D
+    bool IonBlastYDrawOffset;                           // +0x59E
+    bool IsCrushing;                           // +0x59F
+    bool IsOccupyingCell;                           // +0x5A0
+    bool IsToPathAroundBlockage;                           // +0x5A1
+    bool IsDroppedFromTeam;                           // +0x5A2
     int unknown_5a4;                            // +0x5A4 (not constructed; UnitClass members start at +0x5A8)
 };
 

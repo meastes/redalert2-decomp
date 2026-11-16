@@ -232,7 +232,7 @@ TypeList<TeamTypeClass const *> __fastcall TeamTypeClass::Suggested_New_Teams(Ho
     if (house->unknown_54f0 != -1) {
         enemy = Houses[house->unknown_54f0];
     }
-    if (Random_Pick(1, 100) <= house->unknown_554c && house->unknown_13a) {
+    if (Random_Pick(1, 100) <= house->unknown_554c && house->IsAITriggersOn) {
         int team_count = 0;
         int defense_team_count = 0;
         for (index = 0; index < Teams.Count(); index++) {
@@ -245,8 +245,8 @@ TypeList<TeamTypeClass const *> __fastcall TeamTypeClass::Suggested_New_Teams(Ho
         }
 
         skip_base_defense = false;
-        if (team_count < Rules->TotalAITeamCap[house->unknown_c8] || defense_team_count < team_count / 2) {
-            if (defense_team_count > Rules->MaximumAIDefensiveTeams[house->unknown_c8]) {
+        if (team_count < Rules->TotalAITeamCap[house->Difficulty] || defense_team_count < team_count / 2) {
+            if (defense_team_count > Rules->MaximumAIDefensiveTeams[house->Difficulty]) {
                 skip_base_defense = true;
             }
         } else {
@@ -270,7 +270,7 @@ TypeList<TeamTypeClass const *> __fastcall TeamTypeClass::Suggested_New_Teams(Ho
             }
         }
 
-        if (team_count < Rules->TotalAITeamCap[house->unknown_c8]) {
+        if (team_count < Rules->TotalAITeamCap[house->Difficulty]) {
             DiscreteDistributionClass<AITriggerTypeClass> trigdist;
             bool exclusive = false;
             for (index = 0; index < AITriggerTypes.Count(); index++) {

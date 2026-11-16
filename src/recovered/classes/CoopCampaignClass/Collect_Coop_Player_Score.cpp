@@ -26,7 +26,7 @@ void __fastcall Collect_Coop_Player_Score_0048e210(MPlayerScoreType &output, boo
                 output.Built = 0;
                 output.Score = 0;
                 output.Scheme = house->ColorSchemeIndex;
-                if (!house->unknown_13d) {
+                if (!house->IsDefeated) {
                     output.Winner++;
                 }
                 int kills = 0;

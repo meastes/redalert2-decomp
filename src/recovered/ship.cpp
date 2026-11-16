@@ -527,8 +527,8 @@ bool __stdcall ShipLocomotionClass::Process()
             }
         }
     } else {
-        if (LinkedTo->unknown_494 != 0 && LinkedTo->unknown_494->Kind_Of() == 11) {
-            CellClass *cell = (CellClass *)LinkedTo->unknown_494;
+        if (LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 11) {
+            CellClass *cell = (CellClass *)LinkedTo->NavCom;
             if (LinkedTo->unknown_slot104() == cell->Fetch_CellID()) {
                 unknown_67a7a0();
                 return false;
@@ -572,8 +572,8 @@ bool __stdcall ShipLocomotionClass::Process()
                 } else if (LinkedTo->unknown_325) {
                     Stop_Driver();
                     unknown_50 = 0;
-                } else if (LinkedTo->unknown_494 != 0) {
-                    Move_To(LinkedTo->unknown_494->unknown_slot19(LinkedTo));
+                } else if (LinkedTo->NavCom != 0) {
+                    Move_To(LinkedTo->NavCom->unknown_slot19(LinkedTo));
                 }
             }
         }
@@ -762,7 +762,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 forced_speed = true;
             }
 
-            if (LinkedTo->unknown_59f) {
+            if (LinkedTo->IsCrushing) {
                 unknown_50 = MIN(unknown_50, 0.2);
                 LinkedTo->unknown_slot306(unknown_50);
             } else if (forced_speed) {
@@ -808,9 +808,9 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
             unknown_40 = c.As_Coord();
             memcpy((char *)&LinkedTo->Path, (char *)&LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
             LinkedTo->Path[23] = -1;
-            LinkedTo->unknown_574 = tubenum;
+            LinkedTo->CurrentTube = tubenum;
             TPoint2D<short> const &enter = tube->EnterCell;
-            LinkedTo->unknown_575 = 0;
+            LinkedTo->CurrentTubeDir = 0;
             LinkedTo->unknown_45c = Map[Adjacent_Cell(Cell(enter), tube->Directions[0])].unknown_475d60();
             int current_height = Map.Get_Height_GL(Object_Coord(LinkedTo));
             Cell exit = tube->ExitCell;
@@ -861,8 +861,8 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
             if (offset != Point2D(0, 0) || !unknown_5c) {
                 if (LinkedTo->unknown_slot47()) {
                     LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
-                    LinkedTo->unknown_5a0 = false;
-                    LinkedTo->unknown_5a1 = false;
+                    LinkedTo->IsOccupyingCell = false;
+                    LinkedTo->IsToPathAroundBlockage = false;
                 }
 
                 Cell oldcell;
@@ -914,7 +914,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                     if (newcellptr->OverlayIndex != -1) {
                         OverlayTypeClass *otype = OverlayTypes[newcellptr->OverlayIndex];
                         if (unknown_64 && (LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->Has_Ability(0x11)) && otype->ArrayIndex == 0) {
-                            LinkedTo->unknown_59f = true;
+                            LinkedTo->IsCrushing = true;
                             TechnoTypeClass const *ttype = LinkedTo->Techno_Type_Class();
                             if (ttype->TiltsWhenCrushes) {
                                 LinkedTo->unknown_28c = -0.02f;
@@ -1009,8 +1009,8 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 CoordStruct dc = unknown_40 - Object_Coord(LinkedTo);
                 int d = abs(dc.X) + abs(dc.Y);
                 actual += (int)((1.0 - (double)d / 11.0) * 7.0);
-                LinkedTo->unknown_5a0 = true;
-                LinkedTo->unknown_5a1 = false;
+                LinkedTo->IsOccupyingCell = true;
+                LinkedTo->IsToPathAroundBlockage = false;
 
                 Cell here = Object_Coord(LinkedTo).As_Cell();
                 if (here != unknown_40.As_Cell()) {
@@ -1031,7 +1031,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 unknown_5c = 0;
 
                 bool arrived = false;
-                AbstractClass *target = LinkedTo->unknown_494;
+                AbstractClass *target = LinkedTo->NavCom;
                 if (target != 0 && LinkedTo->unknown_slot104() == target->unknown_slot19(LinkedTo).As_Cell()) {
                     if (abs(LinkedTo->unknown_slot19(LinkedTo).Z - unknown_34.Z) < 2 * unknown_geometry_g) {
                         arrived = true;
@@ -1176,7 +1176,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
     if (LinkedTo->unknown_slot201() || LinkedTo->unknown_slot202()) return true;
 
     if (facing != -1) {
-        if (LinkedTo->unknown_494 != 0 && LinkedTo->unknown_494->Kind_Of() == 1 || LinkedTo->unknown_494 != 0 && LinkedTo->unknown_494->Kind_Of() == 15) {
+        if (LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 1 || LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 15) {
             int dist = LinkedTo->Distance(unknown_34) / 256;
             if (dist < 24) {
                 LinkedTo->Path[dist] = -1;
@@ -1186,10 +1186,10 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
     }
 
     if (facing == -1) {
-        if (LinkedTo->unknown_530 != 0) {
+        if (LinkedTo->PathDelay != 0) {
             return false;
         }
-        LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay * 900.0));
+        LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay * 900.0));
 
         if (!LinkedTo->unknown_4c3000((unknown_34).As_Cell(), 0, 0)) {
             if (LinkedTo == 0) {
@@ -1242,13 +1242,13 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                         Stop_Driver();
                         if (unknown_67a7a0()) return true;
                         if (!LinkedTo->IsActive) return false;
-                        if (LinkedTo->unknown_57a) Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
-                        LinkedTo->unknown_57a = false;
+                        if (LinkedTo->IsNewNavCom) Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
+                        LinkedTo->IsNewNavCom = false;
                     }
                 }
 
                 if (!Is_Moving() && LinkedTo->unknown_228 != 0 && !LinkedTo->unknown_slot213(LinkedTo->unknown_228)) {
-                    LinkedTo->unknown_578 = true;
+                    LinkedTo->IsScanLimited = true;
                     if (LinkedTo->Team != 0) LinkedTo->Team->Scan_Limit();
                     LinkedTo->unknown_slot220(0);
                 }
@@ -1311,7 +1311,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
 
     CellClass const &next = Map[Adjacent_Coord_SOM(Object_Coord(LinkedTo), facing)];
     if (LinkedTo->IsOnBridge ^ next.IsUnderBridge) {
-        LinkedTo->unknown_57b = true;
+        LinkedTo->IsPlanningToLook = true;
     }
     if (!LinkedTo->Is_Ready_To_Move()) {
         return true;
@@ -1350,7 +1350,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                     FootClass *unit = LinkedTo;
                     if (retry) {
                         unit->Path[0] = -1;
-                        LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>(0);
+                        LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
                         return Start_Of_Move(stop_processing, false, false);
                     }
                     int dist = unit->Distance(unknown_34);
@@ -1383,19 +1383,19 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
 
             Stop_Driver();
             if (cando == 2) {
-                if (!LinkedTo->unknown_5a1) {
-                    LinkedTo->unknown_5a1 = true;
-                    LinkedTo->unknown_558 = CDTimerClass<FrameTimerClass>(Rules->BlockagePathDelay);
+                if (!LinkedTo->IsToPathAroundBlockage) {
+                    LinkedTo->IsToPathAroundBlockage = true;
+                    LinkedTo->BlockagePathDelay = CDTimerClass<FrameTimerClass>(Rules->BlockagePathDelay);
                 }
-                if (LinkedTo->unknown_530 == 0) {
-                    bool around_blockage = LinkedTo->unknown_5a1 && LinkedTo->unknown_558 == 0;
+                if (LinkedTo->PathDelay == 0) {
+                    bool around_blockage = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0;
                     bool ok = LinkedTo->unknown_4c3000((unknown_34).As_Cell(), 0, (around_blockage != 0) + 1);
                     if (LinkedTo == 0) {
                         stop_processing = true;
                         return false;
                     }
                     if (ok || LinkedTo->unknown_slot171(unknown_34)) {
-                        LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay * 900.0));
+                        LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay * 900.0));
                         return true;
                     }
                     LinkedTo->Assign_Destination(0, true);
@@ -1406,7 +1406,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
             if (cando == 5 || cando == 4) {
                 if (retry) {
                     LinkedTo->Path[0] = -1;
-                    LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>(0);
+                    LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
                     return Start_Of_Move(stop_processing, false, false);
                 }
                 if (Map[destcell].Cell_Object(Point2D(0, 0), 0)) {
@@ -1419,19 +1419,19 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                     }
                 }
             } else {
-                if (LinkedTo->unknown_57a) Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
+                if (LinkedTo->IsNewNavCom) Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
             }
 
             if (cando == 7 && retry) {
                 LinkedTo->Path[0] = -1;
-                LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>(0);
+                LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
                 return Start_Of_Move(stop_processing, false, false);
             } else if (cando == 7 && !retry) {
                 Stop_Driver();
                 return unknown_67a7a0();
             }
 
-            LinkedTo->unknown_57a = false;
+            LinkedTo->IsNewNavCom = false;
             unknown_58 = -1;
             return true;
         }
@@ -1545,7 +1545,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                     if (!LinkedTo->Techno_Type_Class()->IsTrain) {
                         if (retry) {
                             LinkedTo->Path[0] = -1;
-                            LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>(0);
+                            LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
                             return Start_Of_Move(stop_processing, false, false);
                         }
                         if (LinkedTo->Distance_YZX(unknown_34) >= Rules->CloseEnoughDistance
@@ -1577,7 +1577,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                 } else if (nextcando == 7) {
                     if (retry) {
                         LinkedTo->Path[0] = -1;
-                        LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>(0);
+                        LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
                         return Start_Of_Move(stop_processing, false, false);
                     }
                     Stop_Driver();
@@ -1593,15 +1593,15 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
             } else {
                 memcpy(&LinkedTo->Path[0], &LinkedTo->Path[2], sizeof(LinkedTo->Path[0]) * 22);
                 LinkedTo->Path[22] = -1;
-                LinkedTo->unknown_57b = true;
+                LinkedTo->IsPlanningToLook = true;
             }
         } else {
             memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
         }
 
         LinkedTo->Path[23] = -1;
-        LinkedTo->unknown_450 = (dest).As_Cell();
-        LinkedTo->unknown_57a = false;
+        LinkedTo->LastPathingCell = (dest).As_Cell();
+        LinkedTo->IsNewNavCom = false;
         unknown_5c = 0;
         if (!Start_Driver(dest)) {
             unknown_58 = -1;

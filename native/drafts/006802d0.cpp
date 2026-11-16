@@ -63,7 +63,7 @@ bool SidebarClass::StripClass::Unknown_006802D0()
                 if (Buildables[index].unknown_04 == 7 || Buildables[index].unknown_04 == 6) {
                     Map.PendingObjectPtr = 0;
                     Map.PendingObject = 0;
-                    Map.unknown_11a8 = -1;
+                    Map.PendingHouse = -1;
                     Map.Unknown_00498F10(0);
                 }
             }

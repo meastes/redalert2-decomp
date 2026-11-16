@@ -241,7 +241,7 @@ void __stdcall JumpjetLocomotionClass::Move_To(CoordStruct to)
                 unknown_3c = coord;
             }
             if (LinkedTo->MissionQueue != 7 && LinkedTo->Get_Mission() != 7) {
-                LinkedTo->unknown_494 = &Map[unknown_3c];
+                LinkedTo->NavCom = &Map[unknown_3c];
             }
             unknown_48 = true;
             if (unknown_4c == 4) {
@@ -386,8 +386,8 @@ void JumpjetLocomotionClass::unknown_52fd50()
         height -= unknown_geometry_j;
     }
     Cell cell = LinkedTo->unknown_slot104();
-    if (cell != LinkedTo->unknown_458) {
-        AircraftTracker.Update_00413600(LinkedTo, LinkedTo->unknown_458, cell);
+    if (cell != LinkedTo->LastFlightMapCoords) {
+        AircraftTracker.Update_00413600(LinkedTo, LinkedTo->LastFlightMapCoords, cell);
     }
     if (height >= unknown_78) {
         if (AircraftTracker.Unknown_004132E0(LinkedTo)) {
@@ -467,8 +467,8 @@ void JumpjetLocomotionClass::unknown_52fff0()
             dir = UnknownFacingDir((unsigned short)(int)((Fast_Atan2(double(from.Y) - to.Y, double(to.X) - from.X)
                 - unknown_facing_origin_79b630) * unknown_facing_scale_79b628));
             unknown_50.Set_Desired(dir);
-            if (((CellClass *)LinkedTo->Get_Cell_Ptr())->unknown_e0 == 0 && Map[LinkedTo->unknown_458].unknown_e0 == LinkedTo) {
-                Map[LinkedTo->unknown_458].Set_unknown_e0(0);
+            if (((CellClass *)LinkedTo->Get_Cell_Ptr())->Jumpjet == 0 && Map[LinkedTo->LastFlightMapCoords].Jumpjet == LinkedTo) {
+                Map[LinkedTo->LastFlightMapCoords].Set_unknown_e0(0);
             }
             ((CellClass *)LinkedTo->Get_Cell_Ptr())->Set_unknown_e0(0);
             unknown_4c = 3;
@@ -483,8 +483,8 @@ void JumpjetLocomotionClass::unknown_530180()
 {
     CoordStruct position = LinkedTo->Coord;
     Cell cell = LinkedTo->unknown_slot104();
-    if (cell != LinkedTo->unknown_458) {
-        AircraftTracker.Update_00413600(LinkedTo, LinkedTo->unknown_458, cell);
+    if (cell != LinkedTo->LastFlightMapCoords) {
+        AircraftTracker.Update_00413600(LinkedTo, LinkedTo->LastFlightMapCoords, cell);
     }
     CoordStruct const &to = unknown_3c;
     UnknownFacingDir dir;
@@ -620,7 +620,7 @@ void JumpjetLocomotionClass::unknown_530550()
             if (LinkedTo->IsActive) {
                 Map.Unknown_0054A550(Object_Coord(LinkedTo), LinkedTo->unknown_1f4 - 3, LinkedTo->unknown_1f4 + 3, 0);
             }
-            if (((CellClass *)LinkedTo->Get_Cell_Ptr())->unknown_e0 == LinkedTo) {
+            if (((CellClass *)LinkedTo->Get_Cell_Ptr())->Jumpjet == LinkedTo) {
                 ((CellClass *)LinkedTo->Get_Cell_Ptr())->Set_unknown_e0(0);
             }
             AircraftTracker.Unknown_00413310(LinkedTo);
@@ -656,7 +656,7 @@ void JumpjetLocomotionClass::Process_Crashing()
         Map.Submit(LinkedTo);
     }
     if (LinkedTo->Get_Height_AGL() <= 0) {
-        if (((CellClass *)LinkedTo->Get_Cell_Ptr())->unknown_e0 == LinkedTo) {
+        if (((CellClass *)LinkedTo->Get_Cell_Ptr())->Jumpjet == LinkedTo) {
             ((CellClass *)LinkedTo->Get_Cell_Ptr())->Set_unknown_e0(0);
         }
         AircraftTracker.Unknown_00413310(LinkedTo);

@@ -300,7 +300,7 @@ HRESULT MouseClass::Load(IStream *stream)
     }
     Swizzle_Pointer(PendingObjectPtr);
     Swizzle_Pointer(PendingObject);
-    Swizzle_Pointer(unknown_119c);
+    Swizzle_Pointer(FollowingObjectPtr);
     unknown_slot22();
     unknown_slot24();
     CellSubzones = 0;
@@ -399,7 +399,7 @@ HRESULT MouseClass::Load(IStream *stream)
     BuildingTypeClass::Init(unknown_id_source_a3d290->Theater);
     AnimTypeClass::Init(unknown_id_source_a3d290->Theater);
     SmudgeTypeClass::Init(unknown_id_source_a3d290->Theater);
-    unknown_11b8 = 0;
+    DraggedWaypoint = 0;
     LastTheater = unknown_id_source_a3d290->Theater;
     return 0;
 }

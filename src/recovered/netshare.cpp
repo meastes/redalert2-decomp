@@ -367,12 +367,12 @@ int __fastcall Count_Teams_005c3150(HouseClass *exclude)
     int count = 0;
     for (int i = 0; i < Houses.Count(); i++) {
         HouseClass *house = Houses[i];
-        if (house != 0 && !house->unknown_13d && house->unknown_134 && house != exclude) {
+        if (house != 0 && !house->IsDefeated && house->unknown_134 && house != exclude) {
             bool allied = false;
             for (int j = 0; j < Houses.Count(); j++) {
                 if (j != i) {
                     HouseClass *other = Houses[j];
-                    if (other != 0 && !other->unknown_13d && other->unknown_134 && other != exclude
+                    if (other != 0 && !other->IsDefeated && other->unknown_134 && other != exclude
                         && house->Is_Ally(other) && other->Is_Ally(house)) {
                         if (j > i && !allied) {
                             count++;

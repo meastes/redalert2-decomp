@@ -93,7 +93,7 @@
 
 
 FactoryClass::FactoryClass() :
- Object(0),unknown_58(false),unknown_59(false),UnspentCost(0),unknown_60(0),unknown_64(-1),Owner(0),unknown_6c(false),unknown_6d(true)
+ Object(0),unknown_58(false),IsDifferent(false),UnspentCost(0),unknown_60(0),unknown_64(-1),Owner(0),unknown_6c(false),IsOnHold(true)
 {
     Create_ID();
     Factories.Add(this);
@@ -155,7 +155,7 @@ void FactoryClass::AI()
 {
     if(Factory_Can_Advance_Production(*this)) {
         if(StageClass::Advance_Stage_When_Ready()) {
-            unknown_59=true;
+            IsDifferent=true;
             int amount=Cost_Per_Tick_004B9950();
             if(amount>=UnspentCost) amount=UnspentCost;
             if(amount>Owner->Available_Money()) {
@@ -188,7 +188,7 @@ bool FactoryClass::unknown_4b9440(TechnoTypeClass *type, HouseClass *house, unsi
         if (house->Is_Player_Control()) Voc_Play(Rules->ScoldSound,1.0f,0x2000,0);
         return false;
     }
-    unknown_59=true;
+    IsDifferent=true;
     unknown_6c=true;
     Set_Rate(0);
     Stage=0;
@@ -216,7 +216,7 @@ void FactoryClass::Set_Object_004B95E0(TechnoClass *object)
     UnspentCost = 0;
     Set_Rate(0);
     Stage = 54;
-    unknown_59 = true;
+    IsDifferent = true;
     unknown_6c = true;
 }
 
@@ -224,7 +224,7 @@ void FactoryClass::Set_Object_004B95E0(TechnoClass *object)
 bool FactoryClass::Suspend_004B9630(bool value)
 {
     if (!unknown_6c) {
-        unknown_6d = value;
+        IsOnHold = value;
         unknown_6c = true;
         Set_Rate(0);
         return true;
@@ -239,7 +239,7 @@ bool FactoryClass::Start_Production_004B9670(bool suspend)
   unknown_6c=false;
   Set_Rate(Production_Rate_004B9780());
   if(Owner->Available_Money() >= Cost_Per_Tick_004B9950()) {
-   unknown_6d=true;
+   IsOnHold=true;
    if(suspend) Suspend_004B9630(true);
    return true;
   }
@@ -269,7 +269,7 @@ bool FactoryClass::Abandon_Production_004B97C0()
         Set_Rate(0);
         Stage = 0;
         unknown_6c = true;
-        unknown_59 = true;
+        IsDifferent = true;
         if (!Owner->Unknown_004F52F0()) {
             if (Object->Kind_Of() == 15) Owner->unknown_5544 = -1;
             if (Object->Kind_Of() == 1) Owner->unknown_5540 = -1;
@@ -332,7 +332,7 @@ bool FactoryClass::Release_Completed_004B9970()
     if (Object && Stage == 54) {
         Object = 0;
         unknown_6c = true;
-        unknown_59 = true;
+        IsDifferent = true;
         Stage = 0;
         Set_Rate(0);
         return true;
@@ -340,7 +340,7 @@ bool FactoryClass::Release_Completed_004B9970()
     if (unknown_64 && Stage == 54) {
         unknown_64 = -1;
         unknown_6c = true;
-        unknown_59 = true;
+        IsDifferent = true;
         Stage = 0;
         Set_Rate(0);
         return true;
@@ -443,7 +443,7 @@ void FactoryClass::Compute_CRC(WWCRCEngine &crc) const
     Debug_Printf(factory_message_007d8004, Object->Kind_Of());
     Debug_Printf(factory_message_007d7fec, Object->Fetch_Heap_ID());
     Debug_Printf(factory_message_007d7fd8, unknown_6c);
-    Debug_Printf(factory_message_007d7fc4, unknown_59);
+    Debug_Printf(factory_message_007d7fc4, IsDifferent);
     Debug_Printf(factory_message_007d7fb4, UnspentCost);
     Debug_Printf(factory_message_007d7f9c, unknown_60);
     Debug_Printf(factory_message_007d7f88, unknown_64);
@@ -451,7 +451,7 @@ void FactoryClass::Compute_CRC(WWCRCEngine &crc) const
     Debug_Printf(factory_message_007d7f64, const_cast<FactoryClass *>(this)->Fetch_ID());
     AbstractClass::Compute_CRC(crc);
     crc(unknown_6c);
-    crc(unknown_59);
+    crc(IsDifferent);
     crc((long)UnspentCost);
     crc((long)unknown_60);
     if (Object) crc(Object->Fetch_ID());

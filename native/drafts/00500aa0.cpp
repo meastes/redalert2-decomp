@@ -47,8 +47,8 @@ void InfantryClass::unknown_slot93(int why)
 {
     UnknownCellClass *cell=Map_Cell(CoordStruct(Coord));
     if (why==2) {
-        if (Get_Mission()==8 && (Type->Assaulter || Type->Occupier) && unknown_494 && unknown_494->Kind_Of()==6) {
-            BuildingClass *building=static_cast<BuildingClass *>(unknown_494);
+        if (Get_Mission()==8 && (Type->Assaulter || Type->Occupier) && NavCom && NavCom->Kind_Of()==6) {
+            BuildingClass *building=static_cast<BuildingClass *>(NavCom);
             if (building==cell->Unknown_004717B0()) {
                 if (!building->CanBeOccupiedBy(this)) {
                     Assign_Destination(0,1);
@@ -72,7 +72,7 @@ void InfantryClass::unknown_slot93(int why)
         }
         if (Get_Mission()==9) {
             BuildingClass *building=cell->Unknown_004717B0();
-            if (building && (building==unknown_494 || building==unknown_228)) {
+            if (building && (building==NavCom || building==unknown_228)) {
                 if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
                 if (Techno_Type_Class()->VoiceDie.Count()>0 && House->Is_Player_Control()) {
                     CoordStruct location=Coord;
@@ -89,11 +89,11 @@ void InfantryClass::unknown_slot93(int why)
             }
         }
         if (Get_Mission()==8 || Get_Mission()==11 || Get_Mission()==25) {
-            AbstractClass *navigation=unknown_494;
+            AbstractClass *navigation=NavCom;
             bool is_techno;
             if (navigation) is_techno=navigation->AbstractFlags.IsTechno;
             if (navigation && is_techno && static_cast<ObjectClass *>(navigation)->Considered_Vehicle()) {
-                TechnoClass *destination=static_cast<TechnoClass *>(unknown_494);
+                TechnoClass *destination=static_cast<TechnoClass *>(NavCom);
                 if (destination && destination->Kind_Of()==6) {
                     if (unknown_slot104()==destination->unknown_slot104()) {
                         if (destination->unknown_34) destination->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
@@ -108,13 +108,13 @@ void InfantryClass::unknown_slot93(int why)
                     }
                     UnknownCoord434820 locomotor_destination(Locomotor.Checked()->Destination());
                     if (locomotor_destination==unknown_geometry_l || unknown_slot104()==Coord_Cell(locomotor_destination)) {
-                        Assign_Destination(unknown_494,1);
+                        Assign_Destination(NavCom,1);
                         return;
                     }
                 }
             }
             BuildingClass *building=cell->Unknown_004717B0();
-            if (building && (building==unknown_494 || building==unknown_228)) {
+            if (building && (building==NavCom || building==unknown_228)) {
                 if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
                 if (Type->Engineer) {
                     if (building->Kind_Of()==6 && building->Type->BridgeRepairHut) {
@@ -155,7 +155,7 @@ void InfantryClass::unknown_slot93(int why)
                                 return;
                             }
                             if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
-                            building->House->unknown_18b=true;
+                            building->House->IsThieved=true;
                             if (unknown_34 && unknown_34->Is_To_Inherit()) building->Attach_Tag(unknown_34);
                             building->Captured(House,1);
                             building->unknown_290=Type->ArrayIndex;
@@ -167,7 +167,7 @@ void InfantryClass::unknown_slot93(int why)
                 Delete_Me();
                 return;
             }
-            if (!unknown_494) {
+            if (!NavCom) {
                 if (Mission!=11) unknown_slot261(false,true);
                 if (Map_Cell(CoordStruct(Coord))->Unknown_004717B0()) Scatter(unknown_geometry_l,true,false);
             }
@@ -183,8 +183,8 @@ void InfantryClass::unknown_slot93(int why)
             if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_00473E30(IsOnBridge);
         }
         TechnoClass *at_destination=0;
-        if (unknown_494 && unknown_494->Kind_Of()==11) {
-            UnknownCellClass *destination_cell=Map_Cell(unknown_494->Center_Coord());
+        if (NavCom && NavCom->Kind_Of()==11) {
+            UnknownCellClass *destination_cell=Map_Cell(NavCom->Center_Coord());
             if (Type->VehicleThief) {
                 at_destination=destination_cell->Unknown_00473E30(true);
                 if (!at_destination) at_destination=destination_cell->Unknown_00473E80(true);
@@ -195,7 +195,7 @@ void InfantryClass::unknown_slot93(int why)
                 if (!at_destination) at_destination=destination_cell->Unknown_00473E30(true);
             }
         }
-        if (Get_Mission()==7 && transport && (unknown_494==transport || unknown_228==transport || (at_destination && transport==at_destination))) {
+        if (Get_Mission()==7 && transport && (NavCom==transport || unknown_228==transport || (at_destination && transport==at_destination))) {
             if (transport->unknown_34) transport->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
             if (transport->Kind_Of()==6) {
                 if (transport==static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_004717B0() && unknown_slot149(21)==1) {
@@ -205,7 +205,7 @@ void InfantryClass::unknown_slot93(int why)
                     Abort_Motion();
                     return;
                 }
-            } else if (unknown_slot104()==transport->unknown_slot104() && transport==unknown_494) {
+            } else if (unknown_slot104()==transport->unknown_slot104() && transport==NavCom) {
                 if (unknown_slot150(15,transport)==1) {
                     Assign_Archive_Target(0);
                     IsOnBridge=false;
@@ -222,7 +222,7 @@ void InfantryClass::unknown_slot93(int why)
         }
         if (Get_Mission()==17 && Type->C4) {
             BuildingClass *building=cell->Unknown_004717B0();
-            if (building && building==unknown_494) {
+            if (building && building==NavCom) {
                 if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
                 // NATIVE (Scout1231): the building's C4 members (+0x5AF going to blow, +0x420 countdown,
                 // +0x438 who planted it) through link/behaviour_m10_building.cpp: this unit's BuildingClass
@@ -247,12 +247,12 @@ void InfantryClass::unknown_slot93(int why)
                 Scatter(building->Center_Coord(),true,true);
                 return;
             }
-            if (reinterpret_cast<AbstractClass *>(Map_Cell(Center_Coord()))==unknown_494) {
+            if (reinterpret_cast<AbstractClass *>(Map_Cell(Center_Coord()))==NavCom) {
                 Explosion_Damage(CoordStruct(Coord),Rules->BridgeStrength,this,Rules->C4Warhead,true);
                 Stop_Driver();
                 Scatter(Adjacent_Cell(CoordStruct(Coord),Dir_To_8(PrimaryFacing.Current())),true,true);
                 QueueMission(2,false);
-                if (!unknown_494 || Map_Cell(unknown_494->Center_Coord())->unknown_ec==2) Mark(1);
+                if (!NavCom || Map_Cell(NavCom->Center_Coord())->unknown_ec==2) Mark(1);
                 Explosion_Damage(CoordStruct(Coord),Rules->BridgeStrength,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
                 Explosion_Damage(CoordStruct(Coord),Rules->BridgeStrength,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
                 if (!IsActive) return;
@@ -266,7 +266,7 @@ void InfantryClass::unknown_slot93(int why)
                 if ((cell->unknown_128.Composite & 0x1c)==0x1c) cell->Unknown_00476920(&unknown_geometry_l,true,true,true);
             } else if ((cell->unknown_124.Composite & 0x1c)==0x1c) cell->Unknown_00476920(&unknown_geometry_l,true,true,false);
         }
-        if (MissionQueue==-1 && !unknown_494 && !unknown_228 && !HasAnyLink()) unknown_slot261(false,true);
+        if (MissionQueue==-1 && !NavCom && !unknown_228 && !HasAnyLink()) unknown_slot261(false,true);
         Commence();
         unknown_slot263(false,false,false,0);
         unknown_slot262(false,false,false,0);

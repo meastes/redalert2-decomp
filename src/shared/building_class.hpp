@@ -396,20 +396,20 @@ public:
     bool IsReadyToCommence;                       // +0x5AD (slot 122 tests it)
     bool IsWrenchVisible;                       // +0x5AE
     bool unknown_5af;                       // +0x5AF
-    bool unknown_5b0;                       // +0x5B0
-    bool unknown_5b1;                       // +0x5B1
-    bool unknown_5b2;                       // +0x5B2
+    bool IsSurvivorless;                       // +0x5B0
+    bool IsCharging;                       // +0x5B1
+    bool IsCharged;                       // +0x5B2
     bool IsCaptured;                       // +0x5B3
-    bool unknown_5b4;                       // +0x5B4
+    bool HasOpened;                       // +0x5B4
     bool unknown_5b5;                       // +0x5B5
     bool IsDamagedAnims;                       // +0x5B6
-    bool unknown_5b7;                       // +0x5B7
+    bool IsFogged;                       // +0x5B7
     bool IsRepairing;                       // +0x5B8
     bool HasBuildupData;                       // +0x5B9
-    bool unknown_5ba;                       // +0x5BA (true)
-    char unknown_5bb;                       // +0x5BB
-    char unknown_5bc;                       // +0x5BC (a cloak radius in cells, or 1)
-    char unknown_5bd;                       // +0x5BD (a count; slot 25 compares it with 5 and 10)
+    bool IsPoweredOn;                       // +0x5BA (true)
+    char CloakGeneratorState;                       // +0x5BB
+    char CurrentCloakRadius;                       // +0x5BC (a cloak radius in cells, or 1)
+    char TranslucencyLevel;                       // +0x5BD (a count; slot 25 compares it with 5 and 10)
     int StorageFilledSlots;                        // +0x5C0
     short unknown_5c4;                      // +0x5C4 (1000)
     char UpgradeLevel;                       // +0x5C6 (count of unknown_4c0)

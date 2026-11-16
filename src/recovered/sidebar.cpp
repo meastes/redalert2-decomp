@@ -993,10 +993,10 @@ void SidebarClass::AI(int &input, Point2D const &xy)
         }
     }
 
-    if (!unknown_11ad && unknown_button_ab96b8.IsOn) {
+    if (!IsSellMode && unknown_button_ab96b8.IsOn) {
         unknown_button_ab96b8.Turn_Off();
     }
-    if (!unknown_11ac && Upgrade.IsOn) {
+    if (!IsRepairMode && Upgrade.IsOn) {
         Upgrade.Turn_Off();
     }
     PowerClass::AI(input, xy);
@@ -1928,7 +1928,7 @@ bool SidebarClass::StripClass::Unknown_006802D0()
                 if (Buildables[index].unknown_04 == 7 || Buildables[index].unknown_04 == 6) {
                     Map.PendingObjectPtr = 0;
                     Map.PendingObject = 0;
-                    Map.unknown_11a8 = -1;
+                    Map.PendingHouse = -1;
                     Map.Unknown_00498F10(0);
                 }
             }
@@ -2051,7 +2051,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
             flags &= ~8;
         }
         if (flags & 0x10) {
-            Map.unknown_11b4 = -1;
+            Map.IsTargettingMode = -1;
         }
         if (flags & 1) {
             if ((unsigned)spc < (unsigned)PlayerPtr->Supers.Count()) {
@@ -2067,14 +2067,14 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                     } else {
                         Map.PendingObjectPtr = 0;
                         Map.PendingObject = 0;
-                        Map.unknown_11a8 = -1;
+                        Map.PendingHouse = -1;
                         Map.Unknown_00498F10(0);
                         Map.Unknown_0049CA20(0);
                         Map.Unknown_0049C7C0(0);
-                        Map.unknown_11ae = false;
-                        Map.unknown_11af = false;
-                        Map.unknown_11b0 = false;
-                        Map.unknown_11b4 = spc;
+                        Map.IsPowerMode = false;
+                        Map.IsWaypointMode = false;
+                        Map.IsBeaconMode = false;
+                        Map.IsTargettingMode = spc;
                         Unselect_All();
                         Speech_Play_Name("EVA_SelectTarget", -1, -1);
                     }
@@ -2093,7 +2093,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                 if (Map.PendingObjectPtr && ((AbstractClass *)Map.PendingObjectPtr)->As_Techno()) {
                     Map.PendingObjectPtr = 0;
                     Map.PendingObject = 0;
-                    Map.unknown_11a8 = -1;
+                    Map.PendingHouse = -1;
                     Map.Unknown_00498F10(0);
                 }
                 if (!factory->Is_Building()) {
@@ -2128,7 +2128,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                     TechnoClass *pending = (TechnoClass *)factory->Get_Object();
                     if (!pending) {
                         if (factory->Get_Special_Item() != -1) {
-                            Map.unknown_11b4 = 1;
+                            Map.IsTargettingMode = 1;
                         }
                     } else {
                         Unknown_Play_Sound(Rules->GUIBuildSound);

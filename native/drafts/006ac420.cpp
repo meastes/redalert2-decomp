@@ -49,7 +49,7 @@ void Tactical::Draw_Radial_Indicators()
         BuildingClass *pending = (BuildingClass *)Map.PendingObjectPtr;
         if (pending != 0 && pending->Kind_Of() == 6) {
             if (pending->unknown_451930() > 0) {
-                Cell cell = Map.unknown_1170;
+                Cell cell = Map.ZoneCell;
                 CoordStruct center = Map[cell].unknown_475d60();
 
                 static RGBClass black(0, 0, 0);
@@ -71,7 +71,7 @@ void Tactical::Draw_Radial_Indicators()
                 for (index = 0; index < buildings; index++) {
                     BuildingClass *building = (BuildingClass *)PlayerPtr->Buildings[index];
                     if (building != 0 && building->IsActive && building != pending && building->Type == pending->Type) {
-                        Cell zone = Map.unknown_1170;
+                        Cell zone = Map.ZoneCell;
                         Cell where = Cell(building->Center_Coord());
                         TPoint2D<short> delta = zone - where;
                         int distance = (short)Fast_Sqrt((double)delta.X * (double)delta.X + (double)delta.Y * (double)delta.Y);
@@ -83,7 +83,7 @@ void Tactical::Draw_Radial_Indicators()
                 for (index = 0; index < buildings; index++) {
                     BuildingClass *building = (BuildingClass *)PlayerPtr->Buildings[index];
                     if (building != 0 && building->IsActive && building != pending && building->Type == pending->Type) {
-                        Cell zone = Map.unknown_1170;
+                        Cell zone = Map.ZoneCell;
                         Cell where = Cell(building->Center_Coord());
                         TPoint2D<short> delta = zone - where;
                         int distance = (short)Fast_Sqrt((double)delta.X * (double)delta.X + (double)delta.Y * (double)delta.Y);

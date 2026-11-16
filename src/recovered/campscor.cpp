@@ -92,7 +92,7 @@
 
 CampaignScoreClass::CampaignScoreClass()
 {
-    unknown_04 = 0;
+    Field4 = 0;
     unknown_score_time_850508 = 0;
     unknown_score_difficulty_7d1480 = -1;
 }
@@ -166,7 +166,7 @@ void CampaignScoreClass::unknown_465d10()
             unknown_session_a3d298.Scores[index].Built = 0;
             unknown_session_a3d298.Scores[index].Score = 0;
             unknown_session_a3d298.Scores[index].Scheme = house->ColorSchemeIndex;
-            if (!house->unknown_13d) {
+            if (!house->IsDefeated) {
                 unknown_session_a3d298.Scores[index].Winner++;
                 unknown_session_a3d298.ScoreWinner = index;
             }

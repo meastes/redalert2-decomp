@@ -181,8 +181,8 @@ exitcell.X += random; exitcell.Y += random;
                 if (exitcell == unknown_geometry_k) return 0;
                 if (Type->Factory == 0x10 && !Type->Cloning) {
                     TechnoTypeClass *type = base->Techno_Type_Class();
-                    for (int index = 0; index < House->unknown_98.Count(); index++) {
-                        BuildingClass *vat = House->unknown_98[index];
+                    for (int index = 0; index < House->CloningVats.Count(); index++) {
+                        BuildingClass *vat = House->CloningVats[index];
                         TechnoClass *object = (TechnoClass *)type->Create_One_Of(vat->House);
                         vat->Exit_Object(object);
                     }
@@ -215,9 +215,9 @@ exitcell.X += random; exitcell.Y += random;
                 ++ScenarioInit;
                 if (base->Unlimbo(&exitcoord, dir)) {
                     FootClass *foot = (FootClass *)base;
-                    if (foot->unknown_494) {
+                    if (foot->NavCom) {
                         if (!base->Techno_Type_Class()->JumpJet && !base->Techno_Type_Class()->Teleporter) {
-                            if (foot->unknown_494) base->Assign_Archive_Target(foot->unknown_494);
+                            if (foot->NavCom) base->Assign_Archive_Target(foot->NavCom);
                             base->QueueMission(2, 0);
                             base->Assign_Destination(&Map[exitcell], 1);
                         }

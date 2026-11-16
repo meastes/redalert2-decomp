@@ -25,7 +25,7 @@
 inline bool Is_Player_Side(TechnoClass *techno)
 {
     if (unknown_game_mode_a3d298 == 0) {
-        return techno->House->unknown_135;
+        return techno->House->IsPlayerControl;
     }
     return techno->House->Is_Player_Control();
 }

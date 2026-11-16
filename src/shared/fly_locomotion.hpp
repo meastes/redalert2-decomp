@@ -152,9 +152,9 @@ public:
     double unknown_40;                  // +0x40
     double unknown_48;                  // +0x48
     bool unknown_50;                    // +0x50
-    bool unknown_51;                    // +0x51
-    bool unknown_52;                    // +0x52
-    bool unknown_53;                    // +0x53
+    bool IsLanding;                    // +0x51
+    bool CommencedLanding;                    // +0x52
+    bool IsTumbling;                    // +0x53
     int unknown_54;                     // +0x54
     int unknown_58;                     // +0x58
     bool unknown_5c;                    // +0x5C

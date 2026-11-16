@@ -11,7 +11,7 @@
 // house's three beacon slots that holds one (0x0042E990).
 void BeaconManagerClass::Unknown_0042EBE0(int house)
 {
-    if (unknown_60 != 0) {
+    if (AllocatedCount != 0) {
         for (int slot = 0; slot < 3; slot++) {
             if (unknown_00[house][slot] != 0) {
                 Unknown_0042E990(house, slot);

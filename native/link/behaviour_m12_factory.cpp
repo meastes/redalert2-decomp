@@ -26,8 +26,8 @@ bool UnknownFactory::Is_On_Hold()
 bool UnknownFactory::Has_Changed()
 {
     FactoryClass *factory = (FactoryClass *)(void *)this;
-    bool value = factory->unknown_59;
-    factory->unknown_59 = false;
+    bool value = factory->IsDifferent;
+    factory->IsDifferent = false;
     return value;
 }
 

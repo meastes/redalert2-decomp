@@ -172,9 +172,9 @@ bool __fastcall Building_Player_Detector_Covers_Cell_00438a60(HouseClass const *
 {
     if (PlayerPtr->Is_Ally(house))
         return false;
-    int count = PlayerPtr->unknown_b0.Count();
+    int count = PlayerPtr->PsychicDetectionBuildings.Count();
     for (int index = 0; index < count; ++index) {
-        BuildingClass *detector = PlayerPtr->unknown_b0[index];
+        BuildingClass *detector = PlayerPtr->PsychicDetectionBuildings[index];
         if (detector->unknown_slot195()) {
             CoordStruct position = detector->Center_Coord();
             CoordStruct other = cell->unknown_475d60();
@@ -220,9 +220,9 @@ static inline UnknownVector3 Detector_Offset(CoordStruct const &a, CoordStruct c
 bool __fastcall Building_Player_Detector_Covers_Target_004386f0(FootClass *object)
 {
     if (!PlayerPtr->Is_Ally(object->House)) {
-    int count = PlayerPtr->unknown_b0.Count();
+    int count = PlayerPtr->PsychicDetectionBuildings.Count();
     for (int index = 0; index < count; ++index) {
-        BuildingClass *detector = PlayerPtr->unknown_b0[index];
+        BuildingClass *detector = PlayerPtr->PsychicDetectionBuildings[index];
         if (detector->unknown_slot195()) {
             AbstractClass *target = object->unknown_228;
             if (target != 0) {
@@ -250,7 +250,7 @@ bool __fastcall Building_Player_Detector_Covers_Target_004386f0(FootClass *objec
             if (object != 0) {
             bool const &is_foot = object->AbstractFlags.IsFoot;
             if (is_foot) {
-                AbstractClass *nav = object->unknown_478.Count() == 0 ? object->unknown_494 : object->unknown_478[object->unknown_478.Count() - 1];
+                AbstractClass *nav = object->unknown_478.Count() == 0 ? object->NavCom : object->unknown_478[object->unknown_478.Count() - 1];
                 if (nav != 0) {
                     bool hit = nav->Kind_Of() == 11;
                     if (hit) {
@@ -339,20 +339,20 @@ BuildingClass::BuildingClass(BuildingTypeClass *type, HouseClass *house) :
     IsReadyToCommence(false),
     IsWrenchVisible(false),
     unknown_5af(false),
-    unknown_5b0(false),
-    unknown_5b1(false),
-    unknown_5b2(false),
+    IsSurvivorless(false),
+    IsCharging(false),
+    IsCharged(false),
     IsCaptured(false),
-    unknown_5b4(false),
+    HasOpened(false),
     unknown_5b5(false),
     IsDamagedAnims(false),
-    unknown_5b7(false),
+    IsFogged(false),
     IsRepairing(false),
     HasBuildupData(false),
-    unknown_5ba(true),
-    unknown_5bb(0),
-    unknown_5bc(0),
-    unknown_5bd(false),
+    IsPoweredOn(true),
+    CloakGeneratorState(0),
+    CurrentCloakRadius(0),
+    TranslucencyLevel(false),
     StorageFilledSlots(0),
     unknown_5c4(1000),
     UpgradeLevel(false),
@@ -430,12 +430,12 @@ BuildingClass::~BuildingClass()
     Type->Free_Buildup();
     Remove_Damage_Fires();
     if (GameActive && Type && Type->CloakGenerator) {
-        unknown_5bb = -1;
-        if (!unknown_5bc) {
-            unknown_5bc = Type->CloakRadiusInCells;
+        CloakGeneratorState = -1;
+        if (!CurrentCloakRadius) {
+            CurrentCloakRadius = Type->CloakRadiusInCells;
         }
         IsToDisplay = true;
-        unknown_5bc = 1;
+        CurrentCloakRadius = 1;
         Cloaking_AI(1);
     }
     if (Fetch_Super_Weapon() != -1 || Fetch_Super_Weapon2() != -1) {
@@ -596,7 +596,7 @@ int BuildingClass::Receive_Message(RadioClass *radio,int message,AbstractClass *
             if (ContainsLink(sender) && (Type->DockUnload || Type->Weeder)) {
                 FootClass *foot=Building_Radio_Foot_004397f0(radio);
                 CellClass *cell=&Map[unknown_slot41((int)foot)];
-                AbstractClass *destination=foot->unknown_494;
+                AbstractClass *destination=foot->NavCom;
                 if (destination && reinterpret_cast<AbstractClass *>(cell)!=destination) needs_to_move=true;
             }
             if (Contact(0) && Type->UnitRepair &&
@@ -693,7 +693,7 @@ bool BuildingClass::Render(Rect *bounds,bool force,bool alternate)
                 pixel.Y=(int)((unsigned int)pixel.Y+(unsigned int)TacticalRect.Y-(unsigned int)bounds->Y);
             }
             if(alternate) {
-                if(!unknown_5b7) {
+                if(!IsFogged) {
                     unknown_slot284(pixel,*bounds);
                     return true;
                 }
@@ -1802,13 +1802,13 @@ bool BuildingClass::Unlimbo(CoordStruct const *coord, int dir)
             }
         }
         if (Type->UnitRepair) {
-            House->unknown_80.Add(this);
+            House->UnitRepairStations.Add(this);
         }
         if (Type->Cloning) {
-            House->unknown_98.Add(this);
+            House->CloningVats.Add(this);
         }
         if (Type->PsychicDetectionRadius > 0) {
-            House->unknown_b0.Add(this);
+            House->PsychicDetectionBuildings.Add(this);
         }
         House->Buildings.Add(this);
 
@@ -1869,10 +1869,10 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
         if (Type->Radar) Update_Radar_Spied();
     }
     if (Type->CloakGenerator) {
-        unknown_5bb=-1;
-        if (unknown_5bc==0) unknown_5bc=Type->CloakRadiusInCells;
+        CloakGeneratorState=-1;
+        if (CurrentCloakRadius==0) CurrentCloakRadius=Type->CloakRadiusInCells;
         IsToDisplay=true;
-        unknown_5bc=1;
+        CurrentCloakRadius=1;
         Cloaking_AI(1);
     }
     if (Type->LaserFencePost) unknown_44dc40(true);
@@ -1939,7 +1939,7 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
         unknown_25c[7]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(systems[Random_Pick(0,systems.Count()-1)]),Position_Coord_00450950(*this)+smoke_offset,0,this,unknown_geometry_l);
     }
     Strength=0;
-    if (forced) unknown_5b0=true;
+    if (forced) IsSurvivorless=true;
     Spawn_Survivors_0043f8e0(static_cast<ObjectClass *>(unknown_438));
 }
 
@@ -1961,14 +1961,14 @@ void BuildingClass::Leave_Rubble_0043eba0()
             CellClass &cell = Map[position];
             cell.Register_For_Redraw();
             cell.OverlayIndex = 0xef;
-            cell.unknown_40 = 0;
+            cell.Rubble = 0;
             cell.Recalc_Attributes(-1);
             Map.Update_Cell_Zone(cell.MapCoords);
             Map.Update_Cell_Subzones(cell.MapCoords);
             Unknown_006D7C80(&cell);
         }
         CellClass &base = Map[origin];
-        base.unknown_40 = Type;
+        base.Rubble = Type;
         Rect area = Union(base.Overlay_Render_Rect(), base.Overlay_Shadow_Render_Rect());
         Point2D view_origin(TacticalRect.X, TacticalRect.Y);
         Point2D translated(area.X - view_origin.X, area.Y - view_origin.Y);
@@ -2546,8 +2546,8 @@ exitcell.X += random; exitcell.Y += random;
                 if (exitcell == unknown_geometry_k) return 0;
                 if (Type->Factory == 0x10 && !Type->Cloning) {
                     TechnoTypeClass *type = base->Techno_Type_Class();
-                    for (int index = 0; index < House->unknown_98.Count(); index++) {
-                        BuildingClass *vat = House->unknown_98[index];
+                    for (int index = 0; index < House->CloningVats.Count(); index++) {
+                        BuildingClass *vat = House->CloningVats[index];
                         TechnoClass *object = (TechnoClass *)type->Create_One_Of(vat->House);
                         vat->Exit_Object(object);
                     }
@@ -2580,9 +2580,9 @@ exitcell.X += random; exitcell.Y += random;
                 ++ScenarioInit;
                 if (base->Unlimbo(&exitcoord, dir)) {
                     FootClass *foot = (FootClass *)base;
-                    if (foot->unknown_494) {
+                    if (foot->NavCom) {
                         if (!base->Techno_Type_Class()->JumpJet && !base->Techno_Type_Class()->Teleporter) {
-                            if (foot->unknown_494) base->Assign_Archive_Target(foot->unknown_494);
+                            if (foot->NavCom) base->Assign_Archive_Target(foot->NavCom);
                             base->QueueMission(2, 0);
                             base->Assign_Destination(&Map[exitcell], 1);
                         }
@@ -2831,13 +2831,13 @@ bool BuildingClass::Limbo()
                 unknown_49c[index] = 0;
             }
         }
-        if (Type->OrePurifier && unknown_5b4) {
+        if (Type->OrePurifier && HasOpened) {
             House->unknown_52cc--;
             if (House->unknown_52cc < 0) {
                 House->unknown_52cc = 0;
             }
         }
-        if (Type->Helipad && unknown_5b4) {
+        if (Type->Helipad && HasOpened) {
             House->unknown_218 -= Type->NumberOfDocks;
             if (House->unknown_218 < 0) {
                 House->unknown_218 = 0;
@@ -2975,11 +2975,11 @@ extern "C" Cell grand_south_step_00851a80;
 // No canonical rename or header migration has been applied.
 void BuildingClass::unknown_slot282(bool captured)
 {
-    if (unknown_5b4 && !captured) return;
+    if (HasOpened && !captured) return;
     if (Type->ProduceCashDelay) {
         CashProductionTimer = CDTimerClass<FrameTimerClass>(Type->ProduceCashDelay);
     }
-    if (!unknown_5b4) {
+    if (!HasOpened) {
         if (Type->Refinery) {
             int storage_stage = (int)unknown_294.Get_Total_Amount();
             if (storage_stage != 0) storage_stage = ((int)unknown_294.Get_Total_Amount() << 2) / Type->Storage;
@@ -3072,7 +3072,7 @@ void BuildingClass::unknown_slot282(bool captured)
         if (result != grand_none_0084ed10) unknown_440140(&result, false);
     }
     House->IsRecalcNeeded = true;
-    unknown_5b4 = true;
+    HasOpened = true;
     House->RecalcPower = true;
     House->RecalcRadar = true;
     if (Techno_Type_Class()->GapGenerator) unknown_slot235();
@@ -3626,15 +3626,15 @@ bool BuildingClass::Captured(HouseClass *newowner, int announce)
     TargetClass to_capture(this);
     IsCaptured=true;
     if(Rules->BuildConst.Is_Present(Type)) { oldowner->unknown_50.Delete(this); }
-    if(Type->UnitRepair) { oldowner->unknown_80.Delete(this); }
-    if(Type->Cloning) { oldowner->unknown_98.Delete(this); }
-    if(Type->PsychicDetectionRadius>0) { oldowner->unknown_b0.Delete(this); }
+    if(Type->UnitRepair) { oldowner->UnitRepairStations.Delete(this); }
+    if(Type->Cloning) { oldowner->CloningVats.Delete(this); }
+    if(Type->PsychicDetectionRadius>0) { oldowner->PsychicDetectionBuildings.Delete(this); }
     oldowner->Buildings.Delete(this);
     if(Type->OrePurifier) { --oldowner->unknown_52cc; }
     if(Type->Helipad) { oldowner->unknown_218-=Type->NumberOfDocks; }
     if(Type->CloakGenerator) {
         Disable_Cloak_Generator_0044fad0();
-        unknown_5bc=1;
+        CurrentCloakRadius=1;
         Cloaking_AI(1);
     }
     if(Type->GapGenerator) { unknown_slot236(); }
@@ -3648,7 +3648,7 @@ bool BuildingClass::Captured(HouseClass *newowner, int announce)
     House->unknown_func_4e8640();
     if(House->unknown_5410==this) { House->unknown_5410=0; }
     if(oldowner->Is_Player_Control() && Type->ConstructionYard) {
-        Map.PendingObjectPtr=0;Map.PendingObject=0;Map.unknown_11a8=-1;
+        Map.PendingObjectPtr=0;Map.PendingObject=0;Map.PendingHouse=-1;
         Map.Unknown_00498F10(0);
     }
     House->unknown_func_4eac70(this);
@@ -3662,9 +3662,9 @@ bool BuildingClass::Captured(HouseClass *newowner, int announce)
     if(unknown_1a8 & (1<<newowner->Type->House)) { unknown_1a8 &= ~(1<<newowner->Type->House); }
     Update_Anim_Appearance_0044d190();
     if(Rules->BuildConst.Is_Present(Type)) { newowner->unknown_50.Add(this); }
-    if(Type->UnitRepair) { newowner->unknown_80.Add(this); }
-    if(Type->Cloning) { newowner->unknown_98.Add(this); }
-    if(Type->PsychicDetectionRadius>0) { newowner->unknown_b0.Add(this); }
+    if(Type->UnitRepair) { newowner->UnitRepairStations.Add(this); }
+    if(Type->Cloning) { newowner->CloningVats.Add(this); }
+    if(Type->PsychicDetectionRadius>0) { newowner->PsychicDetectionBuildings.Add(this); }
     newowner->Buildings.Add(this);
     if(Type->OrePurifier) { ++House->unknown_52cc; }
     if(Type->Helipad) { House->unknown_218+=Type->NumberOfDocks; }
@@ -4111,10 +4111,10 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                 Delete_Me();
                 Building_Refresh_House_Buildings_0044fa40(House);
                 if(Type->CloakGenerator) {
-                    unknown_5bb=-1;
-                    if(!unknown_5bc) unknown_5bc=Type->CloakRadiusInCells;
+                    CloakGeneratorState=-1;
+                    if(!CurrentCloakRadius) CurrentCloakRadius=Type->CloakRadiusInCells;
                     IsToDisplay=true;
-                    unknown_5bc=1;
+                    CurrentCloakRadius=1;
                     Cloaking_AI(1);
                 }
             }
@@ -4370,7 +4370,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                         if (!contact->Locomotor.Checked()->Is_Moving()) contact->Locomotor.Checked()->Power_Off();
                         return 1;
                     }
-                    if (!contact->Locomotor.Checked()->Is_Powered() && ((FootClass *)Contact_With_Whom())->unknown_494) {
+                    if (!contact->Locomotor.Checked()->Is_Powered() && ((FootClass *)Contact_With_Whom())->NavCom) {
                         ((FootClass *)Contact_With_Whom())->Abort_Motion();
                     }
                 }
@@ -5339,7 +5339,7 @@ void BuildingClass::Factory_AI_0044b480()
         }
         }
     }
-    if (House->unknown_136 && Get_Mission() != 18 && Get_Mission() != 19 && Type->Factory != 0) {
+    if (House->IsStarted && Get_Mission() != 18 && Get_Mission() != 19 && Type->Factory != 0) {
         if (Factory) {
             if (PlacementDelay.Value() == 0) {
                 FactoryClass *factory = static_cast<FactoryClass *>(Factory);
@@ -5349,7 +5349,7 @@ void BuildingClass::Factory_AI_0044b480()
                 Factory = 0;
             }
         } else {
-            if (House->unknown_136 && House->Available_Money() > 10) {
+            if (House->IsStarted && House->Available_Money() > 10) {
                 TechnoTypeClass *type = House->unknown_func_4e74c0(Type->Factory, false);
                 if (type) {
                     if (type->Kind_Of() == 40) {
@@ -5451,8 +5451,8 @@ void BuildingClass::Repair_AI_0044b9b0()
 {
     if (House->IQ >= Rules->IQRepairSell && Get_Mission() != 18 && Get_Mission() != 19 && Can_Repair()) {
         if (House->Available_Money() >= Rules->CreditReserve) {
-            if (!House->unknown_18c && !IsRepairing && (IsCaptured || IsToRepair || House->Unknown_004F52F0())) {
-                House->unknown_18c = true;
+            if (!House->DidRepair && !IsRepairing && (IsCaptured || IsToRepair || House->Unknown_004F52F0())) {
+                House->DidRepair = true;
                 Repair(1);
                 if (!House->Unknown_004F52F0()) {
                     House->unknown_1c8 = Random_Pick((int)(House->unknown_108 * 225.0), (int)(House->unknown_108 * 1800.0));
@@ -5508,7 +5508,7 @@ inline int Refinery_Storage_Stage_0044BD40(BuildingClass *building)
 inline void Apply_Frame_And_Layer_0044BD40(BuildingClass *building,ConvertClass *value,int level)
 {
     building->unknown_44d0f0(value,(unsigned short)level);
-    building->unknown_44d2d0(building->unknown_5bd);
+    building->unknown_44d2d0(building->TranslucencyLevel);
 }
 inline void Refresh_Building_Frame_0044BD40(BuildingClass *building)
 {
@@ -5622,7 +5622,7 @@ void BuildingClass::Update_Animations_0044BD40()
 
 int BuildingClass::unknown_slot172()
 {
-    if (!unknown_5b0 && Type->Crewed) {
+    if (!IsSurvivorless && Type->Crewed) {
         int step = (unknown_114 == 1) ? Rules->SovietSurvivorDivisor : Rules->AlliedSurvivorDivisor;
         if (step) {
             if (IsCaptured) {
@@ -5648,7 +5648,7 @@ int BuildingClass::unknown_slot172()
 
 void *BuildingClass::Get_Image_Data()
 {
-    if (BState && unknown_5b4) {
+    if (BState && HasOpened) {
         return Type->Get_Image_Data();
     }
     return Type->Get_Buildup_Data();
@@ -5805,8 +5805,8 @@ void BuildingClass::unknown_44ca60(char const *name, int index, bool damaged, bo
         animation->ZAdjust = Type->Anims[index].ZAdjust;
         animation->YSortAdjust = Type->Anims[index].YSort;
         animation->IsBuildingAnim = true;
-        if (unknown_5b7) animation->IsFogged = true;
-        unknown_44d2d0(unknown_5bd);
+        if (IsFogged) animation->IsFogged = true;
+        unknown_44d2d0(TranslucencyLevel);
         if (unknown_454[index]) {
             Set_Building_Animation_Stage_0044ca60(*animation,Fetch_Building_Animation_Stage_0044ca60(*static_cast<AnimClass *>(unknown_454[index])));
             AbstractClass *previous = unknown_454[index];
@@ -5814,7 +5814,7 @@ void BuildingClass::unknown_44ca60(char const *name, int index, bool damaged, bo
             delete previous;
         }
         unknown_454[index] = animation;
-        if (!unknown_5ba && Type->Anims[index].Powered) animation->unknown_func_422c10();
+        if (!IsPoweredOn && Type->Anims[index].Powered) animation->unknown_func_422c10();
         if (animation->Class->ShouldUseCellDrawer) {
             animation->unknown_bc = unknown_slot115();
             int height = reinterpret_cast<UnknownBuildingSlot105 *>(Get_Cell_Ptr())->unknown_10a;
@@ -5956,7 +5956,7 @@ void BuildingClass::unknown_44d0f0(ConvertClass *value, int frame)
                 anim->unknown_bc = value;
                 anim->AlternativeBrightness = frame;
             }
-            unknown_44d2d0(unknown_5bd);
+            unknown_44d2d0(TranslucencyLevel);
         }
     }
 }
@@ -5979,7 +5979,7 @@ void BuildingClass::Update_Anim_Appearance_0044d190()
     ConvertClass *value = unknown_slot115();
     unknown_5c4 = unknown_4521e0(((UnknownBuildingSlot105 *)Get_Cell_Ptr())->unknown_10a);
     unknown_44d0f0(value, (unsigned short)unknown_5c4);
-    unknown_44d2d0(unknown_5bd);
+    unknown_44d2d0(TranslucencyLevel);
 }
 
 
@@ -6117,7 +6117,7 @@ void BuildingClass::unknown_44d530()
 void __fastcall Building_Refresh_House_Buildings_0044fa40(HouseClass *house);
 void BuildingClass::unknown_44d600()
 {
-    unknown_5ba=true;
+    IsPoweredOn=true;
     Building_Refresh_House_Buildings_0044fa40(House);
 
     if(LightSource) {
@@ -6147,7 +6147,7 @@ void BuildingClass::unknown_44d600()
 void BuildingClass::unknown_44d6c0()
 {
     HouseClass *house = House;
-    unknown_5ba = false;
+    IsPoweredOn = false;
     int count = house->Buildings.Count();
     for (int index = 0; index < count; index++) {
         BuildingClass *building = house->Buildings[index];
@@ -6162,9 +6162,9 @@ void BuildingClass::unknown_44d6c0()
         LightSource->Deactivate(0);
     }
     if (Type->CloakGenerator) {
-        unknown_5bb = -1;
-        if (!unknown_5bc) {
-            unknown_5bc = Type->CloakRadiusInCells;
+        CloakGeneratorState = -1;
+        if (!CurrentCloakRadius) {
+            CurrentCloakRadius = Type->CloakRadiusInCells;
         }
         IsToDisplay = true;
     }
@@ -6599,7 +6599,7 @@ void BuildingClass::Toggle_Laser_Fence_Post(int force)
         int range=Type->GuardRange.Value>>8;
         if(range<=1) range=1;
         bool powered=false;
-        if(unknown_slot195() && unknown_5ba && Get_Mission()!=19 && Get_Mission()!=18)
+        if(unknown_slot195() && IsPoweredOn && Get_Mission()!=19 && Get_Mission()!=18)
             powered=true;
         unsigned facing=0;
         int remaining=4;
@@ -6626,7 +6626,7 @@ void BuildingClass::Toggle_Laser_Fence_Post(int force)
                     int last_frame=12;
                     if(axis==2) { first_frame=8; middle_frame=8; last_frame=8; }
                     bool connected=false;
-                    if(powered && post && post->unknown_slot195() && post->unknown_5ba
+                    if(powered && post && post->unknown_slot195() && post->IsPoweredOn
                        && post->Get_Mission()!=19 && post->Get_Mission()!=18) {
                         connected=true;
                         switch(facing) {
@@ -6913,7 +6913,7 @@ void BuildingClass::Compute_CRC(WWCRCEngine &crc) const
     crc((long)LaserFenceFrame);
     crc((long)FirestormWallFrame);
     crc(IsOn);
-    crc(unknown_5ba);
+    crc(IsPoweredOn);
     crc(IsToRebuild);
     crc(IsToRepair);
     crc(IsAllowedToSell);
@@ -6921,11 +6921,11 @@ void BuildingClass::Compute_CRC(WWCRCEngine &crc) const
     crc(IsRepairing);
     crc(IsWrenchVisible);
     crc(unknown_5af);
-    crc(unknown_5b0);
-    crc(unknown_5b1);
-    crc(unknown_5b2);
+    crc(IsSurvivorless);
+    crc(IsCharging);
+    crc(IsCharged);
     crc(IsCaptured);
-    crc(unknown_5b4);
+    crc(HasOpened);
     crc(HasEngineer);
     crc(unknown_5b5);
     crc(IsDamagedAnims);
@@ -6945,8 +6945,8 @@ extern HWND MainWindow;                 // 0x00B263D8
 
 int BuildingClass::unknown_slot25(bool arg1, int arg2)
 {
-    if (unknown_5bd) {
-        if (unknown_5bd > 10) {
+    if (TranslucencyLevel) {
+        if (TranslucencyLevel > 10) {
             if (arg1) {
                 HouseClass *house = (HouseClass *)arg2;
                 if (house) {
@@ -6964,7 +6964,7 @@ int BuildingClass::unknown_slot25(bool arg1, int arg2)
             }
             return 5;
         }
-        return (unknown_5bd > 5) + 1;
+        return (TranslucencyLevel > 5) + 1;
     }
     return TechnoClass::unknown_slot25(arg1, arg2);
 }
@@ -6983,7 +6983,7 @@ void BuildingClass::Enable_Powered_Anims()
             if (unknown_454[index]) {
                 ((UnknownBuildingAnim *)unknown_454[index])->unknown_422c20();
             }
-        } else if (Type->Anims[index].PoweredLight && !unknown_454[index] && unknown_5b4) {
+        } else if (Type->Anims[index].PoweredLight && !unknown_454[index] && HasOpened) {
             if (!(Type->IsAnimDelayedFire && index == 10)) {
                 PlayNthAnim(index, Health_Ratio() <= Rules->ConditionYellow, false, 0);
             }
@@ -7028,12 +7028,12 @@ void BuildingClass::Update_Power_State()
 {
     if (unknown_slot195()) {
         if (Type->CloakGenerator) {
-            if (unknown_5bb <= 0) {
-                char radius = unknown_5bc;
+            if (CloakGeneratorState <= 0) {
+                char radius = CurrentCloakRadius;
                 if (radius != Type->CloakRadiusInCells) {
-                    unknown_5bb = 1;
+                    CloakGeneratorState = 1;
                     if (radius == Type->CloakRadiusInCells) {
-                        unknown_5bc = 0;
+                        CurrentCloakRadius = 0;
                     }
                     IsToDisplay = true;
                 }
@@ -7046,8 +7046,8 @@ void BuildingClass::Update_Power_State()
             Enable_Powered_Anims();
         }
     } else {
-        if (Type->CloakGenerator && unknown_5bb >= 0 && unknown_5bc != 0) {
-            unknown_5bb = -1;
+        if (Type->CloakGenerator && CloakGeneratorState >= 0 && CurrentCloakRadius != 0) {
+            CloakGeneratorState = -1;
             IsToDisplay = true;
         }
         if (Type->GapGenerator && unknown_1fd) {
@@ -7091,9 +7091,9 @@ void __fastcall Building_Refresh_House_Buildings_0044fa40(HouseClass *house)
 void BuildingClass::Enable_Cloak_Generator_0044fa90()
 {
     if (Type->CloakGenerator) {
-        unknown_5bb = 1;
-        if (unknown_5bc == Type->CloakRadiusInCells) {
-            unknown_5bc = 0;
+        CloakGeneratorState = 1;
+        if (CurrentCloakRadius == Type->CloakRadiusInCells) {
+            CurrentCloakRadius = 0;
         }
         IsToDisplay = true;
     }
@@ -7108,9 +7108,9 @@ void BuildingClass::Enable_Cloak_Generator_0044fa90()
 void BuildingClass::Disable_Cloak_Generator_0044fad0()
 {
     if (Type->CloakGenerator) {
-        unknown_5bb = -1;
-        if (unknown_5bc == 0) {
-            unknown_5bc = Type->CloakRadiusInCells;
+        CloakGeneratorState = -1;
+        if (CurrentCloakRadius == 0) {
+            CurrentCloakRadius = Type->CloakRadiusInCells;
         }
         IsToDisplay = true;
     }
@@ -7148,21 +7148,21 @@ void BuildingClass::Cloaking_AI(int fast)
     if (!Type) return;
     Cell center=Cell(Center_Coord());
     if (unknown_1b8==1) {
-        if (unknown_5bd<15) {
-            ++unknown_5bd;
-            if (unknown_5bd==1 || unknown_5bd==6 || unknown_5bd==11) IsToDisplay=true;
-            unknown_44d2d0(unknown_5bd);
-            if (unknown_5bd==15) {
+        if (TranslucencyLevel<15) {
+            ++TranslucencyLevel;
+            if (TranslucencyLevel==1 || TranslucencyLevel==6 || TranslucencyLevel==11) IsToDisplay=true;
+            unknown_44d2d0(TranslucencyLevel);
+            if (TranslucencyLevel==15) {
                 unknown_1b8=2;
                 if (unknown_25c[2]) {delete unknown_25c[2];unknown_25c[2]=0;}
             }
         }
     } else if (unknown_1b8==3) {
-        if (unknown_5bd>=0) {
-            if (unknown_5bd>0) --unknown_5bd;
-            if (unknown_5bd==0 || unknown_5bd==5 || unknown_5bd==10) IsToDisplay=true;
-            unknown_44d2d0(unknown_5bd);
-            if (unknown_5bd==0) {
+        if (TranslucencyLevel>=0) {
+            if (TranslucencyLevel>0) --TranslucencyLevel;
+            if (TranslucencyLevel==0 || TranslucencyLevel==5 || TranslucencyLevel==10) IsToDisplay=true;
+            unknown_44d2d0(TranslucencyLevel);
+            if (TranslucencyLevel==0) {
                 unknown_1b8=0;
                 if (!unknown_25c[2] && (Type->NaturalParticleLocation!=unknown_geometry_l)) {
                     CoordStruct offset=Type->NaturalParticleLocation;
@@ -7174,17 +7174,17 @@ void BuildingClass::Cloaking_AI(int fast)
     }
     if (unknown_1b8==2 && unknown_slot161()) unknown_slot252(false);
     if (unknown_1b8==0 && unknown_slot160()) unknown_slot253(false);
-    if (unknown_5bb!=0 && Type->CloakGenerator) {
+    if (CloakGeneratorState!=0 && Type->CloakGenerator) {
         int house=House->ArrayIndex;
         BSurface *surface=CloakingSurface;
         int width=surface->Get_Width();
         int half=width/2;
-        if (unknown_5bb>0) {
-            if (unknown_5bc==Type->CloakRadiusInCells) unknown_5bb=0;
+        if (CloakGeneratorState>0) {
+            if (CurrentCloakRadius==Type->CloakRadiusInCells) CloakGeneratorState=0;
             else {
-                ++unknown_5bc;
+                ++CurrentCloakRadius;
                 surface->Fill(0);
-                surface->Fill_Circle(Point2D(half,half),unknown_5bc,surface->Get_Rect(),1);
+                surface->Fill_Circle(Point2D(half,half),CurrentCloakRadius,surface->Get_Rect(),1);
                 char *data=(char *)surface->Lock();
                 Cell origin=center-Cell(half,half);
                 for (int y=0;y<width;++y) {
@@ -7197,7 +7197,7 @@ void BuildingClass::Cloaking_AI(int fast)
                                 Cell_Occupants_Unknown_Slot238_0044fb10(cell);
                                 BuildingClass *building=static_cast<BuildingClass *>(cell->Cell_Building());
                                 if (building && building->House->ArrayIndex==house && Cell(building->Center_Coord())==current) {
-                                    --unknown_5bc;
+                                    --CurrentCloakRadius;
                                     return;
                                 }
                             }
@@ -7205,12 +7205,12 @@ void BuildingClass::Cloaking_AI(int fast)
                     }
                 }
             }
-        } else if (unknown_5bc==0) unknown_5bb=0;
+        } else if (CurrentCloakRadius==0) CloakGeneratorState=0;
         else {
-            --unknown_5bc;
+            --CurrentCloakRadius;
             surface->Fill(2);
             surface->Fill_Circle(Point2D(half,half),Type->CloakRadiusInCells,surface->Get_Rect(),0);
-            if (unknown_5bc!=0) surface->Fill_Circle(Point2D(half,half),unknown_5bc,surface->Get_Rect(),1);
+            if (CurrentCloakRadius!=0) surface->Fill_Circle(Point2D(half,half),CurrentCloakRadius,surface->Get_Rect(),1);
             char *data=(char *)surface->Lock();
             Cell origin=center-Cell(half,half);
             for (int y=0;y<width;++y) {
@@ -7223,28 +7223,28 @@ void BuildingClass::Cloaking_AI(int fast)
                             Cell_Occupants_Unknown_Slot238_0044fb10(cell);
                             BuildingClass *building=static_cast<BuildingClass *>(cell->Cell_Building());
                             if (building && building->House->ArrayIndex==house && Cell(building->Center_Coord())==current && (char)fast==0) {
-                                ++unknown_5bc;
+                                ++CurrentCloakRadius;
                                 return;
                             }
                         }
                     }
                 }
             }
-            if (unknown_5bc==0) {
+            if (CurrentCloakRadius==0) {
                 for (int i=0;i<unknown_BuildingClass_list_00a40af8.Count();++i) {
                     BuildingClass *building=unknown_BuildingClass_list_00a40af8[i];
                     if (building->IsActive && building!=this && building->Type->CloakGenerator &&
-                        building->unknown_slot195() && building->unknown_5bb==0) {
+                        building->unknown_slot195() && building->CloakGeneratorState==0) {
                         Cell diff=center-Cell(building->Center_Coord());
                         int dy=diff.Y;
                         int dx=diff.X;
                         if (dy*dy+dx*dx<4*((Type->CloakRadiusInCells+2)*(Type->CloakRadiusInCells+2))) {
                             if (building->Type->CloakGenerator) {
-                                building->unknown_5bb=1;
-                                if (building->unknown_5bc==building->Type->CloakRadiusInCells) building->unknown_5bc=0;
+                                building->CloakGeneratorState=1;
+                                if (building->CurrentCloakRadius==building->Type->CloakRadiusInCells) building->CurrentCloakRadius=0;
                                 building->IsToDisplay=true;
                             }
-                            if (building->unknown_5bc!=0) --building->unknown_5bc;
+                            if (building->CurrentCloakRadius!=0) --building->CurrentCloakRadius;
                         }
                     }
                 }
@@ -7438,7 +7438,7 @@ void BuildingClass::Update_Firestorm_Wall_00450950()
     if (active && connections != 10 && connections != 5 && !unknown_454[10]) {
         AnimClass *animation = new AnimClass(Rules->FirestormActiveAnim, Position_Coord_00450950(*this) - CoordStruct(128,128,0), 1, 0, 0x600, -10);
         unknown_454[10] = animation;
-        animation->IsFogged = unknown_5b7;
+        animation->IsFogged = IsFogged;
     } else if (unknown_454[10]) {
         delete unknown_454[10];
         unknown_454[10] = 0;
@@ -7558,9 +7558,9 @@ BuildingClass *__fastcall Building_Find_Nearby_Radio_Acceptor_00450f90(HouseClas
     BuildingClass *selected=0;
     int best=0x7fffffff;
     static int maximum=(int)(unknown_geometry_diagonal*20.0);
-    int count=house->unknown_80.Count();
+    int count=house->UnitRepairStations.Count();
     for(int index=0;index<count;++index) {
-        BuildingClass *building=house->unknown_80[index];
+        BuildingClass *building=house->UnitRepairStations[index];
         if(target->unknown_slot150(15,building)) {
             CoordStruct from=target->Coord;
             CoordStruct to=building->Coord;
@@ -7899,10 +7899,10 @@ void BuildingClass::Clicked_As_Target(int arg1)
                 anim->unknown_bc = value;
                 anim->unknown_e4 = frame;
             }
-            unknown_44d2d0(unknown_5bd);
+            unknown_44d2d0(TranslucencyLevel);
         }
     }
-    unknown_44d2d0(unknown_5bd);
+    unknown_44d2d0(TranslucencyLevel);
 }
 
 
@@ -7948,9 +7948,9 @@ bool BuildingClass::unknown_slot190(int *out_kind)
         bool shrouded = Map.Is_Shrouded(CoordStruct(Coord))
             && Map.Is_Shrouded(CoordStruct(Coord) + CoordStruct(width, height, 0))
             && unknown_b263d8;
-        if (unknown_1b8 != 2 && unknown_5bd != 15 && !unknown_5b7 && !shrouded) return true;
+        if (unknown_1b8 != 2 && TranslucencyLevel != 15 && !IsFogged && !shrouded) return true;
         if (!unknown_slot191()) return false;
-        if (!PlayerPtr->Is_Ally(House) && !unknown_5b7 && !shrouded) *out_kind = 1;
+        if (!PlayerPtr->Is_Ally(House) && !IsFogged && !shrouded) *out_kind = 1;
         return true;
     }
     return false;

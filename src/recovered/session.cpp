@@ -476,15 +476,15 @@ int SessionClass::Create_Connections()
             unknown_forward_address_a3fbac.Set_Address(net, node, 0);
             Ipx.Set_Lobby_Address(&unknown_forward_address_a3fbac);
         }
-        Houses[Players[i]->ID]->unknown_14c = Players[i]->unknown_6b;
+        Houses[Players[i]->ID]->SquadID = Players[i]->unknown_6b;
         unknown_players_a3fa7c[i]->Address.Get_Address(net, node);
         unsigned long ip = 0;
         for (int j = 0; j < 4; j++) {
             ip = (ip << 8) | node[j];
         }
         Debug_Printf("House[%d] IP = %X  Clan=%d\n", Players[i]->ID, ip, Players[i]->unknown_6b);
-        Houses[Players[i]->ID]->unknown_148 = ip;
-        Houses[Players[i]->ID]->unknown_150 = false;
+        Houses[Players[i]->ID]->IPAddress = ip;
+        Houses[Players[i]->ID]->LostConnection = false;
         if (i > 0) {
             Ipx.Create_Connection(Players[i]->ID, Players[i]->Name, &Players[i]->Address);
             Players[i]->unknown_63 = -1;
@@ -548,7 +548,7 @@ bool SessionClass::Am_I_Master(HouseClass *house)
     }
     for (int i = 0; i < Houses.Count(); i++) {
         HouseClass *player = Houses[i];
-        if (player->unknown_134 && !player->unknown_13d) {
+        if (player->unknown_134 && !player->IsDefeated) {
             if (house == player) {
                 return true;
             } else {

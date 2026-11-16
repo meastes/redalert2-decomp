@@ -24,7 +24,7 @@ class DriveLocomotionClass : public LocomotionClass, public IPiggyback {
 public:
     DriveLocomotionClass();                                                     // 0x0049F640
     DriveLocomotionClass(NoInitClass const &noinit) :                           // inline (Load)
-        LocomotionClass(noinit), unknown_24(noinit) {}
+        LocomotionClass(noinit), RampTimer(noinit) {}
     virtual ~DriveLocomotionClass();                                            // 0x0049F6E0
 
     virtual HRESULT __stdcall QueryInterface(GUID const &iid, void **object);   // 0x0049F820
@@ -86,19 +86,19 @@ public:
 
     int unknown_1c;                     // +0x1C ramp
     int unknown_20;                     // +0x20 ramp
-    UnknownSlopeTimer unknown_24;       // +0x24
-    CoordStruct unknown_34;             // +0x34 destination
+    UnknownSlopeTimer RampTimer;       // +0x24
+    CoordStruct DestinationCoord;             // +0x34 destination
     CoordStruct unknown_40;             // +0x40 head-to coordinate
-    int unknown_4c;                     // +0x4C speed accumulator
+    int SpeedAccum;                     // +0x4C speed accumulator
     double unknown_50;                  // +0x50 (a speed fraction; Stop_Moving caps it at 0.3)
-    int unknown_58;                     // +0x58 track number
-    int unknown_5c;                     // +0x5C track index
+    int TrackNumber;                     // +0x58 track number
+    int TrackIndex;                     // +0x5C track index
     bool unknown_60;                    // +0x60
-    bool unknown_61;                    // +0x61
-    bool unknown_62;                    // +0x62
-    bool unknown_63;                    // +0x63
+    bool IsTurretLockedDown;                    // +0x61
+    bool IsRotating;                    // +0x62
+    bool IsDriving;                    // +0x63
     bool unknown_64;                    // +0x64
-    bool unknown_65;                    // +0x65 unlocked
+    bool IsLocomotorUnlocked;                    // +0x65 unlocked
     UnknownLocomotionPtr Piggybacker;   // +0x68
     int unknown_6c;                     // +0x6C
 };

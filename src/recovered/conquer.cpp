@@ -151,8 +151,8 @@ void __fastcall Special_Dialog_00481850()
         return;
     }
     if (unknown_game_mode_a3d298 != 0) {
-        if (PlayerPtr->unknown_140 || PlayerPtr->unknown_13f || PlayerPtr->unknown_13e
-            || (!unknown_flag_007d88e0 && !PlayerPtr->unknown_13d)) {
+        if (PlayerPtr->unknown_140 || PlayerPtr->IsToWin || PlayerPtr->unknown_13e
+            || (!unknown_flag_007d88e0 && !PlayerPtr->IsDefeated)) {
             SpecialDialog = 0;
             return;
         }
@@ -220,7 +220,7 @@ void __fastcall Special_Dialog_00481850()
         case 2:
             if (unknown_a72c68 != 0) {
                 Queue_Exit();
-            } else if (!PlayerPtr->unknown_13d && !PlayerPtr->unknown_13f
+            } else if (!PlayerPtr->IsDefeated && !PlayerPtr->IsToWin
                        && !PlayerPtr->unknown_140 && !PlayerPtr->unknown_13e) {
                 if (OK_Cancel_Message_005A7430(StringTable::Load_String("TXT_SURRENDER", 0, "D:\\Ra2\\Conquer.CPP", 487))) {
                     OutList.Add(EventClass(PlayerPtr->ArrayIndex, 8));

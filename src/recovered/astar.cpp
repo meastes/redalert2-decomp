@@ -858,7 +858,7 @@ void AStarClass::Apply_Path_Collision_Avoidance(FootClass *foot)
     while(blocker) {
         if(blocker->Kind_Of()==1 || blocker->Kind_Of()==15) {
             int index=0;
-            Cell position=blocker->unknown_450;
+            Cell position=blocker->LastPathingCell;
             TechnoTypeClass const *other=blocker->Techno_Type_Class();
             if(Avoidance==2 || (type!=other && type->Speed>other->Speed && Map.Unknown_0055A660(position,true))) {
                 if(blocker->Kind_Of()==1) {

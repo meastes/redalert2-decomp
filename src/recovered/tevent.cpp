@@ -239,7 +239,7 @@ bool TEventClass::unknown_func_6e6050(int event, HouseClass *house, ObjectClass 
             }
             break;
         case 0x12:
-            if (!house->unknown_141) return false;
+            if (!house->IsCivEvacuated) return false;
             break;
         case 0x20:
             if (house->unknown_5460.unknown_func_491d10(Data) == 0) return false;
@@ -283,7 +283,7 @@ bool TEventClass::unknown_func_6e6050(int event, HouseClass *house, ObjectClass 
             if (house->Power_Fraction() >= 1) return false;
             break;
         case 0x03:
-            if (!house->unknown_18b) return false;
+            if (!house->IsThieved) return false;
             break;
         case 0x05:
             if (!house->IsDiscovered) return false;

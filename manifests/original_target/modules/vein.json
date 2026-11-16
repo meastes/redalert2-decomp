@@ -555,56 +555,56 @@
    "address": "007b3d18",
    "bytes": 24,
    "kind": "rtti",
-   "section": 139
+   "section": 138
   },
   {
    "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@VCell@@@@8",
    "address": "007b3d30",
    "bytes": 24,
    "kind": "rtti",
-   "section": 134
+   "section": 139
   },
   {
    "symbol": "??_R2?$DynamicVectorClass@VCell@@@@8",
    "address": "007b3d48",
    "bytes": 9,
    "kind": "rtti",
-   "section": 135
+   "section": 140
   },
   {
    "symbol": "??_R3?$DynamicVectorClass@VCell@@@@8",
    "address": "007b3d58",
    "bytes": 16,
    "kind": "rtti",
-   "section": 136
+   "section": 141
   },
   {
    "symbol": "??_R4?$DynamicVectorClass@VCell@@@@6B@",
    "address": "007b3d68",
    "bytes": 20,
    "kind": "rtti",
-   "section": 138
+   "section": 143
   },
   {
    "symbol": "??_R2?$VectorClass@VCell@@@@8",
    "address": "007b3d7c",
    "bytes": 5,
    "kind": "rtti",
-   "section": 140
+   "section": 134
   },
   {
    "symbol": "??_R3?$VectorClass@VCell@@@@8",
    "address": "007b3d88",
    "bytes": 16,
    "kind": "rtti",
-   "section": 141
+   "section": 135
   },
   {
    "symbol": "??_R4?$VectorClass@VCell@@@@6B@",
    "address": "007b3d98",
    "bytes": 20,
    "kind": "rtti",
-   "section": 143
+   "section": 136
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@PAVVeinholeMonsterClass@@@@8",
@@ -702,7 +702,8 @@
    "address": "007c4c60",
    "bytes": 16,
    "kind": "rtti",
-   "section": 78
+   "section": 78,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4VeinholeMonsterClass@@6BIPersistStream@@@",
@@ -772,14 +773,14 @@
    "address": "007cf2e8",
    "bytes": 36,
    "kind": "rtti",
-   "section": 142
+   "section": 137
   },
   {
    "symbol": "??_R0?AV?$DynamicVectorClass@VCell@@@@@8",
    "address": "007cf310",
    "bytes": 43,
    "kind": "rtti",
-   "section": 137
+   "section": 142
   },
   {
    "symbol": "??_R0?AV?$VectorClass@PAVVeinholeMonsterClass@@@@@8",
@@ -1101,7 +1102,8 @@
    "symbol": "??_R3VeinholeMonsterClass@@8",
    "address": "007c4c60",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4VeinholeMonsterClass@@6BIPersistStream@@@",

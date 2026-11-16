@@ -62,7 +62,7 @@ DynamicVectorClass<EBolt *> unknown_EBolt_list_00853050;
 // Dynamic initializer (0x004B17B0, _$E) emitted by HeaderStatics_diagonal_init_004b1580.cpp; no source of its own.
 
 
-EBolt::EBolt() : Start(CoordStruct(0,0,0)),End(CoordStruct(0,0,0)),unknown_18(0),unknown_28(65536),unknown_2c(false) { unknown_1c=0; Owner=0; unknown_24=0; }
+EBolt::EBolt() : Start(CoordStruct(0,0,0)),End(CoordStruct(0,0,0)),unknown_18(0),unknown_28(65536),AlternateColor(false) { unknown_1c=0; Owner=0; unknown_24=0; }
 
 
 #include "shared/tactical.hpp"
@@ -251,7 +251,7 @@ void EBolt::Draw_004B2170()
   Point2D start,end;
   TacticalMap->Coord_To_Pixel(Start,start);
   TacticalMap->Coord_To_Pixel(End,end);
-  if(Clip_Line(start,end,TacticalRect)) Draw_Bolt_004B1900(Start,End,unknown_2c ? 5 : 10);
+  if(Clip_Line(start,end,TacticalRect)) Draw_Bolt_004B1900(Start,End,AlternateColor ? 5 : 10);
   ++unknown_1c;
  }
  unknown_28>>=1;
