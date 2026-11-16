@@ -26,3 +26,8 @@ void yr_construct_globals()
 	new (&NonCriticalRandomNumber) Random2Class;
 	new (&BlubCell) CellClass;
 }
+
+// The radio's default message parameter (0x00A8EC30, .bss): pointer-sized natively, because the
+// radio passes object pointers through it (fixups.json, lane Y6), so defined here rather than
+// given 4 bytes of storage by yr_data.py.
+intptr_t LParam = 0;

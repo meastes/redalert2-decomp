@@ -636,6 +636,26 @@
    "why": "InfantryClass::Assign_Destination is unmatched in the YR tree; TibSun's text with gamemd.exe's changes (lane Y4)."
   },
   {
+   "file": "src/ahandle2.cpp",
+   "append": "ahandle2_native.inc",
+   "why": "AircraftTrackerClass::FillCurrentVector, unmatched in the YR tree; written from gamemd.exe's code (lane Y6)."
+  },
+  {
+   "file": "src/super.cpp",
+   "append": "super_native.inc",
+   "why": "SuperClass::Launch, unmatched in the YR tree; the RA2 twin's Place text with YR's super weapons read from gamemd.exe (lane Y6)."
+  },
+  {
+   "file": "src/slavemanager.cpp",
+   "append": "slavemanager_native.inc",
+   "why": "The slave miner's two state machines (SlaveManagerClass FUN_006AF6C0, FUN_006AFD60), unmatched in the YR tree; written from gamemd.exe's code (lane Y6)."
+  },
+  {
+   "file": "src/partsys.cpp",
+   "append": "partsys_native.inc",
+   "why": "ParticleSystemClass::Smoke_AI and Spark_AI, unmatched in the YR tree; the RA2 twins' text checked against gamemd.exe (lane Y6)."
+  },
+  {
    "file": "src/unit.cpp",
    "append": "unit_native.inc",
    "why": "UnitClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."
@@ -830,6 +850,26 @@
    "old": "delete \\[\\] (DAT_00B0FB(?:70|68|60|78));",
    "new": "delete \\1;",
    "why": "NATIVE (lane Y5): FUN_0072B230 (the menu palettes' release at exit) calls the four drawers' deleting destructor with the vector flag (gamemd.exe 0x0072B257 push 3), though FUN_0072ADE0 makes each with a plain new; Windows' heap let the bad free pass at exit, the native heap aborts (the combined app ends YR through Exit Game at every swap). Scalar delete, as the objects were made."
+  },
+  {
+   "file": "*",
+   "regex": true,
+   "old": "RadioMessageType message, int &",
+   "new": "RadioMessageType message, intptr_t &",
+   "why": "The radio's message parameter carries an object pointer for RADIO_MOVE_HERE and RADIO_NEED_TO_MOVE (param = (int)this; object = (ObjectClass *)param): an int on VC6, where a pointer fits; natively the int cut the 64-bit address and the receiver faulted (a harvester docking at a refinery, lane Y6). Pointer-sized natively, as the RA2 tree has it (shared/radio.hpp: AbstractClass *&param); every value is the same."
+  },
+  {
+   "file": "*",
+   "regex": true,
+   "old": "\\bparam = \\(int\\)",
+   "new": "param = (intptr_t)",
+   "why": "The pointer stores into the radio parameter above (BuildingClass, UnitClass, AircraftClass, FootClass Receive_Message): kept whole natively."
+  },
+  {
+   "file": "hdr/globals.h",
+   "old": "extern int LParam;",
+   "new": "extern intptr_t LParam;",
+   "why": "The radio's default parameter (Transmit_Message(message, LParam, to)) is passed by reference as the parameter above; pointer-sized natively, defined in native/yr/glue/yr_globals.cpp (zero, as in gamemd.exe's .bss)."
   }
  ]
 }

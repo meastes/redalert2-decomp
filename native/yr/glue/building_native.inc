@@ -4,10 +4,11 @@
 // (TechnoClass *, Cell), unmatched in ra2-decomp. TibSun's text of Exit_Object(TechnoClass *)
 // (TibSun archive code/building.cpp; SPDX GPL-3.0-or-later, Copyright 2025 Electronic Arts Inc.
 // and OpenTS contributors, EA's GPL section 7 terms; THIRD_PARTY.md); native changes are marked
-// NATIVE. YR's second parameter (a preferred cell) goes to Find_Exit_Cell. Behaviour code
-// for the native build only; gamemd.exe's version is not compared yet.
+// NATIVE. YR's second parameter (a preferred cell) goes to Find_Exit_Cell for vehicles only (lane Y6,
+// compared with gamemd.exe 0x00443C60: infantry and the other factory get CELL_NONE). Behaviour code
+// for the native build only; otherwise gamemd.exe's version is not compared.
 // ---------------------------------------------------------------------------------------------
-int BuildingClass::Exit_Object(TechnoClass * base, Cell preferred)	// NATIVE: YR's preferred cell passed on to Find_Exit_Cell and other buildings
+int BuildingClass::Exit_Object(TechnoClass * base, Cell preferred)	// NATIVE: YR's preferred cell passed on to Find_Exit_Cell for vehicles
 {
 	if (!base) return(0);
 
@@ -139,7 +140,7 @@ int BuildingClass::Exit_Object(TechnoClass * base, Cell preferred)	// NATIVE: YR
 								FactoryClass * temp = Factory;
 								bldg->Factory = Factory;
 								Factory = NULL;
-								int retval = (bldg->Exit_Object(base, preferred));
+								int retval = (bldg->Exit_Object(base, CELL_NONE));	// gamemd.exe 0x00444542: no preferred cell for the other factory
 								bldg->Factory = NULL;
 								Factory = temp;
 								return(retval);
@@ -223,7 +224,7 @@ int BuildingClass::Exit_Object(TechnoClass * base, Cell preferred)	// NATIVE: YR
 					base->ArchiveTarget = ArchiveTarget;
 					Coord exitcoord;
 
-					Cell exitcell = Find_Exit_Cell(base, preferred);
+					Cell exitcell = Find_Exit_Cell(base, CELL_NONE);	// gamemd.exe 0x004449AF: infantry ignore the preferred cell
 					if (exitcell == CELL_NONE) {
 						return(0);
 					}
@@ -458,8 +459,9 @@ int BuildingClass::Exit_Object(TechnoClass * base, Cell preferred)	// NATIVE: YR
 // ---------------------------------------------------------------------------------------------
 // NON-EXACT NATIVE DRAFT (lane Y4): BuildingClass::Do_MISSION_DECONSTRUCTION, unmatched in
 // ra2-decomp. TibSun's text (TibSun archive code/building.cpp; same licence notice as above);
-// native changes are marked NATIVE. Behaviour code for the native build only; gamemd.exe's
-// version (survivors, MCV repacking) is not compared yet.
+// native changes are marked NATIVE. Behaviour code for the native build only. The survivors part is
+// compared with gamemd.exe 0x00449C30 (lane Y6: who leaves survivors, absorbed passengers and
+// occupants let out); the rest (MCV repacking) is not compared yet.
 // ---------------------------------------------------------------------------------------------
 int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 {
@@ -546,7 +548,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 				**	members leaving is equal to the unrecovered cost of the building
 				**	divided by 100 (the typical cost of a minigunner infantryman).
 				*/
-				if (ArchiveTarget == NULL && Class->UndeploysInto == NULL) {
+				if (ArchiveTarget == NULL || Class->UndeploysInto == NULL) {	// gamemd.exe 0x0044A309 (TibSun: &&): a sold construction yard leaves survivors
 					int count = How_Many_Survivors();
 					bool engineer = false;
 
@@ -556,6 +558,54 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 					while (*occupy != REFRESH_EOL) {
 						num_cells++;
 						occupy++;
+					}
+
+					/*
+					 * YR (gamemd.exe 0x0044A37F-0x0044A59E): a building that absorbs units or
+					 * infantry lets them out, one per foundation cell, facing as the building.
+					 */
+					Cell here = Get_Cell();
+					if (Class->UnitAbsorb || Class->InfantryAbsorb) {
+						const Cell * spot = list;
+						FootClass * passenger;
+						while (Cargo.How_Many() > 0 && (passenger = Cargo.Detach_Object()) != NULL) {
+							Cell exitcell = here + *spot++;
+							if (*spot == REFRESH_EOL) spot = list;	// NATIVE: the original walks on past the list's end
+							Coord coord(exitcell.X * CELL_LEPTON_W + CELL_LEPTON_W / 2, exitcell.Y * CELL_LEPTON_H + CELL_LEPTON_H / 2 + 36, 0);
+							if (passenger->RTTI == RTTI_UNIT) {
+								coord = Map[coord].Center_Coord();
+							} else {
+								coord = Map[coord].Closest_Free_Spot(coord, false, false, false);
+							}
+							ScenarioInit++;
+							passenger->IsOnBridge = IsOnBridge;
+							coord.Z = Get_Cell_Ptr()->Center_Coord().Z;
+							if (!IsSurvivorless && passenger->Unlimbo(coord, PrimaryFacing.Current().As_Dir256())) {
+								if (passenger->RTTI == RTTI_INFANTRY) {
+									InfantryClass * inf = (InfantryClass *)passenger;
+									if (!inf->CountedAsOwnedSpecial) {
+										inf->House->CurInfantry++;
+										inf->CountedAsOwnedSpecial = true;
+									}
+									inf->Absorbed = false;
+								}
+								passenger->Scatter(COORD_NONE, true, false);
+								if (!House->Is_Human_Player()) {
+									passenger->QueueMission(MISSION_HUNT, false);
+								}
+							} else {
+								passenger->Limbo();
+								delete passenger;
+							}
+							ScenarioInit--;
+						}
+					}
+
+					/*
+					 * YR: a garrisoned building lets its occupants out.
+					 */
+					if (GetOccupantCount() > 0) {
+						FUN_00457DE0(false, true);
 					}
 
 					while (count) {

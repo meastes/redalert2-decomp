@@ -84,8 +84,9 @@ void HouseClass::Update_Present_Super_Weapons(void)
 // OpenTS contributors, EA's GPL section 7 terms; THIRD_PARTY.md) with the RA2 twin's YR-era tests
 // (src/recovered/house.cpp, RA2 0x004F7870's shape: override prerequisites, stolen technology,
 // required and forbidden houses) in place of TibSun's ownable/construction-yard test, marked YR;
-// TibSun's GDI/Nod factory groups become YR's refinery group. Behaviour code for the native build
-// only; gamemd.exe's version is not compared yet.
+// TibSun's GDI/Nod factory groups become YR's refinery group. Lane Y6 compared the ownership tests
+// with gamemd.exe 0x004F7870 and added YR's secret-lab grant and the super-weapons-off test; the
+// rest is not compared. Behaviour code for the native build only.
 // ---------------------------------------------------------------------------------------------
 int HouseClass::Can_Build(ObjectTypeClass const * type, bool forced, bool include_in_progress) const
 {
@@ -101,6 +102,16 @@ int HouseClass::Can_Build(ObjectTypeClass const * type, bool forced, bool includ
 		*/
 		for (int i = 0; i < ttype->PrerequisiteOverride.Count(); i++) {
 			if (ABQuantity.Value(ttype->PrerequisiteOverride[i]) > 0) {
+				goto skip;
+			}
+		}
+
+		/*
+		**	YR (gamemd.exe 0x004F78E4, lane Y6): what one of the house's secret labs gives is
+		**	allowed without further tests.
+		*/
+		for (int i = 0; i < SecretLabs.Count(); i++) {
+			if (SecretLabs[i]->FUN_00459840() == ttype) {
 				goto skip;
 			}
 		}
@@ -140,6 +151,18 @@ int HouseClass::Can_Build(ObjectTypeClass const * type, bool forced, bool includ
 			if ((ttype->RequiredHouses & alt) == 0) return(0);
 		}
 		if (ttype->ForbiddenHouses != (DWORD)-1 && (ttype->ForbiddenHouses & (1 << Class->House)) != 0) return(0);
+
+		/*
+		**	YR (gamemd.exe 0x004F7A9A, lane Y6): with super weapons off, a building whose super weapon
+		**	can be switched off from the setup is not built, unless it is one of the rules' BuildTech.
+		*/
+		if (!Unsorted::SWAllowed && (RTTIType)type->RTTI == RTTI_BUILDINGTYPE) {
+			BuildingTypeClass const * btype = (BuildingTypeClass const *)type;
+			if (btype->SuperWeapon != SUPER_NONE && !Rule->BuildTech.Is_In_List(btype)
+					&& SuperWeapon[btype->SuperWeapon]->Class->DisableableFromShell) {
+				return(0);
+			}
+		}
 
 		if (((TechnoTypeClass const *)type)->Level > level) return(0);
 
@@ -540,4 +563,215 @@ bool HouseClass::Can_Build_Here(BuildingTypeClass *building, Cell const & cell)
 	}
 
 	return(false);
+}
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane Y6): HouseClass::AI_Build_Defense (gamemd.exe 0x00506EF0, 3,216 B),
+// unmatched in ra2-decomp. The text is the RA2 twin's (src/recovered/house.cpp, RA2 0x004F1190,
+// exact there) in the YR tree's names, with YR's changes read from gamemd.exe's code: the facing
+// inlined as DirType(atan2), the candidate weights are the defense values alone (RA2 adds
+// 10000 / cost), the cells ranked through BasePlanningCellContainer (IndexClass here). Not compared
+// byte for byte; behaviour code for the native build only.
+// ---------------------------------------------------------------------------------------------
+static inline int AI_Defense_Quadrant(Cell const & offset)
+{
+	DirType dir = DirType(fastmath::atan2((double)-offset.Y, (double)offset.X));
+	return(dir.As_Dir4());
+}
+
+bool HouseClass::AI_Build_Defense(int nodeid, DynamicVectorClass<Cell> * cells)
+{
+	int i;
+	int best = -1;
+	int best_value = 999999;
+	int air_values[4] = {0, 0, 0, 0};
+	int armor_values[4] = {0, 0, 0, 0};
+	int ground_values[4] = {0, 0, 0, 0};
+	DynamicVectorClass<Cell> quadrants[4];
+
+	int size = Base.BaseAreaRect.Width * Base.BaseAreaRect.Height;
+	int * air_map = new int[size];
+	int * armor_map = new int[size];
+	int * ground_map = new int[size];
+	memset(air_map, 0, size * sizeof(int));
+	memset(armor_map, 0, size * sizeof(int));
+	memset(ground_map, 0, size * sizeof(int));
+
+	if (cells != NULL) {
+		for (i = 0; i < cells->Count(); i++) {
+			Cell offset = (*cells)[i] - Base.PlacementCenter;
+			quadrants[AI_Defense_Quadrant(offset)].Add((*cells)[i]);
+		}
+	}
+
+	for (i = 0; i < Buildings.Count(); i++) {
+		BuildingClass * building = Buildings[i];
+		Cell offset = building->Get_Cell() - Base.PlacementCenter;
+		if (offset.X != 0 || offset.Y != 0) {
+			int quadrant = AI_Defense_Quadrant(offset);
+			int air = building->Anti_Air();
+			int armor = building->Anti_Armor();
+			int infantry = building->Anti_Infantry();
+			if (air + armor + infantry > 0) {
+				air_values[quadrant] += air;
+				armor_values[quadrant] += armor;
+				ground_values[quadrant] += infantry;
+				Calculate_Defense_Values(building, air, air_map, Base.BaseAreaRect);
+				Calculate_Defense_Values(building, armor, armor_map, Base.BaseAreaRect);
+				Calculate_Defense_Values(building, infantry, ground_map, Base.BaseAreaRect);
+			}
+		}
+	}
+
+	for (i = 0; i < 4; i++) {
+		int total = air_values[i] + armor_values[i] + ground_values[i];
+		if (total < best_value && (cells == NULL || quadrants[i].Count() > 0)) {
+			best_value = total;
+			best = i;
+		}
+	}
+	if (best < 0) best = 0;		// NATIVE: the original reads index -1 when no quadrant qualifies
+
+	int air_value = air_values[best];
+	int armor_value = armor_values[best];
+	int ground_value = ground_values[best];
+
+	Calculate_Enemy_Predictions();
+
+	DynamicVectorClass<BuildingTypeClass const *> owned;
+	for (i = 0; i < Buildings.Count(); i++) {
+		BuildingTypeClass * type = Buildings[i]->Class;
+		if (!type->IsBaseDefense && type != Rule->WallTower) {
+			owned.Add(type);
+		}
+	}
+
+	int type_id = Base.Nodes[nodeid].Type;
+	BuildingTypeClass * pending = NULL;
+
+	float air_ratio = best_value != 0 ? air_value / (float)best_value : 0.0f;
+	float armor_ratio = best_value != 0 ? armor_value / (float)best_value : 0.0f;
+	float ground_ratio = best_value != 0 ? ground_value / (float)best_value : 0.0f;
+	float air_deficit = EnemyAirForcePrediction - air_ratio;
+	float armor_deficit = EnemyArmorForcePrediction - armor_ratio;
+	float ground_deficit = EnemyInfantryForcePrediction - ground_ratio;
+
+	DynamicVectorClass<BuildingTypeClass *> air_defenses = Get_Anti_Air_Defense_Buildings(owned);
+	DynamicVectorClass<BuildingTypeClass *> armor_defenses = Get_Anti_Armor_Defense_Buildings(owned);
+	DynamicVectorClass<BuildingTypeClass *> ground_defenses = Get_Anti_Ground_Defense_Buildings(owned);
+
+	DynamicVectorClass<BuildingTypeClass *> * defenses;
+	int category;
+	if (air_deficit <= armor_deficit || air_deficit <= ground_deficit) {
+		if (armor_deficit > ground_deficit) {
+			defenses = &armor_defenses;
+			BaseAreaMap = armor_map;
+			category = 1;
+		} else {
+			defenses = &ground_defenses;
+			BaseAreaMap = ground_map;
+			category = 2;
+		}
+	} else {
+		defenses = &air_defenses;
+		BaseAreaMap = air_map;
+		category = 0;
+	}
+
+	bool success = true;
+	if (defenses->Count() == 0) {
+		if (armor_defenses.Count() > 0) {
+			defenses = &armor_defenses;
+			category = 1;
+			BaseAreaMap = armor_map;
+		} else if (ground_defenses.Count() > 0) {
+			defenses = &ground_defenses;
+			category = 2;
+			BaseAreaMap = ground_map;
+		} else if (air_defenses.Count() > 0) {
+			defenses = &air_defenses;
+			category = 0;
+			BaseAreaMap = air_map;
+		} else {
+			success = false;
+		}
+	}
+
+	if (success) {
+		BuildingTypeClass * choice;
+		if (defenses->Count() == 1) {
+			choice = (*defenses)[0];
+		} else {
+			DiscreteDistributionClass<BuildingTypeClass> distribution;
+			for (i = 0; i < defenses->Count(); i++) {
+				BuildingTypeClass * type = (*defenses)[i];
+				int weight;
+				if (category == 2) {
+					weight = type->AntiInfantryValue;
+				} else if (category == 1) {
+					weight = type->AntiArmorValue;
+				} else {
+					weight = type->AntiAirValue;
+				}
+				distribution.Add(type, weight);
+			}
+			choice = distribution.Sample();
+		}
+
+		BuildingTypeClass * build_type;
+		if (type_id >= 0) {
+			build_type = BuildingTypes[type_id];
+			pending = choice;
+		} else {
+			build_type = choice;
+		}
+
+		Cell cell(0, 0);
+		if (choice == NULL || build_type == NULL) {
+			// NATIVE: a distribution with no weight samples nothing; the original goes on with NULL
+		} else if (cells != NULL) {
+			IndexClass<int, Cell> ranking;
+			for (i = 0; i < quadrants[best].Count(); i++) {
+				Cell threat = quadrants[best][i];
+				ranking.Add_Index(Base_Cell_Weight_By_Defense_Coverage(*this, threat, i, -1), threat);
+			}
+			if (ranking.Count() > 0) {
+				cell = ranking.Fetch_By_Position(0);
+				cells->Delete_Index(cells->ID(cell));
+			}
+		} else {
+			cell = Where_To_Place_Building(build_type, Base_Cell_Weight_By_Defense_Coverage, 2 * best);
+		}
+
+		if (cell == Cell(0, 0)) {
+			success = false;
+		} else if (pending != NULL) {
+			Base.Nodes[nodeid].CellID = cell;
+			if (nodeid + 1 < Base.Nodes.Count() && Base.Nodes[nodeid + 1].Type == -1) {	// NATIVE: bounds
+				Base.Nodes[nodeid + 1].Type = (StructType)pending->HeapID;
+				Base.Nodes[nodeid + 1].CellID = cell;
+				if (cells != NULL) {
+					BuildingTypeClass const * wall = (BuildingTypeClass const *)FirstBuildableFromArray(Rule->ConcreteWalls);
+					if (wall != NULL) {
+						for (i = Base.Nodes.Count() - 1; i >= 0; i--) {
+							if (Base.Nodes[i].CellID == cell && Base.Nodes[i].Type == wall->HeapID) {
+								Base.Nodes.Delete_Index(i);
+								break;
+							}
+						}
+					}
+				}
+			}
+		} else {
+			Base.Nodes[nodeid].Type = (StructType)build_type->HeapID;
+			Base.Nodes[nodeid].CellID = cell;
+		}
+	}
+
+	delete [] air_map;
+	delete [] armor_map;
+	delete [] ground_map;
+	BaseAreaMap = NULL;
+
+	return(success);
 }

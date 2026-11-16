@@ -201,145 +201,103 @@ SurfaceRegion TechnoClass::Techno_Render_Voxel_Object(VoxelDataStruct const & vo
 	return(region);
 }
 
-void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect, bool sensed_underground) const
+// NON-EXACT NATIVE DRAFT (lane Y6): TechnoClass::Draw_Health_Bar, gamemd.exe 0x006F64A0 (1,568 B,
+// unmatched in ra2-decomp), written from gamemd.exe's code (it replaces lane Y3's TibSun text).
+// YR draws from the shape files objtype.cpp loads (FileSystem::PIPS_SHP, PIPBRD_SHP); TibSun's
+// ObjectTypeClass::SelectShapes and PipShapes are never loaded in YR, so the TibSun text drew no
+// selection brackets. A building's pip bar runs along its foundation; infantry and vehicles get the
+// selection bracket (pipbrd.shp frame 1 / 0, raised by the type's PixelSelectionBracketDelta)
+// while selected and a pip bar of 8 / 17 pips (pips.shp 16 green, 17 yellow, 18 red). The
+// building's cargo pips show to allies, spies, every player when the type says so, and on
+// buildings that can be occupied. Behaviour code for the native build only.
+namespace FileSystem {	// objtype.cpp's statics (struct FileSystem there; the same symbols)
+	extern void const * PIPBRD_SHP;
+	extern ShapeSet * PIPS_SHP;	// as techno.cpp declares it
+}
+
+void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect, bool) const
 {
-	if (RTTI == RTTI_BUILDING) {	// NATIVE: YR has no Core Defender unit type flag
+	ShapeSet const * pips = (ShapeSet const *)FileSystem::PIPS_SHP;
+	ShapeSet const * brackets = (ShapeSet const *)FileSystem::PIPBRD_SHP;
+	ShapeFlags_Type const flags = ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER);
+	ShapeFlags_Type const bracket_flags = ShapeFlags_Type(SHAPE_ALPHA|SHAPE_WIN_REL|SHAPE_CENTER);
 
-		/*
-		 * Build the screen-space pip bar from the object's lepton dimensions.
-		 */
-		HeightAGL;
-
+	if (RTTI == RTTI_BUILDING) {
 		Point3D dim = TClass->Lepton_Dimensions();
-
 		Point3D half(dim.X / 2, dim.Y / 2, dim.Z / 2);
-
-		/*
-		 * The "dim - half" difference is computed for all three components and Z is
-		 * then replaced with the full height, so the Z store below is dead.
-		 */
-		Coord coord = dim - half;
-		coord.X = -coord.X;
-		coord.Z = dim.Z;
-
-		/*
-		 * The X sign flips around the Y flips are redundant -- the paired negations
-		 * are dead load/neg/neg/store sequences.
-		 */
-		Point2D p0 = TacticalMap->Coord_To_Pixel_Absolute(coord);
-		coord.X = -coord.X;
+		Coord coord(-(dim.X - half.X), dim.Y - half.Y, dim.Z);
+		Point2D p0 = TacticalMap->Coord_To_Pixel_Absolute(coord);	// the top corner
 		coord.Y = -coord.Y;
-		coord.X = -coord.X;
-		Point2D p1 = TacticalMap->Coord_To_Pixel_Absolute(coord);
+		Point2D p1 = TacticalMap->Coord_To_Pixel_Absolute(coord);	// the left corner
 		coord.Z = 0;
 		coord.Y = -coord.Y;
-		Point2D p2 = TacticalMap->Coord_To_Pixel_Absolute(coord);
-		coord.X = -coord.X;
-		coord.Y = -coord.Y;
-		coord.X = -coord.X;
+		Point2D p2 = TacticalMap->Coord_To_Pixel_Absolute(coord);	// the top corner on the ground
 
 		int barlen = (p0.Y - p1.Y) / 2;
-
 		int n = (int)(HealthRatio * (double)barlen);
-		if (n <= 1) {
-			n = 1;
-		}
-		if (n >= barlen) {
-			n = barlen;
-		}
+		if (n <= 1) n = 1;
+		if (n >= barlen) n = barlen;
 
 		int condcolor = 1;
-		if (HealthRatio <= Rule->ConditionYellow) {
+		if (Is_Yellow_HP()) {
 			condcolor = 2;
-		}
-		if (HealthRatio <= Rule->ConditionRed) {
+		} else if (Is_Red_HP()) {
 			condcolor = 4;
 		}
 
 		int ybase = 2 - 2 * barlen;
-
 		Point2D point;
 		int index;
-
-		int yoff = 0;
-		int xoff = 0;
 		for (index = 0; index < n; index++) {
-			point.X = xpoint.X + p0.X + 4 * barlen + 3;
-			point.Y = xpoint.Y + p0.Y + ybase + 2;
-			point.X -= xoff;
-			point.Y -= yoff;
-			Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::PipShapes, condcolor, point, cliprect, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER));
-			xoff += 4;
-			yoff -= 2;
+			point.X = xpoint.X + p0.X + 4 * barlen + 3 - 4 * index;
+			point.Y = xpoint.Y + p0.Y + ybase + 2 + 2 * index;
+			Draw_Shape(*LogicalSurface, *NormalDrawer, pips, condcolor, point, cliprect, flags);
 		}
-
-		yoff = -2 * n;
-		xoff = 4 * n;
 		for (index = n; index < barlen; index++) {
-			point.X = xpoint.X + p0.X + 4 * barlen + 3;
-			point.Y = xpoint.Y + p0.Y + ybase + 2;
-			point.X -= xoff;
-			point.Y -= yoff;
-			Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::PipShapes, 0, point, cliprect, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER));
-			xoff += 4;
-			yoff -= 2;
+			point.X = xpoint.X + p0.X + 4 * barlen + 3 - 4 * index;
+			point.Y = xpoint.Y + p0.Y + ybase + 2 + 2 * index;
+			Draw_Shape(*LogicalSurface, *NormalDrawer, pips, 0, point, cliprect, flags);
 		}
 
-		if (House->Is_Ally(PlayerPtr) || (SpiedBy & (1<<(PlayerPtr->Class->House)))) {
+		bool show = House->Is_Ally(PlayerPtr) || (SpiedBy & (1 << PlayerPtr->Class->House));
+		if (((BuildingClass const *)this)->Class->CanBeOccupied) show = true;
+		if (TClass->PipsDrawForAll || show) {
 			Draw_Pips(xpoint + p2, xpoint, cliprect);
 		}
+		return;
+	}
 
+	Point2D offset;
+	int count;
+	int delta = TClass->PixelSelectionBracketDelta;
+	if (RTTI == RTTI_INFANTRY) {
+		if (IsSelected) {
+			Draw_Shape(*LogicalSurface, *NormalDrawer, brackets, 1, Point2D(xpoint.X + 11, xpoint.Y + delta - 25), cliprect, bracket_flags);
+		}
+		offset = Point2D(-5, delta - 24);
+		count = 8;
 	} else {
+		if (IsSelected) {
+			Draw_Shape(*LogicalSurface, *NormalDrawer, brackets, 0, Point2D(xpoint.X + 1, xpoint.Y + delta - 26), cliprect, bracket_flags);
+		}
+		offset = Point2D(-15, delta - 25);
+		count = 17;
+	}
 
-		bool powerup = false;
-		if (ArmorBias > 1.0 || FirepowerBias > 1.0 || (Is_Foot() && ((FootClass *)this)->SpeedBias > 1.0)) {
-			powerup = true;
-		}
+	int n = (int)(HealthRatio * (double)count);
+	if (n <= 1) n = 1;
+	if (n >= count) n = count;
 
-		Point2D offset;
-		int health_bar_count;
+	int shapenum = 16;
+	if (HealthRatio <= Rule->ConditionYellow) shapenum = 17;
+	if (HealthRatio <= Rule->ConditionRed) shapenum = 18;
 
-		if (RTTI == RTTI_INFANTRY) {
-			if (!sensed_underground || IsSelected) {
-				Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::SelectShapes, powerup ? 6 : 2, xpoint, cliprect, ShapeFlags_Type(SHAPE_ALPHA|SHAPE_WIN_REL|SHAPE_CENTER));
-			}
-			offset = Point2D(-5, -24);
-			health_bar_count = 8;
-		} else {
-			if (!sensed_underground || IsSelected) {
-				Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::SelectShapes, (powerup ? 4 : 0) + 3	/* NATIVE: no limpet drones in YR */, xpoint, cliprect, ShapeFlags_Type(SHAPE_ALPHA|SHAPE_WIN_REL|SHAPE_CENTER));
-			}
-			offset = Point2D(-15, -25);
-			health_bar_count = 17;
-		}
+	for (int index = 0; index < n; index++) {
+		Draw_Shape(*LogicalSurface, *NormalDrawer, pips, shapenum, Point2D(xpoint.X + offset.X + 2 * index, xpoint.Y + offset.Y), cliprect, flags);
+	}
 
-		int n = (int)(HealthRatio * (double)health_bar_count);
-		if (n <= 1) {
-			n = 1;
-		}
-		if (n >= health_bar_count) {
-			n = health_bar_count;
-		}
-
-		int shapenum = 9;
-		if (HealthRatio <= Rule->ConditionYellow) {
-			shapenum = 10;
-		}
-		if (HealthRatio <= Rule->ConditionRed) {
-			shapenum = 11;
-		}
-
-		Point2D point;
-		for (int index = 0; index < n; index++) {
-			point.X = xpoint.X + offset.X;
-			point.Y = offset.Y + xpoint.Y;
-			point.X += 2 * index;
-			Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::PipShapes, shapenum, point, cliprect, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER));
-		}
-
-		if (House->Is_Ally(PlayerPtr) || (SpiedBy & (1<<(PlayerPtr->Class->House)))) {
-			Draw_Pips(xpoint + Point2D(-10, +10), xpoint, cliprect);
-		}
+	if (House->Is_Ally(PlayerPtr) || (SpiedBy & (1 << PlayerPtr->Class->House))) {
+		Draw_Pips(xpoint + Point2D(-10, +10), xpoint, cliprect);
 	}
 }
 

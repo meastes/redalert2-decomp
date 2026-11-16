@@ -165,6 +165,95 @@ Known gaps: the selection brackets are not drawn; TibSun-text drafts are not com
 gamemd.exe yet (YR's sell survivors, YR's area damage details); the AI opponent's further play
 will reach more unmatched functions.
 
+## Stage 2, lane Y6 (2026-11-16): longer skirmishes
+
+`ctest -R yr-native-skirmish-long` (yr/tests/yr_skirmish_long.py): ten minutes of a skirmish against
+three hard computer opponents without a trap or a fault (same build and data conditions as the
+smoke test). The skirmish setup comes from the write folder's RA2MD.INI, which the test writes:
+`[Skirmish] SlotNN=<type>,-2,-2` with type 4 hard, 5 normal, 6 easy and 1 closed (the setup's
+own encoding, skirmish.cpp Skirmish_Slot_Type); `--opponents` and `--difficulty` choose them.
+`RA2_NATIVE_TRAP_CONTINUE=1` lets a research run go on past traps and lists them all.
+
+The trap in HouseClass::AI_Build_Defense about 15 s into a game was not caused by RA2MD.INI: the
+function was simply unmatched, and which unmatched function an AI reaches first changes from game
+to game (the start positions and the random seed differ per run); the runs that kept a write
+folder happened to reach it first, runs without one reached UnitClass::Do_MISSION_HARVEST first.
+
+NON-EXACT drafts (each labelled in its file), in the order long games reached them:
+* from the RA2 twins' text in the YR tree's names, with YR's changes read from gamemd.exe:
+  HouseClass::AI_Build_Defense (YR weighs the candidates by their defense value alone),
+  UnitClass::Do_MISSION_HARVEST (a slave miner hands the mission to its slave manager; an idle
+  harvester goes for repair when a repair bay is reachable), ParticleSystemClass::Smoke_AI and
+  Spark_AI, SuperClass::Launch (the RA2 twin's Place plus YR's psychic dominator, spy plane,
+  genetic mutator, force shield and psychic reveal, and YR's chrono warp, iron curtain and paradrop
+  changes), the area damage (Explosion_Damage: now the RA2 twin's warhead spread instead of
+  TibSun's fixed 1.5 cells; TibSun's deforming, cliff collapse and fire spread left out);
+* from gamemd.exe's code alone (YR-only): AircraftTrackerClass::FillCurrentVector, the slave
+  miner's two state machines (SlaveManagerClass FUN_006AF6C0 and FUN_006AFD60);
+* bindings: BuildingClass::Fetch_Super_Weapon(2) are the tree's FirstActiveSWIdx and
+  SecondActiveSWIdx (data/name_aliases.tsv).
+
+Fixes: the radio's message parameter is pointer-sized natively (fixups.json; it carries an object
+pointer for RADIO_MOVE_HERE, which faulted when a harvester docked at a refinery); LParam is
+defined in glue/yr_globals.cpp.
+
+Selection: YR has no TibSun-style brackets for units; a selected unit shows the pip board
+(pipbrd.shp) under its health pips, a selected building its pip bar along the foundation's top
+edge inside the white corner brackets. Lane Y3's TibSun text drew from ObjectTypeClass::SelectShapes
+and PipShapes, which YR never loads, and placed the building bar at a zero length.
+TechnoClass::Draw_Health_Bar is now written from gamemd.exe (FileSystem::PIPS_SHP, PIPBRD_SHP,
+PixelSelectionBracketDelta, YR's pip frames 16-18 and its pip rules).
+
+TibSun-text drafts compared with gamemd.exe (task list of lane Y4):
+* BuildingClass::Exit_Object: YR passes the preferred cell to Find_Exit_Cell for vehicles only;
+  infantry and the other war factory get no preferred cell. Fixed.
+* The sell survivors (Do_MISSION_DECONSTRUCTION): YR leaves survivors unless the building both has
+  an archive target and undeploys (TibSun: unless either), so a sold construction yard leaves
+  survivors; a building that absorbs units or infantry lets them out, and a garrisoned one its
+  occupants. Fixed.
+* The area damage: TibSun's one cell and neighbours vs YR's warhead spread. Redone (above).
+* HouseClass::Can_Build: YR also allows what a secret lab of the house gives, and refuses a
+  building whose super weapon can be switched off from the setup when super weapons are off
+  (unless it is one of the rules' BuildTech). Added; the rest (prerequisites, the computer's
+  shortcut, build limits) matches.
+
+## Next: yr-native on iOS on its own (notes, lane Y6; not built yet)
+
+What a standalone `yr-native` iPhone/iPad app needs before the one-game iOS work (the RA2 app's
+`build-ios.command` shape: CMake for `CMAKE_SYSTEM_NAME=iOS`, arm64, SDL3 built statically, Ninja):
+
+1. **CMake gate.** `native/CMakeLists.txt` includes `yr/yr.cmake` only for `APPLE AND NOT iOS`.
+   Allow iOS there, and give `build-ios.command` a target choice (`--target yr-native`). Every
+   generation step runs on the build host and stays as it is: `yr_sdk.py` (the llvm-mingw headers),
+   `yr_units.py`, `yr_aliases.py`, `yr_data.py`, `link_closure.py` (with the iOS SDK's system
+   libraries and frameworks, as the RA2 iOS build passes them), `weaken_duplicates.py` and
+   `defer_initializers.py` (object-level Mach-O edits; same format for iOS objects).
+2. **The app bundle.** The RA2 app's iOS block in `native/CMakeLists.txt` (MACOSX_BUNDLE,
+   Info.plist, icon set, `packaging/ios_sign.py`, `RA2_IOS_TEAM`/`RA2_IOS_BUILD`) is written for
+   `ra2-native`; make it a function and call it for `yr-native` with its own bundle id, display name
+   ("Yuri's Revenge"), icon and Info.plist. The data reader does not change (gamemd.exe read at run
+   time, never shipped).
+3. **Initialisers with chained fixups.** iOS 17 targets link with chained fixups: check that the
+   deferred initialiser section (`__DATA,__yr_init_func`, called by `glue/yr_original_data.cpp`)
+   still holds rebased pointers when the YR units' static initialisers are called after the data
+   load (dyld rebases every pointer in `__DATA`, so it should; check on the Simulator first).
+4. **Importing the game files.** `platform/sdl/app_mode.hpp` already builds per game (`kHostGame`,
+   `exe_name`, the `yr_game_exe` settings key) but its import filter and checks are RA2's: it
+   copies `game.exe`, `ra2.mix`, `language.mix`, `multi.mix`, `theme.mix`, `maps*/movies*/expand*`
+   and the loose `.mmx/.map/.mpr/.ini/.csf/.pkt` files. A YR import must also take `gamemd.exe`
+   (with its 4 KB overlay; the no-CD byte is undone when it is checked), `ra2md.mix`, `langmd.mix`,
+   `multimd.mix`, `thememd.mix`, `expandmd*.mix`, `mapsmd*.mix`, `movmd*.mix` and `BINKW32.DLL`, and
+   its required list and message must name Yuri's Revenge (the RA2 files are needed too: YR reads
+   both games' mixfiles). YR's writes (RA2MD.INI, saves) go to the app's own Documents folder.
+5. **The screen.** YR's menus are 800x600 like RA2's; the iOS resolution rule (720 or 600 lines by
+   the screen) and the touch layer (`touch.cpp`, the toolbar) are the host's and apply as they are;
+   check the YR sidebar width and the command bar with the toolbar on a phone.
+6. **Tests.** Run the YR smoke, score and long skirmish routes on the Simulator "RA2 Duo Validation"
+   (`RA2_NATIVE_IMPORT=<folder>` imports without the picker), then on a device.
+7. **Traps.** The link closure's traps
+   stay in the build until the remaining unmatched functions have drafts (a trap ends the game, as
+   on the Mac).
+
 ## One game (lane Y5, 2026-11-16): Red Alert 2 and Yuri's Revenge in one app
 
 User design (2026-11-15): one game. A Red Alert 2 / Yuri's Revenge toggle at the bottom left of the

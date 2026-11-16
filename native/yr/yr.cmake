@@ -125,5 +125,13 @@ add_test(NAME yr-native-skirmish-score COMMAND "${Python3_EXECUTABLE}" -B "${CMA
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-skirmish-score")
 set_tests_properties(yr-native-skirmish-score PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 360)
 
+# ctest yr-native-skirmish-long (lane Y6): ten minutes of a skirmish against three hard computer
+# opponents (the write folder's RA2MD.INI sets the setup) without a trap or a fault
+# (yr/tests/yr_skirmish_long.py); same conditions as the smoke test.
+add_test(NAME yr-native-skirmish-long COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_skirmish_long.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-skirmish-long" --seconds 600 --opponents 3 --difficulty hard)
+set_tests_properties(yr-native-skirmish-long PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
+
 # One game (lane Y5, -DRA2_NATIVE_COMBINED=ON): native/yr/combined.cmake.
 include("${CMAKE_CURRENT_SOURCE_DIR}/yr/combined.cmake")
