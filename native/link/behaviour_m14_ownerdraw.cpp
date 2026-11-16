@@ -1008,6 +1008,31 @@ void Combo_Free(HWND window, int index)
     delete [] item->text;
     delete item;
 }
+// The box's current item (+0xF8, -1 for none; OD_SUBCLASSED 0x497 sets -1): the original answers
+// CB_GETCURSEL from it and keeps it on CB_SETCURSEL (0x005F571C, 0x005F5731); a deleted item that
+// was current leaves none (WM_DELETEITEM, 0x005F5664); other deletions leave it as it was.
+// NATIVE: a side table by window.
+struct ComboCurrent { HWND combo; int current; };
+ComboCurrent combo_currents[32];
+int &Combo_Current(HWND combo)
+{
+    static int none;
+    for (int i = 0; i < 32; ++i)
+        if (combo_currents[i].combo == combo) return combo_currents[i].current;
+    for (int i = 0; i < 32; ++i)
+        if (!combo_currents[i].combo) {
+            combo_currents[i].combo = combo;
+            combo_currents[i].current = -1;
+            return combo_currents[i].current;
+        }
+    none = -1;
+    return none;
+}
+void Combo_Current_Free(HWND combo)
+{
+    for (int i = 0; i < 32; ++i)
+        if (combo_currents[i].combo == combo) combo_currents[i].combo = 0;
+}
 HWND &Combo_Drop(HWND combo, bool make)
 {
     static HWND none;
@@ -1093,7 +1118,7 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
                 }
                 if (match && exact && item->text[k] != 0) match = false;
                 if (!match) continue;
-                if (select) { Original(window, 0x14E, i, 0); InvalidateRect(window, 0, TRUE); }
+                if (select) { SendMessageA(window, 0x14E, i, 0); InvalidateRect(window, 0, TRUE); }
                 return i;
             }
             return -1;
@@ -1107,7 +1132,7 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
             // Options > Keyboard (0x005D97A0 case 0x464) reads the category this way: the
             // commands list stayed empty.
             if (!lparam || (int)wparam <= 0) return 0;
-            int selected = (int)Original(window, 0x147, 0, 0);
+            int selected = Combo_Current(window);
             ComboItem *item = selected >= 0 ? Combo_Item(window, selected) : 0;
             wchar_t const *text = item && item->text ? item->text : L"";
             int n = 0;
@@ -1134,11 +1159,21 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
         }
         case 0x144:                                 // CB_DELETESTRING
             Combo_Free(window, (int)wparam);
+            if ((int)wparam == Combo_Current(window)) Combo_Current(window) = -1;
             break;
         case 0x14B: {                               // CB_RESETCONTENT
             int count = (int)Original(window, 0x146, 0, 0);
             for (int i = 0; i < count; ++i) Combo_Free(window, i);
+            if (count > 0) Combo_Current(window) = -1;
             break;
+        }
+        case 0x147:                                 // CB_GETCURSEL
+            return Combo_Current(window);
+        case 0x14E: {                               // CB_SETCURSEL: kept, the box repainted; a drop list
+            Combo_Current(window) = (int)wparam;    // (not CBS_DROPDOWN) also tells the Win32 list
+            InvalidateRect(window, 0, FALSE);
+            if ((GetWindowLongA(window, GWL_STYLE) & 3) == 2) return 0;
+            return Original(window, 0x14E, wparam, lparam);
         }
         case 0x201: case 0x203: {                   // WM_LBUTTONDOWN / DBLCLK: the arrow drops the list
             Voc_Play(Rules->GUIComboOpenSound, 1.0f, 0x2000, 0);
@@ -1246,6 +1281,7 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
             int *colors = record->item_colors_110;
             if (message == 0x497) {
                 memset(colors, 0xFF, 50 * sizeof(int));
+                Combo_Current(window) = -1;
             } else if (wparam < 50) {
                 colors[wparam] = (int)lparam;
             }
@@ -1253,6 +1289,7 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
         }
         case 0x2:                                   // WM_DESTROY
             SendMessageA(window, 0x14F, 0, 0);
+            Combo_Current_Free(window);
             break;
         // M26 (Scout1208): the record's flag messages (pass-6a decompile 005f4ba0 cases
         // 0x4DD, 0x4DE, 0x4F1; 0x4DA/0x4DB go to the parent). 0x4DD with 1 makes the box a
@@ -1272,7 +1309,7 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
         }
     }
     if (!record || message != 0xF) {
-        if (message == 0x14) return 1;
+        if (message == 0x14) return 0;                 // WM_ERASEBKGND (0x005F6352)
         LRESULT result = Original(window, message, wparam, lparam);
         if (record && (message == 0x14E || message == 0x14B)) InvalidateRect(window, 0, TRUE);
         return result;
@@ -1300,7 +1337,7 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
         unknown_draw_arrow_5fd960(surface, arrow, dropped, dropped, record->alternate_cd);
         if (disabled) Unknown_005feb60(&area, surface, 0, record->unknown_c8);
         if ((style & 3) == 3) {
-            int selected = (int)Original(window, 0x147, 0, 0);
+            int selected = Combo_Current(window);
             wchar_t text[256];
             text[0] = 0;
             ComboItem *item = selected >= 0 ? Combo_Item(window, selected) : 0;
@@ -1358,6 +1395,18 @@ LRESULT __stdcall unknown_tab_proc_5f0f40(HWND window, UINT message, WPARAM wpar
     return 0;
 }
 
+namespace {
+// An edit of the text: EN_CHANGE then EN_UPDATE to the dialog (0x005F29FF-0x005F2A4F), and the
+// control repainted (natively; the original's caret timer and the dialog's repaint show it).
+void Edit_Changed(HWND window, HWND parent)
+{
+    WPARAM id = (WPARAM)(GetWindowLongA(window, -12) & 0xFFFF);
+    SendMessageA(parent, 0x111, id | 0x3000000, (LPARAM)window);
+    SendMessageA(parent, 0x111, id | 0x4000000, (LPARAM)window);
+    InvalidateRect(window, 0, TRUE);
+}
+}
+
 // 0x005F22A0: the "NewEdit" procedure (a list box standing in for an edit,
 // 0x005ECB00): the text is the record's WideString (+0x3C), its limit +0x48.
 // Keys: Return and Tab notify the dialog (0x4DA, 0x4DB), characters edit the
@@ -1381,6 +1430,30 @@ LRESULT __stdcall unknown_new_edit_proc_5f22a0(HWND window, UINT message, WPARAM
         if (message == 0x100 && wparam == 0xD) {
             SendMessageA(parent, 0x4DA, 0, (LPARAM)window);
             return 0;
+        }
+        if (message == 0x100) {
+            // The caret keys and the deletes at the caret (+0x40; C16 audit, the keydown table
+            // 0x005F28AC-0x005F2963): Delete removes the character after it, Backspace the one
+            // before; Left, Right, Home and End move it. Each answers 0.
+            int &caret = record->unknown_40;
+            int length = (int)text.Length();
+            switch (wparam) {
+            case 0x2E:
+                if (caret >= length) return 0;
+                text.Remove(caret, 1);
+                Edit_Changed(window, parent);
+                return 0;
+            case 0x8:
+                if (caret <= 0) return 0;
+                --caret;
+                text.Remove(caret, 1);
+                Edit_Changed(window, parent);
+                return 0;
+            case 0x25: if (caret > 0) --caret; return 0;
+            case 0x27: if (caret < length) ++caret; return 0;
+            case 0x23: caret = length; return 0;
+            case 0x24: caret = 0; return 0;
+            }
         }
         break;
     case 0x497: {                                   // fit inside the frame
@@ -1422,19 +1495,21 @@ LRESULT __stdcall unknown_new_edit_proc_5f22a0(HWND window, UINT message, WPARAM
         record->unknown_40 = text.Length();
         InvalidateRect(window, 0, TRUE);
         break;
-    case 0x102:                                     // WM_CHAR
-        if (wparam == 8) {
-            if (text.Length()) text.Truncate(text.Length() - 1);
-        } else if (wparam >= 0x20 && (!limit || (int)text.Length() < limit)) {
-            unsigned short add[2] = {(unsigned short)wparam, 0};
-            text.Concatenate(add);
-        } else {
-            return 0;
-        }
-        record->unknown_40 = text.Length();
-        InvalidateRect(window, 0, TRUE);
-        SendMessageA(parent, 0x111, (WPARAM)((GetDlgCtrlID(window) & 0xFFFF) | (0x300 << 16)), (LPARAM)window);   // EN_CHANGE
+    case 0x102: case 0x4D9: {                       // WM_CHAR, and a character sent as 0x4D9
+        // Inserted at the caret, which moves past it (0x005F2996-0x005F29EF); a control
+        // character (WM_CHAR below 0x20) goes to the list's own procedure; past the limit
+        // (+0x48) nothing changes. NATIVE: the record's character filter (+0x50) and its
+        // narrow-only flag (+0x30) are never set by the port, so neither is tested.
+        unsigned short character = (unsigned short)wparam;
+        if (message == 0x102 && character <= 0x1F) break;
+        if (!character) return 0;
+        if ((limit && (int)text.Length() >= limit) || character <= 0x1F) return 0;
+        int &caret = record->unknown_40;
+        text.Insert(character, (unsigned)caret);
+        ++caret;
+        Edit_Changed(window, parent);
         return 0;
+    }
     case 0x7:                                       // WM_SETFOCUS: the caret blinks once a second
         caret_hidden = 0;
         SetTimer(window, 0, 1000, 0);

@@ -1334,7 +1334,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14_ownerdraw.cpp",
    "source": "pass-6a decompile 005f4ba0",
-   "notes": "combo box procedure: delegates; paints frame and the selected item string; Scout1119 (M14)"
+   "notes": "combo box procedure: delegates; paints frame and the selected item string; Scout1119 (M14)",
+   "behaviour_verdict": "differs, partly fixed: the item text/length reads (0x149, 0x4BD, 0x4C3), the item at a point (0x4E8), the current item (+0xF8: CB_GETCURSEL/SETCURSEL) and WM_ERASEBKGND now as the original; open: the paint is approximate (0x005F4D68-0x005F5581), the items are a native side list (deleting an item before the current one leaves the current index as the original does)",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (random map)"
   },
   {
    "entry": "0x005F0F40",
@@ -1354,7 +1356,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14_ownerdraw.cpp",
    "source": "pass-6a decompile 005f22a0",
-   "notes": "NewEdit (list box standing in for an edit): text in the record's WideString +0x3C, limit +0x48, keys/0x4B2-0x4B5 as the decompile; simplified painting; Scout1119 (M14)"
+   "notes": "NewEdit (list box standing in for an edit): text in the record's WideString +0x3C, limit +0x48, keys/0x4B2-0x4B5 as the decompile; simplified painting; Scout1119 (M14)",
+   "behaviour_verdict": "differs, partly fixed: editing at the caret as the original (Left/Right/Home/End, Delete/Backspace, insertion, 0x4D9, EN_CHANGE then EN_UPDATE); open: the record's character filter (+0x50) and narrow-only flag (+0x30) are never set natively, and the static-style messages 0x498-0x4F0 the original also answers are not handled",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (random map)"
   },
   {
    "entry": "0x00770430",
