@@ -19169,7 +19169,7 @@
     "entry": "00490e80",
     "bytes": 105,
     "population": "population-1888",
-    "source": "src/recovered/classes/GenericList/GenericList_Constructor_00490e80.cpp",
+    "source": "src/recovered/classes/GenericList/Constructor.cpp",
     "cause": "frozen in another population's inventory pass (population-1888)"
    }
   ],
@@ -23920,7 +23920,7 @@
     "entry": "00490ff0",
     "bytes": 111,
     "population": "population-1888",
-    "source": "src/recovered/classes/GenericList/List_INISection_Pointer_Constructor_00490ff0.cpp",
+    "source": "src/recovered/classes/List_INISection_ptr/Constructor.cpp",
     "cause": "frozen in another population's inventory pass (population-1888)"
    },
    {
@@ -24227,7 +24227,7 @@
     "entry": "006f8b40",
     "bytes": 80,
     "population": "population-19",
-    "source": "src/recovered/006f8b40.cpp",
+    "source": "src/recovered/classes/DynamicVectorClass_char_const_ptr/Add.cpp",
     "cause": "held by population-19; not joined: its file holds a vtable view classed dead, which the native check (vtable_views.py) reads per object"
    },
    {

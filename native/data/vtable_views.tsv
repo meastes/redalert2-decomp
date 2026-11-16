@@ -6,7 +6,6 @@ native/link/behaviour_scenario.cpp	type_info	dtor-only			its only virtual is the
 src/recovered/0058eff0.cpp	Append_58eff0	dead			seed call view: no other object references the functions its file defines
 src/recovered/005cd880.cpp	Append_5cd880	dead			seed call view: no other object references the functions its file defines
 src/recovered/006a17b0.cpp	Call_6a17b0_0	dead			seed call view: no other object references the functions its file defines
-src/recovered/006f8b40.cpp	Append_6f8b40	dead			seed call view: no other object references the functions its file defines
 src/recovered/house.cpp	UnknownEnumConnectionPoints	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
 src/recovered/house.cpp	UnknownA3D29CView	of	MultiplayerGameMode	shared/multiplayer_game_mode.hpp	0x00A3D29C is the session Mode, a MultiplayerGameMode (r36)
 src/recovered/ovrlight.cpp	UnknownSpotLightObject_a731e0	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0

@@ -163,7 +163,7 @@
    "verified": true
   },
   {
-   "source": "src/recovered/classes/GenericList/List_INISection_Pointer_Constructor_00490ff0.cpp",
+   "source": "src/recovered/classes/List_INISection_ptr/Constructor.cpp",
    "old": "template<> List<INIClass::INISection *>::List() {}",
    "new": "template <class T> List<T>::List() {}",
    "why": "The group's first file defines LIST_DECLARE_CONSTRUCTOR, so List() is declared only, and INIClass's inline constructor (ini_class.hpp) uses List<INISection *>::List before this explicit specialisation, which ISO C++ forbids. The specialisation is empty, as is the generic body (the non-declared form is `List() {}`), so native defines the generic member out of line: same empty constructor.",
