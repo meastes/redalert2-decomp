@@ -870,6 +870,71 @@
    "old": "extern int LParam;",
    "new": "extern intptr_t LParam;",
    "why": "The radio's default parameter (Transmit_Message(message, LParam, to)) is passed by reference as the parameter above; pointer-sized natively, defined in native/yr/glue/yr_globals.cpp (zero, as in gamemd.exe's .bss)."
+  },
+  {
+   "file": "src/conquer.cpp",
+   "old": "\t\tfor (;;) {\n\t\t\tif (Main_Loop()) {",
+   "new": "\t\tbool yr_native_main_loop(void);\n\t\tfor (;;) {\n\t\t\tif (yr_native_main_loop()) {",
+   "why": "lane Y7: the host learns that the game is in play, as the RA2 game's Main_Loop seam tells it (link/harness_skirmish.cpp, Native_Map_Zoom_Frame): yr_native_main_loop (glue/yr_app_hooks.cpp) marks play (ra2_enh_in_play, the touch toolbar's condition), calls Main_Loop and returns its result unchanged."
+  },
+  {
+   "file": "src/conquer.cpp",
+   "old": "\t\tFUN_0072DFB0();\n\t\tSession.Pause();",
+   "new": "\t\tvoid yr_native_play_over(void);\n\t\tyr_native_play_over();\n\t\tFUN_0072DFB0();\n\t\tSession.Pause();",
+   "why": "lane Y7: the game loop is over (won, lost or aborted): the host's in-play mark is cleared (glue/yr_app_hooks.cpp), so the touch toolbar leaves with the game; nothing else changes."
+  },
+  {
+   "file": "src/fly.cpp",
+   "append": "fly_native.inc",
+   "why": "FlyLocomotionClass::Nearing_Target (0x004CEFB0) is unmatched in the YR tree; a native draft from the RA2 tree's twin and gamemd.exe's code (lane Y7), appended to the fly unit."
+  },
+  {
+   "file": "src/house.cpp",
+   "old": "\tif (this == PlayerPtr && !DAT_00880990 && builder && object) {",
+   "new": "\tif (this == PlayerPtr && !Map.PendingObject && builder && object) {",
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+  },
+  {
+   "file": "src/house.cpp",
+   "old": "\t\tDAT_0088099A = false;\n\t\tDAT_0088099B = false;\n\t\tDAT_0088099C = false;\n\t\tCurrentSWType = -1;\n\t\tDAT_00880990 = (int)object->Class;\n\t\tDAT_0088098C.Ptr = (int)object;\n\t\tDAT_00880994 = HeapID;",
+   "new": "\t\tMap.IsPowerMode = false;\n\t\tMap.IsWaypointMode = false;\n\t\tMap.PlaceBeaconMode = false;\n\t\tMap.IsTargettingMode = SuperWeaponType(-1);\n\t\tMap.PendingObject = object->Class;\n\t\tMap.PendingObjectPtr = object;\n\t\tMap.PendingHouse = HousesType(HeapID);",
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+  },
+  {
+   "file": "src/taction.cpp",
+   "old": "\tDAT_0088098C.Ptr = 0;\n\tDAT_0088098C.Type = 0;\n\tDAT_0088098C.House = -1;",
+   "new": "\tMap.PendingObjectPtr = 0;\n\tMap.PendingObject = 0;\n\tMap.PendingHouse = HousesType(-1);",
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+  },
+  {
+   "file": "src/taction.cpp",
+   "old": "\tDAT_0088099A = false;\n\tDAT_0088099B = false;\n\tDAT_0088099C = false;\n\tFUN_00684240();",
+   "new": "\tMap.IsPowerMode = false;\n\tMap.IsWaypointMode = false;\n\tMap.PlaceBeaconMode = false;\n\tFUN_00684240();",
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+  },
+  {
+   "file": "src/uicmnds.cpp",
+   "old": "\tif (DAT_00880990) {\n\t\tMap.Set_Cursor_Pos(DAT_00B0FDF0);",
+   "new": "\tif (Map.PendingObject) {\n\t\tMap.Set_Cursor_Pos(DAT_00B0FDF0);",
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+  },
+  {
+   "file": "src/mpcoop.cpp",
+   "old": "\tDAT_0088098C = 0;\n\tDAT_00880990 = 0;\n\tDAT_00880994 = -1;",
+   "new": "\tMap.PendingObjectPtr = 0;\n\tMap.PendingObject = 0;\n\tMap.PendingHouse = HousesType(-1);",
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+  },
+  {
+   "file": "src/super.cpp",
+   "old": "extern int DAT_008809A0;",
+   "new": "#define DAT_008809A0 (*(int *)&Map.IsTargettingMode)",
+   "why": "lane Y7: Map's own members at these addresses (Map 0x0087F7E8: +0x11B8 IsTargettingMode = 0x008809A0; +0x1190 CurrentBuildingCopy, +0x1194 CurrentBuildingTypeCopy, +0x1198 CurrentBuildingOwnerArrayIndexCopy = 0x00880978..0x00880980; display.h), which the tree declares as separate globals; natively those are other storage than Map's, so the super weapon targeting mode and the placement copy were never the ones the interface reads. Each name now stands for the member."
+  },
+  {
+   "file": "src/tactical.cpp",
+   "old": "extern ObjectClass const * DAT_00880978;\nextern int DAT_0088097C;\nextern int DAT_00880980;",
+   "new": "#define DAT_00880978 Map.CurrentBuildingCopy\n#define DAT_0088097C (*(ObjectTypeClass const **)&Map.CurrentBuildingTypeCopy)\n#define DAT_00880980 (*(int *)&Map.CurrentBuildingOwnerArrayIndexCopy)",
+   "why": "lane Y7: Map's own members at these addresses (Map 0x0087F7E8: +0x11B8 IsTargettingMode = 0x008809A0; +0x1190 CurrentBuildingCopy, +0x1194 CurrentBuildingTypeCopy, +0x1198 CurrentBuildingOwnerArrayIndexCopy = 0x00880978..0x00880980; display.h), which the tree declares as separate globals; natively those are other storage than Map's, so the super weapon targeting mode and the placement copy were never the ones the interface reads. Each name now stands for the member."
   }
  ]
 }

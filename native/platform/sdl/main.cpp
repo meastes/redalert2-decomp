@@ -443,7 +443,7 @@ int main(int argc, char **argv)
         if (hostos::imports_game_files()) {
             // iOS (Scout1247): the game's window first (the picker and the messages are shown
             // over it); the game's CreateWindowExA takes it over.
-            SDL_Window *window = SDL_CreateWindow("Red Alert 2", 800, 600, SDL_WINDOW_FULLSCREEN | SDL_WINDOW_HIGH_PIXEL_DENSITY);
+            SDL_Window *window = SDL_CreateWindow(app::kTitle, 800, 600, SDL_WINDOW_FULLSCREEN | SDL_WINDOW_HIGH_PIXEL_DENSITY);
             app_window = window;
             if (!window) fprintf(stderr, "app: window: %s\n", SDL_GetError());
             ra2_sdl_host_use_window(window);

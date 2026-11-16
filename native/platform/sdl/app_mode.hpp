@@ -139,17 +139,6 @@ std::string find_file(std::string const &dir, const char *name)
     closedir(d);
     return found;
 }
-// The MIX files a base Red Alert 2 installation has: the missing ones, or "".
-std::string missing_mix(std::string const &dir)
-{
-    static const char *const required[] = {"ra2.mix", "language.mix", "multi.mix", "theme.mix"};
-    std::string missing;
-    for (const char *name : required) {
-        if (!is_file(find_file(dir, name))) missing += (missing.empty() ? "" : ", ") + std::string(name);
-    }
-    return missing;
-}
-
 // The game this host is built for (lane Y2): yr-native's host is compiled with RA2_NATIVE_YR and
 // reads gamemd.exe (ra2port/game_builds.hpp); the RA2 game's reads game.exe.
 #ifdef RA2_NATIVE_YR
@@ -157,6 +146,20 @@ constexpr ra2build::Game kHostGame = ra2build::Game::yr;
 #else
 constexpr ra2build::Game kHostGame = ra2build::Game::ra2;
 #endif
+// The MIX files a base Red Alert 2 installation has: the missing ones, or "". Yuri's Revenge
+// (lane Y7) reads both games' MIX files: its own four as well.
+std::string missing_mix(std::string const &dir)
+{
+    static const char *const required[] = {"ra2.mix", "language.mix", "multi.mix", "theme.mix",
+                                           "ra2md.mix", "langmd.mix", "multimd.mix", "thememd.mix"};
+    std::string missing;
+    for (const char *name : required) {
+        if (kHostGame != ra2build::Game::yr && !strncmp(name + strlen(name) - 6, "md.mix", 6)) continue;
+        if (!is_file(find_file(dir, name))) missing += (missing.empty() ? "" : ", ") + std::string(name);
+    }
+    return missing;
+}
+
 // The settings key of a game.exe chosen elsewhere: one per game, since the combined app's two
 // engines share the settings file (lane Y5).
 constexpr const char *kExeKey = kHostGame == ra2build::Game::yr ? "yr_game_exe" : "game_exe";
@@ -295,7 +298,7 @@ std::string pick_exe(std::string const &start)
     return path;
 }
 
-const char kTitle[] = "Red Alert 2";
+const char *const kTitle = kHostGame == ra2build::Game::yr ? "Yuri's Revenge" : "Red Alert 2";
 
 // First-run setup (and every start: the saved choice is checked again).
 // Returns false when the user quits. RA2_NATIVE_SETUP=1 (or --setup) asks for
@@ -397,7 +400,10 @@ bool setup(Settings &settings, bool force, std::string &data_dir, std::string &g
 // Only these names are copied (base Red Alert 2; Yuri's Revenge files and
 // everything else stay behind): never code to run, only data and the two
 // Windows files the port reads data from (game.exe's tables and dialogs,
-// BINKW32.DLL's Bink tables).
+// BINKW32.DLL's Bink tables). Yuri's Revenge's app (lane Y7) takes its own
+// files as well (gamemd.exe instead of game.exe, ra2md/langmd/multimd/thememd.mix,
+// expandmd*, mapsmd*, movmd*, ecachemd*, elocalmd*) beside the RA2 MIX files it
+// also reads.
 bool import_wanted(std::string const &lower)
 {
     auto ends = [&](const char *suffix) {
@@ -410,9 +416,13 @@ bool import_wanted(std::string const &lower)
         for (size_t i = a; i < lower.size() - b; ++i) if (lower[i] < '0' || lower[i] > '9') return false;
         return true;
     };
-    if (lower == "game.exe" || lower == "binkw32.dll") return true;
+    if (lower == ra2build::exe_name(kHostGame) || lower == "binkw32.dll") return true;
     for (const char *name : {"ra2.mix", "language.mix", "multi.mix", "theme.mix", "wdt.mix"}) if (lower == name) return true;
     for (const char *stem : {"maps", "movies", "expand", "ecache", "elocal"}) if (numbered(stem, ".mix")) return true;
+    if (kHostGame == ra2build::Game::yr) {
+        for (const char *name : {"ra2md.mix", "langmd.mix", "multimd.mix", "thememd.mix"}) if (lower == name) return true;
+        for (const char *stem : {"expandmd", "mapsmd", "movmd", "ecachemd", "elocalmd"}) if (numbered(stem, ".mix")) return true;
+    }
     for (const char *ext : {".mmx", ".map", ".mpr", ".ini", ".csf", ".pkt"}) if (ends(ext)) return true;
     return false;
 }
@@ -429,8 +439,9 @@ std::string imported_problem(std::string const &dir)
     std::string digest;
     long long size = 0;
     Exe exe = check_exe(dir + "/" + ra2build::exe_name(kHostGame), digest, size);
-    if (exe == Exe::missing) return "missing game.exe";
-    if (exe == Exe::other) return "game.exe is a build the native game cannot read (" + exe_reason() + ")";
+    std::string name = ra2build::exe_name(kHostGame);
+    if (exe == Exe::missing) return "missing " + name;
+    if (exe == Exe::other) return name + " is a build the native game cannot read (" + exe_reason() + ")";
     return "";
 }
 
@@ -570,10 +581,15 @@ bool setup_imported(void *native_window, bool force, std::string &data_dir, std:
     std::string note;
     while (!problem.empty()) {
         fprintf(stderr, "app: game files: %s\n", problem.c_str());
-        int b = ask(kTitle, note + "Red Alert 2 needs your game files once. Choose the folder where Red Alert 2 is "
-                    "installed (it holds ra2.mix and game.exe), for example on a Mac shared in Files or copied to "
-                    "On My iPhone.\n\nThe app copies the game's data files (about 1 GB) into its own storage and never "
-                    "changes the folder.", {"Choose Folder…", "Not Now"});
+        int b = ask(kTitle, note + (kHostGame == ra2build::Game::yr
+                    ? "Yuri's Revenge needs your game files once. Choose the folder where Red Alert 2 and Yuri's Revenge "
+                      "are installed (it holds ra2md.mix and gamemd.exe), for example on a Mac shared in Files or copied to "
+                      "On My iPhone.\n\nThe app copies the game's data files (about 2 GB) into its own storage and never "
+                      "changes the folder."
+                    : "Red Alert 2 needs your game files once. Choose the folder where Red Alert 2 is "
+                      "installed (it holds ra2.mix and game.exe), for example on a Mac shared in Files or copied to "
+                      "On My iPhone.\n\nThe app copies the game's data files (about 1 GB) into its own storage and never "
+                      "changes the folder."), {"Choose Folder…", "Not Now"});
         if (b != 0) return false;
         ImportPick pick;
         std::string answer;
@@ -633,10 +649,12 @@ void game_resolution(double usable_w, double usable_h, int &w, int &h)
 void set_ini_resolution(std::string const &write_dir, std::string const &data_dir, int w, int h)
 {
     bool hires = (w != 640 && w != 800 && w != 1024) || h > 768;
-    std::string path = write_dir + "/RA2.INI";
+    // Yuri's Revenge's settings file is RA2MD.INI (lane Y7).
+    bool yr = kHostGame == ra2build::Game::yr;
+    std::string path = write_dir + (yr ? "/RA2MD.INI" : "/RA2.INI");
     std::vector<std::string> lines;
     FILE *f = fopen(path.c_str(), "r");
-    if (!f) f = fopen((data_dir + "/ra2.ini").c_str(), "r");
+    if (!f) f = fopen((data_dir + (yr ? "/ra2md.ini" : "/ra2.ini")).c_str(), "r");
     if (f) {
         char chunk[1024];
         std::string line;
@@ -679,7 +697,7 @@ void set_ini_resolution(std::string const &write_dir, std::string const &data_di
         for (std::string const &line : out) fprintf(o, "%s\r\n", line.c_str());
         fclose(o);
         if (rename(tmp.c_str(), path.c_str()) == 0) {
-            fprintf(stderr, "app: in-game resolution %dx%d (RA2.INI [Video])\n", w, h);
+            fprintf(stderr, "app: in-game resolution %dx%d (%s [Video])\n", w, h, yr ? "RA2MD.INI" : "RA2.INI");
         } else {
             fprintf(stderr, "app: could not replace %s: %s\n", path.c_str(), strerror(errno));
         }

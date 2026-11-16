@@ -5,7 +5,8 @@
 
 The team id comes from the command line (RA2_IOS_TEAM), never from a tracked file.
 Without --profile, the newest unexpired development provisioning profile of that
-team whose app id covers io.github.ra2native.RA2 (exact or the team wildcard) is
+team whose app id covers the app's bundle id (its Info.plist's CFBundleIdentifier:
+io.github.ra2native.RA2, or io.github.ra2native.YR for YR.app, lane Y7; exact or the team wildcard) is
 taken from Xcode's profile folders. The signing identity is the keychain's code
 signing identity whose certificate the profile lists. The app gets the profile as
 embedded.mobileprovision and entitlements made from it (application identifier,
@@ -50,6 +51,12 @@ def main():
     ap.add_argument('--team', required=True)
     ap.add_argument('--profile')
     args = ap.parse_args()
+    global BUNDLE_ID
+    try:
+        with open(os.path.join(args.app, 'Info.plist'), 'rb') as f:
+            BUNDLE_ID = plistlib.load(f).get('CFBundleIdentifier', BUNDLE_ID)
+    except OSError:
+        pass
     keys = identities()
     candidates = [args.profile] if args.profile else [p for d in FOLDERS for p in glob.glob(os.path.join(os.path.expanduser(d), '*.mobileprovision'))]
     now = datetime.datetime.now(datetime.timezone.utc)

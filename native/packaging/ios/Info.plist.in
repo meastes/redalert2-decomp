@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!-- The iOS app's Info.plist (native/CMakeLists.txt, build-ios.command; Scout1247).
+<!-- The iOS app's Info.plist (native/CMakeLists.txt, build-ios.command; Scout1247; lane Y7:
+     also Yuri's Revenge's YR.app, ra2_ios_app).
      Landscape only (the game's 4:3 picture); Documents is visible in Files
      (Documents/Game holds RA2.INI and the saved games, which move between the
      Mac and the phone). -->
@@ -8,8 +9,8 @@
 <dict>
   <key>CFBundleDevelopmentRegion</key><string>en</string>
   <key>CFBundleIdentifier</key><string>${MACOSX_BUNDLE_GUI_IDENTIFIER}</string>
-  <key>CFBundleName</key><string>Red Alert 2</string>
-  <key>CFBundleDisplayName</key><string>Red Alert 2</string>
+  <key>CFBundleName</key><string>@RA2_IOS_APP_NAME@</string>
+  <key>CFBundleDisplayName</key><string>@RA2_IOS_APP_NAME@</string>
   <key>CFBundleExecutable</key><string>${MACOSX_BUNDLE_EXECUTABLE_NAME}</string>
   <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
   <key>CFBundlePackageType</key><string>APPL</string>

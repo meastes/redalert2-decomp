@@ -108,6 +108,10 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   applied and never edits them. The Win32/DirectX headers the native YR build compiles against are the mingw-w64
   headers of the local llvm-mingw toolchain, rewritten into `build/` at configure time and never copied into the
   repository (mingw-w64 headers: public domain / ZPL, Wine-derived DirectX headers LGPL-2.1-or-later).
+  Lane Y7 adopted two functions from a newer ra2-decomp commit (`0bafad686c6ac1f7cf29777cb291d6002ebbcfd7`,
+  2026-11-16) that the pin lacks: SidebarClass::StripClass::SelectClass::Action (0x006AAD00, src/sidebar.cpp) and
+  SuperClass::Impatient_Click (0x006CC070, src/super.cpp), appended as text to the generated units through
+  `native/yr/glue/sidebar_native.inc` and `super_native.inc` with their origin noted there (GPL-3.0-or-later).
 - **ra2-decomp** (`gibbo101/ra2-decomp` commit `6e6f6a1a3430ae9e2b743fe4fe176da2b5ccf661`, 2026-11-07; earlier pins ca9b8ad, 4453ab030): a matching
   decompilation of Yuri's Revenge gamemd.exe 1.001 built with the same VC6 SP3. Game source in `src/` and `include/`
   GPL-3.0-or-later, Copyright 2026 ra2-decomp contributors, with Electronic Arts' section 7 terms on files carrying an

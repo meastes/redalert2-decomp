@@ -5,6 +5,8 @@ rebuilt game, its Info.plist, the SDL3 licence, the generated placeholder icon
 data, a game executable or original code.
 
     python3 native/packaging/audit_ios_bundle.py build/ios-simulator/RA2.app [--game-exe <game.exe>]
+    python3 native/packaging/audit_ios_bundle.py build/ios-simulator/YR.app --executable YR \
+        --bundle-id io.github.ra2native.YR [--game-exe <gamemd.exe>]       (lane Y7)
 
 Checks: an allowlist of the bundle's files; no symbolic links; no file with a
 game-data or Windows-program extension; the executable is an arm64 Mach-O that
@@ -24,7 +26,7 @@ import struct
 import subprocess
 import sys
 
-REQUIRED = {"Info.plist", "RA2", "licenses/LICENSE.txt",
+REQUIRED = {"Info.plist", "licenses/LICENSE.txt",
             "AppIcon60x60@2x.png", "AppIcon60x60@3x.png", "AppIcon76x76@2x~ipad.png", "AppIcon83.5x83.5@2x~ipad.png"}
 OPTIONAL = {"PkgInfo", "_CodeSignature/CodeResources", "embedded.mobileprovision"}
 GAME_EXTENSIONS = {".mix", ".mmx", ".exe", ".dll", ".tlb", ".ini", ".map", ".mpr", ".csf", ".pkt", ".bik",
@@ -46,23 +48,26 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("bundle", type=pathlib.Path)
     ap.add_argument("--game-exe", type=pathlib.Path, help="the user's game.exe: sample its code and resources")
+    ap.add_argument("--executable", default="RA2", help="the bundle's executable (YR for Yuri's Revenge)")
+    ap.add_argument("--bundle-id", default="io.github.ra2native.RA2")
     args = ap.parse_args()
+    required = REQUIRED | {args.executable}
     bundle = args.bundle
     failures = []
     if any(p.is_symlink() for p in bundle.rglob("*")):
         failures.append("the bundle has symbolic links")
     files = {p.relative_to(bundle).as_posix() for p in bundle.rglob("*") if p.is_file()}
-    if REQUIRED - files:
-        failures.append("missing: %s" % sorted(REQUIRED - files))
-    if files - REQUIRED - OPTIONAL:
-        failures.append("not on the allowlist: %s" % sorted(files - REQUIRED - OPTIONAL))
+    if required - files:
+        failures.append("missing: %s" % sorted(required - files))
+    if files - required - OPTIONAL:
+        failures.append("not on the allowlist: %s" % sorted(files - required - OPTIONAL))
     games = sorted(f for f in files if pathlib.PurePosixPath(f).suffix.lower() in GAME_EXTENSIONS)
     if games:
         failures.append("game files in the bundle: %s" % games)
     info = plistlib.loads((bundle / "Info.plist").read_bytes()) if "Info.plist" in files else {}
-    if info.get("CFBundleExecutable") != "RA2" or info.get("CFBundleIdentifier") != "io.github.ra2native.RA2":
+    if info.get("CFBundleExecutable") != args.executable or info.get("CFBundleIdentifier") != args.bundle_id:
         failures.append("Info.plist names another executable or bundle id")
-    exe = bundle / "RA2"
+    exe = bundle / args.executable
     if exe.is_file():
         kind = subprocess.run(["file", "-b", str(exe)], capture_output=True, text=True).stdout
         if "Mach-O 64-bit executable arm64" not in kind:
@@ -88,12 +93,12 @@ def main():
         if not sampled:
             failures.append("no pieces of game.exe's code or resources could be sampled")
         elif found:
-            failures.append("%d of %d sampled pieces of game.exe's code and resources are in the executable" % (found, sampled))
+            failures.append("%d of %d sampled pieces of %s's code and resources are in the executable" % (found, sampled, args.game_exe.name))
     if failures:
         sys.exit("iOS bundle audit FAILED:\n  " + "\n  ".join(failures))
     print("PASS iOS bundle audit: %d files (%s), SDK %s, no game files, no libraries outside the system%s" % (
         len(files), ", ".join(sorted(files)), info.get("DTSDKName", "?"),
-        "; none of %d sampled pieces of game.exe's code and resources in the executable" % sampled if sampled else ""))
+        "; none of %d sampled pieces of %s's code and resources in the executable" % (sampled, args.game_exe.name) if sampled else ""))
 
 
 if __name__ == "__main__":

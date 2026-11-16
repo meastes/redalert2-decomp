@@ -237,3 +237,32 @@ void SlaveManagerClass::FUN_006AFD60(void)
 			break;
 	}
 }
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane Y7): SlaveManagerClass::FUN_006B0880 (gamemd.exe 0x006B0880, 416 B),
+// unmatched in ra2-decomp; written from gamemd.exe's code (a link-closure trap reached when a slave
+// stepped into its miner's cell, InfantryClass::Can_Enter_Cell on the Simulator). Whether the
+// slave may enter the cell: it must be one of this manager's slaves, and the cell must be the
+// miner's home cell (Slave_Home_Cell) or, for a deployed miner, the cell north of its dock
+// (FUN_006B0690) when that cell is still the miner's.
+// ---------------------------------------------------------------------------------------------
+bool SlaveManagerClass::FUN_006B0880(TechnoClass * slave, CellClass * cell)
+{
+	Cell home = Slave_Home_Cell(Owner);
+	Cell dock = CELL_NONE;
+	if (Owner != NULL && Owner->Fetch_RTTI() == RTTI_BUILDING) {
+		Cell north = FUN_006B0690() + Cell(0, -1);
+		if (Map[north].Cell_Building() == Owner) {
+			dock = north;
+		}
+	}
+	if (cell != &Map[home] && (dock == CELL_NONE || cell != &Map[dock])) {
+		return(false);
+	}
+	for (int index = SlaveNodes.Count() - 1; index >= 0; index--) {
+		if (SlaveNodes[index]->Slave == slave) {
+			return(SlaveNodes[index] != NULL);
+		}
+	}
+	return(false);
+}

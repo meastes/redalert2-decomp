@@ -134,10 +134,11 @@ def main():
     ap.add_argument('--aliases', type=Path, help='yr_aliases.py output: address names bound elsewhere (no storage here)')
     ap.add_argument('--system-libs', nargs='*', default=[])
     ap.add_argument('--frameworks', nargs='*', default=[])
+    ap.add_argument('--sdk', default='', help="the SDK whose system libraries count (the iOS build's; lane Y7)")
     a = ap.parse_args()
     paths = [l.strip() for l in a.inputs.read_text().splitlines() if l.strip()] + [str(p) for p in a.host]
     paths = [p for p in paths if not p.endswith(a.out.with_suffix('.cpp.o').name)]
-    system = link_closure.system_exports(frameworks=a.frameworks, libs=a.system_libs)
+    system = link_closure.system_exports(a.sdk, frameworks=a.frameworks, libs=a.system_libs)
     link_closure.DATA_FROM = RDATA[0]
     missing, _ = link_closure.missing_symbols(paths, system=system)
     rows = link_closure.classify(missing)

@@ -355,56 +355,74 @@ if(RA2_NATIVE_SDL)
         # The team id for a device build comes from the command line, never from Git.
         set(RA2_IOS_TEAM "" CACHE STRING "Apple Development team id (device builds only; never in Git)")
         set(RA2_IOS_BUILD "1" CACHE STRING "CFBundleVersion of the iOS app")
-        if(CMAKE_OSX_SYSROOT MATCHES "[Ss]imulator")
-          set(RA2_IOS_PLATFORM iPhoneSimulator)
-          set(RA2_IOS_PLATFORM_NAME iphonesimulator)
-        else()
-          set(RA2_IOS_PLATFORM iPhoneOS)
-          set(RA2_IOS_PLATFORM_NAME iphoneos)
-        endif()
-        execute_process(COMMAND xcrun --sdk ${RA2_IOS_PLATFORM_NAME} --show-sdk-version
-                        OUTPUT_VARIABLE ra2_ios_sdk_version OUTPUT_STRIP_TRAILING_WHITESPACE)
-        set(RA2_IOS_SDK_NAME "${RA2_IOS_PLATFORM_NAME}${ra2_ios_sdk_version}")
-        configure_file(packaging/ios/Info.plist.in "${CMAKE_CURRENT_BINARY_DIR}/ios/Info.plist.in" @ONLY)
-        set(ra2_sdl_licence "${RA2_NATIVE_SDL_SOURCE}/LICENSE.txt")
-        target_sources(ra2-native PRIVATE "${ra2_sdl_licence}")
-        set_source_files_properties("${ra2_sdl_licence}" PROPERTIES MACOSX_PACKAGE_LOCATION "licenses")
-        set_target_properties(ra2-native PROPERTIES
-          MACOSX_BUNDLE TRUE
-          OUTPUT_NAME RA2
-          MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_BINARY_DIR}/ios/Info.plist.in"
-          MACOSX_BUNDLE_EXECUTABLE_NAME RA2
-          MACOSX_BUNDLE_GUI_IDENTIFIER "io.github.ra2native.RA2"
-          MACOSX_BUNDLE_BUNDLE_VERSION "${RA2_IOS_BUILD}"
-          MACOSX_BUNDLE_SHORT_VERSION_STRING "${PROJECT_VERSION}")
-        # The home-screen icon (lane I): make_icon.py's plain-shape placeholder drawn full
-        # bleed (iOS masks it), at the sizes Info.plist's CFBundleIcons names, copied into
-        # the bundle's root after each link (build-ios.command signs afterwards).
-        set(ra2_ios_icon_dir "${CMAKE_CURRENT_BINARY_DIR}/ios/icons")
-        set(ra2_ios_icons AppIcon60x60@2x.png:120 AppIcon60x60@3x.png:180
-            AppIcon76x76@2x~ipad.png:152 AppIcon83.5x83.5@2x~ipad.png:167)
-        set(ra2_ios_icon_commands)
-        set(ra2_ios_icon_files)
-        foreach(icon IN LISTS ra2_ios_icons)
-          string(REPLACE ":" ";" icon "${icon}")
-          list(GET icon 0 icon_name)
-          list(GET icon 1 icon_size)
-          list(APPEND ra2_ios_icon_commands COMMAND sips -z ${icon_size} ${icon_size}
-               "${ra2_ios_icon_dir}/icon.png" --out "${ra2_ios_icon_dir}/${icon_name}")
-          list(APPEND ra2_ios_icon_files "${ra2_ios_icon_dir}/${icon_name}")
-        endforeach()
-        add_custom_command(OUTPUT ${ra2_ios_icon_files}
-          COMMAND "${CMAKE_COMMAND}" -E make_directory "${ra2_ios_icon_dir}"
-          COMMAND "${Python3_EXECUTABLE}" -I "${CMAKE_CURRENT_SOURCE_DIR}/packaging/make_icon.py"
-                  --full-bleed "${ra2_ios_icon_dir}/icon.png"
-          ${ra2_ios_icon_commands}
-          DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/packaging/make_icon.py"
-          COMMENT "iOS app icon" VERBATIM)
-        add_custom_target(ra2-ios-icons DEPENDS ${ra2_ios_icon_files})
-        add_dependencies(ra2-native ra2-ios-icons)
-        add_custom_command(TARGET ra2-native POST_BUILD
-          COMMAND "${CMAKE_COMMAND}" -E copy ${ra2_ios_icon_files} "$<TARGET_BUNDLE_DIR:ra2-native>"
-          VERBATIM)
+        # One iOS app bundle (lane Y7: also yr-native's, native/yr/yr.cmake): TARGET's executable
+        # named EXE in EXE.app, bundle id ID, home-screen name NAME, icon drawn by make_icon.py
+        # with ICON_ARGS. Files in the build folder's ios/ (RA2) or ios-<exe>/ (others).
+        function(ra2_ios_app target exe id name)
+          set(icon_args ${ARGN})
+          if(CMAKE_OSX_SYSROOT MATCHES "[Ss]imulator")
+            set(RA2_IOS_PLATFORM iPhoneSimulator)
+            set(RA2_IOS_PLATFORM_NAME iphonesimulator)
+          else()
+            set(RA2_IOS_PLATFORM iPhoneOS)
+            set(RA2_IOS_PLATFORM_NAME iphoneos)
+          endif()
+          execute_process(COMMAND xcrun --sdk ${RA2_IOS_PLATFORM_NAME} --show-sdk-version
+                          OUTPUT_VARIABLE ra2_ios_sdk_version OUTPUT_STRIP_TRAILING_WHITESPACE)
+          set(RA2_IOS_SDK_NAME "${RA2_IOS_PLATFORM_NAME}${ra2_ios_sdk_version}")
+          set(RA2_IOS_APP_NAME "${name}")
+          if(exe STREQUAL "RA2")
+            set(dir "${CMAKE_CURRENT_BINARY_DIR}/ios")
+          else()
+            set(dir "${CMAKE_CURRENT_BINARY_DIR}/ios-${exe}")
+          endif()
+          configure_file("${CMAKE_CURRENT_SOURCE_DIR}/packaging/ios/Info.plist.in" "${dir}/Info.plist.in" @ONLY)
+          set(sdl_licence "${RA2_NATIVE_SDL_SOURCE}/LICENSE.txt")
+          target_sources(${target} PRIVATE "${sdl_licence}")
+          set_source_files_properties("${sdl_licence}" PROPERTIES MACOSX_PACKAGE_LOCATION "licenses")
+          set_target_properties(${target} PROPERTIES
+            MACOSX_BUNDLE TRUE
+            OUTPUT_NAME ${exe}
+            MACOSX_BUNDLE_INFO_PLIST "${dir}/Info.plist.in"
+            MACOSX_BUNDLE_EXECUTABLE_NAME ${exe}
+            MACOSX_BUNDLE_GUI_IDENTIFIER "${id}"
+            MACOSX_BUNDLE_BUNDLE_VERSION "${RA2_IOS_BUILD}"
+            MACOSX_BUNDLE_SHORT_VERSION_STRING "${PROJECT_VERSION}")
+          # The home-screen icon (lane I): make_icon.py's plain-shape placeholder drawn full
+          # bleed (iOS masks it), at the sizes Info.plist's CFBundleIcons names, copied into
+          # the bundle's root after each link (build-ios.command signs afterwards).
+          set(icon_dir "${dir}/icons")
+          set(icons AppIcon60x60@2x.png:120 AppIcon60x60@3x.png:180
+              AppIcon76x76@2x~ipad.png:152 AppIcon83.5x83.5@2x~ipad.png:167)
+          set(icon_commands)
+          set(icon_files)
+          foreach(icon IN LISTS icons)
+            string(REPLACE ":" ";" icon "${icon}")
+            list(GET icon 0 icon_name)
+            list(GET icon 1 icon_size)
+            list(APPEND icon_commands COMMAND sips -z ${icon_size} ${icon_size}
+                 "${icon_dir}/icon.png" --out "${icon_dir}/${icon_name}")
+            list(APPEND icon_files "${icon_dir}/${icon_name}")
+          endforeach()
+          add_custom_command(OUTPUT ${icon_files}
+            COMMAND "${CMAKE_COMMAND}" -E make_directory "${icon_dir}"
+            COMMAND "${Python3_EXECUTABLE}" -I "${CMAKE_CURRENT_SOURCE_DIR}/packaging/make_icon.py"
+                    --full-bleed ${icon_args} "${icon_dir}/icon.png"
+            ${icon_commands}
+            DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/packaging/make_icon.py"
+            COMMENT "iOS app icon (${exe})" VERBATIM)
+          if(exe STREQUAL "RA2")
+            add_custom_target(ra2-ios-icons DEPENDS ${icon_files})
+            add_dependencies(${target} ra2-ios-icons)
+          else()
+            add_custom_target(${target}-ios-icons DEPENDS ${icon_files})
+            add_dependencies(${target} ${target}-ios-icons)
+          endif()
+          add_custom_command(TARGET ${target} POST_BUILD
+            COMMAND "${CMAKE_COMMAND}" -E copy ${icon_files} "$<TARGET_BUNDLE_DIR:${target}>"
+            VERBATIM)
+        endfunction()
+        ra2_ios_app(ra2-native RA2 "io.github.ra2native.RA2" "Red Alert 2")
       endif()
       # 8. Native census (Scout1209): the game to 600 skirmish frames with all
       #    harness orders; any trap, fault or unrecovered call fails it (the
@@ -673,9 +691,10 @@ if(RA2_NATIVE_SDL)
                  --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/touch-controls")
         set_tests_properties(native-touch-controls PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
       endif()
-      # The native Yuri's Revenge game (lane Y1, -DRA2_NATIVE_YR=ON, Mac): native/yr/yr.cmake.
+      # The native Yuri's Revenge game (lane Y1, -DRA2_NATIVE_YR=ON, Mac; lane Y7: also iOS,
+      # build-ios.command --yr): native/yr/yr.cmake.
       option(RA2_NATIVE_YR "Also build yr-native, the Yuri's Revenge game from the pinned ra2-decomp tree (yr/)" OFF)
-      if(RA2_NATIVE_YR AND APPLE AND NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+      if(RA2_NATIVE_YR AND APPLE)
         include("${CMAKE_CURRENT_SOURCE_DIR}/yr/yr.cmake")
       endif()
     else()

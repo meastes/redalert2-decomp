@@ -5,6 +5,7 @@
 # dark ring. Writes one 1024x1024 PNG; make_app.sh scales it into the iconset.
 # --full-bleed (the iOS app, native/CMakeLists.txt): the red square fills the
 # picture, opaque, since iOS draws its own rounded mask over an app icon.
+# --yr (Yuri's Revenge's iOS app, lane Y7): the same shapes on purple.
 # Standard library only.
 import math
 import struct
@@ -44,6 +45,9 @@ def inside_rounded(x, y, x0, y0, x1, y1, r):
     return (x - cx) ** 2 + (y - cy) ** 2 <= r * r
 
 
+PURPLE = False   # --yr
+
+
 def shade(x, y, star, full_bleed):
     # macOS icon grid: the body is about 824 of 1024, centred; iOS: all of it.
     m = 0 if full_bleed else 100
@@ -56,6 +60,8 @@ def shade(x, y, star, full_bleed):
         return (60, 8, 8, 255)
     # red, darker towards the bottom
     t = (y - m) / (SIZE - 2 * m)
+    if PURPLE:
+        return (int(120 - 45 * t), int(30 - 14 * t), int(170 - 60 * t), 255)
     return (int(200 - 70 * t), int(24 - 10 * t), int(20 - 8 * t), 255)
 
 
@@ -120,7 +126,8 @@ if __name__ == "__main__":
         write_ico(args[1])
         sys.exit(0)
     full = "--full-bleed" in args
-    args = [a for a in args if a != "--full-bleed"]
+    PURPLE = "--yr" in args
+    args = [a for a in args if a not in ("--full-bleed", "--yr")]
     if len(args) != 1:
-        sys.exit("usage: make_icon.py [--full-bleed] <out.png> | make_icon.py --ico <out.ico>")
+        sys.exit("usage: make_icon.py [--full-bleed] [--yr] <out.png> | make_icon.py --ico <out.ico>")
     main(args[0], full)

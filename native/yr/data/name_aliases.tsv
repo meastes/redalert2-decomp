@@ -48,3 +48,10 @@ __Z12FUN_00489280RK5CoordiP11TechnoClassPK16WarheadTypeClassbP10HouseClass	__Z16
 __ZN8MapClass10DamageAreaERK5CoordiP11TechnoClassPK16WarheadTypeClassbP10HouseClass	__Z16Explosion_DamageRK5CoordiP11TechnoClassPK16WarheadTypeClassbP10HouseClass
 __ZNK13BuildingClass18Fetch_Super_WeaponEv	__ZNK13BuildingClass16FirstActiveSWIdxEv
 __ZNK13BuildingClass19Fetch_Super_Weapon2Ev	__ZNK13BuildingClass17SecondActiveSWIdxEv
+# The sound system master's pointer, 0x00816514 (lane Y7): audio.cpp passes DAT_00816514 to AudioLoadSystem;
+# drv_dsnd.cpp defines it as AudioSystemDSD (gamemd.exe: 0x00816514 holds 0x00816358, the master named
+# "Direct Sound Driver V2.0" whose load is audioLoad 0x00409470). Before, the copy from gamemd.exe held 32-bit addresses.
+_DAT_00816514	_AudioSystemDSD
+# TechnoClass::ScanForTiberium (vtable slot 0x338) is the tree's TechnoClass::FUN_0070F8F0 (lane Y7: gamemd.exe's
+# BuildingClass vtable holds 0x0070F8F0 there; a deployed slave miner's manager scans with it; the second parameter is unused).
+__ZN11TechnoClass15ScanForTiberiumEib	__ZN11TechnoClass12FUN_0070F8F0Eij

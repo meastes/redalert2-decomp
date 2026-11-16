@@ -775,3 +775,73 @@ bool HouseClass::AI_Build_Defense(int nodeid, DynamicVectorClass<Cell> * cells)
 
 	return(success);
 }
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane Y7): HouseClass::Random_Cell_In_Zone, YR 0x00501AC0 (1,596 bytes,
+// ra2-decomp's PickRandomCellInZone, unmatched; a link-closure trap reached through Where_To_Go
+// when a computer player's unit looked for somewhere to go). TibSun's text (code/house.cpp) with
+// gamemd.exe's changes read from its code: the base's centre is the coordinate of the base centre
+// cell (FUN_0050DF30: COORD_NONE without one) instead of a Center member, the random numbers are
+// the scenario's (Scen->RandomNumber), and the legal-area test is In_Local_Radar(cell, true)
+// (MapClass::IsWithinUsableArea 0x00578460). The quadrant rotation is written out on the raw
+// facing as gamemd.exe does it (the upper three bits from the previous eighth, the rest kept).
+// ---------------------------------------------------------------------------------------------
+static inline DirType Zone_Rotate_Back_One_Facing(DirType const & dir)
+{
+	unsigned short raw = dir.Raw;
+	DirType back;
+	back.Raw = (unsigned short)((((raw & 0xE000) - 1) & 0xE000) | (raw & 0x1FFF));
+	return back;
+}
+
+Cell HouseClass::Random_Cell_In_Zone(ZoneType zone) const
+{
+	Coord coord = COORD_NONE;
+	int radius = MAX(3 * CELL_LEPTON, MIN(Radius, 8 * CELL_LEPTON));
+	int maxdist = radius * 2;
+
+	switch (zone) {
+		case ZONE_CORE: {
+			int distance = Scen->RandomNumber(0, radius);
+			coord = Coord_Scatter(FUN_0050DF30(), distance, true);
+			break;
+		}
+
+		case ZONE_NORTH:
+		case ZONE_EAST:
+		case ZONE_SOUTH:
+		case ZONE_WEST: {
+			int distance = Scen->RandomNumber(radius, maxdist);
+			DirType dir;
+			dir.Raw = (unsigned short)Scen->RandomNumber();
+			switch (zone) {
+				case ZONE_NORTH: dir.Raw &= ~0xC000; break;
+				case ZONE_EAST: dir.Raw &= ~0x8000; dir.Raw |= 0x4000; break;
+				case ZONE_SOUTH: dir.Raw &= ~0x4000; dir.Raw |= 0x8000; break;
+				default: dir.Raw |= 0xC000; break;
+			}
+			dir = Zone_Rotate_Back_One_Facing(dir);
+			coord = Move_Coord(FUN_0050DF30(), dir, distance);
+			break;
+		}
+
+		default:
+			break;
+	}
+
+	Cell cell;
+	if (coord == COORD_NONE) {
+		if (zone == ZONE_CORE) {
+			cell = Get_Base_Center();
+		} else {
+			cell = Random_Cell_In_Zone(ZONE_CORE);
+		}
+	} else {
+		cell = coord.As_Cell();
+	}
+
+	if (!Map.In_Local_Radar(cell, true)) {
+		cell = Map.Clip_To_Map(cell);
+	}
+	return(cell);
+}

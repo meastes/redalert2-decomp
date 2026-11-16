@@ -3,13 +3,18 @@
 # The iOS app (README "iOS"; Scout1247), in the shape of Outpost 2's
 # build-ios.command: CMake for CMAKE_SYSTEM_NAME=iOS, arm64, SDL3 3.4.2 built
 # statically from source, the same native tree as the Mac app.
-#   native/build-ios.command [simulator|device] [CMake options]
+#   native/build-ios.command [simulator|device] [--yr] [CMake options]
+# --yr (lane Y7, native/yr/README.md "yr-native on iOS"): Yuri's Revenge's own app, YR.app
+# (bundle id io.github.ra2native.YR), built from the pinned ra2-decomp tree as yr-native is on the
+# Mac, in build/ios-yr-<platform>; it needs llvm-mingw's headers (RA2_NATIVE_YR_MINGW, found under
+# private/toolchains by default). Signed and audited as RA2.app is.
 # Xcode is used through DEVELOPER_DIR for this command only (never xcode-select,
 # never a licence acceptance). The Simulator build is signed ad hoc. A device
 # build is signed with the user's team id in RA2_IOS_TEAM, given on the command
 # line and never stored in Git (packaging/ios_sign.py: a development profile and
 # identity Xcode already made; none is created here). Install with
 #   xcrun devicectl device install app --device <udid> build/ios-device/RA2.app
+#   xcrun devicectl device install app --device <udid> build/ios-yr-device/YR.app   (--yr)
 #
 # Ninja, not Xcode's generator: the link closure and the duplicate weakening
 # read the objects' paths at build time (native/CMakeLists.txt), which Xcode's
@@ -31,9 +36,24 @@ if [[ $# -gt 0 ]]; then shift; fi
 case "$platform" in
   simulator) sdk=iphonesimulator ;;
   device) sdk=iphoneos ;;
-  *) echo 'usage: native/build-ios.command [simulator|device] [CMake options]' >&2; exit 2 ;;
+  *) echo 'usage: native/build-ios.command [simulator|device] [--yr] [CMake options]' >&2; exit 2 ;;
 esac
-build="${RA2_IOS_BUILD_DIR:-build/ios-$platform}"
+game_options=()
+target=ra2-native
+exe=RA2
+bundle_id=io.github.ra2native.RA2
+build_default="build/ios-$platform"
+audit_exe="${RA2_GAME_EXE:-}"
+if [[ "${1:-}" == --yr ]]; then
+  shift
+  game_options=(-DRA2_NATIVE_YR=ON)
+  target=yr-native
+  exe=YR
+  bundle_id=io.github.ra2native.YR
+  build_default="build/ios-yr-$platform"
+  audit_exe="${RA2_GAMEMD_EXE:-}"
+fi
+build="${RA2_IOS_BUILD_DIR:-$build_default}"
 
 sdl_version=3.4.2
 sdl_sha256=ef39a2e3f9a8a78296c40da701967dd1b0d0d6e267e483863ce70f8a03b4050c
@@ -56,9 +76,9 @@ config=(-S native -B "$build" -G Ninja -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSRO
   -DCMAKE_OSX_ARCHITECTURES=arm64 -DCMAKE_OSX_DEPLOYMENT_TARGET="${RA2_IOS_MIN:-17.0}"
   -DRA2_NATIVE_SUBSYSTEM=all -DRA2_NATIVE_LINK_CLOSURE=ON -DRA2_NATIVE_SDL_SOURCE="$sdl"
   -DCMAKE_C_FLAGS="${RA2_IOS_OPT--O2}" -DCMAKE_CXX_FLAGS="${RA2_IOS_OPT--O2}" -DCMAKE_OBJCXX_FLAGS="${RA2_IOS_OPT--O2}")
-cmake "${config[@]}" "$@"
-cmake --build "$build" --target ra2-native
-app="$build/RA2.app"
+cmake "${config[@]}" ${game_options[@]+"${game_options[@]}"} "$@"
+cmake --build "$build" --target "$target"
+app="$build/$exe.app"
 if [[ "$platform" == simulator ]]; then
   codesign --force --sign - --timestamp=none "$app"
 elif [[ -n "${RA2_IOS_TEAM:-}" ]]; then
@@ -68,5 +88,5 @@ elif [[ -n "${RA2_IOS_TEAM:-}" ]]; then
 else
   echo "build-ios: device build left unsigned (set RA2_IOS_TEAM on the command line for the device pass)"
 fi
-python3 -I "$here/packaging/audit_ios_bundle.py" "$app" ${RA2_GAME_EXE:+--game-exe "$RA2_GAME_EXE"}
+python3 -I "$here/packaging/audit_ios_bundle.py" "$app" --executable "$exe" --bundle-id "$bundle_id" ${audit_exe:+--game-exe "$audit_exe"}
 echo "Built: $app"

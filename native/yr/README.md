@@ -217,42 +217,76 @@ TibSun-text drafts compared with gamemd.exe (task list of lane Y4):
   (unless it is one of the rules' BuildTech). Added; the rest (prerequisites, the computer's
   shortcut, build limits) matches.
 
-## Next: yr-native on iOS on its own (notes, lane Y6; not built yet)
+## yr-native on iOS on its own (lane Y7, 2026-11-16)
 
-What a standalone `yr-native` iPhone/iPad app needs before the one-game iOS work (the RA2 app's
-`build-ios.command` shape: CMake for `CMAKE_SYSTEM_NAME=iOS`, arm64, SDL3 built statically, Ninja):
+`native/build-ios.command [simulator|device] --yr` builds Yuri's Revenge's own iPhone/iPad app,
+`build/ios-yr-<platform>/YR.app` (bundle id `io.github.ra2native.YR`, home-screen name "Yuri's
+Revenge", the placeholder icon on purple: `make_icon.py --yr`), from the same tree as the Mac
+`yr-native` (`-DRA2_NATIVE_YR=ON`; llvm-mingw's headers from `RA2_NATIVE_YR_MINGW`, found under
+`private/toolchains` by default). RA2.app is unchanged: the iOS bundle block of
+`native/CMakeLists.txt` is the function `ra2_ios_app(target exe id name [icon args])`, called for
+`ra2-native` and (in `yr.cmake`) for `yr-native`. Signing and the bundle audit are RA2.app's
+(`ios_sign.py` takes the bundle id from the app's Info.plist; `audit_ios_bundle.py --executable YR
+--bundle-id io.github.ra2native.YR`, with `RA2_GAMEMD_EXE` sampling gamemd.exe). Device:
 
-1. **CMake gate.** `native/CMakeLists.txt` includes `yr/yr.cmake` only for `APPLE AND NOT iOS`.
-   Allow iOS there, and give `build-ios.command` a target choice (`--target yr-native`). Every
-   generation step runs on the build host and stays as it is: `yr_sdk.py` (the llvm-mingw headers),
-   `yr_units.py`, `yr_aliases.py`, `yr_data.py`, `link_closure.py` (with the iOS SDK's system
-   libraries and frameworks, as the RA2 iOS build passes them), `weaken_duplicates.py` and
-   `defer_initializers.py` (object-level Mach-O edits; same format for iOS objects).
-2. **The app bundle.** The RA2 app's iOS block in `native/CMakeLists.txt` (MACOSX_BUNDLE,
-   Info.plist, icon set, `packaging/ios_sign.py`, `RA2_IOS_TEAM`/`RA2_IOS_BUILD`) is written for
-   `ra2-native`; make it a function and call it for `yr-native` with its own bundle id, display name
-   ("Yuri's Revenge"), icon and Info.plist. The data reader does not change (gamemd.exe read at run
-   time, never shipped).
-3. **Initialisers with chained fixups.** iOS 17 targets link with chained fixups: check that the
-   deferred initialiser section (`__DATA,__yr_init_func`, called by `glue/yr_original_data.cpp`)
-   still holds rebased pointers when the YR units' static initialisers are called after the data
-   load (dyld rebases every pointer in `__DATA`, so it should; check on the Simulator first).
-4. **Importing the game files.** `platform/sdl/app_mode.hpp` already builds per game (`kHostGame`,
-   `exe_name`, the `yr_game_exe` settings key) but its import filter and checks are RA2's: it
-   copies `game.exe`, `ra2.mix`, `language.mix`, `multi.mix`, `theme.mix`, `maps*/movies*/expand*`
-   and the loose `.mmx/.map/.mpr/.ini/.csf/.pkt` files. A YR import must also take `gamemd.exe`
-   (with its 4 KB overlay; the no-CD byte is undone when it is checked), `ra2md.mix`, `langmd.mix`,
-   `multimd.mix`, `thememd.mix`, `expandmd*.mix`, `mapsmd*.mix`, `movmd*.mix` and `BINKW32.DLL`, and
-   its required list and message must name Yuri's Revenge (the RA2 files are needed too: YR reads
-   both games' mixfiles). YR's writes (RA2MD.INI, saves) go to the app's own Documents folder.
-5. **The screen.** YR's menus are 800x600 like RA2's; the iOS resolution rule (720 or 600 lines by
-   the screen) and the touch layer (`touch.cpp`, the toolbar) are the host's and apply as they are;
-   check the YR sidebar width and the command bar with the toolbar on a phone.
-6. **Tests.** Run the YR smoke, score and long skirmish routes on the Simulator "RA2 Duo Validation"
-   (`RA2_NATIVE_IMPORT=<folder>` imports without the picker), then on a device.
-7. **Traps.** The link closure's traps
-   stay in the build until the remaining unmatched functions have drafts (a trap ends the game, as
-   on the Mac).
+    RA2_IOS_TEAM=<team id> native/build-ios.command device --yr
+    xcrun devicectl device install app --device <udid> build/ios-yr-device/YR.app
+
+What it took:
+
+* **The system's exports.** `yr_data.py` and the YR `link_closure.py` call now get the iOS SDK
+  (`--sdk`): without it they read the Mac SDK, UIKit's `NSFontAttributeName` and
+  `UIFontWeightSemibold` became trap stubs, and SDL's launch screen crashed before `main`.
+* **Asserts.** The iOS build has no build type: the YR units get `NDEBUG`, as gamemd.exe and the
+  Mac Release build (else `Assert_Failure` was one more trap).
+* **Chained fixups.** Nothing to do: `__DATA,__yr_init_func` holds rebased pointers on iOS 17
+  (281 initialisers run after the data load on the Simulator).
+* **Import.** `app_mode.hpp` builds per game: YR's app copies gamemd.exe (not game.exe),
+  `ra2md/langmd/multimd/thememd.mix`, `expandmd*`, `mapsmd*`, `movmd*`, `ecachemd*`, `elocalmd*`
+  beside RA2's MIX files (28 files, 1.88 GB from the user's installation), requires the eight base
+  MIX files and names Yuri's Revenge in its messages; the screen's resolution goes into RA2MD.INI;
+  writes go to `Documents/Game/YR`.
+* **Sound.** `DAT_00816514` (the sound system master's pointer, passed to AudioLoadSystem) is bound
+  to drv_dsnd.cpp's `AudioSystemDSD` (`data/name_aliases.tsv`): gamemd.exe's copy held 32-bit
+  addresses, so YR crashed in Init_Game whenever sound was on (every Mac test passes `-noaudio`;
+  the Mac app had the same crash). YR now plays with sound.
+* **Touch.** The RA2 touch layer is the host's and applies as it is; YR needed the game-side
+  hooks RA2 has in native/link: `glue/yr_app_hooks.cpp` gives the map pan
+  (`ra2_native_scroll_map`, Tactical::Set_Tactical_Position) and the settings' save, and the
+  game loop (conquer.cpp, fixups.json) calls `yr_native_main_loop`, which marks play
+  (`ra2_enh_in_play`: the toolbar shows in play only) and runs the host's frame (`ra2port_frame`:
+  held buttons, pans, frame-numbered script lines, the stats line). Classic/Modern controls are
+  the Enhancements page's (RA2's native/link): not wired into YR yet (YR plays Classic).
+* **Player input traps.** A tap on a sidebar icon reached `SelectClass::Action` (a trap: the Mac
+  runs never built anything by hand): adopted from a newer ra2-decomp commit where it matches
+  exactly (`glue/sidebar_native.inc`, with `SuperClass::Impatient_Click`). An aircraft flying to a
+  destination reached `FlyLocomotionClass::Nearing_Target`: a draft from the RA2 twin and
+  gamemd.exe (`glue/fly_native.inc`, non-exact). Computer players' units reached
+  `HouseClass::Random_Cell_In_Zone` (Where_To_Go; TibSun's text with gamemd.exe's changes,
+  `glue/house_native.inc`), deployed slave miners `TechnoClass::ScanForTiberium` (bound to the
+  tree's `TechnoClass::FUN_0070F8F0`, gamemd.exe's BuildingClass vtable entry) and their slaves
+  `SlaveManagerClass::FUN_006B0880` (from gamemd.exe, `glue/slavemanager_native.inc`).
+* **Map's members named as globals.** The tree declares the pending placement and the interface
+  modes (0x0088098C..0x008809A0: Map 0x0087F7E8 + 0x11A4 PendingObjectPtr ... +0x11B8
+  IsTargettingMode) and the placement copy (0x00880978..0x00880980) as separate `int` globals;
+  natively those are other storage than Map's members, so a building picked up for placement never
+  reached the placement code (and its pointers were cut to 32 bits). fixups.json points
+  Manual_Place, TAction_CLEAR_MODES, the coop setup, super.cpp and Tactical at the members. Others of
+  the kind remain (the radar's 0x008809F4 LastDrawRect in sidebar.cpp, movie.cpp's 0x008809D8): not
+  on the play path checked here.
+
+Simulator route (`yr/tests/ios_sim_skirmish.py`, not a ctest: "RA2 Duo Validation" only, booted
+and shut down by the script): the first start imports the files (`RA2_NATIVE_IMPORT`), then taps
+through the menus to a skirmish and plays with the touch gestures (swipe pan, hold-and-drag box,
+the toolbar's Deploy, Guard and A-Move, taps on sidebar icons and the map); `--score` adds a
+second start that loses a short game and goes through the Skirmish Score screen back to the main
+menu. Window dumps are the pictures (`simctl io screenshot` shows black for the game's Metal layer).
+Results (2026-11-16, Duo Simulator, 872x600, sound on, about 62 frames a second, 101-106 MB): the
+import, the menus, the skirmish, the score route back to the main menu; 300-360 s of play without a
+trap after the fixes above, with the MCV deployed and power plants built and placed by taps. Open:
+one SIGBUS in CellClass::Draw_Shroud_Or_Fog_Shape (glue/cell_native.inc, the shape copy) at a
+game's start in one run of ten, not seen again; computer players reach more unrecovered functions
+the longer a game runs (each a trap, as on the Mac).
 
 ## One game (lane Y5, 2026-11-16): Red Alert 2 and Yuri's Revenge in one app
 

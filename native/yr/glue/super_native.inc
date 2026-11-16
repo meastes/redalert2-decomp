@@ -369,3 +369,11 @@ void SuperClass::Launch(Cell const & cell, bool player)
 			break;
 	}
 }
+
+// SuperClass::Impatient_Click, YR 0x006CC070 (lane Y7): an empty body in gamemd.exe; adopted from
+// ra2-decomp (commit 0bafad686c6ac1f7cf29777cb291d6002ebbcfd7, src/super.cpp, an exact match). Called by
+// SelectClass::Action (sidebar_native.inc) when a super weapon's icon is tapped before it is ready.
+// FUNCTION: GAMEMD 0x006CC070
+void SuperClass::Impatient_Click(void) const
+{
+}

@@ -3,8 +3,8 @@
 # native/yr/tools (generated units with native/yr/fixups.json, the Win32/DirectX headers from the
 # local llvm-mingw toolchain rewritten for the VC6 widths), with native/'s platform layer: the
 # SDL3 host and the ra2_port seams. Included by native/CMakeLists.txt with -DRA2_NATIVE_YR=ON on
-# the Mac build (the RA2 targets are unchanged). Unrecovered code and unsourced data link as
-# traps and zero placeholders (tools/link_closure.py): gen-yr/link_closure.json is the work queue.
+# the Mac build and the iOS build (lane Y7; the RA2 targets are unchanged). Unrecovered code and
+# unsourced data link as traps and zero placeholders (tools/link_closure.py): gen-yr/link_closure.json is the work queue.
 set(RA2_NATIVE_YR_GEN "${CMAKE_CURRENT_BINARY_DIR}/gen-yr")
 file(GLOB ra2_yr_mingw_default "${CMAKE_CURRENT_SOURCE_DIR}/../private/toolchains/llvm-mingw-*/llvm-mingw-*-macos-*/generic-w64-mingw32/include")
 set(ra2_yr_mingw_first "")
@@ -47,6 +47,12 @@ target_compile_options(yr_units_objs PRIVATE ${ra2_yr_dialect_options}
   # gives the repeats, so it goes in __DATA, where ld64 keeps the first.
   -fno-zero-initialized-in-bss)
 target_compile_definitions(yr_units_objs PRIVATE WIN32 _WIN32 __GNUC__=4 __GNUC_MINOR__=2 RA2_NATIVE_YR=1)
+if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+  # The iOS build has no build type (build-ios.command): the tree's asserts stay out, as in
+  # gamemd.exe (a release build) and the Mac Release build the skirmish tests run (lane Y7; with
+  # them, Assert_Failure was one more trap).
+  target_compile_definitions(yr_units_objs PRIVATE NDEBUG)
+endif()
 target_include_directories(yr_units_objs BEFORE PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/yr/sdk"
   "${RA2_NATIVE_YR_GEN}/hdr" "${RA2_NATIVE_YR_GEN}/hdr/vqalib")
 
@@ -73,7 +79,7 @@ add_custom_command(
           --inputs "${RA2_NATIVE_YR_GEN}/link_inputs.txt" --host $<TARGET_OBJECTS:yr_host_objs>
           --gen "${RA2_NATIVE_YR_GEN}" --out "${RA2_NATIVE_YR_GEN}/yr_original_data.cpp"
           --aliases "${RA2_NATIVE_YR_GEN}/aliases.tsv"
-          --system-libs ${RA2_NATIVE_CLOSURE_SYSTEM_LIBS} --frameworks ${ra2_closure_frameworks}
+          "--sdk=${CMAKE_OSX_SYSROOT}" --system-libs ${RA2_NATIVE_CLOSURE_SYSTEM_LIBS} --frameworks ${ra2_closure_frameworks}
   DEPENDS yr_units_objs ra2_port yr_host_objs "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_data.py" "${RA2_NATIVE_YR_GEN}/aliases.tsv"
           "${CMAKE_CURRENT_SOURCE_DIR}/yr/data/globals.tsv" "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
           $<TARGET_FILE:ra2_port> $<TARGET_OBJECTS:yr_host_objs> $<TARGET_OBJECTS:yr_units_objs>
@@ -86,7 +92,7 @@ add_custom_command(
   COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
           --inputs "${RA2_NATIVE_YR_GEN}/closure_inputs.txt" --host $<TARGET_OBJECTS:yr_host_objs>
           --out "${RA2_NATIVE_YR_GEN}/link_closure.c" --system-libs ${RA2_NATIVE_CLOSURE_SYSTEM_LIBS}
-          --frameworks ${ra2_closure_frameworks} --data-from 0x7E1000
+          "--sdk=${CMAKE_OSX_SYSROOT}" --frameworks ${ra2_closure_frameworks} --data-from 0x7E1000
           --aliases "${RA2_NATIVE_YR_GEN}/aliases.tsv" --alias-list "${RA2_NATIVE_YR_GEN}/alias_list.txt"
   DEPENDS yr_units_objs yr_data_obj ra2_port yr_host_objs "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
           $<TARGET_FILE:ra2_port> $<TARGET_OBJECTS:yr_host_objs> $<TARGET_OBJECTS:yr_units_objs> $<TARGET_OBJECTS:yr_data_obj>
@@ -106,6 +112,14 @@ add_custom_command(TARGET yr-native PRE_LINK
   COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/defer_initializers.py"
           --inputs "${RA2_NATIVE_YR_GEN}/link_inputs.txt"
   VERBATIM)
+
+# The iOS app (lane Y7; README "yr-native on iOS"): YR.app, its own bundle id and home-screen name,
+# the same bundle shape as RA2.app (native/CMakeLists.txt's ra2_ios_app). The ctests below run the
+# Mac build; on iOS the Simulator runs (yr/tests/ios_sim_skirmish.py) are the check.
+if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+  ra2_ios_app(yr-native YR "io.github.ra2native.YR" "Yuri's Revenge" --yr)
+  return()
+endif()
 
 # ctest yr-native-skirmish-smoke (lane Y3): YR's menus to a skirmish, about 20 s of play, the
 # in-game options' Abort Mission and back to the skirmish setup, through scripted input
