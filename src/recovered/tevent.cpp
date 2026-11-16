@@ -17,7 +17,7 @@
 #include "shared/object.hpp"
 
 // The unit's list of TEventClass objects (0x00AC0808; name is a hypothesis).
-DynamicVectorClass<TEventClass *> unknown_TEventClass_list_00ac0808;
+DynamicVectorClass<TEventClass *> Events;
 
 
 // Dynamic initializer (0x006E5BA0, _$E) emitted by HeaderStatics_diagonal_init_006e5b70.cpp; no source of its own.
@@ -74,8 +74,8 @@ TEventClass::TEventClass() :
     Type(0),
     unknown_30(0)
 {
-    unknown_TEventClass_list_00ac0808.Add(this);
-    unknown_24 = unknown_TEventClass_list_00ac0808.ID(this);
+    Events.Add(this);
+    unknown_24 = Events.ID(this);
     EventActionPtrTracker.Add(this);
     AbstractTypePtrTracker.Add((ObjectClass *)this);
     Data = 0;
@@ -92,7 +92,7 @@ TEventClass::~TEventClass()
     Unknown_006ECB90(this, true);
     EventActionPtrTracker.Delete(this);
     AbstractTypePtrTracker.Delete((ObjectClass *)this);
-    unknown_TEventClass_list_00ac0808.Delete(this);
+    Events.Delete(this);
 }
 
 
@@ -168,7 +168,7 @@ bool TEventClass::unknown_func_6e6050(int event, HouseClass *house, ObjectClass 
         Type != 0x16 &&
         Type != 0x35 &&
         Type != 0x36 &&
-        unknown_func_6e6cf0()) {
+        Is_Time_Based()) {
         if (event != Type || Debug_Map) {
             return false;
         }
@@ -583,11 +583,11 @@ HRESULT __stdcall TEventClass::Save(IStream *stream, BOOL clear_dirty)
 }
 
 
-// bool TEventClass::unknown_func_6e6cf0() const (0x006E6CF0)
+// bool TEventClass::Is_Time_Based() const (0x006E6CF0)
 // TS's TEventClass::Is_Time_Based: the events that fire only when the caller
 // reports them (TriggerClass::Should_Spring 0x006ED740 marks them).
 
-bool TEventClass::unknown_func_6e6cf0() const
+bool TEventClass::Is_Time_Based() const
 {
     switch (Type) {
     case 0x01:

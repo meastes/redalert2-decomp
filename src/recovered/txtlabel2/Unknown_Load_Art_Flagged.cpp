@@ -4,7 +4,7 @@
 // @ref ?unknown_load_art_6f1fa0@@YIXUUnknownArtOut@@PBDPAPAX@Z=006f1fa0
 // @ref ?Unknown_00495270@@YIPAXPBDPA_N@Z=00495270
 // @ref ?Unknown_Load_Art_Flagged_006F2840@@YIXH@Z=006f2840
-// @ref ?unknown_value_8523e0@@3HA=008523e0
+// @ref ?VideoModeWidth@@3HA=008523e0
 // @ref ?unknown_flag_ac1214@@3_NA=00ac1214
 // @ref ?unknown_flag_ac1215@@3_NA=00ac1215
 // @ref ?unknown_flag_ac1216@@3_NA=00ac1216
@@ -34,7 +34,7 @@ struct UnknownArtOut {
 };
 void __fastcall unknown_load_art_6f1fa0(UnknownArtOut data, char const *name, void **shape);
 void *__fastcall Unknown_00495270(char const *name, bool *allocated);
-extern int unknown_value_8523e0;
+extern int VideoModeWidth;
 extern bool unknown_flag_ac1214;
 extern bool unknown_flag_ac1215;
 extern bool unknown_flag_ac1216;
@@ -57,7 +57,7 @@ extern char const * const unknown_name_7f877c;
 void __fastcall Unknown_Load_Art_Flagged_006F2840(int alternate)
 {
     if (!alternate) {
-        if (unknown_value_8523e0 == 0x280) {
+        if (VideoModeWidth == 0x280) {
             unknown_art_ac110c = Unknown_00495270(unknown_name_7f8750, &unknown_flag_ac1214);
             unknown_art_ac10f0 = Unknown_00495270(unknown_name_7f8758, &unknown_flag_ac1215);
             unknown_art_ac1108 = Unknown_00495270(unknown_name_7f8760, &unknown_flag_ac1216);
@@ -67,7 +67,7 @@ void __fastcall Unknown_Load_Art_Flagged_006F2840(int alternate)
             unknown_art_ac1108 = Unknown_00495270(unknown_name_7f8764, &unknown_flag_ac1216);
         }
     } else {
-        if (unknown_value_8523e0 == 0x280) {
+        if (VideoModeWidth == 0x280) {
             unknown_art_ac110c = Unknown_00495270(unknown_name_7f8768, &unknown_flag_ac1214);
             unknown_art_ac10f0 = Unknown_00495270(unknown_name_7f8770, &unknown_flag_ac1215);
             unknown_art_ac1108 = Unknown_00495270(unknown_name_7f8778, &unknown_flag_ac1216);

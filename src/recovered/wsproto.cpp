@@ -370,8 +370,8 @@ bool WinsockInterfaceClass::Init()
         Debug_Printf("WinsockInterface already initialised\n");
         return true;
     }
-    if (unknown_b2aea0 > 0 && !unknown_b2ae9c) {
-        unknown_b2ae9c = true;
+    if (PacketLossPercent > 0 && !IsPacketLossReported) {
+        IsPacketLossReported = true;
         MessageBoxA(unknown_window_b263d8, "Warning - Packet Loss Simulation mode enabled", "Note", 0);
     }
     char *buffer = new char[sizeof(UnknownWinsockData)];
@@ -830,15 +830,15 @@ bool WinsockInterfaceClass::Get_Host_Name(char *name, int len)
 
 void __fastcall WinsockInterfaceClass::unknown_76b9e0(int value)
 {
-    unknown_b2aea0 = value;
+    PacketLossPercent = value;
 }
 
 
-// int WinsockInterfaceClass::unknown_76b9f0() (0x0076B9F0)
+// int WinsockInterfaceClass::Get_Packet_Loss_Percent() (0x0076B9F0)
 
-int WinsockInterfaceClass::unknown_76b9f0()
+int WinsockInterfaceClass::Get_Packet_Loss_Percent()
 {
-    return unknown_b2aea0;
+    return PacketLossPercent;
 }
 
 

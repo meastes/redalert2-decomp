@@ -35,7 +35,7 @@ struct UnknownTauntPacket {
 // When the last taunt was sent, in milliseconds (0x007DB560; -1 until the first).
 extern unsigned long unknown_taunt_time_7db560;
 // unknown_flag_a3f120, unknown_flag_a3f121: shared/unknown_globals.hpp.
-// Unknown_005bba50: shared/name_crc.hpp.
-// Unknown_Play_Taunt_00715fb0: shared/unknown_globals.hpp.
+// Compute_Name_CRC_W: shared/name_crc.hpp.
+// Play_Taunt: shared/unknown_globals.hpp.
 
 #endif

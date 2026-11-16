@@ -28,7 +28,7 @@ int Current_Dialog_Id_00735b20()
 }
 
 // 0x005173A0 (leaf src/recovered/005173a0.cpp): an empty function.
-void Unknown_005173A0()
+void Leave_Game_Hook()
 {
 }
 

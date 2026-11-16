@@ -260,7 +260,7 @@ void __fastcall LoadOptionsClass::Delete_Dialog_On_WM_COMMAND(HWND window, int i
 
 LRESULT __stdcall LoadOptionsClass::Load_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result != 0) {
         return result;
     }
@@ -287,7 +287,7 @@ LRESULT __stdcall LoadOptionsClass::Load_Dialog_Proc(HWND window, UINT message, 
 
 LRESULT __stdcall LoadOptionsClass::Save_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result != 0) {
         return result;
     }
@@ -318,7 +318,7 @@ LRESULT __stdcall LoadOptionsClass::Save_Dialog_Proc(HWND window, UINT message, 
 
 LRESULT __stdcall LoadOptionsClass::Delete_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result != 0) {
         return result;
     }
@@ -359,7 +359,7 @@ bool LoadOptionsClass::Dialog()
         list = GetDlgItem(dialog, 0x525);
         HWND title = GetDlgItem(dialog, 0x694);
         SendMessageA(title, 0x4b2, 0, (LPARAM)Load_Menu_Name());
-        if (!unknown_session_a3d298.Unknown_00672F10()) {
+        if (!unknown_session_a3d298.Is_In_Game()) {
             HWND button = GetDlgItem(dialog, 0x40c);
             ShowWindow(button, 0);
         }
@@ -378,7 +378,7 @@ bool LoadOptionsClass::Dialog()
         SendMessageA(edit, 0x4b2, 0, (LPARAM)description);
         HWND title = GetDlgItem(dialog, 0x694);
         SendMessageA(title, 0x4b2, 0, (LPARAM)Save_Menu_Name());
-        if (!unknown_session_a3d298.Unknown_00672F10()) {
+        if (!unknown_session_a3d298.Is_In_Game()) {
             HWND button = GetDlgItem(dialog, 0x40c);
             ShowWindow(button, 0);
         }
@@ -389,7 +389,7 @@ bool LoadOptionsClass::Dialog()
         list = GetDlgItem(dialog, 0x528);
         HWND title = GetDlgItem(dialog, 0x694);
         SendMessageA(title, 0x4b2, 0, (LPARAM)Delete_Menu_Name());
-        if (!unknown_session_a3d298.Unknown_00672F10()) {
+        if (!unknown_session_a3d298.Is_In_Game()) {
             HWND button = GetDlgItem(dialog, 0x40c);
             ShowWindow(button, 0);
         }
@@ -404,7 +404,7 @@ bool LoadOptionsClass::Dialog()
             Fill_List_0053c040(list);
             EnableWindow(GetDlgItem(dialog, 1), bool(SendMessageA(list, 0x18b, 0, 0) > 0));
         }
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
 
         do {
             while (State == -1) {
@@ -756,14 +756,14 @@ int __cdecl Compare_Save_Times(FileEntryClass **first, FileEntryClass **second)
 bool __stdcall Load_Game_With_Dialog(char const *filename)
 {
     int mouse_state = WWMouse->Get_Mouse_State();
-    HWND dialog = unknown_cancel_dialog_6001e0(StringTable::Load_String("TXT_LOADING", 0, "D:\\Ra2\\LoadDlg.CPP", 0x41C), 0, 0);
+    HWND dialog = Custom_Message_Box(StringTable::Load_String("TXT_LOADING", 0, "D:\\Ra2\\LoadDlg.CPP", 0x41C), 0, 0);
     WWMouse->Hide_Mouse();
     if (dialog) {
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
     }
     ScenarioActive = false;
     TacticalActive = false;
-    unknown_session_a3d298.Unknown_00672E70();
+    unknown_session_a3d298.Leave_Game();
     bool loaded = Unknown_00656890(filename);
     while (WWMouse->Get_Mouse_State() < mouse_state) {
         WWMouse->Show_Mouse();
@@ -783,12 +783,12 @@ bool __stdcall Load_Game_With_Dialog(char const *filename)
 
 bool __stdcall Save_Game_With_Dialog(char const *filename, wchar_t const *description)
 {
-    HWND dialog = unknown_cancel_dialog_6001e0(StringTable::Load_String("TXT_SAVING_GAME", 0, "D:\\Ra2\\LoadDlg.CPP", 0x453), 0, 0);
+    HWND dialog = Custom_Message_Box(StringTable::Load_String("TXT_SAVING_GAME", 0, "D:\\Ra2\\LoadDlg.CPP", 0x453), 0, 0);
     WWMouse->Hide_Mouse();
     if (dialog) {
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
     }
-    bool saved = Unknown_006554A0(filename, description, 0);
+    bool saved = Save_Game(filename, description, 0);
     WWMouse->Show_Mouse();
     if (dialog) {
         unknown_dialog_5ff6e0(dialog);
@@ -823,7 +823,7 @@ bool LoadOptionsClass::Read_File_Description(FileEntryClass *entry, WIN32_FIND_D
             SaveVersionInfo info;
             bool valid = Get_Savefile_Info(filename, info);
             if (valid) {
-                if (info.Get_Internal_Version() != unknown_savegame_version_7f1b18) {
+                if (info.Get_Internal_Version() != ExpectedGameVersion) {
                     wcscpy(entry->Description, info.Get_Scenario_Description());
                     entry->NeedsDescription = true;
                 } else {

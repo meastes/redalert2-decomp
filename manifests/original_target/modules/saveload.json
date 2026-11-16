@@ -103,7 +103,7 @@
    "padding_bytes": 14
   },
   {
-   "symbol": "?Unknown_006554A0@@YI_NPBDPBGH@Z",
+   "symbol": "?Save_Game@@YI_NPBDPBGH@Z",
    "entry": "006554a0",
    "body_bytes": 1040,
    "padding_bytes": 0
@@ -631,7 +631,7 @@
   },
   {
    "site": "0053c760",
-   "symbol": "?Unknown_006554A0@@YI_NPBDPBGH@Z",
+   "symbol": "?Save_Game@@YI_NPBDPBGH@Z",
    "target": "006554a0",
    "function_entry": true
   },
@@ -643,19 +643,19 @@
   },
   {
    "site": "004b65c0",
-   "symbol": "?Unknown_006554A0@@YI_NPBDPBGH@Z",
+   "symbol": "?Save_Game@@YI_NPBDPBGH@Z",
    "target": "006554a0",
    "function_entry": true
   },
   {
    "site": "004b65c0",
-   "symbol": "?Unknown_006554A0@@YI_NPBDPBGH@Z",
+   "symbol": "?Save_Game@@YI_NPBDPBGH@Z",
    "target": "006554a0",
    "function_entry": true
   },
   {
    "site": "0053fbd0",
-   "symbol": "?Unknown_006554A0@@YI_NPBDPBGH@Z",
+   "symbol": "?Save_Game@@YI_NPBDPBGH@Z",
    "target": "006554a0",
    "function_entry": true
   }
@@ -682,6 +682,10 @@
    "address": "00a3d260"
   },
   {
+   "symbol": "?Actions@@3V?$DynamicVectorClass@PAVTActionClass@@@@A",
+   "address": "00abfd88"
+  },
+  {
    "symbol": "?Aircraft@@3V?$DynamicVectorClass@PAVAircraftClass@@@@A",
    "address": "00a40398"
   },
@@ -696,6 +700,10 @@
   {
    "symbol": "?Allocate_Surfaces@@YI_NPAVRect@@000_N@Z",
    "address": "00519500"
+  },
+  {
+   "symbol": "?AlphaShapes@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A",
+   "address": "0083c648"
   },
   {
    "symbol": "?AnimTypes@@3V?$TypeList@PAVAnimTypeClass@@@@A",
@@ -778,6 +786,14 @@
    "address": "004068f0"
   },
   {
+   "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+   "address": "00ac0808"
+  },
+  {
+   "symbol": "?ExpectedGameVersion@@3HA",
+   "address": "007f1b18"
+  },
+  {
    "symbol": "?Factories@@3V?$DynamicVectorClass@PAVFactoryClass@@@@A",
    "address": "00a35e90"
   },
@@ -844,6 +860,10 @@
   {
    "symbol": "?KamikazeTracker@@3VKamikazeTrackerClass@@A",
    "address": "00a6e428"
+  },
+  {
+   "symbol": "?LightSources@@3V?$DynamicVectorClass@PAVLightSourceClass@@@@A",
+   "address": "00a6e818"
   },
   {
    "symbol": "?Load@BombListClass@@QAEJPAUIStream@@@Z",
@@ -1154,6 +1174,10 @@
    "address": "00ac0b30"
   },
   {
+   "symbol": "?TimedSuperWeapons@@3V?$DynamicVectorClass@PAVSuperClass@@@@A",
+   "address": "00a35db8"
+  },
+  {
    "symbol": "?TriggerTypes@@3V?$DynamicVectorClass@PAVTriggerTypeClass@@@@A",
    "address": "00866208"
   },
@@ -1186,6 +1210,10 @@
    "address": "00ab9174"
   },
   {
+   "symbol": "?VisibleRect@@3VRect@@A",
+   "address": "00839640"
+  },
+  {
    "symbol": "?Voc_Static_Load@@YIJPAUIStream@@@Z",
    "address": "00714b80"
   },
@@ -1196,6 +1224,10 @@
   {
    "symbol": "?VoxelAnimTypes@@3V?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@A",
    "address": "00a40ae0"
+  },
+  {
+   "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+   "address": "008399d0"
   },
   {
    "symbol": "?Waves@@3V?$DynamicVectorClass@PAVWaveClass@@@@A",
@@ -1214,10 +1246,6 @@
    "address": "00795940"
   },
   {
-   "symbol": "?unknown_AlphaShapeClass_list_0083c648@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A",
-   "address": "0083c648"
-  },
-  {
    "symbol": "?unknown_BombClass_list_0084eb78@@3V?$DynamicVectorClass@PAVBombClass@@@@A",
    "address": "0084eb78"
   },
@@ -1232,10 +1260,6 @@
   {
    "symbol": "?unknown_CaptureManagerClass_list_008505a0@@3V?$DynamicVectorClass@PAVCaptureManagerClass@@@@A",
    "address": "008505a0"
-  },
-  {
-   "symbol": "?unknown_LightSourceClass_list_00a6e818@@3V?$DynamicVectorClass@PAVLightSourceClass@@@@A",
-   "address": "00a6e818"
   },
   {
    "symbol": "?unknown_ParasiteClass_list_00a76430@@3V?$DynamicVectorClass@PAVParasiteClass@@@@A",
@@ -1254,20 +1278,8 @@
    "address": "00abd028"
   },
   {
-   "symbol": "?unknown_TActionClass_list_00abfd88@@3V?$DynamicVectorClass@PAVTActionClass@@@@A",
-   "address": "00abfd88"
-  },
-  {
-   "symbol": "?unknown_TEventClass_list_00ac0808@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
-   "address": "00ac0808"
-  },
-  {
    "symbol": "?unknown_TemporalClass_list_00ac02e0@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
    "address": "00ac02e0"
-  },
-  {
-   "symbol": "?unknown_VoxelAnimClass_list_008399d0@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
-   "address": "008399d0"
   },
   {
    "symbol": "?unknown_WarheadTypeClass_list_00839b00@@3V?$DynamicVectorClass@PAVWarheadTypeClass@@@@A",
@@ -1302,10 +1314,6 @@
    "address": "004ba5b0"
   },
   {
-   "symbol": "?unknown_savegame_version_7f1b18@@3HA",
-   "address": "007f1b18"
-  },
-  {
    "symbol": "?unknown_scenario_checkpoint_00855a90@@3VEnvironmentClass@@A",
    "address": "00855a90"
   },
@@ -1320,14 +1328,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_supers_a35db8@@3V?$DynamicVectorClass@PAVSuperClass@@@@A",
-   "address": "00a35db8"
-  },
-  {
-   "symbol": "?unknown_window_839640@@3VRect@@A",
-   "address": "00839640"
   },
   {
    "symbol": "_CLSID_CStreamClass",

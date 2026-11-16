@@ -45,7 +45,7 @@ bool SidebarClass::StripClass::Unknown_006802D0()
     bool redraw = false;
     for (int index = 0; index < BuildableCount; index++) {
         int ok;
-        TechnoTypeClass *tech = (TechnoTypeClass *)Unknown_00482C00(Buildables[index].unknown_04, Buildables[index].unknown_00);
+        TechnoTypeClass *tech = (TechnoTypeClass *)Fetch_Techno_Type(Buildables[index].unknown_04, Buildables[index].unknown_00);
         if (tech) {
             TechnoClass *who = (TechnoClass *)tech->Who_Can_Build_Me(true, false, false, PlayerPtr);
             ok = who && who->House->Can_Build(tech, false, true);   // NATIVE: the overlay's UnknownSidebarHouse::Unknown_004E3660 is HouseClass::Can_Build 0x004E3660

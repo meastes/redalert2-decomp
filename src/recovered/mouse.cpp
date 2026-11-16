@@ -265,7 +265,7 @@ HRESULT MouseClass::Load(IStream *stream)
     if (result < 0) {
         return result;
     }
-    unknown_loaded_theater_7d88dc = -1;
+    LastTheater = -1;
     unknown_slot23();
     delete CellSubzones;
     CellSubzones = 0;
@@ -389,7 +389,7 @@ HRESULT MouseClass::Load(IStream *stream)
         unknown_d0.Add(cell);
     }
     TerrainTypeClass::Init(unknown_id_source_a3d290->Theater);
-    if (unknown_id_source_a3d290->Theater != unknown_loaded_theater_7d88dc) {
+    if (unknown_id_source_a3d290->Theater != LastTheater) {
         Unknown_00529870(unknown_id_source_a3d290->Theater, true);
     } else {
         Unknown_0052B650();
@@ -400,7 +400,7 @@ HRESULT MouseClass::Load(IStream *stream)
     AnimTypeClass::Init(unknown_id_source_a3d290->Theater);
     SmudgeTypeClass::Init(unknown_id_source_a3d290->Theater);
     unknown_11b8 = 0;
-    unknown_loaded_theater_7d88dc = unknown_id_source_a3d290->Theater;
+    LastTheater = unknown_id_source_a3d290->Theater;
     return 0;
 }
 

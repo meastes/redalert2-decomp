@@ -109,7 +109,7 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?Unknown_Reload_Art_Set_006F31B0@@YIXXZ",
+   "symbol": "?Reload_Art_Set@@YIXXZ",
    "entry": "006f31b0",
    "body_bytes": 497,
    "padding_bytes": 15
@@ -199,7 +199,7 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?Unknown_Get_Art_006f4590@@YI_NXZ",
+   "symbol": "?Is_Sidebar_Art_Loaded@@YI_NXZ",
    "entry": "006f4590",
    "body_bytes": 6,
    "padding_bytes": 10
@@ -275,7 +275,7 @@
   },
   {
    "site": "006a0c50",
-   "symbol": "?Unknown_Get_Art_006f4590@@YI_NXZ",
+   "symbol": "?Is_Sidebar_Art_Loaded@@YI_NXZ",
    "target": "006f4590",
    "function_entry": true
   },
@@ -335,19 +335,19 @@
   },
   {
    "site": "0053f840",
-   "symbol": "?Unknown_Reload_Art_Set_006F31B0@@YIXXZ",
+   "symbol": "?Reload_Art_Set@@YIXXZ",
    "target": "006f31b0",
    "function_entry": true
   },
   {
    "site": "0053f840",
-   "symbol": "?Unknown_Reload_Art_Set_006F31B0@@YIXXZ",
+   "symbol": "?Reload_Art_Set@@YIXXZ",
    "target": "006f31b0",
    "function_entry": true
   },
   {
    "site": "0053f840",
-   "symbol": "?Unknown_Reload_Art_Set_006F31B0@@YIXXZ",
+   "symbol": "?Reload_Art_Set@@YIXXZ",
    "target": "006f31b0",
    "function_entry": true
   },
@@ -389,7 +389,7 @@
   },
   {
    "site": "00481bf0",
-   "symbol": "?Unknown_Reload_Art_Set_006F31B0@@YIXXZ",
+   "symbol": "?Reload_Art_Set@@YIXXZ",
    "target": "006f31b0",
    "function_entry": true
   },
@@ -448,6 +448,14 @@
   {
    "symbol": "?Unknown_6F42D0@@YIXXZ",
    "address": "006f42d0"
+  },
+  {
+   "symbol": "?VideoModeHeight@@3HA",
+   "address": "008523e4"
+  },
+  {
+   "symbol": "?VideoModeWidth@@3HA",
+   "address": "008523e0"
   },
   {
    "symbol": "?unknown_art_ac0fec@@3PAXA",
@@ -1316,14 +1324,6 @@
   {
    "symbol": "?unknown_owned_ac1245@@3_NA",
    "address": "00ac1245"
-  },
-  {
-   "symbol": "?unknown_value_8523e0@@3HA",
-   "address": "008523e0"
-  },
-  {
-   "symbol": "?unknown_value_8523e4@@3HA",
-   "address": "008523e4"
   }
  ],
  "route": "A",

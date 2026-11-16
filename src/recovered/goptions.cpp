@@ -77,7 +77,7 @@
 
 // void Unknown_004DD7D0() (0x004DD7D0): the in-game options menu (Red Alert's GameOptionsClass::Process).
 
-void __fastcall Unknown_0063B090(ScenarioClass *scenario);    // 0x0063B090
+void __fastcall Restate_Mission(ScenarioClass *scenario);    // 0x0063B090
 
 void Unknown_004DD7D0()
 {
@@ -96,7 +96,7 @@ void Unknown_004DD7D0()
     }
     if (window) {
         SetWindowLongA(window, 8, (LONG)&result);
-        unknown_dialog_5ff7c0(window);
+        Display_Dialog(window);
         while (!result) {
             if (unknown_6000d0() == true) {
                 result = 1;
@@ -105,7 +105,7 @@ void Unknown_004DD7D0()
         unknown_dialog_5ff6e0(window);
     }
     if (result == 0x3EC) {
-        Unknown_0063B090(unknown_id_source_a3d290);
+        Restate_Mission(unknown_id_source_a3d290);
     }
     Map.Flag_To_Redraw(2);
 }
@@ -170,19 +170,19 @@ static void __fastcall Options_Menu_Command(HWND window, int id, HWND control, u
             break;
         case 0x521:
             if (code == 0) {
-                unknown_int_a40d48 = 5;
+                SpecialDialog = 5;
                 *result = 1;
             }
             break;
         case 0x522:
             if (code == 0) {
                 if (unknown_game_mode_a3d298 == 4) {
-                    unknown_int_a40d48 = 2;
-                    if (unknown_b2a7ec == 0) {
-                        unknown_int_a40d48 = 3;
+                    SpecialDialog = 2;
+                    if (WestwoodOnline_Tournament == 0) {
+                        SpecialDialog = 3;
                     }
                 } else {
-                    unknown_int_a40d48 = 3;
+                    SpecialDialog = 3;
                 }
                 *result = 2;
             }
@@ -227,7 +227,7 @@ static void __fastcall Options_Menu_Command(HWND window, int id, HWND control, u
 
 int __stdcall Options_Menu_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int handled = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int handled = Default_Dialog_Proc(window, message, wparam, lparam);
     if (handled != 0) {
         return handled;
     }
@@ -316,7 +316,7 @@ static int Other_Result;    // 0x00A40E20
 
 int __stdcall Game_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int handled = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int handled = Default_Dialog_Proc(window, message, wparam, lparam);
     if (handled != 0) {
         return handled;
     }

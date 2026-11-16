@@ -79,7 +79,7 @@ StaticBufferClass::~StaticBufferClass()
 // techno voxel draws 0x006D2xxx): appends an Entry header (point, size, data start) and the region's lines RLE
 // compressed through the static line buffer 0x00ABD548; null (and nothing kept past the failure) when full. The
 // line counter steps before the stride call (a while loop); Reserve tests the end before taking Current.
-extern unsigned char unknown_line_buffer_abd548[];     // 0x00ABD548 one compressed line
+extern unsigned char CompressionBuffer[];     // 0x00ABD548 one compressed line
 
 StaticBufferClass::Entry *StaticBufferClass::Add(Surface &surface, SurfaceRegion const &region)
 {
@@ -96,13 +96,13 @@ StaticBufferClass::Entry *StaticBufferClass::Add(Surface &surface, SurfaceRegion
     RLEEngine rle;
     int line = 0;
     while (line < region.Bounds.Height) {
-        int length = rle.Line_Compress(source, unknown_line_buffer_abd548, region.Bounds.Width);
+        int length = rle.Line_Compress(source, CompressionBuffer, region.Bounds.Width);
         unsigned char *dest = Reserve(length);
         if (dest == 0) {
             surface.Unlock();
             return 0;
         }
-        memcpy(dest, unknown_line_buffer_abd548, length);
+        memcpy(dest, CompressionBuffer, length);
         line++;
         source += surface.Stride();
     }
@@ -141,13 +141,13 @@ StaticBufferClass::Entry *StaticBufferClass::Add(Surface &surface, Rect const &r
     RLEEngine rle;
     int line = 0;
     while (line < rect.Height) {
-        int length = rle.Line_Compress(source, unknown_line_buffer_abd548, rect.Width);
+        int length = rle.Line_Compress(source, CompressionBuffer, rect.Width);
         unsigned char *dest = Reserve(length);
         if (dest == 0) {
             surface.Unlock();
             return 0;
         }
-        memcpy(dest, unknown_line_buffer_abd548, length);
+        memcpy(dest, CompressionBuffer, length);
         line++;
         source += surface.Stride();
     }

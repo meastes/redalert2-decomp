@@ -77,7 +77,7 @@
 extern "C" char *__cdecl _strupr(char *string);
 extern "C" char *__cdecl strchr(char const *string, int character);
 char *__fastcall strtrim(char *string);
-extern unsigned short *unknown_baud_names_7f3070[6];
+extern unsigned short *baudname[6];
 extern "C" int __cdecl swscanf(unsigned short const *text, unsigned short const *format, ...);
 extern char const *unknown_port_names_7f305c[4];
 extern "C" unsigned short *__cdecl wcscpy(unsigned short *destination, unsigned short const *source);
@@ -91,7 +91,7 @@ bool SerialEdDialog::Dialog_0066ca70(SerialSettingsType *settings)
     if (Window) {
         SetWindowLongA(Window, DWL_USER, (LONG)this);
         Init_0066d370(settings);
-        unknown_dialog_5ff7c0(Window);
+        Display_Dialog(Window);
         while (Result < 0) {
             if (unknown_6000d0() == true) {
                 break;
@@ -112,7 +112,7 @@ bool SerialEdDialog::Dialog_0066ca70(SerialSettingsType *settings)
 
 int __stdcall SerialEdDialog::Dialog_Proc_0066cb00(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result) {
         return result;
     }
@@ -279,7 +279,7 @@ bool SerialEdDialog::Read_Settings_0066cf60()
     if (control) {
         int row = SendMessageA(control, CB_GETCURSEL, 0, 0);
         int index = SendMessageA(control, CB_GETITEMDATA, row, 0);
-        swscanf(unknown_baud_names_7f3070[index], L"%d", &Settings.Baud);
+        swscanf(baudname[index], L"%d", &Settings.Baud);
     }
     Debug_Printf("Baud: %ld\n", Settings.Baud);
     control = GetDlgItem(Window, 0x65E);
@@ -481,7 +481,7 @@ void SerialEdDialog::Fill_Baud_0066d860()
     if (control) {
         SendMessageA(control, CB_RESETCONTENT, 0, 0);
         for (int index = 0; index < 6; index++) {
-            unsigned short *name = unknown_baud_names_7f3070[index];
+            unsigned short *name = baudname[index];
             int row = SendMessageA(control, 0x4C2, 0, (LPARAM)name);
             SendMessageA(control, CB_SETITEMDATA, row, index);
         }

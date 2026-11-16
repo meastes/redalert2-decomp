@@ -240,55 +240,55 @@ void OptionsClass::Load_Settings()
 {
     Debug_Printf("--------- Loading SUN.INI settings ---------------\n");
 
-    GameSpeed = unknown_ini_839740.Get_Int("Options", "GameSpeed", GameSpeed);
+    GameSpeed = ConfigINI.Get_Int("Options", "GameSpeed", GameSpeed);
     Debug_Printf("GameSpeed = %d\n", GameSpeed);
-    Difficulty = unknown_ini_839740.Get_Int("Options", "Difficulty", Difficulty);
+    Difficulty = ConfigINI.Get_Int("Options", "Difficulty", Difficulty);
     Difficulty = Difficulty < 4 ? Difficulty : 4;
     Difficulty = Difficulty > 0 ? Difficulty : 0;
     Debug_Printf("Difficulty = %d\n", Difficulty);
-    ScrollMethod = unknown_ini_839740.Get_Int("Options", "ScrollMethod", ScrollMethod);
+    ScrollMethod = ConfigINI.Get_Int("Options", "ScrollMethod", ScrollMethod);
     Debug_Printf("ScrollMethod = %d\n", ScrollMethod);
-    ScrollRate = unknown_ini_839740.Get_Int("Options", "ScrollRate", ScrollRate);
+    ScrollRate = ConfigINI.Get_Int("Options", "ScrollRate", ScrollRate);
     Debug_Printf("ScrollRate = %d\n", ScrollRate);
-    AutoScroll = unknown_ini_839740.Get_Bool("Options", "AutoScroll", AutoScroll);
+    AutoScroll = ConfigINI.Get_Bool("Options", "AutoScroll", AutoScroll);
     Debug_Printf("AutoScroll is %s\n", AutoScroll == true ? "ON" : "OFF");
-    DetailLevel = unknown_ini_839740.Get_Int("Options", "DetailLevel", DetailLevel);
+    DetailLevel = ConfigINI.Get_Int("Options", "DetailLevel", DetailLevel);
     DetailLevel = DetailLevel < 2 ? DetailLevel : 2;
     DetailLevel = DetailLevel > 0 ? DetailLevel : 0;
     Debug_Printf("DetailLevel = %d\n", DetailLevel);
     SidebarOn = true;
     Debug_Printf("SideBar on %s\n", "RIGHT");
-    SidebarCameoText = unknown_ini_839740.Get_Bool("Options", "SidebarCameoText", SidebarCameoText);
+    SidebarCameoText = ConfigINI.Get_Bool("Options", "SidebarCameoText", SidebarCameoText);
     Debug_Printf("Sidebar Text is %s\n", SidebarCameoText == true ? "ON" : "OFF");
-    UnitActionLines = unknown_ini_839740.Get_Bool("Options", "UnitActionLines", UnitActionLines);
+    UnitActionLines = ConfigINI.Get_Bool("Options", "UnitActionLines", UnitActionLines);
     Debug_Printf("ActionLines are %s\n", UnitActionLines == true ? "ON" : "OFF");
-    ShowHidden = unknown_ini_839740.Get_Bool("Options", "ShowHidden", ShowHidden);
+    ShowHidden = ConfigINI.Get_Bool("Options", "ShowHidden", ShowHidden);
     Debug_Printf("ShowHidden is %s\n", ShowHidden == true ? "ON" : "OFF");
-    ToolTips = unknown_ini_839740.Get_Bool("Options", "ToolTips", ToolTips);
+    ToolTips = ConfigINI.Get_Bool("Options", "ToolTips", ToolTips);
     Debug_Printf("ToolTips are %s\n", ToolTips == true ? "ON" : "OFF");
 
-    ScreenWidth = unknown_ini_839740.Get_Int("Video", "ScreenWidth", ScreenWidth);
-    ScreenHeight = unknown_ini_839740.Get_Int("Video", "ScreenHeight", ScreenHeight);
+    ScreenWidth = ConfigINI.Get_Int("Video", "ScreenWidth", ScreenWidth);
+    ScreenHeight = ConfigINI.Get_Int("Video", "ScreenHeight", ScreenHeight);
     Debug_Printf("Resolution = %d X %d\n", ScreenWidth, ScreenHeight);
-    StretchMovies = unknown_ini_839740.Get_Bool("Video", "StretchMovies", StretchMovies);
+    StretchMovies = ConfigINI.Get_Bool("Video", "StretchMovies", StretchMovies);
     StretchMovies = StretchMovies == true && AllowStretchBlits_852fd6 == true;
     Debug_Printf("StretchMovies is %s\n", StretchMovies == true ? "ON" : "OFF");
-    AllowHiResModes = unknown_ini_839740.Get_Bool("Video", "AllowHiResModes", AllowHiResModes);
+    AllowHiResModes = ConfigINI.Get_Bool("Video", "AllowHiResModes", AllowHiResModes);
     Debug_Printf("AllowHiRes is %s\n", AllowHiResModes == true ? "ON" : "OFF");
-    Debug_IngameModeChange = unknown_ini_839740.Get_Bool("Video", "AllowModeToggle", Debug_IngameModeChange);
-    AllowVRAMSidebar = unknown_ini_839740.Get_Bool("Video", "AllowVRAMSidebar", AllowVRAMSidebar);
+    Debug_IngameModeChange = ConfigINI.Get_Bool("Video", "AllowModeToggle", Debug_IngameModeChange);
+    AllowVRAMSidebar = ConfigINI.Get_Bool("Video", "AllowVRAMSidebar", AllowVRAMSidebar);
 
-    Set_Sound_Volume(unknown_ini_839740.Get_Double("Audio", "SoundVolume", SoundVolume), false);
-    Set_Voice_Volume(unknown_ini_839740.Get_Double("Audio", "VoiceVolume", VoiceVolume), false);
-    Set_Score_Volume(unknown_ini_839740.Get_Double("Audio", "ScoreVolume", ScoreVolume), false);
-    Set_Repeat(unknown_ini_839740.Get_Bool("Audio", "IsScoreRepeat", IsScoreRepeat));
-    Set_Shuffle(unknown_ini_839740.Get_Bool("Audio", "IsScoreShuffle", IsScoreShuffle));
-    InGameMusic = unknown_ini_839740.Get_Bool("Audio", "InGameMusic", InGameMusic);
+    Set_Sound_Volume(ConfigINI.Get_Double("Audio", "SoundVolume", SoundVolume), false);
+    Set_Voice_Volume(ConfigINI.Get_Double("Audio", "VoiceVolume", VoiceVolume), false);
+    Set_Score_Volume(ConfigINI.Get_Double("Audio", "ScoreVolume", ScoreVolume), false);
+    Set_Repeat(ConfigINI.Get_Bool("Audio", "IsScoreRepeat", IsScoreRepeat));
+    Set_Shuffle(ConfigINI.Get_Bool("Audio", "IsScoreShuffle", IsScoreShuffle));
+    InGameMusic = ConfigINI.Get_Bool("Audio", "InGameMusic", InGameMusic);
 
     UnlockedMovie[0] = -1;
     UnlockedMovie[1] = -1;
     unsigned short buffer[200];
-    unknown_ini_839740.Get_Unicode("Network", "NetID", unknown_empty_wide_839d4c, buffer, 200);
+    ConfigINI.Get_Unicode("Network", "NetID", unknown_empty_wide_839d4c, buffer, 200);
     if (buffer[0] != 0) {
         for (unsigned short *letter = buffer; *letter != 0; letter++) {
             *letter = ~*letter;
@@ -312,11 +312,11 @@ void OptionsClass::Load_Settings()
         UnlockedMovie[1] = -1;
     }
 
-    SoundLatency = unknown_ini_839740.Get_Int("Audio", "SoundLatency", SoundLatency);
+    SoundLatency = ConfigINI.Get_Int("Audio", "SoundLatency", SoundLatency);
     Debug_Printf("Emulated sound card latency default = %d\n", SoundLatency);
-    Socket = unknown_ini_839740.Get_Int("Network", "Socket", Socket);
-    NetCard = unknown_ini_839740.Get_Int("Network", "NetCard", NetCard);
-    unknown_ini_839740.Get_String("Network", "DestNet", "", DestNet, sizeof(DestNet));
+    Socket = ConfigINI.Get_Int("Network", "Socket", Socket);
+    NetCard = ConfigINI.Get_Int("Network", "NetCard", NetCard);
+    ConfigINI.Get_String("Network", "DestNet", "", DestNet, sizeof(DestNet));
     Debug_Printf("--------- Complete -------------------------------\n");
 
     Map.Toggle_Cameo_Text(SidebarCameoText);
@@ -334,32 +334,32 @@ void OptionsClass::Save_Settings()
     CCFileClass file("RA2.INI");
     Debug_Printf("Saving game settings\n");
 
-    unknown_ini_839740.Put_Int("Options", "GameSpeed", GameSpeed);
-    unknown_ini_839740.Put_Int("Options", "Difficulty", Difficulty);
-    unknown_ini_839740.Put_Int("Options", "ScrollMethod", ScrollMethod);
-    unknown_ini_839740.Put_Int("Options", "ScrollRate", ScrollRate);
-    unknown_ini_839740.Put_Bool("Options", "AutoScroll", AutoScroll);
-    unknown_ini_839740.Put_Int("Options", "DetailLevel", DetailLevel);
-    unknown_ini_839740.Put_Bool("Options", "SidebarCameoText", SidebarCameoText);
-    unknown_ini_839740.Put_Bool("Options", "UnitActionLines", UnitActionLines);
-    unknown_ini_839740.Put_Bool("Options", "ShowHidden", ShowHidden);
-    unknown_ini_839740.Put_Bool("Options", "ToolTips", ToolTips);
+    ConfigINI.Put_Int("Options", "GameSpeed", GameSpeed);
+    ConfigINI.Put_Int("Options", "Difficulty", Difficulty);
+    ConfigINI.Put_Int("Options", "ScrollMethod", ScrollMethod);
+    ConfigINI.Put_Int("Options", "ScrollRate", ScrollRate);
+    ConfigINI.Put_Bool("Options", "AutoScroll", AutoScroll);
+    ConfigINI.Put_Int("Options", "DetailLevel", DetailLevel);
+    ConfigINI.Put_Bool("Options", "SidebarCameoText", SidebarCameoText);
+    ConfigINI.Put_Bool("Options", "UnitActionLines", UnitActionLines);
+    ConfigINI.Put_Bool("Options", "ShowHidden", ShowHidden);
+    ConfigINI.Put_Bool("Options", "ToolTips", ToolTips);
 
-    unknown_ini_839740.Put_Int("Video", "ScreenWidth", ScreenWidth);
-    unknown_ini_839740.Put_Int("Video", "ScreenHeight", ScreenHeight);
-    unknown_ini_839740.Put_Bool("Video", "StretchMovies", StretchMovies);
+    ConfigINI.Put_Int("Video", "ScreenWidth", ScreenWidth);
+    ConfigINI.Put_Int("Video", "ScreenHeight", ScreenHeight);
+    ConfigINI.Put_Bool("Video", "StretchMovies", StretchMovies);
 
-    unknown_ini_839740.Put_Double("Audio", "SoundVolume", SoundVolume);
-    unknown_ini_839740.Put_Double("Audio", "VoiceVolume", VoiceVolume);
-    unknown_ini_839740.Put_Double("Audio", "ScoreVolume", ScoreVolume);
-    unknown_ini_839740.Put_Bool("Audio", "IsScoreRepeat", IsScoreRepeat);
-    unknown_ini_839740.Put_Bool("Audio", "IsScoreShuffle", IsScoreShuffle);
-    unknown_ini_839740.Put_Int("Audio", "SoundLatency", SoundLatency);
-    unknown_ini_839740.Put_Bool("Audio", "InGameMusic", InGameMusic);
+    ConfigINI.Put_Double("Audio", "SoundVolume", SoundVolume);
+    ConfigINI.Put_Double("Audio", "VoiceVolume", VoiceVolume);
+    ConfigINI.Put_Double("Audio", "ScoreVolume", ScoreVolume);
+    ConfigINI.Put_Bool("Audio", "IsScoreRepeat", IsScoreRepeat);
+    ConfigINI.Put_Bool("Audio", "IsScoreShuffle", IsScoreShuffle);
+    ConfigINI.Put_Int("Audio", "SoundLatency", SoundLatency);
+    ConfigINI.Put_Bool("Audio", "InGameMusic", InGameMusic);
 
-    unknown_ini_839740.Put_Int("Network", "Socket", Socket);
-    unknown_ini_839740.Put_Int("Network", "NetCard", NetCard);
-    unknown_ini_839740.Put_String("Network", "DestNet", DestNet);
+    ConfigINI.Put_Int("Network", "Socket", Socket);
+    ConfigINI.Put_Int("Network", "NetCard", NetCard);
+    ConfigINI.Put_String("Network", "DestNet", DestNet);
     unsigned short buffer[200];
     swprintf(buffer, L"%d %d", UnlockedMovie[0] + 1, UnlockedMovie[1] + 1);
     for (unsigned short *letter = buffer; *letter != 0; letter++) {
@@ -368,9 +368,9 @@ void OptionsClass::Save_Settings()
             *letter = 0xFFFF;
         }
     }
-    unknown_ini_839740.Put_Unicode("Network", "NetID", buffer);
+    ConfigINI.Put_Unicode("Network", "NetID", buffer);
 
-    unknown_ini_839740.Save(file, false);
+    ConfigINI.Save(file, false);
     Setup_Network();
 }
 
@@ -477,7 +477,7 @@ int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WP
     int *retval;
     static int current_selection = -1;
 
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result) {
         return result;
     }
@@ -685,7 +685,7 @@ int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WP
 // Runs dialog 0xA3 (procedure 0x005D97A0) until it sets its result or the dialog handler ends the wait;
 // outside a game the title screen keeps being serviced. Does not use its receiver; always true.
 
-void __fastcall unknown_dialog_5ff7c0(HWND window);      // 0x005FF7C0 (shared/ms_message_box.hpp)
+void __fastcall Display_Dialog(HWND window);      // 0x005FF7C0 (shared/ms_message_box.hpp)
 void __fastcall unknown_dialog_5ff6e0(HWND window);      // 0x005FF6E0
 void __fastcall Title_Screen_Restore(bool unknown1);           // 0x00517370
 int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
@@ -696,7 +696,7 @@ bool OptionsClass::Hotkey_Dialog()
     HWND dialog = unknown_create_dialog_5ff610(0xA3, Unknown_Options_Dialog_Proc_005d97a0, 0);
     if (dialog) {
         SetWindowLongA(dialog, 8, (LONG)&rc);
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
         while (rc < 0) {
             if (unknown_6000d0() == true) {
                 rc = 2;

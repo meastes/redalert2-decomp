@@ -47,7 +47,7 @@
 // @ref ??_C@_0CN@JPPC@Executing?5ADDRESSCHANGE?5event?5fo@=007d69d0
 // @ref ?Unknown_00435D30@BombClass@@QAEXXZ=00435d30
 // @ref ?Unknown_004E6950@HouseClass@@QAE_NHH_NABVCell@@@Z=004e6950
-// @ref ?Unknown_0063F130@OwnerTalkClass@@QAE_NXZ=0063f130
+// @ref ?Send_Player_List@OwnerTalkClass@@QAE_NXZ=0063f130
 // @ref ?Unknown_0063F9A0@OwnerTalkClass@@QAEXHPAVIPXAddressClass@@@Z=0063f9a0
 // @ref ?Unknown_0063FBA0@OwnerTalkClass@@QAEHXZ=0063fba0
 // @ref ?Unknown_0063FE20@OwnerTalkClass@@QAEXH@Z=0063fe20
@@ -386,7 +386,7 @@ void EventClass::Execute()
 
     case 0x0C:
         if (!(unknown_flags_a3f600 & 2)) {
-            unknown_int_a40d48 = 1;
+            SpecialDialog = 1;
         }
         break;
 
@@ -409,12 +409,12 @@ void EventClass::Execute()
         break;
 
     case 0x1D:
-        if (unknown_int_a40d48 == 0) {
+        if (SpecialDialog == 0) {
             CDTimerClass<SystemTimerClass> timer;
             timer = CDTimerClass<SystemTimerClass>(60);
             WWMessageBox(L" ").Process(StringTable::Load_String("TXT_SAVING_GAME", 0, "D:\\Ra2\\Event.CPP", 0x59A),
                 StringTable::Load_String("TXT_NONE", 0, "D:\\Ra2\\Event.CPP", 0x59A), 0, 0, false);
-            Unknown_006554A0("SAVEGAME.NET", StringTable::Load_String("TXT_MULTIPLAYER_GAME", 0, "D:\\Ra2\\Event.CPP", 0x59C), 0);
+            Save_Game("SAVEGAME.NET", StringTable::Load_String("TXT_MULTIPLAYER_GAME", 0, "D:\\Ra2\\Event.CPP", 0x59C), 0);
             while (timer > 0) {
                 Service_Game_IO_00481fb0();
             }
@@ -422,7 +422,7 @@ void EventClass::Execute()
             Map.Flag_To_Redraw(2);
             Map.Render();
         } else {
-            Unknown_006554A0("SAVEGAME.NET", StringTable::Load_String("TXT_MULTIPLAYER_GAME", 0, "D:\\Ra2\\Event.CPP", 0x5A7), 0);
+            Save_Game("SAVEGAME.NET", StringTable::Load_String("TXT_MULTIPLAYER_GAME", 0, "D:\\Ra2\\Event.CPP", 0x5A7), 0);
         }
         break;
 
@@ -441,14 +441,14 @@ void EventClass::Execute()
                 OwnerTalk.Unknown_0063FE20(index);
             }
         }
-        if ((unknown_game_mode_a3d298 == 4 && unknown_b2a7ec) || house->Is_Human_Player()) {
-            house->unknown_func_4e7e80();
+        if ((unknown_game_mode_a3d298 == 4 && WestwoodOnline_Tournament) || house->Is_Human_Player()) {
+            house->Flag_To_Die();
         }
         break;
     }
 
     case 8:
-        house->unknown_func_4e7e80();
+        house->Flag_To_Die();
         break;
 
     case 0x28:
@@ -513,7 +513,7 @@ void EventClass::Execute()
                 Debug_Printf("New game host is %ls\n", unknown_session_a3d298.MasterPlayerName);
                 unknown_session_a3d298.MasterPlayerID = host;
                 if (unknown_session_a3d298.Am_I_Master(0)) {
-                    OwnerTalk.Unknown_0063F130();
+                    OwnerTalk.Send_Player_List();
                 }
             }
             unknown_session_a3d298.unknown_3048 = ::Frame;
@@ -570,7 +570,7 @@ void EventClass::Execute()
 
     case 0x22:
         if (!(unknown_flags_a3f600 & 2)) {
-            unknown_int_a40d48 = 7;
+            SpecialDialog = 7;
         }
         break;
     }

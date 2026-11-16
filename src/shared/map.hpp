@@ -45,7 +45,7 @@ class Pipe;
 // The cell returned for coordinates outside the map (0x00A6F9F8; its
 // MapCoords are set to the requested cell). Defined in Map.cpp: dynamic
 // initializer 0x00547930, atexit destructor 0x00547950.
-extern CellClass unknown_dummy_cell_a6f9f8;
+extern CellClass BlubCell;
 
 #include "shared/map_elements.hpp"
 #include "shared/subzone_tracking.hpp"
@@ -136,7 +136,7 @@ int __fastcall Unknown_0055DB90(Cell const &cell);
 int __fastcall Unknown_0055EB70(Cell const &cell);      // 0x0055EB70 (as 0x0055DA70, other overlays)
 int __fastcall Unknown_0055ECA0(Cell const &cell);
 // Whether a tile is a bridge piece of kind 2 (cell +0x11A 4) or kind 4 (+0x11A 2) (0x00556B30).
-bool __fastcall Unknown_00556B30(int tile, int kind, CellClass const *cell);
+bool __fastcall Is_Bridge_Span_End(int tile, int kind, CellClass const *cell);
 
 class MapClass : public GScreenClass {
 public:
@@ -153,18 +153,18 @@ public:
     MapClass(NoInitClass const &noinit);                                        // 0x00547A60
     // A cell test with a flag (0x0055A660; radar 0x00630340 passes true).
     bool Unknown_0055A660(Cell const &cell, bool flag);
-    void Unknown_0055D990(Cell const &cell);      // 0x0055D990
+    void Area_Reduce_Tiberium(Cell const &cell);      // 0x0055D990
     void Unknown_00562F50(CellClass *cell); // 00562F50: observed thiscall/RET4; unused return hypothesis
-    CellClass *Unknown_005629D0(AbstractClass *object);                         // 0x005629D0 (the cell under an object; hypothesis)
+    CellClass *Find_Nearby_Shroud(AbstractClass *object);                         // 0x005629D0 (the cell under an object; hypothesis)
     bool In_Radar(Cell const &cell);              // 0x0054AAB0 (a cell test: on the map; hypothesis)
     bool Base_Region(Cell const &cell, int &house, int &zone);   // 0x00550DC0 (TibSun Base_Region: the house whose base zone holds the cell)
     bool Unknown_0054AB00(CoordStruct const &coord);    // 0x0054AB00 (a coordinate test; InfantryClass 0x005070E0 tests al)
     // The +0x02 value of the cell's +0x64 element (0x0054FA60); the cell's
     // index in that array, clamped to it (0x0054FAB0), and unclamped
     // (0x0054FAF0): Y * (width + height + 1) + X.
-    int Unknown_0054FA60(Cell const &cell);
+    int Get_Cell_Zone_ID(Cell const &cell);
     int Get_Cell_Zone_Index(Cell const &cell);
-    int Unknown_0054FAF0(Cell const &cell);
+    int Get_Cell_Subzone_Index(Cell const &cell);
 #ifdef RA2_MAP_COLLAPSE_CLIFF
     short &Fine_Subzone(Cell const &cell) { return *(short *)(CellSubzones + Get_Cell_Zone_Index(cell) * 10); }
 #endif
@@ -173,17 +173,17 @@ public:
     int Cell_Threat(Cell const &cell, HouseClass *house);
     // Redraws a cell whose shroud changed (0x00568520; DisplayClass slot 37 passes the
     // cell, its second argument and whether the cell was already mapped; hypothesis).
-    void Unknown_00568520(CellClass *cell, HouseClass *house, bool arg3);
+    void Reveal_Nearby_Technos(CellClass *cell, HouseClass *house, bool arg3);
     // Reveals the map around coord for house (0x0054A110; hypothesis:
     // Westwood's Sight_From; the meaning of the last five arguments is
     // unknown).
     void Sight_From(CoordStruct const &coord, int sight, HouseClass *house, bool arg4, bool arg5, bool arg6, bool arg7, bool arg8);
-    void Unknown_00549C50(CoordStruct const &coord, int sight, HouseClass *house, bool arg4, bool arg5, bool arg6, bool arg7, bool arg8);   // 0x00549C50 (reveals around coord; TechnoClass slot 70)
+    void RevealArea1(CoordStruct const &coord, int sight, HouseClass *house, bool arg4, bool arg5, bool arg6, bool arg7, bool arg8);   // 0x00549C50 (reveals around coord; TechnoClass slot 70)
     // 0x00549C50 with its last argument true; the first two arguments are not read (0x00549C20; no callers).
-    void Unknown_00549C20(int arg1, int arg2, CoordStruct const &coord, int sight, HouseClass *house, bool arg6, bool arg7, bool arg8, bool arg9);
-    unsigned int Unknown_0055BD70(CellClass *cell); // physical full-EAX mask/RET4; Map receiver/source intent hypotheses
+    void RevealArea0(int arg1, int arg2, CoordStruct const &coord, int sight, HouseClass *house, bool arg6, bool arg7, bool arg8, bool arg9);
+    unsigned int Get_High_Ground_Mask(CellClass *cell); // physical full-EAX mask/RET4; Map receiver/source intent hypotheses
     bool Unknown_0055C2C0(int first, int second); // physical AL-only/RET8; signedness/source intent hypotheses
-    void Unknown_00559F10();                                              // 0x00559F10
+    void Spy_Satellite_Hide();                                              // 0x00559F10
     void Place_Down(Cell const &cell, ObjectClass *object);         // 0x0054AB70 (FootClass slot 71, cases 1 and 3; hypothesis: occupation)
     void Pick_Up(Cell const &cell, ObjectClass *object);            // 0x0054AF70 (FootClass slot 71, case 0)
     bool Unknown_0054F7C0(Cell const &from, Cell const &to, int zone, bool arg4, bool bridge, bool arg6);  // 0x0054F7C0 (a path test; FootClass slot 171)
@@ -194,20 +194,20 @@ public:
     // Read_Binary_2 to _5): through an LCW straw, uncompressed, through an LZO straw,
     // and through an LZO straw with each cell's +0x119.
     // Writes the cells' tile data (TibSun Write_Binary_1 to _5; read back by 0x0054DCC0 to 0x0054E1E0).
-    int Unknown_0054D560(Pipe &pipe);                          // 0x0054D560 (every slot, field by field; LCW)
-    int Unknown_0054D660(Pipe &pipe);                          // 0x0054D660 (cells with a tile or height; LCW)
-    int Unknown_0054D810(Pipe &pipe);                          // 0x0054D810 (the same, uncompressed)
-    int Unknown_0054D970(Pipe &pipe);                          // 0x0054D970 (the same through LZO)
-    int Unknown_0054DB10(Pipe &pipe);                          // 0x0054DB10 (LZO, with each cell's +0x119)
-    bool Unknown_0054DCC0(Straw &straw);                       // 0x0054DCC0 (the first 128 x 128 cells, field by field; TibSun Read_Binary_1)
+    int Write_Binary_1(Pipe &pipe);                          // 0x0054D560 (every slot, field by field; LCW)
+    int Write_Binary_2(Pipe &pipe);                          // 0x0054D660 (cells with a tile or height; LCW)
+    int Write_Binary_3(Pipe &pipe);                          // 0x0054D810 (the same, uncompressed)
+    int Write_Binary_4(Pipe &pipe);                          // 0x0054D970 (the same through LZO)
+    int Write_Binary_5(Pipe &pipe);                          // 0x0054DB10 (LZO, with each cell's +0x119)
+    bool Read_Binary_1(Straw &straw);                       // 0x0054DCC0 (the first 128 x 128 cells, field by field; TibSun Read_Binary_1)
     bool Unknown_0054DEA0(Straw &straw);                       // 0x0054DEA0
-    bool Unknown_0054DFC0(Straw &straw);                       // 0x0054DFC0
+    bool Read_Binary_3(Straw &straw);                       // 0x0054DFC0
     bool Unknown_0054E0C0(Straw &straw);                       // 0x0054E0C0
-    bool Unknown_0054E1E0(Straw &straw);                       // 0x0054E1E0
+    bool Read_Binary_5(Straw &straw);                       // 0x0054E1E0
     // Redraws the cells whose shroud changed (0x0055A300): see its source.
     void Refresh_Shroud();                                    // 0x0055A300
     // Whether the object may enter the cell: a gate there of an allied house opens (TibSun Try_Open_Gate).
-    bool Unknown_0055ACD0(ObjectClass *object, Cell const &cell);  // 0x0055ACD0
+    bool Try_Open_Gate(ObjectClass *object, Cell const &cell);  // 0x0055ACD0
     int Cell_To_Local_Sector_Index(Cell const &cell);   // 0x0055AD70 (the local view sector 1-9 of a cell)
     Cell Clip_To_Map(Cell const &cell);                 // 0x00568D60 (a cell moved into the local view)
     Cell Local_Sector_Index_To_Cell(int index);         // 0x0055AE50 (a sector's cell)
@@ -222,7 +222,7 @@ public:
     bool Is_Shrouded(CoordStruct const &coord);    // 0x00568140 (AircraftClass slot 101)
     bool Is_Under_Fog(CoordStruct const &coord);    // 0x00568280 (as 0x00568140 for the cells' +0x13C; RadarClass)
     void Unknown_0054A550(CoordStruct const &coord, int arg2, int arg3, int arg4);   // 0x0054A550 (InfantryClass slot 93)
-    void Unknown_0054A8F0(CoordStruct const &coord, int radius);   // 0x0054A8F0 (clears +0x130/+0x134 and sets +0x12C bits 3-4 in a disc around coord)
+    void Unshroud_Gap_Area(CoordStruct const &coord, int radius);   // 0x0054A8F0 (clears +0x130/+0x134 and sets +0x12C bits 3-4 in a disc around coord)
     void Shroud_Gap_Area(CoordStruct const &coord, int radius);   // 0x0054A720 (marks +0x130 and clears +0x12C bits 3-4 of the unmarked cells in a disc around coord; TActionClass 0x006B1050)
     CellClass *Get_Local_Grid_Cell(Cell const &cell, int spacing, bool unbiased);   // 0x0055AA80 (TibSun name)
     // The index of a cell's 4 x 4 block in a 130 x 130 grid with a one-block
@@ -338,12 +338,12 @@ public:
     // null at the end (0x0055A490).
     void Reset_Iterator();
     CellClass *Iterate();
-    bool Unknown_00569090(Cell *cell);              // 0x00569090 (whether a cell can be scrolled to; hypothesis)
+    bool Damage_Bridge(Cell *cell);              // 0x00569090 (whether a cell can be scrolled to; hypothesis)
     bool Unknown_0055DEF0(Cell const &cell);      // 0x0055DEF0 (TibSun Damage_Low_Bridge_EW)
     bool Unknown_0055E410(Cell const &cell);      // 0x0055E410 (TibSun Damage_Low_Bridge_NS)
     bool Unknown_0055F020(Cell const &cell);      // 0x0055F020 (the second set's Damage_Low_Bridge_EW)
     bool Unknown_0055F540(Cell const &cell);      // 0x0055F540 (the second set's Damage_Low_Bridge_NS)
-    bool Unknown_0055DCA0(Cell const &cell);      // 0x0055DCA0 (damages the low bridge at a cell; TibSun Damage_Low_Bridge)
+    bool Damage_Low_Bridge(Cell const &cell);      // 0x0055DCA0 (damages the low bridge at a cell; TibSun Damage_Low_Bridge)
     bool Unknown_0055EDB0(Cell const &cell);      // 0x0055EDB0 (the same for the second low bridge overlays)
     bool Unknown_00559000(Cell const &cell);      // 0x00559000 (TibSun Damage_High_Bridge)
     bool Unknown_005539B0(Cell const &cell);      // 0x005539B0 (TibSun Damage_Train_Bridge)
@@ -355,7 +355,7 @@ public:
     // Once per game (player +0x188 clear): covers every cell of the global
     // Map (visibility bits set, +0x130/+0x134 cleared) between DisplayClass
     // 0x0049E000 and 0x0049DE00, and redraws (0x0055A120).
-    void Unknown_0055A120();
+    void Spy_Satellite_Reveal();
     // Once per game (player +0x188 clear): passes every cell of the global Map
     // with the player to DisplayClass slot 39, then redraws (0x0055A1F0).
     void Reveal_The_Map();
@@ -404,21 +404,21 @@ public:
     // straight segment passes within distance of a cell, or -1 (0x005500D0).
     int Zone_Connection_Index(Cell const &cell, int distance, int start);
     void Compute_Zone_Connections();                                    // 0x0054FDA0
-    void Unknown_00566C30(ZoneConnectionClass *connection);     // 0x00566C30
+    void Unregister_Subzone_Connection(ZoneConnectionClass *connection);     // 0x00566C30
     // Runs 0x00566C30 on (and clears +0x08 of) every flagged connection
     // within 3 of a cell, rebuilding (0x0054FDA0) once when none is found;
     // whether any was flagged (0x005501A0).
-    bool Unknown_005501A0(Cell const &cell);
+    bool Unregister_Subzone_Connections(Cell const &cell);
     // Flags every unflagged connection within 3 of a cell (+0x08 set,
     // 0x00566F90) and tests its path (0x0054F7C0); whether any path failed
     // (0x00550230).
-    bool Unknown_00550230(Cell const &cell);
+    bool Register_Subzone_Connections(Cell const &cell);
     // Whether every cell of a width x height block from a cell can be
     // entered (CellClass 0x00478760 with the movement arguments) and, with
     // the last flag, has no overlay (0x00550CF0).
     bool Unknown_00550CF0(Cell const &cell, int width, int height, int speed, int arg5, int arg6, int arg7, bool arg8, bool no_overlay);
-    void Unknown_00566F90(ZoneConnectionClass *connection);     // 0x00566F90
-    void Unknown_005688A0(DynamicVectorClass<Cell> &cells);    // 0x005688A0
+    void Register_Subzone_Connection(ZoneConnectionClass *connection);     // 0x00566F90
+    void Recalc_Cells_In_List(DynamicVectorClass<Cell> &cells);    // 0x005688A0
     // Rebuilds the zone data for the map size: the +0x64 and +0x6C arrays
     // ((width + height + 1) squared elements), the path estimator's size,
     // the subzone vectors' growth steps, 0x0054B2E0, 0x0054FDA0, 0x0054EBD0
@@ -451,7 +451,7 @@ public:
     virtual void unknown_slot27();                                              // slot 27 0x0054E300
     // Places a new +0x154 entry on a random cell (0x0054E410; hypothesis:
     // Place_Random_Crate).
-    bool Unknown_0054E410();
+    bool Place_Random_Crate();
     // Removes the crate at a cell (0x0054E6E0; TibSun Remove_Crate).
     bool Remove_Crate(Cell const &cell);
 #ifdef RA2_MAP_CLOSE_OBJECT
@@ -473,16 +473,16 @@ public:
     // Isometric coordinate transforms between map and rectangle space
     // (names unknown; the out-of-line copies 0x00547D40, 0x00547DB0,
     // 0x00547E50, 0x00547E90 and 0x00547EE0 have no direct callers).
-    Point2D Unknown_00547D40(Point2D const &point);
-    Point2D Unknown_00547D70(Point2D const &point);    // 0x00547D40 after adding +0xF8/+0xFC
-    Point2D Unknown_00547DB0(Point2D const &point);    // inverse of 0x00547D40
-    Point2D Unknown_00547DF0(Point2D const &point);    // 0x00547DB0, then less +0xF8/+0xFC
-    Cell Unknown_00547E50(Cell const &cell);
+    Point2D PlayRect_To_Cell_Point(Point2D const &point);
+    Point2D LocalRect_To_Cell_Point(Point2D const &point);    // 0x00547D40 after adding +0xF8/+0xFC
+    Point2D Cell_To_PlayRect_Point(Point2D const &point);    // inverse of 0x00547D40
+    Point2D Cell_To_LocalRect_Point(Point2D const &point);    // 0x00547DB0, then less +0xF8/+0xFC
+    Cell PlayRect_To_Cell(Cell const &cell);
     void Unknown_00562EA0();                // 0x00562EA0 (frees the twelve unknown_18 blocks; Prog_End)
-    Cell Unknown_00547E90(Cell const &cell);
-    Cell Unknown_00547EE0(Cell const &cell);
+    Cell LocalRect_To_Cell(Cell const &cell);
+    Cell Cell_To_PlayRect(Cell const &cell);
     Cell Find_Bridge_End_Cell_For_Subzone(Cell const &cell, int layer, unsigned int subzone); // original00565610; same signature as lightmap view
-    Cell Unknown_00547F30(Cell const &cell);
+    Cell Cell_To_LocalRect(Cell const &cell);
 
     bool unknown_10;                                            // +0x10
     HashTableClass<unsigned int, unsigned int> *unknown_14;     // +0x14 (One_Time)

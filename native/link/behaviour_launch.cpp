@@ -42,7 +42,7 @@
 // NATIVE: arm64 has neither instruction: the port reports a CPUID-capable
 // family-6 processor without MMX and CMOV (every MMX/CMOV branch then takes the
 // plain path), model 0, and leaves the stored "not available" text unchanged.
-extern char unknown_cpu_family_8015a3;
+extern char CPUType;
 extern char unknown_cpu_model_8015a4;
 namespace {
 unsigned char cpu_cmov_p6_8015a0;   // 0x008015A0 (no name in the tree yet)
@@ -53,7 +53,7 @@ unsigned char cpu_mmx_8015a2;       // 0x008015A2
 unsigned char unknown_cpu_probe_77f14d()
 {
     unknown_cpu_model_8015a4 = 0;
-    unknown_cpu_family_8015a3 = 6;
+    CPUType = 6;
     cpu_mmx_8015a2 = 0;
     return 0;
 }
@@ -194,13 +194,13 @@ BOOL __stdcall unknown_5e7eb0(HWND window, LPARAM)
     WinData *record = unknown_registry_a73640.Find((unsigned int)(uintptr_t)window);
     if (record != 0) {
         unsigned int parent = (unsigned int)(uintptr_t)GetParent(window);
-        if (!unknown_session_a3d298.Unknown_00672F10()) {
+        if (!unknown_session_a3d298.Is_In_Game()) {
             if (unknown_5e7230(parent, window) || unknown_5e7620(parent, window)) {
                 record->unknown_b0 = 1;
                 return TRUE;
             }
         }
-        if (unknown_session_a3d298.Unknown_00672F10()) {
+        if (unknown_session_a3d298.Is_In_Game()) {
             if (unknown_5e7230(parent, window) || unknown_5e7620(parent, window)) {
                 record->unknown_b0 = 2;
                 return TRUE;

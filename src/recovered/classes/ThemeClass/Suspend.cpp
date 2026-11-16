@@ -5,8 +5,8 @@
 // keeps it as the one to resume (+0x08).
 // Assumptions: layout from this function (+0x00 current, +0x04 playing,
 // +0x08 suspended, +0x2C sample); the object is Theme (0x00A35D78).
-// @ref ?unknown_sound_enabled_a40c18@@3DA=00a40c18
-// @ref ?unknown_flag_a40d0c@@3DA=00a40d0c
+// @ref ?ScoresPresent@@3DA=00a40c18
+// @ref ?Debug_Quiet@@3DA=00a40d0c
 // @ref ?AudioDeviceAvailable@@YAHXZ=00406f30
 // @ref ?Debug_Printf@@YAXPBDZZ=004068f0
 // @ref ?AudioStreamerStop@@YIXPAX@Z=00407e60
@@ -14,8 +14,8 @@
 #include "shared/debug_printf.hpp"
 #include "shared/sound_available.hpp"
 
-extern char unknown_sound_enabled_a40c18;
-extern char unknown_flag_a40d0c;
+extern char ScoresPresent;
+extern char Debug_Quiet;
 void __fastcall AudioStreamerStop(void *sample);
 
 class ThemeClass {
@@ -31,7 +31,7 @@ public:
 
 void ThemeClass::Suspend()
 {
-    if (unknown_sound_enabled_a40c18 && AudioDeviceAvailable() && !unknown_flag_a40d0c && Current != -1) {
+    if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet && Current != -1) {
         Debug_Printf("Theme::Suspend(%d)\n", Playing);
         if (Sample != 0) {
             AudioStreamerStop(Sample);

@@ -77,6 +77,6 @@ public:
 };
 
 // The list of voxel animations (0x008399D0; defined by the unit at 0x0040EA30).
-extern DynamicVectorClass<VoxelAnimClass *> unknown_VoxelAnimClass_list_008399d0;
+extern DynamicVectorClass<VoxelAnimClass *> VoxelAnims;
 
 #endif

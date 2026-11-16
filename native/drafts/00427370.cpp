@@ -108,7 +108,7 @@ static inline RegularOpenNode *Native_Replace_Root(UnknownPathEstimatorBlock *bl
 #define CurrentCellHeight (*(int *)&unknown_30[0])
 #define DestCellHeight (*(int *)&unknown_30[4])
 
-extern int unknown_map_cell_side_84e804;
+extern int MapCellStride;
 
 PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, FootClass *foot, int *moves, int max_loops, bool with_hs)
 {
@@ -163,7 +163,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
     if (Avoidance != 0) {
         Apply_Path_Collision_Avoidance(foot);
     }
-    int start_index = from_ptr->MapCoords.X + unknown_map_cell_side_84e804 * from_ptr->MapCoords.Y;
+    int start_index = from_ptr->MapCoords.X + MapCellStride * from_ptr->MapCoords.Y;
     if (CurrentCellHeight > from_ptr->unknown_11b) {
         RegularBridgeVisited[start_index] = UniqueID;
         RegularBridgeMovementCosts[start_index] = 0;
@@ -192,7 +192,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
             int abs_diff = abs(facing_diff);
             if (abs_diff > 2 && abs_diff < 6 && face != 8) {
                 CellClass *&neighbor = from_pptr[_offsets[face]];
-                int neighbor_index = neighbor->MapCoords.X + unknown_map_cell_side_84e804 * neighbor->MapCoords.Y;
+                int neighbor_index = neighbor->MapCoords.X + MapCellStride * neighbor->MapCoords.Y;
                 if (CurrentCellHeight > neighbor->unknown_11b + 1) {
                     RegularBridgeVisited[neighbor_index] = UniqueID;
                     RegularBridgeMovementCosts[neighbor_index] = 0;
@@ -217,7 +217,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
         }
         Cell &from_id = working_from[0]->MapCoords;
         RegularOpenNode *temp_node = 0;
-        int from_index = from_id.X + unknown_map_cell_side_84e804 * from_id.Y;
+        int from_index = from_id.X + MapCellStride * from_id.Y;
 
         for (face = 0; face <= 8; face++) {
 
@@ -247,7 +247,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
             if (face != 8) {
                 node_index = from_index + AStarFacingToOffset[face];
             } else {
-                node_index = neighbor_cell->MapCoords.X + unknown_map_cell_side_84e804 * neighbor_cell->MapCoords.Y;
+                node_index = neighbor_cell->MapCoords.X + MapCellStride * neighbor_cell->MapCoords.Y;
             }
 
             bool base_level = !(neighbor_cell->unknown_140 & 0x100) || abs(CurrentCellHeight - neighbor_cell->unknown_11b) <= 1;

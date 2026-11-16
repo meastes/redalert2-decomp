@@ -14,8 +14,8 @@
 // @ref ?Map_Random_Fraction_00579770@@YANXZ=00579770
 // @ref ?Map_Random_Range_005797a0@@YIIII@Z=005797a0
 // @ref ?Is_Tile_Clear@CellClass@@QBE_NXZ=0047b590
-// @ref ?unknown_map_cell_side_84e804@@3HA=0084e804
-// @ref ?unknown_map_cells_a70a24@@3PAUUnknownMapGenerationCell@@A=00a70a24
+// @ref ?MapCellStride@@3HA=0084e804
+// @ref ?RMGCellData@@3PAUUnknownMapGenerationCell@@A=00a70a24
 // @ref ?RMGRandom@@3VRandom2Class@@A=00a705c0
 // @ref ?unknown_math_4ba520@@YANN@Z=004ba520
 // @ref ?unknown_math_4ba5b0@@YANN@Z=004ba5b0
@@ -46,9 +46,9 @@ int Cell::Equal_004fef20(Cell const &other) const
 unsigned __fastcall Map_Random_Range_005797a0(unsigned minimum,unsigned maximum);
 Cell __fastcall MapRegionClass::Pick_Random_Map_Cell()
 {
-    int gridSize=unknown_map_cell_side_84e804*unknown_map_cell_side_84e804;
+    int gridSize=MapCellStride*MapCellStride;
     unsigned index;
     do { index=Map_Random_Range_005797a0(0,gridSize-1); }
-    while((unsigned char)unknown_map_cells_a70a24[index].Position.Equal_004fef20(Cell(0,0)));
-    return unknown_map_cells_a70a24[index].Position;
+    while((unsigned char)RMGCellData[index].Position.Equal_004fef20(Cell(0,0)));
+    return RMGCellData[index].Position;
 }

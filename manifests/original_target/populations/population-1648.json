@@ -4,13 +4,13 @@
     "id": "population-1648",
     "inventory_sha256": "23dd071b6d36944599e3a6fa9db74160810e1b9d35c547615f8e684496d0ad1a",
     "gaps_sha256": "124924948b5aa736ae3044ec9c9208fe68d3a95b5396b111dbe13f52c244f716",
-    "historical_population_sha256": "5eb901daef00c9bfdc9e0bd4a89acb71f0e0fe3c508b856719fb091b7dce0d06",
-    "historical_acceptance_sha256": "30473d776f5ae6135e5e3bc33c21cefa487e1cf6d4c72a2898b4d2da9f09db2e",
+    "historical_population_sha256": "929941d58c73876c40f9c46edb1c18be29b624709a0cb0ad083b3472cbf49120",
+    "historical_acceptance_sha256": "f6c2d04838ba66a1af349031919a1121c32e1fea31358b92c92de462fa8ffeae",
     "separate_units": true
   },
   "references": {
     "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A": 11233256,
-    "?unknown_radar_event_word_ab67b8@@3HA": 11233208,
+    "?LastRadarEventCell@@3HA": 11233208,
     "__real@8@40078000000000000000": 7972608,
     "__real@8@40008000000000000000": 7972600,
     "__CIpow": 7872944,
@@ -3624,7 +3624,21 @@
     "??_E?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEPAXI@Z": 5040944,
     "??_E?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z": 7080144,
     "??_E?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z": 7524128,
-    "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320
+    "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
+    "??_G?$DynamicVectorClass@PAVBombClass@@@@UAEPAXI@Z": 4242208,
+    "??_G?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z": 4246048,
+    "??_G?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249376,
+    "??_G?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z": 4257488,
+    "??_G?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845312,
+    "??_7?$DynamicVectorClass@PBVTeamTypeClass@@@@6B@": 8007660,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "??_E?$DynamicVectorClass@PAVBombClass@@@@UAEPAXI@Z": 4242208,
+    "??_E?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z": 4246048,
+    "??_E?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249376,
+    "??_E?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z": 4257488,
+    "??_E?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845312
   },
   "regions": [
     {
@@ -3663,13 +3677,13 @@
         {
           "offset": 89,
           "kind": 6,
-          "symbol": "?unknown_radar_event_word_ab67b8@@3HA",
+          "symbol": "?LastRadarEventCell@@3HA",
           "target": 11233208,
           "addend": 0,
           "resolved": 11233208
         }
       ],
-      "source_sha256": "2f0bae2681c8b20fb15ddf7e8ce6c5f2fe5b4c166af621c9dfb304eb21b961b3",
+      "source_sha256": "1cdab61571c2de09d497d581e737d82f5769c551fbc57e18d8375ae6c4360ef2",
       "source": "src/recovered/classes/RadarEventClass/RadarEventClass_unknown_save_all.cpp",
       "population": "population-1648",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

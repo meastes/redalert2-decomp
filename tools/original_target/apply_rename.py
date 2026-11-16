@@ -832,25 +832,35 @@ def bind_changed(catalog, populations, files, config):
     from accept_sources import bind, header_parts, rtti_references, with_headers
     known = diff.known_references(catalog)
     audit = None
-    for pid in sorted(populations):
+    bound, rtti = {}, {}        # per source: a module's rows share one text (lane CB: a 350-rename batch spent
+    for pid in sorted(populations):     # ~30 minutes binding each row of map.cpp/mapgen.cpp again)
         rows = [r for r in catalog['regions'] if r['population'] == pid]
         if not rows:
             continue        # every row of the population left through `joins`
         table = rows[0]['references']
+        done = set()
         for row in rows:
             if row['source'] not in files:
                 continue
+            key = (row['source'], '/GR' in row['options'])
+            if key in done:
+                continue    # the same text adds the same bindings to this table (setdefault)
+            done.add(key)
             text = files[row['source']].decode('latin-1')
             for name, value in diff.SOURCE_REF.findall(text):
                 if table.setdefault(name, int(value, 16)) != int(value, 16):
                     raise SystemExit('%s: @ref %s differs from the accepted binding' % (row['source'], name))
-            for name, value in bind(header_parts(text), known).items():
+            if row['source'] not in bound:
+                bound[row['source']] = bind(header_parts(text), known)
+            for name, value in bound[row['source']].items():
                 table.setdefault(name, value)
             if '/GR' in row['options']:
                 if audit is None:
                     from verify_manifest import Audit
                     audit = Audit(REPOSITORY, config['executable'])
-                for name, value in rtti_references(with_headers(text), audit.original_type_descriptors()).items():
+                if row['source'] not in rtti:
+                    rtti[row['source']] = rtti_references(with_headers(text), audit.original_type_descriptors())
+                for name, value in rtti[row['source']].items():
                     table.setdefault(name, value)
 
 

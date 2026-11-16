@@ -115,7 +115,7 @@ extern Cell const unknown_foundation_outside_84f848[][30];
 // The cell height unit slot 31 scales Height by (0x00850298).
 // The cloak circle surface (0x008502A0; sized by the largest CloakRadiusInCells).
 class BSurface;
-extern BSurface *unknown_cloak_surface_8502a0;
+extern BSurface *CloakingSurface;
 // The power-off and repair shapes (0x008502A4, 0x008502A8).
 extern void const *unknown_poweroff_shape_8502a4;
 extern void const *unknown_wrench_shape_8502a8;

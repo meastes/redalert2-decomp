@@ -58,7 +58,7 @@ public:
     static TaskForceClass *__fastcall Find_By_Name(char const *name);   // 0x006B6BA0
     static void __fastcall Read_Scenario_INI(CCINIClass &ini, int is_global);    // 0x006B6BF0
     static void __fastcall Write_Scenario_INI(CCINIClass &ini, int is_global);   // 0x006B6D10
-    bool unknown_all_kind16_6b6f70() const;                         // 0x006B6F70 (every entry's type
+    bool Has_Only_Infantry() const;                         // 0x006B6F70 (every entry's type
                                                                     // has Kind_Of() == 16)
     static TaskForceClass *__fastcall Find_Or_Make(char const *name);   // 0x006B6FB0
     int Max_Tech_Level() const;                                     // 0x006B7140 (name hypothesis)

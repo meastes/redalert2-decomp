@@ -204,11 +204,11 @@ void IonBlastClass::AI()
 
             if (Map[Coord].IsUnderBridge) {
                 CoordStruct coord = CoordStruct(Coord.X, Coord.Y, unknown_geometry_j + Coord.Z);
-                Unknown_0047E2C0(coord, Rules->IonCannonDamage, 0, Rules->IonCannonWarhead, 1);
+                Explosion_Damage(coord, Rules->IonCannonDamage, 0, Rules->IonCannonWarhead, 1);
             }
 
-            Unknown_0047E2C0(Coord, Rules->IonCannonDamage, 0, Rules->IonCannonWarhead, 1);
-            Unknown_0047F600(Coord, Rules->IonCannonDamage, Rules->IonCannonWarhead, 0, 0);
+            Explosion_Damage(Coord, Rules->IonCannonDamage, 0, Rules->IonCannonWarhead, 1);
+            Combat_Lighting(Coord, Rules->IonCannonDamage, Rules->IonCannonWarhead, 0, 0);
         }
 
         Cell center(Coord);

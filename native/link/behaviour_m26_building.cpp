@@ -211,9 +211,9 @@ int BuildingClass::Do_MISSION_MISSILE()
             int distance = (int)unknown_sqrt_4ba410((double)(dx * dx + dy * dy));
 
             UnknownFacingDir pitch;
-            bool valid = Unknown_0047F8B0(Should_Use_High_Arc(0), speed, distance, dz, Rules->unknown_1320, &pitch);
+            bool valid = Calculate_Projectile_Pitch(Should_Use_High_Arc(0), speed, distance, dz, Rules->unknown_1320, &pitch);
             if (!valid) {
-                valid = Unknown_0047F8B0(Should_Use_High_Arc(0), speed * 10 / 8, distance, dz, Rules->unknown_1320, &pitch);
+                valid = Calculate_Projectile_Pitch(Should_Use_High_Arc(0), speed * 10 / 8, distance, dz, Rules->unknown_1320, &pitch);
                 if (!valid) {
                     pitch = UnknownFacingDir(0xFA00);
                     valid = true;

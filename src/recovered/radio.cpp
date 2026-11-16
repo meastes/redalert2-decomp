@@ -140,7 +140,7 @@ bool RadioClass::Limbo()
 
 int RadioClass::unknown_slot150(int message, TechnoClass *techno)
 {
-    return unknown_slot151(message, &unknown_radio_param_a40be0, techno);
+    return unknown_slot151(message, &LParam, techno);
 }
 
 
@@ -236,7 +236,7 @@ HRESULT __stdcall RadioClass::Save(IStream *stream, BOOL cleardirty)
 int RadioClass::unknown_slot149(int message)
 {
     if (RadioLinks[0] != 0) {
-        return unknown_slot151(message, &unknown_radio_param_a40be0, RadioLinks[0]);
+        return unknown_slot151(message, &LParam, RadioLinks[0]);
     }
     return 0;
 }
@@ -248,7 +248,7 @@ void RadioClass::SendToEachLink(int command)
 {
     for (int index = 0; index < RadioLinks.Length(); index++) {
         if (RadioLinks[index] != 0) {
-            unknown_slot151(command, &unknown_radio_param_a40be0, RadioLinks[index]);
+            unknown_slot151(command, &LParam, RadioLinks[index]);
         }
     }
 }

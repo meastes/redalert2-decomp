@@ -1093,8 +1093,8 @@ alignas(16) unsigned char ra2_orig_0314[16] __asm__("_unknown_color_7a7370");
 alignas(16) unsigned char ra2_orig_0315[16] __asm__("_unknown_color_7a7374");
 // row	_unknown_color_7a7378	0x007A7378	4	bytes	unknown_color_7a7378	src/recovered/classes/CChatEventSink/CChatEventSink_OnChannelTopic_007646a0.cpp
 alignas(16) unsigned char ra2_orig_0316[16] __asm__("_unknown_color_7a7378");
-// row	_unknown_color_7a737c	0x007A737C	4	bytes	unknown_color_7a737c	src/recovered/header_statics/0066acb0/HeaderStatics_empty_rect_init_0066acb0.cpp
-alignas(16) unsigned char ra2_orig_0317[16] __asm__("_unknown_color_7a737c");
+// row	_ColorMe	0x007A737C	4	bytes	ColorMe	src/recovered/header_statics/0066acb0/HeaderStatics_empty_rect_init_0066acb0.cpp
+alignas(16) unsigned char ra2_orig_0317[16] __asm__("_ColorMe");
 // row	_game_unavailable_color_007a7380	0x007A7380	8	bytes	game_unavailable_color_007a7380	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 alignas(16) unsigned char ra2_orig_0318[16] __asm__("_game_unavailable_color_007a7380");
 // row	_base_dispatch_005cd770	0x007A7388	32	bytes	base_dispatch_005cd770	src/recovered/word_storage/InitializeWordStorage_0046d1f0.cpp
@@ -1171,10 +1171,10 @@ __asm__(".globl _vtable_61bab0\n.set _vtable_61bab0, _base_dispatch_0061af90\n")
 __asm__(".globl _vtable_61bb00\n.set _vtable_61bb00, _base_dispatch_0061af90\n");
 // row	_array_extension_dispatch_00621fa0	0x007A8604	28	bytes	array_extension_dispatch_00621fa0	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0339[32] __asm__("_array_extension_dispatch_00621fa0");
-// row	_unknown_quarry_names_7a8620	0x007A8620	48	ptrs	unknown_quarry_names_7a8620	src/recovered/vqalib/drawer/UnVQ_Nop.cpp
+// row	_QuarryName	0x007A8620	48	ptrs	QuarryName	src/recovered/vqalib/drawer/UnVQ_Nop.cpp
 // row	_PTR_DAT_007a8620	0x007A8620	48	ptr	PTR_DAT_007a8620	src/recovered/004919b0.cpp
-alignas(16) unsigned char ra2_orig_0340[96] __asm__("_unknown_quarry_names_7a8620");
-__asm__(".globl _PTR_DAT_007a8620\n.set _PTR_DAT_007a8620, _unknown_quarry_names_7a8620\n");
+alignas(16) unsigned char ra2_orig_0340[96] __asm__("_QuarryName");
+__asm__(".globl _PTR_DAT_007a8620\n.set _PTR_DAT_007a8620, _QuarryName\n");
 // row	_vtable_635040	0x007A8824	28	bytes	vtable_635040	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 alignas(16) unsigned char ra2_orig_0341[32] __asm__("_vtable_635040");
 // row	_vtable_6365a0	0x007A887C	64	bytes	vtable_6365a0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
@@ -1359,8 +1359,8 @@ alignas(16) unsigned char ra2_orig_0393[16] __asm__("_title_width_threshold_007a
 alignas(16) unsigned char ra2_orig_0394[16] __asm__("_ScreenHeights");
 // row	__ZN9OwnerDraw14unknown_7add78E	0x007ADD78	4	bytes	OwnerDraw::unknown_7add78	src/recovered/classes/CNetUtilEventSink/Constructor.cpp
 alignas(16) unsigned char ra2_orig_0395[16] __asm__("__ZN9OwnerDraw14unknown_7add78E");
-// row	_unknown_int_7add84	0x007ADD84	60	bytes	unknown_int_7add84	src/recovered/header_statics/0059ede0/HeaderStatics_diagonal_init_0059ede0.cpp
-alignas(16) unsigned char ra2_orig_0396[64] __asm__("_unknown_int_7add84");
+// row	_TabBarHeight	0x007ADD84	60	bytes	TabBarHeight	src/recovered/header_statics/0059ede0/HeaderStatics_diagonal_init_0059ede0.cpp
+alignas(16) unsigned char ra2_orig_0396[64] __asm__("_TabBarHeight");
 // row	_unknown_units_section_7addc0	0x007ADDC0	12	ptr	unknown_units_section_7addc0	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0397[32] __asm__("_unknown_units_section_7addc0");
 // row	_vtable_70f3c0	0x007AE6EC	44	bytes	vtable_70f3c0	src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp
@@ -2133,8 +2133,8 @@ alignas(16) unsigned char ra2_orig_0731[16] __asm__("_DrawShapeShadows");
 alignas(16) unsigned char ra2_orig_0732[16] __asm__("_AllowVoice");
 // row	_BuildLevel	0x007D88D8	4	bytes	BuildLevel	src/recovered/header_statics/00497340/HeaderStatics_empty_rect_init_00497340.cpp
 alignas(16) unsigned char ra2_orig_0733[16] __asm__("_BuildLevel");
-// row	_unknown_loaded_theater_7d88dc	0x007D88DC	4	bytes	unknown_loaded_theater_7d88dc	src/recovered/header_statics/004b4690/HeaderStatics_diagonal_init_004b4690.cpp
-alignas(16) unsigned char ra2_orig_0734[16] __asm__("_unknown_loaded_theater_7d88dc");
+// row	_LastTheater	0x007D88DC	4	bytes	LastTheater	src/recovered/header_statics/004b4690/HeaderStatics_diagonal_init_004b4690.cpp
+alignas(16) unsigned char ra2_orig_0734[16] __asm__("_LastTheater");
 // row	_unknown_flag_007d88e0	0x007D88E0	32	bytes	unknown_flag_007d88e0	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0735[32] __asm__("_unknown_flag_007d88e0");
 // row	_game_version_007d8900	0x007D8900	4	bytes	game_version_007d8900	src/recovered/0070c480.cpp
@@ -2913,10 +2913,10 @@ alignas(16) unsigned char ra2_orig_0916[32] __asm__("_receiver_53c9d0");
 alignas(16) unsigned char ra2_orig_0917[16] __asm__("_unknown_detail_frame_rate_7dfb34");
 // row	_unknown_detail_buffer_zone_7dfb38	0x007DFB38	56	bytes	unknown_detail_buffer_zone_7dfb38	src/recovered/header_statics/0053d630/HeaderStatics_empty_rect_init_0053d630.cpp
 alignas(16) unsigned char ra2_orig_0918[64] __asm__("_unknown_detail_buffer_zone_7dfb38");
-// row	_unknown_scroll_rate_7dfb70	0x007DFB70	4	bytes	unknown_scroll_rate_7dfb70	src/recovered/unowned/UnknownRecord_constructor_006e7740.cpp
-alignas(16) unsigned char ra2_orig_0919[16] __asm__("_unknown_scroll_rate_7dfb70");
-// row	_unknown_scroll_factor_7dfb74	0x007DFB74	4	bytes	unknown_scroll_factor_7dfb74	src/recovered/unowned/UnknownRecord_constructor_006e7740.cpp
-alignas(16) unsigned char ra2_orig_0920[16] __asm__("_unknown_scroll_factor_7dfb74");
+// row	_ScrollSpeed	0x007DFB70	4	bytes	ScrollSpeed	src/recovered/unowned/UnknownRecord_constructor_006e7740.cpp
+alignas(16) unsigned char ra2_orig_0919[16] __asm__("_ScrollSpeed");
+// row	_ScrollBoost	0x007DFB74	4	bytes	ScrollBoost	src/recovered/unowned/UnknownRecord_constructor_006e7740.cpp
+alignas(16) unsigned char ra2_orig_0920[16] __asm__("_ScrollBoost");
 // row	_guest_label_7dfbfc	0x007DFBFC	24	bytes	guest_label_7dfbfc	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 // row	_wol_label_7dfbfc	0x007DFBFC	24	bytes	wol_label_7dfbfc	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 // row	_wol_reply_short_label_007dfbfc	0x007DFBFC	24	bytes	wol_reply_short_label_007dfbfc	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
@@ -2991,30 +2991,30 @@ alignas(16) unsigned char ra2_orig_0949[48] __asm__("_unknown_ramp_shapes_7e0ab4
 alignas(16) unsigned char ra2_orig_0950[16] __asm__("_unknown_selection_7e0adc");
 // row	_unknown_preview_flag_7e0ae0	0x007E0AE0	4	bytes	unknown_preview_flag_7e0ae0	src/recovered/header_statics/0056d2d0/HeaderStatics_diagonal_init_0056d2d0.cpp
 alignas(16) unsigned char ra2_orig_0951[16] __asm__("_unknown_preview_flag_7e0ae0");
-// row	_unknown_map_type_labels_7e0ae4	0x007E0AE4	20	ptrs	unknown_map_type_labels_7e0ae4	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
-alignas(16) unsigned char ra2_orig_0952[48] __asm__("_unknown_map_type_labels_7e0ae4");
-// row	_unknown_resource_labels_7e0af8	0x007E0AF8	24	ptrs	unknown_resource_labels_7e0af8	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
-alignas(16) unsigned char ra2_orig_0953[48] __asm__("_unknown_resource_labels_7e0af8");
-// row	_unknown_time_labels_7e0b10	0x007E0B10	16	ptrs	unknown_time_labels_7e0b10	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
-alignas(16) unsigned char ra2_orig_0954[32] __asm__("_unknown_time_labels_7e0b10");
-// row	_unknown_size_labels_7e0b20	0x007E0B20	16	ptrs	unknown_size_labels_7e0b20	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
-alignas(16) unsigned char ra2_orig_0955[32] __asm__("_unknown_size_labels_7e0b20");
-// row	_unknown_region_min_7e0b30	0x007E0B30	20	bytes	unknown_region_min_7e0b30	src/recovered/classes/MapSeedClass/Constructor.cpp
-alignas(16) unsigned char ra2_orig_0956[32] __asm__("_unknown_region_min_7e0b30");
-// row	_unknown_region_max_7e0b44	0x007E0B44	20	bytes	unknown_region_max_7e0b44	src/recovered/classes/MapSeedClass/Constructor.cpp
-alignas(16) unsigned char ra2_orig_0957[32] __asm__("_unknown_region_max_7e0b44");
-// row	_unknown_water_min_7e0b58	0x007E0B58	20	bytes	unknown_water_min_7e0b58	src/recovered/classes/MapSeedClass/Constructor.cpp
-alignas(16) unsigned char ra2_orig_0958[32] __asm__("_unknown_water_min_7e0b58");
-// row	_unknown_water_max_7e0b6c	0x007E0B6C	20	bytes	unknown_water_max_7e0b6c	src/recovered/classes/MapSeedClass/Constructor.cpp
-alignas(16) unsigned char ra2_orig_0959[32] __asm__("_unknown_water_max_7e0b6c");
-// row	_unknown_access_max_7e0b80	0x007E0B80	40	bytes	unknown_access_max_7e0b80	src/recovered/classes/MapSeedClass/Constructor.cpp
-alignas(16) unsigned char ra2_orig_0960[48] __asm__("_unknown_access_max_7e0b80");
-// row	_unknown_urban_max_7e0ba8	0x007E0BA8	20	bytes	unknown_urban_max_7e0ba8	src/recovered/classes/MapSeedClass/Constructor.cpp
-alignas(16) unsigned char ra2_orig_0961[32] __asm__("_unknown_urban_max_7e0ba8");
-// row	_unknown_rugged_min_7e0bbc	0x007E0BBC	20	bytes	unknown_rugged_min_7e0bbc	src/recovered/classes/MapSeedClass/Constructor.cpp
-alignas(16) unsigned char ra2_orig_0962[32] __asm__("_unknown_rugged_min_7e0bbc");
-// row	_unknown_rugged_max_7e0bd0	0x007E0BD0	24	bytes	unknown_rugged_max_7e0bd0	src/recovered/classes/MapSeedClass/Constructor.cpp
-alignas(16) unsigned char ra2_orig_0963[32] __asm__("_unknown_rugged_max_7e0bd0");
+// row	__map_type_names	0x007E0AE4	20	ptrs	_map_type_names	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
+alignas(16) unsigned char ra2_orig_0952[48] __asm__("__map_type_names");
+// row	__resource_names	0x007E0AF8	24	ptrs	_resource_names	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
+alignas(16) unsigned char ra2_orig_0953[48] __asm__("__resource_names");
+// row	__time_names	0x007E0B10	16	ptrs	_time_names	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
+alignas(16) unsigned char ra2_orig_0954[32] __asm__("__time_names");
+// row	__map_size_names	0x007E0B20	16	ptrs	_map_size_names	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
+alignas(16) unsigned char ra2_orig_0955[32] __asm__("__map_size_names");
+// row	__region_size_min	0x007E0B30	20	bytes	_region_size_min	src/recovered/classes/MapSeedClass/Constructor.cpp
+alignas(16) unsigned char ra2_orig_0956[32] __asm__("__region_size_min");
+// row	__region_size_max	0x007E0B44	20	bytes	_region_size_max	src/recovered/classes/MapSeedClass/Constructor.cpp
+alignas(16) unsigned char ra2_orig_0957[32] __asm__("__region_size_max");
+// row	__water_min	0x007E0B58	20	bytes	_water_min	src/recovered/classes/MapSeedClass/Constructor.cpp
+alignas(16) unsigned char ra2_orig_0958[32] __asm__("__water_min");
+// row	__water_max	0x007E0B6C	20	bytes	_water_max	src/recovered/classes/MapSeedClass/Constructor.cpp
+alignas(16) unsigned char ra2_orig_0959[32] __asm__("__water_max");
+// row	__access_max	0x007E0B80	40	bytes	_access_max	src/recovered/classes/MapSeedClass/Constructor.cpp
+alignas(16) unsigned char ra2_orig_0960[48] __asm__("__access_max");
+// row	__urban_max	0x007E0BA8	20	bytes	_urban_max	src/recovered/classes/MapSeedClass/Constructor.cpp
+alignas(16) unsigned char ra2_orig_0961[32] __asm__("__urban_max");
+// row	__rugged_min	0x007E0BBC	20	bytes	_rugged_min	src/recovered/classes/MapSeedClass/Constructor.cpp
+alignas(16) unsigned char ra2_orig_0962[32] __asm__("__rugged_min");
+// row	__rugged_max	0x007E0BD0	24	bytes	_rugged_max	src/recovered/classes/MapSeedClass/Constructor.cpp
+alignas(16) unsigned char ra2_orig_0963[32] __asm__("__rugged_max");
 // row	_unknown_urban_building_names_7e0be8	0x007E0BE8	72	ptrs	unknown_urban_building_names_7e0be8	src/recovered/header_statics/0056d2d0/HeaderStatics_diagonal_init_0056d2d0.cpp
 alignas(16) unsigned char ra2_orig_0964[144] __asm__("_unknown_urban_building_names_7e0be8");
 // row	_unknown_urban_unit_names_7e0c30	0x007E0C30	48	ptrs	unknown_urban_unit_names_7e0c30	src/recovered/header_statics/0056d2d0/HeaderStatics_diagonal_init_0056d2d0.cpp
@@ -3023,10 +3023,10 @@ alignas(16) unsigned char ra2_orig_0965[96] __asm__("_unknown_urban_unit_names_7
 alignas(16) unsigned char ra2_orig_0966[288] __asm__("_unknown_rural_building_names_7e0c60");
 // row	_unknown_rural_unit_names_7e0cf0	0x007E0CF0	756	ptrs	unknown_rural_unit_names_7e0cf0	src/recovered/header_statics/0056d2d0/HeaderStatics_diagonal_init_0056d2d0.cpp
 alignas(16) unsigned char ra2_orig_0967[1520] __asm__("_unknown_rural_unit_names_7e0cf0");
-// row	_unknown_road_library_7e0fe4	0x007E0FE4	128	ptrs	unknown_road_library_7e0fe4	src/recovered/header_statics/0056d2d0/HeaderStatics_diagonal_init_0056d2d0.cpp
-alignas(16) unsigned char ra2_orig_0968[256] __asm__("_unknown_road_library_7e0fe4");
-// row	_unknown_road_counts_7e1064	0x007E1064	1100	bytes	unknown_road_counts_7e1064	src/recovered/header_statics/0056d2d0/HeaderStatics_diagonal_init_0056d2d0.cpp
-alignas(16) unsigned char ra2_orig_0969[1104] __asm__("_unknown_road_counts_7e1064");
+// row	_RoadTileLibrary	0x007E0FE4	128	ptrs	RoadTileLibrary	src/recovered/header_statics/0056d2d0/HeaderStatics_diagonal_init_0056d2d0.cpp
+alignas(16) unsigned char ra2_orig_0968[256] __asm__("_RoadTileLibrary");
+// row	_RoadTileCounts	0x007E1064	1100	bytes	RoadTileCounts	src/recovered/header_statics/0056d2d0/HeaderStatics_diagonal_init_0056d2d0.cpp
+alignas(16) unsigned char ra2_orig_0969[1104] __asm__("_RoadTileCounts");
 // row	_unknown_description_label_7e14dc	0x007E14DC	28	bytes	unknown_description_label_7e14dc	src/recovered/header_statics/0056d2d0/HeaderStatics_diagonal_init_0056d2d0.cpp
 alignas(16) unsigned char ra2_orig_0970[32] __asm__("_unknown_description_label_7e14dc");
 // row	_argument_5796f0	0x007E14F8	20	bytes	argument_5796f0	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
@@ -3147,8 +3147,8 @@ alignas(16) unsigned char ra2_orig_1021[32] __asm__("_test_no_ping_debug_007e38a
 alignas(16) unsigned char ra2_orig_1022[32] __asm__("_start_text_007e38bc");
 // row	_unknown_mp_score_controls_7e5518	0x007E5518	160	bytes	unknown_mp_score_controls_7e5518	src/recovered/header_statics/005aa830/HeaderStatics_empty_rect_init_005aa830.cpp
 alignas(16) unsigned char ra2_orig_1023[160] __asm__("_unknown_mp_score_controls_7e5518");
-// row	_unknown_fade_flags_7e57f0	0x007E57F0	40	bytes	unknown_fade_flags_7e57f0	src/recovered/header_statics/00728c60/HeaderStatics_empty_rect_init_00728c60.cpp
-alignas(16) unsigned char ra2_orig_1024[48] __asm__("_unknown_fade_flags_7e57f0");
+// row	_FadeStages	0x007E57F0	40	bytes	FadeStages	src/recovered/header_statics/00728c60/HeaderStatics_empty_rect_init_00728c60.cpp
+alignas(16) unsigned char ra2_orig_1024[48] __asm__("_FadeStages");
 // row	_wol_wide_newline_7e58ec	0x007E58EC	4	bytes	wol_wide_newline_7e58ec	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 alignas(16) unsigned char ra2_orig_1025[16] __asm__("_wol_wide_newline_7e58ec");
 // row	_unknown_prefix_separator_7e5e0c	0x007E5E0C	4	bytes	unknown_prefix_separator_7e5e0c	src/recovered/classes/MessageListClass/MessageListClass_Reset_005b4c40.cpp
@@ -3192,19 +3192,19 @@ alignas(16) unsigned char ra2_orig_1044[16] __asm__("_guest_label_7e6d74");
 // row	_unknown_lobby_flag_7e6d90	0x007E6D90	4	bytes	unknown_lobby_flag_7e6d90	src/recovered/classes/TauntCommandClass/Execute.cpp
 alignas(16) unsigned char ra2_orig_1045[16] __asm__("_unknown_lobby_flag_7e6d90");
 // row	_player_list_colors_007e6d94	0x007E6D94	36	bytes	player_list_colors_007e6d94	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-// row	_unknown_color_values_7e6d94	0x007E6D94	36	bytes	unknown_color_values_7e6d94	src/recovered/header_statics/0066acb0/HeaderStatics_empty_rect_init_0066acb0.cpp
+// row	_PlayerColorTable	0x007E6D94	36	bytes	PlayerColorTable	src/recovered/header_statics/0066acb0/HeaderStatics_empty_rect_init_0066acb0.cpp
 alignas(16) unsigned char ra2_orig_1046[48] __asm__("_player_list_colors_007e6d94");
-__asm__(".globl _unknown_color_values_7e6d94\n.set _unknown_color_values_7e6d94, _player_list_colors_007e6d94\n");
+__asm__(".globl _PlayerColorTable\n.set _PlayerColorTable, _player_list_colors_007e6d94\n");
 // row	_unknown_host_image_7e6db8	0x007E6DB8	4	ptr	unknown_host_image_7e6db8	src/recovered/unowned/Unknown_Slot_Names_005c8cf0.cpp
 alignas(16) unsigned char ra2_orig_1047[16] __asm__("_unknown_host_image_7e6db8");
 // row	_unknown_accept_image_7e6dbc	0x007E6DBC	4	ptr	unknown_accept_image_7e6dbc	src/recovered/unowned/Unknown_Slot_Names_005c8cf0.cpp
 alignas(16) unsigned char ra2_orig_1048[16] __asm__("_unknown_accept_image_7e6dbc");
 // row	_host_scenario_enabled_7e6dc0	0x007E6DC0	4	bytes	host_scenario_enabled_7e6dc0	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 // row	_IsRandomMap	0x007E6DC0	4	bytes	IsRandomMap	src/recovered/header_statics/00598c20/HeaderStatics_empty_rect_init_00598c20.cpp
-// row	_unknown_random_preview_7e6dc0	0x007E6DC0	4	bytes	unknown_random_preview_7e6dc0	
+// row	_IsRandomMap	0x007E6DC0	4	bytes	IsRandomMap	
 alignas(16) unsigned char ra2_orig_1049[16] __asm__("_host_scenario_enabled_7e6dc0");
 __asm__(".globl _IsRandomMap\n.set _IsRandomMap, _host_scenario_enabled_7e6dc0\n");
-__asm__(".globl _unknown_random_preview_7e6dc0\n.set _unknown_random_preview_7e6dc0, _host_scenario_enabled_7e6dc0\n");
+__asm__(".globl _IsRandomMap\n.set _IsRandomMap, _host_scenario_enabled_7e6dc0\n");
 // row	_unknown_sent_speed_7e6dc4	0x007E6DC4	4	bytes	unknown_sent_speed_7e6dc4	src/recovered/x_005c29b0.cpp
 alignas(16) unsigned char ra2_orig_1050[16] __asm__("_unknown_sent_speed_7e6dc4");
 // row	_unknown_sent_24_7e6dc8	0x007E6DC8	4	bytes	unknown_sent_24_7e6dc8	src/recovered/x_005c29b0.cpp
@@ -3367,8 +3367,8 @@ alignas(16) unsigned char ra2_orig_1115[32] __asm__("_unknown_kick_buttons_7ec3f
 alignas(16) unsigned char ra2_orig_1116[32] __asm__("_unknown_timing_bars_7ec418");
 // row	_unknown_queue_timeouts_7ec438	0x007EC438	96	bytes	unknown_queue_timeouts_7ec438	src/recovered/header_statics/00622fb0/HeaderStatics_diagonal_init_00622fb0.cpp
 alignas(16) unsigned char ra2_orig_1117[96] __asm__("_unknown_queue_timeouts_7ec438");
-// row	_unknown_time_7ec498	0x007EC498	28	bytes	unknown_time_7ec498	src/recovered/unowned/UnknownRecord_constructor_006e7740.cpp
-alignas(16) unsigned char ra2_orig_1118[32] __asm__("_unknown_time_7ec498");
+// row	_DebugTime	0x007EC498	28	bytes	DebugTime	src/recovered/unowned/UnknownRecord_constructor_006e7740.cpp
+alignas(16) unsigned char ra2_orig_1118[32] __asm__("_DebugTime");
 // row	_start_text_007ec57c	0x007EC57C	28	bytes	start_text_007ec57c	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 alignas(16) unsigned char ra2_orig_1119[32] __asm__("_start_text_007ec57c");
 // row	_queue_cache_debug_007ecbcc	0x007ECBCC	64	bytes	queue_cache_debug_007ecbcc	src/recovered/header_statics/00622fb0/HeaderStatics_diagonal_init_00622fb0.cpp
@@ -3417,8 +3417,8 @@ alignas(16) unsigned char ra2_orig_1140[16] __asm__("_Restate_Section_Entry_007e
 alignas(16) unsigned char ra2_orig_1141[16] __asm__("_unknown_rocket_takeoff_anim_7ee804");
 // row	_unknown_rocket_trail_anim_7ee808	0x007EE808	60	ptr	unknown_rocket_trail_anim_7ee808	src/recovered/header_statics/0063d8d0/HeaderStatics_diagonal_init_0063d8d0.cpp
 alignas(16) unsigned char ra2_orig_1142[128] __asm__("_unknown_rocket_trail_anim_7ee808");
-// row	_unknown_savegame_version_7f1b18	0x007F1B18	4	bytes	unknown_savegame_version_7f1b18	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
-alignas(16) unsigned char ra2_orig_1143[16] __asm__("_unknown_savegame_version_7f1b18");
+// row	_ExpectedGameVersion	0x007F1B18	4	bytes	ExpectedGameVersion	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
+alignas(16) unsigned char ra2_orig_1143[16] __asm__("_ExpectedGameVersion");
 // row	_unknown_uuid_ILinkStream_7f1b50	0x007F1B50	16	bytes	unknown_uuid_ILinkStream_7f1b50	src/recovered/header_statics/00654a50/HeaderStatics_empty_rect_init_00654a50.cpp
 alignas(16) unsigned char ra2_orig_1144[16] __asm__("_unknown_uuid_ILinkStream_7f1b50");
 // row	_unknown_savegame_streams_7f1c10	0x007F1C10	104	rec:4p	unknown_savegame_streams_7f1c10	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
@@ -3429,18 +3429,18 @@ alignas(16) unsigned char ra2_orig_1146[16] __asm__("_unknown_saved_volume_7f1de
 alignas(16) unsigned char ra2_orig_1147[32] __asm__("_wol_broadcast_address_debug_7f1f94");
 // row	_session_official	0x007F21D0	12	bytes	session_official	src/recovered/header_statics/0066e0a0/HeaderStatics_empty_rect_init_0066e0a0.cpp
 alignas(16) unsigned char ra2_orig_1148[16] __asm__("_session_official");
-// row	_unknown_table_7f264c	0x007F264C	356	bytes	unknown_table_7f264c	src/recovered/004b3580.cpp
-alignas(16) unsigned char ra2_orig_1149[368] __asm__("_unknown_table_7f264c");
+// row	__indexes	0x007F264C	356	bytes	_indexes	src/recovered/004b3580.cpp
+alignas(16) unsigned char ra2_orig_1149[368] __asm__("__indexes");
 // row	_unknown_port_names_7f305c	0x007F305C	20	ptrs	unknown_port_names_7f305c	src/recovered/header_statics/0066c880/HeaderStatics_empty_rect_init_0066c880.cpp
 alignas(16) unsigned char ra2_orig_1150[48] __asm__("_unknown_port_names_7f305c");
-// row	_unknown_baud_names_7f3070	0x007F3070	100	ptrs	unknown_baud_names_7f3070	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
-alignas(16) unsigned char ra2_orig_1151[208] __asm__("_unknown_baud_names_7f3070");
+// row	_baudname	0x007F3070	100	ptrs	baudname	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
+alignas(16) unsigned char ra2_orig_1151[208] __asm__("_baudname");
 // row	_unknown_dial_methods_7f320c	0x007F320C	8	ptrs	unknown_dial_methods_7f320c	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_1152[16] __asm__("_unknown_dial_methods_7f320c");
 // row	_unknown_color_schemes_7f3224	0x007F3224	12	bytes	unknown_color_schemes_7f3224	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_1153[16] __asm__("_unknown_color_schemes_7f3224");
-// row	_unknown_game_speed_7f3230	0x007F3230	56	bytes	unknown_game_speed_7f3230	src/recovered/004b3580.cpp
-alignas(16) unsigned char ra2_orig_1154[64] __asm__("_unknown_game_speed_7f3230");
+// row	_SavedGameSpeed	0x007F3230	56	bytes	SavedGameSpeed	src/recovered/004b3580.cpp
+alignas(16) unsigned char ra2_orig_1154[64] __asm__("_SavedGameSpeed");
 // row	_session_record_bin	0x007F33BC	12	bytes	session_record_bin	src/recovered/header_statics/0066e0a0/HeaderStatics_empty_rect_init_0066e0a0.cpp
 alignas(16) unsigned char ra2_orig_1155[16] __asm__("_session_record_bin");
 // row	_session_source_file	0x007F33C8	20	bytes	session_source_file	src/recovered/header_statics/0066e0a0/HeaderStatics_empty_rect_init_0066e0a0.cpp
@@ -3755,24 +3755,24 @@ alignas(16) unsigned char ra2_orig_1304[16] __asm__("_DefaultType");
 alignas(16) unsigned char ra2_orig_1305[16] __asm__("_DefaultRange");
 // row	_DefaultLimit	0x007F9A80	108	bytes	DefaultLimit	src/recovered/rules/unknown_art_ini_unique_id.cpp
 alignas(16) unsigned char ra2_orig_1306[112] __asm__("_DefaultLimit");
-// row	_unknown_vox_volume_7f9bd4	0x007F9BD4	104	bytes	unknown_vox_volume_7f9bd4	src/recovered/header_statics/00715480/HeaderStatics_diagonal_init_00715480.cpp
-alignas(16) unsigned char ra2_orig_1307[112] __asm__("_unknown_vox_volume_7f9bd4");
+// row	_SpeechVolume	0x007F9BD4	104	bytes	SpeechVolume	src/recovered/header_statics/00715480/HeaderStatics_diagonal_init_00715480.cpp
+alignas(16) unsigned char ra2_orig_1307[112] __asm__("_SpeechVolume");
 // row	_ExtraLightTiltAngles	0x007F9D84	24	bytes	ExtraLightTiltAngles	src/recovered/header_statics/00717ce0/HeaderStatics_diagonal_init_00717ce0.cpp
 alignas(16) unsigned char ra2_orig_1308[32] __asm__("_ExtraLightTiltAngles");
 // row	_SomeNumbers	0x007F9D9C	68	bytes	SomeNumbers	src/recovered/vqalib/drawer/UnVQ_Nop.cpp
 alignas(16) unsigned char ra2_orig_1309[80] __asm__("_SomeNumbers");
-// row	_unknown_views_7f9e60	0x007F9E60	288	bytes	unknown_views_7f9e60	src/recovered/header_statics/0041baa0/HeaderStatics_diagonal_init_0041baa0.cpp
-alignas(16) unsigned char ra2_orig_1310[288] __asm__("_unknown_views_7f9e60");
-// row	_unknown_normal_tables_7f9f80	0x007F9F80	20	ptrs	unknown_normal_tables_7f9f80	src/recovered/header_statics/00719040/HeaderStatics_static_rect_init_00719040.cpp
-alignas(16) unsigned char ra2_orig_1311[48] __asm__("_unknown_normal_tables_7f9f80");
+// row	_VoxelRenderOrientations	0x007F9E60	288	bytes	VoxelRenderOrientations	src/recovered/header_statics/0041baa0/HeaderStatics_diagonal_init_0041baa0.cpp
+alignas(16) unsigned char ra2_orig_1310[288] __asm__("_VoxelRenderOrientations");
+// row	_VoxelNormalTables	0x007F9F80	20	ptrs	VoxelNormalTables	src/recovered/header_statics/00719040/HeaderStatics_static_rect_init_00719040.cpp
+alignas(16) unsigned char ra2_orig_1311[48] __asm__("_VoxelNormalTables");
 // row	_VoxelNormalTableEntryCount	0x007F9F94	4456	bytes	VoxelNormalTableEntryCount	src/recovered/header_statics/00719040/HeaderStatics_static_rect_init_00719040.cpp
 alignas(16) unsigned char ra2_orig_1312[4464] __asm__("_VoxelNormalTableEntryCount");
 // row	_unknown_table_7fbb78	0x007FBB78	132	bytes	unknown_table_7fbb78	src/recovered/classes/ThemeClass/Suspend.cpp
 alignas(16) unsigned char ra2_orig_1313[144] __asm__("_unknown_table_7fbb78");
-// row	_unknown_flag_7fbd04	0x007FBD04	1	bytes	unknown_flag_7fbd04	src/recovered/queue/unknown_reset_globals.cpp
-alignas(16) unsigned char ra2_orig_1314[16] __asm__("_unknown_flag_7fbd04");
-// row	_unknown_flag_7fbd05	0x007FBD05	515	bytes	unknown_flag_7fbd05	src/recovered/header_statics/007683b0/HeaderStatics_empty_rect_init_007683b0.cpp
-alignas(16) unsigned char ra2_orig_1315[528] __asm__("_unknown_flag_7fbd05");
+// row	_FrameAdvanceDraws	0x007FBD04	1	bytes	FrameAdvanceDraws	src/recovered/queue/unknown_reset_globals.cpp
+alignas(16) unsigned char ra2_orig_1314[16] __asm__("_FrameAdvanceDraws");
+// row	_FrameRedrawDraws	0x007FBD05	515	bytes	FrameRedrawDraws	src/recovered/header_statics/007683b0/HeaderStatics_empty_rect_init_007683b0.cpp
+alignas(16) unsigned char ra2_orig_1315[528] __asm__("_FrameRedrawDraws");
 // row	_wdt_map_ini_007fc34c	0x007FC34C	96	bytes	wdt_map_ini_007fc34c	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 alignas(16) unsigned char ra2_orig_1316[96] __asm__("_wdt_map_ini_007fc34c");
 // row	_s_Closing_serial_port_007fca0c	0x007FCA0C	24	bytes	s_Closing_serial_port_007fca0c	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_AddRef_00691560.cpp
@@ -4565,20 +4565,20 @@ alignas(16) unsigned char ra2_orig_1685[16] __asm__("__ZN21WinsockInterfaceClass
 alignas(16) unsigned char ra2_orig_1686[16] __asm__("__ZN21WinsockInterfaceClass16SocketSendBufferE");
 // row	__ZN21WinsockInterfaceClass19SocketReceiveBufferE	0x00800AC0	4	bytes	WinsockInterfaceClass::SocketReceiveBuffer	src/recovered/header_statics/00769ea0/HeaderStatics_diagonal_init_00769ea0.cpp
 alignas(16) unsigned char ra2_orig_1687[16] __asm__("__ZN21WinsockInterfaceClass19SocketReceiveBufferE");
-// row	_unknown_cpu_family_8015a3	0x008015A3	1	bytes	unknown_cpu_family_8015a3	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
-alignas(16) unsigned char ra2_orig_1688[16] __asm__("_unknown_cpu_family_8015a3");
+// row	_CPUType	0x008015A3	1	bytes	CPUType	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
+alignas(16) unsigned char ra2_orig_1688[16] __asm__("_CPUType");
 // row	_unknown_cpu_model_8015a4	0x008015A4	1	bytes	unknown_cpu_model_8015a4	src/recovered/unowned/Get_CPU_Info_004d2a20.cpp
 alignas(16) unsigned char ra2_orig_1689[16] __asm__("_unknown_cpu_model_8015a4");
-// row	_unknown_cpu_text_8015a5	0x008015A5	2079	bytes	unknown_cpu_text_8015a5	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
-alignas(16) unsigned char ra2_orig_1690[2080] __asm__("_unknown_cpu_text_8015a5");
-// row	_unknown_undo_rows_8286e0	0x008286E0	4	bytes	unknown_undo_rows_8286e0	src/recovered/header_statics/00684d50/HeaderStatics_diagonal_init_00684d50.cpp
-alignas(16) unsigned char ra2_orig_1691[16] __asm__("_unknown_undo_rows_8286e0");
-// row	_unknown_undo_width_8286e4	0x008286E4	4	bytes	unknown_undo_width_8286e4	src/recovered/header_statics/00684d50/HeaderStatics_diagonal_init_00684d50.cpp
-alignas(16) unsigned char ra2_orig_1692[16] __asm__("_unknown_undo_width_8286e4");
-// row	_unknown_undo_x_8286e8	0x008286E8	4	bytes	unknown_undo_x_8286e8	src/recovered/header_statics/00684d50/HeaderStatics_diagonal_init_00684d50.cpp
-alignas(16) unsigned char ra2_orig_1693[16] __asm__("_unknown_undo_x_8286e8");
-// row	_unknown_undo_y_8286ec	0x008286EC	25868	bytes	unknown_undo_y_8286ec	src/recovered/header_statics/00684d50/HeaderStatics_diagonal_init_00684d50.cpp
-alignas(16) unsigned char ra2_orig_1694[25872] __asm__("_unknown_undo_y_8286ec");
+// row	_VendorID	0x008015A5	2079	bytes	VendorID	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
+alignas(16) unsigned char ra2_orig_1690[2080] __asm__("_VendorID");
+// row	_DeformPointHeight	0x008286E0	4	bytes	DeformPointHeight	src/recovered/header_statics/00684d50/HeaderStatics_diagonal_init_00684d50.cpp
+alignas(16) unsigned char ra2_orig_1691[16] __asm__("_DeformPointHeight");
+// row	_DeformPointWidth	0x008286E4	4	bytes	DeformPointWidth	src/recovered/header_statics/00684d50/HeaderStatics_diagonal_init_00684d50.cpp
+alignas(16) unsigned char ra2_orig_1692[16] __asm__("_DeformPointWidth");
+// row	_DeformPointXAdd	0x008286E8	4	bytes	DeformPointXAdd	src/recovered/header_statics/00684d50/HeaderStatics_diagonal_init_00684d50.cpp
+alignas(16) unsigned char ra2_orig_1693[16] __asm__("_DeformPointXAdd");
+// row	_DeformPointYAdd	0x008286EC	25868	bytes	DeformPointYAdd	src/recovered/header_statics/00684d50/HeaderStatics_diagonal_init_00684d50.cpp
+alignas(16) unsigned char ra2_orig_1694[25872] __asm__("_DeformPointYAdd");
 // row	_Audio_unknown_830b48	0x00830B48	4	bytes	Audio_unknown_830b48	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
 alignas(16) unsigned char ra2_orig_1695[16] __asm__("_Audio_unknown_830b48");
 // row	_Audio_Initialized	0x00830B4C	4	bytes	Audio_Initialized	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
@@ -4732,7 +4732,7 @@ extern "C" unsigned char ra2_place_1822[] __asm__("_exit_cell_none_0084ed10");
 extern "C" unsigned char ra2_place_1823[] __asm__("_Building_Radio_No_Coord_0084ed30");
 extern "C" unsigned char ra2_place_1824[] __asm__("_unknown_shape_empty_rect_84ed88");
 extern "C" unsigned char ra2_place_1825[] __asm__("_unknown_building_depth_shape_85029c");
-extern "C" unsigned char ra2_place_1826[] __asm__("_unknown_cloak_surface_8502a0");
+extern "C" unsigned char ra2_place_1826[] __asm__("_CloakingSurface");
 extern "C" unsigned char ra2_place_1827[] __asm__("_unknown_poweroff_shape_8502a4");
 extern "C" unsigned char ra2_place_1828[] __asm__("_unknown_wrench_shape_8502a8");
 extern "C" unsigned char ra2_place_1829[] __asm__("_bullet_bridge_height");
@@ -4765,7 +4765,7 @@ extern "C" unsigned char ra2_place_1855[] __asm__("_unknown_campaign_buffer_0085
 extern "C" unsigned char ra2_place_1856[] __asm__("_grand_south_step_00851a80");
 extern "C" unsigned char ra2_place_1857[] __asm__("_unknown_unload_offset_851a88");
 extern "C" unsigned char ra2_place_1858[] __asm__("_launcher_message_00851b3c");
-extern "C" unsigned char ra2_place_1859[] __asm__("_unknown_instance_00851ca8");
+extern "C" unsigned char ra2_place_1859[] __asm__("_LanguageResources");
 extern "C" unsigned char ra2_place_1860[] __asm__("_WindowedMode");
 extern "C" unsigned char ra2_place_1861[] __asm__("_unknown_palette_00851cc8");
 extern "C" unsigned char ra2_place_1862[] __asm__("_unknown_palette_00851fc8");
@@ -4841,26 +4841,26 @@ extern "C" unsigned char ra2_place_1931[] __asm__("_unknown_lobby_players_00a3fa
 extern "C" unsigned char ra2_place_1932[] __asm__("_unknown_forward_address_a3fbac");
 extern "C" unsigned char ra2_place_1933[] __asm__("_unknown_forward_address_a3fbb8");
 extern "C" unsigned char ra2_place_1934[] __asm__("_unknown_address_a3fbc8");
-extern "C" unsigned char ra2_place_1935[] __asm__("_unknown_spare_ticks_a4031c");
+extern "C" unsigned char ra2_place_1935[] __asm__("_SpareTicks");
 extern "C" unsigned char ra2_place_1936[] __asm__("_TacticalActive");
 extern "C" unsigned char ra2_place_1937[] __asm__("_unknown_a40770");
 extern "C" unsigned char ra2_place_1938[] __asm__("_ScenarioInit");
 extern "C" unsigned char ra2_place_1939[] __asm__("_unknown_special_a40920");
 extern "C" unsigned char ra2_place_1940[] __asm__("_GameActive_00a40958");
 extern "C" unsigned char ra2_place_1941[] __asm__("_unknown_placing_a40b32");
-extern "C" unsigned char ra2_place_1942[] __asm__("_unknown_radio_param_a40be0");
+extern "C" unsigned char ra2_place_1942[] __asm__("_LParam");
 extern "C" unsigned char ra2_place_1943[] __asm__("_unknown_target_scan_a40be4");
-extern "C" unsigned char ra2_place_1944[] __asm__("_unknown_sound_enabled_a40c18");
+extern "C" unsigned char ra2_place_1944[] __asm__("_ScoresPresent");
 extern "C" unsigned char ra2_place_1945[] __asm__("_unknown_a40c38");
 extern "C" unsigned char ra2_place_1946[] __asm__("_player_loses_a40c78");
 extern "C" unsigned char ra2_place_1947[] __asm__("_ScenarioActive");
-extern "C" unsigned char ra2_place_1948[] __asm__("_unknown_flag_a40d05");
+extern "C" unsigned char ra2_place_1948[] __asm__("_Debug_ForceScenario");
 extern "C" unsigned char ra2_place_1949[] __asm__("_Debug_MotionCapture");
 extern "C" unsigned char ra2_place_1950[] __asm__("_Debug_IngameModeChange");
-extern "C" unsigned char ra2_place_1951[] __asm__("_unknown_flag_a40d0c");
+extern "C" unsigned char ra2_place_1951[] __asm__("_Debug_Quiet");
 extern "C" unsigned char ra2_place_1952[] __asm__("_unknown_flag_a40d10");
 extern "C" unsigned char ra2_place_1953[] __asm__("_Debug_Map");
-extern "C" unsigned char ra2_place_1954[] __asm__("_unknown_trap_check_heap_a40d1a");
+extern "C" unsigned char ra2_place_1954[] __asm__("_Debug_Trap_Check_Heap");
 extern "C" unsigned char ra2_place_1955[] __asm__("_unknown_debug_print_events_a40d1c");
 extern "C" unsigned char ra2_place_1956[] __asm__("_GasSystem");
 extern "C" unsigned char ra2_place_1957[] __asm__("_NewINIFormat");
@@ -4872,9 +4872,9 @@ extern "C" unsigned char ra2_place_1962[] __asm__("_Seed");
 extern "C" unsigned char ra2_place_1963[] __asm__("_CustomSeed");
 extern "C" unsigned char ra2_place_1964[] __asm__("_IgnoreInput");
 extern "C" unsigned char ra2_place_1965[] __asm__("_drag_select_aborted");
-extern "C" unsigned char ra2_place_1966[] __asm__("_unknown_int_a40d48");
+extern "C" unsigned char ra2_place_1966[] __asm__("_SpecialDialog");
 extern "C" unsigned char ra2_place_1967[] __asm__("_ReadyToQuit");
-extern "C" unsigned char ra2_place_1968[] __asm__("_unknown_flag_a40d84");
+extern "C" unsigned char ra2_place_1968[] __asm__("_GameControlsShown");
 extern "C" unsigned char ra2_place_1969[] __asm__("__ZN12GScreenClass7ButtonsE");
 extern "C" unsigned char ra2_place_1970[] __asm__("_unknown_cell_a40f10");
 extern "C" unsigned char ra2_place_1971[] __asm__("_unknown_coord_a40f48");
@@ -4903,7 +4903,7 @@ extern "C" unsigned char ra2_place_1993[] __asm__("_unknown_pressed_a41690");
 extern "C" unsigned char ra2_place_1994[] __asm__("_unknown_a41698");
 extern "C" unsigned char ra2_place_1995[] __asm__("_unknown_cheat_text_a4169c");
 extern "C" unsigned char ra2_place_1996[] __asm__("_CursorCheat");
-extern "C" unsigned char ra2_place_1997[] __asm__("_unknown_flag_a417c8");
+extern "C" unsigned char ra2_place_1997[] __asm__("_GameStatisticsPacketSent");
 extern "C" unsigned char ra2_place_1998[] __asm__("_StormActive");
 extern "C" unsigned char ra2_place_1999[] __asm__("_StormDeferment");
 extern "C" unsigned char ra2_place_2000[] __asm__("_nuke_flash_state_00a5193c");
@@ -5017,18 +5017,18 @@ extern "C" unsigned char ra2_place_2107[] __asm__("_IsometricTileTypeClass_CellS
 extern "C" unsigned char ra2_place_2108[] __asm__("_TileSetLookupCount");
 extern "C" unsigned char ra2_place_2109[] __asm__("_unknown_load_progress_a6e7c4");
 extern "C" unsigned char ra2_place_2110[] __asm__("_COMReferences_00a6eb14");
-extern "C" unsigned char ra2_place_2111[] __asm__("_unknown_frames_this_second_a6eb18");
+extern "C" unsigned char ra2_place_2111[] __asm__("_FramesThisSecond");
 extern "C" unsigned char ra2_place_2112[] __asm__("_unknown_a6eb1c");
 extern "C" unsigned char ra2_place_2113[] __asm__("_accumulated_fps_00a6eb20");
 extern "C" unsigned char ra2_place_2114[] __asm__("_fps_sample_count_00a6eb24");
 extern "C" unsigned char ra2_place_2115[] __asm__("_unknown_detail_reduced_a6eb28");
-extern "C" unsigned char ra2_place_2116[] __asm__("_unknown_main_loop_flag_a6eb30");
-extern "C" unsigned char ra2_place_2117[] __asm__("_unknown_team_event_a6ebc4");
+extern "C" unsigned char ra2_place_2116[] __asm__("_InMainLoop");
+extern "C" unsigned char ra2_place_2117[] __asm__("_TeamEvent");
 extern "C" unsigned char ra2_place_2118[] __asm__("_unknown_team_number_a6ebc8");
-extern "C" unsigned char ra2_place_2119[] __asm__("_unknown_net_frame_delay_a6ebcc");
+extern "C" unsigned char ra2_place_2119[] __asm__("_LastNetFrameTimer");
 extern "C" unsigned char ra2_place_2120[] __asm__("_unknown_flag_a6ebd0");
-extern "C" unsigned char ra2_place_2121[] __asm__("_unknown_scroll_keys_a6ebdc");
-extern "C" unsigned char ra2_place_2122[] __asm__("_unknown_chat_target_a6ebe0");
+extern "C" unsigned char ra2_place_2121[] __asm__("_ScrollKeys");
+extern "C" unsigned char ra2_place_2122[] __asm__("_ChatTarget");
 extern "C" unsigned char ra2_place_2123[] __asm__("_unknown_cell_a6f238");
 extern "C" unsigned char ra2_place_2124[] __asm__("_unknown_shore_offsets_a6f91c");
 extern "C" unsigned char ra2_place_2125[] __asm__("_unknown_int_a6fa2c");
@@ -5040,8 +5040,8 @@ extern "C" unsigned char ra2_place_2130[] __asm__("_unknown_map_min_a70a1c");
 extern "C" unsigned char ra2_place_2131[] __asm__("_unknown_map_max_a70a20");
 extern "C" unsigned char ra2_place_2132[] __asm__("_map_generation_cells_00a70a24");
 extern "C" unsigned char ra2_place_2133[] __asm__("_unknown_map_region_next_index_a70a28");
-extern "C" unsigned char ra2_place_2134[] __asm__("_unknown_access_min_a70a2c");
-extern "C" unsigned char ra2_place_2135[] __asm__("_unknown_urban_min_a70a54");
+extern "C" unsigned char ra2_place_2134[] __asm__("__access_min");
+extern "C" unsigned char ra2_place_2135[] __asm__("__urban_min");
 extern "C" unsigned char ra2_place_2136[] __asm__("__ModemHost");
 extern "C" unsigned char ra2_place_2137[] __asm__("_unknown_mono_text_color_a70de8");
 extern "C" unsigned char ra2_place_2138[] __asm__("_mono_test_streams_a70dec");
@@ -5204,7 +5204,7 @@ extern "C" unsigned char ra2_place_2294[] __asm__("_unknown_mouse_x_a76b70");
 extern "C" unsigned char ra2_place_2295[] __asm__("_unknown_sync_counts_a76b74");
 extern "C" unsigned char ra2_place_2296[] __asm__("_GameCRC");
 extern "C" unsigned char ra2_place_2297[] __asm__("_unknown_mouse_y_a76c78");
-extern "C" unsigned char ra2_place_2298[] __asm__("_unknown_response_times_a76c88");
+extern "C" unsigned char ra2_place_2298[] __asm__("_RouterResponseTimes");
 extern "C" unsigned char ra2_place_2299[] __asm__("_unknown_megamission_lists_a76ca8");
 extern "C" unsigned char ra2_place_2300[] __asm__("_unknown_reconnect_dialog_a780d4");
 extern "C" unsigned char ra2_place_2301[] __asm__("_unknown_random_aabce0");
@@ -5227,10 +5227,10 @@ extern "C" unsigned char ra2_place_2317[] __asm__("_unknown_ab62f8");
 extern "C" unsigned char ra2_place_2318[] __asm__("_unknown_flag_ab62fc");
 extern "C" unsigned char ra2_place_2319[] __asm__("_unknown_seconds_ab6300");
 extern "C" unsigned char ra2_place_2320[] __asm__("_unknown_last_kick_ab6304");
-extern "C" unsigned char ra2_place_2321[] __asm__("__ZN10RadarClass20unknown_shape_ab6318E");
+extern "C" unsigned char ra2_place_2321[] __asm__("__ZN10RadarClass18OptionsButtonShapeE");
 extern "C" unsigned char ra2_place_2322[] __asm__("__ZN10RadarClass19unknown_rect_ab6320E");
 extern "C" unsigned char ra2_place_2323[] __asm__("_unknown_int_ab6338");
-extern "C" unsigned char ra2_place_2324[] __asm__("__ZN10RadarClass20unknown_shape_ab6350E");
+extern "C" unsigned char ra2_place_2324[] __asm__("__ZN10RadarClass19BriefingButtonShapeE");
 extern "C" unsigned char ra2_place_2325[] __asm__("__ZN10RadarClass30unknown_shape_ab6318_allocatedE");
 extern "C" unsigned char ra2_place_2326[] __asm__("__ZN10RadarClass30unknown_shape_ab6350_allocatedE");
 extern "C" unsigned char ra2_place_2327[] __asm__("_unknown_int_ab6468");
@@ -5252,7 +5252,7 @@ extern "C" unsigned char ra2_place_2342[] __asm__("_unknown_rgb_ab6839");
 extern "C" unsigned char ra2_place_2343[] __asm__("_unknown_rgb_ab683c");
 extern "C" unsigned char ra2_place_2344[] __asm__("_unknown_rgb_ab6841");
 extern "C" unsigned char ra2_place_2345[] __asm__("_unknown_rgb_ab6844");
-extern "C" unsigned char ra2_place_2346[] __asm__("_unknown_rgb_ab6849");
+extern "C" unsigned char ra2_place_2346[] __asm__("_WhiteColor");
 extern "C" unsigned char ra2_place_2347[] __asm__("_unknown_rgb_ab684c");
 extern "C" unsigned char ra2_place_2348[] __asm__("_CoopCampUniqueID");
 extern "C" unsigned char ra2_place_2349[] __asm__("_CoopCampLoaded");
@@ -5263,13 +5263,13 @@ extern "C" unsigned char ra2_place_2353[] __asm__("__unknown_timer_accum_00ab6eb
 extern "C" unsigned char ra2_place_2354[] __asm__("_InputLockedBeforeHold");
 extern "C" unsigned char ra2_place_2355[] __asm__("_unknown_score_empty_rect_ab6f20");
 extern "C" unsigned char ra2_place_2356[] __asm__("_StillUpdating");
-extern "C" unsigned char ra2_place_2357[] __asm__("_unknown_score_fonts_ab6fa4");
-extern "C" unsigned char ra2_place_2358[] __asm__("_unknown_score_sounds_ab6fa8");
+extern "C" unsigned char ra2_place_2357[] __asm__("_score_font_count");
+extern "C" unsigned char ra2_place_2358[] __asm__("_text_sounds");
 extern "C" unsigned char ra2_place_2359[] __asm__("_unknown_cell_ab7068");
 extern "C" unsigned char ra2_place_2360[] __asm__("_unknown_coord_ab7088");
 extern "C" unsigned char ra2_place_2361[] __asm__("_unknown_cell_none_ab71d8");
 extern "C" unsigned char ra2_place_2362[] __asm__("_UnlockInputFrame");
-extern "C" unsigned char ra2_place_2363[] __asm__("_unknown_ports_read_ab9178");
+extern "C" unsigned char ra2_place_2363[] __asm__("_PortsRead");
 extern "C" unsigned char ra2_place_2364[] __asm__("_unknown_text_ab9274");
 extern "C" unsigned char ra2_place_2365[] __asm__("__ZN12SidebarClass20unknown_shape_ab9480E");
 extern "C" unsigned char ra2_place_2366[] __asm__("_unknown_text_ab9484");
@@ -5295,7 +5295,7 @@ extern "C" unsigned char ra2_place_2385[] __asm__("_unknown_abcd80");
 extern "C" unsigned char ra2_place_2386[] __asm__("_unknown_flag_abcd84");
 extern "C" unsigned char ra2_place_2387[] __asm__("_unknown_flag_abcd85");
 extern "C" unsigned char ra2_place_2388[] __asm__("_SkirmishDialog");
-extern "C" unsigned char ra2_place_2389[] __asm__("_unknown_undo_cells_abceac");
+extern "C" unsigned char ra2_place_2389[] __asm__("_DeformPoints");
 extern "C" unsigned char ra2_place_2390[] __asm__("__ZN19SoundControlsDialog17DialogInitializedE");
 extern "C" unsigned char ra2_place_2391[] __asm__("_data_6927b0_0");
 extern "C" unsigned char ra2_place_2392[] __asm__("_unknown_handle_abd47c");
@@ -5310,7 +5310,7 @@ extern "C" unsigned char ra2_place_2400[] __asm__("_unknown_elapsed_abd4e0");
 extern "C" unsigned char ra2_place_2401[] __asm__("_unknown_flag_abd500");
 extern "C" unsigned char ra2_place_2402[] __asm__("_GameTimerInUse");
 extern "C" unsigned char ra2_place_2403[] __asm__("_unknown_abd530");
-extern "C" unsigned char ra2_place_2404[] __asm__("_unknown_line_buffer_abd548");
+extern "C" unsigned char ra2_place_2404[] __asm__("_CompressionBuffer");
 extern "C" unsigned char ra2_place_2405[] __asm__("_unknown_score_audio_abd6a0");
 extern "C" unsigned char ra2_place_2406[] __asm__("_unknown_score_audio_on_abd6d4");
 extern "C" unsigned char ra2_place_2407[] __asm__("_unknown_cell_abd768");
@@ -5350,7 +5350,7 @@ extern "C" unsigned char ra2_place_2440[] __asm__("_unknown_cell_ac0148");
 extern "C" unsigned char ra2_place_2441[] __asm__("_unknown_coord_ac0188");
 extern "C" unsigned char ra2_place_2442[] __asm__("_unknown_talk_techno_ac01c4");
 extern "C" unsigned char ra2_place_2443[] __asm__("_unknown_talk_value_ac01c8");
-extern "C" unsigned char ra2_place_2444[] __asm__("_unknown_ac01cc");
+extern "C" unsigned char ra2_place_2444[] __asm__("_TargetScanDelay");
 extern "C" unsigned char ra2_place_2445[] __asm__("_unknown_cell_ac01e8");
 extern "C" unsigned char ra2_place_2446[] __asm__("_Tiberiums_Vector_00ac0b34");
 extern "C" unsigned char ra2_place_2447[] __asm__("_unknown_color_ac0fe8");
@@ -5537,7 +5537,7 @@ extern "C" unsigned char ra2_place_2627[] __asm__("_Unit_Radio_Zero_Coord_00AD04
 extern "C" unsigned char ra2_place_2628[] __asm__("_unknown_bridge_height_ad057c");
 extern "C" unsigned char ra2_place_2629[] __asm__("_unknown_level_height_ad0588");
 extern "C" unsigned char ra2_place_2630[] __asm__("_unknown_ad0600");
-extern "C" unsigned char ra2_place_2631[] __asm__("_unknown_surface_ad0604");
+extern "C" unsigned char ra2_place_2631[] __asm__("_EightBitSurface");
 extern "C" unsigned char ra2_place_2632[] __asm__("_EightBitDrawer");
 extern "C" unsigned char ra2_place_2633[] __asm__("_VisceroidSmallShape");
 extern "C" unsigned char ra2_place_2634[] __asm__("_VisceroidLargeShape");
@@ -5547,31 +5547,31 @@ extern "C" unsigned char ra2_place_2637[] __asm__("_DAT_00ad0758");
 extern "C" unsigned char ra2_place_2638[] __asm__("_unknown_veinhole_shape_ad079c");
 extern "C" unsigned char ra2_place_2639[] __asm__("_DAT_00ad07a0");
 extern "C" unsigned char ra2_place_2640[] __asm__("_unknown_voc_cell_ad07c0");
-extern "C" unsigned char ra2_place_2641[] __asm__("_unknown_voc_static_list_ad07d0");
-extern "C" unsigned char ra2_place_2642[] __asm__("_unknown_voc_static_pool_ad0844");
+extern "C" unsigned char ra2_place_2641[] __asm__("_StaticSounds");
+extern "C" unsigned char ra2_place_2642[] __asm__("_StaticSoundPool");
 extern "C" unsigned char ra2_place_2643[] __asm__("_Audio_Static_Sound_Count");
 extern "C" unsigned char ra2_place_2644[] __asm__("_Audio_Static_Sound_Maximum");
 extern "C" unsigned char ra2_place_2645[] __asm__("_DefaultControl");
-extern "C" unsigned char ra2_place_2646[] __asm__("_unknown_vox_type_ad0858");
-extern "C" unsigned char ra2_place_2647[] __asm__("_unknown_vox_list_ad0868");
-extern "C" unsigned char ra2_place_2648[] __asm__("_unknown_vox_ad0878");
-extern "C" unsigned char ra2_place_2649[] __asm__("_unknown_vox_priority_ad0880");
-extern "C" unsigned char ra2_place_2650[] __asm__("_unknown_vox_list_ad0890");
-extern "C" unsigned char ra2_place_2651[] __asm__("_unknown_countdown_ad08c8");
-extern "C" unsigned char ra2_place_2652[] __asm__("_unknown_vox_lists_ad08e0");
-extern "C" unsigned char ra2_place_2653[] __asm__("_unknown_count_ad0910");
+extern "C" unsigned char ra2_place_2646[] __asm__("_SpeechPlayingType");
+extern "C" unsigned char ra2_place_2647[] __asm__("_SpeechQueuedList");
+extern "C" unsigned char ra2_place_2648[] __asm__("_SpeechHold");
+extern "C" unsigned char ra2_place_2649[] __asm__("_SpeechPlayingPriority");
+extern "C" unsigned char ra2_place_2650[] __asm__("_SpeechUrgentList");
+extern "C" unsigned char ra2_place_2651[] __asm__("_SpeechSuspend");
+extern "C" unsigned char ra2_place_2652[] __asm__("_SpeechLists");
+extern "C" unsigned char ra2_place_2653[] __asm__("_AuxStreamHold");
 extern "C" unsigned char ra2_place_2654[] __asm__("_DAT_00ad0934");
-extern "C" unsigned char ra2_place_2655[] __asm__("_unknown_vox_pending_ad0948");
-extern "C" unsigned char ra2_place_2656[] __asm__("_unknown_vox_enabled_ad094c");
-extern "C" unsigned char ra2_place_2657[] __asm__("_unknown_vox_serial_ad0950");
-extern "C" unsigned char ra2_place_2658[] __asm__("_unknown_vox_playing_ad0954");
-extern "C" unsigned char ra2_place_2659[] __asm__("_unknown_flag_ad0958");
+extern "C" unsigned char ra2_place_2655[] __asm__("_SpeechPending");
+extern "C" unsigned char ra2_place_2656[] __asm__("_SpeechEnabled");
+extern "C" unsigned char ra2_place_2657[] __asm__("_SpeechSerial");
+extern "C" unsigned char ra2_place_2658[] __asm__("_SpeechPlaying");
+extern "C" unsigned char ra2_place_2659[] __asm__("_SpeechSovietFiles");
 extern "C" unsigned char ra2_place_2660[] __asm__("_unknown_object_ad095c");
-extern "C" unsigned char ra2_place_2661[] __asm__("_unknown_vox_delay_ad0960");
+extern "C" unsigned char ra2_place_2661[] __asm__("_SpeechDelay");
 extern "C" unsigned char ra2_place_2662[] __asm__("_unknown_active_ad0968");
 extern "C" unsigned char ra2_place_2663[] __asm__("_unknown_table_ad0970");
 extern "C" unsigned char ra2_place_2664[] __asm__("_unknown_buffer_ad0a70");
-extern "C" unsigned char ra2_place_2665[] __asm__("_unknown_voxel16_colors_ae0a7c");
+extern "C" unsigned char ra2_place_2665[] __asm__("_Voxel16BitColors");
 extern "C" unsigned char ra2_place_2666[] __asm__("_VoxelRenderDataCount");
 extern "C" unsigned char ra2_place_2667[] __asm__("_VPLLUTCount");
 extern "C" unsigned char ra2_place_2668[] __asm__("_VoxelShadowRenderDataCount");
@@ -5612,8 +5612,8 @@ extern "C" unsigned char ra2_place_2702[] __asm__("_ProgramInstance");
 extern "C" unsigned char ra2_place_2703[] __asm__("_IMECompositionString");
 extern "C" unsigned char ra2_place_2704[] __asm__("_IMECompositionTerminator");
 extern "C" unsigned char ra2_place_2705[] __asm__("_ShowCommand");
-extern "C" unsigned char ra2_place_2706[] __asm__("_unknown_cursor_b263d0");
-extern "C" unsigned char ra2_place_2707[] __asm__("_unknown_icon_b263d4");
+extern "C" unsigned char ra2_place_2706[] __asm__("_ProgramCursor");
+extern "C" unsigned char ra2_place_2707[] __asm__("_ProgramIcon");
 extern "C" unsigned char ra2_place_2708[] __asm__("_MainWindow");
 extern "C" unsigned char ra2_place_2709[] __asm__("_UnusedWindow");
 extern "C" unsigned char ra2_place_2710[] __asm__("_IMEContext");
@@ -5724,7 +5724,7 @@ extern "C" unsigned char ra2_place_2814[] __asm__("_address_snmp_init_b2a754");
 extern "C" unsigned char ra2_place_2815[] __asm__("_unknown_game_address_b2a758");
 extern "C" unsigned char ra2_place_2816[] __asm__("_unknown_wol_lang_filter_b2a7e4");
 extern "C" unsigned char ra2_place_2817[] __asm__("_unknown_b2a7e8");
-extern "C" unsigned char ra2_place_2818[] __asm__("_unknown_b2a7ec");
+extern "C" unsigned char ra2_place_2818[] __asm__("_WestwoodOnline_Tournament");
 extern "C" unsigned char ra2_place_2819[] __asm__("_unknown_b2a7f0");
 extern "C" unsigned char ra2_place_2820[] __asm__("_unknown_irc_index_b2a7f4");
 extern "C" unsigned char ra2_place_2821[] __asm__("_unknown_b2a7f8");
@@ -5802,8 +5802,8 @@ extern "C" unsigned char ra2_place_2892[] __asm__("_unknown_wdt_block_00b2ad70")
 extern "C" unsigned char ra2_place_2893[] __asm__("_WDT_Chosen_Side_b2ada4");
 extern "C" unsigned char ra2_place_2894[] __asm__("_WDT_Chosen_Theater_b2ada8");
 extern "C" unsigned char ra2_place_2895[] __asm__("_IsMalformedIPXPacketReported");
-extern "C" unsigned char ra2_place_2896[] __asm__("__ZN21WinsockInterfaceClass14unknown_b2ae9cE");
-extern "C" unsigned char ra2_place_2897[] __asm__("__ZN21WinsockInterfaceClass14unknown_b2aea0E");
+extern "C" unsigned char ra2_place_2896[] __asm__("__ZN21WinsockInterfaceClass20IsPacketLossReportedE");
+extern "C" unsigned char ra2_place_2897[] __asm__("__ZN21WinsockInterfaceClass17PacketLossPercentE");
 extern "C" unsigned char ra2_place_2898[] __asm__("_IsMalformedPacketReported");
 extern "C" unsigned char ra2_place_2899[] __asm__("_unknown_previous_filter_00b2b33c");
 extern "C" unsigned char ra2_place_2900[] __asm__("_unknown_kick_channel_b2b3c0");

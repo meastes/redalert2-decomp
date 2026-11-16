@@ -383,7 +383,8 @@
    "address": "007c0170",
    "bytes": 16,
    "kind": "rtti",
-   "section": 62
+   "section": 62,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4ParticleSystemTypeClass@@6BIPersistStream@@@",
@@ -808,7 +809,8 @@
    "symbol": "??_R3ParticleSystemTypeClass@@8",
    "address": "007c0170",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4ParticleSystemTypeClass@@6BIPersistStream@@@",

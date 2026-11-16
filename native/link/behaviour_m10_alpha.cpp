@@ -13,7 +13,7 @@
 #include "shared/display.hpp"
 #include "shared/vector_class.hpp"
 
-extern DynamicVectorClass<AlphaShapeClass *> unknown_AlphaShapeClass_list_0083c648;
+extern DynamicVectorClass<AlphaShapeClass *> AlphaShapes;
 namespace ra2port { void *original_data_pointer(uint32_t va); }
 
 void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &pixel, Rect const &cliprect)
@@ -25,8 +25,8 @@ void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &pixel, Rect const &
     }
     ABuffer *buffer = AlphaBuffer;
     if (buffer == 0) return;
-    for (int index = 0; index < unknown_AlphaShapeClass_list_0083c648.Count(); index++) {
-        AlphaShapeClass *alpha = unknown_AlphaShapeClass_list_0083c648[index];
+    for (int index = 0; index < AlphaShapes.Count(); index++) {
+        AlphaShapeClass *alpha = AlphaShapes[index];
         if (alpha->unknown_3c) continue;
         int x1 = alpha->Bounds.X - TacticalMap->TacPixelX + TacticalRect.X;
         int y1 = alpha->Bounds.Y - TacticalMap->TacPixelY + TacticalRect.Y;

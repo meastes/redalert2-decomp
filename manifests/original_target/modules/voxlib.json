@@ -49,13 +49,13 @@
    "padding_bytes": 14
   },
   {
-   "symbol": "?Get_Layer@VoxelLibrary@@QAEPAUUnknownVoxelSection@@H@Z",
+   "symbol": "?Get_Layer@VoxelLibrary@@QAEPAULayerStruct@@H@Z",
    "entry": "00719850",
    "body_bytes": 16,
    "padding_bytes": 0
   },
   {
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "entry": "00719860",
    "body_bytes": 34,
    "padding_bytes": 14
@@ -79,7 +79,7 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
+   "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUVoxelShadowRenderStruct@@PBUVector3@@@Z",
    "entry": "00719c10",
    "body_bytes": 837,
    "padding_bytes": 11
@@ -379,7 +379,7 @@
   },
   {
    "site": "005d6150",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
@@ -397,7 +397,7 @@
   },
   {
    "site": "005d63f0",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
@@ -433,7 +433,7 @@
   },
   {
    "site": "005d6730",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
@@ -451,7 +451,7 @@
   },
   {
    "site": "005d6730",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
@@ -469,7 +469,7 @@
   },
   {
    "site": "005d6730",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
@@ -487,7 +487,7 @@
   },
   {
    "site": "005d6730",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
@@ -505,7 +505,7 @@
   },
   {
    "site": "005d6730",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
@@ -523,61 +523,43 @@
   },
   {
    "site": "005d6730",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
   {
    "site": "005d6730",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
   {
    "site": "005d6730",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
   {
    "site": "005d6730",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
   {
    "site": "005d6730",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
   {
    "site": "005d6730",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
   {
    "site": "005d6730",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
-   "target": "00719860",
-   "function_entry": true
-  },
-  {
-   "site": "005d72b0",
-   "symbol": "??1VoxelLibrary@@QAE@XZ",
-   "target": "007190c0",
-   "function_entry": true
-  },
-  {
-   "site": "005d72b0",
-   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
-   "target": "00719080",
-   "function_entry": true
-  },
-  {
-   "site": "005d72b0",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
@@ -595,7 +577,25 @@
   },
   {
    "site": "005d72b0",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
+   "target": "00719860",
+   "function_entry": true
+  },
+  {
+   "site": "005d72b0",
+   "symbol": "??1VoxelLibrary@@QAE@XZ",
+   "target": "007190c0",
+   "function_entry": true
+  },
+  {
+   "site": "005d72b0",
+   "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+   "target": "00719080",
+   "function_entry": true
+  },
+  {
+   "site": "005d72b0",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
@@ -631,7 +631,7 @@
   },
   {
    "site": "00459640",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
@@ -649,19 +649,19 @@
   },
   {
    "site": "00459640",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
   {
    "site": "006daf60",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
   {
    "site": "006daf60",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
@@ -673,7 +673,7 @@
   },
   {
    "site": "00717050",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
@@ -685,7 +685,7 @@
   },
   {
    "site": "007170d0",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
@@ -697,19 +697,19 @@
   },
   {
    "site": "00717360",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
   {
    "site": "007174c0",
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "target": "00719860",
    "function_entry": true
   },
   {
    "site": "007176c0",
-   "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
+   "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUVoxelShadowRenderStruct@@PBUVector3@@@Z",
    "target": "00719c10",
    "function_entry": true
   },
@@ -727,7 +727,7 @@
   },
   {
    "site": "007178e0",
-   "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
+   "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUVoxelShadowRenderStruct@@PBUVector3@@@Z",
    "target": "00719c10",
    "function_entry": true
   },
@@ -770,12 +770,20 @@
    "address": "007f9f94"
   },
   {
+   "symbol": "?VoxelNormalTables@@3PAPBUVector3@@A",
+   "address": "007f9f80"
+  },
+  {
    "symbol": "?VoxelPaletteTranslateTable@@3PAEA",
    "address": "00af4608"
   },
   {
    "symbol": "?VoxelRGBColors@@3PAUVxlRGB@@A",
    "address": "00ae3008"
+  },
+  {
+   "symbol": "?VoxelRenderOrientations@@3PAUUnknownVoxelView@@A",
+   "address": "007f9e60"
   },
   {
    "symbol": "?unknown_af6610@@3HA",
@@ -792,14 +800,6 @@
   {
    "symbol": "?unknown_lit_colors_af4608@@3PAY0BAA@EA",
    "address": "00af4608"
-  },
-  {
-   "symbol": "?unknown_normal_tables_7f9f80@@3PAPBUVector3@@A",
-   "address": "007f9f80"
-  },
-  {
-   "symbol": "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A",
-   "address": "007f9e60"
   },
   {
    "symbol": "?unknown_zbuffer_ad0a70@@3PAEA",

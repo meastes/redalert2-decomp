@@ -62,50 +62,50 @@ public:
     virtual bool unknown_slot54(int control);                   // slot 54 0x006A0DA0 (the sidebar shown or hidden: updates the side buttons and help regions)
 
     // Frees button shape index when it was loaded (0x006A0540, __fastcall).
-    static void __fastcall Unknown_006A0540(int index);
+    static void __fastcall Free_Button_Shape(int index);
     // Index of a command name in CommandNames, else NoCommand (0x006A0580).
     static int __fastcall Command_From_Name(char const *name);
     // The slot-to-button map (0x006A05E0 set, 0x006A05F0 get).
     static void __fastcall Set_Command_Position(int slot, int button);
-    static int __fastcall Unknown_006A05F0(int slot);
+    static int __fastcall Get_Command_Position(int slot);
     // The button shown in slot, or null (0x006A0600).
-    static ShapeButtonClass *__fastcall Unknown_006A0600(int slot);
+    static ShapeButtonClass *__fastcall Get_Button(int slot);
     // Screen rectangle of slot (0x006A0620).
-    static Rect __fastcall Unknown_006A0620(int slot);
+    static Rect __fastcall Get_Button_Rect(int slot);
     // Sets the bar's row count and its top edge (0x006A0670).
     static void __fastcall Set_Button_Count(int rows);
     // Whether value lies in [unknown_int_abe370, unknown_int_abe468] (0x006A06B0).
-    static int __fastcall Unknown_006A06B0(int value);
+    static int __fastcall Is_Team_Command(int value);
     // value relative to unknown_int_abe370, from 1 (0x006A06D0).
-    static int __fastcall Unknown_006A06D0(int value);
+    static int __fastcall Team_Number(int value);
 
     // Registers a control's help region under its ID with a label
     // (0x006A1270, __fastcall; nothing for no control).
-    static void __fastcall Unknown_006A1270(ControlClass *control, char const *label);
+    static void __fastcall Add_Button_ToolTip(ControlClass *control, char const *label);
     // Flags the bar for a redraw (0x006A1770): +0x4F15 set and the timer at
     // +0x4F08 restarted at 7 frames.
-    void Unknown_006A1770();
+    void Flash_Money();
     void Unknown_006A17B0();                // 0x006A17B0 (sets +0x4F15 and flags a redraw)
     // Draws the bar's background shape (0x00AC10F8) at the sidebar surface's
     // origin (0x006A1710).
     void Draw_Credits_Tab();
     // Sets up the two side buttons (ids 0xF0 and 0xF1); inlined into Init_IO, whose copy of the
     // code this is (0x006A19E0, no callers).
-    static void Unknown_006A19E0();
-    void Unknown_006A1AB0();                                    // 0x006A1AB0 (slot 54 when the bar is open and the sidebar shows)
-    void Unknown_006A1880();                                    // 0x006A1880 (Init_IO, before the two side buttons)
-    void Unknown_006A1DA0();                                    // 0x006A1DA0 removes the open bar's buttons and help regions
-    void Unknown_006A1E20();                                    // 0x006A1E20 shows the closed bar's thumb button
-    void Unknown_006A1EA0();                                    // 0x006A1EA0 hides the thumb button
-    void Unknown_006A1EC0();                                    // 0x006A1EC0 opens the bar
-    void Unknown_006A1F10();                                    // 0x006A1F10 closes the bar
+    static void Setup_Thumb_Buttons();
+    void Show_Buttons();                                    // 0x006A1AB0 (slot 54 when the bar is open and the sidebar shows)
+    void Setup_Command_Buttons();                                    // 0x006A1880 (Init_IO, before the two side buttons)
+    void Hide_Buttons();                                    // 0x006A1DA0 removes the open bar's buttons and help regions
+    void Show_Thumb_Button();                                    // 0x006A1E20 shows the closed bar's thumb button
+    void Hide_Thumb_Button();                                    // 0x006A1EA0 hides the thumb button
+    void Open_Thumb();                                    // 0x006A1EC0 opens the bar
+    void Close_Thumb();                                    // 0x006A1F10 closes the bar
     // Adds (0x006A0D50) or removes (0x006A0D80) the 25 buttons.
-    void Unknown_006A0D50();
-    void Unknown_006A0D80();
+    void Add_Command_Buttons();
+    void Remove_Command_Buttons();
 
     static ShapeButtonClass Buttons[25];                // 0x00ABD918
-    static ShapeButtonClass unknown_button_abe400;      // 0x00ABE400
-    static ShapeButtonClass unknown_button_abe390;      // 0x00ABE390
+    static ShapeButtonClass ThumbOpenButton;      // 0x00ABE400
+    static ShapeButtonClass ThumbClosedButton;      // 0x00ABE390
     static void const *ButtonShapes[25];                // 0x00ABD8A0
     static bool ButtonShapeAllocated[25];               // 0x00ABE32C
     static int SlotButton[25];                          // 0x00ABE2C8
@@ -124,8 +124,8 @@ void __fastcall Unknown_Set_Sink_00613e00(INoticeSink *sink);
 
 // Command names the buttons map to (0x007F67F8, 11 entries: "Team01" ..
 // "Cheer") and the value returned for an unknown name (0x007F67F4, -1).
-extern int unknown_no_command_7f67f4;
-extern char const *unknown_command_names_7f67f8[11];
+extern int NoAdvancedCommand;
+extern char const *CommandNames[11];
 
 // Tab.cpp metrics.
 extern int unknown_int_abe2a8;      // 0x00ABE2A8 the button shapes' height (slot 53)
@@ -141,7 +141,7 @@ extern int unknown_int_abe468;      // 0x00ABE468
 // The shell art shape of the two side buttons (0x00AC1098) and whether the
 // shell art is loaded (0x006F4590, __fastcall).
 extern void *unknown_buffer_ac1098;
-bool __fastcall Unknown_Get_Art_006f4590();
+bool __fastcall Is_Sidebar_Art_Loaded();
 // The bar's background shape (0x00AC10F8; a shell art buffer, as the
 // art loaders name it).
 extern void *unknown_buffer_ac10f8;
@@ -164,26 +164,26 @@ extern int unknown_int_abe2bc;
 extern int unknown_int_abe290;
 // The commands the buttons run (UICmnds.cpp; __fastcall where they take an
 // argument; names in src/recovered/unowned where accepted).
-void Unknown_006F6570();
+void Command_Attack_Move();
 void Unknown_006F64B0();
-void Unknown_006F5C50();
-void Unknown_006F5940();
-void __fastcall Unknown_006F5B10();    // 0x006F5B10 guard command; __fastcall: its slot 200 call sets ecx before the pushes
-void __fastcall Unknown_006F64D0(bool arg);
-void __fastcall Unknown_006F64F0(bool arg);
-void Unknown_006F5BC0();
-int __fastcall Unknown_006F5870(int group);
-void __fastcall Unknown_006F5D90(int group);
-bool __fastcall Unknown_006F5800(int group);
-void __fastcall Unknown_006F60D0(int group);
-void __fastcall Unknown_006F5F00(int group);
-void Unknown_006F7360();
-void __fastcall Unknown_006F5E10(int group);
+void Command_Cheer();
+void Command_Deploy();
+void __fastcall Command_Guard();    // 0x006F5B10 guard command; __fastcall: its slot 200 call sets ecx before the pushes
+void __fastcall Command_Planning_Mode_On(bool arg);
+void __fastcall Command_Planning_Mode_Off(bool arg);
+void Command_Stop();
+int __fastcall Group_Count(int group);
+void __fastcall Group_Assign(int group);
+bool __fastcall Group_Is_All_Selected(int group);
+void __fastcall Group_Reselect(int group);
+void __fastcall Group_Select(int group);
+void Command_Type_Select();
+void __fastcall Group_Clear(int group);
 // Screen layout rectangles (0x00AC11FC, 0x00AC1204, 0x00AC120C, 0x00AC1210).
-extern Rect const *unknown_rect_ac11fc;
-extern Rect const *unknown_rect_ac1204;
-extern Rect const *unknown_rect_ac1208;
-extern Rect const *unknown_rect_ac120c;
-extern Rect const *unknown_rect_ac1210;
+extern Rect const *TabBarRect;
+extern Rect const *ThumbOpenRect;
+extern Rect const *ThumbClosedRect;
+extern Rect const *ButtonSlotRect;
+extern Rect const *TabEndRect;
 
 #endif

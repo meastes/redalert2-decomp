@@ -74,7 +74,7 @@ void MapClass::Update_Cell_Subzones(Cell const &cell)
                         if (found == -1) collected.Add(subid);
                     }
                     subptr->SubzoneID[level] = 0;
-                    subptr->ZoneID = Unknown_0054FA60(Cell(x, y));
+                    subptr->ZoneID = Get_Cell_Zone_ID(Cell(x, y));
                 }
             }
             for (int index = collected.Count() - 1; index >= 0; --index) {

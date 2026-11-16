@@ -360,7 +360,7 @@
  "references_in": [
   {
    "site": "0051b5f0",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "target": "005bba50",
    "function_entry": true
   },
@@ -372,25 +372,25 @@
   },
   {
    "site": "005bee20",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "target": "005bba50",
    "function_entry": true
   },
   {
    "site": "005c05f0",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "target": "005bba50",
    "function_entry": true
   },
   {
    "site": "006909e0",
-   "symbol": "?Unknown_005BB5A0@@YAXXZ",
+   "symbol": "?Shutdown_Network@@YAXXZ",
    "target": "005bb5a0",
    "function_entry": true
   },
   {
    "site": "00691320",
-   "symbol": "?Unknown_005BB5A0@@YAXXZ",
+   "symbol": "?Shutdown_Network@@YAXXZ",
    "target": "005bb5a0",
    "function_entry": true
   },
@@ -402,19 +402,19 @@
   },
   {
    "site": "005c3c60",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "target": "005bba50",
    "function_entry": true
   },
   {
    "site": "005c3d90",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "target": "005bba50",
    "function_entry": true
   },
   {
    "site": "00540c20",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "target": "005bba50",
    "function_entry": true
   },
@@ -444,19 +444,19 @@
   },
   {
    "site": "00482110",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "target": "005bba50",
    "function_entry": true
   },
   {
    "site": "00482110",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "target": "005bba50",
    "function_entry": true
   },
   {
    "site": "00481bf0",
-   "symbol": "?Unknown_005BB5A0@@YAXXZ",
+   "symbol": "?Shutdown_Network@@YAXXZ",
    "target": "005bb5a0",
    "function_entry": true
   }
@@ -493,6 +493,10 @@
   {
    "symbol": "?Delete_Connection@IPXManagerClass@@QAEHH@Z",
    "address": "00525640"
+  },
+  {
+   "symbol": "?Flag_To_Die@HouseClass@@QAE_NXZ",
+   "address": "004e7e80"
   },
   {
    "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
@@ -547,6 +551,10 @@
    "address": "00839848"
   },
   {
+   "symbol": "?Send_Player_List@OwnerTalkClass@@QAE_NXZ",
+   "address": "0063f130"
+  },
+  {
    "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
    "address": "00523480"
   },
@@ -557,10 +565,6 @@
   {
    "symbol": "?Set_Lobby_Address@IPXManagerClass@@QAEXPAVIPXAddressClass@@@Z",
    "address": "005277c0"
-  },
-  {
-   "symbol": "?Unknown_0063F130@OwnerTalkClass@@QAE_NXZ",
-   "address": "0063f130"
   },
   {
    "symbol": "?Unknown_0063FBA0@OwnerTalkClass@@QAEHXZ",
@@ -575,12 +579,12 @@
    "address": "00672f20"
   },
   {
-   "symbol": "?unknown_a402d8@@3_NA",
-   "address": "00a402d8"
+   "symbol": "?WestwoodOnline_Tournament@@3HA",
+   "address": "00b2a7ec"
   },
   {
-   "symbol": "?unknown_b2a7ec@@3HA",
-   "address": "00b2a7ec"
+   "symbol": "?unknown_a402d8@@3_NA",
+   "address": "00a402d8"
   },
   {
    "symbol": "?unknown_dest_net_a3f608@@3VIPXAddressClass@@A",
@@ -601,10 +605,6 @@
   {
    "symbol": "?unknown_forward_address_a3fbac@@3VIPXAddressClass@@A",
    "address": "00a3fbac"
-  },
-  {
-   "symbol": "?unknown_func_4e7e80@HouseClass@@QAE_NXZ",
-   "address": "004e7e80"
   },
   {
    "symbol": "?unknown_game_mode_a3d298@@3HA",
@@ -704,31 +704,31 @@
   {
    "site": "0051b5f0",
    "target": "005bba50",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "module_symbol": "?Compute_Name_CRC@@YIKPBG@Z"
   },
   {
    "site": "005bee20",
    "target": "005bba50",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "module_symbol": "?Compute_Name_CRC@@YIKPBG@Z"
   },
   {
    "site": "005c05f0",
    "target": "005bba50",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "module_symbol": "?Compute_Name_CRC@@YIKPBG@Z"
   },
   {
    "site": "006909e0",
    "target": "005bb5a0",
-   "symbol": "?Unknown_005BB5A0@@YAXXZ",
+   "symbol": "?Shutdown_Network@@YAXXZ",
    "module_symbol": "?Shutdown_Network_005bb5a0@@YAXXZ"
   },
   {
    "site": "00691320",
    "target": "005bb5a0",
-   "symbol": "?Unknown_005BB5A0@@YAXXZ",
+   "symbol": "?Shutdown_Network@@YAXXZ",
    "module_symbol": "?Shutdown_Network_005bb5a0@@YAXXZ"
   },
   {
@@ -740,37 +740,37 @@
   {
    "site": "005c3c60",
    "target": "005bba50",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "module_symbol": "?Compute_Name_CRC@@YIKPBG@Z"
   },
   {
    "site": "005c3d90",
    "target": "005bba50",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "module_symbol": "?Compute_Name_CRC@@YIKPBG@Z"
   },
   {
    "site": "00540c20",
    "target": "005bba50",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "module_symbol": "?Compute_Name_CRC@@YIKPBG@Z"
   },
   {
    "site": "00482110",
    "target": "005bba50",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "module_symbol": "?Compute_Name_CRC@@YIKPBG@Z"
   },
   {
    "site": "00482110",
    "target": "005bba50",
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
    "module_symbol": "?Compute_Name_CRC@@YIKPBG@Z"
   },
   {
    "site": "00481bf0",
    "target": "005bb5a0",
-   "symbol": "?Unknown_005BB5A0@@YAXXZ",
+   "symbol": "?Shutdown_Network@@YAXXZ",
    "module_symbol": "?Shutdown_Network_005bb5a0@@YAXXZ"
   }
  ],

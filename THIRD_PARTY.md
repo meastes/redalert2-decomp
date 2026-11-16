@@ -155,6 +155,11 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   Adopted 2026-11-15 (lane M1 batch b12, names only): 80 function and global names for placeholder-named
   identifiers, from ra2-decomp's names of byte-identical twins (build/ra2decomp/twins.json) where they exist and
   agree in scope, otherwise from mischa85 config/ra2-1.006/names.csv at 392e904; list in the commit message.
+  Adopted 2026-11-15 (lane CB batch g1, names only): about 350 function, global, member and four struct names for
+  placeholder-named identifiers in units m-z, from ra2-decomp's names of byte-identical twins (build/ra2decomp/twins.json)
+  where they agree in scope, otherwise from mischa85 config/ra2-1.006/names.csv at ec08666 (namespaced names taken without
+  the namespace, C names without the leading underscore); the voxel struct and field names from mischa85 include/voxlib.h
+  and include/voxdrsys.h (VoxelRenderStruct also TibSun's), Surface slot 16 from include/surface.h; list in the commit message.
   Adopted 2026-11-15 (lane M1 batch b3, comments only): the function comment blocks of src/<unit>.cpp at 392e904
   for radar, msanim, vein, bfiofile2, tiberium, factory, wspudp, msengine, light, gscreen, overlay, scroll,
   dropship, isotile and ipxconn, each file carrying the mischa85 file's licence block and a provenance line.

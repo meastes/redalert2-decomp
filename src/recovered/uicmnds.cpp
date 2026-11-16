@@ -101,12 +101,12 @@ void Unknown_006F57E0()
 }
 
 
-// bool __fastcall Unknown_006F5800(int group) (0x006F5800)
+// bool __fastcall Group_Is_All_Selected(int group) (0x006F5800)
 // Whether no player-side, unselected techno of the map belongs to group
 // (group - 1 is stored at +0x1AC).
 
 
-bool __fastcall Unknown_006F5800(int group)
+bool __fastcall Group_Is_All_Selected(int group)
 {
     int count = Technos.Count();
     for (int index = 0; index < count; index++) {
@@ -121,12 +121,12 @@ bool __fastcall Unknown_006F5800(int group)
 }
 
 
-// int __fastcall Unknown_006F5870(int group) (0x006F5870)
+// int __fastcall Group_Count(int group) (0x006F5870)
 // Counts the player-side technos of the map that belong to group (group - 1
 // is stored at +0x1AC).
 
 
-int __fastcall Unknown_006F5870(int group)
+int __fastcall Group_Count(int group)
 {
     int count = Technos.Count();
     int members = 0;
@@ -216,14 +216,14 @@ unsigned int  FUN_006f5930(void)
 }  // namespace seed_006f5930
 
 
-// void Unknown_006F5940() (0x006F5940; TabClass::AI and the deploy command 0x0051BF20): the deploy key. A selected
+// void Command_Deploy() (0x006F5940; TabClass::AI and the deploy command 0x0051BF20): the deploy key. A selected
 // player building with a positive 0x004532F0 is deployed alone (slot 199 with 9); otherwise every selected
 // deployable techno (slot 39 or 38, slots 185 and 186) gets slot 199 with 9, except that when the selection mixes
 // deploying and undeployed deployer infantry the deploying ones are left; one sound (Rules +0x64C) when any did.
 // The count is read once after the building test; undeployed, the index and deploying are initialised in that
 // order (bl, edi, then a stack byte).
 
-void Unknown_006F5940()
+void Command_Deploy()
 {
     bool deployed = false;
     if (CurrentObject.Count() <= 0) {
@@ -278,13 +278,13 @@ void Unknown_006F5940()
 }
 
 
-// void __fastcall Unknown_006F5B10() (0x006F5B10)
+// void __fastcall Command_Guard() (0x006F5B10)
 // The guard command (hypothesis): in planning mode it is refused; otherwise every listed selected
 // object that passes slots 39 and 38 is asked slot 200 (0x0B, its slot 107 answer); when all agree the
 // rules' GuardSound (+0x644) plays.
 bool Planning_Mode_Active_614840();
 
-void __fastcall Unknown_006F5B10()
+void __fastcall Command_Guard()
 {
     if (Planning_Mode_Active_614840()) {
         Planning_Refuse_No_Guard_Area();
@@ -309,11 +309,11 @@ void __fastcall Unknown_006F5B10()
 }
 
 
-// void Unknown_006F5BC0() (0x006F5BC0)
+// void Command_Stop() (0x006F5BC0)
 // Answers a group command (hypothesis): when every listed object that passes slot 39 or 38 answers slot 199 (6), the rules' +0x640 sound plays.
 
 
-void Unknown_006F5BC0()
+void Command_Stop()
 {
     if (CurrentObject.Count() > 0) {
         char agreed = 1;
@@ -334,11 +334,11 @@ void Unknown_006F5BC0()
 }
 
 
-// void Unknown_006F5C50() (0x006F5C50)
+// void Command_Cheer() (0x006F5C50)
 // The cheer command: once the rules' MaximumCheerRate frames have passed (and not while
 // 0x00A3D548 is set), queues a cheer event (0x2D) for the player.
 
-void Unknown_006F5C50()
+void Command_Cheer()
 {
     if (Frame >= unknown_cheer_frame_ac134c && MuteSWLaunches == 0) {
         OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x2D));
@@ -373,12 +373,12 @@ void Unknown_006F5D10()
 }
 
 
-// void __fastcall Unknown_006F5D90(int group) (0x006F5D90)
+// void __fastcall Group_Assign(int group) (0x006F5D90)
 // Assigns group (group - 1 at +0x1AC) to every selected player-side techno
 // of the map, after clearing it from the others that held it.
 
 
-void __fastcall Unknown_006F5D90(int group)
+void __fastcall Group_Assign(int group)
 {
     int count = Technos.Count();
     for (int index = 0; index < count; index++) {
@@ -397,11 +397,11 @@ void __fastcall Unknown_006F5D90(int group)
 }
 
 
-// void __fastcall Unknown_006F5E10(int group) (0x006F5E10)
+// void __fastcall Group_Clear(int group) (0x006F5E10)
 // Clears group (group - 1 at +0x1AC) from every player-side techno of the map.
 
 
-void __fastcall Unknown_006F5E10(int group)
+void __fastcall Group_Clear(int group)
 {
     int count = Technos.Count();
     for (int index = 0; index < count; index++) {
@@ -436,16 +436,16 @@ bool __fastcall Unknown_006F5E80(int group)
 }
 
 
-// void __fastcall Unknown_006F5F00(int group) (0x006F5F00; TabClass::AI): the group-select key. A second press of
+// void __fastcall Group_Select(int group) (0x006F5F00; TabClass::AI): the group-select key. A second press of
 // the same group within 25 frames while the group is exactly the selection (0x006F5E80, expanded) re-selects it
 // through 0x006F60D0; otherwise the selection is dropped and the group's player-side technos are selected and
 // flashed (unknown_13c restarted at Rules->RadarCombatFlashTime), with the effect sound suppressed.
-void __fastcall Unknown_006F60D0(int group);
+void __fastcall Group_Reselect(int group);
 // The frame and group of the last group selection (a second press within 25 frames centres the view).
 extern int unknown_group_frame_7f8bcc;     // 0x007F8BCC
 extern int unknown_group_7f8bd0;           // 0x007F8BD0
 
-void __fastcall Unknown_006F5F00(int group)
+void __fastcall Group_Select(int group)
 {
     Map.Unknown_0049C980(0);
     Map.Unknown_0049C860(0, false);
@@ -453,7 +453,7 @@ void __fastcall Unknown_006F5F00(int group)
     Map.Unknown_0049C7C0(0);
     Map.Unknown_0049CAC0(0);
     if (Frame - unknown_group_frame_7f8bcc < 25 && group == unknown_group_7f8bd0 && Unknown_006F5E80(group)) {
-        Unknown_006F60D0(group);
+        Group_Reselect(group);
         return;
     }
     unknown_group_frame_7f8bcc = Frame;
@@ -475,12 +475,12 @@ void __fastcall Unknown_006F5F00(int group)
 }
 
 
-// void __fastcall Unknown_006F60D0(int group) (0x006F60D0): re-selects the group: the selection is dropped unless
+// void __fastcall Group_Reselect(int group) (0x006F60D0): re-selects the group: the selection is dropped unless
 // its first object is a foot in the group, the group's player-side technos are selected (sound suppressed) and
 // the screen is redrawn. The first object's foot flag goes through a bool local (it is stored and the element
 // read again).
 
-void __fastcall Unknown_006F60D0(int group)
+void __fastcall Group_Reselect(int group)
 {
     Map.Unknown_0049C980(0);
     Map.Unknown_0049C860(0, false);
@@ -627,13 +627,13 @@ bool Unknown_006F6520()
 }
 
 
-// void Unknown_006F6570() (0x006F6570)
+// void Command_Attack_Move() (0x006F6570)
 // Checks the selection for the group command (hypothesis): with nothing
 // selected, or with a selected object that answers no to slot 275, the
 // matching message is shown (MSG:NothingSelected / MSG:AttackMoveUnsupported);
 // otherwise the flag 0x00AC1330 is raised.
 
-void Unknown_006F6570()
+void Command_Attack_Move()
 {
     if (CurrentObject.Count() == 0) {
         Show_Message(StringTable::Load_String("MSG:NothingSelected", 0, "D:\\Ra2\\UICmnds.cpp", 0x2E9), 0xF0);
@@ -1139,7 +1139,7 @@ static void Select_Named(DynamicVectorClass<TechnoClass *> *list, DynamicVectorC
     }
 }
 
-void __fastcall Unknown_006F7360()
+void __fastcall Command_Type_Select()
 {
     if (MuteSWLaunches != 0) {
         return;
@@ -1210,14 +1210,14 @@ bool __fastcall unknown_matches_any_name(UnknownObject_006f7610 *object, Unknown
 extern "C" __declspec(dllimport) unsigned long __stdcall timeGetTime();
 extern bool unknown_flag_ac133d;
 extern unsigned long unknown_time_ac1340;
-void __fastcall Unknown_006F7360();
+void __fastcall Command_Type_Select();
 
 void __fastcall Unknown_006F7670()
 {
     if (unknown_flag_ac133d) {
         unknown_flag_ac133d = false;
         if (abs((int)(timeGetTime() - unknown_time_ac1340)) <= 500) {
-            Unknown_006F7360();
+            Command_Type_Select();
             Map.Flag_To_Redraw(1);
         }
     }
@@ -1626,7 +1626,7 @@ void Unknown_006F88F0()
         coord -= CoordStruct(height, height, 0);
         TacticalMap->Set_Tactical_Position_006a66b0(coord);
         if (unknown_833684 != 0) {
-            Map.Unknown_004994D0(unknown_geometry_k);
+            Map.Set_Cursor_Pos(unknown_geometry_k);
         }
     }
 }

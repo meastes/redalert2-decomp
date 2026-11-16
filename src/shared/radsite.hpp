@@ -43,8 +43,8 @@ public:
 
     RadSiteClass *Unknown_0047CE40();           // 0x0047CE40 the cell's radiation site, or 0
     void Unknown_0047CE30(RadSiteClass *site);  // 0x0047CE30 sets it
-    void Unknown_0047CEA0(double level);        // 0x0047CEA0 sets its radiation level (hypothesis)
-    void Unknown_0047CEC0(double level);        // 0x0047CEC0 lowers its radiation level (hypothesis)
+    void RadLevel_Increase(double level);        // 0x0047CEA0 sets its radiation level (hypothesis)
+    void RadLevel_Decrease(double level);        // 0x0047CEC0 lowers its radiation level (hypothesis)
 };
 
 // The rules (0x00839848) are `Rules`: shared/rules.hpp.

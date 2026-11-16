@@ -27,7 +27,7 @@ bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);
 namespace {
 UnknownMapGenerationCell &Cell_Data_m28(Cell const &cell)
 {
-    return unknown_map_cells_a70a24[cell.X + cell.Y * unknown_map_cell_side_84e804];
+    return RMGCellData[cell.X + cell.Y * MapCellStride];
 }
 }
 
@@ -73,10 +73,10 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
                 delete heap;
                 return 0;
             }
-            if (unknown_map_cells_a70a24 == 0 || Cell_Data_m28(start).RegionIndex != 0) {
+            if (RMGCellData == 0 || Cell_Data_m28(start).RegionIndex != 0) {
                 continue;
             }
-            if (Map[start].unknown_47b7e0()) {
+            if (Map[start].Is_Tile_With_Water()) {
                 break;
             }
         }
@@ -107,7 +107,7 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
     double y_weight = 1.0 / ((double)area.Height * 0.5 * (double)area.Height * 0.5);
     int grown = 0;
     while (grown < count && current != 0) {
-        if (unknown_map_cells_a70a24 != 0) {
+        if (RMGCellData != 0) {
             Cell_Data_m28(current->Position).RegionIndex = WorkingRegionID;
         }
         Map[current->Position].IsoTileIndex = 0;
@@ -120,7 +120,7 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
             }
             UnknownMapGenerationCell &data = Cell_Data_m28(next);
             if (data.RegionIndex != 0 || data.unknown_3c == WorkingRegionID) continue;
-            if (!Map[next].unknown_47b7e0() || used >= capacity) continue;
+            if (!Map[next].Is_Tile_With_Water() || used >= capacity) continue;
             if (!Cell_In_Generation_Shape(next, area, ellipse, x_weight, y_weight)) continue;
             UnknownVeinNode *node = &nodes[used];
             node->Position = next;
@@ -147,7 +147,7 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
     while (current != 0) {
         UnknownMapGenerationCell &data = Cell_Data_m28(current->Position);
         CellClass &cell = Map[current->Position];
-        if (data.RegionIndex == 0 && cell.unknown_47b7e0()) {
+        if (data.RegionIndex == 0 && cell.Is_Tile_With_Water()) {
             cell.IsoTileIndex = 0;
             data.RegionIndex = WorkingRegionID;
         }

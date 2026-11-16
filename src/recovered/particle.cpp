@@ -486,9 +486,9 @@ particle_done:
 }
 
 
-// Not exact (RA2_NON_MATCHING): ParticleClass::unknown_func_609540 at 0x00609540, best score 66.45, 2026-11-13; differs: 306 instructions in the original, 308 in the draft (shape 96.74)
+// Not exact (RA2_NON_MATCHING): ParticleClass::Spark_Behavior_AI at 0x00609540, best score 66.45, 2026-11-13; differs: 306 instructions in the original, 308 in the draft (shape 96.74)
 #ifdef RA2_NON_MATCHING
-// void ParticleClass::unknown_func_609540() (0x00609540)
+// void ParticleClass::Spark_Behavior_AI() (0x00609540)
 // Spark behaviour (TibSun ParticleClass::Spark_Behavior_AI): the spark falls
 // under gravity until it meets the ground, a bridge deck or a wall, where it
 // glances off along the cell slope and is flagged done; its colour then moves
@@ -497,7 +497,7 @@ particle_done:
 // Original immutable double at 0x007A10F8 (0.05).
 extern "C" double const Particle_Color_Step_007a10f8;
 
-void ParticleClass::unknown_func_609540()
+void ParticleClass::Spark_Behavior_AI()
 {
     CoordStruct coord = Coord;
     unknown_fc.Z -= Rules->unknown_1320;
@@ -602,7 +602,7 @@ void ParticleClass::Behavior_AI()
         Fire_Behavior_AI();
         break;
     case 3:
-        unknown_func_609540();
+        Spark_Behavior_AI();
         break;
     case 4:
         Railgun_Behavior_AI();
@@ -625,7 +625,7 @@ void ParticleClass::Behavior_AI()
 
 void ParticleClass::Draw_It(Point2D const &point, Rect const &cliprect)
 {
-    if (unknown_a6eb1c < Unknown_0053D840()) {
+    if (unknown_a6eb1c < GetMinFrameRate()) {
         return;
     }
     if (unknown_a40b2c != 0 || Class->BehavesLike != 1 && Class->BehavesLike != 3) {

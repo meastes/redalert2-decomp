@@ -65,7 +65,7 @@ public:
 };
 
 // The unit's list of LightSourceClass (0x00A6E818; name is a hypothesis).
-DynamicVectorClass<LightSourceClass *> unknown_LightSourceClass_list_00a6e818;
+DynamicVectorClass<LightSourceClass *> LightSources;
 DynamicVectorClass<LightSourceClass::PendingCellClass *> LightSourceClass::PendingCellClass::Array;
 
 
@@ -130,7 +130,7 @@ DynamicVectorClass<LightSourceClass::PendingCellClass *> LightSourceClass::Pendi
 LightSourceClass::LightSourceClass(CoordStruct coord, int visibility, int intensity, int red, int green, int blue) :
     Intensity(intensity), RedTint(red), GreenTint(green), BlueTint(blue), DetailLevel(2), Location(coord), Visibility(visibility), Activated(false)
 {
-    unknown_LightSourceClass_list_00a6e818.Add(this);
+    LightSources.Add(this);
 }
 
 
@@ -149,7 +149,7 @@ LightSourceClass::LightSourceClass() :
     Visibility(0),
     Activated(false)
 {
-    unknown_LightSourceClass_list_00a6e818.Add(this);
+    LightSources.Add(this);
 }
 
 
@@ -179,7 +179,7 @@ LightSourceClass::LightSourceClass(NoInitClass const &noinit) :
 LightSourceClass::~LightSourceClass()
 {
     Detach_This_From_All(this, true);
-    unknown_LightSourceClass_list_00a6e818.Delete(this);
+    LightSources.Delete(this);
     if (Activated) {
         Activated = false;
         Unknown_005375D0(0);
@@ -193,12 +193,12 @@ LightSourceClass::~LightSourceClass()
 void LightSourceClass::Clear_All()
 {
     unknown_flag_7df630 = false;
-    while (unknown_LightSourceClass_list_00a6e818.Count() != 0) {
-        LightSourceClass *light = unknown_LightSourceClass_list_00a6e818[0];
+    while (LightSources.Count() != 0) {
+        LightSourceClass *light = LightSources[0];
         if (light != 0) {
             delete light;
         }
-        unknown_LightSourceClass_list_00a6e818.Delete(0);
+        LightSources.Delete(0);
     }
     while (PendingCellClass::Array.Count() != 0) {
         delete PendingCellClass::Array[0];

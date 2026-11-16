@@ -19,8 +19,8 @@ struct VocStaticSound : AudioListNode {
     int unknown_34;                 // +0x34
     int unknown_38;                 // +0x38 (0x3C bytes: Process 0x00714540 sizes the pool)
 };
-extern AudioListNode unknown_voc_static_list_ad07d0;
-extern AudioPool *unknown_voc_static_pool_ad0844;
+extern AudioListNode StaticSounds;
+extern AudioPool *StaticSoundPool;
 
 // Updates every static sound and drops the finished ones (0x00714330); lets
 // the ones at a coordinate with any of the flags end (0x007143B0). Stopping and

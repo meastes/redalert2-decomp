@@ -408,7 +408,7 @@ int IPXConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address, unsig
     CommHeaderType *header = (CommHeaderType *)buf;
     if (!flagged && unknown_flag_a3fba8) {
         if (header->unknown_03 == 0) {
-            unsigned char target = OwnerTalk.Unknown_0063F4C0(ID);
+            unsigned char target = OwnerTalk.Mask_From_ID(ID);
             if (!target) {
                 return 0;
             }

@@ -97,16 +97,16 @@ public:
     void Detach(AbstractClass *target, bool all);
 #endif
     CellClass *Unknown_0055A910();                                              // 0x0055A910 (the next cell of the local-map walk, or null)
-    void Unknown_00549C50(CoordStruct const &coord, int sight, HouseClass *house, bool arg4, bool arg5, bool arg6, bool arg7, bool arg8);   // 0x00549C50 (reveals around coord; TechnoClass slot 70)
-    unsigned int Unknown_0055BD70(CellClass *cell); // physical full-EAX mask/RET4; Map receiver/source intent hypotheses
+    void RevealArea1(CoordStruct const &coord, int sight, HouseClass *house, bool arg4, bool arg5, bool arg6, bool arg7, bool arg8);   // 0x00549C50 (reveals around coord; TechnoClass slot 70)
+    unsigned int Get_High_Ground_Mask(CellClass *cell); // physical full-EAX mask/RET4; Map receiver/source intent hypotheses
     bool Unknown_0055C2C0(int first, int second); // physical AL-only/RET8; signedness/source intent hypotheses
-    void Unknown_00559F10();                                              // 0x00559F10
-    void Unknown_0055A120();                                              // 0x0055A120 (shared/map.hpp)
+    void Spy_Satellite_Hide();                                              // 0x00559F10
+    void Spy_Satellite_Reveal();                                              // 0x0055A120 (shared/map.hpp)
     void Reveal_The_Map();                                              // 0x0055A1F0 (shared/map.hpp)
     int Get_Max_Level();                                               // 0x0056A8A0 (the lowest cell level, +0x144; TechnoClass 0x006CD6F0)
     bool In_Radar(Cell const &cell);                                      // 0x0054AAB0
 #ifdef RA2_MAP_EDGE_CELL
-    Cell Unknown_00547F30(Cell const &cell);                              // 0x00547F30 (TibSun Cell_To_LocalRect; Fly unit only)
+    Cell Cell_To_LocalRect(Cell const &cell);                              // 0x00547F30 (TibSun Cell_To_LocalRect; Fly unit only)
 #endif
     bool Unknown_0054AB00(CoordStruct const &coord);                            // 0x0054AB00
     void Place_Down(Cell const &cell, ObjectClass *object);               // 0x0054AB70
@@ -118,7 +118,7 @@ public:
 #endif
     void Update_Cell_Zone(Cell const &cell);                              // 0x0054FB20
 #ifdef RA2_MAP_DAMAGE_LOW_BRIDGE
-    bool Unknown_0055DCA0(Cell const &cell);      // 0x0055DCA0 (as shared/map.hpp; TibSun Damage_Low_Bridge)
+    bool Damage_Low_Bridge(Cell const &cell);      // 0x0055DCA0 (as shared/map.hpp; TibSun Damage_Low_Bridge)
     bool Unknown_0055EDB0(Cell const &cell);      // 0x0055EDB0 (as shared/map.hpp)
 #endif
     int Get_Height_GL(CoordStruct const &coord);                             // 0x0055A280
@@ -128,26 +128,26 @@ public:
     void Shroud_The_Map();                                              // 0x00559FD0                                              // 0x0055A490
     int Overpass();                                                     // 0x0054B2E0 (TibSun Overpass)
     void Unknown_005685F0();                                                    // 0x005685F0
-    bool Unknown_00569090(Cell *cell);                                          // 0x00569090
+    bool Damage_Bridge(Cell *cell);                                          // 0x00569090
     void Reset_All_Subzones();                                                    // 0x00563D40
     int Zone_Reset();                                                     // 0x0054EBD0
-    void Unknown_005688A0(DynamicVectorClass<Cell> &cells);                    // 0x005688A0 (as shared/map.hpp)
+    void Recalc_Cells_In_List(DynamicVectorClass<Cell> &cells);                    // 0x005688A0 (as shared/map.hpp)
     void Reset_Iterator();                                                    // 0x0055A550
 #ifdef RA2_MAP_VIEW_56A870
     void Lower_Max_Level(int value);                                           // 0x0056A870
 #endif
     void Compute_Zone_Connections();                                                    // 0x0054FDA0 (shared/map.hpp)
     void Set_WasUnderBridge_Flags();                                                    // 0x00568B00
-    bool Unknown_0054E410();                                                    // 0x0054E410 (places a crate on a random cell)
-    void Unknown_0055D990(Cell const &cell);                              // 0x0055D990
+    bool Place_Random_Crate();                                                    // 0x0054E410 (places a crate on a random cell)
+    void Area_Reduce_Tiberium(Cell const &cell);                              // 0x0055D990
     void Unknown_00562F50(CellClass *cell); // 00562F50: observed thiscall/RET4; unused return hypothesis
-    CellClass *Unknown_005629D0(AbstractClass *object);                         // 0x005629D0 (the cell under an object; hypothesis)
+    CellClass *Find_Nearby_Shroud(AbstractClass *object);                         // 0x005629D0 (the cell under an object; hypothesis)
     int Cell_Threat(Cell const &cell, HouseClass *house);                 // 0x0054E3A0
     bool Unknown_0055A660(Cell const &cell, bool flag);                   // 0x0055A660
     bool Unknown_0055A740(CellClass *cell, bool flag);                          // 0x0055A740
     bool Unknown_0055A7F0(CoordStruct const &coord);                            // 0x0055A7F0
     void Unknown_0055ACC0();                                                    // 0x0055ACC0
-    bool Unknown_0055ACD0(ObjectClass *object, Cell const &cell);             // 0x0055ACD0 (whether the object may enter the cell: false when another object there blocks it)
+    bool Try_Open_Gate(ObjectClass *object, Cell const &cell);             // 0x0055ACD0 (whether the object may enter the cell: false when another object there blocks it)
     void Update_Cell_Zone_Constructively(Cell const &cell);      // 0x0054FC60
     void Update_Cell_Subzones(Cell const &cell);                              // 0x00566340
     bool Is_Fogged(CoordStruct const &coord);                            // 0x005683C0 (Tunnel.cpp)
@@ -211,7 +211,7 @@ public:
     void Unknown_0049E5E0();                                                    // 0x0049E5E0 (every cell runs 0x004798F0)
     ObjectClass *Unknown_0049EC40();                                            // 0x0049EC40
     void Unknown_0049EC60(ObjectClass *object);                                 // 0x0049EC60
-    Cell Unknown_004994D0(Cell const &cell);                                    // 0x004994D0
+    Cell Set_Cursor_Pos(Cell const &cell);                                    // 0x004994D0
     void Unknown_0049C7C0(int control);                                         // 0x0049C7C0
     void Unknown_0049C860(int control, bool keep);                              // 0x0049C860
     void Unknown_0049C980(int control);                                         // 0x0049C980
@@ -223,10 +223,10 @@ public:
 #endif
     void Encroach_Shadow();                                                    // 0x0049CC20
     void Encroach_Fog();                                                    // 0x0049CD20
-    void Unknown_0049E110(bool skip_buildings, bool arg2);                      // 0x0049E110
-    void Unknown_0049E000(bool skip_buildings, bool arg2);                      // 0x0049E000
-    void Unknown_0049DE00(bool skip_buildings, bool arg2);                      // 0x0049DE00
-    void Unknown_0049C670();                                                    // 0x0049C670 (multiplayer setup 0x0065E8C0)
+    void All_To_Look(bool skip_buildings, bool arg2);                      // 0x0049E110
+    void Update_Technos_Visibility(bool skip_buildings, bool arg2);                      // 0x0049E000
+    void Reveal_Technos(bool skip_buildings, bool arg2);                      // 0x0049DE00
+    void Compute_Start_Pos();                                                    // 0x0049C670 (multiplayer setup 0x0065E8C0)
     void Write_INI_0049D910(CCINIClass &ini);                                   // 0x0049D910 (Theater, Size, LocalSize; Write_Scenario_INI)
     void Read_INI_0049CFD0(CCINIClass &ini);                                    // 0x0049CFD0 (the map's sections of a scenario; Read_Scenario_INI)
     virtual bool unknown_slot39(Cell const &cell, HouseClass *house);                    // slot 39 0x0049A370
@@ -348,7 +348,7 @@ public:
     // A production strip, as far as the other units read it (shared/sidebar.hpp's StripClass, 0xE64 bytes).
     class StripClass {
     public:
-        bool Unknown_00681730();                                                // 0x00681730 any buildables
+        bool Has_Buildables();                                                // 0x00681730 any buildables
         char unknown_0[0xE64];
     };
 
@@ -369,11 +369,11 @@ public:
     virtual wchar_t const *Help_Text(int id);              // slot 33 0x006A20B0 (the tooltip text; called directly)
     virtual bool unknown_slot54(int control);                   // slot 54 0x006A0DA0 (the sidebar shown or hidden)
 #ifdef RA2_HOUSE_SCREEN_AI
-    void Unknown_006A1770(); // as shared/tab.hpp
+    void Flash_Money(); // as shared/tab.hpp
 #endif
     void Unknown_006A17B0();                                    // 0x006A17B0 (sets +0x4F15 and flags a redraw)
-    void Unknown_006A1EC0(); // as shared/tab.hpp
-    void Unknown_006A1F10(); // as shared/tab.hpp
+    void Open_Thumb(); // as shared/tab.hpp
+    void Close_Thumb(); // as shared/tab.hpp
 };
 #endif
 

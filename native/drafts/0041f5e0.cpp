@@ -15,7 +15,7 @@
 void *Native_Pointer_From_Handle(int handle);   // NATIVE: native/link/native_pointer_handles.cpp
 #include "shared/shape_file.hpp"
 #include "shared/tactical.hpp"
-// @ref ?unknown_AlphaShapeClass_list_0083c648@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A=0083c648
+// @ref ?AlphaShapes@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A=0083c648
 // @ref ?unknown_alpha_table_83c670@@3PAEA=0083c670
 // @ref ?Intersect@@YI?AVRect@@ABV1@0PAH1@Z=0041fdf0
 // @ref ?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
@@ -33,9 +33,9 @@ void *Native_Pointer_From_Handle(int handle);   // NATIVE: native/link/native_po
 
 void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers' name (overlay ov3 declared AlphaShapeClass::Draw_All)
 {
-    for (int index = 0; index < unknown_AlphaShapeClass_list_0083c648.Count(); index++) {
+    for (int index = 0; index < AlphaShapes.Count(); index++) {
         {
-            Rect r1 = unknown_AlphaShapeClass_list_0083c648[index]->Bounds;
+            Rect r1 = AlphaShapes[index]->Bounds;
             r1 -= Point2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY);
             r1.X += TacticalRect.X;   // NATIVE: the overlay's Rect += Point2D (RA2_RECT_POINT_INLINE): moves the corner
             r1.Y += TacticalRect.Y;   // NATIVE
@@ -44,10 +44,10 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
             if (r2.Is_Valid()) {
                 int x1 = r1.X;
                 int y1 = r1.Y;
-                ShapeFileStruct const *shape = unknown_AlphaShapeClass_list_0083c648[index]->Image;
+                ShapeFileStruct const *shape = AlphaShapes[index]->Image;
                 if (shape == 0) {
-                    unknown_AlphaShapeClass_list_0083c648[index]->Image = (ShapeFileStruct *)Native_Pointer_From_Handle(unknown_AlphaShapeClass_list_0083c648[index]->Owner->Class_Of()->unknown_ac);   // NATIVE: 32-bit handle (Scout1246)
-                    shape = unknown_AlphaShapeClass_list_0083c648[index]->Image;
+                    AlphaShapes[index]->Image = (ShapeFileStruct *)Native_Pointer_From_Handle(AlphaShapes[index]->Owner->Class_Of()->unknown_ac);   // NATIVE: 32-bit handle (Scout1246)
+                    shape = AlphaShapes[index]->Image;
                 }
                 Rect shape_rect = shape->Get_Frame_Rect(0);
                 int top = MAX(r2.Y, shape_rect.Y + y1);

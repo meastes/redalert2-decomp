@@ -333,7 +333,7 @@ def main():
                 rows.append(row)
     # Array owners (`T name[N]...` with T a pointer or scalar): an interior name
     # is the element at its index (Audio_Global_Levels[8] pointers, 0x0083144C,
-    # holds unknown_audio_levels_831454 as element 2); pointer elements double.
+    # holds AudioScoreAttribs as element 2); pointer elements double.
     for o in sorted(names.values(), key=lambda n: n['address']):
         if not o['decl'] or not o['decl'][1] or None in o['decl'][1] or o['object'] is None:
             continue

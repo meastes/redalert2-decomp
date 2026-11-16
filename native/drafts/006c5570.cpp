@@ -3,7 +3,7 @@
 // origin lane: Scout668 (build/class-work/Scout668/w/keep/eo_9170.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1069 (native/drafts.json). Not original bytes.
-// TechnoClass::unknown_6c5570 (TibSun Evaluate_Object).
+// TechnoClass::Evaluate_Object (TibSun Evaluate_Object).
 #include "shared/techno.hpp"
 #include "shared/infantry.hpp"
 #include "shared/building.hpp"
@@ -20,7 +20,7 @@ static inline int Coord_Size(CoordStruct const &c)
     double y=c.Y;
     return (int)Fast_Sqrt((double)c.X*(double)c.X+y*y+(double)c.Z*(double)c.Z);
 }
-bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *object,int *value,int zone,CoordStruct const *coord)
+bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *object,int *value,int zone,CoordStruct const *coord)
 {
     TechnoClass *tech=static_cast<TechnoClass *>(object);
     bool engineer=Is_Renovator();

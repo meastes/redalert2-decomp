@@ -27,9 +27,9 @@ public:
                  char const *modes, int unknown_180, int players);
     // Whether the map is on the disk (-2: its file is present; else the disk is
     // in its disk list or the list holds -1) (0x00671F00; hypothesis).
-    bool Unknown_00671F00(int cd);
+    bool Is_On_CD(int cd);
     // The first disk of its list (0x00671F90).
-    int Unknown_00671F90();
+    int On_Which_CD();
     // Whether the text at +0x58 is a fixed string (0x006720C0).
     bool Is_Random_Map();
 #ifdef MULTI_MISSION_ACCESSORS

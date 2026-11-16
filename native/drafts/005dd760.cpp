@@ -14,7 +14,7 @@
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref __real@8@bff6b6db6db6db6db800=007a7b00
 // @ref ?unknown_spot_light_shapes_a731e0@@3PAPAVBSurface@@A=00a731e0
-// @ref ?unknown_block_a73378@@3PAXA=00a73378
+// @ref ?SpotLightMMXBuffer@@3PAXA=00a73378
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ??0Buffer@@QAE@PAXJ@Z=004382c0
 // @ref ??1Buffer@@QAE@XZ=00438410
@@ -38,7 +38,7 @@
 // The spot light shapes (0x00A731E0): 64 growing discs, then ten fixed-radius ones.
 extern BSurface *unknown_spot_light_shapes_a731e0[74];
 // The high-colour pixel to RGB table (0x00A73378; Unknown_005DDB40 frees it).
-extern void *unknown_block_a73378;
+extern void *SpotLightMMXBuffer;
 // Set once the shapes are built (0x00A73374).
 bool unknown_spot_light_shapes_ready_a73374;
 // A copy of Get_Unknown_7d6290() taken here (0x007E8C4C).
@@ -93,11 +93,11 @@ void Unknown_005DD760()
     int family = 5;
     unsigned char has_cpuid = 0;
     Get_CPU_Info(&family, &has_cpuid, 0, 0);
-    if (has_cpuid && unknown_block_a73378 == 0) {
-        unknown_block_a73378 = new int[0x10000];
+    if (has_cpuid && SpotLightMMXBuffer == 0) {
+        SpotLightMMXBuffer = new int[0x10000];
         for (int index = 0; index < 0x10000; index++) {
             RGBClass color = Unpack_Hicolor_Pixel((unsigned short)index);
-            ((int *)unknown_block_a73378)[index] = (color.Red << 16) | (color.Green << 8) | color.Blue;
+            ((int *)SpotLightMMXBuffer)[index] = (color.Red << 16) | (color.Green << 8) | color.Blue;
         }
     }
 }

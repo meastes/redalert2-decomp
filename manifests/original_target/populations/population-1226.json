@@ -4,13 +4,13 @@
     "id": "population-1226",
     "inventory_sha256": "689d3c83f7eef882730a090fddeb8a30e6dc357240c157cfc5e68d630bcdb166",
     "gaps_sha256": "5a6473d9090327ab372007e161a9bad71e28d7809e554abecb2ce40c25587527",
-    "historical_population_sha256": "2a8c0b600f36c7efcecf515e62a2b8d6cd69335f395383e92c13020b76b71991",
-    "historical_acceptance_sha256": "1606dfc90bee56ad19df287db88565b2a7261da8e7e6ea81874151cc63a8f582",
+    "historical_population_sha256": "1dd5c6cd53b646f4e16534b983daf28433a5a181c9d0435638c16e4a28a36c61",
+    "historical_acceptance_sha256": "1af44e1089449ba222ad06117165ef7c8c1958980cf088a5383ab29efa9a04b5",
     "separate_units": true
   },
   "references": {
     "?Unknown_00495270@@YIPAXPBDPA_N@Z": 4805232,
-    "?unknown_value_8523e0@@3HA": 8725472,
+    "?VideoModeWidth@@3HA": 8725472,
     "?unknown_flag_ac1217@@3_NA": 11276823,
     "?unknown_art_ac1104@@3PAXA": 11276548,
     "?unknown_name_7f8780@@3QBDB": 8357760,
@@ -96,7 +96,7 @@
     "?Unknown_0051A2B0@@YAXXZ": 5350064,
     "?Unknown_006F3E70@@YIXHH@Z": 7290480,
     "?unknown_flag_ac119c@@3_NA": 11276700,
-    "?unknown_value_8523e4@@3HA": 8725476,
+    "?VideoModeHeight@@3HA": 8725476,
     "?unknown_name_7f8740@@3PBDB": 8357696,
     "?unknown_flag_ac1224@@3_NA": 11276836,
     "?unknown_art_ac1218@@3PAXA": 11276824,
@@ -766,7 +766,25 @@
     "__except_list": 0,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
     "__real@8@bff6b6db6db6db6db800": 8026880,
-    "??_EXSurface@@UAEPAXI@Z": 4264736
+    "??_EXSurface@@UAEPAXI@Z": 4264736,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
   },
   "regions": [
     {
@@ -797,7 +815,7 @@
         {
           "offset": 121,
           "kind": 6,
-          "symbol": "?unknown_value_8523e0@@3HA",
+          "symbol": "?VideoModeWidth@@3HA",
           "target": 8725472,
           "addend": 0,
           "resolved": 8725472
@@ -819,7 +837,7 @@
           "resolved": 4292523144
         }
       ],
-      "source_sha256": "183d856f50b95759a60b6f218197c73c5ea4967b40b54ee60c9d3043ed19da16",
+      "source_sha256": "abb87cbe4cd5651582d921eb8c6499b074b82b08ae05896b2a2732dbae0f5c61",
       "source": "src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp",
       "population": "population-1226",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -1041,7 +1059,7 @@
         {
           "offset": 34,
           "kind": 6,
-          "symbol": "?unknown_value_8523e0@@3HA",
+          "symbol": "?VideoModeWidth@@3HA",
           "target": 8725472,
           "addend": 0,
           "resolved": 8725472
@@ -1071,7 +1089,7 @@
           "resolved": 4292522783
         }
       ],
-      "source_sha256": "eb922699a4b7e552802aa4c8877d6a1a410456e2a564f69c95823f8316a22d48",
+      "source_sha256": "6e328d4511c843b6ba2f3f4c18ff53fc3d2829c356c9e48d2cfa2a545047a472",
       "source": "src/recovered/unowned/Unknown_Draw_Shape_006f3b20.cpp",
       "population": "population-1226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

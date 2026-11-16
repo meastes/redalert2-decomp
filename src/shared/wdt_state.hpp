@@ -11,8 +11,8 @@ public:
     // 0x0073FEE0, whose $L labels renumber with any new declaration (VC6_MATCHING_NOTES).
     WDTState();                                     // 0x0072BEF0 (empty state)
     WDTState(unsigned char *data);                  // 0x0072BFA0 (from the WOL state block)
-    bool unknown_72c3b0(void *data, int length);    // 0x0072C3B0 (the HSVC field)
-    bool unknown_72c490(void *data, int length);    // 0x0072C490 (the MPVC field)
+    bool Create_History(void *data, int length);    // 0x0072C3B0 (the HSVC field)
+    bool Create_Territories(void *data, int length);    // 0x0072C490 (the MPVC field)
 #endif
     virtual ~WDTState();    // 0x0072C2D0
     static rc_ptr<WDTState> __fastcall Create(unsigned char *data); // 0x0072BEB0

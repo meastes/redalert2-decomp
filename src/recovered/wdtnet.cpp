@@ -195,7 +195,7 @@ WDTState::WDTState()
 // WDTState::WDTState(unsigned char *data) (0x0072BFA0): a state read from the WOL state packet:
 // NACK leaves it empty; TOTK (or CRTK/CYLN) gives the conflict counts, SDSC/LDSC/WURL the label
 // strings, CMID/CYID/TICC the numbers; MPVC (current cycles only) and HSVC are parsed by
-// unknown_72c490 / unknown_72c3b0. The field names are the packet tags.
+// Create_Territories / Create_History. The field names are the packet tags.
 
 WDTState::WDTState(unsigned char *data)
 {
@@ -266,11 +266,11 @@ WDTState::WDTState(unsigned char *data)
     }
     packet->Get_Field("HSVC", hsvc, hsvc_length);
     if (!unknown_48) {
-        unknown_72c490(mpvc, mpvc_length);
+        Create_Territories(mpvc, mpvc_length);
     } else {
         unknown_20 = 30;
     }
-    unknown_72c3b0(hsvc, hsvc_length);
+    Create_History(hsvc, hsvc_length);
     delete hsvc;
     if (!unknown_48) {
         delete mpvc;
@@ -325,13 +325,13 @@ class Leaf_72c3a0 { public: unsigned char get(); };
 unsigned char Leaf_72c3a0::get() { return *(unsigned char*)((char*)this + 0x48); }
 
 
-// bool WDTState::unknown_72c3b0(void *data, int length) (0x0072C3B0): the HSVC field of the WOL
+// bool WDTState::Create_History(void *data, int length) (0x0072C3B0): the HSVC field of the WOL
 // state packet, four 2-bit values per byte (low bits first): one byte table of unknown_20 values
 // per conflict in unknown_44 (ConflictCount rows), each row starting on a fresh byte. Fails when
 // the field holds fewer than unknown_20 * ConflictCount values. Each switch case stores its value
 // itself (a shared value local enregisters the bit counter, which the original keeps in memory).
 
-bool WDTState::unknown_72c3b0(void *data, int length)
+bool WDTState::Create_History(void *data, int length)
 {
     if ((unsigned)(length * 4) < unknown_20 * ConflictCount) {
         return false;
@@ -374,7 +374,7 @@ bool WDTState::unknown_72c3b0(void *data, int length)
 }
 
 
-// bool WDTState::unknown_72c490(void *data, int length) (0x0072C490): the MPVC field of the WOL
+// bool WDTState::Create_Territories(void *data, int length) (0x0072C490): the MPVC field of the WOL
 // state packet, one territory per record (44 bytes read, 0x1C checked). Each record makes a counted
 // WDTTerritory through the factory WDTTerritory::Create 0x0072BDC0 (expanded here; its rc_ptr
 // constructor stays out of line at 0x0072CAA0), numbers it with unknown_20 and appends it to
@@ -386,7 +386,7 @@ inline unsigned char Unbias_72c490(unsigned char const &value)
     return value > 0x7F ? value - 0x80 : value;
 }
 
-bool WDTState::unknown_72c490(void *data, int length)
+bool WDTState::Create_Territories(void *data, int length)
 {
     unsigned char *bytes = (unsigned char *)data;
     unknown_20 = 0;

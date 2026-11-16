@@ -247,7 +247,7 @@ public:
     bool Tiberium_Check(Cell const &cell);               // 0x004CB6D0
     Cell unknown_4cbb40(int radius);                      // 0x004CBB40 (a weighted random cell of the rings that passes 0x004CB6D0; TibSun Search_For_Tiberium_Weighted)
     int Rescue_Mission(AbstractClass *target);                 // 0x004C82A0 (an attack rate against a target)
-    void unknown_4c8b00();                                      // 0x004C8B00 (next queued destination; UnitClass slot 261)
+    void Handle_Navigation_List();                                      // 0x004C8B00 (next queued destination; UnitClass slot 261)
     bool Is_On_Priority_Mission();                                      // 0x004C8D60 (slot 91 == 7)
     void unknown_4cdb60();                                      // 0x004CDB60 (+0x4B8 from +0x4BC's cell)
     void Unknown_004CD9B0();                                    // 0x004CD9B0 (clears +0x490 and +0x494)

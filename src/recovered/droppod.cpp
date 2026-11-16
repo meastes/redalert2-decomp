@@ -178,7 +178,7 @@ bool __stdcall DropPodLocomotionClass::Process()
         locomotor.Attach(0);
         End_Piggyback(&locomotor.Pointer);
         if (!linked->Unlimbo(&coord, 0)) {
-            Unknown_0047E2C0(coord, 100, LinkedTo, Rules->C4Warhead, true);
+            Explosion_Damage(coord, 100, LinkedTo, Rules->C4Warhead, true);
             new AnimClass(Select_Damage_Anim(100, Rules->C4Warhead, 0, &coord), coord, 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(coord));
         } else {
             new AnimClass(Rules->DropPodPuff, coord, 0, 1, 0x600, 0);
@@ -205,7 +205,7 @@ bool __stdcall DropPodLocomotionClass::Process()
                 if (!LinkedTo->House->Is_Ally((TechnoClass *)Map[unknown_20].Cell_Techno(Point2D(0, 0), false, 0))) {
                     CoordStruct scattered = Coord_Scatter(unknown_20, 0x55, false);
                     Voc_Play_At(weapon->unknown_bc.Pick(NonCriticalRandomNumber()), coord, 0);
-                    Unknown_0047E2C0(scattered, weapon->unknown_a4 * 2, LinkedTo, weapon->Warhead, true);
+                    Explosion_Damage(scattered, weapon->unknown_a4 * 2, LinkedTo, weapon->Warhead, true);
                     new AnimClass(Select_Damage_Anim(weapon->unknown_a4 * 2, weapon->Warhead, 0, &scattered), scattered, 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(scattered));
                 }
             }

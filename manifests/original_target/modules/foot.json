@@ -373,7 +373,7 @@
    "padding_bytes": 1
   },
   {
-   "symbol": "?unknown_4c8b00@FootClass@@QAEXXZ",
+   "symbol": "?Handle_Navigation_List@FootClass@@QAEXXZ",
    "entry": "004c8b00",
    "body_bytes": 175,
    "padding_bytes": 1
@@ -2594,7 +2594,7 @@
   },
   {
    "site": "00503c00",
-   "symbol": "?unknown_4c8b00@FootClass@@QAEXXZ",
+   "symbol": "?Handle_Navigation_List@FootClass@@QAEXXZ",
    "target": "004c8b00",
    "function_entry": true
   },
@@ -2744,7 +2744,7 @@
   },
   {
    "site": "006fd630",
-   "symbol": "?unknown_4c8b00@FootClass@@QAEXXZ",
+   "symbol": "?Handle_Navigation_List@FootClass@@QAEXXZ",
    "target": "004c8b00",
    "function_entry": true
   },
@@ -3993,8 +3993,16 @@
    "address": "006cf9d0"
   },
   {
+   "symbol": "?Get_Z_Fudge_Tunnel@TechnoClass@@QAEHXZ",
+   "address": "006cfb60"
+  },
+  {
    "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
    "address": "00636f10"
+  },
+  {
+   "symbol": "?Has_Ability@TechnoClass@@QAE_NH@Z",
+   "address": "006d7910"
   },
   {
    "symbol": "?Has_Suspended_Mission@MissionClass@@UBE_NXZ",
@@ -4473,10 +4481,6 @@
    "address": "0047ce70"
   },
   {
-   "symbol": "?Unknown_004EB270@HouseClass@@QAE?AVCell@@PAVFootClass@@@Z",
-   "address": "004eb270"
-  },
-  {
    "symbol": "?Unknown_004F52F0@HouseClass@@QAE_NXZ",
    "address": "004f52f0"
   },
@@ -4589,6 +4593,10 @@
    "address": "006c1380"
   },
   {
+   "symbol": "?Where_To_Go@HouseClass@@QAE?AVCell@@PAVFootClass@@@Z",
+   "address": "004eb270"
+  },
+  {
    "symbol": "?Who_Can_Build_Me@ObjectClass@@UAEPAVBuildingClass@@_N0@Z",
    "address": "005d4500"
   },
@@ -4629,20 +4637,12 @@
    "address": "006cf130"
   },
   {
-   "symbol": "?unknown_6cfb60@TechnoClass@@QAEHXZ",
-   "address": "006cfb60"
-  },
-  {
    "symbol": "?unknown_6d0510@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@HH@Z",
    "address": "006d0510"
   },
   {
    "symbol": "?unknown_6d3400@TechnoClass@@QAEXPAV1@@Z",
    "address": "006d3400"
-  },
-  {
-   "symbol": "?unknown_6d7910@TechnoClass@@QAE_NH@Z",
-   "address": "006d7910"
   },
   {
    "symbol": "?unknown_6d95a0@TechnoClass@@QAEXPAVUnknownCellClass@@@Z",

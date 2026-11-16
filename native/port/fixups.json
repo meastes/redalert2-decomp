@@ -87,8 +87,8 @@
   },
   {
    "source": "src/recovered/mainloop.cpp",
-   "old": "L\"NFT : %d\", unknown_net_frame_timer_839970);",
-   "new": "L\"NFT : %d\", unknown_net_frame_timer_839970.Started);",
+   "old": "L\"NFT : %d\", NetFrameTimer);",
+   "new": "L\"NFT : %d\", NetFrameTimer.Started);",
    "why": "CDTimerClass<MSTimerClass> through swprintf varargs: %d reads the copy's first dword, Started (+0x00).",
    "verified": true
   },
@@ -334,7 +334,7 @@
    "source": "src/recovered/conquer/Main_Game.cpp",
    "old": "bool __fastcall Select_Game(bool fade);                 // 0x005135F0\n",
    "new": "bool __fastcall Select_Game(bool fade);                 // 0x005135F0\n// native: test-harness seams (native/link/harness_skirmish.cpp); without --skirmish they call Select_Game / Main_Loop.\nbool Native_Select_Game_Seam(bool fade);\nbool Native_Main_Loop_Seam();\n",
-   "why": "Test-harness seam (README 'Skirmish harness'): Main_Game's Select_Game and Main_Loop (unknown_53fbd0) calls go through native seams that call them unchanged unless ra2-native runs with --skirmish, which starts a skirmish without the menu dialogs and counts frames. Native-only; the exact build is untouched.",
+   "why": "Test-harness seam (README 'Skirmish harness'): Main_Game's Select_Game and Main_Loop (Main_Loop) calls go through native seams that call them unchanged unless ra2-native runs with --skirmish, which starts a skirmish without the menu dialogs and counts frames. Native-only; the exact build is untouched.",
    "verified": true
   },
   {
@@ -346,7 +346,7 @@
   },
   {
    "source": "src/recovered/conquer/Main_Game.cpp",
-   "old": "            if (unknown_53fbd0()) {",
+   "old": "            if (Main_Loop()) {",
    "new": "            if (Native_Main_Loop_Seam()) {",
    "why": "Seam call (see the declaration fixup above).",
    "verified": true
@@ -1364,8 +1364,8 @@
   },
   {
    "source": "src/recovered/init.cpp",
-   "old": "    HWND list = GetDlgItem(window, 0x744);\n    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);\n    if (result != 0) {\n        return result;\n    }\n    int *choice = (int *)GetWindowLongA(window, 8);",
-   "new": "    HWND list = GetDlgItem(window, 0x744);\n    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);\n    if (result != 0) {\n        return result;\n    }\n    intptr_t *choice = (intptr_t *)GetWindowLongA(window, 8);",
+   "old": "    HWND list = GetDlgItem(window, 0x744);\n    int result = Default_Dialog_Proc(window, message, wparam, lparam);\n    if (result != 0) {\n        return result;\n    }\n    int *choice = (int *)GetWindowLongA(window, 8);",
+   "new": "    HWND list = GetDlgItem(window, 0x744);\n    int result = Default_Dialog_Proc(window, message, wparam, lparam);\n    if (result != 0) {\n        return result;\n    }\n    intptr_t *choice = (intptr_t *)GetWindowLongA(window, 8);",
    "why": "Pointer width (Scout1187, M23): the movie list proc 0x005134C0 stores LB_GETITEMDATA (the MovieEntryStruct * Fill_Movie_List 0x005DA470 set) through the dialog's DWL_USER result pointer, and Select_Game 0x005135F0 casts unknown_dialog_box_5eab60's int result back to the entry (UnknownMovieEntry *). On VC6 int and pointer are both 32 bits; natively the result slot, the proc's store and the box's return are intptr_t, so the entry pointer survives and Play Movie works. Other procs store ints into the low half of the zeroed slot and read back unchanged (their callers keep int). Same meaning."
   },
   {
@@ -1550,56 +1550,56 @@
    "source": "src/recovered/mapgen.cpp",
    "old": "reinterpret_cast<UnknownMapGenerationCell *>(seed_0056dba0::Get_Generation_Cell_0056dba0((short *)&position))->",
    "new": "Get_Cell_Data_0056dba0(position).",
-   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: RMGCellData[X + Y * side]), the same record. The exact build is unchanged.",
    "verified": false
   },
   {
    "source": "src/recovered/mapgen.cpp",
    "old": "reinterpret_cast<UnknownMapGenerationCell *>(seed_0056dba0::Get_Generation_Cell_0056dba0((short *)&seed))->",
    "new": "Get_Cell_Data_0056dba0(seed).",
-   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: RMGCellData[X + Y * side]), the same record. The exact build is unchanged.",
    "verified": false
   },
   {
    "source": "src/recovered/mapgen.cpp",
    "old": "reinterpret_cast<UnknownMapGenerationCell *>(seed_0056dba0::Get_Generation_Cell_0056dba0((short *)&adjacent))->",
    "new": "Get_Cell_Data_0056dba0(adjacent).",
-   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: RMGCellData[X + Y * side]), the same record. The exact build is unchanged.",
    "verified": false
   },
   {
    "source": "src/recovered/mapgen.cpp",
    "old": "void __fastcall Set_Grid_Visit_Byte_0056db10(Cell const &position);\nbool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);",
    "new": "void __fastcall Set_Grid_Visit_Byte_0056db10(Cell const &position);\nbool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);\nUnknownMapGenerationCell &__fastcall Get_Cell_Data_0056dba0(Cell const &cell);   // NATIVE",
-   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: RMGCellData[X + Y * side]), the same record. The exact build is unchanged.",
    "verified": false
   },
   {
    "source": "src/recovered/mapgen.cpp",
    "old": "namespace seed_0056dba0 { int __fastcall Get_Generation_Cell_0056dba0(short *position); }",
    "new": "// NATIVE: the cell-record lookup is Get_Cell_Data_0056dba0 (declared after the includes)",
-   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: RMGCellData[X + Y * side]), the same record. The exact build is unchanged.",
    "verified": false
   },
   {
    "source": "src/recovered/mapgen.cpp",
    "old": "(*reinterpret_cast<UnknownMapGenerationCell *>(seed_0056dba0::Get_Generation_Cell_0056dba0((short *)&position)))",
    "new": "Get_Cell_Data_0056dba0(position)",
-   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: RMGCellData[X + Y * side]), the same record. The exact build is unchanged.",
    "verified": false
   },
   {
    "source": "src/recovered/mapgen.cpp",
    "old": "(*reinterpret_cast<UnknownMapGenerationCell *>(seed_0056dba0::Get_Generation_Cell_0056dba0((short *)&next)))",
    "new": "Get_Cell_Data_0056dba0(next)",
-   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: RMGCellData[X + Y * side]), the same record. The exact build is unchanged.",
    "verified": false
   },
   {
    "source": "src/recovered/mapgen.cpp",
    "old": "#include \"shared/vein_heap.hpp\"\n",
    "new": "#include \"shared/vein_heap.hpp\"\nUnknownMapGenerationCell &__fastcall Get_Cell_Data_0056dba0(Cell const &cell);   // NATIVE\n",
-   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: RMGCellData[X + Y * side]), the same record. The exact build is unchanged.",
    "verified": false
   },
   {
@@ -1737,15 +1737,15 @@
   },
   {
    "source": "src/recovered/mapgen.cpp",
-   "old": "        Report_Generation_Progress_0057be50(35);\n        if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();\n        if(!MapSeeder",
-   "new": "        Report_Generation_Progress_0057be50(35);\n        if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();\n        if(!native_map_seeder_m28",
+   "old": "        Report_Generation_Progress_0057be50(35);\n        if(RMGCallback)RMGCallback();\n        if(!MapSeeder",
+   "new": "        Report_Generation_Progress_0057be50(35);\n        if(RMGCallback)RMGCallback();\n        if(!native_map_seeder_m28",
    "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
    "verified": false
   },
   {
    "source": "src/recovered/mapgen.cpp",
-   "old": "        Report_Generation_Progress_0057be50(30);\n        if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();\n        if(!MapSeeder",
-   "new": "        Report_Generation_Progress_0057be50(30);\n        if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();\n        if(!native_map_seeder_m28",
+   "old": "        Report_Generation_Progress_0057be50(30);\n        if(RMGCallback)RMGCallback();\n        if(!MapSeeder",
+   "new": "        Report_Generation_Progress_0057be50(30);\n        if(RMGCallback)RMGCallback();\n        if(!native_map_seeder_m28",
    "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
    "verified": false
   },
@@ -1989,8 +1989,8 @@
   },
   {
    "source": "src/recovered/mainloop.cpp",
-   "old": "                if (unknown_net_frame_timer_839970.Value() > 10) {",
-   "new": "                if (unknown_net_frame_timer_839970.Value() > 10 && Native_Wait_Pass_Due()) {   /* NATIVE: at most one pass per 33 ms */",
+   "old": "                if (NetFrameTimer.Value() > 10) {",
+   "new": "                if (NetFrameTimer.Value() > 10 && Native_Wait_Pass_Due()) {   /* NATIVE: at most one pass per 33 ms */",
    "why": "Native only: in a network game Sync_Delay runs input, the tactical AI (edge scrolling) and a render in a loop while more than 10 ms of the frame remain. On Windows a render took most of that time; natively it takes a fraction of a millisecond, so the pass ran many times a frame and edge scrolling was far too fast in LAN games (user report, Scout1223). One pass per 33 ms (native/link/native_event_data.cpp).",
    "verified": true
   },
@@ -2003,8 +2003,8 @@
   },
   {
    "source": "src/recovered/queue.cpp",
-   "old": "        if (!first_time && !unknown_int_a40d48 && !reconnect_dlg) {\n            Map.Get_Input(input, x, y);\n",
-   "new": "        if (!first_time && !unknown_int_a40d48 && !reconnect_dlg && Native_Wait_Pass_Due()) {   /* NATIVE: only once the frame has stalled, then at most every 33 ms */\n            Map.Get_Input(input, x, y);\n",
+   "old": "        if (!first_time && !SpecialDialog && !reconnect_dlg) {\n            Map.Get_Input(input, x, y);\n",
+   "new": "        if (!first_time && !SpecialDialog && !reconnect_dlg && Native_Wait_Pass_Due()) {   /* NATIVE: only once the frame has stalled, then at most every 33 ms */\n            Map.Get_Input(input, x, y);\n",
    "why": "Native only: while a network game waits for the other players' frame packets, Wait_For_Players runs input, the tactical AI (edge scrolling) and a render on every pass of its wait loop. On Windows a render took most of a frame; natively the loop spins many times per frame, so edge scrolling ran several times a frame (measured 2.4-3x the single-player rate with Sync_Delay's limit alone, Scout1231). Same rule as Sync_Delay: a pass only once the frame has stalled 100 ms, then at most every 33 ms (native/link/native_event_data.cpp).",
    "verified": true
   },
@@ -2346,30 +2346,30 @@
   },
   {
    "source": "src/shared/color_scheme.hpp",
-   "old": "ConvertClass *__fastcall Unknown_00663690(HSVClass const *base, void *unknown_a, int unknown_b, RGBClass *palette,",
-   "new": "ConvertClass *__fastcall Unknown_00663690(HSVClass const *base, void *unknown_a, intptr_t unknown_b, RGBClass *palette,   /* NATIVE: pointer-sized palette */",
-   "why": "Build_Light_Converter 0x00663690 takes the screen palette (PaletteClass *) as an int and dereferences it for the LightConvertClass; the callers (ColorScheme constructor 0x006639F0, Unknown_00663B40 0x00663B40) pass (int)palette. Natively the int cut the 64-bit address. The parameter is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
+   "old": "ConvertClass *__fastcall Build_Light_Converter(HSVClass const *base, void *unknown_a, int unknown_b, RGBClass *palette,",
+   "new": "ConvertClass *__fastcall Build_Light_Converter(HSVClass const *base, void *unknown_a, intptr_t unknown_b, RGBClass *palette,   /* NATIVE: pointer-sized palette */",
+   "why": "Build_Light_Converter 0x00663690 takes the screen palette (PaletteClass *) as an int and dereferences it for the LightConvertClass; the callers (ColorScheme constructor 0x006639F0, Build_Light_Converters 0x00663B40) pass (int)palette. Natively the int cut the 64-bit address. The parameter is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
    "verified": false
   },
   {
    "source": "src/recovered/scheme.cpp",
    "old": "void *base, int unknown_b, RGBClass *remapped,",
    "new": "void *base, intptr_t unknown_b, RGBClass *remapped,   /* NATIVE: pointer-sized palette */",
-   "why": "Build_Light_Converter 0x00663690 takes the screen palette (PaletteClass *) as an int and dereferences it for the LightConvertClass; the callers (ColorScheme constructor 0x006639F0, Unknown_00663B40 0x00663B40) pass (int)palette. Natively the int cut the 64-bit address. The parameter is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
+   "why": "Build_Light_Converter 0x00663690 takes the screen palette (PaletteClass *) as an int and dereferences it for the LightConvertClass; the callers (ColorScheme constructor 0x006639F0, Build_Light_Converters 0x00663B40) pass (int)palette. Natively the int cut the 64-bit address. The parameter is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
    "verified": false
   },
   {
    "source": "src/recovered/scheme.cpp",
-   "old": "    unknown_0x338 = 0x15;\n    Converter = Unknown_00663690(&BaseColor, unknown_a, (int)palette, Palette,",
-   "new": "    unknown_0x338 = 0x15;\n    Converter = Unknown_00663690(&BaseColor, unknown_a, (intptr_t)palette, Palette,",
-   "why": "Build_Light_Converter 0x00663690 takes the screen palette (PaletteClass *) as an int and dereferences it for the LightConvertClass; the callers (ColorScheme constructor 0x006639F0, Unknown_00663B40 0x00663B40) pass (int)palette. Natively the int cut the 64-bit address. The parameter is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
+   "old": "    unknown_0x338 = 0x15;\n    Converter = Build_Light_Converter(&BaseColor, unknown_a, (int)palette, Palette,",
+   "new": "    unknown_0x338 = 0x15;\n    Converter = Build_Light_Converter(&BaseColor, unknown_a, (intptr_t)palette, Palette,",
+   "why": "Build_Light_Converter 0x00663690 takes the screen palette (PaletteClass *) as an int and dereferences it for the LightConvertClass; the callers (ColorScheme constructor 0x006639F0, Build_Light_Converters 0x00663B40) pass (int)palette. Natively the int cut the 64-bit address. The parameter is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
    "verified": false
   },
   {
    "source": "src/recovered/scheme.cpp",
    "old": "unknown_a, (int)palette, Palette,",
    "new": "unknown_a, (intptr_t)palette, Palette,",
-   "why": "Build_Light_Converter 0x00663690 takes the screen palette (PaletteClass *) as an int and dereferences it for the LightConvertClass; the callers (ColorScheme constructor 0x006639F0, Unknown_00663B40 0x00663B40) pass (int)palette. Natively the int cut the 64-bit address. The parameter is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
+   "why": "Build_Light_Converter 0x00663690 takes the screen palette (PaletteClass *) as an int and dereferences it for the LightConvertClass; the callers (ColorScheme constructor 0x006639F0, Build_Light_Converters 0x00663B40) pass (int)palette. Natively the int cut the 64-bit address. The parameter is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
    "verified": false
   },
   {
@@ -2577,8 +2577,8 @@
   },
   {
    "source": "src/recovered/txtlabel2/Unknown_Draw_Interface_Borders.cpp",
-   "old": "    if (unknown_value_8523e0 >= 1024) {\n",
-   "new": "    if (unknown_value_8523e0 > 800 || unknown_rect_ac11c0->Y > 0) {   /* NATIVE: whenever the panel is centred (Scout1274) */\n",
+   "old": "    if (VideoModeWidth >= 1024) {\n",
+   "new": "    if (VideoModeWidth > 800 || unknown_rect_ac11c0->Y > 0) {   /* NATIVE: whenever the panel is centred (Scout1274) */\n",
    "why": "The bands around the centred 800x600 menu panel are blacked out only at 1024 wide or more, where the original's layout centres the panel. With the layout centred above 800x600 natively (Unknown_Layout_Interface_006F3E70 fixups), the bands at the touch app's sizes (the Duo's 944x634) kept old surface contents as coloured noise. Natively they are blacked out whenever the panel is centred (wider than 800, or a top offset: higher than 600); the bands come from the panel rectangles, so at the original's sizes nothing changes. Scout1274.",
    "verified": false
   },
@@ -2824,36 +2824,36 @@
   },
   {
    "source": "src/recovered/mainopt.cpp",
-   "old": "        Rect sidebar(0, 0, SidebarWidth, unknown_window_839640.Height);\n",
-   "new": "        int Native_Sidebar_Height(int screen_height);   // NATIVE (C3): link/native_enhancements.cpp\n        Rect sidebar(0, 0, SidebarWidth, Native_Sidebar_Height(unknown_window_839640.Height));\n",
+   "old": "        Rect sidebar(0, 0, SidebarWidth, VisibleRect.Height);\n",
+   "new": "        int Native_Sidebar_Height(int screen_height);   // NATIVE (C3): link/native_enhancements.cpp\n        Rect sidebar(0, 0, SidebarWidth, Native_Sidebar_Height(VisibleRect.Height));\n",
    "why": "Native addition (C3, Game interface size, enhancements v2 part 1; not original behaviour): the sidebar surface may be shorter than the screen so the host can show the sidebar column larger than the map (host.cpp split layout). Native_Sidebar_Height (link/native_enhancements.cpp) answers the screen's own height unless the player chose an interface size above 1x, so with the defaults (and the ORIGINAL preset) nothing changes. This row: the sidebar surface's height at the resolution change (Set_Display_Mode 0x005434E0).",
    "verified": false
   },
   {
    "source": "src/recovered/saveload.cpp",
-   "old": "        Rect sidebar(0, 0, SidebarWidth, unknown_window_839640.Height);\n",
-   "new": "        int Native_Sidebar_Height(int screen_height);   // NATIVE (C3): link/native_enhancements.cpp\n        Rect sidebar(0, 0, SidebarWidth, Native_Sidebar_Height(unknown_window_839640.Height));\n",
+   "old": "        Rect sidebar(0, 0, SidebarWidth, VisibleRect.Height);\n",
+   "new": "        int Native_Sidebar_Height(int screen_height);   // NATIVE (C3): link/native_enhancements.cpp\n        Rect sidebar(0, 0, SidebarWidth, Native_Sidebar_Height(VisibleRect.Height));\n",
    "why": "Native addition (C3, Game interface size, enhancements v2 part 1; not original behaviour): the sidebar surface may be shorter than the screen so the host can show the sidebar column larger than the map (host.cpp split layout). Native_Sidebar_Height (link/native_enhancements.cpp) answers the screen's own height unless the player chose an interface size above 1x, so with the defaults (and the ORIGINAL preset) nothing changes. This row: the sidebar surface's height at the surfaces after a load.",
    "verified": false
   },
   {
    "source": "src/recovered/startup.cpp",
-   "old": "        Rect side_rect(0, 0, sidebar_width, screen_height);\n        int width = unknown_window_839640.Width;\n        Rect tile_rect(0, 0, width - side_rect.Width, side_rect.Height);\n        Rect composite_rect(0, 0, width - side_rect.Width, side_rect.Height);\n",
-   "new": "        int Native_Sidebar_Height(int screen_height);   // NATIVE (C3): link/native_enhancements.cpp\n        Rect side_rect(0, 0, sidebar_width, Native_Sidebar_Height(screen_height));\n        int width = unknown_window_839640.Width;\n        Rect tile_rect(0, 0, width - side_rect.Width, screen_height);        // NATIVE (C3): the screen's height, not the sidebar's\n        Rect composite_rect(0, 0, width - side_rect.Width, screen_height);\n",
+   "old": "        Rect side_rect(0, 0, sidebar_width, screen_height);\n        int width = VisibleRect.Width;\n        Rect tile_rect(0, 0, width - side_rect.Width, side_rect.Height);\n        Rect composite_rect(0, 0, width - side_rect.Width, side_rect.Height);\n",
+   "new": "        int Native_Sidebar_Height(int screen_height);   // NATIVE (C3): link/native_enhancements.cpp\n        Rect side_rect(0, 0, sidebar_width, Native_Sidebar_Height(screen_height));\n        int width = VisibleRect.Width;\n        Rect tile_rect(0, 0, width - side_rect.Width, screen_height);        // NATIVE (C3): the screen's height, not the sidebar's\n        Rect composite_rect(0, 0, width - side_rect.Width, screen_height);\n",
    "why": "Native addition (C3, Game interface size, enhancements v2 part 1; not original behaviour): the sidebar surface may be shorter than the screen so the host can show the sidebar column larger than the map (host.cpp split layout). Native_Sidebar_Height (link/native_enhancements.cpp) answers the screen's own height unless the player chose an interface size above 1x, so with the defaults (and the ORIGINAL preset) nothing changes. This row: the surfaces at start-up; the tile and composite surfaces took the sidebar rectangle's height (the screen's in the original), so they keep the screen's height.",
    "verified": false
   },
   {
    "source": "src/recovered/txtlabel2/Unknown_Draw_Sidebar.cpp",
-   "old": "        Unknown_Layout_Sidebar_006F4C90(unknown_value_8523e0, unknown_value_8523e4);\n",
-   "new": "        int Native_Sidebar_Height(int screen_height);   // NATIVE (C3): link/native_enhancements.cpp\n        Unknown_Layout_Sidebar_006F4C90(unknown_value_8523e0, Native_Sidebar_Height(unknown_value_8523e4));\n",
+   "old": "        Unknown_Layout_Sidebar_006F4C90(VideoModeWidth, VideoModeHeight);\n",
+   "new": "        int Native_Sidebar_Height(int screen_height);   // NATIVE (C3): link/native_enhancements.cpp\n        Unknown_Layout_Sidebar_006F4C90(VideoModeWidth, Native_Sidebar_Height(VideoModeHeight));\n",
    "why": "Native addition (C3, Game interface size, enhancements v2 part 1; not original behaviour): the sidebar surface may be shorter than the screen so the host can show the sidebar column larger than the map (host.cpp split layout). Native_Sidebar_Height (link/native_enhancements.cpp) answers the screen's own height unless the player chose an interface size above 1x, so with the defaults (and the ORIGINAL preset) nothing changes. This row: the sidebar art's layout (strip count, bottom pieces) for the sidebar's height when it is redrawn.",
    "verified": false
   },
   {
    "source": "src/recovered/txtlabel2/Unknown_Init_Sidebar_Art.cpp",
-   "old": "    Unknown_Layout_Sidebar_006F4C90(unknown_value_8523e0, unknown_value_8523e4);\n",
-   "new": "    int Native_Sidebar_Height(int screen_height);   // NATIVE (C3): link/native_enhancements.cpp\n    Unknown_Layout_Sidebar_006F4C90(unknown_value_8523e0, Native_Sidebar_Height(unknown_value_8523e4));\n",
+   "old": "    Unknown_Layout_Sidebar_006F4C90(VideoModeWidth, VideoModeHeight);\n",
+   "new": "    int Native_Sidebar_Height(int screen_height);   // NATIVE (C3): link/native_enhancements.cpp\n    Unknown_Layout_Sidebar_006F4C90(VideoModeWidth, Native_Sidebar_Height(VideoModeHeight));\n",
    "why": "Native addition (C3, Game interface size, enhancements v2 part 1; not original behaviour): the sidebar surface may be shorter than the screen so the host can show the sidebar column larger than the map (host.cpp split layout). Native_Sidebar_Height (link/native_enhancements.cpp) answers the screen's own height unless the player chose an interface size above 1x, so with the defaults (and the ORIGINAL preset) nothing changes. This row: the sidebar art's layout for the sidebar's height when the art is loaded.",
    "verified": false
   },
@@ -2964,8 +2964,8 @@
   },
   {
    "source": "src/recovered/tab.cpp",
-   "old": "    Rect rect(unknown_rect_ac11fc->X, unknown_rect_ac11fc->Y, unknown_int_839638, unknown_int_7add84 - 2);\n",
-   "new": "    Rect rect(unknown_rect_ac11fc->X, unknown_rect_ac11fc->Y, Native_Sidebar_X(unknown_int_839638), unknown_int_7add84 - 2);\n",
+   "old": "    Rect rect(TabBarRect->X, TabBarRect->Y, unknown_int_839638, TabBarHeight - 2);\n",
+   "new": "    Rect rect(TabBarRect->X, TabBarRect->Y, Native_Sidebar_X(unknown_int_839638), TabBarHeight - 2);\n",
    "why": "Native addition (C4, Map zoom, enhancements v2 part 2; not original behaviour): with the map zoomed the view rectangle is smaller than the tactical area (link/native_map_zoom.cpp), but the sidebar and the command bar keep their places on the screen. The original takes the view's right edge as the sidebar's x; Native_Sidebar_X answers the tactical rectangle's right edge while the view is zoomed and the value asked about otherwise, so at map zoom 1x (the default and the ORIGINAL preset) nothing changes. This row: TabClass::AI 0x006A0F30's command bar area (the normal mouse over the bar).",
    "verified": false
   },
@@ -2992,8 +2992,8 @@
   },
   {
    "source": "src/recovered/sidebar.cpp",
-   "old": "    unknown_int_83962c = unknown_int_839634 + unknown_int_83963c + unknown_int_7add84 - 0x9E;\n",
-   "new": "    unknown_int_83962c = Native_Sidebar_Bottom(unknown_int_839634 + unknown_int_83963c) + unknown_int_7add84 - 0x9E;\n",
+   "old": "    unknown_int_83962c = unknown_int_839634 + unknown_int_83963c + TabBarHeight - 0x9E;\n",
+   "new": "    unknown_int_83962c = Native_Sidebar_Bottom(unknown_int_839634 + unknown_int_83963c) + TabBarHeight - 0x9E;\n",
    "why": "Native addition (C4, Map zoom, enhancements v2 part 2; not original behaviour): with the map zoomed the view rectangle is smaller than the tactical area (link/native_map_zoom.cpp), but the sidebar keeps its height. SidebarClass::Unknown_0067B910 takes the view's bottom edge (0x00839634 + 0x0083963C) as the command bar's top; Native_Sidebar_Bottom answers the tactical rectangle's bottom while the view is zoomed and the value asked about otherwise, so at map zoom 1x (the default and the ORIGINAL preset) nothing changes. Found by the played check: after a load while zoomed the sidebar was laid out for the view's height.",
    "verified": false
   },
@@ -3061,7 +3061,7 @@
    "source": "src/recovered/xsurface.cpp",
    "old": "    overlapped = false;\n    dbuffer = 0;\n    sbuffer = 0;\n    if (drect.Is_Valid() && dcliprect.Is_Valid() && srect.Is_Valid() && scliprect.Is_Valid()\n        && Clip_Blit_Rects(drect, dcliprect, srect, scliprect)) {\n        overlapped = false;\n        if (&source == &dest) {\n            if (srect.X < drect.X + drect.Width && srect.Y < drect.Y + drect.Height\n                && srect.X + srect.Width > drect.X && srect.Y + srect.Height > drect.Y\n                && (srect.Y < drect.Y || (srect.Y == drect.Y && srect.X < drect.X))) {\n                overlapped = true;\n            }\n        }\n        dbuffer = dest.Lock(dcliprect.Top_Left() + drect.Top_Left());\n        if (dbuffer) {\n            sbuffer = source.Lock(scliprect.Top_Left() + srect.Top_Left());\n            if (!sbuffer) {\n                dest.Unlock();\n            } else {\n                return true;\n            }\n        }\n    }\n    return false;\n}",
    "new": "    overlapped = false;\n    dbuffer = 0;\n    sbuffer = 0;\n    // NATIVE (C6): the destination window clipped to the destination surface. The original's\n    // windows always lie inside their surfaces; natively a layout the enhancements change\n    // (interface size) can give a window larger than its surface, and a blit there wrote\n    // outside the surface's memory (ASan: a sidebar ShapeButtonClass::Draw_Me drew 15 KB\n    // before its 1 MB surface), corrupting other heap objects, which later saves recorded\n    // (codex4 R703/R705/R706). drect stays relative to the caller's window.\n    Rect dwindow = dcliprect;\n    int shift_x = 0, shift_y = 0;\n    {\n        Rect s = dest.Get_Rect();\n        int x0 = dwindow.X > s.X ? dwindow.X : s.X, y0 = dwindow.Y > s.Y ? dwindow.Y : s.Y;\n        int x1 = dwindow.X + dwindow.Width < s.X + s.Width ? dwindow.X + dwindow.Width : s.X + s.Width;\n        int y1 = dwindow.Y + dwindow.Height < s.Y + s.Height ? dwindow.Y + dwindow.Height : s.Y + s.Height;\n        if (x0 != dwindow.X || y0 != dwindow.Y || x1 != dwindow.X + dwindow.Width || y1 != dwindow.Y + dwindow.Height) {\n            // Reported when the blit itself reaches outside the surface (inside the window).\n            int ax0 = dwindow.X + drect.X, ay0 = dwindow.Y + drect.Y;\n            int ax1 = ax0 + drect.Width, ay1 = ay0 + drect.Height;\n            if (ax0 < dwindow.X) ax0 = dwindow.X;\n            if (ay0 < dwindow.Y) ay0 = dwindow.Y;\n            if (ax1 > dwindow.X + dwindow.Width) ax1 = dwindow.X + dwindow.Width;\n            if (ay1 > dwindow.Y + dwindow.Height) ay1 = dwindow.Y + dwindow.Height;\n            if (ax0 < ax1 && ay0 < ay1 && (ax0 < x0 || ay0 < y0 || ax1 > x1 || ay1 > y1)) {\n                ra2port_blit_window_clipped(ax0, ay0, ax1 - ax0, ay1 - ay0, s.Width, s.Height);\n            }\n            shift_x = x0 - dwindow.X;\n            shift_y = y0 - dwindow.Y;\n            drect.X -= shift_x;\n            drect.Y -= shift_y;\n            dwindow = Rect(x0, y0, x1 - x0, y1 - y0);\n        }\n    }\n    bool prepared = false;\n    if (drect.Is_Valid() && dwindow.Is_Valid() && srect.Is_Valid() && scliprect.Is_Valid()\n        && Clip_Blit_Rects(drect, dwindow, srect, scliprect)) {\n        overlapped = false;\n        if (&source == &dest) {\n            if (srect.X < drect.X + drect.Width && srect.Y < drect.Y + drect.Height\n                && srect.X + srect.Width > drect.X && srect.Y + srect.Height > drect.Y\n                && (srect.Y < drect.Y || (srect.Y == drect.Y && srect.X < drect.X))) {\n                overlapped = true;\n            }\n        }\n        dbuffer = dest.Lock(dwindow.Top_Left() + drect.Top_Left());\n        if (dbuffer) {\n            sbuffer = source.Lock(scliprect.Top_Left() + srect.Top_Left());\n            if (!sbuffer) {\n                dest.Unlock();\n            } else {\n                prepared = true;\n            }\n        }\n    }\n    drect.X += shift_x;\n    drect.Y += shift_y;\n    return prepared;\n}",
-   "why": "Native only (C6; codex4 R703/R705/R706): Prep_For_Blit 0x007753B0 clips a blit to the destination window the caller gives, which in the original always lies inside the destination surface. Natively the enhancements' interface size lays the sidebar out on a surface smaller than the window ShapeButtonClass::Draw_Me passes (unknown_window_839640), and an ASan run of R705's route (interface 1.5, Save, existing row, cancel the overwrite question, empty slot, Save) caught a sidebar button blit writing 15 KB before its 1 MB surface: heap corruption that the next save recorded (AnimTypeClass pointers, R703/R705's unmatched swizzle ids) or that faulted Save_Vector<AnimTypeClass *> (R706). The window is clipped to the surface first (drect kept relative to the caller's window, as callers use it); a window inside its surface, every original case, is unchanged. ra2port_blit_window_clipped (port/src/run_progress.cpp) reports the first clipped windows on stderr."
+   "why": "Native only (C6; codex4 R703/R705/R706): Prep_For_Blit 0x007753B0 clips a blit to the destination window the caller gives, which in the original always lies inside the destination surface. Natively the enhancements' interface size lays the sidebar out on a surface smaller than the window ShapeButtonClass::Draw_Me passes (VisibleRect), and an ASan run of R705's route (interface 1.5, Save, existing row, cancel the overwrite question, empty slot, Save) caught a sidebar button blit writing 15 KB before its 1 MB surface: heap corruption that the next save recorded (AnimTypeClass pointers, R703/R705's unmatched swizzle ids) or that faulted Save_Vector<AnimTypeClass *> (R706). The window is clipped to the surface first (drect kept relative to the caller's window, as callers use it); a window inside its surface, every original case, is unchanged. ra2port_blit_window_clipped (port/src/run_progress.cpp) reports the first clipped windows on stderr."
   },
   {
    "source": "src/recovered/xsurface.cpp",
@@ -3144,14 +3144,14 @@
   {
    "source": "src/recovered/voxdrsys.cpp",
    "old": "// SurfaceRegion VoxelDrawSystem::Render() (0x007178E0; TibSun voxdrsys.cpp)",
-   "new": "// NATIVE (C16, HD vehicles): the queued shadows and objects drawn again, as Render() 0x007178E0 draws them,\n// for link/native_hd_vehicles.cpp's sub-pixel passes; a shadow record's mask offset, which Render_Shadow moves by\n// the origin, is put back after each.\nvoid Native_Hd_Voxel_Replay(Vector3 const &center, UnknownVoxelRecord88 **render_data)\n{\n    for (int index = 0; index < VoxelShadowRenderDataCount; index++) {\n        int left = unknown_records_af3408[index].unknown_40;\n        int top = unknown_records_af3408[index].unknown_44;\n        unknown_records_af3408[index].unknown_00->Render_Shadow(&unknown_records_af3408[index], &center);\n        unknown_records_af3408[index].unknown_40 = left;\n        unknown_records_af3408[index].unknown_44 = top;\n    }\n    if (unknown_af6610) {\n        for (int index = VoxelRenderDataCount - 1; index >= 0; index--) {\n            render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);\n        }\n    } else {\n        for (int index = 0; index < VoxelRenderDataCount; index++) {\n            render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);\n        }\n    }\n}\nvoid Native_Hd_Voxel_Passes(Rect const &rect, Vector3 const &center, UnknownVoxelRecord88 **render_data);   // link/native_hd_vehicles.cpp\n\n\n// SurfaceRegion VoxelDrawSystem::Render() (0x007178E0; TibSun voxdrsys.cpp)",
+   "new": "// NATIVE (C16, HD vehicles): the queued shadows and objects drawn again, as Render() 0x007178E0 draws them,\n// for link/native_hd_vehicles.cpp's sub-pixel passes; a shadow record's mask offset, which Render_Shadow moves by\n// the origin, is put back after each.\nvoid Native_Hd_Voxel_Replay(Vector3 const &center, VoxelRenderStruct **render_data)\n{\n    for (int index = 0; index < VoxelShadowRenderDataCount; index++) {\n        int left = VoxelShadowRenderData[index].unknown_40;\n        int top = VoxelShadowRenderData[index].unknown_44;\n        VoxelShadowRenderData[index].unknown_00->Render_Shadow(&VoxelShadowRenderData[index], &center);\n        VoxelShadowRenderData[index].unknown_40 = left;\n        VoxelShadowRenderData[index].unknown_44 = top;\n    }\n    if (unknown_af6610) {\n        for (int index = VoxelRenderDataCount - 1; index >= 0; index--) {\n            render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);\n        }\n    } else {\n        for (int index = 0; index < VoxelRenderDataCount; index++) {\n            render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);\n        }\n    }\n}\nvoid Native_Hd_Voxel_Passes(Rect const &rect, Vector3 const &center, VoxelRenderStruct **render_data);   // link/native_hd_vehicles.cpp\n\n\n// SurfaceRegion VoxelDrawSystem::Render() (0x007178E0; TibSun voxdrsys.cpp)",
    "why": "Native addition (C16, HD vehicles; not original behaviour): with the Enhancements setting HD vehicles 2x (taken when a game starts), voxel units and their shadows get a second, 2x image the host shows over the 1x picture where the picture still shows what the unit drew (link/native_hd_vehicles.cpp). Off (the default and the ORIGINAL preset) every hook answers the original's value and the 1x drawing is unchanged. This row: VoxelDrawSystem::Render 0x007178E0: the replay the 2x passes use.",
    "verified": false
   },
   {
    "source": "src/recovered/voxdrsys.cpp",
-   "old": "    unknown_rect_ae2ff0 = rect;\n\n    Point2D point;\n",
-   "new": "    unknown_rect_ae2ff0 = rect;\n    Native_Hd_Voxel_Passes(rect, center, render_data);   // NATIVE (C16)\n\n    Point2D point;\n",
+   "old": "    LastRenderRect = rect;\n\n    Point2D point;\n",
+   "new": "    LastRenderRect = rect;\n    Native_Hd_Voxel_Passes(rect, center, render_data);   // NATIVE (C16)\n\n    Point2D point;\n",
    "why": "Native addition (C16, HD vehicles; not original behaviour): with the Enhancements setting HD vehicles 2x (taken when a game starts), voxel units and their shadows get a second, 2x image the host shows over the 1x picture where the picture still shows what the unit drew (link/native_hd_vehicles.cpp). Off (the default and the ORIGINAL preset) every hook answers the original's value and the 1x drawing is unchanged. This row: VoxelDrawSystem::Render 0x007178E0: after the 1x draw, the three half-pixel passes of the 2x image (nothing when off).",
    "verified": false
   },
@@ -3214,14 +3214,14 @@
   {
    "source": "src/recovered/voxdrsys.cpp",
    "old": "// VoxelDrawSystem::Render(Rect &rect, int &x, int &y) (0x007176C0;",
-   "new": "void Native_Hd_Voxel_Passes(Rect const &rect, Vector3 const &center, UnknownVoxelRecord88 **render_data);   // NATIVE (C16): link/native_hd_vehicles.cpp\n// VoxelDrawSystem::Render(Rect &rect, int &x, int &y) (0x007176C0;",
+   "new": "void Native_Hd_Voxel_Passes(Rect const &rect, Vector3 const &center, VoxelRenderStruct **render_data);   // NATIVE (C16): link/native_hd_vehicles.cpp\n// VoxelDrawSystem::Render(Rect &rect, int &x, int &y) (0x007176C0;",
    "why": "Native addition (C16, HD vehicles; not original behaviour): with the Enhancements setting HD vehicles 2x (taken when a game starts), voxel units and their shadows get a second, 2x image the host shows over the 1x picture where the picture still shows what the unit drew (link/native_hd_vehicles.cpp). Off (the default and the ORIGINAL preset) every hook answers the original's value and the 1x drawing is unchanged. This row: declares the passes for Render(Rect &, int &, int &) 0x007176C0, which comes first.",
    "verified": false
   },
   {
    "source": "src/recovered/voxdrsys.cpp",
-   "old": "    unknown_rect_ae2ff0 = rect;\n\n    x = (int)center.X - rect.Width / 2;\n",
-   "new": "    unknown_rect_ae2ff0 = rect;\n    Native_Hd_Voxel_Passes(rect, center, render_data);   // NATIVE (C16)\n\n    x = (int)center.X - rect.Width / 2;\n",
+   "old": "    LastRenderRect = rect;\n\n    x = (int)center.X - rect.Width / 2;\n",
+   "new": "    LastRenderRect = rect;\n    Native_Hd_Voxel_Passes(rect, center, render_data);   // NATIVE (C16)\n\n    x = (int)center.X - rect.Width / 2;\n",
    "why": "Native addition (C16, HD vehicles; not original behaviour): with the Enhancements setting HD vehicles 2x (taken when a game starts), voxel units and their shadows get a second, 2x image the host shows over the 1x picture where the picture still shows what the unit drew (link/native_hd_vehicles.cpp). Off (the default and the ORIGINAL preset) every hook answers the original's value and the 1x drawing is unchanged. This row: VoxelDrawSystem::Render(Rect &, int &, int &) 0x007176C0 (voxel animations and debris, VoxelAnimClass::Draw_It; voxel bullets): the same half-pixel passes as Render() 0x007178E0.",
    "verified": false
   },
@@ -3251,8 +3251,8 @@
   },
   {
    "source": "src/recovered/startup.cpp",
-   "old": "        unknown_screen_height_a40b3c = unknown_ini_839740.Get_Int(\"Video\", \"ScreenHeight\", unknown_screen_height_a40b3c);\n",
-   "new": "        unknown_screen_height_a40b3c = unknown_ini_839740.Get_Int(\"Video\", \"ScreenHeight\", unknown_screen_height_a40b3c);\n        Native_Render_Size(&unknown_screen_width_a40b38, &unknown_screen_height_a40b3c);\n",
+   "old": "        unknown_screen_height_a40b3c = ConfigINI.Get_Int(\"Video\", \"ScreenHeight\", unknown_screen_height_a40b3c);\n",
+   "new": "        unknown_screen_height_a40b3c = ConfigINI.Get_Int(\"Video\", \"ScreenHeight\", unknown_screen_height_a40b3c);\n        Native_Render_Size(&unknown_screen_width_a40b38, &unknown_screen_height_a40b3c);\n",
    "why": "Native addition (C16, Zoom gestures: zooming out below 1x; not original behaviour): with the Enhancements setting Zoom gestures on, the game's screen is made twice the window's in its map column and above the command bar, so the map can be shown down to 0.5x at the art's own pixels; the host shows the sidebar, the command bar, the menus and the dialogs at the window's scale (link/native_map_zoom.cpp Native_Render_Size). Off (the default and the ORIGINAL preset): the size asked for. This row: WinMain 0x0068E280: the screen size read from RA2.INI.",
    "verified": false
   },
@@ -3328,8 +3328,8 @@
   },
   {
    "source": "src/recovered/conquer.cpp",
-   "old": "    while (unknown_int_a40d48 != 0) {\n",
-   "new": "    Native_Dialog_Screen(true);   // NATIVE (C16): link/native_map_zoom.cpp\n    while (unknown_int_a40d48 != 0) {\n",
+   "old": "    while (SpecialDialog != 0) {\n",
+   "new": "    Native_Dialog_Screen(true);   // NATIVE (C16): link/native_map_zoom.cpp\n    while (SpecialDialog != 0) {\n",
    "why": "Native addition (C16, Zoom gestures: zooming out below 1x; not original behaviour): with Zoom gestures on the game's screen is twice the window's in its map column, and the in-game dialogs (the in-game menu, Abort Mission, Save/Load, Game Controls, Diplomacy, the message boxes) are laid out for the screen size; for their time the screen size is the window's, so each is laid out as the original lays it out at the window's size and the host shows it at the window's scale (link/native_map_zoom.cpp Native_Dialog_Screen). Off (the default and the ORIGINAL preset): nothing changes. This row: Special_Dialog 0x00481850 before its dialog loop.",
    "verified": false
   },
@@ -3349,8 +3349,8 @@
   },
   {
    "source": "src/recovered/vqalib_config/VQA_Unknown.cpp",
-   "old": "void __fastcall VQA_DefaultConfig(VQAConfig *config)\n{\n    *config = unknown_vqa_default_config_801470;\n",
-   "new": "void Native_VQA_Default_Config();   // NATIVE (C16): link/behaviour_c16_vqa.cpp\nvoid __fastcall VQA_DefaultConfig(VQAConfig *config)\n{\n    Native_VQA_Default_Config();\n    *config = unknown_vqa_default_config_801470;\n",
+   "old": "void __fastcall VQA_DefaultConfig(VQAConfig *config)\n{\n    *config = _defaultconfig;\n",
+   "new": "void Native_VQA_Default_Config();   // NATIVE (C16): link/behaviour_c16_vqa.cpp\nvoid __fastcall VQA_DefaultConfig(VQAConfig *config)\n{\n    Native_VQA_Default_Config();\n    *config = _defaultconfig;\n",
    "why": "Native addition (C16, owner ruling 2026-11-15: a mod's .VQA movie plays): VQA_DefaultConfig 0x00777850 copies the library's default configuration 0x00801470, which the original stores and no permitted text supplies; natively its integer fields are read from the user's game.exe at the first copy (link/behaviour_c16_vqa.cpp Native_VQA_Default_Config; the pointer fields are null there). Without it every field was a link-closure zero.",
    "verified": false
   },

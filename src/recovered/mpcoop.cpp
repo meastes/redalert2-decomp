@@ -1322,7 +1322,7 @@ void MPCooperative::unknown_slot37()
     }
     unknown_b2a7fc = 0;
     unknown_b2ab84 = unknown_protocol_7fd370;
-    unknown_b2a7ec = 0;
+    WestwoodOnline_Tournament = 0;
     strcpy(unknown_b2a6d8, unknown_wstring_b26cb8.Get());
     wcscpy(unknown_session_a3d298.HostName_2380, unknown_host_name_78);
     Free_Pointers_005a7480(&unknown_players_a3fa7c);

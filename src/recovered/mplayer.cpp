@@ -97,7 +97,7 @@ int __stdcall Select_MPlayer_Game_Dialog_Proc(HWND window, UINT message, WPARAM 
 {
     int *retval;
 
-    int rc = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int rc = Default_Dialog_Proc(window, message, wparam, lparam);
     if (rc != 0) {
         return rc;
     }

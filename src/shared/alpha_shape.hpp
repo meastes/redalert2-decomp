@@ -42,6 +42,6 @@ public:
 };
 typedef char AlphaShapeClass_size_40[(sizeof(AlphaShapeClass) == 0x40) ? 1 : -1];
 
-// The unit's list of alpha shapes (unknown_AlphaShapeClass_list_0083c648) is defined in the unit.
+// The unit's list of alpha shapes (AlphaShapes) is defined in the unit.
 
 #endif

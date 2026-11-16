@@ -797,7 +797,7 @@ static void exposure_check(const MSG *found, std::chrono::steady_clock::time_poi
     // The game's redraw after a focus change may come much later than the repaint below
     // (C11, user report 2026-11-13: the main menu's buttons missing). WM_ACTIVATEAPP only
     // marks the screen for a redraw (0x008523DC); the menu loop that clears the mark and
-    // copies the hidden surface over the whole screen (Unknown_00517370, the top-level main
+    // copies the hidden surface over the whole screen (Title_Screen_Restore, the top-level main
     // menu's loop 0x00516F00) does not run in the submenus (Movies & Credits, a movie). After
     // a focus change there, the repaint went to the submenu, and back at the main menu the
     // loop's copy then covered the buttons its slide-in had just drawn; nothing drew them

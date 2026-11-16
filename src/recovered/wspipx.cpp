@@ -338,7 +338,7 @@ int IPXInterfaceClass::Message_Handler(int window, int message, int wparam, int 
                 if (!memcmp(network, Network, sizeof(network)) && !memcmp(node, unknown_3f306, sizeof(node))) {
                     return 0;
                 }
-                int loss = WinsockInterfaceClass::unknown_76b9f0();
+                int loss = WinsockInterfaceClass::Get_Packet_Loss_Percent();
                 if (loss > 0 && NonCriticalRandomNumber(0, 99) <= loss) {
                     return 0;
                 }

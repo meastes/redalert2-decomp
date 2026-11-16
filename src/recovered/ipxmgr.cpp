@@ -782,8 +782,8 @@ int IPXManagerClass::Service()
                                             unknown_players_a3fa7c[i]->Address=address;
                                             unknown_players_a3fa7c[i]->Address.Set_Port(port);
                                             OwnerTalk.Unknown_0063F9A0(unknown_players_a3fa7c[i]->ID,&unknown_players_a3fa7c[i]->Address);
-                                            unknown_player_slots_a3fa98[unknown_session_a3d298.Unknown_00672F90(i)]->Address=address;
-                                            unknown_player_slots_a3fa98[unknown_session_a3d298.Unknown_00672F90(i)]->Address.Set_Port(port);
+                                            unknown_player_slots_a3fa98[unknown_session_a3d298.Player_To_Slot(i)]->Address=address;
+                                            unknown_player_slots_a3fa98[unknown_session_a3d298.Player_To_Slot(i)]->Address.Set_Port(port);
                                             for (int connection=0;connection<NumConnections;++connection) {
                                                 wchar_t *connection_name=Connection[connection]->Name;
                                                 if (!_stricmp(Wide_To_Narrow_006fa120(connection_name),name)) {
@@ -838,7 +838,7 @@ int IPXManagerClass::Service()
             } else {
                 bool found=false;
                 for (i=0;i<NumConnections;++i) {
-                    if ((unknown_flag_a3fba8 && OwnerTalk.Unknown_0063F4C0(Connection[i]->ID)==packet->unknown_03) || (!unknown_flag_a3fba8 && Connection[i]->Address==address)) {
+                    if ((unknown_flag_a3fba8 && OwnerTalk.Mask_From_ID(Connection[i]->ID)==packet->unknown_03) || (!unknown_flag_a3fba8 && Connection[i]->Address==address)) {
                         found=true;
                         break;
                     }
@@ -1073,10 +1073,10 @@ unsigned long IPXManagerClass::unknown_slot22(int index)
 }
 
 
-// unsigned long IPXManagerClass::unknown_526c30() (0x00526C30)
+// unsigned long IPXManagerClass::Global_Response_Time() (0x00526C30)
 // The global channel's mean delay (0 without one).
 
-unsigned long IPXManagerClass::unknown_526c30()
+unsigned long IPXManagerClass::Global_Response_Time()
 {
     if (GlobalChannel) {
         return GlobalChannel->Queue->Avg_Delay();
@@ -1237,7 +1237,7 @@ void IPXManagerClass::Multiplayer_Debug_Print_00526d90()
             Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(x, 375), ColorSchemes[scheme], 0, 0x19);
 
             if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8) {
-                swprintf(buffer, L"Rout resp: %d", 1000 * unknown_response_times_a76c88[i] / 60);
+                swprintf(buffer, L"Rout resp: %d", 1000 * RouterResponseTimes[i] / 60);
                 Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(x, 383), ColorSchemes[scheme], 0, 0x19);
             }
         }

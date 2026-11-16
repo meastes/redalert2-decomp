@@ -1,4 +1,4 @@
-// NON-EXACT DRAFT 0x5FFB00 unknown_dialog_proc_5ffb00 (Default_Dialog_Proc, ownrdraw.cpp)
+// NON-EXACT DRAFT 0x5FFB00 Default_Dialog_Proc (Default_Dialog_Proc, ownrdraw.cpp)
 // entry 0x5FFB00; exact-match score 53.32 (OwnrDraw406 natural; OPEN_MISSES best 66.88 used invented helpers)
 // origin lane: OwnrDraw389/OwnrDraw406 (build/class-work/OwnrDraw406/c/5ffb00a.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
@@ -50,7 +50,7 @@ inline void unknown_prepare_dialog(HWND dialog, int kind)
 {
     Resize_Dialogs(dialog);
     unknown_5eaaa0(dialog, kind);
-    if (!unknown_session_a3d298.Unknown_00672F10()) {
+    if (!unknown_session_a3d298.Is_In_Game()) {
         unknown_set_control_art_5ea960((unsigned int)dialog);
     }
     unknown_5ea550(dialog);
@@ -73,7 +73,7 @@ inline void unknown_prepare_dialog(HWND dialog, int kind)
 }
 void __fastcall unknown_5ecc90(HWND window, int unknown2);
 
-int __fastcall unknown_dialog_proc_5ffb00(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+int __fastcall Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
     switch (message) {
     case 0x2:

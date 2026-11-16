@@ -169,7 +169,7 @@ long __stdcall Lobby_Dialog_Proc_005c69e0(HWND window, unsigned message, unsigne
         {
             unknown_map_list_busy_a72d58 = true;
             MultiplayerGameMode *mode = MultiplayerGameMode::unknown_find_mode_5b6fe0(unknown_session_a3d298.GameModeIndex);
-            if (!mode) mode = MultiplayerGameMode::unknown_first_mode_5b6ec0();
+            if (!mode) mode = MultiplayerGameMode::First_Game_Mode();
             HWND mode_list = GetDlgItem(window, 0x6eb);
             MultiplayerGameMode::unknown_fill_list_5b71e0(mode_list, mode->Get_ID());
             if (mode) {

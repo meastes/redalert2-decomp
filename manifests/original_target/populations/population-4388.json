@@ -4,8 +4,8 @@
     "id": "population-4388",
     "inventory_sha256": "878e2143b7bb3eb116fb3f9fd798adc486a41ff0b20afc38af8b05420ef84287",
     "gaps_sha256": "1506e96f5dc57f816b143e135a8c554e16c0c6adeee13fbb75da376d4770ddc5",
-    "historical_population_sha256": "7abf95e5394ca1b998aefa14cfe71fca243a2461aabf40346d6364b0fa045bee",
-    "historical_acceptance_sha256": "8d13860d42a603e4b07165e1d7b3fefdbdc0ebd930b5c8607e5604355662fc9a"
+    "historical_population_sha256": "242f8e82ba320e454e92b81827c6a2221b02c30194751565eef6bd937ba0e445",
+    "historical_acceptance_sha256": "f02e97a76e99e0d02a9d7a18834a7d484b52cabdeaa0b85511c1b25c1cbe3067"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -23,7 +23,7 @@
     "?ID@?$VectorClass@PAVVoxClass@@@@UAEHPBQAVVoxClass@@@Z": 7433184,
     "?Resize@?$DynamicVectorClass@PAVVoxClass@@@@UAE_NHPBQAVVoxClass@@@Z": 7433216,
     "?Resize@?$VectorClass@PAVVoxClass@@@@UAE_NHPBQAVVoxClass@@@Z": 7432896,
-    "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A": 11340080,
+    "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A": 11340080,
     "?unknown_math_4ba520@@YANN@Z": 4957472,
     "?unknown_math_4ba5b0@@YANN@Z": 4957616,
     "?unknown_sqrt_4ba410@@YANN@Z": 4957200,
@@ -2334,7 +2334,7 @@
     "__real@8@3ffc8000000000000000": 8055960,
     "__real@8@4002c000000000000000": 8019480,
     "__real@8@3ffdfae147ae147ae000": 8020048,
-    "?unknown_47e2b0@Cell@@QAEXXZ": 4711088,
+    "?Chain_Reaction_Damage@Cell@@QAEXXZ": 4711088,
     "??0FoggedObjectClass@@QAE@ABVNoInitClass@@@Z": 4980688,
     "??_7?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@6B@": 7999920,
     "??_7FoggedObjectClass@@6BIPersistStream@@@": 7999816,
@@ -3158,38 +3158,38 @@
     "??_E?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z": 7080144,
     "??_E?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z": 7524128,
     "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
-    "?unknown_vox_list_ad0868@@3UAudioListNode@@A": 11339880,
-    "?unknown_vox_ad0878@@3HC": 11339896,
-    "?unknown_vox_list_ad0890@@3UAudioListNode@@A": 11339920,
-    "?unknown_countdown_ad08c8@@3HC": 11339976,
-    "?unknown_vox_lists_ad08e0@@3PAUAudioListNode@@A": 11340000,
-    "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A": 11340104,
-    "?unknown_vox_enabled_ad094c@@3HA": 11340108,
+    "?SpeechQueuedList@@3UAudioListNode@@A": 11339880,
+    "?SpeechHold@@3HC": 11339896,
+    "?SpeechUrgentList@@3UAudioListNode@@A": 11339920,
+    "?SpeechSuspend@@3HC": 11339976,
+    "?SpeechLists@@3PAUAudioListNode@@A": 11340000,
+    "?SpeechPending@@3PAUVoxSpeech@@A": 11340104,
+    "?SpeechEnabled@@3HA": 11340108,
     "?unknown_vox_stream_ad095c@@3PAUAudioStreamPlayer@@A": 11340124,
     "?Audio_Global_Levels@@3PAPAUAudioLevelSet@@A": 8590412,
     "??_C@_0L@BPPF@EVA?5Stream?$AA@": 8363068,
     "?Audio_Get_Device@@YAPAUAudioDevice@@XZ": 4222784,
     "?Speech_Clear@@YIXXZ": 7428016,
     "??_C@_04KIKH@none?$AA@": 8184044,
-    "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A": 11340116,
-    "?unknown_vox_delay_ad0960@@3_KA": 11340128,
+    "?SpeechPlaying@@3PAVVoxClass@@A": 11340116,
+    "?SpeechDelay@@3_KA": 11340128,
     "?Speech_Find@@YIPAUVoxSpeech@@PAVVoxClass@@@Z": 7428800,
     "?Speech_Queue@@YIXPAVVoxClass@@HH@Z": 7428560,
     "?Speech_Update@@YAXXZ": 7429024,
-    "?unknown_vox_serial_ad0950@@3HA": 11340112,
+    "?SpeechSerial@@3HA": 11340112,
     "?Speech_Play@@YIXHHH@Z": 7428288,
-    "?unknown_flag_a40d0c@@3DA": 10751244,
+    "?Debug_Quiet@@3DA": 10751244,
     "?AudioDeviceAvailable@@YAHXZ": 4222768,
     "?Audio_Now@@YI_JXZ": 4231888,
-    "?unknown_vox_type_ad0858@@3HA": 11339864,
-    "?unknown_vox_priority_ad0880@@3HA": 11339904,
-    "?unknown_flag_ad0958@@3HA": 11340120,
+    "?SpeechPlayingType@@3HA": 11339864,
+    "?SpeechPlayingPriority@@3HA": 11339904,
+    "?SpeechSovietFiles@@3HA": 11340120,
     "??_C@_04KFC@?4WAV?$AA@": 8356664,
     "?Audio_Stream_Open@@YIHPAUAudioStreamPlayer@@PBDH@Z": 4225680,
     "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z": 4226656,
-    "?unknown_vox_volume_7f9bd4@@3HA": 8362964,
+    "?SpeechVolume@@3HA": 8362964,
     "?unknown_taunt_stream_ad0968@@3PAUAudioStreamPlayer@@A": 11340136,
-    "?unknown_count_ad0910@@3HC": 11340048,
+    "?AuxStreamHold@@3HC": 11340048,
     "??_C@_0N@IANH@Taunt?5Stream?$AA@": 8363080,
     "??_C@_0BF@PCKC@taunts?2tauam?$CF02i?4wav?$AA@": 8363288,
     "??_C@_0BF@BHKE@taunts?2tauko?$CF02i?4wav?$AA@": 8363264,
@@ -3240,7 +3240,7 @@
     "?Taunt_Init@@YAHXZ": 7429904,
     "?Taunt_Shutdown@@YAXXZ": 7430016,
     "?Taunt_Play@@YIHH@Z": 7430064,
-    "?Unknown_007160D0@@YIXXZ": 7430352,
+    "?Aux_Stream_Stop@@YIXXZ": 7430352,
     "?Read_INI@VoxClass@@QAE_NAAVCCINIClass@@@Z": 7430624,
     "?Process@VoxClass@@SIXAAVCCINIClass@@@Z": 7431152,
     "?Speech_Free_All@@YAXXZ": 7431568,
@@ -3248,7 +3248,7 @@
     "?Find@VoxClass@@SIPAV1@PBD@Z": 7431872,
     "?Index_Of@VoxClass@@SIHPAV1@@Z": 7432000,
     "?Speech_Load@@YIJPAUIStream@@@Z": 7432144,
-    "?Unknown_007168C0@@": 7432384,
+    "?Speech_Set_Side@@": 7432384,
     "?Taunt_Pause@@YAXXZ": 7432400,
     "?Taunt_Resume@@YAXXZ": 7432416,
     "?Taunt_Unblock@@YAXXZ": 7432464,
@@ -5203,7 +5203,7 @@
     "?Load@FootClass@@UAGJPAUIStream@@@Z": 5020944,
     "?Save@UnitClass@@UAGJPAUIStream@@H@Z": 7372208,
     "?Load@BulletClass@@UAGJPAUIStream@@@Z": 4601776,
-    "?unknown_ini_839740@@3VCCINIClass@@A": 8623936,
+    "?ConfigINI@@3VCCINIClass@@A": 8623936,
     "?Save@ThemeClass@@QAEJPAUIStream@@@Z": 7242512,
     "?To_Lower@WideString@@QAEXXZ": 7801312,
     "?To_Upper@WideString@@QAEXXZ": 7801552,
@@ -6617,7 +6617,7 @@
     "??_7?$TClassFactory@VNeuronClass@@@@6B@": 8044680,
     "??_7?$TClassFactory@VFoggedObjectClass@@@@6B@": 8044704,
     "??_7?$TClassFactory@VAlphaShapeClass@@@@6B@": 8044728,
-    "?unknown_surface_ae0db8@@3VBSurface@@A": 11406776,
+    "?VoxelSurface@@3VBSurface@@A": 11406776,
     "?game_version_007d8900@@3HA": 8227072,
     "?IMEDefaultResult@@3JA": 11691000,
     "?get@Leaf_401170@@": 4198768,
@@ -6714,10 +6714,10 @@
     "?Set_Waypoint_Location@ScenarioClass@@": 6697984,
     "?get@Leaf_668ea0@@": 6721184,
     "?get@Leaf_6715c0@@": 6755776,
-    "?Unknown_00671F90@MultiMission@@": 6758288,
+    "?On_Which_CD@MultiMission@@": 6758288,
     "?get@Leaf_6729f0@@": 6760944,
     "?get@Leaf_672a10@@": 6760976,
-    "?Unknown_00672F10@SessionClass@@": 6762256,
+    "?Is_In_Game@SessionClass@@": 6762256,
     "?get@Leaf_67b880@@": 6797440,
     "?get@Leaf_6818b0@@": 6822064,
     "?get@Leaf_682520@@": 6825248,
@@ -7156,7 +7156,7 @@
     "?get@Leaf_66e290@@QAEIXZ": 6742672,
     "?get@Leaf_66e2a0@@QAEIXZ": 6742688,
     "?get@Leaf_66e2b0@@QAEIXZ": 6742704,
-    "?Unknown_00672F10@SessionClass@@QAEEXZ": 6762256,
+    "?Is_In_Game@SessionClass@@QAEEXZ": 6762256,
     "?Fetch_Heap_ID@SmudgeTypeClass@@UBEHXZ": 6851600,
     "?get@Leaf_688cb0@@QAEXXZ": 6851760,
     "?get@Leaf_68b7e0@@QAEXXZ": 6862816,
@@ -7330,7 +7330,7 @@
     "?Read@WinsockInterfaceClass@@UAEHPAXPAH01PAG@Z": 7779744,
     "?WriteTo@WinsockInterfaceClass@@UAEXPAXH0H_NEG@Z": 7779952,
     "?Broadcast@WinsockInterfaceClass@@UAEXPAXH_N@Z": 7780256,
-    "?unknown_b2a7ec@@3HA": 11708396,
+    "?WestwoodOnline_Tournament@@3HA": 11708396,
     "?Write_Scenario_INI@TaskForceClass@@SIXAAVCCINIClass@@H@Z": 7040272,
     "?Clear_Broadcast_Addresses@UDPInterfaceClass@@UAEXXZ": 7782960,
     "?Set_Broadcast_Address@UDPInterfaceClass@@UAEXPADG@Z": 7783056,
@@ -7518,9 +7518,9 @@
     "?unknown_7df630@@3_NA": 8255024,
     "?unknown_a40d39@@3_NA": 10751289,
     "?Unknown_0042E1A0@BeaconManagerClass@@QAEXXZ": 4383136,
-    "?Unknown_006ecf10@@YAXXZ": 7261968,
+    "?Process_Deferred_Deletion@@YAXXZ": 7261968,
     "?unknown_house_a72d28@@3PAVHouseClass@@A": 10956072,
-    "?Unknown_006715D0@SessionClass@@QAEHH@Z": 6755792,
+    "?Color_Index_To_Scheme@SessionClass@@QAEHH@Z": 6755792,
     "?BuildLevel@@3HA": 8227032,
     "??_7OverlayTypeClass@@6BIPersistStream@@@": 8026632,
     "??_7OverlayTypeClass@@6BIRTTITypeInfo@@@": 8026604,
@@ -7557,19 +7557,19 @@
     "?Unknown_0063C790@@YIXXZ": 6539152,
     "?Occupy_List@IsometricTileTypeClass@@UBEPBVCell@@H@Z": 5411920,
     "?Pixel_Dimensions@UnitTypeClass@@UBE?AUCoordStruct@@XZ": 7383728,
-    "?Unknown_005A09E0@@YAXXZ": 5900768,
+    "?Stop_Ingame_Movie@@YAXXZ": 5900768,
     "?Unknown_005B7CE0@UnknownSessionA3D29C@@QAEXXZ": 5995744,
     "?unknown_session_a3d55c@@3HA": 10736988,
     "?unknown_flags_a3f118@@3PA_NA": 10744088,
     "?Unknown_00668EA0@@YIXAAVCCINIClass@@H@Z": 6721184,
-    "?unknown_flag_a40d05@@3_NA": 10751237,
+    "?Debug_ForceScenario@@3_NA": 10751237,
     "?unknown_scenario_name_a35ea8@@3PADA": 10706600,
     "?unknown_multi_missions_a3d8d8@@3V?$DynamicVectorClass@PAVMultiMission@@@@A": 10737880,
     "?unknown_counter_a3fabc@@3HA": 10746556,
     "?Unknown_004A6B90@@YIXXZ": 4877200,
     "?unknown_flags_a3f600@@3EA": 10745344,
     "?Unknown_00624850@@YIXXZ": 6441040,
-    "?Unknown_0053F780@@YIXXZ": 5502848,
+    "?Disconnect_Gracefully@@YIXXZ": 5502848,
     "?unknown_host_name_a3f618@@3PAGA": 10745368,
     "?unknown_a3f58c@@3HA": 10745228,
     "??0UnknownScore_005AAA20@@QAE@XZ": 5941792,
@@ -7577,7 +7577,7 @@
     "?unknown_a3f598@@3HA": 10745240,
     "??0UnknownScore_0069A640@@QAE@XZ": 6923840,
     "?Presentation_0069A650@UnknownScore_0069A640@@QAEXXZ": 6923856,
-    "?Unknown_00491A10@@YI_NXZ": 4790800,
+    "?CheckProtectedData@@YI_NXZ": 4790800,
     "?Unknown_004B37C0@@YIXXZ": 4929472,
     "?Unknown_0058F620@@YIXPAVScenarioClass@@PBD@Z": 5830176,
     "?Unknown_0058F510@@YIXPAVScenarioClass@@@Z": 5829904,
@@ -7593,7 +7593,7 @@
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "?FirstValidMapIndex@MultiplayerGameMode@@UAEHXZ": 5993472,
     "?RandomHumanCountryIndex@MultiplayerGameMode@@UAEHXZ": 5993664,
-    "?Unknown_00672940@SessionClass@@QAEHXZ": 6760768,
+    "?Random_Side@SessionClass@@QAEHXZ": 6760768,
     "?unknown_b2a7fc@@3HA": 11708412,
     "?Unknown_005359E0@Unknown535910@@QAEXXZ": 5462496,
     "?Unknown_00535B90@Unknown535910@@QAEXXZ": 5462928,
@@ -7601,7 +7601,7 @@
     "?Unknown_00535B60@Unknown535910@@QAEHXZ": 5462880,
     "?Unknown_00672440@SessionClass@@QAEXXZ": 6759488,
     "?Unknown_00536E20@Unknown535910@@QAEXXZ": 5467680,
-    "?unknown_window_839640@@3VRect@@A": 8623680,
+    "?VisibleRect@@3VRect@@A": 8623680,
     "??_EDSurface@@UAEPAXI@Z": 4920560,
     "??_7FactoryClass@@6B@": 7999200,
     "??_7HouseClass@@6B@": 8007136,
@@ -7683,7 +7683,7 @@
     "?Unknown_Free_Art_Pair_006F26D0@@YIXXZ": 7284432,
     "?unknown_a3d3bc@@3HA": 10736572,
     "?unknown_a3d3b4@@3HA": 10736564,
-    "?unknown_int_a40d48@@3HA": 10751304,
+    "?SpecialDialog@@3HA": 10751304,
     "?unknown_protocol_7fd370@@3IA": 8377200,
     "?Options@@3VOptionsClass@@A": 10750744,
     "?As_String@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
@@ -7711,8 +7711,8 @@
     "?unknown_session_a3d2c8@@3HA": 10736328,
     "?unknown_a40b18@@3HA": 10750744,
     "?unknown_session_a3d2ac@@3HA": 10736300,
-    "?unknown_flag_a40d84@@3_NA": 10751364,
-    "?unknown_session_a3d2c3@@3EA": 10736323,
+    "?GameControlsShown@@3_NA": 10751364,
+    "?AllowDisableableSupers@@3EA": 10736323,
     "?unknown_session_a3d340@@3HA": 10736448,
     "?Unknown_0042E290@BeaconManagerClass@@QAEXPAVSurface@@VRect@@@Z": 4383376,
     "?Draw_On_Radar_0042eed0@BeaconManagerClass@@QAEXPAVSurface@@VRect@@@Z": 4386512,
@@ -7725,7 +7725,7 @@
     "?RandomMapWaypointCount@@YIHH@Z": 6055424,
     "?unknown_slot28@MPCooperative@@UAE_NXZ": 5915584,
     "?AssignTeams@MPCooperative@@UAE_NXZ": 5909872,
-    "?Unknown_006728D0@SessionClass@@QAE_NH@Z": 6760656,
+    "?Is_Color_Used@SessionClass@@QAE_NH@Z": 6760656,
     "?Unknown_00672980@SessionClass@@QAEHXZ": 6760832,
     "?Is_Input_Key@GraphicMenuShortcutItem@@UAE_NH@Z": 5113264,
     "?UnfixAlliances@MPCooperative@@UAE_NXZ": 5914336,
@@ -7825,7 +7825,7 @@
     "??_GMSPCXAnim@@UAEPAXI@Z": 5963440,
     "??0UnitClass@@QAE@PAVUnitTypeClass@@PAVHouseClass@@@Z": 7316480,
     "?unknown_flag_a3fba8@@3_NA": 10746792,
-    "?Unknown_007357E0@@YIXPAXH@Z": 7559136,
+    "?WS_Destroy_Dialog@@YIXPAXH@Z": 7559136,
     "?WS_Top_Window@@YIPAUHWND__@@XZ": 7559952,
     "?Unknown_005C2C80@@YAXHPBGZZ": 6040704,
     "?unknown_color_7a7360@@3HA": 8024928,
@@ -7867,7 +7867,7 @@
     "?Unknown_Slot_Names_005c8cf0@@YIXPAG@Z": 6065392,
     "?unknown_flag_a3f120@@3_NA": 10744096,
     "?unknown_flag_a3f121@@3_NA": 10744097,
-    "?Unknown_Play_Taunt_00715fb0@@YIXD@Z": 7430064,
+    "?Play_Taunt@@YIXD@Z": 7430064,
     "?Update_Messages@MessageListClass@@QAEHXZ": 5985808,
     "??0CampaignScoreClass@@QAE@XZ": 4611056,
     "?Get_Message@MessageListClass@@QAEPAGH@Z": 5984608,
@@ -7906,7 +7906,7 @@
     "?Compute_Unique_ID@SessionClass@@QAEKXZ": 6755840,
     "?Init_Random@@YIXXZ": 5330704,
     "?CustomSeed@@3IA": 10751296,
-    "?Unknown_007168C0@@YIXH@Z": 7432384,
+    "?Speech_Set_Side@@YIXH@Z": 7432384,
     "?Unknown_Reload_Art_006F44D0@@YIXXZ": 7292112,
     "?unknown_map_name_a3d342@@3PAGA": 10736450,
     "?unknown_max_players_a3d558@@3HA": 10736984,
@@ -7936,15 +7936,15 @@
     "?unknown_address_a3f80c@@3VIPXAddressClass@@A": 10745868,
     "??0SessionOptionsClass@@QAE@XZ": 6742832,
     "?Free_Scenario_Descriptions@SessionClass@@QAEXXZ": 6755504,
-    "?Unknown_00672BB0@SessionClass@@QAEXXZ": 6761392,
+    "?Assign_Random_Choices@SessionClass@@QAEXXZ": 6761392,
     "?Unknown_00672DE0@SessionClass@@QAEXXZ": 6761952,
-    "?unknown_game_speed_7f3230@@3HA": 8335920,
-    "?Unknown_00672E70@SessionClass@@QAEXXZ": 6762096,
-    "?Unknown_005173A0@@YAXXZ": 5338016,
+    "?SavedGameSpeed@@3HA": 8335920,
+    "?Leave_Game@SessionClass@@QAEXXZ": 6762096,
+    "?Leave_Game_Hook@@YAXXZ": 5338016,
     "?Player_Port@SessionClass@@QAEGH@Z": 6762320,
-    "?Unknown_00672F90@SessionClass@@QAEHH@Z": 6762384,
-    "?Unknown_00672FF0@SessionClass@@QAEHPBD@Z": 6762480,
-    "?Unknown_00673030@SessionClass@@QAEHH@Z": 6762544,
+    "?Player_To_Slot@SessionClass@@QAEHH@Z": 6762384,
+    "?Name_To_Slot@SessionClass@@QAEHPBD@Z": 6762480,
+    "?Slot_To_Player@SessionClass@@QAEHH@Z": 6762544,
     "??0MultiMission@@QAE@PBDPBG0_N0HH@Z": 6757456,
     "??_7UnitClass@@6B@": 8052216,
     "??_EUnitClass@@UAEPAXI@Z": 7381808,
@@ -8289,7 +8289,7 @@
     "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1IHH_N@Z": 7814848,
     "?Draw_Depth_Glow_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1HHH_N@Z": 7814864,
     "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@HH_N333M@Z": 7814880,
-    "?Unknown_Slot16@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z": 7814896,
+    "?Draw_RGB_Multiplying_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z": 7814896,
     "?Fill_Rect_Trans@XSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z": 7816880,
     "?Stride@BSurface@@UAEHXZ": 4264896,
     "??_GBSurface@@UAEPAXI@Z": 4264912,
@@ -8382,7 +8382,7 @@
     "?Can_Player_Move@ObjectClass@@UAE_NXZ": 6106176,
     "?unknown_slot38@ObjectTypeClass@@UBEPBXXZ": 6118784,
     "?CanUseWaypoint@TechnoTypeClass@@UBE_NXZ": 7187632,
-    "?unknown_53f460@@YA_NXZ": 5502048,
+    "?Is_In_Main_Loop@@YA_NXZ": 5502048,
     "?Get_Application@HouseClass@@UAGPAVIApplication@@XZ": 5122768,
     "??_GBitFontClass@@UAEPAXI@Z": 4399616,
     "??_7BitFontClass@@6B@": 7980936,
@@ -8417,7 +8417,7 @@
     "?Get_Image_Data@BuildingTypeClass@@UBEPAXXZ": 4558048,
     "?unknown_slot38@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4825328,
     "?unknown_slot40@ObjectClass@@UAE?AUCoordStruct@@XZ": 4305472,
-    "?unknown_instance_00851ca8@@3PAXA": 8723624,
+    "?LanguageResources@@3PAXA": 8723624,
     "??0WaypointPathClass@@QAE@XZ": 7490320,
     "??1WaypointPathClass@@UAE@XZ": 7490720,
     "??_7WaypointPathClass@@6BIPersistStream@@@": 8056616,
@@ -8483,13 +8483,13 @@
     "?Unknown_00613E40@@YAXXZ": 6372928,
     "?Unknown_006F57E0@@YAXXZ": 7296992,
     "?Free_Vocs@@YAXXZ": 7424096,
-    "?Unknown_005BB5A0@@YAXXZ": 6010272,
+    "?Shutdown_Network@@YAXXZ": 6010272,
     "?unknown_buffer_a35e20@@3PAVBuffer@@A": 10706464,
     "?unknown_active_object_abd484@@3KA": 11261060,
     "?unknown_handle_abd480@@3PAXA": 11261056,
     "?unknown_handle_abd47c@@3PAXA": 11261052,
     "?Unknown_00522930@@YAXXZ": 5384496,
-    "?unknown_53fbd0@@YI_NXZ": 5503952,
+    "?Main_Loop@@YI_NXZ": 5503952,
     "?Save_Recording_Values@@YI_NAAVCCFileClass@@@Z": 5335808,
     "?unknown_slot4@SimpleWonlineDialogControl@@UAE_NXZ": 7585840,
     "_?blink@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4HA": 11235208,
@@ -8673,7 +8673,7 @@
     "?Clear_Occupy_Bit@InfantryClass@@UAEXABUCoordStruct@@@Z": 5276832,
     "?Set_Occupy_Bit@BuildingClass@@UAEXABUCoordStruct@@@Z": 4517584,
     "?Clear_Occupy_Bit@BuildingClass@@UAEXABUCoordStruct@@@Z": 4517680,
-    "?unknown_firewall_a71b18@@3VFirewallSettings@@A": 10951448,
+    "?FirewallHelper@@3VFirewallSettings@@A": 10951448,
     "?Detect_And_Save_005b9e80@FirewallSettings@@QAEXXZ": 6004352,
     "?Get_Buildup_Data@BuildingTypeClass@@UAEPAXXZ": 4581264,
     "?Unlimbo@AircraftClass@@UAE_NPBUCoordStruct@@H@Z": 4276256,
@@ -8868,7 +8868,7 @@
     "?Narrow_To_Wide_006fa180@@YIPAGPBD@Z": 7315840,
     "?OnGameresSent@CNetUtilEventSink@@UAGJJ@Z": 7721728,
     "?unknown_a3d2a4@@3HA": 10736292,
-    "?Unknown_00698D00@@YIX_N@Z": 6917376,
+    "?Send_Statistics_Packet@@YIX_N@Z": 6917376,
     "?OnAgeCheck@CNetUtilEventSink@@UAGJJHH@Z": 7724720,
     "?unknown_b2ac0c@@3HA": 11709452,
     "?unknown_b2ac6c@@3HA": 11709548,
@@ -8968,9 +8968,9 @@
     "?unknown_wdt_server_b29880@@3UServer@WOL@@A": 11704448,
     "?unknown_wdt_address_b269ac@@3PADA": 11692460,
     "?unknown_wdt_port_b299bc@@3HA": 11704764,
-    "?unknown_mangler_addresses_b26cbc@@3PAY0IA@DA": 11693244,
+    "?ManglerAddresses@@3PAY0IA@DA": 11693244,
     "?unknown_mangler_count_b2ac34@@3HA": 11709492,
-    "?unknown_mangler_ports_b291a4@@3PAHA": 11702692,
+    "?ManglerPorts@@3PAHA": 11702692,
     "?unknown_mangler_index_b2ac38@@3HA": 11709496,
     "?unknown_server_list_event_b264fc@@3PAXA": 11691260,
     "?OnChannelList@CChatEventSink@@UAGJJPAUChannel@WOL@@@Z": 7748736,
@@ -9159,7 +9159,7 @@
     "?Unknown_0074e070@@YIHPAX@Z": 7659632,
     "?unknown_session_a40054@@3HA": 10747988,
     "?OnPaged@CChatEventSink@@UAGJJPAUUser@WOL@@PBD@Z": 7743920,
-    "?unknown_last_pager_b2ac48@@3PADA": 11709512,
+    "?LastPagerName@@3PADA": 11709512,
     "?unknown_color_7a7378@@3HA": 8024952,
     "?Page_Dialog_Proc_00757d80@@YGHPAUHWND__@@IIJ@Z": 7699840,
     "?Unknown_00757cc0@@YI?AVWstring@@PAUHWND__@@@Z": 7699648,
@@ -9217,8 +9217,8 @@
     "?Get_Value@RangedGameOption@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z": 7505840,
     "??0WDTTerritory@@QAE@XZ": 7519744,
     "??_7WDTTerritory@@6B@": 8057560,
-    "?unknown_72c490@WDTState@@QAE_NPAXH@Z": 7521424,
-    "?unknown_72c3b0@WDTState@@QAE_NPAXH@Z": 7521200,
+    "?Create_Territories@WDTState@@QAE_NPAXH@Z": 7521424,
+    "?Create_History@WDTState@@QAE_NPAXH@Z": 7521200,
     "?Get@SHAStraw@@UAEHPAXH@Z": 6771648,
     "?Save@WaypointPathClass@@UAGJPAUIStream@@H@Z": 7491952,
     "??0RandomClass@@QAE@I@Z": 6522608,
@@ -9372,7 +9372,7 @@
     "?Is_Tile_Destroyable_Cliff@CellClass@@QBE_NXZ": 4700944,
     "?Reduce_Weed@CellClass@@QAEHXZ": 4702272,
     "?Tiberium_Type_Here@CellClass@@QBEHXZ": 4694560,
-    "?unknown_475db0@CellClass@@QAEHH@Z": 4677040,
+    "?Reduce_Tiberium@CellClass@@QAEHH@Z": 4677040,
     "?Cell_Infantry@CellClass@@QBEPAVObjectClass@@_N@Z": 4669136,
     "?Is_Tile_Bridge@CellClass@@QBE_NXZ": 4700512,
     "?unknown_tileset_a52c74@@3HA": 10824820,
@@ -9402,8 +9402,8 @@
     "?Is_Tile_Clear@CellClass@@QBE_NXZ": 4699536,
     "?Is_Tile_Ramp@CellClass@@QBE_NXZ": 4699568,
     "?unknown_tileset_a52ea8@@3HA": 10825384,
-    "?unknown_47b7c0@CellClass@@QBE_NXZ": 4700096,
-    "?unknown_47b7e0@CellClass@@QBE_NXZ": 4700128,
+    "?Is_Tile_Shore@CellClass@@QBE_NXZ": 4700096,
+    "?Is_Tile_With_Water@CellClass@@QBE_NXZ": 4700128,
     "?unknown_tileset_a52580@@3HA": 10823040,
     "?Is_Tile_Misc_Pavement@CellClass@@QBE_NXZ": 4700256,
     "?unknown_tileset_a52ef4@@3HA": 10825460,
@@ -10054,8 +10054,8 @@
     "?Build_Time_Text@@YIXPADH@Z": 7567968,
     "?unknown_build_time_7d8940@@3UFILETIME@@B": 8227136,
     "?Create_Main_Window@@YIXPAXHHH@Z": 7568336,
-    "?unknown_icon_b263d4@@3PAXA": 11690964,
-    "?unknown_cursor_b263d0@@3PAXA": 11690960,
+    "?ProgramIcon@@3PAXA": 11690964,
+    "?ProgramCursor@@3PAXA": 11690960,
     "?Windows_Procedure@@YGJPAUHWND__@@IIJ@Z": 7566752,
     "?IMEContext@@3PAUHIMC__@@A": 11690980,
     "?ShowCommand@@3HA": 11690956,
@@ -10110,8 +10110,8 @@
     "?Pick@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z": 7543744,
     "?Pick@Voices@WorldDominationTour@@SI_NHABV?$DynamicVectorClass@I@@AAVWstring@@@Z": 7544416,
     "?Pick@Group@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z": 7545184,
-    "?Unknown_00671F00@MultiMission@@QAE_NH@Z": 6758144,
-    "?Unknown_00671F90@MultiMission@@QAEHXZ": 6758288,
+    "?Is_On_CD@MultiMission@@QAE_NH@Z": 6758144,
+    "?On_Which_CD@MultiMission@@QAEHXZ": 6758288,
     "?Is_Random_Map@MultiMission@@QAE_NXZ": 6758592,
     "?Supports_Game_Mode@MultiMission@@QAE_NAAVWstring@@@Z": 6758624,
     "?Set_Filename@MultiMission@@QAEXPBD@Z": 6758384,
@@ -10179,7 +10179,7 @@
     "?Draw_Depth_Shaded_Line@DSurface@@UAE_NABVRect@@ABUPoint2D@@1IHH_N@Z": 4914224,
     "?Draw_Dashed_Line_Depth_Masked@DSurface@@UAEHABUPoint2D@@0HPB_NH_N@Z": 4916816,
     "?Fill_Circle@XSurface@@QAEXUPoint2D@@HVRect@@H@Z": 7818384,
-    "?Unknown_Slot16@DSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z": 4906496,
+    "?Draw_RGB_Multiplying_Line@DSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z": 4906496,
     "?Draw_Depth_Glow_Line@DSurface@@UAE_NABVRect@@ABUPoint2D@@1HHH_N@Z": 4897696,
     "??_EWWMouseClass@@UAEPAXI@Z": 7812880,
     "??_GNode@?$WolDictionary@VWstring@@ULadder@WOL@@@@QAEPAXI@Z": 7759744,
@@ -10460,7 +10460,7 @@
     "_DAT_00ad0934": 11340084,
     "_DAT_00ad0940": 11340096,
     "_s__none__007cdecc": 8183500,
-    "?unknown_call_407f20@UnknownSound_007169f0@@QAEXXZ": 4226848,
+    "?AudioStreamerResume@UnknownSound_007169f0@@QAEXXZ": 4226848,
     "?Service_Game_IO_00481fb0@seed_00482100@@YAXXZ": 4726704,
     "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ": 4726704,
     "?FUN_00716690@seed_00716690@@YI_NH@Z": 7431824,
@@ -10491,7 +10491,9 @@
     "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
     "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
     "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
-    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A": 11274248,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104
   },
   "regions": [
     {
@@ -10553,7 +10555,7 @@
           "resolved": 11339912
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10604,7 +10606,7 @@
           "resolved": 11340064
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10655,7 +10657,7 @@
           "resolved": 11339992
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10706,7 +10708,7 @@
           "resolved": 11339984
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10757,7 +10759,7 @@
           "resolved": 11339936
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10808,7 +10810,7 @@
           "resolved": 11339872
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10891,7 +10893,7 @@
           "resolved": 11340072
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -10950,7 +10952,7 @@
           "resolved": 11339944
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -11009,7 +11011,7 @@
           "resolved": 11339968
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -11068,7 +11070,7 @@
           "resolved": 11340056
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -11111,7 +11113,7 @@
           "resolved": 11339894
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -11162,7 +11164,7 @@
           "resolved": 11339960
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -11199,7 +11201,7 @@
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -11207,7 +11209,7 @@
         {
           "offset": 13,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 8,
           "resolved": 11340088
@@ -11215,7 +11217,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 12,
           "resolved": 11340092
@@ -11223,7 +11225,7 @@
         {
           "offset": 25,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 13,
           "resolved": 11340093
@@ -11231,7 +11233,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 0,
           "resolved": 11340080
@@ -11247,7 +11249,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 20,
           "resolved": 11340100
@@ -11255,7 +11257,7 @@
         {
           "offset": 50,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -11269,7 +11271,7 @@
           "resolved": 447231
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -11280,8 +11282,8 @@
     {
       "entry": 7432384,
       "method": "007168c0",
-      "symbol": "?Unknown_007168C0@@YIXH@Z",
-      "symbol_prefix": "?Unknown_007168C0@@",
+      "symbol": "?Speech_Set_Side@@YIXH@Z",
+      "symbol_prefix": "?Speech_Set_Side@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -11298,13 +11300,13 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "?unknown_flag_ad0958@@3HA",
+          "symbol": "?SpeechSovietFiles@@3HA",
           "target": 11340120,
           "addend": 0,
           "resolved": 11340120
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -11330,7 +11332,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "ccf4fa03930faf2fb5d867a46c2df9a822e8d12d560d9a99e1a3547d02932405",
       "relocations": [],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -11366,7 +11368,7 @@
           "resolved": 439040
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -11393,7 +11395,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -11420,7 +11422,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
       "relocations": [],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -11447,7 +11449,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
       "relocations": [],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -11483,7 +11485,7 @@
           "resolved": 438707
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -11510,7 +11512,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
       "relocations": [],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -11537,7 +11539,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -11564,7 +11566,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
       "relocations": [],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -11617,7 +11619,7 @@
         }
       ],
       "source": "src/recovered/vox.cpp",
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source_order": 243163,
       "population": "population-4388",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11668,7 +11670,7 @@
         }
       ],
       "source": "src/recovered/vox.cpp",
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source_order": 243164,
       "population": "population-4388",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11710,7 +11712,7 @@
           "resolved": 438784
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -11754,7 +11756,7 @@
           "resolved": 438477
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -11798,7 +11800,7 @@
           "resolved": 11340084
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "source_order": 243165,
       "population": "population-4388",
@@ -11850,7 +11852,7 @@
           "resolved": 8183500
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "source_order": 243166,
       "population": "population-4388",
@@ -11880,7 +11882,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -11888,7 +11890,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 0,
           "resolved": 11340080
@@ -11904,7 +11906,7 @@
         {
           "offset": 24,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 13,
           "resolved": 11340093
@@ -11920,7 +11922,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -11928,7 +11930,7 @@
         {
           "offset": 47,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 13,
           "resolved": 11340093
@@ -11936,13 +11938,13 @@
         {
           "offset": 53,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 8,
           "resolved": 11340088
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -11979,7 +11981,7 @@
         {
           "offset": 11,
           "kind": 20,
-          "symbol": "?unknown_call_407f20@UnknownSound_007169f0@@QAEXXZ",
+          "symbol": "?AudioStreamerResume@UnknownSound_007169f0@@QAEXXZ",
           "target": 4226848,
           "addend": 0,
           "resolved": 4291761441
@@ -11987,7 +11989,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "?unknown_countdown_ad08c8@@3HC",
+          "symbol": "?SpeechSuspend@@3HC",
           "target": 11339976,
           "addend": 0,
           "resolved": 11339976
@@ -11995,7 +11997,7 @@
         {
           "offset": 25,
           "kind": 6,
-          "symbol": "?unknown_countdown_ad08c8@@3HC",
+          "symbol": "?SpeechSuspend@@3HC",
           "target": 11339976,
           "addend": 0,
           "resolved": 11339976
@@ -12003,7 +12005,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?unknown_countdown_ad08c8@@3HC",
+          "symbol": "?SpeechSuspend@@3HC",
           "target": 11339976,
           "addend": 0,
           "resolved": 11339976
@@ -12011,13 +12013,13 @@
         {
           "offset": 39,
           "kind": 6,
-          "symbol": "?unknown_countdown_ad08c8@@3HC",
+          "symbol": "?SpeechSuspend@@3HC",
           "target": 11339976,
           "addend": 0,
           "resolved": 11339976
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -12047,13 +12049,13 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_flag_ad0958@@3HA",
+          "symbol": "?SpeechSovietFiles@@3HA",
           "target": 11340120,
           "addend": 0,
           "resolved": 11340120
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -12083,7 +12085,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+          "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
           "target": 11340116,
           "addend": 0,
           "resolved": 11340116
@@ -12091,7 +12093,7 @@
         {
           "offset": 21,
           "kind": 6,
-          "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+          "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
           "target": 11340116,
           "addend": 0,
           "resolved": 11340116
@@ -12121,7 +12123,7 @@
           "resolved": 4294965658
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -12150,7 +12152,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "?unknown_vox_ad0878@@3HC",
+          "symbol": "?SpeechHold@@3HC",
           "target": 11339896,
           "addend": 0,
           "resolved": 11339896
@@ -12158,7 +12160,7 @@
         {
           "offset": 13,
           "kind": 6,
-          "symbol": "?unknown_countdown_ad08c8@@3HC",
+          "symbol": "?SpeechSuspend@@3HC",
           "target": 11339976,
           "addend": 0,
           "resolved": 11339976
@@ -12166,7 +12168,7 @@
         {
           "offset": 22,
           "kind": 6,
-          "symbol": "?unknown_vox_lists_ad08e0@@3PAUAudioListNode@@A",
+          "symbol": "?SpeechLists@@3PAUAudioListNode@@A",
           "target": 11340000,
           "addend": 0,
           "resolved": 11340000
@@ -12182,7 +12184,7 @@
         {
           "offset": 38,
           "kind": 6,
-          "symbol": "?unknown_vox_lists_ad08e0@@3PAUAudioListNode@@A",
+          "symbol": "?SpeechLists@@3PAUAudioListNode@@A",
           "target": 11340000,
           "addend": 48,
           "resolved": 11340048
@@ -12190,7 +12192,7 @@
         {
           "offset": 45,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0890@@3UAudioListNode@@A",
+          "symbol": "?SpeechUrgentList@@3UAudioListNode@@A",
           "target": 11339920,
           "addend": 0,
           "resolved": 11339920
@@ -12206,7 +12208,7 @@
         {
           "offset": 55,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0868@@3UAudioListNode@@A",
+          "symbol": "?SpeechQueuedList@@3UAudioListNode@@A",
           "target": 11339880,
           "addend": 0,
           "resolved": 11339880
@@ -12230,7 +12232,7 @@
         {
           "offset": 71,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -12238,7 +12240,7 @@
         {
           "offset": 83,
           "kind": 6,
-          "symbol": "?unknown_vox_enabled_ad094c@@3HA",
+          "symbol": "?SpeechEnabled@@3HA",
           "target": 11340108,
           "addend": 0,
           "resolved": 11340108
@@ -12332,7 +12334,7 @@
           "resolved": 4291765000
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -12407,7 +12409,7 @@
           "resolved": 11340124
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -12436,7 +12438,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_vox_enabled_ad094c@@3HA",
+          "symbol": "?SpeechEnabled@@3HA",
           "target": 11340108,
           "addend": 0,
           "resolved": 11340108
@@ -12444,7 +12446,7 @@
         {
           "offset": 14,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -12452,7 +12454,7 @@
         {
           "offset": 38,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -12468,7 +12470,7 @@
         {
           "offset": 53,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -12476,7 +12478,7 @@
         {
           "offset": 62,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0890@@3UAudioListNode@@A",
+          "symbol": "?SpeechUrgentList@@3UAudioListNode@@A",
           "target": 11339920,
           "addend": 0,
           "resolved": 11339920
@@ -12508,7 +12510,7 @@
         {
           "offset": 100,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0890@@3UAudioListNode@@A",
+          "symbol": "?SpeechUrgentList@@3UAudioListNode@@A",
           "target": 11339920,
           "addend": 0,
           "resolved": 11339920
@@ -12524,7 +12526,7 @@
         {
           "offset": 116,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0868@@3UAudioListNode@@A",
+          "symbol": "?SpeechQueuedList@@3UAudioListNode@@A",
           "target": 11339880,
           "addend": 0,
           "resolved": 11339880
@@ -12556,7 +12558,7 @@
         {
           "offset": 154,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0868@@3UAudioListNode@@A",
+          "symbol": "?SpeechQueuedList@@3UAudioListNode@@A",
           "target": 11339880,
           "addend": 0,
           "resolved": 11339880
@@ -12572,7 +12574,7 @@
         {
           "offset": 170,
           "kind": 6,
-          "symbol": "?unknown_vox_lists_ad08e0@@3PAUAudioListNode@@A",
+          "symbol": "?SpeechLists@@3PAUAudioListNode@@A",
           "target": 11340000,
           "addend": 0,
           "resolved": 11340000
@@ -12612,13 +12614,13 @@
         {
           "offset": 227,
           "kind": 6,
-          "symbol": "?unknown_vox_lists_ad08e0@@3PAUAudioListNode@@A",
+          "symbol": "?SpeechLists@@3PAUAudioListNode@@A",
           "target": 11340000,
           "addend": 48,
           "resolved": 11340048
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -12647,7 +12649,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -12655,7 +12657,7 @@
         {
           "offset": 18,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -12669,7 +12671,7 @@
           "resolved": 8184044
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -12706,7 +12708,7 @@
         {
           "offset": 27,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -12714,7 +12716,7 @@
         {
           "offset": 38,
           "kind": 6,
-          "symbol": "?unknown_vox_ad0878@@3HC",
+          "symbol": "?SpeechHold@@3HC",
           "target": 11339896,
           "addend": 0,
           "resolved": 11339896
@@ -12722,7 +12724,7 @@
         {
           "offset": 51,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -12730,7 +12732,7 @@
         {
           "offset": 59,
           "kind": 6,
-          "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+          "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
           "target": 11340116,
           "addend": 0,
           "resolved": 11340116
@@ -12738,7 +12740,7 @@
         {
           "offset": 104,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0868@@3UAudioListNode@@A",
+          "symbol": "?SpeechQueuedList@@3UAudioListNode@@A",
           "target": 11339880,
           "addend": 0,
           "resolved": 11339880
@@ -12770,7 +12772,7 @@
         {
           "offset": 146,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0868@@3UAudioListNode@@A",
+          "symbol": "?SpeechQueuedList@@3UAudioListNode@@A",
           "target": 11339880,
           "addend": 0,
           "resolved": 11339880
@@ -12786,7 +12788,7 @@
         {
           "offset": 162,
           "kind": 6,
-          "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+          "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
           "target": 11340116,
           "addend": 0,
           "resolved": 11340116
@@ -12794,7 +12796,7 @@
         {
           "offset": 180,
           "kind": 6,
-          "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+          "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
           "target": 11340116,
           "addend": 0,
           "resolved": 11340116
@@ -12826,7 +12828,7 @@
         {
           "offset": 211,
           "kind": 6,
-          "symbol": "?unknown_vox_delay_ad0960@@3_KA",
+          "symbol": "?SpeechDelay@@3_KA",
           "target": 11340128,
           "addend": 0,
           "resolved": 11340128
@@ -12834,7 +12836,7 @@
         {
           "offset": 216,
           "kind": 6,
-          "symbol": "?unknown_vox_delay_ad0960@@3_KA",
+          "symbol": "?SpeechDelay@@3_KA",
           "target": 11340128,
           "addend": 4,
           "resolved": 11340132
@@ -12864,7 +12866,7 @@
           "resolved": 481
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -12909,7 +12911,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_vox_serial_ad0950@@3HA",
+          "symbol": "?SpeechSerial@@3HA",
           "target": 11340112,
           "addend": 0,
           "resolved": 11340112
@@ -12917,7 +12919,7 @@
         {
           "offset": 58,
           "kind": 6,
-          "symbol": "?unknown_vox_serial_ad0950@@3HA",
+          "symbol": "?SpeechSerial@@3HA",
           "target": 11340112,
           "addend": 0,
           "resolved": 11340112
@@ -12925,7 +12927,7 @@
         {
           "offset": 68,
           "kind": 6,
-          "symbol": "?unknown_vox_serial_ad0950@@3HA",
+          "symbol": "?SpeechSerial@@3HA",
           "target": 11340112,
           "addend": 0,
           "resolved": 11340112
@@ -12933,7 +12935,7 @@
         {
           "offset": 84,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0868@@3UAudioListNode@@A",
+          "symbol": "?SpeechQueuedList@@3UAudioListNode@@A",
           "target": 11339880,
           "addend": 0,
           "resolved": 11339880
@@ -12949,7 +12951,7 @@
         {
           "offset": 113,
           "kind": 6,
-          "symbol": "?unknown_vox_lists_ad08e0@@3PAUAudioListNode@@A",
+          "symbol": "?SpeechLists@@3PAUAudioListNode@@A",
           "target": 11340000,
           "addend": 0,
           "resolved": 11340000
@@ -12965,7 +12967,7 @@
         {
           "offset": 137,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0890@@3UAudioListNode@@A",
+          "symbol": "?SpeechUrgentList@@3UAudioListNode@@A",
           "target": 11339920,
           "addend": 0,
           "resolved": 11339920
@@ -12981,7 +12983,7 @@
         {
           "offset": 155,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0868@@3UAudioListNode@@A",
+          "symbol": "?SpeechQueuedList@@3UAudioListNode@@A",
           "target": 11339880,
           "addend": 4,
           "resolved": 11339884
@@ -12989,7 +12991,7 @@
         {
           "offset": 159,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0868@@3UAudioListNode@@A",
+          "symbol": "?SpeechQueuedList@@3UAudioListNode@@A",
           "target": 11339880,
           "addend": 0,
           "resolved": 11339880
@@ -12997,7 +12999,7 @@
         {
           "offset": 167,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0890@@3UAudioListNode@@A",
+          "symbol": "?SpeechUrgentList@@3UAudioListNode@@A",
           "target": 11339920,
           "addend": 4,
           "resolved": 11339924
@@ -13005,7 +13007,7 @@
         {
           "offset": 171,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0890@@3UAudioListNode@@A",
+          "symbol": "?SpeechUrgentList@@3UAudioListNode@@A",
           "target": 11339920,
           "addend": 0,
           "resolved": 11339920
@@ -13013,7 +13015,7 @@
         {
           "offset": 178,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -13021,7 +13023,7 @@
         {
           "offset": 193,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -13035,7 +13037,7 @@
           "resolved": 443026
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -13064,7 +13066,7 @@
         {
           "offset": 5,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0890@@3UAudioListNode@@A",
+          "symbol": "?SpeechUrgentList@@3UAudioListNode@@A",
           "target": 11339920,
           "addend": 0,
           "resolved": 11339920
@@ -13088,7 +13090,7 @@
         {
           "offset": 35,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -13096,7 +13098,7 @@
         {
           "offset": 49,
           "kind": 6,
-          "symbol": "?unknown_vox_lists_ad08e0@@3PAUAudioListNode@@A",
+          "symbol": "?SpeechLists@@3PAUAudioListNode@@A",
           "target": 11340000,
           "addend": 36,
           "resolved": 11340036
@@ -13120,7 +13122,7 @@
         {
           "offset": 85,
           "kind": 6,
-          "symbol": "?unknown_vox_lists_ad08e0@@3PAUAudioListNode@@A",
+          "symbol": "?SpeechLists@@3PAUAudioListNode@@A",
           "target": 11340000,
           "addend": 0,
           "resolved": 11340000
@@ -13128,7 +13130,7 @@
         {
           "offset": 92,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0868@@3UAudioListNode@@A",
+          "symbol": "?SpeechQueuedList@@3UAudioListNode@@A",
           "target": 11339880,
           "addend": 0,
           "resolved": 11339880
@@ -13150,7 +13152,7 @@
           "resolved": 4291762139
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -13203,7 +13205,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0868@@3UAudioListNode@@A",
+          "symbol": "?SpeechQueuedList@@3UAudioListNode@@A",
           "target": 11339880,
           "addend": 4,
           "resolved": 11339884
@@ -13211,7 +13213,7 @@
         {
           "offset": 30,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0868@@3UAudioListNode@@A",
+          "symbol": "?SpeechQueuedList@@3UAudioListNode@@A",
           "target": 11339880,
           "addend": 0,
           "resolved": 11339880
@@ -13219,7 +13221,7 @@
         {
           "offset": 38,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0890@@3UAudioListNode@@A",
+          "symbol": "?SpeechUrgentList@@3UAudioListNode@@A",
           "target": 11339920,
           "addend": 4,
           "resolved": 11339924
@@ -13227,7 +13229,7 @@
         {
           "offset": 42,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0890@@3UAudioListNode@@A",
+          "symbol": "?SpeechUrgentList@@3UAudioListNode@@A",
           "target": 11339920,
           "addend": 0,
           "resolved": 11339920
@@ -13235,7 +13237,7 @@
         {
           "offset": 49,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -13243,7 +13245,7 @@
         {
           "offset": 58,
           "kind": 6,
-          "symbol": "?unknown_vox_lists_ad08e0@@3PAUAudioListNode@@A",
+          "symbol": "?SpeechLists@@3PAUAudioListNode@@A",
           "target": 11340000,
           "addend": 0,
           "resolved": 11340000
@@ -13251,13 +13253,13 @@
         {
           "offset": 71,
           "kind": 6,
-          "symbol": "?unknown_vox_lists_ad08e0@@3PAUAudioListNode@@A",
+          "symbol": "?SpeechLists@@3PAUAudioListNode@@A",
           "target": 11340000,
           "addend": 48,
           "resolved": 11340048
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -13286,7 +13288,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -13294,7 +13296,7 @@
         {
           "offset": 17,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -13318,7 +13320,7 @@
         {
           "offset": 49,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -13326,7 +13328,7 @@
         {
           "offset": 57,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -13342,7 +13344,7 @@
         {
           "offset": 83,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -13356,7 +13358,7 @@
           "resolved": 4294966238
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -13385,7 +13387,7 @@
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "?unknown_vox_volume_7f9bd4@@3HA",
+          "symbol": "?SpeechVolume@@3HA",
           "target": 8362964,
           "addend": 0,
           "resolved": 8362964
@@ -13393,13 +13395,13 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "?unknown_vox_volume_7f9bd4@@3HA",
+          "symbol": "?SpeechVolume@@3HA",
           "target": 8362964,
           "addend": 0,
           "resolved": 8362964
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -13524,13 +13526,13 @@
         {
           "offset": 85,
           "kind": 6,
-          "symbol": "?unknown_count_ad0910@@3HC",
+          "symbol": "?AuxStreamHold@@3HC",
           "target": 11340048,
           "addend": 0,
           "resolved": 11340048
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -13597,7 +13599,7 @@
           "resolved": 11340136
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -13634,7 +13636,7 @@
         {
           "offset": 17,
           "kind": 6,
-          "symbol": "?unknown_count_ad0910@@3HC",
+          "symbol": "?AuxStreamHold@@3HC",
           "target": 11340048,
           "addend": 0,
           "resolved": 11340048
@@ -13816,7 +13818,7 @@
           "resolved": 7430253
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "switch_data_bytes": 36,
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
@@ -13828,8 +13830,8 @@
     {
       "entry": 7430352,
       "method": "007160d0",
-      "symbol": "?Unknown_007160D0@@YIXXZ",
-      "symbol_prefix": "?Unknown_007160D0@@YIXXZ",
+      "symbol": "?Aux_Stream_Stop@@YIXXZ",
+      "symbol_prefix": "?Aux_Stream_Stop@@YIXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13860,7 +13862,7 @@
           "resolved": 4291763585
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -13889,7 +13891,7 @@
         {
           "offset": 71,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 8,
           "resolved": 11340088
@@ -13897,7 +13899,7 @@
         {
           "offset": 77,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -13905,7 +13907,7 @@
         {
           "offset": 87,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 13,
           "resolved": 11340093
@@ -13913,7 +13915,7 @@
         {
           "offset": 99,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 20,
           "resolved": 11340100
@@ -13921,7 +13923,7 @@
         {
           "offset": 113,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 0,
           "resolved": 11340080
@@ -13929,7 +13931,7 @@
         {
           "offset": 118,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 0,
           "resolved": 11340080
@@ -13937,7 +13939,7 @@
         {
           "offset": 131,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -13945,7 +13947,7 @@
         {
           "offset": 140,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -13953,13 +13955,13 @@
         {
           "offset": 146,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -13988,7 +13990,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 0,
           "resolved": 11340080
@@ -13996,7 +13998,7 @@
         {
           "offset": 17,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 0,
           "resolved": 11340080
@@ -14004,7 +14006,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -14012,7 +14014,7 @@
         {
           "offset": 44,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -14020,7 +14022,7 @@
         {
           "offset": 52,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -14028,13 +14030,13 @@
         {
           "offset": 66,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -14325,7 +14327,7 @@
           "resolved": 442373
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -14354,7 +14356,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+          "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
           "target": 11340116,
           "addend": 0,
           "resolved": 11340116
@@ -14362,7 +14364,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+          "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
           "target": 11340116,
           "addend": 0,
           "resolved": 11340116
@@ -14394,7 +14396,7 @@
         {
           "offset": 48,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -14402,7 +14404,7 @@
         {
           "offset": 58,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -14410,7 +14412,7 @@
         {
           "offset": 70,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 0,
           "resolved": 11340080
@@ -14418,7 +14420,7 @@
         {
           "offset": 80,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 0,
           "resolved": 11340080
@@ -14426,7 +14428,7 @@
         {
           "offset": 98,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -14434,7 +14436,7 @@
         {
           "offset": 111,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -14442,7 +14444,7 @@
         {
           "offset": 119,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -14450,7 +14452,7 @@
         {
           "offset": 133,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -14466,13 +14468,13 @@
         {
           "offset": 151,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -14517,7 +14519,7 @@
         {
           "offset": 27,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -14525,7 +14527,7 @@
         {
           "offset": 38,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -14541,7 +14543,7 @@
         {
           "offset": 60,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -14549,13 +14551,13 @@
         {
           "offset": 76,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -14584,7 +14586,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -14592,13 +14594,13 @@
         {
           "offset": 15,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -14641,7 +14643,7 @@
           "resolved": 4291761649
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -14684,7 +14686,7 @@
           "resolved": 4291761713
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -14721,7 +14723,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_count_ad0910@@3HC",
+          "symbol": "?AuxStreamHold@@3HC",
           "target": 11340048,
           "addend": 0,
           "resolved": 11340048
@@ -14729,7 +14731,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "?unknown_count_ad0910@@3HC",
+          "symbol": "?AuxStreamHold@@3HC",
           "target": 11340048,
           "addend": 0,
           "resolved": 11340048
@@ -14737,13 +14739,13 @@
         {
           "offset": 24,
           "kind": 6,
-          "symbol": "?unknown_count_ad0910@@3HC",
+          "symbol": "?AuxStreamHold@@3HC",
           "target": 11340048,
           "addend": 0,
           "resolved": 11340048
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -14772,7 +14774,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_vox_ad0878@@3HC",
+          "symbol": "?SpeechHold@@3HC",
           "target": 11339896,
           "addend": 0,
           "resolved": 11339896
@@ -14780,7 +14782,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_vox_ad0878@@3HC",
+          "symbol": "?SpeechHold@@3HC",
           "target": 11339896,
           "addend": 0,
           "resolved": 11339896
@@ -14788,7 +14790,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "?unknown_vox_ad0878@@3HC",
+          "symbol": "?SpeechHold@@3HC",
           "target": 11339896,
           "addend": 0,
           "resolved": 11339896
@@ -14796,13 +14798,13 @@
         {
           "offset": 24,
           "kind": 6,
-          "symbol": "?unknown_vox_ad0878@@3HC",
+          "symbol": "?SpeechHold@@3HC",
           "target": 11339896,
           "addend": 0,
           "resolved": 11339896
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -14847,7 +14849,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "?unknown_countdown_ad08c8@@3HC",
+          "symbol": "?SpeechSuspend@@3HC",
           "target": 11339976,
           "addend": 0,
           "resolved": 11339976
@@ -14855,13 +14857,13 @@
         {
           "offset": 22,
           "kind": 6,
-          "symbol": "?unknown_countdown_ad08c8@@3HC",
+          "symbol": "?SpeechSuspend@@3HC",
           "target": 11339976,
           "addend": 0,
           "resolved": 11339976
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -14890,7 +14892,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+          "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
           "target": 11340116,
           "addend": 0,
           "resolved": 11340116
@@ -14898,7 +14900,7 @@
         {
           "offset": 18,
           "kind": 6,
-          "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+          "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
           "target": 11340116,
           "addend": 0,
           "resolved": 11340116
@@ -14930,7 +14932,7 @@
         {
           "offset": 48,
           "kind": 6,
-          "symbol": "?unknown_countdown_ad08c8@@3HC",
+          "symbol": "?SpeechSuspend@@3HC",
           "target": 11339976,
           "addend": 0,
           "resolved": 11339976
@@ -14938,13 +14940,13 @@
         {
           "offset": 58,
           "kind": 6,
-          "symbol": "?unknown_vox_ad0878@@3HC",
+          "symbol": "?SpeechHold@@3HC",
           "target": 11339896,
           "addend": 0,
           "resolved": 11339896
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -14973,7 +14975,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -14981,7 +14983,7 @@
         {
           "offset": 23,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -14997,7 +14999,7 @@
         {
           "offset": 45,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -15019,7 +15021,7 @@
           "resolved": 4294966567
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -15120,7 +15122,7 @@
         {
           "offset": 131,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -15128,7 +15130,7 @@
         {
           "offset": 143,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -15144,7 +15146,7 @@
         {
           "offset": 169,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -15160,7 +15162,7 @@
         {
           "offset": 273,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 8,
           "resolved": 11340088
@@ -15168,7 +15170,7 @@
         {
           "offset": 279,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -15176,7 +15178,7 @@
         {
           "offset": 287,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 13,
           "resolved": 11340093
@@ -15184,7 +15186,7 @@
         {
           "offset": 299,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 20,
           "resolved": 11340100
@@ -15192,7 +15194,7 @@
         {
           "offset": 310,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 0,
           "resolved": 11340080
@@ -15200,7 +15202,7 @@
         {
           "offset": 317,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 0,
           "resolved": 11340080
@@ -15208,7 +15210,7 @@
         {
           "offset": 330,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -15216,7 +15218,7 @@
         {
           "offset": 339,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -15224,7 +15226,7 @@
         {
           "offset": 345,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -15232,7 +15234,7 @@
         {
           "offset": 366,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -15246,7 +15248,7 @@
           "resolved": 4294966389
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -15275,7 +15277,7 @@
         {
           "offset": 13,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -15283,7 +15285,7 @@
         {
           "offset": 25,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -15299,13 +15301,13 @@
         {
           "offset": 47,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -15334,7 +15336,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d0c@@3DA",
+          "symbol": "?Debug_Quiet@@3DA",
           "target": 10751244,
           "addend": 0,
           "resolved": 10751244
@@ -15382,7 +15384,7 @@
         {
           "offset": 78,
           "kind": 6,
-          "symbol": "?unknown_vox_delay_ad0960@@3_KA",
+          "symbol": "?SpeechDelay@@3_KA",
           "target": 11340128,
           "addend": 0,
           "resolved": 11340128
@@ -15390,7 +15392,7 @@
         {
           "offset": 90,
           "kind": 6,
-          "symbol": "?unknown_vox_delay_ad0960@@3_KA",
+          "symbol": "?SpeechDelay@@3_KA",
           "target": 11340128,
           "addend": 4,
           "resolved": 11340132
@@ -15406,7 +15408,7 @@
         {
           "offset": 118,
           "kind": 6,
-          "symbol": "?unknown_countdown_ad08c8@@3HC",
+          "symbol": "?SpeechSuspend@@3HC",
           "target": 11339976,
           "addend": 0,
           "resolved": 11339976
@@ -15414,7 +15416,7 @@
         {
           "offset": 131,
           "kind": 6,
-          "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+          "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
           "target": 11340116,
           "addend": 0,
           "resolved": 11340116
@@ -15422,7 +15424,7 @@
         {
           "offset": 148,
           "kind": 6,
-          "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+          "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
           "target": 11340116,
           "addend": 0,
           "resolved": 11340116
@@ -15430,7 +15432,7 @@
         {
           "offset": 153,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0868@@3UAudioListNode@@A",
+          "symbol": "?SpeechQueuedList@@3UAudioListNode@@A",
           "target": 11339880,
           "addend": 0,
           "resolved": 11339880
@@ -15454,7 +15456,7 @@
         {
           "offset": 184,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -15470,7 +15472,7 @@
         {
           "offset": 207,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -15478,7 +15480,7 @@
         {
           "offset": 214,
           "kind": 6,
-          "symbol": "?unknown_vox_list_ad0890@@3UAudioListNode@@A",
+          "symbol": "?SpeechUrgentList@@3UAudioListNode@@A",
           "target": 11339920,
           "addend": 0,
           "resolved": 11339920
@@ -15502,7 +15504,7 @@
         {
           "offset": 237,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -15518,7 +15520,7 @@
         {
           "offset": 256,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -15526,7 +15528,7 @@
         {
           "offset": 264,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -15534,7 +15536,7 @@
         {
           "offset": 274,
           "kind": 6,
-          "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
+          "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
           "target": 11340104,
           "addend": 0,
           "resolved": 11340104
@@ -15542,7 +15544,7 @@
         {
           "offset": 281,
           "kind": 6,
-          "symbol": "?unknown_vox_lists_ad08e0@@3PAUAudioListNode@@A",
+          "symbol": "?SpeechLists@@3PAUAudioListNode@@A",
           "target": 11340000,
           "addend": 36,
           "resolved": 11340036
@@ -15558,7 +15560,7 @@
         {
           "offset": 303,
           "kind": 6,
-          "symbol": "?unknown_vox_lists_ad08e0@@3PAUAudioListNode@@A",
+          "symbol": "?SpeechLists@@3PAUAudioListNode@@A",
           "target": 11340000,
           "addend": 0,
           "resolved": 11340000
@@ -15582,7 +15584,7 @@
         {
           "offset": 393,
           "kind": 6,
-          "symbol": "?unknown_flag_ad0958@@3HA",
+          "symbol": "?SpeechSovietFiles@@3HA",
           "target": 11340120,
           "addend": 0,
           "resolved": 11340120
@@ -15614,7 +15616,7 @@
         {
           "offset": 517,
           "kind": 6,
-          "symbol": "?unknown_vox_delay_ad0960@@3_KA",
+          "symbol": "?SpeechDelay@@3_KA",
           "target": 11340128,
           "addend": 0,
           "resolved": 11340128
@@ -15622,7 +15624,7 @@
         {
           "offset": 527,
           "kind": 6,
-          "symbol": "?unknown_vox_delay_ad0960@@3_KA",
+          "symbol": "?SpeechDelay@@3_KA",
           "target": 11340128,
           "addend": 4,
           "resolved": 11340132
@@ -15630,7 +15632,7 @@
         {
           "offset": 533,
           "kind": 6,
-          "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+          "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
           "target": 11340116,
           "addend": 0,
           "resolved": 11340116
@@ -15638,7 +15640,7 @@
         {
           "offset": 538,
           "kind": 6,
-          "symbol": "?unknown_vox_type_ad0858@@3HA",
+          "symbol": "?SpeechPlayingType@@3HA",
           "target": 11339864,
           "addend": 0,
           "resolved": 11339864
@@ -15646,13 +15648,13 @@
         {
           "offset": 544,
           "kind": 6,
-          "symbol": "?unknown_vox_priority_ad0880@@3HA",
+          "symbol": "?SpeechPlayingPriority@@3HA",
           "target": 11339904,
           "addend": 0,
           "resolved": 11339904
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -15681,7 +15683,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+          "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
           "target": 11340116,
           "addend": 0,
           "resolved": 11340116
@@ -15689,7 +15691,7 @@
         {
           "offset": 24,
           "kind": 6,
-          "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
+          "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
           "target": 11340116,
           "addend": 0,
           "resolved": 11340116
@@ -15729,7 +15731,7 @@
         {
           "offset": 166,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 16,
           "resolved": 11340096
@@ -15737,7 +15739,7 @@
         {
           "offset": 183,
           "kind": 6,
-          "symbol": "?unknown_VoxClass_list_00ad0930@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
           "target": 11340080,
           "addend": 4,
           "resolved": 11340084
@@ -15751,7 +15753,7 @@
           "resolved": 4294963517
         }
       ],
-      "source_sha256": "c6dee952f4ab8474dbe174b6cf34f113c371af1a974bc7dd7bb02c42f1e8577d",
+      "source_sha256": "0aed65eba51d883ff4face9a30a6b9d55cb3ffb0bfd74a73eb22ebae911c7cfa",
       "source": "src/recovered/vox.cpp",
       "population": "population-4388",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

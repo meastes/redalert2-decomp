@@ -3,7 +3,7 @@
 // origin lane: Scout998 (build/class-work/Scout998/w/rt0.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1069 (native/drafts.json). Not original bytes.
-// int CellClass::unknown_475db0(int levels) (0x00475DB0): Westwood's
+// int CellClass::Reduce_Tiberium(int levels) (0x00475DB0): Westwood's
 // Reduce_Tiberium: takes up to levels stages of the cell's ore and answers how
 // many it took. An emptied cell loses its overlay (Unknown_00472540(-1)), is
 // redrawn on the radar, leaves the spread lists and queues its ore-free
@@ -16,7 +16,7 @@
 #include "shared/tactical.hpp"
 #include "shared/veinhole.hpp"
 
-int CellClass::unknown_475db0(int levels)
+int CellClass::Reduce_Tiberium(int levels)
 {
     Rect dirty = Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect());
     dirty.Y -= TacticalRect.Y;

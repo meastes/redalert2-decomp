@@ -526,7 +526,7 @@ bool BeaconManagerClass::Unknown_0042E740(CoordStruct coord)
 {
     UnknownBeacon *beacon = FindBeaconAt_0042e860(coord);
     if (beacon) {
-        Unknown_00482BC0();
+        Unselect_All();
         beacon->unknown_flags |= 2;
         return true;
     }

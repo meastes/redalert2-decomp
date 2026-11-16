@@ -35,7 +35,7 @@ Rect unknown_rect_839610(0, 0, 0, 0);
 // The tactical area: X, Y, width, height (0x00839630).
 Rect TacticalRect(0, 0, 640, 400);
 // A screen-sized clipping window (0x00839640).
-Rect unknown_window_839640(0, 0, 640, 400);
+Rect VisibleRect(0, 0, 640, 400);
 
 
 // Dynamic initializer of GamePalette (0x0040D790, _$E): emitted by the definition in

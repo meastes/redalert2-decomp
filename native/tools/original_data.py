@@ -419,7 +419,7 @@ def main():
                 if m:
                     elements = 1
                     for dim in re.findall(r'\d+', m.group(1)):
-                        elements *= int(dim)   # every dimension (unknown_road_library_7e0fe4[8][4])
+                        elements *= int(dim)   # every dimension (RoadTileLibrary[8][4])
                     declared[int(r['address'], 16)] = min(r['extent'], 4 * elements)
                     break
             else:

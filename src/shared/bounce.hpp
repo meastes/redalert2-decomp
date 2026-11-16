@@ -67,7 +67,7 @@ public:
     BounceClass(NoInitClass const &noinit) : unknown_00(noinit), unknown_30(noinit), unknown_40(noinit) {}
 
     CoordStruct Coord() const;              // 0x00436F80 (the position, truncated)
-    Matrix3D unknown_matrix_436fc0() const; // 0x00436FC0 (the rotation at +0x30 as a matrix)
+    Matrix3D Get_Matrix() const; // 0x00436FC0 (the rotation at +0x30 as a matrix)
 
 #ifdef RA2_BOUNCE_DECLARE_MEMBERS
     // The BounceClass unit (TibSun bounce.cpp, 0x00436C70-0x0043768F). The

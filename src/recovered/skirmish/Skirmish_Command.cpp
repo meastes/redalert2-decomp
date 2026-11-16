@@ -186,7 +186,7 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
                 EnableWindow(Get_Item(dialog, 0x617), 1);
                 return;
             }
-            MultiplayerGameMode::unknown_first_mode_5b6ec0();
+            MultiplayerGameMode::First_Game_Mode();
         }
         unknown_session_a3d298.SkirmishOptions.GameMode = unknown_session_a3d298.GameModeIndex;
         unknown_session_a3d298.SkirmishOptions.ScenIndex = unknown_session_a3d298.ScenarioIndex;
@@ -243,7 +243,7 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
             node->unknown_63 = -1;
             unknown_session_a3d298.Players.Add(node);
         }
-        unknown_session_a3d298.Unknown_00672BB0();
+        unknown_session_a3d298.Assign_Random_Choices();
         HWND item = Get_Item(dialog, 0x529);
         if (item) {
             unknown_a40b18 = unknown_session_a3d298.GameSpeed_30 = 6 - SendMessageA(item, 0x400, 0, 0);

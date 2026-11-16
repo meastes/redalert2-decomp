@@ -273,7 +273,7 @@ bool __fastcall Start_Scenario_0065bc70(char const *name, bool briefing, int cam
 void __fastcall Do_Restart_0065e440();
 // Ends the scenario with "battle control terminated" (0x0065E590; reached
 // through a function pointer; name not recovered).
-void __fastcall Unknown_0065e590();
+void __fastcall Do_Abort();
 // Makes the multiplayer units (0x00660320; Westwood's Create_Units, hypothesis).
 void __fastcall Create_Units_00660320(bool official);
 // The multiplayer start cells: the set start waypoints, then random reachable

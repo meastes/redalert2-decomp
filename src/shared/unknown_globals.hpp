@@ -29,7 +29,7 @@ extern int unknown_int_83964c;  // 0x0083964C screen height
 extern Surface *unknown_radar_surface_8336f8;  // 0x008336F8 (the radar view: TechnoClass slot 267 tests its Get_Rect)
 extern Surface *SidebarSurface;  // 0x00839948 (sidebar surface)
 // A screen-sized clipping window (0x00839640; 0, 0, 640, 400 at startup, 0x0040D920).
-extern Rect unknown_window_839640;
+extern Rect VisibleRect;
 // The machine profile Get_Performance_Profile (0x0051A880) rates once (-1 until then;
 // 0x007DB564) and the texts it writes for the version dialog (0x00516C40): CPU, RAM, VRAM,
 // blit speed and the profile (0x00A411FC, 0x00A41388, 0x00A41308, 0x00A41408, 0x00A4127C).
@@ -92,7 +92,7 @@ HWND __fastcall WS_Top_Window();                       // 0x00735B10 (the curren
 // 0x005FE380 for WM_DRAWITEM, 0x007357E0 ends a dialog with a result (the command id).
 void __fastcall Unknown_005FEE70(HWND dialog);
 void __fastcall Unknown_005FE380(long item);
-void __fastcall Unknown_007357E0(void *dialog, int arg);    // 0x007357E0
+void __fastcall WS_Destroy_Dialog(void *dialog, int arg);    // 0x007357E0
 // Adds a formatted line to the chat display (hypothesis; 0x005C2C80; moved from shared/wol_sink.hpp).
 void __cdecl Unknown_005C2C80(int color, unsigned short const *format, ...);
 // The system chat colour (0x007A7360; moved from shared/wol_sink.hpp).
@@ -208,7 +208,7 @@ extern bool unknown_flag_a3f121;
 // The last message text received (0x00A3F122, session +0x1E8A; Red Alert's Session.LastMessage).
 extern unsigned short unknown_last_message_a3f122[];
 // Plays the taunt with the packed byte (low nibble taunt, high nibble country; 0x00715FB0; hypothesis).
-void __fastcall Unknown_Play_Taunt_00715fb0(char packed);
+void __fastcall Play_Taunt(char packed);
 // The player count of a multiplayer map (0x005C6600; hypothesis).
 int __fastcall RandomMapWaypointCount(int scenario);
 // The session's game mode object (+0x04, a MultiplayerGameMode; moved from
@@ -271,8 +271,8 @@ extern UnknownSessionA3D29C *unknown_session_a3d29c;     // 0x00A3D29C
 // Services audio, queued movies and the network while a long operation runs
 // (0x00481FB0).
 void __fastcall Service_Game_IO_00481fb0();
-bool unknown_53f460();                  // 0x0053F460 returns the byte at 0x00A6EB30
-bool __fastcall unknown_53fbd0();       // 0x0053FBD0 (Westwood's Main_Loop; __fastcall: it sets ecx before the pushes after its record-file calls)
+bool Is_In_Main_Loop();                  // 0x0053F460 returns the byte at 0x00A6EB30
+bool __fastcall Main_Loop();       // 0x0053FBD0 (Westwood's Main_Loop; __fastcall: it sets ecx before the pushes after its record-file calls)
 // Drops a player's connection by house index: prints the "left" (error 0) or
 // "connection lost" (error 1) message and removes the player (0x005BB5D0; YR's
 // SessionClass::Destroy_Connection, hypothesis).
@@ -292,7 +292,7 @@ extern int unknown_a3d580;
 // Called before Do_Lose in a networked game without bit 1 (0x00624850, 0x0053F780;
 // meanings not recovered).
 void __fastcall Unknown_00624850();
-void __fastcall Unknown_0053F780();
+void __fastcall Disconnect_Gracefully();
 // The score screen (0x005AAA20 constructor clears the score statics; 0x005AAA40 shows
 // it; an empty class built as a temporary; names hypotheses).
 class UnknownScore_005AAA20 {
@@ -311,7 +311,7 @@ extern PaletteClass GamePalette;         // 0x00837E10
 // campaign goes on, 0x004B37C0 is the end of the campaign, 0x0058F510 the map
 // selection and 0x0058F620 picks the named next scenario.
 class ScenarioClass;
-bool __fastcall Unknown_00491A10();
+bool __fastcall CheckProtectedData();
 void __fastcall Unknown_004B37C0();
 void __fastcall Unknown_0058F510(ScenarioClass *scenario);
 void __fastcall Unknown_0058F620(ScenarioClass *scenario, char const *name);
@@ -330,7 +330,7 @@ extern int unknown_counter_a3fabc;
 // Start_Scenario takes this scenario name instead of the campaign's when the flag
 // is set (0x00A35EA8, 0x00A40D05; meanings not recovered).
 extern char unknown_scenario_name_a35ea8[];
-extern bool unknown_flag_a40d05;
+extern bool Debug_ForceScenario;
 // The dropship loadout before a scenario with StartingDropships (0x004A6B90;
 // hypothesis).
 void __fastcall Unknown_004A6B90();
@@ -395,7 +395,7 @@ extern bool unknown_session_a3d2c0;             // 0x00A3D2C0 (session +0x28) fa
 // The game option byte that enables the map's +0x154 entries (crates; hypothesis)
 // (0x00A3D2C1, session +0x29).
 extern bool unknown_flag_a3d2c1;
-extern unsigned char unknown_session_a3d2c3;   // 0x00A3D2C3 (session +0x2B; tested as a flag, indexes a 0/1 table)
+extern unsigned char AllowDisableableSupers;   // 0x00A3D2C3 (session +0x2B; tested as a flag, indexes a 0/1 table)
 // The session's starting crate count (0x00A3D55C, session +0x2C4; bounded by Rules
 // CrateMinimum/CrateMaximum; hypothesis).
 extern int unknown_session_a3d55c;
@@ -418,7 +418,7 @@ extern int unknown_a3d8c8;
 extern unsigned int Seed;
 extern unsigned int CustomSeed;
 // Records the side for the interface (stores it at 0x00AD0958; 0x007168C0).
-void __fastcall Unknown_007168C0(int side);
+void __fastcall Speech_Set_Side(int side);
 // Called by Unknown_0051a330 before the side colour is chosen (0x006F44D0).
 void __fastcall Unknown_Reload_Art_006F44D0();
 // Copies one of two colours (0 or else) into the interface colour (0x006F45A0).
@@ -431,7 +431,7 @@ int __fastcall Unknown_006A2970(int height);
 void __fastcall Unknown_006c0220();                         // 0x006C0220 (walks TeamTypes)
 void Unknown_006e9fe0();                                    // 0x006E9FE0 (walks the TiberiumClass list)
 void __fastcall Unknown_006e9520();                         // 0x006E9520 (walks the TiberiumClass list)
-void Unknown_006ecf10();                                    // 0x006ECF10 (walks the objects at 0x00AC0CD8)
+void Process_Deferred_Deletion();                                    // 0x006ECF10 (walks the objects at 0x00AC0CD8)
 // A lazily made object (0x00A6E7C4; 0x00535910 makes it, 0x00535BF0 runs it;
 // vtable 0x007A549C with one slot). The progress screen sends it its percent
 // before and after each change (message 0x11AE).
@@ -531,7 +531,7 @@ int __fastcall Fetch_Scheme_Index_By_Name(char const *name, int kind);
 // An empty string used as an INI default (0x0083C55C).
 extern char unknown_string_83c55c[];
 // WOnline.cpp globals (moved from shared/wol_sink.hpp, which includes this header).
-extern int unknown_b2a7ec;              // 0x00B2A7EC
+extern int WestwoodOnline_Tournament;              // 0x00B2A7EC
 extern int unknown_b2a7fc;              // 0x00B2A7FC (the game ID the loading screen shows)
 extern char unknown_b2a6d8[];           // 0x00B2A6D8 (MPCooperative slot 37 copies unknown_wstring_b26cb8 into it)
 extern unsigned int unknown_b2ab84;     // 0x00B2AB84 (slot 37: unknown_protocol_7fd370)
@@ -541,8 +541,8 @@ extern int unknown_pings_b2a734[];      // 0x00B2A734 the players' pings in ms (
 extern char unknown_squad_1_b2a820[];    // 0x00B2A820
 extern char unknown_squad_2_b293d8[];    // 0x00B293D8
 extern int ScenarioInit;  // 0x00A40774 (a live-object count; BuildingClass, FactoryClass, ...)
-extern int unknown_int_a40d48;  // 0x00A40D48 the mode the radar buttons select (1, 8, 9; Game Controls sets 4 and 6)
-extern bool unknown_flag_a40d84;  // 0x00A40D84 (Game Controls: set with a session game, its sliders then stay visible)
+extern int SpecialDialog;  // 0x00A40D48 the mode the radar buttons select (1, 8, 9; Game Controls sets 4 and 6)
+extern bool GameControlsShown;  // 0x00A40D84 (Game Controls: set with a session game, its sliders then stay visible)
 extern bool GameActive;  // 0x00A40958 (the destructor then calls ObjectClass slot 52)
 extern int unknown_a40b2c;          // 0x00A40B2C (LineTrail::Set_Decrement keeps the decrement when set, doubles it otherwise)
 extern bool unknown_flag_a40b30;  // 0x00A40B30 the sidebar is on the left
@@ -554,9 +554,9 @@ extern bool GameInFocus;  // 0x00A40D28 application active (focus)
 extern bool IgnoreInput;  // 0x00A40D44
 extern int UnlockInputFrame;        // 0x00AB9174 (cleared when the game pauses or resumes)
 // The game speed kept by SessionClass::Unknown_00672DE0 (0x007F3230; -1: none).
-extern int unknown_game_speed_7f3230;
+extern int SavedGameSpeed;
 // An empty function 0x00672E70 calls first (0x005173A0).
-void Unknown_005173A0();
+void Leave_Game_Hook();
 // The global sound volume kept while the game window has no focus (0x007F1DEC;
 // 0x4000 otherwise) and the tooltip state restored with the focus (0x00A40B34).
 extern int unknown_saved_volume_7f1dec;
@@ -607,7 +607,7 @@ void __fastcall Unknown_006F8A00(BuildingClass *building);
 class CCINIClass;
 void __fastcall Unknown_00668EA0(CCINIClass &ini, int is_global);
 // Called when the sidebar is hidden (0x005A09E0).
-void Unknown_005A09E0();
+void Stop_Ingame_Movie();
 // GRFXTXT.PAL's data (0x00A41670), the converter built from it (0x00A41678) and GRFXTXT.SHP
 // (0x00A41674), loaded by 0x00511C90 and freed by Prog_End.
 extern void *unknown_grfxtxt_palette_a41670;
@@ -629,7 +629,7 @@ extern void *unknown_block_a52eb8;
 extern void *unknown_block_a52ebc;
 class Buffer;
 extern Buffer *unknown_buffer_a35e20;                          // 0x00A35E20
-extern void *unknown_instance_00851ca8;                        // 0x00851CA8 (a loaded library)
+extern void *LanguageResources;                        // 0x00851CA8 (a loaded library)
 // WinMain's active-object registration (0x00ABD484) and two handles it creates (0x00ABD480,
 // 0x00ABD47C).
 extern unsigned long unknown_active_object_abd484;
@@ -645,7 +645,7 @@ void Unknown_005EAC20();
 void Unknown_00613E40();
 void Unknown_006F57E0();
 void Free_Vocs();
-void Unknown_005BB5A0();
+void Shutdown_Network();
 void Unknown_00522930();
 // The program's exit cleanup, registered with atexit by WinMain (0x006909E0; Red Alert's Prog_End).
 void __cdecl Prog_End();

@@ -4,8 +4,8 @@
     "id": "population-1241",
     "inventory_sha256": "d14705b3f09caceedec30f5fe8d7b1370bab56fda38e2d452714db1c60fa63f9",
     "gaps_sha256": "dbd9173def77db2ea7163b3b2a655c228082febf353b287ea7e8fac0e631419f",
-    "historical_population_sha256": "e683ffaef4dc9ebe0b08808fdb3e1bdf3d46a331e9bb2a6df86b29467ae7c908",
-    "historical_acceptance_sha256": "3b4e7b95bcd678ccfbce49143ea25f48a54499b5f71e48c6cc6ea90010d6e189",
+    "historical_population_sha256": "bdc7fb7b05a2b3e6d84c0726e727da1c5607ea435a0e9845cdf3220a04b6fd04",
+    "historical_acceptance_sha256": "3942fc78fce41032d7f40a691509541107f911b6e30c8da4a2d83bd88e0b8885",
     "separate_units": true
   },
   "references": {
@@ -154,7 +154,7 @@
     "?unknown_art_ac1108@@3PAXA": 11276552,
     "?unknown_art_ac1168@@3_NA": 11276648,
     "?unknown_art_ac1164@@3PAXA": 11276644,
-    "?unknown_value_8523e0@@3HA": 8725472,
+    "?VideoModeWidth@@3HA": 8725472,
     "?unknown_name_7f8750@@3QBDB": 8357712,
     "?unknown_name_7f8754@@3QBDB": 8357716,
     "?unknown_name_7f8758@@3QBDB": 8357720,
@@ -1513,7 +1513,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_value_8523e0@@3HA",
+          "symbol": "?VideoModeWidth@@3HA",
           "target": 8725472,
           "addend": 0,
           "resolved": 8725472
@@ -1887,7 +1887,7 @@
           "resolved": 11276552
         }
       ],
-      "source_sha256": "e1507bd733a8b2a9bc6222aee07dc990d055c6bcee7aa5c4fcae3e9962724e39",
+      "source_sha256": "4c5e26096229864b629eee3918e2d966a3ead559698bed0b83519b0b9b25155b",
       "source": "src/recovered/txtlabel2/Unknown_Load_Art_Flagged.cpp",
       "population": "population-1241",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",

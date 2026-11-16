@@ -538,8 +538,8 @@ void __fastcall Storm_Strike_0051FE50(CoordStruct coord)
             break;
         }
     }
-    Unknown_0047F600(where, damage, Rules->LightningWarhead, 0, 0);
-    Unknown_0047E2C0(where, damage, 0, Rules->LightningWarhead, 1);
+    Combat_Lighting(where, damage, Rules->LightningWarhead, 0, 0);
+    Explosion_Damage(where, damage, 0, Rules->LightningWarhead, 1);
     if (building != cellptr.Cell_Building() || object != cellptr.Cell_Techno(Point2D(0, 0), false, 0)
         || cellptr.unknown_11b != level) {
         changed = true;
@@ -731,7 +731,7 @@ void __fastcall Set_Scheme_Lighting_00520A80(int red, int green, int blue, bool 
 {
     UnknownSchemeListIterator iterator;
     for (DynamicVectorClass<ColorScheme *> *list = iterator.Next(); list != 0; list = iterator.Next()) {
-        int count = Unknown_00603C10();
+        int count = SchemeLibrary_Count();
         for (int index = 0; index < count; index++) {
             ((LightConvertClass *)(*list)[index]->Converter)->Set_Tint(red, green, blue, unknown4);
         }

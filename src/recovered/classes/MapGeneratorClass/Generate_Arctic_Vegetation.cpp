@@ -15,16 +15,16 @@ void MapGeneratorClass::Generate_Arctic_Vegetation()
     CellClass *cell=Map.Iterate();
     while(cell) {
         Cell position=cell->Fetch_CellID();
-        unsigned index=(unsigned)(int)position.Y*(unsigned)unknown_map_cell_side_84e804+(unsigned)(int)position.X;
-        unknown_map_cells_a70a24[index].unknown_3c=0;
+        unsigned index=(unsigned)(int)position.Y*(unsigned)MapCellStride+(unsigned)(int)position.X;
+        RMGCellData[index].unknown_3c=0;
         cell=Map.Iterate();
     }
     Map.Reset_Iterator();
     cell=Map.Iterate();
     while(cell) {
         Cell position=cell->Fetch_CellID();
-        unsigned index=(unsigned)(int)position.Y*(unsigned)unknown_map_cell_side_84e804+(unsigned)(int)position.X;
-        UnknownMapGenerationCell &data=unknown_map_cells_a70a24[index];
+        unsigned index=(unsigned)(int)position.Y*(unsigned)MapCellStride+(unsigned)(int)position.X;
+        UnknownMapGenerationCell &data=RMGCellData[index];
         if(cell->Is_Tile_Clear() && cell->unknown_11c==0 && data.unknown_45[0]==0) {
             Cell origin=cell->Fetch_CellID();
             int originID=(int)((unsigned)(int)origin.Y*512u+(unsigned)(int)origin.X);

@@ -4,8 +4,8 @@
     "id": "population-3808",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "8a39b87817ab0459ddbd94b39c262eadf7feeec764febfc66eed40fea903b0cc",
-    "historical_acceptance_sha256": "b8454cc317d98ffde79801ea87822d2e926a3aa70a9b9b643d27c4d283cf931b"
+    "historical_population_sha256": "353fd7456681a640594a6b331cf129041b4ba47098f526dd5b2248a5c253a6d5",
+    "historical_acceptance_sha256": "a147903b811caa09125d4cfcc87ffdd347df751a5271fe3c544a52de6d092600"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -217,21 +217,21 @@
     "__purecall": 4950368,
     "?unknown_zbuffer_ad0a70@@3PAEA": 11340400,
     "?unknown_af6610@@3HA": 11494928,
-    "?unknown_bounds_min_ae0a70@@3UVector3@@A": 11405936,
-    "?unknown_bounds_max_ae0dd8@@3UVector3@@A": 11406808,
-    "?unknown_rect_ae2ff0@@3VRect@@A": 11415536,
-    "?unknown_records_ae0de8@@3PAUUnknownVoxelRecord88@@A": 11406824,
-    "?unknown_records_af3408@@3PAUUnknownVoxelRecord48@@A": 11482120,
+    "?MinVoxelBounds@@3UVector3@@A": 11405936,
+    "?MaxVoxelBounds@@3UVector3@@A": 11406808,
+    "?LastRenderRect@@3VRect@@A": 11415536,
+    "?VoxelRenderData@@3PAUVoxelRenderStruct@@A": 11406824,
+    "?VoxelShadowRenderData@@3PAUVoxelShadowRenderStruct@@A": 11482120,
     "?unknown_voxel_colors_ae3008@@3PAVRGBClass@@A": 11415560,
-    "?unknown_voxel16_colors_ae0a7c@@3PAGA": 11405948,
+    "?Voxel16BitColors@@3PAGA": 11405948,
     "?VoxelRenderDataCount@@3HA": 11406512,
     "?VoxelShadowRenderDataCount@@3HA": 11415552,
     "_?_need_buffer_init@?1??Reset@VoxelDrawSystem@@YAXXZ@4HA": 8363392,
-    "_?render_data@?1??Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z@4PAPAUUnknownVoxelRecord88@@A": 11416328,
-    "_?render_data@?1??Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ@4PAPAUUnknownVoxelRecord88@@A": 11406516,
-    "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z": 7444576,
+    "_?render_data@?1??Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z@4PAPAUVoxelRenderStruct@@A": 11416328,
+    "_?render_data@?1??Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ@4PAPAUVoxelRenderStruct@@A": 11406516,
+    "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z": 7444576,
     "?Render_Object@VoxelLibrary@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z": 7444800,
-    "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z": 7445520,
+    "?Render_Shadow@VoxelLibrary@@QAEXPAUVoxelShadowRenderStruct@@PBUVector3@@@Z": 7445520,
     "??D@YI?AUVector3@@ABVMatrix3D@@ABU0@@Z": 5837696,
     "?unknown_normal_lookup_71ba20@@YIXABUVector3@@H@Z": 7453216,
     "?unknown_normal_lookup_71baa0@@YIXABUVector3@@0MH@Z": 7453344,
@@ -1803,7 +1803,7 @@
     "?get@Leaf_716ce0@@QAEPAXI@Z": 7433440,
     "?get@Leaf_716d30@@QAEPAXI@Z": 7433520,
     "?Get_Surface@VoxelDrawSystem@@YAPAVSurface@@XZ": 7434304,
-    "?unknown_surface_ae0db8@@3VBSurface@@A": 11406776,
+    "?VoxelSurface@@3VBSurface@@A": 11406776,
     "?ID@?$DynamicVectorClass@PAVMovieHandle@@@@UAEHPBQAVMovieHandle@@@Z": 7460848,
     "?ID@?$VectorClass@PAVMovieHandle@@@@UAEHABQAVMovieHandle@@@Z": 7461184,
     "?ID@?$VectorClass@PAVMovieHandle@@@@UAEHPBQAVMovieHandle@@@Z": 7461248,
@@ -2025,7 +2025,7 @@
     "?House@PlanningNodeClass@@QBEPAVHouseClass@@XZ": 6361456,
     "??0Vector3@@QAE@XZ": 7437520,
     "?Clear@VoxelLibrary@@QAEXXZ": 7442704,
-    "?Get_Layer@VoxelLibrary@@QAEPAUUnknownVoxelSection@@H@Z": 7444560,
+    "?Get_Layer@VoxelLibrary@@QAEPAULayerStruct@@H@Z": 7444560,
     "?Memory_Used@VoxelLibrary@@QAEHXZ": 7444768,
     "?Is_Valid@Conflict@WorldDominationTour@@QBE_NXZ": 7500768,
     "?Is_Valid@History@WorldDominationTour@@QBEHI@Z": 7507744,
@@ -2453,7 +2453,7 @@
     "??0Matrix3D@@QAE@ABUVector3@@M@Z": 5832528,
     "??0VoxelLibrary@@QAE@XZ": 7442528,
     "?Get_Bounding_Box_Center@VoxelLibrary@@QAE?AUVector3@@HH@Z": 7444624,
-    "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A": 8363616,
+    "?VoxelRenderOrientations@@3PAUUnknownVoxelView@@A": 8363616,
     "?Compute_Bounding_Box@VoxelLibrary@@QAEXXZ": 7446368,
     "_?path@?1??Build_Final_Path@AStarClass@@QAEPAUPathStruct@@PAURegularOpenNode@@PAH@Z@4U3@A": 8701968,
     "??0RGBClass@@QAE@EEE@Z": 4402544,
@@ -3505,8 +3505,8 @@
     "??_GScorePrintClass@@UAEPAXI@Z": 6718384,
     "??_GScoreFontClass@@UAEPAXI@Z": 6718416,
     "??_7ScoreFontClass@@6B@": 8032928,
-    "?unknown_score_fonts_ab6fa4@@3HA": 11235236,
-    "?unknown_score_sounds_ab6fa8@@3PAUScoreFontSound@@A": 11235240,
+    "?score_font_count@@3HA": 11235236,
+    "?text_sounds@@3PAUScoreFontSound@@A": 11235240,
     "??_GScoreFullFontClass@@UAEPAXI@Z": 6718512,
     "??_GScoreBigFontClass@@UAEPAXI@Z": 6718608,
     "?Clear@?$VectorClass@PAVGlobalPacketType@@@@UAEXXZ": 6767552,
@@ -4389,7 +4389,8 @@
     "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
     "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
     "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
-    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104
   },
   "regions": [
     {
@@ -4419,7 +4420,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -4454,7 +4455,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -4489,7 +4490,7 @@
           "resolved": 11340400
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -4588,7 +4589,7 @@
           "resolved": 19932
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -4632,7 +4633,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -4677,7 +4678,7 @@
         {
           "offset": 94,
           "kind": 20,
-          "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+          "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
           "target": 7444576,
           "addend": 0,
           "resolved": 10158
@@ -4691,7 +4692,7 @@
           "resolved": 18781
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -4752,7 +4753,7 @@
         {
           "offset": 195,
           "kind": 20,
-          "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+          "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
           "target": 7444576,
           "addend": 0,
           "resolved": 9929
@@ -4766,7 +4767,7 @@
           "resolved": 18665
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -4843,7 +4844,7 @@
         {
           "offset": 69,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 0,
           "resolved": 11415536
@@ -4851,7 +4852,7 @@
         {
           "offset": 75,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 4,
           "resolved": 11415540
@@ -4859,7 +4860,7 @@
         {
           "offset": 88,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 8,
           "resolved": 11415544
@@ -4867,7 +4868,7 @@
         {
           "offset": 103,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 12,
           "resolved": 11415548
@@ -4883,7 +4884,7 @@
         {
           "offset": 139,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 8,
           "resolved": 11415544
@@ -4891,7 +4892,7 @@
         {
           "offset": 175,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 0,
           "resolved": 11415536
@@ -4915,7 +4916,7 @@
         {
           "offset": 207,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 12,
           "resolved": 11415548
@@ -4923,7 +4924,7 @@
         {
           "offset": 220,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 8,
           "resolved": 11415544
@@ -4939,7 +4940,7 @@
         {
           "offset": 311,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 0,
           "resolved": 11405936
@@ -4947,7 +4948,7 @@
         {
           "offset": 316,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 4,
           "resolved": 11405940
@@ -4955,7 +4956,7 @@
         {
           "offset": 322,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 8,
           "resolved": 11405944
@@ -4963,7 +4964,7 @@
         {
           "offset": 367,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 0,
           "resolved": 11406808
@@ -4971,7 +4972,7 @@
         {
           "offset": 372,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 4,
           "resolved": 11406812
@@ -4979,13 +4980,13 @@
         {
           "offset": 378,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 8,
           "resolved": 11406816
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -5014,7 +5015,7 @@
         {
           "offset": 18,
           "kind": 20,
-          "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+          "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
           "target": 7444576,
           "addend": 0,
           "resolved": 9450
@@ -5030,7 +5031,7 @@
         {
           "offset": 43,
           "kind": 6,
-          "symbol": "?unknown_records_af3408@@3PAUUnknownVoxelRecord48@@A",
+          "symbol": "?VoxelShadowRenderData@@3PAUVoxelShadowRenderStruct@@A",
           "target": 11482120,
           "addend": 0,
           "resolved": 11482120
@@ -5054,7 +5055,7 @@
         {
           "offset": 213,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 0,
           "resolved": 11405936
@@ -5062,7 +5063,7 @@
         {
           "offset": 227,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 0,
           "resolved": 11405936
@@ -5070,7 +5071,7 @@
         {
           "offset": 236,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 4,
           "resolved": 11405940
@@ -5078,7 +5079,7 @@
         {
           "offset": 252,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 4,
           "resolved": 11405940
@@ -5086,7 +5087,7 @@
         {
           "offset": 260,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 0,
           "resolved": 11406808
@@ -5094,7 +5095,7 @@
         {
           "offset": 275,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 0,
           "resolved": 11406808
@@ -5102,7 +5103,7 @@
         {
           "offset": 284,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 4,
           "resolved": 11406812
@@ -5110,7 +5111,7 @@
         {
           "offset": 299,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 4,
           "resolved": 11406812
@@ -5132,7 +5133,7 @@
           "resolved": 11415552
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -5161,7 +5162,7 @@
         {
           "offset": 18,
           "kind": 20,
-          "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+          "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
           "target": 7444576,
           "addend": 0,
           "resolved": 9098
@@ -5177,7 +5178,7 @@
         {
           "offset": 62,
           "kind": 6,
-          "symbol": "?unknown_records_ae0de8@@3PAUUnknownVoxelRecord88@@A",
+          "symbol": "?VoxelRenderData@@3PAUVoxelRenderStruct@@A",
           "target": 11406824,
           "addend": 0,
           "resolved": 11406824
@@ -5193,7 +5194,7 @@
         {
           "offset": 339,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 0,
           "resolved": 11405936
@@ -5201,7 +5202,7 @@
         {
           "offset": 355,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 0,
           "resolved": 11405936
@@ -5209,7 +5210,7 @@
         {
           "offset": 364,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 4,
           "resolved": 11405940
@@ -5217,7 +5218,7 @@
         {
           "offset": 380,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 4,
           "resolved": 11405940
@@ -5225,7 +5226,7 @@
         {
           "offset": 389,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 8,
           "resolved": 11405944
@@ -5233,7 +5234,7 @@
         {
           "offset": 404,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 8,
           "resolved": 11405944
@@ -5241,7 +5242,7 @@
         {
           "offset": 413,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 0,
           "resolved": 11406808
@@ -5249,7 +5250,7 @@
         {
           "offset": 429,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 0,
           "resolved": 11406808
@@ -5257,7 +5258,7 @@
         {
           "offset": 438,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 4,
           "resolved": 11406812
@@ -5265,7 +5266,7 @@
         {
           "offset": 454,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 4,
           "resolved": 11406812
@@ -5273,7 +5274,7 @@
         {
           "offset": 463,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 8,
           "resolved": 11406816
@@ -5281,7 +5282,7 @@
         {
           "offset": 478,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 8,
           "resolved": 11406816
@@ -5303,7 +5304,7 @@
           "resolved": 11406512
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -5346,7 +5347,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -5381,7 +5382,7 @@
           "resolved": 11340400
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -5410,7 +5411,7 @@
         {
           "offset": 5,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 0,
           "resolved": 11405936
@@ -5418,7 +5419,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 0,
           "resolved": 11406808
@@ -5442,7 +5443,7 @@
         {
           "offset": 46,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 4,
           "resolved": 11405940
@@ -5450,7 +5451,7 @@
         {
           "offset": 52,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 4,
           "resolved": 11406812
@@ -5466,7 +5467,7 @@
         {
           "offset": 68,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 8,
           "resolved": 11405944
@@ -5474,7 +5475,7 @@
         {
           "offset": 74,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 8,
           "resolved": 11406816
@@ -5490,7 +5491,7 @@
         {
           "offset": 91,
           "kind": 6,
-          "symbol": "?unknown_records_af3408@@3PAUUnknownVoxelRecord48@@A",
+          "symbol": "?VoxelShadowRenderData@@3PAUVoxelShadowRenderStruct@@A",
           "target": 11482120,
           "addend": 0,
           "resolved": 11482120
@@ -5498,7 +5499,7 @@
         {
           "offset": 104,
           "kind": 20,
-          "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
+          "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUVoxelShadowRenderStruct@@PBUVector3@@@Z",
           "target": 7445520,
           "addend": 0,
           "resolved": 9444
@@ -5522,7 +5523,7 @@
         {
           "offset": 132,
           "kind": 6,
-          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z@4PAPAUUnknownVoxelRecord88@@A",
+          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z@4PAPAUVoxelRenderStruct@@A",
           "target": 11416328,
           "addend": 0,
           "resolved": 11416328
@@ -5530,7 +5531,7 @@
         {
           "offset": 137,
           "kind": 6,
-          "symbol": "?unknown_records_ae0de8@@3PAUUnknownVoxelRecord88@@A",
+          "symbol": "?VoxelRenderData@@3PAUVoxelRenderStruct@@A",
           "target": 11406824,
           "addend": 0,
           "resolved": 11406824
@@ -5538,7 +5539,7 @@
         {
           "offset": 169,
           "kind": 6,
-          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z@4PAPAUUnknownVoxelRecord88@@A",
+          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z@4PAPAUVoxelRenderStruct@@A",
           "target": 11416328,
           "addend": 0,
           "resolved": 11416328
@@ -5562,7 +5563,7 @@
         {
           "offset": 257,
           "kind": 6,
-          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z@4PAPAUUnknownVoxelRecord88@@A",
+          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z@4PAPAUVoxelRenderStruct@@A",
           "target": 11416328,
           "addend": 0,
           "resolved": 11416328
@@ -5578,7 +5579,7 @@
         {
           "offset": 294,
           "kind": 6,
-          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z@4PAPAUUnknownVoxelRecord88@@A",
+          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z@4PAPAUVoxelRenderStruct@@A",
           "target": 11416328,
           "addend": 0,
           "resolved": 11416328
@@ -5602,7 +5603,7 @@
         {
           "offset": 328,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 0,
           "resolved": 11406808
@@ -5610,7 +5611,7 @@
         {
           "offset": 334,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 0,
           "resolved": 11405936
@@ -5626,7 +5627,7 @@
         {
           "offset": 348,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 4,
           "resolved": 11406812
@@ -5634,7 +5635,7 @@
         {
           "offset": 354,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 4,
           "resolved": 11405940
@@ -5650,7 +5651,7 @@
         {
           "offset": 440,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 0,
           "resolved": 11415536
@@ -5658,7 +5659,7 @@
         {
           "offset": 449,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 4,
           "resolved": 11415540
@@ -5666,7 +5667,7 @@
         {
           "offset": 458,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 8,
           "resolved": 11415544
@@ -5674,7 +5675,7 @@
         {
           "offset": 467,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 12,
           "resolved": 11415548
@@ -5696,7 +5697,7 @@
           "resolved": 424015
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -5725,7 +5726,7 @@
         {
           "offset": 5,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 0,
           "resolved": 11405936
@@ -5733,7 +5734,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 0,
           "resolved": 11406808
@@ -5757,7 +5758,7 @@
         {
           "offset": 44,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 4,
           "resolved": 11405940
@@ -5765,7 +5766,7 @@
         {
           "offset": 50,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 4,
           "resolved": 11406812
@@ -5781,7 +5782,7 @@
         {
           "offset": 66,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 8,
           "resolved": 11405944
@@ -5789,7 +5790,7 @@
         {
           "offset": 72,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 8,
           "resolved": 11406816
@@ -5805,7 +5806,7 @@
         {
           "offset": 89,
           "kind": 6,
-          "symbol": "?unknown_records_af3408@@3PAUUnknownVoxelRecord48@@A",
+          "symbol": "?VoxelShadowRenderData@@3PAUVoxelShadowRenderStruct@@A",
           "target": 11482120,
           "addend": 0,
           "resolved": 11482120
@@ -5813,7 +5814,7 @@
         {
           "offset": 102,
           "kind": 20,
-          "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
+          "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUVoxelShadowRenderStruct@@PBUVector3@@@Z",
           "target": 7445520,
           "addend": 0,
           "resolved": 8902
@@ -5837,7 +5838,7 @@
         {
           "offset": 130,
           "kind": 6,
-          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ@4PAPAUUnknownVoxelRecord88@@A",
+          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ@4PAPAUVoxelRenderStruct@@A",
           "target": 11406516,
           "addend": 0,
           "resolved": 11406516
@@ -5845,7 +5846,7 @@
         {
           "offset": 135,
           "kind": 6,
-          "symbol": "?unknown_records_ae0de8@@3PAUUnknownVoxelRecord88@@A",
+          "symbol": "?VoxelRenderData@@3PAUVoxelRenderStruct@@A",
           "target": 11406824,
           "addend": 0,
           "resolved": 11406824
@@ -5853,7 +5854,7 @@
         {
           "offset": 167,
           "kind": 6,
-          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ@4PAPAUUnknownVoxelRecord88@@A",
+          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ@4PAPAUVoxelRenderStruct@@A",
           "target": 11406516,
           "addend": 0,
           "resolved": 11406516
@@ -5877,7 +5878,7 @@
         {
           "offset": 244,
           "kind": 6,
-          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ@4PAPAUUnknownVoxelRecord88@@A",
+          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ@4PAPAUVoxelRenderStruct@@A",
           "target": 11406516,
           "addend": 0,
           "resolved": 11406516
@@ -5893,7 +5894,7 @@
         {
           "offset": 281,
           "kind": 6,
-          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ@4PAPAUUnknownVoxelRecord88@@A",
+          "symbol": "_?render_data@?1??Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ@4PAPAUVoxelRenderStruct@@A",
           "target": 11406516,
           "addend": 0,
           "resolved": 11406516
@@ -5917,7 +5918,7 @@
         {
           "offset": 315,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 0,
           "resolved": 11406808
@@ -5925,7 +5926,7 @@
         {
           "offset": 321,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 0,
           "resolved": 11405936
@@ -5941,7 +5942,7 @@
         {
           "offset": 332,
           "kind": 6,
-          "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
+          "symbol": "?MaxVoxelBounds@@3UVector3@@A",
           "target": 11406808,
           "addend": 4,
           "resolved": 11406812
@@ -5949,7 +5950,7 @@
         {
           "offset": 338,
           "kind": 6,
-          "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
+          "symbol": "?MinVoxelBounds@@3UVector3@@A",
           "target": 11405936,
           "addend": 4,
           "resolved": 11405940
@@ -5965,7 +5966,7 @@
         {
           "offset": 402,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 4,
           "resolved": 11415540
@@ -5973,7 +5974,7 @@
         {
           "offset": 410,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 0,
           "resolved": 11415536
@@ -5981,7 +5982,7 @@
         {
           "offset": 419,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 8,
           "resolved": 11415544
@@ -5989,7 +5990,7 @@
         {
           "offset": 427,
           "kind": 6,
-          "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
+          "symbol": "?LastRenderRect@@3VRect@@A",
           "target": 11415536,
           "addend": 12,
           "resolved": 11415548
@@ -6011,7 +6012,7 @@
           "resolved": 423522
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -6040,7 +6041,7 @@
         {
           "offset": 7,
           "kind": 6,
-          "symbol": "?unknown_voxel16_colors_ae0a7c@@3PAGA",
+          "symbol": "?Voxel16BitColors@@3PAGA",
           "target": 11405948,
           "addend": 0,
           "resolved": 11405948
@@ -6062,7 +6063,7 @@
           "resolved": 11416329
         }
       ],
-      "source_sha256": "83792394f65b564d5868c374db652d444c29dfdd22452edcc33da223d1fc510f",
+      "source_sha256": "e479fb856040a46bef20e87fc311ef0e55467793add35c347eb9b38ec7b1d86f",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

@@ -35,7 +35,7 @@
 // @ref ??_C@_0M@CNHP@Preview?4bin?$AA@=007e2720
 // @ref ?Create_Paletted_Preview@MapPreviewClass@@QAEPAGHPAH@Z=0061e490
 // @ref ?Send_Remote_File_0066bb20@@YI_NPBDHHH@Z=0066bb20
-// @ref ?Unknown_00672F90@SessionClass@@QAEHH@Z=00672f90
+// @ref ?Player_To_Slot@SessionClass@@QAEHH@Z=00672f90
 
 void __fastcall Upload_Map_Preview_005c7ef0(MapPreviewClass *preview)
 {
@@ -46,9 +46,9 @@ void __fastcall Upload_Map_Preview_005c7ef0(MapPreviewClass *preview)
     }
     if (unknown_game_mode_a3d298 == 4) {
         bool direct = true;
-        if (unknown_firewall_a71b18.unknown_00 != 0 && !(unknown_firewall_a71b18.unknown_00 & 1)) direct = false;
+        if (FirewallHelper.unknown_00 != 0 && !(FirewallHelper.unknown_00 & 1)) direct = false;
         for (int i = 1; direct && i < unknown_players_a3fa7c.Count(); i++) {
-            int house = unknown_session_a3d298.Unknown_00672F90(i);
+            int house = unknown_session_a3d298.Player_To_Slot(i);
             if (house >= 0 && house < 8) {
                 unsigned int flags = unknown_session_a3d298.unknown_299c.unknown[house];
                 if (flags != 0 && !(flags & 1)) {

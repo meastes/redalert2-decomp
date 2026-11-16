@@ -460,56 +460,56 @@
    "address": "007b4ae8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 217
+   "section": 216
   },
   {
    "symbol": "??_R2Pipe@@8",
    "address": "007b79dc",
    "bytes": 5,
    "kind": "rtti",
-   "section": 218
+   "section": 212
   },
   {
    "symbol": "??_R3Pipe@@8",
    "address": "007b79e8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 219
+   "section": 213
   },
   {
    "symbol": "??_R4Pipe@@6B@",
    "address": "007b79f8",
    "bytes": 20,
    "kind": "rtti",
-   "section": 221
+   "section": 214
   },
   {
    "symbol": "??_R1A@?0A@A@BufferPipe@@8",
    "address": "007b7a10",
    "bytes": 24,
    "kind": "rtti",
-   "section": 212
+   "section": 217
   },
   {
    "symbol": "??_R2BufferPipe@@8",
    "address": "007b7a28",
    "bytes": 9,
    "kind": "rtti",
-   "section": 213
+   "section": 218
   },
   {
    "symbol": "??_R3BufferPipe@@8",
    "address": "007b7a38",
    "bytes": 16,
    "kind": "rtti",
-   "section": 214
+   "section": 219
   },
   {
    "symbol": "??_R4BufferPipe@@6B@",
    "address": "007b7a48",
    "bytes": 20,
    "kind": "rtti",
-   "section": 216
+   "section": 221
   },
   {
    "symbol": "??_R0?AVCCFileClass@@@8",
@@ -558,7 +558,7 @@
    "address": "007d1e90",
    "bytes": 19,
    "kind": "rtti",
-   "section": 220
+   "section": 215
   },
   {
    "symbol": "??_C@_05NAGO@false?$AA@",
@@ -579,7 +579,7 @@
    "address": "007d5e30",
    "bytes": 25,
    "kind": "rtti",
-   "section": 215
+   "section": 220
   },
   {
    "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
@@ -2404,6 +2404,10 @@
    "address": "00638d50"
   },
   {
+   "symbol": "?ColorMe@@3HA",
+   "address": "007a737c"
+  },
+  {
    "symbol": "?Compare_Narrow_00781f20@@YAHPBD0@Z",
    "address": "00781f20"
   },
@@ -2416,12 +2420,24 @@
    "address": "0061e490"
   },
   {
+   "symbol": "?Custom_Message_Box@@YIPAUHWND__@@PBG0PA_N@Z",
+   "address": "006001e0"
+  },
+  {
    "symbol": "?Debug_Printf@@YAXPBDZZ",
    "address": "004068f0"
   },
   {
+   "symbol": "?Default_Dialog_Proc@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
    "symbol": "?Delete@RawFileClass@@UAEHXZ",
    "address": "00639240"
+  },
+  {
+   "symbol": "?Display_Dialog@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
   },
   {
    "symbol": "?Do_Random_Map_Dialog_00577490@@YIHP6A_NXZ@Z",
@@ -2566,6 +2582,10 @@
   {
    "symbol": "?Open_Lobby_Dialog_005c6960@@YIHPAUHWND__@@@Z",
    "address": "005c6960"
+  },
+  {
+   "symbol": "?PlayerColorTable@@3QBHB",
+   "address": "007e6d94"
   },
   {
    "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
@@ -2804,32 +2824,12 @@
    "address": "00652710"
   },
   {
-   "symbol": "?unknown_cancel_dialog_6001e0@@YIPAUHWND__@@PBG0PA_N@Z",
-   "address": "006001e0"
-  },
-  {
-   "symbol": "?unknown_color_7a737c@@3HA",
-   "address": "007a737c"
-  },
-  {
-   "symbol": "?unknown_color_values_7e6d94@@3QBHB",
-   "address": "007e6d94"
-  },
-  {
    "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "address": "005ff610"
   },
   {
    "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
    "address": "005ff6e0"
-  },
-  {
-   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
-   "address": "005ff7c0"
-  },
-  {
-   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
-   "address": "005ffb00"
   },
   {
    "symbol": "?unknown_empty_wide_839d4c@@3QBGB",

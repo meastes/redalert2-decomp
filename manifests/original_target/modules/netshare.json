@@ -4827,6 +4827,14 @@
    "address": "007837d3"
   },
   {
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
+   "address": "005bba50"
+  },
+  {
+   "symbol": "?ConfigINI@@3VCCINIClass@@A",
+   "address": "00839740"
+  },
+  {
    "symbol": "?Country_Flag@@YIPAVSurface@@H@Z",
    "address": "004d1120"
   },
@@ -4893,6 +4901,10 @@
   {
    "symbol": "?Find_Local_Scenario_0066c5b0@@YI_NPADH0_N1@Z",
    "address": "0066c5b0"
+  },
+  {
+   "symbol": "?First_Game_Mode@MultiplayerGameMode@@SAPAV1@XZ",
+   "address": "005b6ec0"
   },
   {
    "symbol": "?Force_Available@CD@@UAE_NH@Z",
@@ -5011,6 +5023,10 @@
    "address": "00771080"
   },
   {
+   "symbol": "?Is_On_CD@MultiMission@@QAE_NH@Z",
+   "address": "00671f00"
+  },
+  {
    "symbol": "?Is_Open@BufferIOFileClass@@UBE_NXZ",
    "address": "0042f700"
   },
@@ -5061,6 +5077,10 @@
   {
    "symbol": "?Num_Send@NullModemClass@@QAEHXZ",
    "address": "005d08a0"
+  },
+  {
+   "symbol": "?On_Which_CD@MultiMission@@QAEHXZ",
+   "address": "00671f90"
   },
   {
    "symbol": "?Open@CCFileClass@@UAEHH@Z",
@@ -5255,10 +5275,6 @@
    "address": "005fee70"
   },
   {
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
-   "address": "005bba50"
-  },
-  {
    "symbol": "?Unknown_005bbd10@@YA_NXZ",
    "address": "005bbd10"
   },
@@ -5291,24 +5307,12 @@
    "address": "005e8fa0"
   },
   {
-   "symbol": "?Unknown_00671F00@MultiMission@@QAE_NH@Z",
-   "address": "00671f00"
-  },
-  {
-   "symbol": "?Unknown_00671F90@MultiMission@@QAEHXZ",
-   "address": "00671f90"
-  },
-  {
    "symbol": "?Unknown_00672140@SessionClass@@QAE_NXZ",
    "address": "00672140"
   },
   {
    "symbol": "?Unknown_00672810@GameOptionsType@@QAEXXZ",
    "address": "00672810"
-  },
-  {
-   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
-   "address": "007357e0"
   },
   {
    "symbol": "?Unknown_0073ccb0@@YIXPAD@Z",
@@ -5345,6 +5349,10 @@
   {
    "symbol": "?WS_Create_Dialog@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z",
    "address": "00735700"
+  },
+  {
+   "symbol": "?WS_Destroy_Dialog@@YIXPAXH@Z",
+   "address": "007357e0"
   },
   {
    "symbol": "?WS_Find_Dialog_00735940@@YIPAUHWND__@@H@Z",
@@ -5483,10 +5491,6 @@
    "address": "005b6fe0"
   },
   {
-   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
-   "address": "005b6ec0"
-  },
-  {
    "symbol": "?unknown_game_mode_a3d298@@3HA",
    "address": "00a3d298"
   },
@@ -5517,10 +5521,6 @@
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
    "address": "00a3d290"
-  },
-  {
-   "symbol": "?unknown_ini_839740@@3VCCINIClass@@A",
-   "address": "00839740"
   },
   {
    "symbol": "?unknown_int_a3db1c@@3HA",

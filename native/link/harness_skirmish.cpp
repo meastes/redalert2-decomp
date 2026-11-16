@@ -131,7 +131,7 @@ void Set_Up_Skirmish(char const *map)
         HouseTypes[house]->Read_INI(*RuleINI);
     }
     if (session.Mode == 0) {
-        session.Mode = MultiplayerGameMode::unknown_first_mode_5b6ec0();
+        session.Mode = MultiplayerGameMode::First_Game_Mode();
     }
     Choose_Map(map);
     // RA2_NATIVE_SKIRMISH_AI=<n> (1-7, default 1): n computer players in slots
@@ -196,7 +196,7 @@ void Set_Up_Skirmish(char const *map)
         node->unknown_63 = -1;
         session.Players.Add(node);
     }
-    session.Unknown_00672BB0();
+    session.Assign_Random_Choices();
     session.SkirmishOptions.GameSpeed = session.GameSpeed_30;
     // RA2_NATIVE_SKIRMISH_SPEED=<0-6> (Scout1191, M24; test scaffolding): the speed slider's value
     // (0 fastest: the port's 60 frames per second floor) for frame-time runs.
@@ -392,7 +392,7 @@ bool Native_Main_Loop_Seam()
     // layout (zoomed, the tactical view is a part of the screen; the first frame was shown whole).
     Native_Map_Zoom_Frame();
     uint64_t work_start = ra2port_monotonic_ns(), slept_start = ra2port_slept_ns;
-    bool over = unknown_53fbd0();
+    bool over = Main_Loop();
     {
         uint64_t spent = ra2port_monotonic_ns() - work_start - (ra2port_slept_ns - slept_start);
         if (frame_work_count < 1000) frame_work_us[frame_work_count++] = (unsigned)(spent / 1000u);

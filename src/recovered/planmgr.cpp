@@ -1191,12 +1191,12 @@ int PlanningNodeClass::Color()
         PlanningTokenClass *token = Planning_Token(owner);
         if (token->Reached(token->Nodes.ID(this))) {
             RGBClass loop_color = Planning_House_Color(owner);
-            loop_color.Adjust(100, unknown_rgb_ab6849);
+            loop_color.Adjust(100, WhiteColor);
             unknown_b4 = Build_Hicolor_Pixel(loop_color.Red, loop_color.Green, loop_color.Blue);
         }
     } else {
         RGBClass branch_color = Planning_House_Color(owner);
-        branch_color.Adjust(100, unknown_rgb_ab6849);
+        branch_color.Adjust(100, WhiteColor);
         unknown_b4 = Build_Hicolor_Pixel(branch_color.Red, branch_color.Green, branch_color.Blue);
     }
     return unknown_b4;
@@ -1236,7 +1236,7 @@ int PlanningNodeClass::Branch_Color(int index)
         return -1;
     } else {
         RGBClass color = Planning_House_Color(last_owner);
-        color.Adjust(0x64, unknown_rgb_ab6849);
+        color.Adjust(0x64, WhiteColor);
         return branch->unknown_74 = Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
     }
 }
@@ -1274,7 +1274,7 @@ int PlanningNodeClass::Loop_Color()
         return -1;
     } else {
         RGBClass color = Planning_House_Color(last_owner);
-        color.Adjust(0x64, unknown_rgb_ab6849);
+        color.Adjust(0x64, WhiteColor);
         return Branch.unknown_74 = Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
     }
 }
@@ -2055,7 +2055,7 @@ void Unknown_00613E50()
 }
 
 
-// void __fastcall Unknown_00614010() (0x00614010)
+// void __fastcall Planning_Update() (0x00614010)
 // Per-frame planning update, called from the main loop: refreshes the hover,
 // drops path nodes whose attack or move target has died, settles the queued
 // nodes and shows any pending command refusal.
@@ -2080,7 +2080,7 @@ inline void Planning_Update_Reset_Flags_00614010()
     unknown_flag_a766c8 = false;
 }
 
-void __fastcall Unknown_00614010()
+void __fastcall Planning_Update()
 {
     Planning_Update_Hover_00614010();
     int count = PlanningTokenClass::unknown_list_00a76738.Count();
@@ -3944,7 +3944,7 @@ void Planning_Draw_All()
 
 void Planning_Draw_Remembered()
 {
-    int color = Planning_Pixel(&unknown_rgb_ab6849);
+    int color = Planning_Pixel(&WhiteColor);
     if (unknown_node_a7678c) {
         unknown_node_a7678c->Draw_Outer_Outline(color);
     }
@@ -4084,7 +4084,7 @@ void __fastcall Planning_Draw_Techno_618c00(TechnoClass *techno)
     CoordStruct current_coord = techno->unknown_slot22();
     Point2D start = Planning_Coord_Pixel(current_coord);
     int dim = Planning_House_Pixel(techno, unknown_rgb_ab6841, 0x50);
-    int bright = Planning_House_Pixel(techno, unknown_rgb_ab6849, 100);
+    int bright = Planning_House_Pixel(techno, WhiteColor, 100);
     bool has_nodes = (!token ? 0 : token->Nodes.Count()) > 0;
     bool current_order = Planning_Current_Order(techno, has_nodes);
     int dot;
@@ -4296,7 +4296,7 @@ int __fastcall Planning_Dim_Color(TechnoClass *techno)
 int __fastcall Planning_Bright_Color(TechnoClass *techno)
 {
     RGBClass color = Planning_House_Color(techno);
-    color.Adjust(100, unknown_rgb_ab6849);
+    color.Adjust(100, WhiteColor);
     return ((color.Green >> unknown_shift_852fcc) << unknown_shift_852fc8)
          | ((color.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
          | ((color.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0);
@@ -4325,7 +4325,7 @@ int __fastcall Planning_Techno_Color(TechnoClass *techno)
 {
     int plain = Planning_Pixel(&unknown_rgb_ab6841);
     if (!techno) return plain;
-    int lighter = Planning_Pixel(&unknown_rgb_ab6849);
+    int lighter = Planning_Pixel(&WhiteColor);
     if (unknown_node_a766b0) {
         if (unknown_node_a766b0->Member_Index(techno) != -1) return lighter;
         return plain;
@@ -4361,7 +4361,7 @@ int PlanningNodeClass::Highlight_Color()
     TechnoClass *owner = Members[0]->Owner;
     int result = Build_Hicolor_Pixel(unknown_rgb_ab6841.Red, unknown_rgb_ab6841.Green, unknown_rgb_ab6841.Blue);
     if (owner) {
-        int lighter = Build_Hicolor_Pixel(unknown_rgb_ab6849.Red, unknown_rgb_ab6849.Green, unknown_rgb_ab6849.Blue);
+        int lighter = Build_Hicolor_Pixel(WhiteColor.Red, WhiteColor.Green, WhiteColor.Blue);
         if (unknown_node_a766b0) {
             if (unknown_node_a766b0->Has_Member(owner)) {
                 result = lighter;

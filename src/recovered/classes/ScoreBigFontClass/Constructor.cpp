@@ -7,7 +7,7 @@
 #include "shared/debug_printf.hpp"
 // @ref ??_7ScoreFontClass@@6B@=007a92a0
 // @ref ??_7ScoreBigFontClass@@6B@=007a92d0
-// @ref ?unknown_score_fonts_ab6fa4@@3HA=00ab6fa4
+// @ref ?score_font_count@@3HA=00ab6fa4
 // @ref ?Load_Sounds@ScoreFontClass@@QAEXXZ=00667900
 // @ref ??0CCFileClass@@QAE@PBD@Z=00468f50
 // @ref ?Retrieve@MixFileClass@@SIPBXPBD@Z=005956c0

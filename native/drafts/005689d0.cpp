@@ -12,7 +12,7 @@ extern "C" int __cdecl abs(int value);
 
 Cell MapClass::Unknown_005689D0(Cell const &cell, bool inset)
 {
-    Point2D point = Unknown_00547DB0(Point2D(cell.X, cell.Y));
+    Point2D point = Cell_To_PlayRect_Point(Point2D(cell.X, cell.Y));
     point = point - MapLocalSize.Top_Left();
 
     Point2D center;
@@ -35,6 +35,6 @@ Cell MapClass::Unknown_005689D0(Cell const &cell, bool inset)
         }
     }
 
-    Point2D result = Unknown_00547D70(point);
+    Point2D result = LocalRect_To_Cell_Point(point);
     return Cell(result.X, result.Y);
 }

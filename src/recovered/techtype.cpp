@@ -621,8 +621,8 @@ bool TechnoTypeClass::Read_INI(CCINIClass &ini)
             Fetch_Aux_Voxel_Image();
         }
         if (unknown_b0.unknown_00 != 0 && !unknown_b0.unknown_00->LoadFailed) {
-            unknown_330 = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->unknown_a1 * 0.5f + 0.5;
-            unknown_338 = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->unknown_a0 * 0.5f;
+            unknown_330 = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->YSize * 0.5f + 0.5;
+            unknown_338 = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->XSize * 0.5f;
         }
 
         return true;
@@ -698,7 +698,7 @@ int TechnoTypeClass::Max_Pips() const
 // pointer lists and weapons, then reloads the image, the cameos (XXICON when
 // none) and the palette from the art INI.
 
-extern CCINIClass unknown_art_ini_8397f0;
+extern CCINIClass ArtINI;
 extern "C" void __cdecl _makepath(char *path, char const *drive, char const *dir, char const *fname, char const *ext);
 extern "C" int __cdecl _stricmp(char const *string1, char const *string2);
 
@@ -798,9 +798,9 @@ HRESULT __stdcall TechnoTypeClass::Load(IStream *stream)
     _makepath(filename, 0, 0, unknown_1c8, ".SHP");
     ImageData = (void *)MixFileClass::Retrieve(filename);
 
-    unknown_art_ini_8397f0.Get_String(unknown_1c8, "Cameo", "XXICON", name, sizeof(name));
+    ArtINI.Get_String(unknown_1c8, "Cameo", "XXICON", name, sizeof(name));
     if (_stricmp(name, "XXICON") == 0) {
-        unknown_art_ini_8397f0.Get_String(ID, "Cameo", "XXICON", name, sizeof(name));
+        ArtINI.Get_String(ID, "Cameo", "XXICON", name, sizeof(name));
     }
     _makepath(filename, 0, 0, name, ".SHP");
     CameoData = 0;
@@ -809,13 +809,13 @@ HRESULT __stdcall TechnoTypeClass::Load(IStream *stream)
         CameoData = (void *)MixFileClass::Retrieve("XXICON.SHP");
     }
 
-    unknown_art_ini_8397f0.Get_String(unknown_1c8, "AltCameo", unknown_string_83c55c, name, sizeof(name));
+    ArtINI.Get_String(unknown_1c8, "AltCameo", unknown_string_83c55c, name, sizeof(name));
     _makepath(filename, 0, 0, name, ".SHP");
     AltCameoData = 0;
     AltCameoData = (void *)MixFileClass::Retrieve(filename);
     PaletteName *palette = &PaletteFile;
 
-    unknown_art_ini_8397f0.Get_String(unknown_1c8, "Palette", unknown_string_83c55c, palette->Buffer, sizeof(palette->Buffer));
+    ArtINI.Get_String(unknown_1c8, "Palette", unknown_string_83c55c, palette->Buffer, sizeof(palette->Buffer));
     if (palette->Buffer[0] != 0) {
         Palette = palette->Load();
     }

@@ -103,7 +103,7 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?Unknown_00698D00@@YIX_N@Z",
+   "symbol": "?Send_Statistics_Packet@@YIX_N@Z",
    "entry": "00698d00",
    "body_bytes": 5136,
    "padding_bytes": 0
@@ -256,7 +256,7 @@
    "section": 69
   },
   {
-   "symbol": "_?field_player_handle@?4??Unknown_00698D00@@YIX_N@Z@4PADA",
+   "symbol": "_?field_player_handle@?4??Send_Statistics_Packet@@YIX_N@Z@4PADA",
    "address": "007f60e0",
    "bytes": 197,
    "kind": "static",
@@ -572,7 +572,7 @@
    "kind": "string"
   },
   {
-   "symbol": "_?field_player_handle@?4??Unknown_00698D00@@YIX_N@Z@4PADA",
+   "symbol": "_?field_player_handle@?4??Send_Statistics_Packet@@YIX_N@Z@4PADA",
    "address": "007f60e0",
    "bytes": 197,
    "kind": "static"
@@ -750,7 +750,7 @@
  "references_in": [
   {
    "site": "0075d300",
-   "symbol": "?Unknown_00698D00@@YIX_N@Z",
+   "symbol": "?Send_Statistics_Packet@@YIX_N@Z",
    "target": "00698d00",
    "function_entry": true
   },
@@ -762,7 +762,7 @@
   },
   {
    "site": "00627740",
-   "symbol": "?Unknown_00698D00@@YIX_N@Z",
+   "symbol": "?Send_Statistics_Packet@@YIX_N@Z",
    "target": "00698d00",
    "function_entry": true
   },
@@ -780,7 +780,7 @@
   },
   {
    "site": "0062e6e0",
-   "symbol": "?Unknown_00698D00@@YIX_N@Z",
+   "symbol": "?Send_Statistics_Packet@@YIX_N@Z",
    "target": "00698d00",
    "function_entry": true
   },
@@ -792,7 +792,7 @@
   },
   {
    "site": "0053f840",
-   "symbol": "?Unknown_00698D00@@YIX_N@Z",
+   "symbol": "?Send_Statistics_Packet@@YIX_N@Z",
    "target": "00698d00",
    "function_entry": true
   },
@@ -804,7 +804,7 @@
   },
   {
    "site": "0053f840",
-   "symbol": "?Unknown_00698D00@@YIX_N@Z",
+   "symbol": "?Send_Statistics_Packet@@YIX_N@Z",
    "target": "00698d00",
    "function_entry": true
   },
@@ -816,13 +816,13 @@
   },
   {
    "site": "00628880",
-   "symbol": "?Unknown_00698D00@@YIX_N@Z",
+   "symbol": "?Send_Statistics_Packet@@YIX_N@Z",
    "target": "00698d00",
    "function_entry": true
   },
   {
    "site": "00628880",
-   "symbol": "?Unknown_00698D00@@YIX_N@Z",
+   "symbol": "?Send_Statistics_Packet@@YIX_N@Z",
    "target": "00698d00",
    "function_entry": true
   },
@@ -852,7 +852,7 @@
   },
   {
    "site": "00623b00",
-   "symbol": "?Unknown_00698D00@@YIX_N@Z",
+   "symbol": "?Send_Statistics_Packet@@YIX_N@Z",
    "target": "00698d00",
    "function_entry": true
   },
@@ -925,6 +925,10 @@
    "address": "00a40398"
   },
   {
+   "symbol": "?CPUType@@3DA",
+   "address": "008015a3"
+  },
+  {
    "symbol": "?Clear_Unit_Total@UnitTrackerClass@@QAEXXZ",
    "address": "0070c540"
   },
@@ -963,6 +967,10 @@
   {
    "symbol": "?Frame@@3HA",
    "address": "00a40d2c"
+  },
+  {
+   "symbol": "?GameStatisticsPacketSent@@3_NA",
+   "address": "00a417c8"
   },
   {
    "symbol": "?GameTimer@@3V?$BasicTimerClass@VSystemTimerClass@@@@A",
@@ -1065,6 +1073,10 @@
    "address": "00712ed0"
   },
   {
+   "symbol": "?WestwoodOnline_Tournament@@3HA",
+   "address": "00b2a7ec"
+  },
+  {
    "symbol": "?Write@RawFileClass@@UAEJPBXJ@Z",
    "address": "00638e80"
   },
@@ -1093,10 +1105,6 @@
    "address": "00b2a6d8"
   },
   {
-   "symbol": "?unknown_b2a7ec@@3HA",
-   "address": "00b2a7ec"
-  },
-  {
    "symbol": "?unknown_b2a7fc@@3HA",
    "address": "00b2a7fc"
   },
@@ -1117,10 +1125,6 @@
    "address": "00abd4c0"
   },
   {
-   "symbol": "?unknown_cpu_family_8015a3@@3DA",
-   "address": "008015a3"
-  },
-  {
    "symbol": "?unknown_elapsed_abd4e0@@3HA",
    "address": "00abd4e0"
   },
@@ -1131,10 +1135,6 @@
   {
    "symbol": "?unknown_flag_a3d8d2@@3_NA",
    "address": "00a3d8d2"
-  },
-  {
-   "symbol": "?unknown_flag_a417c8@@3_NA",
-   "address": "00a417c8"
   },
   {
    "symbol": "?unknown_flag_abd52c@@3_NA",

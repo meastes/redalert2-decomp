@@ -4,15 +4,15 @@
 // @ref ?Clamp_To_Tactical_Rect@Tactical@@QAE_NPAUPoint2D@@@Z=006a8c80
 // @ref ?Update_Visible_Cells@Tactical@@QAEXXZ=006a9170
 // @ref ?Debug_Map@@3_NA=00a40d13
-// @ref ?unknown_rect_abe560@@3VRect@@A=00abe560
+// @ref ?TacticalDimensions@@3VRect@@A=00abe560
 #include "shared/tactical.hpp"
 #include "shared/unknown_globals.hpp"
 
-extern Rect unknown_rect_abe560;
+extern Rect TacticalDimensions;
 
 void Tactical::Set_View_Dimensions_006a65a0(Rect const &rect)
 {
-    unknown_rect_abe560 = rect;
+    TacticalDimensions = rect;
     Point2D clamped = unknown_d74;
     int x;
     int y;

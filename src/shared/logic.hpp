@@ -24,7 +24,7 @@ extern int LogicTriggerID;
 // The frame-rate threshold for the light and particle detail level, with hysteresis: the
 // lower threshold (0x007DFB34) until the frame rate falls under it, then the threshold plus
 // the buffer zone (0x007DFB38) until the rate climbs back over that (0x0053D840).
-unsigned int Unknown_0053D840();
+unsigned int GetMinFrameRate();
 // Runs the AI of every submitted object in the object lists, last first (0x0053E180).
 void AI_Submitted_Objects();
 

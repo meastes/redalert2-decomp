@@ -7,8 +7,8 @@
 // names, 11 entries from "Team01" to "Cheer", and -1 for an unknown name. The
 // names are the ones TabClass::TabClass (0x006A06E0) looks up. ORDER IS A
 // HYPOTHESIS beyond the first and last entry (the header gives those two).
-int unknown_no_command_7f67f4 = -1;
-char const *unknown_command_names_7f67f8[11] = {
+int NoAdvancedCommand = -1;
+char const *CommandNames[11] = {
     "Team01", "Team02", "Team03", "TypeSelect", "AttackMove", "Guard",
     "Beacon", "Deploy", "Stop", "PlanningMode", "Cheer",
 };

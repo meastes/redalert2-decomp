@@ -103,7 +103,7 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?Unknown_0053D840@@YAIXZ",
+   "symbol": "?GetMinFrameRate@@YAIXZ",
    "entry": "0053d840",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -533,7 +533,7 @@
   },
   {
    "site": "0047f600",
-   "symbol": "?Unknown_0053D840@@YAIXZ",
+   "symbol": "?GetMinFrameRate@@YAIXZ",
    "target": "0053d840",
    "function_entry": true
   },
@@ -557,7 +557,7 @@
   },
   {
    "site": "00609d10",
-   "symbol": "?Unknown_0053D840@@YAIXZ",
+   "symbol": "?GetMinFrameRate@@YAIXZ",
    "target": "0053d840",
    "function_entry": true
   },
@@ -569,19 +569,19 @@
   },
   {
    "site": "00420e50",
-   "symbol": "?Unknown_0053D840@@YAIXZ",
+   "symbol": "?GetMinFrameRate@@YAIXZ",
    "target": "0053d840",
    "function_entry": true
   },
   {
    "site": "005ddb90",
-   "symbol": "?Unknown_0053D840@@YAIXZ",
+   "symbol": "?GetMinFrameRate@@YAIXZ",
    "target": "0053d840",
    "function_entry": true
   },
   {
    "site": "00533c80",
-   "symbol": "?Unknown_0053D840@@YAIXZ",
+   "symbol": "?GetMinFrameRate@@YAIXZ",
    "target": "0053d840",
    "function_entry": true
   }
@@ -662,6 +662,10 @@
   {
    "symbol": "?Frame@@3HA",
    "address": "00a40d2c"
+  },
+  {
+   "symbol": "?FramesThisSecond@@3IA",
+   "address": "00a6eb18"
   },
   {
    "symbol": "?Growth_AI@TiberiumClass@@SAXXZ",
@@ -804,6 +808,10 @@
    "address": "00520200"
   },
   {
+   "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+   "address": "008399d0"
+  },
+  {
    "symbol": "?Waves@@3V?$DynamicVectorClass@PAVWaveClass@@@@A",
    "address": "00a40be8"
   },
@@ -824,10 +832,6 @@
    "address": "00ab6620"
   },
   {
-   "symbol": "?unknown_VoxelAnimClass_list_008399d0@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
-   "address": "008399d0"
-  },
-  {
    "symbol": "?unknown_a6eb1c@@3IA",
    "address": "00a6eb1c"
   },
@@ -846,10 +850,6 @@
   {
    "symbol": "?unknown_detail_reduced_a6eb28@@3_NA",
    "address": "00a6eb28"
-  },
-  {
-   "symbol": "?unknown_frames_this_second_a6eb18@@3IA",
-   "address": "00a6eb18"
   },
   {
    "symbol": "?unknown_game_mode_a3d298@@3HA",

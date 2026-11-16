@@ -212,7 +212,7 @@ int __fastcall SmudgeTypeClass::From_Name(char const *name)
 
 void __fastcall SmudgeTypeClass::Init(int theater)
 {
-    if (Debug_Map || theater != unknown_loaded_theater_7d88dc) {
+    if (Debug_Map || theater != LastTheater) {
         for (int index = 0; index < SmudgeTypes.Count(); index++) {
             SmudgeTypeClass *smudge = SmudgeTypes[index];
             if (smudge->unknown_1fc) {

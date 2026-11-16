@@ -223,8 +223,8 @@ public:
     bool Is_Tile_Ramp() const;                // 0x0047B5B0
     bool unknown_47b5e0() const;                // 0x0047B5E0 (Westwood's Is_Tile_Cliff: a cliff, waterfall, ramp, cave or bridge tile)
     int Occupation_Mask(int house);              // 0x0047BFA0 (-1 unless unknown_dc has the house bit, else the facings whose neighbour has it; BuildingClass 0x004512C6/0x004515A9)
-    bool unknown_47b7c0() const;                // 0x0047B7C0
-    bool unknown_47b7e0() const;                // 0x0047B7E0
+    bool Is_Tile_Shore() const;                // 0x0047B7C0
+    bool Is_Tile_With_Water() const;                // 0x0047B7E0
     bool Is_Tile_Misc_Pavement() const;                // 0x0047B860
     bool Is_Tile_Pavement() const;                // 0x0047B880
     bool Is_Tile_Dirt_Road() const;                // 0x0047B8A0
@@ -295,7 +295,7 @@ public:
 
     bool unknown_47cb50();                      // 0x0047CB50 (map call at the cell centre)
     void unknown_47cbb0();                      // 0x0047CBB0
-    int unknown_475db0(int amount);             // 0x00475DB0 (takes up to amount of tiberium; answers what it took; hypothesis)
+    int Reduce_Tiberium(int amount);             // 0x00475DB0 (takes up to amount of tiberium; answers what it took; hypothesis)
     int Reduce_Weed();                       // 0x0047C040
     void Redraw_Veins();                      // 0x0047A7A0
 

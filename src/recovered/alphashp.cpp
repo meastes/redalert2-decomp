@@ -17,7 +17,7 @@
 class AlphaShapeClass;
 
 // The unit's list of AlphaShapeClass objects (0x0083C648; name is a hypothesis).
-DynamicVectorClass<AlphaShapeClass *> unknown_AlphaShapeClass_list_0083c648;
+DynamicVectorClass<AlphaShapeClass *> AlphaShapes;
 
 
 // Dynamic initializer (0x0041E990, _$E) emitted by HeaderStatics_empty_rect_init_0041e970.cpp; no source of its own.
@@ -77,7 +77,7 @@ AlphaShapeClass::AlphaShapeClass(ObjectClass *object, int x, int y) :
     ShapeFileStruct *image = (ShapeFileStruct *)object->Class_Of()->unknown_ac;
     Image = image;
     Bounds = Rect(x, y, image->Get_Width(), image->Get_Height());
-    unknown_AlphaShapeClass_list_0083c648.Add(this);
+    AlphaShapes.Add(this);
     ObjectPtrTracker.Add(this);
     if (!unknown_alpha_table_ready_84c684) {
         Init_Alpha_Table();
@@ -94,7 +94,7 @@ AlphaShapeClass::AlphaShapeClass() :
     Image(0),
     unknown_3c(false)
 {
-    unknown_AlphaShapeClass_list_0083c648.Add(this);
+    AlphaShapes.Add(this);
     ObjectPtrTracker.Add(this);
     if (!unknown_alpha_table_ready_84c684) {
         Init_Alpha_Table();
@@ -115,7 +115,7 @@ AlphaShapeClass::AlphaShapeClass(NoInitClass const &noinit) :
 
 AlphaShapeClass::~AlphaShapeClass()
 {
-    unknown_AlphaShapeClass_list_0083c648.Delete(this);
+    AlphaShapes.Delete(this);
     ObjectPtrTracker.Delete(this);
 }
 
@@ -205,9 +205,9 @@ void AlphaShapeClass::Update_All()
     if (!unknown_alpha_table_ready_84c684) {
         Init_Alpha_Table();
     }
-    for (int i = unknown_AlphaShapeClass_list_0083c648.Count() - 1; i >= 0; i--) {
-        if (unknown_AlphaShapeClass_list_0083c648[i]->unknown_3c) {
-            delete unknown_AlphaShapeClass_list_0083c648[i];
+    for (int i = AlphaShapes.Count() - 1; i >= 0; i--) {
+        if (AlphaShapes[i]->unknown_3c) {
+            delete AlphaShapes[i];
         }
     }
 }
@@ -271,9 +271,9 @@ void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &point, Rect const &
 #undef _s
 #undef _X
 
-    for (int index = 0; index < unknown_AlphaShapeClass_list_0083c648.Count(); index++) {
-        if (!unknown_AlphaShapeClass_list_0083c648[index]->unknown_3c) {
-            Rect r1 = unknown_AlphaShapeClass_list_0083c648[index]->Bounds;
+    for (int index = 0; index < AlphaShapes.Count(); index++) {
+        if (!AlphaShapes[index]->unknown_3c) {
+            Rect r1 = AlphaShapes[index]->Bounds;
             r1 -= Point2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY);
             r1 += Point2D(TacticalRect.X, TacticalRect.Y);
             Rect r2 = Intersect(r1, cliprect);
@@ -282,7 +282,7 @@ void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &point, Rect const &
             if (r4.Is_Valid()) {
                 int dx = r4.X - r3.X;
                 int dy = r4.Y - r3.Y;
-                ShapeFileStruct const *shape = unknown_AlphaShapeClass_list_0083c648[index]->Image;
+                ShapeFileStruct const *shape = AlphaShapes[index]->Image;
                 Rect shape_rect = shape->Get_Frame_Rect(0);
                 int top = MAX(r4.Y, shape_rect.Y + r1.Y);
                 int src_y = top - shape_rect.Y - r1.Y;
@@ -352,9 +352,9 @@ void *Native_Pointer_From_Handle(int handle);   // NATIVE: native/link/native_po
 
 void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers' name (overlay ov3 declared AlphaShapeClass::Draw_All)
 {
-    for (int index = 0; index < unknown_AlphaShapeClass_list_0083c648.Count(); index++) {
+    for (int index = 0; index < AlphaShapes.Count(); index++) {
         {
-            Rect r1 = unknown_AlphaShapeClass_list_0083c648[index]->Bounds;
+            Rect r1 = AlphaShapes[index]->Bounds;
             r1 -= Point2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY);
             r1.X += TacticalRect.X;   // NATIVE: the overlay's Rect += Point2D (RA2_RECT_POINT_INLINE): moves the corner
             r1.Y += TacticalRect.Y;   // NATIVE
@@ -363,10 +363,10 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
             if (r2.Is_Valid()) {
                 int x1 = r1.X;
                 int y1 = r1.Y;
-                ShapeFileStruct const *shape = unknown_AlphaShapeClass_list_0083c648[index]->Image;
+                ShapeFileStruct const *shape = AlphaShapes[index]->Image;
                 if (shape == 0) {
-                    unknown_AlphaShapeClass_list_0083c648[index]->Image = (ShapeFileStruct *)Native_Pointer_From_Handle(unknown_AlphaShapeClass_list_0083c648[index]->Owner->Class_Of()->unknown_ac);   // NATIVE: 32-bit handle (Scout1246)
-                    shape = unknown_AlphaShapeClass_list_0083c648[index]->Image;
+                    AlphaShapes[index]->Image = (ShapeFileStruct *)Native_Pointer_From_Handle(AlphaShapes[index]->Owner->Class_Of()->unknown_ac);   // NATIVE: 32-bit handle (Scout1246)
+                    shape = AlphaShapes[index]->Image;
                 }
                 Rect shape_rect = shape->Get_Frame_Rect(0);
                 int top = MAX(r2.Y, shape_rect.Y + y1);

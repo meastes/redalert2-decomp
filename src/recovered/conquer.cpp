@@ -126,7 +126,7 @@ void  FUN_00481840(void)
 
 
 // void __fastcall Special_Dialog_00481850() (0x00481850): runs the dialog the player asked for
-// (unknown_int_a40d48, Red Alert's SpecialDialog) until none is pending, with the game focus,
+// (SpecialDialog, Red Alert's SpecialDialog) until none is pending, with the game focus,
 // mouse and session timing released around it. Called from the Conquer.CPP game loop.
 
 // The Sound Controls dialog: Run (0x00688CD0) logs "SoundControls: GameSpeed = %d, ..." and shows
@@ -139,7 +139,7 @@ extern bool unknown_flag_007d88e0;      // 0x007D88E0 set when the dialog may op
 extern bool unknown_flag_00866250;      // 0x00866250 set by the game options dialog's result 5
 void Unknown_004DD7D0();                                        // 0x004DD7D0 (a dialog)
 void __fastcall Unknown_00634A00(MouseClass *map);              // 0x00634A00 (a dialog)
-void __fastcall Unknown_0063B090(ScenarioClass *scenario);    // 0x0063B090
+void __fastcall Restate_Mission(ScenarioClass *scenario);    // 0x0063B090
 void __fastcall Unknown_00672DE0(SessionClass *session); // 0x00672DE0
 void Unknown_0073C230();                                        // 0x0073C230 (a dialog)
 // An OK/Cancel message box (MPLayer.CPP); nonzero on OK (0x005A7430).
@@ -147,13 +147,13 @@ int __fastcall OK_Cancel_Message_005A7430(wchar_t const *message);
 
 void __fastcall Special_Dialog_00481850()
 {
-    if (unknown_int_a40d48 == 0) {
+    if (SpecialDialog == 0) {
         return;
     }
     if (unknown_game_mode_a3d298 != 0) {
         if (PlayerPtr->unknown_140 || PlayerPtr->unknown_13f || PlayerPtr->unknown_13e
             || (!unknown_flag_007d88e0 && !PlayerPtr->unknown_13d)) {
-            unknown_int_a40d48 = 0;
+            SpecialDialog = 0;
             return;
         }
         if (!unknown_flag_007d88e0) {
@@ -165,39 +165,39 @@ void __fastcall Special_Dialog_00481850()
     while (WWMouse->Get_Mouse_State() != 0) {
         WWMouse->Show_Mouse();
     }
-    while (unknown_int_a40d48 != 0) {
-        switch (unknown_int_a40d48) {
+    while (SpecialDialog != 0) {
+        switch (SpecialDialog) {
         case 9:
-            Unknown_0063B090(unknown_id_source_a3d290);
-            if (unknown_int_a40d48 == 9) {
-                unknown_int_a40d48 = 0;
+            Restate_Mission(unknown_id_source_a3d290);
+            if (SpecialDialog == 9) {
+                SpecialDialog = 0;
             }
             break;
         case 8:
             Unknown_00634A00(&Map);
-            if (unknown_int_a40d48 == 8) {
-                unknown_int_a40d48 = 0;
+            if (SpecialDialog == 8) {
+                SpecialDialog = 0;
             }
             break;
         case 1:
             Unknown_004DD7D0();
-            if (unknown_int_a40d48 == 1) {
-                unknown_int_a40d48 = 0;
+            if (SpecialDialog == 1) {
+                SpecialDialog = 0;
             }
             break;
         case 5:
             GameControlsDialog().Run();
-            if (unknown_int_a40d48 == 5) {
-                unknown_int_a40d48 = 1;
+            if (SpecialDialog == 5) {
+                SpecialDialog = 1;
             }
             break;
         case 6:
             SoundControlsDialog().Run_00688CD0();
-            unknown_int_a40d48 = 5;
+            SpecialDialog = 5;
             break;
         case 4:
             Options.Hotkey_Dialog();
-            unknown_int_a40d48 = 5;
+            SpecialDialog = 5;
             break;
         case 3:
             switch (Run_Game_Options_Dialog()) {
@@ -215,7 +215,7 @@ void __fastcall Special_Dialog_00481850()
                 unknown_flag_00866250 = true;
                 break;
             }
-            unknown_int_a40d48 = 0;
+            SpecialDialog = 0;
             break;
         case 2:
             if (unknown_a72c68 != 0) {
@@ -227,11 +227,11 @@ void __fastcall Special_Dialog_00481850()
                     unknown_flag_007d88e0 = false;
                 }
             }
-            unknown_int_a40d48 = 0;
+            SpecialDialog = 0;
             break;
         case 7:
             Unknown_0073C230();
-            unknown_int_a40d48 = 0;
+            SpecialDialog = 0;
             break;
         }
     }
@@ -508,14 +508,14 @@ void __fastcall IPX_Call_Back()
                         if (!unknown_session_a3d298.NetProtect) {
                             msg_ok = true;
                         } else {
-                            if (unknown_session_a3d298.GPacket.Message.unknown_114 == Unknown_005bba50(unknown_session_a3d298.HostName_2380)) {
+                            if (unknown_session_a3d298.GPacket.Message.unknown_114 == Compute_Name_CRC_W(unknown_session_a3d298.HostName_2380)) {
                                 msg_ok = true;
                             } else {
                                 msg_ok = false;
                             }
                         }
                         if (msg_ok && unknown_session_a3d298.ViaPacketRouter) {
-                            msg_ok = (unknown_session_a3d298.GPacket.Message.unknown_2f & OwnerTalk.Unknown_0063F4C0(unknown_session_a3d298.Players[0]->ID)) != 0;
+                            msg_ok = (unknown_session_a3d298.GPacket.Message.unknown_2f & OwnerTalk.Mask_From_ID(unknown_session_a3d298.Players[0]->ID)) != 0;
                         }
 
                         if (msg_ok) {
@@ -523,7 +523,7 @@ void __fastcall IPX_Call_Back()
                             unknown_session_a3d298.Messages.Add_Message(name,
                                 unknown_session_a3d298.GPacket.Message.unknown_110,
                                 unknown_session_a3d298.GPacket.Message.Buf,
-                                unknown_session_a3d298.Unknown_006715D0(unknown_session_a3d298.GPacket.Message.unknown_110),
+                                unknown_session_a3d298.Color_Index_To_Scheme(unknown_session_a3d298.GPacket.Message.unknown_110),
                                 0x4046,
                                 int(Rules->MessageDelay * 900), false);
 
@@ -542,18 +542,18 @@ void __fastcall IPX_Call_Back()
                         if (!unknown_session_a3d298.NetProtect) {
                             msg_ok = true;
                         } else {
-                            if (unknown_session_a3d298.GPacket.Taunt.NameCRC == Unknown_005bba50(unknown_session_a3d298.HostName_2380)) {
+                            if (unknown_session_a3d298.GPacket.Taunt.NameCRC == Compute_Name_CRC_W(unknown_session_a3d298.HostName_2380)) {
                                 msg_ok = true;
                             } else {
                                 msg_ok = false;
                             }
                         }
                         if (msg_ok && unknown_session_a3d298.ViaPacketRouter) {
-                            msg_ok = (unknown_session_a3d298.GPacket.Taunt.Recipients & OwnerTalk.Unknown_0063F4C0(unknown_session_a3d298.Players[0]->ID)) != 0;
+                            msg_ok = (unknown_session_a3d298.GPacket.Taunt.Recipients & OwnerTalk.Mask_From_ID(unknown_session_a3d298.Players[0]->ID)) != 0;
                         }
                         if (msg_ok) {
                             if ((unknown_session_a3d298.LANTaunts && unknown_session_a3d298.Type == 3) || (unknown_session_a3d298.WOLTaunts && unknown_session_a3d298.Type == 4)) {
-                                Unknown_Play_Taunt_00715fb0(unknown_session_a3d298.GPacket.Taunt.ID);
+                                Play_Taunt(unknown_session_a3d298.GPacket.Taunt.ID);
                             }
                         }
                         break;
@@ -666,7 +666,7 @@ extern DynamicVectorClass<InfantryTypeClass *> InfantryTypes;
 // Every listed concrete type has its ObjectTypeClass base at offset zero,
 // as established by the actual shared class layouts; no concrete members are read.
 // Lookup accepts either an object's kind or the corresponding type's kind.
-ObjectTypeClass *__fastcall Unknown_00482C00(int kind,int index)
+ObjectTypeClass *__fastcall Fetch_Techno_Type(int kind,int index)
 {
     switch (kind) {
     case 1: case 40: return (ObjectTypeClass *)UnitTypes[index];

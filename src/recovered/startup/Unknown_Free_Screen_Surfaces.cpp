@@ -3,7 +3,7 @@
 // when it is in use (0x004B1470), deletes the six screen surfaces and restores
 // the video mode (0x00495E90), then sets the flag (hypothesis: the final
 // shutdown of the display).
-// @ref ?Unknown_004B1470@@YAXXZ=004b1470
+// @ref ?Release_Direct3D@@YAXXZ=004b1470
 // @ref ?Restore_Video_Mode_00495e90@@YAXXZ=00495e90
 // @ref ?unknown_flag_abd48d@@3_NA=00abd48d
 // @ref ?TileSurface@@3PAVSurface@@A=00839944
@@ -12,13 +12,13 @@
 
 extern Surface *TileSurface;
 extern bool unknown_flag_abd48d;
-void Unknown_004B1470();
+void Release_Direct3D();
 void __cdecl Restore_Video_Mode_00495e90();
 
 void Unknown_Free_Screen_Surfaces_0068E1C0()
 {
     if (UseDirect3D) {
-        Unknown_004B1470();
+        Release_Direct3D();
     }
     if (!unknown_flag_abd48d) {
         if (HiddenSurface != 0) {

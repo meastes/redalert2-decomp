@@ -21,8 +21,8 @@
 #define VECTOR_IMPLEMENT_VECTOR_DESTRUCTOR
 #include "shared/map_region.hpp"
 // @ref ?unknown_map_region_next_index_a70a28@@3HA=00a70a28
-// @ref ?unknown_map_cell_side_84e804@@3HA=0084e804
-// @ref ?unknown_map_cells_a70a24@@3PAUUnknownMapGenerationCell@@A=00a70a24
+// @ref ?MapCellStride@@3HA=0084e804
+// @ref ?RMGCellData@@3PAUUnknownMapGenerationCell@@A=00a70a24
 // @ref ?unknown_map_min_a70a1c@@3HA=00a70a1c
 // @ref ?unknown_map_max_a70a20@@3HA=00a70a20
 // @ref ?unknown_adjacent_851a70@@3QBVCell@@B=00851a70
@@ -42,8 +42,8 @@ void MapRegionClass::Collect_Neighbor_Regions_005709c0()
             Cell next=cell+unknown_adjacent_851a70[direction&7];
             if(next.Y+next.X>unknown_map_min_a70a1c && next.X-next.Y<unknown_map_min_a70a1c &&
                next.Y-next.X<unknown_map_min_a70a1c && next.Y+next.X<=unknown_map_max_a70a20) {
-                if(unknown_map_cells_a70a24) {
-                    int regionIndex=unknown_map_cells_a70a24[next.Y*unknown_map_cell_side_84e804+next.X].RegionIndex;
+                if(RMGCellData) {
+                    int regionIndex=RMGCellData[next.Y*MapCellStride+next.X].RegionIndex;
                     if(regionIndex>=0) seen[regionIndex]=1;
                 }
             }
@@ -52,10 +52,10 @@ void MapRegionClass::Collect_Neighbor_Regions_005709c0()
     for(index=0;index<unknown_map_region_next_index_a70a28;index++)
         if(seen[index] && index!=Index) NeighborRegionIndices->Add(index);
     CellCount=0;
-    int totalCells=unknown_map_cell_side_84e804*unknown_map_cell_side_84e804;
+    int totalCells=MapCellStride*MapCellStride;
     for(index=0;index<totalCells;index++) {
-        if(unknown_map_cells_a70a24[index].RegionIndex==Index &&
-           unknown_map_cells_a70a24[index].Position!=Cell(0,0)) CellCount++;
+        if(RMGCellData[index].RegionIndex==Index &&
+           RMGCellData[index].Position!=Cell(0,0)) CellCount++;
     }
     delete boundary;
     delete[] seen;

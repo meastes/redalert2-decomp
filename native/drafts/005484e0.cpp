@@ -24,7 +24,7 @@
 #include "shared/unknown_vector3.hpp"
 #include "shared/map_view.hpp"
 // @ref ??4AbstractClass@@QAEAAV0@ABV0@@Z=0056a9f0
-// @ref ?unknown_dummy_cell_a6f9f8@@3VCellClass@@A=00a6f9f8
+// @ref ?BlubCell@@3VCellClass@@A=00a6f9f8
 // @ref ?unknown_cell_a6f238@@3VCell@@A=00a6f238
 // @ref ?unknown_objects_a40368@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40368
 // @ref ?Anims@@3V?$DynamicVectorClass@PAVAnimClass@@@@A=00a40960
@@ -34,7 +34,7 @@
 // @ref ?unknown_map_min_a70a1c@@3HA=00a70a1c
 // @ref ?unknown_map_max_a70a20@@3HA=00a70a20
 // @ref ?unknown_int_8325d0@@3HA=008325d0
-// @ref ?unknown_int_8325d4@@3HA=008325d4
+// @ref ?MapSizeY@@3HA=008325d4
 // @ref ?Set_CellID@CellClass@@QAEXABVCell@@@Z=0047a450
 // @ref ??Y?$TPoint2D@F@@QAEABV0@ABV0@@Z=0056aa20
 // @ref ??H?$TPoint2D@F@@QBE?BV0@ABV0@@Z=0042add0
@@ -50,7 +50,7 @@ bool ra2native_is_gas_system_5484e0(ObjectClass const *object);
 
 extern int unknown_833968;
 extern int unknown_int_8325d0;   // NATIVE: declared here (shared/main_loop.hpp, left out above)
-extern int unknown_int_8325d4;   // NATIVE
+extern int MapSizeY;   // NATIVE
 
 void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_height, bool refresh_map)
 {
@@ -58,7 +58,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
     int w = MapSize.Width;
     CellClass *cells_base = 0;
     CellClass *cells = 0;
-    int h = 2 * unknown_int_8325d4 + 8;
+    int h = 2 * MapSizeY + 8;
     CellClass *cptr;
     Cell cell(unknown_cell_a6f238);
 
@@ -102,7 +102,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
     }
 
     unknown_map_min_a70a1c = unknown_int_8325d0;
-    unknown_map_max_a70a20 = unknown_int_8325d0 + 2 * unknown_int_8325d4;
+    unknown_map_max_a70a20 = unknown_int_8325d0 + 2 * MapSizeY;
 
     int y = 0;
     unknown_120 = 1;
@@ -160,7 +160,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
 
             if (c.X + c.Y < MapSize.Width - 2 * rect->Y + 1 ||
                 c.Y - c.X > MapSize.Width + 2 * rect->X - 1 ||
-                c.X + c.Y > MapSize.Width + 2 * (h + MapSize.Height - rect->Y - unknown_int_8325d4) ||
+                c.X + c.Y > MapSize.Width + 2 * (h + MapSize.Height - rect->Y - MapSizeY) ||
                 c.X - c.Y > MapSize.Width + 2 * (w - rect->X - unknown_int_8325d0) - 1) {
 
                 int cellindex = c.X + c.Y * 512;
@@ -267,6 +267,6 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         Fresh_Map();
     }
 
-    new(&unknown_dummy_cell_a6f9f8) CellClass;
+    new(&BlubCell) CellClass;
     delete (void *)cells_base;
 }

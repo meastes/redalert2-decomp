@@ -389,7 +389,7 @@ extern QueueTimeouts unknown_queue_timeouts_7ec438[6];
 extern int unknown_sync_counts_a76b74[8][8];
 extern bool unknown_flag_a3d8d1, unknown_flag_abd500;
 
-extern NullModemClass unknown_null_modem_a40a28;
+extern NullModemClass NullModem;
 extern unsigned short const unknown_caption_7d64f4[];
 MonoClass *__fastcall Mono_Page_0059da50(int page);
 void Mono_Window_Show_0059d9c0();
@@ -523,7 +523,7 @@ static void __fastcall Stop_Game_00623b00(bool cancelled)
         if(!cancelled)unknown_flag_a3d8d1=true;
         unknown_flag_a3d8d2=true;
         Unknown_0069A160();
-        Unknown_00698D00(false);
+        Send_Statistics_Packet(false);
     }
 }
 
@@ -552,9 +552,9 @@ static void __fastcall Queue_AI_Multiplayer()
         maximum = unknown_meta_size_a3fa48;
         net = &Ipx;
     } else {
-        buffer = unknown_null_modem_a40a28.BuildBuf;
-        maximum = unknown_null_modem_a40a28.MaxLen - 14;
-        net = &unknown_null_modem_a40a28;
+        buffer = NullModem.BuildBuf;
+        maximum = NullModem.MaxLen - 14;
+        net = &NullModem;
     }
     Compute_Game_CRC();
     CRC[Frame & 255] = GameCRC;
@@ -759,7 +759,7 @@ void __fastcall Wait_For_End_Game()
             }
         }
         Call_Back();
-        if (!unknown_int_a40d48) {
+        if (!SpecialDialog) {
             Map.Get_Input(input, x, y);
             Keyboard_Process(input);
             TacticalMap->AI();
@@ -810,7 +810,7 @@ extern int unknown_seconds_ab6300;              // 0x00AB6300
 extern long unknown_elapsed_aabe90;             // 0x00AABE90
 extern unsigned short const unknown_blank_839d4c[]; // 0x00839D4C
 extern unsigned short const unknown_crlf_7d64f4[];  // 0x007D64F4
-extern void *unknown_instance_b26180;           // 0x00B26180
+extern void *ProgramInstance;           // 0x00B26180
 extern HWND unknown_parent_b263d8;              // 0x00B263D8
 extern bool unknown_flag_a3d8c5;                // 0x00A3D8C5
 extern int unknown_stall_counts_a3d5d8[][26];   // 0x00A3D5D8 (per connection: frame stalls, command stalls)
@@ -830,7 +830,7 @@ static inline void Close_Reconnect_Dialog()
         if (unknown_flag_ab5ed8) {
             WWMouse->Capture_Mouse();
         }
-        Unknown_007357E0(dialog, 0);
+        WS_Destroy_Dialog(dialog, 0);
         TacticalActive = unknown_flag_ab62fc;
         Map.Flag_To_Redraw(2);
         if (TacticalActive) {
@@ -855,7 +855,7 @@ static inline int Process_Reconnect_Dialog(ConnManClass *net, CDTimerClass<Syste
         unknown_flag_ab62fc = TacticalActive;
         TacticalActive = false;
         unknown_reconnect_result_ab5ed0 = -1;
-        unknown_reconnect_dialog_a780d4 = (HWND)WS_Create_Dialog(unknown_instance_b26180, 0xEA, unknown_parent_b263d8,
+        unknown_reconnect_dialog_a780d4 = (HWND)WS_Create_Dialog(ProgramInstance, 0xEA, unknown_parent_b263d8,
             (UnknownDialogProc)Unknown_00627350, 0);
         if (unknown_reconnect_dialog_a780d4) {
             SetWindowLongA(unknown_reconnect_dialog_a780d4, 8, (long)&unknown_reconnect_result_ab5ed0);
@@ -1083,7 +1083,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
             int fresh = reconnect_dlg == 0;
             int reconn = first_time == 0;
             if (Process_Reconnect_Dialog(net, &timeout_timer, their, net->Num_Connections(), reconn, fresh, &timer)) {
-                Unknown_007357E0(unknown_reconnect_dialog_a780d4, 0);
+                WS_Destroy_Dialog(unknown_reconnect_dialog_a780d4, 0);
                 if (unknown_flag_ab5ed8) {
                     WWMouse->Capture_Mouse();
                 }
@@ -1228,7 +1228,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
         }
 service:
         Call_Back();
-        if (!first_time && !unknown_int_a40d48 && !reconnect_dlg) {
+        if (!first_time && !SpecialDialog && !reconnect_dlg) {
             Map.Get_Input(input, x, y);
             Keyboard_Process(input);
             TacticalMap->AI();
@@ -1466,7 +1466,7 @@ RetcodeType __fastcall Process_Receive_Packet(ConnManClass *net, char *multi_pac
                     }
                     unsigned long response = timing->ResponseTime;
                     their[player].unknown_10 = response;
-                    unknown_response_times_a76c88[player] = response;
+                    RouterResponseTimes[player] = response;
                     if (most <= response) {
                         most = response;
                     }
@@ -1608,7 +1608,7 @@ RetcodeType __fastcall Process_Serial_Packet(char *multi_packet_buf, int first_t
 
     if (serial_packet->Command == 0x78) {
         if ((unknown_flag_a3f120 && unknown_session_a3d298.Type == 3) || (unknown_flag_a3f121 && unknown_session_a3d298.Type == 4)) {
-            Unknown_Play_Taunt_00715fb0(serial_packet->Taunt);
+            Play_Taunt(serial_packet->Taunt);
             return RC_SERIAL_PROCESSED;
         }
         return RC_SERIAL_PROCESSED;
@@ -1726,7 +1726,7 @@ void __fastcall Propose_Kick_Player(HWND dialog, int index)
         Unknown_00626FA0(list);
         return;
     }
-    if (unknown_session_a3d298.Type == 4 && unknown_b2a7ec) {
+    if (unknown_session_a3d298.Type == 4 && WestwoodOnline_Tournament) {
         _DrawMessage_005c2da0(-1, StringTable::Load_String("TXT_CANT_KICK", 0, "D:\\Ra2\\Queue.CPP", 3388), list);
         Unknown_00626FA0(list);
         return;
@@ -1849,7 +1849,7 @@ BOOL __stdcall Unknown_00627350(HWND dialog, UINT message, WPARAM wparam, LPARAM
                 unknown_b2a630++;
             }
             unknown_ab62f8++;
-            if (unknown_b2a7ec) {
+            if (WestwoodOnline_Tournament) {
                 if (!unknown_ab62f4 && unknown_ab62f8 > 5 && !unknown_b2aaf8) {
                     unknown_ab62f4 = true;
                     unknown_ab62ec++;
@@ -1930,7 +1930,7 @@ void __fastcall Kick_Player_Now(ConnManClass *net, int index, FrameSyncStruct *t
         return;
     }
     Houses[id]->unknown_150 = true;
-    if (Unknown_005C3150(Houses[id]) == 1 && unknown_game_mode_a3d298 == 4 && !unknown_flag_a417c8) {
+    if (Unknown_005C3150(Houses[id]) == 1 && unknown_game_mode_a3d298 == 4 && !GameStatisticsPacketSent) {
         Unknown_0069A160();
         unknown_flag_abd500 = true;
         if (!recent) {
@@ -1942,7 +1942,7 @@ void __fastcall Kick_Player_Now(ConnManClass *net, int index, FrameSyncStruct *t
                 house->unknown_150 = true;
             }
         }
-        Unknown_00698D00(false);
+        Send_Statistics_Packet(false);
     }
     if (Unknown_005C3150(Houses[id]) > 1 && !recent) {
         Houses[id]->unknown_18e = true;
@@ -2483,15 +2483,15 @@ int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
                                 break;
                             }
                         }
-                        if (Unknown_005C3150(quithptr) == 1 && unknown_game_mode_a3d298 == 4 && !unknown_flag_a417c8) {
+                        if (Unknown_005C3150(quithptr) == 1 && unknown_game_mode_a3d298 == 4 && !GameStatisticsPacketSent) {
                             unknown_flag_a3d8d1 = true;
                             Unknown_0069A160();
-                            Unknown_00698D00(false);
+                            Send_Statistics_Packet(false);
                         }
-                        if (unknown_game_mode_a3d298 == 4 && !unknown_flag_a417c8 && PlayerPtr != 0 &&
+                        if (unknown_game_mode_a3d298 == 4 && !GameStatisticsPacketSent && PlayerPtr != 0 &&
                                 PlayerPtr == quithptr) {
                             Debug_Printf("Sending game results because I quit, but didn't see completion");
-                            Unknown_00698D00(false);
+                            Send_Statistics_Packet(false);
                         }
                     }
                     if (unknown_debug_print_events_a40d1c) {
@@ -2502,7 +2502,7 @@ int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
                     }
                     if (DoList[j].House == PlayerPtr->ArrayIndex) {
                         int stamp = DoList.Timings[(DoList.Head + j) & 0x3FFF];
-                        unknown_time_7ec498 = timeGetTime() - stamp;
+                        DebugTime = timeGetTime() - stamp;
                         DoList[j].Execute();
                     } else if (DoList[j].Type == 0x13) {
                         Debug_Printf("Processing EXIT event on frame %d\n", ::Frame);
@@ -2520,7 +2520,7 @@ int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
                         if ((unknown_flags_a3f600 & 2) && DoList[j].Type == 0x13) {
                             hptr->unknown_134 = false;
                             hptr->IQ = Rules->MaxIQ;
-                            HouseClass::unknown_func_4ec5e0();
+                            HouseClass::Computer_Paranoid();
                             hptr->IniName = FixedString<21>("Computer");
                             wcsncpy(hptr->UIName, StringTable::Load_String("TXT_COMPUTER", 0, "D:\\Ra2\\Queue.CPP", 0x1623), 0x15);
                             hptr->UIName[20] = 0;
@@ -2561,7 +2561,7 @@ int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
                     }
                 } else {
                     int stamp = DoList.Timings[(DoList.Head + j) & 0x3FFF];
-                    unknown_time_7ec498 = timeGetTime() - stamp;
+                    DebugTime = timeGetTime() - stamp;
                     if (DoList[j].Type == 4) {
                         unknown_event_queue_a35f30.Add(DoList[j]);
                     } else {
@@ -2679,7 +2679,7 @@ VectorClass<T>::~VectorClass()
     VectorClass<T>::Clear();
 }
 
-CoordStruct __fastcall Unknown_005D5010(DynamicVectorClass<ObjectClass *> const &objects);
+CoordStruct __fastcall Vector_Center(DynamicVectorClass<ObjectClass *> const &objects);
 ObjectClass *__fastcall Closest_Object_005d5090(DynamicVectorClass<ObjectClass *> const &objects, CoordStruct const &coord);
 void __fastcall Unknown_00629220(int start, int count, TargetClass whom, TargetClass const &target);
 
@@ -2724,7 +2724,7 @@ void __fastcall Unknown_00629290(int start, int count)
         return;
     }
     CellClass *cptr = unknown_event_queue_a35f30[start].TargetAt(0x13).As_Cell();
-    if (cptr == 0 || cptr == &unknown_dummy_cell_a6f9f8) {
+    if (cptr == 0 || cptr == &BlubCell) {
         return;
     }
     Cell dest = cptr->MapCoords;
@@ -2744,7 +2744,7 @@ void __fastcall Unknown_00629290(int start, int count)
         }
     }
     if (list.Count() > 0) {
-        CoordStruct center = Unknown_005D5010(list);
+        CoordStruct center = Vector_Center(list);
         ObjectClass *closest = Closest_Object_005d5090(list, center);
         IndexClass<int, ObjectClass *> index;
         for (i = 0; i < list.Count(); i++) {
@@ -3091,7 +3091,7 @@ void __fastcall Print_CRCs(EventClass *event)
     family = 5;
     has_mmx = 0;
     Get_CPU_Info(&family, &has_mmx, 0, 0);
-    fprintf(file, "CPU %s, MMX %s, Vendor: %s\r\n", Get_CPU_Type_Name(), has_mmx ? "Yes" : "No", unknown_cpu_text_8015a5);
+    fprintf(file, "CPU %s, MMX %s, Vendor: %s\r\n", Get_CPU_Type_Name(), has_mmx ? "Yes" : "No", VendorID);
     fprintf(file, "Frames: %d\n", ::Frame);
     fprintf(file, "Average FPS: %d\n", fps_sample_count_00a6eb24 ? accumulated_fps_00a6eb20 / fps_sample_count_00a6eb24 : 0);
     fprintf(file, "Max MaxAhead: %d\n", max_max_ahead_00a3d578);
@@ -3340,11 +3340,11 @@ void __fastcall Print_CRCs(EventClass *event)
     PRINT_LIST_CRCS("\n\n*************** Tag CRCs**************\n\n", Tags)
     PRINT_LIST_CRCS("\n\n*************** Trigger Type CRCs**************\n\n", TriggerTypes)
     PRINT_LIST_CRCS("\n\n*************** Trigger CRCs**************\n\n", Triggers)
-    PRINT_LIST_CRCS("\n\n*************** Action CRCs**************\n\n", unknown_TActionClass_list_00abfd88)
-    PRINT_LIST_CRCS("\n\n*************** Event CRCs**************\n\n", unknown_TEventClass_list_00ac0808)
+    PRINT_LIST_CRCS("\n\n*************** Action CRCs**************\n\n", Actions)
+    PRINT_LIST_CRCS("\n\n*************** Event CRCs**************\n\n", Events)
     PRINT_LIST_CRCS("\n\n*************** Factory CRCs**************\n\n", Factories)
     PRINT_LIST_CRCS("\n\n*************** Voxel Anim Type CRCs**************\n\n", VoxelAnimTypes)
-    PRINT_LIST_CRCS("\n\n*************** Voxel Anim CRCs**************\n\n", unknown_VoxelAnimClass_list_008399d0)
+    PRINT_LIST_CRCS("\n\n*************** Voxel Anim CRCs**************\n\n", VoxelAnims)
     PRINT_LIST_CRCS("\n\n*************** Warhead CRCs**************\n\n", unknown_WarheadTypeClass_list_00839b00)
     PRINT_LIST_CRCS("\n\n*************** Weapon CRCs**************\n\n", Weapons)
     PRINT_LIST_CRCS("\n\n*************** Particle Type CRCs**************\n\n", ParticleTypes)
@@ -3356,7 +3356,7 @@ void __fastcall Print_CRCs(EventClass *event)
     PRINT_LIST_CRCS("\n\n*************** Waypoint Path CRCs**************\n\n", unknown_WaypointPathClass_list_00b25590)
     PRINT_LIST_CRCS("\n\n*************** Smudge Type CRCs**************\n\n", SmudgeTypes)
     PRINT_LIST_CRCS("\n\n*************** Overlay Type CRCs**************\n\n", OverlayTypes)
-    PRINT_LIST_CRCS("\n\n*************** Light Source CRCs**************\n\n", unknown_LightSourceClass_list_00a6e818)
+    PRINT_LIST_CRCS("\n\n*************** Light Source CRCs**************\n\n", LightSources)
     PRINT_LIST_CRCS("\n\n*************** Building Light CRCs**************\n\n", BuildingLights)
     PRINT_LIST_CRCS("\n\n*************** Tube CRCs**************\n\n", Tubes)
     PRINT_LIST_CRCS("\n\n*************** Sides CRCs**************\n\n", Sides)
@@ -3729,7 +3729,7 @@ void __fastcall Unknown_0062DBA0(int index, EventClass *event)
     family = 5;
     has_mmx = 0;
     Get_CPU_Info(&family, &has_mmx, 0, 0);
-    fprintf(file, "CPU %s, MMX %s, Vendor: %s\r\n", Get_CPU_Type_Name(), has_mmx ? "Yes" : "No", unknown_cpu_text_8015a5);
+    fprintf(file, "CPU %s, MMX %s, Vendor: %s\r\n", Get_CPU_Type_Name(), has_mmx ? "Yes" : "No", VendorID);
     fprintf(file, "Frames: %d\n", ::Frame);
     fprintf(file, "Average FPS: %d\n", fps_sample_count_00a6eb24 ? accumulated_fps_00a6eb20 / fps_sample_count_00a6eb24 : 0);
     fprintf(file, "Max MaxAhead: %d\n", max_max_ahead_00a3d578);
@@ -4039,7 +4039,7 @@ void __fastcall Unknown_0062E6E0(EventClass *event)
             unknown_flag_a3d8d1 = true;
             unknown_flag_a3d8d2 = true;
             Unknown_0069A160();
-            Unknown_00698D00(false);
+            Send_Statistics_Packet(false);
         }
     }
 }

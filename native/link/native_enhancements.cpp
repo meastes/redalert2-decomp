@@ -18,7 +18,7 @@
 #include "shared/dialog_default_proc.hpp"
 #include <stdio.h>
 
-void __fastcall unknown_dialog_5ff7c0(HWND window);    // 0x005FF7C0 shows a created dialog
+void __fastcall Display_Dialog(HWND window);    // 0x005FF7C0 shows a created dialog
 void __fastcall unknown_dialog_5ff6e0(HWND window);    // 0x005FF6E0 closes it
 void __fastcall Title_Screen_Restore(bool unknown1);         // 0x00517370 the shell's idle step
 namespace OwnerDraw {
@@ -101,7 +101,7 @@ void refresh(HWND dialog)
 
 int __stdcall Native_Enhancements_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int handled = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int handled = Default_Dialog_Proc(window, message, wparam, lparam);
     if (handled) return handled;
     int *result = (int *)ra2port_get_dialog_user(window);
     switch (message) {
@@ -170,7 +170,7 @@ void Native_Run_Enhancements(HWND options)
         return;
     }
     ra2port_set_dialog_user(dialog, &result);
-    unknown_dialog_5ff7c0(dialog);
+    Display_Dialog(dialog);
     while (result < 0) {
         if (unknown_6000d0() == true) break;
         Title_Screen_Restore(false);
@@ -221,13 +221,13 @@ bool __fastcall Allocate_Surfaces(Rect *hidden, Rect *composite, Rect *tile, Rec
 void Native_Sidebar_New_Game()
 {
     if (SidebarSurface == 0) return;
-    int height = Native_Sidebar_Height(unknown_window_839640.Height);
+    int height = Native_Sidebar_Height(VisibleRect.Height);
     if (SidebarSurface->Get_Height() == height) return;
     fprintf(stderr, "enhancements: new game: sidebar surface %d rows, was %d\n", height, SidebarSurface->Get_Height());
     Rect temp = Get_Title_Screen_Area_006f1f30();
     Rect sidebar(0, 0, SidebarWidth, height);
-    Rect tile(0, 0, temp.Width, unknown_window_839640.Height);
-    Rect composite(0, 0, temp.Width, unknown_window_839640.Height);
-    Allocate_Surfaces(&unknown_window_839640, &composite, &tile, &sidebar, false);
+    Rect tile(0, 0, temp.Width, VisibleRect.Height);
+    Rect composite(0, 0, temp.Width, VisibleRect.Height);
+    Allocate_Surfaces(&VisibleRect, &composite, &tile, &sidebar, false);
     LogicalSurface = HiddenSurface;    // the drawing surface, as Set_Display_Mode 0x005434E0 sets it
 }

@@ -100,7 +100,7 @@ OptionsClass unknown_options_a6ec38;
 
 int __stdcall Try_Mode_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int handled = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int handled = Default_Dialog_Proc(window, message, wparam, lparam);
     if (handled != 0) {
         return handled;
     }
@@ -137,7 +137,7 @@ bool __fastcall Try_Mode_Dialog()
     HWND dialog = unknown_create_dialog_5ff610(0xD9, Try_Mode_Proc, 0);
     if (dialog) {
         SetWindowLongA(dialog, 8, (LONG)&result);
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
         while (result < 0) {
             if (unknown_6000d0()) {
                 break;
@@ -223,7 +223,7 @@ void __fastcall Main_Options_Dialog()
             continue;
         }
         SetWindowLongA(dialog, 8, (LONG)&result);
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
         while (result < 0) {
             if (unknown_6000d0() == true) {
                 break;
@@ -239,7 +239,7 @@ void __fastcall Main_Options_Dialog()
                 dialog = unknown_create_dialog_5ff610(0xD7, Main_Options_Proc2, 0);
                 if (dialog) {
                     SetWindowLongA(dialog, 8, (LONG)&confirm);
-                    unknown_dialog_5ff7c0(dialog);
+                    Display_Dialog(dialog);
                     while (confirm < 0) {
                         if (unknown_6000d0() == true) {
                             break;
@@ -266,7 +266,7 @@ void __fastcall Main_Options_Dialog()
 
 int __stdcall Main_Options_Proc2(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int handled = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int handled = Default_Dialog_Proc(window, message, wparam, lparam);
     if (handled) return handled;
     int *result = (int *)GetWindowLongA(window, 8);
     char text[16];
@@ -391,11 +391,11 @@ int __stdcall Main_Options_Proc2(HWND window, UINT message, WPARAM wparam, LPARA
                                 StringTable::Load_String("TXT_OK",0,"D:\\Ra2\\MainOpt.cpp",1070),0,0,false);
                 }
                 unknown_session_a3d298.PortNumberOverride = port;
-                unknown_firewall_a71b18.Clear_005b9e70();
+                FirewallHelper.Clear_005b9e70();
                 RawFileClass settings("RA2.INI");
-                unknown_ini_839740.Put_Bool("MultiPlayer", "SendDelay", unknown_session_a3d298.SendDelay);
-                unknown_ini_839740.Put_Int("MultiPlayer", "PortNumberOverride", unknown_session_a3d298.PortNumberOverride, 0);
-                unknown_ini_839740.Save(settings, false);
+                ConfigINI.Put_Bool("MultiPlayer", "SendDelay", unknown_session_a3d298.SendDelay);
+                ConfigINI.Put_Int("MultiPlayer", "PortNumberOverride", unknown_session_a3d298.PortNumberOverride, 0);
+                ConfigINI.Save(settings, false);
             }
             // The OK path closes through the same result as Cancel.
         case 2:
@@ -436,7 +436,7 @@ bool __fastcall Set_Display_Mode(int width, int height)
     WWMouse->Hide_Mouse();
     Wait_For_Surface_Blit_004961d0();
     if (WindowedMode == true) {
-        unknown_window_839640 = Rect(0, 0, width, height);
+        VisibleRect = Rect(0, 0, width, height);
         VideoModeWidth = width;
         VideoModeHeight = height;
         Debug_Printf("VisibleRect: %dx%d\n", width, height);
@@ -468,7 +468,7 @@ bool __fastcall Set_Display_Mode(int width, int height)
             return false;
         }
         Debug_Printf("Mode apparently set OK\n");
-        unknown_window_839640 = Rect(0, 0, width, height);
+        VisibleRect = Rect(0, 0, width, height);
         Debug_Printf("VisibleRect: %dx%d\n", width, height);
     }
     if (AlternateSurface) {
@@ -510,10 +510,10 @@ bool __fastcall Set_Display_Mode(int width, int height)
     }
     Rect tactical = Get_Title_Screen_Area_006f1f30();
     {
-        Rect sidebar(0, 0, SidebarWidth, unknown_window_839640.Height);
-        Rect tile(0, 0, tactical.Width, unknown_window_839640.Height);
-        Rect composite(0, 0, tactical.Width, unknown_window_839640.Height);
-        Allocate_Surfaces(&unknown_window_839640, &composite, &tile, &sidebar, false);
+        Rect sidebar(0, 0, SidebarWidth, VisibleRect.Height);
+        Rect tile(0, 0, tactical.Width, VisibleRect.Height);
+        Rect composite(0, 0, tactical.Width, VisibleRect.Height);
+        Allocate_Surfaces(&VisibleRect, &composite, &tile, &sidebar, false);
     }
     LogicalSurface = HiddenSurface;
     Debug_Printf("Recalc color remap tables\n");
@@ -569,7 +569,7 @@ bool __fastcall Test_Display_Mode(int width, int height)
     HWND dialog = unknown_create_dialog_5ff610(0xD9, Confirm_Mode_Proc, 0);
     if (dialog) {
         SetWindowLongA(dialog, 8, (LONG)&result);
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
         CDTimerClass<SystemTimerClass> timer(600);
         while (result < 0) {
             if (unknown_6000d0() == true) {
@@ -601,7 +601,7 @@ bool __fastcall Test_Display_Mode(int width, int height)
 
 int __stdcall Confirm_Mode_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int handled = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int handled = Default_Dialog_Proc(window, message, wparam, lparam);
     if (handled != 0) {
         return handled;
     }

@@ -99,7 +99,7 @@ OwnerTalkClass::~OwnerTalkClass()
 
 // 0x0063F130: sends the router the master player list (TALK type 1; players the IPX manager no longer
 // knows, other than the local one, are sent inactive) and waits up to 900 ticks for the queue to empty.
-bool OwnerTalkClass::Unknown_0063F130()
+bool OwnerTalkClass::Send_Player_List()
 {
     TalkPacketStruct packet = {0};
     CDTimerClass<SystemTimerClass> timer;
@@ -129,7 +129,7 @@ bool OwnerTalkClass::Unknown_0063F130()
 
 
 // 0x0063F2A0: rebuilds the connection list from the human houses still playing (packet-router games).
-void OwnerTalkClass::Unknown_0063F2A0()
+void OwnerTalkClass::Build_Connection_List()
 {
     while (Connections.Count()) {
         delete Connections[0];
@@ -187,11 +187,11 @@ unsigned char OwnerTalkClass::Unknown_0063F430(IPXAddressClass *address)
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// unsigned char OwnerTalkClass::Unknown_0063F4C0(int id) (0x0063F4C0)
+// unsigned char OwnerTalkClass::Mask_From_ID(int id) (0x0063F4C0)
 // Adopted from ra2-decomp OwnerTalkClass::Mask_From_ID (YR 0x00663D60).
 // The mask of the connection with this ID; all bits (0xFF) for -1 or no match.
 
-unsigned char OwnerTalkClass::Unknown_0063F4C0(int id)
+unsigned char OwnerTalkClass::Mask_From_ID(int id)
 {
     unsigned char mask = 0;
 

@@ -75,7 +75,7 @@
 #include "shared/win32_api.hpp"
 
 
-// void __fastcall Unknown_0063B090(ScenarioClass *scenario) -- 0x0063B090 (Restate.cpp; TibSun Restate_Mission)
+// void __fastcall Restate_Mission(ScenarioClass *scenario) -- 0x0063B090 (Restate.cpp; TibSun Restate_Mission)
 // Restates the mission: shows the scenario's [Briefing] text from MISSION.INI (or Brief:Error)
 // in dialog 0x10C and waits until it is closed or the game must quit.
 
@@ -85,7 +85,7 @@ extern wchar_t const *Restate_Text_00ab66e8;               // the text dialog 0x
 
 int __stdcall Restate_Dialog_Proc_0063b270(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 
-void __fastcall Unknown_0063B090(ScenarioClass *scenario)
+void __fastcall Restate_Mission(ScenarioClass *scenario)
 {
     bool old = ScenarioActive;
     ScenarioActive = false;
@@ -112,7 +112,7 @@ void __fastcall Unknown_0063B090(ScenarioClass *scenario)
         if (dialog) {
             int result;
             SetWindowLongA(dialog, 8, (LONG)&result);
-            unknown_dialog_5ff7c0(dialog);
+            Display_Dialog(dialog);
             result = 0;
             while (true) {
                 if (unknown_6000d0()) {
@@ -142,7 +142,7 @@ extern wchar_t const *Restate_Text_00ab66e8;
 
 int __stdcall Restate_Dialog_Proc_0063b270(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int handled = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int handled = Default_Dialog_Proc(window, message, wparam, lparam);
     if (handled != 0) {
         return handled;
     }

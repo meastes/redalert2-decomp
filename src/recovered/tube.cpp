@@ -266,7 +266,7 @@ void __fastcall TubeClass::Read_INI(CCINIClass &ini)
 }
 
 
-// bool TubeClass::unknown_6ef740(Cell const &cell) const (0x006EF740)
+// bool TubeClass::Not_In_Tube(Cell const &cell) const (0x006EF740)
 // TibSun Not_In_Tube: false when the cell lies on the tube's path after its entry cell
 // (the entry cell itself gives true).
 
@@ -279,7 +279,7 @@ inline Cell Adjacent_Cell(Cell const &cell, int facing)
 }
 #endif
 
-bool TubeClass::unknown_6ef740(Cell const &cell) const
+bool TubeClass::Not_In_Tube(Cell const &cell) const
 {
     Cell tubecell = EnterCell;
     if (tubecell == cell) {

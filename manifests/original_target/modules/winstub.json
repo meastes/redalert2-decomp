@@ -1266,6 +1266,10 @@
    "address": "00773eb0"
   },
   {
+   "symbol": "?Draw_RGB_Multiplying_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z",
+   "address": "00773ef0"
+  },
+  {
    "symbol": "?Draw_Rect@XSurface@@UAE_NABVRect@@0H@Z",
    "address": "00774130"
   },
@@ -1450,6 +1454,14 @@
    "address": null
   },
   {
+   "symbol": "?ProgramCursor@@3PAXA",
+   "address": "00b263d0"
+  },
+  {
+   "symbol": "?ProgramIcon@@3PAXA",
+   "address": "00b263d4"
+  },
+  {
    "symbol": "?ProgramInstance@@3PAXA",
    "address": "00b26180"
   },
@@ -1530,6 +1542,10 @@
    "address": "00469150"
   },
   {
+   "symbol": "?SpecialDialog@@3HA",
+   "address": "00a40d48"
+  },
+  {
    "symbol": "?SurfacesRestored@@3_NA",
    "address": "008523dc"
   },
@@ -1546,12 +1562,12 @@
    "address": "008399b0"
   },
   {
-   "symbol": "?Unknown_Slot16@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z",
-   "address": "00773ef0"
-  },
-  {
    "symbol": "?Update_Visible_Surface@@YIX_NPAVSurface@@PBVRect@@@Z",
    "address": "004e0c90"
+  },
+  {
+   "symbol": "?VisibleRect@@3VRect@@A",
+   "address": "00839640"
   },
   {
    "symbol": "?VisibleSurface@@3PAVSurface@@A",
@@ -1626,20 +1642,8 @@
    "address": "007d8940"
   },
   {
-   "symbol": "?unknown_cursor_b263d0@@3PAXA",
-   "address": "00b263d0"
-  },
-  {
    "symbol": "?unknown_flag_8373c3@@3_NA",
    "address": "008373c3"
-  },
-  {
-   "symbol": "?unknown_icon_b263d4@@3PAXA",
-   "address": "00b263d4"
-  },
-  {
-   "symbol": "?unknown_int_a40d48@@3HA",
-   "address": "00a40d48"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
@@ -1656,10 +1660,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_window_839640@@3VRect@@A",
-   "address": "00839640"
   },
   {
    "symbol": "?window_mouse_wheel_b263e9@@3_NA",

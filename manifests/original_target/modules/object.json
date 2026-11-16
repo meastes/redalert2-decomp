@@ -3333,7 +3333,7 @@
   },
   {
    "site": "00629290",
-   "symbol": "?Unknown_005D5010@@YI?AUCoordStruct@@ABV?$DynamicVectorClass@PAVObjectClass@@@@@Z",
+   "symbol": "?Vector_Center@@YI?AUCoordStruct@@ABV?$DynamicVectorClass@PAVObjectClass@@@@@Z",
    "target": "005d5010",
    "function_entry": true
   },
@@ -3648,6 +3648,10 @@
    "address": "008324e0"
   },
   {
+   "symbol": "?Modify_Damage@@YIHHPAVWarheadTypeClass@@HH@Z",
+   "address": "0047e1c0"
+  },
+  {
    "symbol": "?ObjectPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
    "address": "00ac0d60"
   },
@@ -3754,10 +3758,6 @@
   {
    "symbol": "?Unknown_00478760@UnknownCellClass@@QAE_NHHHHHHH@Z",
    "address": "00478760"
-  },
-  {
-   "symbol": "?Unknown_0047E1C0@@YIHHPAVWarheadTypeClass@@HH@Z",
-   "address": "0047e1c0"
   },
   {
    "symbol": "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ",
@@ -4067,7 +4067,7 @@
   {
    "site": "00629290",
    "target": "005d5010",
-   "symbol": "?Unknown_005D5010@@YI?AUCoordStruct@@ABV?$DynamicVectorClass@PAVObjectClass@@@@@Z",
+   "symbol": "?Vector_Center@@YI?AUCoordStruct@@ABV?$DynamicVectorClass@PAVObjectClass@@@@@Z",
    "module_symbol": "?Vector_Center_005d5010@@YI?AUCoordStruct@@ABV?$DynamicVectorClass@PAVObjectClass@@@@@Z"
   },
   {

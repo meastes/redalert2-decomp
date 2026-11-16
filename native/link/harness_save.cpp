@@ -78,7 +78,7 @@ void Native_Harness_Save(int frame)
                 unknown_id_source_a3d290 ? unknown_id_source_a3d290->FileName : "?");
     }
     if (at < 0 || frame != at) return;
-    bool saved = Unknown_006554A0(file, L"Native M15 harness save", 0);
+    bool saved = Save_Game(file, L"Native M15 harness save", 0);
     char detail[128] = "frame ";
     char number[16];
     int n = 0, v = frame;
@@ -108,7 +108,7 @@ void Native_Checkpoint()
         fprintf(stderr, "checkpoint: skipped (network game)\n");
         return;
     }
-    bool saved = Unknown_006554A0("CHECKPT.SAV", L"Checkpoint", 0);
+    bool saved = Save_Game("CHECKPT.SAV", L"Checkpoint", 0);
     if (saved) ra2port_checkpoint_saved();
     fprintf(stderr, "checkpoint: %s\n", saved ? "saved CHECKPT.SAV" : "save failed");
     ra2port_progress("checkpoint", saved ? "saved CHECKPT.SAV" : "save failed");

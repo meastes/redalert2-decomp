@@ -53,7 +53,7 @@ struct MSFontSlot {
     bool unknown_04;            // +0x04
 };
 
-extern int unknown_font_count_a71858;           // 0x00A71858 constructed fonts
+extern int InstanceCount;           // 0x00A71858 constructed fonts
 extern MSFontSlot unknown_font_slots_a71860[3]; // 0x00A71860
 
 extern PaletteClass CCPalette;     // 0x00838710

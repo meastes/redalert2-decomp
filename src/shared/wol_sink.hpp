@@ -223,7 +223,7 @@ extern int unknown_b29828;              // 0x00B29828 (pings expected)
 extern int unknown_b26898;              // 0x00B26898
 extern int unknown_b299c0;              // 0x00B299C0
 
-void __fastcall Unknown_00698D00(bool arg);             // 0x00698D00 (stores cl: a byte)
+void __fastcall Send_Statistics_Packet(bool arg);             // 0x00698D00 (stores cl: a byte)
 HWND __fastcall WS_Find_Dialog_00735940(int id);              // 0x00735940 (a dialog by id)
 void Unknown_0075B590();                                // 0x0075B590
 void Unknown_0075B2D0();                                // 0x0075B2D0
@@ -238,7 +238,7 @@ extern int unknown_color_7a7364;        // 0x007A7364 (public message colour)
 extern int unknown_color_7a7374;        // 0x007A7374 (public message colour for users with flag bit 0)
 extern int unknown_color_7a7378;        // 0x007A7378 (page colour)
 // The nick of the last user who paged us (0x00B2AC48; /reply target hypothesis).
-extern char unknown_last_pager_b2ac48[];
+extern char LastPagerName[];
 extern int unknown_color_7a7368;        // 0x007A7368 (private message colour)
 void __fastcall Unknown_0075B910(char const *message, bool arg2);   // 0x0075B910 (in-game message)
 extern int unknown_b2a7e8;              // 0x00B2A7E8
@@ -453,8 +453,8 @@ extern int unknown_game_port_b28ffc;
 extern int unknown_game_port_b28dd4;
 extern char unknown_wdt_address_b269ac[];
 extern int unknown_wdt_port_b299bc;
-extern char unknown_mangler_addresses_b26cbc[64][128];
-extern int unknown_mangler_ports_b291a4[64];
+extern char ManglerAddresses[64][128];
+extern int ManglerPorts[64];
 extern HANDLE unknown_server_error_event_b264f8;
 extern HANDLE unknown_server_list_event_b264fc;
 extern wchar_t unknown_server_error_b2a8ec[];

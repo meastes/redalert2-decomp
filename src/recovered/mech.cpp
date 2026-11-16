@@ -429,7 +429,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                     }
 
                     if (can_enter == 3) {
-                        Map.Unknown_0055ACD0(LinkedTo, what);
+                        Map.Try_Open_Gate(LinkedTo, what);
                         LinkedTo->unknown_53c = 10;
                         return;
                     }
@@ -473,7 +473,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         int overlay = Map[cell].OverlayIndex;
                         if (overlay != -1) {
                             OverlayTypeClass *otype = OverlayTypes[overlay];
-                            if ((LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->unknown_6d7910(0x11)) && otype->ArrayIndex == 0) {
+                            if ((LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->Has_Ability(0x11)) && otype->ArrayIndex == 0) {
                                 LinkedTo->unknown_59f = true;
                                 if (LinkedTo->Techno_Type_Class()->TiltsWhenCrushes) {
                                     LinkedTo->unknown_28c = -0.01f;
@@ -540,7 +540,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                 int overlay = Map[cell].OverlayIndex;
                 if (overlay != -1) {
                     OverlayTypeClass *otype = OverlayTypes[overlay];
-                    if ((LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->unknown_6d7910(0x11)) && otype->ArrayIndex == 0) {
+                    if ((LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->Has_Ability(0x11)) && otype->ArrayIndex == 0) {
                         LinkedTo->unknown_59f = true;
                         if (LinkedTo->Techno_Type_Class()->TiltsWhenCrushes) {
                             LinkedTo->unknown_28c = -0.01f;

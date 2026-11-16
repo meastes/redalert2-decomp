@@ -36,7 +36,7 @@
 // Cell(0x7FFF, 0x7FFF) (TibSun terrtype.cpp's _OccupyLists, BSIZE_COUNT 22 rows of 10 cells; the
 // rows after BSIZE_35 are empty). Its dynamic initializer is 0x006E4D60.
 
-Cell unknown_foundation_lists_ac0430[22][10] = {
+Cell _OccupyLists[22][10] = {
     { Cell(0, 0), Cell(0x7FFF, 0x7FFF) },
     { Cell(0, 0), Cell(1, 0), Cell(0x7FFF, 0x7FFF) },
     { Cell(0, 0), Cell(0, 1), Cell(0x7FFF, 0x7FFF) },
@@ -142,7 +142,7 @@ TerrainTypeClass::~TerrainTypeClass()
 
 void __fastcall TerrainTypeClass::Init(int theater)
 {
-    if (Debug_Map || theater != unknown_loaded_theater_7d88dc) {
+    if (Debug_Map || theater != LastTheater) {
         for (int index = 0; index < TerrainTypes.Count(); index++) {
             TerrainTypeClass *terrain = TerrainTypes[index];
             if (terrain->unknown_1fc) {
@@ -322,7 +322,7 @@ bool TerrainTypeClass::Read_INI(CCINIClass &ini)
         SpawnsTiberium = ini.Get_Bool(section, "SpawnsTiberium", SpawnsTiberium);
         IsFlammable = ini.Get_Bool(section, "IsFlammable", IsFlammable);
         Foundation = ArtINI.Get_Foundation(unknown_1c8, "Foundation", Foundation);
-        OccupyList = unknown_foundation_lists_ac0430[Foundation];
+        OccupyList = _OccupyLists[Foundation];
         if (!unknown_1fc) {
             char filename[512];
             _makepath(filename, 0, 0, unknown_1c8, ".SHP");
@@ -401,7 +401,7 @@ HRESULT __stdcall TerrainTypeClass::Load(IStream *stream)
         new (this) TerrainTypeClass(NoInitClass());
         Fetch_Voxel_Image();
         Fetch_Normal_Image();
-        OccupyList = unknown_foundation_lists_ac0430[Foundation];
+        OccupyList = _OccupyLists[Foundation];
         result = S_OK;
     }
     return result;

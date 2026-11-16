@@ -73,7 +73,7 @@ public:
     int Get_Bad_Connection();                                               // 0x00526A30
     void Set_Socket(unsigned short socket);                             // 0x00526BA0
     bool Forward_Router_Packet(CommHeaderType *header, char *buf, int buflen, IPXAddressClass *address, unsigned short port);   // 0x00525DC0 (forwards a packet through the local router)
-    unsigned long unknown_526c30();                                     // 0x00526C30 (global channel's mean delay)
+    unsigned long Global_Response_Time();                                     // 0x00526C30 (global channel's mean delay)
     unsigned long Lobby_Response_Time();                                     // 0x00526C50 (second global channel's)
     unsigned long Multicast_Response_Time();                                     // 0x00526C70 (multicast connection's)
     char *unknown_5276a0();                                             // 0x005276A0 (the oldest unacknowledged sequenced send)

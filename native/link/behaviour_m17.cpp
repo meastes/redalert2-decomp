@@ -13,7 +13,7 @@ void *original_data_pointer(uint32_t va);
 bool original_bytes(uint32_t va, void *out, size_t n);
 }
 
-extern bool unknown_flag_7fbd04;    // 0x007FBD04 (slot 4 redraws the frame while set)
+extern bool FrameAdvanceDraws;    // 0x007FBD04 (slot 4 redraws the frame while set)
 
 // 0x007291F0 (pass-6a decompile): sets the vtable and runs ~MSAnim; nothing of its own.
 MSFrameAnim::~MSFrameAnim()
@@ -25,7 +25,7 @@ MSFrameAnim::~MSFrameAnim()
 // into the dirty area while 0x007FBD04 is set; never reports a change.
 bool MSFrameAnim::Advance(Surface *surface, Rect *dirty)
 {
-    if (unknown_flag_7fbd04) {
+    if (FrameAdvanceDraws) {
         Unknown_006F3650(surface, *dirty, true);
     }
     return false;

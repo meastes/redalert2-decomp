@@ -4,14 +4,14 @@
 // volatile (it is read and written back without folding, like the
 // countdown at 0x00AD08C8).
 // @ref ?unknown_active_ad0968@@3HA=00ad0968
-// @ref ?unknown_count_ad0910@@3HC=00ad0910
+// @ref ?AuxStreamHold@@3HC=00ad0910
 
 extern int unknown_active_ad0968;
-extern volatile int unknown_count_ad0910;
+extern volatile int AuxStreamHold;
 
 void unknown_count_if_active()
 {
     if (unknown_active_ad0968 != 0) {
-        unknown_count_ad0910++;
+        AuxStreamHold++;
     }
 }

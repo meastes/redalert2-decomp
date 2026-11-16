@@ -12,7 +12,7 @@
 // @ref ??_C@_0BE@OIMO@D?3?2Ra2?2stlscore?4cpp?$AA@=007f62c8
 // @ref ?unknown_score_audio_abd6a0@@3VUnknownAudioController@@A=00abd6a0
 // @ref ?unknown_score_audio_on_abd6d4@@3HA=00abd6d4
-// @ref ?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z=005ffb00
+// @ref ?Default_Dialog_Proc@@YIHPAUHWND__@@IIJ@Z=005ffb00
 // @ref ?Init@UnknownAudioController@@QAEXXZ=00405bf0
 // @ref ?Unknown_00405C10@UnknownAudioController@@QAEXXZ=00405c10
 // @ref ?Unknown_00405D50@UnknownAudioController@@QAEXXZ=00405d50
@@ -48,7 +48,7 @@ extern int unknown_score_audio_on_abd6d4;
 
 int __stdcall Score_Dialog_Proc_0069A7D0(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result != 0) {
         return result;
     }

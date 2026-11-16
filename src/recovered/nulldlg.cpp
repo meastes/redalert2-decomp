@@ -108,7 +108,7 @@
 WIN32_IMPORT BOOL WINAPI SetCommBreak(HANDLE file);
 WIN32_IMPORT BOOL WINAPI ClearCommBreak(HANDLE file);
 
-void __fastcall Unknown_00517370(bool unknown);
+void __fastcall Title_Screen_Restore(bool unknown);
 extern Surface *HiddenSurface;
 
 static int Test_Null_Modem()
@@ -180,18 +180,18 @@ static int Test_Null_Modem()
 
         if (process) {
             ModemDialogIsOpen = false;
-            HWND dialog = unknown_cancel_dialog_6001e0(
+            HWND dialog = Custom_Message_Box(
                 StringTable::Load_String("TXT_WAITING_CONNECT", 0, "D:\\Ra2\\NullDlg.CPP", 0x1895),
                 StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullDlg.CPP", 0x1895), &ModemDialogIsOpen);
             if (dialog) {
-                unknown_dialog_5ff7c0(dialog);
+                Display_Dialog(dialog);
                 starttime = TickCount;
                 while (true) {
                     if (unknown_6000d0() == true || ModemDialogIsOpen) {
                         retval = 0;
                         break;
                     }
-                    Unknown_00517370(false);
+                    Title_Screen_Restore(false);
                     serial_manager_00a40a28.Service();
                     if (serial_manager_00a40a28.Num_Send() == 0) {
                         if (serial_manager_00a40a28.Get_Message(&ReceivePacket, &packetlen) > 0) {
@@ -246,7 +246,7 @@ int __fastcall Select_Serial_Dialog()
     if (dialog) {
         SetWindowLongA(dialog, DWL_USER, (LONG)&rc);
         unknown_move_window_600120(dialog, -1, ((HiddenSurface->Get_Height() - 400) / 2) + 147);
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
 
         if (unknown_session_a3d298.SerialDefaults.Port == 0 || unknown_session_a3d298.SerialDefaults.IRQ == -1
             || unknown_session_a3d298.SerialDefaults.Baud == -1) {
@@ -260,7 +260,7 @@ int __fastcall Select_Serial_Dialog()
                 if (unknown_6000d0() == true) {
                     break;
                 }
-                Unknown_00517370(false);
+                Title_Screen_Restore(false);
             }
 
             switch (rc) {
@@ -400,7 +400,7 @@ int __fastcall Select_Serial_Dialog()
 
 int __stdcall Select_Serial_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int handled = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int handled = Default_Dialog_Proc(window, message, wparam, lparam);
     if (handled != 0) {
         return handled;
     }
@@ -594,11 +594,11 @@ bool __fastcall Reconnect_Null_Modem()
     UnknownSerialPacket ReceivePacket;
 
     ModemDialogIsOpen = false;
-    HWND dialog = unknown_cancel_dialog_6001e0(
+    HWND dialog = Custom_Message_Box(
         StringTable::Load_String("TXT_NULL_CONNERR_CHECK_CABLES", 0, "D:\\Ra2\\NullDlg.CPP", 0x1959),
         StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullDlg.CPP", 0x1959), &ModemDialogIsOpen);
     if (dialog) {
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
         starttime = lastmsgtime = TickCount.Time();
         while (process == true) {
             if (unknown_6000d0() == true || ModemDialogIsOpen) {
@@ -679,7 +679,7 @@ bool __fastcall Dial_Modem(SerialSettingsType *settings, bool reconnect)
         serial_session_flags_00a3fac0 &= ~1;
     }
 
-    serial_manager_00a40a28.Setup_Modem_Echo(unknown_text_buffer_append_005cfd70);
+    serial_manager_00a40a28.Setup_Modem_Echo(Modem_Echo);
     modemstatus = serial_manager_00a40a28.Detect_Modem(settings, reconnect);
     if (!modemstatus) {
         Debug_Printf("Detect_Modem failed\n");
@@ -692,7 +692,7 @@ bool __fastcall Dial_Modem(SerialSettingsType *settings, bool reconnect)
                 settings->Baud = 19200;
                 Shutdown_Modem();
                 serial_manager_00a40a28.Init(settings->Port, settings->IRQ, settings->ModemName, settings->Baud, 0, 8, 1);
-                serial_manager_00a40a28.Setup_Modem_Echo(unknown_text_buffer_append_005cfd70);
+                serial_manager_00a40a28.Setup_Modem_Echo(Modem_Echo);
                 modemstatus = serial_manager_00a40a28.Detect_Modem(settings, reconnect);
                 if (!modemstatus) {
                     Debug_Printf("Detect_Modem failed at 19200\n");
@@ -710,7 +710,7 @@ bool __fastcall Dial_Modem(SerialSettingsType *settings, bool reconnect)
                 settings->Baud = 38400;
                 Shutdown_Modem();
                 serial_manager_00a40a28.Init(settings->Port, settings->IRQ, settings->ModemName, settings->Baud, 0, 8, 1);
-                serial_manager_00a40a28.Setup_Modem_Echo(unknown_text_buffer_append_005cfd70);
+                serial_manager_00a40a28.Setup_Modem_Echo(Modem_Echo);
                 modemstatus = serial_manager_00a40a28.Detect_Modem(settings, reconnect);
                 if (!modemstatus) {
                     Debug_Printf("Detect_Modem failed at 38400\n");
@@ -832,7 +832,7 @@ bool __fastcall Answer_Modem(SerialSettingsType *settings, bool reconnect)
         serial_session_flags_00a3fac0 &= ~1;
     }
 
-    serial_manager_00a40a28.Setup_Modem_Echo(unknown_text_buffer_append_005cfd70);
+    serial_manager_00a40a28.Setup_Modem_Echo(Modem_Echo);
     modemstatus = serial_manager_00a40a28.Detect_Modem(settings, reconnect);
     if (!modemstatus) {
         Debug_Printf("Detect_Modem failed\n");
@@ -845,7 +845,7 @@ bool __fastcall Answer_Modem(SerialSettingsType *settings, bool reconnect)
                 settings->Baud = 19200;
                 Shutdown_Modem();
                 serial_manager_00a40a28.Init(settings->Port, settings->IRQ, settings->ModemName, settings->Baud, 0, 8, 1);
-                serial_manager_00a40a28.Setup_Modem_Echo(unknown_text_buffer_append_005cfd70);
+                serial_manager_00a40a28.Setup_Modem_Echo(Modem_Echo);
                 modemstatus = serial_manager_00a40a28.Detect_Modem(settings, reconnect);
                 if (!modemstatus) {
                     Debug_Printf("Detect_Modem failed at 19200\n");
@@ -863,7 +863,7 @@ bool __fastcall Answer_Modem(SerialSettingsType *settings, bool reconnect)
                 settings->Baud = 38400;
                 Shutdown_Modem();
                 serial_manager_00a40a28.Init(settings->Port, settings->IRQ, settings->ModemName, settings->Baud, 0, 8, 1);
-                serial_manager_00a40a28.Setup_Modem_Echo(unknown_text_buffer_append_005cfd70);
+                serial_manager_00a40a28.Setup_Modem_Echo(Modem_Echo);
                 modemstatus = serial_manager_00a40a28.Detect_Modem(settings, reconnect);
                 if (!modemstatus) {
                     Debug_Printf("Detect_Modem failed at 38400\n");

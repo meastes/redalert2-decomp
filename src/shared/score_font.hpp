@@ -50,10 +50,10 @@ struct ScoreFontSound {
     void const *Data;               // +0x00
     bool IsAllocated;               // +0x04 read from a loose file
 };
-extern int unknown_score_fonts_ab6fa4;
+extern int score_font_count;
 // Score.cpp's copy of the shape helpers' empty rectangle (0x00AB6F20; see
 // shared/shape_file.hpp, SHAPE_FILE_EMPTY_RECT).
 extern Rect const unknown_score_empty_rect_ab6f20;
-extern ScoreFontSound unknown_score_sounds_ab6fa8[3];
+extern ScoreFontSound text_sounds[3];
 
 #endif

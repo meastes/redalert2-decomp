@@ -57,7 +57,7 @@ bool SessionClass::Unknown_00672140()
     return _stricmp(ScenarioFileName_658, "RandMap_Sed") == 0;
 }
 
-// 0x006715C0: does nothing (unknown_53fbd0 calls it each frame).
+// 0x006715C0: does nothing (Main_Loop calls it each frame).
 void SessionClass::Trap_Object_006715c0()
 {
 }
@@ -127,7 +127,7 @@ void __fastcall unknown_00495770(HRESULT result, int show_success)
 }
 
 // 0x0047E2B0: does nothing (TerrainClass slot 86).
-void Cell::unknown_47e2b0()
+void Cell::Chain_Reaction_Damage()
 {
 }
 

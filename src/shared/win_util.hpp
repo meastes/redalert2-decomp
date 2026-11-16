@@ -81,7 +81,7 @@ typedef long (__stdcall *UnknownDialogProc)(HWND window, unsigned message, unsig
 void *__fastcall WS_Create_Dialog(void *instance, int id, HWND parent, UnknownDialogProc procedure, long arg);
 // Closes dialog (the top dialog when null) and every dialog above it on the stack, makes the one
 // below current and records result (0x00B25DDC); false when dialog is not on the stack (0x007357E0;
-// shared/unknown_globals.hpp still declares it as Unknown_007357E0(void *, int)).
+// shared/unknown_globals.hpp still declares it as WS_Destroy_Dialog(void *, int)).
 bool __fastcall End_Dialog_007357e0(HWND dialog, int result);
 extern int g_LastResponse;
 // Called on a dialog before it is closed (0x005E5FC0; also declared in shared/owner_draw_dialog_control.hpp).
@@ -268,7 +268,7 @@ struct UnknownFontCache {
     }
     void Add(UnknownFontEntry const &entry) { Insert(Count, entry); }
 };
-extern UnknownFontCache unknown_font_cache_b25dc8;
+extern UnknownFontCache g_EzFonts;
 void unknown_clear_font_cache_735d90();
 // The cached font of face at width x height with attributes, made and cached when missing; 0 when
 // dc is null and the font is not cached (0x00735DB0).

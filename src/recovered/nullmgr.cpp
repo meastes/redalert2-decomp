@@ -881,9 +881,9 @@ bool NullModemClass::Detect_Modem(SerialSettingsType *settings, bool reconnect)
 
     Debug_Printf("Detecting modem\n");
     if (SerialPort->Enter_Failsafe_Mode()) {
-        HWND dialog = unknown_cancel_dialog_6001e0(StringTable::Load_String("TXT_INITIALIZING_MODEM", 0, "D:\\Ra2\\NullMgr.CPP", 0x46E), 0, 0);
+        HWND dialog = Custom_Message_Box(StringTable::Load_String("TXT_INITIALIZING_MODEM", 0, "D:\\Ra2\\NullMgr.CPP", 0x46E), 0, 0);
         if (dialog) {
-            unknown_dialog_5ff7c0(dialog);
+            Display_Dialog(dialog);
 
             Debug_Printf("Sending echo on command\n");
             Debug_Printf("Command response was %s\n", ModemCmdNames[SerialPort->Send_Command_To_Modem("ATE1", '\r', buffer, 81, 90, 2, -1)]);
@@ -1089,10 +1089,10 @@ DialStatusType NullModemClass::Dial_Modem(char *string, int method, bool reconne
         text = StringTable::Load_String("TXT_DIALING", 0, "D:\\Ra2\\NullMgr.CPP", 0x583);
     }
     ModemDialogIsOpen = false;
-    HWND dialog = unknown_cancel_dialog_6001e0(text, StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullMgr.CPP", 0x587),
+    HWND dialog = Custom_Message_Box(text, StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullMgr.CPP", 0x587),
                                                &ModemDialogIsOpen);
     if (dialog) {
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
 
         Debug_Printf("Setting modem dial type\n");
         SerialPort->Set_Modem_Dial_Type(method);
@@ -1217,10 +1217,10 @@ DialStatusType NullModemClass::Answer_Modem(bool reconnect)
     Debug_Printf("Waiting for ring\n");
     process = true;
     ModemDialogIsOpen = false;
-    HWND dialog = unknown_cancel_dialog_6001e0(text, StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullMgr.CPP", 0x635),
+    HWND dialog = Custom_Message_Box(text, StringTable::Load_String("TXT_CANCEL", 0, "D:\\Ra2\\NullMgr.CPP", 0x635),
                                                &ModemDialogIsOpen);
     if (dialog) {
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
         SerialPort->Set_Abort_Function(Abort_Modem);
         ModemDialogIsOpen = false;
 

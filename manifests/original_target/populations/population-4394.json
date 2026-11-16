@@ -4,8 +4,8 @@
     "id": "population-4394",
     "inventory_sha256": "82d76aac864d26e1a63b17341b43281aa316ce10c95f0d35474ebdba4d64c791",
     "gaps_sha256": "04d36338335bdd7e43e23bfbef070ac0785ff73d83cba2e18e0315fd2eb8d76f",
-    "historical_population_sha256": "83ef26959e6d0ed3347cdbc16a01a01e0cfece704cc5b797d95979768872236b",
-    "historical_acceptance_sha256": "381b2e8bae6ee318b0ff2e348d7f6f3521afdbec2c6531401a5e9ac0d90fb96d",
+    "historical_population_sha256": "0b54e487a299a99b81064528769608c78616a84c317e170df0a97defd7f696bb",
+    "historical_acceptance_sha256": "3ae83650824d29de84b143c573972d15fa9fd70a2b5b31a84eed6535d5ae0425",
     "separate_units": true
   },
   "references": {
@@ -289,8 +289,8 @@
     "?unknown_narrow_index_ad045c@@3HA": 11338844,
     "?unknown_wide_buffers_ac53fc@@3PAGA": 11293692,
     "?unknown_wide_index_ad0460@@3HA": 11338848,
-    "?Unknown_006F64D0@@YIX_N@Z": 7300304,
-    "?Unknown_006F64F0@@YIX_N@Z": 7300336,
+    "?Command_Planning_Mode_On@@YIX_N@Z": 7300304,
+    "?Command_Planning_Mode_Off@@YIX_N@Z": 7300336,
     "?Unknown_006F7650@@YAXXZ": 7304784,
     "?Unknown_006F92A0@@YIXPAXPAD11H@Z": 7312032,
     "?Unknown_006F9D90@@YAXXZ": 7314832,
@@ -957,8 +957,8 @@
     "?FUN_00796ed8@": 7958232,
     "?FUN_00783689@": 7878281,
     "?FUN_00797033@": 7958579,
-    "?unknown_map_cell_side_84e804@@3HA": 8710148,
-    "?unknown_map_cells_a70a24@@3PAUUnknownMapGenerationCell@@A": 10947108,
+    "?MapCellStride@@3HA": 8710148,
+    "?RMGCellData@@3PAUUnknownMapGenerationCell@@A": 10947108,
     "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
     "?Clear@?$DynamicVectorClass@PAVBombClass@@@@UAEXXZ": 4240720,
@@ -2588,7 +2588,7 @@
     "?Clear@DIB8Class@@QAEXE@Z": 4817824,
     "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "?Set_00434820@CoordStruct@@QAEAAU1@HHH@Z": 4409376,
-    "?unknown_47e2b0@Cell@@QAEXXZ": 4711088,
+    "?Chain_Reaction_Damage@Cell@@QAEXXZ": 4711088,
     "??0FoggedObjectClass@@QAE@ABVNoInitClass@@@Z": 4980688,
     "??_7FoggedObjectClass@@6BIPersistStream@@@": 7999816,
     "??_7FoggedObjectClass@@6BIRTTITypeInfo@@@": 7999788,
@@ -3305,7 +3305,7 @@
     "?Compute_CRC@ScenarioClass@@QBEXAAVWWCRCEngine@@@Z": 6696448,
     "?Do_Restart_0065e440@@YIXXZ": 6677568,
     "?Start_Scenario_0065bc70@@YI_NPBD_NH@Z": 6667376,
-    "?Unknown_0065e590@@YIXXZ": 6677904,
+    "?Do_Abort@@YIXXZ": 6677904,
     "?Read_Scenario_0065e760@@YI_NPBD_N@Z": 6678368,
     "?Create_Units_00660320@@YIX_N@Z": 6685472,
     "?Write_Scenario_INI_0065f980@@YIXPBD_N@Z": 6683008,
@@ -3779,8 +3779,8 @@
     {
       "entry": 7300304,
       "method": "006f64d0",
-      "symbol": "?Unknown_006F64D0@@YIX_N@Z",
-      "symbol_prefix": "?Unknown_006F64D0@@YIX_N@Z",
+      "symbol": "?Command_Planning_Mode_On@@YIX_N@Z",
+      "symbol_prefix": "?Command_Planning_Mode_On@@YIX_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -3818,7 +3818,7 @@
           "resolved": 4294052310
         }
       ],
-      "source_sha256": "b63381723726f876f8f5e019108c25f33dc47f116d4661b5bc367fd6e8f45964",
+      "source_sha256": "ffb65c57f21810bc66de40e93135226b61188b4765f4dd3591b1c73ae324fec1",
       "source": "src/recovered/unowned/Unknown_Group_Order_006f64d0.cpp",
       "population": "population-4394",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -3830,8 +3830,8 @@
     {
       "entry": 7300336,
       "method": "006f64f0",
-      "symbol": "?Unknown_006F64F0@@YIX_N@Z",
-      "symbol_prefix": "?Unknown_006F64F0@@YIX_N@Z",
+      "symbol": "?Command_Planning_Mode_Off@@YIX_N@Z",
+      "symbol_prefix": "?Command_Planning_Mode_Off@@YIX_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -3869,7 +3869,7 @@
           "resolved": 4294052278
         }
       ],
-      "source_sha256": "b31f071d1e87c0b8eed391a48fd4e112e94fdb5974e1bf4dc0332221a141e4c6",
+      "source_sha256": "2ebe1197ab5fea4c298e000a989723b83bfb3bdc8f1afa49a02b259d0bd17de7",
       "source": "src/recovered/unowned/Unknown_Group_Order_Off_006f64f0.cpp",
       "population": "population-4394",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",

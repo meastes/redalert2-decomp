@@ -121,7 +121,7 @@ public:
     bool unknown_particle_system_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006AFA00 (the particle system type Data over the ground at waypoint +0x44)
     bool unknown_set_mission_timer_text(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B0C50 (the mission timer label and text from the action text)
     bool unknown_player_4e80d0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006AFD50
-    bool unknown_explosion_50_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);    // 0x006B0080 (Unknown_0047F600 with the rules C4 warhead at waypoint Data)
+    bool unknown_explosion_50_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);    // 0x006B0080 (Combat_Lighting with the rules C4 warhead at waypoint Data)
     bool unknown_explosion_100_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B00E0
     bool unknown_explosion_300_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B0140
     bool unknown_buildings_with_tag_slot98(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B01A0
@@ -212,6 +212,6 @@ public:
 ObjectClass *__fastcall Building_Or_Terrain_At_006B0E40(CoordStruct const &coord);
 
 // Every action (0x00ABFD88; defined in this unit).
-extern DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
+extern DynamicVectorClass<TActionClass *> Actions;
 
 #endif

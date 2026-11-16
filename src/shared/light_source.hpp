@@ -1,7 +1,7 @@
 // LightSourceClass: a light on the map (LightSource.cpp, unit 0x00536F30:
 // 0x00537240-0x00537C8F; RTTI vtables 0x007A5560 primary (24 slots),
 // 0x007A5544 IRTTITypeInfo at +4, 0x007A553C, 0x007A5534). Every light is in
-// unknown_LightSourceClass_list_00a6e818 (defined with the unit's header
+// LightSources (defined with the unit's header
 // statics). Layout from the constructors 0x00537240/0x00537310 and Change
 // 0x00537580; names are hypotheses (YR's LightSourceClass agrees on them).
 // The nested PendingCellClass and its static list are defined by the unit
@@ -69,7 +69,7 @@ public:
     bool Activated;             // +0x48
 };
 
-extern DynamicVectorClass<LightSourceClass *> unknown_LightSourceClass_list_00a6e818;   // 0x00A6E818
+extern DynamicVectorClass<LightSourceClass *> LightSources;   // 0x00A6E818
 // Lights update the cells while set (0x007DF630; Clear_All clears it while it
 // deletes the lights; tested by 0x005375D0).
 extern bool unknown_flag_7df630;

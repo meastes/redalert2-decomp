@@ -302,7 +302,7 @@ public:
     int Not_Equal_0058db50(Cell const &other) const; //fullEAX0/1,thiscall/RET4
     // Original full-EAX comparison at004FEF20; thiscall/RET4.
     int Equal_004fef20(Cell const &other) const;
-    void unknown_47e2b0(); // 0047E2B0 empty RET; nonconst/nonvirtual coordinate operation hypothesis
+    void Chain_Reaction_Damage(); // 0047E2B0 empty RET; nonconst/nonvirtual coordinate operation hypothesis
     Cell() {}
     // Original inline conversion, signed division toward zero; source name hypothesis.
 #ifdef RA2_CELL_FROM_COORD_AS_CELL

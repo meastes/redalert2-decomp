@@ -18,7 +18,7 @@
 // @ref ?ToolTips@@3PAVCCToolTip@@A=008399b0
 // @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
 // @ref ?Process_Message@ToolTipManager@@QAEXPAUtagMSG@@@Z=006eb4e0
-// @ref ?unknown_message_4919b0@@YIXPAUtagMSG@@@Z=004919b0
+// @ref ?DispatchLauncherMessage@@YIXPAUtagMSG@@@Z=004919b0
 // @ref ?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A=00a71900
 // @ref ?_Accelerators@@3V?$DynamicVectorClass@UAcceleratorTracker@@@@A=00a71928
 // @ref ??_H@YGXPAXIHP6EX0@Z@Z=0040aed0
@@ -37,7 +37,7 @@ void Windows_Message_Handler()
         if (!Get_Windows_Message(&msg, 0, 0, 0)) {
             return;
         }
-        unknown_message_4919b0(&msg);
+        DispatchLauncherMessage(&msg);
         if (ToolTips != 0) {
             ToolTips->Process_Message(&msg);
         }

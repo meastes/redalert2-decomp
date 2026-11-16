@@ -187,12 +187,12 @@ bool UnitTypeClass::CanAttackMove() const
 
 void UnitTypeClass::One_Time()
 {
-    if (unknown_surface_ad0604 == 0) {
-        unknown_surface_ad0604 = new BSurface(256, 256, 1);
-        unknown_surface_ad0604->Fill(0);
+    if (EightBitSurface == 0) {
+        EightBitSurface = new BSurface(256, 256, 1);
+        EightBitSurface->Fill(0);
     }
     if (EightBitDrawer == 0) {
-        EightBitDrawer = new ConvertClass(GamePalette, GamePalette, unknown_surface_ad0604, 1, false);
+        EightBitDrawer = new ConvertClass(GamePalette, GamePalette, EightBitSurface, 1, false);
     }
     VisceroidSmallShape = MixFileClass::Retrieve("VISC_SML.SHP");
     VisceroidLargeShape = MixFileClass::Retrieve("VISC_LRG.SHP");

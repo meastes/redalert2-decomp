@@ -8,8 +8,8 @@
 // @ref ?Unknown_006F3E70@@YIXHH@Z=006f3e70
 // @ref ?Unknown_006F34D0@@YIXPAVSurface@@ABVRect@@@Z=006f34d0
 // @ref ?unknown_flag_ac119c@@3_NA=00ac119c
-// @ref ?unknown_value_8523e0@@3HA=008523e0
-// @ref ?unknown_value_8523e4@@3HA=008523e4
+// @ref ?VideoModeWidth@@3HA=008523e0
+// @ref ?VideoModeHeight@@3HA=008523e4
 // @ref ?unknown_count_ac102c@@3HA=00ac102c
 // @ref ?unknown_name_7f871c@@3QBDB=007f871c
 // @ref ?unknown_art_ac1184@@3PAXA=00ac1184
@@ -48,8 +48,8 @@ void __fastcall unknown_load_art_6f1fa0(char const *name, void **shape, void **d
 void __fastcall Unknown_006F3E70(int arg1, int arg2);
 void __fastcall Unknown_006F34D0(Surface *surface, Rect const &window);
 extern bool unknown_flag_ac119c;
-extern int unknown_value_8523e0;
-extern int unknown_value_8523e4;
+extern int VideoModeWidth;
+extern int VideoModeHeight;
 extern int unknown_count_ac102c;
 extern char const * const unknown_name_7f871c;
 extern void *unknown_art_ac1184;
@@ -83,7 +83,7 @@ void __fastcall Unknown_006F3650(Surface *surface, Rect const &window, bool arg3
         unknown_load_art_6f1fa0(unknown_name_7f871c, &unknown_art_ac1184, (void **)&unknown_art_ac1188);
         unknown_load_art_6f1fa0(unknown_name_7f8720, &unknown_art_ac118c, (void **)&unknown_art_ac1190);
         unknown_load_art_6f1fa0(unknown_name_7f8724, &unknown_art_ac1194, (void **)&unknown_art_ac1198);
-        Unknown_006F3E70(unknown_value_8523e0, unknown_value_8523e4);
+        Unknown_006F3E70(VideoModeWidth, VideoModeHeight);
         unknown_flag_ac119c = true;
     }
     Unknown_006F34D0(surface, window);
@@ -125,7 +125,7 @@ void __fastcall Unknown_006F3650(Surface *surface, Rect const &window, bool arg3
     CC_Draw_Shape(surface, unknown_drawer_ac1188, unknown_shape_ac1044, 0, point, clip, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
     point.X = unknown_rect_ac11d0->X;
     point.Y = unknown_rect_ac11d0->Y;
-    if (unknown_value_8523e0 == 0x280) {
+    if (VideoModeWidth == 0x280) {
         CC_Draw_Shape(surface, unknown_drawer_ac1188, unknown_shape_ac10d8, 0, point, clip, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
     } else {
         CC_Draw_Shape(surface, unknown_drawer_ac1188, unknown_shape_ac1060, 0, point, clip, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));

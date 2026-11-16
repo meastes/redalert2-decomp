@@ -113,12 +113,12 @@
 // by HeaderStatics_empty_rect_init_0053f270.cpp; no source of its own.
 
 
-// bool unknown_53f460() (0x0053F460): returns the MainLoop flag at 0x00A6EB30.
+// bool Is_In_Main_Loop() (0x0053F460): returns the MainLoop flag at 0x00A6EB30.
 // This unit declares UnknownSessionA3D29C slot 34 with its argument (shared/unknown_globals.hpp).
 
-bool unknown_53f460()
+bool Is_In_Main_Loop()
 {
-    return unknown_main_loop_flag_a6eb30;
+    return InMainLoop;
 }
 
 
@@ -126,7 +126,7 @@ bool unknown_53f460()
 
 void Set_Main_Loop_Flag_0053f470()
 {
-    unknown_main_loop_flag_a6eb30 = true;
+    InMainLoop = true;
 }
 
 
@@ -134,7 +134,7 @@ void Set_Main_Loop_Flag_0053f470()
 
 void Clear_Main_Loop_Flag_0053f480()
 {
-    unknown_main_loop_flag_a6eb30 = false;
+    InMainLoop = false;
 }
 
 
@@ -226,13 +226,13 @@ void __fastcall Motion_Capture()
 }
 
 
-// void __fastcall Unknown_0053F780() (0x0053F780; traces "Disconnect_Gracefully")
+// void __fastcall Disconnect_Gracefully() (0x0053F780; traces "Disconnect_Gracefully")
 // In a game-mode 4 game with an active transport and the forwarding route: lets the
 // flagged connection's owner signal the router and waits up to 480 ticks for the
 // router to shut down, then sends NET_PORT_UNREACHABLE unless the session's slot 2
 // says otherwise. Do_Win, Do_Lose and 0x0053F840 call it at the end of a game.
 
-void __fastcall Unknown_0053F780()
+void __fastcall Disconnect_Gracefully()
 {
     Debug_Printf("Disconnect_Gracefully\n");
     if (unknown_game_mode_a3d298 == 4 && PacketTransport != 0 && unknown_flag_a3fba8) {
@@ -258,7 +258,7 @@ void __fastcall Unknown_0053F780()
 
 bool __fastcall Main_Loop_End_0053f840()
 {
-    if ((Frame & 0x3FF) == 0 && !Unknown_00491A10()) {
+    if ((Frame & 0x3FF) == 0 && !CheckProtectedData()) {
         OutList.Add(EventClass(PlayerPtr->ArrayIndex, 8));
     }
     if (player_wins_a35db1 || player_loses_a40c78 || player_restarts_866250 || player_aborts_a35db0) {
@@ -275,42 +275,42 @@ bool __fastcall Main_Loop_End_0053f840()
             }
         }
         if (player_wins_a35db1) {
-            if (unknown_game_mode_a3d298 == 4 && !unknown_flag_a417c8) {
-                if (unknown_b2a7ec != 0) {
+            if (unknown_game_mode_a3d298 == 4 && !GameStatisticsPacketSent) {
+                if (WestwoodOnline_Tournament != 0) {
                     unknown_flag_a3d8d1 = true;
                 }
                 Unknown_0069A160();
-                Unknown_00698D00(false);
+                Send_Statistics_Packet(false);
             }
             player_loses_a40c78 = false;
             player_wins_a35db1 = false;
             player_restarts_866250 = false;
             player_aborts_a35db0 = false;
-            Unknown_Reload_Art_Set_006F31B0();
-            unknown_session_a3d298.Unknown_00672E70();
+            Reload_Art_Set();
+            unknown_session_a3d298.Leave_Game();
             Do_Win_0065d7f0();
             unknown_session_a3d298.Unknown_00672DE0();
-            unknown_main_loop_flag_a6eb30 = false;
+            InMainLoop = false;
             if (ToolTips != 0) {
                 ToolTips->Enable(unknown_tooltips_enabled_a40b34);
             }
         } else if (player_loses_a40c78) {
-            if (unknown_game_mode_a3d298 == 4 && !unknown_flag_a417c8) {
-                if (unknown_b2a7ec != 0) {
+            if (unknown_game_mode_a3d298 == 4 && !GameStatisticsPacketSent) {
+                if (WestwoodOnline_Tournament != 0) {
                     unknown_flag_a3d8d1 = true;
                 }
                 Unknown_0069A160();
-                Unknown_00698D00(false);
+                Send_Statistics_Packet(false);
             }
             player_wins_a35db1 = false;
             player_loses_a40c78 = false;
             player_restarts_866250 = false;
             player_aborts_a35db0 = false;
-            Unknown_Reload_Art_Set_006F31B0();
-            unknown_session_a3d298.Unknown_00672E70();
+            Reload_Art_Set();
+            unknown_session_a3d298.Leave_Game();
             Do_Lose_0065dec0();
             unknown_session_a3d298.Unknown_00672DE0();
-            unknown_main_loop_flag_a6eb30 = false;
+            InMainLoop = false;
             if (ToolTips != 0) {
                 ToolTips->Enable(unknown_tooltips_enabled_a40b34);
             }
@@ -319,21 +319,21 @@ bool __fastcall Main_Loop_End_0053f840()
             player_loses_a40c78 = false;
             player_restarts_866250 = false;
             player_aborts_a35db0 = false;
-            unknown_session_a3d298.Unknown_00672E70();
+            unknown_session_a3d298.Leave_Game();
             Do_Restart_0065e440();
             unknown_session_a3d298.Unknown_00672DE0();
-            unknown_main_loop_flag_a6eb30 = false;
+            InMainLoop = false;
         } else if (player_aborts_a35db0) {
             player_wins_a35db1 = false;
             player_loses_a40c78 = false;
             player_restarts_866250 = false;
             player_aborts_a35db0 = false;
-            Unknown_Reload_Art_Set_006F31B0();
-            unknown_session_a3d298.Unknown_00672E70();
-            Unknown_0065e590();
+            Reload_Art_Set();
+            unknown_session_a3d298.Leave_Game();
+            Do_Abort();
             unknown_session_a3d298.Unknown_00672DE0();
-            unknown_main_loop_flag_a6eb30 = false;
-            Unknown_0053F780();
+            InMainLoop = false;
+            Disconnect_Gracefully();
         }
         unknown_a3fabc--;
     }
@@ -341,7 +341,7 @@ bool __fastcall Main_Loop_End_0053f840()
 }
 
 
-// bool __fastcall unknown_53fbd0() (0x0053FBD0; Westwood's Main_Loop): one game frame; true when
+// bool __fastcall Main_Loop() (0x0053FBD0; Westwood's Main_Loop): one game frame; true when
 // the game is over or a player flag ends it (0x0053F840 then runs the end-of-game handlers).
 // This unit declares UnknownSessionA3D29C slot 34 with its argument (shared/unknown_globals.hpp).
 
@@ -378,9 +378,9 @@ static inline void Do_Record_Playback()
             unknown_session_a3d298.RecordFile.Write(&tgt, sizeof(tgt));
         }
 
-        unknown_session_a3d298.RecordFile.Write(&unknown_team_event_a6ebc4, sizeof(unknown_team_event_a6ebc4));
+        unknown_session_a3d298.RecordFile.Write(&TeamEvent, sizeof(TeamEvent));
         unknown_session_a3d298.RecordFile.Write(&unknown_team_number_a6ebc8, sizeof(unknown_team_number_a6ebc8));
-        unknown_team_event_a6ebc4 = 0;
+        TeamEvent = 0;
         unknown_team_number_a6ebc8 = 0;
     }
 
@@ -398,7 +398,7 @@ static inline void Do_Record_Playback()
 
             unknown_session_a3d298.RecordFile.Read(&sum2, sizeof(sum2));
             if (sum2 != sum) {
-                Unknown_00482BC0();
+                Unselect_All();
             }
 
             AllowVoice = true;
@@ -418,7 +418,7 @@ static inline void Do_Record_Playback()
             AllowVoice = true;
         }
 
-        unknown_session_a3d298.RecordFile.Read(&unknown_team_event_a6ebc4, sizeof(unknown_team_event_a6ebc4));
+        unknown_session_a3d298.RecordFile.Read(&TeamEvent, sizeof(TeamEvent));
         unknown_session_a3d298.RecordFile.Read(&unknown_team_number_a6ebc8, sizeof(unknown_team_number_a6ebc8));
 
         Map.Flag_To_Redraw();
@@ -426,7 +426,7 @@ static inline void Do_Record_Playback()
     }
 }
 
-bool __fastcall unknown_53fbd0()
+bool __fastcall Main_Loop()
 {
     int input;
     int y;
@@ -436,7 +436,7 @@ bool __fastcall unknown_53fbd0()
         return !GameActive;
     }
 
-    unknown_main_loop_flag_a6eb30 = true;
+    InMainLoop = true;
 
     while (!GameInFocus) {
         if (unknown_session_a3d298.Type == 0 || unknown_session_a3d298.Type == 5) {
@@ -456,7 +456,7 @@ bool __fastcall unknown_53fbd0()
     unknown_process_timer_a3d56c = timeGetTime();
 
     if (unknown_session_a3d298.TrapCheckHeap) {
-        unknown_trap_check_heap_a40d1a = true;
+        Debug_Trap_Check_Heap = true;
     }
 
     if (TacticalActive == true && AudioDeviceAvailable()) {
@@ -476,16 +476,16 @@ bool __fastcall unknown_53fbd0()
 
     if (unknown_session_a3d298.Type != 0 && unknown_session_a3d298.Type != 5 && unknown_session_a3d2ac == 2) {
         if (unknown_session_a3d298.Play) {
-            unknown_frame_timer_839990 = 0;
+            FrameTimer = 0;
         } else {
             if (unknown_a3d568 == 0) {
-                unknown_frame_timer_839990 = 2;
-                unknown_net_frame_timer_839970 = 33;
+                FrameTimer = 2;
+                NetFrameTimer = 33;
             } else {
-                unknown_frame_timer_839990 = 60 / unknown_a3d568;
-                unknown_net_frame_timer_839970 = 1000 / unknown_a3d568;
+                FrameTimer = 60 / unknown_a3d568;
+                NetFrameTimer = 1000 / unknown_a3d568;
             }
-            unknown_net_frame_delay_a6ebcc = unknown_net_frame_timer_839970;
+            LastNetFrameTimer = NetFrameTimer;
 
             int maxahead = unknown_max_ahead_a3d560;
             int worst_latency = 0;
@@ -498,23 +498,23 @@ bool __fastcall unknown_53fbd0()
                     }
                     if (worst_latency) {
                         if (worst_latency >= maxahead / 4) {
-                            unknown_net_frame_timer_839970 = unknown_net_frame_timer_839970 + 10;
+                            NetFrameTimer = NetFrameTimer + 10;
                         }
                         if (worst_latency >= maxahead / 2) {
-                            unknown_net_frame_timer_839970 = unknown_net_frame_timer_839970 + 10;
+                            NetFrameTimer = NetFrameTimer + 10;
                         }
                         if (worst_latency >= (3 * maxahead) / 4) {
-                            unknown_net_frame_timer_839970 = unknown_net_frame_timer_839970 + 10;
+                            NetFrameTimer = NetFrameTimer + 10;
                         }
                     }
                 }
             }
         }
-    } else if (unknown_session_a3d298.Type == 0 && !unknown_flag_a40d84) {
+    } else if (unknown_session_a3d298.Type == 0 && !GameControlsShown) {
         unknown_a40b18 = 2;
-        unknown_frame_timer_839990 = 2;
+        FrameTimer = 2;
     } else {
-        unknown_frame_timer_839990 = unknown_a40b18;
+        FrameTimer = unknown_a40b18;
     }
 
     if (unknown_session_a3d298.Type == 0) {
@@ -528,13 +528,13 @@ bool __fastcall unknown_53fbd0()
             TacticalMap->AI();
             Map.Render();
             Sync_Delay();
-            unknown_main_loop_flag_a6eb30 = false;
+            InMainLoop = false;
             return !GameActive;
         }
     }
 
     if (!unknown_session_a3d298.Play) {
-        if (unknown_int_a40d48 == 0 && GameInFocus) {
+        if (SpecialDialog == 0 && GameInFocus) {
             Map.Get_Input(input, x, y);
             Keyboard_Process(input);
             if (unknown_flag_a3d8c4) {
@@ -543,7 +543,7 @@ bool __fastcall unknown_53fbd0()
             if ((Frame & 7) == 7 && unknown_session_a3d298.Type == 4) {
                 Ipx.Store_Stats();
             }
-            FoggedObjectClass::unknown_4c1ae0();
+            FoggedObjectClass::Update_Fogged_Objects();
             Map.Render();
         }
     }
@@ -568,28 +568,28 @@ bool __fastcall unknown_53fbd0()
         }
         strcat(name, ".sav");
         swprintf(description, L"[%s]", unknown_id_source_a3d290->Name);
-        Unknown_006554A0(name, description, 0);
+        Save_Game(name, description, 0);
     }
 
     unknown_list_832470.Unknown_0053D890();
 
-    int scroll = unknown_scroll_rate_7dfb70;
+    int scroll = ScrollSpeed;
     if (Main_Loop_Key_Down(KeyForceMove1) || Main_Loop_Key_Down(KeyForceMove2)) {
-        scroll = scroll * unknown_scroll_factor_7dfb74;
+        scroll = scroll * ScrollBoost;
     } else if (Main_Loop_Key_Down(KeyForceFire1) || Main_Loop_Key_Down(KeyForceFire2)) {
-        scroll = unknown_int_8325d0 > unknown_int_8325d4 ? unknown_int_8325d0 : unknown_int_8325d4;
+        scroll = unknown_int_8325d0 > MapSizeY ? unknown_int_8325d0 : MapSizeY;
         scroll <<= 8;
     }
-    if (unknown_scroll_keys_a6ebdc & 0x100) {
+    if (ScrollKeys & 0x100) {
         Map.Scroll_Map(6, &scroll, true);
     }
-    if (unknown_scroll_keys_a6ebdc & 0x1000) {
+    if (ScrollKeys & 0x1000) {
         Map.Scroll_Map(2, &scroll, true);
     }
-    if (unknown_scroll_keys_a6ebdc & 0x01) {
+    if (ScrollKeys & 0x01) {
         Map.Scroll_Map(0, &scroll, true);
     }
-    if (unknown_scroll_keys_a6ebdc & 0x10) {
+    if (ScrollKeys & 0x10) {
         Map.Scroll_Map(4, &scroll, true);
     }
 
@@ -610,13 +610,13 @@ bool __fastcall unknown_53fbd0()
             UnlockInputFrame = 0;
         }
         Sync_Delay();
-        Unknown_006ecf10();
-        Unknown_00614010();
-        unknown_main_loop_flag_a6eb30 = false;
+        Process_Deferred_Deletion();
+        Planning_Update();
+        InMainLoop = false;
         return !GameActive;
     }
 
-    unknown_main_loop_flag_a6eb30 = false;
+    InMainLoop = false;
     return true;
 }
 
@@ -668,33 +668,33 @@ void __fastcall Keyboard_Process(int &input)
     }
     if (key == 0x25) {
         if (input & 0x800) {
-            unknown_scroll_keys_a6ebdc &= ~0x100;
+            ScrollKeys &= ~0x100;
         } else {
-            unknown_scroll_keys_a6ebdc |= 0x100;
+            ScrollKeys |= 0x100;
         }
         return;
     }
     if (key == 0x27) {
         if (input & 0x800) {
-            unknown_scroll_keys_a6ebdc &= ~0x1000;
+            ScrollKeys &= ~0x1000;
         } else {
-            unknown_scroll_keys_a6ebdc |= 0x1000;
+            ScrollKeys |= 0x1000;
         }
         return;
     }
     if (key == 0x26) {
         if (input & 0x800) {
-            unknown_scroll_keys_a6ebdc &= ~0x01;
+            ScrollKeys &= ~0x01;
         } else {
-            unknown_scroll_keys_a6ebdc |= 0x01;
+            ScrollKeys |= 0x01;
         }
         return;
     }
     if (key == 0x28) {
         if (input & 0x800) {
-            unknown_scroll_keys_a6ebdc &= ~0x10;
+            ScrollKeys &= ~0x10;
         } else {
-            unknown_scroll_keys_a6ebdc |= 0x10;
+            ScrollKeys |= 0x10;
         }
     }
 }
@@ -704,15 +704,15 @@ void __fastcall Keyboard_Process(int &input)
 
 void __fastcall Sync_Delay()
 {
-    unknown_spare_ticks_a4031c += unknown_frame_timer_839990.Value();
+    SpareTicks += FrameTimer.Value();
     if (unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5) {
-        while (unknown_net_frame_timer_839970.Value()) {
+        while (NetFrameTimer.Value()) {
             Service_Game_IO_00481fb0();
-            if (unknown_int_a40d48 == 0 && GameInFocus == true) {
+            if (SpecialDialog == 0 && GameInFocus == true) {
                 int input = 0;
                 int x;
                 int y;
-                if (unknown_net_frame_timer_839970.Value() > 10) {
+                if (NetFrameTimer.Value() > 10) {
                     Map.Get_Input(input, x, y);
                     Keyboard_Process(input);
                     TacticalMap->AI();
@@ -720,25 +720,25 @@ void __fastcall Sync_Delay()
                 } else {
                     Sleep(0);
                 }
-                if (!unknown_net_frame_timer_839970.Value()) {
+                if (!NetFrameTimer.Value()) {
                     break;
                 }
             }
             Sleep(0);
         }
     } else {
-        if (unknown_frame_timer_839990.Value()) {
+        if (FrameTimer.Value()) {
             Wait_For_Surface_Blit_004961d0();
-            while (unknown_frame_timer_839990.Value()) {
-                Sleep(unknown_frame_timer_839990.Value());
+            while (FrameTimer.Value()) {
+                Sleep(FrameTimer.Value());
             }
         }
     }
 
     static CDTimerClass<SystemTimerClass> fps_timer;
     if (!fps_timer) {
-        unknown_a6eb1c = unknown_frames_this_second_a6eb18;
-        unknown_frames_this_second_a6eb18 = 0;
+        unknown_a6eb1c = FramesThisSecond;
+        FramesThisSecond = 0;
         accumulated_fps_00a6eb20 += unknown_a6eb1c;
         fps_sample_count_00a6eb24++;
         if (accumulated_fps_00a6eb20 > 0x7FFFFFFF) {
@@ -809,15 +809,15 @@ void __fastcall Message_Input(int &input)
             } else {
                 swprintf(txt, StringTable::Load_String("TXT_FROM", 0, "D:\\Ra2\\MainLoop.CPP", 1798), PlayerPtr->UIName);
                 if (ascii == '\r') {
-                    unknown_chat_target_a6ebe0 = 1;
+                    ChatTarget = 1;
                 } else if (ascii == '\\') {
-                    unknown_chat_target_a6ebe0 = 3;
+                    ChatTarget = 3;
                 } else if (ascii == '\b') {
-                    unknown_chat_target_a6ebe0 = 2;
+                    ChatTarget = 2;
                 }
             }
             input = 0;
-            int color = unknown_session_a3d298.Unknown_006715D0(unknown_a3d3b4);
+            int color = unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4);
             TextLabelClass *label = unknown_session_a3d298.Messages.Add_Edit(color, 0x4046, txt, 0, beacon ? 10000 : -1);
             if (beacon) {
                 if (label) {
@@ -842,7 +842,7 @@ void __fastcall Message_Input(int &input)
     } else if (rc == 2 && unknown_session_a3d298.Type != 0) {
         if (copy_input == 0x1B) {
             Map.Flag_To_Redraw(2);
-            unknown_chat_target_a6ebe0 = 0;
+            ChatTarget = 0;
         } else {
             Map.Flag_To_Redraw(false);
         }
@@ -909,15 +909,15 @@ void __fastcall Message_Input(int &input)
                         if (wcslen(name) == 0) {
                             unknown_session_a3d298.Messages.Add_Message(0, -1,
                                 StringTable::Load_String("TXT_NO_NAME_SPECIFIED", 0, "D:\\Ra2\\MainLoop.CPP", 2000),
-                                unknown_session_a3d298.Unknown_006715D0(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
+                                unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
                         } else if (wcslen(p) == 0) {
                             unknown_session_a3d298.Messages.Add_Message(0, -1,
                                 StringTable::Load_String("TXT_CANT_SEND_BLANK_PAGE", 0, "D:\\Ra2\\MainLoop.CPP", 2005),
-                                unknown_session_a3d298.Unknown_006715D0(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
+                                unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
                         } else {
                             swprintf(command2, L"%s > %s", unknown_players_a3fa7c[0]->Name, name);
                             unknown_session_a3d298.Messages.Add_Message(command2, unknown_a3d3b4, p,
-                                unknown_session_a3d298.Unknown_006715D0(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
+                                unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
                         }
                         if (rc == 4) {
                             wchar_t *buf = unknown_session_a3d298.Messages.Get_Edit_Buf();
@@ -956,18 +956,18 @@ void __fastcall Message_Input(int &input)
                         while (*p != 0 && wcsncmp(p, L" ", 1) == 0) {
                             p++;
                         }
-                        swprintf(prefix, L"%s > %s", unknown_players_a3fa7c[0]->Name, Narrow_To_Wide_006fa180(unknown_last_pager_b2ac48));
-                        if (wcslen(Narrow_To_Wide_006fa180(unknown_last_pager_b2ac48)) == 0) {
+                        swprintf(prefix, L"%s > %s", unknown_players_a3fa7c[0]->Name, Narrow_To_Wide_006fa180(LastPagerName));
+                        if (wcslen(Narrow_To_Wide_006fa180(LastPagerName)) == 0) {
                             unknown_session_a3d298.Messages.Add_Message(0, unknown_a3d3b4,
                                 StringTable::Load_String("TXT_NAME_NOT_SPECIFIED", 0, "D:\\Ra2\\MainLoop.CPP", 2069),
-                                unknown_session_a3d298.Unknown_006715D0(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
+                                unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
                         } else if (wcslen(p) > 0) {
                             unknown_session_a3d298.Messages.Add_Message(prefix, unknown_a3d3b4, p,
-                                unknown_session_a3d298.Unknown_006715D0(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
+                                unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
                         } else {
                             unknown_session_a3d298.Messages.Add_Message(0, unknown_a3d3b4,
                                 StringTable::Load_String("TXT_CANT_SEND_BLANK_PAGE", 0, "D:\\Ra2\\MainLoop.CPP", 2082),
-                                unknown_session_a3d298.Unknown_006715D0(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
+                                unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
                         }
                         if (rc == 4) {
                             wchar_t *buf = unknown_session_a3d298.Messages.Get_Edit_Buf();
@@ -997,7 +997,7 @@ void __fastcall Message_Input(int &input)
                 }
                 strcpy(unknown_session_a3d298.GPacket.Name, Wide_To_Narrow_006fa120(unknown_players_a3fa7c[0]->Name));
                 unknown_session_a3d298.GPacket.Message.unknown_110 = unknown_session_a3d298.unknown_11c;
-                unknown_session_a3d298.GPacket.Message.unknown_114 = Unknown_005bba50(unknown_session_a3d298.HostName_2380);
+                unknown_session_a3d298.GPacket.Message.unknown_114 = Compute_Name_CRC_W(unknown_session_a3d298.HostName_2380);
                 unknown_session_a3d298.GPacket.Message.unknown_2f = 0;
                 if (rc == 3) {
                     wcscpy(unknown_session_a3d298.GPacket.Message.Buf, unknown_session_a3d298.Messages.Get_Edit_Buf());
@@ -1007,17 +1007,17 @@ void __fastcall Message_Input(int &input)
                 }
 
                 count = Houses.Count();
-                if (MuteSWLaunches && (unknown_chat_target_a6ebe0 == 1 || unknown_chat_target_a6ebe0 == 2)) {
+                if (MuteSWLaunches && (ChatTarget == 1 || ChatTarget == 2)) {
                     for (i = 0; i < count; i++) {
                         HouseClass *house = Houses[i];
                         if (house && house->Type->Multiplay
-                            && ((!unknown_flags_a3f118[i] && unknown_chat_target_a6ebe0 == 1)
-                                || (!Houses[unknown_players_a3fa7c[0]->ID]->Is_Ally(house) && unknown_chat_target_a6ebe0 == 2))) {
+                            && ((!unknown_flags_a3f118[i] && ChatTarget == 1)
+                                || (!Houses[unknown_players_a3fa7c[0]->ID]->Is_Ally(house) && ChatTarget == 2))) {
                             int scheme = Gadget_Color_Scheme();
                             unknown_session_a3d298.Messages.Add_Message(0, 0,
                                 StringTable::Load_String("TXT_OBSERVER_CANT_SEND", 0, "D:\\Ra2\\MainLoop.CPP", 2167),
                                 scheme, 0x16, (int)(Rules->MessageDelay * 900.0), true);
-                            unknown_chat_target_a6ebe0 = 0;
+                            ChatTarget = 0;
                             break;
                         }
                     }
@@ -1026,16 +1026,16 @@ void __fastcall Message_Input(int &input)
                 for (i = 0; i < count; i++) {
                     HouseClass *house = Houses[i];
                     if (house && house->Type->Multiplay
-                        && ((unknown_flags_a3f118[i] && unknown_chat_target_a6ebe0 == 1)
-                            || (Houses[unknown_players_a3fa7c[0]->ID]->Is_Ally(house) && unknown_chat_target_a6ebe0 == 2)
-                            || unknown_chat_target_a6ebe0 == 3)) {
+                        && ((unknown_flags_a3f118[i] && ChatTarget == 1)
+                            || (Houses[unknown_players_a3fa7c[0]->ID]->Is_Ally(house) && ChatTarget == 2)
+                            || ChatTarget == 3)) {
                         int connections = Ipx.Num_Connections();
                         for (int j = 0; j < connections; j++) {
                             int id = Ipx.Connection_ID(j);
                             if (wcscmp(house->UIName, Ipx.Connection_Name(id)) == 0) {
                                 IPXAddressClass *address = Ipx.Connection_Address(id);
                                 if (unknown_flag_a3fba8) {
-                                    unknown_session_a3d298.GPacket.Message.unknown_2f |= OwnerTalk.Unknown_0063F4C0(id);
+                                    unknown_session_a3d298.GPacket.Message.unknown_2f |= OwnerTalk.Mask_From_ID(id);
                                 } else {
                                     Ipx.Send_Global_Message(&unknown_session_a3d298.GPacket, 0x1C7, 1, address, 0, 0);
                                     Ipx.Service();
@@ -1053,7 +1053,7 @@ void __fastcall Message_Input(int &input)
 
                 wchar_t *from = Narrow_To_Wide_006fa180(unknown_session_a3d298.GPacket.Name);
                 unknown_session_a3d298.Messages.Add_Message(from, unknown_session_a3d298.GPacket.Message.unknown_110,
-                    unknown_session_a3d298.GPacket.Message.Buf, unknown_session_a3d298.Unknown_006715D0(unknown_session_a3d298.GPacket.Message.unknown_110),
+                    unknown_session_a3d298.GPacket.Message.Buf, unknown_session_a3d298.Color_Index_To_Scheme(unknown_session_a3d298.GPacket.Message.unknown_110),
                     0x4046, (int)(Rules->MessageDelay * 900.0), false);
                 wcscpy(unknown_last_message_a3f122, unknown_session_a3d298.GPacket.Message.Buf);
             }
@@ -1062,7 +1062,7 @@ void __fastcall Message_Input(int &input)
     }
 
     if (rc == 3) {
-        unknown_chat_target_a6ebe0 = 0;
+        ChatTarget = 0;
     }
 }
 
@@ -1077,8 +1077,8 @@ extern bool unknown_debug_display_a3d8c5;               // 0x00A3D8C5 (Multiplay
 
 void __fastcall Draw_Multiplayer_Debug(bool noframecheck)
 {
-    if (unknown_time_7ec498 != -1) {
-        double seconds = unknown_time_7ec498 * 0.001;
+    if (DebugTime != -1) {
+        double seconds = DebugTime * 0.001;
         Fancy_Text_Printf(L"%.2f", CompositeSurface, &Rect(0, 0, 500, 15), &Point2D(100, 0),
             ColorSchemes[Gadget_Color_Scheme()], 0x1F, 6, seconds, unknown_id_source_a3d290->FileName);
     }
@@ -1120,11 +1120,11 @@ void __fastcall Draw_Multiplayer_Debug(bool noframecheck)
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 362),
             Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
-        swprintf(buffer, L"NFT : %d", unknown_net_frame_timer_839970);
+        swprintf(buffer, L"NFT : %d", NetFrameTimer);
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 372),
             Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
-        swprintf(buffer, L"LNFT : %d", unknown_net_frame_delay_a6ebcc);
+        swprintf(buffer, L"LNFT : %d", LastNetFrameTimer);
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 382),
             Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 

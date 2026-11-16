@@ -5,7 +5,7 @@
 #define RA2_SHARED_VOXEL_DRAW_SYSTEM_HPP
 class Surface;
 class BSurface;
-extern BSurface unknown_surface_ae0db8;
+extern BSurface VoxelSurface;
 namespace VoxelDrawSystem {
     Surface *Get_Surface(); // original0x00717040
 }

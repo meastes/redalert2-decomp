@@ -118,7 +118,7 @@ void __fastcall Dump_Exception_004b7df0(_EXCEPTION_POINTERS *information);
 // @ref ?Debug_Printf@@YAXPBDZZ=004068f0
 // @ref ?Get_CPU_Info@@YIXPAHPAEPADI@Z=004d2a20
 // @ref ?Get_CPU_Type_Name@@YIPBDXZ=004d2b80
-// @ref ?unknown_cpu_text_8015a5@@3PADA=008015a5
+// @ref ?VendorID@@3PADA=008015a5
 // @ref ?Build_Time_Text@@YIXPADH@Z=00737a60
 // @ref ?Build_Number_String@@YIPADPADH@Z=00737ad0
 // @ref ?Build_By_String_00737b00@@YIPADPADH@Z=00737b00
@@ -284,7 +284,7 @@ void __fastcall Dump_Exception_004b7df0(_EXCEPTION_POINTERS *information)
     int cpu_type = 5;
     unsigned char mmx = false;
     Get_CPU_Info(&cpu_type, &mmx, 0, 0);
-    wsprintfA(scrap, "CPU %s, MMX %s, Vendor: %s\r\n", Get_CPU_Type_Name(), mmx ? "Yes" : "No", unknown_cpu_text_8015a5);
+    wsprintfA(scrap, "CPU %s, MMX %s, Vendor: %s\r\n", Get_CPU_Type_Name(), mmx ? "Yes" : "No", VendorID);
     Add_Txt(scrap);
 
     Add_Txt("\r\nDetails:\r\n");

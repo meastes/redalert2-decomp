@@ -348,7 +348,7 @@ void RadSiteClass::Unknown_00637A80()
             Cell cell(x, y);
             double level = Get_Rad_Level_At(cell);
             RadSiteCell &target = (RadSiteCell &)Map[cell];
-            target.Unknown_0047CEA0(level);
+            target.RadLevel_Increase(level);
         }
     }
 }
@@ -372,7 +372,7 @@ void RadSiteClass::Unknown_00637C10()
             double level = Get_Rad_Level_At(cell);
             level = level / unknown_50 * steps;
             RadSiteCell &target = (RadSiteCell &)Map[cell];
-            target.Unknown_0047CEC0(level);
+            target.RadLevel_Decrease(level);
         }
     }
 }
@@ -391,7 +391,7 @@ void RadSiteClass::Unknown_00637DC0()
             double level = Get_Rad_Level_At(cell);
             level /= unknown_50;
             RadSiteCell &target = (RadSiteCell &)Map[cell];
-            target.Unknown_0047CEC0(level);
+            target.RadLevel_Decrease(level);
         }
     }
 }

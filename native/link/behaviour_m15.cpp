@@ -71,7 +71,7 @@ char LoadOptionsClass::Load_Dialog_0053b190()
         if (dialog) {
             ra2port_set_dialog_user(dialog, this);   // DWL_USER, pointer-sized natively
             if (HWND list = GetDlgItem(dialog, 0x525)) Fill_List_0053c040(list);
-            unknown_dialog_5ff7c0(dialog);
+            Display_Dialog(dialog);
             ShowWindow(dialog, 0);
         }
         // The disk the row's game needs, as Dialog does before its Load.
@@ -96,7 +96,7 @@ char LoadOptionsClass::Load_Dialog_0053b190()
             // loaded saved again at once, before any frame runs, for the save comparison
             // (tools/original_save_compare.py): what differs is the writing, not play.
             if (char const *again = getenv("RA2_NATIVE_SAVE_AFTER_LOAD")) {
-                bool saved = Unknown_006554A0(again, L"Native C17 save after load", 0);
+                bool saved = Save_Game(again, L"Native C17 save after load", 0);
                 fprintf(stderr, "resume: %s %s after the load\n", saved ? "saved" : "could not save", again);
             }
             return true;

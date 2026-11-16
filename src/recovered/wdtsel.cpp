@@ -896,7 +896,7 @@ void Selection::Start_Theme()
     HiddenSurface->Fill(0);
     VisibleSurface->Copy_From(*HiddenSurface, false, true);
     WWKeyboard->Clear();
-    TheMap->unknown_72a620(this, &TheVoices);
+    TheMap->Start_Intro(this, &TheVoices);
     while (WWMouse->Get_Mouse_State() < 0) {
         WWMouse->Show_Mouse();
     }

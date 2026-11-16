@@ -11,7 +11,7 @@
 #include "shared/map_preview.hpp"
 #include "shared/crt_string.hpp"
 extern "C" int __cdecl sscanf(char const *,char const *,...);
-extern bool unknown_random_preview_7e6dc0;
+extern bool IsRandomMap;
 extern char port_debug_7fe030[],options_debug_7fdfd0[],preview_debug_7fdf98[],hex_format_7db4b0[],comma_7ce9c0[];
 
 void __fastcall Unknown_0073c480();
@@ -137,7 +137,7 @@ HRESULT __stdcall CChatEventSink::OnPrivateGameOptions(HRESULT,WOL::User *user,c
             if(country_changed) unknown_player_slots_a3fa98[index]->Set_Country(country);
             bool color_changed=unknown_player_slots_a3fa98[index]->unknown_66e2a0()!=color;
             if(color_changed) {
-                if(unknown_session_a3d298.Unknown_006728D0(color)) color=-2;
+                if(unknown_session_a3d298.Is_Color_Used(color)) color=-2;
                 unknown_player_slots_a3fa98[index]->unknown_66e300(color);
             }
             if(!country_changed && !color_changed) goto request_done;
@@ -154,7 +154,7 @@ request_done:
         if(unknown_users_b2a728.Count>=2) {
             WOL::User temp;
             WOL::User *host=Unknown_0074DA60();
-            if(host && !_stricmp(host->name,unknown_wstring_b26cb8.Peek_Buffer()) && !unknown_b2ac40 && unknown_channel_b299c0.unknown_00 && MultiplayerMapPreview && MultiplayerMapPreview->Is_Present() && unknown_random_preview_7e6dc0) {
+            if(host && !_stricmp(host->name,unknown_wstring_b26cb8.Peek_Buffer()) && !unknown_b2ac40 && unknown_channel_b299c0.unknown_00 && MultiplayerMapPreview && MultiplayerMapPreview->Is_Present() && IsRandomMap) {
                 int found=unknown_users_b2a728.Find_Name(user->name);
                 if(found!=-1) {
                     unknown_users_b2a728.Get_Copy(temp,found);temp.next=0;
@@ -170,7 +170,7 @@ request_done:
     return S_OK;
 }
 
-// @ref ?unknown_random_preview_7e6dc0=007e6dc0
+// @ref ?IsRandomMap=007e6dc0
 // @ref ?port_debug_7fe030=007fe030
 // @ref ?options_debug_7fdfd0=007fdfd0
 // @ref ?preview_debug_7fdf98=007fdf98

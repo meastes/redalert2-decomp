@@ -62,6 +62,6 @@ public:
 };
 
 // The game's firewall settings (0x00A71B18; dynamic initializer 0x005B9E40).
-extern FirewallSettings unknown_firewall_a71b18;
+extern FirewallSettings FirewallHelper;
 
 #endif

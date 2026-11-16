@@ -303,7 +303,7 @@ Surface *__fastcall Read_PCX_File(FileClass *file, PaletteClass *palette, int un
 
 // Shape draw flags for the fade levels 0..3 (0x007E57F0: 0x406, 0x404,
 // 0x402, 0x400; translucency bits over 0x400 as in MSShapeAnim::Draw).
-extern int unknown_fade_flags_7e57f0[4];
+extern int FadeStages[4];
 
 // Shape or null; *allocated tells whether it was loaded into a new block
 // (0x00495310, __fastcall; hypothesis).

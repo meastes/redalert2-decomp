@@ -138,6 +138,6 @@ extern DynamicVectorClass<WarheadTypeClass *> unknown_WarheadTypeClass_list_0083
 // The damage a warhead does to an armor type at a distance (0x0047E1C0;
 // fastcall: damage, warhead, then armor and distance on the stack;
 // ObjectClass::Damage and TechnoClass 0x006CA6C0).
-int __fastcall Unknown_0047E1C0(int damage, WarheadTypeClass *warhead, int armour, int distance);
+int __fastcall Modify_Damage(int damage, WarheadTypeClass *warhead, int armour, int distance);
 
 #endif

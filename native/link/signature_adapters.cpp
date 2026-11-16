@@ -174,9 +174,9 @@ extern "C" void ra2_adapter_0039(void * a0, void * a1, int a2, int a3) { ra2_ada
 extern "C" void ra2_adapter_target_0040(void) __asm__("__Z19Hicolor_Clear_Tablev");
 extern "C" void ra2_adapter_0040(void * a0) __asm__("__ZN8VQAClass16Unknown_0070B7D0Ev");
 extern "C" void ra2_adapter_0040(void * a0) { ra2_adapter_target_0040(); }
-// 0x00715FB0 Unknown_Play_Taunt_00715fb0(char) -> Taunt_Play(int) [result ignored, width]
+// 0x00715FB0 Play_Taunt(char) -> Taunt_Play(int) [result ignored, width]
 extern "C" int ra2_adapter_target_0041(int) __asm__("__Z10Taunt_Playi");
-extern "C" void ra2_adapter_0041(signed char a0) __asm__("__Z27Unknown_Play_Taunt_00715fb0c");
+extern "C" void ra2_adapter_0041(signed char a0) __asm__("__Z10Play_Tauntc");
 extern "C" void ra2_adapter_0041(signed char a0) { ra2_adapter_target_0041((int)(unsigned int)(int)a0); }
 // 0x00729510 WorldDominationTour::Map::Load(INIClass&, MSEngine*, bool) -> WorldDominationTour::Map::Load(INIClass&, MSEngine*, int) [width]
 extern "C" void ra2_adapter_target_0042(void *, void *, void *, int) __asm__("__ZN19WorldDominationTour3Map4LoadER8INIClassP8MSEnginei");

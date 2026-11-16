@@ -78,8 +78,8 @@ int MapClass::Zone_Reset()
 
     for (i = ZoneConnections.Count() - 1; i >= 0; i--) {
         if (ZoneConnections[i].unknown_08) {
-            int from_zone = Unknown_0054FA60(ZoneConnections[i].From);
-            int to_zone = Unknown_0054FA60(ZoneConnections[i].To);
+            int from_zone = Get_Cell_Zone_ID(ZoneConnections[i].From);
+            int to_zone = Get_Cell_Zone_ID(ZoneConnections[i].To);
             if (to_zone != from_zone) {
                 if (to_zone < from_zone) {
                     int temp = to_zone;

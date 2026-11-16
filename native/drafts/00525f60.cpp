@@ -86,9 +86,9 @@ int IPXManagerClass::Service()
                                                 unknown_players_a3fa7c[player]->Address=address;
                                                 unknown_players_a3fa7c[player]->Address.Set_Port(port);
                                                 OwnerTalk.Unknown_0063F9A0(unknown_players_a3fa7c[player]->ID,&unknown_players_a3fa7c[player]->Address);
-                                                int slot=unknown_session_a3d298.Unknown_00672F90(player);
+                                                int slot=unknown_session_a3d298.Player_To_Slot(player);
                                                 unknown_player_slots_a3fa98[slot]->Address=address;
-                                                slot=unknown_session_a3d298.Unknown_00672F90(player);
+                                                slot=unknown_session_a3d298.Player_To_Slot(player);
                                                 unknown_player_slots_a3fa98[slot]->Address.Set_Port(port);
                                                 for (int connection=0;connection<NumConnections;++connection) {
                                                     if (_stricmp(Wide_To_Narrow_006fa120(Connection[connection]->Name),player_name)==0) {
@@ -136,7 +136,7 @@ int IPXManagerClass::Service()
 check_address:
                             matches=Connection[connection]->Address==address;
                         } else {
-                            matches=OwnerTalk.Unknown_0063F4C0(Connection[connection]->ID)==packet->unknown_03;
+                            matches=OwnerTalk.Mask_From_ID(Connection[connection]->ID)==packet->unknown_03;
                             if (!matches && !unknown_flag_a3fba8) goto check_address;
                         }
                         if (matches) {

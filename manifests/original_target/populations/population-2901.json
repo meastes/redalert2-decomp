@@ -4,8 +4,8 @@
     "id": "population-2901",
     "inventory_sha256": "7a4bcd748fff044930b63d35a555522765978ba40ff159ceb1102de27904f8f8",
     "gaps_sha256": "b710f9ba91fd6a3db8feaed826193e35fd7b87bfd3693b3d58aa720aa14120ad",
-    "historical_population_sha256": "5ae201c35365e072d9c43d3fe6ea0aeae6ef03954104d25dcc9c60099b7c5f1b",
-    "historical_acceptance_sha256": "27bec58b8a5a77c4b876c1b6e44eb9b389598332947a77652197fc19b6110696"
+    "historical_population_sha256": "6dcb39307ec2bec44dbe4e57bad82936e29ff09015c7ee979c80ed8ec54d9ab1",
+    "historical_acceptance_sha256": "80ad3b9d925dabd5a736c4a7403d979fec2238d7115a07a19008019b75948c90"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -2523,7 +2523,7 @@
     "__real@8@3ffc8000000000000000": 8055960,
     "__real@8@4002c000000000000000": 8019480,
     "__real@8@3ffdfae147ae147ae000": 8020048,
-    "?unknown_47e2b0@Cell@@QAEXXZ": 4711088,
+    "?Chain_Reaction_Damage@Cell@@QAEXXZ": 4711088,
     "??0FoggedObjectClass@@QAE@ABVNoInitClass@@@Z": 4980688,
     "??_7FoggedObjectClass@@6BIPersistStream@@@": 7999816,
     "??_7FoggedObjectClass@@6BIRTTITypeInfo@@@": 7999788,
@@ -2819,8 +2819,8 @@
     "?Collect_Neighbor_Regions_005709c0@MapRegionClass@@QAEXXZ": 5704128,
     "?unknown_map_region_next_index_a70a28@@3HA": 10947112,
     "?Collect_Boundary_Cells_0056ed10@MapRegionClass@@QAEPAV?$DynamicVectorClass@VCell@@@@XZ": 5696784,
-    "?unknown_map_cells_a70a24@@3PAUUnknownMapGenerationCell@@A": 10947108,
-    "?unknown_map_cell_side_84e804@@3HA": 8710148,
+    "?RMGCellData@@3PAUUnknownMapGenerationCell@@A": 10947108,
+    "?MapCellStride@@3HA": 8710148,
     "?Place_Bridge_Hut@MapRegionClass@@QAE_NABVRect@@@Z": 5709232,
     "?Load@AlphaShapeClass@@UAGJPAUIStream@@@Z": 4321376,
     "?Resize@?$DynamicVectorClass@G@@UAE_NHPBG@Z": 4371184,

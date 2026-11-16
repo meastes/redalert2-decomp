@@ -36,7 +36,7 @@ extern DynamicVectorClass<TerrainTypeClass *> TerrainTypes;
 // The occupation lists by foundation (0x00AC0430, ten cells each, ended by
 // 0x7FFF, 0x7FFF); TerrainType.cpp defines and initializes them
 // (0x006E4D60; not recovered).
-extern Cell unknown_foundation_lists_ac0430[][10];
+extern Cell _OccupyLists[][10];
 
 class TerrainTypeClass : public ObjectTypeClass {
 public:

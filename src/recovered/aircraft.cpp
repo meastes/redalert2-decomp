@@ -129,7 +129,7 @@ AircraftClass::AircraftClass(AircraftTypeClass *type, HouseClass *house) :
     }
     Init();
     Aircraft.Add(this);
-    unknown_object_index_abff58.Add_Index(Fetch_ID(), this);
+    TargetTracker.Add_Index(Fetch_ID(), this);
 }
 
 
@@ -187,7 +187,7 @@ AircraftClass::~AircraftClass()
     }
     Unknown_006ECB90(this, true);
     Aircraft.Delete(this);
-    unknown_object_index_abff58.Remove_Index(Fetch_ID());
+    TargetTracker.Remove_Index(Fetch_ID());
     IsActive = false;
 }
 
@@ -380,7 +380,7 @@ int AircraftClass::Do_MISSION_HUNT()
 
 
 // AircraftClass AI 0x004147F0. Unknown fields retain observed offsets; behavior names remain hypotheses.
-extern CellClass unknown_dummy_cell_a6f9f8;
+extern CellClass BlubCell;
 void AircraftClass::AI()
 {
     switch (Mission) {
@@ -437,12 +437,12 @@ void AircraftClass::AI()
         Delete_Me();
         return;
     }
-    if (unknown_494 == &unknown_dummy_cell_a6f9f8) {
+    if (unknown_494 == &BlubCell) {
         Assign_Destination(0, true);
         unknown_slot220(0);
         unknown_slot261(false, true);
     }
-    if (unknown_228 == &unknown_dummy_cell_a6f9f8) {
+    if (unknown_228 == &BlubCell) {
         Assign_Destination(0, true);
         unknown_slot220(0);
         unknown_slot261(false, true);
@@ -2767,14 +2767,14 @@ void __fastcall AircraftClass::Read_INI_0041A840(CCINIClass &ini)
 
 HRESULT __stdcall AircraftClass::Load(IStream *stream)
 {
-    unknown_object_index_abff58.Remove_Index(Fetch_ID());
+    TargetTracker.Remove_Index(Fetch_ID());
     HRESULT result = FootClass::Load(stream);
     if (SUCCEEDED(result)) {
         ILocomotion *locomotor = Locomotor;
         new (this) AircraftClass(NoInitClass());
         Locomotor = locomotor;
         locomotor->Release();
-        unknown_object_index_abff58.Add_Index(Fetch_ID(), this);
+        TargetTracker.Add_Index(Fetch_ID(), this);
         Swizzle_Pointer(Type);
         Swizzle_Pointer(unknown_5b4);
         result = S_OK;

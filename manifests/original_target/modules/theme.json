@@ -1629,6 +1629,14 @@
    "address": "00406f30"
   },
   {
+   "symbol": "?AudioFadeAttribs@@3PAUAudioLevelSet@@A",
+   "address": "00831464"
+  },
+  {
+   "symbol": "?AudioScoreAttribs@@3PAUAudioLevelSet@@A",
+   "address": "00831454"
+  },
+  {
    "symbol": "?AudioStreamerDestroy@@YIXPAX@Z",
    "address": "004079c0"
   },
@@ -1699,6 +1707,10 @@
   {
    "symbol": "?Debug_Printf@@YAXPBDZZ",
    "address": "004068f0"
+  },
+  {
+   "symbol": "?Debug_Quiet@@3DA",
+   "address": "00a40d0c"
   },
   {
    "symbol": "?Delete@RawFileClass@@UAEHXZ",
@@ -1809,6 +1821,10 @@
    "address": "00a40774"
   },
   {
+   "symbol": "?ScoresPresent@@3DA",
+   "address": "00a40c18"
+  },
+  {
    "symbol": "?Seek@BufferIOFileClass@@UAEJJH@Z",
    "address": "0042fc90"
   },
@@ -1857,20 +1873,8 @@
    "address": "00469030"
   },
   {
-   "symbol": "?unknown_audio_levels_831454@@3PAUAudioLevelSet@@A",
-   "address": "00831454"
-  },
-  {
-   "symbol": "?unknown_audio_levels_831464@@3PAUAudioLevelSet@@A",
-   "address": "00831464"
-  },
-  {
    "symbol": "?unknown_flag_a40b51@@3_NA",
    "address": "00a40b51"
-  },
-  {
-   "symbol": "?unknown_flag_a40d0c@@3DA",
-   "address": "00a40d0c"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
@@ -1879,10 +1883,6 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_sound_enabled_a40c18@@3DA",
-   "address": "00a40c18"
   },
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",

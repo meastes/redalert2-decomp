@@ -1,4 +1,4 @@
-// NON-EXACT DRAFT 0x4994D0 DisplayClass::Unknown_004994D0 (TibSun Set_Cursor_Pos)
+// NON-EXACT DRAFT 0x4994D0 DisplayClass::Set_Cursor_Pos (TibSun Set_Cursor_Pos)
 // entry 0x4994D0; exact-match score 78.48 (misses_index best, Scout620/Scout1075).
 // plan "draft, verify". Origin: build/class-work/Scout1075/keep/scp_k6_natural_7848.cpp.
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by Scout1115
@@ -7,7 +7,7 @@
 // Native adaptation (Scout1115): the radar's cell under the mouse (RadarClass slot 51, which this
 // unit's light MouseClass does not declare) through native/link/behaviour_m13_commands.cpp's
 // Native_Radar_Cell_At; unknown_a40d13 is HEAD's Debug_Map (0x00A40D13). Marked NATIVE.
-// Cell DisplayClass::Unknown_004994D0(Cell const &xpos) (0x004994D0)
+// Cell DisplayClass::Set_Cursor_Pos(Cell const &xpos) (0x004994D0)
 // TibSun DisplayClass::Set_Cursor_Pos: moves the placement cursor (zone cell +0x1170) to a cell, or to the
 // cell under the mouse for the null cell, re-marks the cursor list (+0x1178) and recomputes the proximity
 // (+0x117C) and shroud (+0x117D) checks for the pending object (+0x11A4) and house (+0x11A8). Returns the old
@@ -32,7 +32,7 @@
 // @ref ?Unknown_00499390@DisplayClass@@QAE_NPAVBuildingTypeClass@@HHPBVCell@@@Z=00499390
 
 Cell Native_Radar_Cell_At(Point2D const &xy);   // NATIVE: RadarClass slot 51 on Map
-Cell DisplayClass::Unknown_004994D0(Cell const &xpos)
+Cell DisplayClass::Set_Cursor_Pos(Cell const &xpos)
 {
     Cell prevpos;
     Cell pos = xpos;

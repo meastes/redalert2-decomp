@@ -19,7 +19,7 @@ int __stdcall Select_Serial_Dialog_Proc(HWND window, UINT message, WPARAM wparam
 void __fastcall Select_Serial_Dialog_Init(HWND window);
 
 // Appends a character the modem echoed to NullModem's echo buffer (0x005CFD70; Red Alert's Modem_Echo).
-void __fastcall unknown_text_buffer_append_005cfd70(char character);
+void __fastcall Modem_Echo(char character);
 
 void Shutdown_Modem();                                                  // 0x005CEA60
 // Reconnect_Modem (0x005CEB40) and Destroy_Null_Connection (0x005CEBA0) are in shared/queue.hpp.

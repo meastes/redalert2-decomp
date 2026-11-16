@@ -655,8 +655,16 @@
    "address": "004068f0"
   },
   {
+   "symbol": "?Default_Dialog_Proc@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
    "symbol": "?Detect_Port@NullModemClass@@QAEHPAUSerialSettingsType@@@Z",
    "address": "005d03e0"
+  },
+  {
+   "symbol": "?Display_Dialog@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
   },
   {
    "symbol": "?Find_Combo_Item_Data_00736e10@@YIHPAUHWND__@@HH@Z",
@@ -675,6 +683,10 @@
    "address": "00517370"
   },
   {
+   "symbol": "?baudname@@3PAPAGA",
+   "address": "007f3070"
+  },
+  {
    "symbol": "?serial_manager_00a40a28@@3VNullModemClass@@A",
    "address": "00a40a28"
   },
@@ -687,24 +699,12 @@
    "address": "006000d0"
   },
   {
-   "symbol": "?unknown_baud_names_7f3070@@3PAPAGA",
-   "address": "007f3070"
-  },
-  {
    "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "address": "005ff610"
   },
   {
    "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
    "address": "005ff6e0"
-  },
-  {
-   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
-   "address": "005ff7c0"
-  },
-  {
-   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
-   "address": "005ffb00"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",

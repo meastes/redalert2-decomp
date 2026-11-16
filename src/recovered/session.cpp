@@ -525,11 +525,11 @@ int SessionClass::Create_Connections()
         unknown_3044 = 20;
         unknown_303c = -1;
         Ipx.Create_Multicast_Connection();
-        OwnerTalk.Unknown_0063F2A0();
+        OwnerTalk.Build_Connection_List();
         if (unknown_session_a3d298.Am_I_Master(0)) {
             bool connected = OwnerTalk.Unknown_0063F510(0);
             if (connected) {
-                connected = OwnerTalk.Unknown_0063F130();
+                connected = OwnerTalk.Send_Player_List();
             }
             if (!connected) {
                 unknown_flag_a3fba8 = false;
@@ -573,7 +573,7 @@ bool SessionClass::Am_I_Master(HouseClass *house)
 
 void SessionOptionsClass::Read(CCINIClass &ini, char const *section, int other_slots, int first_slot)
 {
-    GameMode = ini.Get_Int(section, "GameMode", MultiplayerGameMode::unknown_first_mode_5b6ec0()->Get_ID());
+    GameMode = ini.Get_Int(section, "GameMode", MultiplayerGameMode::First_Game_Mode()->Get_ID());
     ScenIndex = ini.Get_Int(section, "ScenIndex", 0);
     GameSpeed = ini.Get_Int(section, "GameSpeed", Rules->GameSpeed);
     Credits = ini.Get_Int(section, "Credits", Rules->Money);
@@ -601,9 +601,9 @@ extern "C" unsigned short *__cdecl _wcsupr(unsigned short *string);
 // The dial method letters (0x007F320C; also declared by Write_MultiPlayer_Settings 0x00670380).
 extern char const *unknown_dial_methods_7f320c[2];
 // Set once the port settings are read (0x00AB9178).
-extern bool unknown_ports_read_ab9178;
+extern bool PortsRead;
 // The firewall detection state (0x00A71B18) and the port pool after it (0x00A71B28).
-extern FirewallSettings unknown_firewall_a71b18;
+extern FirewallSettings FirewallHelper;
 extern int unknown_port_pool_a71b28;
 // The "no cell" value the SyncBug cell is compared with (0x00AB71D8).
 
@@ -631,35 +631,35 @@ void SessionClass::Read_MultiPlayer_Settings()
 
     CCFileClass file("RA2.INI");
 
-    if (!unknown_ports_read_ab9178) {
-        PortBase = unknown_ini_839740.Get_Int("MultiPlayer", "PortBase", 0x4E2);
-        unknown_2f9c = unknown_ini_839740.Get_Int("MultiPlayer", "ForcePortBase", 0);
-        unknown_port_pool_a71b28 = unknown_ini_839740.Get_Int("MultiPlayer", "PortPool", NonCriticalRandomNumber(0, 0x8000) + 0x1000);
-        unknown_ports_read_ab9178 = true;
-        unknown_firewall_a71b18.Load_005ba280();
+    if (!PortsRead) {
+        PortBase = ConfigINI.Get_Int("MultiPlayer", "PortBase", 0x4E2);
+        unknown_2f9c = ConfigINI.Get_Int("MultiPlayer", "ForcePortBase", 0);
+        unknown_port_pool_a71b28 = ConfigINI.Get_Int("MultiPlayer", "PortPool", NonCriticalRandomNumber(0, 0x8000) + 0x1000);
+        PortsRead = true;
+        FirewallHelper.Load_005ba280();
     }
-    unknown_session_a3d298.SendDelay = unknown_ini_839740.Get_Bool("MultiPlayer", "SendDelay", false);
-    unknown_session_a3d298.PortNumberOverride = unknown_ini_839740.Get_Int("MultiPlayer", "PortNumberOverride", 0);
+    unknown_session_a3d298.SendDelay = ConfigINI.Get_Bool("MultiPlayer", "SendDelay", false);
+    unknown_session_a3d298.PortNumberOverride = ConfigINI.Get_Int("MultiPlayer", "PortNumberOverride", 0);
 
     buf[0] = 0;
-    CurPhoneIdx = unknown_ini_839740.Get_Int("MultiPlayer", "PhoneIndex", -1);
-    TrapCheckHeap = unknown_ini_839740.Get_Int("MultiPlayer", "CheckHeap", 0);
-    WOLLimitResolution = unknown_ini_839740.Get_Bool("MultiPlayer", "WOLLimitResolution", WOLLimitResolution);
-    LastNickSlot = unknown_ini_839740.Get_Int("MultiPlayer", "LastNickSlot", -1);
+    CurPhoneIdx = ConfigINI.Get_Int("MultiPlayer", "PhoneIndex", -1);
+    TrapCheckHeap = ConfigINI.Get_Int("MultiPlayer", "CheckHeap", 0);
+    WOLLimitResolution = ConfigINI.Get_Bool("MultiPlayer", "WOLLimitResolution", WOLLimitResolution);
+    LastNickSlot = ConfigINI.Get_Int("MultiPlayer", "LastNickSlot", -1);
 
     unsigned short handle[20];
-    unknown_ini_839740.Get_Unicode("MultiPlayer", "Handle",
+    ConfigINI.Get_Unicode("MultiPlayer", "Handle",
                                    StringTable::Load_String("TXT_NONAME", 0, "D:\\Ra2\\Session.CPP", 0x4b2), handle, 20);
     WideToCharString_006fa0f0(Handle, handle, -1);
 
-    unknown_12c = unknown_ini_839740.Get_Int("MultiPlayer", "Color", unknown_12c);
-    unknown_130 = unknown_ini_839740.Get_Int("MultiPlayer", "ColorEx", unknown_130);
-    unknown_134 = unknown_ini_839740.Get_HousesType("MultiPlayer", "Side", unknown_134);
-    unknown_138 = unknown_ini_839740.Get_Int("MultiPlayer", "SideEx", unknown_138);
-    WOLTaunts = unknown_ini_839740.Get_Bool("MultiPlayer", "WOLTaunts", WOLTaunts);
-    LANTaunts = unknown_ini_839740.Get_Bool("MultiPlayer", "LANTaunts", LANTaunts);
-    WOLScrollText = unknown_ini_839740.Get_Bool("MultiPlayer", "WOLScrollText", WOLScrollText);
-    LANScrollText = unknown_ini_839740.Get_Bool("MultiPlayer", "LANScrollText", LANScrollText);
+    unknown_12c = ConfigINI.Get_Int("MultiPlayer", "Color", unknown_12c);
+    unknown_130 = ConfigINI.Get_Int("MultiPlayer", "ColorEx", unknown_130);
+    unknown_134 = ConfigINI.Get_HousesType("MultiPlayer", "Side", unknown_134);
+    unknown_138 = ConfigINI.Get_Int("MultiPlayer", "SideEx", unknown_138);
+    WOLTaunts = ConfigINI.Get_Bool("MultiPlayer", "WOLTaunts", WOLTaunts);
+    LANTaunts = ConfigINI.Get_Bool("MultiPlayer", "LANTaunts", LANTaunts);
+    WOLScrollText = ConfigINI.Get_Bool("MultiPlayer", "WOLScrollText", WOLScrollText);
+    LANScrollText = ConfigINI.Get_Bool("MultiPlayer", "LANScrollText", LANScrollText);
 
     unknown_124 = unknown_134;
     if (unknown_124 == -2) {
@@ -667,25 +667,25 @@ void SessionClass::Read_MultiPlayer_Settings()
     }
     unknown_128 = unknown_138;
 
-    Mode = MultiplayerGameMode::unknown_find_mode_5b6fe0(unknown_ini_839740.Get_Int("MultiPlayer", "GameMode", 1));
+    Mode = MultiplayerGameMode::unknown_find_mode_5b6fe0(ConfigINI.Get_Int("MultiPlayer", "GameMode", 1));
     if (!Mode) {
-        Mode = MultiplayerGameMode::unknown_first_mode_5b6ec0();
+        Mode = MultiplayerGameMode::First_Game_Mode();
     }
-    SkirmishOptions.Read(unknown_ini_839740, "Skirmish", 1, 6);
-    LANOptions.Read(unknown_ini_839740, "LAN", 2, 2);
-    WonlineOptions.Read(unknown_ini_839740, "WonlinePref", 2, 2);
+    SkirmishOptions.Read(ConfigINI, "Skirmish", 1, 6);
+    LANOptions.Read(ConfigINI, "LAN", 2, 2);
+    WonlineOptions.Read(ConfigINI, "WonlinePref", 2, 2);
 
-    unknown_ini_839740.Get_String("SerialDefaults", "ModemName", buf, SerialDefaults.ModemName, 0x3F);
+    ConfigINI.Get_String("SerialDefaults", "ModemName", buf, SerialDefaults.ModemName, 0x3F);
     if (strcmp(SerialDefaults.ModemName, buf) == 0) {
         SerialDefaults.ModemName[0] = 0;
     }
-    SerialDefaults.Port = unknown_ini_839740.Get_Int("SerialDefaults", "Port", 0);
-    SerialDefaults.IRQ = unknown_ini_839740.Get_Int("SerialDefaults", "IRQ", -1);
-    SerialDefaults.Baud = unknown_ini_839740.Get_Int("SerialDefaults", "Baud", -1);
-    SerialDefaults.Compression = unknown_ini_839740.Get_Int("SerialDefaults", "Compression", 0);
-    SerialDefaults.ErrorCorrection = unknown_ini_839740.Get_Int("SerialDefaults", "ErrorCorrection", 0);
+    SerialDefaults.Port = ConfigINI.Get_Int("SerialDefaults", "Port", 0);
+    SerialDefaults.IRQ = ConfigINI.Get_Int("SerialDefaults", "IRQ", -1);
+    SerialDefaults.Baud = ConfigINI.Get_Int("SerialDefaults", "Baud", -1);
+    SerialDefaults.Compression = ConfigINI.Get_Int("SerialDefaults", "Compression", 0);
+    SerialDefaults.ErrorCorrection = ConfigINI.Get_Int("SerialDefaults", "ErrorCorrection", 0);
 
-    unknown_ini_839740.Get_String("SerialDefaults", "DialMethod", "T", buf, 2);
+    ConfigINI.Get_String("SerialDefaults", "DialMethod", "T", buf, 2);
     for (i = 0; i < 2; i++) {
         if (!_stricmp(buf, unknown_dial_methods_7f320c[i])) {
             SerialDefaults.DialMethod = i;
@@ -696,9 +696,9 @@ void SessionClass::Read_MultiPlayer_Settings()
         SerialDefaults.DialMethod = 0;
     }
 
-    SerialDefaults.InitStringIndex = unknown_ini_839740.Get_Int("SerialDefaults", "InitStringIndex", -1);
-    SerialDefaults.CallWaitStringIndex = unknown_ini_839740.Get_Int("SerialDefaults", "CallWaitStringIndex", 3);
-    unknown_ini_839740.Get_String("SerialDefaults", "CallWaitString", "", SerialDefaults.CallWaitString, 0x10);
+    SerialDefaults.InitStringIndex = ConfigINI.Get_Int("SerialDefaults", "InitStringIndex", -1);
+    SerialDefaults.CallWaitStringIndex = ConfigINI.Get_Int("SerialDefaults", "CallWaitStringIndex", 3);
+    ConfigINI.Get_String("SerialDefaults", "CallWaitString", "", SerialDefaults.CallWaitString, 0x10);
 
     if (SerialDefaults.IRQ == 0 || SerialDefaults.Baud == 0) {
         SerialDefaults.Port = 0;
@@ -706,23 +706,23 @@ void SessionClass::Read_MultiPlayer_Settings()
         SerialDefaults.Baud = -1;
     }
 
-    int initcount = unknown_ini_839740.Entry_Count("InitStrings");
+    int initcount = ConfigINI.Entry_Count("InitStrings");
     int index;
     for (index = 0; index < initcount; index++) {
         entry = new char[0x29];
         if (entry) {
             entry[0] = 0;
-            unknown_ini_839740.Get_String("InitStrings", unknown_ini_839740.Get_Entry("InitStrings", index), 0, entry, 0x29);
+            ConfigINI.Get_String("InitStrings", ConfigINI.Get_Entry("InitStrings", index), 0, entry, 0x29);
             _strupr(entry);
             InitStrings.Add(entry);
         }
     }
     SerialDefaults.InitStringIndex = initcount ? 0 : -1;
 
-    int phonecount = unknown_ini_839740.Entry_Count("PhoneBook");
+    int phonecount = ConfigINI.Entry_Count("PhoneBook");
     for (index = 0; index < phonecount; index++) {
         phone = new PhoneEntryClass;
-        unknown_ini_839740.Get_String("PhoneBook", unknown_ini_839740.Get_Entry("PhoneBook", index), 0, buf, sizeof(buf));
+        ConfigINI.Get_String("PhoneBook", ConfigINI.Get_Entry("PhoneBook", index), 0, buf, sizeof(buf));
 
         tokenptr = strtok(buf, "|");
         if (tokenptr) {
@@ -816,8 +816,8 @@ void SessionClass::Read_MultiPlayer_Settings()
     }
 
     if (unknown_session_a3d298.Play) {
-        TrapFrame = unknown_ini_839740.Get_Int("SyncBug", "Frame", 0x7FFFFFFF);
-        unknown_ini_839740.Get_String("SyncBug", "Type", "NONE", buf, 0x50);
+        TrapFrame = ConfigINI.Get_Int("SyncBug", "Frame", 0x7FFFFFFF);
+        ConfigINI.Get_String("SyncBug", "Type", "NONE", buf, 0x50);
         if (!_stricmp(buf, "AIRCRAFT")) {
             TrapObjType = 2;
         } else if (!_stricmp(buf, "ANIM")) {
@@ -834,23 +834,23 @@ void SessionClass::Read_MultiPlayer_Settings()
             TrapObjType = 0;
         }
 
-        unknown_ini_839740.Get_String("SyncBug", "Coord", "0", buf, 0x50);
+        ConfigINI.Get_String("SyncBug", "Coord", "0", buf, 0x50);
         int x;
         int y;
         int z;
         sscanf(buf, "%d,%d,%d", &x, &y, &z);
-        int target = unknown_ini_839740.Get_Int("SyncBug", "Target", -1);
+        int target = ConfigINI.Get_Int("SyncBug", "Target", -1);
         TrapTarget.Kind = target >> 24;
         TrapTarget.ID = target & 0xFFFFFF;
 
-        unknown_ini_839740.Get_String("SyncBug", "Cell", "0,0", buf, 0x50);
+        ConfigINI.Get_String("SyncBug", "Cell", "0,0", buf, 0x50);
         sscanf(buf, "%d,%d", &x, &y);
         Cell cell(x, y);
         if (cell != unknown_geometry_k) {
             TrapCell = &Map[cell];
         }
 
-        TrapPrintCRC = unknown_ini_839740.Get_Int("SyncBug", "PrintCRC", 0x7FFFFFFF);
+        TrapPrintCRC = ConfigINI.Get_Int("SyncBug", "PrintCRC", 0x7FFFFFFF);
     }
 }
 
@@ -950,43 +950,43 @@ void SessionClass::Write_MultiPlayer_Settings()
 {
     RawFileClass file("RA2.INI");
 
-    unknown_ini_839740.Put_Int("MultiPlayer", "PhoneIndex", CurPhoneIdx);
-    unknown_ini_839740.Put_Bool("MultiPlayer", "WOLLimitResolution", WOLLimitResolution);
-    unknown_ini_839740.Put_Int("MultiPlayer", "LastNickSlot", LastNickSlot);
-    unknown_ini_839740.Put_Unicode("MultiPlayer", "Handle", Narrow_To_Wide_006fa180(Handle));
-    unknown_ini_839740.Put_Int("MultiPlayer", "Color", unknown_12c);
-    unknown_ini_839740.Put_Int("MultiPlayer", "ColorEx", unknown_130);
-    unknown_ini_839740.Put_HousesType("MultiPlayer", "Side", unknown_134);
-    unknown_ini_839740.Put_Int("MultiPlayer", "SideEx", unknown_138);
+    ConfigINI.Put_Int("MultiPlayer", "PhoneIndex", CurPhoneIdx);
+    ConfigINI.Put_Bool("MultiPlayer", "WOLLimitResolution", WOLLimitResolution);
+    ConfigINI.Put_Int("MultiPlayer", "LastNickSlot", LastNickSlot);
+    ConfigINI.Put_Unicode("MultiPlayer", "Handle", Narrow_To_Wide_006fa180(Handle));
+    ConfigINI.Put_Int("MultiPlayer", "Color", unknown_12c);
+    ConfigINI.Put_Int("MultiPlayer", "ColorEx", unknown_130);
+    ConfigINI.Put_HousesType("MultiPlayer", "Side", unknown_134);
+    ConfigINI.Put_Int("MultiPlayer", "SideEx", unknown_138);
     if (Mode) {
-        unknown_ini_839740.Put_Int("MultiPlayer", "GameMode", Mode->Get_ID());
+        ConfigINI.Put_Int("MultiPlayer", "GameMode", Mode->Get_ID());
     } else {
-        unknown_ini_839740.Put_Int("MultiPlayer", "GameMode", 0);
+        ConfigINI.Put_Int("MultiPlayer", "GameMode", 0);
     }
-    SkirmishOptions.Write(unknown_ini_839740, "Skirmish");
-    LANOptions.Write(unknown_ini_839740, "LAN");
-    WonlineOptions.Write(unknown_ini_839740, "WonlinePref");
+    SkirmishOptions.Write(ConfigINI, "Skirmish");
+    LANOptions.Write(ConfigINI, "LAN");
+    WonlineOptions.Write(ConfigINI, "WonlinePref");
 
-    unknown_ini_839740.Clear("SerialDefaults");
-    unknown_ini_839740.Put_String("SerialDefaults", "CallWaitString", SerialDefaults.CallWaitString);
-    unknown_ini_839740.Put_Int("SerialDefaults", "CallWaitStringIndex", SerialDefaults.CallWaitStringIndex);
-    unknown_ini_839740.Put_Int("SerialDefaults", "InitStringIndex", SerialDefaults.InitStringIndex);
-    unknown_ini_839740.Put_String("SerialDefaults", "DialMethod", unknown_dial_methods_7f320c[SerialDefaults.DialMethod]);
-    unknown_ini_839740.Put_Int("SerialDefaults", "Baud", SerialDefaults.Baud);
-    unknown_ini_839740.Put_Int("SerialDefaults", "IRQ", SerialDefaults.IRQ);
-    unknown_ini_839740.Put_Int("SerialDefaults", "Port", SerialDefaults.Port, 1);
-    unknown_ini_839740.Put_Int("SerialDefaults", "Compression", SerialDefaults.Compression);
-    unknown_ini_839740.Put_Int("SerialDefaults", "ErrorCorrection", SerialDefaults.ErrorCorrection);
-    unknown_ini_839740.Put_String("SerialDefaults", "ModemName", SerialDefaults.ModemName);
+    ConfigINI.Clear("SerialDefaults");
+    ConfigINI.Put_String("SerialDefaults", "CallWaitString", SerialDefaults.CallWaitString);
+    ConfigINI.Put_Int("SerialDefaults", "CallWaitStringIndex", SerialDefaults.CallWaitStringIndex);
+    ConfigINI.Put_Int("SerialDefaults", "InitStringIndex", SerialDefaults.InitStringIndex);
+    ConfigINI.Put_String("SerialDefaults", "DialMethod", unknown_dial_methods_7f320c[SerialDefaults.DialMethod]);
+    ConfigINI.Put_Int("SerialDefaults", "Baud", SerialDefaults.Baud);
+    ConfigINI.Put_Int("SerialDefaults", "IRQ", SerialDefaults.IRQ);
+    ConfigINI.Put_Int("SerialDefaults", "Port", SerialDefaults.Port, 1);
+    ConfigINI.Put_Int("SerialDefaults", "Compression", SerialDefaults.Compression);
+    ConfigINI.Put_Int("SerialDefaults", "ErrorCorrection", SerialDefaults.ErrorCorrection);
+    ConfigINI.Put_String("SerialDefaults", "ModemName", SerialDefaults.ModemName);
 
-    unknown_ini_839740.Clear("InitStrings");
+    ConfigINI.Clear("InitStrings");
     for (int index = 0; index < InitStrings.Count(); index++) {
         char buf[10];
         wsprintfA(buf, "%03d", index);
-        unknown_ini_839740.Put_String("InitStrings", buf, InitStrings[index]);
+        ConfigINI.Put_String("InitStrings", buf, InitStrings[index]);
     }
 
-    unknown_ini_839740.Clear("PhoneBook");
+    ConfigINI.Clear("PhoneBook");
     for (int i = PhoneBook.Count() - 1; i >= 0; i--) {
         char buf[128];
         char entrytext[10];
@@ -1003,10 +1003,10 @@ void SessionClass::Write_MultiPlayer_Settings()
                   PhoneBook[i]->Settings.CallWaitStringIndex,
                   PhoneBook[i]->Settings.CallWaitString);
         wsprintfA(entrytext, "%03d", i);
-        unknown_ini_839740.Put_String("PhoneBook", entrytext, buf);
+        ConfigINI.Put_String("PhoneBook", entrytext, buf);
     }
 
-    unknown_ini_839740.Save(file, false);
+    ConfigINI.Save(file, false);
 }
 
 
@@ -1031,11 +1031,11 @@ struct UnknownOptions_00670730 {
 void UnknownOptions_00670730::unknown_save_chat_options()
 {
     RawFileClass file("RA2.INI");
-    unknown_ini_839740.Put_Bool("MultiPlayer", "WOLTaunts", WOLTaunts);
-    unknown_ini_839740.Put_Bool("MultiPlayer", "LANTaunts", LANTaunts);
-    unknown_ini_839740.Put_Bool("MultiPlayer", "WOLScrollText", WOLScrollText);
-    unknown_ini_839740.Put_Bool("MultiPlayer", "LANScrollText", LANScrollText);
-    unknown_ini_839740.Save(file, false);
+    ConfigINI.Put_Bool("MultiPlayer", "WOLTaunts", WOLTaunts);
+    ConfigINI.Put_Bool("MultiPlayer", "LANTaunts", LANTaunts);
+    ConfigINI.Put_Bool("MultiPlayer", "WOLScrollText", WOLScrollText);
+    ConfigINI.Put_Bool("MultiPlayer", "LANScrollText", LANScrollText);
+    ConfigINI.Save(file, false);
 }
 
 
@@ -1314,7 +1314,7 @@ void SessionClass::Free_Scenario_Descriptions()
 // The colour scheme of each player colour (0x007F3224, 9 entries).
 extern char const unknown_color_schemes_7f3224[9];
 
-int SessionClass::Unknown_006715D0(int color)
+int SessionClass::Color_Index_To_Scheme(int color)
 {
     if (color == -2) {
         color = 8;
@@ -1460,7 +1460,7 @@ MultiMission::MultiMission(char const *filename, unsigned short const *descripti
 }
 
 
-bool MultiMission::Unknown_00671F00(int cd)
+bool MultiMission::Is_On_CD(int cd)
 {
     if (cd == -2) {
         return RawFileClass(unknown_58).Is_Available();
@@ -1657,7 +1657,7 @@ void SessionClass::Unknown_00672440()
 
 // Whether a session player's colour or one of the eight computer colours equals color; -2 (random) never is
 // (expanded into 0x00672980).
-bool SessionClass::Unknown_006728D0(int color)
+bool SessionClass::Is_Color_Used(int color)
 {
     if (color != -2) {
         int i;
@@ -1685,7 +1685,7 @@ unsigned int Leaf_672a10::get() { unsigned int session_address=(unsigned int)thi
 
 
 // A random HouseTypes index of a country that is Multiplay and not MultiplayPassive (expanded into 0x00672A30).
-int SessionClass::Unknown_00672940()
+int SessionClass::Random_Side()
 {
     int last = HouseTypes.Count() - 1;
     int index;
@@ -1703,7 +1703,7 @@ int SessionClass::Unknown_00672980()
     int color;
     do {
         color = unknown_id_source_a3d290->Random()(0, 7);
-    } while (Unknown_006728D0(color));
+    } while (Is_Color_Used(color));
     return color;
 }
 
@@ -1714,7 +1714,7 @@ void SessionClass::Set_Value_00672a30(int value, bool update)
 {
     if (value == -2) {
         if (update) {
-            unknown_134 = Unknown_00672940();
+            unknown_134 = Random_Side();
         } else {
             unknown_134 = 0;
         }
@@ -1838,7 +1838,7 @@ void __fastcall FUN_00672810(int object_address)
 
 // Resolves the random countries and colours (see the declaration); 0x00672940 and 0x00672980 are expanded on the
 // global session.
-void SessionClass::Unknown_00672BB0()
+void SessionClass::Assign_Random_Choices()
 {
     int count = unknown_players_a3fa7c.Count();
     int i;
@@ -1855,7 +1855,7 @@ void SessionClass::Unknown_00672BB0()
                 if (Mode) {
                     player->unknown_4b = Mode->RandomHumanCountryIndex();
                 } else {
-                    player->unknown_4b = unknown_session_a3d298.Unknown_00672940();
+                    player->unknown_4b = unknown_session_a3d298.Random_Side();
                 }
             }
             if (player->unknown_57 == -2) {
@@ -1873,7 +1873,7 @@ void SessionClass::Unknown_00672BB0()
             if (Mode) {
                 unknown_session_a3d298.AICountry[i] = Mode->RandomAICountryIndex();
             } else {
-                unknown_session_a3d298.AICountry[i] = unknown_session_a3d298.Unknown_00672940();
+                unknown_session_a3d298.AICountry[i] = unknown_session_a3d298.Random_Side();
             }
         }
         if (unknown_session_a3d298.AIColor[i] == -2) {
@@ -1888,8 +1888,8 @@ void SessionClass::Unknown_00672DE0()
 {
     if (!unknown_3080 && GameActive) {
         unknown_3080 = true;
-        if (unknown_game_speed_7f3230 == -1) {
-            unknown_game_speed_7f3230 = Options.GameSpeed;
+        if (SavedGameSpeed == -1) {
+            SavedGameSpeed = Options.GameSpeed;
         }
         if (Type == 0) {
             Options.GameSpeed = 2;
@@ -1907,20 +1907,20 @@ void SessionClass::Unknown_00672DE0()
 
 
 // Undoes 0x00672DE0.
-void SessionClass::Unknown_00672E70()
+void SessionClass::Leave_Game()
 {
     if (unknown_3080) {
         unknown_3080 = false;
-        if (unknown_game_speed_7f3230 != -1) {
-            Options.GameSpeed = unknown_game_speed_7f3230;
-            unknown_game_speed_7f3230 = -1;
+        if (SavedGameSpeed != -1) {
+            Options.GameSpeed = SavedGameSpeed;
+            SavedGameSpeed = -1;
         }
-        Unknown_005173A0();
-        Unknown_005A09E0();
+        Leave_Game_Hook();
+        Stop_Ingame_Movie();
         Audio_Stop();
         Sound_Clear_Static();
         Speech_Reset();
-        Unknown_007160D0();
+        Aux_Stream_Stop();
         Audio_Global_Levels[7]->Volume.Set(0x4000);
         if (ToolTips) {
             ToolTips->Enable(false);
@@ -1947,7 +1947,7 @@ unsigned short SessionClass::Player_Port(int id)
 
 
 // The lobby slot whose name equals this session player's name; 0 when none.
-int SessionClass::Unknown_00672F90(int player)
+int SessionClass::Player_To_Slot(int player)
 {
     for (int slot = 0; slot < 8; slot++) {
         NodeNameType *entry = unknown_player_slots_a3fa98[slot];
@@ -1961,7 +1961,7 @@ int SessionClass::Unknown_00672F90(int player)
 
 
 // The lobby slot whose name equals the text; 0 when none.
-int SessionClass::Unknown_00672FF0(char const *name)
+int SessionClass::Name_To_Slot(char const *name)
 {
     for (int slot = 0; slot < 8; slot++) {
         if (_stricmp(name, Wide_To_Narrow_006fa120(unknown_player_slots_a3fa98[slot]->Name)) == 0) {
@@ -1973,7 +1973,7 @@ int SessionClass::Unknown_00672FF0(char const *name)
 
 
 // The session player whose name equals this lobby slot's name; 0 when none.
-int SessionClass::Unknown_00673030(int slot)
+int SessionClass::Slot_To_Player(int slot)
 {
     for (int index = 0; index < unknown_players_a3fa7c.Count(); index++) {
         NodeNameType *entry = unknown_player_slots_a3fa98[slot];
@@ -2015,7 +2015,7 @@ void SessionClass::Allocate_Ports_00673090()
     memset(unknown_2dd0, 0, sizeof(unknown_2dd0));
     unknown_2fc0 = true;
     for (index = 0; index < Players.Count(); index++) {
-        slot = Unknown_00672F90(index);
+        slot = Player_To_Slot(index);
         if (slot >= 0 && slot < 8) {
             Players[index]->Address.Set_Port(unknown_2fa0.unknown[slot]);
             char *name = Wide_To_Narrow_006fa120(Players[index]->Name);
@@ -2051,8 +2051,8 @@ void SessionClass::Allocate_Ports_00673090()
         IPXAddressClass address = order[index]->Address;
         for (other = 0; other < order.Count(); other++) {
             if (other != index && !used[other] && address.Is_Same_Node(order[other]->Address)) {
-                int first = Unknown_00672FF0(Wide_To_Narrow_006fa120(order[other]->Name));
-                int second = Unknown_00672FF0(Wide_To_Narrow_006fa120(order[index]->Name));
+                int first = Name_To_Slot(Wide_To_Narrow_006fa120(order[other]->Name));
+                int second = Name_To_Slot(Wide_To_Narrow_006fa120(order[index]->Name));
                 if (unknown_2fa0.unknown[first] == unknown_2fa0.unknown[second]) {
                     order[other]->Address.Set_Port(unknown_2fa0.unknown[first] + bump++);
                     used[other] = true;
@@ -2076,7 +2076,7 @@ void SessionClass::Allocate_Ports_00673090()
     if (PortNumberOverride != 0) {
         Debug_Printf("Using %d for local port\n", PortNumberOverride);
         Players[0]->Address.Set_Port(PortNumberOverride);
-        PlayerSlots[Unknown_00672F90(0)]->Address.Set_Port(PortNumberOverride);
+        PlayerSlots[Player_To_Slot(0)]->Address.Set_Port(PortNumberOverride);
     }
     for (index = 0; index < Players.Count(); index++) {
         unknown_3022.unknown[index] = *(unsigned short *)Players[index]->Address.NetworkNumber;   // NATIVE: the UDP port word (the header accessor is guarded off in this unit)

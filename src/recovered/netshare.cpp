@@ -457,7 +457,7 @@ long __stdcall Unknown_Dialog_Proc_005c33a0(HWND window, unsigned message, unsig
         case 2:
         case 6:
         case 7:
-            Unknown_007357E0(window, wparam & 0xffff);
+            WS_Destroy_Dialog(window, wparam & 0xffff);
             return 1;
         }
         break;
@@ -502,7 +502,7 @@ MultiplayerGameMode *Current_Game_Mode_005c34d0()
 {
     MultiplayerGameMode *mode = MultiplayerGameMode::unknown_find_mode_5b6fe0(unknown_session_a3d298.GameModeIndex);
     if (mode == 0) {
-        return MultiplayerGameMode::unknown_first_mode_5b6ec0();
+        return MultiplayerGameMode::First_Game_Mode();
     }
     return mode;
 }
@@ -725,7 +725,7 @@ void __fastcall Send_Game_Options_005c3c60(char const *text)
     strcpy(packet.Name, unknown_name_a3d3a0);
     strcpy(packet.Text, text);
     packet.Color = unknown_a3d3b4;
-    packet.NameCRC = Unknown_005bba50(unknown_host_name_a3f618);
+    packet.NameCRC = Compute_Name_CRC_W(unknown_host_name_a3f618);
     for (int i = 1; i < unknown_players_a3fa7c.Count(); i++) {
         NodeNameType *player = unknown_players_a3fa7c[i];
         Debug_Printf("Sending public game options to %s\n", Wide_To_Narrow_006fa120(player->Name));
@@ -757,7 +757,7 @@ void __fastcall Unknown_005c3d90(char const *name, char const *text)
     strcpy(packet.Name, unknown_name_a3d3a0);
     strcpy(packet.Text, text);
     ((UnknownOptionsPacket &)unknown_gpacket_a3f640).Color = unknown_session_a3d298.Value_011c_00672a10();
-    ((UnknownOptionsPacket &)unknown_gpacket_a3f640).NameCRC = Unknown_005bba50(unknown_host_name_a3f618);
+    ((UnknownOptionsPacket &)unknown_gpacket_a3f640).NameCRC = Compute_Name_CRC_W(unknown_host_name_a3f618);
     for (int i = 1; i < unknown_players_a3fa7c.Count(); i++) {
         if (_stricmp(Wide_To_Narrow_006fa120(unknown_players_a3fa7c[i]->Name), name) == 0) {
             Debug_Printf("Sending private game options to %ls\n", unknown_players_a3fa7c[i]->Name);
@@ -1886,7 +1886,7 @@ long __stdcall Lobby_Dialog_Proc_005c69e0(HWND window, unsigned message, unsigne
         {
             unknown_map_list_busy_a72d58 = true;
             MultiplayerGameMode *mode = MultiplayerGameMode::unknown_find_mode_5b6fe0(unknown_session_a3d298.GameModeIndex);
-            if (!mode) mode = MultiplayerGameMode::unknown_first_mode_5b6ec0();
+            if (!mode) mode = MultiplayerGameMode::First_Game_Mode();
             HWND mode_list = GetDlgItem(window, 0x6eb);
             MultiplayerGameMode::unknown_fill_list_5b71e0(mode_list, mode->Get_ID());
             if (mode) {
@@ -2025,7 +2025,7 @@ bool __fastcall Accept_Map_Selection_005c71f0(HWND dialog)
     }
     mode->AssignTeamsAtStart();
     mode->UnfixAlliances();
-    Unknown_007357E0(dialog, 1);
+    WS_Destroy_Dialog(dialog, 1);
     HWND setup = WS_Find_Dialog_00735940(0xC2);
     if (setup == 0) {
         setup = WS_Find_Dialog_00735940(0xC9);
@@ -2273,8 +2273,8 @@ bool __fastcall Select_Scenario_005c7c30(int index)
     bool missing = !CCFileClass(unknown_session_a3d298.Scenarios[index]->unknown_58).Is_Available();
     if (missing) {
         if (CD::RequiredCD != -2) {
-            if (!unknown_session_a3d298.Scenarios[index]->Unknown_00671F00(Unknown_0046E4C0(60))
-                && !CD().Force_Available(unknown_session_a3d298.Scenarios[index]->Unknown_00671F90())) {
+            if (!unknown_session_a3d298.Scenarios[index]->Is_On_CD(Unknown_0046E4C0(60))
+                && !CD().Force_Available(unknown_session_a3d298.Scenarios[index]->On_Which_CD())) {
                 return false;
             }
         } else {
@@ -2317,11 +2317,11 @@ void __fastcall Upload_Map_Preview_005c7ef0(MapPreviewClass *preview)
     }
     if (unknown_game_mode_a3d298 == 4) {
         bool direct = true;
-        if ((unknown_firewall_a71b18.unknown_00 != 0 && !(unknown_firewall_a71b18.unknown_00 & 1))) {
+        if ((FirewallHelper.unknown_00 != 0 && !(FirewallHelper.unknown_00 & 1))) {
             direct = false;
         } else {
             for (int i = 1; i < unknown_players_a3fa7c.Count(); i++) {
-                int house = unknown_session_a3d298.Unknown_00672F90(i);
+                int house = unknown_session_a3d298.Player_To_Slot(i);
                 if (house >= 0 && house < 8) {
                     unsigned int flags = unknown_session_a3d298.unknown_299c.unknown[house];
                     if (flags != 0 && !(flags & 1)) { Debug_Printf("Player %s has a NAT - no preview download possible\n", Wide_To_Narrow_006fa120(unknown_players_a3fa7c[i]->Name)); direct = false; }
@@ -4535,19 +4535,19 @@ void __fastcall Save_Lobby_Options_005cc890(HWND dialog, SessionOptionsClass *op
 void __fastcall Load_Lobby_Options_005cca30(HWND dialog, SessionOptionsClass *options)
 {
     if (options->GameMode < 1 || options->GameMode > MultiplayerGameMode::unknown_mode_count_5b6f80()) {
-        options->GameMode = MultiplayerGameMode::unknown_first_mode_5b6ec0()->Get_ID();
+        options->GameMode = MultiplayerGameMode::First_Game_Mode()->Get_ID();
     }
     unknown_session_a3d298.GameModeIndex = options->GameMode;
     MultiplayerGameMode *mode = MultiplayerGameMode::unknown_find_mode_5b6fe0(unknown_session_a3d298.GameModeIndex);
     if (mode == 0) {
-        mode = MultiplayerGameMode::unknown_first_mode_5b6ec0();
+        mode = MultiplayerGameMode::First_Game_Mode();
     }
     if ((unknown_73c370() || unknown_73c3a0()) && mode != 0 && mode->unknown_slot1()) {
-        options->GameMode = MultiplayerGameMode::unknown_first_mode_5b6ec0()->Get_ID();
+        options->GameMode = MultiplayerGameMode::First_Game_Mode()->Get_ID();
         unknown_session_a3d298.GameModeIndex = options->GameMode;
         MultiplayerGameMode *found = MultiplayerGameMode::unknown_find_mode_5b6fe0(unknown_session_a3d298.GameModeIndex);
         if (found == 0) {
-            found = MultiplayerGameMode::unknown_first_mode_5b6ec0();
+            found = MultiplayerGameMode::First_Game_Mode();
         }
         mode = found;
     }
@@ -4561,7 +4561,7 @@ void __fastcall Load_Lobby_Options_005cca30(HWND dialog, SessionOptionsClass *op
     if (!mode->unknown_5b7470(scen)) {
         int index = mode->FirstValidMapIndex();
         if (index == -1) {
-            mode = MultiplayerGameMode::unknown_first_mode_5b6ec0();
+            mode = MultiplayerGameMode::First_Game_Mode();
             options->GameMode = mode->Get_ID();
             unknown_session_a3d298.GameModeIndex = mode->Get_ID();
             index = mode->FirstValidMapIndex();
@@ -4780,8 +4780,8 @@ unsigned int Leaf_5cd380::get() { unsigned int r0 = ((Call_5cd380_0*)((unsigned 
 void __fastcall Unknown_005CD3A0()
 {
     RawFileClass file("RA2.INI");
-    unknown_ini_839740.Put_Int("MultiPlayer", "ObserverMode", unknown_a72c68);
-    unknown_ini_839740.Save(file, false);
+    ConfigINI.Put_Int("MultiPlayer", "ObserverMode", unknown_a72c68);
+    ConfigINI.Save(file, false);
 }
 
 

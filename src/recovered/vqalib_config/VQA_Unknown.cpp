@@ -2,11 +2,11 @@
 // Purpose: VQA_DefaultConfig (TS config.cpp): copies the library's default
 // configuration (0x00801470, original data) into the caller's.
 #include "shared/vqa_player.hpp"
-// @ref ?unknown_vqa_default_config_801470@@3UVQAConfig@@A=00801470
+// @ref ?_defaultconfig@@3UVQAConfig@@A=00801470
 
-extern VQAConfig unknown_vqa_default_config_801470;
+extern VQAConfig _defaultconfig;
 
 void __fastcall VQA_DefaultConfig(VQAConfig *config)
 {
-    *config = unknown_vqa_default_config_801470;
+    *config = _defaultconfig;
 }

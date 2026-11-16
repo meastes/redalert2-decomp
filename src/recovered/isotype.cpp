@@ -412,8 +412,8 @@ void IsometricTileTypeClass::Init_Drawers()
     TileDrawers.Add(new LightConvertClass(IsoTilePalette, GamePalette,
         VisibleSurface, 1000, 1000, 1000, false, 0, 53));
 
-    unknown_dummy_cell_a6f9f8.unknown_34 = 0;
-    unknown_dummy_cell_a6f9f8.Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
+    BlubCell.unknown_34 = 0;
+    BlubCell.Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
 
     Map.Reset_Iterator();
     CellClass *cell = Map.Iterate();

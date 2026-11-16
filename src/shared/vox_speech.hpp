@@ -28,24 +28,24 @@ struct VoxSpeech : AudioListNode {
     }
 };
 
-extern int unknown_vox_type_ad0858;                 // the type of the speech playing
-extern AudioListNode unknown_vox_list_ad0868;       // type 3 speeches
-extern int volatile unknown_vox_ad0878;             // nonzero: no speech is queued (counted down by 0x00716950)
-extern int unknown_vox_priority_ad0880;             // the priority of the speech playing
-extern AudioListNode unknown_vox_list_ad0890;       // priority 3 speeches
-extern int volatile unknown_countdown_ad08c8;       // nonzero: no speech starts
-extern AudioListNode unknown_vox_lists_ad08e0[4];   // type 1 speeches by priority
-extern VoxSpeech *unknown_vox_pending_ad0948;       // the one other speech waiting
-extern int unknown_vox_enabled_ad094c;
-extern int unknown_vox_serial_ad0950;
-extern VoxClass *unknown_vox_playing_ad0954;
-extern int unknown_flag_ad0958;                     // nonzero: the Russian speech files
+extern int SpeechPlayingType;                 // the type of the speech playing
+extern AudioListNode SpeechQueuedList;       // type 3 speeches
+extern int volatile SpeechHold;             // nonzero: no speech is queued (counted down by 0x00716950)
+extern int SpeechPlayingPriority;             // the priority of the speech playing
+extern AudioListNode SpeechUrgentList;       // priority 3 speeches
+extern int volatile SpeechSuspend;       // nonzero: no speech starts
+extern AudioListNode SpeechLists[4];   // type 1 speeches by priority
+extern VoxSpeech *SpeechPending;       // the one other speech waiting
+extern int SpeechEnabled;
+extern int SpeechSerial;
+extern VoxClass *SpeechPlaying;
+extern int SpeechSovietFiles;                     // nonzero: the Russian speech files
 extern AudioStreamPlayer *unknown_vox_stream_ad095c;
-extern unsigned __int64 unknown_vox_delay_ad0960;   // the gap after the last speech
-extern int unknown_vox_volume_7f9bd4;               // the speech volume (0..255)
+extern unsigned __int64 SpeechDelay;   // the gap after the last speech
+extern int SpeechVolume;               // the speech volume (0..255)
 // The taunt stream (0x00AD0968) and a count that keeps taunts from starting.
 extern AudioStreamPlayer *unknown_taunt_stream_ad0968;
-extern int volatile unknown_count_ad0910;
+extern int volatile AuxStreamHold;
 
 // Empties the lists and makes the stream (0 without one; 0x007156D0).
 int Speech_Init();
@@ -69,7 +69,7 @@ void Speech_Free_All();
 void Taunt_Pause();
 void Taunt_Resume();
 void Taunt_Unblock();
-// The speech block (unknown_vox_ad0878) counted down (0x00716950); the
+// The speech block (SpeechHold) counted down (0x00716950); the
 // stream paused and speech starts blocked (0x00716980); everything stopped
 // and both blocks cleared (0x007169A0).
 void Remove_Speech_Hold();

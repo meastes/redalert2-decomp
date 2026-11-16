@@ -25,7 +25,7 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?Unknown_00663690@@YIPAVConvertClass@@PBVHSVClass@@PAXHPAVRGBClass@@PAVSurface@@HHHHPBX@Z",
+   "symbol": "?Build_Light_Converter@@YIPAVConvertClass@@PBVHSVClass@@PAXHPAVRGBClass@@PAVSurface@@HHHHPBX@Z",
    "entry": "00663690",
    "body_bytes": 331,
    "padding_bytes": 5
@@ -49,7 +49,7 @@
    "padding_bytes": 1
   },
   {
-   "symbol": "?Unknown_00663B40@ColorScheme@@QAEXPAVPaletteClass@@0HHH@Z",
+   "symbol": "?Build_Light_Converters@ColorScheme@@QAEXPAVPaletteClass@@0HHH@Z",
    "entry": "00663b40",
    "body_bytes": 97,
    "padding_bytes": 15
@@ -293,7 +293,7 @@
   },
   {
    "site": "00519e70",
-   "symbol": "?Unknown_00663B40@ColorScheme@@QAEXPAVPaletteClass@@0HHH@Z",
+   "symbol": "?Build_Light_Converters@ColorScheme@@QAEXPAVPaletteClass@@0HHH@Z",
    "target": "00663b40",
    "function_entry": true
   },
@@ -352,6 +352,10 @@
    "address": "00839950"
   },
   {
+   "symbol": "?_indexes@@3QBDB",
+   "address": "007f264c"
+  },
+  {
    "symbol": "?stricmp_00781f20@seed_00663c40@@YAIPAE0@Z",
    "address": "00781f20"
   },
@@ -366,10 +370,6 @@
   {
    "symbol": "?unknown_sin_4ba480@@YANN@Z",
    "address": "004ba480"
-  },
-  {
-   "symbol": "?unknown_table_7f264c@@3QBDB",
-   "address": "007f264c"
   },
   {
    "symbol": "__fltused",

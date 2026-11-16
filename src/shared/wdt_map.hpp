@@ -5,7 +5,7 @@
 //   +0x08 int unknown_08, +0x0C int unknown_0c, +0x10 int unknown_10  (the constructor arguments)
 //   +0x14 and +0x78 drawers made by Create_Drawer, +0x24 the territory index surface
 //         (Read_PCX_File), all deleted by the destructor; +0x18/+0x1C animations
-//         (built in the loader 0x00729510, used by unknown_72a620)
+//         (built in the loader 0x00729510, used by Start_Intro)
 //   +0x28 Wstring (":" when built)
 //   +0x2C DynamicVectorClass<rc_ptr<Territory>> Territories
 //   +0x44, +0x64, +0x6C three small member objects, each zeroed by its own inline
@@ -34,7 +34,7 @@ public:
     virtual Rect Get_Rect();                                        // 0x007292B0 (the 640x480 screen)
 };
 
-extern bool unknown_flag_7fbd05;  // 0x007FBD05 (MSFrameAnim::Draw draws while set)
+extern bool FrameRedrawDraws;  // 0x007FBD05 (MSFrameAnim::Draw draws while set)
 // Draws the interface frame clipped to window (0x006F3650, unowned/Unknown_Draw_Interface_006f3650.cpp).
 void __fastcall Unknown_006F3650(Surface *surface, Rect const &window, bool arg3);
 
@@ -73,7 +73,7 @@ public:
     virtual ~Map();                                                 // 0x0072AF30 (slot 0, calls 0x007293F0)
 
     static rc_ptr<Map> __fastcall Create(int unknown_08, int unknown_0c, int unknown_10);   // 0x007292E0
-    void unknown_72a620(MSEngine *engine, Voices *voices);         // 0x0072A620
+    void Start_Intro(MSEngine *engine, Voices *voices);         // 0x0072A620
     // The drawer of the palette file `name`, loaded and kept in Palettes on first use (0 when
     // it cannot be loaded; name hypothesis).
     ConvertClass *Get_Drawer(Wstring const &name);                  // 0x0072A510

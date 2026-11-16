@@ -398,13 +398,13 @@
   },
   {
    "site": "0065e440",
-   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "symbol": "?Stop_Ingame_Movie@@YAXXZ",
    "target": "005a09e0",
    "function_entry": true
   },
   {
    "site": "0065e590",
-   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "symbol": "?Stop_Ingame_Movie@@YAXXZ",
    "target": "005a09e0",
    "function_entry": true
   },
@@ -422,7 +422,7 @@
   },
   {
    "site": "0065d7f0",
-   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "symbol": "?Stop_Ingame_Movie@@YAXXZ",
    "target": "005a09e0",
    "function_entry": true
   },
@@ -452,7 +452,7 @@
   },
   {
    "site": "0065dec0",
-   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "symbol": "?Stop_Ingame_Movie@@YAXXZ",
    "target": "005a09e0",
    "function_entry": true
   },
@@ -476,7 +476,7 @@
   },
   {
    "site": "00672e70",
-   "symbol": "?Unknown_005A09E0@@YAXXZ",
+   "symbol": "?Stop_Ingame_Movie@@YAXXZ",
    "target": "005a09e0",
    "function_entry": true
   },
@@ -961,18 +961,6 @@
    "module_symbol": "?Pause_Ingame_Movie@@YIX_N@Z"
   },
   {
-   "site": "0065e440",
-   "target": "005a09e0",
-   "symbol": "?Unknown_005A09E0@@YAXXZ",
-   "module_symbol": "?Stop_Ingame_Movie@@YAXXZ"
-  },
-  {
-   "site": "0065e590",
-   "target": "005a09e0",
-   "symbol": "?Unknown_005A09E0@@YAXXZ",
-   "module_symbol": "?Stop_Ingame_Movie@@YAXXZ"
-  },
-  {
    "site": "0065bc70",
    "target": "005a07f0",
    "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
@@ -986,12 +974,6 @@
   },
   {
    "site": "0065d7f0",
-   "target": "005a09e0",
-   "symbol": "?Unknown_005A09E0@@YAXXZ",
-   "module_symbol": "?Stop_Ingame_Movie@@YAXXZ"
-  },
-  {
-   "site": "0065d7f0",
    "target": "005a07f0",
    "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
    "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
@@ -1013,12 +995,6 @@
    "target": "005a07f0",
    "symbol": "?Unknown_005A07F0@@YIXHHHHH@Z",
    "module_symbol": "?Play_Movie@@YIXHH_N00@Z"
-  },
-  {
-   "site": "0065dec0",
-   "target": "005a09e0",
-   "symbol": "?Unknown_005A09E0@@YAXXZ",
-   "module_symbol": "?Stop_Ingame_Movie@@YAXXZ"
   },
   {
    "site": "0065dec0",
@@ -1037,12 +1013,6 @@
    "target": "005a0a90",
    "symbol": "?Pause_Radar_Movie_005a0a90@@YIX_N@Z",
    "module_symbol": "?Pause_Ingame_Movie@@YIX_N@Z"
-  },
-  {
-   "site": "00672e70",
-   "target": "005a09e0",
-   "symbol": "?Unknown_005A09E0@@YAXXZ",
-   "module_symbol": "?Stop_Ingame_Movie@@YAXXZ"
   },
   {
    "site": "005116a0",
@@ -1111,7 +1081,7 @@
    "module_symbol": "?Play_Movie@@YIXPBDH_N111@Z"
   }
  ],
- "stand_in_reference_count": 31,
+ "stand_in_reference_count": 26,
  "residual_split": {
   "rows": 0,
   "bytes": 0

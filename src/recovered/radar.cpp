@@ -139,9 +139,9 @@
 
 RTacticalClass RadarClass::RadarButton;
 Cell RadarClass::unknown_cell_ab6330;
-ShapeButtonClass RadarClass::unknown_button_ab63e8;
+ShapeButtonClass RadarClass::BriefingButton;
 CoordStruct RadarClass::unknown_coord_ab6370;
-ShapeButtonClass RadarClass::unknown_button_ab6380;
+ShapeButtonClass RadarClass::OptionsButton;
 
 
 // Static-member initializer or guarded atexit destructor (0x0062ED20, _$E) emitted by the definitions in RadarClass_RadarButton_init_0062ecf0.cpp; no source of its own.
@@ -285,15 +285,15 @@ void RadarClass::One_Time()
 void RadarClass::DisposeOfArt()
 {
     if (unknown_shape_ab6350_allocated) {
-        operator delete((void *)unknown_shape_ab6350);
+        operator delete((void *)BriefingButtonShape);
         unknown_shape_ab6350_allocated = false;
     }
-    unknown_shape_ab6350 = 0;
+    BriefingButtonShape = 0;
     if (unknown_shape_ab6318_allocated) {
-        operator delete((void *)unknown_shape_ab6318);
+        operator delete((void *)OptionsButtonShape);
         unknown_shape_ab6318_allocated = false;
     }
-    unknown_shape_ab6318 = 0;
+    OptionsButtonShape = 0;
 }
 
 
@@ -341,11 +341,11 @@ void RadarClass::Init_Clear()
 void RadarClass::Set_Buttons(bool add)
 {
     if (add) {
-        Add_A_Button(unknown_button_ab63e8);
-        Add_A_Button(unknown_button_ab6380);
+        Add_A_Button(BriefingButton);
+        Add_A_Button(OptionsButton);
     } else {
-        Remove_A_Button(unknown_button_ab63e8);
-        Remove_A_Button(unknown_button_ab6380);
+        Remove_A_Button(BriefingButton);
+        Remove_A_Button(OptionsButton);
     }
 }
 
@@ -372,12 +372,12 @@ void RadarClass::Init_For_House()
     }
     unknown_int_ab633c=unknown_int_ab646c;
     RadarButton.X=unknown_11ec;
-    unknown_shape_ab6350=Unknown_Load_Shape_00495270(BriefingButtonShapeName,unknown_shape_ab6350_allocated);
-    unknown_shape_ab6318=Unknown_Load_Shape_00495270(OptionsButtonShapeName,unknown_shape_ab6318_allocated);
-    unknown_int_ab6470=((ShapeFileStruct const *)unknown_shape_ab6350)->Width;
-    unknown_int_ab6474=((ShapeFileStruct const *)unknown_shape_ab6350)->Height;
-    unknown_int_ab6340=((ShapeFileStruct const *)unknown_shape_ab6318)->Width;
-    unknown_int_ab6344=((ShapeFileStruct const *)unknown_shape_ab6318)->Height;
+    BriefingButtonShape=Unknown_Load_Shape_00495270(BriefingButtonShapeName,unknown_shape_ab6350_allocated);
+    OptionsButtonShape=Unknown_Load_Shape_00495270(OptionsButtonShapeName,unknown_shape_ab6318_allocated);
+    unknown_int_ab6470=((ShapeFileStruct const *)BriefingButtonShape)->Width;
+    unknown_int_ab6474=((ShapeFileStruct const *)BriefingButtonShape)->Height;
+    unknown_int_ab6340=((ShapeFileStruct const *)OptionsButtonShape)->Width;
+    unknown_int_ab6344=((ShapeFileStruct const *)OptionsButtonShape)->Height;
     RadarButton.unknown_28=unknown_art_ac1070;
     unknown_1204=Build_Hicolor_Pixel(TooltipColor.Get_Red(),TooltipColor.Get_Green(),TooltipColor.Get_Blue());
 }
@@ -394,25 +394,25 @@ void RadarClass::Init_IO()
 {
     DisplayClass::Init_IO();
     if (!Debug_Map) {
-        unknown_button_ab63e8.ID = 0xF2;
-        unknown_button_ab63e8.DrawOnSidebar = true;
-        unknown_button_ab63e8.ShapeDrawer = SidebarDrawer;
-        unknown_button_ab63e8.IsOn = false;
-        unknown_button_ab63e8.ToggleType = 0;
-        unknown_button_ab63e8.Flags = 5;
-        unknown_button_ab63e8.Set_Position(unknown_int_ab6468, unknown_int_ab646c);
-        unknown_button_ab63e8.Set_Shape(unknown_shape_ab6350);
-        unknown_button_ab63e8.Flag_To_Redraw();
+        BriefingButton.ID = 0xF2;
+        BriefingButton.DrawOnSidebar = true;
+        BriefingButton.ShapeDrawer = SidebarDrawer;
+        BriefingButton.IsOn = false;
+        BriefingButton.ToggleType = 0;
+        BriefingButton.Flags = 5;
+        BriefingButton.Set_Position(unknown_int_ab6468, unknown_int_ab646c);
+        BriefingButton.Set_Shape(BriefingButtonShape);
+        BriefingButton.Flag_To_Redraw();
 
-        unknown_button_ab6380.ID = 0xF3;
-        unknown_button_ab6380.DrawOnSidebar = true;
-        unknown_button_ab6380.ShapeDrawer = SidebarDrawer;
-        unknown_button_ab6380.IsOn = false;
-        unknown_button_ab6380.ToggleType = 0;
-        unknown_button_ab6380.Flags = 5;
-        unknown_button_ab6380.Set_Position(unknown_int_ab6338, unknown_int_ab633c);
-        unknown_button_ab6380.Set_Shape(unknown_shape_ab6318);
-        unknown_button_ab6380.Flag_To_Redraw();
+        OptionsButton.ID = 0xF3;
+        OptionsButton.DrawOnSidebar = true;
+        OptionsButton.ShapeDrawer = SidebarDrawer;
+        OptionsButton.IsOn = false;
+        OptionsButton.ToggleType = 0;
+        OptionsButton.Flags = 5;
+        OptionsButton.Set_Position(unknown_int_ab6338, unknown_int_ab633c);
+        OptionsButton.Set_Shape(OptionsButtonShape);
+        OptionsButton.Flag_To_Redraw();
     }
 }
 
@@ -456,8 +456,8 @@ void RadarClass::Draw_It(bool forced)
         ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_buffer_ac0ff0;
         CC_Draw_Shape(SidebarSurface, SidebarDrawer, shape, 0,
                       Point2D(unknown_11e0, unknown_11e4), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-        unknown_button_ab63e8.Draw_Me(true);
-        unknown_button_ab6380.Draw_Me(true);
+        BriefingButton.Draw_Me(true);
+        OptionsButton.Draw_Me(true);
     }
 
     if (unknown_14a8 != 1) {
@@ -527,11 +527,11 @@ void RadarClass::Draw_It(bool forced)
         SidebarClass::Upgrade.Draw_Me(true);
         SidebarClass::unknown_button_ab96b8.Draw_Me(true);
     }
-    if (unknown_button_ab63e8.IsDrawn) {
+    if (BriefingButton.IsDrawn) {
         unknown_1208 = Union(unknown_1208, unknown_rect_ab6468);
         unknown_flag_abcd84 = true;
     }
-    if (unknown_button_ab6380.IsDrawn) {
+    if (OptionsButton.IsDrawn) {
         unknown_1208 = Union(unknown_1208, unknown_rect_ab6338);
         unknown_flag_abcd84 = true;
     }
@@ -684,12 +684,12 @@ void RadarClass::AI(int &input, Point2D const &xy)
         if (unknown_game_mode_a3d298 == 0
             || ((unknown_game_mode_a3d298 == 3 || unknown_game_mode_a3d298 == 4) && unknown_session_a3d29c != 0
                 && unknown_session_a3d29c->unknown_slot2() && unknown_session_a3d29c->unknown_slot1())) {
-            unknown_int_a40d48 = 9;
+            SpecialDialog = 9;
         } else {
-            unknown_int_a40d48 = 8;
+            SpecialDialog = 8;
         }
     } else if (input == 0x80F3) {
-        unknown_int_a40d48 = 1;
+        SpecialDialog = 1;
     }
     if (unknown_int_af8fe8 > 0 && unknown_14ac != 3 && unknown_14ac != 4) {
         unknown_14b0 = unknown_14ac;
@@ -736,7 +736,7 @@ void RadarClass::AI(int &input, Point2D const &xy)
 ObjectClass *__fastcall Best_Selected_Object(Cell const *cell, ObjectClass *object);
 extern bool drag_select_aborted;
 extern int unknown_int_8325d0;
-extern int unknown_int_8325d4;
+extern int MapSizeY;
 
 int RTacticalClass::Action(unsigned flags, unsigned &key)
 {
@@ -777,11 +777,11 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
         coord.Z = Map.Get_Height_GL(coord);
         shadow = Map.Is_Shrouded(coord) && unknown_b263d8;
         int action = 0;
-        bool nuke = unknown_pending_super_833694 == 0;
-        bool first = unknown_pending_super_833694 == 1;
-        bool second = unknown_pending_super_833694 == 2;
-        bool third = unknown_pending_super_833694 == 5;
-        bool fourth = unknown_pending_super_833694 == 6;
+        bool nuke = CurrentSuperWeaponType == 0;
+        bool first = CurrentSuperWeaponType == 1;
+        bool second = CurrentSuperWeaponType == 2;
+        bool third = CurrentSuperWeaponType == 5;
+        bool fourth = CurrentSuperWeaponType == 6;
         bool pressed = (flags & 0x50) != 0;
         if (!pressed && (CurrentObject.Count() != 0 || nuke || first || second || third || fourth)) {
             if (nuke) {
@@ -824,7 +824,7 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
                     int side_edge = unknown_int_8325d0 - (unknown_int_839638 / 60 + 2) / 2 - 1;
                     int half_view_height = unknown_int_83963c / 60;
                     int top_edge = half_view_height + unknown_int_8325d0 + 1;
-                    int bottom_edge = 2 * unknown_int_8325d4 - half_view_height + unknown_int_8325d0 - 1;
+                    int bottom_edge = 2 * MapSizeY - half_view_height + unknown_int_8325d0 - 1;
                     int adjust;
                     if (cell.Y - cell.X > side_edge) {
                         adjust = cell.Y - cell.X - side_edge;
@@ -1030,12 +1030,12 @@ void RadarClass::Reposition_Sidebar()
 {
     DisplayClass::Reposition_Sidebar();
     int offset = unknown_flag_a40b30 ? unknown_int_839638 : 0;
-    unknown_button_ab63e8.DrawOffsetX = -offset;
-    unknown_button_ab63e8.Set_Position(unknown_int_ab6468 + offset, unknown_int_ab646c);
-    unknown_button_ab63e8.Flag_To_Redraw();
-    unknown_button_ab6380.DrawOffsetX = -offset;
-    unknown_button_ab6380.Set_Position(unknown_int_ab6338 + offset, unknown_int_ab633c);
-    unknown_button_ab6380.Flag_To_Redraw();
+    BriefingButton.DrawOffsetX = -offset;
+    BriefingButton.Set_Position(unknown_int_ab6468 + offset, unknown_int_ab646c);
+    BriefingButton.Flag_To_Redraw();
+    OptionsButton.DrawOffsetX = -offset;
+    OptionsButton.Set_Position(unknown_int_ab6338 + offset, unknown_int_ab633c);
+    OptionsButton.Flag_To_Redraw();
     RadarButton.Set_Position(unknown_11ec + offset, unknown_11f0);
     RadarButton.Flag_To_Redraw();
 
@@ -1045,18 +1045,18 @@ void RadarClass::Reposition_Sidebar()
     if (unknown_game_mode_a3d298) {
         tip.Label = "Tip:DiplomacyButton";
     }
-    tip.Region.X = unknown_button_ab63e8.X;
-    tip.Region.Y = unknown_button_ab63e8.Y;
-    tip.Region.Width = unknown_button_ab63e8.Width;
-    tip.Region.Height = unknown_button_ab63e8.Height;
+    tip.Region.X = BriefingButton.X;
+    tip.Region.Y = BriefingButton.Y;
+    tip.Region.Width = BriefingButton.Width;
+    tip.Region.Height = BriefingButton.Height;
     ToolTips->Remove(0xF2);
     ToolTips->Add(tip);
     tip.ID = 0xF3;
     tip.Label = "Tip:OptionsButton";
-    tip.Region.X = unknown_button_ab6380.X;
-    tip.Region.Y = unknown_button_ab6380.Y;
-    tip.Region.Width = unknown_button_ab6380.Width;
-    tip.Region.Height = unknown_button_ab6380.Height;
+    tip.Region.X = OptionsButton.X;
+    tip.Region.Y = OptionsButton.Y;
+    tip.Region.Width = OptionsButton.Width;
+    tip.Region.Height = OptionsButton.Height;
     ToolTips->Remove(0xF3);
     ToolTips->Add(tip);
     unknown_14d6 = true;
@@ -2692,7 +2692,7 @@ static inline int Control_Index(int const *table, int id)
 
 int __stdcall Unknown_006340F0(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int handled = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int handled = Default_Dialog_Proc(window, message, wparam, lparam);
     if (handled != 0) {
         return handled;
     }
@@ -2886,7 +2886,7 @@ void __fastcall Unknown_00634A00(MouseClass *map)
     if (window) {
         int result;
         SetWindowLongA(window, 8, (LONG)&result);
-        unknown_dialog_5ff7c0(window);
+        Display_Dialog(window);
         result = 0;
         while (true) {
             if (unknown_6000d0()) {

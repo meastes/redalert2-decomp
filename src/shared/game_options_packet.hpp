@@ -15,7 +15,7 @@ struct UnknownOptionsPacket {
     char Name[0x2F - 0x04];             // +0x04 the sender's nick name (unknown_name_a3d3a0)
     char Text[0x1BF - 0x2F];            // +0x2F the options text (narrow)
     int Color;                          // +0x1BF the sender's colour (session +0x11C)
-    int NameCRC;                        // +0x1C3 Unknown_005bba50 of the host's name
+    int NameCRC;                        // +0x1C3 Compute_Name_CRC_W of the host's name
 };
 #pragma pack(pop)
 

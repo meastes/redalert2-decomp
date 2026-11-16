@@ -39,7 +39,7 @@ extern Cell unknown_event_empty_cell_ab67a8;
 extern int unknown_event_last_ab67c8;
 extern int unknown_event_current_ab6818;
 // Saved after the events (0x00AB67B8).
-extern int unknown_radar_event_word_ab67b8;
+extern int LastRadarEventCell;
 
 void __fastcall RadarEventClass_unknown_remember_cell(Cell const &cell);    // 0x0063C6C0
 Cell __fastcall RadarEventClass_unknown_newest_cell();                      // 0x0063C6F0

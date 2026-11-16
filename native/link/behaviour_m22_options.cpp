@@ -26,7 +26,7 @@ bool unknown_options_ready_a6ed0c;
 // disassembly 0x00542590-0x00542D5C). Reached by the main menu's Options button.
 int __stdcall Main_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int handled = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int handled = Default_Dialog_Proc(window, message, wparam, lparam);
     if (handled) {
         return handled;
     }

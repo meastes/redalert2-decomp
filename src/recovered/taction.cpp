@@ -33,7 +33,7 @@
 #include "shared/object.hpp"
 
 // The unit's list of TActionClass objects (0x00ABFD88; name is a hypothesis).
-DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
+DynamicVectorClass<TActionClass *> Actions;
 
 
 
@@ -102,8 +102,8 @@ TActionClass::TActionClass() :
     unknown_4c(0),
     unknown_50(0)
 {
-    unknown_TActionClass_list_00abfd88.Add(this);
-    unknown_24 = unknown_TActionClass_list_00abfd88.ID(this);
+    Actions.Add(this);
+    unknown_24 = Actions.ID(this);
     AbstractTypePtrTracker.Add((ObjectClass *)this);
     EventActionPtrTracker.Add(this);
     Text[0] = 0;
@@ -121,7 +121,7 @@ TActionClass::~TActionClass()
     Unknown_006ECB90(this, true);
     AbstractTypePtrTracker.Delete((ObjectClass *)this);
     EventActionPtrTracker.Delete(this);
-    unknown_TActionClass_list_00abfd88.Delete(this);
+    Actions.Delete(this);
     Text[0] = 0;
 }
 
@@ -635,20 +635,20 @@ bool TActionClass::unknown_player_4e82c0(HouseClass *house, ObjectClass *object,
 bool TActionClass::TAction_DAMAGE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     int damage = 100;
-    Unknown_0047E2C0(Waypoint_As_Coord(), damage, 0, Rules->C4Warhead, 1);
+    Explosion_Damage(Waypoint_As_Coord(), damage, 0, Rules->C4Warhead, 1);
     damage = 100;
-    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(85, 85, 0), damage, 0, Rules->C4Warhead, 1);
+    Explosion_Damage(Waypoint_As_Coord() + CoordStruct(85, 85, 0), damage, 0, Rules->C4Warhead, 1);
     damage = 100;
-    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(-85, 85, 0), damage, 0, Rules->C4Warhead, 1);
+    Explosion_Damage(Waypoint_As_Coord() + CoordStruct(-85, 85, 0), damage, 0, Rules->C4Warhead, 1);
     damage = 100;
-    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(85, -85, 0), damage, 0, Rules->C4Warhead, 1);
+    Explosion_Damage(Waypoint_As_Coord() + CoordStruct(85, -85, 0), damage, 0, Rules->C4Warhead, 1);
     damage = 100;
-    Unknown_0047E2C0(Waypoint_As_Coord() + CoordStruct(-85, -85, 0), damage, 0, Rules->C4Warhead, 1);
+    Explosion_Damage(Waypoint_As_Coord() + CoordStruct(-85, -85, 0), damage, 0, Rules->C4Warhead, 1);
     bool valid_waypoint = unknown_id_source_a3d290->Is_Valid_Waypoint(Data.Value);
     if (valid_waypoint) {
         Cell spot = unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value);
         int tries = 3;
-        while (!Map.Unknown_00569090(&spot) && tries-- > 0) {}
+        while (!Map.Damage_Bridge(&spot) && tries-- > 0) {}
         Point2D point;
         CoordStruct coord = CoordStruct(spot);
         coord.Z += unknown_geometry_j;
@@ -665,7 +665,7 @@ bool TActionClass::TAction_DAMAGE(HouseClass *house, ObjectClass *object, Trigge
 
 bool TActionClass::unknown_explosion_50_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Unknown_0047F600(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 50, Rules->C4Warhead, 0, 0);
+    Combat_Lighting(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 50, Rules->C4Warhead, 0, 0);
     return true;
 }
 
@@ -675,7 +675,7 @@ bool TActionClass::unknown_explosion_50_at_waypoint(HouseClass *house, ObjectCla
 
 bool TActionClass::unknown_explosion_100_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Unknown_0047F600(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 100, Rules->C4Warhead, 0, 0);
+    Combat_Lighting(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 100, Rules->C4Warhead, 0, 0);
     return true;
 }
 
@@ -685,7 +685,7 @@ bool TActionClass::unknown_explosion_100_at_waypoint(HouseClass *house, ObjectCl
 
 bool TActionClass::unknown_explosion_300_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Unknown_0047F600(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 300, Rules->C4Warhead, 0, 0);
+    Combat_Lighting(unknown_id_source_a3d290->Waypoint_Coord(Data.Value), 300, Rules->C4Warhead, 0, 0);
     return true;
 }
 
@@ -823,7 +823,7 @@ bool TActionClass::unknown_show_text(HouseClass *house, ObjectClass *object, Tri
     char const *text = Get_Text();
     ScenarioClass *scenario = unknown_id_source_a3d290;
     int color_scheme = scenario->unknown_2239 ? 2 : 1;
-    int color = unknown_session_a3d298.Unknown_006715D0(color_scheme);
+    int color = unknown_session_a3d298.Color_Index_To_Scheme(color_scheme);
     if (text != 0) {
         unknown_messages_a3dc70.Add_Message(0, 0, StringTable::Load_String(text, 0, "D:\\Ra2\\TAction.CPP", 0x62E), color, TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rules->MessageDelay * 900.0), 0);
     }
@@ -948,13 +948,13 @@ bool TActionClass::unknown_reveal_around_waypoint(HouseClass *house, ObjectClass
 
 
 // bool TActionClass::unknown_map_55d990_at_waypoint(...) (0x006B0800)
-// Calls Map.Unknown_0055D990 with the cell of waypoint Data.Value; always true.
+// Calls Map.Area_Reduce_Tiberium with the cell of waypoint Data.Value; always true.
 
 
 bool TActionClass::unknown_map_55d990_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(Data.Value);
-    Map.Unknown_0055D990(waypoint);
+    Map.Area_Reduce_Tiberium(waypoint);
     return true;
 }
 
@@ -1374,16 +1374,16 @@ bool TActionClass::unknown_set_house_137(HouseClass *house, ObjectClass *object,
 
 // bool TActionClass::unknown_create_team(...) (0x006B1420)
 // Creates one team of the team type at +0x30 with the global counter at 0x00A40774 raised around the call; always true.
-extern int unknown_team_creating_a40774;
+extern int ScenarioInit;
 
 bool TActionClass::unknown_create_team(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    unknown_team_creating_a40774++;
+    ScenarioInit++;
     TeamTypeClass *team_type = (TeamTypeClass *)unknown_30;
     if (team_type != 0) {
         team_type->Create_One_Of(0);
     }
-    unknown_team_creating_a40774--;
+    ScenarioInit--;
     return true;
 }
 
@@ -1457,10 +1457,10 @@ bool TActionClass::TAction_DESTROY_OBJECT(HouseClass *house, ObjectClass *object
         }
     } while (again);
     if (cell->X != unknown_geometry_k.X || cell->Y != unknown_geometry_k.Y) {
-        bool visible = Map.Unknown_00569090(cell);
+        bool visible = Map.Damage_Bridge(cell);
         int tries = 3;
         while (!visible && tries-- > 0) {
-            visible = Map.Unknown_00569090(cell);
+            visible = Map.Damage_Bridge(cell);
         }
         CoordStruct coord = CoordStruct(cell->X * 256 + 128, cell->Y * 256 + 128, 0);
         coord.Z = unknown_geometry_j;
@@ -1521,7 +1521,7 @@ bool TActionClass::TAction_PLAY_ANIM(HouseClass *house, ObjectClass *object, Tri
 
 
 // bool TActionClass::unknown_weapon_explosion_at_waypoint(...) (0x006B1810)
-// The explosion of weapon type Data.Value at waypoint +0x44 (ground height, raised on a bridge): its warhead's damage animation, Unknown_0047F600 and Unknown_0047E2C0 with the weapon's +0xA4 damage; always true.
+// The explosion of weapon type Data.Value at waypoint +0x44 (ground height, raised on a bridge): its warhead's damage animation, Combat_Lighting and Explosion_Damage with the weapon's +0xA4 damage; always true.
 #include "shared/weapon_type.hpp"
 
 bool TActionClass::unknown_weapon_explosion_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
@@ -1540,8 +1540,8 @@ bool TActionClass::unknown_weapon_explosion_at_waypoint(HouseClass *house, Objec
     if (anim != 0) {
         new AnimClass(anim, coord, 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(coord));
     }
-    Unknown_0047F600(coord, damage, Weapons[index]->Warhead, 0, 0);
-    Unknown_0047E2C0(coord, damage, 0, Weapons[index]->Warhead, 1);
+    Combat_Lighting(coord, damage, Weapons[index]->Warhead, 0, 0);
+    Explosion_Damage(coord, damage, 0, Weapons[index]->Warhead, 1);
     return true;
 }
 
@@ -2459,7 +2459,7 @@ bool TActionClass::TAction_EJECT_OCCUPANTS(HouseClass *house, ObjectClass *objec
 bool TActionClass::unknown_select_sidebar_tab(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     int tab = Data.Value;
-    if (tab < 4 && tab >= 0 && Map.Column[tab].Unknown_00681730()) {
+    if (tab < 4 && tab >= 0 && Map.Column[tab].Has_Buildables()) {
         Map.Select_Tab(tab);
         return true;
     }

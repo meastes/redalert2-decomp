@@ -112,7 +112,7 @@ extern bool unknown_detail_reduced_a6eb28;              // 0x00A6EB28
 bool Unknown_0051FC70();                                // 0x0051FC70 (dominator state 2; hypothesis)
 void Unknown_00521A70();                                // 0x00521A70
 
-unsigned int Unknown_0053D840()
+unsigned int GetMinFrameRate()
 {
     if (unknown_detail_reduced_a6eb28) {
         if (unknown_a6eb1c >= unknown_detail_frame_rate_7dfb34 + unknown_detail_buffer_zone_7dfb38) {
@@ -133,7 +133,7 @@ void LogicClass::AI()
 {
     int index;
 
-    unknown_frames_this_second_a6eb18++;
+    FramesThisSecond++;
 
     for (LogicTriggerID = 0; LogicTriggerID < LogicTags.Count(); LogicTriggerID++) {
         TagClass *trig = LogicTags[LogicTriggerID];
@@ -334,8 +334,8 @@ void AI_Submitted_Objects()
         TerrainClass *terrain = Terrains[index];
         if (terrain->IsSubmittedToLayer) terrain->AI();
     }
-    for (index = unknown_VoxelAnimClass_list_008399d0.Count() - 1; index >= 0; index--) {
-        VoxelAnimClass *voxelanim = unknown_VoxelAnimClass_list_008399d0[index];
+    for (index = VoxelAnims.Count() - 1; index >= 0; index--) {
+        VoxelAnimClass *voxelanim = VoxelAnims[index];
         if (voxelanim->IsSubmittedToLayer) voxelanim->AI();
     }
     for (index = Waves.Count() - 1; index >= 0; index--) {

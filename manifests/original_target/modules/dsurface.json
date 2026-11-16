@@ -265,7 +265,7 @@
    "padding_bytes": 1
   },
   {
-   "symbol": "?Unknown_Slot16@DSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z",
+   "symbol": "?Draw_RGB_Multiplying_Line@DSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z",
    "entry": "004ade00",
    "body_bytes": 2754,
    "padding_bytes": 14
@@ -709,7 +709,7 @@
   },
   {
    "site": "0068e1c0",
-   "symbol": "?Unknown_004B1470@@YAXXZ",
+   "symbol": "?Release_Direct3D@@YAXXZ",
    "target": "004b1470",
    "function_entry": true
   },
@@ -1415,15 +1415,8 @@
    "reason": "relocation target unbound: ?Draw_Ellipse@XSurface@@UAE_NUPoint2D@@HHVRect@@H@Z"
   }
  ],
- "stand_in_references": [
-  {
-   "site": "0068e1c0",
-   "target": "004b1470",
-   "symbol": "?Unknown_004B1470@@YAXXZ",
-   "module_symbol": "?Release_Direct3D@@YAXXZ"
-  }
- ],
- "stand_in_reference_count": 1,
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
  "residual_split": {
   "rows": 1,
   "bytes": 38

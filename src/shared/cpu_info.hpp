@@ -17,7 +17,7 @@ int Get_RDTSC_CPU_Speed();
 void RDTSC();
 
 // The CPU vendor text (0x008015A5; Get_CPU_Info 0x004D2A20 copies it, the version dialog prints it).
-extern char unknown_cpu_text_8015a5[];
+extern char VendorID[];
 
 // The performance counter frequency: returns its low dword and stores the
 // high dword in high (mpu.cpp, 0x005ABF20; QueryPerformanceFrequency).

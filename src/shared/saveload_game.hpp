@@ -33,6 +33,6 @@ extern "C" GUID const unknown_uuid_ILinkStream_7f1b50;
 extern "C" GUID const unknown_uuid_IStream_7d5988;
 
 // The save game's version stamp (0x007F1B18).
-extern int unknown_savegame_version_7f1b18;
+extern int ExpectedGameVersion;
 
 #endif

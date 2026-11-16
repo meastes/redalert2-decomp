@@ -91,7 +91,7 @@ void __fastcall Unknown_0062E5C0(FrameSyncStruct *their, int index);
 void __fastcall Unknown_0062E6E0(EventClass *event);
 // UnknownGlobalPacket (Red Alert's GlobalPacketType) is in shared/unknown_globals.hpp.
 // Proposes to kick the player at a list index from the reconnect dialog: refused for the
-// player himself and in game mode 4 while unknown_b2a7ec is set (0x00626FE0; named by its trace).
+// player himself and in game mode 4 while WestwoodOnline_Tournament is set (0x00626FE0; named by its trace).
 void __fastcall Propose_Kick_Player(HWND dialog, int index);
 // Adds a copy of a received global packet to the session's list (0x00627190; the
 // caller 0x004824BE passes the session's packet +0x23A8 and its address +0x2574,
@@ -251,7 +251,7 @@ extern unsigned int unknown_a402cc;
 // A player id the PACKETTIMING report skips (0x00A402D4, session +0x303C).
 extern int unknown_a402d4;
 // The other players' response times by connection index (0x00A76C88).
-extern unsigned long unknown_response_times_a76c88[];
+extern unsigned long RouterResponseTimes[];
 // Handles a received FRAMEINFO / FRAMESYNC packet (0x006265C0; Red Alert's
 // Process_Receive_Packet, with the RA2 timing records and an elapsed timer).
 RetcodeType __fastcall Process_Receive_Packet(ConnManClass *net, char *multi_packet_buf, int id, int packetlen,
@@ -317,7 +317,7 @@ extern unsigned long unknown_crc_a40770;
 extern int SentFrameSyncCount;
 // The time() of the last kick (0x00AB6304).
 extern long unknown_last_kick_ab6304;
-extern bool unknown_flag_a417c8;        // 0x00A417C8
+extern bool GameStatisticsPacketSent;        // 0x00A417C8
 extern bool unknown_flag_abd500;        // 0x00ABD500 (set when a kick leaves one house)
 extern bool unknown_flag_a3d8d1;        // 0x00A3D8D1 (the same, unless another kick came within 60 s)
 extern int unknown_a3fb84[];            // 0x00A3FB84 (session +0x28EC: frames behind per player)

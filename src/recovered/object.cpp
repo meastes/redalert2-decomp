@@ -859,7 +859,7 @@ int ObjectClass::Receive_Message(RadioClass *from, int message, AbstractClass *&
 // ObjectClass damage handler005D3D20; original1079+9.
 // Private strict candidate; source and field types remain explicit hypotheses.
 // Existing six-argument ABI and field meanings remain explicit hypotheses.
-int __fastcall Unknown_0047E1C0(int damage, WarheadTypeClass *warhead, int armour, int distance);
+int __fastcall Modify_Damage(int damage, WarheadTypeClass *warhead, int armour, int distance);
 extern double const unknown_cyborg_recovery_007a7670;
 int ObjectClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
     TechnoClass *source, bool forced, int unknown_argument)
@@ -869,7 +869,7 @@ int ObjectClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
     int old_strength = Strength;
     if (old_strength <= 0 || *damage == 0 || (!forced && Class_Of()->unknown_203)) goto damage_done;
     int maximum_strength = Class_Of()->MaxStrength;
-    if (!forced) *damage = Unknown_0047E1C0(*damage, warhead, Class_Of()->Armor, distance);
+    if (!forced) *damage = Modify_Damage(*damage, warhead, Class_Of()->Armor, distance);
     if (*damage == 0) return 0;
     if (*damage < 0) {
         int before_heal = Strength;

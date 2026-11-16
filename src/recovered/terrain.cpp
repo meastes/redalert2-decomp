@@ -92,7 +92,7 @@ TerrainClass::~TerrainClass()
         IsActive = true;
         TerrainClass::Limbo();
     }
-    unknown_object_index_abff58.Remove_Index(AbstractClass::Fetch_ID());
+    TargetTracker.Remove_Index(AbstractClass::Fetch_ID());
 }
 
 
@@ -130,8 +130,8 @@ int TerrainClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhe
         if (result == 4) {
             if (Class->SpawnsTiberium) {
                 new AnimClass(Select_Damage_Anim(100, Rules->C4Warhead, Land_Type_At(Get_Coord(this)), &Get_Coord(this)), Get_Coord(this), 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(Get_Coord(this)));
-                Unknown_0047E2C0(Get_Coord(this), 100, 0, Rules->C4Warhead, 1);
-                unknown_slot104().unknown_47e2b0();
+                Explosion_Damage(Get_Coord(this), 100, 0, Rules->C4Warhead, 1);
+                unknown_slot104().Chain_Reaction_Damage();
             } else if (unknown_b4) {
                 Shorten_Attached_Anims(this);
             } else {
@@ -168,7 +168,7 @@ TerrainClass::TerrainClass(TerrainTypeClass *type, Cell const &cell) :
     }
     Animation.Set_Rate(0);
     Terrains.Add(this);
-    unknown_object_index_abff58.Add_Index(AbstractClass::Fetch_ID(), this);
+    TargetTracker.Add_Index(AbstractClass::Fetch_ID(), this);
 }
 
 
@@ -183,7 +183,7 @@ TerrainClass::TerrainClass() :
     unknown_b8(0, 0, 0, 0)
 {
     Terrains.Add(this);
-    unknown_object_index_abff58.Add_Index(AbstractClass::Fetch_ID(), this);
+    TargetTracker.Add_Index(AbstractClass::Fetch_ID(), this);
 }
 
 
@@ -609,7 +609,7 @@ bool TerrainClass::Render(Rect *bounds, bool forced, bool extras_only)
 
 HRESULT __stdcall TerrainClass::Load(IStream *stream)
 {
-    unknown_object_index_abff58.Remove_Index(Fetch_ID());
+    TargetTracker.Remove_Index(Fetch_ID());
     HRESULT result = ObjectClass::Load(stream);
     if (FAILED(result)) {
         return result;

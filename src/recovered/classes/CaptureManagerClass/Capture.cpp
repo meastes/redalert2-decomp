@@ -36,7 +36,7 @@ bool CaptureManagerClass::Capture(TechnoClass *target)
     unknown_24->Assign_Archive_Target(0);
     unknown_24->QueueMission(5, true);
     if (unknown_24->TemporalImUsing != 0 && unknown_24->TemporalImUsing->unknown_28 != 0) {
-        unknown_24->TemporalImUsing->unknown_6e2500();
+        unknown_24->TemporalImUsing->LetGo();
     }
     return true;
 }

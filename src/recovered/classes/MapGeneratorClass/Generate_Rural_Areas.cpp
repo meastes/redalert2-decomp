@@ -29,8 +29,8 @@ bool __fastcall Can_Place_Paved_Road_00588a30(Rect const &area,bool first,bool s
 namespace seed_0056dac0 {
 bool __fastcall unknown_generation_cell_clear_0056dac0(short *position)
 {
-    unsigned index=(unsigned)(int)position[1]*(unsigned)unknown_map_cell_side_84e804+(unsigned)(int)position[0];
-    return unknown_map_cells_a70a24[index].unknown_45[0]==0;
+    unsigned index=(unsigned)(int)position[1]*(unsigned)MapCellStride+(unsigned)(int)position[0];
+    return RMGCellData[index].unknown_45[0]==0;
 }
 }
 // @ref ?unknown_generation_cell_clear_0056dac0@=0056dac0

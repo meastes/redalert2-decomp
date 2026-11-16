@@ -30,17 +30,17 @@
 
 extern unsigned char unknown_cpu_probe_77f14d();
 extern void unknown_cpu_family_probe_77f20f();
-extern char unknown_cpu_family_8015a3;
-extern char unknown_cpu_text_8015a5[];
+extern char CPUType;
+extern char VendorID[];
 extern "C" char *__cdecl strncpy(char *, const char *, unsigned int);
 
 void __fastcall Get_CPU_Info(int *family, unsigned char *has_cpuid, char *text, unsigned int size)
 {
     *has_cpuid = unknown_cpu_probe_77f14d();
     unknown_cpu_family_probe_77f20f();
-    *family = unknown_cpu_family_8015a3;
+    *family = CPUType;
     if (text != 0) {
-        strncpy(text, unknown_cpu_text_8015a5, size);
+        strncpy(text, VendorID, size);
     }
 }
 

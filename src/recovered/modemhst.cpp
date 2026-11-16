@@ -110,7 +110,7 @@ bool ModemHost::Dialog_00598e10()
     if (Window) {
         SetWindowLongA(Window, 8, (LONG)this);
         Init_Dialog_00599920();
-        unknown_dialog_5ff7c0(Window);
+        Display_Dialog(Window);
         Changed = false;
         OptionsChanged = true;
         OptionsTime = TickCount.Time();
@@ -199,7 +199,7 @@ extern "C" int __cdecl rand();
 
 int __stdcall ModemHost::Dialog_Proc_00598fa0(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result) {
         return result;
     }
@@ -351,7 +351,7 @@ void ModemHost::Init_Dialog_00599920()
         SendMessageA(control, 0x4C1, -1, (LPARAM)StringTable::Load_String("TXT_PURPLE", 0, "D:\\Ra2\\ModemHst.cpp", 0x19D));
         SendMessageA(control, 0x4C1, -1, (LPARAM)StringTable::Load_String("TXT_PINK", 0, "D:\\Ra2\\ModemHst.cpp", 0x19E));
         for (int index = 0; index < 8; index++) {
-            SendMessageA(control, 0x498, index, unknown_color_values_7e6d94[index]);
+            SendMessageA(control, 0x498, index, PlayerColorTable[index]);
         }
         unknown_a3d3b4 = unknown_session_a3d298.unknown_12c;
         SendMessageA(control, 0x14E, unknown_a3d3b4, 0);
@@ -1318,10 +1318,10 @@ void ModemHost::Sign_Off_0059c130()
     packet.ScenarioInfo.Color = unknown_a3d3b4;
     packet.ID = serial_local_player_00a3fb38;
     serial_manager_00a40a28.Send_Message(&packet, sizeof(packet), 1);
-    HWND dialog = unknown_cancel_dialog_6001e0(
+    HWND dialog = Custom_Message_Box(
         StringTable::Load_String("TXT_SIGNING_OFF", 0, "D:\\Ra2\\ModemHst.cpp", 0x95E), 0, 0);
     if (dialog) {
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
     }
     unsigned long start = TickCount.Time();
     while (serial_manager_00a40a28.Num_Send() && TickCount.Time() - start < 300) {
@@ -1402,10 +1402,10 @@ bool ModemHost::Start_Game_0059c290(bool load_game)
     }
     packet.ID = serial_local_player_00a3fb38;
     serial_manager_00a40a28.Send_Message(&packet, sizeof(packet), 1);
-    HWND dialog = unknown_cancel_dialog_6001e0(
+    HWND dialog = Custom_Message_Box(
         StringTable::Load_String("TXT_SENDING_GO", 0, "D:\\Ra2\\ModemHst.cpp", 0x9EC), 0, 0);
     if (dialog) {
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
     }
     unsigned long start = TickCount.Time();
     while ((serial_manager_00a40a28.Num_Send() && TickCount.Time() - start < 1800) || TickCount.Time() - start < 60) {

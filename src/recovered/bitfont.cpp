@@ -651,7 +651,7 @@ int BitFontClass::Draw_Char(wchar_t character, int x, int y, int color_arg)
 
 
 // BitFontClass::Draw_String (0x00431CC0): draws the text from x (CR and LF skipped; at most count
-// characters, 0: all); with fade, the first fade characters fade toward unknown_rgb_ab6849 and the
+// characters, 0: all); with fade, the first fade characters fade toward WhiteColor and the
 // text stops after them (the result is then the full text's end). The next x.
 
 int BitFontClass::Draw_String(wchar_t const *text, int x, int y, int count, int fade)
@@ -672,7 +672,7 @@ int BitFontClass::Draw_String(wchar_t const *text, int x, int y, int count, int 
                 }
                 if (step < 8) {
                     RGBClass rgb = Pixel_To_RGB(color);
-                    rgb.Adjust(ratio, unknown_rgb_ab6849);
+                    rgb.Adjust(ratio, WhiteColor);
                     Color = (unsigned short)(((rgb.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
                                            | ((rgb.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0)
                                            | ((rgb.Green >> unknown_shift_852fcc) << unknown_shift_852fc8));

@@ -84,7 +84,7 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?unknown_72a620@Map@WorldDominationTour@@QAEXPAVMSEngine@@PAVVoices@2@@Z",
+   "symbol": "?Start_Intro@Map@WorldDominationTour@@QAEXPAVMSEngine@@PAVVoices@2@@Z",
    "entry": "0072a620",
    "body_bytes": 61,
    "padding_bytes": 3
@@ -1061,7 +1061,7 @@
   },
   {
    "site": "00730160",
-   "symbol": "?unknown_72a620@Map@WorldDominationTour@@QAEXPAVMSEngine@@PAVVoices@2@@Z",
+   "symbol": "?Start_Intro@Map@WorldDominationTour@@QAEXPAVMSEngine@@PAVVoices@2@@Z",
    "target": "0072a620",
    "function_entry": true
   },
@@ -1394,6 +1394,10 @@
    "address": "0072afd0"
   },
   {
+   "symbol": "?FrameRedrawDraws@@3_NA",
+   "address": "007fbd05"
+  },
+  {
    "symbol": "?Get_Date_Time@CCFileClass@@UAEKXZ",
    "address": "00469350"
   },
@@ -1652,10 +1656,6 @@
   {
    "symbol": "?target@Call_72baf0_0@@QAEIXZ",
    "address": "006394e0"
-  },
-  {
-   "symbol": "?unknown_flag_7fbd05@@3_NA",
-   "address": "007fbd05"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",

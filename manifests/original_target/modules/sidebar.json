@@ -546,7 +546,7 @@
    "padding_bytes": 6
   },
   {
-   "symbol": "?Unknown_00681730@StripClass@SidebarClass@@QAE_NXZ",
+   "symbol": "?Has_Buildables@StripClass@SidebarClass@@QAE_NXZ",
    "entry": "00681730",
    "body_bytes": 11,
    "padding_bytes": 5
@@ -1584,7 +1584,7 @@
   },
   {
    "site": "0051b1b0",
-   "symbol": "?Unknown_00681730@StripClass@SidebarClass@@QAE_NXZ",
+   "symbol": "?Has_Buildables@StripClass@SidebarClass@@QAE_NXZ",
    "target": "00681730",
    "function_entry": true
   },
@@ -1596,7 +1596,7 @@
   },
   {
    "site": "0051b240",
-   "symbol": "?Unknown_00681730@StripClass@SidebarClass@@QAE_NXZ",
+   "symbol": "?Has_Buildables@StripClass@SidebarClass@@QAE_NXZ",
    "target": "00681730",
    "function_entry": true
   },
@@ -1692,7 +1692,7 @@
   },
   {
    "site": "0051b030",
-   "symbol": "?Unknown_00681730@StripClass@SidebarClass@@QAE_NXZ",
+   "symbol": "?Has_Buildables@StripClass@SidebarClass@@QAE_NXZ",
    "target": "00681730",
    "function_entry": true
   },
@@ -1704,7 +1704,7 @@
   },
   {
    "site": "0051b0f0",
-   "symbol": "?Unknown_00681730@StripClass@SidebarClass@@QAE_NXZ",
+   "symbol": "?Has_Buildables@StripClass@SidebarClass@@QAE_NXZ",
    "target": "00681730",
    "function_entry": true
   },
@@ -1776,7 +1776,7 @@
   },
   {
    "site": "006b3010",
-   "symbol": "?Unknown_00681730@StripClass@SidebarClass@@QAE_NXZ",
+   "symbol": "?Has_Buildables@StripClass@SidebarClass@@QAE_NXZ",
    "target": "00681730",
    "function_entry": true
   },
@@ -2049,6 +2049,10 @@
    "address": "00675320"
   },
   {
+   "symbol": "?Abandon@UnknownFactory@@QAEXXZ",
+   "address": "004b97c0"
+  },
+  {
    "symbol": "?Abort_Drag_Select@DisplayClass@@UAEXXZ",
    "address": "0049ebf0"
   },
@@ -2105,6 +2109,10 @@
    "address": "004e0c50"
   },
   {
+   "symbol": "?Build_Rate@UnknownFactory@@QAEHXZ",
+   "address": "004b9780"
+  },
+  {
    "symbol": "?BuildingTypes@@3V?$DynamicVectorClass@PAVBuildingTypeClass@@@@A",
    "address": "00a35cd8"
   },
@@ -2131,6 +2139,10 @@
   {
    "symbol": "?Clicked_On@GadgetClass@@EAEHAAIIHH@Z",
    "address": "004cf0e0"
+  },
+  {
+   "symbol": "?Completion@UnknownFactory@@QAEHXZ",
+   "address": "004b98f0"
   },
   {
    "symbol": "?Count_Type_004B9E40@FactoryClass@@QBEHPAVTechnoTypeClass@@@Z",
@@ -2197,6 +2209,10 @@
    "address": "00663d30"
   },
   {
+   "symbol": "?Fetch_Techno_Type@@YIPAVObjectTypeClass@@HH@Z",
+   "address": "00482c00"
+  },
+  {
    "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
    "address": "004e09a0"
   },
@@ -2233,8 +2249,20 @@
    "address": "004cf1a0"
   },
   {
+   "symbol": "?Get_Special_Item@UnknownFactory@@QAEHXZ",
+   "address": "004b9940"
+  },
+  {
    "symbol": "?Get_Text_Area@BitFontClass@@QAE_NPBGPAH1H@Z",
    "address": "004314b0"
+  },
+  {
+   "symbol": "?Has_Changed@UnknownFactory@@QAE_NXZ",
+   "address": "004b9430"
+  },
+  {
+   "symbol": "?Has_Completed@UnknownFactory@@QAE_NXZ",
+   "address": "004b9900"
   },
   {
    "symbol": "?Has_Focus@GadgetClass@@UAE_NXZ",
@@ -2305,8 +2333,16 @@
    "address": "004cf330"
   },
   {
+   "symbol": "?Is_Build_Limited@UnknownSidebarHouse@@QAE_NPAVTechnoTypeClass@@@Z",
+   "address": "004f4f30"
+  },
+  {
    "symbol": "?Is_Button_Listed@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
    "address": "004e0aa0"
+  },
+  {
+   "symbol": "?Is_Charging@SuperClass@@QBE_NXZ",
+   "address": "0069e990"
   },
   {
    "symbol": "?Is_Enabled@GadgetClass@@QBE_NXZ",
@@ -2315,6 +2351,14 @@
   {
    "symbol": "?Is_List_To_Redraw@GadgetClass@@UAEHXZ",
    "address": "004cf640"
+  },
+  {
+   "symbol": "?Is_On_Hold@UnknownFactory@@QAE_NXZ",
+   "address": "004b9420"
+  },
+  {
+   "symbol": "?Is_Production_Pending@UnknownSidebarHouse@@QAE_NH_NH@Z",
+   "address": "004eb770"
   },
   {
    "symbol": "?Is_Visible@MapClass@@UAGJVCell@@@Z",
@@ -2561,6 +2605,10 @@
    "address": "004cf660"
   },
   {
+   "symbol": "?Set_Production_Pending@UnknownSidebarHouse@@QAEXH_NH@Z",
+   "address": "004eb620"
+  },
+  {
    "symbol": "?Set_Shape@ShapeButtonClass@@UAEXPBXHH@Z",
    "address": "00675130"
   },
@@ -2613,6 +2661,10 @@
    "address": "00a40338"
   },
   {
+   "symbol": "?TabBarHeight@@3HA",
+   "address": "007add84"
+  },
+  {
    "symbol": "?TacticalRect@@3VRect@@A",
    "address": "00839630"
   },
@@ -2653,10 +2705,6 @@
    "address": "00405bf0"
   },
   {
-   "symbol": "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z",
-   "address": "00482c00"
-  },
-  {
    "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
    "address": "00498f10"
   },
@@ -2669,34 +2717,6 @@
    "address": "0049ca20"
   },
   {
-   "symbol": "?Unknown_004B9420@UnknownFactory@@QAE_NXZ",
-   "address": "004b9420"
-  },
-  {
-   "symbol": "?Unknown_004B9430@UnknownFactory@@QAE_NXZ",
-   "address": "004b9430"
-  },
-  {
-   "symbol": "?Unknown_004B9780@UnknownFactory@@QAEHXZ",
-   "address": "004b9780"
-  },
-  {
-   "symbol": "?Unknown_004B97C0@UnknownFactory@@QAEXXZ",
-   "address": "004b97c0"
-  },
-  {
-   "symbol": "?Unknown_004B98F0@UnknownFactory@@QAEHXZ",
-   "address": "004b98f0"
-  },
-  {
-   "symbol": "?Unknown_004B9900@UnknownFactory@@QAE_NXZ",
-   "address": "004b9900"
-  },
-  {
-   "symbol": "?Unknown_004B9940@UnknownFactory@@QAEHXZ",
-   "address": "004b9940"
-  },
-  {
    "symbol": "?Unknown_004E7070@UnknownSidebarHouse@@QAE_NPAVTechnoClass@@PAVBuildingClass@@@Z",
    "address": "004e7070"
   },
@@ -2707,18 +2727,6 @@
   {
    "symbol": "?Unknown_004EB580@UnknownSidebarHouse@@QAEPAVFactoryClass@@H_NH@Z",
    "address": "004eb580"
-  },
-  {
-   "symbol": "?Unknown_004EB620@UnknownSidebarHouse@@QAEXH_NH@Z",
-   "address": "004eb620"
-  },
-  {
-   "symbol": "?Unknown_004EB770@UnknownSidebarHouse@@QAE_NH_NH@Z",
-   "address": "004eb770"
-  },
-  {
-   "symbol": "?Unknown_004F4F30@UnknownSidebarHouse@@QAE_NPAVTechnoTypeClass@@@Z",
-   "address": "004f4f30"
   },
   {
    "symbol": "?Unknown_005feb60@@YIXPAVRect@@PAVSurface@@HH@Z",
@@ -2775,10 +2783,6 @@
   {
    "symbol": "?_dialog_count@@3HA",
    "address": "00a40d34"
-  },
-  {
-   "symbol": "?unknown_69e990@SuperClass@@QBE_NXZ",
-   "address": "0069e990"
   },
   {
    "symbol": "?unknown_abcd48@@3HA",
@@ -2863,10 +2867,6 @@
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
    "address": "00a3d290"
-  },
-  {
-   "symbol": "?unknown_int_7add84@@3HA",
-   "address": "007add84"
   },
   {
    "symbol": "?unknown_int_839620@@3HA",

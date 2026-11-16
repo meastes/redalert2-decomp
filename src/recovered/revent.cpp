@@ -310,7 +310,7 @@ bool __fastcall RadarEventClass_unknown_load_all(IStream *stream)
             return S_OK;
         }
     }
-    if (SUCCEEDED(stream->Read(&unknown_radar_event_word_ab67b8, sizeof(unknown_radar_event_word_ab67b8), 0))) {
+    if (SUCCEEDED(stream->Read(&LastRadarEventCell, sizeof(LastRadarEventCell), 0))) {
         return true;
     }
     return false;

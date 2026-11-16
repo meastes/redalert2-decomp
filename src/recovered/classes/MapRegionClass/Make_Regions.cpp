@@ -2,19 +2,19 @@
 bool MapRegionClass::Make_Regions_00570810()
 {
     bool success=RandomMapGen.Expand_All_High_Ground();
-    if(unknown_map_cells_a70a24) {
-        int remaining=(int)((unsigned)unknown_map_cell_side_84e804*(unsigned)unknown_map_cell_side_84e804);
+    if(RMGCellData) {
+        int remaining=(int)((unsigned)MapCellStride*(unsigned)MapCellStride);
         for(int index=0;remaining>0;--remaining,++index) {
-            unknown_map_cells_a70a24[index].RegionIndex=-1;
-            unknown_map_cells_a70a24[index].unknown_3c=-1;
+            RMGCellData[index].RegionIndex=-1;
+            RMGCellData[index].unknown_3c=-1;
         }
     }
     for(int reverse=(int)((unsigned)unknown_map_regions_a6fd28.Count()-1u);reverse>=0;--reverse)delete unknown_map_regions_a6fd28[reverse];
     unknown_map_region_next_index_a70a28=0;
-    int remaining=(int)((unsigned)unknown_map_cell_side_84e804*(unsigned)unknown_map_cell_side_84e804);
+    int remaining=(int)((unsigned)MapCellStride*(unsigned)MapCellStride);
     for(int index=0;remaining>0;--remaining,++index) {
-        if(unknown_map_cells_a70a24[index].RegionIndex==-1 && (unsigned char)unknown_map_cells_a70a24[index].Position.Not_Equal_0058db50(Cell(0,0))) {
-            MapRegionClass *region=Create_Region_From_Cell(&Map[unknown_map_cells_a70a24[index].Position]);
+        if(RMGCellData[index].RegionIndex==-1 && (unsigned char)RMGCellData[index].Position.Not_Equal_0058db50(Cell(0,0))) {
+            MapRegionClass *region=Create_Region_From_Cell(&Map[RMGCellData[index].Position]);
             if(region)region->unknown_1a=false;
         }
     }

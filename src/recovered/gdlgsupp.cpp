@@ -601,7 +601,7 @@ void __fastcall Init_Color_Entries_4d1ea0()
     unknown_color_entries_8660d8[7].Name = StringTable::Load_String("GUI:PinkAbbrev", 0, "D:\\Ra2\\GDlgSupp.cpp", 462);
     unknown_color_entries_8660d8[8].Name = StringTable::Load_String("GUI:GrayAbbrev", 0, "D:\\Ra2\\GDlgSupp.cpp", 463);
     for (int index = 0; index < 9; index++) {
-        unknown_color_entries_8660d8[index].Color = unknown_color_values_7e6d94[index];
+        unknown_color_entries_8660d8[index].Color = PlayerColorTable[index];
         unknown_color_entries_8660d8[index].Index = -1;
     }
 }

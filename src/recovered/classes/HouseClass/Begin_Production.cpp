@@ -25,7 +25,7 @@ int HouseClass::Begin_Production(int kind,int index,bool naval,bool resume)
     int buildcat=unknown_func_4eb550(kind,index);
     bool was_suspended=unknown_func_4eb770(kind,naval,buildcat);
     unknown_func_4eb810(kind,naval,buildcat,false);
-    TechnoTypeClass *type=Unknown_00482C00(kind,index);
+    TechnoTypeClass *type=Fetch_Techno_Type(kind,index);
     BuildingClass *builder=type->Who_Can_Build_Me(false,true,true,this);
     bool onhold=false;
     if (!builder) {

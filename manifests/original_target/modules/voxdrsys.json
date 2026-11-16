@@ -268,19 +268,31 @@
    "address": "00591380"
   },
   {
-   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+   "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
    "address": "00719860"
+  },
+  {
+   "symbol": "?LastRenderRect@@3VRect@@A",
+   "address": "00ae2ff0"
   },
   {
    "symbol": "?Matrix3D_Rigid_Inverse_00591420@@YI?AVMatrix3D@@ABV1@@Z",
    "address": "00591420"
   },
   {
+   "symbol": "?MaxVoxelBounds@@3UVector3@@A",
+   "address": "00ae0dd8"
+  },
+  {
+   "symbol": "?MinVoxelBounds@@3UVector3@@A",
+   "address": "00ae0a70"
+  },
+  {
    "symbol": "?Render_Object@VoxelLibrary@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z",
    "address": "00719940"
   },
   {
-   "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
+   "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUVoxelShadowRenderStruct@@PBUVector3@@@Z",
    "address": "00719c10"
   },
   {
@@ -308,8 +320,20 @@
    "address": "00af6608"
   },
   {
+   "symbol": "?Voxel16BitColors@@3PAGA",
+   "address": "00ae0a7c"
+  },
+  {
+   "symbol": "?VoxelRenderData@@3PAUVoxelRenderStruct@@A",
+   "address": "00ae0de8"
+  },
+  {
    "symbol": "?VoxelRenderDataCount@@3HA",
    "address": "00ae0cb0"
+  },
+  {
+   "symbol": "?VoxelShadowRenderData@@3PAUVoxelShadowRenderStruct@@A",
+   "address": "00af3408"
   },
   {
    "symbol": "?VoxelShadowRenderDataCount@@3HA",
@@ -318,14 +342,6 @@
   {
    "symbol": "?unknown_af6610@@3HA",
    "address": "00af6610"
-  },
-  {
-   "symbol": "?unknown_bounds_max_ae0dd8@@3UVector3@@A",
-   "address": "00ae0dd8"
-  },
-  {
-   "symbol": "?unknown_bounds_min_ae0a70@@3UVector3@@A",
-   "address": "00ae0a70"
   },
   {
    "symbol": "?unknown_buffer_ae3008@@3PADA",
@@ -348,24 +364,8 @@
    "address": "0071baa0"
   },
   {
-   "symbol": "?unknown_records_ae0de8@@3PAUUnknownVoxelRecord88@@A",
-   "address": "00ae0de8"
-  },
-  {
-   "symbol": "?unknown_records_af3408@@3PAUUnknownVoxelRecord48@@A",
-   "address": "00af3408"
-  },
-  {
-   "symbol": "?unknown_rect_ae2ff0@@3VRect@@A",
-   "address": "00ae2ff0"
-  },
-  {
    "symbol": "?unknown_table_ae3408@@3PAEA",
    "address": "00ae3408"
-  },
-  {
-   "symbol": "?unknown_voxel16_colors_ae0a7c@@3PAGA",
-   "address": "00ae0a7c"
   },
   {
    "symbol": "?unknown_voxel_colors_ae3008@@3PAVRGBClass@@A",

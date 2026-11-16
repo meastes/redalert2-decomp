@@ -143,18 +143,18 @@ extern "C" unsigned long __stdcall htonl(unsigned long value);
 extern unsigned int unknown_b2ab84;
 extern int unknown_b2668c;
 extern int unknown_b2a7fc;
-extern int unknown_b2a7ec;
+extern int WestwoodOnline_Tournament;
 extern int unknown_b2a630;
 extern int unknown_b2aaf8;
 extern char unknown_b2a808[];
 extern char unknown_b2a6d8[];
 extern long unknown_game_start_time_b2a638;
-extern char unknown_cpu_family_8015a3;
+extern char CPUType;
 extern int unknown_a40b18;
 extern int unknown_session_a3d2a0;
 extern bool unknown_flag_a3d8d1;
 extern bool unknown_flag_a3d8d2;
-extern bool unknown_flag_a417c8;
+extern bool GameStatisticsPacketSent;
 extern int unknown_elapsed_abd4e0;
 extern void *ProgramInstance;
 extern "C" __declspec(dllimport) int __stdcall GetFileTime(HANDLE file, FILETIME *created, FILETIME *accessed, FILETIME *written);
@@ -162,7 +162,7 @@ extern "C" __declspec(dllimport) int __stdcall GetFileTime(HANDLE file, FILETIME
 
 int __fastcall unknown_last_used_count_0069a110(int const *slots, int count);
 
-void __fastcall Unknown_00698D00(bool arg)
+void __fastcall Send_Statistics_Packet(bool arg)
 {
     PacketClass stats;
     unsigned int playercount = 0;
@@ -214,9 +214,9 @@ void __fastcall Unknown_00698D00(bool arg)
     } else {
         stats.Add_Field("GSKU", (unsigned int)unknown_b2ab84);
     }
-    stats.Add_Field("TRNY", (unsigned int)unknown_b2a7ec);
+    stats.Add_Field("TRNY", (unsigned int)WestwoodOnline_Tournament);
     if (unknown_game_mode_a3d298 == 4 && unknown_a3d2a4 == 2 && arg) {
-        unknown_b2a7ec = 0;
+        WestwoodOnline_Tournament = 0;
     }
     stats.Add_Field("OOSY", (unsigned char)(unknown_flag_a3d8d2 == true));
     stats.Add_Field("FINI", (unsigned char)(unknown_flag_a3d8d1 == true));
@@ -293,7 +293,7 @@ void __fastcall Unknown_00698D00(bool arg)
     } else {
         stats.Add_Field("AFPS", 0);
     }
-    stats.Add_Field("PROC", (char)unknown_cpu_family_8015a3);
+    stats.Add_Field("PROC", (char)CPUType);
 
     MEMORYSTATUS mem_info;
     mem_info.dwLength = sizeof(mem_info);
@@ -352,7 +352,7 @@ void __fastcall Unknown_00698D00(bool arg)
 
         field_player_t_team[3] = digit;
         temp = i;
-        if (unknown_b2a7ec == 2) {
+        if (WestwoodOnline_Tournament == 2) {
             temp = player->unknown_14c;
         }
         stats.Add_Field(field_player_t_team, (unsigned int)temp);
@@ -470,7 +470,7 @@ void __fastcall Unknown_00698D00(bool arg)
         }
     }
     delete[] packet;
-    unknown_flag_a417c8 = true;
+    GameStatisticsPacketSent = true;
 }
 
 

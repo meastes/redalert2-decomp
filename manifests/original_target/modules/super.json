@@ -115,13 +115,13 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?unknown_69ca70@SuperClass@@QAEXXZ",
+   "symbol": "?Detach_Animation@SuperClass@@QAEXXZ",
    "entry": "0069ca70",
    "body_bytes": 185,
    "padding_bytes": 7
   },
   {
-   "symbol": "?unknown_place_anim_69cb30@SuperClass@@QAEXUCoordStruct@@@Z",
+   "symbol": "?Create_Chrono_Anim@SuperClass@@QAEXUCoordStruct@@@Z",
    "entry": "0069cb30",
    "body_bytes": 301,
    "padding_bytes": 3
@@ -217,7 +217,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?unknown_69e990@SuperClass@@QBE_NXZ",
+   "symbol": "?Is_Charging@SuperClass@@QBE_NXZ",
    "entry": "0069e990",
    "body_bytes": 27,
    "padding_bytes": 5
@@ -1166,7 +1166,7 @@
   },
   {
    "site": "0067f800",
-   "symbol": "?unknown_69e990@SuperClass@@QBE_NXZ",
+   "symbol": "?Is_Charging@SuperClass@@QBE_NXZ",
    "target": "0069e990",
    "function_entry": true
   },
@@ -1241,6 +1241,10 @@
    "address": "00ac0bf8"
   },
   {
+   "symbol": "?BlubCell@@3VCellClass@@A",
+   "address": "00a6f9f8"
+  },
+  {
    "symbol": "?BuildingTypes@@3V?$DynamicVectorClass@PAVBuildingTypeClass@@@@A",
    "address": "00a35cd8"
   },
@@ -1259,6 +1263,10 @@
   {
    "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
    "address": "0040ffd0"
+  },
+  {
+   "symbol": "?CurrentSuperWeaponType@@3HA",
+   "address": "00833694"
   },
   {
    "symbol": "?Fetch_Heap_ID@AbstractClass@@UBEHXZ",
@@ -1413,6 +1421,10 @@
    "address": "00abd868"
   },
   {
+   "symbol": "?TimedSuperWeapons@@3V?$DynamicVectorClass@PAVSuperClass@@@@A",
+   "address": "00a35db8"
+  },
+  {
    "symbol": "?Unknown_00405D50@UnknownAudioController@@QAEXXZ",
    "address": "00405d50"
   },
@@ -1469,10 +1481,6 @@
    "address": "004ba4d0"
   },
   {
-   "symbol": "?unknown_dummy_cell_a6f9f8@@3VCellClass@@A",
-   "address": "00a6f9f8"
-  },
-  {
    "symbol": "?unknown_empty_wide_839d4c@@3QBGB",
    "address": "00839d4c"
   },
@@ -1483,10 +1491,6 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_pending_super_833694@@3HA",
-   "address": "00833694"
   },
   {
    "symbol": "?unknown_sin_4ba480@@YANN@Z",
@@ -1503,10 +1507,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_supers_a35db8@@3V?$DynamicVectorClass@PAVSuperClass@@@@A",
-   "address": "00a35db8"
   },
   {
    "symbol": "_CLSID_SuperClass",

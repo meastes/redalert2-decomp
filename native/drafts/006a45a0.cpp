@@ -102,15 +102,15 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
     if (render) {
         unsigned panwidth = abs(xoffset);
         unsigned panheight = abs(yoffset);
-        int width = unknown_rect_abe560.Width - panwidth;
-        int height = unknown_rect_abe560.Height - panheight;
+        int width = TacticalDimensions.Width - panwidth;
+        int height = TacticalDimensions.Height - panheight;
         int ystart = (yoffset < 0) ? -yoffset : 0;
         int xstart = (xoffset < 0) ? -xoffset : 0;
 
-        Rect sourcerect(unknown_rect_abe560.X + xstart, unknown_rect_abe560.Y + ystart,
+        Rect sourcerect(TacticalDimensions.X + xstart, TacticalDimensions.Y + ystart,
             width, height);
-        Rect destrect(unknown_rect_abe560.X + ((xoffset <= 0) ? 0 : xoffset),
-            unknown_rect_abe560.Y + ((yoffset <= 0) ? 0 : yoffset),
+        Rect destrect(TacticalDimensions.X + ((xoffset <= 0) ? 0 : xoffset),
+            TacticalDimensions.Y + ((yoffset <= 0) ? 0 : yoffset),
             width, height);
 
         if (xoffset != 0 || yoffset != 0) {
@@ -290,11 +290,11 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
             line = 1;
         }
 
-        count = unknown_supers_a35db8.Count();
+        count = TimedSuperWeapons.Count();
         for (i = 0; i < count; i++) {
-            if (!unknown_supers_a35db8[i]->unknown_0x58 || unknown_game_mode_a3d298 != 0
-                    || unknown_supers_a35db8[i]->RechargeTimer != unknown_supers_a35db8[i]->Type->RechargeTime) {
-                SuperClass *super = unknown_supers_a35db8[i];
+            if (!TimedSuperWeapons[i]->unknown_0x58 || unknown_game_mode_a3d298 != 0
+                    || TimedSuperWeapons[i]->RechargeTimer != TimedSuperWeapons[i]->Type->RechargeTime) {
+                SuperClass *super = TimedSuperWeapons[i];
                 Draw_Timer(line, ColorSchemes[super->House->ColorSchemeIndex], super->RechargeTimer / 15, super->Type->UIName,
                     (unsigned __int64 *)&super->unknown_0x3C.unknown_4, &super->unknown_0x3C.unknown_0);
                 line++;

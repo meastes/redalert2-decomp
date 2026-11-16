@@ -2275,7 +2275,7 @@ namespace OwnerDraw {
 
 bool __fastcall unknown_5e5fc0(HWND dialog)
 {
-    if (unknown_session_a3d298.Unknown_00672F10()) {
+    if (unknown_session_a3d298.Is_In_Game()) {
         return false;
     }
     WinData *record = 0;
@@ -2318,7 +2318,7 @@ namespace OwnerDraw {
 
 bool __fastcall unknown_show_dialog_5e61b0(HWND dialog)
 {
-    if (unknown_session_a3d298.Unknown_00672F10()) {
+    if (unknown_session_a3d298.Is_In_Game()) {
         return false;
     }
     WinData *record = 0;
@@ -2622,7 +2622,7 @@ inline bool Is_Plain_Control(HWND window)
 
 bool __fastcall unknown_5e7740(unsigned int key, HWND window)
 {
-    if (unknown_session_a3d298.Unknown_00672F10()) {
+    if (unknown_session_a3d298.Is_In_Game()) {
         return false;
     }
     if (unknown_5e7230(key, window)) {
@@ -2648,7 +2648,7 @@ namespace OwnerDraw {
 
 bool __fastcall unknown_5e7870(unsigned int key, HWND window)
 {
-    if (!unknown_session_a3d298.Unknown_00672F10()) {
+    if (!unknown_session_a3d298.Is_In_Game()) {
         return false;
     }
     if (unknown_5e7230(key, window)) {
@@ -2904,7 +2904,7 @@ namespace OwnerDraw {
 void __fastcall unknown_5e8ba0(HWND window, Rect const &rect)
 {
     HWND parent = GetParent(window);
-    unsigned char flag = unknown_session_a3d298.Unknown_00672F10();
+    unsigned char flag = unknown_session_a3d298.Is_In_Game();
     RECT parent_rect;
     GetWindowRect(parent, &parent_rect);
     Rect area(parent_rect.left, parent_rect.top, parent_rect.right - parent_rect.left, parent_rect.bottom - parent_rect.top);
@@ -2930,7 +2930,7 @@ namespace OwnerDraw {
 void __fastcall unknown_5e8c50(HWND window, Point2D const &size)
 {
     HWND parent = GetParent(window);
-    unsigned char flag = unknown_session_a3d298.Unknown_00672F10();
+    unsigned char flag = unknown_session_a3d298.Is_In_Game();
     RECT parent_rect;
     RECT rect;
     GetWindowRect(parent, &parent_rect);
@@ -2987,7 +2987,7 @@ namespace OwnerDraw {
 void __fastcall unknown_5e8e20(HWND window, Point2D const &size)
 {
     HWND parent = GetParent(window);
-    unsigned char flag = unknown_session_a3d298.Unknown_00672F10();
+    unsigned char flag = unknown_session_a3d298.Is_In_Game();
     RECT parent_rect;
     RECT rect;
     GetWindowRect(parent, &parent_rect);
@@ -3016,7 +3016,7 @@ namespace OwnerDraw {
 void __fastcall unknown_5e8fa0(HWND window)
 {
     HWND parent = GetParent(window);
-    unsigned char flag = unknown_session_a3d298.Unknown_00672F10();
+    unsigned char flag = unknown_session_a3d298.Is_In_Game();
     RECT parent_rect;
     RECT rect;
     GetWindowRect(parent, &parent_rect);
@@ -3051,7 +3051,7 @@ namespace OwnerDraw {
 void __fastcall unknown_5e9070(HWND window)
 {
     HWND parent = GetParent(window);
-    unsigned char flag = unknown_session_a3d298.Unknown_00672F10();
+    unsigned char flag = unknown_session_a3d298.Is_In_Game();
     RECT parent_rect;
     RECT rect;
     GetClientRect(parent, &parent_rect);
@@ -3079,7 +3079,7 @@ namespace OwnerDraw {
 void __fastcall unknown_5e91a0(HWND window)
 {
     HWND parent = GetParent(window);
-    unsigned char flag = unknown_session_a3d298.Unknown_00672F10();
+    unsigned char flag = unknown_session_a3d298.Is_In_Game();
     RECT parent_rect;
     RECT rect;
     GetClientRect(parent, &parent_rect);
@@ -3110,7 +3110,7 @@ namespace OwnerDraw {
 void __fastcall unknown_5e9260(HWND window)
 {
     HWND parent = GetParent(window);
-    unsigned char flag = unknown_session_a3d298.Unknown_00672F10();
+    unsigned char flag = unknown_session_a3d298.Is_In_Game();
     RECT parent_rect;
     RECT rect;
     GetClientRect(parent, &parent_rect);
@@ -3625,7 +3625,7 @@ int __fastcall unknown_dialog_box_5eab60(int resource, int (__stdcall *proc)(str
     int result = 0;
     if (dialog) {
         SetWindowLongA(dialog, DWL_USER, (LONG)&result);
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
         if (show_5115f0) {
             unknown_5115f0(dialog);
         }
@@ -3771,11 +3771,11 @@ void __fastcall unknown_5e9410(HWND window)
         if (c12) {
             bool c4 = Is_Option_Kind(kind) || kind == 0x105 || kind == 0x6b || kind == 0x113;
             if (c4) {
-                if (!unknown_session_a3d298.Unknown_00672F10()) {
+                if (!unknown_session_a3d298.Is_In_Game()) {
                     y += 1;
                 }
             } else {
-                if (!unknown_session_a3d298.Unknown_00672F10()) {
+                if (!unknown_session_a3d298.Is_In_Game()) {
                     y += 7;
                     height += 1;
                 }
@@ -7475,7 +7475,7 @@ void __fastcall unknown_draw_dialog_back_5fee70(HWND window)
                 unknown_surface_count_a763d8++;
             }
             if (record->unknown_b0 == 1) {
-                if (unknown_session_a3d298.Unknown_00672F10()) {
+                if (unknown_session_a3d298.Is_In_Game()) {
                     Unknown_6F4620(surface, full, false);
                 } else {
                     if (Unknown_Get_Art_006f3460()) {
@@ -7501,7 +7501,7 @@ void __fastcall unknown_draw_dialog_back_5fee70(HWND window)
                 to.Y = 0;
                 surface->Copy_From(to, *AlternateSurface, full, false, true);
                 void *shape;
-                if (unknown_session_a3d298.Unknown_00672F10()) {
+                if (unknown_session_a3d298.Is_In_Game()) {
                     if (unknown_id_source_a3d290->unknown_2239) {
                         shape = unknown_art_ac121c;
                     } else {
@@ -7698,7 +7698,7 @@ void __fastcall unknown_dialog_5ff6e0(HWND window)
 
 
 // Shows a window, brings it to the foreground and clears the keyboard buffer (0x005FF7C0).
-void __fastcall unknown_dialog_5ff7c0(HWND window)
+void __fastcall Display_Dialog(HWND window)
 {
     ShowWindow(window, SW_SHOWNORMAL);
     SetForegroundWindow(window);
@@ -7724,7 +7724,7 @@ inline void unknown_prepare_dialog(HWND dialog, int kind)
 {
     Resize_Dialogs(dialog);
     unknown_5eaaa0(dialog, kind);
-    if (!unknown_session_a3d298.Unknown_00672F10()) {
+    if (!unknown_session_a3d298.Is_In_Game()) {
         unknown_set_control_art_5ea960((unsigned int)dialog);
     }
     unknown_5ea550(dialog);
@@ -7774,7 +7774,7 @@ bool unknown_6000d0()
         Service_Game_IO_00481fb0();
         return false;
     }
-    if (!unknown_53f460() && unknown_53fbd0()) {
+    if (!Is_In_Main_Loop() && Main_Loop()) {
         return true;
     }
     return false;
@@ -7800,7 +7800,7 @@ void __fastcall unknown_move_window_600120(HWND window, int x, int y)
 }
 
 
-HWND __fastcall unknown_cancel_dialog_6001e0(unsigned short const *text, unsigned short const *button, bool *cancelled)
+HWND __fastcall Custom_Message_Box(unsigned short const *text, unsigned short const *button, bool *cancelled)
 {
     HWND dialog = unknown_create_dialog_5ff610(0xf0, unknown_cancel_dialog_proc_600260, 0);
     if (dialog) {
@@ -7824,7 +7824,7 @@ HWND __fastcall unknown_cancel_dialog_6001e0(unsigned short const *text, unsigne
 
 int __stdcall unknown_cancel_dialog_proc_600260(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result) {
         return result;
     }
@@ -8145,7 +8145,7 @@ void __fastcall unknown_draw_edit_text_600830(Surface *surface, Rect &rect, wcha
 }
 
 
-bool __fastcall unknown_choice_dialog_600c80(unsigned short const *text)
+bool __fastcall Prompt_Dialog(unsigned short const *text)
 {
     int result = -1;
     HWND dialog = unknown_create_dialog_5ff610(0x10d, unknown_choice_dialog_proc_600d50, 0);
@@ -8153,11 +8153,11 @@ bool __fastcall unknown_choice_dialog_600c80(unsigned short const *text)
         HWND item = GetDlgItem(dialog, 0x5b0);
         SendMessageA(item, 0x4b2, 0, (LPARAM)text);
         SetWindowLongA(dialog, DWL_USER, (LONG)&result);
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
         while (result < 0) {
             Windows_Message_Handler();
             if (unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5 && !unknown_session_a3f616 &&
-                unknown_counter_a3fabc == 0 && !unknown_53f460() && unknown_53fbd0()) {
+                unknown_counter_a3fabc == 0 && !Is_In_Main_Loop() && Main_Loop()) {
                 break;
             }
         }
@@ -8169,7 +8169,7 @@ bool __fastcall unknown_choice_dialog_600c80(unsigned short const *text)
 
 int __stdcall unknown_choice_dialog_proc_600d50(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result) {
         return result;
     }

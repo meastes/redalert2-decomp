@@ -9,6 +9,6 @@
 
 class AbstractClass;
 
-extern IndexClass<long, AbstractClass *> unknown_object_index_abff58;
+extern IndexClass<long, AbstractClass *> TargetTracker;
 
 #endif

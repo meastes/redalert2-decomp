@@ -8,6 +8,6 @@
 
 class AlphaShapeClass;
 
-extern DynamicVectorClass<AlphaShapeClass *> unknown_AlphaShapeClass_list_0083c648;   // 0x0083C648
+extern DynamicVectorClass<AlphaShapeClass *> AlphaShapes;   // 0x0083C648
 
 #endif

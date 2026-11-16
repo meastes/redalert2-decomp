@@ -5466,6 +5466,10 @@
    "address": "00673090"
   },
   {
+   "symbol": "?AllowDisableableSupers@@3EA",
+   "address": "00a3d2c3"
+  },
+  {
    "symbol": "?AlternateListenPort@@3HA",
    "address": "007f60d8"
   },
@@ -5484,6 +5488,10 @@
   {
    "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
    "address": "00523840"
+  },
+  {
+   "symbol": "?Assign_Random_Choices@SessionClass@@QAEXXZ",
+   "address": "00672bb0"
   },
   {
    "symbol": "?Blit_Preview@MapPreviewClass@@QAEXPAUHWND__@@@Z",
@@ -5554,6 +5562,10 @@
    "address": "007357e0"
   },
   {
+   "symbol": "?ColorMe@@3HA",
+   "address": "007a737c"
+  },
+  {
    "symbol": "?Color_Combo_Data_4d2900@@YIHPAUHWND__@@HH@Z",
    "address": "004d2900"
   },
@@ -5614,12 +5626,20 @@
    "address": "004068f0"
   },
   {
+   "symbol": "?Default_Dialog_Proc@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
    "symbol": "?Delete@RawFileClass@@UAEHXZ",
    "address": "00639240"
   },
   {
    "symbol": "?Dialog_Loop_007359e0@@YIHPAUHWND__@@P6A_NXZH_N2@Z",
    "address": "007359e0"
+  },
+  {
+   "symbol": "?Display_Dialog@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
   },
   {
    "symbol": "?Do_Random_Map_00577880@@YIXPAUHWND__@@P6A_NXZ@Z",
@@ -5688,6 +5708,14 @@
   {
    "symbol": "?Find_Slot_By_Name_005c8c30@@YIHPBG@Z",
    "address": "005c8c30"
+  },
+  {
+   "symbol": "?FirewallHelper@@3VFirewallSettings@@A",
+   "address": "00a71b18"
+  },
+  {
+   "symbol": "?First_Game_Mode@MultiplayerGameMode@@SAPAV1@XZ",
+   "address": "005b6ec0"
   },
   {
    "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
@@ -5834,6 +5862,10 @@
    "address": "00526a40"
   },
   {
+   "symbol": "?Global_Response_Time@IPXManagerClass@@QAEKXZ",
+   "address": "00526c30"
+  },
+  {
    "symbol": "?Grow_00768320@?$WolArrayList@VWstring@@@@QAE_NXZ",
    "address": "00768320"
   },
@@ -5894,6 +5926,10 @@
    "address": "005c86a0"
   },
   {
+   "symbol": "?Is_In_Game@SessionClass@@QAEEXZ",
+   "address": "00672f10"
+  },
+  {
    "symbol": "?Is_Narrow@WideString@@QBE_NXZ",
    "address": "00771080"
   },
@@ -5940,6 +5976,10 @@
   {
    "symbol": "?Key_Hash_00767cd0@WolNameTable@@QBEIABVWstring@@@Z",
    "address": "00767cd0"
+  },
+  {
+   "symbol": "?LastPagerName@@3PADA",
+   "address": "00b2ac48"
   },
   {
    "symbol": "?Length@WideString@@QBEIXZ",
@@ -6270,6 +6310,10 @@
    "address": "0066bb20"
   },
   {
+   "symbol": "?Send_Statistics_Packet@@YIX_N@Z",
+   "address": "00698d00"
+  },
+  {
    "symbol": "?Service_Game_IO_00481fb0@@YIXXZ",
    "address": "00481fb0"
   },
@@ -6598,22 +6642,6 @@
    "address": "00672140"
   },
   {
-   "symbol": "?Unknown_00672BB0@SessionClass@@QAEXXZ",
-   "address": "00672bb0"
-  },
-  {
-   "symbol": "?Unknown_00672F10@SessionClass@@QAEEXZ",
-   "address": "00672f10"
-  },
-  {
-   "symbol": "?Unknown_00698D00@@YIX_N@Z",
-   "address": "00698d00"
-  },
-  {
-   "symbol": "?Unknown_007357E0@@YIXPAXH@Z",
-   "address": "007357e0"
-  },
-  {
    "symbol": "?Unknown_00738eb0@@YA_NXZ",
    "address": "00738eb0"
   },
@@ -6758,6 +6786,10 @@
    "address": "00735700"
   },
   {
+   "symbol": "?WS_Destroy_Dialog@@YIXPAXH@Z",
+   "address": "007357e0"
+  },
+  {
    "symbol": "?WS_Find_Dialog_00735940@@YIPAUHWND__@@H@Z",
    "address": "00735940"
   },
@@ -6784,6 +6816,10 @@
   {
    "symbol": "?Wait_Paint_005e5f20@@YIXPAUHWND__@@@Z",
    "address": "005e5f20"
+  },
+  {
+   "symbol": "?WestwoodOnline_Tournament@@3HA",
+   "address": "00b2a7ec"
   },
   {
    "symbol": "?WideToCharString_006fa0f0@@YIXPADPBGH@Z",
@@ -8350,10 +8386,6 @@
    "address": "004ff2c0"
   },
   {
-   "symbol": "?unknown_526c30@IPXManagerClass@@QAEKXZ",
-   "address": "00526c30"
-  },
-  {
    "symbol": "?unknown_5e1f30@OwnerDraw@@YIXPAUHWND__@@PAVSurface@@@Z",
    "address": "005e1f30"
   },
@@ -8562,10 +8594,6 @@
    "address": "00b2a7e8"
   },
   {
-   "symbol": "?unknown_b2a7ec@@3HA",
-   "address": "00b2a7ec"
-  },
-  {
    "symbol": "?unknown_b2a7f0@@3IA",
    "address": "00b2a7f0"
   },
@@ -8714,10 +8742,6 @@
    "address": "007a7378"
   },
   {
-   "symbol": "?unknown_color_7a737c@@3HA",
-   "address": "007a737c"
-  },
-  {
    "symbol": "?unknown_combo_selected_data_005c99d0@@YIHPAUHWND__@@HH@Z",
    "address": "005c99d0"
   },
@@ -8758,14 +8782,6 @@
    "address": "005ff6e0"
   },
   {
-   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
-   "address": "005ff7c0"
-  },
-  {
-   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
-   "address": "005ffb00"
-  },
-  {
    "symbol": "?unknown_download_a72d04@@3PAUIDownload@WOL@@A",
    "address": "00a72d04"
   },
@@ -8776,14 +8792,6 @@
   {
    "symbol": "?unknown_find_key_by_value@@YIPAXH@Z",
    "address": "00735940"
-  },
-  {
-   "symbol": "?unknown_firewall_a71b18@@3VFirewallSettings@@A",
-   "address": "00a71b18"
-  },
-  {
-   "symbol": "?unknown_first_mode_5b6ec0@MultiplayerGameMode@@SAPAV1@XZ",
-   "address": "005b6ec0"
   },
   {
    "symbol": "?unknown_flag_a3d2b8@@3_NA",
@@ -8862,10 +8870,6 @@
    "address": "00652720"
   },
   {
-   "symbol": "?unknown_instance_b26180@@3PAXA",
-   "address": "00b26180"
-  },
-  {
    "symbol": "?unknown_int_a3db1c@@3HA",
    "address": "00a3db1c"
   },
@@ -8900,10 +8904,6 @@
   {
    "symbol": "?unknown_last_nickname_slot_a3d554@@3HA",
    "address": "00a3d554"
-  },
-  {
-   "symbol": "?unknown_last_pager_b2ac48@@3PADA",
-   "address": "00b2ac48"
   },
   {
    "symbol": "?unknown_lobby_a3fa94@@3HA",
@@ -9112,10 +9112,6 @@
   {
    "symbol": "?unknown_session_a3d2c2@@3EA",
    "address": "00a3d2c2"
-  },
-  {
-   "symbol": "?unknown_session_a3d2c3@@3EA",
-   "address": "00a3d2c3"
   },
   {
    "symbol": "?unknown_session_a3d2d0@@3HA",

@@ -108,19 +108,19 @@ typedef char MapRegionClass_cells[(((unsigned int)&(((MapRegionClass*)0)->Cells)
 typedef char MapRegionClass_bounds[(((unsigned int)&(((MapRegionClass*)0)->Bounds))==0x40)?1:-1];
 typedef char UnknownMapGenerationCell_size[(sizeof(UnknownMapGenerationCell)==0x50)?1:-1];
 extern int unknown_map_region_next_index_a70a28;
-extern int unknown_map_cell_side_84e804;
+extern int MapCellStride;
 extern int unknown_map_min_a70a1c,unknown_map_max_a70a20;
 extern Cell const unknown_adjacent_851a70[8];
-extern UnknownMapGenerationCell *unknown_map_cells_a70a24;
+extern UnknownMapGenerationCell *RMGCellData;
 // Source name, const-reference and signed-index intent are hypotheses; physical ECX/EDX contract at0056E970.
 void __fastcall Set_Cell_Region_Index_0056e970(Cell const &position, int index);
 inline UnknownMapGenerationCell &MapRegionClass::Get_Cell_Data(int index)
 {
-    return unknown_map_cells_a70a24[index];
+    return RMGCellData[index];
 }
 inline UnknownMapGenerationCell &MapRegionClass::Get_Cell_Data(Cell const &position)
 {
-    return unknown_map_cells_a70a24[position.X+position.Y*unknown_map_cell_side_84e804];
+    return RMGCellData[position.X+position.Y*MapCellStride];
 }
 #ifdef RA2_MAPGEN_CELL_DATA_CHAIN
 // TibSun CellData::Get_Region with the grid index spelled out: the form 0x56E9A0 has
@@ -128,13 +128,13 @@ inline UnknownMapGenerationCell &MapRegionClass::Get_Cell_Data(Cell const &posit
 // map generator rows have.
 inline int UnknownMapGenerationCell::Get_Region(Cell const &position)
 {
-    if(!unknown_map_cells_a70a24)return -1;
-    return unknown_map_cells_a70a24[position.X+position.Y*unknown_map_cell_side_84e804].RegionIndex;
+    if(!RMGCellData)return -1;
+    return RMGCellData[position.X+position.Y*MapCellStride].RegionIndex;
 }
 #else
 inline int UnknownMapGenerationCell::Get_Region(Cell const &position)
 {
-    if(!unknown_map_cells_a70a24)return -1;
+    if(!RMGCellData)return -1;
     return MapRegionClass::Get_Cell_Data(position).RegionIndex;
 }
 #endif

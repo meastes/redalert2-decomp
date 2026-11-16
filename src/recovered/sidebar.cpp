@@ -218,7 +218,7 @@ void SidebarClass::Unknown_0067B910()
 {
     unknown_int_839628 = SidebarWidth;
     unknown_int_839624 = 0x9E;
-    unknown_int_83962c = unknown_int_839634 + unknown_int_83963c + unknown_int_7add84 - 0x9E;
+    unknown_int_83962c = unknown_int_839634 + unknown_int_83963c + TabBarHeight - 0x9E;
     if (unknown_id_source_a3d290->unknown_2239) {
         unknown_abcd4c = 0xA6;
         unknown_abcd50 = 0x40;
@@ -483,7 +483,7 @@ void SidebarClass::Unknown_0067C150(ObjectClass *object)
     int kind = object->Kind_Of();
     int id = object->Fetch_Heap_ID();
     if (Which_Column(kind, id) == unknown_4ed8) {
-        if (((UnknownSidebarHouse *)PlayerPtr)->Unknown_004F4F30(type)) {
+        if (((UnknownSidebarHouse *)PlayerPtr)->Is_Build_Limited(type)) {
             Unknown_0067C100();
         }
     } else if (kind == 6 && ((UnknownSidebarBuilding *)object)->Type->unknown_1365) {
@@ -1073,7 +1073,7 @@ bool SidebarClass::unknown_slot54(int control)
             Column[unknown_4ed8].Activate();
             Unknown_0067C850();
         } else {
-            Unknown_005A09E0();
+            Stop_Ingame_Movie();
             Remove_A_Button(unknown_button_ab96b8);
             Remove_A_Button(Upgrade);
             Remove_A_Button(Background);
@@ -1241,8 +1241,8 @@ extern "C" int __cdecl wcscmp(wchar_t const *string1, wchar_t const *string2);  
 
 bool SidebarClass::StripClass::Unknown_0067EA20(int type, int id, int other_type, int other_id)
 {
-    TechnoTypeClass *techno = (TechnoTypeClass *)Unknown_00482C00(type, id);
-    TechnoTypeClass *other = (TechnoTypeClass *)Unknown_00482C00(other_type, other_id);
+    TechnoTypeClass *techno = (TechnoTypeClass *)Fetch_Techno_Type(type, id);
+    TechnoTypeClass *other = (TechnoTypeClass *)Fetch_Techno_Type(other_type, other_id);
     wchar_t const *name;
     wchar_t const *other_name;
     if (other_type == 0) {
@@ -1513,7 +1513,7 @@ bool SidebarClass::StripClass::AI(int &input, Point2D const &xy)
                 }
             } else {
                 UnknownFactory *factory = Buildables[index].Factory;
-                if (factory && factory->Unknown_004B9900()) {
+                if (factory && factory->Has_Completed()) {
                     ObjectClass *object = factory->Get_Object();
                     if (object && object->Kind_Of() == 6) {
                         goto flash;
@@ -1537,9 +1537,9 @@ building:
     if (unknown_39) {
         for (int index = 0; index < BuildableCount; index++) {
             UnknownFactory *factory = Buildables[index].Factory;
-            if (factory && factory->Unknown_004B9430()) {
+            if (factory && factory->Has_Changed()) {
                 redraw = true;
-                if (factory->Unknown_004B9900()) {
+                if (factory->Has_Completed()) {
                     TechnoClass *pending = (TechnoClass *)factory->Get_Object();
                     if (pending) {
                         switch (pending->Kind_Of()) {
@@ -1564,7 +1564,7 @@ building:
     for (int index = 0; index < BuildableCount; index++) {
         if (Buildables[index].unknown_10 == 1) {
             UnknownFactory *factory = Buildables[index].Factory;
-            if (factory && (!factory->unknown_34 || factory->unknown_6c || factory->Unknown_004B9420())) {
+            if (factory && (!factory->unknown_34 || factory->unknown_6c || factory->Is_On_Hold())) {
                 Buildables[index].Stage.Set_Rate(0);
                 Buildables[index].Stage.Set_Stage(0);
             }
@@ -1600,7 +1600,7 @@ wchar_t const *SidebarClass::StripClass::Help_Text(int gadget_index)
     if (Buildables[index].unknown_04 == 31) {
         return SuperWeaponTypes[Buildables[index].unknown_00]->UIName;
     }
-    ObjectTypeClass *type = Unknown_00482C00(Buildables[index].unknown_04, Buildables[index].unknown_00);
+    ObjectTypeClass *type = Fetch_Techno_Type(Buildables[index].unknown_04, Buildables[index].unknown_00);
     if (unknown_flag_8373c0) {
         swprintf(unknown_text_ab9484,
             StringTable::Load_String("TXT_MONEY_FORMAT_1", 0, "D:\\Ra2\\Sidebar.CPP", 2627),
@@ -1648,7 +1648,7 @@ int SidebarClass::StripClass::Unknown_0067F7C0(int index)
 {
     int progress = 0;
     if (Buildables[index].Factory) {
-        progress = Buildables[index].Factory->Unknown_004B98F0();
+        progress = Buildables[index].Factory->Completion();
     }
     if (Buildables[index].unknown_10 == 1 && Buildables[index].Stage.Value > progress) {
         progress = (progress + Buildables[index].Stage.Value) / 2;
@@ -1714,7 +1714,7 @@ void SidebarClass::StripClass::Unknown_0067F800(bool complete)
                 if (index < BuildableCount) {
                     hover = button->Unknown_00681690();
                     if (Buildables[index].unknown_04 != 31) {
-                        obj = (TechnoTypeClass *)Unknown_00482C00(Buildables[index].unknown_04, Buildables[index].unknown_00);
+                        obj = (TechnoTypeClass *)Fetch_Techno_Type(Buildables[index].unknown_04, Buildables[index].unknown_00);
                         if (obj) {
                             name = obj->UIName;
                             bool isbusy = false;
@@ -1723,9 +1723,9 @@ void SidebarClass::StripClass::Unknown_0067F800(bool complete)
                             } else if (obj->Who_Can_Build_Me(true, true, true, PlayerPtr) == 0) {
                                 isbusy = true;
                             } else {
-                                TechnoTypeClass *type = (TechnoTypeClass *)Unknown_00482C00(Buildables[index].unknown_04, Buildables[index].unknown_00);
+                                TechnoTypeClass *type = (TechnoTypeClass *)Fetch_Techno_Type(Buildables[index].unknown_04, Buildables[index].unknown_00);
                                 bool none = PlayerPtr->Can_Build(type, false, false) == -1;
-                                bool limited = ((UnknownSidebarHouse *)PlayerPtr)->Unknown_004F4F30(type);
+                                bool limited = ((UnknownSidebarHouse *)PlayerPtr)->Is_Build_Limited(type);
                                 if (none || limited) {
                                     isbusy = true;
                                 }
@@ -1734,7 +1734,7 @@ void SidebarClass::StripClass::Unknown_0067F800(bool complete)
                             factory = Buildables[index].Factory;
                             if (factory) {
                                 production = true;
-                                completed = factory->Unknown_004B9900();
+                                completed = factory->Has_Completed();
                                 if (completed) {
                                     state = StringTable::Load_String("TXT_READY", 0, "D:\\Ra2\\Sidebar.CPP", 2845);
                                 } else {
@@ -1778,7 +1778,7 @@ void SidebarClass::StripClass::Unknown_0067F800(bool complete)
                         name = SuperWeaponTypes[id]->UIName;
                         shape = Unknown_0067E740(id);
                         production = true;
-                        completed = !PlayerPtr->Supers[id]->unknown_69e990();
+                        completed = !PlayerPtr->Supers[id]->Is_Charging();
                         state = PlayerPtr->Supers[id]->State_String();
                         stage = PlayerPtr->Supers[id]->Anim_Stage();
                         darken = false;
@@ -1910,7 +1910,7 @@ bool SidebarClass::StripClass::Unknown_006802D0()
     bool redraw = false;
     for (int index = 0; index < BuildableCount; index++) {
         int ok;
-        TechnoTypeClass *tech = (TechnoTypeClass *)Unknown_00482C00(Buildables[index].unknown_04, Buildables[index].unknown_00);
+        TechnoTypeClass *tech = (TechnoTypeClass *)Fetch_Techno_Type(Buildables[index].unknown_04, Buildables[index].unknown_00);
         if (tech) {
             TechnoClass *who = (TechnoClass *)tech->Who_Can_Build_Me(true, false, false, PlayerPtr);
             ok = who && who->House->Can_Build(tech, false, true);   // NATIVE: the overlay's UnknownSidebarHouse::Unknown_004E3660 is HouseClass::Can_Build 0x004E3660
@@ -2040,7 +2040,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
 
     if (index < Strip->BuildableCount) {
         if (kind != 31) {
-            choice = (TechnoTypeClass *)Unknown_00482C00(kind, id);
+            choice = (TechnoTypeClass *)Fetch_Techno_Type(kind, id);
         } else {
             spc = id;
         }
@@ -2124,10 +2124,10 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
 
         if (flags & 1) {
             if (factory != 0 && (!factory->Is_Building())) {
-                if (factory->Unknown_004B9900()) {
+                if (factory->Has_Completed()) {
                     TechnoClass *pending = (TechnoClass *)factory->Get_Object();
                     if (!pending) {
-                        if (factory->Unknown_004B9940() != -1) {
+                        if (factory->Get_Special_Item() != -1) {
                             Map.unknown_11b4 = 1;
                         }
                     } else {
@@ -2149,23 +2149,23 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                     } else {
                         Speech_Play_Name("EVA_Building", -1, -1);
                     }
-                    TechnoTypeClass *type = (TechnoTypeClass *)Unknown_00482C00(Strip->Buildables[index].unknown_04, Strip->Buildables[index].unknown_00);
+                    TechnoTypeClass *type = (TechnoTypeClass *)Fetch_Techno_Type(Strip->Buildables[index].unknown_04, Strip->Buildables[index].unknown_00);
                     bool naval = type && type->Naval;
-                    ((UnknownSidebarHouse *)PlayerPtr)->Unknown_004EB620(kind, choice->Naval, arg);
+                    ((UnknownSidebarHouse *)PlayerPtr)->Set_Production_Pending(kind, choice->Naval, arg);
                     OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0xE, Strip->Buildables[index].unknown_04,
                         Strip->Buildables[index].unknown_00, naval));
                     Strip->Buildables[index].unknown_10 = 1;
                     Strip->Buildables[index].Stage.Value = Strip->Unknown_0067F7C0(index);
-                    int rate = factory->Unknown_004B9780();
+                    int rate = factory->Build_Rate();
                     Strip->Buildables[index].Stage.Set_Rate(rate + 1);
                     Strip->Flag_To_Redraw();
                     unknown_flag_8373c3 = true;
                 }
             } else {
                 factory = (UnknownFactory *)((UnknownSidebarHouse *)PlayerPtr)->Unknown_004EB580(kind, choice->Naval, arg);
-                TechnoTypeClass *type = (TechnoTypeClass *)Unknown_00482C00(Strip->Buildables[index].unknown_04, Strip->Buildables[index].unknown_00);
+                TechnoTypeClass *type = (TechnoTypeClass *)Fetch_Techno_Type(Strip->Buildables[index].unknown_04, Strip->Buildables[index].unknown_00);
                 bool naval = type && type->Naval;
-                bool limited = ((UnknownSidebarHouse *)PlayerPtr)->Unknown_004F4F30(type);
+                bool limited = ((UnknownSidebarHouse *)PlayerPtr)->Is_Build_Limited(type);
                 bool busy;
                 bool produce = false;
                 if (factory != 0 && (factory->Is_Building() || ((FactoryClass *)factory)->Object != 0 || ((FactoryClass *)factory)->Queue.Count() > 0)) {
@@ -2189,12 +2189,12 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                     produce = true;
                 }
                 if (produce) {
-                    bool queued = ((UnknownSidebarHouse *)PlayerPtr)->Unknown_004EB770(kind, choice->Naval, arg);
+                    bool queued = ((UnknownSidebarHouse *)PlayerPtr)->Is_Production_Pending(kind, choice->Naval, arg);
                     bool started = false;
                     if (!limited) {
                         Unknown_Play_Sound(Rules->unknown_184);
                         if (factory == 0 && !queued) {
-                            ((UnknownSidebarHouse *)PlayerPtr)->Unknown_004EB620(kind, choice->Naval, arg);
+                            ((UnknownSidebarHouse *)PlayerPtr)->Set_Production_Pending(kind, choice->Naval, arg);
                             started = true;
                         }
                         OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0xE, Strip->Buildables[index].unknown_04,
@@ -2204,7 +2204,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                         if (!busy && !limited) {
                             Strip->Buildables[index].unknown_10 = 1;
                             Strip->Flag_To_Redraw();
-                            TechnoTypeClass *tech = (TechnoTypeClass *)Unknown_00482C00(kind, Strip->Buildables[index].unknown_00);
+                            TechnoTypeClass *tech = (TechnoTypeClass *)Fetch_Techno_Type(kind, Strip->Buildables[index].unknown_00);
                             if (tech) {
                                 int ahead = unknown_max_ahead_a3d560;
                                 if (((UnknownSidebarIHouse *)((char *)PlayerPtr + 0x24))->Available_Money() >= tech->Cost_Of(PlayerPtr) * ahead / 54
@@ -2317,9 +2317,9 @@ unsigned int __stdcall Action(int unused_0, int unused_1)
 }  // namespace seed_006816b0
 
 
-// bool SidebarClass::StripClass::Unknown_00681730() (0x00681730)
+// bool SidebarClass::StripClass::Has_Buildables() (0x00681730)
 
-bool SidebarClass::StripClass::Unknown_00681730()
+bool SidebarClass::StripClass::Has_Buildables()
 {
     return BuildableCount > 0;
 }
@@ -2349,7 +2349,7 @@ bool SidebarClass::StripClass::Unknown_006817D0(UnknownFactory *factory)
     bool idle = true;
     for (int index = 0; index < BuildableCount; index++) {
         if (Buildables[index].Factory == factory) {
-            factory->Unknown_004B97C0();
+            factory->Abandon();
             Buildables[index].Factory = 0;
             found = true;
             Buildables[index].unknown_10 = 0;

@@ -47,7 +47,7 @@
 bool __fastcall Bit_Blit_Core_Native(Surface &dest, Rect const &destwindow, Rect const &destarea, Surface &source,
                                      Rect const &sourcewindow, Rect const &sourcearea, Blitter const &blitter,
                                      int depth, int ramp_index, int alpha, int unknown);   // blit.cpp (native fixup)
-void Native_Hd_Voxel_Replay(Vector3 const &center, UnknownVoxelRecord88 **render_data);    // voxdrsys.cpp (native fixup)
+void Native_Hd_Voxel_Replay(Vector3 const &center, VoxelRenderStruct **render_data);    // voxdrsys.cpp (native fixup)
 extern unsigned char unknown_buffer_ae3408[256 * 256];      // 0x00AE3408 the voxel draw buffer
 extern unsigned char unknown_zbuffer_ad0a70[256 * 256];     // 0x00AD0A70 its depth buffer
 extern Surface *VisibleSurface;                     // 0x00839950 the screen
@@ -451,7 +451,7 @@ void Native_Hd_Vehicles_Start()
 }
 
 // VoxelDrawSystem::Render 0x007178E0, after its 1x draw (native fixup): the three half-pixel passes.
-void Native_Hd_Voxel_Passes(Rect const &rect, Vector3 const &center, UnknownVoxelRecord88 **render_data)
+void Native_Hd_Voxel_Passes(Rect const &rect, Vector3 const &center, VoxelRenderStruct **render_data)
 {
     Surface *grid = VoxelDrawSystem::Get_Surface();
     if (!active || !grid) return;

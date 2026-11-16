@@ -5,7 +5,7 @@
 
 int __stdcall MP_Score_Dialog_Proc_005AAE40(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result != 0) {
         return result;
     }
@@ -112,7 +112,7 @@ int __stdcall MP_Score_Dialog_Proc_005AAE40(HWND window, UINT message, WPARAM wp
 // @ref ?Unknown_005feb60@@YIXPAVRect@@PAVSurface@@HH@Z=005feb60
 // @ref ?Unknown_Rect_Shrink_006F1B30@@YIXPAVRect@@HH@Z=006f1b30
 // @ref ?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z=00735690
-// @ref ?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z=005ffb00
+// @ref ?Default_Dialog_Proc@@YIHPAUHWND__@@IIJ@Z=005ffb00
 // @ref ?AlternateSurface@@3PAVSurface@@A=00839958
 // @ref ?unknown_compare_descending_60_005aae10@@YAHPBX0@Z=005aae10
 // @ref ?MP_Tally_Scores_005AABD0@@YAXXZ=005aabd0

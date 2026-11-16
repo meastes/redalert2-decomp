@@ -384,7 +384,7 @@ AudioEvent *__fastcall Voc_Static_Add(int voc, CoordStruct const &coord, unsigne
     if (voc < 0) {
         return 0;
     }
-    VocStaticSound *sound = (VocStaticSound *)Audio_Pool_Alloc(unknown_voc_static_pool_ad0844);
+    VocStaticSound *sound = (VocStaticSound *)Audio_Pool_Alloc(StaticSoundPool);
     if (sound == 0) {
         return 0;
     }
@@ -394,7 +394,7 @@ AudioEvent *__fastcall Voc_Static_Add(int voc, CoordStruct const &coord, unsigne
     sound->Coord = coord;
     sound->Flags = flags;
     AudioEvent *event = Voc_Play_At(voc, sound->Coord, &sound->Handle);
-    Audio_List_Add_Tail(&unknown_voc_static_list_ad07d0, sound);
+    Audio_List_Add_Tail(&StaticSounds, sound);
     Audio_Static_Sound_Count++;
     if (Audio_Static_Sound_Count > Audio_Static_Sound_Maximum) {
         Audio_Static_Sound_Maximum = Audio_Static_Sound_Count;
@@ -409,7 +409,7 @@ AudioEvent *__fastcall Voc_Static_Add(int voc, CoordStruct const &coord, unsigne
 
 void Voc_Static_Update()
 {
-    VocStaticSound *sound = (VocStaticSound *)Audio_List_First(&unknown_voc_static_list_ad07d0);
+    VocStaticSound *sound = (VocStaticSound *)Audio_List_First(&StaticSounds);
     while (sound != 0) {
         VocStaticSound *next = (VocStaticSound *)Audio_List_Next(sound);
         if (sound->PauseCount == 0) {
@@ -419,7 +419,7 @@ void Voc_Static_Update()
             AudioEventType *type = Audio_Event_Handle_Type(&sound->Handle);
             if (type == 0 || !Audio_Event_Type_Loops_Forever(type)) {
                 Audio_List_Remove(sound);
-                Audio_Pool_Free(unknown_voc_static_pool_ad0844, sound);
+                Audio_Pool_Free(StaticSoundPool, sound);
                 Audio_Static_Sound_Count--;
             }
         }
@@ -434,7 +434,7 @@ void Voc_Static_Update()
 
 void __fastcall Voc_Static_Finish_At(CoordStruct const &coord, unsigned int flags)
 {
-    for (VocStaticSound *sound = (VocStaticSound *)Audio_List_First(&unknown_voc_static_list_ad07d0); sound != 0;
+    for (VocStaticSound *sound = (VocStaticSound *)Audio_List_First(&StaticSounds); sound != 0;
          sound = (VocStaticSound *)Audio_List_Next(sound)) {
         if ((sound->Flags & flags) && sound->Coord.X == coord.X && sound->Coord.Y == coord.Y && sound->Coord.Z == coord.Z) {
             Audio_Event_Handle_Finish(&sound->Handle);
@@ -449,12 +449,12 @@ void __fastcall Voc_Static_Finish_At(CoordStruct const &coord, unsigned int flag
 
 void Sound_Clear_Static()
 {
-    VocStaticSound *sound = (VocStaticSound *)Audio_List_First(&unknown_voc_static_list_ad07d0);
+    VocStaticSound *sound = (VocStaticSound *)Audio_List_First(&StaticSounds);
     while (sound != 0) {
         VocStaticSound *next = (VocStaticSound *)Audio_List_Next(sound);
         Audio_Event_Handle_Stop(&sound->Handle);
         Audio_List_Remove(sound);
-        Audio_Pool_Free(unknown_voc_static_pool_ad0844, sound);
+        Audio_Pool_Free(StaticSoundPool, sound);
         Audio_Static_Sound_Count--;
         sound = next;
     }
@@ -495,7 +495,7 @@ void VocStaticSound::Resume()
 
 void Voc_Static_Pause()
 {
-    for (VocStaticSound *sound = (VocStaticSound *)Audio_List_First(&unknown_voc_static_list_ad07d0); sound != 0;
+    for (VocStaticSound *sound = (VocStaticSound *)Audio_List_First(&StaticSounds); sound != 0;
          sound = (VocStaticSound *)Audio_List_Next(sound)) {
         sound->Pause();
     }
@@ -506,7 +506,7 @@ void Voc_Static_Pause()
 
 void Voc_Static_Resume()
 {
-    for (VocStaticSound *sound = (VocStaticSound *)Audio_List_First(&unknown_voc_static_list_ad07d0); sound != 0;
+    for (VocStaticSound *sound = (VocStaticSound *)Audio_List_First(&StaticSounds); sound != 0;
          sound = (VocStaticSound *)Audio_List_Next(sound)) {
         sound->Resume();
     }
@@ -521,8 +521,8 @@ void Voc_Static_Resume()
 
 void __fastcall VocClass::Process(CCINIClass &ini)
 {
-    Audio_List_Init(&unknown_voc_static_list_ad07d0);
-    unknown_voc_static_pool_ad0844 = Audio_Pool_Create(100, sizeof(VocStaticSound));
+    Audio_List_Init(&StaticSounds);
+    StaticSoundPool = Audio_Pool_Create(100, sizeof(VocStaticSound));
     Audio_Static_Sound_Count = 0;
     Audio_Static_Sound_Maximum = 0;
 
@@ -587,10 +587,10 @@ void Free_Vocs()
     while (Vocs.Count() > 0) {
         delete Vocs[0];
     }
-    if (unknown_voc_static_pool_ad0844 != 0) {
+    if (StaticSoundPool != 0) {
         Sound_Clear_Static();
-        Audio_Pool_Destroy(unknown_voc_static_pool_ad0844);
-        unknown_voc_static_pool_ad0844 = 0;
+        Audio_Pool_Destroy(StaticSoundPool);
+        StaticSoundPool = 0;
     }
 }
 
@@ -645,10 +645,10 @@ int __fastcall VocClass::Index_Of(VocClass *voc)
 // Save static sound indices and coordinates in list order.
 HRESULT __fastcall Voc_Static_Save(IStream *stream)
 {
-    int count=Audio_List_Count(&unknown_voc_static_list_ad07d0);
+    int count=Audio_List_Count(&StaticSounds);
     HRESULT result=stream->Write(&count,sizeof(count),0);
     if(SUCCEEDED(result)) {
-        VocStaticSound *sound=(VocStaticSound*)Audio_List_First(&unknown_voc_static_list_ad07d0);
+        VocStaticSound *sound=(VocStaticSound*)Audio_List_First(&StaticSounds);
         while(sound) {
             struct VocStaticRecord { int Index; CoordStruct Coord; } entry;
             int index=-1;

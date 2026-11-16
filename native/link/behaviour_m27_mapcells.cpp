@@ -12,11 +12,11 @@
 // 0x0058C2A0/0x0058C2C0): the generator's record of a cell (by X + Y * side) and of a cell index.
 UnknownMapGenerationCell &__fastcall Get_Cell_Data_0056dba0(Cell const &cell)
 {
-    return unknown_map_cells_a70a24[cell.X + cell.Y * unknown_map_cell_side_84e804];
+    return RMGCellData[cell.X + cell.Y * MapCellStride];
 }
 UnknownMapGenerationCell &__fastcall Get_Cell_Data_0056dbc0(int index)
 {
-    return unknown_map_cells_a70a24[index];
+    return RMGCellData[index];
 }
 
 // 0x0052E390 IsometricTileTypeClass::Preview_Tile (pass-6a decompile 0052e390; TibSun
@@ -33,5 +33,5 @@ unsigned short *IsometricTileTypeClass::Preview_Tile(int tile, int level)
 // 0x0056DBA0 under the name the deformation-grid rows use (a pointer to the same record).
 UnknownMapGenerationCell *__fastcall unknown_generation_cell_56dba0(Cell const &cell)
 {
-    return &unknown_map_cells_a70a24[cell.X + cell.Y * unknown_map_cell_side_84e804];
+    return &RMGCellData[cell.X + cell.Y * MapCellStride];
 }

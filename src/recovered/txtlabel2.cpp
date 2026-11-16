@@ -422,7 +422,7 @@ void __fastcall Unknown_006F2C00()
 // width (640 or not), recording in the flags at 0x00AC1228 whether each was allocated and the art pair at 0x00AC1178 (hypothesis).
 
 void *__fastcall Unknown_00495270(char const *name, bool *allocated);
-extern int unknown_value_8523e0;
+extern int VideoModeWidth;
 void __fastcall unknown_load_art_6f1fa0(char const *name, void **shape, void **data);   // 0x006F1FA0
 extern char const * const unknown_name_7f8718;
 extern void *unknown_art_ac1178;
@@ -446,7 +446,7 @@ extern void *unknown_art_ac1074;
 
 void __fastcall Unknown_006F2C40()
 {
-    if (unknown_value_8523e0 == 0x280) {
+    if (VideoModeWidth == 0x280) {
         unknown_art_ac1120 = Unknown_00495270(unknown_name_7f8790, &unknown_flag_ac1228);
         unknown_art_ac1040 = Unknown_00495270(unknown_name_7f8798, &unknown_flag_ac1229);
         unknown_art_ac10fc = Unknown_00495270(unknown_name_7f87a0, &unknown_flag_ac122a);
@@ -466,7 +466,7 @@ void __fastcall Unknown_006F2C40()
 // width (640 or not), recording in the flags at 0x00AC1228 whether each was allocated (hypothesis).
 
 void *__fastcall Unknown_00495270(char const *name, bool *allocated);
-extern int unknown_value_8523e0;
+extern int VideoModeWidth;
 extern char const * const unknown_name_7f8790;
 extern char const * const unknown_name_7f8798;
 extern char const * const unknown_name_7f87a0;
@@ -486,7 +486,7 @@ extern void *unknown_art_ac1074;
 
 void __fastcall Unknown_006F2DF0()
 {
-    if (unknown_value_8523e0 == 0x280) {
+    if (VideoModeWidth == 0x280) {
         unknown_art_ac1120 = Unknown_00495270(unknown_name_7f8790, &unknown_flag_ac1228);
         unknown_art_ac1040 = Unknown_00495270(unknown_name_7f8798, &unknown_flag_ac1229);
         unknown_art_ac10fc = Unknown_00495270(unknown_name_7f87a0, &unknown_flag_ac122a);
@@ -546,8 +546,8 @@ void __fastcall unknown_load_art_6f1fa0(char const *name, void **shape, void **d
 void __fastcall Unknown_0051A2B0();
 void __fastcall Unknown_006F3E70(int arg1, int arg2);
 extern bool unknown_flag_ac119c;
-extern int unknown_value_8523e0;
-extern int unknown_value_8523e4;
+extern int VideoModeWidth;
+extern int VideoModeHeight;
 extern char const * const unknown_name_7f87b0;
 extern bool unknown_flag_ac122c;
 extern void *unknown_art_ac10b8;
@@ -605,7 +605,7 @@ void __fastcall Unknown_006F2FB0()
         unknown_load_art_6f1fa0(unknown_name_7f871c, &unknown_art_ac1184, (void **)&unknown_art_ac1188);
         unknown_load_art_6f1fa0(unknown_name_7f8720, &unknown_art_ac118c, (void **)&unknown_art_ac1190);
         unknown_load_art_6f1fa0(unknown_name_7f8724, &unknown_art_ac1194, (void **)&unknown_art_ac1198);
-        Unknown_006F3E70(unknown_value_8523e0, unknown_value_8523e4);
+        Unknown_006F3E70(VideoModeWidth, VideoModeHeight);
         unknown_flag_ac119c = true;
     }
 }
@@ -654,7 +654,7 @@ void __fastcall Unknown_Free_Art_Set_006F30F0()
 }
 
 
-// void Unknown_Reload_Art_Set_006F31B0() -- 0x006F31B0
+// void Reload_Art_Set() -- 0x006F31B0
 // Frees the second shell set when loaded, then loads it again (hypothesis).
 // Once (flag 0x00AC119C): loads ten shapes, three art pairs and runs 0x006F3E70 with the two
 // values at 0x008523E0 (hypothesis).
@@ -664,8 +664,8 @@ void __fastcall unknown_load_art_6f1fa0(char const *name, void **shape, void **d
 void __fastcall Unknown_0051A2B0();
 void __fastcall Unknown_006F3E70(int arg1, int arg2);
 extern bool unknown_flag_ac119c;
-extern int unknown_value_8523e0;
-extern int unknown_value_8523e4;
+extern int VideoModeWidth;
+extern int VideoModeHeight;
 extern char const * const unknown_name_7f87b0;
 extern bool unknown_flag_ac122c;
 extern void *unknown_art_ac10b8;
@@ -717,7 +717,7 @@ extern void *unknown_art_ac11c8;
 extern void *unknown_art_ac11cc;
 extern void *unknown_art_ac11d0;
 
-void __fastcall Unknown_Reload_Art_Set_006F31B0()
+void __fastcall Reload_Art_Set()
 {
     if (unknown_flag_ac119c) {
         unknown_flag_ac119c = false;
@@ -756,7 +756,7 @@ void __fastcall Unknown_Reload_Art_Set_006F31B0()
         unknown_load_art_6f1fa0(unknown_name_7f871c, &unknown_art_ac1184, (void **)&unknown_art_ac1188);
         unknown_load_art_6f1fa0(unknown_name_7f8720, &unknown_art_ac118c, (void **)&unknown_art_ac1190);
         unknown_load_art_6f1fa0(unknown_name_7f8724, &unknown_art_ac1194, (void **)&unknown_art_ac1198);
-        Unknown_006F3E70(unknown_value_8523e0, unknown_value_8523e4);
+        Unknown_006F3E70(VideoModeWidth, VideoModeHeight);
         unknown_flag_ac119c = true;
     }
 }
@@ -1091,8 +1091,8 @@ void __fastcall Unknown_6F4450()
 void __fastcall Unknown_006F5150();
 void __fastcall Unknown_006F4B00();
 void __fastcall Unknown_006F4C90(int arg1, int arg2);
-extern int unknown_value_8523e0;
-extern int unknown_value_8523e4;
+extern int VideoModeWidth;
+extern int VideoModeHeight;
 void __fastcall unknown_load_art_6f1fa0(char const *name, void **shape, void **data);   // 0x006F1FA0
 extern char const * const unknown_name_7f8728;
 extern char const * const unknown_name_7f872c;
@@ -1127,16 +1127,16 @@ void __fastcall Unknown_Reload_Art_006F44D0()
     Unknown_006F4B00();
     unknown_load_art_6f1fa0(unknown_name_7f8728, &unknown_art_ac11a0, (void **)&unknown_art_ac11a4);
     unknown_load_art_6f1fa0(unknown_name_7f872c, &unknown_art_ac11a8, (void **)&unknown_art_ac11ac);
-    Unknown_006F4C90(unknown_value_8523e0, unknown_value_8523e4);
+    Unknown_006F4C90(VideoModeWidth, VideoModeHeight);
     unknown_flag_ac11b0 = true;
 }
 
 
-// bool Unknown_Get_Art_006f4590() -- 0x006F4590
+// bool Is_Sidebar_Art_Loaded() -- 0x006F4590
 // Returns the art data at 0x00AC11B0 (hypothesis).
 extern bool unknown_flag_ac11b0;
 
-bool Unknown_Get_Art_006f4590()
+bool Is_Sidebar_Art_Loaded()
 {
     return unknown_flag_ac11b0;
 }

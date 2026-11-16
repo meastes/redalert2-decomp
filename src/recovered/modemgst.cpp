@@ -102,7 +102,7 @@ bool ModemGuest::Dialog_00596010()
     if (Window) {
         SetWindowLongA(Window, 8, (LONG)this);
         Init_Dialog_00596540();
-        unknown_dialog_5ff7c0(Window);
+        Display_Dialog(Window);
         Changed = false;
         OptionsChanged = true;
         OptionsTime = TickCount.Time();
@@ -152,7 +152,7 @@ extern unsigned short const unknown_empty_wide_839d4c[];
 
 int __stdcall ModemGuest::Dialog_Proc_00596170(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result) {
         return result;
     }
@@ -246,7 +246,7 @@ void ModemGuest::Init_Dialog_00596540()
         Send_Message(control, 0x4C1, -1, (LPARAM)StringTable::Load_String("TXT_PURPLE", 0, "D:\\Ra2\\ModemGst.cpp", 0x11E));
         Send_Message(control, 0x4C1, -1, (LPARAM)StringTable::Load_String("TXT_PINK", 0, "D:\\Ra2\\ModemGst.cpp", 0x11F));
         for (int index = 0; index < 8; index++) {
-            Send_Message(control, 0x498, index, unknown_color_values_7e6d94[index]);
+            Send_Message(control, 0x498, index, PlayerColorTable[index]);
         }
         unknown_a3d3b4 = unknown_session_a3d298.unknown_12c;
         Send_Message(control, 0x14E, unknown_a3d3b4, 0);
@@ -452,9 +452,9 @@ void ModemGuest::Read_Color_00597010()
             Changed = true;
             int rgb;
             if (color >= 0 && color < 8) {
-                rgb = unknown_color_values_7e6d94[color];
+                rgb = PlayerColorTable[color];
             } else {
-                rgb = unknown_color_7a737c;
+                rgb = ColorMe;
             }
             SendMessageA(control, 0x498, 0, rgb);
         }
@@ -932,10 +932,10 @@ void ModemGuest::Sign_Off_00598590()
     packet.ScenarioInfo.Color = unknown_a3d3b4;
     packet.ID = serial_local_player_00a3fb38;
     serial_manager_00a40a28.Send_Message(&packet, sizeof(packet), 1);
-    HWND dialog = unknown_cancel_dialog_6001e0(
+    HWND dialog = Custom_Message_Box(
         StringTable::Load_String("TXT_SIGNING_OFF", 0, "D:\\Ra2\\ModemGst.cpp", 0x693), 0, 0);
     if (dialog) {
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
     }
     unsigned long start = TickCount.Time();
     while (serial_manager_00a40a28.Num_Send() && TickCount.Time() - start < 300) {
@@ -987,10 +987,10 @@ bool ModemGuest::Start_Game_005986f0(bool unknown)
     if (unknown_session_a3d55c != 2) {
         return false;
     }
-    HWND dialog = unknown_cancel_dialog_6001e0(
+    HWND dialog = Custom_Message_Box(
         StringTable::Load_String("TXT_SENDING_GO_ACK", 0, "D:\\Ra2\\ModemGst.cpp", 0x6F3), 0, 0);
     if (dialog) {
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
     }
     unsigned long start = TickCount.Time();
     while ((serial_manager_00a40a28.Num_Send() && TickCount.Time() - start < 1800) || TickCount.Time() - start < 60) {

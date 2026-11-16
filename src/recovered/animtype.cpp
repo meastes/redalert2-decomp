@@ -101,7 +101,7 @@ AnimTypeClass::~AnimTypeClass()
 
 void __fastcall AnimTypeClass::Init(int theater)
 {
-    if (!Debug_Map && theater == unknown_loaded_theater_7d88dc) {
+    if (!Debug_Map && theater == LastTheater) {
         for (int index = 0; index < AnimTypes.Count(); index++) {
             AnimTypeClass *anim = AnimTypes[index];
             if (anim->unknown_207 && anim->ImageData == 0) {
@@ -146,7 +146,7 @@ void __fastcall AnimTypeClass::Init(int theater)
 
 void AnimTypeClass::unknown_slot24(int theater)
 {
-    if (!Debug_Map && theater == unknown_loaded_theater_7d88dc) {
+    if (!Debug_Map && theater == LastTheater) {
         return;
     }
     if (unknown_1fc && !DemandLoad) {

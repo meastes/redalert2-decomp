@@ -155,8 +155,8 @@ SuperClass::SuperClass(SuperWeaponTypeClass *type, HouseClass *house) :
 #pragma auto_inline(off)
 SuperClass::~SuperClass()
 {
-    unknown_69ca70();
-    unknown_supers_a35db8.Delete(this);
+    Detach_Animation();
+    TimedSuperWeapons.Delete(this);
     Supers.Delete(this);
     AbstractTypePtrTracker.Delete(this);
     HousePtrTracker.Delete(this);
@@ -164,13 +164,13 @@ SuperClass::~SuperClass()
 #pragma auto_inline(on)
 
 
-// void SuperClass::unknown_69ca70() (0x0069CA70)
+// void SuperClass::Detach_Animation() (0x0069CA70)
 // Drops the animation and its entry in the animation list. The explicit
 // upcasts in the two Delete calls are the spelling hypothesis that gives this
 // body the original inline size (0x0069CB30 then keeps its second
 // Delete(int) out of line, and Recharge needs no Is_Present() call).
 
-void SuperClass::unknown_69ca70()
+void SuperClass::Detach_Animation()
 {
     if (Anim != 0) {
         Anim->Loops = 0;
@@ -184,14 +184,14 @@ void SuperClass::unknown_69ca70()
 }
 
 
-// void SuperClass::unknown_place_anim_69cb30(CoordStruct coord) (0x0069CB30)
+// void SuperClass::Create_Chrono_Anim(CoordStruct coord) (0x0069CB30)
 // Replaces the super weapon's animation with Rules->ChronoPlacement 5 leptons
 // above coord and joins the animated supers (hypothesis: the chronosphere's
 // placement marker).
 
-void SuperClass::unknown_place_anim_69cb30(CoordStruct coord)
+void SuperClass::Create_Chrono_Anim(CoordStruct coord)
 {
-    unknown_69ca70();
+    Detach_Animation();
     AnimClass *anim = new AnimClass(Rules->ChronoPlacement, coord + CoordStruct(0, 0, 5), 0, 1, 0x600, 0);
     if (anim != 0) {
         Anim = anim;
@@ -231,7 +231,7 @@ bool SuperClass::Grant(bool one_time, bool announce, bool on_hold)
         unknown_0x38 = Type->UIName;
         if (!one_time) Suspend(false);
         if (Type->ShowTimer && !House->Type->MultiplayPassive) {
-            unknown_supers_a35db8.Add(this);
+            TimedSuperWeapons.Add(this);
         }
         if (Type->ManualControl) {
             unknown_0x5C = -1;
@@ -256,7 +256,7 @@ bool SuperClass::Remove()
     if (unknown_0x55) {
         unknown_0x57 = false;
         unknown_0x55 = false;
-        unknown_supers_a35db8.Delete(this);
+        TimedSuperWeapons.Delete(this);
         return true;
     }
     return false;
@@ -292,7 +292,7 @@ void Owner_0069cfb0::FUN_0069cfb0(unsigned char unknown_0x57)
 
 bool SuperClass::Recharge(bool player)
 {
-    unknown_69ca70();
+    Detach_Animation();
     if (unknown_0x55 && !unknown_0x57 && !unknown_0x58) {
         unknown_0x5C = -1;
         RechargeTimer.Start();
@@ -371,7 +371,7 @@ bool SuperClass::Discharged(bool player, Cell const &cell)
 
 bool SuperClass::unknown_69d390(bool local_player)
 {
-    if (unknown_pending_super_833694 != 4 && Anim != 0) {
+    if (CurrentSuperWeaponType != 4 && Anim != 0) {
         Anim->unknown_17d = true;
         Anim->unknown_180.Unknown_00405FE0();
     }
@@ -559,7 +559,7 @@ bool SuperClass::Unknown_0069D820()
 
 extern "C" GUID const unknown_uuid_IPiggyback_7cfc30;
 // The cell returned for coordinates outside the map (map.hpp's declaration; map.hpp cannot follow map_view.hpp).
-extern CellClass unknown_dummy_cell_a6f9f8;                       // 0x00A6F9F8
+extern CellClass BlubCell;                       // 0x00A6F9F8
 // The psychic-warning radar note for a launched bullet (0x00438B80; name and types hypotheses).
 void __fastcall Unknown_00438B80(HouseClass *house, CellClass *cell, BulletClass *bullet, char const *name);
 // Drops a paradrop of count infantry of a type from a plane (0x0063A690; hypothesis).
@@ -606,9 +606,9 @@ void SuperClass::Place(Cell const &cell, bool player)
             if (Map[cell].unknown_140 & 0x100) {
                 coord.Z += unknown_geometry_j;
             }
-            unknown_place_anim_69cb30(coord + CoordStruct(0, 0, 5));
+            Create_Chrono_Anim(coord + CoordStruct(0, 0, 5));
             if (player) {
-                unknown_pending_super_833694 = 4;
+                CurrentSuperWeaponType = 4;
                 return;
             }
             if (Anim != 0) {
@@ -630,7 +630,7 @@ void SuperClass::Place(Cell const &cell, bool player)
         if (Map[unknown_0x4A].unknown_140 & 0x100) {
             from.Z += unknown_geometry_j;
         }
-        unknown_69ca70();
+        Detach_Animation();
         new AnimClass(Rules->ChronoBlastDest, dest + CoordStruct(0, 0, 5), 0, 1, 0x600, 0);
         new AnimClass(Rules->ChronoBlast, from + CoordStruct(0, 0, 5), 0, 1, 0x600, 0);
         for (int index = 0; index < 9; index++) {
@@ -687,7 +687,7 @@ void SuperClass::Place(Cell const &cell, bool player)
             Speech_Play_Name("EVA_ChronosphereActivated", -1, -1);
         }
         if (player) {
-            unknown_pending_super_833694 = -1;
+            CurrentSuperWeaponType = -1;
             Speech_Cancel(VoxClass::Find_Index("EVA_ChronosphereReady"));
             return;
         }
@@ -701,7 +701,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                 Speech_Play_Name("EVA_LightningStormCreated", -1, -1);
             }
             if (player) {
-                unknown_pending_super_833694 = -1;
+                CurrentSuperWeaponType = -1;
                 Speech_Cancel(VoxClass::Find_Index("EVA_LightningStormReady"));
                 return;
             }
@@ -723,7 +723,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                 }
             }
             if (player) {
-                unknown_pending_super_833694 = -1;
+                CurrentSuperWeaponType = -1;
                 Speech_Cancel(VoxClass::Find_Index("EVA_IronCurtainReady"));
                 return;
             }
@@ -734,12 +734,12 @@ void SuperClass::Place(Cell const &cell, bool player)
         if (unknown_0x57) {
             int plane = AircraftTypeClass::From_Name("PDPLANE");
             CellClass *cellptr = &Map[cell];
-            if (cellptr != 0 && cellptr != &unknown_dummy_cell_a6f9f8) {
+            if (cellptr != 0 && cellptr != &BlubCell) {
                 if (cellptr->Is_Tile_Water()) {
                     Cell spot = Map.Nearby_Location(cell, 0, -1, 0, 0, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
                     if (spot != unknown_cell_abd768) {
                         CellClass *nearptr = &Map[spot];
-                        if (nearptr != 0 && nearptr != &unknown_dummy_cell_a6f9f8 && !nearptr->Is_Tile_Water()) {
+                        if (nearptr != 0 && nearptr != &BlubCell && !nearptr->Is_Tile_Water()) {
                             cellptr = nearptr;
                         }
                     }
@@ -765,7 +765,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                 }
             }
             if (player) {
-                unknown_pending_super_833694 = -1;
+                CurrentSuperWeaponType = -1;
                 Speech_Cancel(VoxClass::Find_Index("EVA_ReinforcementsReady"));
                 return;
             }
@@ -776,12 +776,12 @@ void SuperClass::Place(Cell const &cell, bool player)
         if (unknown_0x57) {
             int plane = AircraftTypeClass::From_Name("PDPLANE");
             CellClass *cellptr = &Map[cell];
-            if (cellptr != 0 && cellptr != &unknown_dummy_cell_a6f9f8) {
+            if (cellptr != 0 && cellptr != &BlubCell) {
                 if (cellptr->Is_Tile_Water()) {
                     Cell spot = Map.Nearby_Location(cell, 0, -1, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
                     if (spot != unknown_cell_abd768) {
                         CellClass *nearptr = &Map[spot];
-                        if (nearptr != 0 && nearptr != &unknown_dummy_cell_a6f9f8 && !nearptr->Is_Tile_Water()) {
+                        if (nearptr != 0 && nearptr != &BlubCell && !nearptr->Is_Tile_Water()) {
                             cellptr = nearptr;
                         }
                     }
@@ -797,7 +797,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                 }
             }
             if (player) {
-                unknown_pending_super_833694 = -1;
+                CurrentSuperWeaponType = -1;
                 Speech_Cancel(VoxClass::Find_Index("EVA_ReinforcementsReady"));
             }
         }
@@ -835,7 +835,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                     Voc_Static_Add(Rules->unknown_16c, sound, 0);
                 }
                 if (player) {
-                    unknown_pending_super_833694 = -1;
+                    CurrentSuperWeaponType = -1;
                     Speech_Cancel(VoxClass::Find_Index("EVA_NuclearMissileReady"));
                 }
                 House->unknown_144 = true;
@@ -863,7 +863,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                 }
             }
             if (player) {
-                unknown_pending_super_833694 = -1;
+                CurrentSuperWeaponType = -1;
                 Speech_Cancel(VoxClass::Find_Index("EVA_NuclearMissileReady"));
             }
             House->unknown_144 = true;
@@ -893,10 +893,10 @@ void __stdcall FUN_0069e980(int unused_0, int unused_1)
 }  // namespace seed_0069e980
 
 
-// bool SuperClass::unknown_69e990() const (0x0069E990)
+// bool SuperClass::Is_Charging() const (0x0069E990)
 // Whether the super weapon is still charging, or a charge-drain weapon (hypothesis).
 
-bool SuperClass::unknown_69e990() const
+bool SuperClass::Is_Charging() const
 {
     if (Type->UseChargeDrain) {
         return true;
@@ -994,7 +994,7 @@ void SuperClass::Compute_CRC(WWCRCEngine &crc) const
 
 void SuperClass::unknown_69ebb0()
 {
-    unknown_69ca70();
+    Detach_Animation();
     unknown_0x57 = false;
     unknown_0x5C = -1;
     bool active = RechargeTimer.Is_Active();

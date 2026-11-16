@@ -326,10 +326,10 @@ bool TaskForceClass::Write_INI(CCINIClass &ini) const
 }
 
 
-// bool TaskForceClass::unknown_all_kind16_6b6f70() const (0x006B6F70)
+// bool TaskForceClass::Has_Only_Infantry() const (0x006B6F70)
 // True when the type of every entry in use reports Kind_Of() == 16.
 
-bool TaskForceClass::unknown_all_kind16_6b6f70() const
+bool TaskForceClass::Has_Only_Infantry() const
 {
     for (int index = 0; index < CountEntries; index++) {
         if (Entries[index].Type->Kind_Of() != 16) {

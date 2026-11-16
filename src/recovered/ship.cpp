@@ -913,7 +913,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
 
                     if (newcellptr->OverlayIndex != -1) {
                         OverlayTypeClass *otype = OverlayTypes[newcellptr->OverlayIndex];
-                        if (unknown_64 && (LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->unknown_6d7910(0x11)) && otype->ArrayIndex == 0) {
+                        if (unknown_64 && (LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->Has_Ability(0x11)) && otype->ArrayIndex == 0) {
                             LinkedTo->unknown_59f = true;
                             TechnoTypeClass const *ttype = LinkedTo->Techno_Type_Class();
                             if (ttype->TiltsWhenCrushes) {
@@ -986,7 +986,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                             case 3:
                                 {
                                     Cell gate = c.As_Cell();
-                                    Map.Unknown_0055ACD0(LinkedTo, gate);
+                                    Map.Try_Open_Gate(LinkedTo, gate);
                                 }
                                 break;
 
@@ -1669,7 +1669,7 @@ Point2D ShipLocomotionClass::Smooth_Turn(Point2D const &offset, int &facing)
 
 bool ShipLocomotionClass::unknown_67a710(Cell cell)
 {
-    return Map.Unknown_0055ACD0(LinkedTo, cell);
+    return Map.Try_Open_Gate(LinkedTo, cell);
 }
 
 

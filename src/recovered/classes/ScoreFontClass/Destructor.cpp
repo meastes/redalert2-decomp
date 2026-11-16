@@ -2,9 +2,9 @@
 // Frees an owned sheet; the last font forgets the typing sounds.
 #include "shared/score_font.hpp"
 // @ref ??_7ScoreFontClass@@6B@=007a92a0
-// @ref ?unknown_score_fonts_ab6fa4@@3HA=00ab6fa4
+// @ref ?score_font_count@@3HA=00ab6fa4
 // @ref ??3@YAXPAX@Z=00781d3b
-// @ref ?unknown_score_sounds_ab6fa8@@3PAUScoreFontSound@@A=00ab6fa8
+// @ref ?text_sounds@@3PAUScoreFontSound@@A=00ab6fa8
 
 ScoreFontClass::~ScoreFontClass()
 {
@@ -13,10 +13,10 @@ ScoreFontClass::~ScoreFontClass()
         Image = 0;
         IsAllocated = false;
     }
-    if (--unknown_score_fonts_ab6fa4 == 0) {
+    if (--score_font_count == 0) {
         for (int i = 0; i < 3; i++) {
-            unknown_score_sounds_ab6fa8[i].Data = 0;
-            unknown_score_sounds_ab6fa8[i].IsAllocated = false;
+            text_sounds[i].Data = 0;
+            text_sounds[i].IsAllocated = false;
         }
     }
 }

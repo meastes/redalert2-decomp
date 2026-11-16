@@ -92,10 +92,10 @@ Matrix3D IsometricViewMatrix;
 Matrix3D BounceMatrices[4];
 
 
-Vector3 unknown_vectors_af7930[256];
+Vector3 LightTiltVectors[256];
 
 
-Vector3 unknown_vectors_af6768[256];
+Vector3 LightDirectionVectors[256];
 
 
 // Matrix3D __fastcall Get_Isometric_View_Matrix() -- 0x00717F90: the isometric view matrix (IsometricViewMatrix) by value
@@ -111,7 +111,7 @@ extern float VoxelLightAngle;
 extern Vector3 unknown_839ab0;
 extern Vector3 unknown_839a60;
 
-void __stdcall Unknown_00717FB0(float angle)
+void __stdcall Set_Voxel_Light_Angle(float angle)
 {
     Matrix3D matrix;
     matrix.Make_Identity();
@@ -185,10 +185,10 @@ void __fastcall Unknown_00718060()
         Matrix3D matrix;
         matrix.Make_Identity();
         matrix.Rotate_Z(facing * 0.024542969f);
-        unknown_vectors_af6768[facing] = matrix * Vector3(1.0f, 0.0f, 0.0f);
-        unknown_vectors_af7930[facing] = Vector3::Cross_Product(unknown_vectors_af6768[facing], Vector3(0.0f, 0.0f, 1.0f));
-        Matrix3D rotation(unknown_vectors_af7930[facing], VoxelLightAngle);
-        unknown_vectors_af6768[facing] = rotation * unknown_vectors_af6768[facing];
+        LightDirectionVectors[facing] = matrix * Vector3(1.0f, 0.0f, 0.0f);
+        LightTiltVectors[facing] = Vector3::Cross_Product(LightDirectionVectors[facing], Vector3(0.0f, 0.0f, 1.0f));
+        Matrix3D rotation(LightTiltVectors[facing], VoxelLightAngle);
+        LightDirectionVectors[facing] = rotation * LightDirectionVectors[facing];
     }
 
     SlopeMatrices[0].Make_Identity();
@@ -321,9 +321,9 @@ extern float ExtraLightTiltAngles[];
 
 void __fastcall Apply_Light_Transform(Matrix3D *matrix, int index, int angle)
 {
-    Matrix3D rotation(unknown_vectors_af7930[index], ExtraLightTiltAngles[angle]);
+    Matrix3D rotation(LightTiltVectors[index], ExtraLightTiltAngles[angle]);
     *matrix = *matrix * rotation;
-    matrix->Translate(unknown_vectors_af6768[index] * -3.0f);
+    matrix->Translate(LightDirectionVectors[index] * -3.0f);
     matrix->Translate(0.0f, 0.0f, 3.0f);
 }
 
@@ -334,7 +334,7 @@ void __fastcall Apply_Light_Transform(Matrix3D *matrix, int index, int angle)
 
 Vector3 __fastcall unknown_scaled_vector(int index, int arg2)
 {
-    Vector3 &entry = unknown_vectors_af6768[index];
+    Vector3 &entry = LightDirectionVectors[index];
     return Vector3(entry.X * 1.5f, entry.Y * 1.5f, entry.Z * 1.5f);
 }
 

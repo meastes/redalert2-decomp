@@ -137,13 +137,13 @@ public:
 };
 extern UnknownSpotLightObject_a731e0 *unknown_objects_a731e0[74];
 // A block freed by Unknown_005DDB40 (0x00A73378).
-extern void *unknown_block_a73378;
+extern void *SpotLightMMXBuffer;
 
 void Unknown_005DDB40()
 {
-    if (unknown_block_a73378 != 0) {
-        Free_Memory_00781d3b(unknown_block_a73378);
-        unknown_block_a73378 = 0;
+    if (SpotLightMMXBuffer != 0) {
+        Free_Memory_00781d3b(SpotLightMMXBuffer);
+        SpotLightMMXBuffer = 0;
     }
     for (int i = 0; i < 74; i++) {
         delete unknown_objects_a731e0[i];
@@ -181,7 +181,7 @@ void SpotLightClass::unknown_func_5ddb90()
 {
     unsigned int flags = unknown_14 & 0xF;
     if ((flags & ~1) == 0) {
-        if (unknown_a6eb1c < Unknown_0053D840()) {
+        if (unknown_a6eb1c < GetMinFrameRate()) {
             return;
         }
     }

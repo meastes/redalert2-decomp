@@ -16,7 +16,7 @@
 // @ref ?Debug_Printf@@YAXPBDZZ=004068f0
 // @ref ??1Buffer@@QAE@XZ=00438410
 // @ref ??1BufferIOFileClass@@UAE@XZ=0042f350
-// @ref ?unknown_score_sounds_ab6fa8@@3PAUScoreFontSound@@A=00ab6fa8
+// @ref ?text_sounds@@3PAUScoreFontSound@@A=00ab6fa8
 // @ref ??_C@_09CNEE@TEXT1?4AUD?$AA@=007f2ae0
 // @ref ??_C@_09MNCL@TEXT2?4AUD?$AA@=007f2ab4
 // @ref ??_C@_09GNAO@TEXT3?4AUD?$AA@=007f2a88
@@ -30,30 +30,30 @@ void ScoreFontClass::Load_Sounds()
     if (AudioDeviceAvailable()) {
         CCFileClass ccfile;
         FileClass &file = ccfile;
-        unknown_score_sounds_ab6fa8[0].Data = MixFileClass::Retrieve("TEXT1.AUD");
-        if (unknown_score_sounds_ab6fa8[0].Data == 0) {
+        text_sounds[0].Data = MixFileClass::Retrieve("TEXT1.AUD");
+        if (text_sounds[0].Data == 0) {
             file.Set_Name("TEXT1.AUD");
             file.Open(1);
-            unknown_score_sounds_ab6fa8[0].Data = Load_Alloc_Data(file);
-            unknown_score_sounds_ab6fa8[0].IsAllocated = true;
+            text_sounds[0].Data = Load_Alloc_Data(file);
+            text_sounds[0].IsAllocated = true;
             ccfile.Close();
             Debug_Printf("ScoreScreen: Loaded TEXT1.AUD\n");
         }
-        unknown_score_sounds_ab6fa8[1].Data = MixFileClass::Retrieve("TEXT2.AUD");
-        if (unknown_score_sounds_ab6fa8[1].Data == 0) {
+        text_sounds[1].Data = MixFileClass::Retrieve("TEXT2.AUD");
+        if (text_sounds[1].Data == 0) {
             file.Set_Name("TEXT2.AUD");
             file.Open(1);
-            unknown_score_sounds_ab6fa8[1].Data = Load_Alloc_Data(file);
-            unknown_score_sounds_ab6fa8[1].IsAllocated = true;
+            text_sounds[1].Data = Load_Alloc_Data(file);
+            text_sounds[1].IsAllocated = true;
             ccfile.Close();
             Debug_Printf("ScoreScreen: Loaded TEXT2.AUD\n");
         }
-        unknown_score_sounds_ab6fa8[2].Data = MixFileClass::Retrieve("TEXT3.AUD");
-        if (unknown_score_sounds_ab6fa8[2].Data == 0) {
+        text_sounds[2].Data = MixFileClass::Retrieve("TEXT3.AUD");
+        if (text_sounds[2].Data == 0) {
             file.Set_Name("TEXT3.AUD");
             file.Open(1);
-            unknown_score_sounds_ab6fa8[2].Data = Load_Alloc_Data(file);
-            unknown_score_sounds_ab6fa8[2].IsAllocated = true;
+            text_sounds[2].Data = Load_Alloc_Data(file);
+            text_sounds[2].IsAllocated = true;
             ccfile.Close();
             Debug_Printf("ScoreScreen: Loaded TEXT3.AUD\n");
         }

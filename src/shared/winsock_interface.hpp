@@ -153,10 +153,10 @@ public:
     WinsockBufferType *Get_New_In_Buffer();                             // 0x0076B500
     bool Init();                                                        // 0x0076B0A0
 
-    static void __fastcall unknown_76b9e0(int value);   // 0x0076B9E0 (sets unknown_b2aea0)
-    static int unknown_76b9f0();                        // 0x0076B9F0 (reads it)
-    static int unknown_b2aea0;          // 0x00B2AEA0 (packet loss simulation when positive)
-    static bool unknown_b2ae9c;         // 0x00B2AE9C (its warning was shown)
+    static void __fastcall unknown_76b9e0(int value);   // 0x0076B9E0 (sets PacketLossPercent)
+    static int Get_Packet_Loss_Percent();                        // 0x0076B9F0 (reads it)
+    static int PacketLossPercent;          // 0x00B2AEA0 (packet loss simulation when positive)
+    static bool IsPacketLossReported;         // 0x00B2AE9C (its warning was shown)
     static int Protocols[];             // 0x00800AB0 (17 UDP, 1000 IPX, 0)
     static int SocketReceiveBuffer;     // 0x00800AC0 (0x20000)
     static int SocketSendBuffer;        // 0x00800ABC (0x20000)

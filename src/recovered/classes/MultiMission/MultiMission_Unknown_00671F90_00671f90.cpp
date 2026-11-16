@@ -2,7 +2,7 @@
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/multi_mission.hpp"
 
-int MultiMission::Unknown_00671F90()
+int MultiMission::On_Which_CD()
 {
     return DiskIDs[0];
 }

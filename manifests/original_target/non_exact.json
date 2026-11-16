@@ -9,7 +9,7 @@
    "anchor": "0041E970",
    "symbol": "?Draw_In_Area@AlphaShapeClass@@SIXABUPoint2D@@ABVRect@@@Z",
    "references": {
-    "?unknown_AlphaShapeClass_list_0083c648@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A": "0083C648",
+    "?AlphaShapes@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A": "0083C648",
     "?unknown_alpha_table_83c670@@3PAEA": "0083C670",
     "?Intersect@@YI?AVRect@@ABV1@0PAH1@Z": "0041FDF0",
     "?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z": "00411230",
@@ -34,7 +34,7 @@
    "anchor": "0041E970",
    "symbol": "?Unknown_0041F5E0@@YIXABVRect@@@Z",
    "references": {
-    "?unknown_AlphaShapeClass_list_0083c648@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A": "0083C648",
+    "?AlphaShapes@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A": "0083C648",
     "?unknown_alpha_table_83c670@@3PAEA": "0083C670",
     "?Intersect@@YI?AVRect@@ABV1@0PAH1@Z": "0041FDF0",
     "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z": "00411230",
@@ -163,7 +163,7 @@
    "bytes": 556,
    "source": "src/recovered/cell.cpp",
    "anchor": "00470490",
-   "symbol": "?unknown_475db0@CellClass@@QAEHH@Z",
+   "symbol": "?Reduce_Tiberium@CellClass@@QAEHH@Z",
    "references": {},
    "non_exact": {
     "score": 76.24,
@@ -195,7 +195,7 @@
    "bytes": 832,
    "source": "src/recovered/display.cpp",
    "anchor": "00498760",
-   "symbol": "?Unknown_004994D0@DisplayClass@@QAE?AVCell@@ABV2@@Z",
+   "symbol": "?Set_Cursor_Pos@DisplayClass@@QAE?AVCell@@ABV2@@Z",
    "references": {
     "?Map@@3VMouseClass@@A": "008324E0",
     "?WWMouse@@3PAVMouse@@A": "00839C68",
@@ -600,7 +600,7 @@
    "symbol": "?Set_Map_Dimensions@MapClass@@UAEXPBVRect@@_NH1@Z",
    "references": {
     "??4AbstractClass@@QAEAAV0@ABV0@@Z": "0056A9F0",
-    "?unknown_dummy_cell_a6f9f8@@3VCellClass@@A": "00A6F9F8",
+    "?BlubCell@@3VCellClass@@A": "00A6F9F8",
     "?unknown_cell_a6f238@@3VCell@@A": "00A6F238",
     "?unknown_objects_a40368@@3V?$DynamicVectorClass@PAVObjectClass@@@@A": "00A40368",
     "?Anims@@3V?$DynamicVectorClass@PAVAnimClass@@@@A": "00A40960",
@@ -610,7 +610,7 @@
     "?unknown_map_min_a70a1c@@3HA": "00A70A1C",
     "?unknown_map_max_a70a20@@3HA": "00A70A20",
     "?unknown_int_8325d0@@3HA": "008325D0",
-    "?unknown_int_8325d4@@3HA": "008325D4",
+    "?MapSizeY@@3HA": "008325D4",
     "?Set_CellID@CellClass@@QAEXABVCell@@@Z": "0047A450",
     "??Y?$TPoint2D@F@@QAEABV0@ABV0@@Z": "0056AA20",
     "??H?$TPoint2D@F@@QBE?BV0@ABV0@@Z": "0042ADD0",
@@ -1305,7 +1305,7 @@
    "bytes": 1069,
    "source": "src/recovered/particle.cpp",
    "anchor": "00608440",
-   "symbol": "?unknown_func_609540@ParticleClass@@QAEXXZ",
+   "symbol": "?Spark_Behavior_AI@ParticleClass@@QAEXXZ",
    "references": {
     "?Has_Wall_Or_Gate@CellClass@@QBE_NHH@Z": "00475840",
     "_unknown_geometry_j": "00A76510",
@@ -1671,7 +1671,7 @@
     "?Disable@GadgetClass@@UAEXXZ": "004CF150",
     "?Is_Enabled@GadgetClass@@QAE_NXZ": "004CF160",
     "?Turn_On@ToggleClass@@QAEXXZ": "006EB160",
-    "?Unknown_005A09E0@@YAXXZ": "005A09E0",
+    "?Stop_Ingame_Movie@@YAXXZ": "005A09E0",
     "?RadarButton@RadarClass@@2VRTacticalClass@@A": "00AB6478",
     "?SelectButton@SidebarClass@@2PAVSelectClass@StripClass@1@A": "00AB9740",
     "?unknown_flag_8373c3@@3_NA": "008373C3",
@@ -1784,7 +1784,7 @@
    "symbol": "?Draw_Pixel_Effects@Tactical@@",
    "references": {
     "?unknown_last_time_abfd70@@3KA": "00ABFD70",
-    "?Unknown_0053D840@@YAIXZ": "0053D840"
+    "?GetMinFrameRate@@YAIXZ": "0053D840"
    },
    "non_exact": {
     "score": 86.26,
@@ -1877,7 +1877,7 @@
    "bytes": 2998,
    "source": "src/recovered/techno.cpp",
    "anchor": "006C0A50",
-   "symbol": "?unknown_6c5570@TechnoClass@@QAE_NHHHPAVObjectClass@@PAHHPBUCoordStruct@@@Z",
+   "symbol": "?Evaluate_Object@TechnoClass@@QAE_NHHHPAVObjectClass@@PAHHPBUCoordStruct@@@Z",
    "references": {},
    "non_exact": {
     "score": 91.7,
@@ -2005,7 +2005,7 @@
    "bytes": 682,
    "source": "src/recovered/uicmnds.cpp",
    "anchor": "006F55F0",
-   "symbol": "?Unknown_006F7360@@YIXXZ",
+   "symbol": "?Command_Type_Select@@YIXXZ",
    "references": {
     "??0?$VectorClass@PBD@@QAE@IPBQBD@Z": "006F8B90",
     "?unknown_find_name_index@@YIHABV?$DynamicVectorClass@PBD@@PBD@Z": "006F6C90",

@@ -54,11 +54,11 @@ void MapGeneratorClass::Seed_Land()
         cell=Map.Iterate();
     }
     Map.Unknown_0055C2C0(0,0);
-    if(unknown_map_cells_a70a24!=0) {
-        int remaining=(int)((unsigned int)unknown_map_cell_side_84e804*(unsigned int)unknown_map_cell_side_84e804);
+    if(RMGCellData!=0) {
+        int remaining=(int)((unsigned int)MapCellStride*(unsigned int)MapCellStride);
         for(int index=0;remaining>0;--remaining,++index) {
-            unknown_map_cells_a70a24[index].RegionIndex=-1;
-            unknown_map_cells_a70a24[index].unknown_3c=-1;
+            RMGCellData[index].RegionIndex=-1;
+            RMGCellData[index].unknown_3c=-1;
         }
     }
     for(int reverse=(int)((unsigned int)unknown_map_regions_a6fd28.Count()-1u);reverse>=0;--reverse) {
@@ -68,7 +68,7 @@ void MapGeneratorClass::Seed_Land()
     Map.Reset_Iterator();
     cell=Map.Iterate();
     while(cell!=0) {
-        if(cell->unknown_47b7c0()) {
+        if(cell->Is_Tile_Shore()) {
             for(int direction=0;direction<8;direction+=2) {
                 CellClass &neighbor=cell->Adjacent_Cell(direction);
                 if(neighbor.Is_Tile_Clear())neighbor.IsoTileIndex=unknown_tileset_a52c60;

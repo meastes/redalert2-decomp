@@ -51,7 +51,7 @@ void SoundControlsDialog::Run_00688CD0()
 
     if (dialog) {
         SetWindowLongA(dialog, 8, (LONG)&rc);
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
         while (rc == -1) {
             if (unknown_6000d0() == true) {
                 rc = 2;
@@ -99,7 +99,7 @@ void SoundControlsDialog::Run_00688CD0()
 
 int __stdcall SoundControlsDialog::Sound_Option_Dialog_Func(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int rc = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int rc = Default_Dialog_Proc(window, message, wparam, lparam);
 
     if (rc == 0) {
         switch (message) {

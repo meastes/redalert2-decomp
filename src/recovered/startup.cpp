@@ -526,7 +526,7 @@ inline void Read_Destination_Network()
     char netbuf[512];
     memset(netbuf, 0, sizeof(netbuf));
     char *net_ptr = netbuf;
-    bool found = unknown_ini_839740.Get_String("Network", "DestNet", 0, netbuf, sizeof(netbuf));
+    bool found = ConfigINI.Get_String("Network", "DestNet", 0, netbuf, sizeof(netbuf));
 
     if (found && net_ptr != 0 && strlen(netbuf)) {
         NetNumType net;
@@ -685,12 +685,12 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
     int retval = 1;
     if (Parse_Command_Line(argc, argv)) {
         RawFileClass *cfile = new RawFileClass("RA2.INI");
-        unknown_ini_839740.Load(*cfile, false, false);
-        video_back_buffer_7f4cc4 = unknown_ini_839740.Get_Bool("Video", "VideoBackBuffer", true);
-        Debug_IngameModeChange = unknown_ini_839740.Get_Bool("Video", "AllowModeToggle", false);
-        unknown_screen_width_a40b38 = unknown_ini_839740.Get_Int("Video", "ScreenWidth", unknown_screen_width_a40b38);
-        unknown_screen_height_a40b3c = unknown_ini_839740.Get_Int("Video", "ScreenHeight", unknown_screen_height_a40b3c);
-        int socket = unknown_ini_839740.Get_Int("Network", "Socket", 0);
+        ConfigINI.Load(*cfile, false, false);
+        video_back_buffer_7f4cc4 = ConfigINI.Get_Bool("Video", "VideoBackBuffer", true);
+        Debug_IngameModeChange = ConfigINI.Get_Bool("Video", "AllowModeToggle", false);
+        unknown_screen_width_a40b38 = ConfigINI.Get_Int("Video", "ScreenWidth", unknown_screen_width_a40b38);
+        unknown_screen_height_a40b3c = ConfigINI.Get_Int("Video", "ScreenHeight", unknown_screen_height_a40b3c);
+        int socket = ConfigINI.Get_Int("Network", "Socket", 0);
         if (socket > 0) {
             socket += 0x4000;
             if (socket >= 0x4000 && socket < 0x8000) {
@@ -758,18 +758,18 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
             Prep_Direct_Draw();
             if (WindowedMode) {
                 Rect rect1(0, 0, 640, 400);
-                unknown_window_839640 = rect1;
+                VisibleRect = rect1;
                 VideoModeWidth = 640;
                 VideoModeHeight = 400;
                 VideoModeBitsPerPixel = unknown_hicolor_7ce008 ? 16 : 8;
             } else {
                 Rect rect2(0, 0, 640, 400);
-                unknown_window_839640 = rect2;
+                VisibleRect = rect2;
                 video_success = Set_Video_Mode(MainWindow, 640, 400, unknown_hicolor_7ce008 ? 16 : 8);
                 if (!video_success) {
                     video_success = Set_Video_Mode(MainWindow, 640, 480, unknown_hicolor_7ce008 ? 16 : 8);
                     Rect rect3(0, 0, 640, 480);
-                    unknown_window_839640 = rect3;
+                    VisibleRect = rect3;
                     if (!video_success) {
                         Release_DirectDraw_00495a60();
                         Wide_Message_Box(MainWindow, StringTable::Load_String("TXT_VIDEO_ERROR", 0, "D:\\Ra2\\Startup.CPP", 0x801),
@@ -783,21 +783,21 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
             Prep_Direct_Draw();
             if (WindowedMode) {
                 Rect rect4(0, 0, unknown_screen_width_a40b38, unknown_screen_height_a40b3c);
-                unknown_window_839640 = rect4;
+                VisibleRect = rect4;
                 VideoModeWidth = unknown_screen_width_a40b38;
                 VideoModeHeight = unknown_screen_height_a40b3c;
                 VideoModeBitsPerPixel = unknown_hicolor_7ce008 ? 16 : 8;
             } else {
                 video_success = Set_Video_Mode(MainWindow, unknown_screen_width_a40b38, unknown_screen_height_a40b3c, unknown_hicolor_7ce008 ? 16 : 8);
                 Rect rect5(0, 0, unknown_screen_width_a40b38, unknown_screen_height_a40b3c);
-                unknown_window_839640 = rect5;
+                VisibleRect = rect5;
                 if (!video_success) {
                     if (unknown_screen_width_a40b38 != 640 || unknown_screen_height_a40b3c != 480) {
                         unknown_screen_width_a40b38 = 640;
                         unknown_screen_height_a40b3c = 480;
                         video_success = Set_Video_Mode(MainWindow, unknown_screen_width_a40b38, unknown_screen_height_a40b3c, unknown_hicolor_7ce008 ? 16 : 8);
                         Rect rect6(0, 0, unknown_screen_width_a40b38, unknown_screen_height_a40b3c);
-                        unknown_window_839640 = rect6;
+                        VisibleRect = rect6;
                     }
                     if (!video_success) {
                         Release_DirectDraw_00495a60();
@@ -843,12 +843,12 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
 
         {
         int sidebar_width = SidebarWidth;
-        int screen_height = unknown_window_839640.Height;
+        int screen_height = VisibleRect.Height;
         Rect side_rect(0, 0, sidebar_width, screen_height);
-        int width = unknown_window_839640.Width;
+        int width = VisibleRect.Width;
         Rect tile_rect(0, 0, width - side_rect.Width, side_rect.Height);
         Rect composite_rect(0, 0, width - side_rect.Width, side_rect.Height);
-        Allocate_Surfaces(&unknown_window_839640, &composite_rect, &tile_rect, &side_rect, false);
+        Allocate_Surfaces(&VisibleRect, &composite_rect, &tile_rect, &side_rect, false);
         }
         if (UseDirect3D) {
             Init_Direct3D();
@@ -868,7 +868,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
         int disk_number = Unknown_0046E4C0(60);
         Get_Performance_Profile();
         if (!unknown_special_a40920.IsFromInstall && disk_number > -1) {
-            unknown_special_a40920.IsFromInstall = unknown_ini_839740.Get_Bool("Intro", "Play", true);
+            unknown_special_a40920.IsFromInstall = ConfigINI.Get_Bool("Intro", "Play", true);
         }
 
         WolRegistryOptions wolopt;
@@ -879,11 +879,11 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
 
         if (unknown_special_a40920.IsFromInstall == true) {
             if (disk_number > -1) {
-                unknown_special_a40920.IsFromInstall = unknown_ini_839740.Put_Bool("Intro", "Play", false);
+                unknown_special_a40920.IsFromInstall = ConfigINI.Put_Bool("Intro", "Play", false);
             }
             cfile->Close();
             cfile->Open(1);
-            unknown_ini_839740.Save(*cfile, false);
+            ConfigINI.Save(*cfile, false);
         }
         cfile->Close();
         delete cfile;
@@ -1026,8 +1026,8 @@ void __cdecl Prog_End()
     ArtINI.Clear();
     unknown_ini_839860.Clear();
     unknown_ini_8396e0.Clear();
-    unknown_ini_839740.Clear();
-    unknown_ini_839740.Clear();
+    ConfigINI.Clear();
+    ConfigINI.Clear();
     Unknown_005DDB40();
     Unknown_00521CB0();
 
@@ -1082,13 +1082,13 @@ void __cdecl Prog_End()
         delete EightBitDrawer;
         EightBitDrawer = 0;
     }
-    if (unknown_surface_ad0604) {
-        delete unknown_surface_ad0604;
-        unknown_surface_ad0604 = 0;
+    if (EightBitSurface) {
+        delete EightBitSurface;
+        EightBitSurface = 0;
     }
-    if (unknown_cloak_surface_8502a0) {
-        delete unknown_cloak_surface_8502a0;
-        unknown_cloak_surface_8502a0 = 0;
+    if (CloakingSurface) {
+        delete CloakingSurface;
+        CloakingSurface = 0;
     }
     if (unknown_building_depth_shape_85029c) {
         delete unknown_building_depth_shape_85029c;
@@ -1240,7 +1240,7 @@ void __cdecl Prog_End()
         delete WWKeyboard;
         WWKeyboard = 0;
     }
-    Unknown_005BB5A0();
+    Shutdown_Network();
     if (unknown_buffer_a35e20) {
         delete unknown_buffer_a35e20;
         unknown_buffer_a35e20 = 0;
@@ -1259,8 +1259,8 @@ void __cdecl Prog_End()
     }
     unknown_unsigned_long_list_00abd428.Clear();
     RevokeActiveObject(unknown_active_object_abd484, 0);
-    if (unknown_instance_00851ca8) {
-        FreeLibrary(unknown_instance_00851ca8);
+    if (LanguageResources) {
+        FreeLibrary(LanguageResources);
     }
     if (unknown_handle_abd480) {
         CloseHandle(unknown_handle_abd480);
@@ -1322,7 +1322,7 @@ void Emergency_Exit()
         unknown_flag_abd48c = false;
     }
     PostQuitMessage(0);
-    Unknown_005BB5A0();
+    Shutdown_Network();
     Prog_End();
 }
 

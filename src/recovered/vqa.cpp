@@ -547,7 +547,7 @@ bool VQAClass::Advance_Frame(bool *finished)
         Debug_Printf("VQAClass::Advance_Frame() - Ready\n");
         unknown_549 = true;
     }
-    if (unknown_548 == true && !(unknown_flags_a3f600 & 2) && unknown_int_a40d48 == 0) {
+    if (unknown_548 == true && !(unknown_flags_a3f600 & 2) && SpecialDialog == 0) {
         if (GameInFocus != true) {
             goto pause;
         }

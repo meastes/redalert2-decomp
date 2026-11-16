@@ -7,7 +7,7 @@
 // @ref ?unknown_session_a3d2bc@@3HA=00a3d2bc
 // @ref ?unknown_session_a3d2d0@@3HA=00a3d2d0
 // @ref ?unknown_session_a3d2c2@@3EA=00a3d2c2
-// @ref ?unknown_session_a3d2c3@@3EA=00a3d2c3
+// @ref ?AllowDisableableSupers@@3EA=00a3d2c3
 // @ref ?unknown_session_a3d2c4@@3HA=00a3d2c4
 // @ref ?unknown_session_a3d340@@3HA=00a3d340
 // @ref ?unknown_session_a3d2c8@@3HA=00a3d2c8
@@ -60,7 +60,7 @@ void __fastcall Unknown_Fill_Options_Dialog_005c3550(void *dialog_handle, int in
     SendDlgItemMessageA(dialog, 0x54f, 0x405, 1, units);
     int checked[2] = {0, 1};
     SendDlgItemMessageA(dialog, 0x54e, 0xf1, checked[unknown_session_a3d2c2], 0);
-    SendDlgItemMessageA(dialog, 0x69a, 0xf1, checked[unknown_session_a3d2c3], 0);
+    SendDlgItemMessageA(dialog, 0x69a, 0xf1, checked[AllowDisableableSupers], 0);
     SendDlgItemMessageA(dialog, 0x69d, 0xf1, checked[(unsigned char)unknown_session_a3d2c4], 0);
     SendDlgItemMessageA(dialog, 1000, 0xf1, checked[(unsigned char)unknown_session_a3d340], 0);
     SendDlgItemMessageA(dialog, 0x54d, 0xf1, checked[unknown_flag_a3d2c1], 0);

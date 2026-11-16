@@ -77,12 +77,12 @@ struct SurfaceRegion {
 extern unsigned char unknown_buffer_ae3408[256 * 256];      // 0x00AE3408 the draw buffer
 extern unsigned char unknown_zbuffer_ad0a70[256 * 256];     // 0x00AD0A70 the depth buffer
 extern int unknown_af6610;                                  // 0x00AF6610 depth buffering enabled
-extern Vector3 unknown_bounds_min_ae0a70;                   // 0x00AE0A70
-extern Vector3 unknown_bounds_max_ae0dd8;                   // 0x00AE0DD8
-extern Rect unknown_rect_ae2ff0;                            // 0x00AE2FF0 the last rendered rectangle
-extern UnknownVoxelRecord48 unknown_records_af3408[64];     // 0x00AF3408
+extern Vector3 MinVoxelBounds;                   // 0x00AE0A70
+extern Vector3 MaxVoxelBounds;                   // 0x00AE0DD8
+extern Rect LastRenderRect;                            // 0x00AE2FF0 the last rendered rectangle
+extern VoxelShadowRenderStruct VoxelShadowRenderData[64];     // 0x00AF3408
 extern RGBClass unknown_voxel_colors_ae3008[256];           // 0x00AE3008 the voxel palette
-extern unsigned short unknown_voxel16_colors_ae0a7c[256];   // 0x00AE0A7C the palette in screen format
+extern unsigned short Voxel16BitColors[256];   // 0x00AE0A7C the palette in screen format
 extern int VoxelRenderDataCount;               // 0x00AE0CB0
 extern int VoxelShadowRenderDataCount;               // 0x00AE3000
 
@@ -107,7 +107,7 @@ namespace VoxelDrawSystem {
 
 void __fastcall VoxelDrawSystem::Convert_Voxel_Colors(int red_left, int red_right, int green_left, int green_right, int blue_left, int blue_right)
 {
-    unsigned short *out = unknown_voxel16_colors_ae0a7c;
+    unsigned short *out = Voxel16BitColors;
     for (unsigned char const *channel = &unknown_voxel_colors_ae3008[0].Green; channel < &unknown_voxel_colors_ae3008[256].Green; channel += sizeof(RGBClass)) {
         unsigned char red = channel[-1];
         unsigned char green = channel[0];
@@ -133,7 +133,7 @@ void __fastcall VoxelDrawSystem::Precalculate_Light(VoxelLibrary *voxlib, int la
 {
     Matrix3D light_transform_inv = Matrix3D_Rigid_Inverse_00591420(light_transform);
     Vector3 light_tr = light_transform_inv.Rotate_Vector(light);
-    int normal_type = voxlib->Get_Layer_Info(layer, info)->unknown_a3;
+    int normal_type = voxlib->Get_Layer_Info(layer, info)->NormalType;
     unknown_normal_lookup_71ba20(light_tr, normal_type);
 }
 
@@ -146,7 +146,7 @@ void __fastcall VoxelDrawSystem::Precalculate_Light(VoxelLibrary *voxlib, int la
     Matrix3D view_transform_inv = Matrix3D_Rigid_Inverse_00591420(view_transform);
     Vector3 light_tr = light_transform_inv.Rotate_Vector(light);
     Vector3 viewer_tr = view_transform_inv.Rotate_Vector(Vector3(0, 0, 1));
-    int normal_type = voxlib->Get_Layer_Info(layer, info)->unknown_a3;
+    int normal_type = voxlib->Get_Layer_Info(layer, info)->NormalType;
     unknown_normal_lookup_71baa0(light_tr, viewer_tr, specular_strength, normal_type);
 }
 
@@ -166,24 +166,24 @@ void VoxelDrawSystem::Reset()
         Clear_Z_Buffer();
         _need_buffer_init = false;
     } else {
-        if (unknown_rect_ae2ff0.X >= 0 && unknown_rect_ae2ff0.Y >= 0 && unknown_rect_ae2ff0.X + unknown_rect_ae2ff0.Width <= 255 && unknown_rect_ae2ff0.Y + unknown_rect_ae2ff0.Height <= 255) {
-            for (int i = unknown_rect_ae2ff0.Y; i <= unknown_rect_ae2ff0.Y + unknown_rect_ae2ff0.Height; i++) {
-                memset(&unknown_buffer_ae3408[256 * i + unknown_rect_ae2ff0.X], 0, unknown_rect_ae2ff0.Width + 1);
+        if (LastRenderRect.X >= 0 && LastRenderRect.Y >= 0 && LastRenderRect.X + LastRenderRect.Width <= 255 && LastRenderRect.Y + LastRenderRect.Height <= 255) {
+            for (int i = LastRenderRect.Y; i <= LastRenderRect.Y + LastRenderRect.Height; i++) {
+                memset(&unknown_buffer_ae3408[256 * i + LastRenderRect.X], 0, LastRenderRect.Width + 1);
             }
         } else {
             memset(unknown_buffer_ae3408, 0, sizeof(unknown_buffer_ae3408));
         }
         if (unknown_af6610) {
-            if (unknown_rect_ae2ff0.Y <= unknown_rect_ae2ff0.Height + unknown_rect_ae2ff0.Y) {
-                for (int i = unknown_rect_ae2ff0.Y; i <= unknown_rect_ae2ff0.Y + unknown_rect_ae2ff0.Height; i++) {
-                    memset(&unknown_zbuffer_ad0a70[256 * i + unknown_rect_ae2ff0.X], 0, unknown_rect_ae2ff0.Width + 1);
+            if (LastRenderRect.Y <= LastRenderRect.Height + LastRenderRect.Y) {
+                for (int i = LastRenderRect.Y; i <= LastRenderRect.Y + LastRenderRect.Height; i++) {
+                    memset(&unknown_zbuffer_ad0a70[256 * i + LastRenderRect.X], 0, LastRenderRect.Width + 1);
                 }
             }
         }
     }
 
-    unknown_bounds_min_ae0a70 = Vector3(10000, 10000, 10000);
-    unknown_bounds_max_ae0dd8 = Vector3(-10000, -10000, -10000);
+    MinVoxelBounds = Vector3(10000, 10000, 10000);
+    MaxVoxelBounds = Vector3(-10000, -10000, -10000);
 }
 
 
@@ -192,9 +192,9 @@ void VoxelDrawSystem::Reset()
 
 void __fastcall VoxelDrawSystem::Prep_For_Shadow(VoxelLibrary *voxlib, int layer, int info, Matrix3D const &camera, Matrix3D const &motion, Vector3 const &light, Surface *mask, int mask_x, int mask_y)
 {
-    UnknownVoxelTailer const *layer_info = voxlib->Get_Layer_Info(layer, info);
+    LayerInfoStruct const *layer_info = voxlib->Get_Layer_Info(layer, info);
 
-    UnknownVoxelRecord48 &data = unknown_records_af3408[VoxelShadowRenderDataCount];
+    VoxelShadowRenderStruct &data = VoxelShadowRenderData[VoxelShadowRenderDataCount];
 
     data.unknown_3c = mask;
     data.unknown_40 = mask_x;
@@ -210,17 +210,17 @@ void __fastcall VoxelDrawSystem::Prep_For_Shadow(VoxelLibrary *voxlib, int layer
         data.Points[i] = data.Points[i] + light;
         data.Points[i].Y = -data.Points[i].Y;
 
-        if (data.Points[i].X < unknown_bounds_min_ae0a70.X) {
-            unknown_bounds_min_ae0a70.X = data.Points[i].X;
+        if (data.Points[i].X < MinVoxelBounds.X) {
+            MinVoxelBounds.X = data.Points[i].X;
         }
-        if (data.Points[i].Y < unknown_bounds_min_ae0a70.Y) {
-            unknown_bounds_min_ae0a70.Y = data.Points[i].Y;
+        if (data.Points[i].Y < MinVoxelBounds.Y) {
+            MinVoxelBounds.Y = data.Points[i].Y;
         }
-        if (data.Points[i].X > unknown_bounds_max_ae0dd8.X) {
-            unknown_bounds_max_ae0dd8.X = data.Points[i].X;
+        if (data.Points[i].X > MaxVoxelBounds.X) {
+            MaxVoxelBounds.X = data.Points[i].X;
         }
-        if (data.Points[i].Y > unknown_bounds_max_ae0dd8.Y) {
-            unknown_bounds_max_ae0dd8.Y = data.Points[i].Y;
+        if (data.Points[i].Y > MaxVoxelBounds.Y) {
+            MaxVoxelBounds.Y = data.Points[i].Y;
         }
     }
 
@@ -232,9 +232,9 @@ void __fastcall VoxelDrawSystem::Prep_For_Shadow(VoxelLibrary *voxlib, int layer
 
 void __fastcall VoxelDrawSystem::Prep_For_Object(VoxelLibrary *voxlib, int layer, int info, Matrix3D const &transform)
 {
-    UnknownVoxelTailer const *layer_info = voxlib->Get_Layer_Info(layer, info);
+    LayerInfoStruct const *layer_info = voxlib->Get_Layer_Info(layer, info);
 
-    UnknownVoxelRecord88 &data = unknown_records_ae0de8[VoxelRenderDataCount];
+    VoxelRenderStruct &data = VoxelRenderData[VoxelRenderDataCount];
 
     data.MinBounds = Vector3(10000, 10000, 10000);
     data.MaxBounds = Vector3(-10000, -10000, -10000);
@@ -266,23 +266,23 @@ void __fastcall VoxelDrawSystem::Prep_For_Object(VoxelLibrary *voxlib, int layer
         }
     }
 
-    if (data.MinBounds.X < unknown_bounds_min_ae0a70.X) {
-        unknown_bounds_min_ae0a70.X = data.MinBounds.X;
+    if (data.MinBounds.X < MinVoxelBounds.X) {
+        MinVoxelBounds.X = data.MinBounds.X;
     }
-    if (data.MinBounds.Y < unknown_bounds_min_ae0a70.Y) {
-        unknown_bounds_min_ae0a70.Y = data.MinBounds.Y;
+    if (data.MinBounds.Y < MinVoxelBounds.Y) {
+        MinVoxelBounds.Y = data.MinBounds.Y;
     }
-    if (data.MinBounds.Z < unknown_bounds_min_ae0a70.Z) {
-        unknown_bounds_min_ae0a70.Z = data.MinBounds.Z;
+    if (data.MinBounds.Z < MinVoxelBounds.Z) {
+        MinVoxelBounds.Z = data.MinBounds.Z;
     }
-    if (data.MaxBounds.X > unknown_bounds_max_ae0dd8.X) {
-        unknown_bounds_max_ae0dd8.X = data.MaxBounds.X;
+    if (data.MaxBounds.X > MaxVoxelBounds.X) {
+        MaxVoxelBounds.X = data.MaxBounds.X;
     }
-    if (data.MaxBounds.Y > unknown_bounds_max_ae0dd8.Y) {
-        unknown_bounds_max_ae0dd8.Y = data.MaxBounds.Y;
+    if (data.MaxBounds.Y > MaxVoxelBounds.Y) {
+        MaxVoxelBounds.Y = data.MaxBounds.Y;
     }
-    if (data.MaxBounds.Z > unknown_bounds_max_ae0dd8.Z) {
-        unknown_bounds_max_ae0dd8.Z = data.MaxBounds.Z;
+    if (data.MaxBounds.Z > MaxVoxelBounds.Z) {
+        MaxVoxelBounds.Z = data.MaxBounds.Z;
     }
 
     VoxelRenderDataCount++;
@@ -295,27 +295,27 @@ void __fastcall VoxelDrawSystem::Prep_For_Object(VoxelLibrary *voxlib, int layer
 
 void __fastcall VoxelDrawSystem::Render(Rect &rect, int &x, int &y)
 {
-    static UnknownVoxelRecord88 *render_data[64];
+    static VoxelRenderStruct *render_data[64];
 
     int index;
 
     Vector3 center;
-    center.X = (unknown_bounds_max_ae0dd8.X + unknown_bounds_min_ae0a70.X) * 0.5f;
-    center.Y = (unknown_bounds_max_ae0dd8.Y + unknown_bounds_min_ae0a70.Y) * 0.5f;
-    center.Z = (unknown_bounds_max_ae0dd8.Z + unknown_bounds_min_ae0a70.Z) * 0.5f;
+    center.X = (MaxVoxelBounds.X + MinVoxelBounds.X) * 0.5f;
+    center.Y = (MaxVoxelBounds.Y + MinVoxelBounds.Y) * 0.5f;
+    center.Z = (MaxVoxelBounds.Z + MinVoxelBounds.Z) * 0.5f;
 
     for (index = 0; index < VoxelShadowRenderDataCount; index++) {
-        unknown_records_af3408[index].unknown_00->Render_Shadow(&unknown_records_af3408[index], &center);
+        VoxelShadowRenderData[index].unknown_00->Render_Shadow(&VoxelShadowRenderData[index], &center);
     }
 
     for (index = 0; index < VoxelRenderDataCount; index++) {
-        render_data[index] = &unknown_records_ae0de8[index];
+        render_data[index] = &VoxelRenderData[index];
     }
 
     for (index = 0; index < VoxelRenderDataCount - 1; index++) {
         for (int index2 = index + 1; index2 < VoxelRenderDataCount; index2++) {
-            UnknownVoxelRecord88 *first = render_data[index];
-            UnknownVoxelRecord88 *second = render_data[index2];
+            VoxelRenderStruct *first = render_data[index];
+            VoxelRenderStruct *second = render_data[index2];
 
             if (first->MaxBounds.Z > second->MaxBounds.Z) {
                 render_data[index] = second;
@@ -334,15 +334,15 @@ void __fastcall VoxelDrawSystem::Render(Rect &rect, int &x, int &y)
         }
     }
 
-    rect.Width = unknown_bounds_max_ae0dd8.X - unknown_bounds_min_ae0a70.X;
+    rect.Width = MaxVoxelBounds.X - MinVoxelBounds.X;
 
-    rect.Height = unknown_bounds_max_ae0dd8.Y - unknown_bounds_min_ae0a70.Y;
+    rect.Height = MaxVoxelBounds.Y - MinVoxelBounds.Y;
 
     rect.Set(256 / 2 - rect.Width / 2, 256 / 2 - rect.Height / 2, rect.Width + 8, rect.Height + 8);
 
     rect.X -= 4;
     rect.Y -= 4;
-    unknown_rect_ae2ff0 = rect;
+    LastRenderRect = rect;
 
     x = (int)center.X - rect.Width / 2;
     y = (int)center.Y - rect.Height / 2;
@@ -355,27 +355,27 @@ void __fastcall VoxelDrawSystem::Render(Rect &rect, int &x, int &y)
 
 SurfaceRegion __fastcall VoxelDrawSystem::Render()
 {
-    static UnknownVoxelRecord88 *render_data[64];
+    static VoxelRenderStruct *render_data[64];
 
     int index;
 
     Vector3 center;
-    center.X = (unknown_bounds_max_ae0dd8.X + unknown_bounds_min_ae0a70.X) * 0.5f;
-    center.Y = (unknown_bounds_max_ae0dd8.Y + unknown_bounds_min_ae0a70.Y) * 0.5f;
-    center.Z = (unknown_bounds_max_ae0dd8.Z + unknown_bounds_min_ae0a70.Z) * 0.5f;
+    center.X = (MaxVoxelBounds.X + MinVoxelBounds.X) * 0.5f;
+    center.Y = (MaxVoxelBounds.Y + MinVoxelBounds.Y) * 0.5f;
+    center.Z = (MaxVoxelBounds.Z + MinVoxelBounds.Z) * 0.5f;
 
     for (index = 0; index < VoxelShadowRenderDataCount; index++) {
-        unknown_records_af3408[index].unknown_00->Render_Shadow(&unknown_records_af3408[index], &center);
+        VoxelShadowRenderData[index].unknown_00->Render_Shadow(&VoxelShadowRenderData[index], &center);
     }
 
     for (index = 0; index < VoxelRenderDataCount; index++) {
-        render_data[index] = &unknown_records_ae0de8[index];
+        render_data[index] = &VoxelRenderData[index];
     }
 
     for (index = 0; index < VoxelRenderDataCount - 1; index++) {
         for (int index2 = index + 1; index2 < VoxelRenderDataCount; index2++) {
-            UnknownVoxelRecord88 *first = render_data[index];
-            UnknownVoxelRecord88 *second = render_data[index2];
+            VoxelRenderStruct *first = render_data[index];
+            VoxelRenderStruct *second = render_data[index2];
 
             if (first->MaxBounds.Z > second->MaxBounds.Z) {
                 render_data[index] = second;
@@ -394,8 +394,8 @@ SurfaceRegion __fastcall VoxelDrawSystem::Render()
         }
     }
 
-    int width = unknown_bounds_max_ae0dd8.X - unknown_bounds_min_ae0a70.X;
-    int height = unknown_bounds_max_ae0dd8.Y - unknown_bounds_min_ae0a70.Y;
+    int width = MaxVoxelBounds.X - MinVoxelBounds.X;
+    int height = MaxVoxelBounds.Y - MinVoxelBounds.Y;
 
     Rect rect;
     rect.X = 256 / 2 - width / 2;
@@ -406,7 +406,7 @@ SurfaceRegion __fastcall VoxelDrawSystem::Render()
     rect.Y -= 4;
     rect.Width = width;
     rect.Height = height;
-    unknown_rect_ae2ff0 = rect;
+    LastRenderRect = rect;
 
     Point2D point;
     point.X = (int)center.X - width / 2;

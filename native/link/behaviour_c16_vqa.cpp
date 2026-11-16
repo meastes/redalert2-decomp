@@ -51,7 +51,7 @@ void __fastcall VQA_Reset(VQAHandle *vqa)
     VQA_ResetCache(vqap);
 }
 
-VQAConfig unknown_vqa_default_config_801470;
+VQAConfig _defaultconfig;
 
 void Native_VQA_Default_Config()
 {
@@ -67,7 +67,7 @@ void Native_VQA_Default_Config()
         return (int)((uint32_t)raw[offset] | (uint32_t)raw[offset + 1] << 8 | (uint32_t)raw[offset + 2] << 16 |
                      (uint32_t)raw[offset + 3] << 24);
     };
-    VQAConfig &c = unknown_vqa_default_config_801470;
+    VQAConfig &c = _defaultconfig;
     c.ImageWidth = at(0x20);
     c.ImageHeight = at(0x24);
     c.X1 = at(0x28);

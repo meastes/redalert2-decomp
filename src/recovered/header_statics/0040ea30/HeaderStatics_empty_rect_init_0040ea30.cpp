@@ -11,7 +11,7 @@
 class VoxelAnimClass;
 
 // The unit's list of VoxelAnimClass objects (0x008399D0; name is a hypothesis).
-DynamicVectorClass<VoxelAnimClass *> unknown_VoxelAnimClass_list_008399d0;
+DynamicVectorClass<VoxelAnimClass *> VoxelAnims;
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ??8?$VectorClass@PAVVoxelAnimClass@@@@UBE_NABV0@@Z=0040ed20
 // @ref ??_7?$DynamicVectorClass@PAVVoxelAnimClass@@@@6B@=0079acb4
@@ -27,7 +27,7 @@ DynamicVectorClass<VoxelAnimClass *> unknown_VoxelAnimClass_list_008399d0;
 // @ref ?ID@?$VectorClass@PAVVoxelAnimClass@@@@UAEHPBQAVVoxelAnimClass@@@Z=0040ee80
 // @ref ?Resize@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAE_NHPBQAVVoxelAnimClass@@@Z=0040eea0
 // @ref ?Resize@?$VectorClass@PAVVoxelAnimClass@@@@UAE_NHPBQAVVoxelAnimClass@@@Z=0040ed60
-// @ref ?unknown_VoxelAnimClass_list_008399d0@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A=008399d0
+// @ref ?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A=008399d0
 // @ref ?unknown_math_4ba520@@YANN@Z=004ba520
 // @ref ?unknown_math_4ba5b0@@YANN@Z=004ba5b0
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410

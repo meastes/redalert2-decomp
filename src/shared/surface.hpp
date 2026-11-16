@@ -60,7 +60,7 @@ public:
                                        RGBClass const &color, int start_depth, int end_depth, bool write_depth,
                                        bool blend_red, bool blend_green, bool blend_blue, float intensity) = 0;  // slot 15 (+0x3C)
     // RA2 addition (not in TibSun): DSurface 0x004ADE00 scales the colour's three bytes by intensity.
-    virtual bool Unknown_Slot16(Rect const &cliprect, Point2D const &startpoint, Point2D const &endpoint,
+    virtual bool Draw_RGB_Multiplying_Line(Rect const &cliprect, Point2D const &startpoint, Point2D const &endpoint,
                                        RGBClass const &color, float intensity, int start_depth, int end_depth) = 0;  // slot 16 (+0x40)
     // Steps along the clipped line calling plotter for every point.
     virtual bool Plot_Line(Rect const &cliprect, Point2D const &startpoint, Point2D const &endpoint,
@@ -123,7 +123,7 @@ public:
     virtual bool Draw_Depth_Antialiased_Line(Rect const &cliprect, Point2D const &startpoint, Point2D const &endpoint,
                                        RGBClass const &color, int start_depth, int end_depth, bool write_depth,
                                        bool blend_red, bool blend_green, bool blend_blue, float intensity);
-    virtual bool Unknown_Slot16(Rect const &cliprect, Point2D const &startpoint, Point2D const &endpoint,
+    virtual bool Draw_RGB_Multiplying_Line(Rect const &cliprect, Point2D const &startpoint, Point2D const &endpoint,
                                        RGBClass const &color, float intensity, int start_depth, int end_depth);
     virtual bool Plot_Line(Rect const &cliprect, Point2D const &startpoint, Point2D const &endpoint,
                            void (__fastcall *plotter)(Point2D const &));

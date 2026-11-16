@@ -21,7 +21,7 @@
 // @ref ?Disable@GadgetClass@@UAEXXZ=004cf150
 // @ref ?Is_Enabled@GadgetClass@@QBE_NXZ=004cf160
 // @ref ?Turn_On@ToggleClass@@QAEXXZ=006eb160
-// @ref ?Unknown_005A09E0@@YAXXZ=005a09e0
+// @ref ?Stop_Ingame_Movie@@YAXXZ=005a09e0
 // @ref ?RadarButton@RadarClass@@2VRTacticalClass@@A=00ab6478
 // @ref ?SelectButton@SidebarClass@@2PAVSelectClass@StripClass@1@A=00ab9740
 // @ref ?unknown_flag_8373c3@@3_NA=008373c3
@@ -88,7 +88,7 @@ bool SidebarClass::unknown_slot54(int control)
             Column[unknown_4ed8].Activate();
             Unknown_0067C850();
         } else {
-            Unknown_005A09E0();
+            Stop_Ingame_Movie();
             Remove_A_Button(unknown_button_ab96b8);
             Remove_A_Button(Upgrade);
             Remove_A_Button(Background);

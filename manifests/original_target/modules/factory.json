@@ -529,7 +529,7 @@
   },
   {
    "site": "0067f7c0",
-   "symbol": "?Unknown_004B98F0@UnknownFactory@@QAEHXZ",
+   "symbol": "?Completion@UnknownFactory@@QAEHXZ",
    "target": "004b98f0",
    "function_entry": true
   },
@@ -553,7 +553,7 @@
   },
   {
    "site": "006817d0",
-   "symbol": "?Unknown_004B97C0@UnknownFactory@@QAEXXZ",
+   "symbol": "?Abandon@UnknownFactory@@QAEXXZ",
    "target": "004b97c0",
    "function_entry": true
   },
@@ -841,7 +841,7 @@
   },
   {
    "site": "0067f050",
-   "symbol": "?Unknown_004B9900@UnknownFactory@@QAE_NXZ",
+   "symbol": "?Has_Completed@UnknownFactory@@QAE_NXZ",
    "target": "004b9900",
    "function_entry": true
   },
@@ -853,13 +853,13 @@
   },
   {
    "site": "0067f050",
-   "symbol": "?Unknown_004B9430@UnknownFactory@@QAE_NXZ",
+   "symbol": "?Has_Changed@UnknownFactory@@QAE_NXZ",
    "target": "004b9430",
    "function_entry": true
   },
   {
    "site": "0067f050",
-   "symbol": "?Unknown_004B9900@UnknownFactory@@QAE_NXZ",
+   "symbol": "?Has_Completed@UnknownFactory@@QAE_NXZ",
    "target": "004b9900",
    "function_entry": true
   },
@@ -871,7 +871,7 @@
   },
   {
    "site": "0067f050",
-   "symbol": "?Unknown_004B9420@UnknownFactory@@QAE_NXZ",
+   "symbol": "?Is_On_Hold@UnknownFactory@@QAE_NXZ",
    "target": "004b9420",
    "function_entry": true
   },
@@ -955,7 +955,7 @@
   },
   {
    "site": "006809f0",
-   "symbol": "?Unknown_004B9900@UnknownFactory@@QAE_NXZ",
+   "symbol": "?Has_Completed@UnknownFactory@@QAE_NXZ",
    "target": "004b9900",
    "function_entry": true
   },
@@ -967,43 +967,43 @@
   },
   {
    "site": "006809f0",
-   "symbol": "?Unknown_004B9940@UnknownFactory@@QAEHXZ",
+   "symbol": "?Get_Special_Item@UnknownFactory@@QAEHXZ",
    "target": "004b9940",
    "function_entry": true
   },
   {
    "site": "006809f0",
-   "symbol": "?Unknown_004B98F0@UnknownFactory@@QAEHXZ",
+   "symbol": "?Completion@UnknownFactory@@QAEHXZ",
    "target": "004b98f0",
    "function_entry": true
   },
   {
    "site": "006809f0",
-   "symbol": "?Unknown_004B9780@UnknownFactory@@QAEHXZ",
+   "symbol": "?Build_Rate@UnknownFactory@@QAEHXZ",
    "target": "004b9780",
    "function_entry": true
   },
   {
    "site": "0067f800",
-   "symbol": "?Unknown_004B9900@UnknownFactory@@QAE_NXZ",
+   "symbol": "?Has_Completed@UnknownFactory@@QAE_NXZ",
    "target": "004b9900",
    "function_entry": true
   },
   {
    "site": "0067f800",
-   "symbol": "?Unknown_004B98F0@UnknownFactory@@QAEHXZ",
+   "symbol": "?Completion@UnknownFactory@@QAEHXZ",
    "target": "004b98f0",
    "function_entry": true
   },
   {
    "site": "0067f800",
-   "symbol": "?Unknown_004B98F0@UnknownFactory@@QAEHXZ",
+   "symbol": "?Completion@UnknownFactory@@QAEHXZ",
    "target": "004b98f0",
    "function_entry": true
   },
   {
    "site": "0067f800",
-   "symbol": "?Unknown_004B98F0@UnknownFactory@@QAEHXZ",
+   "symbol": "?Completion@UnknownFactory@@QAEHXZ",
    "target": "004b98f0",
    "function_entry": true
   },
@@ -1489,7 +1489,7 @@
   {
    "site": "0067f7c0",
    "target": "004b98f0",
-   "symbol": "?Unknown_004B98F0@UnknownFactory@@QAEHXZ",
+   "symbol": "?Completion@UnknownFactory@@QAEHXZ",
    "module_symbol": "?get@Leaf_4b98f0@@QAEIXZ"
   },
   {
@@ -1513,7 +1513,7 @@
   {
    "site": "006817d0",
    "target": "004b97c0",
-   "symbol": "?Unknown_004B97C0@UnknownFactory@@QAEXXZ",
+   "symbol": "?Abandon@UnknownFactory@@QAEXXZ",
    "module_symbol": "?Abandon_Production_004B97C0@FactoryClass@@QAE_NXZ"
   },
   {
@@ -1585,7 +1585,7 @@
   {
    "site": "0067f050",
    "target": "004b9900",
-   "symbol": "?Unknown_004B9900@UnknownFactory@@QAE_NXZ",
+   "symbol": "?Has_Completed@UnknownFactory@@QAE_NXZ",
    "module_symbol": "?Is_Complete_004B9900@FactoryClass@@QBE_NXZ"
   },
   {
@@ -1597,13 +1597,13 @@
   {
    "site": "0067f050",
    "target": "004b9430",
-   "symbol": "?Unknown_004B9430@UnknownFactory@@QAE_NXZ",
+   "symbol": "?Has_Changed@UnknownFactory@@QAE_NXZ",
    "module_symbol": "?FactoryClass_Has_Changed@@YIEH@Z"
   },
   {
    "site": "0067f050",
    "target": "004b9900",
-   "symbol": "?Unknown_004B9900@UnknownFactory@@QAE_NXZ",
+   "symbol": "?Has_Completed@UnknownFactory@@QAE_NXZ",
    "module_symbol": "?Is_Complete_004B9900@FactoryClass@@QBE_NXZ"
   },
   {
@@ -1615,7 +1615,7 @@
   {
    "site": "0067f050",
    "target": "004b9420",
-   "symbol": "?Unknown_004B9420@UnknownFactory@@QAE_NXZ",
+   "symbol": "?Is_On_Hold@UnknownFactory@@QAE_NXZ",
    "module_symbol": "?get@Leaf_4b9420@@QAEEXZ"
   },
   {
@@ -1627,7 +1627,7 @@
   {
    "site": "006809f0",
    "target": "004b9900",
-   "symbol": "?Unknown_004B9900@UnknownFactory@@QAE_NXZ",
+   "symbol": "?Has_Completed@UnknownFactory@@QAE_NXZ",
    "module_symbol": "?Is_Complete_004B9900@FactoryClass@@QBE_NXZ"
   },
   {
@@ -1639,43 +1639,43 @@
   {
    "site": "006809f0",
    "target": "004b9940",
-   "symbol": "?Unknown_004B9940@UnknownFactory@@QAEHXZ",
+   "symbol": "?Get_Special_Item@UnknownFactory@@QAEHXZ",
    "module_symbol": "?get@Leaf_4b9940@@QAEIXZ"
   },
   {
    "site": "006809f0",
    "target": "004b98f0",
-   "symbol": "?Unknown_004B98F0@UnknownFactory@@QAEHXZ",
+   "symbol": "?Completion@UnknownFactory@@QAEHXZ",
    "module_symbol": "?get@Leaf_4b98f0@@QAEIXZ"
   },
   {
    "site": "006809f0",
    "target": "004b9780",
-   "symbol": "?Unknown_004B9780@UnknownFactory@@QAEHXZ",
+   "symbol": "?Build_Rate@UnknownFactory@@QAEHXZ",
    "module_symbol": "?Production_Rate_004B9780@FactoryClass@@QBEHXZ"
   },
   {
    "site": "0067f800",
    "target": "004b9900",
-   "symbol": "?Unknown_004B9900@UnknownFactory@@QAE_NXZ",
+   "symbol": "?Has_Completed@UnknownFactory@@QAE_NXZ",
    "module_symbol": "?Is_Complete_004B9900@FactoryClass@@QBE_NXZ"
   },
   {
    "site": "0067f800",
    "target": "004b98f0",
-   "symbol": "?Unknown_004B98F0@UnknownFactory@@QAEHXZ",
+   "symbol": "?Completion@UnknownFactory@@QAEHXZ",
    "module_symbol": "?get@Leaf_4b98f0@@QAEIXZ"
   },
   {
    "site": "0067f800",
    "target": "004b98f0",
-   "symbol": "?Unknown_004B98F0@UnknownFactory@@QAEHXZ",
+   "symbol": "?Completion@UnknownFactory@@QAEHXZ",
    "module_symbol": "?get@Leaf_4b98f0@@QAEIXZ"
   },
   {
    "site": "0067f800",
    "target": "004b98f0",
-   "symbol": "?Unknown_004B98F0@UnknownFactory@@QAEHXZ",
+   "symbol": "?Completion@UnknownFactory@@QAEHXZ",
    "module_symbol": "?get@Leaf_4b98f0@@QAEIXZ"
   }
  ],

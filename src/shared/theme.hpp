@@ -108,7 +108,7 @@ public:
 };
 
 // Set before the theme scan (0x00A40C18; Red Alert's ScoresPresent).
-extern char unknown_sound_enabled_a40c18;
+extern char ScoresPresent;
 extern ThemeClass Theme;    // 0x00A35D78
 
 #endif

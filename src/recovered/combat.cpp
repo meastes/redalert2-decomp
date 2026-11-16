@@ -109,7 +109,7 @@ void Leaf_47e2b0::get() {  }
 // within 8 leptons; otherwise the warhead's PercentAtMax fall-off over CellSpread, never below zero,
 // scaled by Verses[armor] and capped at Rules MaxDamage.
 
-int __fastcall Unknown_0047E1C0(int damage, WarheadTypeClass *warhead, int armour, int distance)
+int __fastcall Modify_Damage(int damage, WarheadTypeClass *warhead, int armour, int distance)
 {
     if (!damage || unknown_id_source_a3d290->Special().Inert || warhead == 0) {
         return 0;
@@ -199,7 +199,7 @@ struct DamageGroup {
 extern int const unknown_radius_count_7a5908[];
 extern Cell const unknown_radius_offset_a6f248[];
 
-int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoClass *source, WarheadTypeClass *warhead, bool chain)
+int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoClass *source, WarheadTypeClass *warhead, bool chain)
 {
     int distance;
     ObjectClass *object;
@@ -252,7 +252,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
         if (cptr->OverlayIndex != -1) {
             OverlayTypeClass *overlay = OverlayTypes[cptr->OverlayIndex];
             if (overlay->ChainReaction && (!overlay->Tiberium || warhead->Tiberium) && chain) {
-                cptr->unknown_475db0(strength / 10);
+                cptr->Reduce_Tiberium(strength / 10);
             }
             if (overlay->Wall) {
                 if (warhead->WallAbsoluteDestroyer) {
@@ -366,10 +366,10 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
             Is_Bridge_Tile(ittype)) {
             if (!(cptr->unknown_140 & 0x100) || (coord.Z <= unknown_geometry_j + unknown_geometry_g * (cptr->unknown_11b + 1) && coord.Z > unknown_geometry_j + unknown_geometry_g * (cptr->unknown_11b - 2))) {
                 if (warhead->Wall && (warhead == Rules->IonCannonWarhead || Random_Pick(1, Rules->unknown_13a8) < strength)) {
-                    bool damaged = Map.Unknown_00569090(&cell);
+                    bool damaged = Map.Damage_Bridge(&cell);
                     int tries = 3;
                     while (!damaged && ion && tries > 0) {
-                        damaged = Map.Unknown_00569090(&cell);
+                        damaged = Map.Damage_Bridge(&cell);
                         tries--;
                     }
                     if (damaged) {
@@ -387,10 +387,10 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
             Is_Bridge_Tile(ittype2)) {
             if (!(cptr->unknown_140 & 0x100) || (coord.Z <= unknown_geometry_j + unknown_geometry_g * (cptr->unknown_11b + 1) && coord.Z > unknown_geometry_j + unknown_geometry_g * (cptr->unknown_11b - 2))) {
                 if (warhead->Wall && (warhead == Rules->IonCannonWarhead || Random_Pick(1, Rules->unknown_13a8) < strength)) {
-                    bool damaged = Map.Unknown_00569090(&cell);
+                    bool damaged = Map.Damage_Bridge(&cell);
                     int tries = 3;
                     while (!damaged && ion && tries > 0) {
-                        damaged = Map.Unknown_00569090(&cell);
+                        damaged = Map.Damage_Bridge(&cell);
                         tries--;
                     }
                     if (damaged) {
@@ -405,7 +405,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
 
         if (cptr->OverlayIndex >= 0x4A && cptr->OverlayIndex <= 0x63) {
             if (warhead == Rules->IonCannonWarhead || Random_Pick(1, Rules->unknown_13a8) < strength) {
-                if (Map.Unknown_0055DCA0(cell)) {
+                if (Map.Damage_Low_Bridge(cell)) {
                     Unknown_006D7C80((AbstractClass *)cptr);
                 }
             }
@@ -428,7 +428,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
         Unknown_006D7C80((AbstractClass *)cptr);
 
         new AnimClass(Rules->BarrelExplode, coord, 0, 1, 0x600, 0);
-        Unknown_0047E2C0(coord, Rules->AmmoCrateDamage, (TechnoClass *)0, Rules->C4Warhead, true);
+        Explosion_Damage(coord, Rules->AmmoCrateDamage, (TechnoClass *)0, Rules->C4Warhead, true);
         for (i = 0; i < Rules->BarrelDebris.Count(); i++) {
             if (Percent_Chance(15)) {
                 new VoxelAnimClass(Rules->BarrelDebris[i], coord, 0);
@@ -501,9 +501,9 @@ AnimTypeClass *__fastcall Select_Damage_Anim(int damage, WarheadTypeClass *warhe
 // times 63) or else by the damage clamped to 21..63, tagged with flags. The callers pass forced in a
 // full word; only its low byte is tested.
 
-void __fastcall Unknown_0047F600(CoordStruct coord, int damage, WarheadTypeClass *warhead, int forced, int flags)
+void __fastcall Combat_Lighting(CoordStruct coord, int damage, WarheadTypeClass *warhead, int forced, int flags)
 {
-    if ((unknown_a40b2c != 0 && unknown_a6eb1c >= Unknown_0053D840()) || (flags & 0xF) != 0) {
+    if ((unknown_a40b2c != 0 && unknown_a6eb1c >= GetMinFrameRate()) || (flags & 0xF) != 0) {
         if ((char)forced || warhead != 0 && warhead->Bright) {
             int size;
             float light = warhead->CombatLightSize;
@@ -563,7 +563,7 @@ void __fastcall Wide_Area_Damage(CoordStruct const &coord, int radius, int rawda
                 damagemod = 1.0 / ((double)cell_radius / dist_from_center);
             }
             CoordStruct tcoord(tcell.X * 256 + 128, tcell.Y * 256 + 128, coord.Z);
-            Unknown_0047E2C0(tcoord, (int)(rawdamage * damagemod), source, warhead, true);
+            Explosion_Damage(tcoord, (int)(rawdamage * damagemod), source, warhead, true);
         }
     }
 }
@@ -573,7 +573,7 @@ void __fastcall Wide_Area_Damage(CoordStruct const &coord, int radius, int rawda
 // TibSun combat.cpp Calculate_Projectile_Pitch: the angle from Calculate_Projectile_Angle as a
 // direction; a flat shot is mirrored when one lepton further needs a smaller angle.
 
-bool __fastcall Unknown_0047F8B0(bool high_arc, int speed, int distance, int height, double gravity, UnknownFacingDir *pitch)
+bool __fastcall Calculate_Projectile_Pitch(bool high_arc, int speed, int distance, int height, double gravity, UnknownFacingDir *pitch)
 {
     double angle;
     if (Calculate_Projectile_Angle(high_arc, speed, distance, height, gravity, angle)) {

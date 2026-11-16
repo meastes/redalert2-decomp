@@ -49,7 +49,7 @@ struct SuperStateStruct {
 // The super joins object.hpp's lists AbstractTypePtrTracker (0x00AC0CB0),
 // HousePtrTracker and AnimPtrTracker.
 // The super weapon type whose placement is pending (4 while a chronosphere warp waits, else -1; hypothesis).
-extern int unknown_pending_super_833694;                          // 0x00833694
+extern int CurrentSuperWeaponType;                          // 0x00833694
 extern Cell const unknown_cell_abd768;                            // 0x00ABD768
 
 extern "C" GUID const CLSID_SuperClass;                         // 0x007A1AF0
@@ -63,7 +63,7 @@ public:
     virtual ~SuperClass();                                      // 0x0069C8B0
 
     // Drops the animation (and the animation-list entry it implies).
-    void unknown_69ca70();                                      // 0x0069CA70
+    void Detach_Animation();                                      // 0x0069CA70
     // Drops the animation and restarts the recharge timer.
     void unknown_69ebb0();                                      // 0x0069EBB0
     // Whether the sidebar should flash its tab for it (ready; hypothesis).
@@ -74,7 +74,7 @@ public:
     // Grants it to its house (TS's Grant(one_time, announce, on_hold); hypothesis; true when granted).
     bool unknown_69d390(bool local_player); // original0069D390, AL result/RET4; meaning remains a hypothesis
     // Starts the chrono placement animation (Rules->ChronoPlacement) 5 leptons above coord (hypothesis).
-    void unknown_place_anim_69cb30(CoordStruct coord);          // 0x0069CB30
+    void Create_Chrono_Anim(CoordStruct coord);          // 0x0069CB30
     bool Suspend(bool on);                                      // 0x0069CC60
     bool Remove();                                              // 0x0069CF40
     bool Recharge(bool player);                                 // 0x0069CFC0
@@ -84,7 +84,7 @@ public:
     bool Is_Powered() const;                                    // 0x0069D760
     wchar_t const *State_String() const;                        // 0x0069D770
     void Place(Cell const &cell, bool player);                  // 0x0069D850
-    bool unknown_69e990() const;                                // 0x0069E990
+    bool Is_Charging() const;                                // 0x0069E990
     bool Is_Present() const { return unknown_0x55; }
     bool Is_One_Time() const { return unknown_0x56 && unknown_0x55; }
     bool Grant(bool one_time, bool announce, bool on_hold);     // 0x0069CCF0
@@ -118,6 +118,6 @@ public:
 
 extern DynamicVectorClass<SuperClass *> Supers;                 // 0x00A35D28
 // Another list the destructor removes the super from (meaning not recovered).
-extern DynamicVectorClass<SuperClass *> unknown_supers_a35db8;  // 0x00A35DB8
+extern DynamicVectorClass<SuperClass *> TimedSuperWeapons;  // 0x00A35DB8
 
 #endif

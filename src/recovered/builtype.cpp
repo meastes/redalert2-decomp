@@ -591,8 +591,8 @@ void __fastcall BuildingTypeClass::Init(int theater)
         }
     }
     if (radius != 0) {
-        delete unknown_cloak_surface_8502a0;
-        unknown_cloak_surface_8502a0 = new BSurface(radius + 16, radius + 16, 1);
+        delete CloakingSurface;
+        CloakingSurface = new BSurface(radius + 16, radius + 16, 1);
     }
 }
 
@@ -1619,8 +1619,8 @@ void BuildingTypeClass::Post_Load_Game()
         }
     }
     if (radius != 0) {
-        delete unknown_cloak_surface_8502a0;
-        unknown_cloak_surface_8502a0 = new BSurface(radius + 16, radius + 16, 1);
+        delete CloakingSurface;
+        CloakingSurface = new BSurface(radius + 16, radius + 16, 1);
     }
     for (int type_index = 0; type_index < BuildingTypes.Count(); type_index++) {
         BuildingTypeClass *type = BuildingTypes[type_index];

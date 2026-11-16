@@ -3389,6 +3389,10 @@
    "address": "004068f0"
   },
   {
+   "symbol": "?Default_Dialog_Proc@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
    "symbol": "?Default_Map_Generation_Callback_00482100@@YA_NXZ",
    "address": "00482100"
   },
@@ -3407,6 +3411,10 @@
   {
    "symbol": "?Delete_Dialog_0053b1e0@LoadOptionsClass@@QAEDXZ",
    "address": "0053b1e0"
+  },
+  {
+   "symbol": "?Display_Dialog@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
   },
   {
    "symbol": "?Draw_It@ProgressScreenClass@@QAEXUPoint2D@@@Z",
@@ -3551,6 +3559,10 @@
   {
    "symbol": "?Get_Deformed_Cell_Height_00686c90@@YIHPAVCellClass@@@Z",
    "address": "00686c90"
+  },
+  {
+   "symbol": "?Get_High_Ground_Mask@MapClass@@QAEIPAVCellClass@@@Z",
+   "address": "0055bd70"
   },
   {
    "symbol": "?Get_WDT_Territory_00769690@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
@@ -3841,12 +3853,24 @@
    "address": "0047b940"
   },
   {
+   "symbol": "?Is_Tile_Shore@CellClass@@QBE_NXZ",
+   "address": "0047b7c0"
+  },
+  {
+   "symbol": "?Is_Tile_With_Water@CellClass@@QBE_NXZ",
+   "address": "0047b7e0"
+  },
+  {
    "symbol": "?IsoTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
    "address": "00a40cd0"
   },
   {
    "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
    "address": "0055a490"
+  },
+  {
+   "symbol": "?LastTheater@@3HA",
+   "address": "007d88dc"
   },
   {
    "symbol": "?Load_Dialog_0053b190@LoadOptionsClass@@QAEDXZ",
@@ -3879,6 +3903,10 @@
   {
    "symbol": "?Map@@3VMouseClass@@A",
    "address": "008324e0"
+  },
+  {
+   "symbol": "?MapCellStride@@3HA",
+   "address": "0084e804"
   },
   {
    "symbol": "?Map_Cell_Count@@YIHXZ",
@@ -3943,6 +3971,14 @@
   {
    "symbol": "?Put_String@INIClass@@QAE_NPBD00@Z",
    "address": "0050e5f0"
+  },
+  {
+   "symbol": "?RMGCallback@@3P6AXXZA",
+   "address": "007e09c4"
+  },
+  {
+   "symbol": "?RMGCellData@@3PAUUnknownMapGenerationCell@@A",
+   "address": "00a70a24"
   },
   {
    "symbol": "?Random_Map_CRC_005c8420@@YIPADXZ",
@@ -4077,6 +4113,14 @@
    "address": "0058e5a0"
   },
   {
+   "symbol": "?RoadTileCounts@@3PAY03HA",
+   "address": "007e1064"
+  },
+  {
+   "symbol": "?RoadTileLibrary@@3PAY03PAHA",
+   "address": "007e0fe4"
+  },
+  {
    "symbol": "?RuleINI@@3PAVCCINIClass@@A",
    "address": "008396d0"
   },
@@ -4107,6 +4151,10 @@
   {
    "symbol": "?Set@rc_ptr_base@@QAEXPAVReferenceCounted@@@Z",
    "address": "00639530"
+  },
+  {
+   "symbol": "?Set_Cursor_Pos@DisplayClass@@QAE?AVCell@@ABV2@@Z",
+   "address": "004994d0"
   },
   {
    "symbol": "?Set_Date_Time@CCFileClass@@UAE_NK@Z",
@@ -4205,20 +4253,12 @@
    "address": "00498f10"
   },
   {
-   "symbol": "?Unknown_004994D0@DisplayClass@@QAE?AVCell@@ABV2@@Z",
-   "address": "004994d0"
-  },
-  {
    "symbol": "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z",
    "address": "0055a660"
   },
   {
    "symbol": "?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z",
    "address": "0055a740"
-  },
-  {
-   "symbol": "?Unknown_0055BD70@MapClass@@QAEIPAVCellClass@@@Z",
-   "address": "0055bd70"
   },
   {
    "symbol": "?Unknown_0055C2C0@MapClass@@QAE_NHH@Z",
@@ -4267,6 +4307,22 @@
   {
    "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
    "address": "0054ebd0"
+  },
+  {
+   "symbol": "?_map_size_names@@3PAPBDA",
+   "address": "007e0b20"
+  },
+  {
+   "symbol": "?_map_type_names@@3PAPBDA",
+   "address": "007e0ae4"
+  },
+  {
+   "symbol": "?_resource_names@@3PAPBDA",
+   "address": "007e0af8"
+  },
+  {
+   "symbol": "?_time_names@@3PAPBDA",
+   "address": "007e0b10"
   },
   {
    "symbol": "?angle_weight_7a5cd0@@3NB",
@@ -4325,14 +4381,6 @@
    "address": "0047b5e0"
   },
   {
-   "symbol": "?unknown_47b7c0@CellClass@@QBE_NXZ",
-   "address": "0047b7c0"
-  },
-  {
-   "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
-   "address": "0047b7e0"
-  },
-  {
    "symbol": "?unknown_5e4720@OwnerDraw@@YI_NPAUHWND__@@@Z",
    "address": "005e4720"
   },
@@ -4383,14 +4431,6 @@
   {
    "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
    "address": "005ff6e0"
-  },
-  {
-   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
-   "address": "005ff7c0"
-  },
-  {
-   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
-   "address": "005ffb00"
   },
   {
    "symbol": "?unknown_distance_scale_007a5cf8@@3NB",
@@ -4505,28 +4545,12 @@
    "address": "007e1b60"
   },
   {
-   "symbol": "?unknown_loaded_theater_7d88dc@@3HA",
-   "address": "007d88dc"
-  },
-  {
-   "symbol": "?unknown_map_cell_side_84e804@@3HA",
-   "address": "0084e804"
-  },
-  {
-   "symbol": "?unknown_map_cells_a70a24@@3PAUUnknownMapGenerationCell@@A",
-   "address": "00a70a24"
-  },
-  {
    "symbol": "?unknown_map_default_007a5d28@@3NB",
    "address": "007a5d28"
   },
   {
    "symbol": "?unknown_map_default_007a5d30@@3NB",
    "address": "007a5d30"
-  },
-  {
-   "symbol": "?unknown_map_generation_callback_7e09c4@@3P6AXXZA",
-   "address": "007e09c4"
   },
   {
    "symbol": "?unknown_map_max_a70a20@@3HA",
@@ -4543,10 +4567,6 @@
   {
    "symbol": "?unknown_map_regions_a6fd28@@3V?$DynamicVectorClass@PAVMapRegionClass@@@@A",
    "address": "00a6fd28"
-  },
-  {
-   "symbol": "?unknown_map_type_labels_7e0ae4@@3PAPBDA",
-   "address": "007e0ae4"
   },
   {
    "symbol": "?unknown_mapgen_file_7e14f8@@3QBDB",
@@ -4637,20 +4657,8 @@
    "address": "007a5dd0"
   },
   {
-   "symbol": "?unknown_resource_labels_7e0af8@@3PAPBDA",
-   "address": "007e0af8"
-  },
-  {
    "symbol": "?unknown_road_bias_7a5d70@@3NB",
    "address": "007a5d70"
-  },
-  {
-   "symbol": "?unknown_road_counts_7e1064@@3PAY03HA",
-   "address": "007e1064"
-  },
-  {
-   "symbol": "?unknown_road_library_7e0fe4@@3PAY03PAHA",
-   "address": "007e0fe4"
   },
   {
    "symbol": "?unknown_rural_building_names_7e0c60@@3PAPADA",
@@ -4683,10 +4691,6 @@
   {
    "symbol": "?unknown_sin_4ba480@@YANN@Z",
    "address": "004ba480"
-  },
-  {
-   "symbol": "?unknown_size_labels_7e0b20@@3PAPBDA",
-   "address": "007e0b20"
   },
   {
    "symbol": "?unknown_special_name_7cdd70@@3QBDB",
@@ -4771,10 +4775,6 @@
   {
    "symbol": "?unknown_tileset_a6e0e8@@3HA",
    "address": "00a6e0e8"
-  },
-  {
-   "symbol": "?unknown_time_labels_7e0b10@@3PAPBDA",
-   "address": "007e0b10"
   },
   {
    "symbol": "?unknown_urban_building_names_7e0be8@@3PAPADA",

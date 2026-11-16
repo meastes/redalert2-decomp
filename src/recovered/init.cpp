@@ -154,7 +154,7 @@ void __fastcall Unknown_005EAC10();                     // 0x005EAC10
 void __fastcall Unknown_006F1B60();                     // 0x006F1B60
 void __fastcall Draw_Loading_Screen();                  // 0x00516560
 int __fastcall unknown_run_716f40(void *file);          // 0x00716F40 (TS VoxelDrawSystem::Load_VPL_File)
-void __stdcall Unknown_00717FB0(float angle);           // 0x00717FB0 (TS Set_Voxel_Light_Angle)
+void __stdcall Set_Voxel_Light_Angle(float angle);           // 0x00717FB0 (TS Set_Voxel_Light_Angle)
 void __fastcall Unknown_00718060();                     // 0x00718060 (TS Init_Voxel_Matrices)
 bool Init_Expansion_Files();                            // 0x00515AF0
 bool __fastcall Init_Secondary_Mixfiles();              // 0x00515E70
@@ -413,7 +413,7 @@ static bool Bootstrap()
     }
     unknown_use_voxel_cache_839a58 = true;
     Set_Voxel_Camera_Angle(unknown_camera_angle_79acf4);
-    Unknown_00717FB0(unknown_light_angle_79acf0);
+    Set_Voxel_Light_Angle(unknown_light_angle_79acf0);
     unknown_af6614 = 1;
     unknown_af6610 = 0;
     Unknown_00718060();
@@ -544,7 +544,7 @@ static bool Init_CDROM_Access()
 
         int disk = Unknown_0046E4C0(60);
         if (!unknown_special_a40920.IsFromInstall && disk > -1) {
-            unknown_special_a40920.IsFromInstall = unknown_ini_839740.Get_Bool("Intro", "Play", true);
+            unknown_special_a40920.IsFromInstall = ConfigINI.Get_Bool("Intro", "Play", true);
         }
 
         WolRegistryOptions options;
@@ -556,9 +556,9 @@ static bool Init_CDROM_Access()
         if (unknown_special_a40920.IsFromInstall == true) {
             CCFileClass ra2_ini("RA2.INI");
             if (disk > -1) {
-                unknown_special_a40920.IsFromInstall = unknown_ini_839740.Put_Bool("Intro", "Play", false);
+                unknown_special_a40920.IsFromInstall = ConfigINI.Put_Bool("Intro", "Play", false);
             }
-            unknown_ini_839740.Save(ra2_ini, false);
+            ConfigINI.Save(ra2_ini, false);
         }
     } else {
         Debug_Printf("-CD parameter was specified. No CD init - all files must be local\n");
@@ -872,7 +872,7 @@ void  FUN_00513280(void)
 // long 8 points at.
 int __stdcall Unknown_00513290(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result != 0) {
         return result;
     }
@@ -926,7 +926,7 @@ int __stdcall Unknown_00513290(HWND window, UINT message, WPARAM wparam, LPARAM 
 // the int the window's long 8 points at.
 int __stdcall Unknown_005133E0(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result != 0) {
         return result;
     }
@@ -969,7 +969,7 @@ int __stdcall Unknown_005134C0(HWND window, UINT message, WPARAM wparam, LPARAM 
 {
     bool chosen = false;
     HWND list = GetDlgItem(window, 0x744);
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result != 0) {
         return result;
     }
@@ -1134,7 +1134,7 @@ static int Choose_Campaign()
     if (window != 0) {
         SetWindowLongA(window, 8, (LONG)&choice);
         Unknown_00737080(window, MainWindow);
-        unknown_dialog_5ff7c0(window);
+        Display_Dialog(window);
         while (!choice.Chosen && unknown_6000d0() != true) {
             if (unknown_side_voc_7db4f8 != -1 && (unsigned __int64)unknown_hover_time_a41680 < (unsigned __int64)Audio_Now()) {
                 Audio_Event_Handle_Stop(&unknown_side_sound_a411e8);
@@ -1223,10 +1223,10 @@ top:
                     PacketTransport = 0;
                     Unknown_00514EE0();
                 }
-                if (selection == 0x12 && !unknown_flag_a40d05) {
+                if (selection == 0x12 && !Debug_ForceScenario) {
                     selection = Unknown_00516F00(3600);
                 }
-                if (unknown_flag_a40d05) {
+                if (Debug_ForceScenario) {
                     selection = 8;
                 }
                 if (selection != 7) {
@@ -1531,7 +1531,7 @@ top:
                     unknown_session_a3d298.unknown_2ff4[player] = TickCount.Time();
                 }
             }
-            if (unknown_session_a3d298.Type == 0 && !unknown_flag_a40d05 && !unknown_session_a3d298.Play) {
+            if (unknown_session_a3d298.Type == 0 && !Debug_ForceScenario && !unknown_session_a3d298.Play) {
                 if (!Start_Scenario_0065bc70(Campaigns[unknown_id_source_a3d290->unknown_224c]->Scenario, true, unknown_id_source_a3d290->unknown_224c)) {
                     if (Debug_Map) {
                         return false;
@@ -1558,10 +1558,10 @@ top:
         if (unknown_session_a3d298.Type != 0 && unknown_session_a3d298.Type != 5 && !unknown_session_a3d298.Play) {
             unknown_session_a3d298.Create_Connections();
             if (unknown_session_a3d298.Type == 3) {
-                Ipx.Set_Timing(Max(Ipx.unknown_526c30() + 2, 15), -1, 600, true);
-                Ipx.unknown_slot14(Max(Ipx.unknown_526c30() + 2, 60), -1, 600);
+                Ipx.Set_Timing(Max(Ipx.Global_Response_Time() + 2, 15), -1, 600, true);
+                Ipx.unknown_slot14(Max(Ipx.Global_Response_Time() + 2, 60), -1, 600);
             } else if (unknown_session_a3d298.Type == 4 && unknown_a3d580 == 0) {
-                Ipx.Set_Timing(Max(Ipx.unknown_526c30() + 2, 60), -1, 600, true);
+                Ipx.Set_Timing(Max(Ipx.Global_Response_Time() + 2, 60), -1, 600, true);
             }
         }
         Call_Back();
@@ -1616,7 +1616,7 @@ extern bool unknown_flag_a6ebd0;              // 0x00A6EBD0
 // holds the campaigns, slider 0x50F the difficulty.
 int __stdcall Unknown_005147A0(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result != 0) {
         return result;
     }
@@ -1887,9 +1887,9 @@ bool __fastcall Unknown_00514EE0()
         unknown_session_a3d298.unknown_2fc0 = false;
     }
     RawFileClass file("RA2.INI");
-    unknown_ini_839740.Put_Int("MultiPlayer", "PortBase", unknown_session_a3d298.PortBase);
-    unknown_ini_839740.Put_Int("MultiPlayer", "PortPool", unknown_a71b28);
-    unknown_ini_839740.Save(file, false);
+    ConfigINI.Put_Int("MultiPlayer", "PortBase", unknown_session_a3d298.PortBase);
+    ConfigINI.Put_Int("MultiPlayer", "PortPool", unknown_a71b28);
+    ConfigINI.Save(file, false);
     OwnerTalk.Reset_0063f070();
     unknown_session_a3f616 = true;
     return result;
@@ -1931,7 +1931,7 @@ extern int unknown_router_b2ac30;               // 0x00B2AC30 1 = -DLINK1, 2 = -
 extern bool unknown_router_a402d0;              // 0x00A402D0 cleared by -NOROUTER
 extern bool unknown_session_a3f615;             // 0x00A3F615 cleared by -MESSAGES (TS's Session.NetProtect)
 extern bool unknown_hicolor_7ce008;             // 0x007CE008 set by -16 (TS's HicolorFlag)
-extern char unknown_flag_a40d0c;                // 0x00A40D0C set by -XQ (TS's Debug_Quiet)
+extern char Debug_Quiet;                // 0x00A40D0C set by -XQ (TS's Debug_Quiet)
 
 #define PARM_INSTALL 0xD95C68A2
 
@@ -2036,7 +2036,7 @@ bool __fastcall Parse_Command_Line(int argc, char *argv[])
             }
 
             if (strstr(string, "-SPEEDCONTROL")) {
-                unknown_flag_a40d84 = true;
+                GameControlsShown = true;
             }
             if (strstr(string, "-DLINK1")) {
                 unknown_router_b2ac30 = 1;
@@ -2089,7 +2089,7 @@ bool __fastcall Parse_Command_Line(int argc, char *argv[])
                     char code = *string++;
                     switch (toupper(code)) {
                         case 'Q':
-                            unknown_flag_a40d0c = true;
+                            Debug_Quiet = true;
                             break;
 
                         default:
@@ -2365,7 +2365,7 @@ bool __fastcall Init_Secondary_Mixfiles()
         ThemeMix = new MixFileClass("THEME.MIX", &FastKey);
     }
     DebugStringNoPrefix(" THEME.MIX");
-    unknown_sound_enabled_a40c18 = true;
+    ScoresPresent = true;
     Theme.Scan();
 
     if (CD::IsLocal == true) {
@@ -2588,7 +2588,7 @@ bool __fastcall Load_Recording_Values(CCFileClass &file)
 char *__fastcall unknown_build_machine_text_737ad0(char *buffer, int size);                   // 0x00737AD0
 char *__fastcall Build_By_String_00737b00(char *buffer, int size);                      // 0x00737B00
 void __fastcall Get_Language_Version(char *text);                                        // 0x004955A0
-extern char unknown_cpu_text_8015a5[];
+extern char VendorID[];
 
 // The version dialog's procedure (pointer only, 0x00516E70's dialog 0xD4): the common handler
 // first; 0x497 fills item 0x5B5 with the title, the versions, the build, the system texts and
@@ -2599,7 +2599,7 @@ int __stdcall Unknown_00516C40(HWND window, UINT message, WPARAM wparam, LPARAM 
     char time[128];
     char machine[128];
     char user[128];
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result != 0) {
         return result;
     }
@@ -2626,7 +2626,7 @@ int __stdcall Unknown_00516C40(HWND window, UINT message, WPARAM wparam, LPARAM 
             SendMessageA(item, 0x4C8, 0, (LPARAM)unknown_profile_blit_text_a41408);
             SendMessageA(item, 0x4C8, 0, (LPARAM)unknown_profile_text_a4127c);
             Get_CPU_Info(&family, &mmx, 0, 0);
-            sprintf(buffer, "MMX %s, Vendor: %s", mmx ? "Yes" : "No", unknown_cpu_text_8015a5);
+            sprintf(buffer, "MMX %s, Vendor: %s", mmx ? "Yes" : "No", VendorID);
             SendMessageA(item, 0x4C8, 0, (LPARAM)buffer);
             Get_Language_Version(buffer);
             SendMessageA(item, 0x4C8, 0, (LPARAM)buffer);
@@ -2646,7 +2646,7 @@ int __stdcall Unknown_00516C40(HWND window, UINT message, WPARAM wparam, LPARAM 
 
 extern bool SurfacesRestored;
 int __stdcall Unknown_00516C40(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
-void __fastcall Unknown_00517370(bool force);
+void __fastcall Title_Screen_Restore(bool force);
 
 void __fastcall Unknown_00516E70()
 {
@@ -2654,12 +2654,12 @@ void __fastcall Unknown_00516E70()
     HWND window = unknown_create_dialog_5ff610(0xD4, Unknown_00516C40, 0);
     if (window) {
         SetWindowLongA(window, 8, (LONG)&result);
-        unknown_dialog_5ff7c0(window);
+        Display_Dialog(window);
         while (!result) {
             if (unknown_6000d0() == true) {
                 break;
             }
-        Unknown_00517370(false);
+        Title_Screen_Restore(false);
         }
         unknown_dialog_5ff6e0(window);
     }
@@ -2674,7 +2674,7 @@ void __fastcall Unknown_00516E70()
 extern "C" int __cdecl isalnum(int character);
 extern bool SurfacesRestored;
 int __stdcall Unknown_005171D0(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
-void __fastcall Unknown_00517370(bool force);
+void __fastcall Title_Screen_Restore(bool force);
 
 // A typed code (0x007DB500, four entries: PENGO, THETEAM, HIRES, TOGGLE) and the flag it toggles.
 extern char unknown_cheat_text_a4169c[32];   // 0x00A4169C the letters typed so far
@@ -2726,20 +2726,20 @@ int __fastcall Unknown_00516F00(int unknown_timeout)
     if (window != 0) {
         SetWindowLongA(window, 8, (LONG)&choice);
         Center_Window_Within_Window(window, MainWindow);
-        unknown_dialog_5ff7c0(window);
+        Display_Dialog(window);
         SetFocus(MainWindow);
         unknown_5115f0(window);
         do {
             if (unknown_6000d0()) {
                 choice = 7;
             }
-            Unknown_00517370(false);
+            Title_Screen_Restore(false);
             if (WWKeyboard->Check()) {
                 int key = (unsigned short)WWKeyboard->Get();
                 if ((key & 0x800) == 0) {
                     if (Cheat_Key_Process((char)key)) {
                         Voc_Play(Rules->OptionsChanged, 1.0f, 0x2000, 0);
-                        Unknown_00517370(true);
+                        Title_Screen_Restore(true);
                     }
                 }
             }
@@ -2766,7 +2766,7 @@ int __fastcall Unknown_00516F00(int unknown_timeout)
 int __stdcall Unknown_005171D0(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
     wchar_t buffer[128];
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result != 0) {
         return result;
     }
@@ -2813,13 +2813,13 @@ int __stdcall Unknown_005171D0(HWND window, UINT message, WPARAM wparam, LPARAM 
 }
 
 
-// void __fastcall Unknown_00517370(bool force) -- 0x00517370
+// void __fastcall Title_Screen_Restore(bool force) -- 0x00517370
 // When the screen is marked for a redraw (0x008523DC) or force: clears the
 // mark, clears the hidden surface (0x005159B0) and blits it.
 
 extern bool SurfacesRestored;
 
-void __fastcall Unknown_00517370(bool force)
+void __fastcall Title_Screen_Restore(bool force)
 {
     if (SurfacesRestored || force) {
         SurfacesRestored = false;
@@ -3158,7 +3158,7 @@ bool __fastcall Allocate_Surfaces(Rect *hidden, Rect *composite, Rect *tile, Rec
 
 // void __fastcall Delete_All_Objects_00519960() (0x00519960)
 // Deletes every game object (name not recovered): the indexed objects, then each class list
-// (deleting its first entry until it is empty; bullets through Release) with Unknown_006ecf10
+// (deleting its first entry until it is empty; bullets through Release) with Process_Deferred_Deletion
 // after each, the bolts, line trails and laser draws, the abstract types, the tactical view and
 // the map's cells (MapClass slot 23), with the live-object counter raised meanwhile.
 // __fastcall: as cdecl the epilogue's pop ebx is scheduled before the counter's dec.
@@ -3202,129 +3202,129 @@ void __fastcall Delete_All_Objects_00519960()
 {
     ScenarioInit++;
     ObjectsToDelete.Clear();
-    while (unknown_object_index_abff58.Count()) {
-        delete unknown_object_index_abff58.Fetch_By_Position(0);
+    while (TargetTracker.Count()) {
+        delete TargetTracker.Fetch_By_Position(0);
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (unknown_BulletClass_list_00a40ce8.Count()) {
         unknown_BulletClass_list_00a40ce8[0]->Release();
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (unknown_objects_a40368.Count()) {
         delete unknown_objects_a40368[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (Tags.Count()) {
         delete Tags[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (Triggers.Count()) {
         delete Triggers[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (Tubes.Count()) {
         delete Tubes[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (BuildingLights.Count()) {
         delete BuildingLights[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (Overlays.Count()) {
         delete Overlays[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (ParticleSystems.Count()) {
         delete ParticleSystems[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (Waves.Count()) {
         delete Waves[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (Factories.Count()) {
         delete Factories[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (Sides.Count()) {
         delete Sides[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (Teams.Count()) {
         delete Teams[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (Houses.Count()) {
         delete Houses[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (Anims.Count()) {
         delete Anims[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (Scripts.Count()) {
         delete Scripts[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (unknown_RadSiteClass_list_00ab6620.Count()) {
         delete unknown_RadSiteClass_list_00ab6620[0];
     }
-    Unknown_006ecf10();
-    while (unknown_LightSourceClass_list_00a6e818.Count()) {
-        delete unknown_LightSourceClass_list_00a6e818[0];
+    Process_Deferred_Deletion();
+    while (LightSources.Count()) {
+        delete LightSources[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (EMPulseClass::Array.Count()) {
         delete EMPulseClass::Array[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (unknown_CaptureManagerClass_list_008505a0.Count()) {
         delete unknown_CaptureManagerClass_list_008505a0[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (unknown_ParasiteClass_list_00a76430.Count()) {
         delete unknown_ParasiteClass_list_00a76430[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (unknown_TemporalClass_list_00ac02e0.Count()) {
         delete unknown_TemporalClass_list_00ac02e0[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (unknown_SpawnManagerClass_list_00abd028.Count()) {
         delete unknown_SpawnManagerClass_list_00abd028[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (unknown_BombClass_list_0084eb78.Count()) {
         delete unknown_BombClass_list_0084eb78[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (SpotLights.Count()) {
         delete SpotLights[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (FoggedObjectClass::Array.Count()) {
         delete FoggedObjectClass::Array[0];
     }
-    Unknown_006ecf10();
-    while (unknown_AlphaShapeClass_list_0083c648.Count()) {
-        delete unknown_AlphaShapeClass_list_0083c648[0];
+    Process_Deferred_Deletion();
+    while (AlphaShapes.Count()) {
+        delete AlphaShapes[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     while (Terrains.Count()) {
         delete Terrains[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     EBolt::Delete_All_004B23B0();
     LineTrail::Delete_All();
     LaserDrawClass::Clear_All();
     while (AbstractTypes.Count()) {
         delete AbstractTypes[0];
     }
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     delete TacticalMap;
     TacticalMap = 0;
     Map.unknown_slot23();
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     BeaconManager.Unknown_0042E150();
     ScenarioInit--;
 }
@@ -3361,7 +3361,7 @@ void __fastcall Init_Theater_00519e70(int theater)
     unknown_session_a3d298.Update_Progress(8);
 
     if (unknown_id_source_a3d290->Theater != 1
-        && (unknown_loaded_theater_7d88dc == 1 || unknown_loaded_theater_7d88dc == -1)) {
+        && (LastTheater == 1 || LastTheater == -1)) {
         if (unknown_theater_mix_8374c8 != 0) {
             delete unknown_theater_mix_8374c8;
         }
@@ -3369,7 +3369,7 @@ void __fastcall Init_Theater_00519e70(int theater)
         unknown_theater_mix_8374c8->Cache();
     }
 
-    if (unknown_id_source_a3d290->Theater != unknown_loaded_theater_7d88dc) {
+    if (unknown_id_source_a3d290->Theater != LastTheater) {
         if (unknown_theater_mix_8374c0 != 0) {
             delete unknown_theater_mix_8374c0;
         }
@@ -3426,7 +3426,7 @@ void __fastcall Init_Theater_00519e70(int theater)
         int last_percent = 12;
         int prog_step = ColorSchemes.Count() / (25 - 12);
         for (int s = 0; s < ColorSchemes.Count(); s++) {
-            ColorSchemes[s]->Unknown_00663B40(&unknown_palette_838a10, &GamePalette, 1000, 1000, 1000);
+            ColorSchemes[s]->Build_Light_Converters(&unknown_palette_838a10, &GamePalette, 1000, 1000, 1000);
             int percent = (min(12 + (s / prog_step), 25));
             if (percent != last_percent) {
                 unknown_session_a3d298.Update_Progress(percent);
@@ -3511,7 +3511,7 @@ bool __fastcall Unknown_0051a330(int side)
     }
 
     int number = side + 1;
-    Unknown_007168C0(side);
+    Speech_Set_Side(side);
 
     char filename[64];
     sprintf(filename, "SIDEC%02d.MIX", number);
@@ -3882,7 +3882,7 @@ wchar_t const *CreateTeamCommandClass::Get_Description() const
 
 void CreateTeamCommandClass::Execute(int key) const
 {
-    Unknown_006F5D90(TeamNumber);
+    Group_Assign(TeamNumber);
 }
 
 
@@ -3948,7 +3948,7 @@ BuildingClass *Unknown_006F8A50();
 
 void SetStructureTabCommandClass::Execute(int key) const
 {
-    if (Map.Column[0].Unknown_00681730()) {
+    if (Map.Column[0].Has_Buildables()) {
         Map.Select_Tab(0);
         BuildingClass *building = Unknown_006F8A50();
         if (building != 0) {
@@ -4003,7 +4003,7 @@ BuildingClass *Unknown_006F8A60();
 
 void SetDefenseTabCommandClass::Execute(int key) const
 {
-    if (Map.Column[1].Unknown_00681730()) {
+    if (Map.Column[1].Has_Buildables()) {
         Map.Select_Tab(1);
         BuildingClass *building = Unknown_006F8A60();
         if (building != 0) {
@@ -4056,7 +4056,7 @@ wchar_t const *SetInfantryTabCommandClass::Get_Description() const
 
 void SetInfantryTabCommandClass::Execute(int key) const
 {
-    if (Map.Column[2].Unknown_00681730()) {
+    if (Map.Column[2].Has_Buildables()) {
         Map.Select_Tab(2);
     }
 }
@@ -4104,7 +4104,7 @@ wchar_t const *SetUnitTabCommandClass::Get_Description() const
 
 void SetUnitTabCommandClass::Execute(int key) const
 {
-    if (Map.Column[3].Unknown_00681730()) {
+    if (Map.Column[3].Has_Buildables()) {
         Map.Select_Tab(3);
     }
 }
@@ -4166,7 +4166,7 @@ wchar_t const *SelectTeamCommandClass::Get_Description() const
 
 void SelectTeamCommandClass::Execute(int key) const
 {
-    Unknown_006F5F00(TeamNumber);
+    Group_Select(TeamNumber);
 }
 
 
@@ -4295,7 +4295,7 @@ wchar_t const *CenterTeamCommandClass::Get_Description() const
 
 void CenterTeamCommandClass::Execute(int key) const
 {
-    Unknown_006F60D0(TeamNumber);
+    Group_Reselect(TeamNumber);
 }
 
 
@@ -4485,9 +4485,9 @@ bool PlanningModeCommandClass::unknown_slot7(int key) const
 void PlanningModeCommandClass::Execute(int key) const
 {
     if (key & 0x800) {
-        Unknown_006F64F0(false);
+        Command_Planning_Mode_Off(false);
     } else {
-        Unknown_006F64D0(false);
+        Command_Planning_Mode_On(false);
     }
 }
 
@@ -4836,7 +4836,7 @@ wchar_t const *StopCommandClass::Get_Description() const
 
 void StopCommandClass::Execute(int key) const
 {
-    Unknown_006F5BC0();
+    Command_Stop();
 }
 
 
@@ -4881,7 +4881,7 @@ wchar_t const *AllToCheerCommandClass::Get_Description() const
 
 void AllToCheerCommandClass::Execute(int key) const
 {
-    Unknown_006F5C50();
+    Command_Cheer();
 }
 
 
@@ -4926,7 +4926,7 @@ wchar_t const *DeployCommandClass::Get_Description() const
 
 void DeployCommandClass::Execute(int key) const
 {
-    Unknown_006F5940();
+    Command_Deploy();
 }
 
 
@@ -4971,7 +4971,7 @@ wchar_t const *GuardCommandClass::Get_Description() const
 
 void GuardCommandClass::Execute(int key) const
 {
-    Unknown_006F5B10();
+    Command_Guard();
 }
 
 
@@ -5146,7 +5146,7 @@ void CenterBaseCommandClass::Execute(int key) const
         TacticalMap->Set_Tactical_Position_006a66b0(other);
     }
     if (Map.PendingObject != 0) {
-        Map.Unknown_004994D0(unknown_geometry_k);
+        Map.Set_Cursor_Pos(unknown_geometry_k);
     }
     Map.Unknown_0049EC60(0);
     Map.Flag_To_Redraw(true);
@@ -6013,7 +6013,7 @@ void View1CommandClass::Execute(int key) const
     coord.Z = Map.Get_Height_GL(coord);
     TacticalMap->Set_Tactical_Position_006a66b0(coord);
     if (Map.PendingObject != 0) {
-        Map.Unknown_004994D0(unknown_geometry_k);
+        Map.Set_Cursor_Pos(unknown_geometry_k);
     }
 }
 
@@ -6064,7 +6064,7 @@ void View2CommandClass::Execute(int key) const
     coord.Z = Map.Get_Height_GL(coord);
     TacticalMap->Set_Tactical_Position_006a66b0(coord);
     if (Map.PendingObject != 0) {
-        Map.Unknown_004994D0(unknown_geometry_k);
+        Map.Set_Cursor_Pos(unknown_geometry_k);
     }
 }
 
@@ -6115,7 +6115,7 @@ void View3CommandClass::Execute(int key) const
     coord.Z = Map.Get_Height_GL(coord);
     TacticalMap->Set_Tactical_Position_006a66b0(coord);
     if (Map.PendingObject != 0) {
-        Map.Unknown_004994D0(unknown_geometry_k);
+        Map.Set_Cursor_Pos(unknown_geometry_k);
     }
 }
 
@@ -6166,7 +6166,7 @@ void View4CommandClass::Execute(int key) const
     coord.Z = Map.Get_Height_GL(coord);
     TacticalMap->Set_Tactical_Position_006a66b0(coord);
     if (Map.PendingObject != 0) {
-        Map.Unknown_004994D0(unknown_geometry_k);
+        Map.Set_Cursor_Pos(unknown_geometry_k);
     }
 }
 
@@ -6212,7 +6212,7 @@ wchar_t const *SetView1CommandClass::Get_Description() const
 
 void SetView1CommandClass::Execute(int key) const
 {
-    Point2D point = TacticalMap->Unknown_006A67D0();
+    Point2D point = TacticalMap->Get_Relative_Tactical_Position();
     unknown_id_source_a3d290->Views[0] = TacticalMap->Pixel_To_Cell(point);
 }
 
@@ -6258,7 +6258,7 @@ wchar_t const *SetView2CommandClass::Get_Description() const
 
 void SetView2CommandClass::Execute(int key) const
 {
-    Point2D point = TacticalMap->Unknown_006A67D0();
+    Point2D point = TacticalMap->Get_Relative_Tactical_Position();
     unknown_id_source_a3d290->Views[1] = TacticalMap->Pixel_To_Cell(point);
 }
 
@@ -6304,7 +6304,7 @@ wchar_t const *SetView3CommandClass::Get_Description() const
 
 void SetView3CommandClass::Execute(int key) const
 {
-    Point2D point = TacticalMap->Unknown_006A67D0();
+    Point2D point = TacticalMap->Get_Relative_Tactical_Position();
     unknown_id_source_a3d290->Views[2] = TacticalMap->Pixel_To_Cell(point);
 }
 
@@ -6350,7 +6350,7 @@ wchar_t const *SetView4CommandClass::Get_Description() const
 
 void SetView4CommandClass::Execute(int key) const
 {
-    Point2D point = TacticalMap->Unknown_006A67D0();
+    Point2D point = TacticalMap->Get_Relative_Tactical_Position();
     unknown_id_source_a3d290->Views[3] = TacticalMap->Pixel_To_Cell(point);
 }
 

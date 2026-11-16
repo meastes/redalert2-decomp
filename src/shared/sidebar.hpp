@@ -32,7 +32,7 @@ extern int unknown_abcd48;
 // The screen size (0x007ADD80 width, 0x007ADD84 height; hypothesis) and the
 // rest of the sidebar/tactical rectangles (0x00839628 sidebar width,
 // 0x00839634 tactical Y, 0x0083963C tactical height).
-extern int unknown_int_7add84;
+extern int TabBarHeight;
 extern int unknown_int_839628;
 extern int unknown_int_83963c;
 extern int unknown_abcd78;
@@ -67,11 +67,11 @@ class FactoryClass;
 // The player's house as the sidebar uses it (a view of HouseClass).
 class UnknownSidebarHouse {
 public:
-    bool Unknown_004F4F30(TechnoTypeClass *type);       // 0x004F4F30 (can build the type; hypothesis)
+    bool Is_Build_Limited(TechnoTypeClass *type);       // 0x004F4F30 (can build the type; hypothesis)
 #ifdef RA2_SELECT_ACTION_UNIT
     FactoryClass *Unknown_004EB580(int kind, bool naval, int arg3);  // 0x004EB580 the house's factory for a kind
-    void Unknown_004EB620(int kind, bool naval, int arg3);  // 0x004EB620 (SelectClass::Action: production started)
-    bool Unknown_004EB770(int kind, bool naval, int arg3);  // 0x004EB770 (SelectClass::Action)
+    void Set_Production_Pending(int kind, bool naval, int arg3);  // 0x004EB620 (SelectClass::Action: production started)
+    bool Is_Production_Pending(int kind, bool naval, int arg3);  // 0x004EB770 (SelectClass::Action)
     bool Unknown_004E7070(TechnoClass *builder, BuildingClass *building);  // 0x004E7070 (TS Manual_Place)
 #endif
 };
@@ -106,7 +106,7 @@ void Unselect_All();
 #endif
 class ObjectTypeClass;
 // A buildable's type by kind and index (0x00482C00).
-ObjectTypeClass *__fastcall Unknown_00482C00(int kind, int id);
+ObjectTypeClass *__fastcall Fetch_Techno_Type(int kind, int id);
 // Help-text state: tooltips on (0x00A40958), cost-only format (0x008373C0)
 // and the text buffer (0x00AB9484).
 extern bool unknown_flag_8373c0;
@@ -116,7 +116,7 @@ extern wchar_t unknown_text_ab9484[];
 extern "C" unsigned int __cdecl wcslen(wchar_t const *string);     // 0x00783605
 
 // The game option bits unknown_flags_a3f600 are in shared/unknown_globals.hpp.
-// Unknown_005A09E0 (called when the sidebar is hidden) is in shared/unknown_globals.hpp.
+// Stop_Ingame_Movie (called when the sidebar is hidden) is in shared/unknown_globals.hpp.
 
 // The shape drawer (0x0049EEA0; shared/palette.hpp's declaration, which
 // this unit cannot include).
@@ -148,15 +148,15 @@ extern int unknown_abcd6c;
 class ObjectClass;
 class UnknownFactory {
 public:
-    void Unknown_004B97C0();                            // 0x004B97C0 (on removal from a strip)
-    int Unknown_004B98F0();
+    void Abandon();                            // 0x004B97C0 (on removal from a strip)
+    int Completion();
 #ifdef RA2_SELECT_ACTION_UNIT
-    int Unknown_004B9940();                             // 0x004B9940 a special item, or -1
-    int Unknown_004B9780();                             // 0x004B9780 the production rate
+    int Get_Special_Item();                             // 0x004B9940 a special item, or -1
+    int Build_Rate();                             // 0x004B9780 the production rate
 #endif
-    bool Unknown_004B9420();                            // 0x004B9420
-    bool Unknown_004B9430();                            // 0x004B9430 (just completed; hypothesis)
-    bool Unknown_004B9900();                            // 0x004B9900 (completed; hypothesis)
+    bool Is_On_Hold();                            // 0x004B9420
+    bool Has_Changed();                            // 0x004B9430 (just completed; hypothesis)
+    bool Has_Completed();                            // 0x004B9900 (completed; hypothesis)
     char unknown_00[0x34];
     int unknown_34;                                     // +0x34
     char unknown_38[0x6C - 0x38];
@@ -230,7 +230,7 @@ public:
         void Flag_To_Redraw();                          // 0x0067F030
         int Unknown_0067F7C0(int index);                // 0x0067F7C0 an icon's progress
         bool Unknown_006802D0();                        // 0x006802D0 (strip AI; true to redraw)
-        bool Unknown_00681730();                        // 0x00681730 any buildables
+        bool Has_Buildables();                        // 0x00681730 any buildables
         wchar_t const *Help_Text(int gadget_index);     // 0x0067F580 an icon's name and cost
         void const *Unknown_0067E740(int index);        // 0x0067E740 a super weapon type's sidebar icon, or null
         void Deactivate();                              // 0x0067E9A0 removes the strip's buttons

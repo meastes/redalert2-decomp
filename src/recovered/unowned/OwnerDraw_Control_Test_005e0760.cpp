@@ -5,7 +5,7 @@
 // a 0x005DF660 kind with ID 0x695 while the session byte +0x3080 is clear. Seed 0x005E0DA0
 // returns 0 or 1 in eax and the original tests only al (the char conversion).
 // @ref __imp__GetDlgCtrlID@4=0079a3f4
-// @ref ?Unknown_00672F10@SessionClass@@QAEEXZ=00672f10
+// @ref ?Is_In_Game@SessionClass@@QAEEXZ=00672f10
 #include "shared/win32_api.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
 
@@ -93,7 +93,7 @@ bool __fastcall OwnerDraw_Control_Test_005e0760(unsigned int key, HWND window)
         return true;
     }
     char special = seed_005df660::unknown_kind_test_005df660(kind);
-    if (((special != 0) && (id == 0x695)) && unknown_session_a3d298.Unknown_00672F10() == 0) {
+    if (((special != 0) && (id == 0x695)) && unknown_session_a3d298.Is_In_Game() == 0) {
         return true;
     }
     return false;

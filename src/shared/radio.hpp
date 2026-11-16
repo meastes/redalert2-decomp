@@ -16,7 +16,7 @@ class TechnoClass;
 
 // The message argument passed by the broadcast slots (0x00A40BE0; TibSun RadioClass::LParam).
 // Radio message arguments carry objects (the destination, the caller, a cell).
-extern AbstractClass *unknown_radio_param_a40be0;
+extern AbstractClass *LParam;
 
 class RadioClass : public MissionClass {
 public:

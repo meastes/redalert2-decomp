@@ -66,7 +66,7 @@ int Native_Harness_Sidebar_Point(char const *spec, int *x, int *y)
         for (int i = 0; i < shown && i < 60; ++i) {
             int index = column.unknown_40 * 2 + i;
             if (index >= column.BuildableCount) break;
-            ObjectTypeClass *type = Unknown_00482C00(column.Buildables[index].unknown_04, column.Buildables[index].unknown_00);
+            ObjectTypeClass *type = Fetch_Techno_Type(column.Buildables[index].unknown_04, column.Buildables[index].unknown_00);
             if (type && Same_Name(type->ID.Buffer, rest)) {
                 Centre(SidebarClass::SelectButton[strip * 60 + i], x, y);
                 return 1;

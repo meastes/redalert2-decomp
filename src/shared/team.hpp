@@ -36,7 +36,7 @@ class ScriptMissionClass;
 
 // Free functions of other units the script handlers call (hypotheses).
 void __fastcall Unknown_006D8FD0(FootClass *member, int arg2);       // 0x006D8FD0
-int __fastcall Unknown_006220E0(int value);                          // 0x006220E0 (the target kind for a script argument; hypothesis)
+int __fastcall Quarry_To_Threat(int value);                          // 0x006220E0 (the target kind for a script argument; hypothesis)
 
 class BuildingTypeClass;
 // The enemy building of a type that rates best by mode (0x006BCF70: lowest or highest house
@@ -73,23 +73,23 @@ public:
     bool Recalc_Strength();                                     // 0x006B8BB0 (updates the strength flags after the members changed)
     bool Add(FootClass *member);                    // 0x006B8CC0 (adds a member)
     bool Can_Add(FootClass *member, int *slot);         // 0x006B8DC0 (whether member may join; its task force slot)
-    int unknown_func_6b91c0(int slot);                              // 0x006B91C0 (Red Alert's Recruit: adds the nearest object for a task force slot)
-    void unknown_func_6b9610(AbstractClass **first, AbstractClass **second);   // 0x006B9610
+    int Recruit(int slot);                              // 0x006B91C0 (Red Alert's Recruit: adds the nearest object for a task force slot)
+    void Calc_Center(AbstractClass **first, AbstractClass **second);   // 0x006B9610
     void Flag_Into_Action();                                     // 0x006B8860
-    void unknown_func_6b88b0();                                     // 0x006B88B0 (TS Regroup: back to the best unarmed own building)
+    void Regroup();                                     // 0x006B88B0 (TS Regroup: back to the best unarmed own building)
     void Assign_Mission_Target(AbstractClass *target);                // 0x006B79E0 (sets the team's target)
     void Scan_Limit();                                     // 0x006BAA30 (clears the target of the team and its members)
     bool Has_Ammo();                                     // 0x006BE6E0 (whether any member has ammo or unlimited ammo)
-    static bool __fastcall unknown_func_6bdd80(ObjectClass *object);  // 0x006BDD80
+    static bool __fastcall _Is_It_Breathing(ObjectClass *object);  // 0x006BDD80
     bool Has_Air_Transport();                                     // 0x006BD810 (whether the task force has a transporter that carries passengers)
-    bool unknown_func_6b9f40();                                     // 0x006B9F40 (Red Alert's Coordinate_Regroup: whether no member had to move)
-    void unknown_func_6b9bb0();                                     // 0x006B9BB0
-    void unknown_func_6ba1a0();                                     // 0x006BA1A0
+    bool Coordinate_Regroup();                                     // 0x006B9F40 (Red Alert's Coordinate_Regroup: whether no member had to move)
+    void Coordinate_Attack();                                     // 0x006B9BB0
+    void Coordinate_Move();                                     // 0x006BA1A0
     FootClass *Fetch_A_Leader();                               // 0x006BAA60 (the best member for leading: highest LeadershipRating)
     void Team_Members(DynamicVectorClass<TechnoTypeClass *> &types);   // 0x006BD870 (the techno types the task force still lacks)
     static void __fastcall Suspend_Teams(int priority, HouseClass *house);   // 0x006BA8E0 (disbands the lower-priority teams of a house)
     bool Coordinate_Conscript(FootClass *member);                    // 0x006BA7D0
-    bool unknown_func_6ba600();                                     // 0x006BA600 (moves stray members back; returns and keeps whether any lags: Red Alert's Lagging_Units)
+    bool Lagging_Units();                                     // 0x006BA600 (moves stray members back; returns and keeps whether any lags: Red Alert's Lagging_Units)
     bool Is_A_Member(FootClass *object);                    // 0x006BA8B0 (whether object is a member)
     bool Has_Entered_Map();                                     // 0x006BAA00 (whether every member has +0x32D set)
     void unknown_func_6bd990(int value);                            // 0x006BD990 (stores value in every member)

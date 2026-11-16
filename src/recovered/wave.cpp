@@ -304,7 +304,7 @@ void WaveClass::Damage_Cell_00721eb0(CoordStruct const &coord)
             OverlayTypeClass *overlay = (OverlayTypeClass *)unknown_overlay_types_a35de8[cell.OverlayIndex];
             if (overlay->ChainReaction) {
                 location = cell.MapCoords;
-                location.unknown_47e2b0();
+                location.Chain_Reaction_Damage();
             }
             if (overlay->Wall) cell.Reduce_Wall(weapon->unknown_98);
         }

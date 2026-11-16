@@ -96,7 +96,7 @@ void GameControlsDialog::Run()
     }
     if (Window) {
         SetWindowLongA(Window, 8, (LONG)&result);
-        unknown_dialog_5ff7c0(Window);
+        Display_Dialog(Window);
         while (result == -1) {
             if (unknown_6000d0() == true) {
                 result = 2;
@@ -190,13 +190,13 @@ void __fastcall Game_Controls_Command(HWND window, int id, HWND control, unsigne
     switch (id) {
         case 0x52C:
             if (code == 0 && GameActive == 1) {
-                unknown_int_a40d48 = 4;
+                SpecialDialog = 4;
                 *result = 1;
             }
             break;
         case 0x52D:
             if (code == 0 && GameActive == 1) {
-                unknown_int_a40d48 = 6;
+                SpecialDialog = 6;
                 *result = 1;
             }
             return;
@@ -208,14 +208,14 @@ void __fastcall Game_Controls_Command(HWND window, int id, HWND control, unsigne
 
 int __stdcall Game_Controls_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int handled = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int handled = Default_Dialog_Proc(window, message, wparam, lparam);
     if (handled != 0) {
         return handled;
     }
     switch (message) {
         case 0x497: {
             HWND slider = GetDlgItem(window, 0x529);
-            if (unknown_game_mode_a3d298 == 0 && !unknown_flag_a40d84) {
+            if (unknown_game_mode_a3d298 == 0 && !GameControlsShown) {
                 ShowWindow(slider, SW_HIDE);
                 HWND hidden = GetDlgItem(window, 0x714);
                 ShowWindow(hidden, SW_HIDE);

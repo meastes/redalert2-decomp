@@ -27,7 +27,7 @@
 // defines the file's globals (0x00A71858-0x00A71877).
 // Unresolved: original names of the globals.
 
-int unknown_font_count_a71858;
+int InstanceCount;
 MSFontSlot unknown_font_slots_a71860[3];
 
 
@@ -44,7 +44,7 @@ MSFontSlot unknown_font_slots_a71860[3];
 MSFont::MSFont(bool use_side_palette)
 {
     Load(use_side_palette);
-    unknown_font_count_a71858++;
+    InstanceCount++;
 }
 
 
@@ -59,7 +59,7 @@ MSFont::MSFont(bool use_side_palette)
 #pragma auto_inline(off)
 MSFont::~MSFont()
 {
-    if (--unknown_font_count_a71858 == 0) {
+    if (--InstanceCount == 0) {
         for (int index = 0; index < 3; index++) {
             if (unknown_font_slots_a71860[index].unknown_00 != 0) {
                 unknown_font_slots_a71860[index].unknown_00 = 0;
@@ -85,7 +85,7 @@ bool MSFont::Load(bool sidebar)
 {
     CCFileClass file;
 
-    if (unknown_font_count_a71858 == 0) {
+    if (InstanceCount == 0) {
         OwnsShape = false;
         Shape = (ShapeFileStruct *)MixFileClass::Retrieve("FULLFNT3.SHP");
         if (Shape == 0) {

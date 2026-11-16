@@ -263,7 +263,7 @@ int __stdcall Faction_Select_Dialog_Proc_007689c0(HWND window, UINT message, WPA
     if (message == 0x110 && lparam != 0) {
         SetWindowLongA(window, 8, ((UnknownDialogCreateParam *)lparam)->Param);
     }
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result != 0) {
         return result;
     }

@@ -36,7 +36,7 @@ public:
     // cleared; 0x006E6050, TS's TEventClass::operator(); hypothesis).
     bool unknown_func_6e6050(int event, HouseClass *house, ObjectClass *object, CDTimerClass<FrameTimerClass> *timer,
                              bool *persistent, int source);
-    bool unknown_func_6e6cf0() const;                                   // 0x006E6CF0
+    bool Is_Time_Based() const;                                   // 0x006E6CF0
     bool Is_To_Flag_As_Tripped() const;                                   // 0x006E6D50 (false for types 1, 6, 0x2C)
     static int __fastcall Event_Flags(int type);                        // 0x006E6A30 (hypothesis)
 
@@ -48,6 +48,6 @@ public:
 };
 
 // Every event (0x00AC0808; defined in this unit).
-extern DynamicVectorClass<TEventClass *> unknown_TEventClass_list_00ac0808;
+extern DynamicVectorClass<TEventClass *> Events;
 
 #endif

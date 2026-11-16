@@ -24,9 +24,9 @@
 // @ref ?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A=00a32298
 // @ref ?Ipx@@3VIPXManagerClass@@A=00a40978
 // @ref ?OwnerTalk@@3VOwnerTalkClass@@A=00ab6d18
-// @ref ?Unknown_005bba50@@YIHPAG@Z=005bba50
-// @ref ?Unknown_Play_Taunt_00715fb0@@YIXD@Z=00715fb0
-// @ref ?Unknown_0063F4C0@OwnerTalkClass@@QAEEH@Z=0063f4c0
+// @ref ?Compute_Name_CRC_W@@YIHPAG@Z=005bba50
+// @ref ?Play_Taunt@@YIXD@Z=00715fb0
+// @ref ?Mask_From_ID@OwnerTalkClass@@QAEEH@Z=0063f4c0
 // @ref ?Wide_To_Narrow_006fa120@@YIPADPBG@Z=006fa120
 // @ref _wcscmp=007837d3
 // @ref ?Service@IPXManagerClass@@UAEHXZ=00525f60
@@ -57,10 +57,10 @@ void TauntCommandClass::Execute(int key) const
     packet.Type = 0x1D;
     strcpy(packet.Name, Wide_To_Narrow_006fa120(unknown_players_a3fa7c[0]->Name));
     packet.Session = unknown_a3d3b4;
-    packet.Checksum = Unknown_005bba50(unknown_host_name_a3f618);
+    packet.Checksum = Compute_Name_CRC_W(unknown_host_name_a3f618);
     unsigned char high = unknown_players_a3fa7c[0]->unknown_4b << 4;
     packet.Packed = ((TauntNumber & 0xf) ^ high) & 0xf ^ high;
-    Unknown_Play_Taunt_00715fb0(packet.Packed);
+    Play_Taunt(packet.Packed);
     packet.Muted = 0;
     int houses = Houses.Count();
     for (int h = 0; h < houses; h++) {
@@ -72,7 +72,7 @@ void TauntCommandClass::Execute(int key) const
                 if (wcscmp(house->UIName, Ipx.Connection_Name(id)) == 0) {
                     IPXAddressClass *address = Ipx.Connection_Address(id);
                     if (unknown_flag_a3fba8) {
-                        packet.Muted |= OwnerTalk.Unknown_0063F4C0(id);
+                        packet.Muted |= OwnerTalk.Mask_From_ID(id);
                     } else {
                         Ipx.Send_Global_Message(&packet, 0x1C7, 1, address, 0, 0);
                         Ipx.Service();

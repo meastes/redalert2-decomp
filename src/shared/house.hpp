@@ -208,14 +208,14 @@ public:
     bool Is_Player_Control();                              // 0x004F52B0 (TechnoClass slots 24, 38, 39, 80; ObjectClass slot 80 tests al; local player or human flag)
     bool Unknown_004F52F0();                               // 0x004F52F0
     void Unknown_004EF5A0();                               // 0x004EF5A0 (UnitClass 0x006FDFC0 after moving BaseCenter; result unused)
-    void Unknown_004F6310();                               // 0x004F6310 (UnitClass 0x006FDFC0 after moving the base plan; reads BaseCenter)
-    float Unknown_004F5B30();                              // 0x004F5B30 (a float of the owner type, +0x148; UnitClass 0x00707130 scales the load value by it)
+    void Recall_Units_To_Base();                               // 0x004F6310 (UnitClass 0x006FDFC0 after moving the base plan; reads BaseCenter)
+    float Income_Multiplier();                              // 0x004F5B30 (a float of the owner type, +0x148; UnitClass 0x00707130 scales the load value by it)
     void Spend_Money(int amount);                      // 0x004E5280 (spends credits; TechnoClass slot 95 repair)
     bool Flag_Attach(Cell const &cell, bool arg2);         // 0x004E76A0 (RA's Flag_Attach-like: keeps the cell's object at +0x5308; UnitClass slot 52; hypothesis)
-    void Unknown_004ED610(TechnoClass *techno, bool arg2);   // 0x004ED610 (TechnoClass slot 53: the object enters the map)
+    void Tracking_Active_Add(TechnoClass *techno, bool arg2);   // 0x004ED610 (TechnoClass slot 53: the object enters the map)
     void Unknown_004ED440(TechnoClass *techno, bool arg2);   // 0x004ED440 (TechnoClass slot 52: the object leaves the map)
     double Unknown_004F5A20(TechnoTypeClass *type);       // 0x004F5A20 (a speed factor for a type; FootClass slot 303)
-    Cell Unknown_004EB270(FootClass *foot);          // 0x004EB270 (a cell for a unit to guard; FootClass slot 144)
+    Cell Where_To_Go(FootClass *foot);          // 0x004EB270 (a cell for a unit to guard; FootClass slot 144)
     bool Ion_Sensitives_Should_Be_Offline();                               // 0x0051FC80 (FootClass slot 53: the locomotor powers off when it holds; hypothesis: ion storm)
     double Tiberium_Fraction() const;                      // 0x004E2DF0 (stored tiberium over capacity)
     void Refund_Money(int amount);                         // 0x004E5440
@@ -227,10 +227,10 @@ public:
     void Make_Ally(HouseClass *house, bool announce);      // 0x004E5660
     void Make_Enemy(int house, bool announce);             // 0x004E5A50
     void Make_Enemy(HouseClass *house, bool announce);     // 0x004E5A70
-    void unknown_func_4e8300(int color, int arg2, int balance);   // 0x004E8300
+    void Init_Data(int color, int arg2, int balance);   // 0x004E8300
     double Power_Fraction() const;                         // 0x004E8330 (1 when power covers the drain)
     float unknown_func_4f5a20(TechnoTypeClass *type);       // 0x004F5A20 (the owner type's multiplier for the type's kind; FootClass 0x004C9B10)
-    float unknown_func_4f5a70(TechnoTypeClass *type);       // 0x004F5A70 (the owner type's build time multiplier for the type's kind; TechnoClass 0x006C22A0)
+    float GetArmorMultiplier(TechnoTypeClass *type);       // 0x004F5A70 (the owner type's build time multiplier for the type's kind; TechnoClass 0x006C22A0)
     float Armor_Multiplier(TechnoTypeClass *type);       // 0x004F58A0 (the owner type's armor multiplier against the type's kind; TechnoClass 0x006CA6C0)
     // Index in Houses of the house with this name, or -1 (0x004F5B40).
     static int __fastcall Find_Index(char const *name);
@@ -279,7 +279,7 @@ public:
     void unknown_func_4f5880();                            // 0x004F5880 (the local player's house tells the map)
     int unknown_func_4f30d0();                             // 0x004F30D0 (the first waypoint path without waypoints, else -1)
     void Make_Waypoint_Path(int index);                    // 0x004EE8A0
-    void unknown_func_4e7150();                            // 0x004E7150 (deletes the house, its technos and triggers)
+    void Clobber_All();                            // 0x004E7150 (deletes the house, its technos and triggers)
     void Silo_Redraw_Check(int tiberium, int capacity);    // 0x004E5460
     BuildingClass *Find_Building(int type, int zone);      // 0x004E8560 (zone -1: any)
     int Which_Zone(CoordStruct const &coord) const;        // 0x004EAD40
@@ -302,7 +302,7 @@ public:
     void unknown_func_4ec9b0();                            // 0x004EC9B0 (a member: its callers pass this)
     bool Fetch_Waypoint_Data(WaypointClass *waypoint, int *path, char *position);   // 0x004ED2B0
     void unknown_func_4ecfb0(CoordStruct const &coord);    // 0x004ECFB0
-    void unknown_func_4eeba0(int amount, HouseClass *house);   // 0x004EEBA0 (anger)
+    void Add_Anger(int amount, HouseClass *house);   // 0x004EEBA0 (anger)
     bool unknown_func_4f5320(BuildingTypeClass *type, Cell const &cell);   // 0x004F5320 (the widened foundation touches a cell with this house's bit)
     // Where the AI puts a structure: ranks the base cells by `score` (context passed through), then scans outward (0x004F03C0, TibSun name).
     Cell Where_To_Place_Building(BuildingTypeClass *type, int (__fastcall *score)(HouseClass *, Cell const &, int, int), int context);
@@ -368,7 +368,7 @@ public:
     void unknown_func_4eeb90();                            // 0x004EEB90 (BuildingClass 0x0044D530)
     void unknown_func_4eac70(TechnoClass *techno);         // 0x004EAC70
     bool Is_Allowed_To_Ally(HouseClass *house);            // 0x004EC4E0 (name hypothesis)
-    static void unknown_func_4ec5e0();                     // 0x004EC5E0
+    static void Computer_Paranoid();                     // 0x004EC5E0
     static int __fastcall unknown_func_4eb550(int kind, int index);   // 0x004EB550 (a building type's +0xBA0)
     int unknown_func_4e63f0(int kind, int index, bool naval);   // 0x004E63F0
     // RA's Abandon_Production: 0, or 3 when the house has no factory for the
@@ -400,7 +400,7 @@ public:
     static void __fastcall Write_Scenario_INI(CCINIClass &ini);   // 0x004EC180
     BuildingClass *unknown_func_4e5160();                  // 0x004E5160 (the storage building with most free room)
     void unknown_func_4e7df0();                            // 0x004E7DF0 (destroys every techno the house owns)
-    bool unknown_func_4e7e80();                            // 0x004E7E80
+    bool Flag_To_Die();                            // 0x004E7E80
     bool Flag_To_Win(bool quiet);                          // 0x004E7EE0 (RA's name)
     void Flag_To_End();                            // 0x004E82C0
     bool Flag_To_Lose(bool quiet);                         // 0x004E80D0 (RA's name)

@@ -475,8 +475,8 @@ void FlyLocomotionClass::unknown_4bcd50()
             LinkedTo->Take_Damage(&LinkedTo->Strength,0,Rules->C4Warhead,0,true,1);
             Cell cell=Cell(coord);
             new AnimClass(Select_Damage_Anim(damage,Rules->C4Warhead,Fly_Land_004bcd50(Map[cell]),&oldcoord),coord,0,1,0x2600,Get_Explosion_Z_0047fcc0(coord));
-            Unknown_0047F600(coord,damage,Rules->C4Warhead,0,0);
-            Unknown_0047E2C0(coord,damage,0,Rules->C4Warhead,1);
+            Combat_Lighting(coord,damage,Rules->C4Warhead,0,0);
+            Explosion_Damage(coord,damage,0,Rules->C4Warhead,1);
             return;
         }
     } else {
@@ -495,7 +495,7 @@ void FlyLocomotionClass::unknown_4bcd50()
     Physics_004bdc20(coord,LinkedTo->PrimaryFacing.Current());
     if (!Map.In_Radar(Cell(coord)) && LinkedTo->unknown_slot282()) {
         Cell cell=Cell(coord);
-        Cell edge=Map.Unknown_00547F30(cell);
+        Cell edge=Map.Cell_To_LocalRect(cell);
         if (edge.X<Map.unknown_128/2) {
             coord.X+=128;
         } else {

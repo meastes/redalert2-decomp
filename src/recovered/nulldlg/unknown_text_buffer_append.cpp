@@ -10,7 +10,7 @@ extern char *unknown_text_buffer_a40a34;
 extern int unknown_text_capacity_a40a38;
 extern int unknown_text_length_a40a3c;
 
-void __fastcall unknown_text_buffer_append_005cfd70(char character)
+void __fastcall Modem_Echo(char character)
 {
     if (unknown_text_length_a40a3c < unknown_text_capacity_a40a38 - 1) {
         unknown_text_buffer_a40a34[unknown_text_length_a40a3c] = character;

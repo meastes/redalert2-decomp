@@ -167,7 +167,7 @@ void __fastcall Unknown_005bbdd0(bool full)
                 case 8: swprintf(country_name,L"%s",StringTable::Load_String("TXT_NOD",0,"D:\\Ra2\\netdlg2.cpp",407)); break;
                 }
                 SendMessageA(users,0x4cc,-1,(LPARAM)info);
-                int color=unknown_color_values_7e6d94[unknown_players_a3fa7c[player]->unknown_53];
+                int color=PlayerColorTable[unknown_players_a3fa7c[player]->unknown_53];
                 cell.Flags=4;
                 cell.unknown_0c=color;
                 cell.Secondary.Set(unknown_empty_wide_839d4c);
@@ -831,9 +831,9 @@ bool __fastcall Net_Join_Dialog_005bd070()
             unknown_session_a3d298.unknown_2e4 = 0;
             unknown_a3d580 = 0;
             if (unknown_session_a3d2ac == 2) {
-                unknown_max_ahead_a3d560 = ((Ipx.unknown_526c30() / 8 + unknown_session_a3d298.unknown_2cc - 1) / unknown_session_a3d298.unknown_2cc) * unknown_session_a3d298.unknown_2cc > unknown_session_a3d298.unknown_2cc * 2 ? ((Ipx.unknown_526c30() / 8 + unknown_session_a3d298.unknown_2cc - 1) / unknown_session_a3d298.unknown_2cc) * unknown_session_a3d298.unknown_2cc : unknown_session_a3d298.unknown_2cc * 2;
+                unknown_max_ahead_a3d560 = ((Ipx.Global_Response_Time() / 8 + unknown_session_a3d298.unknown_2cc - 1) / unknown_session_a3d298.unknown_2cc) * unknown_session_a3d298.unknown_2cc > unknown_session_a3d298.unknown_2cc * 2 ? ((Ipx.Global_Response_Time() / 8 + unknown_session_a3d298.unknown_2cc - 1) / unknown_session_a3d298.unknown_2cc) * unknown_session_a3d298.unknown_2cc : unknown_session_a3d298.unknown_2cc * 2;
             } else {
-                unknown_max_ahead_a3d560 = (int)Ipx.unknown_526c30() / 8 > 2 ? (int)Ipx.unknown_526c30() / 8 : 2;
+                unknown_max_ahead_a3d560 = (int)Ipx.Global_Response_Time() / 8 > 2 ? (int)Ipx.Global_Response_Time() / 8 : 2;
             }
             unknown_session_a3f616 = false;
             unknown_session_a3d298.Write_MultiPlayer_Settings();
@@ -907,7 +907,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
                         }
                     }
                     mode->unknown_slot22();
-                    unknown_session_a3d298.Unknown_00672BB0();
+                    unknown_session_a3d298.Assign_Random_Choices();
                     PumpGameopts(true, true);
                     {
                         UnknownGlobalPacket packet;
@@ -932,11 +932,11 @@ bool __fastcall Net_Join_Dialog_005bd070()
                     unknown_session_a3d298.unknown_2e4 = 0;
                     unknown_a3d580 = 0;
                     if (unknown_session_a3d2ac == 2) {
-                        unknown_max_ahead_a3d560 = ((Ipx.unknown_526c30() / 8 + unknown_session_a3d298.unknown_2cc - 1) / unknown_session_a3d298.unknown_2cc) * unknown_session_a3d298.unknown_2cc > unknown_session_a3d298.unknown_2cc * 2 ? ((Ipx.unknown_526c30() / 8 + unknown_session_a3d298.unknown_2cc - 1) / unknown_session_a3d298.unknown_2cc) * unknown_session_a3d298.unknown_2cc : unknown_session_a3d298.unknown_2cc * 2;
+                        unknown_max_ahead_a3d560 = ((Ipx.Global_Response_Time() / 8 + unknown_session_a3d298.unknown_2cc - 1) / unknown_session_a3d298.unknown_2cc) * unknown_session_a3d298.unknown_2cc > unknown_session_a3d298.unknown_2cc * 2 ? ((Ipx.Global_Response_Time() / 8 + unknown_session_a3d298.unknown_2cc - 1) / unknown_session_a3d298.unknown_2cc) * unknown_session_a3d298.unknown_2cc : unknown_session_a3d298.unknown_2cc * 2;
                     } else {
-                        unknown_max_ahead_a3d560 = (int)Ipx.unknown_526c30() / 8 > 2 ? (int)Ipx.unknown_526c30() / 8 : 2;
+                        unknown_max_ahead_a3d560 = (int)Ipx.Global_Response_Time() / 8 > 2 ? (int)Ipx.Global_Response_Time() / 8 : 2;
                     }
-                    Ipx.Set_Timing(30 > Ipx.unknown_526c30() + 2 ? 30 : Ipx.unknown_526c30() + 2, -1, 600, true);
+                    Ipx.Set_Timing(30 > Ipx.Global_Response_Time() + 2 ? 30 : Ipx.Global_Response_Time() + 2, -1, 600, true);
 
                     UnknownGlobalPacket packet;
                     memset(&packet, 0, sizeof(packet));
@@ -995,8 +995,8 @@ bool __fastcall Net_Join_Dialog_005bd070()
                         }
                         Send_Remote_File_0066bb20(unknown_id_source_a3d290->FileName, 3, false, true);
                     }
-                    Ipx.Set_Timing(Ipx.unknown_526c30() + 2 > 30 ? Ipx.unknown_526c30() + 2 : 30,
-                        -1, 120 > Ipx.unknown_526c30() * 8 ? 120 : Ipx.unknown_526c30() * 8, true);
+                    Ipx.Set_Timing(Ipx.Global_Response_Time() + 2 > 30 ? Ipx.Global_Response_Time() + 2 : 30,
+                        -1, 120 > Ipx.Global_Response_Time() * 8 ? 120 : Ipx.Global_Response_Time() * 8, true);
                     break;
                 }
             }
@@ -1014,7 +1014,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
 
 bool __fastcall Start_Joined_Game_005be3b0(int unknown)
 {
-    Ipx.Set_Timing(Ipx.unknown_526c30() + 2 > 30 ? Ipx.unknown_526c30() + 2 : 30,
+    Ipx.Set_Timing(Ipx.Global_Response_Time() + 2 > 30 ? Ipx.Global_Response_Time() + 2 : 30,
         -1, 1000, true);
     if (Find_Local_Scenario_0066c5b0(unknown_session_a3d298.ScenarioFileName_658, unknown_session_a3d298.ScenarioFileLength_87c, unknown_session_a3d298.ScenarioDigest_85a,
             unknown_session_a3d298.ScenarioIsOfficial_880, true) == true) {
@@ -1052,7 +1052,7 @@ bool __fastcall Start_Joined_Game_005be3b0(int unknown)
         }
     }
     strcpy(unknown_id_source_a3d290->FileName, unknown_session_a3d298.ScenarioFileName_658);
-    int response = Ipx.unknown_526c30();
+    int response = Ipx.Global_Response_Time();
     if (response < 20) {
         Debug_Printf("IPX.Global_Response_Time() == %d. Adjusting to 20\n", response);
         response = 20;
@@ -1129,7 +1129,7 @@ long __stdcall Join_Dialog_Proc_005be6b0(HWND window, unsigned message, unsigned
         case 0x540:             // the chat line
             Limit_Name_Text_005ccf50((HWND)lparam);
             if ((unsigned short)(wparam >> 16) == 0x501) {
-                Send_Chat_Message_005bee20(window, unknown_color_7a737c, unknown_color_7a7364);
+                Send_Chat_Message_005bee20(window, ColorMe, unknown_color_7a7364);
                 return 0;
             }
             break;
@@ -1256,7 +1256,7 @@ void __fastcall Send_Chat_Message_005bee20(HWND dialog, int color, int unknown)
         strcpy(packet.Name, unknown_name_a3d3a0);
         wcscpy(packet.Message.Buf, text);
         packet.Message.unknown_110 = unknown;
-        packet.Message.unknown_114 = Unknown_005bba50(unknown_host_name_a3f618);
+        packet.Message.unknown_114 = Compute_Name_CRC_W(unknown_host_name_a3f618);
         if (unknown_join_state_a71e94 == 2) {
             int count = unknown_players_a3fa7c.Count();
             for (int i = 1; i < count; i++) {
@@ -1380,7 +1380,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
         case 0x540:             // the chat line
             Limit_Name_Text_005ccf50((HWND)lparam);
             if ((unsigned short)(wparam >> 16) == 0x501) {
-                Send_Chat_Message_005bee20(window, unknown_color_7a737c, unknown_color_7a7364);
+                Send_Chat_Message_005bee20(window, ColorMe, unknown_color_7a7364);
                 return 0;
             }
             break;
@@ -1801,7 +1801,7 @@ bool __fastcall Answer_Query_005c05f0(UnknownGlobalPacket *packet, IPXAddressCla
             strcpy(answer.unknown_18, unknown_a71bc4);
             answer.PlayerInfo.unknown_2f = unknown_session_a3d298.Value_0124_006729f0();
             answer.PlayerInfo.unknown_33 = unknown_session_a3d298.Value_011c_00672a10();
-            answer.PlayerInfo.unknown_37 = Unknown_005bba50(unknown_host_name_a3f618);
+            answer.PlayerInfo.unknown_37 = Compute_Name_CRC_W(unknown_host_name_a3f618);
             answer.PlayerInfo.Slot = unknown_lobby_a3fa94;
             answer.PlayerInfo.Observer = unknown_lobby_a3fa94 == unknown_lobby_flag_7e6d90;
             if (unknown_players_a3fa7c.Count() == 0) {
@@ -2129,7 +2129,7 @@ void __fastcall Get_Join_Responses_005c08a0()
                         }
                         bool color_changed = unknown_player_slots_a3fa98[i]->Get_Color_0066e2a0() != newcolor;
                         if (color_changed) {
-                            if (unknown_session_a3d298.Unknown_006728D0(newcolor)) {
+                            if (unknown_session_a3d298.Is_Color_Used(newcolor)) {
                                 newcolor = -2;
                             }
                             unknown_player_slots_a3fa98[i]->unknown_66e300(newcolor);
@@ -2534,7 +2534,7 @@ long __stdcall Join_Lobby_Dialog_Proc_005c2330(HWND window, unsigned message, un
         case 0x540:
             Limit_Name_Text_005ccf50((HWND)lparam);
             if ((unsigned short)(wparam >> 16) == 0x501) {
-                Send_Chat_Message_005bee20(window, unknown_color_7a737c, unknown_color_7a7364);
+                Send_Chat_Message_005bee20(window, ColorMe, unknown_color_7a7364);
                 return 0;
             }
             break;

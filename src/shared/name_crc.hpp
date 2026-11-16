@@ -4,6 +4,6 @@
 #ifndef RA2_SHARED_NAME_CRC_HPP
 #define RA2_SHARED_NAME_CRC_HPP
 
-int __fastcall Unknown_005bba50(unsigned short *name);
+int __fastcall Compute_Name_CRC_W(unsigned short *name);
 
 #endif

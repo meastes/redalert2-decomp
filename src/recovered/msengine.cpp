@@ -348,7 +348,7 @@ void MSEngine::Run(int frames)
             Wait_Blit();
             Draw(HiddenSurface);
             Blit_Rects(HiddenSurface);
-            unknown_5b5ee0();
+            Windows_Message_Handler();
             if (!GameInFocus) {
                 timer.Stop();
                 Check_Focus();
@@ -377,7 +377,7 @@ void MSEngine::Check_Focus()
         while (!GameInFocus) {
             Debug_Printf("MSEngine - Sleeping\n");
             Sleep(500);
-            unknown_5b5ee0();
+            Windows_Message_Handler();
         }
         Debug_Printf("MSEngine - Resuming animations\n");
         for (index = 0; index < Anims.Count(); index++) {

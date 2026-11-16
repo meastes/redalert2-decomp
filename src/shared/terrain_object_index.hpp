@@ -12,7 +12,7 @@
 // line there (VC6_MATCHING_NOTES.md, Swizzle_Pointer).
 inline bool Add_Object_Index(long id, AbstractClass *object)
 {
-    return unknown_object_index_abff58.Add_Index(id, object);
+    return TargetTracker.Add_Index(id, object);
 }
 
 #endif

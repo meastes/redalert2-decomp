@@ -187,7 +187,7 @@
    "padding_bytes": 4
   },
   {
-   "symbol": "?unknown_func_462110@BulletClass@@QAEXABUCoordStruct@@@Z",
+   "symbol": "?Detonate@BulletClass@@QAEXABUCoordStruct@@@Z",
    "entry": "00462110",
    "body_bytes": 2879,
    "padding_bytes": 1
@@ -1167,7 +1167,7 @@
   },
   {
    "site": "006d7e20",
-   "symbol": "?unknown_func_462110@BulletClass@@QAEXABUCoordStruct@@@Z",
+   "symbol": "?Detonate@BulletClass@@QAEXABUCoordStruct@@@Z",
    "target": "00462110",
    "function_entry": true
   },
@@ -1462,6 +1462,10 @@
    "address": "0047f4d0"
   },
   {
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "address": "0047f600"
+  },
+  {
    "symbol": "?Compute_CRC@ObjectClass@@UBEXAAVWWCRCEngine@@@Z",
    "address": "005d4b10"
   },
@@ -1504,6 +1508,10 @@
   {
    "symbol": "?Exit_Object@ObjectClass@@UAEHPAVTechnoClass@@@Z",
    "address": "005d2c70"
+  },
+  {
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "address": "0047e2c0"
   },
   {
    "symbol": "?Fall_From_Height@ObjectClass@@UAEXXZ",
@@ -1888,14 +1896,6 @@
   {
    "symbol": "?Unknown_0047CE40@RadSiteCell@@QAEPAVRadSiteClass@@XZ",
    "address": "0047ce40"
-  },
-  {
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
-   "address": "0047e2c0"
-  },
-  {
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
-   "address": "0047f600"
   },
   {
    "symbol": "?Unknown_004BBAF0@@YIHPAVCellClass@@00UCoordStruct@@PAVBulletTypeClass@@PAVHouseClass@@@Z",

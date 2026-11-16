@@ -49,9 +49,9 @@ void MapGeneratorClass::Cleanup()
 {
     SeededWaterAmount=0;
     WorkingRegionID=0;
-    if(unknown_map_cells_a70a24!=0) {
-        delete [] unknown_map_cells_a70a24;
-        unknown_map_cells_a70a24=0;
+    if(RMGCellData!=0) {
+        delete [] RMGCellData;
+        RMGCellData=0;
     }
     for(int index=(int)((unsigned int)unknown_map_regions_a6fd28.Count()-1u);index>=0;--index) {
         MapRegionClass *region=unknown_map_regions_a6fd28[index];

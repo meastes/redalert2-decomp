@@ -61,7 +61,7 @@ static void Select_If_Named(TechnoClass *techno, DynamicVectorClass<char const *
     }
 }
 
-void __fastcall Unknown_006F7360()
+void __fastcall Command_Type_Select()
 {
     if (MuteSWLaunches != 0) {
         return;

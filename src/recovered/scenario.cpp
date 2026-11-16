@@ -407,7 +407,7 @@ void ScenarioClass::Set_Defaults()
 bool __fastcall Start_Scenario_0065bc70(char const *name, bool briefing, int campaign)
 {
     if ((name == 0 || strlen(name) == 0) && campaign != -1) {
-        if (unknown_flag_a40d05 == true) {
+        if (Debug_ForceScenario == true) {
             name = unknown_scenario_name_a35ea8;
         } else {
             name = Campaigns[campaign]->Scenario;
@@ -426,8 +426,8 @@ bool __fastcall Start_Scenario_0065bc70(char const *name, bool briefing, int cam
         }
     } else if (unknown_session_a3d298.ScenarioIndex != -1) {
         MultiMission *mission = unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex];
-        if (!mission->Unknown_00671F00(Unknown_0046E4C0(60))) {
-            CD::Set_Required_CD(mission->Unknown_00671F90());
+        if (!mission->Is_On_CD(Unknown_0046E4C0(60))) {
+            CD::Set_Required_CD(mission->On_Which_CD());
         }
     }
     unknown_counter_a3fabc++;
@@ -749,7 +749,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
         ProgressScreen.Init(100.0, players, 0);
         wchar_t const *game_id = 0;
         wchar_t text[130];
-        if (unknown_game_mode_a3d298 == 4 && unknown_b2a7ec != 0) {
+        if (unknown_game_mode_a3d298 == 4 && WestwoodOnline_Tournament != 0) {
             swprintf(text, StringTable::Load_String("TXT_GAME_ID", 0, "D:\\Ra2\\Scenario.CPP", 1303), unknown_b2a7fc);
             game_id = text;
         }
@@ -927,7 +927,7 @@ void __fastcall Fill_In_Data_0065cdd0()
         }
     }
 
-    Map.Unknown_0049DE00(true, false);
+    Map.Reveal_Technos(true, false);
     Initialize_Wave_Tables_00721bf0();
     Map.Reset_Iterator();
     for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
@@ -1018,7 +1018,7 @@ void Sound_Clear_Static();
 void Unknown_00613E50();
 void Unknown_0051FBB0();
 extern HouseClass *PlayerPtr;
-extern BombListClass unknown_bomb_list_8322e0;
+extern BombListClass BombList;
 extern DynamicVectorClass<ObjectClass *> CurrentObjects;
 extern DynamicVectorClass<int> unknown_map_list_83252c;
 extern ParticleSystemClass *GasSystem;
@@ -1091,7 +1091,7 @@ void Clear_Scenario_0065d370()
     VeinholeMonsterClass::Reset();
     seed_006e9670::Deinit_Tiberium_Spread_System_006e9670();
     seed_006ea130::Deinit_Tiberium_Growth_System_006ea130();
-    unknown_bomb_list_8322e0.Clear();
+    BombList.Clear();
     KamikazeTracker.Clear();
     AircraftTracker.Clear_00413540();
     Unknown_00613E50();
@@ -1133,12 +1133,12 @@ void __fastcall Do_Win_0065d7f0()
 {
     if (unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5 && !(unknown_flags_a3f600 & 2)) {
         Unknown_00624850();
-        Unknown_0053F780();
+        Disconnect_Gracefully();
     }
     ScenarioActive = false;
     TacticalActive = false;
     unknown_id_source_a3d290->ElapsedTime.Stop();
-    Unknown_005A09E0();
+    Stop_Ingame_Movie();
     WWMouse->Erase_Mouse(HiddenSurface, false);
     WWMouse->Release_Mouse();
     Map.Set_Default_Mouse(0, false);
@@ -1150,7 +1150,7 @@ void __fastcall Do_Win_0065d7f0()
         Service_Game_IO_00481fb0();
     }
     Speech_Stop(true);
-    Unknown_007160D0();
+    Aux_Stream_Stop();
     Audio_Stop();
     Sound_Clear_Static();
     Audio_Global_Levels[7]->Volume.Set(0x4000);
@@ -1200,7 +1200,7 @@ void __fastcall Do_Win_0065d7f0()
         if (unknown_id_source_a3d290->PreMapSelectMovie != -1) {
             Unknown_005A07F0(unknown_id_source_a3d290->PreMapSelectMovie, -1, 1, 1, 1);
         }
-        if (!Unknown_00491A10() || unknown_id_source_a3d290->OneTimeOnly) {
+        if (!CheckProtectedData() || unknown_id_source_a3d290->OneTimeOnly) {
             GameActive = false;
             WWMouse->Show_Mouse();
             return;
@@ -1265,7 +1265,7 @@ void __fastcall Do_Win_0065d7f0()
         }
         WWKeyboard->Clear();
     }
-    GameActive = Unknown_00491A10();
+    GameActive = CheckProtectedData();
     if (!GameActive) {
         WWMouse->Show_Mouse();
         return;
@@ -1275,10 +1275,10 @@ void __fastcall Do_Win_0065d7f0()
         && unknown_session_a3d29c->unknown_slot2()) {
         unknown_session_a3d298.Create_Connections();
         if (unknown_game_mode_a3d298 == 3) {
-            Ipx.Set_Timing(Max(Ipx.unknown_526c30() + 2, 15), -1, 600, true);
-            Ipx.unknown_slot14(Max(Ipx.unknown_526c30() + 2, 60), -1, 600);
+            Ipx.Set_Timing(Max(Ipx.Global_Response_Time() + 2, 15), -1, 600, true);
+            Ipx.unknown_slot14(Max(Ipx.Global_Response_Time() + 2, 60), -1, 600);
         } else if (unknown_game_mode_a3d298 == 4 && unknown_a3d580 == 0) {
-            Ipx.Set_Timing(Max(Ipx.unknown_526c30() + 2, 60), -1, 600, true);
+            Ipx.Set_Timing(Max(Ipx.Global_Response_Time() + 2, 60), -1, 600, true);
         }
     }
     unknown_scenario_checkpoint_00855a90.Restore_004B5B40();
@@ -1303,12 +1303,12 @@ void __fastcall Do_Lose_0065dec0()
 {
     if (unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5 && !(unknown_flags_a3f600 & 2)) {
         Unknown_00624850();
-        Unknown_0053F780();
+        Disconnect_Gracefully();
     }
     ScenarioActive = false;
     TacticalActive = false;
     unknown_id_source_a3d290->ElapsedTime.Stop();
-    Unknown_005A09E0();
+    Stop_Ingame_Movie();
     WWMouse->Erase_Mouse(HiddenSurface, false);
     WWMouse->Release_Mouse();
     Map.Set_Default_Mouse(0, false);
@@ -1324,7 +1324,7 @@ void __fastcall Do_Lose_0065dec0()
         Service_Game_IO_00481fb0();
     }
     Speech_Stop(true);
-    Unknown_007160D0();
+    Aux_Stream_Stop();
     Audio_Stop();
     Sound_Clear_Static();
     Audio_Global_Levels[7]->Volume.Set(0x4000);
@@ -1404,10 +1404,10 @@ void __fastcall Do_Lose_0065dec0()
             && unknown_session_a3d29c->unknown_slot2()) {
             unknown_session_a3d298.Create_Connections();
             if (unknown_game_mode_a3d298 == 3) {
-                Ipx.Set_Timing(Max(Ipx.unknown_526c30() + 2, 15), -1, 600, true);
-                Ipx.unknown_slot14(Max(Ipx.unknown_526c30() + 2, 60), -1, 600);
+                Ipx.Set_Timing(Max(Ipx.Global_Response_Time() + 2, 15), -1, 600, true);
+                Ipx.unknown_slot14(Max(Ipx.Global_Response_Time() + 2, 60), -1, 600);
             } else if (unknown_game_mode_a3d298 == 4 && unknown_a3d580 == 0) {
-                Ipx.Set_Timing(Max(Ipx.unknown_526c30() + 2, 60), -1, 600, true);
+                Ipx.Set_Timing(Max(Ipx.Global_Response_Time() + 2, 60), -1, 600, true);
             }
         }
         unknown_scenario_checkpoint_00855a90.Restore_004B5B40();
@@ -1437,14 +1437,14 @@ void __fastcall Do_Restart_0065e440()
         ToolTips->Enable(false);
     }
     unknown_id_source_a3d290->ElapsedTime.Stop();
-    Unknown_005A09E0();
+    Stop_Ingame_Movie();
     CDTimerClass<SystemTimerClass> timer;
     timer = 60;
     Theme.Stop(true);
     Audio_Stop();
     Sound_Clear_Static();
     Speech_Stop(true);
-    Unknown_007160D0();
+    Aux_Stream_Stop();
     Map.Set_Default_Mouse(0, false);
     WWKeyboard->Clear();
     Start_Scenario_0065bc70(unknown_id_source_a3d290->FileName, false, unknown_id_source_a3d290->unknown_224c);
@@ -1460,7 +1460,7 @@ void __fastcall Do_Restart_0065e440()
 }
 
 
-// void __fastcall Unknown_0065e590() (0x0065E590)
+// void __fastcall Do_Abort() (0x0065E590)
 // Ends the scenario on "battle control terminated" (reached only through a
 // function pointer; Westwood's Do_Abort-like ending, name not recovered):
 // stops the elapsed game time, sets +0x834 to 1, closes the sidebar, clears
@@ -1469,13 +1469,13 @@ void __fastcall Do_Restart_0065e440()
 // stops the speech and sounds, restores the volume and switches back to
 // 640 x 480 when the display mode was toggled.
 
-void __fastcall Unknown_0065e590()
+void __fastcall Do_Abort()
 {
     ScenarioActive = false;
     TacticalActive = false;
     unknown_id_source_a3d290->ElapsedTime.Stop();
     unknown_id_source_a3d290->TechLevel = 1;
-    Unknown_005A09E0();
+    Stop_Ingame_Movie();
     WWKeyboard->Clear();
     WWMouse->Erase_Mouse(HiddenSurface, false);
     WWMouse->Release_Mouse();
@@ -1489,7 +1489,7 @@ void __fastcall Unknown_0065e590()
         Service_Game_IO_00481fb0();
     }
     Speech_Stop(true);
-    Unknown_007160D0();
+    Aux_Stream_Stop();
     Audio_Stop();
     Sound_Clear_Static();
     Audio_Global_Levels[7]->Volume.Set(0x4000);
@@ -1537,7 +1537,7 @@ void __fastcall Unknown_0065e8c0(bool official)
     if (unknown_players_a3fa7c.Count() + unknown_session_a3d298.AICount < Rules->MaxPlayers && !Debug_Map) {
         for (int index = 0; index < Houses.Count(); index++) {
             if (!Houses[index]->unknown_134 && !Houses[index]->Type->MultiplayPassive && unknown_session_a3d298.AICount < 1) {
-                Houses[index]->unknown_func_4e7150();
+                Houses[index]->Clobber_All();
             }
         }
     }
@@ -1559,11 +1559,11 @@ void __fastcall Unknown_0065e8c0(bool official)
         int crates = Rules->CrateMinimum > unknown_session_a3d55c ? Rules->CrateMinimum : unknown_session_a3d55c;
         crates = crates < Rules->CrateMaximum ? crates : Rules->CrateMaximum;
         for (int crate = 0; crate < crates; crate++) {
-            Map.Unknown_0054E410();
+            Map.Place_Random_Crate();
         }
     }
     Service_Game_IO_00481fb0();
-    Map.Unknown_0049C670();
+    Map.Compute_Start_Pos();
     HouseClass *special = HouseClass::As_Pointer(HouseTypeClass::Find_Index("Special"));
     for (int house = 0; house < Houses.Count(); house++) {
         Houses[house]->unknown_55f0.House = Houses[house];
@@ -1856,7 +1856,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     Swizzler.Reset();
     unknown_session_a3d298.Update_Progress(96);
     Service_Game_IO_00481fb0();
-    Unknown_006ecf10();
+    Process_Deferred_Deletion();
     if (unknown_game_mode_a3d298 != 0) {
         unknown_id_source_a3d290->Special() = unknown_special_a40920;
     }
@@ -1968,8 +1968,8 @@ void __fastcall Assign_Houses_0065fbb0()
         wcsncpy(house->UIName, player->Name, 21);
         house->UIName[20] = 0;
         house->unknown_134 = true;
-        house->unknown_func_4e8300(player->unknown_53, player->unknown_4b, unknown_session_a3d298.unknown_24);
-        house->ColorSchemeIndex = unknown_session_a3d298.Unknown_006715D0(player->unknown_53);
+        house->Init_Data(player->unknown_53, player->unknown_4b, unknown_session_a3d298.unknown_24);
+        house->ColorSchemeIndex = unknown_session_a3d298.Color_Index_To_Scheme(player->unknown_53);
         house->Update_Color();
         house->Update_Laser_Color();
         if (pick == 0) {
@@ -1994,8 +1994,8 @@ void __fastcall Assign_Houses_0065fbb0()
             HouseClass *house = new HouseClass(HouseTypes[country]);
             house->unknown_11c = BuildLevel;
             house->unknown_134 = false;
-            house->unknown_func_4e8300(color, country, unknown_session_a3d298.unknown_24);
-            house->ColorSchemeIndex = unknown_session_a3d298.Unknown_006715D0(color);
+            house->Init_Data(color, country, unknown_session_a3d298.unknown_24);
+            house->ColorSchemeIndex = unknown_session_a3d298.Color_Index_To_Scheme(color);
             house->Update_Color();
             house->Update_Laser_Color();
             house->IniName = FixedString<21>("Computer");

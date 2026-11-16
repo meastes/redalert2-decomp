@@ -235,7 +235,7 @@ int ShapeButtonClass::Draw_Me(int forced)
         }
         Surface *surf = DrawOnSidebar ? SidebarSurface : LogicalSurface;
         CC_Draw_Shape(surf, (ConvertClass *)ShapeDrawer, (ShapeFileStruct const *)ShapeData, shapenum,
-                      Point2D(X + DrawOffsetX, Y + DrawOffsetY), unknown_window_839640, DrawFaded ? 0x800 : 0,
+                      Point2D(X + DrawOffsetX, Y + DrawOffsetY), VisibleRect, DrawFaded ? 0x800 : 0,
                       0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         IsDrawn = true;
         return true;

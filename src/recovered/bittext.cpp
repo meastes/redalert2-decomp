@@ -108,7 +108,7 @@ int BitTextClass::Print_Bold(BitFontClass *font, Surface *surface, wchar_t const
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // bool BitTextClass::Print_Box(...) (0x00432490): word-wrapped text in a box of width x height (0: unbounded);
 // flags 1 centres, 2 right-aligns each line; with limit, at most limit characters are drawn and the last fade
-// of them fade toward unknown_rgb_ab6849. False without a font or text.
+// of them fade toward WhiteColor. False without a font or text.
 // From ra2-decomp BitText::DrawText (YR 0x00434CD0), adapted to our names.
 
 // A hicolor pixel as its three channels.
@@ -164,7 +164,7 @@ inline bool Draw_Line(BitFontClass *font, wchar_t const *&start, wchar_t const *
                 int left = limit - drawn - 1;
                 if (left < fade) {
                     RGBClass rgb = Int_To_RGB(color);
-                    rgb.Adjust((255 / fade) * (fade - left), unknown_rgb_ab6849);
+                    rgb.Adjust((255 / fade) * (fade - left), WhiteColor);
                     c = RGB_To_Int(rgb);
                 }
             }
@@ -259,7 +259,7 @@ bool BitTextClass::Print_Box(BitFontClass *font, Surface *surface, wchar_t const
                                 int left = limit - drawn - 1;
                                 if (left < fade) {
                                     RGBClass rgb = Int_To_RGB(color);
-                                    rgb.Adjust((255 / fade) * (fade - left), unknown_rgb_ab6849);
+                                    rgb.Adjust((255 / fade) * (fade - left), WhiteColor);
                                     c = RGB_To_Int(rgb);
                                 }
                             }
@@ -302,7 +302,7 @@ bool BitTextClass::Print_Box(BitFontClass *font, Surface *surface, wchar_t const
                 int left = limit - drawn - 1;
                 if (left < fade) {
                     RGBClass rgb = Int_To_RGB(color);
-                    rgb.Adjust((255 / fade) * (fade - left), unknown_rgb_ab6849);
+                    rgb.Adjust((255 / fade) * (fade - left), WhiteColor);
                     c = RGB_To_Int(rgb);
                 }
             }

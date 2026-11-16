@@ -262,7 +262,7 @@ struct AStarClass {
     int HierSubzonePathCount[3];                     // +0xC74 the subzones in each +0xBC path
 };
 extern AStarClass Search;     // 0x008315C8
-// The cell index offsets of the eight facings for a map of side unknown_map_cell_side_84e804 (0x0084C838).
+// The cell index offsets of the eight facings for a map of side MapCellStride (0x0084C838).
 extern int AStarFacingToOffset[8];
 // The level of each step of the path 0x00428370 returns (0x0084C858; size unknown).
 extern int unknown_path_levels_84c858[];

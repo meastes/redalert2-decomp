@@ -2,21 +2,21 @@
 // On screens 1024 or more wide, blacks out the eight bands around the
 // 800x600 interface panel (0x00AC11C0, 0x00AC11C4 and 0x00AC11D0 are the
 // panel rectangles 0x006F3E70 lays out).
-// @ref ?unknown_value_8523e0@@3HA=008523e0
+// @ref ?VideoModeWidth@@3HA=008523e0
 // @ref ?unknown_rect_ac11c0@@3PAVRect@@A=00ac11c0
 // @ref ?unknown_rect_ac11c4@@3PAVRect@@A=00ac11c4
 // @ref ?unknown_rect_ac11d0@@3PAVRect@@A=00ac11d0
 #include "shared/rect.hpp"
 #include "shared/surface.hpp"
 
-extern int unknown_value_8523e0;                 // screen width
+extern int VideoModeWidth;                 // screen width
 extern Rect *unknown_rect_ac11c0;
 extern Rect *unknown_rect_ac11c4;
 extern Rect *unknown_rect_ac11d0;
 
 void __fastcall Unknown_Draw_Interface_Borders_006F34D0(Surface *surface, Rect const &window)
 {
-    if (unknown_value_8523e0 >= 1024) {
+    if (VideoModeWidth >= 1024) {
         int left = unknown_rect_ac11c0->X;
         int right = unknown_rect_ac11c4->X + unknown_rect_ac11c4->Width;
         int top = unknown_rect_ac11c0->Y;

@@ -78,7 +78,7 @@
 
 
 // The firewall settings 0x00A71B18 (dynamic initializer 0x005B9E40).
-FirewallSettings unknown_firewall_a71b18;
+FirewallSettings FirewallHelper;
 
 
 // FirewallSettings::FirewallSettings() (0x005B9E60): all four fields zero.
@@ -102,9 +102,9 @@ void FirewallSettings::Detect_And_Save_005b9e80()
         unknown_00 = Detect_005ba2c0(&found);
         if (found) {
             RawFileClass file("RA2.INI");
-            unknown_ini_839740.Put_Int("MultiPlayer", "FirewallSettings", unknown_00, 0);
-            unknown_ini_839740.Put_Int("MultiPlayer", "FirewallDelta", unknown_08, 0);
-            unknown_ini_839740.Save(file, false);
+            ConfigINI.Put_Int("MultiPlayer", "FirewallSettings", unknown_00, 0);
+            ConfigINI.Put_Int("MultiPlayer", "FirewallDelta", unknown_08, 0);
+            ConfigINI.Save(file, false);
         }
     }
 }
@@ -218,9 +218,9 @@ unsigned short FirewallSettings::Wait_For_Mangler_Reply(int packet_id, int time)
 void FirewallSettings::Save_005ba210()
 {
     RawFileClass file("RA2.INI");
-    unknown_ini_839740.Put_Int("MultiPlayer", "FirewallSettings", unknown_00, 0);
-    unknown_ini_839740.Put_Int("MultiPlayer", "FirewallDelta", unknown_08, 0);
-    unknown_ini_839740.Save(file, false);
+    ConfigINI.Put_Int("MultiPlayer", "FirewallSettings", unknown_00, 0);
+    ConfigINI.Put_Int("MultiPlayer", "FirewallDelta", unknown_08, 0);
+    ConfigINI.Save(file, false);
 }
 
 
@@ -229,8 +229,8 @@ void FirewallSettings::Save_005ba210()
 
 void FirewallSettings::Load_005ba280()
 {
-    unknown_04 = unknown_ini_839740.Get_Int("MultiPlayer", "FirewallSettings", 0);
-    unknown_0c = unknown_ini_839740.Get_Int("MultiPlayer", "FirewallDelta", 1);
+    unknown_04 = ConfigINI.Get_Int("MultiPlayer", "FirewallSettings", 0);
+    unknown_0c = ConfigINI.Get_Int("MultiPlayer", "FirewallDelta", 1);
 }
 
 
@@ -244,8 +244,8 @@ extern int unknown_source_port_a4025c;          // 0x00A4025C the source port gi
 extern bool unknown_netgear_bug_a40188;         // 0x00A40188 Netgear bug flag (command line or SendDelay)
 extern int unknown_router_b2ac30;               // 0x00B2AC30
 extern int unknown_mangler_count_b2ac34;
-extern char unknown_mangler_addresses_b26cbc[64][128];
-extern int unknown_mangler_ports_b291a4[64];
+extern char ManglerAddresses[64][128];
+extern int ManglerPorts[64];
 extern char unknown_default_manglers_7e6334[][32];
 
 int FirewallSettings::Detect_005ba2c0(bool *found)
@@ -278,8 +278,8 @@ int FirewallSettings::Detect_005ba2c0(bool *found)
     do {
         char const *name = unknown_default_manglers_7e6334[i];
         if (unknown_mangler_count_b2ac34 > i) {
-            name = unknown_mangler_addresses_b26cbc[i];
-            mangler_port = unknown_mangler_ports_b291a4[i];
+            name = ManglerAddresses[i];
+            mangler_port = ManglerPorts[i];
             Debug_Printf("Using mangler from servserv\n");
         }
         i++;
@@ -597,8 +597,8 @@ int FirewallSettings::Connection_Step_005baf20(int flags)
 // The servserv mangler list (declared in wol_sink.hpp, whose WOL templates this unit does not emit).
 extern int unknown_mangler_count_b2ac34;
 extern int unknown_mangler_index_b2ac38;
-extern char unknown_mangler_addresses_b26cbc[64][128];
-extern int unknown_mangler_ports_b291a4[64];
+extern char ManglerAddresses[64][128];
+extern int ManglerPorts[64];
 extern int unknown_mangler_packet_id_7e63d4;    // 0x007E63D4 the next mangler query id
 
 unsigned short FirewallSettings::Get_Mangled_Port(unsigned short port)
@@ -615,8 +615,8 @@ unsigned short FirewallSettings::Get_Mangled_Port(unsigned short port)
     unsigned short mangler_port = 0x10E1;
     strcpy(hostname, "mangler1.westwood.com");
     if (unknown_mangler_count_b2ac34 > 0) {
-        strcpy(hostname, unknown_mangler_addresses_b26cbc[unknown_mangler_index_b2ac38]);
-        mangler_port = unknown_mangler_ports_b291a4[unknown_mangler_index_b2ac38];
+        strcpy(hostname, ManglerAddresses[unknown_mangler_index_b2ac38]);
+        mangler_port = ManglerPorts[unknown_mangler_index_b2ac38];
         Debug_Printf("Using mangler from servserv\n");
     }
     Debug_Printf("Firewall helper - About to call gethostbyname for %s\n", hostname);

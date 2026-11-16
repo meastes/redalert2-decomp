@@ -19,7 +19,7 @@ void RadSiteCell::Unknown_0047CE30(RadSiteClass *site)
 }
 
 // 0x0047CEA0: adds to the cell's radiation level (+0xF0, a double).
-void RadSiteCell::Unknown_0047CEA0(double level)
+void RadSiteCell::RadLevel_Increase(double level)
 {
     reinterpret_cast<CellClass *>(this)->unknown_f0 += level;
 }

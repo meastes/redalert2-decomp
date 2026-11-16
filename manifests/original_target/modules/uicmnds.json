@@ -97,13 +97,13 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?Unknown_006F5800@@YI_NH@Z",
+   "symbol": "?Group_Is_All_Selected@@YI_NH@Z",
    "entry": "006f5800",
    "body_bytes": 108,
    "padding_bytes": 4
   },
   {
-   "symbol": "?Unknown_006F5870@@YIHH@Z",
+   "symbol": "?Group_Count@@YIHH@Z",
    "entry": "006f5870",
    "body_bytes": 110,
    "padding_bytes": 2
@@ -127,25 +127,25 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?Unknown_006F5940@@YAXXZ",
+   "symbol": "?Command_Deploy@@YAXXZ",
    "entry": "006f5940",
    "body_bytes": 464,
    "padding_bytes": 0
   },
   {
-   "symbol": "?Unknown_006F5B10@@YIXXZ",
+   "symbol": "?Command_Guard@@YIXXZ",
    "entry": "006f5b10",
    "body_bytes": 176,
    "padding_bytes": 0
   },
   {
-   "symbol": "?Unknown_006F5BC0@@YAXXZ",
+   "symbol": "?Command_Stop@@YAXXZ",
    "entry": "006f5bc0",
    "body_bytes": 129,
    "padding_bytes": 15
   },
   {
-   "symbol": "?Unknown_006F5C50@@YAXXZ",
+   "symbol": "?Command_Cheer@@YAXXZ",
    "entry": "006f5c50",
    "body_bytes": 177,
    "padding_bytes": 15
@@ -157,13 +157,13 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?Unknown_006F5D90@@YIXH@Z",
+   "symbol": "?Group_Assign@@YIXH@Z",
    "entry": "006f5d90",
    "body_bytes": 115,
    "padding_bytes": 13
   },
   {
-   "symbol": "?Unknown_006F5E10@@YIXH@Z",
+   "symbol": "?Group_Clear@@YIXH@Z",
    "entry": "006f5e10",
    "body_bytes": 102,
    "padding_bytes": 10
@@ -175,13 +175,13 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?Unknown_006F5F00@@YIXH@Z",
+   "symbol": "?Group_Select@@YIXH@Z",
    "entry": "006f5f00",
    "body_bytes": 453,
    "padding_bytes": 11
   },
   {
-   "symbol": "?Unknown_006F60D0@@YIXH@Z",
+   "symbol": "?Group_Reselect@@YIXH@Z",
    "entry": "006f60d0",
    "body_bytes": 276,
    "padding_bytes": 12
@@ -223,7 +223,7 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?Unknown_006F6570@@YAXXZ",
+   "symbol": "?Command_Attack_Move@@YAXXZ",
    "entry": "006f6570",
    "body_bytes": 229,
    "padding_bytes": 11
@@ -1209,13 +1209,13 @@
  "references_in": [
   {
    "site": "0051af60",
-   "symbol": "?Unknown_006F5D90@@YIXH@Z",
+   "symbol": "?Group_Assign@@YIXH@Z",
    "target": "006f5d90",
    "function_entry": true
   },
   {
    "site": "0051b320",
-   "symbol": "?Unknown_006F5F00@@YIXH@Z",
+   "symbol": "?Group_Select@@YIXH@Z",
    "target": "006f5f00",
    "function_entry": true
   },
@@ -1227,31 +1227,31 @@
   },
   {
    "site": "0051b500",
-   "symbol": "?Unknown_006F60D0@@YIXH@Z",
+   "symbol": "?Group_Reselect@@YIXH@Z",
    "target": "006f60d0",
    "function_entry": true
   },
   {
    "site": "0051be20",
-   "symbol": "?Unknown_006F5BC0@@YAXXZ",
+   "symbol": "?Command_Stop@@YAXXZ",
    "target": "006f5bc0",
    "function_entry": true
   },
   {
    "site": "0051bea0",
-   "symbol": "?Unknown_006F5C50@@YAXXZ",
+   "symbol": "?Command_Cheer@@YAXXZ",
    "target": "006f5c50",
    "function_entry": true
   },
   {
    "site": "0051bf20",
-   "symbol": "?Unknown_006F5940@@YAXXZ",
+   "symbol": "?Command_Deploy@@YAXXZ",
    "target": "006f5940",
    "function_entry": true
   },
   {
    "site": "0051bfa0",
-   "symbol": "?Unknown_006F5B10@@YIXXZ",
+   "symbol": "?Command_Guard@@YIXXZ",
    "target": "006f5b10",
    "function_entry": true
   },
@@ -1377,7 +1377,7 @@
   },
   {
    "site": "006a0f30",
-   "symbol": "?Unknown_006F6570@@YAXXZ",
+   "symbol": "?Command_Attack_Move@@YAXXZ",
    "target": "006f6570",
    "function_entry": true
   },
@@ -1389,61 +1389,61 @@
   },
   {
    "site": "006a0f30",
-   "symbol": "?Unknown_006F5C50@@YAXXZ",
+   "symbol": "?Command_Cheer@@YAXXZ",
    "target": "006f5c50",
    "function_entry": true
   },
   {
    "site": "006a0f30",
-   "symbol": "?Unknown_006F5940@@YAXXZ",
+   "symbol": "?Command_Deploy@@YAXXZ",
    "target": "006f5940",
    "function_entry": true
   },
   {
    "site": "006a0f30",
-   "symbol": "?Unknown_006F5B10@@YIXXZ",
+   "symbol": "?Command_Guard@@YIXXZ",
    "target": "006f5b10",
    "function_entry": true
   },
   {
    "site": "006a0f30",
-   "symbol": "?Unknown_006F5BC0@@YAXXZ",
+   "symbol": "?Command_Stop@@YAXXZ",
    "target": "006f5bc0",
    "function_entry": true
   },
   {
    "site": "006a0f30",
-   "symbol": "?Unknown_006F5870@@YIHH@Z",
+   "symbol": "?Group_Count@@YIHH@Z",
    "target": "006f5870",
    "function_entry": true
   },
   {
    "site": "006a0f30",
-   "symbol": "?Unknown_006F5D90@@YIXH@Z",
+   "symbol": "?Group_Assign@@YIXH@Z",
    "target": "006f5d90",
    "function_entry": true
   },
   {
    "site": "006a0f30",
-   "symbol": "?Unknown_006F5800@@YI_NH@Z",
+   "symbol": "?Group_Is_All_Selected@@YI_NH@Z",
    "target": "006f5800",
    "function_entry": true
   },
   {
    "site": "006a0f30",
-   "symbol": "?Unknown_006F60D0@@YIXH@Z",
+   "symbol": "?Group_Reselect@@YIXH@Z",
    "target": "006f60d0",
    "function_entry": true
   },
   {
    "site": "006a0f30",
-   "symbol": "?Unknown_006F5F00@@YIXH@Z",
+   "symbol": "?Group_Select@@YIXH@Z",
    "target": "006f5f00",
    "function_entry": true
   },
   {
    "site": "006a0f30",
-   "symbol": "?Unknown_006F5E10@@YIXH@Z",
+   "symbol": "?Group_Clear@@YIXH@Z",
    "target": "006f5e10",
    "function_entry": true
   },
@@ -1846,6 +1846,10 @@
    "address": "005a1fc0"
   },
   {
+   "symbol": "?Command_Type_Select@@YIXXZ",
+   "address": "006f7360"
+  },
+  {
    "symbol": "?Count@UnknownSelection@@QAEHXZ",
    "address": "006ac7b0"
   },
@@ -2050,6 +2054,10 @@
    "address": "00839848"
   },
   {
+   "symbol": "?Set_Cursor_Pos@DisplayClass@@QAE?AVCell@@ABV2@@Z",
+   "address": "004994d0"
+  },
+  {
    "symbol": "?Set_Tactical_Position_006a66b0@Tactical@@QAEXABUCoordStruct@@@Z",
    "address": "006a66b0"
   },
@@ -2060,10 +2068,6 @@
   {
    "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
    "address": "00a40c20"
-  },
-  {
-   "symbol": "?Unknown_004994D0@DisplayClass@@QAE?AVCell@@ABV2@@Z",
-   "address": "004994d0"
   },
   {
    "symbol": "?Unknown_0049C7C0@DisplayClass@@QAEXH@Z",
@@ -2100,10 +2104,6 @@
   {
    "symbol": "?Unknown_006F58E0@@YIXPBGH@Z",
    "address": "006f58e0"
-  },
-  {
-   "symbol": "?Unknown_006F7360@@YIXXZ",
-   "address": "006f7360"
   },
   {
    "symbol": "?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z",

@@ -277,8 +277,8 @@ BOOL __stdcall Resize_Dialog(HWND window, LPARAM parameter)
 
 void unknown_clear_font_cache_735d90()
 {
-    unknown_font_cache_b25dc8.Count = 0;
-    operator delete(unknown_font_cache_b25dc8.Vector);
+    g_EzFonts.Count = 0;
+    operator delete(g_EzFonts.Vector);
 }
 
 
@@ -286,9 +286,9 @@ void unknown_clear_font_cache_735d90()
 
 HFONT __fastcall WS_Get_Font(HDC dc, char const *face, int width, int height, unsigned attributes)
 {
-    for (int index = 0; index < unknown_font_cache_b25dc8.Count; index++) {
+    for (int index = 0; index < g_EzFonts.Count; index++) {
         UnknownFontEntry entry;
-        unknown_font_cache_b25dc8.Get(index, entry);
+        g_EzFonts.Get(index, entry);
         if (strcmp(entry.Face, face) == 0 && entry.Width == width && entry.Height == height
             && entry.Attributes == attributes) {
             return entry.Font;
@@ -307,7 +307,7 @@ HFONT __fastcall WS_Get_Font(HDC dc, char const *face, int width, int height, un
     entry.Height = height;
     entry.Attributes = attributes;
     entry.Font = font;
-    unknown_font_cache_b25dc8.Add(entry);
+    g_EzFonts.Add(entry);
     return font;
 }
 

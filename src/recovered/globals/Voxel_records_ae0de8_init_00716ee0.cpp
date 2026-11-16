@@ -4,6 +4,6 @@
 #include "shared/voxel_render_record.hpp"
 // @ref ??_H@YGXPAXIHP6EX0@Z@Z=0040aed0
 // @ref ??0Vector3@@QAE@XZ=00717cd0
-// @ref ?unknown_records_ae0de8@@3PAUUnknownVoxelRecord88@@A=00ae0de8
+// @ref ?VoxelRenderData@@3PAUVoxelRenderStruct@@A=00ae0de8
 
-UnknownVoxelRecord88 unknown_records_ae0de8[64];
+VoxelRenderStruct VoxelRenderData[64];

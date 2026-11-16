@@ -63,7 +63,7 @@ void __fastcall MSFrameAnim_dtor_007291f0(unsigned int *self)
 
 void MSFrameAnim::Draw(Surface *surface, Rect const *clip)
 {
-    if (unknown_flag_7fbd05) {
+    if (FrameRedrawDraws) {
         int width = surface->Get_Width();
         int height = surface->Get_Height();
         if (clip) {
@@ -376,13 +376,13 @@ Map::AnimationPalette::~AnimationPalette()
 }
 
 
-// void WorldDominationTour::Map::unknown_72a620(MSEngine *engine, Voices *voices) (0x0072A620)
+// void WorldDominationTour::Map::Start_Intro(MSEngine *engine, Voices *voices) (0x0072A620)
 // With the +0x18 animation: says voice list 0 and waits for that animation (at most 300000 ms);
 // then shows the +0x1C animation.
 
 namespace WorldDominationTour {
 
-void Map::unknown_72a620(MSEngine *engine, Voices *voices)
+void Map::Start_Intro(MSEngine *engine, Voices *voices)
 {
     if (unknown_18) {
         voices->Say_List(0, true, 0);

@@ -59,7 +59,7 @@ public:
     virtual bool Draw_Depth_Antialiased_Line(Rect const &cliprect, Point2D const &startpoint, Point2D const &endpoint,
                                        RGBClass const &color, int start_depth, int end_depth, bool write_depth,
                                        bool blend_red, bool blend_green, bool blend_blue, float intensity);  // slot 15, 0x004AC650
-    virtual bool Unknown_Slot16(Rect const &cliprect, Point2D const &startpoint, Point2D const &endpoint,
+    virtual bool Draw_RGB_Multiplying_Line(Rect const &cliprect, Point2D const &startpoint, Point2D const &endpoint,
                                        RGBClass const &color, float intensity, int start_depth, int end_depth);  // slot 16, 0x004ADE00
     virtual int Draw_Dashed_Line_Depth_Masked(Point2D const &startpoint, Point2D const &endpoint, int color,
                                               bool const *pattern, int phase, bool empty_only);  // slot 19, 0x004B0650

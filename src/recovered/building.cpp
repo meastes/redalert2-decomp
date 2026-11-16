@@ -380,7 +380,7 @@ BuildingClass::BuildingClass(BuildingTypeClass *type, HouseClass *house) :
     Init();
     FactoryPtrTracker.Add(this);
     AnimPtrTracker.Add(this);
-    unknown_object_index_abff58.Add_Index(Fetch_ID(), this);
+    TargetTracker.Add_Index(Fetch_ID(), this);
     if (Type) {
         int count = Type->NumberOfDocks;
         if (count < 1) {
@@ -456,7 +456,7 @@ BuildingClass::~BuildingClass()
     unknown_41c = 0;
     Remove_From(AnimPtrTracker, this);
     Remove_From(FactoryPtrTracker, this);
-    unknown_object_index_abff58.Remove_Index(Fetch_ID());
+    TargetTracker.Remove_Index(Fetch_ID());
     Type = 0;
     IsActive = false;
     Reset_List(unknown_53c);
@@ -1073,9 +1073,9 @@ UnknownFacingDir BuildingClass::unknown_slot170(AbstractClass *target)
         int distance2 = disp.X * disp.X + disp.Y * disp.Y;
 
         UnknownFacingDir pitch;
-        bool valid = Unknown_0047F8B0(Should_Use_High_Arc(0), max_speed, (int)Fast_Sqrt(distance2), disp.Z, Rules->unknown_1320, &pitch);
+        bool valid = Calculate_Projectile_Pitch(Should_Use_High_Arc(0), max_speed, (int)Fast_Sqrt(distance2), disp.Z, Rules->unknown_1320, &pitch);
         if (!valid) {
-            valid = Unknown_0047F8B0(Should_Use_High_Arc(0), max_speed * 10 / 8, (int)Fast_Sqrt(distance2), disp.Z, Rules->unknown_1320, &pitch);
+            valid = Calculate_Projectile_Pitch(Should_Use_High_Arc(0), max_speed * 10 / 8, (int)Fast_Sqrt(distance2), disp.Z, Rules->unknown_1320, &pitch);
         }
         return pitch;
     } else {
@@ -2589,7 +2589,7 @@ exitcell.X += random; exitcell.Y += random;
                     }
                     if (!House->Is_Human_Player() || Type->Hospital) {
                         base->QueueMission(0xB, 0);
-                        Cell dest = House->Unknown_004EB270(foot);
+                        Cell dest = House->Where_To_Go(foot);
                         if (dest != unknown_geometry_k && Type->Factory != 0) {
                             base->Assign_Archive_Target(&Map[dest]);
                             foot->unknown_4c8bb0(&Map[dest]);
@@ -2636,7 +2636,7 @@ exitcell.X += random; exitcell.Y += random;
                     base->Assign_Destination(&Map[exitcell], 1);
                     if (!House->Is_Human_Player()) {
                         base->QueueMission(0xB, 0);
-                        Cell dest = House->Unknown_004EB270((FootClass *)base);
+                        Cell dest = House->Where_To_Go((FootClass *)base);
                         if (dest != unknown_geometry_k && Type->Factory != 0) {
                             base->Assign_Archive_Target(&Map[dest]);
                         } else {
@@ -6503,7 +6503,7 @@ void BuildingClass::unknown_44dfc0(int dir)
                     do {
                         CellClass *cptr = &Map[working_cell];
                         if (cptr->Tiberium_Type_Here() != -1) {
-                            cptr->unknown_475db0(12);
+                            cptr->Reduce_Tiberium(12);
                         }
                         if (cptr->OverlayIndex == 0x7E) {
                             cptr->Reduce_Weed();
@@ -6536,7 +6536,7 @@ void BuildingClass::unknown_44e260(int facing, bool explode)
                 if (Owner() != segment->Owner()) return;
                 if ((unsigned)(Dir_To_8(segment->PrimaryFacing.Current()) & 3) != axis) return;
                 if (explode) {
-                    Unknown_0047F600(segment->Center_Coord(), segment->Strength, Rules->C4Warhead, 0, 0);
+                    Combat_Lighting(segment->Center_Coord(), segment->Strength, Rules->C4Warhead, 0, 0);
                     segment->Take_Damage(&segment->Strength, 0, Rules->C4Warhead, 0, true, 1);
                 } else {
                     segment->Delete_Me();
@@ -6790,12 +6790,12 @@ void BuildingClass::Clear_Occupy_Bit(CoordStruct const &coord)
 
 HRESULT __stdcall BuildingClass::Load(IStream *stream)
 {
-    unknown_object_index_abff58.Remove_Index(Fetch_ID());
+    TargetTracker.Remove_Index(Fetch_ID());
     HRESULT result = TechnoClass::Load(stream);
     if (SUCCEEDED(result)) {
         int count;
         new (this) BuildingClass(NoInitClass());
-        unknown_object_index_abff58.Add_Index(Fetch_ID(), this);
+        TargetTracker.Add_Index(Fetch_ID(), this);
         Swizzle_Pointer(Type);
         Swizzle_Pointer(unknown_41c);
         Swizzle_Pointer(unknown_438);
@@ -7143,7 +7143,7 @@ void __fastcall Cell_Occupants_Unknown_Slot238_0044fb10(CellClass *cell)
 // shrinks a cloak generator's covered circle one cell of radius per call.
 // Name map: Cloak = unknown_1b8, TranslucencyLevel = unknown_5bd, IsToDisplay = unknown_75,
 // Set_Anim_Translucency = unknown_44d2d0, ParticleSystems = unknown_25c, CloakGeneratorState = unknown_5bb,
-// CurrentCloakRadius = unknown_5bc, CloakingSurface = unknown_cloak_surface_8502a0,
+// CurrentCloakRadius = unknown_5bc, CloakingSurface = CloakingSurface,
 // Is_Cloaked/Cloaked_By/Uncloaked_By = Is/Set/Clear_House_Bit, Cell_Building = Cell_Building,
 // IsPowerOnline = unknown_slot195, Should_Uncloak/Is_Ready_To_Cloak = unknown_slot161/160,
 // Do_Uncloak/Do_Cloak = unknown_slot252/253, Enable_Cloak_Generator written out inline.
@@ -7180,7 +7180,7 @@ void BuildingClass::Cloaking_AI(int fast)
     if (unknown_1b8==0 && unknown_slot160()) unknown_slot253(false);
     if (unknown_5bb!=0 && Type->CloakGenerator) {
         int house=House->ArrayIndex;
-        BSurface *surface=unknown_cloak_surface_8502a0;
+        BSurface *surface=CloakingSurface;
         int width=surface->Get_Width();
         int half=width/2;
         if (unknown_5bb>0) {

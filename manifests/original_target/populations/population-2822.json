@@ -4,8 +4,8 @@
     "id": "population-2822",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "cefa8dd423c3664bb4559cb97afc30d52dc30cd299112ef84f50aab0a26de49d",
-    "historical_acceptance_sha256": "37fef956c86fc4263de71ccb57a744c8d12aea854777c3efd73a56b2b58e3a18"
+    "historical_population_sha256": "1e29ba59ac38ca21b02be1ccbf9fbd0334ea52833434f2beafdb4f31a8744ea6",
+    "historical_acceptance_sha256": "7dab0f7ef5c6a8850552a381abf19fb02fe4494e0a06f9e5b1901e3bde71e77d"
   },
   "references": {
     "?Init_00401000@Call_402190_0@@QAEIXZ": 4198400,
@@ -1113,7 +1113,7 @@
     "??_C@_1BO@ECFI@?$AA?$CF?$AA0?$AA2?$AAd?$AA?3?$AA?$CF?$AA0?$AA2?$AAd?$AA?3?$AA?$CF?$AA0?$AA2?$AAd?$AA?$AA@": 8348328,
     "__imp__GetDlgItem@8": 7971996,
     "__imp__SendMessageA@16": 7972000,
-    "?Unknown_Pack_Color_0068BC70@@YIIHHH@Z": 6863984,
+    "?SurfaceCacheConvertPixel@@YIIHHH@Z": 6863984,
     "?Unknown_Set_Time_Text_0069A6F0@@YIJPAUHWND__@@HH@Z": 6924016,
     "?Key@PKStraw@@QAEXPBVPKey@@@Z": 6356720,
     "_wcsncpy": 7878178,
@@ -1631,8 +1631,8 @@
     {
       "entry": 6863984,
       "method": "0068bc70",
-      "symbol": "?Unknown_Pack_Color_0068BC70@@YIIHHH@Z",
-      "symbol_prefix": "?Unknown_Pack_Color_0068BC70@@YIIHHH@Z",
+      "symbol": "?SurfaceCacheConvertPixel@@YIIHHH@Z",
+      "symbol_prefix": "?SurfaceCacheConvertPixel@@YIIHHH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -1694,7 +1694,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "10a01a9a898fedf19072cb25dc0e0488895d0ad1a387846e1dddc209f4355dde",
+      "source_sha256": "06648ba6ac434ee47e5c7766b4f9c46385bb1e146d2c0378a4ed903513dab34d",
       "source": "src/recovered/srfcache/Unknown_Pack_Color.cpp",
       "population": "population-2822",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",

@@ -331,7 +331,7 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?Unknown_006A67D0@Tactical@@QAE?AUPoint2D@@XZ",
+   "symbol": "?Get_Relative_Tactical_Position@Tactical@@QAE?AUPoint2D@@XZ",
    "entry": "006a67d0",
    "body_bytes": 42,
    "padding_bytes": 6
@@ -535,7 +535,7 @@
    "padding_bytes": 2
   },
   {
-   "symbol": "?Unknown_006AA770@Tactical@@QAEXXZ",
+   "symbol": "?End_Rubber_Band@Tactical@@QAEXXZ",
    "entry": "006aa770",
    "body_bytes": 29,
    "padding_bytes": 3
@@ -1986,7 +1986,7 @@
   },
   {
    "site": "0049ebf0",
-   "symbol": "?Unknown_006AA770@Tactical@@QAEXXZ",
+   "symbol": "?End_Rubber_Band@Tactical@@QAEXXZ",
    "target": "006aa770",
    "function_entry": true
   },
@@ -2544,7 +2544,7 @@
   },
   {
    "site": "0051d1c0",
-   "symbol": "?Unknown_006A67D0@Tactical@@QAE?AUPoint2D@@XZ",
+   "symbol": "?Get_Relative_Tactical_Position@Tactical@@QAE?AUPoint2D@@XZ",
    "target": "006a67d0",
    "function_entry": true
   },
@@ -2556,7 +2556,7 @@
   },
   {
    "site": "0051d280",
-   "symbol": "?Unknown_006A67D0@Tactical@@QAE?AUPoint2D@@XZ",
+   "symbol": "?Get_Relative_Tactical_Position@Tactical@@QAE?AUPoint2D@@XZ",
    "target": "006a67d0",
    "function_entry": true
   },
@@ -2568,7 +2568,7 @@
   },
   {
    "site": "0051d340",
-   "symbol": "?Unknown_006A67D0@Tactical@@QAE?AUPoint2D@@XZ",
+   "symbol": "?Get_Relative_Tactical_Position@Tactical@@QAE?AUPoint2D@@XZ",
    "target": "006a67d0",
    "function_entry": true
   },
@@ -2580,7 +2580,7 @@
   },
   {
    "site": "0051d400",
-   "symbol": "?Unknown_006A67D0@Tactical@@QAE?AUPoint2D@@XZ",
+   "symbol": "?Get_Relative_Tactical_Position@Tactical@@QAE?AUPoint2D@@XZ",
    "target": "006a67d0",
    "function_entry": true
   },
@@ -4439,6 +4439,10 @@
    "address": "0059ff20"
   },
   {
+   "symbol": "?Get_Occupy_Dimensions@DisplayClass@@QAE?AVCell@@PBV2@@Z",
+   "address": "00499810"
+  },
+  {
    "symbol": "?Get_Text_Area@BitFontClass@@QAE_NPBGPAH1H@Z",
    "address": "004314b0"
   },
@@ -4649,10 +4653,6 @@
   {
    "symbol": "?Unknown_0041F5E0@@YIXABVRect@@@Z",
    "address": "0041f5e0"
-  },
-  {
-   "symbol": "?Unknown_00499810@DisplayClass@@QAE?AVCell@@PBV2@@Z",
-   "address": "00499810"
   },
   {
    "symbol": "?Unknown_006F71E0@@YIXPBD@Z",

@@ -819,7 +819,7 @@ int HouseClass::Can_Build(TechnoTypeClass const *type, bool forced, bool include
         if (type->ForbiddenHouses != -1 && (type->ForbiddenHouses & House_Owner_Bit(Type)) != 0) {
             return 0;
         }
-        if (unknown_session_a3d2c3 == 0 && type->Kind_Of() == 7) {
+        if (AllowDisableableSupers == 0 && type->Kind_Of() == 7) {
             BuildingTypeClass const *btype = (BuildingTypeClass const *)type;
             if (btype->SuperWeapon != -1 && Supers[btype->SuperWeapon]->Type->DisableableFromShell) {
                 return 0;
@@ -1134,7 +1134,7 @@ void HouseClass::AI()
             if (unknown_56c0.Value()==0 && Available_Money()<100 &&
                 unknown_52c8+unknown_52c4+unknown_52c0+unknown_52bc>0) {
                 Speech_Play_Name(eva_insufficient_funds_007cf9e8,-1,-1);
-                Map.Unknown_006A1770();
+                Map.Flash_Money();
                 unknown_56c0=CDTimerClass<FrameTimerClass>(Options.Normalize_Delay((int)(Rules->SpeakDelay*900.0)));
             }
             if (unknown_56c0.Value()==0) {
@@ -1254,7 +1254,7 @@ update_super_weapons:;
     if (unknown_18c && unknown_1c8.Value()==0) unknown_18c=false;
     if (this==PlayerPtr && unknown_192) {
         unknown_192=false;
-        Map.Unknown_0049DE00(false,false);
+        Map.Reveal_Technos(false,false);
     }
 }
 
@@ -1529,7 +1529,7 @@ void HouseClass::Make_Ally(int house, bool announce)
 void HouseClass::Make_Ally(HouseClass *house, bool announce)
 {
     if (Is_Allowed_To_Ally(house)) {
-        Map.Unknown_0049E000(false, false);
+        Map.Update_Technos_Visibility(false, false);
         Allies |= 1 << house->ArrayIndex;
         unknown_func_4f3420();
         unknown_func_4f33e0(house);
@@ -1541,7 +1541,7 @@ void HouseClass::Make_Ally(HouseClass *house, bool announce)
         }
         if (unknown_game_mode_a3d298 == 4 || !ScenarioInit) {
             if (Is_Human_Control() && Rules->Paranoid && !house->Type->MultiplayPassive && unknown_game_mode_a3d298 != 0) {
-                unknown_func_4ec5e0();
+                Computer_Paranoid();
             }
             for (int index = 0; index < unknown_list_832470.Count(); index++) {
                 ObjectClass *object = unknown_list_832470[index];
@@ -1576,7 +1576,7 @@ void HouseClass::Make_Ally(HouseClass *house, bool announce)
             }
             Map.Flag_To_Redraw(false);
         }
-        Map.Unknown_0049DE00(false, false);
+        Map.Reveal_Technos(false, false);
     }
 }
 
@@ -1603,8 +1603,8 @@ void HouseClass::Make_Enemy(HouseClass *house, bool announce)
     if (unknown_game_mode_a3d298 != 0 && (house->Type->MultiplayPassive || Type->MultiplayPassive)) {
         return;
     }
-    Map.Unknown_0049E000(false, false);
-    unknown_func_4eeba0(1, house);
+    Map.Update_Technos_Visibility(false, false);
+    Add_Anger(1, house);
     if (Is_Ally(house)) {
         Allies &= ~(1 << house->ArrayIndex);
         if (ScenarioInit) {
@@ -1618,7 +1618,7 @@ void HouseClass::Make_Enemy(HouseClass *house, bool announce)
                 unknown_120 &= ~(1 << ArrayIndex);
             }
             house->unknown_func_4f3420();
-            house->unknown_func_4eeba0(1, house);
+            house->Add_Anger(1, house);
         }
         if (unknown_game_mode_a3d298 != 0 && !ScenarioInit && unknown_134) {
             wchar_t buffer[80];
@@ -1630,7 +1630,7 @@ void HouseClass::Make_Enemy(HouseClass *house, bool announce)
             }
         }
     }
-    Map.Unknown_0049DE00(false, false);
+    Map.Reveal_Technos(false, false);
 }
 
 
@@ -1709,7 +1709,7 @@ int HouseClass::Abandon_Production(int kind, int index, bool naval)
     if (factory == 0) {
         return 3;
     }
-    if (factory->Queue.Count() > 0 && index >= 0 && buildcat == 0 && factory->Delete_Queued_004B9DF0(Unknown_00482C00(kind, index))) {
+    if (factory->Queue.Count() > 0 && index >= 0 && buildcat == 0 && factory->Delete_Queued_004B9DF0(Fetch_Techno_Type(kind, index))) {
         Map.Flag_Tab_To_Redraw(Unknown_006818D0(kind, index, 0));
         return 0;
     }
@@ -1883,7 +1883,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                                 ObjectClass *object = 0;
                                 bool shadow, small;
                                 Map.Resolve_Point(xy, mouse_cell, mouse_coord, object, shadow, small);
-                                Map.Unknown_004994D0(mouse_cell);
+                                Map.Set_Cursor_Pos(mouse_cell);
                             }
                             Map.Set_Cursor_Shape(0);
                             Map.CopyPendingObjectPtr = 0;
@@ -1971,7 +1971,7 @@ bool HouseClass::unknown_func_4e7070(TechnoClass *builder, BuildingClass *buildi
         Map.PendingObjectPtr = building;
         Map.unknown_11a8 = ArrayIndex;
         Map.Unknown_00498F10(building->Occupy_List(1));
-        Map.Unknown_004994D0(builder->unknown_slot104());
+        Map.Set_Cursor_Pos(builder->unknown_slot104());
         builder->Mark(2);
         return true;
     }
@@ -1979,11 +1979,11 @@ bool HouseClass::unknown_func_4e7070(TechnoClass *builder, BuildingClass *buildi
 }
 
 
-// void HouseClass::unknown_func_4e7150() (0x004E7150)
+// void HouseClass::Clobber_All() (0x004E7150)
 // Deletes the house's technos, the triggers of its house type and the
 // house itself.
 
-void HouseClass::unknown_func_4e7150()
+void HouseClass::Clobber_All()
 {
     for (int index = 0; index < Technos.Count(); index++) {
         if (Technos[index]->House == this) {
@@ -2223,7 +2223,7 @@ void HouseClass::MPlayer_Defeated_004e77f0()
     int alive,humans;
     bool all_allies;
     unknown_13d=true;
-    if (IQ==Rules->MaxIQ && !Is_Human_Control() && Rules->Paranoid && unknown_game_mode_a3d298!=0) unknown_func_4ec5e0();
+    if (IQ==Rules->MaxIQ && !Is_Human_Control() && Rules->Paranoid && unknown_game_mode_a3d298!=0) Computer_Paranoid();
     if (unknown_id_source_a3d290->unknown_000 & 0x10) {
         if (unknown_5308) unknown_func_4e7580(unknown_5308,true);
         else if (unknown_530c!=unknown_cell_a40f10) unknown_func_4e7580((AbstractClass *)&Map[unknown_530c],true);
@@ -2237,7 +2237,7 @@ void HouseClass::MPlayer_Defeated_004e77f0()
     if (PlayerPtr==this) {
         BeaconManager.Unknown_0042EBE0(PlayerPtr->ArrayIndex);
         if (unknown_flag_8373f4) {
-            Map.Unknown_006A1F10();
+            Map.Close_Thumb();
             unknown_flag_7d9fe8=true;
         } else unknown_flag_7d9fe8=false;
         Planning_End();
@@ -2251,7 +2251,7 @@ void HouseClass::MPlayer_Defeated_004e77f0()
         if (Current_Dialog_Id_00735b20()==0x73) Map.Unknown_00634970((int)WS_Top_Window());
         if (unknown_house_a72d28!=PlayerPtr) {
             swprintf(text,StringTable::Load_String("TXT_PLAYER_DEFEATED",0,"D:\\Ra2\\House.CPP",0x125f),UIName);
-            unknown_session_a3d298.Messages.Add_Message(0,0,text,unknown_session_a3d298.Unknown_006715D0(unknown_a3d3b4),0x4046,(int)(Rules->MessageDelay*900),false);
+            unknown_session_a3d298.Messages.Add_Message(0,0,text,unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4),0x4046,(int)(Rules->MessageDelay*900),false);
             Speech_Play_Name("EVA_YouHaveLost",-1,-1);
         }
         Map.Flag_To_Redraw(0);
@@ -2297,7 +2297,7 @@ void HouseClass::MPlayer_Defeated_004e77f0()
         Debug_Printf("MPlayer_Defeated() - All remaining players are allied\n");
     }
     if (alive==1 || humans==0) {
-        if (unknown_flag_7d9fe8) Map.Unknown_006A1EC0();
+        if (unknown_flag_7d9fe8) Map.Open_Thumb();
         if (PlayerPtr->unknown_13d) {
             UnknownSessionA3D29C *mode=unknown_session_a3d29c;
             bool present=mode!=0;
@@ -2365,11 +2365,11 @@ void HouseClass::unknown_func_4e7df0()
 }
 
 
-// bool HouseClass::unknown_func_4e7e80() (0x004E7E80)
+// bool HouseClass::Flag_To_Die() (0x004E7E80)
 // Sets the +0x13E flag and restarts the +0x1E0 timer at zero unless one of
 // the +0x13E..+0x140 flags is already set; returns the +0x13E flag.
 
-bool HouseClass::unknown_func_4e7e80()
+bool HouseClass::Flag_To_Die()
 {
     if (!unknown_13f && !unknown_13e && !unknown_140) {
         unknown_13e = true;
@@ -2475,9 +2475,9 @@ void HouseClass::Flag_To_End()
 }
 
 
-// void HouseClass::unknown_func_4e8300(int color, int arg2, int balance) (0x004E8300)
+// void HouseClass::Init_Data(int color, int arg2, int balance) (0x004E8300)
 
-void HouseClass::unknown_func_4e8300(int color, int arg2, int balance)
+void HouseClass::Init_Data(int color, int arg2, int balance)
 {
     unknown_124 = balance;
     Balance = balance;
@@ -2698,7 +2698,7 @@ int HouseClass::Expert_AI()
                         if(distance<closest) {enemy=house;closest=distance;}
                     }
                 }
-                if(enemy) unknown_func_4eeba0(1,enemy);
+                if(enemy) Add_Anger(1,enemy);
             }
         }
     }
@@ -2707,7 +2707,7 @@ int HouseClass::Expert_AI()
         if(enemy->unknown_13d) {
             for(int index=0;index<AngerNodes.Count();++index) {
                 if(AngerNodes[index].House==enemy) {
-                    unknown_func_4eeba0(-AngerNodes[index].Value,enemy);
+                    Add_Anger(-AngerNodes[index].Value,enemy);
                     break;
                 }
             }
@@ -3501,7 +3501,7 @@ Cell HouseClass::Zone_Cell(int zone) const
 }
 
 
-// Cell HouseClass::Unknown_004EB270(FootClass *foot) (0x004EB270)
+// Cell HouseClass::Where_To_Go(FootClass *foot) (0x004EB270)
 // RA's Where_To_Go: a unit without weapons goes to the core zone, others to
 // a random outer zone; the cell is the reachable one (tracked) nearest a
 // random cell of that zone, in the zone of the unit's own cell.
@@ -3511,7 +3511,7 @@ inline Cell Coord_Cell_Value(CoordStruct coord)
     return Coord_Cell(coord);
 }
 
-Cell HouseClass::Unknown_004EB270(FootClass *foot)
+Cell HouseClass::Where_To_Go(FootClass *foot)
 {
     int zone;
     if (foot->Anti_Infantry() + foot->Anti_Armor() + foot->Anti_Air() == 0) {
@@ -3568,7 +3568,7 @@ int __fastcall HouseClass::unknown_func_4eb550(int kind, int index)
     if (index < 0) {
         return 0;
     }
-    TechnoTypeClass *type = Unknown_00482C00(kind, index);
+    TechnoTypeClass *type = Fetch_Techno_Type(kind, index);
     if (kind == 6 || kind == 7) {
         return ((UnknownBuildingTypeBA0View *)type)->unknown_ba0;
     }
@@ -4080,7 +4080,7 @@ bool HouseClass::Is_Allowed_To_Ally(HouseClass *house)
 }
 
 
-// void HouseClass::unknown_func_4ec5e0() (0x004EC5E0)
+// void HouseClass::Computer_Paranoid() (0x004EC5E0)
 // When the game object at 0x00A3D29C asks for it (slot 1) or the rules set
 // +0x111D: every computer house allies with every other computer house and
 // becomes the enemy of every human one (hypothesis).
@@ -4110,7 +4110,7 @@ inline bool Is_Human_4ec5e0(HouseClass const *house)
     return Is_Controlled_4ec5e0(house);
 }
 
-void HouseClass::unknown_func_4ec5e0()
+void HouseClass::Computer_Paranoid()
 {
     bool forced = Rules->unknown_111d;
     if ((unknown_a3d29c != 0 && unknown_a3d29c->unknown_slot1()) || forced) {
@@ -4564,13 +4564,13 @@ void HouseClass::Unknown_004ED440(TechnoClass *techno, bool sold)
 }
 
 
-// void HouseClass::Unknown_004ED610(TechnoClass *techno, bool arg2) (0x004ED610)
+// void HouseClass::Tracking_Active_Add(TechnoClass *techno, bool arg2) (0x004ED610)
 // An object of the house enters the map (TechnoClass slot 53): its type is
 // counted by kind (buildings +0x5460, aircraft +0x5490, infantry +0x5480
 // unless +0x5C1, units +0x5470); a building also adds its drain, its type's
 // Storage to the capacity and its stored tiberium.
 
-void HouseClass::Unknown_004ED610(TechnoClass *techno, bool arg2)
+void HouseClass::Tracking_Active_Add(TechnoClass *techno, bool arg2)
 {
     switch (techno->Kind_Of()) {
     case 6:
@@ -4928,7 +4928,7 @@ void HouseClass::unknown_func_4ee8f0()
             }
         }
         Map.Zone_Reset();
-        Map.Unknown_005688A0(cells);
+        Map.Recalc_Cells_In_List(cells);
     }
 }
 
@@ -4950,7 +4950,7 @@ void HouseClass::unknown_func_4eea40()
             }
         }
         Map.Zone_Reset();
-        Map.Unknown_005688A0(cells);
+        Map.Recalc_Cells_In_List(cells);
     }
 }
 
@@ -4959,11 +4959,11 @@ class Leaf_4eeb90 { public: void get(); };
 void Leaf_4eeb90::get() {  }
 
 
-// void HouseClass::unknown_func_4eeba0(int amount, HouseClass *house) (0x004EEBA0)
+// void HouseClass::Add_Anger(int amount, HouseClass *house) (0x004EEBA0)
 // Adds to the anger at a house, then picks the house it is angriest at
 // among the remaining non-allied houses (+0x54F0: its index, -1 for none).
 
-void HouseClass::unknown_func_4eeba0(int amount, HouseClass *house)
+void HouseClass::Add_Anger(int amount, HouseClass *house)
 {
     for (int index = 0; index < AngerNodes.Count(); index++) {
         if (AngerNodes[index].House == house) {
@@ -5141,7 +5141,7 @@ void HouseClass::Plan_Naval_Yard_Path_004eecb0(int node)
 void HouseClass::Unknown_004EF5A0()
 {
     if (!Is_Human_Control() && unknown_game_mode_a3d298 != 0) {
-        unknown_func_4ec5e0();
+        Computer_Paranoid();
     }
     if (unknown_55f0.Nodes.Count() == 0) {
         int saved = ScenarioInit;
@@ -5168,7 +5168,7 @@ BuildingTypeClass *HouseClass::unknown_func_4ef600(DynamicVectorClass<BuildingTy
             && (building->RequiredHouses == -1 || (building->RequiredHouses & (1 << Type->House)) != 0)
             && (building->ForbiddenHouses == -1 || (building->ForbiddenHouses & (1 << Type->House)) == 0)
             && (building->AIBasePlanningSide == -1 || building->AIBasePlanningSide == Type->Side)) {
-            if (unknown_session_a3d2c3 || building->SuperWeapon == -1 || !Supers[building->SuperWeapon]->Type->DisableableFromShell) {
+            if (AllowDisableableSupers || building->SuperWeapon == -1 || !Supers[building->SuperWeapon]->Type->DisableableFromShell) {
                 return building;
             }
         }
@@ -5263,7 +5263,7 @@ void HouseClass::unknown_func_4ef890()
             && type->AIBuildThis && type->TechLevel<=unknown_11c
             && (type->RequiredHouses==-1 || (type->RequiredHouses & (1 << Type->House)))
             && (type->ForbiddenHouses==-1 || !(type->ForbiddenHouses & (1 << Type->House)))
-            && (unknown_session_a3d2c3 || type->SuperWeapon==-1 || !Supers[type->SuperWeapon]->Type->DisableableFromShell)) {
+            && (AllowDisableableSupers || type->SuperWeapon==-1 || !Supers[type->SuperWeapon]->Type->DisableableFromShell)) {
             eligible.Add(type);
             included.Add(false);
         }
@@ -6087,14 +6087,14 @@ void HouseClass::unknown_func_4f2fc0()
                 && building->Mission != 0x13 && building->MissionQueue != 0x13) {
                 if (!unknown_566a) {
                     Voc_Play(Rules->SpySatActivationSound, 1.0f, 0x2000, 0);
-                    Map.Unknown_0055A120();
+                    Map.Spy_Satellite_Reveal();
                     unknown_566a = true;
                 }
                 return;
             }
         }
         if (unknown_566a) {
-            Map.Unknown_00559F10();
+            Map.Spy_Satellite_Hide();
             Voc_Play(Rules->SpySatDeactivationSound, 1.0f, 0x2000, 0);
             unknown_566a = false;
         }
@@ -6227,7 +6227,7 @@ void HouseClass::unknown_func_4f3320(HouseClass *house)
             TechnoClass *techno = Technos[index];
             if (techno != 0 && !techno->unknown_76 && techno->House == this) {
                 CoordStruct coord = techno->Coord;
-                Map.Unknown_00549C50(coord, techno->Techno_Type_Class()->Sight, this, false, false, false, true, true);
+                Map.RevealArea1(coord, techno->Techno_Type_Class()->Sight, this, false, false, false, true, true);
             }
         }
         Map.Flag_To_Redraw(2);
@@ -6242,7 +6242,7 @@ void HouseClass::unknown_func_4f33e0(HouseClass *house)
 {
     for (int index = 0; index < AngerNodes.Count(); index++) {
         if (AngerNodes[index].House == house) {
-            unknown_func_4eeba0(-AngerNodes[index].Value, house);
+            Add_Anger(-AngerNodes[index].Value, house);
             return;
         }
     }
@@ -6633,7 +6633,7 @@ void HouseClass::AI_Takeover()
     if (!conyard) return;
     Cell center=Coord_Cell(conyard->Position_Coord_004f3f40());
     BaseCenter=Cell_Coord(center);
-    if (Is_Network_Computer(this)) unknown_func_4ec5e0();
+    if (Is_Network_Computer(this)) Computer_Paranoid();
     if (unknown_55f0.Nodes.Count()==0) {
         int saved_init=ScenarioInit;
         ScenarioInit=0;
@@ -6804,7 +6804,7 @@ void HouseClass::Update_Present_Super_Weapons()
                 bool off = !on;
                 if ((off && Supers[s]->Is_Powered() && Supers[s]->Suspend(true)) || (enabled && Supers[s]->Suspend(false))) {
                     if (is_player) {
-                        if (unknown_pending_super_833694 == s) unknown_pending_super_833694 = -1;
+                        if (CurrentSuperWeaponType == s) CurrentSuperWeaponType = -1;
                         Map.Flag_Tab_To_Redraw(type_index);
                     }
                     unknown_144 = true;
@@ -6812,7 +6812,7 @@ void HouseClass::Update_Present_Super_Weapons()
             } else {
                 if (Supers[s]->Remove() && PlayerPtr != 0) {
                     if (is_player) {
-                        if (unknown_pending_super_833694 == s) unknown_pending_super_833694 = -1;
+                        if (CurrentSuperWeaponType == s) CurrentSuperWeaponType = -1;
                         Map.Flag_Tab_To_Redraw(type_index);
                     }
                     unknown_144 = true;
@@ -7054,7 +7054,7 @@ void HouseClass::unknown_func_4f5840(long delay)
 void HouseClass::unknown_func_4f5880()
 {
     if (this == PlayerPtr && !unknown_566a) {
-        Map.Unknown_00559F10();
+        Map.Spy_Satellite_Hide();
     }
 }
 
@@ -7123,11 +7123,11 @@ float HouseClass::unknown_func_4f5a20(TechnoTypeClass *type)
 }
 
 
-// float HouseClass::unknown_func_4f5a70(TechnoTypeClass *type) (0x004F5A70)
+// float HouseClass::GetArmorMultiplier(TechnoTypeClass *type) (0x004F5A70)
 // The owner country's build time multiplier for the type's kind (infantry, vehicle,
 // aircraft, building or, for a defence building (+0xBA0 == 5), defence); 1 otherwise.
 
-float HouseClass::unknown_func_4f5a70(TechnoTypeClass *type)
+float HouseClass::GetArmorMultiplier(TechnoTypeClass *type)
 {
     switch (type->Kind_Of()) {
     case 16:
@@ -7194,7 +7194,7 @@ void HouseClass::Begin_Construction()
     CoordStruct position=construction_yard->Position_Coord_004f3f40();
     Cell center=Coord_Cell(position);
     BaseCenter=Cell_Coord(center);
-    if (!Is_Human_Control() && unknown_game_mode_a3d298!=0) unknown_func_4ec5e0();
+    if (!Is_Human_Control() && unknown_game_mode_a3d298!=0) Computer_Paranoid();
     if (unknown_55f0.Nodes.Count()==0) {
         int saved_initialization=ScenarioInit;
         ScenarioInit=0;
@@ -7278,7 +7278,7 @@ void HouseClass::Cheer()
 // Rally eligible owned technos near the base, original004F6310;419body+13padding.
 // Inventory129-byte extent ends at a returning Map call; original CFG proves the complete419-byte body.
 
-void HouseClass::Unknown_004F6310()
+void HouseClass::Recall_Units_To_Base()
 {
     int count=Technos.Count();
     Cell destination=Coord_Cell(BaseCenter);

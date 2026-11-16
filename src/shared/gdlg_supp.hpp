@@ -62,7 +62,7 @@ struct UnknownColorEntry {
     int Index;              // +0x08
 };
 extern UnknownColorEntry unknown_color_entries_8660d8[9];
-extern int const unknown_color_values_7e6d94[9];
+extern int const PlayerColorTable[9];
 void __fastcall Init_Color_Entries_4d1ea0();
 int __fastcall Color_Entry_Of_Combo_4d1fc0(int id);           // 0x004D1FC0 (the entry a colour combo box's row holds, or -1)
 bool __fastcall Color_Entry_Taken_4d2060(int entry);           // 0x004D2060

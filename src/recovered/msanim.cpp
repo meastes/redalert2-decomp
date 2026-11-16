@@ -300,9 +300,9 @@ bool MSFadeAnim::Advance(Surface *surface, Rect *rect)
         Timer = CDTimerClass<SystemTimerClass>(unknown_24);
         int flags;
         if ((unsigned)unknown_40 < 4) {
-            flags = unknown_fade_flags_7e57f0[unknown_40] | Flags;
+            flags = FadeStages[unknown_40] | Flags;
         } else {
-            flags = Flags | unknown_fade_flags_7e57f0[3];
+            flags = Flags | FadeStages[3];
         }
         Rect old = Frame_Rect();
         old.X = X + old.X;
@@ -328,9 +328,9 @@ bool MSFadeAnim::Advance(Surface *surface, Rect *rect)
             Frame = StartFrame;
         }
         if ((unsigned)++unknown_40 < 4) {
-            flags = unknown_fade_flags_7e57f0[unknown_40] | Flags;
+            flags = FadeStages[unknown_40] | Flags;
         } else {
-            flags = Flags | unknown_fade_flags_7e57f0[3];
+            flags = Flags | FadeStages[3];
         }
         CC_Draw_Shape(surface, Drawer, Shape, Frame, Point2D(X, Y), surface->Get_Rect(), flags, 0, 0, 0, 1000, 0, 0,
                       Point2D(0, 0));
@@ -372,9 +372,9 @@ void MSFadeAnim::Draw(Surface *surface, Rect const *clip)
     }
     int flags;
     if ((unsigned)unknown_40 < 4) {
-        flags = unknown_fade_flags_7e57f0[unknown_40] | Flags;
+        flags = FadeStages[unknown_40] | Flags;
     } else {
-        flags = Flags | unknown_fade_flags_7e57f0[3];
+        flags = Flags | FadeStages[3];
     }
     CC_Draw_Shape(surface, Drawer, Shape, Frame, Point2D(X, Y), surface->Get_Rect(), flags, 0, 0, 0, 1000, 0, 0,
                   Point2D(0, 0));
@@ -472,7 +472,7 @@ bool MSOverlayAnim::Advance(Surface *surface, Rect *rect)
             surface->Copy_From(*rect, *AlternateSurface, *rect, false, true);
             unsigned level = (unsigned)unknown_40 < 3 ? unknown_40 : 3;
             CC_Draw_Shape(surface, Drawer, Shape, Frame, Point2D(X, Y), surface->Get_Rect(),
-                          unknown_fade_flags_7e57f0[level] | Flags, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                          FadeStages[level] | Flags, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             if (Anims != 0) {
                 int index = Anims->ID(this);
                 for (int i = 0; i < Anims->Count(); i++) {
@@ -517,7 +517,7 @@ void MSOverlayAnim::Draw(Surface *surface, Rect const *clip)
         }
         unsigned level = (unsigned)unknown_40 < 3 ? unknown_40 : 3;
         CC_Draw_Shape(surface, Drawer, Shape, Frame, Point2D(X, Y), surface->Get_Rect(),
-                      unknown_fade_flags_7e57f0[level] | Flags, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                      FadeStages[level] | Flags, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
     }
 }
 
@@ -563,7 +563,7 @@ void MSOverlayAnim::Restore(int rect)
     unsigned fading_stage = (unsigned)unknown_40 < 3 ? unknown_40 : 3;
     if (unknown_0C) {
         CC_Draw_Shape(AlternateSurface, Drawer, Shape, Frame, Point2D(X, Y), AlternateSurface->Get_Rect(),
-                      unknown_fade_flags_7e57f0[fading_stage] | Flags, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                      FadeStages[fading_stage] | Flags, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
     }
 }
 

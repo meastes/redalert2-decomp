@@ -253,7 +253,7 @@ void __fastcall Mono_Window_Create()
 }
 
 
-extern DynamicVectorClass<VoxClass *> unknown_VoxClass_list_00ad0930;
+extern DynamicVectorClass<VoxClass *> Voxs;
 struct PAINTSTRUCT { HDC hdc; BOOL erase; RECT paint; BOOL restore; BOOL update; unsigned char reserved[32]; };
 WIN32_IMPORT HDC WINAPI BeginPaint(HWND window, PAINTSTRUCT *paint);
 WIN32_IMPORT BOOL WINAPI EndPaint(HWND window, PAINTSTRUCT const *paint);
@@ -293,22 +293,22 @@ BOOL __stdcall Mono_Dialog_Proc_0059dce0(HWND dialog, unsigned int message, unsi
         switch (key) {
         case '1':case '2':case '3':case '4':mono_voice_priority_a70efc=key-'1';return 0;
         case 'Q':case 'q':
-            if (mono_voice_index_a70ef0>16 || mono_voice_index_a70ef0>=unknown_VoxClass_list_00ad0930.Count()) mono_voice_index_a70ef0=0;
+            if (mono_voice_index_a70ef0>16 || mono_voice_index_a70ef0>=Voxs.Count()) mono_voice_index_a70ef0=0;
             Speech_Play(mono_voice_index_a70ef0,1,mono_voice_priority_a70efc);
             ++mono_voice_index_a70ef0;
             break;
         case 'W':case 'w':
-            if (mono_voice_index_a70ef0>16 || mono_voice_index_a70ef0>=unknown_VoxClass_list_00ad0930.Count()) mono_voice_index_a70ef0=0;
+            if (mono_voice_index_a70ef0>16 || mono_voice_index_a70ef0>=Voxs.Count()) mono_voice_index_a70ef0=0;
             Speech_Play(mono_voice_index_a70ef0,0,mono_voice_priority_a70efc);
             ++mono_voice_index_a70ef0;
             return 0;
         case 'E':case 'e':
-            if (mono_voice_index_a70ef0>16 || mono_voice_index_a70ef0>=unknown_VoxClass_list_00ad0930.Count()) mono_voice_index_a70ef0=0;
+            if (mono_voice_index_a70ef0>16 || mono_voice_index_a70ef0>=Voxs.Count()) mono_voice_index_a70ef0=0;
             Speech_Play(mono_voice_index_a70ef0,2,mono_voice_priority_a70efc);
             ++mono_voice_index_a70ef0;
             return 0;
         case 'O':case 'o':
-            if (mono_voice_index_a70ef0>16 || mono_voice_index_a70ef0>=unknown_VoxClass_list_00ad0930.Count()) mono_voice_index_a70ef0=0;
+            if (mono_voice_index_a70ef0>16 || mono_voice_index_a70ef0>=Voxs.Count()) mono_voice_index_a70ef0=0;
             Speech_Play(mono_voice_index_a70ef0,-1,-1);
             ++mono_voice_index_a70ef0;
             return 0;

@@ -36,7 +36,7 @@ void __fastcall Sidebar_Tab_Key_006818b0(SidebarClass *sidebar)
 {
     (void)sidebar;
     if (unknown_session_a3d298.Type != 0) {
-        unknown_int_a40d48 = 8;
+        SpecialDialog = 8;
     }
 }
 

@@ -74,8 +74,8 @@
 // these definitions.
 
 ShapeButtonClass TabClass::Buttons[25];
-ShapeButtonClass TabClass::unknown_button_abe400;
-ShapeButtonClass TabClass::unknown_button_abe390;
+ShapeButtonClass TabClass::ThumbOpenButton;
+ShapeButtonClass TabClass::ThumbClosedButton;
 
 
 // Static-member initializer or guarded atexit destructor (0x006A0490, _$E) emitted by the definitions in TabClass_static_members_init_006a0460.cpp; no source of its own.
@@ -93,10 +93,10 @@ ShapeButtonClass TabClass::unknown_button_abe390;
 // Static-member initializer or guarded atexit destructor (0x006A0520, _$E) emitted by the definitions in TabClass_static_members_init_006a0460.cpp; no source of its own.
 
 
-// void __fastcall TabClass::Unknown_006A0540(int index) (0x006A0540)
+// void __fastcall TabClass::Free_Button_Shape(int index) (0x006A0540)
 // Frees button shape index when it was loaded rather than retrieved.
 
-void __fastcall TabClass::Unknown_006A0540(int index)
+void __fastcall TabClass::Free_Button_Shape(int index)
 {
     if (ButtonShapeAllocated[index]) {
         operator delete((void *)ButtonShapes[index]);
@@ -112,11 +112,11 @@ void __fastcall TabClass::Unknown_006A0540(int index)
 int __fastcall TabClass::Command_From_Name(char const *name)
 {
     for (int index = 0; index < 11; index++) {
-        if (strcmp(unknown_command_names_7f67f8[index], name) == 0) {
+        if (strcmp(CommandNames[index], name) == 0) {
             return index;
         }
     }
-    return unknown_no_command_7f67f4;
+    return NoAdvancedCommand;
 }
 
 
@@ -129,19 +129,19 @@ void __fastcall TabClass::Set_Command_Position(int slot, int button)
 }
 
 
-// int __fastcall TabClass::Unknown_006A05F0(int slot) (0x006A05F0)
+// int __fastcall TabClass::Get_Command_Position(int slot) (0x006A05F0)
 // The button slot maps to. No direct callers (inlined elsewhere).
 
-int __fastcall TabClass::Unknown_006A05F0(int slot)
+int __fastcall TabClass::Get_Command_Position(int slot)
 {
     return SlotButton[slot];
 }
 
 
-// ShapeButtonClass *__fastcall TabClass::Unknown_006A0600(int slot) (0x006A0600)
+// ShapeButtonClass *__fastcall TabClass::Get_Button(int slot) (0x006A0600)
 // The button mapped to slot, or null when the map entry is out of range.
 
-ShapeButtonClass *__fastcall TabClass::Unknown_006A0600(int slot)
+ShapeButtonClass *__fastcall TabClass::Get_Button(int slot)
 {
     int button = SlotButton[slot];
     if (button >= 0 && button < 25) {
@@ -151,13 +151,13 @@ ShapeButtonClass *__fastcall TabClass::Unknown_006A0600(int slot)
 }
 
 
-// Rect __fastcall TabClass::Unknown_006A0620(int slot) (0x006A0620)
+// Rect __fastcall TabClass::Get_Button_Rect(int slot) (0x006A0620)
 // Screen rectangle of slot: the 0x00AC120C rectangle moved down by the
 // mapped button's row.
 
-Rect __fastcall TabClass::Unknown_006A0620(int slot)
+Rect __fastcall TabClass::Get_Button_Rect(int slot)
 {
-    Rect rect = *unknown_rect_ac120c;
+    Rect rect = *ButtonSlotRect;
     return Rect(SlotButton[slot] * unknown_int_abe388 + rect.X, unknown_int_abe374, rect.Width, rect.Height);
 }
 
@@ -170,16 +170,16 @@ Rect __fastcall TabClass::Unknown_006A0620(int slot)
 void __fastcall TabClass::Set_Button_Count(int rows)
 {
     unknown_int_abe2ac = rows;
-    int top = unknown_rect_ac1210->X - rows * unknown_rect_ac120c->Width;
-    int limit = unknown_rect_ac1204->X + unknown_rect_ac1204->Width;
+    int top = TabEndRect->X - rows * ButtonSlotRect->Width;
+    int limit = ThumbOpenRect->X + ThumbOpenRect->Width;
     unknown_int_abe37c = top > limit ? top : limit;
 }
 
 
-// int __fastcall TabClass::Unknown_006A06B0(int value) (0x006A06B0)
+// int __fastcall TabClass::Is_Team_Command(int value) (0x006A06B0)
 // 1 when value lies in [0x00ABE370, 0x00ABE468], else 0.
 
-int __fastcall TabClass::Unknown_006A06B0(int value)
+int __fastcall TabClass::Is_Team_Command(int value)
 {
     if (value >= unknown_int_abe370 && value <= unknown_int_abe468) {
         return 1;
@@ -188,10 +188,10 @@ int __fastcall TabClass::Unknown_006A06B0(int value)
 }
 
 
-// int __fastcall TabClass::Unknown_006A06D0(int value) (0x006A06D0)
+// int __fastcall TabClass::Team_Number(int value) (0x006A06D0)
 // value counted from 0x00ABE370, starting at 1.
 
-int __fastcall TabClass::Unknown_006A06D0(int value)
+int __fastcall TabClass::Team_Number(int value)
 {
     return value - unknown_int_abe370 + 1;
 }
@@ -235,7 +235,7 @@ void TabClass::DisposeOfArt()
 {
     SidebarClass::DisposeOfArt();
     for (int index = 0; index < 25; index++) {
-        Unknown_006A0540(index);
+        Free_Button_Shape(index);
     }
 }
 
@@ -257,9 +257,9 @@ void TabClass::Init_For_House()
     short const *header = (short const *)ButtonShapes[0];
     unknown_int_abe478 = header[1];
     unknown_int_abe2a8 = header[2];
-    Rect slot = *unknown_rect_ac120c;
-    unknown_int_abe37c = unknown_rect_ac1210->X - unknown_int_abe2ac * slot.Width;
-    unknown_int_abe374 = unknown_rect_ac11fc->Y;
+    Rect slot = *ButtonSlotRect;
+    unknown_int_abe37c = TabEndRect->X - unknown_int_abe2ac * slot.Width;
+    unknown_int_abe374 = TabBarRect->Y;
     unknown_int_abe460 = slot.Width - unknown_int_abe478;
     unknown_int_abe388 = unknown_int_abe460 + unknown_int_abe478;
     Credits.Current = 0;
@@ -301,33 +301,33 @@ void __fastcall FUN_006a1860(int object_address, unsigned int unknown_0x24, unsi
 void TabClass::Init_IO()
 {
     SidebarClass::Init_IO();
-    if (!Debug_Map && Unknown_Get_Art_006f4590()) {
-        Unknown_006A1880();
-        unknown_button_abe400.ID = 0xF0;
-        unknown_button_abe400.ShapeDrawer = SidebarDrawer;
-        unknown_button_abe400.IsOn = false;
-        unknown_button_abe400.ToggleType = 0;
-        unknown_button_abe400.Flags = 5;
+    if (!Debug_Map && Is_Sidebar_Art_Loaded()) {
+        Setup_Command_Buttons();
+        ThumbOpenButton.ID = 0xF0;
+        ThumbOpenButton.ShapeDrawer = SidebarDrawer;
+        ThumbOpenButton.IsOn = false;
+        ThumbOpenButton.ToggleType = 0;
+        ThumbOpenButton.Flags = 5;
         void const *shape = unknown_buffer_ac1098;
-        Rect area = *unknown_rect_ac1204;
-        unknown_button_abe400.Set_Position(area.X, area.Y);
-        unknown_button_abe400.Set_Shape(shape, 0, 0);
-        unknown_button_abe390.ID = 0xF1;
-        unknown_button_abe390.ShapeDrawer = SidebarDrawer;
-        unknown_button_abe390.IsOn = false;
-        unknown_button_abe390.ToggleType = 0;
-        unknown_button_abe390.Flags = 5;
-        Rect area2 = *unknown_rect_ac1208;
-        unknown_button_abe390.Set_Position(area2.X, area2.Y);
-        unknown_button_abe390.Set_Shape(shape, 0, 0);
+        Rect area = *ThumbOpenRect;
+        ThumbOpenButton.Set_Position(area.X, area.Y);
+        ThumbOpenButton.Set_Shape(shape, 0, 0);
+        ThumbClosedButton.ID = 0xF1;
+        ThumbClosedButton.ShapeDrawer = SidebarDrawer;
+        ThumbClosedButton.IsOn = false;
+        ThumbClosedButton.ToggleType = 0;
+        ThumbClosedButton.Flags = 5;
+        Rect area2 = *ThumbClosedRect;
+        ThumbClosedButton.Set_Position(area2.X, area2.Y);
+        ThumbClosedButton.Set_Shape(shape, 0, 0);
     }
 }
 
 
-// void TabClass::Unknown_006A0D50() (0x006A0D50)
+// void TabClass::Add_Command_Buttons() (0x006A0D50)
 // Unlinks each of the 25 buttons and adds it to the button list.
 
-void TabClass::Unknown_006A0D50()
+void TabClass::Add_Command_Buttons()
 {
     for (int index = 0; index < 25; index++) {
         ShapeButtonClass &button = Buttons[index];
@@ -337,10 +337,10 @@ void TabClass::Unknown_006A0D50()
 }
 
 
-// void TabClass::Unknown_006A0D80() (0x006A0D80)
+// void TabClass::Remove_Command_Buttons() (0x006A0D80)
 // Removes the 25 buttons from the button list.
 
-void TabClass::Unknown_006A0D80()
+void TabClass::Remove_Command_Buttons()
 {
     for (int index = 0; index < 25; index++) {
         Remove_A_Button(Buttons[index]);
@@ -358,25 +358,25 @@ bool TabClass::unknown_slot54(int control)
     if (changed) {
         if (unknown_4ee1) {
             if (unknown_4f14) {
-                Unknown_006A1AB0();
+                Show_Buttons();
             } else {
-                Add_A_Button(unknown_button_abe390);
-                Unknown_006A1270(&unknown_button_abe390, "Tip:ThumbClosed");
+                Add_A_Button(ThumbClosedButton);
+                Add_Button_ToolTip(&ThumbClosedButton, "Tip:ThumbClosed");
             }
         } else if (unknown_4f14) {
             for (int index = 0; index < 25; index++) {
                 Remove_A_Button(Buttons[index]);
             }
-            Remove_A_Button(unknown_button_abe400);
+            Remove_A_Button(ThumbOpenButton);
             for (int slot = 0; slot < 25; slot++) {
-                ShapeButtonClass *button = Unknown_006A0600(slot);
+                ShapeButtonClass *button = Get_Button(slot);
                 if (button != 0) {
                     ToolTips->Remove(button->ID);
                 }
             }
             ToolTips->Remove(0xF0);
         } else {
-            Remove_A_Button(unknown_button_abe390);
+            Remove_A_Button(ThumbClosedButton);
             ToolTips->Remove(0xF1);
         }
         Flag_To_Redraw(2);
@@ -398,7 +398,7 @@ void TabClass::AI(int &input, Point2D const &xy)
         unknown_4f15 = true;
         Flag_To_Redraw(false);
     }
-    Rect rect(unknown_rect_ac11fc->X, unknown_rect_ac11fc->Y, unknown_int_839638, unknown_int_7add84 - 2);
+    Rect rect(TabBarRect->X, TabBarRect->Y, unknown_int_839638, TabBarHeight - 2);
     if (rect.Is_Point_Within(xy)) {
         Map.Override_Mouse_Shape(0, false);
     }
@@ -406,47 +406,47 @@ void TabClass::AI(int &input, Point2D const &xy)
     if (key >= 0x80D6 && key < 0x80EF) {
         int id = (key & ~0x8000) - 0xD6;
         if (id == unknown_int_abe464) {
-            Unknown_006F6570();
+            Command_Attack_Move();
         } else if (id == unknown_int_abe294) {
             Unknown_006F64B0();
         } else if (id == unknown_int_abd910) {
-            Unknown_006F5C50();
+            Command_Cheer();
         } else if (id == unknown_int_abe278) {
-            Unknown_006F5940();
+            Command_Deploy();
         } else if (id == unknown_int_abe2b8) {
-            Unknown_006F5B10();
+            Command_Guard();
         } else if (id == unknown_int_abe36c) {
-            if (Unknown_006A0600(unknown_int_abe36c)->IsOn) {
-                Unknown_006F64D0(true);
+            if (Get_Button(unknown_int_abe36c)->IsOn) {
+                Command_Planning_Mode_On(true);
             } else {
-                Unknown_006F64F0(true);
+                Command_Planning_Mode_Off(true);
             }
         } else if (id == unknown_int_abe2bc) {
-            Unknown_006F5BC0();
-        } else if (Unknown_006A06B0(id)) {
-            int group = Unknown_006A06D0(id);
-            if (Unknown_006F5870(group) == 0) {
-                Unknown_006F5D90(group);
-            } else if (Unknown_006F5800(group)) {
-                Unknown_006F60D0(group);
+            Command_Stop();
+        } else if (Is_Team_Command(id)) {
+            int group = Team_Number(id);
+            if (Group_Count(group) == 0) {
+                Group_Assign(group);
+            } else if (Group_Is_All_Selected(group)) {
+                Group_Reselect(group);
             } else {
-                Unknown_006F5F00(group);
+                Group_Select(group);
             }
         } else if (id == unknown_int_abe290) {
-            Unknown_006F7360();
+            Command_Type_Select();
         }
     } else if (key == 0x80F0) {
         Unknown_Play_Sound(Rules->unknown_190);
-        Unknown_006A1F10();
+        Close_Thumb();
     } else if (key == 0x80F1) {
         if (MuteSWLaunches == 0) {
             Unknown_Play_Sound(Rules->unknown_18c);
-            Unknown_006A1EC0();
+            Open_Thumb();
         }
     } else if (key >= 0xC0D6 && key < 0xC0EF) {
         int id = (key & ~0xC000) - 0xD6;
-        if (Unknown_006A06B0(id)) {
-            Unknown_006F5E10(Unknown_006A06D0(id));
+        if (Is_Team_Command(id)) {
+            Group_Clear(Team_Number(id));
         }
     }
     Credits.AI(0);
@@ -454,11 +454,11 @@ void TabClass::AI(int &input, Point2D const &xy)
 }
 
 
-// void __fastcall TabClass::Unknown_006A1270(ControlClass *control, char const *label) (0x006A1270)
+// void __fastcall TabClass::Add_Button_ToolTip(ControlClass *control, char const *label) (0x006A1270)
 // Registers a control's area as a help region under the control's ID with
 // the given string table label, replacing any region with that ID.
 
-void __fastcall TabClass::Unknown_006A1270(ControlClass *control, char const *label)
+void __fastcall TabClass::Add_Button_ToolTip(ControlClass *control, char const *label)
 {
     if (control != 0) {
         ToolTip tip;
@@ -492,7 +492,7 @@ void TabClass::Draw_It(bool complete)
     bool redraw = complete || unknown_4f15;
     if (!redraw) {
         for (int slot = 0; slot < 25; slot++) {
-            ShapeButtonClass *button = Unknown_006A0600(slot);
+            ShapeButtonClass *button = Get_Button(slot);
             if (button != 0 && button->IsDrawn) {
                 redraw = true;
                 break;
@@ -503,7 +503,7 @@ void TabClass::Draw_It(bool complete)
         drawn_count = 0;
     } else {
         Point2D mouse = WWMouse->Get_Mouse_XY();
-        if (unknown_rect_ac11fc->Is_Point_Within(mouse)) {
+        if (TabBarRect->Is_Point_Within(mouse)) {
             mouse_inside = true;
             if (mouse.X != last_spot.X || mouse.Y != last_spot.Y) {
                 redraw = true;
@@ -535,45 +535,45 @@ void TabClass::Draw_It(bool complete)
         if (redraw) {
             Rect view = LogicalSurface->Get_Rect();
             Point2D where(0, 0);
-            where.X = unknown_rect_ac11fc->X;
-            where.Y = unknown_rect_ac11fc->Y;
+            where.X = TabBarRect->X;
+            where.Y = TabBarRect->Y;
             Rect narrow = view;
-            narrow.Width = unknown_rect_ac11fc->Width;
+            narrow.Width = TabBarRect->Width;
             Surface *surface = LogicalSurface;
             CC_Draw_Shape(surface, SidebarDrawer, (ShapeFileStruct const *)unknown_buffer_ac1048, 0,
                           where, narrow, 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             if (unknown_4f14) {
-                where.X = unknown_rect_ac1204->X;
-                where.Y = unknown_rect_ac1204->Y;
+                where.X = ThumbOpenRect->X;
+                where.Y = ThumbOpenRect->Y;
             } else {
-                where.X = unknown_rect_ac1208->X;
-                where.Y = unknown_rect_ac1208->Y;
+                where.X = ThumbClosedRect->X;
+                where.Y = ThumbClosedRect->Y;
             }
             CC_Draw_Shape(surface, SidebarDrawer, (ShapeFileStruct const *)unknown_buffer_ac1098, 0,
                           where, view, 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             if (unknown_4f14) {
-                where.X = unknown_rect_ac120c->X;
-                where.Y = unknown_rect_ac11fc->Y;
+                where.X = ButtonSlotRect->X;
+                where.Y = TabBarRect->Y;
                 for (int tile = 0; tile < unknown_int_ac0ff4; tile++) {
                     CC_Draw_Shape(surface, SidebarDrawer, (ShapeFileStruct const *)unknown_buffer_ac10a4, 0,
                                   where, view, 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-                    where.X += unknown_rect_ac120c->Width;
+                    where.X += ButtonSlotRect->Width;
                 }
                 for (int slot = 0; slot < 25; slot++) {
-                    ShapeButtonClass *button = Unknown_006A0600(slot);
+                    ShapeButtonClass *button = Get_Button(slot);
                     if (button != 0 && button->ShapeData != 0) {
                         button->Draw_Me(1);
                         button->IsDrawn = false;
                     }
                 }
             }
-            where.X = unknown_rect_ac1210->X;
+            where.X = TabEndRect->X;
             CC_Draw_Shape(surface, SidebarDrawer, (ShapeFileStruct const *)unknown_buffer_ac10b0, 0,
                           where, view, 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             if (unknown_4f14) {
-                unknown_button_abe400.Draw_Me(1);
+                ThumbOpenButton.Draw_Me(1);
             } else {
-                unknown_button_abe390.Draw_Me(1);
+                ThumbClosedButton.Draw_Me(1);
             }
             unknown_4f16 = true;
             unknown_4f15 = false;
@@ -609,10 +609,10 @@ void TabClass::Draw_Credits_Tab()
 }
 
 
-// void TabClass::Unknown_006A1770() (0x006A1770)
+// void TabClass::Flash_Money() (0x006A1770)
 // Redraws the bar: sets +0x4F15 and restarts the +0x4F08 timer at 7 frames.
 
-void TabClass::Unknown_006A1770()
+void TabClass::Flash_Money()
 {
     unknown_4f15 = true;
     Flag_To_Redraw(false);
@@ -620,15 +620,15 @@ void TabClass::Unknown_006A1770()
 }
 
 
-void TabClass::Unknown_006A1880()
+void TabClass::Setup_Command_Buttons()
 {
     for (int index=0; index<25; index++) Buttons[index].Set_Shape(0,0,0);
-    Rect area = *unknown_rect_ac1208;
+    Rect area = *ThumbClosedRect;
     int right=area.X+area.Width;
     for (int slot=0;slot<25;slot++) {
-        ShapeButtonClass *button=Unknown_006A0600(slot);
+        ShapeButtonClass *button=Get_Button(slot);
         if (button) {
-            Rect box=*unknown_rect_ac120c;
+            Rect box=*ButtonSlotRect;
             int x = SlotButton[slot]*unknown_int_abe388 + box.X;
             int y = unknown_int_abe374;
             if (box.Width+x<=right) {
@@ -642,91 +642,91 @@ void TabClass::Unknown_006A1880()
             }
         }
     }
-    ShapeButtonClass *planning=Unknown_006A0600(unknown_int_abe36c);
+    ShapeButtonClass *planning=Get_Button(unknown_int_abe36c);
     if (planning) {
         planning->ToggleType=1;
         planning->ReflectButtonState=true;
     }
     for (int team_slot=unknown_int_abe370;team_slot<=unknown_int_abe468;team_slot++) {
-        ShapeButtonClass *button=Unknown_006A0600(team_slot);
+        ShapeButtonClass *button=Get_Button(team_slot);
         if (button) button->Set_Flags(0x55);
     }
 }
 
 
-// static void TabClass::Unknown_006A19E0() (0x006A19E0)
+// static void TabClass::Setup_Thumb_Buttons() (0x006A19E0)
 // Sets up the two side buttons: ids 0xF0 and 0xF1 at the 0x00AC1204 and
 // 0x00AC1208 rectangles with the 0x00AC1098 shape. Init_IO inlines it; this
 // is the copy the linker kept.
 
-void TabClass::Unknown_006A19E0()
+void TabClass::Setup_Thumb_Buttons()
 {
-    unknown_button_abe400.ID = 0xF0;
-    unknown_button_abe400.ShapeDrawer = SidebarDrawer;
-    unknown_button_abe400.IsOn = false;
-    unknown_button_abe400.ToggleType = 0;
-    unknown_button_abe400.Flags = 5;
+    ThumbOpenButton.ID = 0xF0;
+    ThumbOpenButton.ShapeDrawer = SidebarDrawer;
+    ThumbOpenButton.IsOn = false;
+    ThumbOpenButton.ToggleType = 0;
+    ThumbOpenButton.Flags = 5;
     void const *shape = unknown_buffer_ac1098;
-    Rect area = *unknown_rect_ac1204;
-    unknown_button_abe400.Set_Position(area.X, area.Y);
-    unknown_button_abe400.Set_Shape(shape, 0, 0);
-    unknown_button_abe390.ID = 0xF1;
-    unknown_button_abe390.ShapeDrawer = SidebarDrawer;
-    unknown_button_abe390.IsOn = false;
-    unknown_button_abe390.ToggleType = 0;
-    unknown_button_abe390.Flags = 5;
-    Rect area2 = *unknown_rect_ac1208;
-    unknown_button_abe390.Set_Position(area2.X, area2.Y);
-    unknown_button_abe390.Set_Shape(shape, 0, 0);
+    Rect area = *ThumbOpenRect;
+    ThumbOpenButton.Set_Position(area.X, area.Y);
+    ThumbOpenButton.Set_Shape(shape, 0, 0);
+    ThumbClosedButton.ID = 0xF1;
+    ThumbClosedButton.ShapeDrawer = SidebarDrawer;
+    ThumbClosedButton.IsOn = false;
+    ThumbClosedButton.ToggleType = 0;
+    ThumbClosedButton.Flags = 5;
+    Rect area2 = *ThumbClosedRect;
+    ThumbClosedButton.Set_Position(area2.X, area2.Y);
+    ThumbClosedButton.Set_Shape(shape, 0, 0);
 }
 
 
-void TabClass::Unknown_006A1AB0()
+void TabClass::Show_Buttons()
 {
-    Unknown_006A0D50();
-    Add_A_Button(unknown_button_abe400);
-    Unknown_006A1270(Unknown_006A0600(unknown_int_abe464), "Tip:AttackMove");
-    Unknown_006A1270(Unknown_006A0600(unknown_int_abe294), "Tip:Beacon");
-    Unknown_006A1270(Unknown_006A0600(unknown_int_abd910), "Tip:Cheer");
-    Unknown_006A1270(Unknown_006A0600(unknown_int_abe278), "Tip:Deploy");
-    Unknown_006A1270(Unknown_006A0600(unknown_int_abe2b8), "Tip:Guard");
-    Unknown_006A1270(Unknown_006A0600(unknown_int_abe36c), "Tip:PlanningMode");
+    Add_Command_Buttons();
+    Add_A_Button(ThumbOpenButton);
+    Add_Button_ToolTip(Get_Button(unknown_int_abe464), "Tip:AttackMove");
+    Add_Button_ToolTip(Get_Button(unknown_int_abe294), "Tip:Beacon");
+    Add_Button_ToolTip(Get_Button(unknown_int_abd910), "Tip:Cheer");
+    Add_Button_ToolTip(Get_Button(unknown_int_abe278), "Tip:Deploy");
+    Add_Button_ToolTip(Get_Button(unknown_int_abe2b8), "Tip:Guard");
+    Add_Button_ToolTip(Get_Button(unknown_int_abe36c), "Tip:PlanningMode");
     {
-        ShapeButtonClass *button = Unknown_006A0600(unknown_int_abe2bc);
-        Unknown_006A1270(button, "Tip:Stop");
+        ShapeButtonClass *button = Get_Button(unknown_int_abe2bc);
+        Add_Button_ToolTip(button, "Tip:Stop");
     }
     {
-        ShapeButtonClass *button = Unknown_006A0600(unknown_int_abe370);
-        Unknown_006A1270(button, "Tip:Team01");
+        ShapeButtonClass *button = Get_Button(unknown_int_abe370);
+        Add_Button_ToolTip(button, "Tip:Team01");
     }
     {
-        ShapeButtonClass *button = Unknown_006A0600(unknown_int_abe378);
-        Unknown_006A1270(button, "Tip:Team02");
+        ShapeButtonClass *button = Get_Button(unknown_int_abe378);
+        Add_Button_ToolTip(button, "Tip:Team02");
     }
     {
-        ShapeButtonClass *button = Unknown_006A0600(unknown_int_abe468);
-        Unknown_006A1270(button, "Tip:Team03");
+        ShapeButtonClass *button = Get_Button(unknown_int_abe468);
+        Add_Button_ToolTip(button, "Tip:Team03");
     }
     {
-        ShapeButtonClass *button = Unknown_006A0600(unknown_int_abe290);
-        Unknown_006A1270(button, "Tip:TypeSelect");
+        ShapeButtonClass *button = Get_Button(unknown_int_abe290);
+        Add_Button_ToolTip(button, "Tip:TypeSelect");
     }
-    Unknown_006A1270(&unknown_button_abe400, "Tip:ThumbOpen");
+    Add_Button_ToolTip(&ThumbOpenButton, "Tip:ThumbOpen");
 }
 
 
-// void TabClass::Unknown_006A1DA0() (0x006A1DA0)
+// void TabClass::Hide_Buttons() (0x006A1DA0)
 // Removes the open bar's 25 buttons and the extra one from the button list,
 // and the help regions of the buttons in use and of the bar itself (0xF0).
 // Removes the 25 buttons through 0x006A0D80 (inlined here; TabClass::AI's
 // inlined copy of this function calls it out of line).
 
-void TabClass::Unknown_006A1DA0()
+void TabClass::Hide_Buttons()
 {
-    Unknown_006A0D80();
-    Remove_A_Button(unknown_button_abe400);
+    Remove_Command_Buttons();
+    Remove_A_Button(ThumbOpenButton);
     for (int slot = 0; slot < 25; slot++) {
-        ShapeButtonClass *button = Unknown_006A0600(slot);
+        ShapeButtonClass *button = Get_Button(slot);
         if (button != 0) {
             ToolTips->Remove(button->ID);
         }
@@ -735,50 +735,50 @@ void TabClass::Unknown_006A1DA0()
 }
 
 
-// void TabClass::Unknown_006A1E20() (0x006A1E20)
+// void TabClass::Show_Thumb_Button() (0x006A1E20)
 // Shows the closed bar's thumb button with its help region.
 
-void TabClass::Unknown_006A1E20()
+void TabClass::Show_Thumb_Button()
 {
-    Add_A_Button(unknown_button_abe390);
-    Unknown_006A1270(&unknown_button_abe390, "Tip:ThumbClosed");
+    Add_A_Button(ThumbClosedButton);
+    Add_Button_ToolTip(&ThumbClosedButton, "Tip:ThumbClosed");
 }
 
 
-// void TabClass::Unknown_006A1EA0() (0x006A1EA0)
+// void TabClass::Hide_Thumb_Button() (0x006A1EA0)
 // Hides the closed bar's thumb button and its help region (0xF1).
 
-void TabClass::Unknown_006A1EA0()
+void TabClass::Hide_Thumb_Button()
 {
-    Remove_A_Button(unknown_button_abe390);
+    Remove_A_Button(ThumbClosedButton);
     ToolTips->Remove(0xF1);
 }
 
 
-// void TabClass::Unknown_006A1EC0() (0x006A1EC0)
+// void TabClass::Open_Thumb() (0x006A1EC0)
 // Opens the bar when it is closed: swaps the thumb for the bar's buttons.
 
-void TabClass::Unknown_006A1EC0()
+void TabClass::Open_Thumb()
 {
     if (!unknown_4f14) {
-        Unknown_006A1EA0();
+        Hide_Thumb_Button();
         unknown_4f14 = true;
-        Unknown_006A1AB0();
+        Show_Buttons();
         unknown_4f15 = true;
         Flag_To_Redraw(0);
     }
 }
 
 
-// void TabClass::Unknown_006A1F10() (0x006A1F10)
+// void TabClass::Close_Thumb() (0x006A1F10)
 // Closes the bar when it is open: swaps the bar's buttons for the thumb.
 
-void TabClass::Unknown_006A1F10()
+void TabClass::Close_Thumb()
 {
     if (unknown_4f14) {
-        Unknown_006A1DA0();
+        Hide_Buttons();
         unknown_4f14 = false;
-        Unknown_006A1E20();
+        Show_Thumb_Button();
         unknown_4f15 = true;
         Flag_To_Redraw(0);
     }
@@ -794,14 +794,14 @@ void TabClass::Unknown_006A1F10()
 bool TabClass::INoticeSink_Unknown(int code, int arg)
 {
     if (code == 0x11C7) {
-        ShapeButtonClass *button = Unknown_006A0600(unknown_int_abe36c);
+        ShapeButtonClass *button = Get_Button(unknown_int_abe36c);
         if (button != 0 && !button->IsOn) {
             button->Turn_On();
         }
         return true;
     }
     if (code == 0x11C8) {
-        ShapeButtonClass *button = Unknown_006A0600(unknown_int_abe36c);
+        ShapeButtonClass *button = Get_Button(unknown_int_abe36c);
         if (button != 0 && button->IsOn) {
             button->Turn_Off();
         }

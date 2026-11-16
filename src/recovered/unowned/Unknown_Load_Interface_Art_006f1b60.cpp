@@ -8,8 +8,8 @@
 // @ref ?Unknown_0051A2B0@@YIXXZ=0051a2b0
 // @ref ?Unknown_006F3E70@@YIXHH@Z=006f3e70
 // @ref ?unknown_flag_ac119c@@3_NA=00ac119c
-// @ref ?unknown_value_8523e0@@3HA=008523e0
-// @ref ?unknown_value_8523e4@@3HA=008523e4
+// @ref ?VideoModeWidth@@3HA=008523e0
+// @ref ?VideoModeHeight@@3HA=008523e4
 // @ref ?unknown_name_7f8740@@3PBDB=007f8740
 // @ref ?unknown_flag_ac1224@@3_NA=00ac1224
 // @ref ?unknown_art_ac1218@@3PAXA=00ac1218
@@ -76,8 +76,8 @@ void __fastcall Unknown_006F1FA0(char const *name, void **shape, void **data);  
 void __fastcall Unknown_0051A2B0();
 void __fastcall Unknown_006F3E70(int arg1, int arg2);
 extern bool unknown_flag_ac119c;
-extern int unknown_value_8523e0;
-extern int unknown_value_8523e4;
+extern int VideoModeWidth;
+extern int VideoModeHeight;
 extern UnknownOwnedObject *unknown_object_ac1134;
 extern UnknownOwnedObject *unknown_object_ac113c;
 extern UnknownOwnedObject *unknown_object_ac1188;
@@ -159,7 +159,7 @@ void __fastcall Unknown_006F1B60()
         Unknown_006F1FA0(unknown_name_7f871c, &unknown_block_ac1184, (void **)&unknown_object_ac1188);
         Unknown_006F1FA0(unknown_name_7f8720, &unknown_block_ac118c, (void **)&unknown_object_ac1190);
         Unknown_006F1FA0(unknown_name_7f8724, &unknown_block_ac1194, (void **)&unknown_object_ac1198);
-        Unknown_006F3E70(unknown_value_8523e0, unknown_value_8523e4);
+        Unknown_006F3E70(VideoModeWidth, VideoModeHeight);
         unknown_flag_ac119c = true;
     }
 }

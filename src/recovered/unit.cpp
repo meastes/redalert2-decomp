@@ -173,7 +173,7 @@ UnitClass::UnitClass(UnitTypeClass *type, HouseClass *house) :
             Set_Current_Weapon(0);
         }
     }
-    unknown_object_index_abff58.Add_Index(Fetch_ID(), this);
+    TargetTracker.Add_Index(Fetch_ID(), this);
 }
 
 
@@ -215,7 +215,7 @@ UnitClass::~UnitClass()
     }
     Unknown_006ECB90(this, true);
     Units.Delete(this);
-    unknown_object_index_abff58.Remove_Index(Fetch_ID());
+    TargetTracker.Remove_Index(Fetch_ID());
     IsActive = false;
 }
 
@@ -886,7 +886,7 @@ int UnitClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
                 Type->Weight >= Rules->ShipSinkingWeight) {
                 CoordStruct position = Coord;
                 Cell cell = Coord_Cell(position);
-                if (Map[cell].unknown_47b7e0() && !WarpingOut) {
+                if (Map[cell].Is_Tile_With_Water() && !WarpingOut) {
                     unknown_slot216((int)source);
                     Strength = 1;
                     IsActive = true;
@@ -1029,7 +1029,7 @@ void UnitClass::Explode()
 {
     if (Type->Explosion.Count()>0) {
         AnimTypeClass *animation=Type->Explosion.Pick(unknown_id_source_a3d290->Random());
-        if ((Type->Explodes || unknown_6d7910(10)) && (Type->Ammo==-1 || unknown_254>0)) {
+        if ((Type->Explodes || Has_Ability(10)) && (Type->Ammo==-1 || unknown_254>0)) {
             animation=Type->Explosion[Type->Explosion.Count()-1];
         }
         new AnimClass(animation,Position_Coord_004f3f40(),0,1,0x600,0);
@@ -1120,7 +1120,7 @@ bool UnitClass::unknown_slot261(bool arg1, bool arg2)
             unknown_slot149(3);
         }
     }
-    unknown_4c8b00();
+    Handle_Navigation_List();
     int mission;
     if (unknown_494) {
         mission = 2;
@@ -1149,7 +1149,7 @@ bool UnitClass::unknown_slot261(bool arg1, bool arg2)
         if (Get_Mission() != -1 && (Control()->unknown_07 || Control()->unknown_05)) {
             return result;
         }
-        if (!(House->IQ >= Rules->unknown_10a8 || unknown_6d7910(16) || Type->DefaultToGuardArea)
+        if (!(House->IQ >= Rules->unknown_10a8 || Has_Ability(16) || Type->DefaultToGuardArea)
             || Team) {
             mission = 5;
         } else {
@@ -1404,7 +1404,7 @@ bool UnitClass::unknown_6fdfc0()
                         House->unknown_136 = true;
                         House->unknown_13a = true;
                         House->unknown_13b = true;
-                        House->Unknown_004F6310();
+                        House->Recall_Units_To_Base();
                     }
                     building->Strength = (int)(Health_Ratio() * building->Type->MaxStrength);
                     building->Strength = building->Strength > 1 ? building->Strength : 1;
@@ -1514,7 +1514,7 @@ void UnitClass::unknown_slot93(int reason)
                             else building=contact->Kind_Of()==6 ? (BuildingClass *)contact : 0;
                             if (!Type->Harvester && !Type->Weeder) {
                                 if (!House->Unknown_004F52F0() && building && building->Type->WeaponsFactory) {
-                                    Cell where=House->Unknown_004EB270(this);
+                                    Cell where=House->Where_To_Go(this);
                                     if (where!=unknown_geometry_k) {
                                         QueueMission(2,false);
                                         Assign_Destination(&Map[where],true);
@@ -1565,7 +1565,7 @@ void UnitClass::unknown_slot93(int reason)
             if (Mission!=7) {
                 new AnimClass(Select_Damage_Anim(Strength,Rules->C4Warhead,land,&Position_Coord_004f3f40()),Position_Coord_004f3f40(),0,1,0x2600,Get_Explosion_Z_0047fcc0(Position_Coord_004f3f40()));
                 int damage=Strength;
-                Unknown_0047F600(Center_Coord(),damage,Rules->C4Warhead,0,0);
+                Combat_Lighting(Center_Coord(),damage,Rules->C4Warhead,0,0);
                 Take_Damage(&damage,0,Rules->C4Warhead,0,true,0);
                 return;
             }
@@ -1573,7 +1573,7 @@ void UnitClass::unknown_slot93(int reason)
         }
     }
     CellClass *current_cell=&Map[cell];
-    if ((Type->Crusher || unknown_6d7910(17)) && current_cell->OverlayIndex!=-1) {
+    if ((Type->Crusher || Has_Ability(17)) && current_cell->OverlayIndex!=-1) {
         OverlayTypeClass *overlay=OverlayTypes[current_cell->OverlayIndex];
         if (overlay->unknown_1fd) {
             Voc_Play_At(overlay->unknown_1c0,Center_Coord(),0);
@@ -1770,7 +1770,7 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
         CC_Draw_Shape(LogicalSurface,NormalDrawer,shape,frame+shape->Get_Count()/2,
                       shadow_point,window,0x2e01,0,unknown_slot176()-2,0,1000,0,0,Point2D(0,0));
         Surface *old_surface=LogicalSurface;
-        LogicalSurface=unknown_surface_ad0604;
+        LogicalSurface=EightBitSurface;
         Point2D composite_point=Point2D(128,128);
         Matrix3D barrel_matrix;
         Rect composite_window=LogicalSurface->Get_Rect();
@@ -1897,7 +1897,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     Surface *old_surface=LogicalSurface;
     int key=0;
     Matrix3D main_matrix;
-    LogicalSurface=unknown_surface_ad0604;
+    LogicalSurface=EightBitSurface;
     drawpoint=Point2D(128,128);
     cliprect=LogicalSurface->Get_Rect();
     unknown_5bb=true;
@@ -2174,7 +2174,7 @@ bool UnitClass::Harvesting()
         float capacity = (float)Type->Storage;
         int available = (int)(capacity - unknown_294.Get_Total_Amount() > 1.0f
             ? 1.0f : (float)Type->Storage - unknown_294.Get_Total_Amount());
-        int taken = cell->unknown_475db0(available);
+        int taken = cell->Reduce_Tiberium(available);
         if (taken > 0) {
             unknown_294.Add_Amount((float)taken, resource);
             StageClass::Stage = 0;
@@ -2680,7 +2680,7 @@ struct UnknownIsoTile {
     int Width;                  // +0x2B4
     int Height;                 // +0x2B8
 };
-extern DynamicVectorClass<UnknownIsoTile *> unknown_iso_tiles_a40cd0;
+extern DynamicVectorClass<UnknownIsoTile *> IsometricTileTypes;
 extern double const unknown_facing_scale_79b628;
 extern double const unknown_facing_origin_79b630;
 inline UnknownFacingDir Direction_00703040(CoordStruct const &coord1,CoordStruct const &coord2)
@@ -2708,7 +2708,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
     TubeClass *tube=Cell_Tube_0047a130(cell);
     if (Type->MovementRestrictedTo!=-1) {
         if (cell->unknown_ec==10) {
-            UnknownIsoTile *tile=unknown_iso_tiles_a40cd0[cell->IsoTileIndex];
+            UnknownIsoTile *tile=IsometricTileTypes[cell->IsoTileIndex];
             if ((tile->Width==5 && tile->Height==3) || (tile->Width==4 && tile->Height==3)) {
                 if (cell->unknown_11a!=2) return 7;
             } else if ((tile->Width==3 && tile->Height==4 || tile->Width==3 && tile->Height==5) && cell->unknown_11a!=6) {
@@ -2750,7 +2750,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
         OverlayTypeClass *overlay=OverlayTypes[cell->OverlayIndex];
         if (overlay->Crate && !House->Is_Human_Player() && unknown_game_mode_a3d298==0) return 7;
         if (overlay->Wall) {
-            if (overlay->unknown_1fd && (Type->Crusher || unknown_6d7910(0x11))) {
+            if (overlay->unknown_1fd && (Type->Crusher || Has_Ability(0x11))) {
                 if (House->Is_Ally(cell->unknown_50)) {
                     if (result<4) result=4;
                 }
@@ -2853,7 +2853,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
                     if (result<1) result=1;
                 } else {
                     ObjectTypeClass *otype;
-                    if ((Type->Crusher || unknown_6d7910(0x11)) && (otype=occupant->Class_Of())->unknown_1fd) {
+                    if ((Type->Crusher || Has_Ability(0x11)) && (otype=occupant->Class_Of())->unknown_1fd) {
                         if (!House->Is_Ally(static_cast<TechnoClass*>(occupant))) crushable=true;
                     } else {
                         if (!unknown_slot231(0)->WeaponType && !Type->IsTrain) return 7;
@@ -2888,7 +2888,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
             if (infantry_owner!=-1 && House->Is_Ally(infantry_owner)) {
                 result=2;
             } else {
-                if (!Type->Crusher && !unknown_6d7910(0x11)) {
+                if (!Type->Crusher && !Has_Ability(0x11)) {
                     if (Type->IsTrain || (unknown_slot231(0)->WeaponType!=0 && unknown_slot231(0)->WeaponType->Projectile->AG)) {
                         result=5;
                     } else {
@@ -2945,7 +2945,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
     }
     if (action == 5) {
         if (!Can_Player_Fire()) {
-            if ((Type->Crusher || unknown_6d7910(0x11)) && object->Class_Of()->unknown_1fd) {
+            if ((Type->Crusher || Has_Ability(0x11)) && object->Class_Of()->unknown_1fd) {
                 action = 1;
             } else {
                 action = 7;
@@ -3544,7 +3544,7 @@ void UnitClass::unknown_slot304()
 {
     if (!House->Unknown_004F52F0() && unknown_228 && !unknown_494) {
         ObjectClass *object = As_Object(unknown_228);
-        if ((Type->Crusher || unknown_6d7910(17)) && unknown_5d4c00(unknown_228) < Rules->unknown_1390
+        if ((Type->Crusher || Has_Ability(17)) && unknown_5d4c00(unknown_228) < Rules->unknown_1390
             && object && object->Class_Of()->unknown_1fd && (Type->AutoCrush || !House->Unknown_004F52F0())) {
             Assign_Destination(unknown_228, true);
             return;
@@ -3591,7 +3591,7 @@ void UnitClass::Overrun_Square(Cell const &where, bool threaten)
             }
         }
     }
-    if (!Type->Crusher && !unknown_6d7910(17)) {
+    if (!Type->Crusher && !Has_Ability(17)) {
         return;
     }
     if (threaten) {
@@ -4280,7 +4280,7 @@ void __fastcall UnitClass::Write_INI(CCINIClass &ini)
 int UnitClass::unknown_707130()
 {
     float value = (float)unknown_294.Get_Total_Value();
-    return (int)(House->Unknown_004F5B30() * value);
+    return (int)(House->Income_Multiplier() * value);
 }
 
 
@@ -4300,7 +4300,7 @@ static inline int Coord_Distance(CoordStruct const &a, CoordStruct const &b)
 
 bool UnitClass::unknown_707170(TechnoClass *target)
 {
-    if (!Type->Crusher && !unknown_6d7910(17)) {
+    if (!Type->Crusher && !Has_Ability(17)) {
         return false;
     }
     if (target && target->Techno_Type_Class()->unknown_1fd) {
@@ -4555,14 +4555,14 @@ bool UnitClass::Ready_To_Commence()
 
 HRESULT __stdcall UnitClass::Load(IStream *stream)
 {
-    unknown_object_index_abff58.Remove_Index(Fetch_ID());
+    TargetTracker.Remove_Index(Fetch_ID());
     HRESULT result = FootClass::Load(stream);
     if (SUCCEEDED(result)) {
         ILocomotion *locomotor = Locomotor;
         new (this) UnitClass(NoInitClass());
         Locomotor = locomotor;
         locomotor->Release();
-        unknown_object_index_abff58.Add_Index(Fetch_ID(), this);
+        TargetTracker.Add_Index(Fetch_ID(), this);
         Swizzle_Pointer(Type);
         Swizzle_Pointer(unknown_5b0);
         unknown_5c4 = 0;
@@ -4992,7 +4992,7 @@ void UnitClass::RemoveGunner(int arg1)
         TemporalImUsing->unknown_24 = (int)to;
         TemporalImUsing = 0;
         if (to->TemporalImUsing && to->TemporalImUsing->unknown_28) {
-            to->TemporalImUsing->unknown_6e2500();
+            to->TemporalImUsing->LetGo();
         }
         if (running) {
             to->BurstIndex++;

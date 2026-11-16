@@ -134,7 +134,7 @@ public:
     // The registered game modes (a function-local static, 0x005B6C30).
     static DynamicVectorClass<MultiplayerGameMode *> &unknown_modes_5b6c30();
     // The first registered mode, or none (0x005B6EC0).
-    static MultiplayerGameMode *unknown_first_mode_5b6ec0();
+    static MultiplayerGameMode *First_Game_Mode();
     // The number of registered modes (0x005B6F80).
     static int unknown_mode_count_5b6f80();
     // The registered mode whose unknown_28 is the id, or none (0x005B6FE0).

@@ -140,8 +140,8 @@ extern "C" char *__cdecl strcpy(char *dest, char const *source);
 #pragma intrinsic(strcpy)
 
 // Two of the eight global level sets (0x0083144C-0x00831468; shared/audio.hpp).
-extern AudioLevelSet *unknown_audio_levels_831454;
-extern AudioLevelSet *unknown_audio_levels_831464;
+extern AudioLevelSet *AudioScoreAttribs;
+extern AudioLevelSet *AudioFadeAttribs;
 
 void ThemeClass::Unknown_006E7890(CCINIClass &ini)
 {
@@ -165,8 +165,8 @@ void ThemeClass::Unknown_006E7890(CCINIClass &ini)
         Sample = Audio_Stream_Create(Audio_Get_Device(), 20000);
         if (Sample != 0) {
             Audio_Stream_Set_Name((AudioStreamPlayer *)Sample, "Music Stream");
-            Audio_Stream_Set_Levels_94((AudioStreamPlayer *)Sample, unknown_audio_levels_831454);
-            Audio_Stream_Set_Levels_9c((AudioStreamPlayer *)Sample, unknown_audio_levels_831464);
+            Audio_Stream_Set_Levels_94((AudioStreamPlayer *)Sample, AudioScoreAttribs);
+            Audio_Stream_Set_Levels_9c((AudioStreamPlayer *)Sample, AudioFadeAttribs);
         }
     }
 }
@@ -221,13 +221,13 @@ void ThemeClass::Free_Themes()
 #define VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS
 #endif
 
-extern char unknown_sound_enabled_a40c18;
-extern char unknown_flag_a40d0c;
+extern char ScoresPresent;
+extern char Debug_Quiet;
 extern "C" void __cdecl _makepath(char *path, char const *drive, char const *dir, char const *fname, char const *ext);
 
 void ThemeClass::Scan()
 {
-    if (unknown_sound_enabled_a40c18 && AudioDeviceAvailable() && !unknown_flag_a40d0c) {
+    if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet) {
         for (int theme = 0; theme < Themes.Count(); theme++) {
             char name[512];
             _makepath(name, 0, 0, Themes[theme]->Sound, ".WAV");
@@ -313,15 +313,15 @@ int Owner_006e7cb0::Full_Name(unsigned int theme_index)
 // back. The queue is cleared to -2 after the start.
 
 
-extern char unknown_sound_enabled_a40c18;
-extern char unknown_flag_a40d0c;
+extern char ScoresPresent;
+extern char Debug_Quiet;
 void __fastcall AudioStreamerStop(void *sample);
 int __fastcall AudioStreamerIsPlaying(void *sample);
 int __fastcall AudioStreamerIsFading(void *sample);
 
 void ThemeClass::AI()
 {
-    if (AudioDeviceAvailable() && !unknown_flag_a40d0c && unknown_sound_enabled_a40c18 && Volume > 0) {
+    if (AudioDeviceAvailable() && !Debug_Quiet && ScoresPresent && Volume > 0) {
         bool ready = false;
         if (Sample != 0) {
             if (unknown_11 && !AudioStreamerIsFading(Sample)) {
@@ -397,8 +397,8 @@ ThemeType ThemeClass::Pick_Next_Song(ThemeType current)
 // expand Queue_Song in Play_Song 0x006E7EB0 and Load 0x006E8340.
 
 
-extern char unknown_sound_enabled_a40c18;
-extern char unknown_flag_a40d0c;
+extern char ScoresPresent;
+extern char Debug_Quiet;
 void __fastcall AudioStreamerStop(void *sample);
 int __fastcall AudioStreamerIsPlaying(void *sample);
 void __fastcall AudioStreamerFadeOut(void *sample);
@@ -406,7 +406,7 @@ int __fastcall AudioStreamerIsFading(void *sample);
 
 void ThemeClass::Queue_Song(ThemeType theme)
 {
-    if (unknown_sound_enabled_a40c18 && AudioDeviceAvailable() && !unknown_flag_a40d0c) {
+    if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet) {
         Pending = theme;
         if (theme != -1 && theme != -2 && theme != Score) {
             Debug_Printf("Theme::QueueSong(%d)\n", theme);
@@ -427,8 +427,8 @@ void ThemeClass::Queue_Song(ThemeType theme)
 // or all files are local), otherwise it is queued.
 
 
-extern char unknown_sound_enabled_a40c18;
-extern char unknown_flag_a40d0c;
+extern char ScoresPresent;
+extern char Debug_Quiet;
 void __fastcall AudioStreamerStop(void *sample);
 int __fastcall AudioStreamerIsPlaying(void *sample);
 void __fastcall AudioStreamerFadeOut(void *sample);
@@ -438,7 +438,7 @@ int __fastcall Audio_Stream_Open(AudioStreamPlayer *stream, char const *name, in
 
 int ThemeClass::Play_Song(ThemeType theme)
 {
-    if (unknown_sound_enabled_a40c18 && AudioDeviceAvailable() && !unknown_flag_a40d0c) {
+    if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet) {
         if (Still_Playing() && Score == theme) {
             return Current;
         }
@@ -495,8 +495,8 @@ char const *ThemeClass::Theme_File_Name(ThemeType theme)
 // enough for /Ob2 to expand Stop() in Play_Song 0x006E7EB0.
 
 
-extern char unknown_sound_enabled_a40c18;
-extern char unknown_flag_a40d0c;
+extern char ScoresPresent;
+extern char Debug_Quiet;
 void __fastcall AudioStreamerStop(void *sample);
 int __fastcall AudioStreamerIsPlaying(void *sample);
 void __fastcall AudioStreamerFadeOut(void *sample);
@@ -504,7 +504,7 @@ int __fastcall AudioStreamerIsFading(void *sample);
 
 void ThemeClass::Stop(bool fade)
 {
-    if (unknown_sound_enabled_a40c18 && AudioDeviceAvailable() && !unknown_flag_a40d0c && Current != -1) {
+    if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet && Current != -1) {
         if (fade && Still_Playing() == true) {
             Debug_Printf("Theme::Stop(%d) - Fading\n", Score);
             if (Sample != 0) {

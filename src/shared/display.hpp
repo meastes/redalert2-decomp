@@ -102,12 +102,12 @@ public:
     // that are not fully shrouded (+0x140 bit 5), unmaps them through
     // 0x0049CF00, then runs 0x0049E110 (false, 0) and redraws.
     void Encroach_Shadow();
-    void Unknown_0049E110(bool skip_buildings, bool arg2);   // 0x0049E110 (slot 70 over the technos of layer 2)
-    void Unknown_0049E000(bool skip_buildings, bool arg2);    // 0x0049E000 (slots 263/236 over every techno)
+    void All_To_Look(bool skip_buildings, bool arg2);   // 0x0049E110 (slot 70 over the technos of layer 2)
+    void Update_Technos_Visibility(bool skip_buildings, bool arg2);    // 0x0049E000 (slots 263/236 over every techno)
 #ifdef RA2_DISPLAY_START_POS
-    void Unknown_0049C670(); // original start position; matches the existing light interface
+    void Compute_Start_Pos(); // original start position; matches the existing light interface
 #endif
-    void Unknown_0049DE00(bool skip_buildings, bool arg2);    // 0x0049DE00 (over every techno; MapClass 0x00559F10)
+    void Reveal_Technos(bool skip_buildings, bool arg2);    // 0x0049DE00 (over every techno; MapClass 0x00559F10)
     void Constrained_Look(CoordStruct const &center, int distance);   // 0x0049E1D0 (TibSun Constrained_Look)
     // Whether a building type may be placed for the player at a cell: false
     // only when one of its foundation cells (by Width and Foundation_Height)
@@ -120,7 +120,7 @@ public:
     void Reinit_Cell_Drawers();                            // 0x0049E570 resets every cell (0x004790F0) and redraws
     // The width and height of a cell list ending with (0x7FFF, 0x7FFF), at
     // least 1 x 1; 0 x 0 for no list (0x00499810).
-    Cell Unknown_00499810(Cell const *list);
+    Cell Get_Occupy_Dimensions(Cell const *list);
     // Sets the placement cursor's cell list (0x00499070; RA Set_Cursor_Shape): unmarks the old
     // one, copies the list into a function static and centres it on the zone cell.
     void Set_Cursor_Shape(Cell const *list);
@@ -147,7 +147,7 @@ public:
     ObjectClass *Unknown_0049EC40();                    // 0x0049EC40
     void Unknown_0049EC60(ObjectClass *object);         // 0x0049EC60
     // Moves the cursor cell (+0x1170) to a cell and returns the old one (0x004994D0).
-    Cell Unknown_004994D0(Cell const &cell);
+    Cell Set_Cursor_Pos(Cell const &cell);
     ObjectClass *Prev_Object(ObjectClass *object);                     // 0x0049E5E0 runs 0x004798F0 on every cell
     void Unknown_0049C980(int control);
     void Unknown_0049CAC0(int control);                 // 0x0049CAC0 the mode switch for +0x11B0

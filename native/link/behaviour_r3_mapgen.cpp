@@ -21,7 +21,7 @@ double __stdcall Unknown_Cell_Score_0056dff0(Cell const &from, Cell const &to, d
 namespace {
 UnknownMapGenerationCell &Split_Cell_Data(Cell const &cell)
 {
-    return unknown_map_cells_a70a24[cell.X + cell.Y * unknown_map_cell_side_84e804];
+    return RMGCellData[cell.X + cell.Y * MapCellStride];
 }
 // The generator's map diamond (TibSun My_In_Radar; the inline test 0x0056EF20 repeats).
 bool Split_In_Bounds(Cell const &cell)
@@ -33,7 +33,7 @@ bool Split_In_Bounds(Cell const &cell)
 // The region of a cell's generator record, -1 without records (0x0056E9A0).
 int Split_Get_Region(Cell const &cell)
 {
-    return unknown_map_cells_a70a24 ? Split_Cell_Data(cell).RegionIndex : -1;
+    return RMGCellData ? Split_Cell_Data(cell).RegionIndex : -1;
 }
 // The open list: a 1-based binary min-heap of node pointers on their float score, as the
 // original's inline PriorityQueueClass<CellNode> (capacity 2 * CellCount + 10).
@@ -77,8 +77,8 @@ struct SplitHeap {
 };
 void Split_Clear_Spreads()
 {
-    int count = unknown_map_cell_side_84e804 * unknown_map_cell_side_84e804;
-    for (int i = 0; i < count; ++i) unknown_map_cells_a70a24[i].unknown_3c = -1;
+    int count = MapCellStride * MapCellStride;
+    for (int i = 0; i < count; ++i) RMGCellData[i].unknown_3c = -1;
 }
 // Raises every map cell of `region` by `diff` levels (CellClass +0x11B).
 void Split_Raise_Region(int region, int diff)

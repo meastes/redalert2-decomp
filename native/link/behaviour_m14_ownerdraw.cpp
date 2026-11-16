@@ -180,7 +180,7 @@ void Paint_Button(HWND window, WinData *record, bool lit)
             frame = pressed ? 1 : lit ? 2 : 0;
         }
         if (disabled) {
-            if (!unknown_session_a3d298.Unknown_00672F10())
+            if (!unknown_session_a3d298.Is_In_Game())
                 text_color = Side_Text_Color((unsigned char const *)&unknown_mode_ac109c);
             else if (unknown_id_source_a3d290->unknown_2239)
                 text_color = Side_Text_Color((unsigned char const *)&unknown_color_ac1008);

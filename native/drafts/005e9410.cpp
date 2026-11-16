@@ -4,7 +4,7 @@
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1061 (native/drafts.json). Not original bytes.
 // @ref ?unknown_session_a3d298@@3VSessionClass@@A=00a3d298
-// @ref ?Unknown_00672F10@SessionClass@@QAEEXZ=00672f10
+// @ref ?Is_In_Game@SessionClass@@QAEEXZ=00672f10
 // @ref ?unknown_7add6c@OwnerDraw@@3HA=007add6c
 // @ref ?unknown_7add78@OwnerDraw@@3HA=007add78
 // @ref ?VideoModeWidth@@3HA=008523e0
@@ -44,11 +44,11 @@ void __fastcall unknown_5e9410(HWND window)
         if (c12) {
             bool c4 = Is_Option_Kind(kind) || kind == 0x105 || kind == 0x6b || kind == 0x113;
             if (c4) {
-                if (!unknown_session_a3d298.Unknown_00672F10()) {
+                if (!unknown_session_a3d298.Is_In_Game()) {
                     y += 1;
                 }
             } else {
-                if (!unknown_session_a3d298.Unknown_00672F10()) {
+                if (!unknown_session_a3d298.Is_In_Game()) {
                     y += 7;
                     height += 1;
                 }

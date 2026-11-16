@@ -60,12 +60,12 @@ unsigned int __fastcall Get_CPU_Rate(unsigned int &high)
 
 // 0x00711C70 (exit): frees the veinhole buffer (operator delete 0x00781D3B) and
 // clears the pointer (the row's seed, src/recovered/00711c70.cpp).
-extern unsigned char *unknown_veinhole_buffer_ad07a0;
+extern unsigned char *GlobalGrowthState;
 void Unknown_00711C70()
 {
-    if (unknown_veinhole_buffer_ad07a0 != 0) {
-        operator delete(unknown_veinhole_buffer_ad07a0);
-        unknown_veinhole_buffer_ad07a0 = 0;
+    if (GlobalGrowthState != 0) {
+        operator delete(GlobalGrowthState);
+        GlobalGrowthState = 0;
     }
 }
 

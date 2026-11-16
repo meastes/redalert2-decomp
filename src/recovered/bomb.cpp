@@ -132,7 +132,7 @@ void BombClass::Unknown_00435D30()
         Target->unknown_68 = false;
         unknown_58 = true;
         CoordStruct coord = Target->Coord;
-        Unknown_0047E2C0(coord, Rules->IvanDamage, Owner, Rules->IvanWarhead, true);
+        Explosion_Damage(coord, Rules->IvanDamage, Owner, Rules->IvanWarhead, true);
         new AnimClass(Select_Damage_Anim(Rules->IvanDamage, Rules->IvanWarhead, Land_At(coord), &coord),
             coord, 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(coord));
         if (Target != 0 && Target->Kind_Of() == 6 && ((BuildingClass *)Target)->Type->BridgeRepairHut) {

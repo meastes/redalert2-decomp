@@ -382,7 +382,7 @@ bool AnimClass::Render(Rect *bounds, bool arg2, bool arg3)
 
 void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
 {
-    if (unknown_a6eb1c < Unknown_0053D840() && Class->DetailLevel > 1) {
+    if (unknown_a6eb1c < GetMinFrameRate() && Class->DetailLevel > 1) {
         return;
     }
     if (!unknown_17d && Class->DetailLevel <= unknown_a40b2c && (!unknown_179 || !Class->ShouldFogRemove)) {
@@ -606,8 +606,8 @@ void AnimClass::AI()
                 if (Class->ExpireAnim) {
                     Vector3 position=unknown_108.Position;
                     new AnimClass(Class->ExpireAnim,CoordStruct((int)position.X,(int)position.Y,(int)position.Z),0,1,0x2600,-30);
-                    Unknown_0047E2C0(unknown_108.Unknown_00436F80(),(int)Class->Damage,0,Class->Warhead,1);
-                    Unknown_0047F600(unknown_108.Unknown_00436F80(),(int)Class->Damage,Class->Warhead,0,0);
+                    Explosion_Damage(unknown_108.Unknown_00436F80(),(int)Class->Damage,0,Class->Warhead,1);
+                    Combat_Lighting(unknown_108.Unknown_00436F80(),(int)Class->Damage,Class->Warhead,0,0);
                 }
             }
             if (!water || bridge) {
@@ -677,8 +677,8 @@ void AnimClass::AI()
                     int damage=(int)unknown_168;
                     unknown_168-=damage;
                     if (strcmp(Class->ID,"INVISO")==0)
-                        Unknown_0047E2C0(Center_Coord(),damage,0,Rules->C4Warhead,1);
-                    else Unknown_0047E2C0(Center_Coord(),damage,0,Rules->FlameDamage2,1);
+                        Explosion_Damage(Center_Coord(),damage,0,Rules->C4Warhead,1);
+                    else Explosion_Damage(Center_Coord(),damage,0,Rules->FlameDamage2,1);
                     if (!IsActive) return;
                 }
             }
@@ -837,7 +837,7 @@ void AnimClass::unknown_func_4226d0()
             }
             {
                 CoordStruct coord = Coord;
-                Unknown_0047E2C0(coord, Rules->unknown_488, 0, Rules->C4Warhead, 0);
+                Explosion_Damage(coord, Rules->unknown_488, 0, Rules->C4Warhead, 0);
             }
             cell->Recalc_Attributes(-1);
             Map.Update_Cell_Zone(cell->unknown_24);
@@ -916,7 +916,7 @@ void __fastcall Unknown_00422BA0(int arg1, Cell const &cell)
     coord.Z = 0;
     coord.X = cell.X * 256 + 128;
     coord.Y = cell.Y * 256 + 128;
-    Unknown_0047E2C0(coord, Rules->unknown_1190, 0, Rules->unknown_c60, 0);
+    Explosion_Damage(coord, Rules->unknown_1190, 0, Rules->unknown_c60, 0);
     if (unknown_game_mode_a3d298 == 0) {
         Set_Palette(&GamePalette, 30, Call_Back);
     }

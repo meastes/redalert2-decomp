@@ -210,11 +210,11 @@ struct UnknownAnimTiberium {
 extern DynamicVectorClass<UnknownAnimTiberium *> unknown_tiberiums_ac0b30;   // 0x00AC0B30
 
 // Damage around a coordinate (0x0047E2C0, __fastcall; hypothesis).
-int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int damage, TechnoClass *source, WarheadTypeClass *warhead, bool arg5);
+int __fastcall Explosion_Damage(CoordStruct const &coord, int damage, TechnoClass *source, WarheadTypeClass *warhead, bool arg5);
 // An explosion's effects at a coordinate (0x0047F600, __fastcall: the
 // coordinate by value on the stack, damage in ECX, warhead in EDX;
-// VoxelAnimClass::AI after Unknown_0047E2C0; hypothesis).
-void __fastcall Unknown_0047F600(CoordStruct coord, int damage, WarheadTypeClass *warhead, int arg4, int arg5);
+// VoxelAnimClass::AI after Explosion_Damage; hypothesis).
+void __fastcall Combat_Lighting(CoordStruct coord, int damage, WarheadTypeClass *warhead, int arg4, int arg5);
 // The animation a warhead leaves where it hits (0x0047F4D0, defined in
 // unowned/Select_Damage_Anim_0047f4d0.cpp).
 AnimTypeClass *__fastcall Select_Damage_Anim(int damage, WarheadTypeClass *warhead, int land, CoordStruct *coords);

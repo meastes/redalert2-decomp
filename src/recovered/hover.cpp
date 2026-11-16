@@ -584,7 +584,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
 
         case 3:
             unknown_24 = unknown_geometry_l;
-            Map.Unknown_0055ACD0(LinkedTo, c);
+            Map.Try_Open_Gate(LinkedTo, c);
             unknown_4fda80();
             break;
 

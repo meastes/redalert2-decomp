@@ -126,7 +126,7 @@
    "padding_bytes": 1
   },
   {
-   "symbol": "?Unknown_006A0540@TabClass@@SIXH@Z",
+   "symbol": "?Free_Button_Shape@TabClass@@SIXH@Z",
    "entry": "006a0540",
    "body_bytes": 49,
    "padding_bytes": 15
@@ -144,19 +144,19 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?Unknown_006A05F0@TabClass@@SIHH@Z",
+   "symbol": "?Get_Command_Position@TabClass@@SIHH@Z",
    "entry": "006a05f0",
    "body_bytes": 8,
    "padding_bytes": 8
   },
   {
-   "symbol": "?Unknown_006A0600@TabClass@@SIPAVShapeButtonClass@@H@Z",
+   "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
    "entry": "006a0600",
    "body_bytes": 31,
    "padding_bytes": 1
   },
   {
-   "symbol": "?Unknown_006A0620@TabClass@@SI?AVRect@@H@Z",
+   "symbol": "?Get_Button_Rect@TabClass@@SI?AVRect@@H@Z",
    "entry": "006a0620",
    "body_bytes": 71,
    "padding_bytes": 9
@@ -168,13 +168,13 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?Unknown_006A06B0@TabClass@@SIHH@Z",
+   "symbol": "?Is_Team_Command@TabClass@@SIHH@Z",
    "entry": "006a06b0",
    "body_bytes": 25,
    "padding_bytes": 7
   },
   {
-   "symbol": "?Unknown_006A06D0@TabClass@@SIHH@Z",
+   "symbol": "?Team_Number@TabClass@@SIHH@Z",
    "entry": "006a06d0",
    "body_bytes": 10,
    "padding_bytes": 6
@@ -210,13 +210,13 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?Unknown_006A0D50@TabClass@@QAEXXZ",
+   "symbol": "?Add_Command_Buttons@TabClass@@QAEXXZ",
    "entry": "006a0d50",
    "body_bytes": 38,
    "padding_bytes": 10
   },
   {
-   "symbol": "?Unknown_006A0D80@TabClass@@QAEXXZ",
+   "symbol": "?Remove_Command_Buttons@TabClass@@QAEXXZ",
    "entry": "006a0d80",
    "body_bytes": 31,
    "padding_bytes": 1
@@ -234,7 +234,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z",
+   "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
    "entry": "006a1270",
    "body_bytes": 83,
    "padding_bytes": 13
@@ -258,7 +258,7 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?Unknown_006A1770@TabClass@@QAEXXZ",
+   "symbol": "?Flash_Money@TabClass@@QAEXXZ",
    "entry": "006a1770",
    "body_bytes": 53,
    "padding_bytes": 11
@@ -270,49 +270,49 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?Unknown_006A1880@TabClass@@QAEXXZ",
+   "symbol": "?Setup_Command_Buttons@TabClass@@QAEXXZ",
    "entry": "006a1880",
    "body_bytes": 345,
    "padding_bytes": 7
   },
   {
-   "symbol": "?Unknown_006A19E0@TabClass@@SAXXZ",
+   "symbol": "?Setup_Thumb_Buttons@TabClass@@SAXXZ",
    "entry": "006a19e0",
    "body_bytes": 204,
    "padding_bytes": 4
   },
   {
-   "symbol": "?Unknown_006A1AB0@TabClass@@QAEXXZ",
+   "symbol": "?Show_Buttons@TabClass@@QAEXXZ",
    "entry": "006a1ab0",
    "body_bytes": 752,
    "padding_bytes": 0
   },
   {
-   "symbol": "?Unknown_006A1DA0@TabClass@@QAEXXZ",
+   "symbol": "?Hide_Buttons@TabClass@@QAEXXZ",
    "entry": "006a1da0",
    "body_bytes": 116,
    "padding_bytes": 12
   },
   {
-   "symbol": "?Unknown_006A1E20@TabClass@@QAEXXZ",
+   "symbol": "?Show_Thumb_Button@TabClass@@QAEXXZ",
    "entry": "006a1e20",
    "body_bytes": 116,
    "padding_bytes": 12
   },
   {
-   "symbol": "?Unknown_006A1EA0@TabClass@@QAEXXZ",
+   "symbol": "?Hide_Thumb_Button@TabClass@@QAEXXZ",
    "entry": "006a1ea0",
    "body_bytes": 27,
    "padding_bytes": 5
   },
   {
-   "symbol": "?Unknown_006A1EC0@TabClass@@QAEXXZ",
+   "symbol": "?Open_Thumb@TabClass@@QAEXXZ",
    "entry": "006a1ec0",
    "body_bytes": 71,
    "padding_bytes": 9
   },
   {
-   "symbol": "?Unknown_006A1F10@TabClass@@QAEXXZ",
+   "symbol": "?Close_Thumb@TabClass@@QAEXXZ",
    "entry": "006a1f10",
    "body_bytes": 270,
    "padding_bytes": 2
@@ -926,19 +926,19 @@
   },
   {
    "site": "004e77f0",
-   "symbol": "?Unknown_006A1F10@TabClass@@QAEXXZ",
+   "symbol": "?Close_Thumb@TabClass@@QAEXXZ",
    "target": "006a1f10",
    "function_entry": true
   },
   {
    "site": "004e77f0",
-   "symbol": "?Unknown_006A1EC0@TabClass@@QAEXXZ",
+   "symbol": "?Open_Thumb@TabClass@@QAEXXZ",
    "target": "006a1ec0",
    "function_entry": true
   },
   {
    "site": "004e4110",
-   "symbol": "?Unknown_006A1770@TabClass@@QAEXXZ",
+   "symbol": "?Flash_Money@TabClass@@QAEXXZ",
    "target": "006a1770",
    "function_entry": true
   },
@@ -1047,12 +1047,52 @@
    "address": "00abd8a0"
   },
   {
+   "symbol": "?ButtonSlotRect@@3PBVRect@@B",
+   "address": "00ac120c"
+  },
+  {
    "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
    "address": "0049eea0"
   },
   {
    "symbol": "?Click_Cell_Calc@RadarClass@@UAE?AVCell@@ABUPoint2D@@@Z",
    "address": "0062fbd0"
+  },
+  {
+   "symbol": "?CommandNames@@3PAPBDA",
+   "address": "007f67f8"
+  },
+  {
+   "symbol": "?Command_Attack_Move@@YAXXZ",
+   "address": "006f6570"
+  },
+  {
+   "symbol": "?Command_Cheer@@YAXXZ",
+   "address": "006f5c50"
+  },
+  {
+   "symbol": "?Command_Deploy@@YAXXZ",
+   "address": "006f5940"
+  },
+  {
+   "symbol": "?Command_Guard@@YIXXZ",
+   "address": "006f5b10"
+  },
+  {
+   "symbol": "?Command_Planning_Mode_Off@@YIX_N@Z",
+   "address": "006f64f0"
+  },
+  {
+   "symbol": "?Command_Planning_Mode_On@@YIX_N@Z",
+   "address": "006f64d0"
+  },
+  {
+   "symbol": "?Command_Stop@@YAXXZ",
+   "address": "006f5bc0"
+  },
+  {
+   "symbol": "?Command_Type_Select@@YAXXZ",
+   "address": "006f7360"
   },
   {
    "symbol": "?Debug_Map@@3_NA",
@@ -1091,6 +1131,30 @@
    "address": "00494530"
   },
   {
+   "symbol": "?Group_Assign@@YIXH@Z",
+   "address": "006f5d90"
+  },
+  {
+   "symbol": "?Group_Clear@@YIXH@Z",
+   "address": "006f5e10"
+  },
+  {
+   "symbol": "?Group_Count@@YIHH@Z",
+   "address": "006f5870"
+  },
+  {
+   "symbol": "?Group_Is_All_Selected@@YI_NH@Z",
+   "address": "006f5800"
+  },
+  {
+   "symbol": "?Group_Reselect@@YIXH@Z",
+   "address": "006f60d0"
+  },
+  {
+   "symbol": "?Group_Select@@YIXH@Z",
+   "address": "006f5f00"
+  },
+  {
    "symbol": "?Help_Text@SidebarClass@@UAEPBGH@Z",
    "address": "00681ed0"
   },
@@ -1113,6 +1177,10 @@
   {
    "symbol": "?Is_Button_Listed@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
    "address": "004e0aa0"
+  },
+  {
+   "symbol": "?Is_Sidebar_Art_Loaded@@YI_NXZ",
+   "address": "006f4590"
   },
   {
    "symbol": "?Is_Visible@MapClass@@UAGJVCell@@@Z",
@@ -1157,6 +1225,10 @@
   {
    "symbol": "?MuteSWLaunches@@3HA",
    "address": "00a3d548"
+  },
+  {
+   "symbol": "?NoAdvancedCommand@@3HA",
+   "address": "007f67f4"
   },
   {
    "symbol": "?One_Time@SidebarClass@@UAEXXZ",
@@ -1235,6 +1307,26 @@
    "address": "00abe2c8"
   },
   {
+   "symbol": "?TabBarHeight@@3HA",
+   "address": "007add84"
+  },
+  {
+   "symbol": "?TabBarRect@@3PBVRect@@B",
+   "address": "00ac11fc"
+  },
+  {
+   "symbol": "?TabEndRect@@3PBVRect@@B",
+   "address": "00ac1210"
+  },
+  {
+   "symbol": "?ThumbClosedRect@@3PBVRect@@B",
+   "address": "00ac1208"
+  },
+  {
+   "symbol": "?ThumbOpenRect@@3PBVRect@@B",
+   "address": "00ac1204"
+  },
+  {
    "symbol": "?ToolTips@@3PAVCCToolTip@@A",
    "address": "008399b0"
   },
@@ -1247,68 +1339,8 @@
    "address": "006eb160"
   },
   {
-   "symbol": "?Unknown_006F5800@@YI_NH@Z",
-   "address": "006f5800"
-  },
-  {
-   "symbol": "?Unknown_006F5870@@YIHH@Z",
-   "address": "006f5870"
-  },
-  {
-   "symbol": "?Unknown_006F5940@@YAXXZ",
-   "address": "006f5940"
-  },
-  {
-   "symbol": "?Unknown_006F5B10@@YIXXZ",
-   "address": "006f5b10"
-  },
-  {
-   "symbol": "?Unknown_006F5BC0@@YAXXZ",
-   "address": "006f5bc0"
-  },
-  {
-   "symbol": "?Unknown_006F5C50@@YAXXZ",
-   "address": "006f5c50"
-  },
-  {
-   "symbol": "?Unknown_006F5D90@@YIXH@Z",
-   "address": "006f5d90"
-  },
-  {
-   "symbol": "?Unknown_006F5E10@@YIXH@Z",
-   "address": "006f5e10"
-  },
-  {
-   "symbol": "?Unknown_006F5F00@@YIXH@Z",
-   "address": "006f5f00"
-  },
-  {
-   "symbol": "?Unknown_006F60D0@@YIXH@Z",
-   "address": "006f60d0"
-  },
-  {
    "symbol": "?Unknown_006F64B0@@YAXXZ",
    "address": "006f64b0"
-  },
-  {
-   "symbol": "?Unknown_006F64D0@@YIX_N@Z",
-   "address": "006f64d0"
-  },
-  {
-   "symbol": "?Unknown_006F64F0@@YIX_N@Z",
-   "address": "006f64f0"
-  },
-  {
-   "symbol": "?Unknown_006F6570@@YAXXZ",
-   "address": "006f6570"
-  },
-  {
-   "symbol": "?Unknown_006F7360@@YAXXZ",
-   "address": "006f7360"
-  },
-  {
-   "symbol": "?Unknown_Get_Art_006f4590@@YI_NXZ",
-   "address": "006f4590"
   },
   {
    "symbol": "?Unknown_Load_Shape_00495270@@YIPBXPBDAA_N@Z",
@@ -1347,16 +1379,8 @@
    "address": "00ac10f8"
   },
   {
-   "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
-   "address": "007f67f8"
-  },
-  {
    "symbol": "?unknown_flag_abcd84@@3_NA",
    "address": "00abcd84"
-  },
-  {
-   "symbol": "?unknown_int_7add84@@3HA",
-   "address": "007add84"
   },
   {
    "symbol": "?unknown_int_839638@@3HA",
@@ -1445,30 +1469,6 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_no_command_7f67f4@@3HA",
-   "address": "007f67f4"
-  },
-  {
-   "symbol": "?unknown_rect_ac11fc@@3PBVRect@@B",
-   "address": "00ac11fc"
-  },
-  {
-   "symbol": "?unknown_rect_ac1204@@3PBVRect@@B",
-   "address": "00ac1204"
-  },
-  {
-   "symbol": "?unknown_rect_ac1208@@3PBVRect@@B",
-   "address": "00ac1208"
-  },
-  {
-   "symbol": "?unknown_rect_ac120c@@3PBVRect@@B",
-   "address": "00ac120c"
-  },
-  {
-   "symbol": "?unknown_rect_ac1210@@3PBVRect@@B",
-   "address": "00ac1210"
   },
   {
    "symbol": "?unknown_slot22@MapClass@@UAEXXZ",

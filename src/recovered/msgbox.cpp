@@ -63,7 +63,7 @@ int WWMessageBox::Process(unsigned short const *msg, unsigned short const *b1txt
             SendMessageA(control, 0x4B2, 0, (LPARAM)b3txt);
             buttons = 3;
         }
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
         if (buttons > 0) {
             while (WWMouse->Get_Mouse_State() != 0) {
                 WWMouse->Show_Mouse();
@@ -94,7 +94,7 @@ int WWMessageBox::Process(unsigned short const *msg, unsigned short const *b1txt
 
 int __stdcall Message_Box_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int handled = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int handled = Default_Dialog_Proc(window, message, wparam, lparam);
     if (handled != 0) {
         return handled;
     }

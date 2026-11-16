@@ -115,12 +115,12 @@ typedef HANDLE HGLOBAL;
 WIN32_IMPORT HRSRC WINAPI FindResourceA(HINSTANCE instance, LPCSTR name, LPCSTR type);
 WIN32_IMPORT HGLOBAL WINAPI LoadResource(HINSTANCE instance, HRSRC resource);
 WIN32_IMPORT LPVOID WINAPI LockResource(HGLOBAL resource);
-extern HINSTANCE unknown_instance_00851ca8;
+extern HINSTANCE LanguageResources;
 void *__fastcall Load_Resource_004954e0(unsigned int id, char const *type)
 {
-    HRSRC resource = FindResourceA(unknown_instance_00851ca8, (LPCSTR)(id & 0xffff), type);
+    HRSRC resource = FindResourceA(LanguageResources, (LPCSTR)(id & 0xffff), type);
     if (!resource) return 0;
-    HGLOBAL data = LoadResource(unknown_instance_00851ca8, resource);
+    HGLOBAL data = LoadResource(LanguageResources, resource);
     if (!data) return 0;
     return LockResource(data);
 }

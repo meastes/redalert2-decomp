@@ -16,7 +16,7 @@
 class VoxClass;
 
 // The unit's list of VoxClass objects (0x00AD0930; name is a hypothesis).
-DynamicVectorClass<VoxClass *> unknown_VoxClass_list_00ad0930;
+DynamicVectorClass<VoxClass *> Voxs;
 
 
 // Dynamic initializer (0x007154B0, _$E) emitted by HeaderStatics_diagonal_init_00715480.cpp; no source of its own.
@@ -65,15 +65,15 @@ DynamicVectorClass<VoxClass *> unknown_VoxClass_list_00ad0930;
 
 int Speech_Init()
 {
-    unknown_vox_ad0878 = 0;
-    unknown_countdown_ad08c8 = 0;
+    SpeechHold = 0;
+    SpeechSuspend = 0;
     for (int i = 0; i < 4; i++) {
-        Audio_List_Init(&unknown_vox_lists_ad08e0[i]);
+        Audio_List_Init(&SpeechLists[i]);
     }
-    Audio_List_Init(&unknown_vox_list_ad0890);
-    Audio_List_Init(&unknown_vox_list_ad0868);
-    unknown_vox_pending_ad0948 = 0;
-    unknown_vox_enabled_ad094c = 1;
+    Audio_List_Init(&SpeechUrgentList);
+    Audio_List_Init(&SpeechQueuedList);
+    SpeechPending = 0;
+    SpeechEnabled = 1;
     if (unknown_vox_stream_ad095c == 0) {
         unknown_vox_stream_ad095c = Audio_Stream_Create(Audio_Get_Device(), 3000);
         if (unknown_vox_stream_ad095c == 0) {
@@ -106,27 +106,27 @@ void Speech_Shutdown()
 
 void __fastcall Speech_Clear()
 {
-    if (!unknown_vox_enabled_ad094c) {
+    if (!SpeechEnabled) {
         return;
     }
-    if (unknown_vox_pending_ad0948 != 0) {
-        unknown_vox_pending_ad0948->Vox->State = 2;
-        delete unknown_vox_pending_ad0948;
-        unknown_vox_pending_ad0948 = 0;
+    if (SpeechPending != 0) {
+        SpeechPending->Vox->State = 2;
+        delete SpeechPending;
+        SpeechPending = 0;
     }
     VoxSpeech *speech;
-    while ((speech = (VoxSpeech *)Audio_List_First(&unknown_vox_list_ad0890)) != 0) {
+    while ((speech = (VoxSpeech *)Audio_List_First(&SpeechUrgentList)) != 0) {
         Audio_List_Remove(speech);
         speech->Vox->State = 2;
         delete speech;
     }
-    while ((speech = (VoxSpeech *)Audio_List_First(&unknown_vox_list_ad0868)) != 0) {
+    while ((speech = (VoxSpeech *)Audio_List_First(&SpeechQueuedList)) != 0) {
         Audio_List_Remove(speech);
         speech->Vox->State = 2;
         delete speech;
     }
     for (int i = 0; i < 4; i++) {
-        while ((speech = (VoxSpeech *)Audio_List_First(&unknown_vox_lists_ad08e0[i])) != 0) {
+        while ((speech = (VoxSpeech *)Audio_List_First(&SpeechLists[i])) != 0) {
             Audio_List_Remove(speech);
             speech->Vox->State = 2;
             delete speech;
@@ -140,8 +140,8 @@ void __fastcall Speech_Clear()
 
 char const *__fastcall VoxClass::Name_From(int index)
 {
-    if (index != -1 && index >= 0 && index < unknown_VoxClass_list_00ad0930.Count()) {
-        return unknown_VoxClass_list_00ad0930[index]->Name;
+    if (index != -1 && index >= 0 && index < Voxs.Count()) {
+        return Voxs[index]->Name;
     }
     return "none";
 }
@@ -153,25 +153,25 @@ char const *__fastcall VoxClass::Name_From(int index)
 
 void __fastcall Speech_Play(int index, int type, int priority)
 {
-    if (unknown_vox_stream_ad095c != 0 && index >= 0 && index < unknown_VoxClass_list_00ad0930.Count()
-            && unknown_vox_ad0878 == 0) {
-        VoxClass *vox = unknown_VoxClass_list_00ad0930[index];
-        if (vox != unknown_vox_playing_ad0954) {
+    if (unknown_vox_stream_ad095c != 0 && index >= 0 && index < Voxs.Count()
+            && SpeechHold == 0) {
+        VoxClass *vox = Voxs[index];
+        if (vox != SpeechPlaying) {
             if (type == -1) {
                 type = vox->Type;
             }
             if (priority == -1) {
                 priority = vox->Priority;
             }
-            if (unknown_vox_playing_ad0954 != 0 && type == 2) {
+            if (SpeechPlaying != 0 && type == 2) {
                 VoxSpeech *speech;
-                while ((speech = (VoxSpeech *)Audio_List_First(&unknown_vox_list_ad0868)) != 0) {
+                while ((speech = (VoxSpeech *)Audio_List_First(&SpeechQueuedList)) != 0) {
                     Audio_List_Remove(speech);
                     speech->Vox->State = 2;
                     delete speech;
                 }
                 Speech_Stop(true);
-                unknown_vox_delay_ad0960 = 0;
+                SpeechDelay = 0;
             }
             VoxSpeech *speech = Speech_Find(vox);
             if (speech == 0 || speech->Type != type) {
@@ -195,19 +195,19 @@ void __fastcall Speech_Queue(VoxClass *vox, int type, int priority)
     speech->Vox = vox;
     speech->Priority = priority;
     speech->Type = type;
-    speech->Serial = unknown_vox_serial_ad0950 % 100;
-    unknown_vox_serial_ad0950++;
+    speech->Serial = SpeechSerial % 100;
+    SpeechSerial++;
     vox->State = 1;
     if (type == 3) {
-        Audio_List_Add_Tail(&unknown_vox_list_ad0868, speech);
+        Audio_List_Add_Tail(&SpeechQueuedList, speech);
     } else if (type == 1) {
-        Audio_List_Add_Tail(&unknown_vox_lists_ad08e0[priority], speech);
+        Audio_List_Add_Tail(&SpeechLists[priority], speech);
     } else if (priority == 3) {
-        Audio_List_Add_Tail(&unknown_vox_list_ad0890, speech);
-    } else if (unknown_vox_list_ad0868.Prev == &unknown_vox_list_ad0868
-            && unknown_vox_list_ad0890.Prev == &unknown_vox_list_ad0890
-            && (unknown_vox_pending_ad0948 == 0 || unknown_vox_pending_ad0948->Priority < priority)) {
-        unknown_vox_pending_ad0948 = speech;
+        Audio_List_Add_Tail(&SpeechUrgentList, speech);
+    } else if (SpeechQueuedList.Prev == &SpeechQueuedList
+            && SpeechUrgentList.Prev == &SpeechUrgentList
+            && (SpeechPending == 0 || SpeechPending->Priority < priority)) {
+        SpeechPending = speech;
     } else {
         vox->State = 2;
         delete speech;
@@ -222,24 +222,24 @@ void __fastcall Speech_Queue(VoxClass *vox, int type, int priority)
 VoxSpeech *__fastcall Speech_Find(VoxClass *vox)
 {
     VoxSpeech *speech;
-    for (speech = (VoxSpeech *)Audio_List_First(&unknown_vox_list_ad0890); speech != 0;
+    for (speech = (VoxSpeech *)Audio_List_First(&SpeechUrgentList); speech != 0;
             speech = (VoxSpeech *)Audio_List_Next(speech)) {
         if (speech->Vox == vox) {
             return speech;
         }
     }
-    if (unknown_vox_pending_ad0948 != 0 && unknown_vox_pending_ad0948->Vox == vox) {
-        return unknown_vox_pending_ad0948;
+    if (SpeechPending != 0 && SpeechPending->Vox == vox) {
+        return SpeechPending;
     }
     for (int priority = 3; priority >= 0; priority--) {
-        for (speech = (VoxSpeech *)Audio_List_First(&unknown_vox_lists_ad08e0[priority]); speech != 0;
+        for (speech = (VoxSpeech *)Audio_List_First(&SpeechLists[priority]); speech != 0;
                 speech = (VoxSpeech *)Audio_List_Next(speech)) {
             if (speech->Vox == vox) {
                 return speech;
             }
         }
     }
-    for (speech = (VoxSpeech *)Audio_List_First(&unknown_vox_list_ad0868); speech != 0;
+    for (speech = (VoxSpeech *)Audio_List_First(&SpeechQueuedList); speech != 0;
             speech = (VoxSpeech *)Audio_List_Next(speech)) {
         if (speech->Vox == vox) {
             return speech;
@@ -267,47 +267,47 @@ void __fastcall Speech_Play_Name(char const *name, int type, int priority)
 #include "shared/sound_available.hpp"
 #include "shared/crt_string.hpp"
 
-extern char unknown_flag_a40d0c;
+extern char Debug_Quiet;
 
 void Speech_Update()
 {
-    if (unknown_flag_a40d0c || !AudioDeviceAvailable() || unknown_vox_stream_ad095c == 0
+    if (Debug_Quiet || !AudioDeviceAvailable() || unknown_vox_stream_ad095c == 0
             || Audio_Stream_Is_Playing(unknown_vox_stream_ad095c)) {
         return;
     }
-    if (Audio_Now() <= Audio_Stream_Stop_Time(unknown_vox_stream_ad095c) + unknown_vox_delay_ad0960) {
+    if (Audio_Now() <= Audio_Stream_Stop_Time(unknown_vox_stream_ad095c) + SpeechDelay) {
         return;
     }
-    if (unknown_countdown_ad08c8 != 0) {
+    if (SpeechSuspend != 0) {
         return;
     }
-    if (unknown_vox_playing_ad0954 != 0) {
-        unknown_vox_playing_ad0954->State = 2;
-        unknown_vox_playing_ad0954 = 0;
+    if (SpeechPlaying != 0) {
+        SpeechPlaying->State = 2;
+        SpeechPlaying = 0;
     }
     int type = 0;
     int priority = 0;
-    VoxSpeech *speech = (VoxSpeech *)Audio_List_First(&unknown_vox_list_ad0868);
+    VoxSpeech *speech = (VoxSpeech *)Audio_List_First(&SpeechQueuedList);
     if (speech != 0) {
         Audio_List_Remove(speech);
-        if (unknown_vox_pending_ad0948 != 0) {
-            delete unknown_vox_pending_ad0948;
-            unknown_vox_pending_ad0948 = 0;
+        if (SpeechPending != 0) {
+            delete SpeechPending;
+            SpeechPending = 0;
         }
     } else {
-        speech = (VoxSpeech *)Audio_List_First(&unknown_vox_list_ad0890);
+        speech = (VoxSpeech *)Audio_List_First(&SpeechUrgentList);
         if (speech != 0) {
             Audio_List_Remove(speech);
-            if (unknown_vox_pending_ad0948 != 0) {
-                delete unknown_vox_pending_ad0948;
-                unknown_vox_pending_ad0948 = 0;
+            if (SpeechPending != 0) {
+                delete SpeechPending;
+                SpeechPending = 0;
             }
-        } else if (unknown_vox_pending_ad0948 != 0) {
-            speech = unknown_vox_pending_ad0948;
-            unknown_vox_pending_ad0948 = 0;
+        } else if (SpeechPending != 0) {
+            speech = SpeechPending;
+            SpeechPending = 0;
         } else {
             for (int i = 3; i >= 0; i--) {
-                speech = (VoxSpeech *)Audio_List_First(&unknown_vox_lists_ad08e0[i]);
+                speech = (VoxSpeech *)Audio_List_First(&SpeechLists[i]);
                 if (speech != 0) {
                     break;
                 }
@@ -328,13 +328,13 @@ void Speech_Update()
     }
     vox->State = 2;
     char filename[256];
-    strcpy(filename, unknown_flag_ad0958 == 0 ? vox->Allied : vox->Russian);
+    strcpy(filename, SpeechSovietFiles == 0 ? vox->Allied : vox->Russian);
     strcat(filename, ".WAV");
     if (Audio_Stream_Open(unknown_vox_stream_ad095c, filename, 1)) {
-        unknown_vox_delay_ad0960 = 500;
-        unknown_vox_playing_ad0954 = vox;
-        unknown_vox_type_ad0858 = type;
-        unknown_vox_priority_ad0880 = priority;
+        SpeechDelay = 500;
+        SpeechPlaying = vox;
+        SpeechPlayingType = type;
+        SpeechPlayingPriority = priority;
         vox->State = 0;
     }
 }
@@ -346,9 +346,9 @@ void Speech_Update()
 
 void __fastcall Speech_Stop(bool clear)
 {
-    if (unknown_vox_playing_ad0954 != 0) {
-        unknown_vox_playing_ad0954->State = 2;
-        unknown_vox_playing_ad0954 = 0;
+    if (SpeechPlaying != 0) {
+        SpeechPlaying->State = 2;
+        SpeechPlaying = 0;
     }
     if (unknown_vox_stream_ad095c != 0) {
         Audio_Stream_Stop(unknown_vox_stream_ad095c);
@@ -362,13 +362,13 @@ void __fastcall Speech_Stop(bool clear)
 // // Whether no speech waits (inline).
 static inline bool Speech_Lists_Empty()
 {
-    if (unknown_vox_list_ad0868.Prev != &unknown_vox_list_ad0868
-            || unknown_vox_list_ad0890.Prev != &unknown_vox_list_ad0890
-            || unknown_vox_pending_ad0948 != 0) {
+    if (SpeechQueuedList.Prev != &SpeechQueuedList
+            || SpeechUrgentList.Prev != &SpeechUrgentList
+            || SpeechPending != 0) {
         return false;
     }
     for (int i = 0; i < 4; i++) {
-        AudioListNode *list = &unknown_vox_lists_ad08e0[i];
+        AudioListNode *list = &SpeechLists[i];
         if (list->Prev != list) {
             return false;
         }
@@ -389,14 +389,14 @@ bool Speech_Is_Playing()
 
 void __fastcall Speech_Cancel(int index)
 {
-    if (index >= 0 && index < unknown_VoxClass_list_00ad0930.Count()) {
+    if (index >= 0 && index < Voxs.Count()) {
         VoxSpeech *speech;
-        while ((speech = Speech_Find(unknown_VoxClass_list_00ad0930[index])) != 0) {
+        while ((speech = Speech_Find(Voxs[index])) != 0) {
             if (speech->Prev != speech) {
                 Audio_List_Remove(speech);
             }
-            if (speech == unknown_vox_pending_ad0948) {
-                unknown_vox_pending_ad0948 = 0;
+            if (speech == SpeechPending) {
+                SpeechPending = 0;
             }
             speech->Vox->State = 2;
             delete speech;
@@ -410,9 +410,9 @@ void __fastcall Speech_Cancel(int index)
 
 void __fastcall VoxClass::Set_Volume(int volume)
 {
-    unknown_vox_volume_7f9bd4 = volume;
+    SpeechVolume = volume;
     if (volume >= 255) {
-        unknown_vox_volume_7f9bd4 = 255;
+        SpeechVolume = 255;
     }
 }
 
@@ -432,7 +432,7 @@ int Taunt_Init()
     Audio_Stream_Set_Name(unknown_taunt_stream_ad0968, "Taunt Stream");
     Audio_Stream_Set_Levels_94(unknown_vox_stream_ad095c, Audio_Global_Levels[1]);
     Audio_Stream_Set_Levels_9c(unknown_vox_stream_ad095c, Audio_Global_Levels[5]);
-    unknown_count_ad0910 = 0;
+    AuxStreamHold = 0;
     return 1;
 }
 
@@ -457,7 +457,7 @@ extern "C" int __cdecl sprintf(char *buffer, char const *format, ...);
 int __fastcall Taunt_Play(int taunt)
 {
     char name[20];
-    if (unknown_taunt_stream_ad0968 == 0 || unknown_count_ad0910 != 0) {
+    if (unknown_taunt_stream_ad0968 == 0 || AuxStreamHold != 0) {
         return 0;
     }
     char number = (char)(taunt & 0xf);
@@ -499,9 +499,9 @@ int __fastcall Taunt_Play(int taunt)
 }
 
 
-// void Unknown_007160D0() (0x007160D0): stops the taunt stream.
+// void Aux_Stream_Stop() (0x007160D0): stops the taunt stream.
 
-void __fastcall Unknown_007160D0()
+void __fastcall Aux_Stream_Stop()
 {
     if (unknown_taunt_stream_ad0968 != 0) {
         Audio_Stream_Stop(unknown_taunt_stream_ad0968);
@@ -521,7 +521,7 @@ VoxClass::VoxClass(char const *name)
     Priority = 1;
     Type = 0;
     State = 2;
-    unknown_VoxClass_list_00ad0930.Add(this);
+    Voxs.Add(this);
 }
 
 
@@ -529,7 +529,7 @@ VoxClass::VoxClass(char const *name)
 
 VoxClass::~VoxClass()
 {
-    unknown_VoxClass_list_00ad0930.Delete(this);
+    Voxs.Delete(this);
 }
 
 
@@ -596,7 +596,7 @@ void __fastcall VoxClass::Process(CCINIClass &ini)
                 if (vox_index == -1) {
                     vox = new VoxClass(name);
                 } else {
-                    vox = unknown_VoxClass_list_00ad0930[vox_index];
+                    vox = Voxs[vox_index];
                 }
                 vox->Read_INI(ini);
             }
@@ -611,8 +611,8 @@ void __fastcall VoxClass::Process(CCINIClass &ini)
 void Speech_Free_All()
 {
     Speech_Stop(true);
-    while (unknown_VoxClass_list_00ad0930.Count() > 0) {
-        delete unknown_VoxClass_list_00ad0930[0];
+    while (Voxs.Count() > 0) {
+        delete Voxs[0];
     }
 }
 
@@ -626,8 +626,8 @@ void Speech_Free_All()
 // body merges both -1 returns and saves esi at entry).
 static inline int Index_Of_Name(char const *name)
 {
-    for (int index = 0; index < unknown_VoxClass_list_00ad0930.Count(); index++) {
-        if (_stricmp(name, unknown_VoxClass_list_00ad0930[index]->Name) == 0) {
+    for (int index = 0; index < Voxs.Count(); index++) {
+        if (_stricmp(name, Voxs[index]->Name) == 0) {
             return index;
         }
     }
@@ -677,9 +677,9 @@ bool __fastcall FUN_00716690(int voice_index)
 VoxClass *__fastcall VoxClass::Find(char const *name)
 {
     if (name != 0 && _stricmp(name, "<none>") != 0) {
-        for (int index = 0; index < unknown_VoxClass_list_00ad0930.Count(); index++) {
-            if (_stricmp(name, unknown_VoxClass_list_00ad0930[index]->Name) == 0) {
-                return unknown_VoxClass_list_00ad0930[index];
+        for (int index = 0; index < Voxs.Count(); index++) {
+            if (_stricmp(name, Voxs[index]->Name) == 0) {
+                return Voxs[index];
             }
         }
     }
@@ -721,8 +721,8 @@ char * __fastcall FUN_00716720(int voice_index)
 
 int __fastcall VoxClass::Index_Of(VoxClass *vox)
 {
-    for (int index = 0; index < unknown_VoxClass_list_00ad0930.Count(); index++) {
-        if (unknown_VoxClass_list_00ad0930[index] == vox) {
+    for (int index = 0; index < Voxs.Count(); index++) {
+        if (Voxs[index] == vox) {
             return index;
         }
     }
@@ -735,7 +735,7 @@ int __fastcall VoxClass::Index_Of(VoxClass *vox)
 // at 0x00AD0958 is set.
 // Assumptions: owner and members unidentified (sound area).
 
-extern int unknown_flag_ad0958;
+extern int SpeechSovietFiles;
 
 struct UnknownOwner_00716770 {
     char unknown_00[0x2C];
@@ -746,7 +746,7 @@ struct UnknownOwner_00716770 {
 
 void *UnknownOwner_00716770::unknown_select()
 {
-    return unknown_flag_ad0958 == 0 ? unknown_35 : unknown_2c;
+    return SpeechSovietFiles == 0 ? unknown_35 : unknown_2c;
 }
 
 
@@ -781,8 +781,8 @@ long __fastcall Speech_Load(IStream *stream)
         if (FAILED(result)) {
             break;
         }
-        if (unknown_vox_stream_ad095c != 0 && entry.Index >= 0 && entry.Index < unknown_VoxClass_list_00ad0930.Count()) {
-            Speech_Queue(unknown_VoxClass_list_00ad0930[entry.Index], entry.Type, entry.Priority);
+        if (unknown_vox_stream_ad095c != 0 && entry.Index >= 0 && entry.Index < Voxs.Count()) {
+            Speech_Queue(Voxs[entry.Index], entry.Type, entry.Priority);
         }
     }
     return result;
@@ -792,12 +792,12 @@ long __fastcall Speech_Load(IStream *stream)
 #include "shared/unknown_globals.hpp"
 
 
-// void __fastcall Unknown_007168C0(int side) (0x007168C0)
+// void __fastcall Speech_Set_Side(int side) (0x007168C0)
 // Records the side whose speech files EVA plays (0x00AD0958).
 
-void __fastcall Unknown_007168C0(int side)
+void __fastcall Speech_Set_Side(int side)
 {
-    unknown_flag_ad0958 = side;
+    SpeechSovietFiles = side;
 }
 
 
@@ -826,8 +826,8 @@ void Taunt_Resume()
 void Taunt_Unblock()
 {
     if (unknown_taunt_stream_ad0968 != 0) {
-        if (--unknown_count_ad0910 < 0) {
-            unknown_count_ad0910 = 0;
+        if (--AuxStreamHold < 0) {
+            AuxStreamHold = 0;
         }
     }
 }
@@ -842,9 +842,9 @@ void Leaf_716940::get() { unsigned int unused_this_address = (unsigned int)this;
 
 void Remove_Speech_Hold()
 {
-    if (unknown_vox_ad0878 != 0) {
-        if (--unknown_vox_ad0878 < 0) {
-            unknown_vox_ad0878 = 0;
+    if (SpeechHold != 0) {
+        if (--SpeechHold < 0) {
+            SpeechHold = 0;
         }
     }
 }
@@ -858,7 +858,7 @@ void Speech_Hold()
     if (unknown_vox_stream_ad095c != 0) {
         Audio_Stream_Pause(unknown_vox_stream_ad095c);
     }
-    unknown_countdown_ad08c8++;
+    SpeechSuspend++;
 }
 
 
@@ -868,8 +868,8 @@ void Speech_Hold()
 void Speech_Reset()
 {
     Speech_Stop(true);
-    unknown_countdown_ad08c8 = 0;
-    unknown_vox_ad0878 = 0;
+    SpeechSuspend = 0;
+    SpeechHold = 0;
 }
 
 
@@ -879,19 +879,19 @@ void Speech_Reset()
 // Assumptions: sound area; names are hypotheses.
 
 struct UnknownSound_007169f0 {
-    void unknown_call_407f20();             // 0x00407F20
+    void AudioStreamerResume();             // 0x00407F20
 };
 extern UnknownSound_007169f0 *unknown_object_ad095c;
-extern volatile int unknown_countdown_ad08c8;
+extern volatile int SpeechSuspend;
 
 void unknown_tick_sound()
 {
     if (unknown_object_ad095c != 0) {
-        unknown_object_ad095c->unknown_call_407f20();
+        unknown_object_ad095c->AudioStreamerResume();
     }
-    if (unknown_countdown_ad08c8 != 0) {
-        if (--unknown_countdown_ad08c8 < 0) {
-            unknown_countdown_ad08c8 = 0;
+    if (SpeechSuspend != 0) {
+        if (--SpeechSuspend < 0) {
+            SpeechSuspend = 0;
         }
     }
 }

@@ -15,7 +15,7 @@ extern DynamicVectorClass<HWND> _ModelessDialogs;
 extern DynamicVectorClass<AcceleratorTracker> _Accelerators;
 extern bool (__fastcall *Message_Intercept_Handler)(MSG &message);
 // Called with every message before the tooltips (0x004919B0, not yet recovered).
-void __fastcall unknown_message_4919b0(MSG *message);
+void __fastcall DispatchLauncherMessage(MSG *message);
 // Dispatches every pending window message (0x005B5EE0).
 void Windows_Message_Handler();
 

@@ -32,7 +32,7 @@ struct UnknownFacingDir;
 // Whether a ballistic shot reaches: the arc direction for a horizontal
 // distance and height difference at a speed (0x0047F8B0; TechnoClass slot
 // 170; hypothesis).
-bool __fastcall Unknown_0047F8B0(bool arg1, int velocity, int distance, int height, double speed, UnknownFacingDir *dir);
+bool __fastcall Calculate_Projectile_Pitch(bool arg1, int velocity, int distance, int height, double speed, UnknownFacingDir *dir);
 
 // Armor kinds none, flak, plate, light, medium, heavy, wood, steel,
 // concrete, special_1, special_2 (names 0x0079DE28).

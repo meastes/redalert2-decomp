@@ -333,7 +333,7 @@ public:
     // close targets' centres, then Cluster detonations (0x00462110) scattered
     // around it.
     void Bullet_Explodes(bool forced);                              // 0x00461DE0
-    void unknown_func_462110(CoordStruct const &coord);                 // 0x00462110
+    void Detonate(CoordStruct const &coord);                 // 0x00462110
     // Fires the type's ShrapnelWeapon at objects in the cells around the
     // bullet, then at random nearby cells for the rest of the count.
     void unknown_func_462c50();                                         // 0x00462C50

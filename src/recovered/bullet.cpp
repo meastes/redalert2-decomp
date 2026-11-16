@@ -927,7 +927,7 @@ void BulletClass::Bullet_Explodes(bool forced)
     if (!Type->Airburst) {
         CoordStruct origin = coord;
         for (int index = 0; index < Type->Cluster; index++) {
-            unknown_func_462110(coord);
+            Detonate(coord);
             if (!IsActive) {
                 return;
             }
@@ -935,12 +935,12 @@ void BulletClass::Bullet_Explodes(bool forced)
             coord = Coord_Scatter(origin, distance, false);
         }
     } else {
-        unknown_func_462110(coord);
+        Detonate(coord);
     }
 }
 
 
-// void BulletClass::unknown_func_462110(CoordStruct const &coord) (0x00462110)
+// void BulletClass::Detonate(CoordStruct const &coord) (0x00462110)
 // The detonation at coord (hypothesis: Westwood's BulletClass::Detonate):
 // shakes the screen by the warhead's ranges, leaves the weapon's radiation
 // in the cell (unknown_func_463720, expanded here), then applies the
@@ -977,7 +977,7 @@ inline TechnoClass *Bullet_Target_Techno(AbstractClass *target)
     return target->AbstractFlags.IsTechno ? static_cast<TechnoClass *>(target) : 0;
 }
 
-void BulletClass::unknown_func_462110(CoordStruct const &position)
+void BulletClass::Detonate(CoordStruct const &position)
 {
     int damage_result = 1;
     bool special_impact = false;
@@ -1037,7 +1037,7 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
     } else {
         if (Type->ShrapnelWeapon != 0) unknown_func_462c50();
         int damage = DamageMultiplier * Strength;
-        damage_result = Unknown_0047E2C0(position, damage >> 8, Owner, WH, true);
+        damage_result = Explosion_Damage(position, damage >> 8, Owner, WH, true);
         if (!IsActive) return;
         if (damage_result == 2) special_impact = true;
     }
@@ -1060,7 +1060,7 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
         if (WH->CLDisableRed) flags = 2;
         if (WH->CLDisableGreen) flags |= 4;
         if (WH->CLDisableBlue) flags |= 8;
-        Unknown_0047F600(impact, Strength, WH, 1, flags);
+        Combat_Lighting(impact, Strength, WH, 1, flags);
     }
     if (special_impact) {
         AnimTypeClass *nullify = Rules->WeaponNullifyAnim;

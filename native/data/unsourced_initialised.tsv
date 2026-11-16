@@ -39,7 +39,7 @@ address	section	extent	symbol	name	msvc	user
 0x007DB4B0	.data	4	_hex_format_7db4b0	hex_format_7db4b0	?hex_format_7db4b0@@3PADA	src/recovered/classes/CNetUtilEventSink/OnPing.cpp
 0x007DFC48	.data	28	_wol_label_7dfc48	wol_label_7dfc48	?wol_label_7dfc48@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007DFC64	.data	24	_wol_label_7dfc64	wol_label_7dfc64	?wol_label_7dfc64@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-0x007E09C4	.data	4	_unknown_map_generation_callback_7e09c4	unknown_map_generation_callback_7e09c4	?unknown_map_generation_callback_7e09c4@@3P6AXXZA	src/recovered/header_statics/0056d2d0/HeaderStatics_diagonal_init_0056d2d0.cpp
+0x007E09C4	.data	4	_RMGCallback	RMGCallback	?RMGCallback@@3P6AXXZA	src/recovered/header_statics/0056d2d0/HeaderStatics_diagonal_init_0056d2d0.cpp
 0x007E38BC	.data	20	_test_max_ping_debug_007e38bc	test_max_ping_debug_007e38bc	?test_max_ping_debug_007e38bc@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007E6CDC	.data	20	_observer_leave_label_007e6cdc	observer_leave_label_007e6cdc	?observer_leave_label_007e6cdc@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007E6F8C	.data	324	_ladder_names_separator_7e6f8c	ladder_names_separator_7e6f8c	?ladder_names_separator_7e6f8c@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
@@ -75,5 +75,5 @@ address	section	extent	symbol	name	msvc	user
 0x007FF334	.data	24	_test_precalc_debug_007ff334	test_precalc_debug_007ff334	?test_precalc_debug_007ff334@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007FFD8C	.data	20	_wol_match_fail_7ffd8c	wol_match_fail_7ffd8c	?wol_match_fail_7ffd8c@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007FFEA0	.data	52	_wol_user_count_debug_007ffea0	wol_user_count_debug_007ffea0	?wol_user_count_debug_007ffea0@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-0x00801470	.data	136	_unknown_vqa_default_config_801470	unknown_vqa_default_config_801470	?unknown_vqa_default_config_801470@@3UVQAConfig@@A	src/recovered/vqalib_config/VQA_Unknown.cpp
+0x00801470	.data	136	__defaultconfig	_defaultconfig	?_defaultconfig@@3UVQAConfig@@A	src/recovered/vqalib_config/VQA_Unknown.cpp
 0x0082EC90	.data	676	__iob	_iob	__iob	src/recovered/00402190.cpp

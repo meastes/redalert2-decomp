@@ -77,7 +77,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     Surface *old_surface=LogicalSurface;
     int key=0;
     Matrix3D main_matrix;
-    LogicalSurface=unknown_surface_ad0604;
+    LogicalSurface=EightBitSurface;
     drawpoint=Point2D(128,128);
     cliprect=LogicalSurface->Get_Rect();
     unknown_5bb=true;

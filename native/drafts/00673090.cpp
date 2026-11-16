@@ -32,7 +32,7 @@ void SessionClass::Allocate_Ports_00673090()
     memset(unknown_2dd0, 0, sizeof(unknown_2dd0));
     unknown_2fc0 = true;
     for (index = 0; index < Players.Count(); index++) {
-        slot = Unknown_00672F90(index);
+        slot = Player_To_Slot(index);
         if (slot >= 0 && slot < 8) {
             Players[index]->Address.Set_Port(unknown_2fa0.unknown[slot]);
             char *name = Wide_To_Narrow_006fa120(Players[index]->Name);
@@ -68,8 +68,8 @@ void SessionClass::Allocate_Ports_00673090()
         IPXAddressClass address = order[index]->Address;
         for (other = 0; other < order.Count(); other++) {
             if (other != index && !used[other] && address.Is_Same_Node(order[other]->Address)) {
-                int first = Unknown_00672FF0(Wide_To_Narrow_006fa120(order[other]->Name));
-                int second = Unknown_00672FF0(Wide_To_Narrow_006fa120(order[index]->Name));
+                int first = Name_To_Slot(Wide_To_Narrow_006fa120(order[other]->Name));
+                int second = Name_To_Slot(Wide_To_Narrow_006fa120(order[index]->Name));
                 if (unknown_2fa0.unknown[first] == unknown_2fa0.unknown[second]) {
                     order[other]->Address.Set_Port(unknown_2fa0.unknown[first] + bump++);
                     used[other] = true;
@@ -93,7 +93,7 @@ void SessionClass::Allocate_Ports_00673090()
     if (PortNumberOverride != 0) {
         Debug_Printf("Using %d for local port\n", PortNumberOverride);
         Players[0]->Address.Set_Port(PortNumberOverride);
-        PlayerSlots[Unknown_00672F90(0)]->Address.Set_Port(PortNumberOverride);
+        PlayerSlots[Player_To_Slot(0)]->Address.Set_Port(PortNumberOverride);
     }
     for (index = 0; index < Players.Count(); index++) {
         unknown_3022.unknown[index] = *(unsigned short *)Players[index]->Address.NetworkNumber;   // NATIVE: the UDP port word (the header accessor is guarded off in this unit)

@@ -97,7 +97,7 @@ public:
     Point2D Pixel_To_Lepton(Point2D const &point);
     // The view position (0x006A67D0: the offset +0xD64/+0xD68 less +0xB0/+0xB4;
     // the View commands store the cell under it).
-    Point2D Unknown_006A67D0();
+    Point2D Get_Relative_Tactical_Position();
     // Moves the view to a point (0x006A66B0; radar slot 52).
 #ifdef RA2_TACTICAL_PICK_OBJECT
     ObjectClass *Get_Selectable_Object_006aa990(Point2D const &point); // original thiscall/RET4, pointer result
@@ -150,7 +150,7 @@ public:
 #endif
     void Start_Rubber_Band(Point2D const &point);   // 0x006AA5A0 starts a selection band at a point (DisplayClass slot 47; hypothesis)
     void Modify_Rubber_Band(Point2D const &point);   // 0x006AA5E0 drags the band to a point (DisplayClass slot 47; hypothesis)
-    void Unknown_006AA770();                       // 0x006AA770 (DisplayClass slot 35: ends the band selection; hypothesis)
+    void End_Rubber_Band();                       // 0x006AA770 (DisplayClass slot 35: ends the band selection; hypothesis)
     void Unknown_006AAD40();                       // 0x006AAD40 (Planning.cpp; hypothesis: drops the pending command)
     // Registers a screen area for redraw, merging it with the dirty areas (0x006A3020;
     // TibSun Register_Dirty_Area; the flag also refreshes the shroud; BuildingClass slot 52).
@@ -261,7 +261,7 @@ extern Tactical *TacticalMap;
 // A rectangle of the Tactical unit (0x00ABE560): 0x006A2B10 accepts points
 // left of its Width and above its Y + Height, 0x006A29D0 and 0x006A92A0 test
 // pixels against Width + 360 and Height + 180 (hypothesis: the view area).
-extern Rect unknown_rect_abe560;
+extern Rect TacticalDimensions;
 
 // An object and the screen pixel it was drawn at (the table at 0x00ABE5F8,
 // filled by 0x006AA300; Tactical +0xDB0 counts the entries, at most 500).

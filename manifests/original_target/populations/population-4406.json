@@ -4,8 +4,8 @@
     "id": "population-4406",
     "inventory_sha256": "7ec2f8e7b61abf3556c06898b3a92104771d4901adea1ecf7da6521afb869984",
     "gaps_sha256": "1cf5876247802d8507cbc7d988aa8f81fafb59e5f1811622f5e605e3eaa4559f",
-    "historical_population_sha256": "f37dc93214feb1642bedfd5ffff98c878793243a9dd73e83ab476827cfe6e9bb",
-    "historical_acceptance_sha256": "e64b7b5b354d7ee06a161cfb09b3f9a500e711fb7fdaa3baf706a8033e6f1e7c"
+    "historical_population_sha256": "dc29e20c1993b561c72563ba632d23fe38c882c3dd765c3332d63786d4a0a880",
+    "historical_acceptance_sha256": "f73f731e8c8daa22a6ea1c388efe4ed417b8c2d49821c85869b96f965de4f74c"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1444,7 +1444,7 @@
     "__real@8@3ffc8000000000000000": 8055960,
     "__real@8@4002c000000000000000": 8019480,
     "__real@8@3ffdfae147ae147ae000": 8020048,
-    "?unknown_47e2b0@Cell@@QAEXXZ": 4711088,
+    "?Chain_Reaction_Damage@Cell@@QAEXXZ": 4711088,
     "??0FoggedObjectClass@@QAE@ABVNoInitClass@@@Z": 4980688,
     "??_7FoggedObjectClass@@6BIPersistStream@@@": 7999816,
     "??_7FoggedObjectClass@@6BIRTTITypeInfo@@@": 7999788,
@@ -1920,24 +1920,24 @@
     "??0ShapeButtonClass@@QAE@XZ": 6770720,
     "??1ShapeButtonClass@@UAE@XZ": 6770928,
     "?Buttons@TabClass@@2PAVShapeButtonClass@@A": 11262232,
-    "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A": 11265024,
-    "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A": 11264912,
+    "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A": 11265024,
+    "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A": 11264912,
     "_$E81": 6947984,
     "_$E87": 6948064,
     "_$E92": 6948128,
     "_$S82": 11262212,
     "?ButtonShapes@TabClass@@2PAPBXA": 11262112,
     "?ButtonShapeAllocated@TabClass@@2PA_NA": 11264812,
-    "?unknown_command_names_7f67f8@@3PAPBDA": 8349688,
-    "?unknown_no_command_7f67f4@@3HA": 8349684,
+    "?CommandNames@@3PAPBDA": 8349688,
+    "?NoAdvancedCommand@@3HA": 8349684,
     "?SlotButton@TabClass@@2PAHA": 11264712,
     "?unknown_int_abe388@@3HA": 11264904,
     "?unknown_int_abe374@@3HA": 11264884,
-    "?unknown_rect_ac120c@@3PBVRect@@B": 11276812,
+    "?ButtonSlotRect@@3PBVRect@@B": 11276812,
     "?unknown_int_abe2ac@@3HA": 11264684,
     "?unknown_int_abe37c@@3HA": 11264892,
-    "?unknown_rect_ac1204@@3PBVRect@@B": 11276804,
-    "?unknown_rect_ac1210@@3PBVRect@@B": 11276816,
+    "?ThumbOpenRect@@3PBVRect@@B": 11276804,
+    "?TabEndRect@@3PBVRect@@B": 11276816,
     "?unknown_int_abe370@@3HA": 11264880,
     "?unknown_int_abe468@@3HA": 11265128,
     "??_C@_0N@CNHO@PlanningMode?$AA@": 8244168,
@@ -1979,18 +1979,18 @@
     "?unknown_int_abe2a8@@3HA": 11264680,
     "?unknown_int_abe460@@3HA": 11265120,
     "?unknown_int_abe478@@3HA": 11265144,
-    "?unknown_rect_ac11fc@@3PBVRect@@B": 11276796,
+    "?TabBarRect@@3PBVRect@@B": 11276796,
     "?Init_IO@SidebarClass@@UAEXXZ": 6798032,
     "?Debug_Map@@3_NA": 10751251,
-    "?Unknown_Get_Art_006f4590@@YI_NXZ": 7292304,
-    "?Unknown_006A1880@TabClass@@QAEXXZ": 6953088,
+    "?Is_Sidebar_Art_Loaded@@YI_NXZ": 7292304,
+    "?Setup_Command_Buttons@TabClass@@QAEXXZ": 6953088,
     "?SidebarDrawer@@3PAVConvertClass@@A": 8594380,
     "?unknown_buffer_ac1098@@3PAXA": 11276440,
-    "?unknown_rect_ac1208@@3PBVRect@@B": 11276808,
+    "?ThumbClosedRect@@3PBVRect@@B": 11276808,
     "?Set_Position@GadgetClass@@UAEXHH@Z": 5043808,
     "?Set_Shape@ShapeButtonClass@@UAEXPBXHH@Z": 6770992,
     "?unknown_slot54@SidebarClass@@UAE_NH@Z": 6808080,
-    "?Unknown_006A1AB0@TabClass@@QAEXXZ": 6953648,
+    "?Show_Buttons@TabClass@@QAEXXZ": 6953648,
     "?ToolTips@@3PAVCCToolTip@@A": 8624560,
     "?Remove@ToolTipManager@@QAEXI@Z": 7256592,
     "?Add@ToolTipManager@@QAE_NABVToolTip@@@Z": 7256160,
@@ -2000,24 +2000,24 @@
     "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z": 5894736,
     "?AI@CreditClass@@QAEX_N@Z": 4802128,
     "?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z": 7421360,
-    "?Unknown_006A0D80@TabClass@@QAEXXZ": 6950272,
-    "?Unknown_006F6570@@YAXXZ": 7300464,
+    "?Remove_Command_Buttons@TabClass@@QAEXXZ": 6950272,
+    "?Command_Attack_Move@@YAXXZ": 7300464,
     "?Unknown_006F64B0@@YAXXZ": 7300272,
-    "?Unknown_006F5C50@@YAXXZ": 7298128,
-    "?Unknown_006F5940@@YAXXZ": 7297344,
-    "?Unknown_006F5B10@@YIXXZ": 7297808,
-    "?Unknown_006F64D0@@YIX_N@Z": 7300304,
-    "?Unknown_006F64F0@@YIX_N@Z": 7300336,
-    "?Unknown_006F5BC0@@YAXXZ": 7297984,
-    "?Unknown_006F5870@@YIHH@Z": 7297136,
-    "?Unknown_006F5D90@@YIXH@Z": 7298448,
-    "?Unknown_006F5800@@YI_NH@Z": 7297024,
-    "?Unknown_006F60D0@@YIXH@Z": 7299280,
-    "?Unknown_006F5F00@@YIXH@Z": 7298816,
-    "?Unknown_006F7360@@YAXXZ": 7304032,
-    "?Unknown_006F5E10@@YIXH@Z": 7298576,
+    "?Command_Cheer@@YAXXZ": 7298128,
+    "?Command_Deploy@@YAXXZ": 7297344,
+    "?Command_Guard@@YIXXZ": 7297808,
+    "?Command_Planning_Mode_On@@YIX_N@Z": 7300304,
+    "?Command_Planning_Mode_Off@@YIX_N@Z": 7300336,
+    "?Command_Stop@@YAXXZ": 7297984,
+    "?Group_Count@@YIHH@Z": 7297136,
+    "?Group_Assign@@YIXH@Z": 7298448,
+    "?Group_Is_All_Selected@@YI_NH@Z": 7297024,
+    "?Group_Reselect@@YIXH@Z": 7299280,
+    "?Group_Select@@YIXH@Z": 7298816,
+    "?Command_Type_Select@@YAXXZ": 7304032,
+    "?Group_Clear@@YIXH@Z": 7298576,
     "?MuteSWLaunches@@3HA": 10736968,
-    "?unknown_int_7add84@@3HA": 8052100,
+    "?TabBarHeight@@3HA": 8052100,
     "?unknown_int_839638@@3HA": 8623672,
     "?SidebarSurface@@3PAVSurface@@A": 8624456,
     "?LogicalSurface@@3PAVSurface@@A": 8624476,
@@ -2050,7 +2050,7 @@
     "??_C@_0L@KHG@Tip?3Deploy?$AA@": 8349920,
     "??_C@_09JGJD@Tip?3Cheer?$AA@": 8349932,
     "??_C@_0L@NFIE@Tip?3Beacon?$AA@": 8349944,
-    "?Unknown_006A0600@TabClass@@SIPAVShapeButtonClass@@H@Z": 6948352,
+    "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z": 6948352,
     "?Turn_On@ToggleClass@@QAEXXZ": 7254368,
     "?Turn_Off@ToggleClass@@QAEXXZ": 7254384,
     "_$E2": 6947440,
@@ -2069,34 +2069,34 @@
     "_$E84": 6947936,
     "_$E89": 6948032,
     "_$E94": 6948096,
-    "?Unknown_006A0540@TabClass@@": 6948160,
+    "?Free_Button_Shape@TabClass@@": 6948160,
     "?Command_From_Name@TabClass@@": 6948224,
     "?Set_Command_Position@TabClass@@": 6948320,
-    "?Unknown_006A05F0@TabClass@@": 6948336,
-    "?Unknown_006A0620@TabClass@@": 6948384,
+    "?Get_Command_Position@TabClass@@": 6948336,
+    "?Get_Button_Rect@TabClass@@": 6948384,
     "?Set_Button_Count@TabClass@@SIXH@Z": 6948464,
-    "?Unknown_006A06B0@TabClass@@": 6948528,
-    "?Unknown_006A06D0@TabClass@@": 6948560,
+    "?Is_Team_Command@TabClass@@": 6948528,
+    "?Team_Number@TabClass@@": 6948560,
     "??0TabClass@@QAE@XZ": 6948576,
     "?One_Time@TabClass@@": 6949664,
     "?DisposeOfArt@TabClass@@": 6949680,
     "?Init_For_House@TabClass@@UAEXXZ": 6949744,
     "?Init_IO@TabClass@@UAEXXZ": 6949968,
-    "?Unknown_006A0D50@TabClass@@": 6950224,
-    "?Unknown_006A0D80@TabClass@@": 6950272,
+    "?Add_Command_Buttons@TabClass@@": 6950224,
+    "?Remove_Command_Buttons@TabClass@@": 6950272,
     "?unknown_slot54@TabClass@@UAE_NH@Z": 6950304,
     "?AI@TabClass@@UAEXAAHABUPoint2D@@@Z": 6950704,
-    "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z": 6951536,
+    "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z": 6951536,
     "?Draw_Credits_Tab@TabClass@@QAEXXZ": 6952720,
-    "?Unknown_006A1770@TabClass@@QAEXXZ": 6952816,
-    "?Unknown_006A1880@TabClass@@": 6953088,
-    "?Unknown_006A19E0@TabClass@@SAXXZ": 6953440,
-    "?Unknown_006A1AB0@TabClass@@": 6953648,
-    "?Unknown_006A1DA0@TabClass@@QAEXXZ": 6954400,
-    "?Unknown_006A1E20@TabClass@@QAEXXZ": 6954528,
-    "?Unknown_006A1EA0@TabClass@@QAEXXZ": 6954656,
-    "?Unknown_006A1EC0@TabClass@@QAEXXZ": 6954688,
-    "?Unknown_006A1F10@TabClass@@QAEXXZ": 6954768,
+    "?Flash_Money@TabClass@@QAEXXZ": 6952816,
+    "?Setup_Command_Buttons@TabClass@@": 6953088,
+    "?Setup_Thumb_Buttons@TabClass@@SAXXZ": 6953440,
+    "?Show_Buttons@TabClass@@": 6953648,
+    "?Hide_Buttons@TabClass@@QAEXXZ": 6954400,
+    "?Show_Thumb_Button@TabClass@@QAEXXZ": 6954528,
+    "?Hide_Thumb_Button@TabClass@@QAEXXZ": 6954656,
+    "?Open_Thumb@TabClass@@QAEXXZ": 6954688,
+    "?Close_Thumb@TabClass@@QAEXXZ": 6954768,
     "?INoticeSink_Unknown@TabClass@@UAE_NHH@Z": 6955040,
     "?Help_Text@TabClass@@UAEPBGH@Z": 6955184,
     "??0ToolTip@@": 6955200,
@@ -2178,7 +2178,7 @@
     "?unknown_slot179@TechnoClass@@UAEXVCell@@@Z": 4537232,
     "?unknown_slot178@FootClass@@UAE?AVCell@@XZ": 4306256,
     "?unknown_slot179@FootClass@@UAEXVCell@@@Z": 4306272,
-    "?Unknown_006A0600@TabClass@@": 6948352,
+    "?Get_Button@TabClass@@": 6948352,
     "?get@Leaf_401170@@QAEXXZ": 4198768,
     "?get@Leaf_401940@@QAEIXZ": 4200768,
     "?get@Leaf_402030@@QAEPAXXZ": 4202544,
@@ -3768,7 +3768,7 @@
     "?get@Leaf_671f90@@QAEIXZ": 6758288,
     "?get@Leaf_6729f0@@QAEIXZ": 6760944,
     "?get@Leaf_672a10@@QAEIXZ": 6760976,
-    "?Unknown_00672F10@SessionClass@@QAEEXZ": 6762256,
+    "?Is_In_Game@SessionClass@@QAEEXZ": 6762256,
     "?Clear@?$DynamicVectorClass@UDiskID@@@@UAEXXZ": 6764496,
     "?get@Leaf_673820@@QAEII@Z": 6764576,
     "?get@Cleanup_6738d0@@QAEXXZ": 6764752,
@@ -4466,7 +4466,7 @@
     "?Is_Inactive@ParticleSystemClass@@UBE_NXZ": 6343792,
     "?Delete@RAMFileClass@@UAEHXZ": 6521792,
     "?Reset@ScriptClass@@QAE_NXZ": 6719744,
-    "?Unknown_00681730@StripClass@SidebarClass@@QAE_NXZ": 6821680,
+    "?Has_Buildables@StripClass@SidebarClass@@QAE_NXZ": 6821680,
     "?Techno_Type_Class@TechnoClass@@UAEPAVTechnoTypeClass@@XZ": 7082688,
     "?Enable@TriggerClass@@QAEXXZ": 7265120,
     "?Reset_All_Timed_Events@TriggerClass@@QAEXXZ": 7263872,
@@ -4612,8 +4612,8 @@
     "?Set_Owner@SelectClass@StripClass@SidebarClass@@QAEXAAV23@H@Z": 6818256,
     "?Save@SuperClass@@UAGJPAUIStream@@H@Z": 6941392,
     "?Save@SuperWeaponTypeClass@@UAGJPAUIStream@@H@Z": 6943488,
-    "?Unknown_006A05F0@TabClass@@SIHH@Z": 6948336,
-    "?Unknown_006A06D0@TabClass@@SIHH@Z": 6948560,
+    "?Get_Command_Position@TabClass@@SIHH@Z": 6948336,
+    "?Team_Number@TabClass@@SIHH@Z": 6948560,
     "?Save@TActionClass@@UAGJPAUIStream@@H@Z": 7023936,
     "?Save@TagClass@@UAGJPAUIStream@@H@Z": 7029200,
     "?Save@TagTypeClass@@UAGJPAUIStream@@H@Z": 7032448,
@@ -4632,7 +4632,7 @@
     "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1IHH_N@Z": 7814848,
     "?Draw_Depth_Glow_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1HHH_N@Z": 7814864,
     "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@HH_N333M@Z": 7814880,
-    "?Unknown_Slot16@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z": 7814896,
+    "?Draw_RGB_Multiplying_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z": 7814896,
     "?Fill_Rect_Trans@XSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z": 7816880,
     "_IID_IUnknown": 8185360,
     "__imp__CoCreateInstance@20": 7972336,
@@ -4740,9 +4740,9 @@
     "?DisposeOfArt@PowerClass@@UAEXXZ": 6407552,
     "?DisposeOfArt@RadarClass@@UAEXXZ": 6484496,
     "?unknown_shape_ab6350_allocated@RadarClass@@2_NA": 11232105,
-    "?unknown_shape_ab6350@RadarClass@@2PBXB": 11232080,
+    "?BriefingButtonShape@RadarClass@@2PBXB": 11232080,
     "?unknown_shape_ab6318_allocated@RadarClass@@2_NA": 11232104,
-    "?unknown_shape_ab6318@RadarClass@@2PBXB": 11232024,
+    "?OptionsButtonShape@RadarClass@@2PBXB": 11232024,
     "?Load_String@StringTable@@SIPBGPBDPAD0H@Z": 7315136,
     "??0CCFileClass@@QAE@ABVWstring@@@Z": 4624272,
     "?Has_Finished@MSBinkAnim@@UAE_NXZ": 5954048,
@@ -4813,16 +4813,16 @@
     "?Blit_Display@GScreenClass@@UAEXXZ": 5114960,
     "?unknown_device_852fe0@@3PAUIDirect3DDevice2@@A": 8728544,
     "?AI@GScreenClass@@UAEXAAHABUPoint2D@@@Z": 5116096,
-    "?Unknown_00547D40@MapClass@@QAE?AUPoint2D@@ABU2@@Z": 5537088,
-    "?Unknown_00547D70@MapClass@@QAE?AUPoint2D@@ABU2@@Z": 5537136,
-    "?Unknown_00547DB0@MapClass@@QAE?AUPoint2D@@ABU2@@Z": 5537200,
-    "?Unknown_00547DF0@MapClass@@QAE?AUPoint2D@@ABU2@@Z": 5537264,
-    "?Unknown_00547E50@MapClass@@QAE?AVCell@@ABV2@@Z": 5537360,
-    "?Unknown_00547E90@MapClass@@QAE?AVCell@@ABV2@@Z": 5537424,
-    "?Unknown_00547EE0@MapClass@@QAE?AVCell@@ABV2@@Z": 5537504,
-    "?Unknown_00547F30@MapClass@@QAE?AVCell@@ABV2@@Z": 5537584,
+    "?PlayRect_To_Cell_Point@MapClass@@QAE?AUPoint2D@@ABU2@@Z": 5537088,
+    "?LocalRect_To_Cell_Point@MapClass@@QAE?AUPoint2D@@ABU2@@Z": 5537136,
+    "?Cell_To_PlayRect_Point@MapClass@@QAE?AUPoint2D@@ABU2@@Z": 5537200,
+    "?Cell_To_LocalRect_Point@MapClass@@QAE?AUPoint2D@@ABU2@@Z": 5537264,
+    "?PlayRect_To_Cell@MapClass@@QAE?AVCell@@ABV2@@Z": 5537360,
+    "?LocalRect_To_Cell@MapClass@@QAE?AVCell@@ABV2@@Z": 5537424,
+    "?Cell_To_PlayRect@MapClass@@QAE?AVCell@@ABV2@@Z": 5537504,
+    "?Cell_To_LocalRect@MapClass@@QAE?AVCell@@ABV2@@Z": 5537584,
     "?Is_Visible@MapClass@@UAGJVCell@@@Z": 5537696,
-    "?unknown_dummy_cell_a6f9f8@@3VCellClass@@A": 10942968,
+    "?BlubCell@@3VCellClass@@A": 10942968,
     "?Has_Cell@MapClass@@QAE_NABVCell@@@Z": 5537968,
     "?Occupy_List@ObjectTypeClass@@UBEPBVCell@@H@Z": 6118800,
     "?Find_Index@HouseTypeClass@@SIHPBD@Z": 5215440,
@@ -4908,13 +4908,13 @@
     "?Compute_CRC@VoxelAnimTypeClass@@UBEXAAVWWCRCEngine@@@Z": 7400112,
     "??_GVoxelAnimTypeClass@@UAEPAXI@Z": 7401040,
     "??_7LayerClass@@6B@": 7989352,
-    "?Unknown_006A0540@TabClass@@SIXH@Z": 6948160,
+    "?Free_Button_Shape@TabClass@@SIXH@Z": 6948160,
     "?Command_From_Name@TabClass@@SIHPBD@Z": 6948224,
-    "?Unknown_006A0620@TabClass@@SI?AVRect@@H@Z": 6948384,
-    "?Unknown_006A06B0@TabClass@@SIHH@Z": 6948528,
+    "?Get_Button_Rect@TabClass@@SI?AVRect@@H@Z": 6948384,
+    "?Is_Team_Command@TabClass@@SIHH@Z": 6948528,
     "?One_Time@TabClass@@UAEXXZ": 6949664,
     "?DisposeOfArt@TabClass@@UAEXXZ": 6949680,
-    "?Unknown_006A0D50@TabClass@@QAEXXZ": 6950224,
+    "?Add_Command_Buttons@TabClass@@QAEXXZ": 6950224,
     "??0PowerClass@@QAE@XZ": 6407248,
     "??_7PowerClass@@6B@": 8028972,
     "?Init_Clear@PowerClass@@UAEXXZ": 6407376,
@@ -5210,7 +5210,7 @@
     "?Clear_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
     "?Unknown_0067C150@SidebarClass@@QAEXPAVObjectClass@@@Z": 6799696,
     "?Unknown_004EB550@@YIHHH@Z": 5158224,
-    "?Unknown_004F4F30@UnknownSidebarHouse@@QAE_NPAVTechnoTypeClass@@@Z": 5197616,
+    "?Is_Build_Limited@UnknownSidebarHouse@@QAE_NPAVTechnoTypeClass@@@Z": 5197616,
     "?Unknown_0067C370@SidebarClass@@QAE_NPAVFactoryClass@@HH@Z": 6800240,
     "?Unknown_0067C450@SidebarClass@@QAE_NH@Z": 6800464,
     "?Unknown_0067C4C0@SidebarClass@@QAE_NH@Z": 6800576,
@@ -5234,7 +5234,7 @@
     "?Unknown_0067E8F0@StripClass@SidebarClass@@QAEXXZ": 6809840,
     "?Deactivate@StripClass@SidebarClass@@QAEXXZ": 6810016,
     "?Unknown_0067EA20@StripClass@SidebarClass@@QAE_NHHHH@Z": 6810144,
-    "?Unknown_00482C00@@YIPAVObjectTypeClass@@HH@Z": 4729856,
+    "?Fetch_Techno_Type@@YIPAVObjectTypeClass@@HH@Z": 4729856,
     "?Unknown_0067EDF0@StripClass@SidebarClass@@QAE_NHH@Z": 6811120,
     "?Speech_Play_Name@@YIXPBDHH@Z": 7428928,
     "?Unknown_0067ED10@StripClass@SidebarClass@@QAEXHH@Z": 6810896,
@@ -5247,7 +5247,7 @@
     "?Activate@StripClass@SidebarClass@@QAEXXZ": 6813312,
     "?Unknown_0067F730@StripClass@SidebarClass@@QAEXXZ": 6813488,
     "?Unknown_0067F7C0@StripClass@SidebarClass@@QAEHH@Z": 6813632,
-    "?Unknown_004B98F0@UnknownFactory@@QAEHXZ": 4954352,
+    "?Completion@UnknownFactory@@QAEHXZ": 4954352,
     "??0SelectClass@StripClass@SidebarClass@@QAE@XZ": 6818208,
     "?Mouse_Enter@SelectClass@StripClass@SidebarClass@@UAEXXZ": 6821376,
     "?Save_Delay@ToolTipManager@@QAEXXZ": 7256080,
@@ -5259,13 +5259,13 @@
     "?Unknown_006817D0@StripClass@SidebarClass@@QAE_NPAVUnknownFactory@@@Z": 6821840,
     "?Get_Object@UnknownFactory@@QAEPAVObjectClass@@XZ": 4954416,
     "?Unknown_006F8A20@@YIXPAVBuildingClass@@@Z": 7309856,
-    "?Unknown_004B97C0@UnknownFactory@@QAEXXZ": 4954048,
+    "?Abandon@UnknownFactory@@QAEXXZ": 4954048,
     "?Unknown_00681980@SidebarClass@@QAEHXZ": 6822272,
     "?Unknown_006820A0@SidebarClass@@QAEHXZ": 6824096,
     "?Unknown_006820F0@SidebarClass@@QAEHXZ": 6824176,
     "?Unknown_00682400@StripClass@SidebarClass@@QAEXHH@Z": 6824960,
-    "?unknown_button_ab63e8@RadarClass@@2VShapeButtonClass@@A": 11232232,
-    "?unknown_button_ab6380@RadarClass@@2VShapeButtonClass@@A": 11232128,
+    "?BriefingButton@RadarClass@@2VShapeButtonClass@@A": 11232232,
+    "?OptionsButton@RadarClass@@2VShapeButtonClass@@A": 11232128,
     "?unknown_rect_ab6320@RadarClass@@2VRect@@A": 11232032,
     "?Unknown_00405C10@UnknownList14BC@@QAEXXZ": 4217872,
     "?Clear_Radar@RadarClass@@QAEXXZ": 6495808,
@@ -5402,7 +5402,7 @@
     "?Name@HouseClass@@UAGPAGXZ": 5122800,
     "?Delete@?$DynamicVectorClass@PAVObjectClass@@@@QAE_NH@Z": 4541216,
     "?Delete@?$DynamicVectorClass@PAVHouseClass@@@@QAE_NH@Z": 5213216,
-    "?Unknown_00482C00@@YIPAVTechnoTypeClass@@HH@Z": 4729856,
+    "?Fetch_Techno_Type@@YIPAVTechnoTypeClass@@HH@Z": 4729856,
     "?Waypoint_At@HouseClass@@QAEPAUWaypointClass@@ABVCell@@@Z": 5165568,
     "?Save@HouseClass@@UAGJPAUIStream@@H@Z": 5170240,
     "?Save@UnknownHouseCounter@@QAEXPAUIStream@@@Z": 4791728,
@@ -5434,7 +5434,7 @@
     "?Lepton_Dimensions@BuildingTypeClass@@UBE?AUCoordStruct@@XZ": 4577456,
     "?Compute_CRC@BuildingTypeClass@@UBEXAAVWWCRCEngine@@@Z": 4577520,
     "?Save@BuildingTypeClass@@UAGJPAUIStream@@H@Z": 4579360,
-    "?Unknown_00499810@DisplayClass@@QAE?AVCell@@PBV2@@Z": 4823056,
+    "?Get_Occupy_Dimensions@DisplayClass@@QAE?AVCell@@PBV2@@Z": 4823056,
     "?Unknown_004998C0@DisplayClass@@QAEXABVCell@@_N@Z": 4823232,
     "?In_Radar@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_00499970@DisplayClass@@QAEXABVCell@@_N@Z": 4823408,
@@ -5821,12 +5821,12 @@
     "?INoticeSink_Unknown@InfantryClass@@UAE_NHH@Z": 5281168,
     "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z": 6982976,
     "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z": 6991312,
-    "?Unknown_00568520@MapClass@@QAEXPAVCellClass@@PAVHouseClass@@_N@Z": 5670176,
+    "?Reveal_Nearby_Technos@MapClass@@QAEXPAVCellClass@@PAVHouseClass@@_N@Z": 5670176,
     "?unknown_slot38@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4825328,
     "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z": 4820752,
     "?Mouse_Left_Held@DisplayClass@@UAEXABUPoint2D@@@Z": 4834560,
     "?TacticalRect@@3VRect@@A": 8623664,
-    "?Unknown_006AA770@Tactical@@QAEXXZ": 6989680,
+    "?End_Rubber_Band@Tactical@@QAEXXZ": 6989680,
     "?Mouse_Small@MouseClass@@UAEX_N@Z": 5894288,
     "?AI@MouseClass@@UAEXAAHABUPoint2D@@@Z": 5895056,
     "__imp__ScreenToClient@8": 7971920,
@@ -5891,7 +5891,7 @@
     "?Unknown_0042E700@BeaconManagerClass@@QAE_NH@Z": 4384512,
     "?Encroach_Shadow@DisplayClass@@QAEXXZ": 4836384,
     "?Unknown_0049CF00@DisplayClass@@QAEXABVCell@@@Z": 4837120,
-    "?Unknown_0049E110@DisplayClass@@QAEX_N0@Z": 4841744,
+    "?All_To_Look@DisplayClass@@QAEX_N0@Z": 4841744,
     "?Encroach_Fog@DisplayClass@@QAEXXZ": 4836640,
     "?Unknown_0049CDB0@DisplayClass@@QAEXABVCell@@@Z": 4836784,
     "?unknown_slot40@ObjectClass@@UAE?AUCoordStruct@@XZ": 4305472,
@@ -5936,10 +5936,10 @@
     "?AI@WaveClass@@UAEXXZ": 7483936,
     "?AI@ObjectClass@@UAEXXZ": 6105072,
     "?Get_Object@UnknownBuildingFactory@@QAEPAVTechnoClass@@XZ": 4954416,
-    "?Unknown_005629D0@MapClass@@QAEPAVCellClass@@PAVAbstractClass@@@Z": 5646800,
+    "?Find_Nearby_Shroud@MapClass@@QAEPAVCellClass@@PAVAbstractClass@@@Z": 5646800,
     "?Set_Global_To@ScenarioClass@@QAE_NI_N@Z": 6689472,
     "?Set_Local_To@ScenarioClass@@QAE_NI_N@Z": 6690144,
-    "?Unknown_0055D990@MapClass@@QAEXABVCell@@@Z": 5626256,
+    "?Area_Reduce_Tiberium@MapClass@@QAEXABVCell@@@Z": 5626256,
     "?Setup_Trigger_Scroll@Tactical@@QAEXABUCoordStruct@@H@Z": 6958256,
     "?Compute_CRC@HouseClass@@UBEXAAVWWCRCEngine@@@Z": 5166992,
     "?AI@RadarClass@@UAEXAAHABUPoint2D@@@Z": 6487232,
@@ -5947,7 +5947,7 @@
     "?unknown_rect_ab6468@@3VRect@@A": 11232360,
     "?unknown_rect_ab6338@@3VRect@@A": 11232056,
     "?unknown_session_a3d29c@@3PAVUnknownSessionA3D29C@@A": 10736284,
-    "?unknown_int_a40d48@@3HA": 10751304,
+    "?SpecialDialog@@3HA": 10751304,
     "?unknown_int_af8fe8@@3HA": 11505640,
     "?Update_Transmission@RadarClass@@QAEXXZ": 6503488,
     "?Remove_Speech_Hold@@YAXXZ": 7432528,
@@ -6271,7 +6271,7 @@
     "?Draw_Dashed_Line@XSurface@@UAEHABUPoint2D@@0HPB_NH@Z": 7814192,
     "?Draw_Me@Dial8Class@@UAEHH@Z": 4813104,
     "?Get@WolUserArray@@QBE_NAAUUser@WOL@@H@Z": 7757856,
-    "?Unknown_0049E000@DisplayClass@@QAEX_N0@Z": 4841472,
+    "?Update_Technos_Visibility@DisplayClass@@QAEX_N0@Z": 4841472,
     "?Index@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A": 8805952,
     "?Timing@VQMovieHandle@@UAEHXZ": 5904688,
     "?unknown_slot2@SimpleDialogControl@OwnerDraw@@UAE_NXZ": 6295920,
@@ -6325,7 +6325,7 @@
     "?Add@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@QAE_NABV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5211120,
     "?Fetch@?$VectorClass@UAngerStruct@@@@UBE?AUAngerStruct@@H@Z": 5205168,
     "?Fetch@?$VectorClass@UScoutStruct@@@@UBE?AUScoutStruct@@H@Z": 5205280,
-    "?Unknown_00559F10@MapClass@@QAEXXZ": 5611280,
+    "?Spy_Satellite_Hide@MapClass@@QAEXXZ": 5611280,
     "??_C@_0P@Tip?3AttackMove?$AA@": 8349956,
     "??_C@_0L@Tip?3Beacon?$AA@": 8349944,
     "??_C@_0K@Tip?3Cheer?$AA@": 8349932,
@@ -6348,7 +6348,7 @@
     "?GetClassID@WaypointPathClass@@UAGJPAUGUID@@@Z": 7491600,
     "?Size_Of@WaypointPathClass@@UBEHXZ": 7492064,
     "?Kind_Of@WaypointPathClass@@UBEHXZ": 7492080,
-    "?Unknown_0054FAF0@MapClass@@QAEHABVCell@@@Z": 5569264,
+    "?Get_Cell_Subzone_Index@MapClass@@QAEHABVCell@@@Z": 5569264,
     "?Release@?$TClassFactory@VCStreamClass@@@@UAGKXZ": 6886784,
     "__imp__InterlockedDecrement@4": 7971264,
     "?Release@?$TClassFactory@VWaveClass@@@@UAGKXZ": 6887168,
@@ -6635,11 +6635,11 @@
     "?unknown_flag_a3d2c1@@3_NA": 10736321,
     "?unknown_cell_a6f238@@3VCell@@A": 10940984,
     "?Unknown_00493930@UnknownMapEntry154@@QAE_NXZ": 4798768,
-    "?Unknown_0054E410@MapClass@@QAE_NXZ": 5563408,
+    "?Place_Random_Crate@MapClass@@QAE_NXZ": 5563408,
     "?Cell_Region@MapClass@@QAEHABVCell@@@Z": 5563248,
     "?Cell_Threat@MapClass@@QAEHABVCell@@PAVHouseClass@@@Z": 5563296,
-    "?Unknown_0054FA60@MapClass@@QAEHABVCell@@@Z": 5569120,
-    "?Unknown_0049DE00@DisplayClass@@QAEX_N0@Z": 4840960,
+    "?Get_Cell_Zone_ID@MapClass@@QAEHABVCell@@@Z": 5569120,
+    "?Reveal_Technos@DisplayClass@@QAEX_N0@Z": 4840960,
     "?Add_Pip@PowerClass@@QAEXXZ": 6409152,
     "?Save@RulesClass@@QAEXPAUIStream@@@Z": 6610544,
     "?Save@?$TypeList@PAVVoxelAnimTypeClass@@@@QAEXPAUIStream@@@Z": 6630048,
@@ -6650,7 +6650,7 @@
     "?Save@?$TypeList@PAVTerrainTypeClass@@@@QAEXPAUIStream@@@Z": 6631232,
     "?Save@?$TypeList@PAVInfantryTypeClass@@@@QAEXPAUIStream@@@Z": 6631104,
     "?Unknown_0055A070@MapClass@@QAEXXZ": 5611632,
-    "?Unknown_0055A120@MapClass@@QAEXXZ": 5611808,
+    "?Spy_Satellite_Reveal@MapClass@@QAEXXZ": 5611808,
     "?In_Area_Radar@MapClass@@QAE_NABVRect@@ABVCell@@_N@Z": 5613632,
     "?Reset_All_Subzones@MapClass@@QAEXXZ": 5651776,
     "?Reset_Subzone@MapClass@@QAEXH@Z": 5651840,
@@ -6665,11 +6665,11 @@
     "?Unknown_0056A900@@YIHHH@Z": 5679360,
     "?MZonePassability@@3PAY07HA": 8257732,
     "?Zone_Connection_Index@MapClass@@QAEHABVCell@@HH@Z": 5570768,
-    "?Unknown_005501A0@MapClass@@QAE_NABVCell@@@Z": 5570976,
+    "?Unregister_Subzone_Connections@MapClass@@QAE_NABVCell@@@Z": 5570976,
     "?Compute_Zone_Connections@MapClass@@QAEXXZ": 5569952,
-    "?Unknown_00566C30@MapClass@@QAEXPAUZoneConnectionClass@@@Z": 5663792,
-    "?Unknown_00550230@MapClass@@QAE_NABVCell@@@Z": 5571120,
-    "?Unknown_00566F90@MapClass@@QAEXPAUZoneConnectionClass@@@Z": 5664656,
+    "?Unregister_Subzone_Connection@MapClass@@QAEXPAUZoneConnectionClass@@@Z": 5663792,
+    "?Register_Subzone_Connections@MapClass@@QAE_NABVCell@@@Z": 5571120,
+    "?Register_Subzone_Connection@MapClass@@QAEXPAUZoneConnectionClass@@@Z": 5664656,
     "?Unknown_00550CF0@MapClass@@QAE_NABVCell@@HHHHHH_N1@Z": 5573872,
     "?Unknown_0055AF60@@YI_NH@Z": 5615456,
     "?unknown_tileset_a6cb74@@3HA": 10931060,
@@ -6678,7 +6678,7 @@
     "?Unknown_005686B0@MapClass@@QAE_NABVRect@@H@Z": 5670576,
     "?Unknown_0055A590@MapClass@@QAE_NABVRect@@_N@Z": 5612944,
     "?Unknown_005687B0@MapClass@@QAEXABVRect@@@Z": 5670832,
-    "?Unknown_005688A0@MapClass@@QAEXAAV?$DynamicVectorClass@VCell@@@@@Z": 5671072,
+    "?Recalc_Cells_In_List@MapClass@@QAEXAAV?$DynamicVectorClass@VCell@@@@@Z": 5671072,
     "?unknown_ini_005b7840@UnknownSessionA3D29C@@QAEPAVCCINIClass@@XZ": 5994560,
     "?Unknown_0055AF80@@YI_NHH@Z": 5615488,
     "?unknown_tileset_a52e68@@3HA": 10825320,
@@ -6694,7 +6694,7 @@
     "?Fresh_Map@MapClass@@QAEXXZ": 5544384,
     "?Overpass@MapClass@@QAEHXZ": 5550816,
     "?Zone_Reset@MapClass@@QAEHXZ": 5565392,
-    "?Unknown_00549C50@MapClass@@QAEXABUCoordStruct@@HPAVHouseClass@@_N2222@Z": 5545040,
+    "?RevealArea1@MapClass@@QAEXABUCoordStruct@@HPAVHouseClass@@_N2222@Z": 5545040,
     "__imp__InterlockedIncrement": 7971260,
     "__imp__InterlockedDecrement": 7971264,
     "?Unknown_Slot20@XSurface@@UAE_NHHHH@Z": 7814832,
@@ -7620,7 +7620,7 @@
     "?Get_Z_Rotation@Matrix3D@@QBEMXZ": 5835888,
     "?Rotate_Vector@Matrix3D@@QBE?AUVector3@@ABU2@@Z": 5835984,
     "?Look_At@Matrix3D@@QAEXABUVector3@@0M@Z": 5836112,
-    "?unknown_b2a7ec@@3HA": 11708396,
+    "?WestwoodOnline_Tournament@@3HA": 11708396,
     "?unknown_name_a3d3a0@@3PADA": 10736544,
     "?Read_Scenario_INI@TaskForceClass@@SIXAAVCCINIClass@@H@Z": 7039984,
     "?Write_Scenario_INI@TaskForceClass@@SIXAAVCCINIClass@@H@Z": 7040272,
@@ -7763,7 +7763,7 @@
     "__imp__CreateDialogParamA@20": 7971844,
     "__imp__DestroyWindow@4": 7971796,
     "?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z": 6723152,
-    "?Unknown_004994D0@DisplayClass@@QAE?AVCell@@ABV2@@Z": 4822224,
+    "?Set_Cursor_Pos@DisplayClass@@QAE?AVCell@@ABV2@@Z": 4822224,
     "?Write_Basic@ScenarioClass@@QAE_NAAVCCINIClass@@_N@Z": 6694320,
     "?unknown_basic_section_7a9204@@3PBDB": 8032772,
     "?unknown_variable_names_section_7a9200@@3PBDB": 8032768,
@@ -7830,9 +7830,9 @@
     "?unknown_a40d39@@3_NA": 10751289,
     "?Unknown_0042E1A0@BeaconManagerClass@@QAEXXZ": 4383136,
     "?Unknown_0065e8c0@@YIX_N@Z": 6678720,
-    "?Unknown_006ecf10@@YAXXZ": 7261968,
+    "?Process_Deferred_Deletion@@YAXXZ": 7261968,
     "?unknown_house_a72d28@@3PAVHouseClass@@A": 10956072,
-    "?Unknown_006715D0@SessionClass@@QAEHH@Z": 6755792,
+    "?Color_Index_To_Scheme@SessionClass@@QAEHH@Z": 6755792,
     "?BuildLevel@@3HA": 8227032,
     "?Occupy_List@OverlayTypeClass@@UBEPBVCell@@H@Z": 6146048,
     "?Create_And_Place@OverlayTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 6146160,
@@ -7920,16 +7920,16 @@
     "?Draw_Matrix@TunnelLocomotionClass@@UAGPAVMatrix3D@@PAV2@PAH@Z": 7277792,
     "?Do_Restart_0065e440@@YIXXZ": 6677568,
     "?TacticalActive@@3_NA": 10748800,
-    "?Unknown_005A09E0@@YAXXZ": 5900768,
+    "?Stop_Ingame_Movie@@YAXXZ": 5900768,
     "?Sound_Clear_Static@@YAXXZ": 7422992,
-    "?Unknown_007160D0@@YIXXZ": 7430352,
+    "?Aux_Stream_Stop@@YIXXZ": 7430352,
     "?Start_Scenario_0065bc70@@YI_NPBD_NH@Z": 6667376,
-    "?Unknown_0065e590@@YIXXZ": 6677904,
+    "?Do_Abort@@YIXXZ": 6677904,
     "?Read_Scenario_0065e760@@YI_NPBD_N@Z": 6678368,
     "?Unknown_005B7CE0@UnknownSessionA3D29C@@QAEXXZ": 5995744,
     "?Create_Units_00660320@@YIX_N@Z": 6685472,
     "?unknown_session_a3d55c@@3HA": 10736988,
-    "?Unknown_0049C670@DisplayClass@@QAEXXZ": 4834928,
+    "?Compute_Start_Pos@DisplayClass@@QAEXXZ": 4834928,
     "?unknown_flags_a3f118@@3PA_NA": 10744088,
     "?QueryInterface@LocomotionClass@@W3AGJABUGUID@@PAPAX@Z": 4979872,
     "?AddRef@LocomotionClass@@W3AGKXZ": 4979888,
@@ -7939,7 +7939,7 @@
     "?Write_INI_0049D910@DisplayClass@@QAEXAAVCCINIClass@@@Z": 4839696,
     "?Unknown_00668EA0@@YIXAAVCCINIClass@@H@Z": 6721184,
     "?Save@ScenarioClass@@QAEXPAUIStream@@@Z": 6688608,
-    "?unknown_flag_a40d05@@3_NA": 10751237,
+    "?Debug_ForceScenario@@3_NA": 10751237,
     "?unknown_scenario_name_a35ea8@@3PADA": 10706600,
     "?unknown_multi_missions_a3d8d8@@3V?$DynamicVectorClass@PAVMultiMission@@@@A": 10737880,
     "?unknown_counter_a3fabc@@3HA": 10746556,
@@ -7948,7 +7948,7 @@
     "?Do_Win_0065d7f0@@YIXXZ": 6674416,
     "?unknown_flags_a3f600@@3EA": 10745344,
     "?Unknown_00624850@@YIXXZ": 6441040,
-    "?Unknown_0053F780@@YIXXZ": 5502848,
+    "?Disconnect_Gracefully@@YIXXZ": 5502848,
     "?unknown_host_name_a3f618@@3PAGA": 10745368,
     "?unknown_a3f58c@@3HA": 10745228,
     "??0UnknownScore_005AAA20@@QAE@XZ": 5941792,
@@ -7956,7 +7956,7 @@
     "?unknown_a3f598@@3HA": 10745240,
     "??0UnknownScore_0069A640@@QAE@XZ": 6923840,
     "?Presentation_0069A650@UnknownScore_0069A640@@QAEXXZ": 6923856,
-    "?Unknown_00491A10@@YI_NXZ": 4790800,
+    "?CheckProtectedData@@YI_NXZ": 4790800,
     "?Unknown_004B37C0@@YIXXZ": 4929472,
     "?Unknown_0058F620@@YIXPAVScenarioClass@@PBD@Z": 5830176,
     "?Unknown_0058F510@@YIXPAVScenarioClass@@@Z": 5829904,
@@ -8070,7 +8070,7 @@
     "?Save@SpawnManagerClass@@UAGJPAUIStream@@H@Z": 6859120,
     "?FirstValidMapIndex@MultiplayerGameMode@@UAEHXZ": 5993472,
     "?RandomHumanCountryIndex@MultiplayerGameMode@@UAEHXZ": 5993664,
-    "?Unknown_00672940@SessionClass@@QAEHXZ": 6760768,
+    "?Random_Side@SessionClass@@QAEHXZ": 6760768,
     "?Draw_Me@GaugeClass@@UAEHH@Z": 5046912,
     "?Draw_Thumb@GaugeClass@@UAEXXZ": 5047680,
     "?Draw_Me@TriColorGaugeClass@@UAEHH@Z": 5048112,
@@ -8083,7 +8083,7 @@
     "?Wait_For_Players_0065c520@@YI_NXZ": 6669600,
     "?Unknown_00672440@SessionClass@@QAEXXZ": 6759488,
     "?Unknown_00536E20@Unknown535910@@QAEXXZ": 5467680,
-    "?unknown_window_839640@@3VRect@@A": 8623680,
+    "?VisibleRect@@3VRect@@A": 8623680,
     "?AI@ShapeButtonClass@@QAE_NXZ": 6771488,
     "?Multiplayer_Start_Waypoints_0065fff0@@YI?AV?$DynamicVectorClass@VCell@@@@_N@Z": 6684656,
     "?Unknown_00660b60@@YIHPAVObjectClass@@AAVCell@@H@Z": 6687584,
@@ -8141,10 +8141,10 @@
     "?unknown_session_a3d2c8@@3HA": 10736328,
     "?unknown_a40b18@@3HA": 10750744,
     "?unknown_session_a3d2ac@@3HA": 10736300,
-    "?unknown_flag_a40d84@@3_NA": 10751364,
-    "?Unknown_00569090@MapClass@@QAE_NPAVCell@@@Z": 5673104,
+    "?GameControlsShown@@3_NA": 10751364,
+    "?Damage_Bridge@MapClass@@QAE_NPAVCell@@@Z": 5673104,
     "?Compute_CRC@TubeClass@@UBEXAAVWWCRCEngine@@@Z": 7272496,
-    "?unknown_session_a3d2c3@@3EA": 10736323,
+    "?AllowDisableableSupers@@3EA": 10736323,
     "?unknown_session_a3d340@@3HA": 10736448,
     "?Increase_Table_Size@?$IndexClass@HPAVFoggedObjectClass@@@@QAE_NH@Z": 4990384,
     "?Print_Box@BitTextClass@@QAE_NPAVBitFontClass@@PAVSurface@@PBGHHHHHHH@Z": 4400272,
@@ -8173,10 +8173,10 @@
     "?RandomMapWaypointCount@@YIHH@Z": 6055424,
     "?unknown_slot28@MPCooperative@@UAE_NXZ": 5915584,
     "?AssignTeams@MPCooperative@@UAE_NXZ": 5909872,
-    "?Unknown_006728D0@SessionClass@@QAE_NH@Z": 6760656,
+    "?Is_Color_Used@SessionClass@@QAE_NH@Z": 6760656,
     "?Unknown_00672980@SessionClass@@QAEHXZ": 6760832,
     "?Is_Input_Key@GraphicMenuShortcutItem@@UAE_NH@Z": 5113264,
-    "?unknown_rect_abe560@@3VRect@@A": 11265376,
+    "?TacticalDimensions@@3VRect@@A": 11265376,
     "?Set_Tactical_Position_006a6640@Tactical@@QAEXABUPoint2D@@@Z": 6972992,
     "?UnfixAlliances@MPCooperative@@UAE_NXZ": 5914336,
     "?unknown_slot33@MPCooperative@@UAEXXZ": 5918608,
@@ -8191,8 +8191,8 @@
     "?unknown_slot36@MPCooperative@@UAE_NXZ": 5919568,
     "?unknown_slot35@MPCooperative@@UAEX_N@Z": 5920112,
     "??0ColorScheme@@QAE@PBDABVHSVClass@@PAXPAVPaletteClass@@H_N@Z": 6699504,
-    "?unknown_table_7f264c@@3QBDB": 8332876,
-    "?Unknown_00663690@@YIPAVConvertClass@@PBVHSVClass@@PAXHPAVRGBClass@@PAVSurface@@HHHHPBX@Z": 6698640,
+    "?_indexes@@3QBDB": 8332876,
+    "?Build_Light_Converter@@YIPAVConvertClass@@PBVHSVClass@@PAXHPAVRGBClass@@PAVSurface@@HHHHPBX@Z": 6698640,
     "?unknown_slot8@MPCooperative@@UAEXXZ": 5910256,
     "?unknown_slot38@MPCooperative@@UAEXXZ": 5922880,
     "?Select_Rubber_Band@Tactical@@QAEXP6IXPAVObjectClass@@@Z@Z": 6989328,
@@ -8368,7 +8368,7 @@
     "?Category_From_Name@@YI?AW4CategoryType@@PBD@Z": 4624096,
     "__imp__GetCapture@0": 7971820,
     "__imp__ReleaseCapture@0": 7971816,
-    "?Unknown_007357E0@@YIXPAXH@Z": 7559136,
+    "?WS_Destroy_Dialog@@YIXPAXH@Z": 7559136,
     "?WS_Top_Window@@YIPAUHWND__@@XZ": 7559952,
     "?Unknown_005C2C80@@YAXHPBGZZ": 6040704,
     "?unknown_color_7a7360@@3HA": 8024928,
@@ -8455,7 +8455,7 @@
     "?unknown_chat_a72cfc@@3PAUIChat@WOL@@A": 10956028,
     "?Write_INI@InfantryClass@@SIXAAVCCINIClass@@@Z": 5270896,
     "?Load_Resource_004954e0@@YIPAXIPBD@Z": 4805856,
-    "?unknown_instance_00851ca8@@3PAXA": 8723624,
+    "?LanguageResources@@3PAXA": 8723624,
     "__imp__EndDialog@8": 7971772,
     "__imp__DialogBoxParamA@20": 7971780,
     "?TileSurface@@3PAVSurface@@A": 8624452,
@@ -8482,7 +8482,7 @@
     "?Unknown_Slot_Names_005c8cf0@@YIXPAG@Z": 6065392,
     "?unknown_flag_a3f120@@3_NA": 10744096,
     "?unknown_flag_a3f121@@3_NA": 10744097,
-    "?Unknown_Play_Taunt_00715fb0@@YIXD@Z": 7430064,
+    "?Play_Taunt@@YIXD@Z": 7430064,
     "?Speech_Shutdown@@YAXXZ": 7427968,
     "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM@Z": 7455168,
     "?CreateInstance@TiberianSunClassFactory@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z": 4352880,
@@ -8549,7 +8549,7 @@
     "?DebugStringNoPrefix@@YAXPBDZZ": 4809824,
     "?unknown_func_4e7070@HouseClass@@QAE_NPAVTechnoClass@@PAVBuildingClass@@@Z": 5140592,
     "?Unknown_0049E3B0@DisplayClass@@QAEXXZ": 4842416,
-    "?Unknown_006A67D0@Tactical@@QAE?AUPoint2D@@XZ": 6973392,
+    "?Get_Relative_Tactical_Position@Tactical@@QAE?AUPoint2D@@XZ": 6973392,
     "?One_Time@SessionClass@@QAEXXZ": 6745520,
     "?Read@SessionOptionsClass@@QAEXAAVCCINIClass@@PBDHH@Z": 6746608,
     "?Write@SessionOptionsClass@@QAEXAAVCCINIClass@@PBD@Z": 6750832,
@@ -8561,7 +8561,7 @@
     "__imp__GetTickCount@0": 7971020,
     "?Init_Bootstrap_Mixfiles@@YI_NXZ": 5332112,
     "?Increase_Table_Size@?$IndexClass@HPAVCommandClass@@@@QAE_NH@Z": 5367648,
-    "?Unknown_007168C0@@YIXH@Z": 7432384,
+    "?Speech_Set_Side@@YIXH@Z": 7432384,
     "?Unknown_Reload_Art_006F44D0@@YIXXZ": 7292112,
     "?unknown_map_name_a3d342@@3PAGA": 10736450,
     "?unknown_max_players_a3d558@@3HA": 10736984,
@@ -8595,13 +8595,13 @@
     "__imp__PostMessageA@16": 7971952,
     "?Unknown_00681740@SidebarClass@@QAE_NHHPAVFactoryClass@@@Z": 6821696,
     "?Next@UnknownSchemeListIterator@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@XZ": 6305344,
-    "?Unknown_00603C10@@YAHXZ": 6306832,
+    "?SchemeLibrary_Count@@YAHXZ": 6306832,
     "?Unknown_00672DE0@SessionClass@@QAEXXZ": 6761952,
-    "?unknown_game_speed_7f3230@@3HA": 8335920,
-    "?Unknown_005173A0@@YAXXZ": 5338016,
+    "?SavedGameSpeed@@3HA": 8335920,
+    "?Leave_Game_Hook@@YAXXZ": 5338016,
     "?Count@UnknownSelection@@QAEHXZ": 6997936,
     "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z": 6997952,
-    "?Unknown_006F7360@@YIXXZ": 7304032,
+    "?Command_Type_Select@@YIXXZ": 7304032,
     "?Unknown_006AAD70@UnknownSelection@@QAEXXZ": 6991216,
     "?Unknown_006AAD40@UnknownSelection@@QAEXXZ": 6991168,
     "__imp__SetWindowPos@28": 7971792,
@@ -8628,7 +8628,7 @@
     "_?unknown@?3??Faction_Name@@YIABVWstring@@H@Z@4V2@A": 11709704,
     "_?unknown@?3??Faction_Code@@YIABVWstring@@H@Z@4V2@A": 11709652,
     "__imp__SetCapture@4": 7971824,
-    "?Unknown_0055BD70@MapClass@@QAEIPAVCellClass@@@Z": 5619056,
+    "?Get_High_Ground_Mask@MapClass@@QAEIPAVCellClass@@@Z": 5619056,
     "?CRC@@3PAKA": 11230940,
     "__imp__IsWindowVisible@4": 7972056,
     "__imp__GetClassNameA@12": 7972064,
@@ -8655,7 +8655,7 @@
     "?Unknown_00613E40@@YAXXZ": 6372928,
     "?Unknown_006F57E0@@YAXXZ": 7296992,
     "?Free_Vocs@@YAXXZ": 7424096,
-    "?Unknown_005BB5A0@@YAXXZ": 6010272,
+    "?Shutdown_Network@@YAXXZ": 6010272,
     "?unknown_buffer_a35e20@@3PAVBuffer@@A": 10706464,
     "__imp__CoRevokeClassObject@4": 7972288,
     "?unknown_active_object_abd484@@3KA": 11261060,
@@ -8673,8 +8673,8 @@
     "__imp__RegDeleteKeyA@8": 7970848,
     "?CreateInstance@IUnknownPtr@@QAEJABUGUID@@PAUIUnknown@@K@Z": 6886480,
     "__imp__SetForegroundWindow@4": 7972048,
-    "?unknown_53f460@@YA_NXZ": 5502048,
-    "?unknown_53fbd0@@YI_NXZ": 5503952,
+    "?Is_In_Main_Loop@@YA_NXZ": 5502048,
+    "?Main_Loop@@YI_NXZ": 5503952,
     "?Insert@?$WolArrayList@VWstring@@@@QAE_NABVWstring@@H@Z": 7764416,
     "?Save_Recording_Values@@YI_NAAVCCFileClass@@@Z": 5335808,
     "??_GNode@?$WolDictionary@VWstring@@H@@QAEPAXI@Z": 7759776,
@@ -8720,7 +8720,7 @@
     "?Put_PKey@INIClass@@QAE_NABVPKey@@@Z": 5309200,
     "?Get_PKey@INIClass@@QBE?AVPKey@@_N@Z": 5309296,
     "?Process@JumpjetLocomotionClass@@UAG_NXZ": 5436352,
-    "?Unknown_0055ACD0@MapClass@@QAE_NPAVObjectClass@@ABVCell@@@Z": 5614800,
+    "?Try_Open_Gate@MapClass@@QAE_NPAVObjectClass@@ABVCell@@@Z": 5614800,
     "?Record_Deform_Undo@@YIXABUPoint2D@@H@Z": 6836160,
     "?Undo_Deform@@YAXXZ": 6836272,
     "??0Matrix3D@@QAE@ABUVector3@@M@Z": 5832528,
@@ -8754,7 +8754,7 @@
     "?Register_Dirty_Buildings@Tactical@@QAEXVRect@@@Z": 6987920,
     "?Set_WasUnderBridge_Flags@MapClass@@QAEXXZ": 5671680,
     "?Set_Buffer_Zone_Width@@YIXH@Z": 5494832,
-    "?Unknown_00556B30@@YI_NHHPBVCellClass@@@Z": 5598000,
+    "?Is_Bridge_Span_End@@YI_NHHPBVCellClass@@@Z": 5598000,
     "?unknown_tileset_a6e028@@3HA": 10936360,
     "?unknown_tileset_a52c80@@3HA": 10824832,
     "?unknown_tileset_a6cb7c@@3HA": 10931068,
@@ -8774,16 +8774,16 @@
     "?Render_Fogged_Objects@Tactical@@QAEXABVRect@@0_N@Z": 6962432,
     "?Render_Buildings@Tactical@@QAEXABVRect@@0_N@Z": 6963456,
     "?Render_Terrain@Tactical@@QAEXABVRect@@0_N@Z": 6964048,
-    "?Unknown_0054D560@MapClass@@QAEHAAVPipe@@@Z": 5559648,
-    "?Unknown_0054D660@MapClass@@QAEHAAVPipe@@@Z": 5559904,
-    "?Unknown_0054D810@MapClass@@QAEHAAVPipe@@@Z": 5560336,
-    "?Unknown_0054D970@MapClass@@QAEHAAVPipe@@@Z": 5560688,
-    "?Unknown_0054DB10@MapClass@@QAEHAAVPipe@@@Z": 5561104,
-    "?Unknown_0054DCC0@MapClass@@QAE_NAAVStraw@@@Z": 5561536,
+    "?Write_Binary_1@MapClass@@QAEHAAVPipe@@@Z": 5559648,
+    "?Write_Binary_2@MapClass@@QAEHAAVPipe@@@Z": 5559904,
+    "?Write_Binary_3@MapClass@@QAEHAAVPipe@@@Z": 5560336,
+    "?Write_Binary_4@MapClass@@QAEHAAVPipe@@@Z": 5560688,
+    "?Write_Binary_5@MapClass@@QAEHAAVPipe@@@Z": 5561104,
+    "?Read_Binary_1@MapClass@@QAE_NAAVStraw@@@Z": 5561536,
     "?Unknown_0054DEA0@MapClass@@QAE_NAAVStraw@@@Z": 5562016,
-    "?Unknown_0054DFC0@MapClass@@QAE_NAAVStraw@@@Z": 5562304,
+    "?Read_Binary_3@MapClass@@QAE_NAAVStraw@@@Z": 5562304,
     "?Unknown_0054E0C0@MapClass@@QAE_NAAVStraw@@@Z": 5562560,
-    "?Unknown_0054E1E0@MapClass@@QAE_NAAVStraw@@@Z": 5562848,
+    "?Read_Binary_5@MapClass@@QAE_NAAVStraw@@@Z": 5562848,
     "?Unknown_004939A0@UnknownMapEntry154@@QAE_NAAVCell@@@Z": 4798880,
     "?Update_Cell_Zone_Constructively@MapClass@@QAEXABVCell@@@Z": 5569632,
     "?Set_Bridge_End_State@MapClass@@QAEXABVCell@@_N1@Z": 5574320,
@@ -8806,7 +8806,7 @@
     "?Wipe_Depth@Tactical@@QAEX_NHHABVRect@@@Z": 6960112,
     "?Unknown_006AAD70@Tactical@@QAE_NXZ": 6991216,
     "?unknown_slot54@FootClass@@UAEX_N@Z": 5014048,
-    "?Unknown_0054A8F0@MapClass@@QAEXABUCoordStruct@@H@Z": 5548272,
+    "?Unshroud_Gap_Area@MapClass@@QAEXABUCoordStruct@@H@Z": 5548272,
     "?Build_All_Cliffs@MapClass@@QAE_NHH@Z": 5615712,
     "?Expand_High_Ground@MapClass@@QAE_NPAVCellClass@@H@Z": 5616144,
     "?Place_Cliff@MapClass@@QAE_NPAVCellClass@@H@Z": 5617696,
@@ -8843,11 +8843,11 @@
     "_?shapes@?1??Draw_Fog_Shape@CellClass@@QAEXABUPoint2D@@ABVRect@@H@Z@4PBUShapeFileStruct@@B": 8719344,
     "?Clear@?$VectorClass@PBVBuildingTypeClass@@@@UAEXXZ": 5206272,
     "?AI@StripClass@SidebarClass@@QAE_NAAHABUPoint2D@@@Z": 6811728,
-    "?Unknown_004B9900@UnknownFactory@@QAE_NXZ": 4954368,
-    "?Unknown_004B9430@UnknownFactory@@QAE_NXZ": 4953136,
+    "?Has_Completed@UnknownFactory@@QAE_NXZ": 4954368,
+    "?Has_Changed@UnknownFactory@@QAE_NXZ": 4953136,
     "?Unknown_006F8A00@@YIXPAVBuildingClass@@@Z": 7309824,
     "?unknown_cell_ab9698@@3VCell@@A": 11245208,
-    "?Unknown_004B9420@UnknownFactory@@QAE_NXZ": 4953120,
+    "?Is_On_Hold@UnknownFactory@@QAE_NXZ": 4953120,
     "?Insert@WideString@@QAE_NPBGI@Z": 7800000,
     "?Add@?$DynamicVectorClass@PAVEventClass@@@@QAE_NABQAVEventClass@@@Z": 6403648,
     "?Add@?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE_NABU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z": 6315200,
@@ -8863,7 +8863,7 @@
     "??_EWstring@@QAEPAXI@Z": 4239168,
     "?Get_Local_Grid_Cell@MapClass@@QAEPAVCellClass@@ABVCell@@H_N@Z": 5614208,
     "?Get@UnknownWindowProcIndex@OwnerDraw@@QBE_NABQAUHWND__@@AAPAP6GJPAU3@IIJ@Z@Z": 6297824,
-    "?Unknown_0055DCA0@MapClass@@QAE_NABVCell@@@Z": 5627040,
+    "?Damage_Low_Bridge@MapClass@@QAE_NABVCell@@@Z": 5627040,
     "?Unknown_0055EDB0@MapClass@@QAE_NABVCell@@@Z": 5631408,
     "?Unknown_005539B0@MapClass@@QAE_NABVCell@@@Z": 5585328,
     "?Unknown_00559000@MapClass@@QAE_NABVCell@@@Z": 5607424,
@@ -8878,7 +8878,7 @@
     "?Chars_In_Width@BitFontClass@@QBEHPBGHHH@Z": 4396816,
     "?Rebuild_Shores_At@MapClass@@QAE_NABVCell@@@Z": 5665936,
     "?Check_Map@MapClass@@QAE_NXZ": 5675872,
-    "?Unknown_00663B40@ColorScheme@@QAEXPAVPaletteClass@@0HHH@Z": 6699840,
+    "?Build_Light_Converters@ColorScheme@@QAEXPAVPaletteClass@@0HHH@Z": 6699840,
     "?Destroy_Low_Bridge_EW@MapClass@@QAEXABVCell@@@Z": 5600928,
     "?Destroy_Low_Bridge_NS@MapClass@@QAEXABVCell@@@Z": 5601728,
     "?Destroy_Low_Bridge2_EW@MapClass@@QAEXABVCell@@@Z": 5602528,
@@ -8941,7 +8941,7 @@
     "?Value@Benchmark@@QBEKXZ": 4387296,
     "?Get_Cell_Ramp_006a7110@Tactical@@QAEHABUCoordStruct@@@Z": 6975760,
     "?unknown_slot28@BuildingClass@@UAEHPAVObjectClass@@_N@Z": 4470944,
-    "?Unknown_00549C20@MapClass@@QAEXHHABUCoordStruct@@HPAVHouseClass@@_N222@Z": 5544992,
+    "?RevealArea0@MapClass@@QAEXHHABUCoordStruct@@HPAVHouseClass@@_N222@Z": 5544992,
     "?Process_Message@ToolTipManager@@QAEXPAUtagMSG@@@Z": 7255264,
     "?Add@StaticBufferClass@@QAEPAUEntry@1@AAVSurface@@ABUSurfaceRegion@@@Z": 6922704,
     "?Reset@VoxelDrawSystem@@YAXXZ": 7434704,
@@ -9028,11 +9028,11 @@
     "??0IsometricTileTypeClass@@QAE@HHEPBD_N@Z": 5410528,
     "??0IsometricTileTypeClass@@QAE@ABVNoInitClass@@@Z": 5411104,
     "?Read_INI@MapPreviewClass@@QAE_NABVCCINIClass@@@Z": 6414032,
-    "?unknown_rect_ac1204@@3PAVRect@@A": 11276804,
-    "?unknown_rect_ac120c@@3PAVRect@@A": 11276812,
-    "?unknown_rect_ac1208@@3PAVRect@@A": 11276808,
-    "?unknown_rect_ac1210@@3PAVRect@@A": 11276816,
-    "?unknown_rect_ac11fc@@3PAVRect@@A": 11276796,
+    "?ThumbOpenRect@@3PAVRect@@A": 11276804,
+    "?ButtonSlotRect@@3PAVRect@@A": 11276812,
+    "?ThumbClosedRect@@3PAVRect@@A": 11276808,
+    "?TabEndRect@@3PAVRect@@A": 11276816,
+    "?TabBarRect@@3PAVRect@@A": 11276796,
     "?Init@BounceClass@@QAEXABUCoordStruct@@NNNABUVector3@@N@Z": 4419008,
     "?Draw_Entry@ColorListClass@@UAEXHHHHH@Z": 4708832,
     "?unknown_flag_8373f6@@3_NA": 8614902,
@@ -9260,7 +9260,7 @@
     "?Draw_Dashed_Line_Depth_Masked@DSurface@@UAEHABUPoint2D@@0HPB_NH_N@Z": 4916816,
     "?Fill_Circle@XSurface@@QAEXUPoint2D@@HVRect@@H@Z": 7818384,
     "?Discard_Old_Packets@IPXGlobalConnClass@@UAEXK@Z": 5392496,
-    "?Unknown_Slot16@DSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z": 4906496,
+    "?Draw_RGB_Multiplying_Line@DSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z": 4906496,
     "?Draw_Depth_Glow_Line@DSurface@@UAE_NABVRect@@ABUPoint2D@@1HHH_N@Z": 4897696,
     "?Process@ShipLocomotionClass@@UAG_NXZ": 6776240,
     "?unknown_slot41@BuildingClass@@UBE?AUCoordStruct@@H@Z": 4473056,
@@ -9323,11 +9323,11 @@
     "?unknown_slot24@Tactical@@UAE_NABUCoordStruct@@0H_N@Z": 6996320,
     "?Unselect_All@@YAXXZ": 4729792,
     "?Unknown_004EB580@UnknownSidebarHouse@@QAEPAVFactoryClass@@H_NH@Z": 5158272,
-    "?Unknown_004B9940@UnknownFactory@@QAEHXZ": 4954432,
+    "?Get_Special_Item@UnknownFactory@@QAEHXZ": 4954432,
     "?Unknown_004E7070@UnknownSidebarHouse@@QAE_NPAVTechnoClass@@PAVBuildingClass@@@Z": 5140592,
-    "?Unknown_004EB620@UnknownSidebarHouse@@QAEXH_NH@Z": 5158432,
-    "?Unknown_004B9780@UnknownFactory@@QAEHXZ": 4953984,
-    "?Unknown_004EB770@UnknownSidebarHouse@@QAE_NH_NH@Z": 5158768,
+    "?Set_Production_Pending@UnknownSidebarHouse@@QAEXH_NH@Z": 5158432,
+    "?Build_Rate@UnknownFactory@@QAEHXZ": 4953984,
+    "?Is_Production_Pending@UnknownSidebarHouse@@QAE_NH_NH@Z": 5158768,
     "?Add@?$DynamicVectorClass@PBD@@QAE_NABQBD@Z": 7310144,
     "?Debug_Draw_Occupier_Links@Tactical@@QAEXXZ": 6993936,
     "?Draw_Objects@Tactical@@QAEX_N@Z": 6984688,
@@ -9595,7 +9595,9 @@
     "?Play_Ingame_Movie@@YIXH_N@Z": 5900576,
     "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
     "?Overlays@@3V?$DynamicVectorClass@PAVOverlayClass@@@@A": 10750976,
-    "?Set_Position@TagClass@@QAEXVCell@@@Z": 7028624
+    "?Set_Position@TagClass@@QAEXVCell@@@Z": 7028624,
+    "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A": 8624592,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104
   },
   "regions": [
     {
@@ -9648,7 +9650,7 @@
           "resolved": 11264652
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -9714,7 +9716,7 @@
           "resolved": 11264672
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -9764,7 +9766,7 @@
           "resolved": 11265136
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9814,7 +9816,7 @@
           "resolved": 11265016
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9864,7 +9866,7 @@
           "resolved": 11265008
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9914,7 +9916,7 @@
           "resolved": 11264688
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9964,7 +9966,7 @@
           "resolved": 11262216
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10046,7 +10048,7 @@
           "resolved": 11265148
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -10104,7 +10106,7 @@
           "resolved": 11264704
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -10162,7 +10164,7 @@
           "resolved": 11264896
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -10220,7 +10222,7 @@
           "resolved": 11265132
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -10262,7 +10264,7 @@
           "resolved": 11264670
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -10312,7 +10314,7 @@
           "resolved": 11264872
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -10346,7 +10348,7 @@
           "resolved": 11264712
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10380,7 +10382,7 @@
           "resolved": 4294835734
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -10391,8 +10393,8 @@
     {
       "entry": 6948336,
       "method": "006a05f0",
-      "symbol": "?Unknown_006A05F0@TabClass@@SIHH@Z",
-      "symbol_prefix": "?Unknown_006A05F0@TabClass@@",
+      "symbol": "?Get_Command_Position@TabClass@@SIHH@Z",
+      "symbol_prefix": "?Get_Command_Position@TabClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -10414,7 +10416,7 @@
           "resolved": 11264712
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10425,8 +10427,8 @@
     {
       "entry": 6948352,
       "method": "006a0600",
-      "symbol": "?Unknown_006A0600@TabClass@@SIPAVShapeButtonClass@@H@Z",
-      "symbol_prefix": "?Unknown_006A0600@TabClass@@SIPAVShapeButtonClass@@H@Z",
+      "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
+      "symbol_prefix": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -10456,7 +10458,7 @@
           "resolved": 11262232
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -10467,8 +10469,8 @@
     {
       "entry": 6948560,
       "method": "006a06d0",
-      "symbol": "?Unknown_006A06D0@TabClass@@SIHH@Z",
-      "symbol_prefix": "?Unknown_006A06D0@TabClass@@",
+      "symbol": "?Team_Number@TabClass@@SIHH@Z",
+      "symbol_prefix": "?Team_Number@TabClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -10490,7 +10492,7 @@
           "resolved": 11264880
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -10515,7 +10517,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -10549,7 +10551,7 @@
           "resolved": 8594380
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -10608,7 +10610,7 @@
           "resolved": 926983
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -10666,7 +10668,7 @@
           "resolved": 4294790198
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -10694,7 +10696,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 0,
           "resolved": 11265024
@@ -10724,7 +10726,7 @@
           "resolved": 926902
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -10768,7 +10770,7 @@
         {
           "offset": 21,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 0,
           "resolved": 11265024
@@ -10782,7 +10784,7 @@
           "resolved": 4294790130
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -10810,7 +10812,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -10840,7 +10842,7 @@
           "resolved": 926838
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -10884,7 +10886,7 @@
         {
           "offset": 21,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -10898,7 +10900,7 @@
           "resolved": 4294790066
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -10909,8 +10911,8 @@
     {
       "entry": 6948160,
       "method": "006a0540",
-      "symbol": "?Unknown_006A0540@TabClass@@SIXH@Z",
-      "symbol_prefix": "?Unknown_006A0540@TabClass@@",
+      "symbol": "?Free_Button_Shape@TabClass@@SIXH@Z",
+      "symbol_prefix": "?Free_Button_Shape@TabClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -10964,7 +10966,7 @@
           "resolved": 11262112
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -10992,7 +10994,7 @@
         {
           "offset": 7,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 0,
           "resolved": 8349688
@@ -11000,7 +11002,7 @@
         {
           "offset": 66,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 44,
           "resolved": 8349732
@@ -11008,13 +11010,13 @@
         {
           "offset": 73,
           "kind": 6,
-          "symbol": "?unknown_no_command_7f67f4@@3HA",
+          "symbol": "?NoAdvancedCommand@@3HA",
           "target": 8349684,
           "addend": 0,
           "resolved": 8349684
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11025,8 +11027,8 @@
     {
       "entry": 6948384,
       "method": "006a0620",
-      "symbol": "?Unknown_006A0620@TabClass@@SI?AVRect@@H@Z",
-      "symbol_prefix": "?Unknown_006A0620@TabClass@@",
+      "symbol": "?Get_Button_Rect@TabClass@@SI?AVRect@@H@Z",
+      "symbol_prefix": "?Get_Button_Rect@TabClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -11058,7 +11060,7 @@
         {
           "offset": 22,
           "kind": 6,
-          "symbol": "?unknown_rect_ac120c@@3PBVRect@@B",
+          "symbol": "?ButtonSlotRect@@3PBVRect@@B",
           "target": 11276812,
           "addend": 0,
           "resolved": 11276812
@@ -11072,7 +11074,7 @@
           "resolved": 11264884
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -11083,8 +11085,8 @@
     {
       "entry": 6948528,
       "method": "006a06b0",
-      "symbol": "?Unknown_006A06B0@TabClass@@SIHH@Z",
-      "symbol_prefix": "?Unknown_006A06B0@TabClass@@",
+      "symbol": "?Is_Team_Command@TabClass@@SIHH@Z",
+      "symbol_prefix": "?Is_Team_Command@TabClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -11114,7 +11116,7 @@
           "resolved": 11265128
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11148,7 +11150,7 @@
           "resolved": 4294815083
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -11222,7 +11224,7 @@
           "resolved": 11262212
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -11233,8 +11235,8 @@
     {
       "entry": 6950224,
       "method": "006a0d50",
-      "symbol": "?Unknown_006A0D50@TabClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_006A0D50@TabClass@@",
+      "symbol": "?Add_Command_Buttons@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Add_Command_Buttons@TabClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -11264,7 +11266,7 @@
           "resolved": 11264632
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -11275,8 +11277,8 @@
     {
       "entry": 6950272,
       "method": "006a0d80",
-      "symbol": "?Unknown_006A0D80@TabClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_006A0D80@TabClass@@",
+      "symbol": "?Remove_Command_Buttons@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Remove_Command_Buttons@TabClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -11306,7 +11308,7 @@
           "resolved": 11264632
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -11334,7 +11336,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_rect_ac120c@@3PBVRect@@B",
+          "symbol": "?ButtonSlotRect@@3PBVRect@@B",
           "target": 11276812,
           "addend": 0,
           "resolved": 11276812
@@ -11350,7 +11352,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "?unknown_rect_ac1210@@3PBVRect@@B",
+          "symbol": "?TabEndRect@@3PBVRect@@B",
           "target": 11276816,
           "addend": 0,
           "resolved": 11276816
@@ -11358,7 +11360,7 @@
         {
           "offset": 29,
           "kind": 6,
-          "symbol": "?unknown_rect_ac1204@@3PBVRect@@B",
+          "symbol": "?ThumbOpenRect@@3PBVRect@@B",
           "target": 11276804,
           "addend": 0,
           "resolved": 11276804
@@ -11380,7 +11382,7 @@
           "resolved": 11264892
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11472,7 +11474,7 @@
         {
           "offset": 91,
           "kind": 6,
-          "symbol": "?unknown_rect_ac1210@@3PBVRect@@B",
+          "symbol": "?TabEndRect@@3PBVRect@@B",
           "target": 11276816,
           "addend": 0,
           "resolved": 11276816
@@ -11496,7 +11498,7 @@
         {
           "offset": 118,
           "kind": 6,
-          "symbol": "?unknown_rect_ac120c@@3PBVRect@@B",
+          "symbol": "?ButtonSlotRect@@3PBVRect@@B",
           "target": 11276812,
           "addend": 0,
           "resolved": 11276812
@@ -11512,7 +11514,7 @@
         {
           "offset": 160,
           "kind": 6,
-          "symbol": "?unknown_rect_ac11fc@@3PBVRect@@B",
+          "symbol": "?TabBarRect@@3PBVRect@@B",
           "target": 11276796,
           "addend": 0,
           "resolved": 11276796
@@ -11550,7 +11552,7 @@
           "resolved": 11264904
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -11594,7 +11596,7 @@
         {
           "offset": 28,
           "kind": 20,
-          "symbol": "?Unknown_Get_Art_006f4590@@YI_NXZ",
+          "symbol": "?Is_Sidebar_Art_Loaded@@YI_NXZ",
           "target": 7292304,
           "addend": 0,
           "resolved": 342304
@@ -11602,7 +11604,7 @@
         {
           "offset": 45,
           "kind": 20,
-          "symbol": "?Unknown_006A1880@TabClass@@QAEXXZ",
+          "symbol": "?Setup_Command_Buttons@TabClass@@QAEXXZ",
           "target": 6953088,
           "addend": 0,
           "resolved": 3071
@@ -11618,7 +11620,7 @@
         {
           "offset": 56,
           "kind": 6,
-          "symbol": "?unknown_rect_ac1204@@3PBVRect@@B",
+          "symbol": "?ThumbOpenRect@@3PBVRect@@B",
           "target": 11276804,
           "addend": 0,
           "resolved": 11276804
@@ -11626,7 +11628,7 @@
         {
           "offset": 67,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 36,
           "resolved": 11265060
@@ -11634,7 +11636,7 @@
         {
           "offset": 76,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 80,
           "resolved": 11265104
@@ -11642,7 +11644,7 @@
         {
           "offset": 82,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 45,
           "resolved": 11265069
@@ -11650,7 +11652,7 @@
         {
           "offset": 88,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 48,
           "resolved": 11265072
@@ -11658,7 +11660,7 @@
         {
           "offset": 94,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 32,
           "resolved": 11265056
@@ -11674,7 +11676,7 @@
         {
           "offset": 115,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 0,
           "resolved": 11265024
@@ -11690,7 +11692,7 @@
         {
           "offset": 139,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 0,
           "resolved": 11265024
@@ -11714,7 +11716,7 @@
         {
           "offset": 155,
           "kind": 6,
-          "symbol": "?unknown_rect_ac1208@@3PBVRect@@B",
+          "symbol": "?ThumbClosedRect@@3PBVRect@@B",
           "target": 11276808,
           "addend": 0,
           "resolved": 11276808
@@ -11722,7 +11724,7 @@
         {
           "offset": 161,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 36,
           "resolved": 11264948
@@ -11730,7 +11732,7 @@
         {
           "offset": 170,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 80,
           "resolved": 11264992
@@ -11738,7 +11740,7 @@
         {
           "offset": 176,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 45,
           "resolved": 11264957
@@ -11746,7 +11748,7 @@
         {
           "offset": 182,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 48,
           "resolved": 11264960
@@ -11754,7 +11756,7 @@
         {
           "offset": 188,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 32,
           "resolved": 11264944
@@ -11762,7 +11764,7 @@
         {
           "offset": 203,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -11778,7 +11780,7 @@
         {
           "offset": 227,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -11792,7 +11794,7 @@
           "resolved": 4294788084
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -11828,7 +11830,7 @@
         {
           "offset": 54,
           "kind": 20,
-          "symbol": "?Unknown_006A1AB0@TabClass@@QAEXXZ",
+          "symbol": "?Show_Buttons@TabClass@@QAEXXZ",
           "target": 6953648,
           "addend": 0,
           "resolved": 3286
@@ -11836,7 +11838,7 @@
         {
           "offset": 80,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -11844,7 +11846,7 @@
         {
           "offset": 90,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -11852,7 +11854,7 @@
         {
           "offset": 104,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 12,
           "resolved": 11264924
@@ -11860,7 +11862,7 @@
         {
           "offset": 110,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 16,
           "resolved": 11264928
@@ -11868,7 +11870,7 @@
         {
           "offset": 115,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 36,
           "resolved": 11264948
@@ -11876,7 +11878,7 @@
         {
           "offset": 125,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 20,
           "resolved": 11264932
@@ -11884,7 +11886,7 @@
         {
           "offset": 135,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 24,
           "resolved": 11264936
@@ -11948,7 +11950,7 @@
         {
           "offset": 247,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 0,
           "resolved": 11265024
@@ -12012,7 +12014,7 @@
         {
           "offset": 352,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -12034,7 +12036,7 @@
           "resolved": 305911
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -12045,8 +12047,8 @@
     {
       "entry": 6951536,
       "method": "006a1270",
-      "symbol": "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z",
-      "symbol_prefix": "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z",
+      "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
+      "symbol_prefix": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -12092,7 +12094,7 @@
           "resolved": 304545
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12166,7 +12168,7 @@
           "resolved": 11259268
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -12177,8 +12179,8 @@
     {
       "entry": 6952816,
       "method": "006a1770",
-      "symbol": "?Unknown_006A1770@TabClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_006A1770@TabClass@@QAEXXZ",
+      "symbol": "?Flash_Money@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Flash_Money@TabClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -12200,7 +12202,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -12284,7 +12286,7 @@
         {
           "offset": 111,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 0,
           "resolved": 8349688
@@ -12300,7 +12302,7 @@
         {
           "offset": 173,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 44,
           "resolved": 8349732
@@ -12308,7 +12310,7 @@
         {
           "offset": 180,
           "kind": 6,
-          "symbol": "?unknown_no_command_7f67f4@@3HA",
+          "symbol": "?NoAdvancedCommand@@3HA",
           "target": 8349684,
           "addend": 0,
           "resolved": 8349684
@@ -12324,7 +12326,7 @@
         {
           "offset": 192,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 0,
           "resolved": 8349688
@@ -12340,7 +12342,7 @@
         {
           "offset": 258,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 44,
           "resolved": 8349732
@@ -12348,7 +12350,7 @@
         {
           "offset": 265,
           "kind": 6,
-          "symbol": "?unknown_no_command_7f67f4@@3HA",
+          "symbol": "?NoAdvancedCommand@@3HA",
           "target": 8349684,
           "addend": 0,
           "resolved": 8349684
@@ -12364,7 +12366,7 @@
         {
           "offset": 277,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 0,
           "resolved": 8349688
@@ -12380,7 +12382,7 @@
         {
           "offset": 343,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 44,
           "resolved": 8349732
@@ -12388,7 +12390,7 @@
         {
           "offset": 350,
           "kind": 6,
-          "symbol": "?unknown_no_command_7f67f4@@3HA",
+          "symbol": "?NoAdvancedCommand@@3HA",
           "target": 8349684,
           "addend": 0,
           "resolved": 8349684
@@ -12404,7 +12406,7 @@
         {
           "offset": 362,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 0,
           "resolved": 8349688
@@ -12420,7 +12422,7 @@
         {
           "offset": 428,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 44,
           "resolved": 8349732
@@ -12428,7 +12430,7 @@
         {
           "offset": 435,
           "kind": 6,
-          "symbol": "?unknown_no_command_7f67f4@@3HA",
+          "symbol": "?NoAdvancedCommand@@3HA",
           "target": 8349684,
           "addend": 0,
           "resolved": 8349684
@@ -12444,7 +12446,7 @@
         {
           "offset": 447,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 0,
           "resolved": 8349688
@@ -12460,7 +12462,7 @@
         {
           "offset": 513,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 44,
           "resolved": 8349732
@@ -12468,7 +12470,7 @@
         {
           "offset": 520,
           "kind": 6,
-          "symbol": "?unknown_no_command_7f67f4@@3HA",
+          "symbol": "?NoAdvancedCommand@@3HA",
           "target": 8349684,
           "addend": 0,
           "resolved": 8349684
@@ -12484,7 +12486,7 @@
         {
           "offset": 532,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 0,
           "resolved": 8349688
@@ -12500,7 +12502,7 @@
         {
           "offset": 598,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 44,
           "resolved": 8349732
@@ -12508,7 +12510,7 @@
         {
           "offset": 605,
           "kind": 6,
-          "symbol": "?unknown_no_command_7f67f4@@3HA",
+          "symbol": "?NoAdvancedCommand@@3HA",
           "target": 8349684,
           "addend": 0,
           "resolved": 8349684
@@ -12524,7 +12526,7 @@
         {
           "offset": 617,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 0,
           "resolved": 8349688
@@ -12540,7 +12542,7 @@
         {
           "offset": 683,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 44,
           "resolved": 8349732
@@ -12548,7 +12550,7 @@
         {
           "offset": 690,
           "kind": 6,
-          "symbol": "?unknown_no_command_7f67f4@@3HA",
+          "symbol": "?NoAdvancedCommand@@3HA",
           "target": 8349684,
           "addend": 0,
           "resolved": 8349684
@@ -12564,7 +12566,7 @@
         {
           "offset": 702,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 0,
           "resolved": 8349688
@@ -12580,7 +12582,7 @@
         {
           "offset": 768,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 44,
           "resolved": 8349732
@@ -12588,7 +12590,7 @@
         {
           "offset": 775,
           "kind": 6,
-          "symbol": "?unknown_no_command_7f67f4@@3HA",
+          "symbol": "?NoAdvancedCommand@@3HA",
           "target": 8349684,
           "addend": 0,
           "resolved": 8349684
@@ -12604,7 +12606,7 @@
         {
           "offset": 787,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 0,
           "resolved": 8349688
@@ -12620,7 +12622,7 @@
         {
           "offset": 853,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 44,
           "resolved": 8349732
@@ -12628,7 +12630,7 @@
         {
           "offset": 860,
           "kind": 6,
-          "symbol": "?unknown_no_command_7f67f4@@3HA",
+          "symbol": "?NoAdvancedCommand@@3HA",
           "target": 8349684,
           "addend": 0,
           "resolved": 8349684
@@ -12644,7 +12646,7 @@
         {
           "offset": 872,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 0,
           "resolved": 8349688
@@ -12660,7 +12662,7 @@
         {
           "offset": 938,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 44,
           "resolved": 8349732
@@ -12668,7 +12670,7 @@
         {
           "offset": 945,
           "kind": 6,
-          "symbol": "?unknown_no_command_7f67f4@@3HA",
+          "symbol": "?NoAdvancedCommand@@3HA",
           "target": 8349684,
           "addend": 0,
           "resolved": 8349684
@@ -12684,7 +12686,7 @@
         {
           "offset": 957,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 0,
           "resolved": 8349688
@@ -12700,7 +12702,7 @@
         {
           "offset": 1023,
           "kind": 6,
-          "symbol": "?unknown_command_names_7f67f8@@3PAPBDA",
+          "symbol": "?CommandNames@@3PAPBDA",
           "target": 8349688,
           "addend": 44,
           "resolved": 8349732
@@ -12708,7 +12710,7 @@
         {
           "offset": 1030,
           "kind": 6,
-          "symbol": "?unknown_no_command_7f67f4@@3HA",
+          "symbol": "?NoAdvancedCommand@@3HA",
           "target": 8349684,
           "addend": 0,
           "resolved": 8349684
@@ -12730,7 +12732,7 @@
           "resolved": 4294390522
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -12741,8 +12743,8 @@
     {
       "entry": 6954400,
       "method": "006a1da0",
-      "symbol": "?Unknown_006A1DA0@TabClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_006A1DA0@TabClass@@QAEXXZ",
+      "symbol": "?Hide_Buttons@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Hide_Buttons@TabClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -12774,7 +12776,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 0,
           "resolved": 11265024
@@ -12836,7 +12838,7 @@
           "resolved": 302079
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -12847,8 +12849,8 @@
     {
       "entry": 6954528,
       "method": "006a1e20",
-      "symbol": "?Unknown_006A1E20@TabClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_006A1E20@TabClass@@QAEXXZ",
+      "symbol": "?Show_Thumb_Button@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Show_Thumb_Button@TabClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -12864,7 +12866,7 @@
         {
           "offset": 6,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -12872,7 +12874,7 @@
         {
           "offset": 14,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -12880,7 +12882,7 @@
         {
           "offset": 24,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 16,
           "resolved": 11264928
@@ -12888,7 +12890,7 @@
         {
           "offset": 30,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 12,
           "resolved": 11264924
@@ -12896,7 +12898,7 @@
         {
           "offset": 35,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 36,
           "resolved": 11264948
@@ -12904,7 +12906,7 @@
         {
           "offset": 45,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 24,
           "resolved": 11264936
@@ -12912,7 +12914,7 @@
         {
           "offset": 55,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 20,
           "resolved": 11264932
@@ -12958,7 +12960,7 @@
           "resolved": 301520
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -12969,8 +12971,8 @@
     {
       "entry": 6954656,
       "method": "006a1ea0",
-      "symbol": "?Unknown_006A1EA0@TabClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_006A1EA0@TabClass@@QAEXXZ",
+      "symbol": "?Hide_Thumb_Button@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Hide_Thumb_Button@TabClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -12986,7 +12988,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -13008,7 +13010,7 @@
           "resolved": 301910
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -13019,8 +13021,8 @@
     {
       "entry": 6954688,
       "method": "006a1ec0",
-      "symbol": "?Unknown_006A1EC0@TabClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_006A1EC0@TabClass@@QAEXXZ",
+      "symbol": "?Open_Thumb@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Open_Thumb@TabClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13036,7 +13038,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -13060,13 +13062,13 @@
         {
           "offset": 49,
           "kind": 20,
-          "symbol": "?Unknown_006A1AB0@TabClass@@QAEXXZ",
+          "symbol": "?Show_Buttons@TabClass@@QAEXXZ",
           "target": 6953648,
           "addend": 0,
           "resolved": 4294966203
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -13077,8 +13079,8 @@
     {
       "entry": 6954768,
       "method": "006a1f10",
-      "symbol": "?Unknown_006A1F10@TabClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_006A1F10@TabClass@@QAEXXZ",
+      "symbol": "?Close_Thumb@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Close_Thumb@TabClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13110,7 +13112,7 @@
         {
           "offset": 48,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 0,
           "resolved": 11265024
@@ -13174,7 +13176,7 @@
         {
           "offset": 133,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -13182,7 +13184,7 @@
         {
           "offset": 150,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -13190,7 +13192,7 @@
         {
           "offset": 161,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 12,
           "resolved": 11264924
@@ -13198,7 +13200,7 @@
         {
           "offset": 167,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 16,
           "resolved": 11264928
@@ -13206,7 +13208,7 @@
         {
           "offset": 172,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 36,
           "resolved": 11264948
@@ -13214,7 +13216,7 @@
         {
           "offset": 182,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 20,
           "resolved": 11264932
@@ -13222,7 +13224,7 @@
         {
           "offset": 192,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 24,
           "resolved": 11264936
@@ -13268,7 +13270,7 @@
           "resolved": 301143
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -13279,8 +13281,8 @@
     {
       "entry": 6953440,
       "method": "006a19e0",
-      "symbol": "?Unknown_006A19E0@TabClass@@SAXXZ",
-      "symbol_prefix": "?Unknown_006A19E0@TabClass@@SAXXZ",
+      "symbol": "?Setup_Thumb_Buttons@TabClass@@SAXXZ",
+      "symbol_prefix": "?Setup_Thumb_Buttons@TabClass@@SAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13304,7 +13306,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_rect_ac1204@@3PBVRect@@B",
+          "symbol": "?ThumbOpenRect@@3PBVRect@@B",
           "target": 11276804,
           "addend": 0,
           "resolved": 11276804
@@ -13312,7 +13314,7 @@
         {
           "offset": 27,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 36,
           "resolved": 11265060
@@ -13320,7 +13322,7 @@
         {
           "offset": 36,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 80,
           "resolved": 11265104
@@ -13328,7 +13330,7 @@
         {
           "offset": 42,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 45,
           "resolved": 11265069
@@ -13336,7 +13338,7 @@
         {
           "offset": 48,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 48,
           "resolved": 11265072
@@ -13344,7 +13346,7 @@
         {
           "offset": 54,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 32,
           "resolved": 11265056
@@ -13360,7 +13362,7 @@
         {
           "offset": 75,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 0,
           "resolved": 11265024
@@ -13376,7 +13378,7 @@
         {
           "offset": 99,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 0,
           "resolved": 11265024
@@ -13400,7 +13402,7 @@
         {
           "offset": 115,
           "kind": 6,
-          "symbol": "?unknown_rect_ac1208@@3PBVRect@@B",
+          "symbol": "?ThumbClosedRect@@3PBVRect@@B",
           "target": 11276808,
           "addend": 0,
           "resolved": 11276808
@@ -13408,7 +13410,7 @@
         {
           "offset": 121,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 36,
           "resolved": 11264948
@@ -13416,7 +13418,7 @@
         {
           "offset": 130,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 80,
           "resolved": 11264992
@@ -13424,7 +13426,7 @@
         {
           "offset": 136,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 45,
           "resolved": 11264957
@@ -13432,7 +13434,7 @@
         {
           "offset": 142,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 48,
           "resolved": 11264960
@@ -13440,7 +13442,7 @@
         {
           "offset": 148,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 32,
           "resolved": 11264944
@@ -13448,7 +13450,7 @@
         {
           "offset": 163,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -13464,7 +13466,7 @@
         {
           "offset": 187,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -13478,7 +13480,7 @@
           "resolved": 4294784652
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -13568,7 +13570,7 @@
           "resolved": 299222
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -13604,7 +13606,7 @@
         {
           "offset": 63,
           "kind": 6,
-          "symbol": "?unknown_rect_ac11fc@@3PBVRect@@B",
+          "symbol": "?TabBarRect@@3PBVRect@@B",
           "target": 11276796,
           "addend": 0,
           "resolved": 11276796
@@ -13620,7 +13622,7 @@
         {
           "offset": 104,
           "kind": 6,
-          "symbol": "?unknown_int_7add84@@3HA",
+          "symbol": "?TabBarHeight@@3HA",
           "target": 8052100,
           "addend": 0,
           "resolved": 8052100
@@ -13652,7 +13654,7 @@
         {
           "offset": 177,
           "kind": 20,
-          "symbol": "?Unknown_006F6570@@YAXXZ",
+          "symbol": "?Command_Attack_Move@@YAXXZ",
           "target": 7300464,
           "addend": 0,
           "resolved": 349579
@@ -13684,7 +13686,7 @@
         {
           "offset": 213,
           "kind": 20,
-          "symbol": "?Unknown_006F5C50@@YAXXZ",
+          "symbol": "?Command_Cheer@@YAXXZ",
           "target": 7298128,
           "addend": 0,
           "resolved": 347207
@@ -13700,7 +13702,7 @@
         {
           "offset": 231,
           "kind": 20,
-          "symbol": "?Unknown_006F5940@@YAXXZ",
+          "symbol": "?Command_Deploy@@YAXXZ",
           "target": 7297344,
           "addend": 0,
           "resolved": 346405
@@ -13716,7 +13718,7 @@
         {
           "offset": 249,
           "kind": 20,
-          "symbol": "?Unknown_006F5B10@@YIXXZ",
+          "symbol": "?Command_Guard@@YIXXZ",
           "target": 7297808,
           "addend": 0,
           "resolved": 346851
@@ -13748,7 +13750,7 @@
         {
           "offset": 309,
           "kind": 20,
-          "symbol": "?Unknown_006F64D0@@YIX_N@Z",
+          "symbol": "?Command_Planning_Mode_On@@YIX_N@Z",
           "target": 7300304,
           "addend": 0,
           "resolved": 349287
@@ -13756,7 +13758,7 @@
         {
           "offset": 319,
           "kind": 20,
-          "symbol": "?Unknown_006F64F0@@YIX_N@Z",
+          "symbol": "?Command_Planning_Mode_Off@@YIX_N@Z",
           "target": 7300336,
           "addend": 0,
           "resolved": 349309
@@ -13772,7 +13774,7 @@
         {
           "offset": 337,
           "kind": 20,
-          "symbol": "?Unknown_006F5BC0@@YAXXZ",
+          "symbol": "?Command_Stop@@YAXXZ",
           "target": 7297984,
           "addend": 0,
           "resolved": 346939
@@ -13796,7 +13798,7 @@
         {
           "offset": 372,
           "kind": 20,
-          "symbol": "?Unknown_006F5870@@YIHH@Z",
+          "symbol": "?Group_Count@@YIHH@Z",
           "target": 7297136,
           "addend": 0,
           "resolved": 346056
@@ -13804,7 +13806,7 @@
         {
           "offset": 383,
           "kind": 20,
-          "symbol": "?Unknown_006F5D90@@YIXH@Z",
+          "symbol": "?Group_Assign@@YIXH@Z",
           "target": 7298448,
           "addend": 0,
           "resolved": 347357
@@ -13812,7 +13814,7 @@
         {
           "offset": 393,
           "kind": 20,
-          "symbol": "?Unknown_006F5800@@YI_NH@Z",
+          "symbol": "?Group_Is_All_Selected@@YI_NH@Z",
           "target": 7297024,
           "addend": 0,
           "resolved": 345923
@@ -13820,7 +13822,7 @@
         {
           "offset": 404,
           "kind": 20,
-          "symbol": "?Unknown_006F60D0@@YIXH@Z",
+          "symbol": "?Group_Reselect@@YIXH@Z",
           "target": 7299280,
           "addend": 0,
           "resolved": 348168
@@ -13828,7 +13830,7 @@
         {
           "offset": 414,
           "kind": 20,
-          "symbol": "?Unknown_006F5F00@@YIXH@Z",
+          "symbol": "?Group_Select@@YIXH@Z",
           "target": 7298816,
           "addend": 0,
           "resolved": 347694
@@ -13844,7 +13846,7 @@
         {
           "offset": 436,
           "kind": 20,
-          "symbol": "?Unknown_006F7360@@YAXXZ",
+          "symbol": "?Command_Type_Select@@YAXXZ",
           "target": 7304032,
           "addend": 0,
           "resolved": 352888
@@ -13868,7 +13870,7 @@
         {
           "offset": 502,
           "kind": 20,
-          "symbol": "?Unknown_006A0D80@TabClass@@QAEXXZ",
+          "symbol": "?Remove_Command_Buttons@TabClass@@QAEXXZ",
           "target": 6950272,
           "addend": 0,
           "resolved": 4294966358
@@ -13876,7 +13878,7 @@
         {
           "offset": 509,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 0,
           "resolved": 11265024
@@ -13884,7 +13886,7 @@
         {
           "offset": 523,
           "kind": 20,
-          "symbol": "?Unknown_006A0600@TabClass@@SIPAVShapeButtonClass@@H@Z",
+          "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
           "target": 6948352,
           "addend": 0,
           "resolved": 4294964417
@@ -13924,7 +13926,7 @@
         {
           "offset": 571,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -13940,7 +13942,7 @@
         {
           "offset": 593,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -13948,7 +13950,7 @@
         {
           "offset": 598,
           "kind": 20,
-          "symbol": "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
           "target": 6951536,
           "addend": 0,
           "resolved": 230
@@ -13980,7 +13982,7 @@
         {
           "offset": 684,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -14004,7 +14006,7 @@
         {
           "offset": 718,
           "kind": 20,
-          "symbol": "?Unknown_006A1AB0@TabClass@@QAEXXZ",
+          "symbol": "?Show_Buttons@TabClass@@QAEXXZ",
           "target": 6953648,
           "addend": 0,
           "resolved": 2222
@@ -14028,7 +14030,7 @@
         {
           "offset": 785,
           "kind": 20,
-          "symbol": "?Unknown_006F5E10@@YIXH@Z",
+          "symbol": "?Group_Clear@@YIXH@Z",
           "target": 7298576,
           "addend": 0,
           "resolved": 347083
@@ -14050,7 +14052,7 @@
           "resolved": 4294822449
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -14158,7 +14160,7 @@
         {
           "offset": 163,
           "kind": 6,
-          "symbol": "?unknown_rect_ac11fc@@3PBVRect@@B",
+          "symbol": "?TabBarRect@@3PBVRect@@B",
           "target": 11276796,
           "addend": 0,
           "resolved": 11276796
@@ -14334,7 +14336,7 @@
         {
           "offset": 472,
           "kind": 6,
-          "symbol": "?unknown_rect_ac11fc@@3PBVRect@@B",
+          "symbol": "?TabBarRect@@3PBVRect@@B",
           "target": 11276796,
           "addend": 0,
           "resolved": 11276796
@@ -14374,7 +14376,7 @@
         {
           "offset": 593,
           "kind": 6,
-          "symbol": "?unknown_rect_ac1204@@3PBVRect@@B",
+          "symbol": "?ThumbOpenRect@@3PBVRect@@B",
           "target": 11276804,
           "addend": 0,
           "resolved": 11276804
@@ -14382,7 +14384,7 @@
         {
           "offset": 613,
           "kind": 6,
-          "symbol": "?unknown_rect_ac1208@@3PBVRect@@B",
+          "symbol": "?ThumbClosedRect@@3PBVRect@@B",
           "target": 11276808,
           "addend": 0,
           "resolved": 11276808
@@ -14414,7 +14416,7 @@
         {
           "offset": 693,
           "kind": 6,
-          "symbol": "?unknown_rect_ac120c@@3PBVRect@@B",
+          "symbol": "?ButtonSlotRect@@3PBVRect@@B",
           "target": 11276812,
           "addend": 0,
           "resolved": 11276812
@@ -14422,7 +14424,7 @@
         {
           "offset": 699,
           "kind": 6,
-          "symbol": "?unknown_rect_ac11fc@@3PBVRect@@B",
+          "symbol": "?TabBarRect@@3PBVRect@@B",
           "target": 11276796,
           "addend": 0,
           "resolved": 11276796
@@ -14462,7 +14464,7 @@
         {
           "offset": 781,
           "kind": 6,
-          "symbol": "?unknown_rect_ac120c@@3PBVRect@@B",
+          "symbol": "?ButtonSlotRect@@3PBVRect@@B",
           "target": 11276812,
           "addend": 0,
           "resolved": 11276812
@@ -14502,7 +14504,7 @@
         {
           "offset": 877,
           "kind": 6,
-          "symbol": "?unknown_rect_ac1210@@3PBVRect@@B",
+          "symbol": "?TabEndRect@@3PBVRect@@B",
           "target": 11276816,
           "addend": 0,
           "resolved": 11276816
@@ -14534,7 +14536,7 @@
         {
           "offset": 946,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 0,
           "resolved": 11265024
@@ -14542,7 +14544,7 @@
         {
           "offset": 953,
           "kind": 6,
-          "symbol": "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11264912,
           "addend": 0,
           "resolved": 11264912
@@ -14596,7 +14598,7 @@
           "resolved": 4294817945
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -14607,8 +14609,8 @@
     {
       "entry": 6953648,
       "method": "006a1ab0",
-      "symbol": "?Unknown_006A1AB0@TabClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_006A1AB0@TabClass@@",
+      "symbol": "?Show_Buttons@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Show_Buttons@TabClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14640,7 +14642,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 0,
           "resolved": 11265024
@@ -14968,7 +14970,7 @@
         {
           "offset": 566,
           "kind": 20,
-          "symbol": "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
           "target": 6951536,
           "addend": 0,
           "resolved": 4294964614
@@ -15008,7 +15010,7 @@
         {
           "offset": 614,
           "kind": 20,
-          "symbol": "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
           "target": 6951536,
           "addend": 0,
           "resolved": 4294964566
@@ -15024,7 +15026,7 @@
         {
           "offset": 625,
           "kind": 20,
-          "symbol": "?Unknown_006A0600@TabClass@@SIPAVShapeButtonClass@@H@Z",
+          "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
           "target": 6948352,
           "addend": 0,
           "resolved": 4294961371
@@ -15040,7 +15042,7 @@
         {
           "offset": 637,
           "kind": 20,
-          "symbol": "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
           "target": 6951536,
           "addend": 0,
           "resolved": 4294964543
@@ -15056,7 +15058,7 @@
         {
           "offset": 648,
           "kind": 20,
-          "symbol": "?Unknown_006A0600@TabClass@@SIPAVShapeButtonClass@@H@Z",
+          "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
           "target": 6948352,
           "addend": 0,
           "resolved": 4294961348
@@ -15072,7 +15074,7 @@
         {
           "offset": 660,
           "kind": 20,
-          "symbol": "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
           "target": 6951536,
           "addend": 0,
           "resolved": 4294964520
@@ -15088,7 +15090,7 @@
         {
           "offset": 671,
           "kind": 20,
-          "symbol": "?Unknown_006A0600@TabClass@@SIPAVShapeButtonClass@@H@Z",
+          "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
           "target": 6948352,
           "addend": 0,
           "resolved": 4294961325
@@ -15104,7 +15106,7 @@
         {
           "offset": 683,
           "kind": 20,
-          "symbol": "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
           "target": 6951536,
           "addend": 0,
           "resolved": 4294964497
@@ -15120,7 +15122,7 @@
         {
           "offset": 694,
           "kind": 20,
-          "symbol": "?Unknown_006A0600@TabClass@@SIPAVShapeButtonClass@@H@Z",
+          "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
           "target": 6948352,
           "addend": 0,
           "resolved": 4294961302
@@ -15136,7 +15138,7 @@
         {
           "offset": 706,
           "kind": 20,
-          "symbol": "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
           "target": 6951536,
           "addend": 0,
           "resolved": 4294964474
@@ -15152,7 +15154,7 @@
         {
           "offset": 717,
           "kind": 20,
-          "symbol": "?Unknown_006A0600@TabClass@@SIPAVShapeButtonClass@@H@Z",
+          "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
           "target": 6948352,
           "addend": 0,
           "resolved": 4294961279
@@ -15168,7 +15170,7 @@
         {
           "offset": 729,
           "kind": 20,
-          "symbol": "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
           "target": 6951536,
           "addend": 0,
           "resolved": 4294964451
@@ -15184,7 +15186,7 @@
         {
           "offset": 739,
           "kind": 6,
-          "symbol": "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A",
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
           "target": 11265024,
           "addend": 0,
           "resolved": 11265024
@@ -15192,13 +15194,13 @@
         {
           "offset": 744,
           "kind": 20,
-          "symbol": "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
           "target": 6951536,
           "addend": 0,
           "resolved": 4294964436
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -15223,7 +15225,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "fca80e4418f514d205bd34598f9b16eb6161a3b0e693c814bc8614707bc4460b",
       "relocations": [],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -15234,8 +15236,8 @@
     {
       "entry": 6953088,
       "method": "006a1880",
-      "symbol": "?Unknown_006A1880@TabClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_006A1880@TabClass@@",
+      "symbol": "?Setup_Command_Buttons@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Setup_Command_Buttons@TabClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -15275,7 +15277,7 @@
         {
           "offset": 35,
           "kind": 6,
-          "symbol": "?unknown_rect_ac1208@@3PBVRect@@B",
+          "symbol": "?ThumbClosedRect@@3PBVRect@@B",
           "target": 11276808,
           "addend": 0,
           "resolved": 11276808
@@ -15307,7 +15309,7 @@
         {
           "offset": 111,
           "kind": 6,
-          "symbol": "?unknown_rect_ac120c@@3PBVRect@@B",
+          "symbol": "?ButtonSlotRect@@3PBVRect@@B",
           "target": 11276812,
           "addend": 0,
           "resolved": 11276812
@@ -15401,7 +15403,7 @@
           "resolved": 11265128
         }
       ],
-      "source_sha256": "38176541338df7d88af6be75a4a92327f3962ca2f1b6cf5ff9459004a3f836c6",
+      "source_sha256": "a22981b29828c14c4985784a053e73f8107a475f0b3a512b78e438fc4b671dd7",
       "source": "src/recovered/tab.cpp",
       "population": "population-4406",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",

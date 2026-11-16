@@ -100,7 +100,7 @@ VoxelAnimClass::VoxelAnimClass() :
     AbstractClass::Create_ID();
     unknown_fc.Init();
     unknown_110.Init();
-    unknown_VoxelAnimClass_list_008399d0.Add(this);
+    VoxelAnims.Add(this);
 }
 
 
@@ -111,7 +111,7 @@ VoxelAnimClass::VoxelAnimClass() :
 VoxelAnimClass::~VoxelAnimClass()
 {
     Unknown_006ECB90(this, true);
-    unknown_VoxelAnimClass_list_008399d0.Delete(this);
+    VoxelAnims.Delete(this);
     if (unknown_f0 != 0) {
         unknown_f0->Delete_Me();
         unknown_f0 = 0;
@@ -180,7 +180,7 @@ void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
     VoxelLibrary *voxel = Class->unknown_b0.unknown_00;
     if (voxel == 0) return;
     Matrix3D matrix;
-    matrix = BounceClass::unknown_matrix_436fc0();
+    matrix = BounceClass::Get_Matrix();
     Reset_Voxel_Renderer_007171d0();
     Voxel_Draw_Section_00717360(voxel, Class->VoxelIndex, 0, unknown_voxel_transform_839a70, matrix, unknown_voxel_shadow_light_839a60, 0, 0, 0);
     Rect rect;
@@ -192,7 +192,7 @@ void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
         Blit_Block(*LogicalSurface, unknown_drawer_8323b4, Voxel_Render_Surface_00717040(), rect, draw, window, 0,
                             unknown_drawer_8323b4->Select_Blitter_00485AA0(0x2001), -4 - Unknown_006A2970(level), 0, 1000, 0);
     }
-    matrix = BounceClass::unknown_matrix_436fc0();
+    matrix = BounceClass::Get_Matrix();
     Prepare_Voxel_Lighting_00717050(voxel, 0, 0, matrix, unknown_voxel_light_839ab0);
     Reset_Voxel_Renderer_007171d0();
     Add_Voxel_Section_007174c0(voxel, Class->VoxelIndex, 0, unknown_voxel_transform_839a70 * matrix);
@@ -228,8 +228,8 @@ void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
 
 void __cdecl VoxelAnimClass::Clear_All()
 {
-    while (unknown_VoxelAnimClass_list_008399d0.Count() != 0) {
-        delete unknown_VoxelAnimClass_list_008399d0[0];
+    while (VoxelAnims.Count() != 0) {
+        delete VoxelAnims[0];
     }
 }
 
@@ -269,8 +269,8 @@ void VoxelAnimClass::AI()
             new AnimClass(Class->ExpireAnim,
                 CoordStruct((int)BounceClass::unknown_00.Position.X, (int)BounceClass::unknown_00.Position.Y, (int)BounceClass::unknown_00.Position.Z),
                 0, 1, 0x2600, -30);
-            Unknown_0047E2C0(BounceClass::Coord(), Class->Damage, 0, Class->Warhead, 1);
-            Unknown_0047F600(BounceClass::Coord(), Class->Damage, Class->Warhead, 0, 0);
+            Explosion_Damage(BounceClass::Coord(), Class->Damage, 0, Class->Warhead, 1);
+            Combat_Lighting(BounceClass::Coord(), Class->Damage, Class->Warhead, 0, 0);
         }
         if (!water || bridge) {
             Rect dirty(0, 0, 0, 0);

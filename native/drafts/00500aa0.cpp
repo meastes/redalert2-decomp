@@ -248,13 +248,13 @@ void InfantryClass::unknown_slot93(int why)
                 return;
             }
             if (reinterpret_cast<AbstractClass *>(Map_Cell(Center_Coord()))==unknown_494) {
-                Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,this,Rules->C4Warhead,true);
+                Explosion_Damage(CoordStruct(Coord),Rules->unknown_13a8,this,Rules->C4Warhead,true);
                 Stop_Driver();
                 Scatter(Adjacent_Cell(CoordStruct(Coord),Dir_To_8(PrimaryFacing.Current())),true,true);
                 QueueMission(2,false);
                 if (!unknown_494 || Map_Cell(unknown_494->Center_Coord())->unknown_ec==2) Mark(1);
-                Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
-                Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
+                Explosion_Damage(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
+                Explosion_Damage(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
                 if (!IsActive) return;
                 Mark(1);
             }
@@ -273,7 +273,7 @@ void InfantryClass::unknown_slot93(int why)
         Map.Unknown_0054A550(CoordStruct(Coord),0,unknown_1f4+3,0);
         UnknownCellClass *current=Map_Cell(CoordStruct(Coord));
         int land=current->unknown_ec;
-        if (!Locomotor.Checked()->Is_Moving() && !Type->C4 && !unknown_6d7910(14) && (land==3 || land==2) && (!unknown_79 || !(current->Flags & 0x100))) {
+        if (!Locomotor.Checked()->Is_Moving() && !Type->C4 && !Has_Ability(14) && (land==3 || land==2) && (!unknown_79 || !(current->Flags & 0x100))) {
             int damage=Strength;
             Take_Damage(&damage,0,Rules->C4Warhead,0,true,0);
             return;

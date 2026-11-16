@@ -1058,8 +1058,16 @@
    "address": "005d1da0"
   },
   {
+   "symbol": "?Custom_Message_Box@@YIPAUHWND__@@PBG0PA_N@Z",
+   "address": "006001e0"
+  },
+  {
    "symbol": "?Debug_Printf@@YAXPBDZZ",
    "address": "004068f0"
+  },
+  {
+   "symbol": "?Default_Dialog_Proc@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
   },
   {
    "symbol": "?Delete_Connection@NullModemClass@@QAEHXZ",
@@ -1100,6 +1108,10 @@
   {
    "symbol": "?Dialog_0066ca70@SerialEdDialog@@QAE_NPAUSerialSettingsType@@@Z",
    "address": "0066ca70"
+  },
+  {
+   "symbol": "?Display_Dialog@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
   },
   {
    "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
@@ -1150,6 +1162,10 @@
    "address": "00a72ec4"
   },
   {
+   "symbol": "?Modem_Echo@@YIXD@Z",
+   "address": "005cfd70"
+  },
+  {
    "symbol": "?Num_Send@NullModemClass@@QAEHXZ",
    "address": "005d08a0"
   },
@@ -1194,12 +1210,12 @@
    "address": "00839980"
   },
   {
-   "symbol": "?Translate_Line_Ends@NullModemClass@@QAEXXZ",
-   "address": "005d1d50"
+   "symbol": "?Title_Screen_Restore@@YIX_N@Z",
+   "address": "00517370"
   },
   {
-   "symbol": "?Unknown_00517370@@YIX_N@Z",
-   "address": "00517370"
+   "symbol": "?Translate_Line_Ends@NullModemClass@@QAEXXZ",
+   "address": "005d1d50"
   },
   {
    "symbol": "?WideToCharString_006fa0f0@@YIXPADPBGH@Z",
@@ -1234,24 +1250,12 @@
    "address": "00a3d3b4"
   },
   {
-   "symbol": "?unknown_cancel_dialog_6001e0@@YIPAUHWND__@@PBG0PA_N@Z",
-   "address": "006001e0"
-  },
-  {
    "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "address": "005ff610"
   },
   {
    "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
    "address": "005ff6e0"
-  },
-  {
-   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
-   "address": "005ff7c0"
-  },
-  {
-   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
-   "address": "005ffb00"
   },
   {
    "symbol": "?unknown_flags_a3f600@@3EA",
@@ -1284,10 +1288,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_text_buffer_append_005cfd70@@YIXD@Z",
-   "address": "005cfd70"
   },
   {
    "symbol": "__CIpow",

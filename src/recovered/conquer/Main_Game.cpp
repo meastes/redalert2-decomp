@@ -33,7 +33,7 @@
 // @ref ?Modem_Signoff@@YIXXZ=005cea90
 // @ref ?Write_Chat_Settings_00670730@@YIXPAUSessionClass@@@Z=00670730
 // @ref ?Unknown_00672DE0@SessionClass@@QAEXXZ=00672de0
-// @ref ?Unknown_00672E70@SessionClass@@QAEXXZ=00672e70
+// @ref ?Leave_Game@SessionClass@@QAEXXZ=00672e70
 // @ref ?Write_Multiplayer_Statistics_00482fe0@@YAXXZ=00482fe0
 // @ref ?Special_Dialog_00481850@@YIXXZ=00481850
 // @ref ?ExceptionReturnStack@@3KA=00865c14
@@ -133,13 +133,13 @@ ret_addr:
         WWKeyboard->Clear();
         if (unknown_session_a3d298.Play) {
             WWMouse->Hide_Mouse();
-            unknown_team_event_a6ebc4 = 0;
+            TeamEvent = 0;
             unknown_team_number_a6ebc8 = 0;
         }
 
         if (unknown_session_a3d298.Type == 4) {
             Register_Game_Start_Time();
-            unknown_flag_a417c8 = false;
+            GameStatisticsPacketSent = false;
             unknown_abd530 = 0;
             unknown_flag_abd500 = false;
         }
@@ -149,12 +149,12 @@ ret_addr:
         }
 
         IgnoreInput = unknown_id_source_a3d290->unknown_2306;
-        unknown_int_a40d48 = 0;
+        SpecialDialog = 0;
         unknown_flag_007d88e0 = true;
         unknown_session_a3d298.Unknown_00672DE0();
 
         for (;;) {
-            if (unknown_53fbd0()) {
+            if (Main_Loop()) {
                 if (Main_Loop_End_0053f840()) {
                     break;
                 }
@@ -164,8 +164,8 @@ ret_addr:
                 break;
             }
         }
-        Unknown_Reload_Art_Set_006F31B0();
-        unknown_session_a3d298.Unknown_00672E70();
+        Reload_Art_Set();
+        unknown_session_a3d298.Leave_Game();
         ScenarioActive = false;
         TacticalActive = false;
 
@@ -189,7 +189,7 @@ ret_addr:
         } else {
             if (unknown_session_a3d298.Type == 3) {
                 if (!unknown_session_a3d298.Play) {
-                    Unknown_005BB5A0();
+                    Shutdown_Network();
                 }
             }
         }

@@ -876,7 +876,7 @@ extern int unknown_tube_facings_7d2b08[];
 
 void CellClass::Recalc_Attributes(int cell_height)
 {
-    if (this == &unknown_dummy_cell_a6f9f8) {
+    if (this == &BlubCell) {
         return;
     }
 
@@ -2109,16 +2109,16 @@ int CellClass::Reduce_Wall(int damage)
 }
 
 
-// Not exact (RA2_NON_MATCHING): CellClass::unknown_475db0 at 0x00475DB0, best score 76.24, 2026-11-13; differs: 180 instructions in the original, 182 in the draft (shape 98.34)
+// Not exact (RA2_NON_MATCHING): CellClass::Reduce_Tiberium at 0x00475DB0, best score 76.24, 2026-11-13; differs: 180 instructions in the original, 182 in the draft (shape 98.34)
 #ifdef RA2_NON_MATCHING
-// int CellClass::unknown_475db0(int levels) (0x00475DB0): Westwood's
+// int CellClass::Reduce_Tiberium(int levels) (0x00475DB0): Westwood's
 // Reduce_Tiberium: takes up to levels stages of the cell's ore and answers how
 // many it took. An emptied cell loses its overlay (Recalc_Attributes(-1)), is
 // redrawn on the radar, leaves the spread lists and queues its ore-free
 // neighbours for spreading; the overlay area is registered for redraw.
 #include "shared/veinhole.hpp"
 
-int CellClass::unknown_475db0(int levels)
+int CellClass::Reduce_Tiberium(int levels)
 {
     Rect dirty = Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect());
     dirty.Y -= TacticalRect.Y;
@@ -2385,7 +2385,7 @@ void CellClass::Incoming(void const *threat, bool forced, bool nokidding, bool a
     for (int i = 0; i < objs.Count(); i++) {
         TechnoClass *techno = objs[i]->As_Techno();
         if (elite || nokidding || Rules->unknown_1431
-            || (techno != 0 && (techno->unknown_6d7910(3) || techno->House->IQ >= Rules->IQScatter))) {
+            || (techno != 0 && (techno->Has_Ability(3) || techno->House->IQ >= Rules->IQScatter))) {
             objs[i]->Scatter(*(CoordStruct const *)threat, forced, nokidding);
         }
     }
@@ -2594,7 +2594,7 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
         Map.Remove_Crate(Fetch_CellID());
 
         if (unknown_game_mode_a3d298 != 0 && unknown_flag_a3d2c1) {
-            Map.Unknown_0054E410();
+            Map.Place_Random_Crate();
         }
 
         if (powerup == CRATE_SQUAD) {
@@ -2625,9 +2625,9 @@ crate_money:
                 Debug_Printf("Crate at %d,%d contains poison gas\n", MapCoords.X, MapCoords.Y);
                 WarheadTypeClass *gas = WarheadTypeClass::From_Name("GAS");
                 damage = data;
-                Unknown_0047E2C0(Center_Coord(), damage, (TechnoClass *)0, gas, false);
+                Explosion_Damage(Center_Coord(), damage, (TechnoClass *)0, gas, false);
                 for (FacingType facing = FACING_N; facing < FACING_COUNT; facing++) {
-                    Unknown_0047E2C0(Adjacent_Cell(facing).Center_Coord(), damage, (TechnoClass *)0, gas, false);
+                    Explosion_Damage(Adjacent_Cell(facing).Center_Coord(), damage, (TechnoClass *)0, gas, false);
                 }
                 break;
             }
@@ -2650,14 +2650,14 @@ crate_money:
             case CRATE_DARKNESS:
                 Debug_Printf("Crate at %d,%d contains 'shroud'\n", MapCoords.X, MapCoords.Y);
                 if (object->House->Is_Player_Control()) {
-                    Map.Unknown_00559F10();
+                    Map.Spy_Satellite_Hide();
                 }
                 break;
 
             case CRATE_REVEAL:
                 Debug_Printf("Crate at %d,%d contains 'reveal'\n", MapCoords.X, MapCoords.Y);
                 if (object->House->Is_Player_Control()) {
-                    Map.Unknown_0055A120();
+                    Map.Spy_Satellite_Reveal();
                     Voc_Play_At(Rules->CrateRevealSound, Ground_Coord(), 0);
                 }
                 break;
@@ -2726,10 +2726,10 @@ crate_money:
                 {
                 for (int i = 0; i < 5; i++) {
                     CoordStruct frag_coord = Coord_Scatter(Ground_Coord(), Random_Pick(0, 2 * 256), false);
-                    Unknown_0047E2C0(frag_coord, damage, (TechnoClass *)0, Rules->C4Warhead, true);
+                    Explosion_Damage(frag_coord, damage, (TechnoClass *)0, Rules->C4Warhead, true);
                     AnimTypeClass *anim = Select_Damage_Anim(damage, Rules->C4Warhead, 0, &frag_coord);
                     new AnimClass(anim, frag_coord, 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(frag_coord));
-                    Unknown_0047F600(frag_coord, damage, Rules->C4Warhead, 0, 0);
+                    Combat_Lighting(frag_coord, damage, Rules->C4Warhead, 0, 0);
                 }
                 }
                 break;
@@ -2743,7 +2743,7 @@ crate_money:
                     int d = damage;
                     object->Take_Damage(&d, 0, Rules->FlameDamage, 0, true, 0);
                 }
-                Unknown_0047E2C0(coord, damage, (TechnoClass *)0, Rules->FlameDamage, true);
+                Explosion_Damage(coord, damage, (TechnoClass *)0, Rules->FlameDamage, true);
                 break;
             }
 
@@ -3439,8 +3439,8 @@ void CellClass::Init_Light(int &intensity, int &ambient, int &brightness, int &t
         blue = 1000 * unknown_id_source_a3d290->AmbientBlue / 100;
         ambient = 0;
 
-        for (int i = 0; i < unknown_LightSourceClass_list_00a6e818.Count(); i++) {
-            LightSourceClass *light = unknown_LightSourceClass_list_00a6e818[i];
+        for (int i = 0; i < LightSources.Count(); i++) {
+            LightSourceClass *light = LightSources[i];
             if (light->Activated && unknown_a40b2c >= light->DetailLevel) {
                 CoordStruct cc = unknown_475d60();
                 unsigned int dx = cc.X - ((CoordStruct)light->Location).X;
@@ -4009,10 +4009,10 @@ bool CellClass::unknown_47b5e0() const
 }
 
 
-// bool CellClass::unknown_47b7c0() const (0x0047B7C0): whether the cell's tile
+// bool CellClass::Is_Tile_Shore() const (0x0047B7C0): whether the cell's tile
 // is one of the 42 tiles of the set starting at 0x00A6CB74.
 
-bool CellClass::unknown_47b7c0() const
+bool CellClass::Is_Tile_Shore() const
 {
     if (IsoTileIndex >= unknown_tileset_a6cb74 && IsoTileIndex < unknown_tileset_a6cb74 + 42) {
         return true;
@@ -4021,11 +4021,11 @@ bool CellClass::unknown_47b7c0() const
 }
 
 
-// bool CellClass::unknown_47b7e0() const (0x0047B7E0): whether the cell's
-// tile is in the 42-tile set at 0x00A6CB74 (unknown_47b7c0) or in one of the
+// bool CellClass::Is_Tile_With_Water() const (0x0047B7E0): whether the cell's
+// tile is in the 42-tile set at 0x00A6CB74 (Is_Tile_Shore) or in one of the
 // sets at 0x00A52580 (14), 0x00A52584, 0x00A6CF58, 0x00A52EA0 and 0x00A52EF0 (4).
 
-bool CellClass::unknown_47b7e0() const
+bool CellClass::Is_Tile_With_Water() const
 {
     if (IsoTileIndex >= unknown_tileset_a6cb74 && IsoTileIndex < unknown_tileset_a6cb74 + 42) {
         return true;
@@ -4327,7 +4327,7 @@ void CellClass::Trigger_Veins()
                     is_techno = object->AbstractFlags.IsTechno;
                 }
                 TechnoClass *techno = (object != 0 && is_techno) ? (TechnoClass *)object : 0;
-                if (techno != 0 && !techno->Techno_Type_Class()->ImmuneToVeins && !techno->unknown_6d7910(8)) {
+                if (techno != 0 && !techno->Techno_Type_Class()->ImmuneToVeins && !techno->Has_Ability(8)) {
                     new AnimClass(Rules->VeinAttack, unknown_475d60() - CoordStruct(128, 128, 0), 0, 1, 0x600, 0);
                     unknown_140 |= 0x20000;
                 }

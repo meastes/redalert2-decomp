@@ -118,8 +118,12 @@
  ],
  "references_out": [
   {
-   "symbol": "?unknown_cpu_family_8015a3@@3DA",
+   "symbol": "?CPUType@@3DA",
    "address": "008015a3"
+  },
+  {
+   "symbol": "?VendorID@@3PADA",
+   "address": "008015a5"
   },
   {
    "symbol": "?unknown_cpu_family_probe_77f20f@@YAXXZ",
@@ -132,10 +136,6 @@
   {
    "symbol": "?unknown_cpu_probe_77f14d@@YAEXZ",
    "address": "0077f14d"
-  },
-  {
-   "symbol": "?unknown_cpu_text_8015a5@@3PADA",
-   "address": "008015a5"
   },
   {
    "symbol": "__stricmp",

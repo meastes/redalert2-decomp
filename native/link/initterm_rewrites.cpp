@@ -20,7 +20,7 @@
 extern "C" int __cdecl atexit(void (__cdecl *function)(void));
 extern ApplicationClass ApplicationInstance;           // 0x0084C7DC
 extern BasicTimerClass<SystemTimerClass> GameTimer;                  // 0x00ABD4C0
-extern int unknown_radar_event_word_ab67b8;                          // 0x00AB67B8 (two words)
+extern int LastRadarEventCell;                          // 0x00AB67B8 (two words)
 
 namespace OwnerDraw {
 struct UnknownTooltipState {
@@ -95,7 +95,7 @@ void Initterm_005EDF60()
 }
 
 // 0x0063B590: both radar-event words cleared.
-void Initterm_0063B590() { unknown_radar_event_word_ab67b8 = 0; }
+void Initterm_0063B590() { LastRadarEventCell = 0; }
 
 // 0x0065B4B0: a CDTimerClass<SystemTimerClass> at 0x00AB6EA8 that no recovered
 // source names (Started = the system timer, accumulated 0; destructor 0x0065B4E0
@@ -113,7 +113,7 @@ void Initterm_00698CD0()
 // 0x00735D70: the font cache starts empty; 0x00735D90 clears it at exit.
 void Initterm_00735D70()
 {
-    memset(&unknown_font_cache_b25dc8, 0, sizeof(unknown_font_cache_b25dc8));
+    memset(&g_EzFonts, 0, sizeof(g_EzFonts));
     atexit(unknown_clear_font_cache_735d90);
 }
 

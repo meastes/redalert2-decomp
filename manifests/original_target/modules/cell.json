@@ -625,13 +625,13 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?unknown_47b7c0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_Shore@CellClass@@QBE_NXZ",
    "entry": "0047b7c0",
    "body_bytes": 26,
    "padding_bytes": 6
   },
   {
-   "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_With_Water@CellClass@@QBE_NXZ",
    "entry": "0047b7e0",
    "body_bytes": 114,
    "padding_bytes": 14
@@ -3082,13 +3082,13 @@
   },
   {
    "site": "006c8ef0",
-   "symbol": "?unknown_47c2c0@UnknownCellClass@@QBE_NH@Z",
+   "symbol": "?Is_Cloaked@UnknownCellClass@@QBE_NH@Z",
    "target": "0047c2c0",
    "function_entry": true
   },
   {
    "site": "006c9020",
-   "symbol": "?unknown_47c2c0@UnknownCellClass@@QBE_NH@Z",
+   "symbol": "?Is_Cloaked@UnknownCellClass@@QBE_NH@Z",
    "target": "0047c2c0",
    "function_entry": true
   },
@@ -3118,7 +3118,7 @@
   },
   {
    "site": "006c2990",
-   "symbol": "?unknown_47c2c0@UnknownCellClass@@QBE_NH@Z",
+   "symbol": "?Is_Cloaked@UnknownCellClass@@QBE_NH@Z",
    "target": "0047c2c0",
    "function_entry": true
   },
@@ -3280,7 +3280,7 @@
   },
   {
    "site": "00637c10",
-   "symbol": "?Unknown_0047CEC0@RadSiteCell@@QAEXN@Z",
+   "symbol": "?RadLevel_Decrease@RadSiteCell@@QAEXN@Z",
    "target": "0047cec0",
    "function_entry": true
   },
@@ -3412,7 +3412,7 @@
   },
   {
    "site": "0057ceb0",
-   "symbol": "?unknown_47b7c0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_Shore@CellClass@@QBE_NXZ",
    "target": "0047b7c0",
    "function_entry": true
   },
@@ -3502,7 +3502,7 @@
   },
   {
    "site": "006fca30",
-   "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_With_Water@CellClass@@QBE_NXZ",
    "target": "0047b7e0",
    "function_entry": true
   },
@@ -3670,7 +3670,7 @@
   },
   {
    "site": "00583450",
-   "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_With_Water@CellClass@@QBE_NXZ",
    "target": "0047b7e0",
    "function_entry": true
   },
@@ -3682,7 +3682,7 @@
   },
   {
    "site": "00584bd0",
-   "symbol": "?unknown_47b7c0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_Shore@CellClass@@QBE_NXZ",
    "target": "0047b7c0",
    "function_entry": true
   },
@@ -3736,7 +3736,7 @@
   },
   {
    "site": "0057bea0",
-   "symbol": "?unknown_47b7c0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_Shore@CellClass@@QBE_NXZ",
    "target": "0047b7c0",
    "function_entry": true
   },
@@ -3754,7 +3754,7 @@
   },
   {
    "site": "0056d870",
-   "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_With_Water@CellClass@@QBE_NXZ",
    "target": "0047b7e0",
    "function_entry": true
   },
@@ -4054,7 +4054,7 @@
   },
   {
    "site": "005850a0",
-   "symbol": "?unknown_47b7c0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_Shore@CellClass@@QBE_NXZ",
    "target": "0047b7c0",
    "function_entry": true
   },
@@ -5116,7 +5116,7 @@
   },
   {
    "site": "00571bc0",
-   "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_With_Water@CellClass@@QBE_NXZ",
    "target": "0047b7e0",
    "function_entry": true
   },
@@ -5182,7 +5182,7 @@
   },
   {
    "site": "00581940",
-   "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_With_Water@CellClass@@QBE_NXZ",
    "target": "0047b7e0",
    "function_entry": true
   },
@@ -5308,7 +5308,7 @@
   },
   {
    "site": "006e0430",
-   "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_With_Water@CellClass@@QBE_NXZ",
    "target": "0047b7e0",
    "function_entry": true
   },
@@ -6190,7 +6190,7 @@
   },
   {
    "site": "0056e890",
-   "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_With_Water@CellClass@@QBE_NXZ",
    "target": "0047b7e0",
    "function_entry": true
   },
@@ -7396,19 +7396,19 @@
   },
   {
    "site": "00637a80",
-   "symbol": "?Unknown_0047CEA0@RadSiteCell@@QAEXN@Z",
+   "symbol": "?RadLevel_Increase@RadSiteCell@@QAEXN@Z",
    "target": "0047cea0",
    "function_entry": true
   },
   {
    "site": "00637dc0",
-   "symbol": "?Unknown_0047CEC0@RadSiteCell@@QAEXN@Z",
+   "symbol": "?RadLevel_Decrease@RadSiteCell@@QAEXN@Z",
    "target": "0047cec0",
    "function_entry": true
   },
   {
    "site": "0056e100",
-   "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_With_Water@CellClass@@QBE_NXZ",
    "target": "0047b7e0",
    "function_entry": true
   },
@@ -7420,7 +7420,7 @@
   },
   {
    "site": "0056e100",
-   "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_With_Water@CellClass@@QBE_NXZ",
    "target": "0047b7e0",
    "function_entry": true
   },
@@ -7432,7 +7432,7 @@
   },
   {
    "site": "0056e100",
-   "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_With_Water@CellClass@@QBE_NXZ",
    "target": "0047b7e0",
    "function_entry": true
   },
@@ -7534,7 +7534,7 @@
   },
   {
    "site": "00567710",
-   "symbol": "?unknown_47b7e0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_With_Water@CellClass@@QBE_NXZ",
    "target": "0047b7e0",
    "function_entry": true
   },
@@ -7942,7 +7942,7 @@
   },
   {
    "site": "0055d640",
-   "symbol": "?unknown_47b7c0@CellClass@@QBE_NXZ",
+   "symbol": "?Is_Tile_Shore@CellClass@@QBE_NXZ",
    "target": "0047b7c0",
    "function_entry": true
   },
@@ -8383,6 +8383,10 @@
    "address": "0040dc20"
   },
   {
+   "symbol": "?BlubCell@@3VCellClass@@A",
+   "address": "00a6f9f8"
+  },
+  {
    "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
    "address": "0049eea0"
   },
@@ -8405,6 +8409,10 @@
   {
    "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
    "address": "00ab6ef8"
+  },
+  {
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "address": "0047f600"
   },
   {
    "symbol": "?Compute_CRC@AbstractClass@@UBEXAAVWWCRCEngine@@@Z",
@@ -8465,6 +8473,10 @@
   {
    "symbol": "?Draw_Shroud_Or_Fog_Shape@CellClass@@QAEXABUPoint2D@@ABVRect@@H@Z",
    "address": "00474260"
+  },
+  {
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "address": "0047e2c0"
   },
   {
    "symbol": "?Fast_Sqrt@@YAMN@Z",
@@ -8555,6 +8567,10 @@
    "address": "00850ea0"
   },
   {
+   "symbol": "?Has_Ability@TechnoClass@@QAE_NH@Z",
+   "address": "006d7910"
+  },
+  {
    "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
    "address": "00a32298"
   },
@@ -8639,6 +8655,10 @@
    "address": "00852578"
   },
   {
+   "symbol": "?LightSources@@3V?$DynamicVectorClass@PAVLightSourceClass@@@@A",
+   "address": "00a6e818"
+  },
+  {
    "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
    "address": "00410120"
   },
@@ -8685,6 +8705,10 @@
   {
    "symbol": "?Pixel_To_Coord_Absolute@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
    "address": "006a2bf0"
+  },
+  {
+   "symbol": "?Place_Random_Crate@MapClass@@QAE_NXZ",
+   "address": "0054e410"
   },
   {
    "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
@@ -8771,6 +8795,14 @@
    "address": "006b3df0"
   },
   {
+   "symbol": "?Spy_Satellite_Hide@MapClass@@QAEXXZ",
+   "address": "00559f10"
+  },
+  {
+   "symbol": "?Spy_Satellite_Reveal@MapClass@@QAEXXZ",
+   "address": "0055a120"
+  },
+  {
    "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
    "address": "0069fb20"
   },
@@ -8819,14 +8851,6 @@
    "address": "00a35d48"
   },
   {
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
-   "address": "0047e2c0"
-  },
-  {
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
-   "address": "0047f600"
-  },
-  {
    "symbol": "?Unknown_004F52F0@HouseClass@@QAE_NXZ",
    "address": "004f52f0"
   },
@@ -8837,18 +8861,6 @@
   {
    "symbol": "?Unknown_0051FC60@@YA_NXZ",
    "address": "0051fc60"
-  },
-  {
-   "symbol": "?Unknown_0054E410@MapClass@@QAE_NXZ",
-   "address": "0054e410"
-  },
-  {
-   "symbol": "?Unknown_00559F10@MapClass@@QAEXXZ",
-   "address": "00559f10"
-  },
-  {
-   "symbol": "?Unknown_0055A120@MapClass@@QAEXXZ",
-   "address": "0055a120"
   },
   {
    "symbol": "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z",
@@ -8915,10 +8927,6 @@
    "address": "005d4c00"
   },
   {
-   "symbol": "?unknown_6d7910@TechnoClass@@QAE_NH@Z",
-   "address": "006d7910"
-  },
-  {
    "symbol": "?unknown_7133d0@VeterancyClass@@QBE_NXZ",
    "address": "007133d0"
   },
@@ -8935,10 +8943,6 @@
    "address": "00a35f28"
   },
   {
-   "symbol": "?unknown_LightSourceClass_list_00a6e818@@3V?$DynamicVectorClass@PAVLightSourceClass@@@@A",
-   "address": "00a6e818"
-  },
-  {
    "symbol": "?unknown_a40b2c@@3HA",
    "address": "00a40b2c"
   },
@@ -8953,10 +8957,6 @@
   {
    "symbol": "?unknown_cell_offsets_00850e50@@3PAUCoordStruct@@A",
    "address": "00850e50"
-  },
-  {
-   "symbol": "?unknown_dummy_cell_a6f9f8@@3VCellClass@@A",
-   "address": "00a6f9f8"
   },
   {
    "symbol": "?unknown_facing_lookup_7d2c44@@3PAHA",
@@ -9973,13 +9973,13 @@
   {
    "site": "006c8ef0",
    "target": "0047c2c0",
-   "symbol": "?unknown_47c2c0@UnknownCellClass@@QBE_NH@Z",
+   "symbol": "?Is_Cloaked@UnknownCellClass@@QBE_NH@Z",
    "module_symbol": "?Is_House_Bit@CellClass@@QBE_NH@Z"
   },
   {
    "site": "006c9020",
    "target": "0047c2c0",
-   "symbol": "?unknown_47c2c0@UnknownCellClass@@QBE_NH@Z",
+   "symbol": "?Is_Cloaked@UnknownCellClass@@QBE_NH@Z",
    "module_symbol": "?Is_House_Bit@CellClass@@QBE_NH@Z"
   },
   {
@@ -10009,7 +10009,7 @@
   {
    "site": "006c2990",
    "target": "0047c2c0",
-   "symbol": "?unknown_47c2c0@UnknownCellClass@@QBE_NH@Z",
+   "symbol": "?Is_Cloaked@UnknownCellClass@@QBE_NH@Z",
    "module_symbol": "?Is_House_Bit@CellClass@@QBE_NH@Z"
   },
   {
@@ -10039,7 +10039,7 @@
   {
    "site": "00637c10",
    "target": "0047cec0",
-   "symbol": "?Unknown_0047CEC0@RadSiteCell@@QAEXN@Z",
+   "symbol": "?RadLevel_Decrease@RadSiteCell@@QAEXN@Z",
    "module_symbol": "?Reduce_f0@CellClass@@QAEXN@Z"
   },
   {
@@ -10765,13 +10765,13 @@
   {
    "site": "00637a80",
    "target": "0047cea0",
-   "symbol": "?Unknown_0047CEA0@RadSiteCell@@QAEXN@Z",
+   "symbol": "?RadLevel_Increase@RadSiteCell@@QAEXN@Z",
    "module_symbol": "?RadLevel_Increase_0047cea0@Owner_0047cea0@seed_0047cea0@@QAEXN@Z"
   },
   {
    "site": "00637dc0",
    "target": "0047cec0",
-   "symbol": "?Unknown_0047CEC0@RadSiteCell@@QAEXN@Z",
+   "symbol": "?RadLevel_Decrease@RadSiteCell@@QAEXN@Z",
    "module_symbol": "?Reduce_f0@CellClass@@QAEXN@Z"
   },
   {

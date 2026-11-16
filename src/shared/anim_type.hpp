@@ -50,7 +50,7 @@ class OverlayTypeClass;
 
 // The theater whose images are loaded (0x007D88DC) and a flag that forces
 // a reload (0x00A40D13); names hypotheses.
-extern int unknown_loaded_theater_7d88dc;
+extern int LastTheater;
 
 extern "C" GUID const CLSID_AnimTypeClass;    // 0x007A1B90
 

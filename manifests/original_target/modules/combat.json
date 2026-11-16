@@ -91,7 +91,7 @@
    "padding_bytes": 14
   },
   {
-   "symbol": "?Unknown_0047E1C0@@YIHHPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Modify_Damage@@YIHHPAVWarheadTypeClass@@HH@Z",
    "entry": "0047e1c0",
    "body_bytes": 237,
    "padding_bytes": 3
@@ -103,7 +103,7 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "entry": "0047e2c0",
    "body_bytes": 4611,
    "padding_bytes": 13
@@ -115,7 +115,7 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "entry": "0047f600",
    "body_bytes": 224,
    "padding_bytes": 0
@@ -127,7 +127,7 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?Unknown_0047F8B0@@YI_N_NHHHNPAUUnknownFacingDir@@@Z",
+   "symbol": "?Calculate_Projectile_Pitch@@YI_N_NHHHNPAUUnknownFacingDir@@@Z",
    "entry": "0047f8b0",
    "body_bytes": 253,
    "padding_bytes": 3
@@ -758,31 +758,31 @@
   },
   {
    "site": "004226d0",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "00422ba0",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "00721eb0",
-   "symbol": "?unknown_47e2b0@Cell@@QAEXXZ",
+   "symbol": "?Chain_Reaction_Damage@Cell@@QAEXXZ",
    "target": "0047e2b0",
    "function_entry": true
   },
   {
    "site": "005d3d20",
-   "symbol": "?Unknown_0047E1C0@@YIHHPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Modify_Damage@@YIHHPAVWarheadTypeClass@@HH@Z",
    "target": "0047e1c0",
    "function_entry": true
   },
   {
    "site": "006ca6c0",
-   "symbol": "?Unknown_0047E1C0@@YIHHPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Modify_Damage@@YIHHPAVWarheadTypeClass@@HH@Z",
    "target": "0047e1c0",
    "function_entry": true
   },
@@ -794,25 +794,25 @@
   },
   {
    "site": "006ca540",
-   "symbol": "?Unknown_0047F8B0@@YI_N_NHHHNPAUUnknownFacingDir@@@Z",
+   "symbol": "?Calculate_Projectile_Pitch@@YI_N_NHHHNPAUUnknownFacingDir@@@Z",
    "target": "0047f8b0",
    "function_entry": true
   },
   {
    "site": "0070d380",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "0070d380",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
   {
    "site": "00462110",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
@@ -824,7 +824,7 @@
   },
   {
    "site": "00462110",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
@@ -836,31 +836,31 @@
   },
   {
    "site": "006e3170",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "006e3170",
-   "symbol": "?unknown_47e2b0@Cell@@QAEXXZ",
+   "symbol": "?Chain_Reaction_Damage@Cell@@QAEXXZ",
    "target": "0047e2b0",
    "function_entry": true
   },
   {
    "site": "006b0080",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
   {
    "site": "006b00e0",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
   {
    "site": "006b0140",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
@@ -872,13 +872,13 @@
   },
   {
    "site": "0051fe50",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
   {
    "site": "0051fe50",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
@@ -890,19 +890,19 @@
   },
   {
    "site": "006b1810",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
   {
    "site": "006b1810",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "004a5b00",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
@@ -914,7 +914,7 @@
   },
   {
    "site": "004a5b00",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
@@ -926,7 +926,7 @@
   },
   {
    "site": "0044e260",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
@@ -938,7 +938,7 @@
   },
   {
    "site": "006fe610",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
@@ -950,49 +950,49 @@
   },
   {
    "site": "0063e7d0",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
   {
    "site": "0063e7d0",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "006afd80",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "006afd80",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "006afd80",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "006afd80",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "006afd80",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "00435d30",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
@@ -1004,19 +1004,19 @@
   },
   {
    "site": "00521340",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "00521340",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "00521340",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
@@ -1046,31 +1046,31 @@
   },
   {
    "site": "004bcd50",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
   {
    "site": "004bcd50",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "00476cc0",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "00476cc0",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "00476cc0",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
@@ -1082,31 +1082,31 @@
   },
   {
    "site": "00476cc0",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
   {
    "site": "00476cc0",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "006adae0",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
   {
    "site": "006adae0",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
   {
    "site": "006adae0",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
@@ -1118,19 +1118,19 @@
   },
   {
    "site": "0043b7e0",
-   "symbol": "?Unknown_0047F8B0@@YI_N_NHHHNPAUUnknownFacingDir@@@Z",
+   "symbol": "?Calculate_Projectile_Pitch@@YI_N_NHHHNPAUUnknownFacingDir@@@Z",
    "target": "0047f8b0",
    "function_entry": true
   },
   {
    "site": "0043b7e0",
-   "symbol": "?Unknown_0047F8B0@@YI_N_NHHHNPAUUnknownFacingDir@@@Z",
+   "symbol": "?Calculate_Projectile_Pitch@@YI_N_NHHHNPAUUnknownFacingDir@@@Z",
    "target": "0047f8b0",
    "function_entry": true
   },
   {
    "site": "006cdc40",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
@@ -1142,25 +1142,25 @@
   },
   {
    "site": "006ca890",
-   "symbol": "?Unknown_0047F8B0@@YI_N_NHHHNPAUUnknownFacingDir@@@Z",
+   "symbol": "?Calculate_Projectile_Pitch@@YI_N_NHHHNPAUUnknownFacingDir@@@Z",
    "target": "0047f8b0",
    "function_entry": true
   },
   {
    "site": "00421710",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   },
   {
    "site": "00421710",
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
    "target": "0047f600",
    "function_entry": true
   },
   {
    "site": "00421710",
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
    "target": "0047e2c0",
    "function_entry": true
   }
@@ -1223,6 +1223,14 @@
    "address": "006a29d0"
   },
   {
+   "symbol": "?Damage_Bridge@MapClass@@QAE_NPAVCell@@@Z",
+   "address": "00569090"
+  },
+  {
+   "symbol": "?Damage_Low_Bridge@MapClass@@QAE_NABVCell@@@Z",
+   "address": "0055dca0"
+  },
+  {
    "symbol": "?Fast_Acos_004ba580@@YAMN@Z",
    "address": "004ba580"
   },
@@ -1237,6 +1245,10 @@
   {
    "symbol": "?GasSystem@@3PAVParticleSystemClass@@A",
    "address": "00a40d20"
+  },
+  {
+   "symbol": "?GetMinFrameRate@@YAIXZ",
+   "address": "0053d840"
   },
   {
    "symbol": "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z",
@@ -1261,6 +1273,10 @@
   {
    "symbol": "?Recalc_Attributes@CellClass@@QAEXH@Z",
    "address": "00472540"
+  },
+  {
+   "symbol": "?Reduce_Tiberium@CellClass@@QAEHH@Z",
+   "address": "00475db0"
   },
   {
    "symbol": "?Reduce_Wall@CellClass@@QAEHH@Z",
@@ -1291,20 +1307,8 @@
    "address": "004128a0"
   },
   {
-   "symbol": "?Unknown_0053D840@@YAIXZ",
-   "address": "0053d840"
-  },
-  {
-   "symbol": "?Unknown_0055DCA0@MapClass@@QAE_NABVCell@@@Z",
-   "address": "0055dca0"
-  },
-  {
    "symbol": "?Unknown_0055EDB0@MapClass@@QAE_NABVCell@@@Z",
    "address": "0055edb0"
-  },
-  {
-   "symbol": "?Unknown_00569090@MapClass@@QAE_NPAVCell@@@Z",
-   "address": "00569090"
   },
   {
    "symbol": "?Unknown_006D7C80@@YIXPAVAbstractClass@@@Z",
@@ -1317,10 +1321,6 @@
   {
    "symbol": "?Update_Cell_Zone@MapClass@@QAEXABVCell@@@Z",
    "address": "0054fb20"
-  },
-  {
-   "symbol": "?unknown_475db0@CellClass@@QAEHH@Z",
-   "address": "00475db0"
   },
   {
    "symbol": "?unknown_a40b2c@@3HA",
@@ -1433,7 +1433,7 @@
   {
    "site": "00721eb0",
    "target": "0047e2b0",
-   "symbol": "?unknown_47e2b0@Cell@@QAEXXZ",
+   "symbol": "?Chain_Reaction_Damage@Cell@@QAEXXZ",
    "module_symbol": "?get@Leaf_47e2b0@@QAEXXZ"
   },
   {
@@ -1445,7 +1445,7 @@
   {
    "site": "006e3170",
    "target": "0047e2b0",
-   "symbol": "?unknown_47e2b0@Cell@@QAEXXZ",
+   "symbol": "?Chain_Reaction_Damage@Cell@@QAEXXZ",
    "module_symbol": "?get@Leaf_47e2b0@@QAEXXZ"
   }
  ],

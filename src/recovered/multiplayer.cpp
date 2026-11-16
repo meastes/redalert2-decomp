@@ -135,9 +135,9 @@ int MultiplayerGameMode::unknown_slot10()
 }
 
 
-// MultiplayerGameMode *MultiplayerGameMode::unknown_first_mode_5b6ec0() -- 0x005B6EC0
+// MultiplayerGameMode *MultiplayerGameMode::First_Game_Mode() -- 0x005B6EC0
 
-MultiplayerGameMode *MultiplayerGameMode::unknown_first_mode_5b6ec0()
+MultiplayerGameMode *MultiplayerGameMode::First_Game_Mode()
 {
     if (unknown_modes_5b6c30().Count() == 0) {
         return 0;
@@ -322,7 +322,7 @@ bool MultiplayerGameMode::unknown_5b7470(MultiMission *map)
 
 int MultiplayerGameMode::RandomHumanCountryIndex()
 {
-    return unknown_session_a3d298.Unknown_00672940();
+    return unknown_session_a3d298.Random_Side();
 }
 
 

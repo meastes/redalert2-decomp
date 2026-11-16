@@ -155,7 +155,7 @@ void Focus_Restore()
         }
         if (VisibleSurface != 0) {
             if (((DSurface *)VisibleSurface)->Restore_Check() && (!ScenarioActive || Frame > 0x10)) {
-                VisibleSurface->Fill_Rect(unknown_window_839640, 0);
+                VisibleSurface->Fill_Rect(VisibleRect, 0);
             }
         }
     }
@@ -197,7 +197,7 @@ LRESULT WINAPI Windows_Procedure(HWND hwnd, UINT message, WPARAM wParam, LPARAM 
     case 0x18:
         return 0;
     case 0xf:
-        if (unknown_int_a40d48 == 0 && (GameInFocus == true || WindowedMode == true)
+        if (SpecialDialog == 0 && (GameInFocus == true || WindowedMode == true)
             && WWMouse && VisibleSurface && HiddenSurface && CompositeSurface) {
             if (ScenarioActive == true) {
                 Update_Visible_Surface(WWMouse->Is_Captured(), CompositeSurface, 0);
@@ -369,15 +369,15 @@ void __fastcall Create_Main_Window(HINSTANCE instance, int command_show, int wid
     RECT rect;
 
     InitCommonControls();
-    unknown_icon_b263d4 = LoadIconA(instance, MAKEINTRESOURCEA(0x5D));
-    unknown_cursor_b263d0 = LoadCursorA(ProgramInstance, MAKEINTRESOURCEA(0x68));
+    ProgramIcon = LoadIconA(instance, MAKEINTRESOURCEA(0x5D));
+    ProgramCursor = LoadCursorA(ProgramInstance, MAKEINTRESOURCEA(0x68));
     wndclass.style = 3;
     wndclass.lpfnWndProc = Windows_Procedure;
     wndclass.cbClsExtra = 0;
     wndclass.cbWndExtra = 0;
     wndclass.hInstance = instance;
-    wndclass.hIcon = unknown_icon_b263d4;
-    wndclass.hCursor = unknown_cursor_b263d0;
+    wndclass.hIcon = ProgramIcon;
+    wndclass.hCursor = ProgramCursor;
     wndclass.hbrBackground = 0;
     wndclass.lpszMenuName = 0;
     wndclass.lpszClassName = "Red Alert 2";

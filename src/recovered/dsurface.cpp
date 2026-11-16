@@ -1492,7 +1492,7 @@ static inline int Depth_Line_Length(Point2D const &point)
     return (int)Fast_Sqrt(yy + x * x);
 }
 
-bool DSurface::Unknown_Slot16(Rect const & cliprect, Point2D const & startpoint, Point2D const & endpoint, RGBClass const & color, float intensity, int start_depth, int end_depth)
+bool DSurface::Draw_RGB_Multiplying_Line(Rect const & cliprect, Point2D const & startpoint, Point2D const & endpoint, RGBClass const & color, float intensity, int start_depth, int end_depth)
 {
     int red = (int)(color.Red * intensity);
     int green = (int)(color.Green * intensity);

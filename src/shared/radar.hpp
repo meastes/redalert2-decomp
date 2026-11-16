@@ -255,11 +255,11 @@ public:
 
     // Statics of Radar.CPP (guarded atexit destructors: static members).
     static RTacticalClass RadarButton;                  // 0x00AB6478
-    static ShapeButtonClass unknown_button_ab63e8;      // 0x00AB63E8
-    static ShapeButtonClass unknown_button_ab6380;      // 0x00AB6380
-    static void const *unknown_shape_ab6350;            // 0x00AB6350 freed by slot 50 when
+    static ShapeButtonClass BriefingButton;      // 0x00AB63E8
+    static ShapeButtonClass OptionsButton;      // 0x00AB6380
+    static void const *BriefingButtonShape;            // 0x00AB6350 freed by slot 50 when
     static bool unknown_shape_ab6350_allocated;         // 0x00AB6369 allocated
-    static void const *unknown_shape_ab6318;            // 0x00AB6318
+    static void const *OptionsButtonShape;            // 0x00AB6318
     static bool unknown_shape_ab6318_allocated;         // 0x00AB6368
     static Rect unknown_rect_ab6320;                    // 0x00AB6320 copied into three rectangles
     // Statics with empty constructors (their do-nothing initializers are

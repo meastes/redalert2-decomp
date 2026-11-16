@@ -422,7 +422,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                         return;
                     }
                     if (move == 3) {
-                        Map.Unknown_0055ACD0(LinkedTo, cell);
+                        Map.Try_Open_Gate(LinkedTo, cell);
                         LinkedTo->unknown_53c = 10;
                         return;
                     }

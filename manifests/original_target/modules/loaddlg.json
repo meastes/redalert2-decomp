@@ -1025,6 +1025,14 @@
    "address": "00639200"
   },
   {
+   "symbol": "?Custom_Message_Box@@YIPAUHWND__@@PBG0PA_N@Z",
+   "address": "006001e0"
+  },
+  {
+   "symbol": "?Default_Dialog_Proc@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
    "symbol": "?Delete@RawFileClass@@UAEHXZ",
    "address": "00639240"
   },
@@ -1049,12 +1057,20 @@
    "address": "0053b770"
   },
   {
+   "symbol": "?Display_Dialog@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
+  },
+  {
    "symbol": "?Error@CCFileClass@@UAEXHHPBD@Z",
    "address": "00469000"
   },
   {
    "symbol": "?Error@RawFileClass@@UAEXHHPBD@Z",
    "address": "00638b30"
+  },
+  {
+   "symbol": "?ExpectedGameVersion@@3HA",
+   "address": "007f1b18"
   },
   {
    "symbol": "?Force_Available@CD@@UAE_NH@Z",
@@ -1113,12 +1129,20 @@
    "address": "004691a0"
   },
   {
+   "symbol": "?Is_In_Game@SessionClass@@QAEEXZ",
+   "address": "00672f10"
+  },
+  {
    "symbol": "?Is_Open@BufferIOFileClass@@UBE_NXZ",
    "address": "0042f700"
   },
   {
    "symbol": "?Is_Open@CCFileClass@@UBE_NXZ",
    "address": "004691e0"
+  },
+  {
+   "symbol": "?Leave_Game@SessionClass@@QAEXXZ",
+   "address": "00672e70"
   },
   {
    "symbol": "?Load@LoadOptionsClass@@UAE_NPBD@Z",
@@ -1183,6 +1207,10 @@
   {
    "symbol": "?Save@LoadOptionsClass@@UAE_NPBDPBG@Z",
    "address": "0053c760"
+  },
+  {
+   "symbol": "?Save_Game@@YI_NPBDPBGH@Z",
+   "address": "006554a0"
   },
   {
    "symbol": "?Save_Menu_Name@LoadOptionsClass@@UBEPBGXZ",
@@ -1253,20 +1281,8 @@
    "address": "0046e4c0"
   },
   {
-   "symbol": "?Unknown_006554A0@@YI_NPBDPBGH@Z",
-   "address": "006554a0"
-  },
-  {
    "symbol": "?Unknown_00656890@@YI_NPBD@Z",
    "address": "00656890"
-  },
-  {
-   "symbol": "?Unknown_00672E70@SessionClass@@QAEXXZ",
-   "address": "00672e70"
-  },
-  {
-   "symbol": "?Unknown_00672F10@SessionClass@@QAEEXZ",
-   "address": "00672f10"
   },
   {
    "symbol": "?WWMouse@@3PAVMouse@@A",
@@ -1301,24 +1317,12 @@
    "address": "00a3d3bc"
   },
   {
-   "symbol": "?unknown_cancel_dialog_6001e0@@YIPAUHWND__@@PBG0PA_N@Z",
-   "address": "006001e0"
-  },
-  {
    "symbol": "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z",
    "address": "005ff610"
   },
   {
    "symbol": "?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z",
    "address": "005ff6e0"
-  },
-  {
-   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
-   "address": "005ff7c0"
-  },
-  {
-   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
-   "address": "005ffb00"
   },
   {
    "symbol": "?unknown_game_mode_a3d298@@3HA",
@@ -1339,10 +1343,6 @@
   {
    "symbol": "?unknown_name_a3d3a0@@3PADA",
    "address": "00a3d3a0"
-  },
-  {
-   "symbol": "?unknown_savegame_version_7f1b18@@3HA",
-   "address": "007f1b18"
   },
   {
    "symbol": "?unknown_session_a3d298@@3USessionClass@@A",

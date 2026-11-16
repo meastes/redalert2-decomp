@@ -88,7 +88,7 @@ static int * _ramp_corners[RAMP_COUNT] = {
 
 
 // The unit's list of UndoInfoStruct (0x00ABCE18; name is a hypothesis).
-DynamicVectorClass<UndoInfoStruct> unknown_UndoInfoStruct_list_00abce18;
+DynamicVectorClass<UndoInfoStruct> UndoRecords;
 
 
 // Dynamic initializer (0x00684D80, _$E5) emitted by HeaderStatics_diagonal_init_00684d50.cpp; no source of its own.
@@ -141,7 +141,7 @@ DynamicVectorClass<UndoInfoStruct> unknown_UndoInfoStruct_list_00abce18;
 
 void __fastcall Record_Deform_Undo(Point2D const &cell, int value)
 {
-    unknown_UndoInfoStruct_list_00abce18.Add(UndoInfoStruct(cell, value));
+    UndoRecords.Add(UndoInfoStruct(cell, value));
 }
 
 
@@ -163,18 +163,18 @@ struct UnknownUndoCell {
     char unknown_05;    // +0x05
     char unknown_06;    // +0x06
 };
-extern UnknownUndoCell *unknown_undo_cells_abceac;
-extern int unknown_undo_width_8286e4;
-extern int unknown_undo_x_8286e8;
-extern int unknown_undo_y_8286ec;
+extern UnknownUndoCell *DeformPoints;
+extern int DeformPointWidth;
+extern int DeformPointXAdd;
+extern int DeformPointYAdd;
 
 void Undo_Deform()
 {
-    for (int index = unknown_UndoInfoStruct_list_00abce18.Count() - 1; index >= 0; index--) {
-        UndoInfoStruct &info = unknown_UndoInfoStruct_list_00abce18[index];
-        unknown_undo_cells_abceac[info.CellPoint.Y * unknown_undo_width_8286e4 + info.CellPoint.X].Value = info.Value;
+    for (int index = UndoRecords.Count() - 1; index >= 0; index--) {
+        UndoInfoStruct &info = UndoRecords[index];
+        DeformPoints[info.CellPoint.Y * DeformPointWidth + info.CellPoint.X].Value = info.Value;
     }
-    unknown_UndoInfoStruct_list_00abce18.Clear();
+    UndoRecords.Clear();
 }
 
 
@@ -262,19 +262,19 @@ bool __fastcall Can_Deform_Cell(CellClass *cell, bool flag)
 // the cell's corner height times 15 and are locked unless the four cells
 // sharing the corner are free; the corners of position are marked as centre.
 
-extern int unknown_undo_rows_8286e0;
+extern int DeformPointHeight;
 
 void __fastcall Build_Deform_Grid_00685290(bool flag, Cell position)
 {
-    if (unknown_undo_cells_abceac != 0) {
-        delete unknown_undo_cells_abceac;
-        unknown_undo_cells_abceac = 0;
+    if (DeformPoints != 0) {
+        delete DeformPoints;
+        DeformPoints = 0;
     }
-    unknown_undo_cells_abceac = new UnknownUndoCell[(Map.unknown_128 + 1) * (Map.unknown_12c + 1)];
-    unknown_undo_width_8286e4 = Map.unknown_128 + 1;
-    unknown_undo_rows_8286e0 = Map.unknown_12c + 1;
-    unknown_undo_y_8286ec = Map.unknown_124;
-    unknown_undo_x_8286e8 = Map.unknown_120;
+    DeformPoints = new UnknownUndoCell[(Map.unknown_128 + 1) * (Map.unknown_12c + 1)];
+    DeformPointWidth = Map.unknown_128 + 1;
+    DeformPointHeight = Map.unknown_12c + 1;
+    DeformPointYAdd = Map.unknown_124;
+    DeformPointXAdd = Map.unknown_120;
     Cell lo = position - Cell(14, 14);
     Cell hi = position + Cell(14, 14);
     lo.X = lo.X < 0 ? 0 : lo.X;
@@ -286,11 +286,11 @@ void __fastcall Build_Deform_Grid_00685290(bool flag, Cell position)
     for (int y = lo.Y; y <= hi.Y; y++) {
         for (int x = lo.X; x <= hi.X; x++) {
             int value = -1;
-            UnknownUndoCell *grid = &unknown_undo_cells_abceac[unknown_undo_width_8286e4 * y + x];
+            UnknownUndoCell *grid = &DeformPoints[DeformPointWidth * y + x];
             grid->unknown_04 = 0;
             grid->unknown_05 = 0;
             grid->unknown_06 = 0;
-            Cell cell(unknown_undo_x_8286e8 + x, unknown_undo_y_8286ec + y);
+            Cell cell(DeformPointXAdd + x, DeformPointYAdd + y);
             if (cell.X >= Map.unknown_120 && cell.X <= Map.unknown_120 + Map.unknown_128
                 && cell.Y >= Map.unknown_124 && cell.Y <= Map.unknown_124 + Map.unknown_12c) {
                 int ramp = Map[cell].unknown_11c;
@@ -321,28 +321,28 @@ void __fastcall Build_Deform_Grid_00685290(bool flag, Cell position)
 // budget at the third corner, which leaves TPoint2D operator+ 0x0042ADD0 and
 // the bounds test 0x0058DA10 out of line from there on.
 
-extern int unknown_undo_rows_8286e0;
+extern int DeformPointHeight;
 
 void Init_Deform_Grid_RMG_00685600()
 {
-    if (unknown_undo_cells_abceac != 0) {
-        delete unknown_undo_cells_abceac;
-        unknown_undo_cells_abceac = 0;
+    if (DeformPoints != 0) {
+        delete DeformPoints;
+        DeformPoints = 0;
     }
-    unknown_undo_cells_abceac = new UnknownUndoCell[(Map.unknown_128 + 1) * (Map.unknown_12c + 1)];
-    unknown_undo_width_8286e4 = Map.unknown_128 + 1;
-    unknown_undo_rows_8286e0 = Map.unknown_12c + 1;
-    unknown_undo_x_8286e8 = Map.unknown_120;
-    unknown_undo_y_8286ec = Map.unknown_124;
+    DeformPoints = new UnknownUndoCell[(Map.unknown_128 + 1) * (Map.unknown_12c + 1)];
+    DeformPointWidth = Map.unknown_128 + 1;
+    DeformPointHeight = Map.unknown_12c + 1;
+    DeformPointXAdd = Map.unknown_120;
+    DeformPointYAdd = Map.unknown_124;
     Cell offsets[3] = { Cell(0, -1), Cell(-1, -1), Cell(-1, 0) };
-    for (int y = 0; y < unknown_undo_rows_8286e0; y++) {
-        for (int x = 0; x < unknown_undo_width_8286e4; x++) {
+    for (int y = 0; y < DeformPointHeight; y++) {
+        for (int x = 0; x < DeformPointWidth; x++) {
             int value = 0;
             int tries = 0;
-            UnknownUndoCell *grid = &unknown_undo_cells_abceac[unknown_undo_width_8286e4 * y + x];
+            UnknownUndoCell *grid = &DeformPoints[DeformPointWidth * y + x];
             grid->unknown_04 = 0;
             grid->unknown_05 = 0;
-            Cell position(unknown_undo_x_8286e8 + x, unknown_undo_y_8286ec + y);
+            Cell position(DeformPointXAdd + x, DeformPointYAdd + y);
             Cell cell = position;
             while (!Generation_Cell_In_Bounds_0058da10(cell) && tries < 3) {
                 cell = position + offsets[tries];
@@ -403,12 +403,12 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
     DynamicVectorClass<ObjectClass *> objects;
     for (int y = lo.Y; y <= hi.Y; y++) {
         for (int x = lo.X; x <= hi.X; x++) {
-            CellClass *cell = &Map[Cell(x + unknown_undo_x_8286e8, y + unknown_undo_y_8286ec)];
+            CellClass *cell = &Map[Cell(x + DeformPointXAdd, y + DeformPointYAdd)];
             if (!Can_Deform_Cell(cell, forced)) continue;
-            UnknownUndoCell &point1 = unknown_undo_cells_abceac[x + y * unknown_undo_width_8286e4];
-            UnknownUndoCell &point2 = unknown_undo_cells_abceac[x + 1 + y * unknown_undo_width_8286e4];
-            UnknownUndoCell &point3 = unknown_undo_cells_abceac[x + 1 + (y + 1) * unknown_undo_width_8286e4];
-            UnknownUndoCell &point4 = unknown_undo_cells_abceac[x + (y + 1) * unknown_undo_width_8286e4];
+            UnknownUndoCell &point1 = DeformPoints[x + y * DeformPointWidth];
+            UnknownUndoCell &point2 = DeformPoints[x + 1 + y * DeformPointWidth];
+            UnknownUndoCell &point3 = DeformPoints[x + 1 + (y + 1) * DeformPointWidth];
+            UnknownUndoCell &point4 = DeformPoints[x + (y + 1) * DeformPointWidth];
             if (point1.unknown_05 || point2.unknown_05 || point3.unknown_05 || point4.unknown_05) {
                 int heights[4];
                 heights[0] = point1.Value;
@@ -489,8 +489,8 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
             }
         }
     }
-    delete[] unknown_undo_cells_abceac;
-    unknown_undo_cells_abceac = 0;
+    delete[] DeformPoints;
+    DeformPoints = 0;
     bound.Y -= TacticalRect.Y;
     TacticalMap->Register_Dirty_Area(bound, false);
     for (int i = least.Y - 1; i <= most.Y + 1; i++) {
@@ -527,12 +527,12 @@ bool Commit_Deform_Grid_RMG_006863e0()
         if (!cell) {
             break;
         }
-        int x = cell->Fetch_CellID().X - unknown_undo_x_8286e8;
-        int y = cell->Fetch_CellID().Y - unknown_undo_y_8286ec;
-        UnknownUndoCell &point1 = unknown_undo_cells_abceac[x + y * unknown_undo_width_8286e4];
-        UnknownUndoCell &point2 = unknown_undo_cells_abceac[x + 1 + y * unknown_undo_width_8286e4];
-        UnknownUndoCell &point3 = unknown_undo_cells_abceac[x + 1 + (y + 1) * unknown_undo_width_8286e4];
-        UnknownUndoCell &point4 = unknown_undo_cells_abceac[x + (y + 1) * unknown_undo_width_8286e4];
+        int x = cell->Fetch_CellID().X - DeformPointXAdd;
+        int y = cell->Fetch_CellID().Y - DeformPointYAdd;
+        UnknownUndoCell &point1 = DeformPoints[x + y * DeformPointWidth];
+        UnknownUndoCell &point2 = DeformPoints[x + 1 + y * DeformPointWidth];
+        UnknownUndoCell &point3 = DeformPoints[x + 1 + (y + 1) * DeformPointWidth];
+        UnknownUndoCell &point4 = DeformPoints[x + (y + 1) * DeformPointWidth];
         if (point1.unknown_05 || point2.unknown_05 || point3.unknown_05 || point4.unknown_05) {
             int heights[4];
             heights[0] = point1.Value;
@@ -569,8 +569,8 @@ bool Commit_Deform_Grid_RMG_006863e0()
             }
         }
     }
-    delete[] unknown_undo_cells_abceac;
-    unknown_undo_cells_abceac = 0;
+    delete[] DeformPoints;
+    DeformPoints = 0;
     return true;
 }
 
@@ -581,20 +581,20 @@ bool Commit_Deform_Grid_RMG_006863e0()
 // edge of the grid, stops the operation unless it is forced.
 #include "shared/crt_memory.hpp"
 
-extern int unknown_undo_rows_8286e0;
+extern int DeformPointHeight;
 bool __fastcall Ripple_Deform_Points_00686610(Point2D start, int direction, bool forced)
 {
-    UnknownUndoCell &origin = unknown_undo_cells_abceac[start.X + start.Y * unknown_undo_width_8286e4];
+    UnknownUndoCell &origin = DeformPoints[start.X + start.Y * DeformPointWidth];
     int height = origin.Value;
     for (int dy = -1; dy < 2; dy++) {
         for (int dx = -1; dx < 2; dx++) {
             if (!(dx || dy)) continue;
             Point2D point = Point2D(dx, dy) + start;
-            if (point.X < 0 || point.Y < 0 || point.X >= unknown_undo_width_8286e4 || point.Y >= unknown_undo_rows_8286e0) {
+            if (point.X < 0 || point.Y < 0 || point.X >= DeformPointWidth || point.Y >= DeformPointHeight) {
                 if (forced) continue;
                 return false;
             }
-            UnknownUndoCell &cell = unknown_undo_cells_abceac[point.X + point.Y * unknown_undo_width_8286e4];
+            UnknownUndoCell &cell = DeformPoints[point.X + point.Y * DeformPointWidth];
             if (!cell.unknown_04 || (forced && cell.unknown_06)) {
                 if (abs(cell.Value - height) > 15) {
                     if (direction == 1) {
@@ -637,16 +637,16 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell position);
 
 bool __fastcall Deform_Cell_00686860(Cell position, int direction, bool forced, unsigned corners)
 {
-    unknown_UndoInfoStruct_list_00abce18.Clear();
+    UndoRecords.Clear();
     Build_Deform_Grid_00685290(forced, position);
     int mask = ((corners >> 1) & 4) | ((corners & 4) << 1) | (corners & 3);
-    int rx = position.X - unknown_undo_x_8286e8;
-    int ry = position.Y - unknown_undo_y_8286ec;
+    int rx = position.X - DeformPointXAdd;
+    int ry = position.Y - DeformPointYAdd;
     int bit = 1;
     for (int y = ry; y < ry + 2; y++) {
         for (int x = rx; x < rx + 2; x++) {
             if (bit & mask) {
-                UnknownUndoCell &cell = unknown_undo_cells_abceac[unknown_undo_width_8286e4 * y + x];
+                UnknownUndoCell &cell = DeformPoints[DeformPointWidth * y + x];
                 if (!cell.unknown_04 || forced) {
                     cell.Value += direction * 15;
                     if (cell.Value < 0 || cell.Value > 180) {
@@ -654,13 +654,13 @@ bool __fastcall Deform_Cell_00686860(Cell position, int direction, bool forced, 
                     }
                     cell.unknown_05 = 1;
                     if (!Ripple_Deform_Points_00686610(Point2D(x, y), direction, forced) && !forced) {
-                        delete[] unknown_undo_cells_abceac;
-                        unknown_undo_cells_abceac = 0;
+                        delete[] DeformPoints;
+                        DeformPoints = 0;
                         return false;
                     }
                 } else if (!forced) {
-                    delete[] unknown_undo_cells_abceac;
-                    unknown_undo_cells_abceac = 0;
+                    delete[] DeformPoints;
+                    DeformPoints = 0;
                     return false;
                 }
             }
@@ -674,18 +674,18 @@ bool __fastcall Deform_Cell_00686860(Cell position, int direction, bool forced, 
 // bool __fastcall Deform_Cell_RMG_006869f0(Cell position, int direction, bool forced, unsigned corners) (0x006869F0)
 // The map generator's Deform_Cell: moves the masked corners on the prepared grid, recording each
 // on the undo list; a refused corner restores the recorded points unless forced.
-extern int unknown_undo_rows_8286e0;
+extern int DeformPointHeight;
 bool __fastcall Deform_Cell_RMG_006869f0(Cell position, int direction, bool forced, unsigned corners)
 {
-    unknown_UndoInfoStruct_list_00abce18.Clear();
+    UndoRecords.Clear();
     int mask = ((corners >> 1) & 4) | ((corners & 4) << 1) | (corners & 3);
-    int rx = position.X - unknown_undo_x_8286e8;
-    int ry = position.Y - unknown_undo_y_8286ec;
+    int rx = position.X - DeformPointXAdd;
+    int ry = position.Y - DeformPointYAdd;
     int bit = 1;
     for (int y = ry; y < ry + 2; y++) {
         for (int x = rx; x < rx + 2; x++) {
             if (bit & mask) {
-                UnknownUndoCell &cell = unknown_undo_cells_abceac[unknown_undo_width_8286e4 * y + x];
+                UnknownUndoCell &cell = DeformPoints[DeformPointWidth * y + x];
                 if (!cell.unknown_04) {
                     cell.Value += direction * 15;
                     if (cell.Value < 0 || cell.Value > 180) {
@@ -719,13 +719,13 @@ bool __fastcall Deform_Cell_RMG_006869f0(Cell position, int direction, bool forc
 
 int __fastcall Get_Deformed_Cell_Height_00686c90(CellClass *cell)
 {
-    int x = cell->Fetch_CellID().X - unknown_undo_x_8286e8;
-    int y = cell->Fetch_CellID().Y - unknown_undo_y_8286ec;
+    int x = cell->Fetch_CellID().X - DeformPointXAdd;
+    int y = cell->Fetch_CellID().Y - DeformPointYAdd;
     int heights[4];
-    heights[0] = unknown_undo_cells_abceac[y * unknown_undo_width_8286e4 + x].Value;
-    heights[1] = unknown_undo_cells_abceac[y * unknown_undo_width_8286e4 + x + 1].Value;
-    heights[2] = unknown_undo_cells_abceac[(y + 1) * unknown_undo_width_8286e4 + x + 1].Value;
-    heights[3] = unknown_undo_cells_abceac[(y + 1) * unknown_undo_width_8286e4 + x].Value;
+    heights[0] = DeformPoints[y * DeformPointWidth + x].Value;
+    heights[1] = DeformPoints[y * DeformPointWidth + x + 1].Value;
+    heights[2] = DeformPoints[(y + 1) * DeformPointWidth + x + 1].Value;
+    heights[3] = DeformPoints[(y + 1) * DeformPointWidth + x].Value;
     int lowest = 1000;
     for (int index = 0; index < 4; index++) {
         if (heights[index] < lowest) {
@@ -757,13 +757,13 @@ int __fastcall Get_Deformed_Cell_Height_00686c90(CellClass *cell)
 
 int __fastcall Get_Deformable_Cell_Corners_00686dd0(CellClass *cell, int direction)
 {
-    int x = cell->Fetch_CellID().X - unknown_undo_x_8286e8;
-    int y = cell->Fetch_CellID().Y - unknown_undo_y_8286ec;
+    int x = cell->Fetch_CellID().X - DeformPointXAdd;
+    int y = cell->Fetch_CellID().Y - DeformPointYAdd;
     UnknownUndoCell corners[4] = {
-        unknown_undo_cells_abceac[y * unknown_undo_width_8286e4 + x],
-        unknown_undo_cells_abceac[y * unknown_undo_width_8286e4 + x + 1],
-        unknown_undo_cells_abceac[(y + 1) * unknown_undo_width_8286e4 + x + 1],
-        unknown_undo_cells_abceac[(y + 1) * unknown_undo_width_8286e4 + x]
+        DeformPoints[y * DeformPointWidth + x],
+        DeformPoints[y * DeformPointWidth + x + 1],
+        DeformPoints[(y + 1) * DeformPointWidth + x + 1],
+        DeformPoints[(y + 1) * DeformPointWidth + x]
     };
     int heights[4] = { corners[0].Value, corners[1].Value, corners[2].Value, corners[3].Value };
     int lowest = 1000;

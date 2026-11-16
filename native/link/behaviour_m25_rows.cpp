@@ -27,7 +27,7 @@ void HouseClass::Mark_Scouted(HouseClass *house)
 
 // 0x004F5B30: the owner type's float at +0x148 (UnitClass 0x00707130 scales a harvester's
 // load value by it).
-float HouseClass::Unknown_004F5B30()
+float HouseClass::Income_Multiplier()
 {
     return Type->unknown_0x148;
 }

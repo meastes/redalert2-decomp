@@ -245,10 +245,10 @@ Cell unknown_cells_a6ed18[309] = {
 
 
 // Dynamic initializer of the dummy cell (0x00547930, _$E): constructs
-// unknown_dummy_cell_a6f9f8 and registers its atexit destructor
+// BlubCell and registers its atexit destructor
 // (0x00547950, the following _$E draft, emitted by this definition).
 
-CellClass unknown_dummy_cell_a6f9f8;
+CellClass BlubCell;
 
 
 // atexit destructor of the dummy cell (0x00547950, _$E): emitted by the
@@ -316,30 +316,30 @@ MapClass::~MapClass()
 }
 
 
-// Point2D MapClass::Unknown_00547D40(Point2D const &point) (0x00547D40)
+// Point2D MapClass::PlayRect_To_Cell_Point(Point2D const &point) (0x00547D40)
 // Isometric transform: X gains half of Y (rounded up), Y becomes half of Y
 // plus the map width less X. No direct callers (inlined everywhere).
 
-Point2D MapClass::Unknown_00547D40(Point2D const &point)
+Point2D MapClass::PlayRect_To_Cell_Point(Point2D const &point)
 {
     return Point2D(((point.Y + 1) >> 1) + point.X, (point.Y >> 1) + MapSize.Width - point.X);
 }
 
 
-// Point2D MapClass::Unknown_00547D70(Point2D const &point) (0x00547D70)
-// Unknown_00547D40 of point moved by MapLocalSize's origin.
+// Point2D MapClass::LocalRect_To_Cell_Point(Point2D const &point) (0x00547D70)
+// PlayRect_To_Cell_Point of point moved by MapLocalSize's origin.
 
-Point2D MapClass::Unknown_00547D70(Point2D const &point)
+Point2D MapClass::LocalRect_To_Cell_Point(Point2D const &point)
 {
     Point2D offset(MapLocalSize.X, MapLocalSize.Y);
-    return Unknown_00547D40(Point2D(point.X + offset.X, point.Y + offset.Y));
+    return PlayRect_To_Cell_Point(Point2D(point.X + offset.X, point.Y + offset.Y));
 }
 
 
-// Point2D MapClass::Unknown_00547DB0(Point2D const &point) (0x00547DB0)
-// Inverse of Unknown_00547D40. No direct callers (inlined everywhere).
+// Point2D MapClass::Cell_To_PlayRect_Point(Point2D const &point) (0x00547DB0)
+// Inverse of PlayRect_To_Cell_Point. No direct callers (inlined everywhere).
 
-Point2D MapClass::Unknown_00547DB0(Point2D const &point)
+Point2D MapClass::Cell_To_PlayRect_Point(Point2D const &point)
 {
     int width = MapSize.Width;
     int x = (width & 1) ? point.X - point.Y + 1 : point.X - point.Y;
@@ -347,53 +347,53 @@ Point2D MapClass::Unknown_00547DB0(Point2D const &point)
 }
 
 
-// Point2D MapClass::Unknown_00547DF0(Point2D const &point) (0x00547DF0)
-// Unknown_00547DB0 relative to MapLocalSize's origin.
+// Point2D MapClass::Cell_To_LocalRect_Point(Point2D const &point) (0x00547DF0)
+// Cell_To_PlayRect_Point relative to MapLocalSize's origin.
 
-Point2D MapClass::Unknown_00547DF0(Point2D const &point)
+Point2D MapClass::Cell_To_LocalRect_Point(Point2D const &point)
 {
     Point2D offset(MapLocalSize.X, MapLocalSize.Y);
-    Point2D result = Unknown_00547DB0(point);
+    Point2D result = Cell_To_PlayRect_Point(point);
     return Point2D(result.X - offset.X, result.Y - offset.Y);
 }
 
 
-// Cell MapClass::Unknown_00547E50(Cell const &cell) (0x00547E50)
-// Unknown_00547D40 for cells. No direct callers (inlined everywhere).
+// Cell MapClass::PlayRect_To_Cell(Cell const &cell) (0x00547E50)
+// PlayRect_To_Cell_Point for cells. No direct callers (inlined everywhere).
 
-Cell MapClass::Unknown_00547E50(Cell const &cell)
+Cell MapClass::PlayRect_To_Cell(Cell const &cell)
 {
-    Point2D point = Unknown_00547D40(Point2D(cell.X, cell.Y));
+    Point2D point = PlayRect_To_Cell_Point(Point2D(cell.X, cell.Y));
     return Cell(point.X, point.Y);
 }
 
 
-// Cell MapClass::Unknown_00547E90(Cell const &cell) (0x00547E90)
-// Unknown_00547D70 for cells. No direct callers (inlined everywhere).
+// Cell MapClass::LocalRect_To_Cell(Cell const &cell) (0x00547E90)
+// LocalRect_To_Cell_Point for cells. No direct callers (inlined everywhere).
 
-Cell MapClass::Unknown_00547E90(Cell const &cell)
+Cell MapClass::LocalRect_To_Cell(Cell const &cell)
 {
-    Point2D point = Unknown_00547D70(Point2D(cell.X, cell.Y));
+    Point2D point = LocalRect_To_Cell_Point(Point2D(cell.X, cell.Y));
     return Cell(point.X, point.Y);
 }
 
 
-// Cell MapClass::Unknown_00547EE0(Cell const &cell) (0x00547EE0)
-// Unknown_00547DB0 for cells. No direct callers (inlined everywhere).
+// Cell MapClass::Cell_To_PlayRect(Cell const &cell) (0x00547EE0)
+// Cell_To_PlayRect_Point for cells. No direct callers (inlined everywhere).
 
-Cell MapClass::Unknown_00547EE0(Cell const &cell)
+Cell MapClass::Cell_To_PlayRect(Cell const &cell)
 {
-    Point2D point = Unknown_00547DB0(Point2D(cell.X, cell.Y));
+    Point2D point = Cell_To_PlayRect_Point(Point2D(cell.X, cell.Y));
     return Cell(point.X, point.Y);
 }
 
 
-// Cell MapClass::Unknown_00547F30(Cell const &cell) (0x00547F30)
-// Unknown_00547DF0 for cells.
+// Cell MapClass::Cell_To_LocalRect(Cell const &cell) (0x00547F30)
+// Cell_To_LocalRect_Point for cells.
 
-Cell MapClass::Unknown_00547F30(Cell const &cell)
+Cell MapClass::Cell_To_LocalRect(Cell const &cell)
 {
-    Point2D point = Unknown_00547DF0(Point2D(cell.X, cell.Y));
+    Point2D point = Cell_To_LocalRect_Point(Point2D(cell.X, cell.Y));
     return Cell(point.X, point.Y);
 }
 
@@ -419,8 +419,8 @@ CellClass &MapClass::operator[](CoordStruct const &coord)
     if (index >= 0 && index < Cells.Length() && Cells[index] != 0) {
         return *Cells[index];
     }
-    unknown_dummy_cell_a6f9f8.MapCoords = Cell(x, y);
-    return unknown_dummy_cell_a6f9f8;
+    BlubCell.MapCoords = Cell(x, y);
+    return BlubCell;
 }
 
 
@@ -434,8 +434,8 @@ CellClass &MapClass::operator[](Cell const &cell)
     if (index >= 0 && index < 0x40000 && Cells[index] != 0) {
         return *Cells[index];
     }
-    unknown_dummy_cell_a6f9f8.MapCoords = cell;
-    return unknown_dummy_cell_a6f9f8;
+    BlubCell.MapCoords = cell;
+    return BlubCell;
 }
 
 
@@ -584,7 +584,7 @@ bool ra2native_is_gas_system_5484e0(ObjectClass const *object);
 
 extern int unknown_833968;
 extern int unknown_int_8325d0;   // NATIVE: declared here (shared/main_loop.hpp, left out above)
-extern int unknown_int_8325d4;   // NATIVE
+extern int MapSizeY;   // NATIVE
 
 void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_height, bool refresh_map)
 {
@@ -592,7 +592,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
     int w = MapSize.Width;
     CellClass *cells_base = 0;
     CellClass *cells = 0;
-    int h = 2 * unknown_int_8325d4 + 8;
+    int h = 2 * MapSizeY + 8;
     CellClass *cptr;
     Cell cell(unknown_cell_a6f238);
 
@@ -636,7 +636,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
     }
 
     unknown_map_min_a70a1c = unknown_int_8325d0;
-    unknown_map_max_a70a20 = unknown_int_8325d0 + 2 * unknown_int_8325d4;
+    unknown_map_max_a70a20 = unknown_int_8325d0 + 2 * MapSizeY;
 
     int y = 0;
     unknown_120 = 1;
@@ -694,7 +694,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
 
             if (c.X + c.Y < MapSize.Width - 2 * rect->Y + 1 ||
                 c.Y - c.X > MapSize.Width + 2 * rect->X - 1 ||
-                c.X + c.Y > MapSize.Width + 2 * (h + MapSize.Height - rect->Y - unknown_int_8325d4) ||
+                c.X + c.Y > MapSize.Width + 2 * (h + MapSize.Height - rect->Y - MapSizeY) ||
                 c.X - c.Y > MapSize.Width + 2 * (w - rect->X - unknown_int_8325d0) - 1) {
 
                 int cellindex = c.X + c.Y * 512;
@@ -801,7 +801,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         Fresh_Map();
     }
 
-    new(&unknown_dummy_cell_a6f9f8) CellClass;
+    new(&BlubCell) CellClass;
     delete (void *)cells_base;
 }
 #endif
@@ -868,17 +868,17 @@ void MapClass::Set_Local_Dimensions(Rect const &rect)
 }
 
 
-// void MapClass::Unknown_00549C20(int arg1, int arg2, CoordStruct const &coord, int sight, HouseClass *house, bool arg6, bool arg7, bool arg8, bool arg9) (0x00549C20)
+// void MapClass::RevealArea0(int arg1, int arg2, CoordStruct const &coord, int sight, HouseClass *house, bool arg6, bool arg7, bool arg8, bool arg9) (0x00549C20)
 // Forwards to 0x00549C50 with true for its last argument; the first two
 // arguments are not read (no callers or pointers in the executable).
 
-void MapClass::Unknown_00549C20(int arg1, int arg2, CoordStruct const &coord, int sight, HouseClass *house, bool arg6, bool arg7, bool arg8, bool arg9)
+void MapClass::RevealArea0(int arg1, int arg2, CoordStruct const &coord, int sight, HouseClass *house, bool arg6, bool arg7, bool arg8, bool arg9)
 {
-    Unknown_00549C50(coord, sight, house, arg6, arg7, arg8, arg9, true);
+    RevealArea1(coord, sight, house, arg6, arg7, arg8, arg9, true);
 }
 
 
-// void MapClass::Unknown_00549C50(CoordStruct const &xcoord, int sightrange, HouseClass *house,
+// void MapClass::RevealArea1(CoordStruct const &xcoord, int sightrange, HouseClass *house,
 //     bool incremental, bool dont_map, bool unfog, bool byheight, bool arg8) (0x00549C50)
 // Sight from a coordinate (TibSun Sight_From): the coordinate moved up the
 // screen by its height, its cell on the map (0x0054AAB0) and a sight of 1-10;
@@ -898,7 +898,7 @@ extern int const unknown_radius_count_7a5908[];
 extern Cell const unknown_radius_offset_a6f248[];
 extern Cell const unknown_occlusion_offset_a6ed18[];
 
-void MapClass::Unknown_00549C50(CoordStruct const &xcoord, int sightrange, HouseClass *house, bool incremental, bool dont_map, bool unfog, bool byheight, bool arg8)
+void MapClass::RevealArea1(CoordStruct const &xcoord, int sightrange, HouseClass *house, bool incremental, bool dont_map, bool unfog, bool byheight, bool arg8)
 {
     int xx;
     Cell const *ptr;
@@ -1168,12 +1168,12 @@ void MapClass::Shroud_Gap_Area(CoordStruct const &coord, int radius)
 }
 
 
-// void MapClass::Unknown_0054A8F0(CoordStruct const &coord, int radius) (0x0054A8F0)
+// void MapClass::Unshroud_Gap_Area(CoordStruct const &coord, int radius) (0x0054A8F0)
 // Moves coord up the screen by its height (0x006A2970, in cells of 30
 // pixels), then for every cell strictly inside radius + 1 of its cell clears
 // +0x130 and +0x134 and sets +0x12C bits 4 and 3 (Map's cells).
 
-void MapClass::Unknown_0054A8F0(CoordStruct const &coord, int radius)
+void MapClass::Unshroud_Gap_Area(CoordStruct const &coord, int radius)
 {
     CoordStruct center = coord;
     center.X += (Unknown_006A2970(center.Z) / -30) * 256;
@@ -1471,19 +1471,19 @@ void MapClass::Repair_High_Bridge_Span_0054b560(CellClass *start, FacingType dir
         if (direction == 2) {
             if (tile == unknown_tileset_a6e028 && cursor->unknown_11a == 4) {
                 Set_Bridge_End_State(last, false, false);
-                zones_changed |= Unknown_00550230(Adjacent_Cell(last, 6));
+                zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 6));
                 break;
             }
             if (tile == unknown_tileset_a52c80 && cursor->unknown_11a == 4) {
                 Set_Bridge_End_State(last, false, false);
-                zones_changed |= Unknown_00550230(Adjacent_Cell(last, 6));
+                zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 6));
                 break;
             }
             if ((tile == unknown_tileset_a6cb7c || tile == unknown_tileset_a6cb7c + 3 ||
                  tile == unknown_tileset_a6cb7c + 4 || tile == unknown_tileset_a6cb7c + 1 ||
                  tile == unknown_tileset_a6cb7c + 2) && cursor->unknown_11a == 4) {
                 Set_Bridge_Middle_State(last, unknown_tileset_a6cb7c - 1 + unknown_tileset_a52c74, -1, -1, false);
-                zones_changed |= Unknown_00550230(last);
+                zones_changed |= Register_Subzone_Connections(last);
                 if (tile == unknown_tileset_a6cb7c + 4) {
                     Map[last].unknown_11b += 4;
                     Map[Adjacent_Cell(last, 0)].unknown_11b += 4;
@@ -1498,19 +1498,19 @@ void MapClass::Repair_High_Bridge_Span_0054b560(CellClass *start, FacingType dir
         } else if (direction == 4) {
             if (tile == unknown_tileset_a6e010 && cursor->unknown_11a == 2) {
                 Set_Bridge_End_State(last, false, false);
-                zones_changed |= Unknown_00550230(Adjacent_Cell(last, 0));
+                zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 0));
                 break;
             }
             if (tile == unknown_tileset_a53390 && cursor->unknown_11a == 2) {
                 Set_Bridge_End_State(last, false, false);
-                zones_changed |= Unknown_00550230(Adjacent_Cell(last, 0));
+                zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 0));
                 break;
             }
             if ((tile == unknown_tileset_a52e70 || tile == unknown_tileset_a52e70 + 3 ||
                  tile == unknown_tileset_a52e70 + 4 || tile == unknown_tileset_a52e70 + 2 ||
                  tile == unknown_tileset_a52e70 + 1) && cursor->unknown_11a == 2) {
                 Set_Bridge_Middle_State(last, unknown_tileset_a52c74 - 1 + unknown_tileset_a52e70, -1, -1, false);
-                zones_changed |= Unknown_00550230(last);
+                zones_changed |= Register_Subzone_Connections(last);
                 if (tile == unknown_tileset_a52e70 + 4) {
                     Map[last].unknown_11b += 4;
                     Map[Adjacent_Cell(last, 2)].unknown_11b += 4;
@@ -1561,7 +1561,7 @@ void MapClass::Repair_High_Bridge_Span_0054b560(CellClass *start, FacingType dir
         dirty->Height = abs(original_y - pixel.Y) + 128;
     }
     if (zones_changed) Zone_Reset();
-    if (changed.Count() > 0) Unknown_005688A0(changed);
+    if (changed.Count() > 0) Recalc_Cells_In_List(changed);
 }
 
 
@@ -1593,19 +1593,19 @@ void MapClass::Repair_Train_Bridge_Span_0054be80(CellClass *start, FacingType di
         if (direction == 2) {
             if (tile == unknown_tileset_a6e028 && cursor->unknown_11a == 4) {
                 Set_Bridge_End_State(last, false, false);
-                zones_changed |= Unknown_00550230(Adjacent_Cell(last, 6));
+                zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 6));
                 break;
             }
             if (tile == unknown_tileset_a52c80 && cursor->unknown_11a == 4) {
                 Set_Bridge_End_State(last, false, false);
-                zones_changed |= Unknown_00550230(Adjacent_Cell(last, 6));
+                zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 6));
                 break;
             }
             if ((tile == unknown_tileset_a6cb7c || tile == unknown_tileset_a6cb7c + 3 ||
                  tile == unknown_tileset_a6cb7c + 4 || tile == unknown_tileset_a6cb7c + 1 ||
                  tile == unknown_tileset_a6cb7c + 2) && cursor->unknown_11a == 4) {
                 Set_Bridge_Middle_State(last, unknown_tileset_a6cb7c - 1 + unknown_tileset_a6cb68, -1, -1, false);
-                zones_changed |= Unknown_00550230(last);
+                zones_changed |= Register_Subzone_Connections(last);
                 if (tile == unknown_tileset_a6cb7c + 4) {
                     Map[last].unknown_11b += 4;
                     Map[Adjacent_Cell(last, 0)].unknown_11b += 4;
@@ -1620,19 +1620,19 @@ void MapClass::Repair_Train_Bridge_Span_0054be80(CellClass *start, FacingType di
         } else if (direction == 4) {
             if (tile == unknown_tileset_a6e010 && cursor->unknown_11a == 2) {
                 Set_Bridge_End_State(last, false, false);
-                zones_changed |= Unknown_00550230(Adjacent_Cell(last, 0));
+                zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 0));
                 break;
             }
             if (tile == unknown_tileset_a53390 && cursor->unknown_11a == 2) {
                 Set_Bridge_End_State(last, false, false);
-                zones_changed |= Unknown_00550230(Adjacent_Cell(last, 0));
+                zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 0));
                 break;
             }
             if ((tile == unknown_tileset_a52e70 || tile == unknown_tileset_a52e70 + 3 ||
                  tile == unknown_tileset_a52e70 + 4 || tile == unknown_tileset_a52e70 + 2 ||
                  tile == unknown_tileset_a52e70 + 1) && cursor->unknown_11a == 2) {
                 Set_Bridge_Middle_State(last, unknown_tileset_a6cb68 - 1 + unknown_tileset_a52e70, -1, -1, false);
-                zones_changed |= Unknown_00550230(last);
+                zones_changed |= Register_Subzone_Connections(last);
                 if (tile == unknown_tileset_a52e70 + 4) {
                     Map[last].unknown_11b += 4;
                     Map[Adjacent_Cell(last, 2)].unknown_11b += 4;
@@ -1683,7 +1683,7 @@ void MapClass::Repair_Train_Bridge_Span_0054be80(CellClass *start, FacingType di
         dirty->Height = abs(original_y - pixel.Y) + 128;
     }
     if (zones_changed) Zone_Reset();
-    if (changed.Count() != 0) Unknown_005688A0(changed);
+    if (changed.Count() != 0) Recalc_Cells_In_List(changed);
 }
 
 
@@ -1866,12 +1866,12 @@ void MapClass::Repair_Train_Bridge_From_Cell_0054d0a0(Cell const &origin)
 }
 
 
-// int MapClass::Unknown_0054D560(Pipe &pipe) (0x0054D560)
+// int MapClass::Write_Binary_1(Pipe &pipe) (0x0054D560)
 // Writes the tile data of every cell slot through an LCW pipe (TibSun
 // Write_Binary_1): every tile type (two bytes), then every sub tile, then
 // every height; an empty slot writes the dummy cell's. Returns the bytes put.
 
-int MapClass::Unknown_0054D560(Pipe &pipe)
+int MapClass::Write_Binary_1(Pipe &pipe)
 {
     int total = 0;
 
@@ -1883,7 +1883,7 @@ int MapClass::Unknown_0054D560(Pipe &pipe)
         if (cellptr) {
             total += comp.Put(&cellptr->IsoTileIndex, 2);
         } else {
-            total += comp.Put(&unknown_dummy_cell_a6f9f8.IsoTileIndex, 2);
+            total += comp.Put(&BlubCell.IsoTileIndex, 2);
         }
     }
 
@@ -1892,7 +1892,7 @@ int MapClass::Unknown_0054D560(Pipe &pipe)
         if (cellptr) {
             total += comp.Put(&cellptr->unknown_11a, 1);
         } else {
-            total += comp.Put(&unknown_dummy_cell_a6f9f8.unknown_11a, 1);
+            total += comp.Put(&BlubCell.unknown_11a, 1);
         }
     }
 
@@ -1901,7 +1901,7 @@ int MapClass::Unknown_0054D560(Pipe &pipe)
         if (cellptr) {
             total += comp.Put(&cellptr->unknown_11b, 1);
         } else {
-            total += comp.Put(&unknown_dummy_cell_a6f9f8.unknown_11b, 1);
+            total += comp.Put(&BlubCell.unknown_11b, 1);
         }
     }
 
@@ -1909,12 +1909,12 @@ int MapClass::Unknown_0054D560(Pipe &pipe)
 }
 
 
-// int MapClass::Unknown_0054D660(Pipe &pipe) (0x0054D660)
+// int MapClass::Write_Binary_2(Pipe &pipe) (0x0054D660)
 // Writes, through an LCW pipe, the cell, tile type, sub tile and height of
 // every cell on the map (0x0054AAB0) that has a tile or height (TibSun
 // Write_Binary_2), then the "no cell" value 101 times. Returns the bytes put.
 
-int MapClass::Unknown_0054D660(Pipe &pipe)
+int MapClass::Write_Binary_2(Pipe &pipe)
 {
     int total = 0;
 
@@ -1926,7 +1926,7 @@ int MapClass::Unknown_0054D660(Pipe &pipe)
         CellClass *cellptr = Cells[i];
         if (i != 0 && cellptr) {
             if (In_Radar(cellptr->Fetch_CellID())) {
-                if (cellptr->Fetch_CellID() != unknown_cell_a6f238 && cellptr != &unknown_dummy_cell_a6f9f8 &&
+                if (cellptr->Fetch_CellID() != unknown_cell_a6f238 && cellptr != &BlubCell &&
                     (cellptr->IsoTileIndex != 0xFFFF || cellptr->unknown_11b > 0)) {
                     Cell cell = cellptr->Fetch_CellID();
                     total += comp.Put(&cell, sizeof(cell));
@@ -1949,11 +1949,11 @@ int MapClass::Unknown_0054D660(Pipe &pipe)
 }
 
 
-// int MapClass::Unknown_0054D810(Pipe &pipe) (0x0054D810)
+// int MapClass::Write_Binary_3(Pipe &pipe) (0x0054D810)
 // As 0x0054D660 straight into the pipe, with one "no cell" value at the end
 // (TibSun Write_Binary_3).
 
-int MapClass::Unknown_0054D810(Pipe &pipe)
+int MapClass::Write_Binary_3(Pipe &pipe)
 {
     int total = 0;
 
@@ -1961,7 +1961,7 @@ int MapClass::Unknown_0054D810(Pipe &pipe)
         CellClass *cellptr = Cells[i];
         if (i != 0 && cellptr) {
             if (In_Radar(cellptr->Fetch_CellID())) {
-                if (cellptr->Fetch_CellID() != unknown_cell_a6f238 && cellptr != &unknown_dummy_cell_a6f9f8 &&
+                if (cellptr->Fetch_CellID() != unknown_cell_a6f238 && cellptr != &BlubCell &&
                     (cellptr->IsoTileIndex != 0xFFFF || cellptr->unknown_11b > 0)) {
                     Cell cell = cellptr->Fetch_CellID();
                     total += pipe.Put(&cell, sizeof(cell));
@@ -1980,10 +1980,10 @@ int MapClass::Unknown_0054D810(Pipe &pipe)
 }
 
 
-// int MapClass::Unknown_0054D970(Pipe &pipe) (0x0054D970)
+// int MapClass::Write_Binary_4(Pipe &pipe) (0x0054D970)
 // As 0x0054D810 through an LZO pipe, adding what End flushes (TibSun Write_Binary_4).
 
-int MapClass::Unknown_0054D970(Pipe &pipe)
+int MapClass::Write_Binary_4(Pipe &pipe)
 {
     LZOPipe comp(LZOPipe::COMPRESS, 0x2000);
     comp.Put_To(&pipe);
@@ -1993,7 +1993,7 @@ int MapClass::Unknown_0054D970(Pipe &pipe)
         CellClass *cellptr = Cells[i];
         if (i != 0 && cellptr) {
             if (In_Radar(cellptr->Fetch_CellID())) {
-                if (cellptr->Fetch_CellID() != unknown_cell_a6f238 && cellptr != &unknown_dummy_cell_a6f9f8 &&
+                if (cellptr->Fetch_CellID() != unknown_cell_a6f238 && cellptr != &BlubCell &&
                     (cellptr->IsoTileIndex != 0xFFFF || cellptr->unknown_11b > 0)) {
                     Cell cell = cellptr->Fetch_CellID();
                     total += comp.Put(&cell, sizeof(cell));
@@ -2013,10 +2013,10 @@ int MapClass::Unknown_0054D970(Pipe &pipe)
 }
 
 
-// int MapClass::Unknown_0054DB10(Pipe &pipe) (0x0054DB10)
+// int MapClass::Write_Binary_5(Pipe &pipe) (0x0054DB10)
 // As 0x0054D970 with each cell's +0x119 after its height (TibSun Write_Binary_5).
 
-int MapClass::Unknown_0054DB10(Pipe &pipe)
+int MapClass::Write_Binary_5(Pipe &pipe)
 {
     LZOPipe comp(LZOPipe::COMPRESS, 0x2000);
     comp.Put_To(&pipe);
@@ -2026,7 +2026,7 @@ int MapClass::Unknown_0054DB10(Pipe &pipe)
         CellClass *cellptr = Cells[i];
         if (i != 0 && cellptr) {
             if (In_Radar(cellptr->Fetch_CellID())) {
-                if (cellptr->Fetch_CellID() != unknown_cell_a6f238 && cellptr != &unknown_dummy_cell_a6f9f8 &&
+                if (cellptr->Fetch_CellID() != unknown_cell_a6f238 && cellptr != &BlubCell &&
                     (cellptr->IsoTileIndex != 0xFFFF || cellptr->unknown_11b > 0)) {
                     Cell cell = cellptr->Fetch_CellID();
                     total += comp.Put(&cell, sizeof(cell));
@@ -2047,13 +2047,13 @@ int MapClass::Unknown_0054DB10(Pipe &pipe)
 }
 
 
-// bool MapClass::Unknown_0054DCC0(Straw &straw) (0x0054DCC0)
+// bool MapClass::Read_Binary_1(Straw &straw) (0x0054DCC0)
 // Reads the tile data of the first 128 x 128 cells through an LCW straw
 // (TibSun Read_Binary_1): every tile type (two bytes, fixed up by
 // 0x00529550), then every sub tile, then every height; a cell off the map
 // reads into the dummy cell, which is rebuilt afterwards.
 
-bool MapClass::Unknown_0054DCC0(Straw &straw)
+bool MapClass::Read_Binary_1(Straw &straw)
 {
     LCWStraw decomp(LCWStraw::DECOMPRESS, 0x2000);
     decomp.Get_From(&straw);
@@ -2067,7 +2067,7 @@ bool MapClass::Unknown_0054DCC0(Straw &straw)
             decomp.Get(&cellptr->IsoTileIndex, sizeof(cellptr->IsoTileIndex) / 2);
             cellptr->IsoTileIndex = IsometricTileTypeClass::Unknown_00529550(cellptr->IsoTileIndex);
         } else {
-            decomp.Get(&unknown_dummy_cell_a6f9f8.IsoTileIndex, sizeof(unknown_dummy_cell_a6f9f8.IsoTileIndex) / 2);
+            decomp.Get(&BlubCell.IsoTileIndex, sizeof(BlubCell.IsoTileIndex) / 2);
         }
     }
 
@@ -2076,7 +2076,7 @@ bool MapClass::Unknown_0054DCC0(Straw &straw)
         if (cellptr != 0) {
             decomp.Get(&cellptr->unknown_11a, sizeof(cellptr->unknown_11a));
         } else {
-            decomp.Get(&unknown_dummy_cell_a6f9f8.unknown_11a, sizeof(unknown_dummy_cell_a6f9f8.unknown_11a));
+            decomp.Get(&BlubCell.unknown_11a, sizeof(BlubCell.unknown_11a));
         }
     }
 
@@ -2085,11 +2085,11 @@ bool MapClass::Unknown_0054DCC0(Straw &straw)
         if (cellptr != 0) {
             decomp.Get(&cellptr->unknown_11b, sizeof(cellptr->unknown_11b));
         } else {
-            decomp.Get(&unknown_dummy_cell_a6f9f8.unknown_11b, sizeof(unknown_dummy_cell_a6f9f8.unknown_11b));
+            decomp.Get(&BlubCell.unknown_11b, sizeof(BlubCell.unknown_11b));
         }
     }
 
-    new (&unknown_dummy_cell_a6f9f8) CellClass;
+    new (&BlubCell) CellClass;
     return true;
 }
 
@@ -2107,7 +2107,7 @@ bool MapClass::Unknown_0054DEA0(Straw &straw)
 
     while (cell != unknown_cell_a6f238) {
         CellClass *cellptr = &(*this)[cell];
-        if (cellptr != 0 && cellptr != &unknown_dummy_cell_a6f9f8) {
+        if (cellptr != 0 && cellptr != &BlubCell) {
             cellptr->IsoTileIndex = 0xFFFF;
             decomp.Get(&cellptr->IsoTileIndex, sizeof(cellptr->IsoTileIndex));
             cellptr->IsoTileIndex = IsometricTileTypeClass::Unknown_00529550(cellptr->IsoTileIndex);
@@ -2120,25 +2120,25 @@ bool MapClass::Unknown_0054DEA0(Straw &straw)
         cell = unknown_cell_a6f238;
         decomp.Get(&cell, sizeof(cell));
     }
-    new (&unknown_dummy_cell_a6f9f8) CellClass;
+    new (&BlubCell) CellClass;
     return true;
 }
 
 
-// bool MapClass::Unknown_0054DFC0(Straw &straw) (0x0054DFC0)
+// bool MapClass::Read_Binary_3(Straw &straw) (0x0054DFC0)
 // Reads tile data from an uncompressed straw (TibSun Read_Binary_3): for each
 // cell up to the "no cell" value its tile type (fixed up by 0x00529550), sub
 // tile and height; the record of a cell off the map is skipped. The dummy cell
 // is rebuilt afterwards.
 
-bool MapClass::Unknown_0054DFC0(Straw &straw)
+bool MapClass::Read_Binary_3(Straw &straw)
 {
     Cell cell;
     straw.Get(&cell, sizeof(cell));
 
     while (cell != unknown_cell_a6f238) {
         CellClass *cellptr = &(*this)[cell];
-        if (cellptr != 0 && cellptr != &unknown_dummy_cell_a6f9f8) {
+        if (cellptr != 0 && cellptr != &BlubCell) {
             cellptr->IsoTileIndex = 0xFFFF;
             straw.Get(&cellptr->IsoTileIndex, sizeof(cellptr->IsoTileIndex));
             cellptr->IsoTileIndex = IsometricTileTypeClass::Unknown_00529550(cellptr->IsoTileIndex);
@@ -2151,7 +2151,7 @@ bool MapClass::Unknown_0054DFC0(Straw &straw)
         cell = unknown_cell_a6f238;
         straw.Get(&cell, sizeof(cell));
     }
-    new (&unknown_dummy_cell_a6f9f8) CellClass;
+    new (&BlubCell) CellClass;
     return true;
 }
 
@@ -2169,7 +2169,7 @@ bool MapClass::Unknown_0054E0C0(Straw &straw)
 
     while (cell != unknown_cell_a6f238) {
         CellClass *cellptr = &(*this)[cell];
-        if (cellptr != 0 && cellptr != &unknown_dummy_cell_a6f9f8) {
+        if (cellptr != 0 && cellptr != &BlubCell) {
             cellptr->IsoTileIndex = 0xFFFF;
             decomp.Get(&cellptr->IsoTileIndex, sizeof(cellptr->IsoTileIndex));
             cellptr->IsoTileIndex = IsometricTileTypeClass::Unknown_00529550(cellptr->IsoTileIndex);
@@ -2182,15 +2182,15 @@ bool MapClass::Unknown_0054E0C0(Straw &straw)
         cell = unknown_cell_a6f238;
         decomp.Get(&cell, sizeof(cell));
     }
-    new (&unknown_dummy_cell_a6f9f8) CellClass;
+    new (&BlubCell) CellClass;
     return true;
 }
 
 
-// bool MapClass::Unknown_0054E1E0(Straw &straw) (0x0054E1E0)
+// bool MapClass::Read_Binary_5(Straw &straw) (0x0054E1E0)
 // As 0x0054E0C0 with each cell's +0x119 after its height (TibSun Read_Binary_5).
 
-bool MapClass::Unknown_0054E1E0(Straw &straw)
+bool MapClass::Read_Binary_5(Straw &straw)
 {
     LZOStraw decomp(LZOStraw::DECOMPRESS, 0x2000);
     decomp.Get_From(&straw);
@@ -2200,7 +2200,7 @@ bool MapClass::Unknown_0054E1E0(Straw &straw)
 
     while (cell != unknown_cell_a6f238) {
         CellClass *cellptr = &(*this)[cell];
-        if (cellptr != 0 && cellptr != &unknown_dummy_cell_a6f9f8) {
+        if (cellptr != 0 && cellptr != &BlubCell) {
             cellptr->IsoTileIndex = 0xFFFF;
             decomp.Get(&cellptr->IsoTileIndex, sizeof(cellptr->IsoTileIndex));
             cellptr->IsoTileIndex = IsometricTileTypeClass::Unknown_00529550(cellptr->IsoTileIndex);
@@ -2214,7 +2214,7 @@ bool MapClass::Unknown_0054E1E0(Straw &straw)
         cell = unknown_cell_a6f238;
         decomp.Get(&cell, sizeof(cell));
     }
-    new (&unknown_dummy_cell_a6f9f8) CellClass;
+    new (&BlubCell) CellClass;
     return true;
 }
 
@@ -2230,7 +2230,7 @@ void MapClass::unknown_slot27()
         for (int index = 0; index < 256; index++) {
             if (unknown_154[index].Cell != unknown_cell_a6f238 && unknown_154[index].Timer.Value() == 0) {
                 unknown_154[index].Unknown_00493930();
-                Unknown_0054E410();
+                Place_Random_Crate();
             }
         }
     }
@@ -2258,13 +2258,13 @@ int MapClass::Cell_Threat(Cell const &cell, HouseClass *house)
 }
 
 
-// bool MapClass::Unknown_0054E410() (0x0054E410)
+// bool MapClass::Place_Random_Crate() (0x0054E410)
 // Places a crate on a random cell (TibSun Place_Random_Crate): the first +0x154 entry whose
 // cell is unknown_cell_a6f238; up to 1000 random cells inside the map's cell rectangle, each
 // moved to a reachable cell nearby (0x005502E0; speed type 5 on water, land type 2, else 1)
 // and offered to the entry (0x004939A0). False when no entry is free or no cell took the crate.
 
-bool MapClass::Unknown_0054E410()
+bool MapClass::Place_Random_Crate()
 {
     int crateindex = 0;
     for (crateindex = 0; crateindex < 256; crateindex++) {
@@ -2652,8 +2652,8 @@ int MapClass::Zone_Reset()
 
     for (i = ZoneConnections.Count() - 1; i >= 0; i--) {
         if (ZoneConnections[i].unknown_08) {
-            int from_zone = Unknown_0054FA60(ZoneConnections[i].From);
-            int to_zone = Unknown_0054FA60(ZoneConnections[i].To);
+            int from_zone = Get_Cell_Zone_ID(ZoneConnections[i].From);
+            int to_zone = Get_Cell_Zone_ID(ZoneConnections[i].To);
             if (to_zone != from_zone) {
                 if (to_zone < from_zone) {
                     int temp = to_zone;
@@ -2851,15 +2851,15 @@ int MapClass::Zone(Cell const &cell, int zone_type, bool alt)
     } else {
         p = &cell;
     }
-    return ((unsigned short *)unknown_18[zone_type])[Unknown_0054FA60(*p)];
+    return ((unsigned short *)unknown_18[zone_type])[Get_Cell_Zone_ID(*p)];
 }
 
 
-// int MapClass::Unknown_0054FA60(Cell const &cell) (0x0054FA60)
+// int MapClass::Get_Cell_Zone_ID(Cell const &cell) (0x0054FA60)
 // The +0x02 value of the +0x64 element of a cell (index clamped by
 // 0x0054FAB0, expanded inline).
 
-int MapClass::Unknown_0054FA60(Cell const &cell)
+int MapClass::Get_Cell_Zone_ID(Cell const &cell)
 {
     return CellZones[Get_Cell_Zone_Index(cell)].unknown_02;
 }
@@ -2867,7 +2867,7 @@ int MapClass::Unknown_0054FA60(Cell const &cell)
 
 int MapClass::Get_Cell_Zone_Index(Cell const &cell)
 {
-    int index = Unknown_0054FAF0(cell);
+    int index = Get_Cell_Subzone_Index(cell);
     int result;
     if (index < 0) {
         result = 0;
@@ -2880,11 +2880,11 @@ int MapClass::Get_Cell_Zone_Index(Cell const &cell)
 }
 
 
-// int MapClass::Unknown_0054FAF0(Cell const &cell) (0x0054FAF0)
+// int MapClass::Get_Cell_Subzone_Index(Cell const &cell) (0x0054FAF0)
 // The cell's index in the +0x64 array without clamping:
 // Y * (width + height + 1) + X.
 
-int MapClass::Unknown_0054FAF0(Cell const &cell)
+int MapClass::Get_Cell_Subzone_Index(Cell const &cell)
 {
     return (MapSize.Height + 1 + MapSize.Width) * cell.Y + cell.X;
 }
@@ -3140,12 +3140,12 @@ int MapClass::Zone_Connection_Index(Cell const &cell, int distance, int start)
 }
 
 
-// bool MapClass::Unknown_005501A0(Cell const &cell) (0x005501A0)
+// bool MapClass::Unregister_Subzone_Connections(Cell const &cell) (0x005501A0)
 // Runs 0x00566C30 on every zone connection within 3 of a cell that has
 // +0x08 set, clearing it; when no connection is near, the connections are
 // rebuilt (0x0054FDA0) and searched once more. Whether any was flagged.
 
-bool MapClass::Unknown_005501A0(Cell const &cell)
+bool MapClass::Unregister_Subzone_Connections(Cell const &cell)
 {
     int index = Zone_Connection_Index(cell, 3, 0);
     if (index == -1) {
@@ -3158,7 +3158,7 @@ bool MapClass::Unknown_005501A0(Cell const &cell)
     bool found = false;
     while (index != -1) {
         if (ZoneConnections[index].unknown_08) {
-            Unknown_00566C30(&ZoneConnections[index]);
+            Unregister_Subzone_Connection(&ZoneConnections[index]);
             found = true;
             ZoneConnections[index].unknown_08 = false;
         }
@@ -3169,13 +3169,13 @@ bool MapClass::Unknown_005501A0(Cell const &cell)
 }
 
 
-// bool MapClass::Unknown_00550230(Cell const &cell) (0x00550230)
+// bool MapClass::Register_Subzone_Connections(Cell const &cell) (0x00550230)
 // Every zone connection within 3 of a cell that is not flagged gets +0x08
 // set, 0x00566F90 run on it and its From-To path tested (0x0054F7C0);
 // when no connection is near, the connections are rebuilt (0x0054FDA0)
 // and searched once more. Whether any tested path failed.
 
-bool MapClass::Unknown_00550230(Cell const &cell)
+bool MapClass::Register_Subzone_Connections(Cell const &cell)
 {
     int index = Zone_Connection_Index(cell, 3, 0);
     if (index == -1) {
@@ -3189,7 +3189,7 @@ bool MapClass::Unknown_00550230(Cell const &cell)
     while (index != -1) {
         if (!ZoneConnections[index].unknown_08) {
             ZoneConnections[index].unknown_08 = true;
-            Unknown_00566F90(&ZoneConnections[index]);
+            Register_Subzone_Connection(&ZoneConnections[index]);
             if (!Unknown_0054F7C0(ZoneConnections[index].From, ZoneConnections[index].To, 0, false, 0, false)) {
                 failed = true;
             }
@@ -3915,7 +3915,7 @@ void MapClass::Unknown_00552570(Cell const &cell)
                     Map[middle].unknown_11b += 4;
                     Map[Adjacent_Cell(middle, FACING_N)].unknown_11b += 4;
                     Map[Adjacent_Cell(middle, FACING_S)].unknown_11b += 4;
-                    zonechanged = Unknown_00550230(middle);
+                    zonechanged = Register_Subzone_Connections(middle);
                     for (int dx = 0; dx < 2; dx++) {
                         for (int dy = -2; dy < 3; dy++) {
                             cells.Add(Cell(middle + Cell(dx, dy)));
@@ -3942,7 +3942,7 @@ void MapClass::Unknown_00552570(Cell const &cell)
                     Map[middle].unknown_11b += 4;
                     Map[Adjacent_Cell(middle, FACING_E)].unknown_11b += 4;
                     Map[Adjacent_Cell(middle, FACING_W)].unknown_11b += 4;
-                    zonechanged = Unknown_00550230(middle);
+                    zonechanged = Register_Subzone_Connections(middle);
                     for (int dy = 0; dy < 2; dy++) {
                         for (int dx = -2; dx < 3; dx++) {
                             cells.Add(Cell(middle + Cell(dx, dy)));
@@ -3962,7 +3962,7 @@ void MapClass::Unknown_00552570(Cell const &cell)
         Zone_Reset();
     }
     if (cells.Count() > 0) {
-        Unknown_005688A0(cells);
+        Recalc_Cells_In_List(cells);
     }
 }
 
@@ -4139,7 +4139,7 @@ extern int unknown_tileset_a52588;
 
 void MapClass::Destroy_Train_Bridge_Connections_00553570(Cell const &cell)
 {
-    CellClass *cellptr = &unknown_dummy_cell_a6f9f8;
+    CellClass *cellptr = &BlubCell;
     int facing = FACING_N;
     for (int index = 0; index < 8; index++) {
         Cell adjacent = Adjacent_Cell(cell, facing);
@@ -4334,7 +4334,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 			Destroy_Train_Bridge_Connections_00553570(Adjacent_Cell(middle_cellptr->Fetch_CellID(), FACING_W));
 			Destroy_Train_Bridge_Connections_00553570(Adjacent_Cell(middle_cellptr->Fetch_CellID(), FACING_E));
 
-			if (Unknown_005501A0(zone_cell)) {
+			if (Unregister_Subzone_Connections(zone_cell)) {
 				Zone_Reset();
 			}
 
@@ -4344,7 +4344,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 					cells.Add(Cell(zone_cell + Cell(x, y)));
 				}
 			}
-			Map.Unknown_005688A0(cells);
+			Map.Recalc_Cells_In_List(cells);
 		}
 
 		if (ittype == unknown_tileset_a6cb7c ||
@@ -4417,7 +4417,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 				Destroy_Train_Bridge_Connections_00553570(Adjacent_Cell(middle_cellptr->Fetch_CellID(), FACING_N));
 				Destroy_Train_Bridge_Connections_00553570(Adjacent_Cell(middle_cellptr->Fetch_CellID(), FACING_S));
 
-				if (Unknown_005501A0(zone_cell)) {
+				if (Unregister_Subzone_Connections(zone_cell)) {
 					Zone_Reset();
 				}
 
@@ -4427,7 +4427,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 						cells.Add(Cell(zone_cell + Cell(x, y)));
 					}
 				}
-				Map.Unknown_005688A0(cells);
+				Map.Recalc_Cells_In_List(cells);
 			}
 
 			if (ittype == unknown_tileset_a52e70 ||
@@ -4475,7 +4475,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_Train_Bridge_Connections_00553570(cell);
-				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+				if (Unregister_Subzone_Connections(bridge_deck_cell->MapCoords)) {
 					Zone_Reset();
 				}
 				return(true);
@@ -4486,7 +4486,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_Train_Bridge_Connections_00553570(cell);
-				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+				if (Unregister_Subzone_Connections(bridge_deck_cell->MapCoords)) {
 					Zone_Reset();
 				}
 				return(true);
@@ -4497,7 +4497,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_Train_Bridge_Connections_00553570(cell);
-				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+				if (Unregister_Subzone_Connections(bridge_deck_cell->MapCoords)) {
 					Zone_Reset();
 				}
 				return(true);
@@ -4520,7 +4520,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_Train_Bridge_Connections_00553570(cell);
-				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+				if (Unregister_Subzone_Connections(bridge_deck_cell->MapCoords)) {
 					Zone_Reset();
 				}
 				return(true);
@@ -4531,7 +4531,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_Train_Bridge_Connections_00553570(cell);
-				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+				if (Unregister_Subzone_Connections(bridge_deck_cell->MapCoords)) {
 					Zone_Reset();
 				}
 				return(true);
@@ -4542,7 +4542,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_Train_Bridge_Connections_00553570(cell);
-				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+				if (Unregister_Subzone_Connections(bridge_deck_cell->MapCoords)) {
 					Zone_Reset();
 				}
 				return(true);
@@ -5008,7 +5008,7 @@ void MapClass::Unknown_00555A60(Cell const &cell)
                     Map[middle].unknown_11b += 4;
                     Map[Adjacent_Cell(middle, FACING_N)].unknown_11b += 4;
                     Map[Adjacent_Cell(middle, FACING_S)].unknown_11b += 4;
-                    zonechanged = Unknown_00550230(middle);
+                    zonechanged = Register_Subzone_Connections(middle);
                     for (int dx = 0; dx < 2; dx++) {
                         for (int dy = -2; dy < 3; dy++) {
                             cells.Add(Cell(middle + Cell(dx, dy)));
@@ -5035,7 +5035,7 @@ void MapClass::Unknown_00555A60(Cell const &cell)
                     Map[middle].unknown_11b += 4;
                     Map[Adjacent_Cell(middle, FACING_E)].unknown_11b += 4;
                     Map[Adjacent_Cell(middle, FACING_W)].unknown_11b += 4;
-                    zonechanged = Unknown_00550230(middle);
+                    zonechanged = Register_Subzone_Connections(middle);
                     for (int dy = 0; dy < 2; dy++) {
                         for (int dx = -2; dx < 3; dx++) {
                             cells.Add(Cell(middle + Cell(dx, dy)));
@@ -5056,7 +5056,7 @@ void MapClass::Unknown_00555A60(Cell const &cell)
         Zone_Reset();
     }
     if (cells.Count() > 0) {
-        Unknown_005688A0(cells);
+        Recalc_Cells_In_List(cells);
     }
 }
 
@@ -5143,7 +5143,7 @@ destroy_span:
         Cell end = spancell;
         int hits;
         for (hits = 0; hits < 3; ++hits) {
-            if (Unknown_00569090(&spancell)) break;
+            if (Damage_Bridge(&spancell)) break;
         }
         while (true) {
             end = Adjacent_Cell(end, step);
@@ -5152,12 +5152,12 @@ destroy_span:
                 end.Y < unknown_124 || end.Y > unknown_124 + unknown_12c)
                 goto destroy_connections;
             tile = spanptr->IsoTileIndex - unknown_tileset_a52c74 + 1;
-            if (Unknown_00556B30(tile, step, spanptr)) break;
+            if (Is_Bridge_Span_End(tile, step, spanptr)) break;
         }
         if (tile != -1) {
             end = end + AdjacentCell[(step - 4) & 7];
             for (hits = 0; hits < 3; ++hits) {
-                if (Unknown_00569090(&end)) break;
+                if (Damage_Bridge(&end)) break;
             }
         }
 destroy_connections:
@@ -5170,12 +5170,12 @@ finished:
 }
 
 
-// bool __fastcall Unknown_00556B30(int tile, int kind, CellClass const *cell) (0x00556B30)
+// bool __fastcall Is_Bridge_Span_End(int tile, int kind, CellClass const *cell) (0x00556B30)
 // Whether a tile is a bridge piece of direction kind 2 or 4 (one tile of two
 // sets, or one of four consecutive tiles of a third) on a cell whose +0x11A
 // is the other kind (4 for kind 2, 2 for kind 4) (called by 0x00556520 and 0x00557090; name hypothesis).
 
-bool __fastcall Unknown_00556B30(int tile, int kind, CellClass const *cell)
+bool __fastcall Is_Bridge_Span_End(int tile, int kind, CellClass const *cell)
 {
     if (kind == 2) {
         if (tile == unknown_tileset_a6e028 && cell->unknown_11a == 4) {
@@ -5360,7 +5360,7 @@ destroy_span:
         Cell end = spancell;
         int hits;
         for (hits = 0; hits < 3; ++hits) {
-            if (Unknown_00569090(&spancell)) break;
+            if (Damage_Bridge(&spancell)) break;
         }
         while (true) {
             end = Adjacent_Cell(end, step);
@@ -5369,12 +5369,12 @@ destroy_span:
                 end.Y < unknown_124 || end.Y > unknown_124 + unknown_12c)
                 goto destroy_connections;
             tile = spanptr->IsoTileIndex - unknown_tileset_a6cb68 + 1;
-            if (Unknown_00556B30(tile, step, spanptr)) break;
+            if (Is_Bridge_Span_End(tile, step, spanptr)) break;
         }
         if (tile != -1) {
             end = end + AdjacentCell[(step - 4) & 7];
             for (hits = 0; hits < 3; ++hits) {
-                if (Unknown_00569090(&end)) break;
+                if (Damage_Bridge(&end)) break;
             }
         }
 destroy_connections:
@@ -5448,7 +5448,7 @@ void MapClass::Destroy_Low_Bridge_EW(Cell const &cell)
         }
 
         for (int tries = 0; tries < 3; tries++) {
-            if (Unknown_0055DCA0(cellnum)) {
+            if (Damage_Low_Bridge(cellnum)) {
                 break;
             }
         }
@@ -5518,7 +5518,7 @@ void MapClass::Destroy_Low_Bridge_NS(Cell const &cell)
         }
 
         for (int tries = 0; tries < 3; tries++) {
-            if (Unknown_0055DCA0(cellnum)) {
+            if (Damage_Low_Bridge(cellnum)) {
                 break;
             }
         }
@@ -5915,7 +5915,7 @@ extern int unknown_tileset_a52588;
 
 void MapClass::Destroy_High_Bridge_Connections_00558BD0(Cell const &cell)
 {
-    CellClass *cellptr = &unknown_dummy_cell_a6f9f8;
+    CellClass *cellptr = &BlubCell;
     int facing = FACING_N;
     for (int index = 0; index < 8; index++) {
         Cell adjacent = Adjacent_Cell(cell, facing);
@@ -6107,7 +6107,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 			Destroy_High_Bridge_Connections_00558BD0(Adjacent_Cell(middle_cellptr->Fetch_CellID(), FACING_W));
 			Destroy_High_Bridge_Connections_00558BD0(Adjacent_Cell(middle_cellptr->Fetch_CellID(), FACING_E));
 
-			if (Unknown_005501A0(zone_cell)) {
+			if (Unregister_Subzone_Connections(zone_cell)) {
 				Zone_Reset();
 			}
 
@@ -6117,7 +6117,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 					cells.Add(Cell(zone_cell + Cell(x, y)));
 				}
 			}
-			Map.Unknown_005688A0(cells);
+			Map.Recalc_Cells_In_List(cells);
 			return(true);
 		}
 
@@ -6191,7 +6191,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				Destroy_High_Bridge_Connections_00558BD0(Adjacent_Cell(middle_cellptr->Fetch_CellID(), FACING_N));
 				Destroy_High_Bridge_Connections_00558BD0(Adjacent_Cell(middle_cellptr->Fetch_CellID(), FACING_S));
 
-				if (Unknown_005501A0(zone_cell)) {
+				if (Unregister_Subzone_Connections(zone_cell)) {
 					Zone_Reset();
 				}
 
@@ -6201,7 +6201,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 						cells.Add(Cell(zone_cell + Cell(x, y)));
 					}
 				}
-				Map.Unknown_005688A0(cells);
+				Map.Recalc_Cells_In_List(cells);
 			return(true);
 			}
 
@@ -6250,7 +6250,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
-				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+				if (Unregister_Subzone_Connections(bridge_deck_cell->MapCoords)) {
 					Zone_Reset();
 				}
 				return(true);
@@ -6261,7 +6261,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
-				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+				if (Unregister_Subzone_Connections(bridge_deck_cell->MapCoords)) {
 					Zone_Reset();
 				}
 				return(true);
@@ -6272,7 +6272,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
-				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+				if (Unregister_Subzone_Connections(bridge_deck_cell->MapCoords)) {
 					Zone_Reset();
 				}
 				return(true);
@@ -6295,7 +6295,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
-				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+				if (Unregister_Subzone_Connections(bridge_deck_cell->MapCoords)) {
 					Zone_Reset();
 				}
 				return(true);
@@ -6306,7 +6306,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
-				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+				if (Unregister_Subzone_Connections(bridge_deck_cell->MapCoords)) {
 					Zone_Reset();
 				}
 				return(true);
@@ -6317,7 +6317,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
-				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+				if (Unregister_Subzone_Connections(bridge_deck_cell->MapCoords)) {
 					Zone_Reset();
 				}
 				return(true);
@@ -6350,7 +6350,7 @@ void MapClass::Detach(AbstractClass *target, bool all)
                 index--;
             }
         }
-        unknown_dummy_cell_a6f9f8.unknown_47a340(target);
+        BlubCell.unknown_47a340(target);
     }
     if (target->Kind_Of() == 0x2C) {
         MapTags.Delete((TagClass *)target);
@@ -6372,15 +6372,15 @@ Cell MapClass::Pick_Random_Location() const
 }
 
 
-// void MapClass::Unknown_00559F10() (0x00559F10)
+// void MapClass::Spy_Satellite_Hide() (0x00559F10)
 // Covers the whole map again: runs DisplayClass 0x0049E000 (false, false),
 // clears every cell's visibility (+0x12C bits 3-4, +0x140 bits 0-1; +0x130
 // set, +0x134 cleared), runs DisplayClass 0x0049DE00 (false, false), clears
 // the player's +0x188, redraws the radar and flags a full redraw.
 
-void MapClass::Unknown_00559F10()
+void MapClass::Spy_Satellite_Hide()
 {
-    Map.Unknown_0049E000(false, false);
+    Map.Update_Technos_Visibility(false, false);
     Reset_Iterator();
     for (CellClass *cell = Iterate(); cell != 0; cell = Iterate()) {
         cell->IsMapped = false; cell->IsVisible = false;
@@ -6388,7 +6388,7 @@ void MapClass::Unknown_00559F10()
         cell->unknown_134 = 0;
         cell->IsFogVisible = false; cell->IsFogMapped = false;
     }
-    Map.Unknown_0049DE00(false, false);
+    Map.Reveal_Technos(false, false);
     PlayerPtr->unknown_188 = false;
     Map.Complete_Radar_Refresh();
     Flag_To_Redraw(2);
@@ -6407,7 +6407,7 @@ void MapClass::Shroud_The_Map()
         cell->IsMapped = false; cell->IsVisible = false;
         cell->IsFogVisible = false; cell->IsFogMapped = false;
     }
-    Map.Unknown_0049E110(false, false);
+    Map.All_To_Look(false, false);
     PlayerPtr->unknown_188 = false;
     Map.Complete_Radar_Refresh();
     Flag_To_Redraw(2);
@@ -6430,23 +6430,23 @@ void MapClass::Unknown_0055A070()
             cell->IsFogVisible = false; cell->IsFogMapped = false;
         }
     }
-    Map.Unknown_0049E110(false, false);
+    Map.All_To_Look(false, false);
     PlayerPtr->unknown_188 = false;
     Map.Complete_Radar_Refresh();
     Flag_To_Redraw(2);
 }
 
 
-// void MapClass::Unknown_0055A120() (0x0055A120)
+// void MapClass::Spy_Satellite_Reveal() (0x0055A120)
 // Unless the player's +0x188 is set: DisplayClass 0x0049E000 (false,
 // false), +0x188 set, every cell of the global Map covered (+0x12C bits
 // 3-4 and +0x140 bits 0-1 set, +0x130 and +0x134 cleared), DisplayClass
 // 0x0049DE00 (false, false), the radar redrawn and a full redraw.
 
-void MapClass::Unknown_0055A120()
+void MapClass::Spy_Satellite_Reveal()
 {
     if (!PlayerPtr->unknown_188) {
-        Map.Unknown_0049E000(false, false);
+        Map.Update_Technos_Visibility(false, false);
         PlayerPtr->unknown_188 = true;
         Map.Reset_Iterator();
         for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
@@ -6455,7 +6455,7 @@ void MapClass::Unknown_0055A120()
             cell->unknown_134 = 0;
             cell->IsFogVisible = true; cell->IsFogMapped = true;
         }
-        Map.Unknown_0049DE00(false, false);
+        Map.Reveal_Technos(false, false);
         Map.Complete_Radar_Refresh();
         Map.Flag_To_Redraw(2);
     }
@@ -6511,7 +6511,7 @@ void MapClass::Refresh_Shroud()
             cellptr->unknown_138 = true;
             TacticalMap->Flag_Cell(cellptr);
             if (cellptr->unknown_120 == -2) {
-                Map.Unknown_00568520(cellptr, PlayerPtr, true);
+                Map.Reveal_Nearby_Technos(cellptr, PlayerPtr, true);
             }
         }
         cellptr = Iterate();
@@ -6527,7 +6527,7 @@ void MapClass::Refresh_Shroud()
             cellptr->unknown_138 = true;
             TacticalMap->Flag_Cell(cellptr);
             if (cellptr->unknown_120 == -2) {
-                Map.Unknown_00568520(cellptr, PlayerPtr, true);
+                Map.Reveal_Nearby_Technos(cellptr, PlayerPtr, true);
             }
         }
         cellptr = Iterate();
@@ -6758,12 +6758,12 @@ class Leaf_55acc0 { public: void get(); };
 void Leaf_55acc0::get() { unsigned int map_address = (unsigned int)this; unsigned int unused_result; unsigned int unused_value; *(unsigned char*)(map_address + 0x1154) = (*(unsigned char*)(map_address + 0x1154)) + 1; }
 
 
-// bool MapClass::Unknown_0055ACD0(ObjectClass *object, Cell const &cell) (0x0055ACD0)
+// bool MapClass::Try_Open_Gate(ObjectClass *object, Cell const &cell) (0x0055ACD0)
 // Whether the object may enter the cell (TibSun Try_Open_Gate): a gate building
 // among the cell's other occupiers opens for an allied object (BuildingClass
 // 0x0044D7D0) and otherwise lets it pass only when already open (0x0044D880).
 
-bool MapClass::Unknown_0055ACD0(ObjectClass *object, Cell const &cell)
+bool MapClass::Try_Open_Gate(ObjectClass *object, Cell const &cell)
 {
     TechnoClass *optr = (TechnoClass *)Map[cell].OccupierPtr;
     while (optr != 0) {
@@ -6923,12 +6923,12 @@ bool MapClass::Build_All_Cliffs(int unused, int region_id)
     bool expanded = true;
 
     bool is_temp_data = false;
-    if (unknown_map_cells_a70a24 == 0) {
-        unknown_map_cells_a70a24 = new UnknownMapGenerationCell[unknown_map_cell_side_84e804 * unknown_map_cell_side_84e804];
+    if (RMGCellData == 0) {
+        RMGCellData = new UnknownMapGenerationCell[MapCellStride * MapCellStride];
         is_temp_data = true;
     }
 
-    int r = unknown_map_cell_side_84e804;
+    int r = MapCellStride;
     int s = r * r;
     for (int i = 0; i < s; i++) {
         Get_Cell_Data_0056dbc0(i).unknown_45[5] = 1;
@@ -6960,8 +6960,8 @@ bool MapClass::Build_All_Cliffs(int unused, int region_id)
     }
 
     if (is_temp_data) {
-        delete [] unknown_map_cells_a70a24;
-        unknown_map_cells_a70a24 = 0;
+        delete [] RMGCellData;
+        RMGCellData = 0;
     }
 
     return expanded;
@@ -6978,32 +6978,32 @@ bool MapClass::Build_All_Cliffs(int unused, int region_id)
 bool MapClass::Expand_High_Ground(CellClass *cellptr, int region_id)
 {
     bool expand = false;
-    unsigned int mask = Unknown_0055BD70(cellptr);
+    unsigned int mask = Get_High_Ground_Mask(cellptr);
 
     if ((mask & 0xA0) == 0xA0 && (mask & 0x11) == 0x11) {
         expand = true;
     }
 
     if ((mask & 0x20) != 0) {
-        if ((Unknown_0055BD70(&Map[cellptr->Fetch_CellID() + Cell(1, 0)]) & 0x02) != 0) {
+        if ((Get_High_Ground_Mask(&Map[cellptr->Fetch_CellID() + Cell(1, 0)]) & 0x02) != 0) {
             expand = true;
         }
     }
 
     if ((mask & 0x02) != 0) {
-        if ((Unknown_0055BD70(&Map[cellptr->Fetch_CellID() + Cell(-1, 0)]) & 0x20) != 0) {
+        if ((Get_High_Ground_Mask(&Map[cellptr->Fetch_CellID() + Cell(-1, 0)]) & 0x20) != 0) {
             expand = true;
         }
     }
 
     if ((mask & 0x08) != 0) {
-        if ((Unknown_0055BD70(&Map[cellptr->Fetch_CellID() + Cell(0, -1)]) & 0x80) != 0) {
+        if ((Get_High_Ground_Mask(&Map[cellptr->Fetch_CellID() + Cell(0, -1)]) & 0x80) != 0) {
             expand = true;
         }
     }
 
     if ((mask & 0x80) != 0) {
-        if ((Unknown_0055BD70(&Map[cellptr->Fetch_CellID() + Cell(0, 1)]) & 0x08) != 0) {
+        if ((Get_High_Ground_Mask(&Map[cellptr->Fetch_CellID() + Cell(0, 1)]) & 0x08) != 0) {
             expand = true;
         }
     }
@@ -7077,7 +7077,7 @@ unsigned int __fastcall Map_Random_Range_005797a0(unsigned int minimum, unsigned
 bool MapClass::Place_Cliff(CellClass *cellptr, int region_id)
 {
     int random6 = Map_Random_Range_005797a0(0, 5);
-    unsigned int mask = Unknown_0055BD70(cellptr);
+    unsigned int mask = Get_High_Ground_Mask(cellptr);
 
     int variant = -1;
     unsigned int south;
@@ -7085,8 +7085,8 @@ bool MapClass::Place_Cliff(CellClass *cellptr, int region_id)
     unsigned int southeast;
 
     if ((mask & 0xA0) == 0xA0) {
-        south = Unknown_0055BD70(&Map[cellptr->Fetch_CellID() + Cell(0, 1)]);
-        east = Unknown_0055BD70(&Map[cellptr->Fetch_CellID() + Cell(1, 0)]);
+        south = Get_High_Ground_Mask(&Map[cellptr->Fetch_CellID() + Cell(0, 1)]);
+        east = Get_High_Ground_Mask(&Map[cellptr->Fetch_CellID() + Cell(1, 0)]);
         if ((south & 0x20) != 0 || (east & 0x80) != 0) {
             variant = 34;
         } else {
@@ -7102,8 +7102,8 @@ bool MapClass::Place_Cliff(CellClass *cellptr, int region_id)
 
     if (variant == -1) {
         if ((mask & 0x02) != 0) {
-            south = Unknown_0055BD70(&Map[cellptr->Fetch_CellID() + Cell(0, 1)]);
-            southeast = Unknown_0055BD70(&Map[cellptr->Fetch_CellID() + Cell(1, 1)]);
+            south = Get_High_Ground_Mask(&Map[cellptr->Fetch_CellID() + Cell(0, 1)]);
+            southeast = Get_High_Ground_Mask(&Map[cellptr->Fetch_CellID() + Cell(1, 1)]);
             if ((mask & 0x04) != 0 && (mask & 0x18) == 0 && (south & 0x0A) != 0x0A) {
                 variant = random6 % 3 + 35;
             } else if ((mask & 0x0C) != 0 || (southeast & 0x02) != 0 || (random6 & 1) == 0) {
@@ -7112,15 +7112,15 @@ bool MapClass::Place_Cliff(CellClass *cellptr, int region_id)
                 variant = 1;
             }
         } else if ((mask & 0x20) != 0) {
-            south = Unknown_0055BD70(&Map[cellptr->Fetch_CellID() + Cell(0, 1)]);
+            south = Get_High_Ground_Mask(&Map[cellptr->Fetch_CellID() + Cell(0, 1)]);
             if ((mask & 0x10) == 0 || (mask & 0x0C) != 0 || (south & 0x28) == 0x28) {
                 variant = 18;
             } else {
                 variant = random6 % 3 + 15;
             }
         } else if ((mask & 0x08) != 0) {
-            east = Unknown_0055BD70(&Map[cellptr->Fetch_CellID() + Cell(1, 0)]);
-            southeast = Unknown_0055BD70(&Map[cellptr->Fetch_CellID() + Cell(1, 1)]);
+            east = Get_High_Ground_Mask(&Map[cellptr->Fetch_CellID() + Cell(1, 0)]);
+            southeast = Get_High_Ground_Mask(&Map[cellptr->Fetch_CellID() + Cell(1, 1)]);
             if ((mask & 0x04) == 0 || (mask & 0x03) != 0 || (east & 0x0A) == 0x0A) {
                 if ((mask & 0x06) != 0 || (southeast & 0x08) != 0 || (random6 & 1) == 0) {
                     variant = 26;
@@ -7131,7 +7131,7 @@ bool MapClass::Place_Cliff(CellClass *cellptr, int region_id)
                 variant = random6 % 3 + 23;
             }
         } else if ((mask & 0x80) != 0) {
-            east = Unknown_0055BD70(&Map[cellptr->Fetch_CellID() + Cell(1, 0)]);
+            east = Get_High_Ground_Mask(&Map[cellptr->Fetch_CellID() + Cell(1, 0)]);
             if ((mask & 0x01) == 0 || (mask & 0x06) != 0 || (east & 0x82) == 0x82) {
                 variant = 8;
             } else {
@@ -7159,7 +7159,7 @@ bool MapClass::Place_Cliff(CellClass *cellptr, int region_id)
         Cell cell = cellptr->Fetch_CellID();
         Cell const &varcell = unknown_cells_a6fb50[variant - 1];
 
-        Map.Unknown_004994D0(XY_Cell(varcell.X + cell.X, varcell.Y + cell.Y));
+        Map.Set_Cursor_Pos(XY_Cell(varcell.X + cell.X, varcell.Y + cell.Y));
 
         bool result = true;
         if (!Pick_Random_Tile_Variant(0, 0, cellptr->unknown_11b, region_id, result, false) && !result) {
@@ -7170,7 +7170,7 @@ bool MapClass::Place_Cliff(CellClass *cellptr, int region_id)
 }
 
 
-// unsigned int MapClass::Unknown_0055BD70(CellClass *cellptr) (0x0055BD70)
+// unsigned int MapClass::Get_High_Ground_Mask(CellClass *cellptr) (0x0055BD70)
 // The pattern of high ground around a cell (TibSun Get_High_Ground_Mask): for a cell inside
 // the map whose generator record is in the fill area (+0x4A), the mask bit of every
 // neighbour inside the map one level (4) above the cell (+0x11B) and not a cliff tile
@@ -7179,7 +7179,7 @@ bool MapClass::Place_Cliff(CellClass *cellptr, int region_id)
 // The generator record of a cell (TibSun MapRegionClass::Get_Cell_Data; __fastcall).
 UnknownMapGenerationCell &__fastcall Get_Cell_Data_0056dba0(Cell const &cell);
 
-unsigned int MapClass::Unknown_0055BD70(CellClass *cellptr)
+unsigned int MapClass::Get_High_Ground_Mask(CellClass *cellptr)
 {
     int mask = 0;
     int height = cellptr->unknown_11b;
@@ -7238,12 +7238,12 @@ bool MapClass::Build_All_Shores(int region_id, bool set_region)
     Map.Unknown_00498F10(0);
 
     bool is_temp_data = false;
-    if (unknown_map_cells_a70a24 == 0) {
-        unknown_map_cells_a70a24 = new UnknownMapGenerationCell[unknown_map_cell_side_84e804 * unknown_map_cell_side_84e804];
+    if (RMGCellData == 0) {
+        RMGCellData = new UnknownMapGenerationCell[MapCellStride * MapCellStride];
         is_temp_data = true;
     }
 
-    int r = unknown_map_cell_side_84e804;
+    int r = MapCellStride;
     int s = r * r;
     for (int i = 0; i < s; i++) {
         Get_Cell_Data_0056dbc0(i).unknown_40 = -1;
@@ -7286,8 +7286,8 @@ bool MapClass::Build_All_Shores(int region_id, bool set_region)
     }
 
     if (is_temp_data) {
-        delete [] unknown_map_cells_a70a24;
-        unknown_map_cells_a70a24 = 0;
+        delete [] RMGCellData;
+        RMGCellData = 0;
     }
 
     return expanded;
@@ -7611,7 +7611,7 @@ bool MapClass::Place_Shore(CellClass *cellptr, int pass, int region_id, bool set
     if (index > 0) {
         Map.PendingObject = IsoTileTypes[unknown_tileset_a6cb74 + index - 1];
         Cell cellid = cellptr->Fetch_CellID();
-        Cell cursor = Map.Unknown_004994D0(cellid + unknown_shore_offsets_a6f91c[index]);
+        Cell cursor = Map.Set_Cursor_Pos(cellid + unknown_shore_offsets_a6f91c[index]);
         bool result = true;
         if (pass == 1) Pick_Random_Tile_Variant(0, 0, cellptr->unknown_11b, region_id, result, set_region);
         else {
@@ -7776,7 +7776,7 @@ bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int reg
                             cellptr->unknown_11a = subtile;
                             cellptr->unknown_11b = height + record->Height;
                         } else {
-                            if ((cellptr->unknown_47b7c0() && Unknown_0055AF80(type->ArrayIndex, subtile)) ||
+                            if ((cellptr->Is_Tile_Shore() && Unknown_0055AF80(type->ArrayIndex, subtile)) ||
                                 (type->ArrayIndex >= unknown_tileset_a6cb74 && type->ArrayIndex < unknown_tileset_a6cb74 + 42 &&
                                  cellptr->unknown_47b5e0()))
                                 result = false;
@@ -7792,7 +7792,7 @@ bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int reg
 }
 
 
-// void MapClass::Unknown_0055D990(Cell const &cell) (0x0055D990)
+// void MapClass::Area_Reduce_Tiberium(Cell const &cell) (0x0055D990)
 // Reduces tiberium around a cell (TibSun Area_Reduce_Tiberium): for each
 // offset within 5 cells (11 x 11 square, Cell_Length of the offset up to 5)
 // the centre cell itself, as in the original, gives up one unit (CellClass
@@ -7805,7 +7805,7 @@ static inline short Offset_Length(Cell const &cell)
     return (short)unknown_sqrt_4ba410((double)cell.X * cell.X + (double)cell.Y * cell.Y);
 }
 
-void MapClass::Unknown_0055D990(Cell const &cell)
+void MapClass::Area_Reduce_Tiberium(Cell const &cell)
 {
     for (int x = -5; x <= 5; x++) {
         for (int y = -5; y <= 5; y++) {
@@ -7814,7 +7814,7 @@ void MapClass::Unknown_0055D990(Cell const &cell)
             if (Offset_Length(offset) <= 5) {
                 CellClass *cellptr = &Map[cell];
                 if (cellptr != 0) {
-                    cellptr->unknown_475db0(1);
+                    cellptr->Reduce_Tiberium(1);
                 }
             }
         }
@@ -7899,12 +7899,12 @@ int __fastcall Unknown_0055DB90(Cell const &cell)
 }
 
 
-// bool MapClass::Unknown_0055DCA0(Cell const &cell) (0x0055DCA0)
+// bool MapClass::Damage_Low_Bridge(Cell const &cell) (0x0055DCA0)
 // Tiberian Sun's Damage_Low_Bridge: for a low bridge overlay, finds the span's
 // centre next to `cell` (through the low bridge test 0x00562930) and damages the
 // EW (0x0055DEF0) or NS (0x0055E410) span there; true when it gave way.
 
-bool MapClass::Unknown_0055DCA0(Cell const &cell)
+bool MapClass::Damage_Low_Bridge(Cell const &cell)
 {
     int overlay = Map[cell].OverlayIndex;
 
@@ -9003,13 +9003,13 @@ int __fastcall Unknown_00562980(Cell const &cell)
 }
 
 
-// CellClass *MapClass::Unknown_005629D0(AbstractClass *object) (0x005629D0)
+// CellClass *MapClass::Find_Nearby_Shroud(AbstractClass *object) (0x005629D0)
 // TibSun Find_Nearby_Shroud: up to 24 shrouded cells (0x00568140 at the ground height) that
 // pass 0x0055A660 are gathered from square rings around the object's cell, out to the map's
 // width plus height but at most 32 rings; one of them at random, else the object's own cell.
 // Each test coordinate is TibSun's `Coord coord(cell, 0)` (CoordStruct(Cell, z); Scout1010).
 
-CellClass *MapClass::Unknown_005629D0(AbstractClass *object)
+CellClass *MapClass::Find_Nearby_Shroud(AbstractClass *object)
 {
     Cell cells[24];
 
@@ -10218,7 +10218,7 @@ bool MapClass::Build_Reachable_Subzones(CellClass *cptr, int layer, DynamicVecto
 // Remove both directions of a zone connection and its two bridge-side pairs, original00566C30.
 extern int unknown_bridge_side_facings_7e0454[];
 
-void MapClass::Unknown_00566C30(ZoneConnectionClass *connection)
+void MapClass::Unregister_Subzone_Connection(ZoneConnectionClass *connection)
 {
     short to_id;
     Cell from = connection->From;
@@ -10267,7 +10267,7 @@ void MapClass::Unknown_00566C30(ZoneConnectionClass *connection)
 // Add both directions of a zone connection and its two bridge-side pairs, original00566F90.
 extern int unknown_bridge_side_facings_7e0454[];
 
-void MapClass::Unknown_00566F90(ZoneConnectionClass *connection)
+void MapClass::Register_Subzone_Connection(ZoneConnectionClass *connection)
 {
     int to_id;
     Cell from = connection->From;
@@ -10383,7 +10383,7 @@ void MapClass::Update_Cell_Subzones(Cell const &cell)
                         if (found == -1) collected.Add(subid);
                     }
                     subptr->SubzoneID[level] = 0;
-                    subptr->ZoneID = Unknown_0054FA60(Cell(x, y));
+                    subptr->ZoneID = Get_Cell_Zone_ID(Cell(x, y));
                 }
             }
             for (int index = collected.Count() - 1; index >= 0; --index) {
@@ -10525,12 +10525,12 @@ bool MapClass::Rebuild_Shores_At(Cell const &origin)
     Map.Unknown_00498F10(0);
 
     bool is_temp_data = false;
-    if (unknown_map_cells_a70a24 == 0) {
-        unknown_map_cells_a70a24 = new UnknownMapGenerationCell[unknown_map_cell_side_84e804 * unknown_map_cell_side_84e804];
+    if (RMGCellData == 0) {
+        RMGCellData = new UnknownMapGenerationCell[MapCellStride * MapCellStride];
         is_temp_data = true;
     }
 
-    int r = unknown_map_cell_side_84e804;
+    int r = MapCellStride;
     int s = r * r;
     for (int i = 0; i < s; i++) {
         Get_Cell_Data_0056dbc0(i).unknown_45[5] = 1;
@@ -10580,8 +10580,8 @@ bool MapClass::Rebuild_Shores_At(Cell const &origin)
     }
 
     if (is_temp_data) {
-        delete [] unknown_map_cells_a70a24;
-        unknown_map_cells_a70a24 = 0;
+        delete [] RMGCellData;
+        RMGCellData = 0;
     }
 
     return expanded;
@@ -10608,7 +10608,7 @@ void MapClass::Mark_Fill_Area(Cell const &origin, bool on_water)
     frontier_cells.Clear();
     frontier_cells.Set_Growth_Step(1000);
 
-    for (int i = unknown_map_cell_side_84e804 * unknown_map_cell_side_84e804 - 1; i >= 0; i--) {
+    for (int i = MapCellStride * MapCellStride - 1; i >= 0; i--) {
         UnknownMapGenerationCell &data = Get_Cell_Data_0056dbc0(i);
         data.unknown_45[4] = 0;
         data.unknown_45[5] = 0;
@@ -10633,7 +10633,7 @@ void MapClass::Mark_Fill_Area(Cell const &origin, bool on_water)
                 UnknownMapGenerationCell &data = Get_Cell_Data_0056dba0(adjacent);
                 CellClass *adjptr = &Map[adjacent];
                 if (!data.unknown_45[4]) {
-                    if (on_water && adjptr->unknown_47b7e0() || !on_water && adjptr->unknown_11b == height && adjptr->Is_Tile_Clear()) {
+                    if (on_water && adjptr->Is_Tile_With_Water() || !on_water && adjptr->unknown_11b == height && adjptr->Is_Tile_Clear()) {
                         frontier_cells.Add(adjacent);
                         bool legal = In_Radar(adjacent);
                         bool legal2 = In_Radar(cell);
@@ -10670,12 +10670,12 @@ void MapClass::Mark_Fill_Area(Cell const &origin, bool on_water)
 
 bool MapClass::Rebuild_Cliffs_At(Cell const &cell)
 {
-    int s = unknown_map_cell_side_84e804 * unknown_map_cell_side_84e804;
+    int s = MapCellStride * MapCellStride;
     bool expanded = true;
 
     bool is_temp_data = false;
-    if (unknown_map_cells_a70a24 == 0) {
-        unknown_map_cells_a70a24 = new UnknownMapGenerationCell[s];
+    if (RMGCellData == 0) {
+        RMGCellData = new UnknownMapGenerationCell[s];
         is_temp_data = true;
     } else {
         for (int i = 0; i < s; i++) {
@@ -10715,8 +10715,8 @@ bool MapClass::Rebuild_Cliffs_At(Cell const &cell)
     }
 
     if (is_temp_data) {
-        delete [] unknown_map_cells_a70a24;
-        unknown_map_cells_a70a24 = 0;
+        delete [] RMGCellData;
+        RMGCellData = 0;
     }
 
     return expanded;
@@ -10928,13 +10928,13 @@ bool MapClass::Is_Fogged(CoordStruct const &coord)
 }
 
 
-// void MapClass::Unknown_00568520(CellClass *cell, HouseClass *house, bool arg3) (0x00568520)
+// void MapClass::Reveal_Nearby_Technos(CellClass *cell, HouseClass *house, bool arg3) (0x00568520)
 // Reveals the technos standing on the cells a shroud change uncovers (TibSun
 // Reveal_Nearby_Technos): along the diagonal from the cell, the cell of each
 // height band (heights i - 2 to i for i = 1, 3, ... 13) is marked for a radar
 // redraw when arg3 is set, and its techno (CellClass 0x00471660) gets slot 96.
 
-void MapClass::Unknown_00568520(CellClass *cell, HouseClass *house, bool arg3)
+void MapClass::Reveal_Nearby_Technos(CellClass *cell, HouseClass *house, bool arg3)
 {
     Cell where = cell->MapCoords;
     for (int level = 1; level < 15; level += 2) {
@@ -11028,17 +11028,17 @@ void MapClass::Unknown_005687B0(Rect const &rect)
             cells.Add(Cell(x, y));
         }
     }
-    Unknown_005688A0(cells);
+    Recalc_Cells_In_List(cells);
 }
 
 
-// void MapClass::Unknown_005688A0(DynamicVectorClass<Cell> &cells) (0x005688A0)
+// void MapClass::Recalc_Cells_In_List(DynamicVectorClass<Cell> &cells) (0x005688A0)
 // Recalculates a list of cells (TibSun Recalc_Cells_In_List): every listed
 // cell in the local view loses its first subzone (the short at +0x6C's
 // 10-byte entry) and recalculates (CellClass 0x00472540 with -1); then each
 // such cell still without a subzone gets its subzones rebuilt (0x00566340).
 
-void MapClass::Unknown_005688A0(DynamicVectorClass<Cell> &cells)
+void MapClass::Recalc_Cells_In_List(DynamicVectorClass<Cell> &cells)
 {
     int index;
     for (index = cells.Count() - 1; index >= 0; index--) {
@@ -11119,7 +11119,7 @@ extern "C" int __cdecl abs(int value);
 
 Cell MapClass::Unknown_005689D0(Cell const &cell, bool inset)
 {
-    Point2D point = Unknown_00547DB0(Point2D(cell.X, cell.Y)) - MapLocalSize.Top_Left();
+    Point2D point = Cell_To_PlayRect_Point(Point2D(cell.X, cell.Y)) - MapLocalSize.Top_Left();
 
     int x = point.X - MapLocalSize.Width / 2;
     int y = point.Y - MapLocalSize.Height / 2;
@@ -11138,7 +11138,7 @@ Cell MapClass::Unknown_005689D0(Cell const &cell, bool inset)
         }
     }
 
-    point = Unknown_00547D70(point);
+    point = LocalRect_To_Cell_Point(point);
     return(Cell(point.X, point.Y));
 }
 
@@ -11230,20 +11230,20 @@ Cell MapClass::Unknown_00568ED0(Cell const &cell, Cell const &from)
 }
 
 
-// bool MapClass::Unknown_00569090(Cell *cell) (0x00569090; TibSun Damage_Bridge, a rename candidate)
+// bool MapClass::Damage_Bridge(Cell *cell) (0x00569090; TibSun Damage_Bridge, a rename candidate)
 // Damages the bridge at a cell (TibSun Damage_Bridge): a low bridge overlay (0x4A-0x63,
 // 0x0055DCA0; 0xCD-0xE6, 0x0055EDB0); a high bridge (deck overlay 0x18/0x19 or a bridge
 // middle tile, 0x00559000) or a train bridge (deck overlay 0xED/0xEE or a train bridge
 // middle tile, 0x005539B0). The cells left pending (+0xD0) collapse (0x0047C930).
 
-bool MapClass::Unknown_00569090(Cell *cell)
+bool MapClass::Damage_Bridge(Cell *cell)
 {
     bool result = false;
     unknown_d0.Clear();
     CellClass *cptr = &Map[*cell];
 
     if (cptr->OverlayIndex >= 0x4A && cptr->OverlayIndex <= 0x63) {
-        result = Unknown_0055DCA0(*cell);
+        result = Damage_Low_Bridge(*cell);
     } else if (cptr->OverlayIndex >= 0xCD && cptr->OverlayIndex <= 0xE6) {
         result = Unknown_0055EDB0(*cell);
     } else {

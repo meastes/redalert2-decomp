@@ -608,7 +608,7 @@ int IPXGlobalConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address,
                     break;
                 }
             }
-            unsigned char target = OwnerTalk.Unknown_0063F4C0(target_id);
+            unsigned char target = OwnerTalk.Mask_From_ID(target_id);
             if (!target) {
                 target = 1;
             }

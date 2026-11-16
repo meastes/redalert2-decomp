@@ -197,7 +197,7 @@ int Native_Sidebar_Height(int screen_height);
 int Native_Sidebar_Bottom(int view_bottom)
 {
     int bottom = zoomed ? full_bottom : view_bottom;
-    int screen = unknown_window_839640.Height;
+    int screen = VisibleRect.Height;
     return bottom - (screen - Native_Sidebar_Height(screen));
 }
 

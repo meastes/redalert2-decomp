@@ -4,8 +4,8 @@
     "id": "population-4226",
     "inventory_sha256": "609eefbc72cedcf8216e2e96de705f972e69a1b22ec4d3fe4826dbdf784c6592",
     "gaps_sha256": "21065825b61fc51d4f655181781b6b5c6978c6d523359e7cc982058d092003ba",
-    "historical_population_sha256": "40e977f18f8d1e0d00abb45fe7bfaf91dced1517cd468ba09ff1e1969bf74098",
-    "historical_acceptance_sha256": "50a787700515dd05800b74460060fc0e64270e26afcac1c260e3dbda7e2379a1"
+    "historical_population_sha256": "a6e30c70c778689266bbfa7686f7bd051878938b84d53003a93267b9cc81b20f",
+    "historical_acceptance_sha256": "3e2d8da5ce45995bb939d6e7adc74086e46cbc8b2baad31fc5f69b6622cf2e03"
   },
   "references": {
     "_unknown_static_rect": 11504128,
@@ -16,13 +16,13 @@
     "__real@4@3ffdccccccd000000000": 8026904,
     "__real@4@4006ff00000000000000": 7975080,
     "__real@4@00000000000000000000": 7972664,
-    "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A": 8363616,
+    "?VoxelRenderOrientations@@3PAUUnknownVoxelView@@A": 8363616,
     "?VoxelDrawFunctions@@3PAP6AXPAUVoxelFuncArgumentStruct@@@ZA": 8363488,
     "?unknown_af6610@@3HA": 11494928,
     "?unknown_af6614@@3HA": 11494932,
     "__real@4@40068000000000000000": 8055356,
     "__real@4@40078000000000000000": 7975084,
-    "?unknown_steps_af8a10@@3PAY01FA": 11504144,
+    "?VoxelPixelDeltaTable@@3PAY01FA": 11504144,
     "?unknown_grid_ae3408@@3PAEA": 11416584,
     "??2@YAPAXI@Z": 7872535,
     "??3@YAXPAX@Z": 7871803,
@@ -30,9 +30,9 @@
     "?Fast_Sqrt@@YAMN@Z": 4957200,
     "?Read_File@VoxelLibrary@@QAEHPAVFileClass@@H@Z": 7442784,
     "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
-    "?unknown_normal_tables_7f9f80@@3PAPBUVector3@@A": 8363904,
+    "?VoxelNormalTables@@3PAPBUVector3@@A": 8363904,
     "?VoxelNormalTableEntryCount@@3PAHA": 8363924,
-    "?unknown_shades_af8e10@@3PAEA": 11505168,
+    "?VoxelNormalTranslateTable@@3PAEA": 11505168,
     "__real@4@3ffe8000000000000000": 7986560,
     "__real@4@3ffccccccd0000000000": 8055364,
     "__real@4@40038000000000000000": 8055360,
@@ -1076,7 +1076,7 @@
     "__malloc": 7874096,
     "___amsg_exit": 7887784,
     "?Set@Quaternion@@QAEXMMMM@Z": 6431104,
-    "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z": 7444576,
+    "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z": 7444576,
     "__cell_none_0084ed10": 8711440,
     "_memmove": 7877264,
     "?Close@RawFileClass@@UAEXXZ": 6524240,
@@ -1160,7 +1160,7 @@
     "?Set_Date_Time@RAMFileClass@@UAE_NK@Z": 6522432,
     "??0Vector3@@QAE@XZ": 7437520,
     "?Clear@VoxelLibrary@@QAEXXZ": 7442704,
-    "?Get_Layer@VoxelLibrary@@QAEPAUUnknownVoxelSection@@H@Z": 7444560,
+    "?Get_Layer@VoxelLibrary@@QAEPAULayerStruct@@H@Z": 7444560,
     "?Memory_Used@VoxelLibrary@@QAEHXZ": 7444768,
     "?Is_Valid@Conflict@WorldDominationTour@@QBE_NXZ": 7500768,
     "?Is_Valid@History@WorldDominationTour@@QBEHI@Z": 7507744,
@@ -1751,7 +1751,7 @@
     "__real@8@3ffef333333333333000": 7986032,
     "?Action@CheckBoxClass@@UAEHIAAI@Z": 4706928,
     "?Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z": 7454496,
-    "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z": 7445520,
+    "?Render_Shadow@VoxelLibrary@@QAEXPAUVoxelShadowRenderStruct@@PBUVector3@@@Z": 7445520,
     "?Draw_It@LaserDrawClass@@QAEXXZ": 5453040,
     "__real@8@40078cccccccccccd000": 8001480,
     "__real@8@4006b333333333333000": 8001472,
@@ -2271,7 +2271,7 @@
     "??BSystemTimerClass@@QBEJXZ": 6923312,
     "?Put_Bool@INIClass@@QAE_NPBD0_N@Z": 5305216,
     "?Save@CCINIClass@@QAEHAAVFileClass@@_N@Z": 4626672,
-    "?unknown_ini_839740@@3VCCINIClass@@A": 8623936,
+    "?ConfigINI@@3VCCINIClass@@A": 8623936,
     "??_C@_07IBND@RA2?4INI?$AA@": 8239288,
     "??_C@_0M@MLEF@MultiPlayer?$AA@": 8240356,
     "??_C@_09KHPG@WOLTaunts?$AA@": 8336964,
@@ -2291,8 +2291,8 @@
     "_wcschr": 7879366,
     "_wcstol": 7884150,
     "?unknown_parse_timecode@@YIIPBG@Z": 6929760,
-    "?unknown_sound_enabled_a40c18@@3DA": 10751000,
-    "?unknown_flag_a40d0c@@3DA": 10751244,
+    "?ScoresPresent@@3DA": 10751000,
+    "?Debug_Quiet@@3DA": 10751244,
     "?AudioDeviceAvailable@@YAHXZ": 4222768,
     "?Debug_Printf@@YAXPBDZZ": 4221168,
     "?AudioStreamerStop@@YIXPAX@Z": 4226656,
@@ -5053,7 +5053,7 @@
     "?Difference@RGBClass@@QBEHABV1@@Z": 6541232,
     "?Set_00434820@CoordStruct@@QAEAAU1@HHH@Z": 4409376,
     "_strstr": 7878320,
-    "?unknown_47e2b0@Cell@@QAEXXZ": 4711088,
+    "?Chain_Reaction_Damage@Cell@@QAEXXZ": 4711088,
     "?Fetch@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UBE?AUDrawRecord@FoggedObjectClass@@H@Z": 4989168,
     "?Resize@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAE_NHPBUDrawRecord@FoggedObjectClass@@@Z": 4989312,
     "?Resize@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAE_NHPBUDrawRecord@FoggedObjectClass@@@Z": 4989744,
@@ -6157,7 +6157,7 @@
     "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1IHH_N@Z": 7814848,
     "?Draw_Depth_Glow_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1HHH_N@Z": 7814864,
     "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@HH_N333M@Z": 7814880,
-    "?Unknown_Slot16@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z": 7814896,
+    "?Draw_RGB_Multiplying_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z": 7814896,
     "?Fill_Rect_Trans@XSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z": 7816880,
     "?Unlock@XSurface@@UAE_NXZ": 4264688,
     "?Stride@BSurface@@UAEHXZ": 4264896,
@@ -6220,7 +6220,7 @@
     "?Draw_Depth_Shaded_Line@DSurface@@UAE_NABVRect@@ABUPoint2D@@1IHH_N@Z": 4914224,
     "?Draw_Dashed_Line_Depth_Masked@DSurface@@UAEHABUPoint2D@@0HPB_NH_N@Z": 4916816,
     "?Fill_Circle@XSurface@@QAEXUPoint2D@@HVRect@@H@Z": 7818384,
-    "?Unknown_Slot16@DSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z": 4906496,
+    "?Draw_RGB_Multiplying_Line@DSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z": 4906496,
     "?Draw_Depth_Glow_Line@DSurface@@UAE_NABVRect@@ABUPoint2D@@1HHH_N@Z": 4897696,
     "??_EWWMouseClass@@UAEPAXI@Z": 7812880,
     "?Make_Identity@Matrix3D@@QAEXXZ": 5832800,
@@ -6370,7 +6370,8 @@
     "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
     "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488,
     "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
-    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104
   },
   "regions": [
     {
@@ -6424,7 +6425,7 @@
           "resolved": 11504140
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6478,8 +6479,8 @@
     {
       "entry": 7444576,
       "method": "00719860",
-      "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
-      "symbol_prefix": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+      "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
+      "symbol_prefix": "?Get_Layer_Info@VoxelLibrary@@QAEPAULayerInfoStruct@@HH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -6493,7 +6494,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "3e81d0583862630da539051c69932013220adf36b9d402560a9bec840439d44c",
       "relocations": [],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -6544,7 +6545,7 @@
           "resolved": 429122
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -6638,7 +6639,7 @@
           "resolved": 429042
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -6649,8 +6650,8 @@
     {
       "entry": 7444560,
       "method": "00719850",
-      "symbol": "?Get_Layer@VoxelLibrary@@QAEPAUUnknownVoxelSection@@H@Z",
-      "symbol_prefix": "?Get_Layer@VoxelLibrary@@QAEPAUUnknownVoxelSection@@H@Z",
+      "symbol": "?Get_Layer@VoxelLibrary@@QAEPAULayerStruct@@H@Z",
+      "symbol_prefix": "?Get_Layer@VoxelLibrary@@QAEPAULayerStruct@@H@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -6664,7 +6665,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "9a57a0f97e8389dbd8dbd25551bed768a425f5dd89a343fb23816490cc493f17",
       "relocations": [],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -6690,7 +6691,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "2c53c1fbab99d0f769c8a8af6cd963bec789e8deca42a25179a32fa5e1f5002c",
       "relocations": [],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -6719,13 +6720,13 @@
         {
           "offset": 12,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 0,
           "resolved": 11505168
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -6760,7 +6761,7 @@
           "resolved": 182
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6812,7 +6813,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "4d1ab2ff2c43f3bca687afe6be3850d5864f5f5b996cede970804cb0087d8b13",
       "relocations": [],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -6863,7 +6864,7 @@
           "resolved": 7986560
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -6892,7 +6893,7 @@
         {
           "offset": 110,
           "kind": 6,
-          "symbol": "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A",
+          "symbol": "?VoxelRenderOrientations@@3PAUUnknownVoxelView@@A",
           "target": 8363616,
           "addend": 4,
           "resolved": 8363620
@@ -6900,7 +6901,7 @@
         {
           "offset": 130,
           "kind": 6,
-          "symbol": "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A",
+          "symbol": "?VoxelRenderOrientations@@3PAUUnknownVoxelView@@A",
           "target": 8363616,
           "addend": 8,
           "resolved": 8363624
@@ -6908,7 +6909,7 @@
         {
           "offset": 139,
           "kind": 6,
-          "symbol": "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A",
+          "symbol": "?VoxelRenderOrientations@@3PAUUnknownVoxelView@@A",
           "target": 8363616,
           "addend": 12,
           "resolved": 8363628
@@ -6916,7 +6917,7 @@
         {
           "offset": 156,
           "kind": 6,
-          "symbol": "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A",
+          "symbol": "?VoxelRenderOrientations@@3PAUUnknownVoxelView@@A",
           "target": 8363616,
           "addend": 16,
           "resolved": 8363632
@@ -6924,7 +6925,7 @@
         {
           "offset": 173,
           "kind": 6,
-          "symbol": "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A",
+          "symbol": "?VoxelRenderOrientations@@3PAUUnknownVoxelView@@A",
           "target": 8363616,
           "addend": 28,
           "resolved": 8363644
@@ -6932,7 +6933,7 @@
         {
           "offset": 179,
           "kind": 6,
-          "symbol": "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A",
+          "symbol": "?VoxelRenderOrientations@@3PAUUnknownVoxelView@@A",
           "target": 8363616,
           "addend": 32,
           "resolved": 8363648
@@ -6940,7 +6941,7 @@
         {
           "offset": 202,
           "kind": 6,
-          "symbol": "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A",
+          "symbol": "?VoxelRenderOrientations@@3PAUUnknownVoxelView@@A",
           "target": 8363616,
           "addend": 24,
           "resolved": 8363640
@@ -6948,7 +6949,7 @@
         {
           "offset": 237,
           "kind": 6,
-          "symbol": "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A",
+          "symbol": "?VoxelRenderOrientations@@3PAUUnknownVoxelView@@A",
           "target": 8363616,
           "addend": 20,
           "resolved": 8363636
@@ -7188,7 +7189,7 @@
         {
           "offset": 650,
           "kind": 6,
-          "symbol": "?unknown_views_7f9e60@@3PAUUnknownVoxelView@@A",
+          "symbol": "?VoxelRenderOrientations@@3PAUUnknownVoxelView@@A",
           "target": 8363616,
           "addend": 0,
           "resolved": 8363616
@@ -7210,7 +7211,7 @@
           "resolved": 8363488
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -7285,7 +7286,7 @@
           "resolved": 7986560
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -7314,7 +7315,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -7322,7 +7323,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -7330,7 +7331,7 @@
         {
           "offset": 40,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -7338,7 +7339,7 @@
         {
           "offset": 207,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -7346,7 +7347,7 @@
         {
           "offset": 217,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -7360,7 +7361,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -7389,7 +7390,7 @@
         {
           "offset": 12,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -7397,7 +7398,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -7405,7 +7406,7 @@
         {
           "offset": 39,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -7421,7 +7422,7 @@
         {
           "offset": 280,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -7429,13 +7430,13 @@
         {
           "offset": 290,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -7464,7 +7465,7 @@
         {
           "offset": 6,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -7472,7 +7473,7 @@
         {
           "offset": 15,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -7480,7 +7481,7 @@
         {
           "offset": 39,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -7488,7 +7489,7 @@
         {
           "offset": 206,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -7496,7 +7497,7 @@
         {
           "offset": 216,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -7518,7 +7519,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -7547,7 +7548,7 @@
         {
           "offset": 12,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -7555,7 +7556,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -7563,7 +7564,7 @@
         {
           "offset": 40,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -7587,7 +7588,7 @@
         {
           "offset": 299,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -7595,13 +7596,13 @@
         {
           "offset": 309,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -7630,7 +7631,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "?unknown_normal_tables_7f9f80@@3PAPBUVector3@@A",
+          "symbol": "?VoxelNormalTables@@3PAPBUVector3@@A",
           "target": 8363904,
           "addend": 0,
           "resolved": 8363904
@@ -7654,7 +7655,7 @@
         {
           "offset": 66,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 0,
           "resolved": 11505168
@@ -7678,7 +7679,7 @@
         {
           "offset": 86,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 0,
           "resolved": 11505168
@@ -7686,7 +7687,7 @@
         {
           "offset": 104,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 255,
           "resolved": 11505423
@@ -7694,7 +7695,7 @@
         {
           "offset": 109,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 254,
           "resolved": 11505422
@@ -7702,13 +7703,13 @@
         {
           "offset": 114,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 253,
           "resolved": 11505421
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -7737,7 +7738,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?unknown_normal_tables_7f9f80@@3PAPBUVector3@@A",
+          "symbol": "?VoxelNormalTables@@3PAPBUVector3@@A",
           "target": 8363904,
           "addend": 0,
           "resolved": 8363904
@@ -7767,7 +7768,7 @@
           "resolved": 8363924
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -7900,7 +7901,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -7908,7 +7909,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -7916,7 +7917,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -7924,7 +7925,7 @@
         {
           "offset": 244,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -7932,7 +7933,7 @@
         {
           "offset": 254,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -7978,7 +7979,7 @@
           "resolved": 11340401
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -8007,7 +8008,7 @@
         {
           "offset": 12,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -8015,7 +8016,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -8023,7 +8024,7 @@
         {
           "offset": 40,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -8071,7 +8072,7 @@
         {
           "offset": 384,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -8079,13 +8080,13 @@
         {
           "offset": 394,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -8114,7 +8115,7 @@
         {
           "offset": 6,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -8122,7 +8123,7 @@
         {
           "offset": 15,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -8130,7 +8131,7 @@
         {
           "offset": 39,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -8138,7 +8139,7 @@
         {
           "offset": 207,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -8146,7 +8147,7 @@
         {
           "offset": 217,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -8154,7 +8155,7 @@
         {
           "offset": 283,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 0,
           "resolved": 11505168
@@ -8184,7 +8185,7 @@
           "resolved": 11416585
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -8213,7 +8214,7 @@
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -8221,7 +8222,7 @@
         {
           "offset": 15,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -8229,7 +8230,7 @@
         {
           "offset": 38,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -8237,7 +8238,7 @@
         {
           "offset": 222,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 0,
           "resolved": 11505168
@@ -8269,7 +8270,7 @@
         {
           "offset": 348,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -8277,13 +8278,13 @@
         {
           "offset": 358,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -8312,7 +8313,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -8320,7 +8321,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -8328,7 +8329,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -8336,7 +8337,7 @@
         {
           "offset": 244,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -8344,7 +8345,7 @@
         {
           "offset": 254,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -8390,7 +8391,7 @@
           "resolved": 11340401
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -8419,7 +8420,7 @@
         {
           "offset": 12,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -8427,7 +8428,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -8435,7 +8436,7 @@
         {
           "offset": 40,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -8483,7 +8484,7 @@
         {
           "offset": 382,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -8491,13 +8492,13 @@
         {
           "offset": 392,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -8665,7 +8666,7 @@
         {
           "offset": 21,
           "kind": 6,
-          "symbol": "?unknown_normal_tables_7f9f80@@3PAPBUVector3@@A",
+          "symbol": "?VoxelNormalTables@@3PAPBUVector3@@A",
           "target": 8363904,
           "addend": 0,
           "resolved": 8363904
@@ -8729,7 +8730,7 @@
         {
           "offset": 328,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 0,
           "resolved": 11505168
@@ -8753,7 +8754,7 @@
         {
           "offset": 348,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 0,
           "resolved": 11505168
@@ -8761,7 +8762,7 @@
         {
           "offset": 370,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 255,
           "resolved": 11505423
@@ -8769,7 +8770,7 @@
         {
           "offset": 375,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 254,
           "resolved": 11505422
@@ -8777,13 +8778,13 @@
         {
           "offset": 380,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 253,
           "resolved": 11505421
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -8794,8 +8795,8 @@
     {
       "entry": 7445520,
       "method": "00719c10",
-      "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
-      "symbol_prefix": "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
+      "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUVoxelShadowRenderStruct@@PBUVector3@@@Z",
+      "symbol_prefix": "?Render_Shadow@VoxelLibrary@@QAEXPAUVoxelShadowRenderStruct@@PBUVector3@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -8970,7 +8971,7 @@
           "resolved": 11416585
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -9245,7 +9246,7 @@
           "resolved": 427285
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -9274,7 +9275,7 @@
         {
           "offset": 12,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -9282,7 +9283,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -9290,7 +9291,7 @@
         {
           "offset": 40,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -9306,7 +9307,7 @@
         {
           "offset": 292,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 0,
           "resolved": 11505168
@@ -9354,7 +9355,7 @@
         {
           "offset": 437,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -9362,13 +9363,13 @@
         {
           "offset": 447,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -9397,7 +9398,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -9405,7 +9406,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -9413,7 +9414,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -9421,7 +9422,7 @@
         {
           "offset": 222,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 0,
           "resolved": 11504144
@@ -9429,7 +9430,7 @@
         {
           "offset": 232,
           "kind": 6,
-          "symbol": "?unknown_steps_af8a10@@3PAY01FA",
+          "symbol": "?VoxelPixelDeltaTable@@3PAY01FA",
           "target": 11504144,
           "addend": 2,
           "resolved": 11504146
@@ -9461,7 +9462,7 @@
         {
           "offset": 371,
           "kind": 6,
-          "symbol": "?unknown_shades_af8e10@@3PAEA",
+          "symbol": "?VoxelNormalTranslateTable@@3PAEA",
           "target": 11505168,
           "addend": 0,
           "resolved": 11505168
@@ -9491,7 +9492,7 @@
           "resolved": 11416585
         }
       ],
-      "source_sha256": "b6ab8a2bcae7ebaa840ac05ef1ef660bbaaf83cb6554859b3478366a8335f0b1",
+      "source_sha256": "6ba834c6209a56c1b7c2cb43b24c868f5066ae6b9f1519eebbd3560f01259941",
       "source": "src/recovered/voxlib.cpp",
       "population": "population-4226",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

@@ -145,7 +145,7 @@ public:
     void Gas_Behavior_AI();                     // 0x00608BB0 behaviour 0
     void Railgun_Behavior_AI();                 // 0x00609200 behaviour 4
     void Smoke_Behavior_AI();                   // 0x006093A0 behaviour 1
-    void unknown_func_609540();                 // 0x00609540 behaviour 3
+    void Spark_Behavior_AI();                 // 0x00609540 behaviour 3
     void Fire_Behavior_AI();                    // 0x00609970 behaviour 2
     void Behavior_AI();                         // 0x00609C90 (behaviour by type, then lifetime)
     void Smoke_Motion_AI();                     // 0x0060A0E0 movement of behaviour 0

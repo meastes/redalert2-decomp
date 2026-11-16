@@ -161,13 +161,13 @@ void __fastcall Destroy_Connection_005bb5d0(int id, int error)
 
     if (error) {
         if (Frame == 0) {
-            housep->unknown_func_4e7e80();
+            housep->Flag_To_Die();
         } else {
             OutList.Add(EventClass(PlayerPtr->ArrayIndex, 0x23, id));
         }
     } else {
-        if (unknown_game_mode_a3d298 == 4 && unknown_b2a7ec) {
-            housep->unknown_func_4e7e80();
+        if (unknown_game_mode_a3d298 == 4 && WestwoodOnline_Tournament) {
+            housep->Flag_To_Die();
         }
         if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8) {
             OwnerTalk.Unknown_0063FE20(id);
@@ -201,7 +201,7 @@ void __fastcall Destroy_Connection_005bb5d0(int id, int error)
                 Debug_Printf("New game host is %ls\n", unknown_session_a3d298.MasterPlayerName);
                 unknown_session_a3d298.MasterPlayerID = host;
                 if (unknown_session_a3d298.Am_I_Master(0)) {
-                    OwnerTalk.Unknown_0063F130();
+                    OwnerTalk.Send_Player_List();
                 }
             }
         }

@@ -644,7 +644,7 @@ int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int 
                     }
                 }
             }
-            int loss = unknown_76b9f0();
+            int loss = Get_Packet_Loss_Percent();
             if (loss > 0 && NonCriticalRandomNumber(0, 99) <= loss) {
                 return 0;
             }

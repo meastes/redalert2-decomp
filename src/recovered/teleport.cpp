@@ -223,7 +223,7 @@ void TeleportLocomotionClass::Check_Landing(CoordStruct coord)
         return;
     }
     if (LinkedTo->Can_Enter_Cell(&Map[Coord_Cell(coord)], -1, -1, 0, true) == 7 || kill) {
-        if (!Map[Coord_Cell(coord)].unknown_47b7e0() || LinkedTo->Kind_Of() == 15) {
+        if (!Map[Coord_Cell(coord)].Is_Tile_With_Water() || LinkedTo->Kind_Of() == 15) {
             int damage = LinkedTo->Techno_Type_Class()->MaxStrength;
             LinkedTo->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
         } else {

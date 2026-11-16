@@ -98,14 +98,14 @@
 
 
 // Dynamic initializer of the object index (0x006B5440, _$E): zeroes
-// unknown_object_index_abff58 (0x00ABFF58) and registers its atexit destructor
+// TargetTracker (0x00ABFF58) and registers its atexit destructor
 // (0x006B5470, the following _$E draft, emitted by this definition).
 
 
-IndexClass<long, AbstractClass *> unknown_object_index_abff58;
+IndexClass<long, AbstractClass *> TargetTracker;
 
 
-// atexit destructor of unknown_object_index_abff58 (0x006B5470, _$E): emitted by
+// atexit destructor of TargetTracker (0x006B5470, _$E): emitted by
 // the definition in unknown_object_index_abff58_init_006b5440.cpp; no source of its own.
 
 
@@ -183,7 +183,7 @@ TargetClass::TargetClass(CoordStruct const &coord)
 AbstractTypeClass *TargetClass::As_AbstractType() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<AbstractTypeClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<AbstractTypeClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -201,7 +201,7 @@ AbstractTypeClass *TargetClass::As_AbstractType() const
 TagClass *TargetClass::As_Tag() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<TagClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<TagClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -219,7 +219,7 @@ TagClass *TargetClass::As_Tag() const
 TagTypeClass *TargetClass::As_TagType() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<TagTypeClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<TagTypeClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -247,7 +247,7 @@ TagTypeClass *TargetClass::As_TagType() const
 AbstractClass *TargetClass::As_Abstract() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<AbstractClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<AbstractClass *>(TargetTracker[ID]);
     }
     if (Kind == 11) {
         return &Map[Cell(ID % 1000, ID / 1000)];
@@ -278,7 +278,7 @@ AbstractClass *TargetClass::As_Abstract() const
 TechnoClass *TargetClass::As_Techno() const
 {
     if (Kind == 0x34) {
-        return unknown_object_index_abff58[ID]->As_Techno();
+        return TargetTracker[ID]->As_Techno();
     }
     return 0;
 }
@@ -305,7 +305,7 @@ TechnoClass *TargetClass::As_Techno() const
 ObjectClass *TargetClass::As_Object() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<ObjectClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<ObjectClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -323,7 +323,7 @@ ObjectClass *TargetClass::As_Object() const
 FootClass *TargetClass::As_Foot() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<FootClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<FootClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -349,7 +349,7 @@ FootClass *TargetClass::As_Foot() const
 TriggerClass *TargetClass::As_Trigger() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<TriggerClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<TriggerClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -367,7 +367,7 @@ TriggerClass *TargetClass::As_Trigger() const
 HouseClass *TargetClass::As_House() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<HouseClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<HouseClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -394,7 +394,7 @@ HouseClass *TargetClass::As_House() const
 TechnoTypeClass *TargetClass::As_TechnoType() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<TechnoTypeClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<TechnoTypeClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -421,7 +421,7 @@ TechnoTypeClass *TargetClass::As_TechnoType() const
 TriggerTypeClass *TargetClass::As_TriggerType() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<TriggerTypeClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<TriggerTypeClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -447,7 +447,7 @@ TriggerTypeClass *TargetClass::As_TriggerType() const
 TeamTypeClass *TargetClass::As_TeamType() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<TeamTypeClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<TeamTypeClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -465,7 +465,7 @@ TeamTypeClass *TargetClass::As_TeamType() const
 TerrainClass *TargetClass::As_Terrain() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<TerrainClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<TerrainClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -491,7 +491,7 @@ TerrainClass *TargetClass::As_Terrain() const
 BulletClass *TargetClass::As_Bullet() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<BulletClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<BulletClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -517,7 +517,7 @@ BulletClass *TargetClass::As_Bullet() const
 AnimClass *TargetClass::As_Anim() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<AnimClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<AnimClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -543,7 +543,7 @@ AnimClass *TargetClass::As_Anim() const
 TeamClass *TargetClass::As_Team() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<TeamClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<TeamClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -570,7 +570,7 @@ TeamClass *TargetClass::As_Team() const
 InfantryClass *TargetClass::As_Infantry() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<InfantryClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<InfantryClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -597,7 +597,7 @@ InfantryClass *TargetClass::As_Infantry() const
 UnitClass *TargetClass::As_Unit() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<UnitClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<UnitClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -623,7 +623,7 @@ UnitClass *TargetClass::As_Unit() const
 BuildingClass *TargetClass::As_Building() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<BuildingClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<BuildingClass *>(TargetTracker[ID]);
     }
     return 0;
 }
@@ -649,7 +649,7 @@ BuildingClass *TargetClass::As_Building() const
 AircraftClass *TargetClass::As_Aircraft() const
 {
     if (Kind == 0x34) {
-        return dynamic_cast<AircraftClass *>(unknown_object_index_abff58[ID]);
+        return dynamic_cast<AircraftClass *>(TargetTracker[ID]);
     }
     return 0;
 }

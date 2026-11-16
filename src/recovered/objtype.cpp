@@ -687,16 +687,16 @@ void ObjectTypeClass::Fetch_Voxel_Image()
             }
         }
     } else {
-        int size = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->unknown_a0;
+        int size = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->XSize;
         for (int index = 0; index < unknown_b0.unknown_00->LayerCount; index++) {
-            if (size <= unknown_b0.unknown_00->Get_Layer_Info(index, 0)->unknown_a0) {
-                size = unknown_b0.unknown_00->Get_Layer_Info(index, 0)->unknown_a0;
+            if (size <= unknown_b0.unknown_00->Get_Layer_Info(index, 0)->XSize) {
+                size = unknown_b0.unknown_00->Get_Layer_Info(index, 0)->XSize;
             }
-            if (size <= unknown_b0.unknown_00->Get_Layer_Info(index, 0)->unknown_a1) {
-                size = unknown_b0.unknown_00->Get_Layer_Info(index, 0)->unknown_a1;
+            if (size <= unknown_b0.unknown_00->Get_Layer_Info(index, 0)->YSize) {
+                size = unknown_b0.unknown_00->Get_Layer_Info(index, 0)->YSize;
             }
-            if (size <= unknown_b0.unknown_00->Get_Layer_Info(index, 0)->unknown_a2) {
-                size = unknown_b0.unknown_00->Get_Layer_Info(index, 0)->unknown_a2;
+            if (size <= unknown_b0.unknown_00->Get_Layer_Info(index, 0)->ZSize) {
+                size = unknown_b0.unknown_00->Get_Layer_Info(index, 0)->ZSize;
             }
         }
         unknown_1bc = size > 8 ? size : 8;

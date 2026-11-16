@@ -9,7 +9,7 @@ class VoxelLibrary;
 
 // A voxel object record: the library, section and frame, the corner nearest the viewer, the transformed
 // bounds and the eight transformed box corners.
-struct UnknownVoxelRecord88 {
+struct VoxelRenderStruct {
     VoxelLibrary *Library;          // +0x00
     int Section;                        // +0x04
     int Frame;                          // +0x08
@@ -19,6 +19,6 @@ struct UnknownVoxelRecord88 {
     Vector3 Points[8];                  // +0x28
 };
 
-extern UnknownVoxelRecord88 unknown_records_ae0de8[64];     // 0x00AE0DE8
+extern VoxelRenderStruct VoxelRenderData[64];     // 0x00AE0DE8
 
 #endif

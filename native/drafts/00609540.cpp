@@ -1,9 +1,9 @@
-// NON-EXACT DRAFT 0x609540 ParticleClass::unknown_func_609540 (spark behaviour, TibSun Spark_Behavior_AI)
+// NON-EXACT DRAFT 0x609540 ParticleClass::Spark_Behavior_AI (spark behaviour, TibSun Spark_Behavior_AI)
 // entry 0x609540; exact-match score 66.45 (Scout709 w/keep/sp_6645.cpp; MISSES_INDEX best 66.45, parked:
 // inline/ruling/frame). Recovered source text by our lanes/workers; never exact-match credit. Not original
 // bytes. Reached in the M15 win run at frame ~8,000 (ParticleSystemClass 0x0060B670 -> 0x00609C90). Text
 // unchanged (Scout1125, M15).
-// void ParticleClass::unknown_func_609540() (0x00609540)
+// void ParticleClass::Spark_Behavior_AI() (0x00609540)
 // Spark behaviour (TibSun ParticleClass::Spark_Behavior_AI): the spark falls
 // under gravity until it meets the ground, a bridge deck or a wall, where it
 // glances off along the cell slope and is flagged done; its colour then moves
@@ -67,7 +67,7 @@ static inline void Limit(int &value, int low, int high)
 }
 
 
-void ParticleClass::unknown_func_609540()
+void ParticleClass::Spark_Behavior_AI()
 {
     CoordStruct coord = Coord;
     unknown_fc.Z -= Rules->unknown_1320;

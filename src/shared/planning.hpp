@@ -128,7 +128,7 @@ Rect __fastcall Get_Title_Screen_Area_006f1f30();
 void __fastcall Planning_Inflate(Rect &rect, int amount);
 // The colours the planning markers fade toward (0x00AB6841, 0x00AB6849).
 extern RGBClass unknown_rgb_ab6841;
-extern RGBClass unknown_rgb_ab6849;
+extern RGBClass WhiteColor;
 
 #ifdef RA2_COORD_EQUAL_MEMBER
 // The house a techno plans for: its own, or the player's when its side is

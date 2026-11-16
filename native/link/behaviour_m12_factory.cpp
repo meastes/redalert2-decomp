@@ -10,20 +10,20 @@
 
 class UnknownFactory {
 public:
-    bool Unknown_004B9420();
-    bool Unknown_004B9430();
-    int Unknown_004B98F0();
-    int Unknown_004B9940();
+    bool Is_On_Hold();
+    bool Has_Changed();
+    int Completion();
+    int Get_Special_Item();
 };
 
 // 0x004B9420: the factory's +0x58 flag.
-bool UnknownFactory::Unknown_004B9420()
+bool UnknownFactory::Is_On_Hold()
 {
     return ((FactoryClass *)(void *)this)->unknown_58;
 }
 
 // 0x004B9430: the +0x59 flag (the production just completed; hypothesis), cleared on reading.
-bool UnknownFactory::Unknown_004B9430()
+bool UnknownFactory::Has_Changed()
 {
     FactoryClass *factory = (FactoryClass *)(void *)this;
     bool value = factory->unknown_59;
@@ -32,13 +32,13 @@ bool UnknownFactory::Unknown_004B9430()
 }
 
 // 0x004B98F0: the build stage (StageClass's value, VC6 +0x24).
-int UnknownFactory::Unknown_004B98F0()
+int UnknownFactory::Completion()
 {
     return ((FactoryClass *)(void *)this)->Fetch_Stage();
 }
 
 // 0x004B9940: the special item being prepared (+0x64), or -1.
-int UnknownFactory::Unknown_004B9940()
+int UnknownFactory::Get_Special_Item()
 {
     return ((FactoryClass *)(void *)this)->unknown_64;
 }

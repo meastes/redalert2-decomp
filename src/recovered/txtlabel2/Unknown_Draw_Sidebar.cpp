@@ -5,9 +5,9 @@
 // clipped to the tactical width, and `tabs` selects the repeated tab strip.
 // @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?unknown_flag_ac11b0@@3_NA=00ac11b0
-// @ref ?unknown_value_8523e0@@3HA=008523e0
-// @ref ?unknown_value_8523e4@@3HA=008523e4
-// @ref ?unknown_window_839640@@3VRect@@A=00839640
+// @ref ?VideoModeWidth@@3HA=008523e0
+// @ref ?VideoModeHeight@@3HA=008523e4
+// @ref ?VisibleRect@@3VRect@@A=00839640
 // @ref ?unknown_drawer_ac11a4@@3PAVConvertClass@@A=00ac11a4
 // @ref ?unknown_drawer_ac11ac@@3PAVConvertClass@@A=00ac11ac
 // @ref ?unknown_value_ac10cc@@3HA=00ac10cc
@@ -36,10 +36,10 @@
 // @ref ?unknown_rect_ac11f0@@3PAVRect@@A=00ac11f0
 // @ref ?unknown_rect_ac11f4@@3PAVRect@@A=00ac11f4
 // @ref ?unknown_rect_ac1200@@3PAVRect@@A=00ac1200
-// @ref ?unknown_rect_ac1204@@3PAVRect@@A=00ac1204
-// @ref ?unknown_rect_ac1208@@3PAVRect@@A=00ac1208
-// @ref ?unknown_rect_ac120c@@3PAVRect@@A=00ac120c
-// @ref ?unknown_rect_ac1210@@3PAVRect@@A=00ac1210
+// @ref ?ThumbOpenRect@@3PAVRect@@A=00ac1204
+// @ref ?ThumbClosedRect@@3PAVRect@@A=00ac1208
+// @ref ?ButtonSlotRect@@3PAVRect@@A=00ac120c
+// @ref ?TabEndRect@@3PAVRect@@A=00ac1210
 #define SHAPE_FILE_EMPTY_RECT Rect(0, 0, 0, 0)
 #include "shared/shape_file.hpp"
 #include "shared/surface.hpp"
@@ -54,8 +54,8 @@ void __fastcall Unknown_Load_Art_Buffers_006F4B00();
 void __fastcall Unknown_Load_Art_Pairs_006F4C60();
 void __fastcall Unknown_Layout_Sidebar_006F4C90(int width, int height);
 extern bool unknown_flag_ac11b0;
-extern int unknown_value_8523e0;                 // screen width
-extern int unknown_value_8523e4;                 // screen height
+extern int VideoModeWidth;                 // screen width
+extern int VideoModeHeight;                 // screen height
 extern ConvertClass *unknown_drawer_ac11a4;      // SIDEBAR.PAL
 extern ConvertClass *unknown_drawer_ac11ac;      // UIBKGD.PAL
 extern int unknown_value_ac10cc;
@@ -83,26 +83,26 @@ extern Rect *unknown_rect_ac11ec;
 extern Rect *unknown_rect_ac11f0;
 extern Rect *unknown_rect_ac11f4;
 extern Rect *unknown_rect_ac1200;
-extern Rect *unknown_rect_ac1204;
-extern Rect *unknown_rect_ac1208;
-extern Rect *unknown_rect_ac120c;
-extern Rect *unknown_rect_ac1210;
+extern Rect *ThumbOpenRect;
+extern Rect *ThumbClosedRect;
+extern Rect *ButtonSlotRect;
+extern Rect *TabEndRect;
 
 void __fastcall Unknown_Draw_Sidebar_006F4620(Surface *surface, Rect const &window, bool tabs)
 {
     if (!unknown_flag_ac11b0) {
         Unknown_Load_Art_Buffers_006F4B00();
         Unknown_Load_Art_Pairs_006F4C60();
-        Unknown_Layout_Sidebar_006F4C90(unknown_value_8523e0, unknown_value_8523e4);
+        Unknown_Layout_Sidebar_006F4C90(VideoModeWidth, VideoModeHeight);
         unknown_flag_ac11b0 = true;
     }
     surface->Fill(0);
     Point2D point(0, 0);
     point.X = unknown_rect_ac11d4->X;
     point.Y = unknown_rect_ac11d4->Y;
-    if (unknown_value_8523e0 == 640) {
+    if (VideoModeWidth == 640) {
         CC_Draw_Shape(surface, unknown_drawer_ac11ac, unknown_shape_ac10c4, 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-    } else if (unknown_value_8523e0 == 800) {
+    } else if (VideoModeWidth == 800) {
         CC_Draw_Shape(surface, unknown_drawer_ac11ac, unknown_shape_ac10bc, 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
     } else {
         CC_Draw_Shape(surface, unknown_drawer_ac11ac, unknown_shape_ac105c, 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
@@ -141,25 +141,25 @@ void __fastcall Unknown_Draw_Sidebar_006F4620(Surface *surface, Rect const &wind
     point.Y = unknown_rect_ac1200->Y;
     CC_Draw_Shape(surface, unknown_drawer_ac11a4, unknown_shape_ac1048, 0, point, clip, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
     if (tabs) {
-        point.X = unknown_rect_ac1204->X;
-        point.Y = unknown_rect_ac1204->Y;
+        point.X = ThumbOpenRect->X;
+        point.Y = ThumbOpenRect->Y;
         CC_Draw_Shape(surface, unknown_drawer_ac11a4, unknown_shape_ac1098, 2, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         index = 0;
-        point.X = unknown_rect_ac120c->X;
-        point.Y = unknown_rect_ac120c->Y;
+        point.X = ButtonSlotRect->X;
+        point.Y = ButtonSlotRect->Y;
         if (unknown_value_ac0ff4 > 0) {
             do {
                 CC_Draw_Shape(surface, unknown_drawer_ac11a4, unknown_shape_ac10a4, 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-                point.X += unknown_rect_ac120c->Width;
+                point.X += ButtonSlotRect->Width;
                 index++;
             } while (index < unknown_value_ac0ff4);
         }
     } else {
-        point.X = unknown_rect_ac1208->X;
-        point.Y = unknown_rect_ac1208->Y;
+        point.X = ThumbClosedRect->X;
+        point.Y = ThumbClosedRect->Y;
         CC_Draw_Shape(surface, unknown_drawer_ac11a4, unknown_shape_ac1098, 2, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
     }
-    point.X = unknown_rect_ac1210->X;
-    point.Y = unknown_rect_ac1210->Y;
+    point.X = TabEndRect->X;
+    point.Y = TabEndRect->Y;
     CC_Draw_Shape(surface, unknown_drawer_ac11a4, unknown_shape_ac10b0, 0, point, window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
 }

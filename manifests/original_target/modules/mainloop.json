@@ -91,7 +91,7 @@
    "padding_bytes": 14
   },
   {
-   "symbol": "?unknown_53f460@@YA_NXZ",
+   "symbol": "?Is_In_Main_Loop@@YA_NXZ",
    "entry": "0053f460",
    "body_bytes": 6,
    "padding_bytes": 10
@@ -115,7 +115,7 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?Unknown_0053F780@@YIXXZ",
+   "symbol": "?Disconnect_Gracefully@@YIXXZ",
    "entry": "0053f780",
    "body_bytes": 182,
    "padding_bytes": 10
@@ -127,7 +127,7 @@
    "padding_bytes": 6
   },
   {
-   "symbol": "?unknown_53fbd0@@YI_NXZ",
+   "symbol": "?Main_Loop@@YI_NXZ",
    "entry": "0053fbd0",
    "body_bytes": 2831,
    "padding_bytes": 1
@@ -286,28 +286,28 @@
    "address": "007b2500",
    "bytes": 24,
    "kind": "rtti",
-   "section": 51
+   "section": 64
   },
   {
    "symbol": "??_R2CCFileClass@@8",
    "address": "007b2518",
    "bytes": 21,
    "kind": "rtti",
-   "section": 52
+   "section": 65
   },
   {
    "symbol": "??_R3CCFileClass@@8",
    "address": "007b2530",
    "bytes": 16,
    "kind": "rtti",
-   "section": 53
+   "section": 66
   },
   {
    "symbol": "??_R4CCFileClass@@6B@",
    "address": "007b2540",
    "bytes": 20,
    "kind": "rtti",
-   "section": 55
+   "section": 68
   },
   {
    "symbol": "??_R1A@?0A@A@FileClass@@8",
@@ -335,91 +335,91 @@
    "address": "007b25a0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 62
+   "section": 63
   },
   {
    "symbol": "??_R2CDFileClass@@8",
    "address": "007b25b8",
    "bytes": 17,
    "kind": "rtti",
-   "section": 63
+   "section": 53
   },
   {
    "symbol": "??_R3CDFileClass@@8",
    "address": "007b25d0",
    "bytes": 16,
    "kind": "rtti",
-   "section": 64
+   "section": 54
   },
   {
    "symbol": "??_R4CDFileClass@@6B@",
    "address": "007b25e0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 66
+   "section": 55
   },
   {
    "symbol": "??_R2XSurface@@8",
    "address": "007b3278",
    "bytes": 9,
    "kind": "rtti",
-   "section": 48
+   "section": 72
   },
   {
    "symbol": "??_R3XSurface@@8",
    "address": "007b3288",
    "bytes": 16,
    "kind": "rtti",
-   "section": 49
+   "section": 73
   },
   {
    "symbol": "??_R4XSurface@@6B@",
    "address": "007b3298",
    "bytes": 20,
    "kind": "rtti",
-   "section": 50
+   "section": 75
   },
   {
    "symbol": "??_R1A@?0A@A@Surface@@8",
    "address": "007b32b0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 68
+   "section": 70
   },
   {
    "symbol": "??_R1A@?0A@A@XSurface@@8",
    "address": "007b32c8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 70
+   "section": 71
   },
   {
    "symbol": "??_R1A@?0A@A@BSurface@@8",
    "address": "007b32e0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 71
+   "section": 48
   },
   {
    "symbol": "??_R2BSurface@@8",
    "address": "007b32f8",
    "bytes": 13,
    "kind": "rtti",
-   "section": 72
+   "section": 49
   },
   {
    "symbol": "??_R3BSurface@@8",
    "address": "007b3308",
    "bytes": 16,
    "kind": "rtti",
-   "section": 73
+   "section": 50
   },
   {
    "symbol": "??_R4BSurface@@6B@",
    "address": "007b3318",
    "bytes": 20,
    "kind": "rtti",
-   "section": 75
+   "section": 52
   },
   {
    "symbol": "??_R2Surface@@8",
@@ -447,7 +447,7 @@
    "address": "007cc8b0",
    "bytes": 26,
    "kind": "rtti",
-   "section": 54
+   "section": 67
   },
   {
    "symbol": "??_R0?AVFileClass@@@8",
@@ -475,28 +475,28 @@
    "address": "007cc928",
    "bytes": 26,
    "kind": "rtti",
-   "section": 65
+   "section": 62
   },
   {
    "symbol": "??_R0?AVSurface@@@8",
    "address": "007ce2b0",
    "bytes": 22,
    "kind": "rtti",
-   "section": 67
+   "section": 69
   },
   {
    "symbol": "??_R0?AVXSurface@@@8",
    "address": "007ce2c8",
    "bytes": 23,
    "kind": "rtti",
-   "section": 69
+   "section": 74
   },
   {
    "symbol": "??_R0?AVBSurface@@@8",
    "address": "007ce2e0",
    "bytes": 23,
    "kind": "rtti",
-   "section": 74
+   "section": 51
   },
   {
    "symbol": "??_C@_01NON@_?$AA@",
@@ -1200,13 +1200,13 @@
   },
   {
    "site": "0065d7f0",
-   "symbol": "?Unknown_0053F780@@YIXXZ",
+   "symbol": "?Disconnect_Gracefully@@YIXXZ",
    "target": "0053f780",
    "function_entry": true
   },
   {
    "site": "0065dec0",
-   "symbol": "?Unknown_0053F780@@YIXXZ",
+   "symbol": "?Disconnect_Gracefully@@YIXXZ",
    "target": "0053f780",
    "function_entry": true
   },
@@ -1218,61 +1218,61 @@
   },
   {
    "site": "005eab60",
-   "symbol": "?unknown_53f460@@YA_NXZ",
+   "symbol": "?Is_In_Main_Loop@@YA_NXZ",
    "target": "0053f460",
    "function_entry": true
   },
   {
    "site": "005eab60",
-   "symbol": "?unknown_53fbd0@@YI_NXZ",
+   "symbol": "?Main_Loop@@YI_NXZ",
    "target": "0053fbd0",
    "function_entry": true
   },
   {
    "site": "006000d0",
-   "symbol": "?unknown_53f460@@YA_NXZ",
+   "symbol": "?Is_In_Main_Loop@@YA_NXZ",
    "target": "0053f460",
    "function_entry": true
   },
   {
    "site": "006000d0",
-   "symbol": "?unknown_53fbd0@@YI_NXZ",
+   "symbol": "?Main_Loop@@YI_NXZ",
    "target": "0053fbd0",
    "function_entry": true
   },
   {
    "site": "005e5fc0",
-   "symbol": "?unknown_53f460@@YA_NXZ",
+   "symbol": "?Is_In_Main_Loop@@YA_NXZ",
    "target": "0053f460",
    "function_entry": true
   },
   {
    "site": "005e5fc0",
-   "symbol": "?unknown_53fbd0@@YI_NXZ",
+   "symbol": "?Main_Loop@@YI_NXZ",
    "target": "0053fbd0",
    "function_entry": true
   },
   {
    "site": "00600c80",
-   "symbol": "?unknown_53f460@@YA_NXZ",
+   "symbol": "?Is_In_Main_Loop@@YA_NXZ",
    "target": "0053f460",
    "function_entry": true
   },
   {
    "site": "00600c80",
-   "symbol": "?unknown_53fbd0@@YI_NXZ",
+   "symbol": "?Main_Loop@@YI_NXZ",
    "target": "0053fbd0",
    "function_entry": true
   },
   {
    "site": "006011a0",
-   "symbol": "?unknown_53f460@@YA_NXZ",
+   "symbol": "?Is_In_Main_Loop@@YA_NXZ",
    "target": "0053f460",
    "function_entry": true
   },
   {
    "site": "006011a0",
-   "symbol": "?unknown_53fbd0@@YI_NXZ",
+   "symbol": "?Main_Loop@@YI_NXZ",
    "target": "0053fbd0",
    "function_entry": true
   },
@@ -1290,7 +1290,7 @@
   },
   {
    "site": "00481bf0",
-   "symbol": "?unknown_53fbd0@@YI_NXZ",
+   "symbol": "?Main_Loop@@YI_NXZ",
    "target": "0053fbd0",
    "function_entry": true
   },
@@ -1413,8 +1413,16 @@
    "address": "0084e8d0"
   },
   {
+   "symbol": "?ChatTarget@@3HA",
+   "address": "00a6ebe0"
+  },
+  {
    "symbol": "?Check@WWKeyboardClass@@QAEGXZ",
    "address": "005322d0"
+  },
+  {
+   "symbol": "?CheckProtectedData@@YI_NXZ",
+   "address": "00491a10"
   },
   {
    "symbol": "?Close@BufferIOFileClass@@UAEXXZ",
@@ -1429,8 +1437,16 @@
    "address": "00ab6ef8"
   },
   {
+   "symbol": "?Color_Index_To_Scheme@SessionClass@@QAEHH@Z",
+   "address": "006715d0"
+  },
+  {
    "symbol": "?CompositeSurface@@3PAVSurface@@A",
    "address": "00839964"
+  },
+  {
+   "symbol": "?Compute_Name_CRC_W@@YIHPAG@Z",
+   "address": "005bba50"
   },
   {
    "symbol": "?Connection_Address@IPXManagerClass@@QAEPAVIPXAddressClass@@H@Z",
@@ -1465,6 +1481,10 @@
    "address": "00a40c60"
   },
   {
+   "symbol": "?DebugTime@@3IA",
+   "address": "007ec498"
+  },
+  {
    "symbol": "?Debug_MotionCapture@@3_NA",
    "address": "00a40d09"
   },
@@ -1473,8 +1493,16 @@
    "address": "004068f0"
   },
   {
+   "symbol": "?Debug_Trap_Check_Heap@@3_NA",
+   "address": "00a40d1a"
+  },
+  {
    "symbol": "?Delete@RawFileClass@@UAEHXZ",
    "address": "00639240"
+  },
+  {
+   "symbol": "?Do_Abort@@YIXXZ",
+   "address": "0065e590"
   },
   {
    "symbol": "?Do_Lose_0065dec0@@YIXXZ",
@@ -1527,6 +1555,10 @@
   {
    "symbol": "?Draw_Line_Depth_Masked@XSurface@@UAE_NABUPoint2D@@0H_N@Z",
    "address": "00773eb0"
+  },
+  {
+   "symbol": "?Draw_RGB_Multiplying_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z",
+   "address": "00773ef0"
   },
   {
    "symbol": "?Draw_Rect@XSurface@@UAE_NABVRect@@0H@Z",
@@ -1589,6 +1621,14 @@
    "address": "00a40d2c"
   },
   {
+   "symbol": "?FrameTimer@@3V?$CDTimerClass@VSystemTimerClass@@@@A",
+   "address": "00839990"
+  },
+  {
+   "symbol": "?FramesThisSecond@@3IA",
+   "address": "00a6eb18"
+  },
+  {
    "symbol": "?Gadget_Color_Scheme@@YAHXZ",
    "address": "004cefc0"
   },
@@ -1597,12 +1637,20 @@
    "address": "00a40958"
   },
   {
+   "symbol": "?GameControlsShown@@3_NA",
+   "address": "00a40d84"
+  },
+  {
    "symbol": "?GameInFocus@@3_NA",
    "address": "00a40d28"
   },
   {
    "symbol": "?GamePalette@@3VPaletteClass@@A",
    "address": "00837e10"
+  },
+  {
+   "symbol": "?GameStatisticsPacketSent@@3_NA",
+   "address": "00a417c8"
   },
   {
    "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
@@ -1661,6 +1709,10 @@
    "address": "00a40d44"
   },
   {
+   "symbol": "?InMainLoop@@3_NA",
+   "address": "00a6eb30"
+  },
+  {
    "symbol": "?Input@MessageListClass@@QAEHAAHG@Z",
    "address": "005b56f0"
   },
@@ -1705,6 +1757,18 @@
    "address": "00a40bb8"
   },
   {
+   "symbol": "?LastNetFrameTimer@@3HA",
+   "address": "00a6ebcc"
+  },
+  {
+   "symbol": "?LastPagerName@@3PADA",
+   "address": "00b2ac48"
+  },
+  {
+   "symbol": "?Leave_Game@SessionClass@@QAEXXZ",
+   "address": "00672e70"
+  },
+  {
    "symbol": "?Load_String@StringTable@@SIPBGPBDPAD0H@Z",
    "address": "006f9ec0"
   },
@@ -1717,6 +1781,14 @@
    "address": "008324e0"
   },
   {
+   "symbol": "?MapSizeY@@3HA",
+   "address": "008325d4"
+  },
+  {
+   "symbol": "?Mask_From_ID@OwnerTalkClass@@QAEEH@Z",
+   "address": "0063f4c0"
+  },
+  {
    "symbol": "?Multiplayer_Debug_Print_00526d90@IPXManagerClass@@QAEXXZ",
    "address": "00526d90"
   },
@@ -1727,6 +1799,10 @@
   {
    "symbol": "?Narrow_To_Wide_006fa180@@YIPAGPBD@Z",
    "address": "006fa180"
+  },
+  {
+   "symbol": "?NetFrameTimer@@3V?$CDTimerClass@VMSTimerClass@@@@A",
+   "address": "00839970"
   },
   {
    "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
@@ -1777,12 +1853,20 @@
    "address": "0065c3d0"
   },
   {
+   "symbol": "?Planning_Update@@YIXXZ",
+   "address": "00614010"
+  },
+  {
    "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
    "address": "00a35db4"
   },
   {
    "symbol": "?Plot_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1P6IX1@Z@Z",
    "address": null
+  },
+  {
+   "symbol": "?Process_Deferred_Deletion@@YAXXZ",
+   "address": "006ecf10"
   },
   {
    "symbol": "?Put_Pixel@XSurface@@UAE_NABUPoint2D@@H@Z",
@@ -1817,6 +1901,10 @@
    "address": "0065c310"
   },
   {
+   "symbol": "?Reload_Art_Set@@YIXXZ",
+   "address": "006f31b0"
+  },
+  {
    "symbol": "?Remove_Edit@MessageListClass@@QAEXXZ",
    "address": "005b5580"
   },
@@ -1839,6 +1927,22 @@
   {
    "symbol": "?Rules@@3PAVRulesClass@@A",
    "address": "00839848"
+  },
+  {
+   "symbol": "?Save_Game@@YI_NPBDPBGH@Z",
+   "address": "006554a0"
+  },
+  {
+   "symbol": "?ScrollBoost@@3MA",
+   "address": "007dfb74"
+  },
+  {
+   "symbol": "?ScrollKeys@@3HA",
+   "address": "00a6ebdc"
+  },
+  {
+   "symbol": "?ScrollSpeed@@3HA",
+   "address": "007dfb70"
   },
   {
    "symbol": "?Scroll_Map@DisplayClass@@QAE_NHPAH_N@Z",
@@ -1867,6 +1971,10 @@
   {
    "symbol": "?Send_Shutdown@OwnerTalkClass@@QAEXXZ",
    "address": "0063fc90"
+  },
+  {
+   "symbol": "?Send_Statistics_Packet@@YIX_N@Z",
+   "address": "00698d00"
   },
   {
    "symbol": "?Service@IPXManagerClass@@UAEHXZ",
@@ -1909,6 +2017,14 @@
    "address": "00534920"
   },
   {
+   "symbol": "?SpareTicks@@3HA",
+   "address": "00a4031c"
+  },
+  {
+   "symbol": "?SpecialDialog@@3HA",
+   "address": "00a40d48"
+  },
+  {
    "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
    "address": "006e81a0"
   },
@@ -1923,6 +2039,10 @@
   {
    "symbol": "?TacticalMap@@3PAVTactical@@A",
    "address": "0083996c"
+  },
+  {
+   "symbol": "?TeamEvent@@3HA",
+   "address": "00a6ebc4"
   },
   {
    "symbol": "?Theme@@3VThemeClass@@A",
@@ -1941,72 +2061,28 @@
    "address": "006715c0"
   },
   {
-   "symbol": "?Unknown_00482BC0@@YAXXZ",
-   "address": "00482bc0"
-  },
-  {
-   "symbol": "?Unknown_00491A10@@YI_NXZ",
-   "address": "00491a10"
-  },
-  {
    "symbol": "?Unknown_0053D890@UnknownList832470@@QAEXXZ",
    "address": "0053d890"
-  },
-  {
-   "symbol": "?Unknown_005bba50@@YIHPAG@Z",
-   "address": "005bba50"
-  },
-  {
-   "symbol": "?Unknown_00614010@@YIXXZ",
-   "address": "00614010"
-  },
-  {
-   "symbol": "?Unknown_0063F4C0@OwnerTalkClass@@QAEEH@Z",
-   "address": "0063f4c0"
-  },
-  {
-   "symbol": "?Unknown_006554A0@@YI_NPBDPBGH@Z",
-   "address": "006554a0"
-  },
-  {
-   "symbol": "?Unknown_0065e590@@YIXXZ",
-   "address": "0065e590"
-  },
-  {
-   "symbol": "?Unknown_006715D0@SessionClass@@QAEHH@Z",
-   "address": "006715d0"
   },
   {
    "symbol": "?Unknown_00672DE0@SessionClass@@QAEXXZ",
    "address": "00672de0"
   },
   {
-   "symbol": "?Unknown_00672E70@SessionClass@@QAEXXZ",
-   "address": "00672e70"
-  },
-  {
-   "symbol": "?Unknown_00698D00@@YIX_N@Z",
-   "address": "00698d00"
-  },
-  {
    "symbol": "?Unknown_0069A160@@YAXXZ",
    "address": "0069a160"
   },
   {
-   "symbol": "?Unknown_006ecf10@@YAXXZ",
-   "address": "006ecf10"
-  },
-  {
-   "symbol": "?Unknown_Reload_Art_Set_006F31B0@@YIXXZ",
-   "address": "006f31b0"
-  },
-  {
-   "symbol": "?Unknown_Slot16@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z",
-   "address": "00773ef0"
-  },
-  {
    "symbol": "?UnlockInputFrame@@3HA",
    "address": "00ab9174"
+  },
+  {
+   "symbol": "?Unselect_All@@YAXXZ",
+   "address": "00482bc0"
+  },
+  {
+   "symbol": "?Update_Fogged_Objects@FoggedObjectClass@@SAXXZ",
+   "address": "004c1ae0"
   },
   {
    "symbol": "?Update_Messages@MessageListClass@@QAEHXZ",
@@ -2031,6 +2107,10 @@
   {
    "symbol": "?Wait_For_Surface_Blit_004961d0@@YAJXZ",
    "address": "004961d0"
+  },
+  {
+   "symbol": "?WestwoodOnline_Tournament@@3HA",
+   "address": "00b2a7ec"
   },
   {
    "symbol": "?WideToCharString_006fa0f0@@YIXPADPBGH@Z",
@@ -2089,10 +2169,6 @@
    "address": "00a40a28"
   },
   {
-   "symbol": "?unknown_4c1ae0@FoggedObjectClass@@SAXXZ",
-   "address": "004c1ae0"
-  },
-  {
    "symbol": "?unknown_a3d3b4@@3HA",
    "address": "00a3d3b4"
   },
@@ -2121,14 +2197,6 @@
    "address": "00a6eb1c"
   },
   {
-   "symbol": "?unknown_b2a7ec@@3HA",
-   "address": "00b2a7ec"
-  },
-  {
-   "symbol": "?unknown_chat_target_a6ebe0@@3HA",
-   "address": "00a6ebe0"
-  },
-  {
    "symbol": "?unknown_debug_display_a3d8c5@@3_NA",
    "address": "00a3d8c5"
   },
@@ -2153,28 +2221,12 @@
    "address": "00a40b51"
   },
   {
-   "symbol": "?unknown_flag_a40d84@@3_NA",
-   "address": "00a40d84"
-  },
-  {
-   "symbol": "?unknown_flag_a417c8@@3_NA",
-   "address": "00a417c8"
-  },
-  {
    "symbol": "?unknown_flag_a6ebd0@@3_NA",
    "address": "00a6ebd0"
   },
   {
    "symbol": "?unknown_flags_a3f118@@3PA_NA",
    "address": "00a3f118"
-  },
-  {
-   "symbol": "?unknown_frame_timer_839990@@3V?$CDTimerClass@VSystemTimerClass@@@@A",
-   "address": "00839990"
-  },
-  {
-   "symbol": "?unknown_frames_this_second_a6eb18@@3IA",
-   "address": "00a6eb18"
   },
   {
    "symbol": "?unknown_game_mode_a3d298@@3HA",
@@ -2189,20 +2241,8 @@
    "address": "008325d0"
   },
   {
-   "symbol": "?unknown_int_8325d4@@3HA",
-   "address": "008325d4"
-  },
-  {
-   "symbol": "?unknown_int_a40d48@@3HA",
-   "address": "00a40d48"
-  },
-  {
    "symbol": "?unknown_last_message_a3f122@@3PAGA",
    "address": "00a3f122"
-  },
-  {
-   "symbol": "?unknown_last_pager_b2ac48@@3PADA",
-   "address": "00b2ac48"
   },
   {
    "symbol": "?unknown_layers_852578@@3PAVLayerClass@@A",
@@ -2211,10 +2251,6 @@
   {
    "symbol": "?unknown_list_832470@@3VUnknownList832470@@A",
    "address": "00832470"
-  },
-  {
-   "symbol": "?unknown_main_loop_flag_a6eb30@@3_NA",
-   "address": "00a6eb30"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
@@ -2227,14 +2263,6 @@
   {
    "symbol": "?unknown_max_ahead_a3d560@@3HA",
    "address": "00a3d560"
-  },
-  {
-   "symbol": "?unknown_net_frame_delay_a6ebcc@@3HA",
-   "address": "00a6ebcc"
-  },
-  {
-   "symbol": "?unknown_net_frame_timer_839970@@3V?$CDTimerClass@VMSTimerClass@@@@A",
-   "address": "00839970"
   },
   {
    "symbol": "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A",
@@ -2253,18 +2281,6 @@
    "address": "00a3d56c"
   },
   {
-   "symbol": "?unknown_scroll_factor_7dfb74@@3MA",
-   "address": "007dfb74"
-  },
-  {
-   "symbol": "?unknown_scroll_keys_a6ebdc@@3HA",
-   "address": "00a6ebdc"
-  },
-  {
-   "symbol": "?unknown_scroll_rate_7dfb70@@3HA",
-   "address": "007dfb70"
-  },
-  {
    "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
    "address": "00a3d298"
   },
@@ -2277,32 +2293,16 @@
    "address": "00a3d2ac"
   },
   {
-   "symbol": "?unknown_spare_ticks_a4031c@@3HA",
-   "address": "00a4031c"
-  },
-  {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_team_event_a6ebc4@@3HA",
-   "address": "00a6ebc4"
   },
   {
    "symbol": "?unknown_team_number_a6ebc8@@3HA",
    "address": "00a6ebc8"
   },
   {
-   "symbol": "?unknown_time_7ec498@@3IA",
-   "address": "007ec498"
-  },
-  {
    "symbol": "?unknown_tooltips_enabled_a40b34@@3_NA",
    "address": "00a40b34"
-  },
-  {
-   "symbol": "?unknown_trap_check_heap_a40d1a@@3_NA",
-   "address": "00a40d1a"
   },
   {
    "symbol": "?x@?1???A?$IndexClass@HPAVCommandClass@@@@QBEABQAVCommandClass@@ABH@Z@4PAV2@A",

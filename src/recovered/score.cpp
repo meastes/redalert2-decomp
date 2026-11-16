@@ -785,7 +785,7 @@ void ScoreClass::ScoreDelay(int ticks)
         Blit_Score();
         do {
             Service_Game_IO_00481fb0();
-            unknown_5b5ee0();
+            Windows_Message_Handler();
             if(!GameInFocus) {
                 timer.Stop();
                 Wait_While_Inactive();
@@ -853,7 +853,7 @@ void ScoreClass::Wait_While_Inactive()
         }
         while (!GameInFocus) {
             Sleep(500);
-            unknown_5b5ee0();
+            Windows_Message_Handler();
         }
         for (int index2 = 0; index2 < Anims.Count(); index2++) {
             Anims[index2]->Resume();

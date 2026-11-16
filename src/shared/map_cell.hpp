@@ -112,8 +112,8 @@ public:
     bool unknown_47a270();          // 0x0047A270 (a water tile; hypothesis: TibSun Is_Tile_Water)
     bool Is_Tile_Clear() const;    // 0x0047B590 (no tile: 0 or 0xFFFF; as shared/cell.hpp)
 #ifdef RA2_MAP_BRIDGE_PIECES
-    bool unknown_47b7e0() const;     // 0x0047B7E0 (TibSun Is_Tile_With_Water)
-    bool unknown_47b7c0() const;     // 0x0047B7C0 (TibSun Is_Tile_Shore; as shared/cell_class.hpp)
+    bool Is_Tile_With_Water() const;     // 0x0047B7E0 (TibSun Is_Tile_With_Water)
+    bool Is_Tile_Shore() const;     // 0x0047B7C0 (TibSun Is_Tile_Shore; as shared/cell_class.hpp)
 #endif
     void Set_Wall_Owner();          // 0x004724A0 (a wall overlay: its owner; TibSun Set_Wall_Owner; as shared/cell.hpp)
     int Tiberium_Adjust(bool pregame);   // 0x00476BA0 (TibSun Tiberium_Adjust; as shared/cell.hpp)
@@ -135,7 +135,7 @@ public:
     void Recalc_Attributes(int value);   // 0x00472540 (as shared/cell.hpp)
     void Occupy_Down(class ObjectClass *object, bool alt);   // 0x00473B30 (links object into the occupier list; TibSun Occupy_Down)
     void Occupy_Up(class ObjectClass *object, bool alt);   // 0x00473D20 (as shared/cell_class.hpp; TibSun Occupy_Up)
-    int unknown_475db0(int amount);     // 0x00475DB0 (takes up to amount of tiberium; as shared/cell.hpp)
+    int Reduce_Tiberium(int amount);     // 0x00475DB0 (takes up to amount of tiberium; as shared/cell.hpp)
     void Fog_Cell();          // 0x0047BC80 (DisplayClass 0x0049CDB0, for a cell that was mapped)
     void Unfog_Cell();          // 0x0047BE00 (as shared/cell.hpp)
     void ReduceShroudCounter();          // 0x0047C840 (as shared/cell.hpp)

@@ -18,7 +18,7 @@
 // @ref ??0UnknownQuaternion@@QAE@MMMM@Z=00622160
 // @ref ?Create_ID@AbstractClass@@UAGXXZ=0040ffd0
 // @ref ?Init@UnknownAudioController@@QAEXXZ=00405bf0
-// @ref ?unknown_VoxelAnimClass_list_008399d0@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A=008399d0
+// @ref ?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A=008399d0
 // @ref ??_7VoxelAnimClass@@6BIPersistStream@@@=007ae428
 // @ref ??_7VoxelAnimClass@@6BIRTTITypeInfo@@@=007ae40c
 // @ref ??_7VoxelAnimClass@@6BINoticeSink@@@=007ae404
@@ -40,7 +40,7 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass *type, CoordStruct const &coor
     unknown_fc.Init();
     unknown_110.Init();
     unknown_128 = Class->Duration;
-    unknown_VoxelAnimClass_list_008399d0.Add(this);
+    VoxelAnims.Add(this);
     if (!Class->IsMeteor) {
         ObjectClass::Unlimbo(&coord, 0);
         CoordStruct center = ObjectClass::Center_Coord() + CoordStruct(0, 0, 10);

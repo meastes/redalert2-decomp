@@ -6,7 +6,7 @@
 // @ref __imp__SetWindowLongA@12=0079a488
 // @ref ?Game_Options_Proc@@YGHPAUHWND__@@IIJ@Z=004ddf90
 // @ref ?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z=005ff610
-// @ref ?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z=005ff7c0
+// @ref ?Display_Dialog@@YIXPAUHWND__@@@Z=005ff7c0
 // @ref ?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z=005ff6e0
 // @ref ?unknown_6000d0@@YA_NXZ=006000d0
 
@@ -16,7 +16,7 @@ int Run_Game_Options_Dialog()
     HWND window = unknown_create_dialog_5ff610(0xB6, Game_Options_Proc, 0);
     if (window) {
         SetWindowLongA(window, 8, (LONG)&result);
-        unknown_dialog_5ff7c0(window);
+        Display_Dialog(window);
         while (!result) {
             if (unknown_6000d0() == true) {
                 result = 1;

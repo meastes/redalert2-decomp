@@ -20,7 +20,7 @@
 // @ref ?unknown_6000d0@@YA_NXZ=006000d0
 // @ref ?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z=005ff610
 // @ref ?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z=005ff6e0
-// @ref ?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z=005ff7c0
+// @ref ?Display_Dialog@@YIXPAUHWND__@@@Z=005ff7c0
 // @ref ?SkirmishDialog@@3PAUHWND__@@A=00abcdfc
 // @ref ?MultiplayerMapPreview@@3PAVMapPreviewClass@@A=00a72ce8
 int __stdcall Skirmish_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam);  // @ref ?Skirmish_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z=00683d10
@@ -37,7 +37,7 @@ bool __fastcall Skirmish_Dialog()
     if (dialog != 0) {
         SkirmishDialog = dialog;
         SetWindowLongA(dialog, 8, (LONG)&result);
-        unknown_dialog_5ff7c0(dialog);
+        Display_Dialog(dialog);
         while (result != 0x617 && result != 0x5C0 && unknown_6000d0() != true) {
             Title_Screen_Restore(false);
         }

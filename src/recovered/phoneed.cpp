@@ -102,7 +102,7 @@ bool PhoneEdit::Dialog()
         RC = -1;
         SetWindowLongA(_Dialog, DWL_USER, (LONG)this);
         Build_Phone_Listbox();
-        unknown_dialog_5ff7c0(_Dialog);
+        Display_Dialog(_Dialog);
         while (RC < 0) {
             if (unknown_6000d0() == true) {
                 break;
@@ -125,7 +125,7 @@ bool PhoneEdit::Dialog()
 BOOL __stdcall Phone_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
     HWND handle;
-    int rc = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int rc = Default_Dialog_Proc(window, message, wparam, lparam);
     if (rc == 0) {
         PhoneEdit *_this = (PhoneEdit *)GetWindowLongA(window, DWL_USER);
         switch (message) {
@@ -412,7 +412,7 @@ bool PhoneEntryEdit::Dialog(PhoneEntryClass *phone)
         RC = -1;
         SetWindowLongA(_Dialog, DWL_USER, (LONG)this);
         Init();
-        unknown_dialog_5ff7c0(_Dialog);
+        Display_Dialog(_Dialog);
         while (RC < 0) {
             if (unknown_6000d0() == true) {
                 break;
@@ -434,7 +434,7 @@ BOOL __stdcall Edit_Phone_Dialog_Proc(HWND window, UINT message, WPARAM wparam, 
     wchar_t buffer[64];
     int rc;
 
-    rc = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    rc = Default_Dialog_Proc(window, message, wparam, lparam);
     if (rc == 0) {
         PhoneEntryEdit *_this = (PhoneEntryEdit *)GetWindowLongA(window, DWL_USER);
         switch (message) {

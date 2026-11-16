@@ -22,12 +22,12 @@ inline LRESULT Send_Dlg_Item_Message(HWND dialog, int id, UINT message, WPARAM w
 }
 
 // The colour shown for a player colour outside 0..7 (0x007A737C, 0x0040FFFF).
-extern int unknown_color_7a737c;
+extern int ColorMe;
 
-// The RGB value of a player colour (unknown_color_values_7e6d94; others show unknown_color_7a737c).
+// The RGB value of a player colour (PlayerColorTable; others show ColorMe).
 inline int Player_Color_RGB(int color)
 {
-    return (color >= 0 && color < 8) ? unknown_color_values_7e6d94[color] : unknown_color_7a737c;
+    return (color >= 0 && color < 8) ? PlayerColorTable[color] : ColorMe;
 }
 
 class ModemHost {

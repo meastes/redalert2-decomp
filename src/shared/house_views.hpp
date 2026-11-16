@@ -70,7 +70,7 @@ struct UnknownFactoryView {
     void unknown_func_4b9630(bool arg1);    // 0x004B9630 (suspends production; hypothesis)
 };
 // The type of an object kind by index (0x00482C00; 0 for other kinds).
-TechnoTypeClass *__fastcall Unknown_00482C00(int kind, int index);
+TechnoTypeClass *__fastcall Fetch_Techno_Type(int kind, int index);
 // The +0xBA0 member of a building type (view).
 struct UnknownBuildingTypeBA0View {
     char unknown_0000[0xBA0];

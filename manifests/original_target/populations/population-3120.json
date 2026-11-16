@@ -4,11 +4,11 @@
     "id": "population-3120",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "55a93bda6e2c1198c455975d37fe32c376ccb0f4e01226e784f7172f7e5bc29f",
-    "historical_acceptance_sha256": "206c8475994879a0e9a838f90b317d410920de24d0e6602413369d889e07de86"
+    "historical_population_sha256": "2a561c552dc868adf84dfd89e755da70bb14b62a4f11cc1e1999e90735b9ddf4",
+    "historical_acceptance_sha256": "70bce09a9aedeeb5acd9e44f6262660db4d11cda534a5997296d15ac926c4661"
   },
   "references": {
-    "?unknown_vqa_default_config_801470@@3UVQAConfig@@A": 8393840,
+    "?_defaultconfig@@3UVQAConfig@@A": 8393840,
     "__real@8@40078000000000000000": 7972608,
     "__real@8@40008000000000000000": 7972600,
     "__CIpow": 7872944,
@@ -1125,13 +1125,13 @@
         {
           "offset": 5,
           "kind": 6,
-          "symbol": "?unknown_vqa_default_config_801470@@3UVQAConfig@@A",
+          "symbol": "?_defaultconfig@@3UVQAConfig@@A",
           "target": 8393840,
           "addend": 0,
           "resolved": 8393840
         }
       ],
-      "source_sha256": "369ed0c2deaa9737f08a5966158ec6b1226d651dfb6f3ab9f1bf1791dc34ef5c",
+      "source_sha256": "0a71331fdd00c1d86cecdb5803fabfabfe73b178709180755cb3a2751d4fb2e5",
       "source": "src/recovered/vqalib_config/VQA_Unknown.cpp",
       "population": "population-3120",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

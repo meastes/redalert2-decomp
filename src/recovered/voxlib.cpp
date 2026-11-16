@@ -55,26 +55,26 @@ struct UnknownVoxelView {
     int unknown_20;
 };
 
-extern UnknownVoxelView unknown_views_7f9e60[];
+extern UnknownVoxelView VoxelRenderOrientations[];
 extern void (*VoxelDrawFunctions[])(VoxelFuncArgumentStruct *parameters);
 extern int unknown_af6610;
 extern int unknown_af6614;
 
 // The screen offsets per depth (8.8 fixed point x/y) of the span drawers.
-short unknown_steps_af8a10[256][2];
+short VoxelPixelDeltaTable[256][2];
 
 // The 256x256 byte grid the span drawers write (another unit's).
 extern unsigned char unknown_grid_ae3408[];
 
 // The normal vector tables per normal type (0 none) and their sizes.
-extern Vector3 const *unknown_normal_tables_7f9f80[5];
+extern Vector3 const *VoxelNormalTables[5];
 extern int VoxelNormalTableEntryCount[5];
 
 // The default brightness levels of VoxelPaletteLibrary::Calculate_Lookup_Table.
 float unknown_levels_af8f10[32];
 
 // The shade per normal (0x10 is unlit).
-unsigned char unknown_shades_af8e10[256];
+unsigned char VoxelNormalTranslateTable[256];
 
 
 VoxelLibrary::VoxelLibrary()
@@ -157,8 +157,8 @@ int VoxelLibrary::Read_File(FileClass *file, int load_palette)
     LayerCount = header.LayerCount;
     LayerInfoCount = header.LayerInfoCount;
     DataSize = header.DataSize;
-    LayerHeaders = new UnknownVoxelSection[LayerCount];
-    LayerInfos = new UnknownVoxelTailer[LayerInfoCount];
+    LayerHeaders = new LayerStruct[LayerCount];
+    LayerInfos = new LayerInfoStruct[LayerInfoCount];
     Data = new unsigned char[DataSize];
     if (!LayerHeaders || !LayerInfos || !Data) {
         Clear(); file->Close(); return 0;
@@ -188,10 +188,10 @@ int VoxelLibrary::Read_File(FileClass *file, int load_palette)
     for (i=0;i<LayerInfoCount;++i) {
 
         if (file->Read(&layer_info,sizeof(layer_info))!=sizeof(layer_info)) { Clear(); file->Close(); return 0; }
-        LayerInfos[i].unknown_a0=layer_info.XSize;
-        LayerInfos[i].unknown_a1=layer_info.YSize;
-        LayerInfos[i].unknown_a2=layer_info.ZSize;
-        LayerInfos[i].unknown_a3=layer_info.NormalType;
+        LayerInfos[i].XSize=layer_info.XSize;
+        LayerInfos[i].YSize=layer_info.YSize;
+        LayerInfos[i].ZSize=layer_info.ZSize;
+        LayerInfos[i].NormalType=layer_info.NormalType;
         LayerInfos[i].unknown_0c=layer_info.Scale;
         *(VxlMatrixData *)LayerInfos[i].unknown_10 = (VxlMatrixData &)Matrix3D(layer_info.Transform);
         Vector3 min; min.X=layer_info.MinBounds[0]; min.Y=layer_info.MinBounds[1]; min.Z=layer_info.MinBounds[2];
@@ -212,13 +212,13 @@ int VoxelLibrary::Read_File(FileClass *file, int load_palette)
 }
 
 
-UnknownVoxelSection *VoxelLibrary::Get_Layer(int section)
+LayerStruct *VoxelLibrary::Get_Layer(int section)
 {
     return &LayerHeaders[section];
 }
 
 
-UnknownVoxelTailer *VoxelLibrary::Get_Layer_Info(int section, int arg2)
+LayerInfoStruct *VoxelLibrary::Get_Layer_Info(int section, int arg2)
 {
     return &LayerInfos[Get_Layer(section)->unknown_00 + arg2];
 }
@@ -226,14 +226,14 @@ UnknownVoxelTailer *VoxelLibrary::Get_Layer_Info(int section, int arg2)
 
 Vector3 VoxelLibrary::Get_Bounding_Box_Center(int section, int arg2)
 {
-    UnknownVoxelTailer *tailer = Get_Layer_Info(section, arg2);
+    LayerInfoStruct *tailer = Get_Layer_Info(section, arg2);
     return (tailer->unknown_40[4] + tailer->unknown_40[2]) * 0.5f;
 }
 
 
 int VoxelLibrary::Memory_Used()
 {
-    return LayerCount * sizeof(UnknownVoxelSection) + LayerInfoCount * sizeof(UnknownVoxelTailer) + sizeof(VoxelLibrary) + DataSize;
+    return LayerCount * sizeof(LayerStruct) + LayerInfoCount * sizeof(LayerInfoStruct) + sizeof(VoxelLibrary) + DataSize;
 }
 
 
@@ -244,10 +244,10 @@ int VoxelLibrary::Memory_Used()
 // (unknown_af6614) and 8 (no normal table).
 void VoxelLibrary::Render_Object(UnknownVoxelDrawState *state, Vector3 const *origin)
 {
-    UnknownVoxelTailer *tailer = Get_Layer_Info(state->unknown_04, state->unknown_08);
-    unsigned char size_x = tailer->unknown_a0;
-    unsigned char size_y = tailer->unknown_a1;
-    unsigned char size_z = tailer->unknown_a2;
+    LayerInfoStruct *tailer = Get_Layer_Info(state->unknown_04, state->unknown_08);
+    unsigned char size_x = tailer->XSize;
+    unsigned char size_y = tailer->YSize;
+    unsigned char size_z = tailer->ZSize;
     VoxelFuncArgumentStruct parameters;
     parameters.XSize = size_x;
     parameters.YSize = size_y;
@@ -255,13 +255,13 @@ void VoxelLibrary::Render_Object(UnknownVoxelDrawState *state, Vector3 const *or
     parameters.StartOffset = tailer->unknown_00;
     parameters.EndOffset = tailer->unknown_04;
     parameters.DataOffset = tailer->unknown_08;
-    Vector3 const *corner = &state->unknown_28[unknown_views_7f9e60[state->unknown_0c].unknown_04];
-    Vector3 const *corner_x = &state->unknown_28[unknown_views_7f9e60[state->unknown_0c].unknown_08];
-    Vector3 const *corner_y = &state->unknown_28[unknown_views_7f9e60[state->unknown_0c].unknown_0c];
-    Vector3 const *corner_z = &state->unknown_28[unknown_views_7f9e60[state->unknown_0c].unknown_10];
-    parameters.StrideX = unknown_views_7f9e60[state->unknown_0c].unknown_1c;
-    parameters.StrideY = unknown_views_7f9e60[state->unknown_0c].unknown_20 * size_x;
-    parameters.StartIndex = unknown_views_7f9e60[state->unknown_0c].unknown_18 * (size_y - 1) * size_x + unknown_views_7f9e60[state->unknown_0c].unknown_14 * (size_x - 1);
+    Vector3 const *corner = &state->unknown_28[VoxelRenderOrientations[state->unknown_0c].unknown_04];
+    Vector3 const *corner_x = &state->unknown_28[VoxelRenderOrientations[state->unknown_0c].unknown_08];
+    Vector3 const *corner_y = &state->unknown_28[VoxelRenderOrientations[state->unknown_0c].unknown_0c];
+    Vector3 const *corner_z = &state->unknown_28[VoxelRenderOrientations[state->unknown_0c].unknown_10];
+    parameters.StrideX = VoxelRenderOrientations[state->unknown_0c].unknown_1c;
+    parameters.StrideY = VoxelRenderOrientations[state->unknown_0c].unknown_20 * size_x;
+    parameters.StartIndex = VoxelRenderOrientations[state->unknown_0c].unknown_18 * (size_y - 1) * size_x + VoxelRenderOrientations[state->unknown_0c].unknown_14 * (size_x - 1);
     parameters.TransformMatrix[0].I = (short)((corner->X + 128.0f - origin->X) * 256.0f);
     parameters.TransformMatrix[0].J = (short)((corner->Y + 128.0f - origin->Y) * 256.0f);
     parameters.TransformMatrix[0].K = (short)((corner->Z + 128.0f - origin->Z) * 256.0f);
@@ -276,14 +276,14 @@ void VoxelLibrary::Render_Object(UnknownVoxelDrawState *state, Vector3 const *or
         parameters.TransformMatrix[2].K = (short)((corner_y->Z - corner->Z) / size_y * 256.0f);
         parameters.TransformMatrix[3].K = (short)((corner_z->Z - corner->Z) / size_z * 256.0f);
     }
-    int drawer = unknown_views_7f9e60[state->unknown_0c].unknown_00;
+    int drawer = VoxelRenderOrientations[state->unknown_0c].unknown_00;
     if (unknown_af6610) {
         drawer |= 2;
     }
     if (unknown_af6614) {
         drawer |= 4;
     }
-    if (tailer->unknown_a3 == 0) {
+    if (tailer->NormalType == 0) {
         drawer |= 8;
     }
     VoxelDrawFunctions[drawer](&parameters);
@@ -350,12 +350,12 @@ inline void Draw_Shadow(VoxelFuncArgumentStruct *parameters, Surface *surface, i
     }
 }
 
-void VoxelLibrary::Render_Shadow(UnknownVoxelRecord48 *record, Vector3 const *origin)
+void VoxelLibrary::Render_Shadow(VoxelShadowRenderStruct *record, Vector3 const *origin)
 {
-    UnknownVoxelTailer *tailer = Get_Layer_Info(record->unknown_04, record->unknown_08);
+    LayerInfoStruct *tailer = Get_Layer_Info(record->unknown_04, record->unknown_08);
     VoxelFuncArgumentStruct parameters;
-    unsigned char size_x = tailer->unknown_a0;
-    unsigned char size_y = tailer->unknown_a1;
+    unsigned char size_x = tailer->XSize;
+    unsigned char size_y = tailer->YSize;
     unsigned char size_z = 1;
     parameters.XSize = size_x;
     parameters.YSize = size_y;
@@ -386,15 +386,15 @@ void VoxelLibrary::Render_Shadow(UnknownVoxelRecord48 *record, Vector3 const *or
 void VoxelLibrary::Compute_Bounding_Box()
 {
     for (unsigned index = 0; index < LayerInfoCount; index++) {
-        UnknownVoxelTailer *tailer = &LayerInfos[index];
-        tailer->unknown_40[0] = Vector3(tailer->unknown_a0 * 0.5f, tailer->unknown_a1 * 0.5f, -tailer->unknown_a2 * 0.5f);
-        tailer->unknown_40[1] = Vector3(tailer->unknown_a0 * 0.5f, -tailer->unknown_a1 * 0.5f, -tailer->unknown_a2 * 0.5f);
-        tailer->unknown_40[2] = Vector3(-tailer->unknown_a0 * 0.5f, -tailer->unknown_a1 * 0.5f, -tailer->unknown_a2 * 0.5f);
-        tailer->unknown_40[3] = Vector3(-tailer->unknown_a0 * 0.5f, tailer->unknown_a1 * 0.5f, -tailer->unknown_a2 * 0.5f);
-        tailer->unknown_40[4] = Vector3(tailer->unknown_a0 * 0.5f, tailer->unknown_a1 * 0.5f, tailer->unknown_a2 * 0.5f);
-        tailer->unknown_40[5] = Vector3(tailer->unknown_a0 * 0.5f, -tailer->unknown_a1 * 0.5f, tailer->unknown_a2 * 0.5f);
-        tailer->unknown_40[6] = Vector3(-tailer->unknown_a0 * 0.5f, -tailer->unknown_a1 * 0.5f, tailer->unknown_a2 * 0.5f);
-        tailer->unknown_40[7] = Vector3(-tailer->unknown_a0 * 0.5f, tailer->unknown_a1 * 0.5f, tailer->unknown_a2 * 0.5f);
+        LayerInfoStruct *tailer = &LayerInfos[index];
+        tailer->unknown_40[0] = Vector3(tailer->XSize * 0.5f, tailer->YSize * 0.5f, -tailer->ZSize * 0.5f);
+        tailer->unknown_40[1] = Vector3(tailer->XSize * 0.5f, -tailer->YSize * 0.5f, -tailer->ZSize * 0.5f);
+        tailer->unknown_40[2] = Vector3(-tailer->XSize * 0.5f, -tailer->YSize * 0.5f, -tailer->ZSize * 0.5f);
+        tailer->unknown_40[3] = Vector3(-tailer->XSize * 0.5f, tailer->YSize * 0.5f, -tailer->ZSize * 0.5f);
+        tailer->unknown_40[4] = Vector3(tailer->XSize * 0.5f, tailer->YSize * 0.5f, tailer->ZSize * 0.5f);
+        tailer->unknown_40[5] = Vector3(tailer->XSize * 0.5f, -tailer->YSize * 0.5f, tailer->ZSize * 0.5f);
+        tailer->unknown_40[6] = Vector3(-tailer->XSize * 0.5f, -tailer->YSize * 0.5f, tailer->ZSize * 0.5f);
+        tailer->unknown_40[7] = Vector3(-tailer->XSize * 0.5f, tailer->YSize * 0.5f, tailer->ZSize * 0.5f);
     }
 }
 
@@ -408,7 +408,7 @@ void VoxelLibrary::Compute_Bounding_Box()
 // variants with different code shapes).
 inline void Fill_Delta_Table1(VoxelFuncArgumentStruct *parameters)
 {
-    short (&steps)[256][2] = unknown_steps_af8a10;
+    short (&steps)[256][2] = VoxelPixelDeltaTable;
     steps[0][0] = 0;
     steps[0][1] = 0;
     Vector3i16 &step = parameters->TransformMatrix[3];
@@ -420,12 +420,12 @@ inline void Fill_Delta_Table1(VoxelFuncArgumentStruct *parameters)
 
 inline void Fill_Delta_Table2(VoxelFuncArgumentStruct *parameters)
 {
-    unknown_steps_af8a10[0][0] = 0;
-    unknown_steps_af8a10[0][1] = 0;
+    VoxelPixelDeltaTable[0][0] = 0;
+    VoxelPixelDeltaTable[0][1] = 0;
     Vector3i16 *step = &parameters->TransformMatrix[3];
     for (unsigned depth = 1; depth < parameters->ZSize; depth++) {
-        unknown_steps_af8a10[depth][0] = unknown_steps_af8a10[depth - 1][0] + step->I;
-        unknown_steps_af8a10[depth][1] = unknown_steps_af8a10[depth - 1][1] + step->J;
+        VoxelPixelDeltaTable[depth][0] = VoxelPixelDeltaTable[depth - 1][0] + step->I;
+        VoxelPixelDeltaTable[depth][1] = VoxelPixelDeltaTable[depth - 1][1] + step->J;
     }
 }
 
@@ -448,8 +448,8 @@ void Draw_Voxel_Regular_Normals(VoxelFuncArgumentStruct *parameters)
                 while (remaining) {
                     unsigned char skip = *data;
                     data++;
-                    x += unknown_steps_af8a10[skip][0];
-                    y += unknown_steps_af8a10[skip][1];
+                    x += VoxelPixelDeltaTable[skip][0];
+                    y += VoxelPixelDeltaTable[skip][1];
                     remaining -= skip;
                     unsigned count = *data;
                     data++;
@@ -517,8 +517,8 @@ void Draw_Voxel_Reverse_Normals(VoxelFuncArgumentStruct *parameters)
                     data--;
                     unsigned char skip = *data;
                     data--;
-                    x += unknown_steps_af8a10[skip][0];
-                    y += unknown_steps_af8a10[skip][1];
+                    x += VoxelPixelDeltaTable[skip][0];
+                    y += VoxelPixelDeltaTable[skip][1];
                     remaining -= skip;
                 }
             }
@@ -564,8 +564,8 @@ void Draw_Voxel_Regular_Normals_ZBuffer(VoxelFuncArgumentStruct *parameters)
                 while (remaining) {
                     unsigned char value = *data;
                     data++;
-                    x += unknown_steps_af8a10[value][0];
-                    y += unknown_steps_af8a10[value][1];
+                    x += VoxelPixelDeltaTable[value][0];
+                    y += VoxelPixelDeltaTable[value][1];
                     z += parameters->TransformMatrix[3].K * value;
                     remaining -= value;
                     unsigned count = *data;
@@ -651,8 +651,8 @@ void Draw_Voxel_Reverse_Normals_ZBuffer(VoxelFuncArgumentStruct *parameters)
                     data--;
                     value = *data;
                     data--;
-                    x += unknown_steps_af8a10[value][0];
-                    y += unknown_steps_af8a10[value][1];
+                    x += VoxelPixelDeltaTable[value][0];
+                    y += VoxelPixelDeltaTable[value][1];
                     z += parameters->TransformMatrix[3].K * value;
                     remaining -= value;
                 }
@@ -690,8 +690,8 @@ void Draw_Voxel_Regular_Normals_Lighting(VoxelFuncArgumentStruct *parameters)
                 while (remaining) {
                     unsigned char value = *data;
                     data++;
-                    x += unknown_steps_af8a10[value][0];
-                    y += unknown_steps_af8a10[value][1];
+                    x += VoxelPixelDeltaTable[value][0];
+                    y += VoxelPixelDeltaTable[value][1];
                     remaining -= value;
                     unsigned count = *data;
                     data++;
@@ -702,7 +702,7 @@ void Draw_Voxel_Regular_Normals_Lighting(VoxelFuncArgumentStruct *parameters)
                             data++;
                             unsigned char shade = *data;
                             data++;
-                            shade = unknown_shades_af8e10[shade];
+                            shade = VoxelNormalTranslateTable[shade];
                             unsigned index = (x >> 8) | (y & 0xFF00);
                             unknown_grid_ae3408[index] = unknown_lit_colors_af4608[shade][value];
                             unknown_grid_ae3408[index + 1] = unknown_lit_colors_af4608[shade][value];
@@ -751,7 +751,7 @@ void Draw_Voxel_Reverse_Normals_Lighting(VoxelFuncArgumentStruct *parameters)
                         while (count) {
                             unsigned char shade = *data;
                             data--;
-                            shade = unknown_shades_af8e10[shade];
+                            shade = VoxelNormalTranslateTable[shade];
                             value = *data;
                             data--;
                             unsigned index = (x >> 8) | (y & 0xFF00);
@@ -765,8 +765,8 @@ void Draw_Voxel_Reverse_Normals_Lighting(VoxelFuncArgumentStruct *parameters)
                     data--;
                     value = *data;
                     data--;
-                    x += unknown_steps_af8a10[value][0];
-                    y += unknown_steps_af8a10[value][1];
+                    x += VoxelPixelDeltaTable[value][0];
+                    y += VoxelPixelDeltaTable[value][1];
                     remaining -= value;
                 }
             }
@@ -816,8 +816,8 @@ void Draw_Voxel_Regular_Normals_ZBuffer_Lighting(VoxelFuncArgumentStruct *state)
                 while (remaining) {
                     value = *ptr;
                     ptr++;
-                    pixel_x += unknown_steps_af8a10[value][0];
-                    pixel_y += unknown_steps_af8a10[value][1];
+                    pixel_x += VoxelPixelDeltaTable[value][0];
+                    pixel_y += VoxelPixelDeltaTable[value][1];
                     pixel_z += state->TransformMatrix[3].K * value;
                     remaining -= value;
                     unsigned int run_length = *ptr;
@@ -831,7 +831,7 @@ void Draw_Voxel_Regular_Normals_ZBuffer_Lighting(VoxelFuncArgumentStruct *state)
                                 ptr++;
                                 normal_index = *ptr;
                                 ptr++;
-                                normal_index = unknown_shades_af8e10[normal_index];
+                                normal_index = VoxelNormalTranslateTable[normal_index];
                                 unknown_grid_ae3408[buffer_index] = unknown_lit_colors_af4608[normal_index][value];
                                 unknown_grid_ae3408[buffer_index + 1] = unknown_lit_colors_af4608[normal_index][value];
                                 unknown_zbuffer_ad0a70[buffer_index] = (pixel_z >> 8);
@@ -891,7 +891,7 @@ void Draw_Voxel_Reverse_Normals_ZBuffer_Lighting(VoxelFuncArgumentStruct *parame
                             if ((z>>8)>unknown_zbuffer_ad0a70[index]) {
                                 shade=*data;
                                 --data;
-                                shade=unknown_shades_af8e10[shade];
+                                shade=VoxelNormalTranslateTable[shade];
                                 value=*data;
                                 --data;
                                 value=unknown_lit_colors_af4608[shade][value];
@@ -909,8 +909,8 @@ void Draw_Voxel_Reverse_Normals_ZBuffer_Lighting(VoxelFuncArgumentStruct *parame
                     --data;
                     value=*data;
                     --data;
-                    x+=unknown_steps_af8a10[value][0];
-                    y+=unknown_steps_af8a10[value][1];
+                    x+=VoxelPixelDeltaTable[value][0];
+                    y+=VoxelPixelDeltaTable[value][1];
                     z+=parameters->TransformMatrix[3].K*value;
                     remaining-=value;
                 }
@@ -947,8 +947,8 @@ void Draw_Voxel_Regular(VoxelFuncArgumentStruct *parameters)
                 while (remaining) {
                     unsigned char skip = *data;
                     data++;
-                    x += unknown_steps_af8a10[skip][0];
-                    y += unknown_steps_af8a10[skip][1];
+                    x += VoxelPixelDeltaTable[skip][0];
+                    y += VoxelPixelDeltaTable[skip][1];
                     remaining -= skip;
                     unsigned count = *data;
                     data++;
@@ -1012,8 +1012,8 @@ void Draw_Voxel_Reverse(VoxelFuncArgumentStruct *parameters)
                     data--;
                     unsigned char skip = *data;
                     data--;
-                    x += unknown_steps_af8a10[skip][0];
-                    y += unknown_steps_af8a10[skip][1];
+                    x += VoxelPixelDeltaTable[skip][0];
+                    y += VoxelPixelDeltaTable[skip][1];
                     remaining -= skip;
                 }
             }
@@ -1031,13 +1031,13 @@ void Draw_Voxel_Reverse(VoxelFuncArgumentStruct *parameters)
 // Draw_Voxel_Regular with the depth test of Draw_Voxel_Regular_Normals_ZBuffer.
 inline void Fill_Delta_Table3(VoxelFuncArgumentStruct *parameters)
 {
-    short (&steps)[256][2] = unknown_steps_af8a10;
+    short (&steps)[256][2] = VoxelPixelDeltaTable;
     steps[0][0] = 0;
     steps[0][1] = 0;
     Vector3i16 &step = parameters->TransformMatrix[3];
     for (unsigned depth = 1; depth < parameters->ZSize; depth++) {
         steps[depth][0] = steps[depth - 1][0] + step.I;
-        unknown_steps_af8a10[depth][1] = unknown_steps_af8a10[depth - 1][1] + step.J;
+        VoxelPixelDeltaTable[depth][1] = VoxelPixelDeltaTable[depth - 1][1] + step.J;
     }
 }
 
@@ -1063,8 +1063,8 @@ void Draw_Voxel_Regular_ZBuffer(VoxelFuncArgumentStruct *parameters)
                 while (remaining) {
                     unsigned char value = *data;
                     data++;
-                    x += unknown_steps_af8a10[value][0];
-                    y += unknown_steps_af8a10[value][1];
+                    x += VoxelPixelDeltaTable[value][0];
+                    y += VoxelPixelDeltaTable[value][1];
                     z += parameters->TransformMatrix[3].K * value;
                     remaining -= value;
                     unsigned count = *data;
@@ -1148,8 +1148,8 @@ void Draw_Voxel_Reverse_ZBuffer(VoxelFuncArgumentStruct *parameters)
                     data--;
                     value = *data;
                     data--;
-                    x += unknown_steps_af8a10[value][0];
-                    y += unknown_steps_af8a10[value][1];
+                    x += VoxelPixelDeltaTable[value][0];
+                    y += VoxelPixelDeltaTable[value][1];
                     z += parameters->TransformMatrix[3].K * value;
                     remaining -= value;
                 }
@@ -1171,20 +1171,20 @@ void Draw_Voxel_Reverse_ZBuffer(VoxelFuncArgumentStruct *parameters)
 // of normal type `type` times 16; the last three entries are unlit.
 void __fastcall Precalculate_Normal_Lookup(Vector3 const *light, int type)
 {
-    Vector3 const *normals = unknown_normal_tables_7f9f80[type];
+    Vector3 const *normals = VoxelNormalTables[type];
     int count = VoxelNormalTableEntryCount[type];
     for (int index = 0; index < count; index++) {
         Vector3 const &normal = normals[index];
         float dot = normal.X * light->X + normal.Z * light->Z + light->Y * normal.Y;
         if (dot < 0.0) {
-            unknown_shades_af8e10[index] = 0;
+            VoxelNormalTranslateTable[index] = 0;
         } else {
-            unknown_shades_af8e10[index] = (unsigned char)(dot * 16.0f);
+            VoxelNormalTranslateTable[index] = (unsigned char)(dot * 16.0f);
         }
     }
-    unknown_shades_af8e10[255] = 0x10;
-    unknown_shades_af8e10[254] = 0x10;
-    unknown_shades_af8e10[253] = 0x10;
+    VoxelNormalTranslateTable[255] = 0x10;
+    VoxelNormalTranslateTable[254] = 0x10;
+    VoxelNormalTranslateTable[253] = 0x10;
 }
 
 
@@ -1216,7 +1216,7 @@ static inline Vector3 Vector3_Normalize(Vector3 const &vec)
 // last three entries are unlit.
 void __fastcall unknown_71baa0(Vector3 const *light, Vector3 const *view, float specular, int type)
 {
-    Vector3 const *normals = unknown_normal_tables_7f9f80[type];
+    Vector3 const *normals = VoxelNormalTables[type];
     Vector3 sum = *view + *light;
     Vector3 halfway = Vector3_Normalize(sum);
     for (int index = 0; index < VoxelNormalTableEntryCount[type]; index++) {
@@ -1228,14 +1228,14 @@ void __fastcall unknown_71baa0(Vector3 const *light, Vector3 const *view, float 
         diffuse = diffuse >= 0.0f ? diffuse : 0.0f;
         float total = diffuse + shine;
         if (total < 0.0) {
-            unknown_shades_af8e10[index] = 0;
+            VoxelNormalTranslateTable[index] = 0;
         } else {
-            unknown_shades_af8e10[index] = (unsigned char)(total * 16.0f);
+            VoxelNormalTranslateTable[index] = (unsigned char)(total * 16.0f);
         }
     }
-    unknown_shades_af8e10[255] = 0x10;
-    unknown_shades_af8e10[254] = 0x10;
-    unknown_shades_af8e10[253] = 0x10;
+    VoxelNormalTranslateTable[255] = 0x10;
+    VoxelNormalTranslateTable[254] = 0x10;
+    VoxelNormalTranslateTable[253] = 0x10;
 }
 
 
@@ -1243,7 +1243,7 @@ void __fastcall unknown_71baa0(Vector3 const *light, Vector3 const *view, float 
 // `normal` (largest dot product); 0xFF when `normal` is shorter than 0.2.
 int __fastcall Find_Closest_Normal(Vector3 const *normal, int type)
 {
-    Vector3 const *normals = unknown_normal_tables_7f9f80[type];
+    Vector3 const *normals = VoxelNormalTables[type];
     float best = 0;
     int best_index = 0;
     if (Fast_Sqrt(normal->X * normal->X + normal->Y * normal->Y + normal->Z * normal->Z) < 0.2f) {
@@ -1264,5 +1264,5 @@ int __fastcall Find_Closest_Normal(Vector3 const *normal, int type)
 // Marks every normal unlit.
 void Init_Normal_Lookup()
 {
-    memset(unknown_shades_af8e10, 0x10, sizeof(unknown_shades_af8e10));
+    memset(VoxelNormalTranslateTable, 0x10, sizeof(VoxelNormalTranslateTable));
 }

@@ -58,7 +58,7 @@ public:
     virtual void Compute_CRC(WWCRCEngine &crc) const;             // 0x004C1F80; body unrecovered
     virtual Cell Get_Cell() const;                        // slot 24 (+0x60) 0x004C2040: the cell the object stands on
     // Marks (+0x140 bit 22) the cells of every listed fogged object (0x004C1AE0).
-    static void unknown_4c1ae0();
+    static void Update_Fogged_Objects();
     // The cell holding a coordinate (hypothesis: Westwood's Coord_Cell as a class helper;
     // the 0x004C00F0 constructor needs this extra inline level to keep Increase_Table_Size out of line).
     static Cell unknown_coord_cell(CoordStruct const &coord) { return XY_Cell(coord.X / 256, coord.Y / 256); }

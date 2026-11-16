@@ -8,11 +8,11 @@
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
 // @ref ?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A=00ab67e8
-// @ref ?unknown_radar_event_word_ab67b8@@3HA=00ab67b8
+// @ref ?LastRadarEventCell@@3HA=00ab67b8
 
 class RadarEventClass;
 extern DynamicVectorClass<RadarEventClass *> unknown_radar_events_ab67e8;
-extern int unknown_radar_event_word_ab67b8;
+extern int LastRadarEventCell;
 
 bool __fastcall RadarEventClass_unknown_save_all(IStream *stream)
 {
@@ -25,5 +25,5 @@ bool __fastcall RadarEventClass_unknown_save_all(IStream *stream)
             return false;
         }
     }
-    return SUCCEEDED(stream->Write(&unknown_radar_event_word_ab67b8, sizeof(unknown_radar_event_word_ab67b8), 0)) ? true : false;
+    return SUCCEEDED(stream->Write(&LastRadarEventCell, sizeof(LastRadarEventCell), 0)) ? true : false;
 }

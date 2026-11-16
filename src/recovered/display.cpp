@@ -276,7 +276,7 @@ void DisplayClass::Unknown_00498F10(Cell const *list)
 
         memcpy(_list, list, sizeof(_list));
         unknown_1178 = _list;
-        Cell size = Unknown_00499810(unknown_1178);
+        Cell size = Get_Occupy_Dimensions(unknown_1178);
         size -= Cell(1, 1);
         unknown_1174 = -size / 2;
         Unknown_004998C0(unknown_1170 + unknown_1174, true);
@@ -309,7 +309,7 @@ void DisplayClass::Set_Cursor_Shape(Cell const *list)
 
         memcpy(_list, list, sizeof(_list));
         unknown_1188 = _list;
-        Cell size = Unknown_00499810(unknown_1188);
+        Cell size = Get_Occupy_Dimensions(unknown_1188);
         size -= Cell(1, 1);
         unknown_1182 = -size / 2;
         Unknown_00499970(unknown_117e + unknown_1182, true);
@@ -430,9 +430,9 @@ bool DisplayClass::Unknown_00499390(BuildingTypeClass *type, int house, int arg3
 }
 
 
-// Not exact (RA2_NON_MATCHING): DisplayClass::Unknown_004994D0 at 0x004994D0, best score 69.20, 2026-11-13; differs: 223 instructions in the original, 225 in the draft (shape 96.88)
+// Not exact (RA2_NON_MATCHING): DisplayClass::Set_Cursor_Pos at 0x004994D0, best score 69.20, 2026-11-13; differs: 223 instructions in the original, 225 in the draft (shape 96.88)
 #ifdef RA2_NON_MATCHING
-// NON-EXACT DRAFT 0x4994D0 DisplayClass::Unknown_004994D0 (TibSun Set_Cursor_Pos)
+// NON-EXACT DRAFT 0x4994D0 DisplayClass::Set_Cursor_Pos (TibSun Set_Cursor_Pos)
 // entry 0x4994D0; exact-match score 78.48 (misses_index best, Scout620/Scout1075).
 // plan "draft, verify". Origin: build/class-work/Scout1075/keep/scp_k6_natural_7848.cpp.
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by Scout1115
@@ -441,14 +441,14 @@ bool DisplayClass::Unknown_00499390(BuildingTypeClass *type, int house, int arg3
 // Native adaptation (Scout1115): the radar's cell under the mouse (RadarClass slot 51, which this
 // unit's light MouseClass does not declare) through native/link/behaviour_m13_commands.cpp's
 // Native_Radar_Cell_At; unknown_a40d13 is HEAD's Debug_Map (0x00A40D13). Marked NATIVE.
-// Cell DisplayClass::Unknown_004994D0(Cell const &xpos) (0x004994D0)
+// Cell DisplayClass::Set_Cursor_Pos(Cell const &xpos) (0x004994D0)
 // TibSun DisplayClass::Set_Cursor_Pos: moves the placement cursor (zone cell +0x1170) to a cell, or to the
 // cell under the mouse for the null cell, re-marks the cursor list (+0x1178) and recomputes the proximity
 // (+0x117C) and shroud (+0x117D) checks for the pending object (+0x11A4) and house (+0x11A8). Returns the old
 // zone cell (the new one when it did not move).
 
 Cell Native_Radar_Cell_At(Point2D const &xy);   // NATIVE: RadarClass slot 51 on Map
-Cell DisplayClass::Unknown_004994D0(Cell const &xpos)
+Cell DisplayClass::Set_Cursor_Pos(Cell const &xpos)
 {
     Cell prevpos;
     Cell pos = xpos;
@@ -499,11 +499,11 @@ Cell DisplayClass::Unknown_004994D0(Cell const &xpos)
 }
 #endif
 
-// Cell DisplayClass::Unknown_00499810(Cell const *list) (0x00499810)
+// Cell DisplayClass::Get_Occupy_Dimensions(Cell const *list) (0x00499810)
 // The size of a cell list (offsets ending with 0x7FFF, 0x7FFF): its extent
 // in x and y, at least one cell each; 0 x 0 when there is no list.
 
-Cell DisplayClass::Unknown_00499810(Cell const *list)
+Cell DisplayClass::Get_Occupy_Dimensions(Cell const *list)
 {
     int min_x = 512;
     int max_x = -512;
@@ -752,7 +752,7 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
     }
 
     if (changed) {
-        Map.Unknown_00568520(&target, house, mapped);
+        Map.Reveal_Nearby_Technos(&target, house, mapped);
     }
     if ((target.unknown_140 & 2) && unmapped && (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
         target.Unfog_Cell();
@@ -797,7 +797,7 @@ bool DisplayClass::RevealFogShroud(Cell const &cell, HouseClass *house, bool arg
     }
     if (changed) {
         TacticalMap->Flag_Cell(&target);
-        Map.Unknown_00568520(&target, house, mapped);
+        Map.Reveal_Nearby_Technos(&target, house, mapped);
     }
     if ((target.unknown_140 & 2) && unmapped && (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
         target.Unfog_Cell();
@@ -865,7 +865,7 @@ bool DisplayClass::unknown_slot38(Cell const &cell, HouseClass *house)
         }
     }
     if (changed) {
-        Map.Unknown_00568520(&target, house, mapped);
+        Map.Reveal_Nearby_Technos(&target, house, mapped);
     }
     if ((target.unknown_140 & 2) && unmapped && (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
         target.Unfog_Cell();
@@ -929,7 +929,7 @@ bool DisplayClass::unknown_slot39(Cell const &cell, HouseClass *house)
         }
     }
     if (changed) {
-        Map.Unknown_00568520(&target, house, shown);
+        Map.Reveal_Nearby_Technos(&target, house, shown);
     }
     return changed;
 }
@@ -1036,7 +1036,7 @@ Cell DisplayClass::Calculated_Cell(int dir, Cell const &waypoint, Cell const &ce
         zone = Map.Zone(trycell, mzone, true);
     }
 
-    Point2D trypoint = Unknown_00547DF0(Point2D(trycell.X, trycell.Y));
+    Point2D trypoint = Cell_To_LocalRect_Point(Point2D(trycell.X, trycell.Y));
 
     if (trycell != unknown_geometry_k) {
         int left = trypoint.X - MapLocalSize.X;
@@ -1098,7 +1098,7 @@ Cell DisplayClass::Calculated_Cell(int dir, Cell const &waypoint, Cell const &ce
         }
     }
 
-    Point2D defaultPoint = Unknown_00547D70(Point2D(1, MapLocalSize.Width / 2));
+    Point2D defaultPoint = LocalRect_To_Cell_Point(Point2D(1, MapLocalSize.Width / 2));
     fallback = Cell(defaultPoint.X, defaultPoint.Y);
 
     if (vert) {
@@ -1107,9 +1107,9 @@ Cell DisplayClass::Calculated_Cell(int dir, Cell const &waypoint, Cell const &ce
         for (int index = 0; index < MapLocalSize.Height * 2; index++) {
             int yy = (start + index) % (MapLocalSize.Height * 2);
 
-            Point2D outcellPoint = Unknown_00547D70(Point2D(x, yy));
+            Point2D outcellPoint = LocalRect_To_Cell_Point(Point2D(x, yy));
             Cell outcell(outcellPoint.X, outcellPoint.Y);
-            Point2D incellPoint = Unknown_00547D70(Point2D(x + modifier, yy));
+            Point2D incellPoint = LocalRect_To_Cell_Point(Point2D(x + modifier, yy));
 
             if (Unknown_0049AD90(outcell, Cell(incellPoint.X, incellPoint.Y), loco, zone, mzone)) {
                 return outcell;
@@ -1123,7 +1123,7 @@ Cell DisplayClass::Calculated_Cell(int dir, Cell const &waypoint, Cell const &ce
 
             for (x = 0; x < MapLocalSize.Width; x++) {
                 for (y = 0; y < 15; y++) {
-                    Point2D newcellPoint = Unknown_00547D70(Point2D(x, y + 2 * MapLocalSize.Height));
+                    Point2D newcellPoint = LocalRect_To_Cell_Point(Point2D(x, y + 2 * MapLocalSize.Height));
                     Cell newcell(newcellPoint.X, newcellPoint.Y);
                     if (!Unknown_0055A660(newcell, true) && Unknown_0049AD90(newcell, trycell, loco, zone, mzone)) {
                         cells.Add(newcell);
@@ -1156,9 +1156,9 @@ Cell DisplayClass::Calculated_Cell(int dir, Cell const &waypoint, Cell const &ce
             for (int index = 0; index < MapLocalSize.Width; index++) {
                 int xx = (start + index) % MapLocalSize.Width;
 
-                Point2D outcellPoint = Unknown_00547D70(Point2D(xx, y));
+                Point2D outcellPoint = LocalRect_To_Cell_Point(Point2D(xx, y));
                 Cell outcell(outcellPoint.X, outcellPoint.Y);
-                Point2D incellPoint = Unknown_00547D70(Point2D(xx, y + modifier));
+                Point2D incellPoint = LocalRect_To_Cell_Point(Point2D(xx, y + modifier));
 
                 if (Unknown_0049AD90(outcell, Cell(incellPoint.X, incellPoint.Y), loco, zone, mzone)) {
                     return outcell;
@@ -1220,7 +1220,7 @@ int DisplayClass::TacticalClass::Action(unsigned flags, unsigned &key)
     bool arg6;
     Map.Resolve_Point(xy, cell, coord, object, arg5, arg6);
     if (cell != Map.unknown_1170) {
-        Map.Unknown_004994D0(cell);
+        Map.Set_Cursor_Pos(cell);
     }
     return GadgetClass::Action(0, key);
 }
@@ -1237,7 +1237,7 @@ void Leaf_49af80::get(unsigned int unused_argument_1) { unsigned int unused_this
 // waypoint mode +0x11AF and the mode +0x11B0; with none of them, 0x00482BC0.
 // Each case restores the default mouse shape.
 
-void Unknown_00482BC0();
+void Unselect_All();
 
 void DisplayClass::Mouse_Right_Release(Point2D const &xy)
 {
@@ -1284,7 +1284,7 @@ void DisplayClass::Mouse_Right_Release(Point2D const &xy)
         Set_Default_Mouse(0, unknown_flag_83740c);
         return;
     }
-    Unknown_00482BC0();
+    Unselect_All();
     Set_Default_Mouse(0, unknown_flag_83740c);
 }
 
@@ -1829,7 +1829,7 @@ void DisplayClass::Mouse_Left_Held(Point2D const &xy)
 }
 
 
-void DisplayClass::Unknown_0049C670()
+void DisplayClass::Compute_Start_Pos()
 {
     CoordStruct center(0,0,0);
     int count=0;
@@ -1858,7 +1858,7 @@ void DisplayClass::Unknown_0049C670()
 // the player's +0x230 is positive (0x00482BC0), else leaves it and
 // restores the mouse shape.
 
-void Unknown_00482BC0();
+void Unselect_All();
 
 void DisplayClass::Unknown_0049C7C0(int control)
 {
@@ -1882,7 +1882,7 @@ void DisplayClass::Unknown_0049C7C0(int control)
         unknown_11b0 = false;
         if (mode && PlayerPtr->unknown_230 > 0) {
             unknown_11ad = true;
-            Unknown_00482BC0();
+            Unselect_All();
         } else {
             unknown_11ad = false;
             Revert_Mouse_Shape();
@@ -1898,7 +1898,7 @@ void DisplayClass::Unknown_0049C7C0(int control)
 // leaving restores the coordinate at +0x11BC to where +0x11B8 points and
 // shows the mouse again.
 
-void Unknown_00482BC0();
+void Unselect_All();
 
 void DisplayClass::Unknown_0049C860(int control, bool keep)
 {
@@ -1931,7 +1931,7 @@ void DisplayClass::Unknown_0049C860(int control, bool keep)
             if (!keep) {
                 PlayerPtr->unknown_154 = path;
             }
-            Unknown_00482BC0();
+            Unselect_All();
             return;
         }
         unknown_11af = false;
@@ -1951,7 +1951,7 @@ void DisplayClass::Unknown_0049C860(int control, bool keep)
 // the player's +0x230 is positive (0x00482BC0), else leaves it and
 // restores the mouse shape.
 
-void Unknown_00482BC0();
+void Unselect_All();
 
 void DisplayClass::Unknown_0049C980(int control)
 {
@@ -1975,7 +1975,7 @@ void DisplayClass::Unknown_0049C980(int control)
         unknown_11b0 = false;
         if (mode && PlayerPtr->unknown_230 > 0) {
             unknown_11ae = true;
-            Unknown_00482BC0();
+            Unselect_All();
         } else {
             unknown_11ae = false;
             Revert_Mouse_Shape();
@@ -1990,7 +1990,7 @@ void DisplayClass::Unknown_0049C980(int control)
 // when the player's +0x230 is positive (0x00482BC0), else leaves it and
 // restores the mouse shape.
 
-void Unknown_00482BC0();
+void Unselect_All();
 
 void DisplayClass::Unknown_0049CA20(int control)
 {
@@ -2014,7 +2014,7 @@ void DisplayClass::Unknown_0049CA20(int control)
         Set_Default_Mouse(0, false);
         if (mode && PlayerPtr->unknown_230 > 0) {
             unknown_11ac = true;
-            Unknown_00482BC0();
+            Unselect_All();
         } else {
             unknown_11ac = false;
             Revert_Mouse_Shape();
@@ -2030,7 +2030,7 @@ void DisplayClass::Unknown_0049CA20(int control)
 // Clears the other modes and resets the mouse, then enters the mode
 // (0x00482BC0) or leaves it and restores the mouse shape.
 
-void Unknown_00482BC0();
+void Unselect_All();
 
 void DisplayClass::Unknown_0049CAC0(int control)
 {
@@ -2057,7 +2057,7 @@ void DisplayClass::Unknown_0049CAC0(int control)
         Set_Default_Mouse(0, false);
         if (mode) {
             unknown_11b0 = true;
-            Unknown_00482BC0();
+            Unselect_All();
         } else {
             unknown_11b0 = false;
             Revert_Mouse_Shape();
@@ -2120,7 +2120,7 @@ void DisplayClass::Encroach_Shadow()
             }
         }
     }
-    Unknown_0049E110(false, false);
+    All_To_Look(false, false);
     Flag_To_Redraw(true);
 }
 
@@ -2138,7 +2138,7 @@ void DisplayClass::Encroach_Fog()
             cell->unknown_140 |= 0x40;
         }
     }
-    Unknown_0049E110(false, true);
+    All_To_Look(false, true);
     Reset_Iterator();
     for (CellClass *marked = Iterate(); marked != 0; marked = Iterate()) {
         if (marked->unknown_140 & 0x40) {
@@ -2273,7 +2273,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
 
     long uniqueid = unknown_id_source_a3d290->UniqueID;
     TerrainTypeClass::Init(unknown_id_source_a3d290->Theater);
-    if (unknown_id_source_a3d290->Theater != unknown_loaded_theater_7d88dc) {
+    if (unknown_id_source_a3d290->Theater != LastTheater) {
         Unknown_00529870(unknown_id_source_a3d290->Theater, true);
     } else {
         Unknown_0052B650();
@@ -2345,7 +2345,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     len = ini.Get_UUBlock(ISOMAPPACK1, staging_buffer.Lock(), size);
     if (len > 0) {
         BufferStraw bstraw(staging_buffer.Lock(), len);
-        Map.Unknown_0054DCC0(bstraw);
+        Map.Read_Binary_1(bstraw);
         staging_buffer.Unlock();
     }
     staging_buffer.Unlock();
@@ -2363,7 +2363,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     len = ini.Get_UUBlock(ISOMAPPACK3, staging_buffer.Lock(), size);
     if (len > 0) {
         BufferStraw bstraw(staging_buffer.Lock(), len);
-        Map.Unknown_0054DFC0(bstraw);
+        Map.Read_Binary_3(bstraw);
         staging_buffer.Unlock();
     }
     staging_buffer.Unlock();
@@ -2381,7 +2381,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     len = ini.Get_UUBlock(ISOMAPPACK5, staging_buffer.Lock(), size);
     if (len > 0) {
         BufferStraw bstraw(staging_buffer.Lock(), len);
-        Map.Unknown_0054E1E0(bstraw);
+        Map.Read_Binary_5(bstraw);
         staging_buffer.Unlock();
     }
     staging_buffer.Unlock();
@@ -2389,7 +2389,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     unknown_session_a3d298.Update_Progress(68);
     Call_Back();
 
-    Unknown_0052B2E0(Debug_Map || unknown_flag_a40d05, unknown_id_source_a3d290->unknown_223b);
+    Unknown_0052B2E0(Debug_Map || Debug_ForceScenario, unknown_id_source_a3d290->unknown_223b);
 
     unknown_session_a3d298.Update_Progress(69);
     Call_Back();
@@ -2398,7 +2398,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     Map.Unknown_00630840(MapLocalSize);
     Map.Get_Max_Level();
 
-    unknown_loaded_theater_7d88dc = unknown_id_source_a3d290->Theater;
+    LastTheater = unknown_id_source_a3d290->Theater;
 }
 
 
@@ -2439,7 +2439,7 @@ void DisplayClass::Write_INI_0049D910(CCINIClass &ini)
     static char const * const MAPPACK4 = "IsoMapPack4";
     static char const * const MAPPACK5 = "IsoMapPack5";
     BufferPipe bpipe(AlternateSurface->Lock(), AlternateSurface->Get_Height() * AlternateSurface->Get_Width() * AlternateSurface->Bytes_Per_Pixel());
-    int len = Map.Unknown_0054DB10(bpipe);
+    int len = Map.Write_Binary_5(bpipe);
     ini.Clear(MAPPACK1);
     ini.Clear(MAPPACK2);
     ini.Clear(MAPPACK3);
@@ -2566,7 +2566,7 @@ void DisplayClass::Unknown_0049DCD0(void *buffer)
 }
 
 
-// void DisplayClass::Unknown_0049DE00(bool skip_buildings, bool arg2) (0x0049DE00)
+// void DisplayClass::Reveal_Technos(bool skip_buildings, bool arg2) (0x0049DE00)
 // Over every techno (Technos) out of limbo (buildings left out when asked):
 // the counterpart of 0x0049E000 with slots 262 and 235. The player's own
 // with +0x373 set get slot 262 (0, 0, false, 0), the sight around them
@@ -2575,7 +2575,7 @@ void DisplayClass::Unknown_0049DCD0(void *buffer)
 // false, 0) and the redraw; other houses' RevealToAll buildings slot 262
 // (0, 0, true, player) and the redraw; other gap generators slot 235.
 
-void DisplayClass::Unknown_0049DE00(bool skip_buildings, bool arg2)
+void DisplayClass::Reveal_Technos(bool skip_buildings, bool arg2)
 {
     int count = Technos.Count();
     for (int index = 0; index < count; index++) {
@@ -2610,13 +2610,13 @@ void DisplayClass::Unknown_0049DE00(bool skip_buildings, bool arg2)
 }
 
 
-// void DisplayClass::Unknown_0049E000(bool skip_buildings, bool arg2) (0x0049E000)
+// void DisplayClass::Update_Technos_Visibility(bool skip_buildings, bool arg2) (0x0049E000)
 // Over every techno (Technos) out of limbo (buildings left out when asked):
 // the player's own with +0x373 set get slot 263 (0, 0, false, 0) and, as
 // gap generators, slot 236; allied buildings, when the rules' +0x142B
 // allows, get slot 263 (0, arg2, false, 0); other gap generators slot 236.
 
-void DisplayClass::Unknown_0049E000(bool skip_buildings, bool arg2)
+void DisplayClass::Update_Technos_Visibility(bool skip_buildings, bool arg2)
 {
     int count = Technos.Count();
     for (int index = 0; index < count; index++) {
@@ -2643,12 +2643,12 @@ void DisplayClass::Unknown_0049E000(bool skip_buildings, bool arg2)
 }
 
 
-// void DisplayClass::Unknown_0049E110(bool skip_buildings, bool arg2) (0x0049E110)
+// void DisplayClass::All_To_Look(bool skip_buildings, bool arg2) (0x0049E110)
 // Over the technos of layer 2 (buildings left out when asked): the player's
 // own with +0x373 set get slot 70 (false, arg2); allied buildings, when the
 // rules' +0x142B allows, get slot 70 (arg2, 0).
 
-void DisplayClass::Unknown_0049E110(bool skip_buildings, bool arg2)
+void DisplayClass::All_To_Look(bool skip_buildings, bool arg2)
 {
     for (int index = 0; index < Layer[2].Count(); index++) {
         TechnoClass *techno = (TechnoClass *)Layer[2][index];
@@ -2997,7 +2997,7 @@ extern bool drag_select_aborted;
 void DisplayClass::Abort_Drag_Select()
 {
     if (TacticalMap != 0) {
-        TacticalMap->Unknown_006AA770();
+        TacticalMap->End_Rubber_Band();
     }
     unknown_11cb = false;
     unknown_11cc = false;

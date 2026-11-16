@@ -24,7 +24,7 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass *type, CoordStruct const &coor
     unknown_fc.Init();
     unknown_110.Init();
     unknown_128=Class->Duration;
-    unknown_VoxelAnimClass_list_008399d0.Add(this);
+    VoxelAnims.Add(this);
     if (!Class->IsMeteor) {
         ObjectClass::Unlimbo(&coord,0);
         CoordStruct center=Center_Coord()+CoordStruct(0,0,10);

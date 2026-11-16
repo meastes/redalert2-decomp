@@ -307,7 +307,7 @@ static inline void Send_Score_Packet(int command)
 
 int __stdcall unknown_score_dialog_proc_465fc0(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result != 0) {
         return result;
     }
@@ -540,7 +540,7 @@ void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> sco
     int result = 0;
     if (window) {
         SetWindowLongA(window, 8, (LONG)&result);
-        unknown_dialog_5ff7c0(window);
+        Display_Dialog(window);
         while (result == 0 || result == 1) {
             Windows_Message_Handler();
             if (result == 1) {
@@ -695,7 +695,7 @@ void __fastcall unknown_format_time_467290(wchar_t *buffer, int time)
 
 int __stdcall unknown_end_score_dialog_proc_467330(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    int result = unknown_dialog_proc_5ffb00(window, message, wparam, lparam);
+    int result = Default_Dialog_Proc(window, message, wparam, lparam);
     if (result != 0) {
         return result;
     }

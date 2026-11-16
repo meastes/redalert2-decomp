@@ -193,7 +193,7 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?Unknown_007160D0@@YIXXZ",
+   "symbol": "?Aux_Stream_Stop@@YIXXZ",
    "entry": "007160d0",
    "body_bytes": 16,
    "padding_bytes": 0
@@ -271,7 +271,7 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?Unknown_007168C0@@YIXH@Z",
+   "symbol": "?Speech_Set_Side@@YIXH@Z",
    "entry": "007168c0",
    "body_bytes": 7,
    "padding_bytes": 9
@@ -1274,7 +1274,7 @@
   },
   {
    "site": "0065e440",
-   "symbol": "?Unknown_007160D0@@YIXXZ",
+   "symbol": "?Aux_Stream_Stop@@YIXXZ",
    "target": "007160d0",
    "function_entry": true
   },
@@ -1304,7 +1304,7 @@
   },
   {
    "site": "0065e590",
-   "symbol": "?Unknown_007160D0@@YIXXZ",
+   "symbol": "?Aux_Stream_Stop@@YIXXZ",
    "target": "007160d0",
    "function_entry": true
   },
@@ -1328,7 +1328,7 @@
   },
   {
    "site": "0065d7f0",
-   "symbol": "?Unknown_007160D0@@YIXXZ",
+   "symbol": "?Aux_Stream_Stop@@YIXXZ",
    "target": "007160d0",
    "function_entry": true
   },
@@ -1352,7 +1352,7 @@
   },
   {
    "site": "0065dec0",
-   "symbol": "?Unknown_007160D0@@YIXXZ",
+   "symbol": "?Aux_Stream_Stop@@YIXXZ",
    "target": "007160d0",
    "function_entry": true
   },
@@ -1418,7 +1418,7 @@
   },
   {
    "site": "0051b5f0",
-   "symbol": "?Unknown_Play_Taunt_00715fb0@@YIXD@Z",
+   "symbol": "?Play_Taunt@@YIXD@Z",
    "target": "00715fb0",
    "function_entry": true
   },
@@ -1448,7 +1448,7 @@
   },
   {
    "site": "00626b30",
-   "symbol": "?Unknown_Play_Taunt_00715fb0@@YIXD@Z",
+   "symbol": "?Play_Taunt@@YIXD@Z",
    "target": "00715fb0",
    "function_entry": true
   },
@@ -1466,7 +1466,7 @@
   },
   {
    "site": "0051a330",
-   "symbol": "?Unknown_007168C0@@YIXH@Z",
+   "symbol": "?Speech_Set_Side@@YIXH@Z",
    "target": "007168c0",
    "function_entry": true
   },
@@ -1490,7 +1490,7 @@
   },
   {
    "site": "00672e70",
-   "symbol": "?Unknown_007160D0@@YIXXZ",
+   "symbol": "?Aux_Stream_Stop@@YIXXZ",
    "target": "007160d0",
    "function_entry": true
   },
@@ -1862,7 +1862,7 @@
   },
   {
    "site": "00482110",
-   "symbol": "?Unknown_Play_Taunt_00715fb0@@YIXD@Z",
+   "symbol": "?Play_Taunt@@YIXD@Z",
    "target": "00715fb0",
    "function_entry": true
   },
@@ -2031,6 +2031,10 @@
    "address": "00406f30"
   },
   {
+   "symbol": "?AudioStreamerResume@UnknownSound_007169f0@@QAEXXZ",
+   "address": "00407f20"
+  },
+  {
    "symbol": "?Audio_Get_Device@@YAPAUAudioDevice@@XZ",
    "address": "00406f40"
   },
@@ -2111,6 +2115,14 @@
    "address": "00408060"
   },
   {
+   "symbol": "?AuxStreamHold@@3HC",
+   "address": "00ad0910"
+  },
+  {
+   "symbol": "?Debug_Quiet@@3DA",
+   "address": "00a40d0c"
+  },
+  {
    "symbol": "?Entry_Count@INIClass@@QBEHPBD@Z",
    "address": "0050cb00"
   },
@@ -2131,24 +2143,60 @@
    "address": "0050e9a0"
   },
   {
-   "symbol": "?unknown_call_407f20@UnknownSound_007169f0@@QAEXXZ",
-   "address": "00407f20"
+   "symbol": "?SpeechDelay@@3_KA",
+   "address": "00ad0960"
   },
   {
-   "symbol": "?unknown_count_ad0910@@3HC",
-   "address": "00ad0910"
+   "symbol": "?SpeechEnabled@@3HA",
+   "address": "00ad094c"
   },
   {
-   "symbol": "?unknown_countdown_ad08c8@@3HC",
+   "symbol": "?SpeechHold@@3HC",
+   "address": "00ad0878"
+  },
+  {
+   "symbol": "?SpeechLists@@3PAUAudioListNode@@A",
+   "address": "00ad08e0"
+  },
+  {
+   "symbol": "?SpeechPending@@3PAUVoxSpeech@@A",
+   "address": "00ad0948"
+  },
+  {
+   "symbol": "?SpeechPlaying@@3PAVVoxClass@@A",
+   "address": "00ad0954"
+  },
+  {
+   "symbol": "?SpeechPlayingPriority@@3HA",
+   "address": "00ad0880"
+  },
+  {
+   "symbol": "?SpeechPlayingType@@3HA",
+   "address": "00ad0858"
+  },
+  {
+   "symbol": "?SpeechQueuedList@@3UAudioListNode@@A",
+   "address": "00ad0868"
+  },
+  {
+   "symbol": "?SpeechSerial@@3HA",
+   "address": "00ad0950"
+  },
+  {
+   "symbol": "?SpeechSovietFiles@@3HA",
+   "address": "00ad0958"
+  },
+  {
+   "symbol": "?SpeechSuspend@@3HC",
    "address": "00ad08c8"
   },
   {
-   "symbol": "?unknown_flag_a40d0c@@3DA",
-   "address": "00a40d0c"
+   "symbol": "?SpeechUrgentList@@3UAudioListNode@@A",
+   "address": "00ad0890"
   },
   {
-   "symbol": "?unknown_flag_ad0958@@3HA",
-   "address": "00ad0958"
+   "symbol": "?SpeechVolume@@3HA",
+   "address": "007f9bd4"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
@@ -2171,56 +2219,8 @@
    "address": "00ad0968"
   },
   {
-   "symbol": "?unknown_vox_ad0878@@3HC",
-   "address": "00ad0878"
-  },
-  {
-   "symbol": "?unknown_vox_delay_ad0960@@3_KA",
-   "address": "00ad0960"
-  },
-  {
-   "symbol": "?unknown_vox_enabled_ad094c@@3HA",
-   "address": "00ad094c"
-  },
-  {
-   "symbol": "?unknown_vox_list_ad0868@@3UAudioListNode@@A",
-   "address": "00ad0868"
-  },
-  {
-   "symbol": "?unknown_vox_list_ad0890@@3UAudioListNode@@A",
-   "address": "00ad0890"
-  },
-  {
-   "symbol": "?unknown_vox_lists_ad08e0@@3PAUAudioListNode@@A",
-   "address": "00ad08e0"
-  },
-  {
-   "symbol": "?unknown_vox_pending_ad0948@@3PAUVoxSpeech@@A",
-   "address": "00ad0948"
-  },
-  {
-   "symbol": "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A",
-   "address": "00ad0954"
-  },
-  {
-   "symbol": "?unknown_vox_priority_ad0880@@3HA",
-   "address": "00ad0880"
-  },
-  {
-   "symbol": "?unknown_vox_serial_ad0950@@3HA",
-   "address": "00ad0950"
-  },
-  {
    "symbol": "?unknown_vox_stream_ad095c@@3PAUAudioStreamPlayer@@A",
    "address": "00ad095c"
-  },
-  {
-   "symbol": "?unknown_vox_type_ad0858@@3HA",
-   "address": "00ad0858"
-  },
-  {
-   "symbol": "?unknown_vox_volume_7f9bd4@@3HA",
-   "address": "007f9bd4"
   },
   {
    "symbol": "_DAT_00ad0934",
@@ -2570,7 +2570,7 @@
   {
    "site": "0051b5f0",
    "target": "00715fb0",
-   "symbol": "?Unknown_Play_Taunt_00715fb0@@YIXD@Z",
+   "symbol": "?Play_Taunt@@YIXD@Z",
    "module_symbol": "?Taunt_Play@@YIHH@Z"
   },
   {
@@ -2582,13 +2582,13 @@
   {
    "site": "00626b30",
    "target": "00715fb0",
-   "symbol": "?Unknown_Play_Taunt_00715fb0@@YIXD@Z",
+   "symbol": "?Play_Taunt@@YIXD@Z",
    "module_symbol": "?Taunt_Play@@YIHH@Z"
   },
   {
    "site": "00482110",
    "target": "00715fb0",
-   "symbol": "?Unknown_Play_Taunt_00715fb0@@YIXD@Z",
+   "symbol": "?Play_Taunt@@YIXD@Z",
    "module_symbol": "?Taunt_Play@@YIHH@Z"
   }
  ],

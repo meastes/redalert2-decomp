@@ -190,7 +190,7 @@ struct UnknownPassengerView {
 // The owned object at +0x208.
 class UnknownTechno208 : public AbstractClass {
 public:
-    void unknown_6e2500();              // 0x006E2500 (UnitClass slot 281, when +0x28 is set)
+    void LetGo();              // 0x006E2500 (UnitClass slot 281, when +0x28 is set)
     void Unknown_006E24C0(AbstractClass *target);   // 0x006E24C0 (TechnoClass::Detach)
     void Unknown_006E27B0(TechnoClass *target);     // 0x006E27B0 (a Temporal warhead hits target; BulletClass 0x00462110)
     int unknown_24;
@@ -243,7 +243,7 @@ class UnknownCellClass {
 public:
     UnknownCellClass *Unknown_00476AC0(int facing);  // 0x00476AC0 (the adjacent cell toward a facing)
     int Unknown_0047CE70();             // 0x0047CE70 (the tiberium damage of the cell; FootClass::AI)
-    bool unknown_47c2c0(int house) const;   // 0x0047C2C0 (CellClass::Is_House_Bit; TechnoClass slot 161)
+    bool Is_Cloaked(int house) const;   // 0x0047C2C0 (CellClass::Is_House_Bit; TechnoClass slot 161)
     CoordStruct unknown_475d60() const;     // 0x00475D60 (CellClass: the centre at the middle's height; TechnoClass 0x006CA340)
     bool Is_Sensed(int house);     // 0x0047C2E0
     bool unknown_47c300(int house);     // 0x0047C300 (FootClass slot 26: the house's index)
@@ -253,7 +253,7 @@ public:
     bool Unknown_0047CDD0();            // 0x0047CDD0 (the land allows standing here; FootClass 0x004C4C30)
     bool Unknown_0047BB10();            // 0x0047BB10 (FootClass 0x004C4C30)
     bool Unknown_00479CF0();            // 0x00479CF0 (InfantryClass 0x00508DD0)
-    int Unknown_0047CF10() const;       // 0x0047CF10 (the height level: +0x11B plus 4 when flag 0x80 is set)
+    int GetLevel() const;       // 0x0047CF10 (the height level: +0x11B plus 4 when flag 0x80 is set)
     TechnoClass *Unknown_00471660(Point2D const &offset, bool alt, ObjectClass *except) const;   // 0x00471660 (an object in the cell; FootClass slot 309)
     bool Unknown_00478760(int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);   // 0x00478760 (FootClass slot 309)
     int Unknown_0047A230();             // 0x0047A230 (a docking score; FootClass 0x004CB8F0)
@@ -361,7 +361,7 @@ public:
     virtual HRESULT __stdcall Load(IStream *stream);            // slot 5 0x006D6850
     virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // slot 6 0x006D6A80
     virtual void Init();                                        // slot 9 0x006C1C50
-    bool unknown_6d7910(int ability);                           // 0x006D7910 (a veteran/elite ability of the type; Merge4c)
+    bool Has_Ability(int ability);                           // 0x006D7910 (a veteran/elite ability of the type; Merge4c)
     void unknown_6d3400(TechnoClass *source);                   // 0x006D3400 (FootClass slot 86: a Whiner team member calls for help; hypothesis)
     void Set_Current_Weapon(int index);                             // 0x006D83F0 (a weapon index 0..14; UnitClass constructor for Gunner types)
     virtual void Detach(AbstractClass *target, bool all = true);    // slot 10 0x006D2D10
@@ -602,7 +602,7 @@ public:
     void unknown_6155e0();                                      // 0x006155E0 (out of this unit; TechnoClass slot 222)
     int Elevation_Bonus();                                       // 0x006CD6F0 (the height bonus above the map's lowest level; never called)
     int Evaluate_Just_Cell(Cell const *cell);                       // 0x006C6350 (the threat of a wall cell to break; TechnoClass slot 219)
-    bool unknown_6c5570(int method, int arg2, int arg3, ObjectClass *object, int *value, int arg6, CoordStruct const *coord);   // 0x006C5570 (rates an object as a target; TechnoClass slot 219)
+    bool Evaluate_Object(int method, int arg2, int arg3, ObjectClass *object, int *value, int arg6, CoordStruct const *coord);   // 0x006C5570 (rates an object as a target; TechnoClass slot 219)
     bool Evaluate_Cell(int method, int arg2, Cell const *cell, int arg4, ObjectClass **object, int *value, int zone);   // 0x006C6130 (the best target in a cell; TechnoClass slot 219)
     LaserDrawClass *unknown_6c9df0(AbstractClass *target, int weapon_index, WeaponTypeClass *weapon, CoordStruct const &source);   // 0x006C9DF0 (draws the weapon's laser)
     bool unknown_6d9710() const;                                // 0x006D9710 (the +0x148 timer has run out)
@@ -615,7 +615,7 @@ public:
     void unknown_6d96a0();                                      // 0x006D96A0 (restarts the +0x148 timer at 4-8 when over 10)
     int Is_Valid_Weapon_Index(int index);                              // 0x006D85E0 (a valid weapon index)
     int Get_Z_Fudge_Column();                                       // 0x006CF9D0 (FootClass slot 176: times ZFudgeColumn)
-    int unknown_6cfb60();                                       // 0x006CFB60 (times ZFudgeTunnel)
+    int Get_Z_Fudge_Tunnel();                                       // 0x006CFB60 (times ZFudgeTunnel)
     int Get_Z_Fudge_Cliff();                                       // 0x006CFDA0 (times ZFudgeCliff)
     int Elevation_Range_Bonus(ObjectClass *other);                     // 0x006C4A70
 #ifdef RA2_NON_MATCHING
@@ -861,7 +861,7 @@ public:
 };
 extern UnknownList8322E0 unknown_list_8322e0;
 
-extern unsigned int unknown_ac01cc;     // 0x00AC01CC (frames between target scans; TechnoClass 0x006D40C0)
+extern unsigned int TargetScanDelay;     // 0x00AC01CC (frames between target scans; TechnoClass 0x006D40C0)
 
 // The overlay types (UnknownOverlayType, 0x00A35DE8): shared/overlay_view.hpp.
 #include "shared/overlay_view.hpp"

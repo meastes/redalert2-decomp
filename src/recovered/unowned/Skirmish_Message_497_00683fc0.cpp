@@ -66,7 +66,7 @@ int __fastcall Skirmish_Message_497(HWND dialog, WPARAM wparam, LPARAM lparam)
         }
     }
     if (unknown_session_a3d298.SkirmishOptions.GameMode < 0 || unknown_session_a3d298.SkirmishOptions.GameMode >= MultiplayerGameMode::unknown_mode_count_5b6f80()) {
-        unknown_session_a3d298.SkirmishOptions.GameMode = MultiplayerGameMode::unknown_first_mode_5b6ec0()->unknown_28;
+        unknown_session_a3d298.SkirmishOptions.GameMode = MultiplayerGameMode::First_Game_Mode()->unknown_28;
     }
     unknown_session_a3d298.GameModeIndex = unknown_session_a3d298.SkirmishOptions.GameMode;
     MultiplayerGameMode *mode = Current_Game_Mode_005c34d0();
@@ -78,7 +78,7 @@ int __fastcall Skirmish_Message_497(HWND dialog, WPARAM wparam, LPARAM lparam)
     if (!mode->unknown_5b7470(map)) {
         int selection = mode->FirstValidMapIndex();
         if (selection == -1) {
-            mode = MultiplayerGameMode::unknown_first_mode_5b6ec0();
+            mode = MultiplayerGameMode::First_Game_Mode();
             unknown_session_a3d298.SkirmishOptions.GameMode = mode->unknown_28;
             unknown_session_a3d298.GameModeIndex = mode->unknown_28;
             selection = mode->FirstValidMapIndex();

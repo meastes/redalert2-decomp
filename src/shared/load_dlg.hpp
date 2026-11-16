@@ -16,8 +16,8 @@
 
 // The dialog helpers of shared/ms_message_box.hpp, repeated here because that header pulls in wwmouse.hpp's
 // static empty rect (population-20 units compile separately and must not emit a header initializer).
-HWND __fastcall unknown_cancel_dialog_6001e0(unsigned short const *text, unsigned short const *button, bool *cancelled);
-void __fastcall unknown_dialog_5ff7c0(HWND window);
+HWND __fastcall Custom_Message_Box(unsigned short const *text, unsigned short const *button, bool *cancelled);
+void __fastcall Display_Dialog(HWND window);
 void __fastcall unknown_dialog_5ff6e0(HWND window);
 void __fastcall Slide_Pending_Dialog(HWND window);                                       // 0x005E5F20 (WM_PAINT)
 wchar_t *__fastcall wcstrim(wchar_t *buffer);                                            // 0x006EEF80 (also trigger_type.hpp)
@@ -29,7 +29,7 @@ void __fastcall unknown_5e62d0(HWND control);                                   
 }
 bool __fastcall On_WM_MOVING(void *window, unsigned int wparam, Rect *rect);   // WM_MOVING
 
-extern int unknown_savegame_version_7f1b18;   // 0x007F1B18 (a saved game with another first value is flagged)
+extern int ExpectedGameVersion;   // 0x007F1B18 (a saved game with another first value is flagged)
 extern bool TacticalActive;  // 0x00A40380
 WIN32_IMPORT LONG WINAPI CompareFileTime(FILETIME const *first, FILETIME const *second);   // KERNEL32
 
@@ -41,7 +41,7 @@ bool __stdcall Save_Game_With_Dialog(char const *filename, wchar_t const *descri
 bool __stdcall Delete_Save_File(char const *filename);                                   // 0x0053C7D0
 
 bool __fastcall Unknown_00656890(char const *filename);                                  // 0x00656890
-bool __fastcall Unknown_006554A0(char const *filename, wchar_t const *description, int unknown);   // 0x006554A0
+bool __fastcall Save_Game(char const *filename, wchar_t const *description, int unknown);   // 0x006554A0
 extern "C" int __cdecl _stricmp(char const *first, char const *second);                  // 0x00781F20
 
 #endif

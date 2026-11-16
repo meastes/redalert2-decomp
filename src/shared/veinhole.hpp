@@ -37,7 +37,7 @@ int __fastcall Map_Cell_Index(Cell const &cell);
 int __fastcall Map_Cell_Count();    // __fastcall: Load_All 0x00711E60 copies the result and sets the next Read's lea ecx before its pushes
 
 // The veinhole buffers: a shared per-cell table (0x00AD07A0).
-extern unsigned char *unknown_veinhole_buffer_ad07a0;
+extern unsigned char *GlobalGrowthState;
 
 // Shape file retrieval by name: MixFileClass::Retrieve, shared/mix_file_class.hpp.
 

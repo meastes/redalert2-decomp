@@ -315,13 +315,13 @@ void LaserDrawClass::Draw_It()
                             outer_color, start_z, end_z, false, true, true, true, 1.0f);
                     }
                 } else if (has_outer_glow) {
-                    LogicalSurface->Unknown_Slot16(TacticalRect,
+                    LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect,
                         start_pixel + _glow_offsets[2 * facing], end_pixel + _glow_offsets[2 * facing],
                         outer_color, current_intensity, start_z, end_z);
-                    LogicalSurface->Unknown_Slot16(TacticalRect,
+                    LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect,
                         start_pixel + _glow_offsets[2 * facing + 1], end_pixel + _glow_offsets[2 * facing + 1],
                         outer_color, current_intensity, start_z, end_z);
-                    LogicalSurface->Unknown_Slot16(TacticalRect, start_pixel, end_pixel,
+                    LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, start_pixel, end_pixel,
                         InnerColor, current_intensity, start_z, end_z);
                 } else {
                     LogicalSurface->Draw_Depth_Antialiased_Line(TacticalRect, start_pixel, end_pixel,
@@ -368,7 +368,7 @@ void LaserDrawClass::Draw_House_Color()
     TacticalMap->Coord_To_Pixel(Target, end_pixel);
     int start_z = ZAdjust - Unknown_006A2970(Source.Z) - 2;
     int end_z = -Unknown_006A2970(Target.Z) - 2;
-    bool high_detail = unknown_a6eb1c >= Unknown_0053D840() && unknown_a40b2c != 0;
+    bool high_detail = unknown_a6eb1c >= GetMinFrameRate() && unknown_a40b2c != 0;
     float intensity = 1.0f;
     if (Fades) {
         intensity = (StartIntensity - EndIntensity) * (Duration - Progress.Stage) / Duration + EndIntensity;
@@ -414,8 +414,8 @@ void LaserDrawClass::Draw_House_Color()
             end2.X += house_offsets[2 * facing + 1].X;
         }
         if (high_detail) {
-            LogicalSurface->Unknown_Slot16(TacticalRect, start1, end1, glow_color, intensity, start_z, end_z);
-            LogicalSurface->Unknown_Slot16(TacticalRect, start2, end2, glow_color, intensity, start_z, end_z);
+            LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, start1, end1, glow_color, intensity, start_z, end_z);
+            LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, start2, end2, glow_color, intensity, start_z, end_z);
         } else {
             adjusted_color = glow_color;
             adjusted_color.Adjust(ratio, white);
@@ -435,7 +435,7 @@ void LaserDrawClass::Draw_House_Color()
         }
     }
     if (high_detail) {
-        LogicalSurface->Unknown_Slot16(TacticalRect, start_pixel, end_pixel, core_color, intensity, start_z, end_z);
+        LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, start_pixel, end_pixel, core_color, intensity, start_z, end_z);
     } else {
         adjusted_color = core_color;
         adjusted_color.Adjust(ratio, white);

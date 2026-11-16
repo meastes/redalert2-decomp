@@ -445,7 +445,8 @@
    "address": "007b35f0",
    "bytes": 16,
    "kind": "rtti",
-   "section": 66
+   "section": 66,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4AircraftTypeClass@@6BIPersistStream@@@",
@@ -798,7 +799,8 @@
    "symbol": "??_R3AircraftTypeClass@@8",
    "address": "007b35f0",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4AircraftTypeClass@@6BIPersistStream@@@",

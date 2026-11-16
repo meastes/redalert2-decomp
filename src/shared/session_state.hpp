@@ -64,29 +64,29 @@ struct SessionClass {
     // screen and sends it to the other players; 0x00672160, name hypothesis).
     void Update_Progress(int percent);
     // The colour scheme of a player colour (0x006715D0; -2 reads as 8).
-    int Unknown_006715D0(int color);
+    int Color_Index_To_Scheme(int color);
     // The unknown_3022 value of the session player with this ID; 0 when none has it (0x00672F50).
     unsigned short Player_Port(int id);
     // The lobby slot whose name equals this session player's name; 0 when none (0x00672F90).
-    int Unknown_00672F90(int player);
+    int Player_To_Slot(int player);
     // Original00673090: session in ECX, no stack arguments; member spelling hypothesis.
     void Allocate_Ports_00673090();
     // Entered once while GameActive is set (+0x3080 records it): keeps the game speed in
-    // unknown_game_speed_7f3230 (game mode 0 runs at speed 2), pauses the game, captures the mouse and sets the
+    // SavedGameSpeed (game mode 0 runs at speed 2), pauses the game, captures the mouse and sets the
     // global volume to full (0x00672DE0; callers around Special_Dialog 0x00481850; hypothesis).
     void Unknown_00672DE0();
     // Undoes 0x00672DE0: restores the speed, stops the sound and speech, disables the tooltips, releases and
     // hides the mouse (0x00672E70).
-    void Unknown_00672E70();
+    void Leave_Game();
     // Resolves the random choices before a game: observers (-3) get colour 8, random countries (-2) come from
     // the game mode (slot 23; the session's 0x00672940 without one) and random colours from 0x00672980, for the
     // session players and the eight computer slots (slot 24 for their countries); the first player's colour goes to
     // unknown_a3d3b4 (0x00672BB0).
-    void Unknown_00672BB0();
+    void Assign_Random_Choices();
     // The lobby slot whose name equals the text; 0 when none (0x00672FF0).
-    int Unknown_00672FF0(char const *name);
+    int Name_To_Slot(char const *name);
     // The session player whose name equals this lobby slot's name; 0 when none (0x00673030).
-    int Unknown_00673030(int slot);
+    int Slot_To_Player(int slot);
 
     // Data (offsets from 0x00A3D298; the first word is unknown_game_mode_a3d298,
     // +0x40/+0x28/+0xA7 are declared separately in this header for now).
@@ -432,9 +432,9 @@ struct SessionClass {
     void Trap_Object_006715c0();
 #endif
     void Unknown_00672440();                // 0x00672440 (game mode 4, after the load wait of 0x0065C7D0)
-    unsigned char Unknown_00672F10();       // 0x00672F10 (+0x3080)
-    int Unknown_00672940();                // 0x00672940 (MultiplayerGameMode slot 23)
-    bool Unknown_006728D0(int color);       // 0x006728D0 (whether a player or computer slot already has the colour; -2 never)
+    unsigned char Is_In_Game();       // 0x00672F10 (+0x3080)
+    int Random_Side();                // 0x00672940 (MultiplayerGameMode slot 23)
+    bool Is_Color_Used(int color);       // 0x006728D0 (whether a player or computer slot already has the colour; -2 never)
     int Unknown_00672980();                 // 0x00672980 (a random colour not in use; returns it)
 };
 

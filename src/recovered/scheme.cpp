@@ -34,12 +34,12 @@ DynamicVectorClass<ColorScheme *> ColorSchemes;
 
 // Build_Light_Converter (0x00663690; Tiberian Sun scheme.cpp): copies the base palette into
 // remapped, shades its sixteen-entry remap ramp (indices 16-31) from the colour and returns a
-// light converter for it. Declared as Unknown_00663690 (shared/color_scheme.hpp): base is the
+// light converter for it. Declared as Build_Light_Converter (shared/color_scheme.hpp): base is the
 // base palette, unknown_b the screen palette, table the remap flags (hypotheses).
 #include "shared/convert.hpp"
 #include "shared/light_convert.hpp"
 
-ConvertClass *__fastcall Unknown_00663690(HSVClass const *hsv, void *base, int unknown_b, RGBClass *remapped,
+ConvertClass *__fastcall Build_Light_Converter(HSVClass const *hsv, void *base, int unknown_b, RGBClass *remapped,
     Surface *surface, int intensity_levels, int r, int g, int b, void const *table)
 {
     int hue = hsv->Hue;
@@ -164,7 +164,7 @@ ColorScheme::ColorScheme(char const *name, HSVClass const &base, void *unknown_a
     unknown_color_0x330 = 0x10;
     unknown_0x334 = 0x10;
     unknown_0x338 = 0x15;
-    Converter = Unknown_00663690(&BaseColor, unknown_a, (int)palette, Palette, VisibleSurface, unknown_c, 1000, 1000, 1000, unknown_table_7f264c);
+    Converter = Build_Light_Converter(&BaseColor, unknown_a, (int)palette, Palette, VisibleSurface, unknown_c, 1000, 1000, 1000, _indexes);
     if (add) {
         ColorSchemes.Add(this);
         Index = ColorSchemes.Count();
@@ -172,18 +172,18 @@ ColorScheme::ColorScheme(char const *name, HSVClass const &base, void *unknown_a
 }
 
 
-// ColorScheme::Unknown_00663B40 (0x00663B40; Tiberian Sun's Build_Light_Converters): throws away
+// ColorScheme::Build_Light_Converters (0x00663B40; Tiberian Sun's Build_Light_Converters): throws away
 // the converter and rebuilds it from the palettes with the tint.
 
-void ColorScheme::Unknown_00663B40(PaletteClass *unknown_a, PaletteClass *palette, int rscale, int gscale, int bscale)
+void ColorScheme::Build_Light_Converters(PaletteClass *unknown_a, PaletteClass *palette, int rscale, int gscale, int bscale)
 {
     if (Converter != 0) {
         delete Converter;
         Converter = 0;
     }
 
-    Converter = Unknown_00663690(&BaseColor, unknown_a, (int)palette, Palette, VisibleSurface, unknown_0x310,
-        rscale, gscale, bscale, unknown_table_7f264c);
+    Converter = Build_Light_Converter(&BaseColor, unknown_a, (int)palette, Palette, VisibleSurface, unknown_0x310,
+        rscale, gscale, bscale, _indexes);
 }
 
 

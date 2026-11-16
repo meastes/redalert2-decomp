@@ -1056,6 +1056,10 @@
    "address": "00839964"
   },
   {
+   "symbol": "?ConfigINI@@3VCCINIClass@@A",
+   "address": "00839740"
+  },
+  {
    "symbol": "?Create_Primary@DSurface@@SIPAV1@PAPAV1@@Z",
    "address": "004aa660"
   },
@@ -1066,6 +1070,18 @@
   {
    "symbol": "?Debug_Printf@@YAXPBDZZ",
    "address": "004068f0"
+  },
+  {
+   "symbol": "?Default_Dialog_Proc@@YIHPAUHWND__@@IIJ@Z",
+   "address": "005ffb00"
+  },
+  {
+   "symbol": "?Display_Dialog@@YIXPAUHWND__@@@Z",
+   "address": "005ff7c0"
+  },
+  {
+   "symbol": "?FirewallHelper@@3VFirewallSettings@@A",
+   "address": "00a71b18"
   },
   {
    "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXH@Z",
@@ -1276,6 +1292,10 @@
    "address": "008523e0"
   },
   {
+   "symbol": "?VisibleRect@@3VRect@@A",
+   "address": "00839640"
+  },
+  {
    "symbol": "?VisibleSurface@@3PAVSurface@@A",
    "address": "00839950"
   },
@@ -1312,22 +1332,6 @@
    "address": "005ff6e0"
   },
   {
-   "symbol": "?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z",
-   "address": "005ff7c0"
-  },
-  {
-   "symbol": "?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z",
-   "address": "005ffb00"
-  },
-  {
-   "symbol": "?unknown_firewall_a71b18@@3VFirewallSettings@@A",
-   "address": "00a71b18"
-  },
-  {
-   "symbol": "?unknown_ini_839740@@3VCCINIClass@@A",
-   "address": "00839740"
-  },
-  {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
    "address": "004ba520"
   },
@@ -1354,10 +1358,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_window_839640@@3VRect@@A",
-   "address": "00839640"
   },
   {
    "symbol": "__CIpow",

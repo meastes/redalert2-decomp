@@ -441,11 +441,11 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
 }
 
 
-// void FoggedObjectClass::unknown_4c1ae0() (0x004C1AE0)
+// void FoggedObjectClass::Update_Fogged_Objects() (0x004C1AE0)
 // Marks (+0x140 bit 22) the cell of every listed fogged object: each cell a fogged
 // building covers (its cell plus the type's cell offsets), or the cell under the coordinate.
 
-void FoggedObjectClass::unknown_4c1ae0()
+void FoggedObjectClass::Update_Fogged_Objects()
 {
     for (int index = 0; index < Array.Count(); index++) {
         FoggedObjectClass *fogged = Array[index];

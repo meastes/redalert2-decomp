@@ -142,7 +142,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
         case 0x540:             // the chat line
             Limit_Name_Text_005ccf50((HWND)lparam);
             if ((unsigned short)(wparam >> 16) == 0x501) {
-                Send_Chat_Message_005bee20(window, unknown_color_7a737c, unknown_color_7a7364);
+                Send_Chat_Message_005bee20(window, ColorMe, unknown_color_7a7364);
                 return 0;
             }
             break;

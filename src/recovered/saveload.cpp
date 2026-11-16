@@ -258,11 +258,11 @@ WWCRCEngine __fastcall Game_CRC()
     for (index = 0; index < Triggers.Count(); index++) {
         Triggers[index]->Compute_CRC(crc);
     }
-    for (index = 0; index < unknown_TActionClass_list_00abfd88.Count(); index++) {
-        unknown_TActionClass_list_00abfd88[index]->Compute_CRC(crc);
+    for (index = 0; index < Actions.Count(); index++) {
+        Actions[index]->Compute_CRC(crc);
     }
-    for (index = 0; index < unknown_TEventClass_list_00ac0808.Count(); index++) {
-        unknown_TEventClass_list_00ac0808[index]->Compute_CRC(crc);
+    for (index = 0; index < Events.Count(); index++) {
+        Events[index]->Compute_CRC(crc);
     }
     for (index = 0; index < Factories.Count(); index++) {
         Factories[index]->Compute_CRC(crc);
@@ -270,8 +270,8 @@ WWCRCEngine __fastcall Game_CRC()
     for (index = 0; index < VoxelAnimTypes.Count(); index++) {
         VoxelAnimTypes[index]->Compute_CRC(crc);
     }
-    for (index = 0; index < unknown_VoxelAnimClass_list_008399d0.Count(); index++) {
-        unknown_VoxelAnimClass_list_008399d0[index]->Compute_CRC(crc);
+    for (index = 0; index < VoxelAnims.Count(); index++) {
+        VoxelAnims[index]->Compute_CRC(crc);
     }
     for (index = 0; index < unknown_WarheadTypeClass_list_00839b00.Count(); index++) {
         unknown_WarheadTypeClass_list_00839b00[index]->Compute_CRC(crc);
@@ -306,8 +306,8 @@ WWCRCEngine __fastcall Game_CRC()
     for (index = 0; index < OverlayTypes.Count(); index++) {
         OverlayTypes[index]->Compute_CRC(crc);
     }
-    for (index = 0; index < unknown_LightSourceClass_list_00a6e818.Count(); index++) {
-        unknown_LightSourceClass_list_00a6e818[index]->Compute_CRC(crc);
+    for (index = 0; index < LightSources.Count(); index++) {
+        LightSources[index]->Compute_CRC(crc);
     }
     for (index = 0; index < BuildingLights.Count(); index++) {
         BuildingLights[index]->Compute_CRC(crc);
@@ -345,7 +345,7 @@ WWCRCEngine __fastcall Game_CRC()
 }
 
 
-// bool __fastcall Unknown_006554A0(char const *filename, wchar_t const *description, int unknown) (0x006554A0;
+// bool __fastcall Save_Game(char const *filename, wchar_t const *description, int unknown) (0x006554A0;
 // TibSun saveload.cpp Save_Game)
 // Creates the save file, writes its summary (SaveVersionInfo 0x00659530), then writes everything
 // (Put_All 0x006558B0) to its CONTENTS stream through a compressing link stream and commits the file.
@@ -355,7 +355,7 @@ WWCRCEngine __fastcall Game_CRC()
 
 bool __fastcall Put_All(IStream *stream, int save_net);
 
-bool __fastcall Unknown_006554A0(char const *filename, wchar_t const *description, int unknown)
+bool __fastcall Save_Game(char const *filename, wchar_t const *description, int unknown)
 {
     wchar_t name[64];
     Debug_Printf("\nSAVING GAME [%s - %s]\n", filename, description);
@@ -368,7 +368,7 @@ bool __fastcall Unknown_006554A0(char const *filename, wchar_t const *descriptio
     }
 
     SaveVersionInfo info;
-    info.Set_Internal_Version(unknown_savegame_version_7f1b18);
+    info.Set_Internal_Version(ExpectedGameVersion);
     info.Set_Scenario_Description(description);
     info.Set_Version(1);
     info.Set_Player_House(PlayerPtr->Type->UIName);
@@ -535,9 +535,9 @@ bool __fastcall Put_All(IStream *stream, int save_net)
     }
     Save_Vector(stream, AITriggerTypes);
     DebugString("\t***** FAILED!\n");
-    Save_Vector(stream, unknown_TActionClass_list_00abfd88);
+    Save_Vector(stream, Actions);
     DebugString("\t***** FAILED!\n");
-    if (FAILED(Save_Vector(stream, unknown_TEventClass_list_00ac0808))) {
+    if (FAILED(Save_Vector(stream, Events))) {
         DebugString("\t***** FAILED!\n");
         return false;
     }
@@ -549,7 +549,7 @@ bool __fastcall Put_All(IStream *stream, int save_net)
         DebugString("\t***** FAILED!\n");
         return false;
     }
-    if (FAILED(Save_Vector(stream, unknown_VoxelAnimClass_list_008399d0))) {
+    if (FAILED(Save_Vector(stream, VoxelAnims))) {
         DebugString("\t***** FAILED!\n");
         return false;
     }
@@ -597,7 +597,7 @@ bool __fastcall Put_All(IStream *stream, int save_net)
         DebugString("\t***** FAILED!\n");
         return false;
     }
-    if (FAILED(Save_Vector(stream, unknown_LightSourceClass_list_00a6e818))) {
+    if (FAILED(Save_Vector(stream, LightSources))) {
         DebugString("\t***** FAILED!\n");
         return false;
     }
@@ -626,11 +626,11 @@ bool __fastcall Put_All(IStream *stream, int save_net)
         return false;
     }
     {
-        int count = unknown_supers_a35db8.Count();
+        int count = TimedSuperWeapons.Count();
         HRESULT result = stream->Write(&count, sizeof(count), 0);
         if (SUCCEEDED(result)) {
             for (int index = 0; index < count; index++) {
-                SuperClass *super = unknown_supers_a35db8[index];
+                SuperClass *super = TimedSuperWeapons[index];
                 result = stream->Write(&super, sizeof(super), 0);
                 if (FAILED(result)) {
                     break;
@@ -653,7 +653,7 @@ bool __fastcall Put_All(IStream *stream, int save_net)
         DebugString("\t***** FAILED!\n");
         return false;
     }
-    if (FAILED(Save_Vector(stream, unknown_AlphaShapeClass_list_0083c648))) {
+    if (FAILED(Save_Vector(stream, AlphaShapes))) {
         DebugString("\t***** FAILED!\n");
         return false;
     }
@@ -811,10 +811,10 @@ bool __fastcall Get_All(IStream *stream, bool save_net)
     }
     Rect temp = Get_Title_Screen_Area_006f1f30();
     {
-        Rect sidebar(0, 0, SidebarWidth, unknown_window_839640.Height);
-        Rect tile(0, 0, temp.Width, unknown_window_839640.Height);
-        Rect composite(0, 0, temp.Width, unknown_window_839640.Height);
-        Allocate_Surfaces(&unknown_window_839640, &composite, &tile, &sidebar, false);
+        Rect sidebar(0, 0, SidebarWidth, VisibleRect.Height);
+        Rect tile(0, 0, temp.Width, VisibleRect.Height);
+        Rect composite(0, 0, temp.Width, VisibleRect.Height);
+        Allocate_Surfaces(&VisibleRect, &composite, &tile, &sidebar, false);
     }
     Map.unknown_slot42(temp);
     unknown_scenario_checkpoint_00855a90.Read_004B5C50(stream);
@@ -1020,7 +1020,7 @@ bool __fastcall Get_All(IStream *stream, bool save_net)
         DebugString("\t***** FAILED!\n");
         return false;
     }
-    unknown_supers_a35db8.Clear();
+    TimedSuperWeapons.Clear();
     {
         int count;
         SuperClass *super;
@@ -1032,10 +1032,10 @@ bool __fastcall Get_All(IStream *stream, bool save_net)
                 if (FAILED(result)) {
                     break;
                 }
-                unknown_supers_a35db8.Add(super);
+                TimedSuperWeapons.Add(super);
             }
             for (index = 0; index < count; index++) {
-                Swizzler.Swizzle((void **)&unknown_supers_a35db8[index]);
+                Swizzler.Swizzle((void **)&TimedSuperWeapons[index]);
             }
         }
         if (FAILED(result)) {

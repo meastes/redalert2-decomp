@@ -38,8 +38,8 @@
 // @ref ?RequiredCD@CD@@2HA=007d20e0
 // @ref ?Set_Required_CD@CD@@SIXH@Z=0046e4d0
 // @ref ?Unknown_0046E4C0@@YIHH@Z=0046e4c0
-// @ref ?Unknown_00671F00@MultiMission@@QAE_NH@Z=00671f00
-// @ref ?Unknown_00671F90@MultiMission@@QAEHXZ=00671f90
+// @ref ?Is_On_CD@MultiMission@@QAE_NH@Z=00671f00
+// @ref ?On_Which_CD@MultiMission@@QAEHXZ=00671f90
 // @ref ?unknown_counter_a3fabc@@3HA=00a3fabc
 // @ref ?unknown_multi_missions_a3d8d8@@3V?$DynamicVectorClass@PAVMultiMission@@@@A=00a3d8d8
 // @ref ??_C@_0M@FDHG@RandMap?4Sed?$AA@=007e16e8
@@ -55,8 +55,8 @@ bool __fastcall Find_Local_Scenario_0066c5b0(char *filename, int length, char *d
                 CCFileClass file(unknown_multi_missions_a3d8d8[index]->unknown_58);
                 if (!file.Is_Available() && unknown == true) {
                     MultiMission *mission = unknown_multi_missions_a3d8d8[index];
-                    if (!mission->Unknown_00671F00(Unknown_0046E4C0(60))) {
-                        CD::Set_Required_CD(mission->Unknown_00671F90());
+                    if (!mission->Is_On_CD(Unknown_0046E4C0(60))) {
+                        CD::Set_Required_CD(mission->On_Which_CD());
                     }
                     unknown_counter_a3fabc++;
                     if (!CD().Force_Available(CD::RequiredCD)) {

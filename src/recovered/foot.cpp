@@ -380,7 +380,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
         if(!House->Unknown_004F52F0()) {
             QueueMission(11,false);
             if(unknown_game_mode_a3d298!=0) {
-                Cell guard=House->Unknown_004EB270(this);
+                Cell guard=House->Where_To_Go(this);
                 if(guard!=unknown_geometry_k) Assign_Destination(&Map[guard],true);
             }
         } else QueueMission(5,false);
@@ -580,7 +580,7 @@ int FootClass::Do_MISSION_CAPTURE()
 {
     InfantryClass *infantry = As_Infantry(this);
     if (unknown_228 != 0 && unknown_228->Kind_Of() == 6 && unknown_494 == 0 && infantry != 0) {
-        if (infantry->Type->C4 || infantry->unknown_6d7910(14) || infantry->Type->Engineer
+        if (infantry->Type->C4 || infantry->Has_Ability(14) || infantry->Type->Engineer
             || infantry->Type->Occupier || infantry->Type->Assaulter || infantry->Type->Infiltrate) {
             Assign_Destination(unknown_228, true);
         }
@@ -613,7 +613,7 @@ int FootClass::Do_MISSION_EATEN()
 {
     InfantryClass *infantry = As_Infantry(this);
     if (unknown_228 != 0 && unknown_228->Kind_Of() == 6 && unknown_494 == 0 && infantry != 0) {
-        if (infantry->Type->C4 || infantry->unknown_6d7910(14) || infantry->Type->Engineer) {
+        if (infantry->Type->C4 || infantry->Has_Ability(14) || infantry->Type->Engineer) {
             Assign_Destination(unknown_228, true);
         }
     }
@@ -725,7 +725,7 @@ int FootClass::Do_MISSION_GUARD()
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
     if (this != 0 && Kind_Of() == 15 && !House->Unknown_004F52F0()
-        && (((InfantryClass *)this)->Type->C4 || unknown_6d7910(14))
+        && (((InfantryClass *)this)->Type->C4 || Has_Ability(14))
         && Get_Mission() != 17 && unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
         QueueMission(17, false);
     }
@@ -757,13 +757,13 @@ int FootClass::Do_MISSION_HUNT()
     CoordStruct coord;
     if (!Techno_Type_Class()->StupidHunt && unknown_slot209(&(coord = Coord), 0)) {
         InfantryClass *infantry = Kind_Of() == 15 ? (InfantryClass *)this : 0;
-        if (infantry != 0 && infantry->Type->Engineer && !infantry->Type->C4 && !infantry->unknown_6d7910(14)) {
+        if (infantry != 0 && infantry->Type->Engineer && !infantry->Type->C4 && !infantry->Has_Ability(14)) {
             Assign_Destination(unknown_228, true);
             QueueMission(8, false);
             if (Ready_To_Commence()) {
                 Commence();
             }
-        } else if (infantry != 0 && (infantry->Type->C4 || infantry->unknown_6d7910(14)) && unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
+        } else if (infantry != 0 && (infantry->Type->C4 || infantry->Has_Ability(14)) && unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
             Assign_Destination(unknown_228, true);
             QueueMission(17, false);
             if (Ready_To_Commence()) {
@@ -1057,7 +1057,7 @@ inline Cell Coord_Cell_Value(CoordStruct coord)
 inline void Guard_Navigation(FootClass *foot)
 {
     if (!foot->House->Unknown_004F52F0() && foot->unknown_49c.Count() > 0 && foot->unknown_494 == 0 && foot->unknown_49c[0] == foot->unknown_1b0) {
-        foot->unknown_4c8b00();
+        foot->Handle_Navigation_List();
     }
 }
 
@@ -1087,7 +1087,7 @@ int FootClass::Do_MISSION_GUARD_AREA()
     }
 
     InfantryClass *infantry = As_Infantry(this);
-    if (!House->Unknown_004F52F0() && infantry != 0 && (infantry->Type->C4 || infantry->unknown_6d7910(14))
+    if (!House->Unknown_004F52F0() && infantry != 0 && (infantry->Type->C4 || infantry->Has_Ability(14))
         && Get_Mission() != 17 && unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
         QueueMission(17, false);
         return 1;
@@ -1260,7 +1260,7 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
     switch (action) {
     case 26:
         if (Can_Player_Fire() && Can_Player_Move()) {
-            if (((Kind_Of() == 15 && ((InfantryClass *)this)->Type->C4) || unknown_6d7910(14))
+            if (((Kind_Of() == 15 && ((InfantryClass *)this)->Type->C4) || Has_Ability(14))
                 && object->Kind_Of() == 6 && !House->Is_Ally((TechnoClass const *)object)) {
                 Player_Assign_Mission(0x11, 0, object, 0);
             } else {
@@ -1633,7 +1633,7 @@ void FootClass::unknown_slot93(int why)
                 if (Map.Unknown_0055A660(cell, true)) {
                     TechnoClass *techno = ((UnknownCellClass *)&Map[cell])->Unknown_00471660(Point2D(0, 0), 0, 0);
 
-                    if (techno && !techno->House->Is_Ally(this) && (techno->Techno_Type_Class()->Sensors || techno->unknown_6d7910(12))) {
+                    if (techno && !techno->House->Is_Ally(this) && (techno->Techno_Type_Class()->Sensors || techno->Has_Ability(12))) {
                         Do_Shimmer();
                         break;
                     }
@@ -2248,12 +2248,12 @@ Cell FootClass::Adjust_Dest(Cell const &cell)
 }
 
 
-// void FootClass::unknown_4c8b00() (0x004C8B00)
+// void FootClass::Handle_Navigation_List() (0x004C8B00)
 // With nothing at +0x494: takes the first entry of the +0x49C queue as the
 // new destination (slot 260), removes it, and re-queues it at the end when
 // the queue loops (+0x59B).
 
-void FootClass::unknown_4c8b00()
+void FootClass::Handle_Navigation_List()
 {
     if (unknown_494 == 0 && unknown_49c.Count() != 0) {
         AbstractClass *next = unknown_49c[0];
@@ -2629,7 +2629,7 @@ int FootClass::unknown_slot176()
         adjust = Locomotor.Checked()->Z_Adjust();
     }
     int fudge = Techno_Type_Class()->ZFudgeColumn * Get_Z_Fudge_Column();
-    int tunnel = Techno_Type_Class()->ZFudgeTunnel * unknown_6cfb60();
+    int tunnel = Techno_Type_Class()->ZFudgeTunnel * Get_Z_Fudge_Tunnel();
     int cliff = Techno_Type_Class()->ZFudgeCliff * Get_Z_Fudge_Cliff();
     int bridge = 0;
     if (Is_Z_Fudge_Bridge()) {
@@ -2688,7 +2688,7 @@ void FootClass::Draw_Voxel_Shadow(UnknownObjectPair const &voxel, int layer, int
 int FootClass::Current_Speed()
 {
     int speed = (int)(unknown_slot206() * House->Unknown_004F5A20(Techno_Type_Class()) * unknown_470);
-    if (unknown_6d7910(0)) {
+    if (Has_Ability(0)) {
         speed = (int)(speed * Rules->unknown_598);
     }
     int result = (int)(speed * unknown_468);
@@ -3788,7 +3788,7 @@ int FootClass::Do_MISSION_RESCUE()
         }
         unknown_a8 = 1;
         {
-            Cell cell = House->Unknown_004EB270(this);
+            Cell cell = House->Where_To_Go(this);
             if (cell != unknown_geometry_k) {
                 Assign_Destination((AbstractClass *)&Map[cell], true);
             } else {

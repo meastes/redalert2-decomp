@@ -210,7 +210,7 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?unknown_76b9f0@WinsockInterfaceClass@@SAHXZ",
+   "symbol": "?Get_Packet_Loss_Percent@WinsockInterfaceClass@@SAHXZ",
    "entry": "0076b9f0",
    "body_bytes": 6,
    "padding_bytes": 10
@@ -867,7 +867,7 @@
   },
   {
    "site": "0076a6b0",
-   "symbol": "?unknown_76b9f0@WinsockInterfaceClass@@SAHXZ",
+   "symbol": "?Get_Packet_Loss_Percent@WinsockInterfaceClass@@SAHXZ",
    "target": "0076b9f0",
    "function_entry": true
   },
@@ -891,7 +891,7 @@
   },
   {
    "site": "0076cd40",
-   "symbol": "?unknown_76b9f0@WinsockInterfaceClass@@SAHXZ",
+   "symbol": "?Get_Packet_Loss_Percent@WinsockInterfaceClass@@SAHXZ",
    "target": "0076b9f0",
    "function_entry": true
   },
@@ -944,6 +944,14 @@
    "address": "004068f0"
   },
   {
+   "symbol": "?IsPacketLossReported@WinsockInterfaceClass@@2_NA",
+   "address": "00b2ae9c"
+  },
+  {
+   "symbol": "?PacketLossPercent@WinsockInterfaceClass@@2HA",
+   "address": "00b2aea0"
+  },
+  {
    "symbol": "?Protocols@WinsockInterfaceClass@@2PAHA",
    "address": "00800ab0"
   },
@@ -958,14 +966,6 @@
   {
    "symbol": "?WWKeyboard@@3PAVWWKeyboardClass@@A",
    "address": "00832468"
-  },
-  {
-   "symbol": "?unknown_b2ae9c@WinsockInterfaceClass@@2_NA",
-   "address": "00b2ae9c"
-  },
-  {
-   "symbol": "?unknown_b2aea0@WinsockInterfaceClass@@2HA",
-   "address": "00b2aea0"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",

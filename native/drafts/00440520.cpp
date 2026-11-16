@@ -224,7 +224,7 @@ exitcell.X += random; exitcell.Y += random;
                     }
                     if (!House->Is_Human_Player() || Type->Hospital) {
                         base->QueueMission(0xB, 0);
-                        Cell dest = House->Unknown_004EB270(foot);
+                        Cell dest = House->Where_To_Go(foot);
                         if (dest != unknown_geometry_k && Type->Factory != 0) {
                             base->Assign_Archive_Target(&Map[dest]);
                             foot->unknown_4c8bb0(&Map[dest]);
@@ -271,7 +271,7 @@ exitcell.X += random; exitcell.Y += random;
                     base->Assign_Destination(&Map[exitcell], 1);
                     if (!House->Is_Human_Player()) {
                         base->QueueMission(0xB, 0);
-                        Cell dest = House->Unknown_004EB270((FootClass *)base);
+                        Cell dest = House->Where_To_Go((FootClass *)base);
                         if (dest != unknown_geometry_k && Type->Factory != 0) {
                             base->Assign_Archive_Target(&Map[dest]);
                         } else {

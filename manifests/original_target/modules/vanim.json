@@ -862,6 +862,10 @@
    "address": "00ab6ef8"
   },
   {
+   "symbol": "?Combat_Lighting@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
+   "address": "0047f600"
+  },
+  {
    "symbol": "?Compute_CRC@ObjectClass@@UBEXAAVWWCRCEngine@@@Z",
    "address": "005d4b10"
   },
@@ -900,6 +904,10 @@
   {
    "symbol": "?Exit_Object@ObjectClass@@UAEHPAVTechnoClass@@@Z",
    "address": "005d2c70"
+  },
+  {
+   "symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
+   "address": "0047e2c0"
   },
   {
    "symbol": "?Fall_From_Height@ObjectClass@@UAEXXZ",
@@ -956,6 +964,10 @@
   {
    "symbol": "?Get_Image_Data@ObjectClass@@UAEPAXXZ",
    "address": "005d27b0"
+  },
+  {
+   "symbol": "?Get_Matrix@BounceClass@@QBE?AVMatrix3D@@XZ",
+   "address": "00436fc0"
   },
   {
    "symbol": "?Get_Mission@ObjectClass@@UAEHXZ",
@@ -1218,14 +1230,6 @@
    "address": "004370e0"
   },
   {
-   "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
-   "address": "0047e2c0"
-  },
-  {
-   "symbol": "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z",
-   "address": "0047f600"
-  },
-  {
    "symbol": "?Unknown_006A2970@@YIHH@Z",
    "address": "006a2970"
   },
@@ -1248,6 +1252,10 @@
   {
    "symbol": "?Voc_Update_At@@YIPAUAudioEvent@@ABUCoordStruct@@PAUAudioEventHandle@@@Z",
    "address": "007141b0"
+  },
+  {
+   "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+   "address": "008399d0"
   },
   {
    "symbol": "?Voxel_Draw_Section_00717360@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@1ABUVector3@@PAVSurface@@HH@Z",
@@ -1278,10 +1286,6 @@
    "address": "005d4500"
   },
   {
-   "symbol": "?unknown_VoxelAnimClass_list_008399d0@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
-   "address": "008399d0"
-  },
-  {
    "symbol": "?unknown_drawer_8323b4@@3PAVConvertClass@@A",
    "address": "008323b4"
   },
@@ -1300,10 +1304,6 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_matrix_436fc0@BounceClass@@QBE?AVMatrix3D@@XZ",
-   "address": "00436fc0"
   },
   {
    "symbol": "?unknown_slot102@ObjectClass@@UAEHPAVUnknownCellClass@@HPAHPA_N0@Z",

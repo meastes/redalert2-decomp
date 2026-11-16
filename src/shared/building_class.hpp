@@ -94,7 +94,7 @@ extern "C" GUID const CLSID_BuildingClass;  // 0x007A1C10
 // factories.
 class UnknownBuildingFactory {
 public:
-    void Unknown_004B97C0();                    // 0x004B97C0 (on removal from a strip)
+    void Abandon();                    // 0x004B97C0 (on removal from a strip)
     TechnoClass *Get_Object();                  // 0x004B9930 the object being built
 };
 

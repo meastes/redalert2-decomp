@@ -22,7 +22,7 @@ class WarheadTypeClass;
 void __fastcall Wide_Area_Damage(CoordStruct const &coord, int radius, int rawdamage, TechnoClass *source, WarheadTypeClass *warhead);
 
 // The frame time used by the light-detail test (0x0053D840; owner unit unknown; hypothesis).
-unsigned int Unknown_0053D840();
+unsigned int GetMinFrameRate();
 
 // The binary angle of a radian angle (TibSun DirType::From_Radian: 65534 units per turn).
 inline void UnknownFacingDir::From_Radian(double angle)
