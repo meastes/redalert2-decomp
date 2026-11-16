@@ -165,6 +165,98 @@ Known gaps: the selection brackets are not drawn; TibSun-text drafts are not com
 gamemd.exe yet (YR's sell survivors, YR's area damage details); the AI opponent's further play
 will reach more unmatched functions.
 
+## One game (lane Y5, 2026-11-16): Red Alert 2 and Yuri's Revenge in one app
+
+User design (2026-11-15): one game. A Red Alert 2 / Yuri's Revenge toggle at the bottom left of the
+main menu, away from its buttons; the deeper menus are the selected game's; both games in one app
+with one engine active at a time; the toggle swaps engines in the process and lands on the other
+game's main menu without its intro; the intro plays once at start-up, for the game chosen last,
+which the settings keep. Built with `-DRA2_NATIVE_COMBINED=ON` (with `-DRA2_NATIVE_YR=ON` and
+`RA2_NATIVE_LINK_CLOSURE`; Mac); off by default, and `ra2-native`, `yr-native` and their tests
+are unchanged.
+
+    cmake -DRA2_NATIVE_YR=ON -DRA2_NATIVE_COMBINED=ON <native build dir>
+    cmake --build <native build dir> --target ra2yr-native     # with ra2-engine.so, yr-engine.so
+
+### How the two engines live in one process
+
+* **Symbols.** Each game is an engine bundle (`MH_BUNDLE`, `ra2-engine.so`, `yr-engine.so`): the
+  same objects as its executable (`ra2-native`: src/recovered's units, native data, the port;
+  `yr-native`: the YR units, `yr_data`, the port), with its own copy of the platform layer
+  (`ra2_port`, the SDL host). The host is compiled once more per engine with
+  `RA2_NATIVE_ENGINE`: `main.cpp`'s `main` becomes `ra2_engine_main` (`platform/sdl/engine_api.h`).
+  ld64's `-exported_symbol _ra2_engine_main` makes every other symbol private to its bundle, so
+  the names both games define (`WinMain`, `MapClass`, the C++ templates and vtables, every port
+  function) never meet, and weak definitions are never coalesced across the games. No source is
+  renamed; neither tree knows about the other.
+* **Globals.** All of a game's globals are its bundle's. Each engine start maps a fresh copy of
+  its bundle (copied to a temporary file and unlinked once mapped: dyld maps a file once per
+  process), so the game starts from its static initialisers with the original's data loaded,
+  exactly as a process start would. Images that used to depend on being image 0 now find their
+  own image (the YR deferred initialisers' section, `original_save.cpp`'s in-image test).
+* **Shared.** SDL (Homebrew's dylib on the Mac: one copy) and the window belong to the thin host
+  (`combined/one_game.cpp`, `ra2yr-native`). An engine takes the window it is given
+  (`ra2_sdl_host_use_window`; the game's `CreateWindowExA` takes it over) and makes its own
+  renderer, textures and audio stream on it. The settings file is shared: the thin host owns its
+  `game=ra2|yr` line; YR's own keys are separate (`yr_game_exe`), and in the app YR writes its
+  RA2MD.INI and saves under `Game/YR`, so neither game's Load menu lists the other's saves. Each
+  game reads its own executable variable (`RA2_GAME_EXE`, `RA2_GAMEMD_EXE`).
+* **A swap.** The toggle (below) asks the port to end the game the way a player does: the port
+  presses Exit Game in the main menu and OK in its question as those dialogs open; the host
+  freezes the picture first, so the window keeps the menu's last frame meanwhile. The game's
+  own shutdown runs (`Main_Game` returns, `WinMain` frees its art, surfaces, mixfiles and network
+  and returns). The engine then gives the window back and destroys what it made with SDL (renderer
+  with its textures, audio stream, event watch: `ra2_sdl_host_release`). The thin host runs the
+  ended engine's exit handlers at once (`__cxa_finalize_ranges` over its image: `Prog_End`, the C++
+  static destructors, the app settings' save), as `dlclose` or `exit` would, and starts the other
+  engine with `skip_intro`: the port opens no Bink movie before the first dialog (the logos and
+  the intro), so the other game's main menu comes up in about 5 s. The ended image stays mapped
+  and is never called again (a thread of it may still be parked there; unmapping would pull the
+  code from under it). Cost: its memory (code and what the game did not free) per swap.
+* **The time limit of a test run** is the run's: each engine gets what is left; an ended engine's
+  watchdog stands down (`ra2port_run_retire`).
+
+### The toggle
+
+`ra2port::set_game_toggle` (port/src/user32.cpp): the main menu (the dialog with Exit Game,
+0x3EE "GUI:ExitGame", the same in both games) gets a clone of its version line (0x71D), clickable
+(SS_NOTIFY), labelled "Play Yuri's Revenge" / "Play Red Alert 2" and placed, once the game has laid
+the menu out, at the left end of the menu's bottom bar (the tool-tip line 0x695, which starts that
+much further right). The game's own static code draws it, in its menu font and colour; the deeper
+menus are simply the running game's. The selection is the settings' `game=` line (the thin host
+writes it at every start and swap); the next start runs that game with its start-up movies.
+
+ctest `one-game-toggle` (yr/tests/one_game_toggle.py, needs RA2_NATIVE_YR_DATA_DIR and
+RA2_NATIVE_CENSUS_GAME_EXE): RA2 menu -> toggle -> YR menu (no start-up movie) -> toggle -> RA2
+menu -> a skirmish in RA2; the game chosen last (RA2) -> YR -> a skirmish in YR; then YR, chosen
+last, starts with its movies. Checks the engine order, the skipped movies, the toggle in each
+menu, game frames in both skirmishes, the settings and that no process of the run is left.
+
+Fixed on the way: YR's exit freed the menu drawers with the vector deleting destructor
+(gamemd.exe 0x0072B230, harmless at exit on Windows, an abort natively; fixups.json).
+
+### Next: iOS and Windows
+
+* **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both
+  games must be linked into the one executable. That needs the symbol separation done at the
+  object level instead of the bundle level: link each game's objects into one relocatable object
+  (`ld -r`) with only its entry exported (`-exported_symbol`, which `ld -r` honours by making
+  the rest private), then link the two objects and the thin host into the app. A fresh start of
+  a game then cannot remap its image: its data segment would be reset from a saved copy of the
+  pristine `__DATA`/`__bss` (taken before its initialisers run) and its initialisers run again,
+  or the swap restarts the app process at the other game's menu (iOS allows `exit` only as a
+  crash; not acceptable). Data reset is the plan; the threads of the ended game must be stopped
+  first (the mouse timer, audio; the network thread is parked). The window: the iOS host's
+  `app_window` already hands the game a window; the touch toolbar and the import flow are per
+  app and move to the thin host.
+* **Windows.** Two DLLs (`ra2-engine.dll`, `yr-engine.dll`) built from the same objects with
+  only `ra2_engine_main` exported (PE exports are explicit: nothing else is visible), loaded with
+  `LoadLibrary` from a fresh copy per start, `RA2Native.exe` as the thin host. The engines' C
+  runtime must be the shared UCRT DLL (each DLL with a static CRT would keep its own heap and
+  `atexit` list; the DLL's own list runs at `FreeLibrary`, which is not called for the reason
+  above: the thin host calls the engine's exported finaliser instead). The window and SDL3.dll
+  are shared as on the Mac.
+
 ## Next
 
 1. The buttons' targets (input not yet exercised; the runs are unattended): each submenu

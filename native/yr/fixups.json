@@ -823,6 +823,13 @@
    "old": "short\\((float\\(.*?\\)(?: / [a-z_]+)? \\* 256)\\);",
    "new": "(short)ra2port::x87_ftol(\\1);",
    "why": "VC6 converts the voxel span steps (8.8 fixed point) to short through _ftol, which wraps a value past 32767 into the 16-bit step the drawers expect; arm64's float-to-short conversion saturates instead, so the voxel bodies drew nowhere. ra2port::x87_ftol keeps the x87 result (lane Y3)."
+  },
+  {
+   "file": "src/txtlabel2.cpp",
+   "regex": true,
+   "old": "delete \\[\\] (DAT_00B0FB(?:70|68|60|78));",
+   "new": "delete \\1;",
+   "why": "NATIVE (lane Y5): FUN_0072B230 (the menu palettes' release at exit) calls the four drawers' deleting destructor with the vector flag (gamemd.exe 0x0072B257 push 3), though FUN_0072ADE0 makes each with a plain new; Windows' heap let the bad free pass at exit, the native heap aborts (the combined app ends YR through Exit Game at every swap). Scalar delete, as the objects were made."
   }
  ]
 }

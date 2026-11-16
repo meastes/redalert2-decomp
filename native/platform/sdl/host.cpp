@@ -1758,9 +1758,11 @@ void hd_update(const void *pixels, int width, int height, int pitch)
     hd_shown = any;
 }
 
+bool presents_frozen = false;   // the combined app's swap (lane Y5): the last frame stays
 void present_now(const void *pixels, int width, int height, int pitch)
 {
     if (in_background || !renderer) return;     // iOS: no drawing in the background
+    if (presents_frozen) return;
     last_present_ms = SDL_GetTicks();
     if (!texture || tex_w != width || tex_h != height) {
         if (texture) SDL_DestroyTexture(texture);
@@ -2547,6 +2549,23 @@ void ra2_sdl_host_touch_options(int checkpoint_seconds)
 // The app's own window becomes the game's (iOS: made before the game starts, for
 // the import; Scout1247).
 void ra2_sdl_host_use_window(SDL_Window *made) { window = made; }
+// The combined app (lane Y5; engine_api.h): the game toggle freezes the picture while the game
+// ends itself; when it has, the window stays for the other engine and what this engine made
+// with SDL goes (the renderer with its textures, the audio stream, the event watch), since the
+// next engine's host makes its own and this one's code must no longer be called.
+void ra2_sdl_host_freeze(bool on) { presents_frozen = on; }
+void *ra2_sdl_host_window() { return window; }
+void ra2_sdl_host_release()
+{
+    SDL_RemoveEventWatch(lifecycle_watch, nullptr);
+    if (audio_stream) SDL_DestroyAudioStream(audio_stream);
+    audio_stream = nullptr;
+    if (window) SDL_StopTextInput(window);
+    if (renderer) SDL_DestroyRenderer(renderer);   // its textures with it
+    renderer = nullptr;
+    texture = nullptr;
+    fprintf(stderr, "host: released for the next engine (window kept)\n");
+}
 // The window's fullscreen state at exit (remembered in the settings).
 bool ra2_sdl_host_fullscreen() { return is_fullscreen(); }
 

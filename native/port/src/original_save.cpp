@@ -18,6 +18,7 @@
 #include <cxxabi.h>
 #if defined(__APPLE__)
 #include <mach-o/dyld.h>
+#include <dlfcn.h>
 #include <mach-o/loader.h>
 #endif
 #include <map>
@@ -138,8 +139,21 @@ bool in_image(void const *p)
 #if defined(__APPLE__)
     static uintptr_t lo = 0, hi = 0;
     if (!hi) {
-        const struct mach_header_64 *h = (const struct mach_header_64 *)_dyld_get_image_header(0);
-        intptr_t slide = _dyld_get_image_vmaddr_slide(0);
+        // The image this code is in (the executable, or an engine bundle of the combined app,
+        // lane Y5), not dyld's image 0.
+        Dl_info self = {};
+        if (!dladdr((const void *)&in_image, &self) || !self.dli_fbase) return false;
+        const struct mach_header_64 *h = (const struct mach_header_64 *)self.dli_fbase;
+        intptr_t slide = 0;
+        {
+            const uint8_t *c = (const uint8_t *)(h + 1);
+            for (uint32_t i = 0; i < h->ncmds; ++i) {
+                const struct load_command *lc = (const struct load_command *)c;
+                if (lc->cmd == LC_SEGMENT_64 && !strcmp(((const struct segment_command_64 *)c)->segname, "__TEXT"))
+                    slide = (intptr_t)((uintptr_t)h - ((const struct segment_command_64 *)c)->vmaddr);
+                c += lc->cmdsize;
+            }
+        }
         const uint8_t *c = (const uint8_t *)(h + 1);
         uintptr_t l = UINTPTR_MAX, e = 0;
         for (uint32_t i = 0; i < h->ncmds; ++i) {

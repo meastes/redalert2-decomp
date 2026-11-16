@@ -480,10 +480,22 @@ namespace ra2port {
 bool movie_playing() { return full_movies > 0; }
 }
 
+namespace { bool skip_startup_movies = false; }
+namespace ra2port {
+void set_skip_startup_movies(bool on)
+{
+    if (skip_startup_movies && !on) fprintf(stderr, "port: start-up movies skipped until the first dialog\n");
+    skip_startup_movies = on;
+}
+}
+
 extern "C" {
 
 void *BinkOpen(const char *name, DWORD flags)
 {
+    // The combined app's swap (lane Y5): the logos and the intro do not play; the game takes
+    // the failed open as a movie it cannot play and goes on.
+    if (skip_startup_movies) { last_error = "skipped (start-up movie after a game swap)"; return nullptr; }
     unsigned char header[44];
     HANDLE file;
     bool own = !(flags & 0x00800000u);

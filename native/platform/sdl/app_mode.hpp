@@ -157,6 +157,9 @@ constexpr ra2build::Game kHostGame = ra2build::Game::yr;
 #else
 constexpr ra2build::Game kHostGame = ra2build::Game::ra2;
 #endif
+// The settings key of a game.exe chosen elsewhere: one per game, since the combined app's two
+// engines share the settings file (lane Y5).
+constexpr const char *kExeKey = kHostGame == ra2build::Game::yr ? "yr_game_exe" : "game_exe";
 enum class Exe { missing, supported, other };
 // Why the last checked game.exe was refused (ra2build::classify).
 std::string &exe_reason() { static std::string r; return r; }
@@ -331,7 +334,7 @@ bool setup(Settings &settings, bool force, std::string &data_dir, std::string &g
     // game.exe: the one chosen before, else the folder's own, else ask.
     std::string digest;
     long long size = 0;
-    std::string exe = settings.get("game_exe");
+    std::string exe = settings.get(kExeKey);
     if (!exe.empty() && check_exe(exe, digest, size) == Exe::supported) {
         game_exe = exe;
         settings.save();
@@ -341,7 +344,7 @@ bool setup(Settings &settings, bool force, std::string &data_dir, std::string &g
     Exe state = check_exe(installed, digest, size);
     if (state == Exe::supported) {
         game_exe = installed;
-        settings.values.erase("game_exe");
+        settings.values.erase(kExeKey);
         settings.save();
         return true;
     }
@@ -371,7 +374,7 @@ bool setup(Settings &settings, bool force, std::string &data_dir, std::string &g
         Exe c = check_exe(chosen, digest, size);
         if (c == Exe::supported) {
             game_exe = chosen;
-            settings.values["game_exe"] = chosen;
+            settings.values[kExeKey] = chosen;
             settings.save();
             return true;
         }

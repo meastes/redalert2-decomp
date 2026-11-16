@@ -62,8 +62,11 @@ struct State {
     std::vector<std::pair<std::string, std::string>> reached;   // milestone, detail (+ms)
     std::map<std::string, std::vector<std::string>> counters;
     bool done = false;
+    bool retired = false;   // the combined app's swap ended this engine (lane Y5): its watchdog stands down
 };
-State &state() { static State s; return s; }
+// Never destroyed: the watchdog thread outlives exit handlers (the combined app runs an ended
+// engine's handlers while its thread still sleeps, lane Y5).
+State &state() { static State *s = new State; return *s; }
 
 int order_of(const std::string &m)
 {
@@ -246,6 +249,7 @@ void ra2port_run_to(const char *target, int seconds)
     signal(SIGUSR2, on_stall);
     std::thread([] {
         std::this_thread::sleep_for(std::chrono::seconds(state().seconds));
+        if (state().retired) return;
         pthread_kill(main_thread, SIGUSR2);
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
         {
@@ -259,6 +263,16 @@ void ra2port_run_to(const char *target, int seconds)
 }
 
 int ra2port_run_active(void) { return ra2port::state().active ? 1 : 0; }
+
+// The combined app (lane Y5): this engine ended for a swap; the next engine's run carries on with
+// the time left (the thin host passes it), and this one's watchdog does nothing more.
+void ra2port_run_retire(void)
+{
+    using namespace ra2port;
+    std::lock_guard<std::mutex> g(state().lock);
+    state().retired = true;
+    state().active = false;
+}
 
 // Milestones reported from the dialect side (native/link/harness_skirmish.cpp).
 void ra2port_progress(const char *milestone, const char *detail) { ra2port::progress(milestone, detail); }

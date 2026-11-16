@@ -15,10 +15,15 @@
 // the main thread; elsewhere main stays the program's entry (Scout1247). On
 // Windows SDL would supply WinMain, the recovered game's own entry point: main
 // stays the entry there too.
-#ifdef _WIN32
+// An engine bundle of the combined app (lane Y5, RA2_NATIVE_ENGINE; engine_api.h): the thin
+// host owns the process entry; this file's main becomes the bundle's ra2_engine_main.
+#if defined(_WIN32) || defined(RA2_NATIVE_ENGINE)
 #define SDL_MAIN_HANDLED 1
 #endif
 #include <SDL3/SDL_main.h>
+#ifdef RA2_NATIVE_ENGINE
+#include "engine_api.h"
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #ifdef __APPLE__
@@ -65,6 +70,7 @@ void ra2_sdl_host_touch_options(int checkpoint_seconds);
 extern "C" int ra2port_initterm_last(int *units);
 extern "C" void ra2port_run_to(const char *target, int seconds);
 extern "C" void ra2port_run_end(const char *why);
+extern "C" void ra2port_run_retire(void);
 extern "C" void ra2port_set_skirmish(const char *map, int frames);
 extern "C" void ra2port_set_skirmish_order(const char *order);
 extern "C" void ra2port_set_frames(int frames);
@@ -246,7 +252,48 @@ bool app_mod_info(const char *folder, std::string *name, std::string *descriptio
 }
 #endif
 
+#ifdef RA2_NATIVE_ENGINE
+// The combined app (lane Y5; native/yr/README.md "One game"). The thin host passes the window
+// the previous engine used, whether start-up movies play (not after a swap) and the toggle's
+// label; the main menu's toggle ends this game through its own Exit Game (the port presses it
+// and the question's OK, ra2port::request_game_exit) and the host learns it from swap.
+void ra2_sdl_host_release();        // host.cpp: renderer, audio stream and event watch gone
+void *ra2_sdl_host_window();        // host.cpp: the window the game used (left open)
+void ra2_sdl_host_freeze(bool on);  // host.cpp: presents ignored (the last menu frame stays)
+namespace {
+ra2_engine_host *engine = nullptr;
+void engine_toggle_clicked()
+{
+    fprintf(stderr, "engine: game toggle: ending this game for %s\n", engine->toggle_label);
+    fflush(stderr);
+    engine->swap = 1;
+    ra2_sdl_host_freeze(true);
+    ra2port::request_game_exit();
+}
+}
+static int host_main(int argc, char **argv);
+extern "C" __attribute__((visibility("default"))) int ra2_engine_main(int argc, char **argv, ra2_engine_host *host)
+{
+    if (!host || host->version != RA2_ENGINE_API_VERSION) return 70;
+#ifdef RA2_NATIVE_YR
+    if (host->game != RA2_ENGINE_YR) return 70;
+#else
+    if (host->game != RA2_ENGINE_RA2) return 70;
+#endif
+    engine = host;
+    engine->swap = 0;
+    if (engine->window) ra2_sdl_host_use_window((SDL_Window *)engine->window);
+    if (engine->toggle_label && *engine->toggle_label) ra2port::set_game_toggle(engine->toggle_label, engine_toggle_clicked);
+    if (engine->skip_intro) ra2port::set_skip_startup_movies(true);
+    int code = host_main(argc, argv);
+    engine->window = ra2_sdl_host_window();
+    ra2_sdl_host_release();
+    return code;
+}
+static int host_main(int argc, char **argv)
+#else
 int main(int argc, char **argv)
+#endif
 {
 #ifdef RA2_NATIVE_GAME
     if (getenv("RA2_NATIVE_DRAW_SELFTEST")) return ra2_native_draw_selftest();
@@ -318,7 +365,12 @@ int main(int argc, char **argv)
     if (app_mode && (run_to || skirmish || smoke)) { fprintf(stderr, "--app is the interactive game: not with --run-to, --skirmish or --smoke-test\n"); return 64; }
     if (app_mode) {
         app::install_crash_handler();
-        if (!getenv("RA2_NATIVE_LOG_STDERR")) {
+#ifdef RA2_NATIVE_ENGINE
+        bool log_open = engine->skip_intro != 0;    // after a swap: the process's log is already open
+#else
+        bool log_open = false;
+#endif
+        if (!getenv("RA2_NATIVE_LOG_STDERR") && !log_open) {
             fprintf(stderr, "app: logging to %s/ra2-native.log\n", app::log_dir().c_str());
             app::open_log();
         }
@@ -408,7 +460,7 @@ int main(int argc, char **argv)
         static std::string data_dir_kept;
         data_dir_kept = folder;
         data = data_dir_kept.c_str();
-        setenv("RA2_GAME_EXE", exe.c_str(), 1);
+        setenv(ra2build::exe_env(app::kHostGame), exe.c_str(), 1);
         fprintf(stderr, "app: game folder %s, game.exe %s\n", folder.c_str(), exe.c_str());
         // Mods (lane C16, level 2): without --mod or RA2_NATIVE_MOD, the one chosen on the
         // Enhancements page (the settings' "mod"); its saves and RA2.INI have their own folder.
@@ -448,6 +500,11 @@ int main(int argc, char **argv)
         if (!write_dir) {
             static std::string game_writes;
             game_writes = app::game_write_dir();
+#ifdef RA2_NATIVE_YR
+            // Yuri's Revenge keeps its own RA2MD.INI and saves (the combined app, lane Y5: the
+            // Load menus of the two games never list each other's saves).
+            game_writes += "/YR";
+#endif
             if (!mod_name.empty()) game_writes += "/Mods/" + mod_name;
             app::make_dirs(game_writes);
             ra2port::set_write_dir(game_writes.c_str());
@@ -578,12 +635,23 @@ int main(int argc, char **argv)
         ra2port::progress("main");
         ra2port::progress("winmain");
         int code = WinMain((HINSTANCE__ *)(uintptr_t)0x400000, nullptr, command_line, 1);
+#ifdef RA2_NATIVE_ENGINE
+        // A swap: the run goes on in the other engine (no summary, SDL left running).
+        if (engine->swap) {
+            ra2port_run_retire();
+            fprintf(stderr, "engine: WinMain returned %d: swapping\n", code);
+            fflush(stderr);
+            return code;
+        }
+#endif
         {
             char why[64];
             snprintf(why, sizeof why, "WinMain returned %d", code);
             ra2port_run_end(why);
         }
-        SDL_Quit();
+#ifndef RA2_NATIVE_ENGINE
+        SDL_Quit();     // (an engine: the thin host ends SDL)
+#endif
 #if defined(__APPLE__) && TARGET_OS_IPHONE
         // iOS (Scout1281; user report: Exit Game left a black screen). SDL's UIKit start-up
         // calls this main and, when it returns, keeps the UIKit run loop going without

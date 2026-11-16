@@ -122,6 +122,9 @@ const SectionSig kYrSections[4] = {
 struct KnownPatch { uint32_t va; unsigned char original[2], patched[2]; };
 const KnownPatch kYrPatches[1] = {{0x0052F949, {0x74, 0x07}, {0x90, 0x90}}};
 inline const char *exe_name(Game game) { return game == Game::yr ? "gamemd.exe" : "game.exe"; }
+// The environment variable naming the executable kept elsewhere (the combined app runs both
+// games in one process: each reads its own; lane Y5).
+inline const char *exe_env(Game game) { return game == Game::yr ? "RA2_GAMEMD_EXE" : "RA2_GAME_EXE"; }
 
 inline uint32_t rd32(const unsigned char *p) { return (uint32_t)p[0] | (uint32_t)p[1] << 8 | (uint32_t)p[2] << 16 | (uint32_t)p[3] << 24; }
 inline uint16_t rd16(const unsigned char *p) { return (uint16_t)(p[0] | p[1] << 8); }

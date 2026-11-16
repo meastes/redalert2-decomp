@@ -47,10 +47,10 @@ Image &image()
     static Image img;
     if (img.tried) return img;
     img.tried = true;
-    // The installation's game.exe, or RA2_GAME_EXE: the supported executable
-    // kept elsewhere when the installation carries another build.
+    // The installation's game.exe, or RA2_GAME_EXE (YR: gamemd.exe, RA2_GAMEMD_EXE): the
+    // supported executable kept elsewhere when the installation carries another build.
     char path[1024];
-    const char *override_path = getenv("RA2_GAME_EXE");
+    const char *override_path = getenv(ra2build::exe_env(current_game()));
     if (override_path && *override_path) snprintf(path, sizeof path, "%s", override_path);
     else ra2port::host_path(ra2build::exe_name(current_game()), path, sizeof path);
     FILE *f = fopen(path, "rb");

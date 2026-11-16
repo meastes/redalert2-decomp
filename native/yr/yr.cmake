@@ -124,3 +124,6 @@ add_test(NAME yr-native-skirmish-score COMMAND "${Python3_EXECUTABLE}" -B "${CMA
          --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-skirmish-score")
 set_tests_properties(yr-native-skirmish-score PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 360)
+
+# One game (lane Y5, -DRA2_NATIVE_COMBINED=ON): native/yr/combined.cmake.
+include("${CMAKE_CURRENT_SOURCE_DIR}/yr/combined.cmake")

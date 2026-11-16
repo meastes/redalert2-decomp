@@ -185,6 +185,16 @@ bool movie_playing();
 void request_resume(const char *file);
 bool resume_pending();
 int resume_dialog_command(unsigned dialog);
+// The combined app's game toggle (lane Y5; native/yr/README.md "One game"): the main menu (the
+// dialog with the GUI:ExitGame button) gets one more button of that kind at its bottom left,
+// labelled with the other game's name and drawn by the game's own button code; a click calls
+// `clicked` (once). request_game_exit then ends the game the way a player does: the port
+// presses Exit Game and the question's OK as those dialogs open. set_skip_startup_movies: no
+// Bink movie opens before the first dialog is made (a swap lands on the menu without the
+// logos and the intro).
+void set_game_toggle(const char *label, void (*clicked)());
+void request_game_exit();
+void set_skip_startup_movies(bool on);
 
 // File-system operations on the game's behalf (Scout1209 diagnostics): counted
 // per kind for RA2_NATIVE_PERF_LOG, and slowed by RA2_NATIVE_FS_LATENCY_US

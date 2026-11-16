@@ -133,6 +133,7 @@ void fire_timers()
 }
 
 }  // namespace
+namespace { extern HWND toggle_menu; void place_toggle(HWND menu); }   // the game toggle (lane Y5), below
 
 namespace ra2port {
 HWND main_window() { return main_hwnd; }
@@ -287,6 +288,7 @@ BOOL ShowWindow(HWND hwnd, int cmd)
     if (w->visible && !was) invalidate(hwnd);
     // WM_SHOWWINDOW on a change, as Windows sends it (dialogs and controls;
     // the owner-draw layer resets its slide-in state there).
+    if (w->visible && !was && hwnd == toggle_menu) place_toggle(hwnd);   // the game toggle (lane Y5)
     if (w->visible != was && (w->is_dialog || w->parent) && w->proc) w->proc(hwnd, 0x0018, w->visible ? 1 : 0, 0);
     // --run-to `menu`: the first dialog built from a game.exe template that is
     // shown (Select_Game's main menu on the start-up path; the detail names
@@ -1585,10 +1587,55 @@ WNDPROC predefined_proc(const std::string &cls)
 
 // The dialog manager's procedure (DefDlgProc): the dialog procedure first,
 // then the default handling of text messages.
+// The combined app's game toggle (lane Y5; win32_port.hpp set_game_toggle): in the main menu (the
+// dialog with Exit Game, 0x3EE "GUI:ExitGame") a clone of its version line (0x71D, drawn by the
+// game's own static code in its menu font) at the left end of its bottom bar (0x695, the tool
+// tip line, which gives up that much room), with the other game's name. Its WM_COMMAND never reaches the game's procedure (it has no such
+// control); a click ends the game through Exit Game and the question's OK (0x5AE in the
+// message box with the text 0x5B0, WWMessageBox::Process 0x005B46B0), pressed by the port.
+constexpr LONG kExitGameId = 0x3EE, kVersionId = 0x71D, kBottomBarId = 0x695, kToggleId = 0x7F5E;
+std::string toggle_label;
+void (*toggle_clicked)() = nullptr;
+HWND toggle_menu = nullptr;          // the main menu that has the toggle
+bool game_exit_pending = false;
+Window *child_with(Window *dlg, LONG id)
+{
+    for (HWND c : dlg->children) {
+        Window *cw = win(c);
+        if (cw && cw->id == id) return cw;
+    }
+    return nullptr;
+}
+// The toggle's place: once the game has laid the menu out (it moves its controls for the screen
+// size before showing the dialog), the left end of the bottom bar, which starts that much later.
+void place_toggle(HWND menu)
+{
+    Window *dlg = win(menu);
+    if (!dlg) return;
+    Window *t = child_with(dlg, kToggleId), *bar = child_with(dlg, kBottomBarId);
+    if (!t || !bar) return;
+    int h = bar->rect.bottom - bar->rect.top;
+    int w = 150;
+    if (bar->rect.right - bar->rect.left < 2 * w) return;
+    t->rect = {bar->rect.left, bar->rect.top, bar->rect.left + w, bar->rect.bottom};
+    bar->rect.left += w + 6;
+    invalidate(menu);
+    fprintf(stderr, "port: game toggle \"%s\" at %d,%d %dx%d in the main menu\n", toggle_label.c_str(), (int)t->rect.left,
+            (int)t->rect.top, w, h);
+}
 LRESULT dialog_manager_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 {
     Window *w = win(hwnd);
     if (!w) return 0;
+    if (message == 0x0111 && (LONG)(wparam & 0xFFFF) == kToggleId && hwnd == toggle_menu) {   // WM_COMMAND
+        if ((wparam >> 16) == 0 && toggle_clicked && !game_exit_pending) {
+            fprintf(stderr, "port: game toggle clicked\n");
+            void (*clicked)() = toggle_clicked;
+            toggle_clicked = nullptr;
+            clicked();
+        }
+        return 0;
+    }
     intptr_t r = w->dlgproc ? w->dlgproc(hwnd, message, wparam, lparam) : 0;
     if (r) return (LRESULT)r;
     bool handled;
@@ -1698,12 +1745,54 @@ HWND build_dialog(const void *templ, unsigned id, HWND parent, DLGPROC proc, LPA
         dlg->children.push_back(hc);
         if (c->proc) c->proc(hc, 0x0001, 0, 0);     // WM_CREATE
     }
+    // The game toggle (lane Y5): the main menu's version line cloned, clickable (SS_NOTIFY), and
+    // placed at the left end of the menu's bottom bar when the dialog is shown (place_toggle).
+    HWND toggle = nullptr;
+    Window *exit_button = child_with(dlg, kExitGameId);
+    Window *version = child_with(dlg, kVersionId);
+    bool main_menu = exit_button && exit_button->title == "GUI:ExitGame";
+    if (main_menu && version && !toggle_label.empty()) {
+        Window *c = new Window;
+        c->kind = H_WINDOW;
+        c->cls = version->cls;
+        c->title = version->title;
+        c->style = version->style | 0x100;          // SS_NOTIFY: a click is STN_CLICKED
+        c->exstyle = version->exstyle;
+        c->id = kToggleId;
+        c->parent = hdlg;
+        c->visible = version->visible;
+        c->enabled = true;
+        c->proc = version->proc;
+        c->rect = version->rect;
+        toggle = handle_new(c);
+        dlg->children.push_back(toggle);
+        if (c->proc) c->proc(toggle, 0x0001, 0, 0);     // WM_CREATE
+        toggle_menu = hdlg;
+    }
     char detail[160];
     snprintf(detail, sizeof detail, "%s #%u: %d controls, %dx%d%s", api, id, count,
              dlg->rect.right - dlg->rect.left, dlg->rect.bottom - dlg->rect.top, ex ? " (extended template)" : "");
     progress_count("dialogs created", detail);
     if (proc) proc(hdlg, 0x0110, (WPARAM)(dlg->children.empty() ? nullptr : dlg->children[0]), init);   // WM_INITDIALOG
+    if (toggle && win(toggle)) {
+        // The label as the game's own text message (0x4B2, UTF-16, as the version line gets it).
+        std::vector<uint16_t> text;
+        for (unsigned char ch : toggle_label) text.push_back(ch);
+        text.push_back(0);
+        SendMessageA(toggle, 0x4B2, 0, (LPARAM)text.data());
+    }
+    ra2port::set_skip_startup_movies(false);       // a dialog: the start-up movies are over
     if (style & 0x10000000u) ShowWindow(hdlg, 5);    // WS_VISIBLE
+    // The game toggle's exit (lane Y5): Exit Game in the main menu, then OK in its question.
+    if (game_exit_pending) {
+        if (main_menu) {
+            fprintf(stderr, "port: game exit: Exit Game in the main menu\n");
+            PostMessageA(hdlg, 0x0111, (WPARAM)kExitGameId, 0);
+        } else if (child_with(dlg, 0x5B0) && child_with(dlg, 0x5AE)) {
+            fprintf(stderr, "port: game exit: OK in the question\n");
+            PostMessageA(hdlg, 0x0111, (WPARAM)0x5AE, 0);
+        }
+    }
     // Resume at start (lane I, NATIVE): the menu button the host's request presses,
     // posted so the dialog's own loop reads it as a click's WM_COMMAND.
     if (int command = ra2port::resume_dialog_command(id)) {
@@ -1712,6 +1801,24 @@ HWND build_dialog(const void *templ, unsigned id, HWND parent, DLGPROC proc, LPA
     }
     return hdlg;
 }
+
+}  // namespace
+namespace ra2port {
+void set_game_toggle(const char *label, void (*clicked)())
+{
+    toggle_label = label ? label : "";
+    toggle_clicked = clicked;
+}
+void request_game_exit()
+{
+    game_exit_pending = true;
+    if (toggle_menu && win(toggle_menu)) {
+        fprintf(stderr, "port: game exit: Exit Game in the main menu\n");
+        PostMessageA(toggle_menu, 0x0111, (WPARAM)kExitGameId, 0);
+    }
+}
+}  // namespace ra2port
+namespace {
 
 const void *dialog_template(const char *name)
 {

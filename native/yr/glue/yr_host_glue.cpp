@@ -3,7 +3,7 @@
 // (native/yr/tools/yr_data.py); there are no RA2 self-tests here.
 #include <stdint.h>
 #include <mach-o/getsect.h>
-#include <mach-o/ldsyms.h>
+#include <dlfcn.h>
 #include <stdio.h>
 extern "C" {
 // The game this process runs, for the port (original_image.cpp: gamemd.exe and its build check).
@@ -27,7 +27,11 @@ void ra2_native_original_records()
 {
     yr_construct_globals();
     unsigned long size = 0;
-    uint8_t *start = getsectiondata(&_mh_execute_header, "__DATA", "__yr_init_func", &size);
+    // This image's list: the executable's, or the yr-engine bundle's in the combined app (lane Y5).
+    Dl_info self = {};
+    dladdr((const void *)&ra2_native_original_records, &self);
+    const struct mach_header_64 *image = (const struct mach_header_64 *)self.dli_fbase;
+    uint8_t *start = getsectiondata(image, "__DATA", "__yr_init_func", &size);
     typedef void (*Initialiser)(void);
     Initialiser *list = (Initialiser *)start;
     unsigned long count = size / sizeof(Initialiser);
