@@ -345,7 +345,7 @@ unsigned int Leaf_4361d0::get(unsigned int object_address, unsigned int stream_a
 //
 // Body: 1 bytes (frozen inventory bound).
 // Referenced from 0 sites.
-// Ghidra prototype: void FUN_00436460(void)
+// Ghidra prototype: void unknown_empty_00436460(void)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -353,7 +353,7 @@ unsigned int Leaf_4361d0::get(unsigned int object_address, unsigned int stream_a
 
 namespace seed_00436460 {
 
-void  FUN_00436460(void)
+void  unknown_empty_00436460(void)
 {
     return;
 }

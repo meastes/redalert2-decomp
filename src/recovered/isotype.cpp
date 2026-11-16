@@ -2233,11 +2233,11 @@ extern "C" unsigned int SlopeZShapes_00a52eb0;
 extern "C" unsigned int DAT_00a52eb4;
 extern "C" unsigned int DAT_00a52eb8;
 extern "C" unsigned int DAT_00a52ebc;
-extern "C" unsigned int DAT_00a6e38c;
+extern "C" unsigned int IsometricTileTypeClass_CellShadowShapes;
 
 void  IsometricTileTypeClass_Clear_Z_Shapes(void)
 {
-    DAT_00a6e38c = 0;
+    IsometricTileTypeClass_CellShadowShapes = 0;
     SlopeZShapes_00a52eb0 = 0;
     DAT_00a52eb4 = 0;
     DAT_00a52eb8 = 0;

@@ -80,6 +80,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--base', required=True, help='the revision before the joins')
     parser.add_argument('--native-build', type=Path, default=REPOSITORY / 'build/native-play')
+    parser.add_argument('--ctest-jobs', type=int, default=4, help='parallel ctest jobs (failures rerun one at a time)')
     parser.add_argument('--output', type=Path, default=REPOSITORY / 'build/join-gate')
     parser.add_argument('--scope', choices=['auto', 'exact', 'native'], default='auto',
                         help='auto (gate_scope.py on BASE..HEAD): a native-only change skips steps 1-3')
@@ -136,7 +137,7 @@ def main():
         receipt['checks']['module_check'] = dict(ok=code == 0)
         ok &= code == 0
     # 4. native configure, build, ctest, link closure (heavy-job slots, never the full-build lock)
-    native = native_gate.gate(args.native_build, out.parent, stages=stages)
+    native = native_gate.gate(args.native_build, out.parent, stages=stages, ctest_jobs=args.ctest_jobs)
     receipt['checks']['native'] = dict(ok=native['ok'], **{k: v for k, v in native.items() if k not in ('ok', 'stages')})
     ok &= native['ok']
     receipt['ok'] = bool(ok)

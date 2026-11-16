@@ -89,7 +89,7 @@ void EBolt::Draw_Line_004B1850(CoordStruct start,CoordStruct end,int color,int f
 //
 // Body: 19 bytes (frozen inventory bound).
 // Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_004b1830(int param_1)
+// Ghidra prototype: void __fastcall unknown_clear_owner_004b1830(int param_1)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -97,7 +97,7 @@ void EBolt::Draw_Line_004B1850(CoordStruct start,CoordStruct end,int color,int f
 
 namespace seed_004b1830 {
 
-void __fastcall FUN_004b1830(int object_address)
+void __fastcall unknown_clear_owner_004b1830(int object_address)
 {
     if (*(int *)(object_address + 0x20) != 0) {
         *(unsigned int *)(*(int *)(object_address + 0x20) + 0x5c4) = 0;
@@ -316,7 +316,7 @@ void EBolt::Attach_004B2580(TechnoClass *owner,int index)
 //
 // Body: 19 bytes (frozen inventory bound).
 // Referenced from 2 sites (unconditional call).
-// Ghidra prototype: void __fastcall FUN_004b25c0(int param_1)
+// Ghidra prototype: void __fastcall unknown_clear_owner_004b25c0(int param_1)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -324,7 +324,7 @@ void EBolt::Attach_004B2580(TechnoClass *owner,int index)
 
 namespace seed_004b25c0 {
 
-void __fastcall FUN_004b25c0(int object_address)
+void __fastcall unknown_clear_owner_004b25c0(int object_address)
 {
     if (*(int *)(object_address + 0x20) != 0) {
         *(unsigned int *)(*(int *)(object_address + 0x20) + 0x5c4) = 0;

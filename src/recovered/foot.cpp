@@ -4326,24 +4326,13 @@ void FootClass::unknown_4cdb60()
 }
 
 
-// 0x004cdbd0: function not yet identified
-//
-// Body: 15 bytes (frozen inventory bound).
-// Referenced from 4 sites (data).
-// Ghidra prototype: bool __fastcall FUN_004cdbd0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// FootClass_MegaMissionIsAttackMove (0x004CDBD0): name from ra2-decomp twin, name also in mischa85-RedAlert2
 
-namespace seed_004cdbd0 {
-
-bool __fastcall FUN_004cdbd0(int foot_address)
+bool __fastcall FootClass_MegaMissionIsAttackMove(int foot_address)
 {
     return *(int *)(foot_address + 0x4b4) == 0x1d;
 }
 
-}  // namespace seed_004cdbd0
 
 
 // bool FootClass::unknown_slot277() (0x004CDBE0)

@@ -246,7 +246,7 @@ alignas(16) unsigned char ra2_bss_0189[80] __asm__("_unknown_ebolt_zero_00853028
 alignas(16) unsigned char ra2_bss_0190[20528] __asm__("_unknown_surface_853118");  // 0x00853118 unknown_surface_853118 (?unknown_surface_853118@@3PAVSurface@@A)
 alignas(16) unsigned char ra2_bss_0191[20520] __asm__("_labels_0085311c");  // 0x0085311C labels_0085311c
 alignas(16) unsigned char ra2_bss_0192[288] __asm__("_TaskForceText_00855960");  // 0x00855960 TaskForceText_00855960
-alignas(16) unsigned char ra2_bss_0193[112] __asm__("_DAT_008559f0");  // 0x008559F0 DAT_008559f0
+alignas(16) unsigned char ra2_bss_0193[112] __asm__("_CELL_NONE");  // 0x008559F0 CELL_NONE
 alignas(16) unsigned char ra2_bss_0194[24] __asm__("_unknown_event_counter_855b9c");  // 0x00855B9C unknown_event_counter_855b9c (?unknown_event_counter_855b9c@@3EA)
 alignas(16) unsigned char ra2_bss_0195[131288] __asm__("_exception_text_00855ba8");  // 0x00855BA8 exception_text_00855ba8 (?exception_text_00855ba8@@3PADA)
 alignas(16) unsigned char ra2_bss_0196[16] __asm__("_ExceptionReturnStack");  // 0x00865C14 ExceptionReturnStack (?ExceptionReturnStack@@3KA)
@@ -491,8 +491,8 @@ alignas(16) unsigned char ra2_bss_0396[16] __asm__("_unknown_tileset_a6e0e4");  
 alignas(16) unsigned char ra2_bss_0397[32] __asm__("_unknown_tileset_a6e0e8");  // 0x00A6E0E8 unknown_tileset_a6e0e8 (?unknown_tileset_a6e0e8@@3HA)
 alignas(16) unsigned char ra2_bss_0398[16] __asm__("_unknown_tileset_a6e0f8");  // 0x00A6E0F8 unknown_tileset_a6e0f8 (?unknown_tileset_a6e0f8@@3HA)
 alignas(16) unsigned char ra2_bss_0399[16] __asm__("_unknown_tileset_a6e0fc");  // 0x00A6E0FC unknown_tileset_a6e0fc (?unknown_tileset_a6e0fc@@3HA)
-alignas(16) unsigned char ra2_bss_0400[16] __asm__("_DAT_00a6e38c");  // 0x00A6E38C DAT_00a6e38c
-__asm__(".globl _unknown_block_a6e38c\n.set _unknown_block_a6e38c, _DAT_00a6e38c\n");  // same address: unknown_block_a6e38c
+alignas(16) unsigned char ra2_bss_0400[16] __asm__("_IsometricTileTypeClass_CellShadowShapes");  // 0x00A6E38C IsometricTileTypeClass_CellShadowShapes
+__asm__(".globl _unknown_block_a6e38c\n.set _unknown_block_a6e38c, _IsometricTileTypeClass_CellShadowShapes\n");  // same address: unknown_block_a6e38c
 alignas(16) unsigned char ra2_bss_0401[160] __asm__("_TileSetLookupCount");  // 0x00A6E390 TileSetLookupCount (?TileSetLookupCount@@3HA)
 alignas(16) unsigned char ra2_bss_0402[16] __asm__("_unknown_load_progress_a6e7c4");  // 0x00A6E7C4 unknown_load_progress_a6e7c4 (?unknown_load_progress_a6e7c4@@3PAUUnknown535910@@A)
 alignas(16) unsigned char ra2_bss_0403[16] __asm__("_COMReferences_00a6eb14");  // 0x00A6EB14 COMReferences_00a6eb14

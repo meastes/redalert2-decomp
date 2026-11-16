@@ -807,12 +807,12 @@ LandType __fastcall Land_From_Name(char const *name)
 namespace seed_00482af0 {
 
 extern "C" unsigned int DAT_007ce9b4;
-extern "C" void* PTR_s_North_0079ab50;
+extern "C" void* SourceName;
 
 unsigned char * __fastcall FUN_00482af0(unsigned int index)
 {
     if (index < 5) {
-        return (unsigned char *)((&PTR_s_North_0079ab50)[index]);
+        return (unsigned char *)((&SourceName)[index]);
     }
     return (unsigned char *)(&DAT_007ce9b4);
 }

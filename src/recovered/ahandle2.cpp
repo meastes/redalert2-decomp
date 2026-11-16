@@ -303,7 +303,7 @@ long AircraftTrackerClass::Save_00413590(IStream *stream)
 //
 // Body: 8 bytes (frozen inventory bound).
 // Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_00412710(undefined4 param_1)
+// Ghidra prototype: void __fastcall unknown_debug_string_00412710(undefined4 param_1)
 // Callees with accepted source:
 //   FUN_004068f0 -> src/recovered/004068f0.cpp
 //
@@ -313,11 +313,11 @@ long AircraftTrackerClass::Save_00413590(IStream *stream)
 
 namespace seed_00412710 {
 
-extern void  FUN_004068f0(int);
+extern void  DebugString(int);
 
-void __fastcall FUN_00412710(unsigned int argument_value)
+void __fastcall unknown_debug_string_00412710(unsigned int argument_value)
 {
-    FUN_004068f0((int)(argument_value));
+    DebugString((int)(argument_value));
     return;
 }
 
@@ -328,7 +328,7 @@ void __fastcall FUN_00412710(unsigned int argument_value)
 //
 // Body: 6 bytes (frozen inventory bound).
 // Referenced from 0 sites.
-// Ghidra prototype: undefined4 FUN_004132d0(void)
+// Ghidra prototype: undefined4 unknown_return_750_004132d0(void)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -336,7 +336,7 @@ void __fastcall FUN_00412710(unsigned int argument_value)
 
 namespace seed_004132d0 {
 
-unsigned int  FUN_004132d0(void)
+unsigned int  unknown_return_750_004132d0(void)
 {
     return 0x2ee;
 }

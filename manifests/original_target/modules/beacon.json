@@ -115,7 +115,7 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?FUN_0042dd50@seed_0042dd50@@YGXHHHHHHH@Z",
+   "symbol": "?unknown_empty_0042dd50@seed_0042dd50@@YGXHHHHHHH@Z",
    "entry": "0042dd50",
    "body_bytes": 3,
    "padding_bytes": 13
@@ -127,19 +127,19 @@
    "padding_bytes": 2
   },
   {
-   "symbol": "?FUN_0042ddb0@Owner_0042ddb0@seed_0042ddb0@@QAEXE@Z",
+   "symbol": "?unknown_set_flag_bit1_0042ddb0@Owner_0042ddb0@seed_0042ddb0@@QAEXE@Z",
    "entry": "0042ddb0",
    "body_bytes": 22,
    "padding_bytes": 10
   },
   {
-   "symbol": "?FUN_0042ddd0@seed_0042ddd0@@YAXXZ",
+   "symbol": "?unknown_empty_0042ddd0@seed_0042ddd0@@YAXXZ",
    "entry": "0042ddd0",
    "body_bytes": 1,
    "padding_bytes": 15
   },
   {
-   "symbol": "?FUN_0042dde0@seed_0042dde0@@YIXH@Z",
+   "symbol": "?unknown_clear_flag_bit0_0042dde0@seed_0042dde0@@YIXH@Z",
    "entry": "0042dde0",
    "body_bytes": 5,
    "padding_bytes": 11
@@ -241,7 +241,7 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?FUN_0042ebe0@Owner_0042ebe0@seed_0042ebe0@@QAEXH@Z",
+   "symbol": "?unknown_remove_row_entries_0042ebe0@Owner_0042ebe0@seed_0042ebe0@@QAEXH@Z",
    "entry": "0042ebe0",
    "body_bytes": 56,
    "padding_bytes": 8
@@ -813,10 +813,6 @@
    "address": "004068f0"
   },
   {
-   "symbol": "?FUN_0042e990@Callee_0042e990@seed_0042ebe0@@QAEXHH@Z",
-   "address": "0042e990"
-  },
-  {
    "symbol": "?Frame@@3HA",
    "address": "00a40d2c"
   },
@@ -963,6 +959,10 @@
   {
    "symbol": "?unknown_rect_8336e8@@3VRect@@A",
    "address": "008336e8"
+  },
+  {
+   "symbol": "?unknown_remove_entry_0042e990@Callee_0042e990@seed_0042ebe0@@QAEXHH@Z",
+   "address": "0042e990"
   },
   {
    "symbol": "?unknown_session_a3d298@@3USessionClass@@A",
@@ -1116,7 +1116,7 @@
    "site": "004e77f0",
    "target": "0042ebe0",
    "symbol": "?Unknown_0042EBE0@BeaconManagerClass@@QAEXH@Z",
-   "module_symbol": "?FUN_0042ebe0@Owner_0042ebe0@seed_0042ebe0@@QAEXH@Z"
+   "module_symbol": "?unknown_remove_row_entries_0042ebe0@Owner_0042ebe0@seed_0042ebe0@@QAEXH@Z"
   }
  ],
  "stand_in_reference_count": 2,

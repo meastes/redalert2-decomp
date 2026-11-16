@@ -176,7 +176,7 @@ void UnknownBeacon::Unknown_0042DA20(Surface *surface, Rect rect)
 //
 // Body: 3 bytes (frozen inventory bound).
 // Referenced from 0 sites.
-// Ghidra prototype: void FUN_0042dd50(void)
+// Ghidra prototype: void unknown_empty_0042dd50(void)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -184,7 +184,7 @@ void UnknownBeacon::Unknown_0042DA20(Surface *surface, Rect rect)
 
 namespace seed_0042dd50 {
 
-void __stdcall FUN_0042dd50(int unused_0, int unused_1, int unused_2, int unused_3, int unused_4, int unused_5, int unused_6)
+void __stdcall unknown_empty_0042dd50(int unused_0, int unused_1, int unused_2, int unused_3, int unused_4, int unused_5, int unused_6)
 {
     return;
 }
@@ -214,7 +214,7 @@ void UnknownBeacon::Unknown_0042DD60(CoordStruct coord, int house)
 //
 // Body: 22 bytes (frozen inventory bound).
 // Referenced from 0 sites.
-// Ghidra prototype: void __thiscall FUN_0042ddb0(int param_1,byte param_2)
+// Ghidra prototype: void __thiscall unknown_set_flag_bit1_0042ddb0(int param_1,byte param_2)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -222,9 +222,9 @@ void UnknownBeacon::Unknown_0042DD60(CoordStruct coord, int house)
 
 namespace seed_0042ddb0 {
 
-struct Owner_0042ddb0 { void FUN_0042ddb0(unsigned char flag_value); };
+struct Owner_0042ddb0 { void unknown_set_flag_bit1_0042ddb0(unsigned char flag_value); };
 
-void Owner_0042ddb0::FUN_0042ddb0(unsigned char flag_value)
+void Owner_0042ddb0::unknown_set_flag_bit1_0042ddb0(unsigned char flag_value)
 {
     int object_address = (int)this;
     *(unsigned char *)(object_address + 0xc) = (flag_value & 1) << 1 | *(unsigned char *)(object_address + 0xc) & 0xfd;
@@ -238,7 +238,7 @@ void Owner_0042ddb0::FUN_0042ddb0(unsigned char flag_value)
 //
 // Body: 1 bytes (frozen inventory bound).
 // Referenced from 0 sites.
-// Ghidra prototype: void FUN_0042ddd0(void)
+// Ghidra prototype: void unknown_empty_0042ddd0(void)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -246,7 +246,7 @@ void Owner_0042ddb0::FUN_0042ddb0(unsigned char flag_value)
 
 namespace seed_0042ddd0 {
 
-void  FUN_0042ddd0(void)
+void  unknown_empty_0042ddd0(void)
 {
     return;
 }
@@ -258,7 +258,7 @@ void  FUN_0042ddd0(void)
 //
 // Body: 5 bytes (frozen inventory bound).
 // Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_0042dde0(int param_1)
+// Ghidra prototype: void __fastcall unknown_clear_flag_bit0_0042dde0(int param_1)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -266,7 +266,7 @@ void  FUN_0042ddd0(void)
 
 namespace seed_0042dde0 {
 
-void __fastcall FUN_0042dde0(int object_address)
+void __fastcall unknown_clear_flag_bit0_0042dde0(int object_address)
 {
     *(unsigned char *)(object_address + 0xc) = *(unsigned char *)(object_address + 0xc) & 0xfe;
     return;
@@ -649,7 +649,7 @@ found:
 //
 // Body: 56 bytes (frozen inventory bound).
 // Referenced from 1 site (unconditional call).
-// Ghidra prototype: void __thiscall FUN_0042ebe0(int param_1,int param_2)
+// Ghidra prototype: void __thiscall unknown_remove_row_entries_0042ebe0(int param_1,int param_2)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -657,11 +657,11 @@ found:
 
 namespace seed_0042ebe0 {
 
-struct Callee_0042e990 { void FUN_0042e990(int row_index, int column_index); };
+struct Callee_0042e990 { void unknown_remove_entry_0042e990(int row_index, int column_index); };
 
-struct Owner_0042ebe0 { void FUN_0042ebe0(int row_index); };
+struct Owner_0042ebe0 { void unknown_remove_row_entries_0042ebe0(int row_index); };
 
-void Owner_0042ebe0::FUN_0042ebe0(int row_index)
+void Owner_0042ebe0::unknown_remove_row_entries_0042ebe0(int row_index)
 {
     int object_address = (int)this;
     int column;
@@ -672,7 +672,7 @@ void Owner_0042ebe0::FUN_0042ebe0(int row_index)
         entry_words = (int *)(object_address + row_index * 0xc);
         do {
             if (*entry_words != 0) {
-                ((Callee_0042e990*)(object_address))->FUN_0042e990((int)(row_index), (int)(column));
+                ((Callee_0042e990*)(object_address))->unknown_remove_entry_0042e990((int)(row_index), (int)(column));
             }
             column = (int)(column + 1);
             entry_words = (int *)(entry_words + 1);

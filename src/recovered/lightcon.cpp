@@ -84,7 +84,7 @@
 bool Unknown_0051FC50();
 bool Unknown_0051FC60();
 extern "C" unsigned char DAT_007df768[];
-extern "C" int DAT_007df868;
+extern "C" int PrimaryColorMode;
 
 LightConvertClass::LightConvertClass(PaletteClass const &artpalette, PaletteClass const &screenpalette, Surface *typicalsurface,
                                      int red_tint, int green_tint, int blue_tint, bool blitters_created, unsigned char const *tint_mask,
@@ -97,8 +97,8 @@ LightConvertClass::LightConvertClass(PaletteClass const &artpalette, PaletteClas
         if (tint_mask == 0) {
             unknown_190 = DAT_007df768;
         }
-        if (DAT_007df868 == -1) {
-            DAT_007df868 = Get_Unknown_7d6290();
+        if (PrimaryColorMode == -1) {
+            PrimaryColorMode = Get_Unknown_7d6290();
         }
         if (Unknown_0051FC50()) {
             if (red_tint == -1) {
@@ -140,7 +140,7 @@ LightConvertClass::LightConvertClass(PaletteClass const &artpalette, PaletteClas
 // brightness, both rising from black to double over the levels.  The four table builders (0x0079777A..)
 // are selected by the pixel format code 0x007DF868; any other format builds the table inline.
 extern "C" unsigned char DAT_007df768[];
-extern "C" int DAT_007df868;
+extern "C" int PrimaryColorMode;
 void __cdecl FUN_0079777a(PaletteClass const *palette, unsigned short *table, int red, int green, int blue, int level, unsigned char const *remap);
 void __cdecl FUN_00797aba(PaletteClass const *palette, unsigned short *table, int red, int green, int blue, int level, unsigned char const *remap);
 void __cdecl FUN_00797440(PaletteClass const *palette, unsigned short *table, int red, int green, int blue, int level, unsigned char const *remap);
@@ -213,7 +213,7 @@ void LightConvertClass::Set_Tint(int red, int green, int blue, bool stored)
                 b = blue_step;
                 level = 0x10000;
             }
-            switch (DAT_007df868) {
+            switch (PrimaryColorMode) {
             case 0:
                 FUN_0079777a(ArtPalette, table, r, g, b, level, unknown_190);
                 table += 256;

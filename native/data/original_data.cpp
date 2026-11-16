@@ -62,9 +62,9 @@ alignas(16) unsigned char ra2_orig_0013[48] __asm__("_GenericNode_VTable_0079aaf
 alignas(16) unsigned char ra2_orig_0014[32] __asm__("_vtable_40e8d0");
 __asm__(".globl _vtable_40e920\n.set _vtable_40e920, _vtable_40e8d0\n");
 // row	_SourceNames	0x0079AB50	24	ptrs	SourceNames	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
-// row	_PTR_s_North_0079ab50	0x0079AB50	24	ptr	PTR_s_North_0079ab50	src/recovered/004919b0.cpp
+// row	_SourceName	0x0079AB50	24	ptr	SourceName	src/recovered/004919b0.cpp
 alignas(16) unsigned char ra2_orig_0015[48] __asm__("_SourceNames");
-__asm__(".globl _PTR_s_North_0079ab50\n.set _PTR_s_North_0079ab50, _SourceNames\n");
+__asm__(".globl _SourceName\n.set _SourceName, _SourceNames\n");
 // row	_Theaters	0x0079AB68	312	bytes	Theaters	src/recovered/header_statics/004b4690/HeaderStatics_diagonal_init_004b4690.cpp
 alignas(16) unsigned char ra2_orig_0016[320] __asm__("_Theaters");
 // row	_vtable_40ef80	0x0079ACD4	28	bytes	vtable_40ef80	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
@@ -2891,8 +2891,8 @@ alignas(16) unsigned char ra2_orig_0909[16] __asm__("_unknown_7df630");
 __asm__(".globl _unknown_flag_7df630\n.set _unknown_flag_7df630, _unknown_7df630\n");
 // row	_DAT_007df768	0x007DF768	256	bytes	DAT_007df768	src/recovered/classes/LightConvertClass/LightConvertClass_LightConvertClass_00538860.cpp
 alignas(16) unsigned char ra2_orig_0910[256] __asm__("_DAT_007df768");
-// row	_DAT_007df868	0x007DF868	384	bytes	DAT_007df868	src/recovered/classes/LightConvertClass/LightConvertClass_LightConvertClass_00538860.cpp
-alignas(16) unsigned char ra2_orig_0911[384] __asm__("_DAT_007df868");
+// row	_PrimaryColorMode	0x007DF868	384	bytes	PrimaryColorMode	src/recovered/classes/LightConvertClass/LightConvertClass_LightConvertClass_00538860.cpp
+alignas(16) unsigned char ra2_orig_0911[384] __asm__("_PrimaryColorMode");
 // row	_argument_53c970	0x007DFAA4	20	bytes	argument_53c970	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
 // row	_argument_53c990	0x007DFAA4	20	bytes	argument_53c990	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
 // row	_argument_53c9b0	0x007DFAA4	20	bytes	argument_53c9b0	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
@@ -4806,7 +4806,7 @@ extern "C" unsigned char ra2_place_1896[] __asm__("_unknown_ebolt_zero_00853028"
 extern "C" unsigned char ra2_place_1897[] __asm__("_unknown_surface_853118");
 extern "C" unsigned char ra2_place_1898[] __asm__("_labels_0085311c");
 extern "C" unsigned char ra2_place_1899[] __asm__("_TaskForceText_00855960");
-extern "C" unsigned char ra2_place_1900[] __asm__("_DAT_008559f0");
+extern "C" unsigned char ra2_place_1900[] __asm__("_CELL_NONE");
 extern "C" unsigned char ra2_place_1901[] __asm__("_unknown_event_counter_855b9c");
 extern "C" unsigned char ra2_place_1902[] __asm__("_exception_text_00855ba8");
 extern "C" unsigned char ra2_place_1903[] __asm__("_ExceptionReturnStack");
@@ -5013,7 +5013,7 @@ extern "C" unsigned char ra2_place_2103[] __asm__("_unknown_tileset_a6e0e4");
 extern "C" unsigned char ra2_place_2104[] __asm__("_unknown_tileset_a6e0e8");
 extern "C" unsigned char ra2_place_2105[] __asm__("_unknown_tileset_a6e0f8");
 extern "C" unsigned char ra2_place_2106[] __asm__("_unknown_tileset_a6e0fc");
-extern "C" unsigned char ra2_place_2107[] __asm__("_DAT_00a6e38c");
+extern "C" unsigned char ra2_place_2107[] __asm__("_IsometricTileTypeClass_CellShadowShapes");
 extern "C" unsigned char ra2_place_2108[] __asm__("_TileSetLookupCount");
 extern "C" unsigned char ra2_place_2109[] __asm__("_unknown_load_progress_a6e7c4");
 extern "C" unsigned char ra2_place_2110[] __asm__("_COMReferences_00a6eb14");
