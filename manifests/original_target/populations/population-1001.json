@@ -4,8 +4,8 @@
     "id": "population-1001",
     "inventory_sha256": "f97968a1a6368cd779c4a064e4b3cc1485c3cfce827d4a5c33fbbb5e2b87731d",
     "gaps_sha256": "0ba113a28b7d5d8865f07b0d039803d1b458c613f7e2d3934171a7c07dd8ec90",
-    "historical_population_sha256": "ba8e50b3042cf403b0c64b8e1cfdf466ca9aad9fffeb58cc89fd72b165c8ed8c",
-    "historical_acceptance_sha256": "de52d2975964ba648096017fe530f05d815673d90c997e86b09c4068191dcc47"
+    "historical_population_sha256": "fdda9373fadec742ed2efb5400e166468ad9ce1faf382a82dd4d0562441f35ba",
+    "historical_acceptance_sha256": "6097eff02e88bb576dafdd00b63a3a5c54fef231994f273e361cef8274934d70"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -796,12 +796,12 @@
       "full_extent_sha256": "c27d6bc4567be2c2f996fb1d976f0c1dc4d5227300756be2c9366eaaa004576e",
       "relocations": [],
       "source_sha256": "bb686211639c96829b862afae93e06556db87bb16035fc1a0f3cf985d6fd2b7e",
-      "source": "src/recovered/classes/RAMFileClass/RAMFileClass_Open_name_00638400.cpp",
+      "source": "src/recovered/classes/RAMFileClass/Open_Name.cpp",
       "population": "population-1001",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "RAMFileClass_Open_name_00638400",
+      "semantic_name": "Open_Name",
       "source_order": 32339
     },
     {
@@ -1244,12 +1244,12 @@
       "full_extent_sha256": "1bfec27b0d31ac907d78e5e78ba8b4d6a8d9e99ba950fdf81db6b72b784906d7",
       "relocations": [],
       "source_sha256": "356784f255f5a355c0ce7a3d43e9365e725bc1aa27b4047c5e580b1f376a594a",
-      "source": "src/recovered/classes/RAMFileClass/RAMFileClass_Open_00638410.cpp",
+      "source": "src/recovered/classes/RAMFileClass/Open.cpp",
       "population": "population-1001",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "RAMFileClass_Open_00638410",
+      "semantic_name": "Open",
       "source_order": 32340
     },
     {

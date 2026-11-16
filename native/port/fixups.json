@@ -2998,35 +2998,35 @@
    "verified": false
   },
   {
-   "source": "src/recovered/005c2940.cpp",
+   "source": "src/recovered/netdlg2/Join_Lobby_Reset_Ready.cpp",
    "old": "#include \"shared/win32_types.hpp\"\n",
    "new": "#include \"shared/win32_types.hpp\"\n#include \"shared/win32_api.hpp\"\n",
    "why": "population-67 compiles 0x005C2940 in one translation unit with 0x005EAD00, which now includes shared/win32_api.hpp (OwnerDraw's NewEdit window procedure on its real declaration, lane S1). VC6 accepts the seed's int-typed extern \"C\" GetDlgItem/SendMessageA beside the SDK ones; clang refuses the conflicting redeclaration, so natively the seed calls the SDK declarations (same imports, same arguments).",
    "verified": true
   },
   {
-   "source": "src/recovered/005c2940.cpp",
+   "source": "src/recovered/netdlg2/Join_Lobby_Reset_Ready.cpp",
    "old": "extern \"C\" __declspec(dllimport) unsigned int __stdcall GetDlgItem(int, int);  // @ref __imp__GetDlgItem@8=0079a49c\n",
    "new": "",
    "why": "population-67 compiles 0x005C2940 in one translation unit with 0x005EAD00, which now includes shared/win32_api.hpp (OwnerDraw's NewEdit window procedure on its real declaration, lane S1). VC6 accepts the seed's int-typed extern \"C\" GetDlgItem/SendMessageA beside the SDK ones; clang refuses the conflicting redeclaration, so natively the seed calls the SDK declarations (same imports, same arguments).",
    "verified": true
   },
   {
-   "source": "src/recovered/005c2940.cpp",
+   "source": "src/recovered/netdlg2/Join_Lobby_Reset_Ready.cpp",
    "old": "extern \"C\" __declspec(dllimport) unsigned int __stdcall SendMessageA(int, int, int, int);  // @ref __imp__SendMessageA@16=0079a4a0\n",
    "new": "",
    "why": "population-67 compiles 0x005C2940 in one translation unit with 0x005EAD00, which now includes shared/win32_api.hpp (OwnerDraw's NewEdit window procedure on its real declaration, lane S1). VC6 accepts the seed's int-typed extern \"C\" GetDlgItem/SendMessageA beside the SDK ones; clang refuses the conflicting redeclaration, so natively the seed calls the SDK declarations (same imports, same arguments).",
    "verified": true
   },
   {
-   "source": "src/recovered/005c2940.cpp",
+   "source": "src/recovered/netdlg2/Join_Lobby_Reset_Ready.cpp",
    "old": "GetDlgItem((int)(window_handle), (int)(0x59f))",
    "new": "GetDlgItem(window_handle, 0x59f)",
    "why": "population-67 compiles 0x005C2940 in one translation unit with 0x005EAD00, which now includes shared/win32_api.hpp (OwnerDraw's NewEdit window procedure on its real declaration, lane S1). VC6 accepts the seed's int-typed extern \"C\" GetDlgItem/SendMessageA beside the SDK ones; clang refuses the conflicting redeclaration, so natively the seed calls the SDK declarations (same imports, same arguments).",
    "verified": true
   },
   {
-   "source": "src/recovered/005c2940.cpp",
+   "source": "src/recovered/netdlg2/Join_Lobby_Reset_Ready.cpp",
    "old": "SendMessageA((int)(window_handle), (int)(0x4dc), (int)(0), (int)(0))",
    "new": "SendMessageA(window_handle, 0x4dc, 0, 0)",
    "why": "population-67 compiles 0x005C2940 in one translation unit with 0x005EAD00, which now includes shared/win32_api.hpp (OwnerDraw's NewEdit window procedure on its real declaration, lane S1). VC6 accepts the seed's int-typed extern \"C\" GetDlgItem/SendMessageA beside the SDK ones; clang refuses the conflicting redeclaration, so natively the seed calls the SDK declarations (same imports, same arguments).",
@@ -3264,14 +3264,14 @@
    "verified": false
   },
   {
-   "source": "src/recovered/classes/Tactical/Tactical_Set_View_Point_006a6640.cpp",
+   "source": "src/recovered/classes/Tactical/Set_Tactical_Position_Point.cpp",
    "old": "    TacticalCoord = Point2D(x, y);\n",
    "new": "    Native_View_Asked(point.X, point.Y);   // NATIVE (C16): link/native_map_zoom.cpp\n    TacticalCoord = Point2D(x, y);\n",
    "why": "Native addition (C16, Zoom gestures: zooming out below 1x; not original behaviour): with Zoom gestures on, the game frames the start for its larger screen, where the map's edge can move the point it asked for; the start's zoomed view is centred on the point asked (link/native_map_zoom.cpp Native_View_Asked). Off (the default and the ORIGINAL preset) the point is only recorded. This row: Tactical::Set_Tactical_Position 0x006A6640 records the point asked before its clamp.",
    "verified": false
   },
   {
-   "source": "src/recovered/classes/Tactical/Tactical_Set_View_Point_006a6640.cpp",
+   "source": "src/recovered/classes/Tactical/Set_Tactical_Position_Point.cpp",
    "old": "#include \"shared/unknown_globals.hpp\"\n",
    "new": "#include \"shared/unknown_globals.hpp\"\n\nvoid Native_View_Asked(int x, int y);   // NATIVE (C16): link/native_map_zoom.cpp\n",
    "why": "Native addition (C16, Zoom gestures: zooming out below 1x; not original behaviour): with Zoom gestures on, the game frames the start for its larger screen, where the map's edge can move the point it asked for; the start's zoomed view is centred on the point asked (link/native_map_zoom.cpp Native_View_Asked). Off (the default and the ORIGINAL preset) the point is only recorded. This row: declares it.",

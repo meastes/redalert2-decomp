@@ -1779,7 +1779,7 @@
    "entry": "004e1130",
    "bytes": 6,
    "population": "population-3714",
-   "source": "src/recovered/classes/HashString/HashString_ctor_004e1130.cpp",
+   "source": "src/recovered/classes/HashString/Default_Constructor.cpp",
    "cause": "frozen in another population's inventory pass (population-3714)"
   },
   {
@@ -1787,7 +1787,7 @@
    "entry": "004e1140",
    "bytes": 55,
    "population": "population-3714",
-   "source": "src/recovered/classes/HashString/HashString_ctor_text_004e1140.cpp",
+   "source": "src/recovered/classes/HashString/Constructor_Text.cpp",
    "cause": "held by population-3714; not joined: does not compile in the unit: accepted.cpp(414) : error C2653: 'HashString' : is not a class or namespace name"
   },
   {
@@ -1795,7 +1795,7 @@
    "entry": "004e1180",
    "bytes": 44,
    "population": "population-3714",
-   "source": "src/recovered/classes/HashString/HashString_copy_ctor_004e1180.cpp",
+   "source": "src/recovered/classes/HashString/Copy_Constructor.cpp",
    "cause": "held by population-3714; not joined: does not compile in the unit: accepted.cpp(421) : error C2653: 'HashString' : is not a class or namespace name"
   },
   {

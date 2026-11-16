@@ -4,8 +4,8 @@
     "id": "population-4341",
     "inventory_sha256": "a1b03d8d4359f17cd961dfd86c92f0787e6cdaace52ee238303b1e88b9effeb7",
     "gaps_sha256": "8ba322497a7c0747637109524718b9f5de4b94b6e276af787b9c9075604d1eca",
-    "historical_population_sha256": "a70c7dcb4bc9424a07067a0ab1f5162702baa816e66ee842417de4c43e032bad",
-    "historical_acceptance_sha256": "95c5a7485d11cae513f2d9dee5adcd761f9c1dbad6533a78c4530ac567c17832"
+    "historical_population_sha256": "c6787684363b0c7fa22fa668a9dfe835a3fb48a747f5f751d36ba43c3a74e9b1",
+    "historical_acceptance_sha256": "fcbd771bc127a534984a1564ec95f8c0308b6876dd9dc9d39f63b9c3e37cc5db"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -10313,7 +10313,9 @@
     "??1Campaign@WorldDominationTour@@UAE@XZ": 7496416,
     "??_7Campaign@WorldDominationTour@@6B@": 8056820,
     "??_GCampaign@WorldDominationTour@@UAEPAXI@Z": 7498160,
-    "??_ECampaign@WorldDominationTour@@UAEPAXI@Z": 7498160
+    "??_ECampaign@WorldDominationTour@@UAEPAXI@Z": 7498160,
+    "?WS_Top_Window@seed_005c2940@@YAIXZ": 7559952,
+    "?Special@@3VSpecialClass@@A": 10750240
   },
   "regions": [
     {
@@ -12025,7 +12027,7 @@
         }
       ],
       "source_sha256": "2035c9282690884b3ad2847b3746da7e4421f8cf720308e34ad41eeac67cd047",
-      "source": "src/recovered/classes/TechnoTypeClass/TechnoTypeClass_noinit_constructor_006da6e0.cpp",
+      "source": "src/recovered/classes/TechnoTypeClass/NoInit_Constructor.cpp",
       "population": "population-4341",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -21455,7 +21457,7 @@
         }
       ],
       "source_sha256": "dadcfaaa7b35686d0b4045dcc702f7574b4dada62fe51c0b87a2cc028a94144d",
-      "source": "src/recovered/classes/TechnoTypeClass/TechnoTypeClass_constructor_006d9b40.cpp",
+      "source": "src/recovered/classes/TechnoTypeClass/Constructor_Name.cpp",
       "population": "population-4341",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",

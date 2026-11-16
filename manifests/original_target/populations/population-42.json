@@ -4,8 +4,8 @@
     "id": "population-42",
     "inventory_sha256": "a6e83d732959f1475aeb0c48bcfb990e9e75a3c13374eabebd19ad7f943521f1",
     "gaps_sha256": "d61d0da403b90e2409ab0cfa93e9dac80f1c06f0588399193bd138173c322f82",
-    "historical_population_sha256": "aff5f6164ac225d3b6999276b37860c97903c1687942c307bdd2b3e76fdeb0cd",
-    "historical_acceptance_sha256": "ca714d0e086172b9120f9bb5b88c748b5a8d6ae1ef92d2b18c6d25d7ea2512fb"
+    "historical_population_sha256": "31d0c5324736bd57c21bb3eb7031c26ff163f0332782be262ddcb773a7b30798",
+    "historical_acceptance_sha256": "80f148c75f736ed7547717568c1775cb60fed1ed50c1bc970c24be1331a4db29"
   },
   "references": {
     "?unknown_type_flag_aab_0041b3f0@": 4305904,
@@ -4626,7 +4626,7 @@
         }
       ],
       "source_sha256": "1e849eb5a58b57c8fc8684464e0a7df741d253b11a67e3d09682f78f5a0bb057",
-      "source": "src/recovered/0078469d.cpp",
+      "source": "src/recovered/libcmt/srand.cpp",
       "source_order": 7148,
       "population": "population-42",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -4660,7 +4660,7 @@
         }
       ],
       "source_sha256": "edbd38642480a531a5d9612b11e4eeb0f8f105676261354420be02ef5230c7b0",
-      "source": "src/recovered/00784a3c.cpp",
+      "source": "src/recovered/libcmt/Unknown_getc.cpp",
       "source_order": 7149,
       "population": "population-42",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -4728,7 +4728,7 @@
         }
       ],
       "source_sha256": "e07dd008e09fbd171060f09b2f80f47a4a3a61f512ad25a71b573f4e7e8af883",
-      "source": "src/recovered/0078991e.cpp",
+      "source": "src/recovered/libcmt/errno.cpp",
       "source_order": 7168,
       "population": "population-42",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -4762,7 +4762,7 @@
         }
       ],
       "source_sha256": "746486fdb4b8fcf6557ea2c5937164ac043a10ef85c68459d9496f212550d9e1",
-      "source": "src/recovered/00789927.cpp",
+      "source": "src/recovered/libcmt/doserrno.cpp",
       "source_order": 7169,
       "population": "population-42",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -4796,7 +4796,7 @@
         }
       ],
       "source_sha256": "a3855d6265e93c3e225359d8f547539d2ba74c7c6d2607921673616afd35d325",
-      "source": "src/recovered/007905e2.cpp",
+      "source": "src/recovered/libcmt/fptrap.cpp",
       "source_order": 7187,
       "population": "population-42",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",

@@ -1342,7 +1342,7 @@
    "entry": "00602fd0",
    "bytes": 70,
    "population": "population-3716",
-   "source": "src/recovered/classes/PaletteClass/PaletteClass_constructor_00602fd0.cpp",
+   "source": "src/recovered/classes/PaletteClass/Constructor_RGB.cpp",
    "cause": "frozen in another population's inventory pass (population-3716)"
   },
   {
@@ -1350,7 +1350,7 @@
    "entry": "00603020",
    "bytes": 48,
    "population": "population-3716",
-   "source": "src/recovered/classes/PaletteClass/PaletteClass_constructor_00603020.cpp",
+   "source": "src/recovered/classes/PaletteClass/Constructor_Bytes.cpp",
    "cause": "held by population-3716; not joined: does not compile in the unit: accepted.cpp(31) : error C2838: illegal qualified name in member declaration"
   },
   {
@@ -1374,7 +1374,7 @@
    "entry": "006030a0",
    "bytes": 39,
    "population": "population-3716",
-   "source": "src/recovered/classes/PaletteClass/PaletteClass_Adjust_006030a0.cpp",
+   "source": "src/recovered/classes/PaletteClass/Adjust_Toward_Black.cpp",
    "cause": "frozen in another population's inventory pass (population-3716)"
   },
   {
@@ -1382,7 +1382,7 @@
    "entry": "006030d0",
    "bytes": 65,
    "population": "population-3716",
-   "source": "src/recovered/classes/PaletteClass/PaletteClass_Adjust_006030d0.cpp",
+   "source": "src/recovered/classes/PaletteClass/Adjust_Toward_Palette.cpp",
    "cause": "held by population-3716; not joined: does not compile in the unit: accepted.cpp(50) : error C2628: 'SchemeNode' followed by 'void' is illegal (did you forget a ';'?)"
   },
   {
@@ -1390,7 +1390,7 @@
    "entry": "00603120",
    "bytes": 54,
    "population": "population-3716",
-   "source": "src/recovered/classes/PaletteClass/PaletteClass_Partial_Adjust_00603120.cpp",
+   "source": "src/recovered/classes/PaletteClass/Partial_Adjust_Toward_Black.cpp",
    "cause": "frozen in another population's inventory pass (population-3716)"
   },
   {
@@ -1398,7 +1398,7 @@
    "entry": "00603160",
    "bytes": 75,
    "population": "population-3716",
-   "source": "src/recovered/classes/PaletteClass/PaletteClass_Partial_Adjust_00603160.cpp",
+   "source": "src/recovered/classes/PaletteClass/Partial_Adjust_Toward_Palette.cpp",
    "cause": "held by population-3716; not joined: does not compile in the unit: accepted.cpp(33) : error C2838: illegal qualified name in member declaration"
   },
   {

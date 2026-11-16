@@ -3478,7 +3478,7 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
-   "source": "src/recovered/005c2940.cpp (accepted seed)",
+   "source": "src/recovered/netdlg2/Join_Lobby_Reset_Ready.cpp (accepted seed)",
    "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (lanpair)"

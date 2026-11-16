@@ -4,8 +4,8 @@
     "id": "population-3056",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "0d407ebbffe2861cfecae4ac12b49fa54d670db3487b837935de51b9e37c6f13",
-    "historical_acceptance_sha256": "972fbd4771dd7628e61a22500d1dc01823c6086b18a4dad2374788c47a42ff19"
+    "historical_population_sha256": "a37c8c0744d10d86dbd40a38d50c11a50be3b7fccd1648d8ffae4cf02cf1405b",
+    "historical_acceptance_sha256": "08d4562e95c349ff443027f13f58405b94e7255a4862afceb182dd7567d77b6b"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -10055,7 +10055,7 @@
     "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
     "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
     "?Incoming@CellClass@@QAEXPBX_N11@Z": 4679968,
-    "?unknown_rgb_ab6841@@3VRGBClass@@A": 11233345,
+    "?BlackColor@@3VRGBClass@@A": 11233345,
     "??0XSurface@@QAE@HH@Z": 4846640,
     "??0HashString@@QAE@ABV0@@Z": 5116288,
     "??4HashString@@QAEAAV0@ABV0@@Z": 5116352,
@@ -10372,7 +10372,10 @@
     "??_E?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z": 7524048,
     "??_E?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z": 7080144,
     "??_E?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z": 7524128,
-    "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320
+    "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
+    "?WS_Top_Window@seed_005c2940@@YAIXZ": 7559952,
+    "?Special@@3VSpecialClass@@A": 10750240,
+    "?BlackColor@HSVClass@@2V1@B": 10752188
   },
   "regions": [
     {
@@ -11585,12 +11588,12 @@
         }
       ],
       "source_sha256": "dc6a569061821f273dc042a33908f4ae24dcd2bc72e0c6967b40e5f12b5aacd9",
-      "source": "src/recovered/classes/CaptureManagerClass/CaptureManagerClass_constructor_00467db0.cpp",
+      "source": "src/recovered/classes/CaptureManagerClass/Constructor_Techno.cpp",
       "population": "population-3056",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CaptureManagerClass_constructor_00467db0",
+      "semantic_name": "Constructor_Techno",
       "source_order": 119403
     },
     {
@@ -11724,12 +11727,12 @@
         }
       ],
       "source_sha256": "e702a4223f10bf9278b04effa5e38bf7f469457544f976717d8db2e75f620baa",
-      "source": "src/recovered/classes/CaptureManagerClass/CaptureManagerClass_constructor_00467e40.cpp",
+      "source": "src/recovered/classes/CaptureManagerClass/Default_Constructor.cpp",
       "population": "population-3056",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CaptureManagerClass_constructor_00467e40",
+      "semantic_name": "Default_Constructor",
       "source_order": 119404
     },
     {
@@ -11791,12 +11794,12 @@
         }
       ],
       "source_sha256": "795afeeffc8176e2133134ef169f3016f21c5d658f66361fc378346dfafc90ca",
-      "source": "src/recovered/classes/CaptureManagerClass/CaptureManagerClass_noinit_constructor_00467ed0.cpp",
+      "source": "src/recovered/classes/CaptureManagerClass/NoInit_Constructor.cpp",
       "population": "population-3056",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CaptureManagerClass_noinit_constructor_00467ed0",
+      "semantic_name": "NoInit_Constructor",
       "source_order": 119405
     },
     {

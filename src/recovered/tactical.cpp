@@ -3187,7 +3187,7 @@ extern bool Draw_Rally_Pattern[];
 void Tactical::Draw_Rally_Points(bool inshroud)
 {
     int phase = (0x7FFFFFFF - Frame) % 15;
-    int shadow = Build_Hicolor_Pixel(unknown_rgb_ab6841.Red, unknown_rgb_ab6841.Green, unknown_rgb_ab6841.Blue);
+    int shadow = Build_Hicolor_Pixel(BlackColor.Red, BlackColor.Green, BlackColor.Blue);
     for (int index = CurrentObject.Count() - 1; index >= 0; index--) {
         ObjectClass *object = CurrentObject[index];
         if (object->Kind_Of() == 6 && object->IsActive && object->IsSelected) {

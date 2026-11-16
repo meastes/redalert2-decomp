@@ -4,8 +4,8 @@
     "id": "population-3748",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "274660316f7dd34f84616607762cfd2a8d0acd8f26eb95e5a33cbcde4e776981",
-    "historical_acceptance_sha256": "3753003af91af788d18bf3037b6f9e093e3c8f4c226323b187cfec5d9466c4d5"
+    "historical_population_sha256": "cdc1e106370df5e9525c1eadefa565180b614db8e34c6eceed1a46f3f76eb630",
+    "historical_acceptance_sha256": "75200400b909a8a24e342011dbb28d12cd47b9865c081336e38f4aa04f8c93d6"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -336,7 +336,7 @@
     "?Redraw_Window_005ff400@": 6288384,
     "?DialogControl_dtor_00601040@": 6295616,
     "?FUN_006056f0@": 6313712,
-    "?FUN_006220d0@": 6430928,
+    "?Name_From_Quarry@": 6430928,
     "?FUN_0062e520@": 6481184,
     "?unknown_player_value_00663490@": 6698128,
     "?FUN_006a2710@": 6956816,
@@ -463,7 +463,7 @@
     "?FUN_005e9bb0@": 6200240,
     "_DialogControl_vtable_007a7b28": 8026920,
     "_PTR_FUN_007a7b78": 8027000,
-    "_PTR_DAT_007a8620": 8029728,
+    "_QuarryName": 8029728,
     "_DAT_00a3d560": 10736992,
     "_DAT_00a3d564": 10736996,
     "_s_FrameSendRate__d_007ecf8c": 8310668,
@@ -746,7 +746,7 @@
     "??0HashString@@QAE@ABV0@@Z": 5116288,
     "??0HashString@@QAE@XZ": 5116208,
     "??4HashString@@QAEAAV0@ABV0@@Z": 5116352,
-    "?FUN_006220d0@seed_006220d0@@YIPAEH@Z": 6430928,
+    "?Name_From_Quarry@seed_006220d0@@YIPAEH@Z": 6430928,
     "?FUN_0062e520@seed_0062e520@@YIXPAE@Z": 6481184,
     "?unknown_player_value_00663490@seed_00663490@@YAIXZ": 6698128,
     "??1AbstractClass@@UAE@XZ": 4259728,

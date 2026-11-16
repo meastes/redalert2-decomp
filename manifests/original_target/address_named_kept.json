@@ -1,0 +1,125 @@
+{
+ "note": "Address-named source files that keep their address, each with its reason (docs/DECISIONS.md address-free file names; lane CN). tools/original_target/cleanup_census.py does not read this list.",
+ "files": [
+  {
+   "file": "src/recovered/0056d620.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/0056d640.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/0056d660.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/005e5130.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/005e5140.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/005e8120.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/005e86c0.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/005e8710.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/DynamicVectorClass_MultiMission_ptr/DynamicVectorClass_MultiMission_ptr_Resize_005cd7d0.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/DynamicVectorClass_MultiMission_ptr/DynamicVectorClass_MultiMission_ptr_Resize_006741f0.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/MapSeedClass/005796f0.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/MapSeedClass/00579710.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/MapSeedClass/00579730.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/MapSeedClass/00579750.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/RadarEventClass/RadarEventClass_unknown_delete_all_0063b890.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/RadarEventClass/RadarEventClass_unknown_delete_all_0063c640.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_Clear_005cd6e0.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_Clear_00674160.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_Fetch_005cd5e0.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_Fetch_00673920.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_ID_object_005cd710.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_ID_object_00674190.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_ID_pointer_005cd750.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_ID_pointer_006741d0.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_Resize_005cd630.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_Resize_006740b0.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_operator_equal_005cd5f0.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_MultiMission_ptr/VectorClass_MultiMission_ptr_operator_equal_00674070.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/unowned/OwnerDraw_Control_Test_005e0760.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/unowned/OwnerDraw_Control_Test_005e6860.cpp",
+   "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  }
+ ]
+}

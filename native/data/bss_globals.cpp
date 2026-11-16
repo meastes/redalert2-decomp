@@ -785,7 +785,7 @@ alignas(16) unsigned char ra2_bss_0633[16] __asm__("_unknown_flag_ab6833");  // 
 alignas(16) unsigned char ra2_bss_0634[16] __asm__("_unknown_rgb_ab6834");  // 0x00AB6834 unknown_rgb_ab6834 (?unknown_rgb_ab6834@@3VRGBClass@@A)
 alignas(16) unsigned char ra2_bss_0635[16] __asm__("_unknown_rgb_ab6839");  // 0x00AB6839 unknown_rgb_ab6839 (?unknown_rgb_ab6839@@3VRGBClass@@A)
 alignas(16) unsigned char ra2_bss_0636[16] __asm__("_unknown_rgb_ab683c");  // 0x00AB683C unknown_rgb_ab683c (?unknown_rgb_ab683c@@3VRGBClass@@A)
-alignas(16) unsigned char ra2_bss_0637[16] __asm__("_unknown_rgb_ab6841");  // 0x00AB6841 unknown_rgb_ab6841 (?unknown_rgb_ab6841@@3VRGBClass@@A)
+alignas(16) unsigned char ra2_bss_0637[16] __asm__("_BlackColor");  // 0x00AB6841 BlackColor (?BlackColor@@3VRGBClass@@A)
 alignas(16) unsigned char ra2_bss_0638[16] __asm__("_unknown_rgb_ab6844");  // 0x00AB6844 unknown_rgb_ab6844 (?unknown_rgb_ab6844@@3VRGBClass@@A)
 alignas(16) unsigned char ra2_bss_0639[16] __asm__("_WhiteColor");  // 0x00AB6849 WhiteColor (?WhiteColor@@3VRGBClass@@A)
 alignas(16) unsigned char ra2_bss_0640[120] __asm__("_unknown_rgb_ab684c");  // 0x00AB684C unknown_rgb_ab684c (?unknown_rgb_ab684c@@3VRGBClass@@A)

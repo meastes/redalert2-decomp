@@ -4,8 +4,8 @@
     "id": "population-67",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "9e7274657d955b0802c677c93195da196de008c4cc01c34cf61a1b28b1b25925",
-    "historical_acceptance_sha256": "405eb4e89408a6c73066ae9000ab78f11233940a2759b995bc625607fb39c510"
+    "historical_population_sha256": "c8c0a268069aeff28caf6ed249ad9618f830f7beaf1c1e8d796414977a1cd470",
+    "historical_acceptance_sha256": "9f6dea11c8a26034a65b7ec2c4e66f3e66919905f6a1da0fd4ac65cceed37549"
   },
   "references": {
     "?Audio_Event_Channel_End_00405a00@": 4217344,
@@ -73,8 +73,8 @@
     "?FUN_005c05c0@": 6030784,
     "?FUN_005c05d0@": 6030800,
     "?FUN_005c05e0@": 6030816,
-    "?FUN_005c2940@": 6039872,
-    "?FUN_00735b10@": 7559952,
+    "?Join_Lobby_Reset_Ready@": 6039872,
+    "?WS_Top_Window@": 7559952,
     "__imp__GetDlgItem@8": 7971996,
     "__imp__SendMessageA@16": 7972000,
     "_DAT_00a728e0": 10954976,
@@ -403,8 +403,8 @@
     "?FUN_005bbd10@seed_005bbd10@@YAEXZ": 6012176,
     "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ": 4726704,
     "?Get_Join_Responses_005c08a0@seed_005bbd10@@YAXXZ": 6031520,
-    "?FUN_005c2940@seed_005c2940@@YAXXZ": 6039872,
-    "?FUN_00735b10@seed_005c2940@@YAIXZ": 7559952,
+    "?Join_Lobby_Reset_Ready@seed_005c2940@@YAXXZ": 6039872,
+    "?WS_Top_Window@seed_005c2940@@YAIXZ": 7559952,
     "__imp__GetDlgItem": 7971996,
     "__imp__SendMessageA": 7972000,
     "?Service_Game_IO_00481fb0@@YIXXZ": 4726704,
@@ -2483,7 +2483,8 @@
     "??_EMultiplayerTeam@@UAEPAXI@Z": 6003744,
     "??_EMSPrintAnim@@UAEPAXI@Z": 5963392,
     "??_ENode@?$WolDictionary@VWstring@@H@@QAEPAXI@Z": 7759776,
-    "??_EWideString@@QAEPAXI@Z": 6296624
+    "??_EWideString@@QAEPAXI@Z": 6296624,
+    "?WS_Top_Window@@YIPAUHWND__@@XZ": 7559952
   },
   "regions": [
     {
@@ -2531,8 +2532,8 @@
     {
       "entry": 6039872,
       "method": "005c2940",
-      "symbol": "?FUN_005c2940@seed_005c2940@@YAXXZ",
-      "symbol_prefix": "?FUN_005c2940@",
+      "symbol": "?Join_Lobby_Reset_Ready@seed_005c2940@@YAXXZ",
+      "symbol_prefix": "?Join_Lobby_Reset_Ready@",
       "options": [
         "/O2",
         "/Ob2",
@@ -2548,7 +2549,7 @@
         {
           "offset": 1,
           "kind": 20,
-          "symbol": "?FUN_00735b10@seed_005c2940@@YAIXZ",
+          "symbol": "?WS_Top_Window@seed_005c2940@@YAIXZ",
           "target": 7559952,
           "addend": 0,
           "resolved": 1520075
@@ -2570,8 +2571,8 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "27181451c5062fd3869b9343f7889b41eafed3570f86d7a818909850cf5ed2da",
-      "source": "src/recovered/005c2940.cpp",
+      "source_sha256": "adbadf37ff19ebb2664a260ad6629fab3e849534023cb10eb75d06dd81d73d68",
+      "source": "src/recovered/netdlg2/Join_Lobby_Reset_Ready.cpp",
       "source_order": 8062,
       "population": "population-67",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

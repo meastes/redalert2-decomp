@@ -1180,7 +1180,7 @@ int PlanningNodeClass::Color()
         return unknown_b4;
     }
     TechnoClass *owner = Members[0]->Owner;
-    unknown_b4 = Planning_Adjusted_Pixel(Planning_House_Color(owner), unknown_rgb_ab6841, 0x50);
+    unknown_b4 = Planning_Adjusted_Pixel(Planning_House_Color(owner), BlackColor, 0x50);
     int branches = Branches.Count();
     for (int i = 0; i < branches; i++) {
         if (Branches[i]->Color == unknown_b4) {
@@ -1226,7 +1226,7 @@ int PlanningNodeClass::Branch_Color(int index)
             PlanningTokenClass *token = Planning_Token(owner);
             if (!token->Reached(token->Nodes.ID(this))) {
                 RGBClass color = Planning_House_Color(owner);
-                color.Adjust(0x50, unknown_rgb_ab6841);
+                color.Adjust(0x50, BlackColor);
                 return branch->Color = Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
             }
             last_owner = owner;
@@ -1264,7 +1264,7 @@ int PlanningNodeClass::Loop_Color()
             PlanningTokenClass *token = Planning_Token(owner);
             if (!token->F98) {
                 RGBClass color = Planning_House_Color(owner);
-                color.Adjust(0x50, unknown_rgb_ab6841);
+                color.Adjust(0x50, BlackColor);
                 return Branch.Color = Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
             }
             last_owner = owner;
@@ -4083,7 +4083,7 @@ void __fastcall Planning_Draw_Techno_618c00(TechnoClass *techno)
     PlanningTokenClass *token = (PlanningTokenClass *)techno->Get_Planning_Token();
     CoordStruct current_coord = techno->unknown_slot22();
     Point2D start = Planning_Coord_Pixel(current_coord);
-    int dim = Planning_House_Pixel(techno, unknown_rgb_ab6841, 0x50);
+    int dim = Planning_House_Pixel(techno, BlackColor, 0x50);
     int bright = Planning_House_Pixel(techno, WhiteColor, 100);
     bool has_nodes = (!token ? 0 : token->Nodes.Count()) > 0;
     bool current_order = Planning_Current_Order(techno, has_nodes);
@@ -4283,7 +4283,7 @@ void __fastcall Planning_Fill_Node(PlanningNodeClass *node)
 int __fastcall Planning_Dim_Color(TechnoClass *techno)
 {
     RGBClass color = Planning_House_Color(techno);
-    color.Adjust(0x50, unknown_rgb_ab6841);
+    color.Adjust(0x50, BlackColor);
     return ((color.Green >> DSurface_GreenLeft) << DSurface_GreenRight)
          | ((color.Red >> DSurface_RedLeft) << DSurface_RedRight)
          | ((color.Blue >> DSurface_BlueLeft) << DSurface_BlueRight);
@@ -4323,7 +4323,7 @@ int __fastcall Planning_Adjusted_Pixel(RGBClass const &color, RGBClass const &ta
 
 int __fastcall Planning_Techno_Color(TechnoClass *techno)
 {
-    int plain = Planning_Pixel(&unknown_rgb_ab6841);
+    int plain = Planning_Pixel(&BlackColor);
     if (!techno) return plain;
     int lighter = Planning_Pixel(&WhiteColor);
     if (unknown_node_a766b0) {
@@ -4359,7 +4359,7 @@ Point2D __fastcall Planning_Event_Pixel(EventClass const *event, AbstractClass *
 int PlanningNodeClass::Highlight_Color()
 {
     TechnoClass *owner = Members[0]->Owner;
-    int result = Build_Hicolor_Pixel(unknown_rgb_ab6841.Red, unknown_rgb_ab6841.Green, unknown_rgb_ab6841.Blue);
+    int result = Build_Hicolor_Pixel(BlackColor.Red, BlackColor.Green, BlackColor.Blue);
     if (owner) {
         int lighter = Build_Hicolor_Pixel(WhiteColor.Red, WhiteColor.Green, WhiteColor.Blue);
         if (unknown_node_a766b0) {

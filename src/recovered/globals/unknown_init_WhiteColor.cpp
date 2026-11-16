@@ -5,7 +5,7 @@
 
 extern RGBClass WhiteColor;
 
-void unknown_init_rgb_ab6849()
+void unknown_init_WhiteColor_0063cba0()
 {
     WhiteColor.Set(255, 255, 255);
 }

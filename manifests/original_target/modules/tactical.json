@@ -4299,6 +4299,10 @@
    "address": "0084e9d0"
   },
   {
+   "symbol": "?BlackColor@@3VRGBClass@@A",
+   "address": "00ab6841"
+  },
+  {
    "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
    "address": "0049eea0"
   },
@@ -4817,10 +4821,6 @@
   {
    "symbol": "?unknown_origin_y_7f692c@@3HA",
    "address": "007f692c"
-  },
-  {
-   "symbol": "?unknown_rgb_ab6841@@3VRGBClass@@A",
-   "address": "00ab6841"
   },
   {
    "symbol": "?unknown_scroll_speeds_7f6914@@3PAMA",
@@ -5408,7 +5408,7 @@
    "entry": "006a6640",
    "bytes": 110,
    "population": "population-4156",
-   "source": "src/recovered/classes/Tactical/Tactical_Set_View_Point_006a6640.cpp",
+   "source": "src/recovered/classes/Tactical/Set_Tactical_Position_Point.cpp",
    "cause": "held by population-4156; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
@@ -5416,7 +5416,7 @@
    "entry": "006a66b0",
    "bytes": 255,
    "population": "population-4156",
-   "source": "src/recovered/classes/Tactical/Tactical_Set_View_Coord_006a66b0.cpp",
+   "source": "src/recovered/classes/Tactical/Set_Tactical_Position_Coord.cpp",
    "cause": "held by population-4156; not joined: does not compile in the unit: accepted.cpp(1330) : error C2084: function 'struct Point2D __fastcall __fastcall Rectangular_To_Isometric(struct Point2D)' already has a body"
   },
   {

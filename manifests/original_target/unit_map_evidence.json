@@ -197,7 +197,7 @@
    "unit": "techtype",
    "kind": "mischa85_module",
    "evidence": "mischa85/RedAlert2 config/ra2-1.006/modules.csv: techtype 006DA6E0-006DF620 (tibsun); functions.csv: inferred: target of the call at 0x0041BDB8 in matched src/airctype.cpp; size not known",
-   "source": "src/recovered/classes/TechnoTypeClass/TechnoTypeClass_noinit_constructor_006da6e0.cpp"
+   "source": "src/recovered/classes/TechnoTypeClass/NoInit_Constructor.cpp"
   },
   "006da950": {
    "unit": "techtype",

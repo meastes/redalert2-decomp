@@ -547,7 +547,7 @@ public:
     // Guarded like the static timers below: Techno.CPP only. One more member declaration here shifts
     // VC6's per-unit counters of Print_CRCs 0x0062A360, 0x00589AC0 and 0x004F1190 (Scout633 fragile_probe).
 #ifdef RA2_TECHNO_STATIC_TIMERS
-    void unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass color, bool shadow);   // 0x006D0DC0 (a 64-step line shaded from unknown_rgb_ab6841 to color; never called)
+    void unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass color, bool shadow);   // 0x006D0DC0 (a 64-step line shaded from BlackColor to color; never called)
 #endif
     void UpdateThreatInCell(AbstractClass *cell);                 // 0x006D9610 (InfantryClass slot 93: an occupied building, its cell)
     bool Enter_Object_Nearby();                                      // 0x006D7F70 (FootClass::AI, after the movement; the result is unused there)

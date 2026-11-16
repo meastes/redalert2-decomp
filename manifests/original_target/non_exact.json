@@ -306,7 +306,7 @@
    "entry": "004B37C0",
    "name": "Show_Who_Was_Responsible_004b37c0",
    "bytes": 2924,
-   "source": "src/recovered/classes/EgoClass/Show_Who_Was_Responsible_004b37c0.cpp",
+   "source": "src/recovered/classes/EgoClass/Show_Who_Was_Responsible.cpp",
    "anchor": "004B3760",
    "symbol": "?Show_Who_Was_Responsible_004b37c0@@YIXXZ",
    "references": {
@@ -1348,7 +1348,7 @@
    "entry": "0060D110",
    "name": "unknown_load_pcx_60d110",
    "bytes": 360,
-   "source": "src/recovered/unknown_load_pcx_0060d110.cpp",
+   "source": "src/recovered/Read_PCX_File.cpp",
    "anchor": "0060D0F0",
    "symbol": "?Read_PCX_File@@YIPAVSurface@@PAVFileClass@@PAVPaletteClass@@HH@Z",
    "references": {
@@ -1535,7 +1535,7 @@
    "entry": "0063A880",
    "name": "FUN_0063a880",
    "bytes": 1567,
-   "source": "src/recovered/Reinf/Unknown_0063a880.cpp",
+   "source": "src/recovered/Reinf/Do_Chrono_Reinforcements.cpp",
    "anchor": "0063A690",
    "symbol": "?Do_Chrono_Reinforcements@@YI_NPAVTeamTypeClass@@H@Z",
    "references": {
@@ -2133,7 +2133,7 @@
    "entry": "0070C800",
    "name": "VoxelAnimClass::VoxelAnimClass",
    "bytes": 1308,
-   "source": "src/recovered/classes/VoxelAnimClass/VoxelAnimClass_constructor_0070c800.cpp",
+   "source": "src/recovered/classes/VoxelAnimClass/Constructor.cpp",
    "anchor": "0070CD20",
    "symbol": "??0VoxelAnimClass@@QAE@PAVVoxelAnimTypeClass@@ABUCoordStruct@@PAVHouseClass@@@Z",
    "references": {},

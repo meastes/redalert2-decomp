@@ -5,7 +5,7 @@
 
 extern RGBClass unknown_rgb_ab6834;
 
-void unknown_init_rgb_ab6834()
+void unknown_init_cyan_rgb_0063cc20()
 {
     unknown_rgb_ab6834.Set(0, 255, 255);
 }

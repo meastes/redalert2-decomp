@@ -4,8 +4,8 @@
     "id": "population-4239",
     "inventory_sha256": "e66455ad136c1deaafd9694d7c526015ed77029893af5c96ec01eee96320dc76",
     "gaps_sha256": "2c7363d977a65475a8b752d3f4c7de7c188bc3fda4459b6d7cf85a8ecf3ceddd",
-    "historical_population_sha256": "0cb0ae5e5316d3875722c60019e8a5c4f7206223326e54c9dd0898427e57c3c0",
-    "historical_acceptance_sha256": "9dc5a004fd57cd312d8cc5aca12ac244bb885927f1688bee956cc83139d4be97"
+    "historical_population_sha256": "814982865ca2b2dc27d8e8b8ce4430117245e55ffa236e387297ddf75a6585db",
+    "historical_acceptance_sha256": "85d7b06ea2b92c469b71fa12c5bd106d95f0215a3fe812e9aa130e9e8c15089e"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -278,7 +278,26 @@
     "__real@4@40068c00000000000000": 8030200,
     "__real@4@4005d800000000000000": 8030196,
     "__purecall": 4950368,
-    "_LCW_Uncompress": 5461296
+    "_LCW_Uncompress": 5461296,
+    "?Read@WinsockInterfaceClass@@UAEHPAXPAH01PAG@Z": 7779744,
+    "?Update@ZBuffer@@QAEXVRect@@@Z": 7823808,
+    "?Update@ABuffer@@QAEXVRect@@@Z": 4264112,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__ramp_corners": 8339828,
+    "__real@4@40018000000000000000": 7980236,
+    "__real@4@4002a000000000000000": 7980232,
+    "__real@4@40008000000000000000": 7980228,
+    "__real@8@400d8000000000000000": 7983264,
+    "__real@8@3fffccccccccccccd000": 8020032,
+    "__real@8@3ffaa3d70a3d70a3d800": 7998288,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -299,12 +318,12 @@
       "full_extent_sha256": "73467882091c1676fa51f13a6c937f74d4c8903010ca394bba8a8f9ecbcd21d2",
       "relocations": [],
       "source_sha256": "339029c879853aefe5c48164bcff76f07a6547ebe6990b6d4136fdc91373d6c8",
-      "source": "src/recovered/unowned/LCW_Uncompress_00535530.cpp",
+      "source": "src/recovered/lcwuncmp/LCW_Uncompress.cpp",
       "population": "population-4239",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "LCW_Uncompress_00535530",
+      "semantic_name": "LCW_Uncompress",
       "source_order": 217929
     }
   ]

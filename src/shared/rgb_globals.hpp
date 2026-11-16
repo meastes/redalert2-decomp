@@ -5,7 +5,7 @@
 
 #include "shared/rgb_class.hpp"
 
-extern RGBClass unknown_rgb_ab6841;
+extern RGBClass BlackColor;
 extern RGBClass WhiteColor;
 
 #endif

@@ -127,7 +127,7 @@ Rect __fastcall Get_Title_Screen_Area_006f1f30();
 // a rectangle that would vanish becomes empty) (0x00612570).
 void __fastcall Planning_Inflate(Rect &rect, int amount);
 // The colours the planning markers fade toward (0x00AB6841, 0x00AB6849).
-extern RGBClass unknown_rgb_ab6841;
+extern RGBClass BlackColor;
 extern RGBClass WhiteColor;
 
 #ifdef RA2_COORD_EQUAL_MEMBER

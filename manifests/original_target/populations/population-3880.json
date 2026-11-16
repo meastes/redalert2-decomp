@@ -4,8 +4,8 @@
     "id": "population-3880",
     "inventory_sha256": "f76ecb6524d00fc7dad17a76698b2b7883e62f8ad53a5af50b4999d80f78bcd6",
     "gaps_sha256": "65abb042d3265e6e1469d6f8e8f15b39872b21c2a71d1de2bdc59eddc2cca64c",
-    "historical_population_sha256": "2be7aa18f96ce9e432d91108b56a63ae0a979ac48ff567ff9560dc7b87eea9f7",
-    "historical_acceptance_sha256": "2fe4cfd2ad273e65c8b3a963497c406a66f670a223664196c60db716ad0fc771"
+    "historical_population_sha256": "22b71572bbbe4be699b0bf5dcee8cd0eb9f649089b7782b6b25033b1e52b4511",
+    "historical_acceptance_sha256": "97dd5ef395604af56862d3dbab4a40448315ac256a1a09c6dbd3e7720e2a703e"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -8745,7 +8745,7 @@
     "?unknown_empty_00751120@": 7672096,
     "_DAT_00b264f8": 11691256,
     "?FUN_00752930@": 7678256,
-    "?FUN_00735b10@": 7559952,
+    "?WS_Top_Window@": 7559952,
     "?unknown_send_4dc_0075ca00@": 7719424,
     "?FUN_00765980@": 7756160,
     "?AddRef_00765b20@": 7756576,
@@ -11997,7 +11997,8 @@
     "??_7Campaign@WorldDominationTour@@6B@": 8056820,
     "??_GCampaign@WorldDominationTour@@UAEPAXI@Z": 7498160,
     "?Special@@3VSpecialClass@@A": 10750240,
-    "??_ECampaign@WorldDominationTour@@UAEPAXI@Z": 7498160
+    "??_ECampaign@WorldDominationTour@@UAEPAXI@Z": 7498160,
+    "?WS_Top_Window@seed_005c2940@@YAIXZ": 7559952
   },
   "regions": [
     {
@@ -14761,12 +14762,12 @@
         }
       ],
       "source_sha256": "173b58cf1ef2c2a116ae3cc92d6ec03c92ebb3f4cebc01dd634f1bca53579353",
-      "source": "src/recovered/unowned/Skirmish_Message_497_00683fc0.cpp",
+      "source": "src/recovered/unowned/Skirmish_Message_497.cpp",
       "population": "population-3880",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Skirmish_Message_497_00683fc0",
+      "semantic_name": "Skirmish_Message_497",
       "source_order": 176167
     },
     {

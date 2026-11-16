@@ -4,8 +4,8 @@
     "id": "population-3353",
     "inventory_sha256": "53ebe2c7616532f7152f650f3d518a892bf4a883ba00b4166abeac9f94f0fbd6",
     "gaps_sha256": "4e582a9109c45a1716db32b83dc3092d2f0dc5ed80df02a4a97f53dbbfed92d0",
-    "historical_population_sha256": "087fd31521bf4526010c696fea6c3043f41ee7f1d2f5a0654928d679cea7521b",
-    "historical_acceptance_sha256": "bf61f602a2512a270de567cf650dd23c7f9d93831d4bd47185461246a20eaf2a",
+    "historical_population_sha256": "c2c951316a785cbc4ec8c64b3fc27c2c6474a9b80bcda749aff8640b325a9b95",
+    "historical_acceptance_sha256": "59f678d40ffb46edcd6c84671c7f0b7c568878bf2cbf40f3840acbb983d862d5",
     "separate_units": true
   },
   "references": {
@@ -874,7 +874,7 @@
     "?unknown_list_a76648@@3V?$DynamicVectorClass@PAUUnknownItem_006142f0@@@@A": 10970696,
     "?unknown_cleanup_62e6e0@UnknownItem_006142f0@@QAEXXZ": 6481632,
     "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A": 11233256,
-    "?unknown_rgb_ab6841@@3VRGBClass@@A": 11233345,
+    "?BlackColor@@3VRGBClass@@A": 11233345,
     "?unknown_rgb_ab6844@@3VRGBClass@@A": 11233348,
     "?WhiteColor@@3VRGBClass@@A": 11233353,
     "?unknown_mode_ab6831@@3DA": 11233329,
@@ -930,15 +930,15 @@
     "?unknown_delete_all_a76648@@YAXXZ": 6374128,
     "?RadarEventClass_unknown_delete_all_63b890@@YAXXZ": 6535312,
     "?RadarEventClass_unknown_delete_all_63c640@@YAXXZ": 6538816,
-    "?unknown_init_rgb_ab6841@@YAXXZ": 6540128,
-    "?unknown_init_rgb_ab6844@@YAXXZ": 6540160,
-    "?unknown_init_rgb_ab6849@@YAXXZ": 6540192,
-    "?unknown_reset_flags_ab6831@@YAXXZ": 6540224,
-    "?unknown_init_rgb_ab6839@@YAXXZ": 6540256,
-    "?unknown_init_rgb_ab682c@@YAXXZ": 6540288,
-    "?unknown_init_rgb_ab6834@@YAXXZ": 6540320,
-    "?unknown_init_rgb_ab684c@@YAXXZ": 6540352,
-    "?unknown_init_rgb_ab683c@@YAXXZ": 6540384,
+    "?unknown_init_BlackColor_0063cb60@@YAXXZ": 6540128,
+    "?unknown_init_grey_rgb_0063cb80@@YAXXZ": 6540160,
+    "?unknown_init_WhiteColor_0063cba0@@YAXXZ": 6540192,
+    "?unknown_reset_rgb_flags_0063cbc0@@YAXXZ": 6540224,
+    "?unknown_init_green_rgb_0063cbe0@@YAXXZ": 6540256,
+    "?unknown_init_blue_rgb_0063cc00@@YAXXZ": 6540288,
+    "?unknown_init_cyan_rgb_0063cc20@@YAXXZ": 6540320,
+    "?unknown_init_magenta_rgb_0063cc40@@YAXXZ": 6540352,
+    "?unknown_init_yellow_rgb_0063cc60@@YAXXZ": 6540384,
     "?Reset_0063f070@OwnerTalkClass@@QAEXXZ": 6549616,
     "?unknown_release@UnknownComHolder_00658050@@QAEXXZ": 6651984,
     "?unknown_release@UnknownComHolder_0065b2a0@@QAEXXZ": 6664864,
@@ -7414,8 +7414,8 @@
     {
       "entry": 6540224,
       "method": "0063cbc0",
-      "symbol": "?unknown_reset_flags_ab6831@@YAXXZ",
-      "symbol_prefix": "?unknown_reset_flags_ab6831@@YAXXZ",
+      "symbol": "?unknown_reset_rgb_flags_0063cbc0@@YAXXZ",
+      "symbol_prefix": "?unknown_reset_rgb_flags_0063cbc0@@YAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -7453,13 +7453,13 @@
           "resolved": 11233331
         }
       ],
-      "source_sha256": "7c9a511f45f2e3e1ee753a4c93ee092ad73421c84f5b9c9de2d5b5955c2e1493",
-      "source": "src/recovered/unowned/unknown_reset_flags_ab6831_0063cbc0.cpp",
+      "source_sha256": "a9cde0d4ffa13aa54a37bc88cb2dedff88390aec009bb6e85adce8e048662dbc",
+      "source": "src/recovered/unowned/unknown_reset_rgb_flags.cpp",
       "population": "population-3353",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_reset_flags_ab6831_0063cbc0",
+      "semantic_name": "unknown_reset_rgb_flags",
       "source_order": 145781
     },
     {
@@ -11244,8 +11244,8 @@
     {
       "entry": 6540128,
       "method": "0063cb60",
-      "symbol": "?unknown_init_rgb_ab6841@@YAXXZ",
-      "symbol_prefix": "?unknown_init_rgb_ab6841@@YAXXZ",
+      "symbol": "?unknown_init_BlackColor_0063cb60@@YAXXZ",
+      "symbol_prefix": "?unknown_init_BlackColor_0063cb60@@YAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -11261,7 +11261,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "?unknown_rgb_ab6841@@3VRGBClass@@A",
+          "symbol": "?BlackColor@@3VRGBClass@@A",
           "target": 11233345,
           "addend": 0,
           "resolved": 11233345
@@ -11269,7 +11269,7 @@
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "?unknown_rgb_ab6841@@3VRGBClass@@A",
+          "symbol": "?BlackColor@@3VRGBClass@@A",
           "target": 11233345,
           "addend": 1,
           "resolved": 11233346
@@ -11277,26 +11277,26 @@
         {
           "offset": 13,
           "kind": 6,
-          "symbol": "?unknown_rgb_ab6841@@3VRGBClass@@A",
+          "symbol": "?BlackColor@@3VRGBClass@@A",
           "target": 11233345,
           "addend": 2,
           "resolved": 11233347
         }
       ],
-      "source_sha256": "46fbfc1116af4c7d5dee9274fc0b0f45f455dfd70e3dc1922a975d57418a4c3f",
-      "source": "src/recovered/unowned/unknown_init_rgb_ab6841_0063cb60.cpp",
+      "source_sha256": "ab9f7b8438ce309658a52a1b9ea315ec807530680c654920f1c6a5e1e7bb94fd",
+      "source": "src/recovered/unowned/unknown_init_BlackColor.cpp",
       "population": "population-3353",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_init_rgb_ab6841_0063cb60",
+      "semantic_name": "unknown_init_BlackColor",
       "source_order": 145778
     },
     {
       "entry": 6540160,
       "method": "0063cb80",
-      "symbol": "?unknown_init_rgb_ab6844@@YAXXZ",
-      "symbol_prefix": "?unknown_init_rgb_ab6844@@YAXXZ",
+      "symbol": "?unknown_init_grey_rgb_0063cb80@@YAXXZ",
+      "symbol_prefix": "?unknown_init_grey_rgb_0063cb80@@YAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -11334,20 +11334,20 @@
           "resolved": 11233350
         }
       ],
-      "source_sha256": "6f2577a49a972dfda06ad47e20ddda3e22b376f234f22ad9de586d6e86fae1a9",
-      "source": "src/recovered/unowned/unknown_init_rgb_ab6844_0063cb80.cpp",
+      "source_sha256": "29083708eec48d247b31d22b36e0f3fb3e1ee7b009c6a10eda7b245e998f2deb",
+      "source": "src/recovered/globals/unknown_init_grey_rgb.cpp",
       "population": "population-3353",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_init_rgb_ab6844_0063cb80",
+      "semantic_name": "unknown_init_grey_rgb",
       "source_order": 145779
     },
     {
       "entry": 6540192,
       "method": "0063cba0",
-      "symbol": "?unknown_init_rgb_ab6849@@YAXXZ",
-      "symbol_prefix": "?unknown_init_rgb_ab6849@@YAXXZ",
+      "symbol": "?unknown_init_WhiteColor_0063cba0@@YAXXZ",
+      "symbol_prefix": "?unknown_init_WhiteColor_0063cba0@@YAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -11385,20 +11385,20 @@
           "resolved": 11233355
         }
       ],
-      "source_sha256": "02b1917e59029430a32c18619c44bc7e2c861b452ba621f77289301a5355ebb2",
-      "source": "src/recovered/unowned/unknown_init_rgb_ab6849_0063cba0.cpp",
+      "source_sha256": "c2e6bfae74c5f4ecdacf8eecc2f8996d9f6c871ccb24b43f840b3d547603e3ac",
+      "source": "src/recovered/globals/unknown_init_WhiteColor.cpp",
       "population": "population-3353",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_init_rgb_ab6849_0063cba0",
+      "semantic_name": "unknown_init_WhiteColor",
       "source_order": 145780
     },
     {
       "entry": 6540256,
       "method": "0063cbe0",
-      "symbol": "?unknown_init_rgb_ab6839@@YAXXZ",
-      "symbol_prefix": "?unknown_init_rgb_ab6839@@YAXXZ",
+      "symbol": "?unknown_init_green_rgb_0063cbe0@@YAXXZ",
+      "symbol_prefix": "?unknown_init_green_rgb_0063cbe0@@YAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -11436,20 +11436,20 @@
           "resolved": 11233339
         }
       ],
-      "source_sha256": "019635c6ed7831c970d0fb09f487f589a6417ec888bc78b21e89c1eb0b7ba528",
-      "source": "src/recovered/unowned/unknown_init_rgb_ab6839_0063cbe0.cpp",
+      "source_sha256": "067b4e52140478f977604873855a022e335bd36395a9c0e158dc45b31b5e2724",
+      "source": "src/recovered/unowned/unknown_init_green_rgb.cpp",
       "population": "population-3353",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_init_rgb_ab6839_0063cbe0",
+      "semantic_name": "unknown_init_green_rgb",
       "source_order": 145782
     },
     {
       "entry": 6540288,
       "method": "0063cc00",
-      "symbol": "?unknown_init_rgb_ab682c@@YAXXZ",
-      "symbol_prefix": "?unknown_init_rgb_ab682c@@YAXXZ",
+      "symbol": "?unknown_init_blue_rgb_0063cc00@@YAXXZ",
+      "symbol_prefix": "?unknown_init_blue_rgb_0063cc00@@YAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -11487,20 +11487,20 @@
           "resolved": 11233325
         }
       ],
-      "source_sha256": "916976ece633d9ad0379e5500bf94ce5120a114cb7eec7a6da27c5c9ba19c70e",
-      "source": "src/recovered/unowned/unknown_init_rgb_ab682c_0063cc00.cpp",
+      "source_sha256": "1dfd128ee02bc085ea336159a0699202ad741a770b0dadfb90efa3801ec8d7c3",
+      "source": "src/recovered/unowned/unknown_init_blue_rgb.cpp",
       "population": "population-3353",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_init_rgb_ab682c_0063cc00",
+      "semantic_name": "unknown_init_blue_rgb",
       "source_order": 145783
     },
     {
       "entry": 6540320,
       "method": "0063cc20",
-      "symbol": "?unknown_init_rgb_ab6834@@YAXXZ",
-      "symbol_prefix": "?unknown_init_rgb_ab6834@@YAXXZ",
+      "symbol": "?unknown_init_cyan_rgb_0063cc20@@YAXXZ",
+      "symbol_prefix": "?unknown_init_cyan_rgb_0063cc20@@YAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -11538,20 +11538,20 @@
           "resolved": 11233334
         }
       ],
-      "source_sha256": "3d896819caa301158d067321c7ef560a587013cdd9ee1ed4aeef819c4e0a0102",
-      "source": "src/recovered/unowned/unknown_init_rgb_ab6834_0063cc20.cpp",
+      "source_sha256": "dcc46530d983e70ef49c21913f932c2ad8e6e49f044e13df59413df820b05003",
+      "source": "src/recovered/unowned/unknown_init_cyan_rgb.cpp",
       "population": "population-3353",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_init_rgb_ab6834_0063cc20",
+      "semantic_name": "unknown_init_cyan_rgb",
       "source_order": 145784
     },
     {
       "entry": 6540352,
       "method": "0063cc40",
-      "symbol": "?unknown_init_rgb_ab684c@@YAXXZ",
-      "symbol_prefix": "?unknown_init_rgb_ab684c@@YAXXZ",
+      "symbol": "?unknown_init_magenta_rgb_0063cc40@@YAXXZ",
+      "symbol_prefix": "?unknown_init_magenta_rgb_0063cc40@@YAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -11589,20 +11589,20 @@
           "resolved": 11233358
         }
       ],
-      "source_sha256": "069945489460a0bdcb9b2c1f1fce7258a47614613d9337348dba2aa1da9a7021",
-      "source": "src/recovered/unowned/unknown_init_rgb_ab684c_0063cc40.cpp",
+      "source_sha256": "91cb1c9735ad96db056a061933d3419641e3259d463526fb911b569246704a4a",
+      "source": "src/recovered/unowned/unknown_init_magenta_rgb.cpp",
       "population": "population-3353",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_init_rgb_ab684c_0063cc40",
+      "semantic_name": "unknown_init_magenta_rgb",
       "source_order": 145785
     },
     {
       "entry": 6540384,
       "method": "0063cc60",
-      "symbol": "?unknown_init_rgb_ab683c@@YAXXZ",
-      "symbol_prefix": "?unknown_init_rgb_ab683c@@YAXXZ",
+      "symbol": "?unknown_init_yellow_rgb_0063cc60@@YAXXZ",
+      "symbol_prefix": "?unknown_init_yellow_rgb_0063cc60@@YAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -11640,13 +11640,13 @@
           "resolved": 11233341
         }
       ],
-      "source_sha256": "78dc137e5303aa93d7a6df0089a706fe97a0520b1d81903fd58134bc0c54e662",
-      "source": "src/recovered/unowned/unknown_init_rgb_ab683c_0063cc60.cpp",
+      "source_sha256": "494aafce5e6e3c61bee7a0a6c42ca35ba7442db2d5a9098887a162880030bd8e",
+      "source": "src/recovered/unowned/unknown_init_yellow_rgb.cpp",
       "population": "population-3353",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_init_rgb_ab683c_0063cc60",
+      "semantic_name": "unknown_init_yellow_rgb",
       "source_order": 145786
     }
   ]

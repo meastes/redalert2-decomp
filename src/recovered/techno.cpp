@@ -5022,7 +5022,7 @@ void TechnoClass::unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass colo
     start.Y+=TacticalRect.Y;
     end.Y+=TacticalRect.Y;
     int pixel=Build_Hicolor_Pixel(color);
-    int fade=Build_Hicolor_Pixel(unknown_rgb_ab6841);
+    int fade=Build_Hicolor_Pixel(BlackColor);
     Point2D shadow_start=start;
     shadow_start.Y+=1;
     Point2D shadow_end=end;
@@ -5052,7 +5052,7 @@ void TechnoClass::unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass colo
         if (Clip_Line(start,end,clip)) {
             shade=color;
             int ratio=j*4;
-            shade.Adjust(ratio<0xfe?ratio:0xfe,unknown_rgb_ab6841);
+            shade.Adjust(ratio<0xfe?ratio:0xfe,BlackColor);
             CompositeSurface->Draw_Line(start,end,Build_Hicolor_Pixel(shade));
         }
         last=next;

@@ -5,7 +5,7 @@
 
 extern RGBClass unknown_rgb_ab6839;
 
-void unknown_init_rgb_ab6839()
+void unknown_init_green_rgb_0063cbe0()
 {
     unknown_rgb_ab6839.Set(0, 255, 0);
 }

@@ -4,8 +4,8 @@
     "id": "population-3633",
     "inventory_sha256": "f6976c5881677e7258bc3c6e6cf256e51f3332f4903b5dad29743539179f249f",
     "gaps_sha256": "a6d9a6a9cd6b5cd4e8b90ea57f95f9ad280561b9545fb3bd15c706c0d3b8ed04",
-    "historical_population_sha256": "1396e9b1761384e54dd678e8d017f5220ed555b7fb75c64e4627b05644b70c77",
-    "historical_acceptance_sha256": "80b67b0dba6a1136cd56053b020147c27e734a19acab440e65c76bc70060a6b8"
+    "historical_population_sha256": "9894860a122ef52693ac54da4253bc358f130040761999ee5243f3085139fe72",
+    "historical_acceptance_sha256": "50e938be3c3b8d88cb71a4d72f8d4b020addddd6354e314f8ffcaa9f4038f341"
   },
   "references": {
     "_draw_cliprect": 8726864,
@@ -2242,7 +2242,11 @@
     "__ramp_corners": 8339828,
     "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
     "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
-    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "??_GCellClass@@UAEPAXI@Z": 4706208,
+    "??_GFoggedObjectClass@@UAEPAXI@Z": 4989056,
+    "??_ECellClass@@UAEPAXI@Z": 4706208,
+    "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056
   },
   "regions": [
     {
@@ -2297,7 +2301,7 @@
         }
       ],
       "source_sha256": "f8b926ae10f49aa845374686cd020739b653e08a34b15ea986f2350ddb420316",
-      "source": "src/recovered/0049ee80.cpp",
+      "source": "src/recovered/draw_cliprect_init.cpp",
       "population": "population-3633",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",

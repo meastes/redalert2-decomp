@@ -276,7 +276,7 @@ void Unknown535910::Unknown_00535BF0()
         return;
     }
     Rect screen(0, 0, 0, 0);
-    int background = Build_Hicolor_Pixel(unknown_rgb_ab6841.Red, unknown_rgb_ab6841.Green, unknown_rgb_ab6841.Blue);
+    int background = Build_Hicolor_Pixel(BlackColor.Red, BlackColor.Green, BlackColor.Blue);
     screen.Width = VideoModeWidth;
     screen.Height = VideoModeHeight;
     unknown_5c->Fill_Rect(screen, screen, background);
@@ -369,7 +369,7 @@ void Unknown535910::Unknown_00535BF0()
         wcscpy(unit_name, Unit_Name(side));
         Upper_Case(unit_name);
         area = Unit_Area();
-        int unit_pixel = Build_Hicolor_Pixel(unknown_rgb_ab6841.Red, unknown_rgb_ab6841.Green, unknown_rgb_ab6841.Blue);
+        int unit_pixel = Build_Hicolor_Pixel(BlackColor.Red, BlackColor.Green, BlackColor.Blue);
         Unknown_00536d30(unit_name, unknown_5c, area, unit_pixel, 0);
 
         wchar_t const *brief = Briefing(side);
