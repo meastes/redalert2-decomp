@@ -15,7 +15,7 @@ bool MapRegionClass::Make_Regions_00570810()
     for(int index=0;remaining>0;--remaining,++index) {
         if(RMGCellData[index].RegionIndex==-1 && (unsigned char)RMGCellData[index].Position.Not_Equal_0058db50(Cell(0,0))) {
             MapRegionClass *region=Create_Region_From_Cell(&Map[RMGCellData[index].Position]);
-            if(region)region->unknown_1a=false;
+            if(region)region->Unsplittable=false;
         }
     }
     if(success) {

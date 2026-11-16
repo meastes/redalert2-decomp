@@ -37,7 +37,7 @@ int MapClass::Zone_Reset()
     DynamicVectorClass<PassabilityType> vec;
     vec.Set_Growth_Step(300);
 
-    unknown_14->Clear();
+    ZoneAdjacency->Clear();
 
     for (i = 0; i < 12; i++) {
         if (unknown_18[i] != 0) {
@@ -86,7 +86,7 @@ int MapClass::Zone_Reset()
                     to_zone = from_zone;
                     from_zone = temp;
                 }
-                unknown_14->Add_Object(HashObject<unsigned int, unsigned int>(from_zone, to_zone));
+                ZoneAdjacency->Add_Object(HashObject<unsigned int, unsigned int>(from_zone, to_zone));
             }
         }
     }
@@ -97,7 +97,7 @@ int MapClass::Zone_Reset()
     }
 
     for (i = 0; i < 256; i++) {
-        DynamicVectorClass<HashObject<unsigned int, unsigned int> > &bucket = unknown_14->Buckets[i];
+        DynamicVectorClass<HashObject<unsigned int, unsigned int> > &bucket = ZoneAdjacency->Buckets[i];
         if (bucket.Count() > 0) {
             j = bucket.Count();
             HashObject<unsigned int, unsigned int> *obj = &bucket[0];
@@ -122,7 +122,7 @@ int MapClass::Zone_Reset()
     }
 
     for (i = 0; i < 256; i++) {
-        DynamicVectorClass<HashObject<unsigned int, unsigned int> > &bucket = unknown_14->Buckets[i];
+        DynamicVectorClass<HashObject<unsigned int, unsigned int> > &bucket = ZoneAdjacency->Buckets[i];
         if (bucket.Count() > 0) {
             j = bucket.Count();
             HashObject<unsigned int, unsigned int> *obj = &bucket[0];

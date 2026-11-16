@@ -155,9 +155,9 @@ void Set_Up_Skirmish(char const *map)
             Append(line, " ", sizeof line);
             Append(line, session.Scenarios[i]->Get_Filename(), sizeof line);
             Append(line, " players ", sizeof line);
-            Append_Int(line, session.Scenarios[i]->unknown_180, sizeof line);
+            Append_Int(line, session.Scenarios[i]->MinPlayers, sizeof line);
             Append(line, "-", sizeof line);
-            Append_Int(line, session.Scenarios[i]->unknown_184, sizeof line);
+            Append_Int(line, session.Scenarios[i]->MaxPlayers, sizeof line);
             fprintf(stderr, "harness-maplist %s\n", line);
         }
     }

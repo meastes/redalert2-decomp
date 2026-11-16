@@ -179,11 +179,11 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
         }
         unknown_28 = LinkedTo->unknown_21c;
         unknown_28.Z = Map.Get_Height_GL(unknown_28);
-        if ((Map[unknown_28].unknown_140 & 0x100) && !LinkedTo->unknown_79) {
-            LinkedTo->unknown_79 = true;
+        if ((Map[unknown_28].unknown_140 & 0x100) && !LinkedTo->IsOnBridge) {
+            LinkedTo->IsOnBridge = true;
             unknown_28.Z += unknown_geometry_j;
         } else {
-            LinkedTo->unknown_79 = false;
+            LinkedTo->IsOnBridge = false;
         }
         LinkedTo->Set_Occupy_Bit(unknown_28);
     }
@@ -404,9 +404,9 @@ bool __stdcall TeleportLocomotionClass::Process()
                     CellClass *cell = &Map[where];
                     LinkedTo->Set_Coord(unknown_28);
                     if (cell->unknown_140 & 0x100) {
-                        LinkedTo->unknown_79 = true;
+                        LinkedTo->IsOnBridge = true;
                     } else {
-                        LinkedTo->unknown_79 = false;
+                        LinkedTo->IsOnBridge = false;
                     }
                     LinkedTo->Set_Height_AGL(0);
                     LinkedTo->Mark(1);
@@ -454,7 +454,7 @@ bool __stdcall TeleportLocomotionClass::Process()
         LinkedTo->WarpingOut = true;
         LinkedTo->IsImmobilized = false;
         LinkedTo->unknown_204 = false;
-        LinkedTo->unknown_79 = false;
+        LinkedTo->IsOnBridge = false;
         bool ok = unknown_6dff00(LinkedTo->unknown_21c, false);
         unknown_38++;
         if (ok) {

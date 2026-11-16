@@ -195,15 +195,15 @@ static inline HashTableClass<RadarTrackingStruct, TechnoClass *> *Make_Table(int
  *   12/16/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
 RadarClass::RadarClass()
-    : unknown_11e4(0), unknown_11e8(0), unknown_11ec(0), unknown_11f0(0), unknown_11f4(0), unknown_11f8(0),
-      unknown_11fc(0), unknown_1200(0), unknown_1208(unknown_rect_ab6320), unknown_1218(0), unknown_121c(0),
-      BackgroundColors(0), RadarCellWidth(0), RadarCellHeight(0), unknown_1244(0, 0, 0, 0), unknown_1254(0), unknown_1270(0), unknown_1484(0), unknown_1488(1), unknown_148c(0), unknown_1490(0),
-      unknown_1494(0), unknown_1498(unknown_rect_ab6320), unknown_14a8(0), unknown_14ac(0), unknown_14b0(0),
-      unknown_14b8(false), unknown_14b9(false), unknown_14d0(-1), unknown_14d4(false), unknown_14d5(false),
-      unknown_14d6(false), unknown_14d8(unknown_rect_ab6320), unknown_14f8(0), unknown_14fc(0)
+    : RadY(0), RadWidth(0), RadHeight(0), RadOffX(0), RadOffY(0), RadIWidth(0),
+      RadIHeight(0), RadPWidth(0), LastDrawRect(unknown_rect_ab6320), RadarSurface(0), BackgroundSurface(0),
+      BackgroundColors(0), RadarCellWidth(0), RadarCellHeight(0), CellRedrawRect(0, 0, 0, 0), RadarTrackingTable(0), PixelFlags(0), ZoomFactor(0), RadarScale(1), RadarX(0), unknown_1490(0),
+      RadarY(0), RadarRect(unknown_rect_ab6320), RadarState(0), RadarMode(0), SuspendedRadarMode(0),
+      IsScenarioHeld(false), IsMoviePlaying(false), TransmissionVoice(-1), DoesRadarExist(false), unknown_14d5(false),
+      FullRedraw(false), RadarViewRect(unknown_rect_ab6320), RadarAnimFrame(0), RadarAnimTimer(0)
 {
-    unknown_1254 = Make_Table(256, 10);
-    unknown_1258.Set_Growth_Step(500);
+    RadarTrackingTable = Make_Table(256, 10);
+    PixelStack.Set_Growth_Step(500);
     unknown_14bc.Unknown_00405BF0();
 }
 
@@ -230,8 +230,8 @@ RadarClass::~RadarClass()
 
 void RadarClass::Queue_Next_Movie()
 {
-    unknown_14a8 = 4;
-    unknown_14f8 = 25;
+    RadarState = 4;
+    RadarAnimFrame = 25;
 }
 
 
@@ -259,20 +259,20 @@ void RadarClass::Queue_Next_Movie()
 void RadarClass::One_Time()
 {
     Debug_Printf("RadarClass::One_Time()\n");
-    unknown_11fc = 140;
-    unknown_11e0 = 0;
-    unknown_11e4 = 16;
-    unknown_11e8 = 48;
-    unknown_1200 = 108;
-    unknown_11f4 = unknown_11fc;
-    unknown_11f8 = unknown_1200;
-    unknown_11f0 = 49;
+    RadIHeight = 140;
+    RadX = 0;
+    RadY = 16;
+    RadWidth = 48;
+    RadPWidth = 108;
+    RadOffY = RadIHeight;
+    RadIWidth = RadPWidth;
+    RadOffX = 49;
     DisplayClass::One_Time();
-    RadarButton.Y = unknown_11f0;
-    RadarButton.Width = unknown_11fc;
-    RadarButton.Height = unknown_1200;
+    RadarButton.Y = RadOffX;
+    RadarButton.Width = RadIHeight;
+    RadarButton.Height = RadPWidth;
     RadarButton.Flags = 0xDF;
-    unknown_14d0 = Vox_From_Name("EVA_IncomingTransmission");
+    TransmissionVoice = Vox_From_Name("EVA_IncomingTransmission");
 }
 
 
@@ -319,15 +319,15 @@ void RadarClass::Init_Clear()
 {
     DisplayClass::Init_Clear();
     Debug_Printf("RadarClass::Init_Clear\n");
-    unknown_14a8 = 0;
-    unknown_14ac = 0;
-    unknown_14b9 = false;
-    unknown_14b8 = false;
-    unknown_14f8 = 0;
-    unknown_14d4 = false;
+    RadarState = 0;
+    RadarMode = 0;
+    IsMoviePlaying = false;
+    IsScenarioHeld = false;
+    RadarAnimFrame = 0;
+    DoesRadarExist = false;
     unknown_14d5 = true;
     unknown_1220.Clear();
-    unknown_1258.Clear();
+    PixelStack.Clear();
     Debug_Printf("RadarClass::Init_Clear done\n");
 }
 
@@ -360,18 +360,18 @@ void RadarClass::Init_For_House()
     Debug_Printf("RadarClass::Init_For_House()\n");
     DisposeOfArt();
     if(unknown_id_source_a3d290->unknown_2239) {
-        unknown_11ec=(SidebarWidth-144)/2+4;
-        unknown_int_ab6468=unknown_11e0+11;
-        unknown_int_ab646c=unknown_11e4+4;
-        unknown_int_ab6338=unknown_11e0+83;
+        RadHeight=(SidebarWidth-144)/2+4;
+        unknown_int_ab6468=RadX+11;
+        unknown_int_ab646c=RadY+4;
+        unknown_int_ab6338=RadX+83;
     } else {
-        unknown_11ec=(SidebarWidth-145)/2+5;
-        unknown_int_ab6468=unknown_11e0+14;
-        unknown_int_ab646c=unknown_11e4+5;
-        unknown_int_ab6338=unknown_11e0+86;
+        RadHeight=(SidebarWidth-145)/2+5;
+        unknown_int_ab6468=RadX+14;
+        unknown_int_ab646c=RadY+5;
+        unknown_int_ab6338=RadX+86;
     }
     unknown_int_ab633c=unknown_int_ab646c;
-    RadarButton.X=unknown_11ec;
+    RadarButton.X=RadHeight;
     BriefingButtonShape=Unknown_Load_Shape_00495270(BriefingButtonShapeName,unknown_shape_ab6350_allocated);
     OptionsButtonShape=Unknown_Load_Shape_00495270(OptionsButtonShapeName,unknown_shape_ab6318_allocated);
     unknown_int_ab6470=((ShapeFileStruct const *)BriefingButtonShape)->Width;
@@ -379,7 +379,7 @@ void RadarClass::Init_For_House()
     unknown_int_ab6340=((ShapeFileStruct const *)OptionsButtonShape)->Width;
     unknown_int_ab6344=((ShapeFileStruct const *)OptionsButtonShape)->Height;
     RadarButton.unknown_28=unknown_art_ac1070;
-    unknown_1204=Build_Hicolor_Pixel(TooltipColor.Get_Red(),TooltipColor.Get_Green(),TooltipColor.Get_Blue());
+    RadPHeight=Build_Hicolor_Pixel(TooltipColor.Get_Red(),TooltipColor.Get_Green(),TooltipColor.Get_Blue());
 }
 
 
@@ -446,65 +446,65 @@ void RadarClass::Draw_It(bool forced)
 {
     bool redraw = false;
     if (Debug_Map) {
-        unknown_14d6 = false;
+        FullRedraw = false;
         unknown_14d5 = false;
         return;
     }
-    unknown_14d6 = (unknown_14d6 == true || forced == true);
-    unknown_14d5 = (unknown_14d5 == true || unknown_14d6 == true);
+    FullRedraw = (FullRedraw == true || forced == true);
+    unknown_14d5 = (unknown_14d5 == true || FullRedraw == true);
     if (unknown_14d5) {
         ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_buffer_ac0ff0;
         CC_Draw_Shape(SidebarSurface, SidebarDrawer, shape, 0,
-                      Point2D(unknown_11e0, unknown_11e4), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                      Point2D(RadX, RadY), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         BriefingButton.Draw_Me(true);
         OptionsButton.Draw_Me(true);
     }
 
-    if (unknown_14a8 != 1) {
-        if (unknown_14a8 != 0 && unknown_14fc.Value() == 0) {
-            unknown_14fc = 4;
+    if (RadarState != 1) {
+        if (RadarState != 0 && RadarAnimTimer.Value() == 0) {
+            RadarAnimTimer = 4;
             redraw = true;
-            if (unknown_14a8 == 2) {
-                if (--unknown_14f8 <= 0) {
-                    unknown_14a8 = 0;
+            if (RadarState == 2) {
+                if (--RadarAnimFrame <= 0) {
+                    RadarState = 0;
                     unknown_14bc.Unknown_00406070();
-                    unknown_14f8 = 0;
+                    RadarAnimFrame = 0;
                 }
             } else {
-                if (++unknown_14f8 >= 32) {
+                if (++RadarAnimFrame >= 32) {
                     unknown_14bc.Unknown_00406070();
-                    unknown_14a8 = 1;
-                    unknown_14d6 = true;
-                    unknown_14f8 = 32;
+                    RadarState = 1;
+                    FullRedraw = true;
+                    RadarAnimFrame = 32;
                 }
             }
         }
-        if (unknown_14a8 != 1 && (unknown_14d5 == true || redraw)
-            && unknown_14f8 >= 0 && unknown_14f8 < ((ShapeFileStruct const *)RadarButton.unknown_28)->FrameCount) {
-            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)RadarButton.unknown_28, unknown_14f8,
-                          Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-            unknown_1208 = Rect(unknown_11e0, unknown_11e8, SidebarWidth, 110);
+        if (RadarState != 1 && (unknown_14d5 == true || redraw)
+            && RadarAnimFrame >= 0 && RadarAnimFrame < ((ShapeFileStruct const *)RadarButton.unknown_28)->FrameCount) {
+            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)RadarButton.unknown_28, RadarAnimFrame,
+                          Point2D(RadX, RadWidth), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+            LastDrawRect = Rect(RadX, RadWidth, SidebarWidth, 110);
         }
     }
 
     Process_Radar_Events();
     Render_Radar();
-    if (unknown_14a8 == 1) {
-        switch (unknown_14ac) {
+    if (RadarState == 1) {
+        switch (RadarMode) {
         case 1:
         case 4:
             break;
         case 2:
             if (unknown_14d5) {
                 unknown_14d5 = false;
-                if (unknown_14d6) {
+                if (FullRedraw) {
                     CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)RadarButton.unknown_28, 32,
-                                  Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                                  Point2D(RadX, RadWidth), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                     Draw_Names();
-                    unknown_1208 = Rect(unknown_11e0, unknown_11e8, SidebarWidth, 110);
+                    LastDrawRect = Rect(RadX, RadWidth, SidebarWidth, 110);
                 } else {
                     Draw_Names();
-                    unknown_1208 = Rect(unknown_11ec, unknown_11f0, unknown_11fc, unknown_1200);
+                    LastDrawRect = Rect(RadHeight, RadOffX, RadIHeight, RadPWidth);
                 }
             }
             break;
@@ -515,24 +515,24 @@ void RadarClass::Draw_It(bool forced)
             if (unknown_14d5) {
                 unknown_14d5 = false;
                 CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)RadarButton.unknown_28, 0,
-                              Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-                unknown_1208 = Rect(unknown_11e0, unknown_11e8, SidebarWidth, 110);
+                              Point2D(RadX, RadWidth), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                LastDrawRect = Rect(RadX, RadWidth, SidebarWidth, 110);
             }
             break;
         }
     }
 
-    if (unknown_14d6) {
-        unknown_14d6 = false;
+    if (FullRedraw) {
+        FullRedraw = false;
         SidebarClass::Upgrade.Draw_Me(true);
         SidebarClass::unknown_button_ab96b8.Draw_Me(true);
     }
     if (BriefingButton.IsDrawn) {
-        unknown_1208 = Union(unknown_1208, unknown_rect_ab6468);
+        LastDrawRect = Union(LastDrawRect, unknown_rect_ab6468);
         SidebarClass_IsToBlitSidebar = true;
     }
     if (OptionsButton.IsDrawn) {
-        unknown_1208 = Union(unknown_1208, unknown_rect_ab6338);
+        LastDrawRect = Union(LastDrawRect, unknown_rect_ab6338);
         SidebarClass_IsToBlitSidebar = true;
     }
 }
@@ -680,12 +680,12 @@ void RadarClass::AI(int &input, Point2D const &xy)
     } else if (input == 0x80F3) {
         SpecialDialog = 1;
     }
-    if (unknown_int_af8fe8 > 0 && unknown_14ac != 3 && unknown_14ac != 4) {
-        unknown_14b0 = unknown_14ac;
+    if (unknown_int_af8fe8 > 0 && RadarMode != 3 && RadarMode != 4) {
+        SuspendedRadarMode = RadarMode;
         Radar_Activate(4, false);
-        unknown_14b4 = 0;
+        TransmissionState = 0;
     }
-    if (unknown_14ac == 4) {
+    if (RadarMode == 4) {
         Update_Transmission();
     } else {
         Remove_Speech_Hold();
@@ -732,8 +732,8 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
     if (flags & 0x22) {
         return false;
     }
-    int mode = Map.unknown_14ac;
-    int state = Map.unknown_14a8;
+    int mode = Map.RadarMode;
+    int state = Map.RadarState;
     bool playing = mode == 3 && state == 1;
     bool tactical = mode == 1 && state == 1;
     if (playing) {
@@ -752,7 +752,7 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
         y = WWMouse->Get_Mouse_Y();
     }
     x -= unknown_flag_a40b30 ? unknown_int_839638 : 0;
-    if (x < Map.unknown_1498.X || x >= Map.unknown_1498.X + Map.unknown_1498.Width || y < Map.unknown_1498.Y || y >= Map.unknown_1498.Y + Map.unknown_1498.Height) {
+    if (x < Map.RadarRect.X || x >= Map.RadarRect.X + Map.RadarRect.Width || y < Map.RadarRect.Y || y >= Map.RadarRect.Y + Map.RadarRect.Height) {
         Map.Override_Mouse_Shape(0, false);
         return false;
     }
@@ -954,16 +954,16 @@ void RadarClass::Draw_Names()
 {
     if (unknown_flag_8373c1) {
         CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)RadarClass_RadarAnim, 32,
-                      Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0,
+                      Point2D(RadX, RadWidth), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0,
                       Point2D(0, 0));
-        int y = unknown_11f0 + 2;
+        int y = RadOffX + 2;
         Fancy_Text_Printf(StringTable::Load_String("TXT_NAME_COLON", 0, "D:\\Ra2\\Radar.CPP", 1217), SidebarSurface,
-                          &SidebarSurface->Get_Rect(), &Point2D(unknown_11ec, y), Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
+                          &SidebarSurface->Get_Rect(), &Point2D(RadHeight, y), Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
         Fancy_Text_Printf(StringTable::Load_String("TXT_KILLS_COLON", 0, "D:\\Ra2\\Radar.CPP", 1219), SidebarSurface,
-                          &SidebarSurface->Get_Rect(), &Point2D(unknown_11ec + unknown_11f4 - 2, y),
+                          &SidebarSurface->Get_Rect(), &Point2D(RadHeight + RadOffY - 2, y),
                           Fetch_Scheme_By_Name("Grey", 1), 0, 0x219);
         y += 7;
-        SidebarSurface->Draw_Line(Point2D(unknown_11ec, y), Point2D(unknown_11ec + unknown_11f4 - 1, y),
+        SidebarSurface->Draw_Line(Point2D(RadHeight, y), Point2D(RadHeight + RadOffY - 1, y),
                                           SidebarDrawer->Convert(14));
         y += 4;
         for (int index = 0; index < Houses.Count(); index++) {
@@ -989,7 +989,7 @@ void RadarClass::Draw_Names()
                     text[18] = '.';
                     text[19] = 0;
                 }
-                Fancy_Text_Printf(text, SidebarSurface, &SidebarSurface->Get_Rect(), &Point2D(unknown_11ec, y),
+                Fancy_Text_Printf(text, SidebarSurface, &SidebarSurface->Get_Rect(), &Point2D(RadHeight, y),
                                   scheme, 0, flags);
                 int kills = 0;
                 for (int other = 0; other < 20; other++) {
@@ -997,7 +997,7 @@ void RadarClass::Draw_Names()
                 }
                 swprintf(text, L"%2d", kills);
                 Fancy_Text_Printf(text, SidebarSurface, &SidebarSurface->Get_Rect(),
-                                  &Point2D(unknown_11ec + unknown_11f4 - 2, y), scheme, 0, flags | 0x200);
+                                  &Point2D(RadHeight + RadOffY - 2, y), scheme, 0, flags | 0x200);
                 y += 9;
             }
         }
@@ -1025,7 +1025,7 @@ void RadarClass::Reposition_Sidebar()
     OptionsButton.DrawOffsetX = -offset;
     OptionsButton.Set_Position(unknown_int_ab6338 + offset, unknown_int_ab633c);
     OptionsButton.Flag_To_Redraw();
-    RadarButton.Set_Position(unknown_11ec + offset, unknown_11f0);
+    RadarButton.Set_Position(RadHeight + offset, RadOffX);
     RadarButton.Flag_To_Redraw();
 
     ToolTip tip;
@@ -1048,7 +1048,7 @@ void RadarClass::Reposition_Sidebar()
     tip.Region.Height = OptionsButton.Height;
     ToolTips->Remove(0xF3);
     ToolTips->Add(tip);
-    unknown_14d6 = true;
+    FullRedraw = true;
 }
 
 
@@ -1061,31 +1061,31 @@ void RadarClass::Reposition_Sidebar()
 void RadarClass::Set_Local_Dimensions(Rect const &size)
 {
     MapClass::Set_Local_Dimensions(size);
-    unknown_1498.Y = 10000;
-    unknown_1498.X = 10000;
-    unknown_1498.Height = 0;
-    unknown_1498.Width = 0;
+    RadarRect.Y = 10000;
+    RadarRect.X = 10000;
+    RadarRect.Height = 0;
+    RadarRect.Width = 0;
     Cell corner(MapLocalSize.Y + MapLocalSize.X + 1,
         MapLocalSize.Y + MapSize.Width - MapLocalSize.X);
     Cell original_corner(corner);
     int x = MapLocalSize.Width - 1;
     int y = 1 - MapLocalSize.Width;
     Cell opposite = corner + Cell(x, y);
-    unknown_148c = original_corner.Y - corner.X;
+    RadarX = original_corner.Y - corner.X;
     unknown_1490 = opposite.X - opposite.Y;
-    unknown_1494 = -1;
+    RadarY = -1;
     Map.Reset_Iterator();
     CellClass *iter = Iterate();
     while (iter != 0) {
         Cell cell = iter->MapCoords;
         if (Unknown_0055A660(cell, true)) {
-            if (unknown_1494 == -1) unknown_1494 = iter->MapCoords.X + iter->MapCoords.Y;
+            if (RadarY == -1) RadarY = iter->MapCoords.X + iter->MapCoords.Y;
             cell = iter->MapCoords;
             Rect area = Cell_Radar_Rect(cell);
-            if (area.X < unknown_1498.X) unknown_1498.X = area.X;
-            else if (area.X + area.Width > unknown_1498.X + unknown_1498.Width) unknown_1498.Width = area.X + area.Width - unknown_1498.X;
-            if (area.Y < unknown_1498.Y) unknown_1498.Y = area.Y;
-            else if (area.Y + area.Height > unknown_1498.Y + unknown_1498.Height) unknown_1498.Height = area.Y + area.Height - unknown_1498.Y;
+            if (area.X < RadarRect.X) RadarRect.X = area.X;
+            else if (area.X + area.Width > RadarRect.X + RadarRect.Width) RadarRect.Width = area.X + area.Width - RadarRect.X;
+            if (area.Y < RadarRect.Y) RadarRect.Y = area.Y;
+            else if (area.Y + area.Height > RadarRect.Y + RadarRect.Height) RadarRect.Height = area.Y + area.Height - RadarRect.Y;
         }
         iter = Iterate();
     }
@@ -1106,38 +1106,38 @@ void RadarClass::Set_Local_Dimensions(Rect const &size)
 
 void RadarClass::Compute_Radar_Image()
 {
-    if (unknown_1498.Is_Valid()) {
-        unknown_1498.Y = 0;
-        unknown_1498.X = 0;
-        if (unknown_121c) {
-            delete unknown_121c;
-            unknown_121c = 0;
+    if (RadarRect.Is_Valid()) {
+        RadarRect.Y = 0;
+        RadarRect.X = 0;
+        if (BackgroundSurface) {
+            delete BackgroundSurface;
+            BackgroundSurface = 0;
         }
         if (BackgroundColors) {
             delete[] BackgroundColors;
             BackgroundColors = 0;
         }
-        if (unknown_1270) {
-            delete[] unknown_1270;
-            unknown_1270 = 0;
+        if (PixelFlags) {
+            delete[] PixelFlags;
+            PixelFlags = 0;
         }
-        Compute_Background(unknown_1498, unknown_1498, true);
-        unknown_1498.Width = unknown_121c->Get_Width();
-        unknown_1498.Height = unknown_121c->Get_Height();
-        unknown_1498.X = unknown_11ec;
-        if (unknown_1498.Width < 140) {
-            unknown_1498.X = (140 - unknown_1498.Width) / 2 + unknown_11ec;
+        Compute_Background(RadarRect, RadarRect, true);
+        RadarRect.Width = BackgroundSurface->Get_Width();
+        RadarRect.Height = BackgroundSurface->Get_Height();
+        RadarRect.X = RadHeight;
+        if (RadarRect.Width < 140) {
+            RadarRect.X = (140 - RadarRect.Width) / 2 + RadHeight;
         }
-        unknown_1498.Y = unknown_11f0;
-        if (unknown_1498.Height < 108) {
-            unknown_1498.Y = (108 - unknown_1498.Height) / 2 + unknown_11f0;
+        RadarRect.Y = RadOffX;
+        if (RadarRect.Height < 108) {
+            RadarRect.Y = (108 - RadarRect.Height) / 2 + RadOffX;
         }
-        if (unknown_1218) {
-            delete unknown_1218;
-            unknown_1218 = 0;
+        if (RadarSurface) {
+            delete RadarSurface;
+            RadarSurface = 0;
         }
-        unknown_1218 = new DSurface(unknown_121c->Get_Width(), unknown_121c->Get_Height(), true);
-        unknown_1218->Fill(0);
+        RadarSurface = new DSurface(BackgroundSurface->Get_Width(), BackgroundSurface->Get_Height(), true);
+        RadarSurface->Fill(0);
         Compute_Foundations();
     }
 }
@@ -1181,11 +1181,11 @@ Rect RadarClass::Compute_Background(Rect const &cell_rect, Rect &update_rect, bo
     }
 
     int cell_width = cell_rect.Width;
-    float zoom_scale = unknown_1484;
+    float zoom_scale = ZoomFactor;
     int surface_width;
     int surface_height;
 
-    if (unknown_121c == 0) {
+    if (BackgroundSurface == 0) {
         zoom_scale = 140 / (float)cell_width;
         float scaled_height = cell_rect.Height * zoom_scale;
         if (scaled_height < 108) {
@@ -1197,20 +1197,20 @@ Rect RadarClass::Compute_Background(Rect const &cell_rect, Rect &update_rect, bo
             surface_width = scaled_width;
             surface_height = 108;
         }
-        unknown_1484 = zoom_scale;
+        ZoomFactor = zoom_scale;
 
-        unknown_121c = new BSurface(surface_width, surface_height, 2);
-        unknown_121c->Fill(0);
+        BackgroundSurface = new BSurface(surface_width, surface_height, 2);
+        BackgroundSurface->Fill(0);
     } else {
-        surface_width = unknown_121c->Get_Width();
-        surface_height = unknown_121c->Get_Height();
+        surface_width = BackgroundSurface->Get_Width();
+        surface_height = BackgroundSurface->Get_Height();
     }
 
     float pixels_per_cell_x = (float)cell_rect.Width / (float)surface_width;
     float pixels_per_cell_y = (float)cell_rect.Height / (float)surface_height;
     float inv_area = 1.0 / (pixels_per_cell_x * pixels_per_cell_y);
 
-    unsigned short *data = (unsigned short *)unknown_121c->Lock();
+    unsigned short *data = (unsigned short *)BackgroundSurface->Lock();
 
     int surf_left, surf_right, surf_top, surf_bottom;
     Radar_Pixel_Bounds(update_rect, zoom_scale, surface_width, surface_height, surf_left, surf_right, surf_top, surf_bottom);
@@ -1289,12 +1289,12 @@ Rect RadarClass::Compute_Background(Rect const &cell_rect, Rect &update_rect, bo
         }
     }
 
-    unknown_121c->Unlock();
+    BackgroundSurface->Unlock();
 
     int pixel_count = (surface_width * surface_height) / 8 + 1;
-    if (unknown_1270 == 0) {
-        unknown_1270 = new unsigned char[pixel_count];
-        memset(unknown_1270, 0, pixel_count);
+    if (PixelFlags == 0) {
+        PixelFlags = new unsigned char[pixel_count];
+        memset(PixelFlags, 0, pixel_count);
     }
 
     Rect result(surf_left, surf_top, surf_right - surf_left, surf_bottom - surf_top);
@@ -1325,9 +1325,9 @@ void RadarClass::Fill_In_Background(Rect const &cell_rect, Rect const &update_re
     while (iter != 0) {
         int x = iter->MapCoords.X;
         int y = iter->MapCoords.Y;
-        if (x + y >= unknown_1494) {
+        if (x + y >= RadarY) {
             int origx = x - y - a;
-            int origy = x + y - unknown_1494;
+            int origy = x + y - RadarY;
             Rect mrect(origx, origy, 2, 1);
             mrect = Intersect(mrect, update_rect);
             if (mrect.Is_Valid()) {
@@ -1364,8 +1364,8 @@ Rect RadarClass::Cell_Radar_Rect(Cell const &cell)
 {
     int cellx = cell.X;
     int celly = cell.Y;
-    int x = unknown_148c - celly + cellx;
-    int y = celly - unknown_1494 + cellx;
+    int x = RadarX - celly + cellx;
+    int y = celly - RadarY + cellx;
     int width = 2;
     if (x == -1) {
         x = 0;
@@ -1391,9 +1391,9 @@ Rect RadarClass::Cell_To_Radar_Pixel(Cell const &cell)
 {
     int cellx = cell.X;
     int celly = cell.Y;
-    int x = (int)((unknown_148c - celly + cellx) * unknown_1484 + unknown_1498.X);
-    int y = (int)((celly - unknown_1494 + cellx) * unknown_1484 + unknown_1498.Y);
-    if (x == unknown_1498.X - 1) {
+    int x = (int)((RadarX - celly + cellx) * ZoomFactor + RadarRect.X);
+    int y = (int)((celly - RadarY + cellx) * ZoomFactor + RadarRect.Y);
+    if (x == RadarRect.X - 1) {
         x++;
     }
     return Rect(x, y, 1, 1);
@@ -1410,8 +1410,8 @@ Rect RadarClass::Cell_To_Radar_Pixel(Cell const &cell)
 
 Cell RadarClass::Radar_Pixel_To_Cell(Point2D const &point)
 {
-    float x = point.X / unknown_1484 - unknown_148c;
-    float y = point.Y / unknown_1484 + unknown_1494;
+    float x = point.X / ZoomFactor - RadarX;
+    float y = point.Y / ZoomFactor + RadarY;
     Cell cell;
     float sum = y;
     sum += x;
@@ -1484,7 +1484,7 @@ void RadarClass::Plot_Radar_Background()
         }
     }
     unknown_1220.Clear();
-    unknown_1244 = r;
+    CellRedrawRect = r;
 }
 
 
@@ -1504,7 +1504,7 @@ void RadarClass::Plot_Radar_Background()
 
 void RadarClass::Radar_Track(TechnoClass *techno, Point2D point)
 {
-    Rect area = unknown_1218->Get_Rect();
+    Rect area = RadarSurface->Get_Rect();
     if (!area.Is_Point_Within(point)) {
         if (techno->Kind_Of() == 6) {
             return;
@@ -1523,7 +1523,7 @@ void RadarClass::Radar_Track(TechnoClass *techno, Point2D point)
         }
         techno->unknown_1a0 = point;
     }
-    DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = unknown_1254->Buckets[RadarTrackingStruct_Hash_Old(point) % 256];
+    DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = RadarTrackingTable->Buckets[RadarTrackingStruct_Hash_Old(point) % 256];
     HashObject<RadarTrackingStruct, TechnoClass *> object;
     object.Key.Position = point;
     object.Key.unknown_00 = techno;
@@ -1559,7 +1559,7 @@ void RadarClass::Radar_Track(TechnoClass *techno, Point2D point)
 
 void RadarClass::Radar_Untrack(TechnoClass *techno, Point2D point)
 {
-    DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = unknown_1254->Buckets[RadarTrackingStruct_Hash_Old(point) % 256];
+    DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = RadarTrackingTable->Buckets[RadarTrackingStruct_Hash_Old(point) % 256];
     HashObject<RadarTrackingStruct, TechnoClass *> object;
     object.Key.Position = point;
     object.Key.unknown_00 = techno;
@@ -1585,20 +1585,20 @@ Point2D RadarClass::Coord_To_Radar_Pixel(Point2D const &coord, bool clip)
 {
     int px = coord.X;
     int py = coord.Y;
-    int x = (int)((unknown_148c * 256 - py + px) * unknown_1484 * (1.0f / 256.0f));
-    int y = (int)((py - unknown_1494 * 256 + px) * unknown_1484 * (1.0f / 256.0f));
+    int x = (int)((RadarX * 256 - py + px) * ZoomFactor * (1.0f / 256.0f));
+    int y = (int)((py - RadarY * 256 + px) * ZoomFactor * (1.0f / 256.0f));
     if (clip) {
         if (x < 0) {
             x = 0;
         }
-        if (x >= unknown_1498.Width) {
-            x = unknown_1498.Width - 1;
+        if (x >= RadarRect.Width) {
+            x = RadarRect.Width - 1;
         }
         if (y < 0) {
             y = 0;
         }
-        if (y >= unknown_1498.Height) {
-            y = unknown_1498.Height - 1;
+        if (y >= RadarRect.Height) {
+            y = RadarRect.Height - 1;
         }
     }
     return Point2D(x, y);
@@ -1631,7 +1631,7 @@ int __fastcall RadarTrackingStruct_Hash2(RadarTrackingStruct const &key)
 
 void RadarClass::Init_Radar()
 {
-    unknown_1254 = new HashTableClass<RadarTrackingStruct, TechnoClass *>(10, 256, RadarTrackingStruct_Hash2);
+    RadarTrackingTable = new HashTableClass<RadarTrackingStruct, TechnoClass *>(10, 256, RadarTrackingStruct_Hash2);
 }
 
 
@@ -1649,8 +1649,8 @@ void RadarClass::Init_Radar()
 
 void RadarClass::Reset_Radar()
 {
-    delete unknown_1254;
-    unknown_1254 = New_Tracking_Table(256, 10);
+    delete RadarTrackingTable;
+    RadarTrackingTable = New_Tracking_Table(256, 10);
     RadarClass *map = &Map;
     map->RadarClass::Set_Local_Dimensions(map->MapLocalSize);
     Compute_Radar_Image();
@@ -1668,25 +1668,25 @@ void RadarClass::Reset_Radar()
 
 void RadarClass::Clear_Radar()
 {
-    if (unknown_1218) {
-        delete unknown_1218;
-        unknown_1218 = 0;
+    if (RadarSurface) {
+        delete RadarSurface;
+        RadarSurface = 0;
     }
-    if (unknown_121c) {
-        delete unknown_121c;
-        unknown_121c = 0;
+    if (BackgroundSurface) {
+        delete BackgroundSurface;
+        BackgroundSurface = 0;
     }
     if (BackgroundColors) {
         delete[] BackgroundColors;
         BackgroundColors = 0;
     }
-    if (unknown_1254) {
-        delete unknown_1254;
-        unknown_1254 = 0;
+    if (RadarTrackingTable) {
+        delete RadarTrackingTable;
+        RadarTrackingTable = 0;
     }
-    if (unknown_1270) {
-        delete[] unknown_1270;
-        unknown_1270 = 0;
+    if (PixelFlags) {
+        delete[] PixelFlags;
+        PixelFlags = 0;
     }
 }
 
@@ -1706,21 +1706,21 @@ void RadarClass::Clear_Radar()
 
 void RadarClass::Post_Load_Radar_Fixup()
 {
-    unknown_1218 = 0;
-    unknown_121c = 0;
+    RadarSurface = 0;
+    BackgroundSurface = 0;
     BackgroundColors = 0;
-    unknown_1254 = 0;
-    unknown_1270 = 0;
-    unknown_1254 = New_Tracking_Table(256, 10);
+    RadarTrackingTable = 0;
+    PixelFlags = 0;
+    RadarTrackingTable = New_Tracking_Table(256, 10);
     RadarClass *map = &Map;
     map->RadarClass::Set_Local_Dimensions(map->MapLocalSize);
     Compute_Radar_Image();
     for (int index = 0; index < unknown_list_a40c20.Count(); index++) {
         unknown_list_a40c20[index]->unknown_37b = false;
     }
-    if (unknown_14ac == 3) {
-        unknown_14a8 = 5;
-        Radar_Activate(unknown_14b0, false);
+    if (RadarMode == 3) {
+        RadarState = 5;
+        Radar_Activate(SuspendedRadarMode, false);
         Set_Frame_Rate_Limit(Rules->DetailMinFrameRateNormal);
     }
 }
@@ -1756,21 +1756,21 @@ ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name,int kind);
 void RadarClass::Plot_Radar_Pixel(Point2D const &point)
 {
     if(!PlayerPtr) return;
-    if(!unknown_1218->Get_Rect().Is_Point_Within(point)) return;
+    if(!RadarSurface->Get_Rect().Is_Point_Within(point)) return;
     Cell cell=Radar_Pixel_To_Cell(point);
     CoordStruct coord(cell.X*256+128,cell.Y*256+128,0);
     coord.Z=Map.Get_Height_GL(coord);
     bool shadow=unknown_b263d8 && Map.Is_Shrouded(coord);
     bool dim=unknown_b263d8 && Map.Is_Under_Fog(coord);
     TechnoClass *tech=0;
-    DynamicVectorClass<HashObject<RadarTrackingStruct,TechnoClass *> > &bucket=unknown_1254->Buckets[RadarTrackingStruct_Hash_Old(point)&255];
+    DynamicVectorClass<HashObject<RadarTrackingStruct,TechnoClass *> > &bucket=RadarTrackingTable->Buckets[RadarTrackingStruct_Hash_Old(point)&255];
     int count=bucket.Count();
     HashObject<RadarTrackingStruct,TechnoClass *> *items=&bucket[0];
     for(int index=0;index<count;++index) {
         TechnoClass *candidate=items[index].Key.unknown_00;
         if(items[index].Key.Position==point &&
             (!shadow || candidate->House->Is_Player_Control()) &&
-            (!candidate->Techno_Type_Class()->unknown_1ff || PlayerPtr->Is_Ally(candidate))) {
+            (!candidate->Techno_Type_Class()->IsStealthy || PlayerPtr->Is_Ally(candidate))) {
             tech=candidate;
             break;
         }
@@ -1783,18 +1783,18 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
         else color=Fetch_Scheme_By_Name("LightGrey",1)->unknown_color_0x330;
         int remaining=tech->unknown_13c.Value();
         if(remaining>0 && ((remaining-1)/Rules->FlashFrameTime)%2==1 && tech->House==PlayerPtr)
-            unknown_1218->Put_Pixel(point,~color);
-        else unknown_1218->Put_Pixel(point,color);
+            RadarSurface->Put_Pixel(point,~color);
+        else RadarSurface->Put_Pixel(point,color);
     } else {
         if(dim) {
-            RGBClass color=Unpack_Hicolor_Pixel((unsigned short)unknown_121c->Get_Pixel(point));
-            unknown_1218->Put_Pixel(point,Build_Hicolor_Pixel(color.Red>>1,color.Green>>1,color.Blue>>1));
+            RGBClass color=Unpack_Hicolor_Pixel((unsigned short)BackgroundSurface->Get_Pixel(point));
+            RadarSurface->Put_Pixel(point,Build_Hicolor_Pixel(color.Red>>1,color.Green>>1,color.Blue>>1));
         } else {
-            if(!shadow) unknown_1218->Put_Pixel(point,unknown_121c->Get_Pixel(point));
-            else unknown_1218->Put_Pixel(point,0);
+            if(!shadow) RadarSurface->Put_Pixel(point,BackgroundSurface->Get_Pixel(point));
+            else RadarSurface->Put_Pixel(point,0);
         }
     }
-    unknown_1208=Union(unknown_1208,Rect(point.X,point.Y,1,1)+Point2D(unknown_1498.X,unknown_1498.Y));
+    LastDrawRect=Union(LastDrawRect,Rect(point.X,point.Y,1,1)+Point2D(RadarRect.X,RadarRect.Y));
 }
 
 // External references verified against complete original body operands.
@@ -1814,19 +1814,19 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
 
 void RadarClass::Render_Tracked_Objects()
 {
-    memset(unknown_1270, 0, unknown_1218->Get_Width() * unknown_1218->Get_Height() / 8 + 1);
+    memset(PixelFlags, 0, RadarSurface->Get_Width() * RadarSurface->Get_Height() / 8 + 1);
     for (int b = 0; b < 256; b++) {
-        DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = unknown_1254->Buckets[b];
+        DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = RadarTrackingTable->Buckets[b];
         int count = bucket.Count();
         HashObject<RadarTrackingStruct, TechnoClass *> *ptr = &bucket[0];
         for (int t = 0; t < count; t++) {
             RadarTrackingStruct *track = &ptr[t].Key;
             TechnoClass *tech = track->unknown_00;
-            int id = track->Position.X + track->Position.Y * unknown_1218->Get_Width();
+            int id = track->Position.X + track->Position.Y * RadarSurface->Get_Width();
             int i = id >> 3;
             int bit = 1 << (id & 7);
-            if ((unknown_1270[i] & bit) == 0) {
-                unknown_1270[i] |= bit;
+            if ((PixelFlags[i] & bit) == 0) {
+                PixelFlags[i] |= bit;
                 ColorScheme *scheme = ColorSchemes[tech->House->ColorSchemeIndex];
                 if (tech->unknown_slot48()) {
                     if (tech->GetDisguiseHouse(false) != 0) {
@@ -1836,7 +1836,7 @@ void RadarClass::Render_Tracked_Objects()
                     }
                 }
                 int color = scheme->Converter->Convert(scheme->unknown_color_0x330);
-                unknown_1218->Put_Pixel(track->Position, color);
+                RadarSurface->Put_Pixel(track->Position, color);
             }
         }
     }
@@ -1867,13 +1867,13 @@ void RadarClass::Render_Tracked_Objects()
 
 void RadarClass::Radar_Pixel(Point2D const &point)
 {
-    if (point.X >= 0 && point.X < unknown_1218->Get_Width() && point.Y >= 0 && point.Y < unknown_1218->Get_Height()) {
-        int id = point.X + point.Y * unknown_1218->Get_Width();
+    if (point.X >= 0 && point.X < RadarSurface->Get_Width() && point.Y >= 0 && point.Y < RadarSurface->Get_Height()) {
+        int id = point.X + point.Y * RadarSurface->Get_Width();
         int i = id >> 3;
         int bit = 1 << (id & 7);
-        if ((unknown_1270[i] & bit) == 0) {
-            unknown_1270[i] |= bit;
-            unknown_1258.Add(point);
+        if ((PixelFlags[i] & bit) == 0) {
+            PixelFlags[i] |= bit;
+            PixelStack.Add(point);
             unknown_14d5 = true;
         }
     }
@@ -1903,18 +1903,18 @@ void RadarClass::Compute_Foundations()
         int scale_b = BuildingTypeClass_SizeHeight[index];
         int a;
         if (scale_a == 1) {
-            double size = unknown_1484 + 0.5;
+            double size = ZoomFactor + 0.5;
             a = (int)(1.0 > size ? 1.0 : size);
         } else {
-            double size = scale_a * unknown_1484 + 0.5;
+            double size = scale_a * ZoomFactor + 0.5;
             a = (int)(2.0 > size ? 2.0 : size);
         }
         int b;
         if (scale_b == 1) {
-            double size = unknown_1484 + 0.5;
+            double size = ZoomFactor + 0.5;
             b = (int)(1.0 > size ? 1.0 : size);
         } else {
-            double size = scale_b * unknown_1484 + 0.5;
+            double size = scale_b * ZoomFactor + 0.5;
             b = (int)(2.0 > size ? 2.0 : size);
         }
         int rows = b + a - 1;
@@ -1957,19 +1957,19 @@ unsigned int Leaf_6328d0::get(unsigned int type_address) { unsigned int radar_ad
 
 void RadarClass::Radar_Cell(Cell const &cell)
 {
-    if (unknown_1218 != 0) {
+    if (RadarSurface != 0) {
         Rect clipped_cell_radar_rect = Cell_Radar_Rect(cell);
         clipped_cell_radar_rect = Intersect(clipped_cell_radar_rect, Rect(0, 0, RadarCellWidth, RadarCellHeight));
-        int swidth = unknown_1218->Get_Width();
-        int sheight = unknown_1218->Get_Height();
+        int swidth = RadarSurface->Get_Width();
+        int sheight = RadarSurface->Get_Height();
         if (clipped_cell_radar_rect.Is_Valid()) {
-            int zx = (int)(clipped_cell_radar_rect.X * unknown_1484);
+            int zx = (int)(clipped_cell_radar_rect.X * ZoomFactor);
             int startx = (zx - 1 < 0) ? 0 : zx - 1;
-            int ex = (int)((double)(clipped_cell_radar_rect.X + clipped_cell_radar_rect.Width) * unknown_1484) + 1;
+            int ex = (int)((double)(clipped_cell_radar_rect.X + clipped_cell_radar_rect.Width) * ZoomFactor) + 1;
             int width = (ex < swidth) ? ex : swidth;
-            int zy = (int)(clipped_cell_radar_rect.Y * unknown_1484);
+            int zy = (int)(clipped_cell_radar_rect.Y * ZoomFactor);
             int starty = (zy - 1 < 0) ? 0 : zy - 1;
-            int ey = (int)((double)(clipped_cell_radar_rect.Y + clipped_cell_radar_rect.Height) * unknown_1484) + 1;
+            int ey = (int)((double)(clipped_cell_radar_rect.Y + clipped_cell_radar_rect.Height) * ZoomFactor) + 1;
             int height = (ey < sheight) ? ey : sheight;
             for (int y = starty; y < height; y++) {
                 for (int x = startx; x < width; x++) {
@@ -1995,9 +1995,9 @@ void RadarClass::Radar_Cell(Cell const &cell)
 
 void RadarClass::Resolve_Radar_Point(Point2D const &pixel, Cell &cell, TechnoClass *&found)
 {
-    Point2D origin = *reinterpret_cast<Point2D const *>(&unknown_1498);
+    Point2D origin = *reinterpret_cast<Point2D const *>(&RadarRect);
     Point2D point = pixel - origin;
-    DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = unknown_1254->Buckets[(point.X + point.Y * 251) & 255];
+    DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = RadarTrackingTable->Buckets[(point.X + point.Y * 251) & 255];
     int count = bucket.Count();
     found = 0;
     for (int index = count - 1; index >= 0; --index) {
@@ -2039,14 +2039,14 @@ HRESULT RadarClass::Load(IStream *stream)
         return result;
     }
     unknown_14bc.Unknown_00405BF0();
-    new (&unknown_1258) DynamicVectorClass<Point2D>;
+    new (&PixelStack) DynamicVectorClass<Point2D>;
     for (int index = 0; index < count; index++) {
         Point2D point;
         result = stream->Read(&point, sizeof(point), 0);
         if (FAILED(result)) {
             return result;
         }
-        unknown_1258.Add(point);
+        PixelStack.Add(point);
     }
     result = stream->Read(&count, sizeof(count), 0);
     if (FAILED(result)) {
@@ -2064,19 +2064,19 @@ HRESULT RadarClass::Load(IStream *stream)
     for (index = 0; index < 22; index++) {
         new (&unknown_1274[index]) DynamicVectorClass<Point2D>;
     }
-    result = stream->Read(&unknown_14ac, sizeof(unknown_14ac), 0);
+    result = stream->Read(&RadarMode, sizeof(RadarMode), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Read(&unknown_14a8, sizeof(unknown_14a8), 0);
+    result = stream->Read(&RadarState, sizeof(RadarState), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Read(&unknown_14b0, sizeof(unknown_14b0), 0);
+    result = stream->Read(&SuspendedRadarMode, sizeof(SuspendedRadarMode), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Read(&unknown_14b4, sizeof(unknown_14b4), 0);
+    result = stream->Read(&TransmissionState, sizeof(TransmissionState), 0);
     if (FAILED(result)) {
         return result;
     }
@@ -2103,13 +2103,13 @@ HRESULT RadarClass::Save(IStream *stream)
     if (FAILED(result)) {
         return result;
     }
-    int count = unknown_1258.Count();
+    int count = PixelStack.Count();
     result = stream->Write(&count, sizeof(count), 0);
     if (FAILED(result)) {
         return result;
     }
     for (int index = 0; index < count; index++) {
-        result = stream->Write(&unknown_1258[index], sizeof(Point2D), 0);
+        result = stream->Write(&PixelStack[index], sizeof(Point2D), 0);
         if (FAILED(result)) {
             return result;
         }
@@ -2125,19 +2125,19 @@ HRESULT RadarClass::Save(IStream *stream)
             return result;
         }
     }
-    result = stream->Write(&unknown_14ac, sizeof(unknown_14ac), 0);
+    result = stream->Write(&RadarMode, sizeof(RadarMode), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Write(&unknown_14a8, sizeof(unknown_14a8), 0);
+    result = stream->Write(&RadarState, sizeof(RadarState), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Write(&unknown_14b0, sizeof(unknown_14b0), 0);
+    result = stream->Write(&SuspendedRadarMode, sizeof(SuspendedRadarMode), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Write(&unknown_14b4, sizeof(unknown_14b4), 0);
+    result = stream->Write(&TransmissionState, sizeof(TransmissionState), 0);
     return FAILED(result) ? result : S_OK;
 }
 
@@ -2158,8 +2158,8 @@ HRESULT RadarClass::Save(IStream *stream)
 void RadarClass::Set_Radar_State(bool on, bool sound)
 {
     if (on == true) {
-        if (unknown_14a8 == 0 || unknown_14a8 == 2) {
-            unknown_14a8 = 3;
+        if (RadarState == 0 || RadarState == 2) {
+            RadarState = 3;
             unknown_14bc.Unknown_00406070();
             if (sound) {
                 Voc_Play(Rules->RadarOn, 1.0f, 0x2000, 0);
@@ -2168,7 +2168,7 @@ void RadarClass::Set_Radar_State(bool on, bool sound)
         }
     } else {
         unknown_14bc.Unknown_00406070();
-        unknown_14a8 = 2;
+        RadarState = 2;
         if (sound) {
             Voc_Play(Rules->RadarOff, 1.0f, 0x2000, 0);
         }
@@ -2217,35 +2217,35 @@ void RadarClass::Radar_Activate(int control, bool sound)
     if (unknown_game_mode_a3d298 && PlayerPtr->unknown_13d && MuteSWLaunches) {
         control = 1;
     }
-    if (unknown_14ac == control) {
+    if (RadarMode == control) {
         return;
     }
-    if ((unknown_14ac == 3 || (unknown_14ac == 4 && control != 3)) && unknown_14a8 != 5) {
-        unknown_14b0 = control;
+    if ((RadarMode == 3 || (RadarMode == 4 && control != 3)) && RadarState != 5) {
+        SuspendedRadarMode = control;
         return;
     }
     switch (control) {
     case 0:
-        Set_Radar_State(false, unknown_14ac == 1);
+        Set_Radar_State(false, RadarMode == 1);
         break;
     case 1:
-        if ((unknown_14a8 == 1 || unknown_14a8 == 5) && unknown_14d4 == true) {
+        if ((RadarState == 1 || RadarState == 5) && DoesRadarExist == true) {
             Queue_Next_Movie();
             break;
         }
-        Set_Radar_State(unknown_14d4, sound);
+        Set_Radar_State(DoesRadarExist, sound);
         break;
     case 4:
         break;
     default:
-        if (unknown_14a8 == 1 || unknown_14a8 == 5) {
+        if (RadarState == 1 || RadarState == 5) {
             Queue_Next_Movie();
             break;
         }
         Set_Radar_State(true, false);
         break;
     }
-    unknown_14ac = control;
+    RadarMode = control;
 }
 
 
@@ -2283,7 +2283,7 @@ unsigned int __fastcall RadarClass_Is_Radar_Tactical(int radar_address)
 
 bool RadarClass::Is_Radar_Existing()
 {
-    return unknown_14d4;
+    return DoesRadarExist;
 }
 
 
@@ -2297,11 +2297,11 @@ bool RadarClass::Is_Radar_Existing()
 
 void RadarClass::Toggle_Radar(bool on)
 {
-    if (unknown_14d4 != on) {
-        unknown_14d4 = on;
+    if (DoesRadarExist != on) {
+        DoesRadarExist = on;
         char const *txt = on ? "on" : "off";
         Debug_Printf("Radar: TacticalMap availability is %s\n", txt);
-        if (unknown_14ac == 1) {
+        if (RadarMode == 1) {
             Set_Radar_State(on, true);
         } else {
             Radar_Activate(1, true);
@@ -2318,7 +2318,7 @@ void RadarClass::Toggle_Radar(bool on)
 
 bool RadarClass::Is_Player_Names()
 {
-    return unknown_14ac == 2 && unknown_14a8 == 1;
+    return RadarMode == 2 && RadarState == 1;
 }
 
 
@@ -2347,7 +2347,7 @@ unsigned int __fastcall RadarClass_Is_Playing_Movie(int radar_address)
 void RadarClass::Redraw_Radar(bool complete)
 {
     unknown_14d5 = true;
-    unknown_14d6 = unknown_14d6 || complete;
+    FullRedraw = FullRedraw || complete;
 }
 
 
@@ -2363,80 +2363,80 @@ bool RadarEventClass_unknown_none();
 void RadarClass::Render_Radar()
 {
     int edge;
-    Rect previous = unknown_1208;
-    bool tactical = unknown_14ac == 1 && unknown_14a8 == 1;
+    Rect previous = LastDrawRect;
+    bool tactical = RadarMode == 1 && RadarState == 1;
     Cell center = Map[TacticalMap->Pixel_To_Cell(Point2D(
         TacticalRect.X + TacticalRect.Width / 2,
         TacticalRect.Y + TacticalRect.Height / 2))].Fetch_CellID();
-    unknown_14d8 = Cell_To_Radar_Pixel(center);
-    unknown_14d8.Width = (2 * TacticalRect.Width) / (60.0f / unknown_1484) + 1.0f;
-    unknown_14d8.Height = (2 * TacticalRect.Height) / (30.0f / unknown_1484);
-    unknown_14d8 -= Point2D(TacticalRect.Width / (60.0f / unknown_1484),
-        (2 * TacticalRect.Height) / (30.0f / unknown_1484) * 0.5f);
-    if (unknown_14d8.X < unknown_1498.X) unknown_14d8.X = unknown_1498.X;
-    else if (unknown_14d8.X + unknown_14d8.Width >= unknown_1498.X + unknown_1498.Width)
-        unknown_14d8.X = unknown_1498.X - (unknown_14d8.Width - unknown_1498.Width) - 1;
-    if (unknown_14d8.Y < unknown_1498.Y) unknown_14d8.Y = unknown_1498.Y;
-    else if (unknown_14d8.Y + unknown_14d8.Height >= unknown_1498.Y + unknown_1498.Height)
-        unknown_14d8.Y = unknown_1498.Y - (unknown_14d8.Height - unknown_1498.Height) - 1;
-    if (unknown_14d6) unknown_14e8 = unknown_14d8;
-    if (unknown_14d5 || unknown_14e8 != unknown_14d8 || !RadarEventClass_unknown_none()
-        || unknown_1258.Count() > 0 || unknown_1220.Count() > 0 || BeaconManager.Is_Flashing_0042efd0()) {
+    RadarViewRect = Cell_To_Radar_Pixel(center);
+    RadarViewRect.Width = (2 * TacticalRect.Width) / (60.0f / ZoomFactor) + 1.0f;
+    RadarViewRect.Height = (2 * TacticalRect.Height) / (30.0f / ZoomFactor);
+    RadarViewRect -= Point2D(TacticalRect.Width / (60.0f / ZoomFactor),
+        (2 * TacticalRect.Height) / (30.0f / ZoomFactor) * 0.5f);
+    if (RadarViewRect.X < RadarRect.X) RadarViewRect.X = RadarRect.X;
+    else if (RadarViewRect.X + RadarViewRect.Width >= RadarRect.X + RadarRect.Width)
+        RadarViewRect.X = RadarRect.X - (RadarViewRect.Width - RadarRect.Width) - 1;
+    if (RadarViewRect.Y < RadarRect.Y) RadarViewRect.Y = RadarRect.Y;
+    else if (RadarViewRect.Y + RadarViewRect.Height >= RadarRect.Y + RadarRect.Height)
+        RadarViewRect.Y = RadarRect.Y - (RadarViewRect.Height - RadarRect.Height) - 1;
+    if (FullRedraw) OldRadarViewRect = RadarViewRect;
+    if (unknown_14d5 || OldRadarViewRect != RadarViewRect || !RadarEventClass_unknown_none()
+        || PixelStack.Count() > 0 || unknown_1220.Count() > 0 || BeaconManager.Is_Flashing_0042efd0()) {
         if (tactical) unknown_14d5 = false;
         Plot_Radar_Background();
         bool moved = false;
-        if (unknown_14e8 != unknown_14d8) {
+        if (OldRadarViewRect != RadarViewRect) {
             Point2D pixel;
-            for (edge = 0; edge < unknown_14e8.Height; ++edge) {
-                pixel = Point2D(unknown_14e8.X, edge + unknown_14e8.Y) - Point2D(unknown_1498.X, unknown_1498.Y);
+            for (edge = 0; edge < OldRadarViewRect.Height; ++edge) {
+                pixel = Point2D(OldRadarViewRect.X, edge + OldRadarViewRect.Y) - Point2D(RadarRect.X, RadarRect.Y);
                 Radar_Pixel(pixel);
-                pixel = Point2D(unknown_14e8.X + unknown_14e8.Width - 1, edge + unknown_14e8.Y) - Point2D(unknown_1498.X, unknown_1498.Y);
+                pixel = Point2D(OldRadarViewRect.X + OldRadarViewRect.Width - 1, edge + OldRadarViewRect.Y) - Point2D(RadarRect.X, RadarRect.Y);
                 Radar_Pixel(pixel);
             }
-            for (edge = 0; edge < unknown_14e8.Width; ++edge) {
-                pixel = Point2D(edge + unknown_14e8.X, unknown_14e8.Y) - Point2D(unknown_1498.X, unknown_1498.Y);
+            for (edge = 0; edge < OldRadarViewRect.Width; ++edge) {
+                pixel = Point2D(edge + OldRadarViewRect.X, OldRadarViewRect.Y) - Point2D(RadarRect.X, RadarRect.Y);
                 Radar_Pixel(pixel);
-                pixel = Point2D(edge + unknown_14e8.X, unknown_14e8.Height + unknown_14e8.Y - 1) - Point2D(unknown_1498.X, unknown_1498.Y);
+                pixel = Point2D(edge + OldRadarViewRect.X, OldRadarViewRect.Height + OldRadarViewRect.Y - 1) - Point2D(RadarRect.X, RadarRect.Y);
                 Radar_Pixel(pixel);
             }
             moved = true;
         }
-        if (unknown_1244.Is_Valid()) {
-            unknown_1218->Copy_From(unknown_1244, *unknown_121c, unknown_1244, false, true);
-            unknown_1208 = Union(unknown_1208, unknown_1244 + unknown_1498.Top_Left());
-            for (int x = unknown_1244.X; x < unknown_1244.X + unknown_1244.Width; ++x) {
-                for (int y = unknown_1244.Y; y < unknown_1244.Y + unknown_1244.Height; ++y) Plot_Radar_Pixel(Point2D(x, y));
+        if (CellRedrawRect.Is_Valid()) {
+            RadarSurface->Copy_From(CellRedrawRect, *BackgroundSurface, CellRedrawRect, false, true);
+            LastDrawRect = Union(LastDrawRect, CellRedrawRect + RadarRect.Top_Left());
+            for (int x = CellRedrawRect.X; x < CellRedrawRect.X + CellRedrawRect.Width; ++x) {
+                for (int y = CellRedrawRect.Y; y < CellRedrawRect.Y + CellRedrawRect.Height; ++y) Plot_Radar_Pixel(Point2D(x, y));
             }
-            unknown_1244 = Rect(0, 0, 0, 0);
+            CellRedrawRect = Rect(0, 0, 0, 0);
         }
-        for (edge = unknown_1258.Count() - 1; edge >= 0; --edge) Plot_Radar_Pixel(unknown_1258[edge]);
-        unknown_1258.Clear();
+        for (edge = PixelStack.Count() - 1; edge >= 0; --edge) Plot_Radar_Pixel(PixelStack[edge]);
+        PixelStack.Clear();
         RadarEventClass::Draw_Events();
-        BeaconManager.Draw_On_Radar_0042eed0(unknown_1218, unknown_1218->Get_Rect());
+        BeaconManager.Draw_On_Radar_0042eed0(RadarSurface, RadarSurface->Get_Rect());
         if (tactical) {
-            if (unknown_14d6) {
-                unknown_1208 = unknown_1498;
+            if (FullRedraw) {
+                LastDrawRect = RadarRect;
                 CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)RadarClass_RadarAnim, 32,
-                    Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
+                    Point2D(RadX, RadWidth), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
-            if (unknown_1208.Is_Valid()) {
-                Rect from = unknown_1208 - RectPoint2D(unknown_1498.X, unknown_1498.Y);
-                SidebarSurface->Copy_From(unknown_1208, *unknown_1218, from, false, true);
+            if (LastDrawRect.Is_Valid()) {
+                Rect from = LastDrawRect - RectPoint2D(RadarRect.X, RadarRect.Y);
+                SidebarSurface->Copy_From(LastDrawRect, *RadarSurface, from, false, true);
             }
-            SidebarSurface->Draw_Rect(unknown_14d8, unknown_1204);
-            Rect area = unknown_1498;
+            SidebarSurface->Draw_Rect(RadarViewRect, RadPHeight);
+            Rect area = RadarRect;
             Rect border(area.X - 1, area.Y - 1, area.Width + 2, area.Height + 2);
-            SidebarSurface->Draw_Rect(border, unknown_1204);
+            SidebarSurface->Draw_Rect(border, RadPHeight);
         }
         if (moved) {
-            Rect const &inner = Union(unknown_14e8, unknown_1208);
-            unknown_1208 = Union(unknown_14d8, inner);
+            Rect const &inner = Union(OldRadarViewRect, LastDrawRect);
+            LastDrawRect = Union(RadarViewRect, inner);
         }
-        unknown_14e8 = unknown_14d8;
+        OldRadarViewRect = RadarViewRect;
         RadarEventClass::Remove_Finished();
     }
-    if (unknown_1270) memset(unknown_1270, 0, unknown_1218->Get_Height() * unknown_1218->Get_Width() / 8 + 1);
-    if (!tactical) unknown_1208 = previous;
+    if (PixelFlags) memset(PixelFlags, 0, RadarSurface->Get_Height() * RadarSurface->Get_Width() / 8 + 1);
+    if (!tactical) LastDrawRect = previous;
 }
 
 
@@ -2452,19 +2452,19 @@ void RadarClass::Render_Radar()
 
 void RadarClass::Update_Transmission()
 {
-    switch (unknown_14b4) {
+    switch (TransmissionState) {
     case 0:
         Speech_Clear();
-        Speech_Play(unknown_14d0, 0, 3);
+        Speech_Play(TransmissionVoice, 0, 3);
         Add_Speech_Hold();
-        unknown_14b4 = 1;
+        TransmissionState = 1;
         break;
     case 1:
-        if (Is_Speech_Finished(unknown_14d0)) {
+        if (Is_Speech_Finished(TransmissionVoice)) {
             if (unknown_int_af8fe8 != 0) {
                 AudioStreamerFadeOutAllStreams();
             }
-            unknown_14b4 = 2;
+            TransmissionState = 2;
         }
         break;
     case 2:
@@ -2505,20 +2505,20 @@ void RadarClass::Play_Movie()
     MovieHandle *movie = 0;
     bool hold = false;
     bool has = IngameVQ.Count() > 0;
-    if (!unknown_14b9 && has) {
+    if (!IsMoviePlaying && has) {
         Speech_Is_Playing();
     }
-    if (unknown_14d6 == true && !unknown_14b9) {
+    if (FullRedraw == true && !IsMoviePlaying) {
         CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)RadarClass_RadarAnim, 32,
-                      Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0,
+                      Point2D(RadX, RadWidth), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0,
                       Point2D(0, 0));
-        unknown_1208 = Rect(unknown_11e0, unknown_11e8, SidebarWidth, 110);
+        LastDrawRect = Rect(RadX, RadWidth, SidebarWidth, 110);
         Debug_Printf("Radar: Movie full redrawn\n");
     }
     bool finished;
     if (has && IngameVQ.Count() > 0 && (movie = IngameVQ[0]) != 0) {
         if (movie->AdvanceFrame() == true) {
-            unknown_1208 = Rect(unknown_11e0, unknown_11e8, SidebarWidth, 110);
+            LastDrawRect = Rect(RadX, RadWidth, SidebarWidth, 110);
         }
         finished = movie->Is_Finished();
         hold = movie->State;
@@ -2537,15 +2537,15 @@ void RadarClass::Play_Movie()
             Debug_Printf("Radar: Next movie.\n");
             unknown_14bc.Unknown_00406070();
             unknown_14bc.Unknown_00406100(Voc_Play(Rules->MovieOn, 1.0f, 0x2000, 0), 0);
-            unknown_14a8 = 4;
-            unknown_14f8 = 25;
+            RadarState = 4;
+            RadarAnimFrame = 25;
         }
     }
     unknown_14d5 = false;
     if (!has) {
         Debug_Printf("Radar: Movie done.\n");
-        unknown_14a8 = 5;
-        Radar_Activate(unknown_14b0, false);
+        RadarState = 5;
+        Radar_Activate(SuspendedRadarMode, false);
         Movie_Audio_Resume();
         hold = has;
         unknown_14bc.Unknown_00406070();
@@ -2553,14 +2553,14 @@ void RadarClass::Play_Movie()
         Set_Frame_Rate_Limit(Rules->DetailMinFrameRateNormal);
         unknown_14d5 = true;
     }
-    unknown_14b9 = !finished;
-    if (unknown_14b8 != hold) {
+    IsMoviePlaying = !finished;
+    if (IsScenarioHeld != hold) {
         if (hold) {
             Hold_Scenario(0);
-            unknown_14b8 = true;
+            IsScenarioHeld = true;
         } else {
             Release_Scenario();
-            unknown_14b8 = false;
+            IsScenarioHeld = false;
         }
     }
 }
@@ -2579,11 +2579,11 @@ void RadarClass::Play_Movie()
 void RadarClass::Complete_Radar_Refresh()
 {
     if (!MainWindow) {
-        unknown_1218->Copy_From(unknown_1218->Get_Rect(), *unknown_121c, unknown_121c->Get_Rect(), false, true);
+        RadarSurface->Copy_From(RadarSurface->Get_Rect(), *BackgroundSurface, BackgroundSurface->Get_Rect(), false, true);
         Render_Tracked_Objects();
     } else {
-        int width = unknown_1218->Get_Width();
-        int height = unknown_1218->Get_Height();
+        int width = RadarSurface->Get_Width();
+        int height = RadarSurface->Get_Height();
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 Plot_Radar_Pixel(Point2D(x, y));

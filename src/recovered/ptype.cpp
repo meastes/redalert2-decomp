@@ -97,7 +97,7 @@ ParticleTypeClass::ParticleTypeClass(char const *ini_name) :
 {
     ParticleTypes.Add(this);
     AbstractTypePtrTracker.Add(this);
-    unknown_204 = false;
+    IsSentient = false;
 }
 
 

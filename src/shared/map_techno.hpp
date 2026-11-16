@@ -19,7 +19,7 @@ class CellClass;
 class ObjectTypeClass {
 public:
     char unknown_000[0x205];
-    bool unknown_205;                       // +0x205 (as shared/object_type.hpp; TibSun IsFootprint)
+    bool IsFootprint;                       // +0x205 (as shared/object_type.hpp; TibSun IsFootprint)
 };
 // ObjectClass as the Map unit sees it: the virtual destructor (slot 8,
 // AbstractClass), which deletes the display's pending object (0x0055B060),
@@ -59,8 +59,8 @@ public:
     bool IsDown;                        // +0x74 (as shared/object.hpp)
     char IsToDisplay;
     bool IsInLimbo;                        // +0x76 (as shared/object.hpp)
-    char unknown_77[0x79 - 0x77];
-    bool unknown_79;                        // +0x79 (as shared/object.hpp; TibSun IsOnBridge)
+    char IsSelected[0x79 - 0x77];
+    bool IsOnBridge;                        // +0x79 (as shared/object.hpp; TibSun IsOnBridge)
     char IsFalling[0x98 - 0x7A];
 #else
     char unknown_24[0x98 - 0x24];
@@ -152,7 +152,7 @@ inline bool Is_Occupy_Offset(Point2D const &offset) { return offset.X != 0xFFFF 
 class OverlayTypeClass {
 public:
     char unknown_000[0x264];
-    int unknown_264;                        // +0x264 compared with a cell's overlay index (TibSun HeapID)
+    int HeapID;                        // +0x264 compared with a cell's overlay index (TibSun HeapID)
 };
 
 // A building as MapClass 0x00567380 and 0x0055ACD0 see it (stand-in).

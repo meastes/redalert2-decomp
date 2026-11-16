@@ -136,7 +136,7 @@ InfantryTypeClass::InfantryTypeClass(char const *ini_name) :
     ArrayIndex = InfantryTypes.ID(this);
     RotCount = 8;
     RadarVisible = false;
-    unknown_1fd = true;
+    IsCrushable = true;
     Repairable = false;
     Crewed = false;
     ImmuneToPsionics = false;

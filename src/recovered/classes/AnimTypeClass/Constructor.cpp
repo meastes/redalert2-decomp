@@ -83,13 +83,13 @@ AnimTypeClass::AnimTypeClass(char const *ini_name) :
     ShouldFogRemove(true)
 {
     AbstractClass::Create_ID();
-    unknown_204 = true;
-    unknown_1ff = true;
-    unknown_200 = false;
-    unknown_201 = false;
-    unknown_202 = true;
-    unknown_203 = true;
-    unknown_205 = false;
+    IsSentient = true;
+    IsStealthy = true;
+    IsSelectable = false;
+    IsLegalTarget = false;
+    IsInsignificant = true;
+    IsImmune = true;
+    IsFootprint = false;
     AnimTypes.Add(this);
     AbstractTypePtrTracker.Add(this);
     if (ini_name != 0) {

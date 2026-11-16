@@ -94,7 +94,7 @@ ParticleSystemTypeClass::ParticleSystemTypeClass(char const *ini_name) :
 {
     AbstractClass::Create_ID();
     ParticleSystemTypes.Add(this);
-    unknown_204 = true;
+    IsSentient = true;
 }
 
 

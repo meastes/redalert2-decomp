@@ -85,11 +85,11 @@ public:
 
     ShapeFileStruct *Shape;     // +0x1C
     ConvertClass *Drawer;       // +0x20
-    int unknown_24;             // +0x24
+    int Rate;             // +0x24
     unsigned Frame;             // +0x28 current frame
     unsigned StartFrame;        // +0x2C
     unsigned EndFrame;          // +0x30
-    bool unknown_34;            // +0x34
+    bool Loop;            // +0x34
     int Flags;                  // +0x38 0x200: centred on X/Y
     bool OwnsShape;             // +0x3C Shape was loaded, not a cached mixfile entry
 };
@@ -101,7 +101,7 @@ public:
     virtual bool Advance(Surface *surface, Rect *rect);           // 0x005ACE30
     virtual void Draw(Surface *surface, Rect const *clip);          // 0x005AD210
 
-    int unknown_40;             // +0x40
+    int FadeStage;             // +0x40
     // The engine's animation list (WorldDominationTour passes &engine->Anims):
     // slot 4 redraws the others over each new step.
     DynamicVectorClass<MSAnim *> *Anims;    // +0x44 (may be 0)
@@ -157,7 +157,7 @@ public:
     WideString Text;            // +0x1C
     Rect TextRect;              // +0x20
     bool unknown_30;            // +0x30 (slot 4 returns its negation)
-    bool unknown_31;            // +0x31
+    bool IsCentered;            // +0x31
 };
 
 // Unicode text typed out character by character into a rectangle, one
@@ -260,7 +260,7 @@ public:
     Surface *Target;                        // +0x20
     DynamicVectorClass<MSAnim *> *Anims;    // +0x24 redrawn over each frame
     Surface *Image;                         // +0x28 "<name>.PCX" (owned)
-    bool unknown_2c;                        // +0x2C
+    bool Persistent;                        // +0x2C
     bool Done;                              // +0x2D
 };
 

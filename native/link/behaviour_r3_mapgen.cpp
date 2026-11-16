@@ -107,7 +107,7 @@ void Split_Raise_Region(int region, int diff)
 // compares in the inline sift-up 0x0056F14D and in 0x0058F090; C16 audit).
 bool MapRegionClass::Split_Region_0056ef20()
 {
-    if (unknown_1a) return false;
+    if (Unsplittable) return false;
 
     unsigned heap_size = (unsigned)(CellCount * 2 + 10);
     SplitNode *nodes = new SplitNode[heap_size];

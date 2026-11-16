@@ -133,13 +133,13 @@ BulletTypeClass::BulletTypeClass(char const *ini_name) :
     Flat(false)
 {
     Create_ID();
-    unknown_204 = true;
-    unknown_1ff = true;
-    unknown_200 = false;
-    unknown_201 = false;
-    unknown_202 = true;
-    unknown_203 = true;
-    unknown_205 = false;
+    IsSentient = true;
+    IsStealthy = true;
+    IsSelectable = false;
+    IsLegalTarget = false;
+    IsInsignificant = true;
+    IsImmune = true;
+    IsFootprint = false;
     BulletTypes.Add(this);
     AbstractTypePtrTracker.Add(this);
 }
@@ -273,7 +273,7 @@ bool BulletTypeClass::Read_INI(CCINIClass &ini)
         if (!Inviso) {
             Fetch_Normal_Image();
         }
-        if (unknown_206) {
+        if (IsVoxel) {
             Fetch_Voxel_Image();
         }
         return true;

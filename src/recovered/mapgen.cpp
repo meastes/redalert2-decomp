@@ -296,7 +296,7 @@ extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 MapRegionClass::MapRegionClass(Cell origin)
     : unknown_00(0), NeighborRegionIndices(0), Index(unknown_map_region_next_index_a70a28),
       CellCount(0), unknown_10(Map[origin].Height), unknown_14(Map[origin].Is_Tile_With_Water()),
-      Origin(origin), unknown_1a(false), unknown_1b(true), unknown_1c(0), unknown_20(0),
+      Origin(origin), Unsplittable(false), HasConnections(true), unknown_1c(0), unknown_20(0),
       unknown_24(false), Cells(), Bounds(0,0,0,0)
 {
     Cells.Set_Growth_Step(100000);
@@ -725,7 +725,7 @@ void __fastcall MapRegionClass::Set_Unassigned_Regions_0056e910(bool flag)
         if (cell.RegionIndex == -1 && (cell.Position.X != 0 || cell.Position.Y != 0)) {
             MapRegionClass *region = Create_Region_From_Cell(&Map[cell.Position]);
             if (region) {
-                region->unknown_1a = flag;
+                region->Unsplittable = flag;
             }
         }
     }
@@ -1039,14 +1039,14 @@ void MapRegionClass::Make_Ice_Regions_005704c0()
         bool restart=false;
         for(index=0;index<MapRegionClass_MapRegions.Count();++index) {
             MapRegionClass *region=MapRegionClass_MapRegions[index];
-            if(!region->unknown_1a && !region->unknown_14) {
+            if(!region->Unsplittable && !region->unknown_14) {
                 if(region->CellCount>limit) {
                     if(region->Split_Region_0056ef20()) {
                         delete region;
                         restart=true;
                         break;
                     }
-                } else region->unknown_1a=true;
+                } else region->Unsplittable=true;
             }
         }
         if(!restart)break;
@@ -1379,7 +1379,7 @@ void MapRegionClass::Make_Region_Connections_00571ed0()
                     }
                     ++tries;
                 }
-                if(connected==0)unknown_1b=false;
+                if(connected==0)HasConnections=false;
                 delete border;
             }
         }
@@ -3679,7 +3679,7 @@ bool MapRegionClass::Split_Region_0056ef20()
 {
     int i, j;
 
-    if (unknown_1a) {
+    if (Unsplittable) {
         return false;
     }
 
@@ -5471,7 +5471,7 @@ void __fastcall Rebuild_Region_Grid_00583450(MapSeedClass const &options)
             if(MapRegionClass::Get_Cell_Data(index).RegionIndex==-1 &&
                (MapRegionClass::Get_Cell_Data(index).Position.X!=0 || MapRegionClass::Get_Cell_Data(index).Position.Y!=0)) {
                 MapRegionClass *region=Build_Map_Region_0056e100(&Map[MapRegionClass::Get_Cell_Data(index).Position]);
-                if(region!=0)region->unknown_1a=false;
+                if(region!=0)region->Unsplittable=false;
             }
         }
     }

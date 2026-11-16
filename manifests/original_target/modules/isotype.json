@@ -638,77 +638,77 @@
    "address": "007b2500",
    "bytes": 24,
    "kind": "rtti",
-   "section": 144
+   "section": 155
   },
   {
    "symbol": "??_R2CCFileClass@@8",
    "address": "007b2518",
    "bytes": 21,
    "kind": "rtti",
-   "section": 145
+   "section": 156
   },
   {
    "symbol": "??_R3CCFileClass@@8",
    "address": "007b2530",
    "bytes": 16,
    "kind": "rtti",
-   "section": 146
+   "section": 157
   },
   {
    "symbol": "??_R4CCFileClass@@6B@",
    "address": "007b2540",
    "bytes": 20,
    "kind": "rtti",
-   "section": 148
+   "section": 159
   },
   {
    "symbol": "??_R1A@?0A@A@FileClass@@8",
    "address": "007b2558",
    "bytes": 24,
    "kind": "rtti",
-   "section": 150
+   "section": 148
   },
   {
    "symbol": "??_R1A@?0A@A@RawFileClass@@8",
    "address": "007b2570",
    "bytes": 24,
    "kind": "rtti",
-   "section": 152
+   "section": 150
   },
   {
    "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
    "address": "007b2588",
    "bytes": 24,
    "kind": "rtti",
-   "section": 154
+   "section": 152
   },
   {
    "symbol": "??_R1A@?0A@A@CDFileClass@@8",
    "address": "007b25a0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 155
+   "section": 154
   },
   {
    "symbol": "??_R2CDFileClass@@8",
    "address": "007b25b8",
    "bytes": 17,
    "kind": "rtti",
-   "section": 156
+   "section": 144
   },
   {
    "symbol": "??_R3CDFileClass@@8",
    "address": "007b25d0",
    "bytes": 16,
    "kind": "rtti",
-   "section": 157
+   "section": 145
   },
   {
    "symbol": "??_R4CDFileClass@@6B@",
    "address": "007b25e0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 159
+   "section": 146
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@USubzoneConnectionStruct@@@@8",
@@ -1023,7 +1023,8 @@
    "address": "007bcac8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 98
+   "section": 98,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4IsometricTileTypeClass@@6BIPersistStream@@@",
@@ -1093,35 +1094,35 @@
    "address": "007cc8b0",
    "bytes": 26,
    "kind": "rtti",
-   "section": 147
+   "section": 158
   },
   {
    "symbol": "??_R0?AVFileClass@@@8",
    "address": "007cc8d0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 149
+   "section": 147
   },
   {
    "symbol": "??_R0?AVRawFileClass@@@8",
    "address": "007cc8e8",
    "bytes": 27,
    "kind": "rtti",
-   "section": 151
+   "section": 149
   },
   {
    "symbol": "??_R0?AVBufferIOFileClass@@@8",
    "address": "007cc908",
    "bytes": 32,
    "kind": "rtti",
-   "section": 153
+   "section": 151
   },
   {
    "symbol": "??_R0?AVCDFileClass@@@8",
    "address": "007cc928",
    "bytes": 26,
    "kind": "rtti",
-   "section": 158
+   "section": 153
   },
   {
    "symbol": "??_R0?AV?$VectorClass@USubzoneConnectionStruct@@@@@8",
@@ -2369,7 +2370,8 @@
    "symbol": "??_R3IsometricTileTypeClass@@8",
    "address": "007bcac8",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4IsometricTileTypeClass@@6BIPersistStream@@@",

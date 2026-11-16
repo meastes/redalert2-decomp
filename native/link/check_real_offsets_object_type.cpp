@@ -2,4 +2,4 @@
 #include "shared/object_type.hpp"
 #include <cstddef>
 
-static_assert(offsetof(ObjectTypeClass, unknown_201) == 0x321, "ObjectTypeClass +0x201");
+static_assert(offsetof(ObjectTypeClass, IsLegalTarget) == 0x321, "ObjectTypeClass +0x201");

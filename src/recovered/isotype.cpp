@@ -157,12 +157,12 @@ IsometricTileTypeClass::IsometricTileTypeClass(int type, int unknown1, unsigned 
 
     Filename[0] = '\0';
 
-    unknown_1ff = true;
-    unknown_200 = false;
-    unknown_201 = false;
-    unknown_202 = true;
-    unknown_203 = true;
-    unknown_205 = false;
+    IsStealthy = true;
+    IsSelectable = false;
+    IsLegalTarget = false;
+    IsInsignificant = true;
+    IsImmune = true;
+    IsFootprint = false;
 }
 
 

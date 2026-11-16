@@ -37,7 +37,7 @@ int MapClass::Unknown_00564290(CellSubzoneStruct *seed, int level, unsigned int 
     int xmax = bounds.Width + bounds.X - 1;
     int end_x = x;
     int ymax = bounds.Height + bounds.Y - 1;
-    HashTableClass<unsigned int, SubzoneConnectionStruct> *table = unknown_7c[level];
+    HashTableClass<unsigned int, SubzoneConnectionStruct> *table = SubzoneConnectionHashTable[level];
     int prev_height = seed->Height;
 
     while (true) {

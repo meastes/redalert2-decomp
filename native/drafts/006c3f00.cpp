@@ -84,14 +84,14 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
         Point2D offset;
         int length;
         if (Kind_Of() == 15) {
-            if (unknown_77) {
+            if (IsSelected) {
                 CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_SelectShapes,
                               1, point + Point2D(11, -25), window, 0xE00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
             offset = Point2D(-5, -24);
             length = 8;
         } else {
-            if (unknown_77) {
+            if (IsSelected) {
                 CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_SelectShapes,
                               0, point + Point2D(1, -26), window, 0xE00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }

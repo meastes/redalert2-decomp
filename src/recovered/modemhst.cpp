@@ -126,7 +126,7 @@ bool ModemHost::Dialog_00598e10()
         unknown_54 = RulesClass_Get_Rule_Unique_ID();
         Read_Art_INI();
         unknown_58 = unknown_art_ini_unique_id();
-        unknown_5c = unknown_ini_8397a0_unique_id();
+        AICheatCheck = unknown_ini_8397a0_unique_id();
         for (;;) {
             Result = -1;
             while (Result < 0) {
@@ -1156,7 +1156,7 @@ bool ModemHost::Process_Messages_0059b690(bool quiet)
             if (packet.Options.Checksum != unknown_54) {
                 match = false;
             }
-            if (packet.Options.INIID != unknown_5c) {
+            if (packet.Options.INIID != AICheatCheck) {
                 match = false;
             }
             if (packet.Options.ArtID != unknown_58) {
@@ -1233,7 +1233,7 @@ void ModemHost::Send_Options_0059bc90()
     packet.Command = 0x65;
     packet.Options.Checksum = unknown_54;
     packet.Options.ArtID = unknown_58;
-    packet.Options.INIID = unknown_5c;
+    packet.Options.INIID = AICheatCheck;
     packet.Options.Version = Build_Number();
     packet.Options.MinVersion = VerNum.Min_Version();
     packet.Options.MaxVersion = VerNum.Max_Version();

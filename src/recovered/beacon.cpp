@@ -615,7 +615,7 @@ void BeaconManagerClass::Unknown_0042E990(int house, int slot)
                 return;
             }
             if (beacon->Unknown_0042E080()) {
-                beacon->Unknown_0042DE20(Map.unknown_1218, Map.unknown_1218->Get_Rect(), true);
+                beacon->Unknown_0042DE20(Map.RadarSurface, Map.RadarSurface->Get_Rect(), true);
             }
             delete beacon;
             int index;

@@ -548,7 +548,7 @@ void __fastcall BuildingTypeClass::Init(int theater)
         if (radius <= type->CloakRadiusInCells) {
             radius = type->CloakRadiusInCells;
         }
-        if (type->unknown_1fc) {
+        if (type->IsTheater) {
             char fullname[512];
             if (!type->DemandLoad) {
                 _makepath(fullname, 0, 0, type->unknown_1c8, Theaters[theater].Suffix);
@@ -576,7 +576,7 @@ void __fastcall BuildingTypeClass::Init(int theater)
                 type->AnimFrames[0].unknown_04 = frames;
                 type->AnimFrames[0].unknown_08 = rate;
             }
-        } else if (type->unknown_207) {
+        } else if (type->IsNewTheater) {
             if (type->DemandLoad && type->ImageData != 0) {
                 operator delete(type->ImageData);
                 type->ImageData = 0;
@@ -957,7 +957,7 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(int theater)
         }
     }
     ArtINI.Get_String(unknown_1c8,"Image",unknown_string_83c55c,name,64);
-    if(unknown_1fc && theater!=-1) strcpy(extension,Theaters[theater].Suffix);
+    if(IsTheater && theater!=-1) strcpy(extension,Theaters[theater].Suffix);
     else strcpy(extension,".SHP");
     if(strlen(name)!=0) _makepath(fullname,0,0,name,extension);
     else _makepath(fullname,0,0,unknown_1c8,extension);
@@ -989,14 +989,14 @@ void BuildingTypeClass::Fetch_Building_Voxel_Image()
         if(strstr(_strupr(fullname+4),_strupr("TUR"))) {
             CCFileClass turret(fullname);
             if(turret.Is_Available()) {
-                delete unknown_b8.unknown_00;
-                unknown_b8.unknown_00=new VoxelLibrary(&turret);
+                delete AuxVoxel.unknown_00;
+                AuxVoxel.unknown_00=new VoxelLibrary(&turret);
                 _makepath(fullname,0,0,name,".HVA");
                 CCFileClass motion(fullname);
-                delete unknown_b8.unknown_04;
-                unknown_b8.unknown_04=new UnknownPairSecond(&motion);
-                if(unknown_b8.unknown_04 && !unknown_b8.unknown_04->unknown_00) {
-                    unknown_b8.unknown_04->Scale_0059ed30(unknown_b8.unknown_00->Get_Layer_Info(0,0)->unknown_0c);
+                delete AuxVoxel.unknown_04;
+                AuxVoxel.unknown_04=new UnknownPairSecond(&motion);
+                if(AuxVoxel.unknown_04 && !AuxVoxel.unknown_04->unknown_00) {
+                    AuxVoxel.unknown_04->Scale_0059ed30(AuxVoxel.unknown_00->Get_Layer_Info(0,0)->unknown_0c);
                 }
             }
             char *suffix=strstr(_strupr(name+4),_strupr("TUR"));
@@ -1013,14 +1013,14 @@ void BuildingTypeClass::Fetch_Building_Voxel_Image()
         _makepath(fullname,0,0,name,".VXL");
         CCFileClass barrel(fullname);
         if(barrel.Is_Available()) {
-            delete unknown_c0.unknown_00;
-            unknown_c0.unknown_00=new VoxelLibrary(&barrel);
+            delete AuxVoxel2.unknown_00;
+            AuxVoxel2.unknown_00=new VoxelLibrary(&barrel);
             _makepath(fullname,0,0,name,".HVA");
             CCFileClass motion(fullname);
-            delete unknown_c0.unknown_04;
-            unknown_c0.unknown_04=new UnknownPairSecond(&motion);
-            if(unknown_c0.unknown_04 && !unknown_c0.unknown_04->unknown_00) {
-                unknown_c0.unknown_04->Scale_0059ed30(unknown_c0.unknown_00->Get_Layer_Info(0,0)->unknown_0c);
+            delete AuxVoxel2.unknown_04;
+            AuxVoxel2.unknown_04=new UnknownPairSecond(&motion);
+            if(AuxVoxel2.unknown_04 && !AuxVoxel2.unknown_04->unknown_00) {
+                AuxVoxel2.unknown_04->Scale_0059ed30(AuxVoxel2.unknown_00->Get_Layer_Info(0,0)->unknown_0c);
             }
         }
     }

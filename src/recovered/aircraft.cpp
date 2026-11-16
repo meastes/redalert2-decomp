@@ -238,7 +238,7 @@ bool AircraftClass::Unlimbo(CoordStruct const *coord, int dir)
         }
     }
     if (FootClass::Unlimbo(&placed, dir)) {
-        if (!(Type->unknown_200 && Type->Landable) ||
+        if (!(Type->IsSelectable && Type->Landable) ||
             (unknown_slot231(0)->WeaponType && unknown_slot231(0)->WeaponType->unknown_11f))
             unknown_32c = true;
         if (Cargo.Object) unknown_5b1 = true;
@@ -275,7 +275,7 @@ void AircraftClass::Draw_It(Point2D const &point, Rect const &window)
         Cargo.Attached_Object()->Draw_It(draw_point, window);
     }
     unknown_slot104();
-    if (Type->unknown_206 && Type->unknown_b0.unknown_00) {
+    if (Type->IsVoxel && Type->Voxel.unknown_00) {
         CoordStruct ground = Position_Coord_004f3f40();
         ground.Z = Map.Get_Height_GL(ground);
         Point2D shadow_point;
@@ -288,8 +288,8 @@ void AircraftClass::Draw_It(Point2D const &point, Rect const &window)
         unknown_5a0 = false;
         UnknownCellClass *cell = reinterpret_cast<UnknownCellClass *>(&Map[Position_Coord_004f3f40()]);
         bool draw_on_ground = false;
-        if ((unknown_79 || saved_height < unknown_geometry_j) &&
-            (!unknown_79 || saved_height < 0)) {
+        if ((IsOnBridge || saved_height < unknown_geometry_j) &&
+            (!IsOnBridge || saved_height < 0)) {
             draw_on_ground = true;
         } else {
             if ((cell->Flags & 0x100) &&
@@ -306,8 +306,8 @@ void AircraftClass::Draw_It(Point2D const &point, Rect const &window)
         Matrix3D matrix;
         matrix = *Locomotor.Checked()->Shadow_Matrix(&COMMatrix3DStruct(), &key);
         if (!unknown_325) {
-            Draw_Voxel_Shadow(Type->unknown_b0, 0,
-                key, &Type->unknown_23c,
+            Draw_Voxel_Shadow(Type->Voxel, 0,
+                key, &Type->ShadowVoxelIndex,
                 window, shadow_point,
                 Aircraft_Isometric_View_Matrix_00717f90() * matrix, true, 0, 0, 0);
         }
@@ -325,7 +325,7 @@ void AircraftClass::Draw_It(Point2D const &point, Rect const &window)
         shadow_height += altitude_term;
         key = 0;
         matrix = *Locomotor.Checked()->Draw_Matrix(&COMMatrix3DStruct(), &key);
-        unknown_slot246(Type->unknown_b0, 0,
+        unknown_slot246(Type->Voxel, 0,
             key, &Type->unknown_214,
             window, draw_point,
             Aircraft_Isometric_View_Matrix_00717f90() * matrix, shadow_height, 0);
@@ -391,8 +391,8 @@ void AircraftClass::AI()
         unknown_5ba = false;
     }
     if (unknown_20c) unknown_20c->AI();
-    if ((unknown_slot111() || unknown_slot112()) && Frame % 24 == 0 && Rules->unknown_2a8)
-        new AnimClass(Rules->unknown_2a8, CoordStruct(Coord), 0, 1, 0x600, 0);
+    if ((unknown_slot111() || unknown_slot112()) && Frame % 24 == 0 && Rules->ChronoSparkle1)
+        new AnimClass(Rules->ChronoSparkle1, CoordStruct(Coord), 0, 1, 0x600, 0);
     if (unknown_slot112() || (unknown_slot111() && IsImmobilized)) {
         Locomotor.Checked()->Process();
         if (!IsActive) return;
@@ -427,7 +427,7 @@ void AircraftClass::AI()
             CoordStruct offset(offset_x, offset_y, -Get_Height_AGL());
             current = Coord;
             current = current + offset;
-            new AnimClass(Rules->unknown_09c, current, 0, 1, 0x600, 0);
+            new AnimClass(Rules->Wake, current, 0, 1, 0x600, 0);
         }
     }
     CoordStruct position = Coord;
@@ -470,14 +470,14 @@ void AircraftClass::AI()
 // State names remain provisional; original call and read ordering retained.
 int AircraftClass::Do_MISSION_UNLOAD()
 {
-    switch (unknown_a8) {
+    switch (Status) {
     case 0:
         if (Get_Height_AGL() == 0 && PitchAngle == 0.0) {
             if (unknown_494) {
                 CoordStruct current = Coord;
                 if (current != unknown_494->Center_Coord()) goto choose_destination;
             }
-            unknown_a8 = 3;
+            Status = 3;
 mission_delay:
     default: {
         int delay = (int)(Control()->unknown_10 * 900.0);
@@ -491,7 +491,7 @@ choose_destination:
             if (dock) Assign_Destination(dock, true);
             else Assign_Destination(Good_LZ(), true);
         } else if (!unknown_494) {
-            unknown_a8 = 2;
+            Status = 2;
         } else if (unknown_slot309(unknown_494)) {
             FootClass *passenger = (FootClass *)Cargo.Attached_Object();
             if (!passenger || !passenger->Team || passenger->Team->Class->Waypoint_Location() == unknown_geometry_k) {
@@ -502,15 +502,15 @@ choose_destination:
             }
         } else {
             int flight_level = Type->Flight_Level();
-            unknown_a8 = Get_Height_AGL() == flight_level ? 1 : 4;
+            Status = Get_Height_AGL() == flight_level ? 1 : 4;
         }
         goto mission_delay;
     case 1:
-        if (!Locomotor.Checked()->Is_Moving()) unknown_a8 = 2;
-        if (!unknown_slot309(unknown_494)) unknown_a8 = 0;
+        if (!Locomotor.Checked()->Is_Moving()) Status = 2;
+        if (!unknown_slot309(unknown_494)) Status = 0;
         goto mission_delay;
     case 2:
-        if (!Locomotor.Checked()->Is_Moving()) unknown_a8 = 3;
+        if (!Locomotor.Checked()->Is_Moving()) Status = 3;
         return 1;
     case 3:
         if (!unknown_370) {
@@ -533,7 +533,7 @@ choose_destination:
         }
         goto mission_delay;
     case 4:
-        unknown_a8 = 0;
+        Status = 0;
         return 1;
     }
 }
@@ -555,7 +555,7 @@ int AircraftClass::Do_MISSION_PARADROP_APPROACH()
         Assign_Destination(unknown_228, true);
         return 3;
     }
-    if (Planar_Distance(unknown_228) <= Rules->unknown_468) {
+    if (Planar_Distance(unknown_228) <= Rules->ParadropRadius) {
         QueueMission(27, false);
         unknown_5bb--;
     }
@@ -577,7 +577,7 @@ int AircraftClass::Do_MISSION_PARADROP_OVERFLY()
     AbstractClass *target = unknown_228;
     unknown_5ba = true;
     if (target && Cargo.Object) {
-        if (Planar_Distance(target) > Rules->unknown_468) {
+        if (Planar_Distance(target) > Rules->ParadropRadius) {
             signed char queue_state = unknown_5bb;
             unknown_5ba = false;
             if (queue_state > 0) {
@@ -853,7 +853,7 @@ int AircraftClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
             int count = abs(unknown_id_source_a3d290->Random()() % 3) + 7;
             for (int remaining = count; remaining > 0; --remaining) {
                 ParticleSystemClass *system = new ParticleSystemClass(Rules->unknown_cf4, Center_Coord(), 0, this, unknown_geometry_l);
-                system->unknown_e5 = true;
+                system->IsRandomSparkDirection = true;
             }
         } else if (Type->Explosion.Count() > 0) {
             unsigned choice;
@@ -897,13 +897,13 @@ static inline bool Within_One_Cell(CoordStruct here, CoordStruct target)
 // Do_MISSION_MOVE for aircraft that are not carryalls (0x00415FF0 dispatches here).
 int AircraftClass::Do_MISSION_MOVE_Normal()
 {
-    switch (unknown_a8) {
+    switch (Status) {
     case 0:
         if (!unknown_494) {
             unknown_slot261(false, true);
         } else {
             Assign_Destination(New_LZ(unknown_494), true);
-            unknown_a8 = 1;
+            Status = 1;
         }
         break;
     case 1: {
@@ -913,7 +913,7 @@ int AircraftClass::Do_MISSION_MOVE_Normal()
         }
         CoordStruct destination = unknown_494->unknown_slot19(this);
         Locomotor.Checked()->Move_To(destination);
-        unknown_a8 = 2;
+        Status = 2;
         return 1;
     }
     case 2:
@@ -932,15 +932,15 @@ int AircraftClass::Do_MISSION_MOVE_Normal()
         if (Locomotor.Checked()->Is_Moving()) {
             if (!unknown_494 || Destination_Cell(unknown_494, this) != unknown_slot104()) {
                 if (unknown_494 && !Cell_Seems_Ok(Destination_Cell(unknown_494, this), true)) {
-                    unknown_a8 = 0;
+                    Status = 0;
                 } else {
-                    unknown_a8 = 4;
+                    Status = 4;
                 }
             } else {
-                unknown_a8 = 3;
+                Status = 3;
             }
         } else {
-            unknown_a8 = 3;
+            Status = 3;
         }
         return 1;
     case 3:
@@ -952,13 +952,13 @@ int AircraftClass::Do_MISSION_MOVE_Normal()
         if (Locomotor.Checked()->Is_Moving()) {
             if (!unknown_494 || Destination_Cell(unknown_494, this) != unknown_slot104()) {
                 if (unknown_494 && !Cell_Seems_Ok(Destination_Cell(unknown_494, this), true)) {
-                    unknown_a8 = 0;
+                    Status = 0;
                 }
             } else {
-                unknown_a8 = 3;
+                Status = 3;
             }
         } else {
-            unknown_a8 = 3;
+            Status = 3;
         }
         return 1;
     }
@@ -979,9 +979,9 @@ void AircraftClass::Drop_Off_Cargo()
     UnknownCellClass *cell = reinterpret_cast<UnknownCellClass *>(&Map[position]);
     if (cell->Flags & 0x100) {
         position.Z += unknown_geometry_j;
-        passenger->unknown_79 = true;
+        passenger->IsOnBridge = true;
     } else {
-        passenger->unknown_79 = false;
+        passenger->IsOnBridge = false;
     }
     {
         passenger->Locomotor.Checked()->Release();
@@ -1024,7 +1024,7 @@ int AircraftClass::Do_MISSION_MOVE_Carryall()
 {
     CoordStruct bridge_position;
     CoordStruct occupant_position;
-    switch (unknown_a8) {
+    switch (Status) {
     case 0: {
         Debug_Printf("Do_MISSION_MOVE_Carryall - VALIDATE_LZ\n");
         if (!unknown_494) {
@@ -1059,7 +1059,7 @@ int AircraftClass::Do_MISSION_MOVE_Carryall()
 select_destination:
         Assign_Destination(New_LZ(unknown_494), true);
         if (Team) Team->Assign_Mission_Target(unknown_494);
-        unknown_a8 = 1;
+        Status = 1;
         Debug_Printf("Do_MISSION_MOVE_Carryall - VALIDATE_LZ - Status = TAKE_OFF\n");
         break;
     }
@@ -1070,17 +1070,17 @@ select_destination:
         }
         CoordStruct destination = unknown_494->Center_Coord();
         Locomotor.Checked()->Move_To(destination);
-        unknown_a8 = 2;
+        Status = 2;
         return 1;
     }
     case 2:
         if (unknown_494 && unknown_494->Kind_Of() != 11 && Contact(0) != unknown_494) {
             Debug_Printf("Do_MISSION_MOVE_Carryall - FLY_TO_LZ - Lost contact\n");
-            unknown_a8 = 0;
+            Status = 0;
             return 1;
         }
         if (unknown_494 && unknown_494->Kind_Of() == 11 && !unknown_slot309(unknown_494)) {
-            unknown_a8 = 0;
+            Status = 0;
             return 1;
         }
         if (Locomotor.Checked()->Get_Status() == 1) {
@@ -1091,7 +1091,7 @@ select_destination:
                 CoordStruct target_position = static_cast<ObjectClass *>(unknown_494)->Coord;
                 Cell target_cell = Coord_Cell(target_position);
                 if (target_cell != current_cell) {
-                    unknown_a8 = 0;
+                    Status = 0;
                     Debug_Printf("Do_MISSION_MOVE_Carryall - FLY_TO_LZ - Target moved\n");
                     return 1;
                 }
@@ -1100,7 +1100,7 @@ select_destination:
         }
         if (!Locomotor.Checked()->Is_Moving()) {
             Debug_Printf("Do_MISSION_MOVE_Carryall - FLY_TO_LZ - Stopped moving\n");
-            unknown_a8 = 3;
+            Status = 3;
         }
         return 1;
     case 3: {
@@ -1113,7 +1113,7 @@ select_destination:
             Mark(0);
             Drop_Off_Cargo();
             Mark(1);
-            unknown_a8 = 0;
+            Status = 0;
             return 1;
         }
         Debug_Printf("Do_MISSION_MOVE_Carryall - LAND - Picking up cargo\n");
@@ -1127,13 +1127,13 @@ select_destination:
             if (unknown_slot149(19) == 1) {
                 Debug_Printf("Do_MISSION_MOVE_Carryall - LAND - RADIO_NEED_TO_MOVE got RADIO_ROGER\n");
                 passenger->Limbo();
-                passenger->unknown_79 = false;
+                passenger->IsOnBridge = false;
                 passenger->unknown_37c = true;
                 Cargo.Attach(passenger);
                 goto finalize_pickup;
             }
         }
-        unknown_a8 = 0;
+        Status = 0;
 finalize_pickup:
         unknown_slot149(3);
         Mark(1);
@@ -1162,7 +1162,7 @@ static inline bool Near_In_Plane(CoordStruct here, CoordStruct target)
 int AircraftClass::Do_MISSION_PATROL()
 {
     unknown_37f = true;
-    switch (unknown_a8) {
+    switch (Status) {
     case 0:
         if (!unknown_494) {
             unknown_slot261(false, true);
@@ -1171,7 +1171,7 @@ int AircraftClass::Do_MISSION_PATROL()
             if (Team) {
                 Team->Assign_Mission_Target(unknown_494);
             }
-            unknown_a8 = 1;
+            Status = 1;
         }
         break;
     case 1: {
@@ -1181,7 +1181,7 @@ int AircraftClass::Do_MISSION_PATROL()
         }
         CoordStruct destination = unknown_494->unknown_slot19(this);
         Locomotor.Checked()->Move_To(destination);
-        unknown_a8 = 2;
+        Status = 2;
         return 1;
     }
     case 2: {
@@ -1190,7 +1190,7 @@ int AircraftClass::Do_MISSION_PATROL()
             TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
             if (dock) {
                 Override_Mission(7, 0, dock);
-                unknown_a8 = 0;
+                Status = 0;
                 return 1;
             }
         }
@@ -1199,7 +1199,7 @@ int AircraftClass::Do_MISSION_PATROL()
             AbstractClass *threat = unknown_slot219(2, &position, false);
             if (threat && threat->AbstractFlags.IsObject) {
                 Override_Mission(1, threat, 0);
-                unknown_a8 = 0;
+                Status = 0;
                 return 1;
             }
         }
@@ -1216,12 +1216,12 @@ int AircraftClass::Do_MISSION_PATROL()
             }
         }
         if (!Locomotor.Checked()->Is_Moving()) {
-            unknown_a8 = 3;
+            Status = 3;
         } else {
             if (unknown_494 && !Cell_Seems_Ok(Destination_Cell(unknown_494, this), true)) {
-                unknown_a8 = 0;
+                Status = 0;
             } else {
-                unknown_a8 = 4;
+                Status = 4;
             }
         }
         return 1;
@@ -1231,11 +1231,11 @@ int AircraftClass::Do_MISSION_PATROL()
         return 1;
     case 4:
         if (!Locomotor.Checked()->Is_Moving()) {
-            unknown_a8 = 3;
+            Status = 3;
         } else {
             if (unknown_494) {
                 if (!Cell_Seems_Ok(Destination_Cell(unknown_494, this), true)) {
-                    unknown_a8 = 0;
+                    Status = 0;
                 }
             }
         }
@@ -1252,7 +1252,7 @@ bool AircraftClass::unknown_slot261(bool first, bool second)
     if (Has_Suspended_Mission()) {
         Restore_Mission();
         if (Mission == 25) {
-            unknown_a8 = 0;
+            Status = 0;
             unknown_5ba = false;
         }
         return false;
@@ -1473,7 +1473,7 @@ checks:
 docking:
     if (House->Is_Player_Control() && action == 7 && object->Kind_Of() == 6) {
         BuildingTypeClass *type = ((UnknownAircraftBuilding *)object)->Type;
-        if ((type == Rules->unknown_778 || type->unknown_1365)
+        if ((type == Rules->RepairBay || type->unknown_1365)
             && ((TechnoClass *)object)->Unknown_00636ED0(this) && ((TechnoClass *)object)->Cargo.Object == 0
             && unknown_slot150(0xF, (TechnoClass *)object) == 1) {
             action = 3;
@@ -1491,7 +1491,7 @@ docking:
         if (object->unknown_slot48() && object->GetDisguiseHouse(true) == 0 && object->GetDisguise(true)->Kind_Of() == 0x15) {
             action = 1;
         }
-    } else if (action == 5 && object->Class_Of()->unknown_203) {
+    } else if (action == 5 && object->Class_Of()->IsImmune) {
         action = 2;
     }
     return action;
@@ -1536,13 +1536,13 @@ inline UnknownFacingDir::UnknownFacingDir(CoordStruct const &from, CoordStruct c
 
 int AircraftClass::Do_MISSION_ATTACK()
 {
-    switch (unknown_a8) {
+    switch (Status) {
     case 0:
         unknown_5ba = false;
         if (unknown_228 == 0) {
-            unknown_a8 = 10;
+            Status = 10;
         } else {
-            unknown_a8 = 1;
+            Status = 1;
         }
         return 1;
     case 1:
@@ -1552,13 +1552,13 @@ int AircraftClass::Do_MISSION_ATTACK()
             unknown_254--;
         }
         if (unknown_228 == 0 || unknown_254 == 0) {
-            unknown_a8 = 10;
+            Status = 10;
         } else {
             Assign_Destination(Good_Fire_Location(unknown_228), true);
             if (unknown_494 != 0) {
-                unknown_a8 = 3;
+                Status = 3;
             } else {
-                unknown_a8 = 10;
+                Status = 10;
             }
         }
         break;
@@ -1571,25 +1571,25 @@ int AircraftClass::Do_MISSION_ATTACK()
         if (unknown_228 != 0 && unknown_254 != 0) {
             if (Is_Strafe()) {
                 if (Planar_Distance(unknown_228) < unknown_slot231(0)->WeaponType->unknown_b4) {
-                    unknown_a8 = 4;
+                    Status = 4;
                     return 1;
                 }
                 Assign_Destination(unknown_228, true);
             } else {
                 if (Is_Fighter() || !Locomotor.Checked()->Is_Moving_Now()) {
-                    unknown_a8 = 4;
+                    Status = 4;
                     return 1;
                 }
             }
             if (unknown_494 == 0) {
-                unknown_a8 = 1;
+                Status = 1;
                 return 1;
             }
             int distance = Planar_Distance(unknown_494);
             if (distance < 0x200) {
                 SecondaryFacing.Set_Desired(Direction_To(unknown_228));
                 if (distance < 0x10) {
-                    unknown_a8 = 4;
+                    Status = 4;
                     Assign_Destination(0, true);
                 }
             } else {
@@ -1597,12 +1597,12 @@ int AircraftClass::Do_MISSION_ATTACK()
                 return 1;
             }
         } else {
-            unknown_a8 = 10;
+            Status = 10;
         }
         return 1;
     case 4:
         if (unknown_228 == 0 || unknown_254 == 0) {
-            unknown_a8 = 10;
+            Status = 10;
             return 1;
         }
         if (!Is_Strafe()) {
@@ -1617,16 +1617,16 @@ int AircraftClass::Do_MISSION_ATTACK()
             break;
         case 2:
             if (unknown_254 == 0) {
-                unknown_a8 = 10;
+                Status = 10;
             } else {
                 if (unknown_slot213(unknown_228) && !Is_Strafe()) {
                     if (Is_Fighter()) {
-                        unknown_a8 = 4;
+                        Status = 4;
                     } else {
-                        unknown_a8 = Rules->CurleyShuffle ? 1 : 4;
+                        Status = Rules->CurleyShuffle ? 1 : 4;
                     }
                 } else {
-                    unknown_a8 = 1;
+                    Status = 1;
                 }
                 if (Is_Strafe()) {
                     return 45;
@@ -1638,30 +1638,30 @@ int AircraftClass::Do_MISSION_ATTACK()
             Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
             Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             if (Is_Strafe()) {
-                unknown_a8 = 6;
+                Status = 6;
                 unknown_5ba = true;
                 return unknown_slot231(0)->WeaponType->unknown_b0;
             }
             if (Is_Fighter()) {
                 unknown_5ba = true;
-                unknown_a8 = unknown_254 <= 0 ? 10 : 1;
+                Status = unknown_254 <= 0 ? 10 : 1;
                 return unknown_slot231(0)->WeaponType->unknown_b0;
             }
-            unknown_a8 = 5;
+            Status = 5;
             break;
         }
         default:
             if (unknown_254 == 0) {
-                unknown_a8 = 10;
+                Status = 10;
             } else if (!Is_Strafe()) {
-                unknown_a8 = 5;
+                Status = 5;
             }
             break;
         }
         return 1;
     case 5:
         if (unknown_228 == 0) {
-            unknown_a8 = 10;
+            Status = 10;
             return 1;
         }
         PrimaryFacing.Set_Desired(Direction_To(unknown_228));
@@ -1674,12 +1674,12 @@ int AircraftClass::Do_MISSION_ATTACK()
             break;
         case 2:
             if (unknown_254 == 0) {
-                unknown_a8 = 10;
+                Status = 10;
             } else {
                 if (!unknown_slot213(unknown_228) || Is_Strafe()) {
-                    unknown_a8 = 1;
+                    Status = 1;
                 } else {
-                    unknown_a8 = Rules->CurleyShuffle ? 1 : 4;
+                    Status = Rules->CurleyShuffle ? 1 : 4;
                 }
                 if (Is_Strafe()) {
                     return 45;
@@ -1690,26 +1690,26 @@ int AircraftClass::Do_MISSION_ATTACK()
             Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
             Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             if (unknown_254 != 0) {
-                unknown_a8 = Rules->CurleyShuffle ? 1 : 4;
+                Status = Rules->CurleyShuffle ? 1 : 4;
             } else {
-                unknown_a8 = 10;
+                Status = 10;
             }
             break;
         }
         default:
             if (unknown_254 == 0) {
-                unknown_a8 = 10;
+                Status = 10;
             } else if (!unknown_slot213(unknown_228)) {
-                unknown_a8 = 1;
+                Status = 1;
             } else {
-                unknown_a8 = Rules->CurleyShuffle ? 1 : 4;
+                Status = Rules->CurleyShuffle ? 1 : 4;
             }
             break;
         }
         break;
     case 6:
         if (unknown_228 == 0) {
-            unknown_a8 = 10;
+            Status = 10;
             return 1;
         }
         switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
@@ -1721,19 +1721,19 @@ int AircraftClass::Do_MISSION_ATTACK()
             Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
             Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             Assign_Destination(unknown_228, true);
-            unknown_a8 = 7;
+            Status = 7;
             return unknown_slot231(0)->WeaponType->unknown_b0;
         }
         default:
             if (unknown_254 == 0) {
-                unknown_a8 = 10;
+                Status = 10;
                 unknown_5ba = false;
             }
             return 1;
         }
     case 7:
         if (unknown_228 == 0) {
-            unknown_a8 = 10;
+            Status = 10;
             return 1;
         }
         switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
@@ -1745,19 +1745,19 @@ int AircraftClass::Do_MISSION_ATTACK()
             Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
             Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             Assign_Destination(unknown_228, true);
-            unknown_a8 = 8;
+            Status = 8;
             return unknown_slot231(0)->WeaponType->unknown_b0;
         }
         default:
             if (unknown_254 == 0) {
-                unknown_a8 = 10;
+                Status = 10;
                 unknown_5ba = false;
             }
             return 1;
         }
     case 8:
         if (unknown_228 == 0) {
-            unknown_a8 = 10;
+            Status = 10;
             return 1;
         }
         switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
@@ -1769,19 +1769,19 @@ int AircraftClass::Do_MISSION_ATTACK()
             Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
             Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             Assign_Destination(unknown_228, true);
-            unknown_a8 = 9;
+            Status = 9;
             return unknown_slot231(0)->WeaponType->unknown_b0;
         }
         default:
             if (unknown_254 == 0) {
-                unknown_a8 = 10;
+                Status = 10;
                 unknown_5ba = false;
             }
             return 1;
         }
     case 9:
         if (unknown_228 == 0) {
-            unknown_a8 = 10;
+            Status = 10;
             return 1;
         }
         switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
@@ -1791,12 +1791,12 @@ int AircraftClass::Do_MISSION_ATTACK()
         case 9: {
             Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
             Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
-            unknown_a8 = 3;
+            Status = 3;
             return (unknown_slot231(0)->WeaponType->unknown_b4 + 0x400) / Type->Speed;
         }
         default:
             if (unknown_254 == 0) {
-                unknown_a8 = 10;
+                Status = 10;
                 unknown_5ba = false;
             }
             return 1;
@@ -1814,7 +1814,7 @@ int AircraftClass::Do_MISSION_ATTACK()
                 unknown_slot220(0);
             }
         } else if (unknown_228 != 0) {
-            unknown_a8 = 1;
+            Status = 1;
             return 1;
         }
         unknown_5ba = false;
@@ -2208,9 +2208,9 @@ int AircraftClass::Do_MISSION_ENTER()
         unknown_slot261(false, true);
         return 1;
     }
-    switch (unknown_a8) {
+    switch (Status) {
     case 0:
-        unknown_a8 = 6;
+        Status = 6;
     case 1:
     case 2:
     case 3:
@@ -2223,7 +2223,7 @@ int AircraftClass::Do_MISSION_ENTER()
         if (!HasAnyLink()) {
             if (!Move_To_Object_Nearby()) {
                 if (Locomotor.Checked()->Get_Status() == 1) {
-                    unknown_a8 = 7;
+                    Status = 7;
                     unknown_5bc = true;
                 }
                 if (MissionQueue == -1) {
@@ -2238,7 +2238,7 @@ int AircraftClass::Do_MISSION_ENTER()
             return 1;
         }
         if (Locomotor.Checked()->Get_Status() == 1 || (Type->AirportBound && Get_Height_AGL() == 0)) {
-            unknown_a8 = 7;
+            Status = 7;
             unknown_5bc = false;
         }
         return 3;
@@ -2659,7 +2659,7 @@ void AircraftClass::Look(bool arg1, bool arg2)
         coord = Coord;
         Map.Sight_From(coord, sight, House, arg1, arg2, 0, 1, 1);
     } else if (unknown_id_source_a3d290->unknown_000 & 0x1000) {
-        sight = Rules->unknown_ec;
+        sight = Rules->AircraftFogReveal;
         coord = Coord;
         Map.Sight_From(coord, sight, House, 0, 0, 1, Get_Height_AGL() < Rules->FlightLevel / 2, 0);
         coord = Coord;

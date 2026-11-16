@@ -485,7 +485,7 @@ public:
     Cell Cell_To_LocalRect(Cell const &cell);
 
     bool unknown_10;                                            // +0x10
-    HashTableClass<unsigned int, unsigned int> *unknown_14;     // +0x14 (One_Time)
+    HashTableClass<unsigned int, unsigned int> *ZoneAdjacency;     // +0x14 (One_Time)
     void *unknown_18[12];                                       // +0x18 cleared by One_Time; freed and refilled by the load
     int unknown_48;                                             // +0x48
     DynamicVectorClass<ZoneConnectionClass> ZoneConnections;    // +0x4C
@@ -493,32 +493,32 @@ public:
     int CellZoneCount;                                             // +0x68
     char *CellSubzones;                                           // +0x6C freed by the destructor
     int unknown_70[3];                                          // +0x70 entry counts of the path estimator's three layer arrays (0x00427E90, 0x00429A90)
-    HashTableClass<unsigned int, SubzoneConnectionStruct> *unknown_7c[3];      // +0x7C (One_Time)
+    HashTableClass<unsigned int, SubzoneConnectionStruct> *SubzoneConnectionHashTable[3];      // +0x7C (One_Time)
     DynamicVectorClass<SubzoneTrackingStruct> SubzoneTracking[3];              // +0x88
-    DynamicVectorClass<Cell> unknown_d0;                  // +0xD0
+    DynamicVectorClass<Cell> PendingBridgeCells;                  // +0xD0
     Rect MapSize;                                               // +0xE8 (Width +0xF0)
     Rect MapLocalSize;                                          // +0xF8 (X +0xF8, Y +0xFC)
     // The state of the cell walk 0x0055A550 / 0x0055A490: the current cell's
     // X and Y, the cells left in its diagonal row and its slot in Cells.
-    int unknown_108;                                            // +0x108
-    int unknown_10c;                                            // +0x10C
-    int unknown_110;                                            // +0x110
-    CellClass **unknown_114;                                    // +0x114
-    int unknown_118;                                            // +0x118 X of the second cell walk (0x0055A910)
-    int unknown_11c;                                            // +0x11C Y
+    int IterX;                                            // +0x108
+    int IterY;                                            // +0x10C
+    int IterColumn;                                            // +0x110
+    CellClass **IterCell;                                    // +0x114
+    int LocalIterX;                                            // +0x118 X of the second cell walk (0x0055A910)
+    int LocalIterY;                                            // +0x11C Y
     int unknown_120;                                            // +0x120 (0x00832600) the map's first cell X (hypothesis: MapCellX)
     int unknown_124;                                            // +0x124 the first cell Y
     int unknown_128;                                            // +0x128 the width in cells
     int unknown_12c;                                            // +0x12C the height in cells
-    int unknown_130;                                            // +0x130
+    int TotalValue;                                            // +0x130
     VectorClass<CellClass *> Cells;                             // +0x134 indexed Y * 512 + X
-    int unknown_144;                                            // +0x144 13 after construction
+    int MaxLevel;                                            // +0x144 13 after construction
     int MapCellWidth;                                           // +0x148 512 (One_Time)
     int MapCellHeight;                                          // +0x14C 512
     int MapCellTotal;                                           // +0x150 0x40000
-    UnknownMapEntry154 unknown_154[256];                        // +0x154
-    bool unknown_1154;                                          // +0x1154 counted up by 0x0055ACC0
-    DynamicVectorClass<Cell> unknown_1158;                // +0x1158
+    UnknownMapEntry154 Crates[256];                        // +0x154
+    bool Redraws;                                          // +0x1154 counted up by 0x0055ACC0
+    DynamicVectorClass<Cell> TaggedCells;                // +0x1158
 };
 
 #endif

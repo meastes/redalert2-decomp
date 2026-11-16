@@ -37,13 +37,13 @@ public:
     // WOnline.cpp unit's register ties move when MultiMission gains members). Get_Official gives
     // Send_Options 0x0059BC90 its vector-before-index load.
     char const *Get_Filename() const { return unknown_58; }
-    char const *Get_Digest() const { return unknown_15c; }
-    bool Get_Official() { return unknown_17c; }
+    char const *Get_Digest() const { return Digest; }
+    bool Get_Official() { return IsOfficial; }
 #endif
 #ifdef RA2_SESSION_MAP_PLAYER_ACCESSORS
     // Session's five player-range reads, inlined in the description reader.
-    int Get_Min_Players() const { return unknown_180; }
-    int Get_Max_Players() const { return unknown_184; }
+    int Get_Min_Players() const { return MinPlayers; }
+    int Get_Max_Players() const { return MaxPlayers; }
 #endif
     // Copies a description (at most 43 characters; null: MSG:NoDescription) into Description (0x00671FA0;
     // Make_Random_Map 0x005C84E0).
@@ -59,11 +59,11 @@ public:
 
     unsigned short Description[0x2C];      // +0x00 the map's description (ModemGuest 0x00597E50 shows it)
     char unknown_58[0x15C - 0x58];          // +0x58 the map's file name (the cooperative campaign records list it)
-    char unknown_15c[0x17C - 0x15C];        // +0x15C the map's digest (ModemHost 0x0059BC90 sends it)
-    bool unknown_17c;                       // +0x17C official map (sent as the options IsOfficial bit; a game mode test is skipped when false and 0x0073C370 agrees)
+    char Digest[0x17C - 0x15C];        // +0x15C the map's digest (ModemHost 0x0059BC90 sends it)
+    bool IsOfficial;                       // +0x17C official map (sent as the options IsOfficial bit; a game mode test is skipped when false and 0x0073C370 agrees)
     char unknown_17d[0x180 - 0x17D];
-    int unknown_180;                        // +0x180 (constructor argument 6)
-    int unknown_184;                        // +0x184 the map's player count (MPCooperative slot 37: the computers are two fewer)
+    int MinPlayers;                        // +0x180 (constructor argument 6)
+    int MaxPlayers;                        // +0x184 the map's player count (MPCooperative slot 37: the computers are two fewer)
     TypeList<DiskID> DiskIDs;               // +0x188 the disks the map is on (TypeList: 0x1C bytes)
     DynamicVectorClass<Wstring> GameModes;  // +0x1A4 the game modes the map allows (vtable 0x007A9664)
 };

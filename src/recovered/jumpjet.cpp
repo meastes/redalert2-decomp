@@ -86,7 +86,7 @@ JumpjetLocomotionClass::JumpjetLocomotionClass() :
     unknown_3c(unknown_geometry_l),
     unknown_48(false),
     unknown_4c(0),
-    unknown_50(Rules->unknown_368),
+    unknown_50(Rules->JumpjetTurnRate),
     unknown_68(0),
     unknown_70(0),
     unknown_78(0),
@@ -200,7 +200,7 @@ bool __stdcall JumpjetLocomotionClass::Process()
             Process_Unknown();
             break;
         }
-        if (LinkedTo->unknown_77 && LinkedTo->House != PlayerPtr) {
+        if (LinkedTo->IsSelected && LinkedTo->House != PlayerPtr) {
             if (Map.Is_Shrouded(Object_Coord(LinkedTo)) ||
                 ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
                 LinkedTo->Unselect();
@@ -330,7 +330,7 @@ HRESULT __stdcall JumpjetLocomotionClass::Load(IStream *stream)
 int __stdcall JumpjetLocomotionClass::Layer()
 {
     int height = LinkedTo->Get_Height_AGL();
-    if (!LinkedTo->unknown_79) {
+    if (!LinkedTo->IsOnBridge) {
         if ((Loco_Cell(Object_Coord(LinkedTo))->Flags & 0x100) && height >= unknown_geometry_j && !LinkedTo->IsFalling) {
             height -= unknown_geometry_j;
         }
@@ -382,7 +382,7 @@ extern double const unknown_facing_origin_79b630;
 void JumpjetLocomotionClass::unknown_52fd50()
 {
     int height = LinkedTo->Get_Height_AGL();
-    if (!LinkedTo->unknown_79 && (Map[Object_Coord(LinkedTo)].unknown_140 & 0x100) && height >= unknown_geometry_j) {
+    if (!LinkedTo->IsOnBridge && (Map[Object_Coord(LinkedTo)].unknown_140 & 0x100) && height >= unknown_geometry_j) {
         height -= unknown_geometry_j;
     }
     Cell cell = LinkedTo->unknown_slot104();
@@ -597,7 +597,7 @@ void JumpjetLocomotionClass::unknown_530550()
     }
     unknown_78 = 0;
     int height = LinkedTo->Get_Height_AGL();
-    if (!LinkedTo->unknown_79 && (Map[Object_Coord(LinkedTo)].unknown_140 & 0x100) && height >= unknown_geometry_j) {
+    if (!LinkedTo->IsOnBridge && (Map[Object_Coord(LinkedTo)].unknown_140 & 0x100) && height >= unknown_geometry_j) {
         height -= unknown_geometry_j;
     }
     if (height == 0) {
@@ -605,7 +605,7 @@ void JumpjetLocomotionClass::unknown_530550()
         LinkedTo->Mark(0);
         LinkedTo->Set_Coord(unknown_3c);
         if (Object_Coord(LinkedTo).Z > Map.Get_Height_GL(Object_Coord(LinkedTo)) && (Map[Object_Coord(LinkedTo)].unknown_140 & 0x100)) {
-            LinkedTo->unknown_79 = true;
+            LinkedTo->IsOnBridge = true;
         }
         LinkedTo->Mark(1);
         unknown_3c = unknown_geometry_l;
@@ -729,13 +729,13 @@ void JumpjetLocomotionClass::unknown_530b00()
     bool moved=false;
     if (difference<desired_height) {
         int height_agl=LinkedTo->Get_Height_AGL();
-        if ((Map[Object_Coord(LinkedTo)].unknown_140&0x100) && !LinkedTo->unknown_79) {
+        if ((Map[Object_Coord(LinkedTo)].unknown_140&0x100) && !LinkedTo->IsOnBridge) {
             if (Object_Coord(LinkedTo).Z>=Map.Get_Height_GL(Object_Coord(LinkedTo))+unknown_geometry_j)
                 height_agl-=unknown_geometry_j;
         }
         if (height_agl==0) {
             LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
-            LinkedTo->unknown_79=false;
+            LinkedTo->IsOnBridge=false;
         }
         if (difference+Climb>desired_height) height+=desired_height-difference;
         else height=(int)(height+Climb);

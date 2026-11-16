@@ -97,7 +97,7 @@ IPXInterfaceClass::IPXInterfaceClass()
 {
     memset(Network, 0xFF, sizeof(Network));
     memset(Node, 0xFF, sizeof(Node));
-    memset(unknown_3f306, 0xFF, sizeof(unknown_3f306));
+    memset(MyNode, 0xFF, sizeof(MyNode));
 }
 
 
@@ -252,7 +252,7 @@ bool IPXInterfaceClass::Open_Socket(int socketnum)
         address.sa_netnum[0], address.sa_netnum[1], address.sa_netnum[2], address.sa_netnum[3],
         address.sa_nodenum[0], address.sa_nodenum[1], address.sa_nodenum[2],
         address.sa_nodenum[3], address.sa_nodenum[4], address.sa_nodenum[5]);
-    memcpy(unknown_3f306, address.sa_nodenum, sizeof(unknown_3f306));
+    memcpy(MyNode, address.sa_nodenum, sizeof(MyNode));
 
     Debug_Printf("About to bind IPX Socket\n");
     if (bind(Socket, &address, 16) == SOCKET_ERROR) {
@@ -335,7 +335,7 @@ int IPXInterfaceClass::Message_Handler(int window, int message, int wparam, int 
             if (received) {
                 memcpy(network, address.sa_netnum, sizeof(network));
                 memcpy(node, address.sa_nodenum, sizeof(node));
-                if (!memcmp(network, Network, sizeof(network)) && !memcmp(node, unknown_3f306, sizeof(node))) {
+                if (!memcmp(network, Network, sizeof(network)) && !memcmp(node, MyNode, sizeof(node))) {
                     return 0;
                 }
                 int loss = WinsockInterfaceClass::Get_Packet_Loss_Percent();

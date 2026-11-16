@@ -138,17 +138,17 @@ public:
     void Fire_AI();                             // 0x0060C7C0 behaviour 2
 
     ParticleSystemTypeClass *Class;                 // +0x098
-    CoordStruct unknown_9c;                         // +0x09C
+    CoordStruct CoordOffset;                         // +0x09C
     DynamicVectorClass<ParticleClass *> Particles;  // +0x0A8
     CoordStruct TargetCoord;                        // +0x0C0
     ObjectClass *Owner;                             // +0x0CC (a TechnoClass; hypothesis)
     AbstractClass *unknown_d0;                      // +0x0D0
-    float unknown_d4;                               // +0x0D4
+    float SpawnFrames;                               // +0x0D4
     int Lifetime;                                   // +0x0D8
-    int unknown_dc;                                 // +0x0DC
-    int unknown_e0;                                 // +0x0E0
+    int SparkSpawnFrames;                                 // +0x0DC
+    int SparkRadius;                                 // +0x0E0
     bool unknown_e4;                                // +0x0E4
-    bool unknown_e5;                                // +0x0E5
+    bool IsRandomSparkDirection;                                // +0x0E5
 };
 
 // The list of particle systems (0x00A32280; defined by the unit at 0x004D2BA0).

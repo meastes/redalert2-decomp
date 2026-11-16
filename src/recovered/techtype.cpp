@@ -615,14 +615,14 @@ bool TechnoTypeClass::Read_INI(CCINIClass &ini)
         MovementZone = ini.Get_MovementZone(ID, "MovementZone", MovementZone);
         unknown_af5 = MovementZone == 6;
 
-        if (unknown_206) {
+        if (IsVoxel) {
             Fetch_Voxel_Image();
         } else if (Turret) {
             Fetch_Aux_Voxel_Image();
         }
-        if (unknown_b0.unknown_00 != 0 && !unknown_b0.unknown_00->LoadFailed) {
-            unknown_330 = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->YSize * 0.5f + 0.5;
-            unknown_338 = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->XSize * 0.5f;
+        if (Voxel.unknown_00 != 0 && !Voxel.unknown_00->LoadFailed) {
+            unknown_330 = Voxel.unknown_00->Get_Layer_Info(0, 0)->YSize * 0.5f + 0.5;
+            unknown_338 = Voxel.unknown_00->Get_Layer_Info(0, 0)->XSize * 0.5f;
         }
 
         return true;

@@ -68,11 +68,11 @@ TerrainTypeClass::TerrainTypeClass(char const *ini_name) :
     OccupyList(0)
 {
     AbstractClass::Create_ID();
-    unknown_200 = false;
-    unknown_204 = true;
-    unknown_1ff = true;
-    unknown_201 = false;
-    unknown_202 = true;
+    IsSelectable = false;
+    IsSentient = true;
+    IsStealthy = true;
+    IsLegalTarget = false;
+    IsInsignificant = true;
     TerrainTypes.Add(this);
     ArrayIndex = TerrainTypes.ID(this);
     MaxStrength = -1;
@@ -145,7 +145,7 @@ void __fastcall TerrainTypeClass::Init(int theater)
     if (Debug_Map || theater != LastTheater) {
         for (int index = 0; index < TerrainTypes.Count(); index++) {
             TerrainTypeClass *terrain = TerrainTypes[index];
-            if (terrain->unknown_1fc) {
+            if (terrain->IsTheater) {
                 char fullname[512];
                 _makepath(fullname, 0, 0, terrain->ID, Theaters[theater].Suffix);
                 if (terrain->ImageAllocated && terrain->ImageData != 0) {
@@ -315,15 +315,15 @@ bool TerrainTypeClass::Read_INI(CCINIClass &ini)
         char const *section = ID;
         IsVeinhole = ini.Get_Bool(section, "IsVeinhole", IsVeinhole);
         if (IsVeinhole) {
-            unknown_204 = false;
-            unknown_201 = true;
+            IsSentient = false;
+            IsLegalTarget = true;
         }
         WaterBound = ini.Get_Bool(section, "WaterBound", WaterBound);
         SpawnsTiberium = ini.Get_Bool(section, "SpawnsTiberium", SpawnsTiberium);
         IsFlammable = ini.Get_Bool(section, "IsFlammable", IsFlammable);
         Foundation = ArtINI.Get_Foundation(unknown_1c8, "Foundation", Foundation);
         OccupyList = _OccupyLists[Foundation];
-        if (!unknown_1fc) {
+        if (!IsTheater) {
             char filename[512];
             _makepath(filename, 0, 0, unknown_1c8, ".SHP");
             ImageData = (void *)MixFileClass::Retrieve(filename);

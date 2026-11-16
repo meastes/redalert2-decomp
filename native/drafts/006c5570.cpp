@@ -39,7 +39,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     if(tech->Control()->unknown_04) return false;
     if(object->Get_Height_AGL()<-20) return false;
     CoordStruct objectcoord=object->Center_Coord();
-    if(zone!=-1 && Map.Zone(Coord_Cell(objectcoord),Techno_Type_Class()->MovementZone,object->unknown_79)!=zone) return false;
+    if(zone!=-1 && Map.Zone(Coord_Cell(objectcoord),Techno_Type_Class()->MovementZone,object->IsOnBridge)!=zone) return false;
     if((Kind_Of()!=15 || !static_cast<InfantryClass *>(this)->unknown_5c0) && !Techno_Type_Class()->AttackFriendlies && House->Is_Ally(tech)) {
         if(unknown_6c16f0(-1)>=0 && !engineer) return false;
         if(object->Health_Ratio()==Rules->unknown_1360) return false;
@@ -76,7 +76,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     int otype=object->Kind_Of();
     if(!((1<<otype)&mask) && (!(mask&2) || !object->Considered_Vehicle())) return false;
     TechnoTypeClass *tclass=object->Techno_Type_Class();
-    if(!tclass->unknown_201) return false;
+    if(!tclass->IsLegalTarget) return false;
     if(unknown_game_mode_a3d298!=0 && tech->House->Type->MultiplayPassive) {
         if(House->Is_Human_Player() || object->Kind_Of()!=6 || Kind_Of()!=15) return false;
         InfantryClass *inf=static_cast<InfantryClass *>(this);
@@ -88,7 +88,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
         if(!inf->Type->Occupier || !static_cast<BuildingClass *>(object)->CanBeOccupiedBy(this)) occupy=false; else occupy=true;
         if(unknown_game_mode_a3d298==0 || defense || (!capture && !occupy)) return false;
     }
-    if(tclass->unknown_202 && (object->Kind_Of()!=6 || tech->House->Type->MultiplayPassive)) {
+    if(tclass->IsInsignificant && (object->Kind_Of()!=6 || tech->House->Type->MultiplayPassive)) {
         if(House->Is_Human_Player() || object->Kind_Of()!=6 || Kind_Of()!=15) return false;
         InfantryClass *inf=static_cast<InfantryClass *>(this);
         bool defense=false;
@@ -127,7 +127,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     if((method&0x40) && !tclass->Storage) return false;
     CellClass *here=&Map[Position_Coord_004f3f40()];
     CellClass *there=&Map[object->Position_Coord_004f3f40()];
-    if((here->unknown_140&0x100) && (there->unknown_140&0x100) && unknown_79!=object->unknown_79) return false;
+    if((here->unknown_140&0x100) && (there->unknown_140&0x100) && IsOnBridge!=object->IsOnBridge) return false;
     *value=(int)Target_Threat(object,*coord);
     if(Techno_Type_Class()->VHPScan==1) {
         if(object->unknown_70<=0) *value=*value/2;

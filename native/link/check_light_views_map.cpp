@@ -12,11 +12,11 @@
 #include "shared/map_overlay.hpp"
 #include <cstddef>
 
-static_assert(offsetof(ObjectTypeClass, unknown_205) == 0x325, "map_techno.hpp ObjectTypeClass IsFootprint");
+static_assert(offsetof(ObjectTypeClass, IsFootprint) == 0x325, "map_techno.hpp ObjectTypeClass IsFootprint");
 static_assert(offsetof(UnknownMapTechnoType, unknown_500) == 0x6F0, "map_techno.hpp TechnoTypeClass MovementZone");
 static_assert(offsetof(ObjectClass, IsDown) == 0xB8, "map_techno.hpp ObjectClass::IsDown");
 static_assert(offsetof(ObjectClass, IsInLimbo) == 0xBA, "map_techno.hpp ObjectClass::IsInLimbo");
-static_assert(offsetof(ObjectClass, unknown_79) == 0xBD, "map_techno.hpp ObjectClass::unknown_79");
+static_assert(offsetof(ObjectClass, IsOnBridge) == 0xBD, "map_techno.hpp ObjectClass::IsOnBridge");
 static_assert(offsetof(TechnoClass, unknown_30) == 0x40, "map_techno.hpp TechnoClass::unknown_30");
 static_assert(offsetof(TechnoClass, unknown_74) == 0xB8, "map_techno.hpp TechnoClass::unknown_74");
 static_assert(offsetof(TechnoClass, unknown_7d) == 0xC1, "map_techno.hpp TechnoClass::unknown_7d");
@@ -33,7 +33,7 @@ static_assert(offsetof(BuildingTypeClass, RemoveOccupy) == 0x1654, "map_techno.h
 static_assert(offsetof(BuildingTypeClass, Gate) == 0x16A1, "map_techno.hpp BuildingTypeClass::Gate");
 static_assert(offsetof(BuildingTypeClass, FirestormWall) == 0x16AA, "map_techno.hpp BuildingTypeClass::FirestormWall");
 static_assert(offsetof(BuildingTypeClass, CanHideThings) == 0x1736, "map_techno.hpp BuildingTypeClass::CanHideThings");
-static_assert(offsetof(OverlayTypeClass, unknown_264) == 0x3B8, "map_techno.hpp OverlayTypeClass ArrayIndex");
+static_assert(offsetof(OverlayTypeClass, HeapID) == 0x3B8, "map_techno.hpp OverlayTypeClass ArrayIndex");
 static_assert(offsetof(BuildingClass, Type) == 0x518, "map_techno.hpp BuildingClass::Type");
 static_assert(offsetof(HouseTypeClass, House) == 0xC8, "map_techno.hpp HouseTypeClass::House");
 static_assert(offsetof(HouseTypeClass, WallOwner) == 0x1DF, "map_techno.hpp HouseTypeClass::WallOwner");

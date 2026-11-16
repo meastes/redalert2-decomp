@@ -102,25 +102,25 @@ ObjectClass::ObjectClass() :
     unknown_30(0),
     unknown_34(0),
     unknown_38(0),
-    unknown_64(-1),
-    unknown_68(false),
+    CustomSound(-1),
+    BombVisible(false),
     Strength(0xFF),
     unknown_70(0xFF),
     IsDown(false),
     IsToDisplay(false),
     IsInLimbo(true),
-    unknown_77(false),
+    IsSelected(false),
     IsAnimAttached(false),
-    unknown_79(false),
+    IsOnBridge(false),
     IsFalling(false),
-    unknown_7b(false),
+    IsABomb(false),
     unknown_7c(false),
     IsActive(true),
-    unknown_80(-1),
+    Layer(-1),
     IsSubmittedToLayer(false),
-    unknown_85(true),
+    IsVisible(true),
     Coord(unknown_geometry_l),
-    unknown_94(0)
+    LineTrailer(0)
 {
     unknown_3c.Init();
     unknown_50.Init();
@@ -164,9 +164,9 @@ ObjectClass::~ObjectClass()
 
 void ObjectClass::unknown_func_5d2710()
 {
-    if (unknown_94 != 0) {
-        unknown_94->Clear_Owner();
-        unknown_94 = 0;
+    if (LineTrailer != 0) {
+        LineTrailer->Clear_Owner();
+        LineTrailer = 0;
     }
 }
 
@@ -221,11 +221,11 @@ static inline int Object_AI_Clamped_Speed(int floor, int speed)
 void ObjectClass::AI()
 {
     if (!IsInLimbo) {
-        if (Class_Of() && Class_Of()->unknown_1c4 != -1) {
+        if (Class_Of() && Class_Of()->AmbientSound != -1) {
             CoordStruct current = Coord;
-            Voc_Play_At(Class_Of()->unknown_1c4, current, &unknown_3c);
+            Voc_Play_At(Class_Of()->AmbientSound, current, &unknown_3c);
         }
-        int sound = unknown_64;
+        int sound = CustomSound;
         if (sound != -1) {
             CoordStruct current = Coord;
             Voc_Play_At(sound, current, &unknown_50);
@@ -293,7 +293,7 @@ void ObjectClass::Fall_From_Height()
     unknown_7c = true;
     Mark(0);
     Map.Remove(this);
-    unknown_79 = false;
+    IsOnBridge = false;
     Map.Submit(this);
     Mark(1);
     bool foot;
@@ -524,9 +524,9 @@ void ObjectClass::Move(int facing)
 
 void ObjectClass::Unselect()
 {
-    if (unknown_77) {
+    if (IsSelected) {
         CurrentObject.Delete(this);
-        unknown_77 = false;
+        IsSelected = false;
         if (Map.Unknown_0049EC40() == this) {
             Map.Unknown_0049EC60(0);
         }
@@ -546,7 +546,7 @@ void __fastcall Set_Type_Select_Mode(unsigned int value);
 
 bool ObjectClass::unknown_slot80()
 {
-    if (!Debug_Map && (IsInLimbo || unknown_77 || !CanBeSelected())) {
+    if (!Debug_Map && (IsInLimbo || IsSelected || !CanBeSelected())) {
         return false;
     }
     TechnoClass *techno = As_Techno();
@@ -573,7 +573,7 @@ bool ObjectClass::unknown_slot80()
         CurrentObject.Add(this);
     }
     Set_Type_Select_Mode(0);
-    unknown_77 = true;
+    IsSelected = true;
     return true;
 }
 
@@ -691,7 +691,7 @@ bool ObjectClass::Limbo()
     Map.Remove(this);
     unknown_3c.Unknown_00405D50();
     unknown_50.Unknown_00405FE0();
-    if (Class_Of() && Class_Of()->unknown_204) {
+    if (Class_Of() && Class_Of()->IsSentient) {
         if (unknown_game_mode_a3d298 == 0 || unknown_game_mode_a3d298 == 5 ||
             Fetch_ID() != -2)
             unknown_list_832470.Remove(this);
@@ -742,7 +742,7 @@ bool ObjectClass::Unlimbo(CoordStruct const *coord, int direction)
         if (IsActive) {
             if (In_Which_Layer() != -1) Map.Submit(this);
             if (type) {
-                if (type->unknown_204 &&
+                if (type->IsSentient &&
                     (Kind_Of() != 0x24 ||
                      (Kind_Of() == 0x24 && static_cast<TerrainTypeClass *>(type)->SpawnsTiberium)) &&
                     (unknown_game_mode_a3d298 == 0 || unknown_game_mode_a3d298 == 5 || Fetch_ID() != -2))
@@ -767,19 +767,19 @@ bool ObjectClass::Unlimbo(CoordStruct const *coord, int direction)
                     }
                 }
             }
-            if (Class_Of()->unknown_20a) {
-                unknown_94 = new LineTrail();
-                if (unknown_94) {
+            if (Class_Of()->UseLineTrail) {
+                LineTrailer = new LineTrail();
+                if (LineTrailer) {
                     RGBClass override_color = Rules->LineTrailColorOverride;
                     if (override_color == RGBClass(0, 0, 0)) {
                         RGBClass color = Class_Of()->LineTrailColor;
-                        unknown_94->Color = color;
+                        LineTrailer->Color = color;
                     } else {
                         RGBClass color = Rules->LineTrailColorOverride;
-                        unknown_94->Color = color;
+                        LineTrailer->Color = color;
                     }
-                    unknown_94->Set_Decrement(Class_Of()->unknown_210);
-                    unknown_94->Owner = this;
+                    LineTrailer->Set_Decrement(Class_Of()->LineTrailColorDecrement);
+                    LineTrailer->Owner = this;
                 }
             }
             return true;
@@ -813,9 +813,9 @@ void ObjectClass::Detach(AbstractClass *target, bool all)
 
 void ObjectClass::unknown_slot54(bool arg1)
 {
-    if (unknown_94 != 0) {
-        unknown_94->Clear_Owner();
-        unknown_94 = 0;
+    if (LineTrailer != 0) {
+        LineTrailer->Clear_Owner();
+        LineTrailer = 0;
     }
     HouseClass *house = Owning_House();
     bool keep = false;
@@ -867,7 +867,7 @@ int ObjectClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
     int state = 0;
     {
     int old_strength = Strength;
-    if (old_strength <= 0 || *damage == 0 || (!forced && Class_Of()->unknown_203)) goto damage_done;
+    if (old_strength <= 0 || *damage == 0 || (!forced && Class_Of()->IsImmune)) goto damage_done;
     int maximum_strength = Class_Of()->MaxStrength;
     if (!forced) *damage = Modify_Damage(*damage, warhead, Class_Of()->Armor, distance);
     if (*damage == 0) return 0;
@@ -935,7 +935,7 @@ int ObjectClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
                     unknown_34->Spring(44, this, unknown_geometry_k, 0, reinterpret_cast<int>(source));
                 if (!IsActive) goto damage_done;
                 if (state == 0) goto damage_done;
-                if (!unknown_77) goto damage_done;
+                if (!IsSelected) goto damage_done;
                 Mark(2);
                 goto damage_done;
             }
@@ -1009,7 +1009,7 @@ bool ObjectClass::unknown_slot56(CoordStruct const &coord)
     if (Map.Unknown_0055A7F0(coord)) {
         IsFalling = true;
         UnknownCellClass *cell = Map_Cell(coord);
-        if (cell != 0 && (!(cell->Flags & 0x100) || (unknown_79 = true, (cell->Flags & 0x200) != 0))) {
+        if (cell != 0 && (!(cell->Flags & 0x100) || (IsOnBridge = true, (cell->Flags & 0x200) != 0))) {
             bool techno;
             if (this != 0) {
                 techno = AbstractFlags.IsTechno;
@@ -1019,7 +1019,7 @@ bool ObjectClass::unknown_slot56(CoordStruct const &coord)
                 int zone = Techno_Type_Class()->MovementZone;
                 Cell position = Cell(coord.X / 256, coord.Y / 256);
                 clear = cell->Unknown_00478760(Techno_Type_Class()->SpeedType, 0, 0,
-                    Map.Zone(position, zone, unknown_79), zone, -1, 1);
+                    Map.Zone(position, zone, IsOnBridge), zone, -1, 1);
             }
             if (clear) {
                 if (Unlimbo(&coord, 0x80)) {
@@ -1178,7 +1178,7 @@ HRESULT __stdcall ObjectClass::Load(IStream *stream)
     Swizzler.Swizzle((void **)&unknown_18);
     unknown_3c.Init();
     unknown_50.Init();
-    unknown_94 = 0;
+    LineTrailer = 0;
     return S_OK;
 }
 
@@ -1187,7 +1187,7 @@ HRESULT __stdcall ObjectClass::Load(IStream *stream)
 int ObjectClass::Unknown_005D47D0() const
 {
     CellClass *cell = static_cast<CellClass *>(const_cast<ObjectClass *>(this)->Get_Cell_Ptr());
-    return cell->Height + (unknown_79 ? 4 : 0);
+    return cell->Height + (IsOnBridge ? 4 : 0);
 }
 
 
@@ -1205,7 +1205,7 @@ int ObjectClass::Get_Height_AGL() const
 {
     CoordStruct coord = Coord;
     int height = Coord.Z - Map.Get_Height_GL(coord);
-    if (unknown_79) {
+    if (IsOnBridge) {
         height -= unknown_geometry_j;
     }
     return height;
@@ -1216,7 +1216,7 @@ int ObjectClass::Get_Height_AGL() const
 
 void ObjectClass::Set_Height_AGL(int height)
 {
-    if (unknown_79) {
+    if (IsOnBridge) {
         height += unknown_geometry_j;
     }
     if (IsDown) {
@@ -1317,11 +1317,11 @@ void ObjectClass::Compute_CRC(WWCRCEngine &crc) const
     crc(IsDown);
     if (unknown_game_mode_a3d298 == 0 || unknown_game_mode_a3d298 == 5) {
         crc(IsToDisplay);
-        crc(unknown_77);
+        crc(IsSelected);
     }
     crc(IsInLimbo);
     crc(IsAnimAttached);
-    crc(unknown_79);
+    crc(IsOnBridge);
     crc(IsFalling);
     crc(unknown_7c);
     crc(IsActive);
@@ -1579,14 +1579,14 @@ CellClass *ObjectClass::Get_Target_Cell_Ptr() const
 
 bool ObjectClass::Is_Moving_Onto_Bridge(TechnoClass *techno)
 {
-    bool result = unknown_79;
+    bool result = IsOnBridge;
     CoordStruct coord = unknown_slot19(techno);
     int there = Map.Get_Height_GL(coord);
     int ground = Map.Get_Height_GL(CoordStruct(Coord));
-    if (!unknown_79 && ground - there > unknown_geometry_g * 3 && (Map_Cell(coord)->Flags & 0x100)) {
+    if (!IsOnBridge && ground - there > unknown_geometry_g * 3 && (Map_Cell(coord)->Flags & 0x100)) {
         return true;
     }
-    if (unknown_79 && there - ground > unknown_geometry_g * 3) {
+    if (IsOnBridge && there - ground > unknown_geometry_g * 3) {
         return false;
     }
     return result;
@@ -1654,7 +1654,7 @@ bool ObjectClass::CanBeSelected()
     if (IsDisguisedAs(PlayerPtr) && GetDisguiseHouse(true) == 0) {
         return false;
     }
-    return Class_Of()->unknown_200;
+    return Class_Of()->IsSelectable;
 }
 
 
@@ -1670,7 +1670,7 @@ CoordStruct ObjectClass::unknown_slot41(int arg1) const
 
 void ObjectClass::Set_Ambient_Sound(int value)
 {
-    unknown_64 = value;
+    CustomSound = value;
     if (value == -1) {
         unknown_50.Unknown_00405FE0();
     }

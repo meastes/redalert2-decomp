@@ -3252,7 +3252,7 @@ int HouseClass::AI_Aircraft()
 void HouseClass::Tracking_Remove(TechnoClass *techno)
 {
     techno->unknown_324 = false;
-    if (!techno->Techno_Type_Class()->unknown_202) {
+    if (!techno->Techno_Type_Class()->IsInsignificant) {
         switch (techno->Kind_Of()) {
         case 6:
             if (techno->Considered_Vehicle()) {
@@ -3293,7 +3293,7 @@ void HouseClass::Tracking_Remove(TechnoClass *techno)
 void HouseClass::Tracking_Add(TechnoClass *techno)
 {
     techno->unknown_324 = true;
-    if (!techno->Techno_Type_Class()->unknown_202) {
+    if (!techno->Techno_Type_Class()->IsInsignificant) {
         switch (techno->Kind_Of()) {
         case 6: {
             if (techno->Considered_Vehicle()) {

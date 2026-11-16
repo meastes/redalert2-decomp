@@ -188,7 +188,7 @@ bool __fastcall CrateClass::Put_Crate(Cell &cell)
     CellClass *cellptr = &Map[cell];
     if (cellptr->OverlayIndex == -1) {
         if (Map[cell].unknown_ec == 2) {
-            new OverlayClass(Rules->unknown_f8, cell);
+            new OverlayClass(Rules->WaterCrateImg, cell);
         } else {
             new OverlayClass(Rules->unknown_f0, cell);
         }
@@ -213,7 +213,7 @@ bool Cell::Unknown_00493C80()
         CellClass &cell = Map[*this];
         if (cell.OverlayIndex != -1) {
             OverlayTypeClass *type = OverlayTypes[cell.OverlayIndex];
-            if (type == Rules->unknown_f0 || type == Rules->unknown_f4 || type == Rules->unknown_f8) {
+            if (type == Rules->unknown_f0 || type == Rules->CrateImg || type == Rules->WaterCrateImg) {
                 Rect rect = Union(cell.Overlay_Render_Rect(), cell.Overlay_Shadow_Render_Rect());
                 rect.Y -= unknown_int_839634;
                 TacticalMap->Register_Dirty_Area(rect, 0);

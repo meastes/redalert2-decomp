@@ -150,7 +150,7 @@ public:
     int                      FlashFrameTime;   // +0x90
     int                      RadarCombatFlashTime;   // +0x94
     int                      unknown_98;   // +0x98 MaxWaypointPathLength; (0x004F3120: a slot readiness count)
-    AnimTypeClass *          unknown_09c;   // +0x9C Wake; (a falling-aircraft smoke animation; AircraftClass::AI)
+    AnimTypeClass *          Wake;   // +0x9C Wake; (a falling-aircraft smoke animation; AircraftClass::AI)
     AnimTypeClass *          NukeTakeOff;   // +0xA0
     AnimTypeClass *          InfantryExplode;   // +0xA4
     AnimTypeClass *          FlamingInfantry;   // +0xA8
@@ -167,24 +167,24 @@ public:
     AnimTypeClass *          VeinAttack;   // +0xE0
     int                      unknown_e4;   // +0xE4 VeinDamage; vein damage (AnimClass 0x00422F50)
     int                      MaximumQueuedObjects;   // +0xE8
-    int                      unknown_ec;   // +0xEC AircraftFogReveal; a sight range (AircraftClass slot 70)
+    int                      AircraftFogReveal;   // +0xEC AircraftFogReveal; a sight range (AircraftClass slot 70)
     OverlayTypeClass *       unknown_f0;   // +0xF0 WoodCrateImg; (OverlayClass slot 71: an overlay type placed without a house; hypothesis)
-    OverlayTypeClass *       unknown_f4;   // +0xF4 CrateImg
-    OverlayTypeClass *       unknown_f8;   // +0xF8 WaterCrateImg
+    OverlayTypeClass *       CrateImg;   // +0xF4 CrateImg
+    OverlayTypeClass *       WaterCrateImg;   // +0xF8 WaterCrateImg
     TypeList<AnimTypeClass *> DropPod;   // +0xFC
     TypeList<AnimTypeClass *> DeadBodies;   // +0x118
     TypeList<AnimTypeClass *> MetallicDebris;   // +0x134
     TypeList<AnimTypeClass *> BridgeExplosions;   // +0x150
-    int                      unknown_16c;   // +0x16C DigSound; a sound (Tunnel.cpp: a unit surfaces)
+    int                      DigSound;   // +0x16C DigSound; a sound (Tunnel.cpp: a unit surfaces)
     int                      CreateUnitSound;   // +0x170
     int                      CreateInfantrySound;   // +0x174
     int                      CreateAircraftSound;   // +0x178
     int                      BaseUnderAttackSound;   // +0x17C
     int                      unknown_180;   // +0x180 GUIMainButtonSound; sound: sidebar shown/hidden (SidebarClass::AI; hypothesis)
     int                      unknown_184;   // +0x184 GUIBuildSound
-    int                      unknown_188;   // +0x188 GUITabSound; sound: sidebar tab/scroll click (SidebarClass::AI)
-    int                      unknown_18c;   // +0x18C GUIOpenSound; sound: the tab bar opens (TabClass::AI)
-    int                      unknown_190;   // +0x190 GUICloseSound; sound: the tab bar closes (TabClass::AI)
+    int                      GUITabSound;   // +0x188 GUITabSound; sound: sidebar tab/scroll click (SidebarClass::AI)
+    int                      GUIOpenSound;   // +0x18C GUIOpenSound; sound: the tab bar opens (TabClass::AI)
+    int                      GUICloseSound;   // +0x190 GUICloseSound; sound: the tab bar closes (TabClass::AI)
     int                      GUIMoveOutSound;   // +0x194
     int                      GUIMoveInSound;   // +0x198
     int                      GUIComboOpenSound;   // +0x19C
@@ -199,10 +199,10 @@ public:
     int                      CheerSound;   // +0x1C0
     int                      PlaceBeaconSound;   // +0x1C4
     int                      DefaultChronoSound;   // +0x1C8
-    int                      unknown_1cc;   // +0x1CC StartPlanningModeSound; a sound: planning mode starts (Planning.cpp; hypothesis)
-    int                      unknown_1d0;   // +0x1D0 AddPlanningModeCommandSound; a sound: a planned order is taken (Planning.cpp; hypothesis)
+    int                      StartPlanningModeSound;   // +0x1CC StartPlanningModeSound; a sound: planning mode starts (Planning.cpp; hypothesis)
+    int                      AddPlanningModeCommandSound;   // +0x1D0 AddPlanningModeCommandSound; a sound: a planned order is taken (Planning.cpp; hypothesis)
     int                      ExecutePlanSound;   // +0x1D4
-    int                      unknown_1d8;   // +0x1D8 EndPlanningModeSound; a sound: planning mode ends (Planning.cpp; hypothesis)
+    int                      EndPlanningModeSound;   // +0x1D8 EndPlanningModeSound; a sound: planning mode ends (Planning.cpp; hypothesis)
     int                      CrateMoneySound;   // +0x1DC
     int                      CrateRevealSound;   // +0x1E0
     int                      CrateFireSound;   // +0x1E4
@@ -236,7 +236,7 @@ public:
     AnimTypeClass *          WarpIn;   // +0x29C
     AnimTypeClass *          WarpOut;   // +0x2A0
     AnimTypeClass *          WarpAway;   // +0x2A4
-    AnimTypeClass *          unknown_2a8;   // +0x2A8 ChronoSparkle1; (a damaged-aircraft animation every 24 frames; AircraftClass::AI)
+    AnimTypeClass *          ChronoSparkle1;   // +0x2A8 ChronoSparkle1; (a damaged-aircraft animation every 24 frames; AircraftClass::AI)
     AnimTypeClass *          IronCurtainInvokeAnim;   // +0x2AC
     AnimTypeClass *          WeaponNullifyAnim;   // +0x2B0
     AnimTypeClass *          AtmosphereEntry;   // +0x2B4
@@ -248,7 +248,7 @@ public:
     TypeList<int>            PrerequisiteProc;   // +0x344
     int                      GateUp;   // +0x360
     int                      GateDown;   // +0x364
-    int                      unknown_368;   // +0x368 TurnRate; jumpjet turn rate (Loco; hypothesis)
+    int                      JumpjetTurnRate;   // +0x368 TurnRate; jumpjet turn rate (Loco; hypothesis)
     int                      Speed;   // +0x36C
     double                   Climb;   // +0x370
     int                      JumpjetCruiseHeight;   // +0x378 CruiseHeight
@@ -269,12 +269,12 @@ public:
     int                      PrismSupportHeight;   // +0x404
     RocketStruct             V3Rocket;   // +0x408
     RocketStruct             DMisl;   // +0x438
-    int                      unknown_468;   // +0x468 ParadropRadius; a distance (Aircraft.cpp slots 146/147)
+    int                      ParadropRadius;   // +0x468 ParadropRadius; a distance (Aircraft.cpp slots 146/147)
     char unknown_46c[0x470 - 0x46C];
     double                   ZoomInFactor;   // +0x470
     double                   ConditionRedSparkingProbability;   // +0x478
     double                   ConditionYellowSparkingProbability;   // +0x480
-    int                      unknown_488;   // +0x488 TiberiumExplosionDamage; tiberium chain-reaction damage (AnimClass 0x004226D0; hypothesis)
+    int                      TiberiumExplosionDamage;   // +0x488 TiberiumExplosionDamage; tiberium chain-reaction damage (AnimClass 0x004226D0; hypothesis)
     int                      TiberiumStrength;   // +0x48C
     float                    MinLowPowerProductionSpeed;   // +0x490
     float                    MaxLowPowerProductionSpeed;   // +0x494
@@ -292,7 +292,7 @@ public:
     double                   DropPodAngle;   // +0x4D0
     double                   ScrollMultiplier;   // +0x4D8
     double                   CrewEscape;   // +0x4E0
-    int                      unknown_4e8;   // +0x4E8 ShakeScreen; (UnitClass 0x006FD3A0: a strength threshold for the death shake)
+    int                      ShakeScreen;   // +0x4E8 ShakeScreen; (UnitClass 0x006FD3A0: a strength threshold for the death shake)
     int                      HoverHeight;   // +0x4EC
     double                   HoverBob;   // +0x4F0
     double                   HoverBoost;   // +0x4F8
@@ -304,7 +304,7 @@ public:
     VoxelAnimTypeClass *     TireVoxelDebris;   // +0x53C
     VoxelAnimTypeClass *     ScrapVoxelDebris;   // +0x540
     int                      BridgeVoxelMax;   // +0x544
-    int                      unknown_548;   // +0x548 CloakingStages; cloak stage count (TechnoClass slot 252)
+    int                      CloakingStages;   // +0x548 CloakingStages; cloak stage count (TechnoClass slot 252)
     int                      RevealTriggerRadius;   // +0x54C
     double                   ShipSinkingWeight;   // +0x550
     double                   IceCrackingWeight;   // +0x558
@@ -314,12 +314,12 @@ public:
     char unknown_585[0x588 - 0x585];
     double                   VeteranRatio;   // +0x588
     double                   VeteranCombat;   // +0x590
-    double                   unknown_598;   // +0x598 VeteranSpeed; a veteran speed factor (FootClass slot 303; hypothesis)
-    double                   unknown_5a0;   // +0x5A0 VeteranSight; sight factor for the veteran/elite sight ability (TechnoClass slot 70; 0 = none)
+    double                   VeteranSpeed;   // +0x598 VeteranSpeed; a veteran speed factor (FootClass slot 303; hypothesis)
+    double                   VeteranSight;   // +0x5A0 VeteranSight; sight factor for the veteran/elite sight ability (TechnoClass slot 70; 0 = none)
     double                   VeteranArmor;   // +0x5A8
     double                   VeteranROF;   // +0x5B0
     double                   VeteranCap;   // +0x5B8
-    int                      unknown_5c0;   // +0x5C0 CloakSound; a sound (TechnoClass slots 252/253)
+    int                      CloakSound;   // +0x5C0 CloakSound; a sound (TechnoClass slots 252/253)
     int                      SellSound;   // +0x5C4 SellSound; a sound (FootClass slot 98 plays it when a unit is sold)
     int                      GameClosed;   // +0x5C8
     int                      IncomingMessage;   // +0x5CC
@@ -345,10 +345,10 @@ public:
     int                      BuildingDamageSound;   // +0x634
     int                      HealCrateSound;   // +0x638
     int                      ChuteSound;   // +0x63C
-    int                      unknown_640;   // +0x640 StopSound; a sound (UICmnds.cpp 0x006F5BC0)
-    int                      unknown_644;   // +0x644 GuardSound; a sound (UICmnds.cpp 0x006F5B10)
-    int                      unknown_648;   // +0x648 ScatterSound; a sound (UICmnds.cpp 0x006F5D10: the group command refused)
-    int                      unknown_64c;   // +0x64C
+    int                      StopSound;   // +0x640 StopSound; a sound (UICmnds.cpp 0x006F5BC0)
+    int                      GuardSound;   // +0x644 GuardSound; a sound (UICmnds.cpp 0x006F5B10)
+    int                      ScatterSound;   // +0x648 ScatterSound; a sound (UICmnds.cpp 0x006F5D10: the group command refused)
+    int                      DeploySound;   // +0x64C
     int                      StormSound;   // +0x650
     TypeList<int>            LightningSounds;   // +0x654
     int                      ShellButtonSlideSound;   // +0x670
@@ -366,7 +366,7 @@ public:
     double                   SpotlightAcceleration;   // +0x6C0
     double                   SpotlightAngle;   // +0x6C8
     int                      SpotlightRadius;   // +0x6D0 SpotlightRadius; search light: base value (0x00434530)
-    int                      unknown_6d4;   // +0x6D4 WindDirection; wind direction (0..7; Particle.cpp)
+    int                      WindDirection;   // +0x6D4 WindDirection; wind direction (0..7; Particle.cpp)
     int                      CameraRange;   // +0x6D8
     int                      FlightLevel;   // +0x6DC FlightLevel; default flight level (TechnoType slot 47)
     int                      ParachuteMaxFallRate;   // +0x6E0
@@ -377,8 +377,8 @@ public:
     TypeList<SmudgeTypeClass *> Scorches2;   // +0x724
     TypeList<SmudgeTypeClass *> Scorches3;   // +0x740
     TypeList<SmudgeTypeClass *> Scorches4;   // +0x75C
-    BuildingTypeClass *      unknown_778;   // +0x778 RepairBay; a building type (AircraftClass slot 28)
-    BuildingTypeClass *      unknown_77c;   // +0x77C GDIGateOne; (BuildingClass slot 52: a type whose X neighbours are refreshed)
+    BuildingTypeClass *      RepairBay;   // +0x778 RepairBay; a building type (AircraftClass slot 28)
+    BuildingTypeClass *      GDIGateOne;   // +0x77C GDIGateOne; (BuildingClass slot 52: a type whose X neighbours are refreshed)
     BuildingTypeClass *      unknown_780;   // +0x780 GDIGateTwo; (Y neighbours)
     BuildingTypeClass *      unknown_784;   // +0x784 NodGateOne; (X neighbours)
     BuildingTypeClass *      unknown_788;   // +0x788 NodGateTwo; (Y neighbours)

@@ -323,7 +323,7 @@ bool FlyLocomotionClass::unknown_4bca00()
             if (LinkedTo->In_Which_Layer()==2 && !unknown_50) {
                 if (!LinkedTo->unknown_slot309(&Map[Object_Coord(LinkedTo)])) {
                     unknown_50=true;
-                    LinkedTo->unknown_79=false;
+                    LinkedTo->IsOnBridge=false;
                     LinkedTo->Mark(0);
                     LinkedTo->Set_Height_AGL(LinkedTo->Get_Height_AGL()+10);
                     LinkedTo->Mark(1);
@@ -514,7 +514,7 @@ void FlyLocomotionClass::unknown_4bcd50()
     }
     int bridge_height=0;
     int current_height=LinkedTo->Get_Height_AGL();
-    if (!LinkedTo->unknown_79 && current_height>=unknown_geometry_j && (Loco_Cell(Object_Coord(LinkedTo))->Flags&0x100)) {
+    if (!LinkedTo->IsOnBridge && current_height>=unknown_geometry_j && (Loco_Cell(Object_Coord(LinkedTo))->Flags&0x100)) {
         current_height-=unknown_geometry_j;
         bridge_height=unknown_geometry_j;
     }
@@ -545,7 +545,7 @@ void FlyLocomotionClass::unknown_4bcd50()
             climb=MIN(is_loaded?10:20,climb);
             LinkedTo->Set_Height_AGL(bridge_height+current_height+climb);
         }
-        LinkedTo->unknown_79=false;
+        LinkedTo->IsOnBridge=false;
     }
     if (current_height>unknown_38 || LinkedTo->Strength==0) {
         int descent=current_height-unknown_38;
@@ -579,7 +579,7 @@ void FlyLocomotionClass::unknown_4bcd50()
             current_height=0;
         }
         if (current_height==0 && bridge_height>0) {
-            LinkedTo->unknown_79=true;
+            LinkedTo->IsOnBridge=true;
             bridge_height=0;
         }
         LinkedTo->Set_Height_AGL(bridge_height+current_height);
@@ -698,7 +698,7 @@ inline UnknownFacingDir Fly_Direction_004bddf0(CoordStruct const &from,CoordStru
 bool FlyLocomotionClass::Process_Take_Off_004bddf0()
 {
     int height=LinkedTo->Get_Height_AGL();
-    if (!LinkedTo->unknown_79 && (Loco_Cell(Object_Coord(LinkedTo))->Flags & 0x100) && height>=unknown_geometry_j)
+    if (!LinkedTo->IsOnBridge && (Loco_Cell(Object_Coord(LinkedTo))->Flags & 0x100) && height>=unknown_geometry_j)
         height-=unknown_geometry_j;
     UnknownFlyPtr flyctrl(LinkedTo);
     int landing_altitude=0;
@@ -782,7 +782,7 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
     if (height<=landing_altitude && LinkedTo->PitchAngle<=unknown_fly_pitch_zero_79a738) {
         CoordStruct coord=Object_Coord(LinkedTo);
         if ((Loco_Cell(coord)->Flags&0x100) && coord.Z>=Map.Get_Height_GL(coord)+unknown_geometry_j)
-            LinkedTo->unknown_79=true;
+            LinkedTo->IsOnBridge=true;
         LinkedTo->Set_Height_AGL(landing_altitude);
         unknown_51=false;
         unknown_50=false;
@@ -933,7 +933,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
             unknown_40=0.75;
         }
     }
-    if (LinkedTo->unknown_77 && !LinkedTo->House->Is_Player_Control()) {
+    if (LinkedTo->IsSelected && !LinkedTo->House->Is_Player_Control()) {
         if (Map.Is_Shrouded(Object_Coord(LinkedTo)) || ((*(unsigned int *)unknown_id_source_a3d290&0x1000) && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
             LinkedTo->Unselect();
         }
@@ -1238,7 +1238,7 @@ void __stdcall FlyLocomotionClass::Acquire_Hunter_Seeker_Target()
             }
 
             if (enemy && techno->Strength > 0 && !techno->IsInLimbo && techno->IsActive &&
-                !techno->Techno_Type_Class()->Invisible && techno->Techno_Type_Class()->unknown_201 &&
+                !techno->Techno_Type_Class()->Invisible && techno->Techno_Type_Class()->IsLegalTarget &&
                 !(unknown_id_source_a3d290->Special().HarvesterImmune && techno->Kind_Of() == 1 && ((UnitClass *)techno)->Type->Harvester)) {
 
                 if (unknown_game_mode_a3d298 != 0 && LinkedTo->House->Is_Human_Player() && !techno->House->Type->MultiplayPassive &&

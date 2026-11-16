@@ -90,7 +90,7 @@ LineTrail::~LineTrail()
 void LineTrail::Clear_Owner()
 {
     if (Owner != 0) {
-        Owner->unknown_94 = 0;
+        Owner->LineTrailer = 0;
         Owner = 0;
     }
 }

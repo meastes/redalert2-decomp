@@ -72,7 +72,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     Point2D drawpoint=point;
     TechnoTypeClass *type=Type;
     if (!unknown_slot245(unknown_player_house_a35db4)) type=static_cast<TechnoTypeClass *>(GetDisguise(true));
-    int frame=unknown_430 % (int)type->unknown_b0.unknown_04->unknown_frame_count;
+    int frame=unknown_430 % (int)type->Voxel.unknown_04->unknown_frame_count;
     Rect cliprect=window;
     Surface *old_surface=LogicalSurface;
     int key=0;
@@ -91,11 +91,11 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     int hull_facing=(key>>5)&0x3ff;
     Rect rect=cliprect;
     unknown_unit_rect_ad0490=unknown_static_rect;
-    if (Type->unknown_1b8 && SpawnManager->Docked_Count()==0) {
+    if (Type->NoSpawnAlt && SpawnManager->Docked_Count()==0) {
         key|=0x10000;
-        unknown_slot246(type->unknown_b8,frame,key,&type->unknown_214,rect,drawpoint,Unit_Isometric_View_00717f90()*main_matrix,brightness,0x2800);
+        unknown_slot246(type->AuxVoxel,frame,key,&type->unknown_214,rect,drawpoint,Unit_Isometric_View_00717f90()*main_matrix,brightness,0x2800);
     } else {
-        unknown_slot246(type->unknown_b0,frame,key,&type->unknown_214,rect,drawpoint,Unit_Isometric_View_00717f90()*main_matrix,brightness,0x2800);
+        unknown_slot246(type->Voxel,frame,key,&type->unknown_214,rect,drawpoint,Unit_Isometric_View_00717f90()*main_matrix,brightness,0x2800);
     }
     int turret_key=key;
     if (turret_key!=-1) {
@@ -103,10 +103,10 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
         if (Techno_Type_Class()->TurretOffset==0) turret_key&=0xfffffc1f;
     }
     if (!type->Turret && (!unknown_6d83e0() || !Has_Current_Turret())) {
-        if (Unit_Voxel_Loaded_007005b0(type->unknown_c0)) {
+        if (Unit_Voxel_Loaded_007005b0(type->AuxVoxel2)) {
             main_matrix.Rotate_Y((float)-(unknown_2c8.Current().As_Radian32()-main_matrix.Get_Y_Rotation()));
             main_matrix.Translate((float)(unknown_slot231(0)->FLH.X*unknown_geometry_c),0.0f,(float)(unknown_slot231(0)->FLH.Z*unknown_geometry_c));
-            unknown_slot246(type->unknown_c0,frame,turret_key,&type->unknown_250,cliprect,drawpoint,Unit_Isometric_View_00717f90()*main_matrix,brightness,0);
+            unknown_slot246(type->AuxVoxel2,frame,turret_key,&type->AuxVoxel2Index,cliprect,drawpoint,Unit_Isometric_View_00717f90()*main_matrix,brightness,0);
         }
     } else {
         int turret_index=0;
@@ -115,9 +115,9 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
             turret_index=Get_Current_Turret_Number();
             turret_key|=turret_index<<16;
             has_barrel=Unit_Voxel_Loaded_007005b0(type->unknown_140[turret_index]);
-        } else has_barrel=Unit_Voxel_Loaded_007005b0(type->unknown_c0);
-        bool cached_turret=Unit_Is_Cached_006ff690(&type->unknown_228,turret_key);
-        bool cached_barrel=has_barrel ? Unit_Is_Cached_006ff690(&type->unknown_250,turret_key) : false;
+        } else has_barrel=Unit_Voxel_Loaded_007005b0(type->AuxVoxel2);
+        bool cached_turret=Unit_Is_Cached_006ff690(&type->AuxVoxelIndex,turret_key);
+        bool cached_barrel=has_barrel ? Unit_Is_Cached_006ff690(&type->AuxVoxel2Index,turret_key) : false;
         Matrix3D turret_matrix;
         Matrix3D barrel_matrix;
         if (!cached_turret || (has_barrel && !cached_barrel)) {
@@ -140,18 +140,18 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
             if (Unit_Is_Barrel_Ahead_006ff690(SecondaryFacing)) barrel_above=true;
             else {
                 barrel_above=false;
-                if (has_barrel) unknown_slot246(type->unknown_140[turret_index],0,turret_key,&type->unknown_250,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
+                if (has_barrel) unknown_slot246(type->unknown_140[turret_index],0,turret_key,&type->AuxVoxel2Index,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
             }
-            unknown_slot246(type->unknown_c8[turret_index],frame,turret_key,&type->unknown_228,cliprect,drawpoint,turret_matrix,brightness,0x2800);
-            if (barrel_above && has_barrel) unknown_slot246(type->unknown_140[turret_index],0,turret_key,&type->unknown_250,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
+            unknown_slot246(type->ChargerTurrets[turret_index],frame,turret_key,&type->AuxVoxelIndex,cliprect,drawpoint,turret_matrix,brightness,0x2800);
+            if (barrel_above && has_barrel) unknown_slot246(type->unknown_140[turret_index],0,turret_key,&type->AuxVoxel2Index,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
         } else {
             if (Unit_Is_Barrel_Ahead_006ff690(SecondaryFacing)) barrel_above=true;
             else {
                 barrel_above=false;
-                if (Unit_Voxel_Loaded_007005b0(type->unknown_c0)) unknown_slot246(type->unknown_c0,0,turret_key,&type->unknown_250,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
+                if (Unit_Voxel_Loaded_007005b0(type->AuxVoxel2)) unknown_slot246(type->AuxVoxel2,0,turret_key,&type->AuxVoxel2Index,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
             }
-            unknown_slot246(type->unknown_b8,frame,turret_key,&type->unknown_228,cliprect,drawpoint,turret_matrix,brightness,0x2800);
-            if (barrel_above && Unit_Voxel_Loaded_007005b0(type->unknown_c0)) unknown_slot246(type->unknown_c0,0,turret_key,&type->unknown_250,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
+            unknown_slot246(type->AuxVoxel,frame,turret_key,&type->AuxVoxelIndex,cliprect,drawpoint,turret_matrix,brightness,0x2800);
+            if (barrel_above && Unit_Voxel_Loaded_007005b0(type->AuxVoxel2)) unknown_slot246(type->AuxVoxel2,0,turret_key,&type->AuxVoxel2Index,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
         }
     }
     rect=window;
@@ -189,7 +189,7 @@ plain:
         if (unknown_37c) shadow_drawpoint.Y-=14;
         int height=Get_Height_AGL();
         CellClass *cell= &Map[Position_Coord_004f3f40()];
-        if (unknown_37c && !unknown_79 && height>=unknown_bridge_height_ad057c && (cell->unknown_140&0x100) &&
+        if (unknown_37c && !IsOnBridge && height>=unknown_bridge_height_ad057c && (cell->unknown_140&0x100) &&
             (((cell->unknown_140&0x800) && (cell->Adjacent_Cell(0).unknown_140&0x100)) ||
              (!(cell->unknown_140&0x800) && (cell->Adjacent_Cell(6).unknown_140&0x100)))) shadow_drawpoint.Y-=60;
         Surface *cache_key;   // the shadow mask surface
@@ -202,9 +202,9 @@ plain:
             }
         }
         if (Get_Height_AGL()>0) {
-            Draw_Voxel_Shadow(type->unknown_b0,type->ShadowIndex,key,&type->unknown_23c,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y+1);
+            Draw_Voxel_Shadow(type->Voxel,type->ShadowIndex,key,&type->ShadowVoxelIndex,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y+1);
         } else {
-            Draw_Voxel_Shadow(type->unknown_b0,type->ShadowIndex,key,&type->unknown_23c,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y);
+            Draw_Voxel_Shadow(type->Voxel,type->ShadowIndex,key,&type->ShadowVoxelIndex,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y);
         }
     }
     composite_surface->Fill_Rect(dirtyrect,0);

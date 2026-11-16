@@ -116,7 +116,7 @@ public:
     int GuestHouse;                 // +0x50 (-1 unknown)
     int unknown_54;                 // +0x54 RulesClass_Get_Rule_Unique_ID (the INI checksum sum)
     int unknown_58;                 // +0x58 unknown_art_ini_unique_id
-    int unknown_5c;                 // +0x5C unknown_ini_8397a0_unique_id
+    int AICheatCheck;                 // +0x5C unknown_ini_8397a0_unique_id
 };
 
 // INI checksums (shared/modem_host.hpp declares them for the dialog; sources in unowned/).

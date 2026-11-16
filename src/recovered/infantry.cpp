@@ -244,7 +244,7 @@ int InfantryClass::Take_Damage(int *damage,int distance,WarheadTypeClass *warhea
             if (unknown_7c) new AnimClass(Rules->InfantryExplode,CoordStruct(Coord),0,1,0x600,0);
         }
         if (Get_Height_AGL()<=10 && Map[CoordStruct(Coord)].unknown_ec==2 && unknown_7c) {
-            new AnimClass(Rules->unknown_09c,CoordStruct(Coord),0,1,0x600,0);
+            new AnimClass(Rules->Wake,CoordStruct(Coord),0,1,0x600,0);
             new AnimClass(Rules->SplashList[0],CoordStruct(Coord)+CoordStruct(0,0,3),0,1,0x600,0);
             delete_after_sequence=true;
         } else if (Type->Cyborg && unknown_5c3) {
@@ -333,7 +333,7 @@ int InfantryClass::unknown_500350()
 {
     int sequence = Sequence;
     if (sequence == -1) {
-        if (Map_Cell_At(unknown_slot104())->unknown_ec == 2 && !unknown_79) {
+        if (Map_Cell_At(unknown_slot104())->unknown_ec == 2 && !IsOnBridge) {
             sequence = 16;
         } else {
             sequence = 0;
@@ -405,7 +405,7 @@ void InfantryClass::Draw_It(Point2D const &input, Rect const &window)
             else if (NukeFlash_IsFadingIn()) level_light=unknown_id_source_a3d290->unknown_22f4;
             else level_light=unknown_id_source_a3d290->AmbientLevel;
             int brightness;
-            if (unknown_79 || ((Map[Position_Coord_004f3f40()].unknown_140&0x10000) &&
+            if (IsOnBridge || ((Map[Position_Coord_004f3f40()].unknown_140&0x10000) &&
                 Position_Coord_004f3f40().Z>Map.Get_Height_GL(Position_Coord_004f3f40())+unknown_geometry_j/2)) {
                 int light=level_light*(Get_Height_AGL()/(unknown_geometry_g*2));
                 brightness=Map[target_cell].Brightness+light;
@@ -582,13 +582,13 @@ void InfantryClass::unknown_slot93(int why)
         }
         TechnoClass *transport;
         if (Type->VehicleThief) {
-            transport=static_cast<TechnoClass *>(static_cast<CellClass *>(Get_Cell_Ptr())->Cell_Unit(unknown_79));
-            if (!transport) transport=static_cast<TechnoClass *>(static_cast<CellClass *>(Get_Cell_Ptr())->Cell_Aircraft(unknown_79));
+            transport=static_cast<TechnoClass *>(static_cast<CellClass *>(Get_Cell_Ptr())->Cell_Unit(IsOnBridge));
+            if (!transport) transport=static_cast<TechnoClass *>(static_cast<CellClass *>(Get_Cell_Ptr())->Cell_Aircraft(IsOnBridge));
             if (!transport) transport=static_cast<TechnoClass *>(static_cast<CellClass *>(Get_Cell_Ptr())->Cell_Building());
         } else {
             transport=static_cast<TechnoClass *>(static_cast<CellClass *>(Get_Cell_Ptr())->Cell_Building());
-            if (!transport) transport=static_cast<TechnoClass *>(static_cast<CellClass *>(Get_Cell_Ptr())->Cell_Aircraft(unknown_79));
-            if (!transport) transport=static_cast<TechnoClass *>(static_cast<CellClass *>(Get_Cell_Ptr())->Cell_Unit(unknown_79));
+            if (!transport) transport=static_cast<TechnoClass *>(static_cast<CellClass *>(Get_Cell_Ptr())->Cell_Aircraft(IsOnBridge));
+            if (!transport) transport=static_cast<TechnoClass *>(static_cast<CellClass *>(Get_Cell_Ptr())->Cell_Unit(IsOnBridge));
         }
         TechnoClass *at_destination=0;
         if (unknown_494 && unknown_494->Kind_Of()==11) {
@@ -616,7 +616,7 @@ void InfantryClass::unknown_slot93(int why)
             } else if (unknown_slot104()==transport->unknown_slot104() && transport==unknown_494) {
                 if (unknown_slot150(15,transport)==1) {
                     Assign_Archive_Target(0);
-                    unknown_79=false;
+                    IsOnBridge=false;
                     Limbo();
                     static_cast<FootClass *>(transport)->Unknown_004CCE80(this);
                     Hidden();
@@ -668,7 +668,7 @@ void InfantryClass::unknown_slot93(int why)
         if (unknown_370) {
             unknown_slot149(8);
             if (Type->VoiceComment.Count()>1) Voc_Play_At(Type->VoiceComment[1],CoordStruct(Coord),0);
-            if (unknown_79) {
+            if (IsOnBridge) {
                 if ((cell->unknown_128 & 0x1c)==0x1c) reinterpret_cast<UnknownCellClass *>(cell)->Unknown_00476920(&unknown_geometry_l,true,true,true);
             } else if ((cell->unknown_124 & 0x1c)==0x1c) reinterpret_cast<UnknownCellClass *>(cell)->Unknown_00476920(&unknown_geometry_l,true,true,false);
         }
@@ -679,7 +679,7 @@ void InfantryClass::unknown_slot93(int why)
         Map.Unknown_0054A550(CoordStruct(Coord),0,unknown_1f4+3,0);
         CellClass *current=&Map[CoordStruct(Coord)];
         int land=current->unknown_ec;
-        if (!Locomotor.Checked()->Is_Moving() && !Type->C4 && !Has_Ability(14) && (land==3 || land==2) && (!unknown_79 || !current->IsUnderBridge)) {
+        if (!Locomotor.Checked()->Is_Moving() && !Type->C4 && !Has_Ability(14) && (land==3 || land==2) && (!IsOnBridge || !current->IsUnderBridge)) {
             int damage=Strength;
             Take_Damage(&damage,0,Rules->C4Warhead,0,true,0);
             return;
@@ -834,8 +834,8 @@ void InfantryClass::AI()
         unknown_slot267(false);
         return;
     }
-    if ((unknown_slot111() || unknown_slot112()) && Frame % 24 == 0 && Rules->unknown_2a8 != 0) {
-        new AnimClass(Rules->unknown_2a8, Infantry_Damage_Animation_Coord(Coord), 0, 1, 0x600, 0);
+    if ((unknown_slot111() || unknown_slot112()) && Frame % 24 == 0 && Rules->ChronoSparkle1 != 0) {
+        new AnimClass(Rules->ChronoSparkle1, Infantry_Damage_Animation_Coord(Coord), 0, 1, 0x600, 0);
     }
     if (unknown_20c != 0) {
         unknown_20c->AI();
@@ -1281,7 +1281,7 @@ bool InfantryClass::unknown_slot261(bool arg1, bool arg2)
             if (Get_Mission() == 5 || Get_Mission() == 11) {
                 return false;
             }
-            if (Get_Mission() != -1 && (Control()->unknown_05 || Control()->unknown_07)) {
+            if (Get_Mission() != -1 && (Control()->IsZombie || Control()->IsParalyzed)) {
                 return false;
             }
             if (!House->Unknown_004F52F0() && Team == 0) {
@@ -1331,7 +1331,7 @@ inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
     }
     case 1: case 2: case 7:
         infantry->unknown_slot311(10, false, false);
-        if (!infantry->unknown_77 && infantry->House->Is_Player_Control() && infantry->Type->VoiceComment.Count() > 0
+        if (!infantry->IsSelected && infantry->House->Is_Player_Control() && infantry->Type->VoiceComment.Count() > 0
             && NonCriticalRandomNumber(0, 2) == 0) {
             CoordStruct coord = infantry->Coord;
             Voc_Play_At(infantry->Type->VoiceComment[0], coord, 0);
@@ -1423,7 +1423,7 @@ void InfantryClass::Scatter(CoordStruct const &threat, bool forced, bool nokiddi
             if (position!=Point2D(128,128)) facing=Dir_To_8(Direction_00504120(Point2D(128,128),position));
             else facing=Dir_To_8(PrimaryFacing.Current());
             facing=facing+unknown_id_source_a3d290->Random()(0,4)-2;
-            Cell nearby=Map.Nearby_Location(Cell(unknown_slot19(0)),Type->SpeedType,-1,0,unknown_79,Point2D(1,1),0,1,0,1,Cell(0,0),0);
+            Cell nearby=Map.Nearby_Location(Cell(unknown_slot19(0)),Type->SpeedType,-1,0,IsOnBridge,Point2D(1,1),0,1,0,1,Cell(0,0),0);
             if (nearby!=unknown_geometry_k) {
                 Assign_Destination(&Map[nearby],true);
                 Locomotor.Checked()->Process();
@@ -1475,7 +1475,7 @@ bool InfantryClass::unknown_slot311(int sequence, bool force, bool random_start)
     if (Type->MovementZone == 3) {
         UnknownCellClass *cell = Map_Cell_At(unknown_slot104());
         int on_land = 1;
-        if ((cell->unknown_ec == 6 || cell->unknown_ec == 2) && !unknown_79) {
+        if ((cell->unknown_ec == 6 || cell->unknown_ec == 2) && !IsOnBridge) {
             on_land = 0;
             if (sequence == 3 || sequence == 6) sequence = 17;
             else if (sequence == 2 || sequence == 0) sequence = 16;
@@ -1494,7 +1494,7 @@ bool InfantryClass::unknown_slot311(int sequence, bool force, bool random_start)
         }
         unknown_5d0 = on_land;
     }
-    if (In_Air() && !unknown_79 && Type->DoControls[23].Frame > 0 && sequence == 0) {
+    if (In_Air() && !IsOnBridge && Type->DoControls[23].Frame > 0 && sequence == 0) {
         sequence = 23;
     } else if (sequence == 3 && unknown_5bc >= 200) {
         sequence = 37;
@@ -1788,7 +1788,7 @@ clear_force_fire:
     TechnoClass *target = static_cast<TechnoClass *>(object);
     BuildingClass *building = static_cast<BuildingClass *>(object);
     {
-        if (Type->Engineer && House->Is_Player_Control() && object->unknown_38 && object->unknown_68) return 0x39;
+        if (Type->Engineer && House->Is_Player_Control() && object->unknown_38 && object->BombVisible) return 0x39;
         if (Type->Engineer && object->Kind_Of() == 6 && House->Is_Player_Control() &&
             !object->Considered_Vehicle() && building->Type->Repairable) {
             if (building->Type->BridgeRepairHut) {
@@ -1862,7 +1862,7 @@ return_capture_action:
         WeaponTypeClass *weapon = unknown_slot231(What_Weapon_Should_I_Use(object))->WeaponType;
         if (action == 5 && weapon && weapon->unknown_115) return 0x40;
         if (House->Is_Player_Control() && action == 5 && Type->Ivan) {
-            if (object->Class_Of()->unknown_1fe && !object->unknown_38) return 0x35;
+            if (object->Class_Of()->IsBombable && !object->unknown_38) return 0x35;
             return 0x36;
         }
         if (House->Is_Player_Control() && Type->Deployer && (Sequence == 27 || Sequence == 28 || Sequence == 29 || Sequence == 30)) {
@@ -1928,7 +1928,7 @@ infiltration:
                 action = 9;
                 if (object->Kind_Of() == 6) {
                     Cell base = Coord_Cell(object->Center_Coord());
-                    int zone = Map.Zone(Get_Target_Cell(),Type->MovementZone,unknown_79);
+                    int zone = Map.Zone(Get_Target_Cell(),Type->MovementZone,IsOnBridge);
                     Cell const *offset = building->Type->Occupy_List(0);
                     bool found = false;
                     while (!(offset->X == 0x7fff && offset->Y == 0x7fff) && !found) {
@@ -1963,7 +1963,7 @@ finish:
         }
         if (action == 2) {
             if (object->unknown_slot48() && !object->GetDisguiseHouse(true) && object->GetDisguise(true)->Kind_Of() == 21) action = 1;
-        } else if (action == 5 && object->Class_Of()->unknown_203) action = 2;
+        } else if (action == 5 && object->Class_Of()->IsImmune) action = 2;
         goto return_selected_action;
     }
 return_selected_action:
@@ -2334,8 +2334,8 @@ void __fastcall InfantryClass::Read_INI(CCINIClass &ini)
                     }
                     token = strtok(0, ",");
                     if (token != 0) {
-                        infantry->unknown_79 = atoi(token) != 0;
-                        if (infantry->unknown_79) {
+                        infantry->IsOnBridge = atoi(token) != 0;
+                        if (infantry->IsOnBridge) {
                             coord.Z = Map.Get_Height_GL(coord) + unknown_geometry_j;
                         } else {
                             coord.Z = Map.Get_Height_GL(coord);
@@ -2406,7 +2406,7 @@ void __fastcall InfantryClass::Write_INI(CCINIClass &ini)
                     Unknown_004763D0(coord),
                     MissionClass::Name_From_Mission(mission), direction, tag,
                     infantry->Veterancy.To_Integer(), infantry->unknown_1ac,
-                    infantry->unknown_79, infantry->unknown_379, infantry->unknown_37a);
+                    infantry->IsOnBridge, infantry->unknown_379, infantry->unknown_37a);
             ini.Put_String(unknown_infantry_section_7a33f0, id, line);
         }
     }
@@ -2767,7 +2767,7 @@ int InfantryClass::Update_Deployed_Attack()
     } else {
         if (!Owning_House()->Unknown_004F52F0() && Type->Deployer && Type->DeployFire &&
             Type->UndeployDelay <= -1 && unknown_494 == 0 &&
-            Rules->AIAutoDeployFrameDelay[House->unknown_c8] + unknown_ac < Frame) {
+            Rules->AIAutoDeployFrameDelay[House->unknown_c8] + CurrentMissionStartTime < Frame) {
             if (unknown_1b0 != 0) {
                 if (Coord_Cell(unknown_1b0->Center_Coord()) != Coord_Cell(Center_Coord())) {
                     return -1;
@@ -3159,7 +3159,7 @@ bool InfantryClass::Should_JumpJet_Fly(Cell const *from, Cell const *to)
             return false;
         }
     }
-    if (!Map.Unknown_0054F7C0(*from, *to, 7, unknown_79, (Map_Cell_At(*to)->Flags >> 8) & 1, 0)) {
+    if (!Map.Unknown_0054F7C0(*from, *to, 7, IsOnBridge, (Map_Cell_At(*to)->Flags >> 8) & 1, 0)) {
         return true;
     }
     if (*from == *to) {
@@ -3177,7 +3177,7 @@ bool InfantryClass::Should_JumpJet_Fly(Cell const *from, Cell const *to)
     if (!Map.Unknown_0055A660(*from, true) || !Map.Unknown_0055A660(*to, true)) {
         return true;
     }
-    return Search.Test_Cell_Walk(*from, *to, this, unknown_79, (Map_Cell_At(*to)->Flags >> 8) & 1, 7) > 7;
+    return Search.Test_Cell_Walk(*from, *to, this, IsOnBridge, (Map_Cell_At(*to)->Flags >> 8) & 1, 7) > 7;
 }
 
 

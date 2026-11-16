@@ -626,7 +626,7 @@ bool CellClass::Is_Clear_To_Build(int speed, BuildingTypeClass const *what, Hous
 
         if (OverlayIndex == 2 || OverlayIndex == 0) {
             if (what != 0) {
-                if (what->ToOverlay != 0 && what->ToOverlay->ArrayIndex == OverlayIndex && OverlayData >= 0x10 || what == Rules->unknown_78c || what == Rules->unknown_77c || what == Rules->unknown_780) {
+                if (what->ToOverlay != 0 && what->ToOverlay->ArrayIndex == OverlayIndex && OverlayData >= 0x10 || what == Rules->unknown_78c || what == Rules->GDIGateOne || what == Rules->unknown_780) {
                     if (owner == who) {
                         return true;
                     }
@@ -1073,7 +1073,7 @@ void CellClass::Destroy_Bridge()
             occupier = next;
         }
 
-        Map.unknown_d0.Add(MapCoords);
+        Map.PendingBridgeCells.Add(MapCoords);
 
         if (Rules->BridgeExplosions.Count() > 0 && Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10 < 0.95) {
             CoordStruct coord;
@@ -1925,7 +1925,7 @@ bool CellClass::Has_Wall_Or_Gate(int overlay, int facing) const
                 if (object->Kind_Of() == 6) {
                     BuildingTypeClass *type = ((BuildingClass *)object)->Type;
                     if (object->Strength > 0
-                        && ((type == Rules->unknown_77c && (facing == 2 || facing == 6))
+                        && ((type == Rules->GDIGateOne && (facing == 2 || facing == 6))
                             || (type == Rules->unknown_780 && (facing == 0 || facing == 4))
                             || type == Rules->unknown_78c)) {
                         return true;
@@ -2524,13 +2524,13 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
         if (unknown_game_mode_a3d298 == 0) {
             if (OverlayData == 0) {
                 force_money = Rules->SoloCrateMoney;
-                if (OverlayTypes[OverlayIndex] == Rules->unknown_f4) {
+                if (OverlayTypes[OverlayIndex] == Rules->CrateImg) {
                     powerup = Rules->SilverCrate;
                 }
                 if (OverlayTypes[OverlayIndex] == Rules->unknown_f0) {
                     powerup = Rules->WoodCrate;
                 }
-                if (OverlayTypes[OverlayIndex] == Rules->unknown_f8) {
+                if (OverlayTypes[OverlayIndex] == Rules->WaterCrateImg) {
                     powerup = Rules->WaterCrate;
                 }
             }
@@ -2976,7 +2976,7 @@ bool CellClass::Is_Clear_To_Move(int speed, bool arg2, bool arg3, int zone, int 
         OverlayTypeClass *overlay = OverlayTypes[OverlayIndex];
         if (overlay != 0 && overlay->Wall) {
             if (zone_type != 2 && zone_type != 3 && zone_type != 8
-                && ((zone_type != 1 && zone_type != 4) || !overlay->unknown_1fd)) {
+                && ((zone_type != 1 && zone_type != 4) || !overlay->IsCrushable)) {
                 return false;
             }
             land = 0;
@@ -3231,7 +3231,7 @@ void CellClass::Recalc_Passability()
 
     if (OverlayIndex != -1) {
         OverlayTypeClass const *overlay = OverlayTypes[OverlayIndex];
-        if (overlay->unknown_1fd) {
+        if (overlay->IsCrushable) {
             unknown_4c = 1;
             return;
         }

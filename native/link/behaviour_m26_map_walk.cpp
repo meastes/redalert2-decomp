@@ -4,6 +4,6 @@
 
 void Native_Map_Start_Second_Walk(MapClass *map)
 {
-    map->unknown_118 = map->MapLocalSize.X + 1 + map->MapLocalSize.Y;
-    map->unknown_11c = map->MapSize.Width - map->MapLocalSize.X + map->MapLocalSize.Y;
+    map->LocalIterX = map->MapLocalSize.X + 1 + map->MapLocalSize.Y;
+    map->LocalIterY = map->MapSize.Width - map->MapLocalSize.X + map->MapLocalSize.Y;
 }

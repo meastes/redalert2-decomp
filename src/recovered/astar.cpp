@@ -179,7 +179,7 @@ double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool brid
                 }
                 clear = false;
                 cellptr = &Map[Path_Adjacent_Cell(occupier->unknown_slot104(), facing)];
-                on_bridge = (cellptr->unknown_140 & 0x100) && (occupier->unknown_79 || ((CellClass *)occupier->Get_Cell_Ptr())->Height - cellptr->Height > 2);
+                on_bridge = (cellptr->unknown_140 & 0x100) && (occupier->IsOnBridge || ((CellClass *)occupier->Get_Cell_Ptr())->Height - cellptr->Height > 2);
                 next_occupier = on_bridge ? cellptr->AltOccupierPtr : cellptr->OccupierPtr;
                 occupier = next_occupier;
             }
@@ -438,7 +438,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
 
     DestCellHeight = (foot->Kind_Of() == 2 || !(to_ptr->unknown_140 & 0x100)) ? to_ptr->Height : to_ptr->Height + 4;
 
-    CurrentCellHeight = (foot->Kind_Of() == 2 || !foot->unknown_79) ? from_ptr->Height : from_ptr->Height + 4;
+    CurrentCellHeight = (foot->Kind_Of() == 2 || !foot->IsOnBridge) ? from_ptr->Height : from_ptr->Height + 4;
 
     if (foot->Techno_Type_Class()->IsTrain) {
         if (from_ptr->unknown_140 & 0x100) {
@@ -850,7 +850,7 @@ void AStarClass::Apply_Path_Collision_Avoidance(FootClass *foot)
     CellClass *currentCell=&Map[current];
     CellClass *next=&Map[CellClass::Adjacent_Cell(current,Dir_To_8(foot->PrimaryFacing.Current()))];
     bool bridge=(next->unknown_140&0x100)!=0 &&
-        (abs(currentCell->Height-next->Height)>3 || foot->unknown_79);
+        (abs(currentCell->Height-next->Height)>3 || foot->IsOnBridge);
     FootClass *blocker=(FootClass*)(bridge?next->AltOccupierPtr:next->OccupierPtr);
     if(!blocker)blocker=(FootClass*)Find_Moving_Blocker(next->MapCoords,next->Height+(bridge?4:0));
     bool marked=false;
@@ -1569,9 +1569,9 @@ PathStruct *AStarClass::Find_Path(Cell const &from, Cell const &to, FootClass *f
     Avoidance = avoidance;
     CellClass *from_cell = &Map[from];
     CellClass *to_cell = &Map[to];
-    int from_zone = Map.Zone(from, zone != -1 ? zone : foot->Techno_Type_Class()->MovementZone, foot->unknown_79);
+    int from_zone = Map.Zone(from, zone != -1 ? zone : foot->Techno_Type_Class()->MovementZone, foot->IsOnBridge);
     int to_zone = Map.Zone(to, zone != -1 ? zone : foot->Techno_Type_Class()->MovementZone, (Map[to].unknown_140 & 0x100) != 0);
-    Cell hs_from = Map.Get_Bridge_Zone_Connection_Cell(from_cell, foot->unknown_79);
+    Cell hs_from = Map.Get_Bridge_Zone_Connection_Cell(from_cell, foot->IsOnBridge);
     Cell hs_to = Map.Get_Bridge_Zone_Connection_Cell(to_cell, (to_cell->unknown_140 & 0x100) != 0);
     int move_zone = zone != -1 ? zone : foot->Techno_Type_Class()->MovementZone;
     if (foot->Kind_Of() == 15 && ((InfantryClass *)foot)->Type->JumpJet) {

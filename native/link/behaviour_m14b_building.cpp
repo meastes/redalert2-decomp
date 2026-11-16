@@ -139,7 +139,7 @@ int BuildingClass::Do_MISSION_ATTACK()
     }
 
     // SAM launcher.
-    if (unknown_a8 == 0) {                      // tracking
+    if (Status == 0) {                      // tracking
         if (Type->Powered && Type->PowerDrain_c6c > 0 && House->Power_Fraction() < 1.0) {
             return 1;
         }
@@ -147,7 +147,7 @@ int BuildingClass::Do_MISSION_ATTACK()
         bool aircraft = target != 0 && target->Kind_Of() == 2 && ((ObjectClass *)target)->Get_Height() != 0;
         if (!aircraft) {
             unknown_slot220(0);
-            unknown_a8 = 0;
+            Status = 0;
             QueueMission(5, false);
             Commence();
             return 1;
@@ -157,7 +157,7 @@ int BuildingClass::Do_MISSION_ATTACK()
             UnknownFacingDir current = PrimaryFacing.Current();
             int diff = (short)(*(short *)&current - *(short *)&dir);
             if ((diff < 0 ? -diff : diff) <= 0x2000) {
-                unknown_a8 = 1;
+                Status = 1;
                 return 1;
             }
             UnknownFacingDir desired = unknown_slot285(unknown_228);
@@ -165,14 +165,14 @@ int BuildingClass::Do_MISSION_ATTACK()
         }
         return 1;
     }
-    if (unknown_a8 == 1) {                      // firing
+    if (Status == 1) {                      // firing
         AbstractClass *target = unknown_228;
         bool aircraft = target != 0 && target->Kind_Of() == 2 && ((ObjectClass *)target)->Get_Height() != 0;
         if (aircraft) {
             int fire = unknown_slot218(unknown_228, 0, true);
             if (fire == 5 || fire == 6 || fire == 8) {
                 unknown_slot220(0);
-                unknown_a8 = 0;
+                Status = 0;
                 return 1;
             }
             if (fire != 2) {
@@ -181,13 +181,13 @@ int BuildingClass::Do_MISSION_ATTACK()
                 }
                 Fire_At(unknown_228, 0);
                 Fire_At(unknown_228, 1);
-                unknown_a8 = 0;
+                Status = 0;
                 return 1;
             }
         } else {
             unknown_slot220(0);
         }
-        unknown_a8 = 0;
+        Status = 0;
         return 1;
     }
     return (int)(Control()->unknown_18 * 900.0) + unknown_id_source_a3d290->RandomNumber(0, 2);

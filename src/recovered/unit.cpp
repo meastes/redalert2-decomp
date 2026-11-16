@@ -237,8 +237,8 @@ inline Cell Unit_AI_Refinery_Exit_Cell(Cell const &position)
 void UnitClass::AI()
 {
     if (unknown_20c) unknown_20c->AI();
-    if ((unknown_slot111() || unknown_slot112()) && Frame % 24 == 0 && Rules->unknown_2a8) {
-        new AnimClass(Rules->unknown_2a8, Unit_AI_Smoke_Position(Coord), 0, 1, 0x600, 0);
+    if ((unknown_slot111() || unknown_slot112()) && Frame % 24 == 0 && Rules->ChronoSparkle1) {
+        new AnimClass(Rules->ChronoSparkle1, Unit_AI_Smoke_Position(Coord), 0, 1, 0x600, 0);
     }
     if (unknown_slot112() || (unknown_slot111() && IsImmobilized)) {
         Locomotor.Checked()->Process();
@@ -300,7 +300,7 @@ void UnitClass::AI()
             offset.Y += origin.Y;
             offset.Z += origin.Z;
             position = offset;
-            new AnimClass(Rules->unknown_09c, position, 0, 1, 0x600, 0);
+            new AnimClass(Rules->Wake, position, 0, 1, 0x600, 0);
         }
     }
     if (IsActive) {
@@ -335,7 +335,7 @@ void UnitClass::AI()
                 Assign_Destination(repair_building, true);
             }
         }
-        if (Type->Harvester && !House->Is_Human_Player() && Frame - unknown_ac > 300 && !Locomotor.Checked()->Is_Moving()) {
+        if (Type->Harvester && !House->Is_Human_Player() && Frame - CurrentMissionStartTime > 300 && !Locomotor.Checked()->Is_Moving()) {
             BuildingClass *refinery = (BuildingClass *)Map[CoordStruct(Coord)].Cell_Building();
             if (refinery && refinery->Type->Refinery) {
                 if (unknown_slot104() == Unit_AI_Refinery_Exit_Cell(refinery->unknown_slot104())) {
@@ -870,7 +870,7 @@ int UnitClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
                             TechnoClass *source, bool forced, int arg6)
 {
     CoordStruct animation_position;
-    bool restore_selection = unknown_77 && House->Is_Player_Control();
+    bool restore_selection = IsSelected && House->Is_Player_Control();
     int result = FootClass::Take_Damage(damage, distance, warhead, source, forced, arg6);
     if (result == 5) return result;
     if (result == 4) {
@@ -901,14 +901,14 @@ int UnitClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
                 while (count > 0) {
                     ParticleSystemClass *system = new ParticleSystemClass(Rules->unknown_cf4,
                         Center_Coord(), 0, this, unknown_geometry_l);
-                    system->unknown_e5 = true;
+                    system->IsRandomSparkDirection = true;
                     --count;
                 }
             } else {
                 if (Get_Height_AGL() <= 10 && unknown_7c) {
                     animation_position = Coord;
                     if (Map[animation_position].unknown_ec == 2) {
-                        new AnimClass(Rules->unknown_09c, (animation_position = Coord), 0, 1, 0x600, 0);
+                        new AnimClass(Rules->Wake, (animation_position = Coord), 0, 1, 0x600, 0);
                         new AnimClass(Unit_Damage_Last_Water_Animation(),
                             (animation_position = Unit_Damage_Raised_Position(Coord)),
                             0, 1, 0x600, 0);
@@ -927,7 +927,7 @@ remove_passengers:
                 int move = passenger->Can_Enter_Cell(&Map[CoordStruct(Coord)], -1, -1, 0, 1);
                 bool can_place = move == 0 || move == 2;
                 ++ScenarioInit;
-                passenger->unknown_79 = unknown_79;
+                passenger->IsOnBridge = IsOnBridge;
                 animation_position = Coord;
                 animation_position.Z = Get_Cell_Ptr()->Center_Coord().Z;
                 if (!forced && !unknown_7c && can_place) {
@@ -964,7 +964,7 @@ passenger_removed:
                 crew = new InfantryClass(crew_type, House);
             }
             if (crew) {
-                crew->unknown_79 = unknown_79;
+                crew->IsOnBridge = IsOnBridge;
                 CoordStruct position = Coord;
                 if (crew->Unlimbo(&position, 0)) {
                     crew->Strength = unknown_id_source_a3d290->Random()(5, crew->Type->MaxStrength / 2);
@@ -1039,8 +1039,8 @@ void UnitClass::Explode()
                 power+=unknown_294.Get_Amount(i)*Tiberiums[i]->Power;
             }
         }
-        if (Type->MaxStrength>Rules->unknown_4e8) {
-            int shakes=Type->MaxStrength/(Rules->unknown_4e8/2)+3;
+        if (Type->MaxStrength>Rules->ShakeScreen) {
+            int shakes=Type->MaxStrength/(Rules->ShakeScreen/2)+3;
             Shake_The_Screen(shakes<6?shakes:6);
         }
     }
@@ -1146,7 +1146,7 @@ bool UnitClass::unknown_slot261(bool arg1, bool arg2)
         if (Get_Mission() == 5 || Get_Mission() == 11) {
             return result;
         }
-        if (Get_Mission() != -1 && (Control()->unknown_07 || Control()->unknown_05)) {
+        if (Get_Mission() != -1 && (Control()->IsParalyzed || Control()->IsZombie)) {
             return result;
         }
         if (!(House->IQ >= Rules->unknown_10a8 || Has_Ability(16) || Type->DefaultToGuardArea)
@@ -1358,7 +1358,7 @@ bool UnitClass::unknown_6fdfc0()
                 unknown_57c = true;
                 return true;
             }
-            bool selected = unknown_77;
+            bool selected = IsSelected;
             Mark(0);
             Locomotor.Checked()->Mark_All_Occupation_Bits(0);
             BuildingClass *building = new BuildingClass(Type->DeploysInto, House);
@@ -1475,9 +1475,9 @@ void UnitClass::unknown_slot93(int reason)
         UnknownCellClass *current=(UnknownCellClass *)Get_Cell_Ptr();
         TechnoClass *transport=current->Unknown_004717B0();
         if (!transport) {
-            transport=((UnknownCellClass *)Get_Cell_Ptr())->Unknown_00473E80(unknown_79);
+            transport=((UnknownCellClass *)Get_Cell_Ptr())->Unknown_00473E80(IsOnBridge);
             if (!transport) {
-                transport=((UnknownCellClass *)Get_Cell_Ptr())->Unknown_00473E30(unknown_79);
+                transport=((UnknownCellClass *)Get_Cell_Ptr())->Unknown_00473E30(IsOnBridge);
             }
         }
         if (transport==this) transport=Unknown_0040DC20(transport->unknown_30);
@@ -1485,7 +1485,7 @@ void UnitClass::unknown_slot93(int reason)
             if (unknown_slot104()==transport->unknown_slot104() && ContainsLink(transport) && transport->Techno_Type_Class()->Passengers>0) {
                 if (unknown_slot150(15,transport)==1) {
                     Assign_Archive_Target(0);
-                    unknown_79=false;
+                    IsOnBridge=false;
                     Limbo();
                     transport->Cargo.Attach(this);
                     Hidden();
@@ -1561,7 +1561,7 @@ void UnitClass::unknown_slot93(int reason)
         if (!unknown_494 && Path[0]==-1 && !Type->MobileFire) Arm=unknown_slot187(1)/4;
         CellClass *current_cell=&Map[Position_Coord_004f3f40()];
         int land=current_cell->unknown_ec;
-        if (!Locomotor.Checked()->Is_Moving() && Can_Enter_Cell(current_cell,-1,-1,0,1)==7 && (!unknown_79 || !(current_cell->unknown_140&0x100)) && !unknown_325) {
+        if (!Locomotor.Checked()->Is_Moving() && Can_Enter_Cell(current_cell,-1,-1,0,1)==7 && (!IsOnBridge || !(current_cell->unknown_140&0x100)) && !unknown_325) {
             if (Mission!=7) {
                 new AnimClass(Select_Damage_Anim(Strength,Rules->C4Warhead,land,&Position_Coord_004f3f40()),Position_Coord_004f3f40(),0,1,0x2600,Get_Explosion_Z_0047fcc0(Position_Coord_004f3f40()));
                 int damage=Strength;
@@ -1575,8 +1575,8 @@ void UnitClass::unknown_slot93(int reason)
     CellClass *current_cell=&Map[cell];
     if ((Type->Crusher || Has_Ability(17)) && current_cell->OverlayIndex!=-1) {
         OverlayTypeClass *overlay=OverlayTypes[current_cell->OverlayIndex];
-        if (overlay->unknown_1fd) {
-            Voc_Play_At(overlay->unknown_1c0,Center_Coord(),0);
+        if (overlay->IsCrushable) {
+            Voc_Play_At(overlay->CrushSound,Center_Coord(),0);
             current_cell->Reduce_Wall(-1);
             unknown_59f=false;
             unknown_28c+=0.019999999552965164f;
@@ -1776,7 +1776,7 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
         Rect composite_window=LogicalSurface->Get_Rect();
         unknown_5bb=true;
         unknown_unit_rect_ad0490=unknown_static_rect;
-        voxel=&Type->unknown_c0;
+        voxel=&Type->AuxVoxel2;
         if (Unit_Voxel_Loaded_007005b0(*voxel)) {
             int key=-1;
             Matrix3D draw_result;
@@ -1804,17 +1804,17 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
             barrel_above=Unit_Dir_To_4_007005b0(SecondaryFacing.Current())>0 && Unit_Dir_To_4_007005b0(SecondaryFacing.Current())<3;
         }
         unknown_slot293(shape,frame,&composite_point,&composite_window,0,256,0,0,0,brightness,0,0,Point2D(0,0),0x2800);
-        voxel=&Type->unknown_c0;
+        voxel=&Type->AuxVoxel2;
         if (Unit_Voxel_Loaded_007005b0(*voxel) && !barrel_above) {
             // Slot246 retains its existing nine-word ABI; the observed references are explicit.
-            unknown_slot246(Type->unknown_c0,0,-1,0,composite_window,composite_point,
+            unknown_slot246(Type->AuxVoxel2,0,-1,0,composite_window,composite_point,
                             (Unit_Isometric_View_00717f90()*barrel_matrix),brightness,0x2800);
         }
         unsigned turret_frame=((Dir_To_32(SecondaryFacing.Current())+4)&31)+8*Type->WalkFrames;
         unknown_slot293(shape,turret_frame,&composite_point,&composite_window,0,256,0,0,0,brightness,0,0,Point2D(0,0),0x2820);
-        voxel=&Type->unknown_c0;
+        voxel=&Type->AuxVoxel2;
         if (Unit_Voxel_Loaded_007005b0(*voxel) && barrel_above) {
-            unknown_slot246(Type->unknown_c0,0,-1,0,composite_window,composite_point,
+            unknown_slot246(Type->AuxVoxel2,0,-1,0,composite_window,composite_point,
                             (Unit_Isometric_View_00717f90()*barrel_matrix),brightness,0x2820);
         }
         int apparent_brightness=unknown_slot254(brightness);
@@ -1892,7 +1892,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     Point2D drawpoint=point;
     TechnoTypeClass *type=Type;
     if (!unknown_slot245(unknown_player_house_a35db4)) type=static_cast<TechnoTypeClass *>(GetDisguise(true));
-    int frame=unknown_430 % (int)type->unknown_b0.unknown_04->unknown_frame_count;
+    int frame=unknown_430 % (int)type->Voxel.unknown_04->unknown_frame_count;
     Rect cliprect=window;
     Surface *old_surface=LogicalSurface;
     int key=0;
@@ -1911,11 +1911,11 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     int hull_facing=(key>>5)&0x3ff;
     Rect rect=cliprect;
     unknown_unit_rect_ad0490=unknown_static_rect;
-    if (Type->unknown_1b8 && SpawnManager->Docked_Count()==0) {
+    if (Type->NoSpawnAlt && SpawnManager->Docked_Count()==0) {
         key|=0x10000;
-        unknown_slot246(type->unknown_b8,frame,key,&type->unknown_214,rect,drawpoint,Unit_Isometric_View_00717f90()*main_matrix,brightness,0x2800);
+        unknown_slot246(type->AuxVoxel,frame,key,&type->unknown_214,rect,drawpoint,Unit_Isometric_View_00717f90()*main_matrix,brightness,0x2800);
     } else {
-        unknown_slot246(type->unknown_b0,frame,key,&type->unknown_214,rect,drawpoint,Unit_Isometric_View_00717f90()*main_matrix,brightness,0x2800);
+        unknown_slot246(type->Voxel,frame,key,&type->unknown_214,rect,drawpoint,Unit_Isometric_View_00717f90()*main_matrix,brightness,0x2800);
     }
     int turret_key=key;
     if (turret_key!=-1) {
@@ -1923,10 +1923,10 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
         if (Techno_Type_Class()->TurretOffset==0) turret_key&=0xfffffc1f;
     }
     if (!type->Turret && (!unknown_6d83e0() || !Has_Current_Turret())) {
-        if (Unit_Voxel_Loaded_007005b0(type->unknown_c0)) {
+        if (Unit_Voxel_Loaded_007005b0(type->AuxVoxel2)) {
             main_matrix.Rotate_Y((float)-(unknown_2c8.Current().As_Radian32()-main_matrix.Get_Y_Rotation()));
             main_matrix.Translate((float)(unknown_slot231(0)->FLH.X*unknown_geometry_c),0.0f,(float)(unknown_slot231(0)->FLH.Z*unknown_geometry_c));
-            unknown_slot246(type->unknown_c0,frame,turret_key,&type->unknown_250,cliprect,drawpoint,Unit_Isometric_View_00717f90()*main_matrix,brightness,0);
+            unknown_slot246(type->AuxVoxel2,frame,turret_key,&type->AuxVoxel2Index,cliprect,drawpoint,Unit_Isometric_View_00717f90()*main_matrix,brightness,0);
         }
     } else {
         int turret_index=0;
@@ -1935,9 +1935,9 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
             turret_index=Get_Current_Turret_Number();
             turret_key|=turret_index<<16;
             has_barrel=Unit_Voxel_Loaded_007005b0(type->unknown_140[turret_index]);
-        } else has_barrel=Unit_Voxel_Loaded_007005b0(type->unknown_c0);
-        bool cached_turret=Unit_Is_Cached_006ff690(&type->unknown_228,turret_key);
-        bool cached_barrel=has_barrel ? Unit_Is_Cached_006ff690(&type->unknown_250,turret_key) : false;
+        } else has_barrel=Unit_Voxel_Loaded_007005b0(type->AuxVoxel2);
+        bool cached_turret=Unit_Is_Cached_006ff690(&type->AuxVoxelIndex,turret_key);
+        bool cached_barrel=has_barrel ? Unit_Is_Cached_006ff690(&type->AuxVoxel2Index,turret_key) : false;
         Matrix3D turret_matrix;
         Matrix3D barrel_matrix;
         if (!cached_turret || (has_barrel && !cached_barrel)) {
@@ -1960,18 +1960,18 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
             if (Unit_Is_Barrel_Ahead_006ff690(SecondaryFacing)) barrel_above=true;
             else {
                 barrel_above=false;
-                if (has_barrel) unknown_slot246(type->unknown_140[turret_index],0,turret_key,&type->unknown_250,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
+                if (has_barrel) unknown_slot246(type->unknown_140[turret_index],0,turret_key,&type->AuxVoxel2Index,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
             }
-            unknown_slot246(type->unknown_c8[turret_index],frame,turret_key,&type->unknown_228,cliprect,drawpoint,turret_matrix,brightness,0x2800);
-            if (barrel_above && has_barrel) unknown_slot246(type->unknown_140[turret_index],0,turret_key,&type->unknown_250,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
+            unknown_slot246(type->ChargerTurrets[turret_index],frame,turret_key,&type->AuxVoxelIndex,cliprect,drawpoint,turret_matrix,brightness,0x2800);
+            if (barrel_above && has_barrel) unknown_slot246(type->unknown_140[turret_index],0,turret_key,&type->AuxVoxel2Index,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
         } else {
             if (Unit_Is_Barrel_Ahead_006ff690(SecondaryFacing)) barrel_above=true;
             else {
                 barrel_above=false;
-                if (Unit_Voxel_Loaded_007005b0(type->unknown_c0)) unknown_slot246(type->unknown_c0,0,turret_key,&type->unknown_250,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
+                if (Unit_Voxel_Loaded_007005b0(type->AuxVoxel2)) unknown_slot246(type->AuxVoxel2,0,turret_key,&type->AuxVoxel2Index,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
             }
-            unknown_slot246(type->unknown_b8,frame,turret_key,&type->unknown_228,cliprect,drawpoint,turret_matrix,brightness,0x2800);
-            if (barrel_above && Unit_Voxel_Loaded_007005b0(type->unknown_c0)) unknown_slot246(type->unknown_c0,0,turret_key,&type->unknown_250,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
+            unknown_slot246(type->AuxVoxel,frame,turret_key,&type->AuxVoxelIndex,cliprect,drawpoint,turret_matrix,brightness,0x2800);
+            if (barrel_above && Unit_Voxel_Loaded_007005b0(type->AuxVoxel2)) unknown_slot246(type->AuxVoxel2,0,turret_key,&type->AuxVoxel2Index,cliprect,drawpoint,barrel_matrix,brightness,0x2800);
         }
     }
     rect=window;
@@ -2009,7 +2009,7 @@ plain:
         if (unknown_37c) shadow_drawpoint.Y-=14;
         int height=Get_Height_AGL();
         CellClass *cell= &Map[Position_Coord_004f3f40()];
-        if (unknown_37c && !unknown_79 && height>=unknown_bridge_height_ad057c && (cell->unknown_140&0x100) &&
+        if (unknown_37c && !IsOnBridge && height>=unknown_bridge_height_ad057c && (cell->unknown_140&0x100) &&
             (((cell->unknown_140&0x800) && (cell->Adjacent_Cell(0).unknown_140&0x100)) ||
              (!(cell->unknown_140&0x800) && (cell->Adjacent_Cell(6).unknown_140&0x100)))) shadow_drawpoint.Y-=60;
         Surface *cache_key;   // the shadow mask surface
@@ -2022,9 +2022,9 @@ plain:
             }
         }
         if (Get_Height_AGL()>0) {
-            Draw_Voxel_Shadow(type->unknown_b0,type->ShadowIndex,key,&type->unknown_23c,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y+1);
+            Draw_Voxel_Shadow(type->Voxel,type->ShadowIndex,key,&type->ShadowVoxelIndex,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y+1);
         } else {
-            Draw_Voxel_Shadow(type->unknown_b0,type->ShadowIndex,key,&type->unknown_23c,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y);
+            Draw_Voxel_Shadow(type->Voxel,type->ShadowIndex,key,&type->ShadowVoxelIndex,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y);
         }
     }
     composite_surface->Fill_Rect(dirtyrect,0);
@@ -2065,7 +2065,7 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
         int height = Get_Height_AGL();
         CellClass *cptr = &Map[CoordStruct(Coord)];
         int brightness;
-        if (((!unknown_79 && height >= unknown_geometry_j) || (unknown_79 && height >= 0))
+        if (((!IsOnBridge && height >= unknown_geometry_j) || (IsOnBridge && height >= 0))
             && (cptr->unknown_140 & 0x100)
             && (((cptr->unknown_140 & 0x800) && (cptr->Adjacent_Cell(0).unknown_140 & 0x100))
                 || (!(cptr->unknown_140 & 0x800) && (cptr->Adjacent_Cell(6).unknown_140 & 0x100)))) {
@@ -2109,8 +2109,8 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
             type = GetDisguise(true);
         }
         if (unknown_574 == -1) {
-            if (type->unknown_206) {
-                if (type->unknown_b0.unknown_00 != 0) {
+            if (type->IsVoxel) {
+                if (type->Voxel.unknown_00 != 0) {
                     unknown_slot310(adjusted_point, window, brightness);
                 }
             } else {
@@ -2198,7 +2198,7 @@ int UnitClass::Do_MISSION_UNLOAD()
 {
     Cell cell;
     if (Type->Passengers>0) {
-        switch (unknown_a8) {
+        switch (Status) {
             case 0: {
                 if (Locomotor.Checked()->Is_Moving()) return 10;
                 Cell current=unknown_slot104();
@@ -2217,14 +2217,14 @@ int UnitClass::Do_MISSION_UNLOAD()
                     }
                     UnknownFacingDir direction((unsigned short)(facing<<13));
                     Locomotor.Checked()->Do_Turn(direction);
-                    unknown_a8=1;
+                    Status=1;
                     return 1;
                 }
                 QueueMission(5,false);
                 break;
             }
             case 1:
-            if (!unknown_599) { unknown_a8=3;return 1; }
+            if (!unknown_599) { Status=3;return 1; }
             break;
             case 3:
             if (Cargo.Count>unknown_5cc) {
@@ -2262,11 +2262,11 @@ int UnitClass::Do_MISSION_UNLOAD()
                     }
                     if (!placed) { Cargo.Attach(passenger);passenger->Hidden(); }
                 }
-            } else unknown_a8=4;
+            } else Status=4;
             break;
             case 4:
             QueueMission(5,false);
-            unknown_a4=true;
+            IsMissionUnloadStandby=true;
             break;
         }
         int delay=Control()->Normal_Delay();
@@ -2274,7 +2274,7 @@ int UnitClass::Do_MISSION_UNLOAD()
     }
     if (!Type->Harvester && !Type->Weeder) {
         if (Type->DeploysInto) {
-            switch (unknown_a8) {
+            switch (Status) {
                 case 2:
                 if (!unknown_57c) {
                     unknown_slot261(false,true);
@@ -2284,13 +2284,13 @@ int UnitClass::Do_MISSION_UNLOAD()
                 case 0:
                 unknown_slot149(3);
                 Path[0]=-1;
-                unknown_a8=1;
+                Status=1;
                 // Initial setup falls through into the movement check.
                 case 1:
                 if (!Locomotor.Checked()->Is_Moving()) {
                     unknown_6fdfc0();
                     if (IsActive) {
-                        if (unknown_57c) unknown_a8=2;
+                        if (unknown_57c) Status=2;
                         else if (!House->Unknown_004F52F0() && unknown_game_mode_a3d298) QueueMission(15,false);
                         else QueueMission(5,false);
                     }
@@ -2328,9 +2328,9 @@ int UnitClass::Do_MISSION_UNLOAD()
             BuildingClass *building=(BuildingClass *)Map[unknown_slot104()+AdjacentCell[6]].Cell_Building();
             if (building) building->PlayNthAnim(7,building->Health_Ratio()<=Rules->unknown_1368,false,0);
         }
-        unknown_a8=3;
+        Status=3;
     } else {
-        switch (unknown_a8) {
+        switch (Status) {
             case 4: {
                 if (Type->Weeder) {
                     unknown_5b9=false;
@@ -2400,7 +2400,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                             }
                         } else {
                             if (building->Type->Refinery) building->PlayNthAnim(8,building->Health_Ratio()<=Rules->unknown_1368,false,0);
-                            unknown_a8=4;
+                            Status=4;
                             if (building->unknown_25c[5]) building->unknown_25c[5]->Delete_Me();
                             if (building->unknown_25c[6]) building->unknown_25c[6]->Delete_Me();
                             if (building->unknown_454[10]) building->DestroyNthAnim(10);
@@ -2408,7 +2408,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                     }
                     if (unknown_494 && MissionQueue!=-1 && MissionQueue!=10) {
                         if (building->Type->Refinery) building->PlayNthAnim(8,building->Health_Ratio()<=Rules->unknown_1368,false,0);
-                        unknown_a8=4;
+                        Status=4;
                         if (building->unknown_25c[5]) building->unknown_25c[5]->Delete_Me();
                         if (building->unknown_25c[6]) building->unknown_25c[6]->Delete_Me();
                         if (building->unknown_454[10]) building->DestroyNthAnim(10);
@@ -2483,10 +2483,10 @@ int UnitClass::Do_MISSION_HARVEST()
     }
     {
         bool teleporter = Type->Teleporter;
-        switch (unknown_a8) {
+        switch (Status) {
         case LOOKING:
             if (!Type->Weeder && unknown_slot165() >= 1.0) {
-                unknown_a8 = FINDHOME;
+                Status = FINDHOME;
                 return 1;
             }
             {
@@ -2519,14 +2519,14 @@ int UnitClass::Do_MISSION_HARVEST()
                     unknown_5ba = true;
                     StageClass::Set_Rate(2);
                     StageClass::Stage = 0;
-                    unknown_a8 = HARVESTING;
+                    Status = HARVESTING;
                     return 1;
                 }
                 if (unknown_494 == 0) {
                     if (unknown_1b0 != 0) {
                         Assign_Destination(unknown_1b0, true);
                     } else {
-                        unknown_a8 = GOINGTOIDLE;
+                        Status = GOINGTOIDLE;
                         unknown_328 = true;
                         if (Type->Harvester) {
                             House->unknown_189 = true;
@@ -2549,7 +2549,7 @@ int UnitClass::Do_MISSION_HARVEST()
             if (!Harvesting()) {
                 unknown_5ba = false;
                 if (Type->Harvester && unknown_slot165() == 1.0) {
-                    unknown_a8 = FINDHOME;
+                    Status = FINDHOME;
                     Cell cell;
                     if (Type->Harvester) {
                         cell = ScanForTiberium(Rules->TiberiumNearScan / 256, 0);
@@ -2571,9 +2571,9 @@ int UnitClass::Do_MISSION_HARVEST()
                 }
                 if (!ok && unknown_494 == 0) {
                     Assign_Archive_Target(0);
-                    unknown_a8 = FINDHOME;
+                    Status = FINDHOME;
                 } else {
-                    unknown_a8 = HARVESTING;
+                    Status = HARVESTING;
                     unknown_5ba = true;
                 }
                 return 1;
@@ -2588,7 +2588,7 @@ int UnitClass::Do_MISSION_HARVEST()
                 if (((!teleporter && nearest != 0 && DIST_A(nearest) <= Rules->HarvesterTooFarDistance * 256)
                     || (teleporter && nearest != 0 && DIST_A(nearest) <= Rules->ChronoHarvTooFarDistance * 256))
                     && unknown_slot150(2, nearest) == 1) {
-                    unknown_a8 = HEADINGHOME;
+                    Status = HEADINGHOME;
                     break;
                 }
                 ScenarioInit++;
@@ -2616,7 +2616,7 @@ int UnitClass::Do_MISSION_HARVEST()
             return 1;
         case GOINGTOIDLE:
             if (unknown_328) {
-                if (House->unknown_5420.unknown_func_491d10(Rules->unknown_778->ArrayIndex) > 0) {
+                if (House->unknown_5420.unknown_func_491d10(Rules->RepairBay->ArrayIndex) > 0) {
                     QueueMission(0x14, false);
                 } else {
                     QueueMission(0xf, false);
@@ -2651,15 +2651,15 @@ int UnitClass::Do_MISSION_HUNT()
 {
     BuildingTypeClass *building = Type->DeploysInto;
     if (building && (Is_Listed(Rules->unknown_7c8, building) || unknown_228 || House->Unknown_004F52F0())) {
-        switch (unknown_a8) {
+        switch (Status) {
         case 0:
             if (unknown_6fd930() && unknown_6fdfc0()) {
-                unknown_a8 = 1;
+                Status = 1;
             }
             break;
         case 1:
             if (!unknown_57c) {
-                unknown_a8 = 0;
+                Status = 0;
             }
             break;
         }
@@ -2750,7 +2750,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
         OverlayTypeClass *overlay=OverlayTypes[cell->OverlayIndex];
         if (overlay->Crate && !House->Is_Human_Player() && unknown_game_mode_a3d298==0) return 7;
         if (overlay->Wall) {
-            if (overlay->unknown_1fd && (Type->Crusher || Has_Ability(0x11))) {
+            if (overlay->IsCrushable && (Type->Crusher || Has_Ability(0x11))) {
                 if (House->Is_Ally(cell->unknown_50)) {
                     if (result<4) result=4;
                 }
@@ -2853,7 +2853,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
                     if (result<1) result=1;
                 } else {
                     ObjectTypeClass *otype;
-                    if ((Type->Crusher || Has_Ability(0x11)) && (otype=occupant->Class_Of())->unknown_1fd) {
+                    if ((Type->Crusher || Has_Ability(0x11)) && (otype=occupant->Class_Of())->IsCrushable) {
                         if (!House->Is_Ally(static_cast<TechnoClass*>(occupant))) crushable=true;
                     } else {
                         if (!unknown_slot231(0)->WeaponType && !Type->IsTrain) return 7;
@@ -2899,7 +2899,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
         }
     }
     if (result==0 && crushable && vehicle) {
-        if (!cell->Cell_Unit() || !static_cast<UnitClass*>(cell->Cell_Unit())->Type->unknown_1fd) return 2;
+        if (!cell->Cell_Unit() || !static_cast<UnitClass*>(cell->Cell_Unit())->Type->IsCrushable) return 2;
     }
     return result;
 }
@@ -2945,7 +2945,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
     }
     if (action == 5) {
         if (!Can_Player_Fire()) {
-            if ((Type->Crusher || Has_Ability(0x11)) && object->Class_Of()->unknown_1fd) {
+            if ((Type->Crusher || Has_Ability(0x11)) && object->Class_Of()->IsCrushable) {
                 action = 1;
             } else {
                 action = 7;
@@ -2972,7 +2972,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
                 if (Type->Passengers > 0) {
                     if (Cargo.Count == 0) {
                         action = 0x1e;
-                    } else if (!unknown_79) {
+                    } else if (!IsOnBridge) {
                         CellClass *cell = &Map[CoordStruct(Coord)];
                         ObjectClass *passenger = Cargo.Attached_Object();
                         if (passenger != 0 && Ground[Land_Type_00703bd0(cell)].Cost[passenger->Techno_Type_Class()->SpeedType] < 0.01 && Land_Type_00703bd0(cell) != 2) {
@@ -3042,7 +3042,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
                 action = 1;
             }
         }
-    } else if (action == 5 && object->Class_Of()->unknown_203) {
+    } else if (action == 5 && object->Class_Of()->IsImmune) {
         action = 2;
     }
     return action;
@@ -3380,10 +3380,10 @@ InfantryTypeClass *UnitClass::Crew_Type()
 
 int UnitClass::Do_MISSION_REPAIR()
 {
-    TechnoClass *refinery = unknown_slot301(Rules->unknown_778, 0, 0);
+    TechnoClass *refinery = unknown_slot301(Rules->RepairBay, 0, 0);
     unknown_5ba = false;
     if (!refinery) {
-        if (!House->unknown_5420.unknown_func_491d10(Rules->unknown_778->ArrayIndex)) {
+        if (!House->unknown_5420.unknown_func_491d10(Rules->RepairBay->ArrayIndex)) {
             unknown_slot261(0, 1);
         }
     } else if (unknown_slot150(2, refinery) == 1) {
@@ -3545,7 +3545,7 @@ void UnitClass::unknown_slot304()
     if (!House->Unknown_004F52F0() && unknown_228 && !unknown_494) {
         ObjectClass *object = As_Object(unknown_228);
         if ((Type->Crusher || Has_Ability(17)) && unknown_5d4c00(unknown_228) < Rules->unknown_1390
-            && object && object->Class_Of()->unknown_1fd && (Type->AutoCrush || !House->Unknown_004F52F0())) {
+            && object && object->Class_Of()->IsCrushable && (Type->AutoCrush || !House->Unknown_004F52F0())) {
             Assign_Destination(unknown_228, true);
             return;
         }
@@ -3582,7 +3582,7 @@ void UnitClass::Overrun_Square(Cell const &where, bool threaten)
     CellClass *cell = &Map[where];
     bool upper = false;
     if (cell->unknown_140 & 0x100) {
-        if (unknown_79) {
+        if (IsOnBridge) {
             upper = true;
         } else {
             Cell position = Coord_Cell(Center_Coord());
@@ -3612,7 +3612,7 @@ void UnitClass::Overrun_Square(Cell const &where, bool threaten)
     }
     int crushed = 0;
     while (object) {
-        if (object->Class_Of()->unknown_1fd
+        if (object->Class_Of()->IsCrushable
             && (!House->Is_Ally((TechnoClass *)object) || Type->IsTrain)
             && Distance_Squared(object->Center_Coord()) < 0x4000 && !object->IsFalling) {
             UnknownUnitInfantryView2 *infantry = (UnknownUnitInfantryView2 *)object;
@@ -3626,7 +3626,7 @@ void UnitClass::Overrun_Square(Cell const &where, bool threaten)
             } else {
                 ObjectClass *next = object->unknown_30;
                 crushed = 1;
-                Voc_Play_At(object->Class_Of()->unknown_1c0, CoordStruct(Coord), 0);
+                Voc_Play_At(object->Class_Of()->CrushSound, CoordStruct(Coord), 0);
                 object->Record_The_Kill(this);
                 object->Mark(0);
                 object->Limbo();
@@ -4196,8 +4196,8 @@ void __fastcall UnitClass::Read_INI(CCINIClass &ini)
                     if (token) unit->unknown_1ac = atoi(token);
                     token = strtok(0, ",");
                     if (token) {
-                        unit->unknown_79 = atoi(token) != 0;
-                        if (unit->unknown_79) coord.Z = Map.Get_Height_GL(coord) + unknown_geometry_j;
+                        unit->IsOnBridge = atoi(token) != 0;
+                        if (unit->IsOnBridge) coord.Z = Map.Get_Height_GL(coord) + unknown_geometry_j;
                     }
                     token = strtok(0, ",");
                     if (token) {
@@ -4265,7 +4265,7 @@ void __fastcall UnitClass::Write_INI(CCINIClass &ini)
                     unit->unknown_slot104().X, unit->unknown_slot104().Y,
                     direction,
                     MissionClass::Name_From_Mission(unit->Get_Mission()), tag,
-                    unit->Veterancy.To_Integer(), unit->unknown_1ac, unit->unknown_79, linked,
+                    unit->Veterancy.To_Integer(), unit->unknown_1ac, unit->IsOnBridge, linked,
                     unit->unknown_379, unit->unknown_37a);
             ini.Put_String(UnitClass_INI_NAME, id, line);
         }
@@ -4303,7 +4303,7 @@ bool UnitClass::unknown_707170(TechnoClass *target)
     if (!Type->Crusher && !Has_Ability(17)) {
         return false;
     }
-    if (target && target->Techno_Type_Class()->unknown_1fd) {
+    if (target && target->Techno_Type_Class()->IsCrushable) {
         if (Coord_Distance(Center_Coord(), target->Center_Coord()) <= Rules->unknown_1390
             && (!House->Unknown_004F52F0() || Rules->unknown_142f || Type->AutoCrush)
             && House->unknown_c8 != 2
@@ -4362,13 +4362,13 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
         return;
     }
     if (source == unknown_geometry_l) {
-        Cell found = Map.Nearby_Location(Coord_Cell(unknown_slot19(0)), Type->SpeedType, -1, 0, unknown_79,
+        Cell found = Map.Nearby_Location(Coord_Cell(unknown_slot19(0)), Type->SpeedType, -1, 0, IsOnBridge,
             Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
         if (found != unknown_geometry_k) {
             Assign_Destination(&Map[found], true);
         }
     } else {
-        if (Control()->unknown_07) {
+        if (Control()->IsParalyzed) {
             return;
         }
         if ((Kind_Of() != 1 || !unknown_5b9)
@@ -4519,7 +4519,7 @@ bool UnitClass::Ready_To_Commence()
         return false;
     }
     if (MissionQueue != 7 && Locomotor.Checked()->Is_Moving_Now() && Get_Height_AGL() >= 0
-        && Get_Mission() != 5 && (Get_Mission() != 1 || unknown_228) && !unknown_a4) {
+        && Get_Mission() != 5 && (Get_Mission() != 1 || unknown_228) && !IsMissionUnloadStandby) {
         return false;
     }
     if (!Door.Is_Count_Down_Complete()) {

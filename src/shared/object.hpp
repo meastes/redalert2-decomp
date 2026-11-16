@@ -355,27 +355,27 @@ public:
     BombClass *unknown_38;                  // +0x38
     UnknownAudioController unknown_3c;      // +0x3C
     UnknownAudioController unknown_50;      // +0x50
-    int unknown_64;                         // +0x64
-    bool unknown_68;                        // +0x68
+    int CustomSound;                         // +0x64
+    bool BombVisible;                        // +0x68
     int Strength;                           // +0x6C health (0xFF when constructed; hypothesis)
     int unknown_70;                         // +0x70
     bool IsDown;                        // +0x74
     bool IsToDisplay;                        // +0x75
     bool IsInLimbo;                        // +0x76
-    bool unknown_77;                        // +0x77
+    bool IsSelected;                        // +0x77
     bool IsAnimAttached;                        // +0x78
-    bool unknown_79;                        // +0x79
+    bool IsOnBridge;                        // +0x79
     bool IsFalling;                        // +0x7A
-    bool unknown_7b;                        // +0x7B
+    bool IsABomb;                        // +0x7B
     bool unknown_7c;                        // +0x7C
     bool IsActive;                        // +0x7D
-    int unknown_80;                         // +0x80
+    int Layer;                         // +0x80
     bool IsSubmittedToLayer;                        // +0x84
-    bool unknown_85;                        // +0x85
+    bool IsVisible;                        // +0x85
     // Unadjusted position copy at004F3F5A; nonvirtual dispatch is an inline-only hypothesis.
     CoordStruct Position_Coord_004f3f40() const { return Coord; }
     CoordStruct Coord;                      // +0x88
-    LineTrail *unknown_94;                  // +0x94
+    LineTrail *LineTrailer;                  // +0x94
 };
 
 // Global object lists: shared/object_lists.hpp.

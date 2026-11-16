@@ -25,9 +25,9 @@ public:
 
     int Mission;                // +0x00 (-1)
     bool unknown_04;            // +0x04
-    bool unknown_05;            // +0x05
+    bool IsZombie;            // +0x05
     bool IsRecruitable;            // +0x06 true
-    bool unknown_07;            // +0x07
+    bool IsParalyzed;            // +0x07
     bool unknown_08;            // +0x08 true
     bool IsScatter;            // +0x09 true
     int unknown_0c;             // +0x0C
@@ -91,9 +91,9 @@ public:
     int Mission;                            // +0x98
     int SuspendedMission;                   // +0x9C
     int MissionQueue;                       // +0xA0
-    bool unknown_a4;                        // +0xA4
-    int unknown_a8;                         // +0xA8
-    int unknown_ac;                         // +0xAC
+    bool IsMissionUnloadStandby;                        // +0xA4
+    int Status;                         // +0xA8
+    int CurrentMissionStartTime;                         // +0xAC
     CDTimerClass<FrameTimerClass> Timer;    // +0xB0
 };
 

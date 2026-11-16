@@ -177,7 +177,7 @@ void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
         }
     }
     if (unknown_124) return;
-    VoxelLibrary *voxel = Class->unknown_b0.unknown_00;
+    VoxelLibrary *voxel = Class->Voxel.unknown_00;
     if (voxel == 0) return;
     Matrix3D matrix;
     matrix = BounceClass::Get_Matrix();
@@ -262,7 +262,7 @@ void VoxelAnimClass::AI()
             if (Class->IsMeteor) {
                 new AnimClass(Rules->SplashList[Rules->SplashList.Count() - 1], Coord + CoordStruct(0, 0, 5), 0, 1, 0x600, 0);
             } else {
-                new AnimClass(Rules->unknown_09c, CoordStruct(Coord), 0, 1, 0x600, 0);
+                new AnimClass(Rules->Wake, CoordStruct(Coord), 0, 1, 0x600, 0);
                 new AnimClass(Rules->SplashList[0], Coord + CoordStruct(0, 0, 10), 0, 1, 0x600, 0);
             }
         } else if (Class->ExpireAnim != 0) {

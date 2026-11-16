@@ -104,7 +104,7 @@ void __fastcall AnimTypeClass::Init(int theater)
     if (!Debug_Map && theater == LastTheater) {
         for (int index = 0; index < AnimTypes.Count(); index++) {
             AnimTypeClass *anim = AnimTypes[index];
-            if (anim->unknown_207 && anim->ImageData == 0) {
+            if (anim->IsNewTheater && anim->ImageData == 0) {
                 anim->Load_Image(theater);
             }
         }
@@ -114,7 +114,7 @@ void __fastcall AnimTypeClass::Init(int theater)
     for (int index = 0; index < AnimTypes.Count(); index++) {
         AnimTypeClass *anim = AnimTypes[index];
         if (!anim->DemandLoad) {
-            if (anim->unknown_1fc) {
+            if (anim->IsTheater) {
                 if (anim->ImageData != 0 && anim->ImageAllocated) {
                     operator delete(anim->ImageData);
                     anim->ImageAllocated = false;
@@ -127,10 +127,10 @@ void __fastcall AnimTypeClass::Init(int theater)
                     _makepath(fullname, 0, 0, anim->ID, ".SHP");
                     anim->ImageData = (void *)MixFileClass::Retrieve(fullname);
                 }
-            } else if (anim->unknown_207) {
+            } else if (anim->IsNewTheater) {
                 anim->Load_Image(theater);
             }
-        } else if (anim->unknown_1fc || anim->unknown_207) {
+        } else if (anim->IsTheater || anim->IsNewTheater) {
             if (anim->ImageData != 0 && anim->ImageAllocated) {
                 operator delete(anim->ImageData);
                 anim->ImageAllocated = false;
@@ -149,7 +149,7 @@ void AnimTypeClass::unknown_slot24(int theater)
     if (!Debug_Map && theater == LastTheater) {
         return;
     }
-    if (unknown_1fc && !DemandLoad) {
+    if (IsTheater && !DemandLoad) {
         if (ImageData != 0 && ImageAllocated) {
             operator delete(ImageData);
             ImageAllocated = false;
@@ -160,7 +160,7 @@ void AnimTypeClass::unknown_slot24(int theater)
         ImageData = (void *)MixFileClass::Retrieve(fullname);
         return;
     }
-    if (unknown_207) {
+    if (IsNewTheater) {
         Load_Image(theater);
     }
 }
@@ -174,7 +174,7 @@ void AnimTypeClass::unknown_slot24(int theater)
 void AnimTypeClass::Load_Image(int theater)
 {
     if (!DemandLoad) {
-        if (unknown_1fc) {
+        if (IsTheater) {
             Fetch_Normal_Image();
         } else {
             if (ImageData != 0 && ImageAllocated) {
@@ -281,8 +281,8 @@ bool AnimTypeClass::Read_INI(CCINIClass &ini)
 
     if (unknown_1c8[0] != '\0') {
         if (ImageData == 0) {
-            unknown_1fc = ArtINI.Get_Bool(section, "Theater", unknown_1fc);
-            unknown_207 = ArtINI.Get_Bool(section, "NewTheater", unknown_207);
+            IsTheater = ArtINI.Get_Bool(section, "Theater", IsTheater);
+            IsNewTheater = ArtINI.Get_Bool(section, "NewTheater", IsNewTheater);
         }
         Load_Image(-1);
     }
@@ -403,13 +403,13 @@ HRESULT __stdcall AnimTypeClass::Load(IStream *stream)
     Swizzler.Swizzle((void **)&Warhead);
     Swizzler.Swizzle((void **)&TiberiumSpawnType);
     if (!DemandLoad) {
-        if (unknown_1fc) {
+        if (IsTheater) {
             char fullname[512];
             _makepath(fullname, 0, 0, ID, Theaters[unknown_id_source_a3d290->Theater].Suffix);
             ImageData = (void *)MixFileClass::Retrieve(fullname);
             return S_OK;
         }
-        if (unknown_207) {
+        if (IsNewTheater) {
             Load_Image(unknown_id_source_a3d290->Theater);
         }
     }
@@ -514,9 +514,9 @@ void *AnimTypeClass::Get_Image_Data() const
         Debug_Printf("Demand loading image for %s\n", (char const *)Name);
         char fullname[512];
         _makepath(fullname, 0, 0, unknown_1c8[0] != 0 ? (char const *)unknown_1c8 : (char const *)ID, ".SHP");
-        if (unknown_1fc) {
+        if (IsTheater) {
             _makepath(fullname, 0, 0, ID, Theaters[unknown_id_source_a3d290->Theater].Suffix);
-        } else if (unknown_207) {
+        } else if (IsNewTheater) {
             Theater_Naming_Convention(fullname, unknown_id_source_a3d290->Theater);
         }
         CCFileClass file(fullname);

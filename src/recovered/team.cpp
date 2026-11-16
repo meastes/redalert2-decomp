@@ -2217,7 +2217,7 @@ void TeamClass::TMission_MOVETO_BUILDING_WITH_PROPERTY(ScriptMissionClass const 
             CoordStruct coord = ((ObjectClass *)target)->Coord;
             Cell cell = Coord_Cell(coord);
             Cell found = Map.Nearby_Location(cell, first->Techno_Type_Class()->SpeedType,
-                Map.Zone(Coord_Cell(first->Center_Coord()), zone_type, first->unknown_79), zone_type, false,
+                Map.Zone(Coord_Cell(first->Center_Coord()), zone_type, first->IsOnBridge), zone_type, false,
                 Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
             if (found != unknown_geometry_k) {
                 Assign_Mission_Target(&Map[found]);
@@ -2252,7 +2252,7 @@ void TeamClass::TMission_MOVETO_FRIENDLY_BUILDING_WITH_PROPERTY(ScriptMissionCla
             CoordStruct coord = ((ObjectClass *)target)->Coord;
             Cell cell = Coord_Cell(coord);
             Cell found = Map.Nearby_Location(cell, first->Techno_Type_Class()->SpeedType,
-                Map.Zone(Coord_Cell(first->Center_Coord()), zone_type, first->unknown_79), zone_type, false,
+                Map.Zone(Coord_Cell(first->Center_Coord()), zone_type, first->IsOnBridge), zone_type, false,
                 Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
             if (found != unknown_geometry_k) {
                 Assign_Mission_Target(&Map[found]);

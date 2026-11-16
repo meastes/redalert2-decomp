@@ -425,11 +425,11 @@ void TabClass::AI(int &input, Point2D const &xy)
             Command_Type_Select();
         }
     } else if (key == 0x80F0) {
-        Unknown_Play_Sound(Rules->unknown_190);
+        Unknown_Play_Sound(Rules->GUICloseSound);
         Close_Thumb();
     } else if (key == 0x80F1) {
         if (MuteSWLaunches == 0) {
-            Unknown_Play_Sound(Rules->unknown_18c);
+            Unknown_Play_Sound(Rules->GUIOpenSound);
             Open_Thumb();
         }
     } else if (key >= 0xC0D6 && key < 0xC0EF) {

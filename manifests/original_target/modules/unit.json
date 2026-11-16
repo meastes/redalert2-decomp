@@ -795,6 +795,13 @@
    "section": 199
   },
   {
+   "symbol": "??_7?$DynamicVectorClass@H@@6B@",
+   "address": "0079da90",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 267
+  },
+  {
    "symbol": "_unknown_geometry_sixty",
    "address": "007addb0",
    "bytes": 16,
@@ -1430,6 +1437,12 @@
   {
    "symbol": "??_7?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@6B@",
    "address": "0079d0c8",
+   "bytes": 32,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@H@@6B@",
+   "address": "0079da90",
    "bytes": 32,
    "kind": "vtable"
   },
@@ -4262,10 +4275,6 @@
   {
    "symbol": "??_7?$VectorClass@H@@6B@",
    "reason": "relocation target unbound: ??_E?$VectorClass@H@@UAEPAXI@Z"
-  },
-  {
-   "symbol": "??_7?$DynamicVectorClass@H@@6B@",
-   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@H@@UAEPAXI@Z"
   }
  ],
  "stand_in_references": [

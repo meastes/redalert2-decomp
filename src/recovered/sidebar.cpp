@@ -961,21 +961,21 @@ void SidebarClass::AI(int &input, Point2D const &xy)
             Unknown_0049CA20(-1);
         } else if (input >= 0x80CB && input < 0x80CF) {
             Select_Tab(input - 0x80CB);
-            Voc_Play(Rules->unknown_188, 1.0f, 0x2000, 0);
+            Voc_Play(Rules->GUITabSound, 1.0f, 0x2000, 0);
         } else if ((input & ~0x4000) == (unknown_button_abcbe8.ID | 0x8000)) {
             unknown_button_abcbe8.IsPressed = false;
             StripClass &strip = Column[unknown_4ed8];
             if (!strip.Scroll(false, (unknown_int_839624 + unknown_int_83962c - SidebarClass_StripTop - (unknown_id_source_a3d290->unknown_2239 ? 26 : 18) - 7) / 50)) {
                 Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
             } else {
-                Voc_Play(Rules->unknown_188, 1.0f, 0x2000, 0);
+                Voc_Play(Rules->GUITabSound, 1.0f, 0x2000, 0);
             }
         } else if ((input & ~0x4000) == (unknown_button_abccc0.ID | 0x8000)) {
             unknown_button_abccc0.IsPressed = false;
             if (!Column[unknown_4ed8].Page(true)) {
                 Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
             } else {
-                Voc_Play(Rules->unknown_188, 1.0f, 0x2000, 0);
+                Voc_Play(Rules->GUITabSound, 1.0f, 0x2000, 0);
             }
         }
 

@@ -162,7 +162,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
             CoordStruct head_coord = Cell_Coord(what);
             head_coord.Z = Map.Get_Height_GL(head_coord);
             CellClass *what_cell = &Map[what];
-            if (LinkedTo->unknown_79 ^ what_cell->IsUnderBridge) {
+            if (LinkedTo->IsOnBridge ^ what_cell->IsUnderBridge) {
                 LinkedTo->unknown_57b = true;
             }
             int can_enter = LinkedTo->Can_Enter_Cell(&Map[what], dir, LinkedTo->Unknown_005D47D0(), 0, true);
@@ -383,10 +383,10 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
         CellClass *old_cellptr = &Map[old_cell];
         CellClass *new_cellptr = &Map[new_cell];
         if (new_cellptr->Height == old_cellptr->Height - 4 && new_cellptr->IsUnderBridge) {
-            LinkedTo->unknown_79 = true;
+            LinkedTo->IsOnBridge = true;
         }
         if (!new_cellptr->IsUnderBridge && old_cellptr->IsUnderBridge) {
-            LinkedTo->unknown_79 = false;
+            LinkedTo->IsOnBridge = false;
         }
         LinkedTo->Set_Height_AGL(0);
         LinkedTo->Mark(1);

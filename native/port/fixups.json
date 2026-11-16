@@ -843,8 +843,8 @@
   },
   {
    "source": "src/shared/map_techno.hpp",
-   "old": "    char unknown_000[0x205];\n    bool unknown_205;                       // +0x205 (as shared/object_type.hpp; TibSun IsFootprint)\n",
-   "new": "#if defined(__LP64__)\n    char unknown_000[0x325];\n    bool unknown_205;                       // NATIVE: arm64 +0x325\n#else\n    char unknown_000[0x205];\n    bool unknown_205;                       // +0x205 (as shared/object_type.hpp; TibSun IsFootprint)\n#endif\n",
+   "old": "    char unknown_000[0x205];\n    bool IsFootprint;                       // +0x205 (as shared/object_type.hpp; TibSun IsFootprint)\n",
+   "new": "#if defined(__LP64__)\n    char unknown_000[0x325];\n    bool IsFootprint;                       // NATIVE: arm64 +0x325\n#else\n    char unknown_000[0x205];\n    bool IsFootprint;                       // +0x205 (as shared/object_type.hpp; TibSun IsFootprint)\n#endif\n",
    "why": "Light view (Scout1098): the Map unit's stand-in spells VC6 offsets as char padding; natively the full classes (object_type.hpp, techno_type.hpp, object.hpp, techno.hpp, building_type_class.hpp, overlay_type.hpp, house_type.hpp, building_class.hpp, anim.hpp) place these members at their arm64 offsets, so the Map unit read the wrong bytes (MapClass::Place_Down 0x0054AB70 read IsFootprint false: no techno ever entered a cell's occupier list, Cell_Techno 0x00471660 returned null, start units stacked on one cell). The LP64 branch places each member at the full class's arm64 offset; native/link/check_light_views_map.cpp static_asserts them. The i686 branch keeps the VC6 text.",
    "verified": true
   },
@@ -857,8 +857,8 @@
   },
   {
    "source": "src/shared/map_techno.hpp",
-   "old": "    char unknown_24[0x74 - 0x24];\n    bool IsDown;                        // +0x74 (as shared/object.hpp)\n    char IsToDisplay;\n    bool IsInLimbo;                        // +0x76 (as shared/object.hpp)\n    char unknown_77[0x79 - 0x77];\n    bool unknown_79;                        // +0x79 (as shared/object.hpp; TibSun IsOnBridge)\n",
-   "new": "#if defined(__LP64__)\n    char unknown_24[0xB8 - 0x31];           // NATIVE: arm64 offsets of shared/object.hpp\n    bool IsDown;                        // +0xB8\n    char IsToDisplay;\n    bool IsInLimbo;                        // +0xBA\n    char unknown_77[0xBD - 0xBB];\n    bool unknown_79;                        // +0xBD\n#else\n    char unknown_24[0x74 - 0x24];\n    bool IsDown;                        // +0x74 (as shared/object.hpp)\n    char IsToDisplay;\n    bool IsInLimbo;                        // +0x76 (as shared/object.hpp)\n    char unknown_77[0x79 - 0x77];\n    bool unknown_79;                        // +0x79 (as shared/object.hpp; TibSun IsOnBridge)\n#endif\n",
+   "old": "    char unknown_24[0x74 - 0x24];\n    bool IsDown;                        // +0x74 (as shared/object.hpp)\n    char IsToDisplay;\n    bool IsInLimbo;                        // +0x76 (as shared/object.hpp)\n    char IsSelected[0x79 - 0x77];\n    bool IsOnBridge;                        // +0x79 (as shared/object.hpp; TibSun IsOnBridge)\n",
+   "new": "#if defined(__LP64__)\n    char unknown_24[0xB8 - 0x31];           // NATIVE: arm64 offsets of shared/object.hpp\n    bool IsDown;                        // +0xB8\n    char IsToDisplay;\n    bool IsInLimbo;                        // +0xBA\n    char IsSelected[0xBD - 0xBB];\n    bool IsOnBridge;                        // +0xBD\n#else\n    char unknown_24[0x74 - 0x24];\n    bool IsDown;                        // +0x74 (as shared/object.hpp)\n    char IsToDisplay;\n    bool IsInLimbo;                        // +0x76 (as shared/object.hpp)\n    char IsSelected[0x79 - 0x77];\n    bool IsOnBridge;                        // +0x79 (as shared/object.hpp; TibSun IsOnBridge)\n#endif\n",
    "why": "Light view (Scout1098): as the first map_techno.hpp fixup (VC6 padding respelled to the full classes' arm64 offsets under __LP64__; native/link/check_light_views_map.cpp).",
    "verified": true
   },
@@ -878,8 +878,8 @@
   },
   {
    "source": "src/shared/map_techno.hpp",
-   "old": "    char unknown_000[0x264];\n    int unknown_264;                        // +0x264 compared with a cell's overlay index (TibSun HeapID)\n",
-   "new": "#if defined(__LP64__)\n    char unknown_000[0x3B8];\n    int unknown_264;                        // NATIVE: arm64 +0x3B8\n#else\n    char unknown_000[0x264];\n    int unknown_264;                        // +0x264 compared with a cell's overlay index (TibSun HeapID)\n#endif\n",
+   "old": "    char unknown_000[0x264];\n    int HeapID;                        // +0x264 compared with a cell's overlay index (TibSun HeapID)\n",
+   "new": "#if defined(__LP64__)\n    char unknown_000[0x3B8];\n    int HeapID;                        // NATIVE: arm64 +0x3B8\n#else\n    char unknown_000[0x264];\n    int HeapID;                        // +0x264 compared with a cell's overlay index (TibSun HeapID)\n#endif\n",
    "why": "Light view (Scout1098): as the first map_techno.hpp fixup (VC6 padding respelled to the full classes' arm64 offsets under __LP64__; native/link/check_light_views_map.cpp).",
    "verified": true
   },

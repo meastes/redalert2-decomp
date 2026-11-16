@@ -118,12 +118,12 @@ SmudgeTypeClass::SmudgeTypeClass(char const *ini_name) :
     Burn(false)
 {
     AbstractClass::Create_ID();
-    unknown_1ff = true;
-    unknown_200 = false;
-    unknown_201 = false;
-    unknown_202 = true;
-    unknown_203 = true;
-    unknown_205 = false;
+    IsStealthy = true;
+    IsSelectable = false;
+    IsLegalTarget = false;
+    IsInsignificant = true;
+    IsImmune = true;
+    IsFootprint = false;
     SmudgeTypes.Add(this);
     ArrayIndex = SmudgeTypes.ID(this);
 }
@@ -215,7 +215,7 @@ void __fastcall SmudgeTypeClass::Init(int theater)
     if (Debug_Map || theater != LastTheater) {
         for (int index = 0; index < SmudgeTypes.Count(); index++) {
             SmudgeTypeClass *smudge = SmudgeTypes[index];
-            if (smudge->unknown_1fc) {
+            if (smudge->IsTheater) {
                 char fullname[512];
                 _makepath(fullname, 0, 0, smudge->ID, Theaters[theater].Suffix);
                 smudge->ImageData = (void *)MixFileClass::Retrieve(fullname);
@@ -339,7 +339,7 @@ bool SmudgeTypeClass::Read_INI(CCINIClass &ini)
         Width = ini.Get_Int(section, "Width", Width);
         Height = ini.Get_Int(section, "Height", Height);
         char fullname[512];
-        if (!unknown_1fc) {
+        if (!IsTheater) {
             _makepath(fullname, 0, 0, unknown_1c8, ".SHP");
         } else {
             _makepath(fullname, 0, 0, unknown_1c8, Theaters[unknown_id_source_a3d290->Theater].Suffix);

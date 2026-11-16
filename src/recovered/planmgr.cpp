@@ -148,7 +148,7 @@ PlanningMemberClass::PlanningMemberClass() :
     Owner(0),
     Event(0),
     BranchIndex(-1),
-    unknown_0c(false)
+    Active(false)
 {
 }
 
@@ -181,7 +181,7 @@ void PlanningMemberClass::Set_BranchIndex(int index)
 
 void PlanningMemberClass::Set_unknown_0c(bool value)
 {
-    unknown_0c = value;
+    Active = value;
 }
 
 
@@ -213,7 +213,7 @@ int PlanningMemberClass::Get_BranchIndex() const
 
 bool PlanningMemberClass::Get_unknown_0c() const
 {
-    return unknown_0c;
+    return Active;
 }
 
 
@@ -221,7 +221,7 @@ bool PlanningMemberClass::Get_unknown_0c() const
 
 PlanningBranchClass::PlanningBranchClass() :
     Count(0),
-    unknown_74(-1)
+    Color(-1)
 {
 }
 
@@ -246,7 +246,7 @@ void PlanningBranchClass::Set_Count(int value)
 
 void PlanningBranchClass::Set_unknown_74(int value)
 {
-    unknown_74 = value;
+    Color = value;
 }
 
 
@@ -294,7 +294,7 @@ int PlanningBranchClass::Get_Count() const
 
 int PlanningBranchClass::Get_unknown_74() const
 {
-    return unknown_74;
+    return Color;
 }
 
 
@@ -717,7 +717,7 @@ TechnoClass *PlanningNodeClass::First_Counted_Owner() const
 {
     for (int i = 0; i < Members.Count(); i++) {
         PlanningMemberClass *member = Members[i];
-        if (member->unknown_0c) {
+        if (member->Active) {
             return member->Owner;
         }
     }
@@ -838,7 +838,7 @@ void PlanningNodeClass::unknown_611770()
         TechnoClass *owner = member->Owner;
         PlanningTokenClass *token = Planning_Token(owner);
         if (token->Node_Index(this) == token->LoopStart) {
-            member->unknown_0c = true;
+            member->Active = true;
             if (Branch.Increment_Count() == 1) {
                 Branch.Set_Event(Planning_Token(owner)->Last_Node()->Event_For(owner));
             }
@@ -892,7 +892,7 @@ void PlanningNodeClass::Dump() const
         int members = Members.Count();
         for (int m = 0; m < members; m++) {
             PlanningMemberClass *member = Members[m];
-            if (member->unknown_0c) {
+            if (member->Active) {
                 TechnoClass *techno = member->Owner;
                 char const *name = techno->Class_Of()->ID;
                 Cell cell = techno->unknown_slot104();
@@ -976,12 +976,12 @@ int PlanningNodeClass::unknown_611bd0(PlanningMemberClass *member)
 
 void PlanningNodeClass::unknown_611e20(PlanningMemberClass *member)
 {
-    if (member->unknown_0c) {
+    if (member->Active) {
         unknown_611fa0(member);
     }
     if (member->BranchIndex != -1) {
         PlanningBranchClass *branch = Branches[member->BranchIndex];
-        branch->unknown_74 = -1;
+        branch->Color = -1;
         Reset_Colors(false);
         if (--branch->Count == 0) {
             Planning_Queue_Node(this);
@@ -1006,7 +1006,7 @@ void PlanningNodeClass::unknown_611ee0()
     for (int m = 0; m < members; m++) {
         PlanningMemberClass *member = Members[m];
         member->BranchIndex = -1;
-        member->unknown_0c = false;
+        member->Active = false;
     }
     Branch.Clear_Count();
     unknown_b0 = -1;
@@ -1069,7 +1069,7 @@ void PlanningNodeClass::unknown_612090()
     int count = Members.Count();
     for (int i = 0; i < count; i++) {
         TechnoClass *techno = Members[i]->Owner;
-        if (!techno->unknown_77) {
+        if (!techno->IsSelected) {
             techno->unknown_slot80();
         }
     }
@@ -1083,7 +1083,7 @@ void PlanningNodeClass::unknown_6120c0()
     int count = Members.Count();
     for (int i = 0; i < count; i++) {
         TechnoClass *techno = Members[i]->Owner;
-        if (techno->unknown_77) {
+        if (techno->IsSelected) {
             techno->Unselect();
         }
     }
@@ -1183,7 +1183,7 @@ int PlanningNodeClass::Color()
     unknown_b4 = Planning_Adjusted_Pixel(Planning_House_Color(owner), unknown_rgb_ab6841, 0x50);
     int branches = Branches.Count();
     for (int i = 0; i < branches; i++) {
-        if (Branches[i]->unknown_74 == unknown_b4) {
+        if (Branches[i]->Color == unknown_b4) {
             return unknown_b4;
         }
     }
@@ -1216,7 +1216,7 @@ int PlanningNodeClass::Color()
 int PlanningNodeClass::Branch_Color(int index)
 {
     PlanningBranchClass *branch = Branches[index];
-    if (branch->unknown_74 != -1) return branch->unknown_74;
+    if (branch->Color != -1) return branch->Color;
     TechnoClass *last_owner = 0;
     int count = Members.Count();
     for (int i = 0; i < count; ++i) {
@@ -1227,7 +1227,7 @@ int PlanningNodeClass::Branch_Color(int index)
             if (!token->Reached(token->Nodes.ID(this))) {
                 RGBClass color = Planning_House_Color(owner);
                 color.Adjust(0x50, unknown_rgb_ab6841);
-                return branch->unknown_74 = Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
+                return branch->Color = Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
             }
             last_owner = owner;
         }
@@ -1237,7 +1237,7 @@ int PlanningNodeClass::Branch_Color(int index)
     } else {
         RGBClass color = Planning_House_Color(last_owner);
         color.Adjust(0x64, WhiteColor);
-        return branch->unknown_74 = Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
+        return branch->Color = Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
     }
 }
 
@@ -1254,18 +1254,18 @@ int PlanningNodeClass::Branch_Color(int index)
 
 int PlanningNodeClass::Loop_Color()
 {
-    if (Branch.unknown_74 != -1) return Branch.unknown_74;
+    if (Branch.Color != -1) return Branch.Color;
     TechnoClass *last_owner = 0;
     int count = Members.Count();
     for (int i = 0; i < count; ++i) {
         PlanningMemberClass *member = Members[i];
-        if (member->unknown_0c) {
+        if (member->Active) {
             TechnoClass *owner = member->Owner;
             PlanningTokenClass *token = Planning_Token(owner);
-            if (!token->unknown_98) {
+            if (!token->F98) {
                 RGBClass color = Planning_House_Color(owner);
                 color.Adjust(0x50, unknown_rgb_ab6841);
-                return Branch.unknown_74 = Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
+                return Branch.Color = Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
             }
             last_owner = owner;
         }
@@ -1275,7 +1275,7 @@ int PlanningNodeClass::Loop_Color()
     } else {
         RGBClass color = Planning_House_Color(last_owner);
         color.Adjust(0x64, WhiteColor);
-        return Branch.unknown_74 = Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
+        return Branch.Color = Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
     }
 }
 
@@ -1289,9 +1289,9 @@ void PlanningNodeClass::Reset_Colors(bool all)
     if (all) {
         int count = Branches.Count();
         for (int i = 0; i < count; i++) {
-            Branches[i]->unknown_74 = -1;
+            Branches[i]->Color = -1;
         }
-        Branch.unknown_74 = -1;
+        Branch.Color = -1;
     }
 }
 
@@ -1322,11 +1322,11 @@ void PlanningNodeClass::Reset_Colors(bool all)
 PlanningTokenClass::PlanningTokenClass(TechnoClass *owner)
     : unknown_1c(false)
 {
-    unknown_8c = -1;
+    F8C = -1;
     LoopLength = -1;
     LoopStart = -1;
-    unknown_98 = false;
-    unknown_99 = false;
+    F98 = false;
+    F99 = false;
     Owner = owner;
 }
 
@@ -1380,11 +1380,11 @@ void PlanningTokenClass::Cancel_Owner()
         Planning_Unlist_Techno(Owner);
     }
     Nodes.Clear();
-    unknown_8c = -1;
+    F8C = -1;
     LoopLength = -1;
     LoopStart = -1;
-    unknown_98 = false;
-    unknown_99 = false;
+    F98 = false;
+    F99 = false;
 }
 
 
@@ -1501,7 +1501,7 @@ unsigned int __fastcall unknown_is_kind_1c_006132f0(int *self)
 
 bool PlanningTokenClass::unknown_613310() const
 {
-    return Nodes.Count() > 0 && (unknown_8c == -1 || unknown_8c > 0);
+    return Nodes.Count() > 0 && (F8C == -1 || F8C > 0);
 }
 
 
@@ -1523,7 +1523,7 @@ static inline EventClass Take_Event(PlanningNodeClass *node, TechnoClass *owner,
 // Steps the first-node index down and unlists an owner with no path left.
 static inline void Finish_Step(PlanningTokenClass *token)
 {
-    token->unknown_8c = Max(-1, token->unknown_8c - 1);
+    token->F8C = Max(-1, token->F8C - 1);
     if (token->Nodes.Count() == 0) {
         Planning_Unlist_Techno(token->Owner);
     }
@@ -1535,7 +1535,7 @@ EventClass PlanningTokenClass::unknown_613330()
     EventClass event = Take_Event(node, Owner, Event);
     Nodes.Delete(0);
     if (LoopStart == 0) {
-        unknown_99 = true;
+        F99 = true;
         Nodes.Add(node);
         Planning_Queue_Node(node);
     } else {
@@ -1600,9 +1600,9 @@ void PlanningTokenClass::Copy_Nodes_To(TechnoClass *techno, int start)
 void PlanningTokenClass::unknown_6138f0(int index)
 {
     if (Nodes.Count() == 1) {
-        unknown_8c = -1;
-    } else if (unknown_8c > 0 && index < unknown_8c) {
-        unknown_8c--;
+        F8C = -1;
+    } else if (F8C > 0 && index < F8C) {
+        F8C--;
     }
     if (LoopStart >= 0) {
         if (index < LoopStart) {
@@ -1629,18 +1629,18 @@ void PlanningTokenClass::unknown_6138f0(int index)
 
 void PlanningTokenClass::unknown_613a80()
 {
-    if (unknown_98) {
+    if (F98) {
         PlanningNodeClass *node = Loop_Node();
         if (node != 0) node->Reset_Colors(true);
-        unknown_98 = false;
+        F98 = false;
     }
-    int start = unknown_8c == -1 ? 0 : unknown_8c;
+    int start = F8C == -1 ? 0 : F8C;
     int count = Nodes.Count();
     for (int index = start; index < count; index++) {
         PlanningNodeClass *node = Nodes[index];
         if (node != 0) node->Reset_Colors(true);
     }
-    unknown_8c = -1;
+    F8C = -1;
 }
 
 
@@ -1669,10 +1669,10 @@ unsigned int __fastcall unknown_get_8c_00613b30(int self)
 
 bool PlanningTokenClass::Reached(int slot) const
 {
-    if (unknown_8c == -1) {
+    if (F8C == -1) {
         return false;
     }
-    return slot >= unknown_8c;
+    return slot >= F8C;
 }
 
 
@@ -1735,8 +1735,8 @@ int __fastcall unknown_span_8c_14_00613b80(int self)
 void PlanningTokenClass::Add_Node(PlanningNodeClass *node)
 {
     Nodes.Add(node);
-    if (unknown_8c == -1) {
-        unknown_8c = Nodes.Count() - 1;
+    if (F8C == -1) {
+        F8C = Nodes.Count() - 1;
     }
 }
 
@@ -2242,7 +2242,7 @@ void Planning_Begin()
 {
     if (!unknown_flag_a767a4) {
         unknown_flag_a767a4 = true;
-        Voc_Play(Rules->unknown_1cc, 1.0f, 0x2000, 0);
+        Voc_Play(Rules->StartPlanningModeSound, 1.0f, 0x2000, 0);
         if (unknown_sink_a76680) {
             unknown_sink_a76680->Unknown_Slot0(0x11C7, 0);
         }
@@ -2263,7 +2263,7 @@ void Planning_End()
         unknown_node_a766f8 = 0;
         unknown_node_a766b0 = 0;
         unknown_flag_a767a4 = false;
-        Voc_Play(Rules->unknown_1d8, 1.0f, 0x2000, 0);
+        Voc_Play(Rules->EndPlanningModeSound, 1.0f, 0x2000, 0);
         if (unknown_sink_a76680) {
             unknown_sink_a76680->Unknown_Slot0(0x11C8, 0);
         }
@@ -2526,7 +2526,7 @@ bool __fastcall Planning_Add_Order(TechnoClass *techno, EventClass *event)
     }
     Planning_Attach_Order(node, token, techno, event);
     if (player) {
-        Voc_Play(Rules->unknown_1d0, 1.0f, 0x2000, 0);
+        Voc_Play(Rules->AddPlanningModeCommandSound, 1.0f, 0x2000, 0);
     }
     return true;
 }
@@ -2541,7 +2541,7 @@ bool __fastcall Planning_Add_Order(TechnoClass *techno, EventClass *event)
 bool TechnoClass::TryNextPlanningTokenNode()
 {
     PlanningTokenClass *token = Planning_Token(this);
-    if (token != 0 && token->Nodes.Count() > 0 && (token->unknown_8c == -1 || token->unknown_8c > 0) && !token->unknown_1c) {
+    if (token != 0 && token->Nodes.Count() > 0 && (token->F8C == -1 || token->F8C > 0) && !token->unknown_1c) {
         QueueMission(0x1C, true);
         EventClass event = token->unknown_613330();
         Planning_Store_Event(event);
@@ -3009,7 +3009,7 @@ inline void __fastcall Planning_Close_Loop(TechnoClass *techno, PlanningNodeClas
     PlanningTokenClass *token = Planning_Token(techno);
     token->LoopLength = token->Nodes.Count() - start;
     token->LoopStart = start;
-    token->unknown_98 = true;
+    token->F98 = true;
     if (!unknown_flag_a76788) {
         if (techno->House->Is_Player_Control()) {
             unknown_flag_a76788 = true;
@@ -3017,7 +3017,7 @@ inline void __fastcall Planning_Close_Loop(TechnoClass *techno, PlanningNodeClas
             int count = last->Members.Count();
             for (int i = 0; i < count; i++) {
                 TechnoClass *member = last->Members[i]->Owner;
-                if (member->unknown_77) {
+                if (member->IsSelected) {
                     member->Unselect();
                 }
             }
@@ -3097,7 +3097,7 @@ void __fastcall Planning_Path_Append(TechnoClass *techno, PlanningNodeClass *nod
     }
     target->LoopLength = loop_count;
     target->LoopStart = start;
-    target->unknown_98 = true;
+    target->F98 = true;
     if (update) {
         update->unknown_611770();
     }
@@ -3132,8 +3132,8 @@ void __fastcall Planning_Copy_Members(PlanningNodeClass *node, PlanningNodeClass
         node->Members.Add(member);
         PlanningTokenClass *token = Planning_Token(techno);
         token->Nodes.Add(node);
-        if (token->unknown_8c == -1) {
-            token->unknown_8c = token->Nodes.Count() - 1;
+        if (token->F8C == -1) {
+            token->F8C = token->Nodes.Count() - 1;
         }
         node->unknown_611bd0(member);
     }
@@ -3962,7 +3962,7 @@ bool __fastcall Planning_Idle_Mover(TechnoClass *techno);
 
 inline bool Planning_Current_Order(TechnoClass *techno, bool has_nodes)
 {
-    return techno->Get_Mission() != 5 && !Planning_Idle_Mover(techno) && (has_nodes || techno->unknown_77);
+    return techno->Get_Mission() != 5 && !Planning_Idle_Mover(techno) && (has_nodes || techno->IsSelected);
 }
 
 void __fastcall Planning_Draw_Techno(TechnoClass *techno)
@@ -4073,7 +4073,7 @@ inline int Planning_House_Pixel(TechnoClass *techno, RGBClass const &target, int
 
 inline bool Planning_Reached(PlanningTokenClass const *token, int slot)
 {
-    int first = token->unknown_8c;
+    int first = token->F8C;
     if (first == -1) return false;
     return slot >= first;
 }
@@ -4330,7 +4330,7 @@ int __fastcall Planning_Techno_Color(TechnoClass *techno)
         if (unknown_node_a766b0->Member_Index(techno) != -1) return lighter;
         return plain;
     }
-    if (techno->unknown_77) return lighter;
+    if (techno->IsSelected) return lighter;
     return plain;
 }
 
@@ -4366,7 +4366,7 @@ int PlanningNodeClass::Highlight_Color()
             if (unknown_node_a766b0->Has_Member(owner)) {
                 result = lighter;
             }
-        } else if (owner->unknown_77) {
+        } else if (owner->IsSelected) {
             result = lighter;
         }
     }

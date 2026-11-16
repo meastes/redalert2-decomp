@@ -122,7 +122,7 @@ int TerrainClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhe
     if (warhead == 0) {
         return 0;
     }
-    if (warhead->Wood && !Class->unknown_203) {
+    if (warhead->Wood && !Class->IsImmune) {
         result = ObjectClass::Take_Damage(damage, distance, warhead, source, forced, arg6);
         if (result == 5) {
             return result;

@@ -58,7 +58,7 @@ public:
 
     unsigned char Network[4];           // +0x3F2FC
     unsigned char Node[6];              // +0x3F300
-    unsigned char unknown_3f306[6];     // +0x3F306
+    unsigned char MyNode[6];     // +0x3F306
     int SocketNumber;                   // +0x3F30C the IPX socket number (size 0x3F310)
 };
 

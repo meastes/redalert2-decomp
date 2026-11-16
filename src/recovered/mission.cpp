@@ -104,9 +104,9 @@ MissionClass::MissionClass() :
     Mission(-1),
     SuspendedMission(-1),
     MissionQueue(-1),
-    unknown_a4(false),
-    unknown_a8(0),
-    unknown_ac(0)
+    IsMissionUnloadStandby(false),
+    Status(0),
+    CurrentMissionStartTime(0)
 {
 }
 
@@ -346,9 +346,9 @@ void MissionClass::Set_Mission(int mission)
     }
     Mission = mission;
     MissionQueue = -1;
-    unknown_a4 = false;
-    unknown_a8 = 0;
-    unknown_ac = Frame;
+    IsMissionUnloadStandby = false;
+    Status = 0;
+    CurrentMissionStartTime = Frame;
     Timer = CDTimerClass<FrameTimerClass>(0);
 }
 
@@ -528,9 +528,9 @@ bool MissionClass::Commence()
         Mission = MissionQueue;
         MissionQueue = -1;
         Timer = CDTimerClass<FrameTimerClass>(0);
-        unknown_a8 = 0;
-        unknown_ac = Frame;
-        unknown_a4 = false;
+        Status = 0;
+        CurrentMissionStartTime = Frame;
+        IsMissionUnloadStandby = false;
         return true;
     }
     return false;
@@ -567,7 +567,7 @@ void MissionClass::QueueMission(int mission, bool start)
     }
     if (mission != -1 && (Mission != mission || (MissionQueue != mission && MissionQueue != -1))) {
         MissionQueue = mission;
-        unknown_a4 = false;
+        IsMissionUnloadStandby = false;
     }
     if (start && Ready_To_Commence()) {
         Commence();
@@ -609,7 +609,7 @@ void MissionClass::Override_Mission(int mission, AbstractClass *target, Abstract
         SuspendedMission = Mission;
     }
     Mission = mission;
-    unknown_a4 = false;
+    IsMissionUnloadStandby = false;
 }
 
 
@@ -632,7 +632,7 @@ bool MissionClass::Restore_Mission()
     if (SuspendedMission != -1) {
         Mission = SuspendedMission;
         SuspendedMission = -1;
-        unknown_a4 = false;
+        IsMissionUnloadStandby = false;
         return true;
     }
     return false;
@@ -675,9 +675,9 @@ bool __fastcall MissionClass::Is_Recruitable_Mission(int mission)
 MissionControlClass::MissionControlClass() :
     Mission(-1),
     unknown_04(false),
-    unknown_05(false),
+    IsZombie(false),
     IsRecruitable(true),
-    unknown_07(false),
+    IsParalyzed(false),
     unknown_08(true),
     IsScatter(true),
     unknown_10(0.016),
@@ -716,9 +716,9 @@ bool MissionControlClass::Read_INI(CCINIClass &ini)
 {
     if (ini.Is_Present(Name())) {
         unknown_04 = ini.Get_Bool(Name(), "NoThreat", unknown_04);
-        unknown_05 = ini.Get_Bool(Name(), "Zombie", unknown_05);
+        IsZombie = ini.Get_Bool(Name(), "Zombie", IsZombie);
         IsRecruitable = ini.Get_Bool(Name(), "Recruitable", IsRecruitable);
-        unknown_07 = ini.Get_Bool(Name(), "Paralyzed", unknown_07);
+        IsParalyzed = ini.Get_Bool(Name(), "Paralyzed", IsParalyzed);
         unknown_08 = ini.Get_Bool(Name(), "Retaliate", unknown_08);
         IsScatter = ini.Get_Bool(Name(), "Scatter", IsScatter);
         unknown_10 = ini.Get_Double(Name(), "Rate", unknown_10);
@@ -791,9 +791,9 @@ void MissionClass::Compute_CRC(WWCRCEngine &crc) const
     crc((long)Mission);
     crc((long)SuspendedMission);
     crc((long)MissionQueue);
-    crc((long)unknown_a8);
+    crc((long)Status);
     crc((long)Timer.Value());
-    crc((long)unknown_ac);
+    crc((long)CurrentMissionStartTime);
 }
 
 

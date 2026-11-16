@@ -876,7 +876,7 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
             else key=-1;
             Matrix3D matrix;
             matrix.Make_Identity();
-            if(Type->unknown_b8.unknown_00) {
+            if(Type->AuxVoxel.unknown_00) {
                 matrix.Rotate_Z((float)Barrel_Direction_Angle_00453900(PrimaryFacing.Current()));
                 matrix.Translate_X((float)(Type->TurretOffset/8));
                 Matrix3D barrel_matrix;
@@ -896,28 +896,28 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
                 Point2D draw_point=xy+Point2D(Type->Anims[9].Offset.X,Type->Anims[9].Offset.Y);
                 bool draw_barrel=Barrel_Side_0043abd0(PrimaryFacing);
                 if(!draw_barrel) {
-                    UnknownObjectPair *voxel=&Type->unknown_c0;
+                    UnknownObjectPair *voxel=&Type->AuxVoxel2;
                     if(voxel->unknown_00 && voxel->unknown_04) {
-                        unknown_slot246(Type->unknown_c0,0,key,&Type->unknown_250,bounds,draw_point,
+                        unknown_slot246(Type->AuxVoxel2,0,key,&Type->AuxVoxel2Index,bounds,draw_point,
                             Aircraft_Isometric_View_Matrix_00717f90()*barrel_matrix,Map[cell].Brightness,0);
                     }
                 }
-                unknown_slot246(Type->unknown_b8,0,key,&Type->unknown_228,bounds,draw_point,
+                unknown_slot246(Type->AuxVoxel,0,key,&Type->AuxVoxelIndex,bounds,draw_point,
                     Aircraft_Isometric_View_Matrix_00717f90()*matrix,Map[cell].Brightness,0);
                 if(draw_barrel) {
-                  UnknownObjectPair *voxel=&Type->unknown_c0;
+                  UnknownObjectPair *voxel=&Type->AuxVoxel2;
                   if(voxel->unknown_00 && voxel->unknown_04) {
-                    unknown_slot246(Type->unknown_c0,0,key,&Type->unknown_250,bounds,draw_point,
+                    unknown_slot246(Type->AuxVoxel2,0,key,&Type->AuxVoxel2Index,bounds,draw_point,
                         Aircraft_Isometric_View_Matrix_00717f90()*barrel_matrix,Map[cell].Brightness,0);
                   }
                 }
-            } else if(Type->unknown_c0.unknown_00 && Type->unknown_c0.unknown_04) {
+            } else if(Type->AuxVoxel2.unknown_00 && Type->AuxVoxel2.unknown_04) {
                 Vector3 origin=matrix.Get_Translation();
                 matrix.Translate(-origin);
                 matrix.Rotate_Z((float)Barrel_Direction_Angle_00453900(PrimaryFacing.Current()));
                 matrix.Rotate_Y((float)-Barrel_Direction_Angle_00453900(unknown_2c8.Current()));
                 matrix.Translate(origin);
-                unknown_slot246(Type->unknown_c0,0,key,&Type->unknown_250,bounds,xy+Point2D(Type->Anims[9].Offset.X,Type->Anims[9].Offset.Y),
+                unknown_slot246(Type->AuxVoxel2,0,key,&Type->AuxVoxel2Index,bounds,xy+Point2D(Type->Anims[9].Offset.X,Type->Anims[9].Offset.Y),
                     Aircraft_Isometric_View_Matrix_00717f90()*matrix,Map[cell].Brightness,0);
             }
         }
@@ -934,7 +934,7 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
                 animation->Render(&TacticalRect,true,false);
                 animation->unknown_17d=true;
             }
-            unknown_slot246(Type->unknown_c0,0,-1,&Type->unknown_214,bounds,xy+Point2D(Type->Anims[9].Offset.X,Type->Anims[9].Offset.Y),
+            unknown_slot246(Type->AuxVoxel2,0,-1,&Type->unknown_214,bounds,xy+Point2D(Type->Anims[9].Offset.X,Type->Anims[9].Offset.Y),
                 Aircraft_Isometric_View_Matrix_00717f90()*matrix,Map[cell].Brightness,0);
             if(!in_front && animation) {
                 if(unknown_barrel_make_visible_7cf65c) animation->unknown_17d=false;
@@ -959,13 +959,13 @@ extern ConvertClass *NormalDrawer;
 void BuildingClass::Draw_Selection_Overlay_0043b660(Point2D const &point, Rect const &bounds)
 {
     unknown_slot104();
-    if (unknown_77 && (House->Is_Ally(PlayerPtr) ||
+    if (IsSelected && (House->Is_Ally(PlayerPtr) ||
         (unknown_1a8 & (1 << PlayerPtr->Type->House)))) {
         Point2D text = point + Point2D(-10, 10);
         // Slot251's existing declaration carries the three physical pointer words.
         unknown_slot251(text, point, bounds);
     }
-    if ((unknown_1a8 & (1 << PlayerPtr->Type->House)) && unknown_77) {
+    if ((unknown_1a8 & (1 << PlayerPtr->Type->House)) && IsSelected) {
         FactoryClass *factory;
         if (House->Is_Human_Player()) factory = House->Fetch_Factory(Type->Factory, Type->Naval, 0);
         else factory = static_cast<FactoryClass *>(unknown_41c);
@@ -1394,16 +1394,16 @@ void BuildingClass::AI()
         unknown_20c->AI();
     }
     if (unknown_slot111() || unknown_slot112()) {
-        if (Type->MaxNumberOccupants == 0 || Rules->unknown_2a8 == 0) {
-            if (Frame % 24 == 0 && Rules->unknown_2a8) {
-                new AnimClass(Rules->unknown_2a8, Position_Coord_004f3f40(), 0, 1, 0x600, 0);
+        if (Type->MaxNumberOccupants == 0 || Rules->ChronoSparkle1 == 0) {
+            if (Frame % 24 == 0 && Rules->ChronoSparkle1) {
+                new AnimClass(Rules->ChronoSparkle1, Position_Coord_004f3f40(), 0, 1, 0x600, 0);
             }
         } else {
             for (int index = 0; index < Type->MaxNumberOccupants; ++index) {
-                if ((Frame + index) % 24 == 0 && Rules->unknown_2a8) {
+                if ((Frame + index) % 24 == 0 && Rules->ChronoSparkle1) {
                     CoordStruct location(TacticalMap->Pixel_To_Lepton(Type->MuzzleFlash[index]), 0);
                     location = unknown_slot42() + location;
-                    AnimClass *effect = new AnimClass(Rules->unknown_2a8, location, 0, 1, 0x600, 0);
+                    AnimClass *effect = new AnimClass(Rules->ChronoSparkle1, location, 0, 1, 0x600, 0);
                     effect->ZAdjust = -200;
                 }
             }
@@ -1774,7 +1774,7 @@ bool BuildingClass::Unlimbo(CoordStruct const *coord, int dir)
             Map[cell + Cell(0, -1)].Wall_Update(false);
         }
 
-        if (Type == Rules->unknown_77c || Type == Rules->unknown_784) {
+        if (Type == Rules->GDIGateOne || Type == Rules->unknown_784) {
             Cell cell = Map[*coord].Fetch_CellID();
             Map[cell + Cell(-1, 0)].Wall_Update(false);
             Map[cell + Cell(3, 0)].Wall_Update(false);
@@ -1909,7 +1909,7 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
         CoordStruct coord=Coord_Scatter(Position_Coord_00450950(*this),Random_Pick(256,768),true);
         Map[coord].Place_Tiberium(type, 1);
     }
-    int shakes=Type->Cost_Of(House)/Rules->unknown_4e8;
+    int shakes=Type->Cost_Of(House)/Rules->ShakeScreen;
     if (shakes>0) ((Leaf_482e00 *)shakes)->get();
     if (Get_Mission()==19 || Type->Explodes) {
         unknown_420=CDTimerClass<FrameTimerClass>(0);
@@ -2044,7 +2044,7 @@ int BuildingClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
         if (contact) contacts.Add(contact);
     }
     if (Type->LaserFence && !forced) return 0;
-    if (Type->BridgeRepairHut && Type->unknown_203) return 0;
+    if (Type->BridgeRepairHut && Type->IsImmune) return 0;
     if (Strength!=0) {
         result=TechnoClass::Take_Damage(damage,distance,warhead,source,forced,no_crew);
         if (!IsActive) return result;
@@ -2073,7 +2073,7 @@ int BuildingClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
             break;
         }
         case 2:
-            if (unknown_25c[2]) static_cast<ParticleSystemClass *>(unknown_25c[2])->unknown_d4 *= 1.5f;
+            if (unknown_25c[2]) static_cast<ParticleSystemClass *>(unknown_25c[2])->SpawnFrames *= 1.5f;
         case 3:
             if (Damage_Radio_Runaway_007cf670) {
                 for (int index=0;index<RadioLinks.Length();++index) {
@@ -2115,7 +2115,7 @@ int BuildingClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
     if (!IsActive) return 4;
     if (source) {
         if (result==0) goto refresh_frame;
-        if (!Type->unknown_202 && !Considered_Vehicle()) House->Attacked(this);
+        if (!Type->IsInsignificant && !Considered_Vehicle()) House->Attacked(this);
         unknown_434=source->Owning_House()->ArrayIndex;
         if (Mission!=19 && !House->Is_Ally(source) && unknown_slot231(0)->WeaponType && !unknown_slot231(0)->WeaponType->Projectile->AA && (!unknown_228 || !unknown_slot213(unknown_228))) {
             if (source->Kind_Of()==2 || (House->Unknown_004F52F0() && !Rules->PlayerReturnFire)) {
@@ -2877,7 +2877,7 @@ bool BuildingClass::Limbo()
                 }
             }
         }
-        if (Type == Rules->unknown_77c || Type == Rules->unknown_784) {
+        if (Type == Rules->GDIGateOne || Type == Rules->unknown_784) {
             MAP_CELL(Cell(cell.X - 1, cell.Y)).Unknown_00475960(0);
             MAP_CELL(Cell(cell.X + 3, cell.Y)).Unknown_00475960(0);
         }
@@ -3275,7 +3275,7 @@ no_action:
     }
     if (action != 5) goto result_action;
 object_action:
-    if (object->Class_Of()->unknown_203) action = 2;
+    if (object->Class_Of()->IsImmune) action = 2;
 result_action:
     return action;
 }
@@ -3817,10 +3817,10 @@ check_occupants:
     if (Type->HasStupidGuardMode) {
         return 100;
     }
-    switch (unknown_a8) {
+    switch (Status) {
     case 0:
         Begin_Mode(true);
-        unknown_a8 = 1;
+        Status = 1;
         break;
     case 1:
         if (Type->UnitRepair || Type->UnitReload) {
@@ -3871,7 +3871,7 @@ int BuildingClass::Do_MISSION_GUARD_AREA()
 // Private Building mission139, full349+3; Rules+5E8 draft/compiler scope approved.
 int BuildingClass::Do_MISSION_CONSTRUCTION()
 {
-    switch(unknown_a8) {
+    switch(Status) {
     case 0:
         Begin_Mode(0);
         unknown_slot149(11);
@@ -3881,7 +3881,7 @@ int BuildingClass::Do_MISSION_CONSTRUCTION()
             if(sound!=-1)Voc_Play_At(sound,CoordStruct(Coord),&unknown_570);
         }
         IsToDisplay=true;
-        unknown_a8=1;
+        Status=1;
         break;
     case 1:
         IsToDisplay=true;
@@ -3947,8 +3947,8 @@ inline CoordStruct Snap_To_Cell_Center(CoordStruct const &coord)
 int BuildingClass::Do_MISSION_DECONSTRUCTION()
 {
     Repair(0);
-    bool selected=unknown_77;
-    switch(unknown_a8) {
+    bool selected=IsSelected;
+    switch(Status) {
     case 0:
         if(Can_Be_Undeployed() && (Type->Artillary || Type->TickTank)) {
             unknown_slot220(0);
@@ -3978,7 +3978,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
         SendToEachLink(23);
         if(Type->LaserFencePost) Toggle_Laser_Fence_Post(0);
         Remove_Damage_Fires();
-        unknown_a8=1;
+        Status=1;
         break;
     case 1:
         SendToEachLink(3);
@@ -4019,7 +4019,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                 Voc_Play_At(Rules->SellSound,Position_Coord_004f3f40(),0);
                 if(Type->PackupSound!=-1) Voc_Play_At(Type->PackupSound,Position_Coord_004f3f40(),&unknown_570);
             }
-            unknown_a8=2;
+            Status=2;
             Begin_Mode(0);
             unknown_5ad=false;
             if(selected) unknown_slot80();
@@ -4173,11 +4173,11 @@ inline Cell Building_Repair_Archive_Cell_00447260(AbstractClass const &target)
 int BuildingClass::Do_MISSION_REPAIR()
 {
     if (Type->ConstructionYard) {
-        switch (unknown_a8) {
+        switch (Status) {
         case 0: {
                 Begin_Mode(2);
                 PlayNthAnim(7, Health_Ratio() <= Rules->unknown_1368, false, 0);
-                unknown_a8 = 2;
+                Status = 2;
 
                 break;
             }
@@ -4194,9 +4194,9 @@ int BuildingClass::Do_MISSION_REPAIR()
         return 1;
     }
     if (Type->Hospital) {
-        switch (unknown_a8) {
+        switch (Status) {
         case 0: {
-                unknown_a8 = 2;
+                Status = 2;
                 unknown_5ad = false;
                 unknown_4f4.Set_Stage(0);
                 unknown_4f4.Set_Rate(1);
@@ -4235,9 +4235,9 @@ int BuildingClass::Do_MISSION_REPAIR()
         return (int)(Control()->unknown_10 * 900.0);
     }
     if (Type->Armory) {
-        switch (unknown_a8) {
+        switch (Status) {
         case 0: {
-                unknown_a8 = 2;
+                Status = 2;
                 unknown_5ad = false;
                 unknown_4f4.Set_Stage(0);
                 unknown_4f4.Set_Rate(1);
@@ -4263,7 +4263,7 @@ int BuildingClass::Do_MISSION_REPAIR()
     }
     if (Type->UnitRepair) {
 
-        switch (unknown_a8) {
+        switch (Status) {
         case 0: {
                 if (!HasAnyLink()) {
                     DestroyNthAnim(8);
@@ -4282,7 +4282,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                 if (clsid == CLSID_HoverLocomotionClass) distance = 200;
                 if (clsid == CLSID_ShipLocomotionClass) distance = 200;
                 if (unknown_slot149(19) == 1 && unknown_slot281(Contact_With_Whom()) < distance) {
-                    unknown_a8 = 1;
+                    Status = 1;
                     return 3;
                 }
                 if (!House->Ion_Sensitives_Should_Be_Offline()) contact->Locomotor.Checked()->Power_On();
@@ -4295,7 +4295,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                     DestroyNthAnim(11);
                     PlayNthAnim(12, Health_Ratio() <= Rules->unknown_1368, false, 0);
                     PlayNthAnim(3, Health_Ratio() <= Rules->unknown_1368, false, 0);
-                    unknown_a8 = 1;
+                    Status = 1;
                     return 1;
                 }
                 if (unknown_4f4.unknown_10 == 0) unknown_4f4.unknown_10 = 1;
@@ -4312,7 +4312,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                             DestroyNthAnim(11);
                             PlayNthAnim(12, Health_Ratio() <= Rules->unknown_1368, false, 0);
                             PlayNthAnim(3, Health_Ratio() <= Rules->unknown_1368, false, 0);
-                            unknown_a8 = 1;
+                            Status = 1;
 
                             break;
                         }
@@ -4322,7 +4322,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                             DestroyNthAnim(11);
                             PlayNthAnim(12, Health_Ratio() <= Rules->unknown_1368, false, 0);
                             PlayNthAnim(3, Health_Ratio() <= Rules->unknown_1368, false, 0);
-                            unknown_a8 = 1;
+                            Status = 1;
                             FootClass *mover = Building_Radio_Foot_004397f0(Contact_With_Whom());
                             if (mover->unknown_1b0 && !mover->House->Is_Human_Player()) {
                                 mover->QueueMission(2, false);
@@ -4405,7 +4405,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                         }
                     } else if (!client->unknown_328 || client->House->Is_Human_Player()) {
                         if (unknown_372) Speech_Play_Name("EVA_Repairing", -1, -1);
-                        unknown_a8 = 2;
+                        Status = 2;
                         PlayNthAnim(10, Health_Ratio() <= Rules->unknown_1368, false, 0);
                         DestroyNthAnim(3);
                         DestroyNthAnim(17);
@@ -4414,7 +4414,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                         unknown_4f4.Set_Rate(1);
                     } else {
                         client->Sell_Back(1);
-                        unknown_a8 = 0;
+                        Status = 0;
                         unknown_5ad = true;
                     }
                 } else if (!House->Ion_Sensitives_Should_Be_Offline()) {
@@ -4572,12 +4572,12 @@ int BuildingClass::Do_MISSION_UNLOAD()
             Cell position=unknown_slot104()+exit;
             destination=CoordStruct(Cell(position.X-1,position.Y));
         }
-        switch(unknown_a8) {
+        switch(Status) {
         case 0: {
             TechnoClass *unit=Contact(0);
             if(unit) { unit->QueueMission(5,false); unit->Commence(); }
             Door.Count_Up(Type->DeployTime);
-            unknown_a8=Type->Naval ? 4 : 1;
+            Status=Type->Naval ? 4 : 1;
             IsToDisplay=true;
             DestroyNthAnim(17);
             PlayNthAnim(8,Health_Ratio()<=Rules->unknown_1368,false,0);
@@ -4586,7 +4586,7 @@ int BuildingClass::Do_MISSION_UNLOAD()
         case 1:
             if(!Clear_Weapons_Factory_Bib()) {
                 Debug_Printf("Weapons factory bib clear - kicking out unit\n");
-                unknown_a8=2;
+                Status=2;
             }
             break;
         case 2:
@@ -4620,15 +4620,15 @@ int BuildingClass::Do_MISSION_UNLOAD()
                         unit->Locomotor.Checked()->Force_Track(66,destination);
                     }
                     unit->unknown_slot306(0.5);
-                    unknown_a8=3;
+                    Status=3;
                 } else {
                     Door.Count_Down(Type->DeployTime);
-                    unknown_a8=4;
+                    Status=4;
                 }
             }
             break;
         case 3:
-            if(!unknown_370) { Door.Count_Down(Type->DeployTime); unknown_a8=4; }
+            if(!unknown_370) { Door.Count_Down(Type->DeployTime); Status=4; }
             break;
         case 4:
             if(Door.Is_Count_Down_Complete() || Type->Naval) { unknown_slot261(false,true); IsToDisplay=true; }
@@ -4703,11 +4703,11 @@ int BuildingClass::Do_MISSION_OPEN()
 {
     CoordStruct closing_position;
     if (Type->Gate) {
-        switch (unknown_a8) {
+        switch (Status) {
         case 0:
             if (Door.Is_Count_Up_Complete()) {
                 GateTimer = (int)(Type->GateCloseDelay * 900.0);
-                unknown_a8 = 2;
+                Status = 2;
             } else {
                 if (!Door.Is_Count_Up_Active()) {
                     if (Door.Is_Count_Down_Active()) {
@@ -4719,31 +4719,31 @@ int BuildingClass::Do_MISSION_OPEN()
                         TacticalMap->Register_Dirty_Area(Get_Render_Rect(), 0);
                     }
                 }
-                unknown_a8 = 1;
+                Status = 1;
                 GateTimer = ProgressTimerClass<FrameTimerClass>((int)(Type->GateCloseDelay * 900.0));
                 return 0;
             }
             break;
         case 3:
             Door.Count_Down(Type->DeployTime);
-            unknown_a8 = 4;
+            Status = 4;
             closing_position = Coord;
             Voc_Play_At(Rules->GateUp, closing_position, 0);
             return 0;
         case 2:
             if (!Is_Blocked_By_Occupier()) {
-                if (GateTimer.Progress() == 1.0) unknown_a8 = 3;
+                if (GateTimer.Progress() == 1.0) Status = 3;
             } else {
                 GateTimer = ProgressTimerClass<FrameTimerClass>((int)(Type->GateCloseDelay * 900.0));
             }
             break;
         case 1:
-            if (Door.Is_Count_Up_Complete()) unknown_a8 = 2;
+            if (Door.Is_Count_Up_Complete()) Status = 2;
             // Fall through to the animation refresh.
         case 4:
             if (Door.Is_Count_Down_Complete()) {
                 unknown_slot261(false, true);
-                unknown_a8 = 5;
+                Status = 5;
                 IsToDisplay = true;
             }
             if (Door.Is_Count_Up_Active() || Door.Is_Count_Down_Active() || Door.Is_Count_Up_Complete()) {
@@ -7446,7 +7446,7 @@ void BuildingClass::Update_Firestorm_Wall_00450950()
     if (active) {
         ObjectClass *object = cell->OccupierPtr;
         while (object) {
-            if (object != this && object->Class_Of() && !object->Class_Of()->unknown_209) {
+            if (object != this && object->Class_Of() && !object->Class_Of()->IsIgnoresFirestorm) {
                 switch (object->Kind_Of()) {
                 case 1: case 2: case 15: {
                     ObjectClass *next = object->unknown_30;
@@ -7469,7 +7469,7 @@ void BuildingClass::Update_Firestorm_Wall_00450950()
                         ObjectClass *next = occupier->unknown_30;
                         bool is_foot;
                         if (occupier) is_foot = occupier->AbstractFlags.IsFoot;
-                        if (occupier && is_foot && static_cast<FootClass *>(occupier)->Locomotor.Checked()->Is_Moving_Here(center) && !occupier->Techno_Type_Class()->unknown_209) {
+                        if (occupier && is_foot && static_cast<FootClass *>(occupier)->Locomotor.Checked()->Is_Moving_Here(center) && !occupier->Techno_Type_Class()->IsIgnoresFirestorm) {
                             int damage = occupier->Strength;
                             occupier->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 1);
                         }

@@ -565,7 +565,7 @@ flown:
         BuildingClass *building = (BuildingClass *)Map[coord].Cell_Building();
         if (building != 0 && building->Type->FirestormWall && building->House->unknown_142
             && (Owner == 0 || building->House != Owner->House)
-            && Class_Of() != 0 && !Class_Of()->unknown_209) {
+            && Class_Of() != 0 && !Class_Of()->IsIgnoresFirestorm) {
             building->Crossing_Firestorm(this, false);
             Delete_Me();
             break;
@@ -650,12 +650,12 @@ void BulletClass::Draw_It(Point2D const &point, Rect const &clip)
 {
     if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(CoordStruct(Coord))) return;
     if (Type->Inviso || SpawnNextAnim) return;
-    if (Type->unknown_206) {
+    if (Type->IsVoxel) {
         Matrix3D matrix;
         matrix.Make_Identity();
         matrix.Rotate_Z(Velocity.Get_Yaw().As_Radian32());
         matrix.Rotate_Y(-Velocity.Get_Pitch().As_Radian32());
-        Draw_Voxel_00463a00(Type->unknown_b0, Bullet_Isometric_View() * matrix, *(RectPoint2D const *)&point, clip, 0, 0x800, 1000);
+        Draw_Voxel_00463a00(Type->Voxel, Bullet_Isometric_View() * matrix, *(RectPoint2D const *)&point, clip, 0, 0x800, 1000);
         return;
     }
     ShapeFileStruct const *image = (ShapeFileStruct const *)Get_Image_Data();
@@ -663,7 +663,7 @@ void BulletClass::Draw_It(Point2D const &point, Rect const &clip)
     int shape = unknown_slot116();
     int height_agl = Get_Height_AGL();
     int ground_height = Map.Get_Height_GL(CoordStruct(Coord));
-    if (!unknown_79 && (Map[CoordStruct(Coord)].unknown_140 & 0x100) && height_agl >= unknown_geometry_j) {
+    if (!IsOnBridge && (Map[CoordStruct(Coord)].unknown_140 & 0x100) && height_agl >= unknown_geometry_j) {
         height_agl -= unknown_geometry_j;
         ground_height += unknown_geometry_j;
     }

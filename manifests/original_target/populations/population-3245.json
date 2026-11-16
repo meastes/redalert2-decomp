@@ -4,8 +4,8 @@
     "id": "population-3245",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "19eafe3f5ee01a9ed624a154c7f257f9899bbc590c92a8f6fabc41bd34c3605d",
-    "historical_acceptance_sha256": "70b238a228fe215862b6ad1e338bc3ef8d3f6a7022e4bf5586c32c206545c2e9"
+    "historical_population_sha256": "9d0ad90923674657d74f950345bea8e9e53f6f9d920f4b1745bd0aa9952b6bb4",
+    "historical_acceptance_sha256": "f70db0d3e63d43c50b54987b512725118cb6708ee4ddd9da5641f5252b835c4f"
   },
   "references": {
     "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
@@ -8930,7 +8930,9 @@
     "??_E?$VectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249296,
     "??_E?$VectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z": 4257408,
     "??_E?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845232,
-    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
+    "??_ECellClass@@UAEPAXI@Z": 4706208,
+    "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056
   },
   "regions": [
     {
@@ -9314,7 +9316,7 @@
           "resolved": 10943800
         }
       ],
-      "source_sha256": "a535dff1ec6620616f528b27a7715eaa7b55b948736ed1a0721a1b3e4c01bde6",
+      "source_sha256": "b3284f57290974b0068c035c6617d1819fcbb81234351bdfc87803edb6001889",
       "source": "src/recovered/classes/MapRegionClass/Make_Regions.cpp",
       "population": "population-3245",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

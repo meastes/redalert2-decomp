@@ -108,10 +108,10 @@ MultiplayerGameMode::MultiplayerGameMode(WideString const &name, WideString cons
     unknown_ini_38(0)
 {
     unknown_04 = false;
-    unknown_3c = 1;
+    wolTourney = 1;
     GetINI();
     if (unknown_ini_38 != 0 && unknown_ini_38->Is_Present(unknown_section_7a7170)) {
-        unknown_3c = unknown_ini_38->Get_Int(unknown_section_7a7170, "WonlineTournamentAllowed", unknown_3c);
+        wolTourney = unknown_ini_38->Get_Int(unknown_section_7a7170, "WonlineTournamentAllowed", wolTourney);
     }
 }
 
@@ -204,7 +204,7 @@ void __fastcall MultiplayerGameMode::unknown_fill_list_5b71e0(HWND list, int id)
     bool listed = unknown_game_mode_a3d298 == 5;
     for (int index = 0; index < unknown_mode_count_5b6f80(); index++) {
         MultiplayerGameMode *mode = unknown_modes_5b6c30()[index];
-        if (mode->unknown_3c == 0 && unknown_game_mode_a3d298 == 4 && unknown_73c370()) {
+        if (mode->wolTourney == 0 && unknown_game_mode_a3d298 == 4 && unknown_73c370()) {
             continue;
         }
         if (unknown_lobby_flag_7e6d90 == 0 && unknown_player_slots_a3fa98[0]->Team == -1 && !mode->unknown_slot40()) {
@@ -310,7 +310,7 @@ bool MultiplayerGameMode::unknown_5b7470(MultiMission *map)
     if (map->Is_Random_Map()) {
         return IsAIAllowed();
     }
-    if (!map->unknown_17c && unknown_73c370()) {
+    if (!map->IsOfficial && unknown_73c370()) {
         return false;
     }
     return map->Supports_Game_Mode(unknown_30);

@@ -521,8 +521,8 @@ MSAnimEntry::MSAnimEntry(Wstring const &string) :
 
 MSSfxEntry::MSSfxEntry(Wstring const &name, Wstring const &string) :
     Name((char const *)0),
-    unknown_04(false),
-    unknown_08(0),
+    AllocLoaded(false),
+    Sample(0),
     Volume(255)
 {
     if (name != 0 && AudioDeviceAvailable()) {

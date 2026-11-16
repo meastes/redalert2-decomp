@@ -46,7 +46,7 @@ static bool None_Named_On_Screen(DynamicVectorClass<TechnoClass *> *list, Dynami
     int count = list->Count();
     for (int index = 0; index < count; index++) {
         TechnoClass *techno = (*list)[index];
-        if (unknown_matches_any_name(techno, *names) && !techno->unknown_77) {
+        if (unknown_matches_any_name(techno, *names) && !techno->IsSelected) {
             return false;
         }
     }

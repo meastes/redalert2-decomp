@@ -578,9 +578,9 @@ bool __stdcall ShipLocomotionClass::Process()
             }
         }
     }
-    if (Is_Moving_Now() && Frame % 8 == 0 && !LinkedTo->Techno_Type_Class()->Underwater && !LinkedTo->unknown_79
-        && static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->Land_Type() == 2 && Rules->unknown_09c != 0) {
-        new AnimClass(Rules->unknown_09c, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
+    if (Is_Moving_Now() && Frame % 8 == 0 && !LinkedTo->Techno_Type_Class()->Underwater && !LinkedTo->IsOnBridge
+        && static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->Land_Type() == 2 && Rules->Wake != 0) {
+        new AnimClass(Rules->Wake, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
     }
     if (unknown_34 == unknown_geometry_l && unknown_40 == unknown_geometry_l && LinkedTo->unknown_4d0 == -1 && LinkedTo->Speed > 0.0) {
         LinkedTo->unknown_slot306(0.0);
@@ -886,20 +886,20 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                     CellClass *oldcellptr = &Map[oldcell];
                     CellClass *newcellptr = &Map[newcell];
                     if (newcellptr->Height == oldcellptr->Height - 4 && newcellptr->IsUnderBridge) {
-                        LinkedTo->unknown_79 = true;
+                        LinkedTo->IsOnBridge = true;
                     }
                     if (!newcellptr->IsUnderBridge && oldcellptr->IsUnderBridge) {
-                        LinkedTo->unknown_79 = false;
+                        LinkedTo->IsOnBridge = false;
                     }
                     if (LinkedTo->Techno_Type_Class()->IsTrain && !((UnitClass *)LinkedTo)->unknown_5b8) {
                         FootClass *train = LinkedTo;
-                        bool is_bridge = train->unknown_79 || (Object_Coord(LinkedTo).Z >= (Map.Get_Height_GL(Object_Coord(LinkedTo)) + unknown_geometry_j));
+                        bool is_bridge = train->IsOnBridge || (Object_Coord(LinkedTo).Z >= (Map.Get_Height_GL(Object_Coord(LinkedTo)) + unknown_geometry_j));
                         ObjectClass *object = is_bridge ? Map[newcell].AltOccupierPtr : Map[newcell].OccupierPtr;
                         ObjectClass *&ref = object;
                         ObjectClass *occupier = ref;
                         while (occupier != 0) {
                             ObjectClass *next = occupier->unknown_30;
-                            if (!occupier->Class_Of()->unknown_1fd) {
+                            if (!occupier->Class_Of()->IsCrushable) {
                                 int strength = 10000;
                                 occupier->Take_Damage(&strength, 0, Rules->C4Warhead, 0, true, true);
                                 strength = 20;
@@ -1112,10 +1112,10 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 LinkedTo->Mark(0);
                 LinkedTo->Set_Coord(coord);
                 if (newcellptr->Height == oldcellptr->Height - 4 && newcellptr->IsUnderBridge) {
-                    LinkedTo->unknown_79 = true;
+                    LinkedTo->IsOnBridge = true;
                 }
                 if (!newcellptr->IsUnderBridge && oldcellptr->IsUnderBridge) {
-                    LinkedTo->unknown_79 = false;
+                    LinkedTo->IsOnBridge = false;
                 }
                 LinkedTo->Mark(1);
             } else {
@@ -1307,10 +1307,10 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
     CoordStruct dest = Adjacent_Coord_SOM(Object_Coord(LinkedTo), facing);
 
     CellClass const &here = Map[Object_Coord(LinkedTo)];
-    int cell_height = here.Height + (LinkedTo->unknown_79 ? 4 : 0);
+    int cell_height = here.Height + (LinkedTo->IsOnBridge ? 4 : 0);
 
     CellClass const &next = Map[Adjacent_Coord_SOM(Object_Coord(LinkedTo), facing)];
-    if (LinkedTo->unknown_79 ^ next.IsUnderBridge) {
+    if (LinkedTo->IsOnBridge ^ next.IsUnderBridge) {
         LinkedTo->unknown_57b = true;
     }
     if (!LinkedTo->Is_Ready_To_Move()) {
@@ -1338,7 +1338,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
         }
 
         int overlay = destptr->OverlayIndex;
-        if (overlay != -1 && cando == 0 && OverlayTypes[overlay]->unknown_1fd) {
+        if (overlay != -1 && cando == 0 && OverlayTypes[overlay]->IsCrushable) {
             crushable_dest = true;
         }
 
@@ -1505,7 +1505,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
         }
 
         CellClass const *adjcell;
-        if (nextface != -1 && (adjcell = &((CellClass const *)destptr)->Adjacent_Cell(nextface)) != 0 && adjcell->OverlayIndex != -1 && OverlayTypes[adjcell->OverlayIndex]->unknown_1fd || crushable_dest) {
+        if (nextface != -1 && (adjcell = &((CellClass const *)destptr)->Adjacent_Cell(nextface)) != 0 && adjcell->OverlayIndex != -1 && OverlayTypes[adjcell->OverlayIndex]->IsCrushable || crushable_dest) {
             nextface = facing;
             unknown_64 = true;
         } else {

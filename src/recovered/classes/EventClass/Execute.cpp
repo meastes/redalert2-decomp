@@ -301,7 +301,7 @@ void EventClass::Execute()
         techno = TargetAt(0x07).As_Techno();
         Planning_Techno_00615480(techno, 0);
         if (techno && techno->IsActive && !techno->IsInLimbo && !techno->unknown_370 && techno->Mission != 0x12 && techno->Mission != 0x13) {
-            if (!techno->unknown_79) {
+            if (!techno->IsOnBridge) {
                 if (!Map[CoordStruct(techno->Coord)].Ramp && (unsigned char)techno->unknown_slot164()) {
                     break;
                 }
@@ -334,7 +334,7 @@ void EventClass::Execute()
         techno = TargetAt(0x07).As_Techno();
         Planning_Techno_00615480(techno, 0);
         if (techno && techno->IsActive && !techno->IsInLimbo && !techno->unknown_370 && !techno->unknown_3fc) {
-            if (!techno->unknown_79) {
+            if (!techno->IsOnBridge) {
                 if (!Map[CoordStruct(techno->Coord)].Ramp && (unsigned char)techno->unknown_slot164()) {
                     break;
                 }

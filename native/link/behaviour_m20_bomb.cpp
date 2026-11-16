@@ -12,7 +12,7 @@ void BombClass::Disarm()
 {
     if (Target != 0) {
         Target->unknown_38 = 0;
-        Target->unknown_68 = false;
+        Target->BombVisible = false;
     }
     unknown_58 = true;
     Owner = 0;

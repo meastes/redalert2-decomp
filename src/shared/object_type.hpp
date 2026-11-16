@@ -181,40 +181,40 @@ public:
     void *ImageData;                       // +0x0A4 (the loaded image; hypothesis)
     bool ImageAllocated;                        // +0x0A8
     int unknown_ac;                         // +0x0AC
-    UnknownObjectPair unknown_b0;           // +0x0B0
-    UnknownObjectPair unknown_b8;           // +0x0B8
-    UnknownObjectPair unknown_c0;           // +0x0C0
-    UnknownObjectPair unknown_c8[15];       // +0x0C8
+    UnknownObjectPair Voxel;           // +0x0B0
+    UnknownObjectPair AuxVoxel;           // +0x0B8
+    UnknownObjectPair AuxVoxel2;           // +0x0C0
+    UnknownObjectPair ChargerTurrets[15];       // +0x0C8
     UnknownObjectPair unknown_140[15];      // +0x140
-    bool unknown_1b8;                       // +0x1B8
-    int unknown_1bc;                        // +0x1BC
-    int unknown_1c0;                        // +0x1C0
-    int unknown_1c4;                        // +0x1C4
+    bool NoSpawnAlt;                       // +0x1B8
+    int MaxSize;                        // +0x1BC
+    int CrushSound;                        // +0x1C0
+    int AmbientSound;                        // +0x1C4
     FixedString<25> unknown_1c8;            // +0x1C8 (image name: "Image="; hypothesis)
-    bool unknown_1e1;                       // +0x1E1
-    bool unknown_1e2;                       // +0x1E2
-    FixedString<25> unknown_1e3;            // +0x1E3
-    bool unknown_1fc;                       // +0x1FC ("Theater=" in AnimType Read_INI)
-    bool unknown_1fd;                       // +0x1FD
-    bool unknown_1fe;                       // +0x1FE
-    bool unknown_1ff;                       // +0x1FF
-    bool unknown_200;                       // +0x200 (ObjectClass slot 76 reads it)
-    bool unknown_201;                       // +0x201
-    bool unknown_202;                       // +0x202
-    bool unknown_203;                       // +0x203
-    bool unknown_204;                       // +0x204
-    bool unknown_205;                       // +0x205
-    bool unknown_206;                       // +0x206
-    bool unknown_207;                       // +0x207 ("NewTheater=" in AnimType Read_INI)
-    bool unknown_208;                       // +0x208
-    bool unknown_209;                       // +0x209
-    bool unknown_20a;                       // +0x20A
+    bool AlternateArcticArt;                       // +0x1E1
+    bool ArcticArtInUse;                       // +0x1E2
+    FixedString<25> AlphaGraphicName;            // +0x1E3
+    bool IsTheater;                       // +0x1FC ("Theater=" in AnimType Read_INI)
+    bool IsCrushable;                       // +0x1FD
+    bool IsBombable;                       // +0x1FE
+    bool IsStealthy;                       // +0x1FF
+    bool IsSelectable;                       // +0x200 (ObjectClass slot 76 reads it)
+    bool IsLegalTarget;                       // +0x201
+    bool IsInsignificant;                       // +0x202
+    bool IsImmune;                       // +0x203
+    bool IsSentient;                       // +0x204
+    bool IsFootprint;                       // +0x205
+    bool IsVoxel;                       // +0x206
+    bool IsNewTheater;                       // +0x207 ("NewTheater=" in AnimType Read_INI)
+    bool IsHasRadialIndicator;                       // +0x208
+    bool IsIgnoresFirestorm;                       // +0x209
+    bool UseLineTrail;                       // +0x20A
     RGBClass LineTrailColor;                // +0x20B (LineTrailColor=, art INI)
-    int unknown_210;                        // +0x210
+    int LineTrailColorDecrement;                        // +0x210
     UnknownBuffer unknown_214;              // +0x214
-    UnknownBuffer unknown_228;              // +0x228
-    UnknownBuffer unknown_23c;              // +0x23C
-    UnknownBuffer unknown_250;              // +0x250
+    UnknownBuffer AuxVoxelIndex;              // +0x228
+    UnknownBuffer ShadowVoxelIndex;              // +0x23C
+    UnknownBuffer AuxVoxel2Index;              // +0x250
 };
 
 #ifndef OBJECT_TYPE_DECLARE_OBJECT_TYPES

@@ -598,13 +598,13 @@ unsigned int Leaf_499a20::get(unsigned int input_address, unsigned int mouse_pos
 void DisplayClass::Submit(ObjectClass *object)
 {
     if (object) {
-        if (object->unknown_80 != -1) {
+        if (object->Layer != -1) {
             Remove(object);
         }
         int layer = object->In_Which_Layer();
         if (layer != -1) {
             if (Layer[layer].Submit(object, layer == 2)) {
-                object->unknown_80 = layer;
+                object->Layer = layer;
             }
         }
     }
@@ -621,16 +621,16 @@ void DisplayClass::Submit(ObjectClass *object)
 void DisplayClass::Remove(ObjectClass *object)
 {
     ObjectClass *entry;
-    if (object && object->unknown_80 != -1) {
-        if (Layer[object->unknown_80].Delete(entry = object)) {
-            object->unknown_80 = -1;
+    if (object && object->Layer != -1) {
+        if (Layer[object->Layer].Delete(entry = object)) {
+            object->Layer = -1;
         }
-        if (object->unknown_80 != -1) {
+        if (object->Layer != -1) {
             for (int layer = 0; layer < 5; layer++) {
                 while (Layer[layer].Delete(entry = object)) {
                 }
             }
-            object->unknown_80 = -1;
+            object->Layer = -1;
         }
     }
 }
@@ -1362,7 +1362,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
             if (action == 8) {
                 if (!object || !CurrentObject.Count() || !CurrentObject[0]->Owning_House()->Is_Player_Control()) {
                     action = 7;
-                } else if (object->unknown_77) {
+                } else if (object->IsSelected) {
                     if (Unknown_006F76B0()) Unknown_006F7020(object->Class_Of()->ID);
                     else object->Unselect();
                 } else {
@@ -1370,7 +1370,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
                     else object->unknown_slot80();
                 }
             }
-            if ((action == 7 && object) || (action == 0 && object && object->CanBeSelected() && !object->unknown_77)) {
+            if ((action == 7 && object) || (action == 0 && object && object->CanBeSelected() && !object->IsSelected)) {
                 if (object->Kind_Of() != 6 || static_cast<BuildingClass *>(object)->House->Is_Player_Control() ||
                     static_cast<BuildingClass *>(object)->unknown_5bd != 15 || static_cast<TechnoClass *>(object)->unknown_slot191()) {
                     Clear_Selected_Objects_00482bc0();
@@ -2333,7 +2333,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
             if (tt) {
                 tt->Set_Position(cell);
                 (*this)[cell].Attach_Tag(tt);
-                unknown_1158.Add(cell);
+                TaggedCells.Add(cell);
             }
         }
     }

@@ -2284,10 +2284,10 @@ bool __fastcall Select_Scenario_005c7c30(int index)
         }
     }
     wcscpy(unknown_map_name_a3d342, unknown_session_a3d298.Scenarios[index]->Description);
-    strcpy(unknown_session_a3d298.ScenarioDigest_85a, unknown_session_a3d298.Scenarios[index]->unknown_15c);
+    strcpy(unknown_session_a3d298.ScenarioDigest_85a, unknown_session_a3d298.Scenarios[index]->Digest);
     strcpy(unknown_session_a3d298.ScenarioFileName_658, unknown_session_a3d298.Scenarios[index]->unknown_58);
     strcpy(unknown_id_source_a3d290->FileName, unknown_session_a3d298.ScenarioFileName_658);
-    unknown_session_a3d298.ScenarioIsOfficial_880 = unknown_session_a3d298.Scenarios[index]->unknown_17c;
+    unknown_session_a3d298.ScenarioIsOfficial_880 = unknown_session_a3d298.Scenarios[index]->IsOfficial;
     int players = Scenario_Slot_Limit_005c65a0(index);
     unknown_int_a3db1c = players;
     unknown_session_a3d298.ScenarioFileLength_87c = CCFileClass(unknown_session_a3d298.ScenarioFileName_658).Size();

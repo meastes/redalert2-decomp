@@ -113,10 +113,10 @@ bool ModemGuest::Dialog_00596010()
         HostName[0] = 0;
         HostColor = -1;
         HostHouse = -1;
-        unknown_50 = RulesClass_Get_Rule_Unique_ID();
+        CheatCheck = RulesClass_Get_Rule_Unique_ID();
         Read_Art_INI();
-        unknown_54 = unknown_art_ini_unique_id();
-        unknown_58 = unknown_ini_8397a0_unique_id();
+        ArtCheatCheck = unknown_art_ini_unique_id();
+        AICheatCheck = unknown_ini_8397a0_unique_id();
         while (Result < 0) {
             if (unknown_6000d0() == true) {
                 break;
@@ -671,13 +671,13 @@ bool ModemGuest::Process_Messages_00597680()
                 return true;
             }
             bool match = true;
-            if (packet.Options.Checksum != unknown_50) {
+            if (packet.Options.Checksum != CheatCheck) {
                 match = false;
             }
-            if (packet.Options.INIID != unknown_58) {
+            if (packet.Options.INIID != AICheatCheck) {
                 match = false;
             }
-            if (packet.Options.ArtID != unknown_54) {
+            if (packet.Options.ArtID != ArtCheatCheck) {
                 match = false;
             }
             if (!match) {
@@ -871,9 +871,9 @@ void ModemGuest::Send_Options_00598330()
     UnknownSerialPacket packet;
     memset(&packet, 0, sizeof(packet));
     packet.Command = 0x65;
-    *(int *)&packet.unknown_19[0x86 - 0x19] = unknown_50;
-    *(int *)&packet.unknown_19[0xD4 - 0x19] = unknown_54;
-    *(int *)&packet.unknown_19[0xD0 - 0x19] = unknown_58;
+    *(int *)&packet.unknown_19[0x86 - 0x19] = CheatCheck;
+    *(int *)&packet.unknown_19[0xD4 - 0x19] = ArtCheatCheck;
+    *(int *)&packet.unknown_19[0xD0 - 0x19] = AICheatCheck;
     *(unsigned long *)&packet.unknown_19[0xD8 - 0x19] = Build_Number();
     *(unsigned long *)&packet.unknown_19[0x1E - 0x19] = VerNum.Min_Version();
     *(unsigned long *)&packet.unknown_19[0x22 - 0x19] = VerNum.Max_Version();

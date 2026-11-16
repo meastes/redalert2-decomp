@@ -1337,10 +1337,10 @@ MultiMission::MultiMission(INIClass &ini, char const *section)
 {
     Description[0] = 0;
     unknown_58[sizeof(unknown_58) - 1] = '\0';
-    strcpy(unknown_15c, "No Digest");
-    unknown_17c = true;
-    unknown_180 = 2;
-    unknown_184 = 4;
+    strcpy(Digest, "No Digest");
+    IsOfficial = true;
+    MinPlayers = 2;
+    MaxPlayers = 4;
     DiskIDs.Clear();
     if (!section) {
         return;
@@ -1354,8 +1354,8 @@ MultiMission::MultiMission(INIClass &ini, char const *section)
     } else {
         ini.Get_Wide_String(section, "Description", Description, 0x2C);
     }
-    unknown_180 = ini.Get_Int(section, "MinPlayers", unknown_180);
-    unknown_184 = ini.Get_Int(section, "MaxPlayers", unknown_184);
+    MinPlayers = ini.Get_Int(section, "MinPlayers", MinPlayers);
+    MaxPlayers = ini.Get_Int(section, "MaxPlayers", MaxPlayers);
     char disks[0x80];
     if (ini.Get_String(section, "CD", "", disks, 0x80)) {
         char *token = strtok(disks, ",");
@@ -1394,10 +1394,10 @@ MultiMission::MultiMission(INIClass &ini, char const *section)
             digest_ini.Load(straw, false, false);
             digest_ini.Get_String("Digest", "1", 0, tail, 0x80);
             if (tail) {
-                strncpy(unknown_15c, tail, 0x20);
-                unknown_15c[0x1F] = '\0';
+                strncpy(Digest, tail, 0x20);
+                Digest[0x1F] = '\0';
             } else {
-                strcpy(unknown_15c, "No Digest");
+                strcpy(Digest, "No Digest");
             }
         }
     }
@@ -1423,14 +1423,14 @@ MultiMission::MultiMission(char const *filename, unsigned short const *descripti
         wcscpy(Description, StringTable::Load_String("MSG:NoDescription", 0, "D:\\Ra2\\Session.CPP", 0xb0a));
     }
     if (digest) {
-        strncpy(unknown_15c, digest, sizeof(unknown_15c));
-        unknown_15c[sizeof(unknown_15c) - 1] = '\0';
+        strncpy(Digest, digest, sizeof(Digest));
+        Digest[sizeof(Digest) - 1] = '\0';
     } else {
-        strcpy(unknown_15c, "No Digest");
+        strcpy(Digest, "No Digest");
     }
-    unknown_17c = official;
-    this->unknown_180 = unknown_180;
-    unknown_184 = players;
+    IsOfficial = official;
+    this->MinPlayers = unknown_180;
+    MaxPlayers = players;
     DiskIDs.Clear();
     DiskIDs.Add((DiskID)-2);
     if (modes) {
@@ -1479,17 +1479,17 @@ void MultiMission::Set_Filename(char const *filename)
 void MultiMission::Set_Digest(char const *digest)
 {
     if (digest) {
-        strncpy(unknown_15c, digest, sizeof(unknown_15c));
-        unknown_15c[sizeof(unknown_15c) - 1] = '\0';
+        strncpy(Digest, digest, sizeof(Digest));
+        Digest[sizeof(Digest) - 1] = '\0';
     } else {
-        strcpy(unknown_15c, "No Digest");
+        strcpy(Digest, "No Digest");
     }
 }
 
 
 void MultiMission::Set_Official(bool official)
 {
-    unknown_17c = official;
+    IsOfficial = official;
 }
 
 

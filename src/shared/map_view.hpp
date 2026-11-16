@@ -188,12 +188,12 @@ public:
 #endif
     Rect MapSize;                               // +0xE8 (shared/map.hpp)
     Rect MapLocalSize;                          // +0xF8 (shared/map.hpp)
-    int unknown_108;                // +0x108 (as shared/map.hpp)
-    int unknown_10c;                // +0x10C
-    int unknown_110;                // +0x110
-    CellClass **unknown_114;        // +0x114
-    int unknown_118;                // +0x118 X of the second cell walk (0x0055A910)
-    int unknown_11c;                // +0x11C Y
+    int IterX;                // +0x108 (as shared/map.hpp)
+    int IterY;                // +0x10C
+    int IterColumn;                // +0x110
+    CellClass **IterCell;        // +0x114
+    int LocalIterX;                // +0x118 X of the second cell walk (0x0055A910)
+    int LocalIterY;                // +0x11C Y
     int unknown_120;                            // +0x120 the map's first cell X (hypothesis: MapCellX)
     int unknown_124;                            // +0x124 the first cell Y
     int unknown_128;                            // +0x128 the width in cells
@@ -307,7 +307,7 @@ public:
     char unknown_11c8[0x1220 - 0x11C8];
 #else
     // +0x11B8..+0x11DF are shared/display.hpp's DisplayClass members (unknown_11b8 on).
-    char unknown_11e0[0x1220 - 0x11E0];
+    char RadX[0x1220 - 0x11E0];
 #endif
     DynamicVectorClass<Cell> unknown_1220;                                      // +0x1220 the cells to redraw
 

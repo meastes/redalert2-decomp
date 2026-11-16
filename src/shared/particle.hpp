@@ -160,20 +160,20 @@ public:
     Vector3 GasVelocity;                   // +0x0BC velocity, fields from608440/608980
     CoordStruct UnusedCoord1;               // +0x0C8 coordinate, reference-supported name
     float Velocity;                         // +0x0D4
-    CoordStruct unknown_d8;                 // +0x0D8
-    CoordStruct unknown_e4;                 // +0x0E4
-    CoordStruct unknown_f0;                 // +0x0F0
-    Vector3 unknown_fc;                     // +0x0FC
+    CoordStruct FireTarget;                 // +0x0D8
+    CoordStruct FireOrigin;                 // +0x0E4
+    CoordStruct FireMoveDelta;                 // +0x0F0
+    Vector3 MovementDirection;                     // +0x0FC
     Vector3 unknown_108;                    // +0x108
     ParticleSystemClass *System;            // +0x114
     unsigned short Lifetime;                // +0x118
-    short unknown_11a;                      // +0x11A
+    short RemainingDC;                      // +0x11A
     char unknown_11c;                       // +0x11C
-    char unknown_11d;                       // +0x11D
-    char unknown_11e;                       // +0x11E
-    char unknown_11f;                       // +0x11F
-    bool unknown_120;                       // +0x120
-    bool unknown_121;                       // +0x121
+    char IsFireBelowGround;                       // +0x11D
+    char StateAI;                       // +0x11E
+    char Translucency;                       // +0x11F
+    bool WasSaved;                       // +0x120
+    bool IsToDie;                       // +0x121
     short unknown_122;                      // +0x122
     int unknown_124;                        // +0x124
 };

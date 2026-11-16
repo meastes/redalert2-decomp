@@ -38,7 +38,7 @@ inline void Set_Connection(SubzoneConnectionStruct &connection, int id, bool cos
 void MapClass::Reset_Subzone(int level)
 {
     CellSubzoneStruct *subend = (CellSubzoneStruct *)CellSubzones + CellZoneCount;
-    HashTableClass<unsigned int, SubzoneConnectionStruct> *set = unknown_7c[level];
+    HashTableClass<unsigned int, SubzoneConnectionStruct> *set = SubzoneConnectionHashTable[level];
     DynamicVectorClass<SubzoneTrackingStruct> *track = &SubzoneTracking[level];
     for (int bucket = 0; bucket < set->BucketCount; ++bucket) set->Buckets[bucket].Clear();
     CellSubzoneStruct *subptr = (CellSubzoneStruct *)CellSubzones;

@@ -77,7 +77,7 @@ public:
     int unknown_10;
     unsigned char unknown_14;
     ::Cell Origin; // +16; one preceding padding byte
-    bool unknown_1a,unknown_1b;
+    bool Unsplittable,HasConnections;
     int unknown_1c,unknown_20;
     bool unknown_24;
     DynamicVectorClass< ::Cell > Cells; // +28

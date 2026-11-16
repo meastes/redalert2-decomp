@@ -140,7 +140,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
 
     DestCellHeight = (foot->Kind_Of() == 2 || !(to_ptr->unknown_140 & 0x100)) ? to_ptr->Height : to_ptr->Height + 4;
 
-    CurrentCellHeight = (foot->Kind_Of() == 2 || !foot->unknown_79) ? from_ptr->Height : from_ptr->Height + 4;
+    CurrentCellHeight = (foot->Kind_Of() == 2 || !foot->IsOnBridge) ? from_ptr->Height : from_ptr->Height + 4;
 
     if (foot->Techno_Type_Class()->IsTrain) {
         if (from_ptr->unknown_140 & 0x100) {

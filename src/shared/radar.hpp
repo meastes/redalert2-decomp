@@ -171,9 +171,9 @@ public:
     // Restore-in-place form: the display restored, the radar's lists rebuilt
     // empty (inlined into SidebarClass(NoInitClass const &) 0x0067B7B0).
 #ifdef RA2_RADAR_BACKGROUND_MEMBERS
-    RadarClass(NoInitClass const &noinit) : DisplayClass(noinit), unknown_14fc(0)
+    RadarClass(NoInitClass const &noinit) : DisplayClass(noinit), RadarAnimTimer(0)
 #else
-    RadarClass(NoInitClass const &noinit) : DisplayClass(noinit), unknown_1238(noinit), unknown_14fc(0)
+    RadarClass(NoInitClass const &noinit) : DisplayClass(noinit), unknown_1238(noinit), RadarAnimTimer(0)
 #endif
     {
         unknown_14bc.Unknown_00405BF0();
@@ -267,19 +267,19 @@ public:
     static Cell unknown_cell_ab6330;              // 0x00AB6330
     static CoordStruct unknown_coord_ab6370;            // 0x00AB6370
 
-    int unknown_11e0;                                   // +0x11E0 (One_Time: 0)
-    int unknown_11e4;                                   // +0x11E4 (One_Time: 16)
-    int unknown_11e8;                                   // +0x11E8 (One_Time: 48)
-    int unknown_11ec;                                   // +0x11EC
-    int unknown_11f0;                                   // +0x11F0 (One_Time: 49; radar button Y)
-    int unknown_11f4;                                   // +0x11F4 (One_Time: 140)
-    int unknown_11f8;                                   // +0x11F8 (One_Time: 108)
-    int unknown_11fc;                                   // +0x11FC (One_Time: 140; radar button width)
-    int unknown_1200;                                   // +0x1200 (One_Time: 108; radar button height)
-    int unknown_1204;                                   // +0x1204
-    Rect unknown_1208;                                  // +0x1208
-    Surface *unknown_1218;                              // +0x1218 (deleted by 0x00631E40; a surface: hypothesis)
-    Surface *unknown_121c;                              // +0x121C
+    int RadX;                                   // +0x11E0 (One_Time: 0)
+    int RadY;                                   // +0x11E4 (One_Time: 16)
+    int RadWidth;                                   // +0x11E8 (One_Time: 48)
+    int RadHeight;                                   // +0x11EC
+    int RadOffX;                                   // +0x11F0 (One_Time: 49; radar button Y)
+    int RadOffY;                                   // +0x11F4 (One_Time: 140)
+    int RadIWidth;                                   // +0x11F8 (One_Time: 108)
+    int RadIHeight;                                   // +0x11FC (One_Time: 140; radar button width)
+    int RadPWidth;                                   // +0x1200 (One_Time: 108; radar button height)
+    int RadPHeight;                                   // +0x1204
+    Rect LastDrawRect;                                  // +0x1208
+    Surface *RadarSurface;                              // +0x1218 (deleted by 0x00631E40; a surface: hypothesis)
+    Surface *BackgroundSurface;                              // +0x121C
     DynamicVectorClass<Cell> unknown_1220;        // +0x1220
     // Forgets the cells waiting for a radar redraw (inline in Read_Scenario_INI).
     void Clear_Redraw_Cells() { unknown_1220.Clear(); }
@@ -291,37 +291,37 @@ public:
 #else
     UnknownRadar1238 unknown_1238;                      // +0x1238 (three values)
 #endif
-    Rect unknown_1244;                                  // +0x1244 the radar cells the last background update changed (TibSun CellRedrawRect)
-    HashTableClass<RadarTrackingStruct, TechnoClass *> *unknown_1254;  // +0x1254 tracking table
-    DynamicVectorClass<Point2D> unknown_1258;           // +0x1258 (growth step 500)
-    unsigned char *unknown_1270;                        // +0x1270 a buffer (deleted by 0x00631E40)
+    Rect CellRedrawRect;                                  // +0x1244 the radar cells the last background update changed (TibSun CellRedrawRect)
+    HashTableClass<RadarTrackingStruct, TechnoClass *> *RadarTrackingTable;  // +0x1254 tracking table
+    DynamicVectorClass<Point2D> PixelStack;           // +0x1258 (growth step 500)
+    unsigned char *PixelFlags;                        // +0x1270 a buffer (deleted by 0x00631E40)
     DynamicVectorClass<Point2D> unknown_1274[22];       // +0x1274
-    float unknown_1484;                                 // +0x1484 zoom (pixels per cell)
-    int unknown_1488;                                   // +0x1488 1
-    int unknown_148c;                                   // +0x148C
+    float ZoomFactor;                                 // +0x1484 zoom (pixels per cell)
+    int RadarScale;                                   // +0x1488 1
+    int RadarX;                                   // +0x148C
     int unknown_1490;                                   // +0x1490
-    int unknown_1494;                                   // +0x1494
-    Rect unknown_1498;                                  // +0x1498
-    int unknown_14a8;                                   // +0x14A8
-    int unknown_14ac;                                   // +0x14AC
-    int unknown_14b0;                                   // +0x14B0
-    int unknown_14b4;                                   // +0x14B4
-    bool unknown_14b8;                                  // +0x14B8
-    bool unknown_14b9;                                  // +0x14B9
+    int RadarY;                                   // +0x1494
+    Rect RadarRect;                                  // +0x1498
+    int RadarState;                                   // +0x14A8
+    int RadarMode;                                   // +0x14AC
+    int SuspendedRadarMode;                                   // +0x14B0
+    int TransmissionState;                                   // +0x14B4
+    bool IsScenarioHeld;                                  // +0x14B8
+    bool IsMoviePlaying;                                  // +0x14B9
     UnknownList14BC unknown_14bc;                       // +0x14BC
     int unknown_14cc;                                   // +0x14CC
-    int unknown_14d0;                                   // +0x14D0 -1; One_Time stores 0x00716640's result
-    bool unknown_14d4;                                  // +0x14D4
+    int TransmissionVoice;                                   // +0x14D0 -1; One_Time stores 0x00716640's result
+    bool DoesRadarExist;                                  // +0x14D4
     bool unknown_14d5;                                  // +0x14D5
-    bool unknown_14d6;                                  // +0x14D6
-    Rect unknown_14d8;                                  // +0x14D8
+    bool FullRedraw;                                  // +0x14D6
+    Rect RadarViewRect;                                  // +0x14D8
 #ifdef RA2_RADAR_RENDER_VIEW
-    Rect unknown_14e8;                                  // +0x14E8 (the view rectangle last drawn; Render_Radar 0x00633210)
+    Rect OldRadarViewRect;                                  // +0x14E8 (the view rectangle last drawn; Render_Radar 0x00633210)
 #else
-    int unknown_14e8[4];                                // +0x14E8
+    int OldRadarViewRect[4];                                // +0x14E8
 #endif
-    int unknown_14f8;                                   // +0x14F8
-    CDTimerClass<SystemTimerClass> unknown_14fc;        // +0x14FC
+    int RadarAnimFrame;                                   // +0x14F8
+    CDTimerClass<SystemTimerClass> RadarAnimTimer;        // +0x14FC
 };
 
 #endif

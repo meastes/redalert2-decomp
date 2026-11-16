@@ -126,10 +126,10 @@ void BombClass::Unknown_00435D30()
     bool flag = Target->IsInLimbo;
     Target->unknown_38 = 0;
     if (flag) {
-        Target->unknown_68 = false;
+        Target->BombVisible = false;
         unknown_58 = true;
     } else {
-        Target->unknown_68 = false;
+        Target->BombVisible = false;
         unknown_58 = true;
         CoordStruct coord = Target->Coord;
         Explosion_Damage(coord, Rules->IvanDamage, Owner, Rules->IvanWarhead, true);
@@ -307,7 +307,7 @@ void BombListClass::Unknown_004361F0()
     for(index=Bombs.Count()-1;index>=0;--index) {
         BombClass *bomb=Bombs[index];
         bool visible=false;
-        bool previous=bomb->Target->unknown_68;
+        bool previous=bomb->Target->BombVisible;
         if(bomb->unknown_28->Is_Player_Control()) visible=true;
         else {
             int scan=0;
@@ -328,7 +328,7 @@ void BombListClass::Unknown_004361F0()
                 } while(++scan<unknown_18.Count());
             }
         }
-        bomb->Target->unknown_68=visible;
+        bomb->Target->BombVisible=visible;
         if(visible!=previous) bomb->Target->IsToDisplay=true;
     }
 }

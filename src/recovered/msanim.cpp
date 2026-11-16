@@ -94,9 +94,9 @@ MSAnim::~MSAnim()
 MSShapeAnim::MSShapeAnim(Wstring const &filename, int x, int y, ConvertClass *drawer, int unknown_24, bool unknown_34, int flags) :
     MSAnim(x, y),
     Drawer(drawer),
-    unknown_24(unknown_24),
+    Rate(unknown_24),
     Frame(0),
-    unknown_34(unknown_34),
+    Loop(unknown_34),
     Flags(flags),
     OwnsShape(false)
 {
@@ -187,13 +187,13 @@ void MSShapeAnim::Set_End_Frame(int frame)
 bool MSShapeAnim::Advance(Surface *surface, Rect *rect)
 {
     if (unknown_0C == true && Timer.Value()==0) {
-        Timer=unknown_24;
+        Timer=Rate;
         Rect draw_rect=Frame_Rect();
         draw_rect.X=X+draw_rect.X; draw_rect.Y=draw_rect.Y+Y;
         if (Flags & 0x200) { draw_rect.X-=Shape->Width/2; draw_rect.Y-=Shape->Height/2; }
         surface->Copy_From(draw_rect,*AlternateSurface,draw_rect,false,true);
         if (++Frame>EndFrame) {
-            if (!unknown_34) { *rect=draw_rect; return true; }
+            if (!Loop) { *rect=draw_rect; return true; }
             Frame=StartFrame;
         }
         CC_Draw_Shape(surface,Drawer,Shape,Frame,Point2D(X,Y),surface->Get_Rect(),Flags|0x400,0,0,0,1000,0,0,Point2D(0,0));
@@ -274,7 +274,7 @@ Rect MSShapeAnim::Get_Rect()
 MSFadeAnim::MSFadeAnim(Wstring const &name, int x, int y, ConvertClass *drawer, int rate, int flags,
                        DynamicVectorClass<MSAnim *> *vector) :
     MSShapeAnim(name, x, y, drawer, rate, false, flags),
-    unknown_40(0),
+    FadeStage(0),
     Anims(vector)
 {
 }
@@ -297,10 +297,10 @@ MSFadeAnim::MSFadeAnim(Wstring const &name, int x, int y, ConvertClass *drawer, 
 bool MSFadeAnim::Advance(Surface *surface, Rect *rect)
 {
     if (unknown_0C == true && Timer.Value() == 0) {
-        Timer = CDTimerClass<SystemTimerClass>(unknown_24);
+        Timer = CDTimerClass<SystemTimerClass>(Rate);
         int flags;
-        if ((unsigned)unknown_40 < 4) {
-            flags = FadeStages[unknown_40] | Flags;
+        if ((unsigned)FadeStage < 4) {
+            flags = FadeStages[FadeStage] | Flags;
         } else {
             flags = Flags | FadeStages[3];
         }
@@ -321,14 +321,14 @@ bool MSFadeAnim::Advance(Surface *surface, Rect *rect)
             }
         }
         if (++Frame > EndFrame) {
-            if (!unknown_34) {
+            if (!Loop) {
                 rect->Set(0, 0, 0, 0);
                 return true;
             }
             Frame = StartFrame;
         }
-        if ((unsigned)++unknown_40 < 4) {
-            flags = FadeStages[unknown_40] | Flags;
+        if ((unsigned)++FadeStage < 4) {
+            flags = FadeStages[FadeStage] | Flags;
         } else {
             flags = Flags | FadeStages[3];
         }
@@ -371,8 +371,8 @@ void MSFadeAnim::Draw(Surface *surface, Rect const *clip)
         }
     }
     int flags;
-    if ((unsigned)unknown_40 < 4) {
-        flags = FadeStages[unknown_40] | Flags;
+    if ((unsigned)FadeStage < 4) {
+        flags = FadeStages[FadeStage] | Flags;
     } else {
         flags = Flags | FadeStages[3];
     }
@@ -404,7 +404,7 @@ MSOverlayAnim::MSOverlayAnim(Wstring const &filename, int x, int y, ConvertClass
 {
     Frame = frame;
     if (!unknown9) {
-        unknown_40 = 4;
+        FadeStage = 4;
     }
 }
 
@@ -460,8 +460,8 @@ void __fastcall FUN_005ad410(unsigned int *object_words)
 bool MSOverlayAnim::Advance(Surface *surface, Rect *rect)
 {
     if (unknown_0C == true && Timer.Value() == 0) {
-        Timer = CDTimerClass<SystemTimerClass>(unknown_24);
-        if ((unsigned)unknown_40 < 4) {
+        Timer = CDTimerClass<SystemTimerClass>(Rate);
+        if ((unsigned)FadeStage < 4) {
             *rect = Frame_Rect();
             rect->X = X + rect->X;
             rect->Y = Y + rect->Y;
@@ -470,7 +470,7 @@ bool MSOverlayAnim::Advance(Surface *surface, Rect *rect)
                 rect->Y -= Shape->Height / 2;
             }
             surface->Copy_From(*rect, *AlternateSurface, *rect, false, true);
-            unsigned level = (unsigned)unknown_40 < 3 ? unknown_40 : 3;
+            unsigned level = (unsigned)FadeStage < 3 ? FadeStage : 3;
             CC_Draw_Shape(surface, Drawer, Shape, Frame, Point2D(X, Y), surface->Get_Rect(),
                           FadeStages[level] | Flags, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             if (Anims != 0) {
@@ -481,7 +481,7 @@ bool MSOverlayAnim::Advance(Surface *surface, Rect *rect)
                     }
                 }
             }
-            if ((unsigned)++unknown_40 >= 4) {
+            if ((unsigned)++FadeStage >= 4) {
                 CC_Draw_Shape(AlternateSurface, Drawer, Shape, Frame, Point2D(X, Y), surface->Get_Rect(),
                               Flags | 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
@@ -515,7 +515,7 @@ void MSOverlayAnim::Draw(Surface *surface, Rect const *clip)
                 return;
             }
         }
-        unsigned level = (unsigned)unknown_40 < 3 ? unknown_40 : 3;
+        unsigned level = (unsigned)FadeStage < 3 ? FadeStage : 3;
         CC_Draw_Shape(surface, Drawer, Shape, Frame, Point2D(X, Y), surface->Get_Rect(),
                       FadeStages[level] | Flags, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
     }
@@ -529,7 +529,7 @@ void MSOverlayAnim::Draw(Surface *surface, Rect const *clip)
 
 void MSOverlayAnim::Restart()
 {
-    unknown_40 = 0;
+    FadeStage = 0;
 }
 
 
@@ -544,7 +544,7 @@ void MSOverlayAnim::Restart()
 
 void MSOverlayAnim::Set_Frame(unsigned frame)
 {
-    unknown_40 = 0;
+    FadeStage = 0;
     Frame = frame;
 }
 
@@ -560,7 +560,7 @@ void MSOverlayAnim::Set_Frame(unsigned frame)
 
 void MSOverlayAnim::Restore(int rect)
 {
-    unsigned fading_stage = (unsigned)unknown_40 < 3 ? unknown_40 : 3;
+    unsigned fading_stage = (unsigned)FadeStage < 3 ? FadeStage : 3;
     if (unknown_0C) {
         CC_Draw_Shape(AlternateSurface, Drawer, Shape, Frame, Point2D(X, Y), AlternateSurface->Get_Rect(),
                       FadeStages[fading_stage] | Flags, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
@@ -719,7 +719,7 @@ MSVQAnim::MSVQAnim(Wstring const &name, Surface *surface, DynamicVectorClass<MSA
     Target(surface),
     Anims(anims),
     Image(0),
-    unknown_2c(unknown_2c),
+    Persistent(unknown_2c),
     Done(false)
 {
     if (name != 0 && surface != 0) {
@@ -751,7 +751,7 @@ MSVQAnim::MSVQAnim(Wstring const &name, Surface *surface, DynamicVectorClass<MSA
     Target(surface),
     Anims(anims),
     Image(0),
-    unknown_2c(unknown_2c),
+    Persistent(unknown_2c),
     Done(false)
 {
     if (name != 0 && surface != 0) {
@@ -848,7 +848,7 @@ bool MSVQAnim::Advance(Surface *surface, Rect *dirty)
         }
         Done = true;
     }
-    return Done && !unknown_2c;
+    return Done && !Persistent;
 }
 
 
@@ -930,7 +930,7 @@ MSBitPrintAnim::MSBitPrintAnim(WideString const &text, Rect const &rect, bool un
     Text(text),
     TextRect(rect),
     unknown_30(false),
-    unknown_31(unknown_31)
+    IsCentered(unknown_31)
 {
 }
 
@@ -991,7 +991,7 @@ bool MSBitPrintAnim::Advance(Surface *surface, Rect *rect)
         box.right = TextRect.X + TextRect.Width - 1;
         box.bottom = TextRect.Height + TextRect.Y - 1;
         unknown_bit_font_84e9e8_ptr->Set_Clip_431460(&box);
-        int unknown8 = unknown_31 != 0;
+        int unknown8 = IsCentered != 0;
         unknown_bit_printer_84e9d0_ptr->Print_432490(unknown_bit_font_84e9e8_ptr, surface, Text.Get(), TextRect.X,
                                                      TextRect.Y, TextRect.Width, TextRect.Height, unknown8, 0, 0);
     }
@@ -1015,7 +1015,7 @@ void MSBitPrintAnim::Draw(Surface *surface, Rect const *clip)
         box.right = clip->X + clip->Width - 1;
         box.bottom = clip->Height + clip->Y - 1;
         unknown_bit_font_84e9e8_ptr->Set_Clip_431460(&box);
-        int unknown8 = unknown_31 != 0;
+        int unknown8 = IsCentered != 0;
         unknown_bit_printer_84e9d0_ptr->Print_432490(unknown_bit_font_84e9e8_ptr, surface, Text.Get(), TextRect.X,
                                                      TextRect.Y, TextRect.Width, TextRect.Height, unknown8, 0, 0);
     }

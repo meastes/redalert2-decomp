@@ -1844,7 +1844,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
         for (i = 0; i < count; i++) {
             TechnoClass *techno = unknown_list_a40c20[i];
             if (techno->House->Is_Player_Control()) {
-                if (!planning && techno->unknown_77) {
+                if (!planning && techno->IsSelected) {
                     if (TechnoClass_ActionLines) {
                         techno->unknown_slot243(false, 0);
                     }
@@ -2513,7 +2513,7 @@ void Tactical::Draw_Objects(bool forced)
     for (int layer = 0; layer < 5; layer++) {
         for (int index = 0; index < DisplayClass::Layer[layer].Count(); index++) {
             ObjectClass *obj = DisplayClass::Layer[layer][index];
-            obj->unknown_85 = false;
+            obj->IsVisible = false;
 
             if (Is_Foot_Object(obj)) {
                 position = obj->Position_Coord_004f3f40();
@@ -2524,7 +2524,7 @@ void Tactical::Draw_Objects(bool forced)
                     }
                     Point2D pixel;
                     if (TacticalMap->Coord_To_Pixel(obj->Center_Coord(), pixel)) {
-                        obj->unknown_85 = true;
+                        obj->IsVisible = true;
                         obj->unknown_slot65((int)&pixel, (int)&TacticalRect);
                         obj->Render(&TacticalRect, forced, false);
                     }
@@ -2532,7 +2532,7 @@ void Tactical::Draw_Objects(bool forced)
             } else if (Is_Techno_Object(obj)) {
                 position = obj->Position_Coord_004f3f40();
                 if (view.Is_Point_Within(Point2D(position.X, position.Y))) {
-                    obj->unknown_85 = true;
+                    obj->IsVisible = true;
                     Draw_Render_Hooks(obj, TacticalRect);
                     obj->Render(&TacticalRect, forced, true);
                 }
@@ -2542,7 +2542,7 @@ void Tactical::Draw_Objects(bool forced)
                     position = obj->Center_Coord();
                     if (view.Is_Point_Within(Point2D(position.X, position.Y))) {
                         AnimClass *anim = (AnimClass *)obj;
-                        obj->unknown_85 = true;
+                        obj->IsVisible = true;
                         if (!anim->unknown_100 && anim->Class->ShouldFogRemove && Map.Is_Fogged(obj->Center_Coord())) {
                             continue;
                         }
@@ -2555,7 +2555,7 @@ void Tactical::Draw_Objects(bool forced)
                             if (Map.Is_Fogged(position)) {
                                 continue;
                             }
-                            obj->unknown_85 = true;
+                            obj->IsVisible = true;
                             obj->Render(&TacticalRect, forced, false);
                         }
                     }
@@ -2564,7 +2564,7 @@ void Tactical::Draw_Objects(bool forced)
                     if (view.Is_Point_Within(Point2D(position.X, position.Y))) {
                         Point2D pixel;
                         if (TacticalMap->Coord_To_Pixel(obj->Center_Coord(), pixel)) {
-                            obj->unknown_85 = true;
+                            obj->IsVisible = true;
                             obj->unknown_slot65((int)&pixel, (int)&TacticalRect);
                             obj->Render(&TacticalRect, forced, false);
                         }
@@ -2576,7 +2576,7 @@ void Tactical::Draw_Objects(bool forced)
         if (layer == 2) {
             for (int bindex = 0; bindex < unknown_BuildingClass_list_00a40af8.Count(); bindex++) {
                 BuildingClass *bptr = unknown_BuildingClass_list_00a40af8[bindex];
-                if (bptr->IsDown && bptr->unknown_85) {
+                if (bptr->IsDown && bptr->IsVisible) {
                     Point2D pixel;
                     if (TacticalMap->Coord_To_Pixel(bptr->unknown_slot42(), pixel)) {
                         Rect rect = TacticalRect;
@@ -2593,7 +2593,7 @@ void Tactical::Draw_Objects(bool forced)
         int count = DisplayClass::Layer[layer2].Count();
         for (int index2 = 0; index2 < count; index2++) {
             ObjectClass *obj2 = DisplayClass::Layer[layer2][index2];
-            if (obj2->unknown_85 && obj2 != 0 && Is_Techno_Object(obj2)) {
+            if (obj2->IsVisible && obj2 != 0 && Is_Techno_Object(obj2)) {
                 if (Is_Foot_Object(obj2)) {
                     obj2->unknown_slot19(0);
                     if (unknown_b263d8 && !Debug_Map && unknown_id_source_a3d290->Special().FogOfWar && Map.Is_Fogged(obj2->Position_Coord_004f3f40())) {
@@ -3190,7 +3190,7 @@ void Tactical::Draw_Rally_Points(bool inshroud)
     int shadow = Build_Hicolor_Pixel(unknown_rgb_ab6841.Red, unknown_rgb_ab6841.Green, unknown_rgb_ab6841.Blue);
     for (int index = CurrentObject.Count() - 1; index >= 0; index--) {
         ObjectClass *object = CurrentObject[index];
-        if (object->Kind_Of() == 6 && object->IsActive && object->unknown_77) {
+        if (object->Kind_Of() == 6 && object->IsActive && object->IsSelected) {
             BuildingClass *building = (BuildingClass *)object;
             if (building->House == PlayerPtr && building->unknown_slot153() && building->unknown_1b0 != 0) {
                 CoordStruct center = building->Center_Coord();
@@ -3498,7 +3498,7 @@ void Tactical::Draw_Radial_Indicators()
     int count = CurrentObject.Count();
     for (int i = 0; i < count; i++) {
         ObjectClass *obj = CurrentObject[i];
-        if (obj->Class_Of() && obj->Class_Of()->unknown_208) {
+        if (obj->Class_Of() && obj->Class_Of()->IsHasRadialIndicator) {
             obj->unknown_slot74(1);
         }
     }

@@ -107,16 +107,16 @@ template <> inline bool DynamicVectorClass<ObjectTypeClass *>::Add(ObjectTypeCla
 ObjectTypeClass::ObjectTypeClass(char const *ini_name)
     : AbstractTypeClass(ini_name),
       Armor(0), MaxStrength(0), ImageData(0), ImageAllocated(false), unknown_ac(0),
-      unknown_1b8(false), unknown_1bc(0), unknown_1c0(-1), unknown_1c4(-1),
-      unknown_1e1(false), unknown_1e2(false),
-      unknown_1fc(false), unknown_1fd(false), unknown_1fe(true), unknown_1ff(false),
-      unknown_200(true), unknown_201(true), unknown_202(false), unknown_203(false),
-      unknown_204(false), unknown_205(true), unknown_206(false), unknown_207(false),
-      unknown_208(false), unknown_209(false), unknown_20a(false),
-      LineTrailColor(128,128,128), unknown_210(16)
+      NoSpawnAlt(false), MaxSize(0), CrushSound(-1), AmbientSound(-1),
+      AlternateArcticArt(false), ArcticArtInUse(false),
+      IsTheater(false), IsCrushable(false), IsBombable(true), IsStealthy(false),
+      IsSelectable(true), IsLegalTarget(true), IsInsignificant(false), IsImmune(false),
+      IsSentient(false), IsFootprint(true), IsVoxel(false), IsNewTheater(false),
+      IsHasRadialIndicator(false), IsIgnoresFirestorm(false), UseLineTrail(false),
+      LineTrailColor(128,128,128), LineTrailColorDecrement(16)
 {
     unknown_1c8 = ID;
-    unknown_1e3 = unknown_string_83c55c;
+    AlphaGraphicName = unknown_string_83c55c;
     ObjectTypes.Add(this);
 }
 
@@ -128,11 +128,11 @@ ObjectTypeClass::ObjectTypeClass(NoInitClass const &noinit) :
     AbstractTypeClass(noinit),
     RadialColor(noinit),
     ImageData(0),
-    unknown_b0(noinit),
-    unknown_b8(noinit),
-    unknown_c0(noinit),
+    Voxel(noinit),
+    AuxVoxel(noinit),
+    AuxVoxel2(noinit),
     unknown_1c8(noinit),
-    unknown_1e3(noinit),
+    AlphaGraphicName(noinit),
     LineTrailColor(noinit)
 {
 }
@@ -412,8 +412,8 @@ bool ObjectTypeClass::Load_Charger_Turret(char const *image, int index)
     }
 
     bool voxel_loaded = false;
-    unknown_c8[index].unknown_00 = new VoxelLibrary(&voxel);
-    if (unknown_c8[index].unknown_00 != 0 && !unknown_c8[index].unknown_00->LoadFailed) {
+    ChargerTurrets[index].unknown_00 = new VoxelLibrary(&voxel);
+    if (ChargerTurrets[index].unknown_00 != 0 && !ChargerTurrets[index].unknown_00->LoadFailed) {
         voxel_loaded = true;
     }
 
@@ -425,17 +425,17 @@ bool ObjectTypeClass::Load_Charger_Turret(char const *image, int index)
     _makepath(fullname, 0, 0, name, ".HVA");
     CCFileClass motion(fullname);
     bool motion_loaded = false;
-    unknown_c8[index].unknown_04 = new UnknownPairSecond(&motion);
-    if (unknown_c8[index].unknown_04 != 0 && !unknown_c8[index].unknown_04->unknown_00) {
+    ChargerTurrets[index].unknown_04 = new UnknownPairSecond(&motion);
+    if (ChargerTurrets[index].unknown_04 != 0 && !ChargerTurrets[index].unknown_04->unknown_00) {
         motion_loaded = true;
     }
 
     if (voxel_loaded && motion_loaded) {
-        unknown_c8[index].unknown_04->Scale_0059ed30(unknown_c8[index].unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
+        ChargerTurrets[index].unknown_04->Scale_0059ed30(ChargerTurrets[index].unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
         return true;
     }
-    delete unknown_c8[index].unknown_00;
-    delete unknown_c8[index].unknown_04;
+    delete ChargerTurrets[index].unknown_00;
+    delete ChargerTurrets[index].unknown_04;
     return false;
 }
 
@@ -498,13 +498,13 @@ bool ObjectTypeClass::Load_Charger_Barrel(char const *image, int index)
 void ObjectTypeClass::Free_Charger_Voxels()
 {
     for (int index = 0; index < 15; index++) {
-        if (unknown_c8[index].unknown_00 != 0) {
-            delete unknown_c8[index].unknown_00;
-            unknown_c8[index].unknown_00 = 0;
+        if (ChargerTurrets[index].unknown_00 != 0) {
+            delete ChargerTurrets[index].unknown_00;
+            ChargerTurrets[index].unknown_00 = 0;
         }
-        if (unknown_c8[index].unknown_04 != 0) {
-            delete unknown_c8[index].unknown_04;
-            unknown_c8[index].unknown_04 = 0;
+        if (ChargerTurrets[index].unknown_04 != 0) {
+            delete ChargerTurrets[index].unknown_04;
+            ChargerTurrets[index].unknown_04 = 0;
         }
         if (unknown_140[index].unknown_00 != 0) {
             delete unknown_140[index].unknown_00;
@@ -538,17 +538,17 @@ void ObjectTypeClass::Fetch_Voxel_Image()
     _makepath(fullname, 0, 0, unknown_1c8, ".VXL");
     CCFileClass voxel(fullname);
     if (voxel.Is_Available()) {
-        delete unknown_b0.unknown_00;
-        unknown_b0.unknown_00 = new VoxelLibrary(&voxel);
-        if (unknown_b0.unknown_00 == 0 || unknown_b0.unknown_00->LoadFailed) {
+        delete Voxel.unknown_00;
+        Voxel.unknown_00 = new VoxelLibrary(&voxel);
+        if (Voxel.unknown_00 == 0 || Voxel.unknown_00->LoadFailed) {
             failed = true;
         }
         _makepath(fullname, 0, 0, unknown_1c8, ".HVA");
         CCFileClass motion(fullname);
-        delete unknown_b0.unknown_04;
-        unknown_b0.unknown_04 = new UnknownPairSecond(&motion);
-        if (unknown_b0.unknown_04 != 0 && !unknown_b0.unknown_04->unknown_00) {
-            unknown_b0.unknown_04->Scale_0059ed30(unknown_b0.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
+        delete Voxel.unknown_04;
+        Voxel.unknown_04 = new UnknownPairSecond(&motion);
+        if (Voxel.unknown_04 != 0 && !Voxel.unknown_04->unknown_00) {
+            Voxel.unknown_04->Scale_0059ed30(Voxel.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
         } else {
             failed = true;
         }
@@ -562,40 +562,40 @@ void ObjectTypeClass::Fetch_Voxel_Image()
             _makepath(fullname, 0, 0, name, ".VXL");
             CCFileClass voxel(fullname);
             if (voxel.Is_Available()) {
-                delete unknown_b8.unknown_00;
-                unknown_b8.unknown_00 = new VoxelLibrary(&voxel);
-                if (unknown_b8.unknown_00 == 0 || unknown_b8.unknown_00->LoadFailed) {
+                delete AuxVoxel.unknown_00;
+                AuxVoxel.unknown_00 = new VoxelLibrary(&voxel);
+                if (AuxVoxel.unknown_00 == 0 || AuxVoxel.unknown_00->LoadFailed) {
                     failed = true;
                 }
                 sprintf(name, "%sW", (char const *)unknown_1c8);
                 _makepath(fullname, 0, 0, name, ".HVA");
                 CCFileClass motion(fullname);
-                delete unknown_b8.unknown_04;
-                unknown_b8.unknown_04 = new UnknownPairSecond(&motion);
-                if (unknown_b8.unknown_04 != 0 && !unknown_b8.unknown_04->unknown_00) {
-                    unknown_b8.unknown_04->Scale_0059ed30(unknown_b8.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
+                delete AuxVoxel.unknown_04;
+                AuxVoxel.unknown_04 = new UnknownPairSecond(&motion);
+                if (AuxVoxel.unknown_04 != 0 && !AuxVoxel.unknown_04->unknown_00) {
+                    AuxVoxel.unknown_04->Scale_0059ed30(AuxVoxel.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
                 } else {
                     failed = true;
                 }
             }
         }
-        if (unknown_1b8) {
+        if (NoSpawnAlt) {
             sprintf(name, "%sWO", (char const *)unknown_1c8);
             _makepath(fullname, 0, 0, name, ".VXL");
             CCFileClass voxel(fullname);
             if (voxel.Is_Available()) {
-                delete unknown_b8.unknown_00;
-                unknown_b8.unknown_00 = new VoxelLibrary(&voxel);
-                if (unknown_b8.unknown_00 == 0 || unknown_b8.unknown_00->LoadFailed) {
+                delete AuxVoxel.unknown_00;
+                AuxVoxel.unknown_00 = new VoxelLibrary(&voxel);
+                if (AuxVoxel.unknown_00 == 0 || AuxVoxel.unknown_00->LoadFailed) {
                     failed = true;
                 }
                 sprintf(name, "%sWO", (char const *)unknown_1c8);
                 _makepath(fullname, 0, 0, name, ".HVA");
                 CCFileClass motion(fullname);
-                delete unknown_b8.unknown_04;
-                unknown_b8.unknown_04 = new UnknownPairSecond(&motion);
-                if (unknown_b8.unknown_04 != 0 && !unknown_b8.unknown_04->unknown_00) {
-                    unknown_b8.unknown_04->Scale_0059ed30(unknown_b8.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
+                delete AuxVoxel.unknown_04;
+                AuxVoxel.unknown_04 = new UnknownPairSecond(&motion);
+                if (AuxVoxel.unknown_04 != 0 && !AuxVoxel.unknown_04->unknown_00) {
+                    AuxVoxel.unknown_04->Scale_0059ed30(AuxVoxel.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
                 } else {
                     failed = true;
                 }
@@ -614,18 +614,18 @@ void ObjectTypeClass::Fetch_Voxel_Image()
         _makepath(fullname, 0, 0, name, ".VXL");
         CCFileClass voxel(fullname);
         if (voxel.Is_Available()) {
-            delete unknown_b8.unknown_00;
-            unknown_b8.unknown_00 = new VoxelLibrary(&voxel);
-            if (unknown_b8.unknown_00 == 0 || unknown_b8.unknown_00->LoadFailed) {
+            delete AuxVoxel.unknown_00;
+            AuxVoxel.unknown_00 = new VoxelLibrary(&voxel);
+            if (AuxVoxel.unknown_00 == 0 || AuxVoxel.unknown_00->LoadFailed) {
                 failed = true;
             }
             sprintf(name, "%sTUR", (char const *)unknown_1c8);
             _makepath(fullname, 0, 0, name, ".HVA");
             CCFileClass motion(fullname);
-            delete unknown_b8.unknown_04;
-            unknown_b8.unknown_04 = new UnknownPairSecond(&motion);
-            if (unknown_b8.unknown_04 != 0 && !unknown_b8.unknown_04->unknown_00) {
-                unknown_b8.unknown_04->Scale_0059ed30(unknown_b8.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
+            delete AuxVoxel.unknown_04;
+            AuxVoxel.unknown_04 = new UnknownPairSecond(&motion);
+            if (AuxVoxel.unknown_04 != 0 && !AuxVoxel.unknown_04->unknown_00) {
+                AuxVoxel.unknown_04->Scale_0059ed30(AuxVoxel.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
             } else {
                 failed = true;
             }
@@ -646,18 +646,18 @@ void ObjectTypeClass::Fetch_Voxel_Image()
             _makepath(fullname, 0, 0, name, ".VXL");
             CCFileClass voxel(fullname);
             if (voxel.Is_Available()) {
-                delete unknown_c0.unknown_00;
-                unknown_c0.unknown_00 = new VoxelLibrary(&voxel);
-                if (unknown_c0.unknown_00 == 0 || unknown_c0.unknown_00->LoadFailed) {
+                delete AuxVoxel2.unknown_00;
+                AuxVoxel2.unknown_00 = new VoxelLibrary(&voxel);
+                if (AuxVoxel2.unknown_00 == 0 || AuxVoxel2.unknown_00->LoadFailed) {
                     failed = true;
                 }
                 sprintf(name, "%sBARL", (char const *)unknown_1c8);
                 _makepath(fullname, 0, 0, name, ".HVA");
                 CCFileClass motion(fullname);
-                delete unknown_c0.unknown_04;
-                unknown_c0.unknown_04 = new UnknownPairSecond(&motion);
-                if (unknown_c0.unknown_04 != 0 && !unknown_c0.unknown_04->unknown_00) {
-                    unknown_c0.unknown_04->Scale_0059ed30(unknown_c0.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
+                delete AuxVoxel2.unknown_04;
+                AuxVoxel2.unknown_04 = new UnknownPairSecond(&motion);
+                if (AuxVoxel2.unknown_04 != 0 && !AuxVoxel2.unknown_04->unknown_00) {
+                    AuxVoxel2.unknown_04->Scale_0059ed30(AuxVoxel2.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
                 } else {
                     failed = true;
                 }
@@ -666,44 +666,44 @@ void ObjectTypeClass::Fetch_Voxel_Image()
     }
 
     if (failed) {
-        if (unknown_b0.unknown_00 != 0) {
-            delete unknown_b0.unknown_00;
-            unknown_b0.unknown_00 = 0;
+        if (Voxel.unknown_00 != 0) {
+            delete Voxel.unknown_00;
+            Voxel.unknown_00 = 0;
         }
-        if (unknown_b0.unknown_04 != 0) {
-            delete unknown_b0.unknown_04;
-            unknown_b0.unknown_04 = 0;
+        if (Voxel.unknown_04 != 0) {
+            delete Voxel.unknown_04;
+            Voxel.unknown_04 = 0;
         }
         if (Kind_Of() == 0x28 && ((TechnoTypeClass *)this)->Has_Turret_Weapons()) {
             Free_Charger_Voxels();
         } else {
-            if (unknown_b8.unknown_00 != 0) {
-                delete unknown_b8.unknown_00;
-                unknown_b8.unknown_00 = 0;
+            if (AuxVoxel.unknown_00 != 0) {
+                delete AuxVoxel.unknown_00;
+                AuxVoxel.unknown_00 = 0;
             }
-            if (unknown_b8.unknown_04 != 0) {
-                delete unknown_b8.unknown_04;
-                unknown_b8.unknown_04 = 0;
+            if (AuxVoxel.unknown_04 != 0) {
+                delete AuxVoxel.unknown_04;
+                AuxVoxel.unknown_04 = 0;
             }
         }
     } else {
-        int size = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->XSize;
-        for (int index = 0; index < unknown_b0.unknown_00->LayerCount; index++) {
-            if (size <= unknown_b0.unknown_00->Get_Layer_Info(index, 0)->XSize) {
-                size = unknown_b0.unknown_00->Get_Layer_Info(index, 0)->XSize;
+        int size = Voxel.unknown_00->Get_Layer_Info(0, 0)->XSize;
+        for (int index = 0; index < Voxel.unknown_00->LayerCount; index++) {
+            if (size <= Voxel.unknown_00->Get_Layer_Info(index, 0)->XSize) {
+                size = Voxel.unknown_00->Get_Layer_Info(index, 0)->XSize;
             }
-            if (size <= unknown_b0.unknown_00->Get_Layer_Info(index, 0)->YSize) {
-                size = unknown_b0.unknown_00->Get_Layer_Info(index, 0)->YSize;
+            if (size <= Voxel.unknown_00->Get_Layer_Info(index, 0)->YSize) {
+                size = Voxel.unknown_00->Get_Layer_Info(index, 0)->YSize;
             }
-            if (size <= unknown_b0.unknown_00->Get_Layer_Info(index, 0)->ZSize) {
-                size = unknown_b0.unknown_00->Get_Layer_Info(index, 0)->ZSize;
+            if (size <= Voxel.unknown_00->Get_Layer_Info(index, 0)->ZSize) {
+                size = Voxel.unknown_00->Get_Layer_Info(index, 0)->ZSize;
             }
         }
-        unknown_1bc = size > 8 ? size : 8;
+        MaxSize = size > 8 ? size : 8;
         unknown_214.~UnknownBuffer();
-        unknown_228.~UnknownBuffer();
-        unknown_23c.~UnknownBuffer();
-        unknown_250.~UnknownBuffer();
+        AuxVoxelIndex.~UnknownBuffer();
+        ShadowVoxelIndex.~UnknownBuffer();
+        AuxVoxel2Index.~UnknownBuffer();
     }
 }
 
@@ -725,15 +725,15 @@ void ObjectTypeClass::Fetch_Aux_Voxel_Image()
         _makepath(fullname, 0, 0, name, ".VXL");
         CCFileClass turret(fullname);
         if (turret.Is_Available()) {
-            delete unknown_b8.unknown_00;
-            unknown_b8.unknown_00 = new VoxelLibrary(&turret);
-            if (unknown_b8.unknown_00 != 0 && !unknown_b8.unknown_00->LoadFailed) {
+            delete AuxVoxel.unknown_00;
+            AuxVoxel.unknown_00 = new VoxelLibrary(&turret);
+            if (AuxVoxel.unknown_00 != 0 && !AuxVoxel.unknown_00->LoadFailed) {
                 sprintf(name, "%sTUR", (char const *)unknown_1c8);
                 _makepath(fullname, 0, 0, name, ".HVA");
                 CCFileClass motion(fullname);
-                delete unknown_b8.unknown_04;
-                unknown_b8.unknown_04 = new UnknownPairSecond(&motion);
-                unknown_b8.unknown_04->Scale_0059ed30(unknown_b8.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
+                delete AuxVoxel.unknown_04;
+                AuxVoxel.unknown_04 = new UnknownPairSecond(&motion);
+                AuxVoxel.unknown_04->Scale_0059ed30(AuxVoxel.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
             }
         }
 
@@ -741,15 +741,15 @@ void ObjectTypeClass::Fetch_Aux_Voxel_Image()
         _makepath(fullname, 0, 0, name, ".VXL");
         CCFileClass barrel(fullname);
         if (barrel.Is_Available()) {
-            delete unknown_c0.unknown_00;
-            unknown_c0.unknown_00 = new VoxelLibrary(&barrel);
-            if (unknown_c0.unknown_00 != 0 && !unknown_c0.unknown_00->LoadFailed) {
+            delete AuxVoxel2.unknown_00;
+            AuxVoxel2.unknown_00 = new VoxelLibrary(&barrel);
+            if (AuxVoxel2.unknown_00 != 0 && !AuxVoxel2.unknown_00->LoadFailed) {
                 sprintf(name, "%sBARL", (char const *)unknown_1c8);
                 _makepath(fullname, 0, 0, name, ".HVA");
                 CCFileClass motion(fullname);
-                delete unknown_c0.unknown_04;
-                unknown_c0.unknown_04 = new UnknownPairSecond(&motion);
-                unknown_c0.unknown_04->Scale_0059ed30(unknown_c0.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
+                delete AuxVoxel2.unknown_04;
+                AuxVoxel2.unknown_04 = new UnknownPairSecond(&motion);
+                AuxVoxel2.unknown_04->Scale_0059ed30(AuxVoxel2.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
             }
         }
     }
@@ -770,21 +770,21 @@ extern "C" void __cdecl _makepath(char *path, char const *drive, char const *dir
 void ObjectTypeClass::Fetch_Normal_Image()
 {
     char fullname[260];
-    if (unknown_1e1 && unknown_id_source_a3d290->Theater == 1 && !ImageAllocated) {
-        if (!unknown_1e2) {
+    if (AlternateArcticArt && unknown_id_source_a3d290->Theater == 1 && !ImageAllocated) {
+        if (!ArcticArtInUse) {
             char buffer[256];
             sprintf(buffer, "%sA", (char const *)unknown_1c8);
             unknown_1c8 = buffer;
-            unknown_1e2 = true;
+            ArcticArtInUse = true;
         }
     } else {
-        unknown_1e2 = false;
+        ArcticArtInUse = false;
     }
 
     _makepath(fullname, 0, 0, unknown_1c8, ".SHP");
-    if (unknown_1fc) {
+    if (IsTheater) {
         _makepath(fullname, 0, 0, unknown_1c8, Theaters[unknown_id_source_a3d290->Theater].Suffix);
-    } else if (unknown_207) {
+    } else if (IsNewTheater) {
         Theater_Naming_Convention(fullname, unknown_id_source_a3d290->Theater);
     }
 
@@ -802,7 +802,7 @@ void ObjectTypeClass::Fetch_Normal_Image()
         } else {
             size = shape->Height;
         }
-        unknown_1bc = size > 8 ? size : 8;
+        MaxSize = size > 8 ? size : 8;
     }
 }
 
@@ -830,53 +830,53 @@ bool ObjectTypeClass::Read_INI(CCINIClass &ini)
         char buffer[25];
         strcpy(buffer, unknown_1c8);
         ini.Get_String(ID, "Image", buffer, unknown_1c8.Buffer, sizeof(unknown_1c8.Buffer));
-        strcpy(buffer, unknown_1e3);
-        ini.Get_String(ID, "AlphaImage", buffer, unknown_1e3.Buffer, sizeof(unknown_1e3.Buffer));
+        strcpy(buffer, AlphaGraphicName);
+        ini.Get_String(ID, "AlphaImage", buffer, AlphaGraphicName.Buffer, sizeof(AlphaGraphicName.Buffer));
 
         char name[128];
-        int sound = unknown_1c0;
+        int sound = CrushSound;
         if (ini.Get_String(ID, "CrushSound", unknown_string_83c55c, name, sizeof(name))) {
             int found = VocClass::From_Name(name);
             if (found != -1) {
                 sound = found;
             }
         }
-        unknown_1c0 = sound;
-        sound = unknown_1c4;
+        CrushSound = sound;
+        sound = AmbientSound;
         int found;
         if (!ini.Get_String(ID, "AmbientSound", unknown_string_83c55c, name, sizeof(name)) || (found = VocClass::From_Name(name)) == -1) {
             found = sound;
         }
-        unknown_1c4 = found;
+        AmbientSound = found;
 
-        unknown_1fd = ini.Get_Bool(ID, "Crushable", unknown_1fd);
-        unknown_1fe = ini.Get_Bool(ID, "Bombable", unknown_1fe);
-        unknown_1b8 = ini.Get_Bool(ID, "NoSpawnAlt", unknown_1b8);
-        unknown_1e1 = ini.Get_Bool(ID, "AlternateArcticArt", unknown_1e1);
-        unknown_1ff = ini.Get_Bool(ID, "RadarInvisible", unknown_1ff);
-        unknown_200 = ini.Get_Bool(ID, "Selectable", unknown_200);
-        unknown_201 = ini.Get_Bool(ID, "LegalTarget", unknown_201);
+        IsCrushable = ini.Get_Bool(ID, "Crushable", IsCrushable);
+        IsBombable = ini.Get_Bool(ID, "Bombable", IsBombable);
+        NoSpawnAlt = ini.Get_Bool(ID, "NoSpawnAlt", NoSpawnAlt);
+        AlternateArcticArt = ini.Get_Bool(ID, "AlternateArcticArt", AlternateArcticArt);
+        IsStealthy = ini.Get_Bool(ID, "RadarInvisible", IsStealthy);
+        IsSelectable = ini.Get_Bool(ID, "Selectable", IsSelectable);
+        IsLegalTarget = ini.Get_Bool(ID, "LegalTarget", IsLegalTarget);
         Armor = ini.Get_ArmorType(ID, "Armor", (ArmorType)Armor);
         MaxStrength = ini.Get_Int(ID, "Strength", MaxStrength);
-        unknown_203 = ini.Get_Bool(ID, "Immune", unknown_203);
-        unknown_202 = ini.Get_Bool(ID, "Insignificant", unknown_202);
-        unknown_208 = ini.Get_Bool(ID, "HasRadialIndicator", unknown_208);
+        IsImmune = ini.Get_Bool(ID, "Immune", IsImmune);
+        IsInsignificant = ini.Get_Bool(ID, "Insignificant", IsInsignificant);
+        IsHasRadialIndicator = ini.Get_Bool(ID, "HasRadialIndicator", IsHasRadialIndicator);
         RadialColor = ini.Get_RGB(ID, "RadialColor", RadialColor);
-        unknown_209 = ini.Get_Bool(ID, "IgnoresFirestorm", unknown_209);
+        IsIgnoresFirestorm = ini.Get_Bool(ID, "IgnoresFirestorm", IsIgnoresFirestorm);
 
-        unknown_20a = ArtINI.Get_Bool(unknown_1c8, "UseLineTrail", unknown_20a);
+        UseLineTrail = ArtINI.Get_Bool(unknown_1c8, "UseLineTrail", UseLineTrail);
         LineTrailColor = ArtINI.Get_RGB(unknown_1c8, "LineTrailColor", LineTrailColor);
-        unknown_210 = ArtINI.Get_Int(unknown_1c8, "LineTrailColorDecrement", unknown_210);
-        unknown_1fc = ArtINI.Get_Bool(unknown_1c8, "Theater", unknown_1fc);
-        unknown_207 = ArtINI.Get_Bool(unknown_1c8, "NewTheater", unknown_207);
-        unknown_206 = ArtINI.Get_Bool(unknown_1c8, "Voxel", unknown_206);
-        if (!unknown_206) {
+        LineTrailColorDecrement = ArtINI.Get_Int(unknown_1c8, "LineTrailColorDecrement", LineTrailColorDecrement);
+        IsTheater = ArtINI.Get_Bool(unknown_1c8, "Theater", IsTheater);
+        IsNewTheater = ArtINI.Get_Bool(unknown_1c8, "NewTheater", IsNewTheater);
+        IsVoxel = ArtINI.Get_Bool(unknown_1c8, "Voxel", IsVoxel);
+        if (!IsVoxel) {
             Fetch_Normal_Image();
         }
 
-        if (unknown_1e3[0] != 0) {
+        if (AlphaGraphicName[0] != 0) {
             char filename[260];
-            _makepath(filename, 0, 0, unknown_1e3, ".SHP");
+            _makepath(filename, 0, 0, AlphaGraphicName, ".SHP");
             unknown_ac = (int)MixFileClass::Retrieve(filename);
         }
         return true;
@@ -935,21 +935,21 @@ static inline void Clear_Pair(UnknownObjectPair &pair)
 HRESULT __stdcall ObjectTypeClass::Load(IStream *stream)
 {
     unknown_214.~UnknownBuffer();
-    unknown_228.~UnknownBuffer();
-    unknown_23c.~UnknownBuffer();
-    unknown_250.~UnknownBuffer();
-    delete unknown_b0.unknown_00;
-    unknown_b0.unknown_00 = 0;
-    delete unknown_b0.unknown_04;
-    unknown_b0.unknown_04 = 0;
-    delete unknown_b8.unknown_00;
-    unknown_b8.unknown_00 = 0;
-    delete unknown_b8.unknown_04;
-    unknown_b8.unknown_04 = 0;
-    delete unknown_c0.unknown_00;
-    unknown_c0.unknown_00 = 0;
-    delete unknown_c0.unknown_04;
-    unknown_c0.unknown_04 = 0;
+    AuxVoxelIndex.~UnknownBuffer();
+    ShadowVoxelIndex.~UnknownBuffer();
+    AuxVoxel2Index.~UnknownBuffer();
+    delete Voxel.unknown_00;
+    Voxel.unknown_00 = 0;
+    delete Voxel.unknown_04;
+    Voxel.unknown_04 = 0;
+    delete AuxVoxel.unknown_00;
+    AuxVoxel.unknown_00 = 0;
+    delete AuxVoxel.unknown_04;
+    AuxVoxel.unknown_04 = 0;
+    delete AuxVoxel2.unknown_00;
+    AuxVoxel2.unknown_00 = 0;
+    delete AuxVoxel2.unknown_04;
+    AuxVoxel2.unknown_04 = 0;
     Free_Charger_Voxels();
 
     HRESULT result = AbstractClass::Load(stream);
@@ -961,22 +961,22 @@ HRESULT __stdcall ObjectTypeClass::Load(IStream *stream)
     ImageAllocated = false;
     unknown_ac = 0;
     new (&unknown_214) UnknownBuffer;
-    new (&unknown_228) UnknownBuffer;
-    new (&unknown_23c) UnknownBuffer;
-    new (&unknown_250) UnknownBuffer;
-    Clear_Pair(unknown_b0);
-    Clear_Pair(unknown_b8);
-    unknown_c0.unknown_00 = 0;
-    unknown_c0.unknown_04 = 0;
+    new (&AuxVoxelIndex) UnknownBuffer;
+    new (&ShadowVoxelIndex) UnknownBuffer;
+    new (&AuxVoxel2Index) UnknownBuffer;
+    Clear_Pair(Voxel);
+    Clear_Pair(AuxVoxel);
+    AuxVoxel2.unknown_00 = 0;
+    AuxVoxel2.unknown_04 = 0;
     for (int index = 0; index < 15; index++) {
-        unknown_c8[index].unknown_00 = 0;
-        unknown_c8[index].unknown_04 = 0;
+        ChargerTurrets[index].unknown_00 = 0;
+        ChargerTurrets[index].unknown_04 = 0;
         unknown_140[index].unknown_00 = 0;
         unknown_140[index].unknown_04 = 0;
     }
-    if (unknown_1e3.Buffer[0] != 0) {
+    if (AlphaGraphicName.Buffer[0] != 0) {
         char filename[260];
-        _makepath(filename, 0, 0, unknown_1e3.Buffer, ".SHP");
+        _makepath(filename, 0, 0, AlphaGraphicName.Buffer, ".SHP");
         unknown_ac = (int)MixFileClass::Retrieve(filename);
     }
     return S_OK;
@@ -1038,9 +1038,9 @@ void ObjectTypeClass::Clear_Voxel_Indexes()
     for (int index = 0; index < ObjectTypes.Count(); index++) {
         ObjectTypeClass *type = ObjectTypes[index];
         type->unknown_214.~UnknownBuffer();
-        type->unknown_228.~UnknownBuffer();
-        type->unknown_23c.~UnknownBuffer();
-        type->unknown_250.~UnknownBuffer();
+        type->AuxVoxelIndex.~UnknownBuffer();
+        type->ShadowVoxelIndex.~UnknownBuffer();
+        type->AuxVoxel2Index.~UnknownBuffer();
     }
     unknown_839aa8 = unknown_839aa4;
 }

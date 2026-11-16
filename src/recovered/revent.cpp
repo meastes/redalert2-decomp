@@ -80,8 +80,8 @@ RadarEventClass::RadarEventClass(RadarEventType type, Cell cell)
       ColorSpeed(Rules->RadarEventColorSpeed), Location(cell),
       DurationTimer(0), VisibilityTimer(0), IsRotating(true), IsVisible(true)
 {
-    Offset = Map.Cell_To_Radar_Pixel(cell).Top_Left() - Map.unknown_1498.Top_Left();
-    Radius = MAX(Offset.X, MAX(Offset.Y, MAX(Map.unknown_1498.Width - Offset.X, Map.unknown_1498.Height - Offset.Y)));
+    Offset = Map.Cell_To_Radar_Pixel(cell).Top_Left() - Map.RadarRect.Top_Left();
+    Radius = MAX(Offset.X, MAX(Offset.Y, MAX(Map.RadarRect.Width - Offset.X, Map.RadarRect.Height - Offset.Y)));
     RadarEventClass_unknown_remember_cell(cell);
     RadarEventClass_RadarEvents.Add(this);
 }
@@ -195,14 +195,14 @@ void RadarEventClass::Draw()
     int maxdist = MAX(dx, dy);
     float rate = (Radius * 2) * 0.7071067811865475 / (float)maxdist * ColorSpeed;
     for (i = 0; i < 4; i++) {
-        ((DSurface *)Map.unknown_1218)->Draw_Gradient_Line(Map.unknown_1218->Get_Rect(), event_rect[i], event_rect[(i + 1) % 4], color1, color2, rate, color_factor);
+        ((DSurface *)Map.RadarSurface)->Draw_Gradient_Line(Map.RadarSurface->Get_Rect(), event_rect[i], event_rect[(i + 1) % 4], color1, color2, rate, color_factor);
     }
     for (i = 0; i < 4; i++) {
-        Clip_Line(event_rect[i], event_rect[(i + 1) % 4], Map.unknown_1218->Get_Rect());
+        Clip_Line(event_rect[i], event_rect[(i + 1) % 4], Map.RadarSurface->Get_Rect());
     }
-    if (Map.unknown_14ac == 1 && Map.unknown_14a8 == 1) {
+    if (Map.RadarMode == 1 && Map.RadarState == 1) {
         for (i = 0; i < 4; i++) {
-            Map.unknown_1208 = Union(Map.unknown_1208, Rect(event_rect[i].X, event_rect[i].Y, 1, 1) + Map.unknown_1498.Top_Left()).Intersect(Map.unknown_1498);
+            Map.LastDrawRect = Union(Map.LastDrawRect, Rect(event_rect[i].X, event_rect[i].Y, 1, 1) + Map.RadarRect.Top_Left()).Intersect(Map.RadarRect);
         }
     }
 }
@@ -255,14 +255,14 @@ void RadarEventClass::Plot()
         event_rect[i] += Offset;
     }
     for (i = 0; i < 4; i++) {
-        Map.unknown_1218->Plot_Line(Map.unknown_1218->Get_Rect(), event_rect[i], event_rect[(i + 1) % 4], Plot_Radar_Event_Point);
+        Map.RadarSurface->Plot_Line(Map.RadarSurface->Get_Rect(), event_rect[i], event_rect[(i + 1) % 4], Plot_Radar_Event_Point);
     }
     for (i = 0; i < 4; i++) {
-        Clip_Line(event_rect[i], event_rect[(i + 1) % 4], Map.unknown_1218->Get_Rect());
+        Clip_Line(event_rect[i], event_rect[(i + 1) % 4], Map.RadarSurface->Get_Rect());
     }
-    if (Map.unknown_14ac == 1 && Map.unknown_14a8 == 1) {
+    if (Map.RadarMode == 1 && Map.RadarState == 1) {
         for (i = 0; i < 4; i++) {
-            Map.unknown_1208 = Union(Map.unknown_1208, Rect(event_rect[i].X, event_rect[i].Y, 1, 1) + Map.unknown_1498.Top_Left()).Intersect(Map.unknown_1498);
+            Map.LastDrawRect = Union(Map.LastDrawRect, Rect(event_rect[i].X, event_rect[i].Y, 1, 1) + Map.RadarRect.Top_Left()).Intersect(Map.RadarRect);
         }
     }
 }

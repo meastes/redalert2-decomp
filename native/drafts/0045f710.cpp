@@ -413,7 +413,7 @@ flown:
         BuildingClass *building = (BuildingClass *)Map[coord].Cell_Building();
         if (building != 0 && building->Type->FirestormWall && building->House->unknown_142
             && (Owner == 0 || building->House != Owner->House)
-            && Class_Of() != 0 && !Class_Of()->unknown_209) {
+            && Class_Of() != 0 && !Class_Of()->IsIgnoresFirestorm) {
             building->Crossing_Firestorm(this, false);
             Delete_Me();
             break;

@@ -339,11 +339,11 @@ unsigned char __stdcall HoverLocomotionClass::Process()
                 LinkedTo->Set_Coord(coord);
                 LinkedTo->Set_Height(height);
                 CellClass *cellptr = &Map[coord];
-                if (!LinkedTo->unknown_79 && Hover_Under_Bridge_004fbfc0(cellptr) && LinkedTo->Get_Height_AGL() >= unknown_geometry_j) {
-                    LinkedTo->unknown_79 = true;
+                if (!LinkedTo->IsOnBridge && Hover_Under_Bridge_004fbfc0(cellptr) && LinkedTo->Get_Height_AGL() >= unknown_geometry_j) {
+                    LinkedTo->IsOnBridge = true;
                 }
-                if (LinkedTo->unknown_79 == true && !Hover_Under_Bridge_004fbfc0(cellptr)) {
-                    LinkedTo->unknown_79 = false;
+                if (LinkedTo->IsOnBridge == true && !Hover_Under_Bridge_004fbfc0(cellptr)) {
+                    LinkedTo->IsOnBridge = false;
                 }
                 LinkedTo->Mark(1);
             } else {
@@ -357,9 +357,9 @@ unsigned char __stdcall HoverLocomotionClass::Process()
     }
 
     if (Is_Moving_Now() && (Frame % 10) == 0) {
-        if (!LinkedTo->unknown_79 && static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->Land_Type() == 2) {
-            if (Rules->unknown_09c != 0) {
-                new AnimClass(Rules->unknown_09c, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
+        if (!LinkedTo->IsOnBridge && static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->Land_Type() == 2) {
+            if (Rules->Wake != 0) {
+                new AnimClass(Rules->Wake, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
             }
         }
     }
@@ -558,7 +558,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
         }
 
         CellClass &adjacent = Map[Adjacent_Coord(Object_Coord(LinkedTo), nextface)];
-        if (adjacent.IsUnderBridge ^ LinkedTo->unknown_79) {
+        if (adjacent.IsUnderBridge ^ LinkedTo->IsOnBridge) {
             LinkedTo->unknown_57b = true;
         }
 

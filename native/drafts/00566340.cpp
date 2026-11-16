@@ -59,7 +59,7 @@ void MapClass::Update_Cell_Subzones(Cell const &cell)
             bounds.X = cx - cx % bounds.Width;
             bounds.Y = cy - cy % bounds.Height;
             DynamicVectorClass<unsigned short> collected;
-            HashTableClass<unsigned int, SubzoneConnectionStruct> *set = unknown_7c[level];
+            HashTableClass<unsigned int, SubzoneConnectionStruct> *set = SubzoneConnectionHashTable[level];
             for (int bucket = 0; bucket < set->BucketCount; ++bucket) set->Buckets[bucket].Clear();
             DynamicVectorClass<SubzoneTrackingStruct> *track = &SubzoneTracking[level];
             for (y = bounds.Y; y < bounds.Y + bounds.Height; ++y) {

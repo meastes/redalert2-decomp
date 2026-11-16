@@ -119,13 +119,13 @@ VoxelAnimTypeClass::VoxelAnimTypeClass(char const *ininame) :
     IsTiberium(false)
 {
     AbstractClass::Create_ID();
-    unknown_201 = false;
-    unknown_204 = true;
-    unknown_1ff = true;
-    unknown_200 = true;
-    unknown_202 = true;
-    unknown_203 = true;
-    unknown_205 = false;
+    IsLegalTarget = false;
+    IsSentient = true;
+    IsStealthy = true;
+    IsSelectable = true;
+    IsInsignificant = true;
+    IsImmune = true;
+    IsFootprint = false;
     AbstractTypePtrTracker.Add(this);
     VoxelAnimTypes.Add(this);
 }
@@ -147,8 +147,8 @@ VoxelAnimTypeClass::~VoxelAnimTypeClass()
     AbstractTypePtrTracker.Delete(this);
     VoxelAnimTypes.Delete(this);
     if (unknown_266) {
-        unknown_b0.unknown_00 = 0;
-        unknown_b0.unknown_04 = 0;
+        Voxel.unknown_00 = 0;
+        Voxel.unknown_04 = 0;
     }
 }
 
@@ -248,31 +248,31 @@ bool VoxelAnimTypeClass::Read_INI(CCINIClass &ini)
             ObjectTypeClass *source = ini.Get_Object_Type(ID, "ShareSource");
             if (source != 0) {
                 if (share_body) {
-                    unknown_b0.unknown_00 = source->unknown_b0.unknown_00;
-                    unknown_b0.unknown_04 = source->unknown_b0.unknown_04;
+                    Voxel.unknown_00 = source->Voxel.unknown_00;
+                    Voxel.unknown_04 = source->Voxel.unknown_04;
                     return true;
                 }
                 if (share_turret) {
-                    unknown_b0.unknown_00 = source->unknown_b8.unknown_00;
-                    unknown_b0.unknown_04 = source->unknown_b8.unknown_04;
+                    Voxel.unknown_00 = source->AuxVoxel.unknown_00;
+                    Voxel.unknown_04 = source->AuxVoxel.unknown_04;
                     return true;
                 }
                 if (share_barrel) {
-                    unknown_b0.unknown_00 = source->unknown_c0.unknown_00;
-                    unknown_b0.unknown_04 = source->unknown_c0.unknown_04;
+                    Voxel.unknown_00 = source->AuxVoxel2.unknown_00;
+                    Voxel.unknown_04 = source->AuxVoxel2.unknown_04;
                     return true;
                 }
             } else {
-                unknown_b0.unknown_00 = 0;
-                unknown_b0.unknown_04 = 0;
+                Voxel.unknown_00 = 0;
+                Voxel.unknown_04 = 0;
                 return true;
             }
         } else {
             char fullname[512];
             _makepath(fullname, 0, 0, unknown_1c8, ".VXL");
             CCFileClass file(fullname);
-            delete unknown_b0.unknown_00;
-            unknown_b0.unknown_00 = new VoxelLibrary(&file);
+            delete Voxel.unknown_00;
+            Voxel.unknown_00 = new VoxelLibrary(&file);
         }
         return true;
     }

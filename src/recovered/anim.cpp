@@ -599,7 +599,7 @@ void AnimClass::AI()
                 if (Class->IsMeteor) {
                     new AnimClass(Rules->SplashList[Rules->SplashList.Count()-1],Position_Coord_004f3f40()+CoordStruct(0,0,3),0,1,0x600,0);
                 } else {
-                    new AnimClass(Rules->unknown_09c,Position_Coord_004f3f40(),0,1,0x600,0);
+                    new AnimClass(Rules->Wake,Position_Coord_004f3f40(),0,1,0x600,0);
                     new AnimClass(Rules->SplashList[0],Position_Coord_004f3f40()+CoordStruct(0,0,3),0,1,0x600,0);
                 }
             } else {
@@ -837,7 +837,7 @@ void AnimClass::unknown_func_4226d0()
             }
             {
                 CoordStruct coord = Coord;
-                Explosion_Damage(coord, Rules->unknown_488, 0, Rules->C4Warhead, 0);
+                Explosion_Damage(coord, Rules->TiberiumExplosionDamage, 0, Rules->C4Warhead, 0);
             }
             cell->Recalc_Attributes(-1);
             Map.Update_Cell_Zone(cell->unknown_24);

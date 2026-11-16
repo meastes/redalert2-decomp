@@ -614,6 +614,13 @@
    "section": 300
   },
   {
+   "symbol": "??_7?$DynamicVectorClass@H@@6B@",
+   "address": "0079da94",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 271
+  },
+  {
    "symbol": "??_7?$DynamicVectorClass@PAVUnitTypeClass@@@@6B@",
    "address": "007a27e4",
    "bytes": 28,
@@ -654,6 +661,20 @@
    "bytes": 4,
    "kind": "vtable",
    "section": 690
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAG@@6B@",
+   "address": "007a524c",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 366
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAG@@6B@",
+   "address": "007a526c",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 360
   },
   {
    "symbol": "??_7?$VectorClass@PAVMPlayerScoreType@@@@6B@",
@@ -1246,6 +1267,12 @@
    "kind": "vtable"
   },
   {
+   "symbol": "??_7?$DynamicVectorClass@H@@6B@",
+   "address": "0079da94",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
    "symbol": "??_7?$DynamicVectorClass@PAVUnitTypeClass@@@@6B@",
    "address": "007a27e4",
    "bytes": 28,
@@ -1279,6 +1306,18 @@
    "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
    "address": "007a452c",
    "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAG@@6B@",
+   "address": "007a524c",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAG@@6B@",
+   "address": "007a526c",
+   "bytes": 28,
    "kind": "vtable"
   },
   {
@@ -3570,20 +3609,8 @@
    "reason": "relocation target unbound: ??_E?$DynamicVectorClass@PAVCoopCampaignClass@@@@UAEPAXI@Z"
   },
   {
-   "symbol": "??_7?$DynamicVectorClass@H@@6B@",
-   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@H@@UAEPAXI@Z"
-  },
-  {
    "symbol": "??_7?$DynamicVectorClass@PAUNodeNameType@@@@6B@",
    "reason": "relocation target unbound: ??_E?$DynamicVectorClass@PAUNodeNameType@@@@UAEPAXI@Z"
-  },
-  {
-   "symbol": "??_7?$VectorClass@PAG@@6B@",
-   "reason": "relocation target unbound: ??_E?$VectorClass@PAG@@UAEPAXI@Z"
-  },
-  {
-   "symbol": "??_7?$DynamicVectorClass@PAG@@6B@",
-   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@PAG@@UAEPAXI@Z"
   },
   {
    "symbol": "??_7?$VectorClass@PAUNodeNameType@@@@6B@",

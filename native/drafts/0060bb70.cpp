@@ -40,7 +40,7 @@ static inline FootClass *Foot_Of(ObjectClass *object)
 void ParticleSystemClass::Smoke_AI()
 {
     if (Object_Flag_Set(Owner) && Owner->What_Am_I() != 6) {
-        Set_Coord(Owner->Center_Coord() + unknown_9c);
+        Set_Coord(Owner->Center_Coord() + CoordOffset);
     }
 
     int index;
@@ -50,7 +50,7 @@ void ParticleSystemClass::Smoke_AI()
 
     for (index = Particles.Count() - 1; index >= 0; index--) {
         ParticleClass *particle = Particles[index];
-        if (particle->unknown_121) {
+        if (particle->IsToDie) {
             if (particle->Class->NextParticle != -1) {
                 CoordStruct const &coord = particle->Coord;
                 int x = coord.X;
@@ -81,7 +81,7 @@ void ParticleSystemClass::Smoke_AI()
                 ParticleClass *npart = Spawn_Held_Particle(next, ncoord);
                 if (npart != 0) {
                     npart->Velocity = particle->Velocity;
-                    npart->unknown_11f = particle->unknown_11f + (unknown_id_source_a3d290->Random() % 6 != 0 ? 25 : 0);
+                    npart->Translucency = particle->Translucency + (unknown_id_source_a3d290->Random() % 6 != 0 ? 25 : 0);
                 }
 
                 CoordStruct pcoord;
@@ -91,7 +91,7 @@ void ParticleSystemClass::Smoke_AI()
                 ParticleClass *ppart = Spawn_Held_Particle(next, pcoord);
                 if (ppart != 0) {
                     ppart->Velocity = particle->Velocity;
-                    ppart->unknown_11f = particle->unknown_11f + (unknown_id_source_a3d290->Random() % 6 != 0 ? 25 : 0);
+                    ppart->Translucency = particle->Translucency + (unknown_id_source_a3d290->Random() % 6 != 0 ? 25 : 0);
                 }
             }
             particle->Delete_Me();
@@ -100,7 +100,7 @@ void ParticleSystemClass::Smoke_AI()
         }
     }
 
-    if (!unknown_e4 && IsActive && Frame % (int)unknown_d4 == 0) {
+    if (!unknown_e4 && IsActive && Frame % (int)SpawnFrames == 0) {
         FootClass *foot = Foot_Of(Owner);
         if (foot == 0 || foot->unknown_574 < 0) {
             Random2Class &random = unknown_id_source_a3d290->Random();
@@ -112,13 +112,13 @@ void ParticleSystemClass::Smoke_AI()
                 ParticleClass *npart = new ParticleClass(ParticleTypes[Class->HoldsWhat], scoord, TargetCoord, this);
                 if (npart != 0) {
                     Particles.Add(npart);
-                    if (unknown_d4 > Class->SpawnTranslucencyCutoff) {
-                        npart->unknown_11f += 25;
+                    if (SpawnFrames > Class->SpawnTranslucencyCutoff) {
+                        npart->Translucency += 25;
                     }
                     // NATIVE (C16 behaviour check, 2026-11-15): the original computes this in one x87
                     // chain at 53-bit precision and rounds to float once at the store
                     // (0x0060BFDF-0x0060BFF7); float arithmetic rounded after each step.
-                    npart->Velocity = (float)((double)npart->Velocity - ((double)unknown_d4 - (double)Class->SpawnFrames) * (double)0.35f);
+                    npart->Velocity = (float)((double)npart->Velocity - ((double)SpawnFrames - (double)Class->SpawnFrames) * (double)0.35f);
                     if (npart->Velocity < 2.0) {
                         npart->Velocity = 2.0;
                     }
@@ -133,8 +133,8 @@ void ParticleSystemClass::Smoke_AI()
     // Natively the sum is kept in double (53 bits, as the original's precision) and
     // the double is compared; the float store rounds as fst does (the game thread's
     // rounding mode, crt.cpp _controlfp).
-    double sum = (double)Class->Slowdown + (double)unknown_d4;
-    unknown_d4 = (float)sum;
+    double sum = (double)Class->Slowdown + (double)SpawnFrames;
+    SpawnFrames = (float)sum;
     if (sum > (double)Class->SpawnCutoff) {
         unknown_e4 = true;
     }

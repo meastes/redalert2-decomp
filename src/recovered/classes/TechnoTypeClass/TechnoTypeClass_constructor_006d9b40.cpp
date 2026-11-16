@@ -226,7 +226,7 @@ TechnoTypeClass::TechnoTypeClass(char const *ini_name, int speed_type) :
     Palette(0)
 {
     PaletteFile.Buffer[0] = '\0';
-    unknown_204 = true;
+    IsSentient = true;
     DebrisTypes.Clear();
     DebrisAnims.Clear();
     DebrisMaximums.Clear();

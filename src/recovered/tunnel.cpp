@@ -251,7 +251,7 @@ bool __stdcall TunnelLocomotionClass::Process()
             Process_Aborting();
             break;
         }
-        if (LinkedTo->unknown_77) {
+        if (LinkedTo->IsSelected) {
             if (!LinkedTo->House->Is_Player_Control()) {
                 if (Map.Is_Shrouded(Object_Coord(LinkedTo)) || (unknown_id_source_a3d290->Special().FogOfWar && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
                     LinkedTo->Unselect();
@@ -298,7 +298,7 @@ void TunnelLocomotionClass::Process_Turning()
         int delay = (int)(64.0 / LinkedTo->Techno_Type_Class()->ROT / Rules->unknown_20);
         DigTimer = UnknownTunnelTimer(delay);
         unknown_18 = 2;
-        Voc_Play_At(Rules->unknown_16c, CoordStruct(LinkedTo->Coord), 0);
+        Voc_Play_At(Rules->DigSound, CoordStruct(LinkedTo->Coord), 0);
         new AnimClass(Rules->unknown_228, CoordStruct(LinkedTo->Coord), 0, 1, 0x600, 0);
         IsUnderground = false;
     }
@@ -310,7 +310,7 @@ void TunnelLocomotionClass::Process_Digging_In()
     if (DigTimer.Ratio() == 1.0) {
         LinkedTo->unknown_slot306(1.0);
         unknown_18 = 3;
-        Voc_Play_At(Rules->unknown_16c, CoordStruct(LinkedTo->Coord), 0);
+        Voc_Play_At(Rules->DigSound, CoordStruct(LinkedTo->Coord), 0);
         new AnimClass(Rules->unknown_228, CoordStruct(LinkedTo->Coord), 0, 1, 0x600, 0);
         LinkedTo->unknown_slot54(false);
     }
@@ -377,7 +377,7 @@ void TunnelLocomotionClass::Process_Tunneling()
    }
    Move_To(CoordStruct(cell,0));
   } else {
-   if(LinkedTo->Get_Height_AGL()>-50) Voc_Play_At(Rules->unknown_16c,CoordStruct(LinkedTo->Coord),0);
+   if(LinkedTo->Get_Height_AGL()>-50) Voc_Play_At(Rules->DigSound,CoordStruct(LinkedTo->Coord),0);
    unknown_18=5;
    LinkedTo->Mark(1);
    IsUnderground=false;
@@ -405,7 +405,7 @@ void TunnelLocomotionClass::Process_Ascending()
         }
         LinkedTo->Set_Coord(coord);
         if (height <= -0x32 && LinkedTo->Get_Height_AGL() > -0x32) {
-            Voc_Play_At(Rules->unknown_16c, CoordStruct(LinkedTo->Coord), 0);
+            Voc_Play_At(Rules->DigSound, CoordStruct(LinkedTo->Coord), 0);
             new AnimClass(Rules->unknown_228, CoordStruct(LinkedTo->Coord), 0, 1, 0x600, 0);
         }
     } else {

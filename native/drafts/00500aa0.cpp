@@ -174,13 +174,13 @@ void InfantryClass::unknown_slot93(int why)
         }
         TechnoClass *transport;
         if (Type->VehicleThief) {
-            transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_00473E30(unknown_79);
-            if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_00473E80(unknown_79);
+            transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_00473E30(IsOnBridge);
+            if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_00473E80(IsOnBridge);
             if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_004717B0();
         } else {
             transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_004717B0();
-            if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_00473E80(unknown_79);
-            if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_00473E30(unknown_79);
+            if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_00473E80(IsOnBridge);
+            if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_00473E30(IsOnBridge);
         }
         TechnoClass *at_destination=0;
         if (unknown_494 && unknown_494->Kind_Of()==11) {
@@ -208,7 +208,7 @@ void InfantryClass::unknown_slot93(int why)
             } else if (unknown_slot104()==transport->unknown_slot104() && transport==unknown_494) {
                 if (unknown_slot150(15,transport)==1) {
                     Assign_Archive_Target(0);
-                    unknown_79=false;
+                    IsOnBridge=false;
                     Limbo();
                     static_cast<FootClass *>(transport)->Unknown_004CCE80(this);
                     Hidden();
@@ -262,7 +262,7 @@ void InfantryClass::unknown_slot93(int why)
         if (unknown_370) {
             unknown_slot149(8);
             if (Type->VoiceComment.Count()>1) Voc_Play_At(Type->VoiceComment[1],CoordStruct(Coord),0);
-            if (unknown_79) {
+            if (IsOnBridge) {
                 if ((cell->unknown_128.Composite & 0x1c)==0x1c) cell->Unknown_00476920(&unknown_geometry_l,true,true,true);
             } else if ((cell->unknown_124.Composite & 0x1c)==0x1c) cell->Unknown_00476920(&unknown_geometry_l,true,true,false);
         }
@@ -273,7 +273,7 @@ void InfantryClass::unknown_slot93(int why)
         Map.Unknown_0054A550(CoordStruct(Coord),0,unknown_1f4+3,0);
         UnknownCellClass *current=Map_Cell(CoordStruct(Coord));
         int land=current->unknown_ec;
-        if (!Locomotor.Checked()->Is_Moving() && !Type->C4 && !Has_Ability(14) && (land==3 || land==2) && (!unknown_79 || !(current->Flags & 0x100))) {
+        if (!Locomotor.Checked()->Is_Moving() && !Type->C4 && !Has_Ability(14) && (land==3 || land==2) && (!IsOnBridge || !(current->Flags & 0x100))) {
             int damage=Strength;
             Take_Damage(&damage,0,Rules->C4Warhead,0,true,0);
             return;

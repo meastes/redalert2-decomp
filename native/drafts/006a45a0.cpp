@@ -261,7 +261,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
         for (i = 0; i < count; i++) {
             TechnoClass *techno = unknown_list_a40c20[i];
             if (techno->House->Is_Player_Control()) {
-                if (!planning && techno->unknown_77) {
+                if (!planning && techno->IsSelected) {
                     if (TechnoClass_ActionLines) {
                         techno->unknown_slot243(false, 0);
                     }

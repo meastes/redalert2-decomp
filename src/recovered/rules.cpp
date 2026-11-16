@@ -105,7 +105,7 @@ RulesClass::RulesClass() :
     FlashFrameTime(7),
     RadarCombatFlashTime(21),
     unknown_98(15),
-    unknown_09c(0),
+    Wake(0),
     NukeTakeOff(0),
     InfantryExplode(0),
     FlamingInfantry(0),
@@ -122,20 +122,20 @@ RulesClass::RulesClass() :
     VeinAttack(0),
     unknown_e4(2),
     MaximumQueuedObjects(5),
-    unknown_ec(6),
+    AircraftFogReveal(6),
     unknown_f0(0),
-    unknown_f4(0),
-    unknown_f8(0),
-    unknown_16c(-1),
+    CrateImg(0),
+    WaterCrateImg(0),
+    DigSound(-1),
     CreateUnitSound(-1),
     CreateInfantrySound(-1),
     CreateAircraftSound(-1),
     BaseUnderAttackSound(-1),
     unknown_180(-1),
     unknown_184(-1),
-    unknown_188(-1),
-    unknown_18c(-1),
-    unknown_190(-1),
+    GUITabSound(-1),
+    GUIOpenSound(-1),
+    GUICloseSound(-1),
     GUIMoveOutSound(-1),
     GUIMoveInSound(-1),
     GUIComboOpenSound(-1),
@@ -150,10 +150,10 @@ RulesClass::RulesClass() :
     CheerSound(-1),
     PlaceBeaconSound(-1),
     DefaultChronoSound(-1),
-    unknown_1cc(-1),
-    unknown_1d0(-1),
+    StartPlanningModeSound(-1),
+    AddPlanningModeCommandSound(-1),
     ExecutePlanSound(-1),
-    unknown_1d8(-1),
+    EndPlanningModeSound(-1),
     CrateMoneySound(-1),
     CrateRevealSound(-1),
     CrateFireSound(-1),
@@ -183,13 +183,13 @@ RulesClass::RulesClass() :
     WarpIn(0),
     WarpOut(0),
     WarpAway(0),
-    unknown_2a8(0),
+    ChronoSparkle1(0),
     IronCurtainInvokeAnim(0),
     WeaponNullifyAnim(0),
     AtmosphereEntry(0),
     GateUp(-1),
     GateDown(-1),
-    unknown_368(3),
+    JumpjetTurnRate(3),
     Speed(30),
     Climb(5.0),
     JumpjetCruiseHeight(400),
@@ -204,11 +204,11 @@ RulesClass::RulesClass() :
     PrismSupportDelay(100),
     PrismSupportDuration(15),
     PrismSupportHeight(300),
-    unknown_468(1024),
+    ParadropRadius(1024),
     ZoomInFactor(2.0),
     ConditionRedSparkingProbability(0.02),
     ConditionYellowSparkingProbability(0.01),
-    unknown_488(100),
+    TiberiumExplosionDamage(100),
     TiberiumStrength(10),
     MinLowPowerProductionSpeed(0.5f),
     MaxLowPowerProductionSpeed(0.9f),
@@ -225,7 +225,7 @@ RulesClass::RulesClass() :
     DropPodAngle(1.5707963267948966),
     ScrollMultiplier(1.0),
     CrewEscape(0.5),
-    unknown_4e8(400),
+    ShakeScreen(400),
     HoverHeight(120),
     HoverBob(30.0),
     HoverBoost(1.3),
@@ -236,7 +236,7 @@ RulesClass::RulesClass() :
     TireVoxelDebris(0),
     ScrapVoxelDebris(0),
     BridgeVoxelMax(3),
-    unknown_548(9),
+    CloakingStages(9),
     RevealTriggerRadius(5),
     ShipSinkingWeight(3.0),
     IceCrackingWeight(2.0),
@@ -244,12 +244,12 @@ RulesClass::RulesClass() :
     CliffBackImpassability((char)0),
     VeteranRatio(10.0),
     VeteranCombat(1.0),
-    unknown_598(1.0),
-    unknown_5a0(1.0),
+    VeteranSpeed(1.0),
+    VeteranSight(1.0),
     VeteranArmor(1.0),
     VeteranROF(1.0),
     VeteranCap(1.0),
-    unknown_5c0(-1),
+    CloakSound(-1),
     SellSound(-1),
     GameClosed(-1),
     IncomingMessage(-1),
@@ -274,10 +274,10 @@ RulesClass::RulesClass() :
     BuildingDamageSound(-1),
     HealCrateSound(-1),
     ChuteSound(-1),
-    unknown_640(-1),
-    unknown_644(-1),
-    unknown_648(-1),
-    unknown_64c(-1),
+    StopSound(-1),
+    GuardSound(-1),
+    ScatterSound(-1),
+    DeploySound(-1),
     StormSound(-1),
     ShellButtonSlideSound(-1),
     WallBuildSpeedCoefficient(0.5),
@@ -293,14 +293,14 @@ RulesClass::RulesClass() :
     SpotlightAcceleration(0.005),
     SpotlightAngle(20.0),
     SpotlightRadius(175),
-    unknown_6d4(-1),
+    WindDirection(-1),
     CameraRange(2304),
     FlightLevel(500),
     ParachuteMaxFallRate(-3),
     NoParachuteMaxFallRate(-100),
     BuildingDrop(-1),
-    unknown_778(0),
-    unknown_77c(0),
+    RepairBay(0),
+    GDIGateOne(0),
     unknown_780(0),
     unknown_784(0),
     unknown_788(0),
@@ -819,7 +819,7 @@ bool RulesClass::Audio_Visual(CCINIClass &ini)
         BarrelExplode = Get_Type(ini, RulesSection_AudioVisual, "BarrelExplode", BarrelExplode);
         BarrelDebris = TypeListReader<VoxelAnimTypeClass>::Get(ini, RulesSection_AudioVisual, "BarrelDebris", BarrelDebris);
         BarrelParticle = Get_Type(ini, RulesSection_AudioVisual, "BarrelParticle", BarrelParticle);
-        unknown_09c = Get_Type(ini, RulesSection_AudioVisual, "Wake", unknown_09c);
+        Wake = Get_Type(ini, RulesSection_AudioVisual, "Wake", Wake);
         FlamingInfantry = Get_Type(ini, RulesSection_AudioVisual, "FlamingInfantry", FlamingInfantry);
         NukeTakeOff = Get_Type(ini, RulesSection_AudioVisual, "NukeTakeOff", NukeTakeOff);
         InfantryHeadPop = Get_Type(ini, RulesSection_AudioVisual, "InfantryHeadPop", InfantryHeadPop);
@@ -827,18 +827,18 @@ bool RulesClass::Audio_Visual(CCINIClass &ini)
         Behind = Get_Type(ini, RulesSection_AudioVisual, "Behind", Behind);
         VeinAttack = Get_Type(ini, RulesSection_AudioVisual, "VeinAttack", VeinAttack);
         DropPod = TypeListReader<AnimTypeClass>::Get(ini, RulesSection_AudioVisual, "DropPod", DropPod);
-        VocType dig_sound = Get_VocType(ini, RulesSection_AudioVisual, "DigSound", (VocType)unknown_16c);
-        unknown_16c = dig_sound;
+        VocType dig_sound = Get_VocType(ini, RulesSection_AudioVisual, "DigSound", (VocType)DigSound);
+        DigSound = dig_sound;
         VocType guimain_button_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUIMainButtonSound", (VocType)unknown_180);
         unknown_180 = guimain_button_sound;
         VocType guibuild_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUIBuildSound", (VocType)unknown_184);
         unknown_184 = guibuild_sound;
-        VocType guitab_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUITabSound", (VocType)unknown_188);
-        unknown_188 = guitab_sound;
-        VocType guiopen_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUIOpenSound", (VocType)unknown_18c);
-        unknown_18c = guiopen_sound;
-        VocType guiclose_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUICloseSound", (VocType)unknown_190);
-        unknown_190 = guiclose_sound;
+        VocType guitab_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUITabSound", (VocType)GUITabSound);
+        GUITabSound = guitab_sound;
+        VocType guiopen_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUIOpenSound", (VocType)GUIOpenSound);
+        GUIOpenSound = guiopen_sound;
+        VocType guiclose_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUICloseSound", (VocType)GUICloseSound);
+        GUICloseSound = guiclose_sound;
         VocType guimove_out_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUIMoveOutSound", (VocType)GUIMoveOutSound);
         GUIMoveOutSound = guimove_out_sound;
         VocType guimove_in_sound = Get_VocType(ini, RulesSection_AudioVisual, "GUIMoveInSound", (VocType)GUIMoveInSound);
@@ -855,10 +855,10 @@ bool RulesClass::Audio_Visual(CCINIClass &ini)
         CheerSound = cheer_sound;
         VocType default_chrono_sound = Get_VocType(ini, RulesSection_AudioVisual, "DefaultChronoSound", (VocType)DefaultChronoSound);
         DefaultChronoSound = default_chrono_sound;
-        VocType start_planning_mode_sound = Get_VocType(ini, RulesSection_AudioVisual, "StartPlanningModeSound", (VocType)unknown_1cc);
-        unknown_1cc = start_planning_mode_sound;
-        VocType end_planning_mode_sound = Get_VocType(ini, RulesSection_AudioVisual, "EndPlanningModeSound", (VocType)unknown_1d8);
-        unknown_1d8 = end_planning_mode_sound;
+        VocType start_planning_mode_sound = Get_VocType(ini, RulesSection_AudioVisual, "StartPlanningModeSound", (VocType)StartPlanningModeSound);
+        StartPlanningModeSound = start_planning_mode_sound;
+        VocType end_planning_mode_sound = Get_VocType(ini, RulesSection_AudioVisual, "EndPlanningModeSound", (VocType)EndPlanningModeSound);
+        EndPlanningModeSound = end_planning_mode_sound;
         VocType crate_money_sound = Get_VocType(ini, RulesSection_AudioVisual, "CrateMoneySound", (VocType)CrateMoneySound);
         CrateMoneySound = crate_money_sound;
         VocType crate_reveal_sound = Get_VocType(ini, RulesSection_AudioVisual, "CrateRevealSound", (VocType)CrateRevealSound);
@@ -889,8 +889,8 @@ bool RulesClass::Audio_Visual(CCINIClass &ini)
         BombAttachSound = bomb_attach_sound;
         VocType yuri_mind_control_sound = Get_VocType(ini, RulesSection_AudioVisual, "YuriMindControlSound", (VocType)YuriMindControlSound);
         YuriMindControlSound = yuri_mind_control_sound;
-        VocType add_planning_mode_command_sound = Get_VocType(ini, RulesSection_AudioVisual, "AddPlanningModeCommandSound", (VocType)unknown_1d0);
-        unknown_1d0 = add_planning_mode_command_sound;
+        VocType add_planning_mode_command_sound = Get_VocType(ini, RulesSection_AudioVisual, "AddPlanningModeCommandSound", (VocType)AddPlanningModeCommandSound);
+        AddPlanningModeCommandSound = add_planning_mode_command_sound;
         VocType execute_plan_sound = Get_VocType(ini, RulesSection_AudioVisual, "ExecutePlanSound", (VocType)ExecutePlanSound);
         ExecutePlanSound = execute_plan_sound;
         VocType place_beacon_sound = Get_VocType(ini, RulesSection_AudioVisual, "PlaceBeaconSound", (VocType)PlaceBeaconSound);
@@ -931,7 +931,7 @@ bool RulesClass::Audio_Visual(CCINIClass &ini)
         WarpIn = Get_Type(ini, RulesSection_AudioVisual, "WarpIn", WarpIn);
         WarpOut = Get_Type(ini, RulesSection_AudioVisual, "WarpOut", WarpOut);
         WarpAway = Get_Type(ini, RulesSection_AudioVisual, "WarpAway", WarpAway);
-        unknown_2a8 = Get_Type(ini, RulesSection_AudioVisual, "ChronoSparkle1", unknown_2a8);
+        ChronoSparkle1 = Get_Type(ini, RulesSection_AudioVisual, "ChronoSparkle1", ChronoSparkle1);
         IronCurtainInvokeAnim = Get_Type(ini, RulesSection_AudioVisual, "IronCurtainInvokeAnim", IronCurtainInvokeAnim);
         WeaponNullifyAnim = Get_Type(ini, RulesSection_AudioVisual, "WeaponNullifyAnim", WeaponNullifyAnim);
         InfantryExplode = Get_Type(ini, RulesSection_AudioVisual, "InfantryExplode", InfantryExplode);
@@ -943,9 +943,9 @@ bool RulesClass::Audio_Visual(CCINIClass &ini)
         ShroudGrow = ini.Get_Bool(RulesSection_AudioVisual, "ShroudGrow", ShroudGrow);
         double scroll_multiplier = ini.Get_Double(RulesSection_AudioVisual, "ScrollMultiplier", ScrollMultiplier);
         ScrollMultiplier = scroll_multiplier;
-        unknown_4e8 = ini.Get_Int(RulesSection_AudioVisual, "ShakeScreen", unknown_4e8);
-        VocType cloak_sound = Get_VocType(ini, RulesSection_AudioVisual, "CloakSound", (VocType)unknown_5c0);
-        unknown_5c0 = cloak_sound;
+        ShakeScreen = ini.Get_Int(RulesSection_AudioVisual, "ShakeScreen", ShakeScreen);
+        VocType cloak_sound = Get_VocType(ini, RulesSection_AudioVisual, "CloakSound", (VocType)CloakSound);
+        CloakSound = cloak_sound;
         VocType sell_sound = Get_VocType(ini, RulesSection_AudioVisual, "SellSound", (VocType)SellSound);
         SellSound = sell_sound;
         VocType game_closed = Get_VocType(ini, RulesSection_AudioVisual, "GameClosed", (VocType)GameClosed);
@@ -995,12 +995,12 @@ bool RulesClass::Audio_Visual(CCINIClass &ini)
         GenericBeep = generic_beep;
         VocType building_drop = Get_VocType(ini, RulesSection_AudioVisual, "BuildingDrop", (VocType)BuildingDrop);
         BuildingDrop = building_drop;
-        VocType stop_sound = Get_VocType(ini, RulesSection_AudioVisual, "StopSound", (VocType)unknown_640);
-        unknown_640 = stop_sound;
-        VocType guard_sound = Get_VocType(ini, RulesSection_AudioVisual, "GuardSound", (VocType)unknown_644);
-        unknown_644 = guard_sound;
-        VocType scatter_sound = Get_VocType(ini, RulesSection_AudioVisual, "ScatterSound", (VocType)unknown_648);
-        unknown_648 = scatter_sound;
+        VocType stop_sound = Get_VocType(ini, RulesSection_AudioVisual, "StopSound", (VocType)StopSound);
+        StopSound = stop_sound;
+        VocType guard_sound = Get_VocType(ini, RulesSection_AudioVisual, "GuardSound", (VocType)GuardSound);
+        GuardSound = guard_sound;
+        VocType scatter_sound = Get_VocType(ini, RulesSection_AudioVisual, "ScatterSound", (VocType)ScatterSound);
+        ScatterSound = scatter_sound;
         VocType storm_sound = Get_VocType(ini, RulesSection_AudioVisual, "StormSound", (VocType)StormSound);
         StormSound = storm_sound;
         LightningSounds = Get_Voc_List(ini, RulesSection_AudioVisual, "LightningSounds", LightningSounds);
@@ -1087,8 +1087,8 @@ bool RulesClass::Crate_Rules(CCINIClass &ini)
     if (ini.Is_Present(RulesSection_CrateRules)) {
         FreeMCV = ini.Get_Bool(RulesSection_CrateRules, "FreeMCV", FreeMCV);
         unknown_f0 = Get_Type(ini, RulesSection_CrateRules, "WoodCrateImg", unknown_f0);
-        unknown_f4 = Get_Type(ini, RulesSection_CrateRules, "CrateImg", unknown_f4);
-        unknown_f8 = Get_Type(ini, RulesSection_CrateRules, "WaterCrateImg", unknown_f8);
+        CrateImg = Get_Type(ini, RulesSection_CrateRules, "CrateImg", CrateImg);
+        WaterCrateImg = Get_Type(ini, RulesSection_CrateRules, "WaterCrateImg", WaterCrateImg);
         HealCrateSound = Get_Sound(ini, RulesSection_CrateRules, "HealCrateSound", HealCrateSound);
         CrateMinimum = ini.Get_Int(RulesSection_CrateRules, "CrateMinimum", CrateMinimum);
         CrateMaximum = ini.Get_Int(RulesSection_CrateRules, "CrateMaximum", CrateMaximum);
@@ -1121,8 +1121,8 @@ bool RulesClass::Combat_Damage(CCINIClass &ini)
         IonCannonDamage = ion_cannon_damage;
         int railgun_damage_radius = ini.Get_Int(RulesSection_CombatDamage, "RailgunDamageRadius", RailgunDamageRadius);
         RailgunDamageRadius = railgun_damage_radius;
-        int tiberium_explosion_damage = ini.Get_Int(RulesSection_CombatDamage, "TiberiumExplosionDamage", unknown_488);
-        unknown_488 = tiberium_explosion_damage;
+        int tiberium_explosion_damage = ini.Get_Int(RulesSection_CombatDamage, "TiberiumExplosionDamage", TiberiumExplosionDamage);
+        TiberiumExplosionDamage = tiberium_explosion_damage;
         int tiberium_strength = ini.Get_Int(RulesSection_CombatDamage, "TiberiumStrength", TiberiumStrength);
         TiberiumStrength = tiberium_strength;
         Scorches = TypeListReader<SmudgeTypeClass>::Get(ini, RulesSection_CombatDamage, "Scorches", Scorches);
@@ -1295,7 +1295,7 @@ bool RulesClass::General(CCINIClass &ini)
         ZoomInFactor = ini.Get_Double(RulesSection_General, "ZoomInFactor", ZoomInFactor);
         RevealByHeight = ini.Get_Bool(RulesSection_General, "RevealByHeight", RevealByHeight);
         AllowShroudedSubteranneanMoves = ini.Get_Bool(RulesSection_General, "AllowShroudedSubteranneanMoves", AllowShroudedSubteranneanMoves);
-        unknown_ec = ini.Get_Int(RulesSection_General, "AircraftFogReveal", unknown_ec);
+        AircraftFogReveal = ini.Get_Int(RulesSection_General, "AircraftFogReveal", AircraftFogReveal);
         MinLowPowerProductionSpeed = ini.Get_Double(RulesSection_General, "MinLowPowerProductionSpeed", MinLowPowerProductionSpeed);
         MaxLowPowerProductionSpeed = ini.Get_Double(RulesSection_General, "MaxLowPowerProductionSpeed", MaxLowPowerProductionSpeed);
         LowPowerPenaltyModifier = ini.Get_Double(RulesSection_General, "LowPowerPenaltyModifier", LowPowerPenaltyModifier);
@@ -1321,8 +1321,8 @@ bool RulesClass::General(CCINIClass &ini)
         HoverBrake = ini.Get_Double(RulesSection_General, "HoverBrake", HoverBrake);
         VeteranRatio = ini.Get_Double(RulesSection_General, "VeteranRatio", VeteranRatio);
         VeteranCombat = ini.Get_Double(RulesSection_General, "VeteranCombat", VeteranCombat);
-        unknown_598 = ini.Get_Double(RulesSection_General, "VeteranSpeed", unknown_598);
-        unknown_5a0 = ini.Get_Double(RulesSection_General, "VeteranSight", unknown_5a0);
+        VeteranSpeed = ini.Get_Double(RulesSection_General, "VeteranSpeed", VeteranSpeed);
+        VeteranSight = ini.Get_Double(RulesSection_General, "VeteranSight", VeteranSight);
         VeteranArmor = ini.Get_Double(RulesSection_General, "VeteranArmor", VeteranArmor);
         VeteranROF = ini.Get_Double(RulesSection_General, "VeteranROF", VeteranROF);
         VeteranCap = ini.Get_Double(RulesSection_General, "VeteranCap", VeteranCap);
@@ -1330,7 +1330,7 @@ bool RulesClass::General(CCINIClass &ini)
         BridgeVoxelMax = ini.Get_Int(RulesSection_General, "BridgeVoxelMax", BridgeVoxelMax);
         TireVoxelDebris = Get_Type(ini, RulesSection_General, "TireVoxelDebris", TireVoxelDebris);
         ScrapVoxelDebris = Get_Type(ini, RulesSection_General, "ScrapVoxelDebris", ScrapVoxelDebris);
-        unknown_548 = ini.Get_Int(RulesSection_General, "CloakingStages", unknown_548);
+        CloakingStages = ini.Get_Int(RulesSection_General, "CloakingStages", CloakingStages);
         ShipSinkingWeight = ini.Get_Double(RulesSection_General, "ShipSinkingWeight", ShipSinkingWeight);
         IceCrackingWeight = ini.Get_Double(RulesSection_General, "IceCrackingWeight", IceCrackingWeight);
         IceBreakingWeight = ini.Get_Double(RulesSection_General, "IceBreakingWeight", IceBreakingWeight);
@@ -1340,13 +1340,13 @@ bool RulesClass::General(CCINIClass &ini)
         TrackedDownhill = ini.Get_Double(RulesSection_General, "TrackedDownhill", TrackedDownhill);
         WheeledUphill = ini.Get_Double(RulesSection_General, "WheeledUphill", WheeledUphill);
         WheeledDownhill = ini.Get_Double(RulesSection_General, "WheeledDownhill", WheeledDownhill);
-        unknown_6d4 = ini.Get_Int(RulesSection_General, "WindDirection", unknown_6d4);
+        WindDirection = ini.Get_Int(RulesSection_General, "WindDirection", WindDirection);
         CameraRange = ini.Get_Lepton(RulesSection_General, "CameraRange", CameraRange);
         FlightLevel = ini.Get_Int(RulesSection_General, "FlightLevel", FlightLevel);
         ParachuteMaxFallRate = ini.Get_Int(RulesSection_General, "ParachuteMaxFallRate", ParachuteMaxFallRate);
         NoParachuteMaxFallRate = ini.Get_Int(RulesSection_General, "NoParachuteMaxFallRate", NoParachuteMaxFallRate);
-        unknown_778 = Get_Type(ini, RulesSection_General, "RepairBay", unknown_778);
-        unknown_77c = Get_Type(ini, RulesSection_General, "GDIGateOne", unknown_77c);
+        RepairBay = Get_Type(ini, RulesSection_General, "RepairBay", RepairBay);
+        GDIGateOne = Get_Type(ini, RulesSection_General, "GDIGateOne", GDIGateOne);
         unknown_780 = Get_Type(ini, RulesSection_General, "GDIGateTwo", unknown_780);
         unknown_784 = Get_Type(ini, RulesSection_General, "NodGateOne", unknown_784);
         unknown_788 = Get_Type(ini, RulesSection_General, "NodGateTwo", unknown_788);
@@ -1503,7 +1503,7 @@ bool RulesClass::General(CCINIClass &ini)
         DMisl.BodyLength = ini.Get_Int(RulesSection_General, "DMislBodyLength", DMisl.BodyLength);
         DMisl.LazyCurve = ini.Get_Bool(RulesSection_General, "DMislLazyCurve", DMisl.LazyCurve);
         DMisl.Type = Get_Type(ini, RulesSection_General, "DMislType", DMisl.Type);  /* out of line 6540b0 */
-        unknown_468 = ini.Get_Int(RulesSection_General, "ParadropRadius", unknown_468);
+        ParadropRadius = ini.Get_Int(RulesSection_General, "ParadropRadius", ParadropRadius);
         SpotlightMovementRadius = ini.Get_Int(RulesSection_General, "SpotlightMovementRadius", SpotlightMovementRadius);
         SpotlightLocationRadius = ini.Get_Int(RulesSection_General, "SpotlightLocationRadius", SpotlightLocationRadius);
         SpotlightSpeed = ini.Get_Double(RulesSection_General, "SpotlightSpeed", SpotlightSpeed);
@@ -2092,7 +2092,7 @@ bool RulesClass::IQ(CCINIClass &ini)
 bool RulesClass::Jumpjet_Controls(CCINIClass &ini)
 {
     if (ini.Is_Present(RulesSection_JumpjetControls)) {
-        unknown_368 = ini.Get_Int(RulesSection_JumpjetControls, "TurnRate", unknown_368);
+        JumpjetTurnRate = ini.Get_Int(RulesSection_JumpjetControls, "TurnRate", JumpjetTurnRate);
         Speed = ini.Get_Int(RulesSection_JumpjetControls, "Speed", Speed);
         Climb = ini.Get_Double(RulesSection_JumpjetControls, "Climb", Climb);
         JumpjetCruiseHeight = ini.Get_Int(RulesSection_JumpjetControls, "CruiseHeight", JumpjetCruiseHeight);
@@ -2510,8 +2510,8 @@ void RulesClass::Load(IStream *stream)
     Swizzle_Pointer(Pilot);
     Swizzle_Pointer(AlliedCrew);
     Swizzle_Pointer(SovietCrew);
-    Swizzle_Pointer(unknown_778);
-    Swizzle_Pointer(unknown_77c);
+    Swizzle_Pointer(RepairBay);
+    Swizzle_Pointer(GDIGateOne);
     Swizzle_Pointer(unknown_780);
     Swizzle_Pointer(unknown_784);
     Swizzle_Pointer(unknown_788);
@@ -2539,7 +2539,7 @@ void RulesClass::Load(IStream *stream)
     Swizzle_Pointer(WarpIn);
     Swizzle_Pointer(WarpOut);
     Swizzle_Pointer(WarpAway);
-    Swizzle_Pointer(unknown_2a8);
+    Swizzle_Pointer(ChronoSparkle1);
     Swizzle_Pointer(IronCurtainInvokeAnim);
     Swizzle_Pointer(WeaponNullifyAnim);
     Swizzle_Pointer(unknown_228);
@@ -2548,7 +2548,7 @@ void RulesClass::Load(IStream *stream)
     Swizzle_Pointer(FirestormGroundAnim);
     Swizzle_Pointer(FirestormActiveAnim);
     Swizzle_Pointer(unknown_1438);
-    Swizzle_Pointer(unknown_09c);
+    Swizzle_Pointer(Wake);
     Swizzle_Pointer(OreTwinkle);
     Swizzle_Pointer(FlamingInfantry);
     Swizzle_Pointer(NukeTakeOff);
@@ -2562,8 +2562,8 @@ void RulesClass::Load(IStream *stream)
     Swizzle_Pointer(LightningWarhead);
     Swizzle_Pointer(unknown_147c);
     Swizzle_Pointer(unknown_f0);
-    Swizzle_Pointer(unknown_f4);
-    Swizzle_Pointer(unknown_f8);
+    Swizzle_Pointer(CrateImg);
+    Swizzle_Pointer(WaterCrateImg);
     BombCursorShape = MixFileClass::Retrieve("BOMBCURS.SHP");
     for (index = 0; index < BarrelDebris.Count(); index++) {
         Swizzle_Pointer(BarrelDebris[index]);
@@ -2717,8 +2717,8 @@ void RulesClass::Detach(AbstractClass const *target, bool all)
     if (target == VeinAttack) {
         VeinAttack = 0;
     }
-    if (target == unknown_09c) {
-        unknown_09c = 0;
+    if (target == Wake) {
+        Wake = 0;
     }
     if (target == OreTwinkle) {
         OreTwinkle = 0;
@@ -2879,11 +2879,11 @@ void RulesClass::Detach(AbstractClass const *target, bool all)
     if (target == SovietCrew) {
         SovietCrew = 0;
     }
-    if (target == unknown_778) {
-        unknown_778 = 0;
+    if (target == RepairBay) {
+        RepairBay = 0;
     }
-    if (target == unknown_77c) {
-        unknown_77c = 0;
+    if (target == GDIGateOne) {
+        GDIGateOne = 0;
     }
     if (target == unknown_780) {
         unknown_780 = 0;
@@ -2966,8 +2966,8 @@ void RulesClass::Detach(AbstractClass const *target, bool all)
     if (target == WarpAway) {
         WarpAway = 0;
     }
-    if (target == unknown_2a8) {
-        unknown_2a8 = 0;
+    if (target == ChronoSparkle1) {
+        ChronoSparkle1 = 0;
     }
     if (target == IronCurtainInvokeAnim) {
         IronCurtainInvokeAnim = 0;

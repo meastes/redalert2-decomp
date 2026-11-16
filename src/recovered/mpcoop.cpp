@@ -1345,7 +1345,7 @@ void MPCooperative::unknown_slot37()
         unknown_players_a3fa7c.Add(entry);
         unknown_session_a3d55c++;
     }
-    int computers = unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex]->unknown_184 - 2;
+    int computers = unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex]->MaxPlayers - 2;
     if (computers > 0) {
         unknown_session_a3d298.AICount = computers;
         int used = 0;

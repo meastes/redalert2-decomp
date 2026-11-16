@@ -119,25 +119,25 @@ ParticleClass::ParticleClass(ParticleTypeClass *type, CoordStruct const &coord, 
     GasVelocity(0, 0, -1.0f),
     UnusedCoord1(0, 0, 0),
     Velocity(Class->Velocity),
-    unknown_d8(target),
-    unknown_e4(coord),
-    unknown_f0(unknown_geometry_l),
-    unknown_fc((float)(target.X - coord.X), (float)(target.Y - coord.Y), (float)(target.Z - coord.Z)),
+    FireTarget(target),
+    FireOrigin(coord),
+    FireMoveDelta(unknown_geometry_l),
+    MovementDirection((float)(target.X - coord.X), (float)(target.Y - coord.Y), (float)(target.Z - coord.Z)),
     unknown_108((float)coord.X, (float)coord.Y, (float)coord.Z),
     System(system),
     unknown_11c(Class->StateAIAdvance),
-    unknown_11d(0),
-    unknown_11e(Class->StartStateAI),
-    unknown_11f(Class->Translucency),
-    unknown_120(false),
-    unknown_121(false)
+    IsFireBelowGround(0),
+    StateAI(Class->StartStateAI),
+    Translucency(Class->Translucency),
+    WasSaved(false),
+    IsToDie(false)
 {
     AbstractClass::Create_ID();
     unknown_ParticleClass_list_00a35e28.Add(this);
     if (Class->BehavesLike == 1) {
         Velocity += (float)(unknown_id_source_a3d290->Random()() % 2);
     }
-    unknown_11a = (short)Class->MaxDC;
+    RemainingDC = (short)Class->MaxDC;
     if (Class->BehavesLike == 4) {
         Lifetime = (unsigned short)(Class->MaxEC + abs(unknown_id_source_a3d290->Random()() % 10));
     } else {
@@ -149,11 +149,11 @@ ParticleClass::ParticleClass(ParticleTypeClass *type, CoordStruct const &coord, 
         place.Z = Map.Get_Height_GL(coord);
     }
     Set_Coord(place);
-    unknown_fc = Normalized(unknown_fc);
+    MovementDirection = Normalized(MovementDirection);
     if (Class->Normalized) {
         CoordStruct delta(coord.X - target.X, coord.Y - target.Y, coord.Z - target.Z);
-        float ax = (float)abs((int)(unknown_fc.X * Velocity));
-        float ay = (float)abs((int)(unknown_fc.Y * Velocity));
+        float ax = (float)abs((int)(MovementDirection.X * Velocity));
+        float ay = (float)abs((int)(MovementDirection.Y * Velocity));
         float steps = 9999.0f;
         if (ax > 1e-6) {
             steps = (float)(abs(delta.X) / ax);
@@ -187,18 +187,18 @@ ParticleClass::ParticleClass() :
     GasVelocity(0, 0, -1.0f),
     UnusedCoord1(0, 0, 0),
     Velocity(0),
-    unknown_d8(unknown_geometry_l),
-    unknown_e4(unknown_geometry_l),
-    unknown_f0(unknown_geometry_l),
-    unknown_fc(0, 0, 0),
+    FireTarget(unknown_geometry_l),
+    FireOrigin(unknown_geometry_l),
+    FireMoveDelta(unknown_geometry_l),
+    MovementDirection(0, 0, 0),
     unknown_108(0, 0, 0),
     System(0),
     unknown_11c(0),
-    unknown_11d(0),
-    unknown_11e(0),
-    unknown_11f(0),
-    unknown_120(false),
-    unknown_121(false)
+    IsFireBelowGround(0),
+    StateAI(0),
+    Translucency(0),
+    WasSaved(false),
+    IsToDie(false)
 {
     unknown_ParticleClass_list_00a35e28.Add(this);
 }
@@ -343,10 +343,10 @@ void ParticleClass::Gas_Behavior_AI()
         }
     }
 
-    unknown_11a--;
+    RemainingDC--;
 
-    if (unknown_11a == 0 && Class->Damage) {
-        unknown_11a = Class->MaxDC;
+    if (RemainingDC == 0 && Class->Damage) {
+        RemainingDC = Class->MaxDC;
         ObjectClass *occupier = Map[Position_Coord_004f3f40()].OccupierPtr;
         while (occupier) {
             CoordStruct delta = Position_Coord_004f3f40() - occupier->Position_Coord_004f3f40();
@@ -362,14 +362,14 @@ void ParticleClass::Gas_Behavior_AI()
     }
 
     if ((Fetch_ID() + (Class->MaxEC - Lifetime)) % ((Fetch_ID() & 1) + Class->StateAIAdvance) == 0) {
-        unknown_11e++;
+        StateAI++;
     }
-    if (unknown_11e == Class->EndStateAI) {
+    if (StateAI == Class->EndStateAI) {
         if (Class->DeleteOnStateLimit) {
-            unknown_121 = true;
+            IsToDie = true;
             return;
         }
-        unknown_11e = 0;
+        StateAI = 0;
     }
 }
 
@@ -379,7 +379,7 @@ extern "C" double const Particle_Color_Step_007a10f8;
 static inline void Advance_Particle_Position(Vector3 &position, Vector3 const &step) { position.X = step.X + position.X; position.Y = step.Y + position.Y; position.Z = step.Z + position.Z; }
 void ParticleClass::Railgun_Behavior_AI()
 {
-    Vector3 direction(unknown_fc.X, unknown_fc.Y, unknown_fc.Z);
+    Vector3 direction(MovementDirection.X, MovementDirection.Y, MovementDirection.Z);
     float speed = Velocity;
     Vector3 step; step.X = direction.X * speed; step.Y = direction.Y * speed; step.Z = direction.Z * speed;
     Velocity += (unknown_id_source_a3d290->Random()(0, 0x7ffffffe) * 4.656612877414201e-10 - 0.5) * 0.1;
@@ -424,12 +424,12 @@ void ParticleClass::Smoke_Behavior_AI()
         }
         GasDrift.Z = 0;
     }
-    if (unknown_11e < Class->EndStateAI) {
+    if (StateAI < Class->EndStateAI) {
         if ((Fetch_ID() + (Class->MaxEC - Lifetime)) % ((Fetch_ID() & 1) + Class->StateAIAdvance) == 0) {
-            unknown_11e++;
+            StateAI++;
         }
-        if (unknown_11e == Class->EndStateAI && Class->DeleteOnStateLimit) {
-            unknown_121 = true;
+        if (StateAI == Class->EndStateAI && Class->DeleteOnStateLimit) {
+            IsToDie = true;
         }
     }
     if (Velocity > 3.0) {
@@ -444,25 +444,25 @@ void ParticleClass::Fire_Behavior_AI()
 {
     if (Velocity > 0.0) {
     float jitter = (unknown_id_source_a3d290->Random()() % 10 - 5) * 0.02 + 1.0;
-    Vector3 step(unknown_fc.X * jitter, unknown_fc.Y * jitter, unknown_fc.Z * jitter);
+    Vector3 step(MovementDirection.X * jitter, MovementDirection.Y * jitter, MovementDirection.Z * jitter);
     int dx = (int)(step.X * Velocity);
     int dy = (int)(step.Y * Velocity);
     int dz = (int)(step.Z * Velocity);
-    unknown_f0 = CoordStruct(dx, dy, dz);
-    if (unknown_11e < Class->EndStateAI) {
+    FireMoveDelta = CoordStruct(dx, dy, dz);
+    if (StateAI < Class->EndStateAI) {
         if ((Fetch_ID() + (Class->MaxEC - Lifetime)) % ((Fetch_ID() & 1) + unknown_11c) == 0) {
-            ++unknown_11e;
-            if (unknown_11e == Class->Translucent25State) unknown_11f = 25;
-            if (unknown_11e == Class->Translucent50State) unknown_11f = 50;
+            ++StateAI;
+            if (StateAI == Class->Translucent25State) Translucency = 25;
+            if (StateAI == Class->Translucent50State) Translucency = 50;
         }
-        if (unknown_11e == Class->EndStateAI && Class->DeleteOnStateLimit) {
+        if (StateAI == Class->EndStateAI && Class->DeleteOnStateLimit) {
             goto particle_done;
         }
     }
     Velocity -= Class->Deacc;
-    unknown_11a--;
-    if (unknown_11a == 0 && Class->Damage != 0 && unknown_11e <= Class->FinalDamageState) {
-        unknown_11a = (short)Class->MaxDC;
+    RemainingDC--;
+    if (RemainingDC == 0 && Class->Damage != 0 && StateAI <= Class->FinalDamageState) {
+        RemainingDC = (short)Class->MaxDC;
         CellClass &cell = Map[CoordStruct(Coord)];
         ObjectClass *target;
         if (cell.unknown_140 & 0x100) target = Fire_Content_At_Height(cell, Coord);
@@ -482,7 +482,7 @@ void ParticleClass::Fire_Behavior_AI()
     }
     Velocity = 0;
 particle_done:
-    unknown_121 = true;
+    IsToDie = true;
 }
 
 
@@ -500,8 +500,8 @@ extern "C" double const Particle_Color_Step_007a10f8;
 void ParticleClass::Spark_Behavior_AI()
 {
     CoordStruct coord = Coord;
-    unknown_fc.Z -= Rules->unknown_1320;
-    Vector3 velocity(unknown_fc.X, unknown_fc.Y, unknown_fc.Z);
+    MovementDirection.Z -= Rules->unknown_1320;
+    Vector3 velocity(MovementDirection.X, MovementDirection.Y, MovementDirection.Z);
     Vector3 position(coord.X, coord.Y, coord.Z);
     double gravity = Rules->unknown_1320;
     velocity.Z -= gravity;
@@ -566,7 +566,7 @@ void ParticleClass::Spark_Behavior_AI()
             position.Z = ground_z;
         }
         velocity = Slope_Vector(velocity, coord2, 1);
-        unknown_121 = true;
+        IsToDie = true;
     }
 
     Set_Coord((CoordStruct const &)UnknownVector3(position.X, position.Y, position.Z));
@@ -610,7 +610,7 @@ void ParticleClass::Behavior_AI()
     }
     Lifetime--;
     if (Lifetime == 0) {
-        unknown_121 = true;
+        IsToDie = true;
     }
 }
 
@@ -640,11 +640,11 @@ void ParticleClass::Draw_It(Point2D const &point, Rect const &cliprect)
                 int flags = 0x2800;
                 int shapenum = Shape_Number();
                 if (unknown_a40b2c == 2) {
-                    if (unknown_11f == 25) {
+                    if (Translucency == 25) {
                         flags = 0x2802;
-                    } else if (unknown_11f == 50) {
+                    } else if (Translucency == 50) {
                         flags = 0x2804;
-                    } else if (unknown_11f >= 75) {
+                    } else if (Translucency >= 75) {
                         flags = 0x2806;
                     }
                 }
@@ -688,7 +688,7 @@ void ParticleClass::Smoke_Motion_AI()
     int frame = Frame;
     CoordStruct next = Coord;
     if (Class->WindEffect > 0 && frame % (10 / Class->WindEffect) == 0) {
-        Point2D offset = Smoke_Wind_Offset(Rules->unknown_6d4);
+        Point2D offset = Smoke_Wind_Offset(Rules->WindDirection);
         next.X += offset.X; next.Y += offset.Y;
     }
     if (frame & 1) {
@@ -714,7 +714,7 @@ void ParticleClass::Gas_Motion_AI()
     CoordStruct coord = Coord;
     int effect = Class->WindEffect;
     
-    Point2D offset = Wind_Offset(Rules->unknown_6d4, effect);
+    Point2D offset = Wind_Offset(Rules->WindDirection, effect);
     next.X += offset.X; next.Y += offset.Y;
     next.Z += (int)Velocity;
     next.X += GasDrift.X;
@@ -723,7 +723,7 @@ void ParticleClass::Gas_Motion_AI()
     if (Map[coord].unknown_140 & 0x100) {
         int height = Map.Get_Height_GL(coord) + unknown_geometry_j;
         if (coord.Z < height && next.Z >= (double)height - unknown_geometry_g * 2.5) {
-            unknown_121 = true;
+            IsToDie = true;
             return;
         }
     }
@@ -743,15 +743,15 @@ void ParticleClass::Fire_Motion_AI()
     CoordStruct next = Coord;
     CoordStruct coord = Coord;
     if (Velocity > 0.0) {
-        next.X += unknown_f0.X;
-        next.Y += unknown_f0.Y;
-        next.Z += unknown_f0.Z;
+        next.X += FireMoveDelta.X;
+        next.Y += FireMoveDelta.Y;
+        next.Z += FireMoveDelta.Z;
     }
     if (Velocity > 0.0) {
         int height = Map.Get_Height_GL(coord);
         if (Map.Get_Height_GL(next) > height) {
-            unknown_11d = 1;
-            unknown_121 = true;
+            IsFireBelowGround = 1;
+            IsToDie = true;
         }
     }
     Set_Coord(next);
@@ -845,7 +845,7 @@ HRESULT __stdcall ParticleClass::Load(IStream *stream)
 HRESULT __stdcall ParticleClass::Save(IStream *stream, BOOL clear_dirty)
 {
     HRESULT result = AbstractClass::Save(stream, clear_dirty);
-    unknown_120 = true;
+    WasSaved = true;
     return result;
 }
 
@@ -860,25 +860,25 @@ int ParticleClass::Shape_Number()
     switch (Class->BehavesLike) {
     case 0:
     case 1:
-        return unknown_11e;
+        return StateAI;
     case 2:
         {
             Point2D from;
             Point2D to;
-            TacticalMap->Coord_To_Pixel(unknown_e4, from);
-            TacticalMap->Coord_To_Pixel(unknown_d8, to);
+            TacticalMap->Coord_To_Pixel(FireOrigin, from);
+            TacticalMap->Coord_To_Pixel(FireTarget, to);
             int direction = Facing_Between_Points(from, to);
             if (direction == 2 || direction == 6) {
-                return unknown_11e + Class->EndStateAI * 2;
+                return StateAI + Class->EndStateAI * 2;
             }
             if (direction == 4 || direction == 0) {
-                return unknown_11e;
+                return StateAI;
             }
             if (direction == 1 || direction == 5) {
-                return Class->EndStateAI + unknown_11e;
+                return Class->EndStateAI + StateAI;
             }
             if (direction == 3 || direction == 7) {
-                return Class->EndStateAI * 3 + unknown_11e;
+                return Class->EndStateAI * 3 + StateAI;
             }
         }
         break;

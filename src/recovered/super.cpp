@@ -832,7 +832,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                     if (!MuteSWLaunches) {
                         Speech_Play_Name("EVA_NuclearMissileLaunched", -1, -1);
                     }
-                    Voc_Static_Add(Rules->unknown_16c, sound, 0);
+                    Voc_Static_Add(Rules->DigSound, sound, 0);
                 }
                 if (player) {
                     CurrentSuperWeaponType = -1;
@@ -854,7 +854,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                         site->Commence();
                         House->NukeDest = cell;
                         *(int *)((char *)site + 0x4CC) = Type->Type;   // TODO: BuildingClass +0x4CC (building_class.hpp unknown_4cc; the BuildingClass in scope differs)
-                        Voc_Static_Add(Rules->unknown_16c, sound, 0);
+                        Voc_Static_Add(Rules->DigSound, sound, 0);
                         if (!MuteSWLaunches) {
                             Speech_Play_Name("EVA_NuclearMissileLaunched", -1, -1);
                         }

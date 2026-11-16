@@ -254,8 +254,8 @@ static HashTableClass<unsigned int, unsigned int> *New_Cell_Table()
 
 HRESULT MouseClass::Load(IStream *stream)
 {
-    unknown_1158.Clear();
-    unknown_d0.Clear();
+    TaggedCells.Clear();
+    PendingBridgeCells.Clear();
     HRESULT result = SidebarClass::Load(stream);
     if (result < 0) {
         return result;
@@ -271,8 +271,8 @@ HRESULT MouseClass::Load(IStream *stream)
     CellSubzones = 0;
     delete CellZones;
     CellZones = 0;
-    delete unknown_14;
-    unknown_14 = 0;
+    delete ZoneAdjacency;
+    ZoneAdjacency = 0;
     for (int clear = 0; clear < 3; clear++) {
         SubzoneTracking[clear].Clear();
     }
@@ -281,9 +281,9 @@ HRESULT MouseClass::Load(IStream *stream)
         unknown_18[free_buffer] = 0;
     }
     for (int free_table = 0; free_table < 3; free_table++) {
-        if (unknown_7c[free_table] != 0) {
-            delete unknown_7c[free_table];
-            unknown_7c[free_table] = 0;
+        if (SubzoneConnectionHashTable[free_table] != 0) {
+            delete SubzoneConnectionHashTable[free_table];
+            SubzoneConnectionHashTable[free_table] = 0;
         }
     }
     Cells.Clear();
@@ -316,13 +316,13 @@ HRESULT MouseClass::Load(IStream *stream)
     }
     CellSubzones = new char[CellZoneCount * 10];
     CellZones = new UnknownMapElem4[CellZoneCount];
-    unknown_14 = New_Cell_Table();
+    ZoneAdjacency = New_Cell_Table();
     for (int tier = 0; tier < 3; tier++) {
         int factor = 1 << (tier + 1);
         SubzoneTracking[tier].Clear();
         int cells = MapSize.Height * MapSize.Width * 4;
         SubzoneTracking[tier].Set_Growth_Step(cells / (factor * factor));
-        unknown_7c[tier] = new HashTableClass<unsigned int, SubzoneConnectionStruct>(20, 256, Unknown_Hash_0054F240);
+        SubzoneConnectionHashTable[tier] = new HashTableClass<unsigned int, SubzoneConnectionStruct>(20, 256, Unknown_Hash_0054F240);
     }
     result = stream->Read(CellZones, CellZoneCount * 4, 0);
     if (result < 0) {
@@ -374,7 +374,7 @@ HRESULT MouseClass::Load(IStream *stream)
         if (result < 0) {
             return result;
         }
-        unknown_1158.Add(cell);
+        TaggedCells.Add(cell);
     }
     result = stream->Read(&count, 4, 0);
     if (result < 0) {
@@ -386,7 +386,7 @@ HRESULT MouseClass::Load(IStream *stream)
         if (result < 0) {
             return result;
         }
-        unknown_d0.Add(cell);
+        PendingBridgeCells.Add(cell);
     }
     TerrainTypeClass::Init(unknown_id_source_a3d290->Theater);
     if (unknown_id_source_a3d290->Theater != LastTheater) {
@@ -470,24 +470,24 @@ HRESULT MouseClass::Save(IStream *stream)
     if (count != 0) {
         return result;
     }
-    count = unknown_1158.Count();
+    count = TaggedCells.Count();
     result = stream->Write(&count, 4, 0);
     if (result < 0) {
         return result;
     }
     for (int entry = 0; entry < count; entry++) {
-        result = stream->Write(&unknown_1158[entry], 4, 0);
+        result = stream->Write(&TaggedCells[entry], 4, 0);
         if (result < 0) {
             return result;
         }
     }
-    count = unknown_d0.Count();
+    count = PendingBridgeCells.Count();
     result = stream->Write(&count, 4, 0);
     if (result < 0) {
         return result;
     }
     for (int entry2 = 0; entry2 < count; entry2++) {
-        result = stream->Write(&unknown_d0[entry2], 4, 0);
+        result = stream->Write(&PendingBridgeCells[entry2], 4, 0);
         if (result < 0) {
             return result;
         }

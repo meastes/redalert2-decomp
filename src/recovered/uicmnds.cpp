@@ -112,7 +112,7 @@ bool __fastcall Group_Is_All_Selected(int group)
     for (int index = 0; index < count; index++) {
         TechnoClass *techno = Technos[index];
         if (techno != 0 && !techno->IsInLimbo) {
-            if (Is_Player_Side(techno) && !techno->unknown_77 && techno->unknown_1ac == group - 1) {
+            if (Is_Player_Side(techno) && !techno->IsSelected && techno->unknown_1ac == group - 1) {
                 return false;
             }
         }
@@ -235,7 +235,7 @@ void Command_Deploy()
             && building->House->Is_Player_Control()) {
             ObjectClass *object = CurrentObject[0];
             if (object != 0 && object->AbstractFlags.IsTechno && ((TechnoClass *)object)->unknown_slot199(9)) {
-                Voc_Play(Rules->unknown_64c, 1.0f, 0x2000, 0);
+                Voc_Play(Rules->DeploySound, 1.0f, 0x2000, 0);
             }
             return;
         }
@@ -273,7 +273,7 @@ void Command_Deploy()
         }
     }
     if (deployed) {
-        Voc_Play(Rules->unknown_64c, 1.0f, 0x2000, 0);
+        Voc_Play(Rules->DeploySound, 1.0f, 0x2000, 0);
     }
 }
 
@@ -303,7 +303,7 @@ void __fastcall Command_Guard()
             }
         }
         if (agreed) {
-            Voc_Play(Rules->unknown_644, 1.0f, 0x2000, 0);
+            Voc_Play(Rules->GuardSound, 1.0f, 0x2000, 0);
         }
     }
 }
@@ -328,7 +328,7 @@ void Command_Stop()
             }
         }
         if (agreed) {
-            Voc_Play(Rules->unknown_640, 1.0f, 0x2000, 0);
+            Voc_Play(Rules->StopSound, 1.0f, 0x2000, 0);
         }
     }
 }
@@ -367,7 +367,7 @@ void Unknown_006F5D10()
             }
         }
         if (agreed) {
-            Voc_Play(Rules->unknown_648, 1.0f, 0x2000, 0);
+            Voc_Play(Rules->ScatterSound, 1.0f, 0x2000, 0);
         }
     }
 }
@@ -388,7 +388,7 @@ void __fastcall Group_Assign(int group)
                 if (techno->unknown_1ac == group - 1) {
                     techno->unknown_1ac = -1;
                 }
-                if (techno->unknown_77) {
+                if (techno->IsSelected) {
                     techno->unknown_1ac = group - 1;
                 }
             }
@@ -424,10 +424,10 @@ bool __fastcall Unknown_006F5E80(int group)
     for (int index = Technos.Count() - 1; index >= 0; index--) {
         TechnoClass *techno = Technos[index];
         if (techno != 0 && !techno->IsInLimbo && Is_Player_Side(techno)) {
-            if (techno->unknown_1ac == group - 1 && !techno->unknown_77) {
+            if (techno->unknown_1ac == group - 1 && !techno->IsSelected) {
                 return false;
             }
-            if (techno->unknown_1ac != group - 1 && techno->unknown_77) {
+            if (techno->unknown_1ac != group - 1 && techno->IsSelected) {
                 return false;
             }
         }
@@ -463,7 +463,7 @@ void __fastcall Group_Select(int group)
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
         if (techno != 0 && !techno->IsInLimbo && techno->unknown_1ac == group - 1) {
-            if (Is_Player_Side(techno) && !techno->unknown_77) {
+            if (Is_Player_Side(techno) && !techno->IsSelected) {
                 techno->unknown_slot80();
                 techno->unknown_13c = CDTimerClass<FrameTimerClass>(Rules->RadarCombatFlashTime);
                 AllowVoice = false;
@@ -500,7 +500,7 @@ void __fastcall Group_Reselect(int group)
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
         if (techno != 0 && !techno->IsInLimbo && techno->unknown_1ac == group - 1) {
-            if (Is_Player_Side(techno) && !techno->unknown_77) {
+            if (Is_Player_Side(techno) && !techno->IsSelected) {
                 techno->unknown_slot80();
                 AllowVoice = false;
             }
@@ -529,7 +529,7 @@ void __fastcall Unknown_006F61F0(int group)
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
         if (techno != 0 && !techno->IsInLimbo && techno->unknown_1ac == group - 1) {
-            if (Is_Player_Side(techno) && !techno->unknown_77) {
+            if (Is_Player_Side(techno) && !techno->IsSelected) {
                 techno->unknown_slot80();
                 AllowVoice = false;
             }
@@ -947,7 +947,7 @@ static bool None_On_Screen(DynamicVectorClass<TechnoClass *> *list)
     int count = list->Count();
     for (int index = 0; index < count; index++) {
         TechnoClass *techno = (*list)[index];
-        if (Is_Combatant(techno) && !techno->unknown_77) {
+        if (Is_Combatant(techno) && !techno->IsSelected) {
             return false;
         }
     }
@@ -1120,7 +1120,7 @@ static bool None_Named_On_Screen(DynamicVectorClass<TechnoClass *> *list, Dynami
     int count = list->Count();
     for (int index = 0; index < count; index++) {
         TechnoClass *techno = (*list)[index];
-        if (unknown_matches_any_name(techno, *names) && !techno->unknown_77) {
+        if (unknown_matches_any_name(techno, *names) && !techno->IsSelected) {
             return false;
         }
     }

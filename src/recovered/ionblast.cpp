@@ -237,7 +237,7 @@ void IonBlastClass::AI()
                             }
 
                             VoxelLibrary *voxel;
-                            if (foot->Techno_Type_Class()->unknown_b0.unknown_00 != 0 && (voxel = foot->Techno_Type_Class()->unknown_b0.unknown_00, !voxel->LoadFailed) && *displacement >= 0) {
+                            if (foot->Techno_Type_Class()->Voxel.unknown_00 != 0 && (voxel = foot->Techno_Type_Class()->Voxel.unknown_00, !voxel->LoadFailed) && *displacement >= 0) {
 
                                 CoordStruct blast_coord = Coord;
                                 CoordStruct occupier_coord = occupier->Position_Coord_004f3f40();

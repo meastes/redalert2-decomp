@@ -86,17 +86,17 @@ struct Velocity_m26 {
 int BuildingClass::Do_MISSION_MISSILE()
 {
     if (Type->NukeSilo) {
-        switch (unknown_a8) {
+        switch (Status) {
         case 0:
             unknown_5ad = false;
             Begin_Mode(2);
-            unknown_a8 = 1;
+            Status = 1;
             unknown_444 = Create_Animation_At_Object_00438b80(House, &Map[House->NukeDest], 0, "PSIWARN");
             // fall through
         case 1:
             if (unknown_5ad) {
                 Begin_Mode(4);
-                unknown_a8 = 2;
+                Status = 2;
             }
             // fall through
         case 2: {
@@ -104,7 +104,7 @@ int BuildingClass::Do_MISSION_MISSILE()
                 // Native guard (NativeFix2): no super weapon recorded (SuperClass::Place
                 // stores it before the mission starts); end the launch instead of reading
                 // SuperWeaponTypes[-1]. Same test as the unknown_4cc != -1 check below.
-                unknown_a8 = 3;
+                Status = 3;
                 return 1;
             }
             AbstractClass *target = &Map[House->NukeDest];
@@ -128,18 +128,18 @@ int BuildingClass::Do_MISSION_MISSILE()
                     unknown_sin_4ba480(pitch) * 10.0);
                 if (!bullet->unknown_slot118(launch, velocity)) {
                     delete bullet;
-                    unknown_a8 = 3;
+                    Status = 3;
                     return 1;
                 }
                 AnimClass *anim = new AnimClass(Rules->NukeTakeOff, launch, 0, 1, 0x600, 0);
                 anim->ZAdjust = -100;
-                unknown_a8 = 3;
+                Status = 3;
             }
             return 1;
         }
         case 3:
             Begin_Mode(5);
-            unknown_a8 = 4;
+            Status = 4;
             return 6;
         case 4:
             Begin_Mode(1);
@@ -156,7 +156,7 @@ int BuildingClass::Do_MISSION_MISSILE()
     }
 
     if (Type->EMPulseCannon) {
-        switch (unknown_a8) {
+        switch (Status) {
         case 0: {
             UnknownFacingDir aim = unknown_slot285(&Map[House->EMPDest]);
             UnknownFacingDir barrel = unknown_slot170(&Map[House->EMPDest]);
@@ -165,13 +165,13 @@ int BuildingClass::Do_MISSION_MISSILE()
             } else if (Facing_Turning_m26(unknown_2c8.Current(), barrel)) {
                 unknown_2c8.Set_Desired(barrel);
             } else {
-                unknown_a8 = 1;
+                Status = 1;
             }
             return 1;
         }
         case 1:
             new AnimClass(AnimTypes[Anim_From_Name("PULSBALL")], unknown_slot43(0), 0, 1, 0x600, 0);
-            unknown_a8 = 2;
+            Status = 2;
             return 32;
         case 3:
             unknown_2c8.Set_Desired(UnknownFacingDir(0x4000));
@@ -228,7 +228,7 @@ int BuildingClass::Do_MISSION_MISSILE()
                 }
                 int random_value = NonCriticalRandomNumber();
                 Voc_Play_At(weapon->unknown_bc.Pick(random_value), unknown_slot43(0), 0);
-                unknown_a8 = 3;
+                Status = 3;
                 return 1;
             }
             if (bullet) {

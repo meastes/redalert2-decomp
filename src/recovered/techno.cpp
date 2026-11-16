@@ -242,7 +242,7 @@ bool TechnoClass::unknown_slot155()
 bool TechnoClass::unknown_slot24()
 {
     if (Strength > 0 && !IsInLimbo && unknown_32d && Kind_Of() != 6 && unknown_373 &&
-            Techno_Type_Class()->unknown_200) {
+            Techno_Type_Class()->IsSelectable) {
         return House->Is_Player_Control() ? true : false;
     }
     return false;
@@ -308,7 +308,7 @@ int TechnoClass::What_Weapon_Should_I_Use(AbstractClass *target)
     if (object->In_Air()) {
         ground = false;
     }
-    if (!object->unknown_79 && ground) {
+    if (!object->IsOnBridge && ground) {
         int which = unknown_slot175(object);
         if (which == -1) {
             which = 0;
@@ -923,16 +923,16 @@ inline void __fastcall Draw_Single_Selection_Bracket(::Coord const &from, ::Coor
 }
 // Read accessors of the tail tests (their sites decide the bracket refusals above).
 inline bool Flag_380(TechnoClass const *techno) { return techno->unknown_380; }
-inline bool Is_Selected(TechnoClass const *techno) { return techno->unknown_77; }
+inline bool Is_Selected(TechnoClass const *techno) { return techno->IsSelected; }
 void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
 {
     bool sensed_underground = false;
     if (!unknown_325) {
         CellClass *cell = static_cast<CellClass *>(Get_Cell_Ptr());
-        if (!unknown_77 && Get_Height_AGL() < -20 && cell && cell->Is_Sensed(PlayerPtr->ArrayIndex)) {
+        if (!IsSelected && Get_Height_AGL() < -20 && cell && cell->Is_Sensed(PlayerPtr->ArrayIndex)) {
             sensed_underground = true;
         }
-        if (unknown_68 && unknown_38 && !Map[unknown_slot104()].unknown_47cb50()) {
+        if (BombVisible && unknown_38 && !Map[unknown_slot104()].unknown_47cb50()) {
             Point2D bomb_point;
             TacticalMap->Coord_To_Pixel(unknown_slot42(), bomb_point);
             CC_Draw_Shape(LogicalSurface, static_cast<ConvertClass *>(unknown_convert_8323c8),
@@ -954,7 +954,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
         if (!IsDisguisedAs(PlayerPtr) && unknown_slot25(false, 0) != 5) {
             unknown_slot250(point, window);
         }
-        if (unknown_77 || sensed_underground) {
+        if (IsSelected || sensed_underground) {
             if (Kind_Of() == 6) {
                 int color = 15;
                 if (Get_Height_AGL() < -4) {
@@ -1046,7 +1046,7 @@ void TechnoClass::unknown_slot247(int arg1, int arg2)
 // selected building's selection box before the building body.
 void TechnoClass::unknown_slot65(int point, int cliprect)
 {
-    if (Kind_Of() == 6 && unknown_77 && Kind_Of() != 15) {
+    if (Kind_Of() == 6 && IsSelected && Kind_Of() != 15) {
         int color = 15;
         if (Get_Height_AGL() < -4) {
             color = 12;
@@ -1149,14 +1149,14 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
         Point2D offset;
         int length;
         if (Kind_Of() == 15) {
-            if (unknown_77) {
+            if (IsSelected) {
                 CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_SelectShapes,
                               1, point + Point2D(11, -25), window, 0xE00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
             offset = Point2D(-5, -24);
             length = 8;
         } else {
-            if (unknown_77) {
+            if (IsSelected) {
                 CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_SelectShapes,
                               0, point + Point2D(1, -26), window, 0xE00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
@@ -1725,7 +1725,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     if(tech->Control()->unknown_04) return false;
     if(object->Get_Height_AGL()<-20) return false;
     CoordStruct objectcoord=object->Center_Coord();
-    if(zone!=-1 && Map.Zone(Coord_Cell(objectcoord),Techno_Type_Class()->MovementZone,object->unknown_79)!=zone) return false;
+    if(zone!=-1 && Map.Zone(Coord_Cell(objectcoord),Techno_Type_Class()->MovementZone,object->IsOnBridge)!=zone) return false;
     if((Kind_Of()!=15 || !static_cast<InfantryClass *>(this)->unknown_5c0) && !Techno_Type_Class()->AttackFriendlies && House->Is_Ally(tech)) {
         if(unknown_6c16f0(-1)>=0 && !engineer) return false;
         if(object->Health_Ratio()==Rules->unknown_1360) return false;
@@ -1762,7 +1762,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     int otype=object->Kind_Of();
     if(!((1<<otype)&mask) && (!(mask&2) || !object->Considered_Vehicle())) return false;
     TechnoTypeClass *tclass=object->Techno_Type_Class();
-    if(!tclass->unknown_201) return false;
+    if(!tclass->IsLegalTarget) return false;
     if(unknown_game_mode_a3d298!=0 && tech->House->Type->MultiplayPassive) {
         if(House->Is_Human_Player() || object->Kind_Of()!=6 || Kind_Of()!=15) return false;
         InfantryClass *inf=static_cast<InfantryClass *>(this);
@@ -1774,7 +1774,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
         if(!inf->Type->Occupier || !static_cast<BuildingClass *>(object)->CanBeOccupiedBy(this)) occupy=false; else occupy=true;
         if(unknown_game_mode_a3d298==0 || defense || (!capture && !occupy)) return false;
     }
-    if(tclass->unknown_202 && (object->Kind_Of()!=6 || tech->House->Type->MultiplayPassive)) {
+    if(tclass->IsInsignificant && (object->Kind_Of()!=6 || tech->House->Type->MultiplayPassive)) {
         if(House->Is_Human_Player() || object->Kind_Of()!=6 || Kind_Of()!=15) return false;
         InfantryClass *inf=static_cast<InfantryClass *>(this);
         bool defense=false;
@@ -1813,7 +1813,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     if((method&0x40) && !tclass->Storage) return false;
     CellClass *here=&Map[Position_Coord_004f3f40()];
     CellClass *there=&Map[object->Position_Coord_004f3f40()];
-    if((here->unknown_140&0x100) && (there->unknown_140&0x100) && unknown_79!=object->unknown_79) return false;
+    if((here->unknown_140&0x100) && (there->unknown_140&0x100) && IsOnBridge!=object->IsOnBridge) return false;
     *value=(int)Target_Threat(object,*coord);
     if(Techno_Type_Class()->VHPScan==1) {
         if(object->unknown_70<=0) *value=*value/2;
@@ -2034,7 +2034,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
         for (index=0;index<Technos.Count();++index) {
             TechnoClass *object=Technos[index];
             int value=0;
-            if ((!House->Is_Ally(object) || unknown_6c16f0(-1)<0 || (!House->Is_Human_Player() && this && Kind_Of()==15 && (this && Kind_Of()==15 ? static_cast<InfantryClass *>(this):0)->Type->Engineer)) && object->unknown_80==2 && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(object->House)) && Evaluate_Object(method,mask,-1,object,&value,zone,coord) && value>best_value) {best_object=object;best_value=value;}
+            if ((!House->Is_Ally(object) || unknown_6c16f0(-1)<0 || (!House->Is_Human_Player() && this && Kind_Of()==15 && (this && Kind_Of()==15 ? static_cast<InfantryClass *>(this):0)->Type->Engineer)) && object->Layer==2 && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(object->House)) && Evaluate_Object(method,mask,-1,object,&value,zone,coord) && value>best_value) {best_object=object;best_value=value;}
         }
     }
     return best_object;
@@ -2075,10 +2075,10 @@ void TechnoClass::Clicked_As_Target(int arg1)
 
 bool TechnoClass::unknown_slot158()
 {
-    if (Techno_Type_Class()->unknown_b0.unknown_00 == 0) {
+    if (Techno_Type_Class()->Voxel.unknown_00 == 0) {
         return false;
     }
-    return *(char const *)Techno_Type_Class()->unknown_b0.unknown_00 == 0 ? true : false;
+    return *(char const *)Techno_Type_Class()->Voxel.unknown_00 == 0 ? true : false;
 }
 
 
@@ -2632,7 +2632,7 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
             water=(reinterpret_cast<CellClass *>(techno->Get_Cell_Ptr())->unknown_ec==2)
                 || (reinterpret_cast<CellClass *>(techno->Get_Cell_Ptr())->unknown_ec==6);
             if(techno->In_Air()) water=false;
-            if(techno->unknown_79) water=false;
+            if(techno->IsOnBridge) water=false;
             else if(water && unknown_slot175(static_cast<ObjectClass *>(target))==-1) goto ILLEGAL;
             if(target->On_Ground() && !water && Techno_Type_Class()->LandTargeting==1) return 5;
         } else {
@@ -2670,7 +2670,7 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
             if(warhead->BombDisarm && techno->unknown_38==0) return 5;
             if(warhead->IvanBomb && techno->unknown_38!=0) return 5;
             if(techno->unknown_325) return 5;
-            if(unknown_79!=techno->unknown_79) {
+            if(IsOnBridge!=techno->IsOnBridge) {
                 if(Get_Cell_Ptr() && (reinterpret_cast<CellClass *>(Get_Cell_Ptr())->unknown_140&0x100) && !In_Air()
                     && techno->Get_Cell_Ptr() && (reinterpret_cast<CellClass *>(techno->Get_Cell_Ptr())->unknown_140&0x100)) return 5;
                 int mine=Position_Coord_004f3f40().Z;
@@ -3331,7 +3331,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
             }
             int planar = Planar_006ca890(displacement);
             valid = Calculate_Projectile_Pitch(Should_Use_High_Arc(which), speed, planar, height, gravity, &pitch);
-        } else if (bullet->Type->unknown_206) {
+        } else if (bullet->Type->IsVoxel) {
             if (target->Center_Coord().Z < Center_Coord().Z) {
                 pitch = UnknownFacingDir(0x8000);
             } else {
@@ -3369,8 +3369,8 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
             bullet->Release();
             bullet = 0;
           } else {
-            if (bullet->Type->Inviso && object != 0 && object->unknown_79) {
-                bullet->unknown_79 = true;
+            if (bullet->Type->Inviso && object != 0 && object->IsOnBridge) {
+                bullet->IsOnBridge = true;
             }
             if (unknown_slot232() && Techno_Type_Class()->TurretRecoil) {
                 Recoil_Start_006ca890(unknown_330);
@@ -3481,7 +3481,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
         }
     }
     if (weapon->unknown_10e) {
-        if (Techno_Type_Class()->ReselectIfLimboed && unknown_77) {
+        if (Techno_Type_Class()->ReselectIfLimboed && IsSelected) {
             HouseClass *house = Owning_House();
             if (house->Is_Player_Control() && target->Kind_Of() == 15) {
                 unknown_381 = true;
@@ -3643,7 +3643,7 @@ int TechnoClass::unknown_slot28(ObjectClass *object, bool arg2)
         if (unknown_32c && unknown_372) {
             return 0;
         }
-        if (!object->CanBeSelected() || object->unknown_77) {
+        if (!object->CanBeSelected() || object->IsSelected) {
             return 0;
         }
         return 7;
@@ -3713,7 +3713,7 @@ attack:
             bool enemy = !House->Is_Ally((TechnoClass *)object) || friendly;
             bool owned_friendly = owned && friendly;
             if (House->Is_Player_Control()) {
-                if (force_fire || (enemy && (usable || owned_friendly) && (object->Class_Of()->unknown_201 || can208))) {
+                if (force_fire || (enemy && (usable || owned_friendly) && (object->Class_Of()->IsLegalTarget || can208))) {
                     bool infiltrate = Kind_Of() == 15 && ((InfantryTypeClass *)type)->Infiltrate;
                     if ((unknown_slot163() || infiltrate) && (Can_Player_Move() || unknown_slot212(object, weapon))) {
                         bool special = false;
@@ -3738,7 +3738,7 @@ attack:
     if (unknown_32c && unknown_372) {
         return 0;
     }
-    if (!object->CanBeSelected() || object->unknown_77 || object->unknown_slot111()) {
+    if (!object->CanBeSelected() || object->IsSelected || object->unknown_slot111()) {
         return 0;
     }
     return 7;
@@ -3922,7 +3922,7 @@ bool TechnoClass::unknown_slot186()
                 break;
             }
             if (type->Passengers > 0) {
-                if (unknown_79) {
+                if (IsOnBridge) {
                     break;
                 }
                 Cell center = unknown_slot104();
@@ -4462,7 +4462,7 @@ void TechnoClass::Record_The_Kill(TechnoClass *killer)
     }
     switch (Kind_Of()) {
     case 6:
-        if (Techno_Type_Class()->unknown_202) {
+        if (Techno_Type_Class()->IsInsignificant) {
             break;
         }
         if (((BuildingClass *)this)->unknown_434 != -1) {
@@ -4511,8 +4511,8 @@ Cell TechnoClass::unknown_6cf130(AbstractClass *target)
     if(target) cell=Cell(target->Center_Coord());
     else cell=Cell(Center_Coord());
     int movement_zone=Techno_Type_Class()->MovementZone;
-    int zone=movement_zone!=-1 ? Map.Zone(cell,movement_zone,unknown_79) : -1;
-    return Map.Nearby_Location(cell,speed,zone,movement_zone,unknown_79,Point2D(1,1),0,0,0,1,Cell(0,0),0);
+    int zone=movement_zone!=-1 ? Map.Zone(cell,movement_zone,IsOnBridge) : -1;
+    return Map.Nearby_Location(cell,speed,zone,movement_zone,IsOnBridge,Point2D(1,1),0,0,0,1,Cell(0,0),0);
 }
 
 
@@ -4525,11 +4525,11 @@ void TechnoClass::unknown_slot252(bool quiet)
 {
     if (unknown_1b8 == 2 || unknown_1b8 == 1) {
         unknown_1b8 = 3;
-        unknown_1bc.Value = Rules->unknown_548 - 1;
+        unknown_1bc.Value = Rules->CloakingStages - 1;
         unknown_1bc.Set_Rate(Techno_Type_Class()->CloakingSpeed);
         unknown_1bc.unknown_14 = -1;
         if (!quiet) {
-            Voc_Play_At(Rules->unknown_5c0, CoordStruct(Coord), 0);
+            Voc_Play_At(Rules->CloakSound, CoordStruct(Coord), 0);
         }
     }
 }
@@ -4549,7 +4549,7 @@ void TechnoClass::unknown_slot253(bool quiet)
         unknown_1bc.Set_Rate(Techno_Type_Class()->CloakingSpeed);
         unknown_1bc.unknown_14 = 1;
         if (!quiet) {
-            Voc_Play_At(Rules->unknown_5c0, CoordStruct(Coord), 0);
+            Voc_Play_At(Rules->CloakSound, CoordStruct(Coord), 0);
         }
     }
 }
@@ -4616,7 +4616,7 @@ int TechnoClass::unknown_slot25(bool arg1, int arg2)
     }
     int stage = unknown_1bc.Value;
     if (stage > 0) {
-        int level = (int)((double)stage / Rules->unknown_548 * 256.0);
+        int level = (int)((double)stage / Rules->CloakingStages * 256.0);
         if (level < 64) {
             return 1;
         }
@@ -4647,7 +4647,7 @@ bool TechnoClass::Is_Z_Fudge_Bridge()
 {
     Cell position = unknown_slot104();
     UnknownCellClass *here = (UnknownCellClass *)&Map[position];
-    if (here != 0 && !unknown_79) {
+    if (here != 0 && !IsOnBridge) {
         UnknownCellClass *south = (UnknownCellClass *)&Map[(AdjacentCell[4] + position)];
         UnknownCellClass *north = (UnknownCellClass *)&Map[(AdjacentCell[0] + position)];
         UnknownCellClass *east = (UnknownCellClass *)&Map[(AdjacentCell[2] + position)];
@@ -4675,7 +4675,7 @@ bool TechnoClass::Was_Z_Fudge_Bridge()
 {
     Cell position = unknown_slot104();
     UnknownCellClass *here = (UnknownCellClass *)&Map[position];
-    if (here != 0 && !unknown_79) {
+    if (here != 0 && !IsOnBridge) {
         UnknownCellClass *south = (UnknownCellClass *)&Map[(AdjacentCell[4] + position)];
         UnknownCellClass *north = (UnknownCellClass *)&Map[(AdjacentCell[0] + position)];
         UnknownCellClass *east = (UnknownCellClass *)&Map[(AdjacentCell[2] + position)];
@@ -4756,7 +4756,7 @@ int TechnoClass::Get_Z_Fudge_Tunnel()
 {
     int fudge = 0;
     Cell cell = unknown_slot104();
-    if (!unknown_79) {
+    if (!IsOnBridge) {
         CellClass *north = &Map[Adjacent_Cell(cell, DIR_N)];
         CellClass *west = &Map[Adjacent_Cell(cell, DIR_W)];
         Cell tuncell = unknown_cell_ac0148;
@@ -4801,7 +4801,7 @@ int TechnoClass::Get_Z_Fudge_Cliff()
     int result = 0;
     Cell position = unknown_slot104();
     UnknownCellClass *here = (UnknownCellClass *)&Map[position];
-    if (!unknown_79) {
+    if (!IsOnBridge) {
         UnknownCellClass *next = (UnknownCellClass *)&Map[(AdjacentCell[3] + unknown_slot104())];
         if (next != 0) {
             if (next->unknown_11b - here->unknown_11b >= 4) {
@@ -5560,7 +5560,7 @@ void TechnoClass::Detach(AbstractClass *target, bool all)
         if (Has_Suspended_Mission()) {
             Restore_Mission();
             if (Kind_Of() == 2 && Mission == 0x19) {
-                unknown_a8 = 0;
+                Status = 0;
                 ((AircraftClass *)this)->unknown_5ba = false;
             }
         }
@@ -5769,7 +5769,7 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
     if (!attacker || House->Is_Ally(attacker) || House->Is_Human_Player() || attacker->IsInLimbo) return;
     if (!unknown_game_mode_a3d298 && unknown_slot163()) return;
     if (attacker->Kind_Of()!=15 && attacker->Kind_Of()!=1) return;
-    if (Techno_Type_Class()->unknown_202) return;
+    if (Techno_Type_Class()->IsInsignificant) return;
     bool is_foot;
     if (attacker) is_foot=attacker->AbstractFlags.IsFoot;
     if (attacker && is_foot && static_cast<FootClass *>(attacker)->unknown_540!=0) return;
@@ -6819,8 +6819,8 @@ void TechnoClass::Look(bool arg1, bool arg2)
         TechnoTypeClass *type = Techno_Type_Class();
         if ((Veterancy.Is_Veteran() && type->VeteranAbilities.Ability[5])
             || (Veterancy.Is_Elite() && (type->VeteranAbilities.Ability[5] || type->EliteAbilities.Ability[5]))) {
-            if (Rules->unknown_5a0 != 0.0) {
-                sight = (int)(sight * Rules->unknown_5a0);
+            if (Rules->VeteranSight != 0.0) {
+                sight = (int)(sight * Rules->VeteranSight);
             }
         }
     }
@@ -6854,8 +6854,8 @@ void TechnoClass::unknown_slot262(bool arg1, bool arg2, bool arg3, HouseClass *h
         TechnoTypeClass *type = Techno_Type_Class();
         if ((Veterancy.Is_Veteran() && type->VeteranAbilities.Ability[5])
             || (Veterancy.Is_Elite() && (type->VeteranAbilities.Ability[5] || type->EliteAbilities.Ability[5]))) {
-            if (Rules->unknown_5a0 != 0.0) {
-                sight = (int)(sight * Rules->unknown_5a0);
+            if (Rules->VeteranSight != 0.0) {
+                sight = (int)(sight * Rules->VeteranSight);
             }
         }
     }
@@ -6926,7 +6926,7 @@ inline double Rock_Length(Vector3 const &v)
 }
 void TechnoClass::unknown_slot223(CoordStruct const &coord, float force)
 {
-    if (Techno_Type_Class()->unknown_b0.unknown_00 && !Techno_Type_Class()->unknown_b0.unknown_00->LoadFailed) {
+    if (Techno_Type_Class()->Voxel.unknown_00 && !Techno_Type_Class()->Voxel.unknown_00->LoadFailed) {
         CoordStruct pos=Coord;
         Vector3 vec1;
         vec1.X=pos.X-coord.X;
@@ -7664,7 +7664,7 @@ void __fastcall Unknown_006D7C80(AbstractClass *target)
         if (techno->unknown_228 == target) {
             techno->Restore_Mission();
             if (techno->Kind_Of() == 2 && techno->Mission == 0x19) {
-                techno->unknown_a8 = 0;
+                techno->Status = 0;
                 ((AircraftClass *)techno)->unknown_5ba = false;
             }
             if (techno->unknown_228 == target) {

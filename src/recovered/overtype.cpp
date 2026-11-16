@@ -102,10 +102,10 @@ OverlayTypeClass::OverlayTypeClass(char const *ini_name) :
     IsARock(false)
 {
     AbstractClass::Create_ID();
-    unknown_1ff = true;
-    unknown_200 = false;
-    unknown_202 = true;
-    unknown_205 = false;
+    IsStealthy = true;
+    IsSelectable = false;
+    IsInsignificant = true;
+    IsFootprint = false;
     OverlayTypes.Add(this);
     ArrayIndex = OverlayTypes.ID(this);
 }
@@ -210,14 +210,14 @@ void __fastcall OverlayTypeClass::Init(int theater)
         OverlayTypeClass *overlay = OverlayTypes[index];
         if (!overlay->DemandLoad) {
             char fullname[512];
-            if (overlay->unknown_1fc) {
+            if (overlay->IsTheater) {
                 _makepath(fullname, 0, 0, overlay->unknown_1c8, Theaters[theater].Suffix);
                 overlay->ImageData = (void *)MixFileClass::Retrieve(fullname);
                 if (overlay->ImageData == 0) {
                     Generic_Naming_Convention(fullname);
                     overlay->ImageData = (void *)MixFileClass::Retrieve(fullname);
                 }
-            } else if (overlay->unknown_207) {
+            } else if (overlay->IsNewTheater) {
                 _makepath(fullname, 0, 0, overlay->unknown_1c8, ".SHP");
                 Theater_Naming_Convention(fullname, theater);
                 overlay->ImageData = (void *)MixFileClass::Retrieve(fullname);
@@ -226,7 +226,7 @@ void __fastcall OverlayTypeClass::Init(int theater)
                     overlay->ImageData = (void *)MixFileClass::Retrieve(fullname);
                 }
             }
-        } else if ((overlay->unknown_1fc || overlay->unknown_207) && overlay->ImageData != 0 && overlay->ImageAllocated) {
+        } else if ((overlay->IsTheater || overlay->IsNewTheater) && overlay->ImageData != 0 && overlay->ImageAllocated) {
             operator delete(overlay->ImageData);
             overlay->ImageData = 0;
             overlay->ImageAllocated = false;
@@ -274,7 +274,7 @@ bool OverlayTypeClass::Read_INI(CCINIClass &ini)
                 Land = 5;
             }
         }
-        if (!unknown_1fc && !DemandLoad) {
+        if (!IsTheater && !DemandLoad) {
             char fullname[512];
             _makepath(fullname, 0, 0, image, ".SHP");
             ImageData = (void *)MixFileClass::Retrieve(fullname);
@@ -334,7 +334,7 @@ HRESULT __stdcall OverlayTypeClass::Load(IStream *stream)
         Swizzler.Swizzle((void **)&CellAnim);
         if (!DemandLoad) {
             char fullname[512];
-            if (unknown_1fc) {
+            if (IsTheater) {
                 _makepath(fullname, 0, 0, unknown_1c8, Theaters[unknown_id_source_a3d290->Theater].Suffix);
             } else {
                 _makepath(fullname, 0, 0, unknown_1c8, ".SHP");
@@ -423,9 +423,9 @@ void *OverlayTypeClass::Get_Image_Data() const
     if (ImageData == 0 && DemandLoad) {
         Debug_Printf("Demand loading image for %s\n", (char const *)Name);
         char fullname[512];
-        if (unknown_1fc) {
+        if (IsTheater) {
             _makepath(fullname, 0, 0, unknown_1c8, Theaters[unknown_id_source_a3d290->Theater].Suffix);
-        } else if (unknown_207) {
+        } else if (IsNewTheater) {
             _makepath(fullname, 0, 0, unknown_1c8, ".SHP");
             Theater_Naming_Convention(fullname, unknown_id_source_a3d290->Theater);
         }

@@ -83,7 +83,7 @@ ParasiteClass::ParasiteClass(AbstractClass *owner)
     unknown_38 = CDTimerClass<FrameTimerClass>();
     unknown_2c = CDTimerClass<FrameTimerClass>();
     unknown_54 = false;
-    unknown_4c = 0;
+    GrappleAnimFrame = 0;
     unknown_50 = 0;
     Victim = 0;
     unknown_48 = 0;
@@ -121,7 +121,7 @@ void ParasiteClass::Compute_CRC(WWCRCEngine &crc) const
         crc(Victim->Fetch_ID());
     }
     crc((long)unknown_48);
-    crc((long)unknown_4c);
+    crc((long)GrappleAnimFrame);
     crc((long)unknown_50);
     crc(unknown_54);
 }
@@ -132,7 +132,7 @@ void ParasiteClass::Compute_CRC(WWCRCEngine &crc) const
 
 void ParasiteClass::Unknown_006064C0()
 {
-    unknown_4c = 0;
+    GrappleAnimFrame = 0;
     unknown_50 = 0;
     unknown_48 = 0;
     if (Victim != 0) {
@@ -193,7 +193,7 @@ HRESULT __stdcall ParasiteClass::GetClassID(GUID *classid)
 void ParasiteClass::Reset_Grapple_Counters_006066a0()
 {
     unknown_50 = 0;
-    unknown_4c = 0;
+    GrappleAnimFrame = 0;
 }
 
 
@@ -227,12 +227,12 @@ bool ParasiteClass::Grapple_Frame_006066B0()
     }
     if (++unknown_50 >= delay) {
         unknown_50 = 0;
-        if (++unknown_4c >= 10) {
+        if (++GrappleAnimFrame >= 10) {
             return true;
         }
         if (Victim != 0) {
             ((AnimClass *)Victim)->Set_Rate(0x80);
-            ((AnimClass *)Victim)->Stage = unknown_4c + Dir_To_8(dir) * 10 + base;
+            ((AnimClass *)Victim)->Stage = GrappleAnimFrame + Dir_To_8(dir) * 10 + base;
         }
     }
     return false;
@@ -298,7 +298,7 @@ void ParasiteClass::Unknown_00606780()
                 Reset_Grapple_Counters_006066a0();
                 Grapple_Frame_006066B0();
             }
-            double angle = unknown_4c * sign * 0.3141592653589793;
+            double angle = GrappleAnimFrame * sign * 0.3141592653589793;
             unknown_28->unknown_280 = Fast_Sin(angle) * Grapple_Angle_Scale_007a7d00;
             break;
         }
@@ -386,7 +386,7 @@ void __fastcall Make_Wakes_00606E10(FootClass *victim, CoordStruct coord)
         double along = unknown_id_source_a3d290->Random()(-180, 180);
         double across = unknown_id_source_a3d290->Random()(-64, 64);
         CoordStruct spot = coord + CoordStruct((int)(along * cosine - across * sine), (int)(along * sine + across * cosine), 0);
-        new AnimClass(Rules->unknown_09c, spot, 0, 1, 0x600, 0);
+        new AnimClass(Rules->Wake, spot, 0, 1, 0x600, 0);
     }
 }
 

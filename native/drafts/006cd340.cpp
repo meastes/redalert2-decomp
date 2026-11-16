@@ -37,7 +37,7 @@ bool TechnoClass::unknown_slot186()
                 break;
             }
             if (type->Passengers > 0) {
-                if (unknown_79) {
+                if (IsOnBridge) {
                     break;
                 }
                 Cell center = unknown_slot104();

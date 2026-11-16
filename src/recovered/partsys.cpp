@@ -27,16 +27,16 @@
 ParticleSystemClass::ParticleSystemClass(ParticleSystemTypeClass *type, CoordStruct const &coord, AbstractClass *target,
                                          ObjectClass *owner, CoordStruct const &target_coord) :
     Class(type),
-    unknown_9c(0, 0, 0),
+    CoordOffset(0, 0, 0),
     TargetCoord(unknown_geometry_l),
     Owner(0),
     unknown_d0(0),
-    unknown_d4((float)Class->SpawnFrames),
+    SpawnFrames((float)Class->SpawnFrames),
     Lifetime(Class->Lifetime),
-    unknown_dc(Class->SparkSpawnFrames),
-    unknown_e0(0x1d),
+    SparkSpawnFrames(Class->SparkSpawnFrames),
+    SparkRadius(0x1d),
     unknown_e4(false),
-    unknown_e5(false)
+    IsRandomSparkDirection(false)
 {
     AbstractClass::Create_ID();
     ParticleSystems.Add(this);
@@ -65,7 +65,7 @@ ParticleSystemClass::ParticleSystemClass(ParticleSystemTypeClass *type, CoordStr
     ObjectClass::Unlimbo(&place, 0);
     if (Owner != 0) {
         CoordStruct center = Coord;
-        unknown_9c = center - Owner->Center_Coord();
+        CoordOffset = center - Owner->Center_Coord();
     }
     ObjectPtrTracker.Add(this);
 }
@@ -80,12 +80,12 @@ ParticleSystemClass::ParticleSystemClass() :
     TargetCoord(unknown_geometry_l),
     Owner(0),
     unknown_d0(0),
-    unknown_d4(0),
+    SpawnFrames(0),
     Lifetime(0),
-    unknown_dc(0),
-    unknown_e0(0),
+    SparkSpawnFrames(0),
+    SparkRadius(0),
     unknown_e4(false),
-    unknown_e5(false)
+    IsRandomSparkDirection(false)
 {
     Particles.Clear();
     ParticleSystems.Add(this);
@@ -127,7 +127,7 @@ void ParticleSystemClass::Draw_It(Point2D const &point, Rect const &window)
             : ((1.0f < (float)Particles.Count() / Class->ParticleCap) ? 1.0f : (float)Particles.Count() / Class->ParticleCap);
         int size = ratio * Class->LightSize;
         SpotLightClass *light = new SpotLightClass(Coord, size);
-        light->unknown_0c = unknown_e0;
+        light->unknown_0c = SparkRadius;
         light->unknown_func_5ddb90();
         delete light;
     }
@@ -233,7 +233,7 @@ void ParticleSystemClass::Gas_AI()
     }
     for (index = Particles.Count() - 1; index >= 0; index--) {
         ParticleClass *particle = Particles[index];
-        if (particle->unknown_121) {
+        if (particle->IsToDie) {
             ParticleTypeClass *type = particle->Class;
             if (type->NextParticle != -1) {
                 CoordStruct position = particle->Coord;
@@ -268,8 +268,8 @@ inline Vector3 operator*(float scale,Vector3 const &vector)
 }
 void ParticleSystemClass::Spark_AI()
 {
-    if (unknown_dc>0) {
-        if (unknown_dc==1 || Random_Double(0.0,1.0)<=Class->SpawnSparkPercentage) {
+    if (SparkSpawnFrames>0) {
+        if (SparkSpawnFrames==1 || Random_Double(0.0,1.0)<=Class->SpawnSparkPercentage) {
             int random=unknown_id_source_a3d290->Random();
             int count=Class->ParticleCap/2+abs(random)%(Class->ParticleCap/2);
             ParticleTypeClass *held=ParticleTypes[Class->HoldsWhat];
@@ -284,41 +284,41 @@ void ParticleSystemClass::Spark_AI()
             while (count>0) {
                 ParticleClass *particle=Spawn_Particle(Position_Coord_004f3f40(),Position_Coord_004f3f40());
                 ParticleTypeClass const *type=particle->Class;
-                Vector3 &direction=particle->unknown_fc;
-                particle->unknown_fc.X=(float)(int(unknown_id_source_a3d290->Random())%type->XVelocity);
-                particle->unknown_fc.Y=(float)(int(unknown_id_source_a3d290->Random())%type->YVelocity);
-                particle->unknown_fc.Z=(float)(type->MinZVelocity+abs(int(unknown_id_source_a3d290->Random()))%type->ZVelocityRange);
+                Vector3 &direction=particle->MovementDirection;
+                particle->MovementDirection.X=(float)(int(unknown_id_source_a3d290->Random())%type->XVelocity);
+                particle->MovementDirection.Y=(float)(int(unknown_id_source_a3d290->Random())%type->YVelocity);
+                particle->MovementDirection.Z=(float)(type->MinZVelocity+abs(int(unknown_id_source_a3d290->Random()))%type->ZVelocityRange);
                 float speed=direction.Length();
-                if (unknown_e5) particle->unknown_fc=spark+particle->unknown_fc;
+                if (IsRandomSparkDirection) particle->MovementDirection=spark+particle->MovementDirection;
                 else { Vector3 &spawn_direction=(Vector3 &)Class->SpawnDirection;
-                    particle->unknown_fc=spawn_direction+direction; }
-                particle->unknown_fc=Normalize(particle->unknown_fc);
-                particle->unknown_fc=speed*particle->unknown_fc;
+                    particle->MovementDirection=spawn_direction+direction; }
+                particle->MovementDirection=Normalize(particle->MovementDirection);
+                particle->MovementDirection=speed*particle->MovementDirection;
                 --count;
             }
             if (Options.DetailLevel==2) {
-                if (unknown_dc==Class->SparkSpawnFrames && Class->LightSize>0 && !Class->OneFrameLight)
+                if (SparkSpawnFrames==Class->SparkSpawnFrames && Class->LightSize>0 && !Class->OneFrameLight)
                     new SpotLightClass(Position_Coord_004f3f40(),Class->LightSize);
             }
         }
-        --unknown_dc;
-        if (unknown_dc<=0) unknown_e4=true;
+        --SparkSpawnFrames;
+        if (SparkSpawnFrames<=0) unknown_e4=true;
         double chance=Random_Double(0.0,1.0);
         if (chance<0.3) {
             int radius;
-            if(unknown_e0-3<=17) radius=17; else radius=unknown_e0-3;
-            unknown_e0=radius;
+            if(SparkRadius-3<=17) radius=17; else radius=SparkRadius-3;
+            SparkRadius=radius;
         } else if (chance<0.6) {
-            int radius=unknown_e0+3;
+            int radius=SparkRadius+3;
             if (radius>=41) radius=41;
-            unknown_e0=radius;
+            SparkRadius=radius;
         }
     }
     int index;
     for (index=0;index<Particles.Count();++index) Particles[index]->Behavior_AI();
     for (index=Particles.Count()-1;index>=0;--index) {
         ParticleClass *particle=Particles[index];
-        if (particle->unknown_121) particle->Delete_Me();
+        if (particle->IsToDie) particle->Delete_Me();
     }
 }
 
@@ -357,7 +357,7 @@ static inline FootClass *Foot_Of(ObjectClass *object)
 void ParticleSystemClass::Smoke_AI()
 {
     if (Object_Flag_Set(Owner) && Owner->What_Am_I() != 6) {
-        Set_Coord(Owner->Center_Coord() + unknown_9c);
+        Set_Coord(Owner->Center_Coord() + CoordOffset);
     }
 
     int index;
@@ -367,7 +367,7 @@ void ParticleSystemClass::Smoke_AI()
 
     for (index = Particles.Count() - 1; index >= 0; index--) {
         ParticleClass *particle = Particles[index];
-        if (particle->unknown_121) {
+        if (particle->IsToDie) {
             if (particle->Class->NextParticle != -1) {
                 CoordStruct const &coord = particle->Coord;
                 int x = coord.X;
@@ -398,7 +398,7 @@ void ParticleSystemClass::Smoke_AI()
                 ParticleClass *npart = Spawn_Held_Particle(next, ncoord);
                 if (npart != 0) {
                     npart->Velocity = particle->Velocity;
-                    npart->unknown_11f = particle->unknown_11f + (unknown_id_source_a3d290->Random() % 6 != 0 ? 25 : 0);
+                    npart->Translucency = particle->Translucency + (unknown_id_source_a3d290->Random() % 6 != 0 ? 25 : 0);
                 }
 
                 CoordStruct pcoord;
@@ -408,7 +408,7 @@ void ParticleSystemClass::Smoke_AI()
                 ParticleClass *ppart = Spawn_Held_Particle(next, pcoord);
                 if (ppart != 0) {
                     ppart->Velocity = particle->Velocity;
-                    ppart->unknown_11f = particle->unknown_11f + (unknown_id_source_a3d290->Random() % 6 != 0 ? 25 : 0);
+                    ppart->Translucency = particle->Translucency + (unknown_id_source_a3d290->Random() % 6 != 0 ? 25 : 0);
                 }
             }
             particle->Delete_Me();
@@ -417,7 +417,7 @@ void ParticleSystemClass::Smoke_AI()
         }
     }
 
-    if (!unknown_e4 && IsActive && Frame % (int)unknown_d4 == 0) {
+    if (!unknown_e4 && IsActive && Frame % (int)SpawnFrames == 0) {
         FootClass *foot = Foot_Of(Owner);
         if (foot == 0 || foot->unknown_574 < 0) {
             Random2Class &random = unknown_id_source_a3d290->Random();
@@ -429,10 +429,10 @@ void ParticleSystemClass::Smoke_AI()
                 ParticleClass *npart = new ParticleClass(ParticleTypes[Class->HoldsWhat], scoord, TargetCoord, this);
                 if (npart != 0) {
                     Particles.Add(npart);
-                    if (unknown_d4 > Class->SpawnTranslucencyCutoff) {
-                        npart->unknown_11f += 25;
+                    if (SpawnFrames > Class->SpawnTranslucencyCutoff) {
+                        npart->Translucency += 25;
                     }
-                    npart->Velocity = npart->Velocity - (unknown_d4 - Class->SpawnFrames) * 0.35f;
+                    npart->Velocity = npart->Velocity - (SpawnFrames - Class->SpawnFrames) * 0.35f;
                     if (npart->Velocity < 2.0) {
                         npart->Velocity = 2.0;
                     }
@@ -441,8 +441,8 @@ void ParticleSystemClass::Smoke_AI()
         }
     }
 
-    unknown_d4 = Class->Slowdown + unknown_d4;
-    if (unknown_d4 > Class->SpawnCutoff) {
+    SpawnFrames = Class->Slowdown + SpawnFrames;
+    if (SpawnFrames > Class->SpawnCutoff) {
         unknown_e4 = true;
     }
 }
@@ -531,12 +531,12 @@ void ParticleSystemClass::Railgun_AI()
                 scaled += tmp;
                 CoordStruct particle_pos = CoordStruct((int)scaled.X, (int)scaled.Y, (int)scaled.Z) + Lerp(Position_Coord_004f3f40(), TargetCoord, frac);
                 ParticleClass *particle = Spawn_Particle(particle_pos, particle_pos);
-                particle->unknown_fc = spiral;
+                particle->MovementDirection = spiral;
                 Vector3 move(((Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10) - 0.5) * Class->MovementPerturbationCoefficient,
                              ((Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10) - 0.5) * Class->MovementPerturbationCoefficient,
                              ((Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10) - 0.5) * Class->MovementPerturbationCoefficient);
-                particle->unknown_fc += move;
-                particle->unknown_fc = Normalize(particle->unknown_fc);
+                particle->MovementDirection += move;
+                particle->MovementDirection = Normalize(particle->MovementDirection);
                 float vp = ((Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10) + velocity_accum - 0.5)
                     * (Class->VelocityPerturbationCoefficient * 0.5);
                 velocity_accum = (float)((((vp < Velocity_Limit(Class)) ? vp : Velocity_Limit(Class)) > -Class->MovementPerturbationCoefficient) ? ((vp < Velocity_Limit(Class)) ? vp : Velocity_Limit(Class)) : -Class->MovementPerturbationCoefficient);
@@ -555,7 +555,7 @@ void ParticleSystemClass::Railgun_AI()
     }
     for (int j = Particles.Count() - 1; j >= 0; j--) {
         ParticleClass *particle = Particles[j];
-        if (particle->unknown_121) {
+        if (particle->IsToDie) {
             particle->Delete_Me();
         }
     }
@@ -589,7 +589,7 @@ void ParticleSystemClass::Fire_AI()
     }
     for (i = Particles.Count() - 1; i >= 0; --i) {
         ParticleClass *particle = Particles[i];
-        if (particle->unknown_121) particle->Delete_Me();
+        if (particle->IsToDie) particle->Delete_Me();
     }
     bool reaimed = false;
     TechnoClass *source = Owner->As_Techno();
@@ -769,7 +769,7 @@ void ParticleSystemClass::Compute_CRC(WWCRCEngine &crc) const
     if (unknown_d0 != 0) {
         crc(unknown_d0->Fetch_ID());
     }
-    crc(unknown_d4);
+    crc(SpawnFrames);
     crc((long)Lifetime);
 }
 

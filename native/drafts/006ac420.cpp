@@ -40,7 +40,7 @@ void Tactical::Draw_Radial_Indicators()
     int count = CurrentObject.Count();
     for (int i = 0; i < count; i++) {
         ObjectClass *object = CurrentObject[i];
-        if (object->Class_Of() && object->Class_Of()->unknown_208) {
+        if (object->Class_Of() && object->Class_Of()->IsHasRadialIndicator) {
             object->unknown_slot74(1);
         }
     }

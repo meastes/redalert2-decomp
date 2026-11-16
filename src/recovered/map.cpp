@@ -262,7 +262,7 @@ CellClass BlubCell;
 
 MapClass::MapClass()
 {
-    unknown_144 = 13;
+    MaxLevel = 13;
 }
 
 
@@ -271,17 +271,17 @@ MapClass::MapClass()
 // state (vtable only) but the members are rebuilt empty and the hash-table
 // pointers and per-frame state cleared.
 
-MapClass::MapClass(NoInitClass const &noinit) : GScreenClass(noinit), unknown_10(false), unknown_14(0), Cells(noinit)
+MapClass::MapClass(NoInitClass const &noinit) : GScreenClass(noinit), unknown_10(false), ZoneAdjacency(0), Cells(noinit)
 {
     for (int clear = 0; clear < 12; clear++) {
         unknown_18[clear] = 0;
     }
-    memset(unknown_7c, 0, sizeof(unknown_7c));
+    memset(SubzoneConnectionHashTable, 0, sizeof(SubzoneConnectionHashTable));
     for (int index = 0; index < 3; index++) {
         SubzoneTracking[index].Clear();
-        unknown_7c[index] = 0;
+        SubzoneConnectionHashTable[index] = 0;
     }
-    unknown_14 = 0;
+    ZoneAdjacency = 0;
 }
 
 
@@ -299,18 +299,18 @@ MapClass::~MapClass()
         delete CellZones;
         CellZones = 0;
     }
-    if (unknown_14 != 0) {
-        delete unknown_14;
-        unknown_14 = 0;
+    if (ZoneAdjacency != 0) {
+        delete ZoneAdjacency;
+        ZoneAdjacency = 0;
     }
     if (CellSubzones != 0) {
         delete CellSubzones;
         CellSubzones = 0;
     }
     for (int index = 0; index < 3; index++) {
-        if (unknown_7c[index] != 0) {
-            delete unknown_7c[index];
-            unknown_7c[index] = 0;
+        if (SubzoneConnectionHashTable[index] != 0) {
+            delete SubzoneConnectionHashTable[index];
+            SubzoneConnectionHashTable[index] = 0;
         }
     }
 }
@@ -459,12 +459,12 @@ void MapClass::One_Time()
     MapCellHeight = 512;
     MapCellTotal = 0x40000;
     unknown_slot22();
-    if (unknown_14 == 0) {
-        unknown_14 = new HashTableClass<unsigned int, unsigned int>(20, 256, Unknown_Hash_0054F240);
+    if (ZoneAdjacency == 0) {
+        ZoneAdjacency = new HashTableClass<unsigned int, unsigned int>(20, 256, Unknown_Hash_0054F240);
     }
     for (int index = 0; index < 3; index++) {
         SubzoneTracking[index].Clear();
-        unknown_7c[index] = new HashTableClass<unsigned int, SubzoneConnectionStruct>(20, 256, Unknown_Hash_0054F240);
+        SubzoneConnectionHashTable[index] = new HashTableClass<unsigned int, SubzoneConnectionStruct>(20, 256, Unknown_Hash_0054F240);
     }
     for (int clear = 0; clear < 12; clear++) {
         unknown_18[clear] = 0;
@@ -487,12 +487,12 @@ void MapClass::Init_Clear()
     GScreenClass::Init_Clear();
     Call_Back();
     for (int index = 0; index < 256; index++) {
-        UnknownMapEntry154 &entry = unknown_154[index];
+        UnknownMapEntry154 &entry = Crates[index];
         entry.Cell = unknown_cell_a6f238;
         entry.Timer.Stop();
     }
-    unknown_144 = 13;
-    unknown_1154 = false;
+    MaxLevel = 13;
+    Redraws = false;
     Debug_Printf("MapClass::Init_Clear done\n");
 }
 
@@ -545,7 +545,7 @@ void MapClass::unknown_slot23()
 
 void MapClass::unknown_slot24()
 {
-    unknown_130 = 0;
+    TotalValue = 0;
     for (int y = 0; y < 512; y++) {
         for (int x = 0; x < 512; x++) {
             int index = y * 512 + x;
@@ -1235,14 +1235,14 @@ void MapClass::Place_Down(Cell const &cell, ObjectClass *object)
 {
     if (!object) return;
 
-    if (object->Class_Of()->unknown_205 && object->In_Which_Layer() == 2) {
+    if (object->Class_Of()->IsFootprint && object->In_Which_Layer() == 2) {
         Cell xlist[32];
         Copy_Cell_List_00482e10(object->Occupy_List(0), 32, xlist);
         Cell const *list = xlist;
         while (list->X != 0x7FFF || list->Y != 0x7FFF) {
             Cell newcell = cell + *list;
             if (Has_Cell(newcell)) {
-                (*this)[newcell].Occupy_Down(object, object->unknown_79);
+                (*this)[newcell].Occupy_Down(object, object->IsOnBridge);
                 (*this)[newcell].Recalc_Attributes(-1);
             }
             list++;
@@ -1317,14 +1317,14 @@ void MapClass::Pick_Up(Cell const &cell, ObjectClass *object)
 {
     if (!object) return;
 
-    if (object->Class_Of()->unknown_205 && object->In_Which_Layer() == 2) {
+    if (object->Class_Of()->IsFootprint && object->In_Which_Layer() == 2) {
         Cell xlist[32];
         Copy_Cell_List_00482e10(object->Occupy_List(0), 32, xlist);
         Cell const *list = xlist;
         while (list->X != 0x7FFF || list->Y != 0x7FFF) {
             Cell newcell = cell + *list;
             if (Has_Cell(newcell)) {
-                (*this)[newcell].Occupy_Up(object, object->unknown_79);
+                (*this)[newcell].Occupy_Up(object, object->IsOnBridge);
                 (*this)[newcell].Recalc_Attributes(-1);
             }
             list++;
@@ -2228,8 +2228,8 @@ void MapClass::unknown_slot27()
 {
     if (unknown_game_mode_a3d298 != 0 && unknown_flag_a3d2c1) {
         for (int index = 0; index < 256; index++) {
-            if (unknown_154[index].Cell != unknown_cell_a6f238 && unknown_154[index].Timer.Value() == 0) {
-                unknown_154[index].Unknown_00493930();
+            if (Crates[index].Cell != unknown_cell_a6f238 && Crates[index].Timer.Value() == 0) {
+                Crates[index].Unknown_00493930();
                 Place_Random_Crate();
             }
         }
@@ -2268,7 +2268,7 @@ bool MapClass::Place_Random_Crate()
 {
     int crateindex = 0;
     for (crateindex = 0; crateindex < 256; crateindex++) {
-        if (unknown_154[crateindex].Cell == unknown_cell_a6f238) break;
+        if (Crates[crateindex].Cell == unknown_cell_a6f238) break;
     }
     if (crateindex == 256) {
         return false;
@@ -2285,7 +2285,7 @@ bool MapClass::Place_Random_Crate()
             cell = Map.Nearby_Location(cell, 1, -1, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
         }
 
-        if (unknown_154[crateindex].Unknown_004939A0(cell)) {
+        if (Crates[crateindex].Unknown_004939A0(cell)) {
             return true;
         }
     }
@@ -2309,7 +2309,7 @@ bool MapClass::Place_Crate(Cell cell, int arg2)
 
     int index;
     for (index = 0; index < 256; index++) {
-        if (unknown_154[index].Cell == unknown_cell_a6f238) {
+        if (Crates[index].Cell == unknown_cell_a6f238) {
             break;
         }
     }
@@ -2317,7 +2317,7 @@ bool MapClass::Place_Crate(Cell cell, int arg2)
         return false;
     }
 
-    if (unknown_154[index].Unknown_004939A0(cell)) {
+    if (Crates[index].Unknown_004939A0(cell)) {
         if (arg2 != 0x14) {
             Map[cell].OverlayData = arg2;
         }
@@ -2337,8 +2337,8 @@ bool MapClass::Remove_Crate(Cell const &cell)
 {
     if (unknown_game_mode_a3d298 != 0) {
         for (int index = 0; index < 256; index++) {
-            if (unknown_154[index].Cell != unknown_cell_a6f238 && cell == unknown_154[index].Cell) {
-                return unknown_154[index].Unknown_00493930();
+            if (Crates[index].Cell != unknown_cell_a6f238 && cell == Crates[index].Cell) {
+                return Crates[index].Unknown_00493930();
             }
         }
     } else {
@@ -2476,7 +2476,7 @@ int MapClass::Unknown_0054F250(UnknownMapElem4 * data, int zone, int & skip)
 
 	int begin_zone = begin->unknown_02;
 	if (begin_zone != 0 && (abs(begin->unknown_01 - cell_height) < 2 || nopass) && begin_zone != unknown_zone_a6fc34 && begin_zone != (unsigned short)zone) {
-		unknown_14->Add_Object(HashObject<unsigned int, unsigned int>(begin_zone, (unsigned short)zone));
+		ZoneAdjacency->Add_Object(HashObject<unsigned int, unsigned int>(begin_zone, (unsigned short)zone));
 		unknown_zone_a6fc34 = begin_zone;
 	}
 
@@ -2496,7 +2496,7 @@ int MapClass::Unknown_0054F250(UnknownMapElem4 * data, int zone, int & skip)
 
 	begin_zone = end->unknown_02;
 	if (begin_zone != 0 && (abs(end->unknown_01 - cell_height) < 2 || nopass) && begin_zone != unknown_zone_a6fc34 && begin_zone != (unsigned short)zone) {
-		unknown_14->Add_Object(HashObject<unsigned int, unsigned int>(begin_zone, (unsigned short)zone));
+		ZoneAdjacency->Add_Object(HashObject<unsigned int, unsigned int>(begin_zone, (unsigned short)zone));
 		unknown_zone_a6fc34 = begin_zone;
 	}
 
@@ -2536,7 +2536,7 @@ int MapClass::Unknown_0054F250(UnknownMapElem4 * data, int zone, int & skip)
 			}
 		} else {
 			if (zzone != (unsigned short)zone && zzone != unknown_zone_a6fc34 && (abs(fbegin->unknown_01 - adjacent->unknown_01) < 2 || nopass)) {
-				unknown_14->Add_Object(HashObject<unsigned int, unsigned int>(zzone, (unsigned short)zone));
+				ZoneAdjacency->Add_Object(HashObject<unsigned int, unsigned int>(zzone, (unsigned short)zone));
 				unknown_zone_a6fc34 = zzone;
 			}
 			fbegin++;
@@ -2567,7 +2567,7 @@ int MapClass::Unknown_0054F250(UnknownMapElem4 * data, int zone, int & skip)
 			}
 		} else {
 			if (id != (unsigned short)zone && id != unknown_zone_a6fc34 && (abs(fbegin2->unknown_01 - adjacent->unknown_01) < 2 || nopass)) {
-				unknown_14->Add_Object(HashObject<unsigned int, unsigned int>(id, (unsigned short)zone));
+				ZoneAdjacency->Add_Object(HashObject<unsigned int, unsigned int>(id, (unsigned short)zone));
 				unknown_zone_a6fc34 = id;
 			}
 			fbegin2++;
@@ -2611,7 +2611,7 @@ int MapClass::Zone_Reset()
     DynamicVectorClass<PassabilityType> vec;
     vec.Set_Growth_Step(300);
 
-    unknown_14->Clear();
+    ZoneAdjacency->Clear();
 
     for (i = 0; i < 12; i++) {
         if (unknown_18[i] != 0) {
@@ -2660,7 +2660,7 @@ int MapClass::Zone_Reset()
                     to_zone = from_zone;
                     from_zone = temp;
                 }
-                unknown_14->Add_Object(HashObject<unsigned int, unsigned int>(from_zone, to_zone));
+                ZoneAdjacency->Add_Object(HashObject<unsigned int, unsigned int>(from_zone, to_zone));
             }
         }
     }
@@ -2671,7 +2671,7 @@ int MapClass::Zone_Reset()
     }
 
     for (i = 0; i < 256; i++) {
-        DynamicVectorClass<HashObject<unsigned int, unsigned int> > &bucket = unknown_14->Buckets[i];
+        DynamicVectorClass<HashObject<unsigned int, unsigned int> > &bucket = ZoneAdjacency->Buckets[i];
         if (bucket.Count() > 0) {
             j = bucket.Count();
             HashObject<unsigned int, unsigned int> *obj = &bucket[0];
@@ -2696,7 +2696,7 @@ int MapClass::Zone_Reset()
     }
 
     for (i = 0; i < 256; i++) {
-        DynamicVectorClass<HashObject<unsigned int, unsigned int> > &bucket = unknown_14->Buckets[i];
+        DynamicVectorClass<HashObject<unsigned int, unsigned int> > &bucket = ZoneAdjacency->Buckets[i];
         if (bucket.Count() > 0) {
             j = bucket.Count();
             HashObject<unsigned int, unsigned int> *obj = &bucket[0];
@@ -6331,11 +6331,11 @@ extern DynamicVectorClass<TagClass *> MapTags;
 void MapClass::Detach(AbstractClass *target, bool all)
 {
     if (target->Kind_Of() == 0x2C) {
-        for (int index = 0; index < unknown_1158.Count(); index++) {
-            CellClass *cell = &(*this)[unknown_1158[index]];
+        for (int index = 0; index < TaggedCells.Count(); index++) {
+            CellClass *cell = &(*this)[TaggedCells[index]];
             if (cell != 0 && cell->unknown_3c == (TagClass *)target) {
                 cell->Attach_Tag(0);
-                unknown_1158.Delete(cell->MapCoords);
+                TaggedCells.Delete(cell->MapCoords);
                 index--;
             }
         }
@@ -6533,24 +6533,24 @@ void MapClass::Refresh_Shroud()
 
 CellClass *MapClass::Iterate()
 {
-    CellClass **slot = unknown_114;
-    if (unknown_110 != 0) {
-        unknown_108++;
-        unknown_10c--;
-        unknown_110--;
-        unknown_114 = slot - 511;
+    CellClass **slot = IterCell;
+    if (IterColumn != 0) {
+        IterX++;
+        IterY--;
+        IterColumn--;
+        IterCell = slot - 511;
     } else {
-        int temp = unknown_108;
-        unknown_108 = unknown_10c;
-        unknown_10c = temp;
-        if ((unknown_108 - MapSize.Width + unknown_10c - 1) & 1) {
-            unknown_10c++;
-            unknown_110 = MapSize.Width - 1;
+        int temp = IterX;
+        IterX = IterY;
+        IterY = temp;
+        if ((IterX - MapSize.Width + IterY - 1) & 1) {
+            IterY++;
+            IterColumn = MapSize.Width - 1;
         } else {
-            unknown_108++;
-            unknown_110 = MapSize.Width - 2;
+            IterX++;
+            IterColumn = MapSize.Width - 2;
         }
-        unknown_114 = &Cells[(unknown_10c << 9) + unknown_108];
+        IterCell = &Cells[(IterY << 9) + IterX];
     }
     return *slot;
 }
@@ -6562,10 +6562,10 @@ CellClass *MapClass::Iterate()
 
 void MapClass::Reset_Iterator()
 {
-    unknown_108 = 1;
-    unknown_10c = MapSize.Width;
-    unknown_110 = MapSize.Width - 1;
-    unknown_114 = &Cells[(MapSize.Width << 9) + 1];
+    IterX = 1;
+    IterY = MapSize.Width;
+    IterColumn = MapSize.Width - 1;
+    IterCell = &Cells[(MapSize.Width << 9) + 1];
 }
 
 
@@ -6680,23 +6680,23 @@ bool MapClass::In_Area_Radar(Rect const &rect, Cell const &cell, bool flag)
 
 CellClass *MapClass::Unknown_0055A910()
 {
-    while (unknown_118 + unknown_11c <= MapSize.Width + (MapLocalSize.Y + MapLocalSize.Height) * 2 + 12) {
-        int x = unknown_118;
-        int y = unknown_11c;
+    while (LocalIterX + LocalIterY <= MapSize.Width + (MapLocalSize.Y + MapLocalSize.Height) * 2 + 12) {
+        int x = LocalIterX;
+        int y = LocalIterY;
         Cell cell(x, y);
         if (x - y >= (MapLocalSize.X + MapLocalSize.Width) * 2 - MapSize.Width - 2) {
-            bool odd = ((unknown_118 - MapSize.Width + unknown_11c - 1) & 1) == 1;
+            bool odd = ((LocalIterX - MapSize.Width + LocalIterY - 1) & 1) == 1;
             int length = MapLocalSize.Width - (odd ? 2 : 1);
-            unknown_118 -= length;
-            unknown_11c += length;
+            LocalIterX -= length;
+            LocalIterY += length;
             if (odd) {
-                unknown_11c++;
+                LocalIterY++;
             } else {
-                unknown_118++;
+                LocalIterX++;
             }
         } else {
-            unknown_118++;
-            unknown_11c--;
+            LocalIterX++;
+            LocalIterY--;
         }
         if (Unknown_0055A660(cell, true)) {
             return &(*this)[cell];
@@ -9099,16 +9099,16 @@ void MapClass::Unknown_00562EA0()
         }
     }
 
-    if (unknown_14 != 0) {
-        delete unknown_14;
-        unknown_14 = 0;
+    if (ZoneAdjacency != 0) {
+        delete ZoneAdjacency;
+        ZoneAdjacency = 0;
     }
 
     for (index = 0; index < 3; index++) {
         SubzoneTracking[index].Clear();
-        if (unknown_7c[index] != 0) {
-            delete unknown_7c[index];
-            unknown_7c[index] = 0;
+        if (SubzoneConnectionHashTable[index] != 0) {
+            delete SubzoneConnectionHashTable[index];
+            SubzoneConnectionHashTable[index] = 0;
         }
     }
 
@@ -9348,7 +9348,7 @@ inline void Set_Connection(SubzoneConnectionStruct &connection, int id, bool cos
 void MapClass::Reset_Subzone(int level)
 {
     CellSubzoneStruct *subend = (CellSubzoneStruct *)CellSubzones + CellZoneCount;
-    HashTableClass<unsigned int, SubzoneConnectionStruct> *set = unknown_7c[level];
+    HashTableClass<unsigned int, SubzoneConnectionStruct> *set = SubzoneConnectionHashTable[level];
     DynamicVectorClass<SubzoneTrackingStruct> *track = &SubzoneTracking[level];
     for (int bucket = 0; bucket < set->BucketCount; ++bucket) set->Buckets[bucket].Clear();
     CellSubzoneStruct *subptr = (CellSubzoneStruct *)CellSubzones;
@@ -9472,7 +9472,7 @@ int MapClass::Unknown_00564290(CellSubzoneStruct *seed, int level, unsigned int 
     int xmax = bounds.Width + bounds.X - 1;
     int end_x = x;
     int ymax = bounds.Height + bounds.Y - 1;
-    HashTableClass<unsigned int, SubzoneConnectionStruct> *table = unknown_7c[level];
+    HashTableClass<unsigned int, SubzoneConnectionStruct> *table = SubzoneConnectionHashTable[level];
     int prev_height = seed->Height;
 
     while (true) {
@@ -9715,7 +9715,7 @@ inline void Set_Zone_Record(HashObject<unsigned int, SubzoneConnectionStruct> &r
 void MapClass::Unknown_00564B60(ZoneConnectionClass *connection, int layer)
 {
     HashObject<unsigned int, SubzoneConnectionStruct> record;
-    HashTableClass<unsigned int, SubzoneConnectionStruct> *table = unknown_7c[layer];
+    HashTableClass<unsigned int, SubzoneConnectionStruct> *table = SubzoneConnectionHashTable[layer];
     Cell from = connection->From;
     Cell to = connection->To;
     Cell enter1;
@@ -9984,8 +9984,8 @@ Cell MapClass::Find_Bridge_End_Cell_For_Subzone(Cell const &cell, int layer, uns
 int MapClass::Unknown_005658C0(int &zone)
 {
     DynamicVectorClass<int> counts;
-    Map.unknown_118 = Map.MapLocalSize.Y + Map.MapLocalSize.X + 1;
-    Map.unknown_11c = Map.MapSize.Width - Map.MapLocalSize.X + Map.MapLocalSize.Y;
+    Map.LocalIterX = Map.MapLocalSize.Y + Map.MapLocalSize.X + 1;
+    Map.LocalIterY = Map.MapSize.Width - Map.MapLocalSize.X + Map.MapLocalSize.Y;
     for (CellClass *cellptr = Map.Unknown_0055A910(); cellptr != 0; cellptr = Map.Unknown_0055A910()) {
         if (cellptr->unknown_4c == 4) {
             int z = Zone(cellptr->MapCoords, 10, false);
@@ -10357,7 +10357,7 @@ void MapClass::Update_Cell_Subzones(Cell const &cell)
             bounds.X = cx - cx % bounds.Width;
             bounds.Y = cy - cy % bounds.Height;
             DynamicVectorClass<unsigned short> collected;
-            HashTableClass<unsigned int, SubzoneConnectionStruct> *set = unknown_7c[level];
+            HashTableClass<unsigned int, SubzoneConnectionStruct> *set = SubzoneConnectionHashTable[level];
             for (int bucket = 0; bucket < set->BucketCount; ++bucket) set->Buckets[bucket].Clear();
             DynamicVectorClass<SubzoneTrackingStruct> *track = &SubzoneTracking[level];
             for (y = bounds.Y; y < bounds.Y + bounds.Height; ++y) {
@@ -11228,7 +11228,7 @@ Cell MapClass::Unknown_00568ED0(Cell const &cell, Cell const &from)
 bool MapClass::Damage_Bridge(Cell *cell)
 {
     bool result = false;
-    unknown_d0.Clear();
+    PendingBridgeCells.Clear();
     CellClass *cptr = &Map[*cell];
 
     if (cptr->OverlayIndex >= 0x4A && cptr->OverlayIndex <= 0x63) {
@@ -11272,11 +11272,11 @@ bool MapClass::Damage_Bridge(Cell *cell)
         }
     }
 
-    for (int i = 0; i < unknown_d0.Count(); i++) {
-        Map[unknown_d0[i]].On_Bridge_Collapse();
+    for (int i = 0; i < PendingBridgeCells.Count(); i++) {
+        Map[PendingBridgeCells[i]].On_Bridge_Collapse();
     }
 
-    unknown_d0.Clear();
+    PendingBridgeCells.Clear();
     return result;
 }
 
@@ -11462,8 +11462,8 @@ bool MapClass::Check_Map()
                             || (!from->IsBridgeEastWest && ((bcptr = from->BridgeDeckCell) == 0 || bcptr->MapCoords.X - from->MapCoords.X != 2)));
 
                     if (from_ground || from_bridge) {
-                        unknown_118 = MapLocalSize.X + 1 + MapLocalSize.Y;
-                        unknown_11c = MapLocalSize.Y - MapLocalSize.X + MapSize.Width;
+                        LocalIterX = MapLocalSize.X + 1 + MapLocalSize.Y;
+                        LocalIterY = MapLocalSize.Y - MapLocalSize.X + MapSize.Width;
                         to = Unknown_0055A910();
                         while (to != 0) {
 
@@ -11662,7 +11662,7 @@ void MapClass::Unknown_0056A660(Cell const &cell, HouseClass *house, BuildingTyp
             current_cell = (Cell)Adjacent_Cell(current_cell, dir);
 
             int overlay = Map[current_cell].OverlayIndex;
-            if (overlay != -1 && overtype->unknown_264 == overlay && house->ArrayIndex == Map[current_cell].unknown_50) {
+            if (overlay != -1 && overtype->HeapID == overlay && house->ArrayIndex == Map[current_cell].unknown_50) {
                 if (distance > 0) {
                     Cell place_cell = (Cell)Adjacent_Cell_L(cell, dir);
                     for (int i = 0; i < distance; i++) {
@@ -11687,8 +11687,8 @@ void MapClass::Unknown_0056A660(Cell const &cell, HouseClass *house, BuildingTyp
 
 void MapClass::Lower_Max_Level(int value)
 {
-    unknown_144 = unknown_144 < value ? unknown_144 : value;
-    unknown_144 = unknown_144 > 0 ? unknown_144 : 0;
+    MaxLevel = MaxLevel < value ? MaxLevel : value;
+    MaxLevel = MaxLevel > 0 ? MaxLevel : 0;
 }
 
 
@@ -11698,7 +11698,7 @@ void MapClass::Lower_Max_Level(int value)
 
 int MapClass::Get_Max_Level()
 {
-    if (unknown_144 >= 13) {
+    if (MaxLevel >= 13) {
         int count = Cells.Length();
         for (int index = 0; index < count; index++) {
             CellClass *cell = Cells[index];
@@ -11707,7 +11707,7 @@ int MapClass::Get_Max_Level()
             }
         }
     }
-    return unknown_144;
+    return MaxLevel;
 }
 
 

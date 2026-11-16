@@ -368,7 +368,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
             } else {
                 CoordStruct coord = Adjacent_Coord(Object_Coord(LinkedTo), dir);
                 Cell cell = coord.As_Cell();
-                if (LinkedTo->unknown_79 ^ Map[Adjacent_Coord(Object_Coord(LinkedTo), dir)].IsUnderBridge) {
+                if (LinkedTo->IsOnBridge ^ Map[Adjacent_Coord(Object_Coord(LinkedTo), dir)].IsUnderBridge) {
                     LinkedTo->unknown_57b = true;
                 }
                 int move = LinkedTo->Can_Enter_Cell(&Map[cell], dir, LinkedTo->Unknown_005D47D0(), 0, true);
@@ -535,11 +535,11 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         CellClass *new_cellptr = &Map[new_cell];
         if (new_cellptr->Height == old_cellptr->Height - 4) {
             if (new_cellptr->IsUnderBridge) {
-                LinkedTo->unknown_79 = true;
+                LinkedTo->IsOnBridge = true;
             }
         }
         if (!new_cellptr->IsUnderBridge && old_cellptr->IsUnderBridge) {
-            LinkedTo->unknown_79 = false;
+            LinkedTo->IsOnBridge = false;
         }
         LinkedTo->Set_Height_AGL(0);
         LinkedTo->Mark(1);

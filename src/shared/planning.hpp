@@ -62,7 +62,7 @@ public:
     TechnoClass *Owner;                         // +0x00
     EventClass *Event;                          // +0x04
     int BranchIndex;                            // +0x08
-    bool unknown_0c;                            // +0x0C
+    bool Active;                            // +0x0C
 };
 
 // A planned order of a node (0x78 bytes, constructor 0x00610880): the event
@@ -87,7 +87,7 @@ public:
     EventClass Event;                                         // +0x00
     char unknown_6f;
     int Count;                                                // +0x70
-    int unknown_74;                                           // +0x74
+    int Color;                                           // +0x74
 };
 
 // The payload of a type-4 (mission) event as the planning code reads it:
@@ -377,9 +377,9 @@ public:
         unknown_b4 = -1;
         int count = Branches.Count();
         for (int i = 0; i < count; i++) {
-            Branches[i]->unknown_74 = -1;
+            Branches[i]->Color = -1;
         }
-        Branch.unknown_74 = -1;
+        Branch.Color = -1;
     }
 
     DynamicVectorClass<PlanningMemberClass *> Members;        // +0x00
@@ -427,7 +427,7 @@ public:
     // 0x00613D60, 0x00613D70, 0x00613DA0, 0x00613DB0, 0x00613DC0, 0x00613DD0).
     TechnoClass *Get_Owner() const { return Owner; }
     int Get_Node_Count() const { return Nodes.Count(); }
-    int Get_8c() const { return unknown_8c; }
+    int Get_8c() const { return F8C; }
     void Set_1c() { unknown_1c = true; }
     void Clear_1c() { unknown_1c = false; }
     bool Get_1c() const { return unknown_1c; }
@@ -436,9 +436,9 @@ public:
     bool Loop_Past_Start() const { return LoopStart > 0; }
     bool Loop_At_Start() const { return LoopStart == 0; }
     // Closes the path into a loop of length nodes from start (0x00613D40).
-    void Set_Loop(int length, int start) { LoopLength = length; LoopStart = start; unknown_98 = true; }
-    bool Get_98() const { return unknown_98; }
-    bool Get_99() const { return unknown_99; }
+    void Set_Loop(int length, int start) { LoopLength = length; LoopStart = start; F98 = true; }
+    bool Get_98() const { return F98; }
+    bool Get_99() const { return F99; }
 #endif
     bool Has_Node(PlanningNodeClass *node);                   // 0x00613C60
     void unknown_613c80(PlanningNodeClass *node);             // 0x00613C80
@@ -468,11 +468,11 @@ public:
     DynamicVectorClass<PlanningNodeClass *> Nodes;            // +0x04
     bool unknown_1c;                                          // +0x1C
     EventClass Event;                                         // +0x1D
-    int unknown_8c;                                           // +0x8C
+    int F8C;                                           // +0x8C
     int LoopLength;                                           // +0x90
     int LoopStart;                                            // +0x94
-    bool unknown_98;                                          // +0x98
-    bool unknown_99;                                          // +0x99
+    bool F98;                                          // +0x98
+    bool F99;                                          // +0x99
 
     static DynamicVectorClass<PlanningTokenClass *> unknown_list_00a76738;   // 0x00A76738
 };

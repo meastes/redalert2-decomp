@@ -125,11 +125,11 @@ void __fastcall Count_Band(ObjectClass *object)
 {
     if (!Band_Takes(object)) return;
     ++band_objects;
-    if (!object->unknown_77) ++band_unselected;
+    if (!object->IsSelected) ++band_unselected;
 }
 void __fastcall Unselect_Band(ObjectClass *object)
 {
-    if (Band_Takes(object) && object->unknown_77) object->Unselect();
+    if (Band_Takes(object) && object->IsSelected) object->Unselect();
 }
 
 // A tap's own rule (lane C18): a plain tap on a selectable unit of a player-controlled house other
@@ -138,7 +138,7 @@ bool Tap_Selects_Across_Houses(ObjectClass *object, int action)
 {
     if ((action != 1 && action != 2) || !ra2_host_touch_click() || In_Mode() || Held(kCtrl) || Held(kAlt) || Held(kShift))
         return false;
-    if (!Selectable(object) || object->unknown_77 || !object->AbstractFlags.IsTechno || CurrentObject.Count() == 0)
+    if (!Selectable(object) || object->IsSelected || !object->AbstractFlags.IsTechno || CurrentObject.Count() == 0)
         return false;
     HouseClass *house = object->Owning_House();
     if (house == 0 || !house->Is_Player_Control()) return false;
@@ -184,7 +184,7 @@ int Native_Modern_Left_Up(Cell const &cell, ObjectClass *&object, int action)
         return kNone;
     }
     if (shift) return kToggleSelect;
-    if (object->unknown_77 && CurrentObject.Count() > 1) return kSelect;   // the group becomes this one
+    if (object->IsSelected && CurrentObject.Count() > 1) return kSelect;   // the group becomes this one
     return kNone;    // selects it unless selected (Mouse_Left_Release's action 0)
 }
 

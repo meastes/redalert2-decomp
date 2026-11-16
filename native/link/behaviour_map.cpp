@@ -7,5 +7,5 @@
 // to the byte at +0x1154).
 void MapClass::Unknown_0055ACC0()
 {
-    *(unsigned char *)&unknown_1154 = (unsigned char)(*(unsigned char *)&unknown_1154 + 1);
+    *(unsigned char *)&Redraws = (unsigned char)(*(unsigned char *)&Redraws + 1);
 }

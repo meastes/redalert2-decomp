@@ -192,7 +192,7 @@ public:
     Wstring unknown_30;                                     // +0x30
     bool unknown_34;                                        // +0x34 (slot 11 returns it)
     CCINIClass *unknown_ini_38;                             // +0x38 (made by the constructor)
-    int unknown_3c;                                         // +0x3C (1, or read from the INI)
+    int wolTourney;                                         // +0x3C (1, or read from the INI)
 };
 
 // vtable 0x007A66B4 (scalar deleting destructor 0x005A2500)

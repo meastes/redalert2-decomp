@@ -56,8 +56,8 @@ public:
     void Play();                                        // 0x005B16D0 empty in this build
 
     Wstring Name;               // +0x00
-    bool unknown_04;            // +0x04
-    int unknown_08;             // +0x08
+    bool AllocLoaded;            // +0x04
+    int Sample;             // +0x08
     int Volume;                 // +0x0C 0..255 (255 unless given)
 };
 

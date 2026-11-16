@@ -233,11 +233,11 @@ ObjectClass *UnitTypeClass::Create_One_Of(HouseClass *house) const
 
 CoordStruct UnitTypeClass::Pixel_Dimensions() const
 {
-    int width = unknown_1bc - unknown_1bc / 4;
+    int width = MaxSize - MaxSize / 4;
     if (width >= 60) {
         width = 60;
     }
-    return CoordStruct(width, width, Min(unknown_1bc - unknown_1bc / 4, 60));
+    return CoordStruct(width, width, Min(MaxSize - MaxSize / 4, 60));
 }
 
 
