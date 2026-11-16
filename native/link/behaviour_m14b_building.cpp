@@ -16,7 +16,7 @@
 int BuildingClass::Do_MISSION_ATTACK()
 {
     if (!Type->SAM) {
-        if (unknown_228 == 0) {
+        if (TarCom == 0) {
             unknown_slot220(0);
             SupportingPrisms = 0;
             if (IsNotWarpingIn()) {
@@ -28,11 +28,11 @@ int BuildingClass::Do_MISSION_ATTACK()
             }
             return 1;
         }
-        int weapon = What_Weapon_Should_I_Use(unknown_228);
+        int weapon = What_Weapon_Should_I_Use(TarCom);
         IsReadyToCommence = true;
-        unsigned fire = (unsigned)unknown_slot218(unknown_228, weapon, true);
+        unsigned fire = (unsigned)unknown_slot218(TarCom, weapon, true);
         if (fire == 2 && unknown_slot232() && Type->TurretAnimIsVoxel) {
-            UnknownFacingDir dir = unknown_slot285(unknown_228);
+            UnknownFacingDir dir = unknown_slot285(TarCom);
             bool snap = true;
             int rot = Type->ROT;
             if (rot != 0) {
@@ -45,7 +45,7 @@ int BuildingClass::Do_MISSION_ATTACK()
             }
             if (snap) {
                 PrimaryFacing.Set(dir);
-                fire = (unsigned)unknown_slot218(unknown_228, weapon, true);
+                fire = (unsigned)unknown_slot218(TarCom, weapon, true);
             }
         }
         switch (fire) {
@@ -62,8 +62,8 @@ int BuildingClass::Do_MISSION_ATTACK()
             Commence();
             break;
         case 2: case 3:                         // FIRE_FACING, FIRE_REARM
-            if (unknown_228 != 0) {
-                UnknownFacingDir dir = unknown_slot285(unknown_228);
+            if (TarCom != 0) {
+                UnknownFacingDir dir = unknown_slot285(TarCom);
                 PrimaryFacing.Set_Desired(dir);
             }
             return 2;
@@ -75,8 +75,8 @@ int BuildingClass::Do_MISSION_ATTACK()
         case 0: {                               // FIRE_OK
             if (UpgradeLevel != 0 && unknown_4c0[0] != 0) {
                 if (unknown_4c0[0]->Is_Two_Shooter()) {
-                    Fire_At(unknown_228, 0);
-                    Fire_At(unknown_228, 1);
+                    Fire_At(TarCom, 0);
+                    Fire_At(TarCom, 1);
                 }
                 return 1;
             }
@@ -125,14 +125,14 @@ int BuildingClass::Do_MISSION_ATTACK()
                 Start_Delayed_Fire(1, shot);
                 return 1;
             }
-            Fire_At(unknown_228, weapon);
+            Fire_At(TarCom, weapon);
             return 1;
         }
         default:                                // FIRE_BUSY, 7, beyond the table
             break;
         }
-        if (unknown_228 != 0) {
-            UnknownFacingDir dir = unknown_slot285(unknown_228);
+        if (TarCom != 0) {
+            UnknownFacingDir dir = unknown_slot285(TarCom);
             PrimaryFacing.Set_Desired(dir);
         }
         return 1;
@@ -143,7 +143,7 @@ int BuildingClass::Do_MISSION_ATTACK()
         if (Type->Powered && Type->PowerDrain_c6c > 0 && House->Power_Fraction() < 1.0) {
             return 1;
         }
-        AbstractClass *target = unknown_228;
+        AbstractClass *target = TarCom;
         bool aircraft = target != 0 && target->Kind_Of() == 2 && ((ObjectClass *)target)->Get_Height() != 0;
         if (!aircraft) {
             unknown_slot220(0);
@@ -153,23 +153,23 @@ int BuildingClass::Do_MISSION_ATTACK()
             return 1;
         }
         if (!PrimaryFacing.Is_Rotating()) {
-            UnknownFacingDir dir = unknown_slot285(unknown_228);
+            UnknownFacingDir dir = unknown_slot285(TarCom);
             UnknownFacingDir current = PrimaryFacing.Current();
             int diff = (short)(*(short *)&current - *(short *)&dir);
             if ((diff < 0 ? -diff : diff) <= 0x2000) {
                 Status = 1;
                 return 1;
             }
-            UnknownFacingDir desired = unknown_slot285(unknown_228);
+            UnknownFacingDir desired = unknown_slot285(TarCom);
             PrimaryFacing.Set_Desired(desired);
         }
         return 1;
     }
     if (Status == 1) {                      // firing
-        AbstractClass *target = unknown_228;
+        AbstractClass *target = TarCom;
         bool aircraft = target != 0 && target->Kind_Of() == 2 && ((ObjectClass *)target)->Get_Height() != 0;
         if (aircraft) {
-            int fire = unknown_slot218(unknown_228, 0, true);
+            int fire = unknown_slot218(TarCom, 0, true);
             if (fire == 5 || fire == 6 || fire == 8) {
                 unknown_slot220(0);
                 Status = 0;
@@ -179,8 +179,8 @@ int BuildingClass::Do_MISSION_ATTACK()
                 if (fire != 0) {
                     return 1;
                 }
-                Fire_At(unknown_228, 0);
-                Fire_At(unknown_228, 1);
+                Fire_At(TarCom, 0);
+                Fire_At(TarCom, 1);
                 Status = 0;
                 return 1;
             }

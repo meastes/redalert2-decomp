@@ -185,7 +185,7 @@ void __fastcall Destroy_Connection_005bb5d0(int id, int error)
                     for (i = 0; i < unknown_session_a3d298.Players.Count(); i++) {
                         if (unknown_session_a3d298.Players[i]->ID == host) {
                             address = &unknown_session_a3d298.Players[i]->Address;
-                            unknown_session_a3d298.unknown_292c = unknown_node_ids_a402ba[i];
+                            unknown_session_a3d298.PacketRouterPort = unknown_node_ids_a402ba[i];
                             break;
                         }
                     }
@@ -194,7 +194,7 @@ void __fastcall Destroy_Connection_005bb5d0(int id, int error)
                     address->Get_Address(network, node);
                     unknown_forward_address_a3fbac.Set_Address(network, node, 0);
                     Debug_Printf("Session.PacketRouterAddress = %s\n", unknown_forward_address_a3fbac.As_String(0));
-                    Debug_Printf("Session.PacketRouterPort = %d\n", unknown_session_a3d298.unknown_292c);
+                    Debug_Printf("Session.PacketRouterPort = %d\n", unknown_session_a3d298.PacketRouterPort);
                     Ipx.Set_Lobby_Address(&unknown_forward_address_a3fbac);
                 }
                 wcscpy(unknown_session_a3d298.MasterPlayerName, hostp->UIName);

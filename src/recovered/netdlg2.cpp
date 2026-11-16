@@ -337,7 +337,7 @@ Wstring __fastcall Wide_To_7_Bit(WideString const &wide);
 void __fastcall Build_Game_Options_005bc940(char *out)
 {
     Wstring name = unknown_map_name_a3d342 ? Wide_To_7_Bit(unknown_map_name_a3d342) : "";
-    int value=unknown_session_a3d298.unknown_884;
+    int value=unknown_session_a3d298.ScenarioMaxPlayers;
     sprintf(out,"%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%s,%d,%d,%d,%s,%s:",unknown_a40d3c,unknown_a40b18,unknown_session_a3d298.GameSpeed_30,unknown_session_a3d298.unknown_24,unknown_session_a3d298.UnitCount,
         unknown_session_a3d298.unknown_2a,unknown_session_a3d298.unknown_2b,unknown_session_a3d298.unknown_2c,unknown_session_a3d298.unknown_a8,unknown_session_a3d298.unknown_crates_29,unknown_session_a3d298.GameModeIndex,
         name.Get(),value,unknown_session_a3d298.ScenarioIsOfficial_880,unknown_session_a3d298.ScenarioFileLength_87c,unknown_session_a3d298.ScenarioFileName_658,unknown_session_a3d298.ScenarioDigest_85a);

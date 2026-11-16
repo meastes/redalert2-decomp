@@ -150,8 +150,8 @@ extern double const unknown_hover_facing_step_79d090;
 extern float const unknown_hover_zero_79a738;
 Matrix3D *__stdcall HoverLocomotionClass::Draw_Matrix(Matrix3D *matrix,int *key)
 {
-    if (fabs(LinkedTo->unknown_280)>=unknown_hover_tilt_min_79d170 ||
-        fabs(LinkedTo->unknown_284)>=unknown_hover_tilt_min_79d170) {
+    if (fabs(LinkedTo->AngleRotatedSideways)>=unknown_hover_tilt_min_79d170 ||
+        fabs(LinkedTo->AngleRotatedForwards)>=unknown_hover_tilt_min_79d170) {
         if (key) *key=-1;
         Matrix3D translation;
         translation.Make_Identity();
@@ -159,20 +159,20 @@ Matrix3D *__stdcall HoverLocomotionClass::Draw_Matrix(Matrix3D *matrix,int *key)
         rotation.Make_Identity();
         float width=(float)LinkedTo->Techno_Type_Class()->unknown_330;
         float length=(float)LinkedTo->Techno_Type_Class()->unknown_338;
-        float cos_pitch=Fast_Cos(LinkedTo->unknown_284);
-        float sin_pitch=Fast_Sin(LinkedTo->unknown_284);
-        float cos_roll=Fast_Cos(LinkedTo->unknown_280);
-        float sin_roll=Fast_Sin(LinkedTo->unknown_280);
+        float cos_pitch=Fast_Cos(LinkedTo->AngleRotatedForwards);
+        float sin_pitch=Fast_Sin(LinkedTo->AngleRotatedForwards);
+        float cos_roll=Fast_Cos(LinkedTo->AngleRotatedSideways);
+        float sin_roll=Fast_Sin(LinkedTo->AngleRotatedSideways);
         int height=(int)(fabs(sin_roll)*width+fabs(sin_pitch)*length);
         int shift_x=(int)(length-(int)(cos_pitch*length));
         int shift_y=(int)(width-(int)(cos_roll*width));
-        if (LinkedTo->unknown_284<unknown_hover_zero_79a738) shift_x=-shift_x;
-        if (LinkedTo->unknown_280>unknown_hover_zero_79a738) shift_y=-shift_y;
+        if (LinkedTo->AngleRotatedForwards<unknown_hover_zero_79a738) shift_x=-shift_x;
+        if (LinkedTo->AngleRotatedSideways>unknown_hover_zero_79a738) shift_y=-shift_y;
         translation.Translate_Z((float)height);
         rotation.Translate_X((float)shift_x);
         rotation.Translate_Y((float)shift_y);
-        rotation.Rotate_X(LinkedTo->unknown_280);
-        rotation.Rotate_Y(LinkedTo->unknown_284);
+        rotation.Rotate_X(LinkedTo->AngleRotatedSideways);
+        rotation.Rotate_Y(LinkedTo->AngleRotatedForwards);
         Matrix3D base;
         Matrix3D base_value(*LocomotionClass::Draw_Matrix(&base,key));
         *matrix=translation*base_value*rotation;
@@ -204,7 +204,7 @@ Matrix3D *__stdcall HoverLocomotionClass::Draw_Matrix(Matrix3D *matrix,int *key)
 
 Matrix3D * __stdcall HoverLocomotionClass::Shadow_Matrix(Matrix3D *matrix, int *key)
 {
-    if ((fabs(LinkedTo->unknown_280) >= 0.005 || fabs(LinkedTo->unknown_284) >= 0.005) && key != 0) {
+    if ((fabs(LinkedTo->AngleRotatedSideways) >= 0.005 || fabs(LinkedTo->AngleRotatedForwards) >= 0.005) && key != 0) {
         *key = -1;
     }
     Matrix3D shadow;
@@ -823,7 +823,7 @@ bool HoverLocomotionClass::Reduce_Path_Length_004fdfd0()
             int distance=Hover_Distance_004fdfd0(LinkedTo->Center_Coord(),unknown_18)/256;
             if (distance<24) { LinkedTo->Path[distance]=-1; return true; }
         }
-        if (LinkedTo->unknown_228 && LinkedTo->unknown_slot213(LinkedTo->unknown_228)) {
+        if (LinkedTo->TarCom && LinkedTo->unknown_slot213(LinkedTo->TarCom)) {
             LinkedTo->Path[0]=-1;
             return true;
         }
@@ -878,7 +878,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
                 LinkedTo->IsNewNavCom=false;
             }
         }
-        if (!Is_Moving() && LinkedTo->unknown_228 && !LinkedTo->unknown_slot213(LinkedTo->unknown_228)) {
+        if (!Is_Moving() && LinkedTo->TarCom && !LinkedTo->unknown_slot213(LinkedTo->TarCom)) {
             LinkedTo->IsScanLimited=true;
             if (LinkedTo->Team) LinkedTo->Team->Scan_Limit();
             LinkedTo->unknown_slot220(0);

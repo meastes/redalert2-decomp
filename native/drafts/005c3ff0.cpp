@@ -441,10 +441,10 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
     token = strtok(0, ",");
     WideString scenario_name(unknown_game_mode_a3d298 == 4 && Unknown_0073bdb0()
         ? WideString(unknown_empty_wide_839d4c) : Wide_From_7_Bit(Wstring(token)));
-    int old_count = unknown_session_a3d298.unknown_884;
+    int old_count = unknown_session_a3d298.ScenarioMaxPlayers;
     token = strtok(0, ",");
     if (token != 0) {
-        unknown_session_a3d298.unknown_884 = atoi(token);
+        unknown_session_a3d298.ScenarioMaxPlayers = atoi(token);
     }
     bool old_official = unknown_session_a3d298.ScenarioIsOfficial_880;
     token = strtok(0, ",");
@@ -473,7 +473,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
     }
     MultiplayerGameMode *mode = MultiplayerGameMode::unknown_find_mode_5b6fe0(unknown_session_a3d298.GameModeIndex);
     if (dialog_id == 0xBD || dialog_id == 0xC9) {
-        Change_Slot_Count_005cb300(Find_Lobby_Window_005c2c40(), old_count, unknown_session_a3d298.unknown_884,
+        Change_Slot_Count_005cb300(Find_Lobby_Window_005c2c40(), old_count, unknown_session_a3d298.ScenarioMaxPlayers,
             (UnknownSessionA3D29C *)mode);
     }
     bool found = true;

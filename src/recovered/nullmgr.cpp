@@ -138,7 +138,7 @@ NullModemClass::NullModemClass(int numsend, int numreceive, int maxlen, unsigned
     unknown_20 = 0;
     unknown_24 = 3000;
     unknown_28 = 1200;
-    unknown_2c = 60;
+    ModemGuardTime = 60;
     unknown_30 = '+';
     SendOverflows = 0;
     ReceiveOverflows = 0;
@@ -1360,7 +1360,7 @@ bool NullModemClass::Hangup_Modem()
         return true;
     }
 
-    delay = unknown_2c;
+    delay = ModemGuardTime;
     while (delay > 0) {
         delay = SerialPort->Get_Modem_Result(delay, buffer, 81, -1);
     }
@@ -1371,7 +1371,7 @@ bool NullModemClass::Hangup_Modem()
     escape[3] = 0;
     SerialPort->Write_To_Serial_Port((unsigned char *)escape, 3);
 
-    delay = unknown_2c;
+    delay = ModemGuardTime;
     while (delay > 0) {
         delay = SerialPort->Get_Modem_Result(delay, buffer, 81, -1);
         if (strncmp(buffer, "OK", 2) == 0) {

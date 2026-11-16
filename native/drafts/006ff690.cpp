@@ -104,7 +104,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     }
     if (!type->Turret && (!unknown_6d83e0() || !Has_Current_Turret())) {
         if (Unit_Voxel_Loaded_007005b0(type->AuxVoxel2)) {
-            main_matrix.Rotate_Y((float)-(unknown_2c8.Current().As_Radian32()-main_matrix.Get_Y_Rotation()));
+            main_matrix.Rotate_Y((float)-(BarrelPitch.Current().As_Radian32()-main_matrix.Get_Y_Rotation()));
             main_matrix.Translate((float)(unknown_slot231(0)->FLH.X*unknown_geometry_c),0.0f,(float)(unknown_slot231(0)->FLH.Z*unknown_geometry_c));
             unknown_slot246(type->AuxVoxel2,frame,turret_key,&type->AuxVoxel2Index,cliprect,drawpoint,Unit_Isometric_View_00717f90()*main_matrix,brightness,0);
         }
@@ -127,7 +127,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
             barrel=main_matrix;
             Vector3 translation=Unit_Matrix_Translation_007005b0(main_matrix);
             barrel.Translate(-translation);
-            barrel.Rotate_Y((float)-unknown_2c8.Current().As_Radian32());
+            barrel.Rotate_Y((float)-BarrelPitch.Current().As_Radian32());
             barrel.Translate(translation);
             turret_matrix=Unit_Isometric_View_00717f90()*main_matrix;
             barrel_matrix=Unit_Isometric_View_00717f90()*barrel;

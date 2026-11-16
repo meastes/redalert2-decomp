@@ -982,13 +982,13 @@ void AITriggerTypeClass::Register_Failure()
 
 bool AITriggerTypeClass::Team_Zone_Check(TeamTypeClass *team, HouseClass *house, HouseClass *enemy) const
 {
-    if (!team->unknown_e8 || enemy == 0) {
+    if (!team->IsReachCheckNeeded || enemy == 0) {
         return true;
     }
     Cell house_cell = Coord_Cell(house->BaseCenter);
     int zone_type = team->unknown_e4;
     Cell enemy_cell = Coord_Cell(enemy->BaseCenter);
-    if (team->unknown_e9) {
+    if (team->HasNavalTransport) {
         int enemy_zone = Map.Zone(enemy_cell, zone_type, false);
         if (Map.Zone(house_cell, zone_type, false) != enemy_zone) {
             enemy_zone = Map.Zone(enemy_cell, 5, false);

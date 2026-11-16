@@ -317,46 +317,46 @@ public:
     UnknownDescriptionList_00490E00 *unknown_campaigns_40;         // +0x40 the cooperative campaign records
     CoopCampaignClass *unknown_campaign_44;                        // +0x44 the selected campaign
     int unknown_48;                                                // +0x48 (0 from the constructor)
-    bool unknown_4c;                                               // +0x4C (set when the saved campaign is chosen)
-    bool unknown_4d;                                               // +0x4D (slot 30 removes the lobby list's last row while set)
-    int unknown_50;                                                // +0x50 the campaign list row last loaded
+    bool SavedCampaignChosen;                                               // +0x4C (set when the saved campaign is chosen)
+    bool SaveListed;                                               // +0x4D (slot 30 removes the lobby list's last row while set)
+    int LoadedRecord;                                                // +0x50 the campaign list row last loaded
     CampaignScoreClass *unknown_score_54;                          // +0x54 the score screen (made by slot 36)
-    int unknown_58;                                                // +0x58 (slot 34: the session row whose address is the local one)
+    int LocalPlayer;                                                // +0x58 (slot 34: the session row whose address is the local one)
     DynamicVectorClass<NodeNameType *> unknown_players_5c;   // +0x5C the players saved by slot 34 (copied back by slot 38); the destructor 0x5A2B50
                                                                    // stores the VectorClass<NodeNameType *> vptr: NodeNameType is probably NodeNameType
     // +0x74..+0x1A8: the session settings slot 34 saves and slot 37 restores (session offsets in brackets).
-    int unknown_74;                                                // +0x74 [+0x124]
+    int SavedField74;                                                // +0x74 [+0x124]
     unsigned short unknown_host_name_78[20];                       // +0x78 [+0x2380] the host's name
     int unknown_a0;                                                // +0xA0 [+0x3AA4]
-    int unknown_a4;                                                // +0xA4 (BuildLevel)
+    int TechLevel;                                                // +0xA4 (BuildLevel)
     int unknown_units_a8;                                          // +0xA8 [+0x38] the start units
     int unknown_credits_ac;                                        // +0xAC [+0x24]
     bool unknown_fog_b0;                                           // +0xB0 [+0xA7]
-    bool unknown_b1;                                               // +0xB1 [+0x28]
+    bool BridgeDestruction;                                               // +0xB1 [+0x28]
     bool unknown_crates_b2;                                        // +0xB2 [+0x29]
-    bool unknown_b3;                                               // +0xB3 [+0xA8]
-    bool unknown_b4;                                               // +0xB4 [+0xA4]
-    bool unknown_b5;                                               // +0xB5 [+0xA5]
+    bool MCVRedeploy;                                               // +0xB3 [+0xA8]
+    bool AlliesAllowed;                                               // +0xB4 [+0xA4]
+    bool HarvTruce;                                               // +0xB5 [+0xA5]
     bool unknown_bases_b6;                                         // +0xB6 [+0x20]
-    bool unknown_b7;                                               // +0xB7 [+0xA6]
+    bool CTF;                                               // +0xB7 [+0xA6]
     int unknown_ai_count_b8;                                       // +0xB8 [+0x3C]
     int unknown_difficulty_bc;                                     // +0xBC [+0x40]
-    bool unknown_c0;                                               // +0xC0 [+0x2A]
-    bool unknown_c1;                                               // +0xC1 [+0x2B]
-    bool unknown_c2;                                               // +0xC2 [+0x2C]
-    bool unknown_c3;                                               // +0xC3 [+0x34]
+    bool ShortGame;                                               // +0xC0 [+0x2A]
+    bool SWAllowed;                                               // +0xC1 [+0x2B]
+    bool BuildOffAlly;                                               // +0xC2 [+0x2C]
+    bool CrapEngineers;                                               // +0xC3 [+0x34]
     int unknown_game_speed_c4;                                     // +0xC4 [+0x30]
-    UnknownSessionBlock_293C unknown_c8;                           // +0xC8 [+0x293C]
-    UnknownSessionBlock_299C unknown_128;                          // +0x128 [+0x299C]
-    UnknownSessionBlock_299C unknown_148;                          // +0x148 [+0x2FA0]
+    UnknownSessionBlock_293C Addresses;                           // +0xC8 [+0x293C]
+    UnknownSessionBlock_299C PlayerStates;                          // +0x128 [+0x299C]
+    UnknownSessionBlock_299C PlayerPortBases;                          // +0x148 [+0x2FA0]
     unsigned short unknown_master_name_168[21];                    // +0x168 [+0x2FC8] MasterPlayerName
     int unknown_master_id_194;                                     // +0x194 [+0x301C] MasterPlayerID
-    UnknownSessionBlock_3022 unknown_198;                          // +0x198 [+0x3022]
-    DynamicVectorClass<int> unknown_1a8[8];                        // +0x1A8 (slot 25: one list per player, read from the campaign AI settings)
-    DynamicVectorClass<int> unknown_268[8];                        // +0x268 (slot 25: a second list per player)
+    UnknownSessionBlock_3022 PlayerPorts;                          // +0x198 [+0x3022]
+    DynamicVectorClass<int> HouseChoices[8];                        // +0x1A8 (slot 25: one list per player, read from the campaign AI settings)
+    DynamicVectorClass<int> ColorChoices[8];                        // +0x268 (slot 25: a second list per player)
     DynamicVectorClass<CoopCampaignClass *> unknown_campaigns_328; // +0x328 one CoopCampaignClass per campaign record
-    int unknown_340;                                               // +0x340 the selected campaign's record index
-    bool unknown_344;                                              // +0x344
+    int CampaignIndex;                                               // +0x340 the selected campaign's record index
+    bool PlayersChanged;                                              // +0x344
 };
 
 // The number of players of a map file: its [Waypoints] 0-7 that are set, else [RandomMap]

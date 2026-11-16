@@ -414,19 +414,26 @@ def plan(klass, old, new, mangled=None, files=None, allow_hiding=False):
     # keeps `char unknown_XX[N]` padding where the real class has members: the same USR, so clang
     # cannot tell them apart. When the member has a real declaration and padding declarations, the
     # padding declarations and every use in a unit whose only declaration is padding keep their name.
+    # When every declaration is a char array (a one-byte span of the real class is one too), the
+    # real one is the declaration most units see; the stand-ins' char arrays keep their names.
     padding, real_uses, padding_uses = set(), set(), set()
     for usr in targets:
-        sites = set()
+        seen_by = {}
         for _, unit_sites in units_seen:
-            sites |= unit_sites.get(usr, set())
+            for site in unit_sites.get(usr, set()):
+                seen_by[site] = seen_by.get(site, 0) + 1
+        sites = set(seen_by)
         if any(p for _, _, p in sites) and not all(p for _, _, p in sites):
             padding |= {(w, o) for w, o, p in sites if p}
+        elif len(sites) > 1:
+            primary = max(sites, key=lambda site: (seen_by[site], site))
+            padding |= {(w, o) for w, o, p in sites if p and (w, o, p) != primary}
     if padding:
         for at, unit_sites in units_seen:
             mine = set()
             for usr in targets:
                 mine |= unit_sites.get(usr, set())
-            only_padding = bool(mine) and all(p for _, _, p in mine)
+            only_padding = bool(mine) and all((w, o) in padding for w, o, _ in mine)
             for key, usrs in at.items():
                 if usrs & targets:
                     (padding_uses if only_padding else real_uses).add(key)

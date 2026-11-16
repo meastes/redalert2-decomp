@@ -155,7 +155,7 @@ public:
     int unknown_20;                     // +0x20
     int unknown_24;                     // +0x24 (3000)
     int unknown_28;                     // +0x28 (1200)
-    int unknown_2c;                     // +0x2C (60)
+    int ModemGuardTime;                     // +0x2C (60)
     char unknown_30;                    // +0x30 ('+': the modem escape code)
     ModemRegistryEntryClass *ModemEntry;    // +0x34
     NullModemConnClass *Connection;     // +0x38

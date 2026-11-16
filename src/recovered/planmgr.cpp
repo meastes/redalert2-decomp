@@ -2709,7 +2709,7 @@ bool __fastcall Planning_Mission_Allows(TechnoClass *techno)
         if (mission == 5) {
             return true;
         }
-        return Mission_Fits(mission, TargetClass(techno->unknown_228));
+        return Mission_Fits(mission, TargetClass(techno->TarCom));
     }
     return false;
 }
@@ -4043,7 +4043,7 @@ bool __fastcall Planning_Idle_Mover(TechnoClass *techno)
             flagged = techno->AbstractFlags.IsFoot;
         }
         if (techno && flagged) {
-            if (((FootClass *)techno)->NavCom || techno->unknown_228) {
+            if (((FootClass *)techno)->NavCom || techno->TarCom) {
                 return false;
             }
         }

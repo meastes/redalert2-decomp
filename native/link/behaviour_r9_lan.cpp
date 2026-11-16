@@ -13,7 +13,7 @@ int SessionClass::Value_0124_006729f0()
 // (inventory/decompiled/00672a10.c).
 int SessionClass::Value_011c_00672a10()
 {
-    return ColorIdx != -2 ? unknown_11c : -2;
+    return ColorIdx != -2 ? PrefColor : -2;
 }
 
 #include "shared/lobby.hpp"
@@ -103,7 +103,7 @@ unsigned short *Native_Session_Player_Name(int index)
 // words at +0x3022, moving the later ones down (Destroy_Connection).
 void SessionClass::Unknown_00672F20(int index)
 {
-    for (int i = index; i < 7; ++i) unknown_3022.unknown[i] = unknown_3022.unknown[i + 1];
+    for (int i = index; i < 7; ++i) PlayerPorts.unknown[i] = PlayerPorts.unknown[i + 1];
 }
 
 // 0x00737B00 (accepted seed seed_00737b00::Build_By_String_00737b00): the builder's name for the CRC dump

@@ -460,7 +460,7 @@ int FootClass::Do_MISSION_PATROL()
                 }
             }
 
-            if (unknown_1b0 == 0) {
+            if (ArchivedTarget == 0) {
                 if (unknown_478.Count() > 0) {
                     Assign_Archive_Target(unknown_478[unknown_478.Count() - 1]);
                 } else if (NavCom != 0) {
@@ -483,24 +483,24 @@ int FootClass::Do_MISSION_PATROL()
     }
 
     case 1: {
-        ObjectClass *optr = unknown_228 == 0 ? 0 : (unknown_228->AbstractFlags.IsObject ? (ObjectClass *)unknown_228 : 0);
+        ObjectClass *optr = TarCom == 0 ? 0 : (TarCom->AbstractFlags.IsObject ? (ObjectClass *)TarCom : 0);
         int primary = What_Weapon_Should_I_Use(optr);
 
         if (Is_Renovator() && optr != 0 && optr->Kind_Of() == 6 && House->Is_Ally(((TechnoClass *)optr)->House) && optr->Health_Ratio() > Rules->ConditionRed) {
             unknown_slot220(0);
         } else if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(((UnknownCellClass *)PatrolCell)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)PatrolCell)->Flags >> 8 & 1, optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
             unknown_slot304();
-            if (unknown_228 != 0) {
+            if (TarCom != 0) {
                 break;
             }
-            Assign_Destination(unknown_1b0, true);
+            Assign_Destination(ArchivedTarget, true);
             Assign_Archive_Target(0);
             PatrolCell = 0;
             Status = 0;
             return 45;
         }
 
-        if (unknown_228 == 0) {
+        if (TarCom == 0) {
             AbstractClass *target = unknown_slot219(2, &PatrolCell->Center_Coord(), false);
             ObjectClass *scan = target == 0 ? 0 : (target->AbstractFlags.IsObject ? (ObjectClass *)target : 0);
             int weapon = What_Weapon_Should_I_Use(scan);
@@ -513,15 +513,15 @@ int FootClass::Do_MISSION_PATROL()
 
         Status = 2;
         unknown_slot220(0);
-        if (unknown_1b0 != 0) {
+        if (ArchivedTarget != 0) {
             UnknownCellClass *tcell = (UnknownCellClass *)Get_Target_Cell_Ptr();
             bool onbridge = Is_Moving_Onto_Bridge(0);
-            UnknownCellClass *acell = (UnknownCellClass *)&Map[unknown_1b0->Center_Coord()];
+            UnknownCellClass *acell = (UnknownCellClass *)&Map[ArchivedTarget->Center_Coord()];
             int patrolwalk = Search.Test_Cell_Walk(tcell->unknown_24, ((UnknownCellClass *)PatrolCell)->unknown_24, this, onbridge, ((UnknownCellClass *)PatrolCell)->Flags >> 8 & 1, -1);
             if (patrolwalk < Search.Test_Cell_Walk(tcell->unknown_24, acell->unknown_24, this, onbridge, acell->Flags >> 8 & 1, -1)) {
                 Assign_Destination(PatrolCell, true);
             } else {
-                Assign_Destination(unknown_1b0, true);
+                Assign_Destination(ArchivedTarget, true);
             }
             return 1;
         }
@@ -545,8 +545,8 @@ int FootClass::Do_MISSION_PATROL()
 
         if (NavCom == 0) {
             unknown_slot220(0);
-            if (unknown_1b0 != 0) {
-                Assign_Destination(unknown_1b0, true);
+            if (ArchivedTarget != 0) {
+                Assign_Destination(ArchivedTarget, true);
                 Assign_Archive_Target(0);
                 Status = 0;
                 PatrolCell = 0;
@@ -579,10 +579,10 @@ int FootClass::Do_MISSION_PATROL()
 int FootClass::Do_MISSION_CAPTURE()
 {
     InfantryClass *infantry = As_Infantry(this);
-    if (unknown_228 != 0 && unknown_228->Kind_Of() == 6 && NavCom == 0 && infantry != 0) {
+    if (TarCom != 0 && TarCom->Kind_Of() == 6 && NavCom == 0 && infantry != 0) {
         if (infantry->Type->C4 || infantry->Has_Ability(14) || infantry->Type->Engineer
             || infantry->Type->Occupier || infantry->Type->Assaulter || infantry->Type->Infiltrate) {
-            Assign_Destination(unknown_228, true);
+            Assign_Destination(TarCom, true);
         }
     }
     if (NavCom == 0) {
@@ -591,7 +591,7 @@ int FootClass::Do_MISSION_CAPTURE()
             Scatter(unknown_geometry_l, 1 != 0, 0 != 0);
         }
     }
-    if (unknown_228 == 0 && !House->Unknown_004F52F0()
+    if (TarCom == 0 && !House->Unknown_004F52F0()
         && (Kind_Of() != 15 || !((InfantryClass *)this)->Type->Occupier)) {
         unknown_slot220(0);
         Assign_Destination(0, true);
@@ -612,9 +612,9 @@ int FootClass::Do_MISSION_CAPTURE()
 int FootClass::Do_MISSION_EATEN()
 {
     InfantryClass *infantry = As_Infantry(this);
-    if (unknown_228 != 0 && unknown_228->Kind_Of() == 6 && NavCom == 0 && infantry != 0) {
+    if (TarCom != 0 && TarCom->Kind_Of() == 6 && NavCom == 0 && infantry != 0) {
         if (infantry->Type->C4 || infantry->Has_Ability(14) || infantry->Type->Engineer) {
-            Assign_Destination(unknown_228, true);
+            Assign_Destination(TarCom, true);
         }
     }
     if (NavCom == 0) {
@@ -623,7 +623,7 @@ int FootClass::Do_MISSION_EATEN()
             Scatter(unknown_geometry_l, 1 != 0, 0 != 0);
         }
     }
-    if (unknown_228 == 0 && !House->Unknown_004F52F0()) {
+    if (TarCom == 0 && !House->Unknown_004F52F0()) {
         unknown_slot220(0);
         Assign_Destination(0, true);
         QueueMission(5, false);
@@ -652,7 +652,7 @@ int FootClass::Do_MISSION_ATTACK()
             IsOverpowering = false;
         }
     }
-    if (unknown_228 != 0) {
+    if (TarCom != 0) {
         unknown_slot304();
     } else {
         unknown_slot261(0, true);
@@ -696,7 +696,7 @@ BuildingClass *FootClass::unknown_4c45b0()
 
 int FootClass::Do_MISSION_GUARD()
 {
-    if (unknown_228 == 0) {
+    if (TarCom == 0) {
         if (unknown_slot231(1)->WeaponType != 0 && unknown_slot231(1)->WeaponType->Warhead->ElectricAssault) {
             BuildingClass *building = 0;
             for (int facing = 0; facing < 8; facing++) {
@@ -726,7 +726,7 @@ int FootClass::Do_MISSION_GUARD()
     int delay = (int)(Control()->unknown_10 * 900.0);
     if (this != 0 && Kind_Of() == 15 && !House->Unknown_004F52F0()
         && (((InfantryClass *)this)->Type->C4 || Has_Ability(14))
-        && Get_Mission() != 17 && unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
+        && Get_Mission() != 17 && TarCom != 0 && TarCom->Kind_Of() == 6) {
         QueueMission(17, false);
     }
     int result = 0;
@@ -758,19 +758,19 @@ int FootClass::Do_MISSION_HUNT()
     if (!Techno_Type_Class()->StupidHunt && unknown_slot209(&(coord = Coord), 0)) {
         InfantryClass *infantry = Kind_Of() == 15 ? (InfantryClass *)this : 0;
         if (infantry != 0 && infantry->Type->Engineer && !infantry->Type->C4 && !infantry->Has_Ability(14)) {
-            Assign_Destination(unknown_228, true);
+            Assign_Destination(TarCom, true);
             QueueMission(8, false);
             if (Ready_To_Commence()) {
                 Commence();
             }
-        } else if (infantry != 0 && (infantry->Type->C4 || infantry->Has_Ability(14)) && unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
-            Assign_Destination(unknown_228, true);
+        } else if (infantry != 0 && (infantry->Type->C4 || infantry->Has_Ability(14)) && TarCom != 0 && TarCom->Kind_Of() == 6) {
+            Assign_Destination(TarCom, true);
             QueueMission(17, false);
             if (Ready_To_Commence()) {
                 Commence();
             }
         } else if (infantry != 0 && infantry->Type->VehicleThief) {
-            Assign_Destination(unknown_228, true);
+            Assign_Destination(TarCom, true);
             QueueMission(8, false);
             if (Ready_To_Commence()) {
                 Commence();
@@ -887,11 +887,11 @@ inline CoordStruct Approach_Move_Coord_004c4c30(CoordStruct const &start,DirType
 }
 void FootClass::unknown_slot304()
 {
-    if (unknown_228) {
-    int weapon=What_Weapon_Should_I_Use(unknown_228);
+    if (TarCom) {
+    int weapon=What_Weapon_Should_I_Use(TarCom);
     int maximum_range=Weapon_Range(weapon);
     if (maximum_range>=512) maximum_range-=128;
-    bool in_range=unknown_slot212(unknown_228,weapon);
+    bool in_range=unknown_slot212(TarCom,weapon);
     if (!in_range) {
         if (Mission==6) {
             unknown_slot220(0);
@@ -914,7 +914,7 @@ void FootClass::unknown_slot304()
         CoordStruct position=Coord;
         if (!Map[position].Can_Build_Here()) {
             require_deploy_cell=true;
-            int near_range=unknown_5d4c00(unknown_228)+512;
+            int near_range=unknown_5d4c00(TarCom)+512;
             if (maximum_range>=near_range) maximum_range=near_range;
         }
     }
@@ -924,8 +924,8 @@ void FootClass::unknown_slot304()
     persist.Checked()->GetClassID(&class_id);
     if (class_id==CLSID_JumpjetLocomotionClass) flyer=true;
     if (NavCom) {
-        if (unknown_228 && Techno_Type_Class()->CanRecalcApproachTarget && !in_range) {
-            int separation=Approach_Coord_Distance_004c4c30(NavCom->Center_Coord(),unknown_228->Center_Coord());
+        if (TarCom && Techno_Type_Class()->CanRecalcApproachTarget && !in_range) {
+            int separation=Approach_Coord_Distance_004c4c30(NavCom->Center_Coord(),TarCom->Center_Coord());
             if (separation>Rules->ApproachTargetResetMultiplier*maximum_range) {
                 FollowTarget=0;
                 NavCom=0;
@@ -938,16 +938,16 @@ void FootClass::unknown_slot304()
         unknown_478.Delete(0);
         return;
     }
-    if (unknown_228->Kind_Of()==11) {
-        CellClass *target_cell=(CellClass *)unknown_228;
+    if (TarCom->Kind_Of()==11) {
+        CellClass *target_cell=(CellClass *)TarCom;
         if (target_cell->Is_Tile_Destroyable_Cliff()) {
             Cell destination=unknown_slot19(0).As_Cell();
             Cell nearer=Map.Unknown_00568ED0(target_cell->MapCoords,destination);
             unknown_slot220(&Map[nearer]);
         }
     }
-    if (unknown_228->Kind_Of()==6) {
-        BuildingClass *building=(BuildingClass *)unknown_228;
+    if (TarCom->Kind_Of()==6) {
+        BuildingClass *building=(BuildingClass *)TarCom;
         if (building) maximum_range+=(building->Type->Width()+building->Type->Foundation_Height(false))*64;
     }
     double adjusted;
@@ -956,15 +956,15 @@ void FootClass::unknown_slot304()
     maximum_range=(int)adjusted;
     maximum_range=maximum_range<=0?0:maximum_range;
     if (maximum_range>0 && maximum_range<=255) maximum_range=255;
-    CoordStruct target_position=unknown_228->Center_Coord();
+    CoordStruct target_position=TarCom->Center_Coord();
     CoordStruct trial_position;
     Cell target_cell=target_position.As_Cell();
     Cell trial_cell=target_cell;
     int direction=Dir_To_256(Approach_Direction_004c4c30(target_position,Center_Coord()));
     bool target_bridge=false;
-    if (unknown_228->Kind_Of()==11) target_bridge=(((CellClass *)unknown_228)->unknown_140&0x100)!=0;
+    if (TarCom->Kind_Of()==11) target_bridge=(((CellClass *)TarCom)->unknown_140&0x100)!=0;
     else {
-        AbstractClass *target=unknown_228;
+        AbstractClass *target=TarCom;
         if (target && target->AbstractFlags.IsObject) target_bridge=((ObjectClass *)target)->IsOnBridge;
     }
     int movement_zone=Techno_Type_Class()->MovementZone;
@@ -980,7 +980,7 @@ void FootClass::unknown_slot304()
             if (require_deploy_cell && !Map[trial_position].Can_Build_Here()) continue;
             trial_position.Z=Map.Get_Height_GL(trial_position);
             if (Map[trial_position].unknown_140&0x100) trial_position.Z+=unknown_geometry_j;
-            if (!unknown_6c4bb0(&trial_position,unknown_228,unknown_slot231(weapon)->WeaponType)) continue;
+            if (!unknown_6c4bb0(&trial_position,TarCom,unknown_slot231(weapon)->WeaponType)) continue;
             trial_cell=trial_position.As_Cell();
             if (!Map.Unknown_0055A660(trial_cell,true)) continue;
             bool clear=Map[trial_cell].Is_Clear_To_Move(Techno_Type_Class()->SpeedType,false,false,
@@ -992,7 +992,7 @@ void FootClass::unknown_slot304()
                 for (int adjacent=0;adjacent<8;++adjacent) {
                     trial_cell=AdjacentCell[adjacent&7].TPoint2D<short>::operator+(trial_cell);
                     trial_position=CoordStruct(trial_cell);
-                    if (unknown_6c4bb0(&trial_position,unknown_228,unknown_slot231(weapon)->WeaponType)
+                    if (unknown_6c4bb0(&trial_position,TarCom,unknown_slot231(weapon)->WeaponType)
                         && Map[trial_cell].Is_Clear_To_Move(Techno_Type_Class()->SpeedType,false,false,
                             Map.Zone(unknown_slot19(0).As_Cell(),movement_zone,IsOnBridge),movement_zone,-1,true)) {
                         clear=true;
@@ -1027,7 +1027,7 @@ void FootClass::unknown_slot304()
     if (found) {
         Assign_Destination(&Map[trial_cell],true);
     } else if (Techno_Type_Class()->HunterSeeker || (Kind_Of()==15 && ((InfantryClass *)this)->Type->VehicleThief)) {
-        Assign_Destination(unknown_228,true);
+        Assign_Destination(TarCom,true);
     } else {
         trial_cell=Map.Nearby_Location(trial_cell,Techno_Type_Class()->SpeedType,
             Map.Zone(unknown_slot19(0).As_Cell(),movement_zone,Is_Moving_Onto_Bridge(0)),movement_zone,
@@ -1056,7 +1056,7 @@ inline Cell Coord_Cell_Value(CoordStruct coord)
 
 inline void Guard_Navigation(FootClass *foot)
 {
-    if (!foot->House->Unknown_004F52F0() && foot->unknown_49c.Count() > 0 && foot->NavCom == 0 && foot->unknown_49c[0] == foot->unknown_1b0) {
+    if (!foot->House->Unknown_004F52F0() && foot->unknown_49c.Count() > 0 && foot->NavCom == 0 && foot->unknown_49c[0] == foot->ArchivedTarget) {
         foot->Handle_Navigation_List();
     }
 }
@@ -1065,11 +1065,11 @@ int FootClass::Do_MISSION_GUARD_AREA()
 {
     Guard_Navigation(this);
 
-    if (unknown_1b0 != 0 && unknown_1b0->Kind_Of() == 11) {
-        BuildingClass *building = ((UnknownCellClass *)&Map[unknown_1b0->Center_Coord()])->Unknown_004717B0();
+    if (ArchivedTarget != 0 && ArchivedTarget->Kind_Of() == 11) {
+        BuildingClass *building = ((UnknownCellClass *)&Map[ArchivedTarget->Center_Coord()])->Unknown_004717B0();
         if (building != 0 && House->Is_Ally(building->House) && !House->Unknown_004F52F0()
             && (Kind_Of() != 1 || !((UnitClass *)this)->Type->Harvester)) {
-            Cell nearby = Map.Nearby_Location(Coord_Cell(unknown_1b0->Center_Coord()), 1, Map.Zone(Coord_Cell_Value(Coord), 0, false), 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+            Cell nearby = Map.Nearby_Location(Coord_Cell(ArchivedTarget->Center_Coord()), 1, Map.Zone(Coord_Cell_Value(Coord), 0, false), 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
             if (nearby != unknown_geometry_k) {
                 Assign_Archive_Target((AbstractClass *)&Map[nearby]);
             }
@@ -1082,20 +1082,20 @@ int FootClass::Do_MISSION_GUARD_AREA()
         return 1 + unknown_id_source_a3d290->Random()(1, 10);
     }
 
-    if (unknown_1b0 == 0 && MissionQueue == -1) {
+    if (ArchivedTarget == 0 && MissionQueue == -1) {
         Assign_Archive_Target((AbstractClass *)&Map[CoordStruct(Coord)]);
     }
 
     InfantryClass *infantry = As_Infantry(this);
     if (!House->Unknown_004F52F0() && infantry != 0 && (infantry->Type->C4 || infantry->Has_Ability(14))
-        && Get_Mission() != 17 && unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
+        && Get_Mission() != 17 && TarCom != 0 && TarCom->Kind_Of() == 6) {
         QueueMission(17, false);
         return 1;
     }
 
     int maxrange = (int)(unknown_slot188(1) * 0.75);
 
-    AbstractClass *archive = unknown_1b0;
+    AbstractClass *archive = ArchivedTarget;
     bool foot;
     if (archive != 0) {
         foot = archive->AbstractFlags.IsFoot;
@@ -1104,17 +1104,17 @@ int FootClass::Do_MISSION_GUARD_AREA()
         maxrange = Rules->GuardModeStray;
     }
 
-    if (unknown_1b0 != 0) {
-        if (!IsFiring && NavCom == 0 && unknown_5d4c00(unknown_1b0) > maxrange) {
+    if (ArchivedTarget != 0) {
+        if (!IsFiring && NavCom == 0 && unknown_5d4c00(ArchivedTarget) > maxrange) {
             unknown_slot220(0);
-            Assign_Destination(unknown_1b0, true);
+            Assign_Destination(ArchivedTarget, true);
         }
 
-        if (unknown_228 == 0) {
+        if (TarCom == 0) {
             if (Can_Scan_For_Target() && unknown_6d9710()) {
-                unknown_slot209(&unknown_1b0->Center_Coord(), 2);
+                unknown_slot209(&ArchivedTarget->Center_Coord(), 2);
             }
-            if (unknown_228 != 0) {
+            if (TarCom != 0) {
                 return 1;
             }
             unknown_slot258();
@@ -1123,7 +1123,7 @@ int FootClass::Do_MISSION_GUARD_AREA()
         }
     }
 
-    if (unknown_228 == 0 && unknown_slot231(1)->WeaponType != 0 && unknown_slot231(1)->WeaponType->Warhead->ElectricAssault) {
+    if (TarCom == 0 && unknown_slot231(1)->WeaponType != 0 && unknown_slot231(1)->WeaponType->Warhead->ElectricAssault) {
         for (int facing = 0; facing < 8; facing++) {
             Cell cell = Adjacent_Cell(unknown_slot104(), facing);
             BuildingClass *candidate = ((UnknownCellClass *)&Map[cell])->Unknown_004717B0();
@@ -1542,9 +1542,9 @@ bool FootClass::unknown_slot261(bool initial,bool resume_waypoint)
             }
         }
         if (was_piggybacking) return true;
-        if (Kind_Of()==15 && unknown_1b0) {
-            if (Coord_Cell(unknown_1b0->Center_Coord())!=Coord_Cell(Center_Coord())) {
-                AbstractClass *target=unknown_1b0;
+        if (Kind_Of()==15 && ArchivedTarget) {
+            if (Coord_Cell(ArchivedTarget->Center_Coord())!=Coord_Cell(Center_Coord())) {
+                AbstractClass *target=ArchivedTarget;
                 if (Mission!=11) {
                     QueueMission(2,false);
                     Assign_Archive_Target(0);
@@ -1626,7 +1626,7 @@ void FootClass::unknown_slot93(int why)
             }
         }
 
-        if (unknown_1b8 == 2) {
+        if (Cloak == 2) {
             for (int face = 0; face < 8; face++) {
                 Cell cell = AdjacentCell[face & 7] + unknown_slot104();
 
@@ -1641,10 +1641,10 @@ void FootClass::unknown_slot93(int why)
             }
         }
 
-        int primary = What_Weapon_Should_I_Use(unknown_228);
+        int primary = What_Weapon_Should_I_Use(TarCom);
         bool inrange = false;
-        if (unknown_228 != 0 && unknown_228->AbstractFlags.IsFoot) {
-            inrange = In_Range(((FootClass *)unknown_228)->unknown_slot287(), primary);
+        if (TarCom != 0 && TarCom->AbstractFlags.IsFoot) {
+            inrange = In_Range(((FootClass *)TarCom)->unknown_slot287(), primary);
         }
 
         if ((Get_Mission() == 21 || Get_Mission() == 11 || Get_Mission() == 1 || Get_Mission() == 15) && inrange && unknown_478.Count() == 0) {
@@ -1655,7 +1655,7 @@ void FootClass::unknown_slot93(int why)
         Cell cell = unknown_slot104();
         UnknownCellClass *cellptr = (UnknownCellClass *)&Map[cell];
 
-        if (unknown_1b8 != 2) {
+        if (Cloak != 2) {
             TagClass *tag = cellptr->unknown_3c;
             int x = cell.X;
             int y = cell.Y;
@@ -1871,7 +1871,7 @@ int FootClass::Do_MISSION_ENTER()
 {
     TechnoClass *contact = Contact(0);
     if (contact == 0) {
-        contact = Unknown_0040DC20(unknown_1b0);
+        contact = Unknown_0040DC20(ArchivedTarget);
     }
     if (contact != 0) {
         if (unknown_slot150(0xE, contact) != 1 && !unknown_370) {
@@ -1943,7 +1943,7 @@ void FootClass::Assign_Destination(AbstractClass *target, bool immediate)
             CoordStruct coord = NavCom->unknown_slot19(this);
             Locomotor.Checked()->Move_To(coord);
         }
-    } else if (Kind_Of() != 2 || (Mission != 1 && MissionQueue != 1) || unknown_228 == 0) {
+    } else if (Kind_Of() != 2 || (Mission != 1 && MissionQueue != 1) || TarCom == 0) {
         Locomotor.Checked()->Stop_Moving();
         NavCom = 0;
     }
@@ -1994,10 +1994,10 @@ int FootClass::Rescue_Mission(AbstractClass *target)
     if (target == 0) {
         return 0;
     }
-    if (unknown_228 == target) {
+    if (TarCom == target) {
         return -unknown_slot168();
     }
-    if (unknown_228 != 0 && unknown_228->AbstractFlags.IsTechno && ((TechnoClass *)unknown_228)->unknown_slot163()) {
+    if (TarCom != 0 && TarCom->AbstractFlags.IsTechno && ((TechnoClass *)TarCom)->unknown_slot163()) {
         return 0;
     }
     bool defense = (Team != 0 && Team->Class->IsBaseDefense) ? true : false;
@@ -2076,7 +2076,7 @@ void FootClass::Detach(AbstractClass *target, bool all)
     if (Member == target && all && target != 0) {
         Member = ((FootClass *)Member)->Member;
     }
-    if (unknown_1b0 == target) {
+    if (ArchivedTarget == target) {
         Assign_Archive_Target(0);
     }
     if (SuspendedNavCom == target) {
@@ -2499,12 +2499,12 @@ void FootClass::AI()
         && SightTimer.Value() == 0) {
         unknown_slot263(0, 0, 0, 0);
         unknown_slot262(0, 0, 0, 0);
-        if (unknown_1f8 != Get_Height_AGL()) {
-            Map.Unknown_0054A550(CoordStruct(Coord), 0, unknown_1f4 + 3, 0);
+        if (LastSightHeight != Get_Height_AGL()) {
+            Map.Unknown_0054A550(CoordStruct(Coord), 0, LastSightRange + 3, 0);
         } else {
-            Map.Unknown_0054A550(CoordStruct(Coord), unknown_1f4 - 3, unknown_1f4 + 3, 0);
+            Map.Unknown_0054A550(CoordStruct(Coord), LastSightRange - 3, LastSightRange + 3, 0);
         }
-        unknown_1f8 = Get_Height_AGL();
+        LastSightHeight = Get_Height_AGL();
         SightTimer = CDTimerClass<FrameTimerClass>(15);
     }
 
@@ -2515,7 +2515,7 @@ void FootClass::AI()
             return;
         }
         if (((Locomotor.Checked()->Is_Moving_Now() && !unknown_slot112())
-                || (unknown_228 != 0 && Techno_Type_Class()->HoverAttack))
+                || (TarCom != 0 && Techno_Type_Class()->HoverAttack))
             && Frame % Techno_Type_Class()->WalkRate == 0 && !unknown_slot111() && !unknown_slot112()
             || Techno_Type_Class()->IdleRate != 0 && !Locomotor.Checked()->Is_Moving_Now()
             && Frame % Techno_Type_Class()->IdleRate == 0 && !unknown_slot111() && !unknown_slot112()) {
@@ -2902,7 +2902,7 @@ void FootClass::Link_DropPod()
 
 bool FootClass::unknown_slot292()
 {
-    if (NavCom == 0 && unknown_228 == 0) {
+    if (NavCom == 0 && TarCom == 0) {
         TechnoClass *contact = Contact(0);
         BuildingClass *building = 0;
         if (contact != 0 && contact->Kind_Of() == 6) {
@@ -3079,11 +3079,11 @@ void FootClass::unknown_slot243(bool force, int arg2)
 {
     CoordStruct from;
     CoordStruct to;
-    if (unknown_228 != 0 || NavCom != 0) {
+    if (TarCom != 0 || NavCom != 0) {
         if (!force && unknown_timer_ac0178.Value() <= 0) {
             return;
         }
-        if (unknown_228 != 0) {
+        if (TarCom != 0) {
             from = Turret_Coord(0);
             to = Predict_Target_Coord();
             unknown_6d0510(from, to, Unpack_Hicolor_Pixel(NormalDrawer->Convert(8)), 0, 0);
@@ -3132,10 +3132,10 @@ void FootClass::Draw_Action_Line()
 {
     RGBClass white(255, 255, 255);
     RGBClass color;
-    if (unknown_228 == 0 && NavCom == 0) return;
+    if (TarCom == 0 && NavCom == 0) return;
     CoordStruct start_coord;
     CoordStruct end_coord;
-    if (unknown_228 != 0) {
+    if (TarCom != 0) {
         start_coord = Turret_Coord(0);
         end_coord = Predict_Target_Coord();
     } else {
@@ -3268,7 +3268,7 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
                 if (techno->Kind_Of() == 6) {
                     BuildingClass *building = (BuildingClass *)techno;
                     bool repair = building->Type->UnitRepair && Strength < Techno_Type_Class()->MaxStrength && Kind_Of() != 15;
-                    bool reload = building->Type->UnitReload && unknown_254 < Techno_Type_Class()->Ammo && unknown_254 != -1;
+                    bool reload = building->Type->UnitReload && Ammo < Techno_Type_Class()->Ammo && Ammo != -1;
                     bool allied = building->House->Is_Ally(PlayerPtr);
                     if ((repair || reload) && allied && action != 7 && action != 8) {
                         click = true;
@@ -3768,25 +3768,25 @@ int FootClass::Do_MISSION_RESCUE()
     CoordStruct coord;
     switch (Status) {
     case 0:
-        if (unknown_228 != 0) {
+        if (TarCom != 0) {
             unknown_slot304();
             break;
         }
-        if (unknown_1b0 == 0) {
+        if (ArchivedTarget == 0) {
             coord = Coord;
             Assign_Archive_Target((AbstractClass *)&Map[coord]);
         }
         IsScanLimited = false;
         {
-            AbstractClass *target = unknown_slot219(0, &unknown_1b0->Center_Coord(), 0);
+            AbstractClass *target = unknown_slot219(0, &ArchivedTarget->Center_Coord(), 0);
             if (target != 0) {
-                double distance = Offset_Length(target->Center_Coord() - unknown_1b0->Center_Coord());
+                double distance = Offset_Length(target->Center_Coord() - ArchivedTarget->Center_Coord());
                 if (unknown_slot188(1) * 1.5 > distance) {
                     unknown_slot220(target);
                 }
             }
         }
-        if (unknown_228 != 0) {
+        if (TarCom != 0) {
             return 1;
         }
         Status = 1;
@@ -3889,8 +3889,8 @@ void FootClass::unknown_slot194()
 
 void FootClass::Delete_Me()
 {
-    if (unknown_230 != 0) {
-        ((CaptureManagerClass *)unknown_230)->Release_4681e0();
+    if (CaptureManager != 0) {
+        ((CaptureManagerClass *)CaptureManager)->Release_4681e0();
     }
     if (Team != 0) {
         Team->Remove(this, -1, 0);
@@ -4082,14 +4082,14 @@ bool FootClass::unknown_slot224(int source)
 {
     if (Get_Height_AGL() > 0) {
         if (Strength > 0) {
-            if (source != 0 && unknown_34 != 0) {
-                unknown_34->Spring(0x26, this, unknown_geometry_k, 0, 0);
+            if (source != 0 && Tag != 0) {
+                Tag->Spring(0x26, this, unknown_geometry_k, 0, 0);
             }
-            if (unknown_34 != 0 && IsActive) {
-                unknown_34->Spring(0x29, this, unknown_geometry_k, 0, 0);
+            if (Tag != 0 && IsActive) {
+                Tag->Spring(0x29, this, unknown_geometry_k, 0, 0);
             }
-            if (unknown_34 != 0 && IsActive && source != 0) {
-                unknown_34->Spring(0x29, this, unknown_geometry_k, 0, source);
+            if (Tag != 0 && IsActive && source != 0) {
+                Tag->Spring(0x29, this, unknown_geometry_k, 0, source);
             }
             if (!IsActive) {
                 return true;
@@ -4108,13 +4108,13 @@ bool FootClass::unknown_slot224(int source)
             double spin = unknown_id_source_a3d290->Random()(0, 0x7FFFFFFE);
             spin *= 1.0 / 2147483646.0;
             spin *= 0.15;
-            unknown_288 = (float)(spin + 0.1);
+            RockingSidewaysPerFrame = (float)(spin + 0.1);
             if (unknown_id_source_a3d290->Random()(0, 1) == 0) {
-                unknown_288 = -unknown_288;
+                RockingSidewaysPerFrame = -RockingSidewaysPerFrame;
             }
             double tilt = unknown_id_source_a3d290->Random()(0, 0x7FFFFFFE);
             tilt *= 1.0 / 2147483646.0;
-            unknown_28c = (float)(tilt * 0.1);
+            RockingForwardsPerFrame = (float)(tilt * 0.1);
         }
         Detach_This_From_All(this, false);
         return true;
@@ -4374,10 +4374,10 @@ void FootClass::unknown_slot278()
 {
     if (MegaDestination != 0) {
         if (HasAttackMoveTarget) {
-            if (unknown_slot215(unknown_228)) {
+            if (unknown_slot215(TarCom)) {
                 return;
             }
-            unknown_228 = 0;
+            TarCom = 0;
         }
         CoordStruct coord = Coord;
         if (unknown_slot209(&coord, 1)) {
@@ -4388,16 +4388,16 @@ void FootClass::unknown_slot278()
         if (MegaTarget != 0 && unknown_slot215(MegaTarget)) {
             return;
         }
-        if (HasAttackMoveTarget && unknown_slot215(unknown_228)) {
+        if (HasAttackMoveTarget && unknown_slot215(TarCom)) {
             return;
         }
-        unknown_228 = 0;
+        TarCom = 0;
         CoordStruct coord = Coord;
         if (unknown_slot209(&coord, 1)) {
             QueueMission(1, true);
             HasAttackMoveTarget = true;
         } else {
-            unknown_228 = MegaTarget;
+            TarCom = MegaTarget;
         }
     }
 }

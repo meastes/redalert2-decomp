@@ -676,7 +676,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                             }
                         }
                         foot->IsImmobilized = true;
-                        foot->unknown_21c = coord;
+                        foot->ChronoDestCoords = coord;
                         foot->Assign_Destination(&Map[*offset + cell], true);
                     }
                 }

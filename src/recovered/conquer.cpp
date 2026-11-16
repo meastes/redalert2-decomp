@@ -358,7 +358,7 @@ void __fastcall IPX_Call_Back()
     Ipx.Service();
 
     if (unknown_session_a3d298.Type == 4 && !unknown_session_a3d298.NetOpen) {
-        if ((_probe_timer == 0 || unknown_session_a3d298.unknown_3014) && unknown_session_a3d298.Players.Count()) {
+        if ((_probe_timer == 0 || unknown_session_a3d298.PortProbeDue) && unknown_session_a3d298.Players.Count()) {
             Windows_Message_Handler();
             Ipx.Service();
             if (Ipx.Global_Num_Send() == 0) {
@@ -370,7 +370,7 @@ void __fastcall IPX_Call_Back()
                 Debug_Printf("Sending NET_PORT_PROBE packets in Call_Back\n");
 
                 for (int i = 1; i < unknown_session_a3d298.Players.Count(); i++) {
-                    unsigned short port = unknown_session_a3d298.unknown_3022.unknown[i];
+                    unsigned short port = unknown_session_a3d298.PlayerPorts.unknown[i];
                     if (port) {
                         Debug_Printf("Sending to %s\n", Wide_To_Narrow_006fa120(unknown_session_a3d298.Players[i]->Name));
                         Ipx.Send_Global_Message(&packet, 0x5b, 0, &unknown_session_a3d298.Players[i]->Address, port, 0);
@@ -379,7 +379,7 @@ void __fastcall IPX_Call_Back()
 
                         for (int index = 0; index < 8; index++) {
                             if (Same_Name(unknown_session_a3d298.PlayerSlots[index], unknown_session_a3d298.Players[i])) {
-                                if (TickCount.Time() - unknown_session_a3d298.unknown_2ff4[index] > 2400) {
+                                if (TickCount.Time() - unknown_session_a3d298.PlayerLastTime[index] > 2400) {
                                     Debug_Printf("No PORT_PROBE from %s in the last 40 seconds\n", Wide_To_Narrow_006fa120(unknown_session_a3d298.Players[i]->Name));
                                     if (unknown_session_a3d298.Players[i]->Port != port && unknown_session_a3d298.Players[i]->Port >= 0x400) {
                                         Debug_Printf("Sending to %s on mangled port from pserver\n", Wide_To_Narrow_006fa120(unknown_session_a3d298.Players[i]->Name));
@@ -399,7 +399,7 @@ void __fastcall IPX_Call_Back()
                 }
 
                 _probe_timer = unknown_probe_delay_7d333c;
-                unknown_session_a3d298.unknown_3014 = false;
+                unknown_session_a3d298.PortProbeDue = false;
                 Ipx.Set_Global_Routed();
             }
         }
@@ -439,18 +439,18 @@ void __fastcall IPX_Call_Back()
                             if (unknown_session_a3d298.Players[i]->Address.Is_Same_Node(unknown_session_a3d298.GAddress) && _stricmp(Wide_To_Narrow_006fa120(unknown_session_a3d298.Players[i]->Name), unknown_session_a3d298.GPacket.Name) == 0) {
                                 for (int index = 0; index < 8; index++) {
                                     if (Same_Name(unknown_session_a3d298.PlayerSlots[index], unknown_session_a3d298.Players[i])) {
-                                        unknown_session_a3d298.unknown_2ff4[index] = TickCount.Time();
+                                        unknown_session_a3d298.PlayerLastTime[index] = TickCount.Time();
                                         break;
                                     }
                                 }
                                 unsigned short port = unknown_session_a3d298.GAddress.Get_Port();
-                                if (port != unknown_session_a3d298.Players[i]->Address.Get_Port() || port != unknown_session_a3d298.unknown_3022.unknown[i]) {
+                                if (port != unknown_session_a3d298.Players[i]->Address.Get_Port() || port != unknown_session_a3d298.PlayerPorts.unknown[i]) {
                                     Debug_Printf("Strange port number in PORT_PROBE packet\n");
-                                    int old = unknown_session_a3d298.unknown_3022.unknown[i];
+                                    int old = unknown_session_a3d298.PlayerPorts.unknown[i];
                                     if (port == 0) {
                                         port = 1234;
                                     }
-                                    unknown_session_a3d298.unknown_3022.unknown[i] = port;
+                                    unknown_session_a3d298.PlayerPorts.unknown[i] = port;
                                     unknown_session_a3d298.Players[i]->Address.Set_Port(port);
                                     Debug_Printf("Adjusting port number for player %s from %d to %d\n", unknown_session_a3d298.GPacket.Name, old, port);
                                 }

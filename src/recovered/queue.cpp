@@ -3151,7 +3151,7 @@ void __fastcall Print_CRCs(EventClass *event)
                 char const *navcom_name;
                 unsigned long val = Coord_CRC(infp->Coord) + Dir_To_256(infp->PrimaryFacing.Current());
                 Add_CRC(&GameCRC, val);
-                target_name = Sync_Target_Name(infp->unknown_228, target_id);
+                target_name = Sync_Target_Name(infp->TarCom, target_id);
                 navcom_name = Sync_Target_Name(infp->NavCom, navcom_id);
                 fprintf(file, "COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%s(%d) Speed:%d NavCom:%s(%d)\n",
                     Coord_CRC(infp->Coord), Dir_To_256(infp->PrimaryFacing.Current()), infp->Get_Mission(),
@@ -3175,7 +3175,7 @@ void __fastcall Print_CRCs(EventClass *event)
                 unsigned long val = Coord_CRC(unitp->Coord) + Dir_To_256(unitp->PrimaryFacing.Current())
                     + Dir_To_256(unitp->SecondaryFacing.Current());
                 Add_CRC(&GameCRC, val);
-                target_name = Sync_Target_Name(unitp->unknown_228, target_id);
+                target_name = Sync_Target_Name(unitp->TarCom, target_id);
                 navcom_name = Sync_Target_Name(unitp->NavCom, navcom_id);
                 fprintf(file, "COORD:%x   Facing:%d   Facing2:%d   Mission:%d   Type:%d(%s)   Tgt:%s(%d)  NavCom:%s(%d)   TrkNum:%d TrkInd:%d SpdAc:%d\n",
                     Coord_CRC(unitp->Coord), Dir_To_256(unitp->PrimaryFacing.Current()), Dir_To_256(unitp->SecondaryFacing.Current()),
@@ -3466,7 +3466,7 @@ void __fastcall Unknown_0062CF40(int index)
             obj->NavComID = 0;
             obj->NavCom[0] = 0;
         }
-        target = infp->unknown_228;
+        target = infp->TarCom;
         id = 0;
         if (target) {
             is_object = target->AbstractFlags.IsTechno;
@@ -3522,7 +3522,7 @@ void __fastcall Unknown_0062CF40(int index)
             obj->NavComID = 0;
             obj->NavCom[0] = 0;
         }
-        target = unitp->unknown_228;
+        target = unitp->TarCom;
         id = 0;
         if (target) {
             is_object = target->AbstractFlags.IsTechno;
@@ -3575,7 +3575,7 @@ void __fastcall Unknown_0062CF40(int index)
             obj->NavComID = 0;
             obj->NavCom[0] = 0;
         }
-        target = aircraftp->unknown_228;
+        target = aircraftp->TarCom;
         id = 0;
         if (target) {
             is_object = target->AbstractFlags.IsTechno;
@@ -3610,7 +3610,7 @@ void __fastcall Unknown_0062CF40(int index)
         obj->NavCom[0] = 0;
         obj->TypeName[sizeof(obj->TypeName) - 1] = 0;
         strncpy(obj->TypeName, bldgp->Type->ID, sizeof(obj->TypeName) - 1);
-        target = bldgp->unknown_228;
+        target = bldgp->TarCom;
         id = 0;
         if (target) {
             is_object = target->AbstractFlags.IsTechno;

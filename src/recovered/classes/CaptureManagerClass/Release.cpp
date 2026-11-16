@@ -5,7 +5,7 @@
 void CaptureManagerClass::Release_4681e0()
 {
     if (Unit != 0) {
-        Unit->unknown_234 = 0;
+        Unit->MindControlledBy = 0;
         Unit->Captured(unknown_28, true);
         Unit = 0;
         unknown_28 = 0;

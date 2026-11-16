@@ -66,7 +66,7 @@ exitcell.X += random; exitcell.Y += random;
 }
                 ++ScenarioInit;
                 if (aircraft->Unlimbo(&CoordStruct(exitcell, 0), 0)) {
-                    AbstractClass *target = unknown_1b0;
+                    AbstractClass *target = ArchivedTarget;
                     if (target) {
                         aircraft->Assign_Destination(target, 1);
                     } else {
@@ -99,8 +99,8 @@ exitcell.X += random; exitcell.Y += random;
                     unknown_slot150(0x18, aircraft);
                     aircraft->Set_Coord(unknown_slot41((intptr_t)aircraft));
                     aircraft->DockNowHeadingTo = this;
-                    if (unknown_1b0 && !aircraft->Type->AirportBound) {
-                        aircraft->Assign_Destination(unknown_1b0, 1);
+                    if (ArchivedTarget && !aircraft->Type->AirportBound) {
+                        aircraft->Assign_Destination(ArchivedTarget, 1);
                         aircraft->QueueMission(2, 0);
                     }
                     --ScenarioInit;
@@ -124,21 +124,21 @@ exitcell.X += random; exitcell.Y += random;
                 if (Type->Naval) {
                     if (!HasAnyLink()) QueueMission(0x10, 0);
                     Cell navalcell = Center_Cell(this);
-                    if (unknown_1b0) {
-                        Cell target = Center_Cell(unknown_1b0);
+                    if (ArchivedTarget) {
+                        Cell target = Center_Cell(ArchivedTarget);
                         UnknownFacingDir dir = Direction_Between(unknown_slot104(), target);
                         int facing = Dir_To_8(dir);
                         while (Map[navalcell].Cell_Building() == this) {
                             navalcell = Adjacent_Cell(navalcell, facing);
                         }
                     }
-                    if (unknown_1b0 && Map[navalcell].Land == 2 && !Map[navalcell].Cell_Techno(Point2D(0, 0), 0, 0) && Map.Unknown_0055A660(navalcell, true)) {
+                    if (ArchivedTarget && Map[navalcell].Land == 2 && !Map[navalcell].Cell_Techno(Point2D(0, 0), 0, 0) && Map.Unknown_0055A660(navalcell, true)) {
  } else {
                         navalcell = Map.Nearby_Location(Center_Cell(this), base->Techno_Type_Class()->SpeedType, -1, 0, 0, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
  }
                     if (!base->Unlimbo(&Map[navalcell].Center_Coord(), 0x40)) return 0;
-                    if (unknown_1b0) {
-                        base->Assign_Destination(unknown_1b0, 1);
+                    if (ArchivedTarget) {
+                        base->Assign_Destination(ArchivedTarget, 1);
                         base->QueueMission(2, 0);
                     }
                     base->Mark(0);
@@ -146,7 +146,7 @@ exitcell.X += random; exitcell.Y += random;
                     base->Mark(1);
                     return 2;
                 } else {
-                    base->Assign_Archive_Target(unknown_1b0);
+                    base->Assign_Archive_Target(ArchivedTarget);
                     if (Get_Mission() == 0x10) {
                         int count = House->Buildings.Count();
                         for (int index = 0; index < count; index++) {
@@ -176,7 +176,7 @@ exitcell.X += random; exitcell.Y += random;
                     }
                 }
             } else if (Type->Factory == 0x10 || Type->Hospital || Type->Armory || Type->Cloning) {
-                base->Assign_Archive_Target(unknown_1b0);
+                base->Assign_Archive_Target(ArchivedTarget);
                 exitcell = unknown_slot280(base);
                 if (exitcell == unknown_geometry_k) return 0;
                 if (Type->Factory == 0x10 && !Type->Cloning) {

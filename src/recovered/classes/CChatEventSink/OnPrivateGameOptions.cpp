@@ -39,7 +39,7 @@ HRESULT __stdcall CChatEventSink::OnPrivateGameOptions(HRESULT,WOL::User *user,c
             Debug_Printf(port_debug_7fe030,user->name,port&0xffff);
             for(int i=0;i<8;++i) {
                 if(!_stricmp(Wide_To_Narrow_006fa120(unknown_player_slots_a3fa98[i]->Name),user->name)) {
-                    unknown_session_a3d298.unknown_2dc0[i]=(unsigned short)port;
+                    unknown_session_a3d298.PeerPorts[i]=(unsigned short)port;
                     break;
                 }
             }
@@ -75,12 +75,12 @@ HRESULT __stdcall CChatEventSink::OnPrivateGameOptions(HRESULT,WOL::User *user,c
             token=strtok(0,comma_7ce9c0);
             unsigned int port=0;
             if(token) sscanf(token,hex_format_7db4b0,&port);
-            unknown_session_a3d298.unknown_299c.unknown[row]=port;
+            unknown_session_a3d298.WolPlayerState.unknown[row]=port;
             token=strtok(0,comma_7ce9c0);
             unsigned int value=0;
             if(token) sscanf(token,hex_format_7db4b0,&value);
-            unknown_session_a3d298.unknown_2fa0.unknown[row]=value;
-            Debug_Printf(options_debug_7fdfd0,user->name,country,color,address.As_String(),unknown_session_a3d298.unknown_299c.unknown[row],value);
+            unknown_session_a3d298.PlayerPortBase.unknown[row]=value;
+            Debug_Printf(options_debug_7fdfd0,user->name,country,color,address.As_String(),unknown_session_a3d298.WolPlayerState.unknown[row],value);
             HWND window=(HWND)WS_Find_Dialog_00735940(0xc2);
             if(!window) window=(HWND)WS_Find_Dialog_00735940(0xc9);
             int old_country=unknown_player_slots_a3fa98[row]->Get_Country();

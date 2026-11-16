@@ -16,7 +16,7 @@ bool CaptureManagerClass::Can_Capture(TechnoClass *target)
     if (target->Techno_Type_Class()->ImmuneToPsionics) {
         return false;
     }
-    if (target->unknown_234 != 0) {
+    if (target->MindControlledBy != 0) {
         return false;
     }
     if (target->unknown_slot203()) {

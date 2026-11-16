@@ -324,9 +324,9 @@ int __fastcall Init_Game()
     unknown_max_players_a3d558 = Rules->MaxPlayers;
     Gadget_Scheme_Name = "Grey";
 
-    unknown_session_a3d298.unknown_22f4 = 0;
+    unknown_session_a3d298.GamesPlayed = 0;
     unknown_session_a3d298.ScoreCount = 0;
-    unknown_session_a3d298.unknown_2300 = 0;
+    unknown_session_a3d298.CurGame = 0;
     for (int i = 0; i < 8; i++) {
         unknown_session_a3d298.Scores[i].Name[0] = 0;
         unknown_session_a3d298.Scores[i].Winner = 0;
@@ -1190,7 +1190,7 @@ top:
         unknown_a3d258 = 0;
         unknown_a3d23c = 0;
         for (int i = 0; i < 4; i++) {
-            unknown_session_a3d298.unknown_1fb4[i][unknown_session_a3d298.unknown_2300] = -1;
+            unknown_session_a3d298.unknown_1fb4[i][unknown_session_a3d298.CurGame] = -1;
         }
         Map.Set_Default_Mouse(0, false);
         if (ToolTips != 0) {
@@ -1426,7 +1426,7 @@ top:
                     case 4: {
                         Cheat_Disable();
                         Debug_Printf("Init.cpp - GAME_INTERNET\n");
-                        memset(&unknown_session_a3d298.unknown_299c, 0, sizeof(unknown_session_a3d298.unknown_299c));
+                        memset(&unknown_session_a3d298.WolPlayerState, 0, sizeof(unknown_session_a3d298.WolPlayerState));
                         unknown_session_a3d298.unknown_3018 = 0;
                         bool reset = Unknown_00514EE0();
                         int result = Unknown_0073A300(selection == 0x11);
@@ -1528,7 +1528,7 @@ top:
             WWMouse->Show_Mouse();
             if (unknown_session_a3d298.Type == 4) {
                 for (int player = 0; player < 8; player++) {
-                    unknown_session_a3d298.unknown_2ff4[player] = TickCount.Time();
+                    unknown_session_a3d298.PlayerLastTime[player] = TickCount.Time();
                 }
             }
             if (unknown_session_a3d298.Type == 0 && !Debug_ForceScenario && !unknown_session_a3d298.Play) {
@@ -1861,30 +1861,30 @@ bool __fastcall Unknown_00514EE0()
     Debug_Printf("About to initialise the network code\n");
     bool result = Unknown_005BB540();
     PacketTransport->Start_Listening();
-    memset(&unknown_session_a3d298.unknown_3022, 0, sizeof(unknown_session_a3d298.unknown_3022));
-    unknown_session_a3d298.unknown_3020 = false;
-    unknown_session_a3d298.unknown_3014 = false;
-    unknown_session_a3d298.unknown_292c = 0;
-    unknown_session_a3d298.unknown_3016 = 0;
-    unknown_session_a3d298.unknown_3034 = 0;
-    unknown_session_a3d298.unknown_303c = -1;
-    unknown_session_a3d298.unknown_3044 = 20;
-    unknown_session_a3d298.unknown_3048 = 0;
-    unknown_session_a3d298.unknown_304c = 0;
-    unknown_session_a3d298.unknown_3050 = -1;
-    memset(unknown_session_a3d298.unknown_29bc, 0, sizeof(unknown_session_a3d298.unknown_29bc));
-    memset(unknown_session_a3d298.unknown_2bbc, -1, sizeof(unknown_session_a3d298.unknown_2bbc));
-    memset(unknown_session_a3d298.unknown_2dc0, 0, sizeof(unknown_session_a3d298.unknown_2dc0));
-    memset(&unknown_session_a3d298.unknown_2fa0, 0, sizeof(unknown_session_a3d298.unknown_2fa0));
-    unknown_session_a3d298.unknown_2dbc = 0;
-    if (unknown_session_a3d298.unknown_2f9c != 0) {
-        unknown_session_a3d298.PortBase = unknown_session_a3d298.unknown_2f9c;
-    } else if (unknown_session_a3d298.unknown_2fc0) {
+    memset(&unknown_session_a3d298.PlayerPorts, 0, sizeof(unknown_session_a3d298.PlayerPorts));
+    unknown_session_a3d298.RouterProbeActive = false;
+    unknown_session_a3d298.PortProbeDue = false;
+    unknown_session_a3d298.PacketRouterPort = 0;
+    unknown_session_a3d298.RouterProbePort = 0;
+    unknown_session_a3d298.SlowestResponse = 0;
+    unknown_session_a3d298.LastTimingID = -1;
+    unknown_session_a3d298.RouterResponse = 20;
+    unknown_session_a3d298.ExitEventPending = 0;
+    unknown_session_a3d298.ExitEventFrame = 0;
+    unknown_session_a3d298.ExitEventPlayer = -1;
+    memset(unknown_session_a3d298.PeerProbeData, 0, sizeof(unknown_session_a3d298.PeerProbeData));
+    memset(unknown_session_a3d298.ConnectionResults, -1, sizeof(unknown_session_a3d298.ConnectionResults));
+    memset(unknown_session_a3d298.PeerPorts, 0, sizeof(unknown_session_a3d298.PeerPorts));
+    memset(&unknown_session_a3d298.PlayerPortBase, 0, sizeof(unknown_session_a3d298.PlayerPortBase));
+    unknown_session_a3d298.ConnectionResultCount = 0;
+    if (unknown_session_a3d298.ForcePortBase != 0) {
+        unknown_session_a3d298.PortBase = unknown_session_a3d298.ForcePortBase;
+    } else if (unknown_session_a3d298.RotatePortBase) {
         unknown_session_a3d298.PortBase += 5;
         if (unknown_session_a3d298.PortBase >= 1750) {
             unknown_session_a3d298.PortBase = 1250;
         }
-        unknown_session_a3d298.unknown_2fc0 = false;
+        unknown_session_a3d298.RotatePortBase = false;
     }
     RawFileClass file("RA2.INI");
     ConfigINI.Put_Int("MultiPlayer", "PortBase", unknown_session_a3d298.PortBase);

@@ -155,7 +155,7 @@ void AircraftClass::Init()
         SecondaryFacing.Set_ROT(Type->ROT);
         SecondaryFacing.Set(PrimaryFacing.Current());
         Set_Height_AGL(Type->Flight_Level());
-        unknown_254 = Type->InitialAmmo != -1 ? Type->InitialAmmo : Type->Ammo;
+        Ammo = Type->InitialAmmo != -1 ? Type->InitialAmmo : Type->Ammo;
         unknown_70 = Strength = Type->MaxStrength;
     }
     if (House != 0) {
@@ -352,7 +352,7 @@ void __stdcall AircraftClass_Draw_Rotors(int unused_0, int unused_1)
 
 int AircraftClass::Do_MISSION_HUNT()
 {
-    if (unknown_254 == 0) {
+    if (Ammo == 0) {
         if (Team != 0) {
             Team->Remove(this, -1, 0);
         }
@@ -360,16 +360,16 @@ int AircraftClass::Do_MISSION_HUNT()
         int delay = (int)(Control()->unknown_10 * 900.0);
         return delay + unknown_id_source_a3d290->Random()(0, 2);
     }
-    if (unknown_228 == 0) {
+    if (TarCom == 0) {
         if (unknown_game_mode_a3d298 != 0) {
             CoordStruct coord = Coord;
             unknown_slot220(unknown_slot219(0x40, &coord, 0));
         }
-        if (unknown_228 == 0) {
+        if (TarCom == 0) {
             CoordStruct coord = Coord;
             unknown_slot220(unknown_slot219(0, &coord, 0));
         }
-        if (unknown_228 == 0) {
+        if (TarCom == 0) {
             unknown_slot261(0, 1);
             return 1;
         }
@@ -390,25 +390,25 @@ void AircraftClass::AI()
     default:
         IsLockedStraight = false;
     }
-    if (unknown_20c) unknown_20c->AI();
+    if (TemporalTargetingMe) TemporalTargetingMe->AI();
     if ((unknown_slot111() || unknown_slot112()) && Frame % 24 == 0 && Rules->ChronoSparkle1)
         new AnimClass(Rules->ChronoSparkle1, CoordStruct(Coord), 0, 1, 0x600, 0);
     if (unknown_slot112() || (unknown_slot111() && IsImmobilized)) {
         Locomotor.Checked()->Process();
         if (!IsActive) return;
     }
-    if ((unknown_slot112() && unknown_20c) || unknown_slot111()) {
-        if (unknown_228) unknown_slot220(0);
+    if ((unknown_slot112() && TemporalTargetingMe) || unknown_slot111()) {
+        if (TarCom) unknown_slot220(0);
         if (NavCom) Assign_Destination(0, true);
         return;
     }
-    if (unknown_228) {
-        if (((ObjectClass *)unknown_228)->In_Air()) unknown_slot220(0);
-        else if (unknown_228) {
-            unsigned char const &target_is_techno = unknown_228->AbstractFlags.IsTechno;
-            if (target_is_techno && !House->Is_Ally((ObjectClass *)unknown_228) &&
-                ((TechnoClass *)unknown_228)->unknown_1b8 == 2 &&
-                !((TechnoClass *)unknown_228)->unknown_slot192(House)) unknown_slot220(0);
+    if (TarCom) {
+        if (((ObjectClass *)TarCom)->In_Air()) unknown_slot220(0);
+        else if (TarCom) {
+            unsigned char const &target_is_techno = TarCom->AbstractFlags.IsTechno;
+            if (target_is_techno && !House->Is_Ally((ObjectClass *)TarCom) &&
+                ((TechnoClass *)TarCom)->Cloak == 2 &&
+                !((TechnoClass *)TarCom)->unknown_slot192(House)) unknown_slot220(0);
         }
     }
     FootClass::AI();
@@ -442,7 +442,7 @@ void AircraftClass::AI()
         unknown_slot220(0);
         unknown_slot261(false, true);
     }
-    if (unknown_228 == &BlubCell) {
+    if (TarCom == &BlubCell) {
         Assign_Destination(0, true);
         unknown_slot220(0);
         unknown_slot261(false, true);
@@ -450,7 +450,7 @@ void AircraftClass::AI()
     if (Ready_To_Commence()) Commence();
     if (IsToSpendAmmo && Mission != 1) {
         IsToSpendAmmo = false;
-        --unknown_254;
+        --Ammo;
     }
     if (Health_Ratio() < Rules->ConditionRed && Get_Height_AGL() > 0) {
         int chance = Strength != 0 ? 10 : 80;
@@ -546,16 +546,16 @@ choose_destination:
 
 int AircraftClass::Do_MISSION_PARADROP_APPROACH()
 {
-    if (unknown_228 == 0) {
+    if (TarCom == 0) {
         Assign_Destination(0, true);
         QueueMission(4, false);
         return 3;
     }
     if (NavCom == 0) {
-        Assign_Destination(unknown_228, true);
+        Assign_Destination(TarCom, true);
         return 3;
     }
-    if (Planar_Distance(unknown_228) <= Rules->ParadropRadius) {
+    if (Planar_Distance(TarCom) <= Rules->ParadropRadius) {
         QueueMission(27, false);
         NumParadropsLeft--;
     }
@@ -574,7 +574,7 @@ int AircraftClass::Do_MISSION_PARADROP_APPROACH()
 int AircraftClass::Do_MISSION_PARADROP_OVERFLY()
 {
     enum { RetreatMission = 4, ParadropApproachMission = 26 };
-    AbstractClass *target = unknown_228;
+    AbstractClass *target = TarCom;
     IsLockedStraight = true;
     if (target && Cargo.Object) {
         if (Planar_Distance(target) > Rules->ParadropRadius) {
@@ -670,10 +670,10 @@ int AircraftClass::Paradrop_Cargo()
     // Cargo detach's FootClass result association remains a layout hypothesis.
     FootClass *passenger = static_cast<FootClass *>(Cargo.Detach_Object());
     if (passenger) {
-        --unknown_254;
+        --Ammo;
         CoordStruct landing = Center_Coord();
         UnknownFacingDir facing;
-        if (unknown_254 & 1) {
+        if (Ammo & 1) {
             facing = UnknownFacingDir((unsigned short)(PrimaryFacing.Current().Raw - 0x3fff));
         } else {
             facing = UnknownFacingDir((unsigned short)(PrimaryFacing.Current().Raw + 0x3fff));
@@ -707,7 +707,7 @@ int AircraftClass::Paradrop_Cargo()
         }
         Cargo.Attach(passenger);
         passenger->Hidden();
-        ++unknown_254;
+        ++Ammo;
     }
     return 0;
 }
@@ -998,8 +998,8 @@ void AircraftClass::Drop_Off_Cargo()
         passenger->unknown_37c = false;
         passenger->unknown_slot263(0, 0, false, 0);
         passenger->unknown_slot262(0, 0, 0, 0);
-        Map.Unknown_0054A550(CoordStruct(Coord), passenger->unknown_1f4 - 3,
-                            passenger->unknown_1f4 + 3, 0);
+        Map.Unknown_0054A550(CoordStruct(Coord), passenger->LastSightRange - 3,
+                            passenger->LastSightRange + 3, 0);
         Cell next = unknown_6cf130(0);
         if (Contact(0) == passenger) {
             unknown_slot149(25);
@@ -1186,7 +1186,7 @@ int AircraftClass::Do_MISSION_PATROL()
     }
     case 2: {
         CoordStruct position;
-        if (unknown_254 == 0) {
+        if (Ammo == 0) {
             TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
             if (dock) {
                 Override_Mission(7, 0, dock);
@@ -1194,7 +1194,7 @@ int AircraftClass::Do_MISSION_PATROL()
                 return 1;
             }
         }
-        if (unknown_254 != 0) {
+        if (Ammo != 0) {
             position = Coord;
             AbstractClass *threat = unknown_slot219(2, &position, false);
             if (threat && threat->AbstractFlags.IsObject) {
@@ -1290,7 +1290,7 @@ check_team:
 check_weapon:
         if (unknown_slot231(0)->WeaponType) {
         if (unknown_32c) {
-            if (!unknown_254) {
+            if (!Ammo) {
                 if (Team) Team->Remove(this, -1, 0);
                 unknown_slot220(0);
                 Assign_Destination(0, true);
@@ -1298,7 +1298,7 @@ check_weapon:
             } else if (!Team) mission = 15;
             goto choose_mission;
         }
-        if ((unknown_254 && unknown_228 && Get_Mission() == 1) || MissionQueue == 1) {
+        if ((Ammo && TarCom && Get_Mission() == 1) || MissionQueue == 1) {
             mission = 1;
             goto choose_mission;
         }
@@ -1345,7 +1345,7 @@ grounded:
 default_mission:
     mission = 5;
 choose_mission:
-    if (!unknown_254 && unknown_slot163() && !HasAnyLink()) {
+    if (!Ammo && unknown_slot163() && !HasAnyLink()) {
         TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
         if (dock) {
             Assign_Destination(dock, true);
@@ -1539,7 +1539,7 @@ int AircraftClass::Do_MISSION_ATTACK()
     switch (Status) {
     case 0:
         IsLockedStraight = false;
-        if (unknown_228 == 0) {
+        if (TarCom == 0) {
             Status = 10;
         } else {
             Status = 1;
@@ -1549,12 +1549,12 @@ int AircraftClass::Do_MISSION_ATTACK()
         IsLockedStraight = false;
         if (IsToSpendAmmo) {
             IsToSpendAmmo = false;
-            unknown_254--;
+            Ammo--;
         }
-        if (unknown_228 == 0 || unknown_254 == 0) {
+        if (TarCom == 0 || Ammo == 0) {
             Status = 10;
         } else {
-            Assign_Destination(Good_Fire_Location(unknown_228), true);
+            Assign_Destination(Good_Fire_Location(TarCom), true);
             if (NavCom != 0) {
                 Status = 3;
             } else {
@@ -1565,16 +1565,16 @@ int AircraftClass::Do_MISSION_ATTACK()
     case 3:
         if (IsToSpendAmmo) {
             IsToSpendAmmo = false;
-            unknown_254--;
+            Ammo--;
         }
         IsLockedStraight = false;
-        if (unknown_228 != 0 && unknown_254 != 0) {
+        if (TarCom != 0 && Ammo != 0) {
             if (Is_Strafe()) {
-                if (Planar_Distance(unknown_228) < unknown_slot231(0)->WeaponType->unknown_b4) {
+                if (Planar_Distance(TarCom) < unknown_slot231(0)->WeaponType->unknown_b4) {
                     Status = 4;
                     return 1;
                 }
-                Assign_Destination(unknown_228, true);
+                Assign_Destination(TarCom, true);
             } else {
                 if (Is_Fighter() || !Locomotor.Checked()->Is_Moving_Now()) {
                     Status = 4;
@@ -1587,7 +1587,7 @@ int AircraftClass::Do_MISSION_ATTACK()
             }
             int distance = Planar_Distance(NavCom);
             if (distance < 0x200) {
-                SecondaryFacing.Set_Desired(Direction_To(unknown_228));
+                SecondaryFacing.Set_Desired(Direction_To(TarCom));
                 if (distance < 0x10) {
                     Status = 4;
                     Assign_Destination(0, true);
@@ -1601,25 +1601,25 @@ int AircraftClass::Do_MISSION_ATTACK()
         }
         return 1;
     case 4:
-        if (unknown_228 == 0 || unknown_254 == 0) {
+        if (TarCom == 0 || Ammo == 0) {
             Status = 10;
             return 1;
         }
         if (!Is_Strafe()) {
-            PrimaryFacing.Set_Desired(Direction_To(unknown_228));
-            SecondaryFacing.Set_Desired(Direction_To(unknown_228));
+            PrimaryFacing.Set_Desired(Direction_To(TarCom));
+            SecondaryFacing.Set_Desired(Direction_To(TarCom));
         }
-        switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
+        switch (unknown_slot218(TarCom, What_Weapon_Should_I_Use(TarCom), 1)) {
         case 9:
             unknown_slot252(false);
             break;
         case 3:
             break;
         case 2:
-            if (unknown_254 == 0) {
+            if (Ammo == 0) {
                 Status = 10;
             } else {
-                if (unknown_slot213(unknown_228) && !Is_Strafe()) {
+                if (unknown_slot213(TarCom) && !Is_Strafe()) {
                     if (Is_Fighter()) {
                         Status = 4;
                     } else {
@@ -1635,8 +1635,8 @@ int AircraftClass::Do_MISSION_ATTACK()
             break;
         case 0: {
             IsToSpendAmmo = true;
-            Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
-            Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
+            Fire_At(TarCom, What_Weapon_Should_I_Use(TarCom));
+            Map[TarCom->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             if (Is_Strafe()) {
                 Status = 6;
                 IsLockedStraight = true;
@@ -1644,14 +1644,14 @@ int AircraftClass::Do_MISSION_ATTACK()
             }
             if (Is_Fighter()) {
                 IsLockedStraight = true;
-                Status = unknown_254 <= 0 ? 10 : 1;
+                Status = Ammo <= 0 ? 10 : 1;
                 return unknown_slot231(0)->WeaponType->unknown_b0;
             }
             Status = 5;
             break;
         }
         default:
-            if (unknown_254 == 0) {
+            if (Ammo == 0) {
                 Status = 10;
             } else if (!Is_Strafe()) {
                 Status = 5;
@@ -1660,23 +1660,23 @@ int AircraftClass::Do_MISSION_ATTACK()
         }
         return 1;
     case 5:
-        if (unknown_228 == 0) {
+        if (TarCom == 0) {
             Status = 10;
             return 1;
         }
-        PrimaryFacing.Set_Desired(Direction_To(unknown_228));
-        SecondaryFacing.Set_Desired(Direction_To(unknown_228));
-        switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
+        PrimaryFacing.Set_Desired(Direction_To(TarCom));
+        SecondaryFacing.Set_Desired(Direction_To(TarCom));
+        switch (unknown_slot218(TarCom, What_Weapon_Should_I_Use(TarCom), 1)) {
         case 9:
             unknown_slot252(false);
             break;
         case 3:
             break;
         case 2:
-            if (unknown_254 == 0) {
+            if (Ammo == 0) {
                 Status = 10;
             } else {
-                if (!unknown_slot213(unknown_228) || Is_Strafe()) {
+                if (!unknown_slot213(TarCom) || Is_Strafe()) {
                     Status = 1;
                 } else {
                     Status = Rules->CurleyShuffle ? 1 : 4;
@@ -1687,9 +1687,9 @@ int AircraftClass::Do_MISSION_ATTACK()
             }
             break;
         case 0: {
-            Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
-            Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
-            if (unknown_254 != 0) {
+            Fire_At(TarCom, What_Weapon_Should_I_Use(TarCom));
+            Map[TarCom->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
+            if (Ammo != 0) {
                 Status = Rules->CurleyShuffle ? 1 : 4;
             } else {
                 Status = 10;
@@ -1697,9 +1697,9 @@ int AircraftClass::Do_MISSION_ATTACK()
             break;
         }
         default:
-            if (unknown_254 == 0) {
+            if (Ammo == 0) {
                 Status = 10;
-            } else if (!unknown_slot213(unknown_228)) {
+            } else if (!unknown_slot213(TarCom)) {
                 Status = 1;
             } else {
                 Status = Rules->CurleyShuffle ? 1 : 4;
@@ -1708,94 +1708,94 @@ int AircraftClass::Do_MISSION_ATTACK()
         }
         break;
     case 6:
-        if (unknown_228 == 0) {
+        if (TarCom == 0) {
             Status = 10;
             return 1;
         }
-        switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
+        switch (unknown_slot218(TarCom, What_Weapon_Should_I_Use(TarCom), 1)) {
         case 8:
-            Assign_Destination(unknown_228, true);
+            Assign_Destination(TarCom, true);
         case 0:
         case 2:
         case 9: {
-            Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
-            Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
-            Assign_Destination(unknown_228, true);
+            Fire_At(TarCom, What_Weapon_Should_I_Use(TarCom));
+            Map[TarCom->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
+            Assign_Destination(TarCom, true);
             Status = 7;
             return unknown_slot231(0)->WeaponType->unknown_b0;
         }
         default:
-            if (unknown_254 == 0) {
+            if (Ammo == 0) {
                 Status = 10;
                 IsLockedStraight = false;
             }
             return 1;
         }
     case 7:
-        if (unknown_228 == 0) {
+        if (TarCom == 0) {
             Status = 10;
             return 1;
         }
-        switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
+        switch (unknown_slot218(TarCom, What_Weapon_Should_I_Use(TarCom), 1)) {
         case 8:
-            Assign_Destination(unknown_228, true);
+            Assign_Destination(TarCom, true);
         case 0:
         case 2:
         case 9: {
-            Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
-            Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
-            Assign_Destination(unknown_228, true);
+            Fire_At(TarCom, What_Weapon_Should_I_Use(TarCom));
+            Map[TarCom->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
+            Assign_Destination(TarCom, true);
             Status = 8;
             return unknown_slot231(0)->WeaponType->unknown_b0;
         }
         default:
-            if (unknown_254 == 0) {
+            if (Ammo == 0) {
                 Status = 10;
                 IsLockedStraight = false;
             }
             return 1;
         }
     case 8:
-        if (unknown_228 == 0) {
+        if (TarCom == 0) {
             Status = 10;
             return 1;
         }
-        switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
+        switch (unknown_slot218(TarCom, What_Weapon_Should_I_Use(TarCom), 1)) {
         case 8:
-            Assign_Destination(unknown_228, true);
+            Assign_Destination(TarCom, true);
         case 0:
         case 2:
         case 9: {
-            Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
-            Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
-            Assign_Destination(unknown_228, true);
+            Fire_At(TarCom, What_Weapon_Should_I_Use(TarCom));
+            Map[TarCom->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
+            Assign_Destination(TarCom, true);
             Status = 9;
             return unknown_slot231(0)->WeaponType->unknown_b0;
         }
         default:
-            if (unknown_254 == 0) {
+            if (Ammo == 0) {
                 Status = 10;
                 IsLockedStraight = false;
             }
             return 1;
         }
     case 9:
-        if (unknown_228 == 0) {
+        if (TarCom == 0) {
             Status = 10;
             return 1;
         }
-        switch (unknown_slot218(unknown_228, What_Weapon_Should_I_Use(unknown_228), 1)) {
+        switch (unknown_slot218(TarCom, What_Weapon_Should_I_Use(TarCom), 1)) {
         case 0:
         case 2:
         case 8:
         case 9: {
-            Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
-            Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
+            Fire_At(TarCom, What_Weapon_Should_I_Use(TarCom));
+            Map[TarCom->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             Status = 3;
             return (unknown_slot231(0)->WeaponType->unknown_b4 + 0x400) / Type->Speed;
         }
         default:
-            if (unknown_254 == 0) {
+            if (Ammo == 0) {
                 Status = 10;
                 IsLockedStraight = false;
             }
@@ -1805,15 +1805,15 @@ int AircraftClass::Do_MISSION_ATTACK()
         IsLockedStraight = false;
         if (IsToSpendAmmo) {
             IsToSpendAmmo = false;
-            if (unknown_254 > 0) {
-                unknown_254--;
+            if (Ammo > 0) {
+                Ammo--;
             }
         }
-        if (unknown_254 == 0) {
+        if (Ammo == 0) {
             if (unknown_32c || House->Is_Human_Player()) {
                 unknown_slot220(0);
             }
-        } else if (unknown_228 != 0) {
+        } else if (TarCom != 0) {
             Status = 1;
             return 1;
         }
@@ -1900,21 +1900,21 @@ int AircraftClass::Receive_Message(RadioClass *radio, int message, AbstractClass
     switch (message) {
     case 31: {
         AircraftTypeClass *type = Type;
-        int current_ammo = unknown_254;
+        int current_ammo = Ammo;
         int capacity = type->Ammo;
-        if (current_ammo >= capacity / 2 && unknown_228) return 1;
+        if (current_ammo >= capacity / 2 && TarCom) return 1;
         return FootClass::Receive_Message(radio, message, param);
     }
     case 29: {
-        if (unknown_228) return 10;
+        if (TarCom) return 10;
         AircraftTypeClass *type = Type;
-        int current_ammo = unknown_254;
+        int current_ammo = Ammo;
         int capacity = type->Ammo;
         return current_ammo == capacity ? 1 : 10;
     }
     case 33: {
         AircraftTypeClass *type = Type;
-        int current_ammo = unknown_254;
+        int current_ammo = Ammo;
         int capacity = type->Ammo;
         return current_ammo == capacity ? 1 : 10;
     }
@@ -2038,7 +2038,7 @@ int AircraftClass::Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass
         active = occupier->AbstractFlags.IsTechno;
     }
     if ((occupier == 0 || !active || occupier->House->Is_Ally(House)
-         || (occupier->unknown_1b8 != 2 && ScenarioInit == 0
+         || (occupier->Cloak != 2 && ScenarioInit == 0
              && (occupier->Kind_Of() != 6 || !((BuildingClass *)occupier)->Type->Invisible)))
         && !cell->Unknown_00478760(4, 0, 0, -1, 0, -1, 1)) {
         return 7;
@@ -2439,24 +2439,24 @@ int AircraftClass::Do_MISSION_GUARD()
         return 1;
     }
     if (unknown_flag_83c4d4) {
-        if (unknown_254 == 0 && unknown_slot163()) {
+        if (Ammo == 0 && unknown_slot163()) {
             goto rearm;
         }
     } else if (unknown_flag_83c4d5) {
-        if (unknown_slot163() && unknown_254 < Type->Ammo / 2) {
+        if (unknown_slot163() && Ammo < Type->Ammo / 2) {
             goto rearm;
         }
     } else {
-        if (unknown_slot163() && unknown_254 < Type->Ammo) {
+        if (unknown_slot163() && Ammo < Type->Ammo) {
             goto rearm;
         }
     }
 reloading:
-    if (unknown_254 != -1 && unknown_254 < Type->Ammo / 2 && HasAnyLink()
+    if (Ammo != -1 && Ammo < Type->Ammo / 2 && HasAnyLink()
         && Contact(0)->Kind_Of() == 6 && ((BuildingClass *)Contact(0))->Type->IsCanUnitReload) {
         return 1;
     }
-    if (unknown_228 != 0) {
+    if (TarCom != 0) {
         QueueMission(1, false);
         return 1;
     }
@@ -2506,10 +2506,10 @@ int AircraftClass::Do_MISSION_GUARD_AREA()
         }
         return 1;
     }
-    if (unknown_254 == 0 && unknown_slot163() && !HasAnyLink()) {
+    if (Ammo == 0 && unknown_slot163() && !HasAnyLink()) {
         unknown_slot261(0, 1);
     }
-    if (unknown_228 != 0) {
+    if (TarCom != 0) {
         QueueMission(1, false);
         return 1;
     }
@@ -2679,7 +2679,7 @@ void __fastcall AircraftClass::Write_INI_0041A6C0(CCINIClass &ini)
             char id[12];
             sprintf(id, "%d", index);
             char const *tag;
-            if (aircraft->unknown_34) tag = (char const *)aircraft->unknown_34->Class->ID;
+            if (aircraft->Tag) tag = (char const *)aircraft->Tag->Class->ID;
             else tag = "None";
             unsigned raw = *(unsigned const *)&aircraft->PrimaryFacing.Current();
             unsigned direction = (((raw >> 7) + 1) >> 1) & 0xff;
@@ -2689,7 +2689,7 @@ void __fastcall AircraftClass::Write_INI_0041A6C0(CCINIClass &ini)
                     (int)(aircraft->Health_Ratio() * 256.0),
                     aircraft->unknown_slot104().X, aircraft->unknown_slot104().Y,
                     direction, MissionClass::Name_From_Mission(aircraft->Get_Mission()), tag,
-                    aircraft->Veterancy.To_Integer(), aircraft->unknown_1ac,
+                    aircraft->Veterancy.To_Integer(), aircraft->Group,
                     aircraft->unknown_379, aircraft->unknown_37a);
             ini.Put_String(unknown_aircraft_section_79b0d0, id, line);
         }
@@ -2736,7 +2736,7 @@ void __fastcall AircraftClass::Read_INI_0041A840(CCINIClass &ini)
                     char *token = strtok(0, ",");
                     if (token) aircraft->Veterancy.From_Integer(atoi(token));
                     token = strtok(0, ",");
-                    if (token) aircraft->unknown_1ac = atoi(token);
+                    if (token) aircraft->Group = atoi(token);
                     token = strtok(0, ",");
                     if (token) aircraft->unknown_379 = atoi(token) != 0;
                     token = strtok(0, ",");
@@ -2930,7 +2930,7 @@ bool AircraftClass::Commence()
 
 bool AircraftClass::unknown_slot282()
 {
-    if (unknown_228 == 0 && unknown_32d && Get_Mission() != 26 && Get_Mission() != 27) {
+    if (TarCom == 0 && unknown_32d && Get_Mission() != 26 && Get_Mission() != 27) {
         if ((Team == 0 && unknown_32c) || (Team != 0 && Team->Is_Leaving_Map())) {
             return true;
         }

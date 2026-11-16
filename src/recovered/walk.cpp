@@ -315,9 +315,9 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                                     LinkedTo->Assign_Destination(0, true);
                                 }
                             }
-                            if (LinkedTo->unknown_228 != 0) {
-                                Cell tar_dest = LinkedTo->unknown_228->unknown_slot19(LinkedTo).As_Cell();
-                                if (LinkedTo->unknown_32d && LinkedTo->unknown_228 != 0) {
+                            if (LinkedTo->TarCom != 0) {
+                                Cell tar_dest = LinkedTo->TarCom->unknown_slot19(LinkedTo).As_Cell();
+                                if (LinkedTo->unknown_32d && LinkedTo->TarCom != 0) {
                                     Cell nav_dest = LinkedTo->unknown_slot19(LinkedTo).As_Cell();
                                     if (!Map.Unknown_0054F7C0(nav_dest, tar_dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(LinkedTo), Map[tar_dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                         LinkedTo->unknown_slot220(0);

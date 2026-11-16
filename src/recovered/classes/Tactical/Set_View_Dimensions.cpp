@@ -13,18 +13,18 @@ extern Rect TacticalDimensions;
 void Tactical::Set_View_Dimensions_006a65a0(Rect const &rect)
 {
     TacticalDimensions = rect;
-    Point2D clamped = unknown_d74;
+    Point2D clamped = DesiredTacticalCoord;
     int x;
     int y;
     if (Clamp_To_Tactical_Rect(&clamped) && !Debug_Map) {
         x = clamped.X;
         y = clamped.Y;
     } else {
-        x = unknown_d74.X;
-        y = unknown_d74.Y;
+        x = DesiredTacticalCoord.X;
+        y = DesiredTacticalCoord.Y;
     }
-    unknown_d64 = Point2D(x, y);
-    unknown_d74 = Point2D(x, y);
+    TacticalCoord = Point2D(x, y);
+    DesiredTacticalCoord = Point2D(x, y);
     Update_Visible_Cells();
     IsToRedraw = true;
 }

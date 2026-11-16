@@ -103,7 +103,7 @@ public:
     char unknown_7e[0x1B4 - 0x7E];
     HouseClass *House;                      // +0x1B4 (as shared/techno.hpp)
 #ifdef RA2_MAP_CLOSE_OBJECT
-    int unknown_1b8;                        // +0x1B8 (as shared/techno.hpp; 2 when cloaked: MapClass 0x0054E8D0)
+    int Cloak;                        // +0x1B8 (as shared/techno.hpp; 2 when cloaked: MapClass 0x0054E8D0)
     char unknown_1bc[0x32D - 0x1BC];
 #else
     char unknown_1b8[0x32D - 0x1B8];

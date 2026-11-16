@@ -21,7 +21,7 @@ static_assert(offsetof(TechnoClass, unknown_30) == 0x40, "map_techno.hpp TechnoC
 static_assert(offsetof(TechnoClass, unknown_74) == 0xB8, "map_techno.hpp TechnoClass::unknown_74");
 static_assert(offsetof(TechnoClass, unknown_7d) == 0xC1, "map_techno.hpp TechnoClass::unknown_7d");
 static_assert(offsetof(TechnoClass, House) == 0x218, "map_techno.hpp TechnoClass::House");
-static_assert(offsetof(TechnoClass, unknown_1b8) == 0x220, "map_techno.hpp TechnoClass::unknown_1b8");
+static_assert(offsetof(TechnoClass, Cloak) == 0x220, "map_techno.hpp TechnoClass::Cloak");
 static_assert(offsetof(TechnoClass, unknown_32d) == 0x3DD, "map_techno.hpp TechnoClass::unknown_32d");
 static_assert(offsetof(TechnoClass, unknown_372) == 0x422, "map_techno.hpp TechnoClass::unknown_372");
 static_assert(offsetof(BuildingTypeClass, ThreatRange) == 0x6F4, "map_techno.hpp BuildingTypeClass GuardRange");

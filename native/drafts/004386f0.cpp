@@ -26,7 +26,7 @@ bool __fastcall Building_Player_Detector_Covers_Target_004386f0(FootClass *objec
     for (int index = 0; index < count; ++index) {
         BuildingClass *detector = PlayerPtr->PsychicDetectionBuildings.Fetch(index);
         if (detector->unknown_slot195()) {
-            AbstractClass *target = object->unknown_228;
+            AbstractClass *target = object->TarCom;
             if (target != 0) {
                 if (target->AbstractFlags.IsTechno) {
                     CoordStruct position = detector->Center_Coord();

@@ -32,7 +32,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
         if((int)(weapon->Warhead->Verses[object->Techno_Type_Class()->Armor]*100.0)==1) return false;
     }
     if(object==0 || object->IsInLimbo || object->Strength==0) return false;
-    if(tech->unknown_1b8==2) {
+    if(tech->Cloak==2) {
         if(!Map[object->Center_Coord()].Is_Sensed(House->ArrayIndex) && House!=tech->House) return false;
     }
     if(!tech->unknown_32d) return false;
@@ -101,7 +101,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     }
     if(tclass->IsTrain && Kind_Of()==15 && static_cast<InfantryClass *>(this)->Type->VehicleThief) return false;
     if(object->IsDisguisedAs(House) && !Techno_Type_Class()->DetectDisguise) {
-        if(!tech->unknown_184.Value()) return false;
+        if(!tech->DisguiseBlinkTimer.Value()) return false;
         if(House->Is_Human_Player()) return false;
         int roll=unknown_id_source_a3d290->Random()(0,99);
         if(roll>Rules->DisabledDisguiseDetectionPercent[House->Difficulty]) return false;

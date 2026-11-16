@@ -5,5 +5,5 @@
 
 unsigned char SessionClass::Is_In_Game()
 {
-    return unknown_3080;
+    return CurrentlyInGame;
 }

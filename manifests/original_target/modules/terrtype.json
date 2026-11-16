@@ -323,7 +323,8 @@
    "address": "007c40b0",
    "bytes": 16,
    "kind": "rtti",
-   "section": 72
+   "section": 72,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4TerrainTypeClass@@6BIPersistStream@@@",
@@ -664,7 +665,8 @@
    "symbol": "??_R3TerrainTypeClass@@8",
    "address": "007c40b0",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4TerrainTypeClass@@6BIPersistStream@@@",

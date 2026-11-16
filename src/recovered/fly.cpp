@@ -237,7 +237,7 @@ void __stdcall FlyLocomotionClass::Move_To(COMCoordStruct to)
             } else {
                 unknown_1c = to;
 
-                if (LinkedTo->unknown_228 && LinkedTo->unknown_254) {
+                if (LinkedTo->TarCom && LinkedTo->Ammo) {
                     unknown_1c.Z = LinkedTo->Techno_Type_Class()->Flight_Level() + Map.Get_Height_GL(to);
                 }
 
@@ -336,7 +336,7 @@ bool FlyLocomotionClass::unknown_4bca00()
                     LinkedTo->unknown_slot149(0x18);
                     LinkedTo->unknown_slot263(0,0,0,0);
                     LinkedTo->unknown_slot262(0,0,0,0);
-                    Map.Unknown_0054A550(Object_Coord(LinkedTo),LinkedTo->unknown_1f4-3,LinkedTo->unknown_1f4+3,0);
+                    Map.Unknown_0054A550(Object_Coord(LinkedTo),LinkedTo->LastSightRange-3,LinkedTo->LastSightRange+3,0);
                 } else {
                     LinkedTo->unknown_slot149(0x19);
                     if (LinkedTo->HasAnyLink() && LinkedTo->NavCom && LinkedTo->NavCom!=LinkedTo->Contact(0))
@@ -599,7 +599,7 @@ void FlyLocomotionClass::unknown_4bcd50()
         if (!unknown_4bf8f0()) {
             unknown_40=1.0;
         } else if (LinkedTo->Techno_Type_Class()->HunterSeeker) {
-            if (!unknown_50 && LinkedTo->unknown_228!=0) {
+            if (!unknown_50 && LinkedTo->TarCom!=0) {
                 unknown_40=1.0;
             } else {
                 unknown_40=0.0;
@@ -634,7 +634,7 @@ void FlyLocomotionClass::unknown_4bcd50()
         }
     }
     if (!unknown_5c && LinkedTo->Strength>0 && !IsLanding && !unknown_50) {
-        if (Cell(unknown_1c)==LinkedTo->unknown_slot104() && unknown_40==0.0 && (LinkedTo->unknown_228==0 || LinkedTo->unknown_254==0)) {
+        if (Cell(unknown_1c)==LinkedTo->unknown_slot104() && unknown_40==0.0 && (LinkedTo->TarCom==0 || LinkedTo->Ammo==0)) {
             unknown_4bf1f0();
         }
     }
@@ -850,7 +850,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
 {
     LinkedTo->unknown_slot104();
     UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8> flyctrl(LinkedTo);
-    if (flyctrl!=0 && LinkedTo->unknown_228!=0 && LinkedTo->unknown_254!=0 && flyctrl->Is_Strafe()) {
+    if (flyctrl!=0 && LinkedTo->TarCom!=0 && LinkedTo->Ammo!=0 && flyctrl->Is_Strafe()) {
         stage=false;
     }
     CoordStruct aim=coord;
@@ -887,9 +887,9 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
         }
     }
     if (dist<0x100 && stage && !LinkedTo->Techno_Type_Class()->HunterSeeker) {
-        if (LinkedTo->unknown_228!=0 && LinkedTo->unknown_254!=0 && (flyctrl==0 || !flyctrl->Is_Strafe())) {
+        if (LinkedTo->TarCom!=0 && LinkedTo->Ammo!=0 && (flyctrl==0 || !flyctrl->Is_Strafe())) {
             if (flyctrl==0 || !flyctrl->Is_Locked()) {
-                LinkedTo->SecondaryFacing.Set_Desired(LinkedTo->Direction_To(LinkedTo->unknown_228));
+                LinkedTo->SecondaryFacing.Set_Desired(LinkedTo->Direction_To(LinkedTo->TarCom));
             }
         } else {
             UnknownFacingDir land((unsigned short)0);
@@ -958,11 +958,11 @@ Matrix3D * __stdcall FlyLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *key)
     transform.Rotate_Z((float)((Dir_To_32(LinkedTo->SecondaryFacing.Current()) - 8) * -0.19634954084936207));
     if (LinkedTo->Get_Height_AGL() > 0) {
         if (LinkedTo->unknown_37d) {
-            transform.Rotate_X(LinkedTo->unknown_280);
+            transform.Rotate_X(LinkedTo->AngleRotatedSideways);
             if (unknown_48 > LinkedTo->Techno_Type_Class()->PitchSpeed) {
-                transform.Rotate_Y((float)(LinkedTo->unknown_284 + LinkedTo->Techno_Type_Class()->PitchAngle));
+                transform.Rotate_Y((float)(LinkedTo->AngleRotatedForwards + LinkedTo->Techno_Type_Class()->PitchAngle));
             } else {
-                transform.Rotate_Y(LinkedTo->unknown_284);
+                transform.Rotate_Y(LinkedTo->AngleRotatedForwards);
             }
             if (key != 0) {
                 *key = -1;
@@ -1217,7 +1217,7 @@ int __stdcall FlyLocomotionClass::Get_Status()
 
 void __stdcall FlyLocomotionClass::Acquire_Hunter_Seeker_Target()
 {
-    if (LinkedTo->unknown_228 == 0) {
+    if (LinkedTo->TarCom == 0) {
         DynamicVectorClass<ObjectClass *> aitargets;
         DynamicVectorClass<ObjectClass *> humantargets;
 
@@ -1276,7 +1276,7 @@ bool FlyLocomotionClass::unknown_4bf8f0()
     if (flyctrl != 0 && !flyctrl->Is_Strafe() && !flyctrl.Checked()->Is_Fighter()) {
         return true;
     }
-    if (LinkedTo->unknown_254 == 0) {
+    if (LinkedTo->Ammo == 0) {
         return true;
     }
     return false;
@@ -1293,7 +1293,7 @@ bool FlyLocomotionClass::Is_Locked_To_Straight_Flight_004bfa10()
 {
     if (unknown_1c.Z > Map.Get_Height_GL(unknown_1c) + 120)
         return true;
-    if (LinkedTo->unknown_228 != 0 && LinkedTo->unknown_254 != 0)
+    if (LinkedTo->TarCom != 0 && LinkedTo->Ammo != 0)
         return true;
     UnknownComPtr<IFlyControl, &unknown_uuid_7d80a8> flyctrl(LinkedTo);
     if (flyctrl != 0) {

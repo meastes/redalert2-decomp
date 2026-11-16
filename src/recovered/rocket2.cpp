@@ -262,7 +262,7 @@ bool OwnerTalkClass::Unknown_0063F510(unsigned char *address)
         first->Get_Address(net, node);
         sprintf(command, "mph.exe %d.%d.%d.%d", node[0], node[1], node[2], node[3]);
         unknown_forward_address_a3fbb8 = *first;
-        unknown_session_a3d298.unknown_292c = 0;
+        unknown_session_a3d298.PacketRouterPort = 0;
     } else {
         sprintf(command, "mph.exe %d.%d.%d.%d", address[0], address[1], address[2], address[3]);
         IPXAddressClass *first = &unknown_session_a3d298.Players[0]->Address;
@@ -278,7 +278,7 @@ bool OwnerTalkClass::Unknown_0063F510(unsigned char *address)
         node[3] = address[3];
         unknown_forward_address_a3fbb8.Set_Address(net, node, 0);
         unknown_forward_address_a3fbb8.Set_Port(*(unsigned short *)&unknown_session_a3d298.Players[0]->Address);
-        unknown_session_a3d298.unknown_292c = *(unsigned short *)&unknown_session_a3d298.Players[0]->Address;
+        unknown_session_a3d298.PacketRouterPort = *(unsigned short *)&unknown_session_a3d298.Players[0]->Address;
         unknown_forward_address_a3fbac = unknown_session_a3d298.Players[0]->Address;
     }
     Debug_Printf("Session.PacketRouterAddressTranslate = %s\n", unknown_forward_address_a3fbb8.As_String());
@@ -413,7 +413,7 @@ void OwnerTalkClass::Unknown_0063FB60(int id, unsigned short port)
 // when the local player becomes the host of a game of three or more, it restarts the router.
 int OwnerTalkClass::Unknown_0063FBA0()
 {
-    int host = unknown_session_a3d298.unknown_303c;
+    int host = unknown_session_a3d298.LastTimingID;
     int index;
     if (host == -1) {
         for (index = 0; index < Connections.Count(); index++) {

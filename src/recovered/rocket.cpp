@@ -403,7 +403,7 @@ static inline int Land_Type_At(Cell const &cell)
 void RocketLocomotionClass::unknown_63e7d0()
 {
     AircraftTracker.Unknown_00413310(LinkedTo);
-    TechnoClass *spawner = static_cast<TechnoClass *>(LinkedTo->unknown_23c);
+    TechnoClass *spawner = static_cast<TechnoClass *>(LinkedTo->SpawnOwner);
     bool elite = spawner != 0 && spawner->Veterancy.Is_Elite();
     RocketStruct const *rocket;
     WarheadTypeClass *warhead;

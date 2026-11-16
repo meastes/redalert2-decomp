@@ -2493,9 +2493,9 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
         }
 
         if (OverlayTypes[OverlayIndex]->CrateTrigger) {
-            if (object->unknown_34 != 0) {
+            if (object->Tag != 0) {
                 Debug_Printf("Springing trigger on crate at %d,%d\n", MapCoords.X, MapCoords.Y);
-                object->unknown_34->Spring(0x31, object, unknown_cell_850bd8, false, 0);
+                object->Tag->Spring(0x31, object, unknown_cell_850bd8, false, 0);
                 if (!object->IsActive) {
                     return false;
                 }
@@ -2555,7 +2555,7 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
                     break;
 
                 case CRATE_ARMOR:
-                    if (object->unknown_120 != 1) powerup = CRATE_MONEY;
+                    if (object->ArmorBias != 1) powerup = CRATE_MONEY;
                     break;
 
                 case CRATE_VETERAN:
@@ -2820,8 +2820,8 @@ crate_money:
                 for (int i = 0; i < DisplayClass::Layer[2].Count(); i++) {
                     ObjectClass *obj = DisplayClass::Layer[2][i];
                     if (obj != 0 && obj->Is_Techno() && Length3(Ground_Coord() - obj->Center_Coord()) < Rules->CrateRadius &&
-                            ((TechnoClass *)obj)->unknown_120 == 1) {
-                        ((TechnoClass *)obj)->unknown_120 = data * ((TechnoClass *)obj)->unknown_120;
+                            ((TechnoClass *)obj)->ArmorBias == 1) {
+                        ((TechnoClass *)obj)->ArmorBias = data * ((TechnoClass *)obj)->ArmorBias;
                         if (obj->Owning_House()->Is_Player_Control()) tospeak = true;
                     }
                 }

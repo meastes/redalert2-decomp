@@ -993,7 +993,7 @@ inline Point2D Interpolate_Wave_Pixel(Point2D const &a, Point2D const &b, float 
 void WaveClass::Update_Wave_00724200()
 {
     if (WaveProgress - FadeProgress > 0.1 && Type == 0) unknown_119 = true;
-    if (Target && Owner && WaveEC != (int)(1.0 / Wave_Advance_Step_007aec88) && Owner->unknown_228 == Target) {
+    if (Target && Owner && WaveEC != (int)(1.0 / Wave_Advance_Step_007aec88) && Owner->TarCom == Target) {
         CoordStruct source = Owner->Coord;
         CoordStruct delta = source - Target->unknown_slot22();
         int distance = (int)Fast_Sqrt((double)delta.X * delta.X + (double)delta.Z * delta.Z + (double)delta.Y * delta.Y);

@@ -42,7 +42,7 @@ int EMPulseClass::Size_Of() const { return sizeof(EMPulseClass); }
 
 // MPCooperative (multiplayer_game_mode.hpp), pass-6a decompiles.
 bool MPCooperative::unknown_slot1() { return true; }                       // 0x005A6280
-void MPCooperative::unknown_slot9() { unknown_344 = true; }                // 0x005A31F0
+void MPCooperative::unknown_slot9() { PlayersChanged = true; }                // 0x005A31F0
 bool MPCooperative::IsAIAllowed() { return false; }                     // 0x005A46B0
 void MPCooperative::PopulateTeamDropdownForPlayer(HWND combo, int team)                   // 0x005A3F70
 {

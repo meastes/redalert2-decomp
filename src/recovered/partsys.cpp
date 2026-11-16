@@ -56,7 +56,7 @@ ParticleSystemClass::ParticleSystemClass(ParticleSystemTypeClass *type, CoordStr
         Owner = owner;
         TechnoClass *techno = owner->As_Techno();
         if (techno != 0) {
-            Target = techno->unknown_228;
+            Target = techno->TarCom;
         }
     } else {
         Owner = 0;
@@ -127,7 +127,7 @@ void ParticleSystemClass::Draw_It(Point2D const &point, Rect const &window)
             : ((1.0f < (float)Particles.Count() / Class->ParticleCap) ? 1.0f : (float)Particles.Count() / Class->ParticleCap);
         int size = ratio * Class->LightSize;
         SpotLightClass *light = new SpotLightClass(Coord, size);
-        light->unknown_0c = SparkRadius;
+        light->Radius = SparkRadius;
         light->unknown_func_5ddb90();
         delete light;
     }
@@ -595,8 +595,8 @@ void ParticleSystemClass::Fire_AI()
     TechnoClass *source = Owner->As_Techno();
     if (source) {
         if (source->IsActive) {
-            if (source->unknown_228 && source->PrimaryFacing.Is_Rotating()) {
-                CoordStruct target = source->unknown_228->Center_Coord();
+            if (source->TarCom && source->PrimaryFacing.Is_Rotating()) {
+                CoordStruct target = source->TarCom->Center_Coord();
                 CoordStruct delta = target - source->Position_Coord_004f3f40();
                 int distance = (int)Fast_Sqrt((double)delta.X * delta.X + (double)delta.Y * delta.Y + (double)delta.Z * delta.Z);
                 TargetCoord = Particle_Coord_Along_Facing(source->PrimaryFacing.Current(), distance, source->Position_Coord_004f3f40());

@@ -64,8 +64,8 @@ void TechnoClass::unknown_slot223(CoordStruct const &coord, float force)
             if (fabs(dist1*cangle-dist2*sangle-vec1.X)>0.0002 || fabs(dist2*cangle+dist1*sangle-vec1.Y)>0.0002) {
                 dist2=-dist2;
             }
-            unknown_28c=dist1*scale/2.0f;
-            unknown_288=-((float)dist2*scale);
+            RockingForwardsPerFrame=dist1*scale/2.0f;
+            RockingSidewaysPerFrame=-((float)dist2*scale);
         }
     }
 }

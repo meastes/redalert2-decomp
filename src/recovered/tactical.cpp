@@ -138,29 +138,29 @@ static double unknown_scale_abe520 = unknown_geometry_diagonal / (Fast_Sin(unkno
 extern Point2D unknown_abe540;    // 0x00ABE540 (the header static unknown_geometry_l, read as a point)
 
 Tactical::Tactical()
-    : unknown_a8(-1),
+    : LastAIFrame(-1),
       TacPixelX(0),
       TacPixelY(0),
       LastTacPixelX(0),
       LastTacPixelY(0),
       unknown_c0(1.0),
       unknown_c8(unknown_abe540),
-      unknown_d0(unknown_abe540),
+      MoveTo(unknown_abe540),
       MoveSpeed(0),
-      unknown_dc(0),
-      unknown_e0(0),
-      unknown_d64(0, 0),
-      unknown_d6c(0, 0),
-      unknown_d74(0, 0),
-      unknown_d7c(true),
+      MoveFactor(0),
+      CellRedrawCount(0),
+      TacticalCoord(0, 0),
+      LastTacticalCoord(0, 0),
+      DesiredTacticalCoord(0, 0),
+      IsFirstRender(true),
       IsToRedraw(false),
-      unknown_d7e(false),
-      unknown_d80(unknown_static_rect),
+      UnusedBool(false),
+      VisibleCellRect(unknown_static_rect),
       RubberBandStart(0, 0),
       RubberBandEnd(0, 0),
-      unknown_da0(0),
-      unknown_da4(),
-      unknown_db0(0)
+      WaypointAnimCounter(0),
+      WaypointAnimTimer(),
+      SelectableCount(0)
 {
     for (int i = 0; i < 800; i++) {
         unknown_e4[i] = 0;
@@ -169,12 +169,12 @@ Tactical::Tactical()
     unknown_24 = 0;
     unknown_a4 = -1;
 
-    unknown_db4.Make_Identity();
-    unknown_db4.Rotate_X(unknown_geometry_angle60);
-    unknown_db4.Rotate_Z(unknown_geometry_angle45);
-    unknown_db4.Scale(60.0f / (float)unknown_geometry_diagonal);
+    CoordToPixelMatrix.Make_Identity();
+    CoordToPixelMatrix.Rotate_X(unknown_geometry_angle60);
+    CoordToPixelMatrix.Rotate_Z(unknown_geometry_angle45);
+    CoordToPixelMatrix.Scale(60.0f / (float)unknown_geometry_diagonal);
 
-    unknown_de4.Set(4.2667f, 8.5334f, 0.0f, 0.0f,
+    PixelToCoordMatrix.Set(4.2667f, 8.5334f, 0.0f, 0.0f,
                     -4.2667f, 8.5334f, 0.0f, 0.0f,
                     0.0f, 0.0f, 1.0f, 0.0f);
 
@@ -261,7 +261,7 @@ Point2D Tactical::Coord_To_Pixel_Absolute(Point2D const &point)
 Point2D Tactical::Pixel_To_Lepton(Point2D const &point)
 {
     Vector3 position((float)point.X,(float)point.Y,0.0f);
-    position = unknown_de4 * position;
+    position = PixelToCoordMatrix * position;
     return Point2D((int)position.X, (int)position.Y);
 }
 
@@ -334,7 +334,7 @@ CoordStruct Tactical::Pixel_To_Coord(Point2D const &point)
         position.X = (float)pixel.X;
         position.Y = (float)pixel.Y;
         position.Z = 0.0f;
-        position = unknown_de4 * position;
+        position = PixelToCoordMatrix * position;
         return CoordStruct((int)position.X, (int)position.Y, 0);
     }
     return unknown_geometry_l;
@@ -355,7 +355,7 @@ CoordStruct Tactical::Pixel_To_Coord_Absolute(Point2D const &point)
             position.X = (float)x;
             position.Y = (float)y;
             position.Z = 0.0f;
-            position = unknown_de4 * position;
+            position = PixelToCoordMatrix * position;
             return CoordStruct((int)position.X, (int)position.Y, 0);
         }
     }
@@ -372,15 +372,15 @@ extern float unknown_scroll_speeds_7f6914[5];      // 0x007F6914 (TibSun's stati
 
 void Tactical::Setup_Trigger_Scroll(CoordStruct const &coord, int speed)
 {
-    unknown_dc = 0;
+    MoveFactor = 0;
     MoveSpeed = unknown_scroll_speeds_7f6914[speed];
 
     Point2D to;
     Coord_To_Pixel(coord, to);
     to.X += TacPixelX;
     to.Y += TacPixelY;
-    unknown_d0 = to;
-    unknown_c8 = unknown_d64;
+    MoveTo = to;
+    unknown_c8 = TacticalCoord;
 }
 
 
@@ -500,8 +500,8 @@ void Tactical::Wipe_Depth(bool fullredraw, int xoff, int yoff, Rect const &clipr
         }
     }
 
-    if (unknown_e0 > 0 && !fullredraw) {
-        for (int i = 0; i < unknown_e0; i++) {
+    if (CellRedrawCount > 0 && !fullredraw) {
+        for (int i = 0; i < CellRedrawCount; i++) {
             CoordStruct coord = unknown_e4[i]->unknown_475d60();
             coord.Z = 0;
             Point2D pixel;
@@ -542,8 +542,8 @@ void Tactical::Render_Tiles(Rect const &xpanrect, Rect const &ypanrect, bool ful
         }
     }
 
-    if (unknown_e0 > 0 && !fullredraw) {
-        for (int i = 0; i < unknown_e0; i++) {
+    if (CellRedrawCount > 0 && !fullredraw) {
+        for (int i = 0; i < CellRedrawCount; i++) {
             CoordStruct coord = Coord_Snap(Cell_Center(unknown_e4[i]->MapCoords));
             Point2D pixel;
             Coord_To_Pixel(coord, pixel);
@@ -590,8 +590,8 @@ void Tactical::Render_Tile_Shadows(Rect const &xpanrect, Rect const &ypanrect, b
         }
     }
 
-    if (unknown_e0 > 0 && !fullredraw) {
-        for (int i = 0; i < unknown_e0; i++) {
+    if (CellRedrawCount > 0 && !fullredraw) {
+        for (int i = 0; i < CellRedrawCount; i++) {
             CoordStruct coord = Coord_Snap(Cell_Center(unknown_e4[i]->MapCoords));
             Point2D pixel;
             Coord_To_Pixel(coord, pixel);
@@ -639,8 +639,8 @@ void Tactical::Render_Overlays(Rect const &xpanrect, Rect const &ypanrect, bool 
         }
     }
 
-    if (unknown_e0 > 0 && !fullredraw) {
-        for (int i = 0; i < unknown_e0; i++) {
+    if (CellRedrawCount > 0 && !fullredraw) {
+        for (int i = 0; i < CellRedrawCount; i++) {
             CoordStruct coord = Coord_Snap(Cell_Center(unknown_e4[i]->MapCoords));
             Point2D pixel;
             Coord_To_Pixel(coord, pixel);
@@ -683,8 +683,8 @@ void Tactical::Render_Fogged_Objects(Rect const &xpanrect, Rect const &ypanrect,
         }
     }
 
-    if (unknown_e0 > 0 && !fullredraw) {
-        for (int i = 0; i < unknown_e0; i++) {
+    if (CellRedrawCount > 0 && !fullredraw) {
+        for (int i = 0; i < CellRedrawCount; i++) {
             CoordStruct coord = Coord_Snap(Cell_Center(unknown_e4[i]->MapCoords));
             Point2D pixel;
             Coord_To_Pixel(coord, pixel);
@@ -717,8 +717,8 @@ void Tactical::Render_Fogged_Objects(Rect const &xpanrect, Rect const &ypanrect,
 
 void Tactical::Render_Shroud(Rect const &xpanrect, Rect const &ypanrect, Rect const &cliprect, bool fullredraw)
 {
-    if (unknown_e0 > 0 && !fullredraw) {
-        for (int i = 0; i < unknown_e0; i++) {
+    if (CellRedrawCount > 0 && !fullredraw) {
+        for (int i = 0; i < CellRedrawCount; i++) {
             CoordStruct coord = unknown_e4[i]->unknown_475d60();
             coord.Z = 0;
             Point2D pixel;
@@ -763,8 +763,8 @@ void Tactical::Render_Buildings(Rect const &xpanrect, Rect const &ypanrect, bool
 {
     int i;
 
-    if (unknown_e0 > 0) {
-        for (i = 0; i < unknown_e0; i++) {
+    if (CellRedrawCount > 0) {
+        for (i = 0; i < CellRedrawCount; i++) {
             CoordStruct coord = Coord_Snap(Cell_Center(unknown_e4[i]->MapCoords));
             Point2D pixel;
             Coord_To_Pixel(coord, pixel);
@@ -812,8 +812,8 @@ void Tactical::Render_Terrain(Rect const &xpanrect, Rect const &ypanrect, bool f
 {
     int i;
 
-    if (unknown_e0 > 0) {
-        for (i = 0; i < unknown_e0; i++) {
+    if (CellRedrawCount > 0) {
+        for (i = 0; i < CellRedrawCount; i++) {
             CoordStruct coord = Coord_Snap(Cell_Center(unknown_e4[i]->MapCoords));
             Point2D pixel;
             Coord_To_Pixel(coord, pixel);
@@ -1230,7 +1230,7 @@ bool Tactical::Blit_Tiles()
 
 Point2D Tactical::Get_Tactical_Position()
 {
-    return unknown_d64;
+    return TacticalCoord;
 }
 
 
@@ -1240,7 +1240,7 @@ Point2D Tactical::Get_Tactical_Position()
 Point2D Tactical::Get_Relative_Tactical_Position()
 {
     Point2D offset(TacPixelX, TacPixelY);
-    return unknown_d64 - offset;
+    return TacticalCoord - offset;
 }
 
 
@@ -1646,7 +1646,7 @@ void __fastcall Unknown_004CAB90(TechnoClass *techno);  // 0x004CAB90 (hypothesi
 
 void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
 {
-    unknown_db0 = 0;
+    SelectableCount = 0;
     bool has_selectable_buildings = Contains_Selectable_Buildings(TacticalRect);
 
     int xoffset = LastTacPixelX - TacPixelX;
@@ -1674,7 +1674,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
     bool render;
     if (fullredraw) {
         render = true;
-    } else if (!unknown_d7c && !has_selectable_buildings && TacticalLists::DirtyAreas.Count() == 0 && !IsToRedraw && unknown_d64.X == unknown_d6c.X && unknown_d64.Y == unknown_d6c.Y) {
+    } else if (!IsFirstRender && !has_selectable_buildings && TacticalLists::DirtyAreas.Count() == 0 && !IsToRedraw && TacticalCoord.X == LastTacticalCoord.X && TacticalCoord.Y == LastTacticalCoord.Y) {
         render = false;
     } else if (has_selectable_buildings) {
         render = true;
@@ -1791,13 +1791,13 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
 
             LogicalSurface->Unlock();
             LogicalSurface = prevlogical;
-            unknown_e0 = 0;
+            CellRedrawCount = 0;
         }
     }
     }
 
-    unknown_d6c.X = unknown_d64.X;
-    unknown_d6c.Y = unknown_d64.Y;
+    LastTacticalCoord.X = TacticalCoord.X;
+    LastTacticalCoord.Y = TacticalCoord.Y;
     LastTacPixelX = TacPixelX;
     LastTacPixelY = TacPixelY;
 
@@ -1848,7 +1848,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
                     if (TechnoClass_ActionLines) {
                         techno->unknown_slot243(false, 0);
                     }
-                    UnknownTechno230 *capture = (UnknownTechno230 *)techno->unknown_230;
+                    UnknownTechno230 *capture = (UnknownTechno230 *)techno->CaptureManager;
                     if (capture != 0 && capture->unknown_24 != 0) {
                         ((CaptureManagerClass *)capture)->Draw_Link();
                     }
@@ -1895,7 +1895,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
         }
 
         Draw_Screen_Text((wchar_t const *)&unknown_24);
-        unknown_d7c = false;
+        IsFirstRender = false;
         IsToRedraw = false;
     }
 }
@@ -1928,7 +1928,7 @@ static inline void Project_Tile_Left(Tactical &view, CoordStruct const &coord, P
 
 void Tactical::Draw_Tiles(Rect const &area, Rect const &cliprect)
 {
-    Point2D point = Pixel_To_Ground_Point(unknown_de4, Point2D(area.Top_Left()) + Point2D(TacPixelX, TacPixelY) - TacticalRect.Top_Left());
+    Point2D point = Pixel_To_Ground_Point(PixelToCoordMatrix, Point2D(area.Top_Left()) + Point2D(TacPixelX, TacPixelY) - TacticalRect.Top_Left());
     CoordStruct lepton(point.X, point.Y, 0);
     Cell origin(lepton.X / 256, lepton.Y / 256);
     Cell base = origin;
@@ -2070,14 +2070,14 @@ void Tactical::Scroll_Map_006a8b70(int arg1, int arg2)
         Point2D(0, -1), Point2D(1, -1), Point2D(1, 0), Point2D(1, 1),
         Point2D(0, 1), Point2D(-1, 1), Point2D(-1, 0), Point2D(-1, -1)
     };
-    int x = unknown_d64.X;
-    int y = unknown_d64.Y;
+    int x = TacticalCoord.X;
+    int y = TacticalCoord.Y;
     int newx = directions[arg1].X * arg2 + x;
     int newy = directions[arg1].Y * arg2 + y;
     if (x != newx || y != newy) {
         Point2D d(newx - x, newy - y);
-        unknown_d74.X += d.X;
-        unknown_d74.Y += d.Y;
+        DesiredTacticalCoord.X += d.X;
+        DesiredTacticalCoord.Y += d.Y;
     }
 }
 
@@ -2408,7 +2408,7 @@ int Tactical::Cell_Shadow(Cell const &cell, bool fog)
 bool Tactical::Is_Cell_Visible(Cell const &cell)
 {
     Point2D point = Point2D(cell.X, cell.Y);
-    if (unknown_d80.Is_Point_Within(point)) {
+    if (VisibleCellRect.Is_Point_Within(point)) {
         return true;
     }
     return false;
@@ -2426,8 +2426,8 @@ void Tactical::Update_Visible_Cells()
 {
     Vector3 position;
     position.Z = 0.0f;
-    int x = unknown_d64.X;
-    int y = unknown_d64.Y;
+    int x = TacticalCoord.X;
+    int y = TacticalCoord.Y;
     TacPixelX = x;
     TacPixelY = y;
     TacPixelX = x - TacticalDimensions.Width / 2;
@@ -2435,12 +2435,12 @@ void Tactical::Update_Visible_Cells()
     Point2D offset(TacPixelX - 60, TacPixelY - 30);
     position.X = (float)offset.X;
     position.Y = (float)offset.Y;
-    position = unknown_de4 * position;
+    position = PixelToCoordMatrix * position;
     Point2D cell((int)position.X, (int)position.Y);
-    unknown_d80.X = cell.X / 256;
-    unknown_d80.Y = cell.Y / 256;
-    unknown_d80.Width = TacticalDimensions.Width / 60 + 2;
-    unknown_d80.Height = TacticalDimensions.Height / 15 + 4;
+    VisibleCellRect.X = cell.X / 256;
+    VisibleCellRect.Y = cell.Y / 256;
+    VisibleCellRect.Width = TacticalDimensions.Width / 60 + 2;
+    VisibleCellRect.Height = TacticalDimensions.Height / 15 + 4;
 }
 
 
@@ -2753,11 +2753,11 @@ void Tactical::Add_Buildings_To_Selectable(Rect rect)
 
 bool Tactical::Add_To_Selectables(ObjectClass *object, Point2D point)
 {
-    if (unknown_db0 != 500 && point.X >= -32 && point.X <= TacticalRect.Width + 32 && point.Y >= -32 && point.Y <= TacticalRect.Height + 32) {
-        Tactical_SelectableObjects[unknown_db0].Object = object;
+    if (SelectableCount != 500 && point.X >= -32 && point.X <= TacticalRect.Width + 32 && point.Y >= -32 && point.Y <= TacticalRect.Height + 32) {
+        Tactical_SelectableObjects[SelectableCount].Object = object;
         Point2D view(TacPixelX, TacPixelY);
-        Tactical_SelectableObjects[unknown_db0].Pixel = Point2D(point.X + view.X, point.Y + view.Y);
-        unknown_db0++;
+        Tactical_SelectableObjects[SelectableCount].Pixel = Point2D(point.X + view.X, point.Y + view.Y);
+        SelectableCount++;
         return true;
     }
     return false;
@@ -2835,7 +2835,7 @@ int Tactical::Rubber_Band_Contains_Selectable()
     }
     Rect rect(left, top, right - left + 1, bottom - top + 1);
     if (rect.Is_Valid()) {
-        for (int index = 0; index < unknown_db0; index++) {
+        for (int index = 0; index < SelectableCount; index++) {
             TacticalObjectPixel &entry = Tactical_SelectableObjects[index];
             if (entry.Object != 0 && entry.Object->IsActive) {
                 Point2D view(TacPixelX, TacPixelY);
@@ -2905,8 +2905,8 @@ int Tactical::Scroll_Dir_006aa840(int direction)
         Point2D(0, -1), Point2D(1, -1), Point2D(1, 0), Point2D(1, 1),
         Point2D(0, 1), Point2D(-1, 1), Point2D(-1, 0), Point2D(-1, -1)
     };
-    int x = unknown_d64.X;
-    int y = unknown_d64.Y;
+    int x = TacticalCoord.X;
+    int y = TacticalCoord.Y;
     int newx = directions[direction].X + x;
     int newy = directions[direction].Y + y;
     if (newx != x || newy != y) {
@@ -2915,7 +2915,7 @@ int Tactical::Scroll_Dir_006aa840(int direction)
             newx = point.X;
             newy = point.Y;
         }
-        Point2D delta(unknown_d64.X - newx, unknown_d64.Y - newy);
+        Point2D delta(TacticalCoord.X - newx, TacticalCoord.Y - newy);
         return unknown_facings_7f6930[delta.Y + 1][delta.X + 1];
     }
     return direction;
@@ -2973,7 +2973,7 @@ ObjectClass *Tactical::Get_Selectable_Object_006aa990(Point2D const &point)
     int pixelx = point.X + TacPixelX;
     int pixely = point.Y + TacPixelY;
 
-    for (int index = 0; index < unknown_db0; index++) {
+    for (int index = 0; index < SelectableCount; index++) {
         TacticalObjectPixel &sel = Tactical_SelectableObjects[index];
         ObjectClass *obj = sel.Object;
 
@@ -2983,7 +2983,7 @@ ObjectClass *Tactical::Get_Selectable_Object_006aa990(Point2D const &point)
 
             if (tech != 0) {
                 if (obj->IsActive && !tech->IsInLimbo) {
-                    if (tech->unknown_372 || tech->unknown_1b8 != 2 || ((UnknownCellClass *)&Map[tech->Center_Coord()])->Is_Sensed(PlayerPtr->ArrayIndex)) {
+                    if (tech->unknown_372 || tech->Cloak != 2 || ((UnknownCellClass *)&Map[tech->Center_Coord()])->Is_Sensed(PlayerPtr->ArrayIndex)) {
                         pass = true;
                     }
                 }
@@ -3048,7 +3048,7 @@ void Tactical::Select_These(Rect const *rect, void (__fastcall *callback)(Object
 {
     AllowVoice = true;
     if (rect->Is_Valid()) {
-        for (int index = 0; index < unknown_db0; index++) {
+        for (int index = 0; index < SelectableCount; index++) {
             TacticalObjectPixel &entry = Tactical_SelectableObjects[index];
             if (entry.Object != 0 && entry.Object->IsActive) {
                 ObjectClass *object = entry.Object;
@@ -3153,9 +3153,9 @@ void Tactical::Flag_Cell(CellClass *cell)
             && pixel.X <= TacticalRect.X + TacticalRect.Width + 30
             && pixel.Y <= TacticalRect.Y + TacticalRect.Height + 15) {
 
-            if (unknown_e0 < 799) {
-                unknown_e4[unknown_e0] = cell;
-                unknown_e0++;
+            if (CellRedrawCount < 799) {
+                unknown_e4[CellRedrawCount] = cell;
+                CellRedrawCount++;
             }
             cell->unknown_138 = false;
             IsToRedraw = true;
@@ -3192,12 +3192,12 @@ void Tactical::Draw_Rally_Points(bool inshroud)
         ObjectClass *object = CurrentObject[index];
         if (object->Kind_Of() == 6 && object->IsActive && object->IsSelected) {
             BuildingClass *building = (BuildingClass *)object;
-            if (building->House == PlayerPtr && building->unknown_slot153() && building->unknown_1b0 != 0) {
+            if (building->House == PlayerPtr && building->unknown_slot153() && building->ArchivedTarget != 0) {
                 CoordStruct center = building->Center_Coord();
  Point2D start;
  Coord_To_Pixel(center, start);
  start += Point2D(TacticalRect.X, TacticalRect.Y);
-                CoordStruct rally = building->unknown_1b0->Center_Coord();
+                CoordStruct rally = building->ArchivedTarget->Center_Coord();
                 rally.Z = Map.Get_Height_GL(rally);
                 if (Map[rally].unknown_140 & 0x100) {
                     rally.Z += unknown_geometry_j;
@@ -3256,7 +3256,7 @@ void Tactical::Draw_Waypoints(bool inshroud)
 {
     int phase = (0x7FFFFFFF - Frame) % 15;
     int start_frame = Map.Get_Mouse_Start(0x3C);
-    int frame = unknown_da0 % Map.Get_Mouse_Count(0x3C) + start_frame;
+    int frame = WaypointAnimCounter % Map.Get_Mouse_Count(0x3C) + start_frame;
     if (Debug_Map) {
         return;
     }
@@ -3455,22 +3455,22 @@ HRESULT __stdcall Tactical::Load(IStream *stream)
     HRESULT result = AbstractClass::Load(stream);
     if (SUCCEEDED(result)) {
         new (this) Tactical(NoInitClass());
-        unknown_db0 = 0;
-        for (int i = 0; i < unknown_e0; i++) {
+        SelectableCount = 0;
+        for (int i = 0; i < CellRedrawCount; i++) {
             Swizzler.Swizzle((void **)&unknown_e4[i]);
         }
-        Point2D point = unknown_d64;
+        Point2D point = TacticalCoord;
         int x;
         int y;
         if (Clamp_To_Tactical_Rect(&point) && !Debug_Map) {
             x = point.X;
             y = point.Y;
         } else {
-            x = unknown_d64.X;
-            y = unknown_d64.Y;
+            x = TacticalCoord.X;
+            y = TacticalCoord.Y;
         }
-        unknown_d64 = Point2D(x, y);
-        unknown_d74 = Point2D(x, y);
+        TacticalCoord = Point2D(x, y);
+        DesiredTacticalCoord = Point2D(x, y);
         Update_Visible_Cells();
         IsToRedraw = true;
         result = S_OK;

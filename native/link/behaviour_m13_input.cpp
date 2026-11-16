@@ -14,7 +14,7 @@
 // table 0x00ABE5F8.
 int UnknownSelection::Count()
 {
-    return ((Tactical *)this)->unknown_db0;
+    return ((Tactical *)this)->SelectableCount;
 }
 
 // 0x006AC7C0 (seed: returns the first word of the 12-byte entry at 0x00ABE5F8 + 12 * index).

@@ -137,6 +137,18 @@ class MemberRenameTests(unittest.TestCase):
         self.assertNotIn('src/recovered/v.cpp', result['edits'])
         self.assertEqual(self.lines(result, 'src/recovered/a.cpp'), [3, 4, 7])
 
+    def test_a_one_byte_span_in_a_stand_in_keeps_its_name(self):
+        (self.root / 'src/shared/r.hpp').write_text('#ifndef R_HPP\n#define R_HPP\nclass Rec { public: char unknown_1[1]; int k; };\n#endif\n')
+        for n in ('r1', 'r2', 'r3'):
+            (self.root / ('src/recovered/%s.cpp' % n)).write_text('#include "shared/r.hpp"\nint %s(Rec *r) { return r->unknown_1[0]; }\n' % n)
+        (self.root / 'src/shared/s.hpp').write_text('#ifndef R_HPP\nclass Rec { public: char unknown_1[1]; };\n#endif\n')
+        (self.root / 'src/recovered/s.cpp').write_text('#include "shared/s.hpp"\nint s(Rec *r) { return sizeof(r->unknown_1); }\n')
+        result = member_rename.plan('Rec', 'unknown_1', 'IsPowered')
+        self.assertIn('src/shared/r.hpp', result['edits'])
+        self.assertEqual(len(result['edits']['src/recovered/r1.cpp']), 1)
+        self.assertNotIn('src/shared/s.hpp', result['edits'])
+        self.assertNotIn('src/recovered/s.cpp', result['edits'])
+
     def test_a_new_name_the_hierarchy_already_has_refuses(self):
         with self.assertRaises(SystemExit) as caught:
             member_rename.plan('Base', 'Get_Cell', 'Use')

@@ -89,17 +89,17 @@ public:
     int unknown_20;                     // +0x20 ramp
     UnknownSlopeTimer unknown_24;       // +0x24
     CoordStruct unknown_34;             // +0x34 destination
-    CoordStruct unknown_40;             // +0x40 head-to coordinate
+    CoordStruct HeadToCoord;             // +0x40 head-to coordinate
     int unknown_4c;                     // +0x4C speed accumulator
     double unknown_50;                  // +0x50 (a speed fraction; Stop_Moving caps it at 0.3)
     int unknown_58;                     // +0x58 track number
-    int unknown_5c;                     // +0x5C track index
-    bool unknown_60;                    // +0x60
-    bool unknown_61;                    // +0x61
-    bool unknown_62;                    // +0x62
-    bool unknown_63;                    // +0x63
-    bool unknown_64;                    // +0x64
-    bool unknown_65;                    // +0x65 unlocked
+    int TrackIndex;                     // +0x5C track index
+    bool IsOnShortTrack;                    // +0x60
+    bool IsTurretLockedDown;                    // +0x61
+    bool IsRotating;                    // +0x62
+    bool IsDriving;                    // +0x63
+    bool IsRocking;                    // +0x64
+    bool IsLocomotorUnlocked;                    // +0x65 unlocked
     UnknownLocomotionPtr Piggybacker;   // +0x68
     int unknown_6c;                     // +0x6C
 };

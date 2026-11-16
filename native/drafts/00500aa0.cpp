@@ -55,7 +55,7 @@ void InfantryClass::unknown_slot93(int why)
                     Scatter(building->Center_Coord(),true,true);
                     return;
                 }
-                if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
+                if (building->Tag) building->Tag->Spring(1,this,unknown_geometry_k,false,0);
                 if (Type->Occupier) {
                     Limbo();
                     building->unknown_554.Add(this);
@@ -72,8 +72,8 @@ void InfantryClass::unknown_slot93(int why)
         }
         if (Get_Mission()==9) {
             BuildingClass *building=cell->Unknown_004717B0();
-            if (building && (building==NavCom || building==unknown_228)) {
-                if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
+            if (building && (building==NavCom || building==TarCom)) {
+                if (building->Tag) building->Tag->Spring(1,this,unknown_geometry_k,false,0);
                 if (Techno_Type_Class()->VoiceDie.Count()>0 && House->Is_Player_Control()) {
                     CoordStruct location=Coord;
                     Voc_Play_At(Techno_Type_Class()->VoiceDie.Pick(NonCriticalRandomNumber()),location,0);
@@ -83,7 +83,7 @@ void InfantryClass::unknown_slot93(int why)
                     Voc_Play_At(Techno_Type_Class()->DieSound.Pick(NonCriticalRandomNumber()),location,0);
                 }
                 building->House->Refund_Money(unknown_slot167());
-                if (unknown_34) unknown_34->Spring(48,this,unknown_geometry_k,false,0);
+                if (Tag) Tag->Spring(48,this,unknown_geometry_k,false,0);
                 Delete_Me();
                 return;
             }
@@ -96,13 +96,13 @@ void InfantryClass::unknown_slot93(int why)
                 TechnoClass *destination=static_cast<TechnoClass *>(NavCom);
                 if (destination && destination->Kind_Of()==6) {
                     if (unknown_slot104()==destination->unknown_slot104()) {
-                        if (destination->unknown_34) destination->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
+                        if (destination->Tag) destination->Tag->Spring(1,this,unknown_geometry_k,false,0);
                         destination->unknown_slot54(false);
                         destination->Captured(House,1);
-                        destination->unknown_290=Type->ArrayIndex;
+                        destination->EnteredByInfType=Type->ArrayIndex;
                         destination->unknown_slot173();
-                        if (unknown_34 && unknown_34->Is_To_Inherit()) destination->Attach_Tag(unknown_34);
-                        if (unknown_34) unknown_34->Spring(48,this,unknown_geometry_k,false,0);
+                        if (Tag && Tag->Is_To_Inherit()) destination->Attach_Tag(Tag);
+                        if (Tag) Tag->Spring(48,this,unknown_geometry_k,false,0);
                         Delete_Me();
                         return;
                     }
@@ -114,8 +114,8 @@ void InfantryClass::unknown_slot93(int why)
                 }
             }
             BuildingClass *building=cell->Unknown_004717B0();
-            if (building && (building==NavCom || building==unknown_228)) {
-                if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
+            if (building && (building==NavCom || building==TarCom)) {
+                if (building->Tag) building->Tag->Spring(1,this,unknown_geometry_k,false,0);
                 if (Type->Engineer) {
                     if (building->Kind_Of()==6 && building->Type->BridgeRepairHut) {
                         if (House->Is_Player_Control() && Unknown_0063B5B0(14,unknown_slot104())) Speech_Play_Name("EVA_BridgeRepaired",-1,-1);
@@ -154,16 +154,16 @@ void InfantryClass::unknown_slot93(int why)
                                 Scatter(building->Center_Coord(),true,true);
                                 return;
                             }
-                            if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
+                            if (building->Tag) building->Tag->Spring(1,this,unknown_geometry_k,false,0);
                             building->House->IsThieved=true;
-                            if (unknown_34 && unknown_34->Is_To_Inherit()) building->Attach_Tag(unknown_34);
+                            if (Tag && Tag->Is_To_Inherit()) building->Attach_Tag(Tag);
                             building->Captured(House,1);
-                            building->unknown_290=Type->ArrayIndex;
+                            building->EnteredByInfType=Type->ArrayIndex;
                             building->unknown_slot173();
                         }
                     }
                 } else if (Type->Agent) Native_Building_Infiltrate_00452390(building, House);   // NATIVE: map_techno.hpp's BuildingClass view lacks the member (link/behaviour_m10.cpp)
-                if (unknown_34) unknown_34->Spring(48,this,unknown_geometry_k,false,0);
+                if (Tag) Tag->Spring(48,this,unknown_geometry_k,false,0);
                 Delete_Me();
                 return;
             }
@@ -195,8 +195,8 @@ void InfantryClass::unknown_slot93(int why)
                 if (!at_destination) at_destination=destination_cell->Unknown_00473E30(true);
             }
         }
-        if (Get_Mission()==7 && transport && (NavCom==transport || unknown_228==transport || (at_destination && transport==at_destination))) {
-            if (transport->unknown_34) transport->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
+        if (Get_Mission()==7 && transport && (NavCom==transport || TarCom==transport || (at_destination && transport==at_destination))) {
+            if (transport->Tag) transport->Tag->Spring(1,this,unknown_geometry_k,false,0);
             if (transport->Kind_Of()==6) {
                 if (transport==static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_004717B0() && unknown_slot149(21)==1) {
                     Limbo();
@@ -223,7 +223,7 @@ void InfantryClass::unknown_slot93(int why)
         if (Get_Mission()==17 && Type->C4) {
             BuildingClass *building=cell->Unknown_004717B0();
             if (building && building==NavCom) {
-                if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
+                if (building->Tag) building->Tag->Spring(1,this,unknown_geometry_k,false,0);
                 // NATIVE (Scout1231): the building's C4 members (+0x5AF going to blow, +0x420 countdown,
                 // +0x438 who planted it) through link/behaviour_m10_building.cpp: this unit's BuildingClass
                 // view has no names for them, and the VC6 offsets land elsewhere in the arm64 layout
@@ -266,11 +266,11 @@ void InfantryClass::unknown_slot93(int why)
                 if ((cell->unknown_128.Composite & 0x1c)==0x1c) cell->Unknown_00476920(&unknown_geometry_l,true,true,true);
             } else if ((cell->unknown_124.Composite & 0x1c)==0x1c) cell->Unknown_00476920(&unknown_geometry_l,true,true,false);
         }
-        if (MissionQueue==-1 && !NavCom && !unknown_228 && !HasAnyLink()) unknown_slot261(false,true);
+        if (MissionQueue==-1 && !NavCom && !TarCom && !HasAnyLink()) unknown_slot261(false,true);
         Commence();
         unknown_slot263(false,false,false,0);
         unknown_slot262(false,false,false,0);
-        Map.Unknown_0054A550(CoordStruct(Coord),0,unknown_1f4+3,0);
+        Map.Unknown_0054A550(CoordStruct(Coord),0,LastSightRange+3,0);
         UnknownCellClass *current=Map_Cell(CoordStruct(Coord));
         int land=current->unknown_ec;
         if (!Locomotor.Checked()->Is_Moving() && !Type->C4 && !Has_Ability(14) && (land==3 || land==2) && (!IsOnBridge || !(current->Flags & 0x100))) {

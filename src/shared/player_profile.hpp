@@ -13,7 +13,7 @@ public:
     static rc_ptr<PlayerProfile> __fastcall Load_Default();                          // 0x00738670
     static rc_ptr<PlayerProfile> __fastcall Load_00738880(Wstring const &name);
     void Populate_Dialog_00739b70(HWND__ *dialog, Wstring const &name, bool update);
-    bool unknown_08;                // +0x08 cleared by the constructor
+    bool IsDirty;                // +0x08 cleared by the constructor
     Wstring Server;                 // +0x0C
     int unknown_10;                 // +0x10 the locale
     bool Verified;                  // +0x14

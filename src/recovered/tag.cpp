@@ -346,7 +346,7 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
     }
     IsCurrentlySprung = false;
     if (det) {
-        if (object != 0 && object->unknown_34 == this) {
+        if (object != 0 && object->Tag == this) {
             object->Attach_Tag(0);
         }
         if (cell != unknown_geometry_k) {

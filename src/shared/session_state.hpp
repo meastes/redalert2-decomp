@@ -132,7 +132,7 @@ struct SessionClass {
     char unknown_a9[0x104 - 0xA9];
     unsigned long UniqueID;                 // +0x104 (One_Time: Compute_Unique_ID)
     char Handle[20];                        // +0x108 the player's name (also unknown_name_a3d3a0)
-    int unknown_11c;                        // +0x11C (also Game_PlayerColor; with +0x120 the colour 0x00672AE0 copies from +0x12C)
+    int PrefColor;                        // +0x11C (also Game_PlayerColor; with +0x120 the colour 0x00672AE0 copies from +0x12C)
     int ColorIdx;                        // +0x120 (the join dialog copies +0x130 here)
     int House;                        // +0x124 (also unknown_a3d3bc)
     int idxSide2;                        // +0x128 (with +0x124 the country 0x00672A30 copies from +0x134)
@@ -193,14 +193,14 @@ struct SessionClass {
     int ScenarioFileLength_87c;                 // +0x87C
     bool ScenarioIsOfficial_880;                // +0x880
     char unknown_881[0x884 - 0x881];
-    int unknown_884;                            // +0x884 (sent in the game options text)
+    int ScenarioMaxPlayers;                            // +0x884 (sent in the game options text)
     // The players that asked for the scenario file (indexes into the player list; Red Alert's
     // ScenarioRequests and RequestCount; Send_Remote_File 0x0066BB20 sends to them).
     char ScenarioRequests[0x890 - 0x888];       // +0x888
     int RequestCount;                           // +0x890
     
 #ifdef RA2_SESSION_CTOR_FIELDS
-    IPXAddressClass unknown_894;
+    IPXAddressClass HostAddress;
 #else
     char unknown_894[0x8A0 - 0x894];
 #endif
@@ -241,17 +241,17 @@ struct SessionClass {
             int unknown_1fb4[4][28];        // +0x1FB4 four rows indexed by the +0x2300 counter (MPCooperative slot 34 sets -1)
         };
     };
-    int unknown_22f4;                       // +0x22F4 (also unknown_a3f58c)
+    int GamesPlayed;                       // +0x22F4 (also unknown_a3f58c)
     int ScoreCount;                         // +0x22F8 the used Scores records (also unknown_session_score_count_a3f590)
     int ScoreWinner;                        // +0x22FC the last record of a house that did not lose (0x00465D10)
-    int unknown_2300;                       // +0x2300 (capped at 3; also unknown_a3f598)
+    int CurGame;                       // +0x2300 (capped at 3; also unknown_a3f598)
     CCFileClass RecordFile;                 // +0x2304 (Red Alert's Session.RecordFile)
     unsigned Record : 1;                    // +0x2368 bit 0 (Red Alert's Session.Record; hypothesis)
     unsigned Play : 1;                      //         bit 1 (Red Alert's Session.Play: SyncBug settings are read)
     unsigned Attract : 1;                   //         bit 2 (Red Alert's Session.Attract; Parse_Command_Line -ATTRACT)
     // Real bridge flag, also cleared by the session constructor. Keeping its
     // type in every view aligns the field after the playback bit-field unit.
-    int unknown_236c;                       // +0x236C (TibSun SessionClass::IsBridge)
+    int IsBridge;                       // +0x236C (TibSun SessionClass::IsBridge)
 #ifdef RA2_CONQUER_IPX_CALL_BACK
     char unknown_2370[0x237D - 0x2370];
     bool NetProtect;                        // +0x237D messages must carry the game's name CRC (Red Alert's Session.NetProtect)
@@ -302,7 +302,7 @@ struct SessionClass {
     SerialSettingsType SerialDefaults;      // +0x2830
     
 #ifdef RA2_SESSION_CTOR_FIELDS
-    int unknown_28a0;
+    int ModemType;
 #else
     char unknown_28a0[0x28A4 - 0x28A0];
 #endif
@@ -311,7 +311,7 @@ struct SessionClass {
     // The modem call-waiting strings (wide; 0x0066EAA0 adds the four TXT_CWAIT_* texts).
     DynamicVectorClass<unsigned short const *> CallWaitStrings;   // +0x28D4
     int unknown_frames_behind_28ec[8];       // +0x28EC frames behind per player (also unknown_a3fb84)
-    int unknown_290c;                       // +0x290C the ping class (1: below 1000 ms, 2: above)
+    int LatencyFudge;                       // +0x290C the ping class (1: below 1000 ms, 2: above)
     bool ViaPacketRouter;                   // +0x2910 (also unknown_flag_a3fba8)
     
 #ifdef RA2_SESSION_CTOR_FIELDS
@@ -319,7 +319,7 @@ struct SessionClass {
 #else
     char unknown_2911[0x292C - 0x2911];
 #endif
-    unsigned short unknown_292c;            // +0x292C (the network reset 0x00514EE0 clears it; also unknown_forward_port_a3fbc4)
+    unsigned short PacketRouterPort;            // +0x292C (the network reset 0x00514EE0 clears it; also unknown_forward_port_a3fbc4)
     
 #ifdef RA2_SESSION_CTOR_FIELDS
     char unknown_292e[2]; IPXAddressClass unknown_2930;
@@ -327,11 +327,11 @@ struct SessionClass {
     char unknown_292e[0x293C - 0x292E];
 #endif
     UnknownSessionBlock_293C unknown_293c;  // +0x293C (MPCooperative slot 34 saves it, slot 37 restores it)
-    UnknownSessionBlock_299C unknown_299c;  // +0x299C (the same)
-    int unknown_29bc[128];                  // +0x29BC (the network reset 0x00514EE0 clears it)
-    int unknown_2bbc[128];                  // +0x2BBC (the network reset sets each to -1)
-    int unknown_2dbc;                       // +0x2DBC
-    unsigned short unknown_2dc0[8];                    // +0x2DC0
+    UnknownSessionBlock_299C WolPlayerState;  // +0x299C (the same)
+    int PeerProbeData[128];                  // +0x29BC (the network reset 0x00514EE0 clears it)
+    int ConnectionResults[128];                  // +0x2BBC (the network reset sets each to -1)
+    int ConnectionResultCount;                       // +0x2DBC
+    unsigned short PeerPorts[8];                    // +0x2DC0
     char unknown_2dd0[0x2EF0 - 0x2DD0];
     bool SendDelay;                         // +0x2EF0 [MultiPlayer] SendDelay
     char unknown_2ef1[3];
@@ -340,9 +340,9 @@ struct SessionClass {
     CDTimerClass<SystemTimerClass> unknown_2f34[8]; // +0x2F34 peer expiry timers
     int unknown_2f94;                       // +0x2F94 connected peer count
     int PortBase;                           // +0x2F98 RA2.INI [MultiPlayer] PortBase (1250..1745)
-    int unknown_2f9c;                       // +0x2F9C a fixed port base (nonzero: PortBase takes it)
-    UnknownSessionBlock_299C unknown_2fa0;  // +0x2FA0 (the same)
-    bool unknown_2fc0;                      // +0x2FC0 step PortBase by 5 at the next network reset
+    int ForcePortBase;                       // +0x2F9C a fixed port base (nonzero: PortBase takes it)
+    UnknownSessionBlock_299C PlayerPortBase;  // +0x2FA0 (the same)
+    bool RotatePortBase;                      // +0x2FC0 step PortBase by 5 at the next network reset
     char unknown_2fc1[0x2FC4 - 0x2FC1];
     int PortNumberOverride;                 // +0x2FC4 [MultiPlayer] PortNumberOverride
     // The game master (host): name and house index (-1: none). The load wait
@@ -350,10 +350,10 @@ struct SessionClass {
     // SessionClass MasterPlayerName/MasterPlayerID, hypothesis).
     unsigned short MasterPlayerName[21];    // +0x2FC8 (wide)
     char unknown_2ff2[0x2FF4 - 0x2FF2];
-    int unknown_2ff4[8];                    // +0x2FF4 (Create_Connections sets each to TickCount)
-    bool unknown_3014;                      // +0x3014
+    int PlayerLastTime[8];                    // +0x2FF4 (Create_Connections sets each to TickCount)
+    bool PortProbeDue;                      // +0x3014
     char unknown_3015;
-    unsigned short unknown_3016;            // +0x3016
+    unsigned short RouterProbePort;            // +0x3016
 #if defined(RA2_INIT_SELECT_GAME) || defined(RA2_SESSION_CTOR_FIELDS)
     unsigned short unknown_3018;            // +0x3018 Select_Game 0x005135F0 clears this WORD (0x00A402B0)
     char unknown_301a[0x301C - 0x301A];
@@ -361,18 +361,18 @@ struct SessionClass {
     char unknown_3018[0x301C - 0x3018];
 #endif
     int MasterPlayerID;                     // +0x301C
-    bool unknown_3020;                      // +0x3020
+    bool RouterProbeActive;                      // +0x3020
     char unknown_3021;
-    UnknownSessionBlock_3022 unknown_3022;  // +0x3022 (MPCooperative slot 34 saves it, slot 37 restores it)
+    UnknownSessionBlock_3022 PlayerPorts;  // +0x3022 (MPCooperative slot 34 saves it, slot 37 restores it)
     char unknown_3032[0x3034 - 0x3032];
-    int unknown_3034;                       // +0x3034 (also unknown_a402cc; Create_Connections clears it)
-    bool unknown_3038;                      // +0x3038 (game mode 4: connect through the packet router)
-    int unknown_303c;                       // +0x303C (also unknown_a402d4; -1)
+    int SlowestResponse;                       // +0x3034 (also unknown_a402cc; Create_Connections clears it)
+    bool UseRouter;                      // +0x3038 (game mode 4: connect through the packet router)
+    int LastTimingID;                       // +0x303C (also unknown_a402d4; -1)
     char unknown_3040[0x3044 - 0x3040];
-    int unknown_3044;                       // +0x3044 (20)
-    int unknown_3048;                       // +0x3048
-    int unknown_304c;                       // +0x304C
-    int unknown_3050;                       // +0x3050 (-1)
+    int RouterResponse;                       // +0x3044 (20)
+    int ExitEventPending;                       // +0x3048
+    int ExitEventFrame;                       // +0x304C
+    int ExitEventPlayer;                       // +0x3050 (-1)
     int TrapFrame;                          // +0x3054 [SyncBug] Frame (Red Alert's TrapFrame)
     int TrapObjType;                        // +0x3058 [SyncBug] Type (an RTTI number)
     
@@ -392,7 +392,7 @@ struct SessionClass {
     CellClass *TrapCell;                    // +0x3074 [SyncBug] Cell
     int TrapCheckHeap;                      // +0x3078 [MultiPlayer] CheckHeap
     int TrapPrintCRC;                       // +0x307C [SyncBug] PrintCRC
-    unsigned char unknown_3080;             // +0x3080 (0x00672F10 returns it; the dialog control test 0x005E0760)
+    unsigned char CurrentlyInGame;             // +0x3080 (0x00672F10 returns it; the dialog control test 0x005E0760)
     char unknown_3081[0x3084 - 0x3081];
     // The object ends here: TerrainTypes is at 0x00A40320 (+0x3088); the word MPCooperative
     // slots 34/37 save and restore at +0x3AA4 is the random seed unknown_a40d3c.

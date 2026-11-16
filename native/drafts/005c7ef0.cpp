@@ -50,7 +50,7 @@ void __fastcall Upload_Map_Preview_005c7ef0(MapPreviewClass *preview)
         for (int i = 1; direct && i < unknown_players_a3fa7c.Count(); i++) {
             int house = unknown_session_a3d298.Player_To_Slot(i);
             if (house >= 0 && house < 8) {
-                unsigned int flags = unknown_session_a3d298.unknown_299c.unknown[house];
+                unsigned int flags = unknown_session_a3d298.WolPlayerState.unknown[house];
                 if (flags != 0 && !(flags & 1)) {
                     Debug_Printf("Player %s has a NAT - no preview download possible\n", Wide_To_Narrow_006fa120(unknown_players_a3fa7c[i]->Name));
                     direct = false;

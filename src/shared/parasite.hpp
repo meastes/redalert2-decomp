@@ -103,7 +103,7 @@ public:
     int unknown_48;                                 // +0x48
     int GrappleAnimFrame;                                 // +0x4C
     int unknown_50;                                 // +0x50
-    bool unknown_54;                                // +0x54 listed in AnimPtrTracker
+    bool GrappleAnimGotInvalid;                                // +0x54 listed in AnimPtrTracker
 };
 
 extern DynamicVectorClass<ParasiteClass *> unknown_ParasiteClass_list_00a76430;   // 0x00A76430

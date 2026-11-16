@@ -311,7 +311,7 @@ void BuildingLightClass::AI()
     BuildingClass *owner_building = (Owner->Kind_Of() == 6) ? (BuildingClass *)Owner : 0;
 
     if (Behavior == 1) {
-        if (owner_building != 0 && owner_building->IsActive && owner_building->unknown_slot195() && owner_building->unknown_34 != 0) {
+        if (owner_building != 0 && owner_building->IsActive && owner_building->unknown_slot195() && owner_building->Tag != 0) {
             bool found = false;
             Cell cell = unknown_slot104();
             int radius = Detection_Radius();
@@ -335,7 +335,7 @@ void BuildingLightClass::AI()
             }
 
             if (found) {
-                owner_building->unknown_34->Spring(0x23, owner_building, unknown_geometry_k);
+                owner_building->Tag->Spring(0x23, owner_building, unknown_geometry_k);
             }
         }
     }

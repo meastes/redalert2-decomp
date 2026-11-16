@@ -5,8 +5,8 @@ void __fastcall unknown_temporal_thaw_0044d380(int building);
 void TemporalClass::Unknown_Release_Target_State_006E2610()
 {
     if(Target!=0) {
-        Target->unknown_20c=0;
-        Target->unknown_204=false;
+        Target->TemporalTargetingMe=0;
+        Target->BeingWarpedOut=false;
         if(Target->Kind_Of()==6) {
             TechnoClass *building=Target;
             building->House->RecalcPower=true;

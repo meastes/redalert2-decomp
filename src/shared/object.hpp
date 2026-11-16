@@ -351,7 +351,7 @@ public:
 
     UnknownTriple unknown_24;               // +0x24
     ObjectClass *unknown_30;                // +0x30
-    TagClass *unknown_34;                   // +0x34 (tag hypothesis: Attach_Tag counts on +0x2C)
+    TagClass *Tag;                   // +0x34 (tag hypothesis: Attach_Tag counts on +0x2C)
     BombClass *unknown_38;                  // +0x38
     UnknownAudioController AmbientSoundController;      // +0x3C
     UnknownAudioController CustomSoundController;      // +0x50

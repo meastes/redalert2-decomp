@@ -89,7 +89,7 @@ SpawnManagerClass::SpawnManagerClass(TechnoClass *owner, AircraftTypeClass *type
                 node->IsMissile = 0;
             }
             node->Unit->Limbo();
-            node->Unit->unknown_23c = Owner;
+            node->Unit->SpawnOwner = Owner;
             node->Status = 0;
             node->Timer = 0;
             SpawnedNodes.Add(node);
@@ -296,7 +296,7 @@ void SpawnManagerClass::AI()
                 Destination = Target;
                 Target = 0;
             }
-            if (unit->unknown_254 == 0 || Destination == 0) {
+            if (unit->Ammo == 0 || Destination == 0) {
                 unit->Assign_Destination(Owner, true);
                 unit->unknown_slot220(0);
                 unit->QueueMission(2, false);
@@ -312,7 +312,7 @@ void SpawnManagerClass::AI()
                 Destination = Target;
                 Target = 0;
             }
-            if (unit->unknown_254 > 0 && Destination != 0) {
+            if (unit->Ammo > 0 && Destination != 0) {
                 SpawnedNodes[i]->Status = 3;
                 SpawnedNodes[i]->Unit->unknown_slot220(Destination);
                 SpawnedNodes[i]->Unit->QueueMission(1, false);
@@ -330,7 +330,7 @@ void SpawnManagerClass::AI()
         case 6:
             if (!SpawnedNodes[i]->Timer.Value()) {
                 SpawnedNodes[i]->Status = 0;
-                unit->unknown_254 = unit->Type->Ammo;
+                unit->Ammo = unit->Type->Ammo;
                 unit->unknown_70 = unit->Strength = unit->Type->MaxStrength;
             }
             break;
@@ -344,7 +344,7 @@ void SpawnManagerClass::AI()
                     SpawnedNodes[i]->IsMissile = 0;
                 }
                 SpawnedNodes[i]->Unit->Limbo();
-                SpawnedNodes[i]->Unit->unknown_23c = Owner;
+                SpawnedNodes[i]->Unit->SpawnOwner = Owner;
                 SpawnedNodes[i]->Status = 0;
             }
             break;

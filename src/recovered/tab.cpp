@@ -202,7 +202,7 @@ int __fastcall TabClass::Team_Number(int value)
 // the button slots of the bar's commands by name (0x006A0580, expanded here)
 // and registers itself as the planning mode's notice sink.
 
-TabClass::TabClass() : unknown_4f14(true), unknown_4f15(true), unknown_4f16(true)
+TabClass::TabClass() : IsThumbActive(true), unknown_4f15(true), IsDrawn(true)
 {
     TabClass_AttackMoveCommand = Command_From_Name("AttackMove");
     TabClass_BeaconCommand = Command_From_Name("Beacon");
@@ -345,14 +345,14 @@ bool TabClass::unknown_slot54(int control)
 {
     bool changed = SidebarClass::unknown_slot54(control);
     if (changed) {
-        if (unknown_4ee1) {
-            if (unknown_4f14) {
+        if (IsSidebarActive) {
+            if (IsThumbActive) {
                 Show_Buttons();
             } else {
                 Add_A_Button(ThumbClosedButton);
                 Add_Button_ToolTip(&ThumbClosedButton, "Tip:ThumbClosed");
             }
-        } else if (unknown_4f14) {
+        } else if (IsThumbActive) {
             for (int index = 0; index < 25; index++) {
                 Remove_A_Button(Buttons[index]);
             }
@@ -383,7 +383,7 @@ bool TabClass::unknown_slot54(int control)
 
 void TabClass::AI(int &input, Point2D const &xy)
 {
-    if (unknown_4f08.Value() == 1) {
+    if (MoneyFlashTimer.Value() == 1) {
         unknown_4f15 = true;
         Flag_To_Redraw(false);
     }
@@ -531,7 +531,7 @@ void TabClass::Draw_It(bool complete)
             Surface *surface = LogicalSurface;
             CC_Draw_Shape(surface, SidebarDrawer, (ShapeFileStruct const *)unknown_buffer_ac1048, 0,
                           where, narrow, 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-            if (unknown_4f14) {
+            if (IsThumbActive) {
                 where.X = ThumbOpenRect->X;
                 where.Y = ThumbOpenRect->Y;
             } else {
@@ -540,7 +540,7 @@ void TabClass::Draw_It(bool complete)
             }
             CC_Draw_Shape(surface, SidebarDrawer, (ShapeFileStruct const *)unknown_buffer_ac1098, 0,
                           where, view, 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-            if (unknown_4f14) {
+            if (IsThumbActive) {
                 where.X = ButtonSlotRect->X;
                 where.Y = TabBarRect->Y;
                 for (int tile = 0; tile < unknown_int_ac0ff4; tile++) {
@@ -559,12 +559,12 @@ void TabClass::Draw_It(bool complete)
             where.X = TabEndRect->X;
             CC_Draw_Shape(surface, SidebarDrawer, (ShapeFileStruct const *)unknown_buffer_ac10b0, 0,
                           where, view, 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-            if (unknown_4f14) {
+            if (IsThumbActive) {
                 ThumbOpenButton.Draw_Me(1);
             } else {
                 ThumbClosedButton.Draw_Me(1);
             }
-            unknown_4f16 = true;
+            IsDrawn = true;
             unknown_4f15 = false;
             if (drawn_count < sizeof(drawn_on) / sizeof(drawn_on[0])) {
                 drawn_count++;
@@ -574,7 +574,7 @@ void TabClass::Draw_It(bool complete)
             }
             drawn_on[0] = surface;
         } else {
-            unknown_4f16 = false;
+            IsDrawn = false;
         }
     }
     SidebarClass::Draw_It(complete);
@@ -605,7 +605,7 @@ void TabClass::Flash_Money()
 {
     unknown_4f15 = true;
     Flag_To_Redraw(false);
-    unknown_4f08 = 7;
+    MoneyFlashTimer = 7;
 }
 
 
@@ -749,9 +749,9 @@ void TabClass::Hide_Thumb_Button()
 
 void TabClass::Open_Thumb()
 {
-    if (!unknown_4f14) {
+    if (!IsThumbActive) {
         Hide_Thumb_Button();
-        unknown_4f14 = true;
+        IsThumbActive = true;
         Show_Buttons();
         unknown_4f15 = true;
         Flag_To_Redraw(0);
@@ -764,9 +764,9 @@ void TabClass::Open_Thumb()
 
 void TabClass::Close_Thumb()
 {
-    if (unknown_4f14) {
+    if (IsThumbActive) {
         Hide_Buttons();
-        unknown_4f14 = false;
+        IsThumbActive = false;
         Show_Thumb_Button();
         unknown_4f15 = true;
         Flag_To_Redraw(0);

@@ -1080,7 +1080,7 @@ void AnimClass::Vein_Attack_AI()
     if (!(Frame & 1)) {
         while (object != 0) {
             ObjectClass *next = object->unknown_30;
-            int damage = Rules->unknown_e4;
+            int damage = Rules->VeinDamage;
             UnknownAnimTechno *techno = (UnknownAnimTechno *)object->As_Techno();
             if (techno != 0 && !((UnknownAnimTechnoType *)techno->Techno_Type_Class())->ImmuneToVeins &&
                 !techno->Unknown_006D7910(8) && techno->Strength > 0 && techno->IsActive &&

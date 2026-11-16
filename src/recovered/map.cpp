@@ -2407,7 +2407,7 @@ ObjectClass *MapClass::Close_Object(CoordStruct const &coord)
         if (In_Radar(newcell)) {
             TechnoClass *o = (TechnoClass *)(*this)[newcell].Cell_Occupier();
             while (o != 0) {
-                if (!o->AbstractFlags.IsTechno || o->unknown_372 || o->unknown_1b8 != 2) {
+                if (!o->AbstractFlags.IsTechno || o->unknown_372 || o->Cloak != 2) {
                     int d = -1;
                     if (o->Kind_Of() == 6) {
                         d = Distance(coord, CoordStruct(newcell.X * 256 + 128, newcell.Y * 256 + 128, 0));
@@ -5151,7 +5151,7 @@ destroy_span:
         }
 destroy_connections:
         Destroy_High_Bridge_Connections_00558BD0(spancell);
-        TacticalMap->unknown_d7c = true;
+        TacticalMap->IsFirstRender = true;
     }
 
 finished:
@@ -5368,7 +5368,7 @@ destroy_span:
         }
 destroy_connections:
         Destroy_High_Bridge_Connections_00558BD0(spancell);
-        TacticalMap->unknown_d7c = true;
+        TacticalMap->IsFirstRender = true;
     }
 
 finished:
@@ -5450,7 +5450,7 @@ void MapClass::Destroy_Low_Bridge_EW(Cell const &cell)
     }
 
     Zone_Reset();
-    TacticalMap->unknown_d7c = true;
+    TacticalMap->IsFirstRender = true;
 }
 
 
@@ -5520,7 +5520,7 @@ void MapClass::Destroy_Low_Bridge_NS(Cell const &cell)
     }
 
     Zone_Reset();
-    TacticalMap->unknown_d7c = true;
+    TacticalMap->IsFirstRender = true;
 }
 
 
@@ -5590,7 +5590,7 @@ void MapClass::Destroy_Low_Bridge2_EW(Cell const &cell)
     }
 
     Zone_Reset();
-    TacticalMap->unknown_d7c = true;
+    TacticalMap->IsFirstRender = true;
 }
 
 
@@ -5660,7 +5660,7 @@ void MapClass::Destroy_Low_Bridge2_NS(Cell const &cell)
     }
 
     Zone_Reset();
-    TacticalMap->unknown_d7c = true;
+    TacticalMap->IsFirstRender = true;
 }
 
 

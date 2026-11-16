@@ -162,9 +162,9 @@ HRESULT __stdcall TemporalClass::GetClassID(GUID *classid)
 
 void TemporalClass::AI()
 {
-    if(Target!=0 && Target->unknown_20c==this && unknown_40!=0) {
-        Target->unknown_20c=0;
-        Target->unknown_204=false;
+    if(Target!=0 && Target->TemporalTargetingMe==this && unknown_40!=0) {
+        Target->TemporalTargetingMe=0;
+        Target->BeingWarpedOut=false;
         Just_Let_Go();
         return;
     }
@@ -255,12 +255,12 @@ void TemporalClass::Let_Go_Of_Target()
 {
     if(unknown_40==0) {
         if(unknown_44!=0) {
-            if(Target!=0) Target->unknown_20c=unknown_44;
+            if(Target!=0) Target->TemporalTargetingMe=unknown_44;
             unknown_44->unknown_40=0;
             unknown_44->unknown_48=unknown_48;
         } else if(Target!=0) {
-            Target->unknown_20c=0;
-            Target->unknown_204=false;
+            Target->TemporalTargetingMe=0;
+            Target->BeingWarpedOut=false;
             if(Target->Kind_Of()==6) {
                 TechnoClass *building=Target;
                 building->House->RecalcPower=true;
@@ -313,8 +313,8 @@ void  unknown_empty_006e2670(void)
 void TemporalClass::Let_Go()
 {
     if (Target != 0) {
-        Target->unknown_204 = false;
-        Target->unknown_20c = 0;
+        Target->BeingWarpedOut = false;
+        Target->TemporalTargetingMe = 0;
         Target = 0;
     }
     if (unknown_44 != 0) {
@@ -357,8 +357,8 @@ void __fastcall unknown_clear_links_006e26f0(int temporal_address)
 
 void TemporalClass::Just_Let_Go()
 {
-    Target->unknown_204 = false;
-    Target->unknown_20c = 0;
+    Target->BeingWarpedOut = false;
+    Target->TemporalTargetingMe = 0;
     Target = 0;
     if (unknown_44 != 0) {
         if (unknown_44->unknown_40 == this) {
@@ -411,14 +411,14 @@ void TemporalClass::Unknown_006E27B0(TechnoClass *target)
 {
     if(target!=0) {
         if(target->SpawnManager!=0) target->SpawnManager->Kill_Nodes();
-        if(target->unknown_230!=0) ((CaptureManagerClass *)target->unknown_230)->Release_4681e0();
+        if(target->CaptureManager!=0) ((CaptureManagerClass *)target->CaptureManager)->Release_4681e0();
     }
     TemporalClass *owner_link=(TemporalClass *)Owner->TemporalImUsing;
     if(owner_link!=0 && owner_link->Target!=0) owner_link->Let_Go_Of_Target();
-    if(Can_Warp_Target(target) && Owner->unknown_20c==0) {
+    if(Can_Warp_Target(target) && Owner->TemporalTargetingMe==0) {
         Target=target;
-        if(Target->unknown_20c==0) {
-            target->unknown_20c=this;
+        if(Target->TemporalTargetingMe==0) {
+            target->TemporalTargetingMe=this;
             unknown_48=Target->Techno_Type_Class()->MaxStrength*10;
             if(Target!=0 && Target->Kind_Of()==1) {
                 TechnoClass *object=Target;
@@ -433,12 +433,12 @@ void TemporalClass::Unknown_006E27B0(TechnoClass *target)
             if(Target->Kind_Of()==6 && !Target->Techno_Type_Class()->IsInsignificant && !Target->Considered_Vehicle())
                 Target->House->Attacked(As_Building(Target));
         } else {
-            unknown_40=(TemporalClass *)Target->unknown_20c;
+            unknown_40=(TemporalClass *)Target->TemporalTargetingMe;
             unknown_44=unknown_40->unknown_44;
             unknown_40->unknown_44=this;
             if(unknown_44!=0) unknown_44->unknown_40=this;
         }
-        Target->unknown_204=true;
+        Target->BeingWarpedOut=true;
         if(Target->Kind_Of()==6) {
             TechnoClass *building=Target;
             building->House->RecalcPower=true;

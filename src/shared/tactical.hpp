@@ -216,7 +216,7 @@ public:
     short unknown_24;               // +0x24 cleared by the constructor
     char unknown_26[0xA4 - 0x26];
     int unknown_a4;                 // +0xA4 -1 after construction
-    int unknown_a8;                 // +0xA8 the frame of the last update (-1 after construction)
+    int LastAIFrame;                 // +0xA8 the frame of the last update (-1 after construction)
     // +0xAC/+0xAD: two flags nothing reads (TibSun field_58/field_59, "unused"). Hypothesis: one 2-byte member
     // whose inline constructor clears both (the constructor's zoom low-dword store stays below it: store order)
     // and whose NoInitClass constructor does nothing (Tactical(NoInitClass const &) 0x006A26C0 leaves them).
@@ -234,25 +234,25 @@ public:
     int LastTacPixelY;              // +0xBC
     double unknown_c0;              // +0xC0 zoom factor (Blit_Display divides by it; 1.0 = none)
     Point2D unknown_c8;             // +0xC8 the scroll start (AI 0x006A2DD0 interpolates it to unknown_d0)
-    Point2D unknown_d0;             // +0xD0 the scroll target
+    Point2D MoveTo;             // +0xD0 the scroll target
     float MoveSpeed;               // +0xD8 the scroll step per frame (ScrollClass slot 26 tests it against 0)
-    float unknown_dc;               // +0xDC the scroll progress, 0..1
-    int unknown_e0;                 // +0xE0
+    float MoveFactor;               // +0xDC the scroll progress, 0..1
+    int CellRedrawCount;                 // +0xE0
     CellClass *unknown_e4[800];     // +0xE4 the cells to redraw (TibSun CellRedraw; cleared by the constructor, swizzled by Load; unknown_e0 counts them)
-    Point2D unknown_d64;            // +0xD64 the view position
-    Point2D unknown_d6c;            // +0xD6C
-    Point2D unknown_d74;            // +0xD74 the requested view position
-    bool unknown_d7c;               // +0xD7C true after construction
+    Point2D TacticalCoord;            // +0xD64 the view position
+    Point2D LastTacticalCoord;            // +0xD6C
+    Point2D DesiredTacticalCoord;            // +0xD74 the requested view position
+    bool IsFirstRender;               // +0xD7C true after construction
     bool IsToRedraw;               // +0xD7D set by Flag_To_Redraw
-    bool unknown_d7e;               // +0xD7E
-    Rect unknown_d80;               // +0xD80 copied from the global rectangle at 0x00ABE4A8
+    bool UnusedBool;               // +0xD7E
+    Rect VisibleCellRect;               // +0xD80 copied from the global rectangle at 0x00ABE4A8
     Point2D RubberBandStart;            // +0xD90 the selection band corner (DisplayClass slot 47 starts it)
     Point2D RubberBandEnd;            // +0xD98 the other corner
-    int unknown_da0;                // +0xDA0 counts the timer expiries
-    CDTimerClass<SystemTimerClass> unknown_da4;     // +0xDA4 restarted at Rules->WaypointAnimationSpeed
-    int unknown_db0;                // +0xDB0 the number of entries of the table at 0x00ABE5F8
-    Matrix3D unknown_db4;           // +0xDB4 the view transform (identity, rotated, scaled)
-    Matrix3D unknown_de4;           // +0xDE4 the screen projection (rows set by the constructor)
+    int WaypointAnimCounter;                // +0xDA0 counts the timer expiries
+    CDTimerClass<SystemTimerClass> WaypointAnimTimer;     // +0xDA4 restarted at Rules->WaypointAnimationSpeed
+    int SelectableCount;                // +0xDB0 the number of entries of the table at 0x00ABE5F8
+    Matrix3D CoordToPixelMatrix;           // +0xDB4 the view transform (identity, rotated, scaled)
+    Matrix3D PixelToCoordMatrix;           // +0xDE4 the screen projection (rows set by the constructor)
     int unknown_e14;                // +0xE14
     // (0xE18 bytes: Read_Scenario_INI's new)
 };

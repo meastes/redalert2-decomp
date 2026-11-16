@@ -12,7 +12,7 @@
 bool CaptureManagerClass::Capture(TechnoClass *target)
 {
     if (Unit != 0) {
-        Unit->unknown_234 = 0;
+        Unit->MindControlledBy = 0;
         Unit->Captured(unknown_28, true);
         Unit = 0;
         unknown_28 = 0;
@@ -27,7 +27,7 @@ bool CaptureManagerClass::Capture(TechnoClass *target)
         return false;
     }
     Unit = target;
-    target->unknown_234 = Owner;
+    target->MindControlledBy = Owner;
     if (Unit != 0 && Unit->AbstractFlags.IsFoot && ((FootClass *)Unit)->Team != 0) {
         ((FootClass *)Unit)->Team->Remove((FootClass *)Unit, -1, 0);
     }

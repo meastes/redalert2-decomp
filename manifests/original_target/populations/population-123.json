@@ -4,8 +4,8 @@
     "id": "population-123",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "93825aedb536d3ace137eacf1169503abea90c0ba296244c129a6a828a35abd8",
-    "historical_acceptance_sha256": "4a37d77d26f57141dc25676c175223283ca02ca3594747bd4a30622a4b08c9c8"
+    "historical_population_sha256": "30d64956741cea1a721c1e70c75a6bb01ff51678cb45b529585daa75d286c2a0",
+    "historical_acceptance_sha256": "9d940e0439b6061c89b4f7077c4d40cbe29f5f8ca9fa98c6d6afff3a0dbb52f0"
   },
   "references": {
     "_DAT_008325d0": 8594896,
@@ -2997,7 +2997,14 @@
     "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488,
     "??0WDTState@@QAE@XZ": 7519984,
     "??_EReferenceCounted@@UAEPAXI@Z": 6526800,
-    "??_Erc_ptr_base@@UAEPAXI@Z": 6526336
+    "??_Erc_ptr_base@@UAEPAXI@Z": 6526336,
+    "??_GINIClass@@UAEPAXI@Z": 5107440,
+    "?IsDirty@HouseTypeClass@@UAGJXZ": 5218128,
+    "?IsDirty@AbstractClass@@UAGJXZ": 4260336,
+    "?IsDirty@LocomotionClass@@UAGJXZ": 4869104,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "??_EINIClass@@UAEPAXI@Z": 5107440
   },
   "regions": [
     {
@@ -3092,7 +3099,7 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "32b7f881445b1e55a620ba14804c070736dd9346da3704c4a5a5de3240cef6fc",
       "relocations": [],
-      "source_sha256": "0132397f96aba512b743bc9451a2f54b0bfc2a08c090351b9ac833bad8d30c78",
+      "source_sha256": "427197371967bf1cada876a9258d59df9fda97521cd2bd50c005b9929d5d66f4",
       "source": "src/recovered/classes/PlayerProfile/Set_Locale.cpp",
       "source_order": 11062,
       "population": "population-123",

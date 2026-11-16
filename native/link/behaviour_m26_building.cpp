@@ -162,8 +162,8 @@ int BuildingClass::Do_MISSION_MISSILE()
             UnknownFacingDir barrel = unknown_slot170(&Map[House->EMPDest]);
             if (Facing_Turning_m26(PrimaryFacing.Current(), aim)) {
                 PrimaryFacing.Set_Desired(aim);
-            } else if (Facing_Turning_m26(unknown_2c8.Current(), barrel)) {
-                unknown_2c8.Set_Desired(barrel);
+            } else if (Facing_Turning_m26(BarrelPitch.Current(), barrel)) {
+                BarrelPitch.Set_Desired(barrel);
             } else {
                 Status = 1;
             }
@@ -174,7 +174,7 @@ int BuildingClass::Do_MISSION_MISSILE()
             Status = 2;
             return 32;
         case 3:
-            unknown_2c8.Set_Desired(UnknownFacingDir(0x4000));
+            BarrelPitch.Set_Desired(UnknownFacingDir(0x4000));
             Begin_Mode(1);
             QueueMission(5, false);
             return 60;
@@ -186,7 +186,7 @@ int BuildingClass::Do_MISSION_MISSILE()
                 QueueMission(5, false);
                 return 60;
             }
-            unknown_2c8.Set_Desired(unknown_slot170(target));
+            BarrelPitch.Set_Desired(unknown_slot170(target));
 
             CoordStruct fire = unknown_slot43(0);
             Cell const &destination = House->EMPDest;

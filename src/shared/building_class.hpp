@@ -259,7 +259,7 @@ public:
     int Fetch_Super_Weapon();                                             // 0x00452800 (SuperWeapon, or -1 while its AuxBuilding is missing)
     int Fetch_Super_Weapon2();                                             // 0x00452860 (the same for SuperWeapon2)
     // The techno's +0x1A0/+0x1A4 pair as a cell offset (hypothesis: its map cell).
-    Point2D const &unknown_cell_1a0() const { return *(Point2D const *)&unknown_1a0; }
+    Point2D const &unknown_cell_1a0() const { return *(Point2D const *)&RadarPos; }
     void unknown_44ca60(char const *name, int index, bool damaged, bool garrisoned, int arg5);  // 0x0044CA60 (starts the animation of an Anims index; hypothesis)
     void Detach_Anim(AbstractClass *anim);                         // 0x0044CCE0 (Detach, for an animation not in unknown_49c)
     void Begin_Mode(int arg1);                                   // 0x00443D60 (Receive_Message 3 passes true)

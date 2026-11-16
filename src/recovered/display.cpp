@@ -2593,7 +2593,7 @@ void DisplayClass::Reveal_Technos(bool skip_buildings, bool arg2)
             if (techno->unknown_373) {
                 techno->unknown_slot262(0, 0, false, 0);
                 CoordStruct coord = techno->Coord;
-                Map.Unknown_0054A550(coord, 0, techno->unknown_1f4 + 3, 0);
+                Map.Unknown_0054A550(coord, 0, techno->LastSightRange + 3, 0);
                 if (techno->Techno_Type_Class()->GapGenerator) {
                     techno->unknown_slot235();
                 }
@@ -2601,11 +2601,11 @@ void DisplayClass::Reveal_Technos(bool skip_buildings, bool arg2)
         } else if (techno->Kind_Of() == 6 && Rules->IsAllyReveal && techno->House->Is_Ally(PlayerPtr)) {
             techno->unknown_slot262(0, arg2, false, 0);
             CoordStruct coord = techno->Coord;
-            Map.Unknown_0054A550(coord, 0, techno->unknown_1f4 + 3, 0);
+            Map.Unknown_0054A550(coord, 0, techno->LastSightRange + 3, 0);
         } else if (techno->Kind_Of() == 6 && techno->Techno_Type_Class()->RevealToAll && !techno->House->Is_Player_Control()) {
             techno->unknown_slot262(0, 0, true, PlayerPtr);
             CoordStruct coord = techno->Coord;
-            Map.Unknown_0054A550(coord, 0, techno->unknown_1f4 + 3, 0);
+            Map.Unknown_0054A550(coord, 0, techno->LastSightRange + 3, 0);
         } else if (techno->Techno_Type_Class()->GapGenerator) {
             techno->unknown_slot235();
         }
@@ -2812,7 +2812,7 @@ wchar_t const *DisplayClass::Help_Text(int id)
     TechnoClass *techno = object != 0 && object->AbstractFlags.IsTechno ? (TechnoClass *)object : 0;
     if (techno != 0) {
         if (!techno->unknown_372) {
-            if (techno->unknown_1b8 == 2 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) {
+            if (techno->Cloak == 2 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) {
                 return 0;
             }
             if (techno->Techno_Type_Class()->Invisible) {

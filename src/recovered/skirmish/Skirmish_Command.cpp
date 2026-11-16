@@ -239,7 +239,7 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
         if (node) {
             wcscpy(node->Name, Narrow_To_Wide_006fa180(unknown_session_a3d298.Handle));
             node->unknown_4b = unknown_session_a3d298.House;
-            node->unknown_53 = unknown_session_a3d298.unknown_11c;
+            node->unknown_53 = unknown_session_a3d298.PrefColor;
             node->unknown_63 = -1;
             unknown_session_a3d298.Players.Add(node);
         }

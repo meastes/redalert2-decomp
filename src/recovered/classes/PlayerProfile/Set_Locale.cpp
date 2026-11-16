@@ -5,7 +5,7 @@ void PlayerProfile::Set_Locale_00739950(int locale, int source)
     if (locale == unknown_10) {
         if (source == 2 && !Verified) {
             Verified = true;
-            unknown_08 = true;
+            IsDirty = true;
             return;
         }
     } else {
@@ -16,7 +16,7 @@ void PlayerProfile::Set_Locale_00739950(int locale, int source)
             if (source == 3) Verified = false;
             unknown_10 = locale;
             unknown_18 = source;
-            unknown_08 = true;
+            IsDirty = true;
         }
     }
 }

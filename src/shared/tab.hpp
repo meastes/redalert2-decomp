@@ -48,7 +48,7 @@ public:
     TabClass();                                                 // 0x006A06E0
     // Restore-in-place form (the copy the linker kept is 0x0059FF60, Mouse.cpp).
     TabClass(NoInitClass const &noinit)
-        : SidebarClass(noinit), Credits(noinit), unknown_4efc(noinit), unknown_4f08(noinit)
+        : SidebarClass(noinit), Credits(noinit), FlasherTimer(noinit), MoneyFlashTimer(noinit)
     {
     }
     virtual bool INoticeSink_Unknown(int code, int arg);        // 0x006A2020 (secondary vtable 0x007A64DC)
@@ -112,11 +112,11 @@ public:
 
     // +0x4EE8 INoticeSink vptr
     CreditClass Credits;                                // +0x4EEC
-    CDTimerClass<FrameTimerClass> unknown_4efc;         // +0x4EFC
-    CDTimerClass<FrameTimerClass> unknown_4f08;         // +0x4F08
-    bool unknown_4f14;                                  // +0x4F14
+    CDTimerClass<FrameTimerClass> FlasherTimer;         // +0x4EFC
+    CDTimerClass<FrameTimerClass> MoneyFlashTimer;         // +0x4F08
+    bool IsThumbActive;                                  // +0x4F14
     bool unknown_4f15;                                  // +0x4F15
-    bool unknown_4f16;                                  // +0x4F16
+    bool IsDrawn;                                  // +0x4F16
 };
 
 // Makes the planning mode's notice sink the object (0x00613E00, __fastcall).

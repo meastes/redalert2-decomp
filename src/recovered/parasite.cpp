@@ -82,7 +82,7 @@ ParasiteClass::ParasiteClass(AbstractClass *owner)
     unknown_28 = 0;
     unknown_38 = CDTimerClass<FrameTimerClass>();
     unknown_2c = CDTimerClass<FrameTimerClass>();
-    unknown_54 = false;
+    GrappleAnimGotInvalid = false;
     GrappleAnimFrame = 0;
     unknown_50 = 0;
     Victim = 0;
@@ -123,7 +123,7 @@ void ParasiteClass::Compute_CRC(WWCRCEngine &crc) const
     crc((long)unknown_48);
     crc((long)GrappleAnimFrame);
     crc((long)unknown_50);
-    crc(unknown_54);
+    crc(GrappleAnimGotInvalid);
 }
 
 
@@ -139,9 +139,9 @@ void ParasiteClass::Unknown_006064C0()
         Victim->unknown_slot60();
         Victim = 0;
     }
-    if (unknown_54) {
+    if (GrappleAnimGotInvalid) {
         AnimPtrTracker.Delete(this);
-        unknown_54 = false;
+        GrappleAnimGotInvalid = false;
     }
 }
 
@@ -265,7 +265,7 @@ void ParasiteClass::Unknown_00606780()
         unknown_28->ParalysisTimer = CDTimerClass<FrameTimerClass>(warhead->Paralyzes);
         switch (unknown_48) {
         case 0: {
-            unknown_28->unknown_280 = 0.0f;
+            unknown_28->AngleRotatedSideways = 0.0f;
             int index = AnimTypeClass::From_Name("SQDG");
             if (index != -1) {
                 AnimTypeClass *type = AnimTypes[index];
@@ -299,11 +299,11 @@ void ParasiteClass::Unknown_00606780()
                 Grapple_Frame_006066B0();
             }
             double angle = GrappleAnimFrame * sign * 0.3141592653589793;
-            unknown_28->unknown_280 = Fast_Sin(angle) * Grapple_Angle_Scale_007a7d00;
+            unknown_28->AngleRotatedSideways = Fast_Sin(angle) * Grapple_Angle_Scale_007a7d00;
             break;
         }
         case 4: {
-            unknown_28->unknown_280 = 0.0f;
+            unknown_28->AngleRotatedSideways = 0.0f;
             int count = Rules->SplashList.Count();
             double angle = -unknown_28->PrimaryFacing.Current().As_Radian();
             double cosine = Fast_Cos(angle);
@@ -488,7 +488,7 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
                 }
                 Owner->unknown_slot261(0, 1);
                 Owner->unknown_slot262(0, 0, 0, 0);
-                Map.Unknown_0054A550(CoordStruct(Owner->Coord), Owner->unknown_1f4 - 3, Owner->unknown_1f4 + 3, 0);
+                Map.Unknown_0054A550(CoordStruct(Owner->Coord), Owner->LastSightRange - 3, Owner->LastSightRange + 3, 0);
                 unknown_28 = 0;
                 return;
             }
@@ -501,7 +501,7 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
     }
     if (target == Victim) {
         Victim = 0;
-        unknown_54 = true;
+        GrappleAnimGotInvalid = true;
     }
 }
 
@@ -572,7 +572,7 @@ void ParasiteClass::Unknown_00607440()
         Owner->Strength = 0;
         Owner->Delete_Me();
     }
-    unknown_28->unknown_280 = 0.0f;
+    unknown_28->AngleRotatedSideways = 0.0f;
     unknown_28->ParalysisTimer = CDTimerClass<FrameTimerClass>(0);
     unknown_28->ParasiteEatingMe = 0;
     unknown_28 = 0;
@@ -600,7 +600,7 @@ bool ParasiteClass::Can_Infect_006078F0(FootClass *target)
 // void ParasiteClass::Unknown_00607980(FootClass *target) (0x00607980)
 // Starts a parasite attachment, or returns the owner to its cell.
 // Small accessors for the host and owner fields.
-inline int Unknown_1f4_Of_00607980(FootClass *foot) { return foot->unknown_1f4; }
+inline int Unknown_1f4_Of_00607980(FootClass *foot) { return foot->LastSightRange; }
 inline void Set_Parasite_00607980(FootClass *host, FootClass *parasite) { host->ParasiteEatingMe = parasite; }
 void ParasiteClass::Unknown_00607980(FootClass *target)
 {

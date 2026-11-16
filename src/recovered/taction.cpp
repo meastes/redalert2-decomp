@@ -97,7 +97,7 @@ TActionClass::TActionClass() :
     unknown_38(0),
     unknown_3c(0),
     unknown_40(0),
-    unknown_44(0),
+    EffectLocation(0),
     unknown_48(0),
     unknown_4c(0),
     unknown_50(0)
@@ -212,10 +212,10 @@ void TActionClass::Build_INI_Entry(char *buffer) const
         sprintf(buffer, "%d,%d,%s,%d,%d,%d,%d,%d", Type, kind, name, unknown_34, unknown_38, unknown_3c, unknown_40, Data.Value);
     } else if (kind != 0) {
         sprintf(buffer, "%d,%d,%s,%d,%d,%d,%d,%s", Type, kind, name, unknown_34, unknown_38, unknown_3c, unknown_40,
-                Waypoint_As_String(unknown_44));
+                Waypoint_As_String(EffectLocation));
     } else {
         sprintf(buffer, "%d,%d,%d,%d,%d,%d,%d,%s", Type, 0, value, unknown_34, unknown_38, unknown_3c, unknown_40,
-                Waypoint_As_String(unknown_44));
+                Waypoint_As_String(EffectLocation));
     }
 }
 
@@ -303,7 +303,7 @@ void TActionClass::Read_INI()
         } else if (kind == 9) {
             unknown_48 = atoi(token);
         } else {
-            unknown_44 = Waypoint_From_String(token);
+            EffectLocation = Waypoint_From_String(token);
         }
     }
 }
@@ -459,7 +459,7 @@ void __stdcall IonStormClass_Lightning_Bolt(Cell cell);   // 0x0051FC90
 
 bool TActionClass::TAction_ION_LIGHTNING_STRIKE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    IonStormClass_Lightning_Bolt(unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44));
+    IonStormClass_Lightning_Bolt(unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation));
     return true;
 }
 
@@ -470,7 +470,7 @@ bool TActionClass::TAction_ION_LIGHTNING_STRIKE(HouseClass *house, ObjectClass *
 
 bool TActionClass::TAction_REMOVE_PARTICLE_ANIM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     for (int index = 0; index < ParticleSystems.Count(); index++) {
         ParticleSystemClass *system = ParticleSystems[index];
         if (system->IsActive && system->unknown_slot104() == waypoint) {
@@ -487,7 +487,7 @@ bool TActionClass::TAction_REMOVE_PARTICLE_ANIM(HouseClass *house, ObjectClass *
 
 bool TActionClass::unknown_particle_system_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(CoordStruct(waypoint));
     new ParticleSystemClass(ParticleSystemTypes[Data.Value], coord, 0, 0, unknown_geometry_l);
@@ -505,8 +505,8 @@ bool TActionClass::unknown_hunt_technos_with_tag(HouseClass *house, ObjectClass 
 {
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
-        if (techno->Kind_Of() != 6 && techno->IsActive && techno->IsDown && techno->unknown_34 != 0
-            && techno->unknown_34->Is_Trigger_Attached(trigger)) {
+        if (techno->Kind_Of() != 6 && techno->IsActive && techno->IsDown && techno->Tag != 0
+            && techno->Tag->Is_Trigger_Attached(trigger)) {
             if (techno->Get_Mission() == 0 || techno->Get_Mission() == 0x17) {
                 techno->QueueMission(5, false);
             }
@@ -588,7 +588,7 @@ bool TActionClass::unknown_hunt_technos_of_house_type(HouseClass *house, ObjectC
 {
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
-        if (techno->unknown_1ac == Data.Value && (techno->Get_Mission() == 0 || techno->Get_Mission() == 0x17)
+        if (techno->Group == Data.Value && (techno->Get_Mission() == 0 || techno->Get_Mission() == 0x17)
             && techno->Strength > 0 && techno->IsActive && techno->IsDown && !techno->IsInLimbo) {
             techno->QueueMission(5, false);
         }
@@ -699,8 +699,8 @@ bool TActionClass::unknown_buildings_with_tag_slot98(HouseClass *house, ObjectCl
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-        if (building->IsActive && building->IsDown && !building->IsInLimbo && building->unknown_34 != 0
-            && building->unknown_34->Is_Trigger_Attached(trigger)) {
+        if (building->IsActive && building->IsDown && !building->IsInLimbo && building->Tag != 0
+            && building->Tag->Is_Trigger_Attached(trigger)) {
             building->Sell_Back(1);
             handled = true;
         }
@@ -719,8 +719,8 @@ bool TActionClass::unknown_infantry_with_tag_slot294(HouseClass *house, ObjectCl
     bool handled = false;
     for (int index = 0; index < Infantry.Count(); index++) {
         InfantryClass *infantry = Infantry[index];
-        if (infantry->IsActive && infantry->IsDown && !infantry->IsInLimbo && infantry->unknown_34 != 0
-            && infantry->unknown_34->Is_Trigger_Attached(trigger)) {
+        if (infantry->IsActive && infantry->IsDown && !infantry->IsInLimbo && infantry->Tag != 0
+            && infantry->Tag->Is_Trigger_Attached(trigger)) {
             infantry->Berzerk();
             handled = true;
         }
@@ -738,8 +738,8 @@ bool TActionClass::unknown_buildings_with_tag_power_down(HouseClass *house, Obje
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-        if (building->IsActive && building->IsDown && !building->IsInLimbo && building->unknown_34 != 0
-            && building->unknown_34->Is_Trigger_Attached(trigger) && building->IsOn) {
+        if (building->IsActive && building->IsDown && !building->IsInLimbo && building->Tag != 0
+            && building->Tag->Is_Trigger_Attached(trigger) && building->IsOn) {
             building->unknown_44d530();
             handled = true;
         }
@@ -757,8 +757,8 @@ bool TActionClass::unknown_buildings_with_tag_power_up(HouseClass *house, Object
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-        if (building->IsActive && building->IsDown && !building->IsInLimbo && building->unknown_34 != 0
-            && building->unknown_34->Is_Trigger_Attached(trigger) && !building->IsOn) {
+        if (building->IsActive && building->IsDown && !building->IsInLimbo && building->Tag != 0
+            && building->Tag->Is_Trigger_Attached(trigger) && !building->IsOn) {
             building->unknown_44d3e0();
             handled = true;
         }
@@ -775,8 +775,8 @@ bool TActionClass::unknown_technos_with_tag_to_house(HouseClass *house, ObjectCl
     bool handled = false;
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
-        if (techno->IsActive && techno->IsDown && !techno->IsInLimbo && techno->unknown_34 != 0
-            && techno->unknown_34->Is_Trigger_Attached(trigger)) {
+        if (techno->IsActive && techno->IsDown && !techno->IsInLimbo && techno->Tag != 0
+            && techno->Tag->Is_Trigger_Attached(trigger)) {
             techno->Captured(HouseClass::As_Pointer(Data.Value), 0);
             handled = true;
         }
@@ -1185,7 +1185,7 @@ ObjectClass *__fastcall Building_Or_Terrain_At_006B0E40(CoordStruct const &coord
 
 bool TActionClass::TAction_PLAY_SOUND_AT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    CoordStruct coord = unknown_id_source_a3d290->Waypoint_Coord(unknown_44);
+    CoordStruct coord = unknown_id_source_a3d290->Waypoint_Coord(EffectLocation);
     ObjectClass *target = Building_Or_Terrain_At_006B0E40(coord);
     if (target != 0) {
         target->Set_Ambient_Sound(Data.Value);
@@ -1201,7 +1201,7 @@ bool TActionClass::TAction_PLAY_SOUND_AT(HouseClass *house, ObjectClass *object,
 
 bool TActionClass::TAction_STOP_SOUND_AT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    CoordStruct coord = unknown_id_source_a3d290->Waypoint_Coord(unknown_44);
+    CoordStruct coord = unknown_id_source_a3d290->Waypoint_Coord(EffectLocation);
     ObjectClass *target = Building_Or_Terrain_At_006B0E40(coord);
     if (target != 0) {
         target->Set_Ambient_Sound(-1);
@@ -1294,7 +1294,7 @@ bool TActionClass::TAction_FULL_SPECIAL(HouseClass *house, ObjectClass *object, 
 
 bool TActionClass::TAction_DZ(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     unsigned int bridge_flags = Map[waypoint].unknown_140;
@@ -1418,8 +1418,8 @@ bool TActionClass::TAction_SPAWN_TEAM(HouseClass *house, ObjectClass *object, Tr
 
 bool TActionClass::TAction_REINFORCEMENTS_SPECIAL(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (unknown_30 != 0 && unknown_44 != -1) {
-        return Do_Reinforcements((TeamTypeClass *)unknown_30, unknown_44);
+    if (unknown_30 != 0 && EffectLocation != -1) {
+        return Do_Reinforcements((TeamTypeClass *)unknown_30, EffectLocation);
     }
     return false;
 }
@@ -1446,8 +1446,8 @@ bool TActionClass::TAction_DESTROY_OBJECT(HouseClass *house, ObjectClass *object
         again = false;
         for (int index = 0; index < Technos.Count(); index++) {
             TechnoClass *techno = Technos[index];
-            if (techno->Strength > 0 && techno->IsActive && techno->IsDown && !techno->IsInLimbo && techno->unknown_34 != 0
-                && techno->unknown_34->Is_Trigger_Attached(trigger)) {
+            if (techno->Strength > 0 && techno->IsActive && techno->IsDown && !techno->IsInLimbo && techno->Tag != 0
+                && techno->Tag->Is_Trigger_Attached(trigger)) {
                 int damage = techno->Strength;
                 techno->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
                 killed = true;
@@ -1509,7 +1509,7 @@ bool TActionClass::unknown_func_6b1650(HouseClass *house, ObjectClass *object, T
 
 bool TActionClass::TAction_PLAY_ANIM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
@@ -1526,7 +1526,7 @@ bool TActionClass::TAction_PLAY_ANIM(HouseClass *house, ObjectClass *object, Tri
 
 bool TActionClass::unknown_weapon_explosion_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
@@ -1553,7 +1553,7 @@ bool TActionClass::unknown_weapon_explosion_at_waypoint(HouseClass *house, Objec
 
 bool TActionClass::TAction_METEOR_IMPACT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     unsigned int bridge_flags = Map[waypoint].unknown_140;
@@ -1612,7 +1612,7 @@ bool TActionClass::TAction_UNLOCK_INPUT(HouseClass *house, ObjectClass *object, 
 
 bool TActionClass::unknown_look_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     UnknownCoord434820 coord = UnknownCoord434820(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
@@ -1628,7 +1628,7 @@ bool TActionClass::unknown_look_at_waypoint(HouseClass *house, ObjectClass *obje
 
 bool TActionClass::unknown_center_on_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
@@ -1697,7 +1697,7 @@ bool TActionClass::TAction_CHANGE_SPOTLIGHT_BEHAVIOR(HouseClass *house, ObjectCl
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
         if (building->Strength > 0 && building->IsActive && building->IsDown && !building->IsInLimbo
             && building->Type->HasSpotlight && building->BuildingLight != 0
-            && building->unknown_34 != 0 && building->unknown_34->Is_Trigger_Attached(trigger)) {
+            && building->Tag != 0 && building->Tag->Is_Trigger_Attached(trigger)) {
             building->BuildingLight->Set_Behavior(Data.Value);
             handled = true;
         }
@@ -1805,7 +1805,7 @@ bool __fastcall Unknown_0063B5B0(int kind, Cell cell);   // 0x0063B5B0
 
 bool TActionClass::unknown_63b5b0_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Unknown_0063B5B0(Data.Value, unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44));
+    Unknown_0063B5B0(Data.Value, unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation));
     return true;
 }
 
@@ -1846,7 +1846,7 @@ inline CoordStruct Random_Offset(int radius)
 
 bool TActionClass::unknown_meteor_shower_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
@@ -1975,7 +1975,7 @@ bool TActionClass::TAction_SET_TEAM_UNIT_RATIO(HouseClass *house, ObjectClass *o
 
 bool TActionClass::unknown_ion_blast_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     new IonBlastClass(coord);
@@ -1989,7 +1989,7 @@ bool TActionClass::unknown_ion_blast_at_waypoint(HouseClass *house, ObjectClass 
 
 bool TActionClass::unknown_nuke_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if (Map[waypoint].unknown_140 & 0x100) {
@@ -2021,7 +2021,7 @@ bool TActionClass::unknown_nuke_at_waypoint(HouseClass *house, ObjectClass *obje
 
 bool TActionClass::TAction_LIGHTNING_STORM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if (Map[waypoint].unknown_140 & 0x100) {
@@ -2043,7 +2043,7 @@ extern Cell const unknown_cell_offsets_a6f248[];
 bool TActionClass::unknown_iron_curtain_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Cell target_cell;
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     CoordStruct position = Map[waypoint].Center_Coord();
     new AnimClass(Rules->IronCurtainInvokeAnim, position + CoordStruct(0,0,5), 0,1,0x600,0);
     int count = MapClass_RadiusCount[1];
@@ -2076,8 +2076,8 @@ bool TActionClass::Set_Type_Tech_Level_006b27e0(HouseClass *house, ObjectClass *
 
 bool TActionClass::TAction_CHRONO_IN_TEAM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (unknown_30 != 0 && unknown_44 != -1) {
-        return Do_Chrono_Reinforcements((TeamTypeClass *)unknown_30, unknown_44);
+    if (unknown_30 != 0 && EffectLocation != -1) {
+        return Do_Chrono_Reinforcements((TeamTypeClass *)unknown_30, EffectLocation);
     }
     return false;
 }
@@ -2089,7 +2089,7 @@ bool TActionClass::TAction_CHRONO_IN_TEAM(HouseClass *house, ObjectClass *object
 
 bool TActionClass::unknown_map_54e580_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     return Map.Place_Crate(waypoint, Data.Value);
 }
 
@@ -2099,7 +2099,7 @@ bool TActionClass::unknown_map_54e580_at_waypoint(HouseClass *house, ObjectClass
 
 bool TActionClass::unknown_chem_missile_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
+    Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(EffectLocation);
     CoordStruct coord = CoordStruct(waypoint);
     coord.Z = Map.Get_Height_GL(coord);
     if (Map[waypoint].unknown_140 & 0x100) {
@@ -2442,8 +2442,8 @@ bool TActionClass::TAction_EJECT_OCCUPANTS(HouseClass *house, ObjectClass *objec
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-        if (building->IsActive && building->IsDown && !building->IsInLimbo && building->unknown_34 != 0
-            && building->unknown_34->Is_Trigger_Attached(trigger)) {
+        if (building->IsActive && building->IsDown && !building->IsInLimbo && building->Tag != 0
+            && building->Tag->Is_Trigger_Attached(trigger)) {
             building->Eject_Occupants(0);
             handled = true;
             break;

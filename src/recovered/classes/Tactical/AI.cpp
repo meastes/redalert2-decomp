@@ -23,18 +23,18 @@ void Tactical::AI()
     if (unknown_flags_a3f600 & 2) {
         return;
     }
-    if (unknown_a8 != Frame) {
-        if (ScenarioActive && unknown_d0 != unknown_abe540 && MoveSpeed != 0.0f) {
-            unknown_dc = unknown_dc + MoveSpeed;
-            if (unknown_dc > 1.0) {
-                unknown_dc = 1.0f;
+    if (LastAIFrame != Frame) {
+        if (ScenarioActive && MoveTo != unknown_abe540 && MoveSpeed != 0.0f) {
+            MoveFactor = MoveFactor + MoveSpeed;
+            if (MoveFactor > 1.0) {
+                MoveFactor = 1.0f;
             }
-            Point2D pos = Lerp(unknown_c8, unknown_d0, unknown_dc);
-            if (unknown_dc >= 1.0) {
-                unknown_d0 = Point2D(0, 0);
+            Point2D pos = Lerp(unknown_c8, MoveTo, MoveFactor);
+            if (MoveFactor >= 1.0) {
+                MoveTo = Point2D(0, 0);
                 unknown_c8 = Point2D(0, 0);
                 MoveSpeed = 0;
-                unknown_dc = 0;
+                MoveFactor = 0;
             }
             Point2D point = pos;
             int x;
@@ -46,31 +46,31 @@ void Tactical::AI()
                 x = pos.X;
                 y = pos.Y;
             }
-            unknown_d64 = Point2D(x, y);
-            unknown_d74 = Point2D(x, y);
+            TacticalCoord = Point2D(x, y);
+            DesiredTacticalCoord = Point2D(x, y);
             Update_Visible_Cells();
             IsToRedraw = true;
             moved = true;
         }
-        if (unknown_da4.Value() == 0) {
-            unknown_da4 = CDTimerClass<SystemTimerClass>(Rules->WaypointAnimationSpeed);
-            unknown_da0++;
+        if (WaypointAnimTimer.Value() == 0) {
+            WaypointAnimTimer = CDTimerClass<SystemTimerClass>(Rules->WaypointAnimationSpeed);
+            WaypointAnimCounter++;
         }
     }
-    unknown_a8 = Frame;
-    if (unknown_d74 != unknown_d64 && !moved) {
-        Point2D point = unknown_d74;
+    LastAIFrame = Frame;
+    if (DesiredTacticalCoord != TacticalCoord && !moved) {
+        Point2D point = DesiredTacticalCoord;
         int x;
         int y;
         if (Clamp_To_Tactical_Rect(&point) && !Debug_Map) {
             x = point.X;
             y = point.Y;
         } else {
-            x = unknown_d74.X;
-            y = unknown_d74.Y;
+            x = DesiredTacticalCoord.X;
+            y = DesiredTacticalCoord.Y;
         }
-        unknown_d64 = Point2D(x, y);
-        unknown_d74 = Point2D(x, y);
+        TacticalCoord = Point2D(x, y);
+        DesiredTacticalCoord = Point2D(x, y);
         Update_Visible_Cells();
         IsToRedraw = true;
     }

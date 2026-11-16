@@ -43,7 +43,7 @@ bool TechnoClass::unknown_slot202() { return false; }                      // 0x
 bool TechnoClass::CanCheer() { return false; }                      // 0x0041B3D0
 bool TechnoClass::unknown_slot224(intptr_t arg1) { (void)arg1; return false; }  // 0x00453BD0 (intptr_t natively: fixups, Scout1191 M24)
 void TechnoClass::unknown_slot240() { }                                    // 0x0041B400
-void TechnoClass::ClearDisguise() { unknown_170 = false; }               // 0x0041B430 (clears +0x170)
+void TechnoClass::ClearDisguise() { Disguised = false; }               // 0x0041B430 (clears +0x170)
 ObjectTypeClass *ObjectClass::Class_Of() const { return 0; }               // 0x004CDDD0
 
 #include "shared/foot.hpp"

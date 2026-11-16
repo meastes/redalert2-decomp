@@ -996,7 +996,7 @@ void __fastcall Message_Input(int &input)
                     unknown_session_a3d298.GPacket.Command = 12;
                 }
                 strcpy(unknown_session_a3d298.GPacket.Name, Wide_To_Narrow_006fa120(unknown_players_a3fa7c[0]->Name));
-                unknown_session_a3d298.GPacket.Message.unknown_110 = unknown_session_a3d298.unknown_11c;
+                unknown_session_a3d298.GPacket.Message.unknown_110 = unknown_session_a3d298.PrefColor;
                 unknown_session_a3d298.GPacket.Message.unknown_114 = Compute_Name_CRC_W(unknown_session_a3d298.HostName_2380);
                 unknown_session_a3d298.GPacket.Message.unknown_2f = 0;
                 if (rc == 3) {

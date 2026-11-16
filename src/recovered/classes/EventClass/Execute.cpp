@@ -272,7 +272,7 @@ void EventClass::Execute()
             if (footp) {
                 footp->SuspendedNavCom = 0;
             }
-            techno->unknown_22c = 0;
+            techno->SuspendedTarCom = 0;
             if (ByteAt(0x0C) == 0x0B) {
                 if (techno) {
                     foot = techno->AbstractFlags.IsFoot;
@@ -453,7 +453,7 @@ void EventClass::Execute()
 
     case 0x28:
         Debug_Printf("Received FALLBACKHOST event\n");
-        unknown_session_a3d298.unknown_303c = Data.LongsCell.Long1;
+        unknown_session_a3d298.LastTimingID = Data.LongsCell.Long1;
         break;
 
     case 0x29: {
@@ -495,7 +495,7 @@ void EventClass::Execute()
                     for (i = 0; i < unknown_session_a3d298.Players.Count(); i++) {
                         if (unknown_session_a3d298.Players[i]->ID == host) {
                             address = &unknown_session_a3d298.Players[i]->Address;
-                            unknown_session_a3d298.unknown_292c = unknown_node_ids_a402ba[i];
+                            unknown_session_a3d298.PacketRouterPort = unknown_node_ids_a402ba[i];
                             break;
                         }
                     }
@@ -504,7 +504,7 @@ void EventClass::Execute()
                     address->Get_Address(network, node);
                     unknown_forward_address_a3fbac.Set_Address(network, node, 0);
                     Debug_Printf("Session.PacketRouterAddress = %s\n", unknown_forward_address_a3fbac.As_String(0));
-                    Debug_Printf("Session.PacketRouterPort = %d\n", unknown_session_a3d298.unknown_292c);
+                    Debug_Printf("Session.PacketRouterPort = %d\n", unknown_session_a3d298.PacketRouterPort);
                     if (!unknown_session_a3d298.Am_I_Master(0)) {
                         Ipx.Set_Lobby_Address(&unknown_forward_address_a3fbac);
                     }
@@ -516,10 +516,10 @@ void EventClass::Execute()
                     OwnerTalk.Send_Player_List();
                 }
             }
-            unknown_session_a3d298.unknown_3048 = ::Frame;
-            unknown_session_a3d298.unknown_3050 = host;
-            unknown_session_a3d298.unknown_304c = ((unknown_session_a3d298.MaxAhead_2c8 + ::Frame + 10) / 10) * 10;
-            unknown_session_a3d298.unknown_303c = -1;
+            unknown_session_a3d298.ExitEventPending = ::Frame;
+            unknown_session_a3d298.ExitEventPlayer = host;
+            unknown_session_a3d298.ExitEventFrame = ((unknown_session_a3d298.MaxAhead_2c8 + ::Frame + 10) / 10) * 10;
+            unknown_session_a3d298.LastTimingID = -1;
         }
         unknown_a402d8 = false;
         break;

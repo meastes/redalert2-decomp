@@ -32,7 +32,7 @@
 
 SpotLightClass::SpotLightClass(CoordStruct coord, int size) :
     Coord(coord),
-    unknown_0c(0),
+    Radius(0),
     unknown_10(size),
     unknown_14(0)
 {
@@ -52,8 +52,8 @@ SpotLightClass::~SpotLightClass()
 
 void SpotLightClass::AI()
 {
-    unknown_0c += 8;
-    if (unknown_0c >= 80) {
+    Radius += 8;
+    if (Radius >= 80) {
         delete this;
     }
 }
@@ -192,7 +192,7 @@ void SpotLightClass::unknown_func_5ddb90()
             Surface *dsurf = LogicalSurface;
             Rect drect(drawpoint.X - 128, drawpoint.Y - 64, 255, 127);
             Rect dcliprect = TacticalRect;
-            int index = SpotLight_Index_Table[unknown_0c];
+            int index = SpotLight_Index_Table[Radius];
             if (index < 64) {
                 index = index * unknown_10 / 64;
             }

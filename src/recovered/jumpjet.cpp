@@ -448,7 +448,7 @@ void JumpjetLocomotionClass::unknown_52fff0()
         CoordStruct head = unknown_3c;
         CoordStruct coord = LinkedTo->Coord;
         if (head.X == coord.X && head.Y == coord.Y) {
-            if (LinkedTo->unknown_228 == 0) {
+            if (LinkedTo->TarCom == 0) {
                 if (LinkedTo->Techno_Type_Class()->BalloonHover) {
                     unknown_4c = 2;
                     LinkedTo->Next_Planning_Node();
@@ -506,7 +506,7 @@ void JumpjetLocomotionClass::unknown_530180()
         LinkedTo->IsDown = false;
         LinkedTo->Set_Coord(position);
         LinkedTo->IsDown = down;
-        if (LinkedTo->unknown_228 == 0 && !balloon) {
+        if (LinkedTo->TarCom == 0 && !balloon) {
             unknown_78 = 0;
             unknown_4c = 4;
             LinkedTo->Next_Planning_Node();
@@ -522,10 +522,10 @@ void JumpjetLocomotionClass::unknown_530180()
         }
     } else if (distance < Speed) {
         unknown_70 = Speed / 8;
-        if (LinkedTo->unknown_228 == 0) unknown_78 = Height / 2;
+        if (LinkedTo->TarCom == 0) unknown_78 = Height / 2;
     } else if (distance < Speed * 2) {
         unknown_70 = Speed / 4;
-        if (LinkedTo->unknown_228 == 0) unknown_78 = Height / 2;
+        if (LinkedTo->TarCom == 0) unknown_78 = Height / 2;
         if (Dir_To_256(difference) > TurnRate) {
             unknown_70 = Speed / 10;
             if (unknown_70 < 1.0) unknown_70 = 1.0;
@@ -533,7 +533,7 @@ void JumpjetLocomotionClass::unknown_530180()
     } else {
         if (distance < (Speed * 50) / TurnRate) {
             unknown_70 = Speed / 2;
-            if (LinkedTo->unknown_228 == 0) unknown_78 = (int)(Height * 0.75);
+            if (LinkedTo->TarCom == 0) unknown_78 = (int)(Height * 0.75);
             if (Dir_To_256(difference) > TurnRate * 5) {
                 unknown_70 = Speed / 5;
                 if (unknown_70 < 1.0) unknown_70 = 1.0;
@@ -618,7 +618,7 @@ void JumpjetLocomotionClass::unknown_530550()
                 LinkedTo->unknown_slot262(0, 0, 0, 0);
             }
             if (LinkedTo->IsActive) {
-                Map.Unknown_0054A550(Object_Coord(LinkedTo), LinkedTo->unknown_1f4 - 3, LinkedTo->unknown_1f4 + 3, 0);
+                Map.Unknown_0054A550(Object_Coord(LinkedTo), LinkedTo->LastSightRange - 3, LinkedTo->LastSightRange + 3, 0);
             }
             if (((CellClass *)LinkedTo->Get_Cell_Ptr())->Jumpjet == LinkedTo) {
                 ((CellClass *)LinkedTo->Get_Cell_Ptr())->Set_unknown_e0(0);

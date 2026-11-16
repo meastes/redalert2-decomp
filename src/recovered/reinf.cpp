@@ -462,7 +462,7 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
                 object->Locomotor.Checked()->Move_To(Cell_Coord(newcell));
                 object->unknown_slot262(false, false, false, 0);
                 CoordStruct coord = object->Coord;
-                Map.Unknown_0054A550(coord, 0, object->unknown_1f4 + 3, 0);
+                Map.Unknown_0054A550(coord, 0, object->LastSightRange + 3, 0);
                 placed = true;
             } else if (burrow) {
                 CoordStruct coord = Map[newcell].unknown_475d60() - CoordStruct(0, 0, 400);

@@ -63,7 +63,7 @@ void __fastcall Unknown_004CAB90(TechnoClass *techno);  // 0x004CAB90 (hypothesi
 
 void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
 {
-    unknown_db0 = 0;
+    SelectableCount = 0;
     bool has_selectable_buildings = Contains_Selectable_Buildings(TacticalRect);
 
     int xoffset = LastTacPixelX - TacPixelX;
@@ -91,7 +91,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
     bool render;
     if (fullredraw) {
         render = true;
-    } else if (!unknown_d7c && !has_selectable_buildings && TacticalLists::DirtyAreas.Count() == 0 && !IsToRedraw && unknown_d64.X == unknown_d6c.X && unknown_d64.Y == unknown_d6c.Y) {
+    } else if (!IsFirstRender && !has_selectable_buildings && TacticalLists::DirtyAreas.Count() == 0 && !IsToRedraw && TacticalCoord.X == LastTacticalCoord.X && TacticalCoord.Y == LastTacticalCoord.Y) {
         render = false;
     } else if (has_selectable_buildings) {
         render = true;
@@ -208,13 +208,13 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
 
             LogicalSurface->Unlock();
             LogicalSurface = prevlogical;
-            unknown_e0 = 0;
+            CellRedrawCount = 0;
         }
     }
     }
 
-    unknown_d6c.X = unknown_d64.X;
-    unknown_d6c.Y = unknown_d64.Y;
+    LastTacticalCoord.X = TacticalCoord.X;
+    LastTacticalCoord.Y = TacticalCoord.Y;
     LastTacPixelX = TacPixelX;
     LastTacPixelY = TacPixelY;
 
@@ -265,7 +265,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
                     if (TechnoClass_ActionLines) {
                         techno->unknown_slot243(false, 0);
                     }
-                    UnknownTechno230 *capture = (UnknownTechno230 *)techno->unknown_230;
+                    UnknownTechno230 *capture = (UnknownTechno230 *)techno->CaptureManager;
                     if (capture != 0 && capture->unknown_24 != 0) {
                         ((CaptureManagerClass *)capture)->Draw_Link();
                     }
@@ -312,7 +312,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
         }
 
         Draw_Screen_Text((wchar_t const *)&unknown_24);
-        unknown_d7c = false;
+        IsFirstRender = false;
         IsToRedraw = false;
     }
 }

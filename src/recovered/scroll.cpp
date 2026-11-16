@@ -189,7 +189,7 @@ bool ScrollClass::Resolve_Point(Point2D const &point,Cell &cell,CoordStruct &coo
             object=TacticalMap->Get_Selectable_Object_006aa990(point);
             TechnoClass *techno=object->As_Techno();
             if (techno && !techno->unknown_372) {
-                if ((techno->unknown_1b8==2 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) || techno->Techno_Type_Class()->Invisible) object=0;
+                if ((techno->Cloak==2 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) || techno->Techno_Type_Class()->Invisible) object=0;
             }
             if (object && object->Kind_Of()==6) {
                 BuildingClass *building=static_cast<BuildingClass *>(object);
@@ -235,7 +235,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
         bool visible = true;
         TechnoClass *techno = As_Techno_0040dbd0(object);
         if (techno != 0 && !techno->unknown_372) {
-            if ((techno->unknown_1b8 == 2 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex))
+            if ((techno->Cloak == 2 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex))
                     || techno->Techno_Type_Class()->Invisible) {
                 visible = false;
             }

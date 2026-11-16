@@ -1521,7 +1521,7 @@ void RadarClass::Radar_Track(TechnoClass *techno, Point2D point)
         if (point.Y >= area.Y + area.Height) {
             point.Y = area.Y + area.Height - 1;
         }
-        techno->unknown_1a0 = point;
+        techno->RadarPos = point;
     }
     DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = RadarTrackingTable->Buckets[RadarTrackingStruct_Hash_Old(point) % 256];
     HashObject<RadarTrackingStruct, TechnoClass *> object;
@@ -1781,7 +1781,7 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
         int color;
         if(owner) color=Build_Hicolor_Pixel(owner->unknown_55e9.Red,owner->unknown_55e9.Green,owner->unknown_55e9.Blue);
         else color=Fetch_Scheme_By_Name("LightGrey",1)->unknown_color_0x330;
-        int remaining=tech->unknown_13c.Value();
+        int remaining=tech->RadarFlashTimer.Value();
         if(remaining>0 && ((remaining-1)/Rules->FlashFrameTime)%2==1 && tech->House==PlayerPtr)
             RadarSurface->Put_Pixel(point,~color);
         else RadarSurface->Put_Pixel(point,color);

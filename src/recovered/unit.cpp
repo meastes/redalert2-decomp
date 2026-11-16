@@ -144,14 +144,14 @@ UnitClass::UnitClass(UnitTypeClass *type, HouseClass *house) :
         SecondaryFacing.Set_ROT(Type->ROT);
         int ammo = Type->InitialAmmo;
         if (ammo != -1) {
-            unknown_254 = ammo;
+            Ammo = ammo;
         } else {
-            unknown_254 = Type->Ammo;
+            Ammo = Type->Ammo;
         }
         unknown_32a = Type->Cloakable;
         unknown_70 = Strength = Type->MaxStrength;
     }
-    unknown_194 = CDTimerClass<FrameTimerClass>(0);
+    ReloadTimer = CDTimerClass<FrameTimerClass>(0);
     if (House) {
         Unit_House_View(House)->Tracking_Add(this);
     }
@@ -236,7 +236,7 @@ inline Cell Unit_AI_Refinery_Exit_Cell(Cell const &position)
 }
 void UnitClass::AI()
 {
-    if (unknown_20c) unknown_20c->AI();
+    if (TemporalTargetingMe) TemporalTargetingMe->AI();
     if ((unknown_slot111() || unknown_slot112()) && Frame % 24 == 0 && Rules->ChronoSparkle1) {
         new AnimClass(Rules->ChronoSparkle1, Unit_AI_Smoke_Position(Coord), 0, 1, 0x600, 0);
     }
@@ -244,8 +244,8 @@ void UnitClass::AI()
         Locomotor.Checked()->Process();
         if (!IsActive) return;
     }
-    if ((unknown_slot112() && unknown_20c) || unknown_slot111()) {
-        if (unknown_228) unknown_slot220(0);
+    if ((unknown_slot112() && TemporalTargetingMe) || unknown_slot111()) {
+        if (TarCom) unknown_slot220(0);
         if (NavCom) {
             Assign_Destination(0, true);
             return;
@@ -322,11 +322,11 @@ void UnitClass::AI()
             Door.Count_Down(Type->DeployTime);
         }
         if (Ready_To_Commence()) Commence();
-        if (unknown_1b8 == 2 && unknown_5b4 != -1) Do_Shimmer();
-        if ((Frame & 15) == 0 && (Mission == 11 || Mission == 5) && !House->Is_Human_Player() && MissionQueue == -1 && Strength < Type->MaxStrength && (!unknown_1b0 || Mission == 11) && !Type->Harvester && !Type->Weeder) {
+        if (Cloak == 2 && unknown_5b4 != -1) Do_Shimmer();
+        if ((Frame & 15) == 0 && (Mission == 11 || Mission == 5) && !House->Is_Human_Player() && MissionQueue == -1 && Strength < Type->MaxStrength && (!ArchivedTarget || Mission == 11) && !Type->Harvester && !Type->Weeder) {
             BuildingClass *repair_building = Find_Unit_Repair_Facility(House, this);
             if (repair_building) {
-                if (!unknown_1b0) {
+                if (!ArchivedTarget) {
                     CoordStruct position = Coord;
                     Assign_Archive_Target(&Map[position]);
                 }
@@ -353,8 +353,8 @@ void UnitClass::AI()
 // Unit body/turret turning using current shared Facing and weapon layouts.
 void UnitClass::unknown_6fb890()
 {
-    if (unknown_228 && !unknown_599) {
-        UnknownFacingDir toward = Direction_To(unknown_228);
+    if (TarCom && !unknown_599) {
+        UnknownFacingDir toward = Direction_To(TarCom);
         if (Type->Turret) {
             WeaponStruct *weapon = unknown_slot230();
             if (Unknown_006D8640(weapon) && !weapon->WeaponType->unknown_107) {
@@ -380,7 +380,7 @@ void UnitClass::unknown_6fb890()
                 if (!Type->TurretSpins) {
                     unknown_599 = SecondaryFacing.Is_Rotating();
                 }
-            } else if (!unknown_228) {
+            } else if (!TarCom) {
                 WeaponStruct *weapon = unknown_slot230();
                 bool locked = Unknown_006D8640(weapon) && weapon->TurretLocked;
                 if (NavCom && !locked) {
@@ -545,8 +545,8 @@ void UnitClass::Unknown_006FAA30()
 
 void UnitClass::Reload()
 {
-    if (!Type->MobileFire && Locomotor.Checked()->Is_Moving() && unknown_194.Value() > 0) {
-        unknown_194 = CDTimerClass<FrameTimerClass>(unknown_194.Value() + 1);
+    if (!Type->MobileFire && Locomotor.Checked()->Is_Moving() && ReloadTimer.Value() > 0) {
+        ReloadTimer = CDTimerClass<FrameTimerClass>(ReloadTimer.Value() + 1);
     }
     TechnoClass::Reload();
 }
@@ -562,8 +562,8 @@ bool UnitClass::Deploy_To_Fire()
     if (Type->DeployToFire) {
         return true;
     }
-    if (Type->DeploysInto && Type->DeploysInto->TickTank && !House->Unknown_004F52F0() && unknown_228) {
-        switch (unknown_228->What_Am_I()) {
+    if (Type->DeploysInto && Type->DeploysInto->TickTank && !House->Unknown_004F52F0() && TarCom) {
+        switch (TarCom->What_Am_I()) {
         case 1:
         {
             CoordStruct coord = Coord;
@@ -582,10 +582,10 @@ bool UnitClass::Deploy_To_Fire()
 extern "C" int const Unit_Attack_Frames_007F8F2C[8];
 void UnitClass::unknown_6fbc90()
 {
-    if (!unknown_228) return;
+    if (!TarCom) return;
     if (!unknown_slot231(0)->WeaponType) return;
-    int weapon = What_Weapon_Should_I_Use(unknown_228);
-    int action = unknown_slot218(unknown_228, weapon, 1);
+    int weapon = What_Weapon_Should_I_Use(TarCom);
+    int action = unknown_slot218(TarCom, weapon, 1);
     if ((action == 0 || action == 2) && Deploy_To_Fire()) {
         QueueMission(16, false);
         return;
@@ -593,7 +593,7 @@ void UnitClass::unknown_6fbc90()
     switch (action) {
     case 5:
         if (unknown_6c16f0(weapon) < 0) {
-            AbstractClass *target = unknown_228;
+            AbstractClass *target = TarCom;
             if (target && target->AbstractFlags.IsObject && target->Kind_Of() == 1) {
                 if (((ObjectClass *)target)->Health_Ratio() >= Rules->ConditionGreen) {
                     unknown_slot220(0);
@@ -608,18 +608,18 @@ void UnitClass::unknown_6fbc90()
     case 0:
         if (!Type->unknown_ba8) IsFiring = false;
         if (Type->LargeVisceroid || Type->SmallVisceroid) {
-            StageClass::Stage = Unit_Attack_Frames_007F8F2C[Dir_To_8(Direction_To(unknown_228))];
+            StageClass::Stage = Unit_Attack_Frames_007F8F2C[Dir_To_8(Direction_To(TarCom))];
             StageClass::Set_Rate(5);
         }
-        Fire_At(unknown_228, weapon);
+        Fire_At(TarCom, weapon);
         return;
     case 2:
         if (!Type->unknown_ba9 && Type->Turret) {
-            SecondaryFacing.Set_Desired(Direction_To(unknown_228));
+            SecondaryFacing.Set_Desired(Direction_To(TarCom));
             return;
         }
         if (!NavCom && !Locomotor.Checked()->Is_Moving()) {
-            PrimaryFacing.Set_Desired(Direction_To(unknown_228));
+            PrimaryFacing.Set_Desired(Direction_To(TarCom));
             SecondaryFacing.Set_Desired(PrimaryFacing.Desired());
         }
         break;
@@ -670,14 +670,14 @@ void UnitClass::unknown_6fbf40()
             ObjectClass *object = Map[Unit_Adjacent_Cell(position, direction)].OccupierPtr;
             if (object && object->Kind_Of() == 1 && ((UnitClass *)object)->Type->SmallVisceroid) {
                 UnitClass *other = (UnitClass *)object;
-                if (other->NavCom || other->unknown_228) return;
+                if (other->NavCom || other->TarCom) return;
                 other->Assign_Destination(this, true);
                 unknown_5bc = -1;
                 return;
             }
         }
     }
-    if (NavCom || unknown_228) return;
+    if (NavCom || TarCom) return;
     int direction;
     if (unknown_5bc == -1 || unknown_id_source_a3d290->Random()(0, 2) == 0) {
         direction = unknown_id_source_a3d290->Random()(0, 7);
@@ -728,10 +728,10 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
     case 15:
         if (Type->Passengers != 0 && radio && House->Is_Ally(sender)) {
             if (unknown_slot111()) return 0;
-            if (!sender->unknown_234 &&
+            if (!sender->MindControlledBy &&
                 (!radio->AbstractFlags.IsFoot || !((FootClass *)radio)->ParasiteEatingMe)) {
-                if (sender->unknown_230 &&
-                    *(int const *)((char const *)sender->unknown_230 + 0x24) != 0) return 0;
+                if (sender->CaptureManager &&
+                    *(int const *)((char const *)sender->CaptureManager + 0x24) != 0) return 0;
                 int capacity = Type->Passengers;
 
                 if (!(Unit_Radio_Used_Size(Cargo) + sender->Techno_Type_Class()->Size <= capacity))
@@ -837,7 +837,7 @@ bool UnitClass::Unlimbo(CoordStruct const *coord, int dir)
     if (FootClass::Unlimbo(coord, dir)) {
         SecondaryFacing.Set(UnknownFacingDir((unsigned short)(dir << 8)));
         if (unknown_32a && !unknown_32d) {
-            unknown_1b8 = 2;
+            Cloak = 2;
         }
         if (!Type->SmallVisceroid && !Type->LargeVisceroid) {
             StageClass::Stage = 0;
@@ -950,14 +950,14 @@ passenger_removed:
         }
         {
             InfantryClass *crew;
-            if (unknown_290 == -1) {
+            if (EnteredByInfType == -1) {
                 if ((unsigned char)arg6 || !Type->Crewed || Type->Passengers != 0 ||
                     (double)unknown_id_source_a3d290->Random()(0, 0x7ffffffe) *
                         (1.0 / 2147483646.0) >= Rules->CrewEscape)
                     goto drop_crate;
             }
-            if (unknown_290 != -1) {
-                crew = new InfantryClass(InfantryTypes[unknown_290], House);
+            if (EnteredByInfType != -1) {
+                crew = new InfantryClass(InfantryTypes[EnteredByInfType], House);
             } else {
                 InfantryTypeClass *crew_type = (InfantryTypeClass *)Crew_Type();
                 if (!crew_type) goto drop_crate;
@@ -972,7 +972,7 @@ passenger_removed:
                     if (!House->Unknown_004F52F0()) crew->QueueMission(15, false);
                     else crew->QueueMission(5, false);
                     if (restore_selection) crew->unknown_slot80();
-                    if (unknown_34 && unknown_34->Is_To_Inherit()) crew->Attach_Tag(unknown_34);
+                    if (Tag && Tag->Is_To_Inherit()) crew->Attach_Tag(Tag);
                 } else {
                     delete crew;
                 }
@@ -1029,7 +1029,7 @@ void UnitClass::Explode()
 {
     if (Type->Explosion.Count()>0) {
         AnimTypeClass *animation=Type->Explosion.Pick(unknown_id_source_a3d290->Random());
-        if ((Type->Explodes || Has_Ability(10)) && (Type->Ammo==-1 || unknown_254>0)) {
+        if ((Type->Explodes || Has_Ability(10)) && (Type->Ammo==-1 || Ammo>0)) {
             animation=Type->Explosion[Type->Explosion.Count()-1];
         }
         new AnimClass(animation,Position_Coord_004f3f40(),0,1,0x600,0);
@@ -1368,8 +1368,8 @@ bool UnitClass::unknown_6fdfc0()
                     unknown_slot149(3);
                     for (int index = 0; index < Technos.Count(); index++) {
                         TechnoClass *techno = Technos[index];
-                        if (techno->unknown_228 && techno->unknown_228->Kind_Of() == 1 &&
-                            techno->unknown_228 == this && techno->IsActive &&
+                        if (techno->TarCom && techno->TarCom->Kind_Of() == 1 &&
+                            techno->TarCom == this && techno->IsActive &&
                             techno != this && techno != building) {
                             if (building->Type->ConstructionYard && techno->Kind_Of() == 15 &&
                                 ((InfantryTypeClass *)techno->Techno_Type_Class())->VehicleThief) {
@@ -1379,8 +1379,8 @@ bool UnitClass::unknown_6fdfc0()
                             }
                         }
                     }
-                    building->unknown_114 = unknown_114;
-                    building->unknown_1ac = unknown_1ac;
+                    building->ActLike = ActLike;
+                    building->Group = Group;
                     building->Veterancy = Veterancy;
                     if (building->House->Is_Player_Control()) {
                         Voc_Play_At(Rules->BuildingDrop, Center_Coord(), 0);
@@ -1389,9 +1389,9 @@ bool UnitClass::unknown_6fdfc0()
                         building->IsToRepair = true;
                     }
                     if (building->Type->Artillary || building->Type->TickTank) {
-                        building->unknown_2c8.Set(UnknownFacingDir(0x4000));
+                        building->BarrelPitch.Set(UnknownFacingDir(0x4000));
                     }
-                    building->unknown_slot220(unknown_228);
+                    building->unknown_slot220(TarCom);
                     building->Revealed(House);
                     building->IsReadyToCommence = true;
                     if (!House->Unknown_004F52F0() && building->Type->ConstructionYard && unknown_game_mode_a3d298) {
@@ -1411,10 +1411,10 @@ bool UnitClass::unknown_6fdfc0()
                     building->unknown_70 = building->Strength;
                     if (selected) building->unknown_slot80();
                     unknown_slot210();
-                    if (unknown_34) {
-                        building->Attach_Tag(unknown_34);
-                        unknown_34->AttachCount--;
-                        unknown_34 = 0;
+                    if (Tag) {
+                        building->Attach_Tag(Tag);
+                        Tag->AttachCount--;
+                        Tag = 0;
                     }
                     Delete_Me();
                     return true;
@@ -1523,16 +1523,16 @@ void UnitClass::unknown_slot93(int reason)
                                         QueueMission(11,false);
                                     } else Assign_Archive_Target(0);
                                 } else {
-                                    AbstractClass *destination=unknown_1b0;
+                                    AbstractClass *destination=ArchivedTarget;
                                     if (destination && destination!=NavCom) Assign_Destination(destination,true);
                                     else { Abort_Motion();Scatter(unknown_geometry_l,true,false); }
                                 }
                             } else QueueMission(10,true);
                         }
                     } else if (response!=10 && (Type->Harvester || Type->Weeder)) {
-                        if (unknown_1b0) {
+                        if (ArchivedTarget) {
                             QueueMission(10,false);
-                            Assign_Destination(unknown_1b0,true);
+                            Assign_Destination(ArchivedTarget,true);
                             Assign_Archive_Target(0);
                         } else if (!NavCom) Scatter(unknown_geometry_l,true,false);
                     }
@@ -1548,7 +1548,7 @@ void UnitClass::unknown_slot93(int reason)
         }
         unknown_slot263(false,false,false,0);
         unknown_slot262(false,false,false,0);
-        Map.Unknown_0054A550(Position_Coord_004f3f40(),0,unknown_1f4+3,0);
+        Map.Unknown_0054A550(Position_Coord_004f3f40(),0,LastSightRange+3,0);
         if (!unknown_5b9 && Ready_To_Commence()) Commence();
         if (Type->Harvester && Get_Mission()!=16 && Mission!=7 && MissionQueue!=7 && !unknown_5b9) {
             RadioClass *radio=Contact(0);
@@ -1579,7 +1579,7 @@ void UnitClass::unknown_slot93(int reason)
             Voc_Play_At(overlay->CrushSound,Center_Coord(),0);
             current_cell->Reduce_Wall(-1);
             IsCrushing=false;
-            unknown_28c+=0.019999999552965164f;
+            RockingForwardsPerFrame+=0.019999999552965164f;
         }
     }
     Overrun_Square(unknown_slot104(),false);
@@ -1676,7 +1676,7 @@ void UnitClass::unknown_slot312(Surface &surface, Point2D point, Rect window, in
     case 3: flags = 0x2804; break;
     case 4:
         flags = 0x280A;
-        if (unknown_1bc.Value) flags = 0x280C;
+        if (CloakingDevice.Value) flags = 0x280C;
         draw_adjust = Get_Predator_Offset();
         break;
     }
@@ -1786,10 +1786,10 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
             barrel_matrix=turret_matrix;
             Vector3 translation=Unit_Matrix_Translation_007005b0(turret_matrix);
             barrel_matrix.Translate(-translation);
-            if (unknown_330.unknown_18) turret_matrix.Translate_X(-unknown_330.unknown_14);
+            if (unknown_330.unknown_18) turret_matrix.Translate_X(-unknown_330.TravelSoFar);
             Vector3 fire_offset=Vector3((float)(unknown_slot231(0)->FLH.X/-8),0.0f,(float)(unknown_slot231(0)->FLH.Z/-8));
             barrel_matrix.Translate(-fire_offset);
-            FacingClass pitch=unknown_2c8;
+            FacingClass pitch=BarrelPitch;
             BulletTypeClass const *projectile=unknown_slot231(0)->WeaponType->Projectile;
             if (projectile->Inviso) {
                 int direction=Dir_To_256(pitch.Current());
@@ -1797,7 +1797,7 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
                 else direction=(64-direction)/3+64;
                 pitch.Set(UnknownFacingDir((unsigned short)(direction<<8)));
             }
-            if (unknown_350.unknown_18) barrel_matrix.Translate_X(-unknown_350.unknown_14);
+            if (unknown_350.unknown_18) barrel_matrix.Translate_X(-unknown_350.TravelSoFar);
             barrel_matrix.Rotate_Y((float)-Unit_Direction_Radians32_007005b0(pitch.Current()));
             barrel_matrix.Translate(fire_offset);
             barrel_matrix.Translate(translation);
@@ -1924,7 +1924,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     }
     if (!type->Turret && (!unknown_6d83e0() || !Has_Current_Turret())) {
         if (Unit_Voxel_Loaded_007005b0(type->AuxVoxel2)) {
-            main_matrix.Rotate_Y((float)-(unknown_2c8.Current().As_Radian32()-main_matrix.Get_Y_Rotation()));
+            main_matrix.Rotate_Y((float)-(BarrelPitch.Current().As_Radian32()-main_matrix.Get_Y_Rotation()));
             main_matrix.Translate((float)(unknown_slot231(0)->FLH.X*unknown_geometry_c),0.0f,(float)(unknown_slot231(0)->FLH.Z*unknown_geometry_c));
             unknown_slot246(type->AuxVoxel2,frame,turret_key,&type->AuxVoxel2Index,cliprect,drawpoint,Unit_Isometric_View_00717f90()*main_matrix,brightness,0);
         }
@@ -1947,7 +1947,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
             barrel=main_matrix;
             Vector3 translation=Unit_Matrix_Translation_007005b0(main_matrix);
             barrel.Translate(-translation);
-            barrel.Rotate_Y((float)-unknown_2c8.Current().As_Radian32());
+            barrel.Rotate_Y((float)-BarrelPitch.Current().As_Radian32());
             barrel.Translate(translation);
             turret_matrix=Unit_Isometric_View_00717f90()*main_matrix;
             barrel_matrix=Unit_Isometric_View_00717f90()*barrel;
@@ -2093,7 +2093,7 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
             Coord_Pixel_00700e70(Move_Coord_00700e70(unknown_slot42(), Facing_Dir(face), 30), pixel);
             int offset = Dir_To_8(PrimaryFacing.Current());
             offset = 7 - offset;
-            if (unknown_20c == 0 && !unknown_slot111() && !unknown_slot112()) {
+            if (TemporalTargetingMe == 0 && !unknown_slot111() && !unknown_slot112()) {
                 CC_Draw_Shape(LogicalSurface, Unit_Draw_Convert_008323C0, harvesting_shape,
                     (TotalFramesWalked + Frame) % 15 + offset * 15, pixel, window, 0x2a00, 0,
                     unknown_slot176() - 2, 0, brightness, 0, 0, Point2D(0, 0));
@@ -2124,7 +2124,7 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
                 0, 0, 0, brightness, 0, 0, Point2D(0, 0));
         }
         FootClass::Draw_It(raw_point, window);
-        if (unknown_314.Value() != 0) {
+        if (TargetingLaserTimer.Value() != 0) {
             Draw_Target_Laser();
         }
     }
@@ -2491,8 +2491,8 @@ int UnitClass::Do_MISSION_HARVEST()
             }
             {
                 bool hastarget = true;
-                if (unknown_1b0 != 0) {
-                    Assign_Destination(unknown_1b0, true);
+                if (ArchivedTarget != 0) {
+                    Assign_Destination(ArchivedTarget, true);
                     Assign_Archive_Target(0);
                     hastarget = false;
                 }
@@ -2523,8 +2523,8 @@ int UnitClass::Do_MISSION_HARVEST()
                     return 1;
                 }
                 if (NavCom == 0) {
-                    if (unknown_1b0 != 0) {
-                        Assign_Destination(unknown_1b0, true);
+                    if (ArchivedTarget != 0) {
+                        Assign_Destination(ArchivedTarget, true);
                     } else {
                         Status = GOINGTOIDLE;
                         unknown_328 = true;
@@ -2650,7 +2650,7 @@ int UnitClass::Do_MISSION_HARVEST()
 int UnitClass::Do_MISSION_HUNT()
 {
     BuildingTypeClass *building = Type->DeploysInto;
-    if (building && (Is_Listed(Rules->BuildConst, building) || unknown_228 || House->Unknown_004F52F0())) {
+    if (building && (Is_Listed(Rules->BuildConst, building) || TarCom || House->Unknown_004F52F0())) {
         switch (Status) {
         case 0:
             if (unknown_6fd930() && unknown_6fdfc0()) {
@@ -2824,7 +2824,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
                 }
             }
             if (Get_Mission()==7 && occupant==NavCom && occupant->Kind_Of()==1) return 0;
-            if (Get_Mission()==11 && unknown_1b0==occupant) return 7;
+            if (Get_Mission()==11 && ArchivedTarget==occupant) return 7;
             FootClass *foot;
             if (occupant->AbstractFlags.IsFoot) {
                 foot=static_cast<FootClass*>(occupant);
@@ -2849,7 +2849,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
                 }
             } else {
                 TechnoClass *techno=As_Techno_0040dbd0(occupant);
-                if (techno && techno->unknown_1b8==2) {
+                if (techno && techno->Cloak==2) {
                     if (result<1) result=1;
                 } else {
                     ObjectTypeClass *otype;
@@ -3489,7 +3489,7 @@ BulletClass *UnitClass::Fire_At(AbstractClass *target, int arg2)
     if (!unknown_slot218(target, arg2, 1)) {
         bullet = TechnoClass::Fire_At(target, arg2);
         if (bullet) {
-            if (Type->Ammo > 0 && unknown_254 < Type->Ammo && !Type->ManualReload) {
+            if (Type->Ammo > 0 && Ammo < Type->Ammo && !Type->ManualReload) {
                 StartReloading();
             }
             if (!synchronized && Type->FiringFrames > 0) {
@@ -3499,7 +3499,7 @@ BulletClass *UnitClass::Fire_At(AbstractClass *target, int arg2)
                 bullet->InitScalable();
             }
             if (Type->DisguiseWhenStill) {
-                unknown_184 = CDTimerClass<FrameTimerClass>(weapon->unknown_118);
+                DisguiseBlinkTimer = CDTimerClass<FrameTimerClass>(weapon->unknown_118);
             }
         }
     }
@@ -3542,16 +3542,16 @@ static inline ObjectClass *As_Object(AbstractClass *target)
 
 void UnitClass::unknown_slot304()
 {
-    if (!House->Unknown_004F52F0() && unknown_228 && !NavCom) {
-        ObjectClass *object = As_Object(unknown_228);
-        if ((Type->Crusher || Has_Ability(17)) && unknown_5d4c00(unknown_228) < Rules->CrushDistance
+    if (!House->Unknown_004F52F0() && TarCom && !NavCom) {
+        ObjectClass *object = As_Object(TarCom);
+        if ((Type->Crusher || Has_Ability(17)) && unknown_5d4c00(TarCom) < Rules->CrushDistance
             && object && object->Class_Of()->IsCrushable && (Type->AutoCrush || !House->Unknown_004F52F0())) {
-            Assign_Destination(unknown_228, true);
+            Assign_Destination(TarCom, true);
             return;
         }
     }
     if (Type->BalloonHover) {
-        Assign_Destination(unknown_228, true);
+        Assign_Destination(TarCom, true);
         return;
     }
     FootClass::unknown_slot304();
@@ -3713,15 +3713,15 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	**	Abort early if there is anything wrong with the parameters
 	**	or the unit already is assigned the specified destination.
 	*/
-	if (Type->BalloonHover && !target && NavCom && unknown_228) {
-        if (NavCom==unknown_228) return;
+	if (Type->BalloonHover && !target && NavCom && TarCom) {
+        if (NavCom==TarCom) return;
         if (Is_Target_Cell(NavCom)) {
             CellClass *destination=Unit_Dynamic_Cast<CellClass,11>(NavCom);
-            if(destination->OccupierPtr==unknown_228) return;
+            if(destination->OccupierPtr==TarCom) return;
         }
     }
-    if(target==NavCom && !unknown_190) return;
-    unknown_190=false;
+    if(target==NavCom && !UnlimboingInfantry) return;
+    UnlimboingInfantry=false;
     if(unknown_5c8) {FootClass::Abort_Motion();return;}
 
 	/*
@@ -3937,7 +3937,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
                             Set_Mission(-1);
                             QueueMission(7,false);
                             IsMoveToSkipped=true;
-                            unknown_190=true;
+                            UnlimboingInfantry=true;
                         }
                     }
                 }
@@ -4193,7 +4193,7 @@ void __fastcall UnitClass::Read_INI(CCINIClass &ini)
                     char *token = strtok(0, ",");
                     if (token) unit->Veterancy.From_Integer(atoi(token));
                     token = strtok(0, ",");
-                    if (token) unit->unknown_1ac = atoi(token);
+                    if (token) unit->Group = atoi(token);
                     token = strtok(0, ",");
                     if (token) {
                         unit->IsOnBridge = atoi(token) != 0;
@@ -4251,8 +4251,8 @@ void __fastcall UnitClass::Write_INI(CCINIClass &ini)
             sprintf(id, "%d", index);
             int linked = unit->unknown_5b0 != 0 ? Units.ID((UnitClass *)unit->unknown_5b0) : -1;
             char const *tag;
-            if (unit->unknown_34 != 0 && unit->unknown_34->Class != 0) {
-                tag = (char const *)unit->unknown_34->Class->ID;
+            if (unit->Tag != 0 && unit->Tag->Class != 0) {
+                tag = (char const *)unit->Tag->Class->ID;
             } else {
                 tag = "None";
             }
@@ -4265,7 +4265,7 @@ void __fastcall UnitClass::Write_INI(CCINIClass &ini)
                     unit->unknown_slot104().X, unit->unknown_slot104().Y,
                     direction,
                     MissionClass::Name_From_Mission(unit->Get_Mission()), tag,
-                    unit->Veterancy.To_Integer(), unit->unknown_1ac, unit->IsOnBridge, linked,
+                    unit->Veterancy.To_Integer(), unit->Group, unit->IsOnBridge, linked,
                     unit->unknown_379, unit->unknown_37a);
             ini.Put_String(UnitClass_INI_NAME, id, line);
         }
@@ -4373,7 +4373,7 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
         }
         if ((Kind_Of() != 1 || !unknown_5b9)
             && (NavCom == 0 || (nokidding && !unknown_599))
-            && (unknown_228 == 0 || forced || Random_Pick(1, 4) == 1)) {
+            && (TarCom == 0 || forced || Random_Pick(1, 4) == 1)) {
             int facing;
             if (source != unknown_geometry_l) {
                 CoordStruct here = Coord;
@@ -4519,7 +4519,7 @@ bool UnitClass::Ready_To_Commence()
         return false;
     }
     if (MissionQueue != 7 && Locomotor.Checked()->Is_Moving_Now() && Get_Height_AGL() >= 0
-        && Get_Mission() != 5 && (Get_Mission() != 1 || unknown_228) && !IsMissionUnloadStandby) {
+        && Get_Mission() != 5 && (Get_Mission() != 1 || TarCom) && !IsMissionUnloadStandby) {
         return false;
     }
     if (!Door.Is_Count_Down_Complete()) {
@@ -4629,15 +4629,15 @@ void UnitClass::Detach(AbstractClass *target, bool all)
 
 void UnitClass::Record_The_Kill(TechnoClass *killer)
 {
-    if (unknown_34 && (unknown_290 == -1 || !unknown_34->Is_To_Inherit())) {
+    if (Tag && (EnteredByInfType == -1 || !Tag->Is_To_Inherit())) {
         if (killer != 0) {
-            unknown_34->Spring(7, this, unknown_geometry_k, 0, 0);
+            Tag->Spring(7, this, unknown_geometry_k, 0, 0);
         }
-        if (unknown_34) {
-            unknown_34->Spring(48, this, unknown_geometry_k, 0, 0);
+        if (Tag) {
+            Tag->Spring(48, this, unknown_geometry_k, 0, 0);
         }
-        if (unknown_34) {
-            unknown_34->Spring(29, this, unknown_geometry_k, 0, 0);
+        if (Tag) {
+            Tag->Spring(29, this, unknown_geometry_k, 0, 0);
         }
     }
     TechnoClass::Record_The_Kill(killer);
@@ -4891,8 +4891,8 @@ bool UnitClass::INoticeSink_Unknown(int code, int arg)
 {
     if ((Type->BalloonHover || Type->JumpJet) && code == 0x117B && HasAnyLink()) {
         unknown_slot149(8);
-        if (unknown_1b0 != 0 && unknown_1b0 != NavCom) {
-            Assign_Destination(unknown_1b0, true);
+        if (ArchivedTarget != 0 && ArchivedTarget != NavCom) {
+            Assign_Destination(ArchivedTarget, true);
             return true;
         }
         Unknown_004CD9B0();
@@ -5039,8 +5039,8 @@ void UnitClass::Disguise_As_Type(ObjectTypeClass *type)
     if (type) {
         unknown_40c = type;
         unknown_410 = 0;
-        unknown_170 = true;
-        unknown_174 = Frame;
+        Disguised = true;
+        DisguiseCreationFrame = Frame;
         unknown_slot266();
     }
 }
@@ -5080,7 +5080,7 @@ void UnitClass::DisguiseAs(TechnoClass *target)
 
 void UnitClass::ClearDisguise()
 {
-    unknown_170 = false;
+    Disguised = false;
     unknown_slot266();
     unknown_40c = 0;
     unknown_410 = 0;
@@ -5160,12 +5160,12 @@ void UnitClass::UpdateDisguise()
                 CellClass &tile = Map[adjacent];
                 TechnoClass *nearby = (TechnoClass *)tile.Cell_Infantry(bridge);
                 if (nearby && !House->Is_Ally(nearby)) {
-                    unknown_178 = CDTimerClass<FrameTimerClass>(Unit_Infantry_Blink_Disguise_Time());
+                    InfantryBlinkTimer = CDTimerClass<FrameTimerClass>(Unit_Infantry_Blink_Disguise_Time());
                     goto clear_disguise;
                 }
             }
         }
-        if (!can_disguise || unknown_178.Value() != 0) return;
+        if (!can_disguise || InfantryBlinkTimer.Value() != 0) return;
         int choice = unknown_id_source_a3d290->Random()(0, Unit_Default_Mirage_Disguises().Count() - 1);
         int last = Unit_Default_Mirage_Disguises().Count() - 1;
         if (choice >= last) choice = last;
@@ -5173,8 +5173,8 @@ void UnitClass::UpdateDisguise()
         if (type) {
             unknown_40c = type;
             unknown_410 = 0;
-            unknown_170 = true;
-            unknown_174 = Frame;
+            Disguised = true;
+            DisguiseCreationFrame = Frame;
             unknown_slot266();
         }
         return;

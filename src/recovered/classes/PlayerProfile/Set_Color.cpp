@@ -3,7 +3,7 @@ unsigned int PlayerProfile::Set_Color_007399d0(unsigned int color)
 {
     if (color != (unsigned int)Color) {
         Color = color;
-        unknown_08 = true;
+        IsDirty = true;
     }
     return color;
 }

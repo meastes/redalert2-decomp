@@ -173,7 +173,7 @@ public:
     AbstractClass *unknown_30;      // +0x30 (swizzled; class unknown)
     AbstractClass *unknown_34;      // +0x34 (swizzled; class unknown)
     AbstractClass *unknown_38;      // +0x38 (swizzled; class unknown)
-    AbstractClass *unknown_3c;      // +0x3C (swizzled; class unknown)
+    AbstractClass *MissionTarget;      // +0x3C (swizzled; class unknown)
     AbstractClass *unknown_40;      // +0x40 (swizzled; class unknown)
     AbstractClass *unknown_44;      // +0x44 (swizzled; class unknown)
     int unknown_48;                 // +0x48
@@ -199,7 +199,7 @@ public:
     bool TargetNotAssigned;            // +0x81
     bool IsLeavingMap;                 // +0x82
     bool IsSuspended;                  // +0x83
-    int unknown_84[6];              // +0x84
+    int Quantity[6];              // +0x84
 };
 
 extern DynamicVectorClass<TeamClass *> Teams;      // 0x00866178

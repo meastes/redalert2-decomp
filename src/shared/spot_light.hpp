@@ -18,14 +18,14 @@ public:
     static void Update_All();                       // 0x005DD6D0
 #ifdef RA2_BUILDING_LIGHT_DISTANCE_TO
     // TibSun OverlayLightClass::Set_Radius (inline; BuildingLight unit only).
-    void Set_Radius(int radius) { unknown_0c = radius; }
+    void Set_Radius(int radius) { Radius = radius; }
 #endif
     void unknown_func_5ddb90();                     // 0x005DDB90
     // Runs unknown_func_5ddb90 (the drawing) for every light, last first.
     static void Draw_All();                         // 0x005DE2E0
 
     CoordStruct Coord;                              // +0x00
-    int unknown_0c;                                 // +0x0C (0; +8 per frame, deleted at 80)
+    int Radius;                                 // +0x0C (0; +8 per frame, deleted at 80)
     int unknown_10;                                 // +0x10 the size argument
     int unknown_14;                                 // +0x14 (0)
 };

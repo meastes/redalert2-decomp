@@ -1222,10 +1222,10 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
     token = strtok(0, ",");
     WideString scenario_name(unknown_game_mode_a3d298 == 4 && Unknown_0073bdb0()
         ? WideString(unknown_empty_wide_839d4c) : Wide_From_7_Bit(Wstring(token)));
-    int old_count = unknown_session_a3d298.unknown_884;
+    int old_count = unknown_session_a3d298.ScenarioMaxPlayers;
     token = strtok(0, ",");
     if (token != 0) {
-        unknown_session_a3d298.unknown_884 = atoi(token);
+        unknown_session_a3d298.ScenarioMaxPlayers = atoi(token);
     }
     bool old_official = unknown_session_a3d298.ScenarioIsOfficial_880;
     token = strtok(0, ",");
@@ -1254,7 +1254,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
     }
     MultiplayerGameMode *mode = MultiplayerGameMode::unknown_find_mode_5b6fe0(unknown_session_a3d298.GameModeIndex);
     if (dialog_id == 0xBD || dialog_id == 0xC9) {
-        Change_Slot_Count_005cb300(Find_Lobby_Window_005c2c40(), old_count, unknown_session_a3d298.unknown_884,
+        Change_Slot_Count_005cb300(Find_Lobby_Window_005c2c40(), old_count, unknown_session_a3d298.ScenarioMaxPlayers,
             (UnknownSessionA3D29C *)mode);
     }
     bool found = true;
@@ -2323,7 +2323,7 @@ void __fastcall Upload_Map_Preview_005c7ef0(MapPreviewClass *preview)
             for (int i = 1; i < unknown_players_a3fa7c.Count(); i++) {
                 int house = unknown_session_a3d298.Player_To_Slot(i);
                 if (house >= 0 && house < 8) {
-                    unsigned int flags = unknown_session_a3d298.unknown_299c.unknown[house];
+                    unsigned int flags = unknown_session_a3d298.WolPlayerState.unknown[house];
                     if (flags != 0 && !(flags & 1)) { Debug_Printf("Player %s has a NAT - no preview download possible\n", Wide_To_Narrow_006fa120(unknown_players_a3fa7c[i]->Name)); direct = false; }
                     else if (!unknown_session_a3d298.unknown_293c.Addresses[house].Is_Same_Node(unknown_players_a3fa7c[i]->Address)) { Debug_Printf("Player %s has different local and external IPs - no preview download possible\n", Wide_To_Narrow_006fa120(unknown_players_a3fa7c[i]->Name)); direct = false; }
                     if (!direct) break;

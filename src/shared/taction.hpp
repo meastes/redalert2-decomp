@@ -184,7 +184,7 @@ public:
     int unknown_38;                         // +0x38
     int unknown_3c;                         // +0x3C
     int unknown_40;                         // +0x40
-    int unknown_44;                         // +0x44
+    int EffectLocation;                         // +0x44
     int unknown_48;                         // +0x48
     AbstractClass *unknown_4c;              // +0x4C
     AbstractClass *unknown_50;              // +0x50

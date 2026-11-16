@@ -131,7 +131,7 @@ TeamTypeClass::TeamTypeClass(char const *ini_name) :
     Suicide(false),
     Droppod(false),
     UseTransportOrigin(false),
-    unknown_b2(false),
+    IsDropship(false),
     OnTransOnly(false),
     Priority(7),
     Max(-1),
@@ -146,8 +146,8 @@ TeamTypeClass::TeamTypeClass(char const *ini_name) :
     TaskForce(0),
     IsGlobal(0),
     unknown_e4(9),
-    unknown_e8(true),
-    unknown_e9(false),
+    IsReachCheckNeeded(true),
+    HasNavalTransport(false),
     AvoidThreats(false),
     IonImmune(false),
     TransportsReturnOnUnload(false),
@@ -732,7 +732,7 @@ bool TeamTypeClass::Can_Recruit(FootClass *foot, HouseClass *house)
         }
         if ((foot->unknown_379 || Autocreate) && (foot->unknown_37a || !Autocreate)
             && (foot->Team == 0 || foot->Team->Class->Priority < Priority)) {
-            if (foot->Kind_Of() == 2 && foot->unknown_slot231(0)->WeaponType != 0 && foot->unknown_254 == 0) {
+            if (foot->Kind_Of() == 2 && foot->unknown_slot231(0)->WeaponType != 0 && foot->Ammo == 0) {
                 return false;
             }
             return true;
@@ -778,22 +778,22 @@ TeamClass *TeamTypeClass::Find_Team() const
 
 void TeamTypeClass::unknown_func_6c0180()
 {
-    unknown_e8 = true;
-    unknown_e9 = false;
+    IsReachCheckNeeded = true;
+    HasNavalTransport = false;
     unknown_e4 = 9;
     for (int index = 0; index < TaskForce->CountEntries; index++) {
         TechnoTypeClass *type = TaskForce->Entries[index].Type;
         if (type->Naval) {
             if (type->Passengers == 0) {
-                unknown_e8 = false;
+                IsReachCheckNeeded = false;
             } else {
-                unknown_e9 = true;
+                HasNavalTransport = true;
             }
         }
         unknown_e4 = Unknown_0056A900(type->MovementZone, unknown_e4);
     }
     if (IsBaseDefense) {
-        unknown_e8 = false;
+        IsReachCheckNeeded = false;
     }
 }
 

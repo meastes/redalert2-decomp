@@ -165,7 +165,7 @@ public:
     int                      VeinholeGrowthRate;   // +0xD8
     int                      VeinholeShrinkRate;   // +0xDC
     AnimTypeClass *          VeinAttack;   // +0xE0
-    int                      unknown_e4;   // +0xE4 VeinDamage; vein damage (AnimClass 0x00422F50)
+    int                      VeinDamage;   // +0xE4 VeinDamage; vein damage (AnimClass 0x00422F50)
     int                      MaximumQueuedObjects;   // +0xE8
     int                      AircraftFogReveal;   // +0xEC AircraftFogReveal; a sight range (AircraftClass slot 70)
     OverlayTypeClass *       WoodCrateImg;   // +0xF0 WoodCrateImg; (OverlayClass slot 71: an overlay type placed without a house; hypothesis)

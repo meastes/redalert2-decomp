@@ -305,7 +305,7 @@ int Scripted_Order(char const *command)
             if (techno && techno->House == player && techno->Kind_Of() == 1) unit = techno;
         }
         if (unit == 0) return -1;
-        unit->unknown_228 = building;
+        unit->TarCom = building;
         new WaveClass(unit->Coord, building->Coord, unit, 0, building);
         CoordStruct end = building->Coord;
         end.X += 2560;

@@ -380,18 +380,18 @@ SessionClass::SessionClass() : Mode(0)
  unknown_2a=false; unknown_2b=false; unknown_2c=false; GameSpeed_30=0; unknown_34=false;
  unknown_a4=false; unknown_a5=false; unknown_a6=false; unknown_fog_a7=false; unknown_a8=false;
  unknown_difficulty_40=1; UniqueID=0; Handle[0]=0;
- House=0; idxSide2=-1; unknown_11c=2; ColorIdx=-1;
- Side=House; unknown_138=idxSide2; Color=unknown_11c; Color2=ColorIdx;
+ House=0; idxSide2=-1; PrefColor=2; ColorIdx=-1;
+ Side=House; unknown_138=idxSide2; Color=PrefColor; Color2=ColorIdx;
  WOLTaunts=true; LANTaunts=true; WOLScrollText=true; LANScrollText=true;
- for(int i=0;i<8;++i) unknown_3022.unknown[i]=0;
- unknown_3020=false; unknown_3014=false; unknown_3016=0; unknown_3018=0;
- PortBase=1250; unknown_2f9c=0; unknown_2fc0=true; SendDelay=false; PortNumberOverride=0;
+ for(int i=0;i<8;++i) PlayerPorts.unknown[i]=0;
+ RouterProbeActive=false; PortProbeDue=false; RouterProbePort=0; unknown_3018=0;
+ PortBase=1250; ForcePortBase=0; RotatePortBase=true; SendDelay=false; PortNumberOverride=0;
  memset(session_ctor_trace_b26cbc,0,sizeof(session_ctor_trace_b26cbc));
  memset(session_ctor_trace_b291a4,0,sizeof(session_ctor_trace_b291a4));
  MultiplayerObserver=0; unknown_2b4=0; LastNickSlot=-1; WOLLimitResolution=false; ViaPacketRouter=false;
  MasterPlayerID=-1; memset(MasterPlayerName,0,sizeof(MasterPlayerName));
- unknown_3034=0; unknown_3038=true; unknown_303c=-1; unknown_3040[0]=false;
- unknown_3044=20; unknown_3048=0; unknown_304c=0; unknown_3050=-1; unknown_292c=0;
+ SlowestResponse=0; UseRouter=true; LastTimingID=-1; unknown_3040[0]=false;
+ RouterResponse=20; ExitEventPending=0; ExitEventFrame=0; ExitEventPlayer=-1; PacketRouterPort=0;
  SquadAlliances=false; SawGameCompletion=false; OutOfSync=false;
  MaxPlayers=8; NumPlayers=0; FrameSendRate=5; MaxAhead_2c8=FrameSendRate*3; MaxMaxAhead=MaxAhead_2c8;
  memset(unknown_2ec,0,sizeof(unknown_2ec)); PrecalcMaxAhead=0; PrecalcDesiredFrameRate=0;
@@ -399,19 +399,19 @@ SessionClass::SessionClass() : Mode(0)
  LastMessage[0]=0; WWChat=0;
  RecordFile.Set_Name("RECORD.BIN");
  Record=false; Play=false; Attract=false;
- unknown_236c=0; unknown_237c=false; NetProtect=true; NetOpen=false;
- HostName_2380[0]=0; GProductID=0; unknown_2824=0; unknown_290c=1; unknown_27b0=0x22e;
+ IsBridge=0; unknown_237c=false; NetProtect=true; NetOpen=false;
+ HostName_2380[0]=0; GProductID=0; unknown_2824=0; LatencyFudge=1; unknown_27b0=0x22e;
  memset(KickVotes,0,sizeof(KickVotes)); memset(KickVoters,0xff,sizeof(KickVoters));
  ModemService=true; CurPhoneIdx=0;
  SerialDefaults.Port=0x2f8; SerialDefaults.IRQ=3; SerialDefaults.Baud=9600; SerialDefaults.DialMethod=0;
  SerialDefaults.InitStringIndex=-1; SerialDefaults.CallWaitStringIndex=0;
- strcpy(SerialDefaults.CallWaitString,session_empty); unknown_28a0=0;
+ strcpy(SerialDefaults.CallWaitString,session_empty); ModemType=0;
  TrapFrame=0x7fffffff; TrapObjType=0; unknown_305c=0; unknown_3060=unknown_geometry_l;
  TrapTarget.Invalidate(); TrapCell=0; TrapCheckHeap=0; TrapPrintCRC=0;
  unknown_2820=false; AICount=0;
  for(i=0;i<8;++i){ AICountry[i]=-1; AIColor[i]=-1; }
  unknown_0c=0; unknown_10=0; ScenarioFileName_658[0]=0;
- ScenarioFileLength_87c=0; ScenarioIsOfficial_880=false; unknown_884=0;
+ ScenarioFileLength_87c=0; ScenarioIsOfficial_880=false; ScenarioMaxPlayers=0;
 }
 
 // The DynamicVectorClass vtables this constructor emits: their slots (read from the original vtables).
@@ -492,10 +492,10 @@ int SessionClass::Create_Connections()
     }
 
     for (int k = 0; k < 8; k++) {
-        unknown_session_a3d298.unknown_2ff4[k] = TickCount.Time();
+        unknown_session_a3d298.PlayerLastTime[k] = TickCount.Time();
     }
 
-    if (Type == 4 && unknown_3038) {
+    if (Type == 4 && UseRouter) {
         NetNumType net2;
         NetNodeType node2;
         net2[0] = 0;
@@ -510,9 +510,9 @@ int SessionClass::Create_Connections()
         node2[5] = 0;
         unknown_forward_address_a3fbb8.Set_Address(net2, node2, 0);
         ViaPacketRouter = true;
-        unknown_3034 = 0;
-        unknown_3044 = 20;
-        unknown_303c = -1;
+        SlowestResponse = 0;
+        RouterResponse = 20;
+        LastTimingID = -1;
         Ipx.Create_Multicast_Connection();
         OwnerTalk.Build_Connection_List();
         if (unknown_session_a3d298.Am_I_Master(0)) {
@@ -622,7 +622,7 @@ void SessionClass::Read_MultiPlayer_Settings()
 
     if (!PortsRead) {
         PortBase = ConfigINI.Get_Int("MultiPlayer", "PortBase", 0x4E2);
-        unknown_2f9c = ConfigINI.Get_Int("MultiPlayer", "ForcePortBase", 0);
+        ForcePortBase = ConfigINI.Get_Int("MultiPlayer", "ForcePortBase", 0);
         unknown_port_pool_a71b28 = ConfigINI.Get_Int("MultiPlayer", "PortPool", NonCriticalRandomNumber(0, 0x8000) + 0x1000);
         PortsRead = true;
         FirewallHelper.Load_005ba280();
@@ -886,7 +886,7 @@ bool SessionClass::Log_To_File(_iobuf *out)
     fprintf(out, "MaxAhead = %d\n", MaxAhead_2c8);
     fprintf(out, "LoadGame = %d\n", LoadGame);
     fprintf(out, "PrefColor = %d\n", Color);
-    fprintf(out, "ColorIdx = %d\n", unknown_11c);
+    fprintf(out, "ColorIdx = %d\n", PrefColor);
     fprintf(out, "House = %d\n", House);
     fprintf(out, "NumPlayers = %d\n", NumPlayers);
     fprintf(out, "Options.Bases = %d\n", unknown_bases_20);
@@ -1732,7 +1732,7 @@ void SessionClass::Set_Value_00672ae0(int value, bool update)
         Color = value;
         Color2 = -1;
     }
-    unknown_11c = Color;
+    PrefColor = Color;
     ColorIdx = Color2;
 }
 
@@ -1853,8 +1853,8 @@ void SessionClass::Assign_Random_Choices()
 // Pauses for a dialog once (+0x3080 records it); see the declaration.
 void SessionClass::Unknown_00672DE0()
 {
-    if (!unknown_3080 && GameActive) {
-        unknown_3080 = true;
+    if (!CurrentlyInGame && GameActive) {
+        CurrentlyInGame = true;
         if (SavedGameSpeed == -1) {
             SavedGameSpeed = Options.GameSpeed;
         }
@@ -1876,8 +1876,8 @@ void SessionClass::Unknown_00672DE0()
 // Undoes 0x00672DE0.
 void SessionClass::Leave_Game()
 {
-    if (unknown_3080) {
-        unknown_3080 = false;
+    if (CurrentlyInGame) {
+        CurrentlyInGame = false;
         if (SavedGameSpeed != -1) {
             Options.GameSpeed = SavedGameSpeed;
             SavedGameSpeed = -1;
@@ -1906,7 +1906,7 @@ unsigned short SessionClass::Player_Port(int id)
 {
     for (int index = 0; index < unknown_players_a3fa7c.Count(); index++) {
         if (unknown_players_a3fa7c[index]->ID == id) {
-            return unknown_3022.unknown[index];
+            return PlayerPorts.unknown[index];
         }
     }
     return 0;
@@ -1980,11 +1980,11 @@ void SessionClass::Allocate_Ports_00673090()
     }
     names = 0;
     memset(unknown_2dd0, 0, sizeof(unknown_2dd0));
-    unknown_2fc0 = true;
+    RotatePortBase = true;
     for (index = 0; index < Players.Count(); index++) {
         slot = Player_To_Slot(index);
         if (slot >= 0 && slot < 8) {
-            Players[index]->Address.Set_Port(unknown_2fa0.unknown[slot]);
+            Players[index]->Address.Set_Port(PlayerPortBase.unknown[slot]);
             char *name = Wide_To_Narrow_006fa120(Players[index]->Name);
             Debug_Printf("Allocated port for player %s - %s\n", name, Players[index]->Address.As_String());
         }
@@ -2020,8 +2020,8 @@ void SessionClass::Allocate_Ports_00673090()
             if (other != index && !used[other] && address.Is_Same_Node(order[other]->Address)) {
                 int first = Name_To_Slot(Wide_To_Narrow_006fa120(order[other]->Name));
                 int second = Name_To_Slot(Wide_To_Narrow_006fa120(order[index]->Name));
-                if (unknown_2fa0.unknown[first] == unknown_2fa0.unknown[second]) {
-                    order[other]->Address.Set_Port(unknown_2fa0.unknown[first] + bump++);
+                if (PlayerPortBase.unknown[first] == PlayerPortBase.unknown[second]) {
+                    order[other]->Address.Set_Port(PlayerPortBase.unknown[first] + bump++);
                     used[other] = true;
                     Debug_Printf("Adjusted port number to %d for player %s\n", (unsigned short)bump - 1,
                         Wide_To_Narrow_006fa120(order[other]->Name));
@@ -2046,9 +2046,9 @@ void SessionClass::Allocate_Ports_00673090()
         PlayerSlots[Player_To_Slot(0)]->Address.Set_Port(PortNumberOverride);
     }
     for (index = 0; index < Players.Count(); index++) {
-        unknown_3022.unknown[index] = *(unsigned short *)Players[index]->Address.NetworkNumber;   // NATIVE: the UDP port word (the header accessor is guarded off in this unit)
-        if (unknown_3022.unknown[index] == 0) {
-            unknown_3022.unknown[index] = 1234;
+        PlayerPorts.unknown[index] = *(unsigned short *)Players[index]->Address.NetworkNumber;   // NATIVE: the UDP port word (the header accessor is guarded off in this unit)
+        if (PlayerPorts.unknown[index] == 0) {
+            PlayerPorts.unknown[index] = 1234;
         }
     }
 
@@ -2075,7 +2075,7 @@ void SessionClass::Allocate_Ports_00673090()
     if (PacketTransport) {
         ((UDPInterfaceClass *)PacketTransport)->Close_All_Port_Sockets();   // slot 28 (was spelled unknown_slot28)
         // behaviour fix (codex4 r506): the original calls slot 23 OpenSocket(port), not slot 15 Open_Socket.
-        ((UDPInterfaceClass *)PacketTransport)->OpenSocket(unknown_3022.unknown[0]);
+        ((UDPInterfaceClass *)PacketTransport)->OpenSocket(PlayerPorts.unknown[0]);
         PacketTransport->Start_Listening();
     }
 }

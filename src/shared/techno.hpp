@@ -124,7 +124,7 @@ public:
 struct RecoilData {
     RecoilData() :
         unknown_00(2), unknown_04(1), unknown_08(1), unknown_0c(1),
-        unknown_14(0), unknown_18(0) {}
+        TravelSoFar(0), unknown_18(0) {}
     void unknown_6d8b90();              // 0x006D8B90
     void unknown_6d8bc0();              // 0x006D8BC0
     int unknown_00;                     // +0x00 amount
@@ -132,7 +132,7 @@ struct RecoilData {
     int unknown_08;                     // +0x08 frames to fall
     int unknown_0c;                     // +0x0C frames to hold
     float unknown_10;                   // +0x10 step per frame
-    float unknown_14;                   // +0x14 current value
+    float TravelSoFar;                   // +0x14 current value
     int unknown_18;                     // +0x18 state (0 idle)
     int unknown_1c;                     // +0x1C frames left in the state
 };
@@ -379,8 +379,8 @@ public:
     virtual bool Can_Player_Fire();                              // slot 38 0x006CD630
     virtual bool Can_Player_Move();                              // slot 39 0x006CD290
     virtual CoordStruct unknown_slot43(int arg1);             // slot 43 0x006C1830
-    virtual bool unknown_slot48() { return unknown_170; }       // slot 48 kept copy 0x0041B410
-    virtual bool IsDisguisedAs(HouseClass *house) { return unknown_170; }   // slot 49 kept copy 0x0041B420
+    virtual bool unknown_slot48() { return Disguised; }       // slot 48 kept copy 0x0041B410
+    virtual bool IsDisguisedAs(HouseClass *house) { return Disguised; }   // slot 49 kept copy 0x0041B420
     virtual bool Limbo();                               // slot 52 0x006C4480
     virtual bool Unlimbo(CoordStruct const *coord, int dir);             // slot 53 0x006C4610
     virtual void Record_The_Kill(TechnoClass *techno);                      // slot 55 0x006CED90
@@ -461,7 +461,7 @@ public:
     virtual bool Player_Assign_Mission(int arg1, AbstractClass *arg2, AbstractClass *arg3, AbstractClass *arg4); // slot 200 (+0x320) 0x006CC2A0
     virtual bool unknown_slot201() { return unknown_3fc > 0; } // slot 201 (+0x324) 0x006D8E80
     virtual bool unknown_slot202();                             // slot 202 (+0x328) 0x00453BC0 (kept copy elsewhere)
-    virtual bool unknown_slot203() { return unknown_154.Value() > 0; }  // slot 203 (+0x32C) kept copy 0x0041B390 (the +0x154 timer still runs)
+    virtual bool unknown_slot203() { return IronCurtainTimer.Value() > 0; }  // slot 203 (+0x32C) kept copy 0x0041B390 (the +0x154 timer still runs)
     virtual bool CanCheer();                                 // slot 204 (+0x330) 0x0041B3D0 (kept copy elsewhere)
     virtual void Cheer();                                 // slot 205 (+0x334) 0x0041B3E0 (kept copy elsewhere)
     virtual int unknown_slot206() { TechnoTypeClass *type = Techno_Type_Class(); if (type) { return type->Speed; } return 0; } // slot 206 (+0x338) 0x006D8E90
@@ -640,79 +640,79 @@ public:
     int Anti_Infantry();                                       // 0x006D59D0 (the same with Verses[0])
 
     CargoClass Cargo;                       // +0x0F8 (count, first object; swizzled)
-    int unknown_100;                        // +0x100 (-1)
-    int unknown_104;                        // +0x104 (-1)
-    ObjectClass *unknown_108;               // +0x108 (swizzled; listed in 0x00AC0BF8)
-    int unknown_10c;                        // +0x10C
-    int unknown_110;                        // +0x110 (-1)
-    int unknown_114;                        // +0x114 (-1)
+    int CurrentTurretNumber;                        // +0x100 (-1)
+    int LastTurretNumber;                        // +0x104 (-1)
+    ObjectClass *BehindAnim;               // +0x108 (swizzled; listed in 0x00AC0BF8)
+    int CurrentWeaponNumber;                        // +0x10C
+    int CurrentRanking;                        // +0x110 (-1)
+    int ActLike;                        // +0x114 (-1)
     VeterancyClass Veterancy;          // +0x118
-    double unknown_120;                     // +0x120 (1.0)
+    double ArmorBias;                     // +0x120 (1.0)
     double unknown_128;                     // +0x128 (1.0)
-    CDTimerClass<FrameTimerClass> unknown_130;  // +0x130
-    CDTimerClass<FrameTimerClass> unknown_13c;  // +0x13C
+    CDTimerClass<FrameTimerClass> IdleTimer;  // +0x130
+    CDTimerClass<FrameTimerClass> RadarFlashTimer;  // +0x13C
     CDTimerClass<FrameTimerClass> unknown_148;  // +0x148 (45)
-    CDTimerClass<FrameTimerClass> unknown_154;  // +0x154
-    CDTimerClass<FrameTimerClass> unknown_160;  // +0x160
-    int unknown_16c;                        // +0x16C
-    bool unknown_170;                       // +0x170
-    int unknown_174;                        // +0x174
-    CDTimerClass<FrameTimerClass> unknown_178;  // +0x178
-    CDTimerClass<FrameTimerClass> unknown_184;  // +0x184
-    bool unknown_190;                       // +0x190
-    CDTimerClass<FrameTimerClass> unknown_194;  // +0x194
-    Point2D unknown_1a0;                    // +0x1A0 the point the radar tracks (slots 264-266)
+    CDTimerClass<FrameTimerClass> IronCurtainTimer;  // +0x154
+    CDTimerClass<FrameTimerClass> IronTintTimer;  // +0x160
+    int IronTintStage;                        // +0x16C
+    bool Disguised;                       // +0x170
+    int DisguiseCreationFrame;                        // +0x174
+    CDTimerClass<FrameTimerClass> InfantryBlinkTimer;  // +0x178
+    CDTimerClass<FrameTimerClass> DisguiseBlinkTimer;  // +0x184
+    bool UnlimboingInfantry;                       // +0x190
+    CDTimerClass<FrameTimerClass> ReloadTimer;  // +0x194
+    Point2D RadarPos;                    // +0x1A0 the point the radar tracks (slots 264-266)
     int unknown_1a8;                        // +0x1A8
-    int unknown_1ac;                        // +0x1AC (-1)
-    AbstractClass *unknown_1b0;             // +0x1B0 (swizzled)
+    int Group;                        // +0x1AC (-1)
+    AbstractClass *ArchivedTarget;             // +0x1B0 (swizzled)
     HouseClass *House;                      // +0x1B4
-    int unknown_1b8;                        // +0x1B8
-    UnknownStage unknown_1bc;               // +0x1BC
-    CDTimerClass<FrameTimerClass> unknown_1d4;  // +0x1D4
-    float unknown_1e0;                      // +0x1E0
-    bool unknown_1e4;                       // +0x1E4
-    CoordStruct unknown_1e8;                // +0x1E8
-    int unknown_1f4;                        // +0x1F4
-    int unknown_1f8;                        // +0x1F8
-    bool unknown_1fc;                       // +0x1FC
-    bool unknown_1fd;                       // +0x1FD
-    int unknown_200;                        // +0x200
-    bool unknown_204;                       // +0x204
+    int Cloak;                        // +0x1B8
+    UnknownStage CloakingDevice;               // +0x1BC
+    CDTimerClass<FrameTimerClass> CloakDelay;  // +0x1D4
+    float PredatorOffset;                      // +0x1E0
+    bool IsSightRevealed;                       // +0x1E4
+    CoordStruct LastSightCoords;                // +0x1E8
+    int LastSightRange;                        // +0x1F4
+    int LastSightHeight;                        // +0x1F8
+    bool GapSuperCharged;                       // +0x1FC
+    bool GeneratingGap;                       // +0x1FD
+    int GapRadius;                        // +0x200
+    bool BeingWarpedOut;                       // +0x204
     bool WarpingOut;                       // +0x205
     bool unknown_206;                       // +0x206
     UnknownTechno208 *TemporalImUsing;          // +0x208 (owned; swizzled)
-    AbstractClass *unknown_20c;             // +0x20C (swizzled)
+    AbstractClass *TemporalTargetingMe;             // +0x20C (swizzled)
     bool IsImmobilized;                       // +0x210
-    int unknown_214;                        // +0x214
-    int unknown_218;                        // +0x218
-    CoordStruct unknown_21c;                // +0x21C
-    AbstractClass *unknown_228;             // +0x228 (swizzled)
-    AbstractClass *unknown_22c;             // +0x22C (swizzled)
-    AbstractClass *unknown_230;             // +0x230 (owned; swizzled)
-    AbstractClass *unknown_234;             // +0x234 (swizzled)
+    int TeleportState;                        // +0x214
+    int ChronoLockRemaining;                        // +0x218
+    CoordStruct ChronoDestCoords;                // +0x21C
+    AbstractClass *TarCom;             // +0x228 (swizzled)
+    AbstractClass *SuspendedTarCom;             // +0x22C (swizzled)
+    AbstractClass *CaptureManager;             // +0x230 (owned; swizzled)
+    AbstractClass *MindControlledBy;             // +0x234 (swizzled)
     SpawnManagerClass *SpawnManager;          // +0x238 (owned; swizzled)
-    AbstractClass *unknown_23c;             // +0x23C (swizzled)
+    AbstractClass *SpawnOwner;             // +0x23C (swizzled)
     float PitchAngle;                      // +0x240 (float: TechnoClass::Compute_CRC hashes it as one)
     CDTimerClass<FrameTimerClass> Arm;  // +0x244
-    int unknown_250;                        // +0x250
-    int unknown_254;                        // +0x254 (-1)
-    int unknown_258;                        // +0x258
+    int ChargeTurretDelay;                        // +0x250
+    int Ammo;                        // +0x254 (-1)
+    int PurchasePrice;                        // +0x258
     ObjectClass *unknown_25c[8];            // +0x25C (swizzled; [3] gets slot 60 in 0x006D7F30)
-    AbstractClass *unknown_27c;             // +0x27C (swizzled)
-    float unknown_280;                      // +0x280 (float: Compute_CRC)
-    float unknown_284;                      // +0x284 (float: Compute_CRC)
-    float unknown_288;                      // +0x288 (a spin rate set when the unit dies; FootClass slot 224)
-    float unknown_28c;                      // +0x28C (a second rate; FootClass slot 224)
-    int unknown_290;                        // +0x290 (-1)
+    AbstractClass *Wave;             // +0x27C (swizzled)
+    float AngleRotatedSideways;                      // +0x280 (float: Compute_CRC)
+    float AngleRotatedForwards;                      // +0x284 (float: Compute_CRC)
+    float RockingSidewaysPerFrame;                      // +0x288 (a spin rate set when the unit dies; FootClass slot 224)
+    float RockingForwardsPerFrame;                      // +0x28C (a second rate; FootClass slot 224)
+    int EnteredByInfType;                        // +0x290 (-1)
     StorageClass unknown_294;               // +0x294
     int unknown_2a4;                        // +0x2A4
     DelayTimerClass Door;               // +0x2A8
-    FacingClass unknown_2c8;                // +0x2C8 (rate 3)
+    FacingClass BarrelPitch;                // +0x2C8 (rate 3)
     FacingClass PrimaryFacing;                // +0x2E0
     FacingClass SecondaryFacing;                // +0x2F8
     int BurstIndex;                        // +0x310
-    CDTimerClass<FrameTimerClass> unknown_314;  // +0x314
-    short unknown_320;                      // +0x320 (random when constructed)
+    CDTimerClass<FrameTimerClass> TargetingLaserTimer;  // +0x314
+    short SoundRandomSeed;                      // +0x320 (random when constructed)
     short unknown_322;                      // +0x322
     bool unknown_324;                       // +0x324
     bool unknown_325;                       // +0x325

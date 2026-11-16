@@ -282,8 +282,8 @@ void IonBlastClass::AI()
                                     double height = (unknown_sin_4ba480((blast_dist - (double)Lifetime * WavePhaseSpeed + 38.0) * WaveFrequency) * 3.5 + 3.0) * WaveAmplitudeFalloff;
                                     double slope = ((unknown_cos_4ba4d0((blast_dist - (double)Lifetime * WavePhaseSpeed + 38.0) * WaveFrequency) * WaveFrequency * WaveAmplitudeFalloff * 3.5) * decay - height) / (decay * decay);
 
-                                    foot->unknown_280 = (float)(sideways * slope * WaveRockScale);
-                                    foot->unknown_284 = (float)(-(forwards * slope * WaveRockScale));
+                                    foot->AngleRotatedSideways = (float)(sideways * slope * WaveRockScale);
+                                    foot->AngleRotatedForwards = (float)(-(forwards * slope * WaveRockScale));
                                 }
                             }
                         }

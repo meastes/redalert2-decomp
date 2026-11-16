@@ -105,7 +105,7 @@ public:
     bool Suicide;                   // +0xAF
     bool Droppod;                   // +0xB0
     bool UseTransportOrigin;        // +0xB1
-    bool unknown_b2;                // +0xB2
+    bool IsDropship;                // +0xB2
     bool OnTransOnly;               // +0xB3
     int Priority;                   // +0xB4
     int Max;                        // +0xB8
@@ -120,8 +120,8 @@ public:
     TaskForceClass *TaskForce;      // +0xDC
     int IsGlobal;                   // +0xE0
     int unknown_e4;                 // +0xE4
-    bool unknown_e8;                // +0xE8
-    bool unknown_e9;                // +0xE9
+    bool IsReachCheckNeeded;                // +0xE8
+    bool HasNavalTransport;                // +0xE9
     bool AvoidThreats;              // +0xEA
     bool IonImmune;                 // +0xEB
     bool TransportsReturnOnUnload;  // +0xEC

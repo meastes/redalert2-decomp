@@ -80,7 +80,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
         return;
     }
 
-    if (unknown_24 == unknown_geometry_l) {
+    if (HeadToCoord == unknown_geometry_l) {
         if (unknown_18 != unknown_geometry_l) {
             if (LinkedTo->Path[0] == -1) {
                 if (LinkedTo->PathDelay != 0) {
@@ -110,8 +110,8 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                                     LinkedTo->Assign_Destination(0, 1);
                                 }
                             }
-                            if (LinkedTo->unknown_228 != 0) {
-                                Cell tar_dest = LinkedTo->unknown_228->unknown_slot19(LinkedTo).As_Cell();
+                            if (LinkedTo->TarCom != 0) {
+                                Cell tar_dest = LinkedTo->TarCom->unknown_slot19(LinkedTo).As_Cell();
                                 if (LinkedTo->unknown_32d) {
                                     Cell nav_dest = LinkedTo->unknown_slot19(LinkedTo).As_Cell();
                                     if (!Map.Unknown_0054F7C0(nav_dest, tar_dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(LinkedTo), Map[tar_dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
@@ -137,7 +137,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                     LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
                     TubeClass *tube_ptr = Tubes[tube];
                     Cell cell = tube_ptr->ExitCell;
-                    unknown_24 = Cell_Coord(cell);
+                    HeadToCoord = Cell_Coord(cell);
                     memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
                     LinkedTo->Path[23] = -1;
                     LinkedTo->CurrentTube = tube;
@@ -152,7 +152,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                     return;
                 }
                 LinkedTo->Path[0] = -1;
-                unknown_24 = unknown_geometry_l;
+                HeadToCoord = unknown_geometry_l;
                 Stop_Moving();
                 LinkedTo->Assign_Destination(0, 1);
                 return;
@@ -172,7 +172,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                     CellClass *cellptr = &Map[what];
                     if (continue_moving) {
                         LinkedTo->Path[0] = -1;
-                        unknown_24 = unknown_geometry_l;
+                        HeadToCoord = unknown_geometry_l;
                         LinkedTo->PathDelay = 0;
                         Movement_AI(false);
                         return;
@@ -239,7 +239,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                             ObjectClass *object = Map[what].Cell_Object(Point2D(0, 0), false);
                             if (continue_moving) {
                                 LinkedTo->Path[0] = -1;
-                                unknown_24 = unknown_geometry_l;
+                                HeadToCoord = unknown_geometry_l;
                                 LinkedTo->PathDelay = 0;
                                 Movement_AI(false);
                                 return;
@@ -263,7 +263,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                 }
                 if (!continue_moving) return;
                 LinkedTo->Path[0] = -1;
-                unknown_24 = unknown_geometry_l;
+                HeadToCoord = unknown_geometry_l;
                 LinkedTo->PathDelay = 0;
                 Movement_AI(false);
                 return;
@@ -279,7 +279,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                             if ((LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->Has_Ability(0x11)) && otype->ArrayIndex == 0) {
                                 LinkedTo->IsCrushing = true;
                                 if (LinkedTo->Techno_Type_Class()->TiltsWhenCrushes) {
-                                    LinkedTo->unknown_28c = -0.01f;
+                                    LinkedTo->RockingForwardsPerFrame = -0.01f;
                                 }
                             }
                         }
@@ -288,7 +288,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                 if (!LinkedTo->IsActive) {
                     return;
                 }
-                UnknownFacingDir face = Direction(LinkedTo->Center_Coord(), unknown_24);
+                UnknownFacingDir face = Direction(LinkedTo->Center_Coord(), HeadToCoord);
                 Do_Turn(face);
                 if (LinkedTo->PrimaryFacing.Is_Rotating()) {
                     return;
@@ -305,15 +305,15 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
         }
     } else {
 
-    if (Distance2(Flat(LinkedTo->Center_Coord()), Flat(unknown_24)) < 16) {
+    if (Distance2(Flat(LinkedTo->Center_Coord()), Flat(HeadToCoord)) < 16) {
         LinkedTo->Mark(0);
         if (LinkedTo->Path[0] == -1) {
             LinkedTo->Path[1] = -1;
         }
         memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
         LinkedTo->Path[23] = -1;
-        LinkedTo->Set_Coord(unknown_24);
-        LinkedTo->LastPathingCell = unknown_24.As_Cell();
+        LinkedTo->Set_Coord(HeadToCoord);
+        LinkedTo->LastPathingCell = HeadToCoord.As_Cell();
         LinkedTo->Set_Height_AGL(0);
         Mark_Head_To(unknown_geometry_l);
         if (LinkedTo->Path[0] == -1) {
@@ -347,7 +347,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                             if ((LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->Has_Ability(0x11)) && otype->ArrayIndex == 0) {
                                 LinkedTo->IsCrushing = true;
                                 if (LinkedTo->Techno_Type_Class()->TiltsWhenCrushes) {
-                                    LinkedTo->unknown_28c = -0.01f;
+                                    LinkedTo->RockingForwardsPerFrame = -0.01f;
                                 }
                             }
                         }
@@ -363,7 +363,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
 
     LinkedTo->unknown_slot306(1.0);
     int speed = LinkedTo->Current_Speed();
-    UnknownFacingDir desired = Direction(LinkedTo->Center_Coord(), unknown_24);
+    UnknownFacingDir desired = Direction(LinkedTo->Center_Coord(), HeadToCoord);
     Do_Turn(desired);
     if (LinkedTo->PrimaryFacing.Is_Rotating()) {
         return;

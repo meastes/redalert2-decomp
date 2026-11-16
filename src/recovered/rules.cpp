@@ -120,7 +120,7 @@ RulesClass::RulesClass() :
     VeinholeGrowthRate(100),
     VeinholeShrinkRate(100),
     VeinAttack(0),
-    unknown_e4(2),
+    VeinDamage(2),
     MaximumQueuedObjects(5),
     AircraftFogReveal(6),
     WoodCrateImg(0),
@@ -1550,7 +1550,7 @@ bool RulesClass::General(CCINIClass &ini)
         MaxVeinholeGrowth = ini.Get_Int(RulesSection_General, "MaxVeinholeGrowth", MaxVeinholeGrowth);
         VeinholeGrowthRate = ini.Get_Int(RulesSection_General, "VeinholeGrowthRate", VeinholeGrowthRate);
         VeinholeShrinkRate = ini.Get_Int(RulesSection_General, "VeinholeShrinkRate", VeinholeShrinkRate);
-        unknown_e4 = ini.Get_Int(RulesSection_General, "VeinDamage", unknown_e4);
+        VeinDamage = ini.Get_Int(RulesSection_General, "VeinDamage", VeinDamage);
         VeinholeTypeClass = Get_Type(ini, RulesSection_General, "VeinholeTypeClass", VeinholeTypeClass);  /* out of line 654100 */
         DefaultMirageDisguises = TypeListReader<TerrainTypeClass>::Get(ini, RulesSection_General, "DefaultMirageDisguises", DefaultMirageDisguises);
         InfantryBlinkDisguiseTime = ini.Get_Int(RulesSection_General, "InfantryBlinkDisguiseTime", InfantryBlinkDisguiseTime);

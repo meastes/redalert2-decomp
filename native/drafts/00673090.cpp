@@ -30,11 +30,11 @@ void SessionClass::Allocate_Ports_00673090()
     }
     names = 0;
     memset(unknown_2dd0, 0, sizeof(unknown_2dd0));
-    unknown_2fc0 = true;
+    RotatePortBase = true;
     for (index = 0; index < Players.Count(); index++) {
         slot = Player_To_Slot(index);
         if (slot >= 0 && slot < 8) {
-            Players[index]->Address.Set_Port(unknown_2fa0.unknown[slot]);
+            Players[index]->Address.Set_Port(PlayerPortBase.unknown[slot]);
             char *name = Wide_To_Narrow_006fa120(Players[index]->Name);
             Debug_Printf("Allocated port for player %s - %s\n", name, Players[index]->Address.As_String());
         }
@@ -70,8 +70,8 @@ void SessionClass::Allocate_Ports_00673090()
             if (other != index && !used[other] && address.Is_Same_Node(order[other]->Address)) {
                 int first = Name_To_Slot(Wide_To_Narrow_006fa120(order[other]->Name));
                 int second = Name_To_Slot(Wide_To_Narrow_006fa120(order[index]->Name));
-                if (unknown_2fa0.unknown[first] == unknown_2fa0.unknown[second]) {
-                    order[other]->Address.Set_Port(unknown_2fa0.unknown[first] + bump++);
+                if (PlayerPortBase.unknown[first] == PlayerPortBase.unknown[second]) {
+                    order[other]->Address.Set_Port(PlayerPortBase.unknown[first] + bump++);
                     used[other] = true;
                     Debug_Printf("Adjusted port number to %d for player %s\n", (unsigned short)bump - 1,
                         Wide_To_Narrow_006fa120(order[other]->Name));
@@ -96,9 +96,9 @@ void SessionClass::Allocate_Ports_00673090()
         PlayerSlots[Player_To_Slot(0)]->Address.Set_Port(PortNumberOverride);
     }
     for (index = 0; index < Players.Count(); index++) {
-        unknown_3022.unknown[index] = *(unsigned short *)Players[index]->Address.NetworkNumber;   // NATIVE: the UDP port word (the header accessor is guarded off in this unit)
-        if (unknown_3022.unknown[index] == 0) {
-            unknown_3022.unknown[index] = 1234;
+        PlayerPorts.unknown[index] = *(unsigned short *)Players[index]->Address.NetworkNumber;   // NATIVE: the UDP port word (the header accessor is guarded off in this unit)
+        if (PlayerPorts.unknown[index] == 0) {
+            PlayerPorts.unknown[index] = 1234;
         }
     }
 
@@ -125,7 +125,7 @@ void SessionClass::Allocate_Ports_00673090()
     if (PacketTransport) {
         ((UDPInterfaceClass *)PacketTransport)->Close_All_Port_Sockets();   // slot 28 (was spelled unknown_slot28)
         // behaviour fix (codex4 r506): the original calls slot 23 OpenSocket(port), not slot 15 Open_Socket.
-        ((UDPInterfaceClass *)PacketTransport)->OpenSocket(unknown_3022.unknown[0]);
+        ((UDPInterfaceClass *)PacketTransport)->OpenSocket(PlayerPorts.unknown[0]);
         PacketTransport->Start_Listening();
     }
 }

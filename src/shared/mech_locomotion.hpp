@@ -38,7 +38,7 @@ public:
     bool Mark_Head_To(CoordStruct const &coord);                              // 0x00592F70 (heads for a coordinate: marks the cell, true when it can be entered)
 
     CoordStruct unknown_18;             // +0x18 destination
-    CoordStruct unknown_24;             // +0x24 head-to coordinate
+    CoordStruct HeadToCoord;             // +0x24 head-to coordinate
     bool unknown_30;                    // +0x30 moving
 };
 

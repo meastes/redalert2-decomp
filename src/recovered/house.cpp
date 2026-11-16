@@ -949,7 +949,7 @@ skip:
         if (((InfantryTypeClass const *)type)->VehicleThief) {
             for (int i = 0; i < Units.Count(); i++) {
                 UnitClass *unit = Units[i];
-                if (unit->House == this && unit->unknown_290 == type->Fetch_Heap_ID()) {
+                if (unit->House == this && unit->EnteredByInfType == type->Fetch_Heap_ID()) {
                     count++;
                 }
             }
@@ -1546,7 +1546,7 @@ void HouseClass::Make_Ally(HouseClass *house, bool announce)
             for (int index = 0; index < unknown_list_832470.Count(); index++) {
                 ObjectClass *object = unknown_list_832470[index];
                 if (object != 0 && object->As_Techno() != 0 && !object->IsInLimbo && object->Owner() == ArrayIndex) {
-                    TargetClass target(((TechnoClass *)object)->unknown_228);
+                    TargetClass target(((TechnoClass *)object)->TarCom);
                     if (target.Is_Valid() && target.As_Techno() != 0) {
                         if (Is_Ally(target.As_Techno())) {
                             ((TechnoClass *)object)->unknown_slot220(0);
@@ -2348,13 +2348,13 @@ void HouseClass::unknown_func_4e7df0()
     int damage;
     while (index < Technos.Count()) {
         TechnoClass *techno = Technos[index];
-        HouseClass *owner = techno->unknown_234 != 0
-            ? ((UnknownTechno230View *)((TechnoClass *)techno->unknown_234)->unknown_230)->unknown_28
+        HouseClass *owner = techno->MindControlledBy != 0
+            ? ((UnknownTechno230View *)((TechnoClass *)techno->MindControlledBy)->CaptureManager)->unknown_28
             : techno->House;
         if (owner == this && techno != last) {
             damage = techno->Strength;
-            if (techno->unknown_20c != 0) {
-                ((UnknownTechno20cView *)techno->unknown_20c)->unknown_func_6e2680();
+            if (techno->TemporalTargetingMe != 0) {
+                ((UnknownTechno20cView *)techno->TemporalTargetingMe)->unknown_func_6e2680();
             }
             techno->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 1);
             last = techno;
@@ -3541,7 +3541,7 @@ AbstractClass *HouseClass::unknown_func_4eb360(CoordStruct const &coord)
     for (int index = 0; index < count; index++) {
         TechnoClass *unit = (TechnoClass *)Map[center + unknown_cells_a6f248[index]].Cell_Unit(true);
         if (unit != 0 && !unit->IsInLimbo && !Is_Ally(unit) && unit->House->Which_Zone(unit) == -1
-                && unit->Get_Height_AGL() >= -20 && unit->unknown_1b8 != 2) {
+                && unit->Get_Height_AGL() >= -20 && unit->Cloak != 2) {
             int distance = Coord_Distance(coord, unit->Center_Coord());
             if (unit->Anti_Air() != 0) {
                 distance *= 2;
@@ -6881,7 +6881,7 @@ bool HouseClass::Is_Build_Limited_004F4F30(TechnoTypeClass *type)
         if (((InfantryTypeClass *)type)->VehicleThief) {
             for (int i=0;i<Units.Count();++i) {
                 UnitClass *unit=Units[i];
-                if (unit->House==this && unit->unknown_290==type->Fetch_Heap_ID()) ++owned;
+                if (unit->House==this && unit->EnteredByInfType==type->Fetch_Heap_ID()) ++owned;
             }
         }
         if (type->BuildLimit>0) {
@@ -7379,7 +7379,7 @@ Cell HouseClass::unknown_func_4f65a0()
             }
         }
 CLASSIFIED:
-        if (techno->unknown_1b8==2 || (techno->Kind_Of()==6 && ((BuildingClass *)techno)->TranslucencyLevel==15)) value=Random_Pick(0,best+10);
+        if (techno->Cloak==2 || (techno->Kind_Of()==6 && ((BuildingClass *)techno)->TranslucencyLevel==15)) value=Random_Pick(0,best+10);
         if (valid) {
             if (value>best) {
                 targets.Clear();

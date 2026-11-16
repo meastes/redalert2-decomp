@@ -164,7 +164,7 @@ rc_ptr<PlayerProfile> __fastcall PlayerProfile::Load_00738880(Wstring const &nam
 
 PlayerProfile::PlayerProfile(Wstring const &server, int locale, bool verified, int unknown_18_value, int country,
                              int color, int rank, int points, int wins, int losses, int disconnects)
-    : unknown_08(false), Server(server), unknown_10(locale), Verified(verified), unknown_18(unknown_18_value),
+    : IsDirty(false), Server(server), unknown_10(locale), Verified(verified), unknown_18(unknown_18_value),
       Country(country), Color(color), Rank(rank), Points(points), Wins(wins), Losses(losses),
       Disconnects(disconnects)
 {
@@ -341,7 +341,7 @@ void PlayerProfile::Save_007395d0(Wstring const &name)
 {
     WolRegistryOptions options;
     options.Read_004ff200();
-    if (!unknown_08) {
+    if (!IsDirty) {
         return;
     }
     Wstring section(name);
@@ -374,7 +374,7 @@ void PlayerProfile::Save_007395d0(Wstring const &name)
         ini.Put_Int(section, "Disconnects", Disconnects);
         ini.Save(file);
         file.Close();
-        unknown_08 = false;
+        IsDirty = false;
     }
 }
 

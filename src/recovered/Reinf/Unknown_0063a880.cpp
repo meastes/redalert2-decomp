@@ -85,10 +85,10 @@ bool __fastcall Do_Chrono_Reinforcements(TeamTypeClass *teamtype, int wp)
 
         CoordStruct coord = Map[origin].Center_Coord();
         if (!is_unit) {
-            coord.X += ((object->unknown_254 & 3) - 2) * 256;
-            coord.Y += ((object->unknown_254 & 0xC) - 4) * 64;
+            coord.X += ((object->Ammo & 3) - 2) * 256;
+            coord.Y += ((object->Ammo & 0xC) - 4) * 64;
         }
-        object->unknown_254--;
+        object->Ammo--;
 
         CoordStruct result = unknown_geometry_l;
         CellClass *cellptr = &Map[coord];
@@ -120,10 +120,10 @@ bool __fastcall Do_Chrono_Reinforcements(TeamTypeClass *teamtype, int wp)
                 piggyback->Begin_Piggyback(object->Locomotor);
                 object->Locomotor = teleport;
             }
-            object->unknown_21c = coord;
+            object->ChronoDestCoords = coord;
             object->Locomotor.Checked()->Move_To(CoordStruct(coord.X, coord.Y, coord.Z));
             object->WarpingOut = true;
-            object->unknown_218 = Rules->ChronoReinfDelay;
+            object->ChronoLockRemaining = Rules->ChronoReinfDelay;
             object->unknown_30 = list;
             list = object;
 
@@ -148,7 +148,7 @@ bool __fastcall Do_Chrono_Reinforcements(TeamTypeClass *teamtype, int wp)
     object->unknown_30 = 0;
     while (object != 0) {
         object->Mark(0);
-        object->unknown_214 = 3;
+        object->TeleportState = 3;
         object->Commence();
 
         object = list;

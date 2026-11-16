@@ -354,17 +354,17 @@ public:
     static void const *unknown_shape_ab9480;            // 0x00AB9480 (One_Time)
 
     StripClass Column[4];                               // +0x1540
-    int unknown_4ed0;                                   // +0x4ED0
-    int unknown_4ed4;                                   // +0x4ED4
-    int unknown_4ed8;                                   // +0x4ED8
-    int unknown_4edc;                                   // +0x4EDC
-    bool unknown_4ee0;                                  // +0x4EE0
-    bool unknown_4ee1;                                  // +0x4EE1
+    int ShutterFrame;                                   // +0x4ED0
+    int ShutterStep;                                   // +0x4ED4
+    int ActiveTabIndex;                                   // +0x4ED8
+    int RedrawUntilFrame;                                   // +0x4EDC
+    bool IsCameoText;                                  // +0x4EE0
+    bool IsSidebarActive;                                  // +0x4EE1
     bool unknown_4ee2;                                  // +0x4EE2 true after Init_Clear
-    bool unknown_4ee3;                                  // +0x4EE3
+    bool IsForceCompleteRedraw;                                  // +0x4EE3
     bool IsToRedrawCredits;                                  // +0x4EE4
-    bool unknown_4ee5;                                  // +0x4EE5
-    bool unknown_4ee6;                                  // +0x4EE6
+    bool IsDemolishActive;                                  // +0x4EE5
+    bool IsRepairActive;                                  // +0x4EE6
 };
 
 #endif

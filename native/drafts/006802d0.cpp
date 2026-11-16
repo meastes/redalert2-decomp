@@ -132,7 +132,7 @@ bool SidebarClass::StripClass::Unknown_006802D0()
         } else {
             unknown_40 = 0;
         }
-        Map.unknown_4ee3 = true;
+        Map.IsForceCompleteRedraw = true;
     }
     delete [] unshifted;
     return redraw;

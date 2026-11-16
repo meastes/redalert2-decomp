@@ -75,7 +75,7 @@ void __stdcall TeleportLocomotionClass::Move_To(CoordStruct to)
         return;
     }
     CoordStruct coord = CoordStruct(to.X, to.Y, to.Z);
-    if (LinkedTo->unknown_190 && LinkedTo->Kind_Of() == 15) {
+    if (LinkedTo->UnlimboingInfantry && LinkedTo->Kind_Of() == 15) {
         CellClass &cell = Map[coord];
         cell.Incoming(&unknown_geometry_l, true, true, false);
     }
@@ -168,7 +168,7 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
                 Map[Coord_Cell(coord)].IsUnderBridge, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
             CoordStruct offset = coord - Map[coord].Center_Coord();
             CoordStruct target = Map[found].Center_Coord() + offset;
-            LinkedTo->unknown_21c = target;
+            LinkedTo->ChronoDestCoords = target;
             return false;
         }
     } else {
@@ -177,7 +177,7 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
         } else {
             LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
         }
-        unknown_28 = LinkedTo->unknown_21c;
+        unknown_28 = LinkedTo->ChronoDestCoords;
         unknown_28.Z = Map.Get_Height_GL(unknown_28);
         if ((Map[unknown_28].unknown_140 & 0x100) && !LinkedTo->IsOnBridge) {
             LinkedTo->IsOnBridge = true;
@@ -354,12 +354,12 @@ void __stdcall TeleportLocomotionClass::Do_Turn(UnknownFacingDir dir)
 bool __stdcall TeleportLocomotionClass::Process()
 {
     int distance = 0;
-    if (LinkedTo->WarpingOut && unknown_38 == 0 && LinkedTo->unknown_214 == 0) {
+    if (LinkedTo->WarpingOut && unknown_38 == 0 && LinkedTo->TeleportState == 0) {
         Process_Delay();
         return false;
     }
-    if (unknown_38 == 0 && LinkedTo->unknown_214 != 0) {
-        unknown_38 = LinkedTo->unknown_214;
+    if (unknown_38 == 0 && LinkedTo->TeleportState != 0) {
+        unknown_38 = LinkedTo->TeleportState;
         return false;
     }
     if (!LinkedTo->IsImmobilized) {
@@ -422,7 +422,7 @@ bool __stdcall TeleportLocomotionClass::Process()
                     cell->Goodie_Check(LinkedTo);
                     LinkedTo->Assign_Destination(0, true);
                     new AnimClass(Rules->WarpOut, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
-                    LinkedTo->unknown_214 = 0;
+                    LinkedTo->TeleportState = 0;
                     return false;
                 }
                 LinkedTo->Assign_Destination(0, true);
@@ -432,7 +432,7 @@ bool __stdcall TeleportLocomotionClass::Process()
             return false;
         }
     } else if (unknown_38 == 0) {
-        LinkedTo->unknown_204 = true;
+        LinkedTo->BeingWarpedOut = true;
         unknown_3c = 60;
         unknown_38++;
         return false;
@@ -453,9 +453,9 @@ bool __stdcall TeleportLocomotionClass::Process()
         }
         LinkedTo->WarpingOut = true;
         LinkedTo->IsImmobilized = false;
-        LinkedTo->unknown_204 = false;
+        LinkedTo->BeingWarpedOut = false;
         LinkedTo->IsOnBridge = false;
-        bool ok = unknown_6dff00(LinkedTo->unknown_21c, false);
+        bool ok = unknown_6dff00(LinkedTo->ChronoDestCoords, false);
         unknown_38++;
         if (ok) {
             unknown_38++;
@@ -464,14 +464,14 @@ bool __stdcall TeleportLocomotionClass::Process()
         return false;
     }
     if (unknown_38 == 3) {
-        if (unknown_6dff00(LinkedTo->unknown_21c, false)) {
+        if (unknown_6dff00(LinkedTo->ChronoDestCoords, false)) {
             unknown_38++;
         }
-        LinkedTo->unknown_218 = Rules->ChronoDelay;
+        LinkedTo->ChronoLockRemaining = Rules->ChronoDelay;
         return false;
     }
     if (unknown_38 == 4) {
-        unknown_6dff00(LinkedTo->unknown_21c, true);
+        unknown_6dff00(LinkedTo->ChronoDestCoords, true);
         LinkedTo->Set_Coord(unknown_28);
         LinkedTo->Set_Height_AGL(0);
         LinkedTo->Mark(1);
@@ -492,7 +492,7 @@ bool __stdcall TeleportLocomotionClass::Process()
         if (!Map.Unknown_0055A660(LinkedTo->unknown_slot104(), true)) {
             LinkedTo->unknown_32d = false;
         }
-        if (LinkedTo->unknown_214 == 0) {
+        if (LinkedTo->TeleportState == 0) {
             Check_Landing(unknown_28);
         }
         if (LinkedTo->IsActive) {
@@ -500,7 +500,7 @@ bool __stdcall TeleportLocomotionClass::Process()
             Stop_Moving();
             LinkedTo->Assign_Archive_Target(0);
             LinkedTo->Assign_Destination(0, true);
-            unknown_3c = LinkedTo->unknown_218;
+            unknown_3c = LinkedTo->ChronoLockRemaining;
             new AnimClass(Rules->WarpOut, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
             unknown_38++;
             return false;
@@ -516,7 +516,7 @@ bool __stdcall TeleportLocomotionClass::Process()
         LinkedTo->Assign_Archive_Target(0);
         LinkedTo->Assign_Destination(0, true);
         unknown_34 = false;
-        LinkedTo->unknown_214 = 0;
+        LinkedTo->TeleportState = 0;
         unknown_38 = 0;
     }
     return false;

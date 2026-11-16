@@ -198,7 +198,7 @@ bool FactoryClass::unknown_4b9440(TechnoTypeClass *type, HouseClass *house, unsi
     if (Object) {
         Owner=Object->House;
         UnspentCost=type->Cost_Of(Owner);
-        Object->unknown_258=UnspentCost;
+        Object->PurchasePrice=UnspentCost;
     }
     return Object!=0;
 }

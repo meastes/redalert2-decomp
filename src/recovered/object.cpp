@@ -100,7 +100,7 @@
 
 ObjectClass::ObjectClass() :
     unknown_30(0),
-    unknown_34(0),
+    Tag(0),
     unknown_38(0),
     CustomSound(-1),
     BombVisible(false),
@@ -795,9 +795,9 @@ bool ObjectClass::Unlimbo(CoordStruct const *coord, int direction)
 
 void ObjectClass::Detach(AbstractClass *target, bool all)
 {
-    if (unknown_34 == target && unknown_34 != 0) {
-        unknown_34->AttachCount--;
-        unknown_34 = 0;
+    if (Tag == target && Tag != 0) {
+        Tag->AttachCount--;
+        Tag = 0;
     }
     if (all && target == unknown_30 && target != 0) {
         unknown_30 = unknown_30->unknown_30;
@@ -902,23 +902,23 @@ int ObjectClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
     }
     int strength_after_damage = Strength;
     if (state == 2) {
-        if (source && unknown_34) unknown_34->Spring(39, this, unknown_geometry_k, 0, 0);
+        if (source && Tag) Tag->Spring(39, this, unknown_geometry_k, 0, 0);
         if (!IsActive) goto damage_interrupted;
-        if (unknown_34) unknown_34->Spring(42, this, unknown_geometry_k, 0, 0);
+        if (Tag) Tag->Spring(42, this, unknown_geometry_k, 0, 0);
     }
     if (IsActive) {
         if (state == 3) {
-            if (source && unknown_34) unknown_34->Spring(40, this, unknown_geometry_k, 0, 0);
+            if (source && Tag) Tag->Spring(40, this, unknown_geometry_k, 0, 0);
             if (!IsActive) goto damage_interrupted;
-            if (unknown_34) unknown_34->Spring(43, this, unknown_geometry_k, 0, 0);
+            if (Tag) Tag->Spring(43, this, unknown_geometry_k, 0, 0);
         }
         if (IsActive) {
             if (Strength != old_strength && Class_Of() && old_strength == Class_Of()->MaxStrength) {
-                if (source && unknown_34) unknown_34->Spring(38, this, unknown_geometry_k, 0, 0);
-                if (unknown_34 && IsActive) unknown_34->Spring(41, this, unknown_geometry_k, 0, 0);
-                if (unknown_34) {
+                if (source && Tag) Tag->Spring(38, this, unknown_geometry_k, 0, 0);
+                if (Tag && IsActive) Tag->Spring(41, this, unknown_geometry_k, 0, 0);
+                if (Tag) {
                     if (!IsActive) goto damage_interrupted;
-                    if (source) unknown_34->Spring(41, this, unknown_geometry_k, 0, reinterpret_cast<int>(source));
+                    if (source) Tag->Spring(41, this, unknown_geometry_k, 0, reinterpret_cast<int>(source));
                 }
             }
             if (IsActive && (strength_after_damage <= 0 || Strength > 0)) {
@@ -928,11 +928,11 @@ int ObjectClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
                     unknown_slot54(true);
                 }
                 if (!IsActive) goto damage_done;
-                if (source && unknown_34 && state != 4)
-                    unknown_34->Spring(6, this, unknown_geometry_k, 0, reinterpret_cast<int>(source));
+                if (source && Tag && state != 4)
+                    Tag->Spring(6, this, unknown_geometry_k, 0, reinterpret_cast<int>(source));
                 if (!IsActive) goto damage_done;
-                if (source && unknown_34 && state != 4)
-                    unknown_34->Spring(44, this, unknown_geometry_k, 0, reinterpret_cast<int>(source));
+                if (source && Tag && state != 4)
+                    Tag->Spring(44, this, unknown_geometry_k, 0, reinterpret_cast<int>(source));
                 if (!IsActive) goto damage_done;
                 if (state == 0) goto damage_done;
                 if (!IsSelected) goto damage_done;
@@ -1052,12 +1052,12 @@ bool ObjectClass::unknown_slot56(CoordStruct const &coord)
 
 bool ObjectClass::Attach_Tag(TagClass *tag)
 {
-    if (unknown_34 != 0) {
-        unknown_34->AttachCount--;
-        unknown_34 = 0;
+    if (Tag != 0) {
+        Tag->AttachCount--;
+        Tag = 0;
     }
     if (tag != 0) {
-        unknown_34 = tag;
+        Tag = tag;
         tag->AttachCount++;
         return true;
     }
@@ -1173,7 +1173,7 @@ HRESULT __stdcall ObjectClass::Load(IStream *stream)
         return result;
     }
     Swizzler.Swizzle((void **)&unknown_30);
-    Swizzler.Swizzle((void **)&unknown_34);
+    Swizzler.Swizzle((void **)&Tag);
     Swizzler.Swizzle((void **)&unknown_38);
     Swizzler.Swizzle((void **)&unknown_18);
     AmbientSoundController.Init();
@@ -1310,8 +1310,8 @@ void ObjectClass::Compute_CRC(WWCRCEngine &crc) const
     if (unknown_30 != 0) {
         crc(unknown_30->Fetch_ID());
     }
-    if (unknown_34 != 0) {
-        crc(unknown_34->Fetch_ID());
+    if (Tag != 0) {
+        crc(Tag->Fetch_ID());
     }
     crc((long)Strength);
     crc(IsDown);

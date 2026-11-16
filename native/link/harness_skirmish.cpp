@@ -192,7 +192,7 @@ void Set_Up_Skirmish(char const *map)
         static char const name[] = "Native";
         for (int i = 0; i < 20; ++i) node->Name[i] = i < 6 ? (unsigned short)name[i] : 0;
         node->unknown_4b = session.House;
-        node->unknown_53 = session.unknown_11c;
+        node->unknown_53 = session.PrefColor;
         node->unknown_63 = -1;
         session.Players.Add(node);
     }

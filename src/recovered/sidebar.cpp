@@ -153,14 +153,14 @@ SidebarClass::SBGadgetClass::SBGadgetClass() : GadgetClass(0, 0, 1, 1, 8, false)
 
 
 SidebarClass::SidebarClass() :
-    unknown_4ed8(0),
-    unknown_4edc(0),
-    unknown_4ee0(false),
-    unknown_4ee1(false),
+    ActiveTabIndex(0),
+    RedrawUntilFrame(0),
+    IsCameoText(false),
+    IsSidebarActive(false),
     unknown_4ee2(true),
     IsToRedrawCredits(false),
-    unknown_4ee5(false),
-    unknown_4ee6(false)
+    IsDemolishActive(false),
+    IsRepairActive(false)
 {
     for (int index = 0; index < 4; index++) {
         new (&Column[index]) StripClass(InitClass());
@@ -197,13 +197,13 @@ void SidebarClass::Init_Clear()
 {
     PowerClass::Init_Clear();
     unknown_4ee2 = true;
-    unknown_4ee6 = false;
-    unknown_4ee5 = false;
+    IsRepairActive = false;
+    IsDemolishActive = false;
     for (int index = 0; index < 4; index++) {
         Column[index].Unknown_0067E770();
     }
-    unknown_4ed8 = 0;
-    unknown_4edc = 0;
+    ActiveTabIndex = 0;
+    RedrawUntilFrame = 0;
     unknown_slot54(0);
 }
 
@@ -351,7 +351,7 @@ void SidebarClass::Init_IO()
         Column[column].Unknown_0067E7E0(column);
     }
     Reposition_Sidebar();
-    if (unknown_4ee1) {
+    if (IsSidebarActive) {
         unknown_slot54(0);
         unknown_slot54(1);
     }
@@ -459,10 +459,10 @@ void SidebarClass::DisposeOfArt()
 void SidebarClass::Unknown_0067C100()
 {
     unknown_4ee2 = true;
-    Column[unknown_4ed8].unknown_38 = true;
+    Column[ActiveTabIndex].unknown_38 = true;
     Map.Flag_To_Redraw(false);
-    if (unknown_4edc <= Frame) {
-        unknown_4edc = Frame + 2;
+    if (RedrawUntilFrame <= Frame) {
+        RedrawUntilFrame = Frame + 2;
     }
 }
 
@@ -473,7 +473,7 @@ void SidebarClass::Unknown_0067C100()
 
 void SidebarClass::Unknown_0067C150(ObjectClass *object)
 {
-    if (!unknown_4ee1 || !object) {
+    if (!IsSidebarActive || !object) {
         return;
     }
     TechnoTypeClass *type = object->Techno_Type_Class();
@@ -482,7 +482,7 @@ void SidebarClass::Unknown_0067C150(ObjectClass *object)
     }
     int kind = object->Kind_Of();
     int id = object->Fetch_Heap_ID();
-    if (Which_Column(kind, id) == unknown_4ed8) {
+    if (Which_Column(kind, id) == ActiveTabIndex) {
         if (((UnknownSidebarHouse *)PlayerPtr)->Is_Build_Limited(type)) {
             Unknown_0067C100();
         }
@@ -497,7 +497,7 @@ void SidebarClass::Unknown_0067C150(ObjectClass *object)
 
 void SidebarClass::Flag_Tab_To_Redraw(int column)
 {
-    if (column == unknown_4ed8) {
+    if (column == ActiveTabIndex) {
         unknown_4ee2 = true;
         Column[column].unknown_38 = true;
         Map.Flag_To_Redraw(false);
@@ -510,12 +510,12 @@ void SidebarClass::Flag_Tab_To_Redraw(int column)
 
 void SidebarClass::Unknown_0067C310(int column)
 {
-    if (column == unknown_4ed8) {
+    if (column == ActiveTabIndex) {
         unknown_4ee2 = true;
-        Column[unknown_4ed8].unknown_38 = true;
+        Column[ActiveTabIndex].unknown_38 = true;
         Map.Flag_To_Redraw(false);
-        if (unknown_4edc <= Frame) {
-            unknown_4edc = Frame + 2;
+        if (RedrawUntilFrame <= Frame) {
+            RedrawUntilFrame = Frame + 2;
         }
     }
 }
@@ -532,22 +532,22 @@ bool SidebarClass::Unknown_0067C370(FactoryClass *factory, int type, int id)
 
 bool SidebarClass::Unknown_0067C450(int control)
 {
-    bool old = unknown_4ee6;
+    bool old = IsRepairActive;
     if (control == -1) {
         control = !old;
     }
     switch (control) {
     case 1:
-        unknown_4ee6 = true;
+        IsRepairActive = true;
         break;
     default:
-        unknown_4ee6 = false;
+        IsRepairActive = false;
         break;
     }
-    if (old != unknown_4ee6) {
+    if (old != IsRepairActive) {
         Flag_To_Redraw(false);
         unknown_4ee2 = true;
-        if (!unknown_4ee6) {
+        if (!IsRepairActive) {
             Set_Default_Mouse(0, false);
         }
     }
@@ -557,22 +557,22 @@ bool SidebarClass::Unknown_0067C450(int control)
 
 bool SidebarClass::Unknown_0067C4C0(int control)
 {
-    bool old = unknown_4ee5;
+    bool old = IsDemolishActive;
     if (control == -1) {
         control = !old;
     }
     switch (control) {
     case 1:
-        unknown_4ee5 = true;
+        IsDemolishActive = true;
         break;
     default:
-        unknown_4ee5 = false;
+        IsDemolishActive = false;
         break;
     }
-    if (old != unknown_4ee5) {
+    if (old != IsDemolishActive) {
         Flag_To_Redraw(false);
         unknown_4ee2 = true;
-        if (!unknown_4ee5) {
+        if (!IsDemolishActive) {
             Set_Default_Mouse(0, false);
         }
     }
@@ -597,7 +597,7 @@ bool SidebarClass::Unknown_0067C530(int type, int id)
             }
             unknown_4ee2 = true;
             Flag_To_Redraw(false);
-            if (column == unknown_4ed8) {
+            if (column == ActiveTabIndex) {
                 SidebarClass_IsToBlitSidebar = true;
             }
             return true;
@@ -612,7 +612,7 @@ bool SidebarClass::Unknown_0067C530(int type, int id)
 
 void SidebarClass::Unknown_0067C850()
 {
-    if (Column[unknown_4ed8].BuildableCount > Unknown_006820F0()) {
+    if (Column[ActiveTabIndex].BuildableCount > Unknown_006820F0()) {
         if (!unknown_button_abcbe8.Is_Enabled()) {
             unknown_button_abcbe8.Enable();
         }
@@ -638,13 +638,13 @@ void SidebarClass::Unknown_0067C850()
 void SidebarClass::Unknown_0067C910(int index)
 {
     if (Unknown_00681980() == -1 && SidebarClass_SidebarShapes[4]) {
-        unknown_4ed4 = 1;
-        unknown_4ed0 = 0;
+        ShutterStep = 1;
+        ShutterFrame = 0;
     }
     if (!unknown_buttons_ab9508[index].Is_Enabled()) {
         unknown_buttons_ab9508[index].Enable();
     }
-    if (index == unknown_4ed8) {
+    if (index == ActiveTabIndex) {
         Unknown_0067C850();
     }
 }
@@ -671,8 +671,8 @@ void SidebarClass::Unknown_0067CA50(int index)
         if (first == -1) {
             Unknown_0067C850();
             if (SidebarClass_SidebarShapes[4]) {
-                unknown_4ed4 = -1;
-                unknown_4ed0 = ((ShapeFileStruct const *)SidebarClass_SidebarShapes[4])->FrameCount;
+                ShutterStep = -1;
+                ShutterFrame = ((ShapeFileStruct const *)SidebarClass_SidebarShapes[4])->FrameCount;
             }
         } else {
             Select_Tab(first);
@@ -690,7 +690,7 @@ bool SidebarClass::Scroll(bool up, int column)
         return false;
     }
     if (column == -1) {
-        column = unknown_4ed8;
+        column = ActiveTabIndex;
     }
     if (Column[column].Scroll(up, 1)) {
         Flag_To_Redraw(false);
@@ -706,7 +706,7 @@ bool SidebarClass::Scroll(bool up, int column)
 bool SidebarClass::Scroll_Page(bool up, int column)
 {
     if (column == -1) {
-        column = unknown_4ed8;
+        column = ActiveTabIndex;
     }
     StripClass &strip = Column[column];
     int amount = Unknown_006820A0();
@@ -730,10 +730,10 @@ void SidebarClass::Draw_It(bool complete)
     LogicalSurface = SidebarSurface;
     bool drawn = false;
     Rect window(0, 0, SidebarSurface->Get_Width(), SidebarSurface->Get_Height());
-    complete = complete || unknown_4ee2 || unknown_4ee3;
+    complete = complete || unknown_4ee2 || IsForceCompleteRedraw;
 
-    if (unknown_4ee1 && complete && !Debug_Map) {
-        if (unknown_4ee3) {
+    if (IsSidebarActive && complete && !Debug_Map) {
+        if (IsForceCompleteRedraw) {
             drawn = true;
             CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)SidebarClass_SidebarShapes[0], 0,
                 Point2D(0, unknown_int_839624), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
@@ -760,17 +760,17 @@ void SidebarClass::Draw_It(bool complete)
         }
         unknown_button_abcbe8.Draw_Me(drawn);
         unknown_button_abccc0.Draw_Me(drawn);
-        if (unknown_4ed4) {
-            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)SidebarClass_SidebarShapes[4], unknown_4ed0,
+        if (ShutterStep) {
+            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)SidebarClass_SidebarShapes[4], ShutterFrame,
                 Point2D(0, SidebarClass_StripTop), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)SidebarClass_SidebarShapes[5], unknown_4ed0,
+            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)SidebarClass_SidebarShapes[5], ShutterFrame,
                 Point2D(0, SidebarClass_StripTop), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)SidebarClass_SidebarShapes[6], unknown_4ed0,
+            CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)SidebarClass_SidebarShapes[6], ShutterFrame,
                 Point2D(0, SidebarClass_StripTop), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
         SidebarClass_IsToBlitSidebar = true;
     }
-    Column[unknown_4ed8].Unknown_0067F800(unknown_4ee3);
+    Column[ActiveTabIndex].Unknown_0067F800(IsForceCompleteRedraw);
     PowerClass::Draw_It(complete || drawn);
     if (unknown_button_ab96b8.IsDrawn) {
         unknown_button_ab96b8.IsDrawn = false;
@@ -797,9 +797,9 @@ void SidebarClass::Draw_It(bool complete)
     if (ToolTips) {
         ToolTips->Refresh(true);
     }
-    Blit_Sidebar(SidebarClass_IsToBlitSidebar || unknown_4ee3);
+    Blit_Sidebar(SidebarClass_IsToBlitSidebar || IsForceCompleteRedraw);
     unknown_4ee2 = false;
-    unknown_4ee3 = false;
+    IsForceCompleteRedraw = false;
     LogicalSurface = old;
 }
 
@@ -812,7 +812,7 @@ extern bool unknown_session_a40d04;     // 0x00A40D04
 
 void SidebarClass::Blit_Sidebar(bool complete)
 {
-    if (unknown_4ee1 && GameActive && unknown_session_a40d04) {
+    if (IsSidebarActive && GameActive && unknown_session_a40d04) {
         RECT crect;
         GetClientRect(MainWindow, &crect);
         POINT scrnpt;
@@ -873,9 +873,9 @@ void SidebarClass::Blit_Sidebar(bool complete)
 
 void SidebarClass::Activate_Tab(int index)
 {
-    unknown_4ed8 = index;
+    ActiveTabIndex = index;
     unknown_buttons_ab9508[index].Turn_On();
-    Column[unknown_4ed8].Activate();
+    Column[ActiveTabIndex].Activate();
     Unknown_0067C850();
 }
 
@@ -886,20 +886,20 @@ void SidebarClass::Activate_Tab(int index)
 
 void SidebarClass::Select_Tab(int index)
 {
-    if (index == unknown_4ed8) {
+    if (index == ActiveTabIndex) {
         return;
     }
-    ShapeButtonClass &old_button = unknown_buttons_ab9508[unknown_4ed8];
+    ShapeButtonClass &old_button = unknown_buttons_ab9508[ActiveTabIndex];
     old_button.Turn_Off();
-    StripClass &old = Column[unknown_4ed8];
+    StripClass &old = Column[ActiveTabIndex];
     old.Unknown_0067F730();
-    unknown_4ed8 = index;
-    ShapeButtonClass &button = unknown_buttons_ab9508[unknown_4ed8];
+    ActiveTabIndex = index;
+    ShapeButtonClass &button = unknown_buttons_ab9508[ActiveTabIndex];
     button.Turn_On();
-    StripClass &current = Column[unknown_4ed8];
+    StripClass &current = Column[ActiveTabIndex];
     current.Activate();
     Unknown_0067C850();
-    unknown_4ee3 = true;
+    IsForceCompleteRedraw = true;
 }
 
 
@@ -907,7 +907,7 @@ void SidebarClass::Unknown_0067DC00(int index)
 {
     int delay = 10 - Frame % 10;
     unknown_buttons_ab9508[index].Start_Flashing(10, delay, (Frame + delay) / 10 % 2 == 0);
-    Map.unknown_4ee3 = true;
+    Map.IsForceCompleteRedraw = true;
     Map.Flag_To_Redraw(false);
 }
 
@@ -936,18 +936,18 @@ void SidebarClass::AI(int &input, Point2D const &xy)
         }
     }
 
-    if (unknown_4ee1) {
-        if (unknown_4ed4 == 1) {
-            unknown_4ed0++;
-            if (unknown_4ed0 > ((ShapeFileStruct const *)SidebarClass_SidebarShapes[4])->FrameCount) {
-                unknown_4ed4 = 0;
-                unknown_4ed0 = 0;
+    if (IsSidebarActive) {
+        if (ShutterStep == 1) {
+            ShutterFrame++;
+            if (ShutterFrame > ((ShapeFileStruct const *)SidebarClass_SidebarShapes[4])->FrameCount) {
+                ShutterStep = 0;
+                ShutterFrame = 0;
             }
-        } else if (unknown_4ed4 == -1) {
-            unknown_4ed0--;
-            if (unknown_4ed0 < 0) {
-                unknown_4ed4 = 0;
-                unknown_4ed0 = 0;
+        } else if (ShutterStep == -1) {
+            ShutterFrame--;
+            if (ShutterFrame < 0) {
+                ShutterStep = 0;
+                ShutterFrame = 0;
             }
         }
 
@@ -964,7 +964,7 @@ void SidebarClass::AI(int &input, Point2D const &xy)
             Voc_Play(Rules->GUITabSound, 1.0f, 0x2000, 0);
         } else if ((input & ~0x4000) == (unknown_button_abcbe8.ID | 0x8000)) {
             unknown_button_abcbe8.IsPressed = false;
-            StripClass &strip = Column[unknown_4ed8];
+            StripClass &strip = Column[ActiveTabIndex];
             if (!strip.Scroll(false, (unknown_int_839624 + unknown_int_83962c - SidebarClass_StripTop - (unknown_id_source_a3d290->IsGDI ? 26 : 18) - 7) / 50)) {
                 Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
             } else {
@@ -972,7 +972,7 @@ void SidebarClass::AI(int &input, Point2D const &xy)
             }
         } else if ((input & ~0x4000) == (unknown_button_abccc0.ID | 0x8000)) {
             unknown_button_abccc0.IsPressed = false;
-            if (!Column[unknown_4ed8].Page(true)) {
+            if (!Column[ActiveTabIndex].Page(true)) {
                 Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
             } else {
                 Voc_Play(Rules->GUITabSound, 1.0f, 0x2000, 0);
@@ -1010,7 +1010,7 @@ void SidebarClass::Unknown_0067E1C0()
 {
     bool redraw = false;
     for (int index = 0; index < 4; index++) {
-        if (Column[index].Unknown_006802D0() && index == unknown_4ed8) {
+        if (Column[index].Unknown_006802D0() && index == ActiveTabIndex) {
             Column[index].unknown_38 = true;
             redraw = true;
         }
@@ -1030,19 +1030,19 @@ void SidebarClass::Unknown_0067E1C0()
 
 bool SidebarClass::unknown_slot54(int control)
 {
-    bool old = unknown_4ee1;
+    bool old = IsSidebarActive;
     if ((unknown_flags_a3f600 & 2) && unknown_game_mode_a3d298 && unknown_game_mode_a3d298 != 5) {
         return old;
     }
     if (control != -1) {
-        unknown_4ee1 = (control == 1);
+        IsSidebarActive = (control == 1);
     } else {
-        unknown_4ee1 = !old;
+        IsSidebarActive = !old;
     }
-    bool changed = (unknown_4ee1 != old);
+    bool changed = (IsSidebarActive != old);
     if (changed) {
-        Set_Buttons(unknown_4ee1);
-        if (unknown_4ee1) {
+        Set_Buttons(IsSidebarActive);
+        if (IsSidebarActive) {
             Reposition_Sidebar();
             unknown_4ee2 = true;
             unknown_button_ab96b8.Zap();
@@ -1069,8 +1069,8 @@ bool SidebarClass::unknown_slot54(int control)
                     unknown_buttons_ab9508[index].Enable();
                 }
             }
-            unknown_buttons_ab9508[unknown_4ed8].Turn_On();
-            Column[unknown_4ed8].Activate();
+            unknown_buttons_ab9508[ActiveTabIndex].Turn_On();
+            Column[ActiveTabIndex].Activate();
             Unknown_0067C850();
         } else {
             Stop_Ingame_Movie();
@@ -1082,7 +1082,7 @@ bool SidebarClass::unknown_slot54(int control)
             }
             Remove_A_Button(unknown_button_abcbe8);
             Remove_A_Button(unknown_button_abccc0);
-            Column[unknown_4ed8].Deactivate();
+            Column[ActiveTabIndex].Deactivate();
             Remove_A_Button(RadarButton);
         }
         Flag_To_Redraw(2);
@@ -1500,7 +1500,7 @@ bool SidebarClass::StripClass::AI(int &input, Point2D const &xy)
         }
     }
 
-    if (Map.unknown_4edc > Frame) {
+    if (Map.RedrawUntilFrame > Frame) {
         redraw = true;
     }
 
@@ -1529,7 +1529,7 @@ flash:
         int frame = Frame;
         int length = 10 - frame % 10;
         unknown_buttons_ab9508[unknown_34].Start_Flashing(10, length, ((frame + length) / 10) % 2 == 0);
-        Map.unknown_4ee3 = true;
+        Map.IsForceCompleteRedraw = true;
         Map.Flag_To_Redraw(false);
     }
 building:
@@ -1578,9 +1578,9 @@ building:
     }
 
     if (redraw) {
-        Map.Flag_Tab_To_Redraw(Map.unknown_4ed8);
+        Map.Flag_Tab_To_Redraw(Map.ActiveTabIndex);
         Flag_To_Redraw();
-        Map.unknown_4ee3 = true;
+        Map.IsForceCompleteRedraw = true;
         SidebarClass_IsToBlitSidebar = true;
     }
     return redraw;
@@ -1997,7 +1997,7 @@ bool SidebarClass::StripClass::Unknown_006802D0()
         } else {
             unknown_40 = 0;
         }
-        Map.unknown_4ee3 = true;
+        Map.IsForceCompleteRedraw = true;
     }
     delete [] unshifted;
     return redraw;
@@ -2253,7 +2253,7 @@ void SidebarClass::StripClass::SelectClass::Mouse_Enter()
     unknown_34 = true;
     Strip->unknown_38 = true;
     Map.Flag_To_Redraw(false);
-    Map.unknown_4ee3 = true;
+    Map.IsForceCompleteRedraw = true;
     SidebarClass_IsToBlitSidebar = true;
 }
 
@@ -2264,7 +2264,7 @@ void SidebarClass::StripClass::SelectClass::Mouse_Leave()
     unknown_34 = false;
     Strip->unknown_38 = true;
     Map.Flag_To_Redraw(false);
-    Map.unknown_4ee3 = true;
+    Map.IsForceCompleteRedraw = true;
     SidebarClass_IsToBlitSidebar = true;
 }
 
@@ -2621,7 +2621,7 @@ wchar_t const *SidebarClass::Help_Text(int id)
         } else {
             int count = Unknown_006820F0();
             if (id >= 1000 && id < 1000 + count) {
-                return Column[unknown_4ed8].Help_Text(id - 1000);
+                return Column[ActiveTabIndex].Help_Text(id - 1000);
             }
         }
         if (disabled) {
@@ -2757,7 +2757,7 @@ found:
         return;
     }
     Column[column].Unknown_00682400(index, delay);
-    unknown_4edc = Frame + 1 + delay;
+    RedrawUntilFrame = Frame + 1 + delay;
 }
 
 

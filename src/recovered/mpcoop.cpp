@@ -57,13 +57,13 @@ MPCooperative::MPCooperative(WideString const &name, WideString const &descripti
     unknown_campaigns_40 = new UnknownDescriptionList_00490E00();
     unknown_campaign_44 = 0;
     unknown_48 = 0;
-    unknown_340 = 0;
+    CampaignIndex = 0;
     unknown_score_54 = 0;
     unknown_04 = false;
-    unknown_4c = false;
-    unknown_4d = false;
-    unknown_50 = 0;
-    unknown_344 = true;
+    SavedCampaignChosen = false;
+    SaveListed = false;
+    LoadedRecord = 0;
+    PlayersChanged = true;
     for (int i = unknown_campaigns_328.Count() - 1; i >= 0; i--) {
         delete unknown_campaigns_328[i];
     }
@@ -89,7 +89,7 @@ bool MPCooperative::unknown_slot7(int country)
         return true;
     }
     UnknownDescriptionRecord_00490E00 *record;
-    unknown_campaigns_40->Get_Record_00490C50(unknown_340, &record);
+    unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
     if (record == 0) {
         return true;
     }
@@ -200,7 +200,7 @@ void MPCooperative::unknown_slot8()
         unknown_campaign_44->Load_Campaign_0048f590(0);
         int index = Unknown_005A2E50();
         if (index < 0) {
-            unknown_340 = 0;
+            CampaignIndex = 0;
             char *name = 0;
             unknown_campaign_44->Get_Map_Name_0048fb40(&name, 0);
             int i;
@@ -217,7 +217,7 @@ void MPCooperative::unknown_slot8()
                 Select_Scenario_005c7c30(0);
             }
         } else {
-            unknown_340 = index;
+            CampaignIndex = index;
             UnknownDescriptionRecord_00490E00 *record;
             unknown_campaigns_40->Get_Record_00490C50(index, &record);
             char *name = 0;
@@ -235,7 +235,7 @@ void MPCooperative::unknown_slot8()
             }
         }
     }
-    unknown_344 = true;
+    PlayersChanged = true;
     int campaign;
     HWND lobby = Get_Lobby_Dialog_005c2c40();
     if (lobby != 0) {
@@ -304,19 +304,19 @@ bool MPCooperative::AssignTeamsAtStart()
         if (!unknown_campaign_44->Load_Saved_Campaign_0048eb30()) {
             return false;
         }
-        unknown_4c = true;
+        SavedCampaignChosen = true;
     } else if (Current_Dialog_Id_00735b20() == 0x6B) {
         delete unknown_campaign_44;
         unknown_campaign_44 = unknown_campaigns_328[selected];
         unknown_campaigns_328[selected] = new CoopCampaignClass();
         unknown_campaigns_328[selected]->Load_Campaign_0048f590(selected);
-        unknown_50 = selected;
+        LoadedRecord = selected;
         if (unknown_players_a3fa7c.Count() == 2) {
             unknown_campaign_44->Set_Names(unknown_players_a3fa7c[0]->Name, unknown_players_a3fa7c[1]->Name);
         }
     }
     UnknownDescriptionRecord_00490E00 *record;
-    unknown_campaigns_40->Get_Record_00490C50(unknown_340, &record);
+    unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
     if (record == 0) {
         return false;
     }
@@ -345,7 +345,7 @@ bool MPCooperative::AssignTeamsAtStart()
 int MPCooperative::unknown_slot10()
 {
     UnknownDescriptionRecord_00490E00 *record;
-    unknown_campaigns_40->Get_Record_00490C50(unknown_340, &record);
+    unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
     if (record == 0) {
         return -2;
     }
@@ -367,16 +367,16 @@ bool MPCooperative::unknown_slot18(int index, DynamicVectorClass<int> choices, c
 {
     if (unknown_campaign_44 == 0) {
         Unknown_005A4F20();
-        unknown_344 = true;
+        PlayersChanged = true;
     }
     if (unknown_campaign_44 != 0 && unknown_campaigns_40 != 0) {
         int type;
         unknown_campaign_44->Get_Campaign_Type_0048e6b0(&type);
         if (type != index) {
-            unknown_344 = true;
+            PlayersChanged = true;
         }
         unknown_campaign_44->Set_Campaign_Info_0048f7d0(*unknown_campaigns_40, index, choices, second_name, first_name);
-        unknown_340 = index;
+        CampaignIndex = index;
         return true;
     }
     return false;
@@ -393,9 +393,9 @@ bool MPCooperative::unknown_slot19(int index, int time, MPlayerScoreType *scores
         return false;
     }
     HWND lobby = Get_Lobby_Dialog_005c2c40();
-    if (lobby != 0 && unknown_344) {
+    if (lobby != 0 && PlayersChanged) {
         Unknown_005A3760(lobby);
-        unknown_344 = false;
+        PlayersChanged = false;
     }
     return unknown_campaign_44->Add_Score_0048f730(index, time, scores[0], scores[1]);
 }
@@ -413,7 +413,7 @@ void MPCooperative::Unknown_005A3650(HWND dialog, int id)
         ShowWindow(combo, SW_HIDE);
         SendMessageA(combo, 0x14B, 0, 0);
         UnknownDescriptionRecord_00490E00 *record;
-        unknown_campaigns_40->Get_Record_00490C50(unknown_340, &record);
+        unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
         if (record != 0) {
             int players = record->Players.Count();
             if (players != 0) {
@@ -448,7 +448,7 @@ void MPCooperative::Unknown_005A3760(HWND dialog)
     if (dialog != 0) {
         int count = unknown_int_a3db1c;
         UnknownDescriptionRecord_00490E00 *record;
-        unknown_campaigns_40->Get_Record_00490C50(unknown_340, &record);
+        unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
         if (record != 0) {
             int players = record->Players.Count();
             if (players != 0) {
@@ -491,11 +491,11 @@ bool MPCooperative::unknown_slot20()
     if (unknown_campaign_44 == 0) {
         return false;
     }
-    unknown_campaign_44->Get_Campaign_Type_0048e6b0(&unknown_340);
+    unknown_campaign_44->Get_Campaign_Type_0048e6b0(&CampaignIndex);
     HWND lobby = Get_Lobby_Dialog_005c2c40();
-    if (lobby != 0 && unknown_344) {
+    if (lobby != 0 && PlayersChanged) {
         Unknown_005A3760(lobby);
-        unknown_344 = false;
+        PlayersChanged = false;
     }
     return unknown_campaign_44->Send_Campaign_Options_00490150(*unknown_campaigns_40);
 }
@@ -526,26 +526,26 @@ void MPCooperative::unknown_player_colors_5a3920()
 bool MPCooperative::unknown_slot21()
 {
     UnknownDescriptionRecord_00490E00 *record;
-    unknown_campaigns_40->Get_Record_00490C50(unknown_340, &record);
+    unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
     char message[400];
     sprintf(message, "C1,%d", record->MapCount);
     for (int list = 0; list < 8; list++) {
-        int length = unknown_1a8[list].Length();
-        unknown_1a8[list].Clear();
-        unknown_1a8[list].Resize(length);
-        length = unknown_268[list].Length();
-        unknown_268[list].Clear();
-        unknown_268[list].Resize(length);
+        int length = HouseChoices[list].Length();
+        HouseChoices[list].Clear();
+        HouseChoices[list].Resize(length);
+        length = ColorChoices[list].Length();
+        ColorChoices[list].Clear();
+        ColorChoices[list].Resize(length);
     }
     int players = unknown_players_a3fa7c.Count();
     for (int map = 0; map < record->MapCount; map++) {
         unknown_player_colors_5a3920();
         for (int slot = 0; slot < 8; slot++) {
             if (slot < players) {
-                unknown_1a8[slot].Add(RandomHumanCountryIndex());
-                unknown_268[slot].Add(unknown_colors_a71118[slot]);
+                HouseChoices[slot].Add(RandomHumanCountryIndex());
+                ColorChoices[slot].Add(unknown_colors_a71118[slot]);
             } else {
-                unknown_1a8[slot].Add(RandomAICountryIndex());
+                HouseChoices[slot].Add(RandomAICountryIndex());
                 int color;
                 bool taken;
                 do {
@@ -561,10 +561,10 @@ bool MPCooperative::unknown_slot21()
                     }
                 } while (taken);
                 unknown_colors_a71118[slot] = color;
-                unknown_268[slot].Add(color);
+                ColorChoices[slot].Add(color);
             }
             char text[16];
-            sprintf(text, ",%d,%d", unknown_1a8[slot][map], unknown_268[slot][map]);
+            sprintf(text, ",%d,%d", HouseChoices[slot][map], ColorChoices[slot][map]);
             strcat(message, text);
         }
     }
@@ -585,26 +585,26 @@ void MPCooperative::unknown_slot25(int kind, char *text)
         int rounds = atoi(strtok(text, ","));
         int i;
         for (i = 0; i < 8; i++) {
-            int capacity = unknown_1a8[i].Length();
-            unknown_1a8[i].Clear();
-            unknown_1a8[i].Resize(capacity);
-            capacity = unknown_268[i].Length();
-            unknown_268[i].Clear();
-            unknown_268[i].Resize(capacity);
+            int capacity = HouseChoices[i].Length();
+            HouseChoices[i].Clear();
+            HouseChoices[i].Resize(capacity);
+            capacity = ColorChoices[i].Length();
+            ColorChoices[i].Clear();
+            ColorChoices[i].Resize(capacity);
         }
         for (int round = 0; round < rounds; round++) {
             for (i = 0; i < 8; i++) {
                 char *token = strtok(0, ",");
                 if (token != 0) {
-                    unknown_1a8[i].Add(atoi(token));
+                    HouseChoices[i].Add(atoi(token));
                 } else {
-                    unknown_1a8[i].Add(-1);
+                    HouseChoices[i].Add(-1);
                 }
                 token = strtok(0, ",");
                 if (token != 0) {
-                    unknown_268[i].Add(atoi(token));
+                    ColorChoices[i].Add(atoi(token));
                 } else {
-                    unknown_268[i].Add(-1);
+                    ColorChoices[i].Add(-1);
                 }
             }
         }
@@ -735,7 +735,7 @@ bool MPCooperative::unknown_slot22()
     int added = 0;
     unknown_session_a3d298.AICount = players;
     UnknownDescriptionRecord_00490E00 *record;
-    unknown_campaigns_40->Get_Record_00490C50(unknown_340, &record);
+    unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
     if (record == 0) {
         return false;
     }
@@ -885,7 +885,7 @@ void MPCooperative::unknown_slot34(bool player_wins)
     unknown_id_source_a3d290->SkipMapSelect = true;
     unknown_id_source_a3d290->OneTimeOnly = false;
     Free_Pointers_005a7480(&unknown_players_5c);
-    unknown_58 = 0;
+    LocalPlayer = 0;
     for (int p = 0; p < unknown_players_a3fa7c.Count(); p++) {
         NodeNameType *entry = new NodeNameType;
         wcscpy(entry->Name, unknown_players_a3fa7c[p]->Name);
@@ -903,34 +903,34 @@ void MPCooperative::unknown_slot34(bool player_wins)
         entry->Address = unknown_players_a3fa7c[p]->Address;
         unknown_players_5c.Add(entry);
         if (unknown_address_a3db2c == unknown_players_a3fa7c[p]->Address) {
-            unknown_58 = p;
+            LocalPlayer = p;
         }
     }
-    unknown_c8 = unknown_session_a3d298.unknown_293c;
-    unknown_128 = unknown_session_a3d298.unknown_299c;
-    unknown_148 = unknown_session_a3d298.unknown_2fa0;
-    unknown_198 = unknown_session_a3d298.unknown_3022;
+    Addresses = unknown_session_a3d298.unknown_293c;
+    PlayerStates = unknown_session_a3d298.WolPlayerState;
+    PlayerPortBases = unknown_session_a3d298.PlayerPortBase;
+    PlayerPorts = unknown_session_a3d298.PlayerPorts;
     wcscpy(unknown_master_name_168, unknown_session_a3d298.MasterPlayerName);
     unknown_master_id_194 = unknown_session_a3d298.MasterPlayerID;
-    unknown_74 = unknown_session_a3d298.House;
+    SavedField74 = unknown_session_a3d298.House;
     unknown_a0 = Seed;
-    unknown_a4 = BuildLevel;
+    TechLevel = BuildLevel;
     unknown_units_a8 = unknown_session_a3d298.UnitCount;
     unknown_credits_ac = unknown_session_a3d298.unknown_24;
     unknown_fog_b0 = unknown_session_a3d298.unknown_fog_a7;
-    unknown_b1 = unknown_session_a3d298.unknown_28;
+    BridgeDestruction = unknown_session_a3d298.unknown_28;
     unknown_crates_b2 = unknown_session_a3d298.unknown_crates_29;
-    unknown_b3 = unknown_session_a3d298.unknown_a8;
-    unknown_b4 = unknown_session_a3d298.unknown_a4;
-    unknown_b5 = unknown_session_a3d298.unknown_a5;
+    MCVRedeploy = unknown_session_a3d298.unknown_a8;
+    AlliesAllowed = unknown_session_a3d298.unknown_a4;
+    HarvTruce = unknown_session_a3d298.unknown_a5;
     unknown_bases_b6 = unknown_session_a3d298.unknown_bases_20;
-    unknown_b7 = unknown_session_a3d298.unknown_a6;
+    CTF = unknown_session_a3d298.unknown_a6;
     unknown_ai_count_b8 = unknown_session_a3d298.AICount;
     unknown_difficulty_bc = unknown_session_a3d298.unknown_difficulty_40;
-    unknown_c0 = unknown_session_a3d298.unknown_2a;
-    unknown_c1 = unknown_session_a3d298.unknown_2b;
-    unknown_c2 = unknown_session_a3d298.unknown_2c;
-    unknown_c3 = unknown_session_a3d298.unknown_34;
+    ShortGame = unknown_session_a3d298.unknown_2a;
+    SWAllowed = unknown_session_a3d298.unknown_2b;
+    BuildOffAlly = unknown_session_a3d298.unknown_2c;
+    CrapEngineers = unknown_session_a3d298.unknown_34;
     unknown_game_speed_c4 = unknown_session_a3d298.GameSpeed_30;
     unknown_session_a3d298.MultiplayerObserver = 0;
     Map.Unknown_00498F10(0);
@@ -938,7 +938,7 @@ void MPCooperative::unknown_slot34(bool player_wins)
     unknown_833684 = 0;
     unknown_833688 = -1;
     for (int row = 0; row < 4; row++) {
-        unknown_session_a3d298.unknown_1fb4[row][unknown_session_a3d298.unknown_2300] = -1;
+        unknown_session_a3d298.unknown_1fb4[row][unknown_session_a3d298.CurGame] = -1;
     }
 }
 
@@ -955,7 +955,7 @@ void MPCooperative::DrawTeamDropdown(HWND list, DynamicVectorClass<MultiMission 
         unknown_score_54 = new CampaignScoreClass();
     }
     SendMessageA(list, 0x184, 0, 0);
-    unknown_4d = false;
+    SaveListed = false;
     if (unknown_campaign_44 == 0) {
         if (unknown_players_a3fa7c.Count() == 2) {
             unknown_campaign_44 = new CoopCampaignClass(unknown_players_a3fa7c[0]->Name, unknown_players_a3fa7c[1]->Name);
@@ -1004,7 +1004,7 @@ void MPCooperative::DrawTeamDropdown(HWND list, DynamicVectorClass<MultiMission 
             delete names[i];
         }
     }
-    if (unknown_campaign_44 != 0 && unknown_campaign_44->Has_Saved_Campaign_0048fbf0() && !unknown_4d) {
+    if (unknown_campaign_44 != 0 && unknown_campaign_44->Has_Saved_Campaign_0048fbf0() && !SaveListed) {
         char name[260];
         unknown_campaign_44->Saved_Map_Is_Undefined_0048fe70(name);
         strcat(name, ".MAP");
@@ -1022,7 +1022,7 @@ void MPCooperative::DrawTeamDropdown(HWND list, DynamicVectorClass<MultiMission 
         if (found != 0) {
             SendMessageA(list, 0x4CD, 0, (LPARAM)StringTable::Load_String("TXT_COOP_USE_SAVE", 0, "D:\\Ra2\\MPCoop.cpp", 0x528));
             SendMessageA(list, 0x19A, i, (LPARAM)found);
-            unknown_4d = true;
+            SaveListed = true;
         }
     }
     SendMessageA(list, 0x186, 0, 0);
@@ -1073,7 +1073,7 @@ void MPCooperative::unknown_slot33()
 void MPCooperative::unknown_slot30()
 {
     if (Current_Dialog_Id_00735b20() == 0x6B) {
-        if (unknown_4d) {
+        if (SaveListed) {
             HWND list = GetDlgItem(WS_Top_Window(), 0x553);
             int count = SendMessageA(list, 0x18B, 0, 0);
             if (count == -1) {
@@ -1086,16 +1086,16 @@ void MPCooperative::unknown_slot30()
                 SendMessageA(list, 0x186, count - 2, 0);
             }
             SendMessageA(list, 0x182, count - 1, 0);
-            unknown_4d = false;
+            SaveListed = false;
         }
     } else {
-        if (unknown_campaign_44 != 0 && unknown_4c) {
-            if (unknown_50 != 0) {
+        if (unknown_campaign_44 != 0 && SavedCampaignChosen) {
+            if (LoadedRecord != 0) {
                 unknown_campaign_44->Load_Campaign_0048f590(0);
-                unknown_campaign_44->Load_Campaign_0048f590(unknown_50);
+                unknown_campaign_44->Load_Campaign_0048f590(LoadedRecord);
             } else {
                 unknown_campaign_44->Load_Campaign_0048f590(1);
-                unknown_campaign_44->Load_Campaign_0048f590(unknown_50);
+                unknown_campaign_44->Load_Campaign_0048f590(LoadedRecord);
             }
             char *map;
             unknown_campaign_44->Get_Map_Name_0048fb40(&map, -1);
@@ -1145,7 +1145,7 @@ void MPCooperative::unknown_slot31()
         unknown_slot20();
         if (unknown_campaign_44->Has_Saved_Campaign_0048fbf0()) {
             if (Current_Dialog_Id_00735b20() == 0x6B) {
-                if (!unknown_4d) {
+                if (!SaveListed) {
                     char name[260];
                     unknown_campaign_44->Saved_Map_Is_Undefined_0048fe70(name);
                     strcat(name, ".MAP");
@@ -1166,7 +1166,7 @@ void MPCooperative::unknown_slot31()
                         if (rows != -1) {
                             SendMessageA(list, 0x4CD, 0, (LPARAM)StringTable::Load_String("TXT_COOP_USE_SAVE", 0, "D:\\Ra2\\MPCoop.cpp", 0x5E1));
                             SendMessageA(list, 0x19A, rows, (LPARAM)map);
-                            unknown_4d = true;
+                            SaveListed = true;
                         }
                     }
                 }
@@ -1350,7 +1350,7 @@ void MPCooperative::unknown_slot37()
         unknown_session_a3d298.AICount = computers;
         int used = 0;
         UnknownDescriptionRecord_00490E00 *record;
-        unknown_campaigns_40->Get_Record_00490C50(unknown_340, &record);
+        unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
         int current;
         unknown_campaign_44->Get_Current_Map_0048e6f0(&current);
         for (int slot = 2; slot < 8; slot++) {
@@ -1362,8 +1362,8 @@ void MPCooperative::unknown_slot37()
                 } else {
                     unknown_session_a3d298.AIDifficulty[slot] = 2;
                 }
-                unknown_session_a3d298.AICountry[slot] = unknown_1a8[slot][current];
-                unknown_session_a3d298.AIColor[slot] = unknown_268[slot][current];
+                unknown_session_a3d298.AICountry[slot] = HouseChoices[slot][current];
+                unknown_session_a3d298.AIColor[slot] = ColorChoices[slot][current];
                 used++;
             } else {
                 unknown_session_a3d298.AICountry[slot] = -1;
@@ -1371,39 +1371,39 @@ void MPCooperative::unknown_slot37()
             }
         }
     }
-    unknown_address_a3db2c = unknown_players_a3fa7c[unknown_58]->Address;
-    wcscpy(unknown_session_a3d298.MasterPlayerName, unknown_players_a3fa7c[unknown_58]->Name);
+    unknown_address_a3db2c = unknown_players_a3fa7c[LocalPlayer]->Address;
+    wcscpy(unknown_session_a3d298.MasterPlayerName, unknown_players_a3fa7c[LocalPlayer]->Name);
     unknown_session_a3d298.MasterPlayerID = -1;
-    unknown_session_a3d298.House = unknown_74;
+    unknown_session_a3d298.House = SavedField74;
     PacketTransport->Clear_Broadcast_Addresses();
     char address[32] = "xxx.xxx.xxx.xxx";
     for (int n = 1; n < unknown_players_a3fa7c.Count(); n++) {
         unknown_players_a3fa7c[n]->Address.Get_Address(net, node, &port);
         PacketTransport->Set_Broadcast_Address(address, port);
     }
-    unknown_session_a3d298.unknown_293c = unknown_c8;
-    unknown_session_a3d298.unknown_299c = unknown_128;
-    unknown_session_a3d298.unknown_2fa0 = unknown_148;
-    unknown_session_a3d298.unknown_3022 = unknown_198;
+    unknown_session_a3d298.unknown_293c = Addresses;
+    unknown_session_a3d298.WolPlayerState = PlayerStates;
+    unknown_session_a3d298.PlayerPortBase = PlayerPortBases;
+    unknown_session_a3d298.PlayerPorts = PlayerPorts;
     wcscpy(unknown_session_a3d298.MasterPlayerName, unknown_master_name_168);
     unknown_session_a3d298.MasterPlayerID = unknown_master_id_194;
     Seed = unknown_a0;
-    BuildLevel = unknown_a4;
+    BuildLevel = TechLevel;
     unknown_session_a3d298.UnitCount = unknown_units_a8;
     unknown_session_a3d298.unknown_24 = unknown_credits_ac;
     unknown_session_a3d298.unknown_fog_a7 = unknown_fog_b0;
-    unknown_session_a3d298.unknown_28 = unknown_b1;
+    unknown_session_a3d298.unknown_28 = BridgeDestruction;
     unknown_session_a3d298.unknown_crates_29 = unknown_crates_b2;
-    unknown_session_a3d298.unknown_a8 = unknown_b3;
-    unknown_session_a3d298.unknown_a4 = unknown_b4;
-    unknown_session_a3d298.unknown_a5 = unknown_b5;
+    unknown_session_a3d298.unknown_a8 = MCVRedeploy;
+    unknown_session_a3d298.unknown_a4 = AlliesAllowed;
+    unknown_session_a3d298.unknown_a5 = HarvTruce;
     unknown_session_a3d298.unknown_bases_20 = unknown_bases_b6;
-    unknown_session_a3d298.unknown_a6 = unknown_b7;
+    unknown_session_a3d298.unknown_a6 = CTF;
     unknown_session_a3d298.unknown_difficulty_40 = unknown_difficulty_bc;
-    unknown_session_a3d298.unknown_2a = unknown_c0;
-    unknown_session_a3d298.unknown_2b = unknown_c1;
-    unknown_session_a3d298.unknown_2c = unknown_c2;
-    unknown_session_a3d298.unknown_34 = unknown_c3;
+    unknown_session_a3d298.unknown_2a = ShortGame;
+    unknown_session_a3d298.unknown_2b = SWAllowed;
+    unknown_session_a3d298.unknown_2c = BuildOffAlly;
+    unknown_session_a3d298.unknown_34 = CrapEngineers;
     unknown_session_a3d298.GameSpeed_30 = unknown_game_speed_c4;
     Select_Scenario_005c7c30(unknown_session_a3d298.ScenarioIndex);
     Options.GameSpeed = unknown_session_a3d298.GameSpeed_30;
@@ -1450,16 +1450,16 @@ void MPCooperative::unknown_slot37()
             ping = unknown_pings_b2a734[k];
         }
     }
-    unknown_session_a3d298.unknown_290c = 1;
+    unknown_session_a3d298.LatencyFudge = 1;
     if (ping == 0 || ping == 1000) {
         unknown_session_a3d298.PrecalcDesiredFrameRate = 0;
         Debug_Printf("Ping times not available\n");
     } else {
         Debug_Printf("Max ping is %d ms\n", ping);
         if (ping > 1000) {
-            unknown_session_a3d298.unknown_290c = 2;
+            unknown_session_a3d298.LatencyFudge = 2;
         } else if (ping < 600) {
-            unknown_session_a3d298.unknown_290c = 1;
+            unknown_session_a3d298.LatencyFudge = 1;
         }
         int retry = ping * 60 / 1000;
         retry += retry * 120 / 100;
@@ -1467,7 +1467,7 @@ void MPCooperative::unknown_slot37()
         if (unknown_04) {
             Ipx.unknown_slot18(5, -1, 120);
             if (unknown_04) {
-                switch (unknown_session_a3d298.unknown_290c) {
+                switch (unknown_session_a3d298.LatencyFudge) {
                 case 0:
                 case 1:
                     unknown_session_a3d298.PrecalcMaxAhead = unknown_session_a3d298.MaxAhead_2c8;

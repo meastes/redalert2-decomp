@@ -757,7 +757,7 @@ int IPXManagerClass::Service()
                     Debug_Printf("GlobalChannel recive buffer overflow %d\n",unknown_a4);
                     break;
                 }
-                if (unknown_game_mode_a3d298==4 && unknown_session_a3d298.unknown_3038) {
+                if (unknown_game_mode_a3d298==4 && unknown_session_a3d298.UseRouter) {
                     for (i=0;i<unknown_players_a3fa7c.Count();++i) {
                         if (unknown_players_a3fa7c[i]->Address.Is_Same_Node(address) && unknown_node_ids_a402ba[i]==port) goto next_packet;
                     }

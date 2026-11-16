@@ -36,24 +36,24 @@ Matrix3D * __stdcall ShipLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *key
         rotation.Make_Identity();
         float length = LinkedTo->Techno_Type_Class()->unknown_330;
         float width = LinkedTo->Techno_Type_Class()->unknown_338;
-        float roll_cos = Fast_Cos(LinkedTo->unknown_284);
-        float roll_sin = Fast_Sin(LinkedTo->unknown_284);
-        float pitch_cos = Fast_Cos(LinkedTo->unknown_280);
-        float pitch_sin = Fast_Sin(LinkedTo->unknown_280);
+        float roll_cos = Fast_Cos(LinkedTo->AngleRotatedForwards);
+        float roll_sin = Fast_Sin(LinkedTo->AngleRotatedForwards);
+        float pitch_cos = Fast_Cos(LinkedTo->AngleRotatedSideways);
+        float pitch_sin = Fast_Sin(LinkedTo->AngleRotatedSideways);
         int lift = fabs(pitch_sin) * length + fabs(roll_sin) * width;
         int y_shift = width - (int)(roll_cos * width);
         int x_shift = length - (int)(pitch_cos * length);
-        if (LinkedTo->unknown_284 < 0.0f) {
+        if (LinkedTo->AngleRotatedForwards < 0.0f) {
             y_shift = -y_shift;
         }
-        if (LinkedTo->unknown_280 > 0.0f) {
+        if (LinkedTo->AngleRotatedSideways > 0.0f) {
             x_shift = -x_shift;
         }
         transform.Translate_Z((float)lift);
         rotation.Translate_X((float)y_shift);
         rotation.Translate_Y((float)x_shift);
-        rotation.Rotate_X(LinkedTo->unknown_280);
-        rotation.Rotate_Y(LinkedTo->unknown_284);
+        rotation.Rotate_X(LinkedTo->AngleRotatedSideways);
+        rotation.Rotate_Y(LinkedTo->AngleRotatedForwards);
         if (key != 0) {
             *key = -1;
         }

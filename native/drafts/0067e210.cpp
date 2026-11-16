@@ -45,19 +45,19 @@ static inline int Max_Visible_Cameos_67e210()
 
 bool SidebarClass::unknown_slot54(int control)
 {
-    bool old = unknown_4ee1;
+    bool old = IsSidebarActive;
     if ((unknown_flags_a3f600 & 2) && unknown_game_mode_a3d298 && unknown_game_mode_a3d298 != 5) {
         return old;
     }
     if (control != -1) {
-        unknown_4ee1 = (control == 1);
+        IsSidebarActive = (control == 1);
     } else {
-        unknown_4ee1 = !old;
+        IsSidebarActive = !old;
     }
-    bool changed = (unknown_4ee1 != old);
+    bool changed = (IsSidebarActive != old);
     if (changed) {
-        Set_Buttons(unknown_4ee1);
-        if (unknown_4ee1) {
+        Set_Buttons(IsSidebarActive);
+        if (IsSidebarActive) {
             Reposition_Sidebar();
             unknown_4ee2 = true;
             unknown_button_ab96b8.Zap();
@@ -84,8 +84,8 @@ bool SidebarClass::unknown_slot54(int control)
                     unknown_buttons_ab9508[index].Enable();
                 }
             }
-            unknown_buttons_ab9508[unknown_4ed8].Turn_On();
-            Column[unknown_4ed8].Activate();
+            unknown_buttons_ab9508[ActiveTabIndex].Turn_On();
+            Column[ActiveTabIndex].Activate();
             Unknown_0067C850();
         } else {
             Stop_Ingame_Movie();
@@ -97,7 +97,7 @@ bool SidebarClass::unknown_slot54(int control)
             }
             Remove_A_Button(unknown_button_abcbe8);
             Remove_A_Button(unknown_button_abccc0);
-            StripClass &current = Column[unknown_4ed8];
+            StripClass &current = Column[ActiveTabIndex];
             int count = Max_Visible_Cameos_67e210() * 2;
             for (int slot = 0; slot < count; slot++) {
                 Map.Remove_A_Button(SelectButton[current.unknown_34 * 60 + slot]);
