@@ -32,9 +32,8 @@ void Read_Building_List_m27(CCINIClass &ini, char const *entry, TypeList<Buildin
 // map generator. The lists are cleared, then each is read with CCINIClass::Get_Integer_List
 // (0x0046B1B0) over the cleared list, RMGMinimum/MaximumTiberium and MaxTrees with Get_Int
 // (0x0050D7F0), and the two ore patch lamp lists as building type IDs. Reached by the skirmish
-// "Random Map" button (MapSeedClass::Randomize_Parameters 0x005789F0). NOT EXACT: Get_Int's
-// defaults are not visible in the decompile; the current values are kept when an entry is
-// missing.
+// "Random Map" button (MapSeedClass::Randomize_Parameters 0x005789F0). Get_Int's defaults
+// are the current values, as the original pushes them (0x00579A24: +0x2BC; C16 audit).
 void MapGeneratorClass::Read_Settings_00579960()
 {
     CCFileClass file("RMG.INI");

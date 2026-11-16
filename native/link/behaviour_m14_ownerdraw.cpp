@@ -37,9 +37,14 @@ extern "C" int dprintf(int fd, char const *format, ...);
 #include "shared/wol_ladder_list_cell.hpp"
 #include "shared/hicolor.hpp"
 #include "shared/rect.hpp"
+#include "shared/session_state.hpp"
+#include "shared/id_source.hpp"
 
 extern WolDictionary<HWND, WNDPROC> unknown_window_proc_table_a73688;   // 0x00A73688 (its initializer 0x005DE9C0)
 extern void *unknown_art_ac10c0;                                        // 0x00AC10C0 (kind-3 button shape; 0x006F1B60 loads it)
+extern unsigned char unknown_color_ac1008[3];                           // 0x00AC1008 (0x006F1A40: 0x00, 0x52, 0x75)
+extern unsigned char unknown_color_ac1100[3];                           // 0x00AC1100 (0x006F1A60: 0x48, 0, 0)
+extern unsigned char unknown_mode_ac109c[3];                            // 0x00AC109C (0x48, 0, 0; txtlabel2 unknown_reset_flags)
 
 void __fastcall WideToCharString_006fa0f0(char *out, unsigned short const *text, int size);   // 0x006FA0F0 (wide to narrow)
 
@@ -114,74 +119,122 @@ bool Item_Text(HWND window, bool combo, int index, wchar_t *out, int size)
 }
 
 // The push button's paint (0x005F0320 WM_PAINT, pass-6a decompile; Scout1161, M20:
-// the user saw the main menu's buttons as text on the empty slots). The button's
-// kind (+0xB0; 0x005EA230 sets 2 for the menu dialogs' sidebar buttons) picks its
-// art: kinds 1-3 draw a frame of an interface shape through its drawer (kind 1:
-// 0x00AC10B8 through 0x006F34C0, frames 2 / 3 lit / 4 pressed; kind 2: 0x00AC0FF8
-// through 0x006F45F0, frames 0 / 2 lit / 1 pressed; kind 3: 0x00AC10C0 through
-// 0x006F2250, frames as kind 2) at the control's corner, clipped to the background
-// surface; kind 0 draws its image (+0x14, pressed +0x18) or the three-piece PCX
-// button "b<u|d>e_li<h>.pcx", "_mi" tiled, "_ri" (h 24 or 30, the largest not
-// taller than the control; 7-pixel ends; 2 pixels lower while pressed). The text
-// (+0x28) follows unless an image stands in for it: font +0x64, centred (5, 0xC),
-// in the dialog text colour, the disabled colour for a disabled button, moved 4
-// right and 2 down while pressed. NOT EXACT: the original's pressed/up click
-// sound memory (0x007E8D4C), its saved background (+0x10) for kind 0, the
-// side-coloured disabled text and the disabled darkening are left out.
+// the user saw the main menu's buttons as text on the empty slots; C16 audit: case by
+// case against the original's instructions 0x005F0539-0x005F0D86). The first paint saves
+// the background under the control in a BSurface (+0x10). The button's kind (+0xB0;
+// 0x005EA230 sets 2 for the menu dialogs' sidebar buttons) picks its art: kinds 1-3 draw
+// a frame of an interface shape through its drawer (kind 1: 0x00AC10B8 through 0x006F34C0,
+// frames 2 / 3 lit / 4 pressed; kind 2: 0x00AC0FF8 through 0x006F45F0, frames 0 / 2 lit /
+// 1 pressed; kind 3: 0x00AC10C0 through 0x006F2250, frames as kind 2) at the control's
+// corner, clipped to the background surface; kind 0 draws its image (+0x14, pressed
+// +0x18), or restores the saved background and draws the three-piece PCX button
+// "b<u|d>e_li<h>.pcx" (7 pixels), "_mi" tiled, "_ri" (10 pixels), h 24 or 30 (the largest
+// not taller than the control), centred and 2 pixels lower while pressed; going down
+// plays GenericClick once (the last state 0x007E8D4C, shared by every button). The text
+// (+0x28) follows unless an image stands in for it: font +0x64, centred (5, 0xC), 2 right
+// and 4 down while pressed; a disabled kind 1-3 button's text takes the side colour
+// (with SessionClass +0x3080 set: 0x00AC1008 when the scenario's +0x2239 is set, else
+// 0x00AC1100; otherwise 0x00AC109C); a disabled
+// kind 0 button is darkened (0x005FEB60, 0x80) after its text. NATIVE: pressed is the
+// owner-draw state the dialog's WM_DRAWITEM stores in +0xE8 (0x005FE471, itemState bit 0,
+// ODS_SELECTED), or the button's BST_PUSHED: the port's Win32 layer sends no WM_DRAWITEM.
+char unknown_button_state_7e8d4c = 'u';     // 0x007E8D4C: the last kind-0 state drawn ('u' / 'd')
+
+unsigned long Side_Text_Color(unsigned char const *rgb)
+{
+    // The original packs the colour through the 16-bit surface's channel shifts (a PALETTERGB
+    // of the quantised channels); the text draw quantises it the same way.
+    return 0x02000000ul | (unsigned long)rgb[2] << 16 | (unsigned long)rgb[1] << 8 | rgb[0];
+}
+
 void Paint_Button(HWND window, WinData *record, bool lit)
 {
     Rect area = Area(window);
-    bool pressed = (record->unknown_e8 & 1) != 0 || (Original(window, 0xF2, 0, 0) & 4) != 0;   // ODS_SELECTED / BST_PUSHED
+    RECT where = {0, 0, 0, 0};
+    Window_Rect_In_Main_Client(window, &where);
+    RECT client = {0, 0, 0, 0};
+    GetClientRect(window, &client);
+    bool pressed = (record->unknown_e8 & 1) != 0 || (Original(window, 0xF2, 0, 0) & 4) != 0;
     bool disabled = (GetWindowLongA(window, GWL_STYLE) & 0x8000000) != 0;
-    int kind = record->unknown_b0;
-    ConvertClass *drawer = 0;
-    ShapeFileStruct const *shape = 0;
-    int frame = 0;
-    if (kind == 1) {
-        drawer = (ConvertClass *)Unknown_Get_Art_006f34c0();
-        shape = unknown_shape_ac10b8;
-        frame = pressed ? 4 : lit ? 3 : 2;
-    } else if (kind == 2 || kind == 3) {
-        drawer = (ConvertClass *)(kind == 2 ? Unknown_Get_Art_006f45f0() : Unknown_Get_Art_6f2250());
-        shape = kind == 2 ? unknown_shape_ac0ff8 : (ShapeFileStruct const *)unknown_art_ac10c0;   // 0x00AC10C0 (0x006F1B60 loads it)
-        frame = pressed ? 1 : lit ? 2 : 0;
+    int width = client.right + 1, height = client.bottom + 1;
+    if (!record->surface_10) {
+        record->surface_10 = new BSurface(width, height, 2);
+        ++unknown_surface_count_a763d8;
+        record->surface_10->Copy_From(Rect(0, 0, width, height), *AlternateSurface, Rect(where.left, where.top, width, height),
+                                      false, true);
     }
-    if (drawer && shape) {
-        Rect window_rect = AlternateSurface->Get_Rect();
-        CC_Draw_Shape(AlternateSurface, drawer, shape, frame, Point2D(area.X, area.Y), window_rect, 0x400, 0, 0, 0, 1000, 0, 0,
-                      Point2D(0, 0));
-    } else if (kind == 0 && record->image_14) {
-        Image(pressed && record->alternate_image_18 ? record->alternate_image_18 : record->image_14, area);
-    } else if (kind == 0) {
-        int height = area.Height >= 30 ? 30 : 24;
-        int y = area.Y + (area.Height - height) / 2 + (pressed ? 2 : 0);
-        char state = pressed && !disabled ? 'd' : 'u';
-        char name[32];
-        Surface *left = 0, *middle = 0, *right = 0;
-        sprintf(name, "b%c%c_li%d.pcx", state, 'e', height);
-        left = SurfaceCache.Get_Image_0068ca40(name, 0);
-        sprintf(name, "b%c%c_mi%d.pcx", state, 'e', height);
-        middle = SurfaceCache.Get_Image_0068ca40(name, 0);
-        sprintf(name, "b%c%c_ri%d.pcx", state, 'e', height);
-        right = SurfaceCache.Get_Image_0068ca40(name, 0);
-        if (left && middle && right) {
-            int end = 7;
-            Rect from(0, 0, end, height);
-            AlternateSurface->Copy_From(Rect(area.X, y, end, height), *left, from, false, true);
-            SurfaceCache.Draw_0068cce0(Rect(area.X + end, y, area.Width - 2 * end, height), AlternateSurface, middle, 0, 0);
-            AlternateSurface->Copy_From(Rect(area.X + area.Width - end, y, end, height), *right, from, false, true);
-        } else {
-            int color = unknown_5fda40(lit ? unknown_color_a733e4 : unknown_color_a76158);
-            Frame(area, color);
-            if (pressed) Frame(Rect(area.X + 1, area.Y + 1, area.Width - 2, area.Height - 2), color);
+    unsigned long text_color = (unsigned long)unknown_color_a733e4;
+    int text_y = area.Y, text_height = area.Height;
+    int kind = record->unknown_b0;
+    if (kind != 0) {
+        ConvertClass *drawer = 0;
+        ShapeFileStruct const *shape = 0;
+        int frame = 0;
+        if (kind == 1) {
+            drawer = (ConvertClass *)Unknown_Get_Art_006f34c0();
+            shape = unknown_shape_ac10b8;
+            frame = pressed ? 4 : lit ? 3 : 2;
+        } else if (kind == 2 || kind == 3) {
+            drawer = (ConvertClass *)(kind == 2 ? Unknown_Get_Art_006f45f0() : Unknown_Get_Art_6f2250());
+            shape = kind == 2 ? unknown_shape_ac0ff8 : (ShapeFileStruct const *)unknown_art_ac10c0;   // 0x00AC10C0 (0x006F1B60 loads it)
+            frame = pressed ? 1 : lit ? 2 : 0;
         }
+        if (disabled) {
+            if (!unknown_session_a3d298.Unknown_00672F10())
+                text_color = Side_Text_Color((unsigned char const *)&unknown_mode_ac109c);
+            else if (unknown_id_source_a3d290->unknown_2239)
+                text_color = Side_Text_Color((unsigned char const *)&unknown_color_ac1008);
+            else
+                text_color = Side_Text_Color((unsigned char const *)&unknown_color_ac1100);
+        }
+        if (drawer && shape) {
+            Rect window_rect = AlternateSurface->Get_Rect();
+            CC_Draw_Shape(AlternateSurface, drawer, shape, frame, Point2D(area.X, area.Y), window_rect, 0x400, 0, 0, 0, 1000, 0, 0,
+                          Point2D(0, 0));
+        }
+    } else if (record->image_14) {
+        Image(pressed && record->alternate_image_18 ? record->alternate_image_18 : record->image_14, area);
+    } else {
+        char state = pressed ? 'd' : 'u';
+        if (disabled) state = 'u';
+        else if (state == 'd' && unknown_button_state_7e8d4c == 'u') Voc_Play(Rules->GenericClick, 1.0f, 0x2000, 0);   // GenericClick
+        unknown_button_state_7e8d4c = state;
+        int piece = area.Height >= 30 ? 30 : 24;
+        const int left_end = 7, right_end = 10;
+        if (record->surface_10) {
+            AlternateSurface->Copy_From(Rect(where.left, where.top, width, height), *record->surface_10, Rect(0, 0, width, height),
+                                        false, true);
+            InvalidateRect(window, 0, FALSE);
+        }
+        int y = area.Y + (area.Height - piece) / 2;
+        if (pressed) y += 2;
+        char name[32];
+        sprintf(name, "b%c%c_li%d.pcx", state, 'e', piece);
+        Surface *left = SurfaceCache.Get_Image_0068ca40(name, 0);
+        int left_height = left ? left->Get_Height() : piece;
+        if (left)
+            AlternateSurface->Copy_From(Rect(area.X, y, left_end, piece), *left, Rect(0, 0, left_end, piece), false, true);
+        sprintf(name, "b%c%c_mi%d.pcx", state, 'e', piece);
+        Surface *middle = SurfaceCache.Get_Image_0068ca40(name, 0);
+        if (middle)
+            SurfaceCache.Draw_0068cce0(Rect(area.X + left_end, y, area.Width - right_end, middle->Get_Height()),
+                                                       AlternateSurface, middle, 0, 0);
+        sprintf(name, "b%c%c_ri%d.pcx", state, 'e', piece);
+        Surface *right = SurfaceCache.Get_Image_0068ca40(name, 0);
+        if (right) {
+            int right_height = right->Get_Height();
+            AlternateSurface->Copy_From(Rect(area.X + area.Width - right_end, y, right_end, right_height), *right,
+                                        Rect(0, 0, right_end, right_height), false, true);
+        }
+        text_y = y;
+        text_height = left_height;
     }
     if (!record->image_14 && record->text_28) {
-        RECT text = {area.X + 1, area.Y, area.X + area.Width, area.Y + area.Height};
-        if (pressed) { text.left += 4; text.top += 2; text.bottom += 2; }
-        unknown_draw_text_5fe020(AlternateSurface, record->text_28, &text, record->font_64,
-                                 disabled ? unknown_color_a737ec : unknown_color_a733e4, 5, 0xC, 0, 0, 0);
+        RECT text = {area.X, text_y + 1, area.X + area.Width - 2, text_y + text_height};
+        if (pressed) { text.left += 2; text.top += 4; }
+        unknown_draw_text_5fe020(AlternateSurface, record->text_28, &text, record->font_64, text_color, 5, 0xC, 0, 0, 0);
     }
+    if (kind == 0 && disabled) Unknown_005feb60(&area, AlternateSurface, 0, 0x80);
 }
 
 } // namespace
@@ -608,6 +661,84 @@ void List_Shift_Rows(ListColumns *columns, int row, int delta)
     }
     columns->cells_used = kept;
 }
+
+// The list's own selection (C16 audit, against the original's instructions): the original
+// answers every selection message itself and never lets the Win32 list hold a selection. A
+// growable array of per-row flags (+0xEC: {count, capacity, int *}, grown to max(2n, 10)),
+// the current row (+0xF4, -1 for none) that LB_SETCURSEL keeps through LB_SETSEL, cleared
+// with the columns by LB_RESETCONTENT and WM_NCDESTROY (0x005F7820); a deleted row's flag
+// goes (0x005F7618), an inserted row shifts nothing. NATIVE: a side table by window (the
+// record's +0xEC is 32 bits).
+struct ListSelection {
+    HWND window;
+    int current;            // +0xF4
+    int count, capacity;    // +0xEC's array
+    int *flags;
+};
+ListSelection list_selections[16];
+ListSelection *List_Selection(HWND window, bool make)
+{
+    for (int i = 0; i < 16; ++i)
+        if (list_selections[i].window == window) return &list_selections[i];
+    if (make)
+        for (int i = 0; i < 16; ++i)
+            if (!list_selections[i].window) {
+                list_selections[i].window = window;
+                list_selections[i].current = -1;
+                list_selections[i].count = list_selections[i].capacity = 0;
+                list_selections[i].flags = 0;
+                return &list_selections[i];
+            }
+    return 0;
+}
+void List_Selection_Free(HWND window)
+{
+    if (ListSelection *selection = List_Selection(window, false)) {
+        delete[] selection->flags;
+        selection->flags = 0;
+        selection->window = 0;
+    }
+}
+int List_Current(HWND window)
+{
+    ListSelection *selection = List_Selection(window, false);
+    return selection ? selection->current : -1;
+}
+// The flag of a row (the array clamps its index, as the original's accessor does).
+int &List_Flag(ListSelection *selection, int row)
+{
+    if (row < 0) row = 0;
+    if (row >= selection->count) row = selection->count - 1;
+    return selection->flags[row];
+}
+// Rows up to `last` get a flag (new ones clear).
+void List_Grow(ListSelection *selection, int last)
+{
+    if (last < selection->count || last + 1 < 0) return;
+    int count = last + 1;
+    if (count > selection->capacity) {
+        int capacity = selection->count * 2 < 10 ? 10 : selection->count * 2;
+        while (capacity < count) capacity = capacity * 2;
+        int *flags = new int[capacity];
+        memset(flags, 0, sizeof(int) * capacity);
+        if (selection->flags) memcpy(flags, selection->flags, sizeof(int) * selection->count);
+        delete[] selection->flags;
+        selection->flags = flags;
+        selection->capacity = capacity;
+    }
+    for (int i = selection->count; i < count; ++i) selection->flags[i] = 0;
+    selection->count = count;
+}
+int List_Get_Sel(HWND window, int row)
+{
+    ListSelection *selection = List_Selection(window, false);
+    if (!selection || !selection->flags || row >= selection->count || row < 0) return 0;
+    return selection->flags[row];
+}
+void List_Notify(HWND window, int code)
+{
+    SendMessageA(GetParent(window), 0x111, (WPARAM)((GetWindowLongA(window, -12) & 0xFFFF) | (code << 16)), (LPARAM)window);
+}
 }
 
 // 0x005F6690: the list box procedure.
@@ -683,22 +814,124 @@ LRESULT __stdcall unknown_list_proc_5f6690(HWND window, UINT message, WPARAM wpa
         return 0;
     }
     // C16 behaviour audit (2026-11-15, against the original's instructions): without a registry
-    // record the original returns 0 without the default procedure; WM_ERASEBKGND returns 0; and
-    // LB_SETCURSEL (jump-table case at 0x005F7E80) selects the row when -1 <= index < the count,
-    // then always tells the parent (WM_COMMAND, the control id with LBN_SELCHANGE), repaints
-    // without erasing and returns 0 (a load or save list selected from code updates its
-    // description through that notification).
+    // record the original returns 0 without the default procedure; WM_ERASEBKGND returns 0.
     if (!record) return 0;
-    if (message == 0x186) {
-        if ((int)wparam >= -1 && (int)wparam < (int)Original(window, 0x18B, 0, 0)) Original(window, 0x186, wparam, 0);
-        SendMessageA(GetParent(window), 0x111, (WPARAM)((GetWindowLongA(window, -12) & 0xFFFF) | 0x10000), (LPARAM)window);
+    int rows = 0;
+    switch (message) {
+    case 0x185: {                                   // LB_SETSEL (0x005F79FD): wparam the flag, lparam the row (-1 all)
+        int row = (int)lparam;
+        if (row < -1) return -1;
+        ListSelection *selection = List_Selection(window, true);
+        if (!selection) return -1;
+        rows = (int)Original(window, 0x18B, 0, 0);
+        if (row >= rows - 1) row = rows - 1;
+        List_Grow(selection, row);
+        if (row == -1) {
+            for (int i = 0; i < selection->count; ++i) selection->flags[i] = (int)wparam;
+        } else if (selection->count) {
+            List_Flag(selection, row) = (int)wparam;
+        }
+        List_Notify(window, 1);                     // LBN_SELCHANGE
         InvalidateRect(window, 0, FALSE);
         return 0;
+    }
+    case 0x186: {                                   // LB_SETCURSEL (0x005F7E80)
+        int row = (int)wparam;
+        if (row >= -1 && row < (int)Original(window, 0x18B, 0, 0)) {
+            ListSelection *selection = List_Selection(window, true);
+            if (selection) {
+                if (selection->current != -1) SendMessageA(window, 0x185, 0, selection->current);
+                selection->current = row;
+                if (row != -1) SendMessageA(window, 0x185, 1, row);
+            }
+        }
+        List_Notify(window, 1);
+        InvalidateRect(window, 0, FALSE);
+        return 0;
+    }
+    case 0x187:                                     // LB_GETSEL
+        return List_Get_Sel(window, (int)wparam);
+    case 0x188:                                     // LB_GETCURSEL (+0xF4)
+        return List_Current(window);
+    case 0x190: {                                   // LB_GETSELCOUNT
+        ListSelection *selection = List_Selection(window, false);
+        int selected = 0;
+        if (selection)
+            for (int i = 0; i < selection->count; ++i)
+                if (selection->flags[i]) ++selected;
+        return selected;
+    }
+    case 0x191: {                                   // LB_GETSELITEMS: wparam the room, lparam the rows
+        ListSelection *selection = List_Selection(window, false);
+        int found = 0;
+        int *out = (int *)lparam;
+        if (selection)
+            for (int i = 0; i < selection->count && found < (int)wparam; ++i)
+                if (selection->flags[i]) out[found++] = i;
+        return found;
+    }
+    case 0x19B: {                                   // LB_SELITEMRANGE: wparam the flag, lparam first | last << 16
+        int first = (int)(lparam & 0xFFFF), last = (int)((lparam >> 16) & 0xFFFF);
+        rows = (int)Original(window, 0x18B, 0, 0);
+        if (last < first) return -1;
+        if (last >= rows) last = rows - 1;
+        ListSelection *selection = List_Selection(window, true);
+        if (!selection) return -1;
+        List_Grow(selection, last);
+        for (int i = first; i <= last; ++i)
+            if (selection->count) List_Flag(selection, i) = (int)wparam;
+        List_Notify(window, 1);
+        return 0;
+    }
+    case 0x182:                                     // LB_DELETESTRING: the row's flag goes, then the Win32 list
+        if (ListSelection *selection = List_Selection(window, false)) {
+            int row = (int)wparam;
+            if (selection->count > row && selection->count) {
+                if (row < 0) row = 0;
+                memmove(selection->flags + row, selection->flags + row + 1, sizeof(int) * (selection->count - row - 1));
+                --selection->count;
+            }
+        }
+        break;
+    case 0x184: case 0x82:                          // LB_RESETCONTENT, WM_NCDESTROY: the selection and the columns go
+        List_Selection_Free(window);
+        if (ListColumns *columns = List_Columns(window, false)) columns->window = 0;
+        break;
+    case 0x201: {                                   // WM_LBUTTONDOWN (0x005F8294)
+        int top = (int)SendMessageA(window, 0x18E, 0, 0);
+        int height = (int)SendMessageA(window, 0x1A1, 0, 0);
+        int row = (int)((unsigned long)lparam >> 16 & 0xFFFF) / (height ? height : 1) + top;
+        LONG style = GetWindowLongA(window, GWL_STYLE);
+        SetFocus(window);
+        if (style & 8) {                            // LBS_MULTIPLESEL: the row toggles
+            int selected = (int)SendMessageA(window, 0x187, row, 0);
+            Voc_Play(Rules->GenericClick, 1.0f, 0x2000, 0);   // GenericClick
+            SendMessageA(window, 0x185, !selected, row);
+        } else if (!(style & 0x4000)) {             // not LBS_NOSEL
+            Voc_Play(Rules->GenericClick, 1.0f, 0x2000, 0);
+            SendMessageA(window, 0x186, row, 0);
+        }
+        InvalidateRect(window, 0, FALSE);
+        List_Notify(window, 1);
+        return 0;
+    }
+    case 0x203:                                     // WM_LBUTTONDBLCLK: LBN_DBLCLK, posted
+        PostMessageA(GetParent(window), 0x111, (WPARAM)((GetWindowLongA(window, -12) & 0xFFFF) | 0x20000), (LPARAM)window);
+        return 0;
+    case 0x204:                                     // WM_RBUTTONDOWN: a multiple-selection list clears
+        if (GetWindowLongA(window, GWL_STYLE) & 8) {
+            SendMessageA(window, 0x185, 0, -1);
+            SendMessageA(window, 0x186, (WPARAM)-1, 0);
+            List_Notify(window, 1);
+            InvalidateRect(window, 0, FALSE);
+            return 0;
+        }
+        break;
     }
     if (message != 0xF) {
         if (message == 0x14) return 0;
         LRESULT result = Original(window, message, wparam, lparam);
-        if (record && (message == 0x201 || message == 0x203 || message == 0x186 || message == 0x180 || message == 0x184))
+        if (message == 0x180 || message == 0x184)
             InvalidateRect(window, 0, TRUE);
         return result;
     }
@@ -711,13 +944,12 @@ LRESULT __stdcall unknown_list_proc_5f6690(HWND window, UINT message, WPARAM wpa
         Frame(area, unknown_5fda40(unknown_color_a76158));
         int count = (int)Original(window, 0x18B, 0, 0);
         int top = (int)Original(window, 0x18E, 0, 0);
-        int selected = (int)Original(window, 0x188, 0, 0);
         int height = (int)Original(window, 0x1A1, 0, 0);
         if (height <= 0) height = 16;
         for (int i = top; i < count; ++i) {
             Rect row(area.X + 2, area.Y + 2 + (i - top) * height, area.Width - 4, height);
             if (row.Y + row.Height > area.Y + area.Height) break;
-            if (i == selected) Frame(row, unknown_5fda40(unknown_color_a733e4));
+            if (List_Get_Sel(window, i)) Frame(row, unknown_5fda40(unknown_color_a733e4));
             wchar_t text[256];
             ListColumns *columns = List_Columns(window, false);
             if (!columns || columns->count == 0) {
@@ -917,6 +1149,38 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
                 PostMessageA(window, 0x14F, dropped != 1, 0);
             }
             return 0;
+        }
+        case 0x149: case 0x4BD: case 0x4C3: {
+            // An item's text length (CB_GETLBTEXTLEN), or its text copied out narrow (0x4BD) or
+            // wide (0x4C3), from the item record (C16 audit, 0x005F6296-0x005F6352): the buffer
+            // is cleared first; row -1 or a row without a record answers 0; else the length.
+            if (lparam && message != 0x149) {
+                if (message == 0x4C3) *(unsigned short *)lparam = 0;
+                else *(char *)lparam = 0;
+            }
+            if ((int)wparam == -1) return 0;
+            ComboItem *item = Combo_Item(window, (int)wparam);
+            if (!item) return message == 0x149 ? Original(window, 0x149, wparam, lparam) : 0;
+            wchar_t const *text = item->text ? item->text : L"";
+            int length = 0;
+            while (text[length]) ++length;
+            if (lparam && message == 0x4C3) {
+                for (int i = 0; i <= length; ++i) ((unsigned short *)lparam)[i] = (unsigned short)text[i];
+            } else if (lparam && message == 0x4BD) {
+                WideToCharString_006fa0f0((char *)lparam, (unsigned short const *)text, -1);
+            }
+            return length;
+        }
+        case 0x4E8: {                               // the item at a point: asked of the dropped list
+            // (0x005F63C9: the point moved from the box's window to the list's; -1 when not dropped)
+            HWND drop = Combo_Drop(window, false);
+            if (!drop) return -1;
+            RECT box, list;
+            GetWindowRect(window, &box);
+            GetWindowRect(drop, &list);
+            unsigned x = (unsigned)((lparam & 0xFFFF) + box.left - list.left) & 0xFFFF;
+            unsigned y = (unsigned)(((unsigned long)lparam >> 16) - list.top + box.top) & 0xFFFF;
+            return SendMessageA(drop, 0x4E8, 0, (LPARAM)(x | y << 16));
         }
         case 0x157:                                 // CB_GETDROPPEDSTATE
             return Combo_Drop(window, false) ? 1 : 0;

@@ -102,8 +102,9 @@ void Split_Raise_Region(int region, int diff)
 // dry (+0x14 clear) neighbour and joins it (+0x24 discardable). Every discardable region other
 // than this one is deleted, the split count (+0x1C) rises and true is returned; the caller
 // (Make_Ice_Regions 0x005704C0) deletes this region.
-// NOT EXACT: the heap's tie order and an empty height list (the original then indexes past it;
-// natively the height stays) are the only intended differences.
+// NOT EXACT: an empty height list (the original then indexes past it; natively the height
+// stays) is the only intended difference; the heap orders ties as the original's (strict
+// compares in the inline sift-up 0x0056F14D and in 0x0058F090; C16 audit).
 bool MapRegionClass::Split_Region_0056ef20()
 {
     if (unknown_1a) return false;

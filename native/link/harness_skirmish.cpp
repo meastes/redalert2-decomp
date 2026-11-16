@@ -388,6 +388,9 @@ void Native_Map_Zoom_Frame();          // native_map_zoom.cpp (Map zoom: the gam
 void Native_Map_Zoom_End();            // native_map_zoom.cpp (the game is over: whole picture again)
 bool Native_Main_Loop_Seam()
 {
+    // In play from the frame's start (C16): the frame's own present is drawn with the play
+    // layout (zoomed, the tactical view is a part of the screen; the first frame was shown whole).
+    Native_Map_Zoom_Frame();
     uint64_t work_start = ra2port_monotonic_ns(), slept_start = ra2port_slept_ns;
     bool over = unknown_53fbd0();
     {
@@ -396,7 +399,6 @@ bool Native_Main_Loop_Seam()
         Native_Net_Timing_Log(spent);
     }
     Native_Frame_Floor();
-    Native_Map_Zoom_Frame();
     if (over) Native_Map_Zoom_End();
     Native_Note_Frame();   // native_event_data.cpp: Sync_Delay's in-wait pass waits for a stalled frame
     // Every game counts its frames (a game started from the menus too:

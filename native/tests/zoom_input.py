@@ -22,11 +22,15 @@ game's state and the host's own measures:
           centred on the screen) is shown as the menus are, the screen's centre at the window's scale,
           not through the in-play dialog layout; its Continue button clicked through the window (where
           the original at 1024x768 has it, moved to the screen's centre) ends the game (WinMain returns).
+  abort   the in-game menu's Abort Mission and the Abort screen's Quit (interface 1.25x, render scale 2):
+          every picture the window shows (RA2_NATIVE_WINDOW_DUMP_MS=0) is checked as it is written; none
+          may be the zoomed game's screen shown whole (the tactical part in the top left corner, the
+          bottom half black: the user's Duo report after Abort Mission), and the game ends.
   pinch   two scripted fingers (the touch controls on, RA2_NATIVE_TOUCH_UI) move apart from 100 to
           220 points: a pinch (no click, no selection, no pan), the zoom about 2.2x; then they move
           together: back down.
 
-  zoom_input.py --case steps|menu|score|pinch --binary <ra2-native> --data-dir <installed RA2> --game-exe <game.exe>
+  zoom_input.py --case steps|menu|score|abort|pinch --binary <ra2-native> --data-dir <installed RA2> --game-exe <game.exe>
                 [--log <file>]
 
 Without the data folder or game.exe it exits 77 (skipped); the Windows build too (no window
@@ -34,9 +38,12 @@ mapping under Wine to check here)."""
 import argparse
 import os
 import re
+import struct
 import subprocess
 import sys
 import tempfile
+import threading
+import time
 
 SKIP = 77
 BAD = re.compile(r'unrecovered|trap|signal \d+|SIG(SEGV|BUS|ILL|ABRT|FPE)|crash:|abort', re.I)
@@ -60,8 +67,36 @@ CLICKS = [(140, 1), (195, 2), (240, 3)]     # frame, the tank (n-th MTNK) select
 # dialog shown: 1 the menu, 2 Save, 3 the menu, 4 Abort).
 MENU = ['150 key Escape', 'd1+1500 click 940 289', 'd2+1500 click 940 714', 'd3+1500 click 940 339',
         'd4+1500 click 940 714']
+# Abort Mission, then the Abort screen's Quit (the column's first button).
+ABORT = ['30 key Escape', 'd1+1500 click 940 339', 'd2+2000 click 940 239']
 # The score screen's Continue (game pixels: 831,640 at 1024x768, the screen's centre 428,368 further).
 SCORE = ['d1+1500 click 1259 1008']
+
+
+def quadrants(path):
+    """The mean brightness (0-765) of a BMP picture's four quadrants (top left, top right, bottom
+    left, bottom right), sampled every 24 pixels; None for an unreadable file."""
+    try:
+        b = open(path, 'rb').read()
+        off = struct.unpack_from('<I', b, 10)[0]
+        w, h = struct.unpack_from('<ii', b, 18)
+        step = struct.unpack_from('<H', b, 28)[0] // 8
+    except (OSError, struct.error):
+        return None
+    rows, row = abs(h), ((w * step + 3) // 4) * 4
+    if step < 3 or len(b) < off + rows * row:
+        return None
+    q = []
+    for x0, y0 in ((0, 0), (w // 2, 0), (0, rows // 2), (w // 2, rows // 2)):
+        total = n = 0
+        for y in range(y0, y0 + rows // 2, 24):
+            line = (rows - 1 - y) * row if h > 0 else y * row
+            for x in range(x0, x0 + w // 2, 24):
+                i = off + line + x * step
+                total += b[i] + b[i + 1] + b[i + 2]
+                n += 1
+        q.append(total // max(n, 1))
+    return q
 
 
 def pinch_script():
@@ -80,7 +115,7 @@ def tanks_selected(state):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('--case', required=True, choices=['steps', 'menu', 'menu-ui', 'score', 'pinch'])
+    ap.add_argument('--case', required=True, choices=['steps', 'menu', 'menu-ui', 'score', 'abort', 'pinch'])
     ap.add_argument('--binary', required=True)
     ap.add_argument('--data-dir', default=os.environ.get('RA2_NATIVE_CENSUS_DATA_DIR', ''))
     ap.add_argument('--game-exe', default=os.environ.get('RA2_NATIVE_CENSUS_GAME_EXE', ''))
@@ -111,6 +146,10 @@ def main():
         env['RA2_NATIVE_SCRIPT_AS_USER'] = '1'
         env['RA2_NATIVE_FORCE_END'] = '100'
         lines, frames = SCORE, 300
+    elif a.case == 'abort':
+        env['RA2_NATIVE_SCRIPT_AS_USER'] = '1'
+        env['RA2_NATIVE_ENHANCEMENTS'] = 'uisize=1.25,zoomgestures=on'
+        lines, frames = ABORT, 100000
     else:
         env['RA2_NATIVE_TOUCH_UI'] = '1'
         lines, frames = pinch_script(), 140
@@ -120,16 +159,47 @@ def main():
             f.write('\n'.join(lines) + '\n')
         write_dir = os.path.join(work, 'write')
         os.mkdir(write_dir)
-        cmd = [a.binary, '--data-dir', a.data_dir, '--run-to=seconds' if a.case == 'score' else '--run-to=frames', '--run-seconds=240', '--write-dir=' + write_dir,
+        seconds = 40 if a.case == 'abort' else 240
+        cmd = [a.binary, '--data-dir', a.data_dir, '--run-to=seconds' if a.case in ('score', 'abort') else '--run-to=frames',
+               '--run-seconds=%d' % seconds, '--write-dir=' + write_dir,
                '--game-args=-noaudio -CD.', '--skirmish=#5', '--skirmish-frames=%d' % frames, '--input-script=' + script]
-        p = subprocess.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace')
+        corners = []
+        if a.case == 'abort':
+            dumps = os.path.join(work, 'dumps')
+            os.mkdir(dumps)
+            env['RA2_NATIVE_WINDOW_DUMP'] = os.path.join(dumps, 'w')
+            env['RA2_NATIVE_WINDOW_DUMP_MS'] = '0'
+            proc = subprocess.Popen(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace')
+            out_parts = []
+            reader = threading.Thread(target=lambda: out_parts.append(proc.stdout.read()))
+            reader.start()
+            seen = 0
+            while True:
+                running = proc.poll() is None
+                # Each picture once the next exists (so it is complete), or all once the game ended.
+                names = sorted(os.listdir(dumps), key=lambda n: int(n.split('.')[1]))
+                for n in names[:-1] if running else names:
+                    path = os.path.join(dumps, n)
+                    q = quadrants(path)
+                    if q and q[0] > 60 and q[2] < 5 and q[3] < 5:
+                        corners.append((n, q))
+                    os.remove(path)
+                    seen += 1
+                if not running:
+                    break
+                time.sleep(0.05)
+            reader.join()
+            p = subprocess.CompletedProcess(cmd, proc.returncode, ''.join(out_parts))
+            print('abort: %d pictures checked' % seen)
+        else:
+            p = subprocess.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace')
     out = p.stdout
     if a.log:
         with open(a.log, 'w') as f:
             f.write(out)
     problems = []
-    bad = [l for l in out.splitlines() if BAD.search(l)]
-    if p.returncode != 0 or bad:
+    bad = [l for l in out.splitlines() if BAD.search(l) and 'abort at frame' not in l]
+    if (p.returncode != 0 and not (a.case == 'abort' and p.returncode == 2)) or bad:
         problems.append('exit %d, %d bad lines' % (p.returncode, len(bad)))
     full, scale = FULL, 1
     m = SCREEN.search(out)
@@ -179,6 +249,13 @@ def main():
                 problems.append(what)
         if 'host: layout: dialog in play' in out:
             problems.append('the score screen was shown through the in-play dialog layout')
+    elif a.case == 'abort':
+        if 'abort at frame' not in out:
+            problems.append('the game was not aborted')
+        for n, q in corners[:5]:
+            print('corner picture %s: quadrant brightness %s' % (n, q))
+        if corners:
+            problems.append('%d pictures show the zoomed screen whole (the tactical part in a corner)' % len(corners))
     elif a.case in ('menu', 'menu-ui'):
         want = 'zoom: in-play dialogs at %dx%d' % (full[0] // scale + 168, full[1] // scale + 32)
         print('%s: %s' % (want, want in out))

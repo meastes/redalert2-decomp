@@ -44,9 +44,10 @@ UnknownMapGenerationCell &Cell_Data_m28(Cell const &cell)
 // the region (0x0055C2C0); shore tiles of the region are reset to clear; on success the region
 // id advances and the count of grown cells is returned, else the region's cells go back to
 // water (tile 0x00A52580, height CellHeight) and 0 is returned.
-// NOT EXACT: the start cell is picked with Map_Random_Range (the original draws raw
-// Random2Class values and rejects those past the map width), so a seed gives another map than
-// the original's; the two gaussian draws per step are kept for the sequence.
+// The start cell is picked with Map_Random_Range: the original expands the same draw inline
+// (Random2Class value * range * 2^-32, ftol, redrawn while past the last column or row; C16
+// audit against 0x0057D469-0x0057D50F), so a seed gives the original's map; the two gaussian
+// draws per step are kept for the sequence.
 int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D const &seed, bool ellipse,
                                         Cell const &origin, double weight, bool weighted)
 {

@@ -420,6 +420,16 @@ if(RA2_NATIVE_SDL)
       # The run's own limit (420 s; about 40 s alone) ends it before ctest's timeout, so a
       # stalled run still prints its milestones and the main thread's backtrace (C5).
       set_tests_properties(native-census PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 480)
+      # 8a'. Campaign chains (C16): each side's new campaign through the menus, its twelve missions
+      #      won in turn (RA2_NATIVE_FORCE_END) through their score screens, the ending and the main
+      #      menu again (tests/campaign_chain.py; about 7 minutes a side alone).
+      foreach(ra2_campaign_side allied soviet)
+        add_test(NAME native-campaign-${ra2_campaign_side} COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/campaign_chain.py"
+                 --side ${ra2_campaign_side} --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-campaign-${ra2_campaign_side}.log"
+                 ${ra2_wine_args_campaign${ra2_campaign_side}})
+        set_tests_properties(native-campaign-${ra2_campaign_side} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1500)
+      endforeach()
       # 8f. Pointers moved by negative unsigned 32-bit offsets (C17 pitch sweep; codex4 R749/R751 SAVE0029):
       #     link/selftest_draw.cpp in the game binary; under Wine on the Windows build.
       if(WIN32)
@@ -601,7 +611,7 @@ if(RA2_NATIVE_SDL)
         #      both ways, clicks on given tanks at each zoom and the sidebar left in place; a scripted
         #      two-finger pinch that zooms only; the in-game menu at render scale 2, clicked through the
         #      window (tests/zoom_input.py).
-        foreach(ra2_zoom_case steps menu menu-ui score pinch)
+        foreach(ra2_zoom_case steps menu menu-ui score abort pinch)
           add_test(NAME native-zoom-${ra2_zoom_case} COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/zoom_input.py"
                    --case ${ra2_zoom_case} --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
                    --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-zoom-${ra2_zoom_case}.log")

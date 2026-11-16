@@ -296,6 +296,16 @@ void Native_Map_Zoom_Frame()
 void Native_Map_Zoom_End()
 {
     ra2_enh_in_play(0);
+    // A zoomed game draws its tactical view into a part of the screen that the in-play layout
+    // shows enlarged; shown whole, the last frame is that part in a corner with the command bar
+    // across the middle (the user's Duo report after Abort Mission: the frames between the game's
+    // end and the next screen). The screen is cleared instead, so those frames are black until
+    // the score screen or the menus draw. Unzoomed, the last frame stays as the original's does.
+    if (view_zoom != 1.0) {
+        if (VisibleSurface) VisibleSurface->Fill(0);
+        if (HiddenSurface) HiddenSurface->Fill(0);
+        if (CompositeSurface) CompositeSurface->Fill(0);
+    }
 }
 
 // The screen size (native fixups: WinMain 0x0068E280 after reading RA2.INI, Set_Display_Mode 0x005434E0 at

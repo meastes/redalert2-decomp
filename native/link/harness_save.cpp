@@ -10,6 +10,7 @@
 // then 0x0053F780), back to the main menu. Notes harness-save.
 #include "shared/load_dlg.hpp"
 #include "shared/main_loop.hpp"
+#include "shared/id_source.hpp"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -72,6 +73,9 @@ void Native_Harness_Save(int frame)
     if (end_done < end_count && frame >= end_at[end_done]) {
         ++end_done;
         if (end_lose) player_loses_a40c78 = true; else player_wins_a35db1 = true;
+        // The scenario each entry ends (a campaign chain's test reads which missions it reached).
+        fprintf(stderr, "force-end: %s at frame %d in %s\n", end_lose ? "loss" : "win", frame,
+                unknown_id_source_a3d290 ? unknown_id_source_a3d290->FileName : "?");
     }
     if (at < 0 || frame != at) return;
     bool saved = Unknown_006554A0(file, L"Native M15 harness save", 0);

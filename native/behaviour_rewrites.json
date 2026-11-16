@@ -452,7 +452,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
-   "source": "CounterClass destructor (member)"
+   "source": "CounterClass destructor (member)",
+   "behaviour_verdict": "same (the CounterClass member's own destructor frees the counts, as 0x00491C20)",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x004A6910",
@@ -474,7 +476,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/004a6930.cpp"
+   "source": "seed src/recovered/004a6930.cpp",
+   "behaviour_verdict": "same (the original is a bare ret; the loadout member's destructor is trivial)",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x0070C440",
@@ -496,7 +500,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
-   "source": "UnitTrackerClass destructor"
+   "source": "UnitTrackerClass destructor",
+   "behaviour_verdict": "same (UnitTrackerClass's destructor, a bare ret)",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "MSVCRT",
@@ -780,7 +786,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_game.cpp",
-   "source": "seed src/recovered/classes/SidebarClass__SBGadgetClass/006816b0.cpp (Map 0x0059F250(0, 0); return 1); TibSun sidebar.cpp"
+   "source": "seed src/recovered/classes/SidebarClass__SBGadgetClass/006816b0.cpp (Map 0x0059F250(0, 0); return 1); TibSun sidebar.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x00474260",
@@ -1291,7 +1299,7 @@
    "file": "native/link/behaviour_m14_ownerdraw.cpp",
    "source": "pass-6a decompile 005f0320",
    "notes": "push button procedure: input/state as the decompile (click sound, flash timer 0x4DC, disabled flag), painting simplified (image or frame + text; the PCX button art not drawn); Scout1119 (M14); Scout1161 M20: paint follows the decompile (kind +0xB0: interface shape frames for 1-3, three-piece b?e_li/mi/ri PCX for 0), user report: main menu buttons were text only",
-   "behaviour_verdict": "differs, partly fixed: WM_TIMER now passes on and the kind-0 image copy is not transparent; open: the saved background (+0x10), the click sound memory 0x007E8D4C, the disabled colouring and darkening, the shape position (0x006F1AE0) and the pressed test (the original reads only +0xE8 bit 0)",
+   "behaviour_verdict": "same after the C16 fixes: the paint follows the original case by case (saved background +0x10, the PCX pieces 7 / tiled / 10 pixels, GenericClick on going down through 0x007E8D4C, the side-coloured disabled text of kinds 1-3, the darkening of a disabled kind 0, the text rectangle); pressed is +0xE8 bit 0 (the dialog's WM_DRAWITEM itemState, 0x005FE471) or BST_PUSHED because the port's Win32 layer sends no WM_DRAWITEM (a native stand-in, same effect); the image fallbacks guard missing art the original would crash on",
    "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
@@ -1315,7 +1323,7 @@
    "file": "native/link/behaviour_m14_ownerdraw.cpp",
    "source": "pass-6a decompile 005f6690",
    "notes": "list box procedure: delegates to the Win32 list; paints frame, item strings, selection frame; Scout1119 (M14)",
-   "behaviour_verdict": "differs, partly fixed: LB_SETCURSEL notifies the parent (LBN_SELCHANGE) and returns 0, WM_ERASEBKGND returns 0, no record returns 0; open: the other list messages use the port's Win32 list store, not the original's +0xEC store",
+   "behaviour_verdict": "same for the selection after the C16 fixes: the list keeps its own selection as the original (+0xEC flags, +0xF4 current; LB_SETSEL/GETSEL/GETSELCOUNT/GETSELITEMS/SELITEMRANGE/SETCURSEL/GETCURSEL, the click toggling a multiple-selection list such as the lobbies' player list 1342, GenericClick, LBN_DBLCLK posted, right click clearing; LB_RESETCONTENT drops the columns); open: the top index (+0xF0) and scroll bar, the +0xE8 per-row array and message 0x49D stay with the port's Win32 list",
    "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV)"
   },
   {
@@ -1356,7 +1364,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14_menu.cpp",
    "source": "pass-6a decompile 00770430",
-   "notes": "buffer or the empty wide string 0x00839D4C (the whole decompile); Scout1119 (M14)"
+   "notes": "buffer or the empty wide string 0x00839D4C (the whole decompile); Scout1119 (M14)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x006720C0",
@@ -1366,7 +1376,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14_session.cpp",
    "source": "pass-6a decompile 006720c0",
-   "notes": "_stricmp(file name +0x58, \"RandMap.Sed\") == 0 (the whole decompile); Scout1119 (M14)"
+   "notes": "_stricmp(file name +0x58, \"RandMap.Sed\") == 0 (the whole decompile); Scout1119 (M14)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x00672810",
@@ -1376,7 +1388,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14_session.cpp",
    "source": "pass-6a decompile 00672810",
-   "notes": "session AICount = 0, AICountry/AIColor = -1 (the decompile's offsets on 0x00A3D2B0 = session + 0x18, by member); Scout1119 (M14)"
+   "notes": "session AICount = 0, AICountry/AIColor = -1 (the decompile's offsets on 0x00A3D2B0 = session + 0x18, by member); Scout1119 (M14)",
+   "behaviour_verdict": "same (session +0x3C/+0x64/+0x84 are the object's +0x24/+0x4C/+0x6C)",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x00423D30",
@@ -1386,7 +1400,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14b.cpp",
    "source": "pass-6a decompile 00423d30",
-   "notes": "shared leaf returning false (ObjectClass slot 31); reached by hunting units in a menu-started skirmish; Scout1121 (M14b)"
+   "notes": "shared leaf returning false (ObjectClass slot 31); reached by hunting units in a menu-started skirmish; Scout1121 (M14b)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x00453B50",
@@ -1480,7 +1496,9 @@
    "exact": false,
    "file": "native/link/behaviour_m14b_bullet.cpp",
    "source": "src/recovered/findpath2.cpp",
-   "notes": "shared/bullet.hpp's int-returning name forwards to Get_Obstacle_004bbaf0 (same address), as a bool; Scout1121 (M14b). The body was the tracked draft native/drafts/004bbaf0.cpp until accepted in findpath2.cpp (draft retired, C3 after codex4 r597)"
+   "notes": "shared/bullet.hpp's int-returning name forwards to Get_Obstacle_004bbaf0 (same address), as a bool; Scout1121 (M14b). The body was the tracked draft native/drafts/004bbaf0.cpp until accepted in findpath2.cpp (draft retired, C3 after codex4 r597)",
+   "behaviour_verdict": "same (Get_Obstacle's result tested as a bool, as the caller does)",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x00601710",
@@ -1610,7 +1628,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15_load.cpp",
    "source": "pass-6a decompile 006ea9d0",
-   "notes": "returns 0x2E; Scout1125 (M15)"
+   "notes": "returns 0x2E; Scout1125 (M15)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x00423F60",
@@ -1686,7 +1706,9 @@
    "exact": false,
    "file": "native/link/behaviour_m16.cpp",
    "source": "pass-6a decompile 005e8710",
-   "notes": "Scout1133 (M16)"
+   "notes": "Scout1133 (M16)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x00453B70",
@@ -1916,7 +1938,9 @@
    "exact": false,
    "file": "native/link/behaviour_m21.cpp",
    "source": "pass-6a decompile 0069a640",
-   "notes": "Scout1170 M21: reached by Allied 1's win, the score screen and Allied 2 (TRAP_CONTINUE)"
+   "notes": "Scout1170 M21: reached by Allied 1's win, the score screen and Allied 2 (TRAP_CONTINUE)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "inline",
@@ -2028,7 +2052,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_cell.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 trap census: Soviet campaign 1 (49,794 hits)"
+   "notes": "Scout1177 M22 trap census: Soviet campaign 1 (49,794 hits)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x0047C370",
@@ -2038,7 +2064,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_cell.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x0047C380",
@@ -2068,7 +2096,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_cell.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x0047C900",
@@ -2078,7 +2108,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_cell.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x0047A120",
@@ -2378,7 +2410,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_ui.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x006F64B0",
@@ -2860,7 +2894,9 @@
    "exact": false,
    "file": "native/link/behaviour_m26_map.cpp",
    "source": "pass-6a decompile 0055aa50",
-   "notes": "stores through a map.hpp helper (behaviour_m26_map_walk.cpp); Scout1208 (M26)"
+   "notes": "stores through a map.hpp helper (behaviour_m26_map_walk.cpp); Scout1208 (M26)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x004E1290",
@@ -2937,7 +2973,9 @@
    "exact": false,
    "file": "native/link/behaviour_m27_mapgen.cpp",
    "source": "pass-6a decompile 00579960; RMG.INI keys from game.exe strings",
-   "notes": "Get_Int defaults kept as current values; skirmish Random Map; Scout1208 (M27)"
+   "notes": "Get_Int defaults kept as current values; skirmish Random Map; Scout1208 (M27)",
+   "behaviour_verdict": "same: Get_Int defaults are the current values as the original pushes them (0x00579A24)",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check against the original's instructions; not reached in the coverage runs"
   },
   {
    "entry": "0x00482100",
@@ -2948,7 +2986,9 @@
    "exact": false,
    "file": "native/link/behaviour_m27_mapgen.cpp",
    "source": "pass-6a decompile 00482100",
-   "notes": "calls 0x00481FB0, returns false; skirmish Random Map; Scout1208 (M27)"
+   "notes": "calls 0x00481FB0, returns false; skirmish Random Map; Scout1208 (M27)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x0056DBA0",
@@ -2959,7 +2999,9 @@
    "exact": false,
    "file": "native/link/behaviour_m27_mapcells.cpp",
    "source": "pass-6a decompile 0056dba0; ra2-decomp MapRegionClass::Get_Cell_Data",
-   "notes": "indexes unknown_map_cells_a70a24; skirmish Random Map; Scout1208 (M27)"
+   "notes": "indexes unknown_map_cells_a70a24; skirmish Random Map; Scout1208 (M27)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x0056DBC0",
@@ -2970,7 +3012,9 @@
    "exact": false,
    "file": "native/link/behaviour_m27_mapcells.cpp",
    "source": "pass-6a decompile 0056dbc0; ra2-decomp MapRegionClass::Get_Cell_Data",
-   "notes": "indexes unknown_map_cells_a70a24; skirmish Random Map; Scout1208 (M27)"
+   "notes": "indexes unknown_map_cells_a70a24; skirmish Random Map; Scout1208 (M27)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x0052E390",
@@ -2981,7 +3025,9 @@
    "exact": false,
    "file": "native/link/behaviour_m27_mapcells.cpp",
    "source": "pass-6a decompile 0052e390; TibSun Preview_Tile",
-   "notes": "skirmish Random Map; Scout1208 (M27)"
+   "notes": "skirmish Random Map; Scout1208 (M27)",
+   "behaviour_verdict": "same (the preview vector's data at +0x278)",
+   "behaviour_checked_by": "C16 audit round 2 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (campaign chains, random map, long skirmish, LAN pair)"
   },
   {
    "entry": "0x0057D3A0",
@@ -2992,7 +3038,9 @@
    "exact": false,
    "file": "native/link/behaviour_m28_mapgen.cpp",
    "source": "Ghidra decompile inventory/decompiled/0057d3a0.c; ra2-decomp twin FUN_0059BBC0 (callers only)",
-   "notes": "land patch grower; start cell via Map_Random_Range (other maps per seed than the original); Scout1208 (M28)"
+   "notes": "land patch grower; start cell via Map_Random_Range (other maps per seed than the original); Scout1208 (M28)",
+   "behaviour_verdict": "same: the start cell's draws are the original's inline Map_Random_Range (0x0057D469-0x0057D50F), the region growth as the original",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check against the original's instructions; not reached in the coverage runs"
   },
   {
    "entry": "0x00582A50",
@@ -3014,7 +3062,9 @@
    "exact": false,
    "file": "native/link/behaviour_r3_mapgen.cpp",
    "source": "TibSun mapgen.cpp MapRegionClass::Split_Region; RA2 differences from inventory/decompiled/0056ef20.c",
-   "notes": "Scout1209 (r3): heap tie order; an empty height list keeps the height (the original indexes past it)"
+   "notes": "Scout1209 (r3): heap tie order; an empty height list keeps the height (the original indexes past it)",
+   "behaviour_verdict": "same except the empty height list guard (the original reads past an empty list): the heap's insert and sift-down compare strictly as the original's (0x0056F14D, 0x0058F090)",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the heap against the original's instructions; not reached in the coverage runs"
   },
   {
    "entry": "0x006F7020",

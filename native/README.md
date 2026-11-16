@@ -803,9 +803,19 @@ the in-game menu at the render scale, its Save screen, Back, Abort Mission and t
 Resume Mission through the window where the original at the window's size has them, and checks the
 dialogs were laid out at the window's size and the game plays on. `native-zoom-score` wins a skirmish at frame 100
 (`RA2_NATIVE_FORCE_END`), checks the score screen is not shown through the in-play layout and clicks
-its Continue through the window. The input script's `dump` (also timed: `dN+MS dump`) writes the
+its Continue through the window. `native-zoom-abort` confirms Abort Mission at render scale 2 and checks every picture the window
+shows (`RA2_NATIVE_WINDOW_DUMP_MS=0`): none may be the zoomed screen shown whole, the tactical part in a
+corner (the user's Duo report: the game's end clears the screen when zoomed, `Native_Map_Zoom_End`, and
+each frame is in play from its start, so its own present has the play layout). The input script's `dump` (also timed: `dN+MS dump`) writes the
 last picture to RA2_NATIVE_WINDOW_DUMP whatever its period: a dialog idle in its own loop presents
 nothing new.
+
+Campaign chains in ctest (C16): `native-campaign-allied` and `native-campaign-soviet`
+(`tests/campaign_chain.py`) start the side's new campaign through the menus (Single Player, New
+Campaign, the emblem), win each of its twelve missions with `RA2_NATIVE_FORCE_END` (an entry every
+200 loop frames; each entry logs `force-end: win at frame N in <scenario>`), leave each score screen
+by Continue and pass only when ALL01-ALL12 (SOV01-SOV12) were won in order, the ending ran and the
+main menu came back. Both also run under Wine on the Windows build.
 
 Queue five with Shift (C16, the user's 2026-11-14 list; written from the behaviour the
 redalert2-recomp design notes describe, no code taken): with the setting on, Shift with a click
