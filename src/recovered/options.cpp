@@ -500,15 +500,15 @@ int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WP
                     SendMessageA(error, 0x4B2, 0, (LPARAM)StringTable::Load_String("Error:CannotRemap", 0, "D:\\Ra2\\Options.CPP", 995));
                     return TRUE;
                 } else {
-                    for (int i = 0; i < unknown_hotkeys_832380.Count(); i++) {
-                        if (unknown_hotkeys_832380.Fetch_By_Position(i) == cmd) {
-                            unknown_hotkeys_832380.Remove_Index(unknown_hotkeys_832380.Fetch_ID_By_Position(i));
+                    for (int i = 0; i < HotkeyCommands.Count(); i++) {
+                        if (HotkeyCommands.Fetch_By_Position(i) == cmd) {
+                            HotkeyCommands.Remove_Index(HotkeyCommands.Fetch_ID_By_Position(i));
                             break;
                         }
                     }
                     if (key != 0) {
-                        unknown_hotkeys_832380.Remove_Index(key);
-                        unknown_hotkeys_832380.Add_Index(key, cmd);
+                        HotkeyCommands.Remove_Index(key);
+                        HotkeyCommands.Add_Index(key, cmd);
                         return TRUE;
                     }
                 }
@@ -525,9 +525,9 @@ int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WP
                 SendMessageA(description, 0x4B2, 0, (LPARAM)cmd->Get_Description());
 
                 int key = 0;
-                for (int i = 0; i < unknown_hotkeys_832380.Count(); i++) {
-                    if (unknown_hotkeys_832380.Fetch_By_Position(i) == cmd) {
-                        key = unknown_hotkeys_832380.Fetch_ID_By_Position(i);
+                for (int i = 0; i < HotkeyCommands.Count(); i++) {
+                    if (HotkeyCommands.Fetch_By_Position(i) == cmd) {
+                        key = HotkeyCommands.Fetch_ID_By_Position(i);
                         break;
                     }
                 }
@@ -599,9 +599,9 @@ int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WP
                     if ((unsigned short)(wparam >> 16) == 0) {
                         CCINIClass ini;
                         ini.Clear();
-                        for (int i = 0; i < unknown_hotkeys_832380.Count(); i++) {
-                            CommandClass const *cmd = unknown_hotkeys_832380.Fetch_By_Position(i);
-                            int key = unknown_hotkeys_832380.Fetch_ID_By_Position(i);
+                        for (int i = 0; i < HotkeyCommands.Count(); i++) {
+                            CommandClass const *cmd = HotkeyCommands.Fetch_By_Position(i);
+                            int key = HotkeyCommands.Fetch_ID_By_Position(i);
                             ini.Put_Int("Hotkey", cmd->Get_Name(), key);
                         }
                         RawFileClass file("Keyboard.ini");
@@ -641,8 +641,8 @@ int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WP
                         SendMessageA(error, 0x4B2, 0, (LPARAM)L"");
                         int key = Hotkey_To_Key(SendMessageA((HWND)lparam, 0x402, 0, 0));
                         wchar_t const *key_name;
-                        if (unknown_hotkeys_832380.Is_Present(key)) {
-                            key_name = unknown_hotkeys_832380[key]->Get_UI_Name();
+                        if (HotkeyCommands.Is_Present(key)) {
+                            key_name = HotkeyCommands[key]->Get_UI_Name();
                             if (key_name == 0) {
                                 key_name = L"";
                             }

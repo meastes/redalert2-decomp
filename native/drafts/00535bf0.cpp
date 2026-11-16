@@ -115,7 +115,7 @@ inline void Loading_Filename(char *filename, int side, char const *suffix)
 inline Rect Name_Area()
 {
     Rect area;
-    if (VideoModeWidth == unknown_screen_widths_7add68[0]) {
+    if (VideoModeWidth == ScreenWidths[0]) {
         area.X = 0x181;
         area.Y = 0x1B4;
     } else {
@@ -124,9 +124,9 @@ inline Rect Name_Area()
     }
     area.Width = 200;
     area.Height = 20;
-    if (VideoModeWidth >= unknown_screen_widths_7add68[1]) {
-        area.X += (VideoModeWidth - unknown_screen_widths_7add68[1]) / 2;
-        area.Y += (VideoModeHeight - unknown_screen_heights_7add74[1]) / 2;
+    if (VideoModeWidth >= ScreenWidths[1]) {
+        area.X += (VideoModeWidth - ScreenWidths[1]) / 2;
+        area.Y += (VideoModeHeight - ScreenHeights[1]) / 2;
     }
     return area;
 }
@@ -134,7 +134,7 @@ inline Rect Name_Area()
 inline Rect Unit_Area()
 {
     Rect area;
-    if (VideoModeWidth == unknown_screen_widths_7add68[0]) {
+    if (VideoModeWidth == ScreenWidths[0]) {
         area.X = 0x10;
         area.Y = 0x48;
     } else {
@@ -143,9 +143,9 @@ inline Rect Unit_Area()
     }
     area.Width = 200;
     area.Height = 20;
-    if (VideoModeWidth >= unknown_screen_widths_7add68[1]) {
-        area.X += (VideoModeWidth - unknown_screen_widths_7add68[1]) / 2;
-        area.Y += (VideoModeHeight - unknown_screen_heights_7add74[1]) / 2;
+    if (VideoModeWidth >= ScreenWidths[1]) {
+        area.X += (VideoModeWidth - ScreenWidths[1]) / 2;
+        area.Y += (VideoModeHeight - ScreenHeights[1]) / 2;
     }
     return area;
 }
@@ -270,7 +270,7 @@ void Unknown535910::Unknown_00535BF0()
     wchar_t unit_name[128];
     char filename[32];
 
-    bool small = VideoModeWidth == unknown_screen_widths_7add68[0];
+    bool small = VideoModeWidth == ScreenWidths[0];
     unknown_5c = new BSurface(VideoModeWidth, VideoModeHeight, 2);
     if (unknown_5c == 0) {
         return;
@@ -348,7 +348,7 @@ void Unknown535910::Unknown_00535BF0()
 
     {
     int side = unknown_players_a3fa7c[0]->Get_Country();
-    char const *suffix = VideoModeWidth == unknown_screen_widths_7add68[0] ? unknown_suffix_7df398 : unknown_suffix_7df39c;
+    char const *suffix = VideoModeWidth == ScreenWidths[0] ? unknown_suffix_7df398 : unknown_suffix_7df39c;
     Loading_Filename(filename, side, suffix);
     unknown_44 = (void *)Unknown_Load_Shape_00495270(filename, unknown_4d);
     ConvertClass *drawer = (ConvertClass *)Unknown_Get_Art_6f25b0();

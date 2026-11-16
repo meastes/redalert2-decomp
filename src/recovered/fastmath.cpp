@@ -130,64 +130,31 @@ float __cdecl Fast_Atan2(double y, double x)
 }
 
 
-// 0x004ba6c0: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void fastmath_blank_1_004ba6c0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004ba6c0 {
+// fastmath_blank_1_004ba6c0 (0x004BA6C0)
 
 void  fastmath_blank_1_004ba6c0(void)
 {
     return;
 }
 
-}  // namespace seed_004ba6c0
 
 
-// 0x004ba6d0: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void fastmath_blank_3_004ba6d0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004ba6d0 {
+// fastmath_blank_3_004ba6d0 (0x004BA6D0)
 
 void  fastmath_blank_3_004ba6d0(void)
 {
     return;
 }
 
-}  // namespace seed_004ba6d0
 
 
-// 0x004ba6e0: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void fastmath_blank_2_004ba6e0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004ba6e0 {
+// fastmath_blank_2_004ba6e0 (0x004BA6E0)
 
 void  fastmath_blank_2_004ba6e0(void)
 {
     return;
 }
 
-}  // namespace seed_004ba6e0
 
 
 // void Init_Sqrt_Table_004ba6f0() (0x004BA6F0)

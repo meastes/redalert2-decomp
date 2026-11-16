@@ -4,8 +4,8 @@
     "id": "population-4363",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "42438f3e465771d94f5c499a18e29a2bd68240f8b1f891dc80bbd7ce9f73ca52",
-    "historical_acceptance_sha256": "50393625467096adfafbec692862fe0dc5b065d7a3ca8223d11be547d9f7426e"
+    "historical_population_sha256": "a4d9b6be07a933c0e3eb397b84e5687035cbd8229a936e8d6047f53528d33736",
+    "historical_acceptance_sha256": "f45d5fb65d8278f0e40939b792b2054d49c2821ca98436805ef3d81b7d3c74db"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -5312,7 +5312,7 @@
     "?Get@SHAStraw@@UAEHPAXH@Z": 6771648,
     "?Get@Straw@@UAEHPAXH@Z": 6926496,
     "?Get@AlphaLightingRemapInitClass@@QAEPAY0BAA@$$CBGH@Z": 4318176,
-    "?Get@UnknownCRCStraw@@UAEHPAXH@Z": 4801168,
+    "?Get@CRCStraw@@UAEHPAXH@Z": 4801168,
     "?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUWinData@2@@Z": 6297360,
     "?Get@UnknownList_768260@@QAE_NPAPAXH@Z": 7766624,
     "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z": 6997952,
@@ -9513,8 +9513,8 @@
     "?unknown_scenario_name_a35ea8@@3PADA": 10706600,
     "?unknown_scheme_text_print_497f40@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIHH@Z": 4816704,
     "?Plain_Text_Print_Wide@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIHH@Z": 4816976,
-    "?unknown_screen_heights_7add74@@3PAHA": 8052084,
-    "?unknown_screen_widths_7add68@@3PAHA": 8052072,
+    "?ScreenHeights@@3PAHA": 8052084,
+    "?ScreenWidths@@3PAHA": 8052072,
     "?unknown_select_color@@YIXH@Z": 7292320,
     "?unknown_server_error_b2a8ec@@3PAGA": 11708652,
     "?unknown_server_error_event_b264f8@@3PAXA": 11691256,
@@ -9923,21 +9923,21 @@
     "?Audio_Event_Handle_Event_00406140@": 4219200,
     "?Audio_Event_Handle_Event_00406140@seed_00406140@@YIHPAH@Z": 4219200,
     "?Audio_Event_Handle_Set_00406100@": 4219136,
-    "?Audio_Event_Handle_Set_00406100@seed_00406100@@YIXPAHHH@Z": 4219136,
+    "?Audio_Event_Handle_Set_00406100@@YIXPAHHH@Z": 4219136,
     "?Audio_Event_Set_Flag_8_004052f0@": 4215536,
-    "?Audio_Event_Set_Flag_8_004052f0@seed_004052f0@@YIXH@Z": 4215536,
+    "?Audio_Event_Set_Flag_8_004052f0@@YIXH@Z": 4215536,
     "?Audio_Event_Type_Flags_00405140@": 4215104,
-    "?Audio_Event_Type_Flags_00405140@seed_00405140@@YIIH@Z": 4215104,
+    "?Audio_Event_Type_Flags_00405140@@YIIH@Z": 4215104,
     "?Audio_Event_Type_Loops_Forever_00406660@": 4220512,
-    "?Audio_Event_Type_Loops_Forever_00406660@seed_00406660@@YIIH@Z": 4220512,
+    "?Audio_Event_Type_Loops_Forever_00406660@@YIIH@Z": 4220512,
     "?Audio_Event_Type_Range_00405110@": 4215056,
-    "?Audio_Event_Type_Range_00405110@seed_00405110@@YIIH@Z": 4215056,
+    "?Audio_Event_Type_Range_00405110@@YIIH@Z": 4215056,
     "?AudioLevelSet_Changed_004010a0@": 4198560,
-    "?AudioLevelSet_Changed_004010a0@seed_004010a0@@YIIPAE@Z": 4198560,
+    "?AudioLevelSet_Changed_004010a0@@YIIPAE@Z": 4198560,
     "?FUN_004026a0@": 4204192,
     "?FUN_004026b0@": 4204208,
     "?AudioDeviceService_00403810@": 4208656,
-    "?AudioDeviceService_00403810@seed_00403810@@YIXH@Z": 4208656,
+    "?AudioDeviceService_00403810@@YIXH@Z": 4208656,
     "?FUN_00406610@": 4220432,
     "?FUN_00406620@": 4220448,
     "?FUN_00406f30@": 4222768,
@@ -9949,7 +9949,8 @@
     "?Link_0040e180@": 4252032,
     "?Link_0040e180@Owner_0040e180@seed_0040e180@@QAEXH@Z": 4252032,
     "_DAT_00831438": 8590392,
-    "?Reset@BitFontClass@@QAEXXZ": 4399536
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592
   },
   "regions": [
     {
@@ -9970,7 +9971,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "67d56dcc4f1a1ab0a5444538ae2fd7e92bf624666ed30b8e47045dd80342877b",
       "relocations": [],
-      "source_sha256": "d07c6a03285e6623c21a098bce112ba4aae1e96277a4c63b6c39e26cb1ba17b2",
+      "source_sha256": "33407558a1a608566d4a1bee57619a79d2284b26e7dee0393bd0318ecdbe0d27",
       "source": "src/recovered/audattr.cpp",
       "population": "population-4363",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -9981,7 +9982,7 @@
     {
       "entry": 4198560,
       "method": "004010a0",
-      "symbol": "?AudioLevelSet_Changed_004010a0@seed_004010a0@@YIIPAE@Z",
+      "symbol": "?AudioLevelSet_Changed_004010a0@@YIIPAE@Z",
       "symbol_prefix": "?AudioLevelSet_Changed_004010a0@",
       "options": [
         "/O2",
@@ -9996,7 +9997,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "9e3caba04fadce59f9617045caaebde1de54c40ab42f40211472165ce76b46c2",
       "relocations": [],
-      "source_sha256": "d07c6a03285e6623c21a098bce112ba4aae1e96277a4c63b6c39e26cb1ba17b2",
+      "source_sha256": "33407558a1a608566d4a1bee57619a79d2284b26e7dee0393bd0318ecdbe0d27",
       "source": "src/recovered/audattr.cpp",
       "source_order": 243424,
       "population": "population-4363",
@@ -10022,7 +10023,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "4ed140027b041aec27cdb24c36e90c2d851051097c34983ae537e4be2790b339",
       "relocations": [],
-      "source_sha256": "d07c6a03285e6623c21a098bce112ba4aae1e96277a4c63b6c39e26cb1ba17b2",
+      "source_sha256": "33407558a1a608566d4a1bee57619a79d2284b26e7dee0393bd0318ecdbe0d27",
       "source": "src/recovered/audattr.cpp",
       "population": "population-4363",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -10073,7 +10074,7 @@
           "resolved": 24663
         }
       ],
-      "source_sha256": "d07c6a03285e6623c21a098bce112ba4aae1e96277a4c63b6c39e26cb1ba17b2",
+      "source_sha256": "33407558a1a608566d4a1bee57619a79d2284b26e7dee0393bd0318ecdbe0d27",
       "source": "src/recovered/audattr.cpp",
       "population": "population-4363",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -10156,7 +10157,7 @@
           "resolved": 24587
         }
       ],
-      "source_sha256": "d07c6a03285e6623c21a098bce112ba4aae1e96277a4c63b6c39e26cb1ba17b2",
+      "source_sha256": "33407558a1a608566d4a1bee57619a79d2284b26e7dee0393bd0318ecdbe0d27",
       "source": "src/recovered/audattr.cpp",
       "population": "population-4363",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -10247,7 +10248,7 @@
           "resolved": 24460
         }
       ],
-      "source_sha256": "d07c6a03285e6623c21a098bce112ba4aae1e96277a4c63b6c39e26cb1ba17b2",
+      "source_sha256": "33407558a1a608566d4a1bee57619a79d2284b26e7dee0393bd0318ecdbe0d27",
       "source": "src/recovered/audattr.cpp",
       "population": "population-4363",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

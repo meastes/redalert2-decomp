@@ -445,24 +445,13 @@ void LaserDrawClass::Draw_House_Color()
 }
 
 
-// 0x00534340: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void unknown_empty_00534340(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00534340 {
+// unknown_empty_00534340 (0x00534340)
 
 void  unknown_empty_00534340(void)
 {
     return;
 }
 
-}  // namespace seed_00534340
 
 
 // Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):

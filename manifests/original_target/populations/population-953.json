@@ -4,8 +4,8 @@
     "id": "population-953",
     "inventory_sha256": "0aab4e61c00007d02c245ce254d63b2d8b1085bb790b94b4ec01436f407d5d41",
     "gaps_sha256": "55a0c57319162951e67c8d700212ca792960c072ec9c9cd9247a30993afe0d90",
-    "historical_population_sha256": "8767480bf2fa02ecfa3c2e5af1c68d731dceb8c9356418bc49cc0bdf7fc501fa",
-    "historical_acceptance_sha256": "e00f5bafcc3eee266f3bf5ef7a2c60be53dad0c7a5e4c5b655c689b5d5ce9fd0",
+    "historical_population_sha256": "c8cd3b8cad0d83e9809a1ba897f502d701b3416c560c410f572eb66f7bbbe3d8",
+    "historical_acceptance_sha256": "dbeaf4445ea3ae75d3c746661a235b700e77720ff0b90a711145eb5bda708586",
     "separate_units": true
   },
   "references": {
@@ -91,7 +91,7 @@
     "?unknown_get_word_a0_00424390@UnknownWordOwner_00424390@@QBEHXZ": 4342672,
     "?unknown_get_word_a2_004243a0@UnknownWordOwner_004243a0@@QBEHXZ": 4342688,
     "?Sample_Normal@@YGNNN@Z": 5740752,
-    "?unknown_clear_low_color_bits_004e12b0@@YIXPAEI@Z": 5116592,
+    "?rgb24_clamp@@YIXPAEI@Z": 5116592,
     "?unknown_list_owner_add_00408a30@@YIXPAUUnknownListOwner_00408a30@@PAUUnknownListNode_00408a30@@@Z": 4229680,
     "?unknown_disable_ok_and_send_005974f0@@YIXPAUUnknownDialogOwner_005974f0@@@Z": 5862640,
     "?unknown_scaled_level_004b9780@@YIHPBUUnknownLevelOwner_004b9780@@@Z": 4953984,
@@ -1940,8 +1940,8 @@
     {
       "entry": 5116592,
       "method": "004e12b0",
-      "symbol": "?unknown_clear_low_color_bits_004e12b0@@YIXPAEI@Z",
-      "symbol_prefix": "?unknown_clear_low_color_bits_004e12b0@@YIXPAEI@Z",
+      "symbol": "?rgb24_clamp@@YIXPAEI@Z",
+      "symbol_prefix": "?rgb24_clamp@@YIXPAEI@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -1954,13 +1954,13 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "7a2a3be64e36ced73af455a881654a25131111497e40035766a37a6b1266afdc",
       "relocations": [],
-      "source_sha256": "a9878a3729475dc56f2ba1c2423f5baab9379e6cc1aee103a0c0b6694648a032",
-      "source": "src/recovered/hicolor/unknown_clear_low_color_bits.cpp",
+      "source_sha256": "a24933eeaab33aee07bf028de030ff0847f9f054d99adb01dc6ea21b4dba3b56",
+      "source": "src/recovered/hicolor/rgb24_clamp.cpp",
       "population": "population-953",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_clear_low_color_bits",
+      "semantic_name": "rgb24_clamp",
       "source_order": 31887
     },
     {

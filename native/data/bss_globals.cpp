@@ -15,7 +15,7 @@ alignas(16) unsigned char ra2_bss_0006[264] __asm__("_Audio_Level_Set_8313b0"); 
 alignas(16) unsigned char ra2_bss_0007[16] __asm__("_Audio_Main_Bag");  // 0x00831434 Audio_Main_Bag (?Audio_Main_Bag@@3PAUAudioBag@@A)
 alignas(16) unsigned char ra2_bss_0008[16] __asm__("_Audio_Main_Device");  // 0x00831438 Audio_Main_Device (?Audio_Main_Device@@3PAUAudioDevice@@A)
 alignas(16) unsigned char ra2_bss_0009[16] __asm__("_Audio_Is_On");  // 0x0083143C Audio_Is_On (?Audio_Is_On@@3HA)
-alignas(16) unsigned char ra2_bss_0010[16] __asm__("_DAT_00831440");  // 0x00831440 DAT_00831440
+alignas(16) unsigned char ra2_bss_0010[16] __asm__("_AudioFocusLocks");  // 0x00831440 AudioFocusLocks
 alignas(16) unsigned char ra2_bss_0011[16] __asm__("_AudioMix");  // 0x00831444 AudioMix (?AudioMix@@3PAVMixFileClass@@A)
 alignas(16) unsigned char ra2_bss_0012[16] __asm__("_ThemeMix");  // 0x00831448 ThemeMix (?ThemeMix@@3PAVMixFileClass@@A)
 alignas(16) unsigned char ra2_bss_0013[64] __asm__("_Audio_Global_Levels");  // 0x0083144C Audio_Global_Levels (?Audio_Global_Levels@@3PAPAUAudioLevelSet@@A)

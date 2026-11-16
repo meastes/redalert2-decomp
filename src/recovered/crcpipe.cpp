@@ -43,14 +43,14 @@
  * HISTORY:                                                                                    *
  *   07/03/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-int UnknownCRCPipe::Put(void const *source,int length)
+int CRCPipe::Put(void const *source,int length)
 {
     Engine(source,length);
     return Pipe::Put(source,length);
 }
 
 
-unsigned long UnknownCRCPipe::Value_00494240()
+unsigned long CRCPipe::Result()
 {
     return Engine.Value();
 }

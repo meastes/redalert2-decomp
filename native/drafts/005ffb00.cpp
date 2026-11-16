@@ -60,8 +60,8 @@ inline void unknown_prepare_dialog(HWND dialog, int kind)
     EnumChildWindows(dialog, unknown_5e8720, 0);
     if (unknown_5e9fa0(dialog)) {
         Point2D size;
-        size.X = unknown_screen_widths_7add68[0];
-        size.Y = unknown_screen_heights_7add74[0];
+        size.X = ScreenWidths[0];
+        size.Y = ScreenHeights[0];
         Unknown_005E9F00(dialog, &size);
     } else {
         unknown_5ea230(dialog);

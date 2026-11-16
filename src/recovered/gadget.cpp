@@ -476,7 +476,7 @@ void GadgetClass::Draw_All(bool forced)
 GadgetClass *GadgetClass::Extract_Gadget_At(int x, int y)
 {
     GadgetClass *gadget = this;
-    Rect best(0, 0, unknown_screen_widths_7add68[2], unknown_screen_heights_7add74[2]);
+    Rect best(0, 0, ScreenWidths[2], ScreenHeights[2]);
     GadgetClass *result = 0;
     while (gadget) {
         if (!gadget->IsDisabled) {

@@ -37,24 +37,13 @@ done:
 }
 
 
-// 0x00401fb0: function not yet identified
-//
-// Body: 4 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 __fastcall FUN_00401fb0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// AudioCacheItemInUse (0x00401FB0): name from mischa85 names.csv
 
-namespace seed_00401fb0 {
-
-unsigned int __fastcall FUN_00401fb0(int object_address)
+unsigned int __fastcall AudioCacheItemInUse(int object_address)
 {
     return *(unsigned int *)(object_address + 0xc);
 }
 
-}  // namespace seed_00401fb0
 
 
 // void __fastcall Audio_Bank_Destroy(AudioBank *bank) -- 0x00401B00
@@ -94,19 +83,9 @@ AudioBankEntry *__fastcall Audio_Bank_Find(AudioBank *bank, int id)
 }
 
 
-// 0x00401be0: function not yet identified
-//
-// Body: 22 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_00401be0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// AudioCacheInvalidate (0x00401BE0): name from mischa85 names.csv
 
-namespace seed_00401be0 {
-
-void __fastcall FUN_00401be0(int bank_address)
+void __fastcall AudioCacheInvalidate(int bank_address)
 {
     unsigned int *entry_words;
 
@@ -117,7 +96,6 @@ void __fastcall FUN_00401be0(int bank_address)
     return;
 }
 
-}  // namespace seed_00401be0
 
 
 // AudioBankEntry *Audio_Bank_Load(AudioBank *bank, int id) (0x00401C00)
@@ -246,24 +224,13 @@ void __fastcall Audio_Bank_Entry_Destroy(AudioBankEntry *entry)
 }
 
 
-// 0x00402020: function not yet identified
-//
-// Body: 4 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 __fastcall FUN_00402020(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// AudioCacheItemId (0x00402020): name from mischa85 names.csv
 
-namespace seed_00402020 {
-
-unsigned int __fastcall FUN_00402020(int object_address)
+unsigned int __fastcall AudioCacheItemId(int object_address)
 {
     return *(unsigned int *)(object_address + 0x14);
 }
 
-}  // namespace seed_00402020
 
 
 // AudioSource *AudioBankEntry::Get_Source() (0x00402030): the entry's sound (+0x1C).

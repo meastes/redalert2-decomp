@@ -751,26 +751,15 @@ class Leaf_40a6c0 { public: unsigned int get(); };
 unsigned int Leaf_40a6c0::get() { unsigned int unused_this_address = (unsigned int)this; unsigned int global_value; unsigned int unused_value; global_value = *(unsigned int*)(0x8315ac); return global_value; }
 
 
-// 0x0040a6d0: function not yet identified
-//
-// Body: 6 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 FUN_0040a6d0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0040a6d0 {
+// GetPrimaryBuffer (0x0040A6D0): name from mischa85 names.csv
 
 extern "C" unsigned int Audio_Primary_Buffer_008315b0;
 
-unsigned int  FUN_0040a6d0(void)
+unsigned int  GetPrimaryBuffer(void)
 {
     return Audio_Primary_Buffer_008315b0;
 }
 
-}  // namespace seed_0040a6d0
 
 
 // void __fastcall Audio_DS_Set_Primary_Format(int rate, int bits, int channels) -- 0x0040A6E0

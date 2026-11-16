@@ -1,15 +1,5 @@
-// 0x00403810: function not yet identified
-//
-// Body: 6 bytes (frozen inventory bound).
-// Referenced from 2 sites (unconditional call).
-// Ghidra prototype: void __fastcall AudioDeviceService_00403810(int param_1)
-//
-// Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);
-// rename and retype as the purpose becomes known.
-//
+// AudioDeviceService_00403810 (0x00403810)
 #include "shared/ghidra_types.hpp"
-
-namespace seed_00403810 {
 
 void __fastcall AudioDeviceService_00403810(int device_address)
 {
@@ -19,4 +9,3 @@ void __fastcall AudioDeviceService_00403810(int device_address)
     return;
 }
 
-}  // namespace seed_00403810

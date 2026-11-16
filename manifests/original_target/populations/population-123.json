@@ -4,8 +4,8 @@
     "id": "population-123",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "381b047e59ef6cd3bc7dc4df3a868e291f54fab8bbf48e0ca5d4b4732354a1a4",
-    "historical_acceptance_sha256": "5ab9e6e5c1ac7be6e808858bbadd6e50a87b53d81beb55055f236150910a4521"
+    "historical_population_sha256": "b5c038121d34c5a0a8c2c313336629650829e15e57b274a5934eb6d7e769cd02",
+    "historical_acceptance_sha256": "a08516cd301908be673d25b200026e6d6b2714871adc9e198615213f8870549b"
   },
   "references": {
     "_DAT_008325d0": 8594896,
@@ -2677,7 +2677,7 @@
     "?Get@CacheStraw@@UAEHPAXH@Z": 4802400,
     "?Release@CStreamClass@@W3AGKXZ": 4805152,
     "?Get@WolUserArray@@QBE_NAAUUser@WOL@@H@Z": 7757856,
-    "?Get@UnknownCRCStraw@@UAEHPAXH@Z": 4801168,
+    "?Get@CRCStraw@@UAEHPAXH@Z": 4801168,
     "?Get@AlphaLightingRemapInitClass@@QAEPAY0BAA@$$CBGH@Z": 4318176,
     "_strstr": 7878320,
     "?Get@BufferStraw@@UAEHPAXH@Z": 7813184,
@@ -2808,7 +2808,7 @@
     "__except_list": 0,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
     "__real@8@bff6b6db6db6db6db800": 8026880,
-    "?unknown_compare_004f8cf0@seed_004f8cf0@@YAHPAH0@Z": 5213424,
+    "?unknown_compare_004f8cf0@@YAHPAH0@Z": 5213424,
     "?Owner@TechnoClass@@UBEHXZ": 7107616,
     "?Owner@AbstractClass@@UBEHXZ": 4260400,
     "?Set_Position_00539f30@Owner_00539f30@seed_00539f30@@QAEXHH@Z": 5480240,
@@ -2919,7 +2919,7 @@
     "?operator_delete_00781d3b@seed_0048d8f0@@YAXI@Z": 7871803,
     "?operator_delete_00781d3b@seed_0048d930@@YAXI@Z": 7871803,
     "?operator_delete_00781d3b@seed_004ba060@@YAXI@Z": 7871803,
-    "?operator_delete_00781d3b@seed_00537d40@@YAXI@Z": 7871803,
+    "?operator_delete_00781d3b@@YAXI@Z": 7871803,
     "?operator_delete_00781d3b@seed_005b9000@@YAXI@Z": 7871803,
     "?operator_delete_00781d3b@seed_0061abf0@@YAXI@Z": 7871803,
     "?operator_delete_00781d3b@seed_00637fb0@@YAXI@Z": 7871803,
@@ -2928,7 +2928,7 @@
     "?Deinit_Tiberium_Growth_System_006ea130@seed_006ea130@@YAXXZ": 7250224,
     "?Is_Inside_0072a770@Owner_0072a770@seed_0072a770@@QAEIPAH@Z": 7513968,
     "?unknown_set_connection_status_0074dd20@seed_0074dd20@@YIXHH@Z": 7658784,
-    "?Audio_File_Window_00522c20@seed_00522c20@@YIIH@Z": 5385248,
+    "?Audio_File_Window_00522c20@@YIIH@Z": 5385248,
     "?x@?1???AToolTipIndex@@QBEABQAVToolTip@@ABI@Z@4PAV2@A": 11712032,
     "?Compare_Nodes_006d98d0@UnknownBuffer@@SAHPBX0@Z": 7182544,
     "?Is_Mouse_Over_004df760@Owner_004df760@seed_004df760@@QAEIPAH@Z": 5109600,
@@ -3005,7 +3005,7 @@
     {
       "entry": 5385248,
       "method": "00522c20",
-      "symbol": "?Audio_File_Window_00522c20@seed_00522c20@@YIIH@Z",
+      "symbol": "?Audio_File_Window_00522c20@@YIIH@Z",
       "symbol_prefix": "?Audio_File_Window_00522c20@",
       "options": [
         "/O2",
@@ -3044,7 +3044,7 @@
           "resolved": 10822324
         }
       ],
-      "source_sha256": "0f9c96ad213b8e0834a033370a042119e9804dc3d6c76703614fb6fbfbf9c4e3",
+      "source_sha256": "5295565c0e6f60f68efe7bc043b4db84d4b8d8ea8e0e93c4f1c9cb00e17998b2",
       "source": "src/recovered/ipxaddr/Audio_File_Window.cpp",
       "source_order": 11043,
       "population": "population-123",

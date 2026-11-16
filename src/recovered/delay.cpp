@@ -269,61 +269,29 @@ double DelayTimerClass::Percent_Complete() const
 }
 
 
-// 0x00496c50: function not yet identified
-//
-// Body: 9 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_00496c50(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// DelayTimerClass_End_Count_Up (0x00496C50): name from mischa85 names.csv
 
-namespace seed_00496c50 {
-
-void __fastcall FUN_00496c50(int timer_address)
+void __fastcall DelayTimerClass_End_Count_Up(int timer_address)
 {
     *(unsigned char *)(timer_address + 0x18) = 0;
     *(unsigned char *)(timer_address + 0x19) = 1;
     return;
 }
 
-}  // namespace seed_00496c50
 
 
-// 0x00496c60: function not yet identified
-//
-// Body: 9 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_00496c60(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// DelayTimerClass_End_Count_Down (0x00496C60): name from mischa85 names.csv
 
-namespace seed_00496c60 {
-
-void __fastcall FUN_00496c60(int timer_address)
+void __fastcall DelayTimerClass_End_Count_Down(int timer_address)
 {
     *(unsigned char *)(timer_address + 0x18) = 0;
     *(unsigned char *)(timer_address + 0x19) = 0;
     return;
 }
 
-}  // namespace seed_00496c60
 
 
-// 0x00496ce0: function not yet identified
-//
-// Body: 38 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: void __fastcall End_Count_00496ce0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00496ce0 {
+// End_Count_00496ce0 (0x00496CE0)
 
 void __fastcall End_Count_00496ce0(int timer_address)
 {
@@ -340,4 +308,3 @@ void __fastcall End_Count_00496ce0(int timer_address)
     return;
 }
 
-}  // namespace seed_00496ce0

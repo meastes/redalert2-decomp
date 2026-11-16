@@ -597,19 +597,9 @@ class Leaf_4c1f80 { public: unsigned int get(unsigned int crc_engine_address); }
 unsigned int Leaf_4c1f80::get(unsigned int crc_engine_address) { unsigned int unused_base_return = ((Call_4c1f80_0*)((unsigned int)this))->Compute_CRC_004101b0((unsigned int)(crc_engine_address)); unsigned int unused_field_24_return = ((Call_4c1f80_1*)(crc_engine_address))->target((unsigned int)(*(unsigned int*)(((unsigned int)this) + 0x24))); unsigned int unused_field_2c_return = ((Call_4c1f80_2*)(crc_engine_address))->target((unsigned int)(*(unsigned int*)(((unsigned int)this) + 0x2c))); unsigned int unused_field_30_return = ((Call_4c1f80_3*)(crc_engine_address))->target((unsigned int)(*(unsigned int*)(((unsigned int)this) + 0x30))); unsigned int unused_field_34_return = ((Call_4c1f80_4*)(crc_engine_address))->target((unsigned int)(*(unsigned int*)(((unsigned int)this) + 0x34))); unsigned int unused_field_38_return = ((Call_4c1f80_5*)(crc_engine_address))->target((unsigned int)(*(unsigned int*)(((unsigned int)this) + 0x38))); unsigned int unused_field_3c_return = ((Call_4c1f80_6*)(crc_engine_address))->target((unsigned int)(*(unsigned int*)(((unsigned int)this) + 0x3c))); unsigned int unused_field_40_return = ((Call_4c1f80_7*)(crc_engine_address))->target((unsigned int)(*(unsigned int*)(((unsigned int)this) + 0x40))); unsigned int unused_field_44_return = ((Call_4c1f80_8*)(crc_engine_address))->target((unsigned int)(*(unsigned int*)(((unsigned int)this) + 0x44))); unsigned int unused_field_48_return = ((Call_4c1f80_9*)(crc_engine_address))->target((unsigned int)(*(unsigned int*)(((unsigned int)this) + 0x48))); unsigned int unused_field_4c_return = ((Call_4c1f80_10*)(crc_engine_address))->target((unsigned int)(*(unsigned int*)(((unsigned int)this) + 0x4c))); unsigned int unused_field_50_return = ((Call_4c1f80_11*)(crc_engine_address))->target((unsigned int)(*(unsigned int*)(((unsigned int)this) + 0x50))); unsigned int unused_field_54_return = ((Call_4c1f80_12*)(crc_engine_address))->target((unsigned int)(*(unsigned int*)(((unsigned int)this) + 0x54))); unsigned int unused_field_58_return = ((Call_4c1f80_13*)(crc_engine_address))->target((unsigned int)(*(unsigned int*)(((unsigned int)this) + 0x58))); unsigned int field_6c_return = ((Call_4c1f80_14*)(crc_engine_address))->target((unsigned int)(*(unsigned int*)(((unsigned int)this) + 0x6c))); return field_6c_return; }
 
 
-// 0x004c2030: function not yet identified
-//
-// Body: 16 bytes (frozen inventory bound).
-// Referenced from 2 sites (unconditional call).
-// Ghidra prototype: undefined4 __fastcall FUN_004c2030(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// FoggedObjectClass_Get_Head_Record_Object_Type (0x004C2030): name from mischa85 names.csv
 
-namespace seed_004c2030 {
-
-unsigned int __fastcall FUN_004c2030(int object_address)
+unsigned int __fastcall FoggedObjectClass_Get_Head_Record_Object_Type(int object_address)
 {
     if (0 < *(int *)(object_address + 0x6c)) {
         return **(unsigned int **)(object_address + 0x60);
@@ -617,7 +607,6 @@ unsigned int __fastcall FUN_004c2030(int object_address)
     return 0;
 }
 
-}  // namespace seed_004c2030
 
 
 extern "C" void __cdecl release_4c2080(void*);

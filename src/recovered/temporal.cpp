@@ -249,7 +249,7 @@ void TemporalClass::Detach_Techno(TechnoClass *target)
 
 
 // Existing accepted BuildingClass helper's legacy integer-this interface.
-namespace seed_0044d380 { void __fastcall unknown_temporal_thaw_0044d380(int building); }
+void __fastcall unknown_temporal_thaw_0044d380(int building);
 
 void TemporalClass::Let_Go_Of_Target()
 {
@@ -264,7 +264,7 @@ void TemporalClass::Let_Go_Of_Target()
             if(Target->Kind_Of()==6) {
                 TechnoClass *building=Target;
                 building->House->RecalcPower=true;
-                seed_0044d380::unknown_temporal_thaw_0044d380((int)building);
+                unknown_temporal_thaw_0044d380((int)building);
                 building->House->unknown_144=true;
             }
             Target->Mark(2);
@@ -439,7 +439,7 @@ bool TemporalClass::Can_Warp_Target(TechnoClass *target) const
 #include "shared/sidebar_building.hpp"
 #include "shared/radar_event.hpp"
 #include "shared/vox_class.hpp"
-namespace seed_0044d320 { void __fastcall unknown_temporal_freeze_0044d320(int building); }
+void __fastcall unknown_temporal_freeze_0044d320(int building);
 
 void TemporalClass::Unknown_006E27B0(TechnoClass *target)
 {
@@ -476,7 +476,7 @@ void TemporalClass::Unknown_006E27B0(TechnoClass *target)
         if(Target->Kind_Of()==6) {
             TechnoClass *building=Target;
             building->House->RecalcPower=true;
-            seed_0044d320::unknown_temporal_freeze_0044d320((int)building);
+            unknown_temporal_freeze_0044d320((int)building);
             building->House->unknown_144=true;
         }
         Target->Mark(2);

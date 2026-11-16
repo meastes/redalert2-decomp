@@ -39,11 +39,11 @@ void __cdecl Unknown_004068F0(char const *format, ...) {}
 // the row's seed, src/recovered/00406f70.cpp): counts 0x00831440 down and, on
 // reaching zero, restarts the primary sound buffer (0x0040A870, accepted as
 // Audio_DS_Restart_Primary). Its pair 0x00406F50 counts up and stops it.
-extern int DAT_00831440;
+extern int AudioFocusLocks;
 void Audio_DS_Restart_Primary();
 void Audio_Focus_Regain()
 {
-    if (DAT_00831440 != 0 && --DAT_00831440 == 0) {
+    if (AudioFocusLocks != 0 && --AudioFocusLocks == 0) {
         Audio_DS_Restart_Primary();
     }
 }
@@ -54,10 +54,10 @@ void Audio_Focus_Regain()
 void Audio_DS_Stop_Primary();
 void Audio_Focus_Lose()
 {
-    if (DAT_00831440 == 0) {
+    if (AudioFocusLocks == 0) {
         Audio_DS_Stop_Primary();
     }
-    DAT_00831440 = DAT_00831440 + 1;
+    AudioFocusLocks = AudioFocusLocks + 1;
 }
 
 // 0x00735B10 (shared/unknown_globals.hpp: the current dialog window): the row's

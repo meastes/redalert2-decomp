@@ -14,24 +14,13 @@
 #include "shared/raw_file_class.hpp"
 
 
-// 0x004011b0: function not yet identified
-//
-// Body: 9 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: int __fastcall FUN_004011b0(int *param_1,int param_2)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// AudioIDXData_GetEntry (0x004011B0): name from mischa85 names.csv
 
-namespace seed_004011b0 {
-
-int __fastcall FUN_004011b0(int *bag_words, int entry_index)
+int __fastcall AudioIDXData_GetEntry(int *bag_words, int entry_index)
 {
     return *bag_words + entry_index * 0x24;
 }
 
-}  // namespace seed_004011b0
 
 
 // AudioBag *__fastcall Audio_Bag_Create(char const *path, char const *directory) -- 0x004011C0
@@ -156,21 +145,11 @@ void __fastcall Audio_Bag_Destroy(AudioBag *bag)
 }
 
 
-// 0x00401600: function not yet identified
-//
-// Body: 24 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: char * __fastcall FUN_00401600(int *param_1,int param_2)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00401600 {
+// AudioIDXData_GetSampleName (0x00401600): name from mischa85 names.csv
 
 extern "C" char s_Invalid_007cc958[];
 
-char * __fastcall FUN_00401600(int *bag_words, int entry_index)
+char * __fastcall AudioIDXData_GetSampleName(int *bag_words, int entry_index)
 {
     if ((entry_index >= 0) && (entry_index < bag_words[1])) {
         return (char *)(*bag_words + entry_index * 0x24);
@@ -178,22 +157,11 @@ char * __fastcall FUN_00401600(int *bag_words, int entry_index)
     return s_Invalid_007cc958;
 }
 
-}  // namespace seed_00401600
 
 
-// 0x00401620: function not yet identified
-//
-// Body: 22 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 __fastcall FUN_00401620(int *param_1,int param_2)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// AudioIDXData_GetSampleSize (0x00401620): name from mischa85 names.csv
 
-namespace seed_00401620 {
-
-unsigned int __fastcall FUN_00401620(int *bag_words, int entry_index)
+unsigned int __fastcall AudioIDXData_GetSampleSize(int *bag_words, int entry_index)
 {
     if ((entry_index >= 0) && (entry_index < bag_words[1])) {
         return *(unsigned int *)(*bag_words + 0x14 + entry_index * 0x24);
@@ -201,7 +169,6 @@ unsigned int __fastcall FUN_00401620(int *bag_words, int entry_index)
     return 0;
 }
 
-}  // namespace seed_00401620
 
 
 // void __fastcall Audio_Bag_Get_Format(AudioBag *bag, int index, AudioFormat *format) -- 0x00401640
@@ -226,19 +193,9 @@ void __fastcall Audio_Bag_Get_Format(AudioBag *bag, int index, AudioFormat *form
 }
 
 
-// 0x004016b0: function not yet identified
-//
-// Body: 60 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_004016b0(int *param_1,int param_2,int param_3)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// AudioIDXData_SetSampleInformation (0x004016B0): name from mischa85 names.csv
 
-namespace seed_004016b0 {
-
-void __fastcall FUN_004016b0(int *bag_words, int entry_index, int format_address)
+void __fastcall AudioIDXData_SetSampleInformation(int *bag_words, int entry_index, int format_address)
 {
     int entry_address;
     unsigned int sample_rate;
@@ -256,7 +213,6 @@ void __fastcall FUN_004016b0(int *bag_words, int entry_index, int format_address
     return;
 }
 
-}  // namespace seed_004016b0
 
 
 // int Audio_Bag_Open(AudioBag *bag, int index) (0x004016F0)

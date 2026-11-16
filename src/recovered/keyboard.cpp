@@ -47,24 +47,13 @@
 #define VK_SCROLL 0x91
 
 
-// 0x00532120: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void unknown_empty_00532120(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00532120 {
+// unknown_empty_00532120 (0x00532120)
 
 void  unknown_empty_00532120(void)
 {
     return;
 }
 
-}  // namespace seed_00532120
 
 
 /***********************************************************************************************

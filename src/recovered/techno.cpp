@@ -2090,7 +2090,7 @@ bool TechnoClass::unknown_slot158()
 // the same form written in place.
 // The local sparks vector holds const ParticleSystemTypeClass pointers (original RTTI);
 // const_cast bridges the existing mutable ParticleSystemClass constructor contract only.
-namespace seed_00496ce0 { void __fastcall End_Count_00496ce0(int timer); }
+void __fastcall End_Count_00496ce0(int timer);
 extern double const unknown_random_scale_79c280;
 static inline bool Is_Foot(AbstractClass const *object)
 {
@@ -2170,7 +2170,7 @@ void TechnoClass::AI()
         }
         unknown_100=turret;
     }
-    if (Door.Has_Ended()) seed_00496ce0::End_Count_00496ce0(reinterpret_cast<int>(&Door));
+    if (Door.Has_Ended()) End_Count_00496ce0(reinterpret_cast<int>(&Door));
     if (unknown_376) --unknown_376;
     if (unknown_228 && unknown_404) {
         if (Mission==0 || Mission==7 || Mission==13 || Mission==14 || Mission==16 || Mission==18 || Mission==19 || Mission==20 || Mission==22 || Mission==23 || Mission==28 || Mission==24) unknown_slot220(0);

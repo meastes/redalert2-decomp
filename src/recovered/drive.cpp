@@ -1632,24 +1632,13 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
 }
 
 
-// 0x004a4730: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_004a4730(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// DriveLocomotionClass_Lay_Track (0x004A4730): name from mischa85 names.csv
 
-namespace seed_004a4730 {
-
-void  FUN_004a4730(void)
+void  DriveLocomotionClass_Lay_Track(void)
 {
     return;
 }
 
-}  // namespace seed_004a4730
 
 
 // Point2D DriveLocomotionClass::Smooth_Turn(Point2D const &offset, int &facing) (0x004A4740)
@@ -1931,17 +1920,7 @@ void UnknownComPtr<IPersistStream, &unknown_uuid_IPersistStream_7d5f38>::Release
 #pragma auto_inline(on)
 
 
-// 0x004a4d20: function not yet identified
-//
-// Body: 28 bytes (frozen inventory bound).
-// Referenced from 7 sites (unconditional call).
-// Ghidra prototype: int __fastcall CDTimerClass_FrameTimerClass_Value_004a4d20(int *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004a4d20 {
+// CDTimerClass_FrameTimerClass_Value_004a4d20 (0x004A4D20)
 
 extern "C" unsigned int Frame_00a40d2c;
 
@@ -1961,7 +1940,6 @@ int __fastcall CDTimerClass_FrameTimerClass_Value_004a4d20(int *timer_words)
     return remaining;
 }
 
-}  // namespace seed_004a4d20
 
 
 // DriveLocomotionClass::QueryInterface adjustor thunk for ILocomotion (0x004A4D40)

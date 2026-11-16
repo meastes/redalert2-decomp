@@ -4,8 +4,8 @@
     "id": "population-3806",
     "inventory_sha256": "d2a043b267365d8cdade028a4f3a8a1c4388d3521812b702696b327caa594f60",
     "gaps_sha256": "484223bb8d71073075f0d59db97319946bbd591209729e825e264c5cb146060c",
-    "historical_population_sha256": "df0d6043b70c99201cec44332a2a36c43e9752ee0b58ec1fbb11081ad380a528",
-    "historical_acceptance_sha256": "9912af30159f3921ea9198df933b9835f8c4d5a4e8961d73d2082acec68bc6c9"
+    "historical_population_sha256": "c7bce4f2b883c97725b5ba4146727efe6962ce6e6cd8dbd611d19630832d5ba2",
+    "historical_acceptance_sha256": "3f64195b7be9f0be39a2496cc35f552ce53525f3792c264bdd630cce0834f96d"
   },
   "references": {
     "__imp__RegOpenKeyExA@20": 7970828,
@@ -3815,7 +3815,7 @@
     "??_7CCINIClass@@6B@": 7973604,
     "??0?$VectorClass@PAD@@QAE@IPBQAD@Z": 4789216,
     "?Get_Color_0066e2a0@NodeNameType@@QAEHXZ": 6742688,
-    "?Get@UnknownCRCStraw@@UAEHPAXH@Z": 4801168,
+    "?Get@CRCStraw@@UAEHPAXH@Z": 4801168,
     "?Get@AlphaLightingRemapInitClass@@QAEPAY0BAA@$$CBGH@Z": 4318176,
     "?Blit@?$RLEBlitTransXlatZRead@E@@UBEXPAXPBXHHH00HH0@Z": 4744976,
     "?Blit@?$RLEBlitTransZRemapXlatZRead@E@@UBEXPAXPBXHHH00HH0@Z": 4745184,
@@ -4814,11 +4814,11 @@
     "??_7Unknown535910@@6B@": 8017052,
     "?Unknown_00535970@@YAXXZ": 5462384,
     "??0Unknown535910@@QAE@XZ": 5462432,
-    "?unknown_screen_widths_7add68@@3PAHA": 8052072,
+    "?ScreenWidths@@3PAHA": 8052072,
     "?Unknown_006f24a0@@YIXH@Z": 7283872,
     "?Unknown_006f25c0@@YIXXZ": 7284160,
     "?Unknown_00536b80@@YI?AVRect@@XZ": 5467008,
-    "?unknown_screen_heights_7add74@@3PAHA": 8052084,
+    "?ScreenHeights@@3PAHA": 8052084,
     "?Unknown_00536c00@@YI?AVRect@@XZ": 5467136,
     "?Unknown_00536c70@@YIXPBGPAVSurface@@HHHH_N@Z": 5467248,
     "?Unknown_005feb60@@YIXPAVRect@@PAVSurface@@HH@Z": 6286176,

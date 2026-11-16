@@ -737,17 +737,7 @@ void Audio_Events_Free_Stopped()
 }
 
 
-// 0x00405110: function not yet identified
-//
-// Body: 16 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: undefined4 __fastcall Audio_Event_Type_Range_00405110(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00405110 {
+// Audio_Event_Type_Range_00405110 (0x00405110)
 
 extern "C" unsigned int Audio_Events_Ready_00830fb8;
 
@@ -759,7 +749,6 @@ unsigned int __fastcall Audio_Event_Type_Range_00405110(int type)
     return *(unsigned int *)(type + 0x50);
 }
 
-}  // namespace seed_00405110
 
 
 // float __fastcall Audio_Event_Type_Get_Rate(AudioEventType *type) -- 0x00405120
@@ -774,17 +763,7 @@ float __fastcall Audio_Event_Type_Get_Rate(AudioEventType *type)
 }
 
 
-// 0x00405140: function not yet identified
-//
-// Body: 16 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: undefined4 __fastcall Audio_Event_Type_Flags_00405140(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00405140 {
+// Audio_Event_Type_Flags_00405140 (0x00405140)
 
 extern "C" unsigned int Audio_Events_Ready_00830fb8;
 
@@ -796,7 +775,6 @@ unsigned int __fastcall Audio_Event_Type_Flags_00405140(int type)
     return *(unsigned int *)(type + 0x14);
 }
 
-}  // namespace seed_00405140
 
 
 // char *__fastcall Audio_Event_Type_Name(AudioEventType *type) -- 0x00405150
@@ -871,17 +849,7 @@ AudioEvent *__fastcall Audio_Event_Create(AudioEventType *type)
 }
 
 
-// 0x004052f0: function not yet identified
-//
-// Body: 9 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: void __fastcall Audio_Event_Set_Flag_8_004052f0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004052f0 {
+// Audio_Event_Set_Flag_8_004052f0 (0x004052F0)
 
 void __fastcall Audio_Event_Set_Flag_8_004052f0(int event)
 {
@@ -889,7 +857,6 @@ void __fastcall Audio_Event_Set_Flag_8_004052f0(int event)
     return;
 }
 
-}  // namespace seed_004052f0
 
 
 // void __fastcall Audio_Event_Stop(AudioEvent *event) -- 0x00405300
@@ -1116,17 +1083,7 @@ again:
 }
 
 
-// 0x00405a00: function not yet identified
-//
-// Body: 16 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 __fastcall Audio_Event_Channel_End_00405a00(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00405a00 {
+// Audio_Event_Channel_End_00405a00 (0x00405A00)
 
 unsigned int __fastcall Audio_Event_Channel_End_00405a00(int event)
 {
@@ -1134,7 +1091,6 @@ unsigned int __fastcall Audio_Event_Channel_End_00405a00(int event)
     return 0;
 }
 
-}  // namespace seed_00405a00
 
 
 // int __fastcall Audio_Event_Channel_Done(AudioChannel *channel) -- 0x00405A10
@@ -1321,17 +1277,7 @@ void __fastcall Audio_Event_Handle_Finish_Loop(AudioEventHandle *handle)
 }
 
 
-// 0x00406100: function not yet identified
-//
-// Body: 52 bytes (frozen inventory bound).
-// Referenced from 8 sites (unconditional call).
-// Ghidra prototype: void __fastcall Audio_Event_Handle_Set_00406100(int *param_1,int param_2,int param_3)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00406100 {
+// Audio_Event_Handle_Set_00406100 (0x00406100)
 
 extern "C" unsigned int Audio_Event_Bag_00830fac;
 
@@ -1351,7 +1297,6 @@ void __fastcall Audio_Event_Handle_Set_00406100(int *handle, int event, int type
     return;
 }
 
-}  // namespace seed_00406100
 
 
 // 0x00406140: function not yet identified
@@ -1514,17 +1459,7 @@ class Leaf_406320 { public: unsigned int get(); };
 unsigned int Leaf_406320::get() { return *(unsigned int*)((char*)this + 0x24); }
 
 
-// 0x00406330: function not yet identified
-//
-// Body: 25 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 __fastcall Audio_Event_Loops_Forever_00406330(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00406330 {
+// Audio_Event_Loops_Forever_00406330 (0x00406330)
 
 unsigned int __fastcall Audio_Event_Loops_Forever_00406330(int event)
 {
@@ -1535,7 +1470,6 @@ unsigned int __fastcall Audio_Event_Loops_Forever_00406330(int event)
     return 0;
 }
 
-}  // namespace seed_00406330
 
 
 // 0x00406350: function not yet identified
@@ -1804,17 +1738,7 @@ void __fastcall Audio_Event_Type_Set_Loop(AudioEventType *type, int count)
 }
 
 
-// 0x00406660: function not yet identified
-//
-// Body: 22 bytes (frozen inventory bound).
-// Referenced from 3 sites (unconditional call).
-// Ghidra prototype: undefined4 __fastcall Audio_Event_Type_Loops_Forever_00406660(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00406660 {
+// Audio_Event_Type_Loops_Forever_00406660 (0x00406660)
 
 unsigned int __fastcall Audio_Event_Type_Loops_Forever_00406660(int type)
 {
@@ -1827,7 +1751,6 @@ unsigned int __fastcall Audio_Event_Type_Loops_Forever_00406660(int type)
     return result;
 }
 
-}  // namespace seed_00406660
 
 
 // void __fastcall Audio_Event_Play_Named(char const *name, int volume) -- 0x00406680
@@ -1860,17 +1783,7 @@ void __fastcall Audio_Event_Play_Named(char const *name, int volume)
 }
 
 
-// 0x00406740: function not yet identified
-//
-// Body: 11 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void Audio_Disable_00406740(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00406740 {
+// Audio_Disable_00406740 (0x00406740)
 
 extern "C" unsigned int Audio_Enabled_007ccbd8;
 
@@ -1880,20 +1793,9 @@ void  Audio_Disable_00406740(void)
     return;
 }
 
-}  // namespace seed_00406740
 
 
-// 0x00406750: function not yet identified
-//
-// Body: 11 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void Audio_Enable_00406750(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00406750 {
+// Audio_Enable_00406750 (0x00406750)
 
 extern "C" unsigned int Audio_Enabled_007ccbd8;
 
@@ -1903,20 +1805,9 @@ void  Audio_Enable_00406750(void)
     return;
 }
 
-}  // namespace seed_00406750
 
 
-// 0x00406760: function not yet identified
-//
-// Body: 6 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 Audio_Is_Enabled_00406760(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00406760 {
+// Audio_Is_Enabled_00406760 (0x00406760)
 
 extern "C" unsigned int Audio_Enabled_007ccbd8;
 
@@ -1925,7 +1816,6 @@ unsigned int  Audio_Is_Enabled_00406760(void)
     return Audio_Enabled_007ccbd8;
 }
 
-}  // namespace seed_00406760
 
 
 // void __fastcall Audio_Report_Usage(void (__fastcall *report)(char *text)) -- 0x00406770

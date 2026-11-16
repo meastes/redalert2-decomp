@@ -5374,24 +5374,13 @@ void BuildingClass::Factory_AI_0044b480()
 }
 
 
-// 0x0044b760: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void unknown_empty_0044b760(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0044b760 {
+// unknown_empty_0044b760 (0x0044B760)
 
 void  unknown_empty_0044b760(void)
 {
     return;
 }
 
-}  // namespace seed_0044b760
 
 
 // BuildingClass 0x0044B770: the delayed-fire countdown. At zero, action 1 fires the weapon recorded in the
@@ -6014,17 +6003,7 @@ void BuildingClass::unknown_44d2d0(int layer)
 }
 
 
-// 0x0044d320: function not yet identified
-//
-// Body: 89 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: void __fastcall unknown_temporal_freeze_0044d320(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0044d320 {
+// unknown_temporal_freeze_0044d320 (0x0044D320)
 
 void __fastcall unknown_temporal_freeze_0044d320(int self)
 {
@@ -6049,20 +6028,9 @@ void __fastcall unknown_temporal_freeze_0044d320(int self)
     return;
 }
 
-}  // namespace seed_0044d320
 
 
-// 0x0044d380: function not yet identified
-//
-// Body: 76 bytes (frozen inventory bound).
-// Referenced from 2 sites (unconditional call).
-// Ghidra prototype: void __fastcall unknown_temporal_thaw_0044d380(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0044d380 {
+// unknown_temporal_thaw_0044d380 (0x0044D380)
 
 void __fastcall unknown_temporal_thaw_0044d380(int self)
 {
@@ -6086,7 +6054,6 @@ void __fastcall unknown_temporal_thaw_0044d380(int self)
     return;
 }
 
-}  // namespace seed_0044d380
 
 
 // int BuildingClass::unknown_slot292() (0x0044D3D0, slot 292)
@@ -8570,41 +8537,20 @@ class Leaf_453b50 { public: bool get(); };
 bool Leaf_453b50::get() { return false; }
 
 
-// 0x00453b60: function not yet identified
-//
-// Body: 5 bytes (frozen inventory bound).
-// Referenced from 2 sites (data).
-// Ghidra prototype: undefined1 unknown_return_true_00453b60(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00453b60 {
+// unknown_return_true_00453b60 (0x00453B60)
 
 unsigned char __stdcall unknown_return_true_00453b60(int unused_0)
 {
     return 1;
 }
 
-}  // namespace seed_00453b60
 
 
 class Leaf_453b70 { public: unsigned int get(); };
 unsigned int Leaf_453b70::get() { return 2; }
 
 
-// 0x00453b80: function not yet identified
-//
-// Body: 15 bytes (frozen inventory bound).
-// Referenced from 2 sites (data).
-// Ghidra prototype: void unknown_none_cell_00453b80(undefined4 *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00453b80 {
+// unknown_none_cell_00453b80 (0x00453B80)
 
 extern "C" unsigned int _cell_none_0084ed10;
 
@@ -8614,7 +8560,6 @@ void __stdcall unknown_none_cell_00453b80(unsigned int *result)
     return;
 }
 
-}  // namespace seed_00453b80
 
 
 class Leaf_453b90 { public: void get(unsigned int a1); };
@@ -8633,24 +8578,13 @@ class Leaf_453bc0 { public: bool get(); };
 bool Leaf_453bc0::get() { return false; }
 
 
-// 0x00453bd0: function not yet identified
-//
-// Body: 5 bytes (frozen inventory bound).
-// Referenced from 2 sites (data).
-// Ghidra prototype: undefined1 unknown_return_false_00453bd0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00453bd0 {
+// unknown_return_false_00453bd0 (0x00453BD0)
 
 unsigned char __stdcall unknown_return_false_00453bd0(int unused_0)
 {
     return 0;
 }
 
-}  // namespace seed_00453bd0
 
 
 class Leaf_453be0 { public: void get(unsigned int a1, unsigned int a2); };
@@ -8722,17 +8656,7 @@ template <> void UnknownComPtr<ILocomotion,&unknown_uuid_ILocomotion_7ce600>::_A
 #pragma auto_inline(on)
 
 
-// 0x00453eb0: function not yet identified
-//
-// Body: 28 bytes (frozen inventory bound).
-// Referenced from 17 sites (unconditional call).
-// Ghidra prototype: int __fastcall CDTimer_Value_00453eb0(int *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00453eb0 {
+// CDTimer_Value_00453eb0 (0x00453EB0)
 
 extern "C" unsigned int Frame_00a40d2c;
 
@@ -8752,7 +8676,6 @@ int __fastcall CDTimer_Value_00453eb0(int *timer)
     return remaining;
 }
 
-}  // namespace seed_00453eb0
 
 
 extern "C" unsigned char vtable_454710[]; extern "C" void __cdecl release_buffer_454710(void*); extern "C" void __cdecl release_object_454710(void*);

@@ -3007,19 +3007,9 @@ void DisplayClass::Abort_Drag_Select()
 }
 
 
-// 0x0049ec40: function not yet identified
-//
-// Body: 23 bytes (frozen inventory bound).
-// Referenced from 5 sites (unconditional call).
-// Ghidra prototype: int __fastcall FUN_0049ec40(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// DisplayClass_Object_To_Follow (0x0049EC40): name from mischa85 names.csv
 
-namespace seed_0049ec40 {
-
-int __fastcall FUN_0049ec40(int display_address)
+int __fastcall DisplayClass_Object_To_Follow(int display_address)
 {
     int result_address;
 
@@ -3029,7 +3019,6 @@ int __fastcall FUN_0049ec40(int display_address)
     return result_address;
 }
 
-}  // namespace seed_0049ec40
 
 
 // void DisplayClass::Unknown_0049EC60(ObjectClass *object) (0x0049EC60; names.csv Set_To_Follow): stores the

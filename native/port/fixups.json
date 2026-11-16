@@ -773,15 +773,15 @@
   },
   {
    "source": "src/recovered/techno.cpp",
-   "old": "namespace seed_00496ce0 { void __fastcall End_Count_00496ce0(int timer); }\n",
-   "new": "namespace seed_00496ce0 { void __fastcall End_Count_00496ce0(int timer); }\nvoid Native_Timed_Finish_00496ce0(DelayTimerClass *timed);   // NATIVE: native/link/behaviour_frame.cpp\n",
+   "old": "void __fastcall End_Count_00496ce0(int timer);\n",
+   "new": "void __fastcall End_Count_00496ce0(int timer);\nvoid Native_Timed_Finish_00496ce0(DelayTimerClass *timed);   // NATIVE: native/link/behaviour_frame.cpp\n",
    "why": "TechnoClass::AI 0x006C74C0 calls the unrecovered 0x00496CE0 (DelayTimerClass: ends a finished timed change) through its seed with the object address cast to int, which truncates on arm64. Natively the call goes to a behaviour-written body taking the pointer (same operation, the seed's logic).",
    "verified": false
   },
   {
    "source": "src/recovered/techno.cpp",
-   "old": "seed_00496ce0::End_Count_00496ce0(reinterpret_cast<int>(&Door));",
-   "new": "Native_Timed_Finish_00496ce0(&Door);   /* NATIVE: was seed_00496ce0::End_Count_00496ce0(reinterpret_cast<int>(&Door)) */",
+   "old": "End_Count_00496ce0(reinterpret_cast<int>(&Door));",
+   "new": "Native_Timed_Finish_00496ce0(&Door);   /* NATIVE: was End_Count_00496ce0(reinterpret_cast<int>(&Door)) */",
    "why": "See the declaration fixup above (pointer kept whole).",
    "verified": false
   },
@@ -2262,42 +2262,42 @@
   },
   {
    "source": "src/recovered/temporal.cpp",
-   "old": "namespace seed_0044d320 { void __fastcall unknown_temporal_freeze_0044d320(int building); }\n",
-   "new": "namespace seed_0044d320 { void __fastcall unknown_temporal_freeze_0044d320(int building); }\nvoid Native_Building_Temporal_Freeze_0044D320(TechnoClass *building);   // NATIVE: native/link/behaviour_temporal_building.cpp\n",
+   "old": "void __fastcall unknown_temporal_freeze_0044d320(int building);\n",
+   "new": "void __fastcall unknown_temporal_freeze_0044d320(int building);\nvoid Native_Building_Temporal_Freeze_0044D320(TechnoClass *building);   // NATIVE: native/link/behaviour_temporal_building.cpp\n",
    "why": "TemporalClass passes the warped building to 0x0044D320 / 0x0044D380 as an int; their seed sources write the building's fields at VC6 offsets through it, so natively the cut 64-bit address faulted on a Chrono Legionnaire's first shot at a building. The calls go to behaviour rows that use the real members (native/link/behaviour_temporal_building.cpp). Scout1242 (64/32 audit).",
    "verified": false
   },
   {
    "source": "src/recovered/temporal.cpp",
-   "old": "seed_0044d320::unknown_temporal_freeze_0044d320((int)building);",
+   "old": "unknown_temporal_freeze_0044d320((int)building);",
    "new": "Native_Building_Temporal_Freeze_0044D320(building);   /* NATIVE: real members (Scout1242) */",
    "why": "TemporalClass passes the warped building to 0x0044D320 / 0x0044D380 as an int; their seed sources write the building's fields at VC6 offsets through it, so natively the cut 64-bit address faulted on a Chrono Legionnaire's first shot at a building. The calls go to behaviour rows that use the real members (native/link/behaviour_temporal_building.cpp). Scout1242 (64/32 audit).",
    "verified": false
   },
   {
    "source": "src/recovered/temporal.cpp",
-   "old": "namespace seed_0044d380 { void __fastcall unknown_temporal_thaw_0044d380(int building); }\n",
-   "new": "namespace seed_0044d380 { void __fastcall unknown_temporal_thaw_0044d380(int building); }\nvoid Native_Building_Temporal_Thaw_0044D380(TechnoClass *building);   // NATIVE: native/link/behaviour_temporal_building.cpp\n",
+   "old": "void __fastcall unknown_temporal_thaw_0044d380(int building);\n",
+   "new": "void __fastcall unknown_temporal_thaw_0044d380(int building);\nvoid Native_Building_Temporal_Thaw_0044D380(TechnoClass *building);   // NATIVE: native/link/behaviour_temporal_building.cpp\n",
    "why": "TemporalClass passes the warped building to 0x0044D320 / 0x0044D380 as an int; their seed sources write the building's fields at VC6 offsets through it, so natively the cut 64-bit address faulted on a Chrono Legionnaire's first shot at a building. The calls go to behaviour rows that use the real members (native/link/behaviour_temporal_building.cpp). Scout1242 (64/32 audit).",
    "verified": false
   },
   {
    "source": "src/recovered/temporal.cpp",
-   "old": "seed_0044d380::unknown_temporal_thaw_0044d380((int)building);",
+   "old": "unknown_temporal_thaw_0044d380((int)building);",
    "new": "Native_Building_Temporal_Thaw_0044D380(building);   /* NATIVE: real members (Scout1242) */",
    "why": "TemporalClass passes the warped building to 0x0044D320 / 0x0044D380 as an int; their seed sources write the building's fields at VC6 offsets through it, so natively the cut 64-bit address faulted on a Chrono Legionnaire's first shot at a building. The calls go to behaviour rows that use the real members (native/link/behaviour_temporal_building.cpp). Scout1242 (64/32 audit).",
    "verified": false
   },
   {
    "source": "src/recovered/classes/TemporalClass/TemporalClass_Release_Target_State_006e2610.cpp",
-   "old": "namespace seed_0044d380 { void __fastcall unknown_temporal_thaw_0044d380(int building); }\n",
-   "new": "namespace seed_0044d380 { void __fastcall unknown_temporal_thaw_0044d380(int building); }\nvoid Native_Building_Temporal_Thaw_0044D380(TechnoClass *building);   // NATIVE: native/link/behaviour_temporal_building.cpp\n",
+   "old": "void __fastcall unknown_temporal_thaw_0044d380(int building);\n",
+   "new": "void __fastcall unknown_temporal_thaw_0044d380(int building);\nvoid Native_Building_Temporal_Thaw_0044D380(TechnoClass *building);   // NATIVE: native/link/behaviour_temporal_building.cpp\n",
    "why": "TemporalClass passes the warped building to 0x0044D320 / 0x0044D380 as an int; their seed sources write the building's fields at VC6 offsets through it, so natively the cut 64-bit address faulted on a Chrono Legionnaire's first shot at a building. The calls go to behaviour rows that use the real members (native/link/behaviour_temporal_building.cpp). Scout1242 (64/32 audit).",
    "verified": false
   },
   {
    "source": "src/recovered/classes/TemporalClass/TemporalClass_Release_Target_State_006e2610.cpp",
-   "old": "seed_0044d380::unknown_temporal_thaw_0044d380((int)building);",
+   "old": "unknown_temporal_thaw_0044d380((int)building);",
    "new": "Native_Building_Temporal_Thaw_0044D380(building);   /* NATIVE: real members (Scout1242) */",
    "why": "TemporalClass passes the warped building to 0x0044D320 / 0x0044D380 as an int; their seed sources write the building's fields at VC6 offsets through it, so natively the cut 64-bit address faulted on a Chrono Legionnaire's first shot at a building. The calls go to behaviour rows that use the real members (native/link/behaviour_temporal_building.cpp). Scout1242 (64/32 audit).",
    "verified": false

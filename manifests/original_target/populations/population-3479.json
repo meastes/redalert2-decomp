@@ -4,8 +4,8 @@
     "id": "population-3479",
     "inventory_sha256": "77a448df21360e20e42a6fcc24dfef47525ec671c5d78ea1996f597fc33430f8",
     "gaps_sha256": "3d709b33ffd7880c68b9bf7fe0b8bae3e28003065de7050d5d6bf7d1ed88c7ca",
-    "historical_population_sha256": "6d03d2bb4949a2819d128c85cf00724dabfd97b1744a3941c8d100013b8b3906",
-    "historical_acceptance_sha256": "3aa88794e35bd7e4590d7de3fbbd7deb2e497ddb8b9d4288bc1d202afe64252e"
+    "historical_population_sha256": "e68114f44fe1ad562e94950ea0571b0eefca43d78b46d50415b7cd531b62581c",
+    "historical_acceptance_sha256": "99cd13c77740fed2fcb6614e5b8637d78afa9b467486ec3d96a727c1bbcedca6"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -2112,7 +2112,7 @@
     "??_R0?AVVeinholeMonsterClass@@@8": 8361640,
     "??_R0?AVWinModemClass@@@8": 8374768,
     "??_R0?AVWWMouseClass@@@8": 8393584,
-    "?FUN_00424060@seed_00424060@@YAIXZ": 4341856,
+    "?AnimFile_Get_Header_Size@@YAIXZ": 4341856,
     "__ramp_corners": 8339828,
     "?Skip@EnumConnectionsClass@@UAGJK@Z": 4793184,
     "?Skip@EnumConnectionPointsClass@@UAGJK@Z": 4795632,
@@ -2139,7 +2139,8 @@
     "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
     "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
     "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
-    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488
   },
   "regions": [
     {
@@ -2160,7 +2161,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "e84332b97649dca83027cc2fb5347f53ca34003b340c496db4e50f20963aaa4c",
       "relocations": [],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -2186,7 +2187,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "83a23f1c7e40fd226ef29889b9f9c9b5defb148d2771e2d27d0ee75b435f816c",
       "relocations": [],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -2212,7 +2213,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "6b742aeb1792a5a8389e301fd208f74a765786bcd4098d389026d9f44dfd915a",
       "relocations": [],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -2255,7 +2256,7 @@
           "resolved": 3527060
         }
       ],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -2266,8 +2267,8 @@
     {
       "entry": 4341856,
       "method": "00424060",
-      "symbol": "?FUN_00424060@seed_00424060@@YAIXZ",
-      "symbol_prefix": "?FUN_00424060@",
+      "symbol": "?AnimFile_Get_Header_Size@@YAIXZ",
+      "symbol_prefix": "?AnimFile_Get_Header_Size@",
       "options": [
         "/O2",
         "/Ob2",
@@ -2281,7 +2282,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "9b7b95e693752d02c2fe16eb92e3f23917f067c3a56aeac0d24776adc7c40aa2",
       "relocations": [],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -2308,7 +2309,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "d71daced1d6512049006835db004ee54f110dc92e02b79a18ae4da875d7c7e20",
       "relocations": [],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -2334,7 +2335,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "de198e32e25810e344069a739c71ceed88fa14143b4476356718ec185858e137",
       "relocations": [],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -2377,7 +2378,7 @@
           "resolved": 7979668
         }
       ],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -2428,7 +2429,7 @@
           "resolved": 7979704
         }
       ],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -2463,7 +2464,7 @@
           "resolved": 107
         }
       ],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -2498,7 +2499,7 @@
           "resolved": 3529792
         }
       ],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -2573,7 +2574,7 @@
           "resolved": 3530127
         }
       ],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -2599,7 +2600,7 @@
       "full_extent_bytes": 192,
       "full_extent_sha256": "b8ceac80758e97afb1c4e98eab5315186a28b47945b8d030066e053cbc13c096",
       "relocations": [],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -2625,7 +2626,7 @@
       "full_extent_bytes": 128,
       "full_extent_sha256": "6802c6030ba7a0b1781d9ea0bee2cdae1d6c7757a76f4a7695b79579495f9a1c",
       "relocations": [],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -2651,7 +2652,7 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "de92dfe23826ef8b4d45ea6bd96a80befc880dfc92afb5557d8456e778ad6547",
       "relocations": [],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -2677,7 +2678,7 @@
       "full_extent_bytes": 256,
       "full_extent_sha256": "f7afbef4b9faf078361aa23386d0734458b4ebac7832bcf5709b5795f08086cf",
       "relocations": [],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -2736,7 +2737,7 @@
           "resolved": 3526917
         }
       ],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -2779,7 +2780,7 @@
           "resolved": 846
         }
       ],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -2805,7 +2806,7 @@
       "full_extent_bytes": 256,
       "full_extent_sha256": "a7045289c4eb76205b5bb43d8619a438d07c9909b248f6a393e3c9f374792562",
       "relocations": [],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -2831,7 +2832,7 @@
       "full_extent_bytes": 416,
       "full_extent_sha256": "5b7040a2c665e035a938d519f541e0b195420b3e87623765d44bf38786d24314",
       "relocations": [],
-      "source_sha256": "0d65fce7ca40dd974454825d08164678b4878ee46fdee049773a5f49a5b71062",
+      "source_sha256": "17ef29ab3fd40ce3749600fdd9c0f0847c4fa272b9fce29c2a3936bc2b1a254d",
       "source": "src/recovered/animfile.cpp",
       "population": "population-3479",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

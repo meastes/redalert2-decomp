@@ -37,17 +37,7 @@ void AudioLevelSet::Update()
 }
 
 
-// 0x004010a0: function not yet identified
-//
-// Body: 27 bytes (frozen inventory bound).
-// Referenced from 7 sites (unconditional call).
-// Ghidra prototype: undefined4 __fastcall AudioLevelSet_Changed_004010a0(byte *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004010a0 {
+// AudioLevelSet_Changed_004010a0 (0x004010A0)
 
 unsigned int __fastcall AudioLevelSet_Changed_004010a0(unsigned char *level_set)
 {
@@ -57,7 +47,6 @@ unsigned int __fastcall AudioLevelSet_Changed_004010a0(unsigned char *level_set)
     return 1;
 }
 
-}  // namespace seed_004010a0
 
 
 // void __fastcall Audio_Level_Set_Combine(AudioLevelSet *set, AudioLevelSet *other) -- 0x004010C0

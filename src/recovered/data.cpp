@@ -103,7 +103,7 @@ int __fastcall Load_Compressed_Data_004953b0(FileClass &file, Buffer const &scra
         data += scratch.Get_Size() - bytes - sizeof(header);
     memmove(data, &header, sizeof(header));
     file.Read(data + sizeof(header), bytes);
-    bytes = (unsigned short)Unknown_Uncompress_Data_0053aeb0(data, destination);
+    bytes = (unsigned short)Uncompress_Data(data, destination);
     if (close_file) file.Close();
     return bytes;
 }
@@ -132,24 +132,13 @@ int __fastcall Load_Compressed_Data_Scaled_00495520(FileClass &file, Buffer cons
 }
 
 
-// 0x004954d0: function not yet identified
-//
-// Body: 3 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 Fetch_String_004954d0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004954d0 {
+// Fetch_String_004954d0 (0x004954D0)
 
 unsigned int  Fetch_String_004954d0(void)
 {
     return 0;
 }
 
-}  // namespace seed_004954d0
 
 
 class Leaf_4955a0 { public: void get(); };

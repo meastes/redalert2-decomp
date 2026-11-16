@@ -55,24 +55,13 @@ AnimFile::~AnimFile()
 }
 
 
-// 0x00424060: function not yet identified
-//
-// Body: 6 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 FUN_00424060(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// AnimFile_Get_Header_Size (0x00424060): name from mischa85 names.csv
 
-namespace seed_00424060 {
-
-unsigned int  FUN_00424060(void)
+unsigned int  AnimFile_Get_Header_Size(void)
 {
     return 0xb00;
 }
 
-}  // namespace seed_00424060
 
 
 // bool AnimFile::Open(FileClass *file) (0x00424070)

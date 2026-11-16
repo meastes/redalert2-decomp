@@ -289,58 +289,36 @@ AudioDevice *Audio_Get_Device()
 }
 
 
-// 0x00406f50: function not yet identified
-//
-// Body: 21 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: void FUN_00406f50(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00406f50 {
+// Audio_Focus_Lose (0x00406F50): name from mischa85 names.csv
 
 extern void  Audio_DS_Stop_Primary_0040a860(void);
-extern "C" unsigned int DAT_00831440;
+extern "C" unsigned int AudioFocusLocks;
 
-void  FUN_00406f50(void)
+void  Audio_Focus_Lose(void)
 {
-    if (DAT_00831440 == 0) {
+    if (AudioFocusLocks == 0) {
         Audio_DS_Stop_Primary_0040a860();
     }
-    DAT_00831440 = DAT_00831440 + 1;
+    AudioFocusLocks = AudioFocusLocks + 1;
     return;
 }
 
-}  // namespace seed_00406f50
 
 
-// 0x00406f70: function not yet identified
-//
-// Body: 23 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: void FUN_00406f70(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00406f70 {
+// Audio_Focus_Regain (0x00406F70): name from mischa85 names.csv
 
 extern void  Audio_DS_Restart_Primary_0040a870(void);
-extern "C" unsigned int DAT_00831440;
+extern "C" unsigned int AudioFocusLocks;
 
-void  FUN_00406f70(void)
+void  Audio_Focus_Regain(void)
 {
-    if ((DAT_00831440 != 0) && (DAT_00831440 = DAT_00831440 + -1, DAT_00831440 == 0)) {
+    if ((AudioFocusLocks != 0) && (AudioFocusLocks = AudioFocusLocks + -1, AudioFocusLocks == 0)) {
         Audio_DS_Restart_Primary_0040a870();
         return;
     }
     return;
 }
 
-}  // namespace seed_00406f70
 
 
 // void __fastcall Audio_Level_Fade_To_Full(AudioLevel *level) -- 0x00406F90
@@ -371,26 +349,13 @@ void __fastcall Audio_Level_Fade_To(AudioLevel *level, int value)
 }
 
 
-// 0x00406fc0: function not yet identified
-//
-// Body: 18 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: bool __fastcall FUN_00406fc0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-// Adjusted from the Ghidra seed by permute_seeds.py (signedness, comparison order, return width) to
-// match the original; edit freely, this file is no longer regenerated.
+// AudioLevelIsFading (0x00406FC0): name from mischa85 names.csv
 
-namespace seed_00406fc0 {
-
-int __fastcall FUN_00406fc0(int object_address)
+int __fastcall AudioLevelIsFading(int object_address)
 {
     return *(int *)(object_address + 4) != *(int *)(object_address + 8);
 }
 
-}  // namespace seed_00406fc0
 
 
 // void __fastcall Audio_Wait_Drain(AudioLevel *level) -- 0x00406FE0

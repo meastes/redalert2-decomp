@@ -428,7 +428,8 @@
    "address": "007b3f38",
    "bytes": 16,
    "kind": "rtti",
-   "section": 64
+   "section": 64,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4BuildingLightClass@@6BIPersistStream@@@",
@@ -689,7 +690,8 @@
    "symbol": "??_R3BuildingLightClass@@8",
    "address": "007b3f38",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4BuildingLightClass@@6BIPersistStream@@@",

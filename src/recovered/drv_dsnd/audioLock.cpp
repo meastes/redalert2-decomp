@@ -1,15 +1,5 @@
-// 0x0040a6a0: function not yet identified
-//
-// Body: 14 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 audioLock_0040a6a0(void)
-//
-// Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);
-// rename and retype as the purpose becomes known.
-//
+// audioLock_0040a6a0 (0x0040A6A0)
 #include "shared/ghidra_types.hpp"
-
-namespace seed_0040a6a0 {
 
 extern "C" __declspec(dllimport) undefined4 __stdcall EnterCriticalSection(int);  // @ref __imp__EnterCriticalSection@4=0079a1dc
 extern "C" undefined4 Audio_Lock_00831590;
@@ -20,4 +10,3 @@ undefined4  audioLock_0040a6a0(void)
     return 0;
 }
 
-}  // namespace seed_0040a6a0

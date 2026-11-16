@@ -2546,17 +2546,7 @@ void HouseClass::Sell_Wall(Cell const &cell, bool quiet)
 }
 
 
-// 0x004e8540: function not yet identified
-//
-// Body: 24 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 __fastcall unknown_lookup_553c_004e8540(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004e8540 {
+// unknown_lookup_553c_004e8540 (0x004E8540)
 
 extern "C" unsigned int unknown_list_00a35cdc;
 
@@ -2568,7 +2558,6 @@ unsigned int __fastcall unknown_lookup_553c_004e8540(int house)
     return 0;
 }
 
-}  // namespace seed_004e8540
 
 
 // BuildingClass *HouseClass::Find_Building(int type, int zone) (0x004E8560)
@@ -5900,17 +5889,7 @@ DynamicVectorClass<BuildingTypeClass *> HouseClass::Get_Anti_Ground_Defense_Buil
 }
 
 
-// 0x004f2330: function not yet identified
-//
-// Body: 24 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall unknown_reset_ratios_004f2330(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004f2330 {
+// unknown_reset_ratios_004f2330 (0x004F2330)
 
 void __fastcall unknown_reset_ratios_004f2330(int house)
 {
@@ -5920,7 +5899,6 @@ void __fastcall unknown_reset_ratios_004f2330(int house)
     return;
 }
 
-}  // namespace seed_004f2330
 
 
 // AI_Build_Wall (TibSun twin): plan a perimeter of walls and gates around the base area, original 0x004F2350,
@@ -6507,24 +6485,13 @@ void HouseClass::unknown_func_4f3bb0(SuperClass *super)
 }
 
 
-// 0x004f3c40: function not yet identified
-//
-// Body: 3 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void unknown_empty_004f3c40(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004f3c40 {
+// unknown_empty_004f3c40 (0x004F3C40)
 
 void __stdcall unknown_empty_004f3c40(int unused_0)
 {
     return;
 }
 
-}  // namespace seed_004f3c40
 
 
 // void HouseClass::unknown_func_4f3c50(SuperClass *super) (0x004F3C50)
@@ -7179,24 +7146,13 @@ float HouseClass::unknown_func_4f5a70(TechnoTypeClass *type)
 }
 
 
-// 0x004f5b30: function not yet identified
-//
-// Body: 10 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: float10 __fastcall unknown_type_float_148_004f5b30(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004f5b30 {
+// unknown_type_float_148_004f5b30 (0x004F5B30)
 
 long double __fastcall unknown_type_float_148_004f5b30(int house)
 {
     return (long double)*(float *)(*(int *)(house + 0x34) + 0x148);
 }
 
-}  // namespace seed_004f5b30
 
 
 // int __fastcall HouseClass::Find_Index(char const *name) (0x004F5B40)
@@ -7614,24 +7570,13 @@ unsigned int * Owner_004f6fc0::scalar_deleting_destructor_004f6fc0(unsigned char
 }  // namespace seed_004f6fc0
 
 
-// 0x004f83e0: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void unknown_empty_004f83e0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004f83e0 {
+// unknown_empty_004f83e0 (0x004F83E0)
 
 void  unknown_empty_004f83e0(void)
 {
     return;
 }
 
-}  // namespace seed_004f83e0
 
 
 // 0x004f8450: function not yet identified
@@ -7841,19 +7786,7 @@ template <> VectorClass<HouseBuildingDistributionElement>::VectorClass(unsigned 
 }
 
 
-// 0x004f8cf0: function not yet identified
-//
-// Body: 34 bytes (frozen inventory bound).
-// Referenced from 2 sites (data).
-// Ghidra prototype: int unknown_compare_004f8cf0(int *param_1,int *param_2)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-// Adjusted from the Ghidra seed by permute_seeds.py (signedness, comparison order) to
-// match the original; edit freely, this file is no longer regenerated.
-
-namespace seed_004f8cf0 {
+// unknown_compare_004f8cf0 (0x004F8CF0)
 
 int  unknown_compare_004f8cf0(int *a, int *b)
 {
@@ -7863,7 +7796,6 @@ int  unknown_compare_004f8cf0(int *a, int *b)
     return ((*a >= *b) - 1 & 0xfffffffe) + 1;
 }
 
-}  // namespace seed_004f8cf0
 
 
 // HouseClass::QueryInterface adjustor thunk for IRTTITypeInfo (0x004F8E20)

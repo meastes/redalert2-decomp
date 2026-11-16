@@ -176,24 +176,13 @@ void __fastcall Audio_Device_Remove(AudioDevice *device)
 }
 
 
-// 0x00403460: function not yet identified
-//
-// Body: 6 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 FUN_00403460(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// AudioDeviceSetFormat (0x00403460): name from mischa85 names.csv
 
-namespace seed_00403460 {
-
-unsigned int  FUN_00403460(void)
+unsigned int  AudioDeviceSetFormat(void)
 {
     return 0x80040000;
 }
 
-}  // namespace seed_00403460
 
 
 // void Audio_Device_Set_Volume(AudioDevice *device, int volume) (0x00403470)
@@ -214,44 +203,22 @@ void __fastcall Audio_Device_Fade_Volume(AudioDevice *device, int volume)
 }
 
 
-// 0x00403490: function not yet identified
-//
-// Body: 7 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 __fastcall FUN_00403490(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// AudioDeviceMaxChannels (0x00403490): name from mischa85 names.csv
 
-namespace seed_00403490 {
-
-unsigned int __fastcall FUN_00403490(int object_address)
+unsigned int __fastcall AudioDeviceMaxChannels(int object_address)
 {
     return *(unsigned int *)(object_address + 0xf4);
 }
 
-}  // namespace seed_00403490
 
 
-// 0x004034a0: function not yet identified
-//
-// Body: 7 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 __fastcall FUN_004034a0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// AudioDeviceChannels (0x004034A0): name from mischa85 names.csv
 
-namespace seed_004034a0 {
-
-unsigned int __fastcall FUN_004034a0(int object_address)
+unsigned int __fastcall AudioDeviceChannels(int object_address)
 {
     return *(unsigned int *)(object_address + 0xf0);
 }
 
-}  // namespace seed_004034a0
 
 
 // AudioChannel *__fastcall Audio_Device_New_Channel(AudioDevice *device) -- 0x004034B0

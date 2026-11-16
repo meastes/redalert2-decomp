@@ -20,7 +20,7 @@ bool __fastcall Command_Allows_Modified_Key_00480b20(CommandClass const &command
 bool __fastcall Command_Allows_Key_00480b40(unsigned int key)
 {
     unsigned int normalized = key & 0xfffff7ff; // remove the key-release flag
-    CommandClass *command = unknown_hotkeys_832380[(int)(normalized & 0xffffe8ff)];
+    CommandClass *command = HotkeyCommands[(int)(normalized & 0xffffe8ff)];
     if (command == 0) return true;
     return !command->unknown_slot5(normalized);
 }

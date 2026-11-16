@@ -264,18 +264,7 @@ HRESULT __stdcall EMPulseClass::GetClassID(GUID *retval)
 // 004b5510: emitted by this unit's use of its list
 
 
-// 0x004b53d0: function not yet identified
-//
-// Owner: EMPulseClass, virtual slot 6 (vtable +0x18) (from RTTI/vtables).
-// Body: 29 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: int Save_004b53d0(undefined4 param_1,undefined4 param_2,undefined4 param_3)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004b53d0 {
+// Save_004b53d0 (0x004B53D0)
 
 extern unsigned int __stdcall Save_004100c0(int, int, int);
 
@@ -290,7 +279,6 @@ int __stdcall Save_004b53d0(unsigned int object_address, unsigned int stream_add
     return result;
 }
 
-}  // namespace seed_004b53d0
 
 
 class Leaf_4b53f0 { public: unsigned int get(); };

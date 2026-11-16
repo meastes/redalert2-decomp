@@ -335,7 +335,7 @@ def main():
                 extent = SCALAR_WIDTH[base]
             if array:
                 # A scalar array runs over its declared elements even where an
-                # interior name starts (unknown_screen_widths_7add68[3]: the TSV
+                # interior name starts (ScreenWidths[3]: the TSV
                 # extent stops at OwnerDraw::unknown_7add6c, element 1).
                 count = declared_count(bare(name), lines_of(name))
                 width = SCALAR_WIDTH.get(base)

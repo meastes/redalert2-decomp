@@ -536,19 +536,9 @@ class Leaf_4b9420 { public: unsigned char get(); };
 unsigned char Leaf_4b9420::get() { return *(unsigned char*)((char*)this + 0x58); }
 
 
-// 0x004b9430: function not yet identified
-//
-// Body: 8 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: undefined1 __fastcall FUN_004b9430(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// FactoryClass_Has_Changed (0x004B9430): name from mischa85 names.csv
 
-namespace seed_004b9430 {
-
-unsigned char __fastcall FUN_004b9430(int object_address)
+unsigned char __fastcall FactoryClass_Has_Changed(int object_address)
 {
     unsigned char previous_value;
 
@@ -557,7 +547,6 @@ unsigned char __fastcall FUN_004b9430(int object_address)
     return previous_value;
 }
 
-}  // namespace seed_004b9430
 
 
 class Leaf_4b98f0 { public: unsigned int get(); };

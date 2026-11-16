@@ -2979,18 +2979,18 @@ void unknown_init_commands_5173c0()
     CommandClass *del = new DeleteCommandClass;
     AllCommands.Add(del);
     Load_Keyboard_Hotkeys();
-    if (unknown_hotkeys_832380.Is_Present(0x2E)) {
-        unknown_hotkeys_832380.Remove_Index(0x2E);
+    if (HotkeyCommands.Is_Present(0x2E)) {
+        HotkeyCommands.Remove_Index(0x2E);
     }
-    unknown_hotkeys_832380.Add_Index(0x2E, del);
-    if (unknown_hotkeys_832380.Is_Present(0x1B)) {
-        unknown_hotkeys_832380.Remove_Index(0x1B);
+    HotkeyCommands.Add_Index(0x2E, del);
+    if (HotkeyCommands.Is_Present(0x1B)) {
+        HotkeyCommands.Remove_Index(0x1B);
     }
-    unknown_hotkeys_832380.Add_Index(0x1B, options);
-    if (unknown_hotkeys_832380.Is_Present(0x20)) {
-        unknown_hotkeys_832380.Remove_Index(0x20);
+    HotkeyCommands.Add_Index(0x1B, options);
+    if (HotkeyCommands.Is_Present(0x20)) {
+        HotkeyCommands.Remove_Index(0x20);
     }
-    unknown_hotkeys_832380.Add_Index(0x20, center_event);
+    HotkeyCommands.Add_Index(0x20, center_event);
 }
 
 
@@ -3008,7 +3008,7 @@ bool __fastcall Load_Keyboard_Hotkeys()
     CCINIClass ini;
     CCFileClass file("KEYBOARD.INI");
     if (ini.Load(file, false, false)) {
-        unknown_hotkeys_832380.Clear();
+        HotkeyCommands.Clear();
         for (int index = 0; index < ini.Entry_Count("Hotkey"); index++) {
             char const *entry = ini.Get_Entry("Hotkey", index);
             int key = ini.Get_Int("Hotkey", entry, 0);
@@ -3016,7 +3016,7 @@ bool __fastcall Load_Keyboard_Hotkeys()
                 if (strcmp(AllCommands[command]->Get_Name(), entry) == 0) {
                     CommandClass *found = (CommandClass *)AllCommands[command];
                     if (found != 0 && key != 0) {
-                        unknown_hotkeys_832380.Add_Index(key, found);
+                        HotkeyCommands.Add_Index(key, found);
                     }
                     break;
                 }

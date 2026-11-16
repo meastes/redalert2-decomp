@@ -462,20 +462,7 @@ unsigned int Leaf_537c20::get() { return 0x36; }
 // VectorClass<LightSourceClass *>::Fetch (0x00537D30; VectorClass<LightSourceClass *> vtable 0x007a54d4 slot 6).
 
 
-// 0x00537d40: function not yet identified
-//
-// Owner: DynamicVectorClass<LightSourceClass::PendingCellClass *>, virtual slot 3 (vtable +0xc) (from RTTI/vtables).
-// Body: 42 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void __fastcall Clear_00537d40(int param_1)
-// Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00537d40 {
+// Clear_00537d40 (0x00537D40)
 
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
 
@@ -491,7 +478,6 @@ void __fastcall Clear_00537d40(int vector_address)
     return;
 }
 
-}  // namespace seed_00537d40
 
 
 // DynamicVectorClass<LightSourceClass::PendingCellClass *>::ID(PendingCellClass * const *) (0x00537D70)

@@ -43,7 +43,7 @@
  * HISTORY:                                                                                    *
  *   07/03/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-int UnknownCRCStraw::Get(void *buffer,int length)
+int CRCStraw::Get(void *buffer,int length)
 {
     if(buffer && length>=1) {
         int received=Straw::Get(buffer,length);
@@ -54,7 +54,7 @@ int UnknownCRCStraw::Get(void *buffer,int length)
 }
 
 
-unsigned long UnknownCRCStraw::Value_004942d0()
+unsigned long CRCStraw::Result()
 {
     return Engine.Value();
 }

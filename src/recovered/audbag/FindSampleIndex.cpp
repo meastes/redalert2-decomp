@@ -1,15 +1,5 @@
-// 0x004015c0: function not yet identified
-//
-// Body: 55 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: uint __fastcall FindSampleIndex_004015c0(int *param_1,undefined4 param_2)
-//
-// Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);
-// rename and retype as the purpose becomes known.
-//
+// FindSampleIndex_004015c0 (0x004015C0)
 #include "shared/ghidra_types.hpp"
-
-namespace seed_004015c0 {
 
 extern void __cdecl stricmp_00781f20(void);
 extern undefined4  bsearch_00782025(undefined4 key, uint entries, uint entry_count, int entry_width, code *comparator);
@@ -25,4 +15,3 @@ uint __fastcall FindSampleIndex_004015c0(int *bag_words, undefined4 name_address
     return 0xffffffff;
 }
 
-}  // namespace seed_004015c0

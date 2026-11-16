@@ -195,21 +195,10 @@ void Dial8Class::Set_Direction(unsigned dir)
 }
 
 
-// 0x004972d0: function not yet identified
-//
-// Body: 7 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 __fastcall FUN_004972d0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// Dial8Class_Get_Direction (0x004972D0): name from mischa85 names.csv
 
-namespace seed_004972d0 {
-
-unsigned int __fastcall FUN_004972d0(int object_address)
+unsigned int __fastcall Dial8Class_Get_Direction(int object_address)
 {
     return *(unsigned int *)(object_address + 0xb4);
 }
 
-}  // namespace seed_004972d0

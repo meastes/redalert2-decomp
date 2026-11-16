@@ -634,11 +634,11 @@ void __fastcall Keyboard_Process(int &input)
     }
     unsigned int plain = input & ~0x800;
     unsigned int key = plain & 0xffffe8ff;
-    CommandClass *command = unknown_hotkeys_832380[(int)key];
+    CommandClass *command = HotkeyCommands[(int)key];
     if (command == 0) {
-        command = unknown_hotkeys_832380[(int)plain];
+        command = HotkeyCommands[(int)plain];
     } else if (!command->unknown_slot5(plain)) {
-        command = unknown_hotkeys_832380[(int)plain];
+        command = HotkeyCommands[(int)plain];
     }
     if (command != 0 && (!IgnoreInput || _wcsicmp(command->Get_Category(), L"Debug") == 0)) {
         if (command->unknown_slot6(input)) {

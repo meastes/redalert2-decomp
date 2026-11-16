@@ -102,17 +102,7 @@ LoadOptionsClass::~LoadOptionsClass()
 }
 
 
-// 0x0053b190: function not yet identified
-//
-// Body: 19 bytes (frozen inventory bound).
-// Referenced from 3 sites (unconditional call).
-// Ghidra prototype: void __fastcall Load_Dialog_0053b190(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0053b190 {
+// Load_Dialog_0053b190 (0x0053B190)
 
 extern unsigned int __fastcall Dialog_0053b770(void);
 
@@ -124,7 +114,6 @@ void __fastcall Load_Dialog_0053b190(int object_address)
     return;
 }
 
-}  // namespace seed_0053b190
 
 
 // 0x0053b1b0: function not yet identified

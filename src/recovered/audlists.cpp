@@ -214,19 +214,9 @@ AudioListNode *__fastcall Audio_List_Last(AudioListNode *list)
 }
 
 
-// 0x004073c0: function not yet identified
-//
-// Body: 17 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: int * __fastcall FUN_004073c0(int *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// ListNodeLoopNext (0x004073C0): name from mischa85 names.csv
 
-namespace seed_004073c0 {
-
-int * __fastcall FUN_004073c0(int *node_words)
+int * __fastcall ListNodeLoopNext(int *node_words)
 {
     node_words = (int *)*node_words;
     if ((node_words == (int *)node_words[2]) && (node_words = (int *)*node_words, node_words == (int *)node_words[2])) {
@@ -235,22 +225,11 @@ int * __fastcall FUN_004073c0(int *node_words)
     return node_words;
 }
 
-}  // namespace seed_004073c0
 
 
-// 0x004073e0: function not yet identified
-//
-// Body: 19 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: int __fastcall FUN_004073e0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// ListNodeLoopPrev (0x004073E0): name from mischa85 names.csv
 
-namespace seed_004073e0 {
-
-int __fastcall FUN_004073e0(int list_address)
+int __fastcall ListNodeLoopPrev(int list_address)
 {
     int node_address;
 
@@ -262,4 +241,3 @@ int __fastcall FUN_004073e0(int list_address)
     return node_address;
 }
 
-}  // namespace seed_004073e0

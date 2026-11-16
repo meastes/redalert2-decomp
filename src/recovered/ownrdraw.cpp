@@ -2411,7 +2411,7 @@ bool __fastcall Select_Control_Rect_005e6450(HWND dialog,HWND control,Rect *boun
     int id = GetDlgCtrlID(control);
     Rect *selected = 0;
     if (kind == 0x94) {
-        if (VideoModeWidth < unknown_screen_widths_7add68[1]) return false;
+        if (VideoModeWidth < ScreenWidths[1]) return false;
         if (id == 0x6ea) selected = new Rect(0x1e,0x1a,0x23a,0x87);
         else if (id == 0x6eb) selected = new Rect(0x52,0xbb,0x1d4,0x6c);
         else if (id == 0x6ec) selected = new Rect(0x62,0x12a,0x1bc,0x95);
@@ -2422,7 +2422,7 @@ bool __fastcall Select_Control_Rect_005e6450(HWND dialog,HWND control,Rect *boun
     }
     else if (kind == 0x103) {
         if (id != 0x72b) return false;
-        if (VideoModeWidth >= unknown_screen_widths_7add68[1]) {
+        if (VideoModeWidth >= ScreenWidths[1]) {
             if (unknown_id_source_a3d290->unknown_2239) selected = new Rect(0x68,0x8e,0x1a8,0xdc);
             else selected = new Rect(0x67,0x82,0x1a8,0xe6);
         } else {
@@ -2432,7 +2432,7 @@ bool __fastcall Select_Control_Rect_005e6450(HWND dialog,HWND control,Rect *boun
     }
     else if (kind == 0xbc7) {
         if (id != 0x72b) return false;
-        if (VideoModeWidth >= unknown_screen_widths_7add68[1]) {
+        if (VideoModeWidth >= ScreenWidths[1]) {
             if (unknown_id_source_a3d290->unknown_2239) selected = new Rect(0x68,0x8e,0x1a8,0xdc);
             else selected = new Rect(0x67,0x82,0x1a8,0xe6);
         } else {
@@ -2442,26 +2442,26 @@ bool __fastcall Select_Control_Rect_005e6450(HWND dialog,HWND control,Rect *boun
     }
     else if (kind == 0xbc) {
         if (id != 0x72f) return false;
-        if (VideoModeWidth == unknown_screen_widths_7add68[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
-        else if (VideoModeWidth == unknown_screen_widths_7add68[1] || VideoModeWidth == unknown_screen_widths_7add68[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
+        if (VideoModeWidth == ScreenWidths[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
+        else if (VideoModeWidth == ScreenWidths[1] || VideoModeWidth == ScreenWidths[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
         else return false;
     }
     else if (kind == 0xbd) {
         if (id != 0x72f) return false;
-        if (VideoModeWidth == unknown_screen_widths_7add68[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
-        else if (VideoModeWidth == unknown_screen_widths_7add68[1] || VideoModeWidth == unknown_screen_widths_7add68[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
+        if (VideoModeWidth == ScreenWidths[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
+        else if (VideoModeWidth == ScreenWidths[1] || VideoModeWidth == ScreenWidths[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
         else return false;
     }
     else if (kind == 0xc2) {
         if (id != 0x72f) return false;
-        if (VideoModeWidth == unknown_screen_widths_7add68[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
-        else if (VideoModeWidth == unknown_screen_widths_7add68[1] || VideoModeWidth == unknown_screen_widths_7add68[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
+        if (VideoModeWidth == ScreenWidths[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
+        else if (VideoModeWidth == ScreenWidths[1] || VideoModeWidth == ScreenWidths[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
         else return false;
     }
     else if (kind == 0xc9) {
         if (id != 0x72f) return false;
-        if (VideoModeWidth == unknown_screen_widths_7add68[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
-        else if (VideoModeWidth == unknown_screen_widths_7add68[1] || VideoModeWidth == unknown_screen_widths_7add68[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
+        if (VideoModeWidth == ScreenWidths[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f);
+        else if (VideoModeWidth == ScreenWidths[1] || VideoModeWidth == ScreenWidths[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f);
         else return false;
     }
     else return false;
@@ -3806,13 +3806,13 @@ void __fastcall unknown_5e9410(HWND window)
     } else if (kind == 0x103) {
         if (id == 0x6f3 || id == 0x6f4 || id == 0x69f || id == 0x6f6 || id == 0x6ef || id == 0x6f1 || id == 0x6f0 || id == 0x6f2) {
             if (VideoModeWidth >= unknown_7add6c) {
-                y -= (unknown_7add78 - unknown_screen_heights_7add74[0]) / 2;
+                y -= (unknown_7add78 - ScreenHeights[0]) / 2;
             }
         }
     } else if (kind == 0xbc7) {
         if (id == 0x733 || id == 0x735 || id == 0x732 || id == 0x3ea || id == 0x73c || id == 0x411 || id == 0x412 || id == 0x73d || id == 0x419 || id == 0x41a || id == 0x73e || id == 0x6a3 || id == 0x6a4 || id == 0x73f || id == 0x6a5 || id == 0x6a7 || id == 0x740 || id == 0x6a6 || id == 0x6a8 || id == 0x736 || id == 0x73a || id == 0x73b || id == 0x737 || id == 0x739 || id == 0x738) {
             if (VideoModeWidth >= unknown_7add6c) {
-                y -= (unknown_7add78 - unknown_screen_heights_7add74[0]) / 2;
+                y -= (unknown_7add78 - ScreenHeights[0]) / 2;
             }
         }
     }
@@ -7734,8 +7734,8 @@ inline void unknown_prepare_dialog(HWND dialog, int kind)
     EnumChildWindows(dialog, unknown_5e8720, 0);
     if (unknown_5e9fa0(dialog)) {
         Point2D size;
-        size.X = unknown_screen_widths_7add68[0];
-        size.Y = unknown_screen_heights_7add74[0];
+        size.X = ScreenWidths[0];
+        size.Y = ScreenHeights[0];
         Unknown_005E9F00(dialog, &size);
     } else {
         unknown_5ea230(dialog);

@@ -4,8 +4,8 @@
     "id": "population-1923",
     "inventory_sha256": "f58491ac760dc81ca4123096dd9f30f3ca5538df046dd6ff031c066745a743ec",
     "gaps_sha256": "67077e852fbdbb6ab241936348dc34dc8a843a1983ad95a05b0b1854ff287c44",
-    "historical_population_sha256": "645e9b4c524129bde24a26a387841ced730aa97f959400bbe96c4c8ccaa3f7c8",
-    "historical_acceptance_sha256": "061c324db77d39abe9d43b03abed76cd1d4e2f310ea510e925b8ef009a84867d"
+    "historical_population_sha256": "5fa4381495690a6ac3f00811ed0c7a4bf93fda20ce9496f4e150939d4b50bfe9",
+    "historical_acceptance_sha256": "ef19f1869b247753c18ab6f8acf028ae0938aec2d339850d243a28bbecdaa0c2"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -2300,8 +2300,8 @@
     "??RCRCEngine@@QAEX_N@Z": 4800128,
     "?CRC_Memory_00494190@@YIKPBXIK@Z": 4800912,
     "?CRC_String_004941d0@@YIKPBDK@Z": 4800976,
-    "?Put@UnknownCRCPipe@@UAEHPBXH@Z": 4801040,
-    "?Get@UnknownCRCStraw@@UAEHPAXH@Z": 4801168,
+    "?Put@CRCPipe@@UAEHPBXH@Z": 4801040,
+    "?Get@CRCStraw@@UAEHPAXH@Z": 4801168,
     "?Get@AlphaLightingRemapInitClass@@QAEPAY0BAA@$$CBGH@Z": 4318176,
     "?Length@Point2D@@QBEHXZ": 4706400,
     "__real@8@3ff9a3d70a3d70a3d800": 8027952,
@@ -2384,7 +2384,7 @@
     "??_EPageUserCommandClass@@UAEPAXI@Z": 5365824,
     "??_ECursorPositionCommandClass@@UAEPAXI@Z": 5365856,
     "??_EDeleteCommandClass@@UAEPAXI@Z": 5365888,
-    "?unknown_hotkeys_832380@@": 8594304,
+    "?HotkeyCommands@@": 8594304,
     "?search_compfunc@?$IndexClass@HPAVCommandClass@@@@": 4721664,
     "?x@?1???A?$IndexClass@HPAVCommandClass@@@@QBEABQAVCommandClass@@ABH@Z@4PAV2@A": 11712060,
     "?Command_Allows_Modified_Key_00480b20@@": 4721440,
@@ -2398,7 +2398,7 @@
     "?unknown_math_4ba520@@YANN@Z": 4957472,
     "?unknown_math_4ba5b0@@YANN@Z": 4957616,
     "?Init@AudioEventHandle@@QAEXXZ": 4217840,
-    "?unknown_hotkeys_832380@@3V?$IndexClass@HPAVCommandClass@@@@A": 8594304,
+    "?HotkeyCommands@@3V?$IndexClass@HPAVCommandClass@@@@A": 8594304,
     "?AllCommands@@3V?$DynamicVectorClass@PBVCommandClass@@@@A": 8594264,
     "_unknown_empty_rect": 8594576,
     "??1AbstractClass@@UAE@XZ": 4259728,
@@ -4360,7 +4360,30 @@
     "??_R0?AVWaveClass@@@8": 8369160,
     "??_R0?AVWDTState@@@8": 8372688,
     "??_R0?AVWinModemClass@@@8": 8374768,
-    "??_R0?AVPlayerProfile@@@8": 8376904
+    "??_R0?AVPlayerProfile@@@8": 8376904,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "?End@ProgressScreenClass@@QAEXXZ": 6417904,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "__ramp_corners": 8339828,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
   },
   "regions": [
     {
@@ -4381,7 +4404,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "5a628ee8a0cd0bb3d81c3423fff5930f7fd06bea4080497cabdfe59e8c2d9eaa",
       "relocations": [],
-      "source_sha256": "cf900e672fbfbad9d04af06ef531e7b0a288f7821e1a1c810a64b7e0f69cc6cf",
+      "source_sha256": "fc2c1c4a33e88b66f788c72851ba265793c1f5930bc32ce3b8513d10514ba2a9",
       "source": "src/recovered/combuf2.cpp",
       "population": "population-1923",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -4410,7 +4433,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_hotkeys_832380@@3V?$IndexClass@HPAVCommandClass@@@@A",
+          "symbol": "?HotkeyCommands@@3V?$IndexClass@HPAVCommandClass@@@@A",
           "target": 8594304,
           "addend": 4,
           "resolved": 8594308
@@ -4418,7 +4441,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "?unknown_hotkeys_832380@@3V?$IndexClass@HPAVCommandClass@@@@A",
+          "symbol": "?HotkeyCommands@@3V?$IndexClass@HPAVCommandClass@@@@A",
           "target": 8594304,
           "addend": 16,
           "resolved": 8594320
@@ -4426,7 +4449,7 @@
         {
           "offset": 43,
           "kind": 6,
-          "symbol": "?unknown_hotkeys_832380@@3V?$IndexClass@HPAVCommandClass@@@@A",
+          "symbol": "?HotkeyCommands@@3V?$IndexClass@HPAVCommandClass@@@@A",
           "target": 8594304,
           "addend": 12,
           "resolved": 8594316
@@ -4434,7 +4457,7 @@
         {
           "offset": 52,
           "kind": 6,
-          "symbol": "?unknown_hotkeys_832380@@3V?$IndexClass@HPAVCommandClass@@@@A",
+          "symbol": "?HotkeyCommands@@3V?$IndexClass@HPAVCommandClass@@@@A",
           "target": 8594304,
           "addend": 0,
           "resolved": 8594304
@@ -4458,7 +4481,7 @@
         {
           "offset": 72,
           "kind": 6,
-          "symbol": "?unknown_hotkeys_832380@@3V?$IndexClass@HPAVCommandClass@@@@A",
+          "symbol": "?HotkeyCommands@@3V?$IndexClass@HPAVCommandClass@@@@A",
           "target": 8594304,
           "addend": 4,
           "resolved": 8594308
@@ -4466,7 +4489,7 @@
         {
           "offset": 81,
           "kind": 6,
-          "symbol": "?unknown_hotkeys_832380@@3V?$IndexClass@HPAVCommandClass@@@@A",
+          "symbol": "?HotkeyCommands@@3V?$IndexClass@HPAVCommandClass@@@@A",
           "target": 8594304,
           "addend": 16,
           "resolved": 8594320
@@ -4474,7 +4497,7 @@
         {
           "offset": 91,
           "kind": 6,
-          "symbol": "?unknown_hotkeys_832380@@3V?$IndexClass@HPAVCommandClass@@@@A",
+          "symbol": "?HotkeyCommands@@3V?$IndexClass@HPAVCommandClass@@@@A",
           "target": 8594304,
           "addend": 12,
           "resolved": 8594316
@@ -4482,7 +4505,7 @@
         {
           "offset": 98,
           "kind": 6,
-          "symbol": "?unknown_hotkeys_832380@@3V?$IndexClass@HPAVCommandClass@@@@A",
+          "symbol": "?HotkeyCommands@@3V?$IndexClass@HPAVCommandClass@@@@A",
           "target": 8594304,
           "addend": 0,
           "resolved": 8594304
@@ -4498,13 +4521,13 @@
         {
           "offset": 167,
           "kind": 6,
-          "symbol": "?unknown_hotkeys_832380@@3V?$IndexClass@HPAVCommandClass@@@@A",
+          "symbol": "?HotkeyCommands@@3V?$IndexClass@HPAVCommandClass@@@@A",
           "target": 8594304,
           "addend": 16,
           "resolved": 8594320
         }
       ],
-      "source_sha256": "cf900e672fbfbad9d04af06ef531e7b0a288f7821e1a1c810a64b7e0f69cc6cf",
+      "source_sha256": "fc2c1c4a33e88b66f788c72851ba265793c1f5930bc32ce3b8513d10514ba2a9",
       "source": "src/recovered/combuf2.cpp",
       "population": "population-1923",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -4530,7 +4553,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "8c8bbd8fad1ba5d328de100ba0ca8e91049c5c2407d20aeadadc6e640c2400ad",
       "relocations": [],
-      "source_sha256": "cf900e672fbfbad9d04af06ef531e7b0a288f7821e1a1c810a64b7e0f69cc6cf",
+      "source_sha256": "fc2c1c4a33e88b66f788c72851ba265793c1f5930bc32ce3b8513d10514ba2a9",
       "source": "src/recovered/combuf2.cpp",
       "population": "population-1923",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

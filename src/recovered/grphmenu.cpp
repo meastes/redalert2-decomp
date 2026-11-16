@@ -284,25 +284,13 @@ class Leaf_4def10 { public: void cleanup();void* get(unsigned int flags); };
 void* Leaf_4def10::get(unsigned int flags) { cleanup(); if (flags & 1) release_4def10(this); return this; }
 
 
-// 0x004def90: function not yet identified
-//
-// Owner: VectorCursor<GraphicMenuItem *, DynamicVectorClass<GraphicMenuItem *>>, virtual slot 1 (vtable +0x4) (from RTTI/vtables).
-// Body: 14 bytes (frozen inventory bound).
-// Referenced from 8 sites (computed call, data).
-// Ghidra prototype: bool __fastcall VectorCursor_GraphicMenuItem_Boolean_Conversion_004def90(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004def90 {
+// VectorCursor_GraphicMenuItem_Boolean_Conversion_004def90 (0x004DEF90)
 
 bool __fastcall VectorCursor_GraphicMenuItem_Boolean_Conversion_004def90(int cursor_address)
 {
     return *(unsigned int *)(cursor_address + 8) < *(unsigned int *)(*(int *)(cursor_address + 4) + 0x10);
 }
 
-}  // namespace seed_004def90
 
 
 // 0x004defa0: function not yet identified

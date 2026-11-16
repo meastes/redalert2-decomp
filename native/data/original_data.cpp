@@ -1349,14 +1349,14 @@ alignas(16) unsigned char ra2_orig_0388[16] __asm__("_unknown_triggers_section_7
 alignas(16) unsigned char ra2_orig_0389[16] __asm__("_unknown_actions_section_7ada54");
 // row	_unknown_events_section_7ada58	0x007ADA58	8	ptr	unknown_events_section_7ada58	src/recovered/header_statics/006b4300/HeaderStatics_diagonal_init_006b4300.cpp
 alignas(16) unsigned char ra2_orig_0390[16] __asm__("_unknown_events_section_7ada58");
-// row	_unknown_screen_widths_7add68	0x007ADD68	12	bytes	unknown_screen_widths_7add68	src/recovered/004b3580.cpp
-alignas(16) unsigned char ra2_orig_0391[16] __asm__("_unknown_screen_widths_7add68");
+// row	_ScreenWidths	0x007ADD68	12	bytes	ScreenWidths	src/recovered/004b3580.cpp
+alignas(16) unsigned char ra2_orig_0391[16] __asm__("_ScreenWidths");
 // row	__ZN9OwnerDraw14unknown_7add6cE	0x007ADD6C	4	bytes	OwnerDraw::unknown_7add6c	src/recovered/classes/CNetUtilEventSink/Constructor.cpp
 alignas(16) unsigned char ra2_orig_0392[16] __asm__("__ZN9OwnerDraw14unknown_7add6cE");
 // row	_title_width_threshold_007add70	0x007ADD70	4	bytes	title_width_threshold_007add70	src/recovered/header_statics/007371b0/HeaderStatics_empty_rect_init_007371b0.cpp
 alignas(16) unsigned char ra2_orig_0393[16] __asm__("_title_width_threshold_007add70");
-// row	_unknown_screen_heights_7add74	0x007ADD74	12	bytes	unknown_screen_heights_7add74	src/recovered/004b3580.cpp
-alignas(16) unsigned char ra2_orig_0394[16] __asm__("_unknown_screen_heights_7add74");
+// row	_ScreenHeights	0x007ADD74	12	bytes	ScreenHeights	src/recovered/004b3580.cpp
+alignas(16) unsigned char ra2_orig_0394[16] __asm__("_ScreenHeights");
 // row	__ZN9OwnerDraw14unknown_7add78E	0x007ADD78	4	bytes	OwnerDraw::unknown_7add78	src/recovered/classes/CNetUtilEventSink/Constructor.cpp
 alignas(16) unsigned char ra2_orig_0395[16] __asm__("__ZN9OwnerDraw14unknown_7add78E");
 // row	_unknown_int_7add84	0x007ADD84	60	bytes	unknown_int_7add84	src/recovered/header_statics/0059ede0/HeaderStatics_diagonal_init_0059ede0.cpp
@@ -4623,7 +4623,7 @@ extern "C" unsigned char ra2_place_1713[] __asm__("_Audio_Level_Set_8313b0");
 extern "C" unsigned char ra2_place_1714[] __asm__("_Audio_Main_Bag");
 extern "C" unsigned char ra2_place_1715[] __asm__("_Audio_Main_Device");
 extern "C" unsigned char ra2_place_1716[] __asm__("_Audio_Is_On");
-extern "C" unsigned char ra2_place_1717[] __asm__("_DAT_00831440");
+extern "C" unsigned char ra2_place_1717[] __asm__("_AudioFocusLocks");
 extern "C" unsigned char ra2_place_1718[] __asm__("_AudioMix");
 extern "C" unsigned char ra2_place_1719[] __asm__("_ThemeMix");
 extern "C" unsigned char ra2_place_1720[] __asm__("_Audio_Global_Levels");

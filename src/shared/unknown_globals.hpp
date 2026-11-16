@@ -490,8 +490,8 @@ void Unknown_00535970();                    // 0x00535970 (releases and deletes 
 extern Unknown535910 *unknown_load_progress_a6e7c4;   // 0x00A6E7C4
 // The loading-screen sizes: widths 640, 800, 1024 (0x007ADD68) and heights
 // 480, 600, 768 (0x007ADD74).
-extern int unknown_screen_widths_7add68[3];
-extern int unknown_screen_heights_7add74[3];
+extern int ScreenWidths[3];
+extern int ScreenHeights[3];
 void __fastcall Unknown_006f24a0(int flag);     // 0x006F24A0 (loads the campaign loading art)
 void __fastcall Unknown_006f25c0();             // 0x006F25C0 (loads the multiplayer loading art)
 // The loading screen's two text areas, centred on screens past 800x600

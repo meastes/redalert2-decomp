@@ -1,15 +1,5 @@
-// 0x00495770: function not yet identified
-//
-// Body: 100 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall Process_DD_Result_00495770(int param_1,int param_2)
-//
-// Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);
-// rename and retype as the purpose becomes known.
-//
+// Process_DD_Result_00495770 (0x00495770)
 #include "shared/ghidra_types.hpp"
-
-namespace seed_00495770 {
 
 extern undefined4  sprintf_007820f4(int, int, int);
 extern "C" __declspec(dllimport) undefined4 __stdcall MessageBoxA(int, int, int, int);  // @ref __imp__MessageBoxA@16=0079a47c
@@ -41,4 +31,3 @@ void __fastcall Process_DD_Result_00495770(int error_code, int show_success)
     return;
 }
 
-}  // namespace seed_00495770

@@ -12,7 +12,7 @@ struct CompressedFileHeader {
 };
 #pragma pack(pop)
 typedef char CompressedFileHeader_size_check[sizeof(CompressedFileHeader) == 8 ? 1 : -1];
-unsigned long __fastcall Unknown_Uncompress_Data_0053aeb0(void const *source, void *destination);
+unsigned long __fastcall Uncompress_Data(void const *source, void *destination);
 int __fastcall Load_Compressed_Data_004953b0(FileClass &file, Buffer const &scratch,
     Buffer const &output, void *extra);
 #endif

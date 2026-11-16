@@ -552,25 +552,13 @@ void AnimTypeClass::Free_Image()
 }
 
 
-// 0x00426760: function not yet identified
-//
-// Owner: ObjectTypeClass, virtual slot 28 (vtable +0x70) (from RTTI/vtables).
-// Body: 4 bytes (frozen inventory bound).
-// Referenced from 10 sites (data).
-// Ghidra prototype: undefined4 unknown_return_minus_one_00426760(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00426760 {
+// unknown_return_minus_one_00426760 (0x00426760)
 
 unsigned int  unknown_return_minus_one_00426760(void)
 {
     return 0xffffffff;
 }
 
-}  // namespace seed_00426760
 
 
 // int AnimTypeClass::Kind_Of() const (0x00426770)

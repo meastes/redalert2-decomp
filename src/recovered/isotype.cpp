@@ -2167,17 +2167,7 @@ bool IsometricTileTypeClass::Get_Tile_Image(int tile, unsigned char **buffer, in
 }
 
 
-// 0x0052df40: function not yet identified
-//
-// Body: 90 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall World_To_Screen(int param_1,int param_2,int *param_3,int *param_4)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0052df40 {
+// World_To_Screen (0x0052DF40)
 
 void __fastcall World_To_Screen(int grid_x, int grid_y, int *pixel_x, int *pixel_y)
 {
@@ -2188,7 +2178,6 @@ void __fastcall World_To_Screen(int grid_x, int grid_y, int *pixel_x, int *pixel
     return;
 }
 
-}  // namespace seed_0052df40
 
 
 // int IsometricTileTypeClass::Get_Y_Offset(int tile) -- 0x0052DFA0
@@ -2238,17 +2227,7 @@ ObjectClass *IsometricTileTypeClass::Create_One_Of(HouseClass *house) const
 }
 
 
-// 0x0052e070: function not yet identified
-//
-// Body: 28 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_0052e070(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0052e070 {
+// IsometricTileTypeClass_Clear_Z_Shapes (0x0052E070): name from mischa85 names.csv
 
 extern "C" unsigned int SlopeZShapes_00a52eb0;
 extern "C" unsigned int DAT_00a52eb4;
@@ -2256,7 +2235,7 @@ extern "C" unsigned int DAT_00a52eb8;
 extern "C" unsigned int DAT_00a52ebc;
 extern "C" unsigned int DAT_00a6e38c;
 
-void  FUN_0052e070(void)
+void  IsometricTileTypeClass_Clear_Z_Shapes(void)
 {
     DAT_00a6e38c = 0;
     SlopeZShapes_00a52eb0 = 0;
@@ -2266,7 +2245,6 @@ void  FUN_0052e070(void)
     return;
 }
 
-}  // namespace seed_0052e070
 
 
 // CoordStruct IsometricTileTypeClass::Coord_Fixup(CoordStruct const &coord) const (0x0052E090, slot 27)

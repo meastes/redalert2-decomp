@@ -1820,25 +1820,14 @@ void CCINIClass::Calculate_Message_Digest()
 }
 
 
-// 0x0046c2e0: function not yet identified
-//
-// Body: 5 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_0046c2e0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// CCINIClass_Invalidate_Message_Digest (0x0046C2E0): name from mischa85 names.csv
 
-namespace seed_0046c2e0 {
-
-void __fastcall FUN_0046c2e0(int object_address)
+void __fastcall CCINIClass_Invalidate_Message_Digest(int object_address)
 {
     *(unsigned char *)(object_address + 0x38) = 0;
     return;
 }
 
-}  // namespace seed_0046c2e0
 
 
 // CCINIClass::Get_Object_Type (0x0046C2F0).

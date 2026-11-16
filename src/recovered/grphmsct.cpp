@@ -188,25 +188,13 @@ bool GraphicMenuShortcutItem::Is_Input_Key(int key)
 // expanded inline.
 
 
-// 0x004e0690: function not yet identified
-//
-// Owner: VectorCursor<unsigned int, DynamicVectorClass<unsigned int>>, virtual slot 1 (vtable +0x4) (from RTTI/vtables).
-// Body: 14 bytes (frozen inventory bound).
-// Referenced from 4 sites (computed call, data).
-// Ghidra prototype: bool __fastcall VectorCursor_UnsignedInt_Boolean_Conversion_004e0690(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004e0690 {
+// VectorCursor_UnsignedInt_Boolean_Conversion_004e0690 (0x004E0690)
 
 bool __fastcall VectorCursor_UnsignedInt_Boolean_Conversion_004e0690(int cursor_address)
 {
     return *(unsigned int *)(cursor_address + 8) < *(unsigned int *)(*(int *)(cursor_address + 4) + 0x10);
 }
 
-}  // namespace seed_004e0690
 
 
 // 0x004e06a0: function not yet identified

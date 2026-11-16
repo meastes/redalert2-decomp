@@ -482,24 +482,13 @@ void BinkClass::Erase_Subtitle(Surface *surface)
 #pragma auto_inline(on)
 
 
-// 0x00430ba0: function not yet identified
-//
-// Body: 11 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: int __fastcall FUN_00430ba0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// BinkHandle_Current_Time (0x00430BA0): name from mischa85 names.csv
 
-namespace seed_00430ba0 {
-
-int __fastcall FUN_00430ba0(int object_address)
+int __fastcall BinkHandle_Current_Time(int object_address)
 {
     return *(int *)(*(int *)(object_address + 4) + 0xc) * *(int *)(object_address + 0x24);
 }
 
-}  // namespace seed_00430ba0
 
 
 /// <summary>

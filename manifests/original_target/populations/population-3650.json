@@ -4,8 +4,8 @@
     "id": "population-3650",
     "inventory_sha256": "82d76aac864d26e1a63b17341b43281aa316ce10c95f0d35474ebdba4d64c791",
     "gaps_sha256": "04d36338335bdd7e43e23bfbef070ac0785ff73d83cba2e18e0315fd2eb8d76f",
-    "historical_population_sha256": "898f811129746605cc917a7f65a9492d823f5ce4880a3981681b6eab7ad84109",
-    "historical_acceptance_sha256": "ef2c3ab2a9107c9e87d674053c7bc0bfc639eaed084fc4c48c07606aba607ffd"
+    "historical_population_sha256": "8a04918c04ed134ba926e74e137e688bb8cc30daad42d3da63b7bca997f5f0e8",
+    "historical_acceptance_sha256": "d8972ea038aafeb1f008b10c03de6f3b59c36c2f6f005ab0ccabbd0d20f8fc25"
   },
   "references": {
     "_qsort": 7871814,
@@ -2084,19 +2084,20 @@
     "??_R0?AVVoxelAnimClass@@@8": 8360976,
     "??_R0?AVWinModemClass@@@8": 8374768,
     "_s_Invalid_007cc958": 8178008,
-    "?FUN_004011b0@seed_004011b0@@YIHPAHH@Z": 4198832,
-    "?FUN_00401600@seed_00401600@@YIPADPAHH@Z": 4199936,
-    "?FUN_00401620@seed_00401620@@YIIPAHH@Z": 4199968,
-    "?FUN_004016b0@seed_004016b0@@YIXPAHHH@Z": 4200112,
+    "?AudioIDXData_GetEntry@@YIHPAHH@Z": 4198832,
+    "?AudioIDXData_GetSampleName@@YIPADPAHH@Z": 4199936,
+    "?AudioIDXData_GetSampleSize@@YIIPAHH@Z": 4199968,
+    "?AudioIDXData_SetSampleInformation@@YIXPAHHH@Z": 4200112,
     "__ramp_corners": 8339828,
-    "?Reset@BitFontClass@@QAEXXZ": 4399536
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592
   },
   "regions": [
     {
       "entry": 4198832,
       "method": "004011b0",
-      "symbol": "?FUN_004011b0@seed_004011b0@@YIHPAHH@Z",
-      "symbol_prefix": "?FUN_004011b0@",
+      "symbol": "?AudioIDXData_GetEntry@@YIHPAHH@Z",
+      "symbol_prefix": "?AudioIDXData_GetEntry@",
       "options": [
         "/O2",
         "/Ob2",
@@ -2110,7 +2111,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "512610b9c61375aab00a537a3faf4620dc0de588533055584bab6e2c8ce508a1",
       "relocations": [],
-      "source_sha256": "7b73c3697a6182a0e4893d6f2e71746b7d74b1fe4ce6de1be8b46ecb886e9bea",
+      "source_sha256": "c9ddc3757378a2cb927c54fc9fbc02052f01993d892321260e723f9aa7e604a3",
       "source": "src/recovered/audbag.cpp",
       "population": "population-3650",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -2122,8 +2123,8 @@
     {
       "entry": 4199936,
       "method": "00401600",
-      "symbol": "?FUN_00401600@seed_00401600@@YIPADPAHH@Z",
-      "symbol_prefix": "?FUN_00401600@",
+      "symbol": "?AudioIDXData_GetSampleName@@YIPADPAHH@Z",
+      "symbol_prefix": "?AudioIDXData_GetSampleName@",
       "options": [
         "/O2",
         "/Ob2",
@@ -2146,7 +2147,7 @@
           "resolved": 8178008
         }
       ],
-      "source_sha256": "7b73c3697a6182a0e4893d6f2e71746b7d74b1fe4ce6de1be8b46ecb886e9bea",
+      "source_sha256": "c9ddc3757378a2cb927c54fc9fbc02052f01993d892321260e723f9aa7e604a3",
       "source": "src/recovered/audbag.cpp",
       "population": "population-3650",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -2158,8 +2159,8 @@
     {
       "entry": 4199968,
       "method": "00401620",
-      "symbol": "?FUN_00401620@seed_00401620@@YIIPAHH@Z",
-      "symbol_prefix": "?FUN_00401620@",
+      "symbol": "?AudioIDXData_GetSampleSize@@YIIPAHH@Z",
+      "symbol_prefix": "?AudioIDXData_GetSampleSize@",
       "options": [
         "/O2",
         "/Ob2",
@@ -2173,7 +2174,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "501046846d7005da102be967ba89429ea266cc0d9e7c7c4fd90d1f3ebf703612",
       "relocations": [],
-      "source_sha256": "7b73c3697a6182a0e4893d6f2e71746b7d74b1fe4ce6de1be8b46ecb886e9bea",
+      "source_sha256": "c9ddc3757378a2cb927c54fc9fbc02052f01993d892321260e723f9aa7e604a3",
       "source": "src/recovered/audbag.cpp",
       "population": "population-3650",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -2185,8 +2186,8 @@
     {
       "entry": 4200112,
       "method": "004016b0",
-      "symbol": "?FUN_004016b0@seed_004016b0@@YIXPAHHH@Z",
-      "symbol_prefix": "?FUN_004016b0@",
+      "symbol": "?AudioIDXData_SetSampleInformation@@YIXPAHHH@Z",
+      "symbol_prefix": "?AudioIDXData_SetSampleInformation@",
       "options": [
         "/O2",
         "/Ob2",
@@ -2200,7 +2201,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "494773b1f62a074f03e9e3a479e963eb1ec067ed97f44efa7e18a5eee4f87d07",
       "relocations": [],
-      "source_sha256": "7b73c3697a6182a0e4893d6f2e71746b7d74b1fe4ce6de1be8b46ecb886e9bea",
+      "source_sha256": "c9ddc3757378a2cb927c54fc9fbc02052f01993d892321260e723f9aa7e604a3",
       "source": "src/recovered/audbag.cpp",
       "population": "population-3650",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -2468,7 +2469,7 @@
           "resolved": 187876
         }
       ],
-      "source_sha256": "7b73c3697a6182a0e4893d6f2e71746b7d74b1fe4ce6de1be8b46ecb886e9bea",
+      "source_sha256": "c9ddc3757378a2cb927c54fc9fbc02052f01993d892321260e723f9aa7e604a3",
       "source": "src/recovered/audbag.cpp",
       "population": "population-3650",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -2511,7 +2512,7 @@
           "resolved": 3671939
         }
       ],
-      "source_sha256": "7b73c3697a6182a0e4893d6f2e71746b7d74b1fe4ce6de1be8b46ecb886e9bea",
+      "source_sha256": "c9ddc3757378a2cb927c54fc9fbc02052f01993d892321260e723f9aa7e604a3",
       "source": "src/recovered/audbag.cpp",
       "population": "population-3650",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -2537,7 +2538,7 @@
       "full_extent_bytes": 112,
       "full_extent_sha256": "3c56971b8244dda1705024aa59161ed0016bca7e931238542b83c3985a698393",
       "relocations": [],
-      "source_sha256": "7b73c3697a6182a0e4893d6f2e71746b7d74b1fe4ce6de1be8b46ecb886e9bea",
+      "source_sha256": "c9ddc3757378a2cb927c54fc9fbc02052f01993d892321260e723f9aa7e604a3",
       "source": "src/recovered/audbag.cpp",
       "population": "population-3650",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -2563,7 +2564,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "15c7ec3d3db8e5cf6848baf5a21f864373655cf4275a9cfd8f45ba3da1e1353d",
       "relocations": [],
-      "source_sha256": "7b73c3697a6182a0e4893d6f2e71746b7d74b1fe4ce6de1be8b46ecb886e9bea",
+      "source_sha256": "c9ddc3757378a2cb927c54fc9fbc02052f01993d892321260e723f9aa7e604a3",
       "source": "src/recovered/audbag.cpp",
       "population": "population-3650",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -2630,7 +2631,7 @@
           "resolved": 27892
         }
       ],
-      "source_sha256": "7b73c3697a6182a0e4893d6f2e71746b7d74b1fe4ce6de1be8b46ecb886e9bea",
+      "source_sha256": "c9ddc3757378a2cb927c54fc9fbc02052f01993d892321260e723f9aa7e604a3",
       "source": "src/recovered/audbag.cpp",
       "population": "population-3650",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -2656,7 +2657,7 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "63276846a98836a3b4fc1fc3dcc51c08a0299ba55047426a3b376a875995c387",
       "relocations": [],
-      "source_sha256": "7b73c3697a6182a0e4893d6f2e71746b7d74b1fe4ce6de1be8b46ecb886e9bea",
+      "source_sha256": "c9ddc3757378a2cb927c54fc9fbc02052f01993d892321260e723f9aa7e604a3",
       "source": "src/recovered/audbag.cpp",
       "population": "population-3650",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

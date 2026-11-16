@@ -6,7 +6,7 @@
 
 
 // The command unit's globals: the hotkey index (initializer 0x0040BC80 zeroes
-// unknown_hotkeys_832380 (0x00832380) and registers its atexit destructor
+// HotkeyCommands (0x00832380) and registers its atexit destructor
 // 0x0040BCB0) and the registered commands (initializer 0x0040BCE0, atexit
 // 0x0040BD20; vtables 0x0079A81C/0x0079A83C, RTTI DynamicVectorClass<CommandClass const *>).
 // The list's template members are this unit's copies at 0x0040BD60-0x0040BFF0 (accepted
@@ -16,9 +16,9 @@
 #endif
 #include "shared/command.hpp"
 
-IndexClass<int, CommandClass *> unknown_hotkeys_832380;
+IndexClass<int, CommandClass *> HotkeyCommands;
 DynamicVectorClass<CommandClass const *> AllCommands;
 
 
-// atexit destructor of unknown_hotkeys_832380 (0x0040BCB0, _$E): emitted by
+// atexit destructor of HotkeyCommands (0x0040BCB0, _$E): emitted by
 // the definition in unknown_hotkeys_832380_init_0040bc80.cpp; no source of its own.

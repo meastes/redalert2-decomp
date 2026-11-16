@@ -121,7 +121,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?FUN_0040a6d0@seed_0040a6d0@@YAIXZ",
+   "symbol": "?GetPrimaryBuffer@@YAIXZ",
    "entry": "0040a6d0",
    "body_bytes": 6,
    "padding_bytes": 10
@@ -324,13 +324,13 @@
  "references_in": [
   {
    "site": "00406f50",
-   "symbol": "?Audio_DS_Stop_Primary_0040a860@seed_00406f50@@YAXXZ",
+   "symbol": "?Audio_DS_Stop_Primary_0040a860@@YAXXZ",
    "target": "0040a860",
    "function_entry": true
   },
   {
    "site": "00406f70",
-   "symbol": "?Audio_DS_Restart_Primary_0040a870@seed_00406f70@@YAXXZ",
+   "symbol": "?Audio_DS_Restart_Primary_0040a870@@YAXXZ",
    "target": "0040a870",
    "function_entry": true
   },
@@ -674,13 +674,13 @@
   {
    "site": "00406f50",
    "target": "0040a860",
-   "symbol": "?Audio_DS_Stop_Primary_0040a860@seed_00406f50@@YAXXZ",
+   "symbol": "?Audio_DS_Stop_Primary_0040a860@@YAXXZ",
    "module_symbol": "?Audio_DS_Stop_Primary@@YAXXZ"
   },
   {
    "site": "00406f70",
    "target": "0040a870",
-   "symbol": "?Audio_DS_Restart_Primary_0040a870@seed_00406f70@@YAXXZ",
+   "symbol": "?Audio_DS_Restart_Primary_0040a870@@YAXXZ",
    "module_symbol": "?Audio_DS_Restart_Primary@@YAXXZ"
   },
   {

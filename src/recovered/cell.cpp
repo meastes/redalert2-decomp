@@ -3566,17 +3566,7 @@ int CellClass::Bounce_Direction(CoordStruct const &xorigin) const
 }
 
 
-// 0x00479c90: function not yet identified
-//
-// Body: 13 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void Inc_Drawer_Ref_Count_00479c90(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00479c90 {
+// Inc_Drawer_Ref_Count_00479c90 (0x00479C90)
 
 void __stdcall Inc_Drawer_Ref_Count_00479c90(int drawer)
 {
@@ -3584,20 +3574,9 @@ void __stdcall Inc_Drawer_Ref_Count_00479c90(int drawer)
     return;
 }
 
-}  // namespace seed_00479c90
 
 
-// 0x00479ca0: function not yet identified
-//
-// Body: 22 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void Dec_Drawer_Ref_Count_00479ca0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00479ca0 {
+// Dec_Drawer_Ref_Count_00479ca0 (0x00479CA0)
 
 extern "C" char GameActive_00a40958;
 
@@ -3609,7 +3588,6 @@ void __stdcall Dec_Drawer_Ref_Count_00479ca0(int drawer)
     return;
 }
 
-}  // namespace seed_00479ca0
 
 
 // bool CellClass::Has_Tunnel() const (0x00479CC0): Westwood's Has_Tunnel. A tube runs through
@@ -3701,24 +3679,13 @@ bool CellClass::Is_Near_Tunnel_ES()
 }
 
 
-// 0x0047a120: function not yet identified
-//
-// Body: 5 bytes (frozen inventory bound).
-// Referenced from 2 sites (unconditional call).
-// Ghidra prototype: undefined1 Can_Enter_Tunnel_0047a120(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0047a120 {
+// Can_Enter_Tunnel_0047a120 (0x0047A120)
 
 unsigned char __stdcall Can_Enter_Tunnel_0047a120(int unused_0)
 {
     return 1;
 }
 
-}  // namespace seed_0047a120
 
 
 // void CellClass::Force_New_Slope_For_Occupiers() (0x0047A160): takes up to ten occupants,
@@ -4689,17 +4656,7 @@ void CellClass::IncreaseShroudCounter()
 }
 
 
-// 0x0047c900: function not yet identified
-//
-// Body: 39 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: void __fastcall Unshroud_0047c900(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0047c900 {
+// Unshroud_0047c900 (0x0047C900)
 
 void __fastcall Unshroud_0047c900(int self)
 {
@@ -4710,7 +4667,6 @@ void __fastcall Unshroud_0047c900(int self)
     return;
 }
 
-}  // namespace seed_0047c900
 
 
 // void CellClass::On_Bridge_Collapse() (0x0047C930): TibSun's On_Bridge_Collapse:

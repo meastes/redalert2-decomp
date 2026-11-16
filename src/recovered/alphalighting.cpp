@@ -114,24 +114,13 @@ AlphaLightingRemapClass::AlphaLightingRemapClass(int count)
 }
 
 
-// 0x0041e600: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void unknown_empty_0041e600(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0041e600 {
+// unknown_empty_0041e600 (0x0041E600)
 
 void  unknown_empty_0041e600(void)
 {
     return;
 }
 
-}  // namespace seed_0041e600
 
 
 // Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):

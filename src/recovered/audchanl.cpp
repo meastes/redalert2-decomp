@@ -98,24 +98,13 @@ class Leaf_402190 { public: unsigned int get(); };
 unsigned int Leaf_402190::get() { *(unsigned int*)(((unsigned int)this) + 0x15c) = (unsigned int)data_402190_4022c0; *(unsigned int*)(((unsigned int)this) + 0x160) = (unsigned int)data_402190_402330; *(unsigned int*)(((unsigned int)this) + 0x164) = (unsigned int)data_402190_4023f0; *(unsigned int*)(((unsigned int)this) + 0xb0) = 0; *(unsigned int*)(((unsigned int)this) + 0xb4) = 0; *(unsigned int*)(((unsigned int)this) + 0xb8) = 0; *(unsigned int*)(((unsigned int)this) + 0xbc) = 0; *(unsigned int*)(((unsigned int)this) + 0xc0) = 0; *(unsigned int*)(((unsigned int)this) + 0xc) = 1; *(unsigned int*)(((unsigned int)this) + 0xa8) = 0; *(unsigned int*)(((unsigned int)this) + 0xa4) = 0; *(unsigned int*)(((unsigned int)this) + 0xa0) = 0; *(unsigned int*)(((unsigned int)this) + 0x94) = global_402190_830b50; *(unsigned int*)(((unsigned int)this) + 0x90) = 0; *(unsigned int*)(((unsigned int)this) + 0x98) = 0; *(unsigned int*)(((unsigned int)this) + 0x9c) = 0; unsigned int initialization_result = ((Call_402190_0*)(((unsigned int)this) + 0x10))->Init_00401000(); *(unsigned int*)(((unsigned int)this) + 0x168) = 0; return initialization_result; }
 
 
-// 0x00402430: function not yet identified
-//
-// Body: 10 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: uint __fastcall FUN_00402430(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// AudioChannelTaken (0x00402430): name from mischa85 names.csv
 
-namespace seed_00402430 {
-
-unsigned int __fastcall FUN_00402430(int channel_address)
+unsigned int __fastcall AudioChannelTaken(int channel_address)
 {
     return *(unsigned int *)(channel_address + 0xa4) & 8;
 }
 
-}  // namespace seed_00402430
 
 
 // void __fastcall Audio_Channel_Reuse(AudioChannel *channel) -- 0x004024A0
@@ -328,23 +317,12 @@ int __fastcall Audio_Channel_Set_Format(AudioChannel *channel, AudioFormat const
 }
 
 
-// 0x00402850: function not yet identified
-//
-// Body: 9 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_00402850(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// AudioControlInit (0x00402850): name from mischa85 names.csv
 
-namespace seed_00402850 {
-
-void __fastcall FUN_00402850(int object_address)
+void __fastcall AudioControlInit(int object_address)
 {
     *(unsigned int *)(object_address + 8) = 0;
     *(unsigned int *)(object_address + 4) = 0;
     return;
 }
 
-}  // namespace seed_00402850

@@ -1,4 +1,4 @@
-// unsigned long Unknown_Uncompress_Data_0053aeb0(void const *, void *) (0x0053AEB0)
+// unsigned long Uncompress_Data(void const *, void *) (0x0053AEB0)
 // Westwood's Uncompress_Data (TibSun load.cpp): decodes a block that starts
 // with a CompressedFileHeader; returns the decoded size.
 // @ref ?LCW_Uncomp@@YIHPBXPAXK@Z=00534b50
@@ -7,7 +7,7 @@
 #include "shared/lcw.hpp"
 #include "shared/crt_memory.hpp"
 
-unsigned long __fastcall Unknown_Uncompress_Data_0053aeb0(void const *source, void *destination)
+unsigned long __fastcall Uncompress_Data(void const *source, void *destination)
 {
     unsigned int skip;
     int method;

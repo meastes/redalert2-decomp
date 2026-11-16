@@ -617,7 +617,7 @@ public:
 #include "shared/vector_class.hpp"
 #include "shared/ini_class.hpp"
 extern DynamicVectorClass<CommandClass const *> AllCommands;
-extern IndexClass<int, CommandClass *> unknown_hotkeys_832380;
+extern IndexClass<int, CommandClass *> HotkeyCommands;
 
 // Creates and registers every command (0x005173C0).
 void unknown_init_commands_5173c0();

@@ -335,24 +335,13 @@ void AircraftClass::Draw_It(Point2D const &point, Rect const &window)
 }
 
 
-// 0x004146b0: function not yet identified
-//
-// Body: 3 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_004146b0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// AircraftClass_Draw_Rotors (0x004146B0): name from mischa85 names.csv
 
-namespace seed_004146b0 {
-
-void __stdcall FUN_004146b0(int unused_0, int unused_1)
+void __stdcall AircraftClass_Draw_Rotors(int unused_0, int unused_1)
 {
     return;
 }
 
-}  // namespace seed_004146b0
 
 
 // int AircraftClass::Do_MISSION_HUNT() (0x004146C0, slot 132)
