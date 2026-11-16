@@ -71,6 +71,19 @@ char const *__fastcall Warhead_Name(int warhead)
 }
 
 
+// Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):
+// DynamicVectorClass<WarheadTypeClass *>::Clear (0x0040F3C0; DynamicVectorClass<WarheadTypeClass *> vtable 0x0079ad0c slot 3).
+// DynamicVectorClass<WarheadTypeClass *>::ID_pointer (0x0040F3F0; DynamicVectorClass<WarheadTypeClass *> vtable 0x0079ad0c slot 5).
+// VectorClass<WarheadTypeClass *>::Fetch (0x0040F410; VectorClass<WarheadTypeClass *> vtable 0x0079ad2c slot 6).
+// VectorClass<WarheadTypeClass *>::operator equal (0x0040F420; VectorClass<WarheadTypeClass *> vtable 0x0079ad2c slot 1).
+// VectorClass<WarheadTypeClass *>::Resize (0x0040F460; VectorClass<WarheadTypeClass *> vtable 0x0079ad2c slot 2).
+// VectorClass<WarheadTypeClass *>::Clear (0x0040F510; VectorClass<WarheadTypeClass *> vtable 0x0079ad2c slot 3).
+// VectorClass<WarheadTypeClass *>::ID_object (0x0040F540; VectorClass<WarheadTypeClass *> vtable 0x0079ad2c slot 4).
+// VectorClass<WarheadTypeClass *>::ID_pointer (0x0040F580; VectorClass<WarheadTypeClass *> vtable 0x0079ad2c slot 5).
+// DynamicVectorClass<WarheadTypeClass *>::Resize (0x0040F5A0; DynamicVectorClass<WarheadTypeClass *> vtable 0x0079ad0c slot 2).
+// DynamicVectorClass<WarheadTypeClass *>::ID_object (0x0040F650; DynamicVectorClass<WarheadTypeClass *> vtable 0x0079ad0c slot 4).
+
+
 // ??_G?$VectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z (0x0040F680): compiler generated with the vtable unknown_WarheadTypeClass_list_00839b00 stores
 // (VectorClass<WarheadTypeClass *>, shared/vector_class.hpp); emitted by this unit's header_statics/0040f0a0. No source of its own.
 

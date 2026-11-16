@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 905,
+ "compile_group": 902,
  "code": [
   {
    "symbol": "_$E2",
@@ -301,6 +301,12 @@
    "padding_bytes": 13
   },
   {
+   "symbol": "?rc_ptr_dtor_00730310@seed_00730310@@YIXPAI@Z",
+   "entry": "00730310",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
    "symbol": "?get@Leaf_730320@@QAEIXZ",
    "entry": "00730320",
    "body_bytes": 4,
@@ -319,14 +325,44 @@
    "padding_bytes": 7
   },
   {
+   "symbol": "?unknown_in_range_00730360@seed_00730360@@YI_NH@Z",
+   "entry": "00730360",
+   "body_bytes": 14,
+   "padding_bytes": 2
+  },
+  {
    "symbol": "??0?$VectorCursor@V?$rc_ptr@VTerritory@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@@@QAE@AAV?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@I@Z",
    "entry": "00730370",
    "body_bytes": 25,
    "padding_bytes": 7
   },
   {
+   "symbol": "?unknown_in_range_00730390@seed_00730390@@YI_NH@Z",
+   "entry": "00730390",
+   "body_bytes": 14,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?unknown_in_range_007303a0@seed_007303a0@@YI_NH@Z",
+   "entry": "007303a0",
+   "body_bytes": 14,
+   "padding_bytes": 2
+  },
+  {
    "symbol": "??_G?$VectorCursor@PAVMSSfxEntry@@V?$DynamicVectorClass@PAVMSSfxEntry@@@@@@UAEPAXI@Z",
    "entry": "007303b0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?scalar_deleting_destructor_007303d0@Owner_007303d0@seed_007303d0@@QAEPAIE@Z",
+   "entry": "007303d0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?scalar_deleting_destructor_007303f0@Owner_007303f0@seed_007303f0@@QAEPAIE@Z",
+   "entry": "007303f0",
    "body_bytes": 32,
    "padding_bytes": 0
   },
@@ -379,7 +415,7 @@
    "padding_bytes": 6
   }
  ],
- "code_bytes": 12576,
+ "code_bytes": 12704,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -3328,6 +3364,18 @@
    "address": "0072d990"
   },
   {
+   "symbol": "?operator_delete_00781d3b@seed_007303d0@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?operator_delete_00781d3b@seed_007303f0@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?rc_ptr_base_dtor_00639510@seed_00730310@@YIXXZ",
+   "address": "00639510"
+  },
+  {
    "symbol": "?target@Call_7302e0_0@@QAEIXZ",
    "address": "006394e0"
   },
@@ -3376,6 +3424,14 @@
    "address": "004ba410"
   },
   {
+   "symbol": "_VectorCursor_vtable_007af390",
+   "address": "007af390"
+  },
+  {
+   "symbol": "_VectorCursor_vtable_007af3a4",
+   "address": "007af3a4"
+  },
+  {
    "symbol": "__CIpow",
    "address": "007821b0"
   },
@@ -3389,6 +3445,10 @@
   },
   {
    "symbol": "_data_7302e0_7af27c",
+   "address": "007af27c"
+  },
+  {
+   "symbol": "_rc_ptr_vtable_007af27c",
    "address": "007af27c"
   },
   {
@@ -3511,58 +3571,51 @@
    "population": "population-16",
    "bound": "own frozen bound (population-16)",
    "options": "joined under the unit's /GR (frozen without it)"
-  }
- ],
- "residuals": [
+  },
   {
-   "kind": "split",
    "entry": "00730310",
    "bytes": 11,
    "population": "population-2913",
-   "source": "src/recovered/wdtsel/rc_ptr_dtor.cpp",
-   "cause": "frozen in another population's inventory pass (population-2913)"
+   "bound": "own frozen bound (population-2913)",
+   "options": "joined under the unit's /GR (frozen without it)"
   },
   {
-   "kind": "split",
    "entry": "00730360",
    "bytes": 14,
    "population": "population-42",
-   "source": "src/recovered/wdtsel/unknown_in_range.cpp",
-   "cause": "frozen in another population's inventory pass (population-42)"
+   "bound": "own frozen bound (population-42)",
+   "options": "joined under the unit's /GR (frozen without it)"
   },
   {
-   "kind": "split",
    "entry": "00730390",
    "bytes": 14,
    "population": "population-42",
-   "source": "src/recovered/classes/VectorCursor_rc_ptr_WorldDominationTour__Territory_DynamicVectorClass_rc_ptr_WorldDominationTour__Territory/unknown_in_range.cpp",
-   "cause": "frozen in another population's inventory pass (population-42)"
+   "bound": "own frozen bound (population-42)",
+   "options": "joined under the unit's /GR (frozen without it)"
   },
   {
-   "kind": "split",
    "entry": "007303a0",
    "bytes": 14,
    "population": "population-130",
-   "source": "src/recovered/classes/VectorCursor_MSAnim_ptr_DynamicVectorClass_MSAnim_ptr/unknown_in_range.cpp",
-   "cause": "frozen in another population's inventory pass (population-130)"
+   "bound": "own frozen bound (population-130)",
+   "options": "joined under the unit's /GR (frozen without it)"
   },
   {
-   "kind": "split",
    "entry": "007303d0",
    "bytes": 32,
    "population": "population-66",
-   "source": "src/recovered/classes/VectorCursor_rc_ptr_WorldDominationTour__Territory_DynamicVectorClass_rc_ptr_WorldDominationTour__Territory/scalar_deleting_destructor.cpp",
-   "cause": "frozen in another population's inventory pass (population-66)"
+   "bound": "own frozen bound (population-66)",
+   "options": "joined under the unit's /GR (frozen without it)"
   },
   {
-   "kind": "split",
    "entry": "007303f0",
    "bytes": 32,
    "population": "population-66",
-   "source": "src/recovered/classes/VectorCursor_MSAnim_ptr_DynamicVectorClass_MSAnim_ptr/scalar_deleting_destructor.cpp",
-   "cause": "frozen in another population's inventory pass (population-66)"
+   "bound": "own frozen bound (population-66)",
+   "options": "joined under the unit's /GR (frozen without it)"
   }
  ],
+ "residuals": [],
  "unit_functions": 70,
  "data_unproven": [
   {
@@ -3581,8 +3634,8 @@
  "stand_in_references": [],
  "stand_in_reference_count": 0,
  "residual_split": {
-  "rows": 6,
-  "bytes": 117
+  "rows": 0,
+  "bytes": 0
  },
  "residual_flipped": {
   "rows": 0,

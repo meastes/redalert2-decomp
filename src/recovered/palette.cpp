@@ -546,6 +546,11 @@ class Leaf_605d80 { public: unsigned int get(unsigned int a1, unsigned int a2); 
 unsigned int Leaf_605d80::get(unsigned int a1, unsigned int a2) { unsigned int r0 = ((Call_605d80_0*)((unsigned int)this))->target((unsigned int)(a1)); *(unsigned int*)(((unsigned int)this) + 0x100) = *(unsigned int*)((a2)); return (unsigned int)this; }
 
 
+// Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):
+// VectorClass<HSVClass>::VectorClass(unsigned, HSVClass const *) (0x00605DA0): the out-of-line copy of the palette unit
+// (shared/vector_class.hpp). The vtables and virtual members it emits are the copies at their recorded addresses.
+
+
 // ??_G?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEPAXI@Z (0x605E30): template instance emitted by the colour-scheme table unit from its shared headers
 // (vector_class.hpp, hash_table.hpp, hash_object.hpp).
 

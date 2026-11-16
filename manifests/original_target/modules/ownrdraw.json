@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 1221,
+ "compile_group": 1198,
  "code": [
   {
    "symbol": "_$E2",
@@ -449,6 +449,12 @@
    "entry": "005e8720",
    "body_bytes": 1136,
    "padding_bytes": 0
+  },
+  {
+   "symbol": "?unknown_enum_children_5e8b90@@YIXPAUHWND__@@@Z",
+   "entry": "005e8b90",
+   "body_bytes": 15,
+   "padding_bytes": 1
   },
   {
    "symbol": "?unknown_5e8ba0@OwnerDraw@@YIXPAUHWND__@@ABVRect@@@Z",
@@ -1219,7 +1225,7 @@
    "padding_bytes": 9
   }
  ],
- "code_bytes": 88000,
+ "code_bytes": 88016,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -1282,21 +1288,21 @@
    "address": "0079b01c",
    "bytes": 140,
    "kind": "vtable",
-   "section": 599
+   "section": 601
   },
   {
    "symbol": "__real@4@3fff8000000000000000",
    "address": "0079b7f8",
    "bytes": 4,
    "kind": "table",
-   "section": 714
+   "section": 716
   },
   {
    "symbol": "__real@8@3ffcccccccccccccd000",
    "address": "0079c260",
    "bytes": 8,
    "kind": "table",
-   "section": 669
+   "section": 671
   },
   {
    "symbol": "_unknown_geometry_sixty",
@@ -1310,168 +1316,168 @@
    "address": "007a7b18",
    "bytes": 4,
    "kind": "table",
-   "section": 711
+   "section": 713
   },
   {
    "symbol": "__real@4@3ffe99999a0000000000",
    "address": "007a7b1c",
    "bytes": 4,
    "kind": "table",
-   "section": 712
+   "section": 714
   },
   {
    "symbol": "__real@4@3ffb8000000000000000",
    "address": "007a7b20",
    "bytes": 4,
    "kind": "table",
-   "section": 713
+   "section": 715
   },
   {
    "symbol": "??_7DialogControl@OwnerDraw@@6B@",
    "address": "007a7b24",
    "bytes": 24,
    "kind": "vtable",
-   "section": 780
+   "section": 782
   },
   {
    "symbol": "??_R2XSurface@@8",
    "address": "007b3278",
    "bytes": 9,
    "kind": "rtti",
-   "section": 553
+   "section": 555
   },
   {
    "symbol": "??_R3XSurface@@8",
    "address": "007b3288",
    "bytes": 16,
    "kind": "rtti",
-   "section": 554
+   "section": 556
   },
   {
    "symbol": "??_R4XSurface@@6B@",
    "address": "007b3298",
    "bytes": 20,
    "kind": "rtti",
-   "section": 555
+   "section": 557
   },
   {
    "symbol": "??_R1A@?0A@A@Surface@@8",
    "address": "007b32b0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 557
+   "section": 559
   },
   {
    "symbol": "??_R1A@?0A@A@XSurface@@8",
    "address": "007b32c8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 559
+   "section": 561
   },
   {
    "symbol": "??_R1A@?0A@A@BSurface@@8",
    "address": "007b32e0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 560
+   "section": 562
   },
   {
    "symbol": "??_R2BSurface@@8",
    "address": "007b32f8",
    "bytes": 13,
    "kind": "rtti",
-   "section": 561
+   "section": 563
   },
   {
    "symbol": "??_R3BSurface@@8",
    "address": "007b3308",
    "bytes": 16,
    "kind": "rtti",
-   "section": 562
+   "section": 564
   },
   {
    "symbol": "??_R4BSurface@@6B@",
    "address": "007b3318",
    "bytes": 20,
    "kind": "rtti",
-   "section": 564
+   "section": 566
   },
   {
    "symbol": "??_R2Surface@@8",
    "address": "007b332c",
    "bytes": 5,
    "kind": "rtti",
-   "section": 596
+   "section": 598
   },
   {
    "symbol": "??_R3Surface@@8",
    "address": "007b3338",
    "bytes": 16,
    "kind": "rtti",
-   "section": 597
+   "section": 599
   },
   {
    "symbol": "??_R4Surface@@6B@",
    "address": "007b3348",
    "bytes": 20,
    "kind": "rtti",
-   "section": 598
+   "section": 600
   },
   {
    "symbol": "??_R1A@?0A@A@DialogControl@OwnerDraw@@8",
    "address": "007bf6e8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 775
+   "section": 777
   },
   {
    "symbol": "??_R2DialogControl@OwnerDraw@@8",
    "address": "007bf700",
    "bytes": 5,
    "kind": "rtti",
-   "section": 776
+   "section": 778
   },
   {
    "symbol": "??_R3DialogControl@OwnerDraw@@8",
    "address": "007bf708",
    "bytes": 16,
    "kind": "rtti",
-   "section": 777
+   "section": 779
   },
   {
    "symbol": "??_R4DialogControl@OwnerDraw@@6B@",
    "address": "007bf718",
    "bytes": 20,
    "kind": "rtti",
-   "section": 779
+   "section": 781
   },
   {
    "symbol": "??_R0?AVSurface@@@8",
    "address": "007ce2b0",
    "bytes": 22,
    "kind": "rtti",
-   "section": 556
+   "section": 558
   },
   {
    "symbol": "??_R0?AVXSurface@@@8",
    "address": "007ce2c8",
    "bytes": 23,
    "kind": "rtti",
-   "section": 558
+   "section": 560
   },
   {
    "symbol": "??_R0?AVBSurface@@@8",
    "address": "007ce2e0",
    "bytes": 23,
    "kind": "rtti",
-   "section": 563
+   "section": 565
   },
   {
    "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
    "address": "007d1598",
    "bytes": 6,
    "kind": "string",
-   "section": 674
+   "section": 676
   },
   {
    "symbol": "??_C@_08EIKH@ComboBox?$AA@",
@@ -3746,245 +3752,245 @@
    "address": "007eacf8",
    "bytes": 13,
    "kind": "string",
-   "section": 550
+   "section": 552
   },
   {
    "symbol": "??_C@_09LALL@Scrollbar?$AA@",
    "address": "007ead08",
    "bytes": 10,
    "kind": "string",
-   "section": 565
+   "section": 567
   },
   {
    "symbol": "??_C@_0BM@PKCO@Dropd?$DN?$CFp?5?5Master?$DN?$CFp?5?5Dlg?$DN?$CFp?$AA@",
    "address": "007ead14",
    "bytes": 28,
    "kind": "string",
-   "section": 567
+   "section": 569
   },
   {
    "symbol": "??_C@_17LKCM@?$AA?4?$AA?4?$AA?4?$AA?$AA@",
    "address": "007ead30",
    "bytes": 8,
    "kind": "string",
-   "section": 568
+   "section": 570
   },
   {
    "symbol": "??_C@_0CC@ECNN@ComboBox?5dropdown?5windata?5?$DN?5NULL@",
    "address": "007ead38",
    "bytes": 34,
    "kind": "string",
-   "section": 571
+   "section": 573
   },
   {
    "symbol": "??_C@_0BA@ILJA@msctls_hotkey32?$AA@",
    "address": "007ead5c",
    "bytes": 16,
    "kind": "string",
-   "section": 620
+   "section": 622
   },
   {
    "symbol": "??_C@_06LKP@Button?$AA@",
    "address": "007ead6c",
    "bytes": 7,
    "kind": "string",
-   "section": 621
+   "section": 623
   },
   {
    "symbol": "??_C@_0BA@PACF@SysTabControl32?$AA@",
    "address": "007ead74",
    "bytes": 16,
    "kind": "string",
-   "section": 622
+   "section": 624
   },
   {
    "symbol": "??_C@_06KCJP@Static?$AA@",
    "address": "007ead84",
    "bytes": 7,
    "kind": "string",
-   "section": 623
+   "section": 625
   },
   {
    "symbol": "??_C@_0BC@DLJF@msctls_progress32?$AA@",
    "address": "007ead8c",
    "bytes": 18,
    "kind": "string",
-   "section": 624
+   "section": 626
   },
   {
    "symbol": "??_C@_0BC@JD@msctls_trackbar32?$AA@",
    "address": "007eada0",
    "bytes": 18,
    "kind": "string",
-   "section": 625
+   "section": 627
   },
   {
    "symbol": "??_C@_09PCGO@ScrollBar?$AA@",
    "address": "007eadb4",
    "bytes": 10,
    "kind": "string",
-   "section": 626
+   "section": 628
   },
   {
    "symbol": "??_C@_0M@LCMI@GUI?3ToolTip?$AA@",
    "address": "007eadc0",
    "bytes": 12,
    "kind": "string",
-   "section": 635
+   "section": 637
   },
   {
    "symbol": "??_C@_17FKIN@?$AA?$CF?$AAh?$AAs?$AA?$AA@",
    "address": "007eadcc",
    "bytes": 8,
    "kind": "string",
-   "section": 685
+   "section": 687
   },
   {
    "symbol": "??_C@_0P@EIDI@b?$CFc?$CFc_ri?$CFd?4pcx?$AA@",
    "address": "007eadd4",
    "bytes": 15,
    "kind": "string",
-   "section": 658
+   "section": 660
   },
   {
    "symbol": "??_C@_0P@HDGM@b?$CFc?$CFc_mi?$CFd?4pcx?$AA@",
    "address": "007eade4",
    "bytes": 15,
    "kind": "string",
-   "section": 659
+   "section": 661
   },
   {
    "symbol": "??_C@_0P@DLEC@b?$CFc?$CFc_li?$CFd?4pcx?$AA@",
    "address": "007eadf4",
    "bytes": 15,
    "kind": "string",
-   "section": 660
+   "section": 662
   },
   {
    "symbol": "??_C@_15BFAC@?$AA?$AN?$AA?6?$AA?$AA@",
    "address": "007eaea8",
    "bytes": 6,
    "kind": "string",
-   "section": 652
+   "section": 654
   },
   {
    "symbol": "??_C@_0L@DLL@c?$CFce_i?4pcx?$AA@",
    "address": "007eaec0",
    "bytes": 11,
    "kind": "string",
-   "section": 655
+   "section": 657
   },
   {
    "symbol": "??_C@_0M@OLJK@sbgripb?4pcx?$AA@",
    "address": "007eaf04",
    "bytes": 12,
    "kind": "string",
-   "section": 663
+   "section": 665
   },
   {
    "symbol": "??_C@_0N@CNPN@gsbgripb?4pcx?$AA@",
    "address": "007eaf10",
    "bytes": 13,
    "kind": "string",
-   "section": 664
+   "section": 666
   },
   {
    "symbol": "??_C@_0M@CJBA@sbgript?4pcx?$AA@",
    "address": "007eaf20",
    "bytes": 12,
    "kind": "string",
-   "section": 665
+   "section": 667
   },
   {
    "symbol": "??_C@_0N@OPHH@gsbgript?4pcx?$AA@",
    "address": "007eaf2c",
    "bytes": 13,
    "kind": "string",
-   "section": 666
+   "section": 668
   },
   {
    "symbol": "??_C@_0M@IKEK@sbgripm?4pcx?$AA@",
    "address": "007eaf3c",
    "bytes": 12,
    "kind": "string",
-   "section": 667
+   "section": 669
   },
   {
    "symbol": "??_C@_0N@EMCN@gsbgripm?4pcx?$AA@",
    "address": "007eaf48",
    "bytes": 13,
    "kind": "string",
-   "section": 668
+   "section": 670
   },
   {
    "symbol": "??_C@_0N@EK@trakgrip?4pcx?$AA@",
    "address": "007eaf58",
    "bytes": 13,
    "kind": "string",
-   "section": 675
+   "section": 677
   },
   {
    "symbol": "??_C@_09DJBB@trofr?4pcx?$AA@",
    "address": "007eaf68",
    "bytes": 10,
    "kind": "string",
-   "section": 676
+   "section": 678
   },
   {
    "symbol": "??_C@_09PKLB@trofl?4pcx?$AA@",
    "address": "007eaf74",
    "bytes": 10,
    "kind": "string",
-   "section": 677
+   "section": 679
   },
   {
    "symbol": "??_C@_09FKJE@trofm?4pcx?$AA@",
    "address": "007eaf80",
    "bytes": 10,
    "kind": "string",
-   "section": 678
+   "section": 680
   },
   {
    "symbol": "??_C@_01PJOB@?$CL?$AA@",
    "address": "007eaf8c",
    "bytes": 2,
    "kind": "string",
-   "section": 686
+   "section": 688
   },
   {
    "symbol": "??_C@_0P@INFD@gdnarrow?$CFc?4pcx?$AA@",
    "address": "007eb550",
    "bytes": 15,
    "kind": "string",
-   "section": 695
+   "section": 697
   },
   {
    "symbol": "??_C@_0P@BHGD@guparrow?$CFc?4pcx?$AA@",
    "address": "007eb560",
    "bytes": 15,
    "kind": "string",
-   "section": 696
+   "section": 698
   },
   {
    "symbol": "??_C@_0L@HADO@bits_a?4pcx?$AA@",
    "address": "007eb570",
    "bytes": 11,
    "kind": "string",
-   "section": 729
+   "section": 731
   },
   {
    "symbol": "??_C@_0L@HBBE@bits_i?4pcx?$AA@",
    "address": "007eb57c",
    "bytes": 11,
    "kind": "string",
-   "section": 730
+   "section": 732
   },
   {
    "symbol": "??_R0?AVDialogControl@OwnerDraw@@@8",
    "address": "007eb588",
    "bytes": 38,
    "kind": "rtti",
-   "section": 778
+   "section": 780
   }
  ],
  "data_ranges": [],
@@ -8123,12 +8129,6 @@
    "function_entry": true
   },
   {
-   "site": "005e8b90",
-   "symbol": "?unknown_child_proc_5e8720@@YGHPAUHWND__@@J@Z",
-   "target": "005e8720",
-   "function_entry": true
-  },
-  {
    "site": "0046e520",
    "symbol": "?Prompt_Dialog@@YI_NPBG@Z",
    "target": "00600c80",
@@ -9415,6 +9415,10 @@
    "address": "00a763ec"
   },
   {
+   "symbol": "?unknown_child_proc_5e8720@@YGHPAUHWND__@@J@Z",
+   "address": "005e8720"
+  },
+  {
    "symbol": "?unknown_classes_registered_a763f0@OwnerDraw@@3HA",
    "address": "00a763f0"
   },
@@ -10124,6 +10128,13 @@
    "population": "population-42",
    "bound": "own frozen bound (population-42)",
    "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "005e8b90",
+   "bytes": 15,
+   "population": "population-3735",
+   "bound": "own frozen bound (population-3735)",
+   "options": "joined under the unit's /GR (frozen without it)"
   }
  ],
  "residuals": [
@@ -10149,7 +10160,7 @@
    "bytes": 1698,
    "population": "population-2754",
    "source": "src/recovered/ownrdraw/OwnerDraw_Control_Height.cpp",
-   "cause": "held by population-2754; not joined: does not compile in the unit: accepted.cpp(412) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
+   "cause": "held by population-2754; not joined: does not compile in the unit: accepted.cpp(390) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
   },
   {
    "kind": "split",
@@ -10157,7 +10168,7 @@
    "bytes": 632,
    "population": "population-42",
    "source": "src/recovered/ownrdraw/unknown_kind_test.cpp",
-   "cause": "held by population-42; not joined: rows of the unit differ when it joins (005fb270)"
+   "cause": "held by population-42; not joined: rows of the unit differ when it joins (005e5150)"
   },
   {
    "kind": "split",
@@ -10165,7 +10176,7 @@
    "bytes": 1828,
    "population": "population-2718",
    "source": "src/recovered/ownrdraw/OwnerDraw_Control_Kind.cpp",
-   "cause": "held by population-2718; not joined: does not compile in the unit: accepted.cpp(546) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
+   "cause": "held by population-2718; not joined: does not compile in the unit: accepted.cpp(524) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
   },
   {
    "kind": "split",
@@ -10173,7 +10184,7 @@
    "bytes": 1710,
    "population": "population-2727",
    "source": "src/recovered/ownrdraw/OwnerDraw_Control_Flags.cpp",
-   "cause": "held by population-2727; not joined: does not compile in the unit: accepted.cpp(716) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
+   "cause": "held by population-2727; not joined: does not compile in the unit: accepted.cpp(694) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
   },
   {
    "kind": "split",
@@ -10181,7 +10192,7 @@
    "bytes": 1594,
    "population": "population-2727",
    "source": "src/recovered/unowned/OwnerDraw_Control_Test_005e0760.cpp",
-   "cause": "held by population-2727; not joined: does not compile in the unit: accepted.cpp(811) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
+   "cause": "held by population-2727; not joined: does not compile in the unit: accepted.cpp(789) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
   },
   {
    "kind": "split",
@@ -10189,7 +10200,7 @@
    "bytes": 149,
    "population": "population-42",
    "source": "src/recovered/ownrdraw/Is_Listed_Kind.cpp",
-   "cause": "held by population-42; not joined: rows of the unit differ when it joins (005fb270)"
+   "cause": "held by population-42; not joined: rows of the unit differ when it joins (005e5150)"
   },
   {
    "kind": "split",
@@ -10270,14 +10281,6 @@
    "population": "population-2913",
    "source": "src/recovered/005e8710.cpp",
    "cause": "frozen in another population's inventory pass (population-2913)"
-  },
-  {
-   "kind": "split",
-   "entry": "005e8b90",
-   "bytes": 15,
-   "population": "population-3735",
-   "source": "src/recovered/unowned/unknown_enum_children_5e8b90_005e8b90.cpp",
-   "cause": "held by population-3735; not joined: rows of the unit differ when it joins (005fb270)"
   },
   {
    "kind": "split",
@@ -10389,7 +10392,7 @@
    "bytes": 96,
    "population": "population-1642",
    "source": "src/recovered/ownrdraw/unknown_get_window_wide_text.cpp",
-   "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(8857) : error C2011: 'WideString' : 'class' type redefinition"
+   "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(8847) : error C2011: 'WideString' : 'class' type redefinition"
   },
   {
    "kind": "split",
@@ -10405,7 +10408,7 @@
    "bytes": 95,
    "population": "population-1642",
    "source": "src/recovered/ownrdraw/unknown_get_list_item_wide_text.cpp",
-   "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(8888) : error C2011: 'WideString' : 'class' type redefinition"
+   "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(8878) : error C2011: 'WideString' : 'class' type redefinition"
   },
   {
    "kind": "split",
@@ -10421,7 +10424,7 @@
    "bytes": 95,
    "population": "population-1642",
    "source": "src/recovered/ownrdraw/unknown_get_combo_item_wide_text.cpp",
-   "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(8918) : error C2011: 'WideString' : 'class' type redefinition"
+   "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(8908) : error C2011: 'WideString' : 'class' type redefinition"
   },
   {
    "kind": "split",
@@ -10429,7 +10432,7 @@
    "bytes": 97,
    "population": "population-3809",
    "source": "src/recovered/classes/OwnerDraw__DialogControl/OwnerDraw_Unknown_00601050.cpp",
-   "cause": "held by population-3809; not joined: does not compile in the unit: accepted.cpp(8218) : error C2228: left of '.Find' must have class/struct/union type"
+   "cause": "held by population-3809; not joined: does not compile in the unit: accepted.cpp(8955) : error C2228: left of '.Find' must have class/struct/union type"
   },
   {
    "kind": "split",
@@ -10437,7 +10440,7 @@
    "bytes": 17,
    "population": "population-3809",
    "source": "src/recovered/classes/OwnerDraw__SimpleDialogControl/Constructor.cpp",
-   "cause": "held by population-3809; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+   "cause": "held by population-3809; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -10445,7 +10448,7 @@
    "bytes": 7,
    "population": "population-3809",
    "source": "src/recovered/classes/OwnerDraw__DialogControl/Destructor.cpp",
-   "cause": "held by population-3809; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+   "cause": "held by population-3809; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -10453,7 +10456,7 @@
    "bytes": 128,
    "population": "population-3809",
    "source": "src/recovered/classes/OwnerDraw__SimpleDialogControl/Set_Window.cpp",
-   "cause": "held by population-3809; not joined: does not compile in the unit: accepted.cpp(8234) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
+   "cause": "held by population-3809; not joined: does not compile in the unit: accepted.cpp(8971) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
   },
   {
    "kind": "split",
@@ -10461,7 +10464,7 @@
    "bytes": 4,
    "population": "population-3809",
    "source": "src/recovered/classes/OwnerDraw__SimpleDialogControl/unknown_slot2.cpp",
-   "cause": "held by population-3809; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+   "cause": "held by population-3809; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -10469,7 +10472,7 @@
    "bytes": 4,
    "population": "population-3809",
    "source": "src/recovered/classes/OwnerDraw__SimpleDialogControl/Get_Window.cpp",
-   "cause": "held by population-3809; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+   "cause": "held by population-3809; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -10477,7 +10480,7 @@
    "bytes": 3,
    "population": "population-3809",
    "source": "src/recovered/classes/OwnerDraw__SimpleDialogControl/unknown_slot4.cpp",
-   "cause": "held by population-3809; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+   "cause": "held by population-3809; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -10485,7 +10488,7 @@
    "bytes": 32,
    "population": "population-3809",
    "source": "src/recovered/classes/OwnerDraw__DialogControl/Scalar_Deleting_Destructor.cpp",
-   "cause": "frozen in another population's inventory pass (population-3809)"
+   "cause": "held by population-3809; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -10493,7 +10496,7 @@
    "bytes": 32,
    "population": "population-3809",
    "source": "src/recovered/classes/OwnerDraw__SimpleDialogControl/Scalar_Deleting_Destructor.cpp",
-   "cause": "frozen in another population's inventory pass (population-3809)"
+   "cause": "held by population-3809; not joined: differs under the unit's state (Function symbol ambiguous/missing: ??_GSimpleDialogControl@OwnerDraw@@UAEPAXI@Z)"
   },
   {
    "kind": "split",
@@ -10875,12 +10878,6 @@
    "module_symbol": "?unknown_controlled_dialog_6011a0@OwnerDraw@@YIHHP6GHPAUHWND__@@IIJ@ZPAVDialogControl@1@@Z"
   },
   {
-   "site": "005e8b90",
-   "target": "005e8720",
-   "symbol": "?unknown_child_proc_5e8720@@YGHPAUHWND__@@J@Z",
-   "module_symbol": "?unknown_5e8720@OwnerDraw@@YGHPAUHWND__@@J@Z"
-  },
-  {
    "site": "0075c830",
    "target": "005fee70",
    "symbol": "?Unknown_005FEE70@@YIXPAUHWND__@@@Z",
@@ -11073,10 +11070,10 @@
    "module_symbol": "?unknown_controlled_dialog_6011a0@OwnerDraw@@YIHHP6GHPAUHWND__@@IIJ@ZPAVDialogControl@1@@Z"
   }
  ],
- "stand_in_reference_count": 92,
+ "stand_in_reference_count": 91,
  "residual_split": {
-  "rows": 47,
-  "bytes": 14495
+  "rows": 46,
+  "bytes": 14480
  },
  "residual_flipped": {
   "rows": 0,

@@ -67,6 +67,19 @@ LogicClass Logic;
 // Dynamic initializer (0x0040C6D0, _$E) emitted by HeaderStatics_diagonal_init_0040c4a0.cpp; no source of its own.
 
 
+// Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):
+// DynamicVectorClass<IsometricTileClass *>::Clear (0x0040C710; DynamicVectorClass<IsometricTileClass *> vtable 0x0079a8ac slot 3).
+// DynamicVectorClass<IsometricTileClass *>::ID_pointer (0x0040C740; DynamicVectorClass<IsometricTileClass *> vtable 0x0079a8ac slot 5).
+// VectorClass<IsometricTileClass *>::Fetch (0x0040C760; VectorClass<IsometricTileClass *> vtable 0x0079a8cc slot 6).
+// VectorClass<IsometricTileClass *>::operator equal (0x0040C770; VectorClass<IsometricTileClass *> vtable 0x0079a8cc slot 1).
+// VectorClass<IsometricTileClass *>::Resize (0x0040C7B0; VectorClass<IsometricTileClass *> vtable 0x0079a8cc slot 2).
+// VectorClass<IsometricTileClass *>::Clear (0x0040C860; VectorClass<IsometricTileClass *> vtable 0x0079a8cc slot 3).
+// VectorClass<IsometricTileClass *>::ID_object (0x0040C890; VectorClass<IsometricTileClass *> vtable 0x0079a8cc slot 4).
+// VectorClass<IsometricTileClass *>::ID_pointer (0x0040C8D0; VectorClass<IsometricTileClass *> vtable 0x0079a8cc slot 5).
+// DynamicVectorClass<IsometricTileClass *>::Resize (0x0040C8F0; DynamicVectorClass<IsometricTileClass *> vtable 0x0079a8ac slot 2).
+// DynamicVectorClass<IsometricTileClass *>::ID_object (0x0040C9A0; DynamicVectorClass<IsometricTileClass *> vtable 0x0079a8ac slot 4).
+
+
 // ??_G?$VectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z (0x0040C9D0): compiler generated with the VectorClass<IsometricTileClass *> vtable this unit's list stores
 // (shared/vector_class.hpp); emitted by this unit's own use of the list. No source of its own.
 

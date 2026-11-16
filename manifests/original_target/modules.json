@@ -2008,6 +2008,13 @@
     "bound": "own frozen bound (population-19)",
     "options": "joined under the unit's /GR (frozen without it)",
     "emitted": "container member DynamicVectorClass<Cell>::Add (shared/vector_class.hpp)"
+   },
+   {
+    "entry": "0056b460",
+    "bytes": 30,
+    "population": "population-2629",
+    "bound": "own frozen bound (population-2629)",
+    "options": "joined under the unit's /GR (frozen without it)"
    }
   ],
   "residuals": [
@@ -2058,14 +2065,6 @@
     "population": "population-2629",
     "source": "src/recovered/classes/DynamicVectorClass/Resize.cpp",
     "cause": "held by population-2629; not joined: its population changes when it leaves"
-   },
-   {
-    "kind": "split",
-    "entry": "0056b460",
-    "bytes": 30,
-    "population": "population-2629",
-    "source": "src/recovered/classes/ZoneConnectionClass/Constructor.cpp",
-    "cause": "frozen in another population's inventory pass (population-2629)"
    },
    {
     "kind": "split",
@@ -2806,6 +2805,27 @@
     "bound": "own frozen bound (population-19)",
     "options": "joined under the unit's /GR (frozen without it)",
     "emitted": "container member DynamicVectorClass<AbstractClass *>::Add (shared/vector_class.hpp)"
+   },
+   {
+    "entry": "004cea90",
+    "bytes": 84,
+    "population": "population-3307",
+    "bound": "own frozen bound (population-3307)",
+    "options": "joined under the unit's /GR (frozen without it)"
+   },
+   {
+    "entry": "004ceaf0",
+    "bytes": 59,
+    "population": "population-3307",
+    "bound": "own frozen bound (population-3307)",
+    "options": "joined under the unit's /GR (frozen without it)"
+   },
+   {
+    "entry": "004ceb30",
+    "bytes": 84,
+    "population": "population-3307",
+    "bound": "own frozen bound (population-3307)",
+    "options": "joined under the unit's /GR (frozen without it)"
    }
   ],
   "residuals": [
@@ -2896,30 +2916,6 @@
     "population": "population-4442",
     "source": "src/recovered/classes/DynamicVectorClass_CellDistribution/DynamicVectorClass_CellDistribution_ID_object_004ce9b0.cpp",
     "cause": "frozen in another population's inventory pass (population-4442)"
-   },
-   {
-    "kind": "split",
-    "entry": "004cea90",
-    "bytes": 84,
-    "population": "population-3307",
-    "source": "src/recovered/classes/VectorClass_CellDistribution/Scalar_Deleting_Destructor.cpp",
-    "cause": "frozen in another population's inventory pass (population-3307)"
-   },
-   {
-    "kind": "split",
-    "entry": "004ceaf0",
-    "bytes": 59,
-    "population": "population-3307",
-    "source": "src/recovered/classes/CellDistribution/Vector_Deleting_Destructor.cpp",
-    "cause": "frozen in another population's inventory pass (population-3307)"
-   },
-   {
-    "kind": "split",
-    "entry": "004ceb30",
-    "bytes": 84,
-    "population": "population-3307",
-    "source": "src/recovered/classes/DynamicVectorClass_DiscreteDistributionClass_CellClass___DistributionObject_CellClass_ptr/Scalar_Deleting_Destructor.cpp",
-    "cause": "frozen in another population's inventory pass (population-3307)"
    }
   ],
   "unit_functions": 191
@@ -3951,17 +3947,15 @@
     "bound": "own frozen bound (population-970)",
     "placed": "address",
     "unit_evidence": "xcu single"
-   }
-  ],
-  "residuals": [
+   },
    {
-    "kind": "split",
     "entry": "0073c0b0",
     "bytes": 97,
     "population": "population-1642",
-    "source": "src/recovered/wonline/unknown_can_send_chat.cpp",
-    "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(603) : error C2011: 'WideString' : 'class' type redefinition"
-   },
+    "bound": "own frozen bound (population-1642)"
+   }
+  ],
+  "residuals": [
    {
     "kind": "split",
     "entry": "0073c2a0",
@@ -4104,7 +4098,7 @@
     "bytes": 1,
     "population": "population-4322",
     "source": "src/recovered/classes/CChatEventSink/CChatEventSink_OnPublicGameOptions_preview_timer_atexit_00765980.cpp",
-    "cause": "held by population-4322; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E222)"
+    "cause": "held by population-4322; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E100308)"
    },
    {
     "kind": "split",
@@ -4200,7 +4194,7 @@
     "bytes": 148,
     "population": "population-2411",
     "source": "src/recovered/wonline/WolUserArray_Grow.cpp",
-    "cause": "held by population-2411; not joined: its population changes when it leaves (006a66b0, 00765e90)"
+    "cause": "held by population-2411; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -4312,7 +4306,7 @@
     "bytes": 34,
     "population": "population-3996",
     "source": "src/recovered/unowned/unknown_list_get_00768260.cpp",
-    "cause": "held by population-3996; not joined: another option set (/O2 /Ob2 /G5 /Gy /GR)"
+    "cause": "held by population-3996; not joined: the unit's option set is not evidenced against /O2 /Ob2 /G5 /Gy /GR (all 385 unit rows reproduce under it too)"
    },
    {
     "kind": "split",
@@ -4403,6 +4397,13 @@
     "population": "population-42",
     "bound": "own frozen bound (population-42)",
     "options": "joined under the unit's /GR (frozen without it)"
+   },
+   {
+    "entry": "005e8b90",
+    "bytes": 15,
+    "population": "population-3735",
+    "bound": "own frozen bound (population-3735)",
+    "options": "joined under the unit's /GR (frozen without it)"
    }
   ],
   "residuals": [
@@ -4428,7 +4429,7 @@
     "bytes": 1698,
     "population": "population-2754",
     "source": "src/recovered/ownrdraw/OwnerDraw_Control_Height.cpp",
-    "cause": "held by population-2754; not joined: does not compile in the unit: accepted.cpp(412) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
+    "cause": "held by population-2754; not joined: does not compile in the unit: accepted.cpp(390) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
    },
    {
     "kind": "split",
@@ -4436,7 +4437,7 @@
     "bytes": 632,
     "population": "population-42",
     "source": "src/recovered/ownrdraw/unknown_kind_test.cpp",
-    "cause": "held by population-42; not joined: rows of the unit differ when it joins (005fb270)"
+    "cause": "held by population-42; not joined: rows of the unit differ when it joins (005e5150)"
    },
    {
     "kind": "split",
@@ -4444,7 +4445,7 @@
     "bytes": 1828,
     "population": "population-2718",
     "source": "src/recovered/ownrdraw/OwnerDraw_Control_Kind.cpp",
-    "cause": "held by population-2718; not joined: does not compile in the unit: accepted.cpp(546) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
+    "cause": "held by population-2718; not joined: does not compile in the unit: accepted.cpp(524) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
    },
    {
     "kind": "split",
@@ -4452,7 +4453,7 @@
     "bytes": 1710,
     "population": "population-2727",
     "source": "src/recovered/ownrdraw/OwnerDraw_Control_Flags.cpp",
-    "cause": "held by population-2727; not joined: does not compile in the unit: accepted.cpp(716) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
+    "cause": "held by population-2727; not joined: does not compile in the unit: accepted.cpp(694) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
    },
    {
     "kind": "split",
@@ -4460,7 +4461,7 @@
     "bytes": 1594,
     "population": "population-2727",
     "source": "src/recovered/unowned/OwnerDraw_Control_Test_005e0760.cpp",
-    "cause": "held by population-2727; not joined: does not compile in the unit: accepted.cpp(811) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
+    "cause": "held by population-2727; not joined: does not compile in the unit: accepted.cpp(789) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
    },
    {
     "kind": "split",
@@ -4468,7 +4469,7 @@
     "bytes": 149,
     "population": "population-42",
     "source": "src/recovered/ownrdraw/Is_Listed_Kind.cpp",
-    "cause": "held by population-42; not joined: rows of the unit differ when it joins (005fb270)"
+    "cause": "held by population-42; not joined: rows of the unit differ when it joins (005e5150)"
    },
    {
     "kind": "split",
@@ -4549,14 +4550,6 @@
     "population": "population-2913",
     "source": "src/recovered/005e8710.cpp",
     "cause": "frozen in another population's inventory pass (population-2913)"
-   },
-   {
-    "kind": "split",
-    "entry": "005e8b90",
-    "bytes": 15,
-    "population": "population-3735",
-    "source": "src/recovered/unowned/unknown_enum_children_5e8b90_005e8b90.cpp",
-    "cause": "held by population-3735; not joined: rows of the unit differ when it joins (005fb270)"
    },
    {
     "kind": "split",
@@ -4668,7 +4661,7 @@
     "bytes": 96,
     "population": "population-1642",
     "source": "src/recovered/ownrdraw/unknown_get_window_wide_text.cpp",
-    "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(8857) : error C2011: 'WideString' : 'class' type redefinition"
+    "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(8847) : error C2011: 'WideString' : 'class' type redefinition"
    },
    {
     "kind": "split",
@@ -4684,7 +4677,7 @@
     "bytes": 95,
     "population": "population-1642",
     "source": "src/recovered/ownrdraw/unknown_get_list_item_wide_text.cpp",
-    "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(8888) : error C2011: 'WideString' : 'class' type redefinition"
+    "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(8878) : error C2011: 'WideString' : 'class' type redefinition"
    },
    {
     "kind": "split",
@@ -4700,7 +4693,7 @@
     "bytes": 95,
     "population": "population-1642",
     "source": "src/recovered/ownrdraw/unknown_get_combo_item_wide_text.cpp",
-    "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(8918) : error C2011: 'WideString' : 'class' type redefinition"
+    "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(8908) : error C2011: 'WideString' : 'class' type redefinition"
    },
    {
     "kind": "split",
@@ -4708,7 +4701,7 @@
     "bytes": 97,
     "population": "population-3809",
     "source": "src/recovered/classes/OwnerDraw__DialogControl/OwnerDraw_Unknown_00601050.cpp",
-    "cause": "held by population-3809; not joined: does not compile in the unit: accepted.cpp(8218) : error C2228: left of '.Find' must have class/struct/union type"
+    "cause": "held by population-3809; not joined: does not compile in the unit: accepted.cpp(8955) : error C2228: left of '.Find' must have class/struct/union type"
    },
    {
     "kind": "split",
@@ -4716,7 +4709,7 @@
     "bytes": 17,
     "population": "population-3809",
     "source": "src/recovered/classes/OwnerDraw__SimpleDialogControl/Constructor.cpp",
-    "cause": "held by population-3809; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+    "cause": "held by population-3809; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -4724,7 +4717,7 @@
     "bytes": 7,
     "population": "population-3809",
     "source": "src/recovered/classes/OwnerDraw__DialogControl/Destructor.cpp",
-    "cause": "held by population-3809; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+    "cause": "held by population-3809; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -4732,7 +4725,7 @@
     "bytes": 128,
     "population": "population-3809",
     "source": "src/recovered/classes/OwnerDraw__SimpleDialogControl/Set_Window.cpp",
-    "cause": "held by population-3809; not joined: does not compile in the unit: accepted.cpp(8234) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
+    "cause": "held by population-3809; not joined: does not compile in the unit: accepted.cpp(8971) : error C2039: 'unknown_registry_a73640' : is not a member of 'OwnerDraw'"
    },
    {
     "kind": "split",
@@ -4740,7 +4733,7 @@
     "bytes": 4,
     "population": "population-3809",
     "source": "src/recovered/classes/OwnerDraw__SimpleDialogControl/unknown_slot2.cpp",
-    "cause": "held by population-3809; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+    "cause": "held by population-3809; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -4748,7 +4741,7 @@
     "bytes": 4,
     "population": "population-3809",
     "source": "src/recovered/classes/OwnerDraw__SimpleDialogControl/Get_Window.cpp",
-    "cause": "held by population-3809; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+    "cause": "held by population-3809; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -4756,7 +4749,7 @@
     "bytes": 3,
     "population": "population-3809",
     "source": "src/recovered/classes/OwnerDraw__SimpleDialogControl/unknown_slot4.cpp",
-    "cause": "held by population-3809; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+    "cause": "held by population-3809; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -4764,7 +4757,7 @@
     "bytes": 32,
     "population": "population-3809",
     "source": "src/recovered/classes/OwnerDraw__DialogControl/Scalar_Deleting_Destructor.cpp",
-    "cause": "frozen in another population's inventory pass (population-3809)"
+    "cause": "held by population-3809; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -4772,7 +4765,7 @@
     "bytes": 32,
     "population": "population-3809",
     "source": "src/recovered/classes/OwnerDraw__SimpleDialogControl/Scalar_Deleting_Destructor.cpp",
-    "cause": "frozen in another population's inventory pass (population-3809)"
+    "cause": "held by population-3809; not joined: differs under the unit's state (Function symbol ambiguous/missing: ??_GSimpleDialogControl@OwnerDraw@@UAEPAXI@Z)"
    },
    {
     "kind": "split",
@@ -5079,7 +5072,7 @@
     "bytes": 24,
     "population": "population-3817",
     "source": "src/recovered/mapgen/unknown_is_kind_1_3_4.cpp",
-    "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00589ac0)"
+    "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00587cf0)"
    },
    {
     "kind": "split",
@@ -5095,7 +5088,7 @@
     "bytes": 19,
     "population": "population-3817",
     "source": "src/recovered/0056d620.cpp",
-    "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00589ac0)"
+    "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00587cf0)"
    },
    {
     "kind": "split",
@@ -5103,7 +5096,7 @@
     "bytes": 19,
     "population": "population-3817",
     "source": "src/recovered/0056d640.cpp",
-    "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00589ac0)"
+    "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00587cf0)"
    },
    {
     "kind": "split",
@@ -5111,7 +5104,7 @@
     "bytes": 19,
     "population": "population-3817",
     "source": "src/recovered/0056d660.cpp",
-    "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00589ac0)"
+    "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00587cf0)"
    },
    {
     "kind": "split",
@@ -5119,7 +5112,7 @@
     "bytes": 126,
     "population": "population-3247",
     "source": "src/recovered/classes/MapRegionClass/Pick_Random_Map_Cell.cpp",
-    "cause": "held by population-3247; not joined: differs in the batch apply (1)"
+    "cause": "held by population-3247; not joined: rows of the unit differ when it joins (00587cf0)"
    },
    {
     "kind": "split",
@@ -5159,7 +5152,7 @@
     "bytes": 15,
     "population": "population-43",
     "source": "src/recovered/mapgen/Get_Generation_Cell_By_Index.cpp",
-    "cause": "held by population-43; not joined: rows of the unit differ when it joins (00589ac0)"
+    "cause": "held by population-43; not joined: rows of the unit differ when it joins (00587cf0)"
    },
    {
     "kind": "split",
@@ -5183,7 +5176,7 @@
     "bytes": 32,
     "population": "population-3829",
     "source": "src/recovered/mapgen/Get_Cell_Unknown_3c.cpp",
-    "cause": "held by population-3829; not joined: differs in the batch apply (1)"
+    "cause": "held by population-3829; not joined: differs in the batch apply (2)"
    },
    {
     "kind": "split",
@@ -5199,7 +5192,7 @@
     "bytes": 421,
     "population": "population-3245",
     "source": "src/recovered/classes/MapRegionClass/Make_Regions.cpp",
-    "cause": "held by population-3245; not joined: rows of the unit differ when it joins (00589ac0)"
+    "cause": "held by population-3245; not joined: differs in the batch apply (2)"
    },
    {
     "kind": "split",
@@ -5223,7 +5216,7 @@
     "bytes": 140,
     "population": "population-2542",
     "source": "src/recovered/classes/MapSeedClass/Constructor.cpp",
-    "cause": "held by population-2542; not joined: rows of the unit differ when it joins (00587cf0)"
+    "cause": "held by population-2542; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -5231,7 +5224,7 @@
     "bytes": 40,
     "population": "population-2542",
     "source": "src/recovered/classes/MapSeedClass/Set_Default_Description.cpp",
-    "cause": "held by population-2542; not joined: differs in the batch apply (1)"
+    "cause": "held by population-2542; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -5239,7 +5232,7 @@
     "bytes": 471,
     "population": "population-2688",
     "source": "src/recovered/classes/MapSeedClass/Read_Dialog_Parameters.cpp",
-    "cause": "held by population-2688; not joined: differs in the batch apply (1)"
+    "cause": "held by population-2688; not joined: rows of the unit differ when it joins (00587cf0)"
    },
    {
     "kind": "split",
@@ -5247,7 +5240,7 @@
     "bytes": 282,
     "population": "population-2542",
     "source": "src/recovered/classes/MapSeedClass/Randomize_Parameters.cpp",
-    "cause": "held by population-2542; not joined: differs in the batch apply (1)"
+    "cause": "held by population-2542; not joined: rows of the unit differ when it joins (00587cf0)"
    },
    {
     "kind": "split",
@@ -5263,7 +5256,7 @@
     "bytes": 334,
     "population": "population-2542",
     "source": "src/recovered/classes/MapSeedClass/Fixup_Settings.cpp",
-    "cause": "held by population-2542; not joined: rows of the unit differ when it joins (00587cf0)"
+    "cause": "held by population-2542; not joined: rows of the unit differ when it joins (00589ac0)"
    },
    {
     "kind": "split",
@@ -5271,7 +5264,7 @@
     "bytes": 40,
     "population": "population-2542",
     "source": "src/recovered/classes/MapSeedClass/Save_Or_Prompt.cpp",
-    "cause": "held by population-2542; not joined: differs in the batch apply (1)"
+    "cause": "held by population-2542; not joined: rows of the unit differ when it joins (00587cf0)"
    },
    {
     "kind": "split",
@@ -5287,7 +5280,7 @@
     "bytes": 30,
     "population": "population-2542",
     "source": "src/recovered/classes/MapSeedClass/Load_Or_Prompt.cpp",
-    "cause": "held by population-2542; not joined: the unit does not compile with it (accepted.cpp(2558) : error C2084: function 'bool __thiscall MapSeedClass::Load_Or_Prompt_005791a0(const char *)' already has a body)"
+    "cause": "held by population-2542; not joined: the unit does not compile with it (accepted.cpp(2516) : error C2084: function 'bool __thiscall MapSeedClass::Load_Or_Prompt_005791a0(const char *)' already has a body)"
    },
    {
     "kind": "split",
@@ -5351,7 +5344,7 @@
     "bytes": 39,
     "population": "population-2543",
     "source": "src/recovered/mapgen/Map_Random_Fraction.cpp",
-    "cause": "held by population-2543; not joined: another option set (/O2 /Ob1 /G5 /Gy)"
+    "cause": "held by population-2543; not joined: the unit does not compile with it (accepted.cpp(7432) : error C2084: function 'double __cdecl Map_Random_Fraction_00579770(void)' already has a body)"
    },
    {
     "kind": "split",
@@ -5359,7 +5352,7 @@
     "bytes": 97,
     "population": "population-2543",
     "source": "src/recovered/mapgen/Map_Random_Range.cpp",
-    "cause": "held by population-2543; not joined: the unit does not compile with it (accepted.cpp(4226) : error C2084: function 'unsigned int __fastcall __fastcall Map_Random_Range_005797a0(unsigned int,unsigned int)' already has a body)"
+    "cause": "held by population-2543; not joined: the unit does not compile with it (accepted.cpp(4156) : error C2084: function 'unsigned int __fastcall __fastcall Map_Random_Range_005797a0(unsigned int,unsigned int)' already has a body)"
    },
    {
     "kind": "split",
@@ -5367,7 +5360,7 @@
     "bytes": 22,
     "population": "population-2543",
     "source": "src/recovered/mapgen/MapGaussianClass_Constructor.cpp",
-    "cause": "held by population-2543; not joined: another option set (/O2 /Ob1 /G5 /Gy)"
+    "cause": "held by population-2543; not joined: the unit does not compile with it (accepted.cpp(2907) : error C2084: function '__thiscall MapGaussianClass::MapGaussianClass(double (__cdecl *)(void))' already has a body)"
    },
    {
     "kind": "split",
@@ -5375,7 +5368,7 @@
     "bytes": 155,
     "population": "population-2543",
     "source": "src/recovered/mapgen/MapGaussianClass_Next.cpp",
-    "cause": "held by population-2543; not joined: another option set (/O2 /Ob1 /G5 /Gy)"
+    "cause": "held by population-2543; not joined: rows of the unit differ when it joins (005798f0, 0057ecf0, 00584730, 00587cf0)"
    },
    {
     "kind": "split",
@@ -5391,7 +5384,7 @@
     "bytes": 69,
     "population": "population-2930",
     "source": "src/recovered/mapgen/Report_Generation_Progress.cpp",
-    "cause": "held by population-2930; not joined: does not compile in the unit: accepted.cpp(4531) : error C2084: function 'void __stdcall Report_Generation_Progress_0057be50(int)' already has a body"
+    "cause": "held by population-2930; not joined: does not compile in the unit: accepted.cpp(4568) : error C2084: function 'void __stdcall Report_Generation_Progress_0057be50(int)' already has a body"
    },
    {
     "kind": "split",
@@ -5447,7 +5440,7 @@
     "bytes": 19,
     "population": "population-2900",
     "source": "src/recovered/classes/UnknownMapGenerationPoint/Constructor.cpp",
-    "cause": "held by population-2900; not joined: does not compile in the unit: accepted.cpp(8304) : error C2084: function '__thiscall UnknownMapGenerationPoint::UnknownMapGenerationPoint(const struct UnknownMapGenerationPoint &)' already has a body"
+    "cause": "held by population-2900; not joined: does not compile in the unit: accepted.cpp(8524) : error C2084: function '__thiscall DirtRoadLink::DirtRoadLink(const struct DirtRoadLink &)' already has a body"
    },
    {
     "kind": "split",
@@ -5455,7 +5448,7 @@
     "bytes": 43,
     "population": "population-2900",
     "source": "src/recovered/classes/UnknownMapGenerationLink/Constructor.cpp",
-    "cause": "held by population-2900; not joined: does not compile in the unit: accepted.cpp(8310) : error C2084: function '__thiscall UnknownMapGenerationLink::UnknownMapGenerationLink(unsigned int,const class Cell &,unsigned int,const class Cell &,int)' already has a body"
+    "cause": "held by population-2900; not joined: does not compile in the unit: accepted.cpp(8530) : error C2084: function '__thiscall UnknownMapGenerationLink::UnknownMapGenerationLink(unsigned int,const class Cell &,unsigned int,const class Cell &,int)' already has a body"
    },
    {
     "kind": "split",
@@ -5463,7 +5456,7 @@
     "bytes": 48,
     "population": "population-2898",
     "source": "src/recovered/mapgen/Generation_Path_Index.cpp",
-    "cause": "held by population-2898; not joined: differs in the batch apply (1)"
+    "cause": "held by population-2898; not joined: differs in the batch apply (2)"
    },
    {
     "kind": "split",
@@ -5471,7 +5464,7 @@
     "bytes": 61,
     "population": "population-2898",
     "source": "src/recovered/mapgen/Init_Dirt_Roads.cpp",
-    "cause": "held by population-2898; not joined: differs in the batch apply (1)"
+    "cause": "held by population-2898; not joined: differs in the batch apply (2)"
    },
    {
     "kind": "split",
@@ -5479,7 +5472,7 @@
     "bytes": 53,
     "population": "population-2553",
     "source": "src/recovered/mapgen/Generation_Cell_In_Bounds.cpp",
-    "cause": "held by population-2553; not joined: does not compile in the unit: accepted.cpp(8343) : error C2084: function 'bool __fastcall __fastcall Generation_Cell_In_Bounds_0058da10(const class Cell &)' already has a body"
+    "cause": "held by population-2553; not joined: does not compile in the unit: accepted.cpp(8563) : error C2084: function 'bool __fastcall __fastcall Generation_Cell_In_Bounds_0058da10(const class Cell &)' already has a body"
    },
    {
     "kind": "split",
@@ -5823,7 +5816,7 @@
     "bytes": 52,
     "population": "population-2687",
     "source": "src/recovered/classes/DynamicVectorClass_double/ID.cpp",
-    "cause": "frozen in another population's inventory pass (population-2687)"
+    "cause": "held by population-2687; not joined: differs under the unit's state (Function symbol ambiguous/missing: ?ID@?$DynamicVectorClass@N@@UAEHABN@Z)"
    },
    {
     "kind": "split",
@@ -16402,7 +16395,7 @@
     "bytes": 157,
     "population": "population-4156",
     "source": "src/recovered/classes/Tactical/Set_View_Dimensions.cpp",
-    "cause": "held by population-4156; not joined: its population changes when it leaves (006a66b0)"
+    "cause": "held by population-4156; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -16410,7 +16403,7 @@
     "bytes": 110,
     "population": "population-4156",
     "source": "src/recovered/classes/Tactical/Tactical_Set_View_Point_006a6640.cpp",
-    "cause": "held by population-4156; not joined: its population changes when it leaves (006a66b0)"
+    "cause": "held by population-4156; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -19582,6 +19575,22 @@
   "residuals": [
    {
     "kind": "split",
+    "entry": "006da6e0",
+    "bytes": 621,
+    "population": "population-4341",
+    "source": "src/recovered/classes/TechnoTypeClass/TechnoTypeClass_noinit_constructor_006da6e0.cpp",
+    "cause": "frozen in another population's inventory pass (population-4341)"
+   },
+   {
+    "kind": "split",
+    "entry": "006da950",
+    "bytes": 852,
+    "population": "population-4341",
+    "source": "src/recovered/classes/TechnoTypeClass/Destructor.cpp",
+    "cause": "frozen in another population's inventory pass (population-4341)"
+   },
+   {
+    "kind": "split",
     "entry": "006df9e0",
     "bytes": 136,
     "population": "population-1621",
@@ -19981,7 +19990,7 @@
     "bytes": 43,
     "population": "population-3086",
     "source": "src/recovered/classes/ScoreFontClass/ScoreFontClass_default_constructor_00667840.cpp",
-    "cause": "held by population-3086; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+    "cause": "held by population-3086; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -19989,7 +19998,7 @@
     "bytes": 61,
     "population": "population-3086",
     "source": "src/recovered/classes/ScoreFontClass/ScoreFontClass_constructor_00667870.cpp",
-    "cause": "held by population-3086; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+    "cause": "held by population-3086; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -19997,7 +20006,7 @@
     "bytes": 76,
     "population": "population-3086",
     "source": "src/recovered/classes/ScoreFontClass/Destructor.cpp",
-    "cause": "held by population-3086; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+    "cause": "held by population-3086; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -20021,7 +20030,7 @@
     "bytes": 185,
     "population": "population-3086",
     "source": "src/recovered/classes/ScoreFontClass/Char_Pixel_Width.cpp",
-    "cause": "held by population-3086; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+    "cause": "held by population-3086; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -20029,7 +20038,7 @@
     "bytes": 257,
     "population": "population-3086",
     "source": "src/recovered/classes/ScoreFontClass/Print_Char.cpp",
-    "cause": "held by population-3086; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+    "cause": "held by population-3086; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -20037,7 +20046,7 @@
     "bytes": 336,
     "population": "population-3086",
     "source": "src/recovered/classes/ScoreFontClass/Print.cpp",
-    "cause": "held by population-3086; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+    "cause": "held by population-3086; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -20085,7 +20094,7 @@
     "bytes": 96,
     "population": "population-3086",
     "source": "src/recovered/classes/ScoreFontClass/Scalar_Deleting_Destructor.cpp",
-    "cause": "frozen in another population's inventory pass (population-3086)"
+    "cause": "held by population-3086; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -20093,7 +20102,7 @@
     "bytes": 96,
     "population": "population-3086",
     "source": "src/recovered/classes/ScoreFullFontClass/Scalar_Deleting_Destructor.cpp",
-    "cause": "frozen in another population's inventory pass (population-3086)"
+    "cause": "held by population-3086; not joined: differs under the unit's state (Function symbol ambiguous/missing: ??_GScoreFullFontClass@@UAEPAXI@Z)"
    },
    {
     "kind": "split",
@@ -20101,7 +20110,7 @@
     "bytes": 96,
     "population": "population-3086",
     "source": "src/recovered/classes/ScoreBigFontClass/Scalar_Deleting_Destructor.cpp",
-    "cause": "frozen in another population's inventory pass (population-3086)"
+    "cause": "held by population-3086; not joined: differs under the unit's state (Function symbol ambiguous/missing: ??_GScoreBigFontClass@@UAEPAXI@Z)"
    }
   ],
   "unit_functions": 66
@@ -22526,7 +22535,16 @@
     "unit_evidence": "xcu-prefix"
    }
   ],
-  "residuals": [],
+  "residuals": [
+   {
+    "kind": "split",
+    "entry": "00424e30",
+    "bytes": 771,
+    "population": "population-3599",
+    "source": "src/recovered/classes/AnimTypeClass/Constructor.cpp",
+    "cause": "frozen in another population's inventory pass (population-3599)"
+   }
+  ],
   "unit_functions": 24
  },
  "wolpersonainformation": {
@@ -23498,58 +23516,51 @@
     "population": "population-16",
     "bound": "own frozen bound (population-16)",
     "options": "joined under the unit's /GR (frozen without it)"
-   }
-  ],
-  "residuals": [
+   },
    {
-    "kind": "split",
     "entry": "00730310",
     "bytes": 11,
     "population": "population-2913",
-    "source": "src/recovered/wdtsel/rc_ptr_dtor.cpp",
-    "cause": "frozen in another population's inventory pass (population-2913)"
+    "bound": "own frozen bound (population-2913)",
+    "options": "joined under the unit's /GR (frozen without it)"
    },
    {
-    "kind": "split",
     "entry": "00730360",
     "bytes": 14,
     "population": "population-42",
-    "source": "src/recovered/wdtsel/unknown_in_range.cpp",
-    "cause": "frozen in another population's inventory pass (population-42)"
+    "bound": "own frozen bound (population-42)",
+    "options": "joined under the unit's /GR (frozen without it)"
    },
    {
-    "kind": "split",
     "entry": "00730390",
     "bytes": 14,
     "population": "population-42",
-    "source": "src/recovered/classes/VectorCursor_rc_ptr_WorldDominationTour__Territory_DynamicVectorClass_rc_ptr_WorldDominationTour__Territory/unknown_in_range.cpp",
-    "cause": "frozen in another population's inventory pass (population-42)"
+    "bound": "own frozen bound (population-42)",
+    "options": "joined under the unit's /GR (frozen without it)"
    },
    {
-    "kind": "split",
     "entry": "007303a0",
     "bytes": 14,
     "population": "population-130",
-    "source": "src/recovered/classes/VectorCursor_MSAnim_ptr_DynamicVectorClass_MSAnim_ptr/unknown_in_range.cpp",
-    "cause": "frozen in another population's inventory pass (population-130)"
+    "bound": "own frozen bound (population-130)",
+    "options": "joined under the unit's /GR (frozen without it)"
    },
    {
-    "kind": "split",
     "entry": "007303d0",
     "bytes": 32,
     "population": "population-66",
-    "source": "src/recovered/classes/VectorCursor_rc_ptr_WorldDominationTour__Territory_DynamicVectorClass_rc_ptr_WorldDominationTour__Territory/scalar_deleting_destructor.cpp",
-    "cause": "frozen in another population's inventory pass (population-66)"
+    "bound": "own frozen bound (population-66)",
+    "options": "joined under the unit's /GR (frozen without it)"
    },
    {
-    "kind": "split",
     "entry": "007303f0",
     "bytes": 32,
     "population": "population-66",
-    "source": "src/recovered/classes/VectorCursor_MSAnim_ptr_DynamicVectorClass_MSAnim_ptr/scalar_deleting_destructor.cpp",
-    "cause": "frozen in another population's inventory pass (population-66)"
+    "bound": "own frozen bound (population-66)",
+    "options": "joined under the unit's /GR (frozen without it)"
    }
   ],
+  "residuals": [],
   "unit_functions": 70
  },
  "mpmath": {
@@ -24597,6 +24608,12 @@
     "population": "population-03",
     "bound": "own frozen bound (population-03)",
     "options": "joined under the unit's /GR (frozen without it)"
+   },
+   {
+    "entry": "00605da0",
+    "bytes": 136,
+    "population": "population-4487",
+    "bound": "own frozen bound (population-4487)"
    }
   ],
   "residuals": [
@@ -24679,14 +24696,6 @@
     "population": "population-36",
     "source": "src/recovered/containers/ConstructArrayStorageExtension_006051f0.cpp",
     "cause": "frozen in another population's inventory pass (population-36)"
-   },
-   {
-    "kind": "split",
-    "entry": "00605da0",
-    "bytes": 136,
-    "population": "population-35",
-    "source": "src/recovered/containers/ConstructElementStorage_00605da0.cpp",
-    "cause": "frozen in another population's inventory pass (population-35)"
    }
   ],
   "unit_functions": 79
@@ -26345,6 +26354,20 @@
     "population": "population-42",
     "bound": "own frozen bound (population-42)",
     "options": "joined under the unit's /GR (frozen without it)"
+   },
+   {
+    "entry": "006c0830",
+    "bytes": 84,
+    "population": "population-3308",
+    "bound": "own frozen bound (population-3308)",
+    "options": "joined under the unit's /GR (frozen without it)"
+   },
+   {
+    "entry": "006c0890",
+    "bytes": 59,
+    "population": "population-3308",
+    "bound": "own frozen bound (population-3308)",
+    "options": "joined under the unit's /GR (frozen without it)"
    }
   ],
   "residuals": [
@@ -26403,22 +26426,6 @@
     "population": "population-2685",
     "source": "src/recovered/classes/DynamicVectorClass_AITriggerTypeDistribution/Add.cpp",
     "cause": "frozen in another population's inventory pass (population-2685)"
-   },
-   {
-    "kind": "split",
-    "entry": "006c0830",
-    "bytes": 84,
-    "population": "population-3308",
-    "source": "src/recovered/classes/VectorClass_DiscreteDistributionClass_AITriggerTypeClass___DistributionObject_AITriggerTypeClass_ptr/Scalar_Deleting_Destructor.cpp",
-    "cause": "frozen in another population's inventory pass (population-3308)"
-   },
-   {
-    "kind": "split",
-    "entry": "006c0890",
-    "bytes": 59,
-    "population": "population-3308",
-    "source": "src/recovered/classes/AITriggerTypeDistribution/Vector_Deleting_Destructor.cpp",
-    "cause": "frozen in another population's inventory pass (population-3308)"
    },
    {
     "kind": "split",
@@ -30892,6 +30899,66 @@
     "population": "population-12",
     "bound": "own frozen bound (population-12)",
     "options": "joined under the unit's /GR (frozen without it)"
+   },
+   {
+    "entry": "0040f3c0",
+    "bytes": 42,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040f3f0",
+    "bytes": 27,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040f410",
+    "bytes": 13,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040f420",
+    "bytes": 62,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040f460",
+    "bytes": 174,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040f510",
+    "bytes": 39,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040f540",
+    "bytes": 51,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040f580",
+    "bytes": 27,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040f5a0",
+    "bytes": 176,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040f650",
+    "bytes": 38,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
    }
   ],
   "residuals": [],
@@ -34673,6 +34740,66 @@
     "bound": "the unit's compile group (population-3779)",
     "placed": "append",
     "unit_evidence": "xcu single"
+   },
+   {
+    "entry": "0040c710",
+    "bytes": 42,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040c740",
+    "bytes": 27,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040c760",
+    "bytes": 13,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040c770",
+    "bytes": 62,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040c7b0",
+    "bytes": 174,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040c860",
+    "bytes": 39,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040c890",
+    "bytes": 51,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040c8d0",
+    "bytes": 27,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040c8f0",
+    "bytes": 176,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
+   },
+   {
+    "entry": "0040c9a0",
+    "bytes": 38,
+    "population": "population-4442",
+    "bound": "own frozen bound (population-4442)"
    }
   ],
   "residuals": [],
@@ -34944,7 +35071,88 @@
     "options": "joined under the unit's /GR (frozen without it)"
    }
   ],
-  "residuals": [],
+  "residuals": [
+   {
+    "kind": "split",
+    "entry": "0040d410",
+    "bytes": 42,
+    "population": "population-4442",
+    "source": "src/recovered/classes/DynamicVectorClass_MixFileClass_ptr/Clear.cpp",
+    "cause": "frozen in another population's inventory pass (population-4442)"
+   },
+   {
+    "kind": "split",
+    "entry": "0040d440",
+    "bytes": 27,
+    "population": "population-4442",
+    "source": "src/recovered/classes/DynamicVectorClass_MixFileClass_ptr/DynamicVectorClass_MixFileClass_ptr_ID_pointer_0040d440.cpp",
+    "cause": "frozen in another population's inventory pass (population-4442)"
+   },
+   {
+    "kind": "split",
+    "entry": "0040d460",
+    "bytes": 13,
+    "population": "population-4442",
+    "source": "src/recovered/classes/VectorClass_MixFileClass_ptr/Fetch.cpp",
+    "cause": "frozen in another population's inventory pass (population-4442)"
+   },
+   {
+    "kind": "split",
+    "entry": "0040d470",
+    "bytes": 62,
+    "population": "population-4442",
+    "source": "src/recovered/classes/VectorClass_MixFileClass_ptr/operator_equal.cpp",
+    "cause": "frozen in another population's inventory pass (population-4442)"
+   },
+   {
+    "kind": "split",
+    "entry": "0040d4b0",
+    "bytes": 174,
+    "population": "population-4442",
+    "source": "src/recovered/classes/VectorClass_MixFileClass_ptr/Resize.cpp",
+    "cause": "frozen in another population's inventory pass (population-4442)"
+   },
+   {
+    "kind": "split",
+    "entry": "0040d560",
+    "bytes": 39,
+    "population": "population-4442",
+    "source": "src/recovered/classes/VectorClass_MixFileClass_ptr/Clear.cpp",
+    "cause": "frozen in another population's inventory pass (population-4442)"
+   },
+   {
+    "kind": "split",
+    "entry": "0040d590",
+    "bytes": 51,
+    "population": "population-4442",
+    "source": "src/recovered/classes/VectorClass_MixFileClass_ptr/VectorClass_MixFileClass_ptr_ID_object_0040d590.cpp",
+    "cause": "frozen in another population's inventory pass (population-4442)"
+   },
+   {
+    "kind": "split",
+    "entry": "0040d5d0",
+    "bytes": 27,
+    "population": "population-4442",
+    "source": "src/recovered/classes/VectorClass_MixFileClass_ptr/VectorClass_MixFileClass_ptr_ID_pointer_0040d5d0.cpp",
+    "cause": "frozen in another population's inventory pass (population-4442)"
+   },
+   {
+    "kind": "split",
+    "entry": "0040d5f0",
+    "bytes": 176,
+    "population": "population-4442",
+    "source": "src/recovered/classes/DynamicVectorClass_MixFileClass_ptr/Resize.cpp",
+    "cause": "frozen in another population's inventory pass (population-4442)"
+   },
+   {
+    "kind": "split",
+    "entry": "0040d6a0",
+    "bytes": 38,
+    "population": "population-4442",
+    "source": "src/recovered/classes/DynamicVectorClass_MixFileClass_ptr/DynamicVectorClass_MixFileClass_ptr_ID_object_0040d6a0.cpp",
+    "cause": "frozen in another population's inventory pass (population-4442)"
+   }
+  ],
   "unit_functions": 9
  },
  "link": {
@@ -35962,6 +36170,13 @@
     "population": "population-3817",
     "bound": "own frozen bound (population-3817)",
     "options": "joined under the unit's /GR (frozen without it)"
+   },
+   {
+    "entry": "004b5690",
+    "bytes": 176,
+    "population": "population-1706",
+    "bound": "own frozen bound (population-1706)",
+    "options": "joined under the unit's /GR (frozen without it)"
    }
   ],
   "residuals": [
@@ -36012,14 +36227,6 @@
     "population": "population-11",
     "source": "src/recovered/address_offsets/GetGuardedScaledOffset_004b5670.cpp",
     "cause": "frozen in another population's inventory pass (population-11)"
-   },
-   {
-    "kind": "split",
-    "entry": "004b5690",
-    "bytes": 176,
-    "population": "population-1706",
-    "source": "src/recovered/classes/DynamicVectorClass_EMPulseClass_ptr/Resize.cpp",
-    "cause": "frozen in another population's inventory pass (population-1706)"
    },
    {
     "kind": "split",
@@ -36521,7 +36728,16 @@
     "unit_evidence": "xcu-prefix"
    }
   ],
-  "residuals": [],
+  "residuals": [
+   {
+    "kind": "split",
+    "entry": "0063a690",
+    "bytes": 481,
+    "population": "population-4296",
+    "source": "src/recovered/Reinf/Create_Air_Reinforcement.cpp",
+    "cause": "frozen in another population's inventory pass (population-4296)"
+   }
+  ],
   "unit_functions": 5
  },
  "droppod": {
@@ -43130,7 +43346,7 @@
     "bytes": 105,
     "population": "population-4337",
     "source": "src/recovered/txtlabel2/Unknown_Load_Loading_Palettes.cpp",
-    "cause": "held by population-4337; not joined: its population changes when it leaves (006f4620)"
+    "cause": "held by population-4337; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -43234,7 +43450,7 @@
     "bytes": 127,
     "population": "population-4337",
     "source": "src/recovered/txtlabel2/Unknown_Load_MP_Score_Art.cpp",
-    "cause": "held by population-4337; not joined: its population changes when it leaves (006f4620)"
+    "cause": "held by population-4337; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -43266,7 +43482,7 @@
     "bytes": 90,
     "population": "population-4337",
     "source": "src/recovered/unowned/Unknown_Load_Backdrop_006f2b50.cpp",
-    "cause": "held by population-4337; not joined: its population changes when it leaves (006f4620)"
+    "cause": "held by population-4337; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -43426,7 +43642,7 @@
     "bytes": 72,
     "population": "population-4337",
     "source": "src/recovered/txtlabel2/Unknown_Init_Sidebar_Art.cpp",
-    "cause": "held by population-4337; not joined: its population changes when it leaves (006f4620)"
+    "cause": "held by population-4337; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",
@@ -43466,7 +43682,7 @@
     "bytes": 43,
     "population": "population-4337",
     "source": "src/recovered/txtlabel2/Unknown_Load_Art_Pairs.cpp",
-    "cause": "held by population-4337; not joined: its population changes when it leaves (006f4620)"
+    "cause": "held by population-4337; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
    },
    {
     "kind": "split",

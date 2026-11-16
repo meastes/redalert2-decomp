@@ -961,6 +961,51 @@ class Leaf_730330 { public: unsigned int get(); };
 unsigned int Leaf_730330::get() { unsigned int self = (unsigned int)this; unsigned int result; unsigned int spare; result = *(unsigned int*)(self + 4); return result; }
 
 
+// 0x00730310: function not yet identified
+//
+// Body: 11 bytes (frozen inventory bound).
+// Referenced from 5 sites (unconditional call).
+// Ghidra prototype: void __fastcall rc_ptr_dtor_00730310(undefined4 *param_1)
+//
+// Types and names are Ghidra placeholders;
+// rename and retype as the purpose becomes known.
+//
+
+namespace seed_00730310 {
+
+extern void __fastcall rc_ptr_base_dtor_00639510(void);
+extern "C" void* rc_ptr_vtable_007af27c;
+
+void __fastcall rc_ptr_dtor_00730310(unsigned int *self)
+{
+    *self = (unsigned int)(&rc_ptr_vtable_007af27c);
+    rc_ptr_base_dtor_00639510();
+    return;
+}
+
+}  // namespace seed_00730310
+
+
+// 0x00730360: function not yet identified
+//
+// Body: 14 bytes (frozen inventory bound).
+// Referenced from 15 sites (computed call, data).
+// Ghidra prototype: bool __fastcall unknown_in_range_00730360(int param_1)
+//
+// Types and names are Ghidra placeholders;
+// rename and retype as the purpose becomes known.
+//
+
+namespace seed_00730360 {
+
+bool __fastcall unknown_in_range_00730360(int self)
+{
+    return *(unsigned int *)(self + 8) < *(unsigned int *)(*(int *)(self + 4) + 0x10);
+}
+
+}  // namespace seed_00730360
+
+
 // VectorCursor<rc_ptr<WorldDominationTour::Territory>, DynamicVectorClass<...>>::VectorCursor(V &, unsigned)
 // (0x00730370): the out-of-line copy of the inline constructor (shared/vector_cursor.hpp) that this
 // unit's territory walks call (Selection destructor 0x0072D990); no source of its own.
@@ -1003,3 +1048,111 @@ void* Storage_730470::get(unsigned int requested,unsigned int* buffer) { items=0
 extern "C" unsigned char table_7304c0[]; extern "C" void* __cdecl storage_7304c0(unsigned int);
 class Storage_7304c0 { unsigned int table_word; unsigned int* items; unsigned int count; unsigned char valid; unsigned char owns; public: void* get(unsigned int requested,unsigned int* buffer); };
 void* Storage_7304c0::get(unsigned int requested,unsigned int* buffer) { items=0; count=requested; valid=1; owns=0; table_word=(unsigned int)table_7304c0; if(requested) { if(buffer) { items=buffer; return this; } items=(unsigned int*)storage_7304c0(requested << 2); owns=1; } return this; }
+
+
+// 0x00730390: function not yet identified
+//
+// Owner: VectorCursor<rc_ptr<WorldDominationTour::Territory>, DynamicVectorClass<rc_ptr<WorldDominationTour::Territory>>>, virtual slot 1 (vtable +0x4) (from RTTI/vtables).
+// Body: 14 bytes (frozen inventory bound).
+// Referenced from 4 sites (computed call, data).
+// Ghidra prototype: bool __fastcall unknown_in_range_00730390(int param_1)
+//
+// Types and names are Ghidra placeholders;
+// rename and retype as the purpose becomes known.
+//
+
+namespace seed_00730390 {
+
+bool __fastcall unknown_in_range_00730390(int self)
+{
+    return *(unsigned int *)(self + 8) < *(unsigned int *)(*(int *)(self + 4) + 0x10);
+}
+
+}  // namespace seed_00730390
+
+
+// 0x007303a0: function not yet identified
+//
+// Owner: VectorCursor<MSAnim *, DynamicVectorClass<MSAnim *>>, virtual slot 1 (vtable +0x4) (from RTTI/vtables).
+// Body: 14 bytes (frozen inventory bound).
+// Referenced from 3 sites (computed call, data).
+// Ghidra prototype: bool __fastcall unknown_in_range_007303a0(int param_1)
+//
+// Types and names are Ghidra placeholders;
+// rename and retype as the purpose becomes known.
+//
+
+namespace seed_007303a0 {
+
+bool __fastcall unknown_in_range_007303a0(int self)
+{
+    return *(unsigned int *)(self + 8) < *(unsigned int *)(*(int *)(self + 4) + 0x10);
+}
+
+}  // namespace seed_007303a0
+
+
+// 0x007303d0: function not yet identified
+//
+// Owner: VectorCursor<rc_ptr<WorldDominationTour::Territory>, DynamicVectorClass<rc_ptr<WorldDominationTour::Territory>>>, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
+// Body: 32 bytes (frozen inventory bound).
+// Referenced from 1 site (data).
+// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_007303d0(undefined4 *param_1,byte param_2)
+// Callees with accepted source:
+//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//
+// Types and names are Ghidra placeholders;
+// rename and retype as the purpose becomes known.
+//
+
+namespace seed_007303d0 {
+
+extern void  operator_delete_00781d3b(unsigned int);
+extern "C" void* VectorCursor_vtable_007af390;
+
+struct Owner_007303d0 { unsigned int * scalar_deleting_destructor_007303d0(unsigned char flags); };
+
+unsigned int * Owner_007303d0::scalar_deleting_destructor_007303d0(unsigned char flags)
+{
+    unsigned int * self = (unsigned int *)this;
+    *self = (unsigned int)(&VectorCursor_vtable_007af390);
+    if ((flags & 1) != 0) {
+        operator_delete_00781d3b((unsigned int)(self));
+    }
+    return self;
+}
+
+}  // namespace seed_007303d0
+
+
+// 0x007303f0: function not yet identified
+//
+// Owner: VectorCursor<MSAnim *, DynamicVectorClass<MSAnim *>>, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
+// Body: 32 bytes (frozen inventory bound).
+// Referenced from 1 site (data).
+// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_007303f0(undefined4 *param_1,byte param_2)
+// Callees with accepted source:
+//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//
+// Types and names are Ghidra placeholders;
+// rename and retype as the purpose becomes known.
+//
+
+namespace seed_007303f0 {
+
+extern void  operator_delete_00781d3b(unsigned int);
+extern "C" void* VectorCursor_vtable_007af3a4;
+
+struct Owner_007303f0 { unsigned int * scalar_deleting_destructor_007303f0(unsigned char flags); };
+
+unsigned int * Owner_007303f0::scalar_deleting_destructor_007303f0(unsigned char flags)
+{
+    unsigned int * self = (unsigned int *)this;
+    *self = (unsigned int)(&VectorCursor_vtable_007af3a4);
+    if ((flags & 1) != 0) {
+        operator_delete_00781d3b((unsigned int)(self));
+    }
+    return self;
+}
+
+}  // namespace seed_007303f0

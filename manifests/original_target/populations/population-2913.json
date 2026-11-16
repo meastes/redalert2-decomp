@@ -4,8 +4,8 @@
     "id": "population-2913",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "d64e43513a14fec300ba6c0b1d8203a4eaacf9dbc02a791d4733bbbe9bde8aba",
-    "historical_acceptance_sha256": "c2a9255e51595209f3d9c337a80d233d3d18664ba1a5a53366c7157bd8c95748",
+    "historical_population_sha256": "441d71527df50ffe2addce732f6ab9db884e46cf13ca6941cdb8da6198d43f6f",
+    "historical_acceptance_sha256": "64bdd67a093571e2effa86f857e521bbcc888e5396c4f44256278f6a9282e2e0",
     "separate_units": true
   },
   "references": {
@@ -7991,48 +7991,6 @@
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
       "source_order": 111470
-    },
-    {
-      "entry": 7537424,
-      "method": "00730310",
-      "symbol": "?rc_ptr_dtor_00730310@seed_00730310@@YIXPAI@Z",
-      "symbol_prefix": "?rc_ptr_dtor_00730310@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 11,
-      "body_sha256": "e68cbcbff92c65cd7ea942cfb5226a0ecea586d9caf9d7288934d3015c59e133",
-      "padding_bytes": 5,
-      "full_extent_bytes": 16,
-      "full_extent_sha256": "f61a95e9b85e20c325efa59b746eaa837e38f499820195c7c1d151c2db7dcb80",
-      "relocations": [
-        {
-          "offset": 2,
-          "kind": 6,
-          "symbol": "_rc_ptr_vtable_007af27c",
-          "target": 8057468,
-          "addend": 0,
-          "resolved": 8057468
-        },
-        {
-          "offset": 7,
-          "kind": 20,
-          "symbol": "?rc_ptr_base_dtor_00639510@seed_00730310@@YIXXZ",
-          "target": 6526224,
-          "addend": 0,
-          "resolved": 4293956085
-        }
-      ],
-      "source_sha256": "c5b164896387b5ee0c135b2ea81919b494fbdb579132c8a65bc9644ba2d7003b",
-      "source": "src/recovered/wdtsel/rc_ptr_dtor.cpp",
-      "population": "population-2913",
-      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "hand-written",
-      "source_order": 111477
     },
     {
       "entry": 7940820,

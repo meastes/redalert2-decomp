@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 859,
+ "compile_group": 856,
  "code": [
   {
    "symbol": "_$E2",
@@ -1874,7 +1874,7 @@
    "bytes": 43,
    "population": "population-3086",
    "source": "src/recovered/classes/ScoreFontClass/ScoreFontClass_default_constructor_00667840.cpp",
-   "cause": "held by population-3086; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+   "cause": "held by population-3086; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -1882,7 +1882,7 @@
    "bytes": 61,
    "population": "population-3086",
    "source": "src/recovered/classes/ScoreFontClass/ScoreFontClass_constructor_00667870.cpp",
-   "cause": "held by population-3086; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+   "cause": "held by population-3086; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -1890,7 +1890,7 @@
    "bytes": 76,
    "population": "population-3086",
    "source": "src/recovered/classes/ScoreFontClass/Destructor.cpp",
-   "cause": "held by population-3086; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+   "cause": "held by population-3086; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -1914,7 +1914,7 @@
    "bytes": 185,
    "population": "population-3086",
    "source": "src/recovered/classes/ScoreFontClass/Char_Pixel_Width.cpp",
-   "cause": "held by population-3086; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+   "cause": "held by population-3086; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -1922,7 +1922,7 @@
    "bytes": 257,
    "population": "population-3086",
    "source": "src/recovered/classes/ScoreFontClass/Print_Char.cpp",
-   "cause": "held by population-3086; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+   "cause": "held by population-3086; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -1930,7 +1930,7 @@
    "bytes": 336,
    "population": "population-3086",
    "source": "src/recovered/classes/ScoreFontClass/Print.cpp",
-   "cause": "held by population-3086; not joined: its population changes when it leaves (00402990, 00601450, 00601470, 00667dc0)"
+   "cause": "held by population-3086; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -1978,7 +1978,7 @@
    "bytes": 96,
    "population": "population-3086",
    "source": "src/recovered/classes/ScoreFontClass/Scalar_Deleting_Destructor.cpp",
-   "cause": "frozen in another population's inventory pass (population-3086)"
+   "cause": "held by population-3086; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -1986,7 +1986,7 @@
    "bytes": 96,
    "population": "population-3086",
    "source": "src/recovered/classes/ScoreFullFontClass/Scalar_Deleting_Destructor.cpp",
-   "cause": "frozen in another population's inventory pass (population-3086)"
+   "cause": "held by population-3086; not joined: differs under the unit's state (Function symbol ambiguous/missing: ??_GScoreFullFontClass@@UAEPAXI@Z)"
   },
   {
    "kind": "split",
@@ -1994,7 +1994,7 @@
    "bytes": 96,
    "population": "population-3086",
    "source": "src/recovered/classes/ScoreBigFontClass/Scalar_Deleting_Destructor.cpp",
-   "cause": "frozen in another population's inventory pass (population-3086)"
+   "cause": "held by population-3086; not joined: differs under the unit's state (Function symbol ambiguous/missing: ??_GScoreBigFontClass@@UAEPAXI@Z)"
   }
  ],
  "unit_functions": 66,

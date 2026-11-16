@@ -11826,6 +11826,12 @@ class Leaf_56ae90 { public: void* get(unsigned int flags); };
 void* Leaf_56ae90::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_56ae90; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_56ae90((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_56ae90(this); return this; }
 
 
+// ZoneConnectionClass::ZoneConnectionClass() (0x0056B460): the inline
+// constructor defined in shared/map_elements.hpp, emitted in this unit with
+// the DynamicVectorClass<ZoneConnectionClass>::Resize that calls it; no
+// source of its own.
+
+
 // Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):
 // VectorClass<CellClass *>::Fetch (0x0056ACD0; VectorClass<CellClass *> vtable 0x007a59b8 slot 6).
 // DynamicVectorClass<HashObject<unsigned int, unsigned int>>::Clear (0x0056AD40; DynamicVectorClass<HashObject<unsigned int, unsigned int>> vtable 0x007a5a78 slot 3).

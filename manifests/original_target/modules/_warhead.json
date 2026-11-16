@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 743,
+ "compile_group": 741,
  "code": [
   {
    "symbol": "?Warhead_From_Name@@YIHPBD@Z",
@@ -25,6 +25,66 @@
    "padding_bytes": 4
   },
   {
+   "symbol": "?Clear@?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEXXZ",
+   "entry": "0040f3c0",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEHPBQAVWarheadTypeClass@@@Z",
+   "entry": "0040f3f0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PAVWarheadTypeClass@@@@UBEPAVWarheadTypeClass@@H@Z",
+   "entry": "0040f410",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??8?$VectorClass@PAVWarheadTypeClass@@@@UBE_NABV0@@Z",
+   "entry": "0040f420",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PAVWarheadTypeClass@@@@UAE_NHPBQAVWarheadTypeClass@@@Z",
+   "entry": "0040f460",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@PAVWarheadTypeClass@@@@UAEXXZ",
+   "entry": "0040f510",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVWarheadTypeClass@@@@UAEHABQAVWarheadTypeClass@@@Z",
+   "entry": "0040f540",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVWarheadTypeClass@@@@UAEHPBQAVWarheadTypeClass@@@Z",
+   "entry": "0040f580",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAE_NHPBQAVWarheadTypeClass@@@Z",
+   "entry": "0040f5a0",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEHABQAVWarheadTypeClass@@@Z",
+   "entry": "0040f650",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
    "symbol": "??_G?$VectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z",
    "entry": "0040f680",
    "body_bytes": 73,
@@ -37,7 +97,7 @@
    "padding_bytes": 7
   }
  ],
- "code_bytes": 368,
+ "code_bytes": 1072,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -421,6 +481,66 @@
    "population": "population-12",
    "bound": "own frozen bound (population-12)",
    "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0040f3c0",
+   "bytes": 42,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040f3f0",
+   "bytes": 27,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040f410",
+   "bytes": 13,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040f420",
+   "bytes": 62,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040f460",
+   "bytes": 174,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040f510",
+   "bytes": 39,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040f540",
+   "bytes": 51,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040f580",
+   "bytes": 27,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040f5a0",
+   "bytes": 176,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040f650",
+   "bytes": 38,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
   }
  ],
  "residuals": [],

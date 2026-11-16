@@ -4,8 +4,8 @@
     "id": "population-1642",
     "inventory_sha256": "0933c53798ded41043a14dd9aa2477a34fdbd7609771c87cf964fccf825a2a42",
     "gaps_sha256": "d848eea4214bb28c137d691b8e4d40698e8f7107ae953e9f7c67c646814321ec",
-    "historical_population_sha256": "c8525154a8d442815b759e8fee34a774da9c0ecfd5d3cdcda23f56c27e8719d8",
-    "historical_acceptance_sha256": "0cd8330f786b140dc8027df157c4a800448ce0554eff1c27f2a0b253c67d346e",
+    "historical_population_sha256": "a69a38defdb3e8c517e20bcb73e8f72ad6cd12f97f5a444a4fa660cc2dc9d901",
+    "historical_acceptance_sha256": "7ab3c1de3bb89e4cedca1a2c8ab4df0e014fe27203d23d027e5292a41c815e76",
     "separate_units": true
   },
   "references": {
@@ -6190,73 +6190,6 @@
       "source_quality_family": "hand-written",
       "semantic_name": "write_views_to_ini",
       "source_order": 55638
-    },
-    {
-      "entry": 7585968,
-      "method": "0073c0b0",
-      "symbol": "?unknown_can_send_chat@@YI_NPBUUnknownFlags_0073c0b0@@ABVWideString@@@Z",
-      "symbol_prefix": "?unknown_can_send_chat@@YI_NPBUUnknownFlags_0073c0b0@@ABVWideString@@@Z",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 97,
-      "body_sha256": "3c6bb9cf3147ab92e186487adf10091b19e9fd322781745f004bf33a0df48059",
-      "padding_bytes": 15,
-      "full_extent_bytes": 112,
-      "full_extent_sha256": "dddb121fcb155292a88b53346483b0296024ae4a5462395ce6165c2368ef3ec0",
-      "relocations": [
-        {
-          "offset": 26,
-          "kind": 20,
-          "symbol": "?WS_Find_Dialog_00735940@@YIPAUHWND__@@H@Z",
-          "target": 7559488,
-          "addend": 0,
-          "resolved": 4294940786
-        },
-        {
-          "offset": 44,
-          "kind": 20,
-          "symbol": "?WS_Find_Dialog_00735940@@YIPAUHWND__@@H@Z",
-          "target": 7559488,
-          "addend": 0,
-          "resolved": 4294940768
-        },
-        {
-          "offset": 59,
-          "kind": 20,
-          "symbol": "?Is_Narrow@WideString@@QBE_NXZ",
-          "target": 7803008,
-          "addend": 0,
-          "resolved": 216977
-        },
-        {
-          "offset": 69,
-          "kind": 6,
-          "symbol": "?unknown_b2a7e8@@3HA",
-          "target": 11708392,
-          "addend": 0,
-          "resolved": 11708392
-        },
-        {
-          "offset": 84,
-          "kind": 6,
-          "symbol": "?unknown_b2a804@@3HA",
-          "target": 11708420,
-          "addend": 0,
-          "resolved": 11708420
-        }
-      ],
-      "source_sha256": "502165b8284e7994080e16d728bd2a4b7ead9cd47051644eb478ff97b91dc879",
-      "source": "src/recovered/wonline/unknown_can_send_chat.cpp",
-      "population": "population-1642",
-      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "hand-written",
-      "semantic_name": "unknown_can_send_chat",
-      "source_order": 55640
     }
   ]
 }

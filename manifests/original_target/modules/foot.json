@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 867,
+ "compile_group": 864,
  "code": [
   {
    "symbol": "_$E2",
@@ -1051,6 +1051,24 @@
    "padding_bytes": 7
   },
   {
+   "symbol": "??_G?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEPAXI@Z",
+   "entry": "004cea90",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??_E?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@QAEPAXI@Z",
+   "entry": "004ceaf0",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEPAXI@Z",
+   "entry": "004ceb30",
+   "body_bytes": 84,
+   "padding_bytes": 12
+  },
+  {
    "symbol": "?get@Storage_4ceb90@@QAEPAXIPAI@Z",
    "entry": "004ceb90",
    "body_bytes": 74,
@@ -1063,7 +1081,7 @@
    "padding_bytes": 15
   }
  ],
- "code_bytes": 49264,
+ "code_bytes": 49520,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -3533,20 +3551,12 @@
    "address": "004cea40"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEPAXI@Z",
-   "address": "004ceb30"
-  },
-  {
    "symbol": "??_G?$VectorClass@PAVAbstractClass@@@@UAEPAXI@Z",
    "address": "004cdf90"
   },
   {
    "symbol": "??_G?$VectorClass@PAVFootClass@@@@UAEPAXI@Z",
    "address": "004ce9f0"
-  },
-  {
-   "symbol": "??_G?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEPAXI@Z",
-   "address": "004cea90"
   },
   {
    "symbol": "??_GFootClass@@UAEPAXI@Z",
@@ -5716,6 +5726,27 @@
    "bound": "own frozen bound (population-19)",
    "options": "joined under the unit's /GR (frozen without it)",
    "emitted": "container member DynamicVectorClass<AbstractClass *>::Add (shared/vector_class.hpp)"
+  },
+  {
+   "entry": "004cea90",
+   "bytes": 84,
+   "population": "population-3307",
+   "bound": "own frozen bound (population-3307)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "004ceaf0",
+   "bytes": 59,
+   "population": "population-3307",
+   "bound": "own frozen bound (population-3307)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "004ceb30",
+   "bytes": 84,
+   "population": "population-3307",
+   "bound": "own frozen bound (population-3307)",
+   "options": "joined under the unit's /GR (frozen without it)"
   }
  ],
  "residuals": [
@@ -5806,30 +5837,6 @@
    "population": "population-4442",
    "source": "src/recovered/classes/DynamicVectorClass_CellDistribution/DynamicVectorClass_CellDistribution_ID_object_004ce9b0.cpp",
    "cause": "frozen in another population's inventory pass (population-4442)"
-  },
-  {
-   "kind": "split",
-   "entry": "004cea90",
-   "bytes": 84,
-   "population": "population-3307",
-   "source": "src/recovered/classes/VectorClass_CellDistribution/Scalar_Deleting_Destructor.cpp",
-   "cause": "frozen in another population's inventory pass (population-3307)"
-  },
-  {
-   "kind": "split",
-   "entry": "004ceaf0",
-   "bytes": 59,
-   "population": "population-3307",
-   "source": "src/recovered/classes/CellDistribution/Vector_Deleting_Destructor.cpp",
-   "cause": "frozen in another population's inventory pass (population-3307)"
-  },
-  {
-   "kind": "split",
-   "entry": "004ceb30",
-   "bytes": 84,
-   "population": "population-3307",
-   "source": "src/recovered/classes/DynamicVectorClass_DiscreteDistributionClass_CellClass___DistributionObject_CellClass_ptr/Scalar_Deleting_Destructor.cpp",
-   "cause": "frozen in another population's inventory pass (population-3307)"
   }
  ],
  "unit_functions": 191,
@@ -6121,8 +6128,8 @@
  ],
  "stand_in_reference_count": 45,
  "residual_split": {
-  "rows": 14,
-  "bytes": 1127
+  "rows": 11,
+  "bytes": 900
  },
  "residual_flipped": {
   "rows": 0,

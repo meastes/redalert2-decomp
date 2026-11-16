@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 909,
+ "compile_group": 906,
  "code": [
   {
    "symbol": "_$E2",
@@ -587,7 +587,16 @@
    "unit_evidence": "xcu-prefix"
   }
  ],
- "residuals": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0063a690",
+   "bytes": 481,
+   "population": "population-4296",
+   "source": "src/recovered/Reinf/Create_Air_Reinforcement.cpp",
+   "cause": "frozen in another population's inventory pass (population-4296)"
+  }
+ ],
  "unit_functions": 5,
  "data_unproven": [
   {
@@ -598,8 +607,8 @@
  "stand_in_references": [],
  "stand_in_reference_count": 0,
  "residual_split": {
-  "rows": 0,
-  "bytes": 0
+  "rows": 1,
+  "bytes": 481
  },
  "residual_flipped": {
   "rows": 0,

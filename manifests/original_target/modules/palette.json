@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 874,
+ "compile_group": 871,
  "code": [
   {
    "symbol": "??0SchemeNode@@QAE@PBDPAV?$DynamicVectorClass@PAVColorScheme@@@@@Z",
@@ -385,6 +385,12 @@
    "padding_bytes": 1
   },
   {
+   "symbol": "??0?$VectorClass@VHSVClass@@@@QAE@IPBVHSVClass@@@Z",
+   "entry": "00605da0",
+   "body_bytes": 136,
+   "padding_bytes": 8
+  },
+  {
    "symbol": "??_G?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEPAXI@Z",
    "entry": "00605e30",
    "body_bytes": 73,
@@ -397,7 +403,7 @@
    "padding_bytes": 3
   }
  ],
- "code_bytes": 10752,
+ "code_bytes": 10896,
  "data": [
   {
    "symbol": "??_7?$DynamicVectorClass@VHSVClass@@@@6B@",
@@ -1322,6 +1328,12 @@
    "population": "population-03",
    "bound": "own frozen bound (population-03)",
    "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00605da0",
+   "bytes": 136,
+   "population": "population-4487",
+   "bound": "own frozen bound (population-4487)"
   }
  ],
  "residuals": [
@@ -1404,14 +1416,6 @@
    "population": "population-36",
    "source": "src/recovered/containers/ConstructArrayStorageExtension_006051f0.cpp",
    "cause": "frozen in another population's inventory pass (population-36)"
-  },
-  {
-   "kind": "split",
-   "entry": "00605da0",
-   "bytes": 136,
-   "population": "population-35",
-   "source": "src/recovered/containers/ConstructElementStorage_00605da0.cpp",
-   "cause": "frozen in another population's inventory pass (population-35)"
   }
  ],
  "unit_functions": 79,
@@ -1436,8 +1440,8 @@
  "stand_in_references": [],
  "stand_in_reference_count": 0,
  "residual_split": {
-  "rows": 11,
-  "bytes": 766
+  "rows": 10,
+  "bytes": 630
  },
  "residual_flipped": {
   "rows": 0,

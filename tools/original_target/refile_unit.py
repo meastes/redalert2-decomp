@@ -1113,9 +1113,14 @@ def classify_split_rows(entries, read, catalog=None):
     unclassified). With `catalog` the rows the text does not decide are classed by their
     holding population (holder_class)."""
     facts = holder_facts(catalog) if catalog is not None else None
+    # A residual's recorded source goes stale when its file is renamed (address-free names): with
+    # the catalog the row's current source is read instead.
+    current = {r['entry']: r['source'] for r in (catalog or {}).get('regions', []) if 'entry' in r and 'source' in r}
     out = []
     for entry in entries:
-        split = [r for r in entry.get('residuals', []) if r.get('kind') == 'split']
+        split = [dict(r, source=current.get(int(r['entry'], 16), r.get('source')))
+                 if isinstance(r.get('entry'), str) else r
+                 for r in entry.get('residuals', []) if r.get('kind') == 'split']
         if not split:
             continue
         module = read(entry['source']) if entry.get('source') else None
@@ -1366,7 +1371,7 @@ def own_frozen_bound(config, row, parsed={}):
     return None
 
 
-def join_template_plan(catalog, config, item, read, closure, module=None, family='vector'):
+def join_template_plan(catalog, config, item, read, closure, module=None, family='vector', adopt_gr=False):
     """Container member rows of a re-filed unit that may try to join `module` (default the
     unit's file): (candidates {entry: row}, refused {entry: cause}, pid). Split and flipped
     residuals both count."""
@@ -1390,7 +1395,7 @@ def join_template_plan(catalog, config, item, read, closure, module=None, family
         if not FAMILIES[family]['member'](text) or row['population'] == pid:
             continue
         own = FAMILIES[family]['own'](text, state)
-        if row['options'] != options:
+        if row['options'] != options and not (adopt_gr and apply_rename.gr_only_difference(row['options'], options)):
             refused[row['entry']] = 'another option set (%s)' % ' '.join(row['options'])
         elif counts[row['source']] > 1:
             refused[row['entry']] = 'its file holds several rows (%s)' % row['source']
@@ -1502,7 +1507,8 @@ def header_spec(copies):
     return dict(headers=dict(copies), header_base=base)
 
 
-def join_template(unit, config_path, dry_run=False, attempts=8, into=None, family='vector', header_copies=None):
+def join_template(unit, config_path, dry_run=False, attempts=8, into=None, family='vector', header_copies=None,
+                  adopt_gr=False):
     """Join a re-filed unit's container template member rows into its translation unit
     (`into`: another source of the unit, e.g. the file that defines its lists): only rows the
     unit's own use emits join, each with its description only. `header_copies` ({tree path:
@@ -1524,7 +1530,7 @@ def join_template(unit, config_path, dry_run=False, attempts=8, into=None, famil
     headers = validate_headers(REPOSITORY, catalog)
     closure = include_closure(read(module).encode(), headers, {})
     state = module_state(read(module), closure)
-    candidates, refused, table, pid = join_template_plan(catalog, config, item, read, closure, module, family)
+    candidates, refused, table, pid = join_template_plan(catalog, config, item, read, closure, module, family, adopt_gr)
     members = sorted((r for r in catalog['regions'] if r['source'] == module), key=lambda r: r['entry'])
     unit_entries = [r['entry'] for r in members]
     print('%s: %d %s member rows: %d may try, %d refused before any compile' % (
@@ -1617,7 +1623,8 @@ def join_template(unit, config_path, dry_run=False, attempts=8, into=None, famil
         draft = attempt / Path(module).name
         catalog_io.write_text_lf(draft, text)
         spec_item = dict(draft=draft.relative_to(REPOSITORY).as_posix(), regions=['%08x' % e for e in unit_entries],
-                         joins=['%08x' % e for e in sorted(candidates)], joins_bound='own')
+                         joins=['%08x' % e for e in sorted(candidates)], joins_bound='own',
+                         **(dict(joins_options='unit_gr') if adopt_gr else {}))
         catalog_io.write_text_lf(attempt / 'spec.json', json.dumps(dict(
             name='join-template-%s-%02d' % (unit, applied), renames={}, modules={module: spec_item},
             **header_spec(header_copies)), indent=1) + '\n')
@@ -1983,9 +1990,12 @@ def refuse_unevidenced(candidates, chunks, refused, evidence):
 
 
 def own_join_plan(catalog, config, unit, item, read, closure, classes, fixups, adopt_gr=False, refuse=None,
-                  adopt_options=False):
+                  adopt_options=False, held_includes=False):
     """(candidates {entry: row}, chunks {entry: text}, refused {entry: cause}, table, pid) for the
-    split rows of `unit` of the given split classes."""
+    split rows of `unit` of the given split classes. `held_includes`: a `header_state` row whose
+    lines the unit lacks are all `#include` lines tries as the class its text or holder gives
+    (stand-in, own population); its chunk keeps those lines in place before the row, the held
+    include block form of a Route A pour."""
     module = item['source']
     members = [r for r in catalog['regions'] if r['source'] == module]
     pid, options = members[0]['population'], members[0]['options']
@@ -2008,6 +2018,14 @@ def own_join_plan(catalog, config, unit, item, read, closure, classes, fixups, a
         if key == 'emitted' and 'own_population' in classes and \
                 holder_class(residual, item, facts, leaving) == 'own_population':
             key = 'own_population'
+        held = False
+        if key == 'header_state' and held_includes:
+            text = read(residual['source']) if residual.get('source') else ''
+            if all(kind == 'include' for kind, line in split_lines(text)
+                   if kind in ('include', 'define', 'undef') and directive_key(kind, line) not in state):
+                key = 'stand_in' if (LOCAL_TYPE.search(text) or SEED_NAMESPACE.search(text)) else \
+                    (holder_class(residual, item, facts, leaving) or key)
+                held = True
         if key not in classes:
             continue
         if bound_by:
@@ -2034,7 +2052,7 @@ def own_join_plan(catalog, config, unit, item, read, closure, classes, fixups, a
             refused[row['entry']] = 'a closed compiler-output population'
         elif re.search(r'\b_?_asm\b', text):
             refused[row['entry']] = 'evidenced inline assembly keeps its per-file attribution'
-        elif own:
+        elif own and not held:
             refused[row['entry']] = 'needs header state the unit does not have: %s' % '; '.join(
                 ' '.join(l.split()) for l in own)[:200]
         elif own_frozen_bound(config, row):
@@ -2157,7 +2175,7 @@ def own_join_screen(config, catalog, audit, unit, module, pid, members, read, ca
 
 
 def join_own(units, config_path, classes=OWN_JOIN_CLASSES, dry_run=False, attempts=80, apply_attempts=8, adopt_gr=False,
-             refuse=None, adopt_options=False):
+             refuse=None, adopt_options=False, held_includes=False):
     """Own-bound joins of code-bearing split rows (stand-ins, the unit's own second population)
     for several units: each unit is screened alone, then every unit's draft goes into one
     apply_rename batch (`joins_bound: own`); a row that differs in the batch leaves and the batch
@@ -2189,7 +2207,7 @@ def join_own(units, config_path, classes=OWN_JOIN_CLASSES, dry_run=False, attemp
         closure = include_closure(read(module).encode(), headers, {})
         classes_of = {int(r['entry'], 16): k for _, r, k in classify_split_rows([item], read, catalog)}
         candidates, chunks, refused, table, pid = own_join_plan(catalog, config, unit, item, read, closure, classes, fixups,
-                                                                adopt_gr, refuse, adopt_options)
+                                                                adopt_gr, refuse, adopt_options, held_includes)
         members = sorted((r for r in catalog['regions'] if r['source'] == module), key=lambda r: r['entry'])
         log = []
         exact, flipped = {}, {}
@@ -2971,6 +2989,7 @@ def main():
     p = sub.add_parser('join-template'); p.add_argument('unit')
     p.add_argument('--into', help='another source of the unit to join into (e.g. the file that defines its lists)')
     p.add_argument('--dry-run', action='store_true', help='plan and screen compiles only; nothing is written')
+    p.add_argument('--adopt-gr', action='store_true', help='a member row frozen with the unit\'s options minus /GR joins under the unit\'s (DECISIONS: own-bound joins widened)')
     p.add_argument('--header', action='append', default=[], metavar='TREE=COPY',
                    help='the family header\'s new form (a copy made from HEAD): screened and applied with the join')
     p = sub.add_parser('join-template-batch'); p.add_argument('units', nargs='+')
@@ -2988,6 +3007,9 @@ def main():
     p.add_argument('--adopt-options', action='store_true',
                    help='(implies --adopt-gr) a row frozen under another option set joins under the unit\'s, when the '
                         'unit compiled under the row\'s set loses some of its own rows (docs/DECISIONS.md)')
+    p.add_argument('--held-includes', action='store_true',
+                   help='a stand-in or own-population row whose file brings only #include lines the unit lacks tries, '
+                        'with those lines held in place before it (Route A held include block); measurement, see HANDOFF')
     p = sub.add_parser('unjoin'); p.add_argument('unit'); p.add_argument('entries', nargs='*')
     p.add_argument('--base', required=True, help='the revision before the join (rows, files and residuals come back from it)')
     p.add_argument('--unit-evidence', help='only the rows join-xcu joined under this flag tier (xcu-exclusion, ...)')
@@ -3071,12 +3093,13 @@ def main():
         units = list(units_with_own_join_rows(args.classes.split(','))) if args.units == ['all'] else args.units
         refuse = {int(e, 16): c.strip() for e, _, c in (item.partition('=') for item in args.refuse)}
         join_own(units, args.config, tuple(args.classes.split(',')), args.dry_run, args.attempts, adopt_gr=args.adopt_gr,
-                 refuse=refuse, adopt_options=args.adopt_options)
+                 refuse=refuse, adopt_options=args.adopt_options, held_includes=args.held_includes)
     elif args.command == 'join-template-batch':
         join_template_batch(args.units, args.config, family=args.family)
     elif args.command == 'join-template':
         copies = dict(item.split('=', 1) for item in args.header)
-        join_template(args.unit, args.config, args.dry_run, into=args.into, family=args.family, header_copies=copies)
+        join_template(args.unit, args.config, args.dry_run, into=args.into, family=args.family, header_copies=copies,
+                      adopt_gr=args.adopt_gr)
     elif args.command == 'maps':
         raise SystemExit(subprocess.call([sys.executable, '-B', str(Path(__file__).with_name('module_ledger.py')),
                                           str(args.build_dir), '--write', '--config', str(args.config)], cwd=REPOSITORY))

@@ -3183,6 +3183,18 @@ BOOL __stdcall unknown_5e9bb0(HWND window, LPARAM lparam)
 
 #include "shared/main_opt.hpp"
 
+// void __fastcall unknown_enum_children_5e8b90(HWND window) -- 0x005E8B90
+// Runs the child-window callback 0x005E8720 over every child of the window (the 0x005E8120 /
+// 0x005E86C0 pattern; unreferenced).
+
+BOOL __stdcall unknown_child_proc_5e8720(HWND window, LPARAM lparam);      // 0x005E8720
+
+void __fastcall unknown_enum_children_5e8b90(HWND window)
+{
+    EnumChildWindows(window, unknown_child_proc_5e8720, 0);
+}
+
+
 // Sizes a dialog to the movie frame and moves its controls from old_size by 0x005E9BB0 (0x005E9F00).
 void __fastcall Unknown_005E9F00(HWND dialog, Point2D *old_size)
 {

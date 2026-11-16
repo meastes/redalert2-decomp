@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 786,
+ "compile_group": 783,
  "code": [
   {
    "symbol": "_$E2",
@@ -103,6 +103,66 @@
    "padding_bytes": 5
   },
   {
+   "symbol": "?Clear@?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEXXZ",
+   "entry": "0040c710",
+   "body_bytes": 42,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEHPBQAVIsometricTileClass@@@Z",
+   "entry": "0040c740",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@PAVIsometricTileClass@@@@UBEPAVIsometricTileClass@@H@Z",
+   "entry": "0040c760",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??8?$VectorClass@PAVIsometricTileClass@@@@UBE_NABV0@@Z",
+   "entry": "0040c770",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@PAVIsometricTileClass@@@@UAE_NHPBQAVIsometricTileClass@@@Z",
+   "entry": "0040c7b0",
+   "body_bytes": 174,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Clear@?$VectorClass@PAVIsometricTileClass@@@@UAEXXZ",
+   "entry": "0040c860",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVIsometricTileClass@@@@UAEHABQAVIsometricTileClass@@@Z",
+   "entry": "0040c890",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?ID@?$VectorClass@PAVIsometricTileClass@@@@UAEHPBQAVIsometricTileClass@@@Z",
+   "entry": "0040c8d0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@PAVIsometricTileClass@@@@UAE_NHPBQAVIsometricTileClass@@@Z",
+   "entry": "0040c8f0",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEHABQAVIsometricTileClass@@@Z",
+   "entry": "0040c9a0",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
    "symbol": "??_G?$VectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z",
    "entry": "0040c9d0",
    "body_bytes": 73,
@@ -115,7 +175,7 @@
    "padding_bytes": 7
   }
  ],
- "code_bytes": 784,
+ "code_bytes": 1488,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -704,6 +764,66 @@
    "bound": "the unit's compile group (population-3779)",
    "placed": "append",
    "unit_evidence": "xcu single"
+  },
+  {
+   "entry": "0040c710",
+   "bytes": 42,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040c740",
+   "bytes": 27,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040c760",
+   "bytes": 13,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040c770",
+   "bytes": 62,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040c7b0",
+   "bytes": 174,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040c860",
+   "bytes": 39,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040c890",
+   "bytes": 51,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040c8d0",
+   "bytes": 27,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040c8f0",
+   "bytes": 176,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
+  },
+  {
+   "entry": "0040c9a0",
+   "bytes": 38,
+   "population": "population-4442",
+   "bound": "own frozen bound (population-4442)"
   }
  ],
  "residuals": [],

@@ -4,8 +4,8 @@
     "id": "population-1706",
     "inventory_sha256": "44d9a78af0a05d6c2e81afa458cf39c428a23b6f1721acd146f1f1f5ee9ecc99",
     "gaps_sha256": "00897d2923f493c01ee4f180b5b5c9abe63a901f0c58203d687b8f83072471ed",
-    "historical_population_sha256": "e3dd6ff71fae643b4145bdaea7347ee35b980cb6d50150bb1d4b8014cde39109",
-    "historical_acceptance_sha256": "63b04481de97727e0938724730262af392156ff53c16b676d0d9cb9e6e008b82"
+    "historical_population_sha256": "34c1fdb34614f01ea7dde0f5247564e2d87ee8b65480771cf77892a336653b2b",
+    "historical_acceptance_sha256": "dceaafafef329f448237e62a5d5eb8c970e67765f637936a85d38bc9ad04a86f"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -2088,49 +2088,6 @@
       "source_quality_family": "hand-written",
       "semantic_name": "Resize",
       "source_order": 56798
-    },
-    {
-      "entry": 4937360,
-      "method": "004b5690",
-      "symbol": "?Resize@?$DynamicVectorClass@PAVEMPulseClass@@@@UAE_NHPBQAVEMPulseClass@@@Z",
-      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVEMPulseClass@@@@UAE_NHPBQAVEMPulseClass@@@Z",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 176,
-      "body_sha256": "a94231d97b10042391871904fe6e2b1c752257d40b742cd784d8225ee22b51bb",
-      "padding_bytes": 0,
-      "full_extent_bytes": 176,
-      "full_extent_sha256": "a94231d97b10042391871904fe6e2b1c752257d40b742cd784d8225ee22b51bb",
-      "relocations": [
-        {
-          "offset": 35,
-          "kind": 20,
-          "symbol": "??2@YAPAXI@Z",
-          "target": 7872535,
-          "addend": 0,
-          "resolved": 2935136
-        },
-        {
-          "offset": 106,
-          "kind": 20,
-          "symbol": "??3@YAXPAX@Z",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 2934333
-        }
-      ],
-      "source_sha256": "54edc7ce22e0a2667406d0e845587f228edf5e4890048834e43b0b68aed11cd1",
-      "source": "src/recovered/classes/DynamicVectorClass_EMPulseClass_ptr/Resize.cpp",
-      "population": "population-1706",
-      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "hand-written",
-      "semantic_name": "Resize",
-      "source_order": 56799
     }
   ]
 }

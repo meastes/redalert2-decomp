@@ -4555,6 +4555,19 @@ class Storage_4ceb90 { unsigned int table_word; unsigned int* items; unsigned in
 void* Storage_4ceb90::get(unsigned int requested,unsigned int* buffer) { items=0; count=requested; valid=1; owns=0; table_word=(unsigned int)table_4ceb90; if(requested) { if(buffer) { items=buffer; return this; } items=(unsigned int*)storage_4ceb90(requested << 2); owns=1; } return this; }
 
 
+// VectorClass<DiscreteDistributionClass<CellClass>::DistributionObject<CellClass *>> scalar deleting destructor (0x004CEA90; vtable 0x007A17D4 slot 0):
+// compiler generated with the DynamicVectorClass constructor 0x004CE710 (shared/vector_class.hpp); no source of its own.
+
+
+// DiscreteDistributionClass<CellClass>::DistributionObject<CellClass *> vector deleting destructor (??_E)
+// (0x004CEAF0): compiler generated with the DynamicVectorClass constructor 0x004CE710
+// (shared/vector_class.hpp, shared/discrete_distribution.hpp); no source of its own.
+
+
+// DynamicVectorClass<DiscreteDistributionClass<CellClass>::DistributionObject<CellClass *>> scalar deleting destructor (0x004CEB30; vtable 0x007A17FC slot 0):
+// compiler generated with the DynamicVectorClass constructor 0x004CE710 (shared/vector_class.hpp); no source of its own.
+
+
 // bool DynamicVectorClass<FootClass *>::Delete(int index) (0x004CEBE0)
 // Instantiated from shared/vector_class.hpp; called by ~FootClass for the
 // FootClass list (0x00865F38).

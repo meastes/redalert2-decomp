@@ -4,8 +4,8 @@
     "id": "population-2629",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "e7c9093a3ebe779278588b8883b290cf42e7193f4ae6ca2ae9d354d8cb449dfe",
-    "historical_acceptance_sha256": "8bbfeee21063ab62654406d9ce6552eba48c0635caf66482ec0325de292a6331"
+    "historical_population_sha256": "668ee1338273d31621b118f0e7be7363288c2356cee182790714cdf36d182dad",
+    "historical_acceptance_sha256": "674be169a3ff6e45901b309f6ad0860a66bcceeb90c1f3c02f7b2e02ef589292"
   },
   "references": {
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
@@ -2645,32 +2645,6 @@
       "source_quality_family": "hand-written",
       "semantic_name": "Resize",
       "source_order": 101286
-    },
-    {
-      "entry": 5682272,
-      "method": "0056b460",
-      "symbol": "??0ZoneConnectionClass@@QAE@XZ",
-      "symbol_prefix": "??0ZoneConnectionClass@@QAE@XZ",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 30,
-      "body_sha256": "dd0a091958cccc5dc32e123d58c1c7865bb10f80bc28f0d8e2063e03aaae7ee1",
-      "padding_bytes": 2,
-      "full_extent_bytes": 32,
-      "full_extent_sha256": "b0858da70f706b47ecca77586445720aa18699b159bdb2013408947c5196cd7c",
-      "relocations": [],
-      "source_sha256": "7d4c7ae58da682a688b6f36643f6fc3b91b18cbfcb8aef0f70bf5518d7d4b165",
-      "source": "src/recovered/classes/ZoneConnectionClass/Constructor.cpp",
-      "population": "population-2629",
-      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "hand-written",
-      "semantic_name": "Constructor",
-      "source_order": 101287
     }
   ]
 }

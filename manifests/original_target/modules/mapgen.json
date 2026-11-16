@@ -9,7 +9,7 @@
   "/G5",
   "/Gy"
  ],
- "compile_group": 928,
+ "compile_group": 925,
  "code": [
   {
    "symbol": "_$E23",
@@ -5444,7 +5444,7 @@
    "bytes": 24,
    "population": "population-3817",
    "source": "src/recovered/mapgen/unknown_is_kind_1_3_4.cpp",
-   "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00589ac0)"
+   "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00587cf0)"
   },
   {
    "kind": "split",
@@ -5460,7 +5460,7 @@
    "bytes": 19,
    "population": "population-3817",
    "source": "src/recovered/0056d620.cpp",
-   "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00589ac0)"
+   "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00587cf0)"
   },
   {
    "kind": "split",
@@ -5468,7 +5468,7 @@
    "bytes": 19,
    "population": "population-3817",
    "source": "src/recovered/0056d640.cpp",
-   "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00589ac0)"
+   "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00587cf0)"
   },
   {
    "kind": "split",
@@ -5476,7 +5476,7 @@
    "bytes": 19,
    "population": "population-3817",
    "source": "src/recovered/0056d660.cpp",
-   "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00589ac0)"
+   "cause": "held by population-3817; not joined: rows of the unit differ when it joins (00587cf0)"
   },
   {
    "kind": "split",
@@ -5484,7 +5484,7 @@
    "bytes": 126,
    "population": "population-3247",
    "source": "src/recovered/classes/MapRegionClass/Pick_Random_Map_Cell.cpp",
-   "cause": "held by population-3247; not joined: differs in the batch apply (1)"
+   "cause": "held by population-3247; not joined: rows of the unit differ when it joins (00587cf0)"
   },
   {
    "kind": "split",
@@ -5524,7 +5524,7 @@
    "bytes": 15,
    "population": "population-43",
    "source": "src/recovered/mapgen/Get_Generation_Cell_By_Index.cpp",
-   "cause": "held by population-43; not joined: rows of the unit differ when it joins (00589ac0)"
+   "cause": "held by population-43; not joined: rows of the unit differ when it joins (00587cf0)"
   },
   {
    "kind": "split",
@@ -5548,7 +5548,7 @@
    "bytes": 32,
    "population": "population-3829",
    "source": "src/recovered/mapgen/Get_Cell_Unknown_3c.cpp",
-   "cause": "held by population-3829; not joined: differs in the batch apply (1)"
+   "cause": "held by population-3829; not joined: differs in the batch apply (2)"
   },
   {
    "kind": "split",
@@ -5564,7 +5564,7 @@
    "bytes": 421,
    "population": "population-3245",
    "source": "src/recovered/classes/MapRegionClass/Make_Regions.cpp",
-   "cause": "held by population-3245; not joined: rows of the unit differ when it joins (00589ac0)"
+   "cause": "held by population-3245; not joined: differs in the batch apply (2)"
   },
   {
    "kind": "split",
@@ -5588,7 +5588,7 @@
    "bytes": 140,
    "population": "population-2542",
    "source": "src/recovered/classes/MapSeedClass/Constructor.cpp",
-   "cause": "held by population-2542; not joined: rows of the unit differ when it joins (00587cf0)"
+   "cause": "held by population-2542; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -5596,7 +5596,7 @@
    "bytes": 40,
    "population": "population-2542",
    "source": "src/recovered/classes/MapSeedClass/Set_Default_Description.cpp",
-   "cause": "held by population-2542; not joined: differs in the batch apply (1)"
+   "cause": "held by population-2542; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -5604,7 +5604,7 @@
    "bytes": 471,
    "population": "population-2688",
    "source": "src/recovered/classes/MapSeedClass/Read_Dialog_Parameters.cpp",
-   "cause": "held by population-2688; not joined: differs in the batch apply (1)"
+   "cause": "held by population-2688; not joined: rows of the unit differ when it joins (00587cf0)"
   },
   {
    "kind": "split",
@@ -5612,7 +5612,7 @@
    "bytes": 282,
    "population": "population-2542",
    "source": "src/recovered/classes/MapSeedClass/Randomize_Parameters.cpp",
-   "cause": "held by population-2542; not joined: differs in the batch apply (1)"
+   "cause": "held by population-2542; not joined: rows of the unit differ when it joins (00587cf0)"
   },
   {
    "kind": "split",
@@ -5628,7 +5628,7 @@
    "bytes": 334,
    "population": "population-2542",
    "source": "src/recovered/classes/MapSeedClass/Fixup_Settings.cpp",
-   "cause": "held by population-2542; not joined: rows of the unit differ when it joins (00587cf0)"
+   "cause": "held by population-2542; not joined: rows of the unit differ when it joins (00589ac0)"
   },
   {
    "kind": "split",
@@ -5636,7 +5636,7 @@
    "bytes": 40,
    "population": "population-2542",
    "source": "src/recovered/classes/MapSeedClass/Save_Or_Prompt.cpp",
-   "cause": "held by population-2542; not joined: differs in the batch apply (1)"
+   "cause": "held by population-2542; not joined: rows of the unit differ when it joins (00587cf0)"
   },
   {
    "kind": "split",
@@ -5652,7 +5652,7 @@
    "bytes": 30,
    "population": "population-2542",
    "source": "src/recovered/classes/MapSeedClass/Load_Or_Prompt.cpp",
-   "cause": "held by population-2542; not joined: the unit does not compile with it (accepted.cpp(2558) : error C2084: function 'bool __thiscall MapSeedClass::Load_Or_Prompt_005791a0(const char *)' already has a body)"
+   "cause": "held by population-2542; not joined: the unit does not compile with it (accepted.cpp(2516) : error C2084: function 'bool __thiscall MapSeedClass::Load_Or_Prompt_005791a0(const char *)' already has a body)"
   },
   {
    "kind": "split",
@@ -5716,7 +5716,7 @@
    "bytes": 39,
    "population": "population-2543",
    "source": "src/recovered/mapgen/Map_Random_Fraction.cpp",
-   "cause": "held by population-2543; not joined: another option set (/O2 /Ob1 /G5 /Gy)"
+   "cause": "held by population-2543; not joined: the unit does not compile with it (accepted.cpp(7432) : error C2084: function 'double __cdecl Map_Random_Fraction_00579770(void)' already has a body)"
   },
   {
    "kind": "split",
@@ -5724,7 +5724,7 @@
    "bytes": 97,
    "population": "population-2543",
    "source": "src/recovered/mapgen/Map_Random_Range.cpp",
-   "cause": "held by population-2543; not joined: the unit does not compile with it (accepted.cpp(4226) : error C2084: function 'unsigned int __fastcall __fastcall Map_Random_Range_005797a0(unsigned int,unsigned int)' already has a body)"
+   "cause": "held by population-2543; not joined: the unit does not compile with it (accepted.cpp(4156) : error C2084: function 'unsigned int __fastcall __fastcall Map_Random_Range_005797a0(unsigned int,unsigned int)' already has a body)"
   },
   {
    "kind": "split",
@@ -5732,7 +5732,7 @@
    "bytes": 22,
    "population": "population-2543",
    "source": "src/recovered/mapgen/MapGaussianClass_Constructor.cpp",
-   "cause": "held by population-2543; not joined: another option set (/O2 /Ob1 /G5 /Gy)"
+   "cause": "held by population-2543; not joined: the unit does not compile with it (accepted.cpp(2907) : error C2084: function '__thiscall MapGaussianClass::MapGaussianClass(double (__cdecl *)(void))' already has a body)"
   },
   {
    "kind": "split",
@@ -5740,7 +5740,7 @@
    "bytes": 155,
    "population": "population-2543",
    "source": "src/recovered/mapgen/MapGaussianClass_Next.cpp",
-   "cause": "held by population-2543; not joined: another option set (/O2 /Ob1 /G5 /Gy)"
+   "cause": "held by population-2543; not joined: rows of the unit differ when it joins (005798f0, 0057ecf0, 00584730, 00587cf0)"
   },
   {
    "kind": "split",
@@ -5756,7 +5756,7 @@
    "bytes": 69,
    "population": "population-2930",
    "source": "src/recovered/mapgen/Report_Generation_Progress.cpp",
-   "cause": "held by population-2930; not joined: does not compile in the unit: accepted.cpp(4531) : error C2084: function 'void __stdcall Report_Generation_Progress_0057be50(int)' already has a body"
+   "cause": "held by population-2930; not joined: does not compile in the unit: accepted.cpp(4568) : error C2084: function 'void __stdcall Report_Generation_Progress_0057be50(int)' already has a body"
   },
   {
    "kind": "split",
@@ -5812,7 +5812,7 @@
    "bytes": 19,
    "population": "population-2900",
    "source": "src/recovered/classes/UnknownMapGenerationPoint/Constructor.cpp",
-   "cause": "held by population-2900; not joined: does not compile in the unit: accepted.cpp(8304) : error C2084: function '__thiscall UnknownMapGenerationPoint::UnknownMapGenerationPoint(const struct UnknownMapGenerationPoint &)' already has a body"
+   "cause": "held by population-2900; not joined: does not compile in the unit: accepted.cpp(8524) : error C2084: function '__thiscall DirtRoadLink::DirtRoadLink(const struct DirtRoadLink &)' already has a body"
   },
   {
    "kind": "split",
@@ -5820,7 +5820,7 @@
    "bytes": 43,
    "population": "population-2900",
    "source": "src/recovered/classes/UnknownMapGenerationLink/Constructor.cpp",
-   "cause": "held by population-2900; not joined: does not compile in the unit: accepted.cpp(8310) : error C2084: function '__thiscall UnknownMapGenerationLink::UnknownMapGenerationLink(unsigned int,const class Cell &,unsigned int,const class Cell &,int)' already has a body"
+   "cause": "held by population-2900; not joined: does not compile in the unit: accepted.cpp(8530) : error C2084: function '__thiscall UnknownMapGenerationLink::UnknownMapGenerationLink(unsigned int,const class Cell &,unsigned int,const class Cell &,int)' already has a body"
   },
   {
    "kind": "split",
@@ -5828,7 +5828,7 @@
    "bytes": 48,
    "population": "population-2898",
    "source": "src/recovered/mapgen/Generation_Path_Index.cpp",
-   "cause": "held by population-2898; not joined: differs in the batch apply (1)"
+   "cause": "held by population-2898; not joined: differs in the batch apply (2)"
   },
   {
    "kind": "split",
@@ -5836,7 +5836,7 @@
    "bytes": 61,
    "population": "population-2898",
    "source": "src/recovered/mapgen/Init_Dirt_Roads.cpp",
-   "cause": "held by population-2898; not joined: differs in the batch apply (1)"
+   "cause": "held by population-2898; not joined: differs in the batch apply (2)"
   },
   {
    "kind": "split",
@@ -5844,7 +5844,7 @@
    "bytes": 53,
    "population": "population-2553",
    "source": "src/recovered/mapgen/Generation_Cell_In_Bounds.cpp",
-   "cause": "held by population-2553; not joined: does not compile in the unit: accepted.cpp(8343) : error C2084: function 'bool __fastcall __fastcall Generation_Cell_In_Bounds_0058da10(const class Cell &)' already has a body"
+   "cause": "held by population-2553; not joined: does not compile in the unit: accepted.cpp(8563) : error C2084: function 'bool __fastcall __fastcall Generation_Cell_In_Bounds_0058da10(const class Cell &)' already has a body"
   },
   {
    "kind": "split",
@@ -6188,7 +6188,7 @@
    "bytes": 52,
    "population": "population-2687",
    "source": "src/recovered/classes/DynamicVectorClass_double/ID.cpp",
-   "cause": "frozen in another population's inventory pass (population-2687)"
+   "cause": "held by population-2687; not joined: differs under the unit's state (Function symbol ambiguous/missing: ?ID@?$DynamicVectorClass@N@@UAEHABN@Z)"
   },
   {
    "kind": "split",

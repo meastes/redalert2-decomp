@@ -886,6 +886,15 @@ int Owner_006c07f0::ID_006c07f0(int *object)
 }  // namespace seed_006c07f0
 
 
+// VectorClass<DiscreteDistributionClass<AITriggerTypeClass>::DistributionObject<AITriggerTypeClass *>> scalar deleting destructor (0x006C0830; vtable 0x007ACA60 slot 0):
+// compiler generated with the constructor 0x006C09A0 (shared/vector_class.hpp); no source of its own.
+
+
+// DiscreteDistributionClass<AITriggerTypeClass>::DistributionObject<AITriggerTypeClass *> vector deleting
+// destructor (??_E) (0x006C0890): compiler generated with the VectorClass constructor 0x006C09A0
+// (shared/vector_class.hpp, shared/discrete_distribution.hpp); no source of its own.
+
+
 // DynamicVectorClass<DiscreteDistributionClass<AITriggerTypeClass>::DistributionObject<AITriggerTypeClass *>> scalar deleting destructor (0x006C08D0; vtable 0x007ACA80 slot 0):
 // compiler generated in this unit with the vtable TeamTypeClass::Suggested_New_Teams (0x006BED50) constructs (shared/vector_class.hpp); no source of its own.
 

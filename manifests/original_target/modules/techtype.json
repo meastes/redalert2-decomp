@@ -9,7 +9,7 @@
   "/G5",
   "/Gy"
  ],
- "compile_group": 925,
+ "compile_group": 922,
  "code": [
   {
    "symbol": "_$E2",
@@ -5295,6 +5295,22 @@
  "residuals": [
   {
    "kind": "split",
+   "entry": "006da6e0",
+   "bytes": 621,
+   "population": "population-4341",
+   "source": "src/recovered/classes/TechnoTypeClass/TechnoTypeClass_noinit_constructor_006da6e0.cpp",
+   "cause": "frozen in another population's inventory pass (population-4341)"
+  },
+  {
+   "kind": "split",
+   "entry": "006da950",
+   "bytes": 852,
+   "population": "population-4341",
+   "source": "src/recovered/classes/TechnoTypeClass/Destructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-4341)"
+  },
+  {
+   "kind": "split",
    "entry": "006df9e0",
    "bytes": 136,
    "population": "population-1621",
@@ -5312,8 +5328,8 @@
  "stand_in_references": [],
  "stand_in_reference_count": 0,
  "residual_split": {
-  "rows": 1,
-  "bytes": 136
+  "rows": 3,
+  "bytes": 1609
  },
  "residual_flipped": {
   "rows": 0,

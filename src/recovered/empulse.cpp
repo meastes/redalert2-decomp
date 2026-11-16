@@ -304,6 +304,9 @@ class Leaf_4b5770 { public: void* get(unsigned int flags); };
 void* Leaf_4b5770::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_4b5770; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_4b5770((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_4b5770(this); return this; }
 
 
+// DynamicVectorClass<EMPulseClass *>::Resize is emitted by the preceding template translation unit.
+
+
 // 0x004b57c0: function not yet identified
 //
 // Body: 73 bytes (frozen inventory bound).

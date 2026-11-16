@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 1007,
+ "compile_group": 1004,
  "code": [
   {
    "symbol": "_$E2",
@@ -205,6 +205,12 @@
    "padding_bytes": 9
   },
   {
+   "symbol": "?Resize@?$DynamicVectorClass@PAVEMPulseClass@@@@UAE_NHPBQAVEMPulseClass@@@Z",
+   "entry": "004b5690",
+   "body_bytes": 176,
+   "padding_bytes": 0
+  },
+  {
    "symbol": "?get@Leaf_4b5770@@QAEPAXI@Z",
    "entry": "004b5770",
    "body_bytes": 73,
@@ -229,7 +235,7 @@
    "padding_bytes": 15
   }
  ],
- "code_bytes": 3168,
+ "code_bytes": 3344,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -1313,6 +1319,13 @@
    "population": "population-3817",
    "bound": "own frozen bound (population-3817)",
    "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "004b5690",
+   "bytes": 176,
+   "population": "population-1706",
+   "bound": "own frozen bound (population-1706)",
+   "options": "joined under the unit's /GR (frozen without it)"
   }
  ],
  "residuals": [
@@ -1366,14 +1379,6 @@
   },
   {
    "kind": "split",
-   "entry": "004b5690",
-   "bytes": 176,
-   "population": "population-1706",
-   "source": "src/recovered/classes/DynamicVectorClass_EMPulseClass_ptr/Resize.cpp",
-   "cause": "frozen in another population's inventory pass (population-1706)"
-  },
-  {
-   "kind": "split",
    "entry": "004b5740",
    "bytes": 38,
    "population": "population-14",
@@ -1395,8 +1400,8 @@
  "stand_in_references": [],
  "stand_in_reference_count": 0,
  "residual_split": {
-  "rows": 8,
-  "bytes": 564
+  "rows": 7,
+  "bytes": 388
  },
  "residual_flipped": {
   "rows": 0,

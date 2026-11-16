@@ -59,7 +59,11 @@ The five lines:
      Print_CRCs or WinMain (the module map's residual cause names them) and the .CRT$XCU groups
      (the residual cause names .CRT$XCU). The rows the module maps record as residuals (Route A
      split / flipped / kept, STATUS's numbers) and the rows no unit map entry covers (library units
-     aside) are shown too.
+     aside) are shown too. A row a unit's `joined` list in modules.json records (an accepted join
+     under a DECISIONS ruling, e.g. the $E rows the original .CRT$XCU table places, with their
+     unit_evidence tier) belongs to that unit when the unit map has no entry for it (lane E2): the
+     join is the recorded evidence. The unit map itself is not extended with them, since
+     xcu_units.py reads it for its prefix+map tier.
   4. Data: typed data produced from source and proven at its original addresses (the module maps'
      proven copies, deduplicated by address, as STATUS's non-code line reads them) / typed total
      (proven plus the unproven bytes of declared data ranges; module-map data items with no proof
@@ -236,6 +240,11 @@ def census(inputs, read, stems, file_backed_non_code=None, ra2decomp=None):
                 library.add(int(e, 16))
             else:
                 owner[int(e, 16)] = unit
+    for unit, item in declared.items():
+        if LIBRARY_UNIT.match(unit):
+            continue
+        for joined in item.get('joined', []):
+            owner.setdefault(int(joined['entry'], 16), unit)
     files = defaultdict(set)
     rows_of = defaultdict(list)
     unassigned = []

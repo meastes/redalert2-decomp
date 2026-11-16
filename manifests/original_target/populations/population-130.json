@@ -4,8 +4,8 @@
     "id": "population-130",
     "inventory_sha256": "11605ca7bd7a86cd6779f3df89ebb87136fa2eb6d722fa5d4283f703f27df88a",
     "gaps_sha256": "173cd90943a9cc60add2a2f81535f16c248e658fc9dc2cd583b8c89c664be23b",
-    "historical_population_sha256": "5f08c46c6896680d70818a161e738a3241141fa5cc4e5d66d44d249eac9a7e84",
-    "historical_acceptance_sha256": "1a8ac0f028933fefcda638bac909a808fff509cdd0c214ca587ed47be2883820"
+    "historical_population_sha256": "4b3b1e28239a8eabc85efd6f165792004ee0983b194b7448500da5410f9698fc",
+    "historical_acceptance_sha256": "4cea99009dbe70b68165abddbbd6f6ecb2705837a046291592fd02a06fbac4bb"
   },
   "references": {
     "_DAT_00839980": 8624512,
@@ -560,31 +560,6 @@
       "source_order": 11290,
       "population": "population-130",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "hand-written"
-    },
-    {
-      "entry": 7537568,
-      "method": "007303a0",
-      "symbol": "?unknown_in_range_007303a0@seed_007303a0@@YI_NH@Z",
-      "symbol_prefix": "?unknown_in_range_007303a0@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 14,
-      "body_sha256": "65928e72743eaf9020009560cd7a304f982043da5d52b280521c28d758627639",
-      "padding_bytes": 2,
-      "full_extent_bytes": 16,
-      "full_extent_sha256": "6e6072f8a70fc03a5bddce2ece34e019610941c429a8f6803f18ae4bd652db15",
-      "relocations": [],
-      "source_sha256": "2952b0513b80626591f1ab9a5f27812933a7def7c025ba1aaf36e2e7b9513e07",
-      "source": "src/recovered/classes/VectorCursor_MSAnim_ptr_DynamicVectorClass_MSAnim_ptr/unknown_in_range.cpp",
-      "source_order": 11317,
-      "population": "population-130",
-      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written"
     },

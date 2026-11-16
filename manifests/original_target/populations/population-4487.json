@@ -4,8 +4,8 @@
     "id": "population-4487",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "b93867baf076289af077b2d02a4d1f7a988a687f21b4fde79ffdd3da6854d968",
-    "historical_acceptance_sha256": "04a08f19cdb1b04a1c4ea4896ff5f532fe0f0f59a2d5c690ba006317456e4322"
+    "historical_population_sha256": "31621ae7004a290f77004558ae813f382e8c121a7021517000d2705e8d402c88",
+    "historical_acceptance_sha256": "cf9a0066dda9221fae86826fed971731c55189080ddcbef20a8e24dacfec9662"
   },
   "references": {
     "??2@YAPAXI@Z": 7872535,
@@ -3448,49 +3448,6 @@
       "source_quality_family": "hand-written",
       "semantic_name": "Constructor",
       "source_order": 243665
-    },
-    {
-      "entry": 6315424,
-      "method": "00605da0",
-      "symbol": "??0?$VectorClass@VHSVClass@@@@QAE@IPBVHSVClass@@@Z",
-      "symbol_prefix": "??0?$VectorClass@VHSVClass@@@@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 136,
-      "body_sha256": "9468b0c246e9e340690cd3f525d07d4eaf3d59f6f87cdb6628136fb7e76fbaf9",
-      "padding_bytes": 8,
-      "full_extent_bytes": 144,
-      "full_extent_sha256": "800c83fbd8195bb069f7856a34a3d89cd7e7f7dc214161c714b272dceeb5b345",
-      "relocations": [
-        {
-          "offset": 28,
-          "kind": 6,
-          "symbol": "??_7?$VectorClass@VHSVClass@@@@6B@",
-          "target": 8027128,
-          "addend": 0,
-          "resolved": 8027128
-        },
-        {
-          "offset": 83,
-          "kind": 20,
-          "symbol": "??2@YAPAXI@Z",
-          "target": 7872535,
-          "addend": 0,
-          "resolved": 1557024
-        }
-      ],
-      "source_sha256": "7144dea6a93af733ff9c6aa5d94b20d1bf7fdb27bc0f453a88ecce2efbc3f9de",
-      "source": "src/recovered/classes/VectorClass_HSVClass/Constructor.cpp",
-      "population": "population-4487",
-      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "hand-written",
-      "semantic_name": "Constructor",
-      "source_order": 243664
     }
   ]
 }

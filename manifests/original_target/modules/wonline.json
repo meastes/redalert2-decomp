@@ -9,7 +9,7 @@
   "/G5",
   "/Gy"
  ],
- "compile_group": 895,
+ "compile_group": 892,
  "code": [
   {
    "symbol": "_$E7",
@@ -652,6 +652,12 @@
    "entry": "0073c070",
    "body_bytes": 63,
    "padding_bytes": 1
+  },
+  {
+   "symbol": "?unknown_can_send_chat@@YI_NPBUUnknownFlags_0073c0b0@@ABVWideString@@@Z",
+   "entry": "0073c0b0",
+   "body_bytes": 97,
+   "padding_bytes": 15
   },
   {
    "symbol": "?Unknown_0073c120@@YA_NXZ",
@@ -2322,7 +2328,7 @@
    "padding_bytes": 1
   }
  ],
- "code_bytes": 161424,
+ "code_bytes": 161536,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -2385,63 +2391,63 @@
    "address": "0079aaec",
    "bytes": 4,
    "kind": "vtable",
-   "section": 419
+   "section": 421
   },
   {
    "symbol": "??_7GenericList@@6B@",
    "address": "0079aaf4",
    "bytes": 4,
    "kind": "vtable",
-   "section": 420
+   "section": 422
   },
   {
    "symbol": "??_7GenericNode@@6B@",
    "address": "0079aafc",
    "bytes": 4,
    "kind": "vtable",
-   "section": 423
+   "section": 425
   },
   {
    "symbol": "__real@8@4008e100000000000000",
    "address": "0079b608",
    "bytes": 8,
    "kind": "table",
-   "section": 471
+   "section": 473
   },
   {
    "symbol": "??_7INIClass@@6B@",
    "address": "007a2b34",
    "bytes": 4,
    "kind": "vtable",
-   "section": 418
+   "section": 420
   },
   {
    "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
    "address": "007a452c",
    "bytes": 4,
    "kind": "vtable",
-   "section": 1000
+   "section": 1002
   },
   {
    "symbol": "??_7?$rc_ptr@VCampaign@WorldDominationTour@@@@6B@",
    "address": "007aefdc",
    "bytes": 4,
    "kind": "vtable",
-   "section": 698
+   "section": 700
   },
   {
    "symbol": "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
    "address": "007aefec",
    "bytes": 4,
    "kind": "vtable",
-   "section": 1005
+   "section": 1007
   },
   {
    "symbol": "??_7?$rc_ptr@VWDTState@@@@6B@",
    "address": "007af1a4",
    "bytes": 4,
    "kind": "vtable",
-   "section": 748
+   "section": 750
   },
   {
    "symbol": "??_7?$rc_ptr@VPlayerProfile@@@@6B@",
@@ -2469,1015 +2475,1015 @@
    "address": "007af934",
    "bytes": 20,
    "kind": "vtable",
-   "section": 457
+   "section": 459
   },
   {
    "symbol": "??_7CreateGameDialogControl@@6B@",
    "address": "007af94c",
    "bytes": 20,
    "kind": "vtable",
-   "section": 462
+   "section": 464
   },
   {
    "symbol": "??_7?$VectorClass@PAVtConnInfoStruct@@@@6B@",
    "address": "007af964",
    "bytes": 28,
    "kind": "vtable",
-   "section": 555
+   "section": 557
   },
   {
    "symbol": "??_7?$DynamicVectorClass@PAVtConnInfoStruct@@@@6B@",
    "address": "007af984",
    "bytes": 28,
    "kind": "vtable",
-   "section": 556
+   "section": 558
   },
   {
    "symbol": "??_C@_02MECO@?$CFd?$AA@",
    "address": "007ce9bc",
    "bytes": 3,
    "kind": "string",
-   "section": 347
+   "section": 349
   },
   {
    "symbol": "??_C@_01KMAE@?0?$AA@",
    "address": "007ce9c0",
    "bytes": 2,
    "kind": "string",
-   "section": 258
+   "section": 260
   },
   {
    "symbol": "??_C@_01FAJB@?$DL?$AA@",
    "address": "007d27e4",
    "bytes": 2,
    "kind": "string",
-   "section": 713
+   "section": 715
   },
   {
    "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
    "address": "007d64f4",
    "bytes": 4,
    "kind": "string",
-   "section": 372
+   "section": 374
   },
   {
    "symbol": "??_C@_15DEDE@?$AA?$CF?$AAs?$AA?$AA@",
    "address": "007d9c94",
    "bytes": 6,
    "kind": "string",
-   "section": 356
+   "section": 358
   },
   {
    "symbol": "??_C@_05KMPM@INTRO?$AA@",
    "address": "007dbc90",
    "bytes": 6,
    "kind": "string",
-   "section": 236
+   "section": 238
   },
   {
    "symbol": "??_C@_0BL@DEKD@TXT_RANDOM_MAP_DESCRIPTION?$AA@",
    "address": "007e14dc",
    "bytes": 27,
    "kind": "string",
-   "section": 336
+   "section": 338
   },
   {
    "symbol": "??_C@_0M@FDHG@RandMap?4Sed?$AA@",
    "address": "007e16e8",
    "bytes": 12,
    "kind": "string",
-   "section": 338
+   "section": 340
   },
   {
    "symbol": "??_C@_0BA@FOMN@xxx?4xxx?4xxx?4xxx?$AA@",
    "address": "007e38d0",
    "bytes": 16,
    "kind": "string",
-   "section": 579
+   "section": 581
   },
   {
    "symbol": "??_C@_13DEJI@?$AA?6?$AA?$AA@",
    "address": "007e58ec",
    "bytes": 4,
    "kind": "string",
-   "section": 793
+   "section": 795
   },
   {
    "symbol": "??_C@_0M@GKHD@wolacpt?4pcx?$AA@",
    "address": "007e69a0",
    "bytes": 12,
    "kind": "string",
-   "section": 352
+   "section": 354
   },
   {
    "symbol": "??_C@_0M@BDDC@wolhost?4pcx?$AA@",
    "address": "007e69ac",
    "bytes": 12,
    "kind": "string",
-   "section": 353
+   "section": 355
   },
   {
    "symbol": "??_C@_07LLCA@TXT_NOD?$AA@",
    "address": "007e69b8",
    "bytes": 8,
    "kind": "string",
-   "section": 357
+   "section": 359
   },
   {
    "symbol": "??_C@_07KDFL@TXT_GDI?$AA@",
    "address": "007e69c0",
    "bytes": 8,
    "kind": "string",
-   "section": 364
+   "section": 366
   },
   {
    "symbol": "??_C@_09IOPK@?$CFd?0?$CFd?0?$CFd?0?$AA@",
    "address": "007e6a68",
    "bytes": 10,
    "kind": "string",
-   "section": 278
+   "section": 280
   },
   {
    "symbol": "??_C@_02FAKD@?$EA?3?$AA@",
    "address": "007e6a74",
    "bytes": 3,
    "kind": "string",
-   "section": 279
+   "section": 281
   },
   {
    "symbol": "??_C@_0BD@JCLE@?$CFs?0?$CFd?0?$CFd?0?$CFx?0?$CFx?0?$CFx?0?$AA@",
    "address": "007e6a78",
    "bytes": 19,
    "kind": "string",
-   "section": 280
+   "section": 282
   },
   {
    "symbol": "??_C@_0DE@DGCJ@?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFd@",
    "address": "007e6a8c",
    "bytes": 52,
    "kind": "string",
-   "section": 281
+   "section": 283
   },
   {
    "symbol": "??_C@_0BO@MFMF@SOFTWARE?2Westwood?2Red?5Alert?52?$AA@",
    "address": "007e6ad8",
    "bytes": 30,
    "kind": "string",
-   "section": 383
+   "section": 385
   },
   {
    "symbol": "??_C@_0BI@MKML@GUI?3HostGameStartJoiner?$AA@",
    "address": "007e6d78",
    "bytes": 24,
    "kind": "string",
-   "section": 731
+   "section": 733
   },
   {
    "symbol": "??_C@_01PKAG@?3?$AA@",
    "address": "007e6f8c",
    "bytes": 2,
    "kind": "string",
-   "section": 452
+   "section": 454
   },
   {
    "symbol": "??_C@_15MLJJ@?$AA?6?$AA?$AN?$AA?$AA@",
    "address": "007e7404",
    "bytes": 6,
    "kind": "string",
-   "section": 674
+   "section": 676
   },
   {
    "symbol": "??_C@_02DILL@?$CFs?$AA@",
    "address": "007e7f2c",
    "bytes": 3,
    "kind": "string",
-   "section": 868
+   "section": 870
   },
   {
    "symbol": "??_C@_17FKIN@?$AA?$CF?$AAh?$AAs?$AA?$AA@",
    "address": "007eadcc",
    "bytes": 8,
    "kind": "string",
-   "section": 377
+   "section": 379
   },
   {
    "symbol": "??_C@_0N@DCKM@wolvoice?4pcx?$AA@",
    "address": "007eb240",
    "bytes": 13,
    "kind": "string",
-   "section": 367
+   "section": 369
   },
   {
    "symbol": "??_C@_0M@FIPJ@woloper?4pcx?$AA@",
    "address": "007eb278",
    "bytes": 12,
    "kind": "string",
-   "section": 369
+   "section": 371
   },
   {
    "symbol": "??_C@_08HFFD@rusi?4pcx?$AA@",
    "address": "007eb4c0",
    "bytes": 9,
    "kind": "string",
-   "section": 354
+   "section": 356
   },
   {
    "symbol": "??_C@_08LNEF@lati?4pcx?$AA@",
    "address": "007eb4cc",
    "bytes": 9,
    "kind": "string",
-   "section": 355
+   "section": 357
   },
   {
    "symbol": "??_C@_08CJID@arbi?4pcx?$AA@",
    "address": "007eb4d8",
    "bytes": 9,
    "kind": "string",
-   "section": 358
+   "section": 360
   },
   {
    "symbol": "??_C@_08NMOA@djbi?4pcx?$AA@",
    "address": "007eb4e4",
    "bytes": 9,
    "kind": "string",
-   "section": 359
+   "section": 361
   },
   {
    "symbol": "??_C@_08CKDM@gbri?4pcx?$AA@",
    "address": "007eb4f0",
    "bytes": 9,
    "kind": "string",
-   "section": 360
+   "section": 362
   },
   {
    "symbol": "??_C@_08ODNE@geri?4pcx?$AA@",
    "address": "007eb4fc",
    "bytes": 9,
    "kind": "string",
-   "section": 361
+   "section": 363
   },
   {
    "symbol": "??_C@_08GPKK@frai?4pcx?$AA@",
    "address": "007eb508",
    "bytes": 9,
    "kind": "string",
-   "section": 362
+   "section": 364
   },
   {
    "symbol": "??_C@_08FLCC@japi?4pcx?$AA@",
    "address": "007eb514",
    "bytes": 9,
    "kind": "string",
-   "section": 363
+   "section": 365
   },
   {
    "symbol": "??_C@_08BLKF@usai?4pcx?$AA@",
    "address": "007eb520",
    "bytes": 9,
    "kind": "string",
-   "section": 365
+   "section": 367
   },
   {
    "symbol": "??_C@_01BJG@?6?$AA@",
    "address": "007f3830",
    "bytes": 2,
    "kind": "string",
-   "section": 794
+   "section": 796
   },
   {
    "symbol": "??_C@_05KEJO@?$CFs?2?$CFs?$AA@",
    "address": "007f4dd0",
    "bytes": 6,
    "kind": "string",
-   "section": 768
+   "section": 770
   },
   {
    "symbol": "??_C@_07HCKM@Lob_33_?$AA@",
    "address": "007fd358",
    "bytes": 8,
    "kind": "string",
-   "section": 870
+   "section": 872
   },
   {
    "symbol": "??_C@_0FD@PLDA@http?3?1?1games2?4westwood?4com?1cgi?9b@",
    "address": "007fd5a4",
    "bytes": 83,
    "kind": "string",
-   "section": 241
+   "section": 243
   },
   {
    "symbol": "??_C@_01FLCE@L?$AA@",
    "address": "007fd5f8",
    "bytes": 2,
    "kind": "string",
-   "section": 259
+   "section": 261
   },
   {
    "symbol": "??_C@_0BD@IJO@D?3?2Ra2?2wonline?4cpp?$AA@",
    "address": "007fd62c",
    "bytes": 19,
    "kind": "string",
-   "section": 337
+   "section": 339
   },
   {
    "symbol": "??_C@_0BB@CFJ@TXT_CANT_CONNECT?$AA@",
    "address": "007fd740",
    "bytes": 17,
    "kind": "string",
-   "section": 783
+   "section": 785
   },
   {
    "symbol": "??_C@_08GFEA@TXT_RANK?$AA@",
    "address": "007fd814",
    "bytes": 9,
    "kind": "string",
-   "section": 374
+   "section": 376
   },
   {
    "symbol": "??_C@_0N@FIOC@TXT_UNRANKED?$AA@",
    "address": "007fd828",
    "bytes": 13,
    "kind": "string",
-   "section": 376
+   "section": 378
   },
   {
    "symbol": "??_C@_0BB@ECNN@TXT_UNKNOWN_PING?$AA@",
    "address": "007fd840",
    "bytes": 17,
    "kind": "string",
-   "section": 349
+   "section": 351
   },
   {
    "symbol": "??_C@_0N@IEEP@MSG?3PingInfo?$AA@",
    "address": "007fd854",
    "bytes": 13,
    "kind": "string",
-   "section": 350
+   "section": 352
   },
   {
    "symbol": "??_C@_08EBLL@?$CFd?5?5?$CI?$CFd?$CJ?$AA@",
    "address": "007fd8cc",
    "bytes": 9,
    "kind": "string",
-   "section": 348
+   "section": 350
   },
   {
    "symbol": "??_C@_0N@PKAL@TXT_ACCEPTED?$AA@",
    "address": "007fd8d8",
    "bytes": 13,
    "kind": "string",
-   "section": 351
+   "section": 353
   },
   {
    "symbol": "??_C@_09MKLC@TXT_VOICE?$AA@",
    "address": "007fd8e8",
    "bytes": 10,
    "kind": "string",
-   "section": 366
+   "section": 368
   },
   {
    "symbol": "??_C@_08GD@TXT_OPER?$AA@",
    "address": "007fd8f4",
    "bytes": 9,
    "kind": "string",
-   "section": 368
+   "section": 370
   },
   {
    "symbol": "??_C@_1BA@BPGE@?$AA?$CI?$AA?$CF?$AAs?$AA?5?$AA?$CF?$AAd?$AA?$CJ?$AA?$AA@",
    "address": "007fd900",
    "bytes": 16,
    "kind": "string",
-   "section": 370
+   "section": 372
   },
   {
    "symbol": "??_C@_1M@CAAD@?$AA?$FL?$AA?$CF?$AAh?$AAs?$AA?$FN?$AA?$AA@",
    "address": "007fd910",
    "bytes": 12,
    "kind": "string",
-   "section": 371
+   "section": 373
   },
   {
    "symbol": "??_C@_1M@NBJH@?$AA?$CF?$AAs?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
    "address": "007fd91c",
    "bytes": 12,
    "kind": "string",
-   "section": 373
+   "section": 375
   },
   {
    "symbol": "??_C@_1M@OLCI@?$AA?$CI?$AA?$CF?$AAh?$AAs?$AA?$CJ?$AA?$AA@",
    "address": "007fd928",
    "bytes": 12,
    "kind": "string",
-   "section": 375
+   "section": 377
   },
   {
    "symbol": "??_C@_0P@LCJ@TXT_APIMISSING?$AA@",
    "address": "007fdac8",
    "bytes": 15,
    "kind": "string",
-   "section": 380
+   "section": 382
   },
   {
    "symbol": "??_C@_03HKIO@SKU?$AA@",
    "address": "007fdad8",
    "bytes": 4,
    "kind": "string",
-   "section": 381
+   "section": 383
   },
   {
    "symbol": "??_C@_07BLJB@RegPath?$AA@",
    "address": "007fdadc",
    "bytes": 8,
    "kind": "string",
-   "section": 382
+   "section": 384
   },
   {
    "symbol": "??_C@_0BE@EACC@TXT_APIWRONGVERSION?$AA@",
    "address": "007fdae4",
    "bytes": 20,
    "kind": "string",
-   "section": 384
+   "section": 386
   },
   {
    "symbol": "??_C@_0CH@MEIK@OnWDTState?3?5NACK?5received?5from?5s@",
    "address": "007fdaf8",
    "bytes": 39,
    "kind": "string",
-   "section": 749
+   "section": 751
   },
   {
    "symbol": "??_C@_0CJ@PDBB@OnWDTState?3?5Current?5cycle?5data?5r@",
    "address": "007fdb20",
    "bytes": 41,
    "kind": "string",
-   "section": 750
+   "section": 752
   },
   {
    "symbol": "??_C@_0CK@ILJO@OnWDTState?3?5Previous?5cycle?5data?5@",
    "address": "007fdb4c",
    "bytes": 42,
    "kind": "string",
-   "section": 751
+   "section": 753
   },
   {
    "symbol": "??_C@_1BO@MIJH@?$AAU?$AAn?$AAk?$AAn?$AAo?$AAw?$AAn?$AA?5?$AAS?$AAt?$AAa?$AAt?$AAu?$AAs?$AA?$AA@",
    "address": "007fdb8c",
    "bytes": 30,
    "kind": "string",
-   "section": 756
+   "section": 758
   },
   {
    "symbol": "??_C@_0L@OKFM@OnNewNick?6?$AA@",
    "address": "007fdbac",
    "bytes": 11,
    "kind": "string",
-   "section": 757
+   "section": 759
   },
   {
    "symbol": "??_C@_0M@CEOJ@OnAgeCheck?6?$AA@",
    "address": "007fdbb8",
    "bytes": 12,
    "kind": "string",
-   "section": 760
+   "section": 762
   },
   {
    "symbol": "??_C@_0BB@KAHC@TXT_GAME_RESTART?$AA@",
    "address": "007fdca4",
    "bytes": 17,
    "kind": "string",
-   "section": 766
+   "section": 768
   },
   {
    "symbol": "??_C@_0BH@LLDC@TXT_DOWNLOADING_X_OF_Y?$AA@",
    "address": "007fdcb8",
    "bytes": 23,
    "kind": "string",
-   "section": 767
+   "section": 769
   },
   {
    "symbol": "??_C@_05LELA@?$CFs?1?$CFs?$AA@",
    "address": "007fdcd0",
    "bytes": 6,
    "kind": "string",
-   "section": 769
+   "section": 771
   },
   {
    "symbol": "??_C@_0BE@MMD@TXT_UPGRADEREQUIRED?$AA@",
    "address": "007fdcd8",
    "bytes": 20,
    "kind": "string",
-   "section": 770
+   "section": 772
   },
   {
    "symbol": "??_C@_1BC@HHDF@?$AA?$CF?$AAs?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAh?$AAs?$AA?$AA@",
    "address": "007fdcec",
    "bytes": 18,
    "kind": "string",
-   "section": 777
+   "section": 779
   },
   {
    "symbol": "??_C@_0BB@FFH@TXT_SERVER_ERROR?$AA@",
    "address": "007fdd00",
    "bytes": 17,
    "kind": "string",
-   "section": 778
+   "section": 780
   },
   {
    "symbol": "??_C@_08MMLO@gt?$CFd?4bmp?$AA@",
    "address": "007fdd14",
    "bytes": 9,
    "kind": "string",
-   "section": 781
+   "section": 783
   },
   {
    "symbol": "??_C@_08MLFF@?0?91?00?018?$AA@",
    "address": "007fdd20",
    "bytes": 9,
    "kind": "string",
-   "section": 782
+   "section": 784
   },
   {
    "symbol": "??_C@_0BG@FMGJ@TXT_SKUSERIALMISMATCH?$AA@",
    "address": "007fdd2c",
    "bytes": 22,
    "kind": "string",
-   "section": 784
+   "section": 786
   },
   {
    "symbol": "??_C@_0O@GCCF@TXT_SERIALDUP?$AA@",
    "address": "007fdd44",
    "bytes": 14,
    "kind": "string",
-   "section": 785
+   "section": 787
   },
   {
    "symbol": "??_C@_0BC@NEOI@TXT_SERIALUNKNOWN?$AA@",
    "address": "007fdd54",
    "bytes": 18,
    "kind": "string",
-   "section": 786
+   "section": 788
   },
   {
    "symbol": "??_C@_0N@MPNE@TXT_DISABLED?$AA@",
    "address": "007fdd68",
    "bytes": 13,
    "kind": "string",
-   "section": 787
+   "section": 789
   },
   {
    "symbol": "??_C@_0L@JEGG@TXT_BANNED?$AA@",
    "address": "007fdd78",
    "bytes": 11,
    "kind": "string",
-   "section": 788
+   "section": 790
   },
   {
    "symbol": "??_C@_0M@OAG@TXT_BADPASS?$AA@",
    "address": "007fdd84",
    "bytes": 12,
    "kind": "string",
-   "section": 789
+   "section": 791
   },
   {
    "symbol": "??_C@_0P@CFNN@TXT_LOGIN_USED?$AA@",
    "address": "007fdd90",
    "bytes": 15,
    "kind": "string",
-   "section": 790
+   "section": 792
   },
   {
    "symbol": "??_C@_0BB@CMCH@Created?5channel?6?$AA@",
    "address": "007fdda0",
    "bytes": 17,
    "kind": "string",
-   "section": 797
+   "section": 799
   },
   {
    "symbol": "??_C@_0BB@MOKA@TXT_CREATED_CHAN?$AA@",
    "address": "007fddb4",
    "bytes": 17,
    "kind": "string",
-   "section": 798
+   "section": 800
   },
   {
    "symbol": "??_C@_0BG@BAEL@TXT_CHANCREATE_FAILED?$AA@",
    "address": "007fddc8",
    "bytes": 22,
    "kind": "string",
-   "section": 799
+   "section": 801
   },
   {
    "symbol": "??_C@_0BB@MMLP@TXT_CHANNEL_FULL?$AA@",
    "address": "007fde60",
    "bytes": 17,
    "kind": "string",
-   "section": 867
+   "section": 869
   },
   {
    "symbol": "??_C@_0BM@CBD@OnChannelLeave?5with?5error?$CB?6?$AA@",
    "address": "007fde84",
    "bytes": 28,
    "kind": "string",
-   "section": 802
+   "section": 804
   },
   {
    "symbol": "??_C@_0BM@JHOP@Starting?5a?5?$CFd?5player?5game?4?6?$AA@",
    "address": "007fded4",
    "bytes": 28,
    "kind": "string",
-   "section": 807
+   "section": 809
   },
   {
    "symbol": "??_C@_0N@JLDN@OnGameStart?6?$AA@",
    "address": "007fdef0",
    "bytes": 13,
    "kind": "string",
-   "section": 808
+   "section": 810
   },
   {
    "symbol": "??_C@_1BG@MAGF@?$AA?$FL?$AA?$CF?$AAh?$AAs?$AA?$FN?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?$AA@",
    "address": "007fe064",
    "bytes": 22,
    "kind": "string",
-   "section": 811
+   "section": 813
   },
   {
    "symbol": "??_C@_1BC@JGAD@?$AA?$CF?$AAh?$AAs?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?$AA@",
    "address": "007fe07c",
    "bytes": 18,
    "kind": "string",
-   "section": 816
+   "section": 818
   },
   {
    "symbol": "??_C@_0DA@BOAL@Received?5message?5from?5non?9channe@",
    "address": "007fe090",
    "bytes": 48,
    "kind": "string",
-   "section": 817
+   "section": 819
   },
   {
    "symbol": "??_C@_1BC@FOFN@?$AA?$CI?$AA?$CF?$AAh?$AAs?$AA?$CJ?$AA?5?$AA?$CF?$AAs?$AA?$AA@",
    "address": "007fe0c0",
    "bytes": 18,
    "kind": "string",
-   "section": 822
+   "section": 824
   },
   {
    "symbol": "??_C@_0P@ECAO@TXT_PAGEFAILED?$AA@",
    "address": "007fe0d4",
    "bytes": 15,
    "kind": "string",
-   "section": 827
+   "section": 829
   },
   {
    "symbol": "??_C@_0BB@IBOF@TXT_PAGEUSERGONE?$AA@",
    "address": "007fe0e4",
    "bytes": 17,
    "kind": "string",
-   "section": 828
+   "section": 830
   },
   {
    "symbol": "??_C@_0BB@CMBL@TXT_PAGEDISABLED?$AA@",
    "address": "007fe0f8",
    "bytes": 17,
    "kind": "string",
-   "section": 829
+   "section": 831
   },
   {
    "symbol": "??_C@_0N@DG@TXT_PAGESENT?$AA@",
    "address": "007fe10c",
    "bytes": 13,
    "kind": "string",
-   "section": 830
+   "section": 832
   },
   {
    "symbol": "??_C@_05GGPB@?$CFs?5?$CFd?$AA@",
    "address": "007fe1c0",
    "bytes": 6,
    "kind": "string",
-   "section": 869
+   "section": 871
   },
   {
    "symbol": "??_C@_0CD@DKOM@NetStatus?5disconnect?5not?5in?5game@",
    "address": "007fe1d8",
    "bytes": 35,
    "kind": "string",
-   "section": 837
+   "section": 839
   },
   {
    "symbol": "??_C@_0BB@LPFA@TXT_YOURE_DISCON?$AA@",
    "address": "007fe1fc",
    "bytes": 17,
    "kind": "string",
-   "section": 838
+   "section": 840
   },
   {
    "symbol": "??_C@_0BN@OGGF@NetStatus?5disconnect?5ingame?6?$AA@",
    "address": "007fe210",
    "bytes": 29,
    "kind": "string",
-   "section": 839
+   "section": 841
   },
   {
    "symbol": "??_C@_0BB@KHPB@TXT_WOL_CONNLOST?$AA@",
    "address": "007fe230",
    "bytes": 17,
    "kind": "string",
-   "section": 840
+   "section": 842
   },
   {
    "symbol": "??_C@_1O@MAMF@?$AA?$CF?$AAh?$AAs?$AA?5?$AA?$CF?$AAs?$AA?$AA@",
    "address": "007fe2c4",
    "bytes": 14,
    "kind": "string",
-   "section": 843
+   "section": 845
   },
   {
    "symbol": "??_C@_0P@BDBG@TXT_BANNEDTILL?$AA@",
    "address": "007fe2d4",
    "bytes": 15,
    "kind": "string",
-   "section": 856
+   "section": 858
   },
   {
    "symbol": "??_C@_0P@HELC@TXT_CHAN_UNBAN?$AA@",
    "address": "007fe2e4",
    "bytes": 15,
    "kind": "string",
-   "section": 859
+   "section": 861
   },
   {
    "symbol": "??_C@_0N@OBEP@TXT_CHAN_BAN?$AA@",
    "address": "007fe2f4",
    "bytes": 13,
    "kind": "string",
-   "section": 860
+   "section": 862
   },
   {
    "symbol": "??_C@_0BA@NNBL@TXT_USER_KICKED?$AA@",
    "address": "007fe304",
    "bytes": 16,
    "kind": "string",
-   "section": 865
+   "section": 867
   },
   {
    "symbol": "??_C@_0BB@KGDC@TXT_YOURE_KICKED?$AA@",
    "address": "007fe314",
    "bytes": 17,
    "kind": "string",
-   "section": 866
+   "section": 868
   },
   {
    "symbol": "??_C@_0CG@DJLJ@OnUserLocale?5callback?5?9?5Locale?5i@",
    "address": "007fe328",
    "bytes": 38,
    "kind": "string",
-   "section": 873
+   "section": 875
   },
   {
    "symbol": "??_C@_0BP@BBKG@OnUserLocale?5callback?5failed?$CB?6?$AA@",
    "address": "007fe350",
    "bytes": 31,
    "kind": "string",
-   "section": 874
+   "section": 876
   },
   {
    "symbol": "??_C@_0BE@CJNE@OnUserTeam?5FAILED?$CB?6?$AA@",
    "address": "007fe370",
    "bytes": 20,
    "kind": "string",
-   "section": 881
+   "section": 883
   },
   {
    "symbol": "??_C@_0BG@KNAI@OnSetTeam?5FAILED?3?5?$CFd?6?$AA@",
    "address": "007fe384",
    "bytes": 22,
    "kind": "string",
-   "section": 884
+   "section": 886
   },
   {
    "symbol": "??_C@_0BG@LPOE@TXT_FETCHING_SERVLIST?$AA@",
    "address": "007fe670",
    "bytes": 22,
    "kind": "string",
-   "section": 407
+   "section": 409
   },
   {
    "symbol": "??_C@_0M@CHOE@TXT_JOINLOB?$AA@",
    "address": "007fe688",
    "bytes": 12,
    "kind": "string",
-   "section": 444
+   "section": 446
   },
   {
    "symbol": "??_C@_08EIMP@zotclot9?$AA@",
    "address": "007fe738",
    "bytes": 9,
    "kind": "string",
-   "section": 445
+   "section": 447
   },
   {
    "symbol": "??_C@_1BC@HKMH@?$AA?$FL?$AA?$CF?$AAh?$AAs?$AA?$FN?$AA?5?$AA?$CF?$AAs?$AA?$AA@",
    "address": "007fe9a4",
    "bytes": 18,
    "kind": "string",
-   "section": 679
+   "section": 681
   },
   {
    "symbol": "??_C@_09NGKE@?7?$CFd?5?$CG?5?$CFd?6?$AA@",
    "address": "007feefc",
    "bytes": 10,
    "kind": "string",
-   "section": 534
+   "section": 536
   },
   {
    "symbol": "??_C@_0BG@MIFH@Connection?5pairs?4?4?4?4?6?$AA@",
    "address": "007fef08",
    "bytes": 22,
    "kind": "string",
-   "section": 535
+   "section": 537
   },
   {
    "symbol": "??_C@_0CL@NDDD@Connection?5order?5?$DN?5?$CFd?0?5?$CFd?0?5?$CFd?0?5?$CF@",
    "address": "007fef20",
    "bytes": 43,
    "kind": "string",
-   "section": 536
+   "section": 538
   },
   {
    "symbol": "??_C@_0BF@DHDL@Adding?5country?3?5?$CFhs?6?$AA@",
    "address": "007ff928",
    "bytes": 21,
    "kind": "string",
-   "section": 567
+   "section": 569
   },
   {
    "symbol": "??_C@_09PKEM@Ol?5Cruddy?$AA@",
    "address": "007ff940",
    "bytes": 10,
    "kind": "string",
-   "section": 570
+   "section": 572
   },
   {
    "symbol": "??_C@_06EMGL@Potato?$AA@",
    "address": "007ff94c",
    "bytes": 7,
    "kind": "string",
-   "section": 573
+   "section": 575
   },
   {
    "symbol": "??_C@_09HMPI@PotatoToo?$AA@",
    "address": "007ff954",
    "bytes": 10,
    "kind": "string",
-   "section": 576
+   "section": 578
   },
   {
    "symbol": "??_C@_0M@BGHK@00?9W029?4V00?$AA@",
    "address": "007ff9e4",
    "bytes": 12,
    "kind": "string",
-   "section": 588
+   "section": 590
   },
   {
    "symbol": "??_C@_0M@ICPA@00?9W031?4V00?$AA@",
    "address": "007ff9f0",
    "bytes": 12,
    "kind": "string",
-   "section": 589
+   "section": 591
   },
   {
    "symbol": "??_C@_0M@HIA@01?9W030?4V01?$AA@",
    "address": "007ff9fc",
    "bytes": 12,
    "kind": "string",
-   "section": 590
+   "section": 592
   },
   {
    "symbol": "??_C@_0M@EHMK@01?9W032?4V01?$AA@",
    "address": "007ffa08",
    "bytes": 12,
    "kind": "string",
-   "section": 591
+   "section": 593
   },
   {
    "symbol": "??_C@_0M@LHHF@00?9W020?4V00?$AA@",
    "address": "007ffa14",
    "bytes": 12,
    "kind": "string",
-   "section": 592
+   "section": 594
   },
   {
    "symbol": "??_C@_0M@ILP@00?9W018?4V00?$AA@",
    "address": "007ffa20",
    "bytes": 12,
    "kind": "string",
-   "section": 593
+   "section": 595
   },
   {
    "symbol": "??_C@_0M@GJGP@00?9W017?4V00?$AA@",
    "address": "007ffa2c",
    "bytes": 12,
    "kind": "string",
-   "section": 594
+   "section": 596
   },
   {
    "symbol": "??_C@_0M@HHKK@00?9W026?4V00?$AA@",
    "address": "007ffa38",
    "bytes": 12,
    "kind": "string",
-   "section": 595
+   "section": 597
   },
   {
    "symbol": "??_C@_0M@DHOA@00?9W024?4V00?$AA@",
    "address": "007ffa44",
    "bytes": 12,
    "kind": "string",
-   "section": 596
+   "section": 598
   },
   {
    "symbol": "??_C@_0M@PHDP@00?9W022?4V00?$AA@",
    "address": "007ffa50",
    "bytes": 12,
    "kind": "string",
-   "section": 597
+   "section": 599
   },
   {
    "symbol": "??_C@_0M@NCGK@01?9W022?4V01?$AA@",
    "address": "007ffa5c",
    "bytes": 12,
    "kind": "string",
-   "section": 598
+   "section": 600
   },
   {
    "symbol": "??_C@_0M@JCCA@01?9W020?4V01?$AA@",
    "address": "007ffa68",
    "bytes": 12,
    "kind": "string",
-   "section": 599
+   "section": 601
   },
   {
    "symbol": "??_C@_0M@CNOK@01?9W018?4V01?$AA@",
    "address": "007ffa74",
    "bytes": 12,
    "kind": "string",
-   "section": 600
+   "section": 602
   },
   {
    "symbol": "??_C@_0M@JDAK@01?9W028?4V01?$AA@",
    "address": "007ffa80",
    "bytes": 12,
    "kind": "string",
-   "section": 601
+   "section": 603
   },
   {
    "symbol": "??_C@_0M@FCPP@01?9W026?4V01?$AA@",
    "address": "007ffa8c",
    "bytes": 12,
    "kind": "string",
-   "section": 602
+   "section": 604
   },
   {
    "symbol": "??_C@_0M@BCLF@01?9W024?4V01?$AA@",
    "address": "007ffa98",
    "bytes": 12,
    "kind": "string",
-   "section": 603
+   "section": 605
   },
   {
    "symbol": "??_C@_01PACF@G?$AA@",
    "address": "008003d0",
    "bytes": 2,
    "kind": "string",
-   "section": 728
+   "section": 730
   },
   {
    "symbol": "??_C@_0BC@JLDO@TXT_BYTES_WO_TIME?$AA@",
    "address": "00800470",
    "bytes": 18,
    "kind": "string",
-   "section": 915
+   "section": 917
   },
   {
    "symbol": "??_C@_0BB@NHOD@TXT_BYTES_W_TIME?$AA@",
    "address": "00800484",
    "bytes": 17,
    "kind": "string",
-   "section": 916
+   "section": 918
   },
   {
    "symbol": "??_C@_0P@OFIL@TXT_CONNECTING?$AA@",
    "address": "00800498",
    "bytes": 15,
    "kind": "string",
-   "section": 907
+   "section": 909
   },
   {
    "symbol": "??_C@_0BC@NEBC@TXT_FINDING_PATCH?$AA@",
    "address": "008004a8",
    "bytes": 18,
    "kind": "string",
-   "section": 908
+   "section": 910
   }
  ],
  "data_ranges": [],
@@ -8610,6 +8616,10 @@
    "address": "00b2a7fc"
   },
   {
+   "symbol": "?unknown_b2a804@@3HA",
+   "address": "00b2a804"
+  },
+  {
    "symbol": "?unknown_b2a808@@3PADA",
    "address": "00b2a808"
   },
@@ -11155,17 +11165,15 @@
    "bound": "own frozen bound (population-970)",
    "placed": "address",
    "unit_evidence": "xcu single"
-  }
- ],
- "residuals": [
+  },
   {
-   "kind": "split",
    "entry": "0073c0b0",
    "bytes": 97,
    "population": "population-1642",
-   "source": "src/recovered/wonline/unknown_can_send_chat.cpp",
-   "cause": "held by population-1642; not joined: does not compile in the unit: accepted.cpp(603) : error C2011: 'WideString' : 'class' type redefinition"
-  },
+   "bound": "own frozen bound (population-1642)"
+  }
+ ],
+ "residuals": [
   {
    "kind": "split",
    "entry": "0073c2a0",
@@ -11308,7 +11316,7 @@
    "bytes": 1,
    "population": "population-4322",
    "source": "src/recovered/classes/CChatEventSink/CChatEventSink_OnPublicGameOptions_preview_timer_atexit_00765980.cpp",
-   "cause": "held by population-4322; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E222)"
+   "cause": "held by population-4322; not joined: differs under the unit's state (Function symbol ambiguous/missing: _$E100308)"
   },
   {
    "kind": "split",
@@ -11404,7 +11412,7 @@
    "bytes": 148,
    "population": "population-2411",
    "source": "src/recovered/wonline/WolUserArray_Grow.cpp",
-   "cause": "held by population-2411; not joined: its population changes when it leaves (006a66b0, 00765e90)"
+   "cause": "held by population-2411; not joined: its population changes when it leaves (00578b10, 00601470, 00667dc0, 00667e80)"
   },
   {
    "kind": "split",
@@ -11516,7 +11524,7 @@
    "bytes": 34,
    "population": "population-3996",
    "source": "src/recovered/unowned/unknown_list_get_00768260.cpp",
-   "cause": "held by population-3996; not joined: another option set (/O2 /Ob2 /G5 /Gy /GR)"
+   "cause": "held by population-3996; not joined: the unit's option set is not evidenced against /O2 /Ob2 /G5 /Gy /GR (all 385 unit rows reproduce under it too)"
   },
   {
    "kind": "split",
@@ -12042,8 +12050,8 @@
  ],
  "stand_in_reference_count": 80,
  "residual_split": {
-  "rows": 46,
-  "bytes": 14180
+  "rows": 45,
+  "bytes": 14083
  },
  "residual_flipped": {
   "rows": 0,

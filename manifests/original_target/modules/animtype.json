@@ -10,7 +10,7 @@
   "/Gy",
   "/GR"
  ],
- "compile_group": 713,
+ "compile_group": 711,
  "code": [
   {
    "symbol": "_$E2",
@@ -2895,7 +2895,16 @@
    "unit_evidence": "xcu-prefix"
   }
  ],
- "residuals": [],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "00424e30",
+   "bytes": 771,
+   "population": "population-3599",
+   "source": "src/recovered/classes/AnimTypeClass/Constructor.cpp",
+   "cause": "frozen in another population's inventory pass (population-3599)"
+  }
+ ],
  "unit_functions": 24,
  "data_unproven": [
   {
@@ -2917,8 +2926,8 @@
  ],
  "stand_in_reference_count": 1,
  "residual_split": {
-  "rows": 0,
-  "bytes": 0
+  "rows": 1,
+  "bytes": 771
  },
  "residual_flipped": {
   "rows": 0,

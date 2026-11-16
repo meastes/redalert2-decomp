@@ -144,6 +144,15 @@ class Census(unittest.TestCase):
         work = cleanup_census.unit_lines(result).splitlines()
         self.assertEqual(work[1].split('\t')[0], 'beta')         # most tokens first
 
+    def test_joined_row_without_unit_map_entry_belongs_to_its_unit(self):
+        inputs, read = self.inputs()
+        inputs['regions'].append(region(0x401400, 'src/recovered/alpha.cpp', '_$E7', 9))
+        inputs['declared']['alpha']['joined'] = [dict(entry='00401400', bytes=9, unit_evidence='xcu single'),
+                                                 dict(entry='00403000', bytes=7)]
+        f = cleanup_census.census(inputs, read, dict(tibsun=set(), mischa85=set()), file_backed_non_code=1000)['functions']
+        self.assertEqual((f['unassigned_rows'], f['unassigned_bytes']), (0, 0))     # both joined rows now owned
+        self.assertEqual((f['outside_rows'], f['outside_bytes']), (4, 59))          # 0x403000 sits outside alpha.cpp
+
     def test_clean_unit_without_counterpart_allows_placeholders(self):
         inputs, read = self.inputs()
         result = cleanup_census.census(inputs, read, dict(tibsun=set(), mischa85=set()), file_backed_non_code=1000)
