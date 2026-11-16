@@ -98,24 +98,13 @@ DelayTimerClass::DelayTimerClass() : IsActive(false), IsToCountUp(false)
 }
 
 
-// 0x00496a10: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_00496a10(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_empty_00496a10 (0x00496A10): no name evidence; named by what it does
 
-namespace seed_00496a10 {
-
-void  FUN_00496a10(void)
+void  unknown_empty_00496a10(void)
 {
     return;
 }
 
-}  // namespace seed_00496a10
 
 
 /// <summary>

@@ -9,31 +9,18 @@
 #include "shared/crt_string.hpp"
 
 
-// 0x004ff1f0: function not yet identified
-//
-// Body: 11 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: bool FUN_004ff1f0(void)
-// Callees with accepted source:
-//   FUN_004ff1e0 -> src/recovered/004ff1e0.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_endless_loop_check_004ff1f0 (0x004FF1F0): no name evidence; named by what it does
 
-namespace seed_004ff1f0 {
+extern unsigned int  unknown_endless_loop_004ff1e0(void);
 
-extern unsigned int  FUN_004ff1e0(void);
-
-bool  FUN_004ff1f0(void)
+bool  unknown_endless_loop_check_004ff1f0(void)
 {
     char result_byte;
 
-    result_byte = (char)(FUN_004ff1e0());
+    result_byte = (char)(unknown_endless_loop_004ff1e0());
     return result_byte == '\0';
 }
 
-}  // namespace seed_004ff1f0
 
 
 // bool WolRegistryOptions::Read_004ff200() (0x004FF200)

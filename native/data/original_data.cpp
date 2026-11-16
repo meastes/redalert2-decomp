@@ -414,10 +414,10 @@ __asm__(".globl _vtable_4b2900\n.set _vtable_4b2900, _vtable_4b28b0\n");
 // row	_vtable_4b4640	0x007A0D0C	64	bytes	vtable_4b4640	src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp
 alignas(16) unsigned char ra2_orig_0123[64] __asm__("_vtable_4b45f0");
 __asm__(".globl _vtable_4b4640\n.set _vtable_4b4640, _vtable_4b45f0\n");
-// row	_PTR_FUN_007a0d6c	0x007A0D6C	32	ptr	PTR_FUN_007a0d6c	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
+// row	_unknown_vector_vtable_007a0d6c	0x007A0D6C	32	ptr	unknown_vector_vtable_007a0d6c	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 // row	_vtable_4b5770	0x007A0D6C	32	bytes	vtable_4b5770	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
-alignas(16) unsigned char ra2_orig_0124[64] __asm__("_PTR_FUN_007a0d6c");
-__asm__(".globl _vtable_4b5770\n.set _vtable_4b5770, _PTR_FUN_007a0d6c\n");
+alignas(16) unsigned char ra2_orig_0124[64] __asm__("_unknown_vector_vtable_007a0d6c");
+__asm__(".globl _vtable_4b5770\n.set _vtable_4b5770, _unknown_vector_vtable_007a0d6c\n");
 // row	_exception_codes_007a0e48	0x007A0E48	108	bytes	exception_codes_007a0e48	src/recovered/header_statics/004b7a00/HeaderStatics_empty_rect_init_004b7a00.cpp
 alignas(16) unsigned char ra2_orig_0125[112] __asm__("_exception_codes_007a0e48");
 // row	_table_4ba3c0	0x007A0F64	28	bytes	table_4ba3c0	src/recovered/classes/VectorClass_unsigned_int/0042b510.cpp
@@ -1559,10 +1559,10 @@ alignas(16) unsigned char ra2_orig_0478[64] __asm__("_unknown_aircraft_move_log_
 alignas(16) unsigned char ra2_orig_0479[64] __asm__("_unknown_aircraft_move_log_7ce92c");
 // row	_unknown_aircraft_move_log_7ce968	0x007CE968	40	bytes	unknown_aircraft_move_log_7ce968	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0480[48] __asm__("_unknown_aircraft_move_log_7ce968");
-// row	_DAT_007ce9b4	0x007CE9B4	4	bytes	DAT_007ce9b4	src/recovered/004919b0.cpp
+// row	_unknown_string_none_007ce9b4	0x007CE9B4	4	bytes	unknown_string_none_007ce9b4	src/recovered/004919b0.cpp
 // row	_unknown_none_007ce9b4	0x007CE9B4	4	bytes	unknown_none_007ce9b4	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
-alignas(16) unsigned char ra2_orig_0481[16] __asm__("_DAT_007ce9b4");
-__asm__(".globl _unknown_none_007ce9b4\n.set _unknown_none_007ce9b4, _DAT_007ce9b4\n");
+alignas(16) unsigned char ra2_orig_0481[16] __asm__("_unknown_string_none_007ce9b4");
+__asm__(".globl _unknown_none_007ce9b4\n.set _unknown_none_007ce9b4, _unknown_string_none_007ce9b4\n");
 // row	_address_text_007ce9bc	0x007CE9BC	4	bytes	address_text_007ce9bc	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 // row	_private_port_format_007ce9bc	0x007CE9BC	4	bytes	private_port_format_007ce9bc	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 // row	_unknown_integer_format_007ce9bc	0x007CE9BC	4	bytes	unknown_integer_format_007ce9bc	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
@@ -1921,10 +1921,10 @@ __asm__(".globl _s_DDRAW_DLL_Error_code____08X_007d59a8\n.set _s_DDRAW_DLL_Error
 // row	_s_Direct_Draw_operation_processed_w_007d59c4	0x007D59C4	48	bytes	s_Direct_Draw_operation_processed_w_007d59c4	src/recovered/004919b0.cpp
 alignas(16) unsigned char ra2_orig_0641[48] __asm__("_direct_draw_ok_message_007d59c4");
 __asm__(".globl _s_Direct_Draw_operation_processed_w_007d59c4\n.set _s_Direct_Draw_operation_processed_w_007d59c4, _direct_draw_ok_message_007d59c4\n");
-// row	_DAT_007d59f4	0x007D59F4	8	bytes	DAT_007d59f4	src/recovered/004919b0.cpp
+// row	_unknown_string_note_007d59f4	0x007D59F4	8	bytes	unknown_string_note_007d59f4	src/recovered/004919b0.cpp
 // row	_direct_draw_note_007d59f4	0x007D59F4	8	bytes	direct_draw_note_007d59f4	
-alignas(16) unsigned char ra2_orig_0642[16] __asm__("_DAT_007d59f4");
-__asm__(".globl _direct_draw_note_007d59f4\n.set _direct_draw_note_007d59f4, _DAT_007d59f4\n");
+alignas(16) unsigned char ra2_orig_0642[16] __asm__("_unknown_string_note_007d59f4");
+__asm__(".globl _direct_draw_note_007d59f4\n.set _direct_draw_note_007d59f4, _unknown_string_note_007d59f4\n");
 // row	_overlap_passed_007d59fc	0x007D59FC	4	bytes	overlap_passed_007d59fc	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0643[16] __asm__("_overlap_passed_007d59fc");
 // row	_overlap_failed_007d5a00	0x007D5A00	12	bytes	overlap_failed_007d5a00	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
@@ -2889,8 +2889,8 @@ alignas(16) unsigned char ra2_orig_0908[416] __asm__("_unknown_suffix_7df39c");
 // row	_unknown_flag_7df630	0x007DF630	4	bytes	unknown_flag_7df630	src/recovered/header_statics/004b4970/HeaderStatics_diagonal_init_004b4970.cpp
 alignas(16) unsigned char ra2_orig_0909[16] __asm__("_unknown_7df630");
 __asm__(".globl _unknown_flag_7df630\n.set _unknown_flag_7df630, _unknown_7df630\n");
-// row	_DAT_007df768	0x007DF768	256	bytes	DAT_007df768	src/recovered/classes/LightConvertClass/LightConvertClass_LightConvertClass_00538860.cpp
-alignas(16) unsigned char ra2_orig_0910[256] __asm__("_DAT_007df768");
+// row	_unknown_default_tint_mask_007df768	0x007DF768	256	bytes	unknown_default_tint_mask_007df768	src/recovered/classes/LightConvertClass/LightConvertClass_LightConvertClass_00538860.cpp
+alignas(16) unsigned char ra2_orig_0910[256] __asm__("_unknown_default_tint_mask_007df768");
 // row	_PrimaryColorMode	0x007DF868	384	bytes	PrimaryColorMode	src/recovered/classes/LightConvertClass/LightConvertClass_LightConvertClass_00538860.cpp
 alignas(16) unsigned char ra2_orig_0911[384] __asm__("_PrimaryColorMode");
 // row	_argument_53c970	0x007DFAA4	20	bytes	argument_53c970	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp

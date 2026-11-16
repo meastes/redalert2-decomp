@@ -83,7 +83,7 @@
 // scenario that has shadow levels.
 bool IonStormClass_Is_Ion_Storm_Active();
 bool NukeFlash_IsFadingIn();
-extern "C" unsigned char DAT_007df768[];
+extern "C" unsigned char unknown_default_tint_mask_007df768[];
 extern "C" int PrimaryColorMode;
 
 LightConvertClass::LightConvertClass(PaletteClass const &artpalette, PaletteClass const &screenpalette, Surface *typicalsurface,
@@ -95,7 +95,7 @@ LightConvertClass::LightConvertClass(PaletteClass const &artpalette, PaletteClas
 {
     if (this->unknown_shadow_count >= 1) {
         if (tint_mask == 0) {
-            unknown_190 = DAT_007df768;
+            unknown_190 = unknown_default_tint_mask_007df768;
         }
         if (PrimaryColorMode == -1) {
             PrimaryColorMode = Get_Unknown_7d6290();
@@ -139,18 +139,18 @@ LightConvertClass::LightConvertClass(PaletteClass const &artpalette, PaletteClas
 // 256-entry pixel table per shadow level: the remapped colours scale by the tint, the others by the level
 // brightness, both rising from black to double over the levels.  The four table builders (0x0079777A..)
 // are selected by the pixel format code 0x007DF868; any other format builds the table inline.
-extern "C" unsigned char DAT_007df768[];
+extern "C" unsigned char unknown_default_tint_mask_007df768[];
 extern "C" int PrimaryColorMode;
-void __cdecl FUN_0079777a(PaletteClass const *palette, unsigned short *table, int red, int green, int blue, int level, unsigned char const *remap);
-void __cdecl FUN_00797aba(PaletteClass const *palette, unsigned short *table, int red, int green, int blue, int level, unsigned char const *remap);
-void __cdecl FUN_00797440(PaletteClass const *palette, unsigned short *table, int red, int green, int blue, int level, unsigned char const *remap);
-void __cdecl FUN_00797dfa(PaletteClass const *palette, unsigned short *table, int red, int green, int blue, int level, unsigned char const *remap);
+void __cdecl unknown_build_tint_table_0079777a(PaletteClass const *palette, unsigned short *table, int red, int green, int blue, int level, unsigned char const *remap);
+void __cdecl unknown_build_tint_table_00797aba(PaletteClass const *palette, unsigned short *table, int red, int green, int blue, int level, unsigned char const *remap);
+void __cdecl unknown_build_tint_table_00797440(PaletteClass const *palette, unsigned short *table, int red, int green, int blue, int level, unsigned char const *remap);
+void __cdecl unknown_build_tint_table_00797dfa(PaletteClass const *palette, unsigned short *table, int red, int green, int blue, int level, unsigned char const *remap);
 
 void LightConvertClass::Set_Tint(int red, int green, int blue, bool stored)
 {
     if (unknown_shadow_count >= 1) {
         if (unknown_190 == 0) {
-            unknown_190 = DAT_007df768;
+            unknown_190 = unknown_default_tint_mask_007df768;
         }
         if (red != -1) {
             red = (red < 2000) ? red : 2000;
@@ -215,19 +215,19 @@ void LightConvertClass::Set_Tint(int red, int green, int blue, bool stored)
             }
             switch (PrimaryColorMode) {
             case 0:
-                FUN_0079777a(ArtPalette, table, r, g, b, level, unknown_190);
+                unknown_build_tint_table_0079777a(ArtPalette, table, r, g, b, level, unknown_190);
                 table += 256;
                 break;
             case 1:
-                FUN_00797aba(ArtPalette, table, r, g, b, level, unknown_190);
+                unknown_build_tint_table_00797aba(ArtPalette, table, r, g, b, level, unknown_190);
                 table += 256;
                 break;
             case 2:
-                FUN_00797440(ArtPalette, table, r, g, b, level, unknown_190);
+                unknown_build_tint_table_00797440(ArtPalette, table, r, g, b, level, unknown_190);
                 table += 256;
                 break;
             case 3:
-                FUN_00797dfa(ArtPalette, table, r, g, b, level, unknown_190);
+                unknown_build_tint_table_00797dfa(ArtPalette, table, r, g, b, level, unknown_190);
                 table += 256;
                 break;
             default:

@@ -33,12 +33,12 @@ void Build_Tint_Table(PaletteClass const *palette, unsigned short *table, int re
     }
 }
 }
-void __cdecl FUN_00797aba(PaletteClass const *palette, unsigned short *table, int red, int green, int blue,
+void __cdecl unknown_build_tint_table_00797aba(PaletteClass const *palette, unsigned short *table, int red, int green, int blue,
                           int level, unsigned char const *remap)
 {
     Build_Tint_Table<8, 0xF8, 3, 0xF8, 2>(palette, table, red, green, blue, level, remap);
 }
-void __cdecl FUN_00797dfa(PaletteClass const *palette, unsigned short *table, int red, int green, int blue,
+void __cdecl unknown_build_tint_table_00797dfa(PaletteClass const *palette, unsigned short *table, int red, int green, int blue,
                           int level, unsigned char const *remap)
 {
     Build_Tint_Table<8, 0xFC, 2, 0xF8, 3>(palette, table, red, green, blue, level, remap);

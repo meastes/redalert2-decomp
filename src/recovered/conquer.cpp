@@ -105,24 +105,13 @@
 // by HeaderStatics_empty_rect_init_00481650.cpp; no source of its own.
 
 
-// 0x00481840: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_00481840(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_empty_00481840 (0x00481840): no name evidence; named by what it does
 
-namespace seed_00481840 {
-
-void  FUN_00481840(void)
+void  unknown_empty_00481840(void)
 {
     return;
 }
 
-}  // namespace seed_00481840
 
 
 // void __fastcall Special_Dialog_00481850() (0x00481850): runs the dialog the player asked for
@@ -310,27 +299,14 @@ online:
 }
 
 
-// 0x00482100: function not yet identified
-//
-// Body: 8 bytes (frozen inventory bound).
-// Referenced from 48 sites (computed call, data).
-// Ghidra prototype: undefined1 FUN_00482100(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_service_io_callback_00482100 (0x00482100): no name evidence; named by what it does
 
-namespace seed_00482100 {
-
-extern void  Service_Game_IO_00481fb0(void);
-
-unsigned char  FUN_00482100(void)
+unsigned char  unknown_service_io_callback_00482100(void)
 {
     Service_Game_IO_00481fb0();
     return 0;
 }
 
-}  // namespace seed_00482100
 
 
 // SPDX-License-Identifier: GPL-3.0-or-later
@@ -794,30 +770,19 @@ LandType __fastcall Land_From_Name(char const *name)
 }
 
 
-// 0x00482af0: function not yet identified
-//
-// Body: 19 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined * __fastcall FUN_00482af0(uint param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_source_name_00482af0 (0x00482AF0): no name evidence; named by what it does
 
-namespace seed_00482af0 {
-
-extern "C" unsigned int DAT_007ce9b4;
+extern "C" unsigned int unknown_string_none_007ce9b4;
 extern "C" void* SourceName;
 
-unsigned char * __fastcall FUN_00482af0(unsigned int index)
+unsigned char * __fastcall unknown_source_name_00482af0(unsigned int index)
 {
     if (index < 5) {
         return (unsigned char *)((&SourceName)[index]);
     }
-    return (unsigned char *)(&DAT_007ce9b4);
+    return (unsigned char *)(&unknown_string_none_007ce9b4);
 }
 
-}  // namespace seed_00482af0
 
 
 class Leaf_482e00 { public: void get(); };

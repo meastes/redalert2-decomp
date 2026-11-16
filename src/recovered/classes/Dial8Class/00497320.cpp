@@ -3,7 +3,7 @@
 // Owner: Dial8Class, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
 // Body: 30 bytes (frozen inventory bound).
 // Referenced from 1 site (data).
-// Ghidra prototype: undefined4 __thiscall FUN_00497320(undefined4 param_1,byte param_2)
+// Ghidra prototype: undefined4 __thiscall unknown_scalar_deleting_destructor_00497320(undefined4 param_1,byte param_2)
 // Calls GadgetClass::~GadgetClass, then operator delete when flags bit 0 is set
 // (a scalar deleting destructor of a GadgetClass-derived class with a trivial destructor).
 //
@@ -14,9 +14,9 @@
 
 namespace seed_00497320 {
 
-struct Owner_00497320 { unsigned int FUN_00497320(unsigned char flags); };
+struct Owner_00497320 { unsigned int unknown_scalar_deleting_destructor_00497320(unsigned char flags); };
 
-unsigned int Owner_00497320::FUN_00497320(unsigned char flags)
+unsigned int Owner_00497320::unknown_scalar_deleting_destructor_00497320(unsigned char flags)
 {
     ((GadgetClass *)this)->GadgetClass::~GadgetClass();
     if ((flags & 1) != 0) {

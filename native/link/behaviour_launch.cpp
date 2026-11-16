@@ -73,7 +73,7 @@ void unknown_cpu_family_probe_77f20f()
 // (r & 0xF8) << 7 | (g & 0xF8) << 2 | b >> 3. The original has three paths
 // (MMX pmulhw, CMOV and plain) giving the same table; this is the plain one.
 class PaletteClass;
-void __cdecl FUN_0079777a(PaletteClass const *palette, unsigned short *table, int red, int green, int blue,
+void __cdecl unknown_build_tint_table_0079777a(PaletteClass const *palette, unsigned short *table, int red, int green, int blue,
                           int level, unsigned char const *remap)
 {
     unsigned char const *rgb = (unsigned char const *)palette;
@@ -95,7 +95,7 @@ void __cdecl FUN_0079777a(PaletteClass const *palette, unsigned short *table, in
 // 0x00797440 (handwritten assembly, the 16-bit 5:6:5 sibling of 0x0079777A
 // above; read from its decompile): the same table packed as
 // (r & 0xF8) << 8 | (g & 0xFC) << 3 | b >> 3.
-void __cdecl FUN_00797440(PaletteClass const *palette, unsigned short *table, int red, int green, int blue,
+void __cdecl unknown_build_tint_table_00797440(PaletteClass const *palette, unsigned short *table, int red, int green, int blue,
                           int level, unsigned char const *remap)
 {
     unsigned char const *rgb = (unsigned char const *)palette;

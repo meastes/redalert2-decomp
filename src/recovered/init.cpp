@@ -803,64 +803,31 @@ int __stdcall Unknown_00513200(HWND window, UINT message, WPARAM wparam, LPARAM 
 }
 
 
-// 0x00513260: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_00513260(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_empty_00513260 (0x00513260): no name evidence; named by what it does
 
-namespace seed_00513260 {
-
-void  FUN_00513260(void)
+void  unknown_empty_00513260(void)
 {
     return;
 }
 
-}  // namespace seed_00513260
 
 
-// 0x00513270: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_00513270(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_empty_00513270 (0x00513270): no name evidence; named by what it does
 
-namespace seed_00513270 {
-
-void  FUN_00513270(void)
+void  unknown_empty_00513270(void)
 {
     return;
 }
 
-}  // namespace seed_00513270
 
 
-// 0x00513280: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_00513280(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_empty_00513280 (0x00513280): no name evidence; named by what it does
 
-namespace seed_00513280 {
-
-void  FUN_00513280(void)
+void  unknown_empty_00513280(void)
 {
     return;
 }
 
-}  // namespace seed_00513280
 
 
 // int __stdcall Unknown_00513290(HWND, UINT, WPARAM, LPARAM) -- 0x00513290
@@ -2832,24 +2799,13 @@ class Leaf_5173a0 { public: void get(); };
 void Leaf_5173a0::get() {  }
 
 
-// 0x005173b0: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_005173b0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_empty_005173b0 (0x005173B0): no name evidence; named by what it does
 
-namespace seed_005173b0 {
-
-void  FUN_005173b0(void)
+void  unknown_empty_005173b0(void)
 {
     return;
 }
 
-}  // namespace seed_005173b0
 
 
 // void unknown_init_commands_5173c0() -- 0x005173C0
@@ -3616,7 +3572,7 @@ ObjectClass *__fastcall Best_Selected_Object(Cell const *cell, ObjectClass *obje
 //
 // Body: 16 bytes (frozen inventory bound).
 // Referenced from 0 sites.
-// Ghidra prototype: void FUN_0051a870(void)
+// Ghidra prototype: void unknown_theme_intro_index_0051a870(void)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -3625,12 +3581,12 @@ ObjectClass *__fastcall Best_Selected_Object(Cell const *cell, ObjectClass *obje
 namespace seed_0051a870 {
 
 struct Callee_006e8510 { unsigned int From_Name_006e8510(char *theme_name); };
-extern "C" unsigned int DAT_00a35d78;
+extern "C" unsigned int unknown_theme_a35d78;
 extern "C" char s_INTRO_007dbc90[];
 
-void  FUN_0051a870(void)
+void  unknown_theme_intro_index_0051a870(void)
 {
-    ((Callee_006e8510*)(&DAT_00a35d78))->From_Name_006e8510((char *)(s_INTRO_007dbc90));
+    ((Callee_006e8510*)(&unknown_theme_a35d78))->From_Name_006e8510((char *)(s_INTRO_007dbc90));
     return;
 }
 

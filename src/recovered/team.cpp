@@ -1983,14 +1983,14 @@ void TeamClass::TMission_PLAY_MOVIE(ScriptMissionClass const &mission, bool unkn
 namespace seed_006bc2c0 {
 
 struct Callee_006e7e20 { void Queue_Song_006e7e20(int value); };
-extern "C" unsigned int DAT_00a35d78;
+extern "C" unsigned int unknown_theme_a35d78;
 
 struct Owner_006bc2c0 { void FUN_006bc2c0(int argument_address, int unused_1); };
 
 void Owner_006bc2c0::FUN_006bc2c0(int argument_address, int unused_1)
 {
     int team_address = (int)this;
-    ((Callee_006e7e20*)(&DAT_00a35d78))->Queue_Song_006e7e20((int)(*(unsigned int *)(argument_address + 4)));
+    ((Callee_006e7e20*)(&unknown_theme_a35d78))->Queue_Song_006e7e20((int)(*(unsigned int *)(argument_address + 4)));
     *(unsigned char *)(team_address + 0x80) = 1;
     return;
 }

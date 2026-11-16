@@ -2226,19 +2226,15 @@ ObjectClass *IsometricTileTypeClass::Create_One_Of(HouseClass *house) const
 
 // IsometricTileTypeClass_Clear_Z_Shapes (0x0052E070): name from mischa85 names.csv
 
-extern "C" unsigned int SlopeZShapes_00a52eb0;
-extern "C" unsigned int DAT_00a52eb4;
-extern "C" unsigned int DAT_00a52eb8;
-extern "C" unsigned int DAT_00a52ebc;
 extern "C" unsigned int IsometricTileTypeClass_CellShadowShapes;
 
 void  IsometricTileTypeClass_Clear_Z_Shapes(void)
 {
     IsometricTileTypeClass_CellShadowShapes = 0;
-    SlopeZShapes_00a52eb0 = 0;
-    DAT_00a52eb4 = 0;
-    DAT_00a52eb8 = 0;
-    DAT_00a52ebc = 0;
+    SlopeZShapes[0] = 0;
+    SlopeZShapes[1] = 0;
+    SlopeZShapes[2] = 0;
+    SlopeZShapes[3] = 0;
     return;
 }
 
@@ -2454,7 +2450,7 @@ int IsometricTileTypeClass::Fetch_Heap_ID() const
 //
 // Body: 27 bytes (frozen inventory bound).
 // Referenced from 1 site (data).
-// Ghidra prototype: uint __thiscall FUN_0052e700(int param_1,int param_2)
+// Ghidra prototype: uint __thiscall unknown_vector_index_of_0052e700(int param_1,int param_2)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -2462,9 +2458,9 @@ int IsometricTileTypeClass::Fetch_Heap_ID() const
 
 namespace seed_0052e700 {
 
-struct Owner_0052e700 { unsigned int FUN_0052e700(int element_address); };
+struct Owner_0052e700 { unsigned int unknown_vector_index_of_0052e700(int element_address); };
 
-unsigned int Owner_0052e700::FUN_0052e700(int element_address)
+unsigned int Owner_0052e700::unknown_vector_index_of_0052e700(int element_address)
 {
     int vector_address = (int)this;
     if (*(char *)(vector_address + 0xc) == '\0') {

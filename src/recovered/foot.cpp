@@ -4254,19 +4254,9 @@ int FootClass::unknown_slot268(UnknownSlot268Arg const *arg)
 }
 
 
-// 0x004cda80: function not yet identified
-//
-// Body: 31 bytes (frozen inventory bound).
-// Referenced from 4 sites (data).
-// Ghidra prototype: void __fastcall FUN_004cda80(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_clear_mega_mission_004cda80 (0x004CDA80): no name evidence; named by what it does
 
-namespace seed_004cda80 {
-
-void __fastcall FUN_004cda80(int foot_address)
+void __fastcall unknown_clear_mega_mission_004cda80(int foot_address)
 {
     *(unsigned int *)(foot_address + 0x4b4) = 0xffffffff;
     *(unsigned int *)(foot_address + 0x4b8) = 0;
@@ -4275,27 +4265,15 @@ void __fastcall FUN_004cda80(int foot_address)
     return;
 }
 
-}  // namespace seed_004cda80
 
 
-// 0x004cdaa0: function not yet identified
-//
-// Body: 15 bytes (frozen inventory bound).
-// Referenced from 4 sites (data).
-// Ghidra prototype: bool __fastcall FUN_004cdaa0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_has_mega_mission_004cdaa0 (0x004CDAA0): no name evidence; named by what it does
 
-namespace seed_004cdaa0 {
-
-bool __fastcall FUN_004cdaa0(int foot_address)
+bool __fastcall unknown_has_mega_mission_004cdaa0(int foot_address)
 {
     return *(int *)(foot_address + 0x4b4) != -1;
 }
 
-}  // namespace seed_004cdaa0
 
 
 class Leaf_4cdab0 { public: unsigned char get(); };
@@ -4445,23 +4423,11 @@ UnknownFacingDir TechnoClass::Turret_Facing()
 // Compiler-emitted from shared/foot.hpp in this unit; no source of its own.
 
 
-// 0x004cde90: function not yet identified
-//
-// Body: 22 bytes (frozen inventory bound).
-// Referenced from 8 sites (unconditional call).
-// Ghidra prototype: int __fastcall FUN_004cde90(int *param_1)
-// Callees with accepted source:
-//   FUN_00795940 -> src/recovered/00795940.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004cde90 {
+// unknown_com_ptr_checked_get_004cde90 (0x004CDE90): no name evidence; named by what it does
 
 extern void __stdcall com_issue_error_00795940(unsigned int error_code);
 
-int __fastcall FUN_004cde90(int *pointer_words)
+int __fastcall unknown_com_ptr_checked_get_004cde90(int *pointer_words)
 {
     if (*pointer_words == 0) {
         com_issue_error_00795940((unsigned int)(0x80004003));
@@ -4469,7 +4435,6 @@ int __fastcall FUN_004cde90(int *pointer_words)
     return *pointer_words;
 }
 
-}  // namespace seed_004cde90
 
 
 // Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):
@@ -4524,24 +4489,13 @@ void UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600>::Release_Held(
 // DynamicVectorClass<DiscreteDistributionClass<CellClass>::DistributionObject<CellClass *>>::Resize (0x004CE820).
 
 
-// 0x004ce940: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void FUN_004ce940(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_empty_004ce940 (0x004CE940): no name evidence; named by what it does
 
-namespace seed_004ce940 {
-
-void  FUN_004ce940(void)
+void  unknown_empty_004ce940(void)
 {
     return;
 }
 
-}  // namespace seed_004ce940
 
 
 // VectorClass<FootClass *>::`scalar deleting destructor' (0x004CE9F0)

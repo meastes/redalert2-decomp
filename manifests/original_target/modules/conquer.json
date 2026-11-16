@@ -91,7 +91,7 @@
    "padding_bytes": 14
   },
   {
-   "symbol": "?FUN_00481840@seed_00481840@@YAXXZ",
+   "symbol": "?unknown_empty_00481840@@YAXXZ",
    "entry": "00481840",
    "body_bytes": 1,
    "padding_bytes": 15
@@ -115,7 +115,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?FUN_00482100@seed_00482100@@YAEXZ",
+   "symbol": "?unknown_service_io_callback_00482100@@YAEXZ",
    "entry": "00482100",
    "body_bytes": 8,
    "padding_bytes": 8
@@ -139,7 +139,7 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?FUN_00482af0@seed_00482af0@@YIPAEI@Z",
+   "symbol": "?unknown_source_name_00482af0@@YIPAEI@Z",
    "entry": "00482af0",
    "body_bytes": 19,
    "padding_bytes": 13
@@ -2300,10 +2300,6 @@
    "address": "005d0660"
   },
   {
-   "symbol": "?Service_Game_IO_00481fb0@seed_00482100@@YAXXZ",
-   "address": "00481fb0"
-  },
-  {
    "symbol": "?Set_Global_Routed@IPXManagerClass@@QAEXXZ",
    "address": "00527800"
   },
@@ -2672,10 +2668,6 @@
    "address": "00a6ebc8"
   },
   {
-   "symbol": "_DAT_007ce9b4",
-   "address": "007ce9b4"
-  },
-  {
    "symbol": "_SourceName",
    "address": "0079ab50"
   },
@@ -2750,6 +2742,10 @@
   {
    "symbol": "_time",
    "address": "0078387f"
+  },
+  {
+   "symbol": "_unknown_string_none_007ce9b4",
+   "address": "007ce9b4"
   },
   {
    "symbol": "_wcscpy",
@@ -3017,7 +3013,7 @@
    "site": "00577490",
    "target": "00482100",
    "symbol": "?Default_Map_Generation_Callback_00482100@@YA_NXZ",
-   "module_symbol": "?FUN_00482100@seed_00482100@@YAEXZ"
+   "module_symbol": "?unknown_service_io_callback_00482100@@YAEXZ"
   },
   {
    "site": "006fd3a0",
@@ -3059,7 +3055,7 @@
    "site": "005c84e0",
    "target": "00482100",
    "symbol": "?Default_Map_Generation_Callback_00482100@@YA_NXZ",
-   "module_symbol": "?FUN_00482100@seed_00482100@@YAEXZ"
+   "module_symbol": "?unknown_service_io_callback_00482100@@YAEXZ"
   },
   {
    "site": "0053fbd0",

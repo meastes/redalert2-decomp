@@ -1942,24 +1942,13 @@ int BuildingTypeClass::Deploy_Facing() const
 }
 
 
-// 0x0045ecf0: function not yet identified
-//
-// Body: 3 bytes (frozen inventory bound).
-// Referenced from 16 sites (data).
-// Ghidra prototype: undefined4 __fastcall FUN_0045ecf0(undefined4 param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_identity_0045ecf0 (0x0045ECF0): no name evidence; named by what it does
 
-namespace seed_0045ecf0 {
-
-unsigned int __fastcall FUN_0045ecf0(unsigned int value)
+unsigned int __fastcall unknown_identity_0045ecf0(unsigned int value)
 {
     return value;
 }
 
-}  // namespace seed_0045ecf0
 
 
 // int BuildingTypeClass::Kind_Of() const (0x0045ED00)

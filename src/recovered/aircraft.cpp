@@ -3095,24 +3095,13 @@ class Leaf_41b310 { public: void get(unsigned int unused_argument_1); };
 void Leaf_41b310::get(unsigned int unused_argument_1) { unsigned int unused_this_address = (unsigned int)this; unsigned int unused_result; unsigned int unused_value; }
 
 
-// 0x0041b360: function not yet identified
-//
-// Body: 3 bytes (frozen inventory bound).
-// Referenced from 5 sites (data).
-// Ghidra prototype: undefined1 FUN_0041b360(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_return_false_0041b360 (0x0041B360): no name evidence; named by what it does
 
-namespace seed_0041b360 {
-
-unsigned char  FUN_0041b360(void)
+unsigned char  unknown_return_false_0041b360(void)
 {
     return 0;
 }
 
-}  // namespace seed_0041b360
 
 
 // TechnoClass::Is_Ready_To_Move (0x0041B370, TechnoClass slot 159): the inline
@@ -3158,24 +3147,13 @@ class Leaf_41b440 { public: bool get(); };
 bool Leaf_41b440::get() { return false; }
 
 
-// 0x0041b450: function not yet identified
-//
-// Body: 14 bytes (frozen inventory bound).
-// Referenced from 4 sites (data).
-// Ghidra prototype: bool __fastcall FUN_0041b450(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_has_4c4_0041b450 (0x0041B450): no name evidence; named by what it does
 
-namespace seed_0041b450 {
-
-bool __fastcall FUN_0041b450(int aircraft_address)
+bool __fastcall unknown_has_4c4_0041b450(int aircraft_address)
 {
     return *(int *)(aircraft_address + 0x4c4) != 0;
 }
 
-}  // namespace seed_0041b450
 
 
 class Leaf_41b460 { public: bool get(); };

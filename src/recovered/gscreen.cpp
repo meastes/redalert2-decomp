@@ -618,23 +618,12 @@ void GScreenClass::AI(int &input, Point2D const &xy)
 // bit 0 of the flags is set.
 
 
-// 0x004e1290: function not yet identified
-//
-// Body: 2 bytes (frozen inventory bound).
-// Referenced from 4 sites (unconditional call, unconditional jump).
-// Ghidra prototype: void FUN_004e1290(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_endless_loop_004e1290 (0x004E1290): no name evidence; named by what it does
 
-namespace seed_004e1290 {
-
-void  FUN_004e1290(void)
+void  unknown_endless_loop_004e1290(void)
 {
     do {
                                         /* WARNING: Do nothing block with infinite loop */
     } while( true );
 }
 
-}  // namespace seed_004e1290

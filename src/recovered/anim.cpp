@@ -1419,25 +1419,13 @@ class Leaf_423da0 { public: bool get(); };
 bool Leaf_423da0::get() { return false; }
 
 
-// 0x00423db0: function not yet identified
-//
-// Owner: ObjectClass, virtual slot 49 (vtable +0xc4) (from RTTI/vtables).
-// Body: 5 bytes (frozen inventory bound).
-// Referenced from 15 sites (data).
-// Ghidra prototype: undefined1 FUN_00423db0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_slot49_return_false_00423db0 (0x00423DB0): no name evidence; named by what it does
 
-namespace seed_00423db0 {
-
-unsigned char __stdcall FUN_00423db0(int unused_0)
+unsigned char __stdcall unknown_slot49_return_false_00423db0(int unused_0)
 {
     return 0;
 }
 
-}  // namespace seed_00423db0
 
 
 class Leaf_423dc0 { public: void get(unsigned int unused_argument_1, unsigned int unused_argument_2); };

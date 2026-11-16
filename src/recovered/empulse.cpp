@@ -308,7 +308,7 @@ void* Leaf_4b5770::get(unsigned int flags) { unsigned int pointer = *(unsigned i
 //
 // Body: 73 bytes (frozen inventory bound).
 // Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall FUN_004b57c0(undefined4 *param_1,byte param_2)
+// Ghidra prototype: undefined4 * __thiscall unknown_scalar_deleting_destructor_004b57c0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
 //   FUN_00781d3b -> src/recovered/00781d3b.cpp
 //
@@ -319,14 +319,14 @@ void* Leaf_4b5770::get(unsigned int flags) { unsigned int pointer = *(unsigned i
 namespace seed_004b57c0 {
 
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
-extern "C" void* PTR_FUN_007a0d6c;
+extern "C" void* unknown_vector_vtable_007a0d6c;
 
-struct Owner_004b57c0 { unsigned int * FUN_004b57c0(unsigned char deletion_flags); };
+struct Owner_004b57c0 { unsigned int * unknown_scalar_deleting_destructor_004b57c0(unsigned char deletion_flags); };
 
-unsigned int * Owner_004b57c0::FUN_004b57c0(unsigned char deletion_flags)
+unsigned int * Owner_004b57c0::unknown_scalar_deleting_destructor_004b57c0(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
-    *object_words = (unsigned int)(&PTR_FUN_007a0d6c);
+    *object_words = (unsigned int)(&unknown_vector_vtable_007a0d6c);
     if ((object_words[1] != 0) && (*(char *)((int)object_words + 0xd) != '\0')) {
         operator_delete_00781d3b((unsigned int)(object_words[1]));
         object_words[1] = 0;
@@ -342,41 +342,19 @@ unsigned int * Owner_004b57c0::FUN_004b57c0(unsigned char deletion_flags)
 }  // namespace seed_004b57c0
 
 
-// 0x004b5810: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_004b5810(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_empty_004b5810 (0x004B5810): no name evidence; named by what it does
 
-namespace seed_004b5810 {
-
-void  FUN_004b5810(void)
+void  unknown_empty_004b5810(void)
 {
     return;
 }
 
-}  // namespace seed_004b5810
 
 
-// 0x004b5820: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_004b5820(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_empty_004b5820 (0x004B5820): no name evidence; named by what it does
 
-namespace seed_004b5820 {
-
-void  FUN_004b5820(void)
+void  unknown_empty_004b5820(void)
 {
     return;
 }
 
-}  // namespace seed_004b5820
