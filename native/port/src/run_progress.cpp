@@ -309,7 +309,14 @@ int ra2port_skirmish_frames(void) { return skirmish_frames; }
 // registers the resolver of "@ID[:n][+dx,dy]" (link/harness_input.cpp).
 namespace { int (*point_resolver)(const char *, int *, int *) = nullptr; }
 void ra2port_set_point_resolver(int (*resolver)(const char *spec, int *x, int *y)) { point_resolver = resolver; }
-int ra2port_resolve_point(const char *spec, int *x, int *y) { return point_resolver ? point_resolver(spec, x, y) : 0; }
+extern "C" int ra2port_top_dialog_control_center(int id, int *x, int *y);   // user32.cpp
+// "ctl=<id>" (lane C22): the top dialog's control with that id (menus, any screen size); else the
+// game's resolver (harness_input.cpp: the player's objects, the sidebar).
+int ra2port_resolve_point(const char *spec, int *x, int *y)
+{
+    if (!strncmp(spec, "ctl=", 4)) return ra2port_top_dialog_control_center(atoi(spec + 4), x, y);
+    return point_resolver ? point_resolver(spec, x, y) : 0;
+}
 // A Main_Loop frame began (link/harness_skirmish.cpp): the host plays the
 // scripted input due at it (--input-script).
 namespace { int last_frame = 0; }

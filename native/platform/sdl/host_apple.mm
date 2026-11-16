@@ -13,6 +13,7 @@
 #define RA2Toolbar YRToolbar
 #endif
 
+#include <atomic>
 #import <Foundation/Foundation.h>
 #include <TargetConditionals.h>
 #include <errno.h>
@@ -193,6 +194,10 @@ void keys_button_show(bool) {}
 void keys_button_set(bool) {}
 void keys_button_place(Rect) {}
 bool app_active() { return false; }
+bool background_task_begin(const char *) { return false; }
+void background_task_end() {}
+bool background_task_expired() { return false; }
+double background_time_remaining() { return -1; }
 
 #elif TARGET_OS_IOS
 // ---- iOS -------------------------------------------------------------------
@@ -666,6 +671,38 @@ void toolbar_show(bool show)
 bool app_active()
 {
     return UIApplication.sharedApplication.applicationState == UIApplicationStateActive;
+}
+
+// Background execution (lane C22): one task at a time; the expiration handler runs on the main
+// thread (the game's), marks the time up and ends the task, as the system requires.
+UIBackgroundTaskIdentifier background_task = UIBackgroundTaskInvalid;
+std::atomic<bool> background_expired{false};
+bool background_task_begin(const char *name)
+{
+    if (background_task != UIBackgroundTaskInvalid) return true;
+    background_expired = false;
+    UIApplication *app = UIApplication.sharedApplication;
+    background_task = [app beginBackgroundTaskWithName:[NSString stringWithUTF8String:name ? name : "game"]
+                                     expirationHandler:^{
+                                         background_expired = true;
+                                         if (background_task != UIBackgroundTaskInvalid) {
+                                             [UIApplication.sharedApplication endBackgroundTask:background_task];
+                                             background_task = UIBackgroundTaskInvalid;
+                                         }
+                                     }];
+    return background_task != UIBackgroundTaskInvalid;
+}
+void background_task_end()
+{
+    if (background_task == UIBackgroundTaskInvalid) return;
+    [UIApplication.sharedApplication endBackgroundTask:background_task];
+    background_task = UIBackgroundTaskInvalid;
+}
+bool background_task_expired() { return background_expired; }
+double background_time_remaining()
+{
+    NSTimeInterval t = UIApplication.sharedApplication.backgroundTimeRemaining;
+    return t >= 1e6 ? -1 : (double)t;     // DBL_MAX while in the foreground
 }
 
 bool pick_import_folder(void *native_window, void (*done)(void *, const char *), void *user)

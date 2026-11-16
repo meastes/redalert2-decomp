@@ -22,7 +22,8 @@ then Alpha leaves (its frame count reached) and Bravo, told the host left, quits
 Passes when: both reach the game; neither log has a fault; the per-frame game CRCs both logged
 (RA2_NATIVE_CRC_LOG with RA2_NATIVE_DEBUG_LOG) agree on every frame both logged, and there are at
 least --frames / 2 of them; Bravo's Sound dialog opened (its controls logged) both times and its
-game went on after; the network edge-scroll rate is at most 1.5 times the skirmish's (the fastest edge of each; neither 0).
+game went on after; the network edge-scroll rate is at most 1.5 times the skirmish's (the fastest edge of each; neither 0);
+with HD vehicles 3x chosen in all three, both network games play 2x and the skirmish 3x (C22).
 
   lan_pair.py --binary <ra2-native> --data-dir <installed RA2> --game-exe <game.exe> --work <dir>
               [--frames 18000] [--binary-b <second build> [--wine-prefix-b <dir> [--wine <wine>]]]
@@ -93,7 +94,19 @@ def host_script(frames):
     return lines
 
 
-def joiner_script(frames):
+# --background (C22, the user's LAN report of 2026-11-16): Bravo plays as the iOS app would. It
+# resigns active for 150 frames (Notification Center pulled down: the game must run on, not hold
+# its clocks), goes to the background for 200 frames and comes back within its background time
+# (RA2_NATIVE_TEST_BACKGROUND_SECONDS: it runs on there), then goes to the background for good:
+# with 5 s of background time left it leaves the game (the EXIT event) and only then holds, so
+# Alpha plays on alone with no reconnect dialog. Bravo also cannot broadcast (as on iOS).
+BACKGROUND_SECONDS = 10
+# Script frames (the Main_Loop seam's count, which in a network game runs at about half the game
+# frames: the backgrounds come at about 5,000 and 6,000 game frames).
+BACKGROUND = [(1500, 'resign'), (1650, 'foreground'), (2700, 'background'), (2900, 'foreground'), (3300, 'background')]
+
+
+def joiner_script(frames, background=False):
     lines = ['s1+1000 click 834 388', 's2+5000 click 539 238', 's2+6000 click 834 346', 's3+3000 click 834 346']
     # Escape > Game Controls (877,227) > Sound (877,227); Back (877,702) twice, Resume Mission
     # (877,702); each click 5 s after its dialog is shown (the column's slide-in done: a click
@@ -104,6 +117,8 @@ def joiner_script(frames):
         lines += ['%d key Escape' % f, 'd%d+5000 click 939 239' % n, 'd%d+5000 click 939 239' % (n + 1),
                   'd%d+8000 click 939 714' % (n + 2), 'd%d+5000 click 939 714' % (n + 3), 'd%d+5000 click 939 714' % (n + 4)]
     lines += orders(1000, frames - 400, 600)
+    if background:
+        lines += ['%d %s' % e for e in BACKGROUND]
     return lines
 
 
@@ -112,7 +127,7 @@ def skirmish_script():
 
 
 class Instance:
-    def __init__(self, name, binary, work, data_dir, game_exe, script, prefix=None, skirmish=False):
+    def __init__(self, name, binary, work, data_dir, game_exe, script, prefix=None, skirmish=False, ios_like=False, hd='3'):
         self.name, self.prefix = name, prefix
         folder = os.path.join(work, name)
         shutil.rmtree(folder, ignore_errors=True)
@@ -140,9 +155,14 @@ class Instance:
                     'RA2_NATIVE_MOVIE_SKIP': '1', 'RA2_NATIVE_IGNORE_FOCUS': '1', 'RA2_NATIVE_CRASH_TRACE': '1',
                     'RA2_NATIVE_SCRIPT_AS_USER': '1', 'RA2_NATIVE_DIALOG_LOG': '1', 'RA2_NATIVE_CRC_LOG': '1',
                     'RA2_NATIVE_DEBUG_LOG': '1', 'RA2_NATIVE_INPUT_LOG': '20', 'RA2_NATIVE_PROGRESS_LOG': '1',
-                    'RA2_NATIVE_IPX_PORT': IPX_PORT})
+                    'RA2_NATIVE_IPX_PORT': IPX_PORT,
+                    # HD vehicles 3x chosen (C22, user 2026-11-16): a network game plays it at 2x,
+                    # the skirmish (Solo, same setting) at 3x.
+                    'RA2_NATIVE_ENHANCEMENTS': 'hdvehicles=%s' % hd})
         if name == 'Bravo':
             env['RA2_NATIVE_MSG_LOG'] = '1'      # the Sound dialog's controls
+        if ios_like:
+            env.update({'RA2_NATIVE_TEST_NO_BROADCAST': '1', 'RA2_NATIVE_TEST_BACKGROUND_SECONDS': str(BACKGROUND_SECONDS)})
         if skirmish:
             write = os.path.join(folder, 'write')
             os.makedirs(write)
@@ -269,6 +289,28 @@ def scroll_rate(out):
     return rates
 
 
+def background_problems(alpha_out, bravo_out):
+    """--background: Bravo ran on while inactive and in its first background, left the game when
+    its background time ran low and held only then; Alpha never showed the reconnect dialog
+    (template 234, Wait_For_Players 0x00624C10) and played on after Bravo left"""
+    problems = []
+    for want in ('host: inactive (network game: the game runs on)', 'host: background (network game: the game runs on',
+                 'host: foreground (network game ran on)', 'left the network game, holding'):
+        if want not in bravo_out:
+            problems.append('Bravo: no "%s"' % want)
+    left = bravo_out.find('left the network game, holding')
+    held = bravo_out.find('host: pause on')
+    if held != -1 and (left == -1 or held < left):
+        problems.append('Bravo held its game before leaving it (%s)' % bravo_out[held:held + 80].splitlines()[0])
+    if re.search(r'^dialog shown #\d+ \(template 234\)', alpha_out, re.M):
+        problems.append('Alpha showed the reconnect dialog')
+    if re.search(r'^dialog shown #\d+ \(template 234\)', bravo_out, re.M):
+        problems.append('Bravo showed the reconnect dialog')
+    print('lan-pair: background: Bravo %s, Alpha %s' % ('left cleanly' if left != -1 else 'did not leave',
+                                                        'no reconnect dialog' if 'template 234' not in alpha_out else 'reconnect dialog'))
+    return problems
+
+
 def pair_lock():
     """the machine-wide LAN-pair lock (in the main checkout's build/owner-watch; held until exit)"""
     import fcntl
@@ -301,6 +343,8 @@ def main():
     ap.add_argument('--game-exe', default='')
     ap.add_argument('--work', required=True)
     ap.add_argument('--frames', type=int, default=18000, help='the host\'s game frames (about 60 a second: 5 minutes)')
+    ap.add_argument('--hd', default='3', help='HD vehicles chosen in all three games (0: off; the cap checks need 3)')
+    ap.add_argument('--background', action='store_true', help='Bravo plays as the iOS app: resign, backgrounds, no broadcast (C22)')
     ap.add_argument('--wine-prefix-b', default='')
     ap.add_argument('--wine', default='')
     a = ap.parse_args()
@@ -322,12 +366,13 @@ def main():
     lock = pair_lock()
 
     # The one-player reference: the same edge holds in a skirmish.
-    solo = Instance('Solo', a.binary, work, a.data_dir, a.game_exe, skirmish_script(), skirmish=True)
+    solo = Instance('Solo', a.binary, work, a.data_dir, a.game_exe, skirmish_script(), skirmish=True, hd=a.hd)
     solo.run(300)
     solo_rates = scroll_rate(solo.out)
 
-    alpha = Instance('Alpha', a.binary, work, a.data_dir, a.game_exe, host_script(a.frames))
-    bravo = Instance('Bravo', a.binary_b or a.binary, work, a.data_dir, a.game_exe, joiner_script(a.frames), prefix=prefix)
+    alpha = Instance('Alpha', a.binary, work, a.data_dir, a.game_exe, host_script(a.frames), hd=a.hd)
+    bravo = Instance('Bravo', a.binary_b or a.binary, work, a.data_dir, a.game_exe, joiner_script(a.frames, a.background), prefix=prefix,
+                     ios_like=a.background, hd=a.hd)
     # Alpha leaves at its frame count; Bravo, told the host has gone, is then closed (20 s on).
     # Alpha's wait follows its own frames (finish_paced): a loaded machine plays the pair slower.
     try:
@@ -346,11 +391,22 @@ def main():
             f.write(inst.out)
 
     for inst in (alpha, bravo):
-        bad = [l for l in inst.out.splitlines() if BAD.search(l) and not l.startswith('net:')]
+        # (a game's own end, "progress: game-over  abort": Bravo leaving in --background, is no fault)
+        bad = [l for l in inst.out.splitlines() if BAD.search(l) and not l.startswith(('net:', 'progress: game-over'))]
         if inst.code not in (0, 'stopped') or bad:
             problems.append('%s: exit %s, %d bad lines%s' % (inst.name, inst.code, len(bad), (': ' + bad[0][:120]) if bad else ''))
         if 'Starting scnenario' not in inst.out:
             problems.append('%s never reached the game' % inst.name)
+    if a.background:
+        problems += background_problems(alpha.out, bravo.out)
+    # HD vehicles in a network game (C22): 3x chosen, 2x played; the skirmish keeps 3x.
+    for inst in (alpha, bravo) if a.hd == '3' else ():
+        if prefix and inst is bravo:
+            continue
+        if 'hd-vehicles: 3x chosen, 2x for this network game' not in inst.out or 'hd-vehicles: 3x for this game' in inst.out:
+            problems.append('%s: HD vehicles not capped at 2x in the network game' % inst.name)
+    if a.hd == '3' and 'hd-vehicles: 3x for this game' not in solo.out:
+        problems.append('the skirmish did not take HD vehicles 3x (the cap must lift outside network games)')
     if 'Multiplayer is not available' in alpha.out + bravo.out or 'not available in this build' in alpha.out + bravo.out:
         problems.append('the Network button showed the not-available box')
     ca = {int(f): v for f, v in CRC.findall(alpha.out)}

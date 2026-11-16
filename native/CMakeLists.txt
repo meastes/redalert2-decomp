@@ -608,6 +608,14 @@ if(RA2_NATIVE_SDL)
                    --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
                    --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/lan-pair")
           set_tests_properties(native-lan-pair PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 3600 RUN_SERIAL TRUE)
+          # A LAN game with Bravo as the iOS app plays it (C22, the user's LAN report of 2026-11-16):
+          # no broadcasts, a resign active and a short background that must not hold the game, then a
+          # background whose time runs out: Bravo leaves (EXIT) before it holds and Alpha plays on with
+          # no reconnect dialog (tests/lan_pair.py --background; HD vehicles off here, the cap is native-lan-pair's).
+          add_test(NAME native-lan-background COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/lan_pair.py"
+                   --background --hd 0 --frames 9000 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                   --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/lan-background")
+          set_tests_properties(native-lan-background PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1800 RUN_SERIAL TRUE)
           # The LAN lobby (C20, the user's reports of 2026-11-16): chat lines sent with Return
           # arrive both ways, and the host's game is seen and joined, with either side unable to
           # broadcast as the iOS app is (RA2_NATIVE_TEST_NO_BROADCAST); the main menu's Internet
@@ -653,6 +661,13 @@ if(RA2_NATIVE_SDL)
                  --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-hd-vehicles-zoom2.log"
                  ${ra2_wine_args_hdvox})
         set_tests_properties(native-hd-vehicles-zoom2 PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
+        # 12b''. Tank damage (C22, the user's LAN report of 2026-11-16: tanks never damaged each other):
+        #      a Grizzly fires on another and the target's strength drops (tests/tank_damage.py; the
+        #      RadiusCount table's native view, native_units.py).
+        add_test(NAME native-tank-damage COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/tank_damage.py"
+                 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-tank-damage.log")
+        set_tests_properties(native-tank-damage PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
         # 12c'. HD vehicles 3x (C17): the same skirmish at 3x (the 1x colour fill in the gaps the thirds
         #      leave), and the air-base case at 2x and 3x: a Patriot's voxel turret and two paradrops'
         #      cargo plane on screen, each kind shown at Nx (tests/hd_vehicles.py --case air-base).

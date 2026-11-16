@@ -84,7 +84,12 @@ RULES = [
     # 0x007A590C), so natively the unsized array is a 4-byte storage and
     # Sight_From read past it (Scout1091: the reveal landed on the wrong cells).
     # The native view reads the whole stored table (link/behaviour_map_m8.cpp).
-    (re.compile(r'\bextern\s+int\s+const\s+(unknown_radius_(?:count|starts)_7a5908)\s*\[\s*\]\s*;'),
+    # Its names: unknown_radius_count_7a5908 / unknown_radius_starts_7a5908 and, since the
+    # rename of 0d65d9378 (lane CB g2), MapClass_RadiusCount. That rename slipped past this
+    # rule for a day: Explosion_Damage's ring loop read 0 cells for any CellSpread above 0
+    # (tank shells hit nothing; lane C22) and Sight_From revealed the wrong cells. The
+    # guard in port() (RADIUS_COUNT_LEFT) now fails a spelling this rule does not take.
+    (re.compile(r'\bextern\s+int\s+const\s+(unknown_radius_(?:count|starts)_7a5908|MapClass_RadiusCount)\s*\[\s*\]\s*;'),
      r'int const *ra2port_radius_count_7a5908();   /* native: the whole stored table */\n#define \1 (ra2port_radius_count_7a5908())'),
     # VC6 variadic forwarding: `vswprintf(buffer, format, (char *)(&flags + 1))`
     # passes the address after the last named parameter as the va_list (the x86
@@ -386,6 +391,7 @@ def fix_crt_sizes(text):
                                                                  'RA2_SIZE_T', m.group(2)) + ')', text)
 
 
+RADIUS_COUNT_LEFT = re.compile(r'\bextern\s+int\s+const\s+\w*(?:RadiusCount|radius_count|radius_starts|7a5908)\w*\s*\[\s*\]')
 SEED_FREE_LEFT = re.compile(r'\bextern\s+void\s+(?:FUN_00781d3b|operator_delete_00781d3b)\s*\([^)]*\)\s*;|\b(?:FUN_00781d3b|operator_delete_00781d3b)\(\s*\(\s*(?!intptr_t\b)[A-Za-z_][\w ]*\)')
 
 
@@ -402,6 +408,11 @@ def port(text):
     # Configure guard (C3): a seed's free 0x00781D3B left in a spelling the rule above
     # does not take would link as an undefined symbol (a link-closure trap) instead of
     # the pointer-sized seed free; fail here so a source respelling is caught at once.
+    # Configure guard (C22): the RadiusCount table declared under a name the rule above does
+    # not take would read past its 4-byte native storage (see the rule).
+    if RADIUS_COUNT_LEFT.search(text):
+        raise SystemExit('native_units: the RadiusCount table 0x007A5908 declared in a spelling the '
+                         'whole-table rule does not rewrite: %s' % RADIUS_COUNT_LEFT.search(text).group(0))
     if SEED_FREE_LEFT.search(text):
         raise SystemExit('native_units: FUN_00781d3b declared or cast in a spelling the seed-free rule '
                          'does not rewrite: %s' % SEED_FREE_LEFT.search(text).group(0))

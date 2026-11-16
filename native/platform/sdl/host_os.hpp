@@ -121,6 +121,16 @@ bool toolbar_hit(double x, double y);
 // so the host can tell a lifecycle pause whose end SDL never reported (Scout1274).
 // macOS: false (the window focus events are the only report there).
 bool app_active();
+// iOS background execution (lane C22): asks the system for time to go on after the app has
+// gone to the background (UIApplication beginBackgroundTaskWithName:expirationHandler:);
+// background_task_expired() turns true when the system's expiration handler has run (the time is
+// up: the app is about to be suspended), background_time_remaining() is the system's estimate in
+// seconds (negative when unknown). background_task_end() gives the time back. Elsewhere: begin
+// answers false, the others nothing.
+bool background_task_begin(const char *name);
+void background_task_end();
+bool background_task_expired();
+double background_time_remaining();
 // The device's memory footprint and thermal state, for the log (iOS: phys_footprint,
 // NSProcessInfo.thermalState); empty elsewhere.
 std::string device_report();

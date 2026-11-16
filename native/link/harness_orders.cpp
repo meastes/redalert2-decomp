@@ -14,7 +14,7 @@
 // deploys, the long build order of harness_build.cpp, then harness_army.cpp's
 // tanks hunt the enemy; the start units wait and join the attack).
 // RA2_NATIVE_ORDERS="<frame> goto <ID|*> <x> <y>; <frame> attack <ID|*> <x> <y>;
-// <frame> hunt; <frame> capture <ID> <x> <y>; <frame> sabotage <ID> <x> <y>; <frame> train <ID>; <frame> super <index> <x> <y>;
+// <frame> hunt; <frame> health; <frame> shoot <ID> (C22); <frame> capture <ID> <x> <y>; <frame> sabotage <ID> <x> <y>; <frame> train <ID>; <frame> super <index> <x> <y>;
 // <frame> amove <ID|*> <x> <y> (attack-move, C3); <frame> grant <index>; <frame> super <index> enemy [<house>] [units]; <frame> super <index> home [<dx> <dy>] (C17); <frame> board <ID> <TRANSPORT>; <frame> unload <TRANSPORT>" (board/unload, train of a vehicle: Scout1295) (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
 // attack/capture: the building in cell x,y, mission 1 / 8 (`attack <ID> <TYPE>`: the first enemy
 // object of that type; Tanya only when named); train: the barracks' cameo click;
@@ -126,6 +126,42 @@ int Scripted_Order(char const *command)
             ++listed;
         }
         return listed;
+    }
+    if (Same(word[1], "health", 7)) {
+        // `health` (lane C22, test scaffolding): logs every vehicle's and infantry's strength as
+        // `harness-health h<house> <ID> k<kind> s<strength> @x,y #<index>` (weapon damage checks;
+        // index: the object's place in Technos).
+        int listed = 0;
+        for (int i = 0; i < Technos.Count(); ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno == 0) continue;
+            int kind = techno->Kind_Of();
+            if (kind != 1 && kind != 15) continue;
+            TechnoTypeClass *type = techno->Techno_Type_Class();
+            Cell cell = techno->Center_Coord().As_Cell();
+            fprintf(stderr, "harness-health h%d %s k%d s%d @%d,%d #%d\n", techno->House ? techno->House->ArrayIndex : -1,
+                    type ? type->ID.Buffer : "?", kind, techno->Strength, cell.X, cell.Y, i);
+            ++listed;
+        }
+        return listed;
+    }
+    if (Same(word[1], "shoot", 6) && words >= 3) {
+        // `shoot <ID>` (lane C22, test scaffolding): the player's first unit of type ID attacks the
+        // player's second one (mission Attack with it as the target, the order a force-fire click
+        // queues), so a weapon's damage is seen at once, with no enemy to find. Logs
+        // `harness-shoot #<attacker> #<target>` (Technos indexes, as `health` prints them).
+        int first = -1, second = -1;
+        for (int i = 0; i < Technos.Count() && second < 0; ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno == 0 || techno->House != PlayerPtr || techno->Techno_Type_Class() == 0) continue;
+            if (!Same_Type(techno->Techno_Type_Class()->ID.Buffer, word[2])) continue;
+            if (first < 0) first = i;
+            else second = i;
+        }
+        if (second < 0) return -1;
+        Queue_Mission(TargetClass(Technos[first]), 1, TargetClass(Technos[second]), TargetClass());
+        fprintf(stderr, "harness-shoot #%d #%d\n", first, second);
+        return 1;
     }
     // `amove <ID|*> <x> <y>` (C3): an attack-move, the MEGAMISSION 0x1D a Ctrl+Shift ground
     // click queues (TechnoClass slot 200 0x006CC2A0 turns a move into 0x1D while the keys are down).

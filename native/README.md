@@ -638,6 +638,14 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   with `units` after the house index, that house's vehicles and infantry on the map
   instead: Soviet 2's destroyers at sea, Scout1236);
   `RA2_NATIVE_FORCE_END` entries fire at the first frame at or past them.
+  `<frame> health` logs every vehicle's and infantry's strength (`harness-health ... s<n> @x,y #<index>`)
+  and `<frame> shoot <ID>` has the player's first unit of that type fire on the second (lane C22).
+  ctest `native-tank-damage` (`tests/tank_damage.py`): a Grizzly fires on another and its strength
+  drops. The user's LAN game of 2026-11-16 had tanks that never damaged each other (GIs did): the
+  rename of 0d65d9378 (`MapClass_RadiusCount`) slipped past native_units.py's whole-table rule for
+  the RadiusCount table 0x007A5908, so Explosion_Damage's ring loop read 0 cells for any warhead with
+  a CellSpread (tank shells found nothing to damage; SA's centre cell still hit) and Sight_From
+  revealed from a 4-byte table; the rule takes the new name and a configure guard fails any other.
   `RA2_NATIVE_FILE_DUMP="<name>:<out path>[;...]"` (Scout1236) writes the named game
   files (read through CCFileClass, loose files then the mixes) at a game's first frame,
   so a campaign script can be planned from the mission INI's triggers.
@@ -1475,6 +1483,27 @@ repeat the last three until `bss_globals.cpp` no longer changes.
    works in menus, movies and missions. The Mac app pauses on focus loss (not in a
    network session: `ra2_native_network_game`, link/harness_skirmish.cpp); iOS
    when the app goes to the background.
+   **iOS in a network game (lane C22, the user's LAN game of 2026-11-16).** A resign active
+   (Notification or Control Center, a system alert) no longer holds the game: it runs on and draws
+   (`host: inactive (network game: the game runs on)`). In the background it runs on, undrawn, on
+   the background time the app asks for (`beginBackgroundTaskWithName`, `hostos::background_task_begin`);
+   with 5 s of it left, or when the system ends it, the game leaves the session as Options > Abort
+   Mission does (Queue_Exit's EXIT event, `ra2_native_leave_network_game`), runs on 2.5 s for the
+   event to go out, and only then holds; the other players drop it at the event's frame instead of
+   stalling. In play the system's edge gestures are deferred (SDL_HINT_IOS_HIDE_HOME_INDICATOR 2:
+   `preferredScreenEdgesDeferringSystemGestures`), so a pan near an edge needs a second swipe to open
+   the app switcher or a system panel. Input-script lines `resign`, `background`, `foreground` play
+   the lifecycle on the Mac (`RA2_NATIVE_TEST_BACKGROUND_SECONDS=<n>`: that much background time), and
+   `@ctl=<id>` clicks the top dialog's control by id at any screen size. ctest `native-lan-background`
+   (`tests/lan_pair.py --background`): Bravo cannot broadcast, resigns active, goes to the background
+   and back, then for good; it must run on, leave before holding, and Alpha must never show the
+   reconnect dialog. `tests/lan_ios_sim.py` plays the same against the iOS app in a Simulator (another
+   app launched there sends it to the background). HD vehicles chosen at 3x play 2x in a network game
+   (user, 2026-11-16; `hd-vehicles: 3x chosen, 2x for this network game`); the next single-player game
+   takes 3x again (native-lan-pair checks both).
+   The user's "Reconnection Error!" with Stop is the game's out-of-sync message (TXT_OUT_OF_SYNC,
+   Execute_DoList's CRC check), not a lost connection: two builds that simulate differently (an old
+   Mac build and a newer phone build) part at the first difference.
 
 ## iOS (Scout1247, first boot)
 

@@ -46,6 +46,9 @@ extern "C" __attribute__((weak)) void ra2_native_save_settings(void) {}
 // on focus loss would stall the other players, so the game goes on in the background
 // there, as the original does on Windows. Weak default: no network game.
 extern "C" __attribute__((weak)) int ra2_native_network_game(void) { return 0; }
+// Leave the network game in play (link/harness_skirmish.cpp: Queue_Exit's EXIT event; lane C22),
+// for an iOS background whose time runs out. Weak default: nothing to leave (0).
+extern "C" __attribute__((weak)) int ra2_native_leave_network_game(void) { return 0; }
 // The touch app hides the game's own cursor, each mouse the game makes once (Scout1249;
 // link/native_touch_cursor.cpp). Weak default: nothing to hide.
 extern "C" __attribute__((weak)) int ra2_native_hide_game_cursor(void) { return 1; }
@@ -101,6 +104,19 @@ bool ignore_system_focus = false;
 constexpr Sint32 kScriptedFocus = 0x52413246;   // window.data1 of a scripted blur/focus ('RA2F')
 // iOS: the app is in the background (nothing may be drawn there).
 bool in_background = false;
+// iOS in a network game (lane C22, the user's LAN report of 2026-11-16: the game held its clocks
+// for an edge swipe, and the other players' games waited at the reconnect dialog). A resign
+// active (Notification or Control Center, a system alert, the app switcher's first moment) only
+// marks the app inactive: the game runs on and draws. In the background the game runs on (not
+// drawn) on the background time the system gives (hostos::background_task_begin); when that is
+// nearly up, or the system ends it, the game leaves the session (Queue_Exit's EXIT event,
+// sent while it still runs) and only then holds, so the others drop it rather than stall.
+bool net_inactive = false;        // resigned active in a network game, not paused
+bool background_runs = false;     // in the background in a network game, running on
+bool background_leaving = false;  // the EXIT was queued; the hold follows
+Uint64 background_leave_ms = 0;
+constexpr double kLeaveSeconds = 5.0;     // background time left when the game leaves
+constexpr Uint64 kLeaveRunMs = 2500;      // the game runs on this long after the EXIT (sent, acknowledged)
 // Why the host pause is wanted (Scout1248; update_pause): the window lost the focus
 // (settled), the device is folded or turned so the usable part is too small, an
 // audio-session interruption (a call).
@@ -902,15 +918,66 @@ void mouse_button(int b, bool down, float x, float y)
     }
 }
 
+// The background time of a network game (lane C22). RA2_NATIVE_TEST_BACKGROUND_SECONDS=<n> (tests):
+// a background with n seconds of it, counted by the host's clock, where the system has none (the
+// Mac, scripted `background` lines).
+const double test_background_seconds = getenv("RA2_NATIVE_TEST_BACKGROUND_SECONDS") ? atof(getenv("RA2_NATIVE_TEST_BACKGROUND_SECONDS")) : -1;
+Uint64 background_since_ms = 0;
+bool background_asked = false;    // the system gave background time (or the test's)
+bool background_time_begin()
+{
+    background_since_ms = SDL_GetTicks();
+    if (test_background_seconds >= 0) return true;
+    return hostos::background_task_begin("RA2 network game");
+}
+double background_time_left()
+{
+    if (test_background_seconds >= 0) return test_background_seconds - (SDL_GetTicks() - background_since_ms) / 1000.0;
+    return hostos::background_time_remaining();
+}
+bool background_time_up()
+{
+    if (test_background_seconds >= 0) return background_time_left() <= 0;
+    return hostos::background_task_expired();
+}
+void update_pause();
+// Each pass of the host's event pump: a network game running on in the background leaves the
+// session when its background time is nearly up (or was never given, or has run out), runs on
+// kLeaveRunMs for the EXIT to be sent, then holds as any background does.
+void background_tick()
+{
+    if (!background_runs) return;
+    Uint64 now = SDL_GetTicks();
+    if (!background_leaving) {
+        double left = background_time_left();
+        bool in_game = ra2_native_network_game() && ra2_enh_game_in_play();
+        if (!(background_time_up() || (left >= 0 && left < kLeaveSeconds) || !background_asked)) return;
+        background_leaving = true;
+        background_leave_ms = now;
+        if (in_game && ra2_native_leave_network_game()) {
+            fprintf(stderr, "host: background time nearly up (%.1f s left): left the network game, holding in %llu ms\n", left,
+                    (unsigned long long)kLeaveRunMs);
+            return;
+        }
+        fprintf(stderr, "host: background time nearly up (%.1f s left): holding\n", left);
+    } else if (now - background_leave_ms < kLeaveRunMs && ra2_native_network_game()) {
+        return;
+    }
+    background_runs = false;
+    update_pause();
+}
+
 // The host pause's reasons combined (Scout1248): the background (iOS), the focus lost
 // (settled), folded, an audio interruption.
 void update_pause()
 {
-    bool want = in_background || focus_paused || folded || audio_interrupted;
+    bool want = (in_background && !background_runs) || focus_paused || folded || audio_interrupted;
     if (want != ra2port::pause_requested())
         fprintf(stderr, "host: pause %s (background %d focus %d folded %d audio %d)\n", want ? "on" : "off",
-                in_background, focus_paused, folded, audio_interrupted);
+                in_background && !background_runs, focus_paused, folded, audio_interrupted);
     ra2port::request_pause(want);
+    // Held in the background: the background time asked for a network game goes back (lane C22).
+    if (want && in_background) hostos::background_task_end();
 }
 
 // Touch gestures out (touch.hpp): the same mouse, pan and wheel paths as the mouse's.
@@ -1216,6 +1283,13 @@ void show_controls()
         hostos::keys_button_show(want == Controls::menu);
         hostos::skip_button_show(want == Controls::movie);
         sync_toolbar();
+        // In play the system's edge gestures wait for a second swipe (lane C22, the user's LAN
+        // game: a pan near the bottom edge opened the app switcher and the game went to the
+        // background): SDL's view controller then defers every edge
+        // (preferredScreenEdgesDeferringSystemGestures) and dims the home indicator. Elsewhere
+        // SDL's default.
+        SDL_SetHint(SDL_HINT_IOS_HIDE_HOME_INDICATOR, want == Controls::play ? "2" : "");
+        fprintf(stderr, "host: system edge gestures %s\n", want == Controls::play ? "deferred (play)" : "as the system has them");
     }
     redraw();
 }
@@ -1541,6 +1615,7 @@ void pump_events()
         }
     }
     resume_unreported_foreground();
+    background_tick();
     if (window_focused != game_active && SDL_GetTicks() - window_focus_ms >= kFocusSettleMs) {
         game_active = window_focused;
         ra2port::post_message(w, 0x001C, game_active ? 1 : 0, 0);   // WM_ACTIVATEAPP
@@ -2080,6 +2155,17 @@ void load_script()
             script.push_back(s);
             continue;
         }
+        if (action == "resign" || action == "background" || action == "foreground") {
+            // resign / background / foreground: the iOS lifecycle as SDL reports it (the scene
+            // resigns active, enters the background, becomes active again; test scaffolding,
+            // lane C22: a network game's background on the Mac, with RA2_NATIVE_TEST_BACKGROUND_SECONDS).
+            Scripted s = {frame, {}, std::string()};
+            if (script_ms >= 0) { s.ms = script_ms; s.frame = 0x7FFFFFFF; s.dialog = script_dialog; }
+            s.event.type = action == "resign" ? SDL_EVENT_WILL_ENTER_BACKGROUND
+                           : action == "background" ? SDL_EVENT_DID_ENTER_BACKGROUND : SDL_EVENT_DID_ENTER_FOREGROUND;
+            script.push_back(s);
+            continue;
+        }
         if (action == "toolbar") {
             // toolbar ITEM: the touch controls' item as its button sends it (toolbar_tapped;
             // 3 is A-Move, -2 the Skip button, -3 the Keys button; lane C8's tests, as
@@ -2350,7 +2436,8 @@ void play(Scripted &s, int number)
         } else if (e.type == SDL_EVENT_WINDOW_FOCUS_LOST || e.type == SDL_EVENT_WINDOW_FOCUS_GAINED) {
             e.window.windowID = id;
             e.window.data1 = kScriptedFocus;
-        } else if (e.type == SDL_EVENT_QUIT) {
+        } else if (e.type == SDL_EVENT_QUIT || e.type == SDL_EVENT_WILL_ENTER_BACKGROUND || e.type == SDL_EVENT_DID_ENTER_BACKGROUND
+                   || e.type == SDL_EVENT_DID_ENTER_FOREGROUND) {
         } else if (e.type == SDL_EVENT_FINGER_DOWN || e.type == SDL_EVENT_FINGER_MOTION || e.type == SDL_EVENT_FINGER_UP) {
             e.tfinger.windowID = id;
             int px = 0, py = 0;
@@ -2485,6 +2572,25 @@ bool SDLCALL lifecycle_watch(void *, SDL_Event *e)
 {
     switch (e->type) {
     case SDL_EVENT_WILL_ENTER_BACKGROUND: case SDL_EVENT_DID_ENTER_BACKGROUND:
+        // A network game (lane C22): the resign active (WILL_ENTER_BACKGROUND, from the scene's
+        // sceneWillResignActive) leaves it running; the real background (DID_ENTER_BACKGROUND)
+        // runs it on the system's background time (background_tick).
+        if (!in_background && ra2_native_network_game()) {
+            if (e->type == SDL_EVENT_WILL_ENTER_BACKGROUND) {
+                if (!net_inactive) fprintf(stderr, "host: inactive (network game: the game runs on)\n");
+                net_inactive = true;
+                break;
+            }
+            in_background = true;
+            background_runs = true;
+            background_leaving = false;
+            bool asked = background_asked = background_time_begin();
+            double left = background_time_left();
+            fprintf(stderr, "host: background (network game: the game runs on; background time %s%s)\n",
+                    asked ? "asked" : "not available", left >= 0 ? (" " + std::to_string((int)left) + " s").c_str() : "");
+            update_pause();
+            break;
+        }
         if (!in_background) {
             fprintf(stderr, "host: background\n");
             in_background = true;
@@ -2494,9 +2600,14 @@ bool SDLCALL lifecycle_watch(void *, SDL_Event *e)
         }
         break;
     case SDL_EVENT_WILL_ENTER_FOREGROUND: case SDL_EVENT_DID_ENTER_FOREGROUND:
+        if (net_inactive && !in_background) fprintf(stderr, "host: active again (network game)\n");
+        net_inactive = false;
         if (in_background) {
-            fprintf(stderr, "host: foreground\n");
+            fprintf(stderr, "host: foreground%s\n", background_runs ? " (network game ran on)" : "");
             in_background = false;
+            background_runs = false;
+            background_leaving = false;
+            hostos::background_task_end();
             if (checkpoints && remove(resume_marker().c_str()) == 0) fprintf(stderr, "host: resume marker removed (back in the foreground)\n");
             layout_dirty = true;
             update_pause();

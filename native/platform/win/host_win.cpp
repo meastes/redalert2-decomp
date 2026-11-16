@@ -138,6 +138,10 @@ void keys_button_show(bool) {}
 void keys_button_set(bool) {}
 void keys_button_place(Rect) {}
 bool app_active() { return false; }
+bool background_task_begin(const char *) { return false; }
+void background_task_end() {}
+bool background_task_expired() { return false; }
+double background_time_remaining() { return -1; }
 std::string device_report() { return ""; }
 void exclude_from_backup(const char *) {}
 

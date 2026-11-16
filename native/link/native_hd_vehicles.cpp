@@ -438,11 +438,19 @@ extern "C" int ra2_hd_scale(void) { return S; }
 bool Native_Hd_Vehicles_Active() { return active; }
 
 // A game starts or loads (link/native_map_zoom.cpp, beside the map zoom): it takes the setting now.
+// A network game (user, 2026-11-16) plays 3x at 2x: the slowest machine paces every player (the
+// Duo's 3x ran over its budget in a LAN game); the setting itself is unchanged, so the next
+// single-player game takes 3x again (with its budget fallback).
+extern "C" int ra2_native_network_game(void);   // harness_skirmish.cpp
 void Native_Hd_Vehicles_Start()
 {
     int setting = ra2_enh_hd_vehicles();
     bool on = setting >= 2;
     int scale = setting >= 3 ? 3 : 2;
+    if (on && scale == 3 && ra2_native_network_game()) {
+        fprintf(stderr, "hd-vehicles: 3x chosen, 2x for this network game\n");
+        scale = 2;
+    }
     if (on != active || (on && scale != S)) fprintf(stderr, "hd-vehicles: %s for this game\n", on ? (scale == 3 ? "3x" : "2x") : "off");
     active = on;
     S = scale;

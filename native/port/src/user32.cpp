@@ -761,6 +761,21 @@ extern "C" int ra2port_top_dialog_controls(int (*r)[4], int max)
     }
     return n;
 }
+// The centre of the topmost shown dialog's visible control with this id, in game pixels; 0 when
+// there is none (lane C22: input scripts click menu buttons by id, "@ctl=<id>", whatever the
+// screen size, as on the iOS Simulator).
+HWND GetDlgItem(HWND dialog, int id);   // below
+extern "C" int ra2port_top_dialog_control_center(int id, int *x, int *y)
+{
+    HWND d = (HWND)ra2port_top_dialog();
+    HWND h = d ? GetDlgItem(d, id) : nullptr;
+    Window *c = win(h);
+    RECT rc;
+    if (!h || !c || !c->visible || !GetWindowRect(h, &rc)) return 0;
+    *x = (rc.left + rc.right) / 2;
+    *y = (rc.top + rc.bottom) / 2;
+    return 1;
+}
 extern "C" bool ra2port_presents_held(void)
 {
     bool menu = dialog_shown();

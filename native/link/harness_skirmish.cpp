@@ -329,6 +329,17 @@ extern "C" int ra2_native_network_game(void)
     return type != 0 && type != 5;
 }
 
+// The iOS host leaves a network game whose background time is running out (platform/sdl/host.cpp,
+// lane C22): the EXIT event Options > Abort Mission queues (Queue_Exit 0x006236B0), sent while the
+// game still runs, so the other players drop this one at the event's frame instead of waiting at
+// the reconnect dialog for a game the system has suspended. Not original code.
+bool __fastcall Queue_Exit();   // shared/queue.hpp
+extern "C" int ra2_native_leave_network_game(void)
+{
+    if (!ra2_native_network_game()) return 0;
+    return Queue_Exit() ? 1 : 0;
+}
+
 static void Native_Frame_Floor()
 {
     static int uncapped = -1;
