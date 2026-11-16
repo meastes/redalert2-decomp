@@ -33,6 +33,8 @@ import struct
 import subprocess
 import sys
 
+import game_process
+
 WIDTH, HEIGHT = 896, 634
 # The shell's controls at 896x634 (RA2_NATIVE_MSG_LOG): Movies & Credits, Play Movies, the
 # list's first row, Play Movie, Back / Main Menu (the column's bottom slot).
@@ -208,8 +210,8 @@ def main():
                     'RA2_NATIVE_WINDOW_DUMP': os.path.join(work, 'w'), 'RA2_NATIVE_WINDOW_DUMP_MS': '500'})
         cmd = [a.binary, '--app', '--data-dir', a.data_dir, '--input-script=' + script, '--game-args=-noaudio']
         try:
-            p = subprocess.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace',
-                               timeout=240)
+            p = game_process.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace',
+                                 timeout=240)
             out, code = p.stdout, p.returncode
         except subprocess.TimeoutExpired as e:
             out, code = (e.stdout or b'').decode('utf-8', 'replace') if isinstance(e.stdout, bytes) else (e.stdout or ''), -1

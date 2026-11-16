@@ -27,6 +27,7 @@ import shutil
 import subprocess
 import sys
 
+import game_process
 import wine as winehost
 
 # The shell's controls at 1024x768: main menu Options, the Options dialog's Enhancements, the
@@ -104,8 +105,8 @@ def main():
             if prefix:
                 cmd, run_env = prefix.command(cmd), prefix.env(env)
             try:
-                p = subprocess.run(cmd, env=run_env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
-                                   errors='replace', timeout=300)
+                p = game_process.run(cmd, env=run_env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+                                     errors='replace', timeout=300)
                 out, code = p.stdout, p.returncode
             except subprocess.TimeoutExpired as e:
                 out, code = (e.stdout or b'').decode('utf-8', 'replace') if isinstance(e.stdout, bytes) else (e.stdout or ''), -1

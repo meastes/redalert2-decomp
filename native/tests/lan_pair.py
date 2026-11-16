@@ -38,6 +38,7 @@ import subprocess
 import sys
 import time
 
+import game_process
 import wine as winehost
 
 # The pair's own network (RA2_NATIVE_IPX_PORT, native/port/src/wsock32.cpp): a first UDP port of
@@ -157,7 +158,7 @@ class Instance:
 
     def start(self):
         self.log = open(os.path.join(os.path.dirname(self.cmd_script), self.name + '.out'), 'w+', errors='replace')
-        self.p = subprocess.Popen(self.cmd, env=self.env, stdout=self.log, stderr=subprocess.STDOUT)
+        self.p = game_process.Popen(self.cmd, env=self.env, stdout=self.log, stderr=subprocess.STDOUT)
 
     def finish(self, timeout, stop=False):
         """wait for the game (stop: end it, as a player closing the window would, after timeout)"""
@@ -171,9 +172,15 @@ class Instance:
                 self.p.kill()
                 self.p.wait()
             self.code = 'stopped' if stop else 'timeout'
+        self.end()
         self.log.seek(0)
         self.out = self.log.read()
         self.log.close()
+
+    def end(self):
+        """end whatever of the game's process group is left (game_process)"""
+        if getattr(self, 'p', None):
+            self.p.end()
 
     def run(self, timeout):
         self.start()
@@ -244,6 +251,7 @@ class Instance:
                     self.p.wait()
                 self.code = 'timeout'
                 break
+        self.end()
         self.log.seek(0)
         self.out = self.log.read()
         self.log.close()
@@ -322,13 +330,15 @@ def main():
     bravo = Instance('Bravo', a.binary_b or a.binary, work, a.data_dir, a.game_exe, joiner_script(a.frames), prefix=prefix)
     # Alpha leaves at its frame count; Bravo, told the host has gone, is then closed (20 s on).
     # Alpha's wait follows its own frames (finish_paced): a loaded machine plays the pair slower.
-    alpha.start()
-    time.sleep(4)
-    bravo.start()
     try:
+        alpha.start()
+        time.sleep(4)
+        bravo.start()
         alpha.finish_paced(a.frames)
         bravo.finish(20, stop=True)
     finally:
+        alpha.end()
+        bravo.end()
         if prefix:
             prefix.close()
     for inst in (solo, alpha, bravo):

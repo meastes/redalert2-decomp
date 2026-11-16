@@ -45,6 +45,8 @@ import tempfile
 import threading
 import time
 
+import game_process
+
 SKIP = 77
 BAD = re.compile(r'unrecovered|trap|signal \d+|SIG(SEGV|BUS|ILL|ABRT|FPE)|crash:|abort', re.I)
 ZOOM = re.compile(r'^zoom: ([\d.]+) -> ([\d.]+) at [-\d.]+,[-\d.]+: view (\d+)x(\d+), shown ([\d.]+)x([\d.]+) from', re.M)
@@ -169,30 +171,33 @@ def main():
             os.mkdir(dumps)
             env['RA2_NATIVE_WINDOW_DUMP'] = os.path.join(dumps, 'w')
             env['RA2_NATIVE_WINDOW_DUMP_MS'] = '0'
-            proc = subprocess.Popen(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace')
+            proc = game_process.Popen(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace')
             out_parts = []
             reader = threading.Thread(target=lambda: out_parts.append(proc.stdout.read()))
             reader.start()
             seen = 0
-            while True:
-                running = proc.poll() is None
-                # Each picture once the next exists (so it is complete), or all once the game ended.
-                names = sorted(os.listdir(dumps), key=lambda n: int(n.split('.')[1]))
-                for n in names[:-1] if running else names:
-                    path = os.path.join(dumps, n)
-                    q = quadrants(path)
-                    if q and q[0] > 60 and q[2] < 5 and q[3] < 5:
-                        corners.append((n, q))
-                    os.remove(path)
-                    seen += 1
-                if not running:
-                    break
-                time.sleep(0.05)
+            try:
+                while True:
+                    running = proc.poll() is None
+                    # Each picture once the next exists (so it is complete), or all once the game ended.
+                    names = sorted(os.listdir(dumps), key=lambda n: int(n.split('.')[1]))
+                    for n in names[:-1] if running else names:
+                        path = os.path.join(dumps, n)
+                        q = quadrants(path)
+                        if q and q[0] > 60 and q[2] < 5 and q[3] < 5:
+                            corners.append((n, q))
+                        os.remove(path)
+                        seen += 1
+                    if not running:
+                        break
+                    time.sleep(0.05)
+            finally:
+                proc.end()     # the game's group, whatever happened (game_process)
             reader.join()
             p = subprocess.CompletedProcess(cmd, proc.returncode, ''.join(out_parts))
             print('abort: %d pictures checked' % seen)
         else:
-            p = subprocess.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace')
+            p = game_process.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace')
     out = p.stdout
     if a.log:
         with open(a.log, 'w') as f:

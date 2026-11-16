@@ -448,6 +448,14 @@ if(RA2_NATIVE_SDL)
                  "RA2_GAME_EXE=${RA2_NATIVE_CENSUS_GAME_EXE}" $<TARGET_FILE:ra2-native>)
         set_tests_properties(native-vqa-selftest PROPERTIES SKIP_RETURN_CODE 77)
       endif()
+      # 8h. No game process and no crash dialog outlives a test run (lane C19): the harnesses'
+      #     launcher (tests/game_process.py) ends the game's whole process group, and a scripted
+      #     run's crash is logged without the crash dialog (tests/process_cleanup.py).
+      if(NOT WIN32 AND NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+        add_test(NAME native-process-cleanup COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/process_cleanup.py"
+                 --binary $<TARGET_FILE:ra2-native> --work "${CMAKE_CURRENT_BINARY_DIR}/process-cleanup")
+        set_tests_properties(native-process-cleanup PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)
+      endif()
       # 8e. A loaded game abandoned and the game ended by the menus' Exit (C15f, codex4
       #     R710/R719): WinMain and the exit-time teardown end cleanly (tests/exit_route.py).
       add_test(NAME native-exit-route COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/exit_route.py"

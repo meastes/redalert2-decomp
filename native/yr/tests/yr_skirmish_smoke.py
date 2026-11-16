@@ -23,6 +23,9 @@ import shutil
 import subprocess
 import sys
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'tests'))
+import game_process  # noqa: E402  (native/tests: the game's process group, lane C19)
+
 # The menus at 800x600 (RA2_NATIVE_MSG_LOG): Single Player (the main menu's first button), Skirmish
 # (Single Player's third), Start Game (the setup's first); in the game Escape opens Game Options,
 # Abort Mission (653,327 125x25), the question's Abort (653,227 125x25). Each menu click waits for
@@ -63,7 +66,7 @@ def main():
     cmd = [a.binary, '--data-dir', a.data_dir, '--run-to=never', '--run-seconds=%d' % a.seconds,
            '--write-dir=' + os.path.join(a.work, 'w'), '--input-script=' + script, '--game-args=-noaudio -CD.']
     with open(os.path.join(a.work, 'run.log'), 'w') as log:
-        subprocess.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=a.seconds + 120)
+        game_process.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=a.seconds + 120)
     text = open(os.path.join(a.work, 'run.log'), errors='replace').read()
     failures = []
     stop = [l for l in text.splitlines() if 'stopped:' in l]

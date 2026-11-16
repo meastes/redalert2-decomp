@@ -27,6 +27,8 @@ import shutil
 import subprocess
 import sys
 
+import game_process
+
 # Skip taps every 2 s for the first 30 s (only the shown button acts), then the main menu's
 # Single Player, Skirmish and Start Game at 1024x768 (enhancements_newgame.py's coordinates).
 SCRIPT = ''.join('t%d toolbar -2\n' % ms for ms in range(2000, 30001, 2000)) + """d1+1500 toolbar 3
@@ -125,8 +127,8 @@ def main():
     env.update({'HOME': os.path.join(work, 'home'), 'RA2_GAME_EXE': a.game_exe, 'RA2_NATIVE_LOG_STDERR': '1',
                 'RA2_NATIVE_IGNORE_FOCUS': '1', 'RA2_NATIVE_TOUCH_UI': '1'})
     cmd = [a.binary, '--app', '--data-dir', a.data_dir, '--input-script=' + script, '--game-args=-noaudio']
-    p = subprocess.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace',
-                       timeout=300)
+    p = game_process.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace',
+                         timeout=300)
     log = os.path.join(work, 'run.log')
     with open(log, 'w') as f:
         f.write(p.stdout)

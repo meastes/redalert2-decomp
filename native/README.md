@@ -64,6 +64,15 @@ The host plays the launcher's part (the launch mutex and event RA2.EXE created).
 Without `--run-to` (the app, a LAN pair) `RA2_NATIVE_PROGRESS_LOG=1` prints each
 milestone (`progress: <name>  <detail>`, every time it is reached) to the log instead.
 
+**No process outlives a test run** (lane C19). Every harness starts the game through
+`tests/game_process.py`: the game runs in a process group of its own, which is ended (SIGTERM,
+then SIGKILL after 3 s) when the harness is done with it, whatever the outcome, and its
+environment carries `RA2_NATIVE_NO_CRASH_DIALOG=1` and `RA2_NATIVE_NO_RELAUNCH=1`. The app's
+crash handler starts the crash dialog (`--crash-report`) only in an interactive run: with an
+input script (`--input-script`) or `RA2_NATIVE_NO_CRASH_DIALOG=1` it logs the crash, notes
+"crash dialog not started (scripted run)" and ends (Mac and Windows alike, `app_mode.hpp`).
+`native-process-cleanup` checks both, with a forced crash and a forced timeout.
+
 ### Skirmish harness
 
 `ra2-native --skirmish=<map> [--skirmish-frames=N] --run-to=<milestone> --game-args="-noaudio -CD." --data-dir <installation>`

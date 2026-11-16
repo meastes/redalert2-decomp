@@ -14,6 +14,7 @@ import shutil
 import subprocess
 import sys
 
+import game_process
 import wine as winehost
 
 
@@ -43,8 +44,8 @@ def main():
             run_env = env
             if prefix:
                 cmd, run_env = prefix.command(cmd), prefix.env(env)
-            p = subprocess.run(cmd, env=run_env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
-                               errors='replace')
+            p = game_process.run(cmd, env=run_env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+                                 errors='replace')
             sys.stdout.write(p.stdout)
             if p.returncode != 0:
                 print('enhancements-settings: %s exited %d' % (phase, p.returncode))

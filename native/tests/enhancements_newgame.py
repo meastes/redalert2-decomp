@@ -24,6 +24,7 @@ import struct
 import subprocess
 import sys
 
+import game_process
 import wine as winehost
 
 # The shell's controls at 1024x768 (RA2_NATIVE_MSG_LOG): main menu Options, the Options
@@ -95,8 +96,8 @@ def main():
     if prefix:
         cmd, env = prefix.command(cmd), prefix.env(env)
     try:
-        p = subprocess.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace',
-                           timeout=300)
+        p = game_process.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace',
+                             timeout=300)
     finally:
         if prefix:
             prefix.close()

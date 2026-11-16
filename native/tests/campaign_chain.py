@@ -21,6 +21,7 @@ import subprocess
 import sys
 import tempfile
 
+import game_process
 import wine as winehost
 
 SKIP = 77
@@ -85,8 +86,8 @@ def main():
             for attempt in range(winehost.HOST_RETRIES + 1):
                 argv = prefix.command(cmd) if prefix else cmd
                 try:
-                    p = subprocess.run(argv, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
-                                       errors='replace', timeout=a.seconds + 60)
+                    p = game_process.run(argv, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+                                         errors='replace', timeout=a.seconds + 60)
                     out, code, timed_out = p.stdout, p.returncode, False
                 except subprocess.TimeoutExpired as e:
                     out = e.stdout.decode('utf-8', 'replace') if isinstance(e.stdout, bytes) else (e.stdout or '')

@@ -34,6 +34,7 @@ import subprocess
 import sys
 import tempfile
 
+import game_process
 import wine as winehost
 
 SKIP = 77
@@ -241,8 +242,8 @@ def main():
             run_env, run_cmd = env, cmd
             if prefix:
                 run_cmd, run_env = prefix.command(cmd), prefix.env(env)
-            p = subprocess.run(run_cmd, env=run_env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
-                               errors='replace')
+            p = game_process.run(run_cmd, env=run_env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+                                 errors='replace')
             why = winehost.host_failure(p.stdout) if prefix else ''
             if not why or attempt == winehost.HOST_RETRIES:
                 break

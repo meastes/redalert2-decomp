@@ -40,6 +40,7 @@ import struct
 import subprocess
 import sys
 
+import game_process
 import wine as winehost
 
 
@@ -63,8 +64,8 @@ def run(a, tag, enhancements, prefix=None, attempt=0):
         cmd, env = prefix.command(cmd), prefix.env(env)
     # The game ends itself after --run-seconds; a launch still running a minute later hung.
     try:
-        p = subprocess.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace',
-                           timeout=a.seconds + 60)
+        p = game_process.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace',
+                             timeout=a.seconds + 60)
         out, timed_out, code = p.stdout, False, p.returncode
     except subprocess.TimeoutExpired as e:
         out = e.stdout.decode('utf-8', 'replace') if isinstance(e.stdout, bytes) else (e.stdout or '')

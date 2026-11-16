@@ -24,6 +24,7 @@ import struct
 import subprocess
 import sys
 
+import game_process
 import wine as winehost
 
 
@@ -108,8 +109,8 @@ def main():
                                               'Logs', '*.log')):
                 os.remove(old)
             try:
-                p = subprocess.run(argv, env=prefix.env(env), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                   text=True, errors='replace', timeout=240)
+                p = game_process.run(argv, env=prefix.env(env), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                     text=True, errors='replace', timeout=240)
                 out, code, timed_out = p.stdout, p.returncode, False
             except subprocess.TimeoutExpired as e:
                 out = e.stdout.decode('utf-8', 'replace') if isinstance(e.stdout, bytes) else (e.stdout or '')

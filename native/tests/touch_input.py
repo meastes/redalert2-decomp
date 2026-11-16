@@ -51,6 +51,8 @@ import subprocess
 import sys
 import tempfile
 
+import game_process
+
 SKIP = 77
 BAD = re.compile(r'unrecovered|trap|signal \d+|SIG(SEGV|BUS|ILL|ABRT|FPE)|crash:|abort', re.I)
 STATE = re.compile(r'^run-to: reached (harness-input(?:-(\d+))?) \+\d+ ms\s+selected (\d+)([^;]*);(.*)$')
@@ -267,7 +269,7 @@ def main():
             cmd += ['--load-save=' + save, '--frames=%d' % (a.frames or FRAMES[a.case])]
         else:
             cmd += ['--skirmish=#5', '--skirmish-frames=%d' % (a.frames or FRAMES[a.case])]
-        p = subprocess.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace')
+        p = game_process.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace')
     out = p.stdout
     if a.log:
         with open(a.log, 'w') as f:

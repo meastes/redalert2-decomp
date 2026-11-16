@@ -24,6 +24,9 @@ import shutil
 import subprocess
 import sys
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'tests'))
+import game_process  # noqa: E402  (native/tests: the game's process group, lane C19)
+
 # 800x600 (RA2_NATIVE_DIALOG_LOG): Single Player (the main menu's first button), Skirmish (Single
 # Player's third), Start Game (the setup's first); in the game the band selection is held over a
 # few frames (ldown, moves, lup), the Sell button is the sidebar's $ (736,180), Continue and Back
@@ -72,7 +75,7 @@ def main():
     cmd = [a.binary, '--data-dir', a.data_dir, '--run-to=never', '--run-seconds=%d' % a.seconds,
            '--write-dir=' + os.path.join(a.work, 'w'), '--input-script=' + script, '--game-args=-noaudio -CD.']
     with open(os.path.join(a.work, 'run.log'), 'w') as log:
-        subprocess.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=a.seconds + 120)
+        game_process.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=a.seconds + 120)
     text = open(os.path.join(a.work, 'run.log'), errors='replace').read()
     lines = text.splitlines()
     failures = []

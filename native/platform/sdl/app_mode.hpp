@@ -744,8 +744,10 @@ const char *signal_name(int sig)
 // an abort the first frame in the game that called it), writes the backtrace
 // to the log, then starts this executable again as the crash dialog
 // (--crash-report; a fresh process, as a signal handler cannot run Cocoa; where
-// no process can be started, iOS, the next start shows it) and ends.
+// no process can be started, iOS, the next start shows it; never in a scripted
+// run, crash_dialog) and ends.
 // Async-signal-safe apart from dladdr/backtrace, as such handlers are.
+bool crash_dialog = true;      // install_crash_handler: false for a scripted run
 void on_crash(int sig, siginfo_t *, void *context)
 {
     static volatile sig_atomic_t entered = 0;
@@ -772,13 +774,25 @@ void on_crash(int sig, siginfo_t *, void *context)
     int len = snprintf(line, sizeof line, "ra2-native: crash: signal %d (%s) in %s+%#lx\n", sig, signal_name(sig), name, offset);
     if (len > 0) write(2, line, (size_t)len < sizeof line ? (size_t)len : sizeof line - 1);
     backtrace_symbols_fd(frames, n, 2);
-    hostos::start_crash_report(self_path, log_path[0] ? log_path : "-");
+    if (crash_dialog) {
+        hostos::start_crash_report(self_path, log_path[0] ? log_path : "-");
+    } else {
+        static const char skipped[] = "ra2-native: crash dialog not started (scripted run)\n";
+        write(2, skipped, sizeof skipped - 1);
+    }
     _exit(128 + sig);
 }
 
 void install_crash_handler()
 {
     snprintf(self_path, sizeof self_path, "%s", exe_path().c_str());
+    // Scripted and test runs (lane C19) never start the crash dialog: it would wait for a user
+    // who is not there and outlive the run. An input script (--input-script, i.e.
+    // RA2_NATIVE_INPUT_SCRIPT) or RA2_NATIVE_NO_CRASH_DIALOG=1 (every test harness sets it,
+    // tests/game_process.py) makes a crash log and end.
+    const char *no_dialog = getenv("RA2_NATIVE_NO_CRASH_DIALOG");
+    const char *script = getenv("RA2_NATIVE_INPUT_SCRIPT");
+    crash_dialog = !(no_dialog && *no_dialog && strcmp(no_dialog, "0")) && !(script && *script);
     Dl_info self = {};
     if (dladdr((void *)&install_crash_handler, &self)) main_image = self.dli_fbase;
     static char alt_stack[256 * 1024];

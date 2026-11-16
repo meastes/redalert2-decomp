@@ -30,6 +30,7 @@ import shutil
 import subprocess
 import sys
 
+import game_process
 import wine as winehost
 
 SKIP = 77
@@ -50,8 +51,8 @@ def run(a, prefix, env, argv, seconds):
         cmd = prefix.command(argv) if prefix else argv
         e = prefix.env(env) if prefix else env
         try:
-            p = subprocess.run(cmd, env=e, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace',
-                               timeout=seconds + 60)
+            p = game_process.run(cmd, env=e, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors='replace',
+                                 timeout=seconds + 60)
             out, code, timed_out = p.stdout, p.returncode, False
         except subprocess.TimeoutExpired as x:
             out = x.stdout.decode('utf-8', 'replace') if isinstance(x.stdout, bytes) else (x.stdout or '')

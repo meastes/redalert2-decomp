@@ -24,6 +24,7 @@ import shutil
 import subprocess
 import sys
 
+import game_process
 import wine as winehost
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -75,8 +76,8 @@ def main():
             for attempt in range(winehost.HOST_RETRIES + 1):
                 cmd, e = (prefix.command(argv), prefix.env(env)) if prefix else (argv, env)
                 try:
-                    p = subprocess.run(cmd, env=e, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
-                                       errors='replace', timeout=300)
+                    p = game_process.run(cmd, env=e, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+                                         errors='replace', timeout=300)
                     out, code, timed_out = p.stdout, p.returncode, False
                 except subprocess.TimeoutExpired as x:
                     out = x.stdout.decode('utf-8', 'replace') if isinstance(x.stdout, bytes) else (x.stdout or '')
