@@ -26,7 +26,7 @@ MSFrameAnim::~MSFrameAnim()
 bool MSFrameAnim::Advance(Surface *surface, Rect *dirty)
 {
     if (FrameAdvanceDraws) {
-        Unknown_006F3650(surface, *dirty, true);
+        Unknown_Draw_Interface_006F3650(surface, *dirty, true);
     }
     return false;
 }

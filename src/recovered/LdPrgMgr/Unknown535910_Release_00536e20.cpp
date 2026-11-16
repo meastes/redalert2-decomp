@@ -6,7 +6,7 @@
 #include "shared/cc_file_class.hpp"
 #include "shared/surface.hpp"
 // @ref ?Unknown_Free_Art_Sets_006F2510@@YIXXZ=006f2510
-// @ref ?Unknown_Free_Art_Pair_006F26D0@@YIXXZ=006f26d0
+// @ref ?Unknown_Free_MP_Loading_Palette_006F26D0@@YIXXZ=006f26d0
 
 void Unknown535910::Unknown_00536E20()
 {
@@ -23,7 +23,7 @@ void Unknown535910::Unknown_00536E20()
     }
     unknown_48 = 0;
     Unknown_Free_Art_Sets_006F2510();
-    Unknown_Free_Art_Pair_006F26D0();
+    Unknown_Free_MP_Loading_Palette_006F26D0();
     if (LoadMix != 0) {
         delete LoadMix;
         LoadMix = 0;

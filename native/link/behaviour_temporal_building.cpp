@@ -2,7 +2,7 @@
 // NOT EXACT; never original code or bytes.
 //
 // TemporalClass::Unknown_006E27B0 0x006E27B0 (a building is warped) and Let_Go_Of_Target 0x006E2500 /
-// Unknown_006E2610 0x006E2610 (released) call two small BuildingClass members, 0x0044D320 and
+// Unknown_Release_Target_State_006E2610 0x006E2610 (released) call two small BuildingClass members, 0x0044D320 and
 // 0x0044D380, whose only sources are seeds that take the building as an int and write its fields at
 // their VC6 offsets (+0x530, the animation slots at +0x454, the type's Anims[i].Powered at
 // +0xCD4 + i * 0x44 + 0x40, the animations' +0x101..+0x104 and the stage at +0x98). Natively the

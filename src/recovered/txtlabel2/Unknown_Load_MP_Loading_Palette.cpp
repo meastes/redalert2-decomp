@@ -11,7 +11,7 @@
 #include "shared/convert.hpp"
 
 void __fastcall Unknown_Load_Palette_006F1FA0(char const *name, PaletteClass **palette, ConvertClass **drawer);
-void __fastcall Unknown_Free_Art_Pair_006F26D0();
+void __fastcall Unknown_Free_MP_Loading_Palette_006F26D0();
 extern int unknown_a72c68;                        // observer (hypothesis)
 extern int unknown_state_ac1248;
 extern char const * const unknown_name_7f8700;    // MPLS.PAL
@@ -22,10 +22,10 @@ extern ConvertClass *unknown_drawer_ac115c;
 void __fastcall Unknown_Load_MP_Loading_Palette_006F25C0()
 {
     if (unknown_state_ac1248 == 1 && unknown_a72c68 != 0) {
-        Unknown_Free_Art_Pair_006F26D0();
+        Unknown_Free_MP_Loading_Palette_006F26D0();
     }
     if (unknown_state_ac1248 == 2 && unknown_a72c68 == 0) {
-        Unknown_Free_Art_Pair_006F26D0();
+        Unknown_Free_MP_Loading_Palette_006F26D0();
     }
     if (unknown_drawer_ac115c == 0) {
         unknown_state_ac1248 = 0;

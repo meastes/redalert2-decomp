@@ -1561,25 +1561,12 @@ bool MPCooperative::unknown_slot39(DynamicVectorClass<int> unknown_list, int *un
 }
 
 
-// 0x005a6280: function not yet identified
-//
-// Owner: MPCooperative, virtual slot 1 (vtable +0x4) (from RTTI/vtables).
-// Body: 3 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined1 FUN_005a6280(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unsigned char unknown_return_true_005a6280() (0x005A6280; MPCooperative vtable slot 1): returns 1.
 
-namespace seed_005a6280 {
-
-unsigned char  FUN_005a6280(void)
+unsigned char  unknown_return_true_005a6280(void)
 {
     return 1;
 }
-
-}  // namespace seed_005a6280
 
 
 // bool MPCooperative::unknown_slot2() -- 0x005A6290

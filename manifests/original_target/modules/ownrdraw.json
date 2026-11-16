@@ -1344,63 +1344,63 @@
    "address": "007b3278",
    "bytes": 9,
    "kind": "rtti",
-   "section": 555
+   "section": 563
   },
   {
    "symbol": "??_R3XSurface@@8",
    "address": "007b3288",
    "bytes": 16,
    "kind": "rtti",
-   "section": 556
+   "section": 564
   },
   {
    "symbol": "??_R4XSurface@@6B@",
    "address": "007b3298",
    "bytes": 20,
    "kind": "rtti",
-   "section": 557
+   "section": 566
   },
   {
    "symbol": "??_R1A@?0A@A@Surface@@8",
    "address": "007b32b0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 559
+   "section": 561
   },
   {
    "symbol": "??_R1A@?0A@A@XSurface@@8",
    "address": "007b32c8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 561
+   "section": 562
   },
   {
    "symbol": "??_R1A@?0A@A@BSurface@@8",
    "address": "007b32e0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 562
+   "section": 555
   },
   {
    "symbol": "??_R2BSurface@@8",
    "address": "007b32f8",
    "bytes": 13,
    "kind": "rtti",
-   "section": 563
+   "section": 556
   },
   {
    "symbol": "??_R3BSurface@@8",
    "address": "007b3308",
    "bytes": 16,
    "kind": "rtti",
-   "section": 564
+   "section": 557
   },
   {
    "symbol": "??_R4BSurface@@6B@",
    "address": "007b3318",
    "bytes": 20,
    "kind": "rtti",
-   "section": 566
+   "section": 559
   },
   {
    "symbol": "??_R2Surface@@8",
@@ -1456,21 +1456,21 @@
    "address": "007ce2b0",
    "bytes": 22,
    "kind": "rtti",
-   "section": 558
+   "section": 560
   },
   {
    "symbol": "??_R0?AVXSurface@@@8",
    "address": "007ce2c8",
    "bytes": 23,
    "kind": "rtti",
-   "section": 560
+   "section": 565
   },
   {
    "symbol": "??_R0?AVBSurface@@@8",
    "address": "007ce2e0",
    "bytes": 23,
    "kind": "rtti",
-   "section": 565
+   "section": 558
   },
   {
    "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
@@ -9199,32 +9199,32 @@
    "address": "00517370"
   },
   {
-   "symbol": "?Unknown_006F3650@@YIXPAVSurface@@ABVRect@@_N@Z",
-   "address": "006f3650"
-  },
-  {
-   "symbol": "?Unknown_006F3930@@YIXPAVSurface@@ABVRect@@PAVConvertClass@@PBUShapeFileStruct@@3@Z",
-   "address": "006f3930"
-  },
-  {
-   "symbol": "?Unknown_6F3A60@@YIXPAVSurface@@ABVRect@@@Z",
-   "address": "006f3a60"
-  },
-  {
-   "symbol": "?Unknown_6F3AC0@@YIXPAVSurface@@ABVRect@@@Z",
-   "address": "006f3ac0"
-  },
-  {
-   "symbol": "?Unknown_6F3B20@@YIXPAVSurface@@ABVRect@@@Z",
-   "address": "006f3b20"
-  },
-  {
    "symbol": "?Unknown_6F4620@@YIXPAVSurface@@ABVRect@@_N@Z",
    "address": "006f4620"
   },
   {
    "symbol": "?Unknown_Add_Modeless_Dialog_00522b20@@YIXPAUHWND__@@@Z",
    "address": "00522b20"
+  },
+  {
+   "symbol": "?Unknown_Draw_Clipped_Shape_006F3930@@YIXPAVSurface@@ABVRect@@PAVConvertClass@@PBUShapeFileStruct@@3@Z",
+   "address": "006f3930"
+  },
+  {
+   "symbol": "?Unknown_Draw_Interface_006F3650@@YIXPAVSurface@@ABVRect@@_N@Z",
+   "address": "006f3650"
+  },
+  {
+   "symbol": "?Unknown_Draw_Score_Shape_6F3B20@@YIXPAVSurface@@ABVRect@@@Z",
+   "address": "006f3b20"
+  },
+  {
+   "symbol": "?Unknown_Draw_Shell_Shape_6F3A60@@YIXPAVSurface@@ABVRect@@@Z",
+   "address": "006f3a60"
+  },
+  {
+   "symbol": "?Unknown_Draw_Shell_Shape_Second_Frame_6F3AC0@@YIXPAVSurface@@ABVRect@@@Z",
+   "address": "006f3ac0"
   },
   {
    "symbol": "?Unknown_Get_Art_006f3460@@YI_NXZ",
@@ -9243,20 +9243,20 @@
    "address": "006f34c0"
   },
   {
-   "symbol": "?Unknown_Get_Art_6f2230@@YAPAXXZ",
+   "symbol": "?Unknown_Get_Dialog_Drawer_6f2230@@YAPAXXZ",
    "address": "006f2230"
   },
   {
-   "symbol": "?Unknown_Get_Art_6f2830@@YAPAXXZ",
-   "address": "006f2830"
+   "symbol": "?Unknown_Get_FS_Screen_Drawer_6f2de0@@YAPAXXZ",
+   "address": "006f2de0"
   },
   {
-   "symbol": "?Unknown_Get_Art_6f2b40@@YAPAXXZ",
+   "symbol": "?Unknown_Get_MP_Score_Drawer_6f2b40@@YAPAXXZ",
    "address": "006f2b40"
   },
   {
-   "symbol": "?Unknown_Get_Art_6f2de0@@YAPAXXZ",
-   "address": "006f2de0"
+   "symbol": "?Unknown_Get_Score_Drawer_6f2830@@YAPAXXZ",
+   "address": "006f2830"
   },
   {
    "symbol": "?Unknown_Load_Shape_00495270@@YIPBXPBDAA_N@Z",

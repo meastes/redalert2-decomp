@@ -8,7 +8,7 @@
 extern "C" char *__cdecl fgets(char *buffer, int count, void *file);                           // 0x00785547
 extern "C" int __cdecl _stricmp(char const *left, char const *right);                          // 0x00781F20
 int __cdecl Unknown_isspace_00784aa8(short character);                                         // 0x00784AA8
-void __fastcall Unknown_006F92A0(void *file, char *source, char *text, char *label, int limit);   // 0x006F92A0
+void __fastcall Unknown_Read_Text_Entry_006F92A0(void *file, char *source, char *text, char *label, int limit);   // 0x006F92A0
 void __fastcall Reverse_String_006f9d50(char *start, char *end);                                 // 0x006F9D50
 // @ref ?unknown_text_file_ad0430@@3PAXA=00ad0430
 // @ref ?unknown_text_option_ad0450@@3HA=00ad0450
@@ -16,7 +16,7 @@ void __fastcall Reverse_String_006f9d50(char *start, char *end);                
 // @ref ?unknown_label_ac4380@@3PADA=00ac4380
 // @ref ?unknown_reversed_text_acd410@@3PADA=00acd410
 // @ref ?Unknown_isspace_00784aa8@@YAHF@Z=00784aa8
-// @ref ?Unknown_006F92A0@@YIXPAXPAD11H@Z=006f92a0
+// @ref ?Unknown_Read_Text_Entry_006F92A0@@YIXPAXPAD11H@Z=006f92a0
 // @ref ?Reverse_String_006f9d50@@YIXPAD0@Z=006f9d50
 // @ref _fgets=00785547
 // @ref __stricmp=00781f20
@@ -151,7 +151,7 @@ int __fastcall Read_Text_File_006f9790()
                 int line_length = strlen(unknown_line_acf410);
                 unknown_line_acf410[line_length] = '\n';
                 unknown_line_acf410[line_length + 1] = 0;
-                Unknown_006F92A0(unknown_text_file_ad0430, &unknown_line_acf410[1], unknown_text_ac3378, unknown_label_ac4380, 0x1000);
+                Unknown_Read_Text_Entry_006F92A0(unknown_text_file_ad0430, &unknown_line_acf410[1], unknown_text_ac3378, unknown_label_ac4380, 0x1000);
                 Convert_String(unknown_wide_text_ac93fc, unknown_text_ac3378);
                 Collapse_White_Space(unknown_wide_text_ac93fc);
                 int wide_length = wcslen(unknown_wide_text_ac93fc) + 1;

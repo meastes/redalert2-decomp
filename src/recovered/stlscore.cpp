@@ -79,7 +79,7 @@ void* Leaf_69a640::get() { return this; }
 // dialog 0x103 (procedure 0x0069A7D0) and clears the screen again.
 
 // Clears the screen area behind the score dialog (0x006F3BF0; hypothesis).
-void __fastcall Unknown_6F3BF0(Surface *surface, Rect const &window);
+void __fastcall Unknown_Draw_Score_Screen_6F3BF0(Surface *surface, Rect const &window);
 // The score dialog's procedure (0x0069A7D0; not recovered).
 int __stdcall Score_Dialog_Proc_0069A7D0(HWND__ *dialog, unsigned int message, unsigned int wparam, long lparam);
 
@@ -87,10 +87,10 @@ void UnknownScore_0069A640::Presentation_0069A650()
 {
     Unknown_Load_Art_Once_006F2710(unknown_id_source_a3d290->IsGDI == false);
     Rect rect(0, 0, VideoModeWidth, VideoModeHeight);
-    Unknown_6F3BF0(HiddenSurface, rect);
+    Unknown_Draw_Score_Screen_6F3BF0(HiddenSurface, rect);
     Update_Visible_Surface(true, HiddenSurface, 0);
     unknown_dialog_box_5eab60(0x103, Score_Dialog_Proc_0069A7D0, 0);
-    Unknown_6F3BF0(HiddenSurface, rect);
+    Unknown_Draw_Score_Screen_6F3BF0(HiddenSurface, rect);
     Update_Visible_Surface(true, HiddenSurface, 0);
     Unknown_Free_Art_Flagged_006F2750();
 }

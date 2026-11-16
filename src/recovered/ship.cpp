@@ -1614,24 +1614,13 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
 }
 
 
-// 0x0067a680: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_0067a680(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void unknown_empty_0067a680() (0x0067A680): an empty function (no callers).
 
-namespace seed_0067a680 {
-
-void  FUN_0067a680(void)
+void  unknown_empty_0067a680(void)
 {
     return;
 }
 
-}  // namespace seed_0067a680
 
 
 // Point2D ShipLocomotionClass::Smooth_Turn(Point2D const &offset, int &facing) (0x0067A690)

@@ -285,19 +285,10 @@ void TemporalClass::Let_Go_Of_Target()
 // External references checked against complete original body operands.
 
 
-// 0x006e25f0: function not yet identified
-//
-// Body: 28 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_006e25f0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __fastcall unknown_release_target_006e25f0(int temporal_address) (0x006E25F0): when the
+// temporal has a target (+0x28), clears the target's +0x20C and +0x204 and forgets it (no callers).
 
-namespace seed_006e25f0 {
-
-void __fastcall FUN_006e25f0(int temporal_address)
+void __fastcall unknown_release_target_006e25f0(int temporal_address)
 {
     if (*(int *)(temporal_address + 0x28) != 0) {
         *(unsigned int *)(*(int *)(temporal_address + 0x28) + 0x20c) = 0;
@@ -307,27 +298,13 @@ void __fastcall FUN_006e25f0(int temporal_address)
     return;
 }
 
-}  // namespace seed_006e25f0
 
+// void unknown_empty_006e2670() (0x006E2670): an empty function (no callers).
 
-// 0x006e2670: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_006e2670(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_006e2670 {
-
-void  FUN_006e2670(void)
+void  unknown_empty_006e2670(void)
 {
     return;
 }
-
-}  // namespace seed_006e2670
 
 
 // void TemporalClass::Let_Go() (0x006E2680)
@@ -361,19 +338,10 @@ void TemporalClass::Let_Go()
 }
 
 
-// 0x006e26f0: function not yet identified
-//
-// Body: 18 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_006e26f0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __fastcall unknown_clear_links_006e26f0(int temporal_address) (0x006E26F0): clears the
+// target (+0x28) and the four link fields +0x44, +0x40, +0x3C and +0x38 without releasing them.
 
-namespace seed_006e26f0 {
-
-void __fastcall FUN_006e26f0(int temporal_address)
+void __fastcall unknown_clear_links_006e26f0(int temporal_address)
 {
     *(unsigned int *)(temporal_address + 0x28) = 0;
     *(unsigned int *)(temporal_address + 0x44) = 0;
@@ -382,8 +350,6 @@ void __fastcall FUN_006e26f0(int temporal_address)
     *(unsigned int *)(temporal_address + 0x38) = 0;
     return;
 }
-
-}  // namespace seed_006e26f0
 
 
 // void TemporalClass::Just_Let_Go() (0x006E2710)

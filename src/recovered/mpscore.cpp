@@ -83,7 +83,7 @@
 // UnknownScore_005AAA20::UnknownScore_005AAA20() (0x005AAA20): clears the screen's statics.
 
 extern "C" wchar_t *__cdecl wcscpy(wchar_t *destination, wchar_t const *source);
-void __fastcall Unknown_6F3CD0(Surface *surface, Rect const &window);
+void __fastcall Unknown_Draw_MP_Score_Screen_6F3CD0(Surface *surface, Rect const &window);
 void __fastcall Unknown_Rect_Shrink_006F1B30(Rect *rect, int x, int y);
 
 UnknownScore_005AAA20::UnknownScore_005AAA20()
@@ -101,10 +101,10 @@ void UnknownScore_005AAA20::Presentation_005AAA40()
 {
     Unknown_Load_Art_Pair_006F2A30(unknown_id_source_a3d290->IsGDI == false);
     Rect rect(0, 0, VideoModeWidth, VideoModeHeight);
-    Unknown_6F3CD0(HiddenSurface, rect);
+    Unknown_Draw_MP_Score_Screen_6F3CD0(HiddenSurface, rect);
     Update_Visible_Surface(true, HiddenSurface, 0);
     unknown_dialog_box_5eab60(0x108, MP_Score_Dialog_Proc_005AAE40, 0);
-    Unknown_6F3CD0(HiddenSurface, rect);
+    Unknown_Draw_MP_Score_Screen_6F3CD0(HiddenSurface, rect);
     Update_Visible_Surface(true, HiddenSurface, 0);
     Unknown_006F2AB0();
 }

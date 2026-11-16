@@ -1433,8 +1433,8 @@ __asm__(".globl _PTR_FUN_007af40c\n.set _PTR_FUN_007af40c, _WorldDominationTour_
 alignas(16) unsigned char ra2_orig_0424[128] __asm__("_PTR_FUN_007af4e0");
 // row	_PTR_FUN_007af51c	0x007AF51C	48	ptr	PTR_FUN_007af51c	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
 alignas(16) unsigned char ra2_orig_0425[96] __asm__("_PTR_FUN_007af51c");
-// row	_PTR_FUN_007af54c	0x007AF54C	8	ptr	PTR_FUN_007af54c	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
-alignas(16) unsigned char ra2_orig_0426[16] __asm__("_PTR_FUN_007af54c");
+// row	_unknown_vtable_007af54c	0x007AF54C	8	ptr	unknown_vtable_007af54c	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+alignas(16) unsigned char ra2_orig_0426[16] __asm__("_unknown_vtable_007af54c");
 // row	_data_7395b0_7af554	0x007AF554	76	bytes	data_7395b0_7af554	src/recovered/00402190.cpp
 alignas(16) unsigned char ra2_orig_0427[80] __asm__("_data_7395b0_7af554");
 // row	_wol_chat_iid_007af5a0	0x007AF5A0	16	bytes	wol_chat_iid_007af5a0	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
@@ -1695,10 +1695,10 @@ alignas(16) unsigned char ra2_orig_0534[16] __asm__("_unknown_score_difficulty_7
 alignas(16) unsigned char ra2_orig_0535[32] __asm__("_unknown_score_controls_7d1484");
 // row	_unknown_score_controls_7d1498	0x007D1498	212	bytes	unknown_score_controls_7d1498	src/recovered/header_statics/00465a00/HeaderStatics_diagonal_init_00465a00.cpp
 alignas(16) unsigned char ra2_orig_0536[224] __asm__("_unknown_score_controls_7d1498");
-// row	_PTR_LAB_007d1598	0x007D1598	8	ptr	PTR_LAB_007d1598	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_AddRef_00691560.cpp
+// row	_unknown_format_number_007d1598	0x007D1598	8	ptr	unknown_format_number_007d1598	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_AddRef_00691560.cpp
 // row	_ladder_number_format_007d1598	0x007D1598	8	bytes	ladder_number_format_007d1598	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-alignas(16) unsigned char ra2_orig_0537[16] __asm__("_PTR_LAB_007d1598");
-__asm__(".globl _ladder_number_format_007d1598\n.set _ladder_number_format_007d1598, _PTR_LAB_007d1598\n");
+alignas(16) unsigned char ra2_orig_0537[16] __asm__("_unknown_format_number_007d1598");
+__asm__(".globl _ladder_number_format_007d1598\n.set _ladder_number_format_007d1598, _unknown_format_number_007d1598\n");
 // row	_PipNames	0x007D1970	40	rec:p4	PipNames	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0538[80] __asm__("_PipNames");
 // row	_PipScaleNames	0x007D1998	32	rec:p4	PipScaleNames	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
@@ -3547,125 +3547,125 @@ alignas(16) unsigned char ra2_orig_1203[80] __asm__("_unknown_7f8664");
 alignas(16) unsigned char ra2_orig_1204[96] __asm__("_unknown_flag_images_7f86b0");
 // row	_unknown_ping_images_7f86dc	0x007F86DC	12	ptrs	unknown_ping_images_7f86dc	src/recovered/classes/CChatEventSink/CChatEventSink_OnChannelTopic_007646a0.cpp
 alignas(16) unsigned char ra2_orig_1205[32] __asm__("_unknown_ping_images_7f86dc");
-// row	_unknown_name_7f86e8	0x007F86E8	4	ptr	unknown_name_7f86e8	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f86e8	0x007F86E8	4	ptr	unknown_name_7f86e8	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1206[16] __asm__("_unknown_name_7f86e8");
-// row	_unknown_name_7f86ec	0x007F86EC	4	ptr	unknown_name_7f86ec	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f86ec	0x007F86EC	4	ptr	unknown_name_7f86ec	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1207[16] __asm__("_unknown_name_7f86ec");
-// row	_unknown_name_7f86f0	0x007F86F0	4	ptr	unknown_name_7f86f0	src/recovered/unowned/Unknown_Load_Backdrop_006f2b50.cpp
+// row	_unknown_name_7f86f0	0x007F86F0	4	ptr	unknown_name_7f86f0	src/recovered/txtlabel2/Unknown_Load_MP_Score_Backdrop.cpp
 alignas(16) unsigned char ra2_orig_1208[16] __asm__("_unknown_name_7f86f0");
-// row	_unknown_name_7f86f4	0x007F86F4	4	ptr	unknown_name_7f86f4	src/recovered/unowned/Unknown_Load_Backdrop_006f2b50.cpp
+// row	_unknown_name_7f86f4	0x007F86F4	4	ptr	unknown_name_7f86f4	src/recovered/txtlabel2/Unknown_Load_MP_Score_Backdrop.cpp
 alignas(16) unsigned char ra2_orig_1209[16] __asm__("_unknown_name_7f86f4");
-// row	_unknown_name_7f86f8	0x007F86F8	4	ptr	unknown_name_7f86f8	src/recovered/unowned/Unknown_Load_Backdrop_006f2b50.cpp
+// row	_unknown_name_7f86f8	0x007F86F8	4	ptr	unknown_name_7f86f8	src/recovered/txtlabel2/Unknown_Load_MP_Score_Backdrop.cpp
 alignas(16) unsigned char ra2_orig_1210[16] __asm__("_unknown_name_7f86f8");
-// row	_unknown_name_7f86fc	0x007F86FC	4	ptr	unknown_name_7f86fc	src/recovered/unowned/Unknown_Load_Backdrop_006f2b50.cpp
+// row	_unknown_name_7f86fc	0x007F86FC	4	ptr	unknown_name_7f86fc	src/recovered/txtlabel2/Unknown_Load_MP_Score_Backdrop.cpp
 alignas(16) unsigned char ra2_orig_1211[16] __asm__("_unknown_name_7f86fc");
-// row	_unknown_name_7f8700	0x007F8700	4	ptr	unknown_name_7f8700	src/recovered/unowned/Unknown_Load_Backdrop_006f2b50.cpp
+// row	_unknown_name_7f8700	0x007F8700	4	ptr	unknown_name_7f8700	src/recovered/txtlabel2/Unknown_Load_MP_Score_Backdrop.cpp
 alignas(16) unsigned char ra2_orig_1212[16] __asm__("_unknown_name_7f8700");
-// row	_unknown_name_7f8704	0x007F8704	4	ptr	unknown_name_7f8704	src/recovered/unowned/Unknown_Load_Backdrop_006f2b50.cpp
+// row	_unknown_name_7f8704	0x007F8704	4	ptr	unknown_name_7f8704	src/recovered/txtlabel2/Unknown_Load_MP_Score_Backdrop.cpp
 alignas(16) unsigned char ra2_orig_1213[16] __asm__("_unknown_name_7f8704");
-// row	_unknown_name_7f8708	0x007F8708	4	ptr	unknown_name_7f8708	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_name_7f8708	0x007F8708	4	ptr	unknown_name_7f8708	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1214[16] __asm__("_unknown_name_7f8708");
-// row	_unknown_name_7f870c	0x007F870C	4	ptr	unknown_name_7f870c	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_name_7f870c	0x007F870C	4	ptr	unknown_name_7f870c	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1215[16] __asm__("_unknown_name_7f870c");
 // row	_unknown_name_7f8710	0x007F8710	4	ptr	unknown_name_7f8710	src/recovered/unowned/unknown_add_node_006003d0.cpp
 alignas(16) unsigned char ra2_orig_1216[16] __asm__("_unknown_name_7f8710");
 // row	_unknown_name_7f8714	0x007F8714	4	ptr	unknown_name_7f8714	src/recovered/unowned/unknown_add_node_006003d0.cpp
 alignas(16) unsigned char ra2_orig_1217[16] __asm__("_unknown_name_7f8714");
-// row	_unknown_name_7f8718	0x007F8718	4	ptr	unknown_name_7f8718	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f8718	0x007F8718	4	ptr	unknown_name_7f8718	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1218[16] __asm__("_unknown_name_7f8718");
-// row	_unknown_name_7f871c	0x007F871C	4	ptr	unknown_name_7f871c	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f871c	0x007F871C	4	ptr	unknown_name_7f871c	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1219[16] __asm__("_unknown_name_7f871c");
-// row	_unknown_name_7f8720	0x007F8720	4	ptr	unknown_name_7f8720	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f8720	0x007F8720	4	ptr	unknown_name_7f8720	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1220[16] __asm__("_unknown_name_7f8720");
-// row	_unknown_name_7f8724	0x007F8724	4	ptr	unknown_name_7f8724	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f8724	0x007F8724	4	ptr	unknown_name_7f8724	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1221[16] __asm__("_unknown_name_7f8724");
-// row	_unknown_name_7f8728	0x007F8728	4	ptr	unknown_name_7f8728	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f8728	0x007F8728	4	ptr	unknown_name_7f8728	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1222[16] __asm__("_unknown_name_7f8728");
-// row	_unknown_name_7f872c	0x007F872C	4	ptr	unknown_name_7f872c	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f872c	0x007F872C	4	ptr	unknown_name_7f872c	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1223[16] __asm__("_unknown_name_7f872c");
-// row	_unknown_art_7f8730	0x007F8730	4	ptr	unknown_art_7f8730	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_art_7f8730	0x007F8730	4	ptr	unknown_art_7f8730	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1224[16] __asm__("_unknown_art_7f8730");
-// row	_unknown_art_7f8734	0x007F8734	4	ptr	unknown_art_7f8734	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_art_7f8734	0x007F8734	4	ptr	unknown_art_7f8734	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1225[16] __asm__("_unknown_art_7f8734");
-// row	_unknown_art_7f8738	0x007F8738	4	ptr	unknown_art_7f8738	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_art_7f8738	0x007F8738	4	ptr	unknown_art_7f8738	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1226[16] __asm__("_unknown_art_7f8738");
-// row	_unknown_art_7f873c	0x007F873C	4	ptr	unknown_art_7f873c	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_art_7f873c	0x007F873C	4	ptr	unknown_art_7f873c	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1227[16] __asm__("_unknown_art_7f873c");
-// row	_unknown_name_7f8740	0x007F8740	4	ptr	unknown_name_7f8740	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f8740	0x007F8740	4	ptr	unknown_name_7f8740	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1228[16] __asm__("_unknown_name_7f8740");
-// row	_unknown_name_7f8744	0x007F8744	4	ptr	unknown_name_7f8744	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f8744	0x007F8744	4	ptr	unknown_name_7f8744	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1229[16] __asm__("_unknown_name_7f8744");
-// row	_unknown_name_7f8748	0x007F8748	4	ptr	unknown_name_7f8748	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f8748	0x007F8748	4	ptr	unknown_name_7f8748	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1230[16] __asm__("_unknown_name_7f8748");
-// row	_unknown_name_7f874c	0x007F874C	4	ptr	unknown_name_7f874c	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f874c	0x007F874C	4	ptr	unknown_name_7f874c	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1231[16] __asm__("_unknown_name_7f874c");
-// row	_unknown_name_7f8750	0x007F8750	4	ptr	unknown_name_7f8750	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_name_7f8750	0x007F8750	4	ptr	unknown_name_7f8750	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1232[16] __asm__("_unknown_name_7f8750");
-// row	_unknown_name_7f8754	0x007F8754	4	ptr	unknown_name_7f8754	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_name_7f8754	0x007F8754	4	ptr	unknown_name_7f8754	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1233[16] __asm__("_unknown_name_7f8754");
-// row	_unknown_name_7f8758	0x007F8758	4	ptr	unknown_name_7f8758	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_name_7f8758	0x007F8758	4	ptr	unknown_name_7f8758	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1234[16] __asm__("_unknown_name_7f8758");
-// row	_unknown_name_7f875c	0x007F875C	4	ptr	unknown_name_7f875c	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_name_7f875c	0x007F875C	4	ptr	unknown_name_7f875c	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1235[16] __asm__("_unknown_name_7f875c");
-// row	_unknown_name_7f8760	0x007F8760	4	ptr	unknown_name_7f8760	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_name_7f8760	0x007F8760	4	ptr	unknown_name_7f8760	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1236[16] __asm__("_unknown_name_7f8760");
-// row	_unknown_name_7f8764	0x007F8764	4	ptr	unknown_name_7f8764	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_name_7f8764	0x007F8764	4	ptr	unknown_name_7f8764	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1237[16] __asm__("_unknown_name_7f8764");
-// row	_unknown_name_7f8768	0x007F8768	4	ptr	unknown_name_7f8768	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_name_7f8768	0x007F8768	4	ptr	unknown_name_7f8768	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1238[16] __asm__("_unknown_name_7f8768");
-// row	_unknown_name_7f876c	0x007F876C	4	ptr	unknown_name_7f876c	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_name_7f876c	0x007F876C	4	ptr	unknown_name_7f876c	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1239[16] __asm__("_unknown_name_7f876c");
-// row	_unknown_name_7f8770	0x007F8770	4	ptr	unknown_name_7f8770	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_name_7f8770	0x007F8770	4	ptr	unknown_name_7f8770	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1240[16] __asm__("_unknown_name_7f8770");
-// row	_unknown_name_7f8774	0x007F8774	4	ptr	unknown_name_7f8774	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_name_7f8774	0x007F8774	4	ptr	unknown_name_7f8774	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1241[16] __asm__("_unknown_name_7f8774");
-// row	_unknown_name_7f8778	0x007F8778	4	ptr	unknown_name_7f8778	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_name_7f8778	0x007F8778	4	ptr	unknown_name_7f8778	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1242[16] __asm__("_unknown_name_7f8778");
-// row	_unknown_name_7f877c	0x007F877C	4	ptr	unknown_name_7f877c	src/recovered/unowned/Unknown_Get_Art_006f2230.cpp
+// row	_unknown_name_7f877c	0x007F877C	4	ptr	unknown_name_7f877c	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1243[16] __asm__("_unknown_name_7f877c");
-// row	_unknown_name_7f8780	0x007F8780	4	ptr	unknown_name_7f8780	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f8780	0x007F8780	4	ptr	unknown_name_7f8780	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1244[16] __asm__("_unknown_name_7f8780");
-// row	_unknown_name_7f8784	0x007F8784	4	ptr	unknown_name_7f8784	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f8784	0x007F8784	4	ptr	unknown_name_7f8784	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1245[16] __asm__("_unknown_name_7f8784");
-// row	_unknown_name_7f8788	0x007F8788	4	ptr	unknown_name_7f8788	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f8788	0x007F8788	4	ptr	unknown_name_7f8788	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1246[16] __asm__("_unknown_name_7f8788");
-// row	_unknown_name_7f878c	0x007F878C	4	ptr	unknown_name_7f878c	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f878c	0x007F878C	4	ptr	unknown_name_7f878c	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1247[16] __asm__("_unknown_name_7f878c");
-// row	_unknown_name_7f8790	0x007F8790	4	ptr	unknown_name_7f8790	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f8790	0x007F8790	4	ptr	unknown_name_7f8790	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1248[16] __asm__("_unknown_name_7f8790");
-// row	_unknown_name_7f8794	0x007F8794	4	ptr	unknown_name_7f8794	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f8794	0x007F8794	4	ptr	unknown_name_7f8794	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1249[16] __asm__("_unknown_name_7f8794");
-// row	_unknown_name_7f8798	0x007F8798	4	ptr	unknown_name_7f8798	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f8798	0x007F8798	4	ptr	unknown_name_7f8798	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1250[16] __asm__("_unknown_name_7f8798");
-// row	_unknown_name_7f879c	0x007F879C	4	ptr	unknown_name_7f879c	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f879c	0x007F879C	4	ptr	unknown_name_7f879c	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1251[16] __asm__("_unknown_name_7f879c");
-// row	_unknown_name_7f87a0	0x007F87A0	4	ptr	unknown_name_7f87a0	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f87a0	0x007F87A0	4	ptr	unknown_name_7f87a0	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1252[16] __asm__("_unknown_name_7f87a0");
-// row	_unknown_name_7f87a4	0x007F87A4	4	ptr	unknown_name_7f87a4	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f87a4	0x007F87A4	4	ptr	unknown_name_7f87a4	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1253[16] __asm__("_unknown_name_7f87a4");
-// row	_unknown_name_7f87a8	0x007F87A8	4	ptr	unknown_name_7f87a8	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f87a8	0x007F87A8	4	ptr	unknown_name_7f87a8	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1254[16] __asm__("_unknown_name_7f87a8");
-// row	_unknown_name_7f87ac	0x007F87AC	4	ptr	unknown_name_7f87ac	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f87ac	0x007F87AC	4	ptr	unknown_name_7f87ac	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1255[16] __asm__("_unknown_name_7f87ac");
-// row	_unknown_name_7f87b0	0x007F87B0	4	ptr	unknown_name_7f87b0	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f87b0	0x007F87B0	4	ptr	unknown_name_7f87b0	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1256[16] __asm__("_unknown_name_7f87b0");
-// row	_unknown_name_7f87b4	0x007F87B4	4	ptr	unknown_name_7f87b4	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f87b4	0x007F87B4	4	ptr	unknown_name_7f87b4	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1257[16] __asm__("_unknown_name_7f87b4");
-// row	_unknown_name_7f87b8	0x007F87B8	4	ptr	unknown_name_7f87b8	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f87b8	0x007F87B8	4	ptr	unknown_name_7f87b8	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1258[16] __asm__("_unknown_name_7f87b8");
-// row	_unknown_name_7f87bc	0x007F87BC	4	ptr	unknown_name_7f87bc	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f87bc	0x007F87BC	4	ptr	unknown_name_7f87bc	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1259[16] __asm__("_unknown_name_7f87bc");
-// row	_unknown_name_7f87c0	0x007F87C0	4	ptr	unknown_name_7f87c0	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f87c0	0x007F87C0	4	ptr	unknown_name_7f87c0	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1260[16] __asm__("_unknown_name_7f87c0");
-// row	_unknown_name_7f87c4	0x007F87C4	4	ptr	unknown_name_7f87c4	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f87c4	0x007F87C4	4	ptr	unknown_name_7f87c4	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1261[16] __asm__("_unknown_name_7f87c4");
-// row	_unknown_name_7f87c8	0x007F87C8	4	ptr	unknown_name_7f87c8	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f87c8	0x007F87C8	4	ptr	unknown_name_7f87c8	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1262[16] __asm__("_unknown_name_7f87c8");
-// row	_unknown_name_7f87cc	0x007F87CC	4	ptr	unknown_name_7f87cc	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f87cc	0x007F87CC	4	ptr	unknown_name_7f87cc	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1263[16] __asm__("_unknown_name_7f87cc");
-// row	_unknown_name_7f87d0	0x007F87D0	4	ptr	unknown_name_7f87d0	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f87d0	0x007F87D0	4	ptr	unknown_name_7f87d0	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1264[16] __asm__("_unknown_name_7f87d0");
-// row	_unknown_name_7f87d4	0x007F87D4	4	ptr	unknown_name_7f87d4	src/recovered/unowned/Unknown_Draw_Clipped_Shape_006f3930.cpp
+// row	_unknown_name_7f87d4	0x007F87D4	4	ptr	unknown_name_7f87d4	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1265[16] __asm__("_unknown_name_7f87d4");
 // row	_unknown_name_7f87d8	0x007F87D8	4	ptr	unknown_name_7f87d8	src/recovered/unowned/Unknown_Get_Art_006f3480.cpp
 alignas(16) unsigned char ra2_orig_1266[16] __asm__("_unknown_name_7f87d8");
@@ -3721,8 +3721,8 @@ alignas(16) unsigned char ra2_orig_1288[352] __asm__("_unknown_languages_7f8cf0"
 // row	_unknown_language_7f8da0	0x007F8DA0	148	bytes	unknown_language_7f8da0	src/recovered/header_statics/006f8be0/HeaderStatics_diagonal_init_006f8be0.cpp
 alignas(16) unsigned char ra2_orig_1289[160] __asm__("_DAT_007f8da0");
 __asm__(".globl _unknown_language_7f8da0\n.set _unknown_language_7f8da0, _DAT_007f8da0\n");
-// row	_DAT_007f8e34	0x007F8E34	12	bytes	DAT_007f8e34	src/recovered/00479ca0.cpp
-alignas(16) unsigned char ra2_orig_1290[16] __asm__("_DAT_007f8e34");
+// row	_unknown_text_7f8e34	0x007F8E34	12	bytes	unknown_text_7f8e34	src/recovered/00479ca0.cpp
+alignas(16) unsigned char ra2_orig_1290[16] __asm__("_unknown_text_7f8e34");
 // row	_Unit_Attack_Frames_007F8F2C	0x007F8F2C	32	bytes	Unit_Attack_Frames_007F8F2C	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_1291[32] __asm__("_Unit_Attack_Frames_007F8F2C");
 // row	_UnitClass_Harvester_Load_List	0x007F8F4C	40	bytes	UnitClass_Harvester_Load_List	src/recovered/header_statics/006fa1e0/HeaderStatics_c_init_006fa230.cpp

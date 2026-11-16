@@ -4,8 +4,8 @@
     "id": "population-974",
     "inventory_sha256": "0818a73a9bbc0c7c7544c7e5d35e1a4c5359c4ed56de4d3af7539f9ed6f48438",
     "gaps_sha256": "d68c1f5444b433ab45f812a579a9f46ee1cf674cbdbb13ef5b02d653a171d6c9",
-    "historical_population_sha256": "ce38a4031fb75ee93a338fe0f2ab7b154c35d2210932006c991988b552d9adbd",
-    "historical_acceptance_sha256": "73a819c45eb21932efbf9b238f26a6d277497f30729daa0022d505eb561aba86",
+    "historical_population_sha256": "ac3ae5f2edf87d133775578daf39d2e39747c784813e83a67d40a9723c9ce60f",
+    "historical_acceptance_sha256": "ef13cc3aaaeb9af231c630bd9d9fcd6142042a6dec2bced1942a7ebead4ad671",
     "separate_units": true
   },
   "references": {
@@ -143,9 +143,9 @@
     "?unknown_add_node@UnknownNodeList_006003d0@@QAEPAUUnknownNode_006003d0@@H@Z": 6292432,
     "?unknown_clear_combo@@YIHPAUHWND__@@@Z": 6293488,
     "??0UnknownBuffer_0069a1a0@@QAE@H@Z": 6922656,
-    "?unknown_load_art_7f8708@@YIXH@Z": 7285088,
-    "?unknown_load_art_7f8710@@YIXH@Z": 7285680,
-    "?unknown_load_art_7f8718@@YAXXZ": 7286448,
+    "?unknown_load_score_palette_6f2960@@YIXH@Z": 7285088,
+    "?unknown_load_mp_score_palette_6f2bb0@@YIXH@Z": 7285680,
+    "?unknown_load_fs_screen_palette_6f2eb0@@YAXXZ": 7286448,
     "?Text@TaskForceEntryStruct@@QBEPBDXZ": 4933888,
     "?Next@UnknownGaussianSource_005798d0@@QAENXZ": 5740592,
     "?Size@DriveLocomotionClass@@UAEHXZ": 4869280,
@@ -592,7 +592,10 @@
     "__imp__ImmGetContext": 7971000,
     "__imp__ImmGetCompositionStringA@16": 7971004,
     "__imp__ImmGetCompositionStringA": 7971004,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?unknown_art_ac1164@@3PAVUnknownArtData_006f2390@@A": 11276644,
+    "?unknown_art_ac1170@@3PAVUnknownArtData_006f2390@@A": 11276656,
+    "?unknown_art_ac117c@@3PAVUnknownArtData_006f2390@@A": 11276668
   },
   "regions": [
     {
@@ -684,8 +687,8 @@
     {
       "entry": 7285088,
       "method": "006f2960",
-      "symbol": "?unknown_load_art_7f8708@@YIXH@Z",
-      "symbol_prefix": "?unknown_load_art_7f8708@@YIXH@Z",
+      "symbol": "?unknown_load_score_palette_6f2960@@YIXH@Z",
+      "symbol_prefix": "?unknown_load_score_palette_6f2960@@YIXH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -739,20 +742,20 @@
           "resolved": 4294964769
         }
       ],
-      "source_sha256": "3c26be5568fe000062d4202a15a7141775ca1f1bbb250faed8ce544299b3b563",
-      "source": "src/recovered/unowned/unknown_load_art_7f8708_006f2960.cpp",
+      "source_sha256": "d8033ac4544ecac614283317f98c1d3ee81977467c1eb5ceefaff5b93dbafbd6",
+      "source": "src/recovered/txtlabel2/unknown_load_score_palette.cpp",
       "population": "population-974",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_load_art_7f8708_006f2960",
+      "semantic_name": "unknown_load_score_palette",
       "source_order": 32037
     },
     {
       "entry": 7285680,
       "method": "006f2bb0",
-      "symbol": "?unknown_load_art_7f8710@@YIXH@Z",
-      "symbol_prefix": "?unknown_load_art_7f8710@@YIXH@Z",
+      "symbol": "?unknown_load_mp_score_palette_6f2bb0@@YIXH@Z",
+      "symbol_prefix": "?unknown_load_mp_score_palette_6f2bb0@@YIXH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -806,20 +809,20 @@
           "resolved": 4294964177
         }
       ],
-      "source_sha256": "2c1a7a0164e66de269ca1c8995ea11cce699c188677f0b438597acf9feb5904f",
-      "source": "src/recovered/unowned/unknown_load_art_7f8710_006f2bb0.cpp",
+      "source_sha256": "b6d705d0158277dbd0abe2daf06c649ac10dcf21ecd007cc56475760f3d1403d",
+      "source": "src/recovered/txtlabel2/unknown_load_mp_score_palette.cpp",
       "population": "population-974",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_load_art_7f8710_006f2bb0",
+      "semantic_name": "unknown_load_mp_score_palette",
       "source_order": 32038
     },
     {
       "entry": 7286448,
       "method": "006f2eb0",
-      "symbol": "?unknown_load_art_7f8718@@YAXXZ",
-      "symbol_prefix": "?unknown_load_art_7f8718@@YAXXZ",
+      "symbol": "?unknown_load_fs_screen_palette_6f2eb0@@YAXXZ",
+      "symbol_prefix": "?unknown_load_fs_screen_palette_6f2eb0@@YAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -865,13 +868,13 @@
           "resolved": 4294963419
         }
       ],
-      "source_sha256": "fe7d9a085e7588dda34fa67a8a8dcf7956c063d8d830c64e3dff614813af28a7",
-      "source": "src/recovered/unowned/unknown_load_art_7f8718_006f2eb0.cpp",
+      "source_sha256": "e3575a8b85e0b84c03baa85beb27e229e0d13231f1f1dd9c70470ce3fdb1b39b",
+      "source": "src/recovered/txtlabel2/unknown_load_fs_screen_palette.cpp",
       "population": "population-974",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_load_art_7f8718_006f2eb0",
+      "semantic_name": "unknown_load_fs_screen_palette",
       "source_order": 32039
     }
   ]

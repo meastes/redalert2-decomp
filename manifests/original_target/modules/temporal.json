@@ -175,13 +175,13 @@
    "padding_bytes": 6
   },
   {
-   "symbol": "?FUN_006e25f0@seed_006e25f0@@YIXH@Z",
+   "symbol": "?unknown_release_target_006e25f0@@YIXH@Z",
    "entry": "006e25f0",
    "body_bytes": 28,
    "padding_bytes": 4
   },
   {
-   "symbol": "?FUN_006e2670@seed_006e2670@@YAXXZ",
+   "symbol": "?unknown_empty_006e2670@@YAXXZ",
    "entry": "006e2670",
    "body_bytes": 1,
    "padding_bytes": 15
@@ -193,7 +193,7 @@
    "padding_bytes": 14
   },
   {
-   "symbol": "?FUN_006e26f0@seed_006e26f0@@YIXH@Z",
+   "symbol": "?unknown_clear_links_006e26f0@@YIXH@Z",
    "entry": "006e26f0",
    "body_bytes": 18,
    "padding_bytes": 14
@@ -1407,7 +1407,7 @@
    "entry": "006e2610",
    "bytes": 93,
    "population": "population-3536",
-   "source": "src/recovered/classes/TemporalClass/TemporalClass_Release_Target_State_006e2610.cpp",
+   "source": "src/recovered/classes/TemporalClass/Unknown_Release_Target_State.cpp",
    "cause": "native fixup cannot be re-keyed unambiguously: its seed_0044d380 declaration line recurs in Let_Go_Of_Target (0x006E2500) of the same unit, and each carries its own native fixup"
   }
  ],

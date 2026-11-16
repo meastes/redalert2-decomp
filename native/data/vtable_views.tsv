@@ -13,15 +13,15 @@ src/recovered/ovrlight.cpp	UnknownSpotLightObject_a731e0	dtor-only			its only vi
 src/recovered/tracker.cpp	type_info	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
 src/recovered/txtlabel2.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
 src/recovered/txtlabel2/Unknown_Free_Art_Flagged.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
-src/recovered/unowned/Unknown_Free_Art_Pair_006f29f0.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
-src/recovered/unowned/Unknown_Free_Art_Pair_006f2f70.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/Unknown_Free_Score_Palette.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/Unknown_Free_FS_Screen_Palette.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
 src/recovered/txtlabel2.cpp	UnknownOwnedObject	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
 src/recovered/txtlabel2/Unknown_Load_Art_Flagged.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
 src/recovered/txtlabel2/Unknown_Load_Art_Once.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
-src/recovered/unowned/Unknown_Load_Interface_Art_006f1b60.cpp	UnknownOwnedObject	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
-src/recovered/unowned/Unknown_Release_Art_Pairs_006f42d0.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/Unknown_Load_Interface_Art.cpp	UnknownOwnedObject	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/Unknown_Release_Shell_Palettes.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
 src/recovered/txtlabel2/Unknown_Release_Reload_Art_Pairs.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
-src/recovered/unowned/Unknown_Release_Shapes_006f2d00.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/Unknown_Release_Shapes.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
 src/recovered/txtlabel2/unknown_free_art.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
 src/shared/anim.hpp	UnknownPaletteSource	of	DynamicVectorClass<ColorScheme *>	shared/anim.hpp	AnimClass::Load 0x00422C30 calls slot 6 (Fetch) on PaletteName::Load 0x00603380's DynamicVectorClass<ColorScheme *> (r37)
 src/shared/blowfish_engine.hpp	IBlowfish	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)

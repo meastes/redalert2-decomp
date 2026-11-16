@@ -20,7 +20,7 @@ class PaletteClass;
 class ConvertClass;
 
 void const *__fastcall Unknown_Load_Shape_00495270(char const *filename, bool &allocated);
-void __fastcall Unknown_006F2B50(int alternate);
+void __fastcall Unknown_Load_MP_Score_Backdrop_006F2B50(int alternate);
 void __fastcall Unknown_Load_Palette_006F1FA0(char const *name, PaletteClass **palette, ConvertClass **drawer);
 extern bool unknown_flag_ac1174;
 extern int VideoModeWidth;                 // screen width
@@ -40,7 +40,7 @@ void __fastcall Unknown_Load_MP_Score_Art_006F2A30(int side)
     if (unknown_flag_ac1174) {
         return;
     }
-    Unknown_006F2B50(side);
+    Unknown_Load_MP_Score_Backdrop_006F2B50(side);
     Unknown_Load_Palette_006F1FA0(side == 0 ? unknown_name_7f8710 : unknown_name_7f8714, &unknown_palette_ac116c, &unknown_drawer_ac1170);
     unknown_flag_ac1174 = true;
 }

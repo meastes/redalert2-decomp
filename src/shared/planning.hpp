@@ -363,7 +363,7 @@ public:
     void Reset_Colors(bool all);                             // 0x00612B50
 #ifdef RA2_COORD_EQUAL_MEMBER
     // Lists the node among the planned nodes (0x00615B60).
-    void Unknown_00615B60() { unknown_list_00a76628.Add(this); }
+    void Unknown_Add_To_Node_List_00615B60() { unknown_list_00a76628.Add(this); }
     // The small accessors (0x00610C10, 0x00610C20).
     int Get_18() const { return unknown_18; }
     int Get_Member_Count() const { return Members.Count(); }

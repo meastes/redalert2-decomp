@@ -127,7 +127,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?FUN_006f9f80@seed_006f9f80@@YAHXZ",
+   "symbol": "?unknown_language_check_006f9f80@seed_006f9f80@@YAHXZ",
    "entry": "006f9f80",
    "body_bytes": 44,
    "padding_bytes": 4
@@ -139,13 +139,13 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?FUN_006fa010@seed_006fa010@@YAIXZ",
+   "symbol": "?Get_Text_Option_006fa010@seed_006fa010@@YAIXZ",
    "entry": "006fa010",
    "body_bytes": 6,
    "padding_bytes": 10
   },
   {
-   "symbol": "?FUN_006fa020@seed_006fa020@@YAIXZ",
+   "symbol": "?unknown_get_allow_text_006fa020@seed_006fa020@@YAIXZ",
    "entry": "006fa020",
    "body_bytes": 6,
    "padding_bytes": 10
@@ -757,7 +757,7 @@
    "address": "00469150"
   },
   {
-   "symbol": "?Unknown_006F92A0@@YIXPAXPAD11H@Z",
+   "symbol": "?Unknown_Read_Text_Entry_006F92A0@@YIXPAXPAD11H@Z",
    "address": "006f92a0"
   },
   {
@@ -905,22 +905,6 @@
    "address": "00ac93fc"
   },
   {
-   "symbol": "_DAT_007f8ce8",
-   "address": "007f8ce8"
-  },
-  {
-   "symbol": "_DAT_007f8da0",
-   "address": "007f8da0"
-  },
-  {
-   "symbol": "_DAT_007f8e34",
-   "address": "007f8e34"
-  },
-  {
-   "symbol": "_DAT_00ad0450",
-   "address": "00ad0450"
-  },
-  {
    "symbol": "__CIpow",
    "address": "007821b0"
   },
@@ -955,6 +939,10 @@
   {
    "symbol": "_strchr",
    "address": "00784130"
+  },
+  {
+   "symbol": "_unknown_text_7f8e34",
+   "address": "007f8e34"
   },
   {
    "symbol": "_wcscpy",
@@ -1026,7 +1014,7 @@
    "entry": "006f92a0",
    "bytes": 352,
    "population": "population-4394",
-   "source": "src/recovered/unowned/Unknown_Read_Text_Entry_006f92a0.cpp",
+   "source": "src/recovered/uicmnds2/Unknown_Read_Text_Entry.cpp",
    "cause": "frozen in another population's inventory pass (population-4394)"
   },
   {
@@ -1058,7 +1046,7 @@
    "entry": "006fa040",
    "bytes": 115,
    "population": "population-4394",
-   "source": "src/recovered/unowned/Unknown_Wide_Message_Box_006fa040.cpp",
+   "source": "src/recovered/uicmnds2/Unknown_Wide_Message_Box.cpp",
    "cause": "frozen in another population's inventory pass (population-4394)"
   },
   {

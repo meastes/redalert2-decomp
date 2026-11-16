@@ -99,13 +99,13 @@ bool UnholyAlliance::AssignTeams()
 //  (0x005AC390)
 
 extern unsigned int __stdcall CheckStartConditions_005b73a0(int);
-extern "C" char DAT_00a3d2b8;
+extern bool unknown_flag_a3d2b8;        // 0x00A3D2B8 (shared/unknown_globals.hpp)
 
 unsigned int __stdcall CheckStartConditions(unsigned int message_address)
 {
     char result_byte;
 
-    if (DAT_00a3d2b8 != '\0') {
+    if (unknown_flag_a3d2b8) {
         result_byte = (char)(CheckStartConditions_005b73a0((int)(message_address)));
         if (result_byte != '\0') {
             return 1;

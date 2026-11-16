@@ -34,7 +34,7 @@ void ra2port_frame(int frame);
 void ra2port_progress(const char *milestone, const char *detail);
 }
 bool __fastcall Select_Game(bool fade);                 // 0x005135F0
-void __fastcall Unknown_006F1B60();                     // 0x006F1B60 (interface art)
+void __fastcall Unknown_Load_Interface_Art_006F1B60();                     // 0x006F1B60 (interface art)
 extern char const *unknown_name_7f86e8;                 // its first file name (unsourced data: null)
 
 namespace {
@@ -484,5 +484,5 @@ void Native_Interface_Art_Seam()
         ra2port_progress("harness-art", "interface art skipped (its 19 file names are unsourced)");
         return;
     }
-    Unknown_006F1B60();
+    Unknown_Load_Interface_Art_006F1B60();
 }

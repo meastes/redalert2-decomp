@@ -1,12 +1,12 @@
 {
  "about": "Undefined symbols of the Mac ra2-native link closure (RA2_NATIVE_SUBSYSTEM=all, drafts and link closure on, WIN64_PARAMS on) that tests/link_closure_baseline.py allows. Names only (no bytes). Regenerate with tests/link_closure_baseline.py --build <dir> --write when the set shrinks.",
- "total": 204,
+ "total": 202,
  "by_class": {
   "c-address": 13,
   "c-data": 1,
   "c-function": 3,
   "cxx-data": 3,
-  "cxx-function": 184
+  "cxx-function": 182
  },
  "symbols": [
   {
@@ -640,13 +640,8 @@
    "cls": "cxx-function"
   },
   {
-   "symbol": "__ZN13seed_0069a78012FUN_00783764Eiii",
-   "name": "seed_0069a780::FUN_00783764(int, int, int)",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_0069be3012FUN_0069bd60Ev",
-   "name": "seed_0069be30::FUN_0069bd60()",
+   "symbol": "__ZN13seed_0069a78017swprintf_00783764Eiii",
+   "name": "seed_0069a780::swprintf_00783764(int, int, int)",
    "cls": "cxx-function"
   },
   {
@@ -657,11 +652,6 @@
   {
    "symbol": "__ZN13seed_006ac80027AbstractClass_dtor_0040ff90Ev",
    "name": "seed_006ac800::AbstractClass_dtor_0040ff90()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_006f58e015Callee_005b4da020Add_Message_005b4da0Eiiiiiii",
-   "name": "seed_006f58e0::Callee_005b4da0::Add_Message_005b4da0(int, int, int, int, int, int, int)",
    "cls": "cxx-function"
   },
   {

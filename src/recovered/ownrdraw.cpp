@@ -419,8 +419,8 @@ int __fastcall unknown_5e1640(unsigned int key, HWND window)
 
 void *__fastcall Unknown_Get_Art_006f3480();
 void *__fastcall Unknown_Get_Art_006f34a0();
-void *Unknown_Get_Art_6f2de0();
-void *Unknown_Get_Art_6f2830();
+void *Unknown_Get_FS_Screen_Drawer_6f2de0();
+void *Unknown_Get_Score_Drawer_6f2830();
 
 namespace OwnerDraw {
 
@@ -436,14 +436,14 @@ void *__fastcall unknown_5e1820(unsigned int key, HWND window)
     }
     if (kind == 0x94) {
         if (id == 0x6ea || id == 0x6eb || id == 0x6ec) {
-            return Unknown_Get_Art_6f2de0();
+            return Unknown_Get_FS_Screen_Drawer_6f2de0();
         }
     } else if (kind == 0x103) {
         if (id == 0x72b) {
-            return Unknown_Get_Art_6f2830();
+            return Unknown_Get_Score_Drawer_6f2830();
         }
     } else if (kind == 0xbc7 && id == 0x72b) {
-        return Unknown_Get_Art_6f2830();
+        return Unknown_Get_Score_Drawer_6f2830();
     }
     return art;
 }
@@ -1970,7 +1970,7 @@ BOOL __stdcall unknown_5e4780(HWND window, LPARAM lparam)
 
 void *__fastcall Unknown_Get_Art_006f3480();
 void *__fastcall Unknown_Get_Art_006f34c0();
-void *Unknown_Get_Art_6f2830();
+void *Unknown_Get_Score_Drawer_6f2830();
 Point2D __fastcall Unknown_Point_Copy_006F1AE0(Point2D const *source);
 void __cdecl Audio_Update();
 extern ShapeFileStruct *unknown_shape_ac10e8;
@@ -2043,7 +2043,7 @@ void __fastcall unknown_5e5150(HWND dialog, bool reverse)
     ShapeFileStruct *shape_b8 = unknown_shape_ac10b8;
     ShapeFileStruct *shape_ec = unknown_shape_ac0fec;
     ShapeFileStruct *shape_b4 = unknown_shape_ac10b4;
-    ConvertClass *drawer_c = (ConvertClass *)Unknown_Get_Art_6f2830();
+    ConvertClass *drawer_c = (ConvertClass *)Unknown_Get_Score_Drawer_6f2830();
     ShapeFileStruct *shape_f0 = unknown_shape_ac10f0;
     int count = unknown_count_ac102c;
     Rect window = AlternateSurface->Get_Rect();
@@ -3538,7 +3538,7 @@ extern ShapeFileStruct *unknown_shape_ac1104;
 extern ShapeFileStruct *unknown_shape_ac110c;
 extern ShapeFileStruct *unknown_shape_ac1128;
 extern ShapeFileStruct *unknown_shape_ac1010;
-void *Unknown_Get_Art_6f2b40();
+void *Unknown_Get_MP_Score_Drawer_6f2b40();
 
 namespace OwnerDraw {
 
@@ -3551,23 +3551,23 @@ void __fastcall unknown_set_control_art_5ea960(unsigned int key)
     if (record != 0) {
         int kind = record->unknown_6c;
         if (kind == 0x94) {
-            record->unknown_74 = (int)Unknown_Get_Art_6f2de0();
+            record->unknown_74 = (int)Unknown_Get_FS_Screen_Drawer_6f2de0();
             record->unknown_e0 = (int)unknown_art_ac1074;
             record->unknown_e4 = (int)unknown_art_ac1074;
         } else if (kind == 0x103) {
-            record->unknown_74 = (int)Unknown_Get_Art_6f2830();
+            record->unknown_74 = (int)Unknown_Get_Score_Drawer_6f2830();
             record->unknown_e0 = (int)unknown_shape_ac110c;
             record->unknown_e4 = (int)unknown_shape_ac110c;
         } else if (kind == 0x108) {
-            record->unknown_74 = (int)Unknown_Get_Art_6f2b40();
+            record->unknown_74 = (int)Unknown_Get_MP_Score_Drawer_6f2b40();
             record->unknown_e0 = (int)unknown_shape_ac1104;
             record->unknown_e4 = (int)unknown_shape_ac1104;
         } else if (kind == 0xBC6) {
-            record->unknown_74 = (int)Unknown_Get_Art_6f2830();
+            record->unknown_74 = (int)Unknown_Get_Score_Drawer_6f2830();
             record->unknown_e0 = (int)unknown_shape_ac110c;
             record->unknown_e4 = (int)unknown_shape_ac110c;
         } else if (kind == 0xBC7) {
-            record->unknown_74 = (int)Unknown_Get_Art_6f2830();
+            record->unknown_74 = (int)Unknown_Get_Score_Drawer_6f2830();
             record->unknown_e0 = (int)unknown_shape_ac110c;
             record->unknown_e4 = (int)unknown_shape_ac110c;
         } else {
@@ -7414,14 +7414,14 @@ void __fastcall unknown_draw_bits_5fed10(Rect const *area, Surface *surface)
 
 
 bool __fastcall Unknown_Get_Art_006f3460();
-void __fastcall Unknown_006F3650(Surface *surface, Rect const &window, bool arg3);
-void __fastcall Unknown_006F3930(Surface *surface, Rect const &window, ConvertClass *drawer, ShapeFileStruct const *shape640,
+void __fastcall Unknown_Draw_Interface_006F3650(Surface *surface, Rect const &window, bool arg3);
+void __fastcall Unknown_Draw_Clipped_Shape_006F3930(Surface *surface, Rect const &window, ConvertClass *drawer, ShapeFileStruct const *shape640,
                                  ShapeFileStruct const *shape);
-void __fastcall Unknown_6F3A60(Surface *surface, Rect const &window);
-void __fastcall Unknown_6F3AC0(Surface *surface, Rect const &window);
-void __fastcall Unknown_6F3B20(Surface *surface, Rect const &window);
+void __fastcall Unknown_Draw_Shell_Shape_6F3A60(Surface *surface, Rect const &window);
+void __fastcall Unknown_Draw_Shell_Shape_Second_Frame_6F3AC0(Surface *surface, Rect const &window);
+void __fastcall Unknown_Draw_Score_Shape_6F3B20(Surface *surface, Rect const &window);
 void __fastcall Unknown_6F4620(Surface *surface, Rect const &window, bool arg3);
-void *Unknown_Get_Art_6f2230();
+void *Unknown_Get_Dialog_Drawer_6f2230();
 extern void *unknown_art_ac1218;
 extern void *unknown_art_ac121c;
 extern void *unknown_art_ac1220;
@@ -7469,19 +7469,19 @@ void __fastcall unknown_draw_dialog_back_5fee70(HWND window)
                     Unknown_6F4620(surface, full, false);
                 } else {
                     if (Unknown_Get_Art_006f3460()) {
-                        Unknown_006F3650(surface, full, !record->unknown_d4);
+                        Unknown_Draw_Interface_006F3650(surface, full, !record->unknown_d4);
                         drawer = (ConvertClass *)unknown_5e9f40(window);
                         ShapeFileStruct const *shape640 = (ShapeFileStruct const *)unknown_5ea8a0(window);
                         ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_5ea900(window);
-                        Unknown_006F3930(surface, full, drawer, shape640, shape);
+                        Unknown_Draw_Clipped_Shape_006F3930(surface, full, drawer, shape640, shape);
                         if (record->unknown_d5) {
-                            Unknown_6F3AC0(surface, full);
+                            Unknown_Draw_Shell_Shape_Second_Frame_6F3AC0(surface, full);
                         }
                         if (record->unknown_d6) {
-                            Unknown_6F3A60(surface, full);
+                            Unknown_Draw_Shell_Shape_6F3A60(surface, full);
                         }
                         if (unknown_5ea6c0(window)) {
-                            Unknown_6F3B20(surface, full);
+                            Unknown_Draw_Score_Shape_6F3B20(surface, full);
                         }
                     }
                 }
@@ -7500,7 +7500,7 @@ void __fastcall unknown_draw_dialog_back_5fee70(HWND window)
                 } else {
                     shape = unknown_art_ac1218;
                 }
-                drawer = (ConvertClass *)Unknown_Get_Art_6f2230();
+                drawer = (ConvertClass *)Unknown_Get_Dialog_Drawer_6f2230();
                 CC_Draw_Shape(surface, drawer, (ShapeFileStruct const *)shape, 0,
                               Point2D(0, 0), to, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             } else {

@@ -881,22 +881,15 @@ void __fastcall MultiplayerGameMode::Read_Game_Modes_5b8490(Wstring const &secti
 }
 
 
-// 0x005b8bc0: function not yet identified
-//
-// Owner: MultiplayerGameMode::InitializerBase, stores the MultiplayerGameMode::InitializerBase vtable (constructor or destructor) (from RTTI/vtables).
-// Body: 7 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_005b8bc0(undefined4 *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __fastcall unknown_store_initializer_base_vtable_005b8bc0(unsigned int *object_words) (0x005B8BC0):
+// stores the MultiplayerGameMode::InitializerBase vtable (0x007A72B0) in the object, nothing else
+// (constructor or destructor of the empty base; no callers).
 
 namespace seed_005b8bc0 {
 
 extern "C" void* MultiplayerGameMode_InitializerBase_VTable_007a72b0;
 
-void __fastcall FUN_005b8bc0(unsigned int *object_words)
+void __fastcall unknown_store_initializer_base_vtable_005b8bc0(unsigned int *object_words)
 {
     *object_words = (unsigned int)(&MultiplayerGameMode_InitializerBase_VTable_007a72b0);
     return;

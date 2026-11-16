@@ -34,23 +34,15 @@ unsigned int * Owner_005ab5a0::MultiplayerSiege_Constructor_005ab5a0(unsigned in
 }  // namespace seed_005ab5a0
 
 
-// 0x005ab5e0: function not yet identified
-//
-// Owner: MultiplayerSiege, stores the MultiplayerSiege vtable (constructor or destructor) (from RTTI/vtables).
-// Body: 11 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_005ab5e0(undefined4 *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __fastcall MultiplayerSiege_Destructor_005ab5e0(unsigned int *object_words) (0x005AB5E0): stores
+// the MultiplayerSiege vtable and runs the MultiplayerGameMode destructor (0x005B6E20).
 
 namespace seed_005ab5e0 {
 
 extern void __fastcall MultiplayerGameMode_Destructor_005b6e20(void);
 extern "C" void* MultiplayerSiege_VTable_007a6b8c;
 
-void __fastcall FUN_005ab5e0(unsigned int *object_words)
+void __fastcall MultiplayerSiege_Destructor_005ab5e0(unsigned int *object_words)
 {
     *object_words = (unsigned int)(&MultiplayerSiege_VTable_007a6b8c);
     MultiplayerGameMode_Destructor_005b6e20();

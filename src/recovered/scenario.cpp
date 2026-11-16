@@ -772,7 +772,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
         ProgressScreen.Set_Side(side);
         Unknown_00535910()->Unknown_00535B90();
         if (unknown_game_mode_a3d298 == 0) {
-            ProgressScreen.Load_Shape("SPLDBR.SHP", 0, (ConvertClass *)Unknown_Get_Art_6f2490());
+            ProgressScreen.Load_Shape("SPLDBR.SHP", 0, (ConvertClass *)Unknown_Get_Loading_Bar_Drawer_6f2490());
         } else {
             ProgressScreen.Load_Shape("PROGBARM.SHP", 0, 0);
         }

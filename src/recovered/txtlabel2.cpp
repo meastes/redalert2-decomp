@@ -70,7 +70,7 @@ extern void *unknown_art_ac11a8;
 extern UnknownArtData_006f2390 *unknown_art_ac11ac;
 extern bool unknown_flag_ac11b0;
 void __fastcall Unknown_006F4160();
-void __fastcall Unknown_6F42D0();
+void __fastcall Unknown_Release_Shell_Palettes_6F42D0();
 void __fastcall Unknown_0051A270();
 void __fastcall Unknown_006F5150();
 void __fastcall Unknown_6F5400();
@@ -116,7 +116,7 @@ void __fastcall Unknown_Free_All_Art_006F1D20()
     if (unknown_flag_ac119c) {
         unknown_flag_ac119c = false;
         Unknown_006F4160();
-        Unknown_6F42D0();
+        Unknown_Release_Shell_Palettes_6F42D0();
         operator delete(unknown_art_ac11b4);
         unknown_art_ac11b4 = 0;
         operator delete(unknown_art_ac11b8);
@@ -615,7 +615,7 @@ void __fastcall Unknown_006F2FB0()
 // Frees the second shell set loaded by 0x006F2FB0 (flag 0x00AC119C) (hypothesis).
 
 void __fastcall Unknown_006F4160();
-void __fastcall Unknown_6F42D0();
+void __fastcall Unknown_Release_Shell_Palettes_6F42D0();
 void __fastcall Unknown_0051A270();
 extern bool unknown_flag_ac119c;
 extern void *unknown_art_ac11b4;
@@ -632,7 +632,7 @@ void __fastcall Unknown_Free_Art_Set_006F30F0()
     if (unknown_flag_ac119c) {
         unknown_flag_ac119c = false;
         Unknown_006F4160();
-        Unknown_6F42D0();
+        Unknown_Release_Shell_Palettes_6F42D0();
         operator delete(unknown_art_ac11b4);
         unknown_art_ac11b4 = 0;
         operator delete(unknown_art_ac11b8);
@@ -706,7 +706,7 @@ extern char const * const unknown_name_7f8724;
 extern void *unknown_art_ac1194;
 extern void *unknown_art_ac1198;
 void __fastcall Unknown_006F4160();
-void __fastcall Unknown_6F42D0();
+void __fastcall Unknown_Release_Shell_Palettes_6F42D0();
 void __fastcall Unknown_0051A270();
 extern void *unknown_art_ac11b4;
 extern void *unknown_art_ac11b8;
@@ -722,7 +722,7 @@ void __fastcall Reload_Art_Set()
     if (unknown_flag_ac119c) {
         unknown_flag_ac119c = false;
         Unknown_006F4160();
-        Unknown_6F42D0();
+        Unknown_Release_Shell_Palettes_6F42D0();
         operator delete(unknown_art_ac11b4);
         unknown_art_ac11b4 = 0;
         operator delete(unknown_art_ac11b8);

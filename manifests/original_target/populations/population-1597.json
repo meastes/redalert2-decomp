@@ -4,8 +4,8 @@
     "id": "population-1597",
     "inventory_sha256": "9ad38100213afafce8129d88a7566cff34f876e4461ab4967c3433cf02c0df05",
     "gaps_sha256": "70dd3590bdb7324fdf33fbe637551f383aab36b3b7e9563a4c266df2ab3d357c",
-    "historical_population_sha256": "a5f12a7a0e61c3fb399e67c34d0b1897787db8752db75dadaf4e554012578a4d",
-    "historical_acceptance_sha256": "19b740ce138ed532cdd944e7e0c2adba50fd80e48de90e2241ab4aca369fed19",
+    "historical_population_sha256": "e7d135b1c9079bdc7f9164e8c7b14511e5ef199ca9721052aa9b25bd25bd6679",
+    "historical_acceptance_sha256": "74106e3da897f71ef2280750abc17c8565ce568324ffe35fbe33a72bfb282984",
     "separate_units": true
   },
   "references": {
@@ -2204,7 +2204,11 @@
     "??0MultiMission@@QAE@AAVINIClass@@PBD@Z": 6755952,
     "??9Cell@@QBE_NABV0@@Z": 5823312,
     "??8Cell@@QBE_NABV0@@Z": 5238560,
-    "?Reset@BitFontClass@@QAEXXZ": 4399536
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Clear@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEXXZ": 4936880,
+    "?Clear@?$DynamicVectorClass@PAVCCINIClass@@@@UAEXXZ": 5365920,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384
   },
   "regions": [
     {
@@ -3695,12 +3699,12 @@
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
       "source_sha256": "6e52f5ca37a34c61b20685e1e356e843126593526d1a8dcf8a45461b0b745f59",
-      "source": "src/recovered/classes/DynamicVectorClass_MultiplayerTeam_ptr/DynamicVectorClass_MultiplayerTeam_ptr_ID_pointer_005b8fd0.cpp",
+      "source": "src/recovered/classes/DynamicVectorClass_MultiplayerTeam_ptr/ID_pointer.cpp",
       "population": "population-1597",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_MultiplayerTeam_ptr_ID_pointer_005b8fd0",
+      "semantic_name": "ID_pointer",
       "source_order": 54340
     },
     {
@@ -3834,12 +3838,12 @@
       "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
       "relocations": [],
       "source_sha256": "2d43c165f37bfac936b143f03f90d32001ca21aef454e112bdc2cfed14ca1179",
-      "source": "src/recovered/classes/VectorClass_MultiplayerTeam_ptr/VectorClass_MultiplayerTeam_ptr_ID_object_005b9300.cpp",
+      "source": "src/recovered/classes/VectorClass_MultiplayerTeam_ptr/ID_object.cpp",
       "population": "population-1597",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MultiplayerTeam_ptr_ID_object_005b9300",
+      "semantic_name": "ID_object",
       "source_order": 54346
     },
     {
@@ -3860,12 +3864,12 @@
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
       "source_sha256": "beda369739a6fa4673afaf23dd37f71858d618f4dca853630eacc493a211927f",
-      "source": "src/recovered/classes/VectorClass_MultiplayerTeam_ptr/VectorClass_MultiplayerTeam_ptr_ID_pointer_005b9340.cpp",
+      "source": "src/recovered/classes/VectorClass_MultiplayerTeam_ptr/ID_pointer.cpp",
       "population": "population-1597",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MultiplayerTeam_ptr_ID_pointer_005b9340",
+      "semantic_name": "ID_pointer",
       "source_order": 54347
     },
     {
@@ -3886,12 +3890,12 @@
       "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
       "relocations": [],
       "source_sha256": "0e2c956a592b82442b57b88021e6c0b57fa4638f2cd1b6d67dcfd6394aa16c19",
-      "source": "src/recovered/classes/DynamicVectorClass_MultiplayerTeam_ptr/DynamicVectorClass_MultiplayerTeam_ptr_ID_object_005b9410.cpp",
+      "source": "src/recovered/classes/DynamicVectorClass_MultiplayerTeam_ptr/ID_object.cpp",
       "population": "population-1597",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_MultiplayerTeam_ptr_ID_object_005b9410",
+      "semantic_name": "ID_object",
       "source_order": 54349
     },
     {
@@ -3973,12 +3977,12 @@
       "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
       "relocations": [],
       "source_sha256": "b92893be09c39bfed599ae55e3c524719e92d33b7f2e7bce3a2f28e0cddd315f",
-      "source": "src/recovered/classes/VectorClass_MultiplayerGameMode_ptr/VectorClass_MultiplayerGameMode_ptr_ID_object_005b9560.cpp",
+      "source": "src/recovered/classes/VectorClass_MultiplayerGameMode_ptr/ID_object.cpp",
       "population": "population-1597",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MultiplayerGameMode_ptr_ID_object_005b9560",
+      "semantic_name": "ID_object",
       "source_order": 54353
     },
     {
@@ -4355,12 +4359,12 @@
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
       "source_sha256": "7743566baba8229d0f6210510cec3b5785bc799ed4cde79ab0dd67a46c9ac2b3",
-      "source": "src/recovered/classes/VectorClass_MultiplayerGameMode_ptr/VectorClass_MultiplayerGameMode_ptr_ID_pointer_005b95a0.cpp",
+      "source": "src/recovered/classes/VectorClass_MultiplayerGameMode_ptr/ID_pointer.cpp",
       "population": "population-1597",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_MultiplayerGameMode_ptr_ID_pointer_005b95a0",
+      "semantic_name": "ID_pointer",
       "source_order": 54354
     },
     {

@@ -340,7 +340,7 @@ void __fastcall Unknown_005A07F0(int arg1, int arg2, int arg3, int arg4, int arg
 // Frees the art data before a scenario starts (0x006F30F0).
 void __fastcall Unknown_Free_Art_Set_006F30F0();
 void __fastcall Unknown_Free_Art_Sets_006F2510();                 // 0x006F2510
-void __fastcall Unknown_Free_Art_Pair_006F26D0();                 // 0x006F26D0
+void __fastcall Unknown_Free_MP_Loading_Palette_006F26D0();                 // 0x006F26D0
 // Deletes every LightConvertClass in the global list (0x00832398) and makes a
 // new default one (tint 1000, 1000, 1000) (0x00529720; DisplayClass 0x0049E570
 // and ScenarioClass::Read_Basic call it; name hypothesis).
@@ -518,7 +518,7 @@ int __fastcall unknown_draw_text_5fe020(Surface *surface, wchar_t const *text, R
                                         int unknown_10);
 }
 // The art data at 0x00AC1154 (0x006F2490; the campaign loading screen's bar drawer).
-void *Unknown_Get_Art_6f2490();
+void *Unknown_Get_Loading_Bar_Drawer_6f2490();
 // Assign_Houses' session data and globals (0x0065FBB0).
 extern int BuildLevel;            // 0x007D88D8 (every new house's +0x11C)
 // Two values a recording starts with (Load_Recording_Values 0x00516BA0 / Save_Recording_Values 0x00516B00).
@@ -600,7 +600,7 @@ void __fastcall Unknown_0063C790();
 
 // Forgets a building pending placement (0x006F8A20; seed name FUN_006f8a20).
 void __fastcall Unknown_006F8A20(BuildingClass *building);
-// Pending placement of a completed building (0x006F8A00; seed FUN_006f8a00).
+// Pending placement of a completed building (0x006F8A00; uicmnds.cpp defines it as unknown_file_pending_building_006f8a00).
 void __fastcall Unknown_006F8A00(BuildingClass *building);
 // An empty scenario writer (0x00668EA0; Write_Scenario_INI calls it like the task
 // force and team type writers, with the INI and 0).

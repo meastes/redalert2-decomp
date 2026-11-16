@@ -151,7 +151,7 @@ extern ConvertClass *unknown_drawer_8323c8;     // 0x008323C8 (TS MouseDrawer)  
 MonoClass *__fastcall Unknown_0059DA50(int page);       // 0x0059DA50
 bool __fastcall Init_Bootstrap_Mixfiles();              // 0x00515C90
 void __fastcall Unknown_005EAC10();                     // 0x005EAC10
-void __fastcall Unknown_006F1B60();                     // 0x006F1B60
+void __fastcall Unknown_Load_Interface_Art_006F1B60();                     // 0x006F1B60
 void __fastcall Draw_Loading_Screen();                  // 0x00516560
 int __fastcall unknown_run_716f40(void *file);          // 0x00716F40 (TS VoxelDrawSystem::Load_VPL_File)
 void __stdcall Set_Voxel_Light_Angle(float angle);           // 0x00717FB0 (TS Set_Voxel_Light_Angle)
@@ -373,7 +373,7 @@ static bool Bootstrap()
 
     BitText = new BitTextClass;
     Unknown_005EAC10();
-    Unknown_006F1B60();
+    Unknown_Load_Interface_Art_006F1B60();
     Audio_Init(unknown_audio_7f4cc8);
     Draw_Loading_Screen();
     WWKeyboard->Clear();
@@ -1098,7 +1098,7 @@ bool __fastcall Save_Recording_Values(CCFileClass &file);
 void __fastcall Init_Random();
 void __fastcall Unknown_005A02D0(char const *name, int theme, int unknown3, int unknown4, int unknown5, int unknown6);
 void __fastcall Unknown_006F2C40();
-void __fastcall Unknown_006F2D00();
+void __fastcall Unknown_Release_Shapes_006F2D00();
 bool __fastcall Unknown_00683BF0();
 int __fastcall Unknown_0073A300(bool unknown1);
 bool __fastcall Unknown_005BD070();
@@ -1153,7 +1153,7 @@ static int Choose_Campaign()
     while (Audio_Event_Handle_Event(&unknown_side_sound_a411e8) != 0 && (unsigned __int64)unknown_hover_time_a41680 > (unsigned __int64)Audio_Now()) {
         Call_Back();
     }
-    Unknown_006F2D00();
+    Unknown_Release_Shapes_006F2D00();
     return choice.Campaign;
 }
 
@@ -4613,7 +4613,7 @@ bool TypeSelectCommandClass::unknown_slot7(int key) const
 // void TypeSelectCommandClass::Execute(int key) const -- 0x0051BB50
 // On release (0x800) redraws the stopwatch (0x006F7670), else starts it (0x006F7650).
 void __fastcall Unknown_006F7670();
-void Unknown_006F7650();
+void Unknown_Stopwatch_Start_006F7650();
 
 void TypeSelectCommandClass::Execute(int key) const
 {
@@ -4621,7 +4621,7 @@ void TypeSelectCommandClass::Execute(int key) const
         Unknown_006F7670();
         return;
     }
-    Unknown_006F7650();
+    Unknown_Stopwatch_Start_006F7650();
 }
 
 

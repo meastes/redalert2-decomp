@@ -36,7 +36,7 @@ public:
 
 extern bool FrameRedrawDraws;  // 0x007FBD05 (MSFrameAnim::Draw draws while set)
 // Draws the interface frame clipped to window (0x006F3650, unowned/Unknown_Draw_Interface_006f3650.cpp).
-void __fastcall Unknown_006F3650(Surface *surface, Rect const &window, bool arg3);
+void __fastcall Unknown_Draw_Interface_006F3650(Surface *surface, Rect const &window, bool arg3);
 
 namespace WorldDominationTour {
 

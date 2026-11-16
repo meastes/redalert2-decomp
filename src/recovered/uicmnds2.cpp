@@ -110,7 +110,7 @@ extern SessionClass unknown_session_a3d298;
 extern MapSeedClass unknown_map_seed_a6fd68;
 
 
-void __fastcall Unknown_006F92A0(void *file, char *source, char *text, char *label, int limit);   // 0x006F92A0
+void __fastcall Unknown_Read_Text_Entry_006F92A0(void *file, char *source, char *text, char *label, int limit);   // 0x006F92A0
 int __fastcall Read_CSF_File_006f9400(char const *name);                                        // 0x006F9400
 int __fastcall Read_Text_File_006f9790();                                                                   // 0x006F9790
 
@@ -203,7 +203,7 @@ int __fastcall String_Table_Init_006f8e30(char const *filename)
                 int length = strlen(unknown_line_acf410);
                 unknown_line_acf410[length] = '\n';
                 unknown_line_acf410[length + 1] = 0;
-                Unknown_006F92A0(unknown_text_file_ad0430, &unknown_line_acf410[1], unknown_text_ac3378, unknown_label_ac4380, 0x1000);
+                Unknown_Read_Text_Entry_006F92A0(unknown_text_file_ad0430, &unknown_line_acf410[1], unknown_text_ac3378, unknown_label_ac4380, 0x1000);
                 unknown_string_count_ad043c++;
                 continue;
             }
@@ -393,7 +393,7 @@ void __fastcall Reverse_String_006f9d50(char *start, char *end)
 extern "C" char *__cdecl fgets(char *buffer, int count, void *file);                           // 0x00785547
 extern "C" int __cdecl _stricmp(char const *left, char const *right);                          // 0x00781F20
 int __cdecl Unknown_isspace_00784aa8(short character);                                         // 0x00784AA8
-void __fastcall Unknown_006F92A0(void *file, char *source, char *text, char *label, int limit);   // 0x006F92A0
+void __fastcall Unknown_Read_Text_Entry_006F92A0(void *file, char *source, char *text, char *label, int limit);   // 0x006F92A0
 void __fastcall Reverse_String_006f9d50(char *start, char *end);                                 // 0x006F9D50
 
 // Converts a text-file string to wide characters, expanding its escapes; with the text option set, runs of
@@ -511,7 +511,7 @@ int __fastcall Read_Text_File_006f9790()
                 int line_length = strlen(unknown_line_acf410);
                 unknown_line_acf410[line_length] = '\n';
                 unknown_line_acf410[line_length + 1] = 0;
-                Unknown_006F92A0(unknown_text_file_ad0430, &unknown_line_acf410[1], unknown_text_ac3378, unknown_label_ac4380, 0x1000);
+                Unknown_Read_Text_Entry_006F92A0(unknown_text_file_ad0430, &unknown_line_acf410[1], unknown_text_ac3378, unknown_label_ac4380, 0x1000);
                 Convert_String(unknown_wide_text_ac93fc, unknown_text_ac3378);
                 Collapse_White_Space(unknown_wide_text_ac93fc);
                 int wide_length = wcslen(unknown_wide_text_ac93fc) + 1;
@@ -596,33 +596,23 @@ void Unknown_006F9D90()
 }
 
 
-// 0x006f9f80: function not yet identified
-//
-// Body: 44 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: bool FUN_006f9f80(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-// Adjusted from the Ghidra seed by permute_seeds.py (signedness, comparison order, return width) to
-// match the original; edit freely, this file is no longer regenerated.
+// int unknown_language_check_006f9f80() (0x006F9F80): true when the current language's table entry
+// (0x007F8CF0, +0x0C) has no string or its string equals the one at 0x007F8E34 (stricmp; no callers).
 
 namespace seed_006f9f80 {
 
 extern unsigned int  stricmp_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
-extern "C" unsigned int DAT_007f8da0;
-extern "C" unsigned int DAT_007f8e34;
+extern "C" unsigned int unknown_text_7f8e34;
 
-int  FUN_006f9f80(void)
+int  unknown_language_check_006f9f80(void)
 {
     int entry_or_comparison_result;
 
-    entry_or_comparison_result = (int)(*(int *)(DAT_007f8da0 * 0x10 + 0x7f8cfc));
+    entry_or_comparison_result = (int)(*(int *)(unknown_language_7f8da0 * 0x10 + 0x7f8cfc));
     if (entry_or_comparison_result == 0) {
         return true;
     }
-    entry_or_comparison_result = (int)(stricmp_00781f20((unsigned char *)(entry_or_comparison_result), (unsigned char *)(&DAT_007f8e34)));
+    entry_or_comparison_result = (int)(stricmp_00781f20((unsigned char *)(entry_or_comparison_result), (unsigned char *)(&unknown_text_7f8e34)));
     return entry_or_comparison_result == 0;
 }
 
@@ -653,45 +643,26 @@ void __fastcall Set_Text_Option_006f9fb0(int value)
 }
 
 
-// 0x006fa010: function not yet identified
-//
-// Body: 6 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 FUN_006fa010(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unsigned int Get_Text_Option_006fa010() (0x006FA010): returns the text option at 0x00AD0450
+// (set by Set_Text_Option_006f9fb0; no callers).
 
 namespace seed_006fa010 {
 
-extern "C" unsigned int DAT_00ad0450;
-
-unsigned int  FUN_006fa010(void)
+unsigned int  Get_Text_Option_006fa010(void)
 {
-    return DAT_00ad0450;
+    return unknown_text_option_ad0450;
 }
 
 }  // namespace seed_006fa010
 
 
-// 0x006fa020: function not yet identified
-//
-// Body: 6 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 FUN_006fa020(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unsigned int unknown_get_allow_text_006fa020() (0x006FA020): returns the flag at 0x007F8CE8 (no callers).
 
 namespace seed_006fa020 {
 
-extern "C" unsigned int DAT_007f8ce8;
-
-unsigned int  FUN_006fa020(void)
+unsigned int  unknown_get_allow_text_006fa020(void)
 {
-    return DAT_007f8ce8;
+    return unknown_allow_text_7f8ce8;
 }
 
 }  // namespace seed_006fa020

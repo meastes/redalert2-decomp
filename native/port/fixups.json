@@ -367,14 +367,14 @@
   },
   {
    "source": "src/recovered/init.cpp",
-   "old": "void __fastcall Unknown_006F1B60();                     // 0x006F1B60\n",
-   "new": "void __fastcall Unknown_006F1B60();                     // 0x006F1B60\nvoid Native_Interface_Art_Seam();                       // native: test-harness seam (native/link/harness_skirmish.cpp)\n",
+   "old": "void __fastcall Unknown_Load_Interface_Art_006F1B60();                     // 0x006F1B60\n",
+   "new": "void __fastcall Unknown_Load_Interface_Art_006F1B60();                     // 0x006F1B60\nvoid Native_Interface_Art_Seam();                       // native: test-harness seam (native/link/harness_skirmish.cpp)\n",
    "why": "Test-harness seam: Bootstrap's interface-art load (0x006F1B60) goes through a native seam that calls it unchanged, except under --skirmish while its 19 file names are unsourced data (null), where the menu-only art is skipped and the run notes it.",
    "verified": true
   },
   {
    "source": "src/recovered/init.cpp",
-   "old": "    Unknown_006F1B60();\n    Audio_Init",
+   "old": "    Unknown_Load_Interface_Art_006F1B60();\n    Audio_Init",
    "new": "    Native_Interface_Art_Seam();\n    Audio_Init",
    "why": "Seam call (see the declaration fixup above).",
    "verified": true
@@ -493,15 +493,15 @@
   },
   {
    "source": "src/recovered/ownrdraw.cpp",
-   "old": "        } else if (kind == 0xBC7) {\n            record->unknown_74 = (int)Unknown_Get_Art_6f2830();\n            record->unknown_e0 = (int)unknown_shape_ac110c;\n            record->unknown_e4 = (int)",
-   "new": "        } else if (kind == 0xBC7) {\n            record->unknown_74 = (int)Unknown_Get_Art_6f2830();\n            record->unknown_e0 = (int)unknown_shape_ac110c;\n            record->unknown_e4 = (intptr_t)",
+   "old": "        } else if (kind == 0xBC7) {\n            record->unknown_74 = (int)Unknown_Get_Score_Drawer_6f2830();\n            record->unknown_e0 = (int)unknown_shape_ac110c;\n            record->unknown_e4 = (int)",
+   "new": "        } else if (kind == 0xBC7) {\n            record->unknown_74 = (int)Unknown_Get_Score_Drawer_6f2830();\n            record->unknown_e0 = (int)unknown_shape_ac110c;\n            record->unknown_e4 = (intptr_t)",
    "why": "WinData +0x74 (the dialog background's drawer), +0xE0 and +0xE4 (its 640 and full-size shapes) hold pointers that 0x005EA960 stores with (int) casts and 0x005E9F40/0x005EA8A0/0x005EA900 return as int; natively they were cut to 32 bits and the main menu's background draw 0x005FEE70 faulted in CC_Draw_Shape once the dialogs got their WM_PAINT (Scout1121, M14b). Pointer-sized natively; VC6 unchanged.",
    "verified": true
   },
   {
    "source": "src/recovered/ownrdraw.cpp",
-   "old": "        } else if (kind == 0xBC7) {\n            record->unknown_74 = (int)Unknown_Get_Art_6f2830();\n            record->unknown_e0 = (int)",
-   "new": "        } else if (kind == 0xBC7) {\n            record->unknown_74 = (int)Unknown_Get_Art_6f2830();\n            record->unknown_e0 = (intptr_t)",
+   "old": "        } else if (kind == 0xBC7) {\n            record->unknown_74 = (int)Unknown_Get_Score_Drawer_6f2830();\n            record->unknown_e0 = (int)",
+   "new": "        } else if (kind == 0xBC7) {\n            record->unknown_74 = (int)Unknown_Get_Score_Drawer_6f2830();\n            record->unknown_e0 = (intptr_t)",
    "why": "WinData +0x74 (the dialog background's drawer), +0xE0 and +0xE4 (its 640 and full-size shapes) hold pointers that 0x005EA960 stores with (int) casts and 0x005E9F40/0x005EA8A0/0x005EA900 return as int; natively they were cut to 32 bits and the main menu's background draw 0x005FEE70 faulted in CC_Draw_Shape once the dialogs got their WM_PAINT (Scout1121, M14b). Pointer-sized natively; VC6 unchanged.",
    "verified": true
   },
@@ -514,15 +514,15 @@
   },
   {
    "source": "src/recovered/ownrdraw.cpp",
-   "old": "        } else if (kind == 0xBC6) {\n            record->unknown_74 = (int)Unknown_Get_Art_6f2830();\n            record->unknown_e0 = (int)unknown_shape_ac110c;\n            record->unknown_e4 = (int)",
-   "new": "        } else if (kind == 0xBC6) {\n            record->unknown_74 = (int)Unknown_Get_Art_6f2830();\n            record->unknown_e0 = (int)unknown_shape_ac110c;\n            record->unknown_e4 = (intptr_t)",
+   "old": "        } else if (kind == 0xBC6) {\n            record->unknown_74 = (int)Unknown_Get_Score_Drawer_6f2830();\n            record->unknown_e0 = (int)unknown_shape_ac110c;\n            record->unknown_e4 = (int)",
+   "new": "        } else if (kind == 0xBC6) {\n            record->unknown_74 = (int)Unknown_Get_Score_Drawer_6f2830();\n            record->unknown_e0 = (int)unknown_shape_ac110c;\n            record->unknown_e4 = (intptr_t)",
    "why": "WinData +0x74 (the dialog background's drawer), +0xE0 and +0xE4 (its 640 and full-size shapes) hold pointers that 0x005EA960 stores with (int) casts and 0x005E9F40/0x005EA8A0/0x005EA900 return as int; natively they were cut to 32 bits and the main menu's background draw 0x005FEE70 faulted in CC_Draw_Shape once the dialogs got their WM_PAINT (Scout1121, M14b). Pointer-sized natively; VC6 unchanged.",
    "verified": true
   },
   {
    "source": "src/recovered/ownrdraw.cpp",
-   "old": "        } else if (kind == 0xBC6) {\n            record->unknown_74 = (int)Unknown_Get_Art_6f2830();\n            record->unknown_e0 = (int)",
-   "new": "        } else if (kind == 0xBC6) {\n            record->unknown_74 = (int)Unknown_Get_Art_6f2830();\n            record->unknown_e0 = (intptr_t)",
+   "old": "        } else if (kind == 0xBC6) {\n            record->unknown_74 = (int)Unknown_Get_Score_Drawer_6f2830();\n            record->unknown_e0 = (int)",
+   "new": "        } else if (kind == 0xBC6) {\n            record->unknown_74 = (int)Unknown_Get_Score_Drawer_6f2830();\n            record->unknown_e0 = (intptr_t)",
    "why": "WinData +0x74 (the dialog background's drawer), +0xE0 and +0xE4 (its 640 and full-size shapes) hold pointers that 0x005EA960 stores with (int) casts and 0x005E9F40/0x005EA8A0/0x005EA900 return as int; natively they were cut to 32 bits and the main menu's background draw 0x005FEE70 faulted in CC_Draw_Shape once the dialogs got their WM_PAINT (Scout1121, M14b). Pointer-sized natively; VC6 unchanged.",
    "verified": true
   },
@@ -542,8 +542,8 @@
   },
   {
    "source": "src/recovered/ownrdraw.cpp",
-   "old": "            record->unknown_74 = (int)Unknown_Get_Art_6f2b40();\n            record->unknown_e0 = (int)",
-   "new": "            record->unknown_74 = (int)Unknown_Get_Art_6f2b40();\n            record->unknown_e0 = (intptr_t)",
+   "old": "            record->unknown_74 = (int)Unknown_Get_MP_Score_Drawer_6f2b40();\n            record->unknown_e0 = (int)",
+   "new": "            record->unknown_74 = (int)Unknown_Get_MP_Score_Drawer_6f2b40();\n            record->unknown_e0 = (intptr_t)",
    "why": "WinData +0x74 (the dialog background's drawer), +0xE0 and +0xE4 (its 640 and full-size shapes) hold pointers that 0x005EA960 stores with (int) casts and 0x005E9F40/0x005EA8A0/0x005EA900 return as int; natively they were cut to 32 bits and the main menu's background draw 0x005FEE70 faulted in CC_Draw_Shape once the dialogs got their WM_PAINT (Scout1121, M14b). Pointer-sized natively; VC6 unchanged.",
    "verified": true
   },
@@ -563,8 +563,8 @@
   },
   {
    "source": "src/recovered/ownrdraw.cpp",
-   "old": "            record->unknown_74 = (int)Unknown_Get_Art_6f2830();\n            record->unknown_e0 = (int)",
-   "new": "            record->unknown_74 = (int)Unknown_Get_Art_6f2830();\n            record->unknown_e0 = (intptr_t)",
+   "old": "            record->unknown_74 = (int)Unknown_Get_Score_Drawer_6f2830();\n            record->unknown_e0 = (int)",
+   "new": "            record->unknown_74 = (int)Unknown_Get_Score_Drawer_6f2830();\n            record->unknown_e0 = (intptr_t)",
    "why": "WinData +0x74 (the dialog background's drawer), +0xE0 and +0xE4 (its 640 and full-size shapes) hold pointers that 0x005EA960 stores with (int) casts and 0x005E9F40/0x005EA8A0/0x005EA900 return as int; natively they were cut to 32 bits and the main menu's background draw 0x005FEE70 faulted in CC_Draw_Shape once the dialogs got their WM_PAINT (Scout1121, M14b). Pointer-sized natively; VC6 unchanged.",
    "verified": true
   },
@@ -2288,14 +2288,14 @@
    "verified": false
   },
   {
-   "source": "src/recovered/classes/TemporalClass/TemporalClass_Release_Target_State_006e2610.cpp",
+   "source": "src/recovered/classes/TemporalClass/Unknown_Release_Target_State.cpp",
    "old": "void __fastcall unknown_temporal_thaw_0044d380(int building);\n",
    "new": "void __fastcall unknown_temporal_thaw_0044d380(int building);\nvoid Native_Building_Temporal_Thaw_0044D380(TechnoClass *building);   // NATIVE: native/link/behaviour_temporal_building.cpp\n",
    "why": "TemporalClass passes the warped building to 0x0044D320 / 0x0044D380 as an int; their seed sources write the building's fields at VC6 offsets through it, so natively the cut 64-bit address faulted on a Chrono Legionnaire's first shot at a building. The calls go to behaviour rows that use the real members (native/link/behaviour_temporal_building.cpp). Scout1242 (64/32 audit).",
    "verified": false
   },
   {
-   "source": "src/recovered/classes/TemporalClass/TemporalClass_Release_Target_State_006e2610.cpp",
+   "source": "src/recovered/classes/TemporalClass/Unknown_Release_Target_State.cpp",
    "old": "unknown_temporal_thaw_0044d380((int)building);",
    "new": "Native_Building_Temporal_Thaw_0044D380(building);   /* NATIVE: real members (Scout1242) */",
    "why": "TemporalClass passes the warped building to 0x0044D320 / 0x0044D380 as an int; their seed sources write the building's fields at VC6 offsets through it, so natively the cut 64-bit address faulted on a Chrono Legionnaire's first shot at a building. The calls go to behaviour rows that use the real members (native/link/behaviour_temporal_building.cpp). Scout1242 (64/32 audit).",

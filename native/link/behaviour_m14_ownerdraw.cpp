@@ -49,8 +49,8 @@ extern unsigned char unknown_mode_ac109c[3];                            // 0x00A
 void __fastcall WideToCharString_006fa0f0(char *out, unsigned short const *text, int size);   // 0x006FA0F0 (wide to narrow)
 
 void *Unknown_Get_Art_006f34c0();
-void *Unknown_Get_Art_006f45f0();
-void *Unknown_Get_Art_6f2250();
+void *Unknown_Get_Sidebar_Drawer_006f45f0();
+void *Unknown_Get_Main_Button_Drawer_6f2250();
 
 namespace OwnerDraw {
 
@@ -175,7 +175,7 @@ void Paint_Button(HWND window, WinData *record, bool lit)
             shape = unknown_shape_ac10b8;
             frame = pressed ? 4 : lit ? 3 : 2;
         } else if (kind == 2 || kind == 3) {
-            drawer = (ConvertClass *)(kind == 2 ? Unknown_Get_Art_006f45f0() : Unknown_Get_Art_6f2250());
+            drawer = (ConvertClass *)(kind == 2 ? Unknown_Get_Sidebar_Drawer_006f45f0() : Unknown_Get_Main_Button_Drawer_6f2250());
             shape = kind == 2 ? unknown_shape_ac0ff8 : (ShapeFileStruct const *)unknown_art_ac10c0;   // 0x00AC10C0 (0x006F1B60 loads it)
             frame = pressed ? 1 : lit ? 2 : 0;
         }

@@ -142,78 +142,37 @@ int __fastcall Group_Count(int group)
 }
 
 
-// 0x006f58e0: function not yet identified
-//
-// Body: 58 bytes (frozen inventory bound).
-// Referenced from 25 sites (unconditional call).
-// Ghidra prototype: void __fastcall FUN_006f58e0(undefined4 param_1,int param_2)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __fastcall unknown_show_message_006f58e0(wchar_t const *text, int delay) (0x006F58E0)
+// Shows a message in the player's color (the inline Show_Message of shared/uicmnds.hpp is a
+// copy of it); a delay of -1 gives 0xF0 frames. The unit's callers name it Unknown_006F58E0
+// (shared/planning.hpp); defined under that name it is inlined into 0x006F6D00, which calls it
+// (docs/OPEN_MISSES.md, UICmnds).
 
-namespace seed_006f58e0 {
-
-struct Callee_005b4da0 { unsigned int Add_Message_005b4da0(int, int, int, int, int, int, int); };
-extern "C" unsigned int DAT_00a35db4;
-extern "C" unsigned int DAT_00a3dc70;
-
-void __fastcall FUN_006f58e0(unsigned int message_address, int delay)
+void __fastcall unknown_show_message_006f58e0(wchar_t const *text, int delay)
 {
-    unsigned int color;
-
     if (delay == -1) {
-        delay = (int)(0xf0);
+        delay = 0xf0;
     }
-    color = (unsigned int)(3);
-    if (DAT_00a35db4 != 0) {
-        color = (unsigned int)(*(unsigned int *)(DAT_00a35db4 + 0x15f40));
-    }
-    ((Callee_005b4da0*)(&DAT_00a3dc70))->Add_Message_005b4da0((int)(0), (int)(0), (int)(message_address), (int)(color), (int)(0x4046), (int)(delay), (int)(1));
-    return;
+    Show_Message(text, delay);
 }
 
-}  // namespace seed_006f58e0
 
+// unsigned int unknown_message_style_006f5920() (0x006F5920): returns 0x4046, the text style
+// Unknown_006F58E0 shows its messages in (no callers).
 
-// 0x006f5920: function not yet identified
-//
-// Body: 6 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 FUN_006f5920(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_006f5920 {
-
-unsigned int  FUN_006f5920(void)
+unsigned int  unknown_message_style_006f5920(void)
 {
     return 0x4046;
 }
 
-}  // namespace seed_006f5920
 
+// unsigned int unknown_message_delay_006f5930() (0x006F5930): returns 0xF0, the delay
+// Unknown_006F58E0 uses for -1 (no callers).
 
-// 0x006f5930: function not yet identified
-//
-// Body: 6 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 FUN_006f5930(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_006f5930 {
-
-unsigned int  FUN_006f5930(void)
+unsigned int  unknown_message_delay_006f5930(void)
 {
     return 0xf0;
 }
-
-}  // namespace seed_006f5930
 
 
 // void Command_Deploy() (0x006F5940; TabClass::AI and the deploy command 0x0051BF20): the deploy key. A selected
@@ -566,31 +525,16 @@ void Unknown_006F6380()
 }
 
 
-// 0x006f64b0: function not yet identified
-//
-// Body: 22 bytes (frozen inventory bound).
-// Referenced from 2 sites (unconditional call).
-// Ghidra prototype: void FUN_006f64b0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void unknown_beacon_key_006f64b0() (0x006F64B0; tab.cpp calls it as Unknown_006F64B0): unless
+// MuteSWLaunches is set, has the map run DisplayClass::Unknown_0049CAC0 with -1 (beacon placement;
+// mischa85 names.csv infers Command_Beacon).
 
-namespace seed_006f64b0 {
-
-struct Callee_0049cac0 { void FUN_0049cac0(int unknown_argument); };
-extern "C" unsigned int Map_008324e0;
-extern "C" unsigned int DAT_00a3d548;
-
-void  FUN_006f64b0(void)
+void unknown_beacon_key_006f64b0()
 {
-    if (DAT_00a3d548 == 0) {
-        ((Callee_0049cac0*)(&Map_008324e0))->FUN_0049cac0((int)(0xffffffff));
+    if (MuteSWLaunches == 0) {
+        Map.Unknown_0049CAC0(-1);
     }
-    return;
 }
-
-}  // namespace seed_006f64b0
 
 
 // bool Planning_Mode_Active_6f6510() (0x006F6510)
@@ -1648,40 +1592,27 @@ void Unknown_006F89E0()
 }
 
 
-// 0x006f8a00: function not yet identified
-//
-// Body: 29 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: void __fastcall FUN_006f8a00(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __fastcall unknown_file_pending_building_006f8a00(BuildingClass *building) (0x006F8A00;
+// sidebar.cpp calls it as Unknown_006F8A00)
+// Files a building pending placement: in the second slot when its owner's +0xBA0 is 5,
+// otherwise in the first (Unknown_006F8A20 forgets them).
 
-namespace seed_006f8a00 {
+extern BuildingClass *unknown_pending_building_ac1334;     // 0x00AC1334
+extern BuildingClass *unknown_pending_building_ac1338;     // 0x00AC1338 (owner +0xBA0 == 5)
 
-extern "C" unsigned int DAT_00ac1334;
-extern "C" unsigned int DAT_00ac1338;
-
-void __fastcall FUN_006f8a00(int object_address)
+void __fastcall unknown_file_pending_building_006f8a00(BuildingClass *building)
 {
-    if (*(int *)(*(int *)(object_address + 0x418) + 0xba0) == 5) {
-        DAT_00ac1338 = object_address;
+    if (*(int *)(*(int *)((int)building + 0x418) + 0xba0) == 5) {
+        unknown_pending_building_ac1338 = building;
         return;
     }
-    DAT_00ac1334 = object_address;
-    return;
+    unknown_pending_building_ac1334 = building;
 }
-
-}  // namespace seed_006f8a00
 
 
 // void __fastcall Unknown_006F8A20(BuildingClass *building) (0x006F8A20)
 // Forgets a building pending placement: null forgets both pending slots,
 // otherwise the slot that holds the building (0x006F8A00 files them).
-extern BuildingClass *unknown_pending_building_ac1334;     // 0x00AC1334
-extern BuildingClass *unknown_pending_building_ac1338;     // 0x00AC1338 (owner +0xBA0 == 5)
-
 void __fastcall Unknown_006F8A20(BuildingClass *building)
 {
     if (building == 0) {

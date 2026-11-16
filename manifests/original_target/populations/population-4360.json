@@ -4,8 +4,8 @@
     "id": "population-4360",
     "inventory_sha256": "e1bd2c745daac9aef725b85053ec64bd51223d03e913a502443ef5a04cd74155",
     "gaps_sha256": "592eed44f82fb72503dec8689311b4f6ffa08ad686d92365ffacfe83b61e166b",
-    "historical_population_sha256": "8fc15134d2078755a981163aec475c905091560b7a14cad76379a5d71ad458ad",
-    "historical_acceptance_sha256": "de312ab2495d9ad6c572797ec0fdf2393779996574fd8d244a42dd6616c7f7eb",
+    "historical_population_sha256": "dbd59c699ef6665e224816a610aa237735e2ce48e55f9fb4a1c0f515614e5ddb",
+    "historical_acceptance_sha256": "d8338314a985ee58c8c8db84b7e9096c4a4349d5fb3db205328ad57e371c917e",
     "separate_units": true
   },
   "references": {
@@ -326,7 +326,7 @@
     "?unknown_block_ac1194@@3PAXA": 11276692,
     "?unknown_object_ac1198@@3PAUUnknownOwnedObject@@A": 11276696,
     "?Unknown_006F4160@@YIXXZ": 7291232,
-    "?Unknown_6F42D0@@YIXXZ": 7291600,
+    "?Unknown_Release_Shell_Palettes_6F42D0@@YIXXZ": 7291600,
     "?Unknown_0051A270@@YIXXZ": 5350000,
     "?Unknown_006F5150@@YIXXZ": 7295312,
     "?Unknown_6F5400@@YIXXZ": 7296000,
@@ -540,21 +540,21 @@
     "?unknown_art_acac1210@@3PAXA": 11276816,
     "?unknown_init_color_ac1124@@YIXXZ": 7281152,
     "?unknown_init_color_ac1028@@YIXXZ": 7281344,
-    "?Unknown_006F1B60@@YIXXZ": 7281504,
+    "?Unknown_Load_Interface_Art_006F1B60@@YIXXZ": 7281504,
     "?Unknown_Free_All_Art_006F1D20@@YIXXZ": 7281952,
     "?Unknown_Load_Art_Sets_006F20B0@@YIXXZ": 7282864,
     "?Unknown_Free_Art_Sets_006F2130@@YIXXZ": 7282992,
     "?Unknown_Load_Art_Buffers_006F2260@@YIXXZ": 7283296,
-    "?Unknown_006F22C0@@YIXXZ": 7283392,
+    "?Unknown_Load_Dialog_Palettes_006F22C0@@YIXXZ": 7283392,
     "?Unknown_Free_Art_Buffers_006F22F0@@YIXXZ": 7283440,
     "?Unknown_Free_Art_Sets_006F2510@@YIXXZ": 7283984,
     "?Unknown_006F2AB0@@YIXXZ": 7285424,
     "?Unknown_006F2C00@@YIXXZ": 7285760,
     "?Unknown_006F2C40@@YIXXZ": 7285824,
-    "?Unknown_006F2D00@@YIXXZ": 7286016,
+    "?Unknown_Release_Shapes_006F2D00@@YIXXZ": 7286016,
     "?Unknown_006F2DF0@@YIXXZ": 7286256,
     "?Unknown_Free_Art_Buffers_006F2ED0@@YIXXZ": 7286480,
-    "?Unknown_006F2F70@@YIXXZ": 7286640,
+    "?Unknown_Free_FS_Screen_Palette_006F2F70@@YIXXZ": 7286640,
     "?Unknown_006F2FB0@@YIXXZ": 7286704,
     "?Unknown_Free_Art_Set_006F30F0@@YIXXZ": 7287024,
     "?Reload_Art_Set@@YIXXZ": 7287216,
@@ -565,16 +565,16 @@
     "?Unknown_Get_Art_006f34a0@@YIPAXXZ": 7287968,
     "?Unknown_Get_Art_006f34b0@@YIPAXXZ": 7287984,
     "?Unknown_Get_Art_006f34c0@@YIPAXXZ": 7288000,
-    "?Unknown_006F3650@@YIXPAVSurface@@ABVRect@@_N@Z": 7288400,
+    "?Unknown_Draw_Interface_006F3650@@YIXPAVSurface@@ABVRect@@_N@Z": 7288400,
     "?Unknown_Load_Art_Pairs_006F3E30@@YIXXZ": 7290416,
     "?Unknown_6F4360@@YIXXZ": 7291744,
     "?Unknown_6F4450@@YIXXZ": 7291984,
     "?Unknown_Reload_Art_006F44D0@@YIXXZ": 7292112,
     "?Is_Sidebar_Art_Loaded@@YI_NXZ": 7292304,
     "?Unknown_Get_Art_006f45e0@@YIPAXXZ": 7292384,
-    "?Unknown_Get_Art_006f45f0@@YIPAXXZ": 7292400,
+    "?Unknown_Get_Sidebar_Drawer_006f45f0@@YIPAXXZ": 7292400,
     "?Unknown_Get_Art_006f4600@@YIPAXXZ": 7292416,
-    "?Unknown_Get_Art_006f4610@@YIPAXXZ": 7292432,
+    "?Unknown_Get_UI_Background_Drawer_006f4610@@YIPAXXZ": 7292432,
     "?Unknown_006F5390@@YIXXZ": 7295888,
     "?Unknown_Reload_Art_Buffers_006F5530@@YIXXZ": 7296304,
     "?Unknown_Reset_Art_006F55D0@@YIXHH@Z": 7296464,
@@ -592,11 +592,11 @@
     "__DAT_00a769e8": 10971624,
     "?unknown_art_ac1158@@3PAXA": 11276632,
     "?unknown_art_ac115c@@3PAVUnknownArtData_006f2390@@A": 11276636,
-    "?Unknown_Free_Art_Pair_006F26D0@@YIXXZ": 7284432,
+    "?Unknown_Free_MP_Loading_Palette_006F26D0@@YIXXZ": 7284432,
     "?Unknown_Load_Art_Pairs_006F4C60@@YIXXZ": 7294048,
     "?unknown_art_ac1190@@3PAVUnknownArtData_006f2390@@A": 11276688,
     "?unknown_art_ac1198@@3PAVUnknownArtData_006f2390@@A": 11276696,
-    "?Unknown_6F42D0@@YAXXZ": 7291600,
+    "?Unknown_Release_Shell_Palettes_6F42D0@@YAXXZ": 7291600,
     "?Load_String@StringTable@@SIPBGPBDPAD0H@Z": 7315136,
     "_swprintf": 7878500,
     "?Init_00401000@Call_402190_0@@QAEIXZ": 4198400,
@@ -1922,7 +1922,11 @@
     "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
     "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
     "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
-    "??_EXSurface@@UAEPAXI@Z": 4264736
+    "??_EXSurface@@UAEPAXI@Z": 4264736,
+    "??_GCellClass@@UAEPAXI@Z": 4706208,
+    "??_GFoggedObjectClass@@UAEPAXI@Z": 4989056,
+    "??_ECellClass@@UAEPAXI@Z": 4706208,
+    "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056
   },
   "regions": [
     {
@@ -1952,7 +1956,7 @@
           "resolved": 11276680
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -1987,7 +1991,7 @@
           "resolved": 11276688
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -2022,7 +2026,7 @@
           "resolved": 11276696
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -2369,7 +2373,7 @@
           "resolved": 11276384
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -2404,7 +2408,7 @@
           "resolved": 11276704
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -2415,8 +2419,8 @@
     {
       "entry": 7292400,
       "method": "006f45f0",
-      "symbol": "?Unknown_Get_Art_006f45f0@@YIPAXXZ",
-      "symbol_prefix": "?Unknown_Get_Art_006f45f0@@YIPAXXZ",
+      "symbol": "?Unknown_Get_Sidebar_Drawer_006f45f0@@YIPAXXZ",
+      "symbol_prefix": "?Unknown_Get_Sidebar_Drawer_006f45f0@@YIPAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -2439,13 +2443,13 @@
           "resolved": 11276708
         }
       ],
-      "source_sha256": "926e83f0c0e00ab507cf766679104574da6987267310b85a0289d59b62f013e7",
-      "source": "src/recovered/unowned/Unknown_Get_Art_006f45f0.cpp",
+      "source_sha256": "d5e47438dd65332d9c05a2ba0fd5ce53f4956e74706ea4b5fbb6fe30162db6e2",
+      "source": "src/recovered/txtlabel2/Unknown_Get_Sidebar_Drawer.cpp",
       "population": "population-4360",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Unknown_Get_Art_006f45f0",
+      "semantic_name": "Unknown_Get_Sidebar_Drawer",
       "source_order": 231599
     },
     {
@@ -2979,7 +2983,7 @@
           "resolved": 11276464
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -3014,7 +3018,7 @@
           "resolved": 11276700
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -3049,7 +3053,7 @@
           "resolved": 11276720
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -3084,7 +3088,7 @@
           "resolved": 11276676
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -3119,7 +3123,7 @@
           "resolved": 11276684
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -3154,7 +3158,7 @@
           "resolved": 11276692
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -3189,7 +3193,7 @@
           "resolved": 11276712
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -3232,7 +3236,7 @@
           "resolved": 4294964678
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -3243,8 +3247,8 @@
     {
       "entry": 7292432,
       "method": "006f4610",
-      "symbol": "?Unknown_Get_Art_006f4610@@YIPAXXZ",
-      "symbol_prefix": "?Unknown_Get_Art_006f4610@@YIPAXXZ",
+      "symbol": "?Unknown_Get_UI_Background_Drawer_006f4610@@YIPAXXZ",
+      "symbol_prefix": "?Unknown_Get_UI_Background_Drawer_006f4610@@YIPAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -3267,13 +3271,13 @@
           "resolved": 11276716
         }
       ],
-      "source_sha256": "baded5abbe8e00cba3d33e5ff67b699a7afb0865c7f724ec25150ab51c26fb9f",
-      "source": "src/recovered/unowned/Unknown_Get_Art_006f4610.cpp",
+      "source_sha256": "d12e841c5d2861aebe05a61938b2a08faf20c974c6a4ad6dc37c07f13e000eb3",
+      "source": "src/recovered/txtlabel2/Unknown_Get_UI_Background_Drawer.cpp",
       "population": "population-4360",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Unknown_Get_Art_006f4610",
+      "semantic_name": "Unknown_Get_UI_Background_Drawer",
       "source_order": 231601
     },
     {
@@ -3455,7 +3459,7 @@
           "resolved": 11276480
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -3642,7 +3646,7 @@
           "resolved": 11276404
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -3695,7 +3699,7 @@
         {
           "offset": 28,
           "kind": 20,
-          "symbol": "?Unknown_6F42D0@@YIXXZ",
+          "symbol": "?Unknown_Release_Shell_Palettes_6F42D0@@YIXXZ",
           "target": 7291600,
           "addend": 0,
           "resolved": 4544
@@ -3901,7 +3905,7 @@
           "resolved": 4293030091
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -4328,7 +4332,7 @@
           "resolved": 11276384
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -4995,7 +4999,7 @@
           "resolved": 11276464
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -5102,7 +5106,7 @@
           "resolved": 11276716
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -5153,7 +5157,7 @@
           "resolved": 11276581
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -5204,7 +5208,7 @@
           "resolved": 11276330
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -5327,7 +5331,7 @@
           "resolved": 11276656
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -5394,7 +5398,7 @@
           "resolved": 11276656
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -5405,8 +5409,8 @@
     {
       "entry": 7286016,
       "method": "006f2d00",
-      "symbol": "?Unknown_006F2D00@@YIXXZ",
-      "symbol_prefix": "?Unknown_006F2D00@@YIXXZ",
+      "symbol": "?Unknown_Release_Shapes_006F2D00@@YIXXZ",
+      "symbol_prefix": "?Unknown_Release_Shapes_006F2D00@@YIXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -5621,13 +5625,13 @@
           "resolved": 11276668
         }
       ],
-      "source_sha256": "cc18d9c435b4a6c0a358d391989353881dbfb2739a660b69e19aa4713af5c7cf",
-      "source": "src/recovered/unowned/Unknown_Release_Shapes_006f2d00.cpp",
+      "source_sha256": "d225b2e795c64acc89e74115046240dcec94ada822cfce1c227b2c21d007398e",
+      "source": "src/recovered/txtlabel2/Unknown_Release_Shapes.cpp",
       "population": "population-4360",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Unknown_Release_Shapes_006f2d00",
+      "semantic_name": "Unknown_Release_Shapes",
       "source_order": 231575
     },
     {
@@ -5905,7 +5909,7 @@
           "resolved": 11276404
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -5916,8 +5920,8 @@
     {
       "entry": 7286640,
       "method": "006f2f70",
-      "symbol": "?Unknown_006F2F70@@YIXXZ",
-      "symbol_prefix": "?Unknown_006F2F70@@YIXXZ",
+      "symbol": "?Unknown_Free_FS_Screen_Palette_006F2F70@@YIXXZ",
+      "symbol_prefix": "?Unknown_Free_FS_Screen_Palette_006F2F70@@YIXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -5972,13 +5976,13 @@
           "resolved": 11276668
         }
       ],
-      "source_sha256": "2f55d54cdc81c3d199b1fdb59be68ac0b9c82379a8f9d5b93ccce244bf7beb0d",
-      "source": "src/recovered/unowned/Unknown_Free_Art_Pair_006f2f70.cpp",
+      "source_sha256": "b751b31ac32b94eca9553fd13de185654baa7147c79b3c2fd4b29423ccf7cee2",
+      "source": "src/recovered/txtlabel2/Unknown_Free_FS_Screen_Palette.cpp",
       "population": "population-4360",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Unknown_Free_Art_Pair_006f2f70",
+      "semantic_name": "Unknown_Free_FS_Screen_Palette",
       "source_order": 231578
     },
     {
@@ -6192,7 +6196,7 @@
           "resolved": 11276752
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -6603,7 +6607,7 @@
           "resolved": 11276816
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -6614,8 +6618,8 @@
     {
       "entry": 7281504,
       "method": "006f1b60",
-      "symbol": "?Unknown_006F1B60@@YIXXZ",
-      "symbol_prefix": "?Unknown_006F1B60@@YIXXZ",
+      "symbol": "?Unknown_Load_Interface_Art_006F1B60@@YIXXZ",
+      "symbol_prefix": "?Unknown_Load_Interface_Art_006F1B60@@YIXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -7286,13 +7290,13 @@
           "resolved": 11276700
         }
       ],
-      "source_sha256": "f2b5ead4381ccc395a4ac6e4761a4c3c28a490ca93693b08bdd3b320df762c32",
-      "source": "src/recovered/unowned/Unknown_Load_Interface_Art_006f1b60.cpp",
+      "source_sha256": "4d81258d1f6fc6c1ecd96bb3e3cd6a29be8300e06640f81533d4951047a65775",
+      "source": "src/recovered/txtlabel2/Unknown_Load_Interface_Art.cpp",
       "population": "population-4360",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Unknown_Load_Interface_Art_006f1b60",
+      "semantic_name": "Unknown_Load_Interface_Art",
       "source_order": 231564
     },
     {
@@ -7586,7 +7590,7 @@
           "resolved": 4294963876
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -8077,7 +8081,7 @@
           "resolved": 11276700
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -8088,8 +8092,8 @@
     {
       "entry": 7288400,
       "method": "006f3650",
-      "symbol": "?Unknown_006F3650@@YIXPAVSurface@@ABVRect@@_N@Z",
-      "symbol_prefix": "?Unknown_006F3650@@YIXPAVSurface@@ABVRect@@_N@Z",
+      "symbol": "?Unknown_Draw_Interface_006F3650@@YIXPAVSurface@@ABVRect@@_N@Z",
+      "symbol_prefix": "?Unknown_Draw_Interface_006F3650@@YIXPAVSurface@@ABVRect@@_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -8480,13 +8484,13 @@
           "resolved": 4292523396
         }
       ],
-      "source_sha256": "672e055105ecc829f62fbf9c040492cd28fc2ce81b56c8f30cc2e2b08bb89f98",
-      "source": "src/recovered/unowned/Unknown_Draw_Interface_006f3650.cpp",
+      "source_sha256": "f1a17e5b9cd44e2c392f9232c8db9375499304e1728e3cd4968aab523284cbf3",
+      "source": "src/recovered/txtlabel2/Unknown_Draw_Interface.cpp",
       "population": "population-4360",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Unknown_Draw_Interface_006f3650",
+      "semantic_name": "Unknown_Draw_Interface",
       "source_order": 231590
     },
     {
@@ -8612,7 +8616,7 @@
           "resolved": 11276720
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -8847,7 +8851,7 @@
           "resolved": 11276720
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -9140,7 +9144,7 @@
         {
           "offset": 261,
           "kind": 20,
-          "symbol": "?Unknown_6F42D0@@YIXXZ",
+          "symbol": "?Unknown_Release_Shell_Palettes_6F42D0@@YIXXZ",
           "target": 7291600,
           "addend": 0,
           "resolved": 9383
@@ -9450,7 +9454,7 @@
           "resolved": 11276720
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -9937,7 +9941,7 @@
           "resolved": 11276604
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -10092,7 +10096,7 @@
           "resolved": 11276480
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -10239,7 +10243,7 @@
           "resolved": 11276628
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -10250,8 +10254,8 @@
     {
       "entry": 7283392,
       "method": "006f22c0",
-      "symbol": "?Unknown_006F22C0@@YIXXZ",
-      "symbol_prefix": "?Unknown_006F22C0@@YIXXZ",
+      "symbol": "?Unknown_Load_Dialog_Palettes_006F22C0@@YIXXZ",
+      "symbol_prefix": "?Unknown_Load_Dialog_Palettes_006F22C0@@YIXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -10330,13 +10334,13 @@
           "resolved": 4294966454
         }
       ],
-      "source_sha256": "c159bb98c58d1e6622460a23398b136b9236284ffc3aeb83dcc67c181dd27b79",
-      "source": "src/recovered/unowned/Unknown_Load_Art_Pairs_006f22c0.cpp",
+      "source_sha256": "2f7e8a7b7d63b483f79dddaf7f5a1b7cb314e8024d6948004adfc760c61e2635",
+      "source": "src/recovered/txtlabel2/Unknown_Load_Dialog_Palettes.cpp",
       "population": "population-4360",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Unknown_Load_Art_Pairs_006f22c0",
+      "semantic_name": "Unknown_Load_Dialog_Palettes",
       "source_order": 231569
     },
     {
@@ -10384,7 +10388,7 @@
         {
           "offset": 28,
           "kind": 20,
-          "symbol": "?Unknown_6F42D0@@YIXXZ",
+          "symbol": "?Unknown_Release_Shell_Palettes_6F42D0@@YIXXZ",
           "target": 7291600,
           "addend": 0,
           "resolved": 4352
@@ -11054,7 +11058,7 @@
           "resolved": 11276700
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -11281,7 +11285,7 @@
           "resolved": 2587
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -11404,7 +11408,7 @@
           "resolved": 4294959409
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -11447,7 +11451,7 @@
           "resolved": 4294964906
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -11594,7 +11598,7 @@
           "resolved": 11276552
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -11662,7 +11666,7 @@
           "resolved": 11276548
         }
       ],
-      "source_sha256": "0d64635c48e02d194146d77ab8af22aadefdcb5ed1ee9ed90cf8826f20751a72",
+      "source_sha256": "7093f43798b0ca94b3b435e6dd6a74bb9da848b8f39ec6e6af10379fd8a44abb",
       "source": "src/recovered/txtlabel2.cpp",
       "population": "population-4360",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",

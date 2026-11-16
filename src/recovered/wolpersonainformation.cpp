@@ -412,30 +412,22 @@ void __fastcall Unknown_Persona_Stats_Text_00739a50(HWND window, bool clear)
 // The existing accepted constructor in this population emits the vtable and implicit destructor.
 
 
-// 0x0073a0c0: function not yet identified
-//
-// Body: 36 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall FUN_0073a0c0(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unsigned int *Owner_0073a0c0::unknown_scalar_deleting_destructor_0073a0c0(unsigned char deletion_flags)
+// (0x0073A0C0): a scalar deleting destructor: stores the vtable at 0x007AF54C, runs the
+// rc_ptr_base destructor (0x00639510) and frees the object when bit 0 of the flags is set.
 
 namespace seed_0073a0c0 {
 
 extern void __fastcall rc_ptr_base_Destructor_00639510(void);
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
-extern "C" void* PTR_FUN_007af54c;
+extern "C" void* unknown_vtable_007af54c;
 
-struct Owner_0073a0c0 { unsigned int * FUN_0073a0c0(unsigned char deletion_flags); };
+struct Owner_0073a0c0 { unsigned int * unknown_scalar_deleting_destructor_0073a0c0(unsigned char deletion_flags); };
 
-unsigned int * Owner_0073a0c0::FUN_0073a0c0(unsigned char deletion_flags)
+unsigned int * Owner_0073a0c0::unknown_scalar_deleting_destructor_0073a0c0(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
-    *object_words = (unsigned int)(&PTR_FUN_007af54c);
+    *object_words = (unsigned int)(&unknown_vtable_007af54c);
     rc_ptr_base_Destructor_00639510();
     if ((deletion_flags & 1) != 0) {
         operator_delete_00781d3b((unsigned int)(object_words));

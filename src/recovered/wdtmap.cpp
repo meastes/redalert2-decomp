@@ -68,10 +68,10 @@ void MSFrameAnim::Draw(Surface *surface, Rect const *clip)
         int height = surface->Get_Height();
         if (clip) {
             Rect rect = *clip;
-            Unknown_006F3650(surface, rect, true);
+            Unknown_Draw_Interface_006F3650(surface, rect, true);
             return;
         }
-        Unknown_006F3650(surface, Rect(0, 0, width, height), true);
+        Unknown_Draw_Interface_006F3650(surface, Rect(0, 0, width, height), true);
     }
 }
 

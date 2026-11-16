@@ -62,11 +62,11 @@
 #include "shared/crt_string.hpp"
 #include "shared/win32_api.hpp"
 
-void *__fastcall Unknown_Select_Art_6f2400(int width, int height, int side);
-void *__fastcall Unknown_Select_Art_6f2420(int width, int height, int side);
-void *Unknown_Get_Art_6f2450();
-void *Unknown_Get_Art_6f2470();
-void *Unknown_Get_Art_6f25b0();
+void *__fastcall Unknown_Select_Title_Bar_6f2400(int width, int height, int side);
+void *__fastcall Unknown_Select_Loading_Bar_Shape_6f2420(int width, int height, int side);
+void *Unknown_Get_Loading_Drawer_6f2450();
+void *Unknown_Get_Loading_Side_Drawer_6f2470();
+void *Unknown_Get_MP_Loading_Drawer_6f25b0();
 Point2D __fastcall Unknown_Point_Copy_006F1AE0(Point2D const *source);
 extern char const *unknown_name_7df370;
 extern char const *unknown_name_7df374;
@@ -295,14 +295,14 @@ void Unknown535910::Unknown_00535BF0()
             unknown_3c = StringTable::Load_String(unknown_id_source_a3d290->LSLoadBriefing, 0, "D:\\Ra2\\LdPrgMgr.cpp", 0x253);
         }
         int side = ProgressScreen.Get_Side();
-        char const *top_name = (char const *)Unknown_Select_Art_6f2400(VideoModeWidth, VideoModeHeight, side);
-        char const *bottom_name = (char const *)Unknown_Select_Art_6f2420(VideoModeWidth, VideoModeHeight, side);
+        char const *top_name = (char const *)Unknown_Select_Title_Bar_6f2400(VideoModeWidth, VideoModeHeight, side);
+        char const *bottom_name = (char const *)Unknown_Select_Loading_Bar_Shape_6f2420(VideoModeWidth, VideoModeHeight, side);
         unknown_40 = (void *)Unknown_Load_Shape_00495270(top_name, unknown_4c);
         unknown_48 = (void *)Unknown_Load_Shape_00495270(bottom_name, unknown_4e);
         unknown_44 = (void *)Unknown_Load_Shape_00495270(name, unknown_4d);
-        ConvertClass *top_drawer = (ConvertClass *)Unknown_Get_Art_6f2450();
-        ConvertClass *drawer = (ConvertClass *)Unknown_Get_Art_6f2470();
-        ConvertClass *bottom_drawer = (ConvertClass *)Unknown_Get_Art_6f2490();
+        ConvertClass *top_drawer = (ConvertClass *)Unknown_Get_Loading_Drawer_6f2450();
+        ConvertClass *drawer = (ConvertClass *)Unknown_Get_Loading_Side_Drawer_6f2470();
+        ConvertClass *bottom_drawer = (ConvertClass *)Unknown_Get_Loading_Bar_Drawer_6f2490();
 
         Point2D point(unknown_08.X, unknown_08.Y);
         if (unknown_40 != 0) {
@@ -351,7 +351,7 @@ void Unknown535910::Unknown_00535BF0()
     char const *suffix = VideoModeWidth == ScreenWidths[0] ? unknown_suffix_7df398 : unknown_suffix_7df39c;
     Loading_Filename(filename, side, suffix);
     unknown_44 = (void *)Unknown_Load_Shape_00495270(filename, unknown_4d);
-    ConvertClass *drawer = (ConvertClass *)Unknown_Get_Art_6f25b0();
+    ConvertClass *drawer = (ConvertClass *)Unknown_Get_MP_Loading_Drawer_6f25b0();
     Point2D point = Unknown_Point_Copy_006F1AE0((Point2D const *)&unknown_18);
     CC_Draw_Shape(unknown_5c, drawer, (ShapeFileStruct const *)unknown_44, 0, point, screen, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
 
