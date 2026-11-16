@@ -74,8 +74,16 @@ void __fastcall Audio_Level_Set_Combine(AudioLevelSet *set, AudioLevelSet *other
 }
 
 
-class Leaf_401170 { public: void get(); };
-void Leaf_401170::get() { unsigned int level_set_address = (unsigned int)this; unsigned int clear_changed_mask; unsigned int level_flags; level_flags = *(unsigned int*)(level_set_address); clear_changed_mask = 0xfffffffd; level_flags = (level_flags) & (clear_changed_mask); *(unsigned int*)(level_set_address) = level_flags; level_flags = *(unsigned int*)(level_set_address + 0x50); level_flags = (level_flags) & (clear_changed_mask); *(unsigned int*)(level_set_address + 0x50) = level_flags; level_flags = *(unsigned int*)(level_set_address + 0x28); level_flags = (level_flags) & (clear_changed_mask); *(unsigned int*)(level_set_address + 0x28) = level_flags; }
+// void AudioLevelSet::Clear_Changed() (0x00401170)
+// Clears the changed flag of the volume, pan and frequency levels, in that order
+// (mischa85 audattr.cpp AudioAttribsUsed).
+
+void AudioLevelSet::Clear_Changed()
+{
+    Volume.Flags &= ~AUDIO_LEVEL_CHANGED;
+    Pan.Flags &= ~AUDIO_LEVEL_CHANGED;
+    Frequency.Flags &= ~AUDIO_LEVEL_CHANGED;
+}
 
 
 // int AudioLevelSet::Scale_Frequency(int value) (0x00401190): value scaled by the frequency level's

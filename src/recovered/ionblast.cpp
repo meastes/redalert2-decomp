@@ -594,14 +594,12 @@ void __fastcall Calculate_Index_To_Surface_LUT(int stride)
 }
 
 
-extern "C" unsigned char vtable_522460[]; extern "C" void __cdecl release_buffer_522460(void*); extern "C" void __cdecl release_object_522460(void*);
-class Leaf_522460 { public: void* get(unsigned int flags); };
-void* Leaf_522460::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_522460; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_522460((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_522460(this); return this; }
+// VectorClass<IonBlastClass *>::`scalar deleting destructor' (0x00522460)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_5224b0[]; extern "C" void __cdecl release_buffer_5224b0(void*); extern "C" void __cdecl release_object_5224b0(void*);
-class Leaf_5224b0 { public: void* get(unsigned int flags); };
-void* Leaf_5224b0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_5224b0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_5224b0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_5224b0(this); return this; }
+// DynamicVectorClass<IonBlastClass *>::`scalar deleting destructor' (0x005224B0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 // Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):

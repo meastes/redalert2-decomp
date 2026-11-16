@@ -283,7 +283,7 @@
    "padding_bytes": 2
   },
   {
-   "symbol": "?get@Leaf_49af80@@QAEXI@Z",
+   "symbol": "?Mouse_Right_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
    "entry": "0049af80",
    "body_bytes": 3,
    "padding_bytes": 13
@@ -4029,10 +4029,6 @@
    "address": "004cf210"
   },
   {
-   "symbol": "?Mouse_Right_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
-   "address": "0049af80"
-  },
-  {
    "symbol": "?MuteSWLaunches@@3HA",
    "address": "00a3d548"
   },
@@ -4710,12 +4706,6 @@
    "module_symbol": "?DisplayClass_Object_To_Follow@@YIHH@Z"
   },
   {
-   "site": "0066abe0",
-   "target": "0049af80",
-   "symbol": "?Mouse_Right_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
-   "module_symbol": "?get@Leaf_49af80@@QAEXI@Z"
-  },
-  {
    "site": "005d3c10",
    "target": "0049ec40",
    "symbol": "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ",
@@ -4732,12 +4722,6 @@
    "target": "0049ec40",
    "symbol": "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ",
    "module_symbol": "?DisplayClass_Object_To_Follow@@YIHH@Z"
-  },
-  {
-   "site": "0066a400",
-   "target": "0049af80",
-   "symbol": "?Mouse_Right_Press@DisplayClass@@UAEXABUPoint2D@@@Z",
-   "module_symbol": "?get@Leaf_49af80@@QAEXI@Z"
   },
   {
    "site": "00549c50",
@@ -4800,7 +4784,7 @@
    "module_symbol": "?get@Leaf_49a5b0@@QAEIII@Z"
   }
  ],
- "stand_in_reference_count": 17,
+ "stand_in_reference_count": 15,
  "residual_split": {
   "rows": 4,
   "bytes": 124

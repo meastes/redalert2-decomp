@@ -301,7 +301,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?get@Leaf_42d160@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@VBaseNodeClass@@@@UAEPAXI@Z",
    "entry": "0042d160",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -331,19 +331,19 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?get@Leaf_42d340@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@VBaseNodeClass@@@@UAEPAXI@Z",
    "entry": "0042d340",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_42d390@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@VCell@@@@UAEPAXI@Z",
    "entry": "0042d390",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_42d3e0@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@VCell@@@@UAEPAXI@Z",
    "entry": "0042d3e0",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -440,14 +440,14 @@
    "address": "0079c5dc",
    "bytes": 32,
    "kind": "vtable",
-   "section": 133
+   "section": 125
   },
   {
    "symbol": "??_7?$VectorClass@VBaseNodeClass@@@@6B@",
    "address": "0079c5fc",
    "bytes": 32,
    "kind": "vtable",
-   "section": 157
+   "section": 149
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@VBaseNodeClass@@@@8",
@@ -552,42 +552,42 @@
    "address": "007b3d7c",
    "bytes": 5,
    "kind": "rtti",
-   "section": 130
+   "section": 122
   },
   {
    "symbol": "??_R3?$VectorClass@VCell@@@@8",
    "address": "007b3d88",
    "bytes": 16,
    "kind": "rtti",
-   "section": 131
+   "section": 123
   },
   {
    "symbol": "??_R4?$VectorClass@VCell@@@@6B@",
    "address": "007b3d98",
    "bytes": 20,
    "kind": "rtti",
-   "section": 132
+   "section": 124
   },
   {
    "symbol": "??_R2?$VectorClass@VBaseNodeClass@@@@8",
    "address": "007b3dac",
    "bytes": 5,
    "kind": "rtti",
-   "section": 154
+   "section": 146
   },
   {
    "symbol": "??_R3?$VectorClass@VBaseNodeClass@@@@8",
    "address": "007b3db8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 155
+   "section": 147
   },
   {
    "symbol": "??_R4?$VectorClass@VBaseNodeClass@@@@6B@",
    "address": "007b3dc8",
    "bytes": 20,
    "kind": "rtti",
-   "section": 156
+   "section": 148
   },
   {
    "symbol": "??_C@_01KMAE@?0?$AA@",
@@ -1151,22 +1151,6 @@
    "address": "007b15e4"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@VBaseNodeClass@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
-   "symbol": "??_G?$DynamicVectorClass@VCell@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
-   "symbol": "??_G?$VectorClass@VBaseNodeClass@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
-   "symbol": "??_G?$VectorClass@VCell@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
    "symbol": "?BuildingTypes@@3V?$DynamicVectorClass@PAVBuildingTypeClass@@@@A",
    "address": "00a35cd8"
   },
@@ -1243,60 +1227,12 @@
    "address": "00782dfd"
   },
   {
-   "symbol": "_release_buffer_42d160",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_42d340",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_42d390",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_42d3e0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_42d160",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_42d340",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_42d390",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_42d3e0",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_sprintf",
    "address": "007820f4"
   },
   {
    "symbol": "_strtok",
    "address": "00782ec2"
-  },
-  {
-   "symbol": "_vtable_42d160",
-   "address": "0079c600"
-  },
-  {
-   "symbol": "_vtable_42d340",
-   "address": "0079c600"
-  },
-  {
-   "symbol": "_vtable_42d390",
-   "address": "0079c5e0"
-  },
-  {
-   "symbol": "_vtable_42d3e0",
-   "address": "0079c5e0"
   }
  ],
  "route": "A",

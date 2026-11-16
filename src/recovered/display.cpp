@@ -1226,8 +1226,11 @@ int DisplayClass::TacticalClass::Action(unsigned flags, unsigned &key)
 }
 
 
-class Leaf_49af80 { public: void get(unsigned int unused_argument_1); };
-void Leaf_49af80::get(unsigned int unused_argument_1) { unsigned int unused_this_address = (unsigned int)this; unsigned int unused_result; unsigned int unused_value; }
+// void DisplayClass::Mouse_Right_Press(Point2D const &point) (0x0049AF80, slot 44): does nothing.
+
+void DisplayClass::Mouse_Right_Press(Point2D const &)
+{
+}
 
 
 // void DisplayClass::Mouse_Right_Release(Point2D const &xy) (0x0049AF90, slot 49)

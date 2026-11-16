@@ -48,8 +48,6 @@
 // by HeaderStatics_empty_rect_init_00528380.cpp; no source of its own.
 
 
-
-
 #define ISOMETRIC_TILE_TYPE_DECLARE_STATICS
 // CellClass::Clear_Icon for Load_Tiles (0x0052B2E0; guarded in shared/cell.hpp).
 #define CELL_DECLARE_CLEAR_ICON
@@ -2179,7 +2177,6 @@ void __fastcall World_To_Screen(int grid_x, int grid_y, int *pixel_x, int *pixel
 }
 
 
-
 // int IsometricTileTypeClass::Get_Y_Offset(int tile) -- 0x0052DFA0
 // How far the tile's extra (cliff) image starts below the tile itself: ExtraY - Y of the
 // cell record when the record has extra data; 0 otherwise (TibSun Get_Y_Offset).
@@ -2244,7 +2241,6 @@ void  IsometricTileTypeClass_Clear_Z_Shapes(void)
     DAT_00a52ebc = 0;
     return;
 }
-
 
 
 // CoordStruct IsometricTileTypeClass::Coord_Fixup(CoordStruct const &coord) const (0x0052E090, slot 27)
@@ -2450,9 +2446,8 @@ int IsometricTileTypeClass::Fetch_Heap_ID() const
 }
 
 
-extern "C" void __cdecl release_52e6b0(void*);
-class Leaf_52e6b0 { public: void cleanup();void* get(unsigned int flags); };
-void* Leaf_52e6b0::get(unsigned int flags) { cleanup(); if (flags & 1) release_52e6b0(this); return this; }
+// IsometricTileTypeClass::`scalar deleting destructor' (0x0052E6B0)
+// Compiler-emitted from shared/isometric_tile_type.hpp in this unit; no source of its own.
 
 
 // 0x0052e700: function not yet identified
@@ -2493,24 +2488,20 @@ unsigned int Owner_0052e700::FUN_0052e700(int element_address)
 // DynamicVectorClass<unsigned short *>::ID_object (0x0052E9C0; DynamicVectorClass<unsigned short *> vtable 0x007a524c slot 4).
 
 
-extern "C" unsigned char vtable_52ec50[]; extern "C" void __cdecl release_buffer_52ec50(void*); extern "C" void __cdecl release_object_52ec50(void*);
-class Leaf_52ec50 { public: void* get(unsigned int flags); };
-void* Leaf_52ec50::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_52ec50; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_52ec50((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_52ec50(this); return this; }
+// VectorClass<unsigned short *>::`scalar deleting destructor' (0x0052EC50)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_52eca0[]; extern "C" void __cdecl release_buffer_52eca0(void*); extern "C" void __cdecl release_object_52eca0(void*);
-class Leaf_52eca0 { public: void* get(unsigned int flags); };
-void* Leaf_52eca0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_52eca0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_52eca0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_52eca0(this); return this; }
+// DynamicVectorClass<unsigned short *>::`scalar deleting destructor' (0x0052ECA0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_52ecf0[]; extern "C" void __cdecl release_buffer_52ecf0(void*); extern "C" void __cdecl release_object_52ecf0(void*);
-class Leaf_52ecf0 { public: void* get(unsigned int flags); };
-void* Leaf_52ecf0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_52ecf0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_52ecf0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_52ecf0(this); return this; }
+// VectorClass<IsometricTileTypeClass::TileInsertType *>::`scalar deleting destructor' (0x0052ECF0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_52ed40[]; extern "C" void __cdecl release_buffer_52ed40(void*); extern "C" void __cdecl release_object_52ed40(void*);
-class Leaf_52ed40 { public: void* get(unsigned int flags); };
-void* Leaf_52ed40::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_52ed40; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_52ed40((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_52ed40(this); return this; }
+// DynamicVectorClass<IsometricTileTypeClass::TileInsertType *>::`scalar deleting destructor' (0x0052ED40)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 // VectorClass<unsigned short *>::VectorClass(unsigned, unsigned short * const *) (0x0052ED90): the

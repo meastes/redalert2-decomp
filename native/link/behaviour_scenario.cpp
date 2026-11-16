@@ -55,12 +55,6 @@ int type_info::operator!=(type_info const &rhs) const
 #include "shared/object.hpp"
 #include "shared/rules.hpp"
 
-// 0x0051FC80 (leaf src/recovered/0051fc80.cpp): returns false.
-bool HouseClass::Ion_Sensitives_Should_Be_Offline()
-{
-    return false;
-}
-
 // 0x00622160 UnknownQuaternion(x, y, z, w): the four floats in order (as the
 // accepted Quaternion::Quaternion at the same address, src/recovered/classes/
 // Quaternion/Quaternion_constructor_00622160.cpp, under bounce.hpp's name).

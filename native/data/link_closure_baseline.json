@@ -1,12 +1,12 @@
 {
  "about": "Undefined symbols of the Mac ra2-native link closure (RA2_NATIVE_SUBSYSTEM=all, drafts and link closure on, WIN64_PARAMS on) that tests/link_closure_baseline.py allows. Names only (no bytes). Regenerate with tests/link_closure_baseline.py --build <dir> --write when the set shrinks.",
- "total": 212,
+ "total": 204,
  "by_class": {
   "c-address": 13,
   "c-data": 1,
   "c-function": 3,
   "cxx-data": 3,
-  "cxx-function": 192
+  "cxx-function": 184
  },
  "symbols": [
   {
@@ -15,8 +15,18 @@
    "cls": "c-function"
   },
   {
+   "symbol": "__Z13Save_004100c0iii",
+   "name": "Save_004100c0(int, int, int)",
+   "cls": "cxx-function"
+  },
+  {
    "symbol": "__Z14fopen_00783a45PKcS0_",
    "name": "fopen_00783a45(char const*, char const*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z15Dialog_0053b770v",
+   "name": "Dialog_0053b770()",
    "cls": "cxx-function"
   },
   {
@@ -27,6 +37,11 @@
   {
    "symbol": "__Z15fflush_0078439cPv",
    "name": "fflush_0078439c(void*)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z15strchr_00784130Pjc",
+   "name": "strchr_00784130(unsigned int*, char)",
    "cls": "cxx-function"
   },
   {
@@ -50,8 +65,38 @@
    "cls": "cxx-function"
   },
   {
+   "symbol": "__Z16bsearch_00782025jjjiPFizE",
+   "name": "bsearch_00782025(unsigned int, unsigned int, unsigned int, int, int (*)(...))",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z16sprintf_007820f4iii",
+   "name": "sprintf_007820f4(int, int, int)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z16stricmp_00781f20v",
+   "name": "stricmp_00781f20()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z16unknown_006f6750v",
+   "name": "unknown_006f6750()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z16unknown_006f6760v",
+   "name": "unknown_006f6760()",
+   "cls": "cxx-function"
+  },
+  {
    "symbol": "__Z19On_WM_HELP_00736880l",
    "name": "On_WM_HELP_00736880(long)",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__Z20Get_Language_VersionPc",
+   "name": "Get_Language_Version(char*)",
    "cls": "cxx-function"
   },
   {
@@ -70,13 +115,13 @@
    "cls": "cxx-function"
   },
   {
-   "symbol": "__Z25Console_Read_Key_007963f7v",
-   "name": "Console_Read_Key_007963f7()",
+   "symbol": "__Z23Is_Immobilized_006d8e80v",
+   "name": "Is_Immobilized_006d8e80()",
    "cls": "cxx-function"
   },
   {
-   "symbol": "__Z20Get_Language_VersionPc",
-   "name": "Get_Language_Version(char*)",
+   "symbol": "__Z25Console_Read_Key_007963f7v",
+   "name": "Console_Read_Key_007963f7()",
    "cls": "cxx-function"
   },
   {
@@ -85,48 +130,13 @@
    "cls": "cxx-function"
   },
   {
+   "symbol": "__Z29CheckStartConditions_005b73a0i",
+   "name": "CheckStartConditions_005b73a0(int)",
+   "cls": "cxx-function"
+  },
+  {
    "symbol": "__ZN11Leaf_40e2e07cleanupEv",
    "name": "Leaf_40e2e0::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_47cfa07cleanupEv",
-   "name": "Leaf_47cfa0::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_4a57807cleanupEv",
-   "name": "Leaf_4a5780::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_4c20807cleanupEv",
-   "name": "Leaf_4c2080::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_4cde107cleanupEv",
-   "name": "Leaf_4cde10::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_4deef07cleanupEv",
-   "name": "Leaf_4deef0::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_4def107cleanupEv",
-   "name": "Leaf_4def10::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_4fef007cleanupEv",
-   "name": "Leaf_4fef00::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_52e6b07cleanupEv",
-   "name": "Leaf_52e6b0::cleanup()",
    "cls": "cxx-function"
   },
   {
@@ -415,28 +425,8 @@
    "cls": "cxx-function"
   },
   {
-   "symbol": "__Z16bsearch_00782025jjjiPFizE",
-   "name": "bsearch_00782025(unsigned int, unsigned int, unsigned int, int, int (*)(...))",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__Z16stricmp_00781f20v",
-   "name": "stricmp_00781f20()",
-   "cls": "cxx-function"
-  },
-  {
    "symbol": "__ZN13seed_0041271011DebugStringEi",
    "name": "seed_00412710::DebugString(int)",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__Z16sprintf_007820f4iii",
-   "name": "sprintf_007820f4(int, int, int)",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__Z13Save_004100c0iii",
-   "name": "Save_004100c0(int, int, int)",
    "cls": "cxx-function"
   },
   {
@@ -462,11 +452,6 @@
   {
    "symbol": "__ZN13seed_00538f3032ConvertClass_Destructor_00485310Ev",
    "name": "seed_00538f30::ConvertClass_Destructor_00485310()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__Z15Dialog_0053b770v",
-   "name": "Dialog_0053b770()",
    "cls": "cxx-function"
   },
   {
@@ -550,11 +535,6 @@
    "cls": "cxx-function"
   },
   {
-   "symbol": "__Z29CheckStartConditions_005b73a0i",
-   "name": "CheckStartConditions_005b73a0(int)",
-   "cls": "cxx-function"
-  },
-  {
    "symbol": "__ZN13seed_005b69b015strdup_0078d816EPc",
    "name": "seed_005b69b0::strdup_0078d816(char*)",
    "cls": "cxx-function"
@@ -612,16 +592,6 @@
   {
    "symbol": "__ZN13seed_0060143024WideString_dtor_0076fa50Ev",
    "name": "seed_00601430::WideString_dtor_0076fa50()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__Z16unknown_006f6760v",
-   "name": "unknown_006f6760()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__Z16unknown_006f6750v",
-   "name": "unknown_006f6750()",
    "cls": "cxx-function"
   },
   {
@@ -692,11 +662,6 @@
   {
    "symbol": "__ZN13seed_006f58e015Callee_005b4da020Add_Message_005b4da0Eiiiiiii",
    "name": "seed_006f58e0::Callee_005b4da0::Add_Message_005b4da0(int, int, int, int, int, int, int)",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__Z23Is_Immobilized_006d8e80v",
-   "name": "Is_Immobilized_006d8e80()",
    "cls": "cxx-function"
   },
   {
@@ -772,11 +737,6 @@
   {
    "symbol": "__ZN13seed_007354d018Debug_Log_004068f0Ei",
    "name": "seed_007354d0::Debug_Log_004068f0(int)",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__Z15strchr_00784130Pjc",
-   "name": "strchr_00784130(unsigned int*, char)",
    "cls": "cxx-function"
   },
   {

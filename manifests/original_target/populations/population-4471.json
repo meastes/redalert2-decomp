@@ -4,8 +4,8 @@
     "id": "population-4471",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "6f7e89e642d442cade03d5b5f9dd23acb3c62b2a27fc6ac47921903a0fa20a51",
-    "historical_acceptance_sha256": "746e80c3499d96d990d5a6740b3d262632ad921dfad98ae175a6f9abdf6d5a98",
+    "historical_population_sha256": "76e5763d36dc1a2613bc715a9a0df31f2296f172e8a897a538b14bc8c030a170",
+    "historical_acceptance_sha256": "6067df8f7e334fcaa224afb719b6ba576aa1b53a0d36ad4085932f28ec7865de",
     "separate_units": true
   },
   "references": {
@@ -3843,7 +3843,7 @@
     "??_EMSPrintAnim@@UAEPAXI@Z": 5963392,
     "??_EConvertClass@@UAEPAXI@Z": 4743456,
     "?FUN_00497320@Owner_00497320@seed_00497320@@": 4813600,
-    "?scalar_deleting_destructor_004a57c0@Owner_004a57c0@seed_004a57c0@@": 4872128,
+    "??_GToggleClass@@UAEPAXI@Z": 4872128,
     "?GenericNode_Scalar_Deleting_Destructor_0040e1d0@": 4252112,
     "?FUN_00781d3b@": 7871803,
     "_GenericNode_VTable_0079aafc": 7973628,
@@ -3856,8 +3856,7 @@
     "_PTR_FUN_0079d730": 7984944,
     "??_G?$BlitTransXlat@G@@": 4769680,
     "_Blitter_vtable_0079e52c": 7988524,
-    "?scalar_deleting_destructor_0048c7b0@": 4769712,
-    "?scalar_deleting_destructor_0048c890@": 4769936,
+    "??_GRLEBlitter@@UAEPAXI@Z": 4769936,
     "_RLEBlitter_vtable_0079e53c": 7988540,
     "??_G?$BlitTransXlatWriteAlpha@G@@": 4771440,
     "??_G?$RLEBlitTransXlat@G@@": 4772432,
@@ -3872,9 +3871,8 @@
     "_VectorCursor_GraphicMenuItemPtr_VTable_007a2b84": 8006532,
     "?VectorCursor_UnsignedInt_Scalar_Deleting_Destructor_004e06a0@Owner_004e06a0@seed_004e06a0@@": 5113504,
     "_VectorCursor_UnsignedInt_VTable_007a2c08": 8006664,
-    "?scalar_deleting_destructor_004f6fc0@": 5205952,
-    "_VectorClass_TeamTypeClass_vtable_007a2ee4": 8007396,
-    "?scalar_deleting_destructor_004a57c0@Owner_004a57c0@seed_004a57c0@@QAEIE@Z": 4872128
+    "??_G?$DynamicVectorClass@PBVTeamTypeClass@@@@UAEPAXI@Z": 5205952,
+    "_VectorClass_TeamTypeClass_vtable_007a2ee4": 8007396
   },
   "regions": [
     {

@@ -726,7 +726,7 @@
   },
   {
    "site": "004fef00",
-   "symbol": "?cleanup@Leaf_4fef00@@QAEXXZ",
+   "symbol": "??1LocomotionClass@@UAE@XZ",
    "target": "0053cff0",
    "function_entry": true
   },
@@ -1341,15 +1341,8 @@
    "reason": "no original address bound"
   }
  ],
- "stand_in_references": [
-  {
-   "site": "004fef00",
-   "target": "0053cff0",
-   "symbol": "?cleanup@Leaf_4fef00@@QAEXXZ",
-   "module_symbol": "??1LocomotionClass@@UAE@XZ"
-  }
- ],
- "stand_in_reference_count": 1,
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
  "residual_split": {
   "rows": 0,
   "bytes": 0

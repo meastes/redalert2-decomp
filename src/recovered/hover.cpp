@@ -1097,6 +1097,5 @@ bool __stdcall HoverLocomotionClass::Is_Moving_Here(CoordStruct to)
 // Compiler-generated with the vtable (the destructor inlined). No source of its own.
 
 
-extern "C" void __cdecl release_4fef00(void*);
-class Leaf_4fef00 { public: void cleanup();void* get(unsigned int flags); };
-void* Leaf_4fef00::get(unsigned int flags) { cleanup(); if (flags & 1) release_4fef00(this); return this; }
+// LocomotionClass::`scalar deleting destructor' (0x004FEF00)
+// Compiler-emitted from shared/locomotion.hpp in this unit; no source of its own.

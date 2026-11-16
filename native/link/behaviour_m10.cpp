@@ -13,13 +13,6 @@ ILocomotion *__fastcall Unit_Checked_Locomotor_004cde90(UnknownComPtr<ILocomotio
 }
 
 #include "shared/foot.hpp"
-// 0x004CD9B0 FootClass (seed leaf): clears +0x490 and +0x494.
-void FootClass::Abort_Motion()
-{
-    unknown_490 = 0;
-    unknown_494 = 0;
-}
-
 // 0x004131D0 AircraftTrackerClass (seed leaf Leaf_4131d0::get: `ret 4`, an
 // empty body): a detached object needs nothing here.
 void AircraftTrackerClass::Detach(AbstractClass *target)

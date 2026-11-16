@@ -3575,7 +3575,6 @@ void __stdcall Inc_Drawer_Ref_Count_00479c90(int drawer)
 }
 
 
-
 // Dec_Drawer_Ref_Count_00479ca0 (0x00479CA0)
 
 extern "C" char GameActive_00a40958;
@@ -3587,7 +3586,6 @@ void __stdcall Dec_Drawer_Ref_Count_00479ca0(int drawer)
     }
     return;
 }
-
 
 
 // bool CellClass::Has_Tunnel() const (0x00479CC0): Westwood's Has_Tunnel. A tube runs through
@@ -3685,7 +3683,6 @@ unsigned char __stdcall Can_Enter_Tunnel_0047a120(int unused_0)
 {
     return 1;
 }
-
 
 
 // void CellClass::Force_New_Slope_For_Occupiers() (0x0047A160): takes up to ten occupants,
@@ -4668,7 +4665,6 @@ void __fastcall Unshroud_0047c900(int self)
 }
 
 
-
 // void CellClass::On_Bridge_Collapse() (0x0047C930): TibSun's On_Bridge_Collapse:
 // when the cell carries bridge occupants, every moving foot object in the
 // surrounding 5x5 cells whose locomotor is heading for the bridge deck
@@ -4899,9 +4895,8 @@ class Leaf_47cf90 { public: unsigned int get(); };
 unsigned int Leaf_47cf90::get() { return 0x148; }
 
 
-extern "C" void __cdecl release_47cfa0(void*);
-class Leaf_47cfa0 { public: void cleanup();void* get(unsigned int flags); };
-void* Leaf_47cfa0::get(unsigned int flags) { cleanup(); if (flags & 1) release_47cfa0(this); return this; }
+// CellClass::`scalar deleting destructor' (0x0047CFA0)
+// Compiler-emitted from shared/cell_class.hpp in this unit; no source of its own.
 
 
 // Cell __fastcall CellClass::Adjacent_Cell(Cell const &cell, int facing)
@@ -4934,9 +4929,8 @@ RectPoint2D RectPoint2D::operator-(RectPoint2D const &point) const
 }
 
 
-extern "C" unsigned char vtable_47d090[]; extern "C" void __cdecl release_buffer_47d090(void*); extern "C" void __cdecl release_object_47d090(void*);
-class Leaf_47d090 { public: void* get(unsigned int flags); };
-void* Leaf_47d090::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_47d090; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_47d090((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_47d090(this); return this; }
+// DynamicVectorClass<ObjectClass *>::`scalar deleting destructor' (0x0047D090)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 extern "C" unsigned char table_47d0e0[]; extern "C" void* __cdecl storage_47d0e0(unsigned int);

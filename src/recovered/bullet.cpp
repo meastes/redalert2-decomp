@@ -1470,14 +1470,12 @@ TVelocity3D<double> &TVelocity3D<double>::operator+=(TVelocity3D<double> const &
 // DynamicVectorClass<BulletClass *>::ID_object (0x004641D0; DynamicVectorClass<BulletClass *> vtable 0x0079d308 slot 4).
 
 
-extern "C" unsigned char vtable_464200[]; extern "C" void __cdecl release_buffer_464200(void*); extern "C" void __cdecl release_object_464200(void*);
-class Leaf_464200 { public: void* get(unsigned int flags); };
-void* Leaf_464200::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_464200; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_464200((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_464200(this); return this; }
+// VectorClass<BulletClass *>::`scalar deleting destructor' (0x00464200)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_464250[]; extern "C" void __cdecl release_buffer_464250(void*); extern "C" void __cdecl release_object_464250(void*);
-class Leaf_464250 { public: void* get(unsigned int flags); };
-void* Leaf_464250::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_464250; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_464250((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_464250(this); return this; }
+// DynamicVectorClass<BulletClass *>::`scalar deleting destructor' (0x00464250)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 // BulletClass::AddRef adjustor thunk for IRTTITypeInfo (0x004642D0): compiler generated (this - 4, then AddRef); no source of its own.

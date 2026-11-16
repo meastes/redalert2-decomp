@@ -119,6 +119,22 @@ class ApplyRenameTests(unittest.TestCase):
         with self.assertRaises(SystemExit):
             load({'?a@X@@QAEXH@Z': dict(new='?b@X@@QAEXH@Z', at='00401000')}, {'?a@X@@QAEXH@Z': '?z@X@@QAEXH@Z'})
 
+    def test_scoped_rename_drops_a_stale_table_copy_but_keeps_used_bindings(self):
+        view, real = '?get@Leaf_53aaf0@@QAEPAXI@Z', '??_G?$DynamicVectorClass@PAG@@UAEPAXI@Z'
+        scoped = {view: (real, {0x53aaf0})}
+        home = dict(region('population-1', view, {view: 0x53aaf0}), entry=0x53aaf0)
+        other = dict(region('population-2', '?F@@YAXXZ', {real: 0x52eca0, view: 0x53aaf0}, [real]), entry=0x400)
+        apply_rename.STALE_DROPPED.clear()
+        affected = apply_rename.rename_catalog(dict(regions=[home, other]), {}, {}, {}, scoped)
+        self.assertEqual(affected, {'population-1', 'population-2'})
+        self.assertEqual(home['references'], {real: 0x53aaf0})
+        self.assertEqual(other['references'], {real: 0x52eca0})
+        self.assertEqual([d['population'] for d in apply_rename.STALE_DROPPED], ['population-2'])
+        used = dict(region('population-3', '?G@@YAXXZ', {real: 0x52eca0, view: 0x53aaf0}, [real, view]), entry=0x500)
+        with self.assertRaises(SystemExit):
+            apply_rename.rename_catalog(dict(regions=[used]), {}, {}, {}, scoped)
+        apply_rename.STALE_DROPPED.clear()
+
     def test_rename_onto_an_existing_binding_at_another_address_refuses(self):
         catalog = dict(regions=[region('population-1', '?F@@YAXXZ', {OLD: 1, NEW: 2})])
         with self.assertRaises(SystemExit):

@@ -453,7 +453,6 @@ void  unknown_empty_00534340(void)
 }
 
 
-
 // Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):
 // DynamicVectorClass<LaserDrawClass *>::Clear (0x00534350; DynamicVectorClass<LaserDrawClass *> vtable 0x007a5414 slot 3).
 // DynamicVectorClass<LaserDrawClass *>::ID_pointer (0x00534380; DynamicVectorClass<LaserDrawClass *> vtable 0x007a5414 slot 5).
@@ -467,11 +466,9 @@ void  unknown_empty_00534340(void)
 // DynamicVectorClass<LaserDrawClass *>::ID_object (0x005345E0; DynamicVectorClass<LaserDrawClass *> vtable 0x007a5414 slot 4).
 
 
-extern "C" unsigned char vtable_534610[]; extern "C" void __cdecl release_buffer_534610(void*); extern "C" void __cdecl release_object_534610(void*);
-class Leaf_534610 { public: void* get(unsigned int flags); };
-void* Leaf_534610::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_534610; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_534610((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_534610(this); return this; }
+// VectorClass<LaserDrawClass *>::`scalar deleting destructor' (0x00534610)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_534660[]; extern "C" void __cdecl release_buffer_534660(void*); extern "C" void __cdecl release_object_534660(void*);
-class Leaf_534660 { public: void* get(unsigned int flags); };
-void* Leaf_534660::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_534660; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_534660((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_534660(this); return this; }
+// DynamicVectorClass<LaserDrawClass *>::`scalar deleting destructor' (0x00534660)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.

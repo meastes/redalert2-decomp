@@ -2759,7 +2759,6 @@ int __fastcall Unknown_00516F00(int unknown_timeout)
 // int __stdcall Unknown_005171D0(HWND, UINT, WPARAM, LPARAM) -- 0x005171D0
 
 
-
 // The main menu dialog's procedure (pointer only, 0x00516F00's dialog 0xE2): the common handler
 // first; WM_PAINT sends 0x4F0 to item 0x71A; 0x497 shows the version in item 0x71D; the
 // WM_COMMAND buttons store their choice in the int the window's long 8 points at.
@@ -6969,9 +6968,8 @@ void DeleteCommandClass::Execute(int key) const
 // the vtable by the constructor in this unit; the destructor (implicit) expands inline.
 
 
-extern "C" void __cdecl release_51e0a0(void*);
-class Cleanup_51e0a0 { unsigned char pad0[4]; unsigned int* items; int count; unsigned char pad12[1]; unsigned char owns; unsigned char pad14[2]; int capacity; public: void get(); };
-void Cleanup_51e0a0::get() { unsigned int* pointer=items; capacity=0; if(pointer && owns) { release_51e0a0(pointer); items=0; } owns=0; count=0; }
+// DynamicVectorClass<CCINIClass *>::Clear (0x0051E0A0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 // Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):
@@ -7009,14 +7007,12 @@ template bool IndexClass<int, CommandClass *>::Remove_Index(int const &id);
 template bool IndexClass<int, CommandClass *>::Is_Present(int const &id) const;
 
 
-extern "C" unsigned char vtable_51e670[]; extern "C" void __cdecl release_buffer_51e670(void*); extern "C" void __cdecl release_object_51e670(void*);
-class Leaf_51e670 { public: void* get(unsigned int flags); };
-void* Leaf_51e670::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_51e670; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_51e670((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_51e670(this); return this; }
+// VectorClass<CCINIClass *>::`scalar deleting destructor' (0x0051E670)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_51e6c0[]; extern "C" void __cdecl release_buffer_51e6c0(void*); extern "C" void __cdecl release_object_51e6c0(void*);
-class Leaf_51e6c0 { public: void* get(unsigned int flags); };
-void* Leaf_51e6c0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_51e6c0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_51e6c0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_51e6c0(this); return this; }
+// DynamicVectorClass<CCINIClass *>::`scalar deleting destructor' (0x0051E6C0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 extern "C" unsigned char table_51e710[]; extern "C" void* __cdecl storage_51e710(unsigned int);

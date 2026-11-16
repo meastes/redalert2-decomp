@@ -30,7 +30,7 @@
    "padding_bytes": 2
   },
   {
-   "symbol": "?Set_Position_00539f30@Owner_00539f30@seed_00539f30@@QAEXHH@Z",
+   "symbol": "?Set_Position@ListClass@@UAEXHH@Z",
    "entry": "00539f30",
    "body_bytes": 136,
    "padding_bytes": 8
@@ -198,7 +198,7 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?get@Leaf_53aaf0@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAG@@UAEPAXI@Z",
    "entry": "0053aaf0",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -276,7 +276,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?scalar_deleting_destructor_0053ae60@Owner_0053ae60@seed_0053ae60@@QAEPAIE@Z",
+   "symbol": "??_G?$VectorClass@PAG@@UAEPAXI@Z",
    "entry": "0053ae60",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -284,6 +284,20 @@
  ],
  "code_bytes": 4832,
  "data": [
+  {
+   "symbol": "??_7ShapeButtonClass@@6B@",
+   "address": "007a06a0",
+   "bytes": 140,
+   "kind": "vtable",
+   "section": 21
+  },
+  {
+   "symbol": "??_7ToggleClass@@6B@",
+   "address": "007a0730",
+   "bytes": 136,
+   "kind": "vtable",
+   "section": 22
+  },
   {
    "symbol": "??_7GaugeClass@@6B@",
    "address": "007a18f4",
@@ -310,6 +324,18 @@
  "data_bytes_proven": 0,
  "data_complete": true,
  "kept_elsewhere": [
+  {
+   "symbol": "??_7ShapeButtonClass@@6B@",
+   "address": "007a06a0",
+   "bytes": 140,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7ToggleClass@@6B@",
+   "address": "007a0730",
+   "bytes": 136,
+   "kind": "vtable"
+  },
   {
    "symbol": "??_7GaugeClass@@6B@",
    "address": "007a18f4",
@@ -556,14 +582,6 @@
    "address": "00781d3b"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@PAG@@UAEPAXI@Z",
-   "address": "0053aaf0"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAG@@UAEPAXI@Z",
-   "address": "0053ae60"
-  },
-  {
    "symbol": "??_GGaugeClass@@UAEPAXI@Z",
    "address": "004d0cb0"
   },
@@ -768,10 +786,6 @@
    "address": "004cf660"
   },
   {
-   "symbol": "?Set_Position@ListClass@@UAEXHH@Z",
-   "address": "00539f30"
-  },
-  {
    "symbol": "?Set_Shape@ShapeButtonClass@@UAEXPBXHH@Z",
    "address": "00675130"
   },
@@ -816,28 +830,8 @@
    "address": "00538ff0"
   },
   {
-   "symbol": "?operator_delete_00781d3b@seed_0053ae60@@YAXI@Z",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_VectorClass_unsigned_short_vtable_007a5734",
-   "address": "007a5734"
-  },
-  {
    "symbol": "__wcsicmp",
    "address": "00796318"
-  },
-  {
-   "symbol": "_release_buffer_53aaf0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_53aaf0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_vtable_53aaf0",
-   "address": "007a5734"
   }
  ],
  "route": "A",
@@ -945,14 +939,6 @@
   {
    "symbol": null,
    "reason": "bytes differ from the original"
-  },
-  {
-   "symbol": "??_7ShapeButtonClass@@6B@",
-   "reason": "relocation target unbound: ??_EShapeButtonClass@@UAEPAXI@Z"
-  },
-  {
-   "symbol": "??_7ToggleClass@@6B@",
-   "reason": "relocation target unbound: ??_EToggleClass@@UAEPAXI@Z"
   }
  ],
  "stand_in_references": [],

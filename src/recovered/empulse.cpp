@@ -72,7 +72,6 @@ DynamicVectorClass<EMPulseClass *> EMPulseClass::Array;
 // atexit destructor (0x004B4BA0, _$E42) emitted by HeaderStatics_diagonal_init_004b4970.cpp; no source of its own.
 
 
-
 EMPulseClass::~EMPulseClass()
 {
     if (GameActive) Clear_Cells_004B5210();
@@ -280,7 +279,6 @@ int __stdcall Save_004b53d0(unsigned int object_address, unsigned int stream_add
 }
 
 
-
 class Leaf_4b53f0 { public: unsigned int get(); };
 unsigned int Leaf_4b53f0::get() { return 0x34; }
 
@@ -289,9 +287,8 @@ class Leaf_4b5400 { public: unsigned int get(); };
 unsigned int Leaf_4b5400::get() { return 0x37; }
 
 
-extern "C" void __cdecl release_4b54b0(void*);
-class Cleanup_4b54b0 { unsigned char pad0[4]; unsigned int* items; int count; unsigned char pad12[1]; unsigned char owns; unsigned char pad14[2]; int capacity; public: void get(); };
-void Cleanup_4b54b0::get() { unsigned int* pointer=items; capacity=0; if(pointer && owns) { release_4b54b0(pointer); items=0; } owns=0; count=0; }
+// DynamicVectorClass<EMPulseClass *>::Clear (0x004B54B0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 extern "C" void __cdecl release_4b5600(void*);

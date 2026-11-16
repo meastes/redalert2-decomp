@@ -1870,24 +1870,20 @@ void Cleanup_42ae60::get() { unsigned int* pointer=items; capacity=0; if(pointer
 // DynamicVectorClass<unsigned short>::ID(unsigned short const &) (vtable 0x0079C554 slot 4) (0x0042B3A0).
 
 
-extern "C" unsigned char vtable_42b3d0[]; extern "C" void __cdecl release_buffer_42b3d0(void*); extern "C" void __cdecl release_object_42b3d0(void*);
-class Leaf_42b3d0 { public: void* get(unsigned int flags); };
-void* Leaf_42b3d0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_42b3d0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_42b3d0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_42b3d0(this); return this; }
+// VectorClass<unsigned int>::`scalar deleting destructor' (0x0042B3D0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_42b420[]; extern "C" void __cdecl release_buffer_42b420(void*); extern "C" void __cdecl release_object_42b420(void*);
-class Leaf_42b420 { public: void* get(unsigned int flags); };
-void* Leaf_42b420::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_42b420; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_42b420((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_42b420(this); return this; }
+// DynamicVectorClass<unsigned int>::`scalar deleting destructor' (0x0042B420)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_42b470[]; extern "C" void __cdecl release_buffer_42b470(void*); extern "C" void __cdecl release_object_42b470(void*);
-class Leaf_42b470 { public: void* get(unsigned int flags); };
-void* Leaf_42b470::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_42b470; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_42b470((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_42b470(this); return this; }
+// VectorClass<unsigned short>::`scalar deleting destructor' (0x0042B470)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_42b4c0[]; extern "C" void __cdecl release_buffer_42b4c0(void*); extern "C" void __cdecl release_object_42b4c0(void*);
-class Leaf_42b4c0 { public: void* get(unsigned int flags); };
-void* Leaf_42b4c0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_42b4c0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_42b4c0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_42b4c0(this); return this; }
+// DynamicVectorClass<unsigned short>::`scalar deleting destructor' (0x0042B4C0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 extern "C" unsigned char table_42b510[]; extern "C" void* __cdecl storage_42b510(unsigned int);

@@ -2538,7 +2538,7 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?get@Cleanup_51e0a0@@QAEXXZ",
+   "symbol": "?Clear@?$DynamicVectorClass@PAVCCINIClass@@@@UAEXXZ",
    "entry": "0051e0a0",
    "body_bytes": 42,
    "padding_bytes": 6
@@ -2610,13 +2610,13 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?get@Leaf_51e670@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAVCCINIClass@@@@UAEPAXI@Z",
    "entry": "0051e670",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_51e6c0@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAVCCINIClass@@@@UAEPAXI@Z",
    "entry": "0051e6c0",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -3166,7 +3166,7 @@
    "address": "007a8824",
    "bytes": 28,
    "kind": "vtable",
-   "section": 1398
+   "section": 1392
   },
   {
    "symbol": "??_C@_04EFNI@Name?$AA@",
@@ -9671,16 +9671,8 @@
    "address": "0069a430"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@PAVCCINIClass@@@@UAEPAXI@Z",
-   "address": "0051e6c0"
-  },
-  {
    "symbol": "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z",
    "address": "0040e300"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVCCINIClass@@@@UAEPAXI@Z",
-   "address": "0051e670"
   },
   {
    "symbol": "??_G?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UAEPAXI@Z",
@@ -11963,26 +11955,6 @@
    "address": "00781d46"
   },
   {
-   "symbol": "_release_51e0a0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_51e670",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_51e6c0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_51e670",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_51e6c0",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_s_INTRO_007dbc90",
    "address": "007dbc90"
   },
@@ -12017,14 +11989,6 @@
   {
    "symbol": "_toupper",
    "address": "007829d3"
-  },
-  {
-   "symbol": "_vtable_51e670",
-   "address": "007a3c04"
-  },
-  {
-   "symbol": "_vtable_51e6c0",
-   "address": "007a3c04"
   }
  ],
  "route": "A",

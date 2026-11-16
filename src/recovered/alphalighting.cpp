@@ -122,7 +122,6 @@ void  unknown_empty_0041e600(void)
 }
 
 
-
 // Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):
 // DynamicVectorClass<AlphaLightingRemapClass *>::Clear (0x0041E610; DynamicVectorClass<AlphaLightingRemapClass *> vtable 0x0079b800 slot 3).
 // DynamicVectorClass<AlphaLightingRemapClass *>::ID_pointer (0x0041E640; DynamicVectorClass<AlphaLightingRemapClass *> vtable 0x0079b800 slot 5).
@@ -136,11 +135,9 @@ void  unknown_empty_0041e600(void)
 // DynamicVectorClass<AlphaLightingRemapClass *>::ID_object (0x0041E8A0; DynamicVectorClass<AlphaLightingRemapClass *> vtable 0x0079b800 slot 4).
 
 
-extern "C" unsigned char vtable_41e8d0[]; extern "C" void __cdecl release_buffer_41e8d0(void*); extern "C" void __cdecl release_object_41e8d0(void*);
-class Leaf_41e8d0 { public: void* get(unsigned int flags); };
-void* Leaf_41e8d0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_41e8d0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_41e8d0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_41e8d0(this); return this; }
+// VectorClass<AlphaLightingRemapClass *>::`scalar deleting destructor' (0x0041E8D0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_41e920[]; extern "C" void __cdecl release_buffer_41e920(void*); extern "C" void __cdecl release_object_41e920(void*);
-class Leaf_41e920 { public: void* get(unsigned int flags); };
-void* Leaf_41e920::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_41e920; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_41e920((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_41e920(this); return this; }
+// DynamicVectorClass<AlphaLightingRemapClass *>::`scalar deleting destructor' (0x0041E920)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.

@@ -4902,70 +4902,12 @@ void BlitTranslucent50ZeroAlpha<unsigned short>::BlitBackward(void *target, void
 // inline virtual destructor (shared/basic_xlat_blitters.hpp), emitted with its vtable.
 
 
-// 0x0048c7b0: function not yet identified
-//
-// Owner: Blitter, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
-// Body: 32 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_0048c7b0(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0048c7b0 {
-
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" void* Blitter_vtable_0079e52c;
-
-struct Owner_0048c7b0 { unsigned int * scalar_deleting_destructor_0048c7b0(unsigned char flags); };
-
-unsigned int * Owner_0048c7b0::scalar_deleting_destructor_0048c7b0(unsigned char flags)
-{
-    unsigned int * self = (unsigned int *)this;
-    *self = (unsigned int)(&Blitter_vtable_0079e52c);
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_0048c7b0
+// Blitter::`scalar deleting destructor' (0x0048C7B0)
+// Compiler-emitted from shared/blitter.hpp in this unit; no source of its own.
 
 
-// 0x0048c890: function not yet identified
-//
-// Owner: RLEBlitter, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
-// Body: 32 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_0048c890(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0048c890 {
-
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" void* RLEBlitter_vtable_0079e53c;
-
-struct Owner_0048c890 { unsigned int * scalar_deleting_destructor_0048c890(unsigned char flags); };
-
-unsigned int * Owner_0048c890::scalar_deleting_destructor_0048c890(unsigned char flags)
-{
-    unsigned int * self = (unsigned int *)this;
-    *self = (unsigned int)(&RLEBlitter_vtable_0079e53c);
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_0048c890
+// RLEBlitter::`scalar deleting destructor' (0x0048C890)
+// Compiler-emitted from shared/rle_blitter.hpp in this unit; no source of its own.
 
 
 // BlitPlainXlatAlpha<unsigned short>'s scalar deleting destructor (0x0048CCF0): compiler-generated from the class's
@@ -5147,11 +5089,9 @@ void BlitTransXlat<unsigned short>::BlitBackward(void *target, void const *sourc
 // DynamicVectorClass<ConvertClass *>::ID_object (0x0048DBA0; DynamicVectorClass<ConvertClass *> vtable 0x0079df30 slot 4).
 
 
-extern "C" unsigned char vtable_48dbd0[]; extern "C" void __cdecl release_buffer_48dbd0(void*); extern "C" void __cdecl release_object_48dbd0(void*);
-class Leaf_48dbd0 { public: void* get(unsigned int flags); };
-void* Leaf_48dbd0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_48dbd0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_48dbd0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_48dbd0(this); return this; }
+// VectorClass<ConvertClass *>::`scalar deleting destructor' (0x0048DBD0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_48dc20[]; extern "C" void __cdecl release_buffer_48dc20(void*); extern "C" void __cdecl release_object_48dc20(void*);
-class Leaf_48dc20 { public: void* get(unsigned int flags); };
-void* Leaf_48dc20::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_48dc20; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_48dc20((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_48dc20(this); return this; }
+// DynamicVectorClass<ConvertClass *>::`scalar deleting destructor' (0x0048DC20)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.

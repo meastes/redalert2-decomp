@@ -267,7 +267,7 @@
  "references_in": [
   {
    "site": "004a5780",
-   "symbol": "?cleanup@Leaf_4a5780@@QAEXXZ",
+   "symbol": "??1EditClass@@UAE@XZ",
    "target": "004b2a60",
    "function_entry": true
   },
@@ -518,15 +518,8 @@
    "reason": "no original address bound"
   }
  ],
- "stand_in_references": [
-  {
-   "site": "004a5780",
-   "target": "004b2a60",
-   "symbol": "?cleanup@Leaf_4a5780@@QAEXXZ",
-   "module_symbol": "??1EditClass@@UAE@XZ"
-  }
- ],
- "stand_in_reference_count": 1,
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
  "residual_split": {
   "rows": 0,
   "bytes": 0

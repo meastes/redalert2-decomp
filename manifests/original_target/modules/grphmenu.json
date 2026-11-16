@@ -91,13 +91,13 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?get@Leaf_4deef0@@QAEPAXI@Z",
+   "symbol": "??_GINIClass@@UAEPAXI@Z",
    "entry": "004deef0",
    "body_bytes": 30,
    "padding_bytes": 2
   },
   {
-   "symbol": "?get@Leaf_4def10@@QAEPAXI@Z",
+   "symbol": "??_GGraphicMenu@@UAEPAXI@Z",
    "entry": "004def10",
    "body_bytes": 30,
    "padding_bytes": 2
@@ -187,13 +187,13 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?get@Leaf_4df240@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z",
    "entry": "004df240",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_4df290@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z",
    "entry": "004df290",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -1247,16 +1247,8 @@
    "address": "007b15e4"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
    "symbol": "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z",
    "address": "0040e300"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z",
-   "address": null
   },
   {
    "symbol": "??_G?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEPAXI@Z",
@@ -1277,14 +1269,6 @@
   {
    "symbol": "??_GGenericNode@@UAEPAXI@Z",
    "address": "0040e1d0"
-  },
-  {
-   "symbol": "??_GGraphicMenu@@UAEPAXI@Z",
-   "address": "004def10"
-  },
-  {
-   "symbol": "??_GINIClass@@UAEPAXI@Z",
-   "address": "004deef0"
   },
   {
    "symbol": "?Add_Anim@MSEngine@@QAEHPAVMSAnim@@@Z",
@@ -1515,14 +1499,6 @@
    "address": "00469030"
   },
   {
-   "symbol": "?cleanup@Leaf_4deef0@@QAEXXZ",
-   "address": "0050b8d0"
-  },
-  {
-   "symbol": "?cleanup@Leaf_4def10@@QAEXXZ",
-   "address": "004de880"
-  },
-  {
    "symbol": "?operator_delete_00781d3b@seed_004defa0@@YAXI@Z",
    "address": "00781d3b"
   },
@@ -1535,30 +1511,6 @@
    "address": "007a2b84"
   },
   {
-   "symbol": "_release_4deef0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_4def10",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_4df240",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_4df290",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_4df240",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_4df290",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_sprintf",
    "address": "007820f4"
   },
@@ -1568,14 +1520,6 @@
   },
   {
    "symbol": "_table_4df2e0",
-   "address": "007a2b64"
-  },
-  {
-   "symbol": "_vtable_4df240",
-   "address": "007a2b64"
-  },
-  {
-   "symbol": "_vtable_4df290",
    "address": "007a2b64"
   }
  ],

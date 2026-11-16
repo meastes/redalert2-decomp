@@ -24,8 +24,6 @@
 #include "shared/shape_file.hpp"
 
 
-
-
 #include "shared/gadget.hpp"
 
 
@@ -396,43 +394,13 @@ GadgetClass &GadgetClass::operator=(GadgetClass const &gadget)
 // VectorClass<wchar_t *>::operator=; called by ListClass copy construction.
 
 
-extern "C" void __cdecl release_4a5780(void*);
-class Leaf_4a5780 { public: void cleanup();void* get(unsigned int flags); };
-void* Leaf_4a5780::get(unsigned int flags) { cleanup(); if (flags & 1) release_4a5780(this); return this; }
+// EditClass::`scalar deleting destructor' (0x004A5780)
+// Compiler-emitted from shared/gadget.hpp in this unit; no source of its own.
 
 
-// 0x004A57A0: ShapeButtonClass's scalar deleting destructor, the copy the linker kept from the
-// DropList unit: runs ShapeButtonClass::~ShapeButtonClass, then operator delete when flags bit 0
-// is set. Stand-in owner class until the emitting unit produces it naturally.
-
-class Leaf_4a57a0 { public: void* get(unsigned int flags); };
-void* Leaf_4a57a0::get(unsigned int flags) { ((ShapeButtonClass *)this)->ShapeButtonClass::~ShapeButtonClass(); if (flags & 1) operator delete(this); return this; }
+// ShapeButtonClass::`scalar deleting destructor' (0x004A57A0)
+// Compiler-emitted from shared/gadget.hpp in this unit; no source of its own.
 
 
-// 0x004a57c0: function not yet identified
-//
-// Owner: ToggleClass, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
-// Body: 30 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 __thiscall scalar_deleting_destructor_004a57c0(undefined4 param_1,byte param_2)
-// Calls GadgetClass::~GadgetClass, then operator delete when flags bit 0 is set
-// (a scalar deleting destructor of a GadgetClass-derived class with a trivial destructor).
-//
-// Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_004a57c0 {
-
-struct Owner_004a57c0 { unsigned int scalar_deleting_destructor_004a57c0(unsigned char flags); };
-
-unsigned int Owner_004a57c0::scalar_deleting_destructor_004a57c0(unsigned char flags)
-{
-    ((GadgetClass *)this)->GadgetClass::~GadgetClass();
-    if ((flags & 1) != 0) {
-        operator delete(this);
-    }
-    return (unsigned int)this;
-}
-
-}  // namespace seed_004a57c0
+// ToggleClass::`scalar deleting destructor' (0x004A57C0)
+// Compiler-emitted from shared/gadget.hpp in this unit; no source of its own.

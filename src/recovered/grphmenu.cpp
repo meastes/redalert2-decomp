@@ -274,14 +274,12 @@ void GraphicMenu::Set_Background(Wstring const &background)
 }
 
 
-extern "C" void __cdecl release_4deef0(void*);
-class Leaf_4deef0 { public: void cleanup();void* get(unsigned int flags); };
-void* Leaf_4deef0::get(unsigned int flags) { cleanup(); if (flags & 1) release_4deef0(this); return this; }
+// INIClass::`scalar deleting destructor' (0x004DEEF0)
+// Compiler-emitted from shared/ini_class.hpp in this unit; no source of its own.
 
 
-extern "C" void __cdecl release_4def10(void*);
-class Leaf_4def10 { public: void cleanup();void* get(unsigned int flags); };
-void* Leaf_4def10::get(unsigned int flags) { cleanup(); if (flags & 1) release_4def10(this); return this; }
+// GraphicMenu::`scalar deleting destructor' (0x004DEF10)
+// Compiler-emitted from shared/graphic_menu_class.hpp in this unit; no source of its own.
 
 
 // VectorCursor_GraphicMenuItem_Boolean_Conversion_004def90 (0x004DEF90)
@@ -290,7 +288,6 @@ bool __fastcall VectorCursor_GraphicMenuItem_Boolean_Conversion_004def90(int cur
 {
     return *(unsigned int *)(cursor_address + 8) < *(unsigned int *)(*(int *)(cursor_address + 4) + 0x10);
 }
-
 
 
 // 0x004defa0: function not yet identified
@@ -347,14 +344,12 @@ class Leaf_4df230 { public: unsigned int get(); };
 unsigned int Leaf_4df230::get() { unsigned int cursor_address = (unsigned int)this; unsigned int result_address; unsigned int unused_value; result_address = cursor_address; *(unsigned int*)(result_address + 8) = (*(unsigned int*)(result_address + 8)) - 1; return result_address; }
 
 
-extern "C" unsigned char vtable_4df240[]; extern "C" void __cdecl release_buffer_4df240(void*); extern "C" void __cdecl release_object_4df240(void*);
-class Leaf_4df240 { public: void* get(unsigned int flags); };
-void* Leaf_4df240::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_4df240; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_4df240((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_4df240(this); return this; }
+// VectorClass<GraphicMenuItem *>::`scalar deleting destructor' (0x004DF240)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_4df290[]; extern "C" void __cdecl release_buffer_4df290(void*); extern "C" void __cdecl release_object_4df290(void*);
-class Leaf_4df290 { public: void* get(unsigned int flags); };
-void* Leaf_4df290::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_4df290; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_4df290((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_4df290(this); return this; }
+// DynamicVectorClass<GraphicMenuItem *>::`scalar deleting destructor' (0x004DF290)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 extern "C" unsigned char table_4df2e0[]; extern "C" void* __cdecl storage_4df2e0(unsigned int);

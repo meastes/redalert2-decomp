@@ -393,18 +393,16 @@ extern "C" char *__cdecl strtok(char *string, char const *delimiters);
 // destructor; it is the copy at 0x0050B100.
 
 
-class Leaf_50b250 { public: unsigned int get(unsigned int unused_argument); };
-unsigned int Leaf_50b250::get(unsigned int unused_argument) { unsigned int this_address = (unsigned int)this; unsigned int object_address; unsigned int unused_value; object_address = this_address; *(unsigned int*)(object_address) = 0x7a3b7c; return object_address; }
+// DynamicVectorClass<AnimTypeClass *>::DynamicVectorClass (0x0050B250)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_50b260[]; extern "C" void __cdecl release_buffer_50b260(void*); extern "C" void __cdecl release_object_50b260(void*);
-class Leaf_50b260 { public: void* get(unsigned int flags); };
-void* Leaf_50b260::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_50b260; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_50b260((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_50b260(this); return this; }
+// DynamicVectorClass<AnimTypeClass *>::`scalar deleting destructor' (0x0050B260)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_50b2b0[]; extern "C" void __cdecl release_buffer_50b2b0(void*); extern "C" void __cdecl release_object_50b2b0(void*);
-class Leaf_50b2b0 { public: void* get(unsigned int flags); };
-void* Leaf_50b2b0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_50b2b0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_50b2b0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_50b2b0(this); return this; }
+// VectorClass<AnimTypeClass *>::`scalar deleting destructor' (0x0050B2B0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 // Original region: 0x0050b480 (93 body bytes, 3 independently frozen NOP bytes).

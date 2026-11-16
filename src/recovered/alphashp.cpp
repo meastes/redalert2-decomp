@@ -431,11 +431,9 @@ void AlphaShapeClass::Init_Alpha_Table()
 // Compiler-generated with the vtable (the destructor inlined). No source of its own.
 
 
-extern "C" unsigned char vtable_41fd50[]; extern "C" void __cdecl release_buffer_41fd50(void*); extern "C" void __cdecl release_object_41fd50(void*);
-class Leaf_41fd50 { public: void* get(unsigned int flags); };
-void* Leaf_41fd50::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_41fd50; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_41fd50((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_41fd50(this); return this; }
+// VectorClass<AlphaShapeClass *>::`scalar deleting destructor' (0x0041FD50)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_41fda0[]; extern "C" void __cdecl release_buffer_41fda0(void*); extern "C" void __cdecl release_object_41fda0(void*);
-class Leaf_41fda0 { public: void* get(unsigned int flags); };
-void* Leaf_41fda0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_41fda0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_41fda0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_41fda0(this); return this; }
+// DynamicVectorClass<AlphaShapeClass *>::`scalar deleting destructor' (0x0041FDA0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.

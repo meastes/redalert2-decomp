@@ -517,18 +517,6 @@
    "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
   },
   {
-   "entry": "0x0051FC80",
-   "name": "HouseClass::Ion_Sensitives_Should_Be_Offline()",
-   "symbol": "__ZN10HouseClass32Ion_Sensitives_Should_Be_OfflineEv",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_scenario.cpp",
-   "source": "leaf src/recovered/0051fc80.cpp (returns false)",
-   "behaviour_verdict": "same",
-   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
-  },
-  {
    "entry": "0x00622160",
    "name": "UnknownQuaternion::UnknownQuaternion(float, float, float, float)",
    "symbol": "__ZN17UnknownQuaternionC1Effff",
@@ -849,18 +837,6 @@
    "source": "leaf src/recovered/classes/ObjectClass/00423e60.cpp (returns 0)"
   },
   {
-   "entry": "0x004C9BC0",
-   "name": "FootClass::Draw_It(Point2D const &, Rect const &)",
-   "symbol": "__ZN9FootClass7Draw_ItERK7Point2DRK4Rect",
-   "origin_class": "unmatched leaf (slot 67)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_coord.cpp",
-   "source": "leaf src/recovered/classes/FootClass/004c9bc0.cpp (ret 8: an empty body)",
-   "behaviour_verdict": "same",
-   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, load-SAVE397A.SAV, load-SAVE4FBD.SAV, saveend)"
-  },
-  {
    "entry": "0x006D8640",
    "name": "TechnoClass::Unknown_006D8640(WeaponStruct *)",
    "symbol": "__ZN11TechnoClass16Unknown_006D8640EP12WeaponStruct",
@@ -923,16 +899,6 @@
    "exact": false,
    "file": "native/link/behaviour_audio_m8.cpp",
    "source": "decompile 0x004010A0"
-  },
-  {
-   "entry": "0x00401170",
-   "name": "AudioLevelSet::Clear_Changed()",
-   "symbol": "__ZN13AudioLevelSet13Clear_ChangedEv",
-   "origin_class": "unmatched leaf (audio)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_audio_m8.cpp",
-   "source": "decompile 0x00401170"
   },
   {
    "entry": "0x004015C0",
@@ -1051,16 +1017,6 @@
    "source": "seed decompile 0x0041F1C0; TibSun alphashp.cpp AlphaShapeClass::Draw_In_Area",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (census, combat, load-ALL01T.sav, load-ALL02S.sav, load-ALL03U.sav, saveend)"
-  },
-  {
-   "entry": "0x004CD9B0",
-   "name": "FootClass::Abort_Motion()",
-   "symbol": "__ZN9FootClass12Abort_MotionEv",
-   "origin_class": "unmatched leaf",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m10.cpp",
-   "source": "seed leaf 0x004CD9B0"
   },
   {
    "entry": "0x004131D0",
@@ -1813,16 +1769,6 @@
    "notes": "Scout1138 (M17)"
   },
   {
-   "entry": "0x0049AF80",
-   "name": "DisplayClass::Mouse_Right_Press",
-   "origin_class": "unmatched",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_owner.cpp",
-   "source": "pass-6a decompile 0049af80 (empty)",
-   "notes": "owner 2026-11-09, user crash report"
-  },
-  {
    "entry": "0x004F3120",
    "name": "HouseClass::Can_Add_Waypoint_To_Path",
    "origin_class": "unmatched",
@@ -2016,16 +1962,6 @@
    "exact": false,
    "file": "native/link/behaviour_m20_bomb.cpp",
    "source": "pass-6a decompile 0041b2e0 (return 0)",
-   "notes": "Scout1161 M20 play-stability sweep trap"
-  },
-  {
-   "entry": "0x004071E0",
-   "name": "AudioLevel::Get_Target",
-   "origin_class": "unmatched",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m20_wdt.cpp",
-   "source": "pass-6a decompile 004071e0 (+0x08 >> 16)",
    "notes": "Scout1161 M20 play-stability sweep trap"
   },
   {

@@ -187,7 +187,7 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?get@Cleanup_4b54b0@@QAEXXZ",
+   "symbol": "?Clear@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEXXZ",
    "entry": "004b54b0",
    "body_bytes": 42,
    "padding_bytes": 6
@@ -298,7 +298,7 @@
    "address": "0079a768",
    "bytes": 32,
    "kind": "vtable",
-   "section": 154
+   "section": 152
   },
   {
    "symbol": "_unknown_geometry_sixty",
@@ -347,28 +347,28 @@
    "address": "007b25f8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 149
+   "section": 147
   },
   {
    "symbol": "??_R2?$VectorClass@USubzoneConnectionStruct@@@@8",
    "address": "007b2610",
    "bytes": 5,
    "kind": "rtti",
-   "section": 150
+   "section": 148
   },
   {
    "symbol": "??_R3?$VectorClass@USubzoneConnectionStruct@@@@8",
    "address": "007b2618",
    "bytes": 16,
    "kind": "rtti",
-   "section": 151
+   "section": 149
   },
   {
    "symbol": "??_R4?$VectorClass@USubzoneConnectionStruct@@@@6B@",
    "address": "007b2628",
    "bytes": 20,
    "kind": "rtti",
-   "section": 153
+   "section": 151
   },
   {
    "symbol": "??_R1M@?0A@A@INoticeSource@@8",
@@ -536,7 +536,7 @@
    "address": "007cd310",
    "bytes": 55,
    "kind": "rtti",
-   "section": 152
+   "section": 150
   },
   {
    "symbol": "??_R0?AVINoticeSink@@@8",
@@ -1215,10 +1215,6 @@
   {
    "symbol": "_atexit",
    "address": "0078298a"
-  },
-  {
-   "symbol": "_release_4b54b0",
-   "address": "00781d3b"
   },
   {
    "symbol": "_release_4b5600",

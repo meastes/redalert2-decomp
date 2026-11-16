@@ -169,19 +169,19 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?get@Leaf_4a5780@@QAEPAXI@Z",
+   "symbol": "??_GEditClass@@UAEPAXI@Z",
    "entry": "004a5780",
    "body_bytes": 30,
    "padding_bytes": 2
   },
   {
-   "symbol": "?get@Leaf_4a57a0@@QAEPAXI@Z",
+   "symbol": "??_GShapeButtonClass@@UAEPAXI@Z",
    "entry": "004a57a0",
    "body_bytes": 30,
    "padding_bytes": 2
   },
   {
-   "symbol": "?scalar_deleting_destructor_004a57c0@Owner_004a57c0@seed_004a57c0@@QAEIE@Z",
+   "symbol": "??_GToggleClass@@UAEPAXI@Z",
    "entry": "004a57c0",
    "body_bytes": 30,
    "padding_bytes": 2
@@ -201,6 +201,27 @@
    "bytes": 188,
    "kind": "vtable",
    "section": 20
+  },
+  {
+   "symbol": "??_7ShapeButtonClass@@6B@",
+   "address": "007a069c",
+   "bytes": 144,
+   "kind": "vtable",
+   "section": 80
+  },
+  {
+   "symbol": "??_7ToggleClass@@6B@",
+   "address": "007a072c",
+   "bytes": 140,
+   "kind": "vtable",
+   "section": 81
+  },
+  {
+   "symbol": "??_7EditClass@@6B@",
+   "address": "007a07b8",
+   "bytes": 160,
+   "kind": "vtable",
+   "section": 82
   },
   {
    "symbol": "??_R1A@?0A@A@LinkClass@@8",
@@ -393,6 +414,24 @@
    "symbol": "??_7DropListClass@@6B@",
    "address": "007a05e0",
    "bytes": 188,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7ShapeButtonClass@@6B@",
+   "address": "007a069c",
+   "bytes": 144,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7ToggleClass@@6B@",
+   "address": "007a072c",
+   "bytes": 140,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7EditClass@@6B@",
+   "address": "007a07b8",
+   "bytes": 160,
    "kind": "vtable"
   },
   {
@@ -615,18 +654,6 @@
    "address": "007b15e4"
   },
   {
-   "symbol": "??_GEditClass@@UAEPAXI@Z",
-   "address": null
-  },
-  {
-   "symbol": "??_GShapeButtonClass@@UAEPAXI@Z",
-   "address": null
-  },
-  {
-   "symbol": "??_GToggleClass@@UAEPAXI@Z",
-   "address": null
-  },
-  {
    "symbol": "?Action@EditClass@@UAEHIAAI@Z",
    "address": "004b2b40"
   },
@@ -791,16 +818,8 @@
    "address": "00538ff0"
   },
   {
-   "symbol": "?cleanup@Leaf_4a5780@@QAEXXZ",
-   "address": "004b2a60"
-  },
-  {
    "symbol": "__wcsicmp",
    "address": "00796318"
-  },
-  {
-   "symbol": "_release_4a5780",
-   "address": "00781d3b"
   },
   {
    "symbol": "_wcscpy",
@@ -874,18 +893,6 @@
   {
    "symbol": "_$S3",
    "reason": "no original address bound"
-  },
-  {
-   "symbol": "??_7ShapeButtonClass@@6B@",
-   "reason": "relocation target unbound: ??_EShapeButtonClass@@UAEPAXI@Z"
-  },
-  {
-   "symbol": "??_7ToggleClass@@6B@",
-   "reason": "relocation target unbound: ??_EToggleClass@@UAEPAXI@Z"
-  },
-  {
-   "symbol": "??_7EditClass@@6B@",
-   "reason": "relocation target unbound: ??_EEditClass@@UAEPAXI@Z"
   }
  ],
  "stand_in_references": [],

@@ -769,15 +769,38 @@ def rename_catalog(catalog, renames, files, moves, scoped=None, overloads=None):
     overloads = overloads or {}
     affected = set()
     tables = {}
+    used = collections.defaultdict(set)
+    for region in catalog['regions']:
+        used[region['population']].update(r['symbol'] for r in region.get('relocations') or [])
+        used[region['population']].update((region['symbol'], region['symbol_prefix']))
     for region in catalog['regions']:
         pid = region['population']
         if pid not in tables:
             old = region.get('references') or {}
-            table = {}
+            table, origin, scoped_origin = {}, {}, {}
             for name, value in old.items():
                 new = renames.get(name) or scoped_name(scoped, name, value) or overload_name(overloads, name, value) or name
                 if table.setdefault(new, value) != value:
+                    # docs/DECISIONS.md (owner 2026-11-14, extended by lane CA2 to address-scoped renames): a
+                    # name no row of the population relocates to or is named by is a stale table entry,
+                    # not a conflict; when an address-scoped rename (two copies of one template member
+                    # in two units) makes it collide with another binding it leaves the table (logged in
+                    # the receipt's stale_dropped). Plain renames still refuse.
+                    other = origin[new]
+                    if scoped_name(scoped, name, value) or scoped_origin.get(new):
+                        if name not in used[pid]:
+                            STALE_DROPPED.append(dict(population=pid, name=name, now=new, was='%08x' % value,
+                                                      kept='%08x' % table[new]))
+                            continue
+                        if other not in used[pid]:
+                            STALE_DROPPED.append(dict(population=pid, name=other, now=new, was='%08x' % table[new],
+                                                      kept='%08x' % value))
+                            table[new] = value; origin[new] = name
+                            scoped_origin[new] = bool(scoped_name(scoped, name, value))
+                            continue
                     raise SystemExit('%s: %s would bind two addresses' % (pid, new))
+                scoped_origin.setdefault(new, bool(scoped_name(scoped, name, value)))
+                origin.setdefault(new, name)
             if overloads:
                 overload_bindings(table, overloads, pid)
             tables[pid] = table

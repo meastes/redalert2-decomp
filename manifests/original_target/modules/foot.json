@@ -463,7 +463,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?get@Leaf_4c9bc0@@QAEXII@Z",
+   "symbol": "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z",
    "entry": "004c9bc0",
    "body_bytes": 3,
    "padding_bytes": 13
@@ -781,7 +781,7 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?get@Leaf_4cd9b0@@QAEXXZ",
+   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
    "entry": "004cd9b0",
    "body_bytes": 15,
    "padding_bytes": 1
@@ -871,7 +871,7 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?get@Leaf_4cde10@@QAEPAXI@Z",
+   "symbol": "??_GFootClass@@UAEPAXI@Z",
    "entry": "004cde10",
    "body_bytes": 30,
    "padding_bytes": 2
@@ -919,7 +919,7 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?get@Leaf_4cdf30@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAVAbstractClass@@@@UAEPAXI@Z",
    "entry": "004cdf30",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -931,7 +931,7 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?get@Leaf_4cdf90@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAVAbstractClass@@@@UAEPAXI@Z",
    "entry": "004cdf90",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -1039,13 +1039,13 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?get@Leaf_4ce9f0@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAVFootClass@@@@UAEPAXI@Z",
    "entry": "004ce9f0",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_4cea40@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAVFootClass@@@@UAEPAXI@Z",
    "entry": "004cea40",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -1291,7 +1291,7 @@
    "address": "007a17f8",
    "bytes": 32,
    "kind": "vtable",
-   "section": 506
+   "section": 496
   },
   {
    "symbol": "??_R1M@?0A@A@INoticeSource@@8",
@@ -1585,28 +1585,28 @@
    "address": "007b86d0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 501
+   "section": 491
   },
   {
    "symbol": "??_R2?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@8",
    "address": "007b86e8",
    "bytes": 9,
    "kind": "rtti",
-   "section": 502
+   "section": 492
   },
   {
    "symbol": "??_R3?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@8",
    "address": "007b86f8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 503
+   "section": 493
   },
   {
    "symbol": "??_R4?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@6B@",
    "address": "007b8708",
    "bytes": 20,
    "kind": "rtti",
-   "section": 505
+   "section": 495
   },
   {
    "symbol": "??_R0?AVINoticeSink@@@8",
@@ -1760,7 +1760,7 @@
    "address": "007d8340",
    "bytes": 115,
    "kind": "rtti",
-   "section": 504
+   "section": 494
   }
  ],
  "data_ranges": [],
@@ -3543,26 +3543,6 @@
    "address": "007b15e4"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@PAVAbstractClass@@@@UAEPAXI@Z",
-   "address": "004cdf30"
-  },
-  {
-   "symbol": "??_G?$DynamicVectorClass@PAVFootClass@@@@UAEPAXI@Z",
-   "address": "004cea40"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVAbstractClass@@@@UAEPAXI@Z",
-   "address": "004cdf90"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVFootClass@@@@UAEPAXI@Z",
-   "address": "004ce9f0"
-  },
-  {
-   "symbol": "??_GFootClass@@UAEPAXI@Z",
-   "address": "004cde10"
-  },
-  {
    "symbol": "?AI@TechnoClass@@UAEXXZ",
    "address": "006c74c0"
   },
@@ -3873,10 +3853,6 @@
   {
    "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
    "address": "00532890"
-  },
-  {
-   "symbol": "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z",
-   "address": "004c9bc0"
   },
   {
    "symbol": "?Editor_Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z",
@@ -4647,10 +4623,6 @@
    "address": "00795940"
   },
   {
-   "symbol": "?cleanup@Leaf_4cde10@@QAEXXZ",
-   "address": "004c2cb0"
-  },
-  {
    "symbol": "?com_issue_error_00795940@seed_004cde90@@YGXI@Z",
    "address": "00795940"
   },
@@ -5251,42 +5223,6 @@
    "address": "0078298a"
   },
   {
-   "symbol": "_release_4cde10",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_4cdf30",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_4cdf90",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_4ce9f0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_4cea40",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_4cdf30",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_4cdf90",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_4ce9f0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_4cea40",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_storage_4ceb90",
    "address": "00782017"
   },
@@ -5313,22 +5249,6 @@
   {
    "symbol": "_unknown_uuid_IUnknown_7ce610",
    "address": "007ce610"
-  },
-  {
-   "symbol": "_vtable_4cdf30",
-   "address": "007a179c"
-  },
-  {
-   "symbol": "_vtable_4cdf90",
-   "address": "007a179c"
-  },
-  {
-   "symbol": "_vtable_4ce9f0",
-   "address": "007a1254"
-  },
-  {
-   "symbol": "_vtable_4cea40",
-   "address": "007a1254"
   }
  ],
  "route": "A",
@@ -5862,46 +5782,16 @@
    "module_symbol": "?unknown_slot304@FootClass@@UAEXXZ"
   },
   {
-   "site": "006f0630",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "006f0c50",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
    "site": "00509590",
    "target": "004cd9b0",
    "symbol": "?Unknown_004CD9B0@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "00507530",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
+   "module_symbol": "?Abort_Motion@FootClass@@QAEXXZ"
   },
   {
    "site": "00709890",
    "target": "004cd9b0",
    "symbol": "?Unknown_004CD9B0@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "0067a7a0",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "004a4850",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
+   "module_symbol": "?Abort_Motion@FootClass@@QAEXXZ"
   },
   {
    "site": "004f65a0",
@@ -5916,160 +5806,10 @@
    "module_symbol": "?FUN_004cde90@seed_004cde90@@YIHPAH@Z"
   },
   {
-   "site": "006fe610",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "00500550",
-   "target": "004c9bc0",
-   "symbol": "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z",
-   "module_symbol": "?get@Leaf_4c9bc0@@QAEXII@Z"
-  },
-  {
-   "site": "00447260",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "006f0000",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "004141c0",
-   "target": "004c9bc0",
-   "symbol": "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z",
-   "module_symbol": "?get@Leaf_4c9bc0@@QAEXII@Z"
-  },
-  {
-   "site": "006765b0",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "006765b0",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "004a05f0",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "004a05f0",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
    "site": "006d4400",
    "target": "004ceb90",
    "symbol": "??0?$VectorClass@PAVAbstractClass@@@@QAE@IPBQAVAbstractClass@@@Z",
    "module_symbol": "?get@Storage_4ceb90@@QAEPAXIPAI@Z"
-  },
-  {
-   "site": "00676f60",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "004a1000",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "006785c0",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "006785c0",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "006785c0",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "006785c0",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "006785c0",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "006785c0",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "006785c0",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "004a2670",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "004a2670",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "004a2670",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "004a2670",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "004a2670",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "004a2670",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "004a2670",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
   },
   {
    "site": "007025a0",
@@ -6078,18 +5818,6 @@
    "module_symbol": "?FUN_004cde90@seed_004cde90@@YIHPAH@Z"
   },
   {
-   "site": "007025a0",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
-  },
-  {
-   "site": "00700e70",
-   "target": "004c9bc0",
-   "symbol": "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z",
-   "module_symbol": "?get@Leaf_4c9bc0@@QAEXII@Z"
-  },
-  {
    "site": "006c1f10",
    "target": "004ceb90",
    "symbol": "??0?$VectorClass@PAVAbstractClass@@@@QAE@IPBQAVAbstractClass@@@Z",
@@ -6100,12 +5828,6 @@
    "target": "004ceb90",
    "symbol": "??0?$VectorClass@PAVAbstractClass@@@@QAE@IPBQAVAbstractClass@@@Z",
    "module_symbol": "?get@Storage_4ceb90@@QAEPAXIPAI@Z"
-  },
-  {
-   "site": "007053f0",
-   "target": "004cd9b0",
-   "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
-   "module_symbol": "?get@Leaf_4cd9b0@@QAEXXZ"
   },
   {
    "site": "007053f0",
@@ -6126,7 +5848,7 @@
    "module_symbol": "?FUN_004cde90@seed_004cde90@@YIHPAH@Z"
   }
  ],
- "stand_in_reference_count": 45,
+ "stand_in_reference_count": 12,
  "residual_split": {
   "rows": 11,
   "bytes": 900

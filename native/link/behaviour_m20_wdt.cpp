@@ -8,11 +8,3 @@ bool WDTState::Is_Valid() const
     return unknown_44 != 0;
 }
 
-// 0x004071E0 AudioLevel::Get_Target (audio.hpp; pass-6a decompile): the target's
-// whole part (16.16 fixed point, +0x08 >> 16). Reached by the theme's volume fade
-// once the music plays (Scout1161 play sweep).
-#include "shared/audio.hpp"
-int __fastcall AudioLevel::Get_Target()
-{
-    return (int)(Target >> 16);
-}

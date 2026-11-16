@@ -1829,7 +1829,6 @@ void __fastcall CCINIClass_Invalidate_Message_Digest(int object_address)
 }
 
 
-
 // CCINIClass::Get_Object_Type (0x0046C2F0).
 // Layout and behaviour: shared/ccini_class.hpp, shared/ccini_extra.hpp.
 
@@ -2076,19 +2075,16 @@ AbilitiesStruct CCINIClass::Get_Abilities(char const *section, char const *entry
 // destructor; it is the copy at 0x0050B0F0.
 
 
-extern "C" unsigned char vtable_46ceb0[]; extern "C" void __cdecl release_buffer_46ceb0(void*); extern "C" void __cdecl release_object_46ceb0(void*);
-class Leaf_46ceb0 { public: void* get(unsigned int flags); };
-void* Leaf_46ceb0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_46ceb0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_46ceb0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_46ceb0(this); return this; }
+// TypeList<TechnoTypeClass *>::`scalar deleting destructor' (0x0046CEB0)
+// Compiler-emitted from shared/type_list_decl.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_46cf00[]; extern "C" void __cdecl release_buffer_46cf00(void*); extern "C" void __cdecl release_object_46cf00(void*);
-class Leaf_46cf00 { public: void* get(unsigned int flags); };
-void* Leaf_46cf00::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_46cf00; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_46cf00((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_46cf00(this); return this; }
+// TypeList<RGBClass>::`scalar deleting destructor' (0x0046CF00)
+// Compiler-emitted from shared/type_list_decl.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_46cf50[]; extern "C" void __cdecl release_buffer_46cf50(void*); extern "C" void __cdecl release_object_46cf50(void*);
-class Leaf_46cf50 { public: void* get(unsigned int flags); };
-void* Leaf_46cf50::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_46cf50; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_46cf50((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_46cf50(this); return this; }
+// DynamicVectorClass<int>::`scalar deleting destructor' (0x0046CF50)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 // VectorClass<int> copy constructor (0x0046CFA0): instantiated in the CCINI unit by the CCINIClass list readers
@@ -2150,19 +2146,16 @@ void* Leaf_46cf50::get(unsigned int flags) { unsigned int pointer = *(unsigned i
 // Layout and behaviour: shared/vector_class.hpp; RGBClass::operator== compares the three bytes (shared/rgb_class.hpp).
 
 
-extern "C" unsigned char vtable_46da70[]; extern "C" void __cdecl release_buffer_46da70(void*); extern "C" void __cdecl release_object_46da70(void*);
-class Leaf_46da70 { public: void* get(unsigned int flags); };
-void* Leaf_46da70::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_46da70; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_46da70((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_46da70(this); return this; }
+// VectorClass<int>::`scalar deleting destructor' (0x0046DA70)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_46dac0[]; extern "C" void __cdecl release_buffer_46dac0(void*); extern "C" void __cdecl release_object_46dac0(void*);
-class Leaf_46dac0 { public: void* get(unsigned int flags); };
-void* Leaf_46dac0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_46dac0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_46dac0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_46dac0(this); return this; }
+// VectorClass<TechnoTypeClass *>::`scalar deleting destructor' (0x0046DAC0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_46db10[]; extern "C" void __cdecl release_buffer_46db10(void*); extern "C" void __cdecl release_object_46db10(void*);
-class Leaf_46db10 { public: void* get(unsigned int flags); };
-void* Leaf_46db10::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_46db10; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_46db10((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_46db10(this); return this; }
+// VectorClass<RGBClass>::`scalar deleting destructor' (0x0046DB10)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 // VectorClass<int> operator assign (0x0046DB60): instantiated in the CCINI unit by the CCINIClass list readers

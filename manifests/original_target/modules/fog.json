@@ -217,7 +217,7 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?get@Leaf_4c2080@@QAEPAXI@Z",
+   "symbol": "??_GFoggedObjectClass@@UAEPAXI@Z",
    "entry": "004c2080",
    "body_bytes": 30,
    "padding_bytes": 2
@@ -283,13 +283,13 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?get@Leaf_4c2480@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEPAXI@Z",
    "entry": "004c2480",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_4c24d0@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEPAXI@Z",
    "entry": "004c24d0",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -1201,20 +1201,8 @@
    "address": "00454850"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEPAXI@Z",
-   "address": "004c24d0"
-  },
-  {
    "symbol": "??_G?$VectorClass@PAVFoggedObjectClass@@@@UAEPAXI@Z",
    "address": "004549e0"
-  },
-  {
-   "symbol": "??_G?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEPAXI@Z",
-   "address": "004c2480"
-  },
-  {
-   "symbol": "??_GFoggedObjectClass@@UAEPAXI@Z",
-   "address": "004c2080"
   },
   {
    "symbol": "?AI@AbstractClass@@UAEXXZ",
@@ -1421,10 +1409,6 @@
    "address": "00458930"
   },
   {
-   "symbol": "?cleanup@Leaf_4c2080@@QAEXXZ",
-   "address": "004c0dd0"
-  },
-  {
    "symbol": "?target@Call_4c1f80_10@@QAEII@Z",
    "address": "00493f30"
   },
@@ -1539,34 +1523,6 @@
   {
    "symbol": "_qsort",
    "address": "00781d46"
-  },
-  {
-   "symbol": "_release_4c2080",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_4c2480",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_4c24d0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_4c2480",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_4c24d0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_vtable_4c2480",
-   "address": "007a11d0"
-  },
-  {
-   "symbol": "_vtable_4c24d0",
-   "address": "007a11d0"
   }
  ],
  "route": "A",

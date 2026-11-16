@@ -107,56 +107,21 @@ ListClass::ListClass(ListClass const &list) :
 }
 
 
-// 0x00539f30: function not yet identified
-//
-// Owner: ListClass, virtual slot 25 (vtable +0x64) (from RTTI/vtables).
-// Body: 136 bytes (frozen inventory bound).
-// Referenced from 3 sites (data).
-// Ghidra prototype: void __thiscall Set_Position_00539f30(int param_1,int param_2,int param_3)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-// Adjusted from the Ghidra seed by permute_seeds.py (signedness, comparison order) to
-// match the original; edit freely, this file is no longer regenerated.
+// void ListClass::Set_Position(int x, int y) (0x00539F30, slot 25)
+// Moves the list and pins its arrow buttons and slider to its right hand edge
+// (TibSun list.cpp, text unchanged).
 
-namespace seed_00539f30 {
-
-struct Owner_00539f30 { void Set_Position_00539f30(int x, int y); };
-
-void Owner_00539f30::Set_Position_00539f30(int x, int y)
+void ListClass::Set_Position(int x, int y)
 {
-    int self = (int)this;
-    int width;
-    int up_width;
-    int down_width;
-    int down_offset;
-    int scroll_width;
-
-    width = (int)(*(int *)(self + 0x14));
-    up_width = (int)(*(int *)(self + 0x6c));
-    down_width = (int)(*(int *)(self + 0xcc));
-    *(int *)(self + 100) = (width - up_width) + x;
-    *(int *)(self + 0x68) = y;
-    *(int *)(self + 0xc4) = (width - down_width) + x;
-    down_offset = (int)(*(int *)(self + 0x18) - *(int *)(self + 0xd0));
-    *(int *)(self + 200) = y + down_offset;
-    scroll_width = (int)(up_width);
-    if (up_width <= down_width) {
-        scroll_width = (int)(down_width);
-    }
-    *(int *)(self + 0x124) = (width - scroll_width) + x;
-    *(int *)(self + 0x128) = y + *(int *)(self + 0x70);
-    *(int *)(self + 0x130) = down_offset - *(int *)(self + 0x70);
-    if (up_width > down_width) {
-        *(int *)(self + 300) = up_width;
-        return;
-    }
-    *(int *)(self + 300) = down_width;
-    return;
+    UpGadget.X = x + Width - UpGadget.Width;
+    UpGadget.Y = y;
+    DownGadget.X = x + Width - DownGadget.Width;
+    DownGadget.Y = y + Height - DownGadget.Height;
+    ScrollGadget.X = x + Width - (UpGadget.Width > DownGadget.Width ? UpGadget.Width : DownGadget.Width);
+    ScrollGadget.Y = y + UpGadget.Height;
+    ScrollGadget.Height = Height - (UpGadget.Height + DownGadget.Height);
+    ScrollGadget.Width = UpGadget.Width > DownGadget.Width ? UpGadget.Width : DownGadget.Width;
 }
-
-}  // namespace seed_00539f30
 
 
 /***********************************************************************************************
@@ -944,9 +909,8 @@ void ListClass::Set_Selected_Index(wchar_t *text)
 // Compiler-emitted from shared/gadget.hpp in this unit (kept copy); no source of its own.
 
 
-extern "C" unsigned char vtable_53aaf0[]; extern "C" void __cdecl release_buffer_53aaf0(void*); extern "C" void __cdecl release_object_53aaf0(void*);
-class Leaf_53aaf0 { public: void* get(unsigned int flags); };
-void* Leaf_53aaf0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_53aaf0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_53aaf0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_53aaf0(this); return this; }
+// DynamicVectorClass<unsigned short *>::`scalar deleting destructor' (0x0053AAF0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 // SliderClass::scalar_deleting_destructor (0x0053AB40)
@@ -970,40 +934,5 @@ void* Leaf_53aaf0::get(unsigned int flags) { unsigned int pointer = *(unsigned i
 // DynamicVectorClass<unsigned short *>::ID_object (0x0053AE30; DynamicVectorClass<unsigned short *> vtable 0x007a5714 slot 4).
 
 
-// 0x0053ae60: function not yet identified
-//
-// Owner: VectorClass<unsigned short *>, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
-// Body: 73 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_0053ae60(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0053ae60 {
-
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" void* VectorClass_unsigned_short_vtable_007a5734;
-
-struct Owner_0053ae60 { unsigned int * scalar_deleting_destructor_0053ae60(unsigned char flags); };
-
-unsigned int * Owner_0053ae60::scalar_deleting_destructor_0053ae60(unsigned char flags)
-{
-    unsigned int * self = (unsigned int *)this;
-    *self = (unsigned int)(&VectorClass_unsigned_short_vtable_007a5734);
-    if ((self[1] != 0) && (*(char *)((int)self + 0xd) != '\0')) {
-        operator_delete_00781d3b((unsigned int)(self[1]));
-        self[1] = 0;
-    }
-    *(unsigned char *)((int)self + 0xd) = 0;
-    self[2] = 0;
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_0053ae60
+// VectorClass<unsigned short *>::`scalar deleting destructor' (0x0053AE60)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.

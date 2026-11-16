@@ -460,8 +460,12 @@ bool  unknown_nuke_flash_state_2_0051fc70(void)
 }  // namespace seed_0051fc70
 
 
-class Leaf_51fc80 { public: bool get(); };
-bool Leaf_51fc80::get() { return false; }
+// bool HouseClass::Ion_Sensitives_Should_Be_Offline() (0x0051FC80): never in this build.
+
+bool HouseClass::Ion_Sensitives_Should_Be_Offline()
+{
+    return false;
+}
 
 
 // 0x0051FC90: adds a storm cloud over cell: a random WeatherConClouds anim,
@@ -787,11 +791,9 @@ void __fastcall Storm_Active_Message_00520BF0()
 // DynamicVectorClass<AnimClass *>::ID_object (0x00520ED0; DynamicVectorClass<AnimClass *> vtable 0x007a4554 slot 4).
 
 
-extern "C" unsigned char vtable_520f00[]; extern "C" void __cdecl release_buffer_520f00(void*); extern "C" void __cdecl release_object_520f00(void*);
-class Leaf_520f00 { public: void* get(unsigned int flags); };
-void* Leaf_520f00::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_520f00; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_520f00((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_520f00(this); return this; }
+// VectorClass<AnimClass *>::`scalar deleting destructor' (0x00520F00)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_520f50[]; extern "C" void __cdecl release_buffer_520f50(void*); extern "C" void __cdecl release_object_520f50(void*);
-class Leaf_520f50 { public: void* get(unsigned int flags); };
-void* Leaf_520f50::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_520f50; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_520f50((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_520f50(this); return this; }
+// DynamicVectorClass<AnimClass *>::`scalar deleting destructor' (0x00520F50)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.

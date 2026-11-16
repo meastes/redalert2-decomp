@@ -1107,29 +1107,24 @@ class Cleanup_4a9b60 { unsigned char pad0[4]; unsigned int* items; int count; un
 void Cleanup_4a9b60::get() { unsigned int* pointer=items; capacity=0; if(pointer && owns) { release_4a9b60(pointer); items=0; } owns=0; count=0; }
 
 
-extern "C" unsigned char vtable_4aa080[]; extern "C" void __cdecl release_buffer_4aa080(void*); extern "C" void __cdecl release_object_4aa080(void*);
-class Leaf_4aa080 { public: void* get(unsigned int flags); };
-void* Leaf_4aa080::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_4aa080; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_4aa080((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_4aa080(this); return this; }
+// DynamicVectorClass<TechnoTypeClass *>::`scalar deleting destructor' (0x004AA080)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_4aa0d0[]; extern "C" void __cdecl release_buffer_4aa0d0(void*); extern "C" void __cdecl release_object_4aa0d0(void*);
-class Leaf_4aa0d0 { public: void* get(unsigned int flags); };
-void* Leaf_4aa0d0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_4aa0d0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_4aa0d0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_4aa0d0(this); return this; }
+// VectorClass<ButtonFadeEffect *>::`scalar deleting destructor' (0x004AA0D0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_4aa120[]; extern "C" void __cdecl release_buffer_4aa120(void*); extern "C" void __cdecl release_object_4aa120(void*);
-class Leaf_4aa120 { public: void* get(unsigned int flags); };
-void* Leaf_4aa120::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_4aa120; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_4aa120((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_4aa120(this); return this; }
+// DynamicVectorClass<ButtonFadeEffect *>::`scalar deleting destructor' (0x004AA120)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_4aa170[]; extern "C" void __cdecl release_buffer_4aa170(void*); extern "C" void __cdecl release_object_4aa170(void*);
-class Leaf_4aa170 { public: void* get(unsigned int flags); };
-void* Leaf_4aa170::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_4aa170; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_4aa170((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_4aa170(this); return this; }
+// VectorClass<CrossDissolveEffect *>::`scalar deleting destructor' (0x004AA170)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_4aa1c0[]; extern "C" void __cdecl release_buffer_4aa1c0(void*); extern "C" void __cdecl release_object_4aa1c0(void*);
-class Leaf_4aa1c0 { public: void* get(unsigned int flags); };
-void* Leaf_4aa1c0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_4aa1c0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_4aa1c0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_4aa1c0(this); return this; }
+// DynamicVectorClass<CrossDissolveEffect *>::`scalar deleting destructor' (0x004AA1C0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 extern "C" unsigned char table_4aa210[]; extern "C" void* __cdecl storage_4aa210(unsigned int);

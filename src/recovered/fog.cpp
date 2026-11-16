@@ -608,10 +608,8 @@ unsigned int __fastcall FoggedObjectClass_Get_Head_Record_Object_Type(int object
 }
 
 
-
-extern "C" void __cdecl release_4c2080(void*);
-class Leaf_4c2080 { public: void cleanup();void* get(unsigned int flags); };
-void* Leaf_4c2080::get(unsigned int flags) { cleanup(); if (flags & 1) release_4c2080(this); return this; }
+// FoggedObjectClass::`scalar deleting destructor' (0x004C2080)
+// Compiler-emitted from shared/fogged_object.hpp in this unit; no source of its own.
 
 
 // Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):
@@ -633,14 +631,12 @@ void* Leaf_4c2080::get(unsigned int flags) { cleanup(); if (flags & 1) release_4
 // statics would add an initializer to this instance unit); the comparison is TibSun fog.h's (type, then frame).
 
 
-extern "C" unsigned char vtable_4c2480[]; extern "C" void __cdecl release_buffer_4c2480(void*); extern "C" void __cdecl release_object_4c2480(void*);
-class Leaf_4c2480 { public: void* get(unsigned int flags); };
-void* Leaf_4c2480::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_4c2480; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_4c2480((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_4c2480(this); return this; }
+// VectorClass<FoggedObjectClass::DrawRecord>::`scalar deleting destructor' (0x004C2480)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_4c24d0[]; extern "C" void __cdecl release_buffer_4c24d0(void*); extern "C" void __cdecl release_object_4c24d0(void*);
-class Leaf_4c24d0 { public: void* get(unsigned int flags); };
-void* Leaf_4c24d0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_4c24d0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_4c24d0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_4c24d0(this); return this; }
+// DynamicVectorClass<FoggedObjectClass::DrawRecord>::`scalar deleting destructor' (0x004C24D0)
+// Compiler-emitted from shared/vector_class.hpp in this unit; no source of its own.
 
 
 // IndexClass<int, FoggedObjectClass *>::Increase_Table_Size (0x004C25B0)

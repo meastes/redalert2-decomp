@@ -39,15 +39,6 @@ int AudioLevelSet::Changed()
     return ((Volume.Flags & 2) || (Frequency.Flags & 2) || (Pan.Flags & 2)) ? 1 : 0;
 }
 
-// 0x00401170 AudioLevelSet::Clear_Changed (decompile): clears that bit on the
-// volume, pan and frequency levels.
-void AudioLevelSet::Clear_Changed()
-{
-    Volume.Flags &= ~2u;
-    Pan.Flags &= ~2u;
-    Frequency.Flags &= ~2u;
-}
-
 extern "C" int __cdecl _stricmp(char const *left, char const *right);   // 0x00781F20
 extern "C" void *bsearch(void const *key, void const *base, unsigned long count, unsigned long size,
                          int (*compare)(void const *, void const *));

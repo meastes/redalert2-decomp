@@ -679,19 +679,19 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?get@Leaf_46ceb0@@QAEPAXI@Z",
+   "symbol": "??_G?$TypeList@PAVTechnoTypeClass@@@@UAEPAXI@Z",
    "entry": "0046ceb0",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_46cf00@@QAEPAXI@Z",
+   "symbol": "??_G?$TypeList@VRGBClass@@@@UAEPAXI@Z",
    "entry": "0046cf00",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_46cf50@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@H@@UAEPAXI@Z",
    "entry": "0046cf50",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -841,19 +841,19 @@
    "padding_bytes": 6
   },
   {
-   "symbol": "?get@Leaf_46da70@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@H@@UAEPAXI@Z",
    "entry": "0046da70",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_46dac0@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z",
    "entry": "0046dac0",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_46db10@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@VRGBClass@@@@UAEPAXI@Z",
    "entry": "0046db10",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -1023,7 +1023,7 @@
    "address": "0079da90",
    "bytes": 32,
    "kind": "vtable",
-   "section": 391
+   "section": 379
   },
   {
    "symbol": "??_R1A@?0A@A@Pipe@@8",
@@ -1317,21 +1317,21 @@
    "address": "007b4e18",
    "bytes": 9,
    "kind": "rtti",
-   "section": 388
+   "section": 376
   },
   {
    "symbol": "??_R3?$DynamicVectorClass@H@@8",
    "address": "007b4e28",
    "bytes": 16,
    "kind": "rtti",
-   "section": 389
+   "section": 377
   },
   {
    "symbol": "??_R4?$DynamicVectorClass@H@@6B@",
    "address": "007b4e38",
    "bytes": 20,
    "kind": "rtti",
-   "section": 390
+   "section": 378
   },
   {
    "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
@@ -5026,30 +5026,6 @@
    "address": "007b15e4"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@H@@UAEPAXI@Z",
-   "address": "0046cf50"
-  },
-  {
-   "symbol": "??_G?$TypeList@PAVTechnoTypeClass@@@@UAEPAXI@Z",
-   "address": "0046ceb0"
-  },
-  {
-   "symbol": "??_G?$TypeList@VRGBClass@@@@UAEPAXI@Z",
-   "address": "0046cf00"
-  },
-  {
-   "symbol": "??_G?$VectorClass@H@@UAEPAXI@Z",
-   "address": "0046da70"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z",
-   "address": "0046dac0"
-  },
-  {
-   "symbol": "??_G?$VectorClass@VRGBClass@@@@UAEPAXI@Z",
-   "address": "0046db10"
-  },
-  {
    "symbol": "??_GFilePipe@@UAEPAXI@Z",
    "address": "0046cbd0"
   },
@@ -5410,54 +5386,6 @@
    "address": "00782dfd"
   },
   {
-   "symbol": "_release_buffer_46ceb0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_46cf00",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_46cf50",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_46da70",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_46dac0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_46db10",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_46ceb0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_46cf00",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_46cf50",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_46da70",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_46dac0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_46db10",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_sprintf",
    "address": "007820f4"
   },
@@ -5476,30 +5404,6 @@
   {
    "symbol": "_table_46dbd0",
    "address": "0079da14"
-  },
-  {
-   "symbol": "_vtable_46ceb0",
-   "address": "0079da14"
-  },
-  {
-   "symbol": "_vtable_46cf00",
-   "address": "0079da54"
-  },
-  {
-   "symbol": "_vtable_46cf50",
-   "address": "0079d9d4"
-  },
-  {
-   "symbol": "_vtable_46da70",
-   "address": "0079d9d4"
-  },
-  {
-   "symbol": "_vtable_46dac0",
-   "address": "0079da14"
-  },
-  {
-   "symbol": "_vtable_46db10",
-   "address": "0079da54"
   }
  ],
  "route": "A",
