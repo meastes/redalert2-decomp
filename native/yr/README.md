@@ -122,13 +122,48 @@ spans, Execute_DoList, the EVA speech service, the display cursor and Mouse_Left
 yr/glue/*.inc; many traps were gamemd names of functions the tree has under another name
 (data/name_aliases.tsv).
 
-Known gaps: a skirmish abort returns to the setup without a score screen (YR does that); the score
-screen needs a won or lost game, not scripted yet (the start position is random, so the units'
-screen positions vary). Partial drafts: Wait_For_Players_To_Load (the network wait),
+Known gaps: a skirmish abort returns to the setup without a score screen (YR does that; lane Y4
+reaches the score screen with a lost game). Partial drafts: Wait_For_Players_To_Load (the network wait),
 FUN_0063AB60/FUN_0063A5A0 (planning mode), LoadProgressManager::Draw (campaign screen),
-StripClass::Draw_It (the observer list), Can_Deploy_Now (TibSun's text, not YR's 891-byte version),
-the strip's production-abandon events in Recalc. One intermittent fault in
-ColorScheme::GeneratePalette during a load (Init_Theater; seen once in about twenty runs).
+StripClass::Draw_It (the observer list), the strip's production-abandon events in Recalc.
+(Can_Deploy_Now and the GeneratePalette fault: fixed by lane Y4, below.)
+
+## Stage 2, lane Y4 (2026-11-15): a lost skirmish and the score screen
+
+Main menu -> Skirmish (Short Game) -> a band selection and D (the MCV deploys into a construction
+yard) -> H -> Sell -> the construction yard sold -> the game is lost -> the Skirmish Score screen ->
+Continue -> setup -> Back -> Single Player -> Back -> main menu. `ctest -R yr-native-skirmish-score`
+(yr/tests/yr_skirmish_score.py) runs that route (same build and data conditions as the smoke test).
+
+Fixes of note (all NATIVE, native/yr only):
+* No unit ran its AI: the TechnoTypeClass constructor draft stored gamemd.exe's +0x234 into
+  IsHasRadialIndicator; gamemd.exe's ObjectClass::Unlimbo reads IsSentient there, so units never
+  joined the logic list and queued missions never started. The same draft left PaletteFile unset:
+  the intermittent ColorScheme::GeneratePalette fault during a load (garbage palette names whose
+  negative scheme hash indexed outside the bucket table).
+* The view scrolled north-west for good: Blit_Sidebar called the mouse through a stand-in class
+  whose MSVC Draw_Mouse slot is Set_Mouse_Point in the Itanium layout (two destructor slots).
+* The drive tracks were empty (RawTracks holds pointers yr_data.py cannot load): TibSun's tables.
+* Address names of members of unit-defined globals (DAT_00886F94 is SidebarRect.Y) had storage of
+  their own: fixups map them to the members; yr_data.py lets an unbounded scalar array run over
+  the address names of its later elements (DAT_007ED3CC / MapClass::RadiusCount).
+* The score screen sorted its pointer table with a 4-byte element size.
+* Vtable-slot and second-name bindings read from gamemd.exe's vtables and calls
+  (data/name_aliases.tsv): TechnoClass slots 0x3D0 and 0x3E0-0x3EC, GetFireErrorWithoutRange,
+  ObjectClass::Direction, SidebarClass::Add, UnselectAll, the area damage's three names.
+
+NON-EXACT drafts (each labelled in its file): from gamemd.exe's code TechnoClass::Can_Deploy_Now
+(YR's 891-byte version, replacing TibSun's text), InfantryClass::Assign_Destination (TibSun's text
+with YR's changes), FootClass::Active_Click_With (TibSun's text with YR's cases); from TibSun's
+text WalkLocomotionClass::Movement_AI, DriveLocomotionClass::While_Moving, AStarClass::
+Find_Path_Regular, InfantryClass::Per_Cell_Process, BuildingClass::Exit_Object and
+Do_MISSION_DECONSTRUCTION, HouseClass::Can_Build (with the RA2 twin's YR-era tests),
+Where_To_Place_Building and Can_Build_Here, CellClass::Reduce_Tiberium, the area damage
+(Explosion_Damage), XSurface::Plot_Line, BounceClass::AI, Tactical::Draw_Tiles(Cell).
+
+Known gaps: the selection brackets are not drawn; TibSun-text drafts are not compared with
+gamemd.exe yet (YR's sell survivors, YR's area damage details); the AI opponent's further play
+will reach more unmatched functions.
 
 ## Next
 

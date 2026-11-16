@@ -406,6 +406,12 @@
   },
   {
    "file": "src/sidebar.cpp",
+   "old": "extern MouseSlots * DAT_00887640;",
+   "new": "#include \"wwmous.h\"\nextern WWMouseClass * DAT_00887640;",
+   "why": "Blit_Sidebar reaches the mouse (DAT_00887640, gamemd.exe's WWMouseClass) through a stand-in class whose 16th virtual slot is Draw_Mouse in the MSVC layout (one destructor slot). The Itanium layout gives the destructor two slots, so natively that slot is Set_Mouse_Point: every sidebar blit moved the mouse to (the surface pointer's low half, 1), the edge scroll ran north-west for good and the cursor jumped. Natively the mouse is declared as the WWMouseClass it is (winstub.cpp declares it so), the same Draw_Mouse call (lane Y4)."
+  },
+  {
+   "file": "src/sidebar.cpp",
    "append": "sidebar_native.inc",
    "why": "SidebarClass::Reposition_Sidebar (0x006ABD30) is unmatched in the YR tree; a native draft from the RA2 twin (src/recovered/sidebar.cpp 0x006819A0) and gamemd.exe's code (lane Y3)."
   },
@@ -533,6 +539,101 @@
    "file": "src/overtype.cpp",
    "append": "shapeset_native.inc",
    "why": "ShapeSet::Get_Color is unmatched in the YR tree; TibSun's inline text (lane Y3)."
+  },
+  {
+   "file": "src/power.cpp",
+   "old": "extern int DAT_00886F90;",
+   "new": "extern Rect SidebarRect;\n#define DAT_00886F90 (SidebarRect.X)",
+   "why": "DAT_00886F90 is SidebarRect.X (gamemd.exe's SidebarRect at 0x00886F90): natively the name reads the unit's SidebarRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/power.cpp",
+   "old": "extern int DAT_00886F94;",
+   "new": "extern Rect SidebarRect;\n#define DAT_00886F94 (SidebarRect.Y)",
+   "why": "DAT_00886F94 is SidebarRect.Y (gamemd.exe's SidebarRect at 0x00886F90): natively the name reads the unit's SidebarRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/sidebar.cpp",
+   "old": "extern int DAT_00886F94;",
+   "new": "extern Rect SidebarRect;\n#define DAT_00886F94 (SidebarRect.Y)",
+   "why": "DAT_00886F94 is SidebarRect.Y (gamemd.exe's SidebarRect at 0x00886F90): natively the name reads the unit's SidebarRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/sidebar.cpp",
+   "old": "extern int DAT_00886F98;",
+   "new": "extern Rect SidebarRect;\n#define DAT_00886F98 (SidebarRect.Width)",
+   "why": "DAT_00886F98 is SidebarRect.Width (gamemd.exe's SidebarRect at 0x00886F90): natively the name reads the unit's SidebarRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/sidebar.cpp",
+   "old": "extern int DAT_00886F9C;",
+   "new": "extern Rect SidebarRect;\n#define DAT_00886F9C (SidebarRect.Height)",
+   "why": "DAT_00886F9C is SidebarRect.Height (gamemd.exe's SidebarRect at 0x00886F90): natively the name reads the unit's SidebarRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "extern int DAT_00886FA8;",
+   "new": "extern Rect TacticalRect;\n#define DAT_00886FA8 (TacticalRect.Width)",
+   "why": "DAT_00886FA8 is TacticalRect.Width (gamemd.exe's TacticalRect at 0x00886FA0): natively the name reads the unit's TacticalRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/tab.cpp",
+   "old": "extern int DAT_00886FA8;",
+   "new": "extern Rect TacticalRect;\n#define DAT_00886FA8 (TacticalRect.Width)",
+   "why": "DAT_00886FA8 is TacticalRect.Width (gamemd.exe's TacticalRect at 0x00886FA0): natively the name reads the unit's TacticalRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/wwmous.cpp",
+   "old": "extern int DAT_00886FB8;",
+   "new": "extern Rect VisibleRect;\n#define DAT_00886FB8 (VisibleRect.Width)",
+   "why": "DAT_00886FB8 is VisibleRect.Width (gamemd.exe's VisibleRect at 0x00886FB0): natively the name reads the unit's VisibleRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/mpscore.cpp",
+   "regex": true,
+   "old": "qsort\\(DAT_00ABF958, ([^,]+), 4, FUN_005C9AE0\\)",
+   "new": "qsort(DAT_00ABF958, \\1, sizeof(DAT_00ABF958[0]), FUN_005C9AE0)",
+   "why": "The score screen sorts its table of score pointers with an element size of 4 (a 32-bit pointer); natively a pointer is 8 bytes, so the size is the element's (lane Y4)."
+  },
+  {
+   "file": "src/combat.cpp",
+   "append": "combat_native.inc",
+   "why": "The area damage (0x00489280) is unmatched in the YR tree; TibSun's Explosion_Damage text (lane Y4)."
+  },
+  {
+   "file": "src/bounce.cpp",
+   "append": "bounce_native.inc",
+   "why": "BounceClass::AI is unmatched in the YR tree; TibSun's text (lane Y4)."
+  },
+  {
+   "file": "src/xsurface.cpp",
+   "append": "xsurface_native.inc",
+   "why": "XSurface::Plot_Line is unmatched in the YR tree; TibSun's text (lane Y4)."
+  },
+  {
+   "file": "src/building.cpp",
+   "append": "building_native.inc",
+   "why": "BuildingClass::Exit_Object is unmatched in the YR tree; TibSun's text (lane Y4)."
+  },
+  {
+   "file": "src/astar.cpp",
+   "append": "astar_native.inc",
+   "why": "AStarClass::Find_Path_Regular is unmatched in the YR tree; TibSun's text (lane Y4)."
+  },
+  {
+   "file": "src/walk.cpp",
+   "append": "walk_native.inc",
+   "why": "WalkLocomotionClass::Movement_AI is unmatched in the YR tree; TibSun's text (lane Y4)."
+  },
+  {
+   "file": "src/foot.cpp",
+   "append": "foot_native.inc",
+   "why": "FootClass::Active_Click_With(ActionType, ObjectClass *, bool) is unmatched in the YR tree; TibSun's text with gamemd.exe's cases (lane Y4)."
+  },
+  {
+   "file": "src/infantry.cpp",
+   "append": "infantry_native.inc",
+   "why": "InfantryClass::Assign_Destination is unmatched in the YR tree; TibSun's text with gamemd.exe's changes (lane Y4)."
   },
   {
    "file": "src/unit.cpp",

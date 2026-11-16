@@ -206,6 +206,29 @@ def main():
             elif stars == 0 and base in original_data.SCALARS:
                 width = original_data.SCALAR_WIDTH.get(base, 4)
                 extent = width * count if count else gap
+                if is_array and not count and not bss:
+                    # An unbounded scalar array (`extern int DAT_007ED3CC[];`) is not cut short by the
+                    # address names the tree gives to its later elements (DAT_007ED3D0, also named
+                    # MapClass::RadiusCount, is its element 1; DAT_007ED3FC its element 12): it
+                    # extends over following names that are address names declared as scalars or
+                    # scalar arrays (any name in its first 16 bytes) within 256 bytes, and the names
+                    # it covers become offsets into its storage (lane Y4).
+                    end = address + CAP
+                    for st in starts:
+                        if st < address + 16:
+                            continue
+                        here = [w[2] for w in wanted if w[0] == st] or [k for k, v in known.items() if v == st]
+                        def plain(nm):
+                            if not ADDRESS.search(nm):
+                                return False
+                            sh = nm.split('::')[-1]
+                            d = original_data.declaration(sh, index.get(sh, []))
+                            return d is not None and d[1] == 0 and d[0].split()[-1] in original_data.SCALARS
+                        if st >= address + 256 or not here or not all(plain(nm) for nm in here):
+                            end = st
+                            break
+                    extent = min(end - address, CAP)
+                    covers.append((address, address + extent, symbol))
                 shape, storage = 0, extent
             elif stars == 0 and base in enums:
                 extent = 4 * count if count else gap

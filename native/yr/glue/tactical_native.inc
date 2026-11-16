@@ -320,3 +320,106 @@ void Tactical::Render(Surface & surface, bool fullredraw, int drawpass)
 		IsToRedraw = false;
 	}
 }
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane Y4): Tactical::Draw_Tiles(Cell const &, Rect const &), unmatched in
+// ra2-decomp. TibSun's text (TibSun archive code/tactical.cpp; SPDX GPL-3.0-or-later, Copyright 2025
+// Electronic Arts Inc. and OpenTS contributors, EA's GPL section 7 terms; THIRD_PARTY.md).
+// Behaviour code for the native build only; gamemd.exe's version is not compared yet.
+// ---------------------------------------------------------------------------------------------
+void Tactical::Draw_Tiles(Cell const & cell, Rect const & cliprect)
+{
+	CellClass * basecell = &Map[cell];
+
+	Coord coord = Coord_Whole(Coord(cell));
+	Point2D screen = Coord_To_Pixel_Absolute(coord);
+	if (basecell->Height < 2) {
+		Point2D pixel = screen - Point2D(TacPixelX, TacPixelY);
+		pixel.X -= ISO_TILE_PIXEL_W / 2;
+		basecell->Draw_It(pixel, TacticalRect, 0);
+	}
+
+	int x = cell.X;
+	int y = cell.Y;
+	for (int level = 0; level < 24; level += 2) {
+		for (int col = 0; col < 3; col++) {
+			int cx = x + ((col + 1) >> 1);
+			int cy = y - (col >> 1) + 1;
+			if (Map.In_Radar(Cell(cx, cy))) {
+				CellClass * cellptr = &Map[Cell(cx, cy)];
+				bool draw = false;
+				int height = cellptr->Height;
+				bool overlap = false;
+
+				if (col != 1) {
+					if (height == level + 1) {
+						draw = true;
+						overlap = true;
+					}
+				} else if (height > level && height < level + 4) {
+					draw = true;
+					overlap = true;
+				}
+
+				if (cellptr->Elevation > 0 && !draw) {
+					int diff = height - level - 1;
+					if (col != 1) {
+						if (diff < 0 && cellptr->Elevation + diff >= 0) {
+							draw = true;
+						} else {
+							draw = overlap;
+						}
+					} else if (height - level > 0) {
+						draw = overlap;
+					} else {
+						draw = true;
+						if (cellptr->Elevation + height - level <= 0) {
+							draw = overlap;
+						}
+					}
+				}
+
+				if (height == level) {
+					if (!draw) {
+
+						/*
+						 * Same height and not already flagged for redraw: the tile only needs
+						 * redrawing if its iso tile carries extra (overhanging) image data.
+						 */
+						int subtile = cellptr->SubTile;
+						int ittype = cellptr->ITType;
+						if (ittype == ISOTILE_NONE || ittype == ISOTILE_NONE_LEGACY) {
+							continue;
+						}
+						IsometricTileTypeClass * type = IsometricTileTypes[ittype];
+						if (type == NULL) {
+							continue;
+						}
+						IsoTileSet const * set = (IsoTileSet const *)type->Get_Image_Data();
+						if (set == NULL) {
+							continue;
+						}
+						if (subtile >= set->Tile_Count() - 1) {
+							subtile = set->Tile_Count() - 1;
+						}
+						IsoTileRecord const * record = set->Fetch_Record_Pointer_Unsafe(subtile);
+						if (record == NULL || !record->IsHasExtraData) {
+							continue;
+						}
+					}
+				} else if (!draw) {
+					continue;
+				}
+
+				Cell above(cx, cy);
+				coord = Coord_Whole(Coord(above));
+				Point2D pixel;
+				Coord_To_Pixel(coord, pixel);
+				pixel.X -= ISO_TILE_PIXEL_W / 2;
+				Map[above].Draw_It(pixel, TacticalRect, 0);
+			}
+		}
+		x++;
+		y++;
+	}
+}

@@ -343,58 +343,92 @@ void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect,
 	}
 }
 
-// NATIVE: TibSun's text; gamemd.exe's version (0x00700D50, 891 bytes) splits the test per
-// object kind and is not written yet.
+// NON-EXACT NATIVE DRAFT (lane Y4): TechnoClass::Can_Deploy_Now, YR 0x00700D50 (891 bytes,
+// unmatched in ra2-decomp), written from gamemd.exe's code (it replaces lane Y3's TibSun text).
+// After the tunnel test the answer depends on the object's kind: an infantry soldier deploys
+// when its type is a deployer and its undeploy delay has run out; a building asks its type
+// (BuildingTypeClass 0x00465D30); a vehicle may not deploy while under EMP or in a tube, with
+// nothing to deploy into, while eaten by a parasite, or (a construction yard's vehicle) while
+// mind controlled, and a transport not on a bridge, next to a bridge's underside, a human's on
+// water, or in a building that is not a bunker; anything else deploys when it carries passengers.
+// Behaviour code for the native build only.
 bool TechnoClass::Can_Deploy_Now(void) const
 {
-	UnitClass const * unit = dynamic_cast<UnitClass const *>(this);
-	bool blocked = false;
+	Cell cell = PositionCell;
+	CellClass * cellptr = &Map[cell];
+	if (cellptr != NULL && cellptr->Is_Near_Tunnel_NW()) {
+		return(false);
+	}
 
-	if (unit != NULL) {
-		blocked = unit->Is_Immobilized() || unit->CurrentTube >= TUBE_FIRST;
-		if (unit->Class->DeploysInto == NULL && unit->Class->Max_Passengers() == 0 && !unit->Class->IsSimpleDeployer) {	// NATIVE: YR's simple deployers for TibSun's mobile EMP
-			blocked = true;
-		}
-		if (unit->Class->Max_Passengers() > 0) {
-			if (unit->IsOnBridge) {
-				blocked = true;
+	switch (Fetch_RTTI()) {
+		case RTTI_INFANTRY: {
+			InfantryClass const * infantry = (InfantryClass const *)this;
+			if (infantry->FUN_005224F0()) {
+				if (infantry->FUN_00522510() || infantry->Doing == (DoType)31) {
+					return(false);
+				}
 			}
+			if (infantry->FUN_005224F0() && Arm != 0) {
+				return(false);
+			}
+			return(infantry->FUN_005224E0());
 		}
-		if (unit->Class->Max_Passengers() > 0) {
-			Cell cell = PositionCell;
-			CellClass * cellptr = &Map[cell];
+
+		case RTTI_BUILDING:
+			return(((BuildingClass const *)this)->Class->FUN_00465D30());
+
+		case RTTI_UNIT: {
+			UnitClass const * unit = (UnitClass const *)this;
+			if (unit->IsUnderEMP() || unit->CurrentTube >= 0) {
+				return(false);
+			}
+			UnitTypeClass const * type = unit->Class;
+			if (type->DeploysInto == NULL && type->MaxPassengers == 0 && !type->IsSimpleDeployer
+				&& BunkerLinkedItem == NULL && !unit->FUN_00746D00()) {
+				return(false);
+			}
+			if (type->DeploysInto != NULL) {
+				if (unit->ParasiteEatingMe != NULL) {
+					return(false);
+				}
+				if (type->DeploysInto->IsConstructionYard && MindControlledBy != NULL) {
+					return(false);
+				}
+			}
+			if (type->MaxPassengers <= 0) {
+				return(true);
+			}
+			if (IsOnBridge) {
+				return(false);
+			}
+			cellptr = &Map[cell];
 			if (cellptr != NULL) {
 				CellClass * cellptr_s = &Map[Adjacent_Cell(cell, FACING_S)];
 				CellClass * cellptr_n = &Map[Adjacent_Cell(cell, FACING_N)];
 				CellClass * cellptr_e = &Map[Adjacent_Cell(cell, FACING_E)];
 				CellClass * cellptr_w = &Map[Adjacent_Cell(cell, FACING_W)];
-
 				if (cellptr->IsUnderBridge ||
-					cellptr_s != NULL && cellptr_s->IsUnderBridge ||
-					cellptr_w != NULL && cellptr_w->IsUnderBridge ||
-					cellptr_e != NULL && cellptr_e->IsUnderBridge ||
-					cellptr_n != NULL && cellptr_n->IsUnderBridge) {
-
-					blocked = true;
+					(cellptr_s != NULL && cellptr_s->IsUnderBridge) ||
+					(cellptr_n != NULL && cellptr_n->IsUnderBridge) ||
+					(cellptr_e != NULL && cellptr_e->IsUnderBridge) ||
+					(cellptr_w != NULL && cellptr_w->IsUnderBridge)) {
+					return(false);
+				}
+				if (House->IsHuman && cellptr->Land_Type() == LAND_WATER) {
+					return(false);
 				}
 			}
+			BuildingClass * building = Get_Cell_Ptr()->Cell_Building();
+			if (building != NULL && !building->Class->Bunker) {
+				return(false);
+			}
+			return(true);
 		}
-	} else {
-		blocked = Is_Immobilized();
-		if (TClass->Max_Passengers() == 0) {
-			blocked = true;
-		}
-	}
 
-	BuildingClass const * building = dynamic_cast<BuildingClass const *>(this);
-	if (building != NULL && building->Class->Can_Always_Undeploy()) {
-		blocked = false;
+		default:
+			if (IsUnderEMP()) {
+				return(false);
+			}
+			return(Techno_Type_Class()->Max_Passengers() != 0);
 	}
-
-	Cell cell = PositionCell;
-	CellClass * cellptr = &Map[cell];
-	if ((cellptr != NULL && cellptr->Is_Near_Tunnel_NW()) || blocked) {
-		return(false);
-	}
-	return(true);
 }

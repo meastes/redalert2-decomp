@@ -116,3 +116,11 @@ add_test(NAME yr-native-skirmish-smoke COMMAND "${Python3_EXECUTABLE}" -B "${CMA
          --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-skirmish-smoke")
 set_tests_properties(yr-native-skirmish-smoke PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)
+
+# ctest yr-native-skirmish-score (lane Y4): a lost skirmish (the MCV deployed, the construction yard
+# sold in a short game), the Skirmish Score screen, Continue and Back to the main menu
+# (yr/tests/yr_skirmish_score.py); same conditions as the smoke test.
+add_test(NAME yr-native-skirmish-score COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_skirmish_score.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-skirmish-score")
+set_tests_properties(yr-native-skirmish-score PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 360)

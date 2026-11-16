@@ -309,7 +309,8 @@ TechnoTypeClass::TechnoTypeClass(char const * ininame, SpeedType speed) :
 	ZFudgeTunnel = 10;
 	ZFudgeBridge = 0;
 	Palette = NULL;
-	IsHasRadialIndicator = true;
+	PaletteFile[0] = '\0';
+	IsSentient = true;	// +0x234: gamemd.exe's ObjectClass::Unlimbo (0x005F4FEF) reads IsSentient there (lane Y4)
 
 	DebrisTypes.Clear();
 	DebrisAnims.Clear();
