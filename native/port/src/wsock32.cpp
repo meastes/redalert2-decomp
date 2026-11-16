@@ -9,13 +9,16 @@
 // claims one UDP port of a fixed range (ipx_base_port .. +ipx_port_count) and its
 // IPX node address is its IPv4 address and that port (6 bytes, network number 0).
 // A send to node FF:FF:FF:FF:FF:FF goes to the UDP broadcast address on every port
-// of the range (other machines and other games on this one); any other node is a
-// unicast to the address and port it names. A datagram received from ip:port is
+// of the range (other machines and other games on this one), and as a unicast to each
+// game heard from in the last minute (the iOS app cannot broadcast; lane C20); any other
+// node is a unicast to the address and port it names. A datagram received from ip:port is
 // reported as from node ip:port. Only standard sockets calls (and getifaddrs for
 // the local address), so other ports can reuse it.
 #include "ra2port/win32_port.hpp"
 
+#include <algorithm>
 #include <arpa/inet.h>
+#include <chrono>
 #include <errno.h>
 #include <fcntl.h>
 #include <ifaddrs.h>
@@ -121,20 +124,48 @@ bool is_ipx(SOCKET s)
     std::lock_guard<std::mutex> g(ipx_lock);
     return ipx_sockets.count(s) != 0;
 }
-// The first up, non-loopback IPv4 address (the one other machines reach), else loopback.
+// This machine's IPv4 address on the local network: the first up, non-loopback interface that
+// can broadcast and has no link-local (169.254) address, else the first up non-loopback one,
+// else loopback. On an iPhone the cellular interface (pdp_ip0, point to point) can come before
+// Wi-Fi (en0) and was taken as the game's node before (lane C20).
+bool usable_lan_interface(const struct ifaddrs *i, bool strict)
+{
+    if (!i->ifa_addr || i->ifa_addr->sa_family != AF_INET) return false;
+    if (!(i->ifa_flags & IFF_UP) || (i->ifa_flags & IFF_LOOPBACK)) return false;
+    if (!strict) return true;
+    uint32_t host = ntohl(((struct sockaddr_in *)i->ifa_addr)->sin_addr.s_addr);
+    return (i->ifa_flags & IFF_BROADCAST) && (host >> 16) != 0xA9FE;
+}
 uint32_t ipx_local_address()
 {
     uint32_t found = htonl(INADDR_LOOPBACK);
     struct ifaddrs *list = nullptr;
     if (getifaddrs(&list) != 0) return found;
-    for (struct ifaddrs *i = list; i; i = i->ifa_next) {
-        if (!i->ifa_addr || i->ifa_addr->sa_family != AF_INET) continue;
-        if (!(i->ifa_flags & IFF_UP) || (i->ifa_flags & IFF_LOOPBACK)) continue;
-        found = ((struct sockaddr_in *)i->ifa_addr)->sin_addr.s_addr;
-        break;
-    }
+    const struct ifaddrs *pick = nullptr;
+    for (const struct ifaddrs *i = list; i && !pick; i = i->ifa_next)
+        if (usable_lan_interface(i, true)) pick = i;
+    for (const struct ifaddrs *i = list; i && !pick; i = i->ifa_next)
+        if (usable_lan_interface(i, false)) pick = i;
+    if (pick) found = ((struct sockaddr_in *)pick->ifa_addr)->sin_addr.s_addr;
     freeifaddrs(list);
     return found;
+}
+// The directed broadcast addresses (address | ~netmask: 192.168.1.255 for 192.168.1.20/24) of
+// the up interfaces that can broadcast, tried when the limited broadcast (255.255.255.255) is
+// refused. None where the interface list carries no netmask (the Windows build's).
+std::vector<uint32_t> ipx_directed_broadcasts()
+{
+    std::vector<uint32_t> out;
+    struct ifaddrs *list = nullptr;
+    if (getifaddrs(&list) != 0) return out;
+    for (const struct ifaddrs *i = list; i; i = i->ifa_next) {
+        if (!usable_lan_interface(i, true) || !i->ifa_netmask || i->ifa_netmask->sa_family != AF_INET) continue;
+        uint32_t mask = ((struct sockaddr_in *)i->ifa_netmask)->sin_addr.s_addr;
+        uint32_t b = ((struct sockaddr_in *)i->ifa_addr)->sin_addr.s_addr | ~mask;
+        if (mask && b != htonl(INADDR_BROADCAST) && std::find(out.begin(), out.end(), b) == out.end()) out.push_back(b);
+    }
+    freeifaddrs(list);
+    return out;
 }
 struct sockaddr_in udp_address(uint32_t address, uint16_t port)
 {
@@ -173,6 +204,67 @@ void ipx_node(uint8_t node[6])
     uint16_t port = htons(ipx_claim_port());
     memcpy(node, &address, 4);
     memcpy(node + 4, &port, 2);
+}
+
+// The games heard from (lane C20): every IPX datagram received records its sender's address
+// and port, and a broadcast also goes to each one heard in the last minute as a unicast. The
+// iOS app cannot send broadcasts (iOS refuses them, EHOSTUNREACH, to an app without Apple's
+// multicast entitlement) but receives them, so it learns the other games from their broadcasts
+// and still reaches them; a copy that also arrived as a broadcast is dropped by the receiver's
+// duplicate filter (ra2_recvfrom). Without this the iOS app saw the other players (their
+// broadcasts) but no hosted game in either direction: the game's answers never left it.
+struct Peer { uint32_t address; uint16_t port; std::chrono::steady_clock::time_point heard; };
+std::vector<Peer> ipx_peers;           // under ipx_lock
+const auto peer_lifetime = std::chrono::seconds(60);
+// Whether an address is one of this machine's (the list read again every 10 s; under ipx_lock).
+bool is_local_address(uint32_t address, std::chrono::steady_clock::time_point now)
+{
+    static std::vector<uint32_t> local;
+    static std::chrono::steady_clock::time_point read_at;
+    if (local.empty() || now - read_at > std::chrono::seconds(10)) {
+        local.assign(1, htonl(INADDR_LOOPBACK));
+        struct ifaddrs *list = nullptr;
+        if (getifaddrs(&list) == 0) {
+            for (const struct ifaddrs *i = list; i; i = i->ifa_next)
+                if (i->ifa_addr && i->ifa_addr->sa_family == AF_INET) local.push_back(((struct sockaddr_in *)i->ifa_addr)->sin_addr.s_addr);
+            freeifaddrs(list);
+        }
+        read_at = now;
+    }
+    return std::find(local.begin(), local.end(), address) != local.end();
+}
+void ipx_heard(uint32_t address, uint16_t port_network)
+{
+    uint16_t port = ntohs(port_network);
+    if (port < ipx_base_port || port >= ipx_base_port + ipx_port_count) return;   // not a game of this network
+    auto now = std::chrono::steady_clock::now();
+    std::lock_guard<std::mutex> g(ipx_lock);
+    if (port == ipx_port && is_local_address(address, now)) return;   // this game's own broadcast
+    for (Peer &p : ipx_peers)
+        if (p.address == address && p.port == port) { p.heard = now; return; }
+    ipx_peers.push_back({address, port, now});
+}
+std::vector<Peer> ipx_recent_peers()
+{
+    auto now = std::chrono::steady_clock::now();
+    std::lock_guard<std::mutex> g(ipx_lock);
+    ipx_peers.erase(std::remove_if(ipx_peers.begin(), ipx_peers.end(), [&](const Peer &p) { return now - p.heard > peer_lifetime; }),
+                    ipx_peers.end());
+    return ipx_peers;
+}
+// RA2_NATIVE_TEST_NO_BROADCAST=1 (tests: native-lan-lobby): every broadcast sendto fails with
+// EHOSTUNREACH, as the iOS app's do, so a Mac test pair plays the iOS app's network.
+bool broadcast_refused_for_test()
+{
+    static int on = -1;
+    if (on < 0) { const char *v = getenv("RA2_NATIVE_TEST_NO_BROADCAST"); on = v && !strcmp(v, "1") ? 1 : 0; }
+    return on != 0;
+}
+ssize_t broadcast_sendto(int s, const char *buffer, int length, int flags, uint32_t address, uint16_t port)
+{
+    if (broadcast_refused_for_test()) { errno = EHOSTUNREACH; return -1; }
+    struct sockaddr_in a = udp_address(address, port);
+    return sendto(s, buffer, (size_t)length, flags, (struct sockaddr *)&a, sizeof a);
 }
 
 struct AsyncSelect { HWND window; UINT message; LONG events; };
@@ -312,13 +404,29 @@ int ra2_sendto(SOCKET s, const char *buffer, int length, int flags, const void *
         const WinSockAddrIpx *w = (const WinSockAddrIpx *)to;
         static const uint8_t broadcast[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
         if (memcmp(w->nodenum, broadcast, 6) == 0) {
+            // The limited broadcast on every port of the range; where it is refused, each
+            // interface's directed broadcast; then a unicast to each game heard from (see
+            // ipx_heard). Always reported sent, as an IPX broadcast is: a failed send leaves the
+            // packet at the head of the game's queue (IPXInterfaceClass::Message_Handler
+            // 0x0076A6B0, FD_WRITE) and nothing after it is ever sent (lane C20).
             bool sent = false;
-            for (int i = 0; i < ipx_port_count; ++i) {
-                struct sockaddr_in a = udp_address(htonl(INADDR_BROADCAST), (uint16_t)(ipx_base_port + i));
-                if (sendto((int)s, buffer, (size_t)length, flags, (struct sockaddr *)&a, sizeof a) >= 0) sent = true;
-            }
+            for (int i = 0; i < ipx_port_count; ++i)
+                if (broadcast_sendto((int)s, buffer, length, flags, htonl(INADDR_BROADCAST), (uint16_t)(ipx_base_port + i)) >= 0) sent = true;
             net_trace(sent ? "broadcast" : "broadcast FAILED", htonl(INADDR_BROADCAST), ipx_base_port, length, buffer);
-            return sent ? length : set_error();
+            if (!sent) {
+                for (uint32_t b : ipx_directed_broadcasts()) {
+                    bool directed = false;
+                    for (int i = 0; i < ipx_port_count; ++i)
+                        if (broadcast_sendto((int)s, buffer, length, flags, b, (uint16_t)(ipx_base_port + i)) >= 0) directed = true;
+                    net_trace(directed ? "broadcast" : "broadcast FAILED", b, ipx_base_port, length, buffer);
+                }
+            }
+            for (const Peer &p : ipx_recent_peers()) {
+                struct sockaddr_in a = udp_address(p.address, p.port);
+                ssize_t n = sendto((int)s, buffer, (size_t)length, flags, (struct sockaddr *)&a, sizeof a);
+                net_trace(n < 0 ? "broadcast to peer FAILED" : "broadcast to peer", p.address, p.port, length, buffer);
+            }
+            return length;
         }
         uint32_t address;
         uint16_t port;
@@ -371,11 +479,13 @@ int ra2_recvfrom(SOCKET s, char *buffer, int length, int flags, void *from, int 
     ssize_t n = recvfrom((int)s, buffer, (size_t)length, flags, (struct sockaddr *)&a, &al);
     if (n < 0) return set_error();
     if (is_ipx(s)) {
+        ipx_heard(a.sin_addr.s_addr, a.sin_port);
         while (duplicate_datagram(a, buffer, n)) {
             net_trace("recv duplicate dropped", a.sin_addr.s_addr, ntohs(a.sin_port), (int)n, buffer);
             al = sizeof a;
             n = recvfrom((int)s, buffer, (size_t)length, flags, (struct sockaddr *)&a, &al);
             if (n < 0) return set_error();
+            ipx_heard(a.sin_addr.s_addr, a.sin_port);
         }
         net_trace("recv", a.sin_addr.s_addr, ntohs(a.sin_port), (int)n, buffer);
         // The sender's node is its IPv4 address and UDP port (see the file comment).

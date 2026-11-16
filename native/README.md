@@ -560,10 +560,12 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   (layouts original_data.py leaves out) are filled from game.exe after the
   original data (`ra2_native_original_records`): with the zero placeholder the
   first letter typed in the main menu faulted in strstr.
-- **Multiplayer: LAN yes, Internet no.** The main menu's Internet button shows
-  "Internet play is not available in this build. Network (LAN) games are." and returns to
-  the main menu (`Native_Multiplayer_Unavailable`, a Select_Game fixup) instead of faulting
-  in the WOL code; the WOL/modem code stays link-closure traps. The Network button opens the
+- **Multiplayer: LAN yes, Internet no.** The main menu's Internet button is disabled (lane
+  C20, user 2026-11-16: a fixup in the main menu's loop 0x00516F00 disables control 0x684 when
+  the dialog is made; it draws with the original's disabled shape-button look and a click does
+  nothing); before C20 a click showed a message box. Should Select_Game's Internet selection
+  still be reached, `Native_Internet_Unavailable` sends it back to the main menu instead of
+  the WOL code; the WOL/modem code stays link-closure traps. The Network button opens the
   LAN lobby by default (lane C17w, user 2026-11-15; before, only with `RA2_NATIVE_LAN=1` or
   `lan=1` in the settings file); `RA2_NATIVE_LAN=0` or `lan=0` turns it off. IPX
   runs over UDP (`port/src/wsock32.cpp`, ports 26300-26307, broadcast;
@@ -591,6 +593,26 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   now uses a stack array (up to 64 sockets; the game opens two). The Windows fault handler also
   walks the faulting thread's frames from the exception's context ("fault frame N:
   module+offset", for llvm-symbolizer), which the handler's own backtrace cannot reach.
+  **Lobby chat and the iOS app (lane C20, the user's reports of 2026-11-16).** Return in the
+  lobby's chat line sent nothing: the NewEdit procedure 0x005F22A0, for a multi-line edit
+  (ES_MULTILINE in its style word: the chat lines 0x540), appends "\r\n" and sends the dialog
+  WM_COMMAND notification 0x501 after 0x4DA, and the lobby dialogs send the chat line on 0x501;
+  the port's procedure sent only 0x4DA. The iOS app saw the other players but no hosted game,
+  in either direction: iOS refuses broadcasts (EHOSTUNREACH) to an app without Apple's
+  multicast entitlement (a personal team cannot get it), and a failed broadcast also stopped
+  every later send, as the game's FD_WRITE handler (IPXInterfaceClass::Message_Handler
+  0x0076A6B0) leaves a packet whose send failed at the head of its queue. A broadcast is now
+  always reported sent; where the limited broadcast is refused each interface's directed
+  broadcast is tried; and every broadcast also goes as a unicast to each game heard from in
+  the last minute (each datagram received records its sender), so the iOS app, which still
+  receives broadcasts, reaches the games it hears and they reach it (copies that also arrive as
+  broadcasts are dropped by the duplicate filter below). The game's own node address prefers
+  an interface that can broadcast (en0 over an iPhone's cellular pdp_ip0). ctest
+  `native-lan-lobby` (`tests/lan_lobby.py`) plays a lobby pair twice, each side once with
+  `RA2_NATIVE_TEST_NO_BROADCAST=1` (every broadcast refused as on iOS): both chat lines arrive,
+  the joiner sees and joins the host's game, and the Internet button is disabled.
+  `RA2_NATIVE_LIST_LOG=1` lists the lobby's chat and message lines (`list text id N: ...`) and
+  `RA2_NATIVE_NET_LOG` the peer copies (`broadcast to peer`).
   The IPX layer delivers each datagram once: on a Mac with Ethernet and Wi-Fi on
   one subnet every broadcast arrived twice, the Wi-Fi copy late, and a stale
   progress report made the joiner drop the host at load (2 starts in 10); a

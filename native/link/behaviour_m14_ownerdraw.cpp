@@ -1428,7 +1428,16 @@ LRESULT __stdcall unknown_new_edit_proc_5f22a0(HWND window, UINT message, WPARAM
             return 0;
         }
         if (message == 0x100 && wparam == 0xD) {
+            // Return (0x005F2530-0x005F2591): 0x4DA to the dialog; a multi-line edit (ES_MULTILINE
+            // in the style word +0x54: the lobby chat lines 0x540) then appends "\r\n" (0x007EAEA8)
+            // and sends WM_COMMAND notification 0x501, which the lobby dialogs answer by sending
+            // the chat line (Send_Chat_Message 0x005BEE20). Without it chat sent nothing (user, C20).
             SendMessageA(parent, 0x4DA, 0, (LPARAM)window);
+            if (record->unknown_54 & 4) {
+                static unsigned short const line_break[] = {0xD, 0xA, 0};
+                text += line_break;
+                SendMessageA(parent, 0x111, (WPARAM)((GetWindowLongA(window, -12) & 0xFFFF) | 0x5010000), (LPARAM)window);
+            }
             return 0;
         }
         if (message == 0x100) {

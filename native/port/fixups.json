@@ -1413,8 +1413,14 @@
   {
    "source": "src/recovered/init.cpp",
    "old": "                case 2:\n                    selection = 0x10;\n                    unknown_session_a3d298.Type = 4;\n                    IPXAddressClass::Set_Protocol(2);\n",
-   "new": "                case 2:\n                    if (Native_Multiplayer_Unavailable()) {   /* NATIVE: Internet play not in the native build */\n                        selection = 0x12;\n                        break;\n                    }\n                    selection = 0x10;\n                    unknown_session_a3d298.Type = 4;\n                    IPXAddressClass::Set_Protocol(2);\n",
-   "why": "Native (Scout1187 M23): the main menu's Internet (2) selection of Select_Game 0x005135F0 starts WOL (session type 4), whose code stays link-closure traps natively (internet play is not in scope). Natively it first asks Native_Multiplayer_Unavailable (link/behaviour_m23.cpp), which says so in a message box and returns true; Select_Game then shows the main menu again (selection 0x12, as its own failure paths do). The original statements follow unchanged for a build that has the network."
+   "new": "                case 2:\n                    if (Native_Internet_Unavailable()) {   /* NATIVE: Internet play not in the native build (its button is disabled) */\n                        selection = 0x12;\n                        break;\n                    }\n                    selection = 0x10;\n                    unknown_session_a3d298.Type = 4;\n                    IPXAddressClass::Set_Protocol(2);\n",
+   "why": "Native (Scout1187 M23; lane C20, user 2026-11-16): the main menu's Internet (2) selection of Select_Game 0x005135F0 starts WOL (session type 4), whose code stays link-closure traps natively (internet play is not in scope). The Internet button 0x684 is disabled when the main menu opens (the fixup on Unknown_00516F00), so this selection is not reached; should it be, Native_Internet_Unavailable (link/behaviour_m23.cpp) answers true with no message and Select_Game shows the main menu again (selection 0x12, as its own failure paths do). Before C20 a message box said so on each click. The original statements follow unchanged for a build that has the network."
+  },
+  {
+   "source": "src/recovered/init.cpp",
+   "old": "    HWND window = unknown_create_dialog_5ff610(0xE2, Unknown_005171D0, 0);\n    if (window != 0) {\n        SetWindowLongA(window, 8, (LONG)&choice);\n",
+   "new": "    HWND window = unknown_create_dialog_5ff610(0xE2, Unknown_005171D0, 0);\n    if (window != 0) {\n        EnableWindow(GetDlgItem(window, 0x684), FALSE);   /* NATIVE: no Internet play (lane C20) */\n        SetWindowLongA(window, 8, (LONG)&choice);\n",
+   "why": "Native (lane C20, user 2026-11-16): the native build has no Internet play (Westwood Online; its code stays link-closure traps). The main menu dialog 0xE2's Internet button 0x684 (STT:MainButtonWWOnline) is disabled as soon as the dialog is made: it draws with the original's own disabled shape-button look (0x005F0320, lane C16) and a click does nothing. It replaces the message box the click showed (Native_Multiplayer_Unavailable, Scout1187 M23)."
   },
   {
    "source": "src/recovered/init.cpp",
@@ -1425,8 +1431,8 @@
   {
    "source": "src/recovered/init.cpp",
    "old": "struct UnknownMovieEntry {",
-   "new": "bool Native_Multiplayer_Unavailable();   // NATIVE: link/behaviour_m23.cpp\nbool Native_LAN_Unavailable();   // NATIVE: link/behaviour_m23.cpp\nstruct UnknownMovieEntry {",
-   "why": "Native single player scope (Scout1187, M23; user decision: multiplayer is out of scope, its WOL/IPX/modem code stays link-closure traps): the main menu's Internet (2) and Network (3) selections of Select_Game 0x005135F0 start WOL (session type 4) and the LAN game (type 3), which reach IPXManagerClass::Service and fault natively. Natively they first ask Native_Multiplayer_Unavailable (link/behaviour_m23.cpp), which says so in a message box and returns true; Select_Game then shows the main menu again (selection 0x12, as its own failure paths do). The original statements follow unchanged for a build that has the network."
+   "new": "bool Native_Internet_Unavailable();   // NATIVE: link/behaviour_m23.cpp\nbool Native_LAN_Unavailable();   // NATIVE: link/behaviour_m23.cpp\nstruct UnknownMovieEntry {",
+   "why": "Native (Scout1187 M23; lanes C17w, C20): declarations of the two native answers Select_Game 0x005135F0 asks before its Internet (2) and Network (3) selections: Native_Internet_Unavailable (always true; the Internet button is disabled, lane C20) and Native_LAN_Unavailable (false unless RA2_NATIVE_LAN=0 or lan=0), both in link/behaviour_m23.cpp."
   },
   {
    "source": "src/shared/techno.hpp",

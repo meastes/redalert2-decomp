@@ -562,6 +562,14 @@ if(RA2_NATIVE_SDL)
                    --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
                    --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/lan-pair")
           set_tests_properties(native-lan-pair PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 3600 RUN_SERIAL TRUE)
+          # The LAN lobby (C20, the user's reports of 2026-11-16): chat lines sent with Return
+          # arrive both ways, and the host's game is seen and joined, with either side unable to
+          # broadcast as the iOS app is (RA2_NATIVE_TEST_NO_BROADCAST); the main menu's Internet
+          # button is disabled and a click on it does nothing (tests/lan_lobby.py).
+          add_test(NAME native-lan-lobby COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/lan_lobby.py"
+                   --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                   --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/lan-lobby")
+          set_tests_properties(native-lan-lobby PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900 RUN_SERIAL TRUE)
         endif()
         # 12. Touch input (C8): scripted fingers with the touch controls on; a two-finger tap
         #     deselects; A-Move is a toggle: two taps give two attack-move orders, and after

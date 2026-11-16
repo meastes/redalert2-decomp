@@ -310,7 +310,7 @@ BOOL ShowWindow(HWND hwnd, int cmd)
                     (int)(w->rect.right - w->rect.left), (int)(w->rect.bottom - w->rect.top));
             for (HWND c : w->children) {
                 Window *cw = win(c);
-                if (cw) fprintf(stderr, "  control %d %s style %x %s at %d,%d %dx%d \"%s\"\n", (int)cw->id, cw->cls.c_str(), (unsigned)cw->style,
+                if (cw) fprintf(stderr, "  control %d %s style %x %s at %d,%d %dx%d \"%s\"\n", (int)cw->id, cw->cls.c_str(), (unsigned)((cw->style & ~0x18000000u) | (cw->visible ? 0x10000000u : 0) | (cw->enabled ? 0 : 0x08000000u)),
                                 cw->visible ? "shown" : "hidden", (int)(o.x + cw->rect.left), (int)(o.y + cw->rect.top),
                                 (int)(cw->rect.right - cw->rect.left), (int)(cw->rect.bottom - cw->rect.top), cw->title.c_str());
             }
@@ -579,6 +579,17 @@ LRESULT SendMessageA(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
     if (log_messages && (w->is_dialog || w->parent) && (log_messages > 1 || (message != 0x0200 && message != 0x0113 && message != 0x000F)))
         fprintf(stderr, "msg %p %s id %d tmpl %u: 0x%x %lx %lx\n", (void *)hwnd, w->cls.c_str(), (int)w->id, w->template_id,
                 message, (unsigned long)wparam, (unsigned long)lparam);
+    // RA2_NATIVE_LIST_LOG=1: the owner-draw list's add-text message 0x4CD (the lobby's chat and
+    // message lines, Add_List_Text 0x005C2F20) with its text (tests/lan_lobby.py reads the chat lines).
+    static bool log_list_text = getenv("RA2_NATIVE_LIST_LOG") != nullptr;
+    if (log_list_text && message == 0x4CD && lparam) {
+        const unsigned short *t = (const unsigned short *)lparam;
+        char line[256];
+        int n = 0;
+        for (; t[n] && n < 255; ++n) line[n] = t[n] < 0x80 ? (char)t[n] : '?';
+        line[n] = 0;
+        fprintf(stderr, "list text id %d: %s\n", (int)w->id, line);
+    }
     if (w->proc) return w->proc(hwnd, message, wparam, lparam);
     if (w->dlgproc) return w->dlgproc(hwnd, message, wparam, lparam);
     return 0;

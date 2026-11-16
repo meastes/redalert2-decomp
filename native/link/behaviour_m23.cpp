@@ -38,17 +38,12 @@ extern "C" void ra2port_seed_free(intptr_t block)
 }
 
 // Internet play (Westwood Online) is not in the native build (its WOL and modem code stay
-// link-closure traps). Select_Game 0x005135F0 asks this before its Internet selection
-// (port/fixups.json): a message box says so and the main menu comes back, instead of
-// faulting in the WOL code.
-bool Native_Multiplayer_Unavailable()
+// link-closure traps). The main menu's Internet button is disabled when the menu opens (lane
+// C20, user 2026-11-16; port/fixups.json, Unknown_00516F00), so Select_Game 0x005135F0's
+// Internet selection is not reached; should it be, this answers true with no message and the
+// main menu comes back (before C20 a message box said so on each click).
+bool Native_Internet_Unavailable()
 {
-    unsigned short const *ok = StringTable::Load_String("GUI:Ok", 0, "native", 0);
-    Darken_Surface(0, true);
-    WWMessageBox((unsigned short const *)L" ").Process(
-        (unsigned short const *)L"Internet play is not available in this build. Network (LAN) games are.",
-        ok, 0, 0, false);
-    Darken_Surface(0, true);
     return true;
 }
 
@@ -56,13 +51,20 @@ bool Native_Multiplayer_Unavailable()
 // before, only with RA2_NATIVE_LAN=1 or lan=1 in the settings file, Scout1209 r7). IPX is carried
 // over UDP (port/src/wsock32.cpp); the LAN code reaches IPXManagerClass::Service 0x00525F60
 // (draft, codex4 r545) and the lobby rows. RA2_NATIVE_LAN=0 (or lan=0 in the settings file)
-// turns it off again: the Internet button's box then answers Network too.
+// turns it off again: a message box then says so and the main menu comes back.
 extern "C" char *getenv(char const *name);
 bool Native_LAN_Unavailable()
 {
     char const *value = getenv("RA2_NATIVE_LAN");
     static bool lan = !(value && value[0] == '0');
-    return lan ? false : Native_Multiplayer_Unavailable();
+    if (lan) return false;
+    unsigned short const *ok = StringTable::Load_String("GUI:Ok", 0, "native", 0);
+    Darken_Surface(0, true);
+    WWMessageBox((unsigned short const *)L" ").Process(
+        (unsigned short const *)L"Network (LAN) games are turned off in this build's settings (lan=0).",
+        ok, 0, 0, false);
+    Darken_Surface(0, true);
+    return true;
 }
 
 // Audio state the original keeps in its initialised data as zeros (0x00830ED8,
