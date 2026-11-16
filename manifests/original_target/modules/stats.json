@@ -91,13 +91,13 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?FUN_00698cd0@seed_00698cd0@@YAXXZ",
+   "symbol": "?unknown_init_game_timer_00698cd0@seed_00698cd0@@YAXXZ",
    "entry": "00698cd0",
    "body_bytes": 27,
    "padding_bytes": 5
   },
   {
-   "symbol": "?FUN_00698cf0@seed_00698cf0@@YAXXZ",
+   "symbol": "?unknown_exit_game_timer_00698cf0@seed_00698cf0@@YAXXZ",
    "entry": "00698cf0",
    "body_bytes": 1,
    "padding_bytes": 15
@@ -961,10 +961,6 @@
    "address": "00638b30"
   },
   {
-   "symbol": "?FUN_00698cf0@seed_00698cd0@@YAXXZ",
-   "address": "00698cf0"
-  },
-  {
    "symbol": "?Frame@@3HA",
    "address": "00a40d2c"
   },
@@ -1129,6 +1125,10 @@
    "address": "00abd4e0"
   },
   {
+   "symbol": "?unknown_exit_game_timer_00698cf0@seed_00698cd0@@YAXXZ",
+   "address": "00698cf0"
+  },
+  {
    "symbol": "?unknown_flag_a3d8d1@@3_NA",
    "address": "00a3d8d1"
   },
@@ -1194,10 +1194,6 @@
   },
   {
    "symbol": "?unknown_time_source_abd4c4@@3UUnknownTimeSource_0069a160@@A",
-   "address": "00abd4c4"
-  },
-  {
-   "symbol": "_DAT_00abd4c4",
    "address": "00abd4c4"
   },
   {

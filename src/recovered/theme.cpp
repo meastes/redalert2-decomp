@@ -562,27 +562,18 @@ long ThemeClass::Load(IStream *stream)
 }
 
 
-// 0x006e8440: function not yet identified
-//
-// Body: 147 bytes (frozen inventory bound).
-// Referenced from 3 sites (unconditional call).
-// Ghidra prototype: undefined4 __thiscall FUN_006e8440(int param_1,uint param_2)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-// Adjusted from the Ghidra seed by permute_seeds.py (signedness, comparison order, return width) to
-// match the original; edit freely, this file is no longer regenerated.
+// bool Owner_006e8440::Is_Allowed(unsigned int theme_index) (0x006E8440; mischa85 names.csv
+// ThemeClass::Is_Allowed): the theme exists, is available and normal, fits the player's side and the
+// campaign scenario number.
 
 namespace seed_006e8440 {
 
-extern "C" unsigned int DAT_00a35db4;
 extern "C" unsigned int Scen_00a3d290;
 extern "C" unsigned int Session_00a3d298;
 
-struct Owner_006e8440 { bool FUN_006e8440(unsigned int theme_index); };
+struct Owner_006e8440 { bool Is_Allowed(unsigned int theme_index); };
 
-bool Owner_006e8440::FUN_006e8440(unsigned int theme_index)
+bool Owner_006e8440::Is_Allowed(unsigned int theme_index)
 {
     int theme_address = (int)this;
     int theme_entry_address;
@@ -598,8 +589,8 @@ bool Owner_006e8440::FUN_006e8440(unsigned int theme_index)
         if (*(char *)(theme_entry_address + 0x288) == '\0') {
             return 0;
         }
-        if (((DAT_00a35db4 != 0) && (*(int *)(theme_entry_address + 0x28c) != -1)) &&
-              (*(int *)(*(int *)(DAT_00a35db4 + 0x34) + 0xbc) != *(int *)(theme_entry_address + 0x28c))) {
+        if (((PlayerPtr != 0) && (*(int *)(theme_entry_address + 0x28c) != -1)) &&
+              (*(int *)(*(int *)((int)PlayerPtr + 0x34) + 0xbc) != *(int *)(theme_entry_address + 0x28c))) {
             return 0;
         }
         if ((Session_00a3d298 == 0) && (*(int *)(Scen_00a3d290 + 0x834) < *(int *)(theme_entry_address + 0x280))) {

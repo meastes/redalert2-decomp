@@ -1,7 +1,7 @@
 //  (0x006D8660)
 #include "shared/ghidra_types.hpp"
 
-undefined4 __fastcall unknown_has_slot_398_006d8660(int *self)
+unsigned int __fastcall unknown_has_slot_398_006d8660(int *self)
 {
     int *result;
 

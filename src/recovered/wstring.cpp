@@ -1276,23 +1276,14 @@ void WideString::Copy_Padded(unsigned short *buffer, unsigned size) const
 }
 
 
-// 0x00770330: function not yet identified
-//
-// Body: 26 bytes (frozen inventory bound).
-// Referenced from 3 sites (unconditional call).
-// Ghidra prototype: void __fastcall FUN_00770330(int *param_1)
-// Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __fastcall unknown_release_text_00770330(int *string_words) (0x00770330): frees the text buffer and
+// clears the pointer.
 
 namespace seed_00770330 {
 
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
 
-void __fastcall FUN_00770330(int *string_words)
+void __fastcall unknown_release_text_00770330(int *string_words)
 {
     if (*string_words != 0) {
         operator_delete_00781d3b((unsigned int)(*string_words));
@@ -1313,30 +1304,21 @@ unsigned short const *WideString::Get() const
 }
 
 
-// 0x00770400: function not yet identified
-//
-// Body: 39 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: undefined2 __thiscall FUN_00770400(int *param_1,uint param_2)
-// Callees with accepted source:
-//   FUN_00783605 -> src/recovered/00783605.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unsigned short Owner_00770400::Get_Char_00770400(unsigned int index) (0x00770400; mischa85 names.csv
+// WideWstring::get): the character at index, 0 past the end.
 
 namespace seed_00770400 {
 
-extern unsigned int  FUN_00783605(short *text_buffer);
+extern unsigned int  Wide_Length_00783605(short *text_buffer);
 
-struct Owner_00770400 { unsigned short FUN_00770400(unsigned int character_index); };
+struct Owner_00770400 { unsigned short Get_Char_00770400(unsigned int character_index); };
 
-unsigned short Owner_00770400::FUN_00770400(unsigned int character_index)
+unsigned short Owner_00770400::Get_Char_00770400(unsigned int character_index)
 {
     int * string_words = (int *)this;
     unsigned int length;
 
-    length = (unsigned int)(FUN_00783605((short *)(*string_words)));
+    length = (unsigned int)(Wide_Length_00783605((short *)(*string_words)));
     if (character_index < length) {
         return *(unsigned short *)(*string_words + character_index * 2);
     }
@@ -1350,30 +1332,21 @@ class Leaf_770430 { public: unsigned int get(); };
 unsigned int Leaf_770430::get() { unsigned int string_address=(unsigned int)this, text_address=0, unused_value=0; unsigned char unused_byte=0; text_address = *(unsigned int*)(string_address); if ((text_address & text_address) != 0) goto L77043b; text_address = 0x839d4c; L77043b:; return text_address; }
 
 
-// 0x00770440: function not yet identified
-//
-// Body: 39 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined2 __thiscall FUN_00770440(int *param_1,uint param_2)
-// Callees with accepted source:
-//   FUN_00783605 -> src/recovered/00783605.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unsigned short Owner_00770440::Get_Char_00770440(unsigned int index) (0x00770440): the character at
+// index, 0 past the end (a second copy of 0x00770400).
 
 namespace seed_00770440 {
 
-extern unsigned int  FUN_00783605(short *text_buffer);
+extern unsigned int  Wide_Length_00783605(short *text_buffer);
 
-struct Owner_00770440 { unsigned short FUN_00770440(unsigned int character_index); };
+struct Owner_00770440 { unsigned short Get_Char_00770440(unsigned int character_index); };
 
-unsigned short Owner_00770440::FUN_00770440(unsigned int character_index)
+unsigned short Owner_00770440::Get_Char_00770440(unsigned int character_index)
 {
     int * string_words = (int *)this;
     unsigned int length;
 
-    length = (unsigned int)(FUN_00783605((short *)(*string_words)));
+    length = (unsigned int)(Wide_Length_00783605((short *)(*string_words)));
     if (character_index < length) {
         return *(unsigned short *)(*string_words + character_index * 2);
     }

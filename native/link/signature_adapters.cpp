@@ -190,9 +190,9 @@ extern "C" int ra2_adapter_0043(void * a0, void * a1, int a2, int a3, int a4) { 
 extern "C" void ra2_adapter_target_0044(void *) __asm__("__Z17On_WM_CONTEXTMENUP6HWND__");
 extern "C" void ra2_adapter_0044(long long a0) __asm__("__Z34unknown_dialog_context_menu_7368a0m");
 extern "C" void ra2_adapter_0044(long long a0) { ra2_adapter_target_0044((void *)(intptr_t)a0); }
-// 0x00736D80 unknown_moving_736d80(HWND__*, unsigned long, Rect*) -> On_WM_MOVING(void*, unsigned int, Rect*) [wparam]
+// 0x00736D80 On_WM_MOVING(HWND__*, unsigned long, Rect*) -> On_WM_MOVING(void*, unsigned int, Rect*) [wparam]
 extern "C" bool ra2_adapter_target_0045(void *, int, void *) __asm__("__Z12On_WM_MOVINGPvjP4Rect");
-extern "C" bool ra2_adapter_0045(void * a0, long long a1, void * a2) __asm__("__Z21unknown_moving_736d80P6HWND__mP4Rect");
+extern "C" bool ra2_adapter_0045(void * a0, long long a1, void * a2) __asm__("__Z12On_WM_MOVINGP6HWND__mP4Rect");
 extern "C" bool ra2_adapter_0045(void * a0, long long a1, void * a2) { return ra2_adapter_target_0045(a0, (int)(unsigned int)a1, a2); }
 // 0x00739A50 Unknown_00739a50(HWND__*, char) -> Unknown_Persona_Stats_Text_00739a50(HWND__*, bool) [width]
 extern "C" void ra2_adapter_target_0046(void *, bool) __asm__("__Z35Unknown_Persona_Stats_Text_00739a50P6HWND__b");

@@ -84,50 +84,33 @@
 // by HeaderStatics_diagonal_init_00698ae0.cpp; no source of its own.
 
 
-// 0x00698cd0: function not yet identified
-//
-// Body: 27 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void FUN_00698cd0(void)
-// Callees with accepted source:
-//   FUN_00698cf0 -> src/recovered/00698cf0.cpp
-//   FUN_0078298a -> src/recovered/0078298a.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void unknown_init_game_timer_00698cd0() (0x00698CD0): a static initializer: the game timer (0x00ABD4C0)
+// takes the time source's value (0x0069A430) and the empty exit function is registered with atexit.
 
+struct UnknownTimeSource_0069a160;
+extern UnknownTimeSource_0069a160 unknown_time_source_abd4c4;
 namespace seed_00698cd0 {
 
-extern void __cdecl FUN_00698cf0(void);
+extern void __cdecl unknown_exit_game_timer_00698cf0(void);
 struct Callee_0069a430 { unsigned int SystemTimerClass_Long_Conversion_0069a430(); };
 extern unsigned int  atexit_0078298a(unsigned int callback_address);
 extern "C" unsigned int GameTimer_00abd4c0;
-extern "C" unsigned int DAT_00abd4c4;
 
-void  FUN_00698cd0(void)
+void  unknown_init_game_timer_00698cd0(void)
 {
-    GameTimer_00abd4c0 = ((Callee_0069a430*)(&DAT_00abd4c4))->SystemTimerClass_Long_Conversion_0069a430();
-    atexit_0078298a((unsigned int)(FUN_00698cf0));
+    GameTimer_00abd4c0 = ((Callee_0069a430*)(&unknown_time_source_abd4c4))->SystemTimerClass_Long_Conversion_0069a430();
+    atexit_0078298a((unsigned int)(unknown_exit_game_timer_00698cf0));
     return;
 }
 
 }  // namespace seed_00698cd0
 
 
-// 0x00698cf0: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void FUN_00698cf0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void unknown_exit_game_timer_00698cf0() (0x00698CF0): the game timer's empty atexit function.
 
 namespace seed_00698cf0 {
 
-void  FUN_00698cf0(void)
+void  unknown_exit_game_timer_00698cf0(void)
 {
     return;
 }

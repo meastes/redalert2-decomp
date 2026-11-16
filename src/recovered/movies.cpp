@@ -807,27 +807,18 @@ class Leaf_5a2280 { public: void* get(unsigned int flags); };
 void* Leaf_5a2280::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_5a2280; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_5a2280((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_5a2280(this); return this; }
 
 
-// 0x005a22d0: function not yet identified
-//
-// Owner: DynamicVectorClass<char *>, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
-// Body: 73 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall FUN_005a22d0(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unsigned int *Owner_005a22d0::unknown_scalar_deleting_destructor_005a22d0(unsigned char deletion_flags)
+// (0x005A22D0): stores the VectorClass<char const *> vtable (0x007A6604), frees the owned buffer
+// (+0x04 when +0x0D is set), clears the size, and frees the object when bit 0 of the flags is set.
 
 namespace seed_005a22d0 {
 
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* VectorClass_CharPtr_VTable_007a6604;
 
-struct Owner_005a22d0 { unsigned int * FUN_005a22d0(unsigned char deletion_flags); };
+struct Owner_005a22d0 { unsigned int * unknown_scalar_deleting_destructor_005a22d0(unsigned char deletion_flags); };
 
-unsigned int * Owner_005a22d0::FUN_005a22d0(unsigned char deletion_flags)
+unsigned int * Owner_005a22d0::unknown_scalar_deleting_destructor_005a22d0(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
     *object_words = (unsigned int)(&VectorClass_CharPtr_VTable_007a6604);

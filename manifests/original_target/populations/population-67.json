@@ -4,8 +4,8 @@
     "id": "population-67",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "c8c0a268069aeff28caf6ed249ad9618f830f7beaf1c1e8d796414977a1cd470",
-    "historical_acceptance_sha256": "9f6dea11c8a26034a65b7ec2c4e66f3e66919905f6a1da0fd4ac65cceed37549"
+    "historical_population_sha256": "b97d41f0bd0056728f991de5866d8ae98316cea1c7bc57dae92733e50a8f95b3",
+    "historical_acceptance_sha256": "a5fb2ea2cf1c46ee2b81ad2a83fb36c3fcf9734d48760f26410e4dc3bde4a1a2"
   },
   "references": {
     "?Audio_Event_Channel_End_00405a00@": 4217344,
@@ -59,7 +59,7 @@
     "?FUN_005935c0@": 5846464,
     "__imp__timeEndPeriod@4": 7972128,
     "?Map_Character_0059e960@": 5892448,
-    "?FUN_00406f30@": 4222768,
+    "?AudioDeviceAvailable@": 4222768,
     "?MSSfx_Constructor_005b69b0@": 5990832,
     "?FUN_0078d816@": 7919638,
     "?FUN_005b6a00@": 5990912,
@@ -68,7 +68,7 @@
     "?FUN_005b73a0@": 5993376,
     "?FUN_005b7830@": 5994544,
     "?FUN_00481fb0@": 4726704,
-    "?FUN_005bbd10@": 6012176,
+    "?Net2Callback@": 6012176,
     "?FUN_005c08a0@": 6031520,
     "?FUN_005c05c0@": 6030784,
     "?FUN_005c05d0@": 6030800,
@@ -397,10 +397,10 @@
     "??_7LightSourceClass@@6B@": 8017248,
     "??_ELightSourceClass@@UAEPAXI@Z": 5471280,
     "?MSSfx_Constructor_005b69b0@Owner_005b69b0@seed_005b69b0@@QAEPAIIH@Z": 5990832,
-    "?FUN_00406f30@seed_005b69b0@@YAIXZ": 4222768,
+    "?AudioDeviceAvailable@seed_005b69b0@@YAIXZ": 4222768,
     "?strdup_0078d816@seed_005b69b0@@YAIPAD@Z": 7919638,
     "?Service_Game_IO_00481fb0@@YAXXZ": 4726704,
-    "?FUN_005bbd10@seed_005bbd10@@YAEXZ": 6012176,
+    "?Net2Callback@seed_005bbd10@@YAEXZ": 6012176,
     "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ": 4726704,
     "?Get_Join_Responses_005c08a0@seed_005bbd10@@YAXXZ": 6031520,
     "?Join_Lobby_Reset_Ready@seed_005c2940@@YAXXZ": 6039872,
@@ -2484,7 +2484,8 @@
     "??_EMSPrintAnim@@UAEPAXI@Z": 5963392,
     "??_ENode@?$WolDictionary@VWstring@@H@@QAEPAXI@Z": 7759776,
     "??_EWideString@@QAEPAXI@Z": 6296624,
-    "?WS_Top_Window@@YIPAUHWND__@@XZ": 7559952
+    "?WS_Top_Window@@YIPAUHWND__@@XZ": 7559952,
+    "?AudioDeviceAvailable@@YAHXZ": 4222768
   },
   "regions": [
     {
@@ -2507,7 +2508,7 @@
         {
           "offset": 14,
           "kind": 20,
-          "symbol": "?FUN_00406f30@seed_005b69b0@@YAIXZ",
+          "symbol": "?AudioDeviceAvailable@seed_005b69b0@@YAIXZ",
           "target": 4222768,
           "addend": 0,
           "resolved": 4293199214
@@ -2521,7 +2522,7 @@
           "resolved": 1928774
         }
       ],
-      "source_sha256": "0a7933b6daaabd7ebed89c22c71e9d6e9ea88caba9d10eddbd15d130f577b65d",
+      "source_sha256": "722ed65d4abf1d1f7069a0fed236c047972baa5a70da467976fd78cf97418692",
       "source": "src/recovered/005b69b0.cpp",
       "source_order": 8053,
       "population": "population-67",

@@ -44,22 +44,14 @@
 #include "shared/skirmish.hpp"
 
 
-// 0x005bbd10: function not yet identified
-//
-// Body: 13 bytes (frozen inventory bound).
-// Referenced from 5 sites (data, unconditional call).
-// Ghidra prototype: undefined1 FUN_005bbd10(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// Net2Callback (0x005BBD10): name from mischa85 names.csv
 
 namespace seed_005bbd10 {
 
 extern void  Service_Game_IO_00481fb0(void);
 extern void  Get_Join_Responses_005c08a0(void);
 
-unsigned char  FUN_005bbd10(void)
+unsigned char  Net2Callback(void)
 {
     Service_Game_IO_00481fb0();
     Get_Join_Responses_005c08a0();

@@ -31,7 +31,7 @@ void __fastcall Set_Player_Slot_005c8cc0(int slot, NodeNameType *player)
     unknown_player_slots_a3fa98[slot] = player;
 }
 
-// 0x005BBD10 (accepted seed seed_005bbd10::FUN_005bbd10): the lobby message boxes' service
+// 0x005BBD10 (accepted seed seed_005bbd10::Net2Callback): the lobby message boxes' service
 // callback: services the network and reads the join responses; never ends the box.
 bool Unknown_005bbd10()
 {
@@ -99,7 +99,7 @@ unsigned short *Native_Session_Player_Name(int index)
     return (unsigned short *)unknown_players_a3fa7c[index]->Name;
 }
 
-// 0x00672F20 (accepted seed Owner_00672f20::FUN_00672f20): removes entry index of the eight
+// 0x00672F20 (accepted seed Owner_00672f20::Remove_Player_Port): removes entry index of the eight
 // words at +0x3022, moving the later ones down (Destroy_Connection).
 void SessionClass::Unknown_00672F20(int index)
 {

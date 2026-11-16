@@ -5254,7 +5254,7 @@ WIN32_IMPORT HWND WINAPI WindowFromPoint(POINT);
 WIN32_IMPORT int WINAPI GetBkMode(HDC);
 WIN32_IMPORT COLORREF WINAPI GetBkColor(HDC);
 WIN32_IMPORT COLORREF WINAPI GetTextColor(HDC);
-namespace seed_005de980 { int __fastcall FUN_005de980(int *); }
+int __fastcall unknown_product_005de980(int *);
 namespace OwnerDraw {
 // unknown_window_table_a73400 is defined by this population's initializer005DEB90.
 extern HWND unknown_dropdown_window_a763e4;
@@ -5296,7 +5296,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
     BOOL allow_proc = 1;
 	int anim_state = 0;
 
-	static WolDictionary<UnknownPairKey, bool> ctrlmessages((unsigned int (__fastcall *)(UnknownPairKey const &))seed_005de980::FUN_005de980);
+	static WolDictionary<UnknownPairKey, bool> ctrlmessages((unsigned int (__fastcall *)(UnknownPairKey const &))unknown_product_005de980);
 
 	UnknownPairKey key;
 	key.unknown_04 = (int)window;

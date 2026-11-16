@@ -643,27 +643,17 @@ int __fastcall VoxClass::Find_Index(char const *name)
 }
 
 
-// 0x00716690: function not yet identified
-//
-// Body: 33 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: bool __fastcall FUN_00716690(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-// Adjusted from the Ghidra seed by permute_seeds.py (signedness, comparison order) to
-// match the original; edit freely, this file is no longer regenerated.
+// Is_Speech_Finished (0x00716690): name from mischa85 names.csv
 
 namespace seed_00716690 {
 
-extern "C" unsigned int DAT_00ad0934;
-extern "C" int DAT_00ad0940;
+extern "C" unsigned int Voxs_Vector_ad0934;
+extern "C" int Voxs_ActiveCount_ad0940;
 
-bool __fastcall FUN_00716690(int voice_index)
+bool __fastcall Is_Speech_Finished(int voice_index)
 {
-    if ((voice_index >= 0) && (voice_index < DAT_00ad0940)) {
-        return *(int *)(*(int *)(DAT_00ad0934 + voice_index * 4) + 0x48) == 2;
+    if ((voice_index >= 0) && (voice_index < Voxs_ActiveCount_ad0940)) {
+        return *(int *)(*(int *)(Voxs_Vector_ad0934 + voice_index * 4) + 0x48) == 2;
     }
     return true;
 }
@@ -689,14 +679,14 @@ VoxClass *__fastcall VoxClass::Find(char const *name)
 
 // Vox_Name (0x00716720): name from mischa85 names.csv
 
-extern "C" unsigned int DAT_00ad0934;
-extern "C" int DAT_00ad0940;
+extern "C" unsigned int Voxs_Vector_ad0934;
+extern "C" int Voxs_ActiveCount_ad0940;
 extern "C" char s__none__007cdecc[];
 
 char * __fastcall Vox_Name(int voice_index)
 {
-    if ((voice_index != -1) && (voice_index < DAT_00ad0940)) {
-        return *(char **)(DAT_00ad0934 + voice_index * 4);
+    if ((voice_index != -1) && (voice_index < Voxs_ActiveCount_ad0940)) {
+        return *(char **)(Voxs_Vector_ad0934 + voice_index * 4);
     }
     return s__none__007cdecc;
 }

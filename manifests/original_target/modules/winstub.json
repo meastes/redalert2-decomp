@@ -217,7 +217,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?FUN_00738420@Owner_00738420@seed_00738420@@QAEPAIE@Z",
+   "symbol": "?unknown_scalar_deleting_destructor_00738420@Owner_00738420@seed_00738420@@QAEPAIE@Z",
    "entry": "00738420",
    "body_bytes": 36,
    "padding_bytes": 12
@@ -1426,6 +1426,10 @@
    "address": "005a1ef0"
   },
   {
+   "symbol": "?On_WM_MOVING@@YI_NPAUHWND__@@IPAVRect@@@Z",
+   "address": "00736d80"
+  },
+  {
    "symbol": "?Open@CCFileClass@@UAEHH@Z",
    "address": "00469220"
   },
@@ -1654,10 +1658,6 @@
    "address": "004ba5b0"
   },
   {
-   "symbol": "?unknown_moving_736d80@@YI_NPAUHWND__@@IPAVRect@@@Z",
-   "address": "00736d80"
-  },
-  {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
   },
@@ -1668,6 +1668,10 @@
   {
    "symbol": "?window_scroll_coasting_8373fc@@3_NA",
    "address": "008373fc"
+  },
+  {
+   "symbol": "_CCToolTip_VTable_007af51c",
+   "address": "007af51c"
   },
   {
    "symbol": "_ImmGetCandidateListA@16",
@@ -1688,10 +1692,6 @@
   {
    "symbol": "_ImmSetOpenStatus@8",
    "address": "00781c38"
-  },
-  {
-   "symbol": "_PTR_FUN_007af51c",
-   "address": "007af51c"
   },
   {
    "symbol": "__CIpow",

@@ -175,11 +175,10 @@ unsigned int Leaf_735b20::get() { unsigned int unused_this_address = (unsigned i
 
 // WS_Last_Response (0x00735B30): name from mischa85 names.csv
 
-extern "C" unsigned int DAT_00b25ddc;
 
 unsigned int  WS_Last_Response(void)
 {
-    return DAT_00b25ddc;
+    return g_LastResponse;
 }
 
 

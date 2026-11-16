@@ -187,7 +187,7 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?FUN_006e8440@Owner_006e8440@seed_006e8440@@QAE_NI@Z",
+   "symbol": "?Is_Allowed@Owner_006e8440@seed_006e8440@@QAE_NI@Z",
    "entry": "006e8440",
    "body_bytes": 147,
    "padding_bytes": 13
@@ -1813,6 +1813,10 @@
    "address": "00470250"
   },
   {
+   "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+   "address": "00a35db4"
+  },
+  {
    "symbol": "?Read@BufferIOFileClass@@UAEJPAXJ@Z",
    "address": "0042fa80"
   },
@@ -1887,10 +1891,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "_DAT_00a35db4",
-   "address": "00a35db4"
   },
   {
    "symbol": "_Scen_00a3d290",
@@ -2208,7 +2208,7 @@
    "site": "00688da0",
    "target": "006e8440",
    "symbol": "?Is_Allowed@ThemeClass@@QAE_NI@Z",
-   "module_symbol": "?FUN_006e8440@Owner_006e8440@seed_006e8440@@QAE_NI@Z"
+   "module_symbol": "?Is_Allowed@Owner_006e8440@seed_006e8440@@QAE_NI@Z"
   },
   {
    "site": "00688da0",

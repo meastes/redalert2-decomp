@@ -2518,23 +2518,16 @@ template<> FixedString<32> FixedString<32>::operator=(FixedString<32> const &oth
 }
 
 
-// 0x006b3200: function not yet identified
-//
-// Body: 41 bytes (frozen inventory bound).
-// Referenced from 3 sites (unconditional call).
-// Ghidra prototype: char * __thiscall FUN_006b3200(char *param_1,char *param_2)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// char *Owner_006b3200::Copy_Text_006b3200(char *source_text) (0x006B3200): copies up to 31 characters of
+// the text into the 32-byte string (an empty string for a null text).
 
 namespace seed_006b3200 {
 
 extern "C" unsigned int __cdecl _strncpy(...);  // @ref __strncpy=007823d0
 
-struct Owner_006b3200 { char * FUN_006b3200(char *source_text); };
+struct Owner_006b3200 { char * Copy_Text_006b3200(char *source_text); };
 
-char * Owner_006b3200::FUN_006b3200(char *source_text)
+char * Owner_006b3200::Copy_Text_006b3200(char *source_text)
 {
     char * destination = (char *)this;
     if (source_text == (char *)0x0) {

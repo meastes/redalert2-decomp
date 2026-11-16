@@ -13,10 +13,10 @@
 
 namespace seed_005ff400 {
 
-extern "C" __declspec(dllimport) undefined4 __stdcall InvalidateRect(int, int, int);  // @ref __imp__InvalidateRect@12=0079a494
-extern "C" __declspec(dllimport) undefined4 __stdcall UpdateWindow(int);  // @ref __imp__UpdateWindow@4=0079a46c
+extern "C" __declspec(dllimport) unsigned int __stdcall InvalidateRect(int, int, int);  // @ref __imp__InvalidateRect@12=0079a494
+extern "C" __declspec(dllimport) unsigned int __stdcall UpdateWindow(int);  // @ref __imp__UpdateWindow@4=0079a46c
 
-undefined4 __stdcall Redraw_Window_005ff400(HWND window, RECT *rect)
+unsigned int __stdcall Redraw_Window_005ff400(HWND window, RECT *rect)
 {
     InvalidateRect((int)(window), (int)(rect), (int)(0));
     UpdateWindow((int)(window));

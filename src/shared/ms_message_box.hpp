@@ -48,6 +48,6 @@ void __fastcall OwnerDraw_End_Dialog(HWND window);                              
 int __stdcall unknown_choice_dialog_proc_600d50(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 void __fastcall unknown_5115f0(HWND dialog);                                       // 0x005115F0 (0x005EAB60 with its flag)
 void __fastcall Title_Screen_Restore(bool unknown1);                                       // 0x00517370 idle step
-bool __fastcall unknown_moving_736d80(HWND window, WPARAM wparam, Rect *rect);    // 0x00736D80 WM_MOVING (On_WM_MOVING)
+bool __fastcall On_WM_MOVING(HWND window, WPARAM wparam, Rect *rect);    // 0x00736D80 WM_MOVING (On_WM_MOVING)
 
 #endif

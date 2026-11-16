@@ -1587,44 +1587,22 @@ void UnitClass::unknown_slot93(int reason)
 }
 
 
-// 0x006fe5f0: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_006fe5f0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void unknown_empty_006fe5f0() (0x006FE5F0): an empty function.
 
-namespace seed_006fe5f0 {
-
-void  FUN_006fe5f0(void)
+void  unknown_empty_006fe5f0(void)
 {
     return;
 }
 
-}  // namespace seed_006fe5f0
 
 
-// 0x006fe600: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_006fe600(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void unknown_empty_006fe600() (0x006FE600): an empty function.
 
-namespace seed_006fe600 {
-
-void  FUN_006fe600(void)
+void  unknown_empty_006fe600(void)
 {
     return;
 }
 
-}  // namespace seed_006fe600
 
 
 // bool UnitClass::Render(Rect *bounds, bool arg2, bool arg3) (0x006FF350, slot 63)

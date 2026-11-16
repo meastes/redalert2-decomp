@@ -133,25 +133,15 @@ WDTTerritory::WDTTerritory()
 }
 
 
-// 0x0072bea0: function not yet identified
-//
-// Owner: WDTTerritory, stores the WDTTerritory vtable (constructor or destructor) (from RTTI/vtables).
-// Body: 11 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_0072bea0(undefined4 *param_1)
-// Callees with accepted source:
-//   ReferenceCounted_Destructor_00639710 -> src/recovered/classes/ReferenceCounted/00639710.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __fastcall WDTTerritory_Destructor_0072bea0(unsigned int *object_words) (0x0072BEA0): stores the
+// WDTTerritory vtable and runs the reference-counted base destructor (0x00639710).
 
 namespace seed_0072bea0 {
 
 extern void __fastcall ReferenceCounted_Destructor_00639710(void);
 extern "C" void* WDTTerritory_VTable_007af2d8;
 
-void __fastcall FUN_0072bea0(unsigned int *object_words)
+void __fastcall WDTTerritory_Destructor_0072bea0(unsigned int *object_words)
 {
     *object_words = (unsigned int)(&WDTTerritory_VTable_007af2d8);
     ReferenceCounted_Destructor_00639710();

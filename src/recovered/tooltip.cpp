@@ -424,30 +424,21 @@ class Leaf_6ec1d0 { public: void* get(unsigned int flags); };
 void* Leaf_6ec1d0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6ec1d0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6ec1d0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6ec1d0(this); return this; }
 
 
-// 0x006ec220: function not yet identified
-//
-// Owner: DynamicVectorClass<ToolTip *>, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
-// Body: 73 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall FUN_006ec220(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unsigned int *Owner_006ec220::unknown_scalar_deleting_destructor_006ec220(unsigned char deletion_flags)
+// (0x006EC220): stores the VectorClass<ToolTip const *> vtable (0x007AD970), frees the owned buffer
+// (+0x04 when +0x0D is set), clears the size, and frees the object when bit 0 of the flags is set.
 
 namespace seed_006ec220 {
 
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
-extern "C" void* PTR_FUN_007ad970;
+extern "C" void* VectorClass_ToolTipPtr_VTable_007ad970;
 
-struct Owner_006ec220 { unsigned int * FUN_006ec220(unsigned char deletion_flags); };
+struct Owner_006ec220 { unsigned int * unknown_scalar_deleting_destructor_006ec220(unsigned char deletion_flags); };
 
-unsigned int * Owner_006ec220::FUN_006ec220(unsigned char deletion_flags)
+unsigned int * Owner_006ec220::unknown_scalar_deleting_destructor_006ec220(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
-    *object_words = (unsigned int)(&PTR_FUN_007ad970);
+    *object_words = (unsigned int)(&VectorClass_ToolTipPtr_VTable_007ad970);
     if ((object_words[1] != 0) && (*(char *)((int)object_words + 0xd) != '\0')) {
         operator_delete_00781d3b((unsigned int)(object_words[1]));
         object_words[1] = 0;

@@ -97,7 +97,7 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?FUN_006231f0@seed_006231f0@@YIXH@Z",
+   "symbol": "?unknown_free_buffer_334_006231f0@seed_006231f0@@YIXH@Z",
    "entry": "006231f0",
    "body_bytes": 18,
    "padding_bytes": 14
@@ -355,13 +355,13 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?FUN_0062e520@seed_0062e520@@YIXPAE@Z",
+   "symbol": "?Dump_Packet_Too_Late_Stuff@seed_0062e520@@YIXPAE@Z",
    "entry": "0062e520",
    "body_bytes": 129,
    "padding_bytes": 15
   },
   {
-   "symbol": "?FUN_0062e5b0@seed_0062e5b0@@YAXXZ",
+   "symbol": "?Check_Mirror@@YAXXZ",
    "entry": "0062e5b0",
    "body_bytes": 1,
    "padding_bytes": 15
@@ -409,7 +409,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?FUN_0062ead0@seed_0062ead0@@YAHPAH0@Z",
+   "symbol": "?unknown_compare_ints_0062ead0@seed_0062ead0@@YAHPAH0@Z",
    "entry": "0062ead0",
    "body_bytes": 34,
    "padding_bytes": 14
@@ -4235,6 +4235,14 @@
    "address": "007ec498"
   },
   {
+   "symbol": "?Debug_Log@seed_0062e520@@YAXH@Z",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Debug_Log@seed_0062e520@@YAXHH@Z",
+   "address": "004068f0"
+  },
+  {
    "symbol": "?Debug_Printf@@YAXPBDZZ",
    "address": "004068f0"
   },
@@ -4281,14 +4289,6 @@
   {
    "symbol": "?FPSCounter_CurrentFrameRate@@3IA",
    "address": "00a6eb1c"
-  },
-  {
-   "symbol": "?FUN_004068f0@seed_0062e520@@YAXH@Z",
-   "address": "004068f0"
-  },
-  {
-   "symbol": "?FUN_004068f0@seed_0062e520@@YAXHH@Z",
-   "address": "004068f0"
   },
   {
    "symbol": "?Factories@@3V?$DynamicVectorClass@PAVFactoryClass@@@@A",
@@ -5215,20 +5215,8 @@
    "address": "00a40314"
   },
   {
-   "symbol": "_DAT_00a3d560",
-   "address": "00a3d560"
-  },
-  {
-   "symbol": "_DAT_00a3d564",
-   "address": "00a3d564"
-  },
-  {
    "symbol": "_Frame_00a40d2c",
    "address": "00a40d2c"
-  },
-  {
-   "symbol": "_PTR_s_EMPTY_007d65cc",
-   "address": "007d65cc"
   },
   {
    "symbol": "__CIpow",

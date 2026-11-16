@@ -433,44 +433,22 @@ void Voices::Trim()
 }
 
 
-// 0x007329d0: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_007329d0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// Voices_Noop1 (0x007329D0): name from mischa85 names.csv
 
-namespace seed_007329d0 {
-
-void  FUN_007329d0(void)
+void  Voices_Noop1(void)
 {
     return;
 }
 
-}  // namespace seed_007329d0
 
 
-// 0x007329e0: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_007329e0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// Voices_Noop2 (0x007329E0): name from mischa85 names.csv
 
-namespace seed_007329e0 {
-
-void  FUN_007329e0(void)
+void  Voices_Noop2(void)
 {
     return;
 }
 
-}  // namespace seed_007329e0
 
 
 // void WorldDominationTour::Voices::Stop() (0x007329F0)
@@ -642,22 +620,14 @@ void Voices::Anim::Restore(int unknown1)
 }
 
 
-// 0x00732c30: function not yet identified
-//
-// Owner: DynamicVectorClass<unsigned int>, stores the DynamicVectorClass<unsigned int> vtable (constructor or destructor) (from RTTI/vtables).
-// Body: 32 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void __fastcall FUN_00732c30(undefined4 *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __fastcall unknown_dynamic_vector_init_00732c30(unsigned int *vector_words) (0x00732C30): constructs
+// an empty DynamicVectorClass<unsigned int> in place (vtable 0x0079C4DC, growth step 10).
 
 namespace seed_00732c30 {
 
 extern "C" void* DynamicVectorClass_UnsignedInt_VTable_0079c4dc;
 
-void __fastcall FUN_00732c30(unsigned int *vector_words)
+void __fastcall unknown_dynamic_vector_init_00732c30(unsigned int *vector_words)
 {
     *(unsigned char *)(vector_words + 3) = 1;
     vector_words[1] = 0;

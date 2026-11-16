@@ -4,8 +4,8 @@
     "id": "population-3542",
     "inventory_sha256": "9d27bfeaf39b73ebf24e93ec9ce3c691f9e873f57856befc5b3147d839230783",
     "gaps_sha256": "6b58d5b5c03845b0678e5ef0ce479b365cea3e4a1d631447677c250f9e0105dc",
-    "historical_population_sha256": "44cb069bda975e78eb0ef6513f7818931ba92de3a5fa3e54677183439cb94416",
-    "historical_acceptance_sha256": "a83410c4318ce78b8ae480f6ef3b00ab1018ebf962b9b5801fa5cbfb19278b99"
+    "historical_population_sha256": "e8754aa41b28e2d855ac79e79d978662c1a541491583780006b87e3040eab678",
+    "historical_acceptance_sha256": "ea1d4c0531cfa2dd8576591f0eb9f035ec355866220bf37144399d2f38aa2a49"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1576,7 +1576,7 @@
     "?Unknown_Center_Window_00737080@@": 7565440,
     "?Unknown_Dialog_Added_00522b20@@": 5384992,
     "?Unknown_Dialog_Removed_00522b80@@": 5385088,
-    "?unknown_moving_736d80@@": 7564672,
+    "?On_WM_MOVING@@": 7564672,
     "?game_window_00b263d8@@": 11690968,
     "?exception_text_00855ba8@@": 8739752,
     "?dialog_init_log_007d794c@@": 8223052,
@@ -1750,7 +1750,7 @@
     "__imp__GetClientRect@8": 7972024,
     "__imp__ClientToScreen@8": 7972012,
     "__imp__GetCursorPos@4": 7971752,
-    "?unknown_moving_736d80@@YI_NPAUHWND__@@IPAVRect@@@Z": 7564672,
+    "?On_WM_MOVING@@YI_NPAUHWND__@@IPAVRect@@@Z": 7564672,
     "__imp__GetWindowLongA@8": 7971980,
     "__imp__SetFocus@4": 7971724,
     "_time": 7878783,
@@ -6795,7 +6795,8 @@
     "??_7ParticleClass@@6B@": 8027484,
     "??_ECellClass@@UAEPAXI@Z": 4706208,
     "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056,
-    "??_EParticleClass@@UAEPAXI@Z": 6334432
+    "??_EParticleClass@@UAEPAXI@Z": 6334432,
+    "?On_WM_MOVING@@YI_NPAXIPAVRect@@@Z": 7564672
   },
   "regions": [
     {
@@ -7673,13 +7674,13 @@
         {
           "offset": 242,
           "kind": 20,
-          "symbol": "?unknown_moving_736d80@@YI_NPAUHWND__@@IPAVRect@@@Z",
+          "symbol": "?On_WM_MOVING@@YI_NPAUHWND__@@IPAVRect@@@Z",
           "target": 7564672,
           "addend": 0,
           "resolved": 2617498
         }
       ],
-      "source_sha256": "0b2ce29d8f4e009283dc553d7b0246009e6df83dbb3a8dd1b48c9c8dc041d459",
+      "source_sha256": "862fead41deba507385b4a07bb312d97d33d7b618ed7958e562feb5ac549d8c4",
       "source": "src/recovered/facing/Exception_Dialog_Procedure.cpp",
       "population": "population-3542",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",

@@ -62,7 +62,7 @@ _unknown_text_buffer_a40a34	_serial_manager_00a40a28	24	12	exact	unknown_text_bu
 _unknown_text_capacity_a40a38	_serial_manager_00a40a28	32	16	exact	unknown_text_capacity_a40a38	serial_manager_00a40a28	base:class ConnManClass.ReceiveLen	int	int	152
 _unknown_text_length_a40a3c	_serial_manager_00a40a28	36	20	exact	unknown_text_length_a40a3c	serial_manager_00a40a28	base:class ConnManClass.ReceiveIndex	int	int	152
 _Tiberiums_ActiveCount_00ac0b40	_Tiberiums	24	16	exact	Tiberiums_ActiveCount_00ac0b40	Tiberiums	base:class VectorClass<class TiberiumClass *>.ActiveCount	int	int	32
-_DAT_00ad0940	_Voxs	24	16	exact	DAT_00ad0940	Voxs	base:class VectorClass<class VoxClass *>.ActiveCount	int	int	32
+_Voxs_ActiveCount_ad0940	_Voxs	24	16	exact	Voxs_ActiveCount_ad0940	Voxs	base:class VectorClass<class VoxClass *>.ActiveCount	int	int	32
 _g4_735d70_b25dcc	_g_EzFonts	4	4	compatible	g4_735d70_b25dcc	g_EzFonts	Count.Max	unsigned int	int	16
 _unknown_mono_leading_a70eb0	_unknown_mono_metrics_a70ea0	16	16	exact	unknown_mono_leading_a70eb0	unknown_mono_metrics_a70ea0	tmHeight.tmExternalLeading	int	LONG	56
 _unknown_mono_width_a70eb8	_unknown_mono_metrics_a70ea0	24	24	exact	unknown_mono_width_a70eb8	unknown_mono_metrics_a70ea0	tmHeight.tmMaxCharWidth	int	LONG	56
@@ -116,9 +116,7 @@ _unknown_last_nickname_slot_a3d554	_unknown_session_a3d298	712	700	exact	unknown
 _unknown_max_players_a3d558	_unknown_session_a3d298	716	704	range	unknown_max_players_a3d558	unknown_session_a3d298	(anon).unknown_2c0	int	char[4]	12592
 _unknown_team_count_a3d558	_unknown_session_a3d298	716	704	range	unknown_team_count_a3d558	unknown_session_a3d298	(anon).unknown_2c0	int	char[4]	12592
 _unknown_session_a3d55c	_unknown_session_a3d298	720	708	exact	unknown_session_a3d55c	unknown_session_a3d298	(anon).NumPlayers	int	int	12592
-_DAT_00a3d560	_unknown_session_a3d298	724	712	exact	DAT_00a3d560	unknown_session_a3d298	(anon).MaxAhead_2c8	unsigned int	unsigned int	12592
 _unknown_max_ahead_a3d560	_unknown_session_a3d298	724	712	compatible	unknown_max_ahead_a3d560	unknown_session_a3d298	(anon).MaxAhead_2c8	int	unsigned int	12592
-_DAT_00a3d564	_unknown_session_a3d298	728	716	exact	DAT_00a3d564	unknown_session_a3d298	(anon).unknown_2cc	unsigned int	unsigned int	12592
 _unknown_frame_send_rate_a3d564	_unknown_session_a3d298	728	716	exact	unknown_frame_send_rate_a3d564	unknown_session_a3d298	(anon).unknown_2cc	unsigned int	unsigned int	12592
 _unknown_a3d568	_unknown_session_a3d298	732	720	exact	unknown_a3d568	unknown_session_a3d298	(anon).unknown_2d0	int	int	12592
 _unknown_process_timer_a3d56c	_unknown_session_a3d298	736	724	range	unknown_process_timer_a3d56c	unknown_session_a3d298	(anon).unknown_2d4	unsigned int	char[12]	12592

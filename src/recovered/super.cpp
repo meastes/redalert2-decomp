@@ -263,21 +263,14 @@ bool SuperClass::Remove()
 }
 
 
-// 0x0069cfb0: function not yet identified
-//
-// Body: 10 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: void __thiscall FUN_0069cfb0(int param_1,undefined1 param_2)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void Owner_0069cfb0::Set_Ready(unsigned char ready) (0x0069CFB0; mischa85 names.csv SuperClass::Set_Ready):
+// stores the flag at +0x57.
 
 namespace seed_0069cfb0 {
 
-struct Owner_0069cfb0 { void FUN_0069cfb0(unsigned char unknown_0x57); };
+struct Owner_0069cfb0 { void Set_Ready(unsigned char unknown_0x57); };
 
-void Owner_0069cfb0::FUN_0069cfb0(unsigned char unknown_0x57)
+void Owner_0069cfb0::Set_Ready(unsigned char unknown_0x57)
 {
     int object_address = (int)this;
     *(unsigned char *)(object_address + 0x57) = unknown_0x57;
@@ -873,24 +866,13 @@ void SuperClass::Place(Cell const &cell, bool player)
 }
 
 
-// 0x0069e980: function not yet identified
-//
-// Body: 3 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_0069e980(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __stdcall unknown_empty_0069e980(int, int) (0x0069E980): an empty function.
 
-namespace seed_0069e980 {
-
-void __stdcall FUN_0069e980(int unused_0, int unused_1)
+void __stdcall unknown_empty_0069e980(int unused_0, int unused_1)
 {
     return;
 }
 
-}  // namespace seed_0069e980
 
 
 // bool SuperClass::Is_Charging() const (0x0069E990)
@@ -1033,21 +1015,14 @@ int SuperClass::Size_Of() const
 // calls ~SuperClass (0x0069C8B0) out of line.
 
 
-// 0x0069ed30: function not yet identified
-//
-// Body: 13 bytes (frozen inventory bound).
-// Referenced from 2 sites (unconditional call).
-// Ghidra prototype: void __fastcall FUN_0069ed30(int *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __fastcall FrameTimer_Start_0069ed30(int *timer_words) (0x0069ED30; mischa85 names.csv
+// CDTimerClass<FrameTimerClass>::Start): a stopped timer (-1) takes the current frame.
 
 namespace seed_0069ed30 {
 
 extern "C" unsigned int Frame_00a40d2c;
 
-void __fastcall FUN_0069ed30(int *timer_words)
+void __fastcall FrameTimer_Start_0069ed30(int *timer_words)
 {
     if (*timer_words == -1) {
         *timer_words = Frame_00a40d2c;

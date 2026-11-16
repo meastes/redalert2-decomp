@@ -47,23 +47,14 @@ UnknownState_006231a0::UnknownState_006231a0()
 }
 
 
-// 0x006231f0: function not yet identified
-//
-// Body: 18 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_006231f0(int param_1)
-// Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __fastcall unknown_free_buffer_334_006231f0(int object_address) (0x006231F0): frees the buffer at
+// +0x334 when there is one.
 
 namespace seed_006231f0 {
 
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
 
-void __fastcall FUN_006231f0(int object_address)
+void __fastcall unknown_free_buffer_334_006231f0(int object_address)
 {
     if (*(int *)(object_address + 0x334) != 0) {
         operator_delete_00781d3b((unsigned int)(*(int *)(object_address + 0x334)));
@@ -3889,26 +3880,16 @@ void __fastcall Unknown_0062DBA0(int index, EventClass *event)
 }
 
 
-// 0x0062e520: function not yet identified
-//
-// Body: 129 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_0062e520(byte *param_1)
-// Callees with accepted source:
-//   FUN_004068f0 -> src/recovered/004068f0.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// Dump_Packet_Too_Late_Stuff (0x0062E520): name from mischa85 names.csv
 
+extern int unknown_max_ahead_a3d560;
+extern unsigned int unknown_frame_send_rate_a3d564;
+extern char const *EventNames[];
 namespace seed_0062e520 {
 
-extern void  FUN_004068f0(int);
-extern void  FUN_004068f0(int, int);
-extern "C" unsigned int DAT_00a3d560;
-extern "C" unsigned int DAT_00a3d564;
+extern void  Debug_Log(int);
+extern void  Debug_Log(int, int);
 extern "C" unsigned int Frame_00a40d2c;
-extern "C" void* PTR_s_EMPTY_007d65cc;
 extern "C" char s_FrameSendRate__d_007ecf8c[];
 extern "C" char s_Frame___d_007ecfcc[];
 extern "C" char s_Frame__d_007ecfa0[];
@@ -3918,40 +3899,29 @@ extern "C" char s_Packet_received_too_late__007ed018[];
 extern "C" char s_Type___s_007ecfdc[];
 extern "C" char s___________Event_data_____________007ecfec[];
 
-void __fastcall FUN_0062e520(unsigned char *event_bytes)
+void __fastcall Dump_Packet_Too_Late_Stuff(unsigned char *event_bytes)
 {
-    FUN_004068f0((int)(s_Packet_received_too_late__007ed018));
-    FUN_004068f0((int)(s___________Event_data_____________007ecfec));
-    FUN_004068f0((int)(s_Type___s_007ecfdc), (int)((&PTR_s_EMPTY_007d65cc)[*event_bytes]));
-    FUN_004068f0((int)(s_Frame___d_007ecfcc), (int)(*(unsigned int *)(event_bytes + 3)));
-    FUN_004068f0((int)(s_ID___d_007ecfbc), (int)((int)(char)event_bytes[2]));
-    FUN_004068f0((int)(s_MaxAhead__d_007ecfac), (int)(DAT_00a3d560));
-    FUN_004068f0((int)(s_Frame__d_007ecfa0), (int)(Frame_00a40d2c));
-    FUN_004068f0((int)(s_FrameSendRate__d_007ecf8c), (int)(DAT_00a3d564));
+    Debug_Log((int)(s_Packet_received_too_late__007ed018));
+    Debug_Log((int)(s___________Event_data_____________007ecfec));
+    Debug_Log((int)(s_Type___s_007ecfdc), (int)(EventNames[*event_bytes]));
+    Debug_Log((int)(s_Frame___d_007ecfcc), (int)(*(unsigned int *)(event_bytes + 3)));
+    Debug_Log((int)(s_ID___d_007ecfbc), (int)((int)(char)event_bytes[2]));
+    Debug_Log((int)(s_MaxAhead__d_007ecfac), (int)(unknown_max_ahead_a3d560));
+    Debug_Log((int)(s_Frame__d_007ecfa0), (int)(Frame_00a40d2c));
+    Debug_Log((int)(s_FrameSendRate__d_007ecf8c), (int)(unknown_frame_send_rate_a3d564));
     return;
 }
 
 }  // namespace seed_0062e520
 
 
-// 0x0062e5b0: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_0062e5b0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// Check_Mirror (0x0062E5B0): name from mischa85 names.csv
 
-namespace seed_0062e5b0 {
-
-void  FUN_0062e5b0(void)
+void  Check_Mirror(void)
 {
     return;
 }
 
-}  // namespace seed_0062e5b0
 
 
 // void __fastcall Unknown_0062E5C0(FrameSyncStruct *their, int index) (0x0062E5C0): a player's frames behind.
@@ -4106,21 +4076,12 @@ template<> bool IndexClass<int,ObjectClass *>::Increase_Table_Size(int amount)
 }
 
 
-// 0x0062ead0: function not yet identified
-//
-// Body: 34 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: int FUN_0062ead0(int *param_1,int *param_2)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-// Adjusted from the Ghidra seed by permute_seeds.py (signedness, comparison order) to
-// match the original; edit freely, this file is no longer regenerated.
+// int unknown_compare_ints_0062ead0(int *left_value, int *right_value) (0x0062EAD0): a search compare:
+// 0 when equal, -1 when left is less, 1 when greater.
 
 namespace seed_0062ead0 {
 
-int  FUN_0062ead0(int *left_value, int *right_value)
+int  unknown_compare_ints_0062ead0(int *left_value, int *right_value)
 {
     if (*left_value == *right_value) {
         return 0;

@@ -1246,7 +1246,7 @@ alignas(16) unsigned char ra2_bss_0943[112] __asm__("_SpeechUrgentList");  // 0x
 alignas(16) unsigned char ra2_bss_0944[48] __asm__("_SpeechSuspend");  // 0x00AD08C8 SpeechSuspend (?SpeechSuspend@@3HC)
 alignas(16) unsigned char ra2_bss_0945[96] __asm__("_SpeechLists");  // 0x00AD08E0 SpeechLists (?SpeechLists@@3PAUAudioListNode@@A)
 alignas(16) unsigned char ra2_bss_0946[64] __asm__("_AuxStreamHold");  // 0x00AD0910 AuxStreamHold (?AuxStreamHold@@3HC)
-alignas(16) unsigned char ra2_bss_0947[24] __asm__("_DAT_00ad0934");  // 0x00AD0934 DAT_00ad0934
+alignas(16) unsigned char ra2_bss_0947[24] __asm__("_Voxs_Vector_ad0934");  // 0x00AD0934 Voxs_Vector_ad0934
 alignas(16) unsigned char ra2_bss_0948[16] __asm__("_SpeechPending");  // 0x00AD0948 SpeechPending (?SpeechPending@@3PAUVoxSpeech@@A)
 alignas(16) unsigned char ra2_bss_0949[16] __asm__("_SpeechEnabled");  // 0x00AD094C SpeechEnabled (?SpeechEnabled@@3HA)
 alignas(16) unsigned char ra2_bss_0950[16] __asm__("_SpeechSerial");  // 0x00AD0950 SpeechSerial (?SpeechSerial@@3HA)

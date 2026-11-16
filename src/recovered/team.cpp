@@ -1970,27 +1970,21 @@ void TeamClass::TMission_PLAY_MOVIE(ScriptMissionClass const &mission, bool unkn
 }
 
 
-// 0x006bc2c0: function not yet identified
-//
-// Body: 32 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __thiscall FUN_006bc2c0(int param_1,int param_2)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void Owner_006bc2c0::TMission_PLAY_MUSIC(int mission_address, int) (0x006BC2C0; mischa85 names.csv
+// TeamClass::TMission_PLAY_MUSIC): queues the mission's song on Theme and marks the step done (+0x80).
 
+class ThemeClass;
+extern ThemeClass Theme;
 namespace seed_006bc2c0 {
 
 struct Callee_006e7e20 { void Queue_Song_006e7e20(int value); };
-extern "C" unsigned int unknown_theme_a35d78;
 
-struct Owner_006bc2c0 { void FUN_006bc2c0(int argument_address, int unused_1); };
+struct Owner_006bc2c0 { void TMission_PLAY_MUSIC(int argument_address, int unused_1); };
 
-void Owner_006bc2c0::FUN_006bc2c0(int argument_address, int unused_1)
+void Owner_006bc2c0::TMission_PLAY_MUSIC(int argument_address, int unused_1)
 {
     int team_address = (int)this;
-    ((Callee_006e7e20*)(&unknown_theme_a35d78))->Queue_Song_006e7e20((int)(*(unsigned int *)(argument_address + 4)));
+    ((Callee_006e7e20*)(&Theme))->Queue_Song_006e7e20((int)(*(unsigned int *)(argument_address + 4)));
     *(unsigned char *)(team_address + 0x80) = 1;
     return;
 }
@@ -2551,21 +2545,14 @@ void TeamClass::Team_Members(DynamicVectorClass<TechnoTypeClass *> &types)
 }
 
 
-// 0x006bd960: function not yet identified
-//
-// Body: 48 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __thiscall FUN_006bd960(int param_1,int param_2,char param_3)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void Owner_006bd960::TMission_FLASH(int mission_address, char apply) (0x006BD960; mischa85 names.csv
+// TeamClass::TMission_FLASH): sets the flash count (+0xD8) of every member and marks the step done.
 
 namespace seed_006bd960 {
 
-struct Owner_006bd960 { void FUN_006bd960(int argument_address, char apply_to_members); };
+struct Owner_006bd960 { void TMission_FLASH(int argument_address, char apply_to_members); };
 
-void Owner_006bd960::FUN_006bd960(int argument_address, char apply_to_members)
+void Owner_006bd960::TMission_FLASH(int argument_address, char apply_to_members)
 {
     int team_address = (int)this;
     unsigned int member_value;

@@ -1240,8 +1240,8 @@ alignas(16) unsigned char ra2_orig_0355[16] __asm__("_unknown_cpu_delay_scale_7a
 alignas(16) unsigned char ra2_orig_0356[16] __asm__("_unknown_cpu_delay_factor_7a9210");
 // row	_unknown_waypoints_section_7a9218	0x007A9218	24	ptr	unknown_waypoints_section_7a9218	src/recovered/header_statics/00668540/HeaderStatics_c_init_00668590.cpp
 alignas(16) unsigned char ra2_orig_0357[48] __asm__("_unknown_waypoints_section_7a9218");
-// row	_PTR_FUN_007a928c	0x007A928C	20	ptr	PTR_FUN_007a928c	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
-alignas(16) unsigned char ra2_orig_0358[48] __asm__("_PTR_FUN_007a928c");
+// row	_ScoreAnimClass_VTable_007a928c	0x007A928C	20	ptr	ScoreAnimClass_VTable_007a928c	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+alignas(16) unsigned char ra2_orig_0358[48] __asm__("_ScoreAnimClass_VTable_007a928c");
 // row	_vtable_6748c0	0x007A95C4	32	bytes	vtable_6748c0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 // row	_vtable_674910	0x007A95C4	32	bytes	vtable_674910	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 alignas(16) unsigned char ra2_orig_0359[32] __asm__("_vtable_6748c0");
@@ -1338,10 +1338,10 @@ __asm__(".globl _vtable_6e71d0\n.set _vtable_6e71d0, _vtable_6e7180\n");
 // row	_vtable_6ead20	0x007AD864	32	bytes	vtable_6ead20	src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp
 alignas(16) unsigned char ra2_orig_0386[32] __asm__("_vtable_6eacd0");
 __asm__(".globl _vtable_6ead20\n.set _vtable_6ead20, _vtable_6eacd0\n");
-// row	_PTR_FUN_007ad970	0x007AD970	68	ptr	PTR_FUN_007ad970	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+// row	_VectorClass_ToolTipPtr_VTable_007ad970	0x007AD970	68	ptr	VectorClass_ToolTipPtr_VTable_007ad970	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
 // row	_vtable_6ec1d0	0x007AD970	68	bytes	vtable_6ec1d0	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
-alignas(16) unsigned char ra2_orig_0387[144] __asm__("_PTR_FUN_007ad970");
-__asm__(".globl _vtable_6ec1d0\n.set _vtable_6ec1d0, _PTR_FUN_007ad970\n");
+alignas(16) unsigned char ra2_orig_0387[144] __asm__("_VectorClass_ToolTipPtr_VTable_007ad970");
+__asm__(".globl _vtable_6ec1d0\n.set _vtable_6ec1d0, _VectorClass_ToolTipPtr_VTable_007ad970\n");
 // row	_TriggerTypeClass_INI_NAME	0x007ADA50	4	ptr	TriggerTypeClass_INI_NAME	src/recovered/header_statics/006b4300/HeaderStatics_diagonal_init_006b4300.cpp
 alignas(16) unsigned char ra2_orig_0388[16] __asm__("_TriggerTypeClass_INI_NAME");
 // row	_TriggerTypeClass_INI_ACTION_NAME	0x007ADA54	4	ptr	TriggerTypeClass_INI_ACTION_NAME	src/recovered/header_statics/006b4300/HeaderStatics_diagonal_init_006b4300.cpp
@@ -1430,8 +1430,8 @@ alignas(16) unsigned char ra2_orig_0423[112] __asm__("_WorldDominationTour_Voice
 __asm__(".globl _PTR_FUN_007af40c\n.set _PTR_FUN_007af40c, _WorldDominationTour_Voices_Anim_VTable_007af40c\n");   // the raw seeds' name for it (lane C16)
 // row	_PTR_FUN_007af4e0	0x007AF4E0	60	ptr	PTR_FUN_007af4e0	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
 alignas(16) unsigned char ra2_orig_0424[128] __asm__("_PTR_FUN_007af4e0");
-// row	_PTR_FUN_007af51c	0x007AF51C	48	ptr	PTR_FUN_007af51c	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
-alignas(16) unsigned char ra2_orig_0425[96] __asm__("_PTR_FUN_007af51c");
+// row	_CCToolTip_VTable_007af51c	0x007AF51C	48	ptr	CCToolTip_VTable_007af51c	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
+alignas(16) unsigned char ra2_orig_0425[96] __asm__("_CCToolTip_VTable_007af51c");
 // row	_unknown_vtable_007af54c	0x007AF54C	8	ptr	unknown_vtable_007af54c	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_Release_00691580.cpp
 alignas(16) unsigned char ra2_orig_0426[16] __asm__("_unknown_vtable_007af54c");
 // row	_data_7395b0_7af554	0x007AF554	76	bytes	data_7395b0_7af554	src/recovered/00402190.cpp
@@ -5559,7 +5559,7 @@ extern "C" unsigned char ra2_place_2650[] __asm__("_SpeechUrgentList");
 extern "C" unsigned char ra2_place_2651[] __asm__("_SpeechSuspend");
 extern "C" unsigned char ra2_place_2652[] __asm__("_SpeechLists");
 extern "C" unsigned char ra2_place_2653[] __asm__("_AuxStreamHold");
-extern "C" unsigned char ra2_place_2654[] __asm__("_DAT_00ad0934");
+extern "C" unsigned char ra2_place_2654[] __asm__("_Voxs_Vector_ad0934");
 extern "C" unsigned char ra2_place_2655[] __asm__("_SpeechPending");
 extern "C" unsigned char ra2_place_2656[] __asm__("_SpeechEnabled");
 extern "C" unsigned char ra2_place_2657[] __asm__("_SpeechSerial");

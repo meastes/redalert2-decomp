@@ -268,12 +268,11 @@ void TabClass::Init_For_House()
 
 // Init_Shape_Button (0x006A1860): name from mischa85 names.csv
 
-extern "C" unsigned int DAT_008323cc;
 
 void __fastcall Init_Shape_Button(int object_address, unsigned int unknown_0x24, unsigned int unknown_0x20)
 {
     *(unsigned int *)(object_address + 0x24) = unknown_0x24;
-    *(unsigned int *)(object_address + 0x50) = DAT_008323cc;
+    *(unsigned int *)(object_address + 0x50) = (unsigned int)SidebarDrawer;
     *(unsigned int *)(object_address + 0x20) = unknown_0x20;
     *(unsigned char *)(object_address + 0x2d) = 0;
     *(unsigned int *)(object_address + 0x30) = 0;

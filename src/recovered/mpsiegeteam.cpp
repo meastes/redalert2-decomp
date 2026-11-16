@@ -62,23 +62,15 @@
 // by HeaderStatics_empty_rect_init_005abbd0.cpp; no source of its own.
 
 
-// 0x005abe10: function not yet identified
-//
-// Owner: MultiplayerSiegeDefenderTeam, stores the MultiplayerSiegeDefenderTeam vtable (constructor or destructor) (from RTTI/vtables).
-// Body: 11 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_005abe10(undefined4 *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __fastcall MultiplayerSiegeDefenderTeam_Destructor_005abe10(unsigned int *object_words) (0x005ABE10):
+// stores the MultiplayerSiegeDefenderTeam vtable and runs the MultiplayerTeam destructor (0x005B9B50).
 
 namespace seed_005abe10 {
 
 extern void __fastcall MultiplayerTeam_Destructor_005b9b50(void);
 extern "C" void* MultiplayerSiegeDefenderTeam_VTable_007a6c54;
 
-void __fastcall FUN_005abe10(unsigned int *object_words)
+void __fastcall MultiplayerSiegeDefenderTeam_Destructor_005abe10(unsigned int *object_words)
 {
     *object_words = (unsigned int)(&MultiplayerSiegeDefenderTeam_VTable_007a6c54);
     MultiplayerTeam_Destructor_005b9b50();
@@ -88,23 +80,15 @@ void __fastcall FUN_005abe10(unsigned int *object_words)
 }  // namespace seed_005abe10
 
 
-// 0x005abeb0: function not yet identified
-//
-// Owner: MultiplayerSiegeAttackerTeam, stores the MultiplayerSiegeAttackerTeam vtable (constructor or destructor) (from RTTI/vtables).
-// Body: 11 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_005abeb0(undefined4 *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __fastcall MultiplayerSiegeAttackerTeam_Destructor_005abeb0(unsigned int *object_words) (0x005ABEB0):
+// stores the MultiplayerSiegeAttackerTeam vtable and runs the MultiplayerTeam destructor (0x005B9B50).
 
 namespace seed_005abeb0 {
 
 extern void __fastcall MultiplayerTeam_Destructor_005b9b50(void);
 extern "C" void* MultiplayerSiegeAttackerTeam_VTable_007a6c64;
 
-void __fastcall FUN_005abeb0(unsigned int *object_words)
+void __fastcall MultiplayerSiegeAttackerTeam_Destructor_005abeb0(unsigned int *object_words)
 {
     *object_words = (unsigned int)(&MultiplayerSiegeAttackerTeam_VTable_007a6c64);
     MultiplayerTeam_Destructor_005b9b50();

@@ -292,64 +292,31 @@ void MapSelect::Queue_Voice_0058fd30(Wstring const &name,int delay)
 // temporary in Map_Selection_0058f510; no handwritten deletion scaffold.
 
 
-// 0x0058fcf0: function not yet identified
-//
-// Body: 5 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 FUN_0058fcf0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unsigned int __stdcall unknown_return_zero_0058fcf0(int) (0x0058FCF0): returns 0.
 
-namespace seed_0058fcf0 {
-
-unsigned int __stdcall FUN_0058fcf0(int unused_0)
+unsigned int __stdcall unknown_return_zero_0058fcf0(int unused_0)
 {
     return 0;
 }
 
-}  // namespace seed_0058fcf0
 
 
-// 0x0058fd70: function not yet identified
-//
-// Body: 3 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_0058fd70(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __stdcall unknown_empty_0058fd70(int) (0x0058FD70): an empty function.
 
-namespace seed_0058fd70 {
-
-void __stdcall FUN_0058fd70(int unused_0)
+void __stdcall unknown_empty_0058fd70(int unused_0)
 {
     return;
 }
 
-}  // namespace seed_0058fd70
 
 
-// 0x0058fd80: function not yet identified
-//
-// Body: 3 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_0058fd80(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __stdcall unknown_empty_0058fd80(int) (0x0058FD80): an empty function.
 
-namespace seed_0058fd80 {
-
-void __stdcall FUN_0058fd80(int unused_0)
+void __stdcall unknown_empty_0058fd80(int unused_0)
 {
     return;
 }
 
-}  // namespace seed_0058fd80
 
 
 class Leaf_58fd90 { public: void get(unsigned int unused_argument); };

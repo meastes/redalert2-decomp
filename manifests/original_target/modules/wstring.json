@@ -451,7 +451,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?FUN_00770330@seed_00770330@@YIXPAH@Z",
+   "symbol": "?unknown_release_text_00770330@seed_00770330@@YIXPAH@Z",
    "entry": "00770330",
    "body_bytes": 26,
    "padding_bytes": 6
@@ -475,7 +475,7 @@
    "padding_bytes": 4
   },
   {
-   "symbol": "?FUN_00770400@Owner_00770400@seed_00770400@@QAEGI@Z",
+   "symbol": "?Get_Char_00770400@Owner_00770400@seed_00770400@@QAEGI@Z",
    "entry": "00770400",
    "body_bytes": 39,
    "padding_bytes": 9
@@ -487,7 +487,7 @@
    "padding_bytes": 4
   },
   {
-   "symbol": "?FUN_00770440@Owner_00770440@seed_00770440@@QAEGI@Z",
+   "symbol": "?Get_Char_00770440@Owner_00770440@seed_00770440@@QAEGI@Z",
    "entry": "00770440",
    "body_bytes": 39,
    "padding_bytes": 9
@@ -21339,16 +21339,16 @@
    "address": "006fa0c0"
   },
   {
-   "symbol": "?FUN_00783605@seed_00770400@@YAIPAF@Z",
-   "address": "00783605"
-  },
-  {
-   "symbol": "?FUN_00783605@seed_00770440@@YAIPAF@Z",
-   "address": "00783605"
-  },
-  {
    "symbol": "?WideToCharString_006fa0f0@@YIXPADPBGH@Z",
    "address": "006fa0f0"
+  },
+  {
+   "symbol": "?Wide_Length_00783605@seed_00770400@@YAIPAF@Z",
+   "address": "00783605"
+  },
+  {
+   "symbol": "?Wide_Length_00783605@seed_00770440@@YAIPAF@Z",
+   "address": "00783605"
   },
   {
    "symbol": "?operator_delete_00781d3b@seed_00770330@@YAXI@Z",
@@ -21575,19 +21575,19 @@
    "site": "00600e50",
    "target": "00770330",
    "symbol": "?Release@WideString@@QAEXXZ",
-   "module_symbol": "?FUN_00770330@seed_00770330@@YIXPAH@Z"
+   "module_symbol": "?unknown_release_text_00770330@seed_00770330@@YIXPAH@Z"
   },
   {
    "site": "00600f10",
    "target": "00770330",
    "symbol": "?Release@WideString@@QAEXXZ",
-   "module_symbol": "?FUN_00770330@seed_00770330@@YIXPAH@Z"
+   "module_symbol": "?unknown_release_text_00770330@seed_00770330@@YIXPAH@Z"
   },
   {
    "site": "00600fd0",
    "target": "00770330",
    "symbol": "?Release@WideString@@QAEXXZ",
-   "module_symbol": "?FUN_00770330@seed_00770330@@YIXPAH@Z"
+   "module_symbol": "?unknown_release_text_00770330@seed_00770330@@YIXPAH@Z"
   },
   {
    "site": "005b75d0",
@@ -21617,7 +21617,7 @@
    "site": "005aeda0",
    "target": "00770400",
    "symbol": "?unknown_char_770400@WideString@@QBEGI@Z",
-   "module_symbol": "?FUN_00770400@Owner_00770400@seed_00770400@@QAEGI@Z"
+   "module_symbol": "?Get_Char_00770400@Owner_00770400@seed_00770400@@QAEGI@Z"
   },
   {
    "site": "005c3040",

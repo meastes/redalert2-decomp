@@ -187,23 +187,16 @@ void ColorScheme::Build_Light_Converters(PaletteClass *unknown_a, PaletteClass *
 }
 
 
-// 0x00663c40: function not yet identified
-//
-// Body: 34 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: bool __thiscall FUN_00663c40(int param_1,int param_2)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// bool Owner_00663c40::Is_Equal_00663c40(int other_scheme_address) (0x00663C40; mischa85 names.csv
+// ColorScheme::operator==): the two schemes' names (+0x304) compare equal (stricmp).
 
 namespace seed_00663c40 {
 
 extern unsigned int  stricmp_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
 
-struct Owner_00663c40 { bool FUN_00663c40(int other_scheme_address); };
+struct Owner_00663c40 { bool Is_Equal_00663c40(int other_scheme_address); };
 
-bool Owner_00663c40::FUN_00663c40(int other_scheme_address)
+bool Owner_00663c40::Is_Equal_00663c40(int other_scheme_address)
 {
     int scheme_address = (int)this;
     int comparison_result;
@@ -215,23 +208,16 @@ bool Owner_00663c40::FUN_00663c40(int other_scheme_address)
 }  // namespace seed_00663c40
 
 
-// 0x00663c70: function not yet identified
-//
-// Body: 35 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: bool __thiscall FUN_00663c70(int param_1,int param_2)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// bool Owner_00663c70::Is_Not_Equal_00663c70(int other_scheme_address) (0x00663C70; mischa85 names.csv
+// ColorScheme::operator!=): the two schemes' names (+0x304) differ (stricmp).
 
 namespace seed_00663c70 {
 
 extern unsigned int  stricmp_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
 
-struct Owner_00663c70 { bool FUN_00663c70(int other_scheme_address); };
+struct Owner_00663c70 { bool Is_Not_Equal_00663c70(int other_scheme_address); };
 
-bool Owner_00663c70::FUN_00663c70(int other_scheme_address)
+bool Owner_00663c70::Is_Not_Equal_00663c70(int other_scheme_address)
 {
     int scheme_address = (int)this;
     int comparison_result;

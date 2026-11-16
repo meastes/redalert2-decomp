@@ -409,18 +409,8 @@ MSOverlayAnim::MSOverlayAnim(Wstring const &filename, int x, int y, ConvertClass
 }
 
 
-// 0x005ad410: function not yet identified
-//
-// Owner: MSShapeAnim, stores the MSShapeAnim vtable (constructor or destructor) (from RTTI/vtables).
-// Body: 51 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_005ad410(undefined4 *param_1)
-// Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void __fastcall MSShapeAnim_Destructor_005ad410(unsigned int *object_words) (0x005AD410): stores the
+// MSShapeAnim vtable, frees the owned shape (+0x1C when +0x3C is set), then stores the MSAnim vtable.
 
 namespace seed_005ad410 {
 
@@ -428,7 +418,7 @@ extern void  operator_delete_00781d3b(unsigned int allocation_address);
 extern "C" void* MSAnim_VTable_007a6d3c;
 extern "C" void* MSShapeAnim_VTable_007a6d64;
 
-void __fastcall FUN_005ad410(unsigned int *object_words)
+void __fastcall MSShapeAnim_Destructor_005ad410(unsigned int *object_words)
 {
     *object_words = (unsigned int)(&MSShapeAnim_VTable_007a6d64);
     if ((object_words[7] != 0) && (*(char *)(object_words + 0xf) != '\0')) {

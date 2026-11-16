@@ -171,7 +171,7 @@ void Focus_Restore()
 
 // Main game-window message dispatcher (WinStub.cpp).
 extern CCToolTip *ToolTips;
-bool __fastcall unknown_moving_736d80(HWND window, unsigned int message, class Rect *rect);
+bool __fastcall On_WM_MOVING(HWND window, unsigned int message, class Rect *rect);
 extern bool window_mouse_wheel_b263e9;
 extern bool window_scroll_coasting_8373fc;
 extern bool SurfacesRestored;
@@ -248,7 +248,7 @@ LRESULT WINAPI Windows_Procedure(HWND hwnd, UINT message, WPARAM wParam, LPARAM 
         window_scroll_coasting_8373fc = false;
         break;
     case 0x216:
-        return unknown_moving_736d80(hwnd, wParam, (Rect *)lParam);
+        return On_WM_MOVING(hwnd, wParam, (Rect *)lParam);
     case 0x20a:
         if (!window_mouse_wheel_b263e9) {
             window_mouse_wheel_b263e9 = true;
@@ -658,31 +658,22 @@ void __fastcall Load_Title_Screen_00738190(char const *name, Surface *surface, P
 }
 
 
-// 0x00738420: function not yet identified
-//
-// Owner: CCToolTip, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
-// Body: 36 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall FUN_00738420(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unsigned int *Owner_00738420::unknown_scalar_deleting_destructor_00738420(unsigned char deletion_flags)
+// (0x00738420): stores the CCToolTip vtable (0x007AF51C), runs the ToolTipManager destructor
+// (0x006EB390) and frees the object when bit 0 of the flags is set.
 
 namespace seed_00738420 {
 
 extern void __fastcall ToolTipManager_Destructor_006eb390(void);
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
-extern "C" void* PTR_FUN_007af51c;
+extern "C" void* CCToolTip_VTable_007af51c;
 
-struct Owner_00738420 { unsigned int * FUN_00738420(unsigned char deletion_flags); };
+struct Owner_00738420 { unsigned int * unknown_scalar_deleting_destructor_00738420(unsigned char deletion_flags); };
 
-unsigned int * Owner_00738420::FUN_00738420(unsigned char deletion_flags)
+unsigned int * Owner_00738420::unknown_scalar_deleting_destructor_00738420(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
-    *object_words = (unsigned int)(&PTR_FUN_007af51c);
+    *object_words = (unsigned int)(&CCToolTip_VTable_007af51c);
     ToolTipManager_Destructor_006eb390();
     if ((deletion_flags & 1) != 0) {
         operator_delete_00781d3b((unsigned int)(object_words));

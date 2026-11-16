@@ -828,24 +828,13 @@ void __fastcall Unknown_006c0220()
 // VectorClass<DiscreteDistributionClass<AITriggerTypeClass>::DistributionObject<AITriggerTypeClass *>>::Clear (0x006C05B0).
 
 
-// 0x006c0780: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void FUN_006c0780(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void unknown_empty_006c0780() (0x006C0780): an empty function.
 
-namespace seed_006c0780 {
-
-void  FUN_006c0780(void)
+void  unknown_empty_006c0780(void)
 {
     return;
 }
 
-}  // namespace seed_006c0780
 
 
 // 0x006c07f0: function not yet identified

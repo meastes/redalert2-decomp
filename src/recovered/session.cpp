@@ -1756,22 +1756,14 @@ bool __fastcall MultiMission_Is_Random_Map(int session_address)
 
 
 
-// 0x00672140: function not yet identified
-//
-// Body: 26 bytes (frozen inventory bound).
-// Referenced from 3 sites (unconditional call).
-// Ghidra prototype: bool __fastcall FUN_00672140(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// SessionClass_Is_Random_Map (0x00672140): name from mischa85 names.csv
 
 namespace seed_00672140 {
 
 extern unsigned int  stricmp_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
 extern "C" char s_RandMap_Sed_007e16e8[];
 
-bool __fastcall FUN_00672140(int session_address)
+bool __fastcall SessionClass_Is_Random_Map(int session_address)
 {
     int comparison_result;
 
@@ -2081,21 +2073,14 @@ void SessionClass::Allocate_Ports_00673090()
 }
 #endif
 
-// 0x00672f20: function not yet identified
-//
-// Body: 39 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: void __thiscall FUN_00672f20(int param_1,int param_2)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// void Owner_00672f20::Remove_Player_Port(int index) (0x00672F20; mischa85 names.csv
+// SessionClass::Remove_Player_Port): shifts the port list at +0x3022 down over the entry at index.
 
 namespace seed_00672f20 {
 
-struct Owner_00672f20 { void FUN_00672f20(int index_or_remaining); };
+struct Owner_00672f20 { void Remove_Player_Port(int index_or_remaining); };
 
-void Owner_00672f20::FUN_00672f20(int index_or_remaining)
+void Owner_00672f20::Remove_Player_Port(int index_or_remaining)
 {
     int session_address = (int)this;
     unsigned short *entry_words;

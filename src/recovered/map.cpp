@@ -2356,24 +2356,13 @@ bool MapClass::Remove_Crate(Cell const &cell)
 }
 
 
-// 0x0054e8c0: function not yet identified
-//
-// Body: 6 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 FUN_0054e8c0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unsigned int unknown_return_one_0054e8c0() (0x0054E8C0): returns 1 (no callers).
 
-namespace seed_0054e8c0 {
-
-unsigned int  FUN_0054e8c0(void)
+unsigned int  unknown_return_one_0054e8c0(void)
 {
     return 1;
 }
 
-}  // namespace seed_0054e8c0
 
 
 // SPDX-License-Identifier: GPL-3.0-or-later

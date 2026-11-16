@@ -996,30 +996,21 @@ void ScoreAnimClass::Pause()
 // Compiler-generated with the vtable. No source of its own.
 
 
-// 0x00668390: function not yet identified
-//
-// Owner: ScoreTimeClass, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
-// Body: 32 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall FUN_00668390(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unsigned int *Owner_00668390::unknown_scalar_deleting_destructor_00668390(unsigned char deletion_flags)
+// (0x00668390): stores the ScoreAnimClass vtable (0x007A928C) and frees the object when bit 0 of the
+// flags is set.
 
 namespace seed_00668390 {
 
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
-extern "C" void* PTR_FUN_007a928c;
+extern "C" void* ScoreAnimClass_VTable_007a928c;
 
-struct Owner_00668390 { unsigned int * FUN_00668390(unsigned char deletion_flags); };
+struct Owner_00668390 { unsigned int * unknown_scalar_deleting_destructor_00668390(unsigned char deletion_flags); };
 
-unsigned int * Owner_00668390::FUN_00668390(unsigned char deletion_flags)
+unsigned int * Owner_00668390::unknown_scalar_deleting_destructor_00668390(unsigned char deletion_flags)
 {
     unsigned int * object_words = (unsigned int *)this;
-    *object_words = (unsigned int)(&PTR_FUN_007a928c);
+    *object_words = (unsigned int)(&ScoreAnimClass_VTable_007a928c);
     if ((deletion_flags & 1) != 0) {
         operator_delete_00781d3b((unsigned int)(object_words));
     }
