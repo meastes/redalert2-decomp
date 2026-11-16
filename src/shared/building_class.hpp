@@ -347,74 +347,74 @@ public:
 
 
     BuildingTypeClass *Type;                // +0x418
-    AbstractClass *unknown_41c;             // +0x41C (owned; swizzled)
+    AbstractClass *Factory;             // +0x41C (owned; swizzled)
     CDTimerClass<FrameTimerClass> unknown_420;  // +0x420
-    int unknown_42c;                        // +0x42C (-1)
-    int unknown_430;                        // +0x430 (-1)
-    int unknown_434;                        // +0x434
+    int BState;                        // +0x42C (-1)
+    int QueueBState;                        // +0x430 (-1)
+    int WhoLastHurtMe;                        // +0x434
     AbstractClass *unknown_438;             // +0x438 (swizzled)
-    int unknown_43c;                        // +0x43C (compared with Strength)
-    AbstractClass *unknown_440;             // +0x440 (swizzled)
-    AbstractClass *unknown_444;             // +0x444 (swizzled)
-    CDTimerClass<FrameTimerClass> unknown_448;  // +0x448
+    int LastStrength;                        // +0x43C (compared with Strength)
+    AbstractClass *AnimToTrack;             // +0x440 (swizzled)
+    AbstractClass *PsiWarnAnim;             // +0x444 (swizzled)
+    CDTimerClass<FrameTimerClass> PlacementDelay;  // +0x448
     AbstractClass *unknown_454[18];         // +0x454 (swizzled)
     ObjectClass *unknown_49c[8];            // +0x49C (swizzled)
-    bool unknown_4bc;                       // +0x4BC
+    bool RequiresDamageFires;                       // +0x4BC
     TechnoTypeClass *unknown_4c0[3];        // +0x4C0 (swizzled; unknown_5c6 of them are used)
-    int unknown_4cc;                        // +0x4CC (-1)
-    int unknown_4d0;                        // +0x4D0 (-1)
+    int LastSuperWeaponIndex;                        // +0x4CC (-1)
+    int TurretIndex;                        // +0x4D0 (-1)
 #ifdef RA2_BUILDING_TYPED_SPOTLIGHT
-    BuildingLightClass *unknown_4d4;         // +0x4D4 native spotlight behavior00434370
+    BuildingLightClass *BuildingLight;         // +0x4D4 native spotlight behavior00434370
 #else
-    AbstractClass *unknown_4d4;             // +0x4D4 (swizzled)
+    AbstractClass *BuildingLight;             // +0x4D4 (swizzled)
 #endif
     ProgressTimerClass<FrameTimerClass> GateTimer; // +0x4D8, total duration +0x4E4
-    LightSourceClass *unknown_4e8;        // +0x4E8 (owned)
-    int unknown_4ec;                        // +0x4EC
-    int unknown_4f0;                        // +0x4F0
-    UnknownStage unknown_4f4;               // +0x4F4
+    LightSourceClass *LightSource;        // +0x4E8 (owned)
+    int LaserFenceFrame;                        // +0x4EC
+    int FirestormWallFrame;                        // +0x4F0
+    UnknownStage BuildingStage;               // +0x4F4
     Rect unknown_50c;                       // +0x50C (unknown_static_rect)
-    CoordStruct unknown_51c;                // +0x51C
-    Point2D unknown_528;                    // +0x528 (from the object at 0x0083996C +0xB0; slot 73)
-    bool unknown_530;                       // +0x530 (true)
-    bool unknown_531;                       // +0x531
-    int unknown_534;                        // +0x534
-    bool unknown_538;                       // +0x538
-    bool unknown_539;                       // +0x539
+    CoordStruct LastRenderCoord;                // +0x51C
+    Point2D LastRenderOffset;                    // +0x528 (from the object at 0x0083996C +0xB0; slot 73)
+    bool IsOn;                       // +0x530 (true)
+    bool IsOverpowered;                       // +0x531
+    int SupportingPrisms;                        // +0x534
+    bool HasExtraPowerBonus;                       // +0x538
+    bool HasExtraPowerDrain;                       // +0x539
     DynamicVectorClass<InfantryClass *> unknown_53c;    // +0x53C
     DynamicVectorClass<InfantryClass *> unknown_554;    // +0x554
-    int unknown_56c;                        // +0x56C
-    UnknownAudioController unknown_570;     // +0x570
-    UnknownAudioController unknown_584;     // +0x584
-    bool unknown_598;                       // +0x598
-    bool unknown_599;                       // +0x599
-    bool unknown_59a;                       // +0x59A
-    bool unknown_59b;                       // +0x59B
-    bool unknown_59c;                       // +0x59C
-    CDTimerClass<FrameTimerClass> unknown_5a0;  // +0x5A0
-    bool unknown_5ac;                       // +0x5AC (true)
-    bool unknown_5ad;                       // +0x5AD (slot 122 tests it)
-    bool unknown_5ae;                       // +0x5AE
+    int FiringOccupantIndex;                        // +0x56C
+    UnknownAudioController BuildupSoundController;     // +0x570
+    UnknownAudioController WorkingSoundController;     // +0x584
+    bool WasOnline;                       // +0x598
+    bool IsNominal;                       // +0x599
+    bool IsToRebuild;                       // +0x59A
+    bool IsToRepair;                       // +0x59B
+    bool HasEngineer;                       // +0x59C
+    CDTimerClass<FrameTimerClass> CashProductionTimer;  // +0x5A0
+    bool IsAllowedToSell;                       // +0x5AC (true)
+    bool IsReadyToCommence;                       // +0x5AD (slot 122 tests it)
+    bool IsWrenchVisible;                       // +0x5AE
     bool unknown_5af;                       // +0x5AF
     bool unknown_5b0;                       // +0x5B0
     bool unknown_5b1;                       // +0x5B1
     bool unknown_5b2;                       // +0x5B2
-    bool unknown_5b3;                       // +0x5B3
+    bool IsCaptured;                       // +0x5B3
     bool unknown_5b4;                       // +0x5B4
     bool unknown_5b5;                       // +0x5B5
-    bool unknown_5b6;                       // +0x5B6
+    bool IsDamagedAnims;                       // +0x5B6
     bool unknown_5b7;                       // +0x5B7
-    bool unknown_5b8;                       // +0x5B8
-    bool unknown_5b9;                       // +0x5B9
+    bool IsRepairing;                       // +0x5B8
+    bool HasBuildupData;                       // +0x5B9
     bool unknown_5ba;                       // +0x5BA (true)
     char unknown_5bb;                       // +0x5BB
     char unknown_5bc;                       // +0x5BC (a cloak radius in cells, or 1)
     char unknown_5bd;                       // +0x5BD (a count; slot 25 compares it with 5 and 10)
-    int unknown_5c0;                        // +0x5C0
+    int StorageFilledSlots;                        // +0x5C0
     short unknown_5c4;                      // +0x5C4 (1000)
-    char unknown_5c6;                       // +0x5C6 (count of unknown_4c0)
-    char unknown_5c7;                       // +0x5C7 (-1)
-    int unknown_5c8;                        // +0x5C8
+    char UpgradeLevel;                       // +0x5C6 (count of unknown_4c0)
+    char GateFrame;                       // +0x5C7 (-1)
+    int PrismStage;                        // +0x5C8
 #if defined(RA2_BUILDING_RAW_DELAY_COORD)
     RawCoordStruct unknown_5cc;
 #elif defined(RA2_BUILDING_DELAY_POINT)
@@ -422,7 +422,7 @@ public:
 #else
     CoordStruct unknown_5cc;
 #endif                // +0x5CC
-    int unknown_5d8;                        // +0x5D8
+    int DelayBeforeFiring;                        // +0x5D8
     int unknown_5dc;                        // +0x5DC
 };
 

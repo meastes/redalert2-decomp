@@ -399,7 +399,7 @@ struct UnknownFlyBuilding {
 };
 inline int Fly_Land_004bcd50(CellClass const &cell)
 {
-    return cell.unknown_ec;
+    return cell.Land;
 }
 inline int Fly_Distance_004bcd50(CoordStruct const &from,CoordStruct const &to)
 {
@@ -459,7 +459,7 @@ void FlyLocomotionClass::unknown_4bcd50()
                 Cell cell=Cell(coord);
                 LinkedTo->FireDeathWeapon(0);
                 int sound;
-                if (Map[cell].unknown_ec!=2) {
+                if (Map[cell].Land!=2) {
                     sound=LinkedTo->Techno_Type_Class()->ImpactLandSound;
                     if (sound==-1) sound=Rules->ImpactLandSound;
                 } else {

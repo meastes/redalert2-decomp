@@ -98,7 +98,7 @@ exitcell.X += random; exitcell.Y += random;
                     unknown_slot150(2, aircraft);
                     unknown_slot150(0x18, aircraft);
                     aircraft->Set_Coord(unknown_slot41((intptr_t)aircraft));
-                    aircraft->unknown_5b4 = this;
+                    aircraft->DockNowHeadingTo = this;
                     if (unknown_1b0 && !aircraft->Type->AirportBound) {
                         aircraft->Assign_Destination(unknown_1b0, 1);
                         aircraft->QueueMission(2, 0);
@@ -132,7 +132,7 @@ exitcell.X += random; exitcell.Y += random;
                             navalcell = Adjacent_Cell(navalcell, facing);
                         }
                     }
-                    if (unknown_1b0 && Map[navalcell].unknown_ec == 2 && !Map[navalcell].Cell_Techno(Point2D(0, 0), 0, 0) && Map.Unknown_0055A660(navalcell, true)) {
+                    if (unknown_1b0 && Map[navalcell].Land == 2 && !Map[navalcell].Cell_Techno(Point2D(0, 0), 0, 0) && Map.Unknown_0055A660(navalcell, true)) {
  } else {
                         navalcell = Map.Nearby_Location(Center_Cell(this), base->Techno_Type_Class()->SpeedType, -1, 0, 0, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
  }
@@ -151,13 +151,13 @@ exitcell.X += random; exitcell.Y += random;
                         int count = House->Buildings.Count();
                         for (int index = 0; index < count; index++) {
                             BuildingClass *bldg = House->Buildings[index];
-                            if (bldg->Type == Type && bldg != this && bldg->Get_Mission() == 5 && !bldg->unknown_41c) {
-                                AbstractClass *temp = unknown_41c;
-                                bldg->unknown_41c = temp;
-                                unknown_41c = 0;
+                            if (bldg->Type == Type && bldg != this && bldg->Get_Mission() == 5 && !bldg->Factory) {
+                                AbstractClass *temp = Factory;
+                                bldg->Factory = temp;
+                                Factory = 0;
                                 int retval = bldg->Exit_Object(base);
-                                bldg->unknown_41c = 0;
-                                unknown_41c = temp;
+                                bldg->Factory = 0;
+                                Factory = temp;
                                 return retval;
                             }
                         }

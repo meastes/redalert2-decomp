@@ -7,8 +7,8 @@
 void CaptureManagerClass::Compute_CRC(WWCRCEngine &crc) const
 {
     AbstractClass::Compute_CRC(crc);
-    if (unknown_24 != 0) {
-        crc(unknown_24->Fetch_ID());
+    if (Unit != 0) {
+        crc(Unit->Fetch_ID());
     }
     if (unknown_28 != 0) {
         crc(unknown_28->Fetch_ID());

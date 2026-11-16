@@ -78,7 +78,7 @@ char LoadOptionsClass::Load_Dialog_0053b190()
         for (int i = 0; i < Files.Count(); ++i) {
             if (_stricmp(Files[i]->Filename, file) == 0) {
                 CD_Get_Current_Disk(0x3c);
-                CD::Set_Required_CD(Files[i]->unknown_1a8 == -1 ? -1 : Campaigns[Files[i]->unknown_1a8]->unknown_98);
+                CD::Set_Required_CD(Files[i]->unknown_1a8 == -1 ? -1 : Campaigns[Files[i]->unknown_1a8]->CDNumber);
                 CD().Force_Available(CD::RequiredCD);
                 break;
             }

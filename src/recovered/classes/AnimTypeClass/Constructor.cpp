@@ -17,7 +17,7 @@
 AnimTypeClass::AnimTypeClass(char const *ini_name) :
     ObjectTypeClass(ini_name),
     ArrayIndex(-1),
-    unknown_268(0),
+    Biggest(0),
     Damage(0),
     Rate(1),
     Start(0),
@@ -43,7 +43,7 @@ AnimTypeClass::AnimTypeClass(char const *ini_name) :
     TrailerSeperation(0),
     Elasticity(.8f),
     MinZVel(3.5),
-    unknown_2e0(3.5),
+    MaxZVel(3.5),
     MaxXYVel(15.0),
     Warhead(0),
     DamageRadius(0),

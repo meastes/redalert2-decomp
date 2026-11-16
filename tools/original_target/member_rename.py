@@ -43,6 +43,10 @@ class CXCursor(ctypes.Structure):
     _fields_ = [('kind', ctypes.c_int), ('xdata', ctypes.c_int), ('data', ctypes.c_void_p * 3)]
 
 
+class CXType(ctypes.Structure):
+    _fields_ = [('kind', ctypes.c_int), ('data', ctypes.c_void_p * 2)]
+
+
 class CXString(ctypes.Structure):
     _fields_ = [('data', ctypes.c_void_p), ('flags', ctypes.c_uint)]
 
@@ -88,6 +92,8 @@ def lib():
             'clang_getOverriddenCursors': (None, [CXCursor, ctypes.POINTER(ctypes.POINTER(CXCursor)),
                                            ctypes.POINTER(ctypes.c_uint)]),
             'clang_disposeOverriddenCursors': (None, [ctypes.POINTER(CXCursor)]),
+            'clang_getCursorType': (CXType, [CXCursor]),
+            'clang_getArrayElementType': (CXType, [CXType]),
         }
         for name, (restype, argtypes) in sig.items():
             function = getattr(L, name)
@@ -157,8 +163,20 @@ class Unit:
         self.at = parsed['at'].get(name, {})
         self.decls = parsed['decls'].get(name, {})
         self.macro = parsed['macro'].get(name, set())
+        self.sites = parsed['sites'].get(name, {})
         self.new_owners = parsed['new_owners'].get(new, set()) if new else set()
         self.new_virtual = parsed['new_virtual'].get(new, set()) if new else set()
+
+
+CHAR_KINDS = {4, 5, 13, 14}   # CXType_Char_U, UChar, Char_S, SChar
+CONSTANT_ARRAY = 112
+
+
+def is_padding(cursor):
+    """A `char name[N]` member: the padding a stand-in view of a class keeps where the real class has members."""
+    L = lib()
+    t = L.clang_getCursorType(cursor)
+    return t.kind == CONSTANT_ARRAY and L.clang_getArrayElementType(t).kind in CHAR_KINDS
 
 
 def parse_unit(path, names, news, extra=()):
@@ -171,7 +189,7 @@ def parse_unit(path, names, news, extra=()):
                                       (ctypes.c_char_p * len(args))(*args), len(args), None, 0, 0x1)
     if not tu:
         raise SystemExit('member_rename: clang could not parse %s' % path)
-    out = dict(at={}, decls={}, macro={}, bases=set(), new_owners={}, new_virtual={})
+    out = dict(at={}, decls={}, macro={}, bases=set(), new_owners={}, new_virtual={}, sites={})
 
     @VISITOR
     def visit(cursor, parent, data):
@@ -194,6 +212,8 @@ def parse_unit(path, names, news, extra=()):
                 out['at'].setdefault(spelled, {}).setdefault((where, offset), set()).add(usr)
                 if in_macro:
                     out['macro'].setdefault(spelled, set()).add((where, offset))
+            if cursor.kind == FIELD_DECL and usr and where is not None:
+                out['sites'].setdefault(spelled, {}).setdefault(usr, set()).add((where, offset, is_padding(cursor)))
             if cursor.kind in (CXX_METHOD, FIELD_DECL, VAR_DECL, FUNCTION_TEMPLATE) and usr:
                 owner = L.clang_getCursorSemanticParent(cursor)
                 out['decls'].setdefault(spelled, {}).setdefault(usr, dict(
@@ -349,8 +369,10 @@ def plan(klass, old, new, mangled=None, files=None, allow_hiding=False):
     passes += [(p, ('-DRA2_NON_MATCHING',)) for p in units if 'RA2_NON_MATCHING' in texts.get(p, '') or
                'RA2_NON_MATCHING' in (REPOSITORY / p).read_bytes().decode('latin-1')]
     passes += [(group, ()) for group in group_units(units)]
+    units_seen = []
     for path, extra in passes:
         unit = Unit(path, old, new, extra)
+        units_seen.append((unit.at, unit.sites))
         bases |= unit.bases
         new_owners |= unit.new_owners
         new_virtual |= unit.new_virtual
@@ -388,6 +410,26 @@ def plan(klass, old, new, mangled=None, files=None, allow_hiding=False):
             klass, old, ', '.join(overriders)))
     if any(decls[u]['virtual'] and decls[u]['overrides'] for u in targets):
         raise SystemExit('member_rename: %s::%s overrides a base member (rename the base instead)' % (klass, old))
+    # A stand-in view of the class (a header that declares a class of the same name for some units)
+    # keeps `char unknown_XX[N]` padding where the real class has members: the same USR, so clang
+    # cannot tell them apart. When the member has a real declaration and padding declarations, the
+    # padding declarations and every use in a unit whose only declaration is padding keep their name.
+    padding, real_uses, padding_uses = set(), set(), set()
+    for usr in targets:
+        sites = set()
+        for _, unit_sites in units_seen:
+            sites |= unit_sites.get(usr, set())
+        if any(p for _, _, p in sites) and not all(p for _, _, p in sites):
+            padding |= {(w, o) for w, o, p in sites if p}
+    if padding:
+        for at, unit_sites in units_seen:
+            mine = set()
+            for usr in targets:
+                mine |= unit_sites.get(usr, set())
+            only_padding = bool(mine) and all(p for _, _, p in mine)
+            for key, usrs in at.items():
+                if usrs & targets:
+                    (padding_uses if only_padding else real_uses).add(key)
     edits, unexplained, conflicts = {}, [], []
     for path in sorted(spelled):
         code, comments = tokens(texts[path], old)
@@ -397,6 +439,9 @@ def plan(klass, old, new, mangled=None, files=None, allow_hiding=False):
                 unexplained.append((path, offset))
             elif usrs & targets and usrs - targets:
                 conflicts.append((path, offset))
+            elif usrs & targets and ((path, offset) in padding or
+                                     (path, offset) in padding_uses and (path, offset) not in real_uses):
+                continue
             elif usrs & targets:
                 if (path, offset) in macro and in_define(texts[path], offset):
                     unexplained.append((path, offset))

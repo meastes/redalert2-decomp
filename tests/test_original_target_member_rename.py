@@ -127,6 +127,16 @@ class MemberRenameTests(unittest.TestCase):
         self.assertEqual([r['edits'] for r in single], [r['edits'] for r in primed])
         self.assertEqual([r['manglings'] for r in single], [r['manglings'] for r in primed])
 
+    def test_padding_in_a_stand_in_view_keeps_its_name(self):
+        (self.root / 'src/shared/v.hpp').write_text(
+            '#ifdef VIEW\nclass Base { public: char pad_00[4]; char Count[4]; };\n#else\n#include "shared/a.hpp"\n#endif\n')
+        (self.root / 'src/recovered/v.cpp').write_text(
+            '#define VIEW\n#include "shared/v.hpp"\nint n = sizeof(((Base *)0)->Count);\n')
+        result = member_rename.plan('Base', 'Count', 'Number')
+        self.assertNotIn('src/shared/v.hpp', result['edits'])
+        self.assertNotIn('src/recovered/v.cpp', result['edits'])
+        self.assertEqual(self.lines(result, 'src/recovered/a.cpp'), [3, 4, 7])
+
     def test_a_new_name_the_hierarchy_already_has_refuses(self):
         with self.assertRaises(SystemExit) as caught:
             member_rename.plan('Base', 'Get_Cell', 'Use')

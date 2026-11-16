@@ -35,25 +35,25 @@
 AITriggerTypeClass::AITriggerTypeClass(char const *name) :
     AbstractTypeClass(name),
     ConditionType(-1),
-    unknown_9c(0),
-    unknown_a0(0),
-    unknown_a4(false),
+    Scope(0),
+    TrigHouse(0),
+    IsEnabled(false),
     unknown_a8(-1),
-    unknown_ac(0),
-    unknown_b0(0),
+    MultiSide(0),
+    TechLevelNeeded(0),
     Weight(1.0),
     MinWeight(1.0),
     MaxWeight(1.0),
-    unknown_d0(false),
-    unknown_d1(false),
-    unknown_d2(true),
-    unknown_d3(true),
-    unknown_d4(true),
-    unknown_d8(0),
-    unknown_dc(0),
-    unknown_e0(0),
-    unknown_104(0),
-    unknown_108(0)
+    IsAvailableInSkirmish(false),
+    IsForBaseDefense(false),
+    IsEnabledInEasy(true),
+    IsEnabledInMedium(true),
+    IsEnabledInHard(true),
+    ConditionObject(0),
+    TeamTypeOne(0),
+    TeamTypeTwo(0),
+    TimesSucceded(0),
+    TimesExecuted(0)
 {
     memset(Comparator, 0, sizeof(Comparator));
     AITriggerTypes.Add(this);
@@ -108,9 +108,9 @@ HRESULT __stdcall AITriggerTypeClass::Load(IStream *stream)
         return result;
     }
     new (this) AITriggerTypeClass(NoInitClass());
-    Swizzler.Swizzle((void **)&unknown_d8);
-    Swizzler.Swizzle((void **)&unknown_dc);
-    Swizzler.Swizzle((void **)&unknown_e0);
+    Swizzler.Swizzle((void **)&ConditionObject);
+    Swizzler.Swizzle((void **)&TeamTypeOne);
+    Swizzler.Swizzle((void **)&TeamTypeTwo);
     return S_OK;
 }
 
@@ -146,10 +146,10 @@ void AITriggerTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {
     AbstractTypeClass::Compute_CRC(crc);
     crc((long)ConditionType);
-    crc((long)unknown_9c);
-    crc((long)unknown_a0);
+    crc((long)Scope);
+    crc((long)TrigHouse);
     crc((long)unknown_a8);
-    crc((long)unknown_b0);
+    crc((long)TechLevelNeeded);
     switch (ConditionType) {
     case 0:
     case 1:
@@ -162,12 +162,12 @@ void AITriggerTypeClass::Compute_CRC(WWCRCEngine &crc) const
     crc(Weight);
     crc(MinWeight);
     crc(MaxWeight);
-    crc(unknown_d0);
-    crc(unknown_d2);
-    crc(unknown_d3);
-    crc(unknown_d4);
-    crc((long)unknown_ac);
-    crc(unknown_d1);
+    crc(IsAvailableInSkirmish);
+    crc(IsEnabledInEasy);
+    crc(IsEnabledInMedium);
+    crc(IsEnabledInHard);
+    crc((long)MultiSide);
+    crc(IsForBaseDefense);
 }
 
 
@@ -179,8 +179,8 @@ void AITriggerTypeClass::Compute_CRC(WWCRCEngine &crc) const
 
 bool AITriggerTypeClass::Is_Ready(HouseClass *house, HouseClass *enemy, bool unknown_arg3) const
 {
-    bool teams_ok = unknown_dc != 0 && unknown_dc->IsBaseDefense && (unknown_e0 == 0 || unknown_e0->IsBaseDefense);
-    if (unknown_dc == 0) {
+    bool teams_ok = TeamTypeOne != 0 && TeamTypeOne->IsBaseDefense && (TeamTypeTwo == 0 || TeamTypeTwo->IsBaseDefense);
+    if (TeamTypeOne == 0) {
         return false;
     }
     if (enemy == 0 || (Rules->unknown_1437 && house->BaseDefenseTeamCount < Rules->MinimumAIDefensiveTeams[house->unknown_c8])) {
@@ -191,60 +191,60 @@ bool AITriggerTypeClass::Is_Ready(HouseClass *house, HouseClass *enemy, bool unk
     if (teams_ok && unknown_arg3) {
         return false;
     }
-    if (unknown_9c == 1 && unknown_id_source_a3d290->unknown_2238 == true) {
+    if (Scope == 1 && unknown_id_source_a3d290->unknown_2238 == true) {
         return false;
     }
-    if (!unknown_a4) {
+    if (!IsEnabled) {
         return false;
     }
-    if (unknown_game_mode_a3d298 != 0 && !unknown_d0) {
+    if (unknown_game_mode_a3d298 != 0 && !IsAvailableInSkirmish) {
         return false;
     }
     if (unknown_game_mode_a3d298 == 0) {
         if (unknown_id_source_a3d290->Difficulty == 0) {
-            if (!unknown_d2) {
+            if (!IsEnabledInEasy) {
                 return false;
             }
         } else if (unknown_id_source_a3d290->Difficulty == 1) {
-            if (!unknown_d3) {
+            if (!IsEnabledInMedium) {
                 return false;
             }
         } else if (unknown_id_source_a3d290->Difficulty == 2) {
-            if (!unknown_d4) {
+            if (!IsEnabledInHard) {
                 return false;
             }
         }
     } else {
         if (house->unknown_c8 == 0) {
-            if (!unknown_d4) {
+            if (!IsEnabledInHard) {
                 return false;
             }
         } else if (house->unknown_c8 == 1) {
-            if (!unknown_d3) {
+            if (!IsEnabledInMedium) {
                 return false;
             }
         } else if (house->unknown_c8 == 2) {
-            if (!unknown_d2) {
+            if (!IsEnabledInEasy) {
                 return false;
             }
         }
     }
-    if (unknown_a0 == 0) {
+    if (TrigHouse == 0) {
         return false;
     }
-    if (unknown_a0 != 2 && unknown_a0 == 1 && house->Type->House != unknown_a8) {
+    if (TrigHouse != 2 && TrigHouse == 1 && house->Type->House != unknown_a8) {
         return false;
     }
-    if (unknown_ac == 1) {
+    if (MultiSide == 1) {
         if (house->ActLike != 0) {
             return false;
         }
-    } else if (unknown_ac == 2) {
+    } else if (MultiSide == 2) {
         if (house->ActLike != 1) {
             return false;
         }
     }
-    if (unknown_b0 > house->unknown_11c) {
+    if (TechLevelNeeded > house->unknown_11c) {
         return false;
     }
 
@@ -291,22 +291,22 @@ bool AITriggerTypeClass::Is_Ready(HouseClass *house, HouseClass *enemy, bool unk
         return false;
     }
 
-    if (!Team_Zone_Check(unknown_dc, house, enemy)) {
+    if (!Team_Zone_Check(TeamTypeOne, house, enemy)) {
         return false;
     }
-    if (unknown_e0 != 0 && !Team_Zone_Check(unknown_e0, house, enemy)) {
+    if (TeamTypeTwo != 0 && !Team_Zone_Check(TeamTypeTwo, house, enemy)) {
         return false;
     }
-    if (!house->Can_Build_Team(unknown_dc)) {
+    if (!house->Can_Build_Team(TeamTypeOne)) {
         return false;
     }
-    if (unknown_e0 != 0 && !house->Can_Build_Team(unknown_e0)) {
+    if (TeamTypeTwo != 0 && !house->Can_Build_Team(TeamTypeTwo)) {
         return false;
     }
-    if (unknown_dc != 0 && unknown_dc->Max >= 0 && house->Team_Count(unknown_dc) >= unknown_dc->Max) {
+    if (TeamTypeOne != 0 && TeamTypeOne->Max >= 0 && house->Team_Count(TeamTypeOne) >= TeamTypeOne->Max) {
         return false;
     }
-    if (unknown_e0 != 0 && unknown_e0->Max >= 0 && house->Team_Count(unknown_e0) >= unknown_e0->Max) {
+    if (TeamTypeTwo != 0 && TeamTypeTwo->Max >= 0 && house->Team_Count(TeamTypeTwo) >= TeamTypeTwo->Max) {
         return false;
     }
     return true;
@@ -322,7 +322,7 @@ bool AITriggerTypeClass::Is_Ready(HouseClass *house, HouseClass *enemy, bool unk
 // How many objects of the condition type the house owns (its per-kind counters).
 inline int AITriggerTypeClass::Owned_Count(HouseClass *house) const
 {
-    AbstractTypeClass *type = unknown_d8;
+    AbstractTypeClass *type = ConditionObject;
     if (type != 0) {
         int index = type->Fetch_Heap_ID();
         int count = 0;
@@ -596,10 +596,10 @@ void __fastcall AITriggerTypeClass::Read_Scenario_INI(CCINIClass &ini, int is_gl
         AITriggerTypeClass *type = Find_Or_Make(entry);
         if (type != 0) {
             type->Read_INI(ini);
-            type->unknown_9c = is_global;
+            type->Scope = is_global;
         }
         if (is_global == 1) {
-            type->unknown_a4 = true;
+            type->IsEnabled = true;
         }
     }
 
@@ -610,9 +610,9 @@ void __fastcall AITriggerTypeClass::Read_Scenario_INI(CCINIClass &ini, int is_gl
             AITriggerTypeClass *type = Find_AI_Trigger(entry);
             if (type != 0) {
                 if (ini.Get_Bool(unknown_section_79b74c, entry, false) || unknown_game_mode_a3d298 != 0) {
-                    type->unknown_a4 = true;
+                    type->IsEnabled = true;
                 } else {
-                    type->unknown_a4 = false;
+                    type->IsEnabled = false;
                 }
             }
         }
@@ -639,7 +639,7 @@ void __fastcall AITriggerTypeClass::Write_Scenario_INI(CCINIClass &ini, int is_g
 
     for (index = 0; index < AITriggerTypes.Count(); index++) {
         AITriggerTypeClass *type = AITriggerTypes[index];
-        if (type->unknown_9c == is_global) {
+        if (type->Scope == is_global) {
             type->Write_INI(ini);
         }
     }
@@ -648,7 +648,7 @@ void __fastcall AITriggerTypeClass::Write_Scenario_INI(CCINIClass &ini, int is_g
         ini.Clear(unknown_section_79b74c, 0);
         for (index = 0; index < AITriggerTypes.Count(); index++) {
             AITriggerTypeClass *type = AITriggerTypes[index];
-            ini.Put_Bool(unknown_section_79b74c, type->ID, type->unknown_a4);
+            ini.Put_Bool(unknown_section_79b74c, type->ID, type->IsEnabled);
         }
     }
 }
@@ -686,27 +686,27 @@ bool AITriggerTypeClass::Read_INI(CCINIClass &ini)
                 strncpy(name, token, sizeof(name));
                 name[sizeof(name) - 1] = '\0';
                 strtrim(name);
-                unknown_dc = 0;
+                TeamTypeOne = 0;
                 if (_stricmp(name, NONE_STRING) != 0) {
-                    unknown_dc = TeamTypeClass::Find_By_ID_Or_Name(name);
+                    TeamTypeOne = TeamTypeClass::Find_By_ID_Or_Name(name);
                 }
                 token = strtok(0, ",");
                 if (token != 0) {
                     strncpy(name, token, sizeof(name));
                     name[sizeof(name) - 1] = '\0';
                     strtrim(name);
-                    unknown_a0 = 0;
+                    TrigHouse = 0;
                     unknown_a8 = -1;
                     if (_stricmp(name, ALL_STRING) == 0) {
-                        unknown_a0 = 2;
+                        TrigHouse = 2;
                     } else if (_stricmp(name, NONE_STRING) != 0) {
                         unknown_a8 = HouseTypeClass::Find_Index(name);
                         if (unknown_a8 != -1) {
-                            unknown_a0 = 1;
+                            TrigHouse = 1;
                         }
                     }
                     if (strtok(0, ",") != 0) {
-                        unknown_b0 = 0;
+                        TechLevelNeeded = 0;
                         token = strtok(0, ",");
                         if (token != 0) {
                             ConditionType = atoi(token);
@@ -735,7 +735,7 @@ bool AITriggerTypeClass::Read_INI(CCINIClass &ini)
                                         }
                                     }
                                 }
-                                unknown_d8 = type;
+                                ConditionObject = type;
 
                                 token = strtok(0, ",");
                                 if (token != 0) {
@@ -766,12 +766,12 @@ bool AITriggerTypeClass::Read_INI(CCINIClass &ini)
                                     token = strtok(0, ",");
                                     if (token != 0) MaxWeight = (unsigned)atof(token);
                                     token = strtok(0, ",");
-                                    if (token != 0) unknown_d0 = atoi(token) != 0;
+                                    if (token != 0) IsAvailableInSkirmish = atoi(token) != 0;
                                     strtok(0, ",");
                                     token = strtok(0, ",");
-                                    if (token != 0) unknown_ac = atoi(token);
+                                    if (token != 0) MultiSide = atoi(token);
                                     token = strtok(0, ",");
-                                    if (token != 0) unknown_d1 = atoi(token) != 0;
+                                    if (token != 0) IsForBaseDefense = atoi(token) != 0;
 
                                     token = strtok(0, ",");
                                     if (token != 0) {
@@ -779,23 +779,23 @@ bool AITriggerTypeClass::Read_INI(CCINIClass &ini)
                                         strncpy(team2, token, sizeof(team2));
                                         team2[sizeof(team2) - 1] = '\0';
                                         strtrim(team2);
-                                        unknown_e0 = 0;
+                                        TeamTypeTwo = 0;
                                         if (_stricmp(team2, NONE_STRING) != 0) {
-                                            unknown_e0 = TeamTypeClass::Find_By_ID_Or_Name(team2);
+                                            TeamTypeTwo = TeamTypeClass::Find_By_ID_Or_Name(team2);
                                         }
                                     }
                                     token = strtok(0, ",");
-                                    if (token != 0) unknown_d2 = atoi(token) != 0;
+                                    if (token != 0) IsEnabledInEasy = atoi(token) != 0;
                                     token = strtok(0, ",");
-                                    if (token != 0) unknown_d3 = atoi(token) != 0;
+                                    if (token != 0) IsEnabledInMedium = atoi(token) != 0;
                                     token = strtok(0, ",");
-                                    if (token != 0) unknown_d4 = atoi(token) != 0;
+                                    if (token != 0) IsEnabledInHard = atoi(token) != 0;
 
-                                    if (unknown_dc != 0) {
-                                        unknown_b0 = MAX(unknown_b0, unknown_dc->TaskForce->Max_Tech_Level());
+                                    if (TeamTypeOne != 0) {
+                                        TechLevelNeeded = MAX(TechLevelNeeded, TeamTypeOne->TaskForce->Max_Tech_Level());
                                     }
-                                    if (unknown_e0 != 0) {
-                                        unknown_b0 = MAX(unknown_b0, unknown_e0->TaskForce->Max_Tech_Level());
+                                    if (TeamTypeTwo != 0) {
+                                        TechLevelNeeded = MAX(TechLevelNeeded, TeamTypeTwo->TaskForce->Max_Tech_Level());
                                     }
                                     return true;
                                 }
@@ -831,13 +831,13 @@ bool AITriggerTypeClass::Write_INI(CCINIClass &ini) const
     char const *team2 = NONE_STRING;
     char const *house = NONE_STRING;
     char const *object = NONE_STRING;
-    if (unknown_dc != 0) {
-        team1 = unknown_dc->ID;
+    if (TeamTypeOne != 0) {
+        team1 = TeamTypeOne->ID;
     }
-    if (unknown_e0 != 0) {
-        team2 = unknown_e0->ID;
+    if (TeamTypeTwo != 0) {
+        team2 = TeamTypeTwo->ID;
     }
-    switch (unknown_a0) {
+    switch (TrigHouse) {
     case 1:
         if (unknown_a8 != -1) {
             house = HouseTypes[unknown_a8]->ID;
@@ -847,8 +847,8 @@ bool AITriggerTypeClass::Write_INI(CCINIClass &ini) const
         house = ALL_STRING;
         break;
     }
-    if (unknown_d8 != 0) {
-        object = unknown_d8->ID;
+    if (ConditionObject != 0) {
+        object = ConditionObject->ID;
     }
 
     char comparator[0x200];
@@ -861,9 +861,9 @@ bool AITriggerTypeClass::Write_INI(CCINIClass &ini) const
 
     char buffer[0x200];
     sprintf(buffer, "%s,%s,%s,%d,%d,%s,%s,%lf,%lf,%lf,%d,%d,%d,%d,%s,%d,%d,%d",
-            (char const *)Name, team1, house, unknown_b0, ConditionType, object, comparator,
-            Weight, MinWeight, MaxWeight, unknown_d0 != 0, 0, unknown_ac, unknown_d1 != 0,
-            team2, unknown_d2 != 0, unknown_d3 != 0, unknown_d4 != 0);
+            (char const *)Name, team1, house, TechLevelNeeded, ConditionType, object, comparator,
+            Weight, MinWeight, MaxWeight, IsAvailableInSkirmish != 0, 0, MultiSide, IsForBaseDefense != 0,
+            team2, IsEnabledInEasy != 0, IsEnabledInMedium != 0, IsEnabledInHard != 0);
     return ini.Put_String(unknown_section_79b748, ID, buffer);
 }
 
@@ -903,7 +903,7 @@ AITriggerTypeClass *__fastcall AITriggerTypeClass::Find_Or_Make(char const *name
 
 void AITriggerTypeClass::Set_Condition_Object(AbstractTypeClass *obj)
 {
-    unknown_d8 = obj;
+    ConditionObject = obj;
 }
 
 
@@ -911,7 +911,7 @@ void AITriggerTypeClass::Set_Condition_Object(AbstractTypeClass *obj)
 
 void AITriggerTypeClass::Set_Team1(TeamTypeClass *team)
 {
-    unknown_dc = team;
+    TeamTypeOne = team;
 }
 
 
@@ -919,7 +919,7 @@ void AITriggerTypeClass::Set_Team1(TeamTypeClass *team)
 
 void AITriggerTypeClass::Set_Team2(TeamTypeClass *team)
 {
-    unknown_e0 = team;
+    TeamTypeTwo = team;
 }
 
 
@@ -931,8 +931,8 @@ void AITriggerTypeClass::Set_Team2(TeamTypeClass *team)
 void AITriggerTypeClass::Register_Success()
 {
     double bonus = 0.0;
-    if (unknown_108 > 0) {
-        bonus = (unknown_104 / (double)unknown_108 - 0.5) * unknown_108;
+    if (TimesExecuted > 0) {
+        bonus = (TimesSucceded / (double)TimesExecuted - 0.5) * TimesExecuted;
         if (bonus < 0.0) {
             bonus = 0.0;
         }
@@ -944,8 +944,8 @@ void AITriggerTypeClass::Register_Success()
     if (Weight > MaxWeight) {
         Weight = MaxWeight;
     }
-    unknown_104++;
-    unknown_108++;
+    TimesSucceded++;
+    TimesExecuted++;
 }
 
 
@@ -957,8 +957,8 @@ void AITriggerTypeClass::Register_Success()
 void AITriggerTypeClass::Register_Failure()
 {
     double bonus = 0.0;
-    if (unknown_108 > 0) {
-        bonus = (unknown_104 / (double)unknown_108 - 0.5) * Rules->unknown_c8 * unknown_108;
+    if (TimesExecuted > 0) {
+        bonus = (TimesSucceded / (double)TimesExecuted - 0.5) * Rules->unknown_c8 * TimesExecuted;
         if (bonus > 0.0) {
             bonus = 0.0;
         }
@@ -970,7 +970,7 @@ void AITriggerTypeClass::Register_Failure()
     if (Weight > MaxWeight) {
         Weight = MaxWeight;
     }
-    unknown_108++;
+    TimesExecuted++;
 }
 
 

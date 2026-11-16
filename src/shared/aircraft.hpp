@@ -43,13 +43,13 @@ public:
     bool Spyable;                       // +0x1219 (TechnoClass slot 28)
     bool CanC4;                         // +0x121A (TechnoClass slot 28)
     char unknown_121b[0x1349 - 0x121B];
-    bool unknown_1349;                  // +0x1349 (UnitRepair)
-    bool unknown_134a;                  // +0x134A (UnitReload; AircraftClass slot 129)
+    bool IsCanUnitRepair;                  // +0x1349 (UnitRepair)
+    bool IsCanUnitReload;                  // +0x134A (UnitReload; AircraftClass slot 129)
     char unknown_134b[0x1357 - 0x134B];
-    bool unknown_1357;                  // +0x1357 (WeaponsFactory; AircraftClass slot 28)
+    bool IsWeaponsFactory;                  // +0x1357 (WeaponsFactory; AircraftClass slot 28)
     char unknown_1358[0x1364 - 0x1358];
     bool Artillary;                     // +0x1364 (TechnoClass 0x006D3B60)
-    bool unknown_1365;                  // +0x1365 (Helipad)
+    bool IsHelipad;                  // +0x1365 (Helipad)
 };
 #endif
 class BuildingClass;
@@ -185,16 +185,16 @@ public:
     virtual long __stdcall Is_Locked();                               // 0x0041AFB0
 
     AircraftTypeClass *Type;                // +0x5AC
-    bool unknown_5b0;                       // +0x5B0
-    bool unknown_5b1;                       // +0x5B1
-    bool unknown_5b2;                       // +0x5B2
-    TechnoClass *unknown_5b4;               // +0x5B4 (swizzled; a radio contact, hypothesis)
+    bool IsToSpendAmmo;                       // +0x5B0
+    bool Passenger;                       // +0x5B1
+    bool IsKamikaze;                       // +0x5B2
+    TechnoClass *DockNowHeadingTo;               // +0x5B4 (swizzled; a radio contact, hypothesis)
     bool unknown_5b8;                       // +0x5B8
     bool unknown_5b9;                       // +0x5B9
-    bool unknown_5ba;                       // +0x5BA (Is_Locked)
-    signed char unknown_5bb;                // +0x5BB (5)
-    bool unknown_5bc;                       // +0x5BC (true)
-    bool unknown_5bd;                       // +0x5BD (true)
+    bool IsLockedStraight;                       // +0x5BA (Is_Locked)
+    signed char NumParadropsLeft;                // +0x5BB (5)
+    bool IsCarryallNotLanding;                       // +0x5BC (true)
+    bool IsReturningFromAttackRun;                       // +0x5BD (true)
     AbstractClass *Good_LZ();                                  // 0x004198B0 (where to land; AircraftClass slot 95)
 };
 

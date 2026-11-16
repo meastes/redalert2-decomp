@@ -4,7 +4,7 @@
 
 CaptureManagerClass::CaptureManagerClass()
 {
-    unknown_24 = 0;
+    Unit = 0;
     unknown_28 = 0;
     Owner = 0;
     unknown_CaptureManagerClass_list_008505a0.Add(this);

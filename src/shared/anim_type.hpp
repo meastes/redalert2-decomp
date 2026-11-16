@@ -90,7 +90,7 @@ public:
     virtual void Load_Image(int theater);                           // 0x00425490 (loads the image)
 
     int ArrayIndex;                         // +0x264
-    int unknown_268;                        // +0x268
+    int Biggest;                        // +0x268
     int unknown_26c;                        // +0x26C (not set by the constructor)
     double Damage;                          // +0x270
     int Rate;                               // +0x278
@@ -117,7 +117,7 @@ public:
     int TrailerSeperation;                  // +0x2CC
     double Elasticity;                      // +0x2D0
     double MinZVel;                         // +0x2D8
-    double unknown_2e0;                     // +0x2E0
+    double MaxZVel;                     // +0x2E0
     double MaxXYVel;                        // +0x2E8
     WarheadTypeClass *Warhead;              // +0x2F0
     int DamageRadius;                       // +0x2F4

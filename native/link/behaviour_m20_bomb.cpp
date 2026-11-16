@@ -14,7 +14,7 @@ void BombClass::Disarm()
         Target->unknown_38 = 0;
         Target->BombVisible = false;
     }
-    unknown_58 = true;
+    Harmless = true;
     Owner = 0;
     Target = 0;
     unknown_28 = 0;

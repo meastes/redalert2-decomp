@@ -82,27 +82,27 @@ public:
     static void __fastcall Write_Scenario_INI(CCINIClass &ini, int is_global);    // 0x0041D6F0
 
     int ConditionType;              // +0x098 (-1; selects the comparator in Compute_CRC)
-    int unknown_9c;                 // +0x09C
-    int unknown_a0;                 // +0x0A0
-    bool unknown_a4;                // +0x0A4
+    int Scope;                 // +0x09C
+    int TrigHouse;                 // +0x0A0
+    bool IsEnabled;                // +0x0A4
     int unknown_a8;                 // +0x0A8 (-1)
-    int unknown_ac;                 // +0x0AC
-    int unknown_b0;                 // +0x0B0
+    int MultiSide;                 // +0x0AC
+    int TechLevelNeeded;                 // +0x0B0
     int unknown_b4;                 // +0x0B4 (not set by the constructor)
     double Weight;                  // +0x0B8 (1.0; hypothesis)
     double MinWeight;               // +0x0C0 (1.0)
     double MaxWeight;               // +0x0C8 (1.0)
-    bool unknown_d0;                // +0x0D0
-    bool unknown_d1;                // +0x0D1
-    bool unknown_d2;                // +0x0D2 (true)
-    bool unknown_d3;                // +0x0D3 (true)
-    bool unknown_d4;                // +0x0D4 (true)
-    AbstractTypeClass *unknown_d8;  // +0x0D8
-    TeamTypeClass *unknown_dc;      // +0x0DC
-    TeamTypeClass *unknown_e0;      // +0x0E0
+    bool IsAvailableInSkirmish;                // +0x0D0
+    bool IsForBaseDefense;                // +0x0D1
+    bool IsEnabledInEasy;                // +0x0D2 (true)
+    bool IsEnabledInMedium;                // +0x0D3 (true)
+    bool IsEnabledInHard;                // +0x0D4 (true)
+    AbstractTypeClass *ConditionObject;  // +0x0D8
+    TeamTypeClass *TeamTypeOne;      // +0x0DC
+    TeamTypeClass *TeamTypeTwo;      // +0x0E0
     unsigned char Comparator[0x20]; // +0x0E4 (written as hex; the first two dwords are CRC'd)
-    int unknown_104;                // +0x104
-    int unknown_108;                // +0x108
+    int TimesSucceded;                // +0x104
+    int TimesExecuted;                // +0x108
     int unknown_10c;                // +0x10C (size 0x110; not set by the constructor)
 };
 

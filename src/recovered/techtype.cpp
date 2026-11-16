@@ -635,7 +635,7 @@ bool TechnoTypeClass::Read_INI(CCINIClass &ini)
 // Whether the type can be placed at a cell (hypothesis: Legal_Placement):
 // every cell of its occupy list (slot 36) must be open for it, by
 // 0x004718B0 for building types (Kind_Of 7) and 0x00478760 otherwise; a
-// building type with a +0xBF0 tile type (BuildingTypeClass::unknown_bf0) needs only
+// building type with a +0xBF0 tile type (BuildingTypeClass::ToTile) needs only
 // one open cell.
 
 // Member-wise sum of two cells: shared/coord.hpp.
@@ -665,7 +665,7 @@ bool TechnoTypeClass::Legal_Placement(Cell const &cell, HouseClass *house) const
             }
         }
     }
-    if (building && static_cast<BuildingTypeClass const *>(this)->unknown_bf0) {
+    if (building && static_cast<BuildingTypeClass const *>(this)->ToTile) {
         return open;
     }
     return !blocked;

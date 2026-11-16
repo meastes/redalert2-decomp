@@ -213,11 +213,11 @@ void TeleportLocomotionClass::Check_Landing(CoordStruct coord)
         }
     }
     bool kill = false;
-    if (LinkedTo->Techno_Type_Class()->Naval && ((Map[coord].unknown_140 & 0x100) || Map[coord].unknown_ec == 1)) {
+    if (LinkedTo->Techno_Type_Class()->Naval && ((Map[coord].unknown_140 & 0x100) || Map[coord].Land == 1)) {
         kill = true;
     }
-    if (Map[Coord_Cell(coord)].unknown_ec == 2 && !LinkedTo->Techno_Type_Class()->Naval && LinkedTo->Kind_Of() != 15
-        && !(Map[coord].unknown_140 & 0x100) && Map[coord].unknown_ec != 1) {
+    if (Map[Coord_Cell(coord)].Land == 2 && !LinkedTo->Techno_Type_Class()->Naval && LinkedTo->Kind_Of() != 15
+        && !(Map[coord].unknown_140 & 0x100) && Map[coord].Land != 1) {
         LinkedTo->unknown_325 = true;
         LinkedTo->unknown_slot210();
         return;

@@ -187,7 +187,7 @@ bool __fastcall CrateClass::Put_Crate(Cell &cell)
     }
     CellClass *cellptr = &Map[cell];
     if (cellptr->OverlayIndex == -1) {
-        if (Map[cell].unknown_ec == 2) {
+        if (Map[cell].Land == 2) {
             new OverlayClass(Rules->WaterCrateImg, cell);
         } else {
             new OverlayClass(Rules->unknown_f0, cell);

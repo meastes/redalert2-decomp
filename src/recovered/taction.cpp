@@ -739,7 +739,7 @@ bool TActionClass::unknown_buildings_with_tag_power_down(HouseClass *house, Obje
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
         if (building->IsActive && building->IsDown && !building->IsInLimbo && building->unknown_34 != 0
-            && building->unknown_34->Is_Trigger_Attached(trigger) && building->unknown_530) {
+            && building->unknown_34->Is_Trigger_Attached(trigger) && building->IsOn) {
             building->unknown_44d530();
             handled = true;
         }
@@ -758,7 +758,7 @@ bool TActionClass::unknown_buildings_with_tag_power_up(HouseClass *house, Object
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
         if (building->IsActive && building->IsDown && !building->IsInLimbo && building->unknown_34 != 0
-            && building->unknown_34->Is_Trigger_Attached(trigger) && !building->unknown_530) {
+            && building->unknown_34->Is_Trigger_Attached(trigger) && !building->IsOn) {
             building->unknown_44d3e0();
             handled = true;
         }
@@ -880,7 +880,7 @@ bool TActionClass::unknown_base_building(HouseClass *house, ObjectClass *object,
             CoordStruct coord = house->unknown_50[0]->Coord;
             Cell center = coord.As_Cell();
             house->BaseCenter = CoordStruct(center);
-            house->unknown_55f0.unknown_50 = center;
+            house->unknown_55f0.PlacementCenter = center;
         }
         if (house->unknown_55f0.Nodes.Count() == 0) {
             house->Begin_Construction();
@@ -1302,7 +1302,7 @@ bool TActionClass::TAction_DZ(HouseClass *house, ObjectClass *object, TriggerCla
         int bridge_height = unknown_geometry_j;
         coord.Z += bridge_height;
     }
-    (new AnimClass(Rules->DropZoneAnim, coord, 0, 1, 0x600, 0))->unknown_178 = true;
+    (new AnimClass(Rules->DropZoneAnim, coord, 0, 1, 0x600, 0))->IsInert = true;
     return true;
 }
 
@@ -1515,7 +1515,7 @@ bool TActionClass::TAction_PLAY_ANIM(HouseClass *house, ObjectClass *object, Tri
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
         coord.Z += unknown_geometry_j;
     }
-    (new AnimClass(AnimTypes[Data.Value], coord, 0, 1, 0x600, 0))->unknown_178 = true;
+    (new AnimClass(AnimTypes[Data.Value], coord, 0, 1, 0x600, 0))->IsInert = true;
     return true;
 }
 
@@ -1535,7 +1535,7 @@ bool TActionClass::unknown_weapon_explosion_at_waypoint(HouseClass *house, Objec
     int index = Data.Value;
     WeaponTypeClass *weapon = Weapons[index];
     int damage = weapon->unknown_a4;
-    int land = Map[coord].unknown_ec;
+    int land = Map[coord].Land;
     AnimTypeClass *anim = Select_Damage_Anim(damage, weapon->Warhead, land, &coord);
     if (anim != 0) {
         new AnimClass(anim, coord, 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(coord));
@@ -1696,9 +1696,9 @@ bool TActionClass::TAction_CHANGE_SPOTLIGHT_BEHAVIOR(HouseClass *house, ObjectCl
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
         if (building->Strength > 0 && building->IsActive && building->IsDown && !building->IsInLimbo
-            && building->Type->HasSpotlight && building->unknown_4d4 != 0
+            && building->Type->HasSpotlight && building->BuildingLight != 0
             && building->unknown_34 != 0 && building->unknown_34->Is_Trigger_Attached(trigger)) {
-            building->unknown_4d4->Set_Behavior(Data.Value);
+            building->BuildingLight->Set_Behavior(Data.Value);
             handled = true;
         }
     }

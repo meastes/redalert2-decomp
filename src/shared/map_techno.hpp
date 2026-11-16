@@ -208,7 +208,7 @@ public:
     virtual int Kind_Of() const;
     virtual int Size_Of() const;
     char unknown_b0[0x177 - 0xB0];
-    bool unknown_177;                       // +0x177 deleted by the map's Overpass (0x0054B2E0)
+    bool IsToDeleteOnOverpass;                       // +0x177 deleted by the map's Overpass (0x0054B2E0)
     char unknown_178[0x1A8 - 0x178];        // sizeof(AnimClass) 0x1A8 (as shared/anim.hpp)
 };
 typedef char AnimClass_stand_in_size[(sizeof(AnimClass) == 0x1A8) ? 1 : -1];

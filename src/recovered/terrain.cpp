@@ -113,7 +113,7 @@ static inline CoordStruct Get_Coord(ObjectClass const *object)
 // The land type of the cell at a coordinate (local helper).
 static inline int Land_Type_At(CoordStruct coord)
 {
-    return Map[coord].unknown_ec;
+    return Map[coord].Land;
 }
 
 int TerrainClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6)

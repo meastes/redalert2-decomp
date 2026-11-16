@@ -1704,7 +1704,7 @@ void FootClass::unknown_slot93(int why)
 
         BuildingClass *building = cellptr->Unknown_004717B0();
         if (building != 0) {
-            if (building->Type->LaserFence && building->unknown_4ec < 8) {
+            if (building->Type->LaserFence && building->LaserFenceFrame < 8) {
                 int rtti = Kind_Of();
                 if (rtti > 0 && (rtti <= 2 || rtti == 15) && Strength > 0) {
                     Take_Damage(&Strength, 0, Rules->C4Warhead, (TechnoClass *)building, true, true);

@@ -214,7 +214,7 @@ void AnimTypeClass::Load_Image(int theater)
                 biggest_size = rect.Width * rect.Height;
             }
         }
-        unknown_268 = biggest_frame;
+        Biggest = biggest_frame;
     }
 }
 
@@ -457,7 +457,7 @@ void AnimTypeClass::Compute_CRC(WWCRCEngine &crc) const
     crc(PingPong);
     crc(Reverse);
     crc(Shadow);
-    crc((long)unknown_268);
+    crc((long)Biggest);
     crc(Damage);
     crc(TiberiumChainReaction);
     crc((long)Rate);

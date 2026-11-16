@@ -10,7 +10,7 @@ HRESULT __stdcall CaptureManagerClass::Load(IStream *stream)
     HRESULT result = AbstractClass::Load(stream);
     if (SUCCEEDED(result)) {
         new (this) CaptureManagerClass(NoInitClass());
-        Swizzler.Swizzle((void **)&unknown_24);
+        Swizzler.Swizzle((void **)&Unit);
         Swizzler.Swizzle((void **)&unknown_28);
         Swizzler.Swizzle((void **)&Owner);
     }

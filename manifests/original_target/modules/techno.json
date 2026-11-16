@@ -1934,35 +1934,35 @@
    "address": "007b2938",
    "bytes": 24,
    "kind": "rtti",
-   "section": 623
+   "section": 622
   },
   {
    "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVObjectClass@@@@8",
    "address": "007b2950",
    "bytes": 24,
    "kind": "rtti",
-   "section": 618
+   "section": 623
   },
   {
    "symbol": "??_R2?$VectorClass@PAVObjectClass@@@@8",
    "address": "007b29d4",
    "bytes": 5,
    "kind": "rtti",
-   "section": 624
+   "section": 618
   },
   {
    "symbol": "??_R3?$VectorClass@PAVObjectClass@@@@8",
    "address": "007b29e0",
    "bytes": 16,
    "kind": "rtti",
-   "section": 625
+   "section": 619
   },
   {
    "symbol": "??_R4?$VectorClass@PAVObjectClass@@@@6B@",
    "address": "007b29f0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 627
+   "section": 620
   },
   {
    "symbol": "??_R1M@?0A@A@INoticeSource@@8",
@@ -2263,21 +2263,21 @@
    "address": "007b4f00",
    "bytes": 9,
    "kind": "rtti",
-   "section": 619
+   "section": 624
   },
   {
    "symbol": "??_R3?$DynamicVectorClass@PAVObjectClass@@@@8",
    "address": "007b4f10",
    "bytes": 16,
    "kind": "rtti",
-   "section": 620
+   "section": 625
   },
   {
    "symbol": "??_R4?$DynamicVectorClass@PAVObjectClass@@@@6B@",
    "address": "007b4f20",
    "bytes": 20,
    "kind": "rtti",
-   "section": 622
+   "section": 627
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@PAVAbstractClass@@@@8",
@@ -2340,84 +2340,86 @@
    "address": "007bdb98",
    "bytes": 20,
    "kind": "rtti",
-   "section": 192
+   "section": 186
   },
   {
    "symbol": "??_R4MissionClass@@6BINoticeSink@@@",
    "address": "007bdbb0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 193
+   "section": 187
   },
   {
    "symbol": "??_R4MissionClass@@6BIRTTITypeInfo@@@",
    "address": "007bdbc8",
    "bytes": 20,
    "kind": "rtti",
-   "section": 194
+   "section": 188
   },
   {
    "symbol": "??_R2MissionClass@@8",
    "address": "007bdbe0",
    "bytes": 41,
    "kind": "rtti",
-   "section": 195
+   "section": 189
   },
   {
    "symbol": "??_R3MissionClass@@8",
    "address": "007bdc10",
    "bytes": 16,
    "kind": "rtti",
-   "section": 196
+   "section": 190,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4MissionClass@@6BIPersistStream@@@",
    "address": "007bdc20",
    "bytes": 20,
    "kind": "rtti",
-   "section": 197
+   "section": 191
   },
   {
    "symbol": "??_R4RadioClass@@6BINoticeSource@@@",
    "address": "007c0450",
    "bytes": 20,
    "kind": "rtti",
-   "section": 186
+   "section": 192
   },
   {
    "symbol": "??_R4RadioClass@@6BINoticeSink@@@",
    "address": "007c0468",
    "bytes": 20,
    "kind": "rtti",
-   "section": 187
+   "section": 193
   },
   {
    "symbol": "??_R4RadioClass@@6BIRTTITypeInfo@@@",
    "address": "007c0480",
    "bytes": 20,
    "kind": "rtti",
-   "section": 188
+   "section": 194
   },
   {
    "symbol": "??_R2RadioClass@@8",
    "address": "007c0498",
    "bytes": 45,
    "kind": "rtti",
-   "section": 189
+   "section": 195
   },
   {
    "symbol": "??_R3RadioClass@@8",
    "address": "007c04c8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 190
+   "section": 196,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4RadioClass@@6BIPersistStream@@@",
    "address": "007c04d8",
    "bytes": 20,
    "kind": "rtti",
-   "section": 191
+   "section": 197
   },
   {
    "symbol": "??_R4TechnoClass@@6BINoticeSource@@@",
@@ -2480,14 +2482,14 @@
    "address": "007cd570",
    "bytes": 45,
    "kind": "rtti",
-   "section": 626
+   "section": 621
   },
   {
    "symbol": "??_R0?AV?$DynamicVectorClass@PAVObjectClass@@@@@8",
    "address": "007cd5a0",
    "bytes": 52,
    "kind": "rtti",
-   "section": 621
+   "section": 626
   },
   {
    "symbol": "??_R0?AVINoticeSink@@@8",
@@ -3397,7 +3399,8 @@
    "symbol": "??_R3MissionClass@@8",
    "address": "007bdc10",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4MissionClass@@6BIPersistStream@@@",
@@ -3433,7 +3436,8 @@
    "symbol": "??_R3RadioClass@@8",
    "address": "007c04c8",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4RadioClass@@6BIPersistStream@@@",

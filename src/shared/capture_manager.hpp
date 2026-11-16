@@ -40,7 +40,7 @@ public:
     void Draw_Link();                                           // 0x00468150 (name hypothesis)
     void Release_4681e0();                                      // 0x004681E0 (returns the held object to its house)
 
-    TechnoClass *unknown_24;        // +0x24 the controlled techno (Capture 0x00467FF0)
+    TechnoClass *Unit;        // +0x24 the controlled techno (Capture 0x00467FF0)
     HouseClass *unknown_28;         // +0x28 the house it belonged to (returned to it on release)
     TechnoClass *Owner;             // +0x2C the controlling techno (constructor argument)
 };

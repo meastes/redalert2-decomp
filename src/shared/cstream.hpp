@@ -129,8 +129,8 @@ public:
     UnknownStreamPtr Stream;    // +0x08 the forwarded inner stream
     long RefCount;              // +0x0C
     bool unknown_10;            // +0x10 (Seek/SetSize refused while set)
-    bool unknown_11;            // +0x11 buffered data pending
-    int unknown_14;             // +0x14 buffered byte count
+    bool IsWriting;            // +0x11 buffered data pending
+    int CurOffset;             // +0x14 buffered byte count
     void *unknown_18;           // +0x18
     void *unknown_1c;           // +0x1C
     void *unknown_20;           // +0x20

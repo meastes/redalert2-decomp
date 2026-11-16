@@ -491,7 +491,7 @@ void SpawnManagerClass::Unlink(AbstractClass *object)
     for (int i = SpawnedNodes.Count() - 1; i >= 0; i--) {
         if (object == SpawnedNodes[i]->Unit) {
             AircraftClass *unit = SpawnedNodes[i]->Unit;
-            if (unit->Strength > 0 && !unit->unknown_5b2 && SpawnedNodes[i]->IsMissile != 1) {
+            if (unit->Strength > 0 && !unit->IsKamikaze && SpawnedNodes[i]->IsMissile != 1) {
                 return;
             }
             SpawnedNodes[i]->Unit = 0;

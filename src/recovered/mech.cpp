@@ -381,7 +381,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         int dist = Distance3(LinkedTo->Center_Coord(), unknown_18);
                         if (dist < Rules->unknown_1380 && !LinkedTo->HasAnyLink()
                             && abs(unknown_18.Z - Object_Coord(LinkedTo).Z) < unknown_geometry_g * 2
-                            && Map[Object_Coord(LinkedTo)].unknown_ec != 10) {
+                            && Map[Object_Coord(LinkedTo)].Land != 10) {
                             LinkedTo->unknown_slot306(0.0);
                             LinkedTo->Assign_Destination(0, true);
                             LinkedTo->Path[0] = -1;

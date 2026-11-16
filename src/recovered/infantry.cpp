@@ -243,7 +243,7 @@ int InfantryClass::Take_Damage(int *damage,int distance,WarheadTypeClass *warhea
             delete_after_sequence=true;
             if (unknown_7c) new AnimClass(Rules->InfantryExplode,CoordStruct(Coord),0,1,0x600,0);
         }
-        if (Get_Height_AGL()<=10 && Map[CoordStruct(Coord)].unknown_ec==2 && unknown_7c) {
+        if (Get_Height_AGL()<=10 && Map[CoordStruct(Coord)].Land==2 && unknown_7c) {
             new AnimClass(Rules->Wake,CoordStruct(Coord),0,1,0x600,0);
             new AnimClass(Rules->SplashList[0],CoordStruct(Coord)+CoordStruct(0,0,3),0,1,0x600,0);
             delete_after_sequence=true;
@@ -658,7 +658,7 @@ void InfantryClass::unknown_slot93(int why)
                 Stop_Driver();
                 Scatter(Adjacent_Cell(CoordStruct(Coord),Dir_To_8(PrimaryFacing.Current())),true,true);
                 QueueMission(2,false);
-                if (!unknown_494 || Map[unknown_494->Center_Coord()].unknown_ec==2) Mark(1);
+                if (!unknown_494 || Map[unknown_494->Center_Coord()].Land==2) Mark(1);
                 Explosion_Damage(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
                 Explosion_Damage(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->C4Warhead,true);
                 if (!IsActive) return;
@@ -678,7 +678,7 @@ void InfantryClass::unknown_slot93(int why)
         unknown_slot262(false,false,false,0);
         Map.Unknown_0054A550(CoordStruct(Coord),0,unknown_1f4+3,0);
         CellClass *current=&Map[CoordStruct(Coord)];
-        int land=current->unknown_ec;
+        int land=current->Land;
         if (!Locomotor.Checked()->Is_Moving() && !Type->C4 && !Has_Ability(14) && (land==3 || land==2) && (!IsOnBridge || !current->IsUnderBridge)) {
             int damage=Strength;
             Take_Damage(&damage,0,Rules->C4Warhead,0,true,0);
@@ -870,7 +870,7 @@ void InfantryClass::AI()
         BuildingClass *building = Map_Cell(coord)->Unknown_004717B0();
         if (building != 0 && !building->Type->InvisibleInGame) {
             if (building->Type->LaserFence) {
-                if (building->unknown_4ec != 12 && building->unknown_4ec != 8) {
+                if (building->LaserFenceFrame != 12 && building->LaserFenceFrame != 8) {
                     goto scatter;
                 }
             } else if (building->Type->FirestormWall) {
@@ -977,7 +977,7 @@ int InfantryClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellC
                 ((Get_Mission()==11 || Get_Mission()==25 || Get_Mission()==5) && Type->Engineer)) {
                 if (occupant==unknown_494 || reinterpret_cast<AbstractClass*>(&Map[CoordStruct(occupant->Coord)])==unknown_494 || occupant==unknown_228) {
                     if (!occupant->unknown_slot83()) {
-                        float cost=Ground[cell->unknown_ec].Cost[Type->SpeedType];
+                        float cost=Ground[cell->Land].Cost[Type->SpeedType];
                         bool unrestricted=unknown_370 || bridge;
                         if (!unrestricted && cost==0) return 7;
                         return 0;
@@ -996,7 +996,7 @@ int InfantryClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellC
             if (Type->VehicleThief && occupant->Considered_Vehicle() && unknown_494==occupant && !occupant->Techno_Type_Class()->IsTrain) return 0;
             if (occupant->Kind_Of()==6) {
                 BuildingClass *building=static_cast<BuildingClass*>(occupant);
-                if (building->Type->InvisibleInGame || (building->Type->LaserFence && (building->unknown_4ec==12 || building->unknown_4ec==8))) {
+                if (building->Type->InvisibleInGame || (building->Type->LaserFence && (building->LaserFenceFrame==12 || building->LaserFenceFrame==8))) {
                     occupant=occupant->unknown_30;
                     continue;
                 }
@@ -1057,7 +1057,7 @@ int InfantryClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellC
         }
         occupant=occupant->unknown_30;
     }
-    if (!unknown_370 && !bridge && Ground[cell->unknown_ec].Cost[Type->SpeedType]==0) return 7;
+    if (!unknown_370 && !bridge && Ground[cell->Land].Cost[Type->SpeedType]==0) return 7;
     if (!result && vehicle) return 2;
     if (infantry_owner!=-1) {
         if (House->Is_Ally(infantry_owner)) {

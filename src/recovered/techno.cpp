@@ -275,7 +275,7 @@ int TechnoClass::What_Weapon_Should_I_Use(AbstractClass *target)
     if (secondary->AreaFire && Get_Mission() == 0x10) {
         return 1;
     }
-    if (Kind_Of() == 6 && ((BuildingClass *)this)->unknown_531) {
+    if (Kind_Of() == 6 && ((BuildingClass *)this)->IsOverpowered) {
         return 1;
     }
     if (Kind_Of() == 6 && ((BuildingClass *)this)->GetOccupantCount() > 0) {
@@ -288,7 +288,7 @@ int TechnoClass::What_Weapon_Should_I_Use(AbstractClass *target)
         && secondary->Warhead->ElectricAssault && ((BuildingClass *)target)->Type->Overpowerable) {
         return 1;
     }
-    if (Kind_Of() == 2 && ((AircraftClass *)this)->unknown_5b2) {
+    if (Kind_Of() == 2 && ((AircraftClass *)this)->IsKamikaze) {
         return 1;
     }
     if (!target->AbstractFlags.IsTechno) {
@@ -303,8 +303,8 @@ int TechnoClass::What_Weapon_Should_I_Use(AbstractClass *target)
     if (primary->Warhead->Verses[armor] == 0.0) {
         return 1;
     }
-    bool ground = ((CellClass *)object->Get_Cell_Ptr())->unknown_ec == 2
-        || ((CellClass *)object->Get_Cell_Ptr())->unknown_ec == 6;
+    bool ground = ((CellClass *)object->Get_Cell_Ptr())->Land == 2
+        || ((CellClass *)object->Get_Cell_Ptr())->Land == 6;
     if (object->In_Air()) {
         ground = false;
     }
@@ -941,7 +941,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
         }
         if (this && Kind_Of() == 6) {
             BuildingClass *building = Kind_Of() == 6 ? static_cast<BuildingClass *>(this) : 0;
-            if (building->unknown_5b8 && !Map[unknown_slot104()].unknown_47cb50()) {
+            if (building->IsRepairing && !Map[unknown_slot104()].unknown_47cb50()) {
                 Point2D repair_point;
                 TacticalMap->Coord_To_Pixel(unknown_slot42(), repair_point);
                 int delay = Options.Normalize_Delay(14) / 4;
@@ -2629,15 +2629,15 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
         if(other && ((other->unknown_105 && unknown_25c[0]) || (other->unknown_109 && unknown_25c[4]) || (other->unknown_106 && unknown_25c[1]) || (other->unknown_10c && unknown_27c))) goto CANT;
         if(target->In_Air() && !weapon->Projectile->AA) goto ILLEGAL;
         if(techno) {
-            water=(reinterpret_cast<CellClass *>(techno->Get_Cell_Ptr())->unknown_ec==2)
-                || (reinterpret_cast<CellClass *>(techno->Get_Cell_Ptr())->unknown_ec==6);
+            water=(reinterpret_cast<CellClass *>(techno->Get_Cell_Ptr())->Land==2)
+                || (reinterpret_cast<CellClass *>(techno->Get_Cell_Ptr())->Land==6);
             if(techno->In_Air()) water=false;
             if(techno->IsOnBridge) water=false;
             else if(water && unknown_slot175(static_cast<ObjectClass *>(target))==-1) goto ILLEGAL;
             if(target->On_Ground() && !water && Techno_Type_Class()->LandTargeting==1) return 5;
         } else {
             if(!target->In_Air() && !weapon->Projectile->AG) return 5;
-            if(target->Kind_Of()==0xb && As_Cell(target)->unknown_ec!=2 && As_Cell(target)->unknown_ec!=6 && Techno_Type_Class()->LandTargeting==1) goto ILLEGAL;
+            if(target->Kind_Of()==0xb && As_Cell(target)->Land!=2 && As_Cell(target)->Land!=6 && Techno_Type_Class()->LandTargeting==1) goto ILLEGAL;
         }
         check_rearm=true;
         if(which==0 && this && Kind_Of()==1) {
@@ -3411,8 +3411,8 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
                     BuildingClass *building = static_cast<BuildingClass *>(this);
                     if (building->GetOccupantCount() > 0) {
                         anim->ZAdjust = -200;
-                        building->unknown_56c++;
-                        building->unknown_56c %= building->GetOccupantCount();
+                        building->FiringOccupantIndex++;
+                        building->FiringOccupantIndex %= building->GetOccupantCount();
                     }
                 }
                 if (anim != 0 && Kind_Of() != 6) {
@@ -3432,7 +3432,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
                     BuildingClass *building = static_cast<BuildingClass *>(this);
                     if (laser != 0 && building->Type == Rules->PrismType) {
                         laser->unknown_18 = 3;
-                        if (building->unknown_534 > 0) {
+                        if (building->SupportingPrisms > 0) {
                             laser->unknown_1d = true;
                             laser->unknown_18 = 5;
                         }
@@ -3673,7 +3673,7 @@ int TechnoClass::unknown_slot28(ObjectClass *object, bool arg2)
             if (Kind_Of() == 1 && ((UnitClass *)this)->Type->Passengers > 0 && Cargo.Count > 0) {
                 return 4;
             }
-            if (Kind_Of() == 2 && ((AircraftClass *)this)->unknown_5b1) {
+            if (Kind_Of() == 2 && ((AircraftClass *)this)->Passenger) {
                 return 4;
             }
         }
@@ -3948,7 +3948,7 @@ bool TechnoClass::unknown_slot186()
                         break;
                     }
                 }
-                if (House->unknown_134 && here->unknown_ec == 2) {
+                if (House->unknown_134 && here->Land == 2) {
                     break;
                 }
                 if (((CellClass *)Get_Cell_Ptr())->Cell_Building()) {
@@ -4286,7 +4286,7 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
             SendToEachLink(3);
             unknown_slot210();
             if (unknown_25c[0]) { unknown_25c[0]->Delete_Me(); unknown_25c[0]=0; }
-            if (!(Get_Height_AGL()<=10 && unknown_7c && Map[Position_Coord_004f3f40()].unknown_ec==2)) {
+            if (!(Get_Height_AGL()<=10 && unknown_7c && Map[Position_Coord_004f3f40()].Land==2)) {
                 if (Techno_Type_Class()->MaxDebris>0) {
                     int maximum=Techno_Type_Class()->MaxDebris-1;
                     int debris=Random_Pick(Techno_Type_Class()->MinDebris,maximum);
@@ -4465,7 +4465,7 @@ void TechnoClass::Record_The_Kill(TechnoClass *killer)
         if (Techno_Type_Class()->IsInsignificant) {
             break;
         }
-        if (((BuildingClass *)this)->unknown_434 != -1) {
+        if (((BuildingClass *)this)->WhoLastHurtMe != -1) {
             House->unknown_53b4++;
         }
         if (killer != 0) {
@@ -5561,7 +5561,7 @@ void TechnoClass::Detach(AbstractClass *target, bool all)
             Restore_Mission();
             if (Kind_Of() == 2 && Mission == 0x19) {
                 Status = 0;
-                ((AircraftClass *)this)->unknown_5ba = false;
+                ((AircraftClass *)this)->IsLockedStraight = false;
             }
         }
     }
@@ -7665,7 +7665,7 @@ void __fastcall Unknown_006D7C80(AbstractClass *target)
             techno->Restore_Mission();
             if (techno->Kind_Of() == 2 && techno->Mission == 0x19) {
                 techno->Status = 0;
-                ((AircraftClass *)techno)->unknown_5ba = false;
+                ((AircraftClass *)techno)->IsLockedStraight = false;
             }
             if (techno->unknown_228 == target) {
                 techno->unknown_slot220(0);
@@ -8548,7 +8548,7 @@ void TechnoClass::unknown_6d9080(Point2D const &center, void const *unused)
                     AnimPtrTracker.Add(this);
                 }
                 ((AnimClass *)unknown_108)->Attach_To(this);
-                if (!unknown_a40b33) ((AnimClass *)unknown_108)->unknown_17d=true;
+                if (!unknown_a40b33) ((AnimClass *)unknown_108)->IsInvisible=true;
             }
         } else {
             int color=NormalDrawer->Convert(12);

@@ -49,9 +49,9 @@ public:
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // 0x004658A0
     virtual bool Read_INI(CCINIClass &ini);                     // 0x004655C0
 
-    int unknown_98;                 // +0x098 (-1)
+    int CDNumber;                 // +0x098 (-1)
     char Scenario[0x200];           // +0x09C (CRC'd as a string; size from the next field)
-    int unknown_29c;                // +0x29C (-1)
+    int FinalMovie;                // +0x29C (-1)
     wchar_t Description[0x80];      // +0x2A0
 };
 

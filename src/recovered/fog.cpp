@@ -152,7 +152,7 @@ FoggedObjectClass::FoggedObjectClass(BuildingClass *building,bool fade)
     DrawRecord record;
     record.Type=building->Type;
     record.unknown_04=shape;
-    if(building->Type->LaserFence && (building->unknown_4ec==12 || building->unknown_4ec==8))record.unknown_08=1;
+    if(building->Type->LaserFence && (building->LaserFenceFrame==12 || building->LaserFenceFrame==8))record.unknown_08=1;
     else {
         record.unknown_08=0;
         if(building->Type->FirestormWall)record.unknown_08=1;
@@ -160,7 +160,7 @@ FoggedObjectClass::FoggedObjectClass(BuildingClass *building,bool fade)
     DrawRecords.Add(record);
     for(int index=0;index<18;++index) {
         if(building->unknown_454[index]) {
-            ((AnimClass*)building->unknown_454[index])->unknown_179=true;
+            ((AnimClass*)building->unknown_454[index])->IsFogged=true;
             AnimTypeClass *type=((AnimClass*)building->unknown_454[index])->Class;
             unknown_40=Union(unknown_40,((AnimClass*)building->unknown_454[index])->Get_Visual_Rect());
             record.Type=type;
@@ -209,7 +209,7 @@ FoggedObjectClass::~FoggedObjectClass()
             building->unknown_5b7 = false;
             for (int index = 0; index < 18; index++) {
                 if (building->unknown_454[index] != 0) {
-                    ((AnimClass *)building->unknown_454[index])->unknown_179 = false;
+                    ((AnimClass *)building->unknown_454[index])->IsFogged = false;
                 }
             }
         }
@@ -381,8 +381,8 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                             }
                         }
 
-                        if (type->unknown_11cc != 0) {
-                            CC_Draw_Shape(LogicalSurface, drawconvert, (ShapeFileStruct const *)type->unknown_11cc, shapenum, drawpoint, rect, 0x4e00, 0, zlepton - 3, 0, brightness, 0, 0, Point2D(0, 0));
+                        if (type->BibShape != 0) {
+                            CC_Draw_Shape(LogicalSurface, drawconvert, (ShapeFileStruct const *)type->BibShape, shapenum, drawpoint, rect, 0x4e00, 0, zlepton - 3, 0, brightness, 0, 0, Point2D(0, 0));
                         }
 
                     } else {

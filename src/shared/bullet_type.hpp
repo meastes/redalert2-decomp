@@ -83,7 +83,7 @@ public:
     int ROT;                                // +0x2AC
     int CourseLockDuration;                 // +0x2B0
     int SpawnDelay;                         // +0x2B4
-    int unknown_2b8;                        // +0x2B8
+    int ScaledSpawnDelay;                        // +0x2B8
     bool Scalable;                          // +0x2BC
     int Arm;                                // +0x2C0
     unsigned char AnimLow;                  // +0x2C4

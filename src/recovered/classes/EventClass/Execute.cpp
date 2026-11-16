@@ -177,7 +177,7 @@ void EventClass::Execute()
             anim = new AnimClass(AnimTypes[Data.LongsCell.Long1], coord, 0, 1, 0x600, 0);
         }
         if (anim && LongAt(0x0B) != -1 && !Houses[LongAt(0x0B)]->Is_Player_Control()) {
-            anim->unknown_17d = true;
+            anim->IsInvisible = true;
         }
         break;
     }

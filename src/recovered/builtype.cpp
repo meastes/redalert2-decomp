@@ -194,7 +194,7 @@ BuildingTypeClass::BuildingTypeClass(char const *ini_name) :
     PrimaryFirePixelOffset(Point2D(65535,65535)),
     SecondaryFirePixelOffset(Point2D(65535,65535)),
     ToOverlay(0),
-    unknown_bf0(0),
+    ToTile(0),
     BuildupSound(-1),
     PackupSound(-1),
     CreateUnitSound(-1),
@@ -203,13 +203,13 @@ BuildingTypeClass::BuildingTypeClass(char const *ini_name) :
     WorkingSound(-1),
     NotWorkingSound(-1),
     FreeUnit(0),
-    unknown_c3c(-1),
+    FoundationFace(-1),
     Adjacent(3),
     Factory(0),
     TargetCoordOffset(0,0,0),
     ExitCoord(0,0,0),
     FoundationOutside(0),
-    unknown_c64(0),
+    StartFace(0),
     Power(0),
     PowerDrain_c6c(0),
     ExtraPower(0),
@@ -221,20 +221,20 @@ BuildingTypeClass::BuildingTypeClass(char const *ini_name) :
     DoorStages(0),
     Upgrades(0),
     DeployingAnim(0),
-    unknown_11a8(0),
+    UnderDoorAnim(0),
     RoofDeployingAnim(0),
-    unknown_11b8(0),
+    UnderRoofDoorAnim(0),
     DoorAnimData_11c0(0),
     SpecialZOverlayData_11c4(0),
     SpecialZOverlayZAdjust(0),
-    unknown_11cc(0),
-    unknown_11d0(false),
+    BibShape(0),
+    BibShapeLoaded(false),
     NormalZAdjust(0),
-    unknown_11d8(0),
-    unknown_11dc(0),
-    unknown_11e0(0),
+    AntiAirValue(0),
+    AntiArmorValue(0),
+    AntiInfantryValue(0),
     ZShapePointMove(Point2D(0,0)),
-    unknown_11ec(unknown_static_rect),
+    DrawRect(unknown_static_rect),
     ExtraLight(0),
     TogglePower(true),
     HasSpotlight(false),
@@ -354,10 +354,10 @@ BuildingTypeClass::BuildingTypeClass(char const *ini_name) :
     unknown_13eb[0]=0;
     VoxelBarrelFile[0]=0;
     Trainable=false;
-    unknown_11a4=false;
-    unknown_11ac=false;
-    unknown_11b4=false;
-    unknown_11bc=false;
+    DeployingAnimLoaded=false;
+    UnderDoorAnimLoaded=false;
+    RoofDeployingAnimLoaded=false;
+    UnderRoofDoorAnimLoaded=false;
     for(int first=0;first<10;++first) MuzzleFlash[first]=Point2D(unknown_geometry_l.X,unknown_geometry_l.Y);
     for(int second=0;second<8;++second) DamageFireOffset[second]=Point2D(unknown_geometry_l.X,unknown_geometry_l.Y);
     DockingOffsets[0]=TPoint3D<int>(0,0,0);
@@ -388,30 +388,30 @@ BuildingTypeClass::~BuildingTypeClass()
         BuildupData = 0;
         BuildupDataAllocated = false;
     }
-    if (unknown_11d0 && unknown_11cc) {
-        operator delete(unknown_11cc);
-        unknown_11cc = 0;
-        unknown_11d0 = false;
+    if (BibShapeLoaded && BibShape) {
+        operator delete(BibShape);
+        BibShape = 0;
+        BibShapeLoaded = false;
     }
-    if (unknown_11a4 && DeployingAnim) {
+    if (DeployingAnimLoaded && DeployingAnim) {
         operator delete(DeployingAnim);
         DeployingAnim = 0;
-        unknown_11a4 = false;
+        DeployingAnimLoaded = false;
     }
-    if (unknown_11ac && unknown_11a8) {
-        operator delete(unknown_11a8);
-        unknown_11a8 = 0;
-        unknown_11ac = false;
+    if (UnderDoorAnimLoaded && UnderDoorAnim) {
+        operator delete(UnderDoorAnim);
+        UnderDoorAnim = 0;
+        UnderDoorAnimLoaded = false;
     }
-    if (unknown_11b4 && RoofDeployingAnim) {
+    if (RoofDeployingAnimLoaded && RoofDeployingAnim) {
         operator delete(RoofDeployingAnim);
         RoofDeployingAnim = 0;
-        unknown_11b4 = false;
+        RoofDeployingAnimLoaded = false;
     }
-    if (unknown_11bc && unknown_11b8) {
-        operator delete(unknown_11b8);
-        unknown_11b8 = 0;
-        unknown_11bc = false;
+    if (UnderRoofDoorAnimLoaded && UnderRoofDoorAnim) {
+        operator delete(UnderRoofDoorAnim);
+        UnderRoofDoorAnim = 0;
+        UnderRoofDoorAnimLoaded = false;
     }
     Detach_This_From_All(this, true);
     BuildingTypes.Delete(this);
@@ -880,11 +880,11 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(int theater)
         _makepath(fullname,0,0,name,".SHP");
         Theater_Naming_Convention(fullname,theater);
         Free_unknown_11a0();
-        DeployingAnim=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11a4);
+        DeployingAnim=(void *)Unknown_Load_Shape_00495270(fullname,DeployingAnimLoaded);
         if(DeployingAnim==0) {
             Generic_Naming_Convention(fullname);
             Free_unknown_11a0();
-            DeployingAnim=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11a4);
+            DeployingAnim=(void *)Unknown_Load_Shape_00495270(fullname,DeployingAnimLoaded);
         }
     }
     ArtINI.Get_String(unknown_1c8,"RoofDeployingAnim",unknown_string_83c55c,name,64);
@@ -892,12 +892,12 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(int theater)
         _makepath(fullname,0,0,name,".SHP");
         Theater_Naming_Convention(fullname,theater);
         Free_unknown_11b0();
-        RoofDeployingAnim=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11b4);
+        RoofDeployingAnim=(void *)Unknown_Load_Shape_00495270(fullname,RoofDeployingAnimLoaded);
         if(RoofDeployingAnim==0) {
             Generic_Naming_Convention(fullname);
             Free_unknown_11b0();
             // The original roof fallback writes the deploying-image allocation flag.
-            RoofDeployingAnim=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11a4);
+            RoofDeployingAnim=(void *)Unknown_Load_Shape_00495270(fullname,DeployingAnimLoaded);
         }
     }
     ArtINI.Get_String(unknown_1c8,"DoorAnim",unknown_string_83c55c,name,64);
@@ -915,11 +915,11 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(int theater)
         _makepath(fullname,0,0,name,".SHP");
         Theater_Naming_Convention(fullname,theater);
         Free_unknown_11a8();
-        unknown_11a8=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11ac);
-        if(unknown_11a8==0) {
+        UnderDoorAnim=(void *)Unknown_Load_Shape_00495270(fullname,UnderDoorAnimLoaded);
+        if(UnderDoorAnim==0) {
             Generic_Naming_Convention(fullname);
             Free_unknown_11a8();
-            unknown_11a8=(void *)MixFileClass::Retrieve(fullname);
+            UnderDoorAnim=(void *)MixFileClass::Retrieve(fullname);
         }
     }
     ArtINI.Get_String(unknown_1c8,"UnderRoofDoorAnim",unknown_string_83c55c,name,64);
@@ -927,11 +927,11 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(int theater)
         _makepath(fullname,0,0,name,".SHP");
         Theater_Naming_Convention(fullname,theater);
         Free_unknown_11b8();
-        unknown_11b8=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11bc);
-        if(unknown_11b8==0) {
+        UnderRoofDoorAnim=(void *)Unknown_Load_Shape_00495270(fullname,UnderRoofDoorAnimLoaded);
+        if(UnderRoofDoorAnim==0) {
             Generic_Naming_Convention(fullname);
             Free_unknown_11b8();
-            unknown_11b8=(void *)MixFileClass::Retrieve(fullname);
+            UnderRoofDoorAnim=(void *)MixFileClass::Retrieve(fullname);
         }
     }
     ArtINI.Get_String(unknown_1c8,"SpecialZOverlay",unknown_string_83c55c,name,64);
@@ -949,11 +949,11 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(int theater)
         _makepath(fullname,0,0,name,".SHP");
         Theater_Naming_Convention(fullname,theater);
         Free_unknown_11cc();
-        unknown_11cc=(void *)Unknown_Load_Shape_00495270(fullname,unknown_11d0);
-        if(unknown_11cc==0) {
+        BibShape=(void *)Unknown_Load_Shape_00495270(fullname,BibShapeLoaded);
+        if(BibShape==0) {
             Generic_Naming_Convention(fullname);
             Free_unknown_11cc();
-            unknown_11cc=(void *)MixFileClass::Retrieve(fullname);
+            BibShape=(void *)MixFileClass::Retrieve(fullname);
         }
     }
     ArtINI.Get_String(unknown_1c8,"Image",unknown_string_83c55c,name,64);
@@ -1474,7 +1474,7 @@ void BuildingTypeClass::Compute_CRC(WWCRCEngine &crc) const
     crc(TurretAnimIsVoxel);
     crc(BarrelAnimIsVoxel);
     crc(VoxelBarrelFile);
-    crc(unknown_13a8);
+    crc(VoxelBarrelScale);
     crc(&VoxelBarrelOffsetToPitchPivotPoint, sizeof(VoxelBarrelOffsetToPitchPivotPoint));
     crc(&VoxelBarrelOffsetToRotatePivotPoint, sizeof(VoxelBarrelOffsetToRotatePivotPoint));
     crc(&VoxelBarrelOffsetToBuildingPivotPoint, sizeof(VoxelBarrelOffsetToBuildingPivotPoint));
@@ -1521,7 +1521,7 @@ HRESULT __stdcall BuildingTypeClass::Load(IStream *stream)
         }
         Fetch_Building_Voxel_Image();
         Fetch_Normal_Image();
-        unknown_bf0 = 0;
+        ToTile = 0;
         FoundationData = unknown_foundation_cells_84ede8[Foundation];
         FoundationOutside = unknown_foundation_outside_84f848[Foundation];
         Swizzler.Swizzle((void **)&ToOverlay);
@@ -1529,16 +1529,16 @@ HRESULT __stdcall BuildingTypeClass::Load(IStream *stream)
         Fetch_Building_Voxel_Image();
         BuildupData = 0;
         BuildupDataAllocated = false;
-        unknown_11cc = 0;
-        unknown_11d0 = false;
+        BibShape = 0;
+        BibShapeLoaded = false;
         DeployingAnim = 0;
-        unknown_11a4 = false;
-        unknown_11a8 = 0;
-        unknown_11ac = false;
+        DeployingAnimLoaded = false;
+        UnderDoorAnim = 0;
+        UnderDoorAnimLoaded = false;
         RoofDeployingAnim = 0;
-        unknown_11b4 = false;
-        unknown_11b8 = 0;
-        unknown_11bc = false;
+        RoofDeployingAnimLoaded = false;
+        UnderRoofDoorAnim = 0;
+        UnderRoofDoorAnimLoaded = false;
         Fetch_Building_Normal_Image(unknown_id_source_a3d290->Theater);
         return S_OK;
     }
@@ -1629,7 +1629,7 @@ void BuildingTypeClass::Post_Load_Game()
         RuleINI->Get_String(type->ID, "ToTile", 0, name, 60);
         int tile = Unknown_00529400(name);
         if (tile >= 0 && tile < IsoTileTypes.Count()) {
-            type->unknown_bf0 = IsoTileTypes[tile];
+            type->ToTile = IsoTileTypes[tile];
         }
     }
 }
@@ -1681,7 +1681,7 @@ inline Rect const __fastcall Union<Rect>(Rect const &rect1,Rect const &rect2)
 Rect BuildingTypeClass::Get_Draw_Rect()
 {
     int frame;
-    if(unknown_11ec!=unknown_static_rect)return unknown_11ec;
+    if(DrawRect!=unknown_static_rect)return DrawRect;
     ShapeFileStruct const *image=(ShapeFileStruct const *)Get_Image_Data();
     if(image==0)return unknown_static_rect;
     int frames=image->Get_Count();
@@ -1700,16 +1700,16 @@ Rect BuildingTypeClass::Get_Draw_Rect()
         }
         if(free_buildup)Free_Buildup();
     }
-    if(unknown_11cc) {
-        Rect bib=((ShapeFileStruct const *)unknown_11cc)->Get_Frame_Rect(0);
+    if(BibShape) {
+        Rect bib=((ShapeFileStruct const *)BibShape)->Get_Frame_Rect(0);
         bounds=Union(bounds,bib);
     }
     int x=bounds.X-width/2;
     int y=bounds.Y-height/2;
     int bounds_width=bounds.Width;
     int bounds_height=bounds.Height;
-    unknown_11ec=Rect(x,y,bounds_width,bounds_height);
-    return unknown_11ec;
+    DrawRect=Rect(x,y,bounds_width,bounds_height);
+    return DrawRect;
 }
 
 
@@ -1796,10 +1796,10 @@ void BuildingTypeClass::Free_Buildup()
 
 void BuildingTypeClass::Free_unknown_11cc()
 {
-    if (unknown_11d0 && unknown_11cc) {
-        operator delete(unknown_11cc);
-        unknown_11cc = 0;
-        unknown_11d0 = false;
+    if (BibShapeLoaded && BibShape) {
+        operator delete(BibShape);
+        BibShape = 0;
+        BibShapeLoaded = false;
     }
 }
 
@@ -1809,10 +1809,10 @@ void BuildingTypeClass::Free_unknown_11cc()
 
 void BuildingTypeClass::Free_unknown_11a0()
 {
-    if (unknown_11a4 && DeployingAnim) {
+    if (DeployingAnimLoaded && DeployingAnim) {
         operator delete(DeployingAnim);
         DeployingAnim = 0;
-        unknown_11a4 = false;
+        DeployingAnimLoaded = false;
     }
 }
 
@@ -1822,10 +1822,10 @@ void BuildingTypeClass::Free_unknown_11a0()
 
 void BuildingTypeClass::Free_unknown_11a8()
 {
-    if (unknown_11ac && unknown_11a8) {
-        operator delete(unknown_11a8);
-        unknown_11a8 = 0;
-        unknown_11ac = false;
+    if (UnderDoorAnimLoaded && UnderDoorAnim) {
+        operator delete(UnderDoorAnim);
+        UnderDoorAnim = 0;
+        UnderDoorAnimLoaded = false;
     }
 }
 
@@ -1835,10 +1835,10 @@ void BuildingTypeClass::Free_unknown_11a8()
 
 void BuildingTypeClass::Free_unknown_11b0()
 {
-    if (unknown_11b4 && RoofDeployingAnim) {
+    if (RoofDeployingAnimLoaded && RoofDeployingAnim) {
         operator delete(RoofDeployingAnim);
         RoofDeployingAnim = 0;
-        unknown_11b4 = false;
+        RoofDeployingAnimLoaded = false;
     }
 }
 
@@ -1848,10 +1848,10 @@ void BuildingTypeClass::Free_unknown_11b0()
 
 void BuildingTypeClass::Free_unknown_11b8()
 {
-    if (unknown_11bc && unknown_11b8) {
-        operator delete(unknown_11b8);
-        unknown_11b8 = 0;
-        unknown_11bc = false;
+    if (UnderRoofDoorAnimLoaded && UnderRoofDoorAnim) {
+        operator delete(UnderRoofDoorAnim);
+        UnderRoofDoorAnim = 0;
+        UnderRoofDoorAnimLoaded = false;
     }
 }
 
@@ -1869,11 +1869,11 @@ void BuildingTypeClass::Calculate_Base_Defense_Values()
         if(weapon) {
             int rate=(int)((double)weapon->unknown_a4/((double)weapon->unknown_b0*Defense_Rate_Scale_0079d2e8));
             if(weapon->Projectile->AA) {
-                unknown_11d8=(int)Limit_Defense_Rating((double)rate*weapon->Warhead->Verses[3],(double)Rules->MaximumBaseDefenseValue);
+                AntiAirValue=(int)Limit_Defense_Rating((double)rate*weapon->Warhead->Verses[3],(double)Rules->MaximumBaseDefenseValue);
             }
             if(weapon->Projectile->AG) {
-                unknown_11dc=(int)Limit_Defense_Rating((double)rate*weapon->Warhead->Verses[4],(double)Rules->MaximumBaseDefenseValue);
-                unknown_11e0=(int)Limit_Defense_Rating((double)rate*weapon->Warhead->Verses[0],(double)Rules->MaximumBaseDefenseValue);
+                AntiArmorValue=(int)Limit_Defense_Rating((double)rate*weapon->Warhead->Verses[4],(double)Rules->MaximumBaseDefenseValue);
+                AntiInfantryValue=(int)Limit_Defense_Rating((double)rate*weapon->Warhead->Verses[0],(double)Rules->MaximumBaseDefenseValue);
             }
         }
     }
@@ -1898,7 +1898,7 @@ void __fastcall BuildingTypeClass::Post_Read_Tile_Fixup()
         RuleINI->Get_String(type->ID, "ToTile", 0, name, 60);
         int tile = Unknown_00529400(name);
         if (tile >= 0 && tile < IsoTileTypes.Count()) {
-            type->unknown_bf0 = IsoTileTypes[tile];
+            type->ToTile = IsoTileTypes[tile];
         }
     }
 }

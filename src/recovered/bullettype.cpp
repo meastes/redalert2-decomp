@@ -124,7 +124,7 @@ BulletTypeClass::BulletTypeClass(char const *ini_name) :
     ROT(0),
     CourseLockDuration(0),
     SpawnDelay(3),
-    unknown_2b8(0),
+    ScaledSpawnDelay(0),
     Scalable(false),
     Arm(0),
     AnimLow(0),
@@ -479,7 +479,7 @@ void BulletTypeClass::Detach(AbstractClass *target, bool all)
 
 void BulletTypeClass::Set_unknown_2b8(int value)
 {
-    unknown_2b8 = value;
+    ScaledSpawnDelay = value;
 }
 
 

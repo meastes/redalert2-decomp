@@ -544,7 +544,7 @@ void JumpjetLocomotionClass::unknown_530180()
         }
     }
     CellClass &destination = Map[unknown_3c];
-    if (balloon || destination.unknown_ec == 2 || destination.unknown_ec == 6) unknown_78 = Height;
+    if (balloon || destination.Land == 2 || destination.Land == 6) unknown_78 = Height;
 }
 
 
@@ -561,7 +561,7 @@ void JumpjetLocomotionClass::unknown_530180()
 void JumpjetLocomotionClass::unknown_530550()
 {
     CellClass &cell = Map[unknown_3c];
-    if ((cell.unknown_ec == 2 || cell.unknown_ec == 6) && LinkedTo->MissionQueue != 7 && LinkedTo->Get_Mission() != 7) {
+    if ((cell.Land == 2 || cell.Land == 6) && LinkedTo->MissionQueue != 7 && LinkedTo->Get_Mission() != 7) {
         if (AircraftTracker.Unknown_004132E0(LinkedTo)) {
             int facing = Random_Pick(0, 7);
             CellClass *here = (CellClass *)LinkedTo->Get_Cell_Ptr();

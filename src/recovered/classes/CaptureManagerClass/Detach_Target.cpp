@@ -4,8 +4,8 @@
 
 bool CaptureManagerClass::Detach_Target_468120(AbstractClass *target)
 {
-    if (unknown_24 == target) {
-        unknown_24 = 0;
+    if (Unit == target) {
+        Unit = 0;
         unknown_28 = 0;
     }
     return true;

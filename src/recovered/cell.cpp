@@ -157,7 +157,7 @@
 CellClass::CellClass(NoInitClass const &noinit) :
     AbstractClass(noinit),
     Drawer(0),
-    unknown_4c(0)
+    Passability(0)
 {
 }
 
@@ -258,47 +258,47 @@ CellClass::CellClass() :
     unknown_30(0),
     Drawer(0),
     IsoTileIndex(0xFFFF),
-    unknown_3c(0),
+    Tag(0),
     unknown_40(0),
     OverlayIndex(-1),
     SmudgeIndex(-1),
-    unknown_4c(0),
+    Passability(0),
     unknown_50(-1),
     InfType(-1),
     BridgeInfType(-1),
-    unknown_5c(-1),
-    unknown_60(-1),
+    LastRedrawFrame(-1),
+    LastUnknownDrawFrame(-1),
     unknown_64(-1),
-    unknown_68(Rect(0, 0, 0, 0)),
-    unknown_78(0),
+    LastBridgeDrawRect(Rect(0, 0, 0, 0)),
+    CloakedBy(0),
     OccupiedBy(0),
     unknown_e0(0),
     OccupierPtr(0),
     AltOccupierPtr(0),
-    unknown_ec(0),
+    Land(0),
     unknown_f0(0),
-    unknown_f8(0),
+    RadSite(0),
     unknown_fc(0),
     unknown_100(0),
     unknown_104(0x10000),
     unknown_108(0),
     Brightness(1000),
     TileBrightness(1000),
-    unknown_10e(1000),
-    unknown_110(1000),
-    unknown_112(1000),
-    unknown_114(1000),
+    AltBrightness(1000),
+    RedTint(1000),
+    GreenTint(1000),
+    BlueTint(1000),
     Tube(-1),
-    unknown_118(0xFF),
-    unknown_119(0),
+    LastBridgeDrawRedraws(0xFF),
+    IsIceGrowthAllowed(0),
     SubTile(0),
     Height(0),
     Ramp(0),
-    unknown_11d(0),
+    Elevation(0),
     OverlayData(0),
     SmudgeData(0),
-    unknown_120(-2),
-    unknown_121(-2),
+    ShadowFrame(-2),
+    FogFrame(-2),
     AdjacentObjectCount(0),
     Flags_12c(0),
     unknown_130(1),
@@ -309,7 +309,7 @@ CellClass::CellClass() :
 {
     int index;
     for (index = 0; index < 24; index++) {
-        unknown_7c[index] = 0;
+        SensorsOfHouses[index] = 0;
     }
     for (index = 0; index < 12; index++) {
         unknown_ac[index] = 0;
@@ -590,7 +590,7 @@ bool CellClass::Is_Clear_To_Build(int speed, BuildingTypeClass const *what, Hous
                 return false;
             }
         } else {
-            if (what->unknown_bf0 == 0) {
+            if (what->ToTile == 0) {
                 if (Cell_Object(Point2D(0, 0), false) != 0) {
                     return false;
                 }
@@ -887,8 +887,8 @@ void CellClass::Recalc_Attributes(int cell_height)
 
     if (overlay != -1) {
         OverlayTypeClass *otype = OverlayTypes[overlay];
-        unknown_ec = otype->Land;
-        if (unknown_ec == 4 || unknown_ec == 9 || otype->NoUseTileLandType) {
+        Land = otype->Land;
+        if (Land == 4 || Land == 9 || otype->NoUseTileLandType) {
             if (IsoTileIndex != 0xFFFF && IsoTileIndex < IsoTileTypes.Count()) {
                 IsometricTileTypeClass *itype = IsoTileTypes[IsoTileIndex];
                 Ramp = itype->Ramp_Type((unsigned char)SubTile);
@@ -905,7 +905,7 @@ void CellClass::Recalc_Attributes(int cell_height)
                 || (Height + 4 <= Map[MapCoords + Cell(-1, +1)].Height)
                 || (Height + 4 <= Map[MapCoords + Cell(+1, -1)].Height)) {
                     if (Rules->CliffBackImpassability == 2) {
-                        unknown_ec = 3;
+                        Land = 3;
                     }
                 }
             }
@@ -913,7 +913,7 @@ void CellClass::Recalc_Attributes(int cell_height)
             Recalc_Passability();
             zone->unknown_01 = Height;
             subzone[8] = Height;
-            zone->unknown_00 = unknown_4c;
+            zone->unknown_00 = Passability;
             return;
         }
     }
@@ -933,7 +933,7 @@ void CellClass::Recalc_Attributes(int cell_height)
         if (!valid) {
             IsoTileIndex = 0xFFFF;
             SubTile = 0;
-            unknown_ec = 0;
+            Land = 0;
             Ramp = 0;
             if (Rules->CliffBackImpassability != 0) {
                 if (Height + 4 <= Map[MapCoords + Cell(+0, -1)].Height
@@ -942,15 +942,15 @@ void CellClass::Recalc_Attributes(int cell_height)
                 || (Height + 4 <= Map[MapCoords + Cell(+1, +1)].Height)
                 || (Height + 4 <= Map[MapCoords + Cell(-1, +1)].Height)
                 || (Height + 4 <= Map[MapCoords + Cell(+1, -1)].Height)) {
-                    if (Rules->CliffBackImpassability == 2 && unknown_ec == 0) {
-                        unknown_ec = 3;
+                    if (Rules->CliffBackImpassability == 2 && Land == 0) {
+                        Land = 3;
                     }
                 }
             }
             Recalc_Passability();
             zone->unknown_01 = Height;
             subzone[8] = Height;
-            zone->unknown_00 = unknown_4c;
+            zone->unknown_00 = Passability;
             return;
         }
 
@@ -959,20 +959,20 @@ void CellClass::Recalc_Attributes(int cell_height)
         if (OverlayIndex != -1) {
             if (OverlayClass::To_Tiberium(OverlayIndex) != -1) {
                 if (Ramp > 4) {
-                    unknown_ec = itype->Land_Type((unsigned char)SubTile);
+                    Land = itype->Land_Type((unsigned char)SubTile);
                     OverlayIndex = -1;
                     OverlayData = 0;
                 } else if (!OverlayTypes[OverlayIndex]->Land) {
-                    unknown_ec = 5;
+                    Land = 5;
                 }
             } else if (!OverlayTypes[OverlayIndex]->NoUseTileLandType) {
-                unknown_ec = itype->Land_Type((unsigned char)SubTile);
+                Land = itype->Land_Type((unsigned char)SubTile);
             }
         } else {
-            unknown_ec = itype->Land_Type((unsigned char)SubTile);
+            Land = itype->Land_Type((unsigned char)SubTile);
         }
 
-        if (unknown_ec == 10) {
+        if (Land == 10) {
             if (Tube < 0 || Tube >= Tubes.Count()) {
                 int tunnel_dir = -1;
 
@@ -999,13 +999,13 @@ void CellClass::Recalc_Attributes(int cell_height)
         int width;
         int height;
         itype->Get_Tile_Pixel_Dimensions((unsigned char)SubTile, width, height);
-        unknown_11d = (height - 30) / 15;
+        Elevation = (height - 30) / 15;
         if (!IsAnimAttached && itype->unknown_298 != -1 && itype->AttachesTo == (unsigned char)SubTile) {
             CoordStruct anim_coord = CoordStruct(MapCoords, Height * unknown_geometry_g) + TacticalMap->Pixel_To_Coord_Absolute(itype->Offset);
             AnimClass *anim = new AnimClass(AnimTypes[itype->unknown_298], anim_coord, 0, -1, 0x1600, 0);
             anim->ZAdjust = itype->ZAdjust;
-            anim->unknown_176 = true;
-            anim->unknown_177 = true;
+            anim->IsAttachedToCell = true;
+            anim->IsToDeleteOnOverpass = true;
             IsAnimAttached = true;
         }
 
@@ -1022,9 +1022,9 @@ void CellClass::Recalc_Attributes(int cell_height)
         }
     } else {
         if (overlay == -1 || OverlayTypes[overlay]->NoUseTileLandType) {
-            unknown_ec = 0;
+            Land = 0;
         } else {
-            unknown_ec = OverlayTypes[overlay]->Land;
+            Land = OverlayTypes[overlay]->Land;
         }
         Ramp = 0;
     }
@@ -1037,8 +1037,8 @@ void CellClass::Recalc_Attributes(int cell_height)
         || (Height + 4 <= Map[MapCoords + Cell(-1, +1)].Height)
         || (Height + 4 <= Map[MapCoords + Cell(+1, -1)].Height)) {
             if (Rules->CliffBackImpassability == 2) {
-                if (unknown_ec == 0 || unknown_ec == 2 || unknown_ec == 6 || unknown_ec == 8) {
-                    unknown_ec = 3;
+                if (Land == 0 || Land == 2 || Land == 6 || Land == 8) {
+                    Land = 3;
                 }
             }
         }
@@ -1046,7 +1046,7 @@ void CellClass::Recalc_Attributes(int cell_height)
 
     Recalc_Passability();
     zone->unknown_01 = Height;
-    zone->unknown_00 = unknown_4c;
+    zone->unknown_00 = Passability;
     subzone[8] = Height;
 }
 
@@ -1404,7 +1404,7 @@ bool CellClass::Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bo
             coord.Z = Map.Get_Height_GL(coord);
 
             if (Map.Is_Shrouded(coord)) {
-                if (Map.unknown_117c && Map.PendingObject != 0 && ((ObjectTypeClass const *)Map.PendingObject)->Kind_Of() == 7 && ((BuildingTypeClass *)Map.PendingObject)->unknown_bf0 != 0) {
+                if (Map.unknown_117c && Map.PendingObject != 0 && ((ObjectTypeClass const *)Map.PendingObject)->Kind_Of() == 7 && ((BuildingTypeClass *)Map.PendingObject)->ToTile != 0) {
                     ok = true;
                 } else {
                     ok = false;
@@ -1420,7 +1420,7 @@ bool CellClass::Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bo
             } else {
                 if (Map.unknown_117c && Map.PendingObject != 0 && ((ObjectTypeClass const *)Map.PendingObject)->Kind_Of() == 7
                         && Is_Clear_To_Build(loco, static_cast<BuildingTypeClass const *>(Map.PendingObject), PlayerPtr)
-                        && !(((BuildingTypeClass *)Map.PendingObject)->unknown_bf0 != 0 && unknown_ec == 1)) {
+                        && !(((BuildingTypeClass *)Map.PendingObject)->ToTile != 0 && Land == 1)) {
                     ok = true;
                 }
             }
@@ -1578,16 +1578,16 @@ void CellClass::Draw_Overlay(Point2D const &xpoint, Rect const &clip)
     }
     ShapeFileStruct *shape = (ShapeFileStruct *)otype->Get_Image_Data();
     if (IsBridgeDeck) {
-        if (unknown_64 != Frame || unknown_118 != unknown_redraws_833634
-            || unknown_68 != clip) {
+        if (unknown_64 != Frame || LastBridgeDrawRedraws != unknown_redraws_833634
+            || LastBridgeDrawRect != clip) {
             int shapenum = OverlayData;
             if (shapenum == 0 || shapenum == 9) {
                 shapenum += unknown_bridge_variation_7d2b18[(MapCoords.X & 3) | (4 * (MapCoords.Y & 3))];
             }
-            CC_Draw_Shape(LogicalSurface, Drawer, shape, shapenum, point, clip, 0x4E00, 0, -2 - yoffset, 0, unknown_10e, 0, 0, Point2D(0, 0));
+            CC_Draw_Shape(LogicalSurface, Drawer, shape, shapenum, point, clip, 0x4E00, 0, -2 - yoffset, 0, AltBrightness, 0, 0, Point2D(0, 0));
             unknown_64 = Frame;
-            unknown_68 = TacticalRect;
-            unknown_118 = unknown_redraws_833634;
+            LastBridgeDrawRect = TacticalRect;
+            LastBridgeDrawRedraws = unknown_redraws_833634;
         }
         return;
     }
@@ -1804,17 +1804,17 @@ void CellClass::unknown_4754b0(Point2D const &point, Rect const &rect)
 
 void CellClass::Draw_Shroud_And_Fog(Point2D const &point, Rect const &clip)
 {
-    unknown_120 = TacticalMap->Cell_Shadow(MapCoords, 0);
-    int frame = unknown_120;
+    ShadowFrame = TacticalMap->Cell_Shadow(MapCoords, 0);
+    int frame = ShadowFrame;
     if (frame == -2) {
         frame = 15;
     } else if (frame == -1) {
         frame = 0;
     }
     Draw_Shroud_Or_Fog_Shape(point, clip, frame);
-    unknown_121 = TacticalMap->Cell_Shadow(MapCoords, 1);
+    FogFrame = TacticalMap->Cell_Shadow(MapCoords, 1);
     if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && !PlayerPtr->unknown_13d) {
-        frame = unknown_121;
+        frame = FogFrame;
         if (frame == -2) {
             frame = 15;
         } else if (frame == -1) {
@@ -1984,7 +1984,7 @@ void CellClass::Wall_Update(bool flag)
             newcell.OverlayData = (newcell.OverlayData & 0xF0) | icon;
 
             bool recalc_around = false;
-            int old_passability = newcell.unknown_4c;
+            int old_passability = newcell.Passability;
             if ((newcell.OverlayIndex == 2 || newcell.OverlayIndex == 0x1A) && (newcell.OverlayData == 0x30 || newcell.OverlayData == 0x20)) {
                 newcell.OverlayIndex = -1;
                 newcell.OverlayData = 0;
@@ -2022,7 +2022,7 @@ void CellClass::Wall_Update(bool flag)
 
             newcell.Recalc_Attributes(-1);
 
-            if (newcell.unknown_4c != old_passability) {
+            if (newcell.Passability != old_passability) {
                 if (recalc_around) {
                     Map.Update_Cell_Zone(newcell.MapCoords);
                     Map.Update_Cell_Subzones(newcell.MapCoords);
@@ -2546,12 +2546,12 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
             switch (powerup) {
                 case CRATE_UNIT:
                     if (object->House->unknown_228 > 50) powerup = CRATE_MONEY;
-                    if (unknown_ec == 2 || unknown_ec == 6) powerup = CRATE_MONEY;
+                    if (Land == 2 || Land == 6) powerup = CRATE_MONEY;
                     break;
 
                 case CRATE_SQUAD:
                     if (object->House->unknown_234 > 100) powerup = CRATE_MONEY;
-                    if (unknown_ec == 2 || unknown_ec == 6) powerup = CRATE_MONEY;
+                    if (Land == 2 || Land == 6) powerup = CRATE_MONEY;
                     break;
 
                 case CRATE_ARMOR:
@@ -2582,7 +2582,7 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
 
             }
 
-            if (unknown_ec == 2 && !CrateWater[powerup]) {
+            if (Land == 2 && !CrateWater[powerup]) {
                 powerup = CRATE_MONEY;
             }
 
@@ -2971,7 +2971,7 @@ bool CellClass::Is_Clear_To_Move(int speed, bool arg2, bool arg3, int zone, int 
     if (blocked != 0) {
         return false;
     }
-    int land = unknown_ec;
+    int land = Land;
     if (OverlayIndex != -1) {
         OverlayTypeClass *overlay = OverlayTypes[OverlayIndex];
         if (overlay != 0 && overlay->Wall) {
@@ -3133,7 +3133,7 @@ bool CellClass::Can_Tiberium_Germinate(TiberiumClass *tiberium)
         if (terrain != 0 && terrain->Class->SpawnsTiberium) {
             return false;
         }
-        if (Ground[unknown_ec].Build && OverlayIndex == -1 && !Ramp
+        if (Ground[Land].Build && OverlayIndex == -1 && !Ramp
             && (IsoTileIndex < 0 || IsoTileIndex >= IsoTileTypes.Count() || IsoTileTypes[IsoTileIndex]->unknown_2d6)) {
             return true;
         }
@@ -3175,11 +3175,11 @@ HRESULT __stdcall CellClass::Load(IStream *stream)
         unknown_map_cells_832614[id] = this;
         Swizzle_Pointer(BridgeDeckCell);
         Swizzle_Pointer(unknown_30);
-        Swizzle_Pointer(unknown_3c);
+        Swizzle_Pointer(Tag);
         Swizzle_Pointer(unknown_e0);
         Swizzle_Pointer(OccupierPtr);
         Swizzle_Pointer(AltOccupierPtr);
-        Swizzle_Pointer(unknown_f8);
+        Swizzle_Pointer(RadSite);
         Swizzle_Pointer(unknown_40);
         if (OverlayIndex == 0xb3 || OverlayIndex == 0xf2) {
             OverlayIndex = -1;
@@ -3225,45 +3225,45 @@ HRESULT __stdcall CellClass::Save(IStream *stream, BOOL clear_dirty)
 void CellClass::Recalc_Passability()
 {
     if (!Map.Unknown_0055A660(MapCoords, true)) {
-        unknown_4c = 7;
+        Passability = 7;
         return;
     }
 
     if (OverlayIndex != -1) {
         OverlayTypeClass const *overlay = OverlayTypes[OverlayIndex];
         if (overlay->IsCrushable) {
-            unknown_4c = 1;
+            Passability = 1;
             return;
         }
         if (overlay->Wall) {
-            unknown_4c = 2;
+            Passability = 2;
             return;
         }
         if (Ground[overlay->Land].Cost[2] == 0) {
-            unknown_4c = 6;
+            Passability = 6;
             return;
         }
         if (overlay->IsARock) {
-            unknown_4c = 6;
+            Passability = 6;
             return;
         }
         if (overlay->IsRubble) {
-            unknown_4c = 0;
+            Passability = 0;
             return;
         }
     }
 
-    if (unknown_ec == 2) {
-        unknown_4c = 4;
+    if (Land == 2) {
+        Passability = 4;
         return;
     }
-    if (unknown_ec == 6) {
-        unknown_4c = 3;
+    if (Land == 6) {
+        Passability = 3;
         return;
     }
 
-    if (Ground[unknown_ec].Cost[2] <= 0.01) {
-        unknown_4c = 6;
+    if (Ground[Land].Cost[2] <= 0.01) {
+        Passability = 6;
         return;
     }
 
@@ -3272,12 +3272,12 @@ void CellClass::Recalc_Passability()
             case 6:
                 if (((BuildingClass *)occupier)->Type->FirestormWall) {
                     if (((BuildingClass *)occupier)->House->unknown_142) {
-                        unknown_4c = 6;
+                        Passability = 6;
                         return;
                     }
                 } else if (((BuildingClass *)occupier)->Type->LaserFence) {
-                    if (((BuildingClass *)occupier)->unknown_4ec != 12 && ((BuildingClass *)occupier)->unknown_4ec != 8) {
-                        unknown_4c = 6;
+                    if (((BuildingClass *)occupier)->LaserFenceFrame != 12 && ((BuildingClass *)occupier)->LaserFenceFrame != 8) {
+                        Passability = 6;
                     }
                 }
                 break;
@@ -3285,15 +3285,15 @@ void CellClass::Recalc_Passability()
             case 0x24:
                 if ((unknown_id_source_a3d290->Theater != 1 && ((TerrainClass *)occupier)->Class->TemperateOccupationBits != 7)
                     || (unknown_id_source_a3d290->Theater == 1 && ((TerrainClass *)occupier)->Class->SnowOccupationBits != 7)) {
-                    unknown_4c = 5;
+                    Passability = 5;
                     return;
                 }
-                unknown_4c = 2;
+                Passability = 2;
                 return;
         }
     }
 
-    unknown_4c = 0;
+    Passability = 0;
 }
 
 
@@ -3356,10 +3356,10 @@ void CellClass::Init_Drawer(LightConvertClass *drawer, int intensity, int ambien
         unknown_108 = ambient;
         Brightness = brightness;
         TileBrightness = tile_brightness;
-        unknown_10e = alt_brightness;
-        unknown_110 = red;
-        unknown_112 = green;
-        unknown_114 = blue;
+        AltBrightness = alt_brightness;
+        RedTint = red;
+        GreenTint = green;
+        BlueTint = blue;
         return;
     }
 
@@ -3369,10 +3369,10 @@ void CellClass::Init_Drawer(LightConvertClass *drawer, int intensity, int ambien
     }
     Brightness = 1000;
     TileBrightness = 1000;
-    unknown_10e = 1000;
-    unknown_110 = 1000;
-    unknown_112 = 1000;
-    unknown_114 = 1000;
+    AltBrightness = 1000;
+    RedTint = 1000;
+    GreenTint = 1000;
+    BlueTint = 1000;
     unknown_104 = 0x10000;
     unknown_108 = 0;
 }
@@ -3506,28 +3506,28 @@ void CellClass::Init_Light(int &intensity, int &ambient, int &brightness, int &t
 void CellClass::Recalc_Light()
 {
     Brightness = unknown_108 + 1000 * unknown_id_source_a3d290->unknown_22ac / 100;
-    unknown_10e = Brightness;
+    AltBrightness = Brightness;
 
     if (IonStormClass_Is_Ion_Storm_Active()) {
         Brightness += Height * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
-        unknown_10e += (Height + 4) * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
+        AltBrightness += (Height + 4) * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
     } else if (NukeFlash_IsFadingIn()) {
         Brightness += Height * unknown_id_source_a3d290->unknown_22f4 - unknown_id_source_a3d290->unknown_22f0;
-        unknown_10e += (Height + 4) * unknown_id_source_a3d290->unknown_22f4 - unknown_id_source_a3d290->unknown_22f0;
+        AltBrightness += (Height + 4) * unknown_id_source_a3d290->unknown_22f4 - unknown_id_source_a3d290->unknown_22f0;
     } else {
         Brightness += Height * unknown_id_source_a3d290->AmbientLevel - unknown_id_source_a3d290->AmbientGround;
-        unknown_10e += (Height + 4) * unknown_id_source_a3d290->AmbientLevel - unknown_id_source_a3d290->AmbientGround;
+        AltBrightness += (Height + 4) * unknown_id_source_a3d290->AmbientLevel - unknown_id_source_a3d290->AmbientGround;
     }
 
     TileBrightness = (Brightness * unknown_104) >> 16;
-    unknown_10e = (unknown_10e * unknown_104) >> 16;
+    AltBrightness = (AltBrightness * unknown_104) >> 16;
     Brightness = (Brightness < 2000) ? Brightness : 2000;
     TileBrightness = (TileBrightness < 2000) ? TileBrightness : 2000;
-    unknown_10e = (unknown_10e < 2000) ? unknown_10e : 2000;
+    AltBrightness = (AltBrightness < 2000) ? AltBrightness : 2000;
 
     Brightness = (Brightness > 0) ? Brightness : 0;
     TileBrightness = (TileBrightness > 0) ? TileBrightness : 0;
-    unknown_10e = (unknown_10e > 0) ? unknown_10e : 0;
+    AltBrightness = (AltBrightness > 0) ? AltBrightness : 0;
 }
 
 
@@ -3594,7 +3594,7 @@ void __stdcall Dec_Drawer_Ref_Count_00479ca0(int drawer)
 
 bool CellClass::Has_Tunnel() const
 {
-    int land = unknown_ec;
+    int land = Land;
     return Tube >= 0 && Tube < Tubes.Count() && land == 10;
 }
 
@@ -3780,11 +3780,11 @@ int CellClass::Occupier_Height() const
 
 void CellClass::unknown_47a340(AbstractClass *target)
 {
-    if (unknown_3c == target) {
-        if (unknown_3c != 0) {
-            unknown_3c->AttachCount--;
+    if (Tag == target) {
+        if (Tag != 0) {
+            Tag->AttachCount--;
         }
-        unknown_3c = 0;
+        Tag = 0;
         unknown_map_tagged_cells_833638.Delete(MapCoords);
     }
     if (BridgeDeckCell == target) {
@@ -3813,13 +3813,13 @@ void CellClass::Set_CellID(Cell const &cell)
 
 void CellClass::Attach_Tag(TagClass *tag)
 {
-    if (unknown_3c != 0) {
-        unknown_3c->AttachCount--;
+    if (Tag != 0) {
+        Tag->AttachCount--;
     }
-    unknown_3c = tag;
+    Tag = tag;
     if (tag != 0) {
         unknown_map_tagged_cells_833638.Add(MapCoords);
-        unknown_3c->AttachCount++;
+        Tag->AttachCount++;
     }
 }
 
@@ -3871,12 +3871,12 @@ int CellClass::Get_Vein_Frame()
 
 bool CellClass::Can_Place_Veins() const
 {
-    if (Ramp <= 4 && unknown_ec != 2 && unknown_ec != 3 && unknown_ec != 8 && unknown_ec != 6
+    if (Ramp <= 4 && Land != 2 && Land != 3 && Land != 8 && Land != 6
         && (OverlayIndex == -1 || OverlayTypes[OverlayIndex]->IsVeins)) {
         for (int facing = 0; facing < 8; facing += 2) {
             CellClass const &cell = ((CellClass *)this)->Adjacent_Cell(facing);
             if ((cell.Ramp > 4 && Ramp == 0 && (cell.OverlayIndex == -1 || !OverlayTypes[cell.OverlayIndex]->IsVeins))
-                || cell.unknown_ec == 2 || cell.unknown_ec == 3 || cell.unknown_ec == 8 || cell.unknown_ec == 6
+                || cell.Land == 2 || cell.Land == 3 || cell.Land == 8 || cell.Land == 6
                 || (cell.OverlayIndex != -1 && !OverlayTypes[cell.OverlayIndex]->IsVeins)) {
                 return false;
             }
@@ -4264,7 +4264,7 @@ bool CellClass::Should_Draw_As_Cloaked(int house) const
         if (house == PlayerPtr->ArrayIndex) {
             return true;
         }
-        if (unknown_7c[PlayerPtr->ArrayIndex] <= 0) {
+        if (SensorsOfHouses[PlayerPtr->ArrayIndex] <= 0) {
             return true;
         }
     }
@@ -4505,7 +4505,7 @@ bool CellClass::Can_Burrow_Here()
 
 bool CellClass::Is_House_Bit(int house) const
 {
-    return (unknown_78 & (1 << house)) != 0;
+    return (CloakedBy & (1 << house)) != 0;
 }
 
 
@@ -4513,7 +4513,7 @@ bool CellClass::Is_House_Bit(int house) const
 
 bool CellClass::Is_Sensed(int house) const
 {
-    return unknown_7c[house] > 0;
+    return SensorsOfHouses[house] > 0;
 }
 
 
@@ -4544,7 +4544,7 @@ bool Owner_0047c300::Is_Disguise_Sensed_0047c300(int house)
 
 void CellClass::Set_House_Bit(int house)
 {
-    unknown_78 |= 1 << house;
+    CloakedBy |= 1 << house;
 }
 
 
@@ -4552,7 +4552,7 @@ void CellClass::Set_House_Bit(int house)
 
 void CellClass::Clear_House_Bit(int house)
 {
-    unknown_78 &= ~(1 << house);
+    CloakedBy &= ~(1 << house);
 }
 
 
@@ -4798,7 +4798,7 @@ bool CellClass::Can_Build_Here() const
     if (Cell_Building() != 0) {
         return false;
     }
-    return Ground[unknown_ec].Build;
+    return Ground[Land].Build;
 }
 
 

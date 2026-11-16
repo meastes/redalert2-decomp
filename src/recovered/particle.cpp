@@ -312,7 +312,7 @@ void ParticleClass::Gas_Behavior_AI()
                 if (building || cellptr->Has_Wall_Or_Gate(-1, -1)) {
                     blocked = true;
                     if (building) {
-                        if (building->Type->LaserFence && building->unknown_4ec >= 8) {
+                        if (building->Type->LaserFence && building->LaserFenceFrame >= 8) {
                             blocked = false;
                         }
                         if (building->Considered_Vehicle()) {
@@ -537,7 +537,7 @@ void ParticleClass::Spark_Behavior_AI()
             if (building || cellptr->Has_Wall_Or_Gate(-1, -1)) {
                 blocked = true;
                 if (building) {
-                    if (building->Type->LaserFence && building->unknown_4ec >= 8) {
+                    if (building->Type->LaserFence && building->LaserFenceFrame >= 8) {
                         blocked = false;
                     }
                     if (building->Considered_Vehicle()) {

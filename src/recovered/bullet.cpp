@@ -116,9 +116,9 @@ BulletClass::BulletClass() :
     Owner(0),
     unknown_a0(false),
     Bright(false),
-    unknown_e8(0),
+    BounceCount(0),
     unknown_ec(true),
-    unknown_ed(true),
+    IsLaunching(true),
     unknown_f0(0),
     Target(0),
     Speed(0),
@@ -270,8 +270,8 @@ void BulletClass::AI()
     }
     CoordStruct coord = Coord;
     if (Type->Trailer != 0) {
-        if (Type->unknown_2b8 != 0) {
-            if (Frame % Type->unknown_2b8 == 0) {
+        if (Type->ScaledSpawnDelay != 0) {
+            if (Frame % Type->ScaledSpawnDelay == 0) {
                 new AnimClass(Type->Trailer, coord, 1, 1, 0x600, 0);
             }
         } else if (Frame % Type->SpawnDelay == 0) {
@@ -286,15 +286,15 @@ void BulletClass::AI()
         double speed = Velocity.Speed();
         if (Type->CourseLockDuration == 0) {
             if (Speed >= 40 || speed + 0.5 >= max_speed) {
-                unknown_ed = false;
+                IsLaunching = false;
             }
         } else if (unknown_f0 < Type->CourseLockDuration) {
             if (++unknown_f0 >= Type->CourseLockDuration) {
-                unknown_ed = false;
+                IsLaunching = false;
             }
         }
         int acceleration = Type->Acceleration;
-        if (unknown_ed && Type->CourseLockDuration == 0) {
+        if (IsLaunching && Type->CourseLockDuration == 0) {
             acceleration = Frame % 2 == 0;
         }
         if (speed < max_speed) {
@@ -327,7 +327,7 @@ void BulletClass::AI()
         if (Target != 0 && Target->Kind_Of() == 2) {
             aircraft = true;
         }
-        UnknownDirStruct dir((unsigned short)((unknown_ed ? 0 : rot) << 8));
+        UnknownDirStruct dir((unsigned short)((IsLaunching ? 0 : rot) << 8));
         int distance = Projectile_Motion_00593870(coord, velocity, target_coord, dir, (bool &)aircraft, Type->Airburst, Type->VeryHigh, Type->Level);
         CellClass *cell = &Map[coord];
         TVelocity3D<double> new_velocity = velocity;
@@ -348,7 +348,7 @@ void BulletClass::AI()
             }
         }
         int delta = ::Distance(old_coord, target_coord) - ::Distance(coord, target_coord);
-        if (!unknown_ed) {
+        if (!IsLaunching) {
             if (unknown_100 < 60) {
                 unknown_100++;
                 unknown_108 += delta;
@@ -444,7 +444,7 @@ void BulletClass::AI()
                 if (building != 0 || cell->Has_Wall_Or_Gate(-1, -1)) {
                     hit = true;
                     if (building != 0) {
-                        if (building == (BuildingClass *)payback || building->Type->LaserFence && building->unknown_4ec >= 8) {
+                        if (building == (BuildingClass *)payback || building->Type->LaserFence && building->LaserFenceFrame >= 8) {
                             hit = false;
                         }
                         if (building->Considered_Vehicle()) {
@@ -1045,7 +1045,7 @@ void BulletClass::Detonate(CoordStruct const &position)
     if (Type->Inviso) impact = Coord_Scatter(impact, 32, false);
     int land = -1;
     if (Get_Height_AGL() < unknown_geometry_g * 2) {
-        land = Map[CoordStruct(Coord)].unknown_ec;
+        land = Map[CoordStruct(Coord)].Land;
         if (land == 2 && damage_result == 0) {
             ObjectClass *occupier = Map[CoordStruct(Coord)].OccupierPtr;
             if (occupier != 0 && occupier->Kind_Of() == 1) {

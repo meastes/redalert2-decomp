@@ -108,7 +108,7 @@ bool BaseNodeClass::operator>(BaseNodeClass const &)
 // Empty node and cell lists, everything else zero.
 
 BaseClass::BaseClass()
-    : PercentBuilt(0), unknown_50(0, 0), unknown_54(0, 0, 0, 0), unknown_64(0, 0, 0, 0), House(0)
+    : PercentBuilt(0), PlacementCenter(0, 0), BaseAreaRect(0, 0, 0, 0), LastBaseAreaRect(0, 0, 0, 0), House(0)
 {
 }
 

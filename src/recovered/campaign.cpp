@@ -82,8 +82,8 @@
 
 CampaignClass::CampaignClass(char const *name) :
     AbstractTypeClass(name),
-    unknown_98(-1),
-    unknown_29c(-1)
+    CDNumber(-1),
+    FinalMovie(-1)
 {
     Campaigns.Add(this);
     Scenario[0] = '\0';
@@ -135,8 +135,8 @@ int __fastcall CampaignClass::Find_Index(char const *name)
 bool CampaignClass::Read_INI(CCINIClass &ini)
 {
     if (AbstractTypeClass::Read_INI(ini)) {
-        unknown_98 = ini.Get_Int(ID, "CD", unknown_98);
-        unknown_29c = ini.Get_Listed_Name(ID, "FinalMovie", unknown_29c);
+        CDNumber = ini.Get_Int(ID, "CD", CDNumber);
+        FinalMovie = ini.Get_Listed_Name(ID, "FinalMovie", FinalMovie);
         ini.Get_String(ID, "Scenario", Scenario, Scenario, sizeof(Scenario));
         _strupr(Scenario);
         if (!ini.Get_Bool(ID, "DebugOnly", false)) {
@@ -206,9 +206,9 @@ HRESULT __stdcall CampaignClass::GetClassID(GUID *retval)
 void CampaignClass::Compute_CRC(WWCRCEngine &crc) const
 {
     AbstractTypeClass::Compute_CRC(crc);
-    crc((long)unknown_98);
+    crc((long)CDNumber);
     crc(Scenario);
-    crc((long)unknown_29c);
+    crc((long)FinalMovie);
 }
 
 

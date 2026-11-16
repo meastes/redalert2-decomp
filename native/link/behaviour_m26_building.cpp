@@ -88,19 +88,19 @@ int BuildingClass::Do_MISSION_MISSILE()
     if (Type->NukeSilo) {
         switch (Status) {
         case 0:
-            unknown_5ad = false;
+            IsReadyToCommence = false;
             Begin_Mode(2);
             Status = 1;
-            unknown_444 = Create_Animation_At_Object_00438b80(House, &Map[House->NukeDest], 0, "PSIWARN");
+            PsiWarnAnim = Create_Animation_At_Object_00438b80(House, &Map[House->NukeDest], 0, "PSIWARN");
             // fall through
         case 1:
-            if (unknown_5ad) {
+            if (IsReadyToCommence) {
                 Begin_Mode(4);
                 Status = 2;
             }
             // fall through
         case 2: {
-            if (unknown_4cc < 0 || unknown_4cc >= SuperWeaponTypes.Count()) {
+            if (LastSuperWeaponIndex < 0 || LastSuperWeaponIndex >= SuperWeaponTypes.Count()) {
                 // Native guard (NativeFix2): no super weapon recorded (SuperClass::Place
                 // stores it before the mission starts); end the launch instead of reading
                 // SuperWeaponTypes[-1]. Same test as the unknown_4cc != -1 check below.
@@ -108,14 +108,14 @@ int BuildingClass::Do_MISSION_MISSILE()
                 return 1;
             }
             AbstractClass *target = &Map[House->NukeDest];
-            WeaponTypeClass *weapon = SuperWeaponTypes[unknown_4cc]->WeaponType;
+            WeaponTypeClass *weapon = SuperWeaponTypes[LastSuperWeaponIndex]->WeaponType;
             BulletClass *bullet = Create_Bullet(weapon->Projectile, target, this, weapon->unknown_a4,
                 weapon->Warhead, 255, true);
             if (bullet) {
                 bullet->Set_Weapon_Type(weapon);
-                if (unknown_444 != 0) {
-                    ((AnimClass *)unknown_444)->Set_Attached_Bullet(bullet);
-                    unknown_444 = 0;
+                if (PsiWarnAnim != 0) {
+                    ((AnimClass *)PsiWarnAnim)->Set_Attached_Bullet(bullet);
+                    PsiWarnAnim = 0;
                 }
                 bullet->Limbo();
                 CoordStruct launch = unknown_slot43(0);
@@ -150,7 +150,7 @@ int BuildingClass::Do_MISSION_MISSILE()
         }
     }
 
-    if (unknown_4cc != -1) {
+    if (LastSuperWeaponIndex != -1) {
         Fire_At(&Map[House->NukeDest], 0);
         QueueMission(5, false);
     }

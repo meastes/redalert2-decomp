@@ -209,7 +209,7 @@ public:
     Point2D PrimaryFirePixelOffset;                  // +0xBDC 0xFFFF
     Point2D SecondaryFirePixelOffset;                // +0xBE4 0xFFFF
     OverlayTypeClass *ToOverlay;                     // +0xBEC ToOverlay= (art; swizzled by Load)
-    IsometricTileTypeClass *unknown_bf0;             // +0xBF0 the "ToTile" isometric tile type (cleared by Load)
+    IsometricTileTypeClass *ToTile;             // +0xBF0 the "ToTile" isometric tile type (cleared by Load)
     char BuildupFile[16];                             // +0xBF4 Buildup= name (first byte cleared in the constructor body)
     int BuildupSound;                                // +0xC04 BuildupSound= (-1)
     int PackupSound;                                 // +0xC08 PackupSound= (-1)
@@ -220,13 +220,13 @@ public:
     int NotWorkingSound;                             // +0xC1C NotWorkingSound= (-1)
     char PowersUpBuilding[24];                       // +0xC20 PowersUpBuilding= (first byte cleared in the constructor body)
     UnitTypeClass *FreeUnit;                         // +0xC38 FreeUnit= (swizzled by Load)
-    int unknown_c3c;                                 // +0xC3C -1
+    int FoundationFace;                                 // +0xC3C -1
     int Adjacent;                                    // +0xC40 3
     int Factory;                                     // +0xC44
     CoordStruct TargetCoordOffset;                   // +0xC48 TargetCoordOffset= (added to the center by BuildingClass slot 40)
     CoordStruct ExitCoord;                           // +0xC54 ExitCoord= (added to the coordinate by BuildingClass slot 44)
     Cell const *FoundationOutside;             // +0xC60 outer-cell list (set from Foundation= on load)
-    int unknown_c64;                                 // +0xC64
+    int StartFace;                                 // +0xC64
     int Power;                                       // +0xC68
     int PowerDrain_c6c;                              // +0xC6C a negative Power= (name a hypothesis)
     int ExtraPower;                                  // +0xC70
@@ -241,24 +241,24 @@ public:
     BuildingAnimStruct Anims[18];                    // +0xCD4 ActiveAnim .. IdleAnim (art INI)
     int Upgrades;                                    // +0x119C
     void *DeployingAnim;                              // +0x11A0
-    bool unknown_11a4;                               // +0x11A4 11A0 owned
-    void *unknown_11a8;                              // +0x11A8
-    bool unknown_11ac;                               // +0x11AC
+    bool DeployingAnimLoaded;                               // +0x11A4 11A0 owned
+    void *UnderDoorAnim;                              // +0x11A8
+    bool UnderDoorAnimLoaded;                               // +0x11AC
     void *RoofDeployingAnim;                              // +0x11B0
-    bool unknown_11b4;                               // +0x11B4
-    void *unknown_11b8;                              // +0x11B8
-    bool unknown_11bc;                               // +0x11BC
+    bool RoofDeployingAnimLoaded;                               // +0x11B4
+    void *UnderRoofDoorAnim;                              // +0x11B8
+    bool UnderRoofDoorAnimLoaded;                               // +0x11BC
     void *DoorAnimData_11c0;                              // +0x11C0 DoorAnim image (hypothesis)
     void *SpecialZOverlayData_11c4;                              // +0x11C4 SpecialZOverlay image (hypothesis)
     int SpecialZOverlayZAdjust;                      // +0x11C8
-    void *unknown_11cc;                              // +0x11CC
-    bool unknown_11d0;                               // +0x11D0 11CC owned
+    void *BibShape;                              // +0x11CC
+    bool BibShapeLoaded;                               // +0x11D0 11CC owned
     int NormalZAdjust;                               // +0x11D4
-    int unknown_11d8;                                // +0x11D8
-    int unknown_11dc;                                // +0x11DC
-    int unknown_11e0;                                // +0x11E0
+    int AntiAirValue;                                // +0x11D8
+    int AntiArmorValue;                                // +0x11DC
+    int AntiInfantryValue;                                // +0x11E0
     Point2D ZShapePointMove;                         // +0x11E4
-    Rect unknown_11ec;                               // +0x11EC copied from unknown_static_rect
+    Rect DrawRect;                               // +0x11EC copied from unknown_static_rect
     short ExtraLight;                                // +0x11FC
     bool TogglePower;                                // +0x11FE
     bool HasSpotlight;                               // +0x11FF
@@ -346,7 +346,7 @@ public:
     int PsychicDetectionRadius;                      // +0x1390
     int BarrelStartPitch;                            // +0x1394 64
     char VoxelBarrelFile[16];                        // +0x1398 first byte cleared in the constructor body
-    double unknown_13a8;                             // +0x13A8
+    double VoxelBarrelScale;                             // +0x13A8
     CoordStruct VoxelBarrelOffsetToPitchPivotPoint;  // +0x13B0 not constructed
     CoordStruct VoxelBarrelOffsetToRotatePivotPoint; // +0x13BC
     CoordStruct VoxelBarrelOffsetToBuildingPivotPoint; // +0x13C8

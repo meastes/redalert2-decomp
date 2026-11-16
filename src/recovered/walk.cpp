@@ -386,7 +386,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                             int dist = Distance3(LinkedTo->Center_Coord(), unknown_1c);
                             if (dist < Rules->unknown_1380 && !LinkedTo->HasAnyLink()
                                 && abs(unknown_1c.Z - Object_Coord(LinkedTo).Z) < unknown_geometry_g * 2
-                                && Map[Object_Coord(LinkedTo)].unknown_ec != 10) {
+                                && Map[Object_Coord(LinkedTo)].Land != 10) {
                                 unknown_28 = unknown_coord_af9060;
                                 Stop_Moving();
                                 LinkedTo->unknown_slot306(0.0);

@@ -372,8 +372,8 @@ bool SuperClass::Discharged(bool player, Cell const &cell)
 bool SuperClass::unknown_69d390(bool local_player)
 {
     if (CurrentSuperWeaponType != 4 && Anim != 0) {
-        Anim->unknown_17d = true;
-        Anim->unknown_180.Unknown_00405FE0();
+        Anim->IsInvisible = true;
+        Anim->StartSoundAudioController.Unknown_00405FE0();
     }
     if (Is_Present() && (!unknown_0x57 || Type->UseChargeDrain) && !unknown_0x58) {
         if (!RechargeTimer.Is_Active()) {
@@ -612,8 +612,8 @@ void SuperClass::Place(Cell const &cell, bool player)
                 return;
             }
             if (Anim != 0) {
-                Anim->unknown_17d = true;
-                Anim->unknown_180.Unknown_00405D50();
+                Anim->IsInvisible = true;
+                Anim->StartSoundAudioController.Unknown_00405D50();
                 return;
             }
         }

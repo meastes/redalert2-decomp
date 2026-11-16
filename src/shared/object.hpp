@@ -94,12 +94,12 @@ public:
     HouseClass *unknown_28;             // +0x28 (the planting house; BuildingClass slot 78)
     ObjectClass *Target;                // +0x2C (the object the bomb sits on; its +0x38)
     int Type;                           // +0x30 (0 a timed bomb)
-    int unknown_34;                     // +0x34 (the frame it was planted; the flicker counts from it)
+    int PlantingFrame;                     // +0x34 (the frame it was planted; the flicker counts from it)
     int unknown_38;                     // +0x38 (the frame it goes off)
     UnknownAudioController unknown_3c;  // +0x3C (the ticking sound)
     int unknown_50;                     // +0x50 (Rules BombTickingSound)
     int unknown_54;                     // +0x54
-    bool unknown_58;                    // +0x58 (disarmed or gone off)
+    bool Harmless;                    // +0x58 (disarmed or gone off)
 };
 
 // Every bomb (0x0084EB78; defined by the Bomb unit).

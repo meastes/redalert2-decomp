@@ -798,23 +798,23 @@ public:
     void Set_Anim_Damage_State(int damaged);   // 0x0044D070 (TechnoClass slot 233: health at or below the rules' +0x1368)
     int unknown_449dd0();               // 0x00449DD0 (the power the building drains; as shared/building_class.hpp)
     char unknown_41c[0x434 - 0x41C];
-    int unknown_434;                    // +0x434 (TechnoClass slot 55; the full class names it in shared/building.hpp)
+    int WhoLastHurtMe;                    // +0x434 (TechnoClass slot 55; the full class names it in shared/building.hpp)
     char unknown_438[0x454 - 0x438];
     AbstractClass *unknown_454[18];     // +0x454 (as shared/building_class.hpp)
     char unknown_49c[0x4C0 - 0x49C];
     TechnoTypeClass *unknown_4c0[3];    // +0x4C0 the upgrades (as shared/building_class.hpp; BaseClass::Get_Building)
     char unknown_4cc[0x4EC - 0x4CC];
-    int unknown_4ec;                    // +0x4EC (a laser fence's state; FootClass slot 93: below 8 it hurts)
+    int LaserFenceFrame;                    // +0x4EC (a laser fence's state; FootClass slot 93: below 8 it hurts)
     char unknown_4f0[0x530 - 0x4F0];
-    bool unknown_530;                   // +0x530 (HouseClass 0x004F2E50: a radar building counts only with it)
-    bool unknown_531;                   // +0x531 (TechnoClass slot 174: always the secondary weapon)
+    bool IsOn;                   // +0x530 (HouseClass 0x004F2E50: a radar building counts only with it)
+    bool IsOverpowered;                   // +0x531 (TechnoClass slot 174: always the secondary weapon)
     char unknown_532[0x554 - 0x532];
     DynamicVectorClass<InfantryClass *> unknown_554;    // +0x554 (the occupants; InfantryClass 0x005094B0)
     char unknown_56c[0x59A - 0x56C];
-    bool unknown_59a;                   // +0x59A (as shared/building_class.hpp)
-    bool unknown_59b;                   // +0x59B
+    bool IsToRebuild;                   // +0x59A (as shared/building_class.hpp)
+    bool IsToRepair;                   // +0x59B
     char unknown_59c[0x5AD - 0x59C];
-    bool unknown_5ad;                   // +0x5AD (as shared/building_class.hpp; slot 122 tests it)
+    bool IsReadyToCommence;                   // +0x5AD (as shared/building_class.hpp; slot 122 tests it)
 #ifdef RA2_BUILDING_LIGHT_DISTANCE_TO
     // Guarded to the BuildingLight unit: one more member here shifts VC6's per-unit counters (Scout633 fragile_probe).
     char unknown_5ae[0x5B7 - 0x5AE];
@@ -825,7 +825,7 @@ public:
 #endif
     char unknown_5bd;                   // +0x5BD (as shared/building_class.hpp; HouseClass 0x004F3E00 tests 15)
     char unknown_5be[0x5C6 - 0x5BE];
-    char unknown_5c6;                   // +0x5C6 (as shared/building_class.hpp: the upgrades in unknown_4c0)
+    char UpgradeLevel;                   // +0x5C6 (as shared/building_class.hpp: the upgrades in unknown_4c0)
     char unknown_5c7[0x5E0 - 0x5C7];    // size 0x5E0 (operator new in UnitClass 0x006FDFC0)
 };
 #else

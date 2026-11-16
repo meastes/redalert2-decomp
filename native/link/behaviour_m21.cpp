@@ -9,13 +9,13 @@
 // 0x0047CE40: the cell's radiation site (+0xF8). Reached by the nuke's warhead.
 RadSiteClass *RadSiteCell::Unknown_0047CE40()
 {
-    return (RadSiteClass *)reinterpret_cast<CellClass *>(this)->unknown_f8;
+    return (RadSiteClass *)reinterpret_cast<CellClass *>(this)->RadSite;
 }
 
 // 0x0047CE30: sets it.
 void RadSiteCell::Unknown_0047CE30(RadSiteClass *site)
 {
-    reinterpret_cast<CellClass *>(this)->unknown_f8 = site;
+    reinterpret_cast<CellClass *>(this)->RadSite = site;
 }
 
 // 0x0047CEA0: adds to the cell's radiation level (+0xF0, a double).

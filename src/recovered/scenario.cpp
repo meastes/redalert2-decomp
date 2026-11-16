@@ -422,7 +422,7 @@ bool __fastcall Start_Scenario_0065bc70(char const *name, bool briefing, int cam
     CD::Set_Required_CD(-1);
     if (unknown_game_mode_a3d298 == 0) {
         if (unknown_id_source_a3d290->unknown_224c != -1) {
-            CD::Set_Required_CD(Campaigns[unknown_id_source_a3d290->unknown_224c]->unknown_98);
+            CD::Set_Required_CD(Campaigns[unknown_id_source_a3d290->unknown_224c]->CDNumber);
         }
     } else if (unknown_session_a3d298.ScenarioIndex != -1) {
         MultiMission *mission = unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex];
@@ -759,7 +759,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
         int side = 0;
         if (unknown_game_mode_a3d298 == 0) {
             if (unknown_id_source_a3d290->unknown_224c != -1) {
-                side = Campaigns[unknown_id_source_a3d290->unknown_224c]->unknown_98;
+                side = Campaigns[unknown_id_source_a3d290->unknown_224c]->CDNumber;
             }
         } else {
             int country = unknown_players_a3fa7c[0]->unknown_4b;
@@ -1207,7 +1207,7 @@ void __fastcall Do_Win_0065d7f0()
         }
         if (unknown_id_source_a3d290->EndOfGame) {
             if (unknown_id_source_a3d290->unknown_224c != -1) {
-                Unknown_005A07F0(Campaigns[unknown_id_source_a3d290->unknown_224c]->unknown_29c, -1, 1, 1, 1);
+                Unknown_005A07F0(Campaigns[unknown_id_source_a3d290->unknown_224c]->FinalMovie, -1, 1, 1, 1);
             }
             Unknown_004B37C0();
             GameActive = false;
@@ -1721,7 +1721,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     int side = 0;
     if (unknown_game_mode_a3d298 == 0) {
         if (scenario->unknown_224c != -1) {
-            side = Campaigns[scenario->unknown_224c]->unknown_98;
+            side = Campaigns[scenario->unknown_224c]->CDNumber;
         }
     } else {
         int country = unknown_players_a3fa7c[0]->unknown_4b;

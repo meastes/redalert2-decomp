@@ -109,7 +109,7 @@ void KamikazeTrackerClass::Add(AircraftClass *missile, AbstractClass *target)
     } else {
         node->Cell = &Map[Coord_Cell(target->Center_Coord())];
     }
-    missile->unknown_5b2 = true;
+    missile->IsKamikaze = true;
     missile->unknown_254 = 1;
     Nodes.Add(node);
 }

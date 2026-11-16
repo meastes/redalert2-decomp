@@ -14,7 +14,7 @@
 static_assert(offsetof(UnknownAnimCell, unknown_24) == offsetof(CellClass, MapCoords), "anim.hpp UnknownAnimCell MapCoords");
 static_assert(offsetof(UnknownAnimCell, unknown_44) == offsetof(CellClass, OverlayIndex), "anim.hpp UnknownAnimCell OverlayIndex");
 static_assert(offsetof(UnknownAnimCell, unknown_e4) == offsetof(CellClass, OccupierPtr), "anim.hpp UnknownAnimCell OccupierPtr");
-static_assert(offsetof(UnknownAnimCell, unknown_ec) == offsetof(CellClass, unknown_ec), "anim.hpp UnknownAnimCell unknown_ec");
+static_assert(offsetof(UnknownAnimCell, unknown_ec) == offsetof(CellClass, Land), "anim.hpp UnknownAnimCell unknown_ec");
 static_assert(offsetof(UnknownAnimCell, unknown_10a) == offsetof(CellClass, Brightness), "anim.hpp UnknownAnimCell unknown_10a");
 static_assert(offsetof(UnknownAnimCell, unknown_11b) == offsetof(CellClass, Height), "anim.hpp UnknownAnimCell unknown_11b");
 static_assert(offsetof(UnknownAnimCell, unknown_11c) == offsetof(CellClass, Ramp), "anim.hpp UnknownAnimCell unknown_11c");

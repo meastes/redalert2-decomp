@@ -355,7 +355,7 @@ void ParasiteClass::Unknown_00606780()
             CellClass *cell = (CellClass *)unknown_28->Get_Cell_Ptr();
             anim->Attach_To(unknown_28);
             anim->unknown_bc = Owner->unknown_slot115();
-            if (cell) anim->unknown_e4 = cell->Brightness;
+            if (cell) anim->AlternativeBrightness = cell->Brightness;
         }
     } else {
         Unknown_00607440();
@@ -547,7 +547,7 @@ void ParasiteClass::Unknown_00607440()
         if (Owner->Techno_Type_Class()->Naval) {
             can_exit = true;
         } else if (!(Owner != 0 && Owner->Kind_Of() == 1 && ((CellClass *)unknown_28->Get_Cell_Ptr())->Cell_Terrain() != 0)) {
-            int land = ((CellClass *)unknown_28->Get_Cell_Ptr())->unknown_ec;
+            int land = ((CellClass *)unknown_28->Get_Cell_Ptr())->Land;
             if (land != 2 && land != 6 && land != 3) can_exit = true;
         }
     }
@@ -642,7 +642,7 @@ bool ParasiteClass::Can_Exit_00607BA0()
         if (Owner != 0 && Owner->Kind_Of() == 1 && ((CellClass *)unknown_28->Get_Cell_Ptr())->Cell_Terrain() != 0) {
             return false;
         }
-        int land = ((CellClass *)unknown_28->Get_Cell_Ptr())->unknown_ec;
+        int land = ((CellClass *)unknown_28->Get_Cell_Ptr())->Land;
         if (land == 2 || land == 6 || land == 3) {
             return false;
         }
@@ -661,7 +661,7 @@ CoordStruct ParasiteClass::Unknown_00607C30()
             if (Owner->Techno_Type_Class()->Naval) {
                 can_exit = true;
             } else if (!(Owner != 0 && Owner->Kind_Of() == 1 && ((CellClass *)unknown_28->Get_Cell_Ptr())->Cell_Terrain() != 0)) {
-                int land = ((CellClass *)unknown_28->Get_Cell_Ptr())->unknown_ec;
+                int land = ((CellClass *)unknown_28->Get_Cell_Ptr())->Land;
                 if (land != 2 && land != 6 && land != 3) can_exit = true;
             }
         }
@@ -672,7 +672,7 @@ CoordStruct ParasiteClass::Unknown_00607C30()
         CellClass *victim_cell = (CellClass *)unknown_28->Get_Cell_Ptr();
         CellClass &cell = victim_cell->Adjacent_Cell(facing);
         if (!Owner->Techno_Type_Class()->Naval) {
-            int land = cell.unknown_ec;
+            int land = cell.Land;
             if (land == 2 || land == 6 || land == 3) {
                 return unknown_geometry_l;
             }

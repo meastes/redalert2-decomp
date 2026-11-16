@@ -352,9 +352,9 @@ public:
     UnknownBulletData Data;                 // +0x0A4
     bool Bright;                            // +0x0CC
     TVelocity3D<double> Velocity;                // +0x0D0
-    int unknown_e8;                         // +0x0E8
+    int BounceCount;                         // +0x0E8
     bool unknown_ec;                        // +0x0EC
-    bool unknown_ed;                        // +0x0ED
+    bool IsLaunching;                        // +0x0ED
     int unknown_f0;                         // +0x0F0
     AbstractClass *Target;                  // +0x0F4
     int Speed;                              // +0x0F8

@@ -256,7 +256,7 @@ void VoxelAnimClass::AI()
         unknown_128--;
     }
     if (unknown_128 <= 0) {
-        bool water = Map[CoordStruct(Coord)].unknown_ec == 2;
+        bool water = Map[CoordStruct(Coord)].Land == 2;
         bool bridge = CoordStruct(Coord).Z >= Map.Get_Height_GL(CoordStruct(Coord)) + unknown_geometry_j;
         if (water && !bridge) {
             if (Class->IsMeteor) {
@@ -333,7 +333,7 @@ void VoxelAnimClass::AI()
     }
     switch (result) {
         case 1:
-            if (Map[CoordStruct(Coord)].unknown_ec == 2) {
+            if (Map[CoordStruct(Coord)].Land == 2) {
                 unknown_128 = 0;
             } else {
                 if (Class->BounceAnim != 0) {

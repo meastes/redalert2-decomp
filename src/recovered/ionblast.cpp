@@ -195,7 +195,7 @@ void IonBlastClass::AI()
         TacticalMap->Coord_To_Pixel(Coord, point);
 
         if (Lifetime == 0) {
-            if (Map[Coord].unknown_ec == 2) {
+            if (Map[Coord].Land == 2) {
                 new AnimClass(Rules->SplashList[Rules->SplashList.Count() - 1], Coord + CoordStruct(0, 0, 5), 0, 1, 0x600, 0);
             } else {
                 new AnimClass(Rules->IonBlast, Coord + CoordStruct(0, 0, 5), 0, 1, 0x600, 0);

@@ -63,8 +63,8 @@ Matrix3D * __fastcall Get_Bounce_Matrix(Matrix3D *matrix, int index);
 
 class BounceClass {
 public:
-    BounceClass() : unknown_30(0, 0, 0, 1.0f), unknown_40(0, 0, 0, 1.0f) {}
-    BounceClass(NoInitClass const &noinit) : unknown_00(noinit), unknown_30(noinit), unknown_40(noinit) {}
+    BounceClass() : unknown_30(0, 0, 0, 1.0f), AngularVelocity(0, 0, 0, 1.0f) {}
+    BounceClass(NoInitClass const &noinit) : unknown_00(noinit), unknown_30(noinit), AngularVelocity(noinit) {}
 
     CoordStruct Coord() const;              // 0x00436F80 (the position, truncated)
     Matrix3D Get_Matrix() const; // 0x00436FC0 (the rotation at +0x30 as a matrix)
@@ -87,7 +87,7 @@ public:
 
     UnknownBounce unknown_00;               // +0x00
     UnknownQuaternion unknown_30;           // +0x30
-    UnknownQuaternion unknown_40;           // +0x40
+    UnknownQuaternion AngularVelocity;           // +0x40
 };
 
 #endif

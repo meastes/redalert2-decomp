@@ -444,7 +444,7 @@ bool OverlayClass::Mark(int mark)
                         TiberiumClass *tiberium = Tiberiums[tibtype];
                         if (tiberium != 0) {
                             aptr->unknown_bc = ColorSchemes[tiberium->unknown_c0]->Converter;
-                            aptr->unknown_e4 = cellptr->Brightness;
+                            aptr->AlternativeBrightness = cellptr->Brightness;
                         }
                     }
                 }

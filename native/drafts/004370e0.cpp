@@ -90,7 +90,7 @@ BounceResultType BounceClass::AI()
             } else {
                 hit_obstacle = true;
                 if (building != 0) {
-                    if (building->Type->LaserFence && building->unknown_4ec >= 8) {
+                    if (building->Type->LaserFence && building->LaserFenceFrame >= 8) {
                         hit_obstacle = false;
                     }
                     if (building->Considered_Vehicle()) {
@@ -122,7 +122,7 @@ BounceResultType BounceClass::AI()
     }
     }
     if (has_impact) {
-        Quaternion &angular = (Quaternion &)unknown_40;
+        Quaternion &angular = (Quaternion &)AngularVelocity;
         angular[0] = -angular[0];
         angular[1] = -angular[1];
         angular[2] = -angular[2];
@@ -153,7 +153,7 @@ BounceResultType BounceClass::AI()
         bounce_result = BOUNCE_IMPACT;
     }
 
-    (Quaternion &)unknown_30 = (Quaternion &)unknown_30 * (Quaternion &)unknown_40;
+    (Quaternion &)unknown_30 = (Quaternion &)unknown_30 * (Quaternion &)AngularVelocity;
 
     double remaining_motion = Get_Remaining_Motion();
     if (remaining_motion < 2.5) {

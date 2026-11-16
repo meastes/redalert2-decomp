@@ -783,7 +783,7 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
                 Assign_Destination(radio, true);
                 return 14;
             }
-            if (!unknown_494 && tile.unknown_ec == 2) {
+            if (!unknown_494 && tile.Land == 2) {
                 Assign_Destination(radio, true);
                 return 14;
             }
@@ -907,7 +907,7 @@ int UnitClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
             } else {
                 if (Get_Height_AGL() <= 10 && unknown_7c) {
                     animation_position = Coord;
-                    if (Map[animation_position].unknown_ec == 2) {
+                    if (Map[animation_position].Land == 2) {
                         new AnimClass(Rules->Wake, (animation_position = Coord), 0, 1, 0x600, 0);
                         new AnimClass(Unit_Damage_Last_Water_Animation(),
                             (animation_position = Unit_Damage_Raised_Position(Coord)),
@@ -1169,7 +1169,7 @@ bool UnitClass::unknown_slot261(bool arg1, bool arg2)
     }
     {
         CoordStruct coord = Coord;
-        int land = Map[coord].unknown_ec;
+        int land = Map[coord].Land;
         if (land == (Type->Harvester ? 5 : 11)) {
             goto stop;
         }
@@ -1385,22 +1385,22 @@ bool UnitClass::unknown_6fdfc0()
                     if (building->House->Is_Player_Control()) {
                         Voc_Play_At(Rules->BuildingDrop, Center_Coord(), 0);
                     } else {
-                        building->unknown_59a = true;
-                        building->unknown_59b = true;
+                        building->IsToRebuild = true;
+                        building->IsToRepair = true;
                     }
                     if (building->Type->Artillary || building->Type->TickTank) {
                         building->unknown_2c8.Set(UnknownFacingDir(0x4000));
                     }
                     building->unknown_slot220(unknown_228);
                     building->Revealed(House);
-                    building->unknown_5ad = true;
+                    building->IsReadyToCommence = true;
                     if (!House->Unknown_004F52F0() && building->Type->ConstructionYard && unknown_game_mode_a3d298) {
                         CoordStruct position = building->Coord;
                         Cell base = Coord_Cell(position);
                         House->BaseCenter = Cell_Center(base);
                         House->Unknown_004EF5A0();
                         House->unknown_55f0.Nodes[0].Cell = base;
-                        House->unknown_55f0.unknown_50 = base;
+                        House->unknown_55f0.PlacementCenter = base;
                         House->unknown_136 = true;
                         House->unknown_13a = true;
                         House->unknown_13b = true;
@@ -1560,7 +1560,7 @@ void UnitClass::unknown_slot93(int reason)
         }
         if (!unknown_494 && Path[0]==-1 && !Type->MobileFire) Arm=unknown_slot187(1)/4;
         CellClass *current_cell=&Map[Position_Coord_004f3f40()];
-        int land=current_cell->unknown_ec;
+        int land=current_cell->Land;
         if (!Locomotor.Checked()->Is_Moving() && Can_Enter_Cell(current_cell,-1,-1,0,1)==7 && (!IsOnBridge || !(current_cell->unknown_140&0x100)) && !unknown_325) {
             if (Mission!=7) {
                 new AnimClass(Select_Damage_Anim(Strength,Rules->C4Warhead,land,&Position_Coord_004f3f40()),Position_Coord_004f3f40(),0,1,0x2600,Get_Explosion_Z_0047fcc0(Position_Coord_004f3f40()));
@@ -2162,7 +2162,7 @@ bool UnitClass::Harvesting()
     if (unknown_494) {
         return true;
     }
-    if (Type->Harvester && unknown_slot165() < 1.0 && cell->unknown_ec == 5) {
+    if (Type->Harvester && unknown_slot165() < 1.0 && cell->Land == 5) {
         if (Type->Weeder) {
             cell->Reduce_Weed();
             unknown_294.Add_Amount(1.0f, 0);
@@ -2203,7 +2203,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                 if (Locomotor.Checked()->Is_Moving()) return 10;
                 Cell current=unknown_slot104();
                 CellClass &current_cell=Map[current];
-                if (!unknown_494 && current_cell.unknown_ec==2) {
+                if (!unknown_494 && current_cell.Land==2) {
                     Cell destination=Map.Nearby_Location(unknown_slot104(),2,-1,0,false,Point2D(1,1),0,0,0,1,Cell(0,0),0);
                     Assign_Destination(&Map[destination],true);
                     return 10;
@@ -2707,7 +2707,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
     int infantry_owner=cell->InfType;
     TubeClass *tube=Cell_Tube_0047a130(cell);
     if (Type->MovementRestrictedTo!=-1) {
-        if (cell->unknown_ec==10) {
+        if (cell->Land==10) {
             UnknownIsoTile *tile=IsometricTileTypes[cell->IsoTileIndex];
             if ((tile->Width==5 && tile->Height==3) || (tile->Width==4 && tile->Height==3)) {
                 if (cell->SubTile!=2) return 7;
@@ -2715,7 +2715,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
                 return 7;
             }
         }
-        if (cell->unknown_ec!=Type->MovementRestrictedTo && cell->unknown_ec!=10) {
+        if (cell->Land!=Type->MovementRestrictedTo && cell->Land!=10) {
             if (cell->OverlayIndex<0xED || cell->OverlayIndex>0xEE || height==cell->Height) return 7;
         }
     }
@@ -2807,7 +2807,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
                     occupant=occupant->unknown_30;
                     continue;
                 }
-                if (building->Type->LaserFence && (building->unknown_4ec==12 || building->unknown_4ec==8)) {
+                if (building->Type->LaserFence && (building->LaserFenceFrame==12 || building->LaserFenceFrame==8)) {
                     occupant=occupant->unknown_30;
                     continue;
                 }
@@ -2880,7 +2880,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
         }
         occupant=occupant->unknown_30;
     }
-    if (!bridge && Ground[cell->unknown_ec].Cost[Type->SpeedType]==0) return 7;
+    if (!bridge && Ground[cell->Land].Cost[Type->SpeedType]==0) return 7;
     if (result==0 && !crushable && (flags&0x3F)) {
         if (vehicle) {
             result=2;
@@ -2915,7 +2915,7 @@ unsigned char __fastcall Infantry_Action_Allowed_00614b50(int action);
 
 // The cell's land type as an inline, so its read is not shared across the passenger's virtual
 // call (shared/cell_class.hpp has this member; shared/cell.hpp does not).
-inline int Land_Type_00703bd0(CellClass const *cell) { return cell->unknown_ec; }
+inline int Land_Type_00703bd0(CellClass const *cell) { return cell->Land; }
 // A building's type (a view: BuildingClass is not declared in this unit).
 class UnknownBuildingView_00703bd0 : public TechnoClass {
 public:
@@ -3095,12 +3095,12 @@ int UnitClass::What_Action(Cell const *where, bool arg2, bool arg3)
     }
     if (!Map.Is_Shrouded(coord)) {
         if (action == 1) {
-            if ((cell->unknown_ec == 5 || overlay != -1
+            if ((cell->Land == 5 || overlay != -1
                     && ((UnknownUnitOverlayTypeView *)OverlayTypes[overlay])->Tiberium && arg2)
                 && Type->Harvester) {
                 return 6;
             }
-            if ((cell->unknown_ec == 11 || overlay == 0x7E && cell->OverlayData >= 0x30 && arg2)
+            if ((cell->Land == 11 || overlay == 0x7E && cell->OverlayData >= 0x30 && arg2)
                 && Type->Weeder) {
                 return 6;
             }
@@ -3260,7 +3260,7 @@ int UnitClass::Desired_Load_Dir(AbstractClass *object, Cell *cell)
                 || ((ObjectClass *)object)->unknown_slot104() == cellnum) ? 128 : -128;
         } else {
             CellClass *land = &Map[Cell(cellnum)];
-            if (Ground[land->unknown_ec].Cost[0] == 0.0f || land->Occupy_124.Building || land->Occupy_124.Vehicle || land->Occupy_124.Monolith
+            if (Ground[land->Land].Cost[0] == 0.0f || land->Occupy_124.Building || land->Occupy_124.Vehicle || land->Occupy_124.Monolith
                 || (land->unknown_124 & 0x1F) == 0x1F) {
                 value = -128;
             } else {

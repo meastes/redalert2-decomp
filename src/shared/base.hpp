@@ -47,11 +47,11 @@ public:
     int PercentBuilt;                       // +0x1C ([house] PercentBuilt)
     DynamicVectorClass<Cell> unknown_20;  // +0x20 (vtable 0x0079C5A0)
     DynamicVectorClass<Cell> unknown_38;  // +0x38 (vtable 0x0079C5A0)
-    Cell unknown_50;                  // +0x50
+    Cell PlacementCenter;                  // +0x50
     // Two zeroed 16-byte members (layout hypothesis: their inline constructors
     // are what keeps the list constructors out of line in 0x0042BF70/0x0042CA50).
-    Rect unknown_54;                        // +0x54
-    Rect unknown_64;                        // +0x64
+    Rect BaseAreaRect;                        // +0x54
+    Rect LastBaseAreaRect;                        // +0x64
     HouseClass *House;                      // +0x74 (set by HouseClass::Read_INI)
 };
 

@@ -171,7 +171,7 @@ extern DynamicVectorClass<AbstractClass *> NeuronPtrTracker;
 TeamClass::~TeamClass()
 {
     for (int index = 0; index < AITriggerTypes.Count(); index++) {
-        if (AITriggerTypes[index]->unknown_dc == Class) {
+        if (AITriggerTypes[index]->TeamTypeOne == Class) {
             if (IsSuspended) {
                 AITriggerTypes[index]->Register_Success();
             } else {
@@ -475,7 +475,7 @@ void TeamClass::Regroup()
             if (building != 0 && !building->IsInLimbo && building->unknown_slot231(0)->WeaponType == 0) {
                 Cell cell = Coord_Cell(building->Center_Coord());
                 int value = Coord_Distance(building->Center_Coord(), unknown_34->Center_Coord()) * (Map.Cell_Threat(cell, Owner) + 1);
-                if (building->Type->unknown_1349) {
+                if (building->Type->IsCanUnitRepair) {
                     value /= 2;
                 }
                 if (value < best) {

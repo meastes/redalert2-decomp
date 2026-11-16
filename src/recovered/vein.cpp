@@ -526,7 +526,7 @@ bool __fastcall VeinholeMonsterClass::Can_Monster_Go_Here(::Cell const &cell)
         for (int x = -1; x <= 1; x++) {
             ::Cell neighbor = ::Cell(cell.X + x, cell.Y + y);
             CellClass *near_cell = &Map[neighbor];
-            if (near_cell->Ramp || near_cell->unknown_ec != 0 || near_cell->Height != level) {
+            if (near_cell->Ramp || near_cell->Land != 0 || near_cell->Height != level) {
                 return false;
             }
         }

@@ -18,7 +18,7 @@ int BuildingClass::Do_MISSION_ATTACK()
     if (!Type->SAM) {
         if (unknown_228 == 0) {
             unknown_slot220(0);
-            unknown_534 = 0;
+            SupportingPrisms = 0;
             if (IsNotWarpingIn()) {
                 Next_Planning_Node();
             }
@@ -29,7 +29,7 @@ int BuildingClass::Do_MISSION_ATTACK()
             return 1;
         }
         int weapon = What_Weapon_Should_I_Use(unknown_228);
-        unknown_5ad = true;
+        IsReadyToCommence = true;
         unsigned fire = (unsigned)unknown_slot218(unknown_228, weapon, true);
         if (fire == 2 && unknown_slot232() && Type->TurretAnimIsVoxel) {
             UnknownFacingDir dir = unknown_slot285(unknown_228);
@@ -51,7 +51,7 @@ int BuildingClass::Do_MISSION_ATTACK()
         switch (fire) {
         case 1: case 5: case 6: case 8:         // FIRE_AMMO, FIRE_ILLEGAL, FIRE_CANT, FIRE_RANGE
             unknown_slot220(0);
-            unknown_534 = 0;
+            SupportingPrisms = 0;
             if (IsNotWarpingIn()) {
                 Next_Planning_Node();
             }
@@ -73,7 +73,7 @@ int BuildingClass::Do_MISSION_ATTACK()
         case 10:
             return 1;
         case 0: {                               // FIRE_OK
-            if (unknown_5c6 != 0 && unknown_4c0[0] != 0) {
+            if (UpgradeLevel != 0 && unknown_4c0[0] != 0) {
                 if (unknown_4c0[0]->Is_Two_Shooter()) {
                     Fire_At(unknown_228, 0);
                     Fire_At(unknown_228, 1);
@@ -84,14 +84,14 @@ int BuildingClass::Do_MISSION_ATTACK()
                 BuildingClass *support = 0;
                 int support_distance = 0x7FFFFFFF;
                 CoordStruct center = unknown_slot42();
-                if (unknown_534 < Rules->PrismSupportMax) {
+                if (SupportingPrisms < Rules->PrismSupportMax) {
                     int count = House->Buildings.Count();
                     for (int index = 0; index < count; ++index) {
                         BuildingClass *other = House->Buildings[index];
                         if (other == 0 || !other->IsActive || other->Type != Rules->PrismType) {
                             continue;
                         }
-                        if ((long)other->Arm != 0 || other->unknown_5d8 != 0) {
+                        if ((long)other->Arm != 0 || other->DelayBeforeFiring != 0) {
                             continue;
                         }
                         if (other->Get_Mission() == 1 || other == this) {
@@ -108,7 +108,7 @@ int BuildingClass::Do_MISSION_ATTACK()
                         }
                     }
                     if (support != 0) {
-                        ++unknown_534;
+                        ++SupportingPrisms;
                         CoordStruct from = unknown_slot43(0);
                         support->Start_Delayed_Fire(2, from);
                         return 1;

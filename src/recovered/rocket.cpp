@@ -397,7 +397,7 @@ bool __stdcall RocketLocomotionClass::Process()
 // The land type of a cell (local helper).
 static inline int Land_Type_At(Cell const &cell)
 {
-    return Map[cell].unknown_ec;
+    return Map[cell].Land;
 }
 
 void RocketLocomotionClass::unknown_63e7d0()

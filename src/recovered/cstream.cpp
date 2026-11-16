@@ -27,7 +27,7 @@
 /// out with no storage stream of its own to compress through.
 /// </summary>
 /// <remarks>Call Link_Stream to attach a storage stream before reading or writing.</remarks>
-CStreamClass::CStreamClass() : RefCount(0), unknown_10(false), unknown_11(false), unknown_14(0), unknown_18(new char[65536]), unknown_1c(new char[65536]), unknown_20(new char[65536])
+CStreamClass::CStreamClass() : RefCount(0), unknown_10(false), IsWriting(false), CurOffset(0), unknown_18(new char[65536]), unknown_1c(new char[65536]), unknown_20(new char[65536])
 {
     unknown_24 = 65535;
 }
@@ -169,16 +169,16 @@ HRESULT __stdcall CStreamClass::Read(void *pv, unsigned long cb, unsigned long *
     if (!pv) return E_POINTER;
     if ((long)cb < 0) return (HRESULT)0x80070057L;
     if (!Stream) return E_FAIL;
-    if (unknown_11) return E_FAIL;
+    if (IsWriting) return E_FAIL;
     unknown_10 = true;
     if (pcbRead) *pcbRead = 0;
     while (remaining > 0) {
-        if (unknown_14 > 0) {
-            int count = remaining < unknown_14 ? remaining : unknown_14;
-            memmove(pv, (char *)unknown_18 + unknown_28 - unknown_14, count);
+        if (CurOffset > 0) {
+            int count = remaining < CurOffset ? remaining : CurOffset;
+            memmove(pv, (char *)unknown_18 + unknown_28 - CurOffset, count);
             pv = (char *)pv + count;
             remaining -= count;
-            unknown_14 -= count;
+            CurOffset -= count;
         }
         if (!remaining) break;
         unsigned long received = 0;
@@ -190,7 +190,7 @@ HRESULT __stdcall CStreamClass::Read(void *pv, unsigned long cb, unsigned long *
         if (received != unknown_24) return E_FAIL;
         unsigned int decompressed_size = 65536;
         lzo1x_decompress((unsigned char const *)unknown_1c, unknown_24, (unsigned char *)unknown_18, &decompressed_size, 0);
-        unknown_14 = unknown_28;
+        CurOffset = unknown_28;
     }
     if (pcbRead) *pcbRead = cb;
     return S_OK;
@@ -218,20 +218,20 @@ HRESULT __stdcall CStreamClass::Write(void const *pv, unsigned long cb, unsigned
     if ((long)cb < 0) return (HRESULT)0x80070057L;
     if (!Stream) return E_FAIL;
     if (unknown_10) return E_FAIL;
-    unknown_11 = true;
+    IsWriting = true;
     if (cb != 0) {
         if (pcbWritten) *pcbWritten = 0;
-        if (unknown_14 > 0) {
-            int count = (int)cb < 65536 - unknown_14 ? cb : 65536 - unknown_14;
-            memmove((char *)unknown_18 + unknown_14, input, count);
-            int buffered = unknown_14 + count;
+        if (CurOffset > 0) {
+            int count = (int)cb < 65536 - CurOffset ? cb : 65536 - CurOffset;
+            memmove((char *)unknown_18 + CurOffset, input, count);
+            int buffered = CurOffset + count;
             input += count;
             remaining = cb - count;
-            unknown_14 = buffered;
-            if (unknown_14 == 65536) {
+            CurOffset = buffered;
+            if (CurOffset == 65536) {
                 HRESULT result = unknown_flush_495000(unknown_18, 65536);
                 if (FAILED(result)) return result;
-                unknown_14 = 0;
+                CurOffset = 0;
             }
         }
         for (; remaining >= 65536; remaining -= 65536) {
@@ -241,7 +241,7 @@ HRESULT __stdcall CStreamClass::Write(void const *pv, unsigned long cb, unsigned
         }
         if (remaining > 0) {
             memmove(unknown_18, input, remaining);
-            unknown_14 = remaining;
+            CurOffset = remaining;
         }
         if (pcbWritten) *pcbWritten = cb;
     }
@@ -261,7 +261,7 @@ HRESULT __stdcall CStreamClass::Write(void const *pv, unsigned long cb, unsigned
 
 HRESULT __stdcall CStreamClass::Seek(LARGE_INTEGER dlibMove, unsigned long dwOrigin, ULARGE_INTEGER *plibNewPosition)
 {
-    if (unknown_10 || unknown_11) {
+    if (unknown_10 || IsWriting) {
         return E_FAIL;
     }
     return Stream->Seek(dlibMove, dwOrigin, plibNewPosition);
@@ -279,7 +279,7 @@ HRESULT __stdcall CStreamClass::Seek(LARGE_INTEGER dlibMove, unsigned long dwOri
 
 HRESULT __stdcall CStreamClass::SetSize(ULARGE_INTEGER libNewSize)
 {
-    if (unknown_10 || unknown_11) {
+    if (unknown_10 || IsWriting) {
         return E_FAIL;
     }
     return Stream->SetSize(libNewSize);
@@ -406,9 +406,9 @@ HRESULT CStreamClass::unknown_flush_495000(void *buffer, int size)
 
 HRESULT CStreamClass::unknown_flush_pending()
 {
-    if (unknown_11 && unknown_14 > 0) {
+    if (IsWriting && CurOffset > 0) {
         if (Stream==0) return E_FAIL;
-        if(unknown_14>0) return unknown_flush_495000(unknown_18, unknown_14);
+        if(CurOffset>0) return unknown_flush_495000(unknown_18, CurOffset);
     }
     return S_OK;
 }

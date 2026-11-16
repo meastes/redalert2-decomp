@@ -194,7 +194,7 @@ bool FactoryClass::unknown_4b9440(TechnoTypeClass *type, HouseClass *house, unsi
     Stage=0;
     Object=static_cast<TechnoClass *>(type->Create_One_Of(house));
     if (!house->Is_Human_Player() && Object && Object->Kind_Of()==6)
-        static_cast<BuildingClass *>(Object)->unknown_59a=true;
+        static_cast<BuildingClass *>(Object)->IsToRebuild=true;
     if (Object) {
         Owner=Object->House;
         UnspentCost=type->Cost_Of(Owner);

@@ -159,7 +159,7 @@ void CCToolTip::Hide(ToolTipRecord *record)
 
 void CCToolTip::Refresh(bool update)
 {
-    unknown_260 = update;
+    UseSidebarSurface = update;
     ToolTipManager::Refresh(update == false);
 }
 
@@ -175,7 +175,7 @@ void CCToolTip::Debug_Print(ToolTipRecord *record)
     if (unknown_flag_a40b30 == true) {
         int boundary = TacticalRect.X + TacticalRect.Width;
         if (x + record->unknown_08 <= boundary) surface = CompositeSurface;
-        else if (unknown_260 == true && x >= boundary) {
+        else if (UseSidebarSurface == true && x >= boundary) {
             surface = SidebarSurface;
             x -= boundary;
             SidebarClass_IsToBlitSidebar = true;
@@ -185,7 +185,7 @@ void CCToolTip::Debug_Print(ToolTipRecord *record)
         if (x >= boundary) {
             surface = CompositeSurface;
             x -= boundary;
-        } else if (unknown_260 == true && x + record->unknown_08 < boundary) {
+        } else if (UseSidebarSurface == true && x + record->unknown_08 < boundary) {
             surface = SidebarSurface;
             SidebarClass_IsToBlitSidebar = true;
         }

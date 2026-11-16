@@ -264,10 +264,10 @@ void ObjectClass::AI()
         if (Kind_Of() == 4) {
             AnimClass *animation = static_cast<AnimClass *>(this);
             if (animation->Class->IsFlamingGuy) {
-                animation->unknown_17a = true;
+                animation->IsFlamingGuyEnd = true;
                 animation->Set_Rate(1);
                 animation->Stage = (int)((unsigned int)animation->Class->RunningFrames * 8u + 1u);
-                if (Map[CoordStruct(Coord)].unknown_ec == 2) {
+                if (Map[CoordStruct(Coord)].Land == 2) {
                     // New allocates before evaluating constructor arguments on this target.
                     // The coordinate helper copies after allocation, as the original does.
                     new AnimClass(Rules->SplashList[0], Object_AI_Splash_Coord(this), 0, 1, 0x600, 0);
@@ -631,8 +631,8 @@ Rect ObjectClass::Get_Render_Rect()
 
     Rect a = Union(rect1, rect2);
 
-    if (Object_Is_Building(this) && bptr->Type->unknown_11cc) {
-        Rect rect2 = ((ShapeFileStruct const *)bptr->Type->unknown_11cc)->Get_Frame_Rect(0);
+    if (Object_Is_Building(this) && bptr->Type->BibShape) {
+        Rect rect2 = ((ShapeFileStruct const *)bptr->Type->BibShape)->Get_Frame_Rect(0);
         a = Union(a, rect2);
     }
 
@@ -963,7 +963,7 @@ bool ObjectClass::Mark(int request)
             }
         } else {
             if (Kind_Of() != 6 ||
-                !static_cast<BuildingClass *>(this)->Type->unknown_bf0 || action != 0) {
+                !static_cast<BuildingClass *>(this)->Type->ToTile || action != 0) {
                 TechnoClass *techno = As_Techno();
                 if (techno) {
                     techno->unknown_slot168();
@@ -1036,7 +1036,7 @@ bool ObjectClass::unknown_slot56(CoordStruct const &coord)
                         anim->Attach_To(this);
                         if (Kind_Of() != 8) {
                             anim->unknown_bc = unknown_slot115();
-                            anim->unknown_e4 = ((UnknownCellClass *)Get_Cell_Ptr())->unknown_10a;
+                            anim->AlternativeBrightness = ((UnknownCellClass *)Get_Cell_Ptr())->unknown_10a;
                         }
                     }
                     return true;

@@ -94,10 +94,10 @@ void Tactical::Draw_Tiles(Cell const &cell, Rect const &cliprect)
                     overlap = true;
                 }
 
-                if (cellptr->unknown_11d > 0 && !draw) {
+                if (cellptr->Elevation > 0 && !draw) {
                     int diff = height - level;
                     if (col != 1) {
-                        if (diff < 0 && cellptr->unknown_11d + diff >= 0) {
+                        if (diff < 0 && cellptr->Elevation + diff >= 0) {
                             draw = true;
                         } else {
                             draw = overlap;
@@ -106,7 +106,7 @@ void Tactical::Draw_Tiles(Cell const &cell, Rect const &cliprect)
                         draw = overlap;
                     } else {
                         draw = true;
-                        if (cellptr->unknown_11d + diff + 1 <= 0) {
+                        if (cellptr->Elevation + diff + 1 <= 0) {
                             draw = overlap;
                         }
                     }

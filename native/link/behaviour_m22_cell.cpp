@@ -19,13 +19,13 @@ short *Disguise_Sensors(CellClass *cell)
 // Reached by FootClass slot 285 (a sensor unit's move; Soviet campaign 1).
 void UnknownCellClass::Unknown_0047C360(int house)
 {
-    reinterpret_cast<CellClass *>(this)->unknown_7c[house]++;
+    reinterpret_cast<CellClass *>(this)->SensorsOfHouses[house]++;
 }
 
 // 0x0047C370: one fewer (FootClass slot 286).
 void UnknownCellClass::Unknown_0047C370(int house)
 {
-    reinterpret_cast<CellClass *>(this)->unknown_7c[house]--;
+    reinterpret_cast<CellClass *>(this)->SensorsOfHouses[house]--;
 }
 
 // 0x0047C380 / 0x0047C390: the same for the disguise sensors (+0xAC; BuildingClass slots 290, 291).

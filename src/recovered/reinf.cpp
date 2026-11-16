@@ -218,7 +218,7 @@ static bool _Create_Paradrop(TeamTypeClass *teamtype, FootClass *object, Cell or
         int placed = plane->Unlimbo(&UnknownCoord434820(dest, 0), 0);
         ScenarioInit--;
         if (placed) {
-            plane->unknown_5b1 = true;
+            plane->Passenger = true;
             plane->Cargo.Attach(object);
             plane->Commence();
             return true;

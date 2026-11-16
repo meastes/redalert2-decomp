@@ -898,7 +898,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
             CellClass *cellptr=&Map[cell];
             TechnoClass *blockage=static_cast<TechnoClass *>(cellptr->Cell_Techno(Point2D(0,0),Object_Coord(LinkedTo).Z>Map.Get_Height_GL(CoordStruct(cell.X*256+128,cell.Y*256+128,0))+3*unknown_geometry_g,0));
             if (blockage && LinkedTo->House->Is_Ally(blockage)) {
-                if (Hover_Close_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->unknown_1380 && !LinkedTo->HasAnyLink() && abs(unknown_18.Z-Object_Coord(LinkedTo).Z)<2*unknown_geometry_g && Map[Object_Coord(LinkedTo)].unknown_ec!=10) {
+                if (Hover_Close_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->unknown_1380 && !LinkedTo->HasAnyLink() && abs(unknown_18.Z-Object_Coord(LinkedTo).Z)<2*unknown_geometry_g && Map[Object_Coord(LinkedTo)].Land!=10) {
                     Stop_Moving();
                     LinkedTo->Assign_Destination(0,true);
                     return;

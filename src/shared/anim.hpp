@@ -118,43 +118,43 @@ public:
 
     AnimTypeClass *Class;                   // +0x0B0
     ObjectClass *xObject;                // +0x0B4
-    int unknown_b8;                         // +0x0B8
+    int OwnerHouse;                         // +0x0B8
     ConvertClass *unknown_bc;               // +0x0BC (a ColorSchemes entry's Converter)
-    int unknown_c0;                         // +0x0C0
+    int LightConvertIndex;                         // +0x0C0
     PaletteName Palette;                    // +0x0C4 (Load resolves it through 0x00603380)
-    int unknown_e4;                         // +0x0E4
+    int AlternativeBrightness;                         // +0x0E4
     int ZAdjust;                            // +0x0E8
     int YSortAdjust;                        // +0x0EC
-    CoordStruct unknown_f0;                 // +0x0F0
-    int unknown_fc;                         // +0x0FC
-    bool unknown_100;                       // +0x100
-    bool unknown_101;                       // +0x101
-    bool unknown_102;                       // +0x102
-    bool unknown_103;                       // +0x103
+    CoordStruct FlamingGuyCoords;                 // +0x0F0
+    int FlamingGuyRetries;                         // +0x0FC
+    bool IsBuildingAnim;                       // +0x100
+    bool UnderTemporal;                       // +0x101
+    bool Paused;                       // +0x102
+    bool Unpaused;                       // +0x103
     int unknown_104;                        // +0x104
     UnknownBounce unknown_108;              // +0x108
     UnknownQuaternion unknown_138;          // +0x138
     UnknownQuaternion unknown_148;          // +0x148
-    signed char unknown_158;                // +0x158 (TibSun TranslucencyLevel: signed compares in Draw_It 0x00420E50)
-    bool unknown_159;                       // +0x159
-    AbstractClass *unknown_15c;             // +0x15C
+    signed char TranslucencyLevel;                // +0x158 (TibSun TranslucencyLevel: signed compares in Draw_It 0x00420E50)
+    bool TimeToDie;                       // +0x159
+    AbstractClass *AttachedBullet;             // +0x15C
     HouseClass *unknown_160;                // +0x160 the house a PSI warning is for (0x00438B80 sets it)
     int LoopDelay;                          // +0x164
-    double unknown_168;                     // +0x168
-    int unknown_170;                        // +0x170
-    bool unknown_174;                       // +0x174
+    double Accum;                     // +0x168
+    int ShapeFlags;                        // +0x170
+    bool IsBouncing;                       // +0x174
     unsigned char Loops;                    // +0x175
-    bool unknown_176;                       // +0x176
-    bool unknown_177;                       // +0x177
-    bool unknown_178;                       // +0x178
-    bool unknown_179;                       // +0x179
-    bool unknown_17a;                       // +0x17A
-    bool unknown_17b;                       // +0x17B
-    bool unknown_17c;                       // +0x17C
-    bool unknown_17d;                       // +0x17D
-    bool unknown_17e;                       // +0x17E
-    UnknownAudioController unknown_180;     // +0x180
-    UnknownAudioController unknown_194;     // +0x194
+    bool IsAttachedToCell;                       // +0x176
+    bool IsToDeleteOnOverpass;                       // +0x177
+    bool IsInert;                       // +0x178
+    bool IsFogged;                       // +0x179
+    bool IsFlamingGuyEnd;                       // +0x17A
+    bool IsToDelete;                       // +0x17B
+    bool IsBrandNew;                       // +0x17C
+    bool IsInvisible;                       // +0x17D
+    bool IsDisabled;                       // +0x17E
+    UnknownAudioController StartSoundAudioController;     // +0x180
+    UnknownAudioController StopSoundAudioController;     // +0x194
 };
 
 // The cell at 0x00548000 as AnimClass uses it: its first object (+0xE4)

@@ -57,7 +57,7 @@ void Tactical::Draw_Pixel_Effects(Rect const &area, Rect const &cliprect)
                 CellClass &cell = Map[scan];
                 int value = cell.Get_Tiberium_Value();
                 if (cell.Flags_12c & 0x10 && !cell.unknown_47cb50()
-                    && (cell.unknown_ec == 2 || value != 0)
+                    && (cell.Land == 2 || value != 0)
                     && cell.OccupierPtr == 0
                     && !(cell.unknown_140 & 0x1000)) {
                     PixelFXClass *effect = (PixelFXClass *)cell.unknown_fc;

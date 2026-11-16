@@ -47,7 +47,7 @@ int __fastcall Create_Air_Reinforcement(HouseClass *house, int air, int number, 
         ScenarioInit--;
         if (placed) {
             if (obj->Kind_Of() == 2 && passenger != -1 && passenger_count) {
-                ((AircraftClass *)obj)->unknown_5b1 = true;
+                ((AircraftClass *)obj)->Passenger = true;
                 TechnoTypeClass const *ptype = InfantryTypes[passenger];
                 if (ptype) {
                     for (int index = passenger_count; index; index--) {

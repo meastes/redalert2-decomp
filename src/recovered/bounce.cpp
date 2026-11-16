@@ -172,7 +172,7 @@ void BounceClass::Init(CoordStruct const &coord, double elasticity, double gravi
         Random_Pick(-65535, 65535) * (1.0f / 65535.0f));
 
     rotation_axis = Normalize(rotation_axis);
-    (Quaternion &)unknown_40 = Axis_To_Quat(rotation_axis, rotation);
+    (Quaternion &)AngularVelocity = Axis_To_Quat(rotation_axis, rotation);
     Matrix3D identity_matrix;
     identity_matrix.Make_Identity();
     (Quaternion &)unknown_30 = Build_Quaternion(identity_matrix);
@@ -316,7 +316,7 @@ BounceResultType BounceClass::AI()
             } else {
                 hit_obstacle = true;
                 if (building != 0) {
-                    if (building->Type->LaserFence && building->unknown_4ec >= 8) {
+                    if (building->Type->LaserFence && building->LaserFenceFrame >= 8) {
                         hit_obstacle = false;
                     }
                     if (building->Considered_Vehicle()) {
@@ -348,7 +348,7 @@ BounceResultType BounceClass::AI()
     }
     }
     if (has_impact) {
-        Quaternion &angular = (Quaternion &)unknown_40;
+        Quaternion &angular = (Quaternion &)AngularVelocity;
         angular[0] = -angular[0];
         angular[1] = -angular[1];
         angular[2] = -angular[2];
@@ -379,7 +379,7 @@ BounceResultType BounceClass::AI()
         bounce_result = BOUNCE_IMPACT;
     }
 
-    (Quaternion &)unknown_30 = (Quaternion &)unknown_30 * (Quaternion &)unknown_40;
+    (Quaternion &)unknown_30 = (Quaternion &)unknown_30 * (Quaternion &)AngularVelocity;
 
     double remaining_motion = Get_Remaining_Motion();
     if (remaining_motion < 2.5) {

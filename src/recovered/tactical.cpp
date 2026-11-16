@@ -1081,7 +1081,7 @@ void Tactical::Draw_Fence_Placement(bool drawtrans, Cell cell)
                 break;
             }
             CellClass *nearby = &Map[scan];
-            if (nearby->Cell_Terrain(false) || nearby->Ramp > 0 || nearby->unknown_4c != 0 || ++count >= range) break;
+            if (nearby->Cell_Terrain(false) || nearby->Ramp > 0 || nearby->Passability != 0 || ++count >= range) break;
         }
         if (found && building->Type->LaserFencePost && building->House->Is_Player_Control() && count > 0) {
             int flags = drawtrans ? 0x10606 : 0x20606;
@@ -2148,7 +2148,7 @@ void Tactical::Draw_Pixel_Effects(Rect const &area, Rect const &cliprect)
                 CellClass &cell = Map[scan];
                 int value = cell.Get_Tiberium_Value();
                 if (cell.Flags_12c & 0x10 && !cell.unknown_47cb50()
-                    && (cell.unknown_ec == 2 || value != 0)
+                    && (cell.Land == 2 || value != 0)
                     && cell.OccupierPtr == 0
                     && !(cell.unknown_140 & 0x1000)) {
                     PixelFXClass *effect = (PixelFXClass *)cell.unknown_fc;
@@ -2259,10 +2259,10 @@ void Tactical::Draw_Tiles(Cell const &cell, Rect const &cliprect)
                     overlap = true;
                 }
 
-                if (cellptr->unknown_11d > 0 && !draw) {
+                if (cellptr->Elevation > 0 && !draw) {
                     int diff = height - level;
                     if (col != 1) {
-                        if (diff < 0 && cellptr->unknown_11d + diff >= 0) {
+                        if (diff < 0 && cellptr->Elevation + diff >= 0) {
                             draw = true;
                         } else {
                             draw = overlap;
@@ -2271,7 +2271,7 @@ void Tactical::Draw_Tiles(Cell const &cell, Rect const &cliprect)
                         draw = overlap;
                     } else {
                         draw = true;
-                        if (cellptr->unknown_11d + diff + 1 <= 0) {
+                        if (cellptr->Elevation + diff + 1 <= 0) {
                             draw = overlap;
                         }
                     }
@@ -2543,7 +2543,7 @@ void Tactical::Draw_Objects(bool forced)
                     if (view.Is_Point_Within(Point2D(position.X, position.Y))) {
                         AnimClass *anim = (AnimClass *)obj;
                         obj->IsVisible = true;
-                        if (!anim->unknown_100 && anim->Class->ShouldFogRemove && Map.Is_Fogged(obj->Center_Coord())) {
+                        if (!anim->IsBuildingAnim && anim->Class->ShouldFogRemove && Map.Is_Fogged(obj->Center_Coord())) {
                             continue;
                         }
                         obj->Render(&TacticalRect, forced, false);
@@ -3134,8 +3134,8 @@ bool Tactical::Unknown_006AAD70()
 
 void Tactical::Flag_Cell(CellClass *cell)
 {
-    if (Map.IsToRedraw == 0 && cell->unknown_5c != Frame && ((cell->unknown_12c & 8) || cell->unknown_138)) {
-        cell->unknown_5c = Frame;
+    if (Map.IsToRedraw == 0 && cell->LastRedrawFrame != Frame && ((cell->unknown_12c & 8) || cell->unknown_138)) {
+        cell->LastRedrawFrame = Frame;
 
         CoordStruct coord = cell->unknown_475d60();
 

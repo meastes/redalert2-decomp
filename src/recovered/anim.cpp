@@ -108,43 +108,43 @@
 AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int loop_delay, int loops, int flags, int zadjust) :
     Class((AnimTypeClass *)type),
     xObject(0),
-    unknown_b8(-1),
+    OwnerHouse(-1),
     unknown_bc(0),
-    unknown_c0(-1),
-    unknown_e4(1000),
+    LightConvertIndex(-1),
+    AlternativeBrightness(1000),
     ZAdjust(0),
     YSortAdjust(0),
-    unknown_f0(unknown_geometry_l),
-    unknown_fc(0),
-    unknown_100(false),
-    unknown_101(false),
-    unknown_102(false),
-    unknown_103(false),
+    FlamingGuyCoords(unknown_geometry_l),
+    FlamingGuyRetries(0),
+    IsBuildingAnim(false),
+    UnderTemporal(false),
+    Paused(false),
+    Unpaused(false),
     unknown_104(0),
     unknown_138(0.0f, 0.0f, 0.0f, 1.0f),
     unknown_148(0.0f, 0.0f, 0.0f, 1.0f),
-    unknown_158(false),
-    unknown_159(false),
-    unknown_15c(0),
+    TranslucencyLevel(false),
+    TimeToDie(false),
+    AttachedBullet(0),
     LoopDelay(loop_delay),
-    unknown_168(1.0),
-    unknown_170(flags),
-    unknown_174(false),
+    Accum(1.0),
+    ShapeFlags(flags),
+    IsBouncing(false),
     Loops(1),
-    unknown_176(false),
-    unknown_177(false),
-    unknown_178(false),
-    unknown_179(false),
-    unknown_17a(false),
-    unknown_17b(false),
-    unknown_17c(true),
-    unknown_17d(false),
-    unknown_17e(false)
+    IsAttachedToCell(false),
+    IsToDeleteOnOverpass(false),
+    IsInert(false),
+    IsFogged(false),
+    IsFlamingGuyEnd(false),
+    IsToDelete(false),
+    IsBrandNew(true),
+    IsInvisible(false),
+    IsDisabled(false)
 {
     Palette.Buffer[0] = 0;
     AbstractClass::Create_ID();
-    unknown_180.Init();
-    unknown_194.Init();
+    StartSoundAudioController.Init();
+    StopSoundAudioController.Init();
     Anims.Add(this);
     IsActive = true;
     YSortAdjust = Class->YSortAdjust;
@@ -185,7 +185,7 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
     if (!Class->Bouncer && !Class->IsMeteor) {
         ObjectClass::Unlimbo(&coord, 0);
     } else {
-        unknown_174 = true;
+        IsBouncing = true;
         if (Class->IsMeteor) {
             int rand_y = unknown_id_source_a3d290->Random()();
             int rand_x = unknown_id_source_a3d290->Random()();
@@ -212,7 +212,7 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
             Vector3 velocity(
                 abs(rand_x) % (int)(Class->MaxXYVel * 2) - Class->MaxXYVel,
                 vy,
-                abs(rand_z) % (int)(Class->unknown_2e0 - Class->MinZVel + 1.0) + Class->MinZVel);
+                abs(rand_z) % (int)(Class->MaxZVel - Class->MinZVel + 1.0) + Class->MinZVel);
             ((BounceClass *)&unknown_108)->Init(position, Class->Elasticity, 1.4f, 0, velocity, 0);
         }
     }
@@ -237,34 +237,34 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
 AnimClass::AnimClass() :
     Class(0),
     xObject(0),
-    unknown_b8(-1),
+    OwnerHouse(-1),
     unknown_bc(0),
-    unknown_c0(-1),
-    unknown_e4(1000),
+    LightConvertIndex(-1),
+    AlternativeBrightness(1000),
     ZAdjust(0),
     YSortAdjust(0),
-    unknown_100(false),
-    unknown_101(false),
-    unknown_102(false),
-    unknown_103(false),
+    IsBuildingAnim(false),
+    UnderTemporal(false),
+    Paused(false),
+    Unpaused(false),
     unknown_104(0),
     unknown_138(0.0f, 0.0f, 0.0f, 1.0f),
     unknown_148(0.0f, 0.0f, 0.0f, 1.0f),
-    unknown_159(false),
+    TimeToDie(false),
     LoopDelay(0),
-    unknown_168(0),
-    unknown_174(false),
+    Accum(0),
+    IsBouncing(false),
     Loops(1),
-    unknown_176(false),
-    unknown_177(false),
-    unknown_17b(false),
-    unknown_17c(true),
-    unknown_17d(false),
-    unknown_17e(false)
+    IsAttachedToCell(false),
+    IsToDeleteOnOverpass(false),
+    IsToDelete(false),
+    IsBrandNew(true),
+    IsInvisible(false),
+    IsDisabled(false)
 {
     Anims.Add(this);
-    unknown_180.Init();
-    unknown_194.Init();
+    StartSoundAudioController.Init();
+    StopSoundAudioController.Init();
     IsActive = true;
 }
 
@@ -300,10 +300,10 @@ AnimClass::~AnimClass()
     }
     AbstractTypePtrTracker.Delete(this);
     Class->Free_Image();
-    unknown_180.Unknown_00406070();
-    unknown_194.Unknown_00406070();
-    unknown_180.Unknown_00405C10();
-    unknown_194.Unknown_00405C10();
+    StartSoundAudioController.Unknown_00406070();
+    StopSoundAudioController.Unknown_00406070();
+    StartSoundAudioController.Unknown_00405C10();
+    StopSoundAudioController.Unknown_00405C10();
     xObject = 0;
     Class = 0;
     if (Fetch_ID() == -2) {
@@ -385,18 +385,18 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
     if (FPSCounter_CurrentFrameRate < GetMinFrameRate() && Class->DetailLevel > 1) {
         return;
     }
-    if (!unknown_17d && Class->DetailLevel <= unknown_a40b2c && (!unknown_179 || !Class->ShouldFogRemove)) {
+    if (!IsInvisible && Class->DetailLevel <= unknown_a40b2c && (!IsFogged || !Class->ShouldFogRemove)) {
         ShapeFileStruct const *shapefile = (ShapeFileStruct const *)Get_Image_Data();
         if (shapefile != 0) {
-            int flags = unknown_170;
+            int flags = ShapeFlags;
             int shapenum = Class->Start + Stage;
-            if (unknown_101) {
+            if (UnderTemporal) {
                 flags |= 4;
             }
 
             if (Class->TranslucencyDetailLevel <= unknown_a40b2c) {
                 if (Class->Translucent) {
-                    if (unknown_158 >= 15) return;
+                    if (TranslucencyLevel >= 15) return;
                     if (Stage > Class->End * 0.6) {
                         flags |= 6;
                     } else if (Stage > Class->End * 0.4) {
@@ -405,7 +405,7 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
                         flags |= 2;
                     }
                 } else if (Class->Translucency > 0) {
-                    if (unknown_158 >= 15) return;
+                    if (TranslucencyLevel >= 15) return;
                     if (Class->Translucency == 25) {
                         flags |= 2;
                     } else if (Class->Translucency == 50) {
@@ -413,11 +413,11 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
                     } else if (Class->Translucency == 75) {
                         flags |= 6;
                     }
-                } else if (unknown_158 != 0) {
-                    if (unknown_158 > 15) return;
-                    if (unknown_158 > 10) {
+                } else if (TranslucencyLevel != 0) {
+                    if (TranslucencyLevel > 15) return;
+                    if (TranslucencyLevel > 10) {
                         flags |= 4;
-                    } else if (unknown_158 > 5) {
+                    } else if (TranslucencyLevel > 5) {
                         flags |= 4;
                     } else {
                         flags |= 2;
@@ -438,7 +438,7 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
                 if (!Class->UseNormalLight) {
                     brightness = Map[unknown_slot42()].TileBrightness;
                 }
-            } else if (unknown_176) {
+            } else if (IsAttachedToCell) {
                 CellClass *cellptr = &Map[Cell(unknown_slot42())];
                 if (cellptr->Drawer == 0) {
                     cellptr->Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
@@ -450,7 +450,7 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
             } else if (unknown_bc != 0) {
                 convert = unknown_bc;
                 if (!Class->UseNormalLight) {
-                    brightness = unknown_e4;
+                    brightness = AlternativeBrightness;
                 }
             } else {
                 convert = Unit_Draw_Convert_008323C0;
@@ -462,7 +462,7 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
                 }
             }
 
-            if (unknown_174) {
+            if (IsBouncing) {
                 CC_Draw_Shape(LogicalSurface, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset + Tactical_Z_Lepton_To_Pixel(height)), cliprect, 0x2601, 0, Class->YDrawOffset - Tactical_Z_Lepton_To_Pixel(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
             }
 
@@ -563,8 +563,8 @@ extern Rect TacticalRect;
 bool __fastcall Building_Player_Detector_Covers_Cell_00438a60(HouseClass const *house, CellClass const *cell);
 void AnimClass::AI()
 {
-    if (!unknown_178 && Class->StartSound!=-1)
-        Voc_Update_At(Center_Coord(),&unknown_180);
+    if (!IsInert && Class->StartSound!=-1)
+        Voc_Update_At(Center_Coord(),&StartSoundAudioController);
     if (Class->IsFlamingGuy) {
         Flaming_Guy_AI();
         ObjectClass::AI();
@@ -573,24 +573,24 @@ void AnimClass::AI()
         CellClass *cell=&Map[Center_Coord()];
         HouseClass *house=unknown_160;
         bool covered=Building_Player_Detector_Covers_Cell_00438a60(house,cell);
-        unknown_17d=!covered;
+        IsInvisible=!covered;
     }
     if (Class==Rules->Behind) {
-        if (!Options.ShowHidden) unknown_17d=true;
-        else unknown_17d=false;
+        if (!Options.ShowHidden) IsInvisible=true;
+        else IsInvisible=false;
     }
     if (Class->HideIfNoOre) {
         AbstractClass *object=Get_Cell_Ptr();
         CellClass *cell=(CellClass *)object;
-        if (!cell || !cell->Get_Tiberium_Value()) unknown_17d=true;
-        else unknown_17d=false;
+        if (!cell || !cell->Get_Tiberium_Value()) IsInvisible=true;
+        else IsInvisible=false;
     }
-    if (unknown_103 && unknown_104==Stage) unknown_103=false;
-    if (unknown_174) {
+    if (Unpaused && unknown_104==Stage) Unpaused=false;
+    if (IsBouncing) {
         int result=unknown_slot116();
         if (result==2 || result==1) {
             CellClass &cell=Map[Position_Coord_004f3f40()];
-            int land=cell.unknown_ec;
+            int land=cell.Land;
             bool water=land==2;
             int z=Position_Coord_004f3f40().Z;
             int height=Map.Get_Height_GL(Position_Coord_004f3f40())+unknown_geometry_j;
@@ -646,13 +646,13 @@ void AnimClass::AI()
             return;
         }
     }
-    if (IsActive && !unknown_17b) {
+    if (IsActive && !IsToDelete) {
         if (Class->TrailerAnim && (Class->TrailerSeperation==1 || Frame%Class->TrailerSeperation==0))
             new AnimClass(Class->TrailerAnim,Center_Coord(),1,1,0x600,0);
     }
-    if (Class==Rules->DropZoneAnim && Map[Center_Coord()].Cell_Building()) unknown_17b=true;
-    if (unknown_17b) { Delete_Me(); return; }
-    if (unknown_17c) { unknown_17c=false; return; }
+    if (Class==Rules->DropZoneAnim && Map[Center_Coord()].Cell_Building()) IsToDelete=true;
+    if (IsToDelete) { Delete_Me(); return; }
+    if (IsBrandNew) { IsBrandNew=false; return; }
     if (LoopDelay) {
         --LoopDelay;
         if (!LoopDelay) unknown_func_4226d0();
@@ -660,7 +660,7 @@ void AnimClass::AI()
         if (Class->IsVeins) Vein_Attack_AI();
         if (Class->IsAnimatedTiberium) {
             int overlay=Map[Center_Coord()-CoordStruct(384,384,0)].OverlayIndex;
-            if (overlay==-1 || OverlayTypes[overlay]->CellAnim!=Class) unknown_17b=true;
+            if (overlay==-1 || OverlayTypes[overlay]->CellAnim!=Class) IsToDelete=true;
         }
         if (Class->End==-1) {
             Class->End=((ShapeFileStruct const *)Class->Get_Image_Data())->Get_Count();
@@ -668,21 +668,21 @@ void AnimClass::AI()
         }
         if (Class->LoopEnd==-1) Class->LoopEnd=Class->End;
         Mark(2);
-        if (!unknown_17e && !unknown_102 && StageClass::Graphic_Logic()) {
+        if (!IsDisabled && !Paused && StageClass::Graphic_Logic()) {
             int stage=Stage;
-            if (Class->Damage>0.0 && !unknown_174) {
-                if (xObject && xObject->Kind_Of()==36) unknown_168+=Class->Damage*5.0;
-                else unknown_168+=Class->Damage;
-                if (unknown_168>=1.0 && !unknown_178) {
-                    int damage=(int)unknown_168;
-                    unknown_168-=damage;
+            if (Class->Damage>0.0 && !IsBouncing) {
+                if (xObject && xObject->Kind_Of()==36) Accum+=Class->Damage*5.0;
+                else Accum+=Class->Damage;
+                if (Accum>=1.0 && !IsInert) {
+                    int damage=(int)Accum;
+                    Accum-=damage;
                     if (strcmp(Class->ID,"INVISO")==0)
                         Explosion_Damage(Center_Coord(),damage,0,Rules->C4Warhead,1);
                     else Explosion_Damage(Center_Coord(),damage,0,Rules->FlameDamage2,1);
                     if (!IsActive) return;
                 }
             }
-            if (Class->unknown_268 && Class->Start+stage==Class->unknown_268 && !unknown_174)
+            if (Class->Biggest && Class->Start+stage==Class->Biggest && !IsBouncing)
                 Middle();
             if (Class->PingPong) {
                 if ((Loops<=1 && (stage>=Class->End || stage==0)) ||
@@ -707,9 +707,9 @@ void AnimClass::AI()
                             if (Class->Shadow) Class->End/=2;
                         }
                         if (Class->LoopEnd==-1) Class->LoopEnd=Class->End;
-                        unknown_17b=false;
+                        IsToDelete=false;
                         Loops=(unsigned char)Class->LoopCount;
-                        unknown_168=0.0;
+                        Accum=0.0;
                         int delay=Class->Rate;
                         if (Class->RandomRateMin || Class->RandomRateMax)
                             delay=Random_Pick(Class->RandomRateMin,Class->RandomRateMax);
@@ -718,7 +718,7 @@ void AnimClass::AI()
                         Stage=Class->Start;
                         unknown_func_4226d0();
                     } else {
-                        unknown_159=true;
+                        TimeToDie=true;
                         Delete_Me();
                     }
                 }
@@ -778,7 +778,7 @@ void AnimClass::Attach_To(ObjectClass *object)
 
 void AnimClass::Set_Attached_Bullet(AbstractClass *value)
 {
-    unknown_15c = value;
+    AttachedBullet = value;
 }
 
 
@@ -813,16 +813,16 @@ int AnimClass::In_Which_Layer() const
 void AnimClass::unknown_func_4226d0()
 {
     Mark(2);
-    if (!unknown_178 && Class->StartSound != -1) {
-        Voc_Play_At(Class->StartSound, Center_Coord(), &unknown_180);
+    if (!IsInert && Class->StartSound != -1) {
+        Voc_Play_At(Class->StartSound, Center_Coord(), &StartSoundAudioController);
     } else {
-        unknown_180.Unknown_00405D50();
+        StartSoundAudioController.Unknown_00405D50();
     }
-    unknown_194.Unknown_00405D50();
-    if (Class->unknown_268 == 0) {
+    StopSoundAudioController.Unknown_00405D50();
+    if (Class->Biggest == 0) {
         Middle();
     }
-    if (!unknown_178 && Class->TiberiumChainReaction) {
+    if (!IsInert && Class->TiberiumChainReaction) {
         UnknownAnimCell *cell = (UnknownAnimCell *)&Map[Center_Coord()];
         int index = cell->Unknown_0047A220();
         if (index != -1) {
@@ -833,7 +833,7 @@ void AnimClass::unknown_func_4226d0()
                     tiberium->unknown_c4[unknown_id_source_a3d290->Random()(0, tiberium->unknown_c4.Count() - 1)],
                     Center_Coord() + CoordStruct(0, 0, 10), 0, 1, 0x600, 0);
                 anim->unknown_bc = ColorSchemes[tiberium->unknown_c0]->Converter;
-                anim->unknown_e4 = cell->unknown_10a;
+                anim->AlternativeBrightness = cell->unknown_10a;
             }
             {
                 CoordStruct coord = Coord;
@@ -861,8 +861,8 @@ void AnimClass::Middle()
     int height = 30;
     ShapeFileStruct const *shape = (ShapeFileStruct const *)Get_Image_Data();
     if (shape != 0) {
-        width = shape->Get_Frame_Rect(Class->unknown_268).Width;
-        height = shape->Get_Frame_Rect(Class->unknown_268).Height;
+        width = shape->Get_Frame_Rect(Class->Biggest).Width;
+        height = shape->Get_Frame_Rect(Class->Biggest).Height;
     }
     if (Get_Height_AGL() < 30) {
         if (Class->Scorch &&
@@ -892,14 +892,14 @@ void AnimClass::Detach(AbstractClass *target, bool all)
     if (xObject == target) {
         Map.Remove(this);
         xObject = 0;
-        unknown_17b = true;
+        IsToDelete = true;
         Mark(0);
     }
     if (Class == target) {
         Class = 0;
     }
-    if (unknown_15c == target) {
-        unknown_15c = 0;
+    if (AttachedBullet == target) {
+        AttachedBullet = 0;
         Delete_Me();
     }
 }
@@ -927,7 +927,7 @@ void __fastcall Unknown_00422BA0(int arg1, Cell const &cell)
 
 void AnimClass::unknown_func_422c10()
 {
-    unknown_17e = true;
+    IsDisabled = true;
 }
 
 
@@ -935,7 +935,7 @@ void AnimClass::unknown_func_422c10()
 
 void AnimClass::unknown_func_422c20()
 {
-    unknown_17e = false;
+    IsDisabled = false;
 }
 
 
@@ -950,14 +950,14 @@ HRESULT __stdcall AnimClass::Load(IStream *stream)
     HRESULT result = ObjectClass::Load(stream);
     if (SUCCEEDED(result)) {
         new (this) AnimClass(NoInitClass());
-        unknown_180.Init();
-        unknown_194.Init();
+        StartSoundAudioController.Init();
+        StopSoundAudioController.Init();
         Swizzle_Pointer(Class);
         Swizzle_Pointer(xObject);
-        Swizzle_Pointer(unknown_15c);
-        if (unknown_c0 > -1) {
-            if (unknown_c0 < ColorSchemes.Count()) {
-                unknown_bc = ColorSchemes[unknown_c0]->Converter;
+        Swizzle_Pointer(AttachedBullet);
+        if (LightConvertIndex > -1) {
+            if (LightConvertIndex < ColorSchemes.Count()) {
+                unknown_bc = ColorSchemes[LightConvertIndex]->Converter;
                 return result;
             }
         } else {
@@ -987,12 +987,12 @@ HRESULT __stdcall AnimClass::Save(IStream *stream, BOOL clear_dirty)
     if (unknown_bc != 0) {
         for (int index = ColorSchemes.Count() - 1; index >= 0; index--) {
             if (unknown_bc == ColorSchemes[index]->Converter) {
-                unknown_c0 = index;
+                LightConvertIndex = index;
                 goto save;
             }
         }
     }
-    unknown_c0 = -1;
+    LightConvertIndex = -1;
 save:
     return AbstractClass::Save(stream, clear_dirty);
 }
@@ -1006,20 +1006,20 @@ void AnimClass::Compute_CRC(WWCRCEngine &crc) const
     if (xObject != 0) {
         crc(xObject->Fetch_ID());
     }
-    crc((long)unknown_b8);
-    crc((long)unknown_e4);
+    crc((long)OwnerHouse);
+    crc((long)AlternativeBrightness);
     crc((long)ZAdjust);
     crc((long)YSortAdjust);
     crc((long)LoopDelay);
-    crc(unknown_168);
-    crc((long)unknown_170);
-    crc(unknown_174);
+    crc(Accum);
+    crc((long)ShapeFlags);
+    crc(IsBouncing);
     crc((long)Loops);
-    crc(unknown_176);
-    crc(unknown_177);
-    crc(unknown_17b);
-    crc(unknown_17c);
-    crc(unknown_17e);
+    crc(IsAttachedToCell);
+    crc(IsToDeleteOnOverpass);
+    crc(IsToDelete);
+    crc(IsBrandNew);
+    crc(IsDisabled);
 }
 
 
@@ -1075,7 +1075,7 @@ void AnimClass::Vein_Attack_AI()
     ObjectClass *object = cell->unknown_e4;
     if (object == 0 || object->Get_Height_AGL() > 0 || cell->unknown_44 != 0x7E ||
         cell->unknown_11e < 0x30 || cell->unknown_11c) {
-        unknown_17b = true;
+        IsToDelete = true;
     }
     if (!(Frame & 1)) {
         while (object != 0) {
@@ -1102,9 +1102,9 @@ void AnimClass::Vein_Attack_AI()
 void AnimClass::Delete_Me()
 {
     Attach_To(0);
-    unknown_180.Unknown_00406070();
-    if (!unknown_178 && Class->StopSound != -1) {
-        Voc_Play_At(Class->StopSound, Center_Coord(), &unknown_194);
+    StartSoundAudioController.Unknown_00406070();
+    if (!IsInert && Class->StopSound != -1) {
+        Voc_Play_At(Class->StopSound, Center_Coord(), &StopSoundAudioController);
     }
     ObjectClass::Delete_Me();
 }
@@ -1164,33 +1164,33 @@ static inline Cell Flaming_Adjacent_Cell(Cell const &cell, int facing)
 
 void AnimClass::Flaming_Guy_AI()
 {
-    if (!unknown_17a) {
+    if (!IsFlamingGuyEnd) {
         Set_Rate(0);
     }
 
-    if (unknown_f0 != unknown_geometry_l && !unknown_17a) {
+    if (FlamingGuyCoords != unknown_geometry_l && !IsFlamingGuyEnd) {
         CoordStruct coord = Coord;
         coord.Z = 0;
-        CoordStruct target = unknown_f0;
+        CoordStruct target = FlamingGuyCoords;
         target.Z = 0;
         if (Flaming_Offset(coord, target).Length() <= 18) {
             if (!IsFalling) {
                 CoordStruct nextcoord = unknown_func_4237b0();
-                bool sink = (Map[unknown_f0].unknown_ec == 2 || Map[unknown_f0].unknown_ec == 6) && Get_Height_AGL() <= unknown_geometry_g;
-                if (nextcoord != unknown_geometry_l && unknown_fc < 7 && !sink) {
-                    unknown_fc++;
+                bool sink = (Map[FlamingGuyCoords].Land == 2 || Map[FlamingGuyCoords].Land == 6) && Get_Height_AGL() <= unknown_geometry_g;
+                if (nextcoord != unknown_geometry_l && FlamingGuyRetries < 7 && !sink) {
+                    FlamingGuyRetries++;
                     int z = Position_Coord_004f3f40().Z;
-                    CoordStruct oldcoord = unknown_f0;
+                    CoordStruct oldcoord = FlamingGuyCoords;
                     if (z <= Map.Get_Height_GL(oldcoord) + 2 * unknown_geometry_g) {
                         oldcoord.Z = Map.Get_Height_GL(oldcoord);
                     } else {
                         oldcoord.Z = Map.Get_Height_GL(oldcoord) + unknown_geometry_j;
                     }
                     Set_Coord(oldcoord);
-                    unknown_f0 = nextcoord;
+                    FlamingGuyCoords = nextcoord;
                 } else {
-                    unknown_f0 = unknown_geometry_l;
-                    unknown_17a = true;
+                    FlamingGuyCoords = unknown_geometry_l;
+                    IsFlamingGuyEnd = true;
                     Set_Rate(1);
                     Stage = Class->RunningFrames * 8 + 1;
                     return;
@@ -1198,7 +1198,7 @@ void AnimClass::Flaming_Guy_AI()
             }
         } else {
             int z = Position_Coord_004f3f40().Z;
-            UnknownFacingDir direction = UnknownFacingDir().Direction(Center_Coord(), unknown_f0);
+            UnknownFacingDir direction = UnknownFacingDir().Direction(Center_Coord(), FlamingGuyCoords);
             CoordStruct newcoord = Move_Coord(Position_Coord_004f3f40(), direction, 18);
             if (z <= Map.Get_Height_GL(newcoord) + 2 * unknown_geometry_g) {
                 newcoord.Z = Map.Get_Height_GL(newcoord);
@@ -1218,13 +1218,13 @@ void AnimClass::Flaming_Guy_AI()
         }
     } else {
         if (!IsFalling) {
-            if (!unknown_17a) {
+            if (!IsFlamingGuyEnd) {
                 CoordStruct nextcoord = unknown_func_4237b0();
                 if (nextcoord != unknown_geometry_l) {
-                    unknown_f0 = nextcoord;
+                    FlamingGuyCoords = nextcoord;
                 } else {
-                    unknown_f0 = unknown_geometry_l;
-                    unknown_17a = true;
+                    FlamingGuyCoords = unknown_geometry_l;
+                    IsFlamingGuyEnd = true;
                     Set_Rate(1);
                     Stage = Class->RunningFrames * 8 + 1;
                 }
@@ -1232,10 +1232,10 @@ void AnimClass::Flaming_Guy_AI()
         }
     }
 
-    if (!unknown_17a) {
+    if (!IsFlamingGuyEnd) {
         int stage = 0;
-        if (unknown_f0 != unknown_geometry_l) {
-            stage = Class->RunningFrames * ((-1 - Dir_To_8(Direction(Center_Coord(), unknown_f0))) & 7);
+        if (FlamingGuyCoords != unknown_geometry_l) {
+            stage = Class->RunningFrames * ((-1 - Dir_To_8(Direction(Center_Coord(), FlamingGuyCoords))) & 7);
         }
         Stage = stage + Frame / 3 % Class->RunningFrames;
         return;
@@ -1276,7 +1276,7 @@ CoordStruct AnimClass::unknown_func_4237b0()
         for (int y = start.Y - 5; y < start.Y + 5; y++) {
             if (Map.Unknown_0055A660(Cell(x, y), true)) {
                 CellClass &cell = Map[Cell(x, y)];
-                if (cell.unknown_ec == 2 && !(cell.unknown_140 & 0x100)
+                if (cell.Land == 2 && !(cell.unknown_140 & 0x100)
                     && !(cell.Adjacent_Cell(6).unknown_140 & 0x100)
                     && !(cell.Adjacent_Cell(0).unknown_140 & 0x100)) {
                     int dist = cell.MapCoords != start ? TPoint2D<int>(x - start.X, y - start.Y).Length() : 0;

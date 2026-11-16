@@ -523,7 +523,7 @@ void __fastcall Storm_Strike_0051FE50(CoordStruct coord)
         int sound = unknown_id_source_a3d290->Random()();
         Voc_Play_At(Rules->LightningSounds[(unsigned)sound % Rules->LightningSounds.Count()], where, 0);
     }
-    int land = cellptr.unknown_ec;
+    int land = cellptr.Land;
     int damage = Rules->LightningDamage;
     AnimTypeClass *anim = Select_Damage_Anim(damage, Rules->LightningWarhead, land, &where);
     new AnimClass(anim, where, 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(where));
@@ -533,7 +533,7 @@ void __fastcall Storm_Strike_0051FE50(CoordStruct coord)
     ObjectClass *object = cellptr.Cell_Techno(Point2D(0, 0), false, 0);
     bool sheltered = object != 0 && object->Kind_Of() == 15;
     if (building == 0 && object == 0) {
-        switch (cellptr.unknown_ec) {
+        switch (cellptr.Land) {
         case 1:
         case 3:
         case 4:

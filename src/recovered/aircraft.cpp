@@ -111,16 +111,16 @@ bool __fastcall Is_Civilian_Passenger_004139F0(FootClass *passenger)
 AircraftClass::AircraftClass(AircraftTypeClass *type, HouseClass *house) :
     FootClass(house),
     Type(type),
-    unknown_5b0(false),
-    unknown_5b1(false),
-    unknown_5b2(false),
-    unknown_5b4(0),
+    IsToSpendAmmo(false),
+    Passenger(false),
+    IsKamikaze(false),
+    DockNowHeadingTo(0),
     unknown_5b8(false),
     unknown_5b9(false),
-    unknown_5ba(false),
-    unknown_5bb(5),
-    unknown_5bc(true),
-    unknown_5bd(true)
+    IsLockedStraight(false),
+    NumParadropsLeft(5),
+    IsCarryallNotLanding(true),
+    IsReturningFromAttackRun(true)
 {
     Create_ID();
     if (Type != 0) {
@@ -241,7 +241,7 @@ bool AircraftClass::Unlimbo(CoordStruct const *coord, int dir)
         if (!(Type->IsSelectable && Type->Landable) ||
             (unknown_slot231(0)->WeaponType && unknown_slot231(0)->WeaponType->unknown_11f))
             unknown_32c = true;
-        if (Cargo.Object) unknown_5b1 = true;
+        if (Cargo.Object) Passenger = true;
         SecondaryFacing.Set(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
         StageClass::Set_Rate(1);
         StageClass::Stage = 0;
@@ -388,7 +388,7 @@ void AircraftClass::AI()
     case 27:
         break;
     default:
-        unknown_5ba = false;
+        IsLockedStraight = false;
     }
     if (unknown_20c) unknown_20c->AI();
     if ((unknown_slot111() || unknown_slot112()) && Frame % 24 == 0 && Rules->ChronoSparkle1)
@@ -448,8 +448,8 @@ void AircraftClass::AI()
         unknown_slot261(false, true);
     }
     if (Ready_To_Commence()) Commence();
-    if (unknown_5b0 && Mission != 1) {
-        unknown_5b0 = false;
+    if (IsToSpendAmmo && Mission != 1) {
+        IsToSpendAmmo = false;
         --unknown_254;
     }
     if (Health_Ratio() < Rules->unknown_1370 && Get_Height_AGL() > 0) {
@@ -557,7 +557,7 @@ int AircraftClass::Do_MISSION_PARADROP_APPROACH()
     }
     if (Planar_Distance(unknown_228) <= Rules->ParadropRadius) {
         QueueMission(27, false);
-        unknown_5bb--;
+        NumParadropsLeft--;
     }
     return 3;
 }
@@ -575,11 +575,11 @@ int AircraftClass::Do_MISSION_PARADROP_OVERFLY()
 {
     enum { RetreatMission = 4, ParadropApproachMission = 26 };
     AbstractClass *target = unknown_228;
-    unknown_5ba = true;
+    IsLockedStraight = true;
     if (target && Cargo.Object) {
         if (Planar_Distance(target) > Rules->ParadropRadius) {
-            signed char queue_state = unknown_5bb;
-            unknown_5ba = false;
+            signed char queue_state = NumParadropsLeft;
+            IsLockedStraight = false;
             if (queue_state > 0) {
                 QueueMission(ParadropApproachMission, false);
                 return 5;
@@ -594,7 +594,7 @@ int AircraftClass::Do_MISSION_PARADROP_OVERFLY()
             return 5;
         }
     } else {
-        unknown_5ba = false;
+        IsLockedStraight = false;
     }
     unknown_slot220(0);
     Assign_Destination(0, true);
@@ -700,7 +700,7 @@ int AircraftClass::Paradrop_Cargo()
                     passenger->unknown_454 = Coord_Cell(Map[landing].Center_Coord());
                     if (Team) Team->Remove(passenger, -1, 0);
                     Arm = CDTimerClass<FrameTimerClass>(0);
-                    unknown_5bb = 5;
+                    NumParadropsLeft = 5;
                     return 0;
                 }
             }
@@ -835,7 +835,7 @@ BulletClass *AircraftClass::Fire_At(AbstractClass *target, int arg2)
             }
         }
     }
-    if (unknown_5b2) {
+    if (IsKamikaze) {
         Delete_Me();
     }
     return bullet;
@@ -1096,7 +1096,7 @@ select_destination:
                     return 1;
                 }
             }
-            unknown_5bc = false;
+            IsCarryallNotLanding = false;
         }
         if (!Locomotor.Checked()->Is_Moving()) {
             Debug_Printf("Do_MISSION_MOVE_Carryall - FLY_TO_LZ - Stopped moving\n");
@@ -1106,7 +1106,7 @@ select_destination:
     case 3: {
         Debug_Printf("Do_MISSION_MOVE_Carryall - LAND\n");
         if (Cargo.Object && unknown_3f8) {
-            unknown_5bc = true;
+            IsCarryallNotLanding = true;
             return 1;
         }
         if (Cargo.Object) {
@@ -1137,7 +1137,7 @@ select_destination:
 finalize_pickup:
         unknown_slot149(3);
         Mark(1);
-        unknown_5bc = true;
+        IsCarryallNotLanding = true;
         unknown_slot261(false, true);
         return 1;
     }
@@ -1253,7 +1253,7 @@ bool AircraftClass::unknown_slot261(bool first, bool second)
         Restore_Mission();
         if (Mission == 25) {
             Status = 0;
-            unknown_5ba = false;
+            IsLockedStraight = false;
         }
         return false;
     }
@@ -1473,7 +1473,7 @@ checks:
 docking:
     if (House->Is_Player_Control() && action == 7 && object->Kind_Of() == 6) {
         BuildingTypeClass *type = ((UnknownAircraftBuilding *)object)->Type;
-        if ((type == Rules->RepairBay || type->unknown_1365)
+        if ((type == Rules->RepairBay || type->IsHelipad)
             && ((TechnoClass *)object)->Unknown_00636ED0(this) && ((TechnoClass *)object)->Cargo.Object == 0
             && unknown_slot150(0xF, (TechnoClass *)object) == 1) {
             action = 3;
@@ -1483,7 +1483,7 @@ docking:
         Cell cell = object->unknown_slot104();
         if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
             UnknownAircraftBuilding *building = ((UnknownAircraftCell &)((UnknownPlacementCellView &)Map[cell])).Unknown_004717B0();
-            if (building != 0 && building->Type->unknown_1357) {
+            if (building != 0 && building->Type->IsWeaponsFactory) {
                 action = 0;
             }
         }
@@ -1538,7 +1538,7 @@ int AircraftClass::Do_MISSION_ATTACK()
 {
     switch (Status) {
     case 0:
-        unknown_5ba = false;
+        IsLockedStraight = false;
         if (unknown_228 == 0) {
             Status = 10;
         } else {
@@ -1546,9 +1546,9 @@ int AircraftClass::Do_MISSION_ATTACK()
         }
         return 1;
     case 1:
-        unknown_5ba = false;
-        if (unknown_5b0) {
-            unknown_5b0 = false;
+        IsLockedStraight = false;
+        if (IsToSpendAmmo) {
+            IsToSpendAmmo = false;
             unknown_254--;
         }
         if (unknown_228 == 0 || unknown_254 == 0) {
@@ -1563,11 +1563,11 @@ int AircraftClass::Do_MISSION_ATTACK()
         }
         break;
     case 3:
-        if (unknown_5b0) {
-            unknown_5b0 = false;
+        if (IsToSpendAmmo) {
+            IsToSpendAmmo = false;
             unknown_254--;
         }
-        unknown_5ba = false;
+        IsLockedStraight = false;
         if (unknown_228 != 0 && unknown_254 != 0) {
             if (Is_Strafe()) {
                 if (Planar_Distance(unknown_228) < unknown_slot231(0)->WeaponType->unknown_b4) {
@@ -1634,16 +1634,16 @@ int AircraftClass::Do_MISSION_ATTACK()
             }
             break;
         case 0: {
-            unknown_5b0 = true;
+            IsToSpendAmmo = true;
             Fire_At(unknown_228, What_Weapon_Should_I_Use(unknown_228));
             Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             if (Is_Strafe()) {
                 Status = 6;
-                unknown_5ba = true;
+                IsLockedStraight = true;
                 return unknown_slot231(0)->WeaponType->unknown_b0;
             }
             if (Is_Fighter()) {
-                unknown_5ba = true;
+                IsLockedStraight = true;
                 Status = unknown_254 <= 0 ? 10 : 1;
                 return unknown_slot231(0)->WeaponType->unknown_b0;
             }
@@ -1727,7 +1727,7 @@ int AircraftClass::Do_MISSION_ATTACK()
         default:
             if (unknown_254 == 0) {
                 Status = 10;
-                unknown_5ba = false;
+                IsLockedStraight = false;
             }
             return 1;
         }
@@ -1751,7 +1751,7 @@ int AircraftClass::Do_MISSION_ATTACK()
         default:
             if (unknown_254 == 0) {
                 Status = 10;
-                unknown_5ba = false;
+                IsLockedStraight = false;
             }
             return 1;
         }
@@ -1775,7 +1775,7 @@ int AircraftClass::Do_MISSION_ATTACK()
         default:
             if (unknown_254 == 0) {
                 Status = 10;
-                unknown_5ba = false;
+                IsLockedStraight = false;
             }
             return 1;
         }
@@ -1797,14 +1797,14 @@ int AircraftClass::Do_MISSION_ATTACK()
         default:
             if (unknown_254 == 0) {
                 Status = 10;
-                unknown_5ba = false;
+                IsLockedStraight = false;
             }
             return 1;
         }
     case 10:
-        unknown_5ba = false;
-        if (unknown_5b0) {
-            unknown_5b0 = false;
+        IsLockedStraight = false;
+        if (IsToSpendAmmo) {
+            IsToSpendAmmo = false;
             if (unknown_254 > 0) {
                 unknown_254--;
             }
@@ -1817,11 +1817,11 @@ int AircraftClass::Do_MISSION_ATTACK()
             Status = 1;
             return 1;
         }
-        unknown_5ba = false;
+        IsLockedStraight = false;
         Assign_Destination(0, true);
-        unknown_5bd = false;
+        IsReturningFromAttackRun = false;
         unknown_slot261(false, true);
-        unknown_5bd = true;
+        IsReturningFromAttackRun = true;
         return 1;
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
@@ -2192,7 +2192,7 @@ int AircraftClass::Do_MISSION_ENTER()
     enum { MoveMission = 2, GuardMission = 5 };
     if (Get_Height_AGL() == 0 && Type->AirportBound && unknown_494) {
         if (unknown_494 != ((CellClass *)Get_Cell_Ptr())->Unknown_004717B0()) {
-            unknown_5b4 = Building_Destination(unknown_494);
+            DockNowHeadingTo = Building_Destination(unknown_494);
             unknown_slot149(3);
             QueueMission(2, true);
             return 1;
@@ -2200,9 +2200,9 @@ int AircraftClass::Do_MISSION_ENTER()
     }
     if (Get_Height_AGL() > 0) {
         AbstractClass *target = unknown_494;
-        TechnoClass *previous = unknown_5b4;
+        TechnoClass *previous = DockNowHeadingTo;
         if (previous != target && target && target->Kind_Of() == 6)
-            unknown_5b4 = Building_Destination(unknown_494);
+            DockNowHeadingTo = Building_Destination(unknown_494);
     }
     if (!unknown_494 && In_Which_Layer() != 2 && unknown_slot149(14) != 1 && !Move_To_Object_Nearby()) {
         unknown_slot261(false, true);
@@ -2216,7 +2216,7 @@ int AircraftClass::Do_MISSION_ENTER()
     case 3:
     case 4:
     case 5:
-        unknown_5bc = true;
+        IsCarryallNotLanding = true;
         return 1;
     case 6:
         if (Type->AirportBound && Get_Height_AGL() != 0) unknown_slot149(14);
@@ -2224,22 +2224,22 @@ int AircraftClass::Do_MISSION_ENTER()
             if (!Move_To_Object_Nearby()) {
                 if (Locomotor.Checked()->Get_Status() == 1) {
                     Status = 7;
-                    unknown_5bc = true;
+                    IsCarryallNotLanding = true;
                 }
                 if (MissionQueue == -1) {
                     Assign_Destination(0, true);
                     unknown_slot261(false, true);
-                    unknown_5bc = true;
+                    IsCarryallNotLanding = true;
                     return 1;
                 }
-                unknown_5bc = true;
+                IsCarryallNotLanding = true;
             }
-            unknown_5bc = true;
+            IsCarryallNotLanding = true;
             return 1;
         }
         if (Locomotor.Checked()->Get_Status() == 1 || (Type->AirportBound && Get_Height_AGL() == 0)) {
             Status = 7;
-            unknown_5bc = false;
+            IsCarryallNotLanding = false;
         }
         return 3;
     case 7:
@@ -2262,10 +2262,10 @@ int AircraftClass::Do_MISSION_ENTER()
                 current.Y += dy;
                 Set_Coord(current);
             }
-            unknown_5bc = true;
+            IsCarryallNotLanding = true;
             return 1;
         }
-        unknown_5bc = true;
+        IsCarryallNotLanding = true;
         switch (unknown_slot149(21)) {
         default:
             unknown_slot261(false, true);
@@ -2421,7 +2421,7 @@ int AircraftClass::Do_MISSION_GUARD()
     if (Get_Height_AGL() == level) {
         if (Team != 0) {
             if (unknown_494 != 0) {
-                unknown_5bc = true;
+                IsCarryallNotLanding = true;
                 QueueMission(2, false);
             }
             return (int)(Control()->unknown_10 * 900.0);
@@ -2433,7 +2433,7 @@ int AircraftClass::Do_MISSION_GUARD()
             return 1;
         }
         if (Team == 0) {
-            unknown_5bc = true;
+            IsCarryallNotLanding = true;
             unknown_slot261(0, true);
         }
         return 1;
@@ -2453,7 +2453,7 @@ int AircraftClass::Do_MISSION_GUARD()
     }
 reloading:
     if (unknown_254 != -1 && unknown_254 < Type->Ammo / 2 && HasAnyLink()
-        && Contact(0)->Kind_Of() == 6 && ((BuildingClass *)Contact(0))->Type->unknown_134a) {
+        && Contact(0)->Kind_Of() == 6 && ((BuildingClass *)Contact(0))->Type->IsCanUnitReload) {
         return 1;
     }
     if (unknown_228 != 0) {
@@ -2526,7 +2526,7 @@ int AircraftClass::unknown_slot218(AbstractClass *arg1, int arg2, bool check_ran
 {
     int result = TechnoClass::unknown_slot218(arg1, arg2, check_range);
     if (result == 0) {
-        if (unknown_5b1 && Cargo.Object == 0) {
+        if (Passenger && Cargo.Object == 0) {
             return 1;
         }
         UnknownFacingDir facing = SecondaryFacing.Current();
@@ -2559,7 +2559,7 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
             if (!HasAnyLink()) {
                 if (!building->Unknown_00636ED0(this)) {
                     Assign_Archive_Target(target);
-                    if (building->Type->unknown_1365) {
+                    if (building->Type->IsHelipad) {
                         TechnoClass *dock = unknown_slot299(
                             (DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
                         Assign_Destination(0, true);
@@ -2574,19 +2574,19 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
                         QueueMission(next_mission, false);
                         if (Ready_To_Commence()) Commence();
                     }
-                    if (building->Type->unknown_1349) {
+                    if (building->Type->IsCanUnitRepair) {
                         unknown_3f8 = building;
                         target = 0;
                     }
                 } else {
                     if (unknown_slot150(14, building) != 1) {
                         unknown_slot149(3);
-                        if (building->Type->unknown_1349 || building->Type->unknown_134a) {
+                        if (building->Type->IsCanUnitRepair || building->Type->IsCanUnitReload) {
                             Assign_Archive_Target(target);
                             target = 0;
                         }
                     }
-                    if (!building->Type->unknown_1349 && !building->Type->unknown_134a) {
+                    if (!building->Type->IsCanUnitRepair && !building->Type->IsCanUnitReload) {
                         Assign_Archive_Target(target);
                     } else if (unknown_494) {
                         Assign_Archive_Target(unknown_494);
@@ -2600,7 +2600,7 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
                     } else if (!techno->ContainsLink(this)) {
                         if (unknown_slot149(14) == 1) return;
                         unknown_slot149(3);
-                        if (building->Type->unknown_1349 || building->Type->unknown_134a) {
+                        if (building->Type->IsCanUnitRepair || building->Type->IsCanUnitReload) {
                             Assign_Archive_Target(target);
                             target = 0;
                         }
@@ -2616,7 +2616,7 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
             }
             if (occupier) {
                 BuildingClass *building = static_cast<BuildingClass *>(occupier);
-                if (building->Type->unknown_1349 || building->Type->unknown_134a) {
+                if (building->Type->IsCanUnitRepair || building->Type->IsCanUnitReload) {
                     if (!Locomotor.Checked()->Is_Powered() && !House->Ion_Sensitives_Should_Be_Offline()) {
                         Locomotor.Checked()->Power_On();
                     }
@@ -2776,7 +2776,7 @@ HRESULT __stdcall AircraftClass::Load(IStream *stream)
         locomotor->Release();
         TargetTracker.Add_Index(Fetch_ID(), this);
         Swizzle_Pointer(Type);
-        Swizzle_Pointer(unknown_5b4);
+        Swizzle_Pointer(DockNowHeadingTo);
         result = S_OK;
     }
     return result;
@@ -2796,10 +2796,10 @@ HRESULT __stdcall AircraftClass::Save(IStream *stream, BOOL clear_dirty)
 
 bool AircraftClass::Ready_To_Commence()
 {
-    if (Mission == 6 || Mission == 21 || unknown_5ba) {
+    if (Mission == 6 || Mission == 21 || IsLockedStraight) {
         return false;
     }
-    return unknown_5bc ? true : false;
+    return IsCarryallNotLanding ? true : false;
 }
 
 
@@ -2808,10 +2808,10 @@ bool AircraftClass::Ready_To_Commence()
 void AircraftClass::Compute_CRC(WWCRCEngine &crc) const
 {
     FootClass::Compute_CRC(crc);
-    crc(unknown_5b1);
+    crc(Passenger);
     crc(unknown_5b8);
     crc(unknown_5b9);
-    crc((long)unknown_5bb);
+    crc((long)NumParadropsLeft);
 }
 
 
@@ -2821,8 +2821,8 @@ void AircraftClass::Compute_CRC(WWCRCEngine &crc) const
 void AircraftClass::Detach(AbstractClass *target, bool all)
 {
     FootClass::Detach(target, all);
-    if (unknown_5b4 == target) {
-        unknown_5b4 = 0;
+    if (DockNowHeadingTo == target) {
+        DockNowHeadingTo = 0;
     }
     if (Type == target) {
         Type = 0;
@@ -2841,7 +2841,7 @@ int __stdcall AircraftClass::Landing_Altitude()
         TechnoClass *contact = Contact_With_Whom(0);
         if (Get_Mission() == 7 && contact != 0 && contact->Kind_Of() == 6) {
             BuildingTypeClass *type = ((BuildingClass *)contact)->Type;
-            if (type->unknown_1349 || type->unknown_1365) {
+            if (type->IsCanUnitRepair || type->IsHelipad) {
                 return 0;
             }
         }
@@ -2912,7 +2912,7 @@ long __stdcall AircraftClass::Is_Fighter()
 
 long __stdcall AircraftClass::Is_Locked()
 {
-    return unknown_5ba;
+    return IsLockedStraight;
 }
 
 
@@ -2921,7 +2921,7 @@ long __stdcall AircraftClass::Is_Locked()
 
 bool AircraftClass::Commence()
 {
-    unknown_5ba = false;
+    IsLockedStraight = false;
     return MissionClass::Commence();
 }
 
@@ -2986,7 +2986,7 @@ bool AircraftClass::On_Ground() const
 
 bool AircraftClass::IsNotWarpingIn()
 {
-    return unknown_5bd;
+    return IsReturningFromAttackRun;
 }
 
 
@@ -3036,15 +3036,15 @@ void AircraftClass::Override_Mission(int mission, AbstractClass *target, Abstrac
 
 TechnoClass *AircraftClass::unknown_slot299(DynamicVectorClass<TechnoTypeClass *> const *types, int arg2, int arg3)
 {
-    if (Type->AirportBound && unknown_5b4 != 0) {
-        if (unknown_slot150(15, unknown_5b4) != 1) {
-            unknown_5b4 = 0;
+    if (Type->AirportBound && DockNowHeadingTo != 0) {
+        if (unknown_slot150(15, DockNowHeadingTo) != 1) {
+            DockNowHeadingTo = 0;
         } else {
-            return unknown_5b4;
+            return DockNowHeadingTo;
         }
     }
-    unknown_5b4 = FootClass::unknown_slot299(types, 0, arg3);
-    return unknown_5b4;
+    DockNowHeadingTo = FootClass::unknown_slot299(types, 0, arg3);
+    return DockNowHeadingTo;
 }
 
 

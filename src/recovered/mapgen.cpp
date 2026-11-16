@@ -2121,7 +2121,7 @@ void __fastcall MapRegionClass::Create_Zone_Region_00575d20(CellClass *cell_ptr,
             Cell const &next = other.MapCoords;
             if (In_Zone_Map_Bounds(other.MapCoords)) {
                 UnknownMapGenerationCell &data = MapRegionClass::Get_Cell_Data(next);
-                if (other.unknown_4c == 0 && Map.Zone(next, zone_kind, false) == zone && data.unknown_3c == -1) {
+                if (other.Passability == 0 && Map.Zone(next, zone_kind, false) == zone && data.unknown_3c == -1) {
                     data.unknown_3c = id;
                     pending.Add(next);
                 }
@@ -2150,7 +2150,7 @@ void __fastcall MapRegionClass::Create_Zone_Regions_00576000(int zone_kind, int 
     for (CellClass *cell = Map.Iterate(); cell; cell = Map.Iterate()) {
         Cell const &position = cell->MapCoords;
         if (Zone_Cell_In_Bounds(cell->MapCoords)) {
-            if (Get_Cell_Data(position).RegionIndex == -1 && cell->unknown_4c == 0 &&
+            if (Get_Cell_Data(position).RegionIndex == -1 && cell->Passability == 0 &&
                 Map.Zone(position, zone_kind, false) == zone) {
                 Create_Zone_Region_00575d20(cell, zone_kind, zone);
             }
@@ -2281,7 +2281,7 @@ void MapRegionClass::Place_Neutral_Tech_Building_00576cd0()
         while(list->X!=0x7fff || list->Y!=0x7fff) {
             Cell next=position + *list;
             CellClass *cell=&Map[next];
-            if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->Height!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true) || !seed_0056dac0::unknown_generation_cell_clear_0056dac0((short *)&cell->MapCoords))clear=false;
+            if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->Height!=height || cell->Land==3 || !Map.Unknown_0055A740(cell,true) || !seed_0056dac0::unknown_generation_cell_clear_0056dac0((short *)&cell->MapCoords))clear=false;
             ++list;
             if(!clear)break;
         }
@@ -3937,7 +3937,7 @@ bool __cdecl Generate_Starting_Points_00576420()
     Map.Reset_Iterator();
     for(CellClass *cell=Map.Iterate();cell!=0;cell=Map.Iterate()) {
         if(Generation_Cell_In_Bounds_0058da10(cell->MapCoords)) {
-            if(MapRegionClass::Get_Cell_Data(cell->MapCoords).RegionIndex==-1 && cell->unknown_4c==0) {
+            if(MapRegionClass::Get_Cell_Data(cell->MapCoords).RegionIndex==-1 && cell->Passability==0) {
                 if(Map.Zone(cell->MapCoords,zone_type,false)==main_zone) {
                     Grow_Zone_Region_00575d20(cell,zone_type,main_zone);
                 }
@@ -6162,7 +6162,7 @@ int MapGeneratorClass::Place_Forest(CellClass *origin,int count,double density)
     int planted=0;
     while(planted<count && current && used<capacity) {
         CellClass *cell=&Map[current->Position];
-        if(cell->Is_Tile_Clear() && cell->OccupierPtr==0 && cell->OverlayIndex==-1 && cell->unknown_ec!=3) {
+        if(cell->Is_Tile_Clear() && cell->OccupierPtr==0 && cell->OverlayIndex==-1 && cell->Land!=3) {
             if(Map_Random_Fraction_00579770()<density) {
                 char treeName[20];
                 int tree=(int)Map_Random_Range_005797a0(1,25);
@@ -6616,7 +6616,7 @@ void MapGeneratorClass::Generate_Urban_Buildings(DynamicVectorClass<Cell> &cells
                     while(list->X!=0x7fff || list->Y!=0x7fff) {
                         Cell next=(position + *list);
                         CellClass *cell=&Map[next];
-                        if((!cell->Is_Tile_Pavement() && !cell->Is_Tile_Misc_Pavement()) || cell->OccupierPtr!=0 || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true))clear=false;
+                        if((!cell->Is_Tile_Pavement() && !cell->Is_Tile_Misc_Pavement()) || cell->OccupierPtr!=0 || cell->Land==3 || !Map.Unknown_0055A740(cell,true))clear=false;
                         ++list;
                         if(!clear)break;
                     }
@@ -7106,7 +7106,7 @@ void MapGeneratorClass::Generate_Rural_Buildings(Cell const &origin)
                     while(list->X!=0x7fff || list->Y!=0x7fff) {
                         Cell next=(position + *list);
                         CellClass *cell=&Map[next];
-                        if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->Height!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true))clear=false;
+                        if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->Height!=height || cell->Land==3 || !Map.Unknown_0055A740(cell,true))clear=false;
                         ++list;
                         if(!clear)break;
                     }
@@ -7516,7 +7516,7 @@ void MapGeneratorClass::Generate_Neutral_Buildings()
                 while(!Is_List_End(list)) {
                     Cell next=position + *list;
                     CellClass *cell=&Map[next];
-                    if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->Height!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true) || !Cell_Is_Free(cell->MapCoords))clear=false;
+                    if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->Height!=height || cell->Land==3 || !Map.Unknown_0055A740(cell,true) || !Cell_Is_Free(cell->MapCoords))clear=false;
                     ++list;
                     if(!clear)break;
                 }

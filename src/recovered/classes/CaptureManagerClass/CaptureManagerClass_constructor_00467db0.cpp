@@ -43,7 +43,7 @@
 
 CaptureManagerClass::CaptureManagerClass(TechnoClass *owner)
 {
-    unknown_24 = 0;
+    Unit = 0;
     unknown_28 = 0;
     Owner = owner;
     unknown_CaptureManagerClass_list_008505a0.Add(this);

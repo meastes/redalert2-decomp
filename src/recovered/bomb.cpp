@@ -73,7 +73,7 @@ BombClass::BombClass() :
 {
     unknown_28 = 0;
     Target = 0;
-    unknown_58 = false;
+    Harmless = false;
     unknown_3c.Init();
     unknown_50 = Rules->BombTickingSound;
     unknown_BombClass_list_0084eb78.Add(this);
@@ -115,22 +115,22 @@ BombClass::BombClass(NoInitClass const &noinit) :
 // The land type of the cell under coord.
 static inline int Land_At(CoordStruct const &coord)
 {
-    return Map[Cell(coord)].unknown_ec;
+    return Map[Cell(coord)].Land;
 }
 
 void BombClass::Unknown_00435D30()
 {
-    if (Target == 0 || unknown_58) {
+    if (Target == 0 || Harmless) {
         return;
     }
     bool flag = Target->IsInLimbo;
     Target->unknown_38 = 0;
     if (flag) {
         Target->BombVisible = false;
-        unknown_58 = true;
+        Harmless = true;
     } else {
         Target->BombVisible = false;
-        unknown_58 = true;
+        Harmless = true;
         CoordStruct coord = Target->Coord;
         Explosion_Damage(coord, Rules->IvanDamage, Owner, Rules->IvanWarhead, true);
         new AnimClass(Select_Damage_Anim(Rules->IvanDamage, Rules->IvanWarhead, Land_At(coord), &coord),
@@ -212,7 +212,7 @@ int BombClass::Get_Current_Flicker_Frame() const
         return 12;
     }
     int rate = Rules->IvanIconFlickerRate;
-    int frame = (Frame - unknown_34) / (Rules->IvanTimedDelay / 6) * 2;
+    int frame = (Frame - PlantingFrame) / (Rules->IvanTimedDelay / 6) * 2;
     if (Frame % (rate * 2) >= rate) {
         frame++;
     }
@@ -228,7 +228,7 @@ int BombClass::Get_Current_Flicker_Frame() const
 
 bool BombClass::Time_To_Explode() const
 {
-    if (Type == 0 && Frame > unknown_38 && !unknown_58) {
+    if (Type == 0 && Frame > unknown_38 && !Harmless) {
         return true;
     }
     return false;
@@ -252,7 +252,7 @@ void BombClass::Compute_CRC(WWCRCEngine &crc) const
     if (Target != 0) {
         crc(Target->Fetch_ID());
     }
-    crc(unknown_58);
+    crc(Harmless);
 }
 
 
@@ -373,8 +373,8 @@ void BombListClass::Add_Bomb(TechnoClass *owner, ObjectClass *target)
         bomb->unknown_28 = owner->Owning_House();
         bomb->Owner = owner;
         bomb->Target = target;
-        bomb->unknown_34 = Frame;
-        bomb->unknown_38 = Rules->IvanTimedDelay + bomb->unknown_34;
+        bomb->PlantingFrame = Frame;
+        bomb->unknown_38 = Rules->IvanTimedDelay + bomb->PlantingFrame;
         bomb->Type = 0;
         target->unknown_38 = bomb;
         Bombs.Add(bomb);

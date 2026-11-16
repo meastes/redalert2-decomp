@@ -17,14 +17,14 @@
 void Native_Building_Temporal_Freeze_0044D320(TechnoClass *techno)
 {
     BuildingClass *building = static_cast<BuildingClass *>(techno);
-    building->unknown_530 = false;
+    building->IsOn = false;
     for (int i = 0; i < 18; i++) {
         AnimClass *anim = static_cast<AnimClass *>(building->unknown_454[i]);
         if (building->Type->Anims[i].Powered && anim != 0) {
-            anim->unknown_102 = true;
-            anim->unknown_103 = false;
+            anim->Paused = true;
+            anim->Unpaused = false;
             anim->unknown_104 = anim->Fetch_Stage();
-            anim->unknown_101 = true;
+            anim->UnderTemporal = true;
         }
     }
 }
@@ -33,13 +33,13 @@ void Native_Building_Temporal_Freeze_0044D320(TechnoClass *techno)
 void Native_Building_Temporal_Thaw_0044D380(TechnoClass *techno)
 {
     BuildingClass *building = static_cast<BuildingClass *>(techno);
-    building->unknown_530 = true;
+    building->IsOn = true;
     for (int i = 0; i < 18; i++) {
         AnimClass *anim = static_cast<AnimClass *>(building->unknown_454[i]);
         if (building->Type->Anims[i].Powered && anim != 0) {
-            anim->unknown_102 = false;
-            anim->unknown_103 = true;
-            anim->unknown_101 = false;
+            anim->Paused = false;
+            anim->Unpaused = true;
+            anim->UnderTemporal = false;
         }
     }
 }

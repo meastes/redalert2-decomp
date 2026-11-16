@@ -180,7 +180,7 @@ public:
 #ifdef RA2_SHIP_CELL_ACCESSORS
     // Native ShipProcess retains the address of MapCoords through the comparison.
     Cell const &Fetch_CellID() const { return MapCoords; }
-    int Land_Type() const { return unknown_ec; }
+    int Land_Type() const { return Land; }
 #else
     Cell Fetch_CellID() const { return MapCoords; }
 #endif
@@ -204,7 +204,7 @@ public:
     ObjectClass *Cell_Techno(Point2D const &spot, bool alt, ObjectClass *except) const;   // 0x00471660 (nearest flagged occupant to a sub-cell spot)
     ObjectClass *Find_Object(int kind, bool alt = false) const;         // 0x00471760
 #if defined(RA2_CELL_CLEAR_TO_BUILD) && !defined(RA2_SHIP_CELL_ACCESSORS)
-    int Land_Type() const { return unknown_ec; }   // TibSun cell.h; Is_Clear_To_Build 0x004718B0 reads Ground[Land_Type()]
+    int Land_Type() const { return Land; }   // TibSun cell.h; Is_Clear_To_Build 0x004718B0 reads Ground[Land_Type()]
 #endif
     ObjectClass *Cell_Object(Point2D const &spot, bool alt);         // 0x00471830 (an aircraft over the cell when the flag at 0x00A40958 is set, else the occupant nearest the spot; TeamClass 0x006BB260)
     ObjectClass *Cell_Building() const;                                // 0x004717B0 (the building; kind 6)
@@ -444,20 +444,20 @@ public:
     void *unknown_30;                           // +0x030
     LightConvertClass *Drawer;              // +0x034 the tile drawer (Westwood's Drawer)
     int IsoTileIndex;                           // +0x038
-    TagClass *unknown_3c;                       // +0x03C
+    TagClass *Tag;                       // +0x03C
     void *unknown_40;                           // +0x040
     int OverlayIndex;                           // +0x044
     int SmudgeIndex;                            // +0x048
-    int unknown_4c;                             // +0x04C
+    int Passability;                             // +0x04C
     int unknown_50;                             // +0x050
     int InfType;                             // +0x054
     int BridgeInfType;                             // +0x058
-    int unknown_5c;                             // +0x05C
-    int unknown_60;                             // +0x060
+    int LastRedrawFrame;                             // +0x05C
+    int LastUnknownDrawFrame;                             // +0x060
     int unknown_64;                             // +0x064
-    Rect unknown_68;                            // +0x068 (Westwood's LastBridgeDrawRect)
-    unsigned int unknown_78;                    // +0x078
-    short unknown_7c[24];                       // +0x07C
+    Rect LastBridgeDrawRect;                            // +0x068 (Westwood's LastBridgeDrawRect)
+    unsigned int CloakedBy;                    // +0x078
+    short SensorsOfHouses[24];                       // +0x07C
 #ifdef RA2_CELL_FULL_ASSIGN
     unsigned short unknown_ac[24];              // +0x0AC [YR DisguiseSensorsOfHouses]
 #else
@@ -472,30 +472,30 @@ public:
     // the first object in the cell, or on its bridge. Guarded: BuildingLightClass's unit defines the macro in its first row.
     ObjectClass * Cell_Occupier(bool bridge=false) const {return(bridge ? AltOccupierPtr : OccupierPtr);}
 #endif
-    int unknown_ec;                             // +0x0EC
+    int Land;                             // +0x0EC
     double unknown_f0;                          // +0x0F0
-    void *unknown_f8;                           // +0x0F8
+    void *RadSite;                           // +0x0F8
     UnknownCellOwned *unknown_fc;               // +0x0FC
     int unknown_100;                            // +0x100
     int unknown_104;                            // +0x104
     short unknown_108;                          // +0x108
     short Brightness;                          // +0x10A
     short TileBrightness;                          // +0x10C
-    short unknown_10e;                          // +0x10E
-    short unknown_110;                          // +0x110
-    short unknown_112;                          // +0x112
-    short unknown_114;                          // +0x114
+    short AltBrightness;                          // +0x10E
+    short RedTint;                          // +0x110
+    short GreenTint;                          // +0x112
+    short BlueTint;                          // +0x114
     short Tube;                          // +0x116
-    unsigned char unknown_118;                  // +0x118
-    char unknown_119;                           // +0x119
+    unsigned char LastBridgeDrawRedraws;                  // +0x118
+    char IsIceGrowthAllowed;                           // +0x119
     char SubTile;                           // +0x11A
     char Height;                           // +0x11B
     unsigned char Ramp;                  // +0x11C
-    char unknown_11d;                           // +0x11D
+    char Elevation;                           // +0x11D
     unsigned char OverlayData;                  // +0x11E
     unsigned char SmudgeData;                   // +0x11F
-    char unknown_120;                           // +0x120
-    char unknown_121;                           // +0x121
+    char ShadowFrame;                           // +0x120
+    char FogFrame;                           // +0x121
     char AdjacentObjectCount;                           // +0x122
 #ifndef RA2_CELL_FULL_ASSIGN
     char unknown_123;

@@ -420,7 +420,7 @@ bool DisplayClass::Unknown_00499390(BuildingTypeClass *type, int house, int arg3
             }
         }
         if (shrouded) {
-            if (type->unknown_bf0 == 0) {
+            if (type->ToTile == 0) {
                 return false;
             }
             break;
@@ -675,19 +675,19 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
     target.unknown_140 = (target.unknown_140 & ~0x40) | 2;
     target.unknown_12c |= 8;
     signed char frame = TacticalMap->Cell_Shadow(cell, 0);
-    if (frame != target.unknown_120) {
+    if (frame != target.ShadowFrame) {
         changed = true;
-        target.unknown_120 = frame;
+        target.ShadowFrame = frame;
     }
-    if (target.unknown_120 == -1) {
+    if (target.ShadowFrame == -1) {
         target.unknown_12c |= 0x10;
     }
     frame = TacticalMap->Cell_Shadow(cell, 1);
-    if (frame != target.unknown_121) {
+    if (frame != target.FogFrame) {
         changed = true;
-        target.unknown_121 = frame;
+        target.FogFrame = frame;
     }
-    if (target.unknown_121 == -1) {
+    if (target.FogFrame == -1) {
         target.unknown_140 |= 1;
     }
     if (changed) {
@@ -710,16 +710,16 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
                         Cell next = AdjacentCell[around & 7] + adjacent;
                         CellClass &next_cell = (*this)[next];
                         signed char next_frame = TacticalMap->Cell_Shadow(next, 0);
-                        if (next_frame != next_cell.unknown_120) {
-                            next_cell.unknown_120 = next_frame;
+                        if (next_frame != next_cell.ShadowFrame) {
+                            next_cell.ShadowFrame = next_frame;
                             TacticalMap->Flag_Cell(&next_cell);
                         }
                     }
                 }
             } else if (shade != -2 && !(near_cell.unknown_12c & 8)) {
                 Map_Cell(adjacent, house);
-            } else if (shade >= 0 && shade != near_cell.unknown_120) {
-                near_cell.unknown_120 = shade;
+            } else if (shade >= 0 && shade != near_cell.ShadowFrame) {
+                near_cell.ShadowFrame = shade;
                 TacticalMap->Flag_Cell(&near_cell);
             }
         }
@@ -736,16 +736,16 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
                         Cell next = AdjacentCell[around & 7] + adjacent;
                         CellClass &next_cell = (*this)[next];
                         signed char next_frame = TacticalMap->Cell_Shadow(next, 1);
-                        if (next_frame != next_cell.unknown_121) {
-                            next_cell.unknown_121 = next_frame;
+                        if (next_frame != next_cell.FogFrame) {
+                            next_cell.FogFrame = next_frame;
                             TacticalMap->Flag_Cell(&next_cell);
                         }
                     }
                 }
             } else if (shade != -2 && !(near_cell.unknown_140 & 2)) {
                 Map_Cell(adjacent, house);
-            } else if (shade >= 0 && shade != near_cell.unknown_121) {
-                near_cell.unknown_121 = shade;
+            } else if (shade >= 0 && shade != near_cell.FogFrame) {
+                near_cell.FogFrame = shade;
                 TacticalMap->Flag_Cell(&near_cell);
             }
         }
@@ -780,19 +780,19 @@ bool DisplayClass::RevealFogShroud(Cell const &cell, HouseClass *house, bool arg
         target.ReduceShroudCounter();
     }
     signed char frame = TacticalMap->Cell_Shadow(cell, 0);
-    if (frame != target.unknown_120) {
+    if (frame != target.ShadowFrame) {
         changed = true;
-        target.unknown_120 = frame;
+        target.ShadowFrame = frame;
     }
-    if (target.unknown_120 == -1) {
+    if (target.ShadowFrame == -1) {
         target.unknown_12c |= 0x10;
     }
     frame = TacticalMap->Cell_Shadow(cell, 1);
-    if (frame != target.unknown_121) {
+    if (frame != target.FogFrame) {
         changed = true;
-        target.unknown_121 = frame;
+        target.FogFrame = frame;
     }
-    if (target.unknown_121 == -1) {
+    if (target.FogFrame == -1) {
         target.unknown_140 |= 1;
     }
     if (changed) {
@@ -824,11 +824,11 @@ bool DisplayClass::unknown_slot38(Cell const &cell, HouseClass *house)
     bool mapped = changed;
     target.unknown_140 = (target.unknown_140 & ~0x40) | 2;
     signed char frame = TacticalMap->Cell_Shadow(cell, 1);
-    if (frame != target.unknown_121) {
+    if (frame != target.FogFrame) {
         changed = true;
-        target.unknown_121 = frame;
+        target.FogFrame = frame;
     }
-    if (target.unknown_121 == -1) {
+    if (target.FogFrame == -1) {
         target.unknown_140 |= 1;
     }
     if (changed) {
@@ -851,16 +851,16 @@ bool DisplayClass::unknown_slot38(Cell const &cell, HouseClass *house)
                     Cell beyond = Adjacent_Cell(adjacent, around);
                     CellClass &far_cell = (*this)[beyond];
                     signed char far_frame = TacticalMap->Cell_Shadow(beyond, 1);
-                    if (far_frame != far_cell.unknown_121) {
-                        far_cell.unknown_121 = far_frame;
+                    if (far_frame != far_cell.FogFrame) {
+                        far_cell.FogFrame = far_frame;
                         TacticalMap->Flag_Cell(&far_cell);
                     }
                 }
             }
         } else if (next_frame != -2 && !(next.unknown_140 & 2)) {
             unknown_slot38(adjacent, house);
-        } else if (next_frame >= 0 && next_frame != next.unknown_121) {
-            next.unknown_121 = next_frame;
+        } else if (next_frame >= 0 && next_frame != next.FogFrame) {
+            next.FogFrame = next_frame;
             TacticalMap->Flag_Cell(&next);
         }
     }
@@ -888,11 +888,11 @@ bool DisplayClass::unknown_slot39(Cell const &cell, HouseClass *house)
     target.unknown_12c |= 8;
     bool shown = changed;
     signed char frame = TacticalMap->Cell_Shadow(cell, 0);
-    if (frame != target.unknown_120) {
+    if (frame != target.ShadowFrame) {
         changed = true;
-        target.unknown_120 = frame;
+        target.ShadowFrame = frame;
     }
-    if (target.unknown_120 == -1) {
+    if (target.ShadowFrame == -1) {
         target.unknown_12c |= 0x10;
     }
     if (changed) {
@@ -915,16 +915,16 @@ bool DisplayClass::unknown_slot39(Cell const &cell, HouseClass *house)
                     Cell beyond = Adjacent_Cell(adjacent, around);
                     CellClass &far_cell = (*this)[beyond];
                     signed char far_frame = TacticalMap->Cell_Shadow(beyond, 0);
-                    if (far_frame != far_cell.unknown_120) {
-                        far_cell.unknown_120 = far_frame;
+                    if (far_frame != far_cell.ShadowFrame) {
+                        far_cell.ShadowFrame = far_frame;
                         TacticalMap->Flag_Cell(&far_cell);
                     }
                 }
             }
         } else if (next_frame != -2 && !(next.unknown_12c & 8)) {
             unknown_slot39(adjacent, house);
-        } else if (next_frame >= 0 && next_frame != next.unknown_120) {
-            next.unknown_120 = next_frame;
+        } else if (next_frame >= 0 && next_frame != next.ShadowFrame) {
+            next.ShadowFrame = next_frame;
             TacticalMap->Flag_Cell(&next);
         }
     }
@@ -1397,7 +1397,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
                     TechnoClass::Reset_Action_Line_Timer();
                     if (action == 0x21) {
                         if (object->Kind_Of() == 6) {
-                            if (static_cast<BuildingClass *>(object)->unknown_530)
+                            if (static_cast<BuildingClass *>(object)->IsOn)
                                 OutList.Add(EventClass(PlayerPtr->ArrayIndex, 2, TargetClass(object)));
                             else OutList.Add(EventClass(PlayerPtr->ArrayIndex, 1, TargetClass(object)));
                         }
@@ -2172,7 +2172,7 @@ void DisplayClass::Unknown_0049CDB0(Cell const &cell)
         mapped = true;
     }
     target.unknown_140 &= ~3;
-    target.unknown_121 = 0xFE;
+    target.FogFrame = 0xFE;
     if (target.unknown_12c & 8) {
         TacticalMap->Flag_Cell(&target);
     }
@@ -2181,11 +2181,11 @@ void DisplayClass::Unknown_0049CDB0(Cell const &cell)
         CellClass &next = (*this)[adjacent];
         Cell where = next.MapCoords;
         int frame = TacticalMap->Cell_Shadow(where, 1);
-        if (frame == -2 && (char)next.unknown_121 != (char)frame) {
+        if (frame == -2 && (char)next.FogFrame != (char)frame) {
             Unknown_0049CDB0(adjacent);
-        } else if ((next.unknown_140 & 1) || frame != (char)next.unknown_121) {
-            if (frame >= 0 && (char)next.unknown_121 >= -1) {
-                next.unknown_121 = frame;
+        } else if ((next.unknown_140 & 1) || frame != (char)next.FogFrame) {
+            if (frame >= 0 && (char)next.FogFrame >= -1) {
+                next.FogFrame = frame;
                 next.unknown_140 = (next.unknown_140 & ~1) | 2;
                 TacticalMap->Flag_Cell(&next);
             }
@@ -2328,7 +2328,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
             cell = Cell(val % 128, val / 128);
         }
 
-        if (tp != 0 && !(*this)[cell].unknown_3c) {
+        if (tp != 0 && !(*this)[cell].Tag) {
             TagClass *tt = TagClass::Find_Or_Make(tp);
             if (tt) {
                 tt->Set_Position(cell);
@@ -2426,8 +2426,8 @@ void DisplayClass::Write_INI_0049D910(CCINIClass &ini)
     ini.Clear(CELLTRIG);
     for (int y = 0; y < 512; y++) {
         for (int x = 0; x < 512; x++) {
-            if ((*this)[Cell(x, y)].unknown_3c != 0) {
-                TagClass *tp = (*this)[Cell(x, y)].unknown_3c;
+            if ((*this)[Cell(x, y)].Tag != 0) {
+                TagClass *tp = (*this)[Cell(x, y)].Tag;
                 if (tp != 0 && tp->Class != 0) {
                     wsprintfA(entry, "%d", x + (y * 1000));
                     ini.Put_String(CELLTRIG, entry, tp->Class->ID);
@@ -2505,11 +2505,11 @@ int DisplayClass::Unknown_0049DB60(void *buffer, int arg2)
         out += 4;
         *out = cell->OverlayData;
         out += 1;
-        *out = cell->unknown_119;
+        *out = cell->IsIceGrowthAllowed;
         out += 1;
         int tag_class = 0;
-        if (cell->unknown_3c != 0 && cell->unknown_3c->Class != 0) {
-            tag_class = (int)cell->unknown_3c->Class;
+        if (cell->Tag != 0 && cell->Tag->Class != 0) {
+            tag_class = (int)cell->Tag->Class;
         }
         *(int *)out = tag_class;
         out += 4;
@@ -2562,7 +2562,7 @@ void DisplayClass::Unknown_0049DCD0(void *buffer)
         in += 4;
         cell->OverlayData = *in;
         in += 1;
-        cell->unknown_119 = *in;
+        cell->IsIceGrowthAllowed = *in;
         in += 1;
         in += 4;
     }

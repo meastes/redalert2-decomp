@@ -345,7 +345,7 @@ BuildingClass *ObjectTypeClass::Who_Can_Build_Me(bool in_theory, bool legal, boo
         if (building->Type->Factory != Kind_Of()) {
             continue;
         }
-        if (legal && !building->unknown_530) {
+        if (legal && !building->IsOn) {
             continue;
         }
         if (building->Get_Mission() == 0x13 || building->MissionQueue == 0x13) {

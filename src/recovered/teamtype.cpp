@@ -293,13 +293,13 @@ TypeList<TeamTypeClass const *> __fastcall TeamTypeClass::Suggested_New_Teams(Ho
             }
             AITriggerTypeClass *trig = trigdist.Sample();
             if (trig != 0) {
-                TeamTypeClass const *first = trig->unknown_dc;
+                TeamTypeClass const *first = trig->TeamTypeOne;
                 if (first != 0) {
                     best.Add(first);
                 }
             }
             if (trig != 0) {
-                TeamTypeClass const *second = trig->unknown_e0;
+                TeamTypeClass const *second = trig->TeamTypeTwo;
                 if (second != 0) {
                     best.Add(second);
                 }

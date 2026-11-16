@@ -900,7 +900,7 @@ int HouseClass::Can_Build(TechnoTypeClass const *type, bool forced, bool include
                     bool found = false;
                     for (int j = Buildings.Count() - 1; j >= 0; j--) {
                         bptr = Buildings[j];
-                        if (!bptr->IsInLimbo && bptr->unknown_530) {
+                        if (!bptr->IsInLimbo && bptr->IsOn) {
                             if (bptr->Get_Mission() != 0x13 && bptr->MissionQueue != 0x13) {
                                 found = true;
                                 break;
@@ -1813,7 +1813,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                 }
                 if (builder) {
                     int exit = builder->Exit_Object(tech);
-                    if (exit == 2 || (exit == 1 && builder->Kind_Of() == 6 && builder->unknown_41c != 0)) {
+                    if (exit == 2 || (exit == 1 && builder->Kind_Of() == 6 && builder->Factory != 0)) {
                         if (Is_Player_Control()) {
                             if (Unknown_0063B5B0(6, Coord_Cell(builder->Center_Coord()))) {
                                 Speech_Play_Name("EVA_UnitReady", -1, -1);
@@ -2867,7 +2867,7 @@ bool HouseClass::AI_Raise_Money_004e90f0(int urgency)
     for (;i>=0;--i) {
         BuildingClass *building=unknown_55f0.Get_Building(i);
         if (building) {
-            char level=building->unknown_5c6;
+            char level=building->UpgradeLevel;
             if (level!=0) {
                 int cost=((BuildingTypeClass *)building->unknown_4c0[level-1])->GetRefund(this,true);
                 Balance+=cost;
@@ -3012,8 +3012,8 @@ int HouseClass::AI_Building()
                 node->Cell = Cell(0, 0);
             } else if (building->Type != upgrade) {
                 node->Cell = Cell(0, 0);
-            } else if ((building->Type->PowersUpToLevel == -1 && building->unknown_5c6 >= building->Type->Upgrades)
-                    || (building->Type->PowersUpToLevel > 0 && building->unknown_5c6 > 0)) {
+            } else if ((building->Type->PowersUpToLevel == -1 && building->UpgradeLevel >= building->Type->Upgrades)
+                    || (building->Type->PowersUpToLevel > 0 && building->UpgradeLevel > 0)) {
                 node->Cell = Cell(0, 0);
             }
         }
@@ -5343,8 +5343,8 @@ void HouseClass::unknown_func_4ef890()
 
 int __fastcall House_Base_Distance_Score(HouseClass *house, Cell const &cell, int score, int)
 {
-    int dx = cell.X - house->unknown_55f0.unknown_50.X;
-    int dy = cell.Y - house->unknown_55f0.unknown_50.Y;
+    int dx = cell.X - house->unknown_55f0.PlacementCenter.X;
+    int dy = cell.Y - house->unknown_55f0.PlacementCenter.Y;
     return score + MAX(abs(dx), abs(dy)) * 1000;
 }
 
@@ -5365,12 +5365,12 @@ inline UnknownFacingDir Offset_Direction(int x, int y)
 int __fastcall House_Facing_Score(HouseClass *house, Cell const &cell, int score, int facing)
 {
     BaseClass &base = house->unknown_55f0;
-    int value = house->unknown_15f44[cell.X - base.unknown_54.X + (cell.Y - base.unknown_54.Y) * base.unknown_54.Width];
+    int value = house->unknown_15f44[cell.X - base.BaseAreaRect.X + (cell.Y - base.BaseAreaRect.Y) * base.BaseAreaRect.Width];
     int diff = 0;
     if (facing != -1) {
         Point2D d;
-        d.X = cell.X - base.unknown_50.X;
-        d.Y = cell.Y - base.unknown_50.Y;
+        d.X = cell.X - base.PlacementCenter.X;
+        d.Y = cell.Y - base.PlacementCenter.Y;
         UnknownFacingDir dir = Offset_Direction(d.X, -d.Y);
         diff = abs(facing * 32 - Dir_To_256(dir));
         if (diff >= 128) {
@@ -5414,7 +5414,7 @@ Cell HouseClass::Where_To_Place_Building(BuildingTypeClass *type, int (__fastcal
         return spot;
     } else {
     DynamicVectorClass<Cell> sorted;
-    if (unknown_55f0.unknown_50 == Cell(0,0)) {
+    if (unknown_55f0.PlacementCenter == Cell(0,0)) {
         return Coord_Cell(BaseCenter);
     }
     IndexClass<int, Cell> ranking;
@@ -5434,7 +5434,7 @@ Cell HouseClass::Where_To_Place_Building(BuildingTypeClass *type, int (__fastcal
     for (i = 0; i < ranking.Count(); ++i) {
         sorted.Add(ranking.Fetch_By_Position(i));
     }
-    int base_height = Map[unknown_55f0.unknown_50].Height;
+    int base_height = Map[unknown_55f0.PlacementCenter].Height;
     int house_mask = 1 << ArrayIndex;
     Cell base_cell;
     for (int pass = 0; pass < 2; ++pass) {
@@ -5530,8 +5530,8 @@ Cell HouseClass::unknown_func_4f0e30(BuildingTypeClass *upgrade)
     for (int at = 0; at < unknown_BuildingClass_list_00a40af8.Count(); at++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[at];
         if (building->House == this && building->Type == type && building->Can_Upgrade(upgrade, this)) {
-            if ((any_level && best > building->unknown_5c6) || (!any_level && building->unknown_5c6 == 0)) {
-                best = building->unknown_5c6;
+            if ((any_level && best > building->UpgradeLevel) || (!any_level && building->UpgradeLevel == 0)) {
+                best = building->UpgradeLevel;
                 chosen = building;
             }
         }
@@ -5644,7 +5644,7 @@ bool HouseClass::AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells)
     int totals[4];
     DynamicVectorClass<Cell> quadrants[4];
 
-    int size = unknown_55f0.unknown_54.Width * unknown_55f0.unknown_54.Height;
+    int size = unknown_55f0.BaseAreaRect.Width * unknown_55f0.BaseAreaRect.Height;
     int *air_map = new int[size];
     int *armor_map = new int[size];
     int *ground_map = new int[size];
@@ -5654,7 +5654,7 @@ bool HouseClass::AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells)
 
     if (cells != 0) {
         for (i = 0; i < cells->Count(); i++) {
-            Cell offset = (*cells)[i] - unknown_55f0.unknown_50;
+            Cell offset = (*cells)[i] - unknown_55f0.PlacementCenter;
             Point2D delta;
             delta.X = offset.X;
             delta.Y = offset.Y;
@@ -5667,7 +5667,7 @@ bool HouseClass::AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells)
     int count = Buildings.Count();
     for (i = 0; i < count; i++) {
         BuildingClass *building = Buildings[i];
-        Cell offset = building->unknown_slot104() - unknown_55f0.unknown_50;
+        Cell offset = building->unknown_slot104() - unknown_55f0.PlacementCenter;
         if (offset.X != 0 || offset.Y != 0) {
             Point2D delta;
             delta.X = offset.X;
@@ -5682,9 +5682,9 @@ bool HouseClass::AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells)
                 air_values[quadrant] += air;
                 armor_values[quadrant] += armor;
                 ground_values[quadrant] += infantry;
-                unknown_func_4f0ff0(building, air, air_map, unknown_55f0.unknown_54);
-                unknown_func_4f0ff0(building, armor, armor_map, unknown_55f0.unknown_54);
-                unknown_func_4f0ff0(building, infantry, ground_map, unknown_55f0.unknown_54);
+                unknown_func_4f0ff0(building, air, air_map, unknown_55f0.BaseAreaRect);
+                unknown_func_4f0ff0(building, armor, armor_map, unknown_55f0.BaseAreaRect);
+                unknown_func_4f0ff0(building, infantry, ground_map, unknown_55f0.BaseAreaRect);
             }
         }
     }
@@ -5774,11 +5774,11 @@ bool HouseClass::AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells)
                 BuildingTypeClass *type = (*defenses)[i];
                 int weight = 10000 / type->Cost_Of(this);
                 if (category == 2) {
-                    weight += type->unknown_11e0;
+                    weight += type->AntiInfantryValue;
                 } else if (category == 1) {
-                    weight += type->unknown_11dc;
+                    weight += type->AntiArmorValue;
                 } else {
-                    weight += type->unknown_11d8;
+                    weight += type->AntiAirValue;
                 }
                 distribution.Add(type, weight);
             }
@@ -5850,7 +5850,7 @@ DynamicVectorClass<BuildingTypeClass *> HouseClass::Get_Anti_Air_Defense_Buildin
     DynamicVectorClass<BuildingTypeClass *> defenses;
     for (int i = 0; i < BuildingTypes.Count(); ++i) {
         BuildingTypeClass *building = BuildingTypes[i];
-        if ((building->Owner & ownable) && building->unknown_11d8 > 0 && building->TechLevel <= unknown_11c && unknown_func_4ef740(building, owned, owned.Count())) {
+        if ((building->Owner & ownable) && building->AntiAirValue > 0 && building->TechLevel <= unknown_11c && unknown_func_4ef740(building, owned, owned.Count())) {
             defenses.Add(building);
         }
     }
@@ -5865,7 +5865,7 @@ DynamicVectorClass<BuildingTypeClass *> HouseClass::Get_Anti_Armor_Defense_Build
     DynamicVectorClass<BuildingTypeClass *> defenses;
     for (int i = 0; i < BuildingTypes.Count(); ++i) {
         BuildingTypeClass *building = BuildingTypes[i];
-        if ((building->Owner & ownable) && building->unknown_11dc > 0 && building->TechLevel <= unknown_11c && unknown_func_4ef740(building, owned, owned.Count())) {
+        if ((building->Owner & ownable) && building->AntiArmorValue > 0 && building->TechLevel <= unknown_11c && unknown_func_4ef740(building, owned, owned.Count())) {
             defenses.Add(building);
         }
     }
@@ -5880,7 +5880,7 @@ DynamicVectorClass<BuildingTypeClass *> HouseClass::Get_Anti_Ground_Defense_Buil
     DynamicVectorClass<BuildingTypeClass *> defenses;
     for (int i = 0; i < BuildingTypes.Count(); ++i) {
         BuildingTypeClass *building = BuildingTypes[i];
-        if ((building->Owner & ownable) && building->unknown_11e0 > 0 && building->TechLevel <= unknown_11c && unknown_func_4ef740(building, owned, owned.Count())) {
+        if ((building->Owner & ownable) && building->AntiInfantryValue > 0 && building->TechLevel <= unknown_11c && unknown_func_4ef740(building, owned, owned.Count())) {
             defenses.Add(building);
         }
     }
@@ -5905,10 +5905,10 @@ static FacingType const wall_step_facings[4] = {FACING_E,FACING_E,FACING_S,FACIN
 static FacingType const wall_adjacent_facings[4] = {FACING_N,FACING_S,FACING_W,FACING_E};
 void HouseClass::AI_Build_Wall()
 {
-    Rect &area = unknown_55f0.unknown_54;
+    Rect &area = unknown_55f0.BaseAreaRect;
     Rect perimeter=area;
     --perimeter.X; --perimeter.Y; perimeter.Width+=2; perimeter.Height+=2;
-    unknown_55f0.unknown_64=perimeter;
+    unknown_55f0.LastBaseAreaRect=perimeter;
     DynamicVectorClass<BaseNodeClass> walls;
     DynamicVectorClass<BaseNodeClass> gates;
     Cell starts[4] = {
@@ -5928,7 +5928,7 @@ void HouseClass::AI_Build_Wall()
     BuildingTypeClass *north_south_gate = unknown_func_4ef600(Rules->NSGates);
     BuildingTypeClass *gate_types[4] = {east_west_gate,east_west_gate,north_south_gate,north_south_gate};
     Cell beginning(0,0);
-    int elevation = Map[unknown_55f0.unknown_50].Height;
+    int elevation = Map[unknown_55f0.PlacementCenter].Height;
     int side;
     for (side=0;side<4;++side) {
         FacingType direction=wall_step_facings[side];
@@ -5940,8 +5940,8 @@ void HouseClass::AI_Build_Wall()
             CellClass *current=&Map[cell];
             Cell adjacent=Adjacent_Cell(cell,wall_adjacent_facings[side]);
             CellClass *neighbor=&Map[adjacent];
-            int land=current->unknown_ec;
-            int adjacent_land=neighbor->unknown_ec;
+            int land=current->Land;
+            int adjacent_land=neighbor->Land;
             bool level=abs(current->Height-elevation)<=2;
             bool ground=land!=3 && land!=2 && land!=8 && adjacent_land!=3 && adjacent_land!=2 && adjacent_land!=8;
             bool overlay=current->OverlayIndex==-1;
@@ -5995,7 +5995,7 @@ buildings=!(level && ground && buildings && terrain && visible);
     }
     for (int w=0;w<walls.Count();++w) unknown_55f0.Nodes.Add(walls[w]);
     for (int g=0;g<gates.Count();++g) unknown_55f0.Nodes.Add(gates[g]);
-    unknown_55f0.unknown_54=unknown_55f0.unknown_64;
+    unknown_55f0.BaseAreaRect=unknown_55f0.LastBaseAreaRect;
 }
 
 
@@ -6045,7 +6045,7 @@ void HouseClass::unknown_func_4f2e50()
             } else if (Power_Fraction() >= 1.0) {
                 for (int index = 0; index < Buildings.Count(); index++) {
                     BuildingClass *building = Buildings[index];
-                    if (building != 0 && building->unknown_530 && building->Type->Radar && !building->IsInLimbo
+                    if (building != 0 && building->IsOn && building->Type->Radar && !building->IsInLimbo
                         && building->IsDown
                         && ((unknown_game_mode_a3d298 == 0 && !unknown_134 && !unknown_135) || building->unknown_373
                             || unknown_game_mode_a3d298 != 0)
@@ -6638,7 +6638,7 @@ void HouseClass::AI_Takeover()
         ScenarioInit=saved_init;
     }
     unknown_55f0.Nodes[0].Cell=center;
-    unknown_55f0.unknown_50=center;
+    unknown_55f0.PlacementCenter=center;
     unknown_136=true;
     unknown_13a=true;
     unknown_13b=true;
@@ -6670,13 +6670,13 @@ void HouseClass::AI_Takeover()
         BuildingClass *building=Buildings[index];
         if (building->IsInLimbo) continue;
         BuildingTypeClass *building_type=building->Type;
-        if (!building_type->IsBaseDefense && !(building_type==Rules->unknown_78c && building->unknown_5c6>0)) continue;
+        if (!building_type->IsBaseDefense && !(building_type==Rules->unknown_78c && building->UpgradeLevel>0)) continue;
         if (!building_type->Who_Can_Build_Me(true,false,true,this)) continue;
         while (defense_node<unknown_55f0.Nodes.Count()) {
             if (unknown_55f0.Nodes[defense_node].Type==-1) {
                 if (building->Type==Rules->unknown_78c) {
                     unknown_55f0.Nodes.Insert_After(defense_node,BaseNodeClass(
-                        ((BuildingTypeClass *)building->unknown_4c0[building->unknown_5c6-1])->ArrayIndex,
+                        ((BuildingTypeClass *)building->unknown_4c0[building->UpgradeLevel-1])->ArrayIndex,
                         Coord_Cell(building->Position_Coord_004f3f40())));
                     unknown_55f0.Nodes[defense_node].Type=building->Type->ArrayIndex;
                     unknown_55f0.Nodes[defense_node].Cell=Coord_Cell(building->Position_Coord_004f3f40());
@@ -6727,8 +6727,8 @@ void HouseClass::AI_Takeover()
         for (index=0;index<unknown_BuildingClass_list_00a40af8.Count();++index) {
             BuildingClass *building=unknown_BuildingClass_list_00a40af8[index];
             if (building->House!=this || building->IsInLimbo || building->Type!=Rules->GDIPowerPlant
-                || building->unknown_5c6<=0) continue;
-            for (int upgrade=0;upgrade<building->unknown_5c6;++upgrade) {
+                || building->UpgradeLevel<=0) continue;
+            for (int upgrade=0;upgrade<building->UpgradeLevel;++upgrade) {
                 while (power_node<unknown_55f0.Nodes.Count()) {
                     if (unknown_55f0.Nodes[power_node].Type>=0) {
                         BuildingTypeClass *planned_type=BuildingTypes[unknown_55f0.Nodes[power_node].Type];
@@ -6775,13 +6775,13 @@ void HouseClass::Update_Present_Super_Weapons()
                             BuildingTypeClass *upgrade = (BuildingTypeClass *)b->unknown_4c0[k];
                             if (upgrade && (upgrade->SuperWeapon == s || upgrade->SuperWeapon2 == s)) {
                                 present = true;
-                                if (!enabled) enabled = b->unknown_530;
+                                if (!enabled) enabled = b->IsOn;
                             }
                         }
                         if (b->Fetch_Super_Weapon() == s || b->Fetch_Super_Weapon2() == s) {
                             present = true;
                             if (enabled) break;
-                            enabled = b->unknown_530;
+                            enabled = b->IsOn;
                         }
                         if (enabled && present) break;
                     }
@@ -7198,7 +7198,7 @@ void HouseClass::Begin_Construction()
         ScenarioInit=saved_initialization;
     }
     unknown_55f0.Nodes[0].Cell=center;
-    unknown_55f0.unknown_50=center;
+    unknown_55f0.PlacementCenter=center;
 }
 
 
