@@ -2391,7 +2391,7 @@ UnknownFacingDir AircraftClass::Fire_Direction()
 
 void AircraftClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
 {
-    if (Control()->unknown_09) {
+    if (Control()->IsScatter) {
         unknown_slot261(0, 1);
     }
 }

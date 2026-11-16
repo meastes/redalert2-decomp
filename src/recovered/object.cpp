@@ -110,7 +110,7 @@ ObjectClass::ObjectClass() :
     unknown_75(false),
     unknown_76(true),
     unknown_77(false),
-    unknown_78(false),
+    IsAnimAttached(false),
     unknown_79(false),
     unknown_7a(false),
     unknown_7b(false),
@@ -252,7 +252,7 @@ void ObjectClass::AI()
     if (!unknown_76) {
 
         int velocity;
-        if (unknown_78) velocity = Object_AI_Clamped_Speed(Rules->ParachuteMaxFallRate, (unknown_24.unknown_08 = (int)((unsigned int)unknown_24.unknown_08 - 1u)));
+        if (IsAnimAttached) velocity = Object_AI_Clamped_Speed(Rules->ParachuteMaxFallRate, (unknown_24.unknown_08 = (int)((unsigned int)unknown_24.unknown_08 - 1u)));
         else velocity = Object_AI_Clamped_Speed(Rules->NoParachuteMaxFallRate, (unknown_24.unknown_08 = (int)((double)unknown_24.unknown_08 - unknown_falling_decrement_007a7668)));
         unknown_24.unknown_08 = velocity;
         if (previous_state != In_Which_Layer()) Map.Submit(this);
@@ -1320,7 +1320,7 @@ void ObjectClass::Compute_CRC(WWCRCEngine &crc) const
         crc(unknown_77);
     }
     crc(unknown_76);
-    crc(unknown_78);
+    crc(IsAnimAttached);
     crc(unknown_79);
     crc(unknown_7a);
     crc(unknown_7c);

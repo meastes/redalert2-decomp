@@ -243,7 +243,7 @@ void ParticleSystemClass::Gas_AI()
                 if (spawned != 0) {
                     Particles.Add(spawned);
                     spawned->Velocity = particle->Velocity;
-                    spawned->unknown_b0 = particle->unknown_b0;
+                    spawned->GasDrift = particle->GasDrift;
                 }
             }
             particle->Delete_Me();

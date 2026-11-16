@@ -292,7 +292,7 @@ AnimClass::~AnimClass()
             }
             if (index == Anims.Count()) {
                 object->Fire_Out();
-                object->unknown_78 = false;
+                object->IsAnimAttached = false;
             }
             xObject = 0;
         }
@@ -753,7 +753,7 @@ void AnimClass::Attach_To(ObjectClass *object)
         }
         if (index == Anims.Count()) {
             old->Fire_Out();
-            old->unknown_78 = false;
+            old->IsAnimAttached = false;
         }
         CoordStruct coord = Center_Coord();
         xObject = 0;
@@ -765,7 +765,7 @@ void AnimClass::Attach_To(ObjectClass *object)
     if (object != 0) {
         CoordStruct coord = Center_Coord();
         Map.Remove(this);
-        object->unknown_78 = true;
+        object->IsAnimAttached = true;
         xObject = object;
         CoordStruct offset = coord - object->Center_Coord();
         Set_Coord(offset);

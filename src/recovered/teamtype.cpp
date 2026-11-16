@@ -141,7 +141,7 @@ TeamTypeClass::TeamTypeClass(char const *ini_name) :
     Tag(0),
     Waypoint(-1),
     TransportWaypoint(-1),
-    unknown_d4(0),
+    Number(0),
     Script(0),
     TaskForce(0),
     IsGlobal(0),
@@ -188,7 +188,7 @@ TeamClass *TeamTypeClass::Create_One_Of(HouseClass *house)
     }
     if (!ScenarioInit && Max >= 0) {
         if (!unknown_game_mode_a3d298) {
-            if (unknown_d4 >= Max) {
+            if (Number >= Max) {
                 return 0;
             }
         } else if (house->Team_Count(this) >= Max) {
@@ -705,7 +705,7 @@ void TeamTypeClass::Compute_CRC(WWCRCEngine &crc) const
     }
     crc((long)Waypoint);
     crc((long)TransportWaypoint);
-    crc((long)unknown_d4);
+    crc((long)Number);
     if (Script != 0) {
         crc(((AbstractClass *)Script)->Fetch_ID());
     }

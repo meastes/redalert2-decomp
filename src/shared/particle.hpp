@@ -156,7 +156,7 @@ public:
     ParticleTypeClass *Class;               // +0x098
     RGBClass Color;                         // +0x09C
     ParticleColorState ColorState;           // +0x0A0
-    CoordStruct unknown_b0;                 // +0x0B0 step per move (behaviours 0 and 1)
+    CoordStruct GasDrift;                 // +0x0B0 step per move (behaviours 0 and 1)
     Vector3 GasVelocity;                   // +0x0BC velocity, fields from608440/608980
     CoordStruct UnusedCoord1;               // +0x0C8 coordinate, reference-supported name
     float Velocity;                         // +0x0D4

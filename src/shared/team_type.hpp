@@ -115,7 +115,7 @@ public:
     TagTypeClass *Tag;              // +0xC8
     int Waypoint;                   // +0xCC
     int TransportWaypoint;          // +0xD0
-    int unknown_d4;                 // +0xD4
+    int Number;                 // +0xD4
     ScriptTypeClass *Script;        // +0xD8
     TaskForceClass *TaskForce;      // +0xDC
     int IsGlobal;                   // +0xE0

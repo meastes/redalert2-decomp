@@ -2384,7 +2384,7 @@ void CellClass::Incoming(void const *threat, bool forced, bool nokidding, bool a
 
     for (int i = 0; i < objs.Count(); i++) {
         TechnoClass *techno = objs[i]->As_Techno();
-        if (elite || nokidding || Rules->unknown_1431
+        if (elite || nokidding || Rules->IsScatter
             || (techno != 0 && (techno->Has_Ability(3) || techno->House->IQ >= Rules->IQScatter))) {
             objs[i]->Scatter(*(CoordStruct const *)threat, forced, nokidding);
         }

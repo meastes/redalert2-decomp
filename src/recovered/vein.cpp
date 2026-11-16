@@ -338,10 +338,10 @@ void VeinholeMonsterClass::AI()
                 CoordStruct base(CellID);
                 CoordStruct position=CellID.As_Coord(Map.Get_Height_GL(base)+400);
                 ParticleClass *particle=GasSystem->Spawn_Held_Particle(ParticleTypes[ParticleTypeClass::Index_Or_Make(vein_gas_7f96cc)],position);
-                particle->unknown_b0.Z=12;
+                particle->GasDrift.Z=12;
                 double angle=Vein_Random_Double(0.0,1.0)*vein_full_angle_79c9b8;
-                particle->unknown_b0.X=(int)(Fast_Cos(angle)*vein_speed_79d558);
-                particle->unknown_b0.Y=(int)(Fast_Sin(angle)*vein_speed_79d558);
+                particle->GasDrift.X=(int)(Fast_Cos(angle)*vein_speed_79d558);
+                particle->GasDrift.Y=(int)(Fast_Sin(angle)*vein_speed_79d558);
                 IsToPuffGas=true;
             }
         } else IsToPuffGas=false;

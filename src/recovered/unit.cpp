@@ -4349,7 +4349,7 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
     if (memcmp(&clsid, &CLSID_TeleportLocomotionClass, sizeof(GUID)) == 0) {
         return;
     }
-    if (!Control()->unknown_09 && !forced) {
+    if (!Control()->IsScatter && !forced) {
         return;
     }
     if (PrimaryFacing.Is_Rotating()) {

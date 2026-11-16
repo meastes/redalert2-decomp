@@ -4363,7 +4363,7 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
     if (!healing) {
     TechnoClass *target=attacker;
     if (unknown_6d3b60(attacker,(int)warhead)) {
-        if (attacker==0 && Rules->unknown_1431) target=0;
+        if (attacker==0 && Rules->IsScatter) target=0;
         if (target) {
             int which=What_Weapon_Should_I_Use(target);
             bool retaliate=unknown_slot212(target,which);
@@ -4383,7 +4383,7 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
         FootClass *foot=As_Foot_L(this);
         if (foot) {
             if (!unknown_228 && !foot->unknown_494) {
-                if (Rules->unknown_1431 || Has_Ability_L(this,3)) {
+                if (Rules->IsScatter || Has_Ability_L(this,3)) {
                     Scatter(unknown_geometry_l,true,false);
                 }
             }
@@ -4391,10 +4391,10 @@ int TechnoClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
     } else {
         FootClass *foot=As_Foot_L(this);
         if (foot) {
-            if (Control()->unknown_09) {
+            if (Control()->IsScatter) {
                 if (!unknown_370) {
                     if (!foot->Locomotor.Checked()->Is_Moving() && !unknown_228 && !foot->unknown_494 && Kind_Of()!=2) {
-                        if (!House->Is_Human_Player() || Rules->unknown_1431 || Has_Ability_L(this,3)) {
+                        if (!House->Is_Human_Player() || Rules->IsScatter || Has_Ability_L(this,3)) {
                             Scatter(unknown_geometry_l,true,false);
                         }
                     }

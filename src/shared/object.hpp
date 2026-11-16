@@ -363,7 +363,7 @@ public:
     bool unknown_75;                        // +0x75
     bool unknown_76;                        // +0x76
     bool unknown_77;                        // +0x77
-    bool unknown_78;                        // +0x78
+    bool IsAnimAttached;                        // +0x78
     bool unknown_79;                        // +0x79
     bool unknown_7a;                        // +0x7A
     bool unknown_7b;                        // +0x7B

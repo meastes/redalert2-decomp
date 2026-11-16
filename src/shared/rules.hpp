@@ -750,7 +750,7 @@ public:
     bool                     NamedCivilians;   // +0x142E
     bool                     unknown_142f;   // +0x142F PlayerAutoCrush; (UnitClass 0x00707170)
     bool                     PlayerReturnFire;   // +0x1430
-    bool                     unknown_1431;   // +0x1431 PlayerScatter; (InfantryClass slot 87: scatter freely)
+    bool                     IsScatter;   // +0x1431 PlayerScatter; (InfantryClass slot 87: scatter freely)
     bool                     RevealByHeight;   // +0x1432
     bool                     AllowShroudedSubteranneanMoves;   // +0x1433
     bool                     ShroudGrow;   // +0x1434

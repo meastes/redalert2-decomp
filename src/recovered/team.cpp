@@ -150,7 +150,7 @@ TeamClass::TeamClass(TeamTypeClass *type, HouseClass *owner, int arg3) :
         if (Class->Waypoint_Location() != unknown_geometry_k) {
             unknown_34 = (AbstractClass *)&Map[Class->Waypoint_Location()];
         }
-        Class->unknown_d4++;
+        Class->Number++;
         if (Class->Tag != 0) {
             Tag = new TagClass(Class->Tag);
         }
@@ -186,7 +186,7 @@ TeamClass::~TeamClass()
         while (Member != 0) {
             Remove(Member, -1, 0);
         }
-        Class->unknown_d4--;
+        Class->Number--;
         if (Tag != 0) {
             if (Tag->AttachCount == 0) {
                 Tag->Mark_To_Delete();

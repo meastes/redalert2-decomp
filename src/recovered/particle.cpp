@@ -115,7 +115,7 @@ static inline Vector3 Normalized(Vector3 const &v)
 ParticleClass::ParticleClass(ParticleTypeClass *type, CoordStruct const &coord, CoordStruct const &target,
                              ParticleSystemClass *system) :
     Class(type),
-    unknown_b0(0, 0, 0),
+    GasDrift(0, 0, 0),
     GasVelocity(0, 0, -1.0f),
     UnusedCoord1(0, 0, 0),
     Velocity(Class->Velocity),
@@ -183,7 +183,7 @@ ParticleClass::ParticleClass(ParticleTypeClass *type, CoordStruct const &coord, 
 
 ParticleClass::ParticleClass() :
     Class(0),
-    unknown_b0(0, 0, 0),
+    GasDrift(0, 0, 0),
     GasVelocity(0, 0, -1.0f),
     UnusedCoord1(0, 0, 0),
     Velocity(0),
@@ -269,10 +269,10 @@ void ParticleClass::Gas_Behavior_AI()
             } else {
                 dy = abs(unknown_id_source_a3d290->Random()()) % 3 - 1;
             }
-            unknown_b0.X += dx;
-            unknown_b0.Y += dy;
-            Limit(unknown_b0.X, -5, 5);
-            Limit(unknown_b0.Y, -5, 5);
+            GasDrift.X += dx;
+            GasDrift.Y += dy;
+            Limit(GasDrift.X, -5, 5);
+            Limit(GasDrift.Y, -5, 5);
         }
 
         Vector3 position(coord.X, coord.Y, coord.Z);
@@ -337,9 +337,9 @@ void ParticleClass::Gas_Behavior_AI()
         }
 
         if (Get_Height_AGL() > 5 && (Frame % 2) == 0) {
-            unknown_b0.Z = (-5 > unknown_b0.Z - 1) ? -5 : unknown_b0.Z - 1;
+            GasDrift.Z = (-5 > GasDrift.Z - 1) ? -5 : GasDrift.Z - 1;
         } else {
-            unknown_b0.Z = (unknown_b0.Z > 0) ? unknown_b0.Z : 0;
+            GasDrift.Z = (GasDrift.Z > 0) ? GasDrift.Z : 0;
         }
     }
 
@@ -417,12 +417,12 @@ void ParticleClass::Smoke_Behavior_AI()
             } else {
                 dy = abs(unknown_id_source_a3d290->Random()()) % 3 - 1;
             }
-            unknown_b0.X += dx;
-            unknown_b0.Y += dy;
-            Limit(unknown_b0.X, -5, 5);
-            Limit(unknown_b0.Y, -5, 5);
+            GasDrift.X += dx;
+            GasDrift.Y += dy;
+            Limit(GasDrift.X, -5, 5);
+            Limit(GasDrift.Y, -5, 5);
         }
-        unknown_b0.Z = 0;
+        GasDrift.Z = 0;
     }
     if (unknown_11e < Class->EndStateAI) {
         if ((Fetch_ID() + (Class->MaxEC - Lifetime)) % ((Fetch_ID() & 1) + Class->StateAIAdvance) == 0) {
@@ -698,9 +698,9 @@ void ParticleClass::Smoke_Motion_AI()
         if (next.Z > height + 5) {
             next.Z -= MIN(2, next.Z - height - 5);
         }
-        next.X += unknown_b0.X;
-        next.Y += unknown_b0.Y;
-        next.Z += unknown_b0.Z;
+        next.X += GasDrift.X;
+        next.Y += GasDrift.Y;
+        next.Z += GasDrift.Z;
         if (next.Z < Map.Get_Height_GL(next) + 5) next.Z = Map.Get_Height_GL(next) + 5;
     }
     Set_Coord(next);
@@ -717,9 +717,9 @@ void ParticleClass::Gas_Motion_AI()
     Point2D offset = Wind_Offset(Rules->unknown_6d4, effect);
     next.X += offset.X; next.Y += offset.Y;
     next.Z += (int)Velocity;
-    next.X += unknown_b0.X;
-    next.Y += unknown_b0.Y;
-    next.Z += unknown_b0.Z;
+    next.X += GasDrift.X;
+    next.Y += GasDrift.Y;
+    next.Z += GasDrift.Z;
     if (Map[coord].unknown_140 & 0x100) {
         int height = Map.Get_Height_GL(coord) + unknown_geometry_j;
         if (coord.Z < height && next.Z >= (double)height - unknown_geometry_g * 2.5) {

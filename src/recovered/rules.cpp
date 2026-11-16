@@ -586,7 +586,7 @@ RulesClass::RulesClass() :
     NamedCivilians(false),
     unknown_142f(false),
     PlayerReturnFire(false),
-    unknown_1431(false),
+    IsScatter(false),
     RevealByHeight(true),
     AllowShroudedSubteranneanMoves(false),
     ShroudGrow(false),
@@ -1187,7 +1187,7 @@ bool RulesClass::Combat_Damage(CCINIClass &ini)
         unknown_1429 = ini.Get_Bool(RulesSection_CombatDamage, "TiberiumExplosive", unknown_1429);
         unknown_142f = ini.Get_Bool(RulesSection_CombatDamage, "PlayerAutoCrush", unknown_142f);
         PlayerReturnFire = ini.Get_Bool(RulesSection_CombatDamage, "PlayerReturnFire", PlayerReturnFire);
-        unknown_1431 = ini.Get_Bool(RulesSection_CombatDamage, "PlayerScatter", unknown_1431);
+        IsScatter = ini.Get_Bool(RulesSection_CombatDamage, "PlayerScatter", IsScatter);
         unknown_142d = ini.Get_Bool(RulesSection_CombatDamage, "TreeTargeting", unknown_142d);
         unknown_1328 = ini.Get_Percent(RulesSection_CombatDamage, "Incoming", unknown_1328);
         int collapse_chance = ini.Get_Int(RulesSection_CombatDamage, "CollapseChance", unknown_140c);

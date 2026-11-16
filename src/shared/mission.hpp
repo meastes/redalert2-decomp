@@ -29,7 +29,7 @@ public:
     bool IsRecruitable;            // +0x06 true
     bool unknown_07;            // +0x07
     bool unknown_08;            // +0x08 true
-    bool unknown_09;            // +0x09 true
+    bool IsScatter;            // +0x09 true
     int unknown_0c;             // +0x0C
     double unknown_10;          // +0x10 0.016
     double unknown_18;          // +0x18 0.016

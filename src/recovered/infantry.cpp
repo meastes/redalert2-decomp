@@ -1408,10 +1408,10 @@ void InfantryClass::Scatter(CoordStruct const &threat, bool forced, bool nokiddi
         if (Sequence==27 || Sequence==28 || Sequence==29 || Sequence==30) return;
     }
     if (Locomotor.Checked()->Is_Moving()) forced=false;
-    if (!Control()->unknown_09 && !forced) return;
+    if (!Control()->IsScatter && !forced) return;
     if (!Type->Fraidycat && unknown_228 && !forced) return;
     if (Sequence!=-1 && Sequence!=31 && !unknown_do_controls_7a3474[Sequence].Interrupt) return;
-    if (!Rules->unknown_1431 && !Has_Ability(3) && !nokidding && House->Is_Human_Player() && !forced && !Team) return;
+    if (!Rules->IsScatter && !Has_Ability(3) && !nokidding && House->Is_Human_Player() && !forced && !Team) return;
     if (forced || Type->Fraidycat) {
         int facing;
         if (threat!=unknown_geometry_l) {

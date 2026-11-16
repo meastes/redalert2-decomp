@@ -679,7 +679,7 @@ MissionControlClass::MissionControlClass() :
     IsRecruitable(true),
     unknown_07(false),
     unknown_08(true),
-    unknown_09(true),
+    IsScatter(true),
     unknown_10(0.016),
     unknown_18(0.016)
 {
@@ -720,7 +720,7 @@ bool MissionControlClass::Read_INI(CCINIClass &ini)
         IsRecruitable = ini.Get_Bool(Name(), "Recruitable", IsRecruitable);
         unknown_07 = ini.Get_Bool(Name(), "Paralyzed", unknown_07);
         unknown_08 = ini.Get_Bool(Name(), "Retaliate", unknown_08);
-        unknown_09 = ini.Get_Bool(Name(), "Scatter", unknown_09);
+        IsScatter = ini.Get_Bool(Name(), "Scatter", IsScatter);
         unknown_10 = ini.Get_Double(Name(), "Rate", unknown_10);
         unknown_18 = ini.Get_Double(Name(), "AARate", 0);
         if (unknown_18 == 0) {
