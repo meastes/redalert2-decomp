@@ -176,14 +176,14 @@ inline CoordStruct Center_Coord_Of(Cell const &c)
 
 inline bool Is_Bridge_Tile(int ittype)
 {
-    return ittype == unknown_tileset_a6cb7c + 0 ||
-        ittype == unknown_tileset_a6cb7c + 1 ||
-        ittype == unknown_tileset_a6cb7c + 2 ||
-        ittype == unknown_tileset_a6cb7c + 3 ||
-        ittype == unknown_tileset_a52e70 + 0 ||
-        ittype == unknown_tileset_a52e70 + 1 ||
-        ittype == unknown_tileset_a52e70 + 2 ||
-        ittype == unknown_tileset_a52e70 + 3;
+    return ittype == IsometricTileTypeClass_BridgeMiddle1 + 0 ||
+        ittype == IsometricTileTypeClass_BridgeMiddle1 + 1 ||
+        ittype == IsometricTileTypeClass_BridgeMiddle1 + 2 ||
+        ittype == IsometricTileTypeClass_BridgeMiddle1 + 3 ||
+        ittype == IsometricTileTypeClass_BridgeMiddle2 + 0 ||
+        ittype == IsometricTileTypeClass_BridgeMiddle2 + 1 ||
+        ittype == IsometricTileTypeClass_BridgeMiddle2 + 2 ||
+        ittype == IsometricTileTypeClass_BridgeMiddle2 + 3;
 }
 
 inline bool Percent_Chance(int percent)
@@ -196,7 +196,7 @@ struct DamageGroup {
     int Distance;
 };
 
-extern int const unknown_radius_count_7a5908[];
+extern int const MapClass_RadiusCount[];
 extern Cell const unknown_radius_offset_a6f248[];
 
 int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoClass *source, WarheadTypeClass *warhead, bool chain)
@@ -246,7 +246,7 @@ int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoCl
     }
 
     int rings = (int)(warhead->CellSpread + 0.99);
-    for (int m = 0; m < unknown_radius_count_7a5908[rings]; m++) {
+    for (int m = 0; m < MapClass_RadiusCount[rings]; m++) {
         Cell tcell = cell + unknown_radius_offset_a6f248[m];
         cptr = &Map[tcell];
         if (cptr->OverlayIndex != -1) {
@@ -352,7 +352,7 @@ int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoCl
     bool ion = warhead == Rules->IonCannonWarhead;
     cptr = &Map[cell];
     if (unknown_id_source_a3d290->Special().DestroyableBridges && warhead->Wall) {
-        int ittype = cptr->IsoTileIndex - unknown_tileset_a52c74 + 1;
+        int ittype = cptr->IsoTileIndex - IsometricTileTypeClass_BridgeSet + 1;
         CellClass *bcptr = 0;
         if (cptr->unknown_140 & 0x100) {
             if (cptr->unknown_140 & 0x80) {
@@ -382,7 +382,7 @@ int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoCl
             }
         }
 
-        int ittype2 = cptr->IsoTileIndex - unknown_tileset_a6cb68 + 1;
+        int ittype2 = cptr->IsoTileIndex - IsometricTileTypeClass_TrainBridgeSet + 1;
         if ((bcptr != 0 && (bcptr->OverlayIndex == 0xED || bcptr->OverlayIndex == 0xEE)) ||
             Is_Bridge_Tile(ittype2)) {
             if (!(cptr->unknown_140 & 0x100) || (coord.Z <= unknown_geometry_j + unknown_geometry_g * (cptr->unknown_11b + 1) && coord.Z > unknown_geometry_j + unknown_geometry_g * (cptr->unknown_11b - 2))) {
@@ -503,7 +503,7 @@ AnimTypeClass *__fastcall Select_Damage_Anim(int damage, WarheadTypeClass *warhe
 
 void __fastcall Combat_Lighting(CoordStruct coord, int damage, WarheadTypeClass *warhead, int forced, int flags)
 {
-    if ((unknown_a40b2c != 0 && unknown_a6eb1c >= GetMinFrameRate()) || (flags & 0xF) != 0) {
+    if ((unknown_a40b2c != 0 && FPSCounter_CurrentFrameRate >= GetMinFrameRate()) || (flags & 0xF) != 0) {
         if ((char)forced || warhead != 0 && warhead->Bright) {
             int size;
             float light = warhead->CombatLightSize;

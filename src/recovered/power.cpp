@@ -391,7 +391,7 @@ void PowerClass::Draw_It(bool complete)
 {
     if ((complete || IsToRedraw) && unknown_flag_8373c1) {
         IsToRedraw = false;
-        unknown_flag_abcd84 = true;
+        SidebarClass_IsToBlitSidebar = true;
         bool side = unknown_id_source_a3d290->unknown_2239;
         int shift;
         if (side) {

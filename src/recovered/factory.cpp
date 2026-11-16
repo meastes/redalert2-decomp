@@ -121,7 +121,7 @@ extern bool GameActive;
  *=============================================================================================*/
 FactoryClass::~FactoryClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Factories.Delete(this);
     if (GameActive) Abandon_Production_004B97C0();
     ObjectPtrTracker.Delete(this);

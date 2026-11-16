@@ -29,8 +29,8 @@ void __fastcall Unknown_006F71E0(char const *id);
 
 // The screen rise of a height in leptons (0x006A2970; rounded, plus one from
 // 728 up) and its inverse (0x006A29B0); hypotheses.
-int __fastcall Unknown_006A2970(int z);
-int __fastcall Unknown_006A29B0(int pixel);
+int __fastcall Tactical_Z_Lepton_To_Pixel(int z);
+int __fastcall Tactical_Pixel_To_Z_Lepton(int pixel);
 
 // A lepton offset (x, y) to its screen offset before the division by 256:
 // (x - y) * 30 across, (x + y) * 15 down (0x006A6800; never called, expanded
@@ -269,6 +269,6 @@ struct TacticalObjectPixel {
     ObjectClass *Object;
     Point2D Pixel;
 };
-extern TacticalObjectPixel unknown_tactical_pixels_abe5f8[500];
+extern TacticalObjectPixel Tactical_SelectableObjects[500];
 
 #endif

@@ -113,7 +113,7 @@ bool ModemGuest::Dialog_00596010()
         HostName[0] = 0;
         HostColor = -1;
         HostHouse = -1;
-        unknown_50 = Unknown_006525F0();
+        unknown_50 = RulesClass_Get_Rule_Unique_ID();
         Read_Art_INI();
         unknown_54 = unknown_art_ini_unique_id();
         unknown_58 = unknown_ini_8397a0_unique_id();
@@ -248,10 +248,10 @@ void ModemGuest::Init_Dialog_00596540()
         for (int index = 0; index < 8; index++) {
             Send_Message(control, 0x498, index, PlayerColorTable[index]);
         }
-        unknown_a3d3b4 = unknown_session_a3d298.unknown_12c;
-        Send_Message(control, 0x14E, unknown_a3d3b4, 0);
+        Game_PlayerColor = unknown_session_a3d298.unknown_12c;
+        Send_Message(control, 0x14E, Game_PlayerColor, 0);
     }
-    Debug_Printf("Color: %d\n", unknown_a3d3b4);
+    Debug_Printf("Color: %d\n", Game_PlayerColor);
     control = GetDlgItem(Window, 0x667);
     if (control) {
         Send_Message(control, 0x14B, 0, 0);
@@ -385,9 +385,9 @@ void ModemGuest::Read_Dialog_00596d50()
     Debug_Printf("Name: %s\n", unknown_name_a3d3a0);
     control = GetDlgItem(Window, 0x405);
     if (control) {
-        unknown_a3d3b4 = SendMessageA(control, 0x147, 0, 0);
+        Game_PlayerColor = SendMessageA(control, 0x147, 0, 0);
     }
-    Debug_Printf("Color: %d\n", unknown_a3d3b4);
+    Debug_Printf("Color: %d\n", Game_PlayerColor);
     control = GetDlgItem(Window, 0x667);
     if (control) {
         int selection = SendMessageA(control, 0x147, 0, 0);
@@ -447,7 +447,7 @@ void ModemGuest::Read_Color_00597010()
                 }
                 SendMessageA(control, 0x14E, color, 0);
             }
-            unknown_a3d3b4 = color;
+            Game_PlayerColor = color;
             OptionsChanged = true;
             Changed = true;
             int rgb;
@@ -880,7 +880,7 @@ void ModemGuest::Send_Options_00598330()
     packet.ID = serial_local_player_00a3fb38;
     strcpy(packet.Name, unknown_name_a3d3a0);
     *(int *)&packet.unknown_19[0] = unknown_a3d3bc;
-    packet.unknown_19[0x1D - 0x19] = unknown_a3d3b4;
+    packet.unknown_19[0x1D - 0x19] = Game_PlayerColor;
     serial_manager_00a40a28.Send_Message(&packet, sizeof(packet), 1);
 }
 
@@ -896,12 +896,12 @@ void ModemGuest::Send_Chat_00598400(unsigned short const *text)
         memset(&packet, 0, sizeof(packet));
         packet.Command = 0x68;
         strcpy(packet.Name, unknown_name_a3d3a0);
-        packet.ID = unknown_a3d3b4;
+        packet.ID = Game_PlayerColor;
         wcscpy(packet.Message, text);
         serial_manager_00a40a28.Send_Message(&packet, sizeof(packet), 1);
         serial_manager_00a40a28.Service();
         unsigned short *name = Narrow_To_Wide_006fa180(unknown_name_a3d3a0);
-        Show_Chat_00598510(name, unknown_a3d3b4, text);
+        Show_Chat_00598510(name, Game_PlayerColor, text);
     }
 }
 
@@ -929,7 +929,7 @@ void ModemGuest::Sign_Off_00598590()
     UnknownSerialPacket packet;
     memset(&packet, 0, sizeof(packet));
     packet.Command = 0x66;
-    packet.ScenarioInfo.Color = unknown_a3d3b4;
+    packet.ScenarioInfo.Color = Game_PlayerColor;
     packet.ID = serial_local_player_00a3fb38;
     serial_manager_00a40a28.Send_Message(&packet, sizeof(packet), 1);
     HWND dialog = Custom_Message_Box(
@@ -970,7 +970,7 @@ bool ModemGuest::Start_Game_005986f0(bool unknown)
     if (node) {
         Char_To_Wide_006fa0c0(node->Name, unknown_name_a3d3a0, -1);
         node->unknown_4b = unknown_a3d3bc;
-        node->unknown_53 = unknown_a3d3b4;
+        node->unknown_53 = Game_PlayerColor;
         node->unknown_63 = -1;
         unknown_players_a3fa7c.Add(node);
         unknown_session_a3d55c++;

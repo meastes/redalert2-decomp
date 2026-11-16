@@ -49,7 +49,7 @@ int TechnoClass::unknown_slot176()
     int const ramp1 = Stored_Int(0x007F7124, -1);
     int const ramp2 = Stored_Int(0x007F7128, -1);
     int const rock = Stored_Int(0x007F712C, 3);
-    int zadjust = -Unknown_006A2970(Get_Height());
+    int zadjust = -Tactical_Z_Lepton_To_Pixel(Get_Height());
     Cell cell = unknown_slot104();
     CellClass *here = &Map[cell];
     if (Kind_Of() == 1) {
@@ -128,7 +128,7 @@ int TechnoClass::unknown_slot176()
             int subtile = 0;
             IsometricTileTypeClass *tile;
             if (type == 0xFFFF || type == 0xFF) {
-                tile = IsoTileTypes[unknown_tileset_a52f00];   // the clear tile set (0x006D04B0; C16 audit)
+                tile = IsoTileTypes[IsometricTileTypeClass_ClearTile];   // the clear tile set (0x006D04B0; C16 audit)
             } else {
                 tile = IsoTileTypes[type];
                 subtile = (unsigned char)cells[i]->unknown_11a;

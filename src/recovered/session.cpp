@@ -76,24 +76,13 @@
 #include "shared/vox_speech.hpp"
 
 
-// 0x0066ee40: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_0066ee40(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// SessionClass_Init (0x0066EE40): name from mischa85 names.csv
 
-namespace seed_0066ee40 {
-
-void  FUN_0066ee40(void)
+void  SessionClass_Init(void)
 {
     return;
 }
 
-}  // namespace seed_0066ee40
 
 
 // Session unit profile: the constructor 0x0066E380 sees the ctor-only fields; Cell compares as the YR twin's
@@ -431,13 +420,13 @@ SessionClass::SessionClass() : Mode(0)
 // SessionClass (the session object at 0x00A3D298, shared/unknown_globals.hpp SessionClass).
 
 // The call-waiting labels (0x007F3214: TXT_CWAIT_STAR70 and three more).
-extern char const *unknown_call_wait_labels_7f3214[4];
+extern char const *SessionClass_CallWaitStringIDs[4];
 extern "C" unsigned short *__cdecl _wcsdup(unsigned short const *string);
 
 void SessionClass::Load_Call_Wait_Strings()
 {
     for (int i = 0; i < 4; i++) {
-        CallWaitStrings.Add(_wcsdup(StringTable::Load_String(unknown_call_wait_labels_7f3214[i], 0,
+        CallWaitStrings.Add(_wcsdup(StringTable::Load_String(SessionClass_CallWaitStringIDs[i], 0,
                                                             "D:\\Ra2\\Session.CPP", 536)));
     }
 }
@@ -599,7 +588,7 @@ void SessionOptionsClass::Read(CCINIClass &ini, char const *section, int other_s
 
 extern "C" unsigned short *__cdecl _wcsupr(unsigned short *string);
 // The dial method letters (0x007F320C; also declared by Write_MultiPlayer_Settings 0x00670380).
-extern char const *unknown_dial_methods_7f320c[2];
+extern char const *SessionClass_DialMethodCheck[2];
 // Set once the port settings are read (0x00AB9178).
 extern bool PortsRead;
 // The firewall detection state (0x00A71B18) and the port pool after it (0x00A71B28).
@@ -687,7 +676,7 @@ void SessionClass::Read_MultiPlayer_Settings()
 
     ConfigINI.Get_String("SerialDefaults", "DialMethod", "T", buf, 2);
     for (i = 0; i < 2; i++) {
-        if (!_stricmp(buf, unknown_dial_methods_7f320c[i])) {
+        if (!_stricmp(buf, SessionClass_DialMethodCheck[i])) {
             SerialDefaults.DialMethod = i;
             break;
         }
@@ -779,7 +768,7 @@ void SessionClass::Read_MultiPlayer_Settings()
         if (tokenptr) {
             strcpy(buf, tokenptr);
             for (i = 0; i < 2; i++) {
-                if (!_stricmp(buf, unknown_dial_methods_7f320c[i])) {
+                if (!_stricmp(buf, SessionClass_DialMethodCheck[i])) {
                     phone->Settings.DialMethod = i;
                     break;
                 }
@@ -942,7 +931,7 @@ void SessionOptionsClass::Write(CCINIClass &ini, char const *section)
 
 
 // The dial method letters (0x007F320C: "T" tone, "P" pulse; Red Alert's DialMethodCheck).
-extern char const *unknown_dial_methods_7f320c[2];
+extern char const *SessionClass_DialMethodCheck[2];
 
 // Red Alert's SessionClass::Write_MultiPlayer_Settings: saves the player and serial
 // settings, the init strings and the phone book to RA2.INI.
@@ -971,7 +960,7 @@ void SessionClass::Write_MultiPlayer_Settings()
     ConfigINI.Put_String("SerialDefaults", "CallWaitString", SerialDefaults.CallWaitString);
     ConfigINI.Put_Int("SerialDefaults", "CallWaitStringIndex", SerialDefaults.CallWaitStringIndex);
     ConfigINI.Put_Int("SerialDefaults", "InitStringIndex", SerialDefaults.InitStringIndex);
-    ConfigINI.Put_String("SerialDefaults", "DialMethod", unknown_dial_methods_7f320c[SerialDefaults.DialMethod]);
+    ConfigINI.Put_String("SerialDefaults", "DialMethod", SessionClass_DialMethodCheck[SerialDefaults.DialMethod]);
     ConfigINI.Put_Int("SerialDefaults", "Baud", SerialDefaults.Baud);
     ConfigINI.Put_Int("SerialDefaults", "IRQ", SerialDefaults.IRQ);
     ConfigINI.Put_Int("SerialDefaults", "Port", SerialDefaults.Port, 1);
@@ -998,7 +987,7 @@ void SessionClass::Write_MultiPlayer_Settings()
                   PhoneBook[i]->Settings.Baud,
                   PhoneBook[i]->Settings.Compression,
                   PhoneBook[i]->Settings.ErrorCorrection,
-                  unknown_dial_methods_7f320c[PhoneBook[i]->Settings.DialMethod],
+                  SessionClass_DialMethodCheck[PhoneBook[i]->Settings.DialMethod],
                   PhoneBook[i]->Settings.InitStringIndex,
                   PhoneBook[i]->Settings.CallWaitStringIndex,
                   PhoneBook[i]->Settings.CallWaitString);
@@ -1752,22 +1741,12 @@ class Leaf_6715c0 { public: void get(); };
 void Leaf_6715c0::get() {  }
 
 
-// 0x006720c0: function not yet identified
-//
-// Body: 23 bytes (frozen inventory bound).
-// Referenced from 7 sites (unconditional call).
-// Ghidra prototype: bool __fastcall FUN_006720c0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_006720c0 {
+// MultiMission_Is_Random_Map (0x006720C0): name from mischa85 names.csv
 
 extern unsigned int  stricmp_00781f20(unsigned char *first_buffer, unsigned char *second_buffer);
 extern "C" char s_RandMap_Sed_007e16e8[];
 
-bool __fastcall FUN_006720c0(int session_address)
+bool __fastcall MultiMission_Is_Random_Map(int session_address)
 {
     int comparison_result;
 
@@ -1775,7 +1754,6 @@ bool __fastcall FUN_006720c0(int session_address)
     return comparison_result == 0;
 }
 
-}  // namespace seed_006720c0
 
 
 // 0x00672140: function not yet identified
@@ -1804,19 +1782,9 @@ bool __fastcall FUN_00672140(int session_address)
 }  // namespace seed_00672140
 
 
-// 0x00672810: function not yet identified
-//
-// Body: 30 bytes (frozen inventory bound).
-// Referenced from 2 sites (unconditional call).
-// Ghidra prototype: void __fastcall FUN_00672810(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// GameOptionsType_Reset_AI (0x00672810): name from mischa85 names.csv
 
-namespace seed_00672810 {
-
-void __fastcall FUN_00672810(int object_address)
+void __fastcall GameOptionsType_Reset_AI(int object_address)
 {
     unsigned int *entry_words;
     int remaining;
@@ -1833,7 +1801,6 @@ void __fastcall FUN_00672810(int object_address)
     return;
 }
 
-}  // namespace seed_00672810
 
 
 // Resolves the random countries and colours (see the declaration); 0x00672940 and 0x00672980 are expanded on the
@@ -1865,7 +1832,7 @@ void SessionClass::Assign_Random_Choices()
             }
         }
         if (i == 0) {
-            unknown_a3d3b4 = player->unknown_53;
+            Game_PlayerColor = player->unknown_53;
         }
     }
     for (i = 0; i < 8; i++) {

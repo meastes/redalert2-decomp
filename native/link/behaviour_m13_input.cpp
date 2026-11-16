@@ -20,7 +20,7 @@ int UnknownSelection::Count()
 // 0x006AC7C0 (seed: returns the first word of the 12-byte entry at 0x00ABE5F8 + 12 * index).
 ObjectClass *UnknownSelection::Get(int index)
 {
-    return unknown_tactical_pixels_abe5f8[index].Object;
+    return Tactical_SelectableObjects[index].Object;
 }
 
 

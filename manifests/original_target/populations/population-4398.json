@@ -4,8 +4,8 @@
     "id": "population-4398",
     "inventory_sha256": "8b535662116274dc5d511e9ba2471fe83d27b887344b8352e7f84c9316eb9a34",
     "gaps_sha256": "f824756eaf9954442945b1b72e7f1d05ac32893c2bdb011c3649c16f40c92d77",
-    "historical_population_sha256": "73b07adebb3046f4d1e3b58b26aa5abe09f47379e2a233acff03a8a186cacc6d",
-    "historical_acceptance_sha256": "a9e409ab21d61a0694f6628bb1715658b54b908248833ff694989105321b159c"
+    "historical_population_sha256": "c2cf68ec67f7d162b7874e046e60d6fe2307012aec3fcd6c301c1d50f9e8d5ab",
+    "historical_acceptance_sha256": "5b002e9844136de61578536ccc2ef276188406c570d21bd32d74b9f21ca67c18"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -347,62 +347,62 @@
     "??_7CDFileClass@@6B@": 7972440,
     "??_C@_07NDNK@General?$AA@": 8239992,
     "??_C@_07OOKG@No?5Name?$AA@": 8253052,
-    "?unknown_tileset_a6e018@@3HA": 10936344,
+    "?IsometricTileTypeClass_RampStart@@3HA": 10936344,
     "?unknown_tileset_a52ea8@@3HA": 10825384,
     "?unknown_tileset_a52eec@@3HA": 10825452,
-    "?unknown_tileset_a52f00@@3HA": 10825472,
-    "?unknown_tileset_a6e0e8@@3HA": 10936552,
-    "?unknown_tileset_a6cf4c@@3HA": 10932044,
-    "?unknown_tileset_a52c60@@3HA": 10824800,
-    "?unknown_tileset_a6e0e0@@3HA": 10936544,
-    "?unknown_tileset_a52ef4@@3HA": 10825460,
+    "?IsometricTileTypeClass_ClearTile@@3HA": 10825472,
+    "?IsometricTileTypeClass_RoughTile@@3HA": 10936552,
+    "?IsometricTileTypeClass_SandTile@@3HA": 10932044,
+    "?IsometricTileTypeClass_GreenTile@@3HA": 10824800,
+    "?IsometricTileTypeClass_PaveTile@@3HA": 10936544,
+    "?IsometricTileTypeClass_MiscPaveTile@@3HA": 10825460,
     "?unknown_tileset_a52f84@@3HA": 10825604,
     "?unknown_tileset_a52c70@@3HA": 10824816,
     "?unknown_tileset_a52590@@3HA": 10823056,
     "?unknown_tileset_a52ef8@@3HA": 10825464,
     "?unknown_tileset_a5258c@@3HA": 10823052,
     "?unknown_tileset_a6e0fc@@3HA": 10936572,
-    "?unknown_tileset_a52c74@@3HA": 10824820,
-    "?unknown_tileset_a6cb68@@3HA": 10931048,
-    "?unknown_tileset_a52e68@@3HA": 10825320,
-    "?unknown_tileset_a6cb74@@3HA": 10931060,
-    "?unknown_tileset_a52580@@3HA": 10823040,
-    "?unknown_tileset_a6e038@@3HA": 10936376,
+    "?IsometricTileTypeClass_BridgeSet@@3HA": 10824820,
+    "?IsometricTileTypeClass_TrainBridgeSet@@3HA": 10931048,
+    "?IsometricTileTypeClass_CliffSet@@3HA": 10825320,
+    "?IsometricTileTypeClass_ShorePieces@@3HA": 10931060,
+    "?IsometricTileTypeClass_WaterSet@@3HA": 10823040,
+    "?IsometricTileTypeClass_SlopeSetPieces@@3HA": 10936376,
     "?unknown_tileset_a52ee8@@3HA": 10825448,
     "?unknown_tileset_a52e6c@@3HA": 10825324,
     "?unknown_tileset_a52f04@@3HA": 10825476,
     "?unknown_tileset_a6cb78@@3HA": 10931064,
     "?unknown_tileset_a52ea4@@3HA": 10825380,
     "?unknown_tileset_a6cf50@@3HA": 10932048,
-    "?unknown_tileset_a52584@@3HA": 10823044,
-    "?unknown_tileset_a6cf58@@3HA": 10932056,
-    "?unknown_tileset_a52ef0@@3HA": 10825456,
-    "?unknown_tileset_a52ea0@@3HA": 10825376,
-    "?unknown_tileset_a6dd00@@3HA": 10935552,
-    "?unknown_tileset_a6dd0c@@3HA": 10935564,
-    "?unknown_tileset_a6dd08@@3HA": 10935560,
-    "?unknown_tileset_a52c68@@3HA": 10824808,
+    "?IsometricTileTypeClass_WaterfallEast@@3HA": 10823044,
+    "?IsometricTileTypeClass_WaterfallWest@@3HA": 10932056,
+    "?IsometricTileTypeClass_WaterfallNorth@@3HA": 10825456,
+    "?IsometricTileTypeClass_WaterfallSouth@@3HA": 10825376,
+    "?IsometricTileTypeClass_CliffRamps@@3HA": 10935552,
+    "?IsometricTileTypeClass_PavedRoads@@3HA": 10935564,
+    "?IsometricTileTypeClass_PavedRoadEnds@@3HA": 10935560,
+    "?IsometricTileTypeClass_Medians@@3HA": 10824808,
     "?unknown_tileset_a52c64@@3HA": 10824804,
-    "?unknown_tileset_a6cb6c@@3HA": 10931052,
-    "?unknown_tileset_a6e014@@3HA": 10936340,
+    "?IsometricTileTypeClass_DirtRoadJunction@@3HA": 10931052,
+    "?IsometricTileTypeClass_DirtRoadCurve@@3HA": 10936340,
     "?unknown_tileset_a52efc@@3HA": 10825468,
-    "?unknown_tileset_a6e0f8@@3HA": 10936568,
+    "?IsometricTileTypeClass_DestroyableCliffs@@3HA": 10936568,
     "?unknown_tileset_a52e64@@3HA": 10825316,
     "?unknown_tileset_a6cb70@@3HA": 10931056,
     "?unknown_tileset_a52ee4@@3HA": 10825444,
-    "?unknown_tileset_a6dd04@@3HA": 10935556,
+    "?IsometricTileTypeClass_DirtRoadSlopes@@3HA": 10935556,
     "?unknown_tileset_a6cf54@@3HA": 10932052,
     "?unknown_tileset_a52ee0@@3HA": 10825440,
-    "?unknown_tileset_a6e0e4@@3HA": 10936548,
-    "?unknown_tileset_a52f80@@3HA": 10825600,
-    "?unknown_tileset_a6e028@@3HA": 10936360,
-    "?unknown_tileset_a52c80@@3HA": 10824832,
-    "?unknown_tileset_a53394@@3HA": 10826644,
-    "?unknown_tileset_a52588@@3HA": 10823048,
-    "?unknown_tileset_a6e010@@3HA": 10936336,
-    "?unknown_tileset_a53390@@3HA": 10826640,
-    "?unknown_tileset_a6cb7c@@3HA": 10931068,
-    "?unknown_tileset_a52e70@@3HA": 10825328,
+    "?IsometricTileTypeClass_BridgeTopLeft1@@3HA": 10936548,
+    "?IsometricTileTypeClass_BridgeTopLeft2@@3HA": 10825600,
+    "?IsometricTileTypeClass_BridgeBottomRight1@@3HA": 10936360,
+    "?IsometricTileTypeClass_BridgeBottomRight2@@3HA": 10824832,
+    "?IsometricTileTypeClass_BridgeTopRight1@@3HA": 10826644,
+    "?IsometricTileTypeClass_BridgeTopRight2@@3HA": 10823048,
+    "?IsometricTileTypeClass_BridgeBottomLeft1@@3HA": 10936336,
+    "?IsometricTileTypeClass_BridgeBottomLeft2@@3HA": 10826640,
+    "?IsometricTileTypeClass_BridgeMiddle1@@3HA": 10931068,
+    "?IsometricTileTypeClass_BridgeMiddle2@@3HA": 10825328,
     "??_C@_04DDLF@TILE?$AA@": 8253036,
     "??_C@_04KFHA@?4MMT?$AA@": 8252736,
     "??_C@_04LGDF@?$CF02d?$AA@": 8252840,
@@ -590,9 +590,9 @@
     "?Next_Tile_From_Set@IsometricTileTypeClass@@": 5412128,
     "?Fixup_Tile_Type@IsometricTileTypeClass@@": 5412176,
     "?Find_Or_Make_Drawer@IsometricTileTypeClass@@": 5412240,
-    "?Unknown_00529710@@": 5412624,
+    "?IsometricTileTypeClass_Free_Unused_Drawers@@": 5412624,
     "?Init_Drawers@IsometricTileTypeClass@@SAXXZ": 5412640,
-    "?Unknown_00529870@@": 5412976,
+    "?IsometricTileTypeClass_Read_Control_File@@": 5412976,
     "?Load_Tiles@IsometricTileTypeClass@@SIX_N0@Z": 5419744,
     "?Clear_Use_Counts@IsometricTileTypeClass@@SAXXZ": 5420624,
     "?Get_Tile_Pixel_Dimensions@IsometricTileTypeClass@@QAE_NHAAH0@Z": 5420688,
@@ -1426,7 +1426,6 @@
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
     "?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A": 10748728,
     "?unknown_rules_839848@@3PAUUnknownRules839848@@A": 8624200,
-    "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z": 7261072,
     "?Coord_Fixup@ObjectTypeClass@@UBE?AUCoordStruct@@ABU2@@Z": 4309728,
     "?Get_Image_Data@ObjectTypeClass@@UBEPAXXZ": 4309760,
     "?unknown_slot178@TechnoClass@@UAE?AVCell@@XZ": 4537216,
@@ -3410,7 +3409,7 @@
     "?Unlink@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030800,
     "?From_Name@TagTypeClass@@SIPAV1@PBD@Z": 7030912,
     "?Read_Scenario_INI@TagTypeClass@@SIXAAVCCINIClass@@@Z": 7031008,
-    "?unknown_tags_section_7ac770@@3QBDB": 8046448,
+    "?TagTypeClass_INI_NAME@@3QBDB": 8046448,
     "?Unknown_00412390@@YIJPBD@Z": 4268944,
     "?Write_Scenario_INI@TagTypeClass@@SIXAAVCCINIClass@@@Z": 7031280,
     "?Write_INI@TagTypeClass@@UBE_NAAVCCINIClass@@@Z": 7031664,
@@ -3900,11 +3899,11 @@
     "?Unknown_004718B0@UnknownPlacementCellView@@QAE_NHPBVTechnoTypeClass@@PAVHouseClass@@@Z": 4659376,
     "?Unknown_00478760@UnknownPlacementCellView@@QAE_NH_N0HHH0@Z": 4687712,
     "?Read_Scenario_INI@TriggerTypeClass@@SIXAAVCCINIClass@@@Z": 7268336,
-    "?unknown_triggers_section_7ada50@@3PBDB": 8051280,
+    "?TriggerTypeClass_INI_NAME@@3PBDB": 8051280,
     "?Write_INI@TriggerTypeClass@@UBE_NAAVCCINIClass@@@Z": 7268544,
-    "?unknown_events_section_7ada58@@3PBDB": 8051288,
+    "?TriggerTypeClass_INI_EVENT_NAME@@3PBDB": 8051288,
     "?Build_INI_Entry@TActionClass@@QBEXPAD@Z": 7001664,
-    "?unknown_actions_section_7ada54@@3PBDB": 8051284,
+    "?TriggerTypeClass_INI_ACTION_NAME@@3PBDB": 8051284,
     "?Write_Scenario_INI@TriggerTypeClass@@SIXAAVCCINIClass@@@Z": 7269024,
     "?Read_INI@VoxelAnimTypeClass@@UAE_NAAVCCINIClass@@@Z": 7398512,
     "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z": 7442560,
@@ -5436,7 +5435,7 @@
     "?Execute@MultiplayerDebugCommandClass@@UBEXH@Z": 5363648,
     "?Execute@MultiplayerSyncCommandClass@@UBEXH@Z": 5363744,
     "?Execute@CursorPositionCommandClass@@UBEXH@Z": 5364112,
-    "?Unknown_0051FC50@@YA_NXZ": 5373008,
+    "?IonStormClass_Is_Ion_Storm_Active@@YA_NXZ": 5373008,
     "?Action@Dial8Class@@UAEHIAAI@Z": 4812768,
     "?Action@EditClass@@UAEHIAAI@Z": 4926272,
     "??0ParticleTypeClass@@QAE@ABVNoInitClass@@@Z": 6427408,
@@ -6002,8 +6001,8 @@
     "_wcsncpy": 7878178,
     "?unknown_int_839630@@3HA": 8623664,
     "?SidebarDrawer@@3PAVConvertClass@@A": 8594380,
-    "?unknown_flag_8373c3@@3_NA": 8614851,
-    "?unknown_flag_abcd84@@3_NA": 11259268,
+    "?SidebarClass_IsSidebarRedrawPending@@3_NA": 8614851,
+    "?SidebarClass_IsToBlitSidebar@@3_NA": 11259268,
     "?Unknown_006F8A20@@YIXPAVBuildingClass@@@Z": 7309856,
     "?Process@MechLocomotionClass@@UAG_NXZ": 5838912,
     "?Shadow_Point@FlyLocomotionClass@@UAG?AUPoint2D@@XZ": 4976832,
@@ -6037,19 +6036,19 @@
     "?CheckStartConditions@MultiplayerGameMode@@UAE_NPAVWideString@@@Z": 5993376,
     "?AssignTeamsAtStart@MultiplayerSiege@@UAE_NXZ": 5945152,
     "?IsTeamIncluded@MultiplayerSiegeDefenderTeam@@UAE_NH@Z": 5946912,
-    "?unknown_pipbrd_shapes_a72fe0@@3PBXB": 10956768,
-    "?unknown_pips_shapes_a72fe4@@3PBXB": 10956772,
-    "?unknown_pips2_shapes_a72fe8@@3PBXB": 10956776,
-    "?unknown_talkbubl_shapes_a72fec@@3PBXB": 10956780,
+    "?ObjectTypeClass_SelectShapes@@3PBXB": 10956768,
+    "?ObjectTypeClass_PipShapes@@3PBXB": 10956772,
+    "?ObjectTypeClass_Pip2Shapes@@3PBXB": 10956776,
+    "?ObjectTypeClass_TalkBubbleShapes@@3PBXB": 10956780,
     "?unknown_int_839634@@3HA": 8623668,
     "?Unknown_004366D0@UnknownList8322E0@@QAEXPAVTechnoClass@@@Z": 4417232,
     "?Color@PlanningNodeClass@@QAEHXZ": 6366672,
-    "?Unknown_006A2970@@YIHH@Z": 6957424,
+    "?Tactical_Z_Lepton_To_Pixel@@YIHH@Z": 6957424,
     "?BeaconManager@@3VBeaconManagerClass@@A": 8710352,
     "?Unknown_0042E700@BeaconManagerClass@@QAE_NH@Z": 4384512,
     "?unknown_session_a3d298@@3USessionClass@@A": 10736280,
     "?Unknown_005A07F0@@YIXHHHHH@Z": 5900272,
-    "?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z": 5372208,
+    "?IonStormClass_Ion_Storm_Begin@@YIXHHVCell@@PAVHouseClass@@@Z": 5372208,
     "?RuleINI@@3PAVCCINIClass@@A": 8623824,
     "?Union@@YI?BVRect@@ABV1@0@Z": 4583392,
     "?unknown_session_a3d29c@@3PAVUnknownSessionA3D29C@@A": 10736284,
@@ -6302,7 +6301,7 @@
     "?unknown_int_83964c@@3HA": 8623692,
     "?Set_Video_Mode_005434e0@@YI_NHH@Z": 5518560,
     "?Unknown_006EA9B0@@YAXXZ": 7252400,
-    "?Unknown_00520770@@YAXXZ": 5375856,
+    "?IonStormClass_Apply_Secondary_Effect@@YAXXZ": 5375856,
     "?Unknown_006F89E0@@YAXXZ": 7309792,
     "?Unknown_0063C790@@YIXXZ": 6539152,
     "__imp__lstrcatA": 7971120,
@@ -6726,7 +6725,7 @@
     "?Unknown_Free_Art_Pair_006F26D0@@YIXXZ": 7284432,
     "?Decrement@CounterClass@@QAEHH@Z": 4791472,
     "?unknown_a3d3bc@@3HA": 10736572,
-    "?unknown_a3d3b4@@3HA": 10736564,
+    "?Game_PlayerColor@@3HA": 10736564,
     "?SpecialDialog@@3HA": 10751304,
     "?Initialize_Blitters_00483B00@ConvertClass@@QAEXXZ": 4733696,
     "??_7RLEBlitter@@6B@": 7988540,
@@ -7468,7 +7467,7 @@
     "_DAT_00a6eb30": 10939184,
     "?FUN_0053f460@": 5502048,
     "?FUN_0054faf0@": 5569264,
-    "?FUN_0055aa50@": 5614160,
+    "?MapClass_Reset_Local_Iterator@": 5614160,
     "?FUN_0056b2b0@": 5681840,
     "?FUN_0056b480@": 5682304,
     "?FUN_0056b7c0@": 5683136,
@@ -7480,7 +7479,7 @@
     "?Not_Equal_0058db50@Cell@@": 5823312,
     "?FUN_0058e6c0@": 5826240,
     "?ID_0058e830@": 5826608,
-    "?Has_Finished@seed_005ad8c0@@": 5953728,
+    "?Has_Finished@@": 5953728,
     "?FUN_005b4bd0@": 5983184,
     "?FUN_005b66c0@": 5990080,
     "?FUN_005b6830@": 5990448,
@@ -7520,10 +7519,10 @@
     "?Set_Scenario_Name_0065e730@ScenarioClass@@": 6678320,
     "?Clear_All_Waypoints_00663220@": 6697504,
     "?FUN_0066e2d0@": 6742736,
-    "?FUN_006720c0@": 6758592,
+    "?MultiMission_Is_Random_Map@": 6758592,
     "_s_RandMap_Sed_007e16e8": 8263400,
     "?FUN_00672140@": 6758720,
-    "?FUN_00672810@": 6760464,
+    "?GameOptionsType_Reset_AI@": 6760464,
     "?FUN_00672f20@": 6762272,
     "?FUN_00687160@": 6844768,
     "?FUN_006872f0@": 6845168,
@@ -7554,7 +7553,7 @@
     "?FUN_006f8a00@": 7309824,
     "?FUN_006f8a20@": 7309856,
     "?FUN_006fa0c0@": 7315648,
-    "?FUN_0070a240@": 7381568,
+    "?UnitClass_Is_Immobilized@": 7381568,
     "?FUN_00713520@": 7419168,
     "?FUN_00713550@": 7419216,
     "?FUN_00725640@": 7493184,
@@ -7707,8 +7706,8 @@
     "??_7FoggedObjectClass@@6BIRTTITypeInfo@@@": 7999788,
     "??_7FoggedObjectClass@@6BINoticeSink@@@": 7999780,
     "??_7FoggedObjectClass@@6BINoticeSource@@@": 7999772,
-    "?unknown_map_min_a70a1c@@3HA": 10947100,
-    "?unknown_map_max_a70a20@@3HA": 10947104,
+    "?MapRegionClass_MapStartDiagonal@@3HA": 10947100,
+    "?MapRegionClass_MapEndDiagonal@@3HA": 10947104,
     "?Collect_Neighbor_Regions_005709c0@MapRegionClass@@QAEXXZ": 5704128,
     "?unknown_map_region_next_index_a70a28@@3HA": 10947112,
     "?Collect_Boundary_Cells_0056ed10@MapRegionClass@@QAEPAV?$DynamicVectorClass@VCell@@@@XZ": 5696784,
@@ -9102,7 +9101,7 @@
     "?Scale_004376b0@Vector3@@QAEAAU1@M@Z": 4421296,
     "?Add_004376e0@Vector3@@QAEAAU1@ABU1@@Z": 4421344,
     "?VerNum@@3VVersionClass@@A": 10751112,
-    "?unknown_building_depth_shape_85029c@@3PAUShapeFileStruct@@A": 8716956,
+    "?BuildingTypeClass_BuildingZShape@@3PAUShapeFileStruct@@A": 8716956,
     "?Get_Wide_String@CampaignINI@@QBEHPBD0PAGH@Z": 5304336,
     "?Darken_Surface@@YIXH_N@Z": 5331376,
     "??0BitFontClass@@QAE@PBD@Z": 4395072,
@@ -9256,7 +9255,7 @@
     "?Unknown_005FEE70@@YIXPAUHWND__@@@Z": 6286960,
     "__imp__GetStockObject@4": 7970948,
     "?TAction_ION_LIGHTNING_STRIKE@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7010640,
-    "?Unknown_0051FC90@@YGXVCell@@@Z": 5373072,
+    "?IonStormClass_Lightning_Bolt@@YGXVCell@@@Z": 5373072,
     "?unknown_particle_system_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7010816,
     "?unknown_player_4e80d0@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7011664,
     "?unknown_explosion_50_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7012480,
@@ -9608,17 +9607,17 @@
     "?Unlock@LocomotionClass@@UAGXXZ": 4875744,
     "?Stride@DSurface@@UAEHXZ": 4893808,
     "?Get_Red_Left@@YAHXZ": 4897584,
-    "?unknown_shift_852fb8@@3HA": 8728504,
+    "?DSurface_RedRight@@3HA": 8728504,
     "?Get_Red_Right@@YAHXZ": 4897600,
-    "?unknown_shift_852fbc@@3HA": 8728508,
+    "?DSurface_RedLeft@@3HA": 8728508,
     "?Get_Green_Left@@YAHXZ": 4897616,
-    "?unknown_shift_852fc8@@3HA": 8728520,
+    "?DSurface_GreenRight@@3HA": 8728520,
     "?Get_Green_Right@@YAHXZ": 4897632,
-    "?unknown_shift_852fcc@@3HA": 8728524,
+    "?DSurface_GreenLeft@@3HA": 8728524,
     "?Get_Blue_Left@@YAHXZ": 4897648,
-    "?unknown_shift_852fc0@@3HA": 8728512,
+    "?DSurface_BlueRight@@3HA": 8728512,
     "?Get_Blue_Right@@YAHXZ": 4897664,
-    "?unknown_shift_852fc4@@3HA": 8728516,
+    "?DSurface_BlueLeft@@3HA": 8728516,
     "?Get_Unknown_7d6290@@YIHXZ": 4897680,
     "?unknown_7d6290@@3HA": 8217232,
     "?Copy_From@DSurface@@UAE_NAAVSurface@@_N1@Z": 4920512,
@@ -9838,7 +9837,7 @@
     "?Is_Button_Listed@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114528,
     "?Add_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114560,
     "?Remove_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114624,
-    "?unknown_flag_abcd85@@3_NA": 11259269,
+    "?SidebarClass_IsToEraseSidebarMouse@@3_NA": 11259269,
     "?unknown_object_a3dc70@@3VUnknownObjectA3DC70@@A": 10738800,
     "?Unknown_005B5B30@UnknownObjectA3DC70@@QAEXXZ": 5987120,
     "?ToolTips@@3PAVCCToolTip@@A": 8624560,
@@ -9865,7 +9864,7 @@
     "?Unknown_006E9670@@YAXXZ": 7247472,
     "?Unknown_006EA130@@YIXXZ": 7250224,
     "?Unknown_Hash_0054F240@@YIHABI@Z": 5567040,
-    "?Unknown_00529710@@YI_NH_N@Z": 5412624,
+    "?IsometricTileTypeClass_Free_Unused_Drawers@@YI_NH_N@Z": 5412624,
     "??0ShapeButtonClass@@QAE@XZ": 6770720,
     "??1ShapeButtonClass@@UAE@XZ": 6770928,
     "?Init_Clear@PowerClass@@UAEXXZ": 6407376,
@@ -10055,11 +10054,11 @@
     "?Pick_Up@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z": 5549936,
     "?Unknown_0055A7F0@MapClass@@QAE_NABUCoordStruct@@@Z": 5613552,
     "??0MechLocomotionClass@@QAE@XZ": 5838544,
-    "?Unknown_006A29B0@@YIHH@Z": 6957488,
+    "?Tactical_Pixel_To_Z_Lepton@@YIHH@Z": 6957488,
     "?unknown_47c200@UnknownLocoCellObject@@QAE_NXZ": 4702720,
     "?Force_New_Slope@DriveLocomotionClass@@UAGXH@Z": 4848688,
     "?Force_New_Slope@ShipLocomotionClass@@UAGXH@Z": 6773744,
-    "?Unknown_006818D0@@YIHHHH@Z": 6822096,
+    "?SidebarClass_GetObjectTabIdx@@YIHHHH@Z": 6822096,
     "?unknown_func_4e5dc0@HouseClass@@QAEXHH@Z": 5135808,
     "?Flag_To_Win@HouseClass@@QAE_N_N@Z": 5144288,
     "?unknown_47c300@UnknownCellClass@@QAE_NH@Z": 4702976,
@@ -10219,18 +10218,18 @@
     "?Register_Subzone_Connection@MapClass@@QAEXPAUZoneConnectionClass@@@Z": 5664656,
     "?Unknown_00550CF0@MapClass@@QAE_NABVCell@@HHHHHH_N1@Z": 5573872,
     "?Unknown_0055AF60@@YI_NH@Z": 5615456,
-    "?Unknown_00562930@@YIHABVCell@@@Z": 5646640,
-    "?Unknown_00562980@@YIHABVCell@@@Z": 5646720,
+    "?MapClass_Is_Low_Bridge@@YIHABVCell@@@Z": 5646640,
+    "?MapClass_Is_Low_Bridge2@@YIHABVCell@@@Z": 5646720,
     "?Unknown_005686B0@MapClass@@QAE_NABVRect@@H@Z": 5670576,
     "?Cell_Terrain@CellClass@@QBEPAVObjectClass@@_N@Z": 4659168,
     "?Unknown_0055A590@MapClass@@QAE_NABVRect@@_N@Z": 5612944,
     "?Unknown_005687B0@MapClass@@QAEXABVRect@@@Z": 5670832,
     "?Recalc_Cells_In_List@MapClass@@QAEXAAV?$DynamicVectorClass@VCell@@@@@Z": 5671072,
-    "?Unknown_0055AF80@@YI_NHH@Z": 5615488,
-    "?Unknown_0055DA70@@YIHABVCell@@@Z": 5626480,
-    "?Unknown_0055DB90@@YIHABVCell@@@Z": 5626768,
-    "?Unknown_0055EB70@@YIHABVCell@@@Z": 5630832,
-    "?Unknown_0055ECA0@@YIHABVCell@@@Z": 5631136,
+    "?MapClass_Is_Tile_Cliff@@YI_NHH@Z": 5615488,
+    "?MapClass_Get_Low_Bridge_EW_Neighbor_Mask@@YIHABVCell@@@Z": 5626480,
+    "?MapClass_Get_Low_Bridge_NS_Neighbor_Mask@@YIHABVCell@@@Z": 5626768,
+    "?MapClass_Get_Low_Bridge2_EW_Neighbor_Mask@@YIHABVCell@@@Z": 5630832,
+    "?MapClass_Get_Low_Bridge2_NS_Neighbor_Mask@@YIHABVCell@@@Z": 5631136,
     "?Fresh_Map@MapClass@@QAEXXZ": 5544384,
     "?Overpass@MapClass@@QAEHXZ": 5550816,
     "?Zone_Reset@MapClass@@QAEHXZ": 5565392,
@@ -10367,7 +10366,7 @@
     "?Draw_Buildings@Tactical@@QAEX_NABVRect@@1@Z": 6987616,
     "?Rectangular_To_Isometric@@YI?AUPoint2D@@U1@@Z": 6956864,
     "?Add_To_Selectables@Tactical@@QAE_NPAVObjectClass@@UPoint2D@@@Z": 6989072,
-    "?unknown_tactical_pixels_abe5f8@@3PAUTacticalObjectPixel@@A": 11265528,
+    "?Tactical_SelectableObjects@@3PAUTacticalObjectPixel@@A": 11265528,
     "?Rubber_Band_Contains_Selectable@Tactical@@QAEHXZ": 6989472,
     "?Unknown_006F76B0@@YA_NXZ": 7304880,
     "?Unknown_006F71E0@@YIXPBD@Z": 7303648,
@@ -10677,7 +10676,7 @@
     "?FUN_007820f4@": 7872756,
     "?FUN_005a6230@": 5923376,
     "_DAT_00a3d2b8": 10736312,
-    "?CheckStartConditions@seed_005ac390@@": 5948304,
+    "?CheckStartConditions@@": 5948304,
     "?unknown_focus_next_tab_item_005def80@": 6156160,
     "__imp__GetNextDlgTabItem@12": 7972092,
     "?FUN_00614b50@": 6376272,
@@ -10692,7 +10691,7 @@
     "?FUN_006f9f80@": 7315328,
     "_DAT_00ad0934": 11340084,
     "_DAT_00ad0940": 11340096,
-    "?FUN_00716720@": 7431968,
+    "?Vox_Name@": 7431968,
     "_s__none__007cdecc": 8183500,
     "_unknown_color_007a7360": 8024928,
     "_g_PlayingNetGame_00b2abd9": 11709401,
@@ -11065,7 +11064,7 @@
     "??_7?$List@PAVMixFileClass@@@@6B@": 8021080,
     "_bsearch": 7872549,
     "??0?$List@PAUINISection@INIClass@@@@QAE@XZ": 4788208,
-    "?Unknown_00529870@@YIXH_N@Z": 5412976,
+    "?IsometricTileTypeClass_Read_Control_File@@YIXH_N@Z": 5412976,
     "??_G?$List@PAVMixFileClass@@@@UAEPAXI@Z": 5856608,
     "??_E?$List@PAUINISection@INIClass@@@@UAEPAXI@Z": 4252416,
     "??_ECCINIClass@@UAEPAXI@Z": 4252384,
@@ -12861,7 +12860,7 @@
     "?Execute@DeleteCommandClass@@UBEXH@Z": 5364272,
     "?GetClassID@LightSourceClass@@UAGJPAUGUID@@@Z": 5471072,
     "?State@LocomotionClass@@UAGHXZ": 5494272,
-    "?unknown_mouse_control_7e2af8@@3PAUMouseStruct@@A": 8268536,
+    "?MouseClass_MouseControl@@3PAUMouseStruct@@A": 8268536,
     "?PowerPipShapeAllocated@PowerClass@@2_NA": 10971424,
     "?Unknown_Load_Shape_00495270@@YIPBXPBDAA_N@Z": 4805232,
     "?PowerPipShape@PowerClass@@2PBXB": 10971420,
@@ -12898,19 +12897,19 @@
     "?Execute@PageUserCommandClass@@UBEXH@Z": 5363952,
     "?Set_Owner@PlanningMemberClass@@QAEXPAVTechnoClass@@@Z": 6359040,
     "?Queue_Next_Movie@RadarClass@@QAEXXZ": 6484304,
-    "?Unknown_00631C40@@YIIABUPoint2D@@@Z": 6495296,
-    "?Unknown_00631C60@@YIHABURadarTrackingStruct@@@Z": 6495328,
+    "?RadarTrackingStruct_Hash_Old@@YIIABUPoint2D@@@Z": 6495296,
+    "?RadarTrackingStruct_Hash2@@YIHABURadarTrackingStruct@@@Z": 6495328,
     "?Deactivate@RadBeam@@QAEXXZ": 6510560,
     "?Unknown_0067E640@SidebarClass@@SIHH@Z": 6809152,
-    "?unknown_abcd68@@3HA": 11259240,
+    "?SidebarClass_CameoWidth@@3HA": 11259240,
     "?Unknown_0067E650@SidebarClass@@SIHH@Z": 6809168,
-    "?unknown_abcd6c@@3HA": 11259244,
+    "?SidebarClass_CameoHeight@@3HA": 11259244,
     "?Unknown_0067E740@StripClass@SidebarClass@@QAEPBXH@Z": 6809408,
     "?Set_Owner@SelectClass@StripClass@SidebarClass@@QAEXAAV23@H@Z": 6818256,
     "?Get_Command_Position@TabClass@@SIHH@Z": 6948336,
     "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z": 6948352,
     "?Team_Number@TabClass@@SIHH@Z": 6948560,
-    "?unknown_int_abe370@@3HA": 11264880,
+    "?TabClass_Team01Command@@3HA": 11264880,
     "??1WinModemClass@@UAE@XZ": 7553392,
     "??1MovieHandle@@UAE@XZ": 5905312,
     "??_7MovieHandle@@6B@": 8021588,
@@ -12952,11 +12951,11 @@
     "?CommandNames@@3PAPBDA": 8349688,
     "?NoAdvancedCommand@@3HA": 8349684,
     "?Get_Button_Rect@TabClass@@SI?AVRect@@H@Z": 6948384,
-    "?unknown_int_abe388@@3HA": 11264904,
+    "?TabClass_SlotPitch@@3HA": 11264904,
     "?ButtonSlotRect@@3PBVRect@@B": 11276812,
-    "?unknown_int_abe374@@3HA": 11264884,
+    "?TabClass_SlotTop@@3HA": 11264884,
     "?Is_Team_Command@TabClass@@SIHH@Z": 6948528,
-    "?unknown_int_abe468@@3HA": 11265128,
+    "?TabClass_Team03Command@@3HA": 11265128,
     "?Add_Command_Buttons@TabClass@@QAEXXZ": 6950224,
     "?Remove_Command_Buttons@TabClass@@QAEXXZ": 6950272,
     "?Flash_Power@PowerClass@@QAEXXZ": 6407600,
@@ -12982,20 +12981,20 @@
     "?Unknown_00405BF0@UnknownList14BC@@QAEXXZ": 4217840,
     "?Unknown_0067BA60@SidebarClass@@SAXXZ": 6797920,
     "?unknown_int_839620@@3HA": 8623648,
-    "?unknown_abcd60@@3HA": 11259232,
-    "?unknown_abcd48@@3HA": 11259208,
-    "?unknown_abcd54@@3HA": 11259220,
-    "?unknown_abcd74@@3HA": 11259252,
+    "?SidebarClass_StripLeft@@3HA": 11259232,
+    "?SidebarClass_TopButtonX@@3HA": 11259208,
+    "?SidebarClass_TabButtonX@@3HA": 11259220,
+    "?SidebarClass_PowerBarLeft@@3HA": 11259252,
     "?Unknown_0067B910@SidebarClass@@QAEXXZ": 6797584,
-    "?unknown_abcd4c@@3HA": 11259212,
-    "?unknown_abcd50@@3HA": 11259216,
-    "?unknown_abcd5c@@3HA": 11259228,
-    "?unknown_abcd58@@3HA": 11259224,
-    "?unknown_abcd64@@3HA": 11259236,
+    "?SidebarClass_TopButtonY@@3HA": 11259212,
+    "?SidebarClass_TopButtonSpacing@@3HA": 11259216,
+    "?SidebarClass_TabButtonSpacing@@3HA": 11259228,
+    "?SidebarClass_TabButtonY@@3HA": 11259224,
+    "?SidebarClass_StripTop@@3HA": 11259236,
     "?Unknown_0067E7E0@StripClass@SidebarClass@@QAEXH@Z": 6809568,
     "?Unknown_006F45E0@@YAPAVPaletteClass@@XZ": 7292384,
-    "?unknown_shapes_allocated_abcd40@@3PA_NA": 11259200,
-    "?unknown_shapes_abcd20@@3PAPBXA": 11259168,
+    "?SidebarClass_SidebarShapeAllocated@@3PA_NA": 11259200,
+    "?SidebarClass_SidebarShapes@@3PAPBXA": 11259168,
     "?Unknown_004EB550@@YIHHH@Z": 5158224,
     "?Is_Build_Limited@UnknownSidebarHouse@@QAE_NPAVTechnoTypeClass@@@Z": 5197616,
     "?Unknown_0067C450@SidebarClass@@QAE_NH@Z": 6800464,
@@ -13096,14 +13095,14 @@
     "?TooltipColor@@3VRGBClass@@A": 11276328,
     "?unknown_int_83963c@@3HA": 8623676,
     "?Set_Button_Count@TabClass@@SIXH@Z": 6948464,
-    "?unknown_int_abe2ac@@3HA": 11264684,
+    "?TabClass_ButtonRows@@3HA": 11264684,
     "?TabEndRect@@3PBVRect@@B": 11276816,
     "?ThumbOpenRect@@3PBVRect@@B": 11276804,
-    "?unknown_int_abe37c@@3HA": 11264892,
-    "?unknown_int_abe478@@3HA": 11265144,
-    "?unknown_int_abe2a8@@3HA": 11264680,
+    "?TabClass_ButtonsLeft@@3HA": 11264892,
+    "?TabClass_ButtonWidth@@3HA": 11265144,
+    "?TabClass_ButtonHeight@@3HA": 11264680,
     "?TabBarRect@@3PBVRect@@B": 11276796,
-    "?unknown_int_abe460@@3HA": 11265120,
+    "?TabClass_SlotGap@@3HA": 11265120,
     "?Setup_Command_Buttons@TabClass@@QAEXXZ": 6953088,
     "?ThumbClosedRect@@3PBVRect@@B": 11276808,
     "?Show_Buttons@TabClass@@QAEXXZ": 6953648,
@@ -13128,15 +13127,15 @@
     "?IngameVQ@@3V?$DynamicVectorClass@PAVMovieHandle@@@@A": 11505624,
     "?Activate@LightSourceClass@@QAEX_N@Z": 5469504,
     "??0CreditClass@@QAE@XZ": 4801808,
-    "?unknown_int_abe464@@3HA": 11265124,
-    "?unknown_int_abe294@@3HA": 11264660,
-    "?unknown_int_abd910@@3HA": 11262224,
-    "?unknown_int_abe278@@3HA": 11264632,
-    "?unknown_int_abe2b8@@3HA": 11264696,
-    "?unknown_int_abe36c@@3HA": 11264876,
-    "?unknown_int_abe2bc@@3HA": 11264700,
-    "?unknown_int_abe378@@3HA": 11264888,
-    "?unknown_int_abe290@@3HA": 11264656,
+    "?TabClass_AttackMoveCommand@@3HA": 11265124,
+    "?TabClass_BeaconCommand@@3HA": 11264660,
+    "?TabClass_CheerCommand@@3HA": 11262224,
+    "?TabClass_DeployCommand@@3HA": 11264632,
+    "?TabClass_GuardCommand@@3HA": 11264696,
+    "?TabClass_PlanningModeCommand@@3HA": 11264876,
+    "?TabClass_StopCommand@@3HA": 11264700,
+    "?TabClass_Team02Command@@3HA": 11264888,
+    "?TabClass_TypeSelectCommand@@3HA": 11264656,
     "?Unknown_Set_Sink_00613e00@@YIXPAVINoticeSink@@@Z": 6372864,
     "?Hide_Buttons@TabClass@@QAEXXZ": 6954400,
     "?Show_Thumb_Button@TabClass@@QAEXXZ": 6954528,
@@ -13147,9 +13146,9 @@
     "?Unknown_0052B2E0@@YIX_N0@Z": 5419744,
     "?TabBarHeight@@3HA": 8052100,
     "?unknown_int_839628@@3HA": 8623656,
-    "?unknown_abcd7c@@3HA": 11259260,
-    "?unknown_abcd78@@3HA": 11259256,
-    "?unknown_abcd80@@3HA": 11259264,
+    "?SidebarClass_SidebarEdgeWidth@@3HA": 11259260,
+    "?SidebarClass_SidebarBottomY@@3HA": 11259256,
+    "?SidebarClass_SidebarEdgeStep@@3HA": 11259264,
     "?Unknown_0049DB60@DisplayClass@@QAEHPAXH@Z": 4840288,
     "?Unknown_0049DCD0@DisplayClass@@QAEXPAX@Z": 4840656,
     "?Add_Pip@PowerClass@@QAEXXZ": 6409152,
@@ -13162,12 +13161,12 @@
     "?Render_Radar@RadarClass@@QAEXXZ": 6500880,
     "?Draw_Names@RadarClass@@QAEXXZ": 6488912,
     "?Play_Movie@RadarClass@@QAEXXZ": 6503728,
-    "?unknown_shape_ab64a0@@3PAXA": 11232416,
+    "?RadarClass_RadarAnim@@3PAXA": 11232416,
     "?Movie_Audio_Resume@@YAXXZ": 5900992,
     "?Release_Scenario@@YAXXZ": 6669072,
     "?Sound_Clear_Static@@YAXXZ": 7422992,
     "?Aux_Stream_Stop@@YIXXZ": 7430352,
-    "?unknown_rect_8336e8@@3VRect@@A": 8599272,
+    "?SidebarClass_DirtyRect@@3VRect@@A": 8599272,
     "?Unknown_0067F800@StripClass@SidebarClass@@QAEX_N@Z": 6813696,
     "?Sorted_Add@LayerClass@@QAEHPAVObjectClass@@@Z": 5458304,
     "?Sort@LayerClass@@QAEXXZ": 5458208,
@@ -13730,7 +13729,7 @@
           "resolved": 10936560
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -13781,7 +13780,7 @@
           "resolved": 10936368
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -13832,7 +13831,7 @@
           "resolved": 10936352
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -13883,7 +13882,7 @@
           "resolved": 10825592
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -13934,7 +13933,7 @@
           "resolved": 10824824
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -14017,7 +14016,7 @@
           "resolved": 10937224
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -14076,7 +14075,7 @@
           "resolved": 10825608
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -14135,7 +14134,7 @@
           "resolved": 10932064
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -14194,7 +14193,7 @@
           "resolved": 10936556
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -14237,7 +14236,7 @@
           "resolved": 10825390
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -14288,7 +14287,7 @@
           "resolved": 10932040
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -14395,7 +14394,7 @@
           "resolved": 2466751
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -14406,8 +14405,8 @@
     {
       "entry": 5412624,
       "method": "00529710",
-      "symbol": "?Unknown_00529710@@YI_NH_N@Z",
-      "symbol_prefix": "?Unknown_00529710@@",
+      "symbol": "?IsometricTileTypeClass_Free_Unused_Drawers@@YI_NH_N@Z",
+      "symbol_prefix": "?IsometricTileTypeClass_Free_Unused_Drawers@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14421,7 +14420,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -14480,7 +14479,7 @@
           "resolved": 8002412
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -14506,7 +14505,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "58d44b3d49b4cf572dc1729be433b2563b1e47d23c7644bc7273c21580773fa9",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -14532,7 +14531,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "60e1ad8f54963be5014fb0672040c5416c2fe6735039fd06c19b1279983517b6",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -14558,7 +14557,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "7d043569ce0bdb08296d7ac6849e3e3281b3d90d09d70cf19458c7b457863ecc",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -14601,7 +14600,7 @@
           "resolved": 2438774
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -14637,7 +14636,7 @@
           "resolved": 2438736
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -14664,7 +14663,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -14691,7 +14690,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -14718,7 +14717,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -14745,7 +14744,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -14798,7 +14797,7 @@
         }
       ],
       "source": "src/recovered/isotype.cpp",
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source_order": 242947,
       "population": "population-4398",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -14849,7 +14848,7 @@
         }
       ],
       "source": "src/recovered/isotype.cpp",
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source_order": 242948,
       "population": "population-4398",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -14900,7 +14899,7 @@
         }
       ],
       "source": "src/recovered/isotype.cpp",
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source_order": 242949,
       "population": "population-4398",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -14951,7 +14950,7 @@
         }
       ],
       "source": "src/recovered/isotype.cpp",
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source_order": 242950,
       "population": "population-4398",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -14993,7 +14992,7 @@
           "resolved": 2437709
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -15028,7 +15027,7 @@
           "resolved": 8612
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -15054,7 +15053,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "742ea839bce1ac12916f9b028f41baf6a4234c0791cffc4e2edcf81c4604bdab",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -15089,7 +15088,7 @@
           "resolved": 8806884
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -15124,7 +15123,7 @@
           "resolved": 2438307
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -15151,7 +15150,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -15177,7 +15176,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -15212,7 +15211,7 @@
           "resolved": 695196
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -15255,7 +15254,7 @@
           "resolved": 2438384
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -15299,7 +15298,7 @@
           "resolved": 2438077
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -15326,7 +15325,7 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "41ac92a47950d3949cbda24d087c96cb7ab38f2a794f3f36a36607cd2fafa2b2",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -15394,7 +15393,7 @@
           "resolved": 10825404
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -15421,7 +15420,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "source_order": 242953,
       "population": "population-4398",
@@ -15473,7 +15472,7 @@
           "resolved": 10751200
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -15499,7 +15498,7 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "68a1302b1ebcf720225e7cad1efc2aab68acb1ff8c3c34f9e96812a6c0fe419f",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -15584,7 +15583,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "3f1423d2d8565363fa49d26a4dd6977a77095ccb118ebc25fd5576ef9ecfca31",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -15620,7 +15619,7 @@
           "resolved": 8250604
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -15664,7 +15663,7 @@
           "resolved": 4294942409
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -15723,7 +15722,7 @@
           "resolved": 4294942320
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -15749,7 +15748,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "ca3c1205798bf634a8e881dc9db24ff3fb7f20dd9dc683989c92525bd043a67c",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -15920,7 +15919,7 @@
           "resolved": 309
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -15946,7 +15945,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "8aa28c477cf076d3c6e0898cd904f3bf0f178f896f0a3ab4cb7229cbc32d33b4",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -15981,7 +15980,7 @@
           "resolved": 8562
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -16056,7 +16055,7 @@
           "resolved": 10824836
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -16082,7 +16081,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -16278,7 +16277,7 @@
           "resolved": 706667
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -16313,7 +16312,7 @@
           "resolved": 10935570
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -16420,7 +16419,7 @@
           "resolved": 10825424
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -18023,7 +18022,7 @@
           "resolved": 10937220
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -18370,7 +18369,7 @@
           "resolved": 10936536
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -18597,7 +18596,7 @@
           "resolved": 2462474
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -18672,7 +18671,7 @@
           "resolved": 8016252
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -18707,7 +18706,7 @@
           "resolved": 8700
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -18766,7 +18765,7 @@
           "resolved": 10751200
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -18792,7 +18791,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "7cdcf69e5c5686fa3ff742402e50d1be86b59b3eb2881d570e46fd95bfb79bc4",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -18835,7 +18834,7 @@
           "resolved": 10825420
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -19030,7 +19029,7 @@
           "resolved": 8594332
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -19297,7 +19296,7 @@
           "resolved": 199723
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -19382,7 +19381,7 @@
         {
           "offset": 197,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52f00@@3HA",
+          "symbol": "?IsometricTileTypeClass_ClearTile@@3HA",
           "target": 10825472,
           "addend": 0,
           "resolved": 10825472
@@ -19508,7 +19507,7 @@
           "resolved": 4293768094
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -19615,7 +19614,7 @@
           "resolved": 4293934354
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -19641,7 +19640,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "920e21c9071196fd218abf6402a15ac3b75116103d778eba4367cb0cdcf75bdb",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -19670,7 +19669,7 @@
         {
           "offset": 9,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e038@@3HA",
+          "symbol": "?IsometricTileTypeClass_SlopeSetPieces@@3HA",
           "target": 10936376,
           "addend": 0,
           "resolved": 10936376
@@ -19812,7 +19811,7 @@
           "resolved": 4294391290
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -19983,7 +19982,7 @@
           "resolved": 4294335862
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -20009,7 +20008,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "57f9adde7e32b480059e3fde6242f3705bd9070fa8c41d7ba5f9e6c9838e011d",
       "relocations": [],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -20102,7 +20101,7 @@
         {
           "offset": 334,
           "kind": 6,
-          "symbol": "?unknown_shift_852fc4@@3HA",
+          "symbol": "?DSurface_BlueLeft@@3HA",
           "target": 8728516,
           "addend": 0,
           "resolved": 8728516
@@ -20110,7 +20109,7 @@
         {
           "offset": 346,
           "kind": 6,
-          "symbol": "?unknown_shift_852fc0@@3HA",
+          "symbol": "?DSurface_BlueRight@@3HA",
           "target": 8728512,
           "addend": 0,
           "resolved": 8728512
@@ -20118,7 +20117,7 @@
         {
           "offset": 360,
           "kind": 6,
-          "symbol": "?unknown_shift_852fcc@@3HA",
+          "symbol": "?DSurface_GreenLeft@@3HA",
           "target": 8728524,
           "addend": 0,
           "resolved": 8728524
@@ -20126,7 +20125,7 @@
         {
           "offset": 368,
           "kind": 6,
-          "symbol": "?unknown_shift_852fc8@@3HA",
+          "symbol": "?DSurface_GreenRight@@3HA",
           "target": 8728520,
           "addend": 0,
           "resolved": 8728520
@@ -20134,7 +20133,7 @@
         {
           "offset": 380,
           "kind": 6,
-          "symbol": "?unknown_shift_852fbc@@3HA",
+          "symbol": "?DSurface_RedLeft@@3HA",
           "target": 8728508,
           "addend": 0,
           "resolved": 8728508
@@ -20142,7 +20141,7 @@
         {
           "offset": 394,
           "kind": 6,
-          "symbol": "?unknown_shift_852fb8@@3HA",
+          "symbol": "?DSurface_RedRight@@3HA",
           "target": 8728504,
           "addend": 0,
           "resolved": 8728504
@@ -20158,7 +20157,7 @@
         {
           "offset": 441,
           "kind": 6,
-          "symbol": "?unknown_shift_852fc4@@3HA",
+          "symbol": "?DSurface_BlueLeft@@3HA",
           "target": 8728516,
           "addend": 0,
           "resolved": 8728516
@@ -20166,7 +20165,7 @@
         {
           "offset": 455,
           "kind": 6,
-          "symbol": "?unknown_shift_852fc0@@3HA",
+          "symbol": "?DSurface_BlueRight@@3HA",
           "target": 8728512,
           "addend": 0,
           "resolved": 8728512
@@ -20174,7 +20173,7 @@
         {
           "offset": 469,
           "kind": 6,
-          "symbol": "?unknown_shift_852fcc@@3HA",
+          "symbol": "?DSurface_GreenLeft@@3HA",
           "target": 8728524,
           "addend": 0,
           "resolved": 8728524
@@ -20182,7 +20181,7 @@
         {
           "offset": 477,
           "kind": 6,
-          "symbol": "?unknown_shift_852fc8@@3HA",
+          "symbol": "?DSurface_GreenRight@@3HA",
           "target": 8728520,
           "addend": 0,
           "resolved": 8728520
@@ -20190,7 +20189,7 @@
         {
           "offset": 489,
           "kind": 6,
-          "symbol": "?unknown_shift_852fbc@@3HA",
+          "symbol": "?DSurface_RedLeft@@3HA",
           "target": 8728508,
           "addend": 0,
           "resolved": 8728508
@@ -20198,13 +20197,13 @@
         {
           "offset": 503,
           "kind": 6,
-          "symbol": "?unknown_shift_852fb8@@3HA",
+          "symbol": "?DSurface_RedRight@@3HA",
           "target": 8728504,
           "addend": 0,
           "resolved": 8728504
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -22215,7 +22214,7 @@
           "resolved": 10931072
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -22250,7 +22249,7 @@
           "resolved": 8250668
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -22261,8 +22260,8 @@
     {
       "entry": 5412976,
       "method": "00529870",
-      "symbol": "?Unknown_00529870@@YIXH_N@Z",
-      "symbol_prefix": "?Unknown_00529870@@",
+      "symbol": "?IsometricTileTypeClass_Read_Control_File@@YIXH_N@Z",
+      "symbol_prefix": "?IsometricTileTypeClass_Read_Control_File@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -24031,7 +24030,7 @@
         {
           "offset": 2244,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e018@@3HA",
+          "symbol": "?IsometricTileTypeClass_RampStart@@3HA",
           "target": 10936344,
           "addend": 0,
           "resolved": 10936344
@@ -24055,7 +24054,7 @@
         {
           "offset": 2269,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52f00@@3HA",
+          "symbol": "?IsometricTileTypeClass_ClearTile@@3HA",
           "target": 10825472,
           "addend": 0,
           "resolved": 10825472
@@ -24063,7 +24062,7 @@
         {
           "offset": 2275,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e0e8@@3HA",
+          "symbol": "?IsometricTileTypeClass_RoughTile@@3HA",
           "target": 10936552,
           "addend": 0,
           "resolved": 10936552
@@ -24071,7 +24070,7 @@
         {
           "offset": 2281,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6cf4c@@3HA",
+          "symbol": "?IsometricTileTypeClass_SandTile@@3HA",
           "target": 10932044,
           "addend": 0,
           "resolved": 10932044
@@ -24079,7 +24078,7 @@
         {
           "offset": 2287,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52c60@@3HA",
+          "symbol": "?IsometricTileTypeClass_GreenTile@@3HA",
           "target": 10824800,
           "addend": 0,
           "resolved": 10824800
@@ -24087,7 +24086,7 @@
         {
           "offset": 2293,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e0e0@@3HA",
+          "symbol": "?IsometricTileTypeClass_PaveTile@@3HA",
           "target": 10936544,
           "addend": 0,
           "resolved": 10936544
@@ -24095,7 +24094,7 @@
         {
           "offset": 2299,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52ef4@@3HA",
+          "symbol": "?IsometricTileTypeClass_MiscPaveTile@@3HA",
           "target": 10825460,
           "addend": 0,
           "resolved": 10825460
@@ -24151,7 +24150,7 @@
         {
           "offset": 2341,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52c74@@3HA",
+          "symbol": "?IsometricTileTypeClass_BridgeSet@@3HA",
           "target": 10824820,
           "addend": 0,
           "resolved": 10824820
@@ -24159,7 +24158,7 @@
         {
           "offset": 2347,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6cb68@@3HA",
+          "symbol": "?IsometricTileTypeClass_TrainBridgeSet@@3HA",
           "target": 10931048,
           "addend": 0,
           "resolved": 10931048
@@ -24167,7 +24166,7 @@
         {
           "offset": 2353,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52e68@@3HA",
+          "symbol": "?IsometricTileTypeClass_CliffSet@@3HA",
           "target": 10825320,
           "addend": 0,
           "resolved": 10825320
@@ -24175,7 +24174,7 @@
         {
           "offset": 2359,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6cb74@@3HA",
+          "symbol": "?IsometricTileTypeClass_ShorePieces@@3HA",
           "target": 10931060,
           "addend": 0,
           "resolved": 10931060
@@ -24183,7 +24182,7 @@
         {
           "offset": 2365,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52580@@3HA",
+          "symbol": "?IsometricTileTypeClass_WaterSet@@3HA",
           "target": 10823040,
           "addend": 0,
           "resolved": 10823040
@@ -24191,7 +24190,7 @@
         {
           "offset": 2371,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e038@@3HA",
+          "symbol": "?IsometricTileTypeClass_SlopeSetPieces@@3HA",
           "target": 10936376,
           "addend": 0,
           "resolved": 10936376
@@ -24263,7 +24262,7 @@
         {
           "offset": 2428,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52584@@3HA",
+          "symbol": "?IsometricTileTypeClass_WaterfallEast@@3HA",
           "target": 10823044,
           "addend": 0,
           "resolved": 10823044
@@ -24271,7 +24270,7 @@
         {
           "offset": 2434,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6cf58@@3HA",
+          "symbol": "?IsometricTileTypeClass_WaterfallWest@@3HA",
           "target": 10932056,
           "addend": 0,
           "resolved": 10932056
@@ -24279,7 +24278,7 @@
         {
           "offset": 2440,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52ef0@@3HA",
+          "symbol": "?IsometricTileTypeClass_WaterfallNorth@@3HA",
           "target": 10825456,
           "addend": 0,
           "resolved": 10825456
@@ -24287,7 +24286,7 @@
         {
           "offset": 2446,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52ea0@@3HA",
+          "symbol": "?IsometricTileTypeClass_WaterfallSouth@@3HA",
           "target": 10825376,
           "addend": 0,
           "resolved": 10825376
@@ -24295,7 +24294,7 @@
         {
           "offset": 2452,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6dd00@@3HA",
+          "symbol": "?IsometricTileTypeClass_CliffRamps@@3HA",
           "target": 10935552,
           "addend": 0,
           "resolved": 10935552
@@ -24303,7 +24302,7 @@
         {
           "offset": 2458,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6dd0c@@3HA",
+          "symbol": "?IsometricTileTypeClass_PavedRoads@@3HA",
           "target": 10935564,
           "addend": 0,
           "resolved": 10935564
@@ -24311,7 +24310,7 @@
         {
           "offset": 2464,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6dd08@@3HA",
+          "symbol": "?IsometricTileTypeClass_PavedRoadEnds@@3HA",
           "target": 10935560,
           "addend": 0,
           "resolved": 10935560
@@ -24319,7 +24318,7 @@
         {
           "offset": 2470,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52c68@@3HA",
+          "symbol": "?IsometricTileTypeClass_Medians@@3HA",
           "target": 10824808,
           "addend": 0,
           "resolved": 10824808
@@ -24335,7 +24334,7 @@
         {
           "offset": 2482,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6cb6c@@3HA",
+          "symbol": "?IsometricTileTypeClass_DirtRoadJunction@@3HA",
           "target": 10931052,
           "addend": 0,
           "resolved": 10931052
@@ -24343,7 +24342,7 @@
         {
           "offset": 2488,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e014@@3HA",
+          "symbol": "?IsometricTileTypeClass_DirtRoadCurve@@3HA",
           "target": 10936340,
           "addend": 0,
           "resolved": 10936340
@@ -24359,7 +24358,7 @@
         {
           "offset": 2500,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e0f8@@3HA",
+          "symbol": "?IsometricTileTypeClass_DestroyableCliffs@@3HA",
           "target": 10936568,
           "addend": 0,
           "resolved": 10936568
@@ -24391,7 +24390,7 @@
         {
           "offset": 2528,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6dd04@@3HA",
+          "symbol": "?IsometricTileTypeClass_DirtRoadSlopes@@3HA",
           "target": 10935556,
           "addend": 0,
           "resolved": 10935556
@@ -24423,7 +24422,7 @@
         {
           "offset": 2554,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e0e4@@3HA",
+          "symbol": "?IsometricTileTypeClass_BridgeTopLeft1@@3HA",
           "target": 10936548,
           "addend": 0,
           "resolved": 10936548
@@ -24455,7 +24454,7 @@
         {
           "offset": 2579,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52f80@@3HA",
+          "symbol": "?IsometricTileTypeClass_BridgeTopLeft2@@3HA",
           "target": 10825600,
           "addend": 0,
           "resolved": 10825600
@@ -24487,7 +24486,7 @@
         {
           "offset": 2604,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e028@@3HA",
+          "symbol": "?IsometricTileTypeClass_BridgeBottomRight1@@3HA",
           "target": 10936360,
           "addend": 0,
           "resolved": 10936360
@@ -24519,7 +24518,7 @@
         {
           "offset": 2629,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52c80@@3HA",
+          "symbol": "?IsometricTileTypeClass_BridgeBottomRight2@@3HA",
           "target": 10824832,
           "addend": 0,
           "resolved": 10824832
@@ -24551,7 +24550,7 @@
         {
           "offset": 2654,
           "kind": 6,
-          "symbol": "?unknown_tileset_a53394@@3HA",
+          "symbol": "?IsometricTileTypeClass_BridgeTopRight1@@3HA",
           "target": 10826644,
           "addend": 0,
           "resolved": 10826644
@@ -24583,7 +24582,7 @@
         {
           "offset": 2679,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52588@@3HA",
+          "symbol": "?IsometricTileTypeClass_BridgeTopRight2@@3HA",
           "target": 10823048,
           "addend": 0,
           "resolved": 10823048
@@ -24615,7 +24614,7 @@
         {
           "offset": 2704,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e010@@3HA",
+          "symbol": "?IsometricTileTypeClass_BridgeBottomLeft1@@3HA",
           "target": 10936336,
           "addend": 0,
           "resolved": 10936336
@@ -24647,7 +24646,7 @@
         {
           "offset": 2729,
           "kind": 6,
-          "symbol": "?unknown_tileset_a53390@@3HA",
+          "symbol": "?IsometricTileTypeClass_BridgeBottomLeft2@@3HA",
           "target": 10826640,
           "addend": 0,
           "resolved": 10826640
@@ -24679,7 +24678,7 @@
         {
           "offset": 2754,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6cb7c@@3HA",
+          "symbol": "?IsometricTileTypeClass_BridgeMiddle1@@3HA",
           "target": 10931068,
           "addend": 0,
           "resolved": 10931068
@@ -24711,7 +24710,7 @@
         {
           "offset": 2782,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52e70@@3HA",
+          "symbol": "?IsometricTileTypeClass_BridgeMiddle2@@3HA",
           "target": 10825328,
           "addend": 0,
           "resolved": 10825328
@@ -24783,7 +24782,7 @@
         {
           "offset": 2975,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e018@@3HA",
+          "symbol": "?IsometricTileTypeClass_RampStart@@3HA",
           "target": 10936344,
           "addend": 0,
           "resolved": 10936344
@@ -24807,7 +24806,7 @@
         {
           "offset": 3020,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52f00@@3HA",
+          "symbol": "?IsometricTileTypeClass_ClearTile@@3HA",
           "target": 10825472,
           "addend": 0,
           "resolved": 10825472
@@ -24815,7 +24814,7 @@
         {
           "offset": 3035,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e0e8@@3HA",
+          "symbol": "?IsometricTileTypeClass_RoughTile@@3HA",
           "target": 10936552,
           "addend": 0,
           "resolved": 10936552
@@ -24823,7 +24822,7 @@
         {
           "offset": 3050,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6cf4c@@3HA",
+          "symbol": "?IsometricTileTypeClass_SandTile@@3HA",
           "target": 10932044,
           "addend": 0,
           "resolved": 10932044
@@ -24831,7 +24830,7 @@
         {
           "offset": 3065,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52c60@@3HA",
+          "symbol": "?IsometricTileTypeClass_GreenTile@@3HA",
           "target": 10824800,
           "addend": 0,
           "resolved": 10824800
@@ -24839,7 +24838,7 @@
         {
           "offset": 3080,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e0e0@@3HA",
+          "symbol": "?IsometricTileTypeClass_PaveTile@@3HA",
           "target": 10936544,
           "addend": 0,
           "resolved": 10936544
@@ -24847,7 +24846,7 @@
         {
           "offset": 3095,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52ef4@@3HA",
+          "symbol": "?IsometricTileTypeClass_MiscPaveTile@@3HA",
           "target": 10825460,
           "addend": 0,
           "resolved": 10825460
@@ -24903,7 +24902,7 @@
         {
           "offset": 3200,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52c74@@3HA",
+          "symbol": "?IsometricTileTypeClass_BridgeSet@@3HA",
           "target": 10824820,
           "addend": 0,
           "resolved": 10824820
@@ -24911,7 +24910,7 @@
         {
           "offset": 3215,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6cb68@@3HA",
+          "symbol": "?IsometricTileTypeClass_TrainBridgeSet@@3HA",
           "target": 10931048,
           "addend": 0,
           "resolved": 10931048
@@ -24919,7 +24918,7 @@
         {
           "offset": 3230,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52e68@@3HA",
+          "symbol": "?IsometricTileTypeClass_CliffSet@@3HA",
           "target": 10825320,
           "addend": 0,
           "resolved": 10825320
@@ -24927,7 +24926,7 @@
         {
           "offset": 3245,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6cb74@@3HA",
+          "symbol": "?IsometricTileTypeClass_ShorePieces@@3HA",
           "target": 10931060,
           "addend": 0,
           "resolved": 10931060
@@ -24935,7 +24934,7 @@
         {
           "offset": 3260,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52580@@3HA",
+          "symbol": "?IsometricTileTypeClass_WaterSet@@3HA",
           "target": 10823040,
           "addend": 0,
           "resolved": 10823040
@@ -24943,7 +24942,7 @@
         {
           "offset": 3275,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e038@@3HA",
+          "symbol": "?IsometricTileTypeClass_SlopeSetPieces@@3HA",
           "target": 10936376,
           "addend": 0,
           "resolved": 10936376
@@ -24999,7 +24998,7 @@
         {
           "offset": 3380,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52584@@3HA",
+          "symbol": "?IsometricTileTypeClass_WaterfallEast@@3HA",
           "target": 10823044,
           "addend": 0,
           "resolved": 10823044
@@ -25007,7 +25006,7 @@
         {
           "offset": 3395,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6cf58@@3HA",
+          "symbol": "?IsometricTileTypeClass_WaterfallWest@@3HA",
           "target": 10932056,
           "addend": 0,
           "resolved": 10932056
@@ -25015,7 +25014,7 @@
         {
           "offset": 3410,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52ef0@@3HA",
+          "symbol": "?IsometricTileTypeClass_WaterfallNorth@@3HA",
           "target": 10825456,
           "addend": 0,
           "resolved": 10825456
@@ -25023,7 +25022,7 @@
         {
           "offset": 3425,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52ea0@@3HA",
+          "symbol": "?IsometricTileTypeClass_WaterfallSouth@@3HA",
           "target": 10825376,
           "addend": 0,
           "resolved": 10825376
@@ -25031,7 +25030,7 @@
         {
           "offset": 3440,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6dd00@@3HA",
+          "symbol": "?IsometricTileTypeClass_CliffRamps@@3HA",
           "target": 10935552,
           "addend": 0,
           "resolved": 10935552
@@ -25039,7 +25038,7 @@
         {
           "offset": 3455,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6dd0c@@3HA",
+          "symbol": "?IsometricTileTypeClass_PavedRoads@@3HA",
           "target": 10935564,
           "addend": 0,
           "resolved": 10935564
@@ -25047,7 +25046,7 @@
         {
           "offset": 3470,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6dd08@@3HA",
+          "symbol": "?IsometricTileTypeClass_PavedRoadEnds@@3HA",
           "target": 10935560,
           "addend": 0,
           "resolved": 10935560
@@ -25055,7 +25054,7 @@
         {
           "offset": 3485,
           "kind": 6,
-          "symbol": "?unknown_tileset_a52c68@@3HA",
+          "symbol": "?IsometricTileTypeClass_Medians@@3HA",
           "target": 10824808,
           "addend": 0,
           "resolved": 10824808
@@ -25071,7 +25070,7 @@
         {
           "offset": 3515,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6cb6c@@3HA",
+          "symbol": "?IsometricTileTypeClass_DirtRoadJunction@@3HA",
           "target": 10931052,
           "addend": 0,
           "resolved": 10931052
@@ -25079,7 +25078,7 @@
         {
           "offset": 3530,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e014@@3HA",
+          "symbol": "?IsometricTileTypeClass_DirtRoadCurve@@3HA",
           "target": 10936340,
           "addend": 0,
           "resolved": 10936340
@@ -25095,7 +25094,7 @@
         {
           "offset": 3560,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6e0f8@@3HA",
+          "symbol": "?IsometricTileTypeClass_DestroyableCliffs@@3HA",
           "target": 10936568,
           "addend": 0,
           "resolved": 10936568
@@ -25127,7 +25126,7 @@
         {
           "offset": 3620,
           "kind": 6,
-          "symbol": "?unknown_tileset_a6dd04@@3HA",
+          "symbol": "?IsometricTileTypeClass_DirtRoadSlopes@@3HA",
           "target": 10935556,
           "addend": 0,
           "resolved": 10935556
@@ -26077,7 +26076,7 @@
           "resolved": 4294837761
         }
       ],
-      "source_sha256": "89e6e5c75f42019ea227bbf9990df962713243c029144dad580b0315ed8dc47e",
+      "source_sha256": "b555bcca3106a11838eee10c32d3360d870cdc89436a2655ecc0894177950ce7",
       "source": "src/recovered/isotype.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

@@ -48,8 +48,8 @@ inline UnknownLocoCellObject *Loco_Cell_At(Cell const &cell)
 {
     return (UnknownLocoCellObject *)&Map[cell];
 }
-// TacticalClass::Unknown_006A29B0 (Screen/shared/tactical.hpp): pixels to height.
-int __fastcall Unknown_006A29B0(int pixels);
+// TacticalClass::Tactical_Pixel_To_Z_Lepton (Screen/shared/tactical.hpp): pixels to height.
+int __fastcall Tactical_Pixel_To_Z_Lepton(int pixels);
 // The slope tilt matrix for a cell ramp type (a copy of the table entry at
 // 0x00AF8608 + 48 * ramp; LocomotionClass::Shadow_Matrix and the locomotors).
 Matrix3D * __fastcall Get_Slope_Matrix(Matrix3D *matrix, int ramp);     // 0x00718D60 (fills and returns matrix)

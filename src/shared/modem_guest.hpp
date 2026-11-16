@@ -74,7 +74,7 @@ public:
     unsigned short HostName[20];    // +0x20 the host's name as shown
     int HostColor;                  // +0x48 (-1 unknown)
     int HostHouse;                  // +0x4C (-1 unknown)
-    int unknown_50;                 // +0x50 Unknown_006525F0 (the INI checksum sum)
+    int unknown_50;                 // +0x50 RulesClass_Get_Rule_Unique_ID (the INI checksum sum)
     int unknown_54;                 // +0x54 unknown_art_ini_unique_id
     int unknown_58;                 // +0x58 unknown_ini_8397a0_unique_id
 };

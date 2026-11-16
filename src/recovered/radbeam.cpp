@@ -110,8 +110,8 @@ void RadBeam::Draw_Line(CoordStruct const &start, CoordStruct const &end, short 
     TacticalMap->Coord_To_Pixel(end, second_pixel);
     Rect clip = TacticalRect;
     if (Clip_Line(first_pixel, second_pixel, clip)) {
-        int first_z = Depth - Unknown_006A2970(start.Z) - 2;
-        int second_z = 0 - Unknown_006A2970(end.Z) - 2;
+        int first_z = Depth - Tactical_Z_Lepton_To_Pixel(start.Z) - 2;
+        int second_z = 0 - Tactical_Z_Lepton_To_Pixel(end.Z) - 2;
         LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, first_pixel, second_pixel,
                                                        color, first_z, second_z);
     }

@@ -181,7 +181,7 @@ void SpotLightClass::unknown_func_5ddb90()
 {
     unsigned int flags = unknown_14 & 0xF;
     if ((flags & ~1) == 0) {
-        if (unknown_a6eb1c < GetMinFrameRate()) {
+        if (FPSCounter_CurrentFrameRate < GetMinFrameRate()) {
             return;
         }
     }

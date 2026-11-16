@@ -81,8 +81,8 @@
 // LightConvertClass::LightConvertClass(...) (0x00538860)
 // A tinted converter: ConvertClass, the palettes, the light colour (current and stored), then the tint for a
 // scenario that has shadow levels.
-bool Unknown_0051FC50();
-bool Unknown_0051FC60();
+bool IonStormClass_Is_Ion_Storm_Active();
+bool NukeFlash_IsFadingIn();
 extern "C" unsigned char DAT_007df768[];
 extern "C" int PrimaryColorMode;
 
@@ -100,7 +100,7 @@ LightConvertClass::LightConvertClass(PaletteClass const &artpalette, PaletteClas
         if (PrimaryColorMode == -1) {
             PrimaryColorMode = Get_Unknown_7d6290();
         }
-        if (Unknown_0051FC50()) {
+        if (IonStormClass_Is_Ion_Storm_Active()) {
             if (red_tint == -1) {
                 Red = 1000;
                 Green = 1000;
@@ -112,7 +112,7 @@ LightConvertClass::LightConvertClass(PaletteClass const &artpalette, PaletteClas
             }
             Set_Tint(unknown_id_source_a3d290->IonRed * 1000 / 100, unknown_id_source_a3d290->IonGreen * 1000 / 100,
                      unknown_id_source_a3d290->IonBlue * 1000 / 100, true);
-        } else if (Unknown_0051FC60()) {
+        } else if (NukeFlash_IsFadingIn()) {
             if (red_tint == -1) {
                 Red = 1000;
                 Green = 1000;

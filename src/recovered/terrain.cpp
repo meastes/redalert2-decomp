@@ -86,7 +86,7 @@
 
 TerrainClass::~TerrainClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Terrains.Delete(this);
     if (GameActive && Class != 0) {
         IsActive = true;
@@ -290,7 +290,7 @@ void TerrainClass::Draw_It(Point2D const &point, Rect const &window)
             frame = 1;
         }
         Point2D position = point;
-        int height = -Unknown_006A2970(Get_Height());
+        int height = -Tactical_Z_Lepton_To_Pixel(Get_Height());
         if (cell.unknown_34 == 0) {
             cell.Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
         }
@@ -333,7 +333,7 @@ void TerrainClass::Editor_Draw_It(Point2D const &point, Rect const &window)
             frame = Animation.Value + unknown_b5;
         }
         Point2D position = point;
-        int height = -Unknown_006A2970(Get_Height());
+        int height = -Tactical_Z_Lepton_To_Pixel(Get_Height());
         if (cell.unknown_34 == 0) {
             cell.Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
         }
@@ -527,11 +527,11 @@ inline T *TGet_Class(CCINIClass &ini, char const *section, char const *entry, T 
 
 void __fastcall TerrainClass::Read_INI(CCINIClass &ini)
 {
-    int len = ini.Entry_Count(unknown_terrain_section_7ad390);
+    int len = ini.Entry_Count(TerrainClass_INI_NAME);
 
     for (int index = 0; index < len; index++) {
-        char const *entry = ini.Get_Entry(unknown_terrain_section_7ad390, index);
-        TerrainTypeClass *terrain = TGet_Class<TerrainTypeClass>(ini, unknown_terrain_section_7ad390, entry, 0);
+        char const *entry = ini.Get_Entry(TerrainClass_INI_NAME, index);
+        TerrainTypeClass *terrain = TGet_Class<TerrainTypeClass>(ini, TerrainClass_INI_NAME, entry, 0);
 
         Cell cell;
         if (NewINIFormat >= 4) {
@@ -555,14 +555,14 @@ void __fastcall TerrainClass::Read_INI(CCINIClass &ini)
 
 void __fastcall TerrainClass::Write_INI(CCINIClass &ini)
 {
-    ini.Clear(unknown_terrain_section_7ad390);
+    ini.Clear(TerrainClass_INI_NAME);
     for (int index = 0; index < Terrains.Count(); index++) {
         TerrainClass *terrain = Terrains[index];
         if (terrain != 0 && !terrain->unknown_76 && terrain->IsActive) {
             Cell cell = terrain->unknown_slot104();
             char entry[12];
             sprintf(entry, "%d", cell.X + cell.Y * 1000);
-            ini.Put_String(unknown_terrain_section_7ad390, entry, terrain->Class->ID);
+            ini.Put_String(TerrainClass_INI_NAME, entry, terrain->Class->ID);
         }
     }
 }

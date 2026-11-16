@@ -191,7 +191,7 @@ WeaponTypeClass::WeaponTypeClass(NoInitClass const &noinit) :
 
 WeaponTypeClass::~WeaponTypeClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Projectile = 0;
     Warhead = 0;
     Weapons.Delete(this);

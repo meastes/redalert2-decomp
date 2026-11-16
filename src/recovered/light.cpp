@@ -358,7 +358,7 @@ void __fastcall LightSourceClass::Unknown_00537830(int time, bool force)
     time_left = time - (MillisecondTimer - update_start_time);
 
     if (time_left > 0.0 && _update_frames > (_last_update_frame + _update_interval)) {
-        bool more_to_free = Unknown_00529710(time_left * 0.5 < 1.0 ? time_left * 0.5 : 1.0, false);
+        bool more_to_free = IsometricTileTypeClass_Free_Unused_Drawers(time_left * 0.5 < 1.0 ? time_left * 0.5 : 1.0, false);
         _last_update_frame = _update_frames;
         _update_interval = more_to_free ? 1 : 50;
     }

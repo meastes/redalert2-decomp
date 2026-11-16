@@ -447,7 +447,7 @@ int ThemeClass::Play_Song(ThemeType theme)
         if (theme != THEME_NONE && theme != -3) {  // -3: Tiberian Sun's THEME_QUIET
             if (theme > THEME_NONE && Volume > 0) {
                 Score = theme;
-                int cd = CD::IsLocal ? 0 : Unknown_0046E4C0(0);
+                int cd = CD::IsLocal ? 0 : CD_Get_Current_Disk(0);
                 if (Sample != 0 && cd > -1) {
                     Audio_Stream_Open((AudioStreamPlayer *)Sample, Theme_File_Name(theme), true);
                     Current = theme;

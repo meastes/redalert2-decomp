@@ -78,7 +78,7 @@ void Unknown_00711C70();
 void Unknown_006E9670();
 void __fastcall Unknown_006EA130();  // tail-called by 0x00562EA0 (pop; jmp): __fastcall
 // Called by MapClass slot 23 with (0, true) (0x00529710).
-bool __fastcall Unknown_00529710(int unknown1, bool unknown2);   // TibSun IsometricTileTypeClass::Free_Unused_Drawers (LightSourceClass 0x00537830 uses the result)
+bool __fastcall IsometricTileTypeClass_Free_Unused_Drawers(int unknown1, bool unknown2);   // TibSun IsometricTileTypeClass::Free_Unused_Drawers (LightSourceClass 0x00537830 uses the result)
 
 // Used by MapClass::Init_Clear (owners unknown).
 #include "shared/debug_printf.hpp"
@@ -109,8 +109,8 @@ struct UnknownMapElem4 {
 
 // Whether a cell's overlay is in 0x4A..0x65 (0x00562930) or in 0xCD..0xE8
 // (0x00562980); the cell of the global Map (two overlay ranges; hypothesis).
-int __fastcall Unknown_00562930(Cell const &cell);
-int __fastcall Unknown_00562980(Cell const &cell);
+int __fastcall MapClass_Is_Low_Bridge(Cell const &cell);
+int __fastcall MapClass_Is_Low_Bridge2(Cell const &cell);
 
 // Tile set start indices: shared/tileset_index.hpp (the tile tests
 // 0x0055AF60 and 0x0055AF80).
@@ -122,19 +122,19 @@ bool __fastcall Unknown_0055AF60(int tile);
 // and 0x00A6DD00 (20) always, the four-tile sets at 0x00A52584, 0x00A6CF58,
 // 0x00A52EA0 and 0x00A52EF0 except their first and last tile for two of the
 // four kinds each (0x0055AF80).
-bool __fastcall Unknown_0055AF80(int tile, int kind);
+bool __fastcall MapClass_Is_Tile_Cliff(int tile, int kind);
 // Flags from the overlays of a cell's X - 1 and X + 1 neighbours (of the
 // global Map): 1 or 2 by the right one, 4 or 8 added by the left one
 // (0x0055DA70).
 // The length of a straight shore from a cell along a facing: land on the snapped
 // side and water beyond, cell by cell (0x0055CB00; TibSun Straight_Shore_Length).
 int __fastcall Straight_Shore_Length(CellClass *cellptr, int direction);
-int __fastcall Unknown_0055DA70(Cell const &cell);
+int __fastcall MapClass_Get_Low_Bridge_EW_Neighbor_Mask(Cell const &cell);
 // The same for the Y - 1 and Y + 1 neighbours and two other overlay sets
 // (0x0055DB90, 0x0055ECA0).
-int __fastcall Unknown_0055DB90(Cell const &cell);
-int __fastcall Unknown_0055EB70(Cell const &cell);      // 0x0055EB70 (as 0x0055DA70, other overlays)
-int __fastcall Unknown_0055ECA0(Cell const &cell);
+int __fastcall MapClass_Get_Low_Bridge_NS_Neighbor_Mask(Cell const &cell);
+int __fastcall MapClass_Get_Low_Bridge2_EW_Neighbor_Mask(Cell const &cell);      // 0x0055EB70 (as 0x0055DA70, other overlays)
+int __fastcall MapClass_Get_Low_Bridge2_NS_Neighbor_Mask(Cell const &cell);
 // Whether a tile is a bridge piece of kind 2 (cell +0x11A 4) or kind 4 (+0x11A 2) (0x00556B30).
 bool __fastcall Is_Bridge_Span_End(int tile, int kind, CellClass const *cell);
 
@@ -243,7 +243,7 @@ public:
     // A bridge middle cell's tile, spread over the cells of its old tile (TibSun name).
     void Set_Bridge_Middle_State(Cell const &cell, int new_tile, int match_tile, int cell_height, bool recursive);  // 0x005510A0
     // Damage spreading to the bridge cell next to a damaged one (TibSun names; train bridges use
-    // unknown_tileset_a6cb68, high bridges unknown_tileset_a52c74).
+    // IsometricTileTypeClass_TrainBridgeSet, high bridges IsometricTileTypeClass_BridgeSet).
     void Internal_Damage_Train_Bridge_EW_BottomRight(Cell const &cell, int dir); // 0x00551260
     void Internal_Damage_Train_Bridge_EW_TopLeft(Cell const &cell, int dir);     // 0x00551360
     void Internal_Damage_Train_Bridge_NS_BottomLeft(Cell const &cell, int dir);  // 0x00551BB0

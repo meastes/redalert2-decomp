@@ -64,32 +64,32 @@ void SessionClass::Trap_Object_006715c0()
 
 // 0x005D5F40 (pass-6a decompile): frees the pip and talk-bubble shapes that
 // ObjectTypeClass::One_Time 0x005D5E00 loaded from loose files. Reached by WinMain's end.
-extern void const *unknown_pipbrd_shapes_a72fe0;
-extern void const *unknown_pips_shapes_a72fe4;
-extern void const *unknown_pips2_shapes_a72fe8;
-extern void const *unknown_talkbubl_shapes_a72fec;
-extern bool unknown_pipbrd_owned_a72ff0;
-extern bool unknown_pips_owned_a72ff1;
-extern bool unknown_pips2_owned_a72ff2;
-extern bool unknown_talkbubl_owned_a72ff3;
+extern void const *ObjectTypeClass_SelectShapes;
+extern void const *ObjectTypeClass_PipShapes;
+extern void const *ObjectTypeClass_Pip2Shapes;
+extern void const *ObjectTypeClass_TalkBubbleShapes;
+extern bool ObjectTypeClass_SelectShapesAllocated;
+extern bool ObjectTypeClass_PipShapesAllocated;
+extern bool ObjectTypeClass_Pip2ShapesAllocated;
+extern bool ObjectTypeClass_TalkBubbleShapesAllocated;
 void Free_Memory_00781d3b(void *block);
 void Unknown_005D5F40()
 {
-    if (unknown_pipbrd_owned_a72ff0) {
-        Free_Memory_00781d3b((void *)unknown_pipbrd_shapes_a72fe0);
-        unknown_pipbrd_owned_a72ff0 = false;
+    if (ObjectTypeClass_SelectShapesAllocated) {
+        Free_Memory_00781d3b((void *)ObjectTypeClass_SelectShapes);
+        ObjectTypeClass_SelectShapesAllocated = false;
     }
-    if (unknown_pips_owned_a72ff1) {
-        Free_Memory_00781d3b((void *)unknown_pips_shapes_a72fe4);
-        unknown_pips_owned_a72ff1 = false;
+    if (ObjectTypeClass_PipShapesAllocated) {
+        Free_Memory_00781d3b((void *)ObjectTypeClass_PipShapes);
+        ObjectTypeClass_PipShapesAllocated = false;
     }
-    if (unknown_pips2_owned_a72ff2) {
-        Free_Memory_00781d3b((void *)unknown_pips2_shapes_a72fe8);
-        unknown_pips2_owned_a72ff2 = false;
+    if (ObjectTypeClass_Pip2ShapesAllocated) {
+        Free_Memory_00781d3b((void *)ObjectTypeClass_Pip2Shapes);
+        ObjectTypeClass_Pip2ShapesAllocated = false;
     }
-    if (unknown_talkbubl_owned_a72ff3) {
-        Free_Memory_00781d3b((void *)unknown_talkbubl_shapes_a72fec);
-        unknown_talkbubl_owned_a72ff3 = false;
+    if (ObjectTypeClass_TalkBubbleShapesAllocated) {
+        Free_Memory_00781d3b((void *)ObjectTypeClass_TalkBubbleShapes);
+        ObjectTypeClass_TalkBubbleShapesAllocated = false;
     }
 }
 

@@ -28,33 +28,33 @@
 extern int unknown_int_83962c;
 // The sidebar rectangle the origin and height belong to (0x00839620; hypothesis).
 extern Rect unknown_rect_839620;
-extern int unknown_abcd48;
+extern int SidebarClass_TopButtonX;
 // The screen size (0x007ADD80 width, 0x007ADD84 height; hypothesis) and the
 // rest of the sidebar/tactical rectangles (0x00839628 sidebar width,
 // 0x00839634 tactical Y, 0x0083963C tactical height).
 extern int TabBarHeight;
 extern int unknown_int_839628;
 extern int unknown_int_83963c;
-extern int unknown_abcd78;
-extern int unknown_abcd7c;
-extern int unknown_abcd80;
-extern int unknown_abcd4c;
-extern int unknown_abcd50;
-extern int unknown_abcd58;
-extern int unknown_abcd5c;
+extern int SidebarClass_SidebarBottomY;
+extern int SidebarClass_SidebarEdgeWidth;
+extern int SidebarClass_SidebarEdgeStep;
+extern int SidebarClass_TopButtonY;
+extern int SidebarClass_TopButtonSpacing;
+extern int SidebarClass_TabButtonY;
+extern int SidebarClass_TabButtonSpacing;
 // The shape drawer the sidebar buttons draw with (0x008323CC).
 extern "C" int __cdecl sprintf(char *buffer, char const *format, ...);   // 0x007820F4
 // The current game palette (0x006F45E0 returns the pointer at 0x00AC11A0).
 PaletteClass *Unknown_006F45E0();
-extern int unknown_abcd54;
-extern int unknown_abcd60;
-extern int unknown_abcd64;
-extern int unknown_abcd74;
+extern int SidebarClass_TabButtonX;
+extern int SidebarClass_StripLeft;
+extern int SidebarClass_StripTop;
+extern int SidebarClass_PowerBarLeft;
 // A buildable's kind for type 7 (0x004EB550).
 int __fastcall Unknown_004EB550(int type, int id);
 // The production column of an object type (0x006818D0; callers in HouseClass and TActionClass; name hypothesis): 2 for
 // types 0xF and 0x10, 3 for 1, 2, 3 and 0x28, 1 for 0x1F, 0x20 and 0x39, whether the kind is 5 for 6 and 7, else -1.
-int __fastcall Unknown_006818D0(int type, int id, int arg3);
+int __fastcall SidebarClass_GetObjectTabIdx(int type, int id, int arg3);
 
 #ifdef RA2_SELECT_ACTION_UNIT
 class BuildingClass;
@@ -86,8 +86,8 @@ struct UnknownSidebarBuilding {
 };
 
 // The sidebar's shapes (0x00ABCD20) and which were allocated (0x00ABCD40).
-extern void const *unknown_shapes_abcd20[8];
-extern bool unknown_shapes_allocated_abcd40[8];
+extern void const *SidebarClass_SidebarShapes[8];
+extern bool SidebarClass_SidebarShapeAllocated[8];
 
 #ifdef RA2_SELECT_ACTION_UNIT
 // The house's scripting interface at HouseClass +0x24 (IHouse, shared/house.hpp;
@@ -134,13 +134,13 @@ void __fastcall CC_Draw_Shape(Surface *surface, ConvertClass *drawer, ShapeFileS
                               int unknown9, int unknown10, int brightness, ShapeFileStruct const *unknown12,
                               int unknown13, Point2D offset);
 // A window rectangle the sidebar resets (0x008336E8).
-extern Rect unknown_rect_8336e8;
+extern Rect SidebarClass_DirtyRect;
 // Whether the sidebar is shown on the screen (0x00A40D04; hypothesis).
 // Set when a sidebar button repainted (0x00ABCD84).
 
 // The strip icon size factors (0x00ABCD68, 0x00ABCD6C).
-extern int unknown_abcd68;
-extern int unknown_abcd6c;
+extern int SidebarClass_CameoWidth;
+extern int SidebarClass_CameoHeight;
 // Set once the new-construction speech is suppressed (0x00A40774).
 // A redraw request flag (0x008373C3).
 // Speech by name: Speech_Play_Name is in shared/vox_class.hpp.
@@ -245,11 +245,11 @@ public:
         bool Page(bool up);                             // 0x0067EF70 scrolls by a page
         bool Unknown_0067EA20(int type, int id, int other_type, int other_id);   // 0x0067EA20 (sort order)
         // Rows of icons that fit (inline). The ternary is the original's: its inlined
-        // copies subtract the 18/26 term before unknown_abcd64 (Draw_It 0x0067CF80),
+        // copies subtract the 18/26 term before SidebarClass_StripTop (Draw_It 0x0067CF80),
         // unlike the if/else in the out-of-line SidebarClass::Unknown_006820A0.
         static int Max_Visible_Rows()
         {
-            return (unknown_int_839624 + unknown_int_83962c - unknown_abcd64
+            return (unknown_int_839624 + unknown_int_83962c - SidebarClass_StripTop
                 - (unknown_id_source_a3d290->unknown_2239 ? 26 : 18) - 7) / 50;
         }
         bool Unknown_006816D0(FactoryClass *factory, int type, int id);  // 0x006816D0 sets a buildable's +0x0C by type and id

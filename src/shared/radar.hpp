@@ -70,14 +70,14 @@ inline bool operator==(HashObject<RadarTrackingStruct, TechnoClass *> const &a, 
 }
 // Hash of a radar point (0x00631C40) and of a tracking key, by its point
 // (0x00631C60): x + y * 251.
-unsigned __fastcall Unknown_00631C40(Point2D const &point);
-int __fastcall Unknown_00631C60(RadarTrackingStruct const &key);
+unsigned __fastcall RadarTrackingStruct_Hash_Old(Point2D const &point);
+int __fastcall RadarTrackingStruct_Hash2(RadarTrackingStruct const &key);
 
 // The radar's background art (0x00AC0FF0; a shell art buffer, as the art
 // loaders name it), drawn by Draw_It at the radar origin.
 extern void *unknown_buffer_ac0ff0;
 // The frame art of the multiplayer player list (0x00AB64A0; frame 32 drawn by 0x00630350).
-extern void *unknown_shape_ab64a0;
+extern void *RadarClass_RadarAnim;
 // Updates every radar event (RadarEvent.cpp 0x0063B910; name hypothesis).
 void Process_Radar_Events();
 
@@ -150,7 +150,7 @@ extern DynamicVectorClass<TechnoClass *> unknown_list_a40c20;    // 0x00A40C20
 // helper, which keeps the bucket vector constructor 0x00635110 out of line).
 inline HashTableClass<RadarTrackingStruct, TechnoClass *> *New_Tracking_Table(int count, int growth)
 {
-    HashTableClass<RadarTrackingStruct, TechnoClass *> *table = new HashTableClass<RadarTrackingStruct, TechnoClass *>(growth, count, Unknown_00631C60);
+    HashTableClass<RadarTrackingStruct, TechnoClass *> *table = new HashTableClass<RadarTrackingStruct, TechnoClass *>(growth, count, RadarTrackingStruct_Hash2);
     return table;
 }
 

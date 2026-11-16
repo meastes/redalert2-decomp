@@ -80,9 +80,9 @@ public:
 
 // The scenario INI sections of triggers (0x007ADA50 "Triggers", 0x007ADA54
 // "Actions", 0x007ADA58 "Events"; names from the readers).
-extern char const *unknown_triggers_section_7ada50;
-extern char const *unknown_actions_section_7ada54;
-extern char const *unknown_events_section_7ada58;
+extern char const *TriggerTypeClass_INI_NAME;
+extern char const *TriggerTypeClass_INI_ACTION_NAME;
+extern char const *TriggerTypeClass_INI_EVENT_NAME;
 
 // Every trigger type (0x00866208; defined in the globals unit).
 // The globals unit (0x004D2BA0) defines this list and sets RA2_GLOBAL_LISTS_DEFINED: a later

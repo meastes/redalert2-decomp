@@ -57,7 +57,7 @@ int HouseClass::Begin_Production(int kind,int index,bool naval,bool resume)
     if (!has_suspended) result=factory->unknown_4b9440(type,this,resume);
     if (result) {
         if (factory->Queue.Count() && !resume && !has_suspended) {
-            Map.Flag_Tab_To_Redraw(Unknown_006818D0(kind,index,0));
+            Map.Flag_Tab_To_Redraw(SidebarClass_GetObjectTabIdx(kind,index,0));
         } else {
             bool suspended=factory->unknown_6c;
             factory->Start_Production_004B9670(onhold);

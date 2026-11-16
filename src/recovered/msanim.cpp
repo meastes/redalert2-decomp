@@ -568,22 +568,7 @@ void MSOverlayAnim::Restore(int rect)
 }
 
 
-// 0x005ad8c0: function not yet identified
-//
-// Owner: MSOverlayAnim, virtual slot 7 (vtable +0x1c) (from RTTI/vtables).
-// Body: 22 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-/// <summary>
-/// Has the overlay finished fading into place?
-/// </summary>
-/// <returns>bool; Is the fade over, or is there nothing to fade?</returns>
-// Ghidra prototype: undefined4 __fastcall Has_Finished(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_005ad8c0 {
+//  (0x005AD8C0)
 
 unsigned int __fastcall Has_Finished(int animation_address)
 {
@@ -593,7 +578,6 @@ unsigned int __fastcall Has_Finished(int animation_address)
     return 1;
 }
 
-}  // namespace seed_005ad8c0
 
 
 /// <summary>
@@ -1099,12 +1083,12 @@ void MSPrintAnim::Set_Rect(Rect const &rect)
 }
 
 
-// int __fastcall unknown_wrap_text_5ae9a0(WideString &text, MSFont *font, int width) (0x005AE9A0)
+// int __fastcall MSPrintAnim_Word_Wrap(WideString &text, MSFont *font, int width) (0x005AE9A0)
 // Word wrap: each line ends at its last space, which becomes '\n'; a line
 // without one is cut after a '-' or where it runs out of room (a '\n' is
 // inserted). Returns the widest line.
 
-int __fastcall unknown_wrap_text_5ae9a0(WideString &text, MSFont *font, int width)
+int __fastcall MSPrintAnim_Word_Wrap(WideString &text, MSFont *font, int width)
 {
     int widest = 0;
     if (text == 0 || font == 0 || width <= font->Width) {
@@ -1157,12 +1141,12 @@ int __fastcall unknown_wrap_text_5ae9a0(WideString &text, MSFont *font, int widt
 }
 
 
-// int __fastcall unknown_paginate_text_5aece0(WideString &text, MSFont *font, int height) (0x005AECE0)
+// int __fastcall MSPrintAnim_Paginate(WideString &text, MSFont *font, int height) (0x005AECE0)
 // Counts the pages of already wrapped text: a running total of line heights that reaches height starts a new
 // page, marked with a form feed (0x0C) in the text. As in the original, the position only advances past a line's
 // end when that end is not '\n' (name and meaning are hypotheses).
 
-int __fastcall unknown_paginate_text_5aece0(WideString &text, MSFont *font, int height)
+int __fastcall MSPrintAnim_Paginate(WideString &text, MSFont *font, int height)
 {
     if (text == 0 || font == 0 || height < font->Height) {
         return 0;

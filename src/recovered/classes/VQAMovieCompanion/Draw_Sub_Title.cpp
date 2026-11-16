@@ -6,12 +6,12 @@
 // @ref ?Print_Box@BitTextClass@@QAE_NPAVBitFontClass@@PAVSurface@@PBGHHHHHHH@Z=00432490
 // @ref ?Set_Clip_Box@BitFontClass@@QAEXPBUtagRECT@@@Z=00431460
 // @ref ?Set_Color@BitFontClass@@QAEGG@Z=00431430
-// @ref ?unknown_shift_852fb8@@3HA=00852fb8
-// @ref ?unknown_shift_852fbc@@3HA=00852fbc
-// @ref ?unknown_shift_852fc0@@3HA=00852fc0
-// @ref ?unknown_shift_852fc4@@3HA=00852fc4
-// @ref ?unknown_shift_852fc8@@3HA=00852fc8
-// @ref ?unknown_shift_852fcc@@3HA=00852fcc
+// @ref ?DSurface_RedRight@@3HA=00852fb8
+// @ref ?DSurface_RedLeft@@3HA=00852fbc
+// @ref ?DSurface_BlueRight@@3HA=00852fc0
+// @ref ?DSurface_BlueLeft@@3HA=00852fc4
+// @ref ?DSurface_GreenRight@@3HA=00852fc8
+// @ref ?DSurface_GreenLeft@@3HA=00852fcc
 void VQAMovieCompanion::Draw_Sub_Title(SubTitle const *subtitle)
 {
     if (unknown_10 != 0) {

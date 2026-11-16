@@ -9000,6 +9000,30 @@
    "address": "00735b20"
   },
   {
+   "symbol": "?DSurface_BlueLeft@@3HA",
+   "address": "00852fc4"
+  },
+  {
+   "symbol": "?DSurface_BlueRight@@3HA",
+   "address": "00852fc0"
+  },
+  {
+   "symbol": "?DSurface_GreenLeft@@3HA",
+   "address": "00852fcc"
+  },
+  {
+   "symbol": "?DSurface_GreenRight@@3HA",
+   "address": "00852fc8"
+  },
+  {
+   "symbol": "?DSurface_RedLeft@@3HA",
+   "address": "00852fbc"
+  },
+  {
+   "symbol": "?DSurface_RedRight@@3HA",
+   "address": "00852fb8"
+  },
+  {
    "symbol": "?Debug_Map@@3_NA",
    "address": "00a40d13"
   },
@@ -9014,6 +9038,10 @@
   {
    "symbol": "?Delete_Queued_004B9DF0@FactoryClass@@QAE_NPAVTechnoTypeClass@@@Z",
    "address": "004b9df0"
+  },
+  {
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
   },
   {
    "symbol": "?Entry_Count@INIClass@@QBEHPBD@Z",
@@ -9118,6 +9146,10 @@
   {
    "symbol": "?GameActive@@3_NA",
    "address": "00a40958"
+  },
+  {
+   "symbol": "?Game_PlayerColor@@3HA",
+   "address": "00a3d3b4"
   },
   {
    "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
@@ -9230,6 +9262,10 @@
   {
    "symbol": "?Init@AbstractClass@@UAEXXZ",
    "address": "00410210"
+  },
+  {
+   "symbol": "?IonStormClass_Is_Ion_Storm_Active@@YA_NXZ",
+   "address": "0051fc50"
   },
   {
    "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
@@ -9480,6 +9516,10 @@
    "address": "00499070"
   },
   {
+   "symbol": "?SidebarClass_GetObjectTabIdx@@YIHHHH@Z",
+   "address": "006818d0"
+  },
+  {
    "symbol": "?Speech_Is_Playing@@YA_NXZ",
    "address": "00715e20"
   },
@@ -9604,10 +9644,6 @@
    "address": "0049cac0"
   },
   {
-   "symbol": "?Unknown_0051FC50@@YA_NXZ",
-   "address": "0051fc50"
-  },
-  {
    "symbol": "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z",
    "address": "0055a660"
   },
@@ -9660,16 +9696,8 @@
    "address": "00681740"
   },
   {
-   "symbol": "?Unknown_006818D0@@YIHHHH@Z",
-   "address": "006818d0"
-  },
-  {
    "symbol": "?Unknown_006D7C80@@YIXPAVAbstractClass@@@Z",
    "address": "006d7c80"
-  },
-  {
-   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
-   "address": "006ecb90"
   },
   {
    "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
@@ -9802,10 +9830,6 @@
   {
    "symbol": "?unknown_a3d29c@@3PAVUnknownA3D29CView@@A",
    "address": "00a3d29c"
-  },
-  {
-   "symbol": "?unknown_a3d3b4@@3HA",
-   "address": "00a3d3b4"
   },
   {
    "symbol": "?unknown_a3d568@@3HA",
@@ -9962,30 +9986,6 @@
   {
    "symbol": "?unknown_session_a3d29c@@3PAVUnknownSessionA3D29C@@A",
    "address": "00a3d29c"
-  },
-  {
-   "symbol": "?unknown_shift_852fb8@@3HA",
-   "address": "00852fb8"
-  },
-  {
-   "symbol": "?unknown_shift_852fbc@@3HA",
-   "address": "00852fbc"
-  },
-  {
-   "symbol": "?unknown_shift_852fc0@@3HA",
-   "address": "00852fc0"
-  },
-  {
-   "symbol": "?unknown_shift_852fc4@@3HA",
-   "address": "00852fc4"
-  },
-  {
-   "symbol": "?unknown_shift_852fc8@@3HA",
-   "address": "00852fc8"
-  },
-  {
-   "symbol": "?unknown_shift_852fcc@@3HA",
-   "address": "00852fcc"
   },
   {
    "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",

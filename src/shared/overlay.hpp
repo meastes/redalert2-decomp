@@ -22,11 +22,11 @@
 extern "C" GUID const CLSID_OverlayClass;       // 0x007A1C20
 
 // The house an overlay is placed for (0x007E8A8C; -1 otherwise; hypothesis).
-extern int unknown_placing_house_7e8a8c;
+extern int OverlayClass_ToOwn;
 
 // The scenario INI format (0x00A40D24; terrain and overlay read their packs when above 1; hypothesis).
 // The INI section name "OVERLAY" (a pointer variable at 0x007A77C0).
-extern char const *unknown_overlay_section_7a77c0;
+extern char const *OverlayClass_INI_NAME;
 
 class OverlayClass : public ObjectClass {
 public:

@@ -127,7 +127,7 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?FUN_00737b20@seed_00737b20@@YIPADPAD@Z",
+   "symbol": "?Build_By_Initials@@YIPADPAD@Z",
    "entry": "00737b20",
    "body_bytes": 47,
    "padding_bytes": 1
@@ -193,13 +193,13 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?FUN_00738110@seed_00738110@@YAXXZ",
+   "symbol": "?IME_Stub2@@YAXXZ",
    "entry": "00738110",
    "body_bytes": 1,
    "padding_bytes": 15
   },
   {
-   "symbol": "?FUN_00738120@seed_00738120@@YAXXZ",
+   "symbol": "?IME_Stub3@@YAXXZ",
    "entry": "00738120",
    "body_bytes": 1,
    "padding_bytes": 15
@@ -328,70 +328,70 @@
    "address": "007b2558",
    "bytes": 24,
    "kind": "rtti",
-   "section": 111
+   "section": 108
   },
   {
    "symbol": "??_R1A@?0A@A@RawFileClass@@8",
    "address": "007b2570",
    "bytes": 24,
    "kind": "rtti",
-   "section": 113
+   "section": 110
   },
   {
    "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
    "address": "007b2588",
    "bytes": 24,
    "kind": "rtti",
-   "section": 115
+   "section": 112
   },
   {
    "symbol": "??_R1A@?0A@A@CDFileClass@@8",
    "address": "007b25a0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 116
+   "section": 113
   },
   {
    "symbol": "??_R2CDFileClass@@8",
    "address": "007b25b8",
    "bytes": 17,
    "kind": "rtti",
-   "section": 117
+   "section": 114
   },
   {
    "symbol": "??_R3CDFileClass@@8",
    "address": "007b25d0",
    "bytes": 16,
    "kind": "rtti",
-   "section": 118
+   "section": 115
   },
   {
    "symbol": "??_R4CDFileClass@@6B@",
    "address": "007b25e0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 120
+   "section": 117
   },
   {
    "symbol": "??_R2XSurface@@8",
    "address": "007b3278",
    "bytes": 9,
    "kind": "rtti",
-   "section": 107
+   "section": 118
   },
   {
    "symbol": "??_R3XSurface@@8",
    "address": "007b3288",
    "bytes": 16,
    "kind": "rtti",
-   "section": 108
+   "section": 119
   },
   {
    "symbol": "??_R4XSurface@@6B@",
    "address": "007b3298",
    "bytes": 20,
    "kind": "rtti",
-   "section": 109
+   "section": 120
   },
   {
    "symbol": "??_R1A@?0A@A@Surface@@8",
@@ -503,28 +503,28 @@
    "address": "007cc8d0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 110
+   "section": 107
   },
   {
    "symbol": "??_R0?AVRawFileClass@@@8",
    "address": "007cc8e8",
    "bytes": 27,
    "kind": "rtti",
-   "section": 112
+   "section": 109
   },
   {
    "symbol": "??_R0?AVBufferIOFileClass@@@8",
    "address": "007cc908",
    "bytes": 32,
    "kind": "rtti",
-   "section": 114
+   "section": 111
   },
   {
    "symbol": "??_R0?AVCDFileClass@@@8",
    "address": "007cc928",
    "bytes": 26,
    "kind": "rtti",
-   "section": 119
+   "section": 116
   },
   {
    "symbol": "??_R0?AVSurface@@@8",
@@ -1530,6 +1530,10 @@
    "address": "00b263cc"
   },
   {
+   "symbol": "?SidebarClass_IsSidebarRedrawPending@@3_NA",
+   "address": "008373c3"
+  },
+  {
    "symbol": "?SidebarSurface@@3PAVSurface@@A",
    "address": "00839948"
   },
@@ -1626,7 +1630,7 @@
    "address": "007dcf9c"
   },
   {
-   "symbol": "?strchr_00784130@seed_00737b20@@YAIPAID@Z",
+   "symbol": "?strchr_00784130@@YAIPAID@Z",
    "address": "00784130"
   },
   {
@@ -1640,10 +1644,6 @@
   {
    "symbol": "?unknown_build_time_7d8940@@3UFILETIME@@B",
    "address": "007d8940"
-  },
-  {
-   "symbol": "?unknown_flag_8373c3@@3_NA",
-   "address": "008373c3"
   },
   {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
@@ -1812,10 +1812,6 @@
   {
    "symbol": "_malloc",
    "address": "00782630"
-  },
-  {
-   "symbol": "_s_gsmallwoo_007d8904",
-   "address": "007d8904"
   },
   {
    "symbol": "_s_gsmallwoo_007d8904",

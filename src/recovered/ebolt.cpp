@@ -71,14 +71,14 @@ EBolt::EBolt() : Start(CoordStruct(0,0,0)),End(CoordStruct(0,0,0)),unknown_18(0)
 extern ConvertClass *NormalDrawer;
 extern Surface *CompositeSurface;
 extern Rect TacticalRect;
-int __fastcall Unknown_006A2970(int height);
+int __fastcall Tactical_Z_Lepton_To_Pixel(int height);
 void EBolt::Draw_Line_004B1850(CoordStruct start,CoordStruct end,int color,int first_depth,int second_depth)
 {
     Point2D first_pixel,second_pixel;
     TacticalMap->Coord_To_Pixel(start,first_pixel);
     TacticalMap->Coord_To_Pixel(end,second_pixel);
-    int first_z=first_depth-Unknown_006A2970(start.Z)-2;
-    int second_z=second_depth-Unknown_006A2970(end.Z)-2;
+    int first_z=first_depth-Tactical_Z_Lepton_To_Pixel(start.Z)-2;
+    int second_z=second_depth-Tactical_Z_Lepton_To_Pixel(end.Z)-2;
     int pixel=NormalDrawer->Convert(color);
     CompositeSurface->Draw_Depth_Shaded_Line(TacticalRect,first_pixel,second_pixel,
         pixel,first_z,second_z);
@@ -125,7 +125,7 @@ extern ConvertClass *NormalDrawer;
 extern Surface *CompositeSurface;
 extern Rect TacticalRect;
 extern Random2Class NonCriticalRandomNumber;
-int __fastcall Unknown_006A2970(int height);
+int __fastcall Tactical_Z_Lepton_To_Pixel(int height);
 
 // One pending piece of the bolt: the three strands' ends and the subdivision state.
 struct BoltSegment {

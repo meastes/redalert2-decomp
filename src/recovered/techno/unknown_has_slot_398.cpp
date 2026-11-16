@@ -1,17 +1,5 @@
-// 0x006d8660: function not yet identified
-//
-// Body: 26 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 __fastcall unknown_has_slot_398_006d8660(int *param_1)
-//
-// Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);
-// rename and retype as the purpose becomes known.
-//
-// seed-generated: tools/original_target/regenerate_seeds.py may rewrite this file;
-// delete this line when editing it by hand.
+//  (0x006D8660)
 #include "shared/ghidra_types.hpp"
-
-namespace seed_006d8660 {
 
 undefined4 __fastcall unknown_has_slot_398_006d8660(int *self)
 {
@@ -24,4 +12,3 @@ undefined4 __fastcall unknown_has_slot_398_006d8660(int *self)
     return 0;
 }
 
-}  // namespace seed_006d8660

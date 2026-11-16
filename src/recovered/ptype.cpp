@@ -116,7 +116,7 @@ ParticleTypeClass::ParticleTypeClass(NoInitClass const &noinit) : ObjectTypeClas
 /// </summary>
 ParticleTypeClass::~ParticleTypeClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     AbstractTypePtrTracker.Delete(this);
     ParticleTypes.Delete(this);
 }

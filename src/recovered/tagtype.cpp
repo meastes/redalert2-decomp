@@ -108,7 +108,7 @@ TagTypeClass::TagTypeClass(char const *name) :
 
 TagTypeClass::~TagTypeClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     TriggerTypeClass *trigtype = FirstTrigger;
     FirstTrigger = 0;
     while (trigtype != 0) {
@@ -217,11 +217,11 @@ TagTypeClass *__fastcall TagTypeClass::From_Name(char const *name)
 
 void __fastcall TagTypeClass::Read_Scenario_INI(CCINIClass &ini)
 {
-    int count = ini.Entry_Count(unknown_tags_section_7ac770);
+    int count = ini.Entry_Count(TagTypeClass_INI_NAME);
     for (int index = 0; index < count; index++) {
-        char const *entry = ini.Get_Entry(unknown_tags_section_7ac770, index);
+        char const *entry = ini.Get_Entry(TagTypeClass_INI_NAME, index);
         char buffer[24];
-        if (ini.Get_String(unknown_tags_section_7ac770, entry, unknown_string_83c55c, buffer, sizeof(buffer)) > 0) {
+        if (ini.Get_String(TagTypeClass_INI_NAME, entry, unknown_string_83c55c, buffer, sizeof(buffer)) > 0) {
             TagTypeClass *type = Find_Or_Make(entry);
             Swizzler.Here_I_Am(ahtoi(entry), type);
             type->Read_INI(ini);
@@ -235,14 +235,14 @@ void __fastcall TagTypeClass::Read_Scenario_INI(CCINIClass &ini)
 
 void __fastcall TagTypeClass::Write_Scenario_INI(CCINIClass &ini)
 {
-    int count = ini.Entry_Count(unknown_tags_section_7ac770);
+    int count = ini.Entry_Count(TagTypeClass_INI_NAME);
     for (int index = 0; index < count; index++) {
         char buffer[32];
-        char const *entry = ini.Get_Entry(unknown_tags_section_7ac770, index);
-        ini.Get_String(unknown_tags_section_7ac770, entry, unknown_string_83c55c, buffer, sizeof(buffer));
+        char const *entry = ini.Get_Entry(TagTypeClass_INI_NAME, index);
+        ini.Get_String(TagTypeClass_INI_NAME, entry, unknown_string_83c55c, buffer, sizeof(buffer));
         ini.Clear(buffer, 0);
     }
-    ini.Clear(unknown_tags_section_7ac770, 0);
+    ini.Clear(TagTypeClass_INI_NAME, 0);
     for (int i = 0; i < TagTypes.Count(); i++) {
         TagTypes[i]->Write_INI(ini);
     }
@@ -265,7 +265,7 @@ extern "C" char *__cdecl strtok(char *string, char const *delimiters);
 bool TagTypeClass::Read_INI(CCINIClass &ini)
 {
     char buffer[128];
-    if (ini.Get_String(unknown_tags_section_7ac770, ID, unknown_string_83c55c, buffer, sizeof(buffer))) {
+    if (ini.Get_String(TagTypeClass_INI_NAME, ID, unknown_string_83c55c, buffer, sizeof(buffer))) {
         strtok(buffer, ",");
         Persistence = atoi(buffer);
         Name = FixedString<49>(strtok(0, ","));
@@ -288,10 +288,10 @@ bool TagTypeClass::Write_INI(CCINIClass &ini) const
     char buffer[128];
     if (FirstTrigger == 0) {
         wsprintfA(buffer, "%s,<none>", (char const *)Name);
-        ini.Put_String(unknown_tags_section_7ac770, ID, buffer);
+        ini.Put_String(TagTypeClass_INI_NAME, ID, buffer);
     } else {
         wsprintfA(buffer, "%d,%s,%s", Persistence, (char const *)Name, (char const *)FirstTrigger->ID);
-        ini.Put_String(unknown_tags_section_7ac770, ID, buffer);
+        ini.Put_String(TagTypeClass_INI_NAME, ID, buffer);
     }
     return true;
 }

@@ -115,9 +115,9 @@ int BitTextClass::Print_Bold(BitFontClass *font, Surface *surface, wchar_t const
 inline RGBClass Int_To_RGB(int color)
 {
     return RGBClass(
-        (unsigned char)((unsigned short)color >> unknown_shift_852fb8) << unknown_shift_852fbc,
-        (unsigned char)((unsigned short)color >> unknown_shift_852fc8) << unknown_shift_852fcc,
-        (unsigned char)((unsigned short)color >> unknown_shift_852fc0) << unknown_shift_852fc4);
+        (unsigned char)((unsigned short)color >> DSurface_RedRight) << DSurface_RedLeft,
+        (unsigned char)((unsigned short)color >> DSurface_GreenRight) << DSurface_GreenLeft,
+        (unsigned char)((unsigned short)color >> DSurface_BlueRight) << DSurface_BlueLeft);
 }
 
 // Three channels as a hicolor pixel.
@@ -398,7 +398,7 @@ void BitTextClass::Free_Font(BitFontClass *font)
 // The out-of-line RGB screen-pixel packing body after BitText.cpp, 00432D90.
 int __fastcall RGB_To_Pixel_00432d90(int red, int green, int blue)
 {
-    return ((red >> unknown_shift_852fbc) << unknown_shift_852fb8)
-         | ((green >> unknown_shift_852fcc) << unknown_shift_852fc8)
-         | ((blue >> unknown_shift_852fc4) << unknown_shift_852fc0);
+    return ((red >> DSurface_RedLeft) << DSurface_RedRight)
+         | ((green >> DSurface_GreenLeft) << DSurface_GreenRight)
+         | ((blue >> DSurface_BlueLeft) << DSurface_BlueRight);
 }

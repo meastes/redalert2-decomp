@@ -178,7 +178,7 @@ BulletTypeClass::BulletTypeClass(NoInitClass const &noinit) :
 
 BulletTypeClass::~BulletTypeClass()
 {
-    Unknown_006ECB90((ObjectClass *)this, true);
+    Detach_This_From_All((ObjectClass *)this, true);
     AbstractTypePtrTracker.Delete((ObjectClass *)this);
     BulletTypes.Delete(this);
 }

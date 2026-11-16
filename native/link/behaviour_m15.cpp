@@ -77,7 +77,7 @@ char LoadOptionsClass::Load_Dialog_0053b190()
         // The disk the row's game needs, as Dialog does before its Load.
         for (int i = 0; i < Files.Count(); ++i) {
             if (_stricmp(Files[i]->Filename, file) == 0) {
-                Unknown_0046E4C0(0x3c);
+                CD_Get_Current_Disk(0x3c);
                 CD::Set_Required_CD(Files[i]->unknown_1a8 == -1 ? -1 : Campaigns[Files[i]->unknown_1a8]->unknown_98);
                 CD().Force_Available(CD::RequiredCD);
                 break;

@@ -466,7 +466,7 @@ int __fastcall Set_Slot_Country_Color_005bccf0(char const *name, int country, in
         entry->unknown_66e300(color);
     }
     if (unknown_player_slots_a3fa98[slot] == unknown_players_a3fa7c[0]) {
-        unknown_a3d3b4 = color;
+        Game_PlayerColor = color;
     }
     Unknown_005bbdd0(false);
     return changed;
@@ -542,7 +542,7 @@ extern unsigned short unknown_global_product_a3f818;
 
 bool __fastcall Net_Join_Dialog_005bd070()
 {
-    unknown_a71e9c = Unknown_006525F0();
+    unknown_a71e9c = RulesClass_Get_Rule_Unique_ID();
     Read_Art_INI();
     unknown_a71ea0 = unknown_art_ini_unique_id();
     unknown_a71ea4 = unknown_ini_8397a0_unique_id();
@@ -1201,7 +1201,7 @@ long __stdcall Join_Dialog_Proc_005be6b0(HWND window, unsigned message, unsigned
         HWND edit = GetDlgItem(window, 0x541);
         SendMessageA(edit, 0x4B2, 0, (LPARAM)name);
         unknown_map_name_a3d342[0] = 0;
-        unknown_a3d3b4 = unknown_session_a3d298.unknown_12c;
+        Game_PlayerColor = unknown_session_a3d298.unknown_12c;
         unknown_session_a3d298.unknown_120 = unknown_session_a3d298.unknown_130;
         Free_Pointers_005a7480(&unknown_games_a3fa64);
         Free_Pointers_005a7480(&unknown_players_a3fa7c);
@@ -1744,7 +1744,7 @@ void __fastcall Unknown_005c01d0(int gamenow, int playernow, int chatnow, int in
         packet.Command = 4;
         strcpy(packet.Name, unknown_session_a3d298.Handle);
         packet.Chat.ID = unknown_session_a3d298.UniqueID;
-        packet.Chat.Color = unknown_a3d3b4;
+        packet.Chat.Color = Game_PlayerColor;
         Ipx.Send_Global_Message(&packet, sizeof(packet), 0, 0, 0, 0);
         if (unknown_dest_net_set_a3f604) {
             Ipx.Send_Global_Message(&packet, sizeof(packet), 0, &unknown_dest_net_a3f608, 0, 0);
@@ -2252,7 +2252,7 @@ void __fastcall Get_Join_Responses_005c08a0()
                 packet.Command = 4;
                 strcpy(packet.Name, unknown_name_a3d3a0);
                 packet.Chat.ID = unknown_session_a3d298.UniqueID;
-                packet.Chat.Color = unknown_a3d3b4;
+                packet.Chat.Color = Game_PlayerColor;
                 Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &unknown_address_a3f80c, 0, 0);
                 Service_Game_IO_00481fb0();
             }

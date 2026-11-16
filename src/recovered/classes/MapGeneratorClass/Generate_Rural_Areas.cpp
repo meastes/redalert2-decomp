@@ -4,9 +4,9 @@
 #include "shared/map_cell.hpp"
 #include "shared/map_generation_path.hpp"
 #include "shared/tileset_index.hpp"
-extern int unknown_tileset_a6dd04;
-// @ref ?unknown_tileset_a6e014@@=00a6e014
-// @ref ?unknown_tileset_a6dd04@@=00a6dd04
+extern int IsometricTileTypeClass_DirtRoadSlopes;
+// @ref ?IsometricTileTypeClass_DirtRoadCurve@@=00a6e014
+// @ref ?IsometricTileTypeClass_DirtRoadSlopes@@=00a6dd04
 extern DirtRoadTile unknown_generation_paths_a700a0[109];
 // @ref ?unknown_generation_paths_a700a0@@=00a700a0
 // The original109-record array/12-byte stride is evidenced by full initializer/cleanup.
@@ -15,9 +15,9 @@ void Init_Dirt_Roads()
 {
     int i;
     for(i=0;i<101;i++)
-        unknown_generation_paths_a700a0[i].unknown_08=(int)((unsigned)unknown_tileset_a6e014+(unsigned)i);
+        unknown_generation_paths_a700a0[i].unknown_08=(int)((unsigned)IsometricTileTypeClass_DirtRoadCurve+(unsigned)i);
     for(i=0;i<8;i++)
-        unknown_generation_paths_a700a0[101+i].unknown_08=(int)((unsigned)unknown_tileset_a6dd04+(unsigned)i);
+        unknown_generation_paths_a700a0[101+i].unknown_08=(int)((unsigned)IsometricTileTypeClass_DirtRoadSlopes+(unsigned)i);
 }
 
 bool __fastcall Can_Place_Paved_Road_00588a30(Rect const &area,bool first,bool second);

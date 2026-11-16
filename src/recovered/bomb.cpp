@@ -141,7 +141,7 @@ void BombClass::Unknown_00435D30()
                 for (int x = -2; x < 3; x++) {
                     int tile = Map[Target->unknown_slot104() + Cell(x, y)].IsoTileIndex;
                     int overlay = Map[Target->unknown_slot104() + Cell(x, y)].OverlayIndex;
-                    if ((tile >= unknown_tileset_a6cb68 && tile < unknown_tileset_a6cb68 + 16) || (overlay >= 0x4A && overlay <= 0x65)) {
+                    if ((tile >= IsometricTileTypeClass_TrainBridgeSet && tile < IsometricTileTypeClass_TrainBridgeSet + 16) || (overlay >= 0x4A && overlay <= 0x65)) {
                         bridge = true;
                     }
                 }

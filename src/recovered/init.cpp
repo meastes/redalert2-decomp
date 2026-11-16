@@ -142,8 +142,8 @@ extern float unknown_camera_angle_839a5c;       // 0x00839A5C
 extern Matrix3D unknown_voxel_transform_839a70; // 0x00839A70
 extern float unknown_camera_angle_79acf4;       // 0x0079ACF4 default
 extern float unknown_light_angle_79acf0;        // 0x0079ACF0 default
-extern int unknown_af6614;                      // 0x00AF6614
-extern int unknown_af6610;                      // 0x00AF6610
+extern int VoxelDrawSystem_EnableLighting;                      // 0x00AF6614
+extern int VoxelDrawSystem_EnableZBuffer;                      // 0x00AF6610
 extern MouseClass Map;                          // 0x008324E0
 extern unsigned __int64 unknown_loading_time_a41668;
 extern ConvertClass *unknown_drawer_8323c8;     // 0x008323C8 (TS MouseDrawer)    // 0x00A41668 when the loading screen may go
@@ -414,8 +414,8 @@ static bool Bootstrap()
     unknown_use_voxel_cache_839a58 = true;
     Set_Voxel_Camera_Angle(unknown_camera_angle_79acf4);
     Set_Voxel_Light_Angle(unknown_light_angle_79acf0);
-    unknown_af6614 = 1;
-    unknown_af6610 = 0;
+    VoxelDrawSystem_EnableLighting = 1;
+    VoxelDrawSystem_EnableZBuffer = 0;
     Unknown_00718060();
 
     TerrainDrawer = new ConvertClass(GamePalette, GamePalette, VisibleSurface, 0x35, false);
@@ -542,7 +542,7 @@ static bool Init_CDROM_Access()
             return false;
         }
 
-        int disk = Unknown_0046E4C0(60);
+        int disk = CD_Get_Current_Disk(60);
         if (!unknown_special_a40920.IsFromInstall && disk > -1) {
             unknown_special_a40920.IsFromInstall = ConfigINI.Get_Bool("Intro", "Play", true);
         }
@@ -2325,7 +2325,7 @@ bool __fastcall Init_Secondary_Mixfiles()
         return false;
     }
 
-    int cd = Unknown_0046E4C0(60) + 1;
+    int cd = CD_Get_Current_Disk(60) + 1;
     char name[260];
     if (CD::IsLocal == true) {
         strcpy(name, "MAPS*.MIX");

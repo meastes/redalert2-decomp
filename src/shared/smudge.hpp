@@ -22,12 +22,12 @@ extern "C" GUID const CLSID_SmudgeClass;        // 0x007A1C00
 
 // The house a placed object belongs to while it is being placed (0x007F4230;
 // -1 otherwise; hypothesis).
-extern int unknown_placing_house_7f4230;
+extern int SmudgeClass_ToOwn;
 // Smudges are always placed when this is positive (0x00A40774; hypothesis:
 // a scenario-loading or editor flag).
 // Forces image reloads (0x00A40D13; also declared by shared/anim_type.hpp).
 // The INI section name "Smudge" (a pointer variable at 0x007AB558).
-extern char const *unknown_smudge_section_7ab558;
+extern char const *SmudgeClass_INI_NAME;
 
 class SmudgeClass : public ObjectClass {
 public:

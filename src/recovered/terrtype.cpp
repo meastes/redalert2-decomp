@@ -115,7 +115,7 @@ TerrainTypeClass::TerrainTypeClass(NoInitClass const &noinit) :
 
 TerrainTypeClass::~TerrainTypeClass()
 {
-    Unknown_006ECB90((ObjectClass *)(AbstractClass *)this, true);
+    Detach_This_From_All((ObjectClass *)(AbstractClass *)this, true);
     TerrainTypes.Delete(this);
 }
 

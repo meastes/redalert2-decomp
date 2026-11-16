@@ -113,7 +113,7 @@ ParticleSystemTypeClass::ParticleSystemTypeClass(NoInitClass const &noinit) : Ob
 /// </summary>
 ParticleSystemTypeClass::~ParticleSystemTypeClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     ParticleSystemTypes.Delete(this);
 }
 

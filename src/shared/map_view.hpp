@@ -324,7 +324,7 @@ class PowerClass : public RadarClass {
 
 #ifndef RA2_SHARED_SIDEBAR_HPP
 // The production column of an object type (as shared/sidebar.hpp; 0x006818D0).
-int __fastcall Unknown_006818D0(int type, int id, int arg3);
+int __fastcall SidebarClass_GetObjectTabIdx(int type, int id, int arg3);
 
 class SidebarClass : public PowerClass {
 public:

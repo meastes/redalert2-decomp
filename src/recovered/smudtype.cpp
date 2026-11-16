@@ -153,7 +153,7 @@ SmudgeTypeClass::SmudgeTypeClass(NoInitClass const &noinit) :
 
 SmudgeTypeClass::~SmudgeTypeClass()
 {
-    Unknown_006ECB90((ObjectClass *)(AbstractClass *)this, true);
+    Detach_This_From_All((ObjectClass *)(AbstractClass *)this, true);
     SmudgeTypes.Delete(this);
 }
 
@@ -315,7 +315,7 @@ void SmudgeTypeClass::Draw_It(Point2D const *point, Rect const *cliprect, int si
         CellClass &here = Map[*cell];
         int level = here.unknown_10c;
         CC_Draw_Shape(LogicalSurface, (ConvertClass *)here.unknown_34, (ShapeFileStruct const *)shape, 0, position, *cliprect,
-                      0xE00, 0, -1 - Unknown_006A2970(z), 0, level, 0, 0, Point2D(0, 0));
+                      0xE00, 0, -1 - Tactical_Z_Lepton_To_Pixel(z), 0, level, 0, 0, Point2D(0, 0));
     }
 }
 

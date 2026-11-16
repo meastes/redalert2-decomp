@@ -116,12 +116,12 @@ SmudgeClass::SmudgeClass(SmudgeTypeClass *type, CoordStruct const &pos, int hous
     AbstractClass::Create_ID();
     Smudges.Add(this);
     if (pos.X != unknown_geometry_l.X || pos.Y != unknown_geometry_l.Y || pos.Z != unknown_geometry_l.Z) {
-        unknown_placing_house_7f4230 = house;
+        SmudgeClass_ToOwn = house;
         if (!ObjectClass::Unlimbo(&pos, 0)) {
             ObjectClass::Delete_Me();
             return;
         }
-        unknown_placing_house_7f4230 = -1;
+        SmudgeClass_ToOwn = -1;
     }
 }
 
@@ -137,7 +137,7 @@ SmudgeClass::SmudgeClass(SmudgeTypeClass *type, CoordStruct const &pos, int hous
 
 SmudgeClass::~SmudgeClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Smudges.Delete(this);
     if (GameActive) {
         ObjectClass::Limbo();
@@ -224,11 +224,11 @@ void __stdcall Disown_006877e0(int unused_0)
 
 void __fastcall SmudgeClass::Read_INI(CCINIClass &ini)
 {
-    int count = ini.Entry_Count(unknown_smudge_section_7ab558);
+    int count = ini.Entry_Count(SmudgeClass_INI_NAME);
     for (int index = 0; index < count; index++) {
-        char const *entry = ini.Get_Entry(unknown_smudge_section_7ab558, index);
+        char const *entry = ini.Get_Entry(SmudgeClass_INI_NAME, index);
         char buffer[128];
-        ini.Get_String(unknown_smudge_section_7ab558, entry, 0, buffer, sizeof(buffer));
+        ini.Get_String(SmudgeClass_INI_NAME, entry, 0, buffer, sizeof(buffer));
         int type = SmudgeTypeClass::From_Name(strtok(buffer, ","));
         if (type != -1) {
             char *token = strtok(0, ",");
@@ -267,7 +267,7 @@ void __fastcall SmudgeClass::Read_INI(CCINIClass &ini)
 
 void __fastcall SmudgeClass::Write_INI(CCINIClass &ini)
 {
-    ini.Clear(unknown_smudge_section_7ab558);
+    ini.Clear(SmudgeClass_INI_NAME);
     int index = 0;
     for (int y = 0; y < 512; y++) {
         for (int x = 0; x < 512; x++) {
@@ -278,7 +278,7 @@ void __fastcall SmudgeClass::Write_INI(CCINIClass &ini)
                 char value[128];
                 sprintf(entry, "%d", index);
                 sprintf(value, "%s,%d,%d,%d", (char const *)type->ID, x, y, cell.SmudgeData);
-                ini.Put_String(unknown_smudge_section_7ab558, entry, value);
+                ini.Put_String(SmudgeClass_INI_NAME, entry, value);
                 index++;
             }
         }

@@ -517,7 +517,7 @@ bool __fastcall Set_Display_Mode(int width, int height)
     }
     LogicalSurface = HiddenSurface;
     Debug_Printf("Recalc color remap tables\n");
-    Unknown_00486010(red_right, red_left, green_right, green_left, blue_right, blue_left);
+    ConvertClass_Reinitialize_Hicolor_Tables(red_right, red_left, green_right, green_left, blue_right, blue_left);
     if (WWMouse == 0) {
         WWMouse = new WWMouseClass(VisibleSurface, MainWindow);
         void const *shape = MixFileClass::Retrieve("MOUSE.SHP");

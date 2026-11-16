@@ -947,7 +947,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
                 int delay = Options.Normalize_Delay(14) / 4;
                 if (delay < 2) delay = 2;
                 CC_Draw_Shape(LogicalSurface, static_cast<ConvertClass *>(unknown_convert_8323c8),
-                    static_cast<ShapeFileStruct const *>(unknown_wrench_shape_8502a8),
+                    static_cast<ShapeFileStruct const *>(BuildingTypeClass_WrenchShapes),
                     ((Frame % delay) * 6) / (delay - 1), repair_point, window, 0xe00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
         }
@@ -1005,7 +1005,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
 
         if (unknown_talk_techno_ac01c4 == this && unknown_talk_value_ac01c8 > 0 && (long)TalkBubbleTimer > 0) {
             CC_Draw_Shape(LogicalSurface, NormalDrawer,
-                static_cast<ShapeFileStruct const *>(unknown_talkbubl_shapes_a72fec), unknown_talk_value_ac01c8 - 1,
+                static_cast<ShapeFileStruct const *>(ObjectTypeClass_TalkBubbleShapes), unknown_talk_value_ac01c8 - 1,
                 point, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
     }
@@ -1125,7 +1125,7 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             position.Y = point.Y + p0.Y + ybase + 2;
             position.X -= xoff;
             position.Y -= yoff;
-            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pips_shapes_a72fe4,
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_PipShapes,
                           frame, position, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             xoff += 4;
             yoff -= 2;
@@ -1137,7 +1137,7 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             position.Y = point.Y + p0.Y + ybase + 2;
             position.X -= xoff;
             position.Y -= yoff;
-            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pips_shapes_a72fe4,
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_PipShapes,
                           0, position, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             xoff += 4;
             yoff -= 2;
@@ -1150,14 +1150,14 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
         int length;
         if (Kind_Of() == 15) {
             if (unknown_77) {
-                CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pipbrd_shapes_a72fe0,
+                CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_SelectShapes,
                               1, point + Point2D(11, -25), window, 0xE00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
             offset = Point2D(-5, -24);
             length = 8;
         } else {
             if (unknown_77) {
-                CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pipbrd_shapes_a72fe0,
+                CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_SelectShapes,
                               0, point + Point2D(1, -26), window, 0xE00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
             offset = Point2D(-15, -25);
@@ -1182,7 +1182,7 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             position.X = point.X + offset.X;
             position.Y = offset.Y + point.Y;
             position.X += 2 * index;
-            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pips_shapes_a72fe4,
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_PipShapes,
                           frame, position, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
         if (House->Is_Ally(PlayerPtr) || (unknown_1a8 & (1 << PlayerPtr->Type->House))) {
@@ -2299,8 +2299,8 @@ void TechnoClass::unknown_slot235()
         if (!unknown_200) unknown_200=Techno_Type_Class()->GapRadiusInCells;
         unknown_1fd=true;
         CoordStruct projected=Coord;
-        projected.X+=(Unknown_006A2970(projected.Z)/-30)*256;
-        projected.Y+=(Unknown_006A2970(projected.Z)/-30)*256;
+        projected.X+=(Tactical_Z_Lepton_To_Pixel(projected.Z)/-30)*256;
+        projected.Y+=(Tactical_Z_Lepton_To_Pixel(projected.Z)/-30)*256;
         Cell center(projected);
         int radius=unknown_200;
         for (int x=-radius-2; x<radius+2; ++x) {
@@ -2337,8 +2337,8 @@ void TechnoClass::unknown_slot236()
         if (!unknown_200) unknown_200=Techno_Type_Class()->GapRadiusInCells;
         unknown_1fd=false;
         CoordStruct projected=Coord;
-        projected.X+=(Unknown_006A2970(projected.Z)/-30)*256;
-        projected.Y+=(Unknown_006A2970(projected.Z)/-30)*256;
+        projected.X+=(Tactical_Z_Lepton_To_Pixel(projected.Z)/-30)*256;
+        projected.Y+=(Tactical_Z_Lepton_To_Pixel(projected.Z)/-30)*256;
         Cell center(projected);
         int radius=unknown_200;
         for (int x=-radius-2; x<radius+2; ++x) {
@@ -4699,7 +4699,7 @@ bool TechnoClass::Was_Z_Fudge_Bridge()
 
 extern Cell const AdjacentCell[8];
 
-extern int unknown_tileset_a52c74;
+extern int IsometricTileTypeClass_BridgeSet;
 
 int TechnoClass::Get_Z_Fudge_Column()
 {
@@ -4713,19 +4713,19 @@ int TechnoClass::Get_Z_Fudge_Column()
         if (south != 0 && east != 0 && west != 0) {
             int tile = south->unknown_38;
             if (tile != 0xFFFF && tile != 0xFF) {
-                if (tile - unknown_tileset_a52c74 + 1 >= 7 && tile - unknown_tileset_a52c74 + 1 <= 16) {
+                if (tile - IsometricTileTypeClass_BridgeSet + 1 >= 7 && tile - IsometricTileTypeClass_BridgeSet + 1 <= 16) {
                     count = 1;
                 }
             }
             tile = east->unknown_38;
             if (tile != 0xFFFF && tile != 0xFF) {
-                if (tile - unknown_tileset_a52c74 + 1 >= 7 && tile - unknown_tileset_a52c74 + 1 <= 16) {
+                if (tile - IsometricTileTypeClass_BridgeSet + 1 >= 7 && tile - IsometricTileTypeClass_BridgeSet + 1 <= 16) {
                     count = 1;
                 }
             }
             tile = west->unknown_38;
             if (tile != 0xFFFF && tile != 0xFF) {
-                if (tile - unknown_tileset_a52c74 + 1 >= 7 && tile - unknown_tileset_a52c74 + 1 <= 16) {
+                if (tile - IsometricTileTypeClass_BridgeSet + 1 >= 7 && tile - IsometricTileTypeClass_BridgeSet + 1 <= 16) {
                     count = count + 1;
                 }
             }
@@ -4841,7 +4841,7 @@ int TechnoClass::unknown_slot176()
     CellClass *cptrs[3];
     int width;
     int height;
-    int z = -Unknown_006A2970(Get_Height());
+    int z = -Tactical_Z_Lepton_To_Pixel(Get_Height());
     int zadjust2 = z;
     int zadjust = z;
     Cell cell = unknown_slot104();
@@ -4923,7 +4923,7 @@ int TechnoClass::unknown_slot176()
                         int subtile;
                         IsometricTileTypeClass *iptr;
                         if (ittype == 0xFFFF || ittype == 0xFF) {
-                            iptr = IsoTileTypes[unknown_tileset_a52f00];
+                            iptr = IsoTileTypes[IsometricTileTypeClass_ClearTile];
                             subtile = 0;
                         } else {
                             iptr = IsoTileTypes[ittype];
@@ -4980,7 +4980,7 @@ void TechnoClass::unknown_6d0510(CoordStruct from, CoordStruct to, RGBClass colo
     if (shadow && Clip_Line(shadow_start,shadow_end,clip)) {
         CompositeSurface->Draw_Line(shadow_start,shadow_end,NormalDrawer->Convert(0));
     }
-    int pixel=((color.Red>>unknown_shift_852fbc)<<unknown_shift_852fb8)|((color.Blue>>unknown_shift_852fc4)<<unknown_shift_852fc0)|((color.Green>>unknown_shift_852fcc)<<unknown_shift_852fc8);
+    int pixel=((color.Red>>DSurface_RedLeft)<<DSurface_RedRight)|((color.Blue>>DSurface_BlueLeft)<<DSurface_BlueRight)|((color.Green>>DSurface_GreenLeft)<<DSurface_GreenRight);
     CompositeSurface->Fill_Rect(TacticalRect.Intersect(Moved_Rect(Rect(-2,-2,3,3),start)),pixel);
     CompositeSurface->Fill_Rect(TacticalRect.Intersect(Moved_Rect(Rect(-2,-2,3,3),end)),pixel);
     if ((char)arg8) {
@@ -5002,9 +5002,9 @@ void TechnoClass::unknown_6d0510(CoordStruct from, CoordStruct to, RGBClass colo
 // TibSun DSurface::Build_Hicolor_Pixel(RGBClass const &): the three-channel builder on a colour.
 static inline int Build_Hicolor_Pixel(RGBClass const &rgb)
 {
-    return ((rgb.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
-         | ((rgb.Green >> unknown_shift_852fcc) << unknown_shift_852fc8)
-         | ((rgb.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0);
+    return ((rgb.Red >> DSurface_RedLeft) << DSurface_RedRight)
+         | ((rgb.Green >> DSurface_GreenLeft) << DSurface_GreenRight)
+         | ((rgb.Blue >> DSurface_BlueLeft) << DSurface_BlueRight);
 }
 // The 3x3 end marker of a line, its corner two pixels up and left of the point.
 static inline Rect Line_End_Rect(Point2D const &point)
@@ -5243,11 +5243,11 @@ void TechnoClass::Techno_Draw_Object(void const *shape, int frame, Point2D const
             if (static_cast<UnitClass *>(this)->Type->SmallVisceroid || static_cast<UnitClass *>(this)->Type->LargeVisceroid) shadow=false;
         case 15:
             if (Get_Height_AGL()==0) z_adjust+=unknown_slot176();
-            else { z_adjust-=Unknown_006A2970(Get_Height()); shadow=false; }
+            else { z_adjust-=Tactical_Z_Lepton_To_Pixel(Get_Height()); shadow=false; }
             break;
         case 2:
-            draw_point.Y-=Unknown_006A2970(Get_Height());
-            z_adjust-=Unknown_006A2970(Get_Height());
+            draw_point.Y-=Tactical_Z_Lepton_To_Pixel(Get_Height());
+            z_adjust-=Tactical_Z_Lepton_To_Pixel(Get_Height());
             break;
         }
         if (Techno_Type_Class()->NoShadow) shadow=false;
@@ -5285,7 +5285,7 @@ void TechnoClass::Techno_Draw_Object(void const *shape, int frame, Point2D const
         case 0:
             CC_Draw_Shape(LogicalSurface,converter,shape_file,frame,draw_point,*bounds,flags|0x600,0,z_adjust-2,gradient,brightness,zshape,zframe,offset);
             if (shadow) {
-                z_adjust=-2-Unknown_006A2970(Get_Height());
+                z_adjust=-2-Tactical_Z_Lepton_To_Pixel(Get_Height());
                 if (unknown_37c) draw_point.Y-=14;
                 flags&=~6;
                 CC_Draw_Shape(LogicalSurface,converter,shape_file,frame+shape_file->FrameCount/2,draw_point,*bounds,flags|0x601,0,z_adjust-2,0,1000,0,0,Point2D(0,0));
@@ -5294,7 +5294,7 @@ void TechnoClass::Techno_Draw_Object(void const *shape, int frame, Point2D const
         case 1:
             CC_Draw_Shape(LogicalSurface,converter,shape_file,frame,draw_point,*bounds,flags|0x600,0,z_adjust-2,gradient,brightness,zshape,zframe,offset);
             if (shadow) {
-                z_adjust=-2-Unknown_006A2970(Get_Height());
+                z_adjust=-2-Tactical_Z_Lepton_To_Pixel(Get_Height());
                 flags&=~6;
                 if (unknown_37c) draw_point.Y-=14;
                 CC_Draw_Shape(LogicalSurface,converter,shape_file,frame+shape_file->FrameCount/2,draw_point,*bounds,flags|0x601,0,z_adjust-2,0,1000,0,0,Point2D(0,0));
@@ -6504,9 +6504,9 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
     Point2D offset(4, 2);
     Point2D xy = point + Point2D(6, -1);
     Class_Of();
-    ShapeFileStruct const *pip_shapes = (ShapeFileStruct const *)unknown_pips_shapes_a72fe4;
+    ShapeFileStruct const *pip_shapes = (ShapeFileStruct const *)ObjectTypeClass_PipShapes;
     Class_Of();
-    ShapeFileStruct const *pips2 = (ShapeFileStruct const *)unknown_pips2_shapes_a72fe8;
+    ShapeFileStruct const *pips2 = (ShapeFileStruct const *)ObjectTypeClass_Pip2Shapes;
     bool building = Kind_Of() == 6;
     if (!building) {
         xy = point + Point2D(-5, 0);
@@ -6641,7 +6641,7 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
 void TechnoClass::unknown_slot250(Point2D const &point, Rect const &window)
 {
     ObjectTypeClass *type = Class_Of();
-    void const *pips = unknown_pips_shapes_a72fe4;
+    void const *pips = ObjectTypeClass_PipShapes;
     int frame = -1;
     if (unknown_118.Is_Veteran()) {
         frame = 13;
@@ -7575,7 +7575,7 @@ void TechnoClass::Reset_Action_Line_Timer()
 
 void __fastcall TechnoClass::Set_Action_Lines(bool value)
 {
-    unknown_bool_7f7110 = value;
+    TechnoClass_ActionLines = value;
 }
 
 

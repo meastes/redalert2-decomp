@@ -143,11 +143,11 @@ void CCToolTip::Hide(ToolTipRecord *record)
     if (unknown_flag_a40b30 == true) {
         if (record->unknown_00 >= TacticalRect.X + TacticalRect.Width) {
             unknown_flag_8373c2 = true;
-            unknown_flag_8373c3 = true;
+            SidebarClass_IsSidebarRedrawPending = true;
         }
     } else if (record->unknown_00 <= unknown_rect_839620.X + unknown_rect_839620.Width) {
         unknown_flag_8373c2 = true;
-        unknown_flag_8373c3 = true;
+        SidebarClass_IsSidebarRedrawPending = true;
     }
     Map.GScreenClass::Flag_To_Redraw(0);
     ToolTipManager::Hide(record);
@@ -178,7 +178,7 @@ void CCToolTip::Debug_Print(ToolTipRecord *record)
         else if (unknown_260 == true && x >= boundary) {
             surface = SidebarSurface;
             x -= boundary;
-            unknown_flag_abcd84 = true;
+            SidebarClass_IsToBlitSidebar = true;
         }
     } else {
         int boundary = unknown_rect_839620.X + unknown_rect_839620.Width;
@@ -187,7 +187,7 @@ void CCToolTip::Debug_Print(ToolTipRecord *record)
             x -= boundary;
         } else if (unknown_260 == true && x + record->unknown_08 < boundary) {
             surface = SidebarSurface;
-            unknown_flag_abcd84 = true;
+            SidebarClass_IsToBlitSidebar = true;
         }
     }
     if (surface) {

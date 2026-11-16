@@ -704,7 +704,7 @@ records (Scout1103: DriveRawTracks/ShipRawTracks, the track point pointers).
 File statics are copied the same way (Scout1115): Tactical.CPP's
 `unknown_scale_abe490` (0x00ABE490, pixels per lepton of height, a dynamic
 initialiser) is read elsewhere as the extern `unknown_abe490`; zero there, every
-object's Z adjust (Unknown_006A2970) lost its height, the depth test hid units
+object's Z adjust (Tactical_Z_Lepton_To_Pixel) lost its height, the depth test hid units
 and infantry on raised ground and drew vehicles as two strips (the "doubled
 Grizzly").
 Header statics (a shared header's file statics, one copy per original unit at

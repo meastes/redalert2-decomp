@@ -175,7 +175,7 @@ void BulletClass::Construct(BulletTypeClass *type, AbstractClass *target, Techno
 
 BulletClass::~BulletClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     if (SpawnNextAnim) {
         AnimPtrTracker.Delete(this);
     }

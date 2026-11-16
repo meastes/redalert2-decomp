@@ -436,7 +436,7 @@ void IonBlastClass::Draw_It()
             char *source_row = sbuffer;
             sptr = sbuffer;
 
-            int depth_z = Unknown_006A2970(Coord.Z);
+            int depth_z = Tactical_Z_Lepton_To_Pixel(Coord.Z);
             short base_z = (short)DepthBuffer->Get_Scroll() - depth_z;
             unsigned short draw_z = base_z;
             draw_z -= drect.Y;

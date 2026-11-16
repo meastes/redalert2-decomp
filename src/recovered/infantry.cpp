@@ -211,7 +211,7 @@ InfantryClass::~InfantryClass()
         House->Tracking_Remove(this);
         InfantryClass::Limbo();
     }
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Infantry.Delete(this);
     TargetTracker.Remove_Index(Fetch_ID());
     IsActive = false;
@@ -373,8 +373,8 @@ extern "C" ConvertClass *unknown_infantry_drawer_008323c4;
 extern "C" ShapeFileStruct const *unknown_infantry_shadow_00a41134;
 extern "C" int unknown_infantry_zadjust_007daeb8;
 // Existing free declarations from lightning_storm.hpp; no class statics are needed here.
-bool Unknown_0051FC50();
-bool Unknown_0051FC60();
+bool IonStormClass_Is_Ion_Storm_Active();
+bool NukeFlash_IsFadingIn();
 // Existing int formals carry Point2D and Rect pointers; their ABI stays unchanged.
 void InfantryClass::Draw_It(Point2D const &input, Rect const &window)
 {
@@ -401,8 +401,8 @@ void InfantryClass::Draw_It(Point2D const &input, Rect const &window)
             Cell target_cell=Get_Target_Cell();
             TacticalMap->Add_To_Selectables(this, point);
             int level_light;
-            if (Unknown_0051FC50()) level_light=unknown_id_source_a3d290->IonLevel;
-            else if (Unknown_0051FC60()) level_light=unknown_id_source_a3d290->unknown_22f4;
+            if (IonStormClass_Is_Ion_Storm_Active()) level_light=unknown_id_source_a3d290->IonLevel;
+            else if (NukeFlash_IsFadingIn()) level_light=unknown_id_source_a3d290->unknown_22f4;
             else level_light=unknown_id_source_a3d290->AmbientLevel;
             int brightness;
             if (unknown_79 || ((Map[Position_Coord_004f3f40()].unknown_140&0x10000) &&
@@ -422,7 +422,7 @@ void InfantryClass::Draw_It(Point2D const &input, Rect const &window)
             if (height>0 && (unknown_infantry_shadow_00a41134 ||
                 (unknown_infantry_shadow_00a41134=static_cast<ShapeFileStruct const *>(MixFileClass::Retrieve("INFSHDW.SHP"))))) {
                 CC_Draw_Shape(LogicalSurface,unknown_infantry_drawer_008323c4,unknown_infantry_shadow_00a41134,
-                    1,point+Point2D(0,-*reinterpret_cast<signed char const *>(&unknown_59e))+Point2D(0,Unknown_006A2970(height)),window,0x2601,0,-5-Unknown_006A2970(Position_Coord_004f3f40().Z-height),0,1000,0,0,Point2D(0,0));
+                    1,point+Point2D(0,-*reinterpret_cast<signed char const *>(&unknown_59e))+Point2D(0,Tactical_Z_Lepton_To_Pixel(height)),window,0x2601,0,-5-Tactical_Z_Lepton_To_Pixel(Position_Coord_004f3f40().Z-height),0,1000,0,0,Point2D(0,0));
             }
             // The original reads this storage byte with MOVSX; the current shared bool name remains a hypothesis.
             signed char draw_offset=*reinterpret_cast<signed char const *>(&unknown_59e);
@@ -535,7 +535,7 @@ void InfantryClass::unknown_slot93(int why)
                                 int tile=Map[spot].IsoTileIndex;
                                 Cell overlay_spot=Cell(Cell(x,y)+unknown_slot104());
                                 int overlay=Map[overlay_spot].OverlayIndex;
-                                if ((tile>=unknown_tileset_a6cb68 && tile<unknown_tileset_a6cb68+16) || (overlay>=74 && overlay<=101)) train=true;
+                                if ((tile>=IsometricTileTypeClass_TrainBridgeSet && tile<IsometricTileTypeClass_TrainBridgeSet+16) || (overlay>=74 && overlay<=101)) train=true;
                             }
                         }
                         if (train) Map.Unknown_00552570(unknown_slot104());

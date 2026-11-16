@@ -37,9 +37,9 @@ void Leaf_63b5a0::get() {  }
 bool __fastcall Submit_Radar_Event(RadarEventType event, Cell cell)
 {
     if (Can_Suppress_Radar_Event(event)) {
-        for (int index = 0; index < unknown_radar_events_ab67e8.Count(); index++) {
-            if (unknown_radar_events_ab67e8[index]->Type == event) {
-                if (cell.Distance_To(unknown_radar_events_ab67e8[index]->Location) < unknown_radar_events_ab67e8[index]->Unknown_0063C630()) {
+        for (int index = 0; index < RadarEventClass_RadarEvents.Count(); index++) {
+            if (RadarEventClass_RadarEvents[index]->Type == event) {
+                if (cell.Distance_To(RadarEventClass_RadarEvents[index]->Location) < RadarEventClass_RadarEvents[index]->Unknown_0063C630()) {
                     return false;
                 }
             }
@@ -83,7 +83,7 @@ RadarEventClass::RadarEventClass(RadarEventType type, Cell cell)
     Offset = Map.Cell_To_Radar_Pixel(cell).Top_Left() - Map.unknown_1498.Top_Left();
     Radius = MAX(Offset.X, MAX(Offset.Y, MAX(Map.unknown_1498.Width - Offset.X, Map.unknown_1498.Height - Offset.Y)));
     RadarEventClass_unknown_remember_cell(cell);
-    unknown_radar_events_ab67e8.Add(this);
+    RadarEventClass_RadarEvents.Add(this);
 }
 
 
@@ -93,7 +93,7 @@ RadarEventClass::RadarEventClass(RadarEventType type, Cell cell)
 RadarEventClass::~RadarEventClass()
 {
     RadarEventClass *self = this;
-    unknown_radar_events_ab67e8.Delete(self);
+    RadarEventClass_RadarEvents.Delete(self);
 }
 
 
@@ -103,8 +103,8 @@ RadarEventClass::~RadarEventClass()
 
 void Process_Radar_Events()
 {
-    for (int index = 0; index < unknown_radar_events_ab67e8.Count(); index++) {
-        unknown_radar_events_ab67e8[index]->Unknown_0063B940();
+    for (int index = 0; index < RadarEventClass_RadarEvents.Count(); index++) {
+        RadarEventClass_RadarEvents[index]->Unknown_0063B940();
     }
 }
 
@@ -157,8 +157,8 @@ void RadarEventClass::Unknown_0063B940()
 
 void RadarEventClass::Draw_Events()
 {
-    for (int index = 0; index < unknown_radar_events_ab67e8.Count(); index++) {
-        RadarEventClass *event = unknown_radar_events_ab67e8[index];
+    for (int index = 0; index < RadarEventClass_RadarEvents.Count(); index++) {
+        RadarEventClass *event = RadarEventClass_RadarEvents[index];
         if (event->VisibilityTimer > 0 || event->IsRotating) {
             event->Draw();
         }
@@ -214,9 +214,9 @@ void RadarEventClass::Draw()
 
 void RadarEventClass::Remove_Finished()
 {
-    for (int index = unknown_radar_events_ab67e8.Count() - 1; index >= 0; index--) {
-        if (unknown_radar_events_ab67e8[index]->DurationTimer == 0 && !unknown_radar_events_ab67e8[index]->IsRotating) {
-            delete unknown_radar_events_ab67e8[index];
+    for (int index = RadarEventClass_RadarEvents.Count() - 1; index >= 0; index--) {
+        if (RadarEventClass_RadarEvents[index]->DurationTimer == 0 && !RadarEventClass_RadarEvents[index]->IsRotating) {
+            delete RadarEventClass_RadarEvents[index];
         }
     }
 }
@@ -229,9 +229,9 @@ void RadarEventClass::Remove_Finished()
 bool __fastcall Try_Suppress_Radar_Event(RadarEventType event, Cell cell)
 {
     if (Can_Suppress_Radar_Event(event)) {
-        for (int index = 0; index < unknown_radar_events_ab67e8.Count(); index++) {
-            if (unknown_radar_events_ab67e8[index]->Type == event) {
-                if (cell.Distance_To(unknown_radar_events_ab67e8[index]->Location) < unknown_radar_events_ab67e8[index]->Unknown_0063C630()) {
+        for (int index = 0; index < RadarEventClass_RadarEvents.Count(); index++) {
+            if (RadarEventClass_RadarEvents[index]->Type == event) {
+                if (cell.Distance_To(RadarEventClass_RadarEvents[index]->Location) < RadarEventClass_RadarEvents[index]->Unknown_0063C630()) {
                     return true;
                 }
             }
@@ -295,9 +295,9 @@ void RadarEventClass::Get_Event_Rect(Point2D (&event_rect)[4]) const
 
 bool __fastcall RadarEventClass_unknown_load_all(IStream *stream)
 {
-    for (int i = unknown_radar_events_ab67e8.Count() - 1; i >= 0; i--) {
-        delete unknown_radar_events_ab67e8[i];
-        unknown_radar_events_ab67e8.Delete(i);
+    for (int i = RadarEventClass_RadarEvents.Count() - 1; i >= 0; i--) {
+        delete RadarEventClass_RadarEvents[i];
+        RadarEventClass_RadarEvents.Delete(i);
     }
     int count;
     if (FAILED(stream->Read(&count, sizeof(count), 0))) {

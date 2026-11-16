@@ -150,7 +150,7 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?FUN_0066ee40@seed_0066ee40@@YAXXZ",
+   "symbol": "?SessionClass_Init@@YAXXZ",
    "entry": "0066ee40",
    "body_bytes": 1,
    "padding_bytes": 15
@@ -282,7 +282,7 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z",
+   "symbol": "?MultiMission_Is_Random_Map@@YI_NH@Z",
    "entry": "006720c0",
    "body_bytes": 23,
    "padding_bytes": 9
@@ -312,7 +312,7 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?FUN_00672810@seed_00672810@@YIXH@Z",
+   "symbol": "?GameOptionsType_Reset_AI@@YIXH@Z",
    "entry": "00672810",
    "body_bytes": 30,
    "padding_bytes": 2
@@ -4828,6 +4828,10 @@
    "address": "00a40958"
   },
   {
+   "symbol": "?Game_PlayerColor@@3HA",
+   "address": "00a3d3b4"
+  },
+  {
    "symbol": "?Get@BufferStraw@@UAEHPAXH@Z",
    "address": "00773840"
   },
@@ -5280,6 +5284,14 @@
    "address": "005d0660"
   },
   {
+   "symbol": "?SessionClass_CallWaitStringIDs@@3PAPBDA",
+   "address": "007f3214"
+  },
+  {
+   "symbol": "?SessionClass_DialMethodCheck@@3PAPBDA",
+   "address": "007f320c"
+  },
+  {
    "symbol": "?Set@AudioLevel@@QAIXH@Z",
    "address": "00407080"
   },
@@ -5392,7 +5404,7 @@
    "address": "00a40a28"
   },
   {
-   "symbol": "?stricmp_00781f20@seed_006720c0@@YAIPAE0@Z",
+   "symbol": "?stricmp_00781f20@@YAIPAE0@Z",
    "address": "00781f20"
   },
   {
@@ -5400,24 +5412,12 @@
    "address": "00781f20"
   },
   {
-   "symbol": "?unknown_a3d3b4@@3HA",
-   "address": "00a3d3b4"
-  },
-  {
    "symbol": "?unknown_address_a3db2c@@3VIPXAddressClass@@A",
    "address": "00a3db2c"
   },
   {
-   "symbol": "?unknown_call_wait_labels_7f3214@@3PAPBDA",
-   "address": "007f3214"
-  },
-  {
    "symbol": "?unknown_color_schemes_7f3224@@3QBDB",
    "address": "007f3224"
-  },
-  {
-   "symbol": "?unknown_dial_methods_7f320c@@3PAPBDA",
-   "address": "007f320c"
   },
   {
    "symbol": "?unknown_find_mode_5b6fe0@MultiplayerGameMode@@SIPAV1@H@Z",
@@ -6420,19 +6420,19 @@
    "site": "005b7400",
    "target": "006720c0",
    "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
-   "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
+   "module_symbol": "?MultiMission_Is_Random_Map@@YI_NH@Z"
   },
   {
    "site": "005b7470",
    "target": "006720c0",
    "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
-   "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
+   "module_symbol": "?MultiMission_Is_Random_Map@@YI_NH@Z"
   },
   {
    "site": "005c8a90",
    "target": "00672810",
    "symbol": "?Unknown_00672810@GameOptionsType@@QAEXXZ",
-   "module_symbol": "?FUN_00672810@seed_00672810@@YIXH@Z"
+   "module_symbol": "?GameOptionsType_Reset_AI@@YIXH@Z"
   },
   {
    "site": "00481850",
@@ -6450,7 +6450,7 @@
    "site": "005cc800",
    "target": "006720c0",
    "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
-   "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
+   "module_symbol": "?MultiMission_Is_Random_Map@@YI_NH@Z"
   },
   {
    "site": "005ca540",
@@ -6504,7 +6504,7 @@
    "site": "005c67c0",
    "target": "006720c0",
    "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
-   "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
+   "module_symbol": "?MultiMission_Is_Random_Map@@YI_NH@Z"
   },
   {
    "site": "005c7570",
@@ -6516,7 +6516,7 @@
    "site": "005c84e0",
    "target": "006720c0",
    "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
-   "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
+   "module_symbol": "?MultiMission_Is_Random_Map@@YI_NH@Z"
   },
   {
    "site": "0053fbd0",
@@ -6534,7 +6534,7 @@
    "site": "0075c570",
    "target": "006720c0",
    "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
-   "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
+   "module_symbol": "?MultiMission_Is_Random_Map@@YI_NH@Z"
   },
   {
    "site": "005bd070",
@@ -6552,13 +6552,13 @@
    "site": "00683fc0",
    "target": "00672810",
    "symbol": "?Unknown_00672810@GameOptionsType@@QAEXXZ",
-   "module_symbol": "?FUN_00672810@seed_00672810@@YIXH@Z"
+   "module_symbol": "?GameOptionsType_Reset_AI@@YIXH@Z"
   },
   {
    "site": "00683fc0",
    "target": "006720c0",
    "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
-   "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
+   "module_symbol": "?MultiMission_Is_Random_Map@@YI_NH@Z"
   },
   {
    "site": "005c08a0",
@@ -6594,13 +6594,13 @@
    "site": "006829f0",
    "target": "006720c0",
    "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
-   "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
+   "module_symbol": "?MultiMission_Is_Random_Map@@YI_NH@Z"
   },
   {
    "site": "006829f0",
    "target": "006720c0",
    "symbol": "?Is_Random_Map@MultiMission@@QAE_NXZ",
-   "module_symbol": "?FUN_006720c0@seed_006720c0@@YI_NH@Z"
+   "module_symbol": "?MultiMission_Is_Random_Map@@YI_NH@Z"
   },
   {
    "site": "00750330",

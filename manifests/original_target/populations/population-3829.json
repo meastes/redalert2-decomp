@@ -4,8 +4,8 @@
     "id": "population-3829",
     "inventory_sha256": "6eab4b5164f3176bf624f4d3a9acdcce4e382511866510ea69a196b22c60f2f2",
     "gaps_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "historical_population_sha256": "038fcb753ddc1818499934b9004ed066fe668d8c7b91ab8111dafa1e0dc95c13",
-    "historical_acceptance_sha256": "c4dbbbbedbffccda3dbdce6d3d0b50f9574865e322bcab891c0521570159e2c5"
+    "historical_population_sha256": "24a1dee36ef72ef8c5716222cd6b972f7f1ca13145f1fd3f835243fd3c2a4b9e",
+    "historical_acceptance_sha256": "a9ca10caf7e893cbf6c74e95de4f52360ffdf83f8d5a450b82a58b0388781f27"
   },
   "references": {
     "?MapCellStride@@3HA": 8710148,
@@ -1912,8 +1912,8 @@
     "??_7CellClass@@6BINoticeSink@@@": 7985888,
     "??_7CellClass@@6BINoticeSource@@@": 7985880,
     "?Center_Coord@CellClass@@UBE?AUCoordStruct@@XZ": 4700752,
-    "?unknown_map_min_a70a1c@@3HA": 10947100,
-    "?unknown_map_max_a70a20@@3HA": 10947104,
+    "?MapRegionClass_MapStartDiagonal@@3HA": 10947100,
+    "?MapRegionClass_MapEndDiagonal@@3HA": 10947104,
     "??GRect@@QBE?AV0@ABURectPoint2D@@@Z": 4706304,
     "??GRectPoint2D@@QBE?AU0@ABU0@@Z": 4706368,
     "?Clear@BombListClass@@QAEXXZ": 4417296,
@@ -2384,7 +2384,7 @@
     "?Draw_It@OverlayTypeClass@@UAEXPBUPoint2D@@PBVRect@@H@Z": 6146272,
     "?Draw_It@SmudgeTypeClass@@UAEXPBUPoint2D@@PBVRect@@HHPBVCell@@@Z": 6848720,
     "?Do_Reinforcements@@YI_NPAVTeamTypeClass@@H@Z": 6527344,
-    "?unknown_map_regions_a6fd28@@3V?$DynamicVectorClass@PAVMapRegionClass@@@@A": 10943784,
+    "?MapRegionClass_MapRegions@@3V?$DynamicVectorClass@PAVMapRegionClass@@@@A": 10943784,
     "?Delete_All@LineTrail@@SAXXZ": 5478320,
     "?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ": 4673792,
     "__encoder": 7980576,

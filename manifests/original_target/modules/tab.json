@@ -264,7 +264,7 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?FUN_006a1860@seed_006a1860@@YIXHII@Z",
+   "symbol": "?Init_Shape_Button@@YIXHII@Z",
    "entry": "006a1860",
    "body_bytes": 29,
    "padding_bytes": 3
@@ -1295,6 +1295,10 @@
    "address": "00630320"
   },
   {
+   "symbol": "?SidebarClass_IsToBlitSidebar@@3_NA",
+   "address": "00abcd84"
+  },
+  {
    "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
    "address": "008323cc"
   },
@@ -1313,6 +1317,78 @@
   {
    "symbol": "?TabBarRect@@3PBVRect@@B",
    "address": "00ac11fc"
+  },
+  {
+   "symbol": "?TabClass_AttackMoveCommand@@3HA",
+   "address": "00abe464"
+  },
+  {
+   "symbol": "?TabClass_BeaconCommand@@3HA",
+   "address": "00abe294"
+  },
+  {
+   "symbol": "?TabClass_ButtonHeight@@3HA",
+   "address": "00abe2a8"
+  },
+  {
+   "symbol": "?TabClass_ButtonRows@@3HA",
+   "address": "00abe2ac"
+  },
+  {
+   "symbol": "?TabClass_ButtonWidth@@3HA",
+   "address": "00abe478"
+  },
+  {
+   "symbol": "?TabClass_ButtonsLeft@@3HA",
+   "address": "00abe37c"
+  },
+  {
+   "symbol": "?TabClass_CheerCommand@@3HA",
+   "address": "00abd910"
+  },
+  {
+   "symbol": "?TabClass_DeployCommand@@3HA",
+   "address": "00abe278"
+  },
+  {
+   "symbol": "?TabClass_GuardCommand@@3HA",
+   "address": "00abe2b8"
+  },
+  {
+   "symbol": "?TabClass_PlanningModeCommand@@3HA",
+   "address": "00abe36c"
+  },
+  {
+   "symbol": "?TabClass_SlotGap@@3HA",
+   "address": "00abe460"
+  },
+  {
+   "symbol": "?TabClass_SlotPitch@@3HA",
+   "address": "00abe388"
+  },
+  {
+   "symbol": "?TabClass_SlotTop@@3HA",
+   "address": "00abe374"
+  },
+  {
+   "symbol": "?TabClass_StopCommand@@3HA",
+   "address": "00abe2bc"
+  },
+  {
+   "symbol": "?TabClass_Team01Command@@3HA",
+   "address": "00abe370"
+  },
+  {
+   "symbol": "?TabClass_Team02Command@@3HA",
+   "address": "00abe378"
+  },
+  {
+   "symbol": "?TabClass_Team03Command@@3HA",
+   "address": "00abe468"
+  },
+  {
+   "symbol": "?TabClass_TypeSelectCommand@@3HA",
+   "address": "00abe290"
   },
   {
    "symbol": "?TabEndRect@@3PBVRect@@B",
@@ -1379,84 +1455,8 @@
    "address": "00ac10f8"
   },
   {
-   "symbol": "?unknown_flag_abcd84@@3_NA",
-   "address": "00abcd84"
-  },
-  {
    "symbol": "?unknown_int_839638@@3HA",
    "address": "00839638"
-  },
-  {
-   "symbol": "?unknown_int_abd910@@3HA",
-   "address": "00abd910"
-  },
-  {
-   "symbol": "?unknown_int_abe278@@3HA",
-   "address": "00abe278"
-  },
-  {
-   "symbol": "?unknown_int_abe290@@3HA",
-   "address": "00abe290"
-  },
-  {
-   "symbol": "?unknown_int_abe294@@3HA",
-   "address": "00abe294"
-  },
-  {
-   "symbol": "?unknown_int_abe2a8@@3HA",
-   "address": "00abe2a8"
-  },
-  {
-   "symbol": "?unknown_int_abe2ac@@3HA",
-   "address": "00abe2ac"
-  },
-  {
-   "symbol": "?unknown_int_abe2b8@@3HA",
-   "address": "00abe2b8"
-  },
-  {
-   "symbol": "?unknown_int_abe2bc@@3HA",
-   "address": "00abe2bc"
-  },
-  {
-   "symbol": "?unknown_int_abe36c@@3HA",
-   "address": "00abe36c"
-  },
-  {
-   "symbol": "?unknown_int_abe370@@3HA",
-   "address": "00abe370"
-  },
-  {
-   "symbol": "?unknown_int_abe374@@3HA",
-   "address": "00abe374"
-  },
-  {
-   "symbol": "?unknown_int_abe378@@3HA",
-   "address": "00abe378"
-  },
-  {
-   "symbol": "?unknown_int_abe37c@@3HA",
-   "address": "00abe37c"
-  },
-  {
-   "symbol": "?unknown_int_abe388@@3HA",
-   "address": "00abe388"
-  },
-  {
-   "symbol": "?unknown_int_abe460@@3HA",
-   "address": "00abe460"
-  },
-  {
-   "symbol": "?unknown_int_abe464@@3HA",
-   "address": "00abe464"
-  },
-  {
-   "symbol": "?unknown_int_abe468@@3HA",
-   "address": "00abe468"
-  },
-  {
-   "symbol": "?unknown_int_abe478@@3HA",
-   "address": "00abe478"
   },
   {
    "symbol": "?unknown_int_ac0ff4@@3HA",

@@ -817,6 +817,14 @@
    "address": "0047b7c0"
   },
   {
+   "symbol": "?IsometricTileTypeClass_GreenTile@@3HA",
+   "address": "00a52c60"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_WaterSet@@3HA",
+   "address": "00a52580"
+  },
+  {
    "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
    "address": "0055a490"
   },
@@ -833,12 +841,24 @@
    "address": "006f9ec0"
   },
   {
+   "symbol": "?MSPrintAnim_Word_Wrap@@YIHAAVWideString@@PAVMSFont@@H@Z",
+   "address": "005ae9a0"
+  },
+  {
    "symbol": "?Map@@3VMouseClass@@A",
    "address": "008324e0"
   },
   {
    "symbol": "?MapCellStride@@3HA",
    "address": "0084e804"
+  },
+  {
+   "symbol": "?MapRegionClass_Make_Ice_Regions@@YAXXZ",
+   "address": "005704c0"
+  },
+  {
+   "symbol": "?MapRegionClass_MapRegions@@3V?$DynamicVectorClass@PAVMapRegionClass@@@@A",
+   "address": "00a6fd28"
   },
   {
    "symbol": "?Overpass@MapClass@@QAEHXZ",
@@ -913,10 +933,6 @@
    "address": "00582fd0"
   },
   {
-   "symbol": "?unknown_005704c0@@YAXXZ",
-   "address": "005704c0"
-  },
-  {
    "symbol": "?unknown_00570810@@YAXXZ",
    "address": "00570810"
   },
@@ -927,10 +943,6 @@
   {
    "symbol": "?unknown_map_region_next_index_a70a28@@3HA",
    "address": "00a70a28"
-  },
-  {
-   "symbol": "?unknown_map_regions_a6fd28@@3V?$DynamicVectorClass@PAVMapRegionClass@@@@A",
-   "address": "00a6fd28"
   },
   {
    "symbol": "?unknown_map_select_a6ebd0@@3DA",
@@ -1001,20 +1013,8 @@
    "address": "004ba410"
   },
   {
-   "symbol": "?unknown_tileset_a52580@@3HA",
-   "address": "00a52580"
-  },
-  {
-   "symbol": "?unknown_tileset_a52c60@@3HA",
-   "address": "00a52c60"
-  },
-  {
    "symbol": "?unknown_txt_ok_7db8f4@@3QBDB",
    "address": "007db8f4"
-  },
-  {
-   "symbol": "?unknown_wrap_text_5ae9a0@@YIHAAVWideString@@PAVMSFont@@H@Z",
-   "address": "005ae9a0"
   },
   {
    "symbol": "__CIpow",

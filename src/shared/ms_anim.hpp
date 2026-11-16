@@ -213,7 +213,7 @@ public:
 // after a '-' or where it runs out of room (a '\n' is inserted); '\n' and
 // '@' end a line early. Returns the widest line (0x005AE9A0, __fastcall;
 // name hypothesis).
-int __fastcall unknown_wrap_text_5ae9a0(WideString &text, MSFont *font, int width);
+int __fastcall MSPrintAnim_Word_Wrap(WideString &text, MSFont *font, int width);
 
 class Wstring;
 class FileClass;

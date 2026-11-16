@@ -114,13 +114,13 @@ public:
     unsigned short GuestName[20];   // +0x22 the guest's name as shown
     int GuestColor;                 // +0x4C (-1 unknown)
     int GuestHouse;                 // +0x50 (-1 unknown)
-    int unknown_54;                 // +0x54 Unknown_006525F0 (the INI checksum sum)
+    int unknown_54;                 // +0x54 RulesClass_Get_Rule_Unique_ID (the INI checksum sum)
     int unknown_58;                 // +0x58 unknown_art_ini_unique_id
     int unknown_5c;                 // +0x5C unknown_ini_8397a0_unique_id
 };
 
 // INI checksums (shared/modem_host.hpp declares them for the dialog; sources in unowned/).
-int __fastcall Unknown_006525F0();      // 0x006525F0
+int __fastcall RulesClass_Get_Rule_Unique_ID();      // 0x006525F0
 void __fastcall Read_Art_INI();         // 0x00652730
 int unknown_art_ini_unique_id();        // 0x00652710
 int __fastcall unknown_ini_8397a0_unique_id();     // 0x00652720

@@ -673,9 +673,9 @@ int BitFontClass::Draw_String(wchar_t const *text, int x, int y, int count, int 
                 if (step < 8) {
                     RGBClass rgb = Pixel_To_RGB(color);
                     rgb.Adjust(ratio, WhiteColor);
-                    Color = (unsigned short)(((rgb.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
-                                           | ((rgb.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0)
-                                           | ((rgb.Green >> unknown_shift_852fcc) << unknown_shift_852fc8));
+                    Color = (unsigned short)(((rgb.Red >> DSurface_RedLeft) << DSurface_RedRight)
+                                           | ((rgb.Blue >> DSurface_BlueLeft) << DSurface_BlueRight)
+                                           | ((rgb.Green >> DSurface_GreenLeft) << DSurface_GreenRight));
                 }
                 index++;
                 ratio += 31;

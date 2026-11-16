@@ -136,10 +136,10 @@ OverlayClass::OverlayClass(OverlayTypeClass *ttype, Cell const &pos, int house) 
     AbstractClass::Create_ID();
     Overlays.Add(this);
     if (pos.X != unknown_geometry_k.X || pos.Y != unknown_geometry_k.Y) {
-        unknown_placing_house_7e8a8c = house;
+        OverlayClass_ToOwn = house;
         CoordStruct coord(pos.X * 256 + 128, pos.Y * 256 + 128, 0);
         ObjectClass::Unlimbo(&coord, 0);
-        unknown_placing_house_7e8a8c = -1;
+        OverlayClass_ToOwn = -1;
     }
 }
 
@@ -155,7 +155,7 @@ OverlayClass::OverlayClass(OverlayTypeClass *ttype, Cell const &pos, int house) 
 
 OverlayClass::~OverlayClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Overlays.Delete(this);
     if (GameActive) {
         ObjectClass::Limbo();
@@ -253,7 +253,7 @@ bool OverlayClass::Mark(int mark)
                         Map.Update_Cell_Subzones(cellptr->MapCoords);
                     }
 
-                    if (unknown_placing_house_7e8a8c != -1) {
+                    if (OverlayClass_ToOwn != -1) {
                         cellptr->unknown_50 = Map.unknown_11a8;
                     }
 
@@ -572,7 +572,7 @@ void __fastcall OverlayClass::Read_INI(CCINIClass &ini)
 // the hidden surface's memory and stored as UU blocks.
 void __fastcall OverlayClass::Write_INI(CCINIClass &ini)
 {
-    ini.Clear(unknown_overlay_section_7a77c0);
+    ini.Clear(OverlayClass_INI_NAME);
     ini.Clear("OverlayPack");
 
     BufferPipe bpipe(AlternateSurface->Lock(), AlternateSurface->Get_Width() * AlternateSurface->Get_Height());
@@ -655,7 +655,7 @@ inline int Overlay_Type_Index(OverlayTypeClass *type)
     return -1;
 }
 
-int __fastcall Unknown_006A2970(int distance);              // 0x006A2970
+int __fastcall Tactical_Z_Lepton_To_Pixel(int distance);              // 0x006A2970
 extern int unknown_int_839634;                              // 0x00839634
 extern short unknown_short_8325d0;                          // 0x008325D0
 
@@ -670,7 +670,7 @@ extern short unknown_short_8325d0;                          // 0x008325D0
 void OverlayClass::Editor_Draw_It(Point2D const &point, Rect const &cliprect)
 {
     void *shape = Class->Get_Image_Data();
-    int height = Unknown_006A2970(Map.Get_Height_GL(CoordStruct(Coord)));
+    int height = Tactical_Z_Lepton_To_Pixel(Map.Get_Height_GL(CoordStruct(Coord)));
     int overlay = Overlay_Type_Index(Class);
     Point2D position = Point2D(point.X, point.Y + Draw_Offset(overlay).Y);
     position.Y += unknown_int_839634;

@@ -133,44 +133,22 @@ bool UnknownPairKey::operator==(UnknownPairKey const &other) const
 }
 
 
-// 0x005de970: function not yet identified
-//
-// Body: 3 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 __fastcall unknown_hash_key_005de970(undefined4 *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_005de970 {
+//  (0x005DE970)
 
 unsigned int __fastcall unknown_hash_key_005de970(unsigned int *key)
 {
     return *key;
 }
 
-}  // namespace seed_005de970
 
 
-// 0x005de980: function not yet identified
-//
-// Body: 7 bytes (frozen inventory bound).
-// Referenced from 1 site (computed call).
-// Ghidra prototype: int __fastcall unknown_product_005de980(int *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_005de980 {
+//  (0x005DE980)
 
 int __fastcall unknown_product_005de980(int *pair)
 {
     return pair[1] * *pair;
 }
 
-}  // namespace seed_005de980
 
 
 // The ownrdraw window table at 0x00A73688 as wlib's chained dictionary (shared/wol_dictionary.hpp:
@@ -7082,9 +7060,9 @@ namespace OwnerDraw {
 int __fastcall unknown_draw_text_5fdf40(Surface *surface, wchar_t const *text, RECT *area,
     BitFontClass *font, unsigned long color, int flags)
 {
-    unsigned int pixel = (((unsigned char)color >> (unsigned char)unknown_shift_852fbc) << unknown_shift_852fb8)
-        | (((unsigned char)(color >> 16) >> (unsigned char)unknown_shift_852fc4) << unknown_shift_852fc0)
-        | (((unsigned char)((unsigned short)color >> 8) >> (unsigned char)unknown_shift_852fcc) << unknown_shift_852fc8);
+    unsigned int pixel = (((unsigned char)color >> (unsigned char)DSurface_RedLeft) << DSurface_RedRight)
+        | (((unsigned char)(color >> 16) >> (unsigned char)DSurface_BlueLeft) << DSurface_BlueRight)
+        | (((unsigned char)((unsigned short)color >> 8) >> (unsigned char)DSurface_GreenLeft) << DSurface_GreenRight);
     int x = area->left;
     int y = area->top;
     int width = area->right - x;
@@ -7105,9 +7083,9 @@ namespace OwnerDraw {
 int __fastcall unknown_draw_text_5fe020(Surface *surface, wchar_t const *text, RECT *area, BitFontClass *font,
     unsigned long color, int flags, int unknown7, int unknown8, int arg9, int arg10)
 {
-    unsigned int pixel = (((unsigned char)color >> (unsigned char)unknown_shift_852fbc) << unknown_shift_852fb8)
-        | (((unsigned char)(color >> 16) >> (unsigned char)unknown_shift_852fc4) << unknown_shift_852fc0)
-        | (((unsigned char)((unsigned short)color >> 8) >> (unsigned char)unknown_shift_852fcc) << unknown_shift_852fc8);
+    unsigned int pixel = (((unsigned char)color >> (unsigned char)DSurface_RedLeft) << DSurface_RedRight)
+        | (((unsigned char)(color >> 16) >> (unsigned char)DSurface_BlueLeft) << DSurface_BlueRight)
+        | (((unsigned char)((unsigned short)color >> 8) >> (unsigned char)DSurface_GreenLeft) << DSurface_GreenRight);
     int x=area->left;
     int y=area->top;
     int width=area->right-x;
@@ -7152,9 +7130,9 @@ int __fastcall unknown_text_draw_005fe1b0(unsigned int color, BitFontClass *font
 {
     if (!GameInFocus) return 0;
     if (!surface) surface = AlternateSurface;
-    unsigned int pixel = (((unsigned char)color >> (unsigned char)unknown_shift_852fbc) << unknown_shift_852fb8)
-        | (((unsigned char)((unsigned short)color >> 8) >> (unsigned char)unknown_shift_852fcc) << unknown_shift_852fc8)
-        | (((unsigned char)(color >> 16) >> (unsigned char)unknown_shift_852fc4) << unknown_shift_852fc0);
+    unsigned int pixel = (((unsigned char)color >> (unsigned char)DSurface_RedLeft) << DSurface_RedRight)
+        | (((unsigned char)((unsigned short)color >> 8) >> (unsigned char)DSurface_GreenLeft) << DSurface_GreenRight)
+        | (((unsigned char)(color >> 16) >> (unsigned char)DSurface_BlueLeft) << DSurface_BlueRight);
     int x = area.X;
     int y = area.Y;
     int width = area.Width;
@@ -8283,18 +8261,7 @@ void Owner_00600510::Set_Wide_Text_00600510(short *text)
 }  // namespace seed_00600510
 
 
-// 0x00601040: function not yet identified
-//
-// Owner: OwnerDraw::DialogControl, stores the OwnerDraw::DialogControl vtable (constructor or destructor) (from RTTI/vtables).
-// Body: 7 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall DialogControl_dtor_00601040(undefined4 *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00601040 {
+//  (0x00601040)
 
 extern "C" void* DialogControl_vtable_007a7b28;
 
@@ -8304,7 +8271,6 @@ void __fastcall DialogControl_dtor_00601040(unsigned int *self)
     return;
 }
 
-}  // namespace seed_00601040
 
 
 class Call_601410_0 {public: unsigned int target();};

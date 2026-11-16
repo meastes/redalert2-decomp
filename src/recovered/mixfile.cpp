@@ -481,19 +481,9 @@ bool __fastcall MixFileClass::Offset(char const *filename, void **realptr, MixFi
 }
 
 
-// 0x00595bc0: function not yet identified
-//
-// Body: 45 bytes (frozen inventory bound).
-// Referenced from 1 site (unconditional call).
-// Ghidra prototype: void __fastcall FUN_00595bc0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// GenericNode_Unlink (0x00595BC0): name from mischa85 names.csv
 
-namespace seed_00595bc0 {
-
-void __fastcall FUN_00595bc0(int node_address)
+void __fastcall GenericNode_Unlink(int node_address)
 {
     if (((node_address != 0) && (*(int *)(node_address + 4) != 0)) && (*(int *)(node_address + 8) != 0)) {
         *(int *)(*(int *)(node_address + 8) + 4) = *(int *)(node_address + 4);
@@ -504,7 +494,6 @@ void __fastcall FUN_00595bc0(int node_address)
     return;
 }
 
-}  // namespace seed_00595bc0
 
 
 // BlowStraw scalar deleting destructor (0x00595BF0)

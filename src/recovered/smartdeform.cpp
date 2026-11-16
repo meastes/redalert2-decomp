@@ -194,10 +194,10 @@ inline bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position)
 {
     int x = position.X;
     int y = position.Y;
-    if (y + x > unknown_map_min_a70a1c
-        && x - y < unknown_map_min_a70a1c
-        && y - x < unknown_map_min_a70a1c
-        && y + x <= unknown_map_max_a70a20) {
+    if (y + x > MapRegionClass_MapStartDiagonal
+        && x - y < MapRegionClass_MapStartDiagonal
+        && y - x < MapRegionClass_MapStartDiagonal
+        && y + x <= MapRegionClass_MapEndDiagonal) {
         return true;
     }
     return false;
@@ -466,9 +466,9 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
                         && corners[2] == heights[2] && corners[3] == heights[3]) {
                         cell->unknown_11c = ramp;
                         if (ramp == 0) {
- cell->IsoTileIndex = unknown_tileset_a52f00;
+ cell->IsoTileIndex = IsometricTileTypeClass_ClearTile;
  } else {
- cell->IsoTileIndex = ramp - 1 + unknown_tileset_a6e018;
+ cell->IsoTileIndex = ramp - 1 + IsometricTileTypeClass_RampStart;
  }
                         cell->Recalc_Attributes(-1);
                         Cell id(cell->Fetch_CellID());
@@ -560,9 +560,9 @@ bool Commit_Deform_Grid_RMG_006863e0()
                     && corners[2] == heights[2] && corners[3] == heights[3]) {
                     cell->unknown_11c = ramp;
                     if (ramp == 0) {
-                        cell->IsoTileIndex = unknown_tileset_a52f00;
+                        cell->IsoTileIndex = IsometricTileTypeClass_ClearTile;
                     } else {
-                        cell->IsoTileIndex = ramp - 1 + unknown_tileset_a6e018;
+                        cell->IsoTileIndex = ramp - 1 + IsometricTileTypeClass_RampStart;
                     }
                     break;
                 }
@@ -733,10 +733,10 @@ int __fastcall Get_Deformed_Cell_Height_00686c90(CellClass *cell)
         }
     }
     Cell coords = cell->MapCoords;
-    if (coords.Y + coords.X > unknown_map_min_a70a1c
-        && coords.X - coords.Y < unknown_map_min_a70a1c
-        && coords.Y - coords.X < unknown_map_min_a70a1c
-        && coords.Y + coords.X <= unknown_map_max_a70a20
+    if (coords.Y + coords.X > MapRegionClass_MapStartDiagonal
+        && coords.X - coords.Y < MapRegionClass_MapStartDiagonal
+        && coords.Y - coords.X < MapRegionClass_MapStartDiagonal
+        && coords.Y + coords.X <= MapRegionClass_MapEndDiagonal
         && cell->OverlayIndex == -1
         && cell->OccupierPtr == 0) {
         if (!unknown_generation_cell_56dba0(cell->Fetch_CellID())->unknown_45[0]) {

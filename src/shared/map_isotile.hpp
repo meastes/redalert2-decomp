@@ -12,10 +12,10 @@
 #define VECTOR_IMPLEMENT_ALL
 // Bridge tile set offsets the Map unit's bridge code compares with (the other
 // start indices are in shared/tileset_index.hpp).
-extern int unknown_tileset_a6e0e4;      // 0x00A6E0E4
-extern int unknown_tileset_a52f80;      // 0x00A52F80
-extern int unknown_tileset_a53394;      // 0x00A53394
-extern int unknown_tileset_a52588;      // 0x00A52588
+extern int IsometricTileTypeClass_BridgeTopLeft1;      // 0x00A6E0E4
+extern int IsometricTileTypeClass_BridgeTopLeft2;      // 0x00A52F80
+extern int IsometricTileTypeClass_BridgeTopRight1;      // 0x00A53394
+extern int IsometricTileTypeClass_BridgeTopRight2;      // 0x00A52588
 
 #endif
 #include "shared/vector_class.hpp"
@@ -57,9 +57,9 @@ extern DynamicVectorClass<IsometricTileTypeClass *> IsoTileTypes;
 
 // Bridge tile set offsets the Map unit's bridge code compares with (the other
 // start indices are in shared/tileset_index.hpp).
-extern int unknown_tileset_a6e0e4;      // 0x00A6E0E4
-extern int unknown_tileset_a52f80;      // 0x00A52F80
-extern int unknown_tileset_a53394;      // 0x00A53394
-extern int unknown_tileset_a52588;      // 0x00A52588
+extern int IsometricTileTypeClass_BridgeTopLeft1;      // 0x00A6E0E4
+extern int IsometricTileTypeClass_BridgeTopLeft2;      // 0x00A52F80
+extern int IsometricTileTypeClass_BridgeTopRight1;      // 0x00A53394
+extern int IsometricTileTypeClass_BridgeTopRight2;      // 0x00A52588
 
 #endif

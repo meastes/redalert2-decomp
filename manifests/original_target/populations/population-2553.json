@@ -4,12 +4,12 @@
     "id": "population-2553",
     "inventory_sha256": "74c17914ab63da3e7f81d4af5bee42dd90341a7767e7c879e956ed6612b0606b",
     "gaps_sha256": "1b5aee513637c1629267033418546d6b7f6d751d10180ee931bbc8d75bc40dd3",
-    "historical_population_sha256": "f1a64afb56eb2a346325c3f51420ebd51563322a3eeca91e63220b86b67fd116",
-    "historical_acceptance_sha256": "da6671e0ba97aec74227b62979c4da5a4e850c79b2fc9a933cbf2f1a9e6b37be"
+    "historical_population_sha256": "11a7c2a4fe21737f5a3c52d4435c36c179e0d7adb18eba8145dcc5833cae9635",
+    "historical_acceptance_sha256": "41e22e2b416ab39ed362d588aaa1726777d997ae0947c83f9919a3a50c9b2734"
   },
   "references": {
-    "?unknown_map_min_a70a1c@@3HA": 10947100,
-    "?unknown_map_max_a70a20@@3HA": 10947104,
+    "?MapRegionClass_MapStartDiagonal@@3HA": 10947100,
+    "?MapRegionClass_MapEndDiagonal@@3HA": 10947104,
     "__real@8@40078000000000000000": 7972608,
     "__real@8@40008000000000000000": 7972600,
     "__CIpow": 7872944,
@@ -2475,7 +2475,25 @@
     "??_7InfantryTypeClass@@6B@": 8010360,
     "??_EWDTState@@": 7522816,
     "??_GWDTState@@": 7522816,
-    "??_EInfantryTypeClass@@UAEPAXI@Z": 5287824
+    "??_EInfantryTypeClass@@UAEPAXI@Z": 5287824,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
   },
   "regions": [
     {
@@ -2498,7 +2516,7 @@
         {
           "offset": 9,
           "kind": 6,
-          "symbol": "?unknown_map_min_a70a1c@@3HA",
+          "symbol": "?MapRegionClass_MapStartDiagonal@@3HA",
           "target": 10947100,
           "addend": 0,
           "resolved": 10947100
@@ -2506,13 +2524,13 @@
         {
           "offset": 39,
           "kind": 6,
-          "symbol": "?unknown_map_max_a70a20@@3HA",
+          "symbol": "?MapRegionClass_MapEndDiagonal@@3HA",
           "target": 10947104,
           "addend": 0,
           "resolved": 10947104
         }
       ],
-      "source_sha256": "4a4fbf103619c7eb7d2b8841f63d7a3995d8a4e9c12324265a7427e3bb4c8941",
+      "source_sha256": "8aa15d2dcf84100aec58172631003c51af2760c4074ebc987d4e74ac411efaae",
       "source": "src/recovered/mapgen/Generation_Cell_In_Bounds.cpp",
       "population": "population-2553",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

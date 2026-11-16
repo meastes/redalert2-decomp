@@ -42,7 +42,7 @@ extern unsigned char *GlobalGrowthState;
 // Shape file retrieval by name: MixFileClass::Retrieve, shared/mix_file_class.hpp.
 
 // The veinhole shape file (0x00AD079C), loaded for the theater.
-extern void const *unknown_veinhole_shape_ad079c;
+extern void const *VeinholeMonsterClass_MonsterShape;
 
 // The rules' vein node count per monster (RulesClass +0xD4).
 inline int Rules_Vein_Node_Count()

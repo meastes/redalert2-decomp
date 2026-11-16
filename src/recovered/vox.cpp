@@ -687,25 +687,13 @@ VoxClass *__fastcall VoxClass::Find(char const *name)
 }
 
 
-// 0x00716720: function not yet identified
-//
-// Body: 28 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: char * __fastcall FUN_00716720(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-// Adjusted from the Ghidra seed by permute_seeds.py (signedness, comparison order, return width) to
-// match the original; edit freely, this file is no longer regenerated.
-
-namespace seed_00716720 {
+// Vox_Name (0x00716720): name from mischa85 names.csv
 
 extern "C" unsigned int DAT_00ad0934;
 extern "C" int DAT_00ad0940;
 extern "C" char s__none__007cdecc[];
 
-char * __fastcall FUN_00716720(int voice_index)
+char * __fastcall Vox_Name(int voice_index)
 {
     if ((voice_index != -1) && (voice_index < DAT_00ad0940)) {
         return *(char **)(DAT_00ad0934 + voice_index * 4);
@@ -713,7 +701,6 @@ char * __fastcall FUN_00716720(int voice_index)
     return s__none__007cdecc;
 }
 
-}  // namespace seed_00716720
 
 
 // int VoxClass::Index_Of(VoxClass *vox) (0x00716740): the index of a VoxClass

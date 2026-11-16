@@ -172,8 +172,8 @@ void LineTrail::Draw()
         Point2D end;
         TacticalMap->Coord_To_Pixel(from->Position, start);
         TacticalMap->Coord_To_Pixel(to->Position, end);
-        int start_height = -2 - Unknown_006A2970(from->Position.Z);
-        int end_height = -2 - Unknown_006A2970(to->Position.Z);
+        int start_height = -2 - Tactical_Z_Lepton_To_Pixel(from->Position.Z);
+        int end_height = -2 - Tactical_Z_Lepton_To_Pixel(to->Position.Z);
         ((DSurface *)CompositeSurface)->Draw_Trail_Line_4AE9C0(TacticalRect, start, end, Color,
                                                                      from->Value, start_height, end_height);
 

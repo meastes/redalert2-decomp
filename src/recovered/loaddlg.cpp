@@ -427,7 +427,7 @@ bool LoadOptionsClass::Dialog()
                     switch (unknown_04) {
                     case 1:
                         if (!entry->NeedsDescription) {
-                            int old_disk = Unknown_0046E4C0(0x3c);
+                            int old_disk = CD_Get_Current_Disk(0x3c);
                             CD::Set_Required_CD(entry->unknown_1a8 == -1 ? -1 : Campaigns[entry->unknown_1a8]->unknown_98);
                             if (!CD().Force_Available(CD::RequiredCD)) {
                                 CD::Set_Required_CD(old_disk);

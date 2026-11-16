@@ -51,7 +51,7 @@ inline HRESULT Swizzle_Pointer(T *&pointer)
 
 // Flags an object or type in its owner's lists (0x006ECB90; hypothesis).
 class AbstractClass;
-void __fastcall Unknown_006ECB90(AbstractClass *object, bool value);
+void __fastcall Detach_This_From_All(AbstractClass *object, bool value);
 
 #include "shared/abstract_class.hpp"
 

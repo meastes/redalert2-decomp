@@ -479,7 +479,8 @@
    "address": "007c0228",
    "bytes": 16,
    "kind": "rtti",
-   "section": 62
+   "section": 62,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4ParticleTypeClass@@6BIPersistStream@@@",
@@ -1067,7 +1068,8 @@
    "symbol": "??_R3ParticleTypeClass@@8",
    "address": "007c0228",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4ParticleTypeClass@@6BIPersistStream@@@",
@@ -1477,6 +1479,10 @@
    "address": "0040ffd0"
   },
   {
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
+  },
+  {
    "symbol": "?Fetch_Heap_ID@AbstractClass@@UBEHXZ",
    "address": "00410250"
   },
@@ -1615,10 +1621,6 @@
   {
    "symbol": "?Time_To_Build@ObjectTypeClass@@UBEHXZ",
    "address": "005d5d70"
-  },
-  {
-   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
-   "address": "006ecb90"
   },
   {
    "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",

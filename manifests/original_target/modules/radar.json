@@ -198,7 +198,7 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?FUN_0062fbc0@seed_0062fbc0@@YGXHH@Z",
+   "symbol": "?RadarClass_Noop@@YGXHH@Z",
    "entry": "0062fbc0",
    "body_bytes": 3,
    "padding_bytes": 13
@@ -336,13 +336,13 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?Unknown_00631C40@@YIIABUPoint2D@@@Z",
+   "symbol": "?RadarTrackingStruct_Hash_Old@@YIIABUPoint2D@@@Z",
    "entry": "00631c40",
    "body_bytes": 20,
    "padding_bytes": 12
   },
   {
-   "symbol": "?Unknown_00631C60@@YIHABURadarTrackingStruct@@@Z",
+   "symbol": "?RadarTrackingStruct_Hash2@@YIHABURadarTrackingStruct@@@Z",
    "entry": "00631c60",
    "body_bytes": 21,
    "padding_bytes": 11
@@ -432,7 +432,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?FUN_00632ff0@seed_00632ff0@@YI_NH@Z",
+   "symbol": "?RadarClass_Is_Radar_Active@@YI_NH@Z",
    "entry": "00632ff0",
    "body_bytes": 15,
    "padding_bytes": 1
@@ -444,7 +444,7 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?FUN_00633110@seed_00633110@@YIIH@Z",
+   "symbol": "?RadarClass_Is_Radar_Tactical@@YIIH@Z",
    "entry": "00633110",
    "body_bytes": 26,
    "padding_bytes": 6
@@ -468,7 +468,7 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?FUN_006331c0@seed_006331c0@@YIIH@Z",
+   "symbol": "?RadarClass_Is_Playing_Movie@@YIIH@Z",
    "entry": "006331c0",
    "body_bytes": 27,
    "padding_bytes": 5
@@ -2256,6 +2256,14 @@
    "address": "007ee064"
   },
   {
+   "symbol": "?BuildingTypeClass_SizeHeight@@3PAHA",
+   "address": "007cfcc8"
+  },
+  {
+   "symbol": "?BuildingTypeClass_SizeWidth@@3PAHA",
+   "address": "007cfc70"
+  },
+  {
    "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
    "address": "0049eea0"
   },
@@ -2294,6 +2302,30 @@
   {
    "symbol": "?CurrentSuperWeaponType@@3HA",
    "address": "00833694"
+  },
+  {
+   "symbol": "?DSurface_BlueLeft@@3HA",
+   "address": "00852fc4"
+  },
+  {
+   "symbol": "?DSurface_BlueRight@@3HA",
+   "address": "00852fc0"
+  },
+  {
+   "symbol": "?DSurface_GreenLeft@@3HA",
+   "address": "00852fcc"
+  },
+  {
+   "symbol": "?DSurface_GreenRight@@3HA",
+   "address": "00852fc8"
+  },
+  {
+   "symbol": "?DSurface_RedLeft@@3HA",
+   "address": "00852fbc"
+  },
+  {
+   "symbol": "?DSurface_RedRight@@3HA",
+   "address": "00852fb8"
   },
   {
    "symbol": "?Debug_Map@@3_NA",
@@ -2688,6 +2720,10 @@
    "address": "004e08f0"
   },
   {
+   "symbol": "?RadarClass_RadarAnim@@3PAXA",
+   "address": "00ab64a0"
+  },
+  {
    "symbol": "?RadarEventClass_unknown_none@@YA_NXZ",
    "address": "0063c070"
   },
@@ -2778,6 +2814,10 @@
   {
    "symbol": "?Set_Tactical_Position_006a66b0@Tactical@@QAEXABUCoordStruct@@@Z",
    "address": "006a66b0"
+  },
+  {
+   "symbol": "?SidebarClass_IsToBlitSidebar@@3_NA",
+   "address": "00abcd84"
   },
   {
    "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
@@ -2936,24 +2976,12 @@
    "address": "005ff6e0"
   },
   {
-   "symbol": "?unknown_dot_height_7cfcc8@@3PAHA",
-   "address": "007cfcc8"
-  },
-  {
-   "symbol": "?unknown_dot_width_7cfc70@@3PAHA",
-   "address": "007cfc70"
-  },
-  {
    "symbol": "?unknown_flag_8373c1@@3_NA",
    "address": "008373c1"
   },
   {
    "symbol": "?unknown_flag_a40b30@@3_NA",
    "address": "00a40b30"
-  },
-  {
-   "symbol": "?unknown_flag_abcd84@@3_NA",
-   "address": "00abcd84"
   },
   {
    "symbol": "?unknown_flags_a3f118@@3PA_NA",
@@ -3070,34 +3098,6 @@
   {
    "symbol": "?unknown_shape_ab6350_allocated@RadarClass@@2_NA",
    "address": "00ab6369"
-  },
-  {
-   "symbol": "?unknown_shape_ab64a0@@3PAXA",
-   "address": "00ab64a0"
-  },
-  {
-   "symbol": "?unknown_shift_852fb8@@3HA",
-   "address": "00852fb8"
-  },
-  {
-   "symbol": "?unknown_shift_852fbc@@3HA",
-   "address": "00852fbc"
-  },
-  {
-   "symbol": "?unknown_shift_852fc0@@3HA",
-   "address": "00852fc0"
-  },
-  {
-   "symbol": "?unknown_shift_852fc4@@3HA",
-   "address": "00852fc4"
-  },
-  {
-   "symbol": "?unknown_shift_852fc8@@3HA",
-   "address": "00852fc8"
-  },
-  {
-   "symbol": "?unknown_shift_852fcc@@3HA",
-   "address": "00852fcc"
   },
   {
    "symbol": "?unknown_slot22@MapClass@@UAEXXZ",

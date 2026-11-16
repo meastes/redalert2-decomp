@@ -445,8 +445,7 @@
    "address": "007b35f0",
    "bytes": 16,
    "kind": "rtti",
-   "section": 66,
-   "known_difference": "hierarchy ambiguous bit"
+   "section": 66
   },
   {
    "symbol": "??_R4AircraftTypeClass@@6BIPersistStream@@@",
@@ -799,8 +798,7 @@
    "symbol": "??_R3AircraftTypeClass@@8",
    "address": "007b35f0",
    "bytes": 16,
-   "kind": "rtti",
-   "known_difference": "hierarchy ambiguous bit"
+   "kind": "rtti"
   },
   {
    "symbol": "??_R4AircraftTypeClass@@6BIPersistStream@@@",
@@ -1108,6 +1106,10 @@
    "address": "00410220"
   },
   {
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
+  },
+  {
    "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
    "address": "0040ffc0"
   },
@@ -1246,10 +1248,6 @@
   {
    "symbol": "?Time_To_Build@TechnoTypeClass@@UBEHXZ",
    "address": "006dad10"
-  },
-  {
-   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
-   "address": "006ecb90"
   },
   {
    "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",

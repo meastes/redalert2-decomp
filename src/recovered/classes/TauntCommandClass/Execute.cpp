@@ -15,7 +15,7 @@
 // @ref ?unknown_flag_a3f120@@3_NA=00a3f120
 // @ref ?unknown_flag_a3f121@@3_NA=00a3f121
 // @ref ?unknown_flags_a3f118@@3PA_NA=00a3f118
-// @ref ?unknown_a3d3b4@@3HA=00a3d3b4
+// @ref ?Game_PlayerColor@@3HA=00a3d3b4
 // @ref ?MuteSWLaunches@@3HA=00a3d548
 // @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
 // @ref ?unknown_flag_a3fba8@@3_NA=00a3fba8
@@ -56,7 +56,7 @@ void TauntCommandClass::Execute(int key) const
     UnknownTauntPacket packet;
     packet.Type = 0x1D;
     strcpy(packet.Name, Wide_To_Narrow_006fa120(unknown_players_a3fa7c[0]->Name));
-    packet.Session = unknown_a3d3b4;
+    packet.Session = Game_PlayerColor;
     packet.Checksum = Compute_Name_CRC_W(unknown_host_name_a3f618);
     unsigned char high = unknown_players_a3fa7c[0]->unknown_4b << 4;
     packet.Packed = ((TauntNumber & 0xf) ^ high) & 0xf ^ high;

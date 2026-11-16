@@ -178,7 +178,7 @@ extern char const CreateDone[]; // @ref ?CreateDone@@3QBDB=007d62dc
 extern char const TrueText[]; // @ref ?TrueText@@3QBDB=007d24d8
 extern char const FalseText[]; // @ref ?FalseText@@3QBDB=007d24d0
 inline bool Match_Primary_Format(int red_left, int red_right, int green_left, int green_right, int blue_left, int blue_right) {
-    return unknown_shift_852fc0 == blue_left && unknown_shift_852fc4 == blue_right && unknown_shift_852fc8 == green_left && unknown_shift_852fcc == green_right && unknown_shift_852fb8 == red_left && unknown_shift_852fbc == red_right;
+    return DSurface_BlueRight == blue_left && DSurface_BlueLeft == blue_right && DSurface_GreenRight == green_left && DSurface_GreenLeft == green_right && DSurface_RedRight == red_left && DSurface_RedLeft == red_right;
 }
 // Recognize the observed channel layouts; preserve the previous mode for an unknown layout.
 inline void Select_Primary_Format(int red_left, int red_right, int green_left, int green_right, int blue_left, int blue_right) {
@@ -235,59 +235,59 @@ DSurface *__fastcall DSurface::Create_Primary(DSurface **back_buffer)
     }
     PrimaryPixelFormat_852b38 = surface->VideoSurfaceDescription->ddpfPixelFormat;
     if (surface->Bytes_Per_Pixel() == 2) {
-        unknown_shift_852fb8 = 0;
-        unknown_shift_852fbc = 0;
+        DSurface_RedRight = 0;
+        DSurface_RedLeft = 0;
         unsigned int red_mask = PrimaryPixelFormat_852b38.dwRBitMask;
-        while (unknown_shift_852fb8 < 16) {
+        while (DSurface_RedRight < 16) {
             if (red_mask & 1) break;
             red_mask = (int)red_mask >> 1;
-            ++unknown_shift_852fb8;
+            ++DSurface_RedRight;
         }
-        while (unknown_shift_852fbc < 8) {
+        while (DSurface_RedLeft < 8) {
             if (red_mask & 0x80) break;
             red_mask <<= 1;
-            ++unknown_shift_852fbc;
+            ++DSurface_RedLeft;
         }
-        unknown_shift_852fc8 = 0;
-        unknown_shift_852fcc = 0;
+        DSurface_GreenRight = 0;
+        DSurface_GreenLeft = 0;
         unsigned int green_mask = PrimaryPixelFormat_852b38.dwGBitMask;
-        while (unknown_shift_852fc8 < 16) {
+        while (DSurface_GreenRight < 16) {
             if (green_mask & 1) break;
-            ++unknown_shift_852fc8;
+            ++DSurface_GreenRight;
             green_mask = (int)green_mask >> 1;
         }
-        while (unknown_shift_852fcc < 8) {
+        while (DSurface_GreenLeft < 8) {
             if (green_mask & 0x80) break;
-            ++unknown_shift_852fcc;
+            ++DSurface_GreenLeft;
             green_mask <<= 1;
         }
-        unknown_shift_852fc0 = 0;
-        unknown_shift_852fc4 = 0;
+        DSurface_BlueRight = 0;
+        DSurface_BlueLeft = 0;
         unsigned int blue_mask = PrimaryPixelFormat_852b38.dwBBitMask;
-        while (unknown_shift_852fc0 < 16) {
+        while (DSurface_BlueRight < 16) {
             if (blue_mask & 1) break;
-            ++unknown_shift_852fc0;
+            ++DSurface_BlueRight;
             blue_mask = (int)blue_mask >> 1;
         }
-        while (unknown_shift_852fc4 < 8) {
+        while (DSurface_BlueLeft < 8) {
             if (blue_mask & 0x80) break;
-            ++unknown_shift_852fc4;
+            ++DSurface_BlueLeft;
             blue_mask <<= 1;
         }
         unknown_7d6290 = -1;
         unknown_half_mask_852fd0 =
-            (unsigned short)((127 >> unknown_shift_852fc4) << unknown_shift_852fc0) |
-            (unsigned short)((127 >> unknown_shift_852fcc) << unknown_shift_852fc8) |
-            (unsigned short)((127 >> unknown_shift_852fbc) << unknown_shift_852fb8);
+            (unsigned short)((127 >> DSurface_BlueLeft) << DSurface_BlueRight) |
+            (unsigned short)((127 >> DSurface_GreenLeft) << DSurface_GreenRight) |
+            (unsigned short)((127 >> DSurface_RedLeft) << DSurface_RedRight);
         unknown_quarter_mask_852fd2 =
-            (unsigned short)((63 >> unknown_shift_852fc4) << unknown_shift_852fc0) |
-            (unsigned short)((63 >> unknown_shift_852fcc) << unknown_shift_852fc8) |
-            (unsigned short)((63 >> unknown_shift_852fbc) << unknown_shift_852fb8);
+            (unsigned short)((63 >> DSurface_BlueLeft) << DSurface_BlueRight) |
+            (unsigned short)((63 >> DSurface_GreenLeft) << DSurface_GreenRight) |
+            (unsigned short)((63 >> DSurface_RedLeft) << DSurface_RedRight);
         unknown_eighth_mask_852fd4 =
-            (unsigned short)((31 >> unknown_shift_852fc4) << unknown_shift_852fc0) |
-            (unsigned short)((31 >> unknown_shift_852fcc) << unknown_shift_852fc8) |
-            (unsigned short)((31 >> unknown_shift_852fbc) << unknown_shift_852fb8);
-        Select_Primary_Format(unknown_shift_852fb8, unknown_shift_852fbc, unknown_shift_852fc8, unknown_shift_852fcc, unknown_shift_852fc0, unknown_shift_852fc4);
+            (unsigned short)((31 >> DSurface_BlueLeft) << DSurface_BlueRight) |
+            (unsigned short)((31 >> DSurface_GreenLeft) << DSurface_GreenRight) |
+            (unsigned short)((31 >> DSurface_RedLeft) << DSurface_RedRight);
+        Select_Primary_Format(DSurface_RedRight, DSurface_RedLeft, DSurface_GreenRight, DSurface_GreenLeft, DSurface_BlueRight, DSurface_BlueLeft);
     }
 done:
     Debug_Print_004068f0(CreateDone);
@@ -618,22 +618,22 @@ bool DSurface::Fill_Rect_Trans(Rect const &rect, RGBClass const &color, unsigned
     Rect area = Get_Rect().Intersect(rect);
     if (!area.Is_Valid()) return false;
     unsigned short red_mask = 0xFF;
-    red_mask >>= unknown_shift_852fbc;
-    red_mask <<= unknown_shift_852fb8;
+    red_mask >>= DSurface_RedLeft;
+    red_mask <<= DSurface_RedRight;
     unsigned short green_mask = 0xFF;
-    green_mask >>= unknown_shift_852fcc;
-    green_mask <<= unknown_shift_852fc8;
+    green_mask >>= DSurface_GreenLeft;
+    green_mask <<= DSurface_GreenRight;
     unsigned short blue_mask = 0xFF;
-    blue_mask >>= unknown_shift_852fc4;
-    blue_mask <<= unknown_shift_852fc0;
+    blue_mask >>= DSurface_BlueLeft;
+    blue_mask <<= DSurface_BlueRight;
     unsigned short *pixels = (unsigned short *)Lock(area.Top_Left());
     if (!pixels) return false;
     if (percent > 100) percent = 100;
     percent = percent * 255 / 100;
     unsigned short inverse = (unsigned short)(255 - percent);
-    unsigned short pixel = (unsigned short)(((unsigned short)(unsigned char)(color.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
-         | ((unsigned short)(unsigned char)(color.Green >> unknown_shift_852fcc) << unknown_shift_852fc8)
-         | ((unsigned short)(unsigned char)(color.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0));
+    unsigned short pixel = (unsigned short)(((unsigned short)(unsigned char)(color.Red >> DSurface_RedLeft) << DSurface_RedRight)
+         | ((unsigned short)(unsigned char)(color.Green >> DSurface_GreenLeft) << DSurface_GreenRight)
+         | ((unsigned short)(unsigned char)(color.Blue >> DSurface_BlueLeft) << DSurface_BlueRight));
     for (int y = 0; y < area.Height; ++y) {
         int offset = (Stride() / 2) * y;
         for (int x = 0; x < area.Width; ++x) {
@@ -686,56 +686,56 @@ void __fastcall Build_Brightness_Tables(unsigned short *table, int count, Palett
 
 
 // int Get_Red_Left() (0x004ABB30)
-// Returns unknown_shift_852fb8 (0x00852FB8); see shared/hicolor.hpp.
+// Returns DSurface_RedRight (0x00852FB8); see shared/hicolor.hpp.
 
 int Get_Red_Left()
 {
-    return unknown_shift_852fb8;
+    return DSurface_RedRight;
 }
 
 
 // int Get_Red_Right() (0x004ABB40)
-// Returns unknown_shift_852fbc (0x00852FBC); see shared/hicolor.hpp.
+// Returns DSurface_RedLeft (0x00852FBC); see shared/hicolor.hpp.
 
 int Get_Red_Right()
 {
-    return unknown_shift_852fbc;
+    return DSurface_RedLeft;
 }
 
 
 // int Get_Green_Left() (0x004ABB50)
-// Returns unknown_shift_852fc8 (0x00852FC8); see shared/hicolor.hpp.
+// Returns DSurface_GreenRight (0x00852FC8); see shared/hicolor.hpp.
 
 int Get_Green_Left()
 {
-    return unknown_shift_852fc8;
+    return DSurface_GreenRight;
 }
 
 
 // int Get_Green_Right() (0x004ABB60)
-// Returns unknown_shift_852fcc (0x00852FCC); see shared/hicolor.hpp.
+// Returns DSurface_GreenLeft (0x00852FCC); see shared/hicolor.hpp.
 
 int Get_Green_Right()
 {
-    return unknown_shift_852fcc;
+    return DSurface_GreenLeft;
 }
 
 
 // int Get_Blue_Left() (0x004ABB70)
-// Returns unknown_shift_852fc0 (0x00852FC0); see shared/hicolor.hpp.
+// Returns DSurface_BlueRight (0x00852FC0); see shared/hicolor.hpp.
 
 int Get_Blue_Left()
 {
-    return unknown_shift_852fc0;
+    return DSurface_BlueRight;
 }
 
 
 // int Get_Blue_Right() (0x004ABB80)
-// Returns unknown_shift_852fc4 (0x00852FC4); see shared/hicolor.hpp.
+// Returns DSurface_BlueLeft (0x00852FC4); see shared/hicolor.hpp.
 
 int Get_Blue_Right()
 {
-    return unknown_shift_852fc4;
+    return DSurface_BlueLeft;
 }
 
 
@@ -2042,9 +2042,9 @@ unsigned short __fastcall Blend_Hicolor_Pixel(unsigned short color, unsigned sho
 inline unsigned short Gradient_Pixel(RGBClass const &from, RGBClass const &to, float const &ratio)
 {
     RGBClass color = RGBClass(from, to, ratio);
-    return (unsigned short)(((unsigned short)(unsigned char)(color.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
-         | ((unsigned short)(unsigned char)(color.Green >> unknown_shift_852fcc) << unknown_shift_852fc8)
-         | ((unsigned short)(unsigned char)(color.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0));
+    return (unsigned short)(((unsigned short)(unsigned char)(color.Red >> DSurface_RedLeft) << DSurface_RedRight)
+         | ((unsigned short)(unsigned char)(color.Green >> DSurface_GreenLeft) << DSurface_GreenRight)
+         | ((unsigned short)(unsigned char)(color.Blue >> DSurface_BlueLeft) << DSurface_BlueRight));
 }
 
 // Advance ratio by step, reversing at 0 and 1.
@@ -2221,9 +2221,9 @@ bool DSurface::Draw_Depth_Shaded_Line(Rect const & cliprect, Point2D const & sta
     int blue;
     if (buffer != 0) {
         RGBClass rgb(
-            (unsigned char)(((unsigned short)color >> unknown_shift_852fb8) << unknown_shift_852fbc),
-            (unsigned char)(((unsigned short)color >> unknown_shift_852fc8) << unknown_shift_852fcc),
-            (unsigned char)(((unsigned short)color >> unknown_shift_852fc0) << unknown_shift_852fc4));
+            (unsigned char)(((unsigned short)color >> DSurface_RedRight) << DSurface_RedLeft),
+            (unsigned char)(((unsigned short)color >> DSurface_GreenRight) << DSurface_GreenLeft),
+            (unsigned char)(((unsigned short)color >> DSurface_BlueRight) << DSurface_BlueLeft));
         red = rgb.Red;
         green = rgb.Green;
         blue = rgb.Blue;
@@ -2257,7 +2257,7 @@ bool DSurface::Draw_Depth_Shaded_Line(Rect const & cliprect, Point2D const & sta
                 int v = *abuffer;
                 if (z < *zbuffer && v != 0) {
                     if (v != 127) {
-                        *(unsigned short *)((char *)buffer + offset) = (unsigned short)((((red * v) >> 7 >> unknown_shift_852fbc) << unknown_shift_852fb8) | (((green * v) >> 7 >> unknown_shift_852fcc) << unknown_shift_852fc8) | (((blue * v) >> 7 >> unknown_shift_852fc4) << unknown_shift_852fc0));
+                        *(unsigned short *)((char *)buffer + offset) = (unsigned short)((((red * v) >> 7 >> DSurface_RedLeft) << DSurface_RedRight) | (((green * v) >> 7 >> DSurface_GreenLeft) << DSurface_GreenRight) | (((blue * v) >> 7 >> DSurface_BlueLeft) << DSurface_BlueRight));
                     } else {
                         *(unsigned short *)((char *)buffer + offset) = (unsigned short)color;
                     }
@@ -2304,7 +2304,7 @@ bool DSurface::Draw_Depth_Shaded_Line(Rect const & cliprect, Point2D const & sta
                 int v = *abuffer;
                 if (z < *zbuffer && v != 0) {
                     if (v != 127) {
-                        *(unsigned short *)((char *)buffer + 2 * i) = (unsigned short)((((red * v) >> 7 >> unknown_shift_852fbc) << unknown_shift_852fb8) | (((green * v) >> 7 >> unknown_shift_852fcc) << unknown_shift_852fc8) | (((blue * v) >> 7 >> unknown_shift_852fc4) << unknown_shift_852fc0));
+                        *(unsigned short *)((char *)buffer + 2 * i) = (unsigned short)((((red * v) >> 7 >> DSurface_RedLeft) << DSurface_RedRight) | (((green * v) >> 7 >> DSurface_GreenLeft) << DSurface_GreenRight) | (((blue * v) >> 7 >> DSurface_BlueLeft) << DSurface_BlueRight));
                     } else {
                         *(unsigned short *)((char *)buffer + 2 * i) = (unsigned short)color;
                     }
@@ -2351,7 +2351,7 @@ bool DSurface::Draw_Depth_Shaded_Line(Rect const & cliprect, Point2D const & sta
                 int v = *abuffer;
                 if (z < *zbuffer && v != 0) {
                     if (v != 127) {
-                        *(unsigned short *)((char *)buffer + offset) = (unsigned short)((((red * v) >> 7 >> unknown_shift_852fbc) << unknown_shift_852fb8) | (((green * v) >> 7 >> unknown_shift_852fcc) << unknown_shift_852fc8) | (((blue * v) >> 7 >> unknown_shift_852fc4) << unknown_shift_852fc0));
+                        *(unsigned short *)((char *)buffer + offset) = (unsigned short)((((red * v) >> 7 >> DSurface_RedLeft) << DSurface_RedRight) | (((green * v) >> 7 >> DSurface_GreenLeft) << DSurface_GreenRight) | (((blue * v) >> 7 >> DSurface_BlueLeft) << DSurface_BlueRight));
                     } else {
                         *(unsigned short *)((char *)buffer + offset) = (unsigned short)color;
                     }

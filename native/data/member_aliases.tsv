@@ -21,14 +21,14 @@ _unknown_sell_mode_83368d	_Map	4717	4525	exact	unknown_sell_mode_83368d	Map	base
 _CurrentSuperWeaponType	_Map	4724	4532	exact	CurrentSuperWeaponType	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.unknown_11b4	int	int	23128
 _SidebarMovieX	_Map	4784	4588	exact	SidebarMovieX	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.unknown_11ec	int	int	23128
 _SidebarMovieY	_Map	4788	4592	exact	SidebarMovieY	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.unknown_11f0	int	int	23128
-_unknown_rect_8336e8	_Map	4812	4616	exact	unknown_rect_8336e8	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.unknown_1208	Rect	class Rect	23128
+_SidebarClass_DirtyRect	_Map	4812	4616	exact	SidebarClass_DirtyRect	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.unknown_1208	Rect	class Rect	23128
 _unknown_radar_surface_8336f8	_Map	4832	4632	exact	unknown_radar_surface_8336f8	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.unknown_1218	Surface*	Surface *	23128
 _unknown_radar_rect_833978	_Map	5684	5272	exact	unknown_radar_rect_833978	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.unknown_1498	Rect	class Rect	23128
 _unknown_flag_8339e8	_Map	5804	5384	exact	unknown_flag_8339e8	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.unknown_1508	bool	_Bool	23128
 _unknown_flag_8373c0	_Map	23032	20192	exact	unknown_flag_8373c0	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.unknown_4ee0	bool	_Bool	23128
 _unknown_flag_8373c1	_Map	23033	20193	exact	unknown_flag_8373c1	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.unknown_4ee1	bool	_Bool	23128
 _unknown_flag_8373c2	_Map	23034	20194	exact	unknown_flag_8373c2	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.unknown_4ee2	bool	_Bool	23128
-_unknown_flag_8373c3	_Map	23035	20195	exact	unknown_flag_8373c3	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.unknown_4ee3	bool	_Bool	23128
+_SidebarClass_IsSidebarRedrawPending	_Map	23035	20195	exact	SidebarClass_IsSidebarRedrawPending	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.unknown_4ee3	bool	_Bool	23128
 _unknown_flag_8373f4	_Map	23088	20244	exact	unknown_flag_8373f4	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.unknown_4f14	bool	_Bool	23128
 _unknown_flag_8373f6	_Map	23090	20246	exact	unknown_flag_8373f6	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.unknown_4f16	bool	_Bool	23128
 _window_scroll_coasting_8373fc	_Map	23096	20252	exact	window_scroll_coasting_8373fc	Map	base:class ScrollClass.base:class TabClass.unknown_4f1c	bool	_Bool	23128
@@ -113,7 +113,7 @@ _unknown_map_name_a3d342	_unknown_session_a3d298	182	170	compatible	unknown_map_
 _unknown_text_a3d342	_unknown_session_a3d298	182	170	exact	unknown_text_a3d342	unknown_session_a3d298	(anon).unknown_a9[1]	char[None]	char[91]	12592
 _wol_scenario_description_a3d342	_unknown_session_a3d298	182	170	compatible	wol_scenario_description_a3d342	unknown_session_a3d298	(anon).unknown_a9+1	unsigned short[None]	char[91]	12592
 _unknown_name_a3d3a0	_unknown_session_a3d298	276	264	exact	unknown_name_a3d3a0	unknown_session_a3d298	(anon).Handle[0]	char[None]	char[20]	12592
-_unknown_a3d3b4	_unknown_session_a3d298	296	284	exact	unknown_a3d3b4	unknown_session_a3d298	(anon).unknown_11c	int	int	12592
+_Game_PlayerColor	_unknown_session_a3d298	296	284	exact	Game_PlayerColor	unknown_session_a3d298	(anon).unknown_11c	int	int	12592
 _unknown_a3d3bc	_unknown_session_a3d298	304	292	exact	unknown_a3d3bc	unknown_session_a3d298	(anon).unknown_124	int	int	12592
 _DAT_00a3d548	_unknown_session_a3d298	700	688	compatible	DAT_00a3d548	unknown_session_a3d298	(anon).unknown_2b0	unsigned int	int	12592
 _MuteSWLaunches	_unknown_session_a3d298	700	688	exact	MuteSWLaunches	unknown_session_a3d298	(anon).unknown_2b0	int	int	12592

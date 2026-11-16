@@ -148,7 +148,7 @@ TriggerTypeClass::TriggerTypeClass(char const *name) :
 
 TriggerTypeClass::~TriggerTypeClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     TriggerTypes.Delete(this);
     TActionClass *action = FirstAction;
     while (action != 0) {
@@ -490,7 +490,7 @@ int TriggerTypeClass::Attaches_To() const
 bool TriggerTypeClass::Read_INI(CCINIClass &ini)
 {
     char buffer[512];
-    if (ini.Get_String(unknown_triggers_section_7ada50, ID, "", buffer, sizeof(buffer))) {
+    if (ini.Get_String(TriggerTypeClass_INI_NAME, ID, "", buffer, sizeof(buffer))) {
         char *token = strtok(buffer, ",");
         if (_stricmp(token, "<none>") == 0) {
             House = HouseTypes[0];
@@ -536,7 +536,7 @@ bool TriggerTypeClass::Read_INI(CCINIClass &ini)
             IsToInherit = true;
         }
 
-        if (ini.Get_String(unknown_events_section_7ada58, ID, "", buffer, sizeof(buffer))) {
+        if (ini.Get_String(TriggerTypeClass_INI_EVENT_NAME, ID, "", buffer, sizeof(buffer))) {
             int count = atoi(strtok(buffer, ","));
             for (; count != 0; count--) {
                 TEventClass *event = new TEventClass();
@@ -546,7 +546,7 @@ bool TriggerTypeClass::Read_INI(CCINIClass &ini)
             }
         }
 
-        if (ini.Get_String(unknown_actions_section_7ada54, ID, "", buffer, sizeof(buffer))) {
+        if (ini.Get_String(TriggerTypeClass_INI_ACTION_NAME, ID, "", buffer, sizeof(buffer))) {
             int count = atoi(strtok(buffer, ","));
             TActionClass *last = 0;
             FirstAction = 0;
@@ -572,9 +572,9 @@ bool TriggerTypeClass::Read_INI(CCINIClass &ini)
 
 void __fastcall TriggerTypeClass::Read_Scenario_INI(CCINIClass &ini)
 {
-    int count = ini.Entry_Count(unknown_triggers_section_7ada50);
+    int count = ini.Entry_Count(TriggerTypeClass_INI_NAME);
     for (int index = 0; index < count; index++) {
-        char const *entry = ini.Get_Entry(unknown_triggers_section_7ada50, index);
+        char const *entry = ini.Get_Entry(TriggerTypeClass_INI_NAME, index);
         TriggerTypeClass *type = Find_Or_Make(entry);
         type->Read_INI(ini);
     }
@@ -604,9 +604,9 @@ void __fastcall TriggerTypeClass::Read_Scenario_INI(CCINIClass &ini)
 extern "C" char *__cdecl strcat(char *dest, char const *source);
 #pragma intrinsic(strcat)
 
-extern char const *unknown_triggers_section_7ada50;
-extern char const *unknown_actions_section_7ada54;
-extern char const *unknown_events_section_7ada58;
+extern char const *TriggerTypeClass_INI_NAME;
+extern char const *TriggerTypeClass_INI_ACTION_NAME;
+extern char const *TriggerTypeClass_INI_EVENT_NAME;
 
 bool TriggerTypeClass::Write_INI(CCINIClass &ini) const
 {
@@ -615,7 +615,7 @@ bool TriggerTypeClass::Write_INI(CCINIClass &ini) const
         House != 0 ? (char const *)House->ID : "<none>",
         LinkedTo != 0 ? (char const *)LinkedTo->ID : "<none>",
         (char const *)Name, IsEnabled ? 0 : 1, IsEnabledOnEasy ? 1 : 0, IsEnabledOnMedium ? 1 : 0, IsEnabledOnHard ? 1 : 0, IsToInherit ? 1 : 0);
-    ini.Put_String(unknown_triggers_section_7ada50, ID, buffer);
+    ini.Put_String(TriggerTypeClass_INI_NAME, ID, buffer);
 
     int count = 0;
     TEventClass *event;
@@ -627,7 +627,7 @@ bool TriggerTypeClass::Write_INI(CCINIClass &ini) const
         strcat(buffer, ",");
         event->Build_INI_Entry(buffer);
     }
-    ini.Put_String(unknown_events_section_7ada58, ID, buffer);
+    ini.Put_String(TriggerTypeClass_INI_EVENT_NAME, ID, buffer);
 
     count = 0;
     TActionClass *action;
@@ -639,7 +639,7 @@ bool TriggerTypeClass::Write_INI(CCINIClass &ini) const
         strcat(buffer, ",");
         action->Build_INI_Entry(buffer);
     }
-    ini.Put_String(unknown_actions_section_7ada54, ID, buffer);
+    ini.Put_String(TriggerTypeClass_INI_ACTION_NAME, ID, buffer);
     return true;
 }
 
@@ -652,30 +652,30 @@ bool TriggerTypeClass::Write_INI(CCINIClass &ini) const
 void __fastcall TriggerTypeClass::Write_Scenario_INI(CCINIClass &ini)
 {
     char buffer[32];
-    int count = ini.Entry_Count(unknown_triggers_section_7ada50);
+    int count = ini.Entry_Count(TriggerTypeClass_INI_NAME);
     int index;
     for (index = 0; index < count; index++) {
-        char const *entry = ini.Get_Entry(unknown_triggers_section_7ada50, index);
-        ini.Get_String(unknown_triggers_section_7ada50, entry, unknown_string_83c55c, buffer, sizeof(buffer));
+        char const *entry = ini.Get_Entry(TriggerTypeClass_INI_NAME, index);
+        ini.Get_String(TriggerTypeClass_INI_NAME, entry, unknown_string_83c55c, buffer, sizeof(buffer));
         ini.Clear(buffer, 0);
     }
-    ini.Clear(unknown_triggers_section_7ada50, 0);
+    ini.Clear(TriggerTypeClass_INI_NAME, 0);
 
-    count = ini.Entry_Count(unknown_events_section_7ada58);
+    count = ini.Entry_Count(TriggerTypeClass_INI_EVENT_NAME);
     for (index = 0; index < count; index++) {
-        char const *entry = ini.Get_Entry(unknown_events_section_7ada58, index);
-        ini.Get_String(unknown_triggers_section_7ada50, entry, unknown_string_83c55c, buffer, sizeof(buffer));
+        char const *entry = ini.Get_Entry(TriggerTypeClass_INI_EVENT_NAME, index);
+        ini.Get_String(TriggerTypeClass_INI_NAME, entry, unknown_string_83c55c, buffer, sizeof(buffer));
         ini.Clear(buffer, 0);
     }
-    ini.Clear(unknown_events_section_7ada58, 0);
+    ini.Clear(TriggerTypeClass_INI_EVENT_NAME, 0);
 
-    count = ini.Entry_Count(unknown_actions_section_7ada54);
+    count = ini.Entry_Count(TriggerTypeClass_INI_ACTION_NAME);
     for (index = 0; index < count; index++) {
-        char const *entry = ini.Get_Entry(unknown_actions_section_7ada54, index);
-        ini.Get_String(unknown_triggers_section_7ada50, entry, unknown_string_83c55c, buffer, sizeof(buffer));
+        char const *entry = ini.Get_Entry(TriggerTypeClass_INI_ACTION_NAME, index);
+        ini.Get_String(TriggerTypeClass_INI_NAME, entry, unknown_string_83c55c, buffer, sizeof(buffer));
         ini.Clear(buffer, 0);
     }
-    ini.Clear(unknown_actions_section_7ada54, 0);
+    ini.Clear(TriggerTypeClass_INI_ACTION_NAME, 0);
 
     for (index = 0; index < TriggerTypes.Count(); index++) {
         TriggerTypes[index]->Write_INI(ini);

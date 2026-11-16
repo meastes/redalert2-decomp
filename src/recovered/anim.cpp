@@ -279,7 +279,7 @@ AnimClass::AnimClass() :
 
 AnimClass::~AnimClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     if (GameActive) {
         if (xObject != 0) {
             ObjectClass *object = xObject;
@@ -382,7 +382,7 @@ bool AnimClass::Render(Rect *bounds, bool arg2, bool arg3)
 
 void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
 {
-    if (unknown_a6eb1c < GetMinFrameRate() && Class->DetailLevel > 1) {
+    if (FPSCounter_CurrentFrameRate < GetMinFrameRate() && Class->DetailLevel > 1) {
         return;
     }
     if (!unknown_17d && Class->DetailLevel <= unknown_a40b2c && (!unknown_179 || !Class->ShouldFogRemove)) {
@@ -463,7 +463,7 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
             }
 
             if (unknown_174) {
-                CC_Draw_Shape(LogicalSurface, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset + Unknown_006A2970(height)), cliprect, 0x2601, 0, Class->YDrawOffset - Unknown_006A2970(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(LogicalSurface, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset + Tactical_Z_Lepton_To_Pixel(height)), cliprect, 0x2601, 0, Class->YDrawOffset - Tactical_Z_Lepton_To_Pixel(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
             }
 
             if (Class->Tiled) {
@@ -471,7 +471,7 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
                 Point2D origin = point;
                 Point2D drawpoint = origin - Point2D(0, frameheight / 2);
                 bool done = false;
-                int height_offset = ZAdjust + Class->YDrawOffset - Unknown_006A2970(Get_Height()) - 50;
+                int height_offset = ZAdjust + Class->YDrawOffset - Tactical_Z_Lepton_To_Pixel(Get_Height()) - 50;
                 while (!done) {
                     CC_Draw_Shape(LogicalSurface, Unit_Draw_Convert_008323C0, shapefile, shapenum, Point2D(origin.X, drawpoint.Y + Class->YDrawOffset), TacticalRect, flags | 0x2000, 0, height_offset, 2, brightness, 0, 0, Point2D(0, 0));
                     if (drawpoint.Y < 0) done = true;
@@ -479,11 +479,11 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
                     height_offset -= frameheight + frameheight / 2;
                 }
             } else if (Class->Flat) {
-                CC_Draw_Shape(LogicalSurface, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset), cliprect, flags | 0x2000, 0, ZAdjust + Class->YDrawOffset - Unknown_006A2970(Get_Height()) - 3, 0, brightness, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(LogicalSurface, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset), cliprect, flags | 0x2000, 0, ZAdjust + Class->YDrawOffset - Tactical_Z_Lepton_To_Pixel(Get_Height()) - 3, 0, brightness, 0, 0, Point2D(0, 0));
             } else {
-                CC_Draw_Shape(LogicalSurface, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset), cliprect, flags | 0x2000, 0, ZAdjust + Class->YDrawOffset - Unknown_006A2970(Get_Height()) - 2, 2, brightness, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(LogicalSurface, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset), cliprect, flags | 0x2000, 0, ZAdjust + Class->YDrawOffset - Tactical_Z_Lepton_To_Pixel(Get_Height()) - 2, 2, brightness, 0, 0, Point2D(0, 0));
                 if (Class->Shadow) {
-                    CC_Draw_Shape(LogicalSurface, convert, shapefile, shapenum + shapefile->Get_Count() / 2, point, cliprect, flags & ~6 | 0x601, 0, -2 - Unknown_006A2970(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
+                    CC_Draw_Shape(LogicalSurface, convert, shapefile, shapenum + shapefile->Get_Count() / 2, point, cliprect, flags & ~6 | 0x601, 0, -2 - Tactical_Z_Lepton_To_Pixel(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
                 }
             }
         }
@@ -543,7 +543,7 @@ int AnimClass::unknown_slot116()
                 int distance = abs(delta.X) + abs(delta.Y);
                 if (distance <= Class->DamageRadius) {
                     int damage = Class->Damage;
-                    object->Take_Damage(&damage, Unknown_006A2970(distance), (WarheadTypeClass *)Class->Warhead, 0, 0, 0);
+                    object->Take_Damage(&damage, Tactical_Z_Lepton_To_Pixel(distance), (WarheadTypeClass *)Class->Warhead, 0, 0, 0);
                 }
             }
         }

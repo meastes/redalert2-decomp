@@ -7,7 +7,7 @@ unsigned __fastcall SurfaceCacheConvertPixel(int green, int red, int blue)
 {
     int boosted = red * 15 / 10;
     int red_clamped = boosted > 255 ? 255 : boosted;
-    return (red_clamped >> unknown_shift_852fbc) << unknown_shift_852fb8
-         | (green >> unknown_shift_852fcc) << unknown_shift_852fc8
-         | ((blue / 4) >> unknown_shift_852fc4) << unknown_shift_852fc0;
+    return (red_clamped >> DSurface_RedLeft) << DSurface_RedRight
+         | (green >> DSurface_GreenLeft) << DSurface_GreenRight
+         | ((blue / 4) >> DSurface_BlueLeft) << DSurface_BlueRight;
 }

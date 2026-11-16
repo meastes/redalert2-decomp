@@ -5,8 +5,8 @@
 // @ref ?Init_Dirt_Roads@@YAXXZ=0058d9d0
 // @ref ?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z=0055a660
 // @ref ?unknown_generation_paths_a700a0@@3PAVDirtRoadTile@@A=00a700a0
-// @ref ?unknown_tileset_a6dd04@@3HA=00a6dd04
-// @ref ?unknown_tileset_a6e014@@3HA=00a6e014
+// @ref ?IsometricTileTypeClass_DirtRoadSlopes@@3HA=00a6dd04
+// @ref ?IsometricTileTypeClass_DirtRoadCurve@@3HA=00a6e014
 // @ref __real@8@3ffdfae147ae147ae000=007a6050
 // @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
 // @ref ??RRandom2Class@@QAEHXZ=00638840

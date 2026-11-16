@@ -292,7 +292,7 @@ UnknownMapGenerationCell::UnknownMapGenerationCell()
 }
 
 
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 MapRegionClass::MapRegionClass(Cell origin)
     : unknown_00(0), NeighborRegionIndices(0), Index(unknown_map_region_next_index_a70a28),
       CellCount(0), unknown_10(Map[origin].unknown_11b), unknown_14(Map[origin].Is_Tile_With_Water()),
@@ -301,7 +301,7 @@ MapRegionClass::MapRegionClass(Cell origin)
 {
     Cells.Set_Growth_Step(100000);
     unknown_map_region_next_index_a70a28 = (int)((unsigned)unknown_map_region_next_index_a70a28 + 1u);
-    unknown_map_regions_a6fd28.Add(this);
+    MapRegionClass_MapRegions.Add(this);
 }
 
 
@@ -515,8 +515,8 @@ static inline bool Flood_In_Bounds(Cell const &cell)
 {
     int x = cell.X;
     int y = cell.Y;
-    if (y + x > unknown_map_min_a70a1c && x - y < unknown_map_min_a70a1c &&
-        y - x < unknown_map_min_a70a1c && y + x <= unknown_map_max_a70a20) {
+    if (y + x > MapRegionClass_MapStartDiagonal && x - y < MapRegionClass_MapStartDiagonal &&
+        y - x < MapRegionClass_MapStartDiagonal && y + x <= MapRegionClass_MapEndDiagonal) {
         return true;
     }
     return false;
@@ -675,9 +675,9 @@ double __stdcall Sample_Normal(double mean, double deviation)
 
 // void MapRegionClass::Destroy_Cell_Regions() (0x0056E790): clears every generation cell's region links
 // (RegionIndex, +0x3C = -1) and deletes the regions newest first (each ~MapRegionClass removes itself from
-// unknown_map_regions_a6fd28), then resets the next region index. Defined here out of line; the generator's
+// MapRegionClass_MapRegions), then resets the next region index. Defined here out of line; the generator's
 // destructor 0x005771B0 and Init_Regions in Generate_Random_Map 0x0057A0D0 expand it inline.
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 void MapRegionClass::Destroy_Cell_Regions()
 {
     int index;
@@ -688,8 +688,8 @@ void MapRegionClass::Destroy_Cell_Regions()
             RMGCellData[index].unknown_3c=-1;
         }
     }
-    for(index=(int)((unsigned)unknown_map_regions_a6fd28.Count()-1u);index>=0;--index) {
-        MapRegionClass *region=unknown_map_regions_a6fd28[index];
+    for(index=(int)((unsigned)MapRegionClass_MapRegions.Count()-1u);index>=0;--index) {
+        MapRegionClass *region=MapRegionClass_MapRegions[index];
         if(region)delete region;
     }
     unknown_map_region_next_index_a70a28=0;
@@ -799,8 +799,8 @@ void MapRegionClass::Reassign_Border_Cells(int count, int mark)
                 for (int direction = 0; direction < 8; direction++) {
                     Cell const &offset = unknown_adjacent_851a70[direction & 7];
                     Cell adjacent = cell + offset;
-                    if (adjacent.Y + adjacent.X > unknown_map_min_a70a1c && adjacent.X - adjacent.Y < unknown_map_min_a70a1c &&
-                        adjacent.Y - adjacent.X < unknown_map_min_a70a1c && adjacent.Y + adjacent.X <= unknown_map_max_a70a20) {
+                    if (adjacent.Y + adjacent.X > MapRegionClass_MapStartDiagonal && adjacent.X - adjacent.Y < MapRegionClass_MapStartDiagonal &&
+                        adjacent.Y - adjacent.X < MapRegionClass_MapStartDiagonal && adjacent.Y + adjacent.X <= MapRegionClass_MapEndDiagonal) {
                         UnknownMapGenerationCell &data = RMGCellData[adjacent.Y * MapCellStride + adjacent.X];
                         if (data.RegionIndex == Index && data.unknown_3c != step + 1) {
                             next->Add(adjacent);
@@ -831,8 +831,8 @@ static inline bool In_Generation_Bounds(Cell const &next)
 {
     int x = next.X;
     int y = next.Y;
-    return y + x > unknown_map_min_a70a1c && x - y < unknown_map_min_a70a1c &&
-        y - x < unknown_map_min_a70a1c && y + x <= unknown_map_max_a70a20;
+    return y + x > MapRegionClass_MapStartDiagonal && x - y < MapRegionClass_MapStartDiagonal &&
+        y - x < MapRegionClass_MapStartDiagonal && y + x <= MapRegionClass_MapEndDiagonal;
 }
 
 DynamicVectorClass<Cell> *MapRegionClass::Collect_Boundary_Cells_0056ed10()
@@ -887,8 +887,8 @@ static inline bool In_Region_Bounds(Cell const &cell)
 {
     int x = cell.X;
     int y = cell.Y;
-    return y + x > unknown_map_min_a70a1c && x - y < unknown_map_min_a70a1c &&
-        y - x < unknown_map_min_a70a1c && y + x <= unknown_map_max_a70a20;
+    return y + x > MapRegionClass_MapStartDiagonal && x - y < MapRegionClass_MapStartDiagonal &&
+        y - x < MapRegionClass_MapStartDiagonal && y + x <= MapRegionClass_MapEndDiagonal;
 }
 
 DynamicVectorClass<Cell> *MapRegionClass::Collect_Region_Boundary_0056fed0()
@@ -979,7 +979,7 @@ bool MapRegionClass::Expand_Cells_005702b0()
 }
 
 
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);
 // Existing real destructor body, needed by the original inline delete site.
 MapRegionClass::~MapRegionClass()
@@ -988,15 +988,15 @@ MapRegionClass::~MapRegionClass()
         delete static_cast<DynamicVectorClass<Cell> *>(unknown_00);
         unknown_00=0;
     }
-    unknown_map_regions_a6fd28.Delete(this);
+    MapRegionClass_MapRegions.Delete(this);
 }
 void MapRegionClass::Make_Ice_Regions_005704c0()
 {
     int index;
-    for(index=0;index<unknown_map_regions_a6fd28.Count();++index) {
-        unknown_map_regions_a6fd28[index]->Cells.Clear();
-        unknown_map_regions_a6fd28[index]->CellCount=0;
-        unknown_map_regions_a6fd28[index]->Bounds=Rect(9999,9999,0,0);
+    for(index=0;index<MapRegionClass_MapRegions.Count();++index) {
+        MapRegionClass_MapRegions[index]->Cells.Clear();
+        MapRegionClass_MapRegions[index]->CellCount=0;
+        MapRegionClass_MapRegions[index]->Bounds=Rect(9999,9999,0,0);
     }
     int size=MapCellStride*MapCellStride;
     for(index=size-1;index>=0;--index) {
@@ -1006,10 +1006,10 @@ void MapRegionClass::Make_Ice_Regions_005704c0()
         int x=position.X;
         if(Generation_Cell_In_Bounds_0058da10(position)) {
             int id=data.RegionIndex;
-            if(id>=0 && id<unknown_map_regions_a6fd28.Count()) {
-                ++unknown_map_regions_a6fd28[id]->CellCount;
-                unknown_map_regions_a6fd28[id]->Cells.Add(position);
-                Rect &rect=unknown_map_regions_a6fd28[id]->Bounds;
+            if(id>=0 && id<MapRegionClass_MapRegions.Count()) {
+                ++MapRegionClass_MapRegions[id]->CellCount;
+                MapRegionClass_MapRegions[id]->Cells.Add(position);
+                Rect &rect=MapRegionClass_MapRegions[id]->Bounds;
                 if(!rect.Width) {
                     rect.X=x;
                     rect.Y=y;
@@ -1037,8 +1037,8 @@ void MapRegionClass::Make_Ice_Regions_005704c0()
     int limit=(int)(sizeLimit+sizeLimit);
     while(true) {
         bool restart=false;
-        for(index=0;index<unknown_map_regions_a6fd28.Count();++index) {
-            MapRegionClass *region=unknown_map_regions_a6fd28[index];
+        for(index=0;index<MapRegionClass_MapRegions.Count();++index) {
+            MapRegionClass *region=MapRegionClass_MapRegions[index];
             if(!region->unknown_1a && !region->unknown_14) {
                 if(region->CellCount>limit) {
                     if(region->Split_Region_0056ef20()) {
@@ -1228,15 +1228,15 @@ bool MapRegionClass::Connect_Regions_With_Bridge_00570bc0(MapRegionClass *region
                 }
 
                 if (Can_Place_Paved_Road_End_00588c20(Rect(bridge.X + bridge.Width, bridge.Y - 2, 6, 6), false) && Map_Random_Range_005797a0(0,1)) {
-                    Place_Tile_Footprint_005883f0(unknown_tileset_a6dd0c+10, Cell(bridge.X + bridge.Width, bridge.Y));
+                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoads+10, Cell(bridge.X + bridge.Width, bridge.Y));
                 } else {
-                    Place_Tile_Footprint_005883f0(unknown_tileset_a6dd08, Cell(bridge.X + bridge.Width, bridge.Y));
+                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoadEnds, Cell(bridge.X + bridge.Width, bridge.Y));
                 }
 
                 if (Can_Place_Paved_Road_End_00588c20(Rect(bridge.X - 6, bridge.Y - 2, 6, 6), false) && Map_Random_Range_005797a0(0,1)) {
-                    Place_Tile_Footprint_005883f0(unknown_tileset_a6dd0c+9, Cell(bridge.X - 4, bridge.Y));
+                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoads+9, Cell(bridge.X - 4, bridge.Y));
                 } else {
-                    Place_Tile_Footprint_005883f0(unknown_tileset_a6dd08+2, Cell(bridge.X - 1, bridge.Y));
+                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoadEnds+2, Cell(bridge.X - 1, bridge.Y));
                 }
 
                 if (!Place_Bridge_Hut(Rect(bridge.X, bridge.Y - 1, 2, 5))) {
@@ -1265,15 +1265,15 @@ bool MapRegionClass::Connect_Regions_With_Bridge_00570bc0(MapRegionClass *region
                 }
 
                 if (Can_Place_Paved_Road_End_00588c20(Rect(bridge.X - 2, bridge.Y - 6, 7, 6), false) && Map_Random_Range_005797a0(0,1)) {
-                    Place_Tile_Footprint_005883f0(unknown_tileset_a6dd0c+13, Cell(bridge.X, bridge.Y - 4));
+                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoads+13, Cell(bridge.X, bridge.Y - 4));
                 } else {
-                    Place_Tile_Footprint_005883f0(unknown_tileset_a6dd08+1, Cell(bridge.X, bridge.Y - 1));
+                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoadEnds+1, Cell(bridge.X, bridge.Y - 1));
                 }
 
                 if (Can_Place_Paved_Road_End_00588c20(Rect(bridge.X - 2, bridge.Y + bridge.Height, 7, 6), false) && Map_Random_Range_005797a0(0,1)) {
-                    Place_Tile_Footprint_005883f0(unknown_tileset_a6dd0c+12, Cell(bridge.X, bridge.Y + bridge.Height));
+                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoads+12, Cell(bridge.X, bridge.Y + bridge.Height));
                 } else {
-                    Place_Tile_Footprint_005883f0(unknown_tileset_a6dd08+3, Cell(bridge.X, bridge.Y + bridge.Height));
+                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoadEnds+3, Cell(bridge.X, bridge.Y + bridge.Height));
                 }
 
                 if (!Place_Bridge_Hut(Rect(bridge.X - 1, bridge.Y, 5, 2))) {
@@ -1554,8 +1554,8 @@ bool MapRegionClass::Build_South_Ramp(Cell const &first,Cell const &second,int l
     Assign_Region_To_Rectangle_00575a90(Rect(second.X-half+3,second.Y+1,half+2,area.Y+area.Height-second.Y+1),lowRegion);
     Mark_Rectangle_00575bf0(Rect(area.X+4,area.Y+2,half-2,first.Y-area.Y-1));
     Mark_Rectangle_00575bf0(Rect(second.X-half+2,area.Y+2,half-1,second.Y-area.Y-1));
-    Place_Tile_Footprint_005883f0(unknown_tileset_a6e038,first,lowRegion,unknown_10);
-    Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+1,second-Cell(2,0),lowRegion,unknown_10);
+    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces,first,lowRegion,unknown_10);
+    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+1,second-Cell(2,0),lowRegion,unknown_10);
     Cell tail(0,0);
     if(drift!=0) {
         int pick=Map_Random_Range_005797a0(0,1);
@@ -1576,7 +1576,7 @@ bool MapRegionClass::Build_South_Ramp(Cell const &first,Cell const &second,int l
                 CellClass &target=Map[position];
                 target.unknown_11b=(char)(unknown_10+unknown_ramp_heights_7e09ec[row]-4);
                 target.unknown_11c=(unsigned char)unknown_ramp_shapes_7e0a00[5*down+row];
-                target.IsoTileIndex=(unsigned)unknown_tileset_a6e018+target.unknown_11c-1;
+                target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+target.unknown_11c-1;
                 target.unknown_11a=0;
             }
         }
@@ -1588,7 +1588,7 @@ bool MapRegionClass::Build_South_Ramp(Cell const &first,Cell const &second,int l
             CellClass &target=Map[position];
             target.unknown_11b=(char)(unknown_10-(char)row-1);
             target.unknown_11c=4;
-            target.IsoTileIndex=(unsigned)unknown_tileset_a6e018+3u;
+            target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+3u;
             target.unknown_11a=0;
         }
     }
@@ -1619,8 +1619,8 @@ bool MapRegionClass::unknown_00573040(Cell const &first,Cell const &second,int l
     Assign_Region_To_Rectangle_00575a90(Rect(second.X+1,area.Y,7,half+2),lowRegion);
     Mark_Rectangle_00575bf0(Rect(area.X+2,first.Y-half+2,first.X-area.X-1,half-1));
     Mark_Rectangle_00575bf0(Rect(area.X+2,second.Y,second.X-area.X-1,half-2));
-    Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+2,first-Cell(0,2),lowRegion,unknown_10);
-    Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+3,second,lowRegion,unknown_10);
+    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+2,first-Cell(0,2),lowRegion,unknown_10);
+    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+3,second,lowRegion,unknown_10);
     Cell tail(0,0);
     if(drift!=0) {
         int pick=Map_Random_Range_005797a0(0,1);
@@ -1639,7 +1639,7 @@ bool MapRegionClass::unknown_00573040(Cell const &first,Cell const &second,int l
                 CellClass &target=Map[position];
                 target.unknown_11b=(char)(unknown_10+unknown_ramp_heights_7e0a28[row]-4);
                 target.unknown_11c=(unsigned char)unknown_ramp_shapes_7e0a3c[5*down+row];
-                target.IsoTileIndex=(unsigned)unknown_tileset_a6e018+target.unknown_11c-1;
+                target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+target.unknown_11c-1;
                 target.unknown_11a=0;
             }
         }
@@ -1651,7 +1651,7 @@ bool MapRegionClass::unknown_00573040(Cell const &first,Cell const &second,int l
             CellClass &target=Map[position];
             target.unknown_11b=(char)(unknown_10-(char)row-1);
             target.unknown_11c=3;
-            target.IsoTileIndex=(unsigned)unknown_tileset_a6e018+2u;
+            target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+2u;
             target.unknown_11a=0;
         }
     }
@@ -1681,9 +1681,9 @@ bool MapRegionClass::unknown_00573680(Cell const &first,Cell const &second,int l
     Assign_Region_To_Rectangle_00575a90(Rect(first.X-half+2,area.Y,half+3,first.Y-area.Y),lowRegion);
     Mark_Rectangle_00575bf0(Rect(second.X,second.Y,half-2,area.Y+area.Height-second.Y-2));
     Mark_Rectangle_00575bf0(Rect(first.X-half+2,first.Y,half-1,area.Y+area.Height-first.Y-2));
-    Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+4,second-Cell(0,3),lowRegion,unknown_10);
-    Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+5,first-Cell(2,3),lowRegion,unknown_10);
-    Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+6,first-Cell(1,1),lowRegion,unknown_10);
+    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+4,second-Cell(0,3),lowRegion,unknown_10);
+    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+5,first-Cell(2,3),lowRegion,unknown_10);
+    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+6,first-Cell(1,1),lowRegion,unknown_10);
     Cell tail(0,0);
     if(drift!=0) {
         int pick=Map_Random_Range_005797a0(0,1);
@@ -1704,7 +1704,7 @@ bool MapRegionClass::unknown_00573680(Cell const &first,Cell const &second,int l
                 CellClass &target=Map[position];
                 target.unknown_11b=(char)(unknown_10+unknown_ramp_heights_7e0a64[row]-4);
                 target.unknown_11c=(unsigned char)unknown_ramp_shapes_7e0a78[5*down+row];
-                target.IsoTileIndex=(unsigned)unknown_tileset_a6e018+target.unknown_11c-1;
+                target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+target.unknown_11c-1;
                 target.unknown_11a=0;
             }
         }
@@ -1716,7 +1716,7 @@ bool MapRegionClass::unknown_00573680(Cell const &first,Cell const &second,int l
             CellClass &target=Map[position];
             target.unknown_11b=(char)(unknown_10-(char)row-1);
             target.unknown_11c=2;
-            target.IsoTileIndex=(unsigned)unknown_tileset_a6e018+1u;
+            target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+1u;
             target.unknown_11a=0;
         }
     }
@@ -1746,9 +1746,9 @@ bool MapRegionClass::unknown_00573d40(Cell const &first,Cell const &second,int l
     Assign_Region_To_Rectangle_00575a90(Rect(area.X,second.Y-half+3,second.X-area.X,half+2),lowRegion);
     Mark_Rectangle_00575bf0(Rect(first.X,first.Y,area.X+area.Width-first.X-1,half-1));
     Mark_Rectangle_00575bf0(Rect(second.X,second.Y-half+3,area.X+area.Width-second.X-1,half-2));
-    Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+7,first-Cell(3,0),lowRegion,unknown_10);
-    Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+8,second-Cell(3,2),lowRegion,unknown_10);
-    Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+9,second-Cell(1,1),lowRegion,unknown_10);
+    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+7,first-Cell(3,0),lowRegion,unknown_10);
+    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+8,second-Cell(3,2),lowRegion,unknown_10);
+    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+9,second-Cell(1,1),lowRegion,unknown_10);
     Cell tail(0,0);
     if(drift!=0) {
         int pick=Map_Random_Range_005797a0(0,1);
@@ -1767,7 +1767,7 @@ bool MapRegionClass::unknown_00573d40(Cell const &first,Cell const &second,int l
                 CellClass &target=Map[position];
                 target.unknown_11b=(char)(unknown_10+unknown_ramp_heights_7e0aa0[row]-4);
                 target.unknown_11c=(unsigned char)unknown_ramp_shapes_7e0ab4[5*down+row];
-                target.IsoTileIndex=(unsigned)unknown_tileset_a6e018+target.unknown_11c-1;
+                target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+target.unknown_11c-1;
                 target.unknown_11a=0;
             }
         }
@@ -1779,7 +1779,7 @@ bool MapRegionClass::unknown_00573d40(Cell const &first,Cell const &second,int l
             CellClass &target=Map[position];
             target.unknown_11b=(char)(unknown_10-(char)row-1);
             target.unknown_11c=1;
-            target.IsoTileIndex=(unsigned)unknown_tileset_a6e018;
+            target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart;
             target.unknown_11a=0;
         }
     }
@@ -1806,13 +1806,13 @@ bool MapRegionClass::unknown_005743f0(Cell const &first,Cell const &second,int l
                 // The second X is intentional: original574672 loads both origins from second.X.
                 Mark_Rectangle_00575bf0(Rect(second.X-1,second.X,2,1));
                 Mark_Rectangle_00575bf0(Rect(first.X+1,second.Y+1,second.X-first.X-1,first.Y-second.Y-1));
-                Place_Tile_Footprint_005883f0(unknown_tileset_a6e038,first,lowRegion,unknown_10);
-                Place_Tile_Footprint_005883f0((int)((unsigned)unknown_tileset_a6e038+3u),second,lowRegion,unknown_10);
+                Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces,first,lowRegion,unknown_10);
+                Place_Tile_Footprint_005883f0((int)((unsigned)IsometricTileTypeClass_SlopeSetPieces+3u),second,lowRegion,unknown_10);
                 for(int step=0;step<4;++step) {
                     CellClass &target=Map[Cell(second.X+step,first.Y+step)];
                     target.unknown_11b=(char)(unknown_10-(char)step-1);
                     target.unknown_11c=7;
-                    target.IsoTileIndex=(unsigned)unknown_tileset_a6e018+6u;
+                    target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+6u;
                     target.unknown_11a=0;
                 }
                 for(int row=0;row<4;++row) {
@@ -1820,7 +1820,7 @@ bool MapRegionClass::unknown_005743f0(Cell const &first,Cell const &second,int l
                         CellClass &target=Map[Cell(first.X+column+3,first.Y+row)];
                         target.unknown_11b=(char)(unknown_10-(char)row-1);
                         target.unknown_11c=4;
-                        target.IsoTileIndex=(unsigned)unknown_tileset_a6e018+3u;
+                        target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+3u;
                         target.unknown_11a=0;
                     }
                 }
@@ -1829,7 +1829,7 @@ bool MapRegionClass::unknown_005743f0(Cell const &first,Cell const &second,int l
                         CellClass &target=Map[Cell(second.X+column,second.Y+row+3)];
                         target.unknown_11b=(char)(unknown_10-(char)column-1);
                         target.unknown_11c=3;
-                        target.IsoTileIndex=(unsigned)unknown_tileset_a6e018+2u;
+                        target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+2u;
                         target.unknown_11a=0;
                     }
                 }
@@ -1858,13 +1858,13 @@ bool MapRegionClass::unknown_00574930(Cell const &first,Cell const &second,int r
                 Mark_Rectangle_00575bf0(Rect(second.X,second.Y,1,2));
                 Mark_Rectangle_00575bf0(Rect(first.X-1,first.Y,2,1));
                 Mark_Rectangle_00575bf0(Rect(second.X+1,second.Y+1,first.X-second.X-1,first.Y-second.Y-1));
-                Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+2,first-Cell(0,2),region,unknown_10);
-                Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+4,second-Cell(0,3),region,unknown_10);
+                Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+2,first-Cell(0,2),region,unknown_10);
+                Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+4,second-Cell(0,3),region,unknown_10);
                 for(int corner=0;corner<4;++corner) {
                     CellClass &cell=Map[Cell(first.X+corner,second.Y-corner)];
                     cell.unknown_11b=(char)(unknown_10-(char)corner-1);
                     cell.unknown_11c=6;
-                    cell.IsoTileIndex=unknown_tileset_a6e018+5;
+                    cell.IsoTileIndex=IsometricTileTypeClass_RampStart+5;
                     cell.unknown_11a=0;
                 }
                 for(int east=0;east<4;++east) {
@@ -1872,7 +1872,7 @@ bool MapRegionClass::unknown_00574930(Cell const &first,Cell const &second,int r
                         CellClass &cell=Map[Cell(first.X+east,first.Y-y-3)];
                         cell.unknown_11b=(char)(unknown_10-(char)east-1);
                         cell.unknown_11c=3;
-                        cell.IsoTileIndex=unknown_tileset_a6e018+2;
+                        cell.IsoTileIndex=IsometricTileTypeClass_RampStart+2;
                         cell.unknown_11a=0;
                     }
                 }
@@ -1881,7 +1881,7 @@ bool MapRegionClass::unknown_00574930(Cell const &first,Cell const &second,int r
                         CellClass &cell=Map[Cell(second.X+x+3,second.Y-north)];
                         cell.unknown_11b=(char)(unknown_10-(char)north-1);
                         cell.unknown_11c=2;
-                        cell.IsoTileIndex=unknown_tileset_a6e018+1;
+                        cell.IsoTileIndex=IsometricTileTypeClass_RampStart+1;
                         cell.unknown_11a=0;
                     }
                 }
@@ -1909,15 +1909,15 @@ bool MapRegionClass::unknown_00574e50(Cell const &first,Cell const &second,int r
                 Mark_Rectangle_00575bf0(Rect(first.X,first.Y,1,2));
                 Mark_Rectangle_00575bf0(Rect(second.X,second.Y,2,1));
                 Mark_Rectangle_00575bf0(Rect(second.X+1,first.Y+1,first.X-second.X-1,second.Y-first.Y-1));
-                Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+5,first-Cell(2,3),region,unknown_10);
-                Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+6,first-Cell(1,1),region,unknown_10);
-                Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+8,second-Cell(3,2),region,unknown_10);
-                Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+9,second-Cell(1,1),region,unknown_10);
+                Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+5,first-Cell(2,3),region,unknown_10);
+                Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+6,first-Cell(1,1),region,unknown_10);
+                Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+8,second-Cell(3,2),region,unknown_10);
+                Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+9,second-Cell(1,1),region,unknown_10);
                 for(int corner=0;corner<4;++corner) {
                     CellClass &cell=Map[Cell(second.X-corner,first.Y-corner)];
                     cell.unknown_11b=(char)(unknown_10-(char)corner-1);
                     cell.unknown_11c=5;
-                    cell.IsoTileIndex=unknown_tileset_a6e018+4;
+                    cell.IsoTileIndex=IsometricTileTypeClass_RampStart+4;
                     cell.unknown_11a=0;
                 }
                 for(int north=0;north<4;++north) {
@@ -1925,7 +1925,7 @@ bool MapRegionClass::unknown_00574e50(Cell const &first,Cell const &second,int r
                         CellClass &cell=Map[Cell(first.X-x-3,first.Y-north)];
                         cell.unknown_11b=(char)(unknown_10-(char)north-1);
                         cell.unknown_11c=2;
-                        cell.IsoTileIndex=unknown_tileset_a6e018+1;
+                        cell.IsoTileIndex=IsometricTileTypeClass_RampStart+1;
                         cell.unknown_11a=0;
                     }
                 }
@@ -1934,7 +1934,7 @@ bool MapRegionClass::unknown_00574e50(Cell const &first,Cell const &second,int r
                         CellClass &cell=Map[Cell(second.X-west,second.Y-y-3)];
                         cell.unknown_11b=(char)(unknown_10-(char)west-1);
                         cell.unknown_11c=1;
-                        cell.IsoTileIndex=unknown_tileset_a6e018;
+                        cell.IsoTileIndex=IsometricTileTypeClass_RampStart;
                         cell.unknown_11a=0;
                     }
                 }
@@ -1965,13 +1965,13 @@ bool MapRegionClass::unknown_005753f0(Cell const &first,Cell const &second,int r
                 Mark_Rectangle_00575bf0(Rect(first.X,first.Y,2,1));
                 Mark_Rectangle_00575bf0(Rect(second.X,second.Y-1,1,2));
                 Mark_Rectangle_00575bf0(Rect(first.X+1,first.Y+1,second.X-first.X-1,second.Y-first.Y-1));
-                Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+7,first-Cell(3,0),region,unknown_10);
-                Place_Tile_Footprint_005883f0(unknown_tileset_a6e038+1,second-Cell(2,0),region,unknown_10);
+                Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+7,first-Cell(3,0),region,unknown_10);
+                Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+1,second-Cell(2,0),region,unknown_10);
                 for(int corner=0;corner<4;++corner) {
                     CellClass &cell=Map[Cell(first.X-corner,second.Y+corner)];
                     cell.unknown_11b=(char)(unknown_10-(char)corner-1);
                     cell.unknown_11c=8;
-                    cell.IsoTileIndex=unknown_tileset_a6e018+7;
+                    cell.IsoTileIndex=IsometricTileTypeClass_RampStart+7;
                     cell.unknown_11a=0;
                 }
                 for(int west=0;west<4;++west) {
@@ -1979,7 +1979,7 @@ bool MapRegionClass::unknown_005753f0(Cell const &first,Cell const &second,int r
                         CellClass &cell=Map[Cell(first.X-west,first.Y+y+3)];
                         cell.unknown_11b=(char)(unknown_10-(char)west-1);
                         cell.unknown_11c=1;
-                        cell.IsoTileIndex=unknown_tileset_a6e018;
+                        cell.IsoTileIndex=IsometricTileTypeClass_RampStart;
                         cell.unknown_11a=0;
                     }
                 }
@@ -1988,7 +1988,7 @@ bool MapRegionClass::unknown_005753f0(Cell const &first,Cell const &second,int r
                         CellClass &cell=Map[Cell(second.X-x-3,second.Y+south)];
                         cell.unknown_11b=(char)(unknown_10-(char)south-1);
                         cell.unknown_11c=4;
-                        cell.IsoTileIndex=unknown_tileset_a6e018+3;
+                        cell.IsoTileIndex=IsometricTileTypeClass_RampStart+3;
                         cell.unknown_11a=0;
                     }
                 }
@@ -2029,7 +2029,7 @@ bool MapRegionClass::Is_Rectangle_Clear_00575910(Rect const &area,int allowedReg
 }
 
 
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &cell);
 MapRegionClass *__fastcall Find_Map_Region_By_Index_00575ce0(int index);
 void __stdcall Assign_Region_To_Rectangle_00575a90(Rect const &area,int index)
@@ -2046,22 +2046,22 @@ void __stdcall Assign_Region_To_Rectangle_00575a90(Rect const &area,int index)
     }
 }
 
-extern int unknown_map_min_a70a1c,unknown_map_max_a70a20;
+extern int MapRegionClass_MapStartDiagonal,MapRegionClass_MapEndDiagonal;
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &cell)
 {
     int x=cell.X;
     int y=cell.Y;
-    bool inside=(x+y>unknown_map_min_a70a1c && x-y<unknown_map_min_a70a1c &&
-           y-x<unknown_map_min_a70a1c && x+y<=unknown_map_max_a70a20) ? true : false;
+    bool inside=(x+y>MapRegionClass_MapStartDiagonal && x-y<MapRegionClass_MapStartDiagonal &&
+           y-x<MapRegionClass_MapStartDiagonal && x+y<=MapRegionClass_MapEndDiagonal) ? true : false;
     return inside;
 }
 
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 MapRegionClass *__fastcall Find_Map_Region_By_Index_00575ce0(int index)
 {
-    for(int i=0;i<unknown_map_regions_a6fd28.Count();i++)
-        if(unknown_map_regions_a6fd28[i]->Index==index)
-            return unknown_map_regions_a6fd28[i];
+    for(int i=0;i<MapRegionClass_MapRegions.Count();i++)
+        if(MapRegionClass_MapRegions[i]->Index==index)
+            return MapRegionClass_MapRegions[i];
     return 0;
 }
 
@@ -2096,10 +2096,10 @@ static inline bool In_Zone_Map_Bounds(Cell const &cell)
     int x = cell.X;
     int y = cell.Y;
     int diagonal = y + cell.X;
-    return diagonal > unknown_map_min_a70a1c &&
-        x - y < unknown_map_min_a70a1c &&
-        y - x < unknown_map_min_a70a1c &&
-        diagonal <= unknown_map_max_a70a20;
+    return diagonal > MapRegionClass_MapStartDiagonal &&
+        x - y < MapRegionClass_MapStartDiagonal &&
+        y - x < MapRegionClass_MapStartDiagonal &&
+        diagonal <= MapRegionClass_MapEndDiagonal;
 }
 
 void __fastcall MapRegionClass::Create_Zone_Region_00575d20(CellClass *cell_ptr, int zone_kind, int zone)
@@ -2139,8 +2139,8 @@ static inline bool Zone_Cell_In_Bounds(Cell const &cell)
 {
     int x = cell.X;
     int y = cell.Y;
-    return y + x > unknown_map_min_a70a1c && x - y < unknown_map_min_a70a1c &&
-        y - x < unknown_map_min_a70a1c && y + x <= unknown_map_max_a70a20;
+    return y + x > MapRegionClass_MapStartDiagonal && x - y < MapRegionClass_MapStartDiagonal &&
+        y - x < MapRegionClass_MapStartDiagonal && y + x <= MapRegionClass_MapEndDiagonal;
 }
 
 void __fastcall MapRegionClass::Create_Zone_Regions_00576000(int zone_kind, int zone)
@@ -2294,7 +2294,7 @@ void MapRegionClass::Place_Neutral_Tech_Building_00576cd0()
 }
 
 
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 MapGeneratorClass::~MapGeneratorClass()
 {
     MapRegionClass::Destroy_Cell_Regions();
@@ -2875,7 +2875,7 @@ double __stdcall Sample_Truncated_Normal(double mean,double deviation,double min
 
 
 extern void (__cdecl *RMGCallback)();
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 extern int unknown_a3d2a4;
 bool __cdecl Generate_Starting_Points_00576420();
 double __cdecl Map_Random_Fraction_00579770();
@@ -2921,8 +2921,8 @@ inline void MapGeneratorClass::Init_Regions()
     int index;
     MapRegionClass::Destroy_Cell_Regions();
     Make_Water_Regions_0056e890();
-    for(index=0;index<unknown_map_regions_a6fd28.Count();++index) {
-        MapRegionClass *region=unknown_map_regions_a6fd28[index];
+    for(index=0;index<MapRegionClass_MapRegions.Count();++index) {
+        MapRegionClass *region=MapRegionClass_MapRegions[index];
         if(region->unknown_14) {
             int wetMap=SeedData.MapType==3 || SeedData.MapType==4;
             region->Grow_Border_00570040((region->CellCount>8000)+4+!(unsigned char)wetMap);
@@ -3029,8 +3029,8 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
             RMGCellData[index].unknown_3c=-1;
         }
     }
-    for(index=(int)((unsigned)unknown_map_regions_a6fd28.Count()-1u);index>=0;--index) {
-        MapRegionClass *region=unknown_map_regions_a6fd28[index];
+    for(index=(int)((unsigned)MapRegionClass_MapRegions.Count()-1u);index>=0;--index) {
+        MapRegionClass *region=MapRegionClass_MapRegions[index];
         if(region)delete region;
     }
     unknown_map_region_next_index_a70a28=0;
@@ -3098,8 +3098,8 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
         delete [] RMGCellData;
         RMGCellData=0;
     }
-    for(index=(int)((unsigned int)unknown_map_regions_a6fd28.Count()-1u);index>=0;--index) {
-        MapRegionClass *region=unknown_map_regions_a6fd28[index];
+    for(index=(int)((unsigned int)MapRegionClass_MapRegions.Count()-1u);index>=0;--index) {
+        MapRegionClass *region=MapRegionClass_MapRegions[index];
         if(region!=0)delete region;
     }
     unknown_map_region_next_index_a70a28=0;
@@ -3125,7 +3125,7 @@ extern void (__cdecl *RMGCallback)();
 extern int const unknown_width_min_7a5b6c[7], unknown_width_max_7a5b88[7];
 extern int const unknown_height_min_7a5ba4[7], unknown_height_max_7a5bc0[7];
 extern float const unknown_waterfall_probability_7a5b68;
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 // Existing scenario waypoint-clear operation; canonical provider identity/ABI retained.
 namespace seed_00663220 { void __fastcall Clear_All_Waypoints_00663220(int address); }
 void __stdcall Report_Generation_Progress_0057be50(int progress);
@@ -3143,8 +3143,8 @@ double __cdecl Map_Random_Fraction_00579770();
 void __fastcall Clear_Map_Regions_0056da00()
 {
     unknown_map_region_next_index_a70a28=0;
-    for (int index=(int)((unsigned)unknown_map_regions_a6fd28.Count()-1u);index>=0;--index) {
-        delete unknown_map_regions_a6fd28[index];
+    for (int index=(int)((unsigned)MapRegionClass_MapRegions.Count()-1u);index>=0;--index) {
+        delete MapRegionClass_MapRegions[index];
     }
 }
 
@@ -3558,7 +3558,7 @@ void Fill_Adjacent_Empty_Tiles_0057ceb0()
             for(int facing=0;facing<8;facing+=2) {
                 CellClass &adjacent=cell->Adjacent_Cell(facing);
                 if(adjacent.Is_Tile_Clear())
-                    adjacent.IsoTileIndex=unknown_tileset_a52c60;
+                    adjacent.IsoTileIndex=IsometricTileTypeClass_GreenTile;
             }
         }
     }
@@ -3591,7 +3591,7 @@ void MapGeneratorClass::Scatter_Green_Tiles()
         } while(index>maximum);
         CellClass *cell=candidates[index];
         candidates.Delete((int)index);
-        cell->IsoTileIndex=unknown_tileset_a52c60;
+        cell->IsoTileIndex=IsometricTileTypeClass_GreenTile;
         for(int facing=0;facing<8;facing+=2) {
             CellClass *adjacent=&cell->Adjacent_Cell(facing);
             if(adjacent->Is_Tile_Clear())candidates.Add(adjacent);
@@ -3625,7 +3625,7 @@ double __stdcall Direction_Weighted_Cell_Distance_0057d120(Cell const *from,Cell
 
 // Not exact (RA2_NON_MATCHING): MapRegionClass::Split_Region_0056ef20 at 0x0056EF20, best score 53.91, 2026-11-13; differs: 1250 instructions in the original, 1284 in the draft (shape 93.76)
 #ifdef RA2_NON_MATCHING
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 extern int const unknown_facing_offsets_84c838[8];
 double __stdcall Unknown_Cell_Score_0056dff0(Cell const &from, Cell const &to, double direction);
 
@@ -3644,9 +3644,9 @@ static inline UnknownVeinNode *Split_Remove_Min(UnknownVeinHeap *queue)
 
 static inline MapRegionClass *Split_From_ID(int id)
 {
-    for (int i = 0; i < unknown_map_regions_a6fd28.Count(); i++) {
-        if (unknown_map_regions_a6fd28[i]->Index == id) {
-            return unknown_map_regions_a6fd28[i];
+    for (int i = 0; i < MapRegionClass_MapRegions.Count(); i++) {
+        if (MapRegionClass_MapRegions[i]->Index == id) {
+            return MapRegionClass_MapRegions[i];
         }
     }
     return 0;
@@ -3902,8 +3902,8 @@ bool MapRegionClass::Split_Region_0056ef20()
         }
     }
 
-    for (i = unknown_map_regions_a6fd28.Count() - 1; i >= 0; i--) {
-        MapRegionClass *region = unknown_map_regions_a6fd28[i];
+    for (i = MapRegionClass_MapRegions.Count() - 1; i >= 0; i--) {
+        MapRegionClass *region = MapRegionClass_MapRegions[i];
         if (region != this && region->unknown_24) {
             delete region;
         }
@@ -4155,22 +4155,22 @@ void MapGeneratorClass::Vary_Water_Tiles()
 {
     Map.Reset_Iterator();
     for(CellClass *cell=Map.Iterate();cell;cell=Map.Iterate()) {
-        if(cell->IsoTileIndex==unknown_tileset_a52580 && cell->unknown_11a==0) {
+        if(cell->IsoTileIndex==IsometricTileTypeClass_WaterSet && cell->unknown_11a==0) {
             CellClass &east=cell->Adjacent_Cell(2);
             CellClass &south=cell->Adjacent_Cell(4);
             CellClass &corner=cell->Adjacent_Cell(3);
-            if(east.IsoTileIndex==unknown_tileset_a52580 && east.unknown_11a==0 &&
-               south.IsoTileIndex==unknown_tileset_a52580 && south.unknown_11a==0 &&
-               corner.IsoTileIndex==unknown_tileset_a52580 && corner.unknown_11a==0 &&
+            if(east.IsoTileIndex==IsometricTileTypeClass_WaterSet && east.unknown_11a==0 &&
+               south.IsoTileIndex==IsometricTileTypeClass_WaterSet && south.unknown_11a==0 &&
+               corner.IsoTileIndex==IsometricTileTypeClass_WaterSet && corner.unknown_11a==0 &&
                Map_Random_Range_005797a0(1,10)!=1) {
                     int sample=(int)Map_Random_Range_005797a0(0,241);
                     int variant=sample>=240 ?247-sample:sample/40;
                     Cell const &position=cell->MapCoords;
                     int region=!RMGCellData ?-1:RMGCellData[position.Y*MapCellStride+position.X].RegionIndex;
-                    Stamp_Tile_005883f0(unknown_tileset_a52580+variant,position,region,-1);
+                    Stamp_Tile_005883f0(IsometricTileTypeClass_WaterSet+variant,position,region,-1);
             } else {
                 unsigned sample=Map_Random_Range_005797a0(0,200);
-                cell->IsoTileIndex=unknown_tileset_a52580+sample/40+8;
+                cell->IsoTileIndex=IsometricTileTypeClass_WaterSet+sample/40+8;
             }
         }
     }
@@ -4184,7 +4184,7 @@ bool __stdcall Fill_Empty_Region_Tiles_0057dfe0(int index)
     for(CellClass *cell=Map.Iterate();cell;cell=Map.Iterate()) {
         int region=!RMGCellData ? -1 : RMGCellData[cell->MapCoords.Y*MapCellStride+cell->MapCoords.X].RegionIndex;
         if(region==index && (cell->IsoTileIndex==0 || cell->IsoTileIndex==0xffff))
-            cell->IsoTileIndex=unknown_tileset_a52c60;
+            cell->IsoTileIndex=IsometricTileTypeClass_GreenTile;
     }
     return 1;
 }
@@ -4272,7 +4272,7 @@ bool MapGeneratorClass::Seed_Lake(Cell const &origin)
             if(node==0 || !success)break;
             Set_Cell_Region_Index_0056e970(node->Position,(int)WorkingRegionID);
             CellClass *current=&Map[node->Position];
-            current->IsoTileIndex=unknown_tileset_a52580;
+            current->IsoTileIndex=IsometricTileTypeClass_WaterSet;
             current->unknown_11a=0;
             int facing=0;
             UnknownVeinNode *next=nodes+used;
@@ -4301,7 +4301,7 @@ bool MapGeneratorClass::Seed_Lake(Cell const &origin)
         unsigned index=(unsigned)(int)remaining->Position.Y*(unsigned)MapCellStride+(unsigned)(int)remaining->Position.X;
         UnknownMapGenerationCell &data=RMGCellData[index];
         if(data.RegionIndex==0 && current->Is_Tile_Clear() && data.Marked) {
-            current->IsoTileIndex=unknown_tileset_a52580;
+            current->IsoTileIndex=IsometricTileTypeClass_WaterSet;
             current->unknown_11a=0;
             data.RegionIndex=(int)WorkingRegionID;
         } else success=0;
@@ -4322,7 +4322,7 @@ bool MapGeneratorClass::Seed_Lake(Cell const &origin)
             Map.Reset_Iterator();
             for(CellClass *cell=Map.Iterate();cell;cell=Map.Iterate()) {
                 int index=UnknownMapGenerationCell::Get_Region(cell->MapCoords);
-                if(index==region && (cell->IsoTileIndex==0 || cell->IsoTileIndex==0xffff))cell->IsoTileIndex=unknown_tileset_a52c60;
+                if(index==region && (cell->IsoTileIndex==0 || cell->IsoTileIndex==0xffff))cell->IsoTileIndex=IsometricTileTypeClass_GreenTile;
             }
             success=1;
         }
@@ -4463,7 +4463,7 @@ bool MapGeneratorClass::Seed_River(Cell const &point,double value,bool flag)
                             MapRegionClass::Get_Cell_Data(pcell).RegionIndex=WorkingRegionID;
                         }
                         CellClass *cellptr=&Map[Cell((int)px,(int)py)];
-                        cellptr->IsoTileIndex=unknown_tileset_a52580;
+                        cellptr->IsoTileIndex=IsometricTileTypeClass_WaterSet;
                         cellptr->unknown_11a=0;
                     } else {
                         success=false;
@@ -4596,7 +4596,7 @@ bool MapGeneratorClass::Seed_River(Cell const &point,double value,bool flag)
 
             while(cptr!=0) {
                 if(UnknownMapGenerationCell::Get_Region(cptr->MapCoords)==region_id && (cptr->IsoTileIndex==0 || cptr->IsoTileIndex==0xffff)) {
-                    cptr->IsoTileIndex=unknown_tileset_a52c60;
+                    cptr->IsoTileIndex=IsometricTileTypeClass_GreenTile;
                 }
                 cptr=Map.Iterate();
             }
@@ -4774,7 +4774,7 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 		for (xx = seed.X; xx < seed.X + seed.Width; xx++) {
 			if (Generation_Cell_In_Bounds_0058da10(Cell(xx, yy))) {
 				int tile_index = Map_Random_Range_005797a0(0, 5);
-				Map[Cell(xx, yy)].IsoTileIndex = tile_index+unknown_tileset_a52580;
+				Map[Cell(xx, yy)].IsoTileIndex = tile_index+IsometricTileTypeClass_WaterSet;
 
 				int subtile = Map_Random_Range_005797a0(0, 3);
 				Map[Cell(xx, yy)].unknown_11a = subtile;
@@ -4808,7 +4808,7 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 					for (xx = patch.X; xx < patch.X + patch.Width; xx++) {
 						if (Generation_Cell_In_Bounds_0058da10(Cell(xx, yy))) {
 							int tile_index = Map_Random_Range_005797a0(0, 5);
-							Map[Cell(xx, yy)].IsoTileIndex = tile_index+unknown_tileset_a52580;
+							Map[Cell(xx, yy)].IsoTileIndex = tile_index+IsometricTileTypeClass_WaterSet;
 
 							int subtile = Map_Random_Range_005797a0(0, 3);
 							Map[Cell(xx, yy)].unknown_11a = subtile;
@@ -4827,11 +4827,11 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						Cell base(patch.X, patch.Y + patch.Height);
 						int height = Map[base + Cell(2, 0)].unknown_11b;
 
-						Map.PendingObject = IsoTileTypes[unknown_tileset_a52584];
+						Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallEast];
 						Map.Set_Cursor_Pos(base);
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
-						Map.PendingObject = IsoTileTypes[unknown_tileset_a52584+3];
+						Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallEast+3];
 						Map.Set_Cursor_Pos(base - Cell(0, patch.Height + 2));
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
@@ -4862,12 +4862,12 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						do {
 							if (remaining % 2) {
 								Map.Set_Cursor_Pos(base - Cell(0, seg + 1));
-								Map.PendingObject = IsoTileTypes[unknown_tileset_a52584 + 1];
+								Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallEast + 1];
 								seg++;
 								remaining--;
 							} else {
 								Map.Set_Cursor_Pos(base - Cell(0, seg + 2));
-								Map.PendingObject = IsoTileTypes[unknown_tileset_a52584 + 2];
+								Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallEast + 2];
 								seg += 2;
 								remaining -= 2;
 							}
@@ -4881,11 +4881,11 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						Cell base(seed.X - 2, patch.Y + patch.Height);
 						int height = Map[base - Cell(2, 0)].unknown_11b;
 
-						Map.PendingObject = IsoTileTypes[unknown_tileset_a6cf58];
+						Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallWest];
 						Map.Set_Cursor_Pos(base);
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
-						Map.PendingObject = IsoTileTypes[unknown_tileset_a6cf58+3];
+						Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallWest+3];
 						Map.Set_Cursor_Pos(base - Cell(0, patch.Height + 2));
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
@@ -4923,12 +4923,12 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						do {
 							if (remaining % 2) {
 								Map.Set_Cursor_Pos(base - Cell(-1, seg + 1));
-								Map.PendingObject = IsoTileTypes[unknown_tileset_a6cf58 + 1];
+								Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallWest + 1];
 								seg++;
 								remaining--;
 							} else {
 								Map.Set_Cursor_Pos(base - Cell(-1, seg + 2));
-								Map.PendingObject = IsoTileTypes[unknown_tileset_a6cf58 + 2];
+								Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallWest + 2];
 								seg += 2;
 								remaining -= 2;
 							}
@@ -4942,11 +4942,11 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						Cell base(patch.X - 2, patch.Y);
 						int height = Map[base + Cell(0, 2)].unknown_11b;
 
-						Map.PendingObject = IsoTileTypes[unknown_tileset_a52ea0];
+						Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallSouth];
 						Map.Set_Cursor_Pos(base);
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
-						Map.PendingObject = IsoTileTypes[unknown_tileset_a52ea0+3];
+						Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallSouth+3];
 						Map.Set_Cursor_Pos(base + Cell(patch.Width + 2, 0));
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
@@ -4977,12 +4977,12 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						do {
 							if (remaining % 2) {
 								Map.Set_Cursor_Pos(base + Cell(seg + 2, 0));
-								Map.PendingObject = IsoTileTypes[unknown_tileset_a52ea0 + 1];
+								Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallSouth + 1];
 								seg++;
 								remaining--;
 							} else {
 								Map.Set_Cursor_Pos(base + Cell(seg + 2, 0));
-								Map.PendingObject = IsoTileTypes[unknown_tileset_a52ea0 + 2];
+								Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallSouth + 2];
 								seg += 2;
 								remaining -= 2;
 							}
@@ -4996,11 +4996,11 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						Cell base(seed.X - 2, seed.Y - 2);
 						int height = Map[base - Cell(0, 2)].unknown_11b;
 
-						Map.PendingObject = IsoTileTypes[unknown_tileset_a52ef0];
+						Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallNorth];
 						Map.Set_Cursor_Pos(base);
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
-						Map.PendingObject = IsoTileTypes[unknown_tileset_a52ef0+3];
+						Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallNorth+3];
 						Map.Set_Cursor_Pos(base + Cell(patch.Width + 2, 0));
 						Map.Pick_Random_Tile_Variant(0,0x10000,height,WorkingRegionID,place_ok,false);
 
@@ -5038,12 +5038,12 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						do {
 							if (remaining % 2) {
 								Map.Set_Cursor_Pos(base + Cell(seg + 2, 1));
-								Map.PendingObject = IsoTileTypes[unknown_tileset_a52ef0 + 1];
+								Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallNorth + 1];
 								seg++;
 								remaining--;
 							} else {
 								Map.Set_Cursor_Pos(base + Cell(seg + 2, 1));
-								Map.PendingObject = IsoTileTypes[unknown_tileset_a52ef0 + 2];
+								Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallNorth + 2];
 								seg += 2;
 								remaining -= 2;
 							}
@@ -5290,7 +5290,7 @@ void __stdcall Increment_Other_Region_Cell_Byte_00582ab0(int value,int index)
 unsigned int __fastcall Map_Random_Range_005797a0(unsigned int,unsigned int);
 int MapGeneratorClass::Pick_Alternate_Cliff(int tile)
 {
-    tile-=unknown_tileset_a52e68;
+    tile-=IsometricTileTypeClass_CliffSet;
     switch(tile) {
     case 4: tile=Map_Random_Range_005797a0(1,2)+4; break;
     case 5: tile=Map_Random_Range_005797a0(0,1)*2+4; break;
@@ -5313,7 +5313,7 @@ int MapGeneratorClass::Pick_Alternate_Cliff(int tile)
     case 35: tile=Map_Random_Range_005797a0(0,1)*2+34; break;
     case 36: tile=Map_Random_Range_005797a0(0,1)+34; break;
     }
-    return tile+unknown_tileset_a52e68;
+    return tile+IsometricTileTypeClass_CliffSet;
 }
 
 
@@ -5325,7 +5325,7 @@ void MapGeneratorClass::Vary_Cliff_Runs()
     CellClass *cellptr=Map.Iterate();
 
     while(cellptr!=0) {
-        if(cellptr->IsoTileIndex>=unknown_tileset_a52e68 && cellptr->IsoTileIndex<unknown_tileset_a52e68+40) {
+        if(cellptr->IsoTileIndex>=IsometricTileTypeClass_CliffSet && cellptr->IsoTileIndex<IsometricTileTypeClass_CliffSet+40) {
             CellClass &south=cellptr->Adjacent_Cell(4);
             CellClass &east=cellptr->Adjacent_Cell(2);
 
@@ -5424,7 +5424,7 @@ void Fixup_Cliff_Corners()
 
 
 // Actual ECX is read at+3C: MapSeed prefix/reference/constness and free ownership are hypotheses.
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 // Existing exact global/type/name; no definition or initializer.
 // Physical ECX CellClass pointer, no stack argument, full EAX constructed region or explicit-zero path.
 // Free/member spelling and name are hypotheses; no outside-range body is promoted.
@@ -5438,8 +5438,8 @@ void __fastcall Rebuild_Region_Grid_00583450(MapSeedClass const &options)
             MapRegionClass::Get_Cell_Data(index).unknown_3c=-1;
         }
     }
-    for(int reverse=(int)((unsigned int)unknown_map_regions_a6fd28.Count()-1u);reverse>=0;--reverse) {
-        MapRegionClass *region=unknown_map_regions_a6fd28[reverse];
+    for(int reverse=(int)((unsigned int)MapRegionClass_MapRegions.Count()-1u);reverse>=0;--reverse) {
+        MapRegionClass *region=MapRegionClass_MapRegions[reverse];
         delete region;
     }
     {
@@ -5455,8 +5455,8 @@ void __fastcall Rebuild_Region_Grid_00583450(MapSeedClass const &options)
             }
         }
     }
-    for(int index=0;index<unknown_map_regions_a6fd28.Count();++index) {
-        MapRegionClass *region=unknown_map_regions_a6fd28[index];
+    for(int index=0;index<MapRegionClass_MapRegions.Count();++index) {
+        MapRegionClass *region=MapRegionClass_MapRegions[index];
         if(region->unknown_14!=0) {
             int special;
             if(options.MapType==3 || options.MapType==4)special=1;
@@ -5577,7 +5577,7 @@ bool MapGeneratorClass::Init_Start_Points()
 // Scatters resource fields over each region's resource cells, then gives every starting position in the
 // region a field of its own (TibSun Create_Tiberium; RA2 groups both by map region). The one-line helpers
 // add free /Ob2 sites: VectorClass<double>'s constructor stays out of line as in the original.
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 inline float Cell_Distance(Cell const &cell,int x,int y)
 {
     int dx=cell.X-x;
@@ -5618,8 +5618,8 @@ void MapGeneratorClass::Create_Tiberium()
             break;
     }
 
-    for(int index=0;index<unknown_map_regions_a6fd28.Count();index++) {
-        MapRegionClass *region=unknown_map_regions_a6fd28[index];
+    for(int index=0;index<MapRegionClass_MapRegions.Count();index++) {
+        MapRegionClass *region=MapRegionClass_MapRegions[index];
         DynamicVectorClass<Cell> *&layout=*(DynamicVectorClass<Cell> **)&region->unknown_00;
         if(layout==0) {
             continue;
@@ -5795,7 +5795,7 @@ inline bool Hill_In_Radar(Cell const &cell)
 {
     int x=cell.X;
     int y=cell.Y;
-    return y+x>unknown_map_min_a70a1c && x-y<unknown_map_min_a70a1c && y-x<unknown_map_min_a70a1c && y+x<=unknown_map_max_a70a20;
+    return y+x>MapRegionClass_MapStartDiagonal && x-y<MapRegionClass_MapStartDiagonal && y-x<MapRegionClass_MapStartDiagonal && y+x<=MapRegionClass_MapEndDiagonal;
 }
 
 void MapGeneratorClass::Seed_Hill_Heights()
@@ -6040,8 +6040,8 @@ double __cdecl Map_Random_Fraction_00579770();
 double __stdcall Sample_Truncated_Normal(double,double,double,double);
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
 int __fastcall Map_Cell_Count();
-extern int unknown_tileset_a6e0e8;
-extern int unknown_tileset_a6cf4c;
+extern int IsometricTileTypeClass_RoughTile;
+extern int IsometricTileTypeClass_SandTile;
 // Same-file bodies of MapRegionClass::Pick_Random_Map_Cell 0x56D720 and Pick_Random_Clear_Map_Cell 0x56D7A0,
 // accepted in their own population; this unit expands them.
 inline bool Overlay_Is_Clear(CellClass const *cell)
@@ -6095,11 +6095,11 @@ void MapGeneratorClass::Generate_Vegetation()
             Cell origin=cell->Fetch_CellID();
             int originID=(int)((unsigned)(int)origin.Y*512u+(unsigned)(int)origin.X);
             if(Map_Random_Fraction_00579770()<data.unknown_18) {
-                Place_Tile_Patch(cell,unknown_tileset_a6e0e8,(int)Sample_Truncated_Normal(green_mean,20.0,4.0,80.0),originID,false);
+                Place_Tile_Patch(cell,IsometricTileTypeClass_RoughTile,(int)Sample_Truncated_Normal(green_mean,20.0,4.0,80.0),originID,false);
             } else if(Map_Random_Fraction_00579770()<data.unknown_28) {
-                Place_Tile_Patch(cell,unknown_tileset_a6cf4c,(int)Sample_Truncated_Normal(sand_mean,20.0,4.0,80.0),originID,false);
+                Place_Tile_Patch(cell,IsometricTileTypeClass_SandTile,(int)Sample_Truncated_Normal(sand_mean,20.0,4.0,80.0),originID,false);
             } else if(Map_Random_Fraction_00579770()<data.unknown_20) {
-                Place_Tile_Patch(cell,unknown_tileset_a52c60,(int)Sample_Truncated_Normal(rough_mean,20.0,4.0,80.0),originID,false);
+                Place_Tile_Patch(cell,IsometricTileTypeClass_GreenTile,(int)Sample_Truncated_Normal(rough_mean,20.0,4.0,80.0),originID,false);
             }
         }
         cell=Map.Iterate();
@@ -6316,7 +6316,7 @@ DynamicVectorClass<Cell> *MapGeneratorClass::Create_Urban_Area(Cell const &cell,
     cells->Set_Growth_Step(size + 2);
 
     while (processed < size && node != 0) {
-        Map[node->Position].IsoTileIndex = unknown_tileset_a6e0e0;
+        Map[node->Position].IsoTileIndex = IsometricTileTypeClass_PaveTile;
         cells->Add(node->Position);
 
         UnknownVeinNode *newnode = &nodes[node_count];
@@ -6357,7 +6357,7 @@ DynamicVectorClass<Cell> *MapGeneratorClass::Create_Urban_Area(Cell const &cell,
         Cell c = (*cells)[cell_index];
         for (int dir = FACING_N; dir < FACING_COUNT; dir++) {
             Cell newcell = Region_Adjacent_Cell(c, dir);
-            if (Hill_In_Radar(newcell) && Map[newcell].IsoTileIndex != unknown_tileset_a6e0e0) {
+            if (Hill_In_Radar(newcell) && Map[newcell].IsoTileIndex != IsometricTileTypeClass_PaveTile) {
                 cells->Delete(cell_index);
             }
         }
@@ -6377,7 +6377,7 @@ DynamicVectorClass<Cell> *MapGeneratorClass::Create_Urban_Area(Cell const &cell,
             for (int m = 0; m < 2; m++) {
                 for (int n = 0; n < 2; n++) {
                     Cell c = base + Cell(m, n);
-                    if (!MapRegionClass::Get_Cell_Data(c).unknown_45[0] || Map[c].IsoTileIndex != unknown_tileset_a6e0e0) {
+                    if (!MapRegionClass::Get_Cell_Data(c).unknown_45[0] || Map[c].IsoTileIndex != IsometricTileTypeClass_PaveTile) {
                         place = false;
                     }
                 }
@@ -6385,7 +6385,7 @@ DynamicVectorClass<Cell> *MapGeneratorClass::Create_Urban_Area(Cell const &cell,
         }
 
         if (place) {
-            Place_Tile_Footprint_005883f0(unknown_tileset_a52ef4 + tile_variant, base, -1, -1);
+            Place_Tile_Footprint_005883f0(IsometricTileTypeClass_MiscPaveTile + tile_variant, base, -1, -1);
         }
     }
 
@@ -6434,19 +6434,19 @@ void MapGeneratorClass::Generate_Urban_Roads(DynamicVectorClass<Cell> &cells)
 
             if(valid && end.X-first>=6) {
                 if(Can_Place_Paved_Road_00588a30(Rect(junction.X-4,junction.Y,4,3),false,false) && Map_Random_Range_005797a0(0,1)) {
-                    Place_Tile_Footprint_005883f0(unknown_tileset_a6dd0c+9,junction-Cell(3,0));
+                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoads+9,junction-Cell(3,0));
                 } else {
-                    Place_Tile_Footprint_005883f0(unknown_tileset_a6dd08+2,junction);
+                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoadEnds+2,junction);
                 }
 
                 for(int x=0;x<end.X-junction.X-1;x++) {
-                    Place_Tile_Footprint_005883f0(unknown_tileset_a6dd0c,junction+Cell(x+1,0));
+                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoads,junction+Cell(x+1,0));
                 }
 
                 if(Can_Place_Paved_Road_00588a30(Rect(end.X,end.Y,4,3),false,false) && Map_Random_Range_005797a0(0,1)) {
-                    Place_Tile_Footprint_005883f0(unknown_tileset_a6dd0c+10,end);
+                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoads+10,end);
                 } else {
-                    Place_Tile_Footprint_005883f0(unknown_tileset_a6dd08,end);
+                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoadEnds,end);
                 }
 
                 remaining-=10;
@@ -6487,33 +6487,33 @@ void MapGeneratorClass::Generate_Urban_Roads(DynamicVectorClass<Cell> &cells)
                         }
 
                         if(initial && Can_Place_Paved_Road_00588a30(Rect(cursor.X,cursor.Y-3,3,4),false,false) && Map_Random_Range_005797a0(0,1)) {
-                            Place_Tile_Footprint_005883f0(unknown_tileset_a6dd0c+13,cursor-Cell(0,3));
+                            Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoads+13,cursor-Cell(0,3));
                             in_segment=true;
                         } else if(Can_Place_Paved_Road_Junction_00588ec0(junction_rect)) {
-                            Place_Tile_Footprint_005883f0(unknown_tileset_a6dd0c+5,cursor-Cell(0,3));
-                            Place_Tile_Footprint_005883f0(unknown_tileset_a6dd0c+1,cursor);
+                            Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoads+5,cursor-Cell(0,3));
+                            Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoads+1,cursor);
                             in_segment=true;
                         } else if(Can_Place_Paved_Road_00588a30(road_rect,false,false)) {
-                            Place_Tile_Footprint_005883f0(unknown_tileset_a6dd08+1,cursor);
+                            Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoadEnds+1,cursor);
                             in_segment=true;
                         }
                     } else {
                         if(Can_Place_Paved_Road_00588a30(Rect(cursor.X,cursor.Y,3,1),false,false)) {
-                            Place_Tile_Footprint_005883f0(unknown_tileset_a6dd0c+1,cursor);
+                            Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoads+1,cursor);
 
                             if(median_pending) {
                                 if(median_flip) {
-                                    Place_Tile_Footprint_005883f0(unknown_tileset_a52c68+5,cursor+Cell(1,0));
+                                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_Medians+5,cursor+Cell(1,0));
                                     median_flip=false;
                                 } else {
-                                    Place_Tile_Footprint_005883f0(unknown_tileset_a52c68+4,cursor+Cell(1,0));
+                                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_Medians+4,cursor+Cell(1,0));
                                 }
                             }
                         } else {
                             Rect junction_rect(cursor.X,cursor.Y,3,4);
 
                             if(median_pending) {
-                                Place_Tile_Footprint_005883f0(unknown_tileset_a52c68+3,cursor+Cell(1,-1));
+                                Place_Tile_Footprint_005883f0(IsometricTileTypeClass_Medians+3,cursor+Cell(1,-1));
                                 median_pending=false;
                             }
 
@@ -6521,7 +6521,7 @@ void MapGeneratorClass::Generate_Urban_Roads(DynamicVectorClass<Cell> &cells)
                                 int bottom=end.Y;
 
                                 if(bottom-cursor.Y<4) {
-                                    Place_Tile_Footprint_005883f0(unknown_tileset_a6dd0c+7,cursor);
+                                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoads+7,cursor);
                                     skip_tail=true;
                                     break;
                                 }
@@ -6533,25 +6533,25 @@ void MapGeneratorClass::Generate_Urban_Roads(DynamicVectorClass<Cell> &cells)
                                     }
                                 }
 
-                                Place_Tile_Footprint_005883f0(unknown_tileset_a6dd0c+3,cursor);
+                                Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoads+3,cursor);
 
                                 if(Can_Place_Paved_Road_00588a30(Rect(cursor.X-1,cursor.Y,1,3),true,false)) {
-                                    Place_Tile_Footprint_005883f0(unknown_tileset_a52c68+12,cursor-Cell(1,0));
+                                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_Medians+12,cursor-Cell(1,0));
                                 }
 
                                 if(Can_Place_Paved_Road_00588a30(Rect(cursor.X+3,cursor.Y,1,3),true,false)) {
-                                    Place_Tile_Footprint_005883f0(unknown_tileset_a52c68+12,cursor+Cell(3,0));
+                                    Place_Tile_Footprint_005883f0(IsometricTileTypeClass_Medians+12,cursor+Cell(3,0));
                                 }
 
                                 cursor.Y+=2;
                             } else {
-                                Place_Tile_Footprint_005883f0(unknown_tileset_a6dd08+3,cursor-Cell(0,1));
+                                Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoadEnds+3,cursor-Cell(0,1));
 
                                 CellClass *cellptr=&Map[cursor+Cell(1,-2)];
 
                                 if(cellptr->Is_Tile_Road_Median()) {
                                     while(cellptr->Is_Tile_Road_Median()) {
-                                        cellptr->IsoTileIndex=unknown_tileset_a6dd0c+1;
+                                        cellptr->IsoTileIndex=IsometricTileTypeClass_PavedRoads+1;
                                         cellptr->unknown_11a=1;
                                         cellptr=&cellptr->Adjacent_Cell(0);
                                     }
@@ -6568,13 +6568,13 @@ void MapGeneratorClass::Generate_Urban_Roads(DynamicVectorClass<Cell> &cells)
 
                 if(!skip_tail) {
                     if(median_pending) {
-                        Place_Tile_Footprint_005883f0(unknown_tileset_a52c68+3,cursor+Cell(1,-1));
+                        Place_Tile_Footprint_005883f0(IsometricTileTypeClass_Medians+3,cursor+Cell(1,-1));
                     }
 
                     if(Can_Place_Paved_Road_00588a30(Rect(cursor.X,cursor.Y,3,4),false,false) && Map_Random_Range_005797a0(0,1)) {
-                        Place_Tile_Footprint_005883f0(unknown_tileset_a6dd0c+12,cursor);
+                        Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoads+12,cursor);
                     } else {
-                        Place_Tile_Footprint_005883f0(unknown_tileset_a6dd08+3,cursor);
+                        Place_Tile_Footprint_005883f0(IsometricTileTypeClass_PavedRoadEnds+3,cursor);
                     }
                 }
 
@@ -6711,10 +6711,10 @@ void __fastcall Place_Tile_Footprint_005883f0(int tile,Cell const &position,int 
         for(int y=0;y<type->unknown_2b8;y++) {
             for(int x=0;x<type->unknown_2b4;x++) {
                 Cell where=position+Cell(x,y);
-                if((int)where.Y+(int)where.X>unknown_map_min_a70a1c &&
-                   (int)where.X-(int)where.Y<unknown_map_min_a70a1c &&
-                   (int)where.Y-(int)where.X<unknown_map_min_a70a1c &&
-                   (int)where.Y+(int)where.X<=unknown_map_max_a70a20) {
+                if((int)where.Y+(int)where.X>MapRegionClass_MapStartDiagonal &&
+                   (int)where.X-(int)where.Y<MapRegionClass_MapStartDiagonal &&
+                   (int)where.Y-(int)where.X<MapRegionClass_MapStartDiagonal &&
+                   (int)where.Y+(int)where.X<=MapRegionClass_MapEndDiagonal) {
                     CellClass &cell=Map[where];
                     int index=(int)((unsigned)type->unknown_2b4*(unsigned)y+(unsigned)x);
                     IsoTileCellStruct const *part=(IsoTileCellStruct const *)image->Tiles[index];
@@ -6737,7 +6737,7 @@ void __fastcall Place_Tile_Footprint_005883f0(int tile,Cell const &position,int 
 
 
 // TibSun Plan_Paved_Road_Junction: first paved tile along dir, then the first spot a junction fits, walked back a random distance. Member: ECX is the generator.
-extern int unknown_tileset_a6e0e0;
+extern int IsometricTileTypeClass_PaveTile;
 bool __fastcall Can_Place_Paved_Road_00588a30(Rect const &area,bool overlap,bool end);
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
 inline Cell Adjacent_Road_Cell(Cell const &cell,int facing)
@@ -6767,7 +6767,7 @@ Cell MapGeneratorClass::Plan_Paved_Road_Junction(Cell const &cell,Rect const &re
         if(!(wcell.X<area.X+area.Width && wcell.Y<area.Y+area.Height)) {
             return Cell(0,0);
         }
-        if(Map[wcell].IsoTileIndex==(unsigned)unknown_tileset_a6e0e0) {
+        if(Map[wcell].IsoTileIndex==(unsigned)IsometricTileTypeClass_PaveTile) {
             break;
         }
         wcell=Adjacent_Road_Cell(wcell,dir);
@@ -6922,7 +6922,7 @@ bool __fastcall Can_Place_Paved_Road_Junction_00588ec0(Rect &area)
         for(int y=area.Y;y<area.Y+3;++y) {
             for(int x=area.X;x<area.X+3;++x) {
                 CellClass &cell=Map[Cell(x,y)];
-                if((cell.IsoTileIndex<unknown_tileset_a6dd0c || cell.IsoTileIndex>unknown_tileset_a6dd0c+1) && !cell.Is_Tile_Road_Median()) return false;
+                if((cell.IsoTileIndex<IsometricTileTypeClass_PavedRoads || cell.IsoTileIndex>IsometricTileTypeClass_PavedRoads+1) && !cell.Is_Tile_Road_Median()) return false;
             }
         }
         for(int x=area.X;x<area.X+3;++x) {
@@ -6965,7 +6965,7 @@ void MapGeneratorClass::Generate_Urban_Pavement(DynamicVectorClass<Cell> &cells)
         if(fits) {
             unsigned variant;
             do { variant=(unsigned)((unsigned)RMGRandom()*(6.0/4294967295.0)); } while(variant>5);
-            int tile=variant+unknown_tileset_a52ef4+8;
+            int tile=variant+IsometricTileTypeClass_MiscPaveTile+8;
             for(int y=0;y<area.Height/2;++y) {
                 for(int x=0;x<area.Width/2;++x) {
                     Place_Tile_Footprint_005883f0(tile,Cell(area.X+2*x,area.Y+2*y),-1,-1);
@@ -6989,7 +6989,7 @@ bool __fastcall Can_Place_Misc_Pavement_00589320(Rect const &area)
             for(int x=area.X;x<area.X+area.Width;++x) {
                 CellClass &cell=Map[Cell(x,y)];
                 int tile=cell.IsoTileIndex;
-                if(!cell.Is_Tile_Pavement() && (tile<unknown_tileset_a52ef4 || tile>unknown_tileset_a52ef4+7))return false;
+                if(!cell.Is_Tile_Pavement() && (tile<IsometricTileTypeClass_MiscPaveTile || tile>IsometricTileTypeClass_MiscPaveTile+7))return false;
                 if(cell.OccupierPtr)return false;
             }
         }
@@ -7008,10 +7008,10 @@ bool __fastcall Can_Use_Tile_Footprint_005894e0(int tile,Cell const &position,un
     for(int y=0;y<type->unknown_2b8;y++) {
         for(int x=0;x<type->unknown_2b4;x++) {
             Cell where=position+Cell(x,y);
-            if((int)where.Y+(int)where.X>unknown_map_min_a70a1c &&
-               (int)where.X-(int)where.Y<unknown_map_min_a70a1c &&
-               (int)where.Y-(int)where.X<unknown_map_min_a70a1c &&
-               (int)where.Y+(int)where.X<=unknown_map_max_a70a20) {
+            if((int)where.Y+(int)where.X>MapRegionClass_MapStartDiagonal &&
+               (int)where.X-(int)where.Y<MapRegionClass_MapStartDiagonal &&
+               (int)where.Y-(int)where.X<MapRegionClass_MapStartDiagonal &&
+               (int)where.Y+(int)where.X<=MapRegionClass_MapEndDiagonal) {
                 CellClass &cell=Map[where];
                 unsigned char const *subtile=(unsigned char const *)image->Tiles[(int)((unsigned)type->unknown_2b4*(unsigned)y+(unsigned)x)];
                 if(subtile) {
@@ -7027,7 +7027,7 @@ bool __fastcall Can_Use_Tile_Footprint_005894e0(int tile,Cell const &position,un
 
 
 // Unchanged real existing original helper; natural standalone copy receives zero credit.
-extern int unknown_map_min_a70a1c,unknown_map_max_a70a20;
+extern int MapRegionClass_MapStartDiagonal,MapRegionClass_MapEndDiagonal;
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &cell);
 
 // Name/free fastcall/void intent are hypotheses, original ECX index/EDX Cell address.
@@ -7039,10 +7039,10 @@ void __fastcall Erase_Tile_Footprint_00589670(int tile,Cell const &position)
         for(int y=0;y<type->unknown_2b8;y++) {
             for(int x=0;x<type->unknown_2b4;x++) {
                 Cell where=position+Cell(x,y);
-                if((int)where.Y+(int)where.X>unknown_map_min_a70a1c &&
-                   (int)where.X-(int)where.Y<unknown_map_min_a70a1c &&
-                   (int)where.Y-(int)where.X<unknown_map_min_a70a1c &&
-                   (int)where.Y+(int)where.X<=unknown_map_max_a70a20) {
+                if((int)where.Y+(int)where.X>MapRegionClass_MapStartDiagonal &&
+                   (int)where.X-(int)where.Y<MapRegionClass_MapStartDiagonal &&
+                   (int)where.Y-(int)where.X<MapRegionClass_MapStartDiagonal &&
+                   (int)where.Y+(int)where.X<=MapRegionClass_MapEndDiagonal) {
                     CellClass &cell=Map[where];
                     if(image->Tiles[(int)((unsigned)type->unknown_2b4*(unsigned)y+(unsigned)x)]!=0) {
                         cell.IsoTileIndex=0xffff;
@@ -7167,7 +7167,7 @@ void MapGeneratorClass::Generate_Rural_Units(Cell const &origin)
 }
 
 
-extern int unknown_tileset_a6dd04;
+extern int IsometricTileTypeClass_DirtRoadSlopes;
 extern DirtRoadTile unknown_generation_paths_a700a0[109];
 unsigned int __fastcall Map_Random_Range_005797a0(unsigned int minimum,unsigned int maximum);
 bool __fastcall Can_Use_Tile_Footprint_005894e0(int tile,Cell const &position,unsigned char check_mark,unsigned char reject_outside);
@@ -7197,13 +7197,13 @@ inline FacingType Facing_Sub(int first,int second)
 // TibSun Dirt_Road_Tile_Index: the dirt road library entry of a tile type.
 inline int Dirt_Road_Tile_Index(int tile)
 {
-    if(tile>=unknown_tileset_a6e014 && tile<unknown_tileset_a6e014+101) {
-        return tile-unknown_tileset_a6e014;
+    if(tile>=IsometricTileTypeClass_DirtRoadCurve && tile<IsometricTileTypeClass_DirtRoadCurve+101) {
+        return tile-IsometricTileTypeClass_DirtRoadCurve;
     }
-    if(tile<unknown_tileset_a6dd04 || tile>=unknown_tileset_a6dd04+8) {
+    if(tile<IsometricTileTypeClass_DirtRoadSlopes || tile>=IsometricTileTypeClass_DirtRoadSlopes+8) {
         return 0;
     }
-    return tile-unknown_tileset_a6dd04+101;
+    return tile-IsometricTileTypeClass_DirtRoadSlopes+101;
 }
 
 // Lays a dirt road network out from a junction tile at cell (TibSun
@@ -7225,7 +7225,7 @@ bool MapGeneratorClass::Generate_Rural_Roads(Cell const &cell)
     int attempt=0;
     int junction;
     while(true) {
-        junction=unknown_tileset_a6cb6c+(int)(random_offset+attempt)%11;
+        junction=IsometricTileTypeClass_DirtRoadJunction+(int)(random_offset+attempt)%11;
         if(Can_Use_Tile_Footprint_005894e0(junction,cell,false,false)) {
             break;
         }
@@ -7468,7 +7468,7 @@ void MapGeneratorClass::Generate_Lights()
 
 
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 inline int Region_Size(MapRegionClass const *region)
 {
     return region->unknown_20;
@@ -7494,9 +7494,9 @@ void MapGeneratorClass::Generate_Neutral_Buildings()
     if(SeedData.MapType==2) {
         int count=Map_Random_Range_005797a0(0,2);
         for(int pass=count;pass>0;pass--) {
-            for(int index=0;index<unknown_map_regions_a6fd28.Count();index++) {
-                if(Region_Size(unknown_map_regions_a6fd28[index])>0) {
-                    unknown_map_regions_a6fd28[index]->Place_Neutral_Tech_Building_00576cd0();
+            for(int index=0;index<MapRegionClass_MapRegions.Count();index++) {
+                if(Region_Size(MapRegionClass_MapRegions[index])>0) {
+                    MapRegionClass_MapRegions[index]->Place_Neutral_Tech_Building_00576cd0();
                 }
             }
         }
@@ -7949,8 +7949,8 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
             Cell adjacent = current->Position + unknown_adjacent_851a70[direction & 7];
             int x = adjacent.X;
             int y = adjacent.Y;
-            if (y + x > unknown_map_min_a70a1c && x - y < unknown_map_min_a70a1c &&
-                y - x < unknown_map_min_a70a1c && y + x <= unknown_map_max_a70a20) {
+            if (y + x > MapRegionClass_MapStartDiagonal && x - y < MapRegionClass_MapStartDiagonal &&
+                y - x < MapRegionClass_MapStartDiagonal && y + x <= MapRegionClass_MapEndDiagonal) {
                 UnknownMapGenerationCell &data = MapRegionClass::Get_Cell_Data(adjacent);
                 if (data.RegionIndex == 0 && data.unknown_3c != (int)WorkingRegionID) {
                     if (Map[adjacent].Is_Tile_With_Water() && used < capacity &&
@@ -7996,14 +7996,14 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
 
     Map.Reset_Iterator();
     for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
-        if (cell->IsoTileIndex >= unknown_tileset_a6cb74 && cell->IsoTileIndex < unknown_tileset_a6cb74 + 42) {
+        if (cell->IsoTileIndex >= IsometricTileTypeClass_ShorePieces && cell->IsoTileIndex < IsometricTileTypeClass_ShorePieces + 42) {
             cell->IsoTileIndex = 0;
             cell->unknown_11a = 0;
         }
     }
 
     if (!shores) {
-        int tile = unknown_tileset_a52580;
+        int tile = IsometricTileTypeClass_WaterSet;
         int region = WorkingRegionID;
         Map.Reset_Iterator();
         for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {

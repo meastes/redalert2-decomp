@@ -61,7 +61,7 @@ extern char const launcher_shutdown_log_007d530c[] = "COPYPROTECTION - Shutdown\
 // ("*70,", "70#,", "1170,", then the custom entry) spelled as labels of the
 // user's ra2.csf. ORDER AND NAMES 2-4 ARE A HYPOTHESIS from that text (compared
 // privately with the target: equal); check when Session.CPP's data is recovered.
-char const *unknown_call_wait_labels_7f3214[4] = {
+char const *SessionClass_CallWaitStringIDs[4] = {
     "TXT_CWAIT_STAR70", "TXT_CWAIT_70NUM", "TXT_CWAIT_1170", "TXT_CUSTOM",
 };
 

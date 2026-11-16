@@ -59,7 +59,7 @@ bool __fastcall Set_Video_Mode(HWND window, int width, int height, int bits);   
 // Reallocates the off-screen surfaces for the visible rectangle (0x00519500; TS Allocate_Surfaces).
 bool __fastcall Allocate_Surfaces(Rect *common, Rect *composite, Rect *tile, Rect *sidebar, bool clear);
 // Rebuilds the colour remap tables from the old pixel format shifts (0x00486010).
-void __fastcall Unknown_00486010(int red_right, int red_left, int green_right, int green_left, int blue_right, int blue_left);
+void __fastcall ConvertClass_Reinitialize_Hicolor_Tables(int red_right, int red_left, int green_right, int green_left, int blue_right, int blue_left);
 void __fastcall Unknown_005FF380(HWND dialog);                                              // 0x005FF380
 void __fastcall Unknown_005E9F00(HWND dialog, Point2D *old_size);                            // 0x005E9F00
 

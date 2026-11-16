@@ -134,7 +134,7 @@ struct UnknownSerialPacket {
         // settings (ModemGuest 0x00597E50 reads them). Names follow the session members.
         struct {
             int House;                      // +0x19 the sender's country (unknown_a3d3bc)
-            char Color;                     // +0x1D the sender's colour (unknown_a3d3b4)
+            char Color;                     // +0x1D the sender's colour (Game_PlayerColor)
             unsigned long MinVersion;       // +0x1E the sender's version range
             unsigned long MaxVersion;       // +0x22
             unsigned short MapName[44];     // +0x26 the map's description
@@ -145,7 +145,7 @@ struct UnknownSerialPacket {
             unsigned unknown_bit_3 : 1;
             unsigned IsOfficial : 1;        // bit 4 session ScenarioIsOfficial_880
             unsigned unknown_bits_5 : 27;
-            int Checksum;                   // +0x86 the sender's INI checksum sum (Unknown_006525F0)
+            int Checksum;                   // +0x86 the sender's INI checksum sum (RulesClass_Get_Rule_Unique_ID)
             unsigned char TechLevel;        // +0x8A
             unsigned char UnitCount;        // +0x8B session +0x38
             unsigned char AICount;          // +0x8C session +0x3C
@@ -323,7 +323,7 @@ extern bool unknown_flag_a3d8d1;        // 0x00A3D8D1 (the same, unless another 
 extern int unknown_a3fb84[];            // 0x00A3FB84 (session +0x28EC: frames behind per player)
 extern int unknown_a3d568;              // 0x00A3D568 (session +0x2D0)
 extern unsigned int unknown_a402dc;     // 0x00A402DC (session +0x3044)
-// unknown_a6eb1c (0x00A6EB1C): shared/frame_rate.hpp.
+// FPSCounter_CurrentFrameRate (0x00A6EB1C): shared/frame_rate.hpp.
 // unknown_a3d8c8 (0x00A3D8C8): shared/unknown_globals.hpp.
 extern int unknown_a3d8cc;              // 0x00A3D8CC
 extern int unknown_ab62dc;              // 0x00AB62DC

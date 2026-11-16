@@ -802,13 +802,13 @@ RLEBlitter const *ConvertClass::RLEBlitter_From_Flags_00485d60(unsigned flags) c
 }
 
 
-// Unknown_00486010 (0x00486010; TibSun ConvertClass::Reinitialize_Hicolor_Tables):
+// ConvertClass_Reinitialize_Hicolor_Tables (0x00486010; TibSun ConvertClass::Reinitialize_Hicolor_Tables):
 // after a display format change every 16-bit converter's colour table is
 // unpacked with the old format's shifts and repacked for the new format; the
 // masks and blitters are rebuilt.
-void __fastcall Unknown_00486010(int red_right, int red_left, int green_right, int green_left, int blue_right, int blue_left);
+void __fastcall ConvertClass_Reinitialize_Hicolor_Tables(int red_right, int red_left, int green_right, int green_left, int blue_right, int blue_left);
 
-void __fastcall Unknown_00486010(int red_right, int red_left, int green_right, int green_left, int blue_right, int blue_left)
+void __fastcall ConvertClass_Reinitialize_Hicolor_Tables(int red_right, int red_left, int green_right, int green_left, int blue_right, int blue_left)
 {
     for (int i = 0; i < ConvertClass::Drawers.Count(); i++) {
         ConvertClass *converter = ConvertClass::Drawers[i];
@@ -823,9 +823,9 @@ void __fastcall Unknown_00486010(int red_right, int red_left, int green_right, i
                 rgb.Blue = (unsigned char)((color >> blue_left) << blue_right);
 
                 // Repacked green first (not shared/hicolor.hpp's Build_Hicolor_Pixel order).
-                table[index] = (unsigned short)(((rgb.Green >> unknown_shift_852fcc) << unknown_shift_852fc8)
-                                              | ((rgb.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
-                                              | ((rgb.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0));
+                table[index] = (unsigned short)(((rgb.Green >> DSurface_GreenLeft) << DSurface_GreenRight)
+                                              | ((rgb.Red >> DSurface_RedLeft) << DSurface_RedRight)
+                                              | ((rgb.Blue >> DSurface_BlueLeft) << DSurface_BlueRight));
             }
 
             converter->HalfMask = unknown_half_mask_852fd0;
@@ -849,9 +849,9 @@ void __fastcall Unknown_00486010(int red_right, int red_left, int green_right, i
 // Blend expanded RGB channels using the wrapping alpha buffer.
 inline RGBClass Expand_Hicolor_Pixel(unsigned short pixel)
 {
-    return RGBClass((unsigned char)((pixel >> unknown_shift_852fb8) << unknown_shift_852fbc),
-                    (unsigned char)((pixel >> unknown_shift_852fc8) << unknown_shift_852fcc),
-                    (unsigned char)((pixel >> unknown_shift_852fc0) << unknown_shift_852fc4));
+    return RGBClass((unsigned char)((pixel >> DSurface_RedRight) << DSurface_RedLeft),
+                    (unsigned char)((pixel >> DSurface_GreenRight) << DSurface_GreenLeft),
+                    (unsigned char)((pixel >> DSurface_BlueRight) << DSurface_BlueLeft));
 }
 template <>
 void BlitTranslucentWriteAlpha<unsigned short>::BlitForward(void *target, void const *source, int length,

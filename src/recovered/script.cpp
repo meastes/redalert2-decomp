@@ -105,7 +105,7 @@ ScriptClass::ScriptClass(ScriptTypeClass *type) :
 
 ScriptClass::~ScriptClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Scripts.Delete(this);
 }
 
@@ -295,7 +295,7 @@ ScriptTypeClass::ScriptTypeClass(char const *name) :
 
 ScriptTypeClass::~ScriptTypeClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     ScriptTypes.Delete(this);
 }
 

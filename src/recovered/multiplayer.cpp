@@ -1008,20 +1008,7 @@ unsigned int * Owner_005b8ec0::MultiplayerGameMode_InitializerBase_Scalar_Deleti
 // No source of its own: emitted by the MultiplayerGameMode unit (unknown_init_modes_5b8bd0).
 
 
-// 0x005b9000: function not yet identified
-//
-// Owner: DynamicVectorClass<MultiplayerGameMode *>, virtual slot 3 (vtable +0xc) (from RTTI/vtables).
-// Body: 42 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: void __fastcall Clear_005b9000(int param_1)
-// Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_005b9000 {
+//  (0x005B9000)
 
 extern void  operator_delete_00781d3b(unsigned int allocation_address);
 
@@ -1037,7 +1024,6 @@ void __fastcall Clear_005b9000(int vector_address)
     return;
 }
 
-}  // namespace seed_005b9000
 
 
 // DynamicVectorClass<MultiplayerGameMode *>::ID(MultiplayerGameMode * const *) (0x005B9030)

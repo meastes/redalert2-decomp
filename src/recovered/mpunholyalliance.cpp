@@ -96,20 +96,7 @@ bool UnholyAlliance::AssignTeams()
 }
 
 
-// 0x005ac390: function not yet identified
-//
-// Owner: UnholyAlliance, virtual slot 5 (vtable +0x14) (from RTTI/vtables).
-// Body: 36 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 CheckStartConditions(undefined4 param_1)
-// Callees with accepted source:
-//   FUN_005b73a0 -> src/recovered/classes/MultiplayerGameMode/005b73a0.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_005ac390 {
+//  (0x005AC390)
 
 extern unsigned int __stdcall CheckStartConditions_005b73a0(int);
 extern "C" char DAT_00a3d2b8;
@@ -127,7 +114,6 @@ unsigned int __stdcall CheckStartConditions(unsigned int message_address)
     return 0;
 }
 
-}  // namespace seed_005ac390
 
 
 // bool UnholyAlliance::AssignTeamsAtStart() -- 0x005AC3C0

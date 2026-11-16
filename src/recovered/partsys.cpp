@@ -99,7 +99,7 @@ ParticleSystemClass::ParticleSystemClass() :
 
 ParticleSystemClass::~ParticleSystemClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     ObjectClass::Limbo();
     while (Particles.Count() != 0) {
         delete Particles[0];

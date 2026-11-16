@@ -158,7 +158,7 @@ ShapeButtonClass *__fastcall TabClass::Get_Button(int slot)
 Rect __fastcall TabClass::Get_Button_Rect(int slot)
 {
     Rect rect = *ButtonSlotRect;
-    return Rect(SlotButton[slot] * unknown_int_abe388 + rect.X, unknown_int_abe374, rect.Width, rect.Height);
+    return Rect(SlotButton[slot] * TabClass_SlotPitch + rect.X, TabClass_SlotTop, rect.Width, rect.Height);
 }
 
 
@@ -169,10 +169,10 @@ Rect __fastcall TabClass::Get_Button_Rect(int slot)
 
 void __fastcall TabClass::Set_Button_Count(int rows)
 {
-    unknown_int_abe2ac = rows;
+    TabClass_ButtonRows = rows;
     int top = TabEndRect->X - rows * ButtonSlotRect->Width;
     int limit = ThumbOpenRect->X + ThumbOpenRect->Width;
-    unknown_int_abe37c = top > limit ? top : limit;
+    TabClass_ButtonsLeft = top > limit ? top : limit;
 }
 
 
@@ -181,7 +181,7 @@ void __fastcall TabClass::Set_Button_Count(int rows)
 
 int __fastcall TabClass::Is_Team_Command(int value)
 {
-    if (value >= unknown_int_abe370 && value <= unknown_int_abe468) {
+    if (value >= TabClass_Team01Command && value <= TabClass_Team03Command) {
         return 1;
     }
     return 0;
@@ -193,7 +193,7 @@ int __fastcall TabClass::Is_Team_Command(int value)
 
 int __fastcall TabClass::Team_Number(int value)
 {
-    return value - unknown_int_abe370 + 1;
+    return value - TabClass_Team01Command + 1;
 }
 
 
@@ -204,17 +204,17 @@ int __fastcall TabClass::Team_Number(int value)
 
 TabClass::TabClass() : unknown_4f14(true), unknown_4f15(true), unknown_4f16(true)
 {
-    unknown_int_abe464 = Command_From_Name("AttackMove");
-    unknown_int_abe294 = Command_From_Name("Beacon");
-    unknown_int_abd910 = Command_From_Name("Cheer");
-    unknown_int_abe278 = Command_From_Name("Deploy");
-    unknown_int_abe2b8 = Command_From_Name("Guard");
-    unknown_int_abe36c = Command_From_Name("PlanningMode");
-    unknown_int_abe2bc = Command_From_Name("Stop");
-    unknown_int_abe370 = Command_From_Name("Team01");
-    unknown_int_abe378 = Command_From_Name("Team02");
-    unknown_int_abe468 = Command_From_Name("Team03");
-    unknown_int_abe290 = Command_From_Name("TypeSelect");
+    TabClass_AttackMoveCommand = Command_From_Name("AttackMove");
+    TabClass_BeaconCommand = Command_From_Name("Beacon");
+    TabClass_CheerCommand = Command_From_Name("Cheer");
+    TabClass_DeployCommand = Command_From_Name("Deploy");
+    TabClass_GuardCommand = Command_From_Name("Guard");
+    TabClass_PlanningModeCommand = Command_From_Name("PlanningMode");
+    TabClass_StopCommand = Command_From_Name("Stop");
+    TabClass_Team01Command = Command_From_Name("Team01");
+    TabClass_Team02Command = Command_From_Name("Team02");
+    TabClass_Team03Command = Command_From_Name("Team03");
+    TabClass_TypeSelectCommand = Command_From_Name("TypeSelect");
     Unknown_Set_Sink_00613e00(this);
 }
 
@@ -255,32 +255,22 @@ void TabClass::Init_For_House()
         ButtonShapeAllocated[index] = allocated;
     }
     short const *header = (short const *)ButtonShapes[0];
-    unknown_int_abe478 = header[1];
-    unknown_int_abe2a8 = header[2];
+    TabClass_ButtonWidth = header[1];
+    TabClass_ButtonHeight = header[2];
     Rect slot = *ButtonSlotRect;
-    unknown_int_abe37c = TabEndRect->X - unknown_int_abe2ac * slot.Width;
-    unknown_int_abe374 = TabBarRect->Y;
-    unknown_int_abe460 = slot.Width - unknown_int_abe478;
-    unknown_int_abe388 = unknown_int_abe460 + unknown_int_abe478;
+    TabClass_ButtonsLeft = TabEndRect->X - TabClass_ButtonRows * slot.Width;
+    TabClass_SlotTop = TabBarRect->Y;
+    TabClass_SlotGap = slot.Width - TabClass_ButtonWidth;
+    TabClass_SlotPitch = TabClass_SlotGap + TabClass_ButtonWidth;
     Credits.Current = 0;
 }
 
 
-// 0x006a1860: function not yet identified
-//
-// Body: 29 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void __fastcall FUN_006a1860(int param_1,undefined4 param_2,undefined4 param_3)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_006a1860 {
+// Init_Shape_Button (0x006A1860): name from mischa85 names.csv
 
 extern "C" unsigned int DAT_008323cc;
 
-void __fastcall FUN_006a1860(int object_address, unsigned int unknown_0x24, unsigned int unknown_0x20)
+void __fastcall Init_Shape_Button(int object_address, unsigned int unknown_0x24, unsigned int unknown_0x20)
 {
     *(unsigned int *)(object_address + 0x24) = unknown_0x24;
     *(unsigned int *)(object_address + 0x50) = DAT_008323cc;
@@ -290,7 +280,6 @@ void __fastcall FUN_006a1860(int object_address, unsigned int unknown_0x24, unsi
     return;
 }
 
-}  // namespace seed_006a1860
 
 
 // void TabClass::Init_IO() (0x006A0C50, slot 8)
@@ -405,23 +394,23 @@ void TabClass::AI(int &input, Point2D const &xy)
     int key = input;
     if (key >= 0x80D6 && key < 0x80EF) {
         int id = (key & ~0x8000) - 0xD6;
-        if (id == unknown_int_abe464) {
+        if (id == TabClass_AttackMoveCommand) {
             Command_Attack_Move();
-        } else if (id == unknown_int_abe294) {
+        } else if (id == TabClass_BeaconCommand) {
             Unknown_006F64B0();
-        } else if (id == unknown_int_abd910) {
+        } else if (id == TabClass_CheerCommand) {
             Command_Cheer();
-        } else if (id == unknown_int_abe278) {
+        } else if (id == TabClass_DeployCommand) {
             Command_Deploy();
-        } else if (id == unknown_int_abe2b8) {
+        } else if (id == TabClass_GuardCommand) {
             Command_Guard();
-        } else if (id == unknown_int_abe36c) {
-            if (Get_Button(unknown_int_abe36c)->IsOn) {
+        } else if (id == TabClass_PlanningModeCommand) {
+            if (Get_Button(TabClass_PlanningModeCommand)->IsOn) {
                 Command_Planning_Mode_On(true);
             } else {
                 Command_Planning_Mode_Off(true);
             }
-        } else if (id == unknown_int_abe2bc) {
+        } else if (id == TabClass_StopCommand) {
             Command_Stop();
         } else if (Is_Team_Command(id)) {
             int group = Team_Number(id);
@@ -432,7 +421,7 @@ void TabClass::AI(int &input, Point2D const &xy)
             } else {
                 Group_Select(group);
             }
-        } else if (id == unknown_int_abe290) {
+        } else if (id == TabClass_TypeSelectCommand) {
             Command_Type_Select();
         }
     } else if (key == 0x80F0) {
@@ -605,7 +594,7 @@ void TabClass::Draw_Credits_Tab()
     ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_buffer_ac10f8;
     CC_Draw_Shape(SidebarSurface, SidebarDrawer, shape, 0,
                   Point2D(0, 0), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-    unknown_flag_abcd84 = true;
+    SidebarClass_IsToBlitSidebar = true;
 }
 
 
@@ -629,8 +618,8 @@ void TabClass::Setup_Command_Buttons()
         ShapeButtonClass *button=Get_Button(slot);
         if (button) {
             Rect box=*ButtonSlotRect;
-            int x = SlotButton[slot]*unknown_int_abe388 + box.X;
-            int y = unknown_int_abe374;
+            int x = SlotButton[slot]*TabClass_SlotPitch + box.X;
+            int y = TabClass_SlotTop;
             if (box.Width+x<=right) {
                 button->ID=slot+0xd6;
                 button->ShapeDrawer=SidebarDrawer;
@@ -642,12 +631,12 @@ void TabClass::Setup_Command_Buttons()
             }
         }
     }
-    ShapeButtonClass *planning=Get_Button(unknown_int_abe36c);
+    ShapeButtonClass *planning=Get_Button(TabClass_PlanningModeCommand);
     if (planning) {
         planning->ToggleType=1;
         planning->ReflectButtonState=true;
     }
-    for (int team_slot=unknown_int_abe370;team_slot<=unknown_int_abe468;team_slot++) {
+    for (int team_slot=TabClass_Team01Command;team_slot<=TabClass_Team03Command;team_slot++) {
         ShapeButtonClass *button=Get_Button(team_slot);
         if (button) button->Set_Flags(0x55);
     }
@@ -685,30 +674,30 @@ void TabClass::Show_Buttons()
 {
     Add_Command_Buttons();
     Add_A_Button(ThumbOpenButton);
-    Add_Button_ToolTip(Get_Button(unknown_int_abe464), "Tip:AttackMove");
-    Add_Button_ToolTip(Get_Button(unknown_int_abe294), "Tip:Beacon");
-    Add_Button_ToolTip(Get_Button(unknown_int_abd910), "Tip:Cheer");
-    Add_Button_ToolTip(Get_Button(unknown_int_abe278), "Tip:Deploy");
-    Add_Button_ToolTip(Get_Button(unknown_int_abe2b8), "Tip:Guard");
-    Add_Button_ToolTip(Get_Button(unknown_int_abe36c), "Tip:PlanningMode");
+    Add_Button_ToolTip(Get_Button(TabClass_AttackMoveCommand), "Tip:AttackMove");
+    Add_Button_ToolTip(Get_Button(TabClass_BeaconCommand), "Tip:Beacon");
+    Add_Button_ToolTip(Get_Button(TabClass_CheerCommand), "Tip:Cheer");
+    Add_Button_ToolTip(Get_Button(TabClass_DeployCommand), "Tip:Deploy");
+    Add_Button_ToolTip(Get_Button(TabClass_GuardCommand), "Tip:Guard");
+    Add_Button_ToolTip(Get_Button(TabClass_PlanningModeCommand), "Tip:PlanningMode");
     {
-        ShapeButtonClass *button = Get_Button(unknown_int_abe2bc);
+        ShapeButtonClass *button = Get_Button(TabClass_StopCommand);
         Add_Button_ToolTip(button, "Tip:Stop");
     }
     {
-        ShapeButtonClass *button = Get_Button(unknown_int_abe370);
+        ShapeButtonClass *button = Get_Button(TabClass_Team01Command);
         Add_Button_ToolTip(button, "Tip:Team01");
     }
     {
-        ShapeButtonClass *button = Get_Button(unknown_int_abe378);
+        ShapeButtonClass *button = Get_Button(TabClass_Team02Command);
         Add_Button_ToolTip(button, "Tip:Team02");
     }
     {
-        ShapeButtonClass *button = Get_Button(unknown_int_abe468);
+        ShapeButtonClass *button = Get_Button(TabClass_Team03Command);
         Add_Button_ToolTip(button, "Tip:Team03");
     }
     {
-        ShapeButtonClass *button = Get_Button(unknown_int_abe290);
+        ShapeButtonClass *button = Get_Button(TabClass_TypeSelectCommand);
         Add_Button_ToolTip(button, "Tip:TypeSelect");
     }
     Add_Button_ToolTip(&ThumbOpenButton, "Tip:ThumbOpen");
@@ -794,14 +783,14 @@ void TabClass::Close_Thumb()
 bool TabClass::INoticeSink_Unknown(int code, int arg)
 {
     if (code == 0x11C7) {
-        ShapeButtonClass *button = Get_Button(unknown_int_abe36c);
+        ShapeButtonClass *button = Get_Button(TabClass_PlanningModeCommand);
         if (button != 0 && !button->IsOn) {
             button->Turn_On();
         }
         return true;
     }
     if (code == 0x11C8) {
-        ShapeButtonClass *button = Get_Button(unknown_int_abe36c);
+        ShapeButtonClass *button = Get_Button(TabClass_PlanningModeCommand);
         if (button != 0 && button->IsOn) {
             button->Turn_Off();
         }

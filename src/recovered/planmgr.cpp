@@ -4284,9 +4284,9 @@ int __fastcall Planning_Dim_Color(TechnoClass *techno)
 {
     RGBClass color = Planning_House_Color(techno);
     color.Adjust(0x50, unknown_rgb_ab6841);
-    return ((color.Green >> unknown_shift_852fcc) << unknown_shift_852fc8)
-         | ((color.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
-         | ((color.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0);
+    return ((color.Green >> DSurface_GreenLeft) << DSurface_GreenRight)
+         | ((color.Red >> DSurface_RedLeft) << DSurface_RedRight)
+         | ((color.Blue >> DSurface_BlueLeft) << DSurface_BlueRight);
 }
 
 
@@ -4297,9 +4297,9 @@ int __fastcall Planning_Bright_Color(TechnoClass *techno)
 {
     RGBClass color = Planning_House_Color(techno);
     color.Adjust(100, WhiteColor);
-    return ((color.Green >> unknown_shift_852fcc) << unknown_shift_852fc8)
-         | ((color.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
-         | ((color.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0);
+    return ((color.Green >> DSurface_GreenLeft) << DSurface_GreenRight)
+         | ((color.Red >> DSurface_RedLeft) << DSurface_RedRight)
+         | ((color.Blue >> DSurface_BlueLeft) << DSurface_BlueRight);
 }
 
 

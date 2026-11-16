@@ -126,7 +126,7 @@ void InfantryClass::unknown_slot93(int why)
                                 int tile=Map_Cell_At(spot)->unknown_38;
                                 Cell overlay_spot=Cell(Cell(x,y)+unknown_slot104());
                                 int overlay=Map_Cell_At(overlay_spot)->unknown_44;
-                                if ((tile>=unknown_tileset_a6cb68 && tile<unknown_tileset_a6cb68+16) || (overlay>=74 && overlay<=101)) train=true;
+                                if ((tile>=IsometricTileTypeClass_TrainBridgeSet && tile<IsometricTileTypeClass_TrainBridgeSet+16) || (overlay>=74 && overlay<=101)) train=true;
                             }
                         }
                         if (train) Map.Unknown_00552570(unknown_slot104());

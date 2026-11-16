@@ -181,8 +181,8 @@ public:
 // Per-direction X ([0]) and Y ([1]) steps (8 directions) of the wind,
 // indexed by the rules value at +0x6D4: for behaviour 0 (0x007EB7E4) and
 // for behaviour 1 (0x007EB824, scaled by the type's +0x2C8).
-extern int unknown_wind_7eb7e4[2][8];
-extern int unknown_wind_7eb824[2][8];
+extern int ParticleClass_SmokeWindX[2][8];
+extern int ParticleClass_GasWindX[2][8];
 
 // The direction (0..7) from one screen point to another (0x00721DB0,
 // __fastcall; hypothesis).

@@ -88,7 +88,7 @@ public:
     bool TAction_FLASH_TEAM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B2F30 (the team type at +0x30: Flash(Data))
     bool TAction_TALK_BUBBLE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B2F50 (the first member of the team type's team talks (TechnoClass 0x006D8FD0))
     bool TAction_CHRONO_IN_TEAM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B2810 (Do_Chrono_Reinforcements(team type +0x30, waypoint +0x44))
-    bool TAction_ION_STORM_START(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B1A80 (Unknown_0051F930(Data, Rules LightningDeferment, zero cell) unless Unknown_0051FC50)
+    bool TAction_ION_STORM_START(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B1A80 (IonStormClass_Ion_Storm_Begin(Data, Rules LightningDeferment, zero cell) unless IonStormClass_Is_Ion_Storm_Active)
     bool unknown_func_6b0ac0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B0AC0 (adds Data quarter minutes to the mission timer)
     bool unknown_func_6b0b20(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B0B20 (takes Data quarter minutes from the mission timer, not below zero)
     bool unknown_func_6b0ba0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B0BA0 (sets the mission timer to Data quarter minutes, starts it, clears its label)
@@ -117,7 +117,7 @@ public:
     bool unknown_map_559fd0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B1D70
     bool unknown_63b5b0_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B1FD0
     bool unknown_set_session_22a8(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B2260
-    bool TAction_ION_LIGHTNING_STRIKE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006AF950 (Unknown_0051FC90 at the cell of waypoint +0x44)
+    bool TAction_ION_LIGHTNING_STRIKE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006AF950 (IonStormClass_Lightning_Bolt at the cell of waypoint +0x44)
     bool unknown_particle_system_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006AFA00 (the particle system type Data over the ground at waypoint +0x44)
     bool unknown_set_mission_timer_text(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006B0C50 (the mission timer label and text from the action text)
     bool unknown_player_4e80d0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell);   // 0x006AFD50

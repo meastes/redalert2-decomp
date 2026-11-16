@@ -101,7 +101,7 @@
 
 Rect TacticalDimensions(0, 0, 0, 0);
 DynamicVectorClass<DirtyAreaStruct> TacticalLists::DirtyAreas;
-TacticalObjectPixel unknown_tactical_pixels_abe5f8[500];
+TacticalObjectPixel Tactical_SelectableObjects[500];
 DynamicVectorClass<ShadowControlClass *> TacticalLists::ShadowControls;
 static double unknown_scale_abe550 = 60.0 / unknown_geometry_diagonal, unknown_scale_abe490 = Fast_Sin(unknown_geometry_angle60) * unknown_scale_abe550;
 static double unknown_scale_abe520 = unknown_geometry_diagonal / (Fast_Sin(unknown_geometry_angle60) * 60.0);
@@ -234,7 +234,7 @@ Point2D Tactical::Coord_To_Pixel_Absolute(CoordStruct const &coord)
     Point2D pixel = Rectangular_To_Isometric(point);
     pixel.X /= 256;
     pixel.Y /= 256;
-    int lift = Unknown_006A2970(coord.Z);
+    int lift = Tactical_Z_Lepton_To_Pixel(coord.Z);
     pixel.Y -= lift;
     return pixel;
 }
@@ -266,13 +266,13 @@ Point2D Tactical::Pixel_To_Lepton(Point2D const &point)
 }
 
 
-// int __fastcall Unknown_006A2970(int z) (0x006A2970): the screen rise of a
+// int __fastcall Tactical_Z_Lepton_To_Pixel(int z) (0x006A2970): the screen rise of a
 // height in leptons, rounded, one pixel more from 728 up (hypothesis). Tactical
 // 0x006A27A0 expands it inline.
 // unknown_scale_abe490: Tactical.CPP's file static (pixels per lepton of height),
 // defined with its initialiser 0x006A22D0 earlier in this unit.
 
-int __fastcall Unknown_006A2970(int z)
+int __fastcall Tactical_Z_Lepton_To_Pixel(int z)
 {
     int bias = 0;
     if (z >= 728) {
@@ -282,12 +282,12 @@ int __fastcall Unknown_006A2970(int z)
 }
 
 
-// int __fastcall Unknown_006A29B0(int pixel) (0x006A29B0): a screen rise back
+// int __fastcall Tactical_Pixel_To_Z_Lepton(int pixel) (0x006A29B0): a screen rise back
 // to leptons of height (the inverse of 0x006A2970; hypothesis).
 // unknown_scale_abe520: Tactical.CPP's file static (leptons of height per pixel),
 // defined with its initialiser 0x006A22D0 earlier in this unit.
 
-int __fastcall Unknown_006A29B0(int pixel)
+int __fastcall Tactical_Pixel_To_Z_Lepton(int pixel)
 {
     return (int)((pixel - 0.5) * unknown_scale_abe520);
 }
@@ -1280,13 +1280,13 @@ void __fastcall Isometric_To_Rectangular_006a6860(int x, int y, int *out_x, int 
 }  // namespace seed_006a6860
 
 
-// void __stdcall Unknown_006A69B0(int x, int y, int *cell_x, int *cell_y) (0x006A69B0): a screen
+// void __stdcall Tactical_Cell_To_Rectangular_Centered(int x, int y, int *cell_x, int *cell_y) (0x006A69B0): a screen
 // point back to lepton coordinates relative to an origin pair (0x007F6928/0x007F692C, -1 in the
 // data until first use, then (-0x10000, 0x10000)). Never called (inlined everywhere); hypothesis.
 extern int unknown_origin_x_7f6928;
 extern int unknown_origin_y_7f692c;
 
-void __stdcall Unknown_006A69B0(int x, int y, int *cell_x, int *cell_y)
+void __stdcall Tactical_Cell_To_Rectangular_Centered(int x, int y, int *cell_x, int *cell_y)
 {
     x *= 256;
     y *= 256;
@@ -1845,7 +1845,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
             TechnoClass *techno = unknown_list_a40c20[i];
             if (techno->House->Is_Player_Control()) {
                 if (!planning && techno->unknown_77) {
-                    if (unknown_bool_7f7110) {
+                    if (TechnoClass_ActionLines) {
                         techno->unknown_slot243(false, 0);
                     }
                     UnknownTechno230 *capture = (UnknownTechno230 *)techno->unknown_230;
@@ -2113,7 +2113,7 @@ extern unsigned long unknown_last_time_abfd70;
 
 void Tactical::Draw_Pixel_Effects(Rect const &area, Rect const &cliprect)
 {
-    if (unknown_a6eb1c < GetMinFrameRate()) {
+    if (FPSCounter_CurrentFrameRate < GetMinFrameRate()) {
         return;
     }
     if (LogicalSurface->Bytes_Per_Pixel() != 2) {
@@ -2754,9 +2754,9 @@ void Tactical::Add_Buildings_To_Selectable(Rect rect)
 bool Tactical::Add_To_Selectables(ObjectClass *object, Point2D point)
 {
     if (unknown_db0 != 500 && point.X >= -32 && point.X <= TacticalRect.Width + 32 && point.Y >= -32 && point.Y <= TacticalRect.Height + 32) {
-        unknown_tactical_pixels_abe5f8[unknown_db0].Object = object;
+        Tactical_SelectableObjects[unknown_db0].Object = object;
         Point2D view(TacPixelX, TacPixelY);
-        unknown_tactical_pixels_abe5f8[unknown_db0].Pixel = Point2D(point.X + view.X, point.Y + view.Y);
+        Tactical_SelectableObjects[unknown_db0].Pixel = Point2D(point.X + view.X, point.Y + view.Y);
         unknown_db0++;
         return true;
     }
@@ -2836,7 +2836,7 @@ int Tactical::Rubber_Band_Contains_Selectable()
     Rect rect(left, top, right - left + 1, bottom - top + 1);
     if (rect.Is_Valid()) {
         for (int index = 0; index < unknown_db0; index++) {
-            TacticalObjectPixel &entry = unknown_tactical_pixels_abe5f8[index];
+            TacticalObjectPixel &entry = Tactical_SelectableObjects[index];
             if (entry.Object != 0 && entry.Object->IsActive) {
                 Point2D view(TacPixelX, TacPixelY);
                 Point2D point(entry.Pixel.X - view.X, entry.Pixel.Y - view.Y);
@@ -2974,7 +2974,7 @@ ObjectClass *Tactical::Get_Selectable_Object_006aa990(Point2D const &point)
     int pixely = point.Y + TacPixelY;
 
     for (int index = 0; index < unknown_db0; index++) {
-        TacticalObjectPixel &sel = unknown_tactical_pixels_abe5f8[index];
+        TacticalObjectPixel &sel = Tactical_SelectableObjects[index];
         ObjectClass *obj = sel.Object;
 
         if (obj != 0) {
@@ -3024,7 +3024,7 @@ ObjectClass *Tactical::Get_Selectable_Object_006aa990(Point2D const &point)
 void Tactical::Detach(AbstractClass *target, bool all)
 {
     for (int index = 0; index < 500; index++) {
-        TacticalObjectPixel &sel = unknown_tactical_pixels_abe5f8[index];
+        TacticalObjectPixel &sel = Tactical_SelectableObjects[index];
         if (sel.Object == (ObjectClass *)target) {
             sel.Object = 0;
         }
@@ -3049,7 +3049,7 @@ void Tactical::Select_These(Rect const *rect, void (__fastcall *callback)(Object
     AllowVoice = true;
     if (rect->Is_Valid()) {
         for (int index = 0; index < unknown_db0; index++) {
-            TacticalObjectPixel &entry = unknown_tactical_pixels_abe5f8[index];
+            TacticalObjectPixel &entry = Tactical_SelectableObjects[index];
             if (entry.Object != 0 && entry.Object->IsActive) {
                 ObjectClass *object = entry.Object;
                 Point2D view(TacPixelX, TacPixelY);
@@ -3425,7 +3425,7 @@ bool Tactical::unknown_slot24(CoordStruct const &from, CoordStruct const &to, in
     Point2D end;
     Coord_To_Pixel(to,end);
     LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect,start,end,color,
-        14-Unknown_006A2970(from.Z),14-Unknown_006A2970(to.Z),write_depth);
+        14-Tactical_Z_Lepton_To_Pixel(from.Z),14-Tactical_Z_Lepton_To_Pixel(to.Z),write_depth);
     return true;
 }
 

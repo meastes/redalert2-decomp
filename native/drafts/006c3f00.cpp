@@ -60,7 +60,7 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             position.Y = point.Y + p0.Y + ybase + 2;
             position.X -= xoff;
             position.Y -= yoff;
-            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pips_shapes_a72fe4,
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_PipShapes,
                           frame, position, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             xoff += 4;
             yoff -= 2;
@@ -72,7 +72,7 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             position.Y = point.Y + p0.Y + ybase + 2;
             position.X -= xoff;
             position.Y -= yoff;
-            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pips_shapes_a72fe4,
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_PipShapes,
                           0, position, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             xoff += 4;
             yoff -= 2;
@@ -85,14 +85,14 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
         int length;
         if (Kind_Of() == 15) {
             if (unknown_77) {
-                CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pipbrd_shapes_a72fe0,
+                CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_SelectShapes,
                               1, point + Point2D(11, -25), window, 0xE00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
             offset = Point2D(-5, -24);
             length = 8;
         } else {
             if (unknown_77) {
-                CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pipbrd_shapes_a72fe0,
+                CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_SelectShapes,
                               0, point + Point2D(1, -26), window, 0xE00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
             offset = Point2D(-15, -25);
@@ -117,7 +117,7 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             position.X = point.X + offset.X;
             position.Y = offset.Y + point.Y;
             position.X += 2 * index;
-            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)unknown_pips_shapes_a72fe4,
+            CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_PipShapes,
                           frame, position, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
         if (House->Is_Ally(PlayerPtr) || (unknown_1a8 & (1 << PlayerPtr->Type->House))) {

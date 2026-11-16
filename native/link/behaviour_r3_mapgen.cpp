@@ -14,7 +14,7 @@
 #include "shared/random2.hpp"
 
 unsigned __fastcall Map_Random_Range_005797a0(unsigned, unsigned);
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 extern Random2Class RMGRandom;
 double __stdcall Unknown_Cell_Score_0056dff0(Cell const &from, Cell const &to, double direction);
 
@@ -27,8 +27,8 @@ UnknownMapGenerationCell &Split_Cell_Data(Cell const &cell)
 bool Split_In_Bounds(Cell const &cell)
 {
     int x = cell.X, y = cell.Y;
-    return y + x > unknown_map_min_a70a1c && x - y < unknown_map_min_a70a1c && y - x < unknown_map_min_a70a1c &&
-        y + x <= unknown_map_max_a70a20;
+    return y + x > MapRegionClass_MapStartDiagonal && x - y < MapRegionClass_MapStartDiagonal && y - x < MapRegionClass_MapStartDiagonal &&
+        y + x <= MapRegionClass_MapEndDiagonal;
 }
 // The region of a cell's generator record, -1 without records (0x0056E9A0).
 int Split_Get_Region(Cell const &cell)
@@ -206,8 +206,8 @@ bool MapRegionClass::Split_Region_0056ef20()
         for (int j = 0; j < total; ++j) {
             if (!adjacent[j]) continue;
             MapRegionClass *other = 0;
-            for (int k = 0; k < unknown_map_regions_a6fd28.Count(); ++k) {
-                if (unknown_map_regions_a6fd28[k]->Index == j) { other = unknown_map_regions_a6fd28[k]; break; }
+            for (int k = 0; k < MapRegionClass_MapRegions.Count(); ++k) {
+                if (MapRegionClass_MapRegions[k]->Index == j) { other = MapRegionClass_MapRegions[k]; break; }
             }
             if (other == 0 || other->unknown_24) continue;
             if (other->CellCount > max_count && !other->unknown_14) {
@@ -261,8 +261,8 @@ bool MapRegionClass::Split_Region_0056ef20()
         }
     }
 
-    for (int k = unknown_map_regions_a6fd28.Count() - 1; k >= 0; --k) {
-        MapRegionClass *region = unknown_map_regions_a6fd28[k];
+    for (int k = MapRegionClass_MapRegions.Count() - 1; k >= 0; --k) {
+        MapRegionClass *region = MapRegionClass_MapRegions[k];
         if (region != this && region != 0 && region->unknown_24) delete region;
     }
     ++unknown_1c;

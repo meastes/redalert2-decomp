@@ -570,7 +570,7 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?Unknown_006818D0@@YIHHHH@Z",
+   "symbol": "?SidebarClass_GetObjectTabIdx@@YIHHHH@Z",
    "entry": "006818d0",
    "body_bytes": 103,
    "padding_bytes": 9
@@ -1560,7 +1560,7 @@
   },
   {
    "site": "004e4ef0",
-   "symbol": "?Unknown_006818D0@@YIHHHH@Z",
+   "symbol": "?SidebarClass_GetObjectTabIdx@@YIHHHH@Z",
    "target": "006818d0",
    "function_entry": true
   },
@@ -1572,7 +1572,7 @@
   },
   {
    "site": "004e63f0",
-   "symbol": "?Unknown_006818D0@@YIHHHH@Z",
+   "symbol": "?SidebarClass_GetObjectTabIdx@@YIHHHH@Z",
    "target": "006818d0",
    "function_entry": true
   },
@@ -1716,7 +1716,7 @@
   },
   {
    "site": "004e64f0",
-   "symbol": "?Unknown_006818D0@@YIHHHH@Z",
+   "symbol": "?SidebarClass_GetObjectTabIdx@@YIHHHH@Z",
    "target": "006818d0",
    "function_entry": true
   },
@@ -1746,7 +1746,7 @@
   },
   {
    "site": "006b11a0",
-   "symbol": "?Unknown_006818D0@@YIHHHH@Z",
+   "symbol": "?SidebarClass_GetObjectTabIdx@@YIHHHH@Z",
    "target": "006818d0",
    "function_entry": true
   },
@@ -1764,7 +1764,7 @@
   },
   {
    "site": "006b1200",
-   "symbol": "?Unknown_006818D0@@YIHHHH@Z",
+   "symbol": "?SidebarClass_GetObjectTabIdx@@YIHHHH@Z",
    "target": "006818d0",
    "function_entry": true
   },
@@ -1800,7 +1800,7 @@
   },
   {
    "site": "004f4db0",
-   "symbol": "?Unknown_006818D0@@YIHHHH@Z",
+   "symbol": "?SidebarClass_GetObjectTabIdx@@YIHHHH@Z",
    "target": "006818d0",
    "function_entry": true
   },
@@ -1812,7 +1812,7 @@
   },
   {
    "site": "004e5e30",
-   "symbol": "?Unknown_006818D0@@YIHHHH@Z",
+   "symbol": "?SidebarClass_GetObjectTabIdx@@YIHHHH@Z",
    "target": "006818d0",
    "function_entry": true
   },
@@ -1830,7 +1830,7 @@
   },
   {
    "site": "004e4110",
-   "symbol": "?Unknown_006818D0@@YIHHHH@Z",
+   "symbol": "?SidebarClass_GetObjectTabIdx@@YIHHHH@Z",
    "target": "006818d0",
    "function_entry": true
   },
@@ -1896,7 +1896,7 @@
   },
   {
    "site": "004f4b20",
-   "symbol": "?Unknown_006818D0@@YIHHHH@Z",
+   "symbol": "?SidebarClass_GetObjectTabIdx@@YIHHHH@Z",
    "target": "006818d0",
    "function_entry": true
   },
@@ -1920,7 +1920,7 @@
   },
   {
    "site": "006adae0",
-   "symbol": "?Unknown_006818D0@@YIHHHH@Z",
+   "symbol": "?SidebarClass_GetObjectTabIdx@@YIHHHH@Z",
    "target": "006818d0",
    "function_entry": true
   },
@@ -2147,6 +2147,30 @@
   {
    "symbol": "?Count_Type_004B9E40@FactoryClass@@QBEHPAVTechnoTypeClass@@@Z",
    "address": "004b9e40"
+  },
+  {
+   "symbol": "?DSurface_BlueLeft@@3HA",
+   "address": "00852fc4"
+  },
+  {
+   "symbol": "?DSurface_BlueRight@@3HA",
+   "address": "00852fc0"
+  },
+  {
+   "symbol": "?DSurface_GreenLeft@@3HA",
+   "address": "00852fcc"
+  },
+  {
+   "symbol": "?DSurface_GreenRight@@3HA",
+   "address": "00852fc8"
+  },
+  {
+   "symbol": "?DSurface_RedLeft@@3HA",
+   "address": "00852fbc"
+  },
+  {
+   "symbol": "?DSurface_RedRight@@3HA",
+   "address": "00852fb8"
   },
   {
    "symbol": "?Debug_Map@@3_NA",
@@ -2625,6 +2649,86 @@
    "address": "00630320"
   },
   {
+   "symbol": "?SidebarClass_CameoHeight@@3HA",
+   "address": "00abcd6c"
+  },
+  {
+   "symbol": "?SidebarClass_CameoWidth@@3HA",
+   "address": "00abcd68"
+  },
+  {
+   "symbol": "?SidebarClass_DirtyRect@@3VRect@@A",
+   "address": "008336e8"
+  },
+  {
+   "symbol": "?SidebarClass_IsSidebarRedrawPending@@3_NA",
+   "address": "008373c3"
+  },
+  {
+   "symbol": "?SidebarClass_IsToBlitSidebar@@3_NA",
+   "address": "00abcd84"
+  },
+  {
+   "symbol": "?SidebarClass_IsToEraseSidebarMouse@@3_NA",
+   "address": "00abcd85"
+  },
+  {
+   "symbol": "?SidebarClass_PowerBarLeft@@3HA",
+   "address": "00abcd74"
+  },
+  {
+   "symbol": "?SidebarClass_SidebarBottomY@@3HA",
+   "address": "00abcd78"
+  },
+  {
+   "symbol": "?SidebarClass_SidebarEdgeStep@@3HA",
+   "address": "00abcd80"
+  },
+  {
+   "symbol": "?SidebarClass_SidebarEdgeWidth@@3HA",
+   "address": "00abcd7c"
+  },
+  {
+   "symbol": "?SidebarClass_SidebarShapeAllocated@@3PA_NA",
+   "address": "00abcd40"
+  },
+  {
+   "symbol": "?SidebarClass_SidebarShapes@@3PAPBXA",
+   "address": "00abcd20"
+  },
+  {
+   "symbol": "?SidebarClass_StripLeft@@3HA",
+   "address": "00abcd60"
+  },
+  {
+   "symbol": "?SidebarClass_StripTop@@3HA",
+   "address": "00abcd64"
+  },
+  {
+   "symbol": "?SidebarClass_TabButtonSpacing@@3HA",
+   "address": "00abcd5c"
+  },
+  {
+   "symbol": "?SidebarClass_TabButtonX@@3HA",
+   "address": "00abcd54"
+  },
+  {
+   "symbol": "?SidebarClass_TabButtonY@@3HA",
+   "address": "00abcd58"
+  },
+  {
+   "symbol": "?SidebarClass_TopButtonSpacing@@3HA",
+   "address": "00abcd50"
+  },
+  {
+   "symbol": "?SidebarClass_TopButtonX@@3HA",
+   "address": "00abcd48"
+  },
+  {
+   "symbol": "?SidebarClass_TopButtonY@@3HA",
+   "address": "00abcd4c"
+  },
+  {
    "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
    "address": "008323cc"
   },
@@ -2785,62 +2889,6 @@
    "address": "00a40d34"
   },
   {
-   "symbol": "?unknown_abcd48@@3HA",
-   "address": "00abcd48"
-  },
-  {
-   "symbol": "?unknown_abcd4c@@3HA",
-   "address": "00abcd4c"
-  },
-  {
-   "symbol": "?unknown_abcd50@@3HA",
-   "address": "00abcd50"
-  },
-  {
-   "symbol": "?unknown_abcd54@@3HA",
-   "address": "00abcd54"
-  },
-  {
-   "symbol": "?unknown_abcd58@@3HA",
-   "address": "00abcd58"
-  },
-  {
-   "symbol": "?unknown_abcd5c@@3HA",
-   "address": "00abcd5c"
-  },
-  {
-   "symbol": "?unknown_abcd60@@3HA",
-   "address": "00abcd60"
-  },
-  {
-   "symbol": "?unknown_abcd64@@3HA",
-   "address": "00abcd64"
-  },
-  {
-   "symbol": "?unknown_abcd68@@3HA",
-   "address": "00abcd68"
-  },
-  {
-   "symbol": "?unknown_abcd6c@@3HA",
-   "address": "00abcd6c"
-  },
-  {
-   "symbol": "?unknown_abcd74@@3HA",
-   "address": "00abcd74"
-  },
-  {
-   "symbol": "?unknown_abcd78@@3HA",
-   "address": "00abcd78"
-  },
-  {
-   "symbol": "?unknown_abcd7c@@3HA",
-   "address": "00abcd7c"
-  },
-  {
-   "symbol": "?unknown_abcd80@@3HA",
-   "address": "00abcd80"
-  },
-  {
    "symbol": "?unknown_drawer_8323b0@@3PAVConvertClass@@A",
    "address": "008323b0"
   },
@@ -2849,20 +2897,8 @@
    "address": "008373c0"
   },
   {
-   "symbol": "?unknown_flag_8373c3@@3_NA",
-   "address": "008373c3"
-  },
-  {
    "symbol": "?unknown_flag_a40b30@@3_NA",
    "address": "00a40b30"
-  },
-  {
-   "symbol": "?unknown_flag_abcd84@@3_NA",
-   "address": "00abcd84"
-  },
-  {
-   "symbol": "?unknown_flag_abcd85@@3_NA",
-   "address": "00abcd85"
   },
   {
    "symbol": "?unknown_id_source_a3d290@@3PAVScenarioClass@@A",
@@ -2913,10 +2949,6 @@
    "address": "00a3d560"
   },
   {
-   "symbol": "?unknown_rect_8336e8@@3VRect@@A",
-   "address": "008336e8"
-  },
-  {
    "symbol": "?unknown_rect_839620@@3VRect@@A",
    "address": "00839620"
   },
@@ -2931,38 +2963,6 @@
   {
    "symbol": "?unknown_shape_ab9480@SidebarClass@@2PBXB",
    "address": "00ab9480"
-  },
-  {
-   "symbol": "?unknown_shapes_abcd20@@3PAPBXA",
-   "address": "00abcd20"
-  },
-  {
-   "symbol": "?unknown_shapes_allocated_abcd40@@3PA_NA",
-   "address": "00abcd40"
-  },
-  {
-   "symbol": "?unknown_shift_852fb8@@3HA",
-   "address": "00852fb8"
-  },
-  {
-   "symbol": "?unknown_shift_852fbc@@3HA",
-   "address": "00852fbc"
-  },
-  {
-   "symbol": "?unknown_shift_852fc0@@3HA",
-   "address": "00852fc0"
-  },
-  {
-   "symbol": "?unknown_shift_852fc4@@3HA",
-   "address": "00852fc4"
-  },
-  {
-   "symbol": "?unknown_shift_852fc8@@3HA",
-   "address": "00852fc8"
-  },
-  {
-   "symbol": "?unknown_shift_852fcc@@3HA",
-   "address": "00852fcc"
   },
   {
    "symbol": "?unknown_slot22@MapClass@@UAEXXZ",

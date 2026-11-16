@@ -155,9 +155,9 @@ void UnknownBeacon::Unknown_0042DA20(Surface *surface, Rect rect)
     Rect box(pixel.X - width / 2 - 4, pixel.Y + 32, width + 8, height + 8);
     RGBClass color = scheme->BaseColor.To_RGB();
     Rect fill = Intersect(box, rect, 0, 0);
-    unsigned pixel_color = ((color.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
-                         | ((color.Green >> unknown_shift_852fcc) << unknown_shift_852fc8)
-                         | ((color.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0);
+    unsigned pixel_color = ((color.Red >> DSurface_RedLeft) << DSurface_RedRight)
+                         | ((color.Green >> DSurface_GreenLeft) << DSurface_GreenRight)
+                         | ((color.Blue >> DSurface_BlueLeft) << DSurface_BlueRight);
     surface->Fill_Rect(fill, 0);
     surface->Draw_Rect(fill, pixel_color);
     font->Set_Clipping(true);
@@ -291,7 +291,7 @@ void UnknownBeacon::Unknown_0042DDF0(unsigned short const *text)
 
 // Radar blink marker and dirty pixels, original0042DE20. Field names remain hypotheses.
 
-extern Rect unknown_rect_8336e8;
+extern Rect SidebarClass_DirtyRect;
 extern Rect unknown_radar_rect_833978;
 
 void UnknownBeacon::Unknown_0042DE20(Surface *surface, Rect window, bool forced)
@@ -308,7 +308,7 @@ void UnknownBeacon::Unknown_0042DE20(Surface *surface, Rect window, bool forced)
         int height = BeaconManager.unknown_74;
         Rect marker(pixel.X - width / 2, pixel.Y - height / 2, width, height);
         Rect dirty = marker + Point2D(unknown_radar_rect_833978.X, unknown_radar_rect_833978.Y);
-        unknown_rect_8336e8 = Intersect(Union(unknown_rect_8336e8, dirty), unknown_radar_rect_833978);
+        SidebarClass_DirtyRect = Intersect(Union(SidebarClass_DirtyRect, dirty), unknown_radar_rect_833978);
         for (int y = marker.Y; y < marker.Y + marker.Height; ++y) {
             for (int x = marker.X; x < marker.X + marker.Width; ++x) {
                 Point2D point(x, y);

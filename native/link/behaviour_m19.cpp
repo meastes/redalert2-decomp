@@ -11,7 +11,7 @@
 #include "shared/tileset_index.hpp"
 bool CellClass::Is_Tile_Water() const
 {
-    return unknown_tileset_a52580 <= IsoTileIndex && IsoTileIndex < unknown_tileset_a52580 + 14;
+    return IsometricTileTypeClass_WaterSet <= IsoTileIndex && IsoTileIndex < IsometricTileTypeClass_WaterSet + 14;
 }
 
 // 0x00423EF0 under its second declared name (shared/facing.hpp: TibSun DirType::Direction,

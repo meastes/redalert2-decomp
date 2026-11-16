@@ -173,26 +173,15 @@ class Leaf_735b20 { public: unsigned int get(); };
 unsigned int Leaf_735b20::get() { unsigned int unused_this_address = (unsigned int)this; unsigned int global_value; unsigned int unused_value; global_value = *(unsigned int*)(0xb25dd8); return global_value; }
 
 
-// 0x00735b30: function not yet identified
-//
-// Body: 6 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 FUN_00735b30(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00735b30 {
+// WS_Last_Response (0x00735B30): name from mischa85 names.csv
 
 extern "C" unsigned int DAT_00b25ddc;
 
-unsigned int  FUN_00735b30(void)
+unsigned int  WS_Last_Response(void)
 {
     return DAT_00b25ddc;
 }
 
-}  // namespace seed_00735b30
 
 
 // BOOL __stdcall Resize_Dialog_Proc(HWND dialog, UINT message, WPARAM wparam, LPARAM lparam) (0x00735B40)

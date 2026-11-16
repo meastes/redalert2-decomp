@@ -213,7 +213,7 @@ UnitClass::~UnitClass()
             unknown_5b4 = -1;
         }
     }
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Units.Delete(this);
     TargetTracker.Remove_Index(Fetch_ID());
     IsActive = false;
@@ -2033,8 +2033,8 @@ plain:
 
 // void UnitClass::Draw_It(Point2D const &point, Rect const &window) (0x00700E70, slot 67)
 // TibSun UnitClass::Draw_It.
-bool Unknown_0051FC50();
-bool Unknown_0051FC60();
+bool IonStormClass_Is_Ion_Storm_Active();
+bool NukeFlash_IsFadingIn();
 // By value: the Move_Coord result is built after radians dies and shares its slot. Move_Coord is TibSun inline.h's
 // text (the radian computed inside it, as AnimClass::Flaming_Guy_AI spells it): the separate Radian helper was a
 // declaration-count tie (Scout1293: exact under the Can_Deploy_Now headers only with this form).
@@ -2070,9 +2070,9 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
             && (((cptr->unknown_140 & 0x800) && (cptr->Adjacent_Cell(0).unknown_140 & 0x100))
                 || (!(cptr->unknown_140 & 0x800) && (cptr->Adjacent_Cell(6).unknown_140 & 0x100)))) {
             int level;
-            if (Unknown_0051FC50()) {
+            if (IonStormClass_Is_Ion_Storm_Active()) {
                 level = unknown_id_source_a3d290->IonLevel;
-            } else if (Unknown_0051FC60()) {
+            } else if (NukeFlash_IsFadingIn()) {
                 level = unknown_id_source_a3d290->unknown_22f4;
             } else {
                 level = unknown_id_source_a3d290->AmbientLevel;
@@ -3230,7 +3230,7 @@ int UnitClass::Do_MISSION_PATROL()
 
 // CELL_NONE (0x00AD0488; as UnitClass slot 55).
 // Harvester_Load_List: the facing answered for each exit (0x007F8F4C).
-extern int const unknown_facings_7f8f4c[8];
+extern int const UnitClass_Harvester_Load_List[8];
 
 // The twin's file-local Direction wrapper (DirType::Direction 0x00423EF0, called out of line).
 static inline UnknownFacingDir &_Direction(UnknownFacingDir &dir, ObjectClass *from, AbstractClass *to)
@@ -3287,7 +3287,7 @@ int UnitClass::Desired_Load_Dir(AbstractClass *object, Cell *cell)
     *cell = unknown_geometry_k;
     if (bestval > 0) {
         *cell = Adjacent_Cell(unknown_slot104(), bestdir);
-        facing = unknown_facings_7f8f4c[bestdir];
+        facing = UnitClass_Harvester_Load_List[bestdir];
     }
     if (Type->IsTrain) {
         facing = Dir_To_8(PrimaryFacing.Current());
@@ -4136,7 +4136,7 @@ AbstractClass *UnitClass::unknown_slot219(int arg1, CoordStruct const *coord, bo
 
 // Original 0x00706AE0: 1147 body bytes and 5 independently bounded NOP bytes.
 // Creates scenario units from [Units], then resolves their linked-unit indices.
-extern char const *unknown_units_section_7addc0;
+extern char const *UnitClass_INI_NAME;
 extern int NewINIFormat;
 // VC6 health block emits exact original native instructions, without a float32 store. This does not establish a portable source-width contract.
 static inline UnitTypeClass *Unit_Read_Float_Health_00706AE0(UnitClass &unit, float health)
@@ -4160,11 +4160,11 @@ void __fastcall UnitClass::Read_INI(CCINIClass &ini)
 {
     DynamicVectorClass<int> links;
     links.Clear();
-    int count = ini.Entry_Count(unknown_units_section_7addc0);
+    int count = ini.Entry_Count(UnitClass_INI_NAME);
     for (int index = 0; index < count; index++) {
-        char const *entry = ini.Get_Entry(unknown_units_section_7addc0, index);
+        char const *entry = ini.Get_Entry(UnitClass_INI_NAME, index);
         char buffer[128];
-        ini.Get_String(unknown_units_section_7addc0, entry, 0, buffer, sizeof(buffer));
+        ini.Get_String(UnitClass_INI_NAME, entry, 0, buffer, sizeof(buffer));
         int house_index = HouseClass::Find_Index(strtok(buffer, ","));
         if (house_index != -1) {
             int type_index = UnitTypeClass::From_Name(strtok(0, ","));
@@ -4239,11 +4239,11 @@ void __fastcall UnitClass::Read_INI(CCINIClass &ini)
 // facing (0-255), mission, attached tag name ("None" without), the +0x118 value, +0x1AC, +0x79,
 // the index of the linked unit (-1 without), +0x379 and +0x37A.
 
-extern char const *unknown_units_section_7addc0;
+extern char const *UnitClass_INI_NAME;
 
 void __fastcall UnitClass::Write_INI(CCINIClass &ini)
 {
-    ini.Clear(unknown_units_section_7addc0, 0);
+    ini.Clear(UnitClass_INI_NAME, 0);
     for (int index = 0; index < Units.Count(); index++) {
         UnitClass *unit = Units[index];
         if (unit != 0 && !unit->unknown_76 && unit->IsActive) {
@@ -4267,7 +4267,7 @@ void __fastcall UnitClass::Write_INI(CCINIClass &ini)
                     MissionClass::Name_From_Mission(unit->Get_Mission()), tag,
                     unit->unknown_118.To_Integer(), unit->unknown_1ac, unit->unknown_79, linked,
                     unit->unknown_379, unit->unknown_37a);
-            ini.Put_String(unknown_units_section_7addc0, id, line);
+            ini.Put_String(UnitClass_INI_NAME, id, line);
         }
     }
 }
@@ -5230,23 +5230,11 @@ wchar_t const *UnitClass::unknown_slot35()
 }
 
 
-// 0x0070a240: function not yet identified
-//
-// Body: 27 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 __fastcall FUN_0070a240(int param_1)
-// Callees with accepted source:
-//   Is_Immobilized_006d8e80 -> src/recovered/006d8e80.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0070a240 {
+// UnitClass_Is_Immobilized (0x0070A240): name from mischa85 names.csv
 
 extern unsigned int __fastcall Is_Immobilized_006d8e80(void);
 
-unsigned int __fastcall FUN_0070a240(int object_address)
+unsigned int __fastcall UnitClass_Is_Immobilized(int object_address)
 {
     char result_byte;
 
@@ -5259,7 +5247,6 @@ unsigned int __fastcall FUN_0070a240(int object_address)
     return 1;
 }
 
-}  // namespace seed_0070a240
 
 
 // bool UnitClass::CanUseWaypoint() (0x0070A260, slot 274)

@@ -22,7 +22,7 @@ extern unsigned long unknown_last_time_abfd70;
 
 void Tactical::Draw_Pixel_Effects(Rect const &area, Rect const &cliprect)
 {
-    if (unknown_a6eb1c < GetMinFrameRate()) {
+    if (FPSCounter_CurrentFrameRate < GetMinFrameRate()) {
         return;
     }
     if (LogicalSurface->Bytes_Per_Pixel() != 2) {

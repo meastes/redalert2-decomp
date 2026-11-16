@@ -147,7 +147,7 @@ void Focus_Restore()
         }
         if (SidebarSurface != 0) {
             if (((DSurface *)SidebarSurface)->Restore_Check()) {
-                unknown_flag_8373c3 = true;
+                SidebarClass_IsSidebarRedrawPending = true;
                 if (!ScenarioActive || Frame > 0x10) {
                     SidebarSurface->Fill(0);
                 }
@@ -307,22 +307,12 @@ char *__fastcall Build_Number_String(char *buffer, int size)
 }
 
 
-// 0x00737b20: function not yet identified
-//
-// Body: 47 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: char * __fastcall FUN_00737b20(char *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00737b20 {
+// Build_By_Initials (0x00737B20): name from mischa85 names.csv
 
 extern unsigned int  strchr_00784130(unsigned int *text_words, char delimiter);
 extern "C" char s_gsmallwoo_007d8904[];
 
-char * __fastcall FUN_00737b20(char *destination)
+char * __fastcall Build_By_Initials(char *destination)
 {
     int separator_address;
 
@@ -336,7 +326,6 @@ char * __fastcall FUN_00737b20(char *destination)
     return destination;
 }
 
-}  // namespace seed_00737b20
 
 
 extern "C" char *__cdecl strchr(char const *, int);
@@ -588,44 +577,22 @@ class Leaf_738100 { public: void get(); };
 void Leaf_738100::get() {  }
 
 
-// 0x00738110: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_00738110(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// IME_Stub2 (0x00738110): name from mischa85 names.csv
 
-namespace seed_00738110 {
-
-void  FUN_00738110(void)
+void  IME_Stub2(void)
 {
     return;
 }
 
-}  // namespace seed_00738110
 
 
-// 0x00738120: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_00738120(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// IME_Stub3 (0x00738120): name from mischa85 names.csv
 
-namespace seed_00738120 {
-
-void  FUN_00738120(void)
+void  IME_Stub3(void)
 {
     return;
 }
 
-}  // namespace seed_00738120
 
 
 // wchar_t Char_To_Wide_00738130(unsigned character, long unused_key_data) (0x00738130)

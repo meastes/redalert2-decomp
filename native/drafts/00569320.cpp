@@ -41,20 +41,20 @@ bool MapClass::Unknown_00569320(Cell const &cell)
     for (int y = -2; y < 3; ++y) {
         for (int x = -2; x < 3; ++x) {
             int tile = Map[Cell(Cell(x, y) + cell)].IsoTileIndex;
-            if (tile >= unknown_tileset_a6cb68 && tile < unknown_tileset_a6cb68 + 16) {
+            if (tile >= IsometricTileTypeClass_TrainBridgeSet && tile < IsometricTileTypeClass_TrainBridgeSet + 16) {
                 found = true;
                 cellptr = &Map[Cell(Cell(x, y) + cell)];
-                offset = tile - unknown_tileset_a6cb68;
-            } else if (tile >= unknown_tileset_a52c74 && tile < unknown_tileset_a52c74 + 16) {
+                offset = tile - IsometricTileTypeClass_TrainBridgeSet;
+            } else if (tile >= IsometricTileTypeClass_BridgeSet && tile < IsometricTileTypeClass_BridgeSet + 16) {
                 found = true;
                 cellptr = &Map[Cell(Cell(x, y) + cell)];
-                offset = tile - unknown_tileset_a52c74;
+                offset = tile - IsometricTileTypeClass_BridgeSet;
             } else {
-                if (Unknown_00562930(Cell(x, y) + cell)) {
+                if (MapClass_Is_Low_Bridge(Cell(x, y) + cell)) {
                     found = false;
                     second_low_bridge = false;
                     cellptr = &Map[Cell(Cell(x, y) + cell)];
-                } else if (Unknown_00562980(Cell(x, y) + cell)) {
+                } else if (MapClass_Is_Low_Bridge2(Cell(x, y) + cell)) {
                     found = false;
                     second_low_bridge = true;
                     cellptr = &Map[Cell(Cell(x, y) + cell)];
@@ -69,23 +69,23 @@ bool MapClass::Unknown_00569320(Cell const &cell)
             int overlay = cellptr->OverlayIndex;
             if (Is_Span_EW(overlay, 0xCD)) {
                 for (Cell walk2 = cellptr->MapCoords; ; walk2 -= Cell(1, 0)) {
-                    if (!Unknown_00562980(walk2)) break;
+                    if (!MapClass_Is_Low_Bridge2(walk2)) break;
                     int overlay = Map[walk2].OverlayIndex;
                     if (overlay == 0xE7 || overlay == 0xE8) return true;
                 }
                 for (Cell scan2 = cellptr->MapCoords; ; scan2.X++) {
-                    if (!Unknown_00562980(scan2)) break;
+                    if (!MapClass_Is_Low_Bridge2(scan2)) break;
                     int overlay = Map[scan2].OverlayIndex;
                     if (overlay == 0xE7 || overlay == 0xE8) return true;
                 }
             } else {
                 for (Cell scan = cellptr->MapCoords; ; scan.Y++) {
-                    if (!Unknown_00562980(scan)) break;
+                    if (!MapClass_Is_Low_Bridge2(scan)) break;
                     int overlay = Map[scan].OverlayIndex;
                     if (overlay == 0xE7 || overlay == 0xE8) return true;
                 }
                 for (Cell walk = cellptr->MapCoords; ; walk -= Cell(0, 1)) {
-                    if (!Unknown_00562980(walk)) break;
+                    if (!MapClass_Is_Low_Bridge2(walk)) break;
                     int overlay = Map[walk].OverlayIndex;
                     if (overlay == 0xE7 || overlay == 0xE8) return true;
                 }
@@ -94,23 +94,23 @@ bool MapClass::Unknown_00569320(Cell const &cell)
             int overlay = cellptr->OverlayIndex;
             if (Is_Span_EW(overlay, 0x4A)) {
                 for (Cell walk2 = cellptr->MapCoords; ; walk2 -= Cell(1, 0)) {
-                    if (!Unknown_00562930(walk2)) break;
+                    if (!MapClass_Is_Low_Bridge(walk2)) break;
                     int overlay = Map[walk2].OverlayIndex;
                     if (overlay == 0x64 || overlay == 0x65) return true;
                 }
                 for (Cell scan2 = cellptr->MapCoords; ; scan2.X++) {
-                    if (!Unknown_00562930(scan2)) break;
+                    if (!MapClass_Is_Low_Bridge(scan2)) break;
                     int overlay = Map[scan2].OverlayIndex;
                     if (overlay == 0x64 || overlay == 0x65) return true;
                 }
             } else {
                 for (Cell scan = cellptr->MapCoords; ; scan.Y++) {
-                    if (!Unknown_00562930(scan)) break;
+                    if (!MapClass_Is_Low_Bridge(scan)) break;
                     int overlay = Map[scan].OverlayIndex;
                     if (overlay == 0x64 || overlay == 0x65) return true;
                 }
                 for (Cell walk = cellptr->MapCoords; ; walk -= Cell(0, 1)) {
-                    if (!Unknown_00562930(walk)) break;
+                    if (!MapClass_Is_Low_Bridge(walk)) break;
                     int overlay = Map[walk].OverlayIndex;
                     if (overlay == 0x64 || overlay == 0x65) return true;
                 }

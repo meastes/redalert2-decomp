@@ -12,12 +12,12 @@
 
 class PaletteClass;
 
-extern int unknown_shift_852fb8;    // red left
-extern int unknown_shift_852fbc;    // red right
-extern int unknown_shift_852fc0;    // blue left
-extern int unknown_shift_852fc4;    // blue right
-extern int unknown_shift_852fc8;    // green left
-extern int unknown_shift_852fcc;    // green right
+extern int DSurface_RedRight;    // red left
+extern int DSurface_RedLeft;    // red right
+extern int DSurface_BlueRight;    // blue left
+extern int DSurface_BlueLeft;    // blue right
+extern int DSurface_GreenRight;    // green left
+extern int DSurface_GreenLeft;    // green right
 
 // Set when the display can stretch blits (0x00852FD6; DSurface::Create_Primary).
 extern bool AllowStretchBlits_852fd6;      // 0x00852FD6
@@ -25,9 +25,9 @@ extern bool AllowStretchBlits_852fd6;      // 0x00852FD6
 // Packs 0-255 channel values into a screen pixel (always expanded inline).
 inline int Build_Hicolor_Pixel(int red, int green, int blue)
 {
-    return ((red >> unknown_shift_852fbc) << unknown_shift_852fb8)
-         | ((green >> unknown_shift_852fcc) << unknown_shift_852fc8)
-         | ((blue >> unknown_shift_852fc4) << unknown_shift_852fc0);
+    return ((red >> DSurface_RedLeft) << DSurface_RedRight)
+         | ((green >> DSurface_GreenLeft) << DSurface_GreenRight)
+         | ((blue >> DSurface_BlueLeft) << DSurface_BlueRight);
 }
 
 // A screen pixel back to 8-bit channels, the inverse of Build_Hicolor_Pixel
@@ -35,9 +35,9 @@ inline int Build_Hicolor_Pixel(int red, int green, int blue)
 inline RGBClass Unpack_Hicolor_Pixel(unsigned short pixel)
 {
     RGBClass color;
-    color.Red = (pixel >> unknown_shift_852fb8) << unknown_shift_852fbc;
-    color.Green = (pixel >> unknown_shift_852fc8) << unknown_shift_852fcc;
-    color.Blue = (pixel >> unknown_shift_852fc0) << unknown_shift_852fc4;
+    color.Red = (pixel >> DSurface_RedRight) << DSurface_RedLeft;
+    color.Green = (pixel >> DSurface_GreenRight) << DSurface_GreenLeft;
+    color.Blue = (pixel >> DSurface_BlueRight) << DSurface_BlueLeft;
     return color;
 }
 
@@ -45,9 +45,9 @@ inline RGBClass Unpack_Hicolor_Pixel(unsigned short pixel)
 // channels through the three-channel constructor.
 inline RGBClass Deconstruct_Hicolor_Pixel(unsigned short color)
 {
-    return RGBClass(color >> unknown_shift_852fb8 << unknown_shift_852fbc,
-                    color >> unknown_shift_852fc8 << unknown_shift_852fcc,
-                    color >> unknown_shift_852fc0 << unknown_shift_852fc4);
+    return RGBClass(color >> DSurface_RedRight << DSurface_RedLeft,
+                    color >> DSurface_GreenRight << DSurface_GreenLeft,
+                    color >> DSurface_BlueRight << DSurface_BlueLeft);
 }
 
 // Fills count consecutive 256-entry pixel tables with palette scaled from

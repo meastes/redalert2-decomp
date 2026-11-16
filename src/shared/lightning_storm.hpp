@@ -50,26 +50,26 @@ long __fastcall Load_Storm_0051F5E0(IStream *stream);
 void __fastcall Set_Storm_Active_0051F920(bool active);
 // Starts the storm at cell for owner (a random cell the map accepts when cell
 // is unknown_geometry_k); a nonzero deferment only arms it (0x0051F930).
-void __fastcall Unknown_0051F930(int duration, int deferment, Cell cell, HouseClass *owner);
-void Unknown_0051FBB0();                    // 0x0051FBB0 (sets StormTimeToEnd while active)
+void __fastcall IonStormClass_Ion_Storm_Begin(int duration, int deferment, Cell cell, HouseClass *owner);
+void IonStormClass_Ion_Storm_End();                    // 0x0051FBB0 (sets StormTimeToEnd while active)
 // Ends an active storm (0x0051FBD0).
 void __fastcall Stop_Storm_0051FBD0();
 int __fastcall Is_Storm_Pending_0051FC30(); // 0x0051FC30 active, or a deferment left
 // Adds a storm cloud over cell (a random WeatherConClouds type, raised by half
 // the first bolt image) to the manifesting and present lists (0x0051FC90).
-void __stdcall Unknown_0051FC90(Cell cell);
+void __stdcall IonStormClass_Lightning_Bolt(Cell cell);
 // A bolt strikes the cell under coord: bolt anim, thunder, the warhead's
 // damage anim, explosion and damage, and metal debris when the cell's
 // contents changed or its land breaks (0x0051FE50).
 void __fastcall Storm_Strike_0051FE50(CoordStruct coord);
-bool Unknown_0051FC50();                    // 0x0051FC50 (StormActive)
-bool Unknown_0051FC60();                    // 0x0051FC60 (dominator state 1)
+bool IonStormClass_Is_Ion_Storm_Active();                    // 0x0051FC50 (StormActive)
+bool NukeFlash_IsFadingIn();                    // 0x0051FC60 (dominator state 1)
 // Tints every light converter and the colour schemes (and redraws the cells)
 // to red, green, blue in thousandths, -1 for the scenario ambient (0x00520B00).
 void __fastcall Set_Lighting_00520B00(int red, int green, int blue, bool unknown4);
 // The same tint for the converters of the colour-scheme lists only (0x00520A80).
 void __fastcall Set_Scheme_Lighting_00520A80(int red, int green, int blue, bool unknown4);
-void Unknown_00520770();                    // 0x00520770 (reapplies the dominator or storm lighting)
+void IonStormClass_Apply_Secondary_Effect();                    // 0x00520770 (reapplies the dominator or storm lighting)
 // The storm's frame logic: dominator state timeouts, finished bolts and clouds,
 // strikes of half-played clouds, the end of the storm, new clouds near the cell
 // and the deferred start with its warnings (0x00520200).

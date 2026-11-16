@@ -31,8 +31,8 @@
 // @ref ?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A=008661c8
 // @ref ?unknown_id_source_a3d290@@3PAVScenarioClass@@A=00a3d290
 // @ref ?ScenarioInit@@3HA=00a40774
-// @ref ?unknown_map_min_a70a1c@@3HA=00a70a1c
-// @ref ?unknown_map_max_a70a20@@3HA=00a70a20
+// @ref ?MapRegionClass_MapStartDiagonal@@3HA=00a70a1c
+// @ref ?MapRegionClass_MapEndDiagonal@@3HA=00a70a20
 // @ref ?unknown_int_8325d0@@3HA=008325d0
 // @ref ?MapSizeY@@3HA=008325d4
 // @ref ?Set_CellID@CellClass@@QAEXABVCell@@@Z=0047a450
@@ -101,8 +101,8 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         unknown_833968 = 2;
     }
 
-    unknown_map_min_a70a1c = unknown_int_8325d0;
-    unknown_map_max_a70a20 = unknown_int_8325d0 + 2 * MapSizeY;
+    MapRegionClass_MapStartDiagonal = unknown_int_8325d0;
+    MapRegionClass_MapEndDiagonal = unknown_int_8325d0 + 2 * MapSizeY;
 
     int y = 0;
     unknown_120 = 1;

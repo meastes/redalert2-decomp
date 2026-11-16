@@ -54,7 +54,7 @@ int __fastcall Set_Slot_Country_Color_005bccf0(char const *name, int country, in
         entry->unknown_66e300(color);
     }
     if (unknown_player_slots_a3fa98[slot] == unknown_players_a3fa7c[0]) {
-        unknown_a3d3b4 = color;
+        Game_PlayerColor = color;
     }
     Unknown_005bbdd0(false);
     return changed;

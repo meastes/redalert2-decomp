@@ -89,7 +89,7 @@ extern DynamicVectorClass<AbstractClass *> EventActionPtrTracker;
 
 TEventClass::~TEventClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     EventActionPtrTracker.Delete(this);
     AbstractTypePtrTracker.Delete((ObjectClass *)this);
     Events.Delete(this);

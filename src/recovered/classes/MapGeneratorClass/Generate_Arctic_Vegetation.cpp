@@ -4,8 +4,8 @@
 #include "shared/unknown_map_generator.hpp"
 double __cdecl Map_Random_Fraction_00579770();
 double __stdcall Sample_Truncated_Normal(double,double,double,double);
-extern int unknown_tileset_a6e0e8;
-// @ref ?unknown_tileset_a6e0e8@@=00a6e0e8
+extern int IsometricTileTypeClass_RoughTile;
+// @ref ?IsometricTileTypeClass_RoughTile@@=00a6e0e8
 // @ref ?Place_Tile_Patch@MapGeneratorClass@@=00586340
 // @ref ?Place_Forest@MapGeneratorClass@@=00585dc0
 // @ref ?Fixup_LAT@CellClass@@=00471d10
@@ -29,7 +29,7 @@ void MapGeneratorClass::Generate_Arctic_Vegetation()
             Cell origin=cell->Fetch_CellID();
             int originID=(int)((unsigned)(int)origin.Y*512u+(unsigned)(int)origin.X);
             if(Map_Random_Fraction_00579770()<data.unknown_28) {
-                Place_Tile_Patch(cell,unknown_tileset_a6e0e8,(int)Sample_Truncated_Normal(20.0,15.0,4.0,60.0),originID,false);
+                Place_Tile_Patch(cell,IsometricTileTypeClass_RoughTile,(int)Sample_Truncated_Normal(20.0,15.0,4.0,60.0),originID,false);
             }
         }
         cell=Map.Iterate();

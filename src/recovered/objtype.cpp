@@ -230,47 +230,47 @@ Cell const *ObjectTypeClass::Occupy_List(int arg1) const
 // Loads the shared pip and talk-bubble shapes once: from a loose file when
 // one exists (then owned), else from the mixfiles.
 
-extern void const *unknown_pipbrd_shapes_a72fe0;
-extern void const *unknown_pips_shapes_a72fe4;
-extern void const *unknown_pips2_shapes_a72fe8;
-extern void const *unknown_talkbubl_shapes_a72fec;
-extern bool unknown_pipbrd_owned_a72ff0;
-extern bool unknown_pips_owned_a72ff1;
-extern bool unknown_pips2_owned_a72ff2;
-extern bool unknown_talkbubl_owned_a72ff3;
+extern void const *ObjectTypeClass_SelectShapes;
+extern void const *ObjectTypeClass_PipShapes;
+extern void const *ObjectTypeClass_Pip2Shapes;
+extern void const *ObjectTypeClass_TalkBubbleShapes;
+extern bool ObjectTypeClass_SelectShapesAllocated;
+extern bool ObjectTypeClass_PipShapesAllocated;
+extern bool ObjectTypeClass_Pip2ShapesAllocated;
+extern bool ObjectTypeClass_TalkBubbleShapesAllocated;
 
 void ObjectTypeClass::One_Time()
 {
-    if (unknown_pipbrd_shapes_a72fe0 == 0) {
+    if (ObjectTypeClass_SelectShapes == 0) {
         RawFileClass file("PIPBRD.SHP");
-        unknown_pipbrd_shapes_a72fe0 = Load_Alloc_Data(file);
-        unknown_pipbrd_owned_a72ff0 = unknown_pipbrd_shapes_a72fe0 != 0;
-        if (unknown_pipbrd_shapes_a72fe0 == 0) {
-            unknown_pipbrd_shapes_a72fe0 = MixFileClass::Retrieve("PIPBRD.SHP");
+        ObjectTypeClass_SelectShapes = Load_Alloc_Data(file);
+        ObjectTypeClass_SelectShapesAllocated = ObjectTypeClass_SelectShapes != 0;
+        if (ObjectTypeClass_SelectShapes == 0) {
+            ObjectTypeClass_SelectShapes = MixFileClass::Retrieve("PIPBRD.SHP");
         }
     }
-    if (unknown_pips_shapes_a72fe4 == 0) {
+    if (ObjectTypeClass_PipShapes == 0) {
         RawFileClass file("PIPS.SHP");
-        unknown_pips_shapes_a72fe4 = Load_Alloc_Data(file);
-        unknown_pips_owned_a72ff1 = unknown_pips_shapes_a72fe4 != 0;
-        if (unknown_pips_shapes_a72fe4 == 0) {
-            unknown_pips_shapes_a72fe4 = MixFileClass::Retrieve("PIPS.SHP");
+        ObjectTypeClass_PipShapes = Load_Alloc_Data(file);
+        ObjectTypeClass_PipShapesAllocated = ObjectTypeClass_PipShapes != 0;
+        if (ObjectTypeClass_PipShapes == 0) {
+            ObjectTypeClass_PipShapes = MixFileClass::Retrieve("PIPS.SHP");
         }
     }
-    if (unknown_pips2_shapes_a72fe8 == 0) {
+    if (ObjectTypeClass_Pip2Shapes == 0) {
         RawFileClass file("PIPS2.SHP");
-        unknown_pips2_shapes_a72fe8 = Load_Alloc_Data(file);
-        unknown_pips2_owned_a72ff2 = unknown_pips2_shapes_a72fe8 != 0;
-        if (unknown_pips2_shapes_a72fe8 == 0) {
-            unknown_pips2_shapes_a72fe8 = MixFileClass::Retrieve("PIPS2.SHP");
+        ObjectTypeClass_Pip2Shapes = Load_Alloc_Data(file);
+        ObjectTypeClass_Pip2ShapesAllocated = ObjectTypeClass_Pip2Shapes != 0;
+        if (ObjectTypeClass_Pip2Shapes == 0) {
+            ObjectTypeClass_Pip2Shapes = MixFileClass::Retrieve("PIPS2.SHP");
         }
     }
-    if (unknown_talkbubl_shapes_a72fec == 0) {
+    if (ObjectTypeClass_TalkBubbleShapes == 0) {
         RawFileClass file("TALKBUBL.SHP");
-        unknown_talkbubl_shapes_a72fec = Load_Alloc_Data(file);
-        unknown_talkbubl_owned_a72ff3 = unknown_talkbubl_shapes_a72fec != 0;
-        if (unknown_talkbubl_shapes_a72fec == 0) {
-            unknown_talkbubl_shapes_a72fec = MixFileClass::Retrieve("TALKBUBL.SHP");
+        ObjectTypeClass_TalkBubbleShapes = Load_Alloc_Data(file);
+        ObjectTypeClass_TalkBubbleShapesAllocated = ObjectTypeClass_TalkBubbleShapes != 0;
+        if (ObjectTypeClass_TalkBubbleShapes == 0) {
+            ObjectTypeClass_TalkBubbleShapes = MixFileClass::Retrieve("TALKBUBL.SHP");
         }
     }
 }

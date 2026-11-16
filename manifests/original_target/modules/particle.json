@@ -1050,6 +1050,30 @@
    "address": "0040ffd0"
   },
   {
+   "symbol": "?DSurface_BlueLeft@@3HA",
+   "address": "00852fc4"
+  },
+  {
+   "symbol": "?DSurface_BlueRight@@3HA",
+   "address": "00852fc0"
+  },
+  {
+   "symbol": "?DSurface_GreenLeft@@3HA",
+   "address": "00852fcc"
+  },
+  {
+   "symbol": "?DSurface_GreenRight@@3HA",
+   "address": "00852fc8"
+  },
+  {
+   "symbol": "?DSurface_RedLeft@@3HA",
+   "address": "00852fbc"
+  },
+  {
+   "symbol": "?DSurface_RedRight@@3HA",
+   "address": "00852fb8"
+  },
+  {
    "symbol": "?Debug_Map@@3_NA",
    "address": "00a40d13"
   },
@@ -1066,6 +1090,10 @@
    "address": "005d3bd0"
   },
   {
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
+  },
+  {
    "symbol": "?Do_Shimmer@ObjectClass@@UAEXXZ",
    "address": "005d2c60"
   },
@@ -1076,6 +1104,10 @@
   {
    "symbol": "?Exit_Object@ObjectClass@@UAEHPAVTechnoClass@@@Z",
    "address": "005d2c70"
+  },
+  {
+   "symbol": "?FPSCounter_CurrentFrameRate@@3IA",
+   "address": "00a6eb1c"
   },
   {
    "symbol": "?Facing_Between_Points@@YIHABUPoint2D@@0@Z",
@@ -1282,6 +1314,14 @@
    "address": "00410240"
   },
   {
+   "symbol": "?ParticleClass_GasWindX@@3PAY07HA",
+   "address": "007eb824"
+  },
+  {
+   "symbol": "?ParticleClass_SmokeWindX@@3PAY07HA",
+   "address": "007eb7e4"
+  },
+  {
    "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
    "address": "00410000"
   },
@@ -1378,6 +1418,10 @@
    "address": "0083996c"
   },
   {
+   "symbol": "?Tactical_Z_Lepton_To_Pixel@@YIHH@Z",
+   "address": "006a2970"
+  },
+  {
    "symbol": "?Take_Damage@ObjectClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z",
    "address": "005d3d20"
   },
@@ -1388,14 +1432,6 @@
   {
    "symbol": "?Unit_Draw_Convert_008323C0@@3PAVConvertClass@@A",
    "address": "008323c0"
-  },
-  {
-   "symbol": "?Unknown_006A2970@@YIHH@Z",
-   "address": "006a2970"
-  },
-  {
-   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
-   "address": "006ecb90"
   },
   {
    "symbol": "?Unlimbo@ObjectClass@@UAE_NPBUCoordStruct@@H@Z",
@@ -1434,10 +1470,6 @@
    "address": "00a40b2c"
   },
   {
-   "symbol": "?unknown_a6eb1c@@3IA",
-   "address": "00a6eb1c"
-  },
-  {
    "symbol": "?unknown_b263d8@@3HA",
    "address": "00b263d8"
   },
@@ -1456,30 +1488,6 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_shift_852fb8@@3HA",
-   "address": "00852fb8"
-  },
-  {
-   "symbol": "?unknown_shift_852fbc@@3HA",
-   "address": "00852fbc"
-  },
-  {
-   "symbol": "?unknown_shift_852fc0@@3HA",
-   "address": "00852fc0"
-  },
-  {
-   "symbol": "?unknown_shift_852fc4@@3HA",
-   "address": "00852fc4"
-  },
-  {
-   "symbol": "?unknown_shift_852fc8@@3HA",
-   "address": "00852fc8"
-  },
-  {
-   "symbol": "?unknown_shift_852fcc@@3HA",
-   "address": "00852fcc"
   },
   {
    "symbol": "?unknown_slot102@ObjectClass@@UAEHPAVUnknownCellClass@@HPAHPA_N0@Z",
@@ -1608,14 +1616,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_wind_7eb7e4@@3PAY07HA",
-   "address": "007eb7e4"
-  },
-  {
-   "symbol": "?unknown_wind_7eb824@@3PAY07HA",
-   "address": "007eb824"
   },
   {
    "symbol": "_CLSID_ParticleClass",

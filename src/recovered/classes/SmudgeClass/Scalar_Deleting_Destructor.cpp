@@ -3,7 +3,7 @@
 // expanded; no source of its own.
 // @ref ??_GSmudgeClass@@UAEPAXI@Z=00687b00
 // @ref ??1SmudgeClass@@UAE@XZ=006876b0
-// @ref ?Unknown_006ECB90@@YIXPAVObjectClass@@_N@Z=006ecb90
+// @ref ?Detach_This_From_All@@YIXPAVObjectClass@@_N@Z=006ecb90
 // @ref ?Limbo@ObjectClass@@UAEHXZ=005d3700
 // @ref ?GameActive@@3_NA=00a40958
 // @ref ??1ObjectClass@@UAE@XZ=005d2530

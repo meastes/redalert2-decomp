@@ -3983,7 +3983,7 @@ void __fastcall Unknown_0062E5C0(FrameSyncStruct *their, int index)
         delay = Ipx.unknown_slot22(index) / 2;
     }
     now = ::Frame;
-    unsigned int scaled = delay * unknown_a6eb1c;
+    unsigned int scaled = delay * FPSCounter_CurrentFrameRate;
     unsigned int ticks = scaled / 60;
     behind = now - ticks - frame;
     unknown_a3fb84[index] = behind;

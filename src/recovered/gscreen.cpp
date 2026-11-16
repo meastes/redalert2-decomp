@@ -426,9 +426,9 @@ void GScreenClass::Render()
     Draw_It(complete);
     TacticalMap->Render(CompositeSurface, redraw, 2);
 
-    if (unknown_flag_abcd85 && !Debug_Map) {
+    if (SidebarClass_IsToEraseSidebarMouse && !Debug_Map) {
         WWMouse->Erase_Mouse(SidebarSurface, true);
-        unknown_flag_abcd85 = false;
+        SidebarClass_IsToEraseSidebarMouse = false;
     }
     if (Buttons != 0) {
         Buttons->Draw_All(false);

@@ -4,8 +4,8 @@
     "id": "population-3871",
     "inventory_sha256": "bdbd3e400a977f13929367cd9ef0997340de203137fa2188ffb3ffda5b7638fe",
     "gaps_sha256": "62889a264fdbb33313c42a346e9e3e2a2ce86c1e4792e42f37d5dcf9a42c776e",
-    "historical_population_sha256": "2cc2adf85ef107a490e5107236b2d76e8e88e06beb093f1d48fba06173390c91",
-    "historical_acceptance_sha256": "ea9ed0aece57fba51bb2b824a70339ac357760dd8422b0bd84994617f76861a2"
+    "historical_population_sha256": "9a4f681479757e3a0c26178600cb45dfb1187fd544cc9f3b366194c2459991a4",
+    "historical_acceptance_sha256": "03629ad98d7a6694fa083ca0c3b8fc880b86e8f8ae3c60b6bfa59594ef71091b"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1862,7 +1862,7 @@
     "?Process_Messages_00597680@ModemGuest@@QAE_NXZ": 5863040,
     "?Service_00597550@ModemGuest@@QAEX_N@Z": 5862736,
     "?Sign_Off_00598590@ModemGuest@@QAEXXZ": 5866896,
-    "?Unknown_006525F0@@YIHXZ": 6628848,
+    "?RulesClass_Get_Rule_Unique_ID@@YIHXZ": 6628848,
     "?Title_Screen_Restore@@YIX_N@Z": 5337968,
     "?unknown_6000d0@@YA_NXZ": 6291664,
     "?unknown_create_dialog_5ff610@@YIPAUHWND__@@HP6GHPAU1@IIJ@ZH@Z": 6288912,
@@ -1916,7 +1916,7 @@
     "?Char_To_Wide_006fa0c0@@YIXPAGPBDH@Z": 7315648,
     "?Narrow_To_Wide_006fa180@@YIPAGPBD@Z": 7315840,
     "?serial_manager_00a40a28@@3VNullModemClass@@A": 10750504,
-    "?unknown_a3d3b4@@3HA": 10736564,
+    "?Game_PlayerColor@@3HA": 10736564,
     "?unknown_a3d3bc@@3HA": 10736572,
     "?ColorMe@@3HA": 8024956,
     "?PlayerColorTable@@3QBHB": 8285588,
@@ -6216,12 +6216,12 @@
     "?Load_Title_Page@@YIXPBX_N@Z": 5331584,
     "?Unknown_0051A2B0@@YA_NXZ": 5350064,
     "?Unknown_0051A2B0@@YIXXZ": 5350064,
-    "?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z": 5372208,
-    "?Unknown_0051FC50@@YA_NXZ": 5373008,
+    "?IonStormClass_Ion_Storm_Begin@@YIXHHVCell@@PAVHouseClass@@@Z": 5372208,
+    "?IonStormClass_Is_Ion_Storm_Active@@YA_NXZ": 5373008,
     "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ": 5373056,
-    "?Unknown_0051FC90@@YGXVCell@@@Z": 5373072,
+    "?IonStormClass_Lightning_Bolt@@YGXVCell@@@Z": 5373072,
     "?Unknown_0051a330@@YI_NH@Z": 5350192,
-    "?Unknown_00520770@@YAXXZ": 5375856,
+    "?IonStormClass_Apply_Secondary_Effect@@YAXXZ": 5375856,
     "?Set_Key_State@@YIXH_N@Z": 5387168,
     "?Get_Key_State@@YIFH@Z": 5387216,
     "?Get_Async_Key_State@@YIFH@Z": 5387248,
@@ -6316,10 +6316,10 @@
     "?Unknown_00672980@SessionClass@@QAEXXZ": 6760832,
     "?Is_In_Game@SessionClass@@QAEEXZ": 6762256,
     "?Unknown_0069A160@@YAXXZ": 6922592,
-    "?Unknown_006A2970@@YIHH@Z": 6957424,
+    "?Tactical_Z_Lepton_To_Pixel@@YIHH@Z": 6957424,
     "?Unknown_006BF260@@YIPAVAbstractTypeClass@@PBD@Z": 7074400,
     "?Unknown_006EA9B0@@YAXXZ": 7252400,
-    "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z": 7261072,
+    "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z": 7261072,
     "?Unknown_Reload_Art_006F44D0@@YIXXZ": 7292112,
     "?Unknown_006F89E0@@YAXXZ": 7309792,
     "?Unknown_006F8A20@@YIXPAVBuildingClass@@@Z": 7309856,
@@ -7714,7 +7714,7 @@
     "?unknown_a523c4@IPXConnClass@@2HA": 10822596,
     "?unknown_a523d4@IPXConnClass@@2HA": 10822612,
     "?unknown_a523e0@IPXConnClass@@2HA": 10822624,
-    "?unknown_a6eb1c@@3IA": 10939164,
+    "?FPSCounter_CurrentFrameRate@@3IA": 10939164,
     "?unknown_a71bc4@@3PADA": 10951620,
     "?unknown_a71e9c@@3HA": 10952348,
     "?unknown_a71ea0@@3HA": 10952352,
@@ -7729,7 +7729,7 @@
     "?unknown_ab62f8@@3HA": 11231992,
     "?UnlockInputFrame@@3HA": 11243892,
     "?unknown_accept_image_7e6dbc@@3PBDB": 8285628,
-    "?unknown_actions_section_7ada54@@3PBDB": 8051284,
+    "?TriggerTypeClass_INI_ACTION_NAME@@3PBDB": 8051284,
     "?unknown_address_a3db2c@@3VIPXAddressClass@@A": 10738476,
     "?unknown_application_84c7dc@@3PAUIUnknown@@A": 8701916,
     "?unknown_art_ini_unique_id@@YAHXZ": 6629136,
@@ -7782,13 +7782,13 @@
     "?TiberiumDrawer@@3PAVConvertClass@@A": 8594364,
     "?SidebarDrawer@@3PAVConvertClass@@A": 8594380,
     "?unknown_easy_ai_entry_a72d34@@3PAUNodeNameType@@A": 10956084,
-    "?unknown_events_section_7ada58@@3PBDB": 8051288,
+    "?TriggerTypeClass_INI_EVENT_NAME@@3PBDB": 8051288,
     "?unknown_explosion_100_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7012576,
     "?unknown_explosion_300_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7012672,
     "?unknown_explosion_50_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7012480,
     "?DrawShapeShadows@@3_NA": 8227029,
     "?unknown_flag_8373c1@@3_NA": 8614849,
-    "?unknown_flag_8373c3@@3_NA": 8614851,
+    "?SidebarClass_IsSidebarRedrawPending@@3_NA": 8614851,
     "?unknown_flag_83740c@@3_NA": 8614924,
     "?unknown_flag_839c4c@@3_NA": 8625228,
     "?UseDirect3D@@3_NA": 8728535,
@@ -7808,7 +7808,7 @@
     "?IgnoreInput@@3_NA": 10751300,
     "?GameControlsShown@@3_NA": 10751364,
     "?GameStatisticsPacketSent@@3_NA": 10753992,
-    "?unknown_flag_abcd84@@3_NA": 11259268,
+    "?SidebarClass_IsToBlitSidebar@@3_NA": 11259268,
     "?unknown_flag_abd500@@3_NA": 11261184,
     "?AllowNegativeY@@3_NA": 11710296,
     "?unknown_flags_a3f118@@3PA_NA": 10744088,
@@ -8424,7 +8424,7 @@
     "?unknown_timing_bars_7ec418@@3PAHA": 8307736,
     "?unknown_toggle_session_flag_2229@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7023248,
     "?unknown_tooltips_enabled_a40b34@@3_NA": 10750772,
-    "?unknown_triggers_section_7ada50@@3PBDB": 8051280,
+    "?TriggerTypeClass_INI_NAME@@3PBDB": 8051280,
     "?unknown_update_4070f0@@YIXPAUUnknownFixedTimer_00407030@@@Z": 4223216,
     "?unknown_update_4090e0@@YIXPAUUnknownUpdated_00409230@@H@Z": 4231392,
     "?unknown_update_and_get_08_00409230@@YIHPAUUnknownUpdated_00409230@@@Z": 4231728,
@@ -8849,7 +8849,6 @@
     "??_7CampaignClass@@6BINoticeSink@@@": 7984764,
     "??_7CampaignClass@@6BINoticeSource@@@": 7984756,
     "??1CampaignClass@@UAE@XZ": 4609280,
-    "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z": 7261072,
     "??_GCampaignClass@@UAEPAXI@Z": 4610416,
     "??0Campaign@WorldDominationTour@@QAE@ABVWstring@@ABV?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@@Z": 7495488,
     "??1Campaign@WorldDominationTour@@UAE@XZ": 7496416,
@@ -9066,7 +9065,7 @@
     "?accumulated_fps_00a6eb20@@3IA": 10939168,
     "?max_max_ahead_00a3d578@@3HA": 10737016,
     "__imp__DialogBoxParamA@20": 7971780,
-    "?unknown_building_depth_shape_85029c@@3PAUShapeFileStruct@@A": 8716956,
+    "?BuildingTypeClass_BuildingZShape@@3PAUShapeFileStruct@@A": 8716956,
     "??0LaserDrawClass@@QAE@UCoordStruct@@0H_NVRGBClass@@22H11MM@Z": 5452048,
     "?Draw_It@OverlayTypeClass@@UAEXPBUPoint2D@@PBVRect@@H@Z": 6146272,
     "?Get_Image_Data@OverlayTypeClass@@UBEPAXXZ": 6148432,
@@ -10310,7 +10309,7 @@
           "resolved": 10947852
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -10377,7 +10376,7 @@
           "resolved": 10947864
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10428,7 +10427,7 @@
           "resolved": 10947936
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10479,7 +10478,7 @@
           "resolved": 10947920
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10530,7 +10529,7 @@
           "resolved": 10947912
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10581,7 +10580,7 @@
           "resolved": 10947872
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10632,7 +10631,7 @@
           "resolved": 10947832
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10715,7 +10714,7 @@
           "resolved": 10947944
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -10774,7 +10773,7 @@
           "resolved": 10947880
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -10833,7 +10832,7 @@
           "resolved": 10947904
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -10892,7 +10891,7 @@
           "resolved": 10947928
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -10935,7 +10934,7 @@
           "resolved": 10947858
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -10986,7 +10985,7 @@
           "resolved": 10947896
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -11045,7 +11044,7 @@
           "resolved": 233652
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -11146,7 +11145,7 @@
         {
           "offset": 123,
           "kind": 6,
-          "symbol": "?unknown_a3d3b4@@3HA",
+          "symbol": "?Game_PlayerColor@@3HA",
           "target": 10736564,
           "addend": 0,
           "resolved": 10736564
@@ -11154,7 +11153,7 @@
         {
           "offset": 128,
           "kind": 6,
-          "symbol": "?unknown_a3d3b4@@3HA",
+          "symbol": "?Game_PlayerColor@@3HA",
           "target": 10736564,
           "addend": 0,
           "resolved": 10736564
@@ -11200,7 +11199,7 @@
           "resolved": 4293327576
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -11365,7 +11364,7 @@
         {
           "offset": 189,
           "kind": 20,
-          "symbol": "?Unknown_006525F0@@YIHXZ",
+          "symbol": "?RulesClass_Get_Rule_Unique_ID@@YIHXZ",
           "target": 6628848,
           "addend": 0,
           "resolved": 771359
@@ -11491,7 +11490,7 @@
           "resolved": 4293330827
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -11632,7 +11631,7 @@
         {
           "offset": 529,
           "kind": 6,
-          "symbol": "?unknown_a3d3b4@@3HA",
+          "symbol": "?Game_PlayerColor@@3HA",
           "target": 10736564,
           "addend": 0,
           "resolved": 10736564
@@ -11696,7 +11695,7 @@
         {
           "offset": 590,
           "kind": 6,
-          "symbol": "?unknown_a3d3b4@@3HA",
+          "symbol": "?Game_PlayerColor@@3HA",
           "target": 10736564,
           "addend": 0,
           "resolved": 10736564
@@ -11830,7 +11829,7 @@
           "resolved": 10956008
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -11907,7 +11906,7 @@
         {
           "offset": 221,
           "kind": 6,
-          "symbol": "?unknown_a3d3b4@@3HA",
+          "symbol": "?Game_PlayerColor@@3HA",
           "target": 10736564,
           "addend": 0,
           "resolved": 10736564
@@ -11971,7 +11970,7 @@
         {
           "offset": 284,
           "kind": 6,
-          "symbol": "?unknown_a3d3b4@@3HA",
+          "symbol": "?Game_PlayerColor@@3HA",
           "target": 10736564,
           "addend": 0,
           "resolved": 10736564
@@ -12017,7 +12016,7 @@
           "resolved": 179701
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -12068,7 +12067,7 @@
           "resolved": 10736572
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -12113,7 +12112,7 @@
         {
           "offset": 83,
           "kind": 6,
-          "symbol": "?unknown_a3d3b4@@3HA",
+          "symbol": "?Game_PlayerColor@@3HA",
           "target": 10736564,
           "addend": 0,
           "resolved": 10736564
@@ -12135,7 +12134,7 @@
           "resolved": 8024956
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12202,7 +12201,7 @@
           "resolved": 1454047
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -12309,7 +12308,7 @@
           "resolved": 8024956
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -12544,7 +12543,7 @@
           "resolved": 1558740
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -12795,7 +12794,7 @@
           "resolved": 8624512
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -14310,7 +14309,7 @@
           "resolved": 5864954
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "switch_data_bytes": 49,
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
@@ -14954,7 +14953,7 @@
           "resolved": 10956008
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -15039,7 +15038,7 @@
         {
           "offset": 140,
           "kind": 6,
-          "symbol": "?unknown_a3d3b4@@3HA",
+          "symbol": "?Game_PlayerColor@@3HA",
           "target": 10736564,
           "addend": 0,
           "resolved": 10736564
@@ -15069,7 +15068,7 @@
           "resolved": 229888
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -15106,7 +15105,7 @@
         {
           "offset": 96,
           "kind": 6,
-          "symbol": "?unknown_a3d3b4@@3HA",
+          "symbol": "?Game_PlayerColor@@3HA",
           "target": 10736564,
           "addend": 0,
           "resolved": 10736564
@@ -15170,7 +15169,7 @@
         {
           "offset": 159,
           "kind": 6,
-          "symbol": "?unknown_a3d3b4@@3HA",
+          "symbol": "?Game_PlayerColor@@3HA",
           "target": 10736564,
           "addend": 0,
           "resolved": 10736564
@@ -15224,7 +15223,7 @@
           "resolved": 174245
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -15299,7 +15298,7 @@
           "resolved": 174114
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -15336,7 +15335,7 @@
         {
           "offset": 36,
           "kind": 6,
-          "symbol": "?unknown_a3d3b4@@3HA",
+          "symbol": "?Game_PlayerColor@@3HA",
           "target": 10736564,
           "addend": 0,
           "resolved": 10736564
@@ -15582,7 +15581,7 @@
           "resolved": 421895
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -16041,7 +16040,7 @@
           "resolved": 655019
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -16126,7 +16125,7 @@
         {
           "offset": 92,
           "kind": 6,
-          "symbol": "?unknown_a3d3b4@@3HA",
+          "symbol": "?Game_PlayerColor@@3HA",
           "target": 10736564,
           "addend": 0,
           "resolved": 10736564
@@ -16660,7 +16659,7 @@
           "resolved": 993902
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -16977,7 +16976,7 @@
         {
           "offset": 453,
           "kind": 6,
-          "symbol": "?unknown_a3d3b4@@3HA",
+          "symbol": "?Game_PlayerColor@@3HA",
           "target": 10736564,
           "addend": 0,
           "resolved": 10736564
@@ -16993,7 +16992,7 @@
         {
           "offset": 470,
           "kind": 6,
-          "symbol": "?unknown_a3d3b4@@3HA",
+          "symbol": "?Game_PlayerColor@@3HA",
           "target": 10736564,
           "addend": 0,
           "resolved": 10736564
@@ -17959,7 +17958,7 @@
           "resolved": 4293327796
         }
       ],
-      "source_sha256": "4fcfb1473f63cb2daf6be8686210e317e343698c530958f1bfba090aa99b3005",
+      "source_sha256": "45a46960c7c0933dc6daa9a14a642dc08f557965b1fb3b0b9d0ea50f4e7728b9",
       "source": "src/recovered/modemgst.cpp",
       "population": "population-3871",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

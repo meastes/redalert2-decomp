@@ -721,7 +721,7 @@ extern HouseClass *unknown_house_84e894;    // 0x0084E894
 
 HouseClass::~HouseClass()
 {
-    Unknown_006ECB90((ObjectClass *)this, true);
+    Detach_This_From_All((ObjectClass *)this, true);
     Type = 0;
     for (int index = 0; index < 12; index++) {
         delete WaypointPaths[index];
@@ -1167,7 +1167,7 @@ void HouseClass::AI()
         SuperClass *super=Supers[super_index];
         if (super->Is_Present() && super->unknown_69d390(this==PlayerPtr) && this==PlayerPtr) {
             int type_index=super->Type->Fetch_Heap_ID();
-            Map.Flag_Tab_To_Redraw(Unknown_006818D0(0x39,type_index,0));
+            Map.Flag_Tab_To_Redraw(SidebarClass_GetObjectTabIdx(0x39,type_index,0));
         }
     }
     if (unknown_game_mode_a3d298!=0 && !unknown_13d && Frame>0 && !Type->MultiplayPassive) {
@@ -1270,7 +1270,7 @@ void HouseClass::unknown_func_4e4ef0()
         if (super->unknown_55 && super->unknown_func_69d390(this == PlayerPtr) &&
             this == PlayerPtr) {
             int id = super->Type->Fetch_Heap_ID();
-            Map.Flag_Tab_To_Redraw(Unknown_006818D0(0x39, id, 0));
+            Map.Flag_Tab_To_Redraw(SidebarClass_GetObjectTabIdx(0x39, id, 0));
         }
     }
 }
@@ -1690,7 +1690,7 @@ int HouseClass::unknown_func_4e63f0(int kind, int index, bool naval)
     }
     factory->unknown_func_4b9630(true);
     if (PlayerPtr == this) {
-        Map.Flag_Tab_To_Redraw(Unknown_006818D0(kind, index, 0));
+        Map.Flag_Tab_To_Redraw(SidebarClass_GetObjectTabIdx(kind, index, 0));
     }
     return 0;
 }
@@ -1710,7 +1710,7 @@ int HouseClass::Abandon_Production(int kind, int index, bool naval)
         return 3;
     }
     if (factory->Queue.Count() > 0 && index >= 0 && buildcat == 0 && factory->Delete_Queued_004B9DF0(Fetch_Techno_Type(kind, index))) {
-        Map.Flag_Tab_To_Redraw(Unknown_006818D0(kind, index, 0));
+        Map.Flag_Tab_To_Redraw(SidebarClass_GetObjectTabIdx(kind, index, 0));
         return 0;
     }
     if (buildcat == 0 && index != -1) {
@@ -2251,7 +2251,7 @@ void HouseClass::MPlayer_Defeated_004e77f0()
         if (Current_Dialog_Id_00735b20()==0x73) Map.Unknown_00634970((int)WS_Top_Window());
         if (unknown_house_a72d28!=PlayerPtr) {
             swprintf(text,StringTable::Load_String("TXT_PLAYER_DEFEATED",0,"D:\\Ra2\\House.CPP",0x125f),UIName);
-            unknown_session_a3d298.Messages.Add_Message(0,0,text,unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4),0x4046,(int)(Rules->MessageDelay*900),false);
+            unknown_session_a3d298.Messages.Add_Message(0,0,text,unknown_session_a3d298.Color_Index_To_Scheme(Game_PlayerColor),0x4046,(int)(Rules->MessageDelay*900),false);
             Speech_Play_Name("EVA_YouHaveLost",-1,-1);
         }
         Map.Flag_To_Redraw(0);
@@ -6415,7 +6415,7 @@ void HouseClass::AI_Supers_004f3910()
                 }
                 case 2: {
                     SuperClass *pending = super;
-                    if (!Unknown_0051FC50() && unknown_54f0 != -1) {
+                    if (!IonStormClass_Is_Ion_Storm_Active() && unknown_54f0 != -1) {
                         target_2 = unknown_cell_a40f10;
                         if (unknown_541c == 1) target_2 = unknown_func_4f65a0();
                         else target_2 = unknown_func_4f6a80(unknown_541c);
@@ -6523,7 +6523,7 @@ void HouseClass::unknown_func_4f3c50(SuperClass *super)
 
 void HouseClass::unknown_func_4f3d70(SuperClass *super)
 {
-    if (!Unknown_0051FC50() && unknown_54f0 != -1) {
+    if (!IonStormClass_Is_Ion_Storm_Active() && unknown_54f0 != -1) {
         Cell cell = unknown_cell_a40f10;
         if (unknown_541c == 1) {
             cell = unknown_func_4f65a0();
@@ -6798,7 +6798,7 @@ void HouseClass::Update_Present_Super_Weapons()
                 }
             }
             int type_id = Supers[s]->Type->Fetch_Heap_ID();
-            int type_index = Unknown_006818D0(57, type_id, 0);
+            int type_index = SidebarClass_GetObjectTabIdx(57, type_id, 0);
             if (present && !unknown_13d) {
                 bool const &on = enabled;
                 bool off = !on;
@@ -6846,7 +6846,7 @@ void HouseClass::Enable_Available_Super_Weapons_004f4db0()
                         if (this==PlayerPtr) {
                             Map.Unknown_0067C530(31,super_index);
                             int type_index=Supers[super_index]->Type->Fetch_Heap_ID();
-                            Map.Flag_Tab_To_Redraw(Unknown_006818D0(57,type_index,0));
+                            Map.Flag_Tab_To_Redraw(SidebarClass_GetObjectTabIdx(57,type_index,0));
                         }
                         break;
                     }

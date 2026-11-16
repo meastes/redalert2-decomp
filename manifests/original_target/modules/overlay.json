@@ -490,7 +490,7 @@
    "address": "007b4ae8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 171
+   "section": 170
   },
   {
    "symbol": "??_R1A@?0A@A@Straw@@8",
@@ -553,49 +553,49 @@
    "address": "007b79dc",
    "bytes": 5,
    "kind": "rtti",
-   "section": 172
+   "section": 166
   },
   {
    "symbol": "??_R3Pipe@@8",
    "address": "007b79e8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 173
+   "section": 167
   },
   {
    "symbol": "??_R4Pipe@@6B@",
    "address": "007b79f8",
    "bytes": 20,
    "kind": "rtti",
-   "section": 175
+   "section": 168
   },
   {
    "symbol": "??_R1A@?0A@A@BufferPipe@@8",
    "address": "007b7a10",
    "bytes": 24,
    "kind": "rtti",
-   "section": 166
+   "section": 171
   },
   {
    "symbol": "??_R2BufferPipe@@8",
    "address": "007b7a28",
    "bytes": 9,
    "kind": "rtti",
-   "section": 167
+   "section": 172
   },
   {
    "symbol": "??_R3BufferPipe@@8",
    "address": "007b7a38",
    "bytes": 16,
    "kind": "rtti",
-   "section": 168
+   "section": 173
   },
   {
    "symbol": "??_R4BufferPipe@@6B@",
    "address": "007b7a48",
    "bytes": 20,
    "kind": "rtti",
-   "section": 170
+   "section": 175
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@PAVCellClass@@@@8",
@@ -784,7 +784,7 @@
    "address": "007d1e90",
    "bytes": 19,
    "kind": "rtti",
-   "section": 174
+   "section": 169
   },
   {
    "symbol": "??_R0?AVStraw@@@8",
@@ -805,7 +805,7 @@
    "address": "007d5e30",
    "bytes": 25,
    "kind": "rtti",
-   "section": 169
+   "section": 174
   },
   {
    "symbol": "??_R0?AV?$VectorClass@PAVCellClass@@@@@8",
@@ -1861,6 +1861,10 @@
    "address": "005d3bd0"
   },
   {
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
+  },
+  {
    "symbol": "?Do_Shimmer@ObjectClass@@UAEXXZ",
    "address": "005d2c60"
   },
@@ -2153,6 +2157,14 @@
    "address": "005d53e0"
   },
   {
+   "symbol": "?OverlayClass_INI_NAME@@3PBDB",
+   "address": "007a77c0"
+  },
+  {
+   "symbol": "?OverlayClass_ToOwn@@3HA",
+   "address": "007e8a8c"
+  },
+  {
    "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
    "address": "00a35de8"
   },
@@ -2313,6 +2325,10 @@
    "address": "0083996c"
   },
   {
+   "symbol": "?Tactical_Z_Lepton_To_Pixel@@YIHH@Z",
+   "address": "006a2970"
+  },
+  {
    "symbol": "?Take_Damage@ObjectClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z",
    "address": "005d3d20"
   },
@@ -2331,14 +2347,6 @@
   {
    "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
    "address": "00ac0b30"
-  },
-  {
-   "symbol": "?Unknown_006A2970@@YIHH@Z",
-   "address": "006a2970"
-  },
-  {
-   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
-   "address": "006ecb90"
   },
   {
    "symbol": "?Unlimbo@ObjectClass@@UAE_NPBUCoordStruct@@H@Z",
@@ -2403,14 +2411,6 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
-  },
-  {
-   "symbol": "?unknown_overlay_section_7a77c0@@3PBDB",
-   "address": "007a77c0"
-  },
-  {
-   "symbol": "?unknown_placing_house_7e8a8c@@3HA",
-   "address": "007e8a8c"
   },
   {
    "symbol": "?unknown_short_8325d0@@3FA",

@@ -1,16 +1,5 @@
-// 0x0056b9b0: function not yet identified
-//
-// Owner: DynamicVectorClass<SubzoneConnectionStruct>, stores the DynamicVectorClass<SubzoneConnectionStruct> vtable (constructor or destructor) (from RTTI/vtables).
-// Body: 56 bytes (frozen inventory bound).
-// Referenced from 2 sites (unconditional call).
-// Ghidra prototype: undefined4 * __fastcall SubzoneTrackingStruct_Constructor_0056b9b0(undefined4 *param_1)
-//
-// Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);
-// rename and retype as the purpose becomes known.
-//
+//  (0x0056B9B0)
 #include "shared/ghidra_types.hpp"
-
-namespace seed_0056b9b0 {
 
 extern "C" void* DynamicVectorClass_SubzoneConnectionStruct_VTable_007a5ad8;
 extern "C" void* DynamicVectorClass_SubzoneConnectionStruct_Clear_VTableSlot_007a5ae4;
@@ -31,4 +20,3 @@ undefined4 * __fastcall SubzoneTrackingStruct_Constructor_0056b9b0(undefined4 *v
     return vector_words;
 }
 
-}  // namespace seed_0056b9b0

@@ -423,7 +423,7 @@ BuildingClass::~BuildingClass()
         delete unknown_4e8;
         unknown_4e8 = 0;
     }
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Limbo();
     unknown_BuildingClass_list_00a40af8.Delete(this);
     DestroyNthAnim(-2);
@@ -728,7 +728,7 @@ void BuildingClass::Editor_Draw_It(Point2D const &point_ref, Rect const &bounds)
         if (clip.Height > height) clip.Height = height;
         if (clip.Height > 0) {
             Techno_Draw_Object(shape, unknown_43be20(), &point, &clip, 0, 256,
-                -2 - Unknown_006A2970(Get_Height()), 2, 0, Map[cell].unknown_10a, 0, 0, Point2D(0, 0), 0);
+                -2 - Tactical_Z_Lepton_To_Pixel(Get_Height()), 2, 0, Map[cell].unknown_10a, 0, 0, Point2D(0, 0), 0);
         }
         clip = bounds;
         clip.Y += height;
@@ -743,7 +743,7 @@ void BuildingClass::Editor_Draw_It(Point2D const &point_ref, Rect const &bounds)
         }
         if (clip.Height > 0) {
             Techno_Draw_Object(shape, unknown_43be20(), &lower_point, &clip, 0, 256,
-                -Unknown_006A2970(Get_Height()), 0, 0, Map[cell].unknown_10a, 0, 0, Point2D(0, 0), 0);
+                -Tactical_Z_Lepton_To_Pixel(Get_Height()), 0, 0, Map[cell].unknown_10a, 0, 0, Point2D(0, 0), 0);
         }
     }
 }
@@ -783,7 +783,7 @@ void BuildingClass::Draw_It(Point2D const &draw_point, Rect const &bounds)
         ShapeFileStruct const *gate_shape=(ShapeFileStruct const *)Get_Image_Data();
         stage+=(Health_Ratio()<=Rules->unknown_1368 ? Type->GateStages+1 : 0);
         Techno_Draw_Object(gate_shape,stage,&draw_point,&bounds,0,256,
-            z_adjust-Unknown_006A2970(Get_Height()),2,1,Map[cell].unknown_10a,0,0,Point2D(0,0),0);
+            z_adjust-Tactical_Z_Lepton_To_Pixel(Get_Height()),2,1,Map[cell].unknown_10a,0,0,Point2D(0,0),0);
         return;
     }
     if(Get_Mission()==16) {
@@ -798,24 +798,24 @@ void BuildingClass::Draw_It(Point2D const &draw_point, Rect const &bounds)
     }
     Point2D footprint(Type->Width()*256-256,Type->Foundation_Height(false)*256-256);
     depth_point-=TacticalMap->Coord_To_Pixel_Absolute(footprint);
-    ShapeFileStruct const *depth_shape=unknown_building_depth_shape_85029c;
+    ShapeFileStruct const *depth_shape=BuildingTypeClass_BuildingZShape;
     if(Type->Width()>=8) depth_shape=0;
     if(bounds.Height>0) {
         int frame=unknown_43be20()<shape->Get_Count()/2 ? unknown_43be20() : shape->Get_Count()/2;
         Techno_Draw_Object(shape,frame,&draw_point,&bounds,0,256,
-            z_adjust-Unknown_006A2970(Get_Height()),2,1,Map[cell].unknown_10a+Type->ExtraLight,depth_shape,0,depth_point,0);
+            z_adjust-Tactical_Z_Lepton_To_Pixel(Get_Height()),2,1,Map[cell].unknown_10a+Type->ExtraLight,depth_shape,0,depth_point,0);
     }
     if(Type->unknown_11cc && unknown_42c!=0) {
         Techno_Draw_Object(Type->unknown_11cc,unknown_43be20(),&draw_point,&bounds,0,256,
-            -1-Unknown_006A2970(Get_Height()),0,1,Map[cell].unknown_10a+Type->ExtraLight,0,0,Point2D(0,0),0);
+            -1-Tactical_Z_Lepton_To_Pixel(Get_Height()),0,1,Map[cell].unknown_10a+Type->ExtraLight,0,0,Point2D(0,0),0);
     }
     if(Get_Mission()==16 && ((air_product && Type->unknown_11b8!=0) || (!air_product && Type->unknown_11a8!=0))) {
         if(air_product) {
             Techno_Draw_Object(Type->unknown_11b8,Health_Ratio()<=Rules->unknown_1368,&draw_point,&bounds,0,256,
-                -Unknown_006A2970(Get_Height()),0,1,Map[cell].unknown_10a+Type->ExtraLight,0,0,Point2D(0,0),0);
+                -Tactical_Z_Lepton_To_Pixel(Get_Height()),0,1,Map[cell].unknown_10a+Type->ExtraLight,0,0,Point2D(0,0),0);
         } else {
             Techno_Draw_Object(Type->unknown_11a8,Health_Ratio()<=Rules->unknown_1368,&draw_point,&bounds,0,256,
-                -Unknown_006A2970(Get_Height()),0,1,Map[cell].unknown_10a+Type->ExtraLight,0,0,Point2D(0,0),0);
+                -Tactical_Z_Lepton_To_Pixel(Get_Height()),0,1,Map[cell].unknown_10a+Type->ExtraLight,0,0,Point2D(0,0),0);
         }
     }
 }
@@ -862,7 +862,7 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
             if(stage>=Type->DoorStages) stage=Type->DoorStages-1;
             if(stage<0) stage=0;
             if(Health_Ratio()<=Rules->unknown_1368 && Type->DamagedDoor) stage+=Type->DoorStages;
-            int z_adjust=-5-Unknown_006A2970(Get_Height());
+            int z_adjust=-5-Tactical_Z_Lepton_To_Pixel(Get_Height());
             Techno_Draw_Object(Type->DoorAnimData_11c0,stage,&xy,&bounds,0,256,z_adjust,0,0,Map[cell].unknown_10a,0,0,Point2D(0,0),0);
             if(Door.Is_Count_Down_Active() && stage==0) unknown_75=true;
         }
@@ -987,7 +987,7 @@ void BuildingClass::Draw_Selection_Overlay_0043b660(Point2D const &point, Rect c
 
 int BuildingClass::unknown_slot176()
 {
-    int height = -Unknown_006A2970(Get_Height());
+    int height = -Tactical_Z_Lepton_To_Pixel(Get_Height());
     if (Type->TurretAnimIsVoxel) {
         return Type->Anims[9].ZAdjust + height;
     }
@@ -1498,7 +1498,7 @@ void BuildingClass::AI()
                 for (int x = -2; x < 3; ++x) {
                     int tile = Map[Cell(unknown_slot104() + Cell(x,y))].IsoTileIndex;
                     int overlay = Map[Cell(unknown_slot104() + Cell(x,y))].OverlayIndex;
-                    if ((tile >= unknown_tileset_a6cb68 && tile < unknown_tileset_a6cb68 + 16) ||
+                    if ((tile >= IsometricTileTypeClass_TrainBridgeSet && tile < IsometricTileTypeClass_TrainBridgeSet + 16) ||
                         (overlay >= 0x4a && overlay <= 0x65)) {
                         bridge_overlay = true;
                     }

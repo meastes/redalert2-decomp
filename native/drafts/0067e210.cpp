@@ -24,11 +24,11 @@
 // @ref ?Stop_Ingame_Movie@@YAXXZ=005a09e0
 // @ref ?RadarButton@RadarClass@@2VRTacticalClass@@A=00ab6478
 // @ref ?SelectButton@SidebarClass@@2PAVSelectClass@StripClass@1@A=00ab9740
-// @ref ?unknown_flag_8373c3@@3_NA=008373c3
+// @ref ?SidebarClass_IsSidebarRedrawPending@@3_NA=008373c3
 // @ref ?unknown_id_source_a3d290@@3PAVScenarioClass@@A=00a3d290
 // @ref ?unknown_int_83962c@@3HA=0083962c
 // @ref ?unknown_int_839624@@3HA=00839624
-// @ref ?unknown_abcd64@@3HA=00abcd64
+// @ref ?SidebarClass_StripTop@@3HA=00abcd64
 
 static inline int Bottom_Extra_67e210()
 {
@@ -40,7 +40,7 @@ static inline int Bottom_Extra_67e210()
 
 static inline int Max_Visible_Cameos_67e210()
 {
-    return (unknown_int_839624 + unknown_int_83962c - unknown_abcd64 - Bottom_Extra_67e210() - 7) / 50;
+    return (unknown_int_839624 + unknown_int_83962c - SidebarClass_StripTop - Bottom_Extra_67e210() - 7) / 50;
 }
 
 bool SidebarClass::unknown_slot54(int control)

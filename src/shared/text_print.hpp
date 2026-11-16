@@ -216,9 +216,9 @@ inline Point2D Scheme_Text_Print(wchar_t const *text, Surface *surface, Rect con
                                  ColorScheme *scheme, unsigned back, unsigned flags, int unknown8)
 {
     RGBClass color = scheme->BaseColor.To_RGB();
-    unsigned pixel = ((color.Green >> unknown_shift_852fcc) << unknown_shift_852fc8)
-                   | ((color.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0)
-                   | ((color.Red >> unknown_shift_852fbc) << unknown_shift_852fb8);
+    unsigned pixel = ((color.Green >> DSurface_GreenLeft) << DSurface_GreenRight)
+                   | ((color.Blue >> DSurface_BlueLeft) << DSurface_BlueRight)
+                   | ((color.Red >> DSurface_RedLeft) << DSurface_RedRight);
     return Simple_Text_Print(text, surface, clip, xy, pixel, back, flags, unknown8);
 }
 

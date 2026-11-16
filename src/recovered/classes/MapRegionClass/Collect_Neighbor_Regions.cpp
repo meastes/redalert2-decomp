@@ -23,8 +23,8 @@
 // @ref ?unknown_map_region_next_index_a70a28@@3HA=00a70a28
 // @ref ?MapCellStride@@3HA=0084e804
 // @ref ?RMGCellData@@3PAUUnknownMapGenerationCell@@A=00a70a24
-// @ref ?unknown_map_min_a70a1c@@3HA=00a70a1c
-// @ref ?unknown_map_max_a70a20@@3HA=00a70a20
+// @ref ?MapRegionClass_MapStartDiagonal@@3HA=00a70a1c
+// @ref ?MapRegionClass_MapEndDiagonal@@3HA=00a70a20
 // @ref ?unknown_adjacent_851a70@@3QBVCell@@B=00851a70
 // @ref ?Collect_Boundary_Cells_0056ed10@MapRegionClass@@=0056ed10
 // @ref ??0?$VectorClass@H@@=0046d020
@@ -40,8 +40,8 @@ void MapRegionClass::Collect_Neighbor_Regions_005709c0()
         Cell cell=(*boundary)[index];
         for(int direction=0;direction<8;direction++) {
             Cell next=cell+unknown_adjacent_851a70[direction&7];
-            if(next.Y+next.X>unknown_map_min_a70a1c && next.X-next.Y<unknown_map_min_a70a1c &&
-               next.Y-next.X<unknown_map_min_a70a1c && next.Y+next.X<=unknown_map_max_a70a20) {
+            if(next.Y+next.X>MapRegionClass_MapStartDiagonal && next.X-next.Y<MapRegionClass_MapStartDiagonal &&
+               next.Y-next.X<MapRegionClass_MapStartDiagonal && next.Y+next.X<=MapRegionClass_MapEndDiagonal) {
                 if(RMGCellData) {
                     int regionIndex=RMGCellData[next.Y*MapCellStride+next.X].RegionIndex;
                     if(regionIndex>=0) seen[regionIndex]=1;

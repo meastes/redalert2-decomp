@@ -76,7 +76,7 @@ struct SurfaceRegion {
 
 extern unsigned char unknown_buffer_ae3408[256 * 256];      // 0x00AE3408 the draw buffer
 extern unsigned char unknown_zbuffer_ad0a70[256 * 256];     // 0x00AD0A70 the depth buffer
-extern int unknown_af6610;                                  // 0x00AF6610 depth buffering enabled
+extern int VoxelDrawSystem_EnableZBuffer;                                  // 0x00AF6610 depth buffering enabled
 extern Vector3 MinVoxelBounds;                   // 0x00AE0A70
 extern Vector3 MaxVoxelBounds;                   // 0x00AE0DD8
 extern Rect LastRenderRect;                            // 0x00AE2FF0 the last rendered rectangle
@@ -173,7 +173,7 @@ void VoxelDrawSystem::Reset()
         } else {
             memset(unknown_buffer_ae3408, 0, sizeof(unknown_buffer_ae3408));
         }
-        if (unknown_af6610) {
+        if (VoxelDrawSystem_EnableZBuffer) {
             if (LastRenderRect.Y <= LastRenderRect.Height + LastRenderRect.Y) {
                 for (int i = LastRenderRect.Y; i <= LastRenderRect.Y + LastRenderRect.Height; i++) {
                     memset(&unknown_zbuffer_ad0a70[256 * i + LastRenderRect.X], 0, LastRenderRect.Width + 1);
@@ -324,7 +324,7 @@ void __fastcall VoxelDrawSystem::Render(Rect &rect, int &x, int &y)
         }
     }
 
-    if (unknown_af6610) {
+    if (VoxelDrawSystem_EnableZBuffer) {
         for (index = VoxelRenderDataCount - 1; index >= 0; index--) {
             render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);
         }
@@ -384,7 +384,7 @@ SurfaceRegion __fastcall VoxelDrawSystem::Render()
         }
     }
 
-    if (unknown_af6610) {
+    if (VoxelDrawSystem_EnableZBuffer) {
         for (index = VoxelRenderDataCount - 1; index >= 0; index--) {
             render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);
         }

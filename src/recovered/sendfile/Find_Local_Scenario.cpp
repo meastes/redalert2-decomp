@@ -37,7 +37,7 @@
 // @ref ??_I@YGXPAXIHP6EX0@Z@Z=0040af00
 // @ref ?RequiredCD@CD@@2HA=007d20e0
 // @ref ?Set_Required_CD@CD@@SIXH@Z=0046e4d0
-// @ref ?Unknown_0046E4C0@@YIHH@Z=0046e4c0
+// @ref ?CD_Get_Current_Disk@@YIHH@Z=0046e4c0
 // @ref ?Is_On_CD@MultiMission@@QAE_NH@Z=00671f00
 // @ref ?On_Which_CD@MultiMission@@QAEHXZ=00671f90
 // @ref ?unknown_counter_a3fabc@@3HA=00a3fabc
@@ -55,7 +55,7 @@ bool __fastcall Find_Local_Scenario_0066c5b0(char *filename, int length, char *d
                 CCFileClass file(unknown_multi_missions_a3d8d8[index]->unknown_58);
                 if (!file.Is_Available() && unknown == true) {
                     MultiMission *mission = unknown_multi_missions_a3d8d8[index];
-                    if (!mission->Is_On_CD(Unknown_0046E4C0(60))) {
+                    if (!mission->Is_On_CD(CD_Get_Current_Disk(60))) {
                         CD::Set_Required_CD(mission->On_Which_CD());
                     }
                     unknown_counter_a3fabc++;

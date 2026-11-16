@@ -21,7 +21,7 @@
 extern "C" int __cdecl sscanf(char const *string, char const *format, ...);         // 0x00783730
 
 // The default game port (0x007F60D0).
-extern int unknown_default_port_7f60d0;
+extern int UDPInterfaceClass_UDPListenPort;
 // The alternate socket's port (0x007F60D8).
 extern int AlternateListenPort;
 // The alternate socket's destination port on the loopback (0x007F60D4).

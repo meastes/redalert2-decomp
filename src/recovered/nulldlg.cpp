@@ -610,13 +610,13 @@ bool __fastcall Reconnect_Null_Modem()
                 starttime = TickCount.Time();
                 memset(&SendPacket, 0, sizeof(SendPacket));
                 SendPacket.Command = 100;
-                SendPacket.ID = unknown_a3d3b4;
+                SendPacket.ID = Game_PlayerColor;
                 serial_manager_00a40a28.Send_Message(&SendPacket, sizeof(SendPacket), 0);
             }
             if (serial_manager_00a40a28.Get_Message(&ReceivePacket, &packetlen) > 0) {
                 lastmsgtime = TickCount.Time();
                 if (ReceivePacket.Command == 100) {
-                    if (ReceivePacket.ID == unknown_a3d3b4) {
+                    if (ReceivePacket.ID == Game_PlayerColor) {
                         WWMessageBox(L" ").Process(StringTable::Load_String("TXT_SYSTEM_NOT_RESPONDING", 0, "D:\\Ra2\\NullDlg.CPP", 0x1982),
                             StringTable::Load_String("TXT_OK", 0, "D:\\Ra2\\NullDlg.CPP", 0x1982), 0, 0, false);
                         retval = false;
@@ -624,7 +624,7 @@ bool __fastcall Reconnect_Null_Modem()
                     }
                     memset(&SendPacket, 0, sizeof(SendPacket));
                     SendPacket.Command = 100;
-                    SendPacket.ID = unknown_a3d3b4;
+                    SendPacket.ID = Game_PlayerColor;
                     serial_manager_00a40a28.Send_Message(&SendPacket, sizeof(SendPacket), 1);
                     starttime = TickCount.Time();
                     while (TickCount.Time() - starttime < 60) {

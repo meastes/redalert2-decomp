@@ -100,7 +100,7 @@ SideClass::SideClass(char const *ininame) :
 
 SideClass::~SideClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Sides.Delete(this);
 }
 

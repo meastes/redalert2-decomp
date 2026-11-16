@@ -670,24 +670,13 @@ HRESULT __fastcall Voc_Static_Save(IStream *stream)
 }
 
 
-// 0x00714a60: function not yet identified
-//
-// Body: 10 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: bool __fastcall FUN_00714a60(int *param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// VocClass_Has_Event (0x00714A60): name from mischa85 names.csv
 
-namespace seed_00714a60 {
-
-bool __fastcall FUN_00714a60(int *value_pointer)
+bool __fastcall VocClass_Has_Event(int *value_pointer)
 {
     return *value_pointer != 0;
 }
 
-}  // namespace seed_00714a60
 
 
 // char const *UnknownVocRef_00714A70::unknown_name() const -- 0x00714A70

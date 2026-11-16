@@ -148,7 +148,7 @@ void __stdcall MechLocomotionClass::Move_To(CoordStruct to)
         to = CoordStruct(to.X, to.Y, to.Z);
         unknown_18 = to;
         if (Loco_Cell(to)->Flags & 0x100) {
-            unknown_18.Z += Unknown_006A29B0(60);
+            unknown_18.Z += Tactical_Pixel_To_Z_Lepton(60);
         }
         unknown_30 = true;
     }

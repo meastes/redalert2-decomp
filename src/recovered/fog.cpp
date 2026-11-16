@@ -312,7 +312,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                 TacticalMap->Coord_To_Pixel(CoordStruct(*position), xy);
                 xy += TacticalRect.Top_Left() - rect.Top_Left();
 
-                int zadjust = -Unknown_006A2970(CoordStruct(*position).Z);
+                int zadjust = -Tactical_Z_Lepton_To_Pixel(CoordStruct(*position).Z);
 
                 if (cellptr->unknown_34 == 0) {
                     cellptr->Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
@@ -361,9 +361,9 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                         Point2D zsizeoffset(type->Width() * 256 - 256, type->Foundation_Height(false) * 256 - 256);
                         zdrawpoint -= TacticalMap->Coord_To_Pixel_Absolute(zsizeoffset);
 
-                        ShapeFileStruct *zshapefile = unknown_building_depth_shape_85029c;
+                        ShapeFileStruct *zshapefile = BuildingTypeClass_BuildingZShape;
 
-                        int zlepton = -Unknown_006A2970(CoordStruct(*position).Z);
+                        int zlepton = -Tactical_Z_Lepton_To_Pixel(CoordStruct(*position).Z);
                         int brightness = Map[CoordStruct(*position)].unknown_10a + type->ExtraLight;
 
                         if (cellptr->unknown_34 == 0) {
@@ -411,9 +411,9 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                             int zadjust = data->DrawRecords[record].unknown_0c;
 
                             if (anim->Flat) {
-                                CC_Draw_Shape(LogicalSurface, animconvert, shape, shapenum, drawpoint, rect, 0x2e00, 0, zadjust - Unknown_006A2970(CoordStruct(*position).Z) - 2, 0, brightness, 0, 0, Point2D(0, 0));
+                                CC_Draw_Shape(LogicalSurface, animconvert, shape, shapenum, drawpoint, rect, 0x2e00, 0, zadjust - Tactical_Z_Lepton_To_Pixel(CoordStruct(*position).Z) - 2, 0, brightness, 0, 0, Point2D(0, 0));
                             } else {
-                                CC_Draw_Shape(LogicalSurface, animconvert, shape, shapenum, drawpoint, rect, 0x2e00, 0, zadjust - Unknown_006A2970(CoordStruct(*position).Z) - 2, 2, brightness, 0, 0, Point2D(0, 0));
+                                CC_Draw_Shape(LogicalSurface, animconvert, shape, shapenum, drawpoint, rect, 0x2e00, 0, zadjust - Tactical_Z_Lepton_To_Pixel(CoordStruct(*position).Z) - 2, 2, brightness, 0, 0, Point2D(0, 0));
                             }
                         }
                     }
@@ -429,7 +429,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                     TPoint3D<int> *position = &data->Coord;
                     CellClass *cellptr = &Map[CoordStruct(*position)];
                     int brightness = cellptr->unknown_10c;
-                    CC_Draw_Shape(LogicalSurface, (ConvertClass *)cellptr->unknown_34, shape, data->unknown_58, point, rect, 0xe00, 0, -Unknown_006A2970(CoordStruct(*position).Z), 2, brightness, 0, 0, Point2D(0, 0));
+                    CC_Draw_Shape(LogicalSurface, (ConvertClass *)cellptr->unknown_34, shape, data->unknown_58, point, rect, 0xe00, 0, -Tactical_Z_Lepton_To_Pixel(CoordStruct(*position).Z), 2, brightness, 0, 0, Point2D(0, 0));
                 }
                 break;
             }

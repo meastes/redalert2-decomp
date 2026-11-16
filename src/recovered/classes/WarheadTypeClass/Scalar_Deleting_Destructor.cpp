@@ -6,7 +6,7 @@
 
 WarheadTypeClass::~WarheadTypeClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     unknown_WarheadTypeClass_list_00839b00.Delete(this);
     AbstractTypePtrTracker.Delete(this);
 }

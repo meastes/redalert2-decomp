@@ -737,9 +737,9 @@ void __fastcall Sync_Delay()
 
     static CDTimerClass<SystemTimerClass> fps_timer;
     if (!fps_timer) {
-        unknown_a6eb1c = FramesThisSecond;
+        FPSCounter_CurrentFrameRate = FramesThisSecond;
         FramesThisSecond = 0;
-        accumulated_fps_00a6eb20 += unknown_a6eb1c;
+        accumulated_fps_00a6eb20 += FPSCounter_CurrentFrameRate;
         fps_sample_count_00a6eb24++;
         if (accumulated_fps_00a6eb20 > 0x7FFFFFFF) {
             accumulated_fps_00a6eb20 = 0;
@@ -817,7 +817,7 @@ void __fastcall Message_Input(int &input)
                 }
             }
             input = 0;
-            int color = unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4);
+            int color = unknown_session_a3d298.Color_Index_To_Scheme(Game_PlayerColor);
             TextLabelClass *label = unknown_session_a3d298.Messages.Add_Edit(color, 0x4046, txt, 0, beacon ? 10000 : -1);
             if (beacon) {
                 if (label) {
@@ -869,7 +869,7 @@ void __fastcall Message_Input(int &input)
                 *(int *)packet = 0x68;
             }
             WideToCharString_006fa0f0(packet + 4, unknown_players_a3fa7c[0]->Name, -1);
-            packet[0x18] = (char)unknown_a3d3b4;
+            packet[0x18] = (char)Game_PlayerColor;
             if (rc == 3) {
                 wcscpy((wchar_t *)(packet + 0x19), unknown_session_a3d298.Messages.Get_Edit_Buf());
             } else if (rc == 4) {
@@ -909,15 +909,15 @@ void __fastcall Message_Input(int &input)
                         if (wcslen(name) == 0) {
                             unknown_session_a3d298.Messages.Add_Message(0, -1,
                                 StringTable::Load_String("TXT_NO_NAME_SPECIFIED", 0, "D:\\Ra2\\MainLoop.CPP", 2000),
-                                unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
+                                unknown_session_a3d298.Color_Index_To_Scheme(Game_PlayerColor), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
                         } else if (wcslen(p) == 0) {
                             unknown_session_a3d298.Messages.Add_Message(0, -1,
                                 StringTable::Load_String("TXT_CANT_SEND_BLANK_PAGE", 0, "D:\\Ra2\\MainLoop.CPP", 2005),
-                                unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
+                                unknown_session_a3d298.Color_Index_To_Scheme(Game_PlayerColor), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
                         } else {
                             swprintf(command2, L"%s > %s", unknown_players_a3fa7c[0]->Name, name);
-                            unknown_session_a3d298.Messages.Add_Message(command2, unknown_a3d3b4, p,
-                                unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
+                            unknown_session_a3d298.Messages.Add_Message(command2, Game_PlayerColor, p,
+                                unknown_session_a3d298.Color_Index_To_Scheme(Game_PlayerColor), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
                         }
                         if (rc == 4) {
                             wchar_t *buf = unknown_session_a3d298.Messages.Get_Edit_Buf();
@@ -925,7 +925,7 @@ void __fastcall Message_Input(int &input)
                                 swprintf(prefix, StringTable::Load_String("TXT_FROM", 0, "D:\\Ra2\\MainLoop.CPP", 2024), PlayerPtr->UIName);
                                 swprintf(rest, L"%s%s %s", command, name, buf);
                                 unknown_session_a3d298.Messages.Remove_Edit();
-                                unknown_session_a3d298.Messages.Add_Edit(unknown_a3d3b4, 0x4046, prefix, 0, -1);
+                                unknown_session_a3d298.Messages.Add_Edit(Game_PlayerColor, 0x4046, prefix, 0, -1);
                                 buf = unknown_session_a3d298.Messages.Get_Edit_Buf();
                                 if (buf) {
                                     wcscat(buf, rest);
@@ -958,16 +958,16 @@ void __fastcall Message_Input(int &input)
                         }
                         swprintf(prefix, L"%s > %s", unknown_players_a3fa7c[0]->Name, Narrow_To_Wide_006fa180(LastPagerName));
                         if (wcslen(Narrow_To_Wide_006fa180(LastPagerName)) == 0) {
-                            unknown_session_a3d298.Messages.Add_Message(0, unknown_a3d3b4,
+                            unknown_session_a3d298.Messages.Add_Message(0, Game_PlayerColor,
                                 StringTable::Load_String("TXT_NAME_NOT_SPECIFIED", 0, "D:\\Ra2\\MainLoop.CPP", 2069),
-                                unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
+                                unknown_session_a3d298.Color_Index_To_Scheme(Game_PlayerColor), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
                         } else if (wcslen(p) > 0) {
-                            unknown_session_a3d298.Messages.Add_Message(prefix, unknown_a3d3b4, p,
-                                unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
+                            unknown_session_a3d298.Messages.Add_Message(prefix, Game_PlayerColor, p,
+                                unknown_session_a3d298.Color_Index_To_Scheme(Game_PlayerColor), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
                         } else {
-                            unknown_session_a3d298.Messages.Add_Message(0, unknown_a3d3b4,
+                            unknown_session_a3d298.Messages.Add_Message(0, Game_PlayerColor,
                                 StringTable::Load_String("TXT_CANT_SEND_BLANK_PAGE", 0, "D:\\Ra2\\MainLoop.CPP", 2082),
-                                unknown_session_a3d298.Color_Index_To_Scheme(unknown_a3d3b4), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
+                                unknown_session_a3d298.Color_Index_To_Scheme(Game_PlayerColor), 0x4046, (int)(Rules->MessageDelay * 900.0), false);
                         }
                         if (rc == 4) {
                             wchar_t *buf = unknown_session_a3d298.Messages.Get_Edit_Buf();
@@ -979,7 +979,7 @@ void __fastcall Message_Input(int &input)
                                     swprintf(rest, L"%s %s", command, buf);
                                 }
                                 unknown_session_a3d298.Messages.Remove_Edit();
-                                unknown_session_a3d298.Messages.Add_Edit(unknown_a3d3b4, 0x4046, edit, 0, -1);
+                                unknown_session_a3d298.Messages.Add_Edit(Game_PlayerColor, 0x4046, edit, 0, -1);
                                 buf = unknown_session_a3d298.Messages.Get_Edit_Buf();
                                 if (buf) {
                                     wcscat(buf, rest);
@@ -1096,7 +1096,7 @@ void __fastcall Draw_Multiplayer_Debug(bool noframecheck)
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 302),
             Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
-        swprintf(buffer, L"FPS : %d", unknown_a6eb1c);
+        swprintf(buffer, L"FPS : %d", FPSCounter_CurrentFrameRate);
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 312),
             Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 

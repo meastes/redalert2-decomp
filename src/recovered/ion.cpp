@@ -327,7 +327,7 @@ void __fastcall Set_Storm_Active_0051F920(bool active)
 #include "shared/string_table.hpp"
 #include "shared/session_state.hpp"
 
-void __fastcall Unknown_0051F930(int duration, int deferment, Cell cell, HouseClass *owner)
+void __fastcall IonStormClass_Ion_Storm_Begin(int duration, int deferment, Cell cell, HouseClass *owner)
 {
     if (cell == unknown_geometry_k) {
         while (!Map.In_Radar(cell)) {
@@ -379,10 +379,10 @@ void __fastcall Unknown_0051F930(int duration, int deferment, Cell cell, HouseCl
 }
 
 
-// void Unknown_0051FBB0() (0x0051FBB0)
+// void IonStormClass_Ion_Storm_End() (0x0051FBB0)
 // Ends an active lightning storm at its next update.
 
-void Unknown_0051FBB0()
+void IonStormClass_Ion_Storm_End()
 {
     if (StormActive) {
         StormTimeToEnd = true;
@@ -419,10 +419,10 @@ int __fastcall Is_Storm_Pending_0051FC30()
 }
 
 
-// bool Unknown_0051FC50() (0x0051FC50)
+// bool IonStormClass_Is_Ion_Storm_Active() (0x0051FC50)
 // Whether a lightning storm is active.
 
-bool Unknown_0051FC50()
+bool IonStormClass_Is_Ion_Storm_Active()
 {
     return StormActive;
 }
@@ -432,7 +432,7 @@ bool Unknown_0051FC50()
 // The state's role and the original developer name remain unknown.
 extern "C" unsigned int nuke_flash_state_00a5193c;
 
-bool Unknown_0051FC60()
+bool NukeFlash_IsFadingIn()
 {
     return nuke_flash_state_00a5193c == 1;
 }
@@ -474,11 +474,11 @@ bool Leaf_51fc80::get() { return false; }
 #include "shared/cell.hpp"
 #include "shared/tactical.hpp"
 
-void __stdcall Unknown_0051FC90(Cell cell)
+void __stdcall IonStormClass_Lightning_Bolt(Cell cell)
 {
     CellClass &cellptr = Map[cell];
     int half = ((ShapeFileStruct *)Rules->WeatherConBolts[0]->Get_Image_Data())->Height / 2;
-    int height = Unknown_006A29B0(half);
+    int height = Tactical_Pixel_To_Z_Lepton(half);
     CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128,
         cellptr.unknown_11b * unknown_geometry_g + height + ((cellptr.unknown_140 & 0x100) ? unknown_geometry_j : 0));
     if (coord == unknown_geometry_l) {
@@ -613,7 +613,7 @@ void __fastcall Update_Storm_00520200()
             return;
         }
         if (Frame % Rules->LightningHitDelay == 0) {
-            Unknown_0051FC90(StormCoords);
+            IonStormClass_Lightning_Bolt(StormCoords);
         }
         if (Frame % Rules->LightningScatterDelay == 0) {
             int range = Rules->LightningCellSpread >> 1;
@@ -644,13 +644,13 @@ void __fastcall Update_Storm_00520200()
                 }
             }
             if (tries > 0) {
-                Unknown_0051FC90(cell);
+                IonStormClass_Lightning_Bolt(cell);
             }
         }
     } else if (StormDeferment > 0) {
         StormDeferment--;
         if (StormDeferment == 0) {
-            Unknown_0051F930(StormDuration, 0, StormCoords, StormOwner);
+            IonStormClass_Ion_Storm_Begin(StormDuration, 0, StormCoords, StormOwner);
         } else if (StormDeferment % 225 == 0 && Rules->LightningPrintText) {
             int color = 3;
             if (PlayerPtr != 0) {
@@ -667,7 +667,7 @@ void __fastcall Update_Storm_00520200()
 
 // 0x00520770: reapplies the dominator or storm lighting (after a load).
 
-void Unknown_00520770()
+void IonStormClass_Apply_Secondary_Effect()
 {
     if (unknown_dominator_state_a5193c == 1) {
         unknown_id_source_a3d290->unknown_22b0 = unknown_id_source_a3d290->unknown_22e0;

@@ -245,9 +245,9 @@ Point2D __fastcall Fancy_Text_Print(wchar_t const *text, Surface *surface, Rect 
                                     ColorScheme *scheme, unsigned back, unsigned flags, int unknown8)
 {
     RGBClass color = scheme->BaseColor.To_RGB();
-    unsigned pixel = ((color.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
-                   | ((color.Green >> unknown_shift_852fcc) << unknown_shift_852fc8)
-                   | ((color.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0);
+    unsigned pixel = ((color.Red >> DSurface_RedLeft) << DSurface_RedRight)
+                   | ((color.Green >> DSurface_GreenLeft) << DSurface_GreenRight)
+                   | ((color.Blue >> DSurface_BlueLeft) << DSurface_BlueRight);
     return Simple_Text_Print(text, surface, clip, xy, pixel, back, flags, unknown8);
 }
 
@@ -368,9 +368,9 @@ Point2D __fastcall Fancy_Clip_Text_Print(wchar_t const *text, Surface *surface, 
                                          unsigned width, int const *tabs)
 {
     RGBClass color = scheme->BaseColor.To_RGB();
-    unsigned pixel = ((color.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
-                   | ((color.Green >> unknown_shift_852fcc) << unknown_shift_852fc8)
-                   | ((color.Blue >> unknown_shift_852fc4) << unknown_shift_852fc0);
+    unsigned pixel = ((color.Red >> DSurface_RedLeft) << DSurface_RedRight)
+                   | ((color.Green >> DSurface_GreenLeft) << DSurface_GreenRight)
+                   | ((color.Blue >> DSurface_BlueLeft) << DSurface_BlueRight);
     return Conquer_Clip_Text_Print(text, surface, clip, xy, pixel, back, flags, width, tabs);
 }
 

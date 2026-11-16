@@ -2226,7 +2226,7 @@ void DisplayClass::Unknown_0049CF00(Cell const &cell)
 // Level, Fill and Theater, the theater's type data, the waypoints and home view, [CellTags],
 // the IsoMapPack..5 blocks through a 640x400 staging surface, then the tiles and LocalSize.
 
-void __fastcall Unknown_00529870(int theater, bool arg);
+void __fastcall IsometricTileTypeClass_Read_Control_File(int theater, bool arg);
 void Unknown_0052B650();
 void __fastcall Unknown_0052B2E0(bool arg1, bool arg2);
 extern "C" int __cdecl atoi(char const *string);
@@ -2249,10 +2249,10 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     int cell_height = ini.Get_Int(name, "Level", 0);
 
     char fill[32];
-    int ittype = unknown_tileset_a52f00;
+    int ittype = IsometricTileTypeClass_ClearTile;
     ini.Get_String(name, "Fill", "Clear", fill, sizeof(fill));
     if (Compare_Narrow_00781f20(fill, "Water") == 0) {
-        ittype = unknown_tileset_a52580;
+        ittype = IsometricTileTypeClass_WaterSet;
     }
 
     Reset_Iterator();
@@ -2274,7 +2274,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     long uniqueid = unknown_id_source_a3d290->UniqueID;
     TerrainTypeClass::Init(unknown_id_source_a3d290->Theater);
     if (unknown_id_source_a3d290->Theater != LastTheater) {
-        Unknown_00529870(unknown_id_source_a3d290->Theater, true);
+        IsometricTileTypeClass_Read_Control_File(unknown_id_source_a3d290->Theater, true);
     } else {
         Unknown_0052B650();
     }

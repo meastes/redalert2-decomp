@@ -413,7 +413,7 @@ BuildingTypeClass::~BuildingTypeClass()
         unknown_11b8 = 0;
         unknown_11bc = false;
     }
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     BuildingTypes.Delete(this);
 }
 
@@ -494,19 +494,19 @@ void BuildingTypeClass::Init_Anim(int index, int value0, int value1, int value2)
 
 
 // Load the shared building depth shape and remap its nonzero pixels.
-extern ShapeFileStruct *unknown_building_depth_shape_85029c;
+extern ShapeFileStruct *BuildingTypeClass_BuildingZShape;
 void BuildingTypeClass::Fetch_Z_Data()
 {
-    if(unknown_building_depth_shape_85029c!=0) {
-        operator delete(unknown_building_depth_shape_85029c);
-        unknown_building_depth_shape_85029c=0;
+    if(BuildingTypeClass_BuildingZShape!=0) {
+        operator delete(BuildingTypeClass_BuildingZShape);
+        BuildingTypeClass_BuildingZShape=0;
     }
     int size=CCFileClass("BUILDNGZ.SHP").Size();
-    unknown_building_depth_shape_85029c=(ShapeFileStruct *)operator new(size);
-    memcpy(unknown_building_depth_shape_85029c,MixFileClass::Retrieve("BUILDNGZ.SHP"),size);
-    unsigned char *pixels=(unsigned char *)unknown_building_depth_shape_85029c->Get_Frame_Data(0);
-    int width=unknown_building_depth_shape_85029c->Get_Width();
-    int height=unknown_building_depth_shape_85029c->Get_Height();
+    BuildingTypeClass_BuildingZShape=(ShapeFileStruct *)operator new(size);
+    memcpy(BuildingTypeClass_BuildingZShape,MixFileClass::Retrieve("BUILDNGZ.SHP"),size);
+    unsigned char *pixels=(unsigned char *)BuildingTypeClass_BuildingZShape->Get_Frame_Data(0);
+    int width=BuildingTypeClass_BuildingZShape->Get_Width();
+    int height=BuildingTypeClass_BuildingZShape->Get_Height();
     // The file size is dead after the copy; its scratch local is reused for columns.
     for(int row=height;row>0;--row) {
         for(size=0;size<width;++size) {
@@ -541,7 +541,7 @@ void __fastcall BuildingTypeClass::Init(int theater)
 {
     Fetch_Z_Data();
     unknown_poweroff_shape_8502a4 = MixFileClass::Retrieve("POWEROFF.SHP");
-    unknown_wrench_shape_8502a8 = MixFileClass::Retrieve("WRENCH.SHP");
+    BuildingTypeClass_WrenchShapes = MixFileClass::Retrieve("WRENCH.SHP");
     int radius = 0;
     for (int index = 0; index < BuildingTypes.Count(); index++) {
         BuildingTypeClass *type = BuildingTypes[index];

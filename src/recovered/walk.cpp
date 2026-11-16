@@ -161,7 +161,7 @@ void __stdcall WalkLocomotionClass::Move_To(CoordStruct to)
         if (to != unknown_geometry_l) {
             to = CoordStruct(to.X, to.Y, to.Z);
             if (Loco_Cell(to)->Flags & 0x100) {
-                unknown_1c.Z += Unknown_006A29B0(60);
+                unknown_1c.Z += Tactical_Pixel_To_Z_Lepton(60);
             }
             unknown_34 = true;
         } else if (unknown_28 == unknown_geometry_l) {

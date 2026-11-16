@@ -184,7 +184,7 @@ void UDPInterfaceClass::Set_Broadcast_Address(char *address, unsigned short port
     ip[2] = c;
     ip[3] = d;
     if (port == 0) {
-        port = unknown_default_port_7f60d0;
+        port = UDPInterfaceClass_UDPListenPort;
     }
     BroadcastPorts[BroadcastAddresses.Count()] = port;
     BroadcastAddresses.Add(ip);
@@ -217,7 +217,7 @@ bool UDPInterfaceClass::OpenSocket(unsigned short port)
         addr.sin_port = htons(port);
     } else {
         unknown_3f2fc = 0;
-        addr.sin_port = htons(unknown_default_port_7f60d0);
+        addr.sin_port = htons(UDPInterfaceClass_UDPListenPort);
     }
     addr.sin_addr = htonl(INADDR_ANY);
     Debug_Printf("About to bind the UDP socket to port %d\n", port);
@@ -312,7 +312,7 @@ void UDPInterfaceClass::Close_Spare_Socket(unsigned short port)
 
 void UDPInterfaceClass::Select_Port_Socket(unsigned short port)
 {
-    if (port && port != unknown_default_port_7f60d0) {
+    if (port && port != UDPInterfaceClass_UDPListenPort) {
         for (int i = 0; i < NumSockets; i++) {
             if (SocketPorts[i] == port) {
                 unknown_3f334 = Sockets[i];
@@ -363,7 +363,7 @@ bool UDPInterfaceClass::Open_Socket(int)
     if (!WinsockInitialised && !Init_Ports()) {
         return false;
     }
-    OpenSocket(unknown_default_port_7f60d0);
+    OpenSocket(UDPInterfaceClass_UDPListenPort);
 
     char name[128];
     Debug_Printf("About to query the host name\n");
@@ -724,7 +724,7 @@ int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int 
             if (packet->SrcPort) {
                 addr.sin_port = htons(packet->SrcPort);
             } else {
-                addr.sin_port = htons(unknown_default_port_7f60d0);
+                addr.sin_port = htons(UDPInterfaceClass_UDPListenPort);
             }
             if (!memcmp(&packet->Address[4], unknown_forward_address_a3fbb8.NodeAddress, 4)
                 && (unknown_session_a3d298.Players.Count() == 0 || unknown_forward_address_a3fbb8 == unknown_session_a3d298.Players[0]->Address)) {

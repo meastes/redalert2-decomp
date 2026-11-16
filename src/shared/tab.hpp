@@ -74,9 +74,9 @@ public:
     static Rect __fastcall Get_Button_Rect(int slot);
     // Sets the bar's row count and its top edge (0x006A0670).
     static void __fastcall Set_Button_Count(int rows);
-    // Whether value lies in [unknown_int_abe370, unknown_int_abe468] (0x006A06B0).
+    // Whether value lies in [TabClass_Team01Command, TabClass_Team03Command] (0x006A06B0).
     static int __fastcall Is_Team_Command(int value);
-    // value relative to unknown_int_abe370, from 1 (0x006A06D0).
+    // value relative to TabClass_Team01Command, from 1 (0x006A06D0).
     static int __fastcall Team_Number(int value);
 
     // Registers a control's help region under its ID with a label
@@ -128,16 +128,16 @@ extern int NoAdvancedCommand;
 extern char const *CommandNames[11];
 
 // Tab.cpp metrics.
-extern int unknown_int_abe2a8;      // 0x00ABE2A8 the button shapes' height (slot 53)
-extern int unknown_int_abe2ac;      // 0x00ABE2AC rows
-extern int unknown_int_abe370;      // 0x00ABE370
-extern int unknown_int_abe378;      // 0x00ABE378
-extern int unknown_int_abe374;      // 0x00ABE374 slot top
-extern int unknown_int_abe37c;      // 0x00ABE37C bar top
-extern int unknown_int_abe388;      // 0x00ABE388 slot pitch
-extern int unknown_int_abe460;      // 0x00ABE460 the slot width less the button width (slot 53)
-extern int unknown_int_abe478;      // 0x00ABE478 the button shapes' width (slot 53)
-extern int unknown_int_abe468;      // 0x00ABE468
+extern int TabClass_ButtonHeight;      // 0x00ABE2A8 the button shapes' height (slot 53)
+extern int TabClass_ButtonRows;      // 0x00ABE2AC rows
+extern int TabClass_Team01Command;      // 0x00ABE370
+extern int TabClass_Team02Command;      // 0x00ABE378
+extern int TabClass_SlotTop;      // 0x00ABE374 slot top
+extern int TabClass_ButtonsLeft;      // 0x00ABE37C bar top
+extern int TabClass_SlotPitch;      // 0x00ABE388 slot pitch
+extern int TabClass_SlotGap;      // 0x00ABE460 the slot width less the button width (slot 53)
+extern int TabClass_ButtonWidth;      // 0x00ABE478 the button shapes' width (slot 53)
+extern int TabClass_Team03Command;      // 0x00ABE468
 // The shell art shape of the two side buttons (0x00AC1098) and whether the
 // shell art is loaded (0x006F4590, __fastcall).
 extern void *unknown_buffer_ac1098;
@@ -154,14 +154,14 @@ extern int unknown_int_ac0ff4;
 // The button numbers of the bar's commands (0x00ABE464, 0x00ABE294,
 // 0x00ABD910, 0x00ABE278, 0x00ABE2B8, 0x00ABE36C, 0x00ABE2BC, 0x00ABE290;
 // TabClass::AI compares the pressed button with them).
-extern int unknown_int_abe464;
-extern int unknown_int_abe294;
-extern int unknown_int_abd910;
-extern int unknown_int_abe278;
-extern int unknown_int_abe2b8;
-extern int unknown_int_abe36c;
-extern int unknown_int_abe2bc;
-extern int unknown_int_abe290;
+extern int TabClass_AttackMoveCommand;
+extern int TabClass_BeaconCommand;
+extern int TabClass_CheerCommand;
+extern int TabClass_DeployCommand;
+extern int TabClass_GuardCommand;
+extern int TabClass_PlanningModeCommand;
+extern int TabClass_StopCommand;
+extern int TabClass_TypeSelectCommand;
 // The commands the buttons run (UICmnds.cpp; __fastcall where they take an
 // argument; names in src/recovered/unowned where accepted).
 void Command_Attack_Move();

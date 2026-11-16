@@ -8,8 +8,8 @@
 #include "shared/map_cell.hpp"
 #include "shared/unknown_map_generator.hpp"
 #include "shared/map_view.hpp"
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
-// @ref ?unknown_map_regions_a6fd28@@=00a6fd28
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
+// @ref ?MapRegionClass_MapRegions@@=00a6fd28
 // @ref ?Not_Equal_0058db50@Cell@@=0058db50
 // @ref ?Create_Region_From_Cell@MapRegionClass@@=0056e100
 

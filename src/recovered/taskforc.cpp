@@ -128,7 +128,7 @@ TaskForceClass::TaskForceClass(NoInitClass const &noinit) :
 
 TaskForceClass::~TaskForceClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     TaskForces.Delete(this);
 }
 

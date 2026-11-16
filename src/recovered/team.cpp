@@ -194,7 +194,7 @@ TeamClass::~TeamClass()
             Tag = 0;
         }
     }
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     NeuronPtrTracker.Delete(this);
     ObjectPtrTracker.Delete(this);
     AbstractTypePtrTracker.Delete(this);
@@ -2071,8 +2071,8 @@ void TeamClass::TMission_DESTROY_MEMBERS(ScriptMissionClass const &mission, bool
 
 void TeamClass::TMission_ION_STORM_START(ScriptMissionClass const &mission, bool unknown)
 {
-    if (!Unknown_0051FC50()) {
-        Unknown_0051F930(mission.Data, Rules->unknown_13e8, unknown_geometry_k, 0);
+    if (!IonStormClass_Is_Ion_Storm_Active()) {
+        IonStormClass_Ion_Storm_Begin(mission.Data, Rules->unknown_13e8, unknown_geometry_k, 0);
     }
     StepCompleted = true;
 }
@@ -2083,8 +2083,8 @@ void TeamClass::TMission_ION_STORM_START(ScriptMissionClass const &mission, bool
 
 void TeamClass::TMission_ION_STORM_END(ScriptMissionClass const &mission, bool unknown)
 {
-    if (Unknown_0051FC50()) {
-        Unknown_0051FBB0();
+    if (IonStormClass_Is_Ion_Storm_Active()) {
+        IonStormClass_Ion_Storm_End();
     }
     StepCompleted = true;
 }

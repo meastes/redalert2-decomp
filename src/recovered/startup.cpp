@@ -865,7 +865,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
 
         CDFileClass::Set_CD_Drive(CDList.Get_First_CD_Drive());
 
-        int disk_number = Unknown_0046E4C0(60);
+        int disk_number = CD_Get_Current_Disk(60);
         Get_Performance_Profile();
         if (!unknown_special_a40920.IsFromInstall && disk_number > -1) {
             unknown_special_a40920.IsFromInstall = ConfigINI.Get_Bool("Intro", "Play", true);
@@ -1090,9 +1090,9 @@ void __cdecl Prog_End()
         delete CloakingSurface;
         CloakingSurface = 0;
     }
-    if (unknown_building_depth_shape_85029c) {
-        delete unknown_building_depth_shape_85029c;
-        unknown_building_depth_shape_85029c = 0;
+    if (BuildingTypeClass_BuildingZShape) {
+        delete BuildingTypeClass_BuildingZShape;
+        BuildingTypeClass_BuildingZShape = 0;
     }
     Map.Unknown_00562EA0();
 

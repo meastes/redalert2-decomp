@@ -3,14 +3,14 @@
 RGBClass __fastcall Pixel_To_RGB_00536ed0(unsigned short pixel)
 {
     RGBClass color;
-    color.Red = (pixel >> unknown_shift_852fb8) << unknown_shift_852fbc;
-    color.Green = (pixel >> unknown_shift_852fc8) << unknown_shift_852fcc;
-    color.Blue = (pixel >> unknown_shift_852fc0) << unknown_shift_852fc4;
+    color.Red = (pixel >> DSurface_RedRight) << DSurface_RedLeft;
+    color.Green = (pixel >> DSurface_GreenRight) << DSurface_GreenLeft;
+    color.Blue = (pixel >> DSurface_BlueRight) << DSurface_BlueLeft;
     return color;
 }
-// @ref ?unknown_shift_852fb8@@3HA=00852fb8
-// @ref ?unknown_shift_852fbc@@3HA=00852fbc
-// @ref ?unknown_shift_852fc0@@3HA=00852fc0
-// @ref ?unknown_shift_852fc4@@3HA=00852fc4
-// @ref ?unknown_shift_852fc8@@3HA=00852fc8
-// @ref ?unknown_shift_852fcc@@3HA=00852fcc
+// @ref ?DSurface_RedRight@@3HA=00852fb8
+// @ref ?DSurface_RedLeft@@3HA=00852fbc
+// @ref ?DSurface_BlueRight@@3HA=00852fc0
+// @ref ?DSurface_BlueLeft@@3HA=00852fc4
+// @ref ?DSurface_GreenRight@@3HA=00852fc8
+// @ref ?DSurface_GreenLeft@@3HA=00852fcc

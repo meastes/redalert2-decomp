@@ -101,10 +101,10 @@ extern int unknown_a72fdc;
 // The shared shape files ObjectTypeClass::One_Time (0x005D5E00) loads:
 // PIPBRD.SHP (0x00A72FE0), PIPS.SHP (0x00A72FE4), PIPS2.SHP (0x00A72FE8)
 // and TALKBUBL.SHP (0x00A72FEC).
-extern void const *unknown_pipbrd_shapes_a72fe0;
-extern void const *unknown_pips_shapes_a72fe4;
-extern void const *unknown_pips2_shapes_a72fe8;
-extern void const *unknown_talkbubl_shapes_a72fec;
+extern void const *ObjectTypeClass_SelectShapes;
+extern void const *ObjectTypeClass_PipShapes;
+extern void const *ObjectTypeClass_Pip2Shapes;
+extern void const *ObjectTypeClass_TalkBubbleShapes;
 
 class BuildingClass;
 

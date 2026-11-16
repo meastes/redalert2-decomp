@@ -283,7 +283,7 @@ _MinVoxelBounds	12	MinVoxelBounds	Vector3
 _unknown_build_time_7d8940	8	unknown_build_time_7d8940	FILETIME
 _unknown_buildcat_table_7cfc40	96	unknown_buildcat_table_7cfc40	UnknownBuildCatEntry[6]
 _unknown_button_shapes_abd8a0	200	unknown_button_shapes_abd8a0	void*[25]
-_unknown_call_wait_labels_7f3214	32	unknown_call_wait_labels_7f3214	char*[4]
+_SessionClass_CallWaitStringIDs	32	SessionClass_CallWaitStringIDs	char*[4]
 _unknown_cell_850bd8	4	unknown_cell_850bd8	Cell
 _unknown_cell_a40f10	4	unknown_cell_a40f10	Cell
 _unknown_cell_a52eac	4	unknown_cell_a52eac	Cell
@@ -360,7 +360,7 @@ _unknown_map_gaussian_a6fd50	24	unknown_map_gaussian_a6fd50	MapGaussianClass
 _unknown_map_list_83252c	32	unknown_map_list_83252c	DynamicVectorClass<int>
 _unknown_map_paths_a700a0	2616	unknown_map_paths_a700a0	DirtRoadTile[109]
 _RMGRandom	1012	RMGRandom	Random2Class
-_unknown_map_regions_a6fd28	32	unknown_map_regions_a6fd28	DynamicVectorClass<MapRegionClass*>
+_MapRegionClass_MapRegions	32	MapRegionClass_MapRegions	DynamicVectorClass<MapRegionClass*>
 _unknown_map_seed_a6fd68	408	unknown_map_seed_a6fd68	MapSeedClass
 _unknown_map_tagged_cells_833638	32	unknown_map_tagged_cells_833638	DynamicVectorClass<Cell>
 _unknown_maps_mixes_837468	32	unknown_maps_mixes_837468	DynamicVectorClass<MixFileClass*>
@@ -410,14 +410,14 @@ _unknown_point_a76728	8	unknown_point_a76728	Point2D
 _unknown_profile_ptr_b28cc0	16	unknown_profile_ptr_b28cc0	rc_ptr<PlayerProfile>
 _SlopeQuaternions	336	SlopeQuaternions	Quaternion[21]
 _ScreenSlopeQuaternions	336	ScreenSlopeQuaternions	Quaternion[21]
-_unknown_radar_events_ab67e8	32	unknown_radar_events_ab67e8	DynamicVectorClass<RadarEventClass*>
+_RadarEventClass_RadarEvents	32	RadarEventClass_RadarEvents	DynamicVectorClass<RadarEventClass*>
 _unknown_radar_rect_833978	16	unknown_radar_rect_833978	Rect
 _NonCriticalRandomNumber	1012	NonCriticalRandomNumber	Random2Class
 _unknown_random_straw_a40778	288	unknown_random_straw_a40778	RandomStraw
 _unknown_record_file_a3f59c	128	unknown_record_file_a3f59c	CCFileClass
 _VoxelRenderData	9216	VoxelRenderData	VoxelRenderStruct[64]
 _VoxelShadowRenderData	5120	VoxelShadowRenderData	VoxelShadowRenderStruct[64]
-_unknown_rect_8336e8	16	unknown_rect_8336e8	Rect
+_SidebarClass_DirtyRect	16	SidebarClass_DirtyRect	Rect
 _unknown_rect_839620	16	unknown_rect_839620	Rect
 _TacticalRect	16	TacticalRect	Rect
 _unknown_rect_ab6338	16	unknown_rect_ab6338	Rect
@@ -440,7 +440,7 @@ _text_sounds	48	text_sounds	ScoreFontSound[3]
 _unknown_servers_b2a700	16	unknown_servers_b2a700	WolServerArray
 _unknown_session_a3d298	12592	unknown_session_a3d298	SessionClass
 _unknown_shape_empty_rect_84ed88	16	unknown_shape_empty_rect_84ed88	Rect
-_unknown_shapes_abcd20	64	unknown_shapes_abcd20	void*[8]
+_SidebarClass_SidebarShapes	64	SidebarClass_SidebarShapes	void*[8]
 _unknown_shore_offsets_a6f91c	168	unknown_shore_offsets_a6f91c	Cell[42]
 _unknown_side_sound_a411e8	32	unknown_side_sound_a411e8	AudioEventHandle
 _unknown_sorted_scores_a715f0	64	unknown_sorted_scores_a715f0	MPlayerScoreType*[8]
@@ -449,7 +449,7 @@ _TimedSuperWeapons	32	TimedSuperWeapons	DynamicVectorClass<SuperClass*>
 _VoxelSurface	40	VoxelSurface	BSurface
 _unknown_sync_states_a780d8	220160	unknown_sync_states_a780d8	UnknownSyncState[256]
 _unknown_tab_a35e78	16	unknown_tab_a35e78	CreditClass
-_unknown_tactical_pixels_abe5f8	8000	unknown_tactical_pixels_abe5f8	TacticalObjectPixel[500]
+_Tactical_SelectableObjects	8000	Tactical_SelectableObjects	TacticalObjectPixel[500]
 _LogicTags	32	LogicTags	DynamicVectorClass<TagClass*>
 _MapTags	32	MapTags	DynamicVectorClass<TagClass*>
 _unknown_their_timing_aabdd0	168	unknown_their_timing_aabdd0	FrameSyncStruct[7]

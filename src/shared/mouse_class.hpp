@@ -80,11 +80,11 @@ public:
     int Frame;                                                  // +0x4F38 animation frame
 };
 
-extern MouseStruct unknown_mouse_control_7e2af8[];
+extern MouseStruct MouseClass_MouseControl[];
 
 // The theater-dependent reinitializers the load runs (0x00529870 with true,
 // 0x0052B650, 0x0052B2E0 with two false arguments); owners unknown.
-void __fastcall Unknown_00529870(int theater, bool arg);
+void __fastcall IsometricTileTypeClass_Read_Control_File(int theater, bool arg);
 void Unknown_0052B650();
 void __fastcall Unknown_0052B2E0(bool arg1, bool arg2);
 

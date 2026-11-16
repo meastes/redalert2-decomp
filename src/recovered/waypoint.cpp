@@ -196,7 +196,7 @@ WaypointPathClass::WaypointPathClass(int index) :
 
 WaypointPathClass::~WaypointPathClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     unknown_WaypointPathClass_list_00b25590.Delete(this);
 }
 

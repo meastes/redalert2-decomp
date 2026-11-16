@@ -114,8 +114,8 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
         for (int facing = 0; facing < 8; facing += 2) {
             Cell next = current->Position + AdjacentCell[facing & 7];
             int x = next.X, y = next.Y;
-            if (!(unknown_map_min_a70a1c < x + y && x - y < unknown_map_min_a70a1c && y - x < unknown_map_min_a70a1c &&
-                  x + y <= unknown_map_max_a70a20)) {
+            if (!(MapRegionClass_MapStartDiagonal < x + y && x - y < MapRegionClass_MapStartDiagonal && y - x < MapRegionClass_MapStartDiagonal &&
+                  x + y <= MapRegionClass_MapEndDiagonal)) {
                 continue;
             }
             UnknownMapGenerationCell &data = Cell_Data_m28(next);
@@ -160,7 +160,7 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
     bool shores = Map.Unknown_0055C2C0(WorkingRegionID, 1);   // Build_All_Shores
     Map.Reset_Iterator();
     for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
-        if (cell->IsoTileIndex >= unknown_tileset_a6cb74 && cell->IsoTileIndex < unknown_tileset_a6cb74 + 42) {
+        if (cell->IsoTileIndex >= IsometricTileTypeClass_ShorePieces && cell->IsoTileIndex < IsometricTileTypeClass_ShorePieces + 42) {
             cell->IsoTileIndex = 0;
             cell->unknown_11a = 0;
         }
@@ -176,7 +176,7 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
         if (data.RegionIndex == region) {
             data.RegionIndex = 0;
             data.unknown_4b = 0;
-            cell->IsoTileIndex = unknown_tileset_a52580;
+            cell->IsoTileIndex = IsometricTileTypeClass_WaterSet;
             cell->unknown_11a = 0;
             cell->unknown_11b = (char)CellHeight;
         }

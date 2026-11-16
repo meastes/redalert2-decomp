@@ -44,7 +44,7 @@ public:
     // (class hypothesis): its atexit destructor tests and sets the guard bit 0x00A6FD40, as VC6 does for class
     // statics. Declared only for the region-generation unit (RA2_MAP_REGION_LIST, set by its header-statics
     // source): a class static of a type with a constructor takes _$E numbers in every unit that sees it. Other
-    // sources name the same object unknown_map_regions_a6fd28.
+    // sources name the same object MapRegionClass_MapRegions.
     static DynamicVectorClass<MapRegionClass *> Regions;
 #endif
     ~MapRegionClass(); // original0056D970 nondeleting destruction; nominal source ownership hypothesis
@@ -109,7 +109,7 @@ typedef char MapRegionClass_bounds[(((unsigned int)&(((MapRegionClass*)0)->Bound
 typedef char UnknownMapGenerationCell_size[(sizeof(UnknownMapGenerationCell)==0x50)?1:-1];
 extern int unknown_map_region_next_index_a70a28;
 extern int MapCellStride;
-extern int unknown_map_min_a70a1c,unknown_map_max_a70a20;
+extern int MapRegionClass_MapStartDiagonal,MapRegionClass_MapEndDiagonal;
 extern Cell const unknown_adjacent_851a70[8];
 extern UnknownMapGenerationCell *RMGCellData;
 // Source name, const-reference and signed-index intent are hypotheses; physical ECX/EDX contract at0056E970.

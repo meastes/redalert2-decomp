@@ -5,7 +5,7 @@
 // @ref ??_7SmudgeTypeClass@@6BIRTTITypeInfo@@@=007ab784
 // @ref ??_7SmudgeTypeClass@@6BINoticeSink@@@=007ab77c
 // @ref ??_7SmudgeTypeClass@@6BINoticeSource@@@=007ab774
-// @ref ?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z=006ecb90
+// @ref ?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z=006ecb90
 // @ref ?SmudgeTypes@@3V?$DynamicVectorClass@PAVSmudgeTypeClass@@@@A=00a40bc8
 // @ref ??1ObjectTypeClass@@UAE@XZ=005d5b60
 // @ref ??3@YAXPAX@Z=00781d3b

@@ -115,9 +115,9 @@ bool MSFont::Load(bool sidebar)
         Color.Red = red;
         Color.Green = green;
         Color.Blue = blue;
-        Pixel = (((palette[0xCD] << 2) >> unknown_shift_852fcc) << unknown_shift_852fc8)
-              | (((palette[0xCE] << 2) >> unknown_shift_852fc4) << unknown_shift_852fc0)
-              | (((palette[0xCC] << 2) >> unknown_shift_852fbc) << unknown_shift_852fb8);
+        Pixel = (((palette[0xCD] << 2) >> DSurface_GreenLeft) << DSurface_GreenRight)
+              | (((palette[0xCE] << 2) >> DSurface_BlueLeft) << DSurface_BlueRight)
+              | (((palette[0xCC] << 2) >> DSurface_RedLeft) << DSurface_RedRight);
         operator delete(palette);
         Drawer = new ConvertClass(CCPalette, CCPalette, VisibleSurface, 1, false);
         if (Drawer == 0) {

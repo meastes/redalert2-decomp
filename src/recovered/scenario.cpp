@@ -426,7 +426,7 @@ bool __fastcall Start_Scenario_0065bc70(char const *name, bool briefing, int cam
         }
     } else if (unknown_session_a3d298.ScenarioIndex != -1) {
         MultiMission *mission = unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex];
-        if (!mission->Is_On_CD(Unknown_0046E4C0(60))) {
+        if (!mission->Is_On_CD(CD_Get_Current_Disk(60))) {
             CD::Set_Required_CD(mission->On_Which_CD());
         }
     }
@@ -977,7 +977,7 @@ void __fastcall Post_Load_Game_0065d2c0()
     timer.Stop();
     timer.Started = timer.Timer;
     Search.Update_Map_Dimensions(Map.MapSize);
-    Unknown_00520770();
+    IonStormClass_Apply_Secondary_Effect();
     Unknown_00423C70();
     Map.Flag_To_Redraw(2);
     InvalidateRect(MainWindow, 0, false);
@@ -1016,7 +1016,7 @@ namespace seed_006e9670 { void Deinit_Tiberium_Spread_System_006e9670(); }
 namespace seed_006ea130 { void Deinit_Tiberium_Growth_System_006ea130(); }
 void Sound_Clear_Static();
 void Unknown_00613E50();
-void Unknown_0051FBB0();
+void IonStormClass_Ion_Storm_End();
 extern HouseClass *PlayerPtr;
 extern BombListClass BombList;
 extern DynamicVectorClass<ObjectClass *> CurrentObjects;
@@ -1035,7 +1035,7 @@ void Clear_Scenario_0065d370()
     Sound_Clear_Static();
     PlayerPtr = 0;
     unknown_id_source_a3d290->Set_Defaults();
-    Unknown_0051FBB0();
+    IonStormClass_Ion_Storm_End();
     for (int index = AbstractTypes.Count() - 1; index >= 0; index--) {
         if (AbstractTypes[index]->What_Am_I() == 0x12) {
             AbstractTypes.Delete(index);

@@ -143,7 +143,7 @@ VoxelAnimTypeClass::VoxelAnimTypeClass(char const *ininame) :
 
 VoxelAnimTypeClass::~VoxelAnimTypeClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     AbstractTypePtrTracker.Delete(this);
     VoxelAnimTypes.Delete(this);
     if (unknown_266) {

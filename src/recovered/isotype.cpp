@@ -383,13 +383,13 @@ LightConvertClass *__fastcall IsometricTileTypeClass::Find_Or_Make_Drawer(int re
 }
 
 
-// bool __fastcall Unknown_00529710(int unknown1, bool unknown2) (0x00529710)
+// bool __fastcall IsometricTileTypeClass_Free_Unused_Drawers(int unknown1, bool unknown2) (0x00529710)
 // Frees nothing and reports nothing left to free in this build (TibSun
 // IsometricTileTypeClass::Free_Unused_Drawers; LightSourceClass 0x00537830 and
 // MapClass slot 23 call it).
 #include "shared/map.hpp"
 
-bool __fastcall Unknown_00529710(int unknown1, bool unknown2)
+bool __fastcall IsometricTileTypeClass_Free_Unused_Drawers(int unknown1, bool unknown2)
 {
     return false;
 }
@@ -434,8 +434,8 @@ void IsometricTileTypeClass::Init_Drawers()
 #include "shared/anim_type.hpp"
 #include "shared/theater_type.hpp"
 #include "shared/crt_string.hpp"
-extern int unknown_tileset_a6e0e8;
-extern int unknown_tileset_a6cf4c;
+extern int IsometricTileTypeClass_RoughTile;
+extern int IsometricTileTypeClass_SandTile;
 extern int unknown_tileset_a52f84;
 extern int unknown_tileset_a52ef8;
 extern int unknown_tileset_a5258c;
@@ -446,18 +446,18 @@ extern int unknown_tileset_a6cb78;
 extern int unknown_tileset_a52ea4;
 extern int unknown_tileset_a6cf50;
 extern int unknown_tileset_a52c64;
-extern int unknown_tileset_a6dd04;
+extern int IsometricTileTypeClass_DirtRoadSlopes;
 extern int unknown_tileset_a6cf54;
 extern int unknown_tileset_a52ee0;
-extern int unknown_tileset_a6e0e4;
-extern int unknown_tileset_a52f80;
-extern int unknown_tileset_a53394;
-extern int unknown_tileset_a52588;
+extern int IsometricTileTypeClass_BridgeTopLeft1;
+extern int IsometricTileTypeClass_BridgeTopLeft2;
+extern int IsometricTileTypeClass_BridgeTopRight1;
+extern int IsometricTileTypeClass_BridgeTopRight2;
 extern void *SlopeZShapes[4];
 extern int TileSetLookupCount;
 extern int TileSetIDLookup[];
 
-void __fastcall Unknown_00529870(int theater, bool from_ccfile)
+void __fastcall IsometricTileTypeClass_Read_Control_File(int theater, bool from_ccfile)
 {
     int i;
     int j;
@@ -586,62 +586,62 @@ void __fastcall Unknown_00529870(int theater, bool from_ccfile)
     int _DirtRoadSlopes = ini.Get_Int("General", "DirtRoadSlopes", -1);
     int _Rocks = ini.Get_Int("General", "Rocks", -1);
     int _WaterBridge = ini.Get_Int("General", "WaterBridge", -1);
-    unknown_tileset_a6e018 = -1;
+    IsometricTileTypeClass_RampStart = -1;
     unknown_tileset_a52ea8 = -1;
     unknown_tileset_a52eec = -1;
-    unknown_tileset_a52f00 = -1;
-    unknown_tileset_a6e0e8 = -1;
-    unknown_tileset_a6cf4c = -1;
-    unknown_tileset_a52c60 = -1;
-    unknown_tileset_a6e0e0 = -1;
-    unknown_tileset_a52ef4 = -1;
+    IsometricTileTypeClass_ClearTile = -1;
+    IsometricTileTypeClass_RoughTile = -1;
+    IsometricTileTypeClass_SandTile = -1;
+    IsometricTileTypeClass_GreenTile = -1;
+    IsometricTileTypeClass_PaveTile = -1;
+    IsometricTileTypeClass_MiscPaveTile = -1;
     unknown_tileset_a52f84 = -1;
     unknown_tileset_a52c70 = -1;
     unknown_tileset_a52590 = -1;
     unknown_tileset_a52ef8 = -1;
     unknown_tileset_a5258c = -1;
     unknown_tileset_a6e0fc = -1;
-    unknown_tileset_a52c74 = -1;
-    unknown_tileset_a6cb68 = -1;
-    unknown_tileset_a52e68 = -1;
-    unknown_tileset_a6cb74 = -1;
-    unknown_tileset_a52580 = -1;
-    unknown_tileset_a6e038 = -1;
+    IsometricTileTypeClass_BridgeSet = -1;
+    IsometricTileTypeClass_TrainBridgeSet = -1;
+    IsometricTileTypeClass_CliffSet = -1;
+    IsometricTileTypeClass_ShorePieces = -1;
+    IsometricTileTypeClass_WaterSet = -1;
+    IsometricTileTypeClass_SlopeSetPieces = -1;
     unknown_tileset_a52ee8 = -1;
     unknown_tileset_a52e6c = -1;
     unknown_tileset_a52ea4 = -1;
     unknown_tileset_a6cf50 = -1;
     unknown_tileset_a52f04 = -1;
     unknown_tileset_a6cb78 = -1;
-    unknown_tileset_a52584 = -1;
-    unknown_tileset_a6cf58 = -1;
-    unknown_tileset_a52ef0 = -1;
-    unknown_tileset_a52ea0 = -1;
-    unknown_tileset_a6dd00 = -1;
-    unknown_tileset_a6dd0c = -1;
-    unknown_tileset_a6dd08 = -1;
-    unknown_tileset_a52c68 = -1;
+    IsometricTileTypeClass_WaterfallEast = -1;
+    IsometricTileTypeClass_WaterfallWest = -1;
+    IsometricTileTypeClass_WaterfallNorth = -1;
+    IsometricTileTypeClass_WaterfallSouth = -1;
+    IsometricTileTypeClass_CliffRamps = -1;
+    IsometricTileTypeClass_PavedRoads = -1;
+    IsometricTileTypeClass_PavedRoadEnds = -1;
+    IsometricTileTypeClass_Medians = -1;
     unknown_tileset_a52c64 = -1;
-    unknown_tileset_a6cb6c = -1;
-    unknown_tileset_a6e014 = -1;
+    IsometricTileTypeClass_DirtRoadJunction = -1;
+    IsometricTileTypeClass_DirtRoadCurve = -1;
     unknown_tileset_a52efc = -1;
-    unknown_tileset_a6e0f8 = -2;
+    IsometricTileTypeClass_DestroyableCliffs = -2;
     unknown_tileset_a6cb70 = -1;
     unknown_tileset_a52e64 = -1;
     unknown_tileset_a52ee4 = -1;
-    unknown_tileset_a6dd04 = -1;
+    IsometricTileTypeClass_DirtRoadSlopes = -1;
     unknown_tileset_a6cf54 = -1;
     unknown_tileset_a52ee0 = -1;
-    unknown_tileset_a6e0e4 = ini.Get_Int("General", "BridgeTopLeft1", -1);
-    unknown_tileset_a52f80 = ini.Get_Int("General", "BridgeTopLeft2", -1);
-    unknown_tileset_a6e028 = ini.Get_Int("General", "BridgeBottomRight1", -1);
-    unknown_tileset_a52c80 = ini.Get_Int("General", "BridgeBottomRight2", -1);
-    unknown_tileset_a53394 = ini.Get_Int("General", "BridgeTopRight1", -1);
-    unknown_tileset_a52588 = ini.Get_Int("General", "BridgeTopRight2", -1);
-    unknown_tileset_a6e010 = ini.Get_Int("General", "BridgeBottomLeft1", -1);
-    unknown_tileset_a53390 = ini.Get_Int("General", "BridgeBottomLeft2", -1);
-    unknown_tileset_a6cb7c = ini.Get_Int("General", "BridgeMiddle1", -1);
-    unknown_tileset_a52e70 = ini.Get_Int("General", "BridgeMiddle2", -1);
+    IsometricTileTypeClass_BridgeTopLeft1 = ini.Get_Int("General", "BridgeTopLeft1", -1);
+    IsometricTileTypeClass_BridgeTopLeft2 = ini.Get_Int("General", "BridgeTopLeft2", -1);
+    IsometricTileTypeClass_BridgeBottomRight1 = ini.Get_Int("General", "BridgeBottomRight1", -1);
+    IsometricTileTypeClass_BridgeBottomRight2 = ini.Get_Int("General", "BridgeBottomRight2", -1);
+    IsometricTileTypeClass_BridgeTopRight1 = ini.Get_Int("General", "BridgeTopRight1", -1);
+    IsometricTileTypeClass_BridgeTopRight2 = ini.Get_Int("General", "BridgeTopRight2", -1);
+    IsometricTileTypeClass_BridgeBottomLeft1 = ini.Get_Int("General", "BridgeBottomLeft1", -1);
+    IsometricTileTypeClass_BridgeBottomLeft2 = ini.Get_Int("General", "BridgeBottomLeft2", -1);
+    IsometricTileTypeClass_BridgeMiddle1 = ini.Get_Int("General", "BridgeMiddle1", -1);
+    IsometricTileTypeClass_BridgeMiddle2 = ini.Get_Int("General", "BridgeMiddle2", -1);
 
     TileSetLookupCount = 0;
     {
@@ -658,50 +658,50 @@ void __fastcall Unknown_00529870(int theater, bool from_ccfile)
 
         TileSetIDLookup[TileSetLookupCount++] = heapid;
 
-        if (setid == _RampBase) unknown_tileset_a6e018 = heapid;
+        if (setid == _RampBase) IsometricTileTypeClass_RampStart = heapid;
         if (setid == _RampSmooth) unknown_tileset_a52ea8 = heapid;
         if (setid == _MMRampBase) unknown_tileset_a52eec = heapid;
-        if (setid == _ClearTile) unknown_tileset_a52f00 = heapid;
-        if (setid == _RoughTile) unknown_tileset_a6e0e8 = heapid;
-        if (setid == _SandTile) unknown_tileset_a6cf4c = heapid;
-        if (setid == _GreenTile) unknown_tileset_a52c60 = heapid;
-        if (setid == _PaveTile) unknown_tileset_a6e0e0 = heapid;
-        if (setid == _MiscPaveTile) unknown_tileset_a52ef4 = heapid;
+        if (setid == _ClearTile) IsometricTileTypeClass_ClearTile = heapid;
+        if (setid == _RoughTile) IsometricTileTypeClass_RoughTile = heapid;
+        if (setid == _SandTile) IsometricTileTypeClass_SandTile = heapid;
+        if (setid == _GreenTile) IsometricTileTypeClass_GreenTile = heapid;
+        if (setid == _PaveTile) IsometricTileTypeClass_PaveTile = heapid;
+        if (setid == _MiscPaveTile) IsometricTileTypeClass_MiscPaveTile = heapid;
         if (setid == _ClearToRoughLat) unknown_tileset_a52f84 = heapid;
         if (setid == _ClearToSandLat) unknown_tileset_a52c70 = heapid;
         if (setid == _ClearToGreenLat) unknown_tileset_a52590 = heapid;
         if (setid == _ClearToPaveLat) unknown_tileset_a52ef8 = heapid;
         if (setid == _HeightBase) unknown_tileset_a5258c = heapid;
         if (setid == _BlackTile) unknown_tileset_a6e0fc = heapid;
-        if (setid == _BridgeSet) unknown_tileset_a52c74 = heapid;
-        if (setid == _WoodBridgeSet) unknown_tileset_a6cb68 = heapid;
-        if (setid == _CliffSet) unknown_tileset_a52e68 = heapid;
-        if (setid == _ShorePieces) unknown_tileset_a6cb74 = heapid;
-        if (setid == _WaterSet) unknown_tileset_a52580 = heapid;
-        if (setid == _SlopeSetPieces) unknown_tileset_a6e038 = heapid;
+        if (setid == _BridgeSet) IsometricTileTypeClass_BridgeSet = heapid;
+        if (setid == _WoodBridgeSet) IsometricTileTypeClass_TrainBridgeSet = heapid;
+        if (setid == _CliffSet) IsometricTileTypeClass_CliffSet = heapid;
+        if (setid == _ShorePieces) IsometricTileTypeClass_ShorePieces = heapid;
+        if (setid == _WaterSet) IsometricTileTypeClass_WaterSet = heapid;
+        if (setid == _SlopeSetPieces) IsometricTileTypeClass_SlopeSetPieces = heapid;
         if (setid == _SlopeSetPieces2) unknown_tileset_a52ee8 = heapid;
         if (setid == _MonorailSlopes) unknown_tileset_a52e6c = heapid;
         if (setid == _DirtTunnels) unknown_tileset_a52f04 = heapid;
         if (setid == _DirtTrackTunnels) unknown_tileset_a6cb78 = heapid;
         if (setid == _Tunnels) unknown_tileset_a52ea4 = heapid;
         if (setid == _TrackTunnels) unknown_tileset_a6cf50 = heapid;
-        if (setid == _WaterfallEast) unknown_tileset_a52584 = heapid;
-        if (setid == _WaterfallWest) unknown_tileset_a6cf58 = heapid;
-        if (setid == _WaterfallNorth) unknown_tileset_a52ef0 = heapid;
-        if (setid == _WaterfallSouth) unknown_tileset_a52ea0 = heapid;
-        if (setid == _CliffRamps) unknown_tileset_a6dd00 = heapid;
-        if (setid == _PavedRoads) unknown_tileset_a6dd0c = heapid;
-        if (setid == _PavedRoadEnds) unknown_tileset_a6dd08 = heapid;
-        if (setid == _Medians) unknown_tileset_a52c68 = heapid;
+        if (setid == _WaterfallEast) IsometricTileTypeClass_WaterfallEast = heapid;
+        if (setid == _WaterfallWest) IsometricTileTypeClass_WaterfallWest = heapid;
+        if (setid == _WaterfallNorth) IsometricTileTypeClass_WaterfallNorth = heapid;
+        if (setid == _WaterfallSouth) IsometricTileTypeClass_WaterfallSouth = heapid;
+        if (setid == _CliffRamps) IsometricTileTypeClass_CliffRamps = heapid;
+        if (setid == _PavedRoads) IsometricTileTypeClass_PavedRoads = heapid;
+        if (setid == _PavedRoadEnds) IsometricTileTypeClass_PavedRoadEnds = heapid;
+        if (setid == _Medians) IsometricTileTypeClass_Medians = heapid;
         if (setid == _RoughGround) unknown_tileset_a52c64 = heapid;
-        if (setid == _DirtRoadJunction) unknown_tileset_a6cb6c = heapid;
-        if (setid == _DirtRoadCurve) unknown_tileset_a6e014 = heapid;
+        if (setid == _DirtRoadJunction) IsometricTileTypeClass_DirtRoadJunction = heapid;
+        if (setid == _DirtRoadCurve) IsometricTileTypeClass_DirtRoadCurve = heapid;
         if (setid == _DirtRoadStraight) unknown_tileset_a52efc = heapid;
-        if (setid == _DestroyableCliffs) unknown_tileset_a6e0f8 = heapid;
+        if (setid == _DestroyableCliffs) IsometricTileTypeClass_DestroyableCliffs = heapid;
         if (setid == _WaterCliffs) unknown_tileset_a52e64 = heapid;
         if (setid == _WaterCaves) unknown_tileset_a6cb70 = heapid;
         if (setid == _PavedRoadSlopes) unknown_tileset_a52ee4 = heapid;
-        if (setid == _DirtRoadSlopes) unknown_tileset_a6dd04 = heapid;
+        if (setid == _DirtRoadSlopes) IsometricTileTypeClass_DirtRoadSlopes = heapid;
         if (setid == _Rocks) unknown_tileset_a6cf54 = heapid;
         if (setid == _WaterBridge) unknown_tileset_a52ee0 = heapid;
 
@@ -963,9 +963,9 @@ void __fastcall IsometricTileTypeClass::Load_Tiles(bool skip_iteration, bool is_
                     }
                 }
             } else {
-                ptr = IsoTileTypes[unknown_tileset_a52f00];
+                ptr = IsoTileTypes[IsometricTileTypeClass_ClearTile];
                 num = ptr->NumTileTypesInSet;
-                index = cptr->Clear_Icon(unknown_tileset_a52f00, num);
+                index = cptr->Clear_Icon(IsometricTileTypeClass_ClearTile, num);
             }
             ptr = ptr->Next_Tile_From_Set(index);
             ptr->UseCount++;
@@ -1118,8 +1118,8 @@ void IsometricTileTypeClass::Draw_Shadow_Caster(int index, Surface *surface, Poi
     bool flat = false;
     int pieces;
 
-    if (tiletype >= unknown_tileset_a6e038 && tiletype < unknown_tileset_a6e038 + 10) {
-        pieces = unknown_tileset_a6e038;
+    if (tiletype >= IsometricTileTypeClass_SlopeSetPieces && tiletype < IsometricTileTypeClass_SlopeSetPieces + 10) {
+        pieces = IsometricTileTypeClass_SlopeSetPieces;
         flat = true;
     } else {
         if (tiletype >= unknown_tileset_a52ee8 && tiletype < unknown_tileset_a52ee8 + 10) {

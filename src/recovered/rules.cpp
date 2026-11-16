@@ -3149,7 +3149,7 @@ int __fastcall Coop_Camp_Unique_ID()
 }
 
 
-// int __fastcall Unknown_006525F0() (0x006525F0): the sum of the unique IDs of the
+// int __fastcall RulesClass_Get_Rule_Unique_ID() (0x006525F0): the sum of the unique IDs of the
 // INI at 0x008396D0, of every session INI (0x005B6F80 count, 0x005B6FE0 lookup,
 // UnknownSessionA3D29C 0x005B7840) and of CoopCamp.ini (Coop_Camp_Unique_ID,
 // expanded inline). Used for multiplayer synchronisation (hypothesis).
@@ -3161,7 +3161,7 @@ int Unknown_005B6F80();
 UnknownSessionA3D29C *__fastcall Unknown_005B6FE0(int index);
 int __fastcall Coop_Camp_Unique_ID();
 
-int __fastcall Unknown_006525F0()
+int __fastcall RulesClass_Get_Rule_Unique_ID()
 {
     int id = RuleINI->Get_Unique_ID();
     int count = Unknown_005B6F80();

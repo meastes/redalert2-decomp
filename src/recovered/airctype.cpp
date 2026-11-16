@@ -150,7 +150,7 @@ AircraftTypeClass::AircraftTypeClass(NoInitClass const &noinit) :
 
 AircraftTypeClass::~AircraftTypeClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     AircraftTypes.Delete(this);
 }
 

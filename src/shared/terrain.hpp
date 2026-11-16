@@ -115,7 +115,7 @@ public:
 // forces image reloads (0x00A40D13; shared/anim_type.hpp).
 extern Rect TacticalRect;
 // The [Terrain] section name (a pointer variable at 0x007AD390).
-extern char const *unknown_terrain_section_7ad390;
+extern char const *TerrainClass_INI_NAME;
 // The scenario INI format (0x00A40D24; below 4 cells are numbered x + y *
 // 128, else x + y * 1000; hypothesis).
 

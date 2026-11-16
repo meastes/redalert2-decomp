@@ -35,13 +35,13 @@ inline Point2D Tactical::Coord_To_Pixel_Absolute(CoordStruct const &coord)
     Point2D pixel = Rectangular_To_Isometric(point);
     pixel.X /= 256;
     pixel.Y /= 256;
-    int lift = Unknown_006A2970(coord.Z);
+    int lift = Tactical_Z_Lepton_To_Pixel(coord.Z);
     pixel.Y -= lift;
     return pixel;
 }
 
 // Tactical world-coordinate view position, original006A66B0 (255 body + 1 NOP).
-// @ref ?Unknown_006A2970@@YIHH@Z=006a2970
+// @ref ?Tactical_Z_Lepton_To_Pixel@@YIHH@Z=006a2970
 #include "shared/tactical.hpp"
 
 void Tactical::Set_Tactical_Position_006a66b0(CoordStruct const &coord)

@@ -121,7 +121,7 @@ extern UnknownStruct_AC11FC *unknown_ac11fc;
 
 void __fastcall Draw_Multiplayer_Debug(bool unknown);              // 0x005419E0 Render, when unknown_flag_a3d8c4
 extern bool unknown_flag_a3d8c4;
-extern bool unknown_flag_abcd85;                // Render erases the mouse from the sidebar once
+extern bool SidebarClass_IsToEraseSidebarMouse;                // Render erases the mouse from the sidebar once
 extern bool TacticalActive;
 extern bool unknown_flag_8373f6;
 extern int _dialog_count;                  // Blit copies with the last Copy_From flag when zero

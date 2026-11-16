@@ -648,7 +648,7 @@ extern DynamicVectorClass<AbstractClass *> TriggerPtrTracker;
 
 TriggerClass::~TriggerClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Triggers.Delete(this);
     AbstractTypePtrTracker.Delete((ObjectClass *)this);
     TriggerPtrTracker.Delete(this);

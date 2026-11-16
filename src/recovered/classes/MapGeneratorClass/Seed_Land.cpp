@@ -10,8 +10,8 @@
 #include "shared/map_view.hpp"
 #include "shared/cell.hpp"
 #include "shared/tileset_index.hpp"
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
-// @ref ?unknown_map_regions_a6fd28@@3V?$DynamicVectorClass@PAVMapRegionClass@@@@A=00a6fd28
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
+// @ref ?MapRegionClass_MapRegions@@3V?$DynamicVectorClass@PAVMapRegionClass@@@@A=00a6fd28
 // @ref ??1MapRegionClass@@QAE@XZ=0056d970
 // @ref ?Seed_Land@MapGeneratorClass@@=0057bea0
 // @ref ?Seed_Land_Type0@MapGeneratorClass@@=0057c4f0
@@ -25,7 +25,7 @@ MapRegionClass::~MapRegionClass()
         delete static_cast<DynamicVectorClass<Cell> *>(unknown_00);
         unknown_00=0;
     }
-    unknown_map_regions_a6fd28.Delete(this);
+    MapRegionClass_MapRegions.Delete(this);
     // Cells member destruction is automatic; no outer storage release here.
 }
 void MapGeneratorClass::Seed_Land()
@@ -33,7 +33,7 @@ void MapGeneratorClass::Seed_Land()
     Map.Reset_Iterator();
     CellClass *cell=Map.Iterate();
     while(cell!=0) {
-        cell->IsoTileIndex=unknown_tileset_a52580;
+        cell->IsoTileIndex=IsometricTileTypeClass_WaterSet;
         cell=Map.Iterate();
     }
     switch(SeedData.MapType) {
@@ -44,7 +44,7 @@ void MapGeneratorClass::Seed_Land()
     Map.Reset_Iterator();
     cell=Map.Iterate();
     while(cell!=0) {
-        if(cell->IsoTileIndex==unknown_tileset_a52580) {
+        if(cell->IsoTileIndex==IsometricTileTypeClass_WaterSet) {
             bool surrounded=true;
             for(int direction=0;direction<8;direction+=2) {
                 if(!cell->Adjacent_Cell(direction).Is_Tile_Clear())surrounded=false;
@@ -61,8 +61,8 @@ void MapGeneratorClass::Seed_Land()
             RMGCellData[index].unknown_3c=-1;
         }
     }
-    for(int reverse=(int)((unsigned int)unknown_map_regions_a6fd28.Count()-1u);reverse>=0;--reverse) {
-        delete unknown_map_regions_a6fd28[reverse];
+    for(int reverse=(int)((unsigned int)MapRegionClass_MapRegions.Count()-1u);reverse>=0;--reverse) {
+        delete MapRegionClass_MapRegions[reverse];
     }
     unknown_map_region_next_index_a70a28=0;
     Map.Reset_Iterator();
@@ -71,7 +71,7 @@ void MapGeneratorClass::Seed_Land()
         if(cell->Is_Tile_Shore()) {
             for(int direction=0;direction<8;direction+=2) {
                 CellClass &neighbor=cell->Adjacent_Cell(direction);
-                if(neighbor.Is_Tile_Clear())neighbor.IsoTileIndex=unknown_tileset_a52c60;
+                if(neighbor.Is_Tile_Clear())neighbor.IsoTileIndex=IsometricTileTypeClass_GreenTile;
             }
         }
         cell=Map.Iterate();

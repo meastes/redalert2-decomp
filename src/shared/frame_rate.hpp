@@ -5,6 +5,6 @@
 #ifndef RA2_SHARED_FRAME_RATE_HPP
 #define RA2_SHARED_FRAME_RATE_HPP
 
-extern unsigned int unknown_a6eb1c;     // 0x00A6EB1C
+extern unsigned int FPSCounter_CurrentFrameRate;     // 0x00A6EB1C
 
 #endif

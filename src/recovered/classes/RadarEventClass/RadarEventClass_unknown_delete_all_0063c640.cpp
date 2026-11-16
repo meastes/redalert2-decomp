@@ -6,22 +6,22 @@
 // units). Name hypothesis.
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-// @ref ?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A=00ab67e8
+// @ref ?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A=00ab67e8
 // @ref ??3@YAXPAX@Z=00781d3b
 
 class RadarEventClass {
 public:
     int unknown_00;
 };
-extern DynamicVectorClass<RadarEventClass *> unknown_radar_events_ab67e8;
+extern DynamicVectorClass<RadarEventClass *> RadarEventClass_RadarEvents;
 
 void RadarEventClass_unknown_delete_all_63c640()
 {
-    for (int index = unknown_radar_events_ab67e8.Count() - 1; index >= 0; index--) {
-        RadarEventClass *event = unknown_radar_events_ab67e8[index];
+    for (int index = RadarEventClass_RadarEvents.Count() - 1; index >= 0; index--) {
+        RadarEventClass *event = RadarEventClass_RadarEvents[index];
         if (event != 0) {
             RadarEventClass *pointer = event;
-            unknown_radar_events_ab67e8.Delete(pointer);
+            RadarEventClass_RadarEvents.Delete(pointer);
             delete event;
         }
     }

@@ -167,7 +167,7 @@ TeamTypeClass::TeamTypeClass(char const *ini_name) :
 
 TeamTypeClass::~TeamTypeClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     TeamTypes.Delete(this);
     AbstractTypePtrTracker.Delete(this);
 }

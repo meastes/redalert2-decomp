@@ -7,21 +7,21 @@
 #include "shared/com_persist.hpp"
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-// @ref ?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A=00ab67e8
+// @ref ?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A=00ab67e8
 // @ref ?LastRadarEventCell@@3HA=00ab67b8
 
 class RadarEventClass;
-extern DynamicVectorClass<RadarEventClass *> unknown_radar_events_ab67e8;
+extern DynamicVectorClass<RadarEventClass *> RadarEventClass_RadarEvents;
 extern int LastRadarEventCell;
 
 bool __fastcall RadarEventClass_unknown_save_all(IStream *stream)
 {
-    int count = unknown_radar_events_ab67e8.Count();
+    int count = RadarEventClass_RadarEvents.Count();
     if (FAILED(stream->Write(&count, sizeof(count), 0))) {
         return false;
     }
     for (int index = 0; index < count; index++) {
-        if (FAILED(stream->Write(unknown_radar_events_ab67e8[index], 0x40, 0))) {
+        if (FAILED(stream->Write(RadarEventClass_RadarEvents[index], 0x40, 0))) {
             return false;
         }
     }

@@ -154,7 +154,7 @@ HouseTypeClass::HouseTypeClass(NoInitClass const &noinit) :
 
 HouseTypeClass::~HouseTypeClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     HouseTypes.Delete(this);
 }
 

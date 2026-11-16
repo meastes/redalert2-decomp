@@ -49,7 +49,7 @@ extern DynamicVectorClass<SideClass *> Sides;                   // 0x008661B0
 #ifndef RA2_SIDE_UNIT
 inline SideClass::~SideClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Sides.Delete(this);
 }
 #endif

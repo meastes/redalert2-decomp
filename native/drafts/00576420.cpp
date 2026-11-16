@@ -13,7 +13,7 @@
 #include "shared/random2.hpp"
 #include "shared/vector_class.hpp"
 #include "shared/fast_math.hpp"
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 extern double const unknown_region_scale_7a5e10,unknown_region_minimum_7a5e08;
 extern double const unknown_random_scale_7a5dd0;
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);
@@ -43,9 +43,9 @@ bool __cdecl Generate_Starting_Points_00576420()
             }
         }
     }
-    int count=unknown_map_regions_a6fd28.Count();
+    int count=MapRegionClass_MapRegions.Count();
     for(int i=count-1;i>=0;i--) {
-        MapRegionClass *region=unknown_map_regions_a6fd28[i];
+        MapRegionClass *region=MapRegionClass_MapRegions[i];
         if(region->CellCount<minimum) {
             delete region;
         }
@@ -53,8 +53,8 @@ bool __cdecl Generate_Starting_Points_00576420()
     DynamicVectorClass<MapRegionClass *> sorted;
     IndexClass<int,MapRegionClass *> index;
     sorted.Clear();
-    for(i=0;i<unknown_map_regions_a6fd28.Count();i++) {
-        MapRegionClass *const &region=unknown_map_regions_a6fd28[i];
+    for(i=0;i<MapRegionClass_MapRegions.Count();i++) {
+        MapRegionClass *const &region=MapRegionClass_MapRegions[i];
         index.Add_Index((500000-region->CellCount)*count+region->Index,region);
     }
     for(i=0;i<index.Count();i++) {

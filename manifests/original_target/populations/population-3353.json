@@ -4,8 +4,8 @@
     "id": "population-3353",
     "inventory_sha256": "53ebe2c7616532f7152f650f3d518a892bf4a883ba00b4166abeac9f94f0fbd6",
     "gaps_sha256": "4e582a9109c45a1716db32b83dc3092d2f0dc5ed80df02a4a97f53dbbfed92d0",
-    "historical_population_sha256": "6179c402a6b1703127bcf4966ab024d0b0bf7301b4508da6d71ea0d23c353f0d",
-    "historical_acceptance_sha256": "2cabb47ac1bb057cdd5ac9184b8fbfa99eb3682b206fc89e6dfeb9a2807a1aa5",
+    "historical_population_sha256": "a9e7e53c6b2890c5d662e60844da4b58cf7f2b3b95d6cca7ee1c2c3c9f0b41e5",
+    "historical_acceptance_sha256": "790bf455d00c1d7bd9a77267b9cc28e89d88d87302b9a00150e1ece34d64ce56",
     "separate_units": true
   },
   "references": {
@@ -873,7 +873,7 @@
     "?PlayerPtr@@3PAUUnknownHouse_00610770@@A": 10706356,
     "?unknown_list_a76648@@3V?$DynamicVectorClass@PAUUnknownItem_006142f0@@@@A": 10970696,
     "?unknown_cleanup_62e6e0@UnknownItem_006142f0@@QAEXXZ": 6481632,
-    "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A": 11233256,
+    "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A": 11233256,
     "?unknown_rgb_ab6841@@3VRGBClass@@A": 11233345,
     "?unknown_rgb_ab6844@@3VRGBClass@@A": 11233348,
     "?WhiteColor@@3VRGBClass@@A": 11233353,
@@ -6241,7 +6241,7 @@
     "?Compute_CRC@TechnoClass@@UBEXAAVWWCRCEngine@@@Z": 7170720,
     "??RWWCRCEngine@@QAEXF@Z": 4800272,
     "?unknown_slot19@FootClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z": 5023472,
-    "?Unknown_006A29B0@@YIHH@Z": 6957488,
+    "?Tactical_Pixel_To_Z_Lepton@@YIHH@Z": 6957488,
     "?Flag_To_Win@HouseClass@@QAE_N_N@Z": 5144288,
     "??0BuildingClass@@QAE@ABVNoInitClass@@@Z": 4426784,
     "??_7BuildingClass@@6BIPersistStream@@@": 7982012,
@@ -6282,7 +6282,7 @@
     "?Detach@RadioClass@@UAEXPAVAbstractClass@@_N@Z": 6515616,
     "?Compute_CRC@RadioClass@@UBEXAAVWWCRCEngine@@@Z": 6515696,
     "?Unknown_006AAD40@Tactical@@QAEXXZ": 6991168,
-    "?Unknown_006A2970@@YIHH@Z": 6957424,
+    "?Tactical_Z_Lepton_To_Pixel@@YIHH@Z": 6957424,
     "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ": 4250656,
     "?INoticeSink_Unknown@InfantryClass@@UAE_NHH@Z": 5281168,
     "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z": 6982976,
@@ -6355,7 +6355,7 @@
     "?Draw_Buildings@Tactical@@QAEX_NABVRect@@1@Z": 6987616,
     "?Rectangular_To_Isometric@@YI?AUPoint2D@@U1@@Z": 6956864,
     "?Add_To_Selectables@Tactical@@QAE_NPAVObjectClass@@UPoint2D@@@Z": 6989072,
-    "?unknown_tactical_pixels_abe5f8@@3PAUTacticalObjectPixel@@A": 11265528,
+    "?Tactical_SelectableObjects@@3PAUTacticalObjectPixel@@A": 11265528,
     "?Rubber_Band_Contains_Selectable@Tactical@@QAEHXZ": 6989472,
     "?Unknown_006F76B0@@YA_NXZ": 7304880,
     "?Unknown_006F71E0@@YIXPBD@Z": 7303648,
@@ -7049,7 +7049,14 @@
     "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
     "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
     "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
-    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "??_7?$DynamicVectorClass@PBVTeamTypeClass@@@@6B@": 8007660,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
+    "??_E?$DynamicVectorClass@PAVBombClass@@@@UAEPAXI@Z": 4242208,
+    "??_E?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z": 4246048,
+    "??_E?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249376,
+    "??_E?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z": 4257488,
+    "??_E?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845312
   },
   "regions": [
     {
@@ -7230,7 +7237,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 16,
           "resolved": 11233272
@@ -7238,7 +7245,7 @@
         {
           "offset": 17,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 4,
           "resolved": 11233260
@@ -7246,7 +7253,7 @@
         {
           "offset": 29,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 0,
           "resolved": 11233256
@@ -7254,7 +7261,7 @@
         {
           "offset": 39,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 0,
           "resolved": 11233256
@@ -7262,7 +7269,7 @@
         {
           "offset": 57,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 16,
           "resolved": 11233272
@@ -7270,7 +7277,7 @@
         {
           "offset": 70,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 16,
           "resolved": 11233272
@@ -7278,7 +7285,7 @@
         {
           "offset": 78,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 4,
           "resolved": 11233260
@@ -7286,7 +7293,7 @@
         {
           "offset": 92,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 16,
           "resolved": 11233272
@@ -7300,7 +7307,7 @@
           "resolved": 1336385
         }
       ],
-      "source_sha256": "2d608b9e97d8e1444a1b47b2ea54dc9f220d7051841a380b6c0c2e9604100fd8",
+      "source_sha256": "909a5e57f22d11411678b98e3c78f6ae89a56e3cb9ecf27a484423aa57265ad9",
       "source": "src/recovered/classes/RadarEventClass/RadarEventClass_unknown_delete_all_0063b890.cpp",
       "population": "population-3353",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -7329,7 +7336,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 16,
           "resolved": 11233272
@@ -7337,7 +7344,7 @@
         {
           "offset": 17,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 4,
           "resolved": 11233260
@@ -7345,7 +7352,7 @@
         {
           "offset": 29,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 0,
           "resolved": 11233256
@@ -7353,7 +7360,7 @@
         {
           "offset": 39,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 0,
           "resolved": 11233256
@@ -7361,7 +7368,7 @@
         {
           "offset": 57,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 16,
           "resolved": 11233272
@@ -7369,7 +7376,7 @@
         {
           "offset": 70,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 16,
           "resolved": 11233272
@@ -7377,7 +7384,7 @@
         {
           "offset": 78,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 4,
           "resolved": 11233260
@@ -7385,7 +7392,7 @@
         {
           "offset": 92,
           "kind": 6,
-          "symbol": "?unknown_radar_events_ab67e8@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "symbol": "?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
           "target": 11233256,
           "addend": 16,
           "resolved": 11233272
@@ -7399,7 +7406,7 @@
           "resolved": 1332881
         }
       ],
-      "source_sha256": "6525f374ca0839767f985e99b5508ac97cbcb7440b0700a27b26bba73bd36680",
+      "source_sha256": "d3e1d7d5ac120808cd77d5e1a13aaa9879ad43ce3e8e5544159486edaeb5e73b",
       "source": "src/recovered/classes/RadarEventClass/RadarEventClass_unknown_delete_all_0063c640.cpp",
       "population": "population-3353",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

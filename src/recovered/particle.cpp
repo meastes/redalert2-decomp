@@ -210,7 +210,7 @@ ParticleClass::ParticleClass() :
 ParticleClass::~ParticleClass()
 {
     ObjectClass::Limbo();
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Class = 0;
     unknown_ParticleClass_list_00a35e28.Delete(this);
 }
@@ -354,7 +354,7 @@ void ParticleClass::Gas_Behavior_AI()
             if (occupier->IsActive) {
                 if (occupier->Strength > 0) {
                     int damage = Class->Damage;
-                    occupier->Take_Damage(&damage, Unknown_006A2970(abs(delta.X) + abs(delta.Y)), Class->Warhead, 0, 0, 0);
+                    occupier->Take_Damage(&damage, Tactical_Z_Lepton_To_Pixel(abs(delta.X) + abs(delta.Y)), Class->Warhead, 0, 0, 0);
                 }
             }
             occupier = next;
@@ -625,7 +625,7 @@ void ParticleClass::Behavior_AI()
 
 void ParticleClass::Draw_It(Point2D const &point, Rect const &cliprect)
 {
-    if (unknown_a6eb1c < GetMinFrameRate()) {
+    if (FPSCounter_CurrentFrameRate < GetMinFrameRate()) {
         return;
     }
     if (unknown_a40b2c != 0 || Class->BehavesLike != 1 && Class->BehavesLike != 3) {
@@ -634,7 +634,7 @@ void ParticleClass::Draw_It(Point2D const &point, Rect const &cliprect)
         }
 
         if (Class->BehavesLike != 3 && Class->BehavesLike != 4) {
-            int height_offset = -15 - Unknown_006A2970(Get_Height());
+            int height_offset = -15 - Tactical_Z_Lepton_To_Pixel(Get_Height());
             ShapeFileStruct const *shape = (ShapeFileStruct const *)Get_Image_Data();
             if (shape != 0) {
                 int flags = 0x2800;
@@ -660,7 +660,7 @@ void ParticleClass::Draw_It(Point2D const &point, Rect const &cliprect)
                 int alpha = *alpha_ptr;
                 if (alpha != 0) {
                     Point2D depth_point = pixel - Point2D(0, DepthBuffer->Area.Y);
-                    int zdepth = (unsigned short)(DepthBuffer->Area.Y + DepthBuffer->MaxValue - pixel.Y) - Unknown_006A2970(Position_Coord_004f3f40().Z) - 50;
+                    int zdepth = (unsigned short)(DepthBuffer->Area.Y + DepthBuffer->MaxValue - pixel.Y) - Tactical_Z_Lepton_To_Pixel(Position_Coord_004f3f40().Z) - 50;
                     int depth = *DepthBuffer->Get_Buffer_Offset(depth_point);
                     if (zdepth < depth) {
                         RGBClass color1 = ColorState.ColorIndex == 0 ? Color : Class->ColorList[ColorState.ColorIndex];
@@ -682,7 +682,7 @@ void ParticleClass::Draw_It(Point2D const &point, Rect const &cliprect)
 }
 
 
-static inline Point2D Smoke_Wind_Offset(int const &direction) { Point2D offset; offset.X = unknown_wind_7eb7e4[0][direction]; offset.Y = unknown_wind_7eb7e4[1][direction]; return offset; }
+static inline Point2D Smoke_Wind_Offset(int const &direction) { Point2D offset; offset.X = ParticleClass_SmokeWindX[0][direction]; offset.Y = ParticleClass_SmokeWindX[1][direction]; return offset; }
 void ParticleClass::Smoke_Motion_AI()
 {
     int frame = Frame;
@@ -707,7 +707,7 @@ void ParticleClass::Smoke_Motion_AI()
 }
 
 
-static inline Point2D Wind_Offset(int const &direction, int effect) { Point2D offset; offset.X = unknown_wind_7eb824[0][direction] * effect; offset.Y = unknown_wind_7eb824[1][direction] * effect; return offset; }
+static inline Point2D Wind_Offset(int const &direction, int effect) { Point2D offset; offset.X = ParticleClass_GasWindX[0][direction] * effect; offset.Y = ParticleClass_GasWindX[1][direction] * effect; return offset; }
 void ParticleClass::Gas_Motion_AI()
 {
     CoordStruct next = Coord;

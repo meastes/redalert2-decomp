@@ -67,9 +67,9 @@ void MapClass::Compute_Zone_Connections()
 
             int faceindex;
             if (cptr->Is_Tile_Bridge()) {
-                faceindex = cptr->IsoTileIndex - unknown_tileset_a52c74;
+                faceindex = cptr->IsoTileIndex - IsometricTileTypeClass_BridgeSet;
             } else {
-                faceindex = cptr->IsoTileIndex - unknown_tileset_a6cb68;
+                faceindex = cptr->IsoTileIndex - IsometricTileTypeClass_TrainBridgeSet;
             }
 
             if (_bridge_subtiles1[faceindex] == (unsigned char)cptr->unknown_11a) {
@@ -81,13 +81,13 @@ void MapClass::Compute_Zone_Connections()
                 CellClass *bptr;
                 for (bptr = &cptr->Adjacent_Cell(facing); In_Radar(bptr->MapCoords) && !crossed; bptr = &bptr->Adjacent_Cell(facing)) {
                     if (bptr->Is_Tile_Bridge()) {
-                        int index = bptr->IsoTileIndex - unknown_tileset_a52c74;
+                        int index = bptr->IsoTileIndex - IsometricTileTypeClass_BridgeSet;
                         if (index != -1 && _bridge_subtiles2[index] == (unsigned char)bptr->unknown_11a) {
                             crossed = true;
                         }
 
                     } else if (bptr->Is_Tile_Train_Bridge()) {
-                        int index = bptr->IsoTileIndex - unknown_tileset_a6cb68;
+                        int index = bptr->IsoTileIndex - IsometricTileTypeClass_TrainBridgeSet;
                         if (index != -1 && _bridge_subtiles2[index] == (unsigned char)bptr->unknown_11a) {
                             crossed = true;
                         }

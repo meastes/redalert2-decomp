@@ -118,7 +118,7 @@ class BSurface;
 extern BSurface *CloakingSurface;
 // The power-off and repair shapes (0x008502A4, 0x008502A8).
 extern void const *unknown_poweroff_shape_8502a4;
-extern void const *unknown_wrench_shape_8502a8;
+extern void const *BuildingTypeClass_WrenchShapes;
 
 // The scenario (pointer at 0x00A3D290): ScenarioClass in shared/abstract.hpp
 // (its Theater at +0x838 is read here).

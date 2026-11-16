@@ -260,8 +260,8 @@ void LaserDrawClass::Draw_It()
             Point2D end_pixel;
             TacticalMap->Coord_To_Pixel(Target, end_pixel);
 
-            int start_z = ZAdjust - Unknown_006A2970(Source.Z) - 2;
-            int end_z = -Unknown_006A2970(Target.Z) - 2;
+            int start_z = ZAdjust - Tactical_Z_Lepton_To_Pixel(Source.Z) - 2;
+            int end_z = -Tactical_Z_Lepton_To_Pixel(Target.Z) - 2;
 
             RGBClass outer_color;
             int outer_hicolor = 0;
@@ -366,9 +366,9 @@ void LaserDrawClass::Draw_House_Color()
     TacticalMap->Coord_To_Pixel(Source, start_pixel);
     Point2D end_pixel;
     TacticalMap->Coord_To_Pixel(Target, end_pixel);
-    int start_z = ZAdjust - Unknown_006A2970(Source.Z) - 2;
-    int end_z = -Unknown_006A2970(Target.Z) - 2;
-    bool high_detail = unknown_a6eb1c >= GetMinFrameRate() && unknown_a40b2c != 0;
+    int start_z = ZAdjust - Tactical_Z_Lepton_To_Pixel(Source.Z) - 2;
+    int end_z = -Tactical_Z_Lepton_To_Pixel(Target.Z) - 2;
+    bool high_detail = FPSCounter_CurrentFrameRate >= GetMinFrameRate() && unknown_a40b2c != 0;
     float intensity = 1.0f;
     if (Fades) {
         intensity = (StartIntensity - EndIntensity) * (Duration - Progress.Stage) / Duration + EndIntensity;

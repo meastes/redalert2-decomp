@@ -8451,6 +8451,30 @@
    "address": "0040ffd0"
   },
   {
+   "symbol": "?DSurface_BlueLeft@@3HA",
+   "address": "00852fc4"
+  },
+  {
+   "symbol": "?DSurface_BlueRight@@3HA",
+   "address": "00852fc0"
+  },
+  {
+   "symbol": "?DSurface_GreenLeft@@3HA",
+   "address": "00852fcc"
+  },
+  {
+   "symbol": "?DSurface_GreenRight@@3HA",
+   "address": "00852fc8"
+  },
+  {
+   "symbol": "?DSurface_RedLeft@@3HA",
+   "address": "00852fbc"
+  },
+  {
+   "symbol": "?DSurface_RedRight@@3HA",
+   "address": "00852fb8"
+  },
+  {
    "symbol": "?Debug_Map@@3_NA",
    "address": "00a40d13"
   },
@@ -8461,6 +8485,10 @@
   {
    "symbol": "?Detach@AbstractClass@@UAEXPAV1@_N@Z",
    "address": "00410220"
+  },
+  {
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
   },
   {
    "symbol": "?Draw_Offset@OverlayClass@@SI?AUPoint2D@@H@Z",
@@ -8595,6 +8623,10 @@
    "address": "00410210"
   },
   {
+   "symbol": "?IonStormClass_Is_Ion_Storm_Active@@YA_NXZ",
+   "address": "0051fc50"
+  },
+  {
    "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
    "address": "004101f0"
   },
@@ -8647,6 +8679,98 @@
    "address": "00a40cd0"
   },
   {
+   "symbol": "?IsometricTileTypeClass_BridgeSet@@3HA",
+   "address": "00a52c74"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_ClearTile@@3HA",
+   "address": "00a52f00"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_CliffRamps@@3HA",
+   "address": "00a6dd00"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_CliffSet@@3HA",
+   "address": "00a52e68"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_DestroyableCliffs@@3HA",
+   "address": "00a6e0f8"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_DirtRoadCurve@@3HA",
+   "address": "00a6e014"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_DirtRoadJunction@@3HA",
+   "address": "00a6cb6c"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_GreenTile@@3HA",
+   "address": "00a52c60"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_Medians@@3HA",
+   "address": "00a52c68"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_MiscPaveTile@@3HA",
+   "address": "00a52ef4"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_PaveTile@@3HA",
+   "address": "00a6e0e0"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_PavedRoadEnds@@3HA",
+   "address": "00a6dd08"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_PavedRoads@@3HA",
+   "address": "00a6dd0c"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_RampStart@@3HA",
+   "address": "00a6e018"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_RoughTile@@3HA",
+   "address": "00a6e0e8"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_SandTile@@3HA",
+   "address": "00a6cf4c"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_ShorePieces@@3HA",
+   "address": "00a6cb74"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_TrainBridgeSet@@3HA",
+   "address": "00a6cb68"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_WaterSet@@3HA",
+   "address": "00a52580"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_WaterfallEast@@3HA",
+   "address": "00a52584"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_WaterfallNorth@@3HA",
+   "address": "00a52ef0"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_WaterfallSouth@@3HA",
+   "address": "00a52ea0"
+  },
+  {
+   "symbol": "?IsometricTileTypeClass_WaterfallWest@@3HA",
+   "address": "00a6cf58"
+  },
+  {
    "symbol": "?Land_Type@IsometricTileTypeClass@@QAEHH@Z",
    "address": "00529300"
   },
@@ -8689,6 +8813,10 @@
   {
    "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
    "address": "008323c4"
+  },
+  {
+   "symbol": "?NukeFlash_IsFadingIn@@YA_NXZ",
+   "address": "0051fc60"
   },
   {
    "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
@@ -8855,14 +8983,6 @@
    "address": "004f52f0"
   },
   {
-   "symbol": "?Unknown_0051FC50@@YA_NXZ",
-   "address": "0051fc50"
-  },
-  {
-   "symbol": "?Unknown_0051FC60@@YA_NXZ",
-   "address": "0051fc60"
-  },
-  {
    "symbol": "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z",
    "address": "0055a660"
   },
@@ -8873,10 +8993,6 @@
   {
    "symbol": "?Unknown_0067C530@SidebarClass@@QAE_NHH@Z",
    "address": "0067c530"
-  },
-  {
-   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
-   "address": "006ecb90"
   },
   {
    "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
@@ -9023,30 +9139,6 @@
    "address": "00833634"
   },
   {
-   "symbol": "?unknown_shift_852fb8@@3HA",
-   "address": "00852fb8"
-  },
-  {
-   "symbol": "?unknown_shift_852fbc@@3HA",
-   "address": "00852fbc"
-  },
-  {
-   "symbol": "?unknown_shift_852fc0@@3HA",
-   "address": "00852fc0"
-  },
-  {
-   "symbol": "?unknown_shift_852fc4@@3HA",
-   "address": "00852fc4"
-  },
-  {
-   "symbol": "?unknown_shift_852fc8@@3HA",
-   "address": "00852fc8"
-  },
-  {
-   "symbol": "?unknown_shift_852fcc@@3HA",
-   "address": "00852fcc"
-  },
-  {
    "symbol": "?unknown_slope_shapes_a52eb0@@3PAPAXA",
    "address": "00a52eb0"
   },
@@ -9071,44 +9163,16 @@
    "address": "007d2c10"
   },
   {
-   "symbol": "?unknown_tileset_a52580@@3HA",
-   "address": "00a52580"
-  },
-  {
-   "symbol": "?unknown_tileset_a52584@@3HA",
-   "address": "00a52584"
-  },
-  {
    "symbol": "?unknown_tileset_a52590@@3HA",
    "address": "00a52590"
-  },
-  {
-   "symbol": "?unknown_tileset_a52c60@@3HA",
-   "address": "00a52c60"
-  },
-  {
-   "symbol": "?unknown_tileset_a52c68@@3HA",
-   "address": "00a52c68"
   },
   {
    "symbol": "?unknown_tileset_a52c70@@3HA",
    "address": "00a52c70"
   },
   {
-   "symbol": "?unknown_tileset_a52c74@@3HA",
-   "address": "00a52c74"
-  },
-  {
    "symbol": "?unknown_tileset_a52e64@@3HA",
    "address": "00a52e64"
-  },
-  {
-   "symbol": "?unknown_tileset_a52e68@@3HA",
-   "address": "00a52e68"
-  },
-  {
-   "symbol": "?unknown_tileset_a52ea0@@3HA",
-   "address": "00a52ea0"
   },
   {
    "symbol": "?unknown_tileset_a52ea4@@3HA",
@@ -9127,24 +9191,12 @@
    "address": "00a52ee4"
   },
   {
-   "symbol": "?unknown_tileset_a52ef0@@3HA",
-   "address": "00a52ef0"
-  },
-  {
-   "symbol": "?unknown_tileset_a52ef4@@3HA",
-   "address": "00a52ef4"
-  },
-  {
    "symbol": "?unknown_tileset_a52ef8@@3HA",
    "address": "00a52ef8"
   },
   {
    "symbol": "?unknown_tileset_a52efc@@3HA",
    "address": "00a52efc"
-  },
-  {
-   "symbol": "?unknown_tileset_a52f00@@3HA",
-   "address": "00a52f00"
   },
   {
    "symbol": "?unknown_tileset_a52f04@@3HA",
@@ -9155,68 +9207,16 @@
    "address": "00a52f84"
   },
   {
-   "symbol": "?unknown_tileset_a6cb68@@3HA",
-   "address": "00a6cb68"
-  },
-  {
-   "symbol": "?unknown_tileset_a6cb6c@@3HA",
-   "address": "00a6cb6c"
-  },
-  {
    "symbol": "?unknown_tileset_a6cb70@@3HA",
    "address": "00a6cb70"
-  },
-  {
-   "symbol": "?unknown_tileset_a6cb74@@3HA",
-   "address": "00a6cb74"
   },
   {
    "symbol": "?unknown_tileset_a6cb78@@3HA",
    "address": "00a6cb78"
   },
   {
-   "symbol": "?unknown_tileset_a6cf4c@@3HA",
-   "address": "00a6cf4c"
-  },
-  {
    "symbol": "?unknown_tileset_a6cf50@@3HA",
    "address": "00a6cf50"
-  },
-  {
-   "symbol": "?unknown_tileset_a6cf58@@3HA",
-   "address": "00a6cf58"
-  },
-  {
-   "symbol": "?unknown_tileset_a6dd00@@3HA",
-   "address": "00a6dd00"
-  },
-  {
-   "symbol": "?unknown_tileset_a6dd08@@3HA",
-   "address": "00a6dd08"
-  },
-  {
-   "symbol": "?unknown_tileset_a6dd0c@@3HA",
-   "address": "00a6dd0c"
-  },
-  {
-   "symbol": "?unknown_tileset_a6e014@@3HA",
-   "address": "00a6e014"
-  },
-  {
-   "symbol": "?unknown_tileset_a6e018@@3HA",
-   "address": "00a6e018"
-  },
-  {
-   "symbol": "?unknown_tileset_a6e0e0@@3HA",
-   "address": "00a6e0e0"
-  },
-  {
-   "symbol": "?unknown_tileset_a6e0e8@@3HA",
-   "address": "00a6e0e8"
-  },
-  {
-   "symbol": "?unknown_tileset_a6e0f8@@3HA",
-   "address": "00a6e0f8"
   },
   {
    "symbol": "?unknown_tube_facings_7d2b08@@3PAHA",

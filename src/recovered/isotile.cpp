@@ -123,20 +123,20 @@ bool IsometricTileClass::Mark(int mark)
                     here.unknown_11b -= ((IsoTileCellStruct *)image->Tiles[index])->unknown_28;
                 }
             } else if (mark == 1 || mark == 3) {
-                if (Type->ArrayIndex == unknown_tileset_a52f00) {
+                if (Type->ArrayIndex == IsometricTileTypeClass_ClearTile) {
                     here.IsoTileIndex = 0xFFFF;
                     here.unknown_11a = 0;
                 } else {
                     here.IsoTileIndex = Type->ArrayIndex;
                     here.unknown_11a = index;
                     here.unknown_11c = Type->Ramp_Type(index);
-                    if (here.IsoTileIndex == unknown_tileset_a6e038 + 5) {
+                    if (here.IsoTileIndex == IsometricTileTypeClass_SlopeSetPieces + 5) {
                         switch ((unsigned char)here.unknown_11a) {
                         case 0:
                         case 3:
                         case 6:
                         case 9:
-                            here.IsoTileIndex = unknown_tileset_a6e018 + 1;
+                            here.IsoTileIndex = IsometricTileTypeClass_RampStart + 1;
                             here.unknown_11a = 0;
                         }
                     }
@@ -150,8 +150,8 @@ bool IsometricTileClass::Mark(int mark)
                             here.unknown_11a = 0;
                         }
                     }
-                    if (here.IsoTileIndex == unknown_tileset_a6e038 + 8 && (unsigned char)here.unknown_11a <= 3) {
-                        here.IsoTileIndex = unknown_tileset_a6e018;
+                    if (here.IsoTileIndex == IsometricTileTypeClass_SlopeSetPieces + 8 && (unsigned char)here.unknown_11a <= 3) {
+                        here.IsoTileIndex = IsometricTileTypeClass_RampStart;
                         here.unknown_11a = 0;
                     }
                     if (here.IsoTileIndex == unknown_tileset_a52ee8 + 8 && (unsigned char)here.unknown_11a <= 3) {
@@ -226,7 +226,7 @@ IsometricTileClass::IsometricTileClass(int type, Cell const &cell) :
 
 IsometricTileClass::~IsometricTileClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     IsometricTileClass::Limbo();
     Type = 0;
     IsoTiles.Delete(this);

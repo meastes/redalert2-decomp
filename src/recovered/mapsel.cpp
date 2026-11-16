@@ -239,7 +239,7 @@ bool MapSelect::Init_0058fa20(ScenarioClass *scenario)
     int index=0;
     do {
         WideString description(stage->Description);
-        unknown_wrap_text_5ae9a0(description,Font,TextRect.Width);
+        MSPrintAnim_Word_Wrap(description,Font,TextRect.Width);
         stage=Choices.Get_Stage(++index);
     } while(stage);
     VoiceName=(char const *)0;

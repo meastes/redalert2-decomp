@@ -133,8 +133,8 @@ bool SurfaceCacheClass::CacheBMP_0068c040(char const *name, void *bitmap, int bi
     for (int index = 0; index < 256; index++) {
         int blue = *color++;
         int green = *color++;
-        int pixel = ((green >> unknown_shift_852fcc) << unknown_shift_852fc8) | ((blue >> unknown_shift_852fc4) << unknown_shift_852fc0);
-        table[index] = pixel | ((*color >> unknown_shift_852fbc) << unknown_shift_852fb8);
+        int pixel = ((green >> DSurface_GreenLeft) << DSurface_GreenRight) | ((blue >> DSurface_BlueLeft) << DSurface_BlueRight);
+        table[index] = pixel | ((*color >> DSurface_RedLeft) << DSurface_RedRight);
         color += 2;
     }
 

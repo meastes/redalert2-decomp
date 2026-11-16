@@ -195,7 +195,7 @@ Matrix3D * __stdcall LocomotionClass::Shadow_Matrix(Matrix3D *matrix, int *key)
 
 Point2D __stdcall LocomotionClass::Shadow_Point()
 {
-    return Point2D(0, Unknown_006A2970(LinkedTo->Get_Height_AGL()));
+    return Point2D(0, Tactical_Z_Lepton_To_Pixel(LinkedTo->Get_Height_AGL()));
 }
 
 

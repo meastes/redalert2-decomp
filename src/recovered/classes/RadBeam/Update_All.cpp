@@ -1,6 +1,6 @@
 // void RadBeam::Update_All() (0x006354E0; name hypothesis; called once a frame by 0x006A4E80)
 // Runs every listed beam, last first, and deletes each one whose period is over. When the game
-// runs below its desired rate (unknown_a6eb1c / unknown_a3d568, cubed), type 1 beams step
+// runs below its desired rate (FPSCounter_CurrentFrameRate / unknown_a3d568, cubed), type 1 beams step
 // further and active type 2 beams are switched off at random. The list length is read once
 // for both passes.
 #include "shared/rad_beam_list.hpp"
@@ -24,7 +24,7 @@ void __fastcall RadBeam::Update_All()
         }
     }
     double desired = unknown_a3d568;
-    double rate = unknown_a6eb1c / desired;
+    double rate = FPSCounter_CurrentFrameRate / desired;
     rate = rate * rate * rate;
     double excess = (double)active / count - rate;
     double cull = 0.0;

@@ -724,7 +724,7 @@ void __fastcall Send_Game_Options_005c3c60(char const *text)
     packet.Command = 0x17;
     strcpy(packet.Name, unknown_name_a3d3a0);
     strcpy(packet.Text, text);
-    packet.Color = unknown_a3d3b4;
+    packet.Color = Game_PlayerColor;
     packet.NameCRC = Compute_Name_CRC_W(unknown_host_name_a3f618);
     for (int i = 1; i < unknown_players_a3fa7c.Count(); i++) {
         NodeNameType *player = unknown_players_a3fa7c[i];
@@ -2273,7 +2273,7 @@ bool __fastcall Select_Scenario_005c7c30(int index)
     bool missing = !CCFileClass(unknown_session_a3d298.Scenarios[index]->unknown_58).Is_Available();
     if (missing) {
         if (CD::RequiredCD != -2) {
-            if (!unknown_session_a3d298.Scenarios[index]->Is_On_CD(Unknown_0046E4C0(60))
+            if (!unknown_session_a3d298.Scenarios[index]->Is_On_CD(CD_Get_Current_Disk(60))
                 && !CD().Force_Available(unknown_session_a3d298.Scenarios[index]->On_Which_CD())) {
                 return false;
             }

@@ -126,7 +126,7 @@ extern bool ScenarioActive;
 
 TagClass::~TagClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     if (GameActive && ScenarioActive && Class != 0 && (Class->Attaches_To() & 0x10)) {
         int index = LogicTags.ID(this);
         if (LogicTriggerID >= index) {
@@ -157,7 +157,7 @@ TagClass::~TagClass()
     AbstractTypePtrTracker.Delete((ObjectClass *)this);
     TriggerPtrTracker.Delete(this);
     Tags.Delete(this);
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
 }
 
 
@@ -354,7 +354,7 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
         }
     }
     if (die) {
-        Unknown_006ECB90(this, true);
+        Detach_This_From_All(this, true);
         ObjectsToDelete.Add(this);
     }
     return res;

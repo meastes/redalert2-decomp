@@ -81,7 +81,7 @@ struct SessionClass {
     // Resolves the random choices before a game: observers (-3) get colour 8, random countries (-2) come from
     // the game mode (slot 23; the session's 0x00672940 without one) and random colours from 0x00672980, for the
     // session players and the eight computer slots (slot 24 for their countries); the first player's colour goes to
-    // unknown_a3d3b4 (0x00672BB0).
+    // Game_PlayerColor (0x00672BB0).
     void Assign_Random_Choices();
     // The lobby slot whose name equals the text; 0 when none (0x00672FF0).
     int Name_To_Slot(char const *name);
@@ -132,7 +132,7 @@ struct SessionClass {
     char unknown_a9[0x104 - 0xA9];
     unsigned long UniqueID;                 // +0x104 (One_Time: Compute_Unique_ID)
     char Handle[20];                        // +0x108 the player's name (also unknown_name_a3d3a0)
-    int unknown_11c;                        // +0x11C (also unknown_a3d3b4; with +0x120 the colour 0x00672AE0 copies from +0x12C)
+    int unknown_11c;                        // +0x11C (also Game_PlayerColor; with +0x120 the colour 0x00672AE0 copies from +0x12C)
     int unknown_120;                        // +0x120 (the join dialog copies +0x130 here)
     int unknown_124;                        // +0x124 (also unknown_a3d3bc)
     int unknown_128;                        // +0x128 (with +0x124 the country 0x00672A30 copies from +0x134)

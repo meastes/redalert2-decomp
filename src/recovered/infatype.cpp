@@ -188,7 +188,7 @@ InfantryTypeClass::InfantryTypeClass(NoInitClass const &noinit) :
 
 InfantryTypeClass::~InfantryTypeClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     InfantryTypes.Delete(this);
     operator delete(DoControls);
     DoControls = 0;

@@ -143,7 +143,7 @@ UnitTypeClass::UnitTypeClass(NoInitClass const &noinit) :
 
 UnitTypeClass::~UnitTypeClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     UnitTypes.Delete(this);
 }
 

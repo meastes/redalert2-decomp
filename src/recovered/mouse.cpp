@@ -131,7 +131,7 @@ void MouseClass::Mouse_Small(bool wsmall)
 
 int MouseClass::Get_Mouse_Start_Frame(int mouse, bool wsmall) const
 {
-    MouseStruct const &control = unknown_mouse_control_7e2af8[mouse];
+    MouseStruct const &control = MouseClass_MouseControl[mouse];
     if (wsmall && control.SmallFrame != -1) {
         return control.SmallFrame;
     }
@@ -155,7 +155,7 @@ int MouseClass::Get_Mouse_Frame(int mouse, bool wsmall) const
 Point2D MouseClass::Get_Mouse_Hotspot(int mouse) const
 {
     MouseShapeHeader const *shapes = MouseShapes;
-    MouseStruct const &control = unknown_mouse_control_7e2af8[mouse];
+    MouseStruct const &control = MouseClass_MouseControl[mouse];
     int x = 0;
     int y = 0;
     if (control.X == 12345) {
@@ -181,7 +181,7 @@ Point2D MouseClass::Get_Mouse_Hotspot(int mouse) const
 
 bool MouseClass::Override_Mouse_Shape(int mouse, bool wsmall)
 {
-    MouseStruct const *control = &unknown_mouse_control_7e2af8[mouse];
+    MouseStruct const *control = &MouseClass_MouseControl[mouse];
     static bool startup = false;
     if (control->SmallFrame == -1) {
         wsmall = false;
@@ -207,7 +207,7 @@ bool MouseClass::Override_Mouse_Shape(int mouse, bool wsmall)
 
 void MouseClass::AI(int &input, Point2D const &xy)
 {
-    MouseStruct const *control = &unknown_mouse_control_7e2af8[CurrentMouseShape];
+    MouseStruct const *control = &MouseClass_MouseControl[CurrentMouseShape];
     if (control->FrameRate != 0 && Timer.Value() == 0) {
         Frame++;
         Frame %= control->FrameCount;
@@ -390,7 +390,7 @@ HRESULT MouseClass::Load(IStream *stream)
     }
     TerrainTypeClass::Init(unknown_id_source_a3d290->Theater);
     if (unknown_id_source_a3d290->Theater != LastTheater) {
-        Unknown_00529870(unknown_id_source_a3d290->Theater, true);
+        IsometricTileTypeClass_Read_Control_File(unknown_id_source_a3d290->Theater, true);
     } else {
         Unknown_0052B650();
     }
@@ -514,7 +514,7 @@ void MouseClass::Unknown_0059FEF0()
 
 int MouseClass::Get_Mouse_Start(int mouse) const
 {
-    return unknown_mouse_control_7e2af8[mouse].StartFrame;
+    return MouseClass_MouseControl[mouse].StartFrame;
 }
 
 
@@ -523,7 +523,7 @@ int MouseClass::Get_Mouse_Start(int mouse) const
 
 int MouseClass::Get_Mouse_Count(int mouse) const
 {
-    return unknown_mouse_control_7e2af8[mouse].FrameCount;
+    return MouseClass_MouseControl[mouse].FrameCount;
 }
 
 

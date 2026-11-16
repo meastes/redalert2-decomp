@@ -176,7 +176,7 @@ ShapeButtonClass RadarClass::OptionsButton;
 
 static inline HashTableClass<RadarTrackingStruct, TechnoClass *> *Make_Table(int count, int growth)
 {
-    return new HashTableClass<RadarTrackingStruct, TechnoClass *>(growth, count, Unknown_00631C60);
+    return new HashTableClass<RadarTrackingStruct, TechnoClass *>(growth, count, RadarTrackingStruct_Hash2);
 }
 
 /***********************************************************************************************
@@ -529,33 +529,22 @@ void RadarClass::Draw_It(bool forced)
     }
     if (BriefingButton.IsDrawn) {
         unknown_1208 = Union(unknown_1208, unknown_rect_ab6468);
-        unknown_flag_abcd84 = true;
+        SidebarClass_IsToBlitSidebar = true;
     }
     if (OptionsButton.IsDrawn) {
         unknown_1208 = Union(unknown_1208, unknown_rect_ab6338);
-        unknown_flag_abcd84 = true;
+        SidebarClass_IsToBlitSidebar = true;
     }
 }
 
 
-// 0x0062fbc0: function not yet identified
-//
-// Body: 3 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: void FUN_0062fbc0(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// RadarClass_Noop (0x0062FBC0): name from mischa85 names.csv
 
-namespace seed_0062fbc0 {
-
-void __stdcall FUN_0062fbc0(int unused_0, int unused_1)
+void __stdcall RadarClass_Noop(int unused_0, int unused_1)
 {
     return;
 }
 
-}  // namespace seed_0062fbc0
 
 
 /***********************************************************************************************
@@ -964,7 +953,7 @@ ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name, int kind);
 void RadarClass::Draw_Names()
 {
     if (unknown_flag_8373c1) {
-        CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shape_ab64a0, 32,
+        CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)RadarClass_RadarAnim, 32,
                       Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0,
                       Point2D(0, 0));
         int y = unknown_11f0 + 2;
@@ -1534,7 +1523,7 @@ void RadarClass::Radar_Track(TechnoClass *techno, Point2D point)
         }
         techno->unknown_1a0 = point;
     }
-    DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = unknown_1254->Buckets[Unknown_00631C40(point) % 256];
+    DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = unknown_1254->Buckets[RadarTrackingStruct_Hash_Old(point) % 256];
     HashObject<RadarTrackingStruct, TechnoClass *> object;
     object.Key.unknown_04 = point;
     object.Key.unknown_00 = techno;
@@ -1570,7 +1559,7 @@ void RadarClass::Radar_Track(TechnoClass *techno, Point2D point)
 
 void RadarClass::Radar_Untrack(TechnoClass *techno, Point2D point)
 {
-    DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = unknown_1254->Buckets[Unknown_00631C40(point) % 256];
+    DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = unknown_1254->Buckets[RadarTrackingStruct_Hash_Old(point) % 256];
     HashObject<RadarTrackingStruct, TechnoClass *> object;
     object.Key.unknown_04 = point;
     object.Key.unknown_00 = techno;
@@ -1616,21 +1605,21 @@ Point2D RadarClass::Coord_To_Radar_Pixel(Point2D const &coord, bool clip)
 }
 
 
-// unsigned __fastcall Unknown_00631C40(Point2D const &point) (0x00631C40)
+// unsigned __fastcall RadarTrackingStruct_Hash_Old(Point2D const &point) (0x00631C40)
 // The hash of a radar point: x + y * 251.
 
-unsigned __fastcall Unknown_00631C40(Point2D const &point)
+unsigned __fastcall RadarTrackingStruct_Hash_Old(Point2D const &point)
 {
     return point.X + point.Y * 251;
 }
 
 
-// int __fastcall Unknown_00631C60(RadarTrackingStruct const &key) (0x00631C60)
+// int __fastcall RadarTrackingStruct_Hash2(RadarTrackingStruct const &key) (0x00631C60)
 // The hash of a tracking key: its point's hash (the tracking table's hash).
 
-int __fastcall Unknown_00631C60(RadarTrackingStruct const &key)
+int __fastcall RadarTrackingStruct_Hash2(RadarTrackingStruct const &key)
 {
-    return Unknown_00631C40(key.unknown_04);
+    return RadarTrackingStruct_Hash_Old(key.unknown_04);
 }
 
 
@@ -1642,7 +1631,7 @@ int __fastcall Unknown_00631C60(RadarTrackingStruct const &key)
 
 void RadarClass::Init_Radar()
 {
-    unknown_1254 = new HashTableClass<RadarTrackingStruct, TechnoClass *>(10, 256, Unknown_00631C60);
+    unknown_1254 = new HashTableClass<RadarTrackingStruct, TechnoClass *>(10, 256, RadarTrackingStruct_Hash2);
 }
 
 
@@ -1774,7 +1763,7 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
     bool shadow=unknown_b263d8 && Map.Is_Shrouded(coord);
     bool dim=unknown_b263d8 && Map.Is_Under_Fog(coord);
     TechnoClass *tech=0;
-    DynamicVectorClass<HashObject<RadarTrackingStruct,TechnoClass *> > &bucket=unknown_1254->Buckets[Unknown_00631C40(point)&255];
+    DynamicVectorClass<HashObject<RadarTrackingStruct,TechnoClass *> > &bucket=unknown_1254->Buckets[RadarTrackingStruct_Hash_Old(point)&255];
     int count=bucket.Count();
     HashObject<RadarTrackingStruct,TechnoClass *> *items=&bucket[0];
     for(int index=0;index<count;++index) {
@@ -1902,16 +1891,16 @@ void RadarClass::Radar_Pixel(Point2D const &point)
 // Builds the 22 dot shapes at +0x1274: shape i is a diamond of cells a by b
 // in size, each side its scale (0x007CFC70 / 0x007CFCC8) times the zoom
 // +0x1484, rounded, at least 1 for scale 1 and 2 otherwise.
-extern int unknown_dot_width_7cfc70[22];
-extern int unknown_dot_height_7cfcc8[22];
+extern int BuildingTypeClass_SizeWidth[22];
+extern int BuildingTypeClass_SizeHeight[22];
 
 void RadarClass::Compute_Foundations()
 {
     for (int index = 0; index < 22; index++) {
         DynamicVectorClass<Point2D> &dots = unknown_1274[index];
         dots.Clear();
-        int scale_a = unknown_dot_width_7cfc70[index];
-        int scale_b = unknown_dot_height_7cfcc8[index];
+        int scale_a = BuildingTypeClass_SizeWidth[index];
+        int scale_b = BuildingTypeClass_SizeHeight[index];
         int a;
         if (scale_a == 1) {
             double size = unknown_1484 + 0.5;
@@ -2189,24 +2178,13 @@ void RadarClass::Set_Radar_State(bool on, bool sound)
 #pragma auto_inline(on)
 
 
-// 0x00632ff0: function not yet identified
-//
-// Body: 15 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: bool __fastcall FUN_00632ff0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// RadarClass_Is_Radar_Active (0x00632FF0): name from mischa85 names.csv
 
-namespace seed_00632ff0 {
-
-bool __fastcall FUN_00632ff0(int radar_address)
+bool __fastcall RadarClass_Is_Radar_Active(int radar_address)
 {
     return *(int *)(radar_address + 0x14a8) == 1;
 }
 
-}  // namespace seed_00632ff0
 
 
 /***********************************************************************************************
@@ -2271,19 +2249,9 @@ void RadarClass::Radar_Activate(int control, bool sound)
 }
 
 
-// 0x00633110: function not yet identified
-//
-// Body: 26 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 __fastcall FUN_00633110(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// RadarClass_Is_Radar_Tactical (0x00633110): name from mischa85 names.csv
 
-namespace seed_00633110 {
-
-unsigned int __fastcall FUN_00633110(int radar_address)
+unsigned int __fastcall RadarClass_Is_Radar_Tactical(int radar_address)
 {
     unsigned int result;
 
@@ -2294,7 +2262,6 @@ unsigned int __fastcall FUN_00633110(int radar_address)
     return result;
 }
 
-}  // namespace seed_00633110
 
 
 /***********************************************************************************************
@@ -2355,19 +2322,9 @@ bool RadarClass::Is_Player_Names()
 }
 
 
-// 0x006331c0: function not yet identified
-//
-// Body: 27 bytes (frozen inventory bound).
-// Referenced from 0 sites.
-// Ghidra prototype: undefined4 __fastcall FUN_006331c0(int param_1)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// RadarClass_Is_Playing_Movie (0x006331C0): name from mischa85 names.csv
 
-namespace seed_006331c0 {
-
-unsigned int __fastcall FUN_006331c0(int radar_address)
+unsigned int __fastcall RadarClass_Is_Playing_Movie(int radar_address)
 {
     unsigned int result;
 
@@ -2377,7 +2334,6 @@ unsigned int __fastcall FUN_006331c0(int radar_address)
     return result;
 }
 
-}  // namespace seed_006331c0
 
 
 /// <summary>
@@ -2460,7 +2416,7 @@ void RadarClass::Render_Radar()
         if (tactical) {
             if (unknown_14d6) {
                 unknown_1208 = unknown_1498;
-                CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shape_ab64a0, 32,
+                CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)RadarClass_RadarAnim, 32,
                     Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
             if (unknown_1208.Is_Valid()) {
@@ -2553,7 +2509,7 @@ void RadarClass::Play_Movie()
         Speech_Is_Playing();
     }
     if (unknown_14d6 == true && !unknown_14b9) {
-        CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)unknown_shape_ab64a0, 32,
+        CC_Draw_Shape(SidebarSurface, SidebarDrawer, (ShapeFileStruct const *)RadarClass_RadarAnim, 32,
                       Point2D(unknown_11e0, unknown_11e8), SidebarSurface->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0,
                       Point2D(0, 0));
         unknown_1208 = Rect(unknown_11e0, unknown_11e8, SidebarWidth, 110);

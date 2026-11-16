@@ -318,7 +318,7 @@ extern Random2Class NonCriticalRandomNumber;
 
 // A double constant 0.0 (0x0079B610; slot 165 returns it).
 extern double const unknown_double_79b610;
-extern bool unknown_bool_7f7110;        // 0x007F7110
+extern bool TechnoClass_ActionLines;        // 0x007F7110
 // unknown_timer_ac0178 (0x00AC0178): shared/cd_timer.hpp.
 // The talk-bubble timer (0x00AC0168; a system-clock timer), techno
 // (0x00AC01C4) and value (0x00AC01C8) that TechnoClass 0x006D8FD0 sets.

@@ -1173,7 +1173,7 @@ int __fastcall Set_Channel_Player_Options_0073d550(Wstring const &name,int count
         if(player->Get_Country()==-3) player->Team=-1;
     }
     if(unknown_player_slots_a3fa98[found]->unknown_66e2a0()!=color) player->unknown_66e300(color);
-    if(unknown_player_slots_a3fa98[found]==unknown_players_a3fa7c[0]) unknown_a3d3b4=color;
+    if(unknown_player_slots_a3fa98[found]==unknown_players_a3fa7c[0]) Game_PlayerColor=color;
     Unknown_0073FEE0(0,false);
     return changed;
 }
@@ -1477,7 +1477,7 @@ void __fastcall Reset_WOL_Globals_0073e8d0()
     unknown_b2ac40 = 0;
     unknown_b2ac6c = 0;
     unknown_b2ac70 = 0;
-    unknown_b2ac18 = Unknown_006525F0();
+    unknown_b2ac18 = RulesClass_Get_Rule_Unique_ID();
     Read_Art_INI();
     unknown_b2ac1c = unknown_art_ini_unique_id();
     unknown_b2ac20 = unknown_ini_8397a0_unique_id();
@@ -6520,7 +6520,7 @@ void __fastcall Start_Game_Now_0074f300()
         return;
     }
     for(int i=0;i<unknown_session_a3d298.Players.Count();++i) {
-        if(!unknown_session_a3d298.unknown_3022.unknown[i]) unknown_session_a3d298.unknown_3022.unknown[i]=(unsigned short)unknown_default_port_7f60d0;
+        if(!unknown_session_a3d298.unknown_3022.unknown[i]) unknown_session_a3d298.unknown_3022.unknown[i]=(unsigned short)UDPInterfaceClass_UDPListenPort;
     }
     WOL::User *owner=Unknown_0074DA60();
     if(owner) {
@@ -6580,7 +6580,7 @@ void __fastcall Start_Game_Now_0074f300()
     unknown_session_a3d298.unknown_2e0=unknown_session_a3d298.MaxAhead_2c8;
     memset(unknown_session_a3d298.unknown_2ec,0,sizeof(player_statistics_00a3d584));
     unknown_a40b18=unknown_session_a3d298.GameSpeed_30;
-    unknown_default_port_7f60d0=1234;
+    UDPInterfaceClass_UDPListenPort=1234;
     AlternateSendPort=1235;
     AlternateListenPort=1236;
     game_port_7f60dc=1237;
@@ -11352,7 +11352,7 @@ HRESULT __stdcall CChatEventSink::OnChannelCreate(HRESULT result, WOL::Channel *
             strcpy(unknown_player_b29cf0[0].name, name);
             unknown_player_b29cf0[0].unknown_18 = unknown_a3d3bc;
             unknown_player_b29cf0[0].unknown_1c = 0;
-            unknown_player_b29cf0[0].unknown_14 = unknown_a3d3b4;
+            unknown_player_b29cf0[0].unknown_14 = Game_PlayerColor;
             unknown_player_b29cf0[0].unknown_20 = 1;
         }
         unknown_channel_b299c0 = *channel;

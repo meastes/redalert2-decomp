@@ -156,7 +156,7 @@ VeinholeMonsterClass::VeinholeMonsterClass(::Cell const *cell) :
                 CellClass *spot = &Map[*cell + ::Cell(x, y)];
                 spot->unknown_11c = unknown_veinhole_tiles_7f9508[y + 1][x + 1];
                 if (spot->unknown_11c > 0) {
-                    spot->IsoTileIndex = spot->unknown_11c + unknown_tileset_a6e018 - 1;
+                    spot->IsoTileIndex = spot->unknown_11c + IsometricTileTypeClass_RampStart - 1;
                 } else {
                     spot->IsoTileIndex = 0;
                 }
@@ -219,7 +219,7 @@ VeinholeMonsterClass::~VeinholeMonsterClass()
     }
     unknown_76 = true;
     unknown_74 = false;
-    if (Strength > 0) Unknown_006ECB90(this, true);
+    if (Strength > 0) Detach_This_From_All(this, true);
     Clear_Growth();
     VeinholeMonsters.Delete(this);
     TargetTracker.Remove_Index(Fetch_ID());
@@ -413,7 +413,7 @@ void __fastcall VeinholeMonsterClass::Init(int theater)
 {
     char buffer[32];
     sprintf(buffer, "VEINHOLE.%s", Theaters[theater].Suffix);
-    unknown_veinhole_shape_ad079c = MixFileClass::Retrieve(buffer);
+    VeinholeMonsterClass_MonsterShape = MixFileClass::Retrieve(buffer);
 }
 
 
@@ -440,7 +440,7 @@ void __fastcall VeinholeMonsterClass::Init(int theater)
 void VeinholeMonsterClass::Draw_It()
 {
     if (!IsDead) {
-        void const *shape = unknown_veinhole_shape_ad079c;
+        void const *shape = VeinholeMonsterClass_MonsterShape;
         int frame = ShapeFrame;
         CoordStruct coord = Cell_Coord(CellID);
         if (Map[coord].unknown_140 & 0x400000) {
@@ -479,7 +479,7 @@ int VeinholeMonsterClass::Take_Damage(int *damage, int distance, WarheadTypeClas
         break;
     case 4:
         DesiredState = 3;
-        Unknown_006ECB90(this, false);
+        Detach_This_From_All(this, false);
         break;
     case 5:
         return 5;

@@ -47,12 +47,12 @@ struct UnknownStatic850818 {
 UnknownStatic850818 unknown_static_850818;     // 0x00850818
 
 
-// int __fastcall Unknown_0046E4C0(int timeout) (0x0046E4C0)
+// int __fastcall CD_Get_Current_Disk(int timeout) (0x0046E4C0)
 // The disk index (Get_CD_Index) of the current CD drive.
 // Assumes: name and the meaning of the second Get_CD_Index argument
 // (a timeout in the cdfile notes) are hypotheses.
 
-int __fastcall Unknown_0046E4C0(int timeout)
+int __fastcall CD_Get_Current_Disk(int timeout)
 {
     return Get_CD_Index(CDFileClass::CurrentCDDrive, timeout);
 }

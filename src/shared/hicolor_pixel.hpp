@@ -7,16 +7,16 @@
 
 inline RGBClass Pixel_To_RGB(unsigned short pixel)
 {
-    return RGBClass((pixel >> unknown_shift_852fb8) << unknown_shift_852fbc,
-                    (pixel >> unknown_shift_852fc8) << unknown_shift_852fcc,
-                    (pixel >> unknown_shift_852fc0) << unknown_shift_852fc4);
+    return RGBClass((pixel >> DSurface_RedRight) << DSurface_RedLeft,
+                    (pixel >> DSurface_GreenRight) << DSurface_GreenLeft,
+                    (pixel >> DSurface_BlueRight) << DSurface_BlueLeft);
 }
 
 inline int __fastcall RGB_To_Pixel(int red, int green, int blue)
 {
-    return ((red >> unknown_shift_852fbc) << unknown_shift_852fb8)
-         | ((green >> unknown_shift_852fcc) << unknown_shift_852fc8)
-         | ((blue >> unknown_shift_852fc4) << unknown_shift_852fc0);
+    return ((red >> DSurface_RedLeft) << DSurface_RedRight)
+         | ((green >> DSurface_GreenLeft) << DSurface_GreenRight)
+         | ((blue >> DSurface_BlueLeft) << DSurface_BlueRight);
 }
 
 #endif

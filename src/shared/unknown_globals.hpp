@@ -19,7 +19,7 @@ extern ConvertClass *TiberiumDrawer;  // 0x008323BC (TerrainClass slots 67/68 dr
 extern ConvertClass *SidebarDrawer;  // 0x008323CC
 extern bool DrawShapeShadows;  // 0x007D88D5 shadows are drawn (TerrainClass slots 67/68)
 extern bool unknown_flag_8373c1;  // 0x008373C1 the power bar is shown (Power AI/Draw_It, Radar 0x00630350)
-extern bool unknown_flag_8373c3;  // 0x008373C3
+extern bool SidebarClass_IsSidebarRedrawPending;  // 0x008373C3
 extern bool unknown_flag_83740c;
 extern int unknown_int_839630;
 extern int unknown_int_839634;
@@ -106,7 +106,7 @@ extern unsigned short unknown_map_name_a3d342[];
 // 0x005159B0 (the lobby dialog opener calls it with 0, true before creating its dialog; moved from
 // shared/ms_message_box.hpp).
 void __fastcall Darken_Surface(int unknown1, bool unknown2);
-extern int unknown_a3d3b4;            // 0x00A3D3B4 (session +0x11C)
+extern int Game_PlayerColor;            // 0x00A3D3B4 (session +0x11C)
 extern char unknown_name_a3d3a0[];    // 0x00A3D3A0 (the local nick name)
 extern int unknown_a3d3bc;            // 0x00A3D3BC (session +0x124; the modem guest's colour list choice)
 extern bool unknown_flag_a3d2b8;       // 0x00A3D2B8 (session +0x20: multiplayer bases)
@@ -149,7 +149,7 @@ struct UnknownGlobalPacket {
         } Reject;                       // command 8 (NET_REJECT_JOIN)
         struct {
             unsigned long ID;           // +0x2F the session's UniqueID
-            int Color;                  // +0x33 unknown_a3d3b4 (session +0x11C)
+            int Color;                  // +0x33 Game_PlayerColor (session +0x11C)
         } Chat;                         // command 4 (Red Alert's NET_CHAT_ANNOUNCE)
         struct {
             int Kickee;                 // +0x2F the id of the player proposed for a kick
@@ -427,7 +427,7 @@ void __fastcall Init_Theater_00519e70(int theater);         // 0x00519E70
 bool __fastcall Unknown_0051a330(int side);                 // 0x0051A330 (side 0 allied, 1 soviet; false fails the scenario)
 // TacticalClass: a height (leptons) as screen pixels (0x006A2970, __fastcall;
 // hypothesis, the inverse of 0x006A29B0; the locomotors' Shadow_Point).
-int __fastcall Unknown_006A2970(int height);
+int __fastcall Tactical_Z_Lepton_To_Pixel(int height);
 void __fastcall Unknown_006c0220();                         // 0x006C0220 (walks TeamTypes)
 void Unknown_006e9fe0();                                    // 0x006E9FE0 (walks the TiberiumClass list)
 void __fastcall Unknown_006e9520();                         // 0x006E9520 (walks the TiberiumClass list)
@@ -564,7 +564,7 @@ extern bool unknown_tooltips_enabled_a40b34;
 // Pauses or resumes the first queued radar movie (0x005A0A90; its slot 3).
 void __fastcall Pause_Radar_Movie_005a0a90(bool pause);
 extern long unknown_com_objects_a6eb14;  // 0x00A6EB14 (live COM object count; hypothesis)
-extern bool unknown_flag_abcd84;  // 0x00ABCD84
+extern bool SidebarClass_IsToBlitSidebar;  // 0x00ABCD84
 extern int unknown_b263d8;  // 0x00B263D8
 
 // Called with 0 by RadarClass 0x00633D30 when the radar movie's flag (+0x04)
@@ -594,7 +594,7 @@ bool __fastcall Set_Video_Mode_005434e0(int width, int height);
 // -100 and 0x007F8BD0 to -1, 0x0063C790 clears 0x00AB6788 (eight dwords) and
 // sets 0x00AB67C8/0x00AB6818 to -1.
 void Unknown_006EA9B0();
-void Unknown_00520770();
+void IonStormClass_Apply_Secondary_Effect();
 void Unknown_006F89E0();
 void __fastcall Unknown_0063C790();
 
@@ -619,7 +619,7 @@ extern ConvertClass *unknown_drawer_8323b4;
 extern ConvertClass *unknown_drawer_8323b0;
 extern ConvertClass *Unit_Draw_Convert_008323C0;
 struct ShapeFileStruct;
-extern ShapeFileStruct *unknown_building_depth_shape_85029c;   // 0x0085029C
+extern ShapeFileStruct *BuildingTypeClass_BuildingZShape;   // 0x0085029C
 extern Surface *unknown_surface_839968;                        // 0x00839968 (next to the screen surfaces)
 // Blocks Prog_End frees (0x00A6E38C, 0x00A52EB0-0x00A52EBC; owners not recovered).
 extern void *unknown_block_a6e38c;

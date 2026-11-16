@@ -357,7 +357,7 @@ unsigned int CellClass::Preview_Cell_Color(unsigned char &unknown, bool flag)
     if (IsoTileIndex != 0xFFFF) {
         ittype = IsoTileTypes[IsoTileIndex];
     } else {
-        ittype = IsoTileTypes[unknown_tileset_a52f00];
+        ittype = IsoTileTypes[IsometricTileTypeClass_ClearTile];
     }
 
     icon = 0;
@@ -371,7 +371,7 @@ unsigned int CellClass::Preview_Cell_Color(unsigned char &unknown, bool flag)
             }
         }
     } else {
-        icon = Clear_Icon(unknown_tileset_a52f00, ittype->NumTileTypesInSet);
+        icon = Clear_Icon(IsometricTileTypeClass_ClearTile, ittype->NumTileTypesInSet);
     }
 
     IsometricTileTypeClass *next = ittype->Next_Tile_From_Set(icon);
@@ -396,7 +396,7 @@ void CellClass::Cell_Color(RGBClass &lowcolor, RGBClass &highcolor) const
         return;
     }
 
-    IsometricTileTypeClass *itype = (IsoTileIndex != 0xFFFF) ? IsoTileTypes[IsoTileIndex] : IsoTileTypes[unknown_tileset_a52f00];
+    IsometricTileTypeClass *itype = (IsoTileIndex != 0xFFFF) ? IsoTileTypes[IsoTileIndex] : IsoTileTypes[IsometricTileTypeClass_ClearTile];
 
     int overlay = OverlayIndex;
     if ((OverlayIndex != -1 && OverlayIndex != 100 && OverlayIndex != 101) || (OverlayIndex != -1 && OverlayIndex != 231 && OverlayIndex != 232)) {
@@ -437,7 +437,7 @@ void CellClass::Cell_Color(RGBClass &lowcolor, RGBClass &highcolor) const
         }
     } else {
         int numtiles = itype->NumTileTypesInSet;
-        tile = Clear_Icon(unknown_tileset_a52f00, numtiles);
+        tile = Clear_Icon(IsometricTileTypeClass_ClearTile, numtiles);
     }
 
     IsometricTileTypeClass *next = itype->Next_Tile_From_Set(tile);
@@ -682,16 +682,16 @@ extern int unknown_tileset_a52c70;
 extern int unknown_tileset_a52590;
 extern int unknown_tileset_a52ef8;
 extern int unknown_tileset_a52ee0;
-extern int unknown_tileset_a6cb74;
-extern int unknown_tileset_a52ef4;
-extern int unknown_tileset_a6dd0c;
-extern int unknown_tileset_a52c68;
+extern int IsometricTileTypeClass_ShorePieces;
+extern int IsometricTileTypeClass_MiscPaveTile;
+extern int IsometricTileTypeClass_PavedRoads;
+extern int IsometricTileTypeClass_Medians;
 extern int unknown_tileset_a52ea8;
-extern int unknown_tileset_a6e018;
-extern int unknown_tileset_a6e0e8;
-extern int unknown_tileset_a6cf4c;
-extern int unknown_tileset_a52c60;
-extern int unknown_tileset_a6e0e0;
+extern int IsometricTileTypeClass_RampStart;
+extern int IsometricTileTypeClass_RoughTile;
+extern int IsometricTileTypeClass_SandTile;
+extern int IsometricTileTypeClass_GreenTile;
+extern int IsometricTileTypeClass_PaveTile;
 
 static Cell Translate_Cell_00471d10(Cell const &origin, Cell delta)
 {
@@ -711,7 +711,7 @@ bool CellClass::Fixup_LAT()
     int road_first = unknown_tileset_a52ee0;
     int road_last = road_first + 1;
     if (road_first == -1) road_last = -1;
-    int misc_first = unknown_tileset_a6cb74;
+    int misc_first = IsometricTileTypeClass_ShorePieces;
     int misc_last = misc_first + 41;
     if (misc_first == -1) misc_last = -1;
     int rough_first = unknown_tileset_a52f84;
@@ -726,80 +726,80 @@ bool CellClass::Fixup_LAT()
     int pave_first = unknown_tileset_a52ef8;
     int pave_last = pave_first + 15;
     if (pave_first == -1) pave_last = -1;
-    int median_last = unknown_tileset_a52ef4;
+    int median_last = IsometricTileTypeClass_MiscPaveTile;
     int median_first = median_last;
     median_last += 13;
     if (median_first == -1) median_last = -1;
-    int pave_extra_last = unknown_tileset_a6dd0c;
+    int pave_extra_last = IsometricTileTypeClass_PavedRoads;
     int pave_extra_first = pave_extra_last;
     pave_extra_last += 20;
     if (pave_extra_first == -1) pave_extra_last = -1;
-    int pave_alt_last = unknown_tileset_a52c68;
+    int pave_alt_last = IsometricTileTypeClass_Medians;
     int pave_alt_first = pave_alt_last;
     pave_alt_last += 13;
     if (pave_alt_first == -1) pave_alt_last = -1;
     int smooth_first = unknown_tileset_a52ea8;
     int smooth_last = smooth_first + 11;
     if (smooth_first == -1) smooth_last = -1;
-    int ramp_first = unknown_tileset_a6e018;
+    int ramp_first = IsometricTileTypeClass_RampStart;
     int ramp_last = ramp_first + 19;
     if (ramp_first == -1) ramp_last = -1;
     int offset;
     unsigned facing;
     int index;
     int old_tile = IsoTileIndex;
-    if (Is_LAT_Family_Tile_00471d10(IsoTileIndex, unknown_tileset_a6e0e8, rough_first, rough_last)) {
+    if (Is_LAT_Family_Tile_00471d10(IsoTileIndex, IsometricTileTypeClass_RoughTile, rough_first, rough_last)) {
         offset = 0;
         facing = 0;
         for (index = 0; index < 4; index++) {
             CellClass const &neighbor = Adjacent_Cell(facing);
             int tile = neighbor.IsoTileIndex;
-            if (!Is_LAT_Family_Tile_00471d10(tile, unknown_tileset_a6e0e8, rough_first, rough_last)) offset |= 1 << index;
+            if (!Is_LAT_Family_Tile_00471d10(tile, IsometricTileTypeClass_RoughTile, rough_first, rough_last)) offset |= 1 << index;
             facing = (facing + 2) & 7;
         }
         if (offset != 0) IsoTileIndex = rough_first + offset;
-        else IsoTileIndex = unknown_tileset_a6e0e8;
+        else IsoTileIndex = IsometricTileTypeClass_RoughTile;
     }
-    if (sand_first != -1 && (Is_LAT_Family_Tile_00471d10(IsoTileIndex, unknown_tileset_a6cf4c, sand_first, sand_last))) {
+    if (sand_first != -1 && (Is_LAT_Family_Tile_00471d10(IsoTileIndex, IsometricTileTypeClass_SandTile, sand_first, sand_last))) {
         offset = 0;
         facing = 0;
         for (index = 0; index < 4; index++) {
             CellClass const &neighbor = Adjacent_Cell(facing);
             int tile = neighbor.IsoTileIndex;
-            if (!Is_LAT_Family_Tile_00471d10(tile, unknown_tileset_a6cf4c, sand_first, sand_last)) offset |= 1 << index;
+            if (!Is_LAT_Family_Tile_00471d10(tile, IsometricTileTypeClass_SandTile, sand_first, sand_last)) offset |= 1 << index;
             facing = (facing + 2) & 7;
         }
         if (offset != 0) IsoTileIndex = sand_first + offset;
-        else IsoTileIndex = unknown_tileset_a6cf4c;
+        else IsoTileIndex = IsometricTileTypeClass_SandTile;
     }
-    if (green_first != -1 && (Is_LAT_Family_Tile_00471d10(IsoTileIndex, unknown_tileset_a52c60, green_first, green_last))) {
+    if (green_first != -1 && (Is_LAT_Family_Tile_00471d10(IsoTileIndex, IsometricTileTypeClass_GreenTile, green_first, green_last))) {
         offset = 0;
         facing = 0;
         for (index = 0; index < 4; index++) {
             CellClass const &neighbor = Adjacent_Cell(facing);
             int tile = neighbor.IsoTileIndex;
-            if (!Is_LAT_Family_Tile_00471d10(tile, unknown_tileset_a52c60, green_first, green_last) &&
+            if (!Is_LAT_Family_Tile_00471d10(tile, IsometricTileTypeClass_GreenTile, green_first, green_last) &&
                 (tile < misc_first || tile > misc_last) &&
                 (tile < road_first || tile > road_last)) offset |= 1 << index;
             facing = (facing + 2) & 7;
         }
         if (offset != 0) IsoTileIndex = green_first + offset;
-        else IsoTileIndex = unknown_tileset_a52c60;
+        else IsoTileIndex = IsometricTileTypeClass_GreenTile;
     }
-    if (pave_first != -1 && (Is_LAT_Family_Tile_00471d10(IsoTileIndex, unknown_tileset_a6e0e0, pave_first, pave_last))) {
+    if (pave_first != -1 && (Is_LAT_Family_Tile_00471d10(IsoTileIndex, IsometricTileTypeClass_PaveTile, pave_first, pave_last))) {
         offset = 0;
         facing = 0;
         for (index = 0; index < 4; index++) {
             CellClass const &neighbor = Adjacent_Cell(facing);
             int tile = neighbor.IsoTileIndex;
-            if (!Is_LAT_Family_Tile_00471d10(tile, unknown_tileset_a6e0e0, pave_first, pave_last) &&
+            if (!Is_LAT_Family_Tile_00471d10(tile, IsometricTileTypeClass_PaveTile, pave_first, pave_last) &&
                 (tile < median_first || tile > median_last) &&
                 (tile < pave_alt_first || tile > pave_alt_last) &&
                 (tile < pave_extra_first || tile > pave_extra_last)) offset |= 1 << index;
             facing = (facing + 2) & 7;
         }
         if (offset != 0) IsoTileIndex = pave_first + offset;
-        else IsoTileIndex = unknown_tileset_a6e0e0;
+        else IsoTileIndex = IsometricTileTypeClass_PaveTile;
     }
     int tile = IsoTileIndex;
     if ((tile >= ramp_first && tile <= ramp_last) ||
@@ -1843,11 +1843,11 @@ inline void CellClass::Fetch_Icon(IsometricTileTypeClass *&ittype, int &subtile,
             }
         }
     } else {
-        ittype = IsoTileTypes[unknown_tileset_a52f00];
+        ittype = IsoTileTypes[IsometricTileTypeClass_ClearTile];
         subtile = 0;
         if (doicon) {
             int count = ittype->NumTileTypesInSet;
-            *icon = Clear_Icon(unknown_tileset_a52f00, count);
+            *icon = Clear_Icon(IsometricTileTypeClass_ClearTile, count);
         }
     }
 }
@@ -1988,35 +1988,35 @@ void CellClass::Wall_Update(bool flag)
             if ((newcell.OverlayIndex == 2 || newcell.OverlayIndex == 0x1A) && (newcell.OverlayData == 0x30 || newcell.OverlayData == 0x20)) {
                 newcell.OverlayIndex = -1;
                 newcell.OverlayData = 0;
-                Unknown_006ECB90(&newcell, true);
+                Detach_This_From_All(&newcell, true);
                 recalc_around = true;
             }
             if (newcell.OverlayIndex == 0 && (newcell.OverlayData == 0x10 || newcell.OverlayData == 0x20)) {
                 newcell.OverlayIndex = -1;
                 newcell.OverlayData = 0;
                 newcell.unknown_50 = -1;
-                Unknown_006ECB90(&newcell, true);
+                Detach_This_From_All(&newcell, true);
                 recalc_around = true;
             }
             if (newcell.OverlayIndex == 1 && newcell.OverlayData == 0x20) {
                 newcell.OverlayIndex = -1;
                 newcell.OverlayData = 0;
                 newcell.unknown_50 = -1;
-                Unknown_006ECB90(&newcell, true);
+                Detach_This_From_All(&newcell, true);
                 recalc_around = true;
             }
             if (newcell.OverlayIndex == 0x16 && (newcell.OverlayData == 0x10 || newcell.OverlayData == 0x20)) {
                 newcell.OverlayIndex = -1;
                 newcell.OverlayData = 0;
                 newcell.unknown_50 = -1;
-                Unknown_006ECB90(&newcell, true);
+                Detach_This_From_All(&newcell, true);
                 recalc_around = true;
             }
             if (newcell.OverlayIndex == 3 && newcell.OverlayData == 0x10) {
                 newcell.OverlayIndex = -1;
                 newcell.OverlayData = 0;
                 newcell.unknown_50 = -1;
-                Unknown_006ECB90(&newcell, true);
+                Detach_This_From_All(&newcell, true);
                 recalc_around = true;
             }
 
@@ -2096,7 +2096,7 @@ int CellClass::Reduce_Wall(int damage)
                     ((CellClass &)((CellClass const *)this)->Adjacent_Cell(6)).Wall_Update(false);
                     ((CellClass &)((CellClass const *)this)->Adjacent_Cell(4)).Wall_Update(false);
                     Adjacent_Cell(2).Wall_Update(false);
-                    Unknown_006ECB90(this, true);
+                    Detach_This_From_All(this, true);
                     for (int facing = 0; facing < 8; facing++) {
                         Adjacent_Cell(facing).unknown_122--;
                     }
@@ -3464,10 +3464,10 @@ void CellClass::Init_Light(int &intensity, int &ambient, int &brightness, int &t
         brightness += ambient;
         alt_brightness = brightness;
 
-        if (Unknown_0051FC50()) {
+        if (IonStormClass_Is_Ion_Storm_Active()) {
             brightness += unknown_11b * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
             alt_brightness += (unknown_11b + 4) * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
-        } else if (Unknown_0051FC60()) {
+        } else if (NukeFlash_IsFadingIn()) {
             brightness += unknown_11b * unknown_id_source_a3d290->unknown_22f4 - unknown_id_source_a3d290->unknown_22f0;
             alt_brightness += (unknown_11b + 4) * unknown_id_source_a3d290->unknown_22f4 - unknown_id_source_a3d290->unknown_22f0;
         } else {
@@ -3508,10 +3508,10 @@ void CellClass::Recalc_Light()
     unknown_10a = unknown_108 + 1000 * unknown_id_source_a3d290->unknown_22ac / 100;
     unknown_10e = unknown_10a;
 
-    if (Unknown_0051FC50()) {
+    if (IonStormClass_Is_Ion_Storm_Active()) {
         unknown_10a += unknown_11b * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
         unknown_10e += (unknown_11b + 4) * unknown_id_source_a3d290->IonLevel - unknown_id_source_a3d290->IonGround;
-    } else if (Unknown_0051FC60()) {
+    } else if (NukeFlash_IsFadingIn()) {
         unknown_10a += unknown_11b * unknown_id_source_a3d290->unknown_22f4 - unknown_id_source_a3d290->unknown_22f0;
         unknown_10e += (unknown_11b + 4) * unknown_id_source_a3d290->unknown_22f4 - unknown_id_source_a3d290->unknown_22f0;
     } else {
@@ -3750,7 +3750,7 @@ int CellClass::Get_Tiberium_Value() const
 
 bool CellClass::Is_Tile_Water() const
 {
-    return IsoTileIndex >= unknown_tileset_a52580 && IsoTileIndex < unknown_tileset_a52580 + 14;
+    return IsoTileIndex >= IsometricTileTypeClass_WaterSet && IsoTileIndex < IsometricTileTypeClass_WaterSet + 14;
 }
 
 
@@ -3939,7 +3939,7 @@ bool CellClass::Is_Tile_Clear() const
 
 bool CellClass::Is_Tile_Ramp() const
 {
-    if ((IsoTileIndex < unknown_tileset_a6e018 || IsoTileIndex >= unknown_tileset_a6e018 + 20) && (IsoTileIndex < unknown_tileset_a52ea8 || IsoTileIndex >= unknown_tileset_a52ea8 + 12)) {
+    if ((IsoTileIndex < IsometricTileTypeClass_RampStart || IsoTileIndex >= IsometricTileTypeClass_RampStart + 20) && (IsoTileIndex < unknown_tileset_a52ea8 || IsoTileIndex >= unknown_tileset_a52ea8 + 12)) {
         return false;
     }
     return true;
@@ -3952,54 +3952,54 @@ bool CellClass::Is_Tile_Ramp() const
 
 bool CellClass::unknown_47b5e0() const
 {
-    if (unknown_tileset_a52e68 != -1 && IsoTileIndex >= unknown_tileset_a52e68 && IsoTileIndex < unknown_tileset_a52e68 + 40) {
+    if (IsometricTileTypeClass_CliffSet != -1 && IsoTileIndex >= IsometricTileTypeClass_CliffSet && IsoTileIndex < IsometricTileTypeClass_CliffSet + 40) {
         return true;
     }
-    if (unknown_tileset_a52584 != -1 && IsoTileIndex >= unknown_tileset_a52584 && IsoTileIndex < unknown_tileset_a52584 + 4) {
-        if (IsoTileIndex == unknown_tileset_a52584 || IsoTileIndex == unknown_tileset_a52584 + 3) {
+    if (IsometricTileTypeClass_WaterfallEast != -1 && IsoTileIndex >= IsometricTileTypeClass_WaterfallEast && IsoTileIndex < IsometricTileTypeClass_WaterfallEast + 4) {
+        if (IsoTileIndex == IsometricTileTypeClass_WaterfallEast || IsoTileIndex == IsometricTileTypeClass_WaterfallEast + 3) {
             if (unknown_11a == 0 || unknown_11a == 4) {
                 return false;
             }
         }
         return true;
     }
-    if (unknown_tileset_a6cf58 != -1 && IsoTileIndex >= unknown_tileset_a6cf58 && IsoTileIndex < unknown_tileset_a6cf58 + 4) {
-        if (IsoTileIndex == unknown_tileset_a6cf58 || IsoTileIndex == unknown_tileset_a6cf58 + 3) {
+    if (IsometricTileTypeClass_WaterfallWest != -1 && IsoTileIndex >= IsometricTileTypeClass_WaterfallWest && IsoTileIndex < IsometricTileTypeClass_WaterfallWest + 4) {
+        if (IsoTileIndex == IsometricTileTypeClass_WaterfallWest || IsoTileIndex == IsometricTileTypeClass_WaterfallWest + 3) {
             if (unknown_11a == 1 || unknown_11a == 3) {
                 return false;
             }
         }
         return true;
     }
-    if (unknown_tileset_a52ea0 != -1 && IsoTileIndex >= unknown_tileset_a52ea0 && IsoTileIndex < unknown_tileset_a52ea0 + 4) {
-        if (IsoTileIndex == unknown_tileset_a52ea0 || IsoTileIndex == unknown_tileset_a52ea0 + 3) {
+    if (IsometricTileTypeClass_WaterfallSouth != -1 && IsoTileIndex >= IsometricTileTypeClass_WaterfallSouth && IsoTileIndex < IsometricTileTypeClass_WaterfallSouth + 4) {
+        if (IsoTileIndex == IsometricTileTypeClass_WaterfallSouth || IsoTileIndex == IsometricTileTypeClass_WaterfallSouth + 3) {
             if (unknown_11a == 0 || unknown_11a == 1) {
                 return false;
             }
         }
         return true;
     }
-    if (unknown_tileset_a52ef0 != -1 && IsoTileIndex >= unknown_tileset_a52ef0 && IsoTileIndex < unknown_tileset_a52ef0 + 4) {
-        if (IsoTileIndex == unknown_tileset_a52ef0 || IsoTileIndex == unknown_tileset_a52ef0 + 3) {
+    if (IsometricTileTypeClass_WaterfallNorth != -1 && IsoTileIndex >= IsometricTileTypeClass_WaterfallNorth && IsoTileIndex < IsometricTileTypeClass_WaterfallNorth + 4) {
+        if (IsoTileIndex == IsometricTileTypeClass_WaterfallNorth || IsoTileIndex == IsometricTileTypeClass_WaterfallNorth + 3) {
             if (unknown_11a == 2 || unknown_11a == 3) {
                 return false;
             }
         }
         return true;
     }
-    if (unknown_tileset_a6dd00 != -1 && IsoTileIndex >= unknown_tileset_a6dd00 && IsoTileIndex < unknown_tileset_a6dd00 + 20) {
+    if (IsometricTileTypeClass_CliffRamps != -1 && IsoTileIndex >= IsometricTileTypeClass_CliffRamps && IsoTileIndex < IsometricTileTypeClass_CliffRamps + 20) {
         return true;
     }
     if (unknown_tileset_a6cb70 != -1 && IsoTileIndex >= unknown_tileset_a6cb70 && IsoTileIndex < unknown_tileset_a6cb70 + 4) {
         return true;
     }
-    if (unknown_tileset_a52c74 != -1 && IsoTileIndex >= unknown_tileset_a52c74 && IsoTileIndex < unknown_tileset_a52c74 + 16) {
+    if (IsometricTileTypeClass_BridgeSet != -1 && IsoTileIndex >= IsometricTileTypeClass_BridgeSet && IsoTileIndex < IsometricTileTypeClass_BridgeSet + 16) {
         return true;
     }
-    if (unknown_tileset_a6cb68 != -1 && IsoTileIndex >= unknown_tileset_a6cb68 && IsoTileIndex < unknown_tileset_a6cb68 + 16) {
+    if (IsometricTileTypeClass_TrainBridgeSet != -1 && IsoTileIndex >= IsometricTileTypeClass_TrainBridgeSet && IsoTileIndex < IsometricTileTypeClass_TrainBridgeSet + 16) {
         return true;
     }
-    if (unknown_tileset_a6e0f8 != -1 && IsoTileIndex >= unknown_tileset_a6e0f8 && IsoTileIndex < unknown_tileset_a6e0f8 + 2) {
+    if (IsometricTileTypeClass_DestroyableCliffs != -1 && IsoTileIndex >= IsometricTileTypeClass_DestroyableCliffs && IsoTileIndex < IsometricTileTypeClass_DestroyableCliffs + 2) {
         return true;
     }
     if (unknown_tileset_a52e64 != -1 && IsoTileIndex >= unknown_tileset_a52e64 && IsoTileIndex < unknown_tileset_a52e64 + 28) {
@@ -4014,7 +4014,7 @@ bool CellClass::unknown_47b5e0() const
 
 bool CellClass::Is_Tile_Shore() const
 {
-    if (IsoTileIndex >= unknown_tileset_a6cb74 && IsoTileIndex < unknown_tileset_a6cb74 + 42) {
+    if (IsoTileIndex >= IsometricTileTypeClass_ShorePieces && IsoTileIndex < IsometricTileTypeClass_ShorePieces + 42) {
         return true;
     }
     return false;
@@ -4027,14 +4027,14 @@ bool CellClass::Is_Tile_Shore() const
 
 bool CellClass::Is_Tile_With_Water() const
 {
-    if (IsoTileIndex >= unknown_tileset_a6cb74 && IsoTileIndex < unknown_tileset_a6cb74 + 42) {
+    if (IsoTileIndex >= IsometricTileTypeClass_ShorePieces && IsoTileIndex < IsometricTileTypeClass_ShorePieces + 42) {
         return true;
     }
-    if ((IsoTileIndex < unknown_tileset_a52580 || IsoTileIndex >= unknown_tileset_a52580 + 14)
-        && (IsoTileIndex < unknown_tileset_a52584 || IsoTileIndex >= unknown_tileset_a52584 + 4)
-        && (IsoTileIndex < unknown_tileset_a6cf58 || IsoTileIndex >= unknown_tileset_a6cf58 + 4)
-        && (IsoTileIndex < unknown_tileset_a52ea0 || IsoTileIndex >= unknown_tileset_a52ea0 + 4)
-        && (IsoTileIndex < unknown_tileset_a52ef0 || IsoTileIndex >= unknown_tileset_a52ef0 + 4)) {
+    if ((IsoTileIndex < IsometricTileTypeClass_WaterSet || IsoTileIndex >= IsometricTileTypeClass_WaterSet + 14)
+        && (IsoTileIndex < IsometricTileTypeClass_WaterfallEast || IsoTileIndex >= IsometricTileTypeClass_WaterfallEast + 4)
+        && (IsoTileIndex < IsometricTileTypeClass_WaterfallWest || IsoTileIndex >= IsometricTileTypeClass_WaterfallWest + 4)
+        && (IsoTileIndex < IsometricTileTypeClass_WaterfallSouth || IsoTileIndex >= IsometricTileTypeClass_WaterfallSouth + 4)
+        && (IsoTileIndex < IsometricTileTypeClass_WaterfallNorth || IsoTileIndex >= IsometricTileTypeClass_WaterfallNorth + 4)) {
         return false;
     }
     return true;
@@ -4046,7 +4046,7 @@ bool CellClass::Is_Tile_With_Water() const
 
 bool CellClass::Is_Tile_Misc_Pavement() const
 {
-    if (IsoTileIndex >= unknown_tileset_a52ef4 && IsoTileIndex < unknown_tileset_a52ef4 + 14) {
+    if (IsoTileIndex >= IsometricTileTypeClass_MiscPaveTile && IsoTileIndex < IsometricTileTypeClass_MiscPaveTile + 14) {
         return true;
     }
     return false;
@@ -4058,7 +4058,7 @@ bool CellClass::Is_Tile_Misc_Pavement() const
 
 bool CellClass::Is_Tile_Pavement() const
 {
-    if (IsoTileIndex >= unknown_tileset_a6e0e0 && IsoTileIndex < unknown_tileset_a6e0e0 + 16) {
+    if (IsoTileIndex >= IsometricTileTypeClass_PaveTile && IsoTileIndex < IsometricTileTypeClass_PaveTile + 16) {
         return true;
     }
     return false;
@@ -4070,8 +4070,8 @@ bool CellClass::Is_Tile_Pavement() const
 
 bool CellClass::Is_Tile_Dirt_Road() const
 {
-    if ((IsoTileIndex < unknown_tileset_a6cb6c || IsoTileIndex >= unknown_tileset_a6cb6c + 11)
-        && (IsoTileIndex < unknown_tileset_a6e014 || IsoTileIndex >= unknown_tileset_a6e014 + 24)
+    if ((IsoTileIndex < IsometricTileTypeClass_DirtRoadJunction || IsoTileIndex >= IsometricTileTypeClass_DirtRoadJunction + 11)
+        && (IsoTileIndex < IsometricTileTypeClass_DirtRoadCurve || IsoTileIndex >= IsometricTileTypeClass_DirtRoadCurve + 24)
         && (IsoTileIndex < unknown_tileset_a52efc || IsoTileIndex >= unknown_tileset_a52efc + 66)) {
         return false;
     }
@@ -4084,7 +4084,7 @@ bool CellClass::Is_Tile_Dirt_Road() const
 
 bool CellClass::Is_Tile_Paved_Road() const
 {
-    if (IsoTileIndex >= unknown_tileset_a6dd0c && IsoTileIndex < unknown_tileset_a6dd0c + 15) {
+    if (IsoTileIndex >= IsometricTileTypeClass_PavedRoads && IsoTileIndex < IsometricTileTypeClass_PavedRoads + 15) {
         return true;
     }
     return false;
@@ -4096,7 +4096,7 @@ bool CellClass::Is_Tile_Paved_Road() const
 
 bool CellClass::Is_Tile_Paved_Road_End() const
 {
-    if (IsoTileIndex >= unknown_tileset_a6dd08 && IsoTileIndex < unknown_tileset_a6dd08 + 4) {
+    if (IsoTileIndex >= IsometricTileTypeClass_PavedRoadEnds && IsoTileIndex < IsometricTileTypeClass_PavedRoadEnds + 4) {
         return true;
     }
     return false;
@@ -4120,7 +4120,7 @@ bool CellClass::Is_Tile_Paved_Road_Slope() const
 
 bool CellClass::Is_Tile_Road_Median() const
 {
-    if (IsoTileIndex >= unknown_tileset_a52c68 && IsoTileIndex < unknown_tileset_a52c68 + 14) {
+    if (IsoTileIndex >= IsometricTileTypeClass_Medians && IsoTileIndex < IsometricTileTypeClass_Medians + 14) {
         return true;
     }
     return false;
@@ -4132,7 +4132,7 @@ bool CellClass::Is_Tile_Road_Median() const
 
 bool CellClass::Is_Tile_Bridge() const
 {
-    if (IsoTileIndex >= unknown_tileset_a52c74 && IsoTileIndex < unknown_tileset_a52c74 + 16) {
+    if (IsoTileIndex >= IsometricTileTypeClass_BridgeSet && IsoTileIndex < IsometricTileTypeClass_BridgeSet + 16) {
         return true;
     }
     return false;
@@ -4144,7 +4144,7 @@ bool CellClass::Is_Tile_Bridge() const
 
 bool CellClass::Is_Tile_Train_Bridge() const
 {
-    if (IsoTileIndex >= unknown_tileset_a6cb68 && IsoTileIndex < unknown_tileset_a6cb68 + 16) {
+    if (IsoTileIndex >= IsometricTileTypeClass_TrainBridgeSet && IsoTileIndex < IsometricTileTypeClass_TrainBridgeSet + 16) {
         return true;
     }
     return false;
@@ -4168,7 +4168,7 @@ bool CellClass::Is_Tile_Clear_To_Sand_LAT() const
 
 bool CellClass::Is_Tile_Clear_To_Green_LAT() const
 {
-    if (IsoTileIndex != unknown_tileset_a52c60 && (IsoTileIndex < unknown_tileset_a52590 || IsoTileIndex >= unknown_tileset_a52590 + 16)) {
+    if (IsoTileIndex != IsometricTileTypeClass_GreenTile && (IsoTileIndex < unknown_tileset_a52590 || IsoTileIndex >= unknown_tileset_a52590 + 16)) {
         return false;
     }
     return true;
@@ -4250,7 +4250,7 @@ void CellClass::Place_Veins()
 
 bool CellClass::On_Ground() const
 {
-    if (IsoTileIndex >= unknown_tileset_a52580 && IsoTileIndex < unknown_tileset_a52580 + 14) {
+    if (IsoTileIndex >= IsometricTileTypeClass_WaterSet && IsoTileIndex < IsometricTileTypeClass_WaterSet + 14) {
         return false;
     }
     return true;
@@ -4304,10 +4304,10 @@ CoordStruct CellClass::unknown_slot22() const
 
 bool CellClass::Is_Tile_Destroyable_Cliff() const
 {
-    if (IsoTileIndex == unknown_tileset_a6e0f8) {
+    if (IsoTileIndex == IsometricTileTypeClass_DestroyableCliffs) {
         return true;
     }
-    return IsoTileIndex == unknown_tileset_a6e0f8 + 1 ? true : false;
+    return IsoTileIndex == IsometricTileTypeClass_DestroyableCliffs + 1 ? true : false;
 }
 
 

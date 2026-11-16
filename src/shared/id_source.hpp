@@ -168,7 +168,7 @@ public:
     TypeList<int> AllowableUnitCounts;          // +0x228C the number taken of each type (DropshipLoadoutClass; name hypothesis)
     int unknown_22a8;                           // +0x22A8 [Lighting] Ambient, hundredths (set from a trigger action's data, 0x006B2260)
     int unknown_22ac;                           // +0x22AC (receives the [Lighting] Ambient level too)
-    int unknown_22b0;                           // +0x22B0 (receives +0x22A8 unless Unknown_0051FC50 holds)
+    int unknown_22b0;                           // +0x22B0 (receives +0x22A8 unless IonStormClass_Is_Ion_Storm_Active holds)
     int AmbientRed;                             // +0x22B4 [Lighting] Red, hundredths
     int AmbientGreen;                           // +0x22B8 [Lighting] Green
     int AmbientBlue;                            // +0x22BC [Lighting] Blue

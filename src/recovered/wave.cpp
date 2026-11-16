@@ -151,7 +151,7 @@ WaveClass::WaveClass() : Target(0), IsWaveActive(true), unknown_119(false), Wave
 
 WaveClass::~WaveClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Waves.Delete(this);
     Cells.Clear();
 }
@@ -511,7 +511,7 @@ extern Rect TacticalRect;
 
 void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
 {
-    int zpix = Unknown_006A2970(StartCoord.Z);
+    int zpix = Tactical_Z_Lepton_To_Pixel(StartCoord.Z);
 
     unsigned short *surfptr = (unsigned short *)LogicalSurface->Lock();
     if (surfptr != 0) {
@@ -683,7 +683,7 @@ void WaveClass::Draw_Laser_00722cb0(Point2D const &point, Rect const &cliprect)
 {
 
     if (unknown_a40b2c == 2) {
-        int zpix = Unknown_006A2970(StartCoord.Z);
+        int zpix = Tactical_Z_Lepton_To_Pixel(StartCoord.Z);
 
         unsigned short *buffer = (unsigned short *)LogicalSurface->Lock();
         if (buffer != 0) {

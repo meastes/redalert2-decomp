@@ -3112,9 +3112,9 @@ extern "C" __declspec(dllimport) unsigned long __stdcall timeGetTime();
 // free three-channel overload. It performs the real channel conversion.
 inline int Build_Hicolor_Pixel(RGBClass const &rgb)
 {
-    return ((rgb.Get_Red() >> unknown_shift_852fbc) << unknown_shift_852fb8)
-         | ((rgb.Get_Green() >> unknown_shift_852fcc) << unknown_shift_852fc8)
-         | ((rgb.Get_Blue() >> unknown_shift_852fc4) << unknown_shift_852fc0);
+    return ((rgb.Get_Red() >> DSurface_RedLeft) << DSurface_RedRight)
+         | ((rgb.Get_Green() >> DSurface_GreenLeft) << DSurface_GreenRight)
+         | ((rgb.Get_Blue() >> DSurface_BlueLeft) << DSurface_BlueRight);
 }
 
 // By-value area explains the native rectangle copies around the intersection.
@@ -4113,7 +4113,7 @@ bool FootClass::unknown_slot224(int source)
             tilt *= 1.0 / 2147483646.0;
             unknown_28c = (float)(tilt * 0.1);
         }
-        Unknown_006ECB90(this, false);
+        Detach_This_From_All(this, false);
         return true;
     }
     return false;

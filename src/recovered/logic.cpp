@@ -115,13 +115,13 @@ void Unknown_00521A70();                                // 0x00521A70
 unsigned int GetMinFrameRate()
 {
     if (unknown_detail_reduced_a6eb28) {
-        if (unknown_a6eb1c >= unknown_detail_frame_rate_7dfb34 + unknown_detail_buffer_zone_7dfb38) {
+        if (FPSCounter_CurrentFrameRate >= unknown_detail_frame_rate_7dfb34 + unknown_detail_buffer_zone_7dfb38) {
             unknown_detail_reduced_a6eb28 = false;
             return unknown_detail_frame_rate_7dfb34;
         }
         return unknown_detail_frame_rate_7dfb34 + unknown_detail_buffer_zone_7dfb38;
     }
-    if (unknown_a6eb1c < unknown_detail_frame_rate_7dfb34) {
+    if (FPSCounter_CurrentFrameRate < unknown_detail_frame_rate_7dfb34) {
         unknown_detail_reduced_a6eb28 = true;
         return unknown_detail_frame_rate_7dfb34 + unknown_detail_buffer_zone_7dfb38;
     }
@@ -181,7 +181,7 @@ void LogicClass::AI()
     }
 
     if (unknown_id_source_a3d290->unknown_22b0 != unknown_id_source_a3d290->unknown_22ac && Rules->AmbientChangeRate != 0 && unknown_id_source_a3d290->unknown_828 == 0) {
-        if (Unknown_0051FC60() || Unknown_0051FC70()) {
+        if (NukeFlash_IsFadingIn() || Unknown_0051FC70()) {
             unknown_id_source_a3d290->unknown_828 = unknown_id_source_a3d290->NukeAmbientChangeRate;
         } else {
             unknown_id_source_a3d290->unknown_828 = 900 * Rules->AmbientChangeRate;

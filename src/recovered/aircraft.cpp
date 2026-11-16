@@ -185,7 +185,7 @@ AircraftClass::~AircraftClass()
         FootClass::Limbo();
         Type = 0;
     }
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Aircraft.Delete(this);
     TargetTracker.Remove_Index(Fetch_ID());
     IsActive = false;
@@ -296,7 +296,7 @@ void AircraftClass::Draw_It(Point2D const &point, Rect const &window)
                 (((cell->Flags & 0x800) && (cell->Unknown_00476AC0(0)->Flags & 0x100)) ||
                  (!(cell->Flags & 0x800) && (cell->Unknown_00476AC0(6)->Flags & 0x100)))) {
                 Set_Height_AGL(unknown_geometry_j);
-                shadow_point.Y -= Unknown_006A2970(unknown_geometry_j);
+                shadow_point.Y -= Tactical_Z_Lepton_To_Pixel(unknown_geometry_j);
             } else {
                 draw_on_ground = true;
             }
@@ -316,7 +316,7 @@ void AircraftClass::Draw_It(Point2D const &point, Rect const &window)
         TacticalMap->Add_To_Selectables(this, draw_point);
 
         int scenario_scale;
-        if (Unknown_0051FC50()) scenario_scale = unknown_id_source_a3d290->IonLevel;
+        if (IonStormClass_Is_Ion_Storm_Active()) scenario_scale = unknown_id_source_a3d290->IonLevel;
         else scenario_scale = unknown_id_source_a3d290->AmbientLevel;
         int level = Get_Height_AGL() / (unknown_geometry_g + unknown_geometry_g);
         int altitude_term = level * scenario_scale;

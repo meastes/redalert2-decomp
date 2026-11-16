@@ -30,7 +30,7 @@ extern UnknownRadarEventType_7a8d58 unknown_radar_event_types_7a8d58[];
 
 class RadarEventClass;
 // Every radar event (0x00AB67E8).
-extern DynamicVectorClass<RadarEventClass *> unknown_radar_events_ab67e8;
+extern DynamicVectorClass<RadarEventClass *> RadarEventClass_RadarEvents;
 
 // The ring of the last eight event cells (0x00AB6788), its newest entry (0x00AB67C8, -1 when empty), the
 // entry the "go to event" key last showed (0x00AB6818) and the empty cell (0x00AB67A8).

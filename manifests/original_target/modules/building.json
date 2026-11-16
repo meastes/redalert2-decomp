@@ -5006,6 +5006,10 @@
    "address": "004e4f60"
   },
   {
+   "symbol": "?BuildingTypeClass_BuildingZShape@@3PAUShapeFileStruct@@A",
+   "address": "0085029c"
+  },
+  {
    "symbol": "?BuildingTypes@@3V?$DynamicVectorClass@PAVBuildingTypeClass@@@@A",
    "address": "00a35cd8"
   },
@@ -5174,6 +5178,30 @@
    "address": "004b8be0"
   },
   {
+   "symbol": "?DSurface_BlueLeft@@3HA",
+   "address": "00852fc4"
+  },
+  {
+   "symbol": "?DSurface_BlueRight@@3HA",
+   "address": "00852fc0"
+  },
+  {
+   "symbol": "?DSurface_GreenLeft@@3HA",
+   "address": "00852fcc"
+  },
+  {
+   "symbol": "?DSurface_GreenRight@@3HA",
+   "address": "00852fc8"
+  },
+  {
+   "symbol": "?DSurface_RedLeft@@3HA",
+   "address": "00852fbc"
+  },
+  {
+   "symbol": "?DSurface_RedRight@@3HA",
+   "address": "00852fb8"
+  },
+  {
    "symbol": "?Damage_Fire_Offset_End_0084ed30@@3UPoint2D@@B",
    "address": "0084ed30"
   },
@@ -5224,6 +5252,10 @@
   {
    "symbol": "?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ",
    "address": "004689f0"
+  },
+  {
+   "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
+   "address": "006ecb90"
   },
   {
    "symbol": "?Disarm@BombClass@@QAEXXZ",
@@ -5706,6 +5738,10 @@
    "address": "00568140"
   },
   {
+   "symbol": "?IsometricTileTypeClass_TrainBridgeSet@@3HA",
+   "address": "00a6cb68"
+  },
+  {
    "symbol": "?Just_Built@HouseClass@@QAEXPAVTechnoClass@@@Z",
    "address": "004e6f10"
   },
@@ -6126,6 +6162,10 @@
    "address": "00839630"
   },
   {
+   "symbol": "?Tactical_Z_Lepton_To_Pixel@@YIHH@Z",
+   "address": "006a2970"
+  },
+  {
    "symbol": "?Take_Damage@TechnoClass@@UAEHPAHHPAVWarheadTypeClass@@PAV1@_NH@Z",
    "address": "006cdc40"
   },
@@ -6270,20 +6310,12 @@
    "address": "0067c530"
   },
   {
-   "symbol": "?Unknown_006A2970@@YIHH@Z",
-   "address": "006a2970"
-  },
-  {
    "symbol": "?Unknown_006D7C80@@YIXPAVAbstractClass@@@Z",
    "address": "006d7c80"
   },
   {
    "symbol": "?Unknown_006D8640@TechnoClass@@QAE_NPAUWeaponStruct@@@Z",
    "address": "006d8640"
-  },
-  {
-   "symbol": "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z",
-   "address": "006ecb90"
   },
   {
    "symbol": "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z",
@@ -6438,10 +6470,6 @@
    "address": "007cf65c"
   },
   {
-   "symbol": "?unknown_building_depth_shape_85029c@@3PAUShapeFileStruct@@A",
-   "address": "0085029c"
-  },
-  {
    "symbol": "?unknown_eva_007cfaac@@3QBDB",
    "address": "007cfaac"
   },
@@ -6584,30 +6612,6 @@
   {
    "symbol": "?unknown_radial_intensity_7cf678@@3PANA",
    "address": "007cf678"
-  },
-  {
-   "symbol": "?unknown_shift_852fb8@@3HA",
-   "address": "00852fb8"
-  },
-  {
-   "symbol": "?unknown_shift_852fbc@@3HA",
-   "address": "00852fbc"
-  },
-  {
-   "symbol": "?unknown_shift_852fc0@@3HA",
-   "address": "00852fc0"
-  },
-  {
-   "symbol": "?unknown_shift_852fc4@@3HA",
-   "address": "00852fc4"
-  },
-  {
-   "symbol": "?unknown_shift_852fc8@@3HA",
-   "address": "00852fc8"
-  },
-  {
-   "symbol": "?unknown_shift_852fcc@@3HA",
-   "address": "00852fcc"
   },
   {
    "symbol": "?unknown_slot102@ObjectClass@@UAEHPAVUnknownCellClass@@HPAHPA_N0@Z",
@@ -7016,10 +7020,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "?unknown_tileset_a6cb68@@3HA",
-   "address": "00a6cb68"
   },
   {
    "symbol": "?unknown_voxel_cache_839a58@@3_NA",

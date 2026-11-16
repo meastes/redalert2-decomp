@@ -110,7 +110,7 @@ VoxelAnimClass::VoxelAnimClass() :
 #pragma auto_inline(off)
 VoxelAnimClass::~VoxelAnimClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     VoxelAnims.Delete(this);
     if (unknown_f0 != 0) {
         unknown_f0->Delete_Me();
@@ -190,7 +190,7 @@ void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
     {
         RectPoint2D draw(pixel.X + offset_x, pixel.Y + offset_y);
         Blit_Block(*LogicalSurface, unknown_drawer_8323b4, Voxel_Render_Surface_00717040(), rect, draw, window, 0,
-                            unknown_drawer_8323b4->Select_Blitter_00485AA0(0x2001), -4 - Unknown_006A2970(level), 0, 1000, 0);
+                            unknown_drawer_8323b4->Select_Blitter_00485AA0(0x2001), -4 - Tactical_Z_Lepton_To_Pixel(level), 0, 1000, 0);
     }
     matrix = BounceClass::Get_Matrix();
     Prepare_Voxel_Lighting_00717050(voxel, 0, 0, matrix, unknown_voxel_light_839ab0);
@@ -218,7 +218,7 @@ void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
     {
         RectPoint2D draw2(position.X + offset_x, position.Y + offset_y);
         Blit_Block(*LogicalSurface, drawer, Voxel_Render_Surface_00717040(), rect, draw2, window, 0,
-                            drawer->Select_Blitter_00485AA0(flags), -2 - Unknown_006A2970(Get_Height()), 0, brightness, 0);
+                            drawer->Select_Blitter_00485AA0(flags), -2 - Tactical_Z_Lepton_To_Pixel(Get_Height()), 0, brightness, 0);
     }
 }
 
@@ -343,7 +343,7 @@ void VoxelAnimClass::AI()
                     CoordStruct delta = BounceClass::Coord() - CoordStruct(object->Coord);
                     int distance = abs(delta.Y) + abs(delta.X);
                     if (distance <= Class->DamageRadius) {
-                        object->Take_Damage(&Class->Damage, Unknown_006A2970(distance), Class->Warhead, 0, 0, 0);
+                        object->Take_Damage(&Class->Damage, Tactical_Z_Lepton_To_Pixel(distance), Class->Warhead, 0, 0, 0);
                     }
                 }
             }

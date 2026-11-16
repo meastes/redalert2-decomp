@@ -834,7 +834,7 @@ void ObjectClass::unknown_slot54(bool arg1)
     if (Map.Unknown_0049EC40() == this) {
         Map.Unknown_0049EC60(0);
     }
-    Unknown_006ECB90(this, arg1);
+    Detach_This_From_All(this, arg1);
 }
 
 
@@ -1433,7 +1433,7 @@ void ObjectClass::Delete_Me()
     if (unknown_38 != 0) {
         unknown_38->Disarm();
     }
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Limbo();
     IsActive = false;
     ObjectsToDelete.Add(this);

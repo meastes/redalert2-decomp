@@ -76,7 +76,7 @@ DynamicVectorClass<EMPulseClass *> EMPulseClass::Array;
 EMPulseClass::~EMPulseClass()
 {
     if (GameActive) Clear_Cells_004B5210();
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     Array.Delete(this);
 }
 EMPulseClass::EMPulseClass(Cell position, int radius, int duration, TechnoClass *source)

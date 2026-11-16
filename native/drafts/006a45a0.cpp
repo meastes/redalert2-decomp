@@ -262,7 +262,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
             TechnoClass *techno = unknown_list_a40c20[i];
             if (techno->House->Is_Player_Control()) {
                 if (!planning && techno->unknown_77) {
-                    if (unknown_bool_7f7110) {
+                    if (TechnoClass_ActionLines) {
                         techno->unknown_slot243(false, 0);
                     }
                     UnknownTechno230 *capture = (UnknownTechno230 *)techno->unknown_230;

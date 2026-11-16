@@ -57,8 +57,8 @@ struct UnknownVoxelView {
 
 extern UnknownVoxelView VoxelRenderOrientations[];
 extern void (*VoxelDrawFunctions[])(VoxelFuncArgumentStruct *parameters);
-extern int unknown_af6610;
-extern int unknown_af6614;
+extern int VoxelDrawSystem_EnableZBuffer;
+extern int VoxelDrawSystem_EnableLighting;
 
 // The screen offsets per depth (8.8 fixed point x/y) of the span drawers.
 short VoxelPixelDeltaTable[256][2];
@@ -239,9 +239,9 @@ int VoxelLibrary::Memory_Used()
 
 // Draws a section: fills the span drawer's parameters from the section's
 // tailer and the view's corner choice (origin corner and the three edge
-// corners, in 8.8 fixed point; the z steps only when unknown_af6610) and calls
-// the drawer chosen by the view's flags, 2 (unknown_af6610), 4
-// (unknown_af6614) and 8 (no normal table).
+// corners, in 8.8 fixed point; the z steps only when VoxelDrawSystem_EnableZBuffer) and calls
+// the drawer chosen by the view's flags, 2 (VoxelDrawSystem_EnableZBuffer), 4
+// (VoxelDrawSystem_EnableLighting) and 8 (no normal table).
 void VoxelLibrary::Render_Object(UnknownVoxelDrawState *state, Vector3 const *origin)
 {
     LayerInfoStruct *tailer = Get_Layer_Info(state->unknown_04, state->unknown_08);
@@ -271,16 +271,16 @@ void VoxelLibrary::Render_Object(UnknownVoxelDrawState *state, Vector3 const *or
     parameters.TransformMatrix[1].J = (short)((corner_x->Y - corner->Y) / size_x * 256.0f);
     parameters.TransformMatrix[2].J = (short)((corner_y->Y - corner->Y) / size_y * 256.0f);
     parameters.TransformMatrix[3].J = (short)((corner_z->Y - corner->Y) / size_z * 256.0f);
-    if (unknown_af6610) {
+    if (VoxelDrawSystem_EnableZBuffer) {
         parameters.TransformMatrix[1].K = (short)((corner_x->Z - corner->Z) / size_x * 256.0f);
         parameters.TransformMatrix[2].K = (short)((corner_y->Z - corner->Z) / size_y * 256.0f);
         parameters.TransformMatrix[3].K = (short)((corner_z->Z - corner->Z) / size_z * 256.0f);
     }
     int drawer = VoxelRenderOrientations[state->unknown_0c].unknown_00;
-    if (unknown_af6610) {
+    if (VoxelDrawSystem_EnableZBuffer) {
         drawer |= 2;
     }
-    if (unknown_af6614) {
+    if (VoxelDrawSystem_EnableLighting) {
         drawer |= 4;
     }
     if (tailer->NormalType == 0) {

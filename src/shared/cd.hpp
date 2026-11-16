@@ -91,7 +91,7 @@ bool __fastcall VolumeCheck();                            // 0x00715090
 // Modal dialog with the text; false when the player cancels (hypothesis).
 bool __fastcall Prompt_Dialog(wchar_t const *text);   // 0x00600C80
 // Get_CD_Index for the current CD drive (hypothesis).
-int __fastcall Unknown_0046E4C0(int timeout);  // 0x0046E4C0
+int __fastcall CD_Get_Current_Disk(int timeout);  // 0x0046E4C0
 #include "shared/debug_printf.hpp"
 
 #endif

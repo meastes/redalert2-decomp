@@ -40,9 +40,9 @@
 #include "shared/map_region.hpp"
 #include "shared/map_view.hpp"
 #include "shared/debug_printf.hpp"
-extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
+extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 extern "C" char unknown_rmg_radar_message[];
-// @ref ?unknown_map_regions_a6fd28@@=00a6fd28
+// @ref ?MapRegionClass_MapRegions@@=00a6fd28
 // @ref _unknown_rmg_radar_message=007e1898
 // @ref ??1MapRegionClass@@QAE@XZ=0056d970
 void MapGeneratorClass::Cleanup()
@@ -53,8 +53,8 @@ void MapGeneratorClass::Cleanup()
         delete [] RMGCellData;
         RMGCellData=0;
     }
-    for(int index=(int)((unsigned int)unknown_map_regions_a6fd28.Count()-1u);index>=0;--index) {
-        MapRegionClass *region=unknown_map_regions_a6fd28[index];
+    for(int index=(int)((unsigned int)MapRegionClass_MapRegions.Count()-1u);index>=0;--index) {
+        MapRegionClass *region=MapRegionClass_MapRegions[index];
         if(region!=0)delete region;
     }
     unknown_map_region_next_index_a70a28=0;

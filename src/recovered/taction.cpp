@@ -118,7 +118,7 @@ extern DynamicVectorClass<AbstractClass *> EventActionPtrTracker;
 
 TActionClass::~TActionClass()
 {
-    Unknown_006ECB90(this, true);
+    Detach_This_From_All(this, true);
     AbstractTypePtrTracker.Delete((ObjectClass *)this);
     EventActionPtrTracker.Delete(this);
     Actions.Delete(this);
@@ -455,11 +455,11 @@ bool TActionClass::TAction_DEACTIVATE_FIRESTORM(HouseClass *house, ObjectClass *
 // bool TActionClass::TAction_ION_LIGHTNING_STRIKE(...) (0x006AF950)
 // Calls 0x0051FC90 with the cell of waypoint +0x44; always true.
 #include "shared/id_source.hpp"
-void __stdcall Unknown_0051FC90(Cell cell);   // 0x0051FC90
+void __stdcall IonStormClass_Lightning_Bolt(Cell cell);   // 0x0051FC90
 
 bool TActionClass::TAction_ION_LIGHTNING_STRIKE(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    Unknown_0051FC90(unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44));
+    IonStormClass_Lightning_Bolt(unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44));
     return true;
 }
 
@@ -1267,7 +1267,7 @@ bool TActionClass::TAction_1_SPECIAL(HouseClass *house, ObjectClass *object, Tri
     house->Supers[Data.Value]->Grant(true, false, false);
     if (PlayerPtr == house) {
         Map.Unknown_0067C530(31, Data.Value);
-        Map.Flag_Tab_To_Redraw(Unknown_006818D0(31, Data.Value, 0));
+        Map.Flag_Tab_To_Redraw(SidebarClass_GetObjectTabIdx(31, Data.Value, 0));
     }
     return true;
 }
@@ -1282,7 +1282,7 @@ bool TActionClass::TAction_FULL_SPECIAL(HouseClass *house, ObjectClass *object, 
     house->Supers[Data.Value]->unknown_0x48 = false;
     if (PlayerPtr == house) {
         Map.Unknown_0067C530(31, Data.Value);
-        Map.Flag_Tab_To_Redraw(Unknown_006818D0(31, Data.Value, 0));
+        Map.Flag_Tab_To_Redraw(SidebarClass_GetObjectTabIdx(31, Data.Value, 0));
     }
     return true;
 }
@@ -1567,16 +1567,16 @@ bool TActionClass::TAction_METEOR_IMPACT(HouseClass *house, ObjectClass *object,
 
 
 // bool TActionClass::TAction_ION_STORM_START(...) (0x006B1A80)
-// Unless Unknown_0051FC50 holds (then false), calls 0x0051F930 with Data.Value,
+// Unless IonStormClass_Is_Ion_Storm_Active holds (then false), calls 0x0051F930 with Data.Value,
 // the rules value at +0x13E8 and the zero cell (as TeamClass 0x006BC460);
 // true.
 
 bool TActionClass::TAction_ION_STORM_START(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (Unknown_0051FC50()) {
+    if (IonStormClass_Is_Ion_Storm_Active()) {
         return false;
     }
-    Unknown_0051F930(Data.Value, Rules->unknown_13e8, unknown_geometry_k, 0);
+    IonStormClass_Ion_Storm_Begin(Data.Value, Rules->unknown_13e8, unknown_geometry_k, 0);
     return true;
 }
 
@@ -1585,8 +1585,8 @@ bool TActionClass::TAction_ION_STORM_START(HouseClass *house, ObjectClass *objec
 #include "shared/lightning_storm.hpp"
 bool TActionClass::TAction_ION_STORM_STOP(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (!Unknown_0051FC50()) return false;
-    Unknown_0051FBB0();
+    if (!IonStormClass_Is_Ion_Storm_Active()) return false;
+    IonStormClass_Ion_Storm_End();
     return true;
 }
 
@@ -1894,7 +1894,7 @@ bool TActionClass::TAction_SET_AMBIENT_RATE(HouseClass *house, ObjectClass *obje
 bool TActionClass::unknown_set_session_22a8(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     unknown_id_source_a3d290->unknown_22a8 = Data.Value;
-    if (!Unknown_0051FC50()) {
+    if (!IonStormClass_Is_Ion_Storm_Active()) {
         unknown_id_source_a3d290->unknown_22b0 = unknown_id_source_a3d290->unknown_22a8;
     }
     return true;
@@ -2017,7 +2017,7 @@ bool TActionClass::unknown_nuke_at_waypoint(HouseClass *house, ObjectClass *obje
 
 // bool TActionClass::TAction_LIGHTNING_STORM(...) (0x006B25E0)
 // Starts the lightning storm (0x0051F930) over the cell of waypoint +0x44 (bridge level counted) with the rules'
-// LightningStormDuration and LightningDeferment for house, unless Unknown_0051FC50 holds (then false); true otherwise.
+// LightningStormDuration and LightningDeferment for house, unless IonStormClass_Is_Ion_Storm_Active holds (then false); true otherwise.
 
 bool TActionClass::TAction_LIGHTNING_STORM(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
@@ -2028,8 +2028,8 @@ bool TActionClass::TAction_LIGHTNING_STORM(HouseClass *house, ObjectClass *objec
         coord.Z += unknown_geometry_j;
     }
     Cell target = coord.As_Cell();
-    if (!Unknown_0051FC50()) {
-        Unknown_0051F930(Rules->LightningStormDuration, Rules->unknown_13e8, target, house);
+    if (!IonStormClass_Is_Ion_Storm_Active()) {
+        IonStormClass_Ion_Storm_Begin(Rules->LightningStormDuration, Rules->unknown_13e8, target, house);
         return true;
     }
     return false;
@@ -2037,7 +2037,7 @@ bool TActionClass::TAction_LIGHTNING_STORM(HouseClass *house, ObjectClass *objec
 
 
 // Applies Iron Curtain to occupants around the waypoint and starts its invocation animation.
-extern int const unknown_radius_count_7a5908[];   // 0x007A5908 cells within each radius (MapClass::Sight_From 0x0054A110)
+extern int const MapClass_RadiusCount[];   // 0x007A5908 cells within each radius (MapClass::Sight_From 0x0054A110)
 extern Cell const unknown_cell_offsets_a6f248[];
 
 bool TActionClass::unknown_iron_curtain_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
@@ -2046,7 +2046,7 @@ bool TActionClass::unknown_iron_curtain_at_waypoint(HouseClass *house, ObjectCla
     Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
     CoordStruct position = Map[waypoint].Center_Coord();
     new AnimClass(Rules->IronCurtainInvokeAnim, position + CoordStruct(0,0,5), 0,1,0x600,0);
-    int count = unknown_radius_count_7a5908[1];
+    int count = MapClass_RadiusCount[1];
     for (int index = 0; index < count; ++index) {
         Cell const &offset = unknown_cell_offsets_a6f248[index];
         target_cell = TPoint2D<short>((short)(waypoint.X + offset.X), (short)(waypoint.Y + offset.Y));
