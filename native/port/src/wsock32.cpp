@@ -32,6 +32,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/socket.h>
+#include <atomic>
 #include <thread>
 #include <unistd.h>
 #include <vector>
@@ -268,13 +269,19 @@ ssize_t broadcast_sendto(int s, const char *buffer, int length, int flags, uint3
 }
 
 struct AsyncSelect { HWND window; UINT message; LONG events; };
-std::mutex async_lock;
-std::map<SOCKET, AsyncSelect> async_sockets;
+// Never destroyed (lane Y9): the one-game app ends the thread after the exit handlers ran.
+std::mutex &async_lock_() { static std::mutex *m = new std::mutex; return *m; }
+std::map<SOCKET, AsyncSelect> &async_sockets_() { static auto *m = new std::map<SOCKET, AsyncSelect>; return *m; }
+#define async_lock async_lock_()
+#define async_sockets async_sockets_()
 bool async_running = false;
+std::atomic<bool> async_stop{false};
+std::thread &async_worker_() { static std::thread *t = new std::thread; return *t; }
+#define async_worker async_worker_()
 
 void async_thread()
 {
-    for (;;) {
+    while (!async_stop) {
         std::vector<struct pollfd> fds;
         std::vector<AsyncSelect> targets;
         {
@@ -331,7 +338,7 @@ int WSAAsyncSelect(SOCKET s, HWND window, UINT message, LONG events)
     else {
         fcntl((int)s, F_SETFL, fcntl((int)s, F_GETFL) | O_NONBLOCK);
         async_sockets[s] = {window, message, events};
-        if (!async_running) { async_running = true; std::thread(async_thread).detach(); }
+        if (!async_running) { async_running = true; async_worker = std::thread(async_thread); }
     }
     return 0;
 }
@@ -584,3 +591,14 @@ uint16_t ra2_htons(uint16_t v) { return htons(v); }
 uint16_t ra2_ntohs(uint16_t v) { return ntohs(v); }
 
 }  // extern "C"
+
+// The WSAAsyncSelect thread ended (lane Y9, ra2port_stop_threads): true when one was running.
+bool ra2port_stop_async_select()
+{
+    if (!async_worker.joinable()) return false;
+    async_stop = true;
+    async_worker.join();
+    async_stop = false;
+    async_running = false;
+    return true;
+}

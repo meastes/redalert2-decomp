@@ -732,17 +732,46 @@ BOOL UnmapViewOfFile(const void *base) { return base != nullptr; }
 typedef DWORD (*THREAD_PROC)(void *);
 struct ThreadStart { THREAD_PROC proc; void *param; Thread *thread; };
 
+// The game's threads still running (lane Y9, ra2port_stop_threads): their start routines, so an
+// engine of the one-game app can wait for them before its data is reset (the Thread objects are
+// handles the game may close; this list is the port's own).
+namespace {
+// Never destroyed: read after the exit handlers ran (and by threads outliving them).
+std::mutex &live_lock_() { static std::mutex *m = new std::mutex; return *m; }
+std::condition_variable &live_cv_() { static auto *c = new std::condition_variable; return *c; }
+std::vector<THREAD_PROC> &live_threads_() { static auto *v = new std::vector<THREAD_PROC>; return *v; }
+#define live_lock live_lock_()
+#define live_cv live_cv_()
+#define live_threads live_threads_()
+}
+
 static void *thread_main(void *arg)
 {
     ThreadStart start = *(ThreadStart *)arg;
     delete (ThreadStart *)arg;
     start.thread->id = thread_id();
     DWORD code = start.proc(start.param);
-    std::lock_guard<std::mutex> g(start.thread->m);
-    start.thread->exit_code = code;
-    start.thread->done = true;
-    start.thread->cv.notify_all();
+    {
+        std::lock_guard<std::mutex> g(start.thread->m);
+        start.thread->exit_code = code;
+        start.thread->done = true;
+        start.thread->cv.notify_all();
+    }
+    std::lock_guard<std::mutex> g(live_lock);
+    for (auto it = live_threads.begin(); it != live_threads.end(); ++it)
+        if (*it == start.proc) { live_threads.erase(it); break; }
+    live_cv.notify_all();
     return nullptr;
+}
+
+// Waits up to ms for the game's threads to end: how many still run, their start routines in
+// left (up to max).
+int ra2port_wait_game_threads(unsigned ms, void **left, int max)
+{
+    std::unique_lock<std::mutex> g(live_lock);
+    live_cv.wait_for(g, std::chrono::milliseconds(ms), [] { return live_threads.empty(); });
+    for (int i = 0; i < max && i < (int)live_threads.size(); ++i) left[i] = (void *)live_threads[i];
+    return (int)live_threads.size();
 }
 
 HANDLE CreateThread(void *security, uintptr_t stack, THREAD_PROC proc, void *param, DWORD flags, DWORD *id)
@@ -754,9 +783,16 @@ HANDLE CreateThread(void *security, uintptr_t stack, THREAD_PROC proc, void *par
     pthread_attr_t attr;
     pthread_attr_init(&attr);
     pthread_attr_setstacksize(&attr, stack > 1u << 20 ? stack : 1u << 20);
+    {
+        std::lock_guard<std::mutex> g(live_lock);
+        live_threads.push_back(proc);
+    }
     if (pthread_create(&t->t, &attr, thread_main, new ThreadStart{proc, param, t}) != 0) {
         pthread_attr_destroy(&attr);
         handle_close(h);
+        std::lock_guard<std::mutex> g(live_lock);
+        for (auto it = live_threads.begin(); it != live_threads.end(); ++it)
+            if (*it == proc) { live_threads.erase(it); break; }
         return nullptr;
     }
     pthread_attr_destroy(&attr);

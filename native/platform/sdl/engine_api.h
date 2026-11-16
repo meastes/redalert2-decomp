@@ -10,7 +10,7 @@
 extern "C" {
 #endif
 
-#define RA2_ENGINE_API_VERSION 1
+#define RA2_ENGINE_API_VERSION 2
 
 enum ra2_engine_game { RA2_ENGINE_RA2 = 0, RA2_ENGINE_YR = 1 };
 
@@ -22,6 +22,11 @@ struct ra2_engine_host {
     int skip_intro;           // 1: a swap: no start-up movies (the logos, the intro)
     const char *toggle_label; // the main menu's toggle text: the other game's name
     int swap;                 // out: 1 when the engine ended for the toggle (the other game next)
+    int (*stop_threads)(void);// out (lane Y9): ends the threads the game left running (timers, the
+                              // socket thread, the watchdog; waits for its own threads): the host
+                              // calls it after the engine's exit handlers (Prog_End ends the mouse
+                              // thread there), before the game's next start; the threads still
+                              // running afterwards
 };
 
 // Runs the whole game (the SDL host's main) and returns its exit code. The engine leaves the

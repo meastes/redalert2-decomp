@@ -344,6 +344,13 @@ int main(int argc, char **argv)
 #else
         finalize_engine(e);
 #endif
+        // Then its threads (lane Y9): the exit handlers have asked its own to end (Prog_End's
+        // Kill_Mouse_Thread); the timers and the port's threads it left are ended here, so none
+        // runs into the game's next start (a reset of its data in place, ra2yr-one).
+        if (host.stop_threads) {
+            int left = host.stop_threads();
+            if (left) fprintf(stderr, "one-game: %s left %d thread(s) running\n", game_name(game), left);
+        }
         game = game == RA2_ENGINE_YR ? RA2_ENGINE_RA2 : RA2_ENGINE_YR;
         if (persist) write_setting("game", game_key(game));
         fprintf(stderr, "one-game: swap: %s next\n", game_name(game));

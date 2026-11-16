@@ -110,8 +110,11 @@ BOOL TextOutA(HDC dc, int x, int y, const char *text, int n)
 typedef void (*TIMECALLBACK)(UINT id, UINT msg, uintptr_t user, uintptr_t r1, uintptr_t r2);
 namespace {
 struct MMTimer { std::thread thread; std::atomic<bool> stop{false}; };
-std::mutex timer_lock;
-std::map<UINT, MMTimer *> mm_timers;
+// Never destroyed (lane Y9): the one-game app stops the timers after the exit handlers ran.
+std::mutex &timer_lock_() { static std::mutex *m = new std::mutex; return *m; }
+std::map<UINT, MMTimer *> &mm_timers_() { static auto *m = new std::map<UINT, MMTimer *>; return *m; }
+#define timer_lock timer_lock_()
+#define mm_timers mm_timers_()
 UINT next_timer = 1;
 }
 
@@ -160,6 +163,25 @@ UINT timeKillEvent(UINT id)
     else t->thread.join();
     delete t;
     return 0;
+}
+
+// The timers the game left running when it ended (lane Y9, ra2port_stop_threads): stopped and
+// their threads joined, so none calls into a game whose data is reset for its next start.
+int ra2port_stop_timers()
+{
+    std::map<UINT, MMTimer *> left;
+    {
+        std::lock_guard<std::mutex> g(timer_lock);
+        left.swap(mm_timers);
+    }
+    for (auto &kv : left) kv.second->stop = true;
+    for (auto &kv : left) {
+        MMTimer *t = kv.second;
+        if (t->thread.get_id() == std::this_thread::get_id()) t->thread.detach();
+        else if (t->thread.joinable()) t->thread.join();
+        delete t;
+    }
+    return (int)left.size();
 }
 
 // ---- ADVAPI32 registry -----------------------------------------------------

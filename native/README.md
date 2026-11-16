@@ -1507,7 +1507,15 @@ repeat the last three until `bss_globals.cpp` no longer changes.
 
 ## iOS (Scout1247, first boot)
 
-`native/build-ios.command [simulator|device]` builds `RA2.app` for iOS (arm64)
+**Since lane Y9 (2026-11-16) `native/build-ios.command [simulator|device]` builds the one-game app**
+(Red Alert 2 and Yuri's Revenge in one executable, the toggle at the bottom left of the main menu;
+native/yr/README.md "One game"), `build/ios-one-<platform>/RA2YR.app`, with Red Alert 2's bundle id
+(`io.github.ra2native.RA2`) and home-screen name: installed over the Red Alert 2 app it keeps that
+app's import, saves and settings and asks only for Yuri's Revenge's files. `--ra2` builds the Red
+Alert 2 app on its own as described below (`build/ios-<platform>/RA2.app`, the same bundle id), kept
+until the owner retires it; `--yr` Yuri's Revenge's own app.
+
+`native/build-ios.command [simulator|device] --ra2` builds `RA2.app` for iOS (arm64)
 with Ninja and `CMAKE_SYSTEM_NAME=iOS`: the same tree, link closure and host as
 the Mac app, SDL 3.4.2 built statically from `RA2_SDL_SOURCE` (default
 `private/vendor/SDL3-3.4.2`, extracted from the tarball after its SHA-256 check;
@@ -1664,7 +1672,8 @@ The iOS build is optimised at -O2 (`RA2_IOS_OPT`); the Mac tree at -O2 passes th
 Two template members that only -O0 builds emitted out of line are instantiated in
 `link/template_instances*.cpp`. Device builds: `RA2_IOS_TEAM=<team> native/build-ios.command
 device` signs with an existing development profile and identity (`packaging/ios_sign.py`),
-then `xcrun devicectl device install app --device <udid> build/ios-device/RA2.app`.
+then `xcrun devicectl device install app --device <udid> build/ios-one-device/RA2YR.app` (the
+one-game app; `--ra2`: `build/ios-device/RA2.app`).
 
 iOS rules checked before the port started (Scout1247): no memory is mapped at
 fixed addresses (game.exe is read into an ordinary buffer), the executable has

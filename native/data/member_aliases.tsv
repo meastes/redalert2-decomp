@@ -6,7 +6,6 @@ _unknown_map_list_83252c	_Map	136	76	object	unknown_map_list_83252c	Map	base:cla
 _unknown_zone_connections_83252c	_Map	136	76	exact	unknown_zone_connections_83252c	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.base:class GScreenClass.ZoneConnections	DynamicVectorClass<ZoneConnectionClass>	class DynamicVectorClass<struct ZoneConnectionClass>	23128
 _DAT_008325d0	_Map	368	240	exact	DAT_008325d0	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.base:class GScreenClass.MapSize.Width	int	int	23128
 _unknown_int_8325d0	_Map	368	240	exact	unknown_int_8325d0	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.base:class GScreenClass.MapSize.Width	int	int	23128
-_DAT_008325d4	_Map	372	244	compatible	DAT_008325d4	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.base:class GScreenClass.MapSize.Height	unsigned int	int	23128
 _MapSizeY	_Map	372	244	exact	MapSizeY	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.base:class GScreenClass.MapSize.Height	int	int	23128
 _unknown_int_8325d8	_Map	376	248	exact	unknown_int_8325d8	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.base:class GScreenClass.MapLocalSize.X	int	int	23128
 _unknown_int_8325dc	_Map	380	252	exact	unknown_int_8325dc	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.base:class GScreenClass.MapLocalSize.Y	int	int	23128
@@ -15,7 +14,6 @@ _unknown_int_8325e4	_Map	388	260	exact	unknown_int_8325e4	Map	base:class ScrollC
 _unknown_map_cells_832614	_Map	448	308	exact	unknown_map_cells_832614	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.base:class GScreenClass.Cells	VectorClass<CellClass*>	class VectorClass<class CellClass *>	23128
 _unknown_redraws_833634	_Map	4584	4436	compatible	unknown_redraws_833634	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.base:class GScreenClass.unknown_1154	unsigned char	_Bool	23128
 _unknown_map_tagged_cells_833638	_Map	4592	4440	exact	unknown_map_tagged_cells_833638	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.base:class GScreenClass.unknown_1158	DynamicVectorClass<Cell>	class DynamicVectorClass<class Cell>	23128
-_DAT_00833674	_Map	4680	4500	compatible	DAT_00833674	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.unknown_1194	unsigned int	int	23128
 _unknown_833688	_Map	4712	4520	exact	unknown_833688	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.unknown_11a8	int	int	23128
 _unknown_sell_mode_83368d	_Map	4717	4525	exact	unknown_sell_mode_83368d	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.unknown_11ad	bool	_Bool	23128
 _CurrentSuperWeaponType	_Map	4724	4532	exact	CurrentSuperWeaponType	Map	base:class ScrollClass.base:class TabClass.base:class SidebarClass.base:class PowerClass.base:class RadarClass.base:class DisplayClass.base:class MapClass.unknown_11b4	int	int	23128
@@ -71,7 +69,6 @@ _unknown_mono_width_a70eb8	_unknown_mono_metrics_a70ea0	24	24	exact	unknown_mono
 _unknown_int_af8fe8	_IngameVQ	24	16	exact	unknown_int_af8fe8	IngameVQ	base:class VectorClass<class MovieHandle *>.ActiveCount	int	int	32
 _unknown_beacon_cycle_84e93c	_BeaconManager	204	108	exact	unknown_beacon_cycle_84e93c	BeaconManager	unknown_00.unknown_6c	int	int	240
 _unknown_beacon_phase_84e948	_BeaconManager	216	120	exact	unknown_beacon_phase_84e948	BeaconManager	unknown_00.unknown_78	int	int	240
-_DAT_00a40c70	_CurrentObject	24	16	exact	DAT_00a40c70	CurrentObject	base:class VectorClass<class ObjectClass *>.ActiveCount	int	int	32
 _unknown_player_checked_b28dcc	_unknown_player_ready_b28dc4	8	8	exact	unknown_player_checked_b28dcc	unknown_player_ready_b28dc4	unknown_player_ready_b28dc4[8]	bool[8]	bool[9]	9
 _unknown_int_839624	_unknown_rect_839620	4	4	exact	unknown_int_839624	unknown_rect_839620	X.Y	int	int	16
 _unknown_int_839628	_unknown_rect_839620	8	8	exact	unknown_int_839628	unknown_rect_839620	X.Width	int	int	16
@@ -92,7 +89,6 @@ _unknown_a3d2a8	_unknown_session_a3d298	16	16	range	unknown_a3d2a8	unknown_sessi
 _unknown_online_option_a3d2a8	_unknown_session_a3d298	16	16	range	unknown_online_option_a3d2a8	unknown_session_a3d298	(anon).(anon).unknown_00+16	int	char[28]	12592
 _unknown_session_a3d2ac	_unknown_session_a3d298	20	20	range	unknown_session_a3d2ac	unknown_session_a3d298	(anon).(anon).unknown_00+20	int	char[28]	12592
 _unknown_session_a3d2b4	_unknown_session_a3d298	40	28	exact	unknown_session_a3d2b4	unknown_session_a3d298	(anon).ScenarioIndex	int	int	12592
-_DAT_00a3d2b8	_unknown_session_a3d298	44	32	compatible	DAT_00a3d2b8	unknown_session_a3d298	(anon).unknown_bases_20	char	_Bool	12592
 _unknown_flag_a3d2b8	_unknown_session_a3d298	44	32	exact	unknown_flag_a3d2b8	unknown_session_a3d298	(anon).unknown_bases_20	bool	_Bool	12592
 _unknown_session_a3d2bc	_unknown_session_a3d298	48	36	exact	unknown_session_a3d2bc	unknown_session_a3d298	(anon).unknown_24	int	int	12592
 _unknown_session_a3d2c0	_unknown_session_a3d298	52	40	exact	unknown_session_a3d2c0	unknown_session_a3d298	(anon).unknown_28	bool	_Bool	12592
@@ -115,7 +111,6 @@ _wol_scenario_description_a3d342	_unknown_session_a3d298	182	170	compatible	wol_
 _unknown_name_a3d3a0	_unknown_session_a3d298	276	264	exact	unknown_name_a3d3a0	unknown_session_a3d298	(anon).Handle[0]	char[None]	char[20]	12592
 _Game_PlayerColor	_unknown_session_a3d298	296	284	exact	Game_PlayerColor	unknown_session_a3d298	(anon).unknown_11c	int	int	12592
 _unknown_a3d3bc	_unknown_session_a3d298	304	292	exact	unknown_a3d3bc	unknown_session_a3d298	(anon).unknown_124	int	int	12592
-_DAT_00a3d548	_unknown_session_a3d298	700	688	compatible	DAT_00a3d548	unknown_session_a3d298	(anon).unknown_2b0	unsigned int	int	12592
 _MuteSWLaunches	_unknown_session_a3d298	700	688	exact	MuteSWLaunches	unknown_session_a3d298	(anon).unknown_2b0	int	int	12592
 _unknown_last_nickname_slot_a3d554	_unknown_session_a3d298	712	700	exact	unknown_last_nickname_slot_a3d554	unknown_session_a3d298	(anon).LastNickSlot	int	int	12592
 _unknown_max_players_a3d558	_unknown_session_a3d298	716	704	range	unknown_max_players_a3d558	unknown_session_a3d298	(anon).unknown_2c0	int	char[4]	12592
@@ -181,7 +176,6 @@ _unknown_games_a3fa64	_unknown_session_a3d298	10272	10188	exact	unknown_games_a3
 _unknown_players_a3fa7c	_unknown_session_a3d298	10304	10212	exact	unknown_players_a3fa7c	unknown_session_a3d298	(anon).Players	DynamicVectorClass<NodeNameType*>	class DynamicVectorClass<struct NodeNameType *>	12592
 _player_count_00a3fa8c	_unknown_session_a3d298	10328	10228	exact	player_count_00a3fa8c	unknown_session_a3d298	(anon).Players.ActiveCount	int	int	12592
 _unknown_player_count_a3fa8c	_unknown_session_a3d298	10328	10228	exact	unknown_player_count_a3fa8c	unknown_session_a3d298	(anon).Players.ActiveCount	int	int	12592
-_unknown_lobby_00a3fa94	_unknown_session_a3d298	10336	10236	range	unknown_lobby_00a3fa94	unknown_session_a3d298	(anon).unknown_27fc	unsigned int	char[4]	12592
 _unknown_lobby_a3fa94	_unknown_session_a3d298	10336	10236	range	unknown_lobby_a3fa94	unknown_session_a3d298	(anon).unknown_27fc	int	char[4]	12592
 _unknown_player_slots_a3fa98	_unknown_session_a3d298	10344	10240	exact	unknown_player_slots_a3fa98	unknown_session_a3d298	(anon).PlayerSlots[0]	NodeNameType*[8]	NodeNameType *[8]	12592
 _unknown_lobby_flag_a3fab8	_unknown_session_a3d298	10408	10272	compatible	unknown_lobby_flag_a3fab8	unknown_session_a3d298	(anon).unknown_2820	bool	char[12]	12592
@@ -218,7 +212,6 @@ _unknown_exit_frame1_a402e0	_unknown_session_a3d298	12524	12360	exact	unknown_ex
 _unknown_exit_frame2_a402e4	_unknown_session_a3d298	12528	12364	exact	unknown_exit_frame2_a402e4	unknown_session_a3d298	(anon).unknown_304c	int	int	12592
 _unknown_exit_house_a402e8	_unknown_session_a3d298	12532	12368	exact	unknown_exit_house_a402e8	unknown_session_a3d298	(anon).unknown_3050	int	int	12592
 _unknown_trap_print_crc_a40314	_unknown_session_a3d298	12580	12412	exact	unknown_trap_print_crc_a40314	unknown_session_a3d298	(anon).TrapPrintCRC	int	int	12592
-_unknown_timer_accum_00b292f0	_unknown_timer_b292e8	8	8	compatible	unknown_timer_accum_00b292f0	unknown_timer_b292e8	Started.DelayTime	unsigned int	RA2_LONG	12
 _unknown_int_839648	_VisibleRect	8	8	exact	unknown_int_839648	VisibleRect	X.Width	int	int	16
 _unknown_int_83964c	_VisibleRect	12	12	exact	unknown_int_83964c	VisibleRect	X.Height	int	int	16
 _unknown_module_locks_b2930c	_wol_module_b292f8	40	20	exact	unknown_module_locks_b2930c	wol_module_b292f8	cbSize.m_nLockCnt	int	RA2_LONG	240

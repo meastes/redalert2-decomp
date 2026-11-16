@@ -4,14 +4,12 @@
 // counterpart is port/src/os_apple.cpp). Objective-C++ with ARC; no SDL and no
 // Win32 port headers here (both define BOOL).
 #include "host_os.hpp"
-// Both games in one executable (lane Y8, ra2yr-one; native/yr/README.md "iOS in one executable"):
-// each engine has its own copy of this file, and Objective-C class names are global in the
-// runtime whatever the symbol visibility, so Yuri's Revenge's engine names its classes apart.
-#if defined(RA2_NATIVE_ENGINE) && defined(RA2_NATIVE_YR)
-#define RA2ImportPicker YRImportPicker
-#define RA2PassView YRPassView
-#define RA2Toolbar YRToolbar
-#endif
+// Both games in one executable (ra2yr-one; native/yr/README.md "iOS in one executable"): one copy
+// of this file, the thin host's (lane Y9; Objective-C class names are global in the runtime, so a
+// copy per engine would collide), which both engines call. What it keeps across a swap (the
+// toolbar on the shared window, the audio-interruption observer) calls the engine that made it
+// last: each engine's toolbar_create, skip_button_create, keys_button_create and
+// watch_audio_interruptions rebind the callbacks to its own.
 
 #include <atomic>
 #import <Foundation/Foundation.h>
@@ -334,11 +332,14 @@ std::string device_report()
 void watch_audio_interruptions(void (*callback)(bool))
 {
     static id observer = nil;
-    if (observer || !callback) return;
+    static void (*current)(bool) = nullptr;
+    if (!callback) return;
+    current = callback;     // the engine running now (the one-game app: rebound at each start)
+    if (observer) return;
     observer = [NSNotificationCenter.defaultCenter addObserverForName:AVAudioSessionInterruptionNotification object:nil
                                                                  queue:NSOperationQueue.mainQueue usingBlock:^(NSNotification *note) {
         NSUInteger type = [note.userInfo[AVAudioSessionInterruptionTypeKey] unsignedIntegerValue];
-        callback(type == AVAudioSessionInterruptionTypeBegan);
+        if (current) current(type == AVAudioSessionInterruptionTypeBegan);
     }];
 }
 
@@ -430,7 +431,14 @@ bool toolbar_create(void *native_window, ToolbarItem const *items, int count, vo
 {
     UIWindow *window = (__bridge UIWindow *)native_window;
     UIView *view = window.rootViewController.view;
-    if (!view || toolbar) return toolbar != nil;
+    if (toolbar) {
+        // Made by an engine before (the one-game app after a swap): this engine's taps now, the
+        // items' titles and states its own (it sets them next).
+        toolbar.tapped = tapped;
+        for (int i = 0; i < count && i < (int)toolbar.buttons.count; ++i) toolbar_set(i, false, items[i].title);
+        return true;
+    }
+    if (!view) return false;
     RA2Toolbar *t = [RA2Toolbar new];
     t.tapped = tapped;
     t.buttons = [NSMutableArray array];
@@ -607,6 +615,7 @@ void fade_show(UIView *v, bool show)
 
 void skip_button_create(void *, void (*tapped)())
 {
+    if (toolbar && toolbar.skip) toolbar.skipTapped = tapped;     // a later engine's
     if (!toolbar || toolbar.skip) return;
     toolbar.skip = corner_button(@"forward.end.fill", @"Skip", @"Skip movie", @selector(skipPressed), NSDirectionalRectEdgeTrailing);
     toolbar.skipTapped = tapped;
@@ -619,6 +628,7 @@ void skip_button_show(bool show)
 
 void keys_button_create(void *, void (*tapped)())
 {
+    if (toolbar && toolbar.keys) toolbar.keysTapped = tapped;     // a later engine's
     if (!toolbar || toolbar.keys) return;
     toolbar.keys = corner_button(@"keyboard", @"Keys", @"Keyboard", @selector(keysPressed), NSDirectionalRectEdgeLeading);
     toolbar.keysTapped = tapped;

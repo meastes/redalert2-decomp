@@ -20,9 +20,15 @@
 #include "goptions.h"
 #include "globals.h"
 #include "mainloop.h"
+#include "saveload.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 extern "C" void ra2_enh_in_play(int on);   // platform/sdl/enhancements.cpp
 extern "C" void ra2port_frame(int frame);  // port/src/run_progress.cpp
+extern "C" void ra2port_progress(const char *milestone, const char *detail);   // port/src/run_progress.cpp
 
 extern "C" int ra2_native_scroll_map(int, int, int dx, int dy)
 {
@@ -40,6 +46,28 @@ extern "C" void ra2_native_save_settings(void)
     Options.Save_Settings();
 }
 
+// Test harness (lane Y9; RA2's link/harness_save.cpp, test scaffolding, never game behaviour):
+// RA2_NATIVE_SAVE_AT=<frame>[,<file>] saves the game at that loop frame as the options menu's
+// Save ends in (Save_Game), under <file> (default SAVE0001.SAV) in the game's write folder.
+static void yr_native_harness_save(int frame)
+{
+    static int at = -2;
+    static char file[64] = "SAVE0001.SAV";
+    if (at == -2) {
+        at = -1;
+        if (char const *env = getenv("RA2_NATIVE_SAVE_AT")) {
+            at = atoi(env);
+            if (char const *comma = strchr(env, ',')) snprintf(file, sizeof file, "%s", comma + 1);
+        }
+    }
+    if (at < 0 || frame != at) return;
+    bool saved = Save_Game(file, L"Native harness save", false);
+    char detail[128];
+    snprintf(detail, sizeof detail, "frame %d: %s %s", frame, saved ? "saved" : "save failed", file);
+    fprintf(stderr, "harness-save: %s\n", detail);
+    ra2port_progress("harness-save", detail);
+}
+
 bool yr_native_main_loop(void)
 {
     static int frames = 0;
@@ -47,6 +75,7 @@ bool yr_native_main_loop(void)
     bool over = Main_Loop();
     if (over) ra2_enh_in_play(0);
     ra2port_frame(++frames);
+    yr_native_harness_save(frames);
     return over;
 }
 

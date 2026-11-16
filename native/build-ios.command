@@ -3,7 +3,14 @@
 # The iOS app (README "iOS"; Scout1247), in the shape of Outpost 2's
 # build-ios.command: CMake for CMAKE_SYSTEM_NAME=iOS, arm64, SDL3 3.4.2 built
 # statically from source, the same native tree as the Mac app.
-#   native/build-ios.command [simulator|device] [--yr] [CMake options]
+#   native/build-ios.command [simulator|device] [--ra2|--yr] [CMake options]
+# The default (lane Y9): the one-game app, Red Alert 2 and Yuri's Revenge in one executable
+# (native/yr/README.md "One game"), build/ios-one-<platform>/RA2YR.app. It replaces the Red Alert 2
+# app: bundle id io.github.ra2native.RA2, home-screen name "Red Alert 2", so the player's saves,
+# settings and imported Red Alert 2 files carry over (it asks only for Yuri's Revenge's files). It
+# needs llvm-mingw's headers as --yr does. (--one names it too.)
+# --ra2: the Red Alert 2 app on its own, build/ios-<platform>/RA2.app (same bundle id: kept until
+# the owner retires it).
 # --yr (lane Y7, native/yr/README.md "yr-native on iOS"): Yuri's Revenge's own app, YR.app
 # (bundle id io.github.ra2native.YR), built from the pinned ra2-decomp tree as yr-native is on the
 # Mac, in build/ios-yr-<platform>; it needs llvm-mingw's headers (RA2_NATIVE_YR_MINGW, found under
@@ -13,8 +20,9 @@
 # build is signed with the user's team id in RA2_IOS_TEAM, given on the command
 # line and never stored in Git (packaging/ios_sign.py: a development profile and
 # identity Xcode already made; none is created here). Install with
-#   xcrun devicectl device install app --device <udid> build/ios-device/RA2.app
-#   xcrun devicectl device install app --device <udid> build/ios-yr-device/YR.app   (--yr)
+#   xcrun devicectl device install app --device <udid> build/ios-one-device/RA2YR.app   (default)
+#   xcrun devicectl device install app --device <udid> build/ios-device/RA2.app         (--ra2)
+#   xcrun devicectl device install app --device <udid> build/ios-yr-device/YR.app       (--yr)
 #
 # Ninja, not Xcode's generator: the link closure and the duplicate weakening
 # read the objects' paths at build time (native/CMakeLists.txt), which Xcode's
@@ -36,15 +44,26 @@ if [[ $# -gt 0 ]]; then shift; fi
 case "$platform" in
   simulator) sdk=iphonesimulator ;;
   device) sdk=iphoneos ;;
-  *) echo 'usage: native/build-ios.command [simulator|device] [--yr|--one] [CMake options]' >&2; exit 2 ;;
+  *) echo 'usage: native/build-ios.command [simulator|device] [--ra2|--yr] [CMake options]' >&2; exit 2 ;;
 esac
-game_options=()
-target=ra2-native
-exe=RA2
+# The default: the one-game app (lane Y9).
+game_options=(-DRA2_NATIVE_YR=ON -DRA2_NATIVE_COMBINED=ON -DRA2_NATIVE_ONE_EXECUTABLE=ON)
+target=ra2yr-one
+exe=RA2YR
 bundle_id=io.github.ra2native.RA2
-build_default="build/ios-$platform"
+build_default="build/ios-one-$platform"
 audit_exe="${RA2_GAME_EXE:-}"
-if [[ "${1:-}" == --yr ]]; then
+if [[ "${1:-}" == --one ]]; then
+  shift
+elif [[ "${1:-}" == --ra2 ]]; then
+  # The Red Alert 2 app on its own (kept until the owner retires it).
+  shift
+  game_options=()
+  target=ra2-native
+  exe=RA2
+  bundle_id=io.github.ra2native.RA2
+  build_default="build/ios-$platform"
+elif [[ "${1:-}" == --yr ]]; then
   shift
   game_options=(-DRA2_NATIVE_YR=ON)
   target=yr-native
@@ -52,14 +71,6 @@ if [[ "${1:-}" == --yr ]]; then
   bundle_id=io.github.ra2native.YR
   build_default="build/ios-yr-$platform"
   audit_exe="${RA2_GAMEMD_EXE:-}"
-elif [[ "${1:-}" == --one ]]; then
-  # Lane Y8: both games in one executable (native/yr/README.md "iOS in one executable"), RA2YR.app.
-  shift
-  game_options=(-DRA2_NATIVE_YR=ON -DRA2_NATIVE_COMBINED=ON -DRA2_NATIVE_ONE_EXECUTABLE=ON)
-  target=ra2yr-one
-  exe=RA2YR
-  bundle_id=io.github.ra2native.RA2YR
-  build_default="build/ios-one-$platform"
 fi
 build="${RA2_IOS_BUILD_DIR:-$build_default}"
 

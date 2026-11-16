@@ -195,15 +195,11 @@ NOT_VIEWS = {
     'UnknownNodeList_006003d0': 'a list of text nodes at +0x34 (0x006003D0; owner not identified)',
     'UnknownListOwner_00600350': 'an owner of a block, a node list and a string (0x00600350; not identified)',
     'UnknownListOwner_00602510': 'the same with another layout (0x00602510; not identified)',
-    'UnknownList_636ea0': 'a pointer array at +0xCC (0x00636EA0; owner not identified)',
     'PhoneEdit': 'the phone book dialog (phone_edit.hpp), not an EditClass gadget',
 }
 # Views whose name or comment does not name their real class.
 VIEW_OF = {
     'UnknownBuildingSlot105': 'CellClass',     # "The cell slot 105 returns (+0x10A)" (building_class.hpp)
-    # 0x005B5D80 lays out the message list's labels from +0x08 (Y) in steps of +0x14
-    # (Height): MessageListClass's members (Scout1115).
-    'UnknownLayoutList_005b5d80': 'MessageListClass',
 }
 SAYS_VIEW = re.compile(r'\b(?:views? of|stand-ins? (?:of|for)|view until|as far as)\s+(?:the\s+)?(\w+Class|Tactical)\b|'
                        r'\b(\w+Class) as (?:\w+ )*(?:reads?|sees?|uses?) it')

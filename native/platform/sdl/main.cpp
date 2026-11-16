@@ -71,6 +71,7 @@ extern "C" int ra2port_initterm_last(int *units);
 extern "C" void ra2port_run_to(const char *target, int seconds);
 extern "C" void ra2port_run_end(const char *why);
 extern "C" void ra2port_run_retire(void);
+extern "C" int ra2port_stop_threads(void);   // port/src/run_progress.cpp (lane Y9)
 extern "C" void ra2port_set_skirmish(const char *map, int frames);
 extern "C" void ra2port_set_skirmish_order(const char *order);
 extern "C" void ra2port_set_frames(int frames);
@@ -286,6 +287,9 @@ extern "C" __attribute__((visibility("default"))) int ra2_engine_main(int argc, 
     if (engine->toggle_label && *engine->toggle_label) ra2port::set_game_toggle(engine->toggle_label, engine_toggle_clicked);
     if (engine->skip_intro) ra2port::set_skip_startup_movies(true);
     int code = host_main(argc, argv);
+    // Lane Y9: the host ends the game's remaining threads after its exit handlers (a
+    // one-executable engine's code stays live and its data is reset at its next start).
+    engine->stop_threads = ra2port_stop_threads;
     engine->window = ra2_sdl_host_window();
     ra2_sdl_host_release();
     return code;
@@ -443,7 +447,12 @@ int main(int argc, char **argv)
         if (hostos::imports_game_files()) {
             // iOS (Scout1247): the game's window first (the picker and the messages are shown
             // over it); the game's CreateWindowExA takes it over.
-            SDL_Window *window = SDL_CreateWindow(app::kTitle, 800, 600, SDL_WINDOW_FULLSCREEN | SDL_WINDOW_HIGH_PIXEL_DENSITY);
+            SDL_Window *window = nullptr;
+#ifdef RA2_NATIVE_ENGINE
+            // After a swap (lane Y9): the window the previous engine used, not a second one.
+            window = (SDL_Window *)engine->window;
+#endif
+            if (!window) window = SDL_CreateWindow(app::kTitle, 800, 600, SDL_WINDOW_FULLSCREEN | SDL_WINDOW_HIGH_PIXEL_DENSITY);
             app_window = window;
             if (!window) fprintf(stderr, "app: window: %s\n", SDL_GetError());
             ra2_sdl_host_use_window(window);
@@ -453,9 +462,22 @@ int main(int argc, char **argv)
             ready = app::setup(app_settings, force, folder, exe);
         }
         if (!ready) {
+#ifdef RA2_NATIVE_ENGINE
+            // The one-game app (lane Y9): the player declined this game's import (Not Now) while
+            // the other game's files are in place: back to the other game's main menu, not out of
+            // the app.
+            if (app::other_game_ready()) {
+                fprintf(stderr, "app: setup cancelled: back to the other game\n");
+                engine->swap = 1;
+                return 0;
+            }
+            fprintf(stderr, "app: setup cancelled\n");
+            return 0;       // (the thin host ends SDL)
+#else
             fprintf(stderr, "app: setup cancelled\n");
             SDL_Quit();
             return 0;
+#endif
         }
         static std::string data_dir_kept;
         data_dir_kept = folder;

@@ -565,6 +565,12 @@ if(RA2_NATIVE_SDL)
         add_test(NAME native-link-closure-selftest COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/link_closure_baseline.py"
                  --self-test)
       endif()
+      # 10b. Name-keyed native rules (lane CB audit after C22's tank-damage fix): every
+      #      native_units.py rule, fixups.json rename, view_audit.py view note and member/bss
+      #      alias row still keys on a name the tree has (tools/name_rules_check.py); a rename
+      #      in src/ that a rule does not follow fails here instead of silently matching nothing.
+      add_test(NAME native-name-rules COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/name_rules_check.py"
+               --root "${CMAKE_CURRENT_SOURCE_DIR}/..")
       # 11. Enhancements (C3): the ORIGINAL preset draws the default frames byte for byte
       #     outside the menu's animated pixels, and the ENHANCED preset does not (the check
       #     sees the scaling). Needs the installed game, as native-census.

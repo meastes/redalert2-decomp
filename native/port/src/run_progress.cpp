@@ -8,6 +8,7 @@
 #include "os.hpp"
 
 #include <chrono>
+#include <condition_variable>
 #include <execinfo.h>
 #include <map>
 #include <pthread.h>
@@ -63,6 +64,8 @@ struct State {
     std::map<std::string, std::vector<std::string>> counters;
     bool done = false;
     bool retired = false;   // the combined app's swap ended this engine (lane Y5): its watchdog stands down
+    std::condition_variable retire_cv;   // wakes the watchdog when retired (lane Y9)
+    std::thread *watchdog = nullptr;     // joined by ra2port_stop_threads (lane Y9)
 };
 // Never destroyed: the watchdog thread outlives exit handlers (the combined app runs an ended
 // engine's handlers while its thread still sleeps, lane Y5).
@@ -258,9 +261,12 @@ void ra2port_run_to(const char *target, int seconds)
     for (int sig : {SIGSEGV, SIGBUS, SIGILL, SIGFPE, SIGABRT}) sigaction(sig, &action, nullptr);
     main_thread = pthread_self();
     signal(SIGUSR2, on_stall);
-    std::thread([] {
-        std::this_thread::sleep_for(std::chrono::seconds(state().seconds));
-        if (state().retired) return;
+    State *run = &s;
+    s.watchdog = new std::thread([run] {
+        {
+            std::unique_lock<std::mutex> g(run->lock);
+            if (run->retire_cv.wait_for(g, std::chrono::seconds(run->seconds), [run] { return run->retired; })) return;
+        }
         pthread_kill(main_thread, SIGUSR2);
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
         {
@@ -270,7 +276,7 @@ void ra2port_run_to(const char *target, int seconds)
             summary_locked(what);
         }
         _exit(2);
-    }).detach();
+    });
 }
 
 int ra2port_run_active(void) { return ra2port::state().active ? 1 : 0; }
@@ -283,6 +289,47 @@ void ra2port_run_retire(void)
     std::lock_guard<std::mutex> g(state().lock);
     state().retired = true;
     state().active = false;
+    state().retire_cv.notify_all();
+}
+
+int ra2port_stop_timers(void);                                  // gdi_winmm_advapi.cpp
+int ra2port_wait_game_threads(unsigned ms, void **left, int max);  // kernel32.cpp
+}
+bool ra2port_stop_async_select();                               // wsock32.cpp
+extern "C" {
+
+// The one-game app (lane Y9; native/yr/README.md "iOS in one executable" item 5): this engine has
+// ended (WinMain returned) and its code stays live for the game's next start, which resets the
+// game's data in place, so none of its threads may still run: the multimedia timers it left
+// (stopped and joined), the WSAAsyncSelect thread (joined), the run's watchdog (retired, joined),
+// and the game's own CreateThread threads (waited for: they end with the game's shutdown; any
+// still running after the wait is named in the log).
+int ra2port_stop_threads(void)
+{
+    using namespace ra2port;
+    int timers = ra2port_stop_timers();
+    bool sockets = ra2port_stop_async_select();
+    std::thread *watchdog = nullptr;
+    {
+        std::lock_guard<std::mutex> g(state().lock);
+        state().retired = true;
+        state().active = false;
+        watchdog = state().watchdog;
+        state().watchdog = nullptr;
+    }
+    state().retire_cv.notify_all();
+    bool had_watchdog = watchdog != nullptr;
+    if (watchdog && watchdog->joinable()) watchdog->join();
+    delete watchdog;
+    void *left[16] = {};
+    int running = ra2port_wait_game_threads(3000, left, 16);
+    fprintf(stderr, "engine: threads stopped: %d timer(s)%s%s, %d game thread(s) still running\n", timers,
+            sockets ? ", the socket thread" : "", had_watchdog ? ", the watchdog" : "", running);
+    for (int i = 0; i < running && i < 16; ++i) {
+        Dl_info info = {};
+        fprintf(stderr, "engine: game thread still running: %p %s\n", left[i], dladdr(left[i], &info) && info.dli_sname ? info.dli_sname : "");
+    }
+    return running;
 }
 
 // Milestones reported from the dialect side (native/link/harness_skirmish.cpp).

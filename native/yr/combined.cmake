@@ -15,17 +15,27 @@ endif()
 
 set(ra2_engine_link_options "LINKER:-exported_symbol,_ra2_engine_main")
 
-# Each game's SDL host compiled as an engine (main.cpp's main becomes ra2_engine_main).
-add_library(ra2_engine_host_objs OBJECT ${ra2_host_sources})
+# Each game's SDL host compiled as an engine (main.cpp's main becomes ra2_engine_main). The Apple
+# host services (host_apple.mm) are compiled once, outside the engines (lane Y9): ra2yr-one links
+# that one copy with the thin host and both engines call it (its Objective-C classes are global in
+# the runtime); each Mac bundle links it in as before (no class there: the classes are iOS's).
+set(ra2_engine_host_sources ${ra2_host_sources})
+set(ra2_engine_hostos "")
+if(APPLE)
+  list(REMOVE_ITEM ra2_engine_host_sources platform/sdl/host_apple.mm)
+  add_library(ra2_engine_hostos_objs OBJECT platform/sdl/host_apple.mm)
+  set(ra2_engine_hostos $<TARGET_OBJECTS:ra2_engine_hostos_objs>)
+endif()
+add_library(ra2_engine_host_objs OBJECT ${ra2_engine_host_sources})
 target_link_libraries(ra2_engine_host_objs PRIVATE SDL3::SDL3 ra2_port)
 target_compile_definitions(ra2_engine_host_objs PRIVATE RA2_NATIVE_GAME=1 RA2_NATIVE_ENGINE=1)
-add_library(yr_engine_host_objs OBJECT ${ra2_host_sources})
+add_library(yr_engine_host_objs OBJECT ${ra2_engine_host_sources})
 target_link_libraries(yr_engine_host_objs PRIVATE SDL3::SDL3 ra2_port)
 target_compile_definitions(yr_engine_host_objs PRIVATE RA2_NATIVE_GAME=1 RA2_NATIVE_YR=1 RA2_NATIVE_ENGINE=1)
 
 if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")   # bundles: the Mac's (iOS loads no bundle)
 # Red Alert 2: ra2-native's objects (they are already weakened by its PRE_LINK: built after it).
-add_library(ra2-engine MODULE $<TARGET_OBJECTS:ra2_engine_host_objs> $<TARGET_OBJECTS:ra2_recovered_objs>
+add_library(ra2-engine MODULE $<TARGET_OBJECTS:ra2_engine_host_objs> ${ra2_engine_hostos} $<TARGET_OBJECTS:ra2_recovered_objs>
             $<TARGET_OBJECTS:ra2_data> "${RA2_NATIVE_GEN}/link_closure.c")
 target_link_libraries(ra2-engine PRIVATE SDL3::SDL3 ra2_port ${ra2_host_frameworks})
 target_compile_definitions(ra2-engine PRIVATE RA2_NATIVE_GAME=1)
@@ -35,7 +45,7 @@ set_target_properties(ra2-engine PROPERTIES PREFIX "" SUFFIX ".so")
 add_dependencies(ra2-engine ra2-native)
 
 # Yuri's Revenge: yr-native's objects (weakened and their initialisers deferred by its PRE_LINK).
-add_library(yr-engine MODULE $<TARGET_OBJECTS:yr_engine_host_objs> $<TARGET_OBJECTS:yr_units_objs>
+add_library(yr-engine MODULE $<TARGET_OBJECTS:yr_engine_host_objs> ${ra2_engine_hostos} $<TARGET_OBJECTS:yr_units_objs>
             $<TARGET_OBJECTS:yr_data_obj> "${RA2_NATIVE_YR_GEN}/link_closure.c")
 target_link_libraries(yr-engine PRIVATE SDL3::SDL3 ra2_port ${ra2_host_frameworks})
 target_compile_definitions(yr-engine PRIVATE RA2_NATIVE_GAME=1 RA2_NATIVE_YR=1)
@@ -129,13 +139,14 @@ if(RA2_NATIVE_ONE_EXECUTABLE)
     list(APPEND ra2_one_engine_objects "${out}")
   endforeach()
   set_source_files_properties(${ra2_one_engine_objects} PROPERTIES EXTERNAL_OBJECT TRUE GENERATED TRUE)
-  add_executable(ra2yr-one "${CMAKE_CURRENT_SOURCE_DIR}/yr/combined/one_game.cpp" ${ra2_one_engine_objects})
+  add_executable(ra2yr-one "${CMAKE_CURRENT_SOURCE_DIR}/yr/combined/one_game.cpp" ${ra2_engine_hostos} ${ra2_one_engine_objects})
   target_compile_definitions(ra2yr-one PRIVATE RA2_NATIVE_ONE_EXECUTABLE=1)
   target_link_libraries(ra2yr-one PRIVATE SDL3::SDL3 ${ra2_host_frameworks})
   if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
-    # The iOS app of the design (build-ios.command --one): its own bundle id for now, so the
-    # Simulator's RA2.app and YR.app and their data stay as they are.
-    ra2_ios_app(ra2yr-one RA2YR "io.github.ra2native.RA2YR" "Red Alert 2 + YR")
+    # The iOS app (build-ios.command, the default since lane Y9): it replaces the Red Alert 2 app,
+    # with its bundle id and name (owner ruling 2026-11-16), so the player's Red Alert 2 saves,
+    # settings and imported files carry over; it asks only for Yuri's Revenge's files.
+    ra2_ios_app(ra2yr-one RA2YR "io.github.ra2native.RA2" "Red Alert 2")
   endif()
 endif()
 if(RA2_NATIVE_ONE_EXECUTABLE AND NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")

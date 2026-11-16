@@ -148,13 +148,13 @@ constexpr ra2build::Game kHostGame = ra2build::Game::ra2;
 #endif
 // The MIX files a base Red Alert 2 installation has: the missing ones, or "". Yuri's Revenge
 // (lane Y7) reads both games' MIX files: its own four as well.
-std::string missing_mix(std::string const &dir)
+std::string missing_mix(std::string const &dir, ra2build::Game game = kHostGame)
 {
     static const char *const required[] = {"ra2.mix", "language.mix", "multi.mix", "theme.mix",
                                            "ra2md.mix", "langmd.mix", "multimd.mix", "thememd.mix"};
     std::string missing;
     for (const char *name : required) {
-        if (kHostGame != ra2build::Game::yr && !strncmp(name + strlen(name) - 6, "md.mix", 6)) continue;
+        if (game != ra2build::Game::yr && !strncmp(name + strlen(name) - 6, "md.mix", 6)) continue;
         if (!is_file(find_file(dir, name))) missing += (missing.empty() ? "" : ", ") + std::string(name);
     }
     return missing;
@@ -166,7 +166,7 @@ constexpr const char *kExeKey = kHostGame == ra2build::Game::yr ? "yr_game_exe" 
 enum class Exe { missing, supported, other };
 // Why the last checked game.exe was refused (ra2build::classify).
 std::string &exe_reason() { static std::string r; return r; }
-Exe check_exe(std::string const &path, std::string &digest, long long &size)
+Exe check_exe(std::string const &path, std::string &digest, long long &size, ra2build::Game game = kHostGame)
 {
     digest.clear();
     size = 0;
@@ -192,7 +192,7 @@ Exe check_exe(std::string const &path, std::string &digest, long long &size)
         char h[65];
         part.hex(h);
         return std::string(h);
-    }, &exe_reason(), kHostGame);
+    }, &exe_reason(), game);
     return kind == ra2build::Kind::other ? Exe::other : Exe::supported;
 }
 
@@ -437,20 +437,28 @@ bool import_wanted(std::string const &lower)
 
 std::string game_data_dir() { return support_dir() + "/GameData"; }
 
-// The imported files are complete: "" or why not.
-std::string imported_problem(std::string const &dir)
+// The imported files are complete (for this game, or the given one): "" or why not.
+std::string imported_problem(std::string const &dir, ra2build::Game game = kHostGame)
 {
     if (!is_dir(dir)) return "no game files have been imported";
-    std::string missing = missing_mix(dir);
+    std::string missing = missing_mix(dir, game);
     if (!missing.empty()) return "missing " + missing;
     if (!is_file(dir + "/binkw32.dll")) return "missing BINKW32.DLL";
     std::string digest;
     long long size = 0;
-    Exe exe = check_exe(dir + "/" + ra2build::exe_name(kHostGame), digest, size);
-    std::string name = ra2build::exe_name(kHostGame);
+    Exe exe = check_exe(dir + "/" + ra2build::exe_name(game), digest, size, game);
+    std::string name = ra2build::exe_name(game);
     if (exe == Exe::missing) return "missing " + name;
     if (exe == Exe::other) return name + " is a build the native game cannot read (" + exe_reason() + ")";
     return "";
+}
+
+// The one-game app (lane Y9): the other game's files are complete in GameData, so declining this
+// game's import can go back to the other game (main.cpp). False where files are not imported.
+bool other_game_ready()
+{
+    if (!hostos::imports_game_files()) return false;
+    return imported_problem(game_data_dir(), kHostGame == ra2build::Game::yr ? ra2build::Game::ra2 : ra2build::Game::yr).empty();
 }
 
 bool copy_file(std::string const &from, std::string const &to)
@@ -474,6 +482,27 @@ bool copy_file(std::string const &from, std::string const &to)
     if (out >= 0 && close(out) != 0) ok = false;
     close(in);
     return ok;
+}
+
+// Two files with the same contents, as far as an import needs to know (lane Y9): the same size,
+// and the same bytes when small (a game's MIX files are told apart by name and size).
+bool same_file(std::string const &a, std::string const &b)
+{
+    struct stat sa, sb;
+    if (stat(a.c_str(), &sa) != 0 || stat(b.c_str(), &sb) != 0 || !S_ISREG(sa.st_mode) || !S_ISREG(sb.st_mode)) return false;
+    if (sa.st_size != sb.st_size) return false;
+    if (sa.st_size > (16 << 20)) return true;
+    FILE *fa = fopen(a.c_str(), "rb"), *fb = fopen(b.c_str(), "rb");
+    bool same = fa && fb;
+    static char ba[1 << 16], bb[1 << 16];
+    while (same) {
+        size_t na = fread(ba, 1, sizeof ba, fa), nb = fread(bb, 1, sizeof bb, fb);
+        if (na != nb || memcmp(ba, bb, na) != 0) same = false;
+        if (na == 0) break;
+    }
+    if (fa) fclose(fa);
+    if (fb) fclose(fb);
+    return same;
 }
 
 void remove_tree(std::string const &path)
@@ -528,13 +557,49 @@ std::string import_game_files(std::string source)
     closedir(d);
     long long bytes = 0;
     int files = 0;
+    int linked = 0;
     for (auto const &kv : by_lower) {
         if (!problem.empty()) break;
+#ifdef RA2_NATIVE_ENGINE
+        // The one-game app (lane Y9): a file imported before that is the same as the folder's
+        // (the same size; small files also the same bytes) is linked, not copied again (a Yuri's
+        // Revenge import from the full installation copies only Yuri's Revenge's files).
+        if (same_file(source + "/" + kv.second, dir + "/" + kv.first) && link((dir + "/" + kv.first).c_str(), (staging + "/" + kv.first).c_str()) == 0) {
+            ++linked;
+            ++files;
+            continue;
+        }
+#endif
         if (!copy_file(source + "/" + kv.second, staging + "/" + kv.first)) problem = "copying " + kv.second + " failed (" + strerror(errno) + ")";
         struct stat st;
         if (stat((staging + "/" + kv.first).c_str(), &st) == 0) bytes += st.st_size;
         ++files;
     }
+#ifdef RA2_NATIVE_ENGINE
+    // The one-game app (lane Y9): an import adds to the files imported before (the Red Alert 2
+    // app's import, then a folder with Yuri's Revenge's files), keeping each file the chosen
+    // folder does not have; a file it has replaces the old one. Hard links in the same volume
+    // (a copy where linking fails), so nothing is copied twice.
+    int kept = 0;
+    if (problem.empty() && is_dir(dir)) {
+        if (DIR *old = opendir(dir.c_str())) {
+            while (struct dirent *e = readdir(old)) {
+                std::string name = e->d_name;
+                if (name == "." || name == ".." || by_lower.count(name)) continue;
+                std::string from = dir + "/" + name, to = staging + "/" + name;
+                struct stat st;
+                if (lstat(from.c_str(), &st) != 0 || !S_ISREG(st.st_mode)) continue;
+                if (link(from.c_str(), to.c_str()) != 0 && !copy_file(from, to)) {
+                    problem = "keeping the imported " + name + " failed (" + strerror(errno) + ")";
+                    break;
+                }
+                ++kept;
+            }
+            closedir(old);
+        }
+    }
+    if (kept || linked) fprintf(stderr, "app: import keeps %d file(s) imported before and %d the same as the folder's\n", kept, linked);
+#endif
     if (problem.empty()) problem = imported_problem(staging);
     if (!problem.empty()) {
         remove_tree(staging);
@@ -589,7 +654,23 @@ bool setup_imported(void *native_window, bool force, std::string &data_dir, std:
     std::string note;
     while (!problem.empty()) {
         fprintf(stderr, "app: game files: %s\n", problem.c_str());
-        int b = ask(kTitle, note + (kHostGame == ra2build::Game::yr
+        std::string prompt;
+#ifdef RA2_NATIVE_ENGINE
+        // The one-game app (lane Y9): Yuri's Revenge's files added to the Red Alert 2 files the
+        // app has (the Red Alert 2 app's import carried over), or both games' in one pick.
+        if (kHostGame == ra2build::Game::yr && imported_problem(dir, ra2build::Game::ra2).empty())
+            prompt = "Yuri's Revenge needs its own files once. Your Red Alert 2 files are already imported: choose "
+                     "the folder where Yuri's Revenge is installed (it holds ra2md.mix and gamemd.exe), for example on "
+                     "a Mac shared in Files or copied to On My iPhone.\n\nThe app adds Yuri's Revenge's data files "
+                     "(about 1 GB) to the ones it has and never changes the folder.";
+        else
+            prompt = "Red Alert 2 and Yuri's Revenge need your game files once. Choose the folder where Red Alert 2 "
+                     "is installed, with Yuri's Revenge if you have it (it holds ra2.mix and game.exe, and ra2md.mix "
+                     "and gamemd.exe), for example on a Mac shared in Files or copied to On My iPhone.\n\nThe app "
+                     "copies the games' data files (about 1 GB for each game) into its own storage and never changes "
+                     "the folder.";
+#endif
+        if (prompt.empty()) prompt = kHostGame == ra2build::Game::yr
                     ? "Yuri's Revenge needs your game files once. Choose the folder where Red Alert 2 and Yuri's Revenge "
                       "are installed (it holds ra2md.mix and gamemd.exe), for example on a Mac shared in Files or copied to "
                       "On My iPhone.\n\nThe app copies the game's data files (about 2 GB) into its own storage and never "
@@ -597,7 +678,8 @@ bool setup_imported(void *native_window, bool force, std::string &data_dir, std:
                     : "Red Alert 2 needs your game files once. Choose the folder where Red Alert 2 is "
                       "installed (it holds ra2.mix and game.exe), for example on a Mac shared in Files or copied to "
                       "On My iPhone.\n\nThe app copies the game's data files (about 1 GB) into its own storage and never "
-                      "changes the folder."), {"Choose Folder…", "Not Now"});
+                      "changes the folder.";
+        int b = ask(kTitle, note + prompt, {"Choose Folder…", "Not Now"});
         if (b != 0) return false;
         ImportPick pick;
         std::string answer;

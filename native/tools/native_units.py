@@ -88,8 +88,10 @@ RULES = [
     # rename of 0d65d9378 (lane CB g2), MapClass_RadiusCount. That rename slipped past this
     # rule for a day: Explosion_Damage's ring loop read 0 cells for any CellSpread above 0
     # (tank shells hit nothing; lane C22) and Sight_From revealed the wrong cells. The
-    # guard in port() (RADIUS_COUNT_LEFT) now fails a spelling this rule does not take.
-    (re.compile(r'\bextern\s+int\s+const\s+(unknown_radius_(?:count|starts)_7a5908|MapClass_RadiusCount)\s*\[\s*\]\s*;'),
+    # guard in port() (RADIUS_COUNT_LEFT) now fails a spelling this rule does not take, and
+    # tools/name_rules_check.py (ctest native-name-rules) fails a name this rule spells that src/
+    # no longer has (the old unknown_radius_count_7a5908 alternative is gone with it).
+    (re.compile(r'\bextern\s+int\s+const\s+(unknown_radius_starts_7a5908|MapClass_RadiusCount)\s*\[\s*\]\s*;'),
      r'int const *ra2port_radius_count_7a5908();   /* native: the whole stored table */\n#define \1 (ra2port_radius_count_7a5908())'),
     # VC6 variadic forwarding: `vswprintf(buffer, format, (char *)(&flags + 1))`
     # passes the address after the last named parameter as the va_list (the x86

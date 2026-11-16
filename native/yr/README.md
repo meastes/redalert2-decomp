@@ -529,6 +529,53 @@ bundle audit 1 day. About 5 days (35-45 hours), the main risks being state that 
 outside the data range (the port's heap-held singletons are inside it; SDL's and hostos's are not
 and must be released per swap) and the executable's size (YR.app's is 14 MB, 7 MB of it code; two games about twice that).
 
+### The one-game app as the iPhone app (lane Y9, 2026-11-16)
+
+* **The app.** `native/build-ios.command simulator|device` builds the one-game app by default
+  (`build/ios-one-<platform>/RA2YR.app`; `--ra2` the Red Alert 2 app alone, `--yr` Yuri's Revenge's).
+  Owner ruling: it replaces the Red Alert 2 app, with its bundle id `io.github.ra2native.RA2` and
+  name "Red Alert 2", so the Red Alert 2 app's import (GameData), saves (Documents/Game), settings
+  and RA2.INI carry over; Yuri's Revenge writes under Documents/Game/YR. The standalone YR app
+  (`io.github.ra2native.YR`) stays buildable.
+* **Import.** In the one-game app an import adds to what was imported before
+  (`app_mode.hpp import_game_files` under RA2_NATIVE_ENGINE): a file the folder has the same
+  (same size; small files the same bytes) is hard-linked from the old GameData, a file it lacks is
+  kept (linked), a file it has otherwise replaces the old one; the staging folder is checked and
+  swapped in by rename as before. So a player who had the Red Alert 2 app is asked, at the toggle to
+  Yuri's Revenge, only for Yuri's Revenge's files (the prompt says the Red Alert 2 files are already
+  there; picking the full installation copies only Yuri's Revenge's ~0.9 GB); a fresh install
+  imports both games in one pick (the prompt names both). "Not Now" at Yuri's Revenge's import
+  goes back to Red Alert 2's main menu (`app::other_game_ready`, engine->swap) instead of leaving
+  the app. After a swap the engine takes the window the previous one used (it made a second
+  full-screen window before).
+* **Threads before a reset.** `ra2port_stop_threads` (port/src/run_progress.cpp), handed to the
+  thin host as `ra2_engine_host::stop_threads` (API version 2) and called after the ended engine's
+  exit handlers: those end the game's own threads (Prog_End's Kill_Mouse_Thread, YR's
+  FUN_007B86B0); then the multimedia timers it left are stopped and joined, the WSAAsyncSelect
+  thread joined (it was detached and looped for ever), the run's watchdog woken and joined (it
+  slept on a plain sleep), and the CreateThread threads still alive are waited for (3 s) and named
+  in the log. The port's state those use is never destroyed (function-local heap objects), since
+  the exit handlers' static destructors run first. Mac: `one-exe-toggle` and `one-game-toggle`
+  show "0 timer(s), the watchdog, 0 game thread(s) still running" at every swap (before the order
+  change the mouse threads of both games were still running at the stop).
+* **One Apple host.** `host_apple.mm` is compiled once (`ra2_engine_hostos_objs`): linked into
+  `ra2yr-one` beside the thin host and into each Mac bundle; the engines' `-r` objects leave
+  `hostos::*` undefined and bind to it. The YR class renames are gone. What it keeps across a swap
+  calls the engine that started last: `toolbar_create`, `skip_button_create`,
+  `keys_button_create` and `watch_audio_interruptions` rebind their callbacks when the toolbar or
+  observer already exists.
+* **Saves.** Red Alert 2's saves work in the one-game app as in RA2.app. Yuri's Revenge cannot save
+  yet: the port writes saves only in the original's compound format, from the field maps of Red
+  Alert 2's classes (gen/original_layouts.cpp), and the YR build has none, so YR's Save_Game fails
+  cleanly ("stg: ... no field maps"). With the port's own container (the test hook
+  RA2_NATIVE_TEST_PORT_SAVE=1) YR's Put_All writes a 762 KB save on the Mac without a trap; loading
+  it is untested. Test harness: RA2_NATIVE_SAVE_AT=<frame>[,<file>] in the YR build too
+  (glue/yr_app_hooks.cpp).
+* **Simulator route** `yr/tests/ios_sim_one_game.py` (ctest-style, "RA2 Duo Validation" only):
+  the carry-over route (a Red Alert 2 import only -> an RA2 skirmish and save -> the toggle, YR's
+  files added, a YR skirmish and save attempt -> YR chosen last -> RA2 -> YR again, a reset -> a YR
+  skirmish -> RA2 loads its save) and `--fresh` (one import of both games, then the toggle).
+
 ## Next
 
 1. The buttons' targets (input not yet exercised; the runs are unattended): each submenu
@@ -540,8 +587,7 @@ and must be released per swap) and the executable's size (YR.app's is 14 MB, 7 M
    variables, union views with pointer members read at the same offsets.
 3. Init_Game's CD search when no search path is set (not drafted: the host always passes -CD.).
 4. Variant* and the other Win32 imports the port does not yet supply (the run lists them).
-5. (lane Y8) The one-game app on iOS: the engines' thread stop before a reset, one host_apple copy
-   in the thin host (the YR engine's classes are renamed for now), a device build of RA2YR.app and
-   its bundle id (keep RA2.app's, so its saves and settings carry over: the owner's call).
+5. (lane Y9) Yuri's Revenge's saves: field maps for YR's classes (the original's format), or an
+   owner ruling to let YR use the port's own container; then YR's Load.
 6. (lane Y8) Map zoom, Zoom gestures, Game interface size and HD vehicles for Yuri's Revenge: a YR
    copy of each native/link module and its fixups in the YR units (lane Y8 section: why).
