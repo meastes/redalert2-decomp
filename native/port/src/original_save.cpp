@@ -323,7 +323,7 @@ extern "C" int32_t ra2port_original_read(ra2port_stream_read_fn stream_read, voi
     return stream_read(stream, buffer, size, read);
 }
 
-// ---- Writing the original's saves (lane C17; RA2_NATIVE_SAVE_FORMAT=original) ----
+// ---- Writing the original's saves (lane C17; every save the port writes since lane C20) ----
 // While a storage written in the original's format is open (storage.cpp sets
 // ra2port_original_write_mode), every typed IStream::Write comes here, the mirror of
 // the read above: pointers are written as 4-byte swizzle ids (the id an object had in

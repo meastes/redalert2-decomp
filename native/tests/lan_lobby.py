@@ -16,7 +16,8 @@ do without Apple's multicast entitlement; port/src/wsock32.cpp). In each run:
 Passes when, in both runs: Alpha's Internet button is listed disabled (WS_DISABLED in its
 RA2_NATIVE_MSG_LOG control line) and no WM_COMMAND from it (0x684) reached the menu; each side's
 lobby shows the other's chat line (the "list text" lines of RA2_NATIVE_LIST_LOG); Bravo reaches
-the join screen (its third dialog); no fault. Skipped (77) without the installed game.
+the join screen (its third dialog); the two games' session UniqueIDs differ although both
+have the same PATH (each installation's random id); no fault. Skipped (77) without the installed game.
 
   lan_lobby.py --binary <ra2-native> --data-dir <installed RA2> --game-exe <game.exe> --work <dir>
 """
@@ -66,6 +67,9 @@ def check(tag, alpha, bravo):
         bad.append('%s Alpha: main menu Internet button not disabled (%s)' % (tag, line.group(0) if line else 'not listed'))
     if re.search(r': 0x111 684 ', alpha.out):
         bad.append('%s Alpha: a click on the disabled Internet button reached the menu' % tag)
+    ids = [re.findall(r'UniqueID is ([0-9a-f]+)', inst.out) for inst in (alpha, bravo)]
+    if not ids[0] or not ids[1] or ids[0][-1] == ids[1][-1]:
+        bad.append('%s the two games\' session UniqueIDs are not two different ones (%s)' % (tag, ids))
     if not re.search(r'^dialog shown #3 ', bravo.out, re.M):
         bad.append('%s Bravo: did not reach the join screen (Alpha\'s game not seen or not joined)' % tag)
     return bad
@@ -93,12 +97,9 @@ def main():
                 inst.env['RA2_NATIVE_MSG_LOG'] = '1'
                 inst.env['RA2_NATIVE_NET_LOG'] = '1'
                 inst.env['RA2_NATIVE_LIST_LOG'] = '1'
-                # The session's UniqueID (SessionClass::Compute_Unique_ID, session.cpp: timeGetTime,
-                # the free disk space capped at 2 GB, then PATH through Add_CRC, which keeps only a
-                # few of the time's bits) came out equal for the two games about one run in two, and
-                # each then ignores the other's chat announcements (as two original games would). A
-                # PATH ending in each one's own name makes the IDs differ in their low bits.
-                inst.env['PATH'] = inst.env.get('PATH', '') + ':/ra2-lan-' + inst.name
+                # Both with the same PATH (the user's two iPhones): the session UniqueIDs must
+                # still differ (each installation's random id, lane C20; checked below).
+                inst.env['PATH'] = os.environ.get('PATH', '')
                 inst.env.pop('RA2_NATIVE_TEST_NO_BROADCAST', None)
                 if inst.name == restricted:
                     inst.env['RA2_NATIVE_TEST_NO_BROADCAST'] = '1'

@@ -156,6 +156,12 @@ bool held();                 // the main thread is in the hold now
 void hold_if_paused();       // the queue reads call it when they find nothing
 // The game's clock: the monotonic clock less the time spent held (nanoseconds).
 uint64_t game_clock_ns();
+// This installation's random id (lane C20): the app keeps one in its settings file
+// (install_id) and gives it here before WinMain; SessionClass::Compute_Unique_ID mixes it
+// into the session's UniqueID (port/fixups.json, ra2port_install_id), so two games with the
+// same PATH (two iPhones, two Macs) never share one and ignore each other's LAN chat
+// announcements. Without one (test runs without --app) each process draws its own.
+void set_install_id(uint32_t id);
 // Checkpoint saves (Scout1248): the host asks for one (the iOS app when it goes to
 // the background, and periodically); the game side takes the request at the end of
 // its next Main_Loop pass (ra2port_take_checkpoint, link/harness_save.cpp) and saves

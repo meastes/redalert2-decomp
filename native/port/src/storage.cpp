@@ -5,11 +5,21 @@
 // Load_Game 0x00656890, SaveVersionInfo 0x00659530/0x00659A90; slot
 // orders as in the Win32 SDK's objidl.h/propidl.h).
 //
-// A storage is one host file in the port's own container format (not the
-// compound-file format: native save games are read by the native game only):
-// "RA2NSTG2" (version 2: MouseClass saved whole; "RA2NSTG1" saves still load),
-// the named streams, then the property sets. Streams live in
-// memory; Commit (or the last Release of a writable storage) writes the file.
+// Saves are written only in the original game's format (user, 2026-11-14; lane C20
+// made it the only writer): a compound file with the i686 object images, which the
+// installed game loads. The original's own saves are read in place, read only.
+// Streams live in memory; Commit (or the last Release of a storage the save code
+// created) writes the file.
+//
+// TRANSITION (lane C20; remove in release N+1): the port's own container, "RA2NSTG2"
+// (version 2: MouseClass saved whole; "RA2NSTG1" saves still load), the named streams,
+// then the property sets, is still READ for this one release, so a player's existing
+// port saves load and are saved again in the original's format. It is written only
+// under the test hook RA2_NATIVE_TEST_PORT_SAVE=1 (ctest native-port-save-transition
+// makes a port save with it). Release N+1 removes the reader (Storage::Load's container
+// branch), the hook and Storage::Save's container branch, ra2port_port_save_version
+// and the MouseClass version 1 read (port/fixups.json), and that ctest.
+#include "ra2port/original_layouts.hpp"
 #include "ra2port/win32_port.hpp"
 
 #include <algorithm>
@@ -397,17 +407,21 @@ bool compound_streams(std::vector<uint8_t> in, Data &data)
     return data.streams.count(ascii_w("CONTENTS")) != 0;
 }
 
-// ---- Writing the original's format (lane C17; RA2_NATIVE_SAVE_FORMAT=original) ----
+// ---- Writing the original's format (lane C17; the only format written since lane C20) ----
 // A compound file as ole32 lays one out for the game (version 3: 512-byte sectors, the
 // mini stream for streams under 4,096 bytes), holding the root storage's streams; the
 // property sets are left out (the original's own saves have none). The root entry's
 // state bits carry kPortMark: the port may replace or delete a compound file it wrote,
 // never one the original wrote.
 const uint32_t kPortMark = 0x504E3252u;   // "R2NP"
-bool save_format_original()
+
+// TRANSITION test hook (lane C20; removed with the container reader in release N+1):
+// RA2_NATIVE_TEST_PORT_SAVE=1 writes the port's old container, so ctest
+// native-port-save-transition can make the port save a player may still have.
+bool test_port_save()
 {
-    const char *f = getenv("RA2_NATIVE_SAVE_FORMAT");
-    return f && !strcmp(f, "original");
+    const char *f = getenv("RA2_NATIVE_TEST_PORT_SAVE");
+    return f && !strcmp(f, "1");
 }
 
 // CFB name order: shorter names first, then by upper-cased UTF-16 units.
@@ -585,7 +599,9 @@ struct Storage : IUnknownPort {
             ra2port_port_save_version = open.empty() ? 0 : open.back()->version;
             stg_log("close %s: port save version now %d", path.c_str(), ra2port_port_save_version);
         }
-        if (writable && dirty && !original) Save();
+        // A port save that was read (TRANSITION) is never written back: only a storage
+        // the save code created is saved.
+        if (writable && dirty && !original && !version) Save();
     }
     bool Save()
     {
@@ -600,10 +616,10 @@ struct Storage : IUnknownPort {
             stg_log("save %s: original format, %zu streams, %zu bytes", path.c_str(), data.streams.size(), c.size());
             return ok;
         }
+        // TRANSITION (remove in release N+1): the port's container, written only under the
+        // test hook RA2_NATIVE_TEST_PORT_SAVE=1 (StgCreateDocfile).
         std::vector<uint8_t> o;
-        // A storage read from a version 1 file and written back (the summary read opens it
-        // read-write) stays version 1: its MouseClass image is the 0x4F3C-byte one.
-        const char magic[8] = {'R', 'A', '2', 'N', 'S', 'T', 'G', (char)(version == 1 ? '1' : '2')};
+        const char magic[8] = {'R', 'A', '2', 'N', 'S', 'T', 'G', '2'};
         o.insert(o.end(), magic, magic + 8);
         put32(o, (uint32_t)data.streams.size());
         for (auto &s : data.streams) {
@@ -656,6 +672,9 @@ struct Storage : IUnknownPort {
             stg_log("open %s: original save (compound file), %zu streams, read only", path.c_str(), data.streams.size());
             return true;
         }
+        // TRANSITION (lane C20): the port's own container is read for this one release, so
+        // a player's port saves load and are saved again in the original's format. Remove
+        // this branch in release N+1 (see the head of this file).
         Reader r{in.data(), in.data() + in.size()};
         char magic[8];
         if (!r.bytes(magic, 8) || memcmp(magic, "RA2NSTG", 7) || (magic[7] != '1' && magic[7] != '2')) return false;
@@ -726,7 +745,7 @@ struct Storage : IUnknownPort {
     virtual HRESULT OpenStorage(const WCHAR *, void *, DWORD, void *, DWORD, void **out) { *out = nullptr; unimplemented("IStorage::OpenStorage"); return E_NOTIMPL; }
     virtual HRESULT CopyTo(DWORD, const GUID *, void *, void *) { return E_NOTIMPL; }
     virtual HRESULT MoveElementTo(const WCHAR *, void *, const WCHAR *, DWORD) { return E_NOTIMPL; }
-    virtual HRESULT Commit(DWORD) { return !writable || Save() ? S_OK : E_FAIL; }
+    virtual HRESULT Commit(DWORD) { return !writable || version || Save() ? S_OK : E_FAIL; }
     virtual HRESULT Revert() { return S_OK; }
     virtual HRESULT EnumElements(DWORD, void *, DWORD, void **out) { *out = nullptr; return E_NOTIMPL; }
     virtual HRESULT DestroyElement(const WCHAR *name) { data.streams.erase(to_w(name)); dirty = true; return S_OK; }
@@ -794,8 +813,8 @@ HRESULT StgCreateDocfile(const WCHAR *name, DWORD mode, DWORD reserved, void **o
         if (f) { fclose(f); *out = nullptr; return STG_E_FILEALREADYEXISTS; }
     }
     {
-        // Never over an original save (a compound file: the port writes only its own
-        // format). With a write folder the path is already there, not the installation.
+        // Never over an original save (a compound file the port did not write). With a
+        // write folder the path is already there, not the installation.
         FILE *f = fopen(path, "rb");
         uint8_t head[8] = {0};
         if (f) {
@@ -808,13 +827,22 @@ HRESULT StgCreateDocfile(const WCHAR *name, DWORD mode, DWORD reserved, void **o
             }
         }
     }
+    // The original's format needs the field maps (gen/original_layouts.cpp): every game
+    // build that ships has them (arm64 macOS and iOS, x86_64 Windows); a build without
+    // them cannot save rather than write a file the installed game would misread.
+    bool port_container = test_port_save();
+    if (!port_container && ra2port_original_layout_count == 0) {
+        fprintf(stderr, "stg: %s not saved: this build has no field maps for the original's save format\n", game.c_str());
+        *out = nullptr;
+        return E_FAIL;
+    }
     Storage *s = new Storage(path, true);
     s->dirty = true;
-    if (save_format_original()) {
+    if (!port_container) {
         s->compound_out = true;
         ++ra2port_original_write_mode;
     }
-    stg_log("create %s -> %s%s", game.c_str(), path, s->compound_out ? " (original format)" : "");
+    stg_log("create %s -> %s%s", game.c_str(), path, s->compound_out ? " (original format)" : " (port container: test hook)");
     *out = s;
     return S_OK;
 }

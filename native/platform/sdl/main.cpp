@@ -9,6 +9,7 @@
 //
 // Game data comes from the user's installation at run time (--data-dir or
 // RA2_DATA_DIR); nothing from it is built in.
+#include <random>
 #include <SDL3/SDL.h>
 // On iOS SDL's own main starts UIKit and calls this file's main (as SDL_main) on
 // the main thread; elsewhere main stays the program's entry (Scout1247). On
@@ -367,6 +368,22 @@ int main(int argc, char **argv)
     if (app_mode) {
         // The installation and the supported game.exe: saved, or asked for.
         app_settings.load();
+        {
+            // This installation's random id (lane C20; win32_port.hpp set_install_id): made once
+            // and kept in the settings file, never in the game's folder (Documents/Game moves
+            // between devices with the saves).
+            std::string id = app_settings.get("install_id");
+            unsigned long value = id.empty() ? 0 : strtoul(id.c_str(), nullptr, 16);
+            if (!value) {
+                std::random_device random;
+                while (!value) value = (unsigned long)(uint32_t)random();
+                char text[16];
+                snprintf(text, sizeof text, "%08lx", value);
+                app_settings.values["install_id"] = text;
+                app_settings.save();
+            }
+            ra2port::set_install_id((uint32_t)value);
+        }
         std::string folder, exe;
         bool force = setup_flag || (getenv("RA2_NATIVE_SETUP") && *getenv("RA2_NATIVE_SETUP") == '1');
         if (data && !force) app_settings.values["data_dir"] = data;    // --data-dir / RA2_DATA_DIR win
@@ -508,13 +525,8 @@ int main(int argc, char **argv)
         // file turns it off, as RA2_NATIVE_LAN=0 does for a test run: a Finder-launched app has no
         // environment of its own (packaging/README.md). lan=1, the old switch, changes nothing.
         if (app_settings.get("lan") == "0" && !getenv("RA2_NATIVE_LAN")) setenv("RA2_NATIVE_LAN", "0", 1);
-        // save_format=original in the settings file writes saves in the original game's format
-        // (lane C17; RA2_NATIVE_SAVE_FORMAT, storage.cpp), as the environment does for a test run:
-        // the iOS app has no environment. A temporary switch until that format is the default.
-        if (app_settings.get("save_format") == "original" && !getenv("RA2_NATIVE_SAVE_FORMAT")) {
-            setenv("RA2_NATIVE_SAVE_FORMAT", "original", 1);
-            fprintf(stderr, "app: saves are written in the original game's format (save_format=original)\n");
-        }
+        // Saves are always written in the original game's format (lane C20, storage.cpp); the
+        // settings file's old save_format switch (lane C17) is no longer read.
     }
 #endif
     if (data) ra2port::set_data_dir(data);

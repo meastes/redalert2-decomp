@@ -266,7 +266,8 @@ Save_Game 0x006554A0 as the options menu's Save ends in; with
 `RA2_NATIVE_SAVE_LEAVE=1` the game is then left as the menu's Abort does. Ole32
 structured storage is ported (`port/src/storage.cpp`: IStorage, IStream,
 IPropertySetStorage, OleSaveToStream/OleLoadFromStream; one host file per
-storage in the port's own container format, `RA2NSTG2` (C6: version 2 saves
+storage; until lane C20 in the port's own container format, now written only in the original
+game's ("Original saves" below), `RA2NSTG2` (C6: version 2 saves
 MouseClass whole, its native sizeof instead of VC6's 0x4F3C bytes, which lost the
 Map/Mouse hierarchy's tail from every version 1 save; `RA2NSTG1` saves still load,
 MouseClass::Load reading 0x4F3C bytes of them as before, `ra2port_port_save_version`);
@@ -611,6 +612,14 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   `native-lan-lobby` (`tests/lan_lobby.py`) plays a lobby pair twice, each side once with
   `RA2_NATIVE_TEST_NO_BROADCAST=1` (every broadcast refused as on iOS): both chat lines arrive,
   the joiner sees and joins the host's game, and the Internet button is disabled.
+  The session's UniqueID (SessionClass::Compute_Unique_ID: timeGetTime, the free disk space,
+  which the port caps at 2 GB, and PATH through Add_CRC, which shifts the time almost entirely
+  out) came out equal for two games with the same PATH about one time in two (two iPhones, two
+  Macs started from Finder), and each then ignores the other's chat announcements. A fixup adds
+  the installation's random id last (`ra2port_install_id`; the app keeps it in its settings file
+  as `install_id`, never in the game folder that moves between devices; a run without `--app`
+  draws one per process); `native-lan-lobby` runs both games with the same PATH and requires
+  different IDs (owner ruling, lane C20).
   `RA2_NATIVE_LIST_LOG=1` lists the lobby's chat and message lines (`list text id N: ...`) and
   `RA2_NATIVE_NET_LOG` the peer copies (`broadcast to peer`).
   The IPX layer delivers each datagram once: on a Mac with Ethernet and Wi-Fi on
@@ -1058,12 +1067,18 @@ drawers.
 
 ### Original saves (C6, roadmap (d))
 
-End state (user, 2026-11-14): original-format saves only, as in the Outpost 2 port; the port's own
-save container is dropped. Until then RA2_NATIVE_SAVE_FORMAT=original is a temporary switch (no
-Enhancements row). The container goes once the functional proof (written saves load and play in the
-port on Mac, Windows and iOS and in the installed game on real Windows; Mac-to-iPhone transfer carries
-original-format saves) passes; that release still loads port-format saves so they can be re-saved in
-the original format, then the reader is removed.
+End state (user, 2026-11-14): original-format saves only, as in the Outpost 2 port. Since lane C20
+(the transition release, after the proof passed on Mac, Windows, iOS and the installed game on real
+Windows, user 2026-11-16) the port writes only the original's format on every platform: saves,
+checkpoints (CHECKPT.SAV) and saves in a network game all go through StgCreateDocfile. There is no
+switch: RA2_NATIVE_SAVE_FORMAT and the settings file's save_format are no longer read. A build
+without field maps refuses to save rather than write a file the installed game would misread.
+TRANSITION: the port's old container (RA2NSTG1/RA2NSTG2) is still read for this one release, so a
+player's existing port saves load and are saved again in the original's format (a port save that is
+read is never written back). Release N+1 removes that reader, the test hook
+`RA2_NATIVE_TEST_PORT_SAVE=1` (writes the old container, only so a test can make one) and ctest
+`native-port-save-transition` (makes a port save at test time, loads it, saves it in the original's
+format and loads and plays that); `port/src/storage.cpp`'s head lists the pieces.
 
 
 The user's saves from the original game (base RA2, internal version 0x288CC) are
@@ -1071,9 +1086,9 @@ read in place, never copied or written. `port/src/storage.cpp` reads a compound
 file (the format ole32's StgCreateDocfile wrote) read only: the root storage's
 streams, so SaveVersionInfo::Load takes its stream branch; the summary property
 set is not read. Load Saved Game lists them beside the port's saves with
-"(Original) " before the description (in memory only). Saving after loading one
-writes the port's own format into the write folder; StgCreateDocfile refuses to
-replace a compound file and DeleteFileA to delete one (also without a write folder).
+"(Original) " before the description (in memory only). Saving writes into the
+write folder; StgCreateDocfile refuses to replace a compound file the original
+wrote and DeleteFileA to delete one (also without a write folder).
 
 While an original is open `ra2port_original_save_mode` is set, and the typed
 `ISequentialStream::Read` overload (port/fixups.json, com_persist.hpp; prelude
@@ -1109,12 +1124,11 @@ lists (`gen/units` keeps files of earlier configures). `RA2_NATIVE_ORIGINAL_LOG=
 logs each conversion; a type read without a map is reported once on stderr
 (`original-save: no layout for ...`). `RA2_NATIVE_STG_LOG=1` logs the open of each
 original. All five of the user's saves (Allied 1, 2 twice, 3 twice) load from the
-menu and play on; saving then writes a port save that loads in a fresh process.
+menu and play on; saving then writes an original-format save that loads in a fresh process.
 Not supported: Yuri's Revenge, multiplayer saves, other internal versions.
 
-**Writing the original's format (lane C17, off by default).** With
-`RA2_NATIVE_SAVE_FORMAT=original` a save is written as the original game writes it, for the
-installed game to load: StgCreateDocfile's storage becomes a compound file (version 3,
+**Writing the original's format (lane C17; the only format written since C20).** A save is
+written as the original game writes it, for the installed game to load: StgCreateDocfile's storage becomes a compound file (version 3,
 512-byte sectors, the mini stream under 4,096 bytes, the streams in a balanced red-black
 directory tree; no property sets, as the original's own saves have none), and while it is
 open `ra2port_original_write_mode` sends every typed `ISequentialStream::Write` (the
@@ -1129,13 +1143,12 @@ the owning class, found from its primary vtable's RTTI type descriptor in game.e
 time, `original_vtable`, since manifests/rtti_classes.json lists only some secondary
 vtables). The root entry's state bits carry "R2NP": the port may replace or delete a
 compound file it wrote (and does not mark it "(Original)"), never one the original wrote.
-The port's own container stays the default. ctest `native-original-save-write` writes a
+ctest `native-original-save-write` writes a
 fresh skirmish and each of the user's five saves (loaded, then saved at frame 50) this way
 and loads each back for 300 frames.
 
-**iOS and the Mac-to-phone transfer (lane C17 stage H).** The iOS app has no environment, so
-`save_format=original` in the settings file sets the same switch (main.cpp, as `lan=1`;
-temporary, no Enhancements row). The iOS build had no field maps before stage H (its
+**iOS and the Mac-to-phone transfer (lane C17 stage H).** (Until C20 the iOS app took
+`save_format=original` from its settings file; the app now always writes that format.) The iOS build had no field maps before stage H (its
 CMAKE_SYSTEM_PROCESSOR is empty: `RA2_NATIVE_ARM64` now also follows
 CMAKE_OSX_ARCHITECTURES), so an original save loaded on the phone was read without them.
 Checked on the "RA2 Duo Validation" Simulator (`xcrun simctl launch --console-pty` with
@@ -1590,7 +1603,7 @@ and Load Saved Game in the single-player menu (0x100), and the Load dialog's ent
 (link/behaviour_m15.cpp, Load_Dialog 0x0053B190) takes Dialog 0x0053B770's steps for
 CHECKPT.SAV instead of waiting for a row; a load that fails (a damaged or truncated save)
 shows the game's own "Error loading game" box, as the dialog does, and then the list (C15e).
-A truncated port save never opens (its container is length-checked) and is left out of the
+A truncated save never opens (the storage open refuses it, an original-format file since C20) and is left out of the
 list; ctest `native-truncated-save` loads one cut by 4,096 bytes (codex4 R684/R714) through
 the menus, clicks the box's OK and Back, and loads the uncut save as the control. The touch app also starts with the pointer in
 the middle of the picture (the game's cursor began at the top left corner, which

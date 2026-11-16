@@ -12,6 +12,7 @@
 #include <thread>
 #include <chrono>
 #include <atomic>
+#include <random>
 #include <set>
 #include <stdarg.h>
 #include <stdio.h>
@@ -418,6 +419,15 @@ uint64_t held_total_ns = 0;      // time spent in earlier holds
 std::atomic<bool> checkpoint_wanted{false};
 std::atomic<uint64_t> checkpoint_asked_ns{0};
 void request_pause(bool on) { pause_wanted = on; }
+namespace {
+std::atomic<uint32_t> install_id{0};
+std::atomic<bool> install_id_set{false};
+}
+void set_install_id(uint32_t id)
+{
+    install_id = id;
+    install_id_set = true;
+}
 void request_checkpoint()
 {
     checkpoint_asked_ns = os::monotonic_ns();
@@ -541,4 +551,14 @@ extern "C" int ra2port_initterm_last(int *units)
 {
     if (units) *units = initterm_units;
     return initterm_last;
+}
+
+// The session UniqueID's per-installation part (win32_port.hpp set_install_id; lane C20).
+extern "C" uint32_t ra2port_install_id(void)
+{
+    if (!ra2port::install_id_set) {
+        std::random_device random;
+        ra2port::set_install_id((uint32_t)random());
+    }
+    return ra2port::install_id;
 }

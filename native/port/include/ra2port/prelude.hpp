@@ -162,10 +162,11 @@ template <class T> struct original_vptr<T, true> {
 }  // namespace ra2port
 
 extern "C" int ra2port_original_save_mode;
-// Writing an original-format save (lane C17; RA2_NATIVE_SAVE_FORMAT=original): set while
+// Writing a save (lane C17; every save since lane C20, in the original's format): set while
 // such a storage is open for writing; typed IStream writes then go to ra2port_original_write.
 extern "C" int ra2port_original_write_mode;
 // The port save container version being read (port/src/storage.cpp): 1 (RA2NSTG1) or 2.
+// TRANSITION (lane C20): goes with the container reader in release N+1.
 extern "C" int ra2port_port_save_version;
 // stream_read: the stream's own (virtual) Read, through a thunk; vptr: the object's
 // primary vtable pointer when its type is polymorphic (its most derived type gives

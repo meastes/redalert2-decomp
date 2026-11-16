@@ -69,7 +69,8 @@ def main():
             stem = os.path.splitext(source)[0].upper()
             name, index = 'E_%s.SAV' % stem, os.path.join(work, stem + '.idx')
             env = dict(os.environ, RA2_GAME_EXE=a.game_exe, RA2_NATIVE_MOVIE_SKIP='1', RA2_NATIVE_IGNORE_FOCUS='1',
-                       RA2_NATIVE_SAVE_FORMAT='original', RA2_NATIVE_SAVE_AFTER_LOAD=name, RA2_NATIVE_SAVE_INDEX=index)
+                       RA2_NATIVE_SAVE_AFTER_LOAD=name, RA2_NATIVE_SAVE_INDEX=index)
+            env.pop('RA2_NATIVE_TEST_PORT_SAVE', None)
             argv = [a.binary, '--data-dir', a.data_dir, '--write-dir=' + write, '--game-args=-noaudio -CD.',
                     '--run-to=frames', '--frames=2', '--run-seconds=240', '--load-save=' + source]
             out, code = '', -1

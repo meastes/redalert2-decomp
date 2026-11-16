@@ -7,7 +7,7 @@ codex4's route on real Windows: Load a saved game, play, Escape, Abort Mission, 
 skirmish setup's Back, Single Player's Back, the main menu's Exit Game, OK. On older drops it
 ended once with STATUS_HEAP_CORRUPTION (0xC0000374, R710, 7cc1eb111) and once with a SIGSEGV in
 the teardown (ConvertClass::Delete_Blitters from the ColorScheme destructors, R719,
-becbf2fcb). In a fresh write folder under --work the test makes a port save with the
+becbf2fcb). In a fresh write folder under --work the test makes a save with the
 skirmish harness at Game interface size 1.5 (the failing runs' setting), then takes the route
 through the menus in a new process at the same size and requires:
 - the save loaded and the main menu shown again after the game (menu-return);

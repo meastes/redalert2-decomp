@@ -370,8 +370,8 @@ BOOL DeleteFileA(const char *name)
     char path[1024];
     host_path_write(name, path, sizeof path);
     {
-        // An original save (a compound file; the port writes only its own format)
-        // is never deleted: the load dialog's Delete reaches here (lane C6).
+        // An original save (a compound file the original wrote) is never deleted:
+        // the load dialog's Delete reaches here (lane C6).
         static const unsigned char compound[8] = {0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1};
         unsigned char head[8] = {0};
         int fd = open(path, O_RDONLY);

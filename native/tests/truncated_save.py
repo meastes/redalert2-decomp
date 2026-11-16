@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""ctest native-truncated-save (lane C15e; codex4 R684/R714): a damaged port save is refused
+"""ctest native-truncated-save (lane C15e; codex4 R684/R714): a damaged save is refused
 cleanly, never a fault.
 
 In a fresh write folder under --work the test:
-1. Makes a port save with the skirmish harness (RA2_NATIVE_SAVE_AT, GOOD.SAV at frame 40).
+1. Makes a save (the original's format since lane C20) with the skirmish harness
+   (RA2_NATIVE_SAVE_AT, GOOD.SAV at frame 40).
 2. Writes TRUNC.SAV beside it: the same file without its last 4,096 bytes, as R684's
    tail_cut did.
 3. Loads TRUNC.SAV through the menus (--load-save: Single Player > Load Saved Game, Load).
@@ -94,7 +95,7 @@ def main():
     common = [a.binary, '--data-dir', a.data_dir, '--write-dir=' + write]
     bad = []
     try:
-        # 1. The port save.
+        # 1. The save.
         out, code = run(a, prefix, dict(env, RA2_NATIVE_SAVE_AT='40,GOOD.SAV'),
                         common + ['--run-to=frames', '--run-seconds=240', '--game-args=-noaudio -CD.', '--skirmish=#5',
                                   '--skirmish-frames=60'], 240)

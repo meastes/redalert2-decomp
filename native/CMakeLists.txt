@@ -472,7 +472,7 @@ if(RA2_NATIVE_SDL)
                  --work "${CMAKE_CURRENT_BINARY_DIR}/windows-gui" ${ra2_wine_args_gui})
         set_tests_properties(native-windows-gui PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
       endif()
-      # 8d. A truncated port save is refused with the game's error box and the menus stay
+      # 8d. A truncated save is refused with the game's error box and the menus stay
       #     usable; the untruncated save loads (C15e, codex4 R684/R714; tests/truncated_save.py).
       add_test(NAME native-truncated-save COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/truncated_save.py"
                --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
@@ -489,7 +489,7 @@ if(RA2_NATIVE_SDL)
                  --log "${CMAKE_CURRENT_BINARY_DIR}/native-original-save.log" ${ra2_wine_args_original})
         # Room for the Wine host retries (tests/wine.py host_failure: at most two more launches).
         set_tests_properties(native-original-save PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
-        # 8b'. Writing the original's format (C17, RA2_NATIVE_SAVE_FORMAT=original): a fresh
+        # 8b'. Writing the original's format (C17; the only format written since C20): a fresh
         #      skirmish and each of the user's five saves, saved that way, load back and play.
         add_test(NAME native-original-save-write COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/original_save_write.py"
                  --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
@@ -497,6 +497,14 @@ if(RA2_NATIVE_SDL)
                  --save ALL01T.sav --save ALL02S.sav --save ALL03U.sav --save SAVE397A.SAV --save SAVE4FBD.SAV
                  ${ra2_wine_args_originalwrite})
         set_tests_properties(native-original-save-write PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 2400)
+        # 8b'''. TRANSITION (C20; remove in release N+1 with the port container reader): a port
+        #        save made at test time (test hook RA2_NATIVE_TEST_PORT_SAVE) loads, is saved
+        #        again in the original's format, and that save loads and plays.
+        add_test(NAME native-port-save-transition COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/original_save_write.py"
+                 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/port-save-transition"
+                 --port-transition ${ra2_wine_args_porttransition})
+        set_tests_properties(native-port-save-transition PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
         # 8b''. The round trip (C17 stage E): each of the user's saves loaded and saved again at
         #       once in the original's format, the decoded streams compared (original_save_compare.py);
         #       fails on a differing vtable pointer or indexes that never meet again.

@@ -3380,6 +3380,18 @@
    "new": "void Native_Subtitle_Tables();   // NATIVE (C16): link/behaviour_c16_vqa.cpp\nSubTitleParser::SubTitleParser(Straw &input) : Input(input), LineNumber(0)\n{\n    Native_Subtitle_Tables();\n",
    "why": "Native addition (C16, a mod's movie subtitles): the subtitle script's keyword table 0x007F62F0 and alignment names 0x007F6320 are original data (UTF-16 keywords, handler addresses, alignment values); natively they are filled from the user's game.exe when the first subtitle parser is made (link/behaviour_c16_vqa.cpp Native_Subtitle_Tables: keywords into the mapped image, each handler address mapped to its native handler). Before, both were link-closure zero placeholders and no keyword was recognised. This row: SubTitleParser::SubTitleParser 0x0069B680.",
    "verified": false
+  },
+  {
+   "source": "src/recovered/session.cpp",
+   "old": "unsigned int Query_Free_Disk_Kilobytes_00482c80();\n",
+   "new": "unsigned int Query_Free_Disk_Kilobytes_00482c80();\nextern \"C\" unsigned int ra2port_install_id(void);   // NATIVE: port/src/port_core.cpp (lane C20)\n",
+   "why": "Native (lane C20): the declaration of the installation id Compute_Unique_ID adds (the fixup below)."
+  },
+  {
+   "source": "src/recovered/session.cpp",
+   "old": "            Add_CRC(&id, path[i]);\n        }\n    }\n    return id;\n}",
+   "new": "            Add_CRC(&id, path[i]);\n        }\n    }\n    Add_CRC(&id, ra2port_install_id());   /* NATIVE: this installation's random id (lane C20) */\n    return id;\n}",
+   "why": "Native (lane C20, owner ruling 2026-11-16): SessionClass::Compute_Unique_ID hashes timeGetTime, the free disk space and PATH through Add_CRC, which shifts the time almost entirely out; the port caps the free space at 2 GB, so two games with the same PATH (two iPhones, two Macs started from Finder) shared a UniqueID about one time in two and each ignored the other's LAN chat announcements (Get_Join_Responses drops a NET_CHAT_ANNOUNCE carrying its own ID). The installation's random id (port/src/port_core.cpp ra2port_install_id; the app keeps it in its settings file) is added last, whole, so different installations differ. The original's inputs stay."
   }
  ]
 }

@@ -1,22 +1,29 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""ctest native-original-save-write (lane C17; README "Original saves"): saves written in the
-original game's format (RA2_NATIVE_SAVE_FORMAT=original: a compound file with the i686
-object images) load back in the port and play.
+"""ctest native-original-save-write (lane C17; README "Original saves"): saves the port writes
+(always in the original game's format since lane C20: a compound file with the i686 object
+images) load back in the port and play.
 
 In a fresh write folder under --work:
-1. a skirmish saved at frame 40 in the original's format (FRESH.SAV), then loaded in a new
-   process (--load-save) and played 300 frames;
+1. a skirmish saved at frame 40 (FRESH.SAV), then loaded in a new process (--load-save) and
+   played 300 frames;
 2. for each of the user's saves named with --save (in the installed game, read in place,
-   never copied): loaded, saved at frame 50 in the original's format (RT_<name>.SAV), then
-   that file loaded in a new process and played 300 frames.
+   never copied): loaded, saved at frame 50 (RT_<name>.SAV), then that file loaded in a new
+   process and played 300 frames.
 Each written file must be a compound file the port marks as its own, and no run may report
 a type written or read without a map, a vtable pointer without the original's vtable, an
 unmatched swizzle id, a fault or a trap. Skipped (77) without the installed game or, for the
 Windows build, without Wine.
 
+--port-transition (ctest native-port-save-transition, lane C20; TRANSITION: remove in
+release N+1 with the port container reader) runs one case instead: a skirmish saved at
+frame 40 in the port's old container (PORT.SAV, under the test hook
+RA2_NATIVE_TEST_PORT_SAVE=1, made at test time), checked to be one ("RA2NSTG2"); loaded in
+a new process and saved at frame 50 (RT_PORT.SAV), which must be in the original's format;
+that file loaded in a new process and played 300 frames.
+
   original_save_write.py --binary <ra2-native> --data-dir <game folder> --game-exe <game.exe> --work <dir>
-                         [--save ALL01T.sav ...] [--wine-prefix <dir> [--wine <wine>]]
+                         [--save ALL01T.sav ... | --port-transition] [--wine-prefix <dir> [--wine <wine>]]
 """
 import argparse
 import os
@@ -79,6 +86,7 @@ def main():
     ap.add_argument('--game-exe', default='')
     ap.add_argument('--work', required=True)
     ap.add_argument('--save', action='append', default=[])
+    ap.add_argument('--port-transition', action='store_true')
     ap.add_argument('--wine-prefix', default='')
     ap.add_argument('--wine', default='')
     a = ap.parse_args()
@@ -98,10 +106,9 @@ def main():
     os.makedirs(write)
     env = dict(os.environ, RA2_GAME_EXE=a.game_exe, RA2_NATIVE_MOVIE_SKIP='1', RA2_NATIVE_CRASH_TRACE='1',
                RA2_NATIVE_IGNORE_FOCUS='1')
-    for k in ('RA2_NATIVE_TRAP_CONTINUE', 'RA2_NATIVE_SAVE_AT', 'RA2_NATIVE_SAVE_LEAVE', 'RA2_NATIVE_SAVE_FORMAT'):
+    for k in ('RA2_NATIVE_TRAP_CONTINUE', 'RA2_NATIVE_SAVE_AT', 'RA2_NATIVE_SAVE_LEAVE', 'RA2_NATIVE_TEST_PORT_SAVE'):
         env.pop(k, None)
     common = [a.binary, '--data-dir', a.data_dir, '--write-dir=' + write, '--game-args=-noaudio -CD.', '--run-seconds=240']
-    writing = dict(env, RA2_NATIVE_SAVE_FORMAT='original')
     bad = []
 
     def check(tag, out, code, reached=True):
@@ -116,14 +123,31 @@ def main():
                                      if os.path.isfile(os.path.join(a.data_dir, s))]
     skipped = [s for s in a.save if not os.path.isfile(os.path.join(a.data_dir, s))]
     try:
+        if a.port_transition:
+            # TRANSITION (remove in release N+1): a port save made now with the old writer.
+            out, code = run(prefix, dict(env, RA2_NATIVE_TEST_PORT_SAVE='1', RA2_NATIVE_SAVE_AT='40,PORT.SAV'),
+                            common + ['--run-to=frames', '--skirmish=#5', '--skirmish-frames=60'], 240)
+            check('write-PORT.SAV', out, code)
+            try:
+                head = open(os.path.join(write, 'PORT.SAV'), 'rb').read(8)
+            except OSError:
+                head = b''
+            if head != b'RA2NSTG2':
+                bad.append('PORT.SAV: not written in the port container (test hook RA2_NATIVE_TEST_PORT_SAVE)')
+                cases = []
+            else:
+                cases = [('RT_PORT.SAV', 'PORT.SAV')]
         for name, source in cases:
             if source is None:
-                out, code = run(prefix, dict(writing, RA2_NATIVE_SAVE_AT='40,' + name),
+                out, code = run(prefix, dict(env, RA2_NATIVE_SAVE_AT='40,' + name),
                                 common + ['--run-to=frames', '--skirmish=#5', '--skirmish-frames=60'], 240)
             else:
-                out, code = run(prefix, dict(writing, RA2_NATIVE_SAVE_AT='50,' + name),
+                # --load-save reads the data folder or the write folder (PORT.SAV is in the latter).
+                out, code = run(prefix, dict(env, RA2_NATIVE_SAVE_AT='50,' + name),
                                 common + ['--run-to=frames', '--frames=100', '--load-save=' + source], 240)
             check('write-' + name, out, code)
+            if source and 'resume: loaded ' + source not in out:
+                bad.append('%s: did not load' % source)
             path = os.path.join(write, name)
             if not port_compound(path):
                 bad.append('%s: not written as a compound file marked as the port\'s' % name)
