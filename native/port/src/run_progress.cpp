@@ -84,6 +84,17 @@ long elapsed_ms()
 }  // namespace
 }  // namespace ra2port
 extern "C" int ra2port_last_frame(void);   // below
+// A coverage build's dump (diagnostics only; nothing in an ordinary build): also called by the
+// host's quit, which ends with _exit (an input script's "quit", a LAN pair's instances; lane C21).
+extern "C" void ra2port_coverage_dump(void)
+{
+    static bool dumped = false;
+    if (dumped) return;
+    if (void (*dump)(void) = (void (*)(void))dlsym(RTLD_DEFAULT, "__sanitizer_cov_dump")) {
+        dumped = true;
+        dump();
+    }
+}
 namespace ra2port {
 namespace {
 void summary_locked(const char *stop)
@@ -96,7 +107,7 @@ void summary_locked(const char *stop)
     // exit, which the runs' _exit skips: dump it here (diagnostics only; looked
     // up at run time so ordinary builds reference no sanitizer symbol).
     if (void (*dump)(void) = (void (*)(void))dlsym(RTLD_DEFAULT, "__sanitizer_cov_dump")) {
-        dump();
+        ra2port_coverage_dump();
         // The program's load address, so the dumped PCs map to its symbols (ASLR; lane C16 audit).
         Dl_info self = {};
         if (dladdr((void *)&elapsed_ms, &self)) fprintf(stderr, "run-to: coverage image base %p\n", self.dli_fbase);

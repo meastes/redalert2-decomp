@@ -358,7 +358,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
-   "source": "vector_class.hpp template body (multi_mission.hpp declares the specialisation)"
+   "source": "vector_class.hpp template body (multi_mission.hpp declares the specialisation)",
+   "behaviour_verdict": "same (the original constructs the elements in the caller's block after its count word, VC6's placement new[] cookie; natively the same call without the cookie, matched by its callers)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ai-crowd, audio-menu, audio-skirmish, camp-allied, camp-soviet, exit-game, ingame-keys, ingame-ui, lanpair, load-ALL01T, load-ALL02S, load-ALL03U, load-SAVE397A, load-SAVE4FBD, modes, options, specials, supers-save)"
   },
   {
    "entry": "0x00603D50",
@@ -548,7 +550,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_scenario.cpp",
-   "source": "leaf src/recovered/0053d820.cpp"
+   "source": "leaf src/recovered/0053d820.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ai-crowd, audio-skirmish, camp-allied, camp-soviet, ingame-keys, ingame-ui, lanpair, load-ALL01T, load-ALL02S, load-SAVE4FBD, modes, specials, supers-save)"
   },
   {
    "entry": "0x0053D830",
@@ -558,7 +562,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_scenario.cpp",
-   "source": "leaf src/recovered/0053d830.cpp"
+   "source": "leaf src/recovered/0053d830.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ai-crowd, audio-skirmish, camp-allied, camp-soviet, ingame-keys, ingame-ui, lanpair, modes, specials, supers-save)"
   },
   {
    "entry": "0x0049EC40",
@@ -604,7 +610,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frame.cpp",
-   "source": "leaf src/recovered/00406320.cpp"
+   "source": "leaf src/recovered/00406320.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00406140",
@@ -626,7 +634,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frame.cpp",
-   "source": "seed src/recovered/00406100.cpp"
+   "source": "seed src/recovered/00406100.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00423DC0",
@@ -648,7 +658,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frame.cpp",
-   "source": "seed src/recovered/planmgr/Planning_Active.cpp"
+   "source": "seed src/recovered/planmgr/Planning_Active.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00496CE0",
@@ -706,7 +718,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frames.cpp",
-   "source": "seed src/recovered/0042ebe0.cpp"
+   "source": "seed src/recovered/0042ebe0.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00735B20",
@@ -716,7 +730,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_frames.cpp",
-   "source": "leaf src/recovered/00735b20.cpp"
+   "source": "leaf src/recovered/00735b20.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (lanpair)"
   },
   {
    "entry": "0x005173A0",
@@ -834,7 +850,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_coord.cpp",
-   "source": "leaf src/recovered/classes/ObjectClass/00423e60.cpp (returns 0)"
+   "source": "leaf src/recovered/classes/ObjectClass/00423e60.cpp (returns 0)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x006D8640",
@@ -868,7 +886,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_audio_m8.cpp",
-   "source": "instructions 0x00402940 (two list inits, Busy = 0, master levels = &system->Levels, levels Init, initialised flag)"
+   "source": "instructions 0x00402940 (two list inits, Busy = 0, master levels = &system->Levels, levels Init, initialised flag)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (audio-menu, audio-skirmish, ingame-keys, lanpair)"
   },
   {
    "entry": "0x007CCE20",
@@ -878,7 +898,9 @@
    "plan": "native table + leaf rows 0x0040A690/0x0040A6A0/0x0040A6B0",
    "exact": false,
    "file": "native/link/behaviour_audio_driver.cpp",
-   "source": "descriptor words from game.exe; recovered Audio_DS_* functions; leaves 0040a690.cpp (0x80040000), 0040a6a0/0040a6b0.cpp (Enter/LeaveCriticalSection on 0x00831590)"
+   "source": "descriptor words from game.exe; recovered Audio_DS_* functions; leaves 0040a690.cpp (0x80040000), 0040a6a0/0040a6b0.cpp (Enter/LeaveCriticalSection on 0x00831590)",
+   "behaviour_verdict": "same (the descriptor's name, words and tag read from game.exe; its Init/Release/Open/Close and the channel table's twelve entries are the functions at the original's addresses 0x00409390.. and 0x0040A180..0x0040A6B0)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions and of the original data; reached in the C21 coverage runs (audio-menu, audio-skirmish, ingame-keys, lanpair)"
   },
   {
    "entry": "0x00403810",
@@ -888,7 +910,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_audio_m8.cpp",
-   "source": "instructions 0x00403810 (jmp [ecx+0x10C])"
+   "source": "instructions 0x00403810 (jmp [ecx+0x10C])",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (audio-menu, audio-skirmish, ingame-keys, lanpair)"
   },
   {
    "entry": "0x004010A0",
@@ -898,7 +922,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_audio_m8.cpp",
-   "source": "decompile 0x004010A0"
+   "source": "decompile 0x004010A0",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (audio-menu, audio-skirmish, ingame-keys, lanpair)"
   },
   {
    "entry": "0x004015C0",
@@ -908,7 +934,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_audio_m8.cpp",
-   "source": "decompile 0x004015C0 (bsearch with _stricmp)"
+   "source": "decompile 0x004015C0 (bsearch with _stricmp)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (audio-menu, audio-skirmish, ingame-keys, lanpair)"
   },
   {
    "entry": "0x0040A6C0",
@@ -918,7 +946,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_audio_m8.cpp",
-   "source": "decompile 0x0040A6C0 (returns 0x008315AC)"
+   "source": "decompile 0x0040A6C0 (returns 0x008315AC)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (audio-menu, audio-skirmish, ingame-keys, lanpair)"
   },
   {
    "entry": "0x00423D90",
@@ -940,7 +970,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m9.cpp",
-   "source": "seed decompile 0x00402030 (returns this + 0x1C: the Source member, shared/audio.hpp)"
+   "source": "seed decompile 0x00402030 (returns this + 0x1C: the Source member, shared/audio.hpp)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (audio-menu, audio-skirmish, ingame-keys, lanpair)"
   },
   {
    "entry": "0x004026A0",
@@ -950,7 +982,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m9.cpp",
-   "source": "seed decompile 0x004026A0 (tail jump to channel->Driver->Lock, +0x28)"
+   "source": "seed decompile 0x004026A0 (tail jump to channel->Driver->Lock, +0x28)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (audio-menu, audio-skirmish, ingame-keys, lanpair)"
   },
   {
    "entry": "0x004026B0",
@@ -960,7 +994,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m9.cpp",
-   "source": "seed decompile 0x004026B0 (tail jump to channel->Driver->Unlock, +0x2C)"
+   "source": "seed decompile 0x004026B0 (tail jump to channel->Driver->Unlock, +0x2C)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (audio-menu, audio-skirmish, ingame-keys, lanpair)"
   },
   {
    "entry": "0x00401190",
@@ -970,7 +1006,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m9.cpp",
-   "source": "seed decompile 0x00401190 ((Frequency.Current >> 16) * value / 100)"
+   "source": "seed decompile 0x00401190 ((Frequency.Current >> 16) * value / 100)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (audio-menu, audio-skirmish, ingame-keys, lanpair)"
   },
   {
    "entry": "0x006E8440",
@@ -980,7 +1018,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m9_theme.cpp",
-   "source": "seed decompile 0x006E8440 (TibSun ThemeClass::Is_Allowed shape)"
+   "source": "seed decompile 0x006E8440 (TibSun ThemeClass::Is_Allowed shape)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (audio-skirmish, ingame-keys, lanpair)"
   },
   {
    "entry": "0x004CDE90",
@@ -1038,7 +1078,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m10_bounce.cpp",
-   "source": "forwarder: bounce.hpp view name of the row whose body is the draft native/drafts/004370e0.cpp (Scout811 99.77, BounceClass::AI)"
+   "source": "forwarder: bounce.hpp view name of the row whose body is the draft native/drafts/004370e0.cpp (Scout811 99.77, BounceClass::AI)",
+   "behaviour_verdict": "same (a forwarder to the 0x004370E0 draft, BounceClass::AI, whose own verdict is in native/drafts.json)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ai-crowd, audio-skirmish, camp-allied, camp-soviet, load-ALL01T)"
   },
   {
    "entry": "0x004C2030",
@@ -1048,7 +1090,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m10_fog.cpp",
-   "source": "seed decompile 0x004C2030"
+   "source": "seed decompile 0x004C2030",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00405A00",
@@ -1058,7 +1102,9 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m10_audio.cpp",
-   "source": "seed decompile 0x00405A00"
+   "source": "seed decompile 0x00405A00",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (audio-skirmish, ingame-keys)"
   },
   {
    "entry": "0x004B9420",
@@ -1069,7 +1115,9 @@
    "exact": false,
    "file": "native/link/behaviour_m12_factory.cpp",
    "source": "seed decompile 0x004B9420 (Leaf_4b9420: the +0x58 byte)",
-   "notes": "reads the real FactoryClass at its native layout (Scout1111: the harness build order reaches it through StripClass::AI 0x0067F050)"
+   "notes": "reads the real FactoryClass at its native layout (Scout1111: the harness build order reaches it through StripClass::AI 0x0067F050)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004B9430",
@@ -1106,7 +1154,9 @@
    "exact": false,
    "file": "native/link/behaviour_m12_factory.cpp",
    "source": "seed decompile 0x004B9940 (Leaf_4b9940: +0x64)",
-   "notes": "reads the real FactoryClass at its native layout (Scout1111: the harness build order reaches it through StripClass::AI 0x0067F050)"
+   "notes": "reads the real FactoryClass at its native layout (Scout1111: the harness build order reaches it through StripClass::AI 0x0067F050)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": null,
@@ -1130,7 +1180,9 @@
    "exact": false,
    "file": "native/link/behaviour_m12_blit.cpp",
    "source": "TibSun blitblit.h (backward = forward)",
-   "notes": "vtable slot of the blitter (entry address not bound in the catalog); the sidebar build clock reaches the 50% forward blit (Scout1111)"
+   "notes": "vtable slot of the blitter (entry address not bound in the catalog); the sidebar build clock reaches the 50% forward blit (Scout1111)",
+   "behaviour_verdict": "same (the original 0x004870E0 calls the forward slot with the same arguments and 0)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": null,
@@ -1141,7 +1193,9 @@
    "exact": false,
    "file": "native/link/behaviour_m12_blit.cpp",
    "source": "TibSun blitblit.h (backward = forward); forward 0x00487110 recovered",
-   "notes": "vtable slot of the blitter (entry address not bound in the catalog); the sidebar build clock reaches the 50% forward blit (Scout1111)"
+   "notes": "vtable slot of the blitter (entry address not bound in the catalog); the sidebar build clock reaches the 50% forward blit (Scout1111)",
+   "behaviour_verdict": "same (the original 0x00487170 calls the forward slot)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": null,
@@ -1152,7 +1206,9 @@
    "exact": false,
    "file": "native/link/behaviour_m12_blit.cpp",
    "source": "TibSun blitblit.h (backward = forward); forward 0x00486FF0 recovered",
-   "notes": "vtable slot of the blitter (entry address not bound in the catalog); the sidebar build clock reaches the 50% forward blit (Scout1111)"
+   "notes": "vtable slot of the blitter (entry address not bound in the catalog); the sidebar build clock reaches the 50% forward blit (Scout1111)",
+   "behaviour_verdict": "same (the original 0x00487050 calls the forward slot)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x006F8A00",
@@ -1189,7 +1245,9 @@
    "exact": false,
    "file": "native/link/behaviour_winmain.cpp",
    "source": "seed src/recovered/00406f50.cpp",
-   "notes": "the pair of 0x00406F70; reached at frame ~2,100 of the harness build order; Scout1111"
+   "notes": "the pair of 0x00406F70; reached at frame ~2,100 of the harness build order; Scout1111",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ingame-keys)"
   },
   {
    "entry": "0x006AC7B0",
@@ -1200,7 +1258,9 @@
    "exact": false,
    "file": "native/link/behaviour_m13_input.cpp",
    "source": "seed src/recovered/006ac7b0.cpp (Tactical +0xDB0)",
-   "notes": "the selection band and Clear_Selected_Objects (first map click); Scout1115 (M13)"
+   "notes": "the selection band and Clear_Selected_Objects (first map click); Scout1115 (M13)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ingame-keys)"
   },
   {
    "entry": "0x006AC7C0",
@@ -1211,7 +1271,9 @@
    "exact": false,
    "file": "native/link/behaviour_m13_input.cpp",
    "source": "seed src/recovered/006ac7c0.cpp (the 0x00ABE5F8 table)",
-   "notes": "the selection band; Scout1115 (M13)"
+   "notes": "the selection band; Scout1115 (M13)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ingame-keys)"
   },
   {
    "entry": "0x0041B360",
@@ -1222,7 +1284,9 @@
    "exact": false,
    "file": "native/link/behaviour_m13_input.cpp",
    "source": "seed (returns 0)",
-   "notes": "clicking a unit; Scout1115 (M13)"
+   "notes": "clicking a unit; Scout1115 (M13)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (lanpair)"
   },
   {
    "entry": "0x00453BE0",
@@ -1233,7 +1297,9 @@
    "exact": false,
    "file": "native/link/behaviour_m13_input.cpp",
    "source": "seed (an empty body, ret 8)",
-   "notes": "drawing a selected unit; Scout1115 (M13)"
+   "notes": "drawing a selected unit; Scout1115 (M13)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ingame-keys)"
   },
   {
    "entry": "0x006F58E0",
@@ -1244,7 +1310,9 @@
    "exact": false,
    "file": "native/link/behaviour_m13_input.cpp",
    "source": "seed src/recovered/006f58e0.cpp",
-   "notes": "the on-screen messages (type select, refusals); Scout1115 (M13)"
+   "notes": "the on-screen messages (type select, refusals); Scout1115 (M13)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ingame-keys, ingame-ui)"
   },
   {
    "entry": "0x005F0320",
@@ -1313,8 +1381,8 @@
    "file": "native/link/behaviour_m14_ownerdraw.cpp",
    "source": "pass-6a decompile 005f22a0",
    "notes": "NewEdit (list box standing in for an edit): text in the record's WideString +0x3C, limit +0x48, keys/0x4B2-0x4B5 as the decompile; simplified painting; Scout1119 (M14)",
-   "behaviour_verdict": "differs, partly fixed: editing at the caret as the original (Left/Right/Home/End, Delete/Backspace, insertion, 0x4D9, EN_CHANGE then EN_UPDATE); open: the record's character filter (+0x50) and narrow-only flag (+0x30) are never set natively, and the static-style messages 0x498-0x4F0 the original also answers are not handled",
-   "behaviour_checked_by": "C16 audit 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (random map)"
+   "behaviour_verdict": "differs, partly fixed: editing at the caret as the original (Left/Right/Home/End, Delete/Backspace, insertion, 0x4D9, EN_CHANGE then EN_UPDATE); C21: the record's character filter (+0x50, message 0x4EB through 0x005EE460: a typed character found in it is refused, 0x005F299F) and the narrow-only flag (+0x30, message 0x4D1: characters past 0xFF refused) now tested as the original (the LAN lobby's name edit 0x541 refuses ','; checked by typing ',x,y': two EN_CHANGE pairs); open: the static-style messages 0x498-0x4F0 the original also answers and WM_IME_CHAR (0x286) are not handled",
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check against the original's instructions; reached in the wider coverage runs (random map); C21 2026-11-16: filter and narrow flag checked against 0x005F2996-0x005F29EF and the LAN lobby"
   },
   {
    "entry": "0x00770430",
@@ -1480,7 +1548,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15.cpp",
    "source": "pass-6a decompile 00482e00",
-   "notes": "shared empty leaf (Leaf_482e00::get); UnitClass::Explode calls it; Scout1125 (M15)"
+   "notes": "shared empty leaf (Leaf_482e00::get); UnitClass::Explode calls it; Scout1125 (M15)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": null,
@@ -1490,7 +1560,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15_blit.cpp",
    "source": "recovered siblings 0x00487C50 (Lucent50ZReadWrite), 0x00487390 (DarkenZRead); TibSun blitblit.h backward-as-forward",
-   "notes": "depth test, darken pixel, depth write, ZBuffer wrap; Scout1125 (M15): reached when the harness builds a barracks"
+   "notes": "depth test, darken pixel, depth write, ZBuffer wrap; Scout1125 (M15): reached when the harness builds a barracks",
+   "behaviour_verdict": "same (0x00487AE0 forward: depth test, darken (dest >> 1) & mask, depth store, ring wrap; 0x00487B50 backward calls the forward slot)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (camp-allied, camp-soviet, specials)"
   },
   {
    "entry": null,
@@ -1500,7 +1572,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15_blit.cpp",
    "source": "recovered siblings BlitTransLucent25ZRead/75ZRead, 0x00487C50",
-   "notes": "same family as the darken row; Scout1125 (M15)"
+   "notes": "same family as the darken row; Scout1125 (M15)",
+   "behaviour_verdict": "same (0x00487D20 25%: palette * 3 + dest, 0x00487B80 75%: palette + dest * 3, each quarter masked; the backward slots 0x00487DC0/0x00487C20/0x00487CF0 call the forward slot)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0053B190",
@@ -1522,7 +1596,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15.cpp",
    "source": "pass-6a decompiles 0053c970..0053c9d0",
-   "notes": "string table labels GUI:LoadMissionMenu, GUI:SaveMissionMenu, GUI:DeleteMissionMenu, TXT_GAME_WAS_SAVED; Scout1125 (M15)"
+   "notes": "string table labels GUI:LoadMissionMenu, GUI:SaveMissionMenu, GUI:DeleteMissionMenu, TXT_GAME_WAS_SAVED; Scout1125 (M15)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0047A410",
@@ -1532,7 +1608,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15_save.cpp",
    "source": "pass-6a decompiles",
-   "notes": "the class CLSID from data/com_guids.cpp; save game; Scout1125 (M15)"
+   "notes": "the class CLSID from data/com_guids.cpp; save game; Scout1125 (M15)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (camp-allied, camp-soviet, supers-save)"
   },
   {
    "entry": "0x00537BF0",
@@ -1566,7 +1644,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15_save3.cpp",
    "source": "pass-6a decompiles 006822a0/00682290",
-   "notes": "forward to RadarClass's save/load slots; Scout1125 (M15)"
+   "notes": "forward to RadarClass's save/load slots; Scout1125 (M15)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (camp-allied, camp-soviet, supers-save)"
   },
   {
    "entry": "0x0059EBA0",
@@ -1624,7 +1704,9 @@
    "exact": false,
    "file": "native/link/behaviour_m15_cp.cpp",
    "source": "recovered twin EnumConnectionsClass 0x004924B0/0x00492210/Next",
-   "notes": "a native IEnumConnectionPoints built in the house's allocation; Next fails when exhausted (ends Adjust_Drain's loop); Clone not implemented; Scout1125 (M15)"
+   "notes": "a native IEnumConnectionPoints built in the house's allocation; Next fails when exhausted (ends Adjust_Drain's loop); Clone not implemented; Scout1125 (M15)",
+   "behaviour_verdict": "same for the constructor (the points copied and each AddRef'd, as 0x00492E20 does); the enumerator's Next/Release follow the recovered twin EnumConnectionsClass and were not compared slot by slot",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x006EA9B0",
@@ -1646,7 +1728,9 @@
    "exact": false,
    "file": "native/link/behaviour_m16.cpp",
    "source": "pass-6a decompile 005a7500",
-   "notes": "the vtable's key function (the vtable was a placeholder); Scout1133 (M16)"
+   "notes": "the vtable's key function (the vtable was a placeholder); Scout1133 (M16)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (exit-game)"
   },
   {
    "entry": "0x005AA800",
@@ -1656,7 +1740,9 @@
    "exact": false,
    "file": "native/link/behaviour_m16.cpp",
    "source": "pass-6a decompile 005aa800",
-   "notes": "forwards to MultiplayerTeam slot 1; the vtable's key function; Scout1133 (M16)"
+   "notes": "forwards to MultiplayerTeam slot 1; the vtable's key function; Scout1133 (M16)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005E8710",
@@ -1690,7 +1776,9 @@
    "exact": false,
    "file": "native/link/behaviour_m16_fly.cpp",
    "source": "the recovered Release_Held copies (0x00509860, 0x004A4D10)",
-   "notes": "reached by an aircraft taking off (the win loop, frame ~19k); Scout1133 (M16)"
+   "notes": "reached by an aircraft taking off (the win loop, frame ~19k); Scout1133 (M16)",
+   "behaviour_verdict": "same (as the recovered copies 0x00509860 / 0x004A4D10: Release through slot 2 of what is held; this instance's own copy is not located)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions (of the sibling copies); not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0058FE10",
@@ -1736,7 +1824,9 @@
    "exact": false,
    "file": "native/link/behaviour_m17.cpp",
    "source": "pass-6a decompile 007291f0",
-   "notes": "Scout1138 (M17)"
+   "notes": "Scout1138 (M17)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00729200",
@@ -1746,7 +1836,9 @@
    "exact": false,
    "file": "native/link/behaviour_m17.cpp",
    "source": "pass-6a decompile 00729200 (accepted as unknown_callback_6f3650)",
-   "notes": "Scout1138 (M17)"
+   "notes": "Scout1138 (M17)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00728B70",
@@ -1756,7 +1848,9 @@
    "exact": false,
    "file": "native/link/behaviour_m17.cpp",
    "source": "pass-6a decompile 00728b70",
-   "notes": "Scout1138 (M17)"
+   "notes": "Scout1138 (M17)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00728AB0",
@@ -1766,7 +1860,9 @@
    "exact": false,
    "file": "native/link/behaviour_m17.cpp",
    "source": "pass-6a decompile 00728ab0",
-   "notes": "Scout1138 (M17)"
+   "notes": "Scout1138 (M17)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004F3120",
@@ -1776,7 +1872,9 @@
    "exact": false,
    "file": "native/link/behaviour_m20.cpp",
    "source": "unowned view unknown_slot_ready_004f3120.cpp (0x154-byte pad) against house_screen.hpp/waypoint_path.hpp",
-   "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members"
+   "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00435FB0",
@@ -1786,7 +1884,9 @@
    "exact": false,
    "file": "native/link/behaviour_m20_bomb.cpp",
    "source": "unowned view Unknown435FB0Owner_unknown_435fb0_00435fb0.cpp (char pads) against object.hpp",
-   "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members"
+   "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0047CE40",
@@ -1868,7 +1968,9 @@
    "exact": false,
    "file": "native/link/behaviour_m21.cpp",
    "source": "pass-6a decompile 00408450",
-   "notes": "Scout1170 M21: reached by Allied 1's win, the score screen and Allied 2 (TRAP_CONTINUE)"
+   "notes": "Scout1170 M21: reached by Allied 1's win, the score screen and Allied 2 (TRAP_CONTINUE)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0041B3E0",
@@ -1878,7 +1980,9 @@
    "exact": false,
    "file": "native/link/behaviour_m21.cpp",
    "source": "pass-6a decompile 0041b3e0",
-   "notes": "Scout1170 M21: reached by Allied 1's win, the score screen and Allied 2 (TRAP_CONTINUE)"
+   "notes": "Scout1170 M21: reached by Allied 1's win, the score screen and Allied 2 (TRAP_CONTINUE)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ingame-keys, ingame-ui)"
   },
   {
    "entry": "0x0069A640",
@@ -1912,7 +2016,9 @@
    "exact": false,
    "file": "native/link/behaviour_m21_wdt.cpp",
    "source": "pass-6a decompile 0072a6d0 against wdt_map.hpp (RA2_WDT_MAP_LOAD_LAYOUT)",
-   "notes": "Scout1170 M21: the unowned UnknownToggle_72a6d0 view is refused by the padded-view alias rule"
+   "notes": "Scout1170 M21: the unowned UnknownToggle_72a6d0 view is refused by the padded-view alias rule",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0072A720",
@@ -1922,7 +2028,9 @@
    "exact": false,
    "file": "native/link/behaviour_m21_wdt.cpp",
    "source": "pass-6a decompile 0072a720 against wdt_map.hpp (RA2_WDT_MAP_LOAD_LAYOUT)",
-   "notes": "Scout1170 M21: the unowned UnknownToggle_72a6d0 view is refused by the padded-view alias rule"
+   "notes": "Scout1170 M21: the unowned UnknownToggle_72a6d0 view is refused by the padded-view alias rule",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0072C390",
@@ -1932,7 +2040,9 @@
    "exact": false,
    "file": "native/link/behaviour_m20_wdt.cpp",
    "source": "unowned view unknown_has_44_0072c390.cpp (0x44-byte pad) against wdt_state.hpp",
-   "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members"
+   "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00423DA0",
@@ -1942,7 +2052,9 @@
    "exact": false,
    "file": "native/link/behaviour_m20_bomb.cpp",
    "source": "pass-6a decompile 00423da0 (return false)",
-   "notes": "Scout1161 M20 play-stability sweep trap"
+   "notes": "Scout1161 M20 play-stability sweep trap",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00423DB0",
@@ -1952,7 +2064,9 @@
    "exact": false,
    "file": "native/link/behaviour_m20_bomb.cpp",
    "source": "pass-6a decompile 00423db0 (return false)",
-   "notes": "Scout1161 M20 play-stability sweep trap"
+   "notes": "Scout1161 M20 play-stability sweep trap",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0041B2E0",
@@ -1962,7 +2076,9 @@
    "exact": false,
    "file": "native/link/behaviour_m20_bomb.cpp",
    "source": "pass-6a decompile 0041b2e0 (return 0)",
-   "notes": "Scout1161 M20 play-stability sweep trap"
+   "notes": "Scout1161 M20 play-stability sweep trap",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00542590",
@@ -1972,7 +2088,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_options.cpp",
    "source": "disassembly 0x00542590-0x00542D5C",
-   "notes": "Scout1177 M22 options menu (main menu Options button trapped)"
+   "notes": "Scout1177 M22 options menu (main menu Options button trapped)",
+   "behaviour_verdict": "same apart from the native ENHANCEMENTS button (0x7F80 and its text at 0x497, flagged NATIVE in the source): commands 0x686/0x5CD/0x5CE/0x6ED with the try-mode dialog 0xD9, Test_Display_Mode and the CB_SETCURSEL back, WM_DESTROY, the three label sliders and three volume sliders of WM_HSCROLL, and the 0x497 set-up (ranges, positions, mode list filter and item data, check boxes, volumes rounded (v * 10 + 0.5), enabled by AudioDeviceAvailable)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (options)"
   },
   {
    "entry": "0x00781D3B",
@@ -1982,7 +2100,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_options.cpp",
    "source": "CRT free",
-   "notes": "Scout1177 M22 Options dialog close"
+   "notes": "Scout1177 M22 Options dialog close",
+   "behaviour_verdict": "same (the CRT free; natively the port's free for blocks from its operator new[])",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (options)"
   },
   {
    "entry": "0x0047C360",
@@ -2016,7 +2136,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_cell.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0047C390",
@@ -2026,7 +2148,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_cell.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0047C300",
@@ -2060,7 +2184,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_cell.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0041B310",
@@ -2070,7 +2196,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0041B2F0",
@@ -2080,7 +2208,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0041B2D0",
@@ -2090,7 +2220,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00423D40",
@@ -2100,7 +2232,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same (the original returns the wide string at 0x007CECB0, \"No name\")",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00423E10",
@@ -2110,7 +2244,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00423D10",
@@ -2120,7 +2256,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00423D20",
@@ -2130,7 +2268,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00423DD0",
@@ -2140,7 +2280,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00423DE0",
@@ -2150,7 +2292,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00423DF0",
@@ -2160,7 +2304,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00423E20",
@@ -2170,7 +2316,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00423E30",
@@ -2180,7 +2328,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00423E40",
@@ -2190,7 +2340,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00423E50",
@@ -2200,7 +2352,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004CDDD0",
@@ -2210,7 +2364,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00426760",
@@ -2220,7 +2376,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x006D4880",
@@ -2230,7 +2388,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00453BA0",
@@ -2240,7 +2400,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00453BB0",
@@ -2250,7 +2412,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x006CD6E0",
@@ -2260,7 +2424,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00453BC0",
@@ -2270,7 +2436,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0041B3D0",
@@ -2280,7 +2448,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00453BD0",
@@ -2290,7 +2460,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0041B400",
@@ -2300,7 +2472,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0041B430",
@@ -2310,7 +2484,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004CD060",
@@ -2320,7 +2496,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004CD070",
@@ -2330,7 +2508,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004F3160",
@@ -2340,7 +2520,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x006A17B0",
@@ -2362,7 +2544,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_ui.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x006818B0",
@@ -2372,7 +2556,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_ui.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ingame-keys, ingame-ui)"
   },
   {
    "entry": "0x0040D120",
@@ -2382,7 +2568,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_ui.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00681940",
@@ -2392,7 +2580,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_ui.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ai-crowd, audio-skirmish, camp-allied, camp-soviet, ingame-keys, ingame-ui, lanpair, load-ALL01T, load-ALL02S, load-ALL03U, load-SAVE397A, load-SAVE4FBD, modes, specials, supers-save)"
   },
   {
    "entry": "0x005E0DA0",
@@ -2402,7 +2592,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (lanpair)"
   },
   {
    "entry": "0x007837D3",
@@ -2424,7 +2616,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same (the CRT's _isctype(c, _SPACE) in the C locale: 8 for the six space characters, else 0)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00672140",
@@ -2434,7 +2628,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x006715C0",
@@ -2444,7 +2640,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005D5F40",
@@ -2454,7 +2652,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (exit-game)"
   },
   {
    "entry": "0x005EAC20",
@@ -2464,7 +2664,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (exit-game)"
   },
   {
    "entry": "0x006F6730",
@@ -2474,7 +2676,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x006F6740",
@@ -2484,7 +2688,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00495770",
@@ -2494,7 +2700,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0047E2B0",
@@ -2504,7 +2712,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0054F240",
@@ -2514,7 +2724,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0040CAF0",
@@ -2524,7 +2736,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ai-crowd, audio-skirmish, camp-allied, camp-soviet, ingame-keys, ingame-ui, lanpair, load-ALL01T, load-ALL02S, load-ALL03U, load-SAVE397A, load-SAVE4FBD, modes, specials, supers-save)"
   },
   {
    "entry": "0x0040CB00",
@@ -2534,7 +2748,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004C2040",
@@ -2544,7 +2760,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004052F0",
@@ -2554,7 +2772,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_audio.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005B55E0",
@@ -2564,7 +2784,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_audio.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005B69E0",
@@ -2574,7 +2796,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_audio.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 coverage ranking"
+   "notes": "Scout1177 M22 coverage ranking",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00436100",
@@ -2584,7 +2808,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_modes.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004361D0",
@@ -2594,7 +2820,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_modes.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004B53D0",
@@ -2604,7 +2832,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_modes.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004B5400",
@@ -2614,7 +2844,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_modes.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004B53F0",
@@ -2624,7 +2856,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_modes.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
+   "behaviour_verdict": "differs by design: the native object's size where the original answers 0x34 (AbstractClass::Save writes Size_Of bytes of the native object, as the comment says); no RA2 weapon makes an EM pulse",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005DBCE0",
@@ -2634,7 +2868,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_modes.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005A6280",
@@ -2644,7 +2880,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_modes.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005A31F0",
@@ -2654,7 +2892,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_modes.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005A46B0",
@@ -2664,7 +2904,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_modes.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005A3F70",
@@ -2674,7 +2916,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_modes.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005A5340",
@@ -2684,7 +2928,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_modes.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005A62A0",
@@ -2694,7 +2940,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_modes.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005AC390",
@@ -2704,7 +2952,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_modes.cpp",
    "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00775980",
@@ -2714,7 +2964,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_blit.cpp",
    "source": "blitter.hpp template semantics (handwritten assembly in the original)",
-   "notes": "Scout1177 M22 8-bit transparent copy"
+   "notes": "Scout1177 M22 8-bit transparent copy",
+   "behaviour_verdict": "same for lengths >= 0 (a negative length would run the original's counter round; no caller passes one)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "(741 entries)",
@@ -2735,7 +2987,9 @@
    "exact": false,
    "file": "native/link/behaviour_m24.cpp",
    "source": "pass-6a decompile 00493df0",
-   "notes": "forwards to the recovered CRCEngine body at the same address (one class, two names); Scout1191 (M24)"
+   "notes": "forwards to the recovered CRCEngine body at the same address (one class, two names); Scout1191 (M24)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00493E80",
@@ -2746,7 +3000,9 @@
    "exact": false,
    "file": "native/link/behaviour_m24.cpp",
    "source": "pass-6a decompile 00493e80",
-   "notes": "forwards to CRCEngine (same address); Scout1191 (M24)"
+   "notes": "forwards to CRCEngine (same address); Scout1191 (M24)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00493FC0",
@@ -2757,7 +3013,9 @@
    "exact": false,
    "file": "native/link/behaviour_m24.cpp",
    "source": "pass-6a decompile 00493fc0",
-   "notes": "forwards to CRCEngine (same address); Scout1191 (M24)"
+   "notes": "forwards to CRCEngine (same address); Scout1191 (M24)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x006E9380",
@@ -2768,7 +3026,9 @@
    "exact": false,
    "file": "native/link/behaviour_m24.cpp",
    "source": "pass-6a decompile 006e9380",
-   "notes": "pass-6a decompile: AbstractClass size + Debris count*4 + 4; Scout1191 (M24)"
+   "notes": "pass-6a decompile: AbstractClass size + Debris count*4 + 4; Scout1191 (M24)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x006EA9E0",
@@ -2779,7 +3039,9 @@
    "exact": false,
    "file": "native/link/behaviour_m24.cpp",
    "source": "pass-6a decompile 006ea9e0",
-   "notes": "returns ArrayIndex (+0x98); Scout1191 (M24)"
+   "notes": "returns ArrayIndex (+0x98); Scout1191 (M24)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004C1F80",
@@ -2790,7 +3052,9 @@
    "exact": false,
    "file": "native/link/behaviour_m24.cpp",
    "source": "pass-6a decompile 004c1f80",
-   "notes": "pass-6a decompile; Scout1191 (M24)"
+   "notes": "pass-6a decompile; Scout1191 (M24)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00448400",
@@ -2812,7 +3076,9 @@
    "exact": false,
    "file": "native/link/behaviour_m26_wave.cpp",
    "source": "pass-6a decompile 007225b0; TibSun wave.cpp Draw_Sonic (shape reference)",
-   "notes": "depth via Get_Buffer_Offset (slow path), clamps flagged in the file; harness order `wave`; Scout1208 (M26)"
+   "notes": "depth via Get_Buffer_Offset (slow path), clamps flagged in the file; harness order `wave`; Scout1208 (M26)",
+   "behaviour_verdict": "same apart from the differences the row notes flag (control structure, margins, depth start value and row direction checked; the per-pixel brighten through 0x007219C0)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions (structure and constants); reached in the C21 coverage runs (audio-skirmish)"
   },
   {
    "entry": "0x00722CB0",
@@ -2823,7 +3089,9 @@
    "exact": false,
    "file": "native/link/behaviour_m26_wave.cpp",
    "source": "pass-6a decompile 00722cb0; TibSun wave.cpp Draw_Laser (shape reference)",
-   "notes": "depth via Get_Buffer_Offset (slow path), clamps flagged in the file; harness order `wave`; Scout1208 (M26)"
+   "notes": "depth via Get_Buffer_Offset (slow path), clamps flagged in the file; harness order `wave`; Scout1208 (M26)",
+   "behaviour_verdict": "same apart from the differences the row notes flag (detail gate 0x00A40B2C == 2, clip, the depth start value (MaxValue - z) - ystart - 2, the row walk; the pixel blend inline in the original, through 0x00721B00 natively)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions (structure and constants); reached in the C21 coverage runs (audio-skirmish)"
   },
   {
    "entry": "0x0055AA50",
@@ -2847,7 +3115,9 @@
    "exact": false,
    "file": "native/link/behaviour_m26_rows.cpp",
    "source": "pass-6a decompile 004e1290",
-   "notes": "forwards to the member 0x004E11F0; Scout1208 (M26)"
+   "notes": "forwards to the member 0x004E11F0; Scout1208 (M26)",
+   "behaviour_verdict": "differs, kept: the original's free operator== (and != through it) is EB FE, a jump to itself (the source compared through itself: endless recursion); its only callers, the DynamicVectorClass<HashString> instances at 0x00605A4C/0x00605D4C/0x00605876, would hang the game, so the original never runs them; natively the comparison is the member's (0x004E11F0), which the native callers need",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ai-crowd, audio-menu, audio-skirmish, camp-allied, camp-soviet, draw-selftest, exit-game, ingame-keys, ingame-ui, lanpair, load-ALL01T, load-ALL02S, load-ALL03U, load-SAVE397A, load-SAVE4FBD, modes, options, specials, supers-save, vqa-selftest)"
   },
   {
    "entry": "0x004E12A0",
@@ -2858,7 +3128,9 @@
    "exact": false,
    "file": "native/link/behaviour_m26_rows.cpp",
    "source": "pass-6a decompile 004e12a0",
-   "notes": "forwards to the member 0x004E1240; Scout1208 (M26)"
+   "notes": "forwards to the member 0x004E1240; Scout1208 (M26)",
+   "behaviour_verdict": "differs, kept: see 0x004E1290 (the original calls that endless loop)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ai-crowd, audio-skirmish, camp-allied, camp-soviet, draw-selftest, exit-game, ingame-keys, ingame-ui, lanpair, load-ALL01T, load-ALL02S, load-ALL03U, load-SAVE397A, load-SAVE4FBD, modes, options, specials, supers-save, vqa-selftest)"
   },
   {
    "entry": "0x004FF1E0",
@@ -2869,7 +3141,9 @@
    "exact": false,
    "file": "native/link/behaviour_m26_rows.cpp",
    "source": "pass-6a decompile 004ff1e0",
-   "notes": "forwards to the member 0x004FF170; Scout1208 (M26)"
+   "notes": "forwards to the member 0x004FF170; Scout1208 (M26)",
+   "behaviour_verdict": "differs, kept: the original is EB FE, a jump to itself, like 0x004E1290; its callers 0x006053EC/0x0060556C never run there; natively the member's comparison (0x004FF170)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ai-crowd, audio-menu, audio-skirmish, camp-allied, camp-soviet, draw-selftest, exit-game, ingame-keys, ingame-ui, lanpair, load-ALL01T, load-ALL02S, load-ALL03U, load-SAVE397A, load-SAVE4FBD, modes, options, specials, supers-save, vqa-selftest)"
   },
   {
    "entry": "0x0069A430",
@@ -2880,7 +3154,9 @@
    "exact": false,
    "file": "native/link/behaviour_m26_rows.cpp",
    "source": "pass-6a decompile 0069a430",
-   "notes": "same body as operator long; Scout1208 (M26)"
+   "notes": "same body as operator long; Scout1208 (M26)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00770400",
@@ -2891,7 +3167,9 @@
    "exact": false,
    "file": "native/link/behaviour_m26_rows.cpp",
    "source": "pass-6a decompile 00770400",
-   "notes": "second copy of Get_Char 0x00770470; Scout1208 (M26)"
+   "notes": "second copy of Get_Char 0x00770470; Scout1208 (M26)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00435FF0",
@@ -2902,7 +3180,9 @@
    "exact": false,
    "file": "native/link/behaviour_m26_rows.cpp",
    "source": "pass-6a decompile 00435ff0",
-   "notes": "returns Type (+0x30); Scout1208 (M26)"
+   "notes": "returns Type (+0x30); Scout1208 (M26)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00579960",
@@ -2991,7 +3271,9 @@
    "exact": false,
    "file": "native/link/behaviour_m28_mapgen.cpp",
    "source": "asm 0x00582A50",
-   "notes": "Scout1208 (M28)"
+   "notes": "Scout1208 (M28)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0056EF20",
@@ -3015,7 +3297,9 @@
    "exact": false,
    "file": "native/link/behaviour_r5_uicmnds.cpp",
    "source": "decompile and asm 0x006F7020; 0x006F69F0/0x006F7800 accepted siblings",
-   "notes": "Scout1209 (r5): the selection loop is written out (the original inlines 0x006F69F0's) and the test is called with the name pointer"
+   "notes": "Scout1209 (r5): the selection loop is written out (the original inlines 0x006F69F0's) and the test is called with the name pointer",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0069A430",
@@ -3026,7 +3310,9 @@
    "exact": false,
    "file": "native/link/behaviour_r5_uicmnds.cpp",
    "source": "shared/system_timer.hpp 0x0069A430 (SystemTimerClass::operator())",
-   "notes": "Scout1209 (r5): unknown_restart_timer 0x0069A160's name for the system clock"
+   "notes": "Scout1209 (r5): unknown_restart_timer 0x0069A160's name for the system clock",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x006729F0",
@@ -3037,7 +3323,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "inventory/decompiled/006729f0.c",
-   "notes": "Scout1209 (r9): reached when the LAN host creates a game (Net_Join_Dialog 0x005BD070)"
+   "notes": "Scout1209 (r9): reached when the LAN host creates a game (Net_Join_Dialog 0x005BD070)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (lanpair)"
   },
   {
    "entry": "0x00672A10",
@@ -3048,7 +3336,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "inventory/decompiled/00672a10.c",
-   "notes": "Scout1209 (r9): reached when the LAN host creates a game (Net_Join_Dialog 0x005BD070)"
+   "notes": "Scout1209 (r9): reached when the LAN host creates a game (Net_Join_Dialog 0x005BD070)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (lanpair)"
   },
   {
    "entry": "0x005C8CC0",
@@ -3059,7 +3349,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/005c8cc0.cpp (accepted seed)",
-   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (lanpair)"
   },
   {
    "entry": "0x005BBD10",
@@ -3070,7 +3362,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/005bbd10.cpp (accepted seed)",
-   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005DEF80",
@@ -3081,7 +3375,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/ownrdraw/unknown_focus_next_tab_item.cpp (accepted seed)",
-   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005C9320",
@@ -3092,7 +3388,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/005c9320.cpp (accepted seed)",
-   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005C9370",
@@ -3103,7 +3401,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/005c9370.cpp (accepted seed)",
-   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005C93A0",
@@ -3114,7 +3414,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/005c93a0.cpp (accepted seed)",
-   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x007837D3",
@@ -3138,7 +3440,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/00672f20.cpp (accepted seed)",
-   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00737B00",
@@ -3149,7 +3453,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/winstub/Build_By_String.cpp (accepted seed); string from game.exe at run time",
-   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00738100",
@@ -3160,7 +3466,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/00738100.cpp (accepted seed)",
-   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005C2940",
@@ -3171,7 +3479,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/005c2940.cpp (accepted seed)",
-   "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target"
+   "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (lanpair)"
   },
   {
    "entry": "0x0075CA00",
@@ -3182,7 +3492,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/wonline/unknown_send_4dc.cpp (accepted seed)",
-   "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target"
+   "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x0073BDB0",
@@ -3193,7 +3505,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/0073bdb0.cpp (accepted seed)",
-   "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target"
+   "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00668EA0",
@@ -3204,7 +3518,9 @@
    "exact": false,
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/00668ea0.cpp (accepted seed, empty)",
-   "notes": "Scout1209 (r14): reachable from the random map dialog (Write_Scenario_INI 0x0065F980)"
+   "notes": "Scout1209 (r14): reachable from the random map dialog (Write_Scenario_INI 0x0065F980)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x006F8A50",
@@ -3215,7 +3531,9 @@
    "exact": false,
    "file": "native/link/behaviour_m12_placement.cpp",
    "source": "none (6-byte getter: mov eax, [0x00AC1334]; ret)",
-   "notes": "Scout1281: the sidebar tab hot key (SetStructureTabCommandClass::Execute 0x0051B030) reads it; a link-closure trap before (static reach from executed code, coverage battery)"
+   "notes": "Scout1281: the sidebar tab hot key (SetStructureTabCommandClass::Execute 0x0051B030) reads it; a link-closure trap before (static reach from executed code, coverage battery)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (ingame-ui)"
   },
   {
    "entry": "0x006F8A60",
@@ -3226,7 +3544,9 @@
    "exact": false,
    "file": "native/link/behaviour_m12_placement.cpp",
    "source": "none (6-byte getter: mov eax, [0x00AC1338]; ret)",
-   "notes": "Scout1281: the sidebar tab hot key (SetDefenseTabCommandClass::Execute 0x0051B0F0) reads it; a link-closure trap before (static reach from executed code, coverage battery)"
+   "notes": "Scout1281: the sidebar tab hot key (SetDefenseTabCommandClass::Execute 0x0051B0F0) reads it; a link-closure trap before (static reach from executed code, coverage battery)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00617A00",
@@ -3237,7 +3557,9 @@
    "exact": false,
    "file": "native/link/behaviour_m23_planning.cpp",
    "source": "src/recovered/00617a00.cpp (Leaf_617a00, raw read of 0x00A766B0)",
-   "notes": "Scout1281: the Delete command (DeleteCommandClass::Execute 0x0051DA30 -> unknown_dispatch 0x006F6490) reads it; a link-closure trap before (static reach from executed code, coverage battery)"
+   "notes": "Scout1281: the Delete command (DeleteCommandClass::Execute 0x0051DA30 -> unknown_dispatch 0x006F6490) reads it; a link-closure trap before (static reach from executed code, coverage battery)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00454BF0",
@@ -3261,7 +3583,9 @@
    "exact": false,
    "file": "native/link/behaviour_r32_mapseed.cpp",
    "source": "src/recovered/classes/MapSeedClass/005794d0.cpp (seed scaffolding)",
-   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Delete Map: Delete_Save_File 0x0053C7D0; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)"
+   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Delete Map: Delete_Save_File 0x0053C7D0; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x005796F0",
@@ -3272,7 +3596,9 @@
    "exact": false,
    "file": "native/link/behaviour_r32_mapseed.cpp",
    "source": "src/recovered/classes/MapSeedClass/005796f0.cpp (seed scaffolding)",
-   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Load Map dialog title GUI:LoadMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)"
+   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Load Map dialog title GUI:LoadMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00579710",
@@ -3283,7 +3609,9 @@
    "exact": false,
    "file": "native/link/behaviour_r32_mapseed.cpp",
    "source": "src/recovered/classes/MapSeedClass/00579710.cpp (seed scaffolding)",
-   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Save Map dialog title GUI:SaveMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)"
+   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Save Map dialog title GUI:SaveMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00579730",
@@ -3294,7 +3622,9 @@
    "exact": false,
    "file": "native/link/behaviour_r32_mapseed.cpp",
    "source": "src/recovered/classes/MapSeedClass/00579730.cpp (seed scaffolding)",
-   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Delete Map dialog title GUI:DeleteMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)"
+   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Delete Map dialog title GUI:DeleteMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x00579750",
@@ -3305,7 +3635,9 @@
    "exact": false,
    "file": "native/link/behaviour_r32_mapseed.cpp",
    "source": "src/recovered/classes/MapSeedClass/00579750.cpp (seed scaffolding)",
-   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Save Map's message GUI:MapSaved; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)"
+   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Save Map's message GUI:MapSaved; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004CDA80",
@@ -3342,7 +3674,9 @@
    "exact": false,
    "file": "native/link/behaviour_c3_attack_move.cpp",
    "source": "src/recovered/004cdab0.cpp (seed scaffolding)",
-   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed."
+   "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed.",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
   },
   {
    "entry": "0x004CDAC0",
@@ -3379,7 +3713,9 @@
    "exact": false,
    "file": "native/link/behaviour_c16_vqa.cpp",
    "source": "src/recovered/vqalib_task.cpp (RA2_NON_MATCHING parked draft, score 66.67)",
-   "notes": "C16 (owner ruling 2026-11-15): a mod's .VQA movie trapped at Reset_VQA after playing; the best parked draft carried natively. native-vqa-selftest."
+   "notes": "C16 (owner ruling 2026-11-15): a mod's .VQA movie trapped at Reset_VQA after playing; the best parked draft carried natively. native-vqa-selftest.",
+   "behaviour_verdict": "same (the original inlines VQA_ResetCache's three -1 stores; the audio flags mask 0xFFFFF87F is the four flags cleared)",
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; reached in the C21 coverage runs (vqa-selftest)"
   },
   {
    "entry": "0x0077FD80",

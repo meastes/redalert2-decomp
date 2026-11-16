@@ -1191,6 +1191,24 @@ RA2_NATIVE_DRAW_SELFTEST=1 in the game binary, under Wine on Windows) draws one 
 case per family: text (Draw_Char at -4,0 and 4,-2) and VQA (UnVQ2_4x4_Table, two blocks: the
 second was lost); each fails without its fixup.
 
+### Reaching the behaviour rewrites (lane C21)
+
+`tests/coverage_runs.py` plays named scenarios on a coverage build (its docstring has the
+cmake line: `-fsanitize-coverage=func,trace-pc-guard -fno-inline`; without `-fno-inline` a
+leaf called directly is folded into its caller and never shows as reached) and reports, for
+each row of `behaviour_rewrites.json`, the scenarios that ran it (`report --rows all`).
+Scenarios: audio on with the movies, super weapons then a save, the Allied specials, seven
+computer players, the Options/Keyboard/Network/Movies pages, Choose Map's game types, the
+in-game keys and menus (save, load), the original saves, both campaigns by forced ends, the
+menus' Exit, a LAN pair and the binary's self tests. The host's quit (`quit` in a script, a LAN
+pair's instances) dumps the coverage before its `_exit` (`ra2port_coverage_dump`). Input-script
+keys type their characters only with `RA2_NATIVE_SCRIPT_AS_USER=1`. ctests
+`native-shell-name-filter`, `native-shell-options` and `native-shell-ingame-keys`
+(`tests/shell_paths.py`) keep three of the paths found: the LAN lobby's name edit refuses ','
+(NewEdit 0x005F22A0's filter, message 0x4EB, kept natively by window because the record keeps
+32 bits there), the Options page's check boxes reach RA2.INI, and the in-game commands with the
+diplomacy screen run to their frame target.
+
 ## Layers
 
 1. **Native view** (`tools/native_units.py`, run at configure time). Reads the

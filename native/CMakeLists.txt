@@ -456,6 +456,18 @@ if(RA2_NATIVE_SDL)
                  --binary $<TARGET_FILE:ra2-native> --work "${CMAKE_CURRENT_BINARY_DIR}/process-cleanup")
         set_tests_properties(native-process-cleanup PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)
       endif()
+      # 8i. Paths the coverage runs found unreached by the other tests (lane C21,
+      #     tests/coverage_runs.py): the lobby name edit's character filter (NewEdit 0x005F22A0),
+      #     the Options page's check boxes reaching RA2.INI (Main_Options_Proc 0x00542590), and the
+      #     in-game commands with the diplomacy screen (tests/shell_paths.py).
+      if(NOT WIN32 AND NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+        foreach(ra2_shell_case name-filter options ingame-keys)
+          add_test(NAME native-shell-${ra2_shell_case} COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/shell_paths.py"
+                   --case ${ra2_shell_case} --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                   --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/shell-${ra2_shell_case}")
+          set_tests_properties(native-shell-${ra2_shell_case} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
+        endforeach()
+      endif()
       # 8e. A loaded game abandoned and the game ended by the menus' Exit (C15f, codex4
       #     R710/R719): WinMain and the exit-time teardown end cleanly (tests/exit_route.py).
       add_test(NAME native-exit-route COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/exit_route.py"

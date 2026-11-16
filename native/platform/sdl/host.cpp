@@ -60,6 +60,7 @@ extern "C" __attribute__((weak)) int ra2_native_message_edit_open(void) { return
 // Text can be typed into a control with the focus: a Win32 edit control or a NewEdit.
 bool text_field_focused() { return ra2port_text_input_wanted() || ra2_native_new_edit_focused(); }
 extern "C" int ra2port_menu_shown(void);          // port/src/user32.cpp: a menu dialog is shown (no sidebar)
+extern "C" void ra2port_coverage_dump(void);      // port/src/run_progress.cpp (lane C21)
 extern "C" uintptr_t ra2port_top_dialog(void);    // port/src/user32.cpp: the topmost shown dialog (0: none)
 extern "C" int ra2port_top_dialog_rect(int r[4]);   // its rectangle in game pixels (0: none; lane C16)
 extern "C" int ra2port_top_dialog_controls(int (*r)[4], int max);   // its visible controls' rectangles (lane C16)
@@ -746,6 +747,7 @@ void quit()
     ra2_native_save_settings();
     if (before_exit) before_exit();
     fprintf(stderr, "host: quitting\n");
+    ra2port_coverage_dump();     // port/src/run_progress.cpp: a coverage build's dump (_exit skips it)
     fflush(nullptr);
     _exit(0);
 }

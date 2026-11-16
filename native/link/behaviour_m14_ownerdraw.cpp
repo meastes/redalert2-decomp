@@ -1405,6 +1405,28 @@ void Edit_Changed(HWND window, HWND parent)
     SendMessageA(parent, 0x111, id | 0x4000000, (LPARAM)window);
     InvalidateRect(window, 0, TRUE);
 }
+// The record's character filter (+0x50): message 0x4EB stores lparam there (0x005EF2F3, the
+// generic record procedure 0x005EE460, which this procedure forwards it to) and a typed
+// character found in it is refused (0x005F299F: wcschr 0x00783AC6). The LAN lobby's name edit
+// (0x541) refuses ',' this way. NATIVE: the record keeps 32 bits there (the 0x005EE460 draft's
+// RA2_REC_50), so the pointer is also kept here, by window.
+struct EditFilter { HWND edit; unsigned short const *filter; };
+EditFilter edit_filters[16];
+unsigned short const *&Edit_Filter(HWND edit, bool make)
+{
+    static unsigned short const *none;
+    for (int i = 0; i < 16; ++i)
+        if (edit_filters[i].edit == edit) return edit_filters[i].filter;
+    none = 0;
+    if (!make) return none;
+    for (int i = 0; i < 16; ++i)
+        if (!edit_filters[i].edit) {
+            edit_filters[i].edit = edit;
+            edit_filters[i].filter = 0;
+            return edit_filters[i].filter;
+        }
+    return none;
+}
 }
 
 // 0x005F22A0: the "NewEdit" procedure (a list box standing in for an edit,
@@ -1504,15 +1526,29 @@ LRESULT __stdcall unknown_new_edit_proc_5f22a0(HWND window, UINT message, WPARAM
         record->unknown_40 = text.Length();
         InvalidateRect(window, 0, TRUE);
         break;
+    case 0x4EB:                                     // the character filter (see Edit_Filter)
+        Edit_Filter(window, true) = (unsigned short const *)lparam;
+        break;
+    case 0x2:                                       // WM_DESTROY
+        Edit_Filter(window, false) = 0;
+        break;
     case 0x102: case 0x4D9: {                       // WM_CHAR, and a character sent as 0x4D9
-        // Inserted at the caret, which moves past it (0x005F2996-0x005F29EF); a control
-        // character (WM_CHAR below 0x20) goes to the list's own procedure; past the limit
-        // (+0x48) nothing changes. NATIVE: the record's character filter (+0x50) and its
-        // narrow-only flag (+0x30) are never set by the port, so neither is tested.
+        // Inserted at the caret, which moves past it (0x005F2996-0x005F29EF), unless it is in
+        // the record's filter (+0x50, Edit_Filter), the text is at its limit (+0x48), it is a
+        // control character, or it is past 0xFF while the narrow-only flag (+0x30, message
+        // 0x4D1 through 0x005EE460: the LAN and WOL name edits) is set; a control character
+        // sent as WM_CHAR goes to the list's own procedure.
         unsigned short character = (unsigned short)wparam;
         if (message == 0x102 && character <= 0x1F) break;
         if (!character) return 0;
+        unsigned short const *filter = Edit_Filter(window, false);
+        if (filter) {
+            unsigned short const *at = filter;
+            while (*at && *at != character) ++at;
+            if (*at) return 0;
+        }
         if ((limit && (int)text.Length() >= limit) || character <= 0x1F) return 0;
+        if (*(int *)record->unknown_30 && character >= 0x100) return 0;
         int &caret = record->unknown_40;
         text.Insert(character, (unsigned)caret);
         ++caret;
