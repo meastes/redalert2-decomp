@@ -795,20 +795,20 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
             for (int facing=0;facing<8;facing++) {
                 Cell adjacent=Fly_Adjacent_Cell_004bdfb0(LinkedTo->unknown_454,facing);
                 CellClass *cell=&Map[adjacent];
-                cell->unknown_122--;
+                cell->AdjacentObjectCount--;
             }
             LinkedTo->unknown_454=LinkedTo->unknown_slot104();
             for (facing=0;facing<8;facing++) {
                 Cell adjacent=Fly_Adjacent_Cell_004bdfb0(LinkedTo->unknown_454,facing);
                 CellClass *cell=&Map[adjacent];
-                cell->unknown_122++;
+                cell->AdjacentObjectCount++;
             }
         } else {
             LinkedTo->unknown_454=LinkedTo->unknown_slot104();
             for (int facing=0;facing<8;facing++) {
                 Cell adjacent=Fly_Adjacent_Cell_004bdfb0(LinkedTo->unknown_454,facing);
                 CellClass *cell=&Map[adjacent];
-                cell->unknown_122++;
+                cell->AdjacentObjectCount++;
             }
         }
         if (Cell(LinkedTo->Center_Coord())==Cell(unknown_1c) || Map[Cell(unknown_1c)].Cell_Building()==LinkedTo->Contact(0)) {
@@ -1072,7 +1072,7 @@ void FlyLocomotionClass::unknown_4bf1f0()
 Matrix3D * __stdcall FlyLocomotionClass::Shadow_Matrix(Matrix3D *matrix, int *key)
 {
     CoordStruct coord = LinkedTo->Coord;
-    int ramp = Map[coord].unknown_11c;
+    int ramp = Map[coord].Ramp;
     if (LinkedTo->Techno_Type_Class()->IsDropship) {
         ramp = 0;
     }
@@ -1237,7 +1237,7 @@ void __stdcall FlyLocomotionClass::Acquire_Hunter_Seeker_Target()
                 }
             }
 
-            if (enemy && techno->Strength > 0 && !techno->unknown_76 && techno->IsActive &&
+            if (enemy && techno->Strength > 0 && !techno->IsInLimbo && techno->IsActive &&
                 !techno->Techno_Type_Class()->Invisible && techno->Techno_Type_Class()->unknown_201 &&
                 !(unknown_id_source_a3d290->Special().HarvesterImmune && techno->Kind_Of() == 1 && ((UnitClass *)techno)->Type->Harvester)) {
 

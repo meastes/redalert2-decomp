@@ -110,7 +110,7 @@ TubeClass::TubeClass(Cell const &enter, int facing) : EnterCell(enter), ExitCell
     if (enter.X != 0 || enter.Y != 0) {
         CellClass &cell = Map[enter];
         int index = Tube_Index(this);
-        cell.unknown_116 = index;
+        cell.Tube = index;
     }
 }
 
@@ -129,8 +129,8 @@ TubeClass::~TubeClass()
     CellClass *cell = &Map[EnterCell];
     if (cell != 0) {
         int index = Tube_Index(this);
-        if (cell->unknown_116 == index) {
-            cell->unknown_116 = -1;
+        if (cell->Tube == index) {
+            cell->Tube = -1;
         }
     }
     Tubes.Delete(this);
@@ -187,11 +187,11 @@ void TubeClass::Update_All_Indexes()
         if (!cell.Has_Tunnel()) {
             delete tube;
             count--;
-            cell.unknown_116 = -1;
+            cell.Tube = -1;
             position--;
         } else {
             index++;
-            cell.unknown_116 = index;
+            cell.Tube = index;
         }
     }
 }
@@ -261,7 +261,7 @@ void __fastcall TubeClass::Read_INI(CCINIClass &ini)
                 break;
             }
         }
-        Map[tube->EnterCell].unknown_116 = entry;
+        Map[tube->EnterCell].Tube = entry;
     }
 }
 

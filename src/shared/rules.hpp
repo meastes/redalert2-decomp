@@ -137,7 +137,7 @@ public:
     bool                     FreeMCV;   // +0x4C
     bool                     BerzerkAllowed;   // +0x4D
     char unknown_04e[0x50 - 0x4E];
-    int                      unknown_50;   // +0x50 PoseDir; a direction (AircraftClass::Landing_Direction)
+    int                      PoseDir;   // +0x50 PoseDir; a direction (AircraftClass::Landing_Direction)
     AnimTypeClass *          DropPodPuff;   // +0x54
     int                      WaypointAnimationSpeed;   // +0x58
     AnimTypeClass *          BarrelExplode;   // +0x5C
@@ -161,7 +161,7 @@ public:
     double                   unknown_c0;   // +0xC0 AITriggerFailureWeightDelta; AI trigger weight change on failure (0x0041E070; hypothesis)
     double                   unknown_c8;   // +0xC8 AITriggerTrackRecordCoefficient; AI trigger failure scale (0x0041E070; hypothesis)
     int                      VeinholeMonsterStrength;   // +0xD0
-    int                      unknown_d4;   // +0xD4 MaxVeinholeGrowth; vein nodes per veinhole monster (VeinholeMonsterClass)
+    int                      MaxVeinholeGrowth;   // +0xD4 MaxVeinholeGrowth; vein nodes per veinhole monster (VeinholeMonsterClass)
     int                      VeinholeGrowthRate;   // +0xD8
     int                      VeinholeShrinkRate;   // +0xDC
     AnimTypeClass *          VeinAttack;   // +0xE0

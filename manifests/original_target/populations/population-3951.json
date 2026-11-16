@@ -4,8 +4,8 @@
     "id": "population-3951",
     "inventory_sha256": "03ecbee929b1d0cb500c02f0dc0bb33490460112988c229ac65b7770faad6db2",
     "gaps_sha256": "cd6c8e39f428aa4a3a56598b7c33710e0cbd5a00d63c37ad907b851527b40cb2",
-    "historical_population_sha256": "1b6ef49354237f820ac4da3e24fcc8de132a821928b046158f9d482da8126562",
-    "historical_acceptance_sha256": "b5769467e062639961c4373ea42b619fb5e1e5272ab2083efecd30b401b1c83e"
+    "historical_population_sha256": "6478dfdc64d0cbb732001636294aa636d413d96a7cdfec010fe6c2c8ecb7e62e",
+    "historical_acceptance_sha256": "478015022d5b7cdfa140cd33de4b5fd9fef5e5a04221360b57875d37ffde1662"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -13691,7 +13691,8 @@
     "??_E?$VectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z": 4245968,
     "??_E?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845232,
     "?Overlays@@3V?$DynamicVectorClass@PAVOverlayClass@@@@A": 10750976,
-    "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A": 8624592
+    "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A": 8624592,
+    "?Info@AudioSource@@QAEPAUAudioSourceInfo@@XZ": 4228160
   },
   "regions": [
     {
@@ -17928,7 +17929,7 @@
           "resolved": 4941615
         }
       ],
-      "source_sha256": "cf79e2211e2384aedb1e924b4b4ddf100d465b43b58192459adca8d9adbbb0e7",
+      "source_sha256": "5b5cf0f57d2e90a2043de112b301bd158a3781bbe8038211720f3afe50b9d4c0",
       "switch_data_bytes": 180,
       "source": "src/recovered/classes/EventClass/Execute.cpp",
       "population": "population-3951",

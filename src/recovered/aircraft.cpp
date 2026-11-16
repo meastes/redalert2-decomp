@@ -146,7 +146,7 @@ void AircraftClass::Init()
             DynamicVectorClass<TechnoTypeClass *> &types = (DynamicVectorClass<TechnoTypeClass *> &)House->Type->VeteranAircraft;
             for (int index = 0; index < types.Count(); index++) {
                 if (types[index] == Type) {
-                    unknown_118.Set_Veteran(true);
+                    Veterancy.Set_Veteran(true);
                     break;
                 }
             }
@@ -174,7 +174,7 @@ AircraftClass::~AircraftClass()
 {
     if (GameActive && Type != 0) {
         if (House->Can_Build(Type, 0, 0) == -1) {
-            House->unknown_144 = true;
+            House->IsRecalcNeeded = true;
         }
         Kill_Cargo(0);
         if (Team != 0) {
@@ -1515,7 +1515,7 @@ int AircraftClass::What_Action(Cell const *arg1, bool arg2, bool arg3)
 }
 
 
-unsigned int AircraftClass::Pose_Dir() const { return Rules->unknown_50; }
+unsigned int AircraftClass::Pose_Dir() const { return Rules->PoseDir; }
 
 
 // AircraftClass::Do_MISSION_ATTACK 0x004178A0: Do_MISSION_ATTACK (Status 0-10: validate, pick an attack
@@ -2166,7 +2166,7 @@ bool AircraftClass::Cell_Seems_Ok(Cell const &cell, bool allow_self)
     for (int index = 0; index < Feet.Count(); index++) {
         FootClass *foot = Feet[index];
         if (foot && (!ignore_contact || unknown_494 != foot) &&
-            (allow_self || foot != this) && !foot->unknown_76 && foot->unknown_74 &&
+            (allow_self || foot != this) && !foot->IsInLimbo && foot->IsDown &&
             (foot->unknown_slot104() == cell || foot->unknown_494 == where)) return false;
     }
     return true;
@@ -2330,7 +2330,7 @@ AbstractClass *AircraftClass::Good_LZ()
         int count = House->Buildings.Count();
         for (index = 0; index < count; index++) {
             BuildingClass *building = House->Buildings[index];
-            if (building && !building->unknown_76) {
+            if (building && !building->IsInLimbo) {
                 int distance = Vector_Distance(Center_Coord(), building->Center_Coord());
                 if (building->Type == Type->Dock[0]) {
                     distance /= 4;
@@ -2357,7 +2357,7 @@ AbstractClass *AircraftClass::Good_LZ()
 
     for (index = 0; index < unknown_objects_a40368.Count(); index++) {
         TechnoClass *techno = unknown_objects_a40368[index]->As_Techno();
-        if (techno && !techno->unknown_76 && techno->House == House && techno != this) {
+        if (techno && !techno->IsInLimbo && techno->House == House && techno != this) {
             int distance = Coord_Distance(Center_Coord(), techno->Center_Coord());
             if (best_distance == -1 || distance < best_distance) {
                 Cell cell = techno->unknown_slot104();
@@ -2675,7 +2675,7 @@ void __fastcall AircraftClass::Write_INI_0041A6C0(CCINIClass &ini)
     ini.Clear(unknown_aircraft_section_79b0d0, 0);
     for (int index = 0; index < Aircraft.Count(); index++) {
         AircraftClass *aircraft = Aircraft[index];
-        if (aircraft && !aircraft->unknown_76 && aircraft->IsActive) {
+        if (aircraft && !aircraft->IsInLimbo && aircraft->IsActive) {
             char id[12];
             sprintf(id, "%d", index);
             char const *tag;
@@ -2689,7 +2689,7 @@ void __fastcall AircraftClass::Write_INI_0041A6C0(CCINIClass &ini)
                     (int)(aircraft->Health_Ratio() * 256.0),
                     aircraft->unknown_slot104().X, aircraft->unknown_slot104().Y,
                     direction, MissionClass::Name_From_Mission(aircraft->Get_Mission()), tag,
-                    aircraft->unknown_118.To_Integer(), aircraft->unknown_1ac,
+                    aircraft->Veterancy.To_Integer(), aircraft->unknown_1ac,
                     aircraft->unknown_379, aircraft->unknown_37a);
             ini.Put_String(unknown_aircraft_section_79b0d0, id, line);
         }
@@ -2734,7 +2734,7 @@ void __fastcall AircraftClass::Read_INI_0041A840(CCINIClass &ini)
                         if (tag) aircraft->Attach_Tag(tag);
                     }
                     char *token = strtok(0, ",");
-                    if (token) aircraft->unknown_118.From_Integer(atoi(token));
+                    if (token) aircraft->Veterancy.From_Integer(atoi(token));
                     token = strtok(0, ",");
                     if (token) aircraft->unknown_1ac = atoi(token);
                     token = strtok(0, ",");
@@ -2866,7 +2866,7 @@ int __stdcall AircraftClass::Landing_Direction()
     if (Cargo.Object != 0) {
         return Dir_To_8(SecondaryFacing.Current());
     }
-    return Rules->unknown_50;
+    return Rules->PoseDir;
 }
 
 

@@ -15,7 +15,7 @@ static_assert(offsetof(HouseClass, WarFactoryInfiltrated) == 0x29B, "unit.hpp vi
 static_assert(offsetof(HouseTypeClass, VeteranUnits) == 0x188, "unit.hpp view: HouseTypeClass::VeteranUnits");
 // The arm64 offsets house_screen.hpp's light HouseClass is respelled to (check_light_views_house.cpp).
 static_assert(offsetof(HouseClass, ArrayIndex) == 0x50 && offsetof(HouseClass, Buildings) == 0xA0, "house_screen.hpp view");
-static_assert(offsetof(HouseClass, unknown_130) == 0x188 && offsetof(HouseClass, unknown_13d) == 0x195, "house_screen.hpp view");
+static_assert(offsetof(HouseClass, ActLike) == 0x188 && offsetof(HouseClass, unknown_13d) == 0x195, "house_screen.hpp view");
 static_assert(offsetof(HouseClass, unknown_142) == 0x19A && offsetof(HouseClass, WaypointPaths) == 0x1B0, "house_screen.hpp view");
 static_assert(offsetof(HouseClass, Supers) == 0x228 && offsetof(HouseClass, CurBuildings) == 0x2C4, "house_screen.hpp view");
 static_assert(offsetof(HouseClass, Power) == 0x5364 && offsetof(HouseClass, unknown_5310) == 0x53D4, "house_screen.hpp view");

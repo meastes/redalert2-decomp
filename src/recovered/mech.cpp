@@ -260,7 +260,7 @@ static inline void Step_Along(MechLocomotionClass *loco, UnknownFacingDir desire
         loco->LinkedTo->Set_Coord(new_coord);
         CellClass *old_cellptr = &Map[old_cell];
         CellClass *new_cellptr = &Map[new_cell];
-        if (new_cellptr->unknown_11b == old_cellptr->unknown_11b - 4 && new_cellptr->IsUnderBridge) {
+        if (new_cellptr->Height == old_cellptr->Height - 4 && new_cellptr->IsUnderBridge) {
             loco->LinkedTo->unknown_79 = true;
         }
         if (!new_cellptr->IsUnderBridge && old_cellptr->IsUnderBridge) {
@@ -270,11 +270,11 @@ static inline void Step_Along(MechLocomotionClass *loco, UnknownFacingDir desire
         loco->LinkedTo->Mark(1);
         Map[Object_Coord(loco->LinkedTo)].Trigger_Veins();
     } else {
-        bool was_down = loco->LinkedTo->unknown_74;
-        loco->LinkedTo->unknown_74 = false;
+        bool was_down = loco->LinkedTo->IsDown;
+        loco->LinkedTo->IsDown = false;
         loco->LinkedTo->Set_Coord(new_coord);
         loco->LinkedTo->Set_Height_AGL(0);
-        loco->LinkedTo->unknown_74 = was_down;
+        loco->LinkedTo->IsDown = was_down;
     }
 }
 
@@ -333,7 +333,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
 
             int dir = LinkedTo->Path[0];
             if (dir == 8) {
-                int tube = Map[Object_Coord(LinkedTo)].unknown_116;
+                int tube = Map[Object_Coord(LinkedTo)].Tube;
                 if (tube >= 0 && tube < Tubes.Count()) {
                     LinkedTo->Mark(0);
                     LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
@@ -392,7 +392,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                             if (cellptr->IsUnderBridge) {
                                 int z = Object_Coord(LinkedTo).Z;
                                 bridge = true;
-                                if (abs(z / unknown_geometry_g - cellptr->unknown_11b) <= 2) {
+                                if (abs(z / unknown_geometry_g - cellptr->Height) <= 2) {
                                     bridge = false;
                                 }
                             } else {
@@ -495,7 +495,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                 }
             }
         } else {
-            if (LinkedTo->unknown_468 > 0.0) {
+            if (LinkedTo->Speed > 0.0) {
                 LinkedTo->unknown_slot306(0.0);
                 LinkedTo->unknown_57a = false;
                 return;
@@ -532,7 +532,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
             if (!LinkedTo->IsActive) {
                 return;
             }
-            if (LinkedTo->unknown_76 || LinkedTo->unknown_7a) {
+            if (LinkedTo->IsInLimbo || LinkedTo->IsFalling) {
                 return;
             }
             if (LinkedTo->Path[0] != -1 && LinkedTo->Path[0] != 8) {
@@ -548,7 +548,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                     }
                 }
             }
-            if (!LinkedTo->IsActive || LinkedTo->unknown_76) {
+            if (!LinkedTo->IsActive || LinkedTo->IsInLimbo) {
                 return;
             }
             LinkedTo->Mark(1);
@@ -595,7 +595,7 @@ bool MechLocomotionClass::Mark_Head_To(CoordStruct const &coord)
     if (unknown_24 != unknown_geometry_l) {
         LinkedTo->Clear_Occupy_Bit(unknown_24);
     }
-    if (Map[to].Goodie_Check(LinkedTo) && !LinkedTo->unknown_76) {
+    if (Map[to].Goodie_Check(LinkedTo) && !LinkedTo->IsInLimbo) {
         unknown_24 = to;
     } else {
         unknown_24 = unknown_geometry_l;

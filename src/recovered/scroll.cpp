@@ -252,7 +252,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
                     && (techno == 0 || !techno->unknown_32c)) {
                 action = 7;
             }
-            if (BeaconManager.FindBeaconAt_0042e860(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, Map[cell].unknown_11b * unknown_geometry_g))) {
+            if (BeaconManager.FindBeaconAt_0042e860(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, Map[cell].Height * unknown_geometry_g))) {
                 action = 0x3D;
             }
         }

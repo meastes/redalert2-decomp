@@ -11,7 +11,7 @@ void TemporalClass::Unknown_006E2610()
             TechnoClass *building=Target;
             building->House->RecalcPower=true;
             unknown_temporal_thaw_0044d380((int)building);
-            building->House->unknown_144=true;
+            building->House->IsRecalcNeeded=true;
         }
         Target->Mark(2);
     }

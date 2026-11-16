@@ -129,7 +129,7 @@ int RadioClass::unknown_slot151(int message, AbstractClass **param, TechnoClass 
 
 bool RadioClass::Limbo()
 {
-    if (!unknown_76) {
+    if (!IsInLimbo) {
         SendToEachLink(3);
     }
     return ObjectClass::Limbo();

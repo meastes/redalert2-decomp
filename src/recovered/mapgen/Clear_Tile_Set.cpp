@@ -9,7 +9,7 @@ void __fastcall Clear_Tile_Set_0057dd10()
     while(cell) {
         if(cell->IsoTileIndex>=IsometricTileTypeClass_ShorePieces && cell->IsoTileIndex<IsometricTileTypeClass_ShorePieces+42) {
             cell->IsoTileIndex=0;
-            cell->unknown_11a=0;
+            cell->SubTile=0;
         }
         cell=Map.Iterate();
     }

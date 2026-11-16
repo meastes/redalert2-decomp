@@ -293,8 +293,8 @@ void __fastcall Build_Deform_Grid_00685290(bool flag, Cell position)
             Cell cell(DeformPointXAdd + x, DeformPointYAdd + y);
             if (cell.X >= Map.unknown_120 && cell.X <= Map.unknown_120 + Map.unknown_128
                 && cell.Y >= Map.unknown_124 && cell.Y <= Map.unknown_124 + Map.unknown_12c) {
-                int ramp = Map[cell].unknown_11c;
-                int level = Map[cell].unknown_11b * 15;
+                int ramp = Map[cell].Ramp;
+                int level = Map[cell].Height * 15;
                 value = *_ramp_corners[ramp] + level;
                 if (!Can_Deform_Cell(&Map[cell], flag)
                     || !Can_Deform_Cell(&Map[cell - Cell(0, 1)], flag)
@@ -349,8 +349,8 @@ void Init_Deform_Grid_RMG_00685600()
                 tries++;
             }
             if (Generation_Cell_In_Bounds_0058da10(cell)) {
-                int ramp = Map[cell].unknown_11c;
-                int level = Map[cell].unknown_11b * 15;
+                int ramp = Map[cell].Ramp;
+                int level = Map[cell].Height * 15;
                 value = *_ramp_corners[ramp] + level;
                 if (Generation_Cell_In_Bounds_0058da10(position + Cell(0, -1))
                     && !Can_Deform_Cell_RMG(&Map[position + Cell(0, -1)], true)) {
@@ -434,10 +434,10 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
                 }
                 Rect cell_bound(0, 0, 0, 0);
                 cell_bound = cell->Cell_Render_Rect();
-                int old_height = cell->unknown_11b;
-                cell->unknown_11b = (char)(lowest / 15);
-                Map.Lower_Max_Level(cell->unknown_11b);
-                if (old_height != cell->unknown_11b) {
+                int old_height = cell->Height;
+                cell->Height = (char)(lowest / 15);
+                Map.Lower_Max_Level(cell->Height);
+                if (old_height != cell->Height) {
                     cell->Remove_Fogged_Objects();
                 }
                 cell->Recalc_Attributes(-1);
@@ -464,7 +464,7 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
                     int *corners = _ramp_corners[ramp];
                     if (corners[0] == heights[0] && corners[1] == heights[1]
                         && corners[2] == heights[2] && corners[3] == heights[3]) {
-                        cell->unknown_11c = ramp;
+                        cell->Ramp = ramp;
                         if (ramp == 0) {
  cell->IsoTileIndex = IsometricTileTypeClass_ClearTile;
  } else {
@@ -547,7 +547,7 @@ bool Commit_Deform_Grid_RMG_006863e0()
             }
             if (highest - lowest > 15) continue;
             if (Can_Deform_Cell_RMG(cell, true)) {
-                cell->unknown_11b = lowest / 15;
+                cell->Height = lowest / 15;
             } else {
                 continue;
             }
@@ -558,7 +558,7 @@ bool Commit_Deform_Grid_RMG_006863e0()
                 int *corners = _ramp_corners[ramp];
                 if (corners[0] == heights[0] && corners[1] == heights[1]
                     && corners[2] == heights[2] && corners[3] == heights[3]) {
-                    cell->unknown_11c = ramp;
+                    cell->Ramp = ramp;
                     if (ramp == 0) {
                         cell->IsoTileIndex = IsometricTileTypeClass_ClearTile;
                     } else {
@@ -746,7 +746,7 @@ int __fastcall Get_Deformed_Cell_Height_00686c90(CellClass *cell)
             }
         }
     }
-    return cell->unknown_11b;
+    return cell->Height;
 }
 
 

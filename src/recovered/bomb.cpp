@@ -123,7 +123,7 @@ void BombClass::Unknown_00435D30()
     if (Target == 0 || unknown_58) {
         return;
     }
-    bool flag = Target->unknown_76;
+    bool flag = Target->IsInLimbo;
     Target->unknown_38 = 0;
     if (flag) {
         Target->unknown_68 = false;
@@ -288,7 +288,7 @@ void BombListClass::Unknown_004361F0()
     for(index=Bombs.Count()-1;index>=0;--index) {
         BombClass *bomb=Bombs[index];
         if(bomb->unknown_50!=-1) {
-            if(bomb->Target->unknown_76) {
+            if(bomb->Target->IsInLimbo) {
                 bomb->unknown_3c.Unknown_00405D50();
                 bomb->unknown_54=0;
             } else if(bomb->unknown_54==0) {
@@ -329,7 +329,7 @@ void BombListClass::Unknown_004361F0()
             }
         }
         bomb->Target->unknown_68=visible;
-        if(visible!=previous) bomb->Target->unknown_75=true;
+        if(visible!=previous) bomb->Target->IsToDisplay=true;
     }
 }
 

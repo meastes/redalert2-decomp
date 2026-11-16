@@ -72,7 +72,7 @@ void MapClass::Compute_Zone_Connections()
                 faceindex = cptr->IsoTileIndex - IsometricTileTypeClass_TrainBridgeSet;
             }
 
-            if (_bridge_subtiles1[faceindex] == (unsigned char)cptr->unknown_11a) {
+            if (_bridge_subtiles1[faceindex] == (unsigned char)cptr->SubTile) {
 
                 bool crossed = false;
                 bool passable = true;
@@ -82,13 +82,13 @@ void MapClass::Compute_Zone_Connections()
                 for (bptr = &cptr->Adjacent_Cell(facing); In_Radar(bptr->MapCoords) && !crossed; bptr = &bptr->Adjacent_Cell(facing)) {
                     if (bptr->Is_Tile_Bridge()) {
                         int index = bptr->IsoTileIndex - IsometricTileTypeClass_BridgeSet;
-                        if (index != -1 && _bridge_subtiles2[index] == (unsigned char)bptr->unknown_11a) {
+                        if (index != -1 && _bridge_subtiles2[index] == (unsigned char)bptr->SubTile) {
                             crossed = true;
                         }
 
                     } else if (bptr->Is_Tile_Train_Bridge()) {
                         int index = bptr->IsoTileIndex - IsometricTileTypeClass_TrainBridgeSet;
-                        if (index != -1 && _bridge_subtiles2[index] == (unsigned char)bptr->unknown_11a) {
+                        if (index != -1 && _bridge_subtiles2[index] == (unsigned char)bptr->SubTile) {
                             crossed = true;
                         }
                     } else if (!bptr->IsUnderBridge) {

@@ -37,7 +37,7 @@ public:
     ObjectClass *Owner;         // +0x24
     Rect Bounds;                // +0x28 x, y and the image's width and height
     ShapeFileStruct *Image;     // +0x38
-    bool unknown_3c;            // +0x3C (set when the owner is detached)
+    bool IsToDelete;            // +0x3C (set when the owner is detached)
     char unknown_3d[3];
 };
 typedef char AlphaShapeClass_size_40[(sizeof(AlphaShapeClass) == 0x40) ? 1 : -1];

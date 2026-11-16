@@ -85,7 +85,7 @@ void Split_Raise_Region(int region, int diff)
 {
     Map.Reset_Iterator();
     for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
-        if (Split_Get_Region(cell->MapCoords) == region) cell->unknown_11b = (char)(cell->unknown_11b + diff);
+        if (Split_Get_Region(cell->MapCoords) == region) cell->Height = (char)(cell->Height + diff);
     }
 }
 }

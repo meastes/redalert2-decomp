@@ -131,7 +131,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
 
             int dir = LinkedTo->Path[0];
             if (dir == 8) {
-                int tube = Map[Object_Coord(LinkedTo)].unknown_116;
+                int tube = Map[Object_Coord(LinkedTo)].Tube;
                 if (tube >= 0 && tube < Tubes.Count()) {
                     LinkedTo->Mark(0);
                     LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
@@ -191,7 +191,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         if (cellptr->IsUnderBridge) {
                             int z = Object_Coord(LinkedTo).Z;
                             bridge = true;
-                            if (abs(z / unknown_geometry_g - cellptr->unknown_11b) <= 2) {
+                            if (abs(z / unknown_geometry_g - cellptr->Height) <= 2) {
                                 bridge = false;
                             }
                         } else {
@@ -299,7 +299,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
             }
             }
         } else {
-            if (LinkedTo->unknown_468 > 0.0) {
+            if (LinkedTo->Speed > 0.0) {
                 LinkedTo->unknown_slot306(0.0);
             }
         }
@@ -333,7 +333,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
         if (!LinkedTo->IsActive) {
             return;
         }
-        if (LinkedTo->unknown_76 || LinkedTo->unknown_7a) {
+        if (LinkedTo->IsInLimbo || LinkedTo->IsFalling) {
             return;
         }
         {
@@ -353,7 +353,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         }
                     }
                 }
-                if (!LinkedTo->IsActive || LinkedTo->unknown_76) {
+                if (!LinkedTo->IsActive || LinkedTo->IsInLimbo) {
                     return;
                 }
                 LinkedTo->Mark(1);
@@ -382,7 +382,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
         LinkedTo->Set_Coord(new_coord);
         CellClass *old_cellptr = &Map[old_cell];
         CellClass *new_cellptr = &Map[new_cell];
-        if (new_cellptr->unknown_11b == old_cellptr->unknown_11b - 4 && new_cellptr->IsUnderBridge) {
+        if (new_cellptr->Height == old_cellptr->Height - 4 && new_cellptr->IsUnderBridge) {
             LinkedTo->unknown_79 = true;
         }
         if (!new_cellptr->IsUnderBridge && old_cellptr->IsUnderBridge) {
@@ -392,11 +392,11 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
         LinkedTo->Mark(1);
         Map[Object_Coord(LinkedTo)].Trigger_Veins();
     } else {
-        bool was_down = LinkedTo->unknown_74;
-        LinkedTo->unknown_74 = false;
+        bool was_down = LinkedTo->IsDown;
+        LinkedTo->IsDown = false;
         LinkedTo->Set_Coord(new_coord);
         LinkedTo->Set_Height_AGL(0);
-        LinkedTo->unknown_74 = was_down;
+        LinkedTo->IsDown = was_down;
     }
     }
     }

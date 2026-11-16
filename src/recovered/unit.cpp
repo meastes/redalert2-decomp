@@ -161,13 +161,13 @@ UnitClass::UnitClass(UnitTypeClass *type, HouseClass *house) :
             DynamicVectorClass<UnitTypeClass *> &veterans = Unit_House_View(House)->unknown_34->unknown_168;
             for (int index = 0; index < veterans.Count(); index++) {
                 if (veterans[index] == Type) {
-                    unknown_118.Set_Veteran(true);
+                    Veterancy.Set_Veteran(true);
                     break;
                 }
             }
         }
         if (House && Unit_House_View(House)->unknown_207 && !Type->Naval && Type->Trainable) {
-            unknown_118.Set_Veteran(true);
+            Veterancy.Set_Veteran(true);
         }
         if (Type->Gunner) {
             Set_Current_Weapon(0);
@@ -192,7 +192,7 @@ UnitClass::~UnitClass()
     }
     if (GameActive && Type != 0) {
         if (House->Can_Build(Type, 0, 0) == -1) {
-            House->unknown_144 = true;
+            House->IsRecalcNeeded = true;
         }
         if (Team != 0) {
             Team->Remove(this, -1, 0);
@@ -1381,7 +1381,7 @@ bool UnitClass::unknown_6fdfc0()
                     }
                     building->unknown_114 = unknown_114;
                     building->unknown_1ac = unknown_1ac;
-                    building->unknown_118 = unknown_118;
+                    building->Veterancy = Veterancy;
                     if (building->House->Is_Player_Control()) {
                         Voc_Play_At(Rules->BuildingDrop, Center_Coord(), 0);
                     } else {
@@ -2077,13 +2077,13 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
             } else {
                 level = unknown_id_source_a3d290->AmbientLevel;
             }
-            brightness = Map[cell].unknown_10a + 4 * level;
+            brightness = Map[cell].Brightness + 4 * level;
         } else {
             int shade = 0;
             if ((Map[cell].unknown_140 & 0x10000) && !In_Air()) {
                 shade = -500;
             }
-            brightness = Map[cell].unknown_10a + shade;
+            brightness = Map[cell].Brightness + shade;
         }
         brightness += Rules->ExtraUnitLight;
 
@@ -2701,22 +2701,22 @@ struct CellOccupancyFlags_00703040 { unsigned int unknown_0:5; unsigned int vehi
 
 int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass *adjacent,bool unused)
 {
-    bool bridge=(cell->unknown_140&0x100) && (height==-1 || abs(height-cell->unknown_11b)>1);
+    bool bridge=(cell->unknown_140&0x100) && (height==-1 || abs(height-cell->Height)>1);
     unsigned char flags=cell->unknown_124;
     bool vehicle=reinterpret_cast<CellOccupancyFlags_00703040 const &>(cell->unknown_124).vehicle!=0;
-    int infantry_owner=cell->unknown_54;
+    int infantry_owner=cell->InfType;
     TubeClass *tube=Cell_Tube_0047a130(cell);
     if (Type->MovementRestrictedTo!=-1) {
         if (cell->unknown_ec==10) {
             UnknownIsoTile *tile=IsometricTileTypes[cell->IsoTileIndex];
             if ((tile->Width==5 && tile->Height==3) || (tile->Width==4 && tile->Height==3)) {
-                if (cell->unknown_11a!=2) return 7;
-            } else if ((tile->Width==3 && tile->Height==4 || tile->Width==3 && tile->Height==5) && cell->unknown_11a!=6) {
+                if (cell->SubTile!=2) return 7;
+            } else if ((tile->Width==3 && tile->Height==4 || tile->Width==3 && tile->Height==5) && cell->SubTile!=6) {
                 return 7;
             }
         }
         if (cell->unknown_ec!=Type->MovementRestrictedTo && cell->unknown_ec!=10) {
-            if (cell->OverlayIndex<0xED || cell->OverlayIndex>0xEE || height==cell->unknown_11b) return 7;
+            if (cell->OverlayIndex<0xED || cell->OverlayIndex>0xEE || height==cell->Height) return 7;
         }
     }
     if (direction==8) {
@@ -2738,7 +2738,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
     }
     int result=unknown_slot102(reinterpret_cast<UnknownCellClass*>(cell),direction,&height,&bridge,reinterpret_cast<UnknownCellClass*>(adjacent));
     if (result==7) return 7;
-    if (height!=-1 && (cell->unknown_140&0x100) && height==cell->unknown_11b+4) {
+    if (height!=-1 && (cell->unknown_140&0x100) && height==cell->Height+4) {
         flags=cell->unknown_128;
         vehicle=reinterpret_cast<CellOccupancyFlags_00703040 const &>(cell->unknown_128).vehicle!=0;
         infantry_owner=cell->BridgeInfType;
@@ -3586,7 +3586,7 @@ void UnitClass::Overrun_Square(Cell const &where, bool threaten)
             upper = true;
         } else {
             Cell position = Coord_Cell(Center_Coord());
-            if (Map[position].unknown_11b == cell->unknown_11b + 4) {
+            if (Map[position].Height == cell->Height + 4) {
                 upper = true;
             }
         }
@@ -3614,7 +3614,7 @@ void UnitClass::Overrun_Square(Cell const &where, bool threaten)
     while (object) {
         if (object->Class_Of()->unknown_1fd
             && (!House->Is_Ally((TechnoClass *)object) || Type->IsTrain)
-            && Distance_Squared(object->Center_Coord()) < 0x4000 && !object->unknown_7a) {
+            && Distance_Squared(object->Center_Coord()) < 0x4000 && !object->IsFalling) {
             UnknownUnitInfantryView2 *infantry = (UnknownUnitInfantryView2 *)object;
             if (object->Kind_Of() == 15 && infantry->Type->VehicleThief && infantry->unknown_494 == this && !Type->IsTrain) {
                 ObjectClass *next = object->unknown_30;
@@ -4008,7 +4008,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 				if (piggy != 0) {
 					piggy.Checked()->Begin_Piggyback(Locomotor);
 					Locomotor = (ILocomotion *)walk;
-					Locomotor.Checked()->Force_New_Slope(Map[Position_Coord_004f3f40()].unknown_11c);
+					Locomotor.Checked()->Force_New_Slope(Map[Position_Coord_004f3f40()].Ramp);
 				}
 			}
 		}
@@ -4191,7 +4191,7 @@ void __fastcall UnitClass::Read_INI(CCINIClass &ini)
                         if (tag) unit->Attach_Tag(tag);
                     }
                     char *token = strtok(0, ",");
-                    if (token) unit->unknown_118.From_Integer(atoi(token));
+                    if (token) unit->Veterancy.From_Integer(atoi(token));
                     token = strtok(0, ",");
                     if (token) unit->unknown_1ac = atoi(token);
                     token = strtok(0, ",");
@@ -4246,7 +4246,7 @@ void __fastcall UnitClass::Write_INI(CCINIClass &ini)
     ini.Clear(UnitClass_INI_NAME, 0);
     for (int index = 0; index < Units.Count(); index++) {
         UnitClass *unit = Units[index];
-        if (unit != 0 && !unit->unknown_76 && unit->IsActive) {
+        if (unit != 0 && !unit->IsInLimbo && unit->IsActive) {
             char id[12];
             sprintf(id, "%d", index);
             int linked = unit->unknown_5b0 != 0 ? Units.ID((UnitClass *)unit->unknown_5b0) : -1;
@@ -4265,7 +4265,7 @@ void __fastcall UnitClass::Write_INI(CCINIClass &ini)
                     unit->unknown_slot104().X, unit->unknown_slot104().Y,
                     direction,
                     MissionClass::Name_From_Mission(unit->Get_Mission()), tag,
-                    unit->unknown_118.To_Integer(), unit->unknown_1ac, unit->unknown_79, linked,
+                    unit->Veterancy.To_Integer(), unit->unknown_1ac, unit->unknown_79, linked,
                     unit->unknown_379, unit->unknown_37a);
             ini.Put_String(UnitClass_INI_NAME, id, line);
         }
@@ -4387,7 +4387,7 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
             Cell found(0, 0);
             Cell center = Coord_Cell(unknown_slot19(0));
             CellClass *cell = &Map[center];
-            int level = (Is_Moving_Onto_Bridge(0) + cell->unknown_11b) ? 4 : 0;
+            int level = (Is_Moving_Onto_Bridge(0) + cell->Height) ? 4 : 0;
             CoordStruct here = unknown_slot19(0);
             here.Z = unknown_geometry_g * level;
             for (int index = 0; index < 8; index++) {
@@ -5121,13 +5121,13 @@ void UnitClass::Init()
             DynamicVectorClass<UnitTypeClass *> &veterans = Unit_House_View(House)->unknown_34->unknown_168;
             for (int index = 0; index < veterans.Count(); index++) {
                 if (veterans[index] == Type) {
-                    unknown_118.Set_Veteran(true);
+                    Veterancy.Set_Veteran(true);
                     break;
                 }
             }
         }
         if (House && Unit_House_View(House)->unknown_207 && !Type->Naval && Type->Trainable) {
-            unknown_118.Set_Veteran(true);
+            Veterancy.Set_Veteran(true);
         }
         if (Type->Gunner) {
             Set_Current_Weapon(0);

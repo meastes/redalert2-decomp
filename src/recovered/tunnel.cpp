@@ -422,7 +422,7 @@ void TunnelLocomotionClass::Process_Emerging()
 {
     if (DigTimer.Ratio() == 1.0) {
         LinkedTo->unknown_slot93(2);
-        if (LinkedTo->IsActive && !LinkedTo->unknown_76 && !LinkedTo->unknown_7a) {
+        if (LinkedTo->IsActive && !LinkedTo->IsInLimbo && !LinkedTo->IsFalling) {
             Stop_Moving();
             unknown_18 = 0;
             LinkedTo->Abort_Motion();
@@ -444,7 +444,7 @@ Matrix3D * __stdcall TunnelLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *k
 {
     if (unknown_18 == 0) {
         CoordStruct coord = LinkedTo->Coord;
-        int ramp = Map[coord].unknown_11c;
+        int ramp = Map[coord].Ramp;
         if (key != 0 && *key != -1) {
             *key = (*key << 6) + ramp;
         }

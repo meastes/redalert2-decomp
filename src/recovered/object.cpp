@@ -106,13 +106,13 @@ ObjectClass::ObjectClass() :
     unknown_68(false),
     Strength(0xFF),
     unknown_70(0xFF),
-    unknown_74(false),
-    unknown_75(false),
-    unknown_76(true),
+    IsDown(false),
+    IsToDisplay(false),
+    IsInLimbo(true),
     unknown_77(false),
     IsAnimAttached(false),
     unknown_79(false),
-    unknown_7a(false),
+    IsFalling(false),
     unknown_7b(false),
     unknown_7c(false),
     IsActive(true),
@@ -220,7 +220,7 @@ static inline int Object_AI_Clamped_Speed(int floor, int speed)
 
 void ObjectClass::AI()
 {
-    if (!unknown_76) {
+    if (!IsInLimbo) {
         if (Class_Of() && Class_Of()->unknown_1c4 != -1) {
             CoordStruct current = Coord;
             Voc_Play_At(Class_Of()->unknown_1c4, current, &unknown_3c);
@@ -231,12 +231,12 @@ void ObjectClass::AI()
             Voc_Play_At(sound, current, &unknown_50);
         }
     }
-    if (!unknown_7a) return;
+    if (!IsFalling) return;
 
     int previous_state = In_Which_Layer();
     int new_height = (int)((unsigned int)Get_Height() +
                           (unsigned int)unknown_24.unknown_08);
-    if (unknown_74) {
+    if (IsDown) {
         Mark(0);
         Coord.Z = new_height;
         Mark(1);
@@ -245,18 +245,18 @@ void ObjectClass::AI()
     }
     if (Get_Height_AGL() <= 0) {
         Set_Height_AGL(0);
-        unknown_7a = false;
+        IsFalling = false;
         unknown_slot93(2);
         Shorten_Attached_Anims(this);
     }
-    if (!unknown_76) {
+    if (!IsInLimbo) {
 
         int velocity;
         if (IsAnimAttached) velocity = Object_AI_Clamped_Speed(Rules->ParachuteMaxFallRate, (unknown_24.unknown_08 = (int)((unsigned int)unknown_24.unknown_08 - 1u)));
         else velocity = Object_AI_Clamped_Speed(Rules->NoParachuteMaxFallRate, (unknown_24.unknown_08 = (int)((double)unknown_24.unknown_08 - unknown_falling_decrement_007a7668)));
         unknown_24.unknown_08 = velocity;
         if (previous_state != In_Which_Layer()) Map.Submit(this);
-        if (!unknown_7a) {
+        if (!IsFalling) {
         if (unknown_7c && Strength > 0) {
             int damage = Strength;
             Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 1);
@@ -289,7 +289,7 @@ void ObjectClass::AI()
 
 void ObjectClass::Fall_From_Height()
 {
-    unknown_7a = true;
+    IsFalling = true;
     unknown_7c = true;
     Mark(0);
     Map.Remove(this);
@@ -546,7 +546,7 @@ void __fastcall Set_Type_Select_Mode(unsigned int value);
 
 bool ObjectClass::unknown_slot80()
 {
-    if (!Debug_Map && (unknown_76 || unknown_77 || !CanBeSelected())) {
+    if (!Debug_Map && (IsInLimbo || unknown_77 || !CanBeSelected())) {
         return false;
     }
     TechnoClass *techno = As_Techno();
@@ -650,8 +650,8 @@ extern Rect TacticalRect;
 bool ObjectClass::Render(Rect *bounds, bool redraw, bool arg3)
 {
     Point2D pixel;
-    if (!Debug_Map && unknown_b263d8 && ((!redraw && !unknown_75) || unknown_76)) goto not_drawable;
-    unknown_75 = false;
+    if (!Debug_Map && unknown_b263d8 && ((!redraw && !IsToDisplay) || IsInLimbo)) goto not_drawable;
+    IsToDisplay = false;
     if (TacticalMap->Coord_To_Pixel(unknown_slot42(), pixel) || Kind_Of() == 24)
         goto draw_clipped;
 not_drawable:
@@ -671,8 +671,8 @@ draw_clipped:
 
 void ObjectClass::Mark_For_Redraw()
 {
-    if (!unknown_75) {
-        unknown_75 = true;
+    if (!IsToDisplay) {
+        IsToDisplay = true;
         Map.Flag_To_Redraw(0);
     }
 }
@@ -684,7 +684,7 @@ void ObjectClass::Mark_For_Redraw()
 extern bool GameActive;
 bool ObjectClass::Limbo()
 {
-    if (!GameActive || unknown_76) return false;
+    if (!GameActive || IsInLimbo) return false;
     Unselect();
     unknown_slot54(true);
     Mark(0);
@@ -710,8 +710,8 @@ bool ObjectClass::Limbo()
             Rect(pixel.X, pixel.Y, shape->Width, shape->Height), 1);
     }
     Hidden();
-    unknown_76 = true;
-    unknown_75 = false;
+    IsInLimbo = true;
+    IsToDisplay = false;
     return true;
 }
 
@@ -729,11 +729,11 @@ static inline void Object_Placement_Add_Point(Point2D &point, Point2D const &off
 
 bool ObjectClass::Unlimbo(CoordStruct const *coord, int direction)
 {
-    if (!GameActive || !unknown_76 || unknown_74) return false;
+    if (!GameActive || !IsInLimbo || IsDown) return false;
     if (!ScenarioInit && Can_Enter_Cell(&Map[*coord], -1, -1, 0, 0))
         return false;
-    unknown_76 = false;
-    unknown_75 = false;
+    IsInLimbo = false;
+    IsToDisplay = false;
     ObjectTypeClass *type = Class_Of();
     CoordStruct placed = *coord;
     if (type) placed = type->Coord_Fixup(*coord);
@@ -786,7 +786,7 @@ bool ObjectClass::Unlimbo(CoordStruct const *coord, int direction)
         }
         return true;
     }
-    unknown_76 = true;
+    IsInLimbo = true;
     return false;
 }
 
@@ -955,9 +955,9 @@ damage_interrupted:
 bool ObjectClass::Mark(int request)
 {
     int action = request;
-    if (!unknown_76) {
+    if (!IsInLimbo) {
         if (action == 2) {
-            if (!unknown_75 && unknown_74) {
+            if (!IsToDisplay && IsDown) {
                 Mark_For_Redraw();
                 return true;
             }
@@ -971,13 +971,13 @@ bool ObjectClass::Mark(int request)
                     unknown_slot104();
                 }
             }
-            if ((action == 1 || action == 3) && !unknown_74) {
-                unknown_74 = true;
+            if ((action == 1 || action == 3) && !IsDown) {
+                IsDown = true;
                 Mark_For_Redraw();
                 return true;
             }
-            if (action == 0 && unknown_74) {
-                unknown_74 = false;
+            if (action == 0 && IsDown) {
+                IsDown = false;
                 return true;
             }
         }
@@ -1007,7 +1007,7 @@ bool ObjectClass::Revealed(HouseClass *arg1)
 bool ObjectClass::unknown_slot56(CoordStruct const &coord)
 {
     if (Map.Unknown_0055A7F0(coord)) {
-        unknown_7a = true;
+        IsFalling = true;
         UnknownCellClass *cell = Map_Cell(coord);
         if (cell != 0 && (!(cell->Flags & 0x100) || (unknown_79 = true, (cell->Flags & 0x200) != 0))) {
             bool techno;
@@ -1187,7 +1187,7 @@ HRESULT __stdcall ObjectClass::Load(IStream *stream)
 int ObjectClass::Unknown_005D47D0() const
 {
     CellClass *cell = static_cast<CellClass *>(const_cast<ObjectClass *>(this)->Get_Cell_Ptr());
-    return cell->unknown_11b + (unknown_79 ? 4 : 0);
+    return cell->Height + (unknown_79 ? 4 : 0);
 }
 
 
@@ -1219,7 +1219,7 @@ void ObjectClass::Set_Height_AGL(int height)
     if (unknown_79) {
         height += unknown_geometry_j;
     }
-    if (unknown_74) {
+    if (IsDown) {
         Mark(0);
         CoordStruct coord = Coord;
         Coord.Z = Map.Get_Height_GL(coord) + height;
@@ -1235,7 +1235,7 @@ void ObjectClass::Set_Height_AGL(int height)
 
 void ObjectClass::Set_Height(int z)
 {
-    if (unknown_74) {
+    if (IsDown) {
         Mark(0);
         Coord.Z = z;
         Mark(1);
@@ -1314,15 +1314,15 @@ void ObjectClass::Compute_CRC(WWCRCEngine &crc) const
         crc(unknown_34->Fetch_ID());
     }
     crc((long)Strength);
-    crc(unknown_74);
+    crc(IsDown);
     if (unknown_game_mode_a3d298 == 0 || unknown_game_mode_a3d298 == 5) {
-        crc(unknown_75);
+        crc(IsToDisplay);
         crc(unknown_77);
     }
-    crc(unknown_76);
+    crc(IsInLimbo);
     crc(IsAnimAttached);
     crc(unknown_79);
-    crc(unknown_7a);
+    crc(IsFalling);
     crc(unknown_7c);
     crc(IsActive);
     crc((long)Coord.X);
@@ -1604,7 +1604,7 @@ void ObjectClass::Set_Waypoint_Path(int path, char waypoint)
 
 bool ObjectClass::On_Ground() const
 {
-    if (unknown_74 && Get_Height_AGL() < unknown_geometry_g * 2) {
+    if (IsDown && Get_Height_AGL() < unknown_geometry_g * 2) {
         return true;
     }
     return false;
@@ -1615,7 +1615,7 @@ bool ObjectClass::On_Ground() const
 
 bool ObjectClass::In_Air() const
 {
-    if (unknown_74 && Get_Height_AGL() >= unknown_geometry_g * 2) {
+    if (IsDown && Get_Height_AGL() >= unknown_geometry_g * 2) {
         return true;
     }
     return false;

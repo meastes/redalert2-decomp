@@ -94,7 +94,7 @@ TiberiumClass::TiberiumClass(char const *ininame)
       Spread(0),
       unknown_a0(0.1),
       Growth(0),
-      unknown_b0(0.1),
+      GrowthPercentage(0.1),
       Value(0),
       Power(0),
       unknown_c0(0),
@@ -171,7 +171,7 @@ bool TiberiumClass::Read_INI(CCINIClass &ini)
         Spread = ini.Get_Int(ID, "Spread", Spread);
         unknown_a0 = ini.Get_Double(ID, "SpreadPercentage", unknown_a0);
         Growth = ini.Get_Int(ID, "Growth", Growth);
-        unknown_b0 = ini.Get_Double(ID, "GrowthPercentage", unknown_b0);
+        GrowthPercentage = ini.Get_Double(ID, "GrowthPercentage", GrowthPercentage);
         Value = ini.Get_Int(ID, "Value", Value);
         Power = ini.Get_Int(ID, "Power", Power);
         unknown_c0 = ini.Get_ColorScheme(ID, "Color", unknown_c0);
@@ -817,8 +817,8 @@ void  Deinit_Tiberium_Growth_System_006ea130(void)
 
 void TiberiumClass::Process_Growth()
 {
-    if (GrowthQueue != 0 && GrowthQueue->Active_Count() != 0 && unknown_b0 > 0.00001) {
-        int count = MIN(50, MAX(5, (int)(GrowthQueue->Active_Count() * unknown_b0)));
+    if (GrowthQueue != 0 && GrowthQueue->Active_Count() != 0 && GrowthPercentage > 0.00001) {
+        int count = MIN(50, MAX(5, (int)(GrowthQueue->Active_Count() * GrowthPercentage)));
         count = abs(unknown_id_source_a3d290->Random()()) % count + 1;
         if (GrowthQueue->Active_Count() > Map_Cell_Count() - 2 * count) {
             Rebuild_Growth();

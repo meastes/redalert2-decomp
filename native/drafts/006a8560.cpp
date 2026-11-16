@@ -19,7 +19,7 @@
 
 static inline bool Has_Extra_Data(CellClass const *cellptr)
 {
-    int subtile = (unsigned char)cellptr->unknown_11a;
+    int subtile = (unsigned char)cellptr->SubTile;
     int ittype = cellptr->IsoTileIndex;
     if (ittype == 0xFFFF || ittype == 0xFF) {
         return false;
@@ -66,7 +66,7 @@ void Tactical::Draw_Tiles(Cell const &cell, Rect const &cliprect)
     Point2D screen;
     Coord_To_Pixel(coord, screen);
     Point2D pixel;
-    if (basecell->unknown_11b < 2) {
+    if (basecell->Height < 2) {
         pixel.X = screen.X - 30;
         pixel.Y = screen.Y;
         basecell->Draw_It(pixel, TacticalRect, 0);
@@ -82,7 +82,7 @@ void Tactical::Draw_Tiles(Cell const &cell, Rect const &cliprect)
                 CellClass *cellptr = &Map[Cell(cx, cy)];
                 bool overlap = false;
                 bool draw = false;
-                int height = cellptr->unknown_11b;
+                int height = cellptr->Height;
 
                 if (col != 1) {
                     if (height == level + 1) {

@@ -472,7 +472,7 @@ void TeamClass::Regroup()
         int count = Owner->Buildings.Count();
         for (int index = 0; index < count; index++) {
             BuildingClass *building = Owner->Buildings[index];
-            if (building != 0 && !building->unknown_76 && building->unknown_slot231(0)->WeaponType == 0) {
+            if (building != 0 && !building->IsInLimbo && building->unknown_slot231(0)->WeaponType == 0) {
                 Cell cell = Coord_Cell(building->Center_Coord());
                 int value = Coord_Distance(building->Center_Coord(), unknown_34->Center_Coord()) * (Map.Cell_Threat(cell, Owner) + 1);
                 if (building->Type->unknown_1349) {
@@ -681,7 +681,7 @@ bool TeamClass::Remove(FootClass *member, int slot, bool arg3)
     if (member->Team != 0) {
         member->Team = 0;
     }
-    if (ScenarioInit == 0 && member->IsActive && !member->unknown_37d && !member->unknown_76 && !arg3) {
+    if (ScenarioInit == 0 && member->IsActive && !member->unknown_37d && !member->IsInLimbo && !arg3) {
         member->unknown_slot261(false, true);
     }
     if (!first && Member != 0) {
@@ -2039,7 +2039,7 @@ void TeamClass::TMission_SELF_DESTRUCT(ScriptMissionClass const &mission, bool u
     do {
         hit = false;
         for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
-            if (member->Strength > 0 && member->IsActive && member->unknown_74 && !member->unknown_76) {
+            if (member->Strength > 0 && member->IsActive && member->IsDown && !member->IsInLimbo) {
                 int damage = member->Strength;
                 member->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
                 hit = true;
@@ -2683,7 +2683,7 @@ void TeamClass::TMission_unknown_6bdaa0(ScriptMissionClass const &mission, bool 
 
 bool __fastcall TeamClass::_Is_It_Breathing(ObjectClass *object)
 {
-    if (object != 0 && object->IsActive && object->Strength != 0 && (ScenarioInit != 0 || !object->unknown_76)) {
+    if (object != 0 && object->IsActive && object->Strength != 0 && (ScenarioInit != 0 || !object->IsInLimbo)) {
         return true;
     }
     return false;

@@ -127,10 +127,10 @@ void HoverLocomotionClass::Gravity_AI_004fb9d0()
     double angle=Fast_Sin((double)((Frame+2*id)%(int)period)*unknown_hover_bob_scale_79c9b8/period);
     height=(int)(2*angle+height);
     if (height<0) { unknown_60=0; height=0; }
-    bool wasdown=LinkedTo->unknown_74;
-    LinkedTo->unknown_74=false;
+    bool wasdown=LinkedTo->IsDown;
+    LinkedTo->IsDown=false;
     LinkedTo->Set_Height_AGL(height);
-    LinkedTo->unknown_74=wasdown;
+    LinkedTo->IsDown=wasdown;
     if (clearance<Rules->HoverHeight) {
         if (LocomotionClass::Is_Powered()) {
             unknown_60+=((double)Rules->HoverHeight+(double)Rules->HoverHeight-(double)clearance)/(double)Rules->HoverHeight*(double)Rules->unknown_1320;
@@ -178,7 +178,7 @@ Matrix3D *__stdcall HoverLocomotionClass::Draw_Matrix(Matrix3D *matrix,int *key)
         *matrix=translation*base_value*rotation;
     } else {
         if (!Is_Powered()) {
-            int ramp=Map[Object_Coord(LinkedTo)].unknown_11c;
+            int ramp=Map[Object_Coord(LinkedTo)].Ramp;
             Matrix3D slope;
             Matrix3D result;
             result=*Get_Slope_Matrix(&slope,ramp);
@@ -307,10 +307,10 @@ unsigned char __stdcall HoverLocomotionClass::Process()
             if (unknown_18 != unknown_geometry_l || arrived) {
                 int ok = While_Moving_004fcbc0(true);
                 int const &result = ok;
-                if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return 7;
+                if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return 7;
                 if (result == 0 && unknown_24 == unknown_geometry_l) {
                     LinkedTo->unknown_slot93(2);
-                    if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return false;
+                    if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return false;
                 }
                 if (ok == 7) {
                     if (LinkedTo->unknown_574 >= 0) return false;
@@ -347,11 +347,11 @@ unsigned char __stdcall HoverLocomotionClass::Process()
                 }
                 LinkedTo->Mark(1);
             } else {
-                bool wasdown = LinkedTo->unknown_74;
-                LinkedTo->unknown_74 = false;
+                bool wasdown = LinkedTo->IsDown;
+                LinkedTo->IsDown = false;
                 LinkedTo->Set_Coord(coord);
                 LinkedTo->Set_Height(height);
-                LinkedTo->unknown_74 = wasdown;
+                LinkedTo->IsDown = wasdown;
             }
         }
     }
@@ -507,7 +507,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
     int nextface = LinkedTo->Path[0];
 
     if (nextface == 8) {
-        int tubenum = Map[Object_Coord(LinkedTo)].unknown_116;
+        int tubenum = Map[Object_Coord(LinkedTo)].Tube;
         if (tubenum >= 0 && tubenum < Tubes.Count()) {
             LinkedTo->Mark(0);
             LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
@@ -543,8 +543,8 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             unknown_24.Z += unknown_geometry_j;
         }
 
-        if (!Map[unknown_24].Goodie_Check(LinkedTo) && !LinkedTo->unknown_76) {
-            if (LinkedTo->IsActive && !LinkedTo->unknown_7a) {
+        if (!Map[unknown_24].Goodie_Check(LinkedTo) && !LinkedTo->IsInLimbo) {
+            if (LinkedTo->IsActive && !LinkedTo->IsFalling) {
                 LinkedTo->Path[0] = -1;
                 unknown_24 = unknown_geometry_l;
                 Stop();
@@ -553,7 +553,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             return 7;
         }
 
-        if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) {
+        if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) {
             return 7;
         }
 
@@ -606,7 +606,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
                     return 7;
                 }
                 bool bridge;
-                if (!Map[unknown_24].IsUnderBridge || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - Map[unknown_24].unknown_11b) <= 2) {
+                if (!Map[unknown_24].IsUnderBridge || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - Map[unknown_24].Height) <= 2) {
                     bridge = false;
                 } else {
                     bridge = true;
@@ -619,7 +619,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
 
         case 0:
             LinkedTo->unknown_slot93(2);
-            if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) {
+            if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) {
                 return 7;
             }
             if (LinkedTo->unknown_32d) {
@@ -903,7 +903,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
                     LinkedTo->Assign_Destination(0,true);
                     return;
                 } else {
-                    bool bridge=(cellptr->unknown_140&0x100) && abs(Object_Coord(LinkedTo).Z/unknown_geometry_g-cellptr->unknown_11b)>2;
+                    bool bridge=(cellptr->unknown_140&0x100) && abs(Object_Coord(LinkedTo).Z/unknown_geometry_g-cellptr->Height)>2;
                     cellptr->Incoming(&unknown_geometry_l,true,true,bridge);
                 }
             }

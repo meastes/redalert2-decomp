@@ -111,7 +111,7 @@ bool __fastcall Group_Is_All_Selected(int group)
     int count = Technos.Count();
     for (int index = 0; index < count; index++) {
         TechnoClass *techno = Technos[index];
-        if (techno != 0 && !techno->unknown_76) {
+        if (techno != 0 && !techno->IsInLimbo) {
             if (Is_Player_Side(techno) && !techno->unknown_77 && techno->unknown_1ac == group - 1) {
                 return false;
             }
@@ -132,7 +132,7 @@ int __fastcall Group_Count(int group)
     int members = 0;
     for (int index = 0; index < count; index++) {
         TechnoClass *techno = Technos[index];
-        if (techno != 0 && !techno->unknown_76) {
+        if (techno != 0 && !techno->IsInLimbo) {
             if (Is_Player_Side(techno) && techno->unknown_1ac == group - 1) {
                 members++;
             }
@@ -383,7 +383,7 @@ void __fastcall Group_Assign(int group)
     int count = Technos.Count();
     for (int index = 0; index < count; index++) {
         TechnoClass *techno = Technos[index];
-        if (techno != 0 && !techno->unknown_76) {
+        if (techno != 0 && !techno->IsInLimbo) {
             if (Is_Player_Side(techno)) {
                 if (techno->unknown_1ac == group - 1) {
                     techno->unknown_1ac = -1;
@@ -406,7 +406,7 @@ void __fastcall Group_Clear(int group)
     int count = Technos.Count();
     for (int index = 0; index < count; index++) {
         TechnoClass *techno = Technos[index];
-        if (techno != 0 && !techno->unknown_76) {
+        if (techno != 0 && !techno->IsInLimbo) {
             if (Is_Player_Side(techno) && techno->unknown_1ac == group - 1) {
                 techno->unknown_1ac = -1;
             }
@@ -423,7 +423,7 @@ bool __fastcall Unknown_006F5E80(int group)
 {
     for (int index = Technos.Count() - 1; index >= 0; index--) {
         TechnoClass *techno = Technos[index];
-        if (techno != 0 && !techno->unknown_76 && Is_Player_Side(techno)) {
+        if (techno != 0 && !techno->IsInLimbo && Is_Player_Side(techno)) {
             if (techno->unknown_1ac == group - 1 && !techno->unknown_77) {
                 return false;
             }
@@ -462,7 +462,7 @@ void __fastcall Group_Select(int group)
     AllowVoice = true;
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
-        if (techno != 0 && !techno->unknown_76 && techno->unknown_1ac == group - 1) {
+        if (techno != 0 && !techno->IsInLimbo && techno->unknown_1ac == group - 1) {
             if (Is_Player_Side(techno) && !techno->unknown_77) {
                 techno->unknown_slot80();
                 techno->unknown_13c = CDTimerClass<FrameTimerClass>(Rules->RadarCombatFlashTime);
@@ -499,7 +499,7 @@ void __fastcall Group_Reselect(int group)
     }
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
-        if (techno != 0 && !techno->unknown_76 && techno->unknown_1ac == group - 1) {
+        if (techno != 0 && !techno->IsInLimbo && techno->unknown_1ac == group - 1) {
             if (Is_Player_Side(techno) && !techno->unknown_77) {
                 techno->unknown_slot80();
                 AllowVoice = false;
@@ -528,7 +528,7 @@ void __fastcall Unknown_006F61F0(int group)
     AllowVoice = true;
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
-        if (techno != 0 && !techno->unknown_76 && techno->unknown_1ac == group - 1) {
+        if (techno != 0 && !techno->IsInLimbo && techno->unknown_1ac == group - 1) {
             if (Is_Player_Side(techno) && !techno->unknown_77) {
                 techno->unknown_slot80();
                 AllowVoice = false;
@@ -1472,7 +1472,7 @@ static wchar_t const *Experience_Message(int kind)
     int objects_count = objects->Count();
     for (int check = 0; check < objects_count; check++) {
         TechnoClass *item = (*objects)[check];
-        if (item->unknown_118.Remaining_Levels() != kind) {
+        if (item->Veterancy.Remaining_Levels() != kind) {
             text = StringTable::Load_String("MSG:Mixed", 0, "D:\\Ra2\\UICmnds.cpp", 0x5e4);
             break;
         }
@@ -1501,7 +1501,7 @@ void __fastcall Unknown_006F7EC0(bool flag)
     int count = list->Count();
     for (int index = 0; index < count; index++) {
         TechnoClass *techno = (*list)[index];
-        if (techno->unknown_118.Remaining_Levels() == kind) {
+        if (techno->Veterancy.Remaining_Levels() == kind) {
             techno->unknown_slot80();
         }
     }
@@ -1622,7 +1622,7 @@ void Unknown_006F88F0()
     unknown_radar_jump_frame_7f8bd4 = Frame;
     if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
         CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
-        int height = Map[coord].unknown_11b * 256 / 2;
+        int height = Map[coord].Height * 256 / 2;
         coord -= CoordStruct(height, height, 0);
         TacticalMap->Set_Tactical_Position_006a66b0(coord);
         if (unknown_833684 != 0) {

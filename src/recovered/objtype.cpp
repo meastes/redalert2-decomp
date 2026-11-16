@@ -339,7 +339,7 @@ BuildingClass *ObjectTypeClass::Who_Can_Build_Me(bool in_theory, bool legal, boo
     int count = house->Buildings.Count();
     for (int index = 0; index < count; index++) {
         BuildingClass *building = house->Buildings[index];
-        if (building->unknown_76) {
+        if (building->IsInLimbo) {
             continue;
         }
         if (building->Type->Factory != Kind_Of()) {

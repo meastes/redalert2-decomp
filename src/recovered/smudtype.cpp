@@ -313,8 +313,8 @@ void SmudgeTypeClass::Draw_It(Point2D const *point, Rect const *cliprect, int si
             position.X += (y - x) * 60 / 2;
         }
         CellClass &here = Map[*cell];
-        int level = here.unknown_10c;
-        CC_Draw_Shape(LogicalSurface, (ConvertClass *)here.unknown_34, (ShapeFileStruct const *)shape, 0, position, *cliprect,
+        int level = here.TileBrightness;
+        CC_Draw_Shape(LogicalSurface, (ConvertClass *)here.Drawer, (ShapeFileStruct const *)shape, 0, position, *cliprect,
                       0xE00, 0, -1 - Tactical_Z_Lepton_To_Pixel(z), 0, level, 0, 0, Point2D(0, 0));
     }
 }
@@ -543,7 +543,7 @@ bool SmudgeTypeClass::Can_Place(Cell const &cell, bool arg2) const
         for (int x = 0; x < Width; x++) {
             Cell pos = cell + Cell(x, y);
             CellClass &here = Map[pos];
-            if (!Map.In_Radar(cell) || here.unknown_11c || here.SmudgeIndex != -1 || here.OverlayIndex != -1) {
+            if (!Map.In_Radar(cell) || here.Ramp || here.SmudgeIndex != -1 || here.OverlayIndex != -1) {
                 return false;
             }
             if (!arg2 && here.Cell_Building() != 0) {

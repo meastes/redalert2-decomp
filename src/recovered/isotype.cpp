@@ -412,13 +412,13 @@ void IsometricTileTypeClass::Init_Drawers()
     TileDrawers.Add(new LightConvertClass(IsoTilePalette, GamePalette,
         VisibleSurface, 1000, 1000, 1000, false, 0, 53));
 
-    BlubCell.unknown_34 = 0;
+    BlubCell.Drawer = 0;
     BlubCell.Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
 
     Map.Reset_Iterator();
     CellClass *cell = Map.Iterate();
     while (cell != 0) {
-        cell->unknown_34 = 0;
+        cell->Drawer = 0;
         cell = Map.Iterate();
     }
 }
@@ -955,7 +955,7 @@ void __fastcall IsometricTileTypeClass::Load_Tiles(bool skip_iteration, bool is_
                 ptr = IsoTileTypes[type];
                 if (ptr->NumTileTypesInSet > 1) {
                     num = ptr->NumTileTypesInSet;
-                    if (ptr->Is_Randomized((unsigned char)cptr->unknown_11a)) {
+                    if (ptr->Is_Randomized((unsigned char)cptr->SubTile)) {
                         index = (cptr->unknown_140 >> 13) & 1;
                     } else {
                         num = ptr->NumTileTypesInSet;

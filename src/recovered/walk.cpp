@@ -107,7 +107,7 @@ bool __stdcall WalkLocomotionClass::Is_Moving()
 
 bool __stdcall WalkLocomotionClass::Is_Moving_Now()
 {
-    if (Is_Moving() && LinkedTo->unknown_468 > 0.0 && unknown_28 != unknown_geometry_l) {
+    if (Is_Moving() && LinkedTo->Speed > 0.0 && unknown_28 != unknown_geometry_l) {
         return true;
     }
     return false;
@@ -340,7 +340,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
 
             int dir = LinkedTo->Path[0];
             if (dir == 8) {
-                int tube = Map[Object_Coord(LinkedTo)].unknown_116;
+                int tube = Map[Object_Coord(LinkedTo)].Tube;
                 if (tube >= 0 && tube < Tubes.Count()) {
                     LinkedTo->Mark(0);
                     LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
@@ -393,7 +393,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                                 LinkedTo->Assign_Destination(0, true);
                                 LinkedTo->Path[0] = -1;
                             } else {
-                                bool isbridge = cellptr.IsUnderBridge && abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - cellptr.unknown_11b) > 2;
+                                bool isbridge = cellptr.IsUnderBridge && abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - cellptr.Height) > 2;
                                 cellptr.Incoming(&unknown_coord_af9060, true, true, isbridge);
                             }
                         }
@@ -477,7 +477,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                 LinkedTo->unknown_57a = false;
             }
         } else {
-            if (LinkedTo->unknown_468 > 0.0) {
+            if (LinkedTo->Speed > 0.0) {
                 LinkedTo->unknown_slot306(0.0);
             }
             LinkedTo->unknown_57a = false;
@@ -500,7 +500,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
             LinkedTo->unknown_slot306(0.0);
         }
         LinkedTo->unknown_slot93(2);
-        if (LinkedTo->IsActive && !LinkedTo->unknown_76 && !LinkedTo->unknown_7a) {
+        if (LinkedTo->IsActive && !LinkedTo->IsInLimbo && !LinkedTo->IsFalling) {
             if (unknown_1c == unknown_coord_af9060
                 || (LinkedTo->unknown_slot19(0).As_Cell() == unknown_1c.As_Cell()
                     && abs(LinkedTo->unknown_slot19(0).Z - unknown_1c.Z) < unknown_geometry_g * 2)) {
@@ -533,7 +533,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         LinkedTo->Set_Coord(new_coord);
         CellClass *old_cellptr = &Map[old_cell];
         CellClass *new_cellptr = &Map[new_cell];
-        if (new_cellptr->unknown_11b == old_cellptr->unknown_11b - 4) {
+        if (new_cellptr->Height == old_cellptr->Height - 4) {
             if (new_cellptr->IsUnderBridge) {
                 LinkedTo->unknown_79 = true;
             }
@@ -546,11 +546,11 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         Map[Object_Coord(LinkedTo)].Trigger_Veins();
         LinkedTo->unknown_57a = false;
     } else {
-        bool was_down = LinkedTo->unknown_74;
-        LinkedTo->unknown_74 = false;
+        bool was_down = LinkedTo->IsDown;
+        LinkedTo->IsDown = false;
         LinkedTo->Set_Coord(new_coord);
         LinkedTo->Set_Height_AGL(0);
-        LinkedTo->unknown_74 = was_down;
+        LinkedTo->IsDown = was_down;
         LinkedTo->unknown_57a = false;
     }
     }
@@ -596,7 +596,7 @@ bool WalkLocomotionClass::Mark_Head_To(CoordStruct const &coord)
         bool isbridge = Map[crd].IsUnderBridge && Object_Coord(LinkedTo).Z > unknown_geometry_g * 3 + Map.Get_Height_GL(crd);
         unknown_28 = Map[crd].Closest_Free_Spot(crd, any_spot, isbridge);
 
-        if (!Map[unknown_28].Goodie_Check(LinkedTo) && !LinkedTo->unknown_76) {
+        if (!Map[unknown_28].Goodie_Check(LinkedTo) && !LinkedTo->IsInLimbo) {
             unknown_28 = unknown_geometry_l;
             if (!LinkedTo->IsActive) {
                 return false;

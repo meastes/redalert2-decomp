@@ -436,16 +436,16 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
             if (Class->IsVeins) {
                 convert = ColorSchemes[PlayerPtr->ColorSchemeIndex]->Converter;
                 if (!Class->UseNormalLight) {
-                    brightness = Map[unknown_slot42()].unknown_10c;
+                    brightness = Map[unknown_slot42()].TileBrightness;
                 }
             } else if (unknown_176) {
                 CellClass *cellptr = &Map[Cell(unknown_slot42())];
-                if (cellptr->unknown_34 == 0) {
+                if (cellptr->Drawer == 0) {
                     cellptr->Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
                 }
-                convert = (ConvertClass *)cellptr->unknown_34;
+                convert = (ConvertClass *)cellptr->Drawer;
                 if (!Class->UseNormalLight) {
-                    brightness = cellptr->unknown_10c;
+                    brightness = cellptr->TileBrightness;
                 }
             } else if (unknown_bc != 0) {
                 convert = unknown_bc;
@@ -458,7 +458,7 @@ void AnimClass::Draw_It(Point2D const &point, Rect const &cliprect)
                     convert = ColorSchemes[0]->Converter;
                 }
                 if (!Class->UseNormalLight) {
-                    brightness = Map[Cell(unknown_slot42())].unknown_10a;
+                    brightness = Map[Cell(unknown_slot42())].Brightness;
                 }
             }
 
@@ -740,7 +740,7 @@ void AnimClass::Attach_To(ObjectClass *object)
 {
     if (xObject != 0) {
         ObjectClass *old = xObject;
-        bool on_map = unknown_74;
+        bool on_map = IsDown;
         if (on_map) {
             Map.Remove(this);
         }
@@ -1174,7 +1174,7 @@ void AnimClass::Flaming_Guy_AI()
         CoordStruct target = unknown_f0;
         target.Z = 0;
         if (Flaming_Offset(coord, target).Length() <= 18) {
-            if (!unknown_7a) {
+            if (!IsFalling) {
                 CoordStruct nextcoord = unknown_func_4237b0();
                 bool sink = (Map[unknown_f0].unknown_ec == 2 || Map[unknown_f0].unknown_ec == 6) && Get_Height_AGL() <= unknown_geometry_g;
                 if (nextcoord != unknown_geometry_l && unknown_fc < 7 && !sink) {
@@ -1208,16 +1208,16 @@ void AnimClass::Flaming_Guy_AI()
             Set_Coord(newcoord);
         }
 
-        if (!unknown_7a) {
+        if (!IsFalling) {
             Cell position = Position_Coord_004f3f40();
             if (Position_Coord_004f3f40().Z >= Map.Get_Height_GL(Position_Coord_004f3f40()) + unknown_geometry_j) {
                 if (!(Map[Position_Coord_004f3f40()].unknown_140 & 0x100) && !(Map[Flaming_Adjacent_Cell(position, 6)].unknown_140 & 0x100) && !(Map[Flaming_Adjacent_Cell(position, 0)].unknown_140 & 0x100)) {
-                    unknown_7a = true;
+                    IsFalling = true;
                 }
             }
         }
     } else {
-        if (!unknown_7a) {
+        if (!IsFalling) {
             if (!unknown_17a) {
                 CoordStruct nextcoord = unknown_func_4237b0();
                 if (nextcoord != unknown_geometry_l) {

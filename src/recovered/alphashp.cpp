@@ -72,7 +72,7 @@ DynamicVectorClass<AlphaShapeClass *> AlphaShapes;
 AlphaShapeClass::AlphaShapeClass(ObjectClass *object, int x, int y) :
     Owner(object),
     Image(0),
-    unknown_3c(false)
+    IsToDelete(false)
 {
     ShapeFileStruct *image = (ShapeFileStruct *)object->Class_Of()->unknown_ac;
     Image = image;
@@ -92,7 +92,7 @@ AlphaShapeClass::AlphaShapeClass() :
     Owner(0),
     Bounds(0, 0, 0, 0),
     Image(0),
-    unknown_3c(false)
+    IsToDelete(false)
 {
     AlphaShapes.Add(this);
     ObjectPtrTracker.Add(this);
@@ -192,7 +192,7 @@ HRESULT __stdcall AlphaShapeClass::Save(IStream *stream, BOOL clear_dirty)
 void AlphaShapeClass::Detach(AbstractClass *target, bool all)
 {
     if (target == (AbstractClass *)Owner) {
-        unknown_3c = true;
+        IsToDelete = true;
     }
 }
 
@@ -206,7 +206,7 @@ void AlphaShapeClass::Update_All()
         Init_Alpha_Table();
     }
     for (int i = AlphaShapes.Count() - 1; i >= 0; i--) {
-        if (AlphaShapes[i]->unknown_3c) {
+        if (AlphaShapes[i]->IsToDelete) {
             delete AlphaShapes[i];
         }
     }
@@ -272,7 +272,7 @@ void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &point, Rect const &
 #undef _X
 
     for (int index = 0; index < AlphaShapes.Count(); index++) {
-        if (!AlphaShapes[index]->unknown_3c) {
+        if (!AlphaShapes[index]->IsToDelete) {
             Rect r1 = AlphaShapes[index]->Bounds;
             r1 -= Point2D(TacticalMap->TacPixelX, TacticalMap->TacPixelY);
             r1 += Point2D(TacticalRect.X, TacticalRect.Y);

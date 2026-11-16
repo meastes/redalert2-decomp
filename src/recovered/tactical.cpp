@@ -1081,14 +1081,14 @@ void Tactical::Draw_Fence_Placement(bool drawtrans, Cell cell)
                 break;
             }
             CellClass *nearby = &Map[scan];
-            if (nearby->Cell_Terrain(false) || nearby->unknown_11c > 0 || nearby->unknown_4c != 0 || ++count >= range) break;
+            if (nearby->Cell_Terrain(false) || nearby->Ramp > 0 || nearby->unknown_4c != 0 || ++count >= range) break;
         }
         if (found && building->Type->LaserFencePost && building->House->Is_Player_Control() && count > 0) {
             int flags = drawtrans ? 0x10606 : 0x20606;
             Cell drawcell = Adjacent_Cell(cell, facing);
             for (int i = 0; i < count; ++i) {
-                int height = 15 * Map[drawcell].unknown_11b;
-                int zheight = 15 * Map[drawcell].unknown_11b;
+                int height = 15 * Map[drawcell].Height;
+                int zheight = 15 * Map[drawcell].Height;
                 Point2D offset(0, -1 - height);
                 int zoff = -2 - zheight;
                 CoordStruct coord = Coord_Snap(Cell_Center(drawcell));
@@ -1138,8 +1138,8 @@ void Tactical::Draw_Firestorm_Wall_Placement(bool drawtrans, Cell cell)
             int flags = drawtrans ? 0x10606 : 0x20606;
             Cell drawcell = Adjacent_Cell(cell, facing);
             for (int i = 0; i < count; i++) {
-                int height = 15 * Map[drawcell].unknown_11b;
-                int zheight = 15 * Map[drawcell].unknown_11b;
+                int height = 15 * Map[drawcell].Height;
+                int zheight = 15 * Map[drawcell].Height;
                 Point2D offset(0, -1 - height);
                 int zoff = -2 - zheight;
                 CoordStruct coord = Coord_Snap(Cell_Center(drawcell));
@@ -1196,8 +1196,8 @@ void Tactical::Draw_Wall_Placement(bool drawtrans, Cell cell)
             Cell drawcell = cell;
             drawcell = Adjacent_Cell(drawcell, index);
             for (int i = 0; i < count; i++) {
-                int height = 15 * Map[drawcell].unknown_11b;
-                int zoff = 15 * Map[drawcell].unknown_11b;
+                int height = 15 * Map[drawcell].Height;
+                int zoff = 15 * Map[drawcell].Height;
                 Point2D offset(0, -1 - height);
                 zoff = -2 - zoff;
                 CoordStruct coord = Coord_Snap(Cell_Center(drawcell));
@@ -1316,7 +1316,7 @@ Cell Tactical::Coord_To_Cell(CoordStruct const &coord)
     CoordStruct center = Cell_Coord(cell);
 
     bool isbridge = (Map[cell].unknown_140 >> 12) & 1;
-    int baseheight = Map[cell].unknown_11b;
+    int baseheight = Map[cell].Height;
 
     CoordStruct scan = CoordStruct(center.X + 256 * 6, center.Y + 256 * 6, 0);
 
@@ -1326,7 +1326,7 @@ Cell Tactical::Coord_To_Cell(CoordStruct const &coord)
         scancell = Coord_Cell(scan);
 
         CellClass *cellptr = &Map[scancell];
-        int heightdiff = cellptr->unknown_11b - baseheight;
+        int heightdiff = cellptr->Height - baseheight;
         if (isbridge) {
             heightdiff += 4 * ((cellptr->unknown_140 >> 8) & 1);
         }
@@ -1370,7 +1370,7 @@ Cell Tactical::Pixel_To_Cell(Point2D const &point)
         Cell cell(scanlepton.X / 256, scanlepton.Y / 256);
 
         CellClass *cellptr = &Map[cell];
-        int celly = scan.Y - cellptr->unknown_11b * 15;
+        int celly = scan.Y - cellptr->Height * 15;
 
         if (cellptr->unknown_140 & 0x100) {
             CellClass &east = cellptr->Adjacent_Cell(2);
@@ -1380,13 +1380,13 @@ Cell Tactical::Pixel_To_Cell(Point2D const &point)
             bool bridge2 = !(cellptr->unknown_140 & 0x800) && !(cellptr->Adjacent_Cell(6).unknown_140 & 0x100);
             bool bridge3 = (cellptr->unknown_140 & 0x800) && !(south.unknown_140 & 0x100);
             bool bridge4 = !(cellptr->unknown_140 & 0x800) && !(east.unknown_140 & 0x100);
-            bool bridge5 = (cellptr->unknown_140 & 0x800) && abs(cellptr->unknown_11b - east.unknown_11b) <= 1 && !(east.unknown_140 & 0x100);
-            bool bridge6 = !(cellptr->unknown_140 & 0x800) && abs(cellptr->unknown_11b - south.unknown_11b) <= 1 && !(south.unknown_140 & 0x100);
+            bool bridge5 = (cellptr->unknown_140 & 0x800) && abs(cellptr->Height - east.Height) <= 1 && !(east.unknown_140 & 0x100);
+            bool bridge6 = !(cellptr->unknown_140 & 0x800) && abs(cellptr->Height - south.Height) <= 1 && !(south.unknown_140 & 0x100);
 
             CoordStruct topcoord = Cell_Coord(cellptr->MapCoords) - CoordStruct(128, 128, 0);
             Point2D top;
             Coord_To_Pixel(topcoord, top);
-            top.Y += 30 * cellptr->unknown_11b / -2;
+            top.Y += 30 * cellptr->Height / -2;
 
             if (top.Y <= xy.Y) {
                 if (bridge3 || bridge6) {
@@ -1853,7 +1853,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
                         ((CaptureManagerClass *)capture)->Draw_Link();
                     }
                 }
-            } else if (Unknown_004386F0(techno) && techno != 0 && techno->AbstractFlags.IsFoot && !techno->unknown_76 /* NATIVE: RA2_OBJECT_IS_FOOT inline spelled out (techno is non-null here) */) {
+            } else if (Unknown_004386F0(techno) && techno != 0 && techno->AbstractFlags.IsFoot && !techno->IsInLimbo /* NATIVE: RA2_OBJECT_IS_FOOT inline spelled out (techno is non-null here) */) {
                 Unknown_004CAB90(techno);
             }
         }
@@ -2190,7 +2190,7 @@ void Tactical::Draw_Pixel_Effects(Rect const &area, Rect const &cliprect)
 
 static inline bool Has_Extra_Data(CellClass const *cellptr)
 {
-    int subtile = (unsigned char)cellptr->unknown_11a;
+    int subtile = (unsigned char)cellptr->SubTile;
     int ittype = cellptr->IsoTileIndex;
     if (ittype == 0xFFFF || ittype == 0xFF) {
         return false;
@@ -2231,7 +2231,7 @@ void Tactical::Draw_Tiles(Cell const &cell, Rect const &cliprect)
     Point2D screen;
     Coord_To_Pixel(coord, screen);
     Point2D pixel;
-    if (basecell->unknown_11b < 2) {
+    if (basecell->Height < 2) {
         pixel.X = screen.X - 30;
         pixel.Y = screen.Y;
         basecell->Draw_It(pixel, TacticalRect, 0);
@@ -2247,7 +2247,7 @@ void Tactical::Draw_Tiles(Cell const &cell, Rect const &cliprect)
                 CellClass *cellptr = &Map[Cell(cx, cy)];
                 bool overlap = false;
                 bool draw = false;
-                int height = cellptr->unknown_11b;
+                int height = cellptr->Height;
 
                 if (col != 1) {
                     if (height == level + 1) {
@@ -2576,7 +2576,7 @@ void Tactical::Draw_Objects(bool forced)
         if (layer == 2) {
             for (int bindex = 0; bindex < unknown_BuildingClass_list_00a40af8.Count(); bindex++) {
                 BuildingClass *bptr = unknown_BuildingClass_list_00a40af8[bindex];
-                if (bptr->unknown_74 && bptr->unknown_85) {
+                if (bptr->IsDown && bptr->unknown_85) {
                     Point2D pixel;
                     if (TacticalMap->Coord_To_Pixel(bptr->unknown_slot42(), pixel)) {
                         Rect rect = TacticalRect;
@@ -2630,7 +2630,7 @@ void Tactical::Unknown_006A9E10(bool arg1, Rect const &rect1, Rect const &rect2)
                 if (Rects_Overlap(area, clip)) {
                     Rect bounds = rect2;
                     object->Render(&bounds, arg1, false);
-                    object->unknown_75 = false;
+                    object->IsToDisplay = false;
                 }
             }
         }
@@ -2666,7 +2666,7 @@ void Tactical::Draw_Buildings(bool arg1, Rect const &rect1, Rect const &rect2)
                 if (Rects_Overlap(area, clip)) {
                     Rect bounds = rect2;
                     object->Render(&bounds, arg1, false);
-                    object->unknown_75 = false;
+                    object->IsToDisplay = false;
                 }
             }
         }
@@ -2683,11 +2683,11 @@ void Tactical::Register_Dirty_Buildings(Rect area)
 {
     for (int index = 0; index < DisplayClass::Layer[2].Count(); index++) {
         ObjectClass *object = DisplayClass::Layer[2][index];
-        if (object->Kind_Of() == 6 && object->unknown_75) {
+        if (object->Kind_Of() == 6 && object->IsToDisplay) {
             Rect const &render = object->Get_Render_Rect();
             if (area.Is_Overlapping(render + Point2D(TacticalRect.X, TacticalRect.Y))) {
                 Register_Dirty_Area(render, false);
-                object->unknown_75 = false;
+                object->IsToDisplay = false;
             }
         }
     }
@@ -2708,7 +2708,7 @@ bool Tactical::Contains_Selectable_Buildings(Rect rect)
 
     for (int i = 0; i < unknown_BuildingClass_list_00a40af8.Count(); i++) {
         BuildingClass *bptr = unknown_BuildingClass_list_00a40af8[i];
-        if (bptr->IsActive && bptr->unknown_75 && bptr->unknown_74) {
+        if (bptr->IsActive && bptr->IsToDisplay && bptr->IsDown) {
             Point2D point = Coord_To_Pixel_Absolute(bptr->unknown_slot42());
             if (point.X >= top_left.X && point.X <= bottom_right.X && point.Y >= top_left.Y && point.Y <= bottom_right.Y) {
                 return true;
@@ -2733,7 +2733,7 @@ void Tactical::Add_Buildings_To_Selectable(Rect rect)
 
     for (int i = 0; i < unknown_BuildingClass_list_00a40af8.Count(); i++) {
         BuildingClass *bptr = unknown_BuildingClass_list_00a40af8[i];
-        if (bptr->IsActive && bptr->unknown_74 && !bptr->Type->InvisibleInGame) {
+        if (bptr->IsActive && bptr->IsDown && !bptr->Type->InvisibleInGame) {
             CoordStruct coord = bptr->Coord;
             Point2D point = Coord_To_Pixel_Absolute(coord);
             if (point.X >= top_left.X && point.X <= bottom_right.X && point.Y >= top_left.Y && point.Y <= bottom_right.Y) {
@@ -2982,7 +2982,7 @@ ObjectClass *Tactical::Get_Selectable_Object_006aa990(Point2D const &point)
             bool pass = false;
 
             if (tech != 0) {
-                if (obj->IsActive && !tech->unknown_76) {
+                if (obj->IsActive && !tech->IsInLimbo) {
                     if (tech->unknown_372 || tech->unknown_1b8 != 2 || ((UnknownCellClass *)&Map[tech->Center_Coord()])->Is_Sensed(PlayerPtr->ArrayIndex)) {
                         pass = true;
                     }

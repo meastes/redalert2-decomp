@@ -207,7 +207,7 @@ bool OverlayClass::Mark(int mark)
 
             int type = Class->ArrayIndex;
 
-            if (cellptr->unknown_11c > 4 && type != 0xB2) {
+            if (cellptr->Ramp > 4 && type != 0xB2) {
                 return false;
             }
 
@@ -258,7 +258,7 @@ bool OverlayClass::Mark(int mark)
                     }
 
                     for (int face = 0; face < 8; face++) {
-                        cellptr->Adjacent_Cell(face).unknown_122++;
+                        cellptr->Adjacent_Cell(face).AdjacentObjectCount++;
                     }
                 } else {
                     Delete_Me();
@@ -407,7 +407,7 @@ bool OverlayClass::Mark(int mark)
                         } else {
                             if (Class->ArrayIndex == 0x66) {
                                 clear = cellptr->Is_Clear_To_Move(1, true, true, -1, 0, -1, true);
-                                if (cellptr->unknown_11c > 4) clear = false;
+                                if (cellptr->Ramp > 4) clear = false;
                             } else {
                                 clear = cellptr->Is_Clear_To_Move(1, true, true, -1, 0, -1, true);
                             }
@@ -444,7 +444,7 @@ bool OverlayClass::Mark(int mark)
                         TiberiumClass *tiberium = Tiberiums[tibtype];
                         if (tiberium != 0) {
                             aptr->unknown_bc = ColorSchemes[tiberium->unknown_c0]->Converter;
-                            aptr->unknown_e4 = cellptr->unknown_10a;
+                            aptr->unknown_e4 = cellptr->Brightness;
                         }
                     }
                 }
@@ -452,8 +452,8 @@ bool OverlayClass::Mark(int mark)
 
             cellptr->Recalc_Attributes(-1);
 
-            unknown_74 = false;
-            unknown_76 = true;
+            IsDown = false;
+            IsInLimbo = true;
 
             Delete_Me();
             return true;
@@ -689,7 +689,7 @@ void OverlayClass::Editor_Draw_It(Point2D const &point, Rect const &cliprect)
         }
         Point2D origin(0, 0);
         CC_Draw_Shape(LogicalSurface, ColorSchemes[PlayerPtr->ColorSchemeIndex]->Converter, (ShapeFileStruct const *)shape, 0, position, cliprect,
-                      0xE00, 0, -2 - height, 0, Map[CoordStruct(Coord)].unknown_10c, 0, 0, origin);
+                      0xE00, 0, -2 - height, 0, Map[CoordStruct(Coord)].TileBrightness, 0, 0, origin);
     } else {
         CellClass *drawn;
         if (Map.In_Radar(Coord_Cell(CoordStruct(Coord)))) {
@@ -699,8 +699,8 @@ void OverlayClass::Editor_Draw_It(Point2D const &point, Rect const &cliprect)
         } else {
             drawn = &Map[Cell(1, unknown_short_8325d0)];
         }
-        CC_Draw_Shape(LogicalSurface, (ConvertClass *)drawn->unknown_34, (ShapeFileStruct const *)shape, 0, position, cliprect,
-                      0xE00, 0, -2 - height, 0, drawn->unknown_10c, 0, 0, Point2D(0, 0));
+        CC_Draw_Shape(LogicalSurface, (ConvertClass *)drawn->Drawer, (ShapeFileStruct const *)shape, 0, position, cliprect,
+                      0xE00, 0, -2 - height, 0, drawn->TileBrightness, 0, 0, Point2D(0, 0));
     }
 }
 

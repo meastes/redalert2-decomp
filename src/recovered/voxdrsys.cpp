@@ -196,15 +196,15 @@ void __fastcall VoxelDrawSystem::Prep_For_Shadow(VoxelLibrary *voxlib, int layer
 
     VoxelShadowRenderStruct &data = VoxelShadowRenderData[VoxelShadowRenderDataCount];
 
-    data.unknown_3c = mask;
-    data.unknown_40 = mask_x;
-    data.unknown_44 = mask_y;
+    data.ShadowSurface = mask;
+    data.ShadowX = mask_x;
+    data.ShadowY = mask_y;
     data.unknown_00 = voxlib;
-    data.unknown_04 = layer;
-    data.unknown_08 = info;
+    data.Layer = layer;
+    data.Info = info;
 
     for (int i = 0; i < 4; i++) {
-        data.Points[i] = motion * layer_info->unknown_40[i];
+        data.Points[i] = motion * layer_info->BoxCorner[i];
         data.Points[i].Z = 0;
         data.Points[i] = camera * data.Points[i];
         data.Points[i] = data.Points[i] + light;
@@ -243,7 +243,7 @@ void __fastcall VoxelDrawSystem::Prep_For_Object(VoxelLibrary *voxlib, int layer
     data.Library = voxlib;
 
     for (int i = 0; i < 8; i++) {
-        data.Points[i] = transform * layer_info->unknown_40[i];
+        data.Points[i] = transform * layer_info->BoxCorner[i];
         data.Points[i].Y = -data.Points[i].Y;
         if (data.Points[i].X < data.MinBounds.X) {
             data.MinBounds.X = data.Points[i].X;

@@ -111,7 +111,7 @@ bool Type_Selectable(ObjectClass *object)
 bool Band_Takes(ObjectClass *object)
 {
     HouseClass *house = object->Owning_House();
-    if (house == 0 || !house->Is_Player_Control() || !object->CanBeSelected() || object->unknown_76) return false;
+    if (house == 0 || !house->Is_Player_Control() || !object->CanBeSelected() || object->IsInLimbo) return false;
     if (object->Kind_Of() == kKindBuilding) {
         BuildingTypeClass *type = static_cast<BuildingClass *>(object)->Type;
         if (type->UndeploysInto == 0) return false;

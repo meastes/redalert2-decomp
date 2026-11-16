@@ -32,11 +32,11 @@ struct LayerStruct {
 // the section's x/y/z size).
 struct LayerInfoStruct {
     int *unknown_00;                    // +0x00 span start offsets (hypothesis)
-    int *unknown_04;                    // +0x04 span end offsets
+    int *EndOffset;                    // +0x04 span end offsets
     unsigned char *unknown_08;          // +0x08 span data
     float unknown_0c;                   // +0x0C
     char unknown_10[0x40 - 0x10];
-    Vector3 unknown_40[8];              // +0x40 box corners
+    Vector3 BoxCorner[8];              // +0x40 box corners
     unsigned char XSize;           // +0xA0
     unsigned char YSize;           // +0xA1
     unsigned char ZSize;           // +0xA2
@@ -64,12 +64,12 @@ class VoxelLibrary;
 // (fields from 0x00719C10; names are hypotheses).
 struct VoxelShadowRenderStruct {
     VoxelLibrary *unknown_00;           // +0x00 the library (hypothesis)
-    int unknown_04;                     // +0x04 section
-    int unknown_08;                     // +0x08 frame
+    int Layer;                     // +0x04 section
+    int Info;                     // +0x08 frame
     Vector3 Points[4];                  // +0x0C shadow corners
-    Surface *unknown_3c;                // +0x3C mask surface (0 = none)
-    int unknown_40;                     // +0x40 mask left
-    int unknown_44;                     // +0x44 mask top
+    Surface *ShadowSurface;                // +0x3C mask surface (0 = none)
+    int ShadowX;                     // +0x40 mask left
+    int ShadowY;                     // +0x44 mask top
 };
 
 class VoxelLibrary {

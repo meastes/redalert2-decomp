@@ -96,6 +96,25 @@ class MemberRenameTests(unittest.TestCase):
         with self.assertRaises(SystemExit):
             member_rename.plan('Base', 'Get_Cell', 'Get_Position')
 
+    def test_a_use_in_a_macro_argument_is_renamed(self):
+        (self.root / 'src/recovered/c.cpp').write_text(
+            '#include "shared/a.hpp"\n#define TWICE(x) ((x) + (x))\nint g(Base *b, Other *o) { return TWICE(b->Count) + TWICE(o->Count); }\n')
+        result = member_rename.plan('Base', 'Count', 'Number')
+        text = (self.root / 'src/recovered/c.cpp').read_text()
+        edited = member_rename.apply_edits(text, result['edits']['src/recovered/c.cpp'], 'Count', 'Number')
+        self.assertIn('TWICE(b->Number) + TWICE(o->Count)', edited)
+
+    def test_offsets_in_a_crlf_header_are_bytes(self):
+        (self.root / 'src/shared/a.hpp').write_bytes(HEADER.replace('\n', '\r\n').encode())
+        result = member_rename.plan('Base', 'Count', 'Number')
+        data = (self.root / 'src/shared/a.hpp').read_bytes().decode('latin-1')
+        self.assertEqual([data[o:o + 5] for o in result['edits']['src/shared/a.hpp']], ['Count'])
+
+    def test_a_header_no_source_includes_does_not_refuse(self):
+        (self.root / 'src/shared/orphan.hpp').write_text('struct Orphan { int Count; };\n')
+        result = member_rename.plan('Base', 'Count', 'Number')
+        self.assertNotIn('src/shared/orphan.hpp', result['edits'])
+
     def test_a_new_name_the_hierarchy_already_has_refuses(self):
         with self.assertRaises(SystemExit) as caught:
             member_rename.plan('Base', 'Get_Cell', 'Use')

@@ -31,7 +31,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     if(weapon && weapon->Warhead) {
         if((int)(weapon->Warhead->Verses[object->Techno_Type_Class()->Armor]*100.0)==1) return false;
     }
-    if(object==0 || object->unknown_76 || object->Strength==0) return false;
+    if(object==0 || object->IsInLimbo || object->Strength==0) return false;
     if(tech->unknown_1b8==2) {
         if(!Map[object->Center_Coord()].Is_Sensed(House->ArrayIndex) && House!=tech->House) return false;
     }

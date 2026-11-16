@@ -93,7 +93,7 @@ RulesClass::RulesClass() :
     TiberiumHeal(0.016666666666666666),
     FreeMCV(false),
     BerzerkAllowed(false),
-    unknown_50(0),
+    PoseDir(0),
     DropPodPuff(0),
     WaypointAnimationSpeed(12),
     BarrelExplode(0),
@@ -116,7 +116,7 @@ RulesClass::RulesClass() :
     unknown_c0(-1.0),
     unknown_c8(1.0),
     VeinholeMonsterStrength(10000),
-    unknown_d4(1000),
+    MaxVeinholeGrowth(1000),
     VeinholeGrowthRate(100),
     VeinholeShrinkRate(100),
     VeinAttack(0),
@@ -813,7 +813,7 @@ bool RulesClass::Audio_Visual(CCINIClass &ini)
         DetailMinFrameRateMovie = ini.Get_Int(RulesSection_AudioVisual, "DetailMinFrameRateMovie", DetailMinFrameRateMovie);
         DetailBufferZoneWidth = ini.Get_Int(RulesSection_AudioVisual, "DetailBufferZoneWidth", DetailBufferZoneWidth);
         UnloadingHarvester = Get_Type(ini, RulesSection_AudioVisual, "UnloadingHarvester", UnloadingHarvester);
-        unknown_50 = ini.Get_Int(RulesSection_AudioVisual, "PoseDir", unknown_50);
+        PoseDir = ini.Get_Int(RulesSection_AudioVisual, "PoseDir", PoseDir);
         DropPodPuff = Get_Type(ini, RulesSection_AudioVisual, "DropPodPuff", DropPodPuff);
         WaypointAnimationSpeed = ini.Get_Int(RulesSection_AudioVisual, "WaypointAnimationSpeed", WaypointAnimationSpeed);
         BarrelExplode = Get_Type(ini, RulesSection_AudioVisual, "BarrelExplode", BarrelExplode);
@@ -1547,7 +1547,7 @@ bool RulesClass::General(CCINIClass &ini)
         DumbTargetDistanceCoefficient = ini.Get_Double(RulesSection_General, "DumbTargetDistanceCoefficient", DumbTargetDistanceCoefficient);
         EnemyHouseThreatBonus = ini.Get_Double(RulesSection_General, "EnemyHouseThreatBonus", EnemyHouseThreatBonus);
         VeinholeMonsterStrength = ini.Get_Int(RulesSection_General, "VeinholeMonsterStrength", VeinholeMonsterStrength);
-        unknown_d4 = ini.Get_Int(RulesSection_General, "MaxVeinholeGrowth", unknown_d4);
+        MaxVeinholeGrowth = ini.Get_Int(RulesSection_General, "MaxVeinholeGrowth", MaxVeinholeGrowth);
         VeinholeGrowthRate = ini.Get_Int(RulesSection_General, "VeinholeGrowthRate", VeinholeGrowthRate);
         VeinholeShrinkRate = ini.Get_Int(RulesSection_General, "VeinholeShrinkRate", VeinholeShrinkRate);
         unknown_e4 = ini.Get_Int(RulesSection_General, "VeinDamage", unknown_e4);

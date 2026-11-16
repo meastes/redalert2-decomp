@@ -226,6 +226,64 @@ def include_graph():
     return graph
 
 
+def in_define(text, offset):
+    """Whether `offset` lies in a #define directive (continuation lines included): a token in a
+    macro body is one spelling for every expansion, so it cannot follow one member's rename. A
+    token written in a macro's argument (FAILED(x), MIN(a, b)) is spelled where it is used, once,
+    and is renamed like any other use."""
+    start = offset
+    while True:
+        line_start = text.rfind('\n', 0, start) + 1
+        if line_start >= 2 and text[line_start - 2] == '\\' or line_start >= 3 and text[line_start - 3:line_start - 1] == '\\\r':
+            start = line_start - 2
+            continue
+        break
+    return bool(re.match(r'\s*#\s*define\b', text[line_start:]))
+
+
+_GROUPS = {}
+
+
+def group_units(units):
+    """Population context: the build compiles each population's sources (one option set) as one
+    translation unit, joined in source order, so a source may lean on declarations an earlier
+    source of its unit makes, and a header's #if branch may be taken only there (a seed unit's
+    shared/ghidra_types.hpp before a view header). Each compile group that holds one of `units`
+    beside other sources is parsed once more as that unit: a generated file that #includes the
+    group's sources in build order (locations stay in the real files). Written under build/.
+    A tree without the canonical catalog (a synthetic test tree) has no groups."""
+    if REPOSITORY not in _GROUPS:
+        groups = {}
+        try:
+            sys.path.insert(0, str(Path(__file__).resolve().parent))
+            import catalog_io
+            from canonical import compile_group_key, separate_unit_populations
+            catalog = catalog_io.load(catalog_io.locate(REPOSITORY))
+        except Exception:
+            catalog = None
+        if catalog is not None:
+            separate = separate_unit_populations(catalog)
+            for row in sorted(catalog['regions'], key=lambda r: r['source_order']):
+                sources = groups.setdefault(compile_group_key(row, separate), [])
+                if row['source'] not in sources:
+                    sources.append(row['source'])
+        _GROUPS[REPOSITORY] = [g for g in groups.values() if len(g) > 1]
+    wanted = set(units)
+    out = []
+    folder = REPOSITORY / 'build/member-rename-groups'
+    for sources in _GROUPS[REPOSITORY]:
+        if not wanted & set(sources):
+            continue
+        import hashlib
+        text = ''.join('#include "%s"\n' % (REPOSITORY / s).as_posix() for s in sources)
+        name = 'group-%s.cpp' % hashlib.sha1(text.encode()).hexdigest()[:16]
+        folder.mkdir(parents=True, exist_ok=True)
+        if not (folder / name).exists():
+            (folder / name).write_text(text)
+        out.append((folder / name).relative_to(REPOSITORY).as_posix())
+    return out
+
+
 def plan(klass, old, new, mangled=None, files=None, allow_hiding=False):
     """{'edits': {path: [offset, ...]}, 'manglings': {old full: new full}, 'overload': bool,
     'units': n}: every token of `old` that resolves to klass's member, or SystemExit with the
@@ -233,10 +291,22 @@ def plan(klass, old, new, mangled=None, files=None, allow_hiding=False):
     if not re.fullmatch(r'[A-Za-z_]\w*', new) or not re.fullmatch(r'[A-Za-z_]\w*', old):
         raise SystemExit('member_rename: %s -> %s are not identifiers' % (old, new))
     graph = include_graph()
-    texts = {p: (REPOSITORY / p).read_text(encoding='latin-1') for p in (files or graph)}
+    texts = {p: (REPOSITORY / p).read_bytes().decode('latin-1') for p in (files or graph)}
     spelled = {p for p, t in texts.items() if re.search(r'\b%s\b' % re.escape(old), t)}
     if not spelled:
         raise SystemExit('member_rename: no source spells %s' % old)
+    # A header no source (src/ or native/) includes, directly or through other headers, is in no
+    # translation unit: no build compiles it, so its tokens are left as they are and do not refuse the rename.
+    included = set()
+    for p in graph:
+        if p.endswith('.cpp'):
+            included |= includes(p, graph)
+    native = re.compile(r'^\s*#\s*include\s+"(shared/[^"]+)"', re.M)
+    for q in (REPOSITORY / 'native').rglob('*'):
+        if q.suffix in ('.cpp', '.hpp', '.h', '.c', '.mm'):
+            for name in native.findall(q.read_text(errors='replace')):
+                included |= {'src/' + name} | includes('src/' + name, graph)
+    spelled = {p for p in spelled if not p.startswith('src/shared/') or p in included}
     # units: every .cpp that spells the name or includes a header that does
     headers = {p for p in spelled if p.startswith('src/shared/')}
     units = sorted(p for p in graph if p.endswith('.cpp') and (p in spelled or includes(p, graph) & headers))
@@ -245,7 +315,8 @@ def plan(klass, old, new, mangled=None, files=None, allow_hiding=False):
     # that holds one is parsed a second time with it defined, so draft uses resolve by type too.
     passes = [(p, ()) for p in units]
     passes += [(p, ('-DRA2_NON_MATCHING',)) for p in units if 'RA2_NON_MATCHING' in texts.get(p, '') or
-               'RA2_NON_MATCHING' in (REPOSITORY / p).read_text(encoding='latin-1')]
+               'RA2_NON_MATCHING' in (REPOSITORY / p).read_bytes().decode('latin-1')]
+    passes += [(group, ()) for group in group_units(units)]
     for path, extra in passes:
         unit = Unit(path, old, new, extra)
         bases |= unit.bases
@@ -295,7 +366,7 @@ def plan(klass, old, new, mangled=None, files=None, allow_hiding=False):
             elif usrs & targets and usrs - targets:
                 conflicts.append((path, offset))
             elif usrs & targets:
-                if (path, offset) in macro:
+                if (path, offset) in macro and in_define(texts[path], offset):
                     unexplained.append((path, offset))
                 else:
                     edits.setdefault(path, []).append(offset)

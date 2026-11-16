@@ -4,8 +4,8 @@
     "id": "population-4395",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "059c1badf67ae3bec440d2f7b17307a5051af41092989d1d121b87f726e7e870",
-    "historical_acceptance_sha256": "745be252ad1d7f5c5ea9ba5094e7091f1bbd3aab096a259724be792a4ba8e65e"
+    "historical_population_sha256": "1aa1faa1c7689392c47b12d0928722241ec9ba83f2f9f13953b0c5743c1d147a",
+    "historical_acceptance_sha256": "b0c367ebe798bbb5eac13d24786bbeb362254d3a339c5b4227fedc96f23ff7ed"
   },
   "references": {
     "?get@Leaf_401170@@QAEXXZ": 4198768,
@@ -7897,7 +7897,8 @@
     "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
     "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
     "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
-    "?Unknown_005689D0@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376
+    "?Unknown_005689D0@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104
   },
   "regions": [
     {
@@ -7934,7 +7935,7 @@
           "resolved": 8806860
         }
       ],
-      "source_sha256": "74e524e9919404119243e86178cf63451ef633217a97a4009cb460caebb0fd45",
+      "source_sha256": "528681a157b312dc01a6b10a987307a5a04e815d4e791333b9f0505a334b57f7",
       "source": "src/recovered/classes/CellClass/Cell_Tube.cpp",
       "population": "population-4395",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

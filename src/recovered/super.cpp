@@ -744,7 +744,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                         }
                     }
                 }
-                if (House->unknown_130 == 0) {
+                if (House->ActLike == 0) {
                     if (Rules->AllyParaDropInf.Count() == Rules->AllyParaDropNum.Count()) {
                         for (int i = 0; i < Rules->AllyParaDropInf.Count(); i++) {
                             int type = Rules->AllyParaDropInf[i]->ArrayIndex;
@@ -838,7 +838,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                     CurrentSuperWeaponType = -1;
                     Speech_Cancel(VoxClass::Find_Index("EVA_NuclearMissileReady"));
                 }
-                House->unknown_144 = true;
+                House->IsRecalcNeeded = true;
                 return;
             }
             for (int index = 0; index < BuildingTypes.Count(); index++) {
@@ -866,7 +866,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                 CurrentSuperWeaponType = -1;
                 Speech_Cancel(VoxClass::Find_Index("EVA_NuclearMissileReady"));
             }
-            House->unknown_144 = true;
+            House->IsRecalcNeeded = true;
         }
         break;
     }

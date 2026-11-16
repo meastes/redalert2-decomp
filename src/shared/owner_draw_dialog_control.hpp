@@ -74,13 +74,9 @@ struct WinData {
     }
 #ifdef RA2_OWNERDRAW_CHECK_FIELDS
     int unknown_00;     // +0x00 the lparam passed through Subclass_Dialog (0x005ED180)
-#ifdef RA2_COMBO_DROP_UNIT
     int scroll_width_04; // +0x04 a combo drop list's scroll bar width (0x005EAD20)
     HWND owner_08;      // +0x08 the window a drop list's scroll bar reports to (0x005EAD20)
     HWND attached_0c;   // +0x0C a combo drop list's scroll bar window, 1 while it is being made (0x005EAD20)
-#else
-    char unknown_04[0x10 - 0x04];
-#endif
 #else
     char unknown_00[0x10];
 #endif

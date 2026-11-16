@@ -2769,7 +2769,7 @@ void __fastcall Unknown_00629290(int start, int count)
             } else if (!done[i]) {
                 Cell fallback = dest;
                 Cell cell(object->unknown_slot19(0));
-                int level = Map[dest].IsUnderBridge * 4 + Map[dest].unknown_11b;
+                int level = Map[dest].IsUnderBridge * 4 + Map[dest].Height;
                 Vector3 position(dest.X + 0.5, dest.Y + 0.5, 0);
                 int offset_x = cell.X - origin.X;
                 int offset_y = cell.Y - origin.Y;
@@ -2795,10 +2795,10 @@ void __fastcall Unknown_00629290(int start, int count)
                         if (flags & CELL_FLAG_TAKEN) {
                             fallback = spot;
                         } else {
-                            if ((flags & CELL_FLAG_UNDER_BRIDGE) && abs(level - spot_ptr->unknown_11b - 4) > SPREAD_LEVEL_SLACK) {
+                            if ((flags & CELL_FLAG_UNDER_BRIDGE) && abs(level - spot_ptr->Height - 4) > SPREAD_LEVEL_SLACK) {
                                 break;
                             }
-                            if (!(flags & CELL_FLAG_UNDER_BRIDGE) && abs(level - spot_ptr->unknown_11b) > SPREAD_LEVEL_SLACK) {
+                            if (!(flags & CELL_FLAG_UNDER_BRIDGE) && abs(level - spot_ptr->Height) > SPREAD_LEVEL_SLACK) {
                                 break;
                             }
                             if (enter < 4 || enter == 6) {
@@ -3155,7 +3155,7 @@ void __fastcall Print_CRCs(EventClass *event)
                 navcom_name = Sync_Target_Name(infp->unknown_494, navcom_id);
                 fprintf(file, "COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%s(%d) Speed:%d NavCom:%s(%d)\n",
                     Coord_CRC(infp->Coord), Dir_To_256(infp->PrimaryFacing.Current()), infp->Get_Mission(),
-                    infp->Type->ArrayIndex, (char const *)infp->Type->ID, target_name, target_id, int(infp->unknown_468 * 256.0),
+                    infp->Type->ArrayIndex, (char const *)infp->Type->ID, target_name, target_id, int(infp->Speed * 256.0),
                     navcom_name, navcom_id);
             }
         }
@@ -3443,7 +3443,7 @@ void __fastcall Unknown_0062CF40(int index)
         obj->Facing = Dir_To_256(infp->PrimaryFacing.Current());
         obj->Mission = infp->Get_Mission();
         obj->Type = infp->Type->ArrayIndex;
-        obj->Speed = infp->unknown_468 * 256.0;
+        obj->Speed = infp->Speed * 256.0;
         obj->Owner = infp->House->ArrayIndex;
         obj->TypeName[sizeof(obj->TypeName) - 1] = 0;
         strncpy(obj->TypeName, infp->Type->ID, sizeof(obj->TypeName) - 1);
@@ -3496,7 +3496,7 @@ void __fastcall Unknown_0062CF40(int index)
         obj->Facing2 = Dir_To_256(unitp->SecondaryFacing.Current());
         obj->Mission = unitp->Get_Mission();
         obj->Type = unitp->Type->ArrayIndex;
-        obj->Speed = unitp->unknown_468 * 256.0;
+        obj->Speed = unitp->Speed * 256.0;
         obj->Owner = unitp->House->ArrayIndex;
         obj->TrackNumber = unitp->Locomotor.Checked()->Get_Track_Number();
         obj->TrackIndex = unitp->Locomotor.Checked()->Get_Track_Index();
@@ -3552,7 +3552,7 @@ void __fastcall Unknown_0062CF40(int index)
         obj->Facing = Dir_To_256(aircraftp->PrimaryFacing.Current());
         obj->Mission = aircraftp->Get_Mission();
         obj->Type = aircraftp->Type->ArrayIndex;
-        obj->Speed = aircraftp->unknown_468 * 256.0;
+        obj->Speed = aircraftp->Speed * 256.0;
         obj->Owner = aircraftp->House->ArrayIndex;
         obj->TypeName[sizeof(obj->TypeName) - 1] = 0;
         strncpy(obj->TypeName, aircraftp->Type->ID, sizeof(obj->TypeName) - 1);

@@ -318,11 +318,11 @@ void ParasiteClass::Unknown_00606780()
                 new AnimClass(Rules->SplashList[unknown_id_source_a3d290->Random()(0, count - 1)], splash, 2, 1, 0x600, -10);
             }
             if (warhead->Culling && (unknown_28->GetHealthStatus() == 0 ||
-                (unknown_28->GetHealthStatus() == 1 && Owner->unknown_118.Is_Elite()))) {
+                (unknown_28->GetHealthStatus() == 1 && Owner->Veterancy.Is_Elite()))) {
                 if (Owner->Techno_Type_Class()->Trainable) {
                     TechnoTypeClass *victim_type = unknown_28->Techno_Type_Class();
                     TechnoTypeClass *owner_type = Owner->Techno_Type_Class();
-                    Owner->unknown_118.Made_A_Kill(owner_type->Cost_Of(Owner->House),
+                    Owner->Veterancy.Made_A_Kill(owner_type->Cost_Of(Owner->House),
                         victim_type->Cost_Of(unknown_28->House));
                 }
                 FootClass *victim = unknown_28;
@@ -355,7 +355,7 @@ void ParasiteClass::Unknown_00606780()
             CellClass *cell = (CellClass *)unknown_28->Get_Cell_Ptr();
             anim->Attach_To(unknown_28);
             anim->unknown_bc = Owner->unknown_slot115();
-            if (cell) anim->unknown_e4 = cell->unknown_10a;
+            if (cell) anim->unknown_e4 = cell->Brightness;
         }
     } else {
         Unknown_00607440();
@@ -586,7 +586,7 @@ void ParasiteClass::Unknown_00607440()
 
 bool ParasiteClass::Can_Infect_006078F0(FootClass *target)
 {
-    if (target != 0 && !target->unknown_76 && target->IsActive && target->Strength != 0
+    if (target != 0 && !target->IsInLimbo && target->IsActive && target->Strength != 0
         && target->unknown_580 == 0 && target->Techno_Type_Class()->Parasiteable) {
         if (Owner == 0 || !Owner->Techno_Type_Class()->Naval || target->Get_Cell_Ptr() == 0
             || ((CellClass *)target->Get_Cell_Ptr())->Is_Tile_Water()) {

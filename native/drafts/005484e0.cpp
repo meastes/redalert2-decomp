@@ -70,7 +70,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         if (!In_Radar(Cell(i % 512, i / 512))) {
             CellClass *c = Cells[i];
             if (c != 0) {
-                c->unknown_11b = cell_height;
+                c->Height = cell_height;
             }
         }
     }
@@ -86,7 +86,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         cell = cptr->Fetch_CellID();
         while (cptr != 0) {
             cells_base[cellcount] = *cptr;
-            cells_base[cellcount].unknown_2c = 0;
+            cells_base[cellcount].BridgeDeckCell = 0;
             cells_base[cellcount].unknown_30 = 0;
             cptr = Iterate();
             cellcount++;
@@ -125,7 +125,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
                     c = new(c) CellClass;
                     c->Set_CellID(cell);
                 }
-                Cells[idx]->unknown_11b = cell_height;
+                Cells[idx]->Height = cell_height;
             }
         }
     }
@@ -169,10 +169,10 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
                 Cells[cellindex] = new CellClass;
                 Cells[cellindex]->Set_CellID(c);
                 Cells[cellindex]->IsoTileIndex = 0xFFFF;
-                Cells[cellindex]->unknown_11a = 0;
-                Cells[cellindex]->unknown_11c = 0;
+                Cells[cellindex]->SubTile = 0;
+                Cells[cellindex]->Ramp = 0;
                 Cells[cellindex]->OverlayIndex = -1;
-                Cells[cellindex]->unknown_11b = cell_height;
+                Cells[cellindex]->Height = cell_height;
             }
             cptr = Iterate();
         }
@@ -240,7 +240,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         Reset_Iterator();
         cptr = Iterate();
         while (cptr != 0) {
-            if (cptr->IsBridgeDeck && cptr->unknown_2c == 0) {
+            if (cptr->IsBridgeDeck && cptr->BridgeDeckCell == 0) {
                 unsigned facing = !cptr->IsBridgeEastWest * 2;
                 if (cptr->OverlayIndex == 0x18 || cptr->OverlayIndex == 0x19) {
                     cptr->Set_Under_Bridge(facing, true);

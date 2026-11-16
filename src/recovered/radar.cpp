@@ -1525,7 +1525,7 @@ void RadarClass::Radar_Track(TechnoClass *techno, Point2D point)
     }
     DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = unknown_1254->Buckets[RadarTrackingStruct_Hash_Old(point) % 256];
     HashObject<RadarTrackingStruct, TechnoClass *> object;
-    object.Key.unknown_04 = point;
+    object.Key.Position = point;
     object.Key.unknown_00 = techno;
     object.Value = techno;
     int count = bucket.Count();
@@ -1561,7 +1561,7 @@ void RadarClass::Radar_Untrack(TechnoClass *techno, Point2D point)
 {
     DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> > &bucket = unknown_1254->Buckets[RadarTrackingStruct_Hash_Old(point) % 256];
     HashObject<RadarTrackingStruct, TechnoClass *> object;
-    object.Key.unknown_04 = point;
+    object.Key.Position = point;
     object.Key.unknown_00 = techno;
     object.Value = techno;
     if (bucket.Delete(object)) {
@@ -1619,7 +1619,7 @@ unsigned __fastcall RadarTrackingStruct_Hash_Old(Point2D const &point)
 
 int __fastcall RadarTrackingStruct_Hash2(RadarTrackingStruct const &key)
 {
-    return RadarTrackingStruct_Hash_Old(key.unknown_04);
+    return RadarTrackingStruct_Hash_Old(key.Position);
 }
 
 
@@ -1768,7 +1768,7 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
     HashObject<RadarTrackingStruct,TechnoClass *> *items=&bucket[0];
     for(int index=0;index<count;++index) {
         TechnoClass *candidate=items[index].Key.unknown_00;
-        if(items[index].Key.unknown_04==point &&
+        if(items[index].Key.Position==point &&
             (!shadow || candidate->House->Is_Player_Control()) &&
             (!candidate->Techno_Type_Class()->unknown_1ff || PlayerPtr->Is_Ally(candidate))) {
             tech=candidate;
@@ -1822,7 +1822,7 @@ void RadarClass::Render_Tracked_Objects()
         for (int t = 0; t < count; t++) {
             RadarTrackingStruct *track = &ptr[t].Key;
             TechnoClass *tech = track->unknown_00;
-            int id = track->unknown_04.X + track->unknown_04.Y * unknown_1218->Get_Width();
+            int id = track->Position.X + track->Position.Y * unknown_1218->Get_Width();
             int i = id >> 3;
             int bit = 1 << (id & 7);
             if ((unknown_1270[i] & bit) == 0) {
@@ -1836,7 +1836,7 @@ void RadarClass::Render_Tracked_Objects()
                     }
                 }
                 int color = scheme->Converter->Convert(scheme->unknown_color_0x330);
-                unknown_1218->Put_Pixel(track->unknown_04, color);
+                unknown_1218->Put_Pixel(track->Position, color);
             }
         }
     }
@@ -2002,7 +2002,7 @@ void RadarClass::Resolve_Radar_Point(Point2D const &pixel, Cell &cell, TechnoCla
     found = 0;
     for (int index = count - 1; index >= 0; --index) {
         RadarTrackingStruct track = bucket[index].Key;
-        if (track.unknown_04 == point) {
+        if (track.Position == point) {
             found = track.unknown_00;
             break;
         }
@@ -2521,7 +2521,7 @@ void RadarClass::Play_Movie()
             unknown_1208 = Rect(unknown_11e0, unknown_11e8, SidebarWidth, 110);
         }
         finished = movie->Is_Finished();
-        hold = movie->unknown_04;
+        hold = movie->State;
     } else if (has) {
         finished = true;
     } else {

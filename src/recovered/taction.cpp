@@ -505,7 +505,7 @@ bool TActionClass::unknown_hunt_technos_with_tag(HouseClass *house, ObjectClass 
 {
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
-        if (techno->Kind_Of() != 6 && techno->IsActive && techno->unknown_74 && techno->unknown_34 != 0
+        if (techno->Kind_Of() != 6 && techno->IsActive && techno->IsDown && techno->unknown_34 != 0
             && techno->unknown_34->Is_Trigger_Attached(trigger)) {
             if (techno->Get_Mission() == 0 || techno->Get_Mission() == 0x17) {
                 techno->QueueMission(5, false);
@@ -555,8 +555,8 @@ bool TActionClass::unknown_hunt_idle_feet_not_of_house(HouseClass *house, Object
 {
     for (int index = 0; index < Feet.Count(); index++) {
         FootClass *foot = Feet[index];
-        if (foot->Get_Mission() == 0 && foot->Strength > 0 && foot->IsActive && foot->unknown_74
-            && !foot->unknown_76 && house != foot->House) {
+        if (foot->Get_Mission() == 0 && foot->Strength > 0 && foot->IsActive && foot->IsDown
+            && !foot->IsInLimbo && house != foot->House) {
             foot->QueueMission(5, false);
         }
     }
@@ -572,8 +572,8 @@ bool TActionClass::unknown_hunt_feet_mission_23_of_house(HouseClass *house, Obje
 {
     for (int index = 0; index < Feet.Count(); index++) {
         FootClass *foot = Feet[index];
-        if (foot->Get_Mission() == 0x17 && foot->Strength > 0 && foot->IsActive && foot->unknown_74
-            && !foot->unknown_76 && foot->House == house) {
+        if (foot->Get_Mission() == 0x17 && foot->Strength > 0 && foot->IsActive && foot->IsDown
+            && !foot->IsInLimbo && foot->House == house) {
             foot->QueueMission(5, false);
         }
     }
@@ -589,7 +589,7 @@ bool TActionClass::unknown_hunt_technos_of_house_type(HouseClass *house, ObjectC
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
         if (techno->unknown_1ac == Data.Value && (techno->Get_Mission() == 0 || techno->Get_Mission() == 0x17)
-            && techno->Strength > 0 && techno->IsActive && techno->unknown_74 && !techno->unknown_76) {
+            && techno->Strength > 0 && techno->IsActive && techno->IsDown && !techno->IsInLimbo) {
             techno->QueueMission(5, false);
         }
     }
@@ -699,7 +699,7 @@ bool TActionClass::unknown_buildings_with_tag_slot98(HouseClass *house, ObjectCl
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-        if (building->IsActive && building->unknown_74 && !building->unknown_76 && building->unknown_34 != 0
+        if (building->IsActive && building->IsDown && !building->IsInLimbo && building->unknown_34 != 0
             && building->unknown_34->Is_Trigger_Attached(trigger)) {
             building->Sell_Back(1);
             handled = true;
@@ -719,7 +719,7 @@ bool TActionClass::unknown_infantry_with_tag_slot294(HouseClass *house, ObjectCl
     bool handled = false;
     for (int index = 0; index < Infantry.Count(); index++) {
         InfantryClass *infantry = Infantry[index];
-        if (infantry->IsActive && infantry->unknown_74 && !infantry->unknown_76 && infantry->unknown_34 != 0
+        if (infantry->IsActive && infantry->IsDown && !infantry->IsInLimbo && infantry->unknown_34 != 0
             && infantry->unknown_34->Is_Trigger_Attached(trigger)) {
             infantry->Berzerk();
             handled = true;
@@ -738,7 +738,7 @@ bool TActionClass::unknown_buildings_with_tag_power_down(HouseClass *house, Obje
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-        if (building->IsActive && building->unknown_74 && !building->unknown_76 && building->unknown_34 != 0
+        if (building->IsActive && building->IsDown && !building->IsInLimbo && building->unknown_34 != 0
             && building->unknown_34->Is_Trigger_Attached(trigger) && building->unknown_530) {
             building->unknown_44d530();
             handled = true;
@@ -757,7 +757,7 @@ bool TActionClass::unknown_buildings_with_tag_power_up(HouseClass *house, Object
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-        if (building->IsActive && building->unknown_74 && !building->unknown_76 && building->unknown_34 != 0
+        if (building->IsActive && building->IsDown && !building->IsInLimbo && building->unknown_34 != 0
             && building->unknown_34->Is_Trigger_Attached(trigger) && !building->unknown_530) {
             building->unknown_44d3e0();
             handled = true;
@@ -775,7 +775,7 @@ bool TActionClass::unknown_technos_with_tag_to_house(HouseClass *house, ObjectCl
     bool handled = false;
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
-        if (techno->IsActive && techno->unknown_74 && !techno->unknown_76 && techno->unknown_34 != 0
+        if (techno->IsActive && techno->IsDown && !techno->IsInLimbo && techno->unknown_34 != 0
             && techno->unknown_34->Is_Trigger_Attached(trigger)) {
             techno->Captured(HouseClass::As_Pointer(Data.Value), 0);
             handled = true;
@@ -937,7 +937,7 @@ bool TActionClass::unknown_reveal_around_waypoint(HouseClass *house, ObjectClass
         } else {
             extra = 0;
         }
-        int size = Map[waypoint].unknown_11b + extra;
+        int size = Map[waypoint].Height + extra;
         Cell spot = waypoint - Cell(size / 2, size / 2);
         Map.Sight_From(XYZ_Coord(spot.X * 256 + 128, spot.Y * 256 + 128, unknown_geometry_g * size), Rules->RevealTriggerRadius, PlayerPtr, false, false, 0, true, 0);
         spot = waypoint - Cell(size / 2, size / 2);
@@ -976,7 +976,7 @@ bool TActionClass::unknown_reveal_zone_of_waypoint(HouseClass *house, ObjectClas
         while ((cellptr = Map.Unknown_0055A910()) != 0) {
             Cell const &where = cellptr->MapCoords;
             if (Map.Zone(where, 1, false) == zone) {
-                int level = cellptr->unknown_11b / 2;
+                int level = cellptr->Height / 2;
                 Cell spot = where - Cell(level / 2, level / 2);
                 Map.Sight_From(XYZ_Coord(spot.X * 256 + 128, spot.Y * 256 + 128, unknown_geometry_g * level), 2, PlayerPtr, false, false, 0, true, 0);
                 spot = where - Cell(level / 2, level / 2);
@@ -1227,7 +1227,7 @@ bool TActionClass::TAction_REVEAL_AROUND_WAYPOINT(HouseClass *house, ObjectClass
         } else {
             extra = 0;
         }
-        int size = Map[waypoint].unknown_11b + extra;
+        int size = Map[waypoint].Height + extra;
         Cell spot = waypoint - Cell(size / 2, size / 2);
         Map.Shroud_Gap_Area(Cell_Coord(spot) + CoordStruct(0, 0, unknown_geometry_g * size), Rules->RevealTriggerRadius);
         Map.Refresh_Shroud();
@@ -1446,7 +1446,7 @@ bool TActionClass::TAction_DESTROY_OBJECT(HouseClass *house, ObjectClass *object
         again = false;
         for (int index = 0; index < Technos.Count(); index++) {
             TechnoClass *techno = Technos[index];
-            if (techno->Strength > 0 && techno->IsActive && techno->unknown_74 && !techno->unknown_76 && techno->unknown_34 != 0
+            if (techno->Strength > 0 && techno->IsActive && techno->IsDown && !techno->IsInLimbo && techno->unknown_34 != 0
                 && techno->unknown_34->Is_Trigger_Attached(trigger)) {
                 int damage = techno->Strength;
                 techno->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
@@ -1695,7 +1695,7 @@ bool TActionClass::TAction_CHANGE_SPOTLIGHT_BEHAVIOR(HouseClass *house, ObjectCl
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-        if (building->Strength > 0 && building->IsActive && building->unknown_74 && !building->unknown_76
+        if (building->Strength > 0 && building->IsActive && building->IsDown && !building->IsInLimbo
             && building->Type->HasSpotlight && building->unknown_4d4 != 0
             && building->unknown_34 != 0 && building->unknown_34->Is_Trigger_Attached(trigger)) {
             building->unknown_4d4->Set_Behavior(Data.Value);
@@ -2066,7 +2066,7 @@ bool TActionClass::unknown_iron_curtain_at_waypoint(HouseClass *house, ObjectCla
 bool TActionClass::Set_Type_Tech_Level_006b27e0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     TechnoTypes[Data.Value]->TechLevel = unknown_48;
-    if (house != 0) house->unknown_144 = true;
+    if (house != 0) house->IsRecalcNeeded = true;
     return true;
 }
 
@@ -2442,7 +2442,7 @@ bool TActionClass::TAction_EJECT_OCCUPANTS(HouseClass *house, ObjectClass *objec
     bool handled = false;
     for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-        if (building->IsActive && building->unknown_74 && !building->unknown_76 && building->unknown_34 != 0
+        if (building->IsActive && building->IsDown && !building->IsInLimbo && building->unknown_34 != 0
             && building->unknown_34->Is_Trigger_Attached(trigger)) {
             building->Eject_Occupants(0);
             handled = true;

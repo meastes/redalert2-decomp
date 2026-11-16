@@ -176,7 +176,7 @@ CDTimerClass<SystemTimerClass> TechnoClass::TalkBubbleTimer;
 TechnoClass::TechnoClass(HouseClass *house) :
     RadioClass(), FlasherClass(), StageClass(), Cargo(),
     unknown_100(-1), unknown_104(-1), unknown_108(0), unknown_10c(0),
-    unknown_110(-1), unknown_114(-1), unknown_118(),
+    unknown_110(-1), unknown_114(-1), Veterancy(),
     unknown_120(1.0), unknown_128(1.0),
     unknown_130(0), unknown_13c(0), unknown_148(45), unknown_154(0), unknown_160(0),
     unknown_170(false), unknown_174(0), unknown_178(0),
@@ -205,7 +205,7 @@ TechnoClass::TechnoClass(HouseClass *house) :
     unknown_3ec(1), unknown_3f0(0), unknown_3f4(Frame), unknown_3f8(0), unknown_3fc(0),
     unknown_408(0), unknown_40c(0), unknown_410(0)
 {
-    if (house) unknown_114=house->unknown_130;
+    if (house) unknown_114=house->ActLike;
     unknown_3d8.Init();
     Technos.Add(this);
     HousePtrTracker.Add(this);
@@ -241,7 +241,7 @@ bool TechnoClass::unknown_slot155()
 
 bool TechnoClass::unknown_slot24()
 {
-    if (Strength > 0 && !unknown_76 && unknown_32d && Kind_Of() != 6 && unknown_373 &&
+    if (Strength > 0 && !IsInLimbo && unknown_32d && Kind_Of() != 6 && unknown_373 &&
             Techno_Type_Class()->unknown_200) {
         return House->Is_Player_Control() ? true : false;
     }
@@ -279,7 +279,7 @@ int TechnoClass::What_Weapon_Should_I_Use(AbstractClass *target)
         return 1;
     }
     if (Kind_Of() == 6 && ((BuildingClass *)this)->GetOccupantCount() > 0) {
-        return ((BuildingClass *)this)->unknown_554[0]->House->unknown_130 == 1;
+        return ((BuildingClass *)this)->unknown_554[0]->House->ActLike == 1;
     }
     if (target == 0) {
         return 0;
@@ -527,7 +527,7 @@ void TechnoClass::Init()
     if (Techno_Type_Class()->CanDisguise && Techno_Type_Class()->PermaDisguise) {
         unknown_170 = true;
         unknown_410 = House;
-        if (House->unknown_130 == 0) {
+        if (House->ActLike == 0) {
             unknown_40c = Rules->AlliedDisguise;
         } else {
             unknown_40c = Rules->SovietDisguise;
@@ -553,7 +553,7 @@ void TechnoClass::Init()
 // RA2_STAGE_PLAIN_TIMER (first row 0x0049ED90).
 TechnoClass::TechnoClass(NoInitClass const &noinit) :
     RadioClass(noinit), FlasherClass(noinit), StageClass(noinit),
-    Cargo(noinit), unknown_118(noinit),
+    Cargo(noinit), Veterancy(noinit),
     unknown_130(noinit), unknown_13c(noinit), unknown_148(noinit), unknown_154(noinit),
     unknown_160(noinit), unknown_178(noinit), unknown_184(noinit), unknown_194(noinit),
     unknown_1d4(noinit),
@@ -690,7 +690,7 @@ bool TechnoClass::Revealed(HouseClass *house)
                 if (ScenarioInit == 0 && unknown_34 != 0) {
                     unknown_34->Spring(4, this, unknown_cell_ac0148, 0, 0);
                 }
-                House->unknown_13c = true;
+                House->IsDiscovered = true;
             }
         } else {
             unknown_374 = true;
@@ -1202,7 +1202,7 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
 
 bool TechnoClass::Limbo()
 {
-    if (!unknown_76 && Techno_Type_Class() != 0) {
+    if (!IsInLimbo && Techno_Type_Class() != 0) {
         if (Techno_Type_Class()->RevealToAll) {
             unknown_slot263(0, 0, true, PlayerPtr);
         } else {
@@ -1294,7 +1294,7 @@ bool TechnoClass::Unlimbo(CoordStruct const *coord, int dir)
         }
         unknown_1a0 = Map.Coord_To_Radar_Pixel(CoordStruct(Coord), true);
         if (unknown_114 == -1) {
-            unknown_114 = House->unknown_130;
+            unknown_114 = House->ActLike;
         }
         return true;
     }
@@ -1717,7 +1717,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     if(weapon && weapon->Warhead) {
         if((int)(weapon->Warhead->Verses[object->Techno_Type_Class()->Armor]*100.0)==1) return false;
     }
-    if(object==0 || object->unknown_76 || object->Strength==0) return false;
+    if(object==0 || object->IsInLimbo || object->Strength==0) return false;
     if(tech->unknown_1b8==2) {
         if(!Map[object->Center_Coord()].Is_Sensed(House->ArrayIndex) && House!=tech->House) return false;
     }
@@ -1949,7 +1949,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
             TechnoClass *object=AircraftTracker.Fetch_Next_004134e0();
             while (object) {
                 int value=0;
-                if (!House->Is_Ally(object) && (!(method&0x4000) || House->Is_Ally(object->House)) && object->unknown_74 && object->In_Which_Layer()!=2 && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && Evaluate_Object(method,air_mask,range,object,&value,-1,&unknown_geometry_l)) {
+                if (!House->Is_Ally(object) && (!(method&0x4000) || House->Is_Ally(object->House)) && object->IsDown && object->In_Which_Layer()!=2 && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && Evaluate_Object(method,air_mask,range,object,&value,-1,&unknown_geometry_l)) {
                     if (Techno_Type_Class()->DistributedFire) {
                         unknown_3a8.Add(object);
                         unknown_390.Add(value);
@@ -2121,17 +2121,17 @@ void TechnoClass::AI()
         Voc_Update_At(Position_Coord_004f3f40(),&unknown_3d8);
     }
     int old_rank=unknown_110;
-    if (old_rank!=unknown_118.Remaining_Levels()) {
+    if (old_rank!=Veterancy.Remaining_Levels()) {
         if (old_rank!=-1) {
-            if (unknown_118.Remaining_Levels()==0) {
+            if (Veterancy.Remaining_Levels()==0) {
                 if (House->Is_Player_Control()) { Voc_Play_At(Rules->UpgradeEliteSound,Position_Coord_004f3f40(),0); Speech_Play_Name("EVA_UnitPromoted",-1,-1); }
                 FlashCount=Rules->EliteFlashTimer;
-            } else if (unknown_118.Remaining_Levels()==1 && House->Is_Player_Control()) {
+            } else if (Veterancy.Remaining_Levels()==1 && House->Is_Player_Control()) {
                 Voc_Play_At(Rules->UpgradeVeteranSound,Position_Coord_004f3f40(),0);
                 Speech_Play_Name("EVA_UnitPromoted",-1,-1);
             }
         }
-        unknown_110=unknown_118.Remaining_Levels();
+        unknown_110=Veterancy.Remaining_Levels();
     }
     if (unknown_slot158()) { unknown_slot237(); if (!IsActive) return; }
     Cell where(Center_Coord());
@@ -2492,11 +2492,11 @@ bool TechnoClass::unknown_slot161()
     if (!(unknown_slot154() || unknown_32a) || unknown_slot201() || unknown_slot202() || unknown_slot111()
         || unknown_slot112()) {
         bool allowed = true;
-        if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
+        if (Veterancy.Is_Veteran() || Veterancy.Is_Elite()) {
             TechnoTypeClass *type = Techno_Type_Class();
-            if (unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[6]) {
+            if (Veterancy.Is_Veteran() && type->VeteranAbilities.Ability[6]) {
                 allowed = false;
-            } else if (unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[6] || type->EliteAbilities.Ability[6])) {
+            } else if (Veterancy.Is_Elite() && (type->VeteranAbilities.Ability[6] || type->EliteAbilities.Ability[6])) {
                 allowed = false;
             }
         }
@@ -2520,11 +2520,11 @@ bool TechnoClass::unknown_slot160()
 {
     if (!unknown_slot154()) {
         bool allowed = true;
-        if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
+        if (Veterancy.Is_Veteran() || Veterancy.Is_Elite()) {
             TechnoTypeClass *type = Techno_Type_Class();
-            if (unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[6]) {
+            if (Veterancy.Is_Veteran() && type->VeteranAbilities.Ability[6]) {
                 allowed = false;
-            } else if (unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[6] || type->EliteAbilities.Ability[6])) {
+            } else if (Veterancy.Is_Elite() && (type->VeteranAbilities.Ability[6] || type->EliteAbilities.Ability[6])) {
                 allowed = false;
             }
         }
@@ -2603,14 +2603,14 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
     techno=target->AbstractFlags.IsTechno?static_cast<TechnoClass *>(target):0;
     cellptr=reinterpret_cast<CellClass *>(&Map[target->Center_Coord()]);
     if(techno) {
-        if(techno->unknown_76) goto ILLEGAL;
+        if(techno->IsInLimbo) goto ILLEGAL;
         if(techno->IsImmobilized) goto ILLEGAL;
         if(techno->unknown_slot25(true,(int)House)==5 && !cellptr->Is_Sensed(House->ArrayIndex)) {
             if(unknown_6c16f0(-1)>0) goto CANT;
             if(!techno->House->Is_Ally(House)) goto CANT;
         }
     }
-    if(unknown_7a) goto ILLEGAL;
+    if(IsFalling) goto ILLEGAL;
     if(unknown_slot201()) {
         if(Kind_Of()!=1) goto CANT;
         UnitClass *unit=static_cast<UnitClass *>(this);
@@ -2778,10 +2778,10 @@ int TechnoClass::unknown_slot187(int which)
         return delay!=-1 ? delay : Random_Pick(3,5);
     } else {
         int delay=weapon->unknown_b0*House->unknown_f0+Random_Pick(0,2);
-        if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
+        if (Veterancy.Is_Veteran() || Veterancy.Is_Elite()) {
             TechnoTypeClass *type=Techno_Type_Class();
-            if ((unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[4]) ||
-                (unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[4] || type->EliteAbilities.Ability[4]))) {
+            if ((Veterancy.Is_Veteran() && type->VeteranAbilities.Ability[4]) ||
+                (Veterancy.Is_Elite() && (type->VeteranAbilities.Ability[4] || type->EliteAbilities.Ability[4]))) {
                 delay=delay*Rules->VeteranROF;
             }
         }
@@ -3051,19 +3051,19 @@ int TechnoClass::Estimate_Damage(TechnoClass *target, WeaponTypeClass *weapon)
     }
     if (damage > 0) {
         damage = House->unknown_d0 * unknown_128 * damage;
-        if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
+        if (Veterancy.Is_Veteran() || Veterancy.Is_Elite()) {
             TechnoTypeClass *type = Techno_Type_Class();
-            if ((unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[2])
-                || (unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[2] || type->EliteAbilities.Ability[2]))) {
+            if ((Veterancy.Is_Veteran() && type->VeteranAbilities.Ability[2])
+                || (Veterancy.Is_Elite() && (type->VeteranAbilities.Ability[2] || type->EliteAbilities.Ability[2]))) {
                 damage = damage * Rules->VeteranCombat;
             }
         }
         double value = damage;
         damage = value / (target->House->Armor_Multiplier(Techno_Type_Class()) * unknown_120);
-        if (target->unknown_118.Is_Veteran() || target->unknown_118.Is_Elite()) {
+        if (target->Veterancy.Is_Veteran() || target->Veterancy.Is_Elite()) {
             TechnoTypeClass *type = target->Techno_Type_Class();
-            if ((target->unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[1])
-                || (target->unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[1] || type->EliteAbilities.Ability[1]))) {
+            if ((target->Veterancy.Is_Veteran() && type->VeteranAbilities.Ability[1])
+                || (target->Veterancy.Is_Elite() && (type->VeteranAbilities.Ability[1] || type->EliteAbilities.Ability[1]))) {
                 damage = damage / Rules->VeteranArmor;
             }
         }
@@ -3155,10 +3155,10 @@ inline bool Is_Foot_006ca890(ObjectClass const *object)
 }
 inline bool Has_Ability_006ca890(TechnoClass *techno, int ability)
 {
-    if (techno->unknown_118.Is_Veteran() || techno->unknown_118.Is_Elite()) {
+    if (techno->Veterancy.Is_Veteran() || techno->Veterancy.Is_Elite()) {
         TechnoTypeClass *type = techno->Techno_Type_Class();
-        if ((techno->unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[ability])
-            || (techno->unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[ability] || type->EliteAbilities.Ability[ability]))) {
+        if ((techno->Veterancy.Is_Veteran() && type->VeteranAbilities.Ability[ability])
+            || (techno->Veterancy.Is_Elite() && (type->VeteranAbilities.Ability[ability] || type->EliteAbilities.Ability[ability]))) {
             return true;
         }
     }
@@ -3186,7 +3186,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
     }
     ObjectClass *object = target == 0 ? 0 : (target->AbstractFlags.IsObject ? static_cast<ObjectClass *>(target) : 0);
     BulletTypeClass *btype = weapon->Projectile;
-    if (Debug_Map || target == 0 || (object != 0 && object->unknown_76)) {
+    if (Debug_Map || target == 0 || (object != 0 && object->IsInLimbo)) {
         return 0;
     }
     if (weapon->unknown_11c) {
@@ -4136,15 +4136,15 @@ bool TechnoClass::Captured(HouseClass *house, int arg2)
             break;
         }
         House->unknown_53b8 = house->Type->House;
-        if (!unknown_76) {
+        if (!IsInLimbo) {
             Mark(0);
         }
         Unknown_006D7C80(this);
-        if (!unknown_76) {
+        if (!IsInLimbo) {
             Mark(3);
         }
         UnknownCellClass *cell = 0;
-        if (!unknown_76) {
+        if (!IsInLimbo) {
             bool foot;
             if (this != 0) {
                 foot = AbstractFlags.IsFoot;
@@ -4158,11 +4158,11 @@ bool TechnoClass::Captured(HouseClass *house, int arg2)
             unknown_6d95d0(cell);
         }
         unknown_6cdc00(house);
-        if (!unknown_76) {
+        if (!IsInLimbo) {
             unknown_6d95a0(cell);
         }
         House->Tracking_Active_Add(this, true);
-        if (!unknown_76) {
+        if (!IsInLimbo) {
             if (Kind_Of() != 6 || Mission != 16 || !((BuildingClass *)this)->Type->WeaponsFactory) {
                 TechnoClass *contact;
                 if (Contact(0) == 0 || (contact = Contact(0))->Kind_Of() != 6 || !((BuildingClass *)contact)->Type->WeaponsFactory) {
@@ -4199,10 +4199,10 @@ void TechnoClass::unknown_6cdc00(HouseClass *house)
 inline FootClass *As_Foot_L(TechnoClass *t) { return (t && t->AbstractFlags.IsFoot) ? static_cast<FootClass *>(t) : 0; }
 inline bool Has_Ability_L(TechnoClass *t, int ability)
 {
-    if (t->unknown_118.Is_Veteran() || t->unknown_118.Is_Elite()) {
+    if (t->Veterancy.Is_Veteran() || t->Veterancy.Is_Elite()) {
         TechnoTypeClass *type=t->Techno_Type_Class();
-        if ((t->unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[ability]) ||
-            (t->unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[ability] || type->EliteAbilities.Ability[ability]))) return true;
+        if ((t->Veterancy.Is_Veteran() && type->VeteranAbilities.Ability[ability]) ||
+            (t->Veterancy.Is_Elite() && (type->VeteranAbilities.Ability[ability] || type->EliteAbilities.Ability[ability]))) return true;
     }
     return false;
 }
@@ -4444,17 +4444,17 @@ void TechnoClass::Record_The_Kill(TechnoClass *killer)
     if (killer != 0) {
         if (killer->House->Is_Ally(this)) {
             points = 0;
-        } else if (unknown_118.Is_Veteran()) {
+        } else if (Veterancy.Is_Veteran()) {
             points += points;
-        } else if (unknown_118.Is_Elite()) {
+        } else if (Veterancy.Is_Elite()) {
             points *= 3;
         }
         if (killer->Techno_Type_Class()->Trainable) {
-            killer->unknown_118.Made_A_Kill(killer->Techno_Type_Class()->Cost_Of(House), points);
+            killer->Veterancy.Made_A_Kill(killer->Techno_Type_Class()->Cost_Of(House), points);
         }
         if (killer->Techno_Type_Class()->MissileSpawn && killer->unknown_23c != 0
             && ((TechnoClass *)killer->unknown_23c)->Techno_Type_Class()->Trainable) {
-            ((TechnoClass *)killer->unknown_23c)->unknown_118.Made_A_Kill(
+            ((TechnoClass *)killer->unknown_23c)->Veterancy.Made_A_Kill(
                 ((TechnoClass *)killer->unknown_23c)->Techno_Type_Class()->Cost_Of(House), points);
         }
         House->unknown_53b8 = killer->Owner();
@@ -4861,7 +4861,7 @@ int TechnoClass::unknown_slot176()
             }
         }
     }
-    if (cptr->unknown_11c) {
+    if (cptr->Ramp) {
         CellClass *cell_s = (CellClass *)&Map[Adjacent_Cell(cell, FACING_S)];
         CellClass *cell_e = (CellClass *)&Map[Adjacent_Cell(cell, FACING_E)];
         CellClass *cell_se = (CellClass *)&Map[Adjacent_Cell(cell, FACING_SE)];
@@ -4893,10 +4893,10 @@ int TechnoClass::unknown_slot176()
     CellClass *behind_left = (CellClass *)&Map[Adjacent_Cell(cell, Facing_Sub(Dir_To_8(PrimaryFacing.Current()), 3))];
     bool ramp = false;
     if (ahead_right != 0 && ahead_left != 0 && ahead != 0) {
-        if (ahead_right->unknown_11c == 0 && ahead_left->unknown_11c == 0 && ahead->unknown_11c == 0) {
+        if (ahead_right->Ramp == 0 && ahead_left->Ramp == 0 && ahead->Ramp == 0) {
             if (behind != 0 && behind_right != 0 && behind_left != 0) {
-                if (behind->unknown_11c == 0 && behind_right->unknown_11c == 0 && behind_left->unknown_11c == 0) {
-                    if (cptr->unknown_11c) {
+                if (behind->Ramp == 0 && behind_right->Ramp == 0 && behind_left->Ramp == 0) {
+                    if (cptr->Ramp) {
                         return zadjust + unknown_techno_zadj_ramp1_7f7124;
                     }
                     if (Dir_To_8(PrimaryFacing.Current()) == 6 || Dir_To_8(PrimaryFacing.Current()) == 0) {
@@ -4927,7 +4927,7 @@ int TechnoClass::unknown_slot176()
                             subtile = 0;
                         } else {
                             iptr = IsoTileTypes[ittype];
-                            subtile = (unsigned char)cptrs[j]->unknown_11a;
+                            subtile = (unsigned char)cptrs[j]->SubTile;
                         }
                         iptr->Get_Tile_Pixel_Dimensions(subtile, width, height);
                         if (height > 36) {
@@ -5225,13 +5225,13 @@ void TechnoClass::Techno_Draw_Object(void const *shape, int frame, Point2D const
         ConvertClass *converter;
         if (Kind_Of()==6 && static_cast<BuildingClass *>(this)->Type->TerrainPalette) {
             CellClass *cell=&Map[Coord_Cell(Center_Coord())];
-            converter=cell->unknown_34;
+            converter=cell->Drawer;
             if (!converter) {
                 cell->Init_Drawer(0,0x10000,0,1000,1000,1000);
-                converter=cell->unknown_34;
+                converter=cell->Drawer;
                 if (!converter) return;
             }
-            brightness=cell->unknown_10c;
+            brightness=cell->TileBrightness;
         } else {
             if (Kind_Of()==1 && static_cast<UnitClass *>(this)->unknown_5bb) converter=EightBitDrawer;
             else converter=unknown_slot115();
@@ -5255,12 +5255,12 @@ void TechnoClass::Techno_Draw_Object(void const *shape, int frame, Point2D const
             if (GetDisguise(true)->Kind_Of()!=21 && GetDisguise(true)->Kind_Of()!=37) converter=ColorSchemes[GetDisguiseHouse(true)->ColorSchemeIndex]->Converter;
             else {
                 CellClass *cell=static_cast<CellClass *>(Get_Cell_Ptr());
-                converter=cell->unknown_34;
+                converter=cell->Drawer;
                 if (!converter) {
                     cell->Init_Drawer(0,0x10000,0,1000,1000,1000);
-                    converter=cell->unknown_34;
+                    converter=cell->Drawer;
                 }
-                brightness=cell->unknown_10c;
+                brightness=cell->TileBrightness;
             }
             if (!converter) converter=ColorSchemes[PlayerPtr->ColorSchemeIndex]->Converter;
         }
@@ -5654,7 +5654,7 @@ InfantryTypeClass *TechnoClass::Crew_Type()
         return 0;
     }
     InfantryTypeClass *crew;
-    int side = House->unknown_130;
+    int side = House->ActLike;
     if (side == 0) {
         crew = Rules->AlliedCrew;
     } else if (side == 1) {
@@ -5766,7 +5766,7 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
     int minimum=0;
     int required=attacker->unknown_slot168()*Rules->ComputerBaseDefenseResponse;
     int recruited=0;
-    if (!attacker || House->Is_Ally(attacker) || House->Is_Human_Player() || attacker->unknown_76) return;
+    if (!attacker || House->Is_Ally(attacker) || House->Is_Human_Player() || attacker->IsInLimbo) return;
     if (!unknown_game_mode_a3d298 && unknown_slot163()) return;
     if (attacker->Kind_Of()!=15 && attacker->Kind_Of()!=1) return;
     if (Techno_Type_Class()->unknown_202) return;
@@ -6643,13 +6643,13 @@ void TechnoClass::unknown_slot250(Point2D const &point, Rect const &window)
     ObjectTypeClass *type = Class_Of();
     void const *pips = ObjectTypeClass_PipShapes;
     int frame = -1;
-    if (unknown_118.Is_Veteran()) {
+    if (Veterancy.Is_Veteran()) {
         frame = 13;
     }
-    if (unknown_118.Is_Elite()) {
+    if (Veterancy.Is_Elite()) {
         frame = 14;
     }
-    if (unknown_118.Is_Dumbass()) {
+    if (Veterancy.Is_Dumbass()) {
         frame = 18;
     }
     if (frame != -1) {
@@ -6815,10 +6815,10 @@ void TechnoClass::Look(bool arg1, bool arg2)
     }
     unknown_378 = level;
     int sight = (int)(Techno_Type_Class()->Sight * (unknown_378 * 0.01 + 1.0));
-    if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
+    if (Veterancy.Is_Veteran() || Veterancy.Is_Elite()) {
         TechnoTypeClass *type = Techno_Type_Class();
-        if ((unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[5])
-            || (unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[5] || type->EliteAbilities.Ability[5]))) {
+        if ((Veterancy.Is_Veteran() && type->VeteranAbilities.Ability[5])
+            || (Veterancy.Is_Elite() && (type->VeteranAbilities.Ability[5] || type->EliteAbilities.Ability[5]))) {
             if (Rules->unknown_5a0 != 0.0) {
                 sight = (int)(sight * Rules->unknown_5a0);
             }
@@ -6850,10 +6850,10 @@ void TechnoClass::unknown_slot262(bool arg1, bool arg2, bool arg3, HouseClass *h
     }
     unknown_378 = level;
     int sight = (int)(Techno_Type_Class()->Sight * (unknown_378 * 0.01 + 1.0));
-    if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
+    if (Veterancy.Is_Veteran() || Veterancy.Is_Elite()) {
         TechnoTypeClass *type = Techno_Type_Class();
-        if ((unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[5])
-            || (unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[5] || type->EliteAbilities.Ability[5]))) {
+        if ((Veterancy.Is_Veteran() && type->VeteranAbilities.Ability[5])
+            || (Veterancy.Is_Elite() && (type->VeteranAbilities.Ability[5] || type->EliteAbilities.Ability[5]))) {
             if (Rules->unknown_5a0 != 0.0) {
                 sight = (int)(sight * Rules->unknown_5a0);
             }
@@ -7374,7 +7374,7 @@ CoordStruct TechnoClass::Railgun_Beam_Damage(CoordStruct const &coord, AbstractC
             final_cell = Cell(final_impact);
             CellClass *cptr = &Map[final_cell];
             ObjectClass *optr;
-            if (cptr->unknown_140 & 0x100 && final_impact.Z >= (cptr->unknown_11b + 4) * unknown_geometry_g) {
+            if (cptr->unknown_140 & 0x100 && final_impact.Z >= (cptr->Height + 4) * unknown_geometry_g) {
                 optr = cptr->AltOccupierPtr;
             } else {
                 optr = cptr->OccupierPtr;
@@ -7548,12 +7548,12 @@ double TechnoClass::Target_Threat(ObjectClass *target, CoordStruct const &coord)
 
 bool TechnoClass::Has_Ability(int ability)
 {
-    if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
+    if (Veterancy.Is_Veteran() || Veterancy.Is_Elite()) {
         TechnoTypeClass *type = Techno_Type_Class();
-        if (unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[ability]) {
+        if (Veterancy.Is_Veteran() && type->VeteranAbilities.Ability[ability]) {
             return true;
         }
-        if (unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[ability] || type->EliteAbilities.Ability[ability])) {
+        if (Veterancy.Is_Elite() && (type->VeteranAbilities.Ability[ability] || type->EliteAbilities.Ability[ability])) {
             return true;
         }
     }
@@ -8033,7 +8033,7 @@ WeaponStruct *TechnoClass::unknown_slot231(int index)
     if (index == -1) {
         return 0;
     }
-    if (unknown_118.Is_Elite()) {
+    if (Veterancy.Is_Elite()) {
         WeaponStruct *weapon = Techno_Type_Class()->Get_Elite_Weapon(index);
         if (weapon && weapon->WeaponType) {
             return weapon;

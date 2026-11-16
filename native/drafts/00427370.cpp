@@ -138,9 +138,9 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
         return 0;
     }
 
-    DestCellHeight = (foot->Kind_Of() == 2 || !(to_ptr->unknown_140 & 0x100)) ? to_ptr->unknown_11b : to_ptr->unknown_11b + 4;
+    DestCellHeight = (foot->Kind_Of() == 2 || !(to_ptr->unknown_140 & 0x100)) ? to_ptr->Height : to_ptr->Height + 4;
 
-    CurrentCellHeight = (foot->Kind_Of() == 2 || !foot->unknown_79) ? from_ptr->unknown_11b : from_ptr->unknown_11b + 4;
+    CurrentCellHeight = (foot->Kind_Of() == 2 || !foot->unknown_79) ? from_ptr->Height : from_ptr->Height + 4;
 
     if (foot->Techno_Type_Class()->IsTrain) {
         if (from_ptr->unknown_140 & 0x100) {
@@ -164,7 +164,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
         Apply_Path_Collision_Avoidance(foot);
     }
     int start_index = from_ptr->MapCoords.X + MapCellStride * from_ptr->MapCoords.Y;
-    if (CurrentCellHeight > from_ptr->unknown_11b) {
+    if (CurrentCellHeight > from_ptr->Height) {
         RegularBridgeVisited[start_index] = UniqueID;
         RegularBridgeMovementCosts[start_index] = 0;
     } else {
@@ -193,7 +193,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
             if (abs_diff > 2 && abs_diff < 6 && face != 8) {
                 CellClass *&neighbor = from_pptr[_offsets[face]];
                 int neighbor_index = neighbor->MapCoords.X + MapCellStride * neighbor->MapCoords.Y;
-                if (CurrentCellHeight > neighbor->unknown_11b + 1) {
+                if (CurrentCellHeight > neighbor->Height + 1) {
                     RegularBridgeVisited[neighbor_index] = UniqueID;
                     RegularBridgeMovementCosts[neighbor_index] = 0;
                 } else {
@@ -223,7 +223,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
 
             CellClass **neighbor_slot;
             if (face == 8) {
-                int tube = (*working_from)->unknown_116;
+                int tube = (*working_from)->Tube;
                 if (tube != -1) {
                     Cell exit_cell = Tubes[tube]->ExitCell;
                     neighbor_slot = Native_Map_Cell_Slot(512 * exit_cell.Y + exit_cell.X);
@@ -250,13 +250,13 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
                 node_index = neighbor_cell->MapCoords.X + MapCellStride * neighbor_cell->MapCoords.Y;
             }
 
-            bool base_level = !(neighbor_cell->unknown_140 & 0x100) || abs(CurrentCellHeight - neighbor_cell->unknown_11b) <= 1;
+            bool base_level = !(neighbor_cell->unknown_140 & 0x100) || abs(CurrentCellHeight - neighbor_cell->Height) <= 1;
 
             int zone_index = Map.Get_Cell_Zone_Index(neighbor_id);
             char *subzones = Map.CellSubzones;
 
             short subzone_id = *(short *)(subzones + zone_index * 10);
-            if (fine_final_ids[subzone_id] != UniqueID && base_level && !neighbor_cell->unknown_122 && with_hs) {
+            if (fine_final_ids[subzone_id] != UniqueID && base_level && !neighbor_cell->AdjacentObjectCount && with_hs) {
                 continue;
             }
 

@@ -4,8 +4,8 @@
     "id": "population-4434",
     "inventory_sha256": "31667cb6477e0ff8d62b23293a38d811ec11c6490943468b4e0384a70daf5492",
     "gaps_sha256": "649aa888b2351b49997ac7145d2b34f4ccc321a171428b48257dbb0bdc68a552",
-    "historical_population_sha256": "a7785b6f6f441a1ea32e244915cb4908f263844fd735a932e6f8ebe732789254",
-    "historical_acceptance_sha256": "e9cae1eacee1ef1aacc0cccc4d6f0b4eb99806aa1b4912265b8bb499521dcc26"
+    "historical_population_sha256": "257dc8ebe784c1638b79e7d8ef2b3fb630a5c25c484c2f59b57032eff43261b4",
+    "historical_acceptance_sha256": "662e64861ac499caf836b36925cd1a310088baabb46fb384904b5be8cf568723"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -10775,7 +10775,26 @@
     "??_R0?AVTerrainTypeClass@@@8": 8356280,
     "??_R0?AVTEventClass@@@8": 8356552,
     "??_R0?AVWeaponTypeClass@@@8": 8374128,
-    "??_R0?AVPlayerProfile@@@8": 8376904
+    "??_R0?AVPlayerProfile@@@8": 8376904,
+    "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A": 8624592,
+    "?Overlays@@3V?$DynamicVectorClass@PAVOverlayClass@@@@A": 10750976,
+    "?Movies@@3V?$DynamicVectorClass@PBD@@A": 10948688,
+    "?End@ProgressScreenClass@@QAEXXZ": 6417904,
+    "?Service_Game_IO_00481fb0@seed_00482100@@YAXXZ": 4726704,
+    "?Service_Game_IO_00481fb0@seed_005bbd10@@YAXXZ": 4726704,
+    "?Which_Column@seed_00681940@@YIIHHH@Z": 6822208,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Info@AudioSource@@QAEPAUAudioSourceInfo@@XZ": 4228160,
+    "?Cheer@InfantryClass@@UAEXXZ": 5281456,
+    "?Flag_Attach@UnitClass@@QAE_NH@Z": 7358912,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Play_Ingame_Movie@@YIXH_N@Z": 5900576,
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
+    "__ramp_corners": 8339828,
+    "?Unknown_005689D0@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376
   },
   "regions": [
     {
@@ -11564,7 +11583,7 @@
           "resolved": 4294709456
         }
       ],
-      "source_sha256": "094c135d27aada3ad0ba0c01e75f3d89f0bee91069a438b98a96997a0fc5d762",
+      "source_sha256": "cecad3e4cbf503700c15dc3387a855064fbd48f33178dd1dc77ce404fd360c8e",
       "source": "src/recovered/findpath2.cpp",
       "population": "population-4434",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11623,7 +11642,7 @@
           "resolved": 169591
         }
       ],
-      "source_sha256": "094c135d27aada3ad0ba0c01e75f3d89f0bee91069a438b98a96997a0fc5d762",
+      "source_sha256": "cecad3e4cbf503700c15dc3387a855064fbd48f33178dd1dc77ce404fd360c8e",
       "source": "src/recovered/findpath2.cpp",
       "population": "population-4434",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11666,7 +11685,7 @@
           "resolved": 4294679928
         }
       ],
-      "source_sha256": "094c135d27aada3ad0ba0c01e75f3d89f0bee91069a438b98a96997a0fc5d762",
+      "source_sha256": "cecad3e4cbf503700c15dc3387a855064fbd48f33178dd1dc77ce404fd360c8e",
       "source": "src/recovered/findpath2.cpp",
       "population": "population-4434",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -11749,7 +11768,7 @@
           "resolved": 575001
         }
       ],
-      "source_sha256": "094c135d27aada3ad0ba0c01e75f3d89f0bee91069a438b98a96997a0fc5d762",
+      "source_sha256": "cecad3e4cbf503700c15dc3387a855064fbd48f33178dd1dc77ce404fd360c8e",
       "source": "src/recovered/findpath2.cpp",
       "population": "population-4434",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -11952,7 +11971,7 @@
           "resolved": 169830
         }
       ],
-      "source_sha256": "094c135d27aada3ad0ba0c01e75f3d89f0bee91069a438b98a96997a0fc5d762",
+      "source_sha256": "cecad3e4cbf503700c15dc3387a855064fbd48f33178dd1dc77ce404fd360c8e",
       "source": "src/recovered/findpath2.cpp",
       "population": "population-4434",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

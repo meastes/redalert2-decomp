@@ -6,5 +6,5 @@
 // @ref ??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z=00548000
 int Tactical::Get_Cell_Ramp_006a7110(CoordStruct const &coord)
 {
-    return Map[coord].unknown_11c;
+    return Map[coord].Ramp;
 }

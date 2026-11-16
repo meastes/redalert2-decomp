@@ -14,8 +14,8 @@
 
 static_assert(offsetof(ObjectTypeClass, unknown_205) == 0x325, "map_techno.hpp ObjectTypeClass IsFootprint");
 static_assert(offsetof(UnknownMapTechnoType, unknown_500) == 0x6F0, "map_techno.hpp TechnoTypeClass MovementZone");
-static_assert(offsetof(ObjectClass, unknown_74) == 0xB8, "map_techno.hpp ObjectClass::unknown_74");
-static_assert(offsetof(ObjectClass, unknown_76) == 0xBA, "map_techno.hpp ObjectClass::unknown_76");
+static_assert(offsetof(ObjectClass, IsDown) == 0xB8, "map_techno.hpp ObjectClass::IsDown");
+static_assert(offsetof(ObjectClass, IsInLimbo) == 0xBA, "map_techno.hpp ObjectClass::IsInLimbo");
 static_assert(offsetof(ObjectClass, unknown_79) == 0xBD, "map_techno.hpp ObjectClass::unknown_79");
 static_assert(offsetof(TechnoClass, unknown_30) == 0x40, "map_techno.hpp TechnoClass::unknown_30");
 static_assert(offsetof(TechnoClass, unknown_74) == 0xB8, "map_techno.hpp TechnoClass::unknown_74");

@@ -102,7 +102,7 @@ FoggedObjectClass::FoggedObjectClass()
 #include "shared/tactical.hpp"
 FoggedObjectClass::FoggedObjectClass(CoordStruct const &coord, int arg24, int arg2c)
     : unknown_24(arg24), unknown_28(0), unknown_2c(arg2c), unknown_30(0x14), Coord(coord),
-      unknown_50(Map[coord].unknown_11b), unknown_54(-1), unknown_58(0), unknown_74(true)
+      unknown_50(Map[coord].Height), unknown_54(-1), unknown_58(0), unknown_74(true)
 {
     CellClass &cell = Map[coord];
     unknown_40 = Union(cell.Overlay_Render_Rect(), cell.Overlay_Shadow_Render_Rect());
@@ -119,11 +119,11 @@ FoggedObjectClass::FoggedObjectClass(CoordStruct const &coord, int arg24, int ar
 // rectangle around its screen position, listed in Array and Index.
 FoggedObjectClass::FoggedObjectClass(CoordStruct const &coord, int arg54, unsigned int arg58)
     : unknown_24(-1), unknown_28(0), unknown_2c(0), unknown_30(0x1D),
-      unknown_50(Map[coord].unknown_11b), unknown_54(arg54), unknown_58(arg58), unknown_74(true)
+      unknown_50(Map[coord].Height), unknown_54(arg54), unknown_58(arg58), unknown_74(true)
 {
     CellClass &cell = Map[coord];
     CoordStruct position = coord;
-    position.Z = cell.unknown_11b * unknown_geometry_g;
+    position.Z = cell.Height * unknown_geometry_g;
     CoordStruct &at = Coord;
     at = position;
     Point2D pixel;
@@ -142,7 +142,7 @@ FoggedObjectClass::FoggedObjectClass(CoordStruct const &coord, int arg54, unsign
 #include "shared/anim.hpp"
 FoggedObjectClass::FoggedObjectClass(BuildingClass *building,bool fade)
     : unknown_24(-1),unknown_28(building->House),unknown_2c(0),unknown_30(6),Coord(building->Coord),
-      unknown_50(Map[CoordStruct(building->Coord)].unknown_11b),unknown_54(-1),unknown_58(0),unknown_74(fade)
+      unknown_50(Map[CoordStruct(building->Coord)].Height),unknown_54(-1),unknown_58(0),unknown_74(fade)
 {
     unknown_40=building->Get_Render_Rect();
     Array.Add(this);
@@ -180,7 +180,7 @@ FoggedObjectClass::FoggedObjectClass(BuildingClass *building,bool fade)
 // A fogged copy of an animation: one draw record for its type, listed in Array and Index.
 FoggedObjectClass::FoggedObjectClass(AnimClass *anim)
     : unknown_24(-1), unknown_28(0), unknown_2c(0), unknown_30(0x24), Coord(anim->Coord),
-      unknown_50(Map[CoordStruct(anim->Coord)].unknown_11b), unknown_54(-1), unknown_58(0), unknown_74(true)
+      unknown_50(Map[CoordStruct(anim->Coord)].Height), unknown_54(-1), unknown_58(0), unknown_74(true)
 {
     unknown_40 = anim->Get_Render_Rect();
     unknown_40.X += TacticalMap->TacPixelX;
@@ -314,14 +314,14 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
 
                 int zadjust = -Tactical_Z_Lepton_To_Pixel(CoordStruct(*position).Z);
 
-                if (cellptr->unknown_34 == 0) {
+                if (cellptr->Drawer == 0) {
                     cellptr->Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
                 }
 
-                CC_Draw_Shape(LogicalSurface, (ConvertClass *)cellptr->unknown_34, shape, shapenum, xy, rect, 0x4e00, 0, zadjust - 4, 2, cellptr->unknown_10c, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(LogicalSurface, (ConvertClass *)cellptr->Drawer, shape, shapenum, xy, rect, 0x4e00, 0, zadjust - 4, 2, cellptr->TileBrightness, 0, 0, Point2D(0, 0));
 
                 if (DrawShapeShadows) {
-                    CC_Draw_Shape(LogicalSurface, (ConvertClass *)cellptr->unknown_34, shape, shapenum + shape->Get_Count() / 2, xy, rect, 0x4601, 0, zadjust - 2, 0, 1000, 0, 0, Point2D(0, 0));
+                    CC_Draw_Shape(LogicalSurface, (ConvertClass *)cellptr->Drawer, shape, shapenum + shape->Get_Count() / 2, xy, rect, 0x4601, 0, zadjust - 2, 0, 1000, 0, 0, Point2D(0, 0));
                 }
                 break;
             }
@@ -364,12 +364,12 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                         ShapeFileStruct *zshapefile = BuildingTypeClass_BuildingZShape;
 
                         int zlepton = -Tactical_Z_Lepton_To_Pixel(CoordStruct(*position).Z);
-                        int brightness = Map[CoordStruct(*position)].unknown_10a + type->ExtraLight;
+                        int brightness = Map[CoordStruct(*position)].Brightness + type->ExtraLight;
 
-                        if (cellptr->unknown_34 == 0) {
+                        if (cellptr->Drawer == 0) {
                             cellptr->Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
                         }
-                        ConvertClass *drawconvert = type->TerrainPalette ? (ConvertClass *)cellptr->unknown_34 : converter;
+                        ConvertClass *drawconvert = type->TerrainPalette ? (ConvertClass *)cellptr->Drawer : converter;
 
                         if (cliprect.Height > 0) {
                             if (heightadjust) {
@@ -398,7 +398,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
 
                             int brightness = 1000;
                             if (!anim->UseNormalLight) {
-                                brightness = Map[CoordStruct(*position)].unknown_10a;
+                                brightness = Map[CoordStruct(*position)].Brightness;
                             }
 
                             ConvertClass *animconvert;
@@ -428,8 +428,8 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                 if (shape != 0) {
                     TPoint3D<int> *position = &data->Coord;
                     CellClass *cellptr = &Map[CoordStruct(*position)];
-                    int brightness = cellptr->unknown_10c;
-                    CC_Draw_Shape(LogicalSurface, (ConvertClass *)cellptr->unknown_34, shape, data->unknown_58, point, rect, 0xe00, 0, -Tactical_Z_Lepton_To_Pixel(CoordStruct(*position).Z), 2, brightness, 0, 0, Point2D(0, 0));
+                    int brightness = cellptr->TileBrightness;
+                    CC_Draw_Shape(LogicalSurface, (ConvertClass *)cellptr->Drawer, shape, data->unknown_58, point, rect, 0xe00, 0, -Tactical_Z_Lepton_To_Pixel(CoordStruct(*position).Z), 2, brightness, 0, 0, Point2D(0, 0));
                 }
                 break;
             }

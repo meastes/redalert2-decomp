@@ -90,7 +90,7 @@ void EventClass::Execute()
     case 1: {
         BuildingClass *building = TargetAt(0x07).As_Building();
         Planning_Techno_00615480(building, 0);
-        if (building && building->IsActive && !building->unknown_76 && !building->Type->FirestormWall) {
+        if (building && building->IsActive && !building->IsInLimbo && !building->Type->FirestormWall) {
             building->unknown_44d3e0();
         }
         break;
@@ -99,7 +99,7 @@ void EventClass::Execute()
     case 2: {
         BuildingClass *building = TargetAt(0x07).As_Building();
         Planning_Techno_00615480(building, 0);
-        if (building && building->IsActive && !building->unknown_76 && !building->Type->FirestormWall) {
+        if (building && building->IsActive && !building->IsInLimbo && !building->Type->FirestormWall) {
             building->unknown_44d530();
         }
         break;
@@ -215,17 +215,17 @@ void EventClass::Execute()
             break;
         }
         Planning_Techno_00615480(techno, this);
-        if (techno && techno->IsActive && techno->Strength > 0 && !techno->unknown_76) {
+        if (techno && techno->IsActive && techno->Strength > 0 && !techno->IsInLimbo) {
             ObjectClass *object = 0;
             if (TargetAt(0x0E).Is_Valid()) {
                 object = TargetAt(0x0E).As_Object();
-                if (object && (!object->IsActive || object->Strength == 0 || object->unknown_76)) {
+                if (object && (!object->IsActive || object->Strength == 0 || object->IsInLimbo)) {
                     break;
                 }
             }
             if (TargetAt(0x13).Is_Valid()) {
                 object = TargetAt(0x13).As_Object();
-                if (object && (!object->IsActive || object->Strength == 0 || object->unknown_76)) {
+                if (object && (!object->IsActive || object->Strength == 0 || object->IsInLimbo)) {
                     break;
                 }
             }
@@ -300,9 +300,9 @@ void EventClass::Execute()
     case 6:
         techno = TargetAt(0x07).As_Techno();
         Planning_Techno_00615480(techno, 0);
-        if (techno && techno->IsActive && !techno->unknown_76 && !techno->unknown_370 && techno->Mission != 0x12 && techno->Mission != 0x13) {
+        if (techno && techno->IsActive && !techno->IsInLimbo && !techno->unknown_370 && techno->Mission != 0x12 && techno->Mission != 0x13) {
             if (!techno->unknown_79) {
-                if (!Map[CoordStruct(techno->Coord)].unknown_11c && (unsigned char)techno->unknown_slot164()) {
+                if (!Map[CoordStruct(techno->Coord)].Ramp && (unsigned char)techno->unknown_slot164()) {
                     break;
                 }
             }
@@ -333,9 +333,9 @@ void EventClass::Execute()
     case 9:
         techno = TargetAt(0x07).As_Techno();
         Planning_Techno_00615480(techno, 0);
-        if (techno && techno->IsActive && !techno->unknown_76 && !techno->unknown_370 && !techno->unknown_3fc) {
+        if (techno && techno->IsActive && !techno->IsInLimbo && !techno->unknown_370 && !techno->unknown_3fc) {
             if (!techno->unknown_79) {
-                if (!Map[CoordStruct(techno->Coord)].unknown_11c && (unsigned char)techno->unknown_slot164()) {
+                if (!Map[CoordStruct(techno->Coord)].Ramp && (unsigned char)techno->unknown_slot164()) {
                     break;
                 }
             }
@@ -369,7 +369,7 @@ void EventClass::Execute()
         if (techno) {
             foot = techno->AbstractFlags.IsFoot;
         }
-        if (techno && foot && techno->IsActive && !techno->unknown_76 && !techno->unknown_370) {
+        if (techno && foot && techno->IsActive && !techno->IsInLimbo && !techno->unknown_370) {
             ((FootClass *)techno)->unknown_59c = true;
             techno->Scatter(unknown_geometry_l, true, false);
         }

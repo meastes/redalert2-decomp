@@ -51,15 +51,15 @@ struct UnknownList14BC {
 class TechnoClass;
 class HouseClass;
 struct RadarTrackingStruct {
-    RadarTrackingStruct() : unknown_00(0), unknown_04(0, 0) {}
+    RadarTrackingStruct() : unknown_00(0), Position(0, 0) {}
     // Member-wise copy (TibSun's form): the bucket vector's Fetch 0x00634C10 copies keys through it.
-    RadarTrackingStruct(RadarTrackingStruct const &that) : unknown_00(that.unknown_00), unknown_04(that.unknown_04) {}
+    RadarTrackingStruct(RadarTrackingStruct const &that) : unknown_00(that.unknown_00), Position(that.Position) {}
     TechnoClass *unknown_00;                            // +0x00 the object tracked
-    Point2D unknown_04;                                 // +0x04 its radar point
+    Point2D Position;                                 // +0x04 its radar point
 };
 inline bool operator==(RadarTrackingStruct const &a, RadarTrackingStruct const &b)
 {
-    return a.unknown_00 == b.unknown_00 && a.unknown_04 == b.unknown_04;
+    return a.unknown_00 == b.unknown_00 && a.Position == b.Position;
 }
 inline bool operator!=(RadarTrackingStruct const &a, RadarTrackingStruct const &b) { return !(a == b); }
 class TechnoClass;

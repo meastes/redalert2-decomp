@@ -117,46 +117,46 @@ bool IsometricTileClass::Mark(int mark)
                 continue;
             }
             if (mark == 0) {
-                if (here.IsoTileIndex == Type->ArrayIndex && (unsigned char)here.unknown_11a == index) {
+                if (here.IsoTileIndex == Type->ArrayIndex && (unsigned char)here.SubTile == index) {
                     here.IsoTileIndex = 0xFFFF;
-                    here.unknown_11a = 0;
-                    here.unknown_11b -= ((IsoTileCellStruct *)image->Tiles[index])->unknown_28;
+                    here.SubTile = 0;
+                    here.Height -= ((IsoTileCellStruct *)image->Tiles[index])->unknown_28;
                 }
             } else if (mark == 1 || mark == 3) {
                 if (Type->ArrayIndex == IsometricTileTypeClass_ClearTile) {
                     here.IsoTileIndex = 0xFFFF;
-                    here.unknown_11a = 0;
+                    here.SubTile = 0;
                 } else {
                     here.IsoTileIndex = Type->ArrayIndex;
-                    here.unknown_11a = index;
-                    here.unknown_11c = Type->Ramp_Type(index);
+                    here.SubTile = index;
+                    here.Ramp = Type->Ramp_Type(index);
                     if (here.IsoTileIndex == IsometricTileTypeClass_SlopeSetPieces + 5) {
-                        switch ((unsigned char)here.unknown_11a) {
+                        switch ((unsigned char)here.SubTile) {
                         case 0:
                         case 3:
                         case 6:
                         case 9:
                             here.IsoTileIndex = IsometricTileTypeClass_RampStart + 1;
-                            here.unknown_11a = 0;
+                            here.SubTile = 0;
                         }
                     }
                     if (here.IsoTileIndex == unknown_tileset_a52ee8 + 5) {
-                        switch ((unsigned char)here.unknown_11a) {
+                        switch ((unsigned char)here.SubTile) {
                         case 0:
                         case 3:
                         case 6:
                         case 9:
                             here.IsoTileIndex = unknown_tileset_a52eec + 1;
-                            here.unknown_11a = 0;
+                            here.SubTile = 0;
                         }
                     }
-                    if (here.IsoTileIndex == IsometricTileTypeClass_SlopeSetPieces + 8 && (unsigned char)here.unknown_11a <= 3) {
+                    if (here.IsoTileIndex == IsometricTileTypeClass_SlopeSetPieces + 8 && (unsigned char)here.SubTile <= 3) {
                         here.IsoTileIndex = IsometricTileTypeClass_RampStart;
-                        here.unknown_11a = 0;
+                        here.SubTile = 0;
                     }
-                    if (here.IsoTileIndex == unknown_tileset_a52ee8 + 8 && (unsigned char)here.unknown_11a <= 3) {
+                    if (here.IsoTileIndex == unknown_tileset_a52ee8 + 8 && (unsigned char)here.SubTile <= 3) {
                         here.IsoTileIndex = unknown_tileset_a52eec;
-                        here.unknown_11a = 0;
+                        here.SubTile = 0;
                     }
                 }
                 here.SmudgeIndex = -1;
@@ -177,7 +177,7 @@ bool IsometricTileClass::Mark(int mark)
                 }
                 here.OverlayIndex = -1;
                 here.OverlayData = 0;
-                here.unknown_11b += ((IsoTileCellStruct *)image->Tiles[index])->unknown_28;
+                here.Height += ((IsoTileCellStruct *)image->Tiles[index])->unknown_28;
                 here.Fixup_LAT();
                 here.Adjacent_Cell(0).Fixup_LAT();
                 here.Adjacent_Cell(2).Fixup_LAT();
@@ -188,7 +188,7 @@ bool IsometricTileClass::Mark(int mark)
         }
     }
     if (mark == 1 || mark == 3) {
-        unknown_74 = false;
+        IsDown = false;
         delete this;
     }
     return true;
@@ -282,7 +282,7 @@ HRESULT __stdcall IsometricTileClass::Save(IStream *stream, BOOL cleardirty)
 
 bool IsometricTileClass::Unlimbo(CoordStruct const *coord, int dir)
 {
-    unknown_76 = false;
+    IsInLimbo = false;
     Set_Coord(*coord);
     return Mark(1);
 }
@@ -299,12 +299,12 @@ bool IsometricTileClass::Unlimbo(CoordStruct const *coord, int dir)
 
 bool IsometricTileClass::Limbo()
 {
-    if (GameActive && !unknown_76) {
+    if (GameActive && !IsInLimbo) {
         Unselect();
         unknown_slot54(true);
         Mark(0);
-        unknown_76 = true;
-        unknown_75 = false;
+        IsInLimbo = true;
+        IsToDisplay = false;
         return true;
     }
     return false;

@@ -146,7 +146,7 @@ bool __fastcall Cell_Wall_Transition_004bbe60(CellClass const *origin,
 {
     bool wall = nearby->OverlayIndex != -1 &&
         OverlayTypes[nearby->OverlayIndex]->Wall;
-    if (nearby != destination && wall && origin->unknown_11b <= destination->unknown_11b) {
+    if (nearby != destination && wall && origin->Height <= destination->Height) {
         if (Rules->unknown_1498) {
             HouseClass *owner=Houses[nearby->unknown_50];
             if (owner && owner->Is_Ally(house)) return false;

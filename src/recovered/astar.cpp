@@ -168,7 +168,7 @@ double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool brid
                     break;
                 }
                 int facing;
-                if (((FootClass *)occupier)->unknown_468 == 0.0) {
+                if (((FootClass *)occupier)->Speed == 0.0) {
                     facing = ((FootClass *)occupier)->Path[0];
                     if (facing == -1) {
                         clear = true;
@@ -179,7 +179,7 @@ double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool brid
                 }
                 clear = false;
                 cellptr = &Map[Path_Adjacent_Cell(occupier->unknown_slot104(), facing)];
-                on_bridge = (cellptr->unknown_140 & 0x100) && (occupier->unknown_79 || ((CellClass *)occupier->Get_Cell_Ptr())->unknown_11b - cellptr->unknown_11b > 2);
+                on_bridge = (cellptr->unknown_140 & 0x100) && (occupier->unknown_79 || ((CellClass *)occupier->Get_Cell_Ptr())->Height - cellptr->Height > 2);
                 next_occupier = on_bridge ? cellptr->AltOccupierPtr : cellptr->OccupierPtr;
                 occupier = next_occupier;
             }
@@ -234,11 +234,11 @@ RegularOpenNode *AStarClass::Create_Node(RegularOpenNode *parent, CellClass **ce
         entry->unknown_08 = parent->unknown_00;
         CellClass *here = *cell;
         CellClass *from = *parent->unknown_00->unknown_00;
-        entry->unknown_04 = here->unknown_11b;
+        entry->unknown_04 = here->Height;
         if (here->unknown_140 & 0x100) {
-                        if ((from->unknown_140 & 0x100) && parent->unknown_00->unknown_04 == from->unknown_11b + 4) {
+                        if ((from->unknown_140 & 0x100) && parent->unknown_00->unknown_04 == from->Height + 4) {
                 entry->unknown_04 += 4;
-            } else if (!(from->unknown_140 & 0x100) && abs(here->unknown_11b - parent->unknown_00->unknown_04 + 3) <= 1) {
+            } else if (!(from->unknown_140 & 0x100) && abs(here->Height - parent->unknown_00->unknown_04 + 3) <= 1) {
                 entry->unknown_04 += 4;
             }
         }
@@ -436,9 +436,9 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
         return 0;
     }
 
-    DestCellHeight = (foot->Kind_Of() == 2 || !(to_ptr->unknown_140 & 0x100)) ? to_ptr->unknown_11b : to_ptr->unknown_11b + 4;
+    DestCellHeight = (foot->Kind_Of() == 2 || !(to_ptr->unknown_140 & 0x100)) ? to_ptr->Height : to_ptr->Height + 4;
 
-    CurrentCellHeight = (foot->Kind_Of() == 2 || !foot->unknown_79) ? from_ptr->unknown_11b : from_ptr->unknown_11b + 4;
+    CurrentCellHeight = (foot->Kind_Of() == 2 || !foot->unknown_79) ? from_ptr->Height : from_ptr->Height + 4;
 
     if (foot->Techno_Type_Class()->IsTrain) {
         if (from_ptr->unknown_140 & 0x100) {
@@ -462,7 +462,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
         Apply_Path_Collision_Avoidance(foot);
     }
     int start_index = from_ptr->MapCoords.X + MapCellStride * from_ptr->MapCoords.Y;
-    if (CurrentCellHeight > from_ptr->unknown_11b) {
+    if (CurrentCellHeight > from_ptr->Height) {
         RegularBridgeVisited[start_index] = UniqueID;
         RegularBridgeMovementCosts[start_index] = 0;
     } else {
@@ -491,7 +491,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
             if (abs_diff > 2 && abs_diff < 6 && face != 8) {
                 CellClass *&neighbor = from_pptr[_offsets[face]];
                 int neighbor_index = neighbor->MapCoords.X + MapCellStride * neighbor->MapCoords.Y;
-                if (CurrentCellHeight > neighbor->unknown_11b + 1) {
+                if (CurrentCellHeight > neighbor->Height + 1) {
                     RegularBridgeVisited[neighbor_index] = UniqueID;
                     RegularBridgeMovementCosts[neighbor_index] = 0;
                 } else {
@@ -521,7 +521,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
 
             CellClass **neighbor_slot;
             if (face == 8) {
-                int tube = (*working_from)->unknown_116;
+                int tube = (*working_from)->Tube;
                 if (tube != -1) {
                     Cell exit_cell = Tubes[tube]->ExitCell;
                     neighbor_slot = Native_Map_Cell_Slot(512 * exit_cell.Y + exit_cell.X);
@@ -548,13 +548,13 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
                 node_index = neighbor_cell->MapCoords.X + MapCellStride * neighbor_cell->MapCoords.Y;
             }
 
-            bool base_level = !(neighbor_cell->unknown_140 & 0x100) || abs(CurrentCellHeight - neighbor_cell->unknown_11b) <= 1;
+            bool base_level = !(neighbor_cell->unknown_140 & 0x100) || abs(CurrentCellHeight - neighbor_cell->Height) <= 1;
 
             int zone_index = Map.Get_Cell_Zone_Index(neighbor_id);
             char *subzones = Map.CellSubzones;
 
             short subzone_id = *(short *)(subzones + zone_index * 10);
-            if (fine_final_ids[subzone_id] != UniqueID && base_level && !neighbor_cell->unknown_122 && with_hs) {
+            if (fine_final_ids[subzone_id] != UniqueID && base_level && !neighbor_cell->AdjacentObjectCount && with_hs) {
                 continue;
             }
 
@@ -850,9 +850,9 @@ void AStarClass::Apply_Path_Collision_Avoidance(FootClass *foot)
     CellClass *currentCell=&Map[current];
     CellClass *next=&Map[CellClass::Adjacent_Cell(current,Dir_To_8(foot->PrimaryFacing.Current()))];
     bool bridge=(next->unknown_140&0x100)!=0 &&
-        (abs(currentCell->unknown_11b-next->unknown_11b)>3 || foot->unknown_79);
+        (abs(currentCell->Height-next->Height)>3 || foot->unknown_79);
     FootClass *blocker=(FootClass*)(bridge?next->AltOccupierPtr:next->OccupierPtr);
-    if(!blocker)blocker=(FootClass*)Find_Moving_Blocker(next->MapCoords,next->unknown_11b+(bridge?4:0));
+    if(!blocker)blocker=(FootClass*)Find_Moving_Blocker(next->MapCoords,next->Height+(bridge?4:0));
     bool marked=false;
     TechnoTypeClass const *type=foot->Techno_Type_Class();
     while(blocker) {
@@ -903,7 +903,7 @@ ObjectClass *AStarClass::Find_Moving_Blocker(Cell const &cell,int level)
     for(int y=-2;y<3;++y) {
         for(int x=-2;x<3;++x) {
             CellClass &neighbor=Map[Cell(x,y)+cell];
-            bool alternate=(neighbor.unknown_140&0x100)!=0 && abs(neighbor.unknown_11b-level)>2;
+            bool alternate=(neighbor.unknown_140&0x100)!=0 && abs(neighbor.Height-level)>2;
             FootClass *object=(FootClass*)(alternate?neighbor.AltOccupierPtr:neighbor.OccupierPtr);
             while(object) {
                 bool isFoot;
@@ -1051,9 +1051,9 @@ int AStarClass::Try_Diagonal_Shortcut(FootClass *foot, int *facings, int *height
             scan_cell = Adjacent_Cell(scan_cell, diagonal_direction);
             scan_cell_ptr = &Map[scan_cell];
 
-            scan_height = (scan_height - scan_cell_ptr->unknown_11b == 4 && (scan_cell_ptr->unknown_140 & 0x100))
-            ? scan_cell_ptr->unknown_11b + 4
-            : scan_cell_ptr->unknown_11b;
+            scan_height = (scan_height - scan_cell_ptr->Height == 4 && (scan_cell_ptr->unknown_140 & 0x100))
+            ? scan_cell_ptr->Height + 4
+            : scan_cell_ptr->Height;
         }
 
         if (!is_blocked) {
@@ -1323,7 +1323,7 @@ bool AStarClass::Plot_Straight_Line(int *moves, int move_count, Cell const &from
                 }
                 blocked = foot->Can_Enter_Cell(cellptr, first_dir, height, 0, 1) != 0 || (cellptr->unknown_140 & 0x40000) || threats > 3 || (!fearless && threats > 0);
                 count1--;
-                int step_height = cellptr->unknown_11b;
+                int step_height = cellptr->Height;
                 if (height - step_height == 4) {
                     height = step_height + 4;
                     if (cellptr->unknown_140 & 0x100) {
@@ -1340,7 +1340,7 @@ bool AStarClass::Plot_Straight_Line(int *moves, int move_count, Cell const &from
                 }
                 blocked = foot->Can_Enter_Cell(cellptr, second_dir, height, 0, 1) != 0 || (cellptr->unknown_140 & 0x40000) || threats > 3 || (!fearless && threats > 0);
                 count2--;
-                int step_height = cellptr->unknown_11b;
+                int step_height = cellptr->Height;
                 if (height - step_height == 4) {
                     height = step_height + 4;
                     if (cellptr->unknown_140 & 0x100) {
@@ -1830,7 +1830,7 @@ int AStarClass::Test_Cell_Walk(Cell const &from, Cell const &to, FootClass *foot
 Cell __fastcall AStarClass::Next_Cell(Cell const &cell, int facing)
 {
     if (facing == 8) {
-        int tube = Map[cell].unknown_116;
+        int tube = Map[cell].Tube;
         if (tube != -1) {
             return Cell(Tubes[tube]->ExitCell);
         }

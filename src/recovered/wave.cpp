@@ -293,11 +293,11 @@ void WaveClass::Damage_Cell_00721eb0(CoordStruct const &coord)
         WarheadTypeClass *warhead = weapon->Warhead;
         int damage = weapon->unknown_98;
         ObjectClass *object;
-        if (!(cell.unknown_140 & 0x100) || StartCoord.Z < (cell.unknown_11b + 4) * unknown_geometry_g)
+        if (!(cell.unknown_140 & 0x100) || StartCoord.Z < (cell.Height + 4) * unknown_geometry_g)
             object = cell.OccupierPtr;
         else object = cell.AltOccupierPtr;
         for (; object; object = object->unknown_30) {
-            if (object != Owner && object->IsActive && object->unknown_74 && !object->unknown_76 && object->Strength > 0)
+            if (object != Owner && object->IsActive && object->IsDown && !object->IsInLimbo && object->Strength > 0)
                 object->Take_Damage(&damage, 0, warhead, Owner, false, 0);
         }
         if (cell.OverlayIndex != -1) {
@@ -440,12 +440,12 @@ HRESULT __stdcall WaveClass::GetClassID(GUID *clsid)
 
 bool WaveClass::Unlimbo(CoordStruct const *coord, int dir)
 {
-    if (GameActive && unknown_76 && !unknown_74) {
+    if (GameActive && IsInLimbo && !IsDown) {
         if (ScenarioInit == 0 && Can_Enter_Cell(&Map[*coord], -1, coord->Z, 0, 1) != 0) {
             return false;
         }
-        unknown_76 = false;
-        unknown_75 = false;
+        IsInLimbo = false;
+        IsToDisplay = false;
         Set_Coord(*coord);
         if (Mark(1)) {
             if (IsActive) {
@@ -467,14 +467,14 @@ bool WaveClass::Unlimbo(CoordStruct const *coord, int dir)
 
 bool WaveClass::Limbo()
 {
-    if (GameActive && !unknown_76) {
+    if (GameActive && !IsInLimbo) {
         unknown_slot54(1);
         Mark(0);
         Map.Remove(this);
         unknown_list_832470.Remove(this);
         Hidden();
-        unknown_76 = true;
-        unknown_75 = false;
+        IsInLimbo = true;
+        IsToDisplay = false;
         return true;
     }
     return false;

@@ -133,7 +133,7 @@ bool VoxelAnimClass::Render(Rect *bounds, bool arg2, bool arg3)
 {
     CellClass *cell = &Map[Center_Coord()];
     if (cell->unknown_12c & 0x10) {
-        unknown_75 = true;
+        IsToDisplay = true;
     }
     return ObjectClass::Render(bounds, arg2, false);
 }
@@ -204,7 +204,7 @@ void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
     int brightness;
     {
         CoordStruct coord = Coord;
-        brightness = Map[coord].unknown_10a;
+        brightness = Map[coord].Brightness;
     }
     ConvertClass *drawer;
     if (unknown_f4 != 0) {
@@ -287,8 +287,8 @@ void VoxelAnimClass::AI()
                         CellClass &cell = Map[Adjacent_Cell(Coord_Cell(center), facing)];
                         if (cell.Can_Tiberium_Germinate(0)) {
                             TiberiumClass *tiberium = Tiberiums[OverlayClass::To_Tiberium(0x7F)];
-                            if (cell.unknown_11c != 0) {
-                                new OverlayClass(OverlayTypes[tiberium->Image->ArrayIndex + cell.unknown_11c * 2 + tiberium->NumFrames + Random_Pick(0, 1) - 2], Cell(cell.MapCoords), -1);
+                            if (cell.Ramp != 0) {
+                                new OverlayClass(OverlayTypes[tiberium->Image->ArrayIndex + cell.Ramp * 2 + tiberium->NumFrames + Random_Pick(0, 1) - 2], Cell(cell.MapCoords), -1);
                             } else {
                                 new OverlayClass(OverlayTypes[tiberium->Image->ArrayIndex + Random_Pick(0, 11)], Cell(cell.MapCoords), -1);
                             }
@@ -306,8 +306,8 @@ void VoxelAnimClass::AI()
                 CellClass &cell = Map[BounceClass::Coord()];
                 if (cell.Can_Tiberium_Germinate(0)) {
                     TiberiumClass *tiberium = Tiberiums[OverlayClass::To_Tiberium(0x7F)];
-                    if (cell.unknown_11c != 0) {
-                        new OverlayClass(OverlayTypes[tiberium->Image->ArrayIndex + cell.unknown_11c * 2 + tiberium->NumFrames + Random_Pick(0, 1) - 2], Cell(cell.MapCoords), -1);
+                    if (cell.Ramp != 0) {
+                        new OverlayClass(OverlayTypes[tiberium->Image->ArrayIndex + cell.Ramp * 2 + tiberium->NumFrames + Random_Pick(0, 1) - 2], Cell(cell.MapCoords), -1);
                     } else {
                         new OverlayClass(OverlayTypes[tiberium->Image->ArrayIndex + Random_Pick(0, 11)], Cell(cell.MapCoords), -1);
                     }

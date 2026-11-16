@@ -291,18 +291,18 @@ void TerrainClass::Draw_It(Point2D const &point, Rect const &window)
         }
         Point2D position = point;
         int height = -Tactical_Z_Lepton_To_Pixel(Get_Height());
-        if (cell.unknown_34 == 0) {
+        if (cell.Drawer == 0) {
             cell.Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
         }
         ConvertClass *drawer;
         int brightness;
         if (Class->SpawnsTiberium) {
             drawer = TiberiumDrawer;
-            brightness = cell.unknown_10a;
+            brightness = cell.Brightness;
             position -= Point2D(0, 16);
         } else {
-            drawer = (ConvertClass *)cell.unknown_34;
-            brightness = cell.unknown_10c;
+            drawer = (ConvertClass *)cell.Drawer;
+            brightness = cell.TileBrightness;
         }
         int flags;
         if (Is_Animating(this)) {
@@ -312,7 +312,7 @@ void TerrainClass::Draw_It(Point2D const &point, Rect const &window)
         }
         CC_Draw_Shape(LogicalSurface, drawer, shape, frame, position, window, flags, 0, height - 12, 2, brightness, 0, 0, Point2D(0, 0));
         if (DrawShapeShadows) {
-            CC_Draw_Shape(LogicalSurface, (ConvertClass *)cell.unknown_34, shape, shape->FrameCount / 2 + frame, position, window, flags | 1, 0, height - 3, 0, 1000, 0, 0, Point2D(0, 0));
+            CC_Draw_Shape(LogicalSurface, (ConvertClass *)cell.Drawer, shape, shape->FrameCount / 2 + frame, position, window, flags | 1, 0, height - 3, 0, 1000, 0, 0, Point2D(0, 0));
         }
     }
 }
@@ -334,22 +334,22 @@ void TerrainClass::Editor_Draw_It(Point2D const &point, Rect const &window)
         }
         Point2D position = point;
         int height = -Tactical_Z_Lepton_To_Pixel(Get_Height());
-        if (cell.unknown_34 == 0) {
+        if (cell.Drawer == 0) {
             cell.Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
         }
         ConvertClass *drawer;
         int brightness;
         if (Class->SpawnsTiberium) {
             drawer = TiberiumDrawer;
-            brightness = cell.unknown_10a;
+            brightness = cell.Brightness;
             position -= Point2D(0, 16);
         } else {
-            drawer = (ConvertClass *)cell.unknown_34;
-            brightness = cell.unknown_10c;
+            drawer = (ConvertClass *)cell.Drawer;
+            brightness = cell.TileBrightness;
         }
         CC_Draw_Shape(LogicalSurface, drawer, shape, frame, position, window, 0xE00, 0, height - 4, 2, brightness, 0, 0, Point2D(0, 0));
         if (DrawShapeShadows) {
-            CC_Draw_Shape(LogicalSurface, (ConvertClass *)cell.unknown_34, shape, shape->FrameCount / 2 + frame, position, window, 0x601, 0, height - 2, 0, 1000, 0, 0, Point2D(0, 0));
+            CC_Draw_Shape(LogicalSurface, (ConvertClass *)cell.Drawer, shape, shape->FrameCount / 2 + frame, position, window, 0x601, 0, height - 2, 0, 1000, 0, 0, Point2D(0, 0));
         }
     }
 }
@@ -487,11 +487,11 @@ void TerrainClass::Start_Crumbling()
 
 bool TerrainClass::Limbo()
 {
-    if (!unknown_76) {
+    if (!IsInLimbo) {
         Cell cell = unknown_slot104();
         for (int facing = 0; facing < 8; facing++) {
             CellClass &next = Map[Adjacent_Cell(cell, facing)];
-            next.unknown_122--;
+            next.AdjacentObjectCount--;
         }
         CoordStruct coord = Coord;
         ((TerrainCellView &)Map[coord]).unknown_124.Occupy.Monolith = false;
@@ -558,7 +558,7 @@ void __fastcall TerrainClass::Write_INI(CCINIClass &ini)
     ini.Clear(TerrainClass_INI_NAME);
     for (int index = 0; index < Terrains.Count(); index++) {
         TerrainClass *terrain = Terrains[index];
-        if (terrain != 0 && !terrain->unknown_76 && terrain->IsActive) {
+        if (terrain != 0 && !terrain->IsInLimbo && terrain->IsActive) {
             Cell cell = terrain->unknown_slot104();
             char entry[12];
             sprintf(entry, "%d", cell.X + cell.Y * 1000);
@@ -576,8 +576,8 @@ void __fastcall TerrainClass::Write_INI(CCINIClass &ini)
 
 bool TerrainClass::Render(Rect *bounds, bool forced, bool extras_only)
 {
-    if (Debug_Map || !unknown_b263d8 || ((forced || unknown_75) && unknown_74 && !unknown_76)) {
-        unknown_75 = false;
+    if (Debug_Map || !unknown_b263d8 || ((forced || IsToDisplay) && IsDown && !IsInLimbo)) {
+        IsToDisplay = false;
 
         Point2D point;
 
@@ -666,7 +666,7 @@ bool TerrainClass::Unlimbo(CoordStruct const *coord, int dir)
         Cell cell(coord->X / 256, coord->Y / 256);
         for (int facing = 0; facing < 8; facing++) {
             CellClass &next = Map[cell + AdjacentCell[facing & 7]];
-            next.unknown_122++;
+            next.AdjacentObjectCount++;
         }
         Point2D &pixel = (Point2D &)unknown_b8.Width;
         TacticalMap->Coord_To_Pixel(unknown_slot42(), pixel);

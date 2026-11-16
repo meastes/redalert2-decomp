@@ -56,12 +56,12 @@ public:
     virtual void Set_Coord(CoordStruct const &coord);           // slot 103 (+0x19C; as shared/object.hpp)
 
     char unknown_24[0x74 - 0x24];
-    bool unknown_74;                        // +0x74 (as shared/object.hpp)
-    char unknown_75;
-    bool unknown_76;                        // +0x76 (as shared/object.hpp)
+    bool IsDown;                        // +0x74 (as shared/object.hpp)
+    char IsToDisplay;
+    bool IsInLimbo;                        // +0x76 (as shared/object.hpp)
     char unknown_77[0x79 - 0x77];
     bool unknown_79;                        // +0x79 (as shared/object.hpp; TibSun IsOnBridge)
-    char unknown_7a[0x98 - 0x7A];
+    char IsFalling[0x98 - 0x7A];
 #else
     char unknown_24[0x98 - 0x24];
 #endif

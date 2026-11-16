@@ -65,7 +65,7 @@ public:
     char unknown_038[0x68 - 0x38];
     DynamicVectorClass<UnknownBuilding *> Buildings;    // +0x068 (PowerClass help text; Vector +0x6C, ActiveCount +0x78)
     char unknown_080[0x130 - 0x80];
-    int unknown_130;                    // +0x130 (TechnoClass constructor)
+    int ActLike;                    // +0x130 (TechnoClass constructor)
     bool unknown_134;                   // +0x134 (as shared/house.hpp)
     bool unknown_135;                   // +0x135 (as shared/house.hpp; Tactical 0x006AAD70 tests it in the campaign)
     char unknown_136[0x13D - 0x136];

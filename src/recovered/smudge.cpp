@@ -174,7 +174,7 @@ bool SmudgeClass::Mark(int mark)
         if (ScenarioInit > 0 || Debug_Map || Class->Can_Place(origin, true)) {
             Class->Place(origin);
         }
-        unknown_74 = false;
+        IsDown = false;
         Delete_Me();
         return true;
     }

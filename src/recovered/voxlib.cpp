@@ -196,16 +196,16 @@ int VoxelLibrary::Read_File(FileClass *file, int load_palette)
         *(VxlMatrixData *)LayerInfos[i].unknown_10 = (VxlMatrixData &)Matrix3D(layer_info.Transform);
         Vector3 min; min.X=layer_info.MinBounds[0]; min.Y=layer_info.MinBounds[1]; min.Z=layer_info.MinBounds[2];
         Vector3 max; max=*(Vector3 const *)layer_info.MaxBounds;
-        LayerInfos[i].unknown_40[0]=Vector3(max.X,max.Y,min.Z);
-        LayerInfos[i].unknown_40[1]=Vector3(max.X,min.Y,min.Z);
-        LayerInfos[i].unknown_40[2]=Vector3(min.X,min.Y,min.Z);
-        LayerInfos[i].unknown_40[3]=Vector3(min.X,max.Y,min.Z);
-        LayerInfos[i].unknown_40[4]=Vector3(max.X,max.Y,max.Z);
-        LayerInfos[i].unknown_40[5]=Vector3(max.X,min.Y,max.Z);
-        LayerInfos[i].unknown_40[6]=Vector3(min.X,min.Y,max.Z);
-        LayerInfos[i].unknown_40[7]=Vector3(min.X,max.Y,max.Z);
+        LayerInfos[i].BoxCorner[0]=Vector3(max.X,max.Y,min.Z);
+        LayerInfos[i].BoxCorner[1]=Vector3(max.X,min.Y,min.Z);
+        LayerInfos[i].BoxCorner[2]=Vector3(min.X,min.Y,min.Z);
+        LayerInfos[i].BoxCorner[3]=Vector3(min.X,max.Y,min.Z);
+        LayerInfos[i].BoxCorner[4]=Vector3(max.X,max.Y,max.Z);
+        LayerInfos[i].BoxCorner[5]=Vector3(max.X,min.Y,max.Z);
+        LayerInfos[i].BoxCorner[6]=Vector3(min.X,min.Y,max.Z);
+        LayerInfos[i].BoxCorner[7]=Vector3(min.X,max.Y,max.Z);
         LayerInfos[i].unknown_00=(int *)((unsigned char *)Data+layer_info.StartOffset);
-        LayerInfos[i].unknown_04=(int *)((unsigned char *)Data+layer_info.EndOffset);
+        LayerInfos[i].EndOffset=(int *)((unsigned char *)Data+layer_info.EndOffset);
         LayerInfos[i].unknown_08=(unsigned char *)Data+layer_info.DataOffset;
     }
     file->Close(); return 1;
@@ -227,7 +227,7 @@ LayerInfoStruct *VoxelLibrary::Get_Layer_Info(int section, int arg2)
 Vector3 VoxelLibrary::Get_Bounding_Box_Center(int section, int arg2)
 {
     LayerInfoStruct *tailer = Get_Layer_Info(section, arg2);
-    return (tailer->unknown_40[4] + tailer->unknown_40[2]) * 0.5f;
+    return (tailer->BoxCorner[4] + tailer->BoxCorner[2]) * 0.5f;
 }
 
 
@@ -253,7 +253,7 @@ void VoxelLibrary::Render_Object(UnknownVoxelDrawState *state, Vector3 const *or
     parameters.YSize = size_y;
     parameters.ZSize = size_z;
     parameters.StartOffset = tailer->unknown_00;
-    parameters.EndOffset = tailer->unknown_04;
+    parameters.EndOffset = tailer->EndOffset;
     parameters.DataOffset = tailer->unknown_08;
     Vector3 const *corner = &state->unknown_28[VoxelRenderOrientations[state->unknown_0c].unknown_04];
     Vector3 const *corner_x = &state->unknown_28[VoxelRenderOrientations[state->unknown_0c].unknown_08];
@@ -352,7 +352,7 @@ inline void Draw_Shadow(VoxelFuncArgumentStruct *parameters, Surface *surface, i
 
 void VoxelLibrary::Render_Shadow(VoxelShadowRenderStruct *record, Vector3 const *origin)
 {
-    LayerInfoStruct *tailer = Get_Layer_Info(record->unknown_04, record->unknown_08);
+    LayerInfoStruct *tailer = Get_Layer_Info(record->Layer, record->Info);
     VoxelFuncArgumentStruct parameters;
     unsigned char size_x = tailer->XSize;
     unsigned char size_y = tailer->YSize;
@@ -361,7 +361,7 @@ void VoxelLibrary::Render_Shadow(VoxelShadowRenderStruct *record, Vector3 const 
     parameters.YSize = size_y;
     parameters.ZSize = size_z;
     parameters.StartOffset = 0;
-    parameters.EndOffset = tailer->unknown_04;
+    parameters.EndOffset = tailer->EndOffset;
     parameters.DataOffset = 0;
     Vector3 const &corner_x = record->Points[1];
     Vector3 const &corner = record->Points[2];
@@ -371,13 +371,13 @@ void VoxelLibrary::Render_Shadow(VoxelShadowRenderStruct *record, Vector3 const 
     parameters.StartIndex = 0;
     parameters.TransformMatrix[0].I = short(float(corner.X + 128 - origin->X) * 256);
     parameters.TransformMatrix[0].J = short(float(corner.Y + 128 - origin->Y) * 256);
-    record->unknown_40 = record->unknown_40 + origin->X;
-    record->unknown_44 = record->unknown_44 + origin->Y;
+    record->ShadowX = record->ShadowX + origin->X;
+    record->ShadowY = record->ShadowY + origin->Y;
     parameters.TransformMatrix[1].I = (short)((corner_x.X - corner.X) / size_x * 256.0f);
     parameters.TransformMatrix[2].I = (short)((corner_y.X - corner.X) / size_y * 256.0f);
     parameters.TransformMatrix[1].J = (short)((corner_x.Y - corner.Y) / size_x * 256.0f);
     parameters.TransformMatrix[2].J = (short)((corner_y.Y - corner.Y) / size_y * 256.0f);
-    Draw_Shadow(&parameters, record->unknown_3c, record->unknown_40, record->unknown_44);
+    Draw_Shadow(&parameters, record->ShadowSurface, record->ShadowX, record->ShadowY);
 }
 
 
@@ -387,14 +387,14 @@ void VoxelLibrary::Compute_Bounding_Box()
 {
     for (unsigned index = 0; index < LayerInfoCount; index++) {
         LayerInfoStruct *tailer = &LayerInfos[index];
-        tailer->unknown_40[0] = Vector3(tailer->XSize * 0.5f, tailer->YSize * 0.5f, -tailer->ZSize * 0.5f);
-        tailer->unknown_40[1] = Vector3(tailer->XSize * 0.5f, -tailer->YSize * 0.5f, -tailer->ZSize * 0.5f);
-        tailer->unknown_40[2] = Vector3(-tailer->XSize * 0.5f, -tailer->YSize * 0.5f, -tailer->ZSize * 0.5f);
-        tailer->unknown_40[3] = Vector3(-tailer->XSize * 0.5f, tailer->YSize * 0.5f, -tailer->ZSize * 0.5f);
-        tailer->unknown_40[4] = Vector3(tailer->XSize * 0.5f, tailer->YSize * 0.5f, tailer->ZSize * 0.5f);
-        tailer->unknown_40[5] = Vector3(tailer->XSize * 0.5f, -tailer->YSize * 0.5f, tailer->ZSize * 0.5f);
-        tailer->unknown_40[6] = Vector3(-tailer->XSize * 0.5f, -tailer->YSize * 0.5f, tailer->ZSize * 0.5f);
-        tailer->unknown_40[7] = Vector3(-tailer->XSize * 0.5f, tailer->YSize * 0.5f, tailer->ZSize * 0.5f);
+        tailer->BoxCorner[0] = Vector3(tailer->XSize * 0.5f, tailer->YSize * 0.5f, -tailer->ZSize * 0.5f);
+        tailer->BoxCorner[1] = Vector3(tailer->XSize * 0.5f, -tailer->YSize * 0.5f, -tailer->ZSize * 0.5f);
+        tailer->BoxCorner[2] = Vector3(-tailer->XSize * 0.5f, -tailer->YSize * 0.5f, -tailer->ZSize * 0.5f);
+        tailer->BoxCorner[3] = Vector3(-tailer->XSize * 0.5f, tailer->YSize * 0.5f, -tailer->ZSize * 0.5f);
+        tailer->BoxCorner[4] = Vector3(tailer->XSize * 0.5f, tailer->YSize * 0.5f, tailer->ZSize * 0.5f);
+        tailer->BoxCorner[5] = Vector3(tailer->XSize * 0.5f, -tailer->YSize * 0.5f, tailer->ZSize * 0.5f);
+        tailer->BoxCorner[6] = Vector3(-tailer->XSize * 0.5f, -tailer->YSize * 0.5f, tailer->ZSize * 0.5f);
+        tailer->BoxCorner[7] = Vector3(-tailer->XSize * 0.5f, tailer->YSize * 0.5f, tailer->ZSize * 0.5f);
     }
 }
 

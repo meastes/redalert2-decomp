@@ -295,7 +295,7 @@ UnknownMapGenerationCell::UnknownMapGenerationCell()
 extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 MapRegionClass::MapRegionClass(Cell origin)
     : unknown_00(0), NeighborRegionIndices(0), Index(unknown_map_region_next_index_a70a28),
-      CellCount(0), unknown_10(Map[origin].unknown_11b), unknown_14(Map[origin].Is_Tile_With_Water()),
+      CellCount(0), unknown_10(Map[origin].Height), unknown_14(Map[origin].Is_Tile_With_Water()),
       Origin(origin), unknown_1a(false), unknown_1b(true), unknown_1c(0), unknown_20(0),
       unknown_24(false), Cells(), Bounds(0,0,0,0)
 {
@@ -568,7 +568,7 @@ MapRegionClass *__fastcall MapRegionClass::Create_Region_From_Cell(CellClass *ce
     cells.Add(cell_ptr->Fetch_CellID());
 
     bool has_water = cell_ptr->Is_Tile_With_Water() || cell_ptr->Is_Tile_Clear_To_Green_LAT();
-    int cell_height = cell_ptr->unknown_11b;
+    int cell_height = cell_ptr->Height;
     int processed_count = 0;
 
     while (cells.Count()) {
@@ -585,7 +585,7 @@ MapRegionClass *__fastcall MapRegionClass::Create_Region_From_Cell(CellClass *ce
             if (Flood_In_Bounds(ncell)) {
                 if (ndata.RegionIndex == -1 && ndata.unknown_3c != region_id) {
                     ndata.unknown_3c = region_id;
-                    if (Map[ncell].unknown_11b == cell_height) {
+                    if (Map[ncell].Height == cell_height) {
                         int n_has_water = Map[ncell].Is_Tile_With_Water() || Map[ncell].Is_Tile_Clear_To_Green_LAT();
                         if (!(has_water ^ n_has_water)) {
                             cells.Add(ncell);
@@ -608,8 +608,8 @@ MapRegionClass *__fastcall MapRegionClass::Create_Region_From_Cell(CellClass *ce
             for (i = 0; i < 8; i++) {
                 ncell = Region_Adjacent_Cell(region_cell, i);
                 if (Flood_In_Bounds(ncell)) {
-                    if (Map[ncell].unknown_11b != Map[region_cell].unknown_11b && !Map[ncell].Is_Tile_With_Water()) {
-                        int height = Map[ncell].unknown_11b;
+                    if (Map[ncell].Height != Map[region_cell].Height && !Map[ncell].Is_Tile_With_Water()) {
+                        int height = Map[ncell].Height;
 
                         RandomMapGen.Clear_Region_Cells(0, -1, height, 0);
 
@@ -629,7 +629,7 @@ MapRegionClass *__fastcall MapRegionClass::Create_Region_From_Cell(CellClass *ce
 
             if (Flood_In_Bounds(side_cell)) {
                 int id = Region_Of(side_cell);
-                int height = Map[side_cell].unknown_11b;
+                int height = Map[side_cell].Height;
 
                 RandomMapGen.Clear_Region_Cells(region_id, id, height, 0);
 
@@ -759,9 +759,9 @@ void MapRegionClass::Reassign_Cells_0056ea20(int region, int value)
             Cell position = RMGCellData[i].Position;
             CellClass &cell = Map[position];
             cell.IsoTileIndex = 0;
-            cell.unknown_11a = 0;
+            cell.SubTile = 0;
             if (value != -1) {
-                cell.unknown_11b = (char)value;
+                cell.Height = (char)value;
             }
         }
     }
@@ -873,7 +873,7 @@ void MapRegionClass::Increase_Height_0056eea0(char height)
     while (cell != 0) {
         int region = UnknownMapGenerationCell::Get_Region(cell->Fetch_CellID());
         if (region == Index) {
-            cell->unknown_11b += height;
+            cell->Height += height;
         }
         cell = Map.Iterate();
     }
@@ -927,13 +927,13 @@ bool MapRegionClass::Grow_Border_00570040(int steps)
             for(int facing=0;facing<8;++facing) {
                 Cell position=CellClass::Adjacent_Cell((*border)[index],facing);
                 if(Generation_Cell_In_Bounds_0058da10(position)) {
-                    if(Map[position].unknown_11b==unknown_10) {
+                    if(Map[position].Height==unknown_10) {
                         UnknownMapGenerationCell &data=MapRegionClass::Get_Cell_Data(position);
                         int region=data.RegionIndex;
                         if(region==-1 && (Map[position].Is_Tile_Clear() || Map[position].Is_Tile_Clear_To_Green_LAT())) {
                             next->Add(position);
                             data.RegionIndex=Index;
-                            Map[position].unknown_11b=(char)unknown_10;
+                            Map[position].Height=(char)unknown_10;
                         } else if(region!=Index) {
                             delete border;
                             delete next;
@@ -1297,7 +1297,7 @@ bool MapRegionClass::Connect_Regions_With_Bridge_00570bc0(MapRegionClass *region
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &cell);
 bool MapRegionClass::Is_Bridge_Allowed(Rect const &area) const
 {
-    int height=Map[Cell(area.X,area.Y)].unknown_11b;
+    int height=Map[Cell(area.X,area.Y)].Height;
     if(Generation_Cell_In_Bounds_0058da10(XY_Cell(area.X,area.Y)) &&
        Generation_Cell_In_Bounds_0058da10(XY_Cell(area.X+area.Width-1,area.Y)) &&
        Generation_Cell_In_Bounds_0058da10(XY_Cell(area.X,area.Y+area.Height-1)) &&
@@ -1306,7 +1306,7 @@ bool MapRegionClass::Is_Bridge_Allowed(Rect const &area) const
             for(int x=area.X;x<area.X+area.Width+1;++x) {
                 CellClass &cell=Map[Cell(x,y)];
                 if(cell.OverlayIndex!=-1)return false;
-                if(cell.unknown_11b!=height)return false;
+                if(cell.Height!=height)return false;
                 if(!cell.Is_Tile_Clear() && !cell.Is_Tile_With_Water())return false;
             }
         }
@@ -1574,10 +1574,10 @@ bool MapRegionClass::Build_South_Ramp(Cell const &first,Cell const &second,int l
                 Cell position=Cell(first.X+3,first.Y)+Cell(forward,row)+bias;
                 position=Cell(position.X,position.Y+offset);
                 CellClass &target=Map[position];
-                target.unknown_11b=(char)(unknown_10+unknown_ramp_heights_7e09ec[row]-4);
-                target.unknown_11c=(unsigned char)unknown_ramp_shapes_7e0a00[5*down+row];
-                target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+target.unknown_11c-1;
-                target.unknown_11a=0;
+                target.Height=(char)(unknown_10+unknown_ramp_heights_7e09ec[row]-4);
+                target.Ramp=(unsigned char)unknown_ramp_shapes_7e0a00[5*down+row];
+                target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+target.Ramp-1;
+                target.SubTile=0;
             }
         }
     }
@@ -1586,10 +1586,10 @@ bool MapRegionClass::Build_South_Ramp(Cell const &first,Cell const &second,int l
             Cell position=Cell(first.X+3,first.Y)+Cell(column,row)+tail;
             Set_Cell_Region_Index_0056e970(position,lowRegion);
             CellClass &target=Map[position];
-            target.unknown_11b=(char)(unknown_10-(char)row-1);
-            target.unknown_11c=4;
+            target.Height=(char)(unknown_10-(char)row-1);
+            target.Ramp=4;
             target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+3u;
-            target.unknown_11a=0;
+            target.SubTile=0;
         }
     }
     return true;
@@ -1637,10 +1637,10 @@ bool MapRegionClass::unknown_00573040(Cell const &first,Cell const &second,int l
                 Cell position=Cell(first.X,first.Y-3)+Cell(row,-forward)+bias;
                 position=Cell(position.X+offset,position.Y);
                 CellClass &target=Map[position];
-                target.unknown_11b=(char)(unknown_10+unknown_ramp_heights_7e0a28[row]-4);
-                target.unknown_11c=(unsigned char)unknown_ramp_shapes_7e0a3c[5*down+row];
-                target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+target.unknown_11c-1;
-                target.unknown_11a=0;
+                target.Height=(char)(unknown_10+unknown_ramp_heights_7e0a28[row]-4);
+                target.Ramp=(unsigned char)unknown_ramp_shapes_7e0a3c[5*down+row];
+                target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+target.Ramp-1;
+                target.SubTile=0;
             }
         }
     }
@@ -1649,10 +1649,10 @@ bool MapRegionClass::unknown_00573040(Cell const &first,Cell const &second,int l
             Cell position=Cell(first.X,first.Y-3)+Cell(row,-column)+tail;
             Set_Cell_Region_Index_0056e970(position,lowRegion);
             CellClass &target=Map[position];
-            target.unknown_11b=(char)(unknown_10-(char)row-1);
-            target.unknown_11c=3;
+            target.Height=(char)(unknown_10-(char)row-1);
+            target.Ramp=3;
             target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+2u;
-            target.unknown_11a=0;
+            target.SubTile=0;
         }
     }
     return true;
@@ -1702,10 +1702,10 @@ bool MapRegionClass::unknown_00573680(Cell const &first,Cell const &second,int l
                 Cell position=Cell(second.X+3,second.Y)+Cell(forward,-row)+bias;
                 position=Cell(position.X,position.Y+offset);
                 CellClass &target=Map[position];
-                target.unknown_11b=(char)(unknown_10+unknown_ramp_heights_7e0a64[row]-4);
-                target.unknown_11c=(unsigned char)unknown_ramp_shapes_7e0a78[5*down+row];
-                target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+target.unknown_11c-1;
-                target.unknown_11a=0;
+                target.Height=(char)(unknown_10+unknown_ramp_heights_7e0a64[row]-4);
+                target.Ramp=(unsigned char)unknown_ramp_shapes_7e0a78[5*down+row];
+                target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+target.Ramp-1;
+                target.SubTile=0;
             }
         }
     }
@@ -1714,10 +1714,10 @@ bool MapRegionClass::unknown_00573680(Cell const &first,Cell const &second,int l
             Cell position=Cell(second.X+3,second.Y)+Cell(column,-row)+tail;
             Set_Cell_Region_Index_0056e970(position,lowRegion);
             CellClass &target=Map[position];
-            target.unknown_11b=(char)(unknown_10-(char)row-1);
-            target.unknown_11c=2;
+            target.Height=(char)(unknown_10-(char)row-1);
+            target.Ramp=2;
             target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+1u;
-            target.unknown_11a=0;
+            target.SubTile=0;
         }
     }
     return true;
@@ -1765,10 +1765,10 @@ bool MapRegionClass::unknown_00573d40(Cell const &first,Cell const &second,int l
                 Cell position=Cell(first.X,first.Y+3)+Cell(-row,forward)+bias;
                 position=Cell(position.X+offset,position.Y);
                 CellClass &target=Map[position];
-                target.unknown_11b=(char)(unknown_10+unknown_ramp_heights_7e0aa0[row]-4);
-                target.unknown_11c=(unsigned char)unknown_ramp_shapes_7e0ab4[5*down+row];
-                target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+target.unknown_11c-1;
-                target.unknown_11a=0;
+                target.Height=(char)(unknown_10+unknown_ramp_heights_7e0aa0[row]-4);
+                target.Ramp=(unsigned char)unknown_ramp_shapes_7e0ab4[5*down+row];
+                target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+target.Ramp-1;
+                target.SubTile=0;
             }
         }
     }
@@ -1777,10 +1777,10 @@ bool MapRegionClass::unknown_00573d40(Cell const &first,Cell const &second,int l
             Cell position=Cell(first.X,first.Y+3)+Cell(-row,column)+tail;
             Set_Cell_Region_Index_0056e970(position,lowRegion);
             CellClass &target=Map[position];
-            target.unknown_11b=(char)(unknown_10-(char)row-1);
-            target.unknown_11c=1;
+            target.Height=(char)(unknown_10-(char)row-1);
+            target.Ramp=1;
             target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart;
-            target.unknown_11a=0;
+            target.SubTile=0;
         }
     }
     return true;
@@ -1810,27 +1810,27 @@ bool MapRegionClass::unknown_005743f0(Cell const &first,Cell const &second,int l
                 Place_Tile_Footprint_005883f0((int)((unsigned)IsometricTileTypeClass_SlopeSetPieces+3u),second,lowRegion,unknown_10);
                 for(int step=0;step<4;++step) {
                     CellClass &target=Map[Cell(second.X+step,first.Y+step)];
-                    target.unknown_11b=(char)(unknown_10-(char)step-1);
-                    target.unknown_11c=7;
+                    target.Height=(char)(unknown_10-(char)step-1);
+                    target.Ramp=7;
                     target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+6u;
-                    target.unknown_11a=0;
+                    target.SubTile=0;
                 }
                 for(int row=0;row<4;++row) {
                     for(int column=0;column<second.X-first.X+row-3;++column) {
                         CellClass &target=Map[Cell(first.X+column+3,first.Y+row)];
-                        target.unknown_11b=(char)(unknown_10-(char)row-1);
-                        target.unknown_11c=4;
+                        target.Height=(char)(unknown_10-(char)row-1);
+                        target.Ramp=4;
                         target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+3u;
-                        target.unknown_11a=0;
+                        target.SubTile=0;
                     }
                 }
                 for(int column=0;column<4;++column) {
                     for(int row=0;row<first.Y-second.Y+column-3;++row) {
                         CellClass &target=Map[Cell(second.X+column,second.Y+row+3)];
-                        target.unknown_11b=(char)(unknown_10-(char)column-1);
-                        target.unknown_11c=3;
+                        target.Height=(char)(unknown_10-(char)column-1);
+                        target.Ramp=3;
                         target.IsoTileIndex=(unsigned)IsometricTileTypeClass_RampStart+2u;
-                        target.unknown_11a=0;
+                        target.SubTile=0;
                     }
                 }
                 return true;
@@ -1862,27 +1862,27 @@ bool MapRegionClass::unknown_00574930(Cell const &first,Cell const &second,int r
                 Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+4,second-Cell(0,3),region,unknown_10);
                 for(int corner=0;corner<4;++corner) {
                     CellClass &cell=Map[Cell(first.X+corner,second.Y-corner)];
-                    cell.unknown_11b=(char)(unknown_10-(char)corner-1);
-                    cell.unknown_11c=6;
+                    cell.Height=(char)(unknown_10-(char)corner-1);
+                    cell.Ramp=6;
                     cell.IsoTileIndex=IsometricTileTypeClass_RampStart+5;
-                    cell.unknown_11a=0;
+                    cell.SubTile=0;
                 }
                 for(int east=0;east<4;++east) {
                     for(int y=0;y<first.Y-second.Y+east-3;++y) {
                         CellClass &cell=Map[Cell(first.X+east,first.Y-y-3)];
-                        cell.unknown_11b=(char)(unknown_10-(char)east-1);
-                        cell.unknown_11c=3;
+                        cell.Height=(char)(unknown_10-(char)east-1);
+                        cell.Ramp=3;
                         cell.IsoTileIndex=IsometricTileTypeClass_RampStart+2;
-                        cell.unknown_11a=0;
+                        cell.SubTile=0;
                     }
                 }
                 for(int north=0;north<4;++north) {
                     for(int x=0;x<first.X-second.X+north-3;++x) {
                         CellClass &cell=Map[Cell(second.X+x+3,second.Y-north)];
-                        cell.unknown_11b=(char)(unknown_10-(char)north-1);
-                        cell.unknown_11c=2;
+                        cell.Height=(char)(unknown_10-(char)north-1);
+                        cell.Ramp=2;
                         cell.IsoTileIndex=IsometricTileTypeClass_RampStart+1;
-                        cell.unknown_11a=0;
+                        cell.SubTile=0;
                     }
                 }
                 return true;
@@ -1915,27 +1915,27 @@ bool MapRegionClass::unknown_00574e50(Cell const &first,Cell const &second,int r
                 Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+9,second-Cell(1,1),region,unknown_10);
                 for(int corner=0;corner<4;++corner) {
                     CellClass &cell=Map[Cell(second.X-corner,first.Y-corner)];
-                    cell.unknown_11b=(char)(unknown_10-(char)corner-1);
-                    cell.unknown_11c=5;
+                    cell.Height=(char)(unknown_10-(char)corner-1);
+                    cell.Ramp=5;
                     cell.IsoTileIndex=IsometricTileTypeClass_RampStart+4;
-                    cell.unknown_11a=0;
+                    cell.SubTile=0;
                 }
                 for(int north=0;north<4;++north) {
                     for(int x=0;x<first.X-second.X+north-3;++x) {
                         CellClass &cell=Map[Cell(first.X-x-3,first.Y-north)];
-                        cell.unknown_11b=(char)(unknown_10-(char)north-1);
-                        cell.unknown_11c=2;
+                        cell.Height=(char)(unknown_10-(char)north-1);
+                        cell.Ramp=2;
                         cell.IsoTileIndex=IsometricTileTypeClass_RampStart+1;
-                        cell.unknown_11a=0;
+                        cell.SubTile=0;
                     }
                 }
                 for(int west=0;west<4;++west) {
                     for(int y=0;y<second.Y-first.Y+west-3;++y) {
                         CellClass &cell=Map[Cell(second.X-west,second.Y-y-3)];
-                        cell.unknown_11b=(char)(unknown_10-(char)west-1);
-                        cell.unknown_11c=1;
+                        cell.Height=(char)(unknown_10-(char)west-1);
+                        cell.Ramp=1;
                         cell.IsoTileIndex=IsometricTileTypeClass_RampStart;
-                        cell.unknown_11a=0;
+                        cell.SubTile=0;
                     }
                 }
                 return true;
@@ -1969,27 +1969,27 @@ bool MapRegionClass::unknown_005753f0(Cell const &first,Cell const &second,int r
                 Place_Tile_Footprint_005883f0(IsometricTileTypeClass_SlopeSetPieces+1,second-Cell(2,0),region,unknown_10);
                 for(int corner=0;corner<4;++corner) {
                     CellClass &cell=Map[Cell(first.X-corner,second.Y+corner)];
-                    cell.unknown_11b=(char)(unknown_10-(char)corner-1);
-                    cell.unknown_11c=8;
+                    cell.Height=(char)(unknown_10-(char)corner-1);
+                    cell.Ramp=8;
                     cell.IsoTileIndex=IsometricTileTypeClass_RampStart+7;
-                    cell.unknown_11a=0;
+                    cell.SubTile=0;
                 }
                 for(int west=0;west<4;++west) {
                     for(int y=0;y<second.Y-first.Y+west-3;++y) {
                         CellClass &cell=Map[Cell(first.X-west,first.Y+y+3)];
-                        cell.unknown_11b=(char)(unknown_10-(char)west-1);
-                        cell.unknown_11c=1;
+                        cell.Height=(char)(unknown_10-(char)west-1);
+                        cell.Ramp=1;
                         cell.IsoTileIndex=IsometricTileTypeClass_RampStart;
-                        cell.unknown_11a=0;
+                        cell.SubTile=0;
                     }
                 }
                 for(int south=0;south<4;++south) {
                     for(int x=0;x<second.X-first.X+south-3;++x) {
                         CellClass &cell=Map[Cell(second.X-x-3,second.Y+south)];
-                        cell.unknown_11b=(char)(unknown_10-(char)south-1);
-                        cell.unknown_11c=4;
+                        cell.Height=(char)(unknown_10-(char)south-1);
+                        cell.Ramp=4;
                         cell.IsoTileIndex=IsometricTileTypeClass_RampStart+3;
-                        cell.unknown_11a=0;
+                        cell.SubTile=0;
                     }
                 }
                 return true;
@@ -2040,7 +2040,7 @@ void __stdcall Assign_Region_To_Rectangle_00575a90(Rect const &area,int index)
             if(Generation_Cell_In_Bounds_0058da10(position)) {
                 Set_Cell_Region_Index_0056e970(position,index);
                 CellClass &target=Map[position];
-                target.unknown_11b=(char)Find_Map_Region_By_Index_00575ce0(index)->unknown_10;
+                target.Height=(char)Find_Map_Region_By_Index_00575ce0(index)->unknown_10;
             }
         }
     }
@@ -2075,7 +2075,7 @@ void MapRegionClass::Mark_Rectangle_00575bf0(Rect const &area)
             if(Generation_Cell_In_Bounds_0058da10(position)) {
                 Set_Cell_Region_Index_0056e970(position,Index);
                 CellClass &target=Map[position];
-                target.unknown_11b=(char)unknown_10;
+                target.Height=(char)unknown_10;
             }
         }
     }
@@ -2275,13 +2275,13 @@ void MapRegionClass::Place_Neutral_Tech_Building_00576cd0()
     while(!placed) {
         if(tries>=100)break;
         Cell position=Cells[Map_Random_Range_005797a0(0,Cells.Count()-1)];
-        int height=Map[position].unknown_11b;
+        int height=Map[position].Height;
         Cell const *list=building->Type->Occupy_List(1);
         bool clear=true;
         while(list->X!=0x7fff || list->Y!=0x7fff) {
             Cell next=position + *list;
             CellClass *cell=&Map[next];
-            if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->unknown_11b!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true) || !seed_0056dac0::unknown_generation_cell_clear_0056dac0((short *)&cell->MapCoords))clear=false;
+            if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->Height!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true) || !seed_0056dac0::unknown_generation_cell_clear_0056dac0((short *)&cell->MapCoords))clear=false;
             ++list;
             if(!clear)break;
         }
@@ -3241,8 +3241,8 @@ void MapGeneratorClass::Init_Map(int fullInit)
         Map.Reset_Iterator();
         CellClass *cell=Map.Iterate();
         while(cell) {
-            cell->unknown_11c=0;cell->unknown_11b=4;cell->IsoTileIndex=0;
-            cell->unknown_11a=0;cell->OverlayIndex=-1;cell->OverlayData=0;
+            cell->Ramp=0;cell->Height=4;cell->IsoTileIndex=0;
+            cell->SubTile=0;cell->OverlayIndex=-1;cell->OverlayData=0;
             cell=Map.Iterate();
         }
         if(RMGCallback)RMGCallback();
@@ -3295,7 +3295,7 @@ void MapGeneratorClass::Init_Map(int fullInit)
     while(cell) {
         Cell position=cell->MapCoords;
         RMGCellData[position.Y*MapCellStride+position.X].Position=position;
-        cell->unknown_11b=(char)CellHeight;cell=Map.Iterate();
+        cell->Height=(char)CellHeight;cell=Map.Iterate();
     }
     Report_Generation_Progress_0057be50(45);
     if(RMGCallback)RMGCallback();
@@ -4155,13 +4155,13 @@ void MapGeneratorClass::Vary_Water_Tiles()
 {
     Map.Reset_Iterator();
     for(CellClass *cell=Map.Iterate();cell;cell=Map.Iterate()) {
-        if(cell->IsoTileIndex==IsometricTileTypeClass_WaterSet && cell->unknown_11a==0) {
+        if(cell->IsoTileIndex==IsometricTileTypeClass_WaterSet && cell->SubTile==0) {
             CellClass &east=cell->Adjacent_Cell(2);
             CellClass &south=cell->Adjacent_Cell(4);
             CellClass &corner=cell->Adjacent_Cell(3);
-            if(east.IsoTileIndex==IsometricTileTypeClass_WaterSet && east.unknown_11a==0 &&
-               south.IsoTileIndex==IsometricTileTypeClass_WaterSet && south.unknown_11a==0 &&
-               corner.IsoTileIndex==IsometricTileTypeClass_WaterSet && corner.unknown_11a==0 &&
+            if(east.IsoTileIndex==IsometricTileTypeClass_WaterSet && east.SubTile==0 &&
+               south.IsoTileIndex==IsometricTileTypeClass_WaterSet && south.SubTile==0 &&
+               corner.IsoTileIndex==IsometricTileTypeClass_WaterSet && corner.SubTile==0 &&
                Map_Random_Range_005797a0(1,10)!=1) {
                     int sample=(int)Map_Random_Range_005797a0(0,241);
                     int variant=sample>=240 ?247-sample:sample/40;
@@ -4200,8 +4200,8 @@ void MapGeneratorClass::Clear_Region_Cells(int source_index,int target_index,int
             target.RegionIndex=target_index;
             target.unknown_4b=0;
             cell->IsoTileIndex=tile;
-            cell->unknown_11a=0;
-            cell->unknown_11b=(char)(level==-1 ? CellHeight:level);
+            cell->SubTile=0;
+            cell->Height=(char)(level==-1 ? CellHeight:level);
         }
     }
 }
@@ -4273,7 +4273,7 @@ bool MapGeneratorClass::Seed_Lake(Cell const &origin)
             Set_Cell_Region_Index_0056e970(node->Position,(int)WorkingRegionID);
             CellClass *current=&Map[node->Position];
             current->IsoTileIndex=IsometricTileTypeClass_WaterSet;
-            current->unknown_11a=0;
+            current->SubTile=0;
             int facing=0;
             UnknownVeinNode *next=nodes+used;
             for(;facing<8;facing+=2) {
@@ -4302,7 +4302,7 @@ bool MapGeneratorClass::Seed_Lake(Cell const &origin)
         UnknownMapGenerationCell &data=RMGCellData[index];
         if(data.RegionIndex==0 && current->Is_Tile_Clear() && data.Marked) {
             current->IsoTileIndex=IsometricTileTypeClass_WaterSet;
-            current->unknown_11a=0;
+            current->SubTile=0;
             data.RegionIndex=(int)WorkingRegionID;
         } else success=0;
         remaining=heap->Remove_Min();
@@ -4381,9 +4381,9 @@ static inline void Clear_River_Region(int region,int const &height_source)
             data.RegionIndex=0;
             data.unknown_4b=0;
             cellptr->IsoTileIndex=0;
-            cellptr->unknown_11a=0;
+            cellptr->SubTile=0;
             int height=height_source;
-            cellptr->unknown_11b=height;
+            cellptr->Height=height;
         }
         cellptr=Map.Iterate();
     }
@@ -4464,7 +4464,7 @@ bool MapGeneratorClass::Seed_River(Cell const &point,double value,bool flag)
                         }
                         CellClass *cellptr=&Map[Cell((int)px,(int)py)];
                         cellptr->IsoTileIndex=IsometricTileTypeClass_WaterSet;
-                        cellptr->unknown_11a=0;
+                        cellptr->SubTile=0;
                     } else {
                         success=false;
                     }
@@ -4622,7 +4622,7 @@ bool MapGeneratorClass::Seed_River(Cell const &point,double value,bool flag)
                         int rid=UnknownMapGenerationCell::Get_Region(c);
 
                         if(rid!=region_id) {
-                            cptr->unknown_11b+=4;
+                            cptr->Height+=4;
                         }
 
                         cptr=Map.Iterate();
@@ -4673,7 +4673,7 @@ void __stdcall Set_Region_Cell_Byte_0057fe20(int index,char value)
         Cell position=cell->MapCoords;
         int region=!RMGCellData ? -1 : RMGCellData[position.Y*MapCellStride+position.X].RegionIndex;
         if(region==index)
-            cell->unknown_11b = value;
+            cell->Height = value;
     }
 }
 
@@ -4686,7 +4686,7 @@ void __stdcall Increment_Region_Cell_Byte_0057fea0(int index,char value)
         Cell position=cell->MapCoords;
         int region=!RMGCellData ? -1 : RMGCellData[position.Y*MapCellStride+position.X].RegionIndex;
         if(region==index)
-            cell->unknown_11b += value;
+            cell->Height += value;
     }
 }
 
@@ -4777,7 +4777,7 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 				Map[Cell(xx, yy)].IsoTileIndex = tile_index+IsometricTileTypeClass_WaterSet;
 
 				int subtile = Map_Random_Range_005797a0(0, 3);
-				Map[Cell(xx, yy)].unknown_11a = subtile;
+				Map[Cell(xx, yy)].SubTile = subtile;
 
 				if(RMGCellData) {
 								MapRegionClass::Get_Cell_Data(Cell(xx,yy)).RegionIndex=region_id;
@@ -4799,7 +4799,7 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 					Cell c = cptr->MapCoords;
 					int other_region = UnknownMapGenerationCell::Get_Region(c);
 					if (other_region == region) {
-						cptr->unknown_11b += 4;
+						cptr->Height += 4;
 					}
 					cptr = Map.Iterate();
 				}
@@ -4811,7 +4811,7 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 							Map[Cell(xx, yy)].IsoTileIndex = tile_index+IsometricTileTypeClass_WaterSet;
 
 							int subtile = Map_Random_Range_005797a0(0, 3);
-							Map[Cell(xx, yy)].unknown_11a = subtile;
+							Map[Cell(xx, yy)].SubTile = subtile;
 
 							if(RMGCellData) {
 								MapRegionClass::Get_Cell_Data(Cell(xx,yy)).RegionIndex=region_id;
@@ -4825,7 +4825,7 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 				switch (direction) {
 					case 2: {
 						Cell base(patch.X, patch.Y + patch.Height);
-						int height = Map[base + Cell(2, 0)].unknown_11b;
+						int height = Map[base + Cell(2, 0)].Height;
 
 						Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallEast];
 						Map.Set_Cursor_Pos(base);
@@ -4840,8 +4840,8 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 
 						if (Generation_Cell_In_Bounds_0058da10(top)) {
 							Map[top].IsoTileIndex = 0xffff;
-							Map[top].unknown_11b += 4;
-							Map[top].unknown_11a = 0;
+							Map[top].Height += 4;
+							Map[top].SubTile = 0;
 							if(RMGCellData) {
 								MapRegionClass::Get_Cell_Data(top).RegionIndex=WorkingRegionID;
 							}
@@ -4849,8 +4849,8 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 
 						if (Generation_Cell_In_Bounds_0058da10(bottom)) {
 							Map[bottom].IsoTileIndex = 0xffff;
-							Map[bottom].unknown_11b += 4;
-							Map[bottom].unknown_11a = 0;
+							Map[bottom].Height += 4;
+							Map[bottom].SubTile = 0;
 							if(RMGCellData) {
 								MapRegionClass::Get_Cell_Data(bottom).RegionIndex=WorkingRegionID;
 							}
@@ -4879,7 +4879,7 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 
 					case 6: {
 						Cell base(seed.X - 2, patch.Y + patch.Height);
-						int height = Map[base - Cell(2, 0)].unknown_11b;
+						int height = Map[base - Cell(2, 0)].Height;
 
 						Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallWest];
 						Map.Set_Cursor_Pos(base);
@@ -4893,7 +4893,7 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						Map[base + Cell(0, patch.Width + 2)].IsoTileIndex = 0xffff;
 
 						for (int i = 0; i < patch.Height + 2; i++) {
-							Map[base - Cell(0, i)].unknown_11b -= 4;
+							Map[base - Cell(0, i)].Height -= 4;
 						}
 
 						Cell top = base + Cell(1, 2);
@@ -4901,8 +4901,8 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 
 						if (Generation_Cell_In_Bounds_0058da10(top)) {
 							Map[top].IsoTileIndex = 0xffff;
-							Map[top].unknown_11b += 4;
-							Map[top].unknown_11a = 0;
+							Map[top].Height += 4;
+							Map[top].SubTile = 0;
 							if(RMGCellData) {
 								MapRegionClass::Get_Cell_Data(top).RegionIndex=WorkingRegionID;
 							}
@@ -4910,8 +4910,8 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 
 						if (Generation_Cell_In_Bounds_0058da10(bottom)) {
 							Map[bottom].IsoTileIndex = 0xffff;
-							Map[bottom].unknown_11b += 4;
-							Map[bottom].unknown_11a = 0;
+							Map[bottom].Height += 4;
+							Map[bottom].SubTile = 0;
 							if(RMGCellData) {
 								MapRegionClass::Get_Cell_Data(bottom).RegionIndex=WorkingRegionID;
 							}
@@ -4940,7 +4940,7 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 
 					case 4: {
 						Cell base(patch.X - 2, patch.Y);
-						int height = Map[base + Cell(0, 2)].unknown_11b;
+						int height = Map[base + Cell(0, 2)].Height;
 
 						Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallSouth];
 						Map.Set_Cursor_Pos(base);
@@ -4955,8 +4955,8 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 
 						if (Generation_Cell_In_Bounds_0058da10(left)) {
 							Map[left].IsoTileIndex = 0xffff;
-							Map[left].unknown_11b += 4;
-							Map[left].unknown_11a = 0;
+							Map[left].Height += 4;
+							Map[left].SubTile = 0;
 							if(RMGCellData) {
 								MapRegionClass::Get_Cell_Data(left).RegionIndex=WorkingRegionID;
 							}
@@ -4964,8 +4964,8 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 
 						if (Generation_Cell_In_Bounds_0058da10(right)) {
 							Map[right].IsoTileIndex = 0xffff;
-							Map[right].unknown_11b += 4;
-							Map[right].unknown_11a = 0;
+							Map[right].Height += 4;
+							Map[right].SubTile = 0;
 							if(RMGCellData) {
 								MapRegionClass::Get_Cell_Data(right).RegionIndex=WorkingRegionID;
 							}
@@ -4994,7 +4994,7 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 
 					case 0: {
 						Cell base(seed.X - 2, seed.Y - 2);
-						int height = Map[base - Cell(0, 2)].unknown_11b;
+						int height = Map[base - Cell(0, 2)].Height;
 
 						Map.PendingObject = IsoTileTypes[IsometricTileTypeClass_WaterfallNorth];
 						Map.Set_Cursor_Pos(base);
@@ -5008,7 +5008,7 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 						Map[base + Cell(patch.Width + 2, 0)].IsoTileIndex = 0xffff;
 
 						for (int i = 0; i < patch.Width + 2; i++) {
-							Map[base + Cell(i + 1, 0)].unknown_11b -= 4;
+							Map[base + Cell(i + 1, 0)].Height -= 4;
 						}
 
 						Cell left = base + Cell(-1, 1);
@@ -5016,8 +5016,8 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 
 						if (Generation_Cell_In_Bounds_0058da10(left)) {
 							Map[left].IsoTileIndex = 0xffff;
-							Map[left].unknown_11b += 4;
-							Map[left].unknown_11a = 0;
+							Map[left].Height += 4;
+							Map[left].SubTile = 0;
 							if(RMGCellData) {
 								MapRegionClass::Get_Cell_Data(left).RegionIndex=WorkingRegionID;
 							}
@@ -5025,8 +5025,8 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 
 						if (Generation_Cell_In_Bounds_0058da10(right)) {
 							Map[right].IsoTileIndex = 0xffff;
-							Map[right].unknown_11b += 4;
-							Map[right].unknown_11a = 0;
+							Map[right].Height += 4;
+							Map[right].SubTile = 0;
 							if(RMGCellData) {
 								MapRegionClass::Get_Cell_Data(right).RegionIndex=WorkingRegionID;
 							}
@@ -5125,7 +5125,7 @@ bool MapGeneratorClass::Grow_Region(int region,int rings,Rect area,char setHeigh
                     if((oldRegion==0 || reclaim) && (cell.Is_Tile_Clear() || (reclaim && cell.Is_Tile_With_Water()))) {
                         next->Add(position);
                         data.RegionIndex=region;
-                        if(setHeight && cell.Is_Tile_Clear())Map[position].unknown_11b=height;
+                        if(setHeight && cell.Is_Tile_Clear())Map[position].Height=height;
                     } else if(oldRegion!=region) {
                         delete border;
                         delete next;
@@ -5164,8 +5164,8 @@ bool MapGeneratorClass::Clear_Region_Border(int region,int rings,int newRegion)
             if(RMGCellData)RMGCellData[position.Y*MapCellStride+position.X].RegionIndex=newRegion;
             CellClass &cell=Map[position];
             cell.IsoTileIndex=0;
-            cell.unknown_11a=0;
-            cell.unknown_11b=(char)CellHeight;
+            cell.SubTile=0;
+            cell.Height=(char)CellHeight;
         }
         if(ring<rings-1) {
             DynamicVectorClass<Cell> *next=new DynamicVectorClass<Cell>;
@@ -5282,7 +5282,7 @@ void __stdcall Increment_Other_Region_Cell_Byte_00582ab0(int value,int index)
         Cell position=cell->MapCoords;
         int region=!RMGCellData ? -1 : RMGCellData[position.Y*MapCellStride+position.X].RegionIndex;
         if(region!=index)
-            cell->unknown_11b+=(unsigned char)value;
+            cell->Height+=(unsigned char)value;
     }
 }
 
@@ -5329,23 +5329,23 @@ void MapGeneratorClass::Vary_Cliff_Runs()
             CellClass &south=cellptr->Adjacent_Cell(4);
             CellClass &east=cellptr->Adjacent_Cell(2);
 
-            if(cellptr->IsoTileIndex==south.IsoTileIndex && (unsigned char)cellptr->unknown_11a>(unsigned char)south.unknown_11a) {
+            if(cellptr->IsoTileIndex==south.IsoTileIndex && (unsigned char)cellptr->SubTile>(unsigned char)south.SubTile) {
                 int tile=Pick_Alternate_Cliff(cellptr->IsoTileIndex);
 
                 if(tile!=cellptr->IsoTileIndex) {
-                    int subtile=(unsigned char)south.unknown_11a;
+                    int subtile=(unsigned char)south.SubTile;
                     IsometricTileTypeClass *type=IsoTileTypes[cellptr->IsoTileIndex];
                     Cell origin=south.MapCoords-Cell(subtile%type->unknown_2b4,subtile/type->unknown_2b4);
                     Place_Tile_Footprint_005883f0(tile,origin,UnknownMapGenerationCell::Get_Region(origin),-1);
                 }
             }
 
-            if(cellptr->IsoTileIndex==east.IsoTileIndex && (unsigned char)cellptr->unknown_11a>(unsigned char)east.unknown_11a) {
+            if(cellptr->IsoTileIndex==east.IsoTileIndex && (unsigned char)cellptr->SubTile>(unsigned char)east.SubTile) {
                 int tile=Pick_Alternate_Cliff(cellptr->IsoTileIndex);
 
                 if(tile!=cellptr->IsoTileIndex) {
                     IsometricTileTypeClass *type=IsoTileTypes[cellptr->IsoTileIndex];
-                    int subtile=(unsigned char)east.unknown_11a;
+                    int subtile=(unsigned char)east.SubTile;
                     Cell origin=east.MapCoords-Cell(subtile%type->unknown_2b4,subtile/type->unknown_2b4);
                     Place_Tile_Footprint_005883f0(tile,origin,UnknownMapGenerationCell::Get_Region(origin),-1);
                 }
@@ -5397,7 +5397,7 @@ void Fixup_Cliff_Corners()
                     choice=(unsigned int)((unsigned int)RMGRandom()*(2.0/4294967295.0));
                 } while(choice>1);
                 if(choice==0) {
-                    neighbor2.unknown_11b=(char)(neighbor2.unknown_11b-4);
+                    neighbor2.Height=(char)(neighbor2.Height-4);
                     Write_Generation_Region(neighbor2.MapCoords,Read_Generation_Region(current->MapCoords));
                 }
             }
@@ -5408,13 +5408,13 @@ void Fixup_Cliff_Corners()
                     choice=(unsigned int)((unsigned int)RMGRandom()*(2.0/4294967295.0));
                 } while(choice>1);
                 if(choice==0) {
-                    neighbor6.unknown_11b=(char)(neighbor6.unknown_11b-4);
+                    neighbor6.Height=(char)(neighbor6.Height-4);
                     Write_Generation_Region(neighbor6.MapCoords,Read_Generation_Region(current->MapCoords));
                 }
             }
         } else if(mask==0xE0) {
             if(Map.Get_High_Ground_Mask(&neighbor5)==0xE0 && Map.Get_High_Ground_Mask(&neighbor1)==0xE0 && current->Is_Tile_Clear()) {
-                current->unknown_11b=(char)(current->unknown_11b+4);
+                current->Height=(char)(current->Height+4);
                 Write_Generation_Region(current->MapCoords,Read_Generation_Region(neighbor6.MapCoords));
             }
         }
@@ -5940,7 +5940,7 @@ void MapGeneratorClass::Generate_Hills()
         UnknownMapGenerationCell &data=RMGCellData[index];
         if(data.Position.X!=0 || data.Position.Y!=0) {
             CellClass *cell=&Map[data.Position];
-            int change=(int)(cell->unknown_11b+data.unknown_08-Get_Deformed_Cell_Height_00686c90(cell));
+            int change=(int)(cell->Height+data.unknown_08-Get_Deformed_Cell_Height_00686c90(cell));
             int steps=abs(change);
             int direction=change<0?-1:1;
             while(steps>0) {
@@ -5957,23 +5957,23 @@ void MapGeneratorClass::Generate_Hills()
     while(current!=0) {
         int heightStep=0;
         bool raise=true;
-        if(current->unknown_11c==5) {
+        if(current->Ramp==5) {
             for(int direction=0;direction<4;++direction) {
-                if(Map[current->Fetch_CellID() + offsets[direction]].unknown_11c!=5+direction)raise=false;
+                if(Map[current->Fetch_CellID() + offsets[direction]].Ramp!=5+direction)raise=false;
             }
-        } else if(current->unknown_11c==11) {
+        } else if(current->Ramp==11) {
             ++heightStep;
             for(int direction=0;direction<4;++direction) {
-                if(Map[current->Fetch_CellID() + offsets[direction]].unknown_11c!=ramps[direction])raise=false;
+                if(Map[current->Fetch_CellID() + offsets[direction]].Ramp!=ramps[direction])raise=false;
             }
         } else raise=false;
         if(raise) {
             for(int direction=0;direction<4;++direction) {
                 CellClass *cell=&Map[current->Fetch_CellID() + offsets[direction]];
                 cell->IsoTileIndex=0xffff;
-                cell->unknown_11a=0;
-                cell->unknown_11c=0;
-                cell->unknown_11b+=heightStep;
+                cell->SubTile=0;
+                cell->Ramp=0;
+                cell->Height+=heightStep;
             }
         }
         current=Map.Iterate();
@@ -6091,7 +6091,7 @@ void MapGeneratorClass::Generate_Vegetation()
 
     while(cell) {
         UnknownMapGenerationCell &data=MapRegionClass::Get_Cell_Data(cell->Fetch_CellID());
-        if(cell->Is_Tile_Clear() && cell->unknown_11c==0 && cell->OverlayIndex==-1 && cell->OccupierPtr==0 && data.unknown_45[0]==0) {
+        if(cell->Is_Tile_Clear() && cell->Ramp==0 && cell->OverlayIndex==-1 && cell->OccupierPtr==0 && data.unknown_45[0]==0) {
             Cell origin=cell->Fetch_CellID();
             int originID=(int)((unsigned)(int)origin.Y*512u+(unsigned)(int)origin.X);
             if(Map_Random_Fraction_00579770()<data.unknown_18) {
@@ -6242,7 +6242,7 @@ void MapGeneratorClass::Place_Tile_Patch(CellClass *cell,int tile,int count,int 
             if(Generation_Cell_In_Bounds_0058da10(newcell)) {
                 CellClass *newcellptr=&Map[newcell];
                 if(newcellptr->Is_Tile_Clear() || flag && (newcellptr->Is_Tile_Pavement() || newcellptr->Is_Tile_Misc_Pavement())) {
-                    if(MapRegionClass::Get_Cell_Data(newcell).unknown_3c!=origin && newcellptr->unknown_11c==0 && newcellptr->OverlayIndex==-1 && newcellptr->OccupierPtr==0) {
+                    if(MapRegionClass::Get_Cell_Data(newcell).unknown_3c!=origin && newcellptr->Ramp==0 && newcellptr->OverlayIndex==-1 && newcellptr->OccupierPtr==0) {
                         newnode->Position=newcell;
                         Cell start=cell->Fetch_CellID();
                         float score=Randomized_Cell_Distance_00586780(start,newcell);
@@ -6552,7 +6552,7 @@ void MapGeneratorClass::Generate_Urban_Roads(DynamicVectorClass<Cell> &cells)
                                 if(cellptr->Is_Tile_Road_Median()) {
                                     while(cellptr->Is_Tile_Road_Median()) {
                                         cellptr->IsoTileIndex=IsometricTileTypeClass_PavedRoads+1;
-                                        cellptr->unknown_11a=1;
+                                        cellptr->SubTile=1;
                                         cellptr=&cellptr->Adjacent_Cell(0);
                                     }
                                 }
@@ -6720,10 +6720,10 @@ void __fastcall Place_Tile_Footprint_005883f0(int tile,Cell const &position,int 
                     IsoTileCellStruct const *part=(IsoTileCellStruct const *)image->Tiles[index];
                     if(part) {
                         int tileIndex=type->ArrayIndex;
-                        cell.unknown_11a=(char)index;
+                        cell.SubTile=(char)index;
                         cell.IsoTileIndex=tileIndex;
-                        if(height!=-1)cell.unknown_11b=(char)(part->unknown_28+height-4);
-                        cell.unknown_11c=part->unknown_2a;
+                        if(height!=-1)cell.Height=(char)(part->unknown_28+height-4);
+                        cell.Ramp=part->unknown_2a;
                         if(RMGCellData) {
                             unsigned at=(unsigned)(int)where.Y*(unsigned)MapCellStride+(unsigned)(int)where.X;
                             RMGCellData[at].RegionIndex=region;
@@ -6879,11 +6879,11 @@ bool __fastcall Can_Place_Paved_Road_End_00588c20(Rect const &area,bool allowRoa
        Generation_Cell_In_Bounds_0058da10(XY_Cell(area.X+area.Width-1,area.Y+area.Height-1))) {
         int originX=area.X;
         int originY=area.Y;
-        int height=Map[Cell(originX,originY)].unknown_11b;
+        int height=Map[Cell(originX,originY)].Height;
         for(int y=area.Y;y<area.Y+area.Height;++y) {
             for(int x=area.X;x<area.X+area.Width;++x) {
                 CellClass &cell=Map[Cell(x,y)];
-                if(cell.unknown_11b!=height)return false;
+                if(cell.Height!=height)return false;
                 if(cell.Is_Tile_Paved_Road() || cell.Is_Tile_Paved_Road_End()) {
                     if(!allowRoad)return false;
                 } else if(!cell.Is_Tile_Clear() && !cell.Is_Tile_Misc_Pavement() && !cell.Is_Tile_Pavement()) {
@@ -7016,7 +7016,7 @@ bool __fastcall Can_Use_Tile_Footprint_005894e0(int tile,Cell const &position,un
                 unsigned char const *subtile=(unsigned char const *)image->Tiles[(int)((unsigned)type->unknown_2b4*(unsigned)y+(unsigned)x)];
                 if(subtile) {
                     if(!cell.Is_Tile_Clear() && !cell.Is_Tile_Ramp())return false;
-                    if((int)cell.unknown_11c!=(int)(signed char)subtile[0x2a])return false;
+                    if((int)cell.Ramp!=(int)(signed char)subtile[0x2a])return false;
                     if(check_mark && RMGCellData[(int)((unsigned)(int)where.Y*(unsigned)MapCellStride+(unsigned)(int)where.X)].unknown_45[1])return false;
                 }
             } else if(reject_outside)return false;
@@ -7046,7 +7046,7 @@ void __fastcall Erase_Tile_Footprint_00589670(int tile,Cell const &position)
                     CellClass &cell=Map[where];
                     if(image->Tiles[(int)((unsigned)type->unknown_2b4*(unsigned)y+(unsigned)x)]!=0) {
                         cell.IsoTileIndex=0xffff;
-                        cell.unknown_11a=0;
+                        cell.SubTile=0;
                     }
                 }
             }
@@ -7082,7 +7082,7 @@ void MapGeneratorClass::Generate_Rural_Buildings(Cell const &origin)
     int count=Map_Random_Range_005797a0(8,12);
     int tries=0;
     int placed=0;
-    int height=Map[origin].unknown_11b;
+    int height=Map[origin].Height;
     unsigned first=0;
     unsigned last=35;
     if(SeedData.Theater==0)first=15;
@@ -7106,7 +7106,7 @@ void MapGeneratorClass::Generate_Rural_Buildings(Cell const &origin)
                     while(list->X!=0x7fff || list->Y!=0x7fff) {
                         Cell next=(position + *list);
                         CellClass *cell=&Map[next];
-                        if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->unknown_11b!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true))clear=false;
+                        if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->Height!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true))clear=false;
                         ++list;
                         if(!clear)break;
                     }
@@ -7486,7 +7486,7 @@ inline bool Is_List_End(Cell const *list)
 
 inline int Cell_Height(Cell const &position)
 {
-    return Map[position].unknown_11b;
+    return Map[position].Height;
 }
 
 void MapGeneratorClass::Generate_Neutral_Buildings()
@@ -7516,7 +7516,7 @@ void MapGeneratorClass::Generate_Neutral_Buildings()
                 while(!Is_List_End(list)) {
                     Cell next=position + *list;
                     CellClass *cell=&Map[next];
-                    if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->unknown_11b!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true) || !Cell_Is_Free(cell->MapCoords))clear=false;
+                    if(cell->OccupierPtr!=0 || !cell->Is_Tile_Clear() || cell->Height!=height || cell->unknown_ec==3 || !Map.Unknown_0055A740(cell,true) || !Cell_Is_Free(cell->MapCoords))clear=false;
                     ++list;
                     if(!clear)break;
                 }
@@ -7998,7 +7998,7 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
     for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
         if (cell->IsoTileIndex >= IsometricTileTypeClass_ShorePieces && cell->IsoTileIndex < IsometricTileTypeClass_ShorePieces + 42) {
             cell->IsoTileIndex = 0;
-            cell->unknown_11a = 0;
+            cell->SubTile = 0;
         }
     }
 
@@ -8012,8 +8012,8 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
                 data.RegionIndex = 0;
                 data.unknown_4b = 0;
                 cell->IsoTileIndex = tile;
-                cell->unknown_11a = 0;
-                cell->unknown_11b = (char)CellHeight;
+                cell->SubTile = 0;
+                cell->Height = (char)CellHeight;
             }
         }
         return 0;

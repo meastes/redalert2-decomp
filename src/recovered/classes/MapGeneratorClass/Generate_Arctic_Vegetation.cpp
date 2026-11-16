@@ -25,7 +25,7 @@ void MapGeneratorClass::Generate_Arctic_Vegetation()
         Cell position=cell->Fetch_CellID();
         unsigned index=(unsigned)(int)position.Y*(unsigned)MapCellStride+(unsigned)(int)position.X;
         UnknownMapGenerationCell &data=RMGCellData[index];
-        if(cell->Is_Tile_Clear() && cell->unknown_11c==0 && data.unknown_45[0]==0) {
+        if(cell->Is_Tile_Clear() && cell->Ramp==0 && data.unknown_45[0]==0) {
             Cell origin=cell->Fetch_CellID();
             int originID=(int)((unsigned)(int)origin.Y*512u+(unsigned)(int)origin.X);
             if(Map_Random_Fraction_00579770()<data.unknown_28) {

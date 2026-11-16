@@ -170,7 +170,7 @@ Matrix3D * __stdcall LocomotionClass::Draw_Matrix(Matrix3D *matrix, int *key)
 Matrix3D * __stdcall LocomotionClass::Shadow_Matrix(Matrix3D *matrix, int *key)
 {
     CoordStruct coord = LinkedTo->Coord;
-    int ramp = Map[coord].unknown_11c;
+    int ramp = Map[coord].Ramp;
     Matrix3D transform;
     Matrix3D ramp_matrix;
     transform = *Get_Slope_Matrix(&ramp_matrix, ramp);

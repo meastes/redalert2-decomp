@@ -226,7 +226,7 @@ int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoCl
         AircraftTracker.Unknown_004128A0(cptr, (int)warhead->CellSpread);
         TechnoClass *techno;
         while ((techno = AircraftTracker.Fetch_Next_004134e0()) != 0) {
-            if (techno->IsActive && techno->unknown_74 && techno->Strength > 0) {
+            if (techno->IsActive && techno->IsDown && techno->Strength > 0) {
                 distance = Coord_Distance_To(coord, techno->Coord);
                 if (distance <= range) {
                     if (close && distance < 0x55 && techno->unknown_slot203()) {
@@ -307,7 +307,7 @@ int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoCl
                 if (object->Kind_Of() == 2 && object->In_Air()) {
                     distance /= 2;
                 }
-                if (object->Strength > 0 && object->unknown_74 && !object->unknown_76 && distance <= range) {
+                if (object->Strength > 0 && object->IsDown && !object->IsInLimbo && distance <= range) {
                     int damage = strength;
                     object->Take_Damage(&damage, distance, warhead, source, false, 0);
                     hit = true;
@@ -358,13 +358,13 @@ int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoCl
             if (cptr->unknown_140 & 0x80) {
                 bcptr = &Map[cptr->Fetch_CellID()];
             } else {
-                bcptr = &Map[cptr->unknown_2c->Fetch_CellID()];
+                bcptr = &Map[cptr->BridgeDeckCell->Fetch_CellID()];
             }
         }
 
         if ((bcptr != 0 && (bcptr->OverlayIndex == 0x18 || bcptr->OverlayIndex == 0x19)) ||
             Is_Bridge_Tile(ittype)) {
-            if (!(cptr->unknown_140 & 0x100) || (coord.Z <= unknown_geometry_j + unknown_geometry_g * (cptr->unknown_11b + 1) && coord.Z > unknown_geometry_j + unknown_geometry_g * (cptr->unknown_11b - 2))) {
+            if (!(cptr->unknown_140 & 0x100) || (coord.Z <= unknown_geometry_j + unknown_geometry_g * (cptr->Height + 1) && coord.Z > unknown_geometry_j + unknown_geometry_g * (cptr->Height - 2))) {
                 if (warhead->Wall && (warhead == Rules->IonCannonWarhead || Random_Pick(1, Rules->unknown_13a8) < strength)) {
                     bool damaged = Map.Damage_Bridge(&cell);
                     int tries = 3;
@@ -385,7 +385,7 @@ int __fastcall Explosion_Damage(CoordStruct const &coord, int strength, TechnoCl
         int ittype2 = cptr->IsoTileIndex - IsometricTileTypeClass_TrainBridgeSet + 1;
         if ((bcptr != 0 && (bcptr->OverlayIndex == 0xED || bcptr->OverlayIndex == 0xEE)) ||
             Is_Bridge_Tile(ittype2)) {
-            if (!(cptr->unknown_140 & 0x100) || (coord.Z <= unknown_geometry_j + unknown_geometry_g * (cptr->unknown_11b + 1) && coord.Z > unknown_geometry_j + unknown_geometry_g * (cptr->unknown_11b - 2))) {
+            if (!(cptr->unknown_140 & 0x100) || (coord.Z <= unknown_geometry_j + unknown_geometry_g * (cptr->Height + 1) && coord.Z > unknown_geometry_j + unknown_geometry_g * (cptr->Height - 2))) {
                 if (warhead->Wall && (warhead == Rules->IonCannonWarhead || Random_Pick(1, Rules->unknown_13a8) < strength)) {
                     bool damaged = Map.Damage_Bridge(&cell);
                     int tries = 3;

@@ -178,7 +178,7 @@ void TemporalClass::AI()
         if(Owner->Techno_Type_Class()->Trainable) {
             TechnoTypeClass *target_type=Target->Techno_Type_Class();
             TechnoTypeClass *owner_type=Owner->Techno_Type_Class();
-            Owner->unknown_118.Made_A_Kill(owner_type->Cost_Of(Owner->House),target_type->Cost_Of(Target->House));
+            Owner->Veterancy.Made_A_Kill(owner_type->Cost_Of(Owner->House),target_type->Cost_Of(Target->House));
         }
         if(Target!=0) {
             if(Target->Kind_Of()==6) {
@@ -199,7 +199,7 @@ void TemporalClass::AI()
                 Target->unknown_slot216((int)Owner);
                 Target->Record_The_Kill(Owner);
                 Target->Delete_Me();
-                building->House->unknown_144=true;
+                building->House->IsRecalcNeeded=true;
             } else {
                 Target->unknown_slot216((int)Owner);
                 Target->Record_The_Kill(Owner);
@@ -265,7 +265,7 @@ void TemporalClass::Let_Go_Of_Target()
                 TechnoClass *building=Target;
                 building->House->RecalcPower=true;
                 unknown_temporal_thaw_0044d380((int)building);
-                building->House->unknown_144=true;
+                building->House->IsRecalcNeeded=true;
             }
             Target->Mark(2);
         }
@@ -477,7 +477,7 @@ void TemporalClass::Unknown_006E27B0(TechnoClass *target)
             TechnoClass *building=Target;
             building->House->RecalcPower=true;
             unknown_temporal_freeze_0044d320((int)building);
-            building->House->unknown_144=true;
+            building->House->IsRecalcNeeded=true;
         }
         Target->Mark(2);
         TemporalClass *target_link=(TemporalClass *)Target->TemporalImUsing;

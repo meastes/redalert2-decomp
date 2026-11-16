@@ -47,7 +47,7 @@ extern void const *VeinholeMonsterClass_MonsterShape;
 // The rules' vein node count per monster (RulesClass +0xD4).
 inline int Rules_Vein_Node_Count()
 {
-    return Rules->unknown_d4;
+    return Rules->MaxVeinholeGrowth;
 }
 
 // The vein nodes and their heap: shared/vein_heap.hpp.

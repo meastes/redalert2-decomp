@@ -646,7 +646,7 @@ public:
     int unknown_10c;                        // +0x10C
     int unknown_110;                        // +0x110 (-1)
     int unknown_114;                        // +0x114 (-1)
-    VeterancyClass unknown_118;          // +0x118
+    VeterancyClass Veterancy;          // +0x118
     double unknown_120;                     // +0x120 (1.0)
     double unknown_128;                     // +0x128 (1.0)
     CDTimerClass<FrameTimerClass> unknown_130;  // +0x130

@@ -232,7 +232,7 @@ bool TEventClass::unknown_func_6e6050(int event, HouseClass *house, ObjectClass 
             if (house->CurBuildings > 0) {
                 for (int index = 0; index < house->Buildings.Count(); index++) {
                     BuildingClass *ptr = house->Buildings[index];
-                    if (ptr != 0 && !ptr->unknown_76 && ptr->Type->Factory != 0) {
+                    if (ptr != 0 && !ptr->IsInLimbo && ptr->Type->Factory != 0) {
                         return false;
                     }
                 }
@@ -286,7 +286,7 @@ bool TEventClass::unknown_func_6e6050(int event, HouseClass *house, ObjectClass 
             if (!house->unknown_18b) return false;
             break;
         case 0x05:
-            if (!house->unknown_13c) return false;
+            if (!house->IsDiscovered) return false;
             break;
         case 0x0A:
             if (house->CurBuildings > 0) return false;

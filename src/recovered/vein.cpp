@@ -154,14 +154,14 @@ VeinholeMonsterClass::VeinholeMonsterClass(::Cell const *cell) :
         for (int y = -1; y <= 1; y++) {
             for (int x = -1; x <= 1; x++) {
                 CellClass *spot = &Map[*cell + ::Cell(x, y)];
-                spot->unknown_11c = unknown_veinhole_tiles_7f9508[y + 1][x + 1];
-                if (spot->unknown_11c > 0) {
-                    spot->IsoTileIndex = spot->unknown_11c + IsometricTileTypeClass_RampStart - 1;
+                spot->Ramp = unknown_veinhole_tiles_7f9508[y + 1][x + 1];
+                if (spot->Ramp > 0) {
+                    spot->IsoTileIndex = spot->Ramp + IsometricTileTypeClass_RampStart - 1;
                 } else {
                     spot->IsoTileIndex = 0;
                 }
-                spot->unknown_11a = 0;
-                spot->unknown_11b--;
+                spot->SubTile = 0;
+                spot->Height--;
             }
         }
     }
@@ -217,8 +217,8 @@ VeinholeMonsterClass::~VeinholeMonsterClass()
             }
         }
     }
-    unknown_76 = true;
-    unknown_74 = false;
+    IsInLimbo = true;
+    IsDown = false;
     if (Strength > 0) Detach_This_From_All(this, true);
     Clear_Growth();
     VeinholeMonsters.Delete(this);
@@ -448,12 +448,12 @@ void VeinholeMonsterClass::Draw_It()
         }
         Point2D drawpoint;
         TacticalMap->Coord_To_Pixel(coord, drawpoint);
-        int height = 15 * Map[CellID].unknown_11b;
+        int height = 15 * Map[CellID].Height;
         drawpoint.Y += -58 - height;
         TacticalMap->Add_To_Selectables(this, Point2D(drawpoint.X, TacticalRect.Y + drawpoint.Y + 58));
         ConvertClass *drawer = ColorSchemes[PlayerPtr->ColorSchemeIndex]->Converter;
         CC_Draw_Shape(LogicalSurface, drawer, (ShapeFileStruct const *)shape, frame, drawpoint, TacticalRect, 0x2e00, 0, -17 - height, 0,
-                      Map[coord].unknown_10c, 0, 0, Point2D(0, 0));
+                      Map[coord].TileBrightness, 0, 0, Point2D(0, 0));
     }
 }
 
@@ -518,7 +518,7 @@ bool __fastcall VeinholeMonsterClass::Can_Monster_Go_Here(::Cell const &cell)
             return false;
         }
     }
-    int level = Map[cell].unknown_11b;
+    int level = Map[cell].Height;
     if (level < 1) {
         return false;
     }
@@ -526,7 +526,7 @@ bool __fastcall VeinholeMonsterClass::Can_Monster_Go_Here(::Cell const &cell)
         for (int x = -1; x <= 1; x++) {
             ::Cell neighbor = ::Cell(cell.X + x, cell.Y + y);
             CellClass *near_cell = &Map[neighbor];
-            if (near_cell->unknown_11c || near_cell->unknown_ec != 0 || near_cell->unknown_11b != level) {
+            if (near_cell->Ramp || near_cell->unknown_ec != 0 || near_cell->Height != level) {
                 return false;
             }
         }
@@ -604,7 +604,7 @@ void VeinholeMonsterClass::Grow()
                     continue;
                 }
                 CellClass *adjacent = &Map[spot];
-                if (abs(adjacent->unknown_11b - cell->unknown_11b) >= 2) {
+                if (abs(adjacent->Height - cell->Height) >= 2) {
                     continue;
                 }
                 int index = Map_Cell_Index(spot);
@@ -969,7 +969,7 @@ bool __fastcall VeinholeMonsterClass::Load_All(IStream *stream)
         }
         monster->GrowthState = state;
 
-        if (FAILED(stream->Read(nodes, sizeof(UnknownVeinNode) * Rules->unknown_d4, 0))) {
+        if (FAILED(stream->Read(nodes, sizeof(UnknownVeinNode) * Rules->MaxVeinholeGrowth, 0))) {
             return false;
         }
         monster->GrowthNodes = nodes;
@@ -1018,7 +1018,7 @@ bool __fastcall VeinholeMonsterClass::Save_All(IStream *stream)
             return false;
         }
 
-        if (FAILED(stream->Write(VeinholeMonsters[i]->GrowthNodes, sizeof(UnknownVeinNode) * Rules->unknown_d4, 0))) {
+        if (FAILED(stream->Write(VeinholeMonsters[i]->GrowthNodes, sizeof(UnknownVeinNode) * Rules->MaxVeinholeGrowth, 0))) {
             return false;
         }
 
@@ -1099,7 +1099,7 @@ void VeinholeMonsterClass::Reduce_Veins_At(CellClass *cellptr)
                 GrowthState[cindex] = false;
                 GlobalGrowthState[cindex] = false;
             } else if (!IsDead) {
-                if (GrowthCount < Rules->unknown_d4) {
+                if (GrowthCount < Rules->MaxVeinholeGrowth) {
                     GrowthNodes[GrowthCount].Position = cell;
                     GrowthNodes[GrowthCount].Key = float(Frame / 50 + abs(unknown_id_source_a3d290->Random()() % 50) + 1);
                     GrowthQueue->Insert(&GrowthNodes[GrowthCount++]);

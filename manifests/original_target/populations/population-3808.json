@@ -4,8 +4,8 @@
     "id": "population-3808",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "f9bb84931d6f8b80c8b80e155692c01b72c0d51eb45a0a591d0f9c6fec98faee",
-    "historical_acceptance_sha256": "615b822b9ec098e92ec5a47bd581d1173de9da4003dfa4c767119c49f301da6a"
+    "historical_population_sha256": "edff9aaa48b6fd0725d747c4a5364917edddf8d42edf144cbe30055e4ff04498",
+    "historical_acceptance_sha256": "874d46d34d896bc40dd5260a6a43469ef58e400f0831a7e6529cb283cd28c411"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -4390,7 +4390,20 @@
     "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
     "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
     "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
-    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
+    "?Layer@DriveLocomotionClass@@UAGHXZ": 4868064,
+    "?Layer@DropPodLocomotionClass@@UAGHXZ": 4875344,
+    "?Layer@MechLocomotionClass@@UAGHXZ": 5845392,
+    "?Layer@RocketLocomotionClass@@UAGHXZ": 6548464,
+    "?Layer@ShipLocomotionClass@@UAGHXZ": 6793008,
+    "?Layer@TeleportLocomotionClass@@UAGHXZ": 7215344,
+    "?Layer@WalkLocomotionClass@@UAGHXZ": 7469728,
+    "?Layer@FlyLocomotionClass@@UAGHXZ": 4977776,
+    "?Layer@HoverLocomotionClass@@UAGHXZ": 5238032,
+    "?Layer@DisplayClass@@2PAVLayerClass@@A": 8725880,
+    "?Layer@TunnelLocomotionClass@@UAGHXZ": 7279424,
+    "?Info@AudioSource@@QAEPAUAudioSourceInfo@@XZ": 4228160,
+    "?Layer@JumpjetLocomotionClass@@UAGHXZ": 5438480
   },
   "regions": [
     {
@@ -4420,7 +4433,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -4455,7 +4468,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -4490,7 +4503,7 @@
           "resolved": 11340400
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -4589,7 +4602,7 @@
           "resolved": 19932
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -4633,7 +4646,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -4692,7 +4705,7 @@
           "resolved": 18781
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -4767,7 +4780,7 @@
           "resolved": 18665
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -4986,7 +4999,7 @@
           "resolved": 11406816
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -5133,7 +5146,7 @@
           "resolved": 11415552
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -5304,7 +5317,7 @@
           "resolved": 11406512
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -5347,7 +5360,7 @@
           "resolved": 11416584
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -5382,7 +5395,7 @@
           "resolved": 11340400
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -5697,7 +5710,7 @@
           "resolved": 424015
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -6012,7 +6025,7 @@
           "resolved": 423522
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -6063,7 +6076,7 @@
           "resolved": 11416329
         }
       ],
-      "source_sha256": "2112297404229cbbc3fdfcbcfcc018934e2c5582e238634f36a11aa5be736493",
+      "source_sha256": "2fdbec4d4861dd60550bb8ebf2d90667e8b2e6cf54f71b1a51aeebc1ff0d8c4d",
       "source": "src/recovered/voxdrsys.cpp",
       "population": "population-3808",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

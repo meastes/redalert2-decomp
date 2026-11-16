@@ -236,11 +236,11 @@ bool AITriggerTypeClass::Is_Ready(HouseClass *house, HouseClass *enemy, bool unk
         return false;
     }
     if (unknown_ac == 1) {
-        if (house->unknown_130 != 0) {
+        if (house->ActLike != 0) {
             return false;
         }
     } else if (unknown_ac == 2) {
-        if (house->unknown_130 != 1) {
+        if (house->ActLike != 1) {
             return false;
         }
     }

@@ -78,7 +78,7 @@ public:
     double unknown_a0;                              // +0x0A0 [SpreadPercentage] (0.1)
     int Growth;                                     // +0x0A8 frames between growths
     int unknown_ac;                                 // +0x0AC
-    double unknown_b0;                              // +0x0B0 [GrowthPercentage] (0.1)
+    double GrowthPercentage;                              // +0x0B0 [GrowthPercentage] (0.1)
     int Value;                                      // +0x0B8 (credits per stage; hypothesis)
     int Power;                                      // +0x0BC
     int unknown_c0;                                 // +0x0C0 [Color] (a colour scheme index)

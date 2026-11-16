@@ -4,8 +4,8 @@
     "id": "population-2332",
     "inventory_sha256": "76cc31bf2121336622675c652515b2450ff2311f3d67e038eecacdf30bb105dc",
     "gaps_sha256": "7073f14aea03992e6b55d6f6168945149e7932a55137855bd291b5e4fd7f09c5",
-    "historical_population_sha256": "d6c997dca32d471ccc0096b46e1bae1114f1b1cf8d261a7d686f0b2074050c27",
-    "historical_acceptance_sha256": "eae4470766171bc4b13bc50c0c0995762158f64ca4b366ae5391401623bbac9c",
+    "historical_population_sha256": "4da44457d1501f695d8d12afa5d554f4d02682bfc6ceb7c6d8f0b3361e610a5d",
+    "historical_acceptance_sha256": "41da7073d2f84c63c173ccd2e342464cabfb96b9907fa574368facfc4fdc1736",
     "separate_units": true
   },
   "references": {
@@ -8187,7 +8187,17 @@
     "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
     "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
     "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
-    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "?Set_Position@TagClass@@QAEXVCell@@@Z": 7028624,
+    "?Which_Column@seed_00681940@@YIIHHH@Z": 6822208,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Cheer@InfantryClass@@UAEXXZ": 5281456,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Play_Ingame_Movie@@YIXH_N@Z": 5900576,
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
+    "?Unknown_005689D0@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376
   },
   "regions": [
     {
@@ -8290,7 +8300,7 @@
           "resolved": 4293529313
         }
       ],
-      "source_sha256": "be06c4864e204877cee83eef0d40596c510b1b2a60e5eed5a06f5a7c09dbe37c",
+      "source_sha256": "9d3bdfb039981ce20e5c745983fa33a1fc1c906ac698f00bc60c45b500eab264",
       "source": "src/recovered/classes/Tactical/Get_Cell_Ramp.cpp",
       "population": "population-2332",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",

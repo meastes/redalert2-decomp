@@ -270,7 +270,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
                         ((CaptureManagerClass *)capture)->Draw_Link();
                     }
                 }
-            } else if (Unknown_004386F0(techno) && techno != 0 && techno->AbstractFlags.IsFoot && !techno->unknown_76 /* NATIVE: RA2_OBJECT_IS_FOOT inline spelled out (techno is non-null here) */) {
+            } else if (Unknown_004386F0(techno) && techno != 0 && techno->AbstractFlags.IsFoot && !techno->IsInLimbo /* NATIVE: RA2_OBJECT_IS_FOOT inline spelled out (techno is non-null here) */) {
                 Unknown_004CAB90(techno);
             }
         }

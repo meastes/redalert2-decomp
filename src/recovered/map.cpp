@@ -520,7 +520,7 @@ void MapClass::unknown_slot23()
     for (index = 0; index < Cells.Length(); index++) {
         CellClass *cell = Cells[index];
         if (cell != 0) {
-            cell->unknown_2c = 0;
+            cell->BridgeDeckCell = 0;
             cell->unknown_30 = 0;
         }
     }
@@ -604,7 +604,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         if (!In_Radar(Cell(i % 512, i / 512))) {
             CellClass *c = Cells[i];
             if (c != 0) {
-                c->unknown_11b = cell_height;
+                c->Height = cell_height;
             }
         }
     }
@@ -620,7 +620,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         cell = cptr->Fetch_CellID();
         while (cptr != 0) {
             cells_base[cellcount] = *cptr;
-            cells_base[cellcount].unknown_2c = 0;
+            cells_base[cellcount].BridgeDeckCell = 0;
             cells_base[cellcount].unknown_30 = 0;
             cptr = Iterate();
             cellcount++;
@@ -659,7 +659,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
                     c = new(c) CellClass;
                     c->Set_CellID(cell);
                 }
-                Cells[idx]->unknown_11b = cell_height;
+                Cells[idx]->Height = cell_height;
             }
         }
     }
@@ -703,10 +703,10 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
                 Cells[cellindex] = new CellClass;
                 Cells[cellindex]->Set_CellID(c);
                 Cells[cellindex]->IsoTileIndex = 0xFFFF;
-                Cells[cellindex]->unknown_11a = 0;
-                Cells[cellindex]->unknown_11c = 0;
+                Cells[cellindex]->SubTile = 0;
+                Cells[cellindex]->Ramp = 0;
                 Cells[cellindex]->OverlayIndex = -1;
-                Cells[cellindex]->unknown_11b = cell_height;
+                Cells[cellindex]->Height = cell_height;
             }
             cptr = Iterate();
         }
@@ -774,7 +774,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         Reset_Iterator();
         cptr = Iterate();
         while (cptr != 0) {
-            if (cptr->IsBridgeDeck && cptr->unknown_2c == 0) {
+            if (cptr->IsBridgeDeck && cptr->BridgeDeckCell == 0) {
                 unsigned facing = !cptr->IsBridgeEastWest * 2;
                 if (cptr->OverlayIndex == 0x18 || cptr->OverlayIndex == 0x19) {
                     cptr->Set_Under_Bridge(facing, true);
@@ -966,7 +966,7 @@ void MapClass::RevealArea1(CoordStruct const &xcoord, int sightrange, HouseClass
         bool ok = false;
         CellClass *cellptr = &(*this)[newcell];
         if (byheight && Rules->RevealByHeight) {
-            if (Map[newcell - hoffset + *ptr2].unknown_11b <= cell_height + 3) {
+            if (Map[newcell - hoffset + *ptr2].Height <= cell_height + 3) {
                 ok = true;
             }
         } else {
@@ -1071,7 +1071,7 @@ void MapClass::Sight_From(CoordStruct const &xcoord, int sightrange, HouseClass 
         bool ok = false;
         CellClass *cellptr = &(*this)[newcell];
         if (byheight && Rules->RevealByHeight) {
-            if (Map[newcell - hoffset + *ptr2].unknown_11b <= cell_height + 3) {
+            if (Map[newcell - hoffset + *ptr2].Height <= cell_height + 3) {
                 ok = true;
             }
         } else {
@@ -1469,25 +1469,25 @@ void MapClass::Repair_High_Bridge_Span_0054b560(CellClass *start, FacingType dir
         cursor = &Map[next];
         int tile = cursor->IsoTileIndex - IsometricTileTypeClass_BridgeSet + 1;
         if (direction == 2) {
-            if (tile == IsometricTileTypeClass_BridgeBottomRight1 && cursor->unknown_11a == 4) {
+            if (tile == IsometricTileTypeClass_BridgeBottomRight1 && cursor->SubTile == 4) {
                 Set_Bridge_End_State(last, false, false);
                 zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 6));
                 break;
             }
-            if (tile == IsometricTileTypeClass_BridgeBottomRight2 && cursor->unknown_11a == 4) {
+            if (tile == IsometricTileTypeClass_BridgeBottomRight2 && cursor->SubTile == 4) {
                 Set_Bridge_End_State(last, false, false);
                 zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 6));
                 break;
             }
             if ((tile == IsometricTileTypeClass_BridgeMiddle1 || tile == IsometricTileTypeClass_BridgeMiddle1 + 3 ||
                  tile == IsometricTileTypeClass_BridgeMiddle1 + 4 || tile == IsometricTileTypeClass_BridgeMiddle1 + 1 ||
-                 tile == IsometricTileTypeClass_BridgeMiddle1 + 2) && cursor->unknown_11a == 4) {
+                 tile == IsometricTileTypeClass_BridgeMiddle1 + 2) && cursor->SubTile == 4) {
                 Set_Bridge_Middle_State(last, IsometricTileTypeClass_BridgeMiddle1 - 1 + IsometricTileTypeClass_BridgeSet, -1, -1, false);
                 zones_changed |= Register_Subzone_Connections(last);
                 if (tile == IsometricTileTypeClass_BridgeMiddle1 + 4) {
-                    Map[last].unknown_11b += 4;
-                    Map[Adjacent_Cell(last, 0)].unknown_11b += 4;
-                    Map[Adjacent_Cell(last, 4)].unknown_11b += 4;
+                    Map[last].Height += 4;
+                    Map[Adjacent_Cell(last, 0)].Height += 4;
+                    Map[Adjacent_Cell(last, 4)].Height += 4;
                     for (int x = 0; x < 2; ++x) {
                         for (int y = -2; y < 3; ++y) {
                             changed.Add(Cell(last + Cell(x, y)));
@@ -1496,25 +1496,25 @@ void MapClass::Repair_High_Bridge_Span_0054b560(CellClass *start, FacingType dir
                 }
             }
         } else if (direction == 4) {
-            if (tile == IsometricTileTypeClass_BridgeBottomLeft1 && cursor->unknown_11a == 2) {
+            if (tile == IsometricTileTypeClass_BridgeBottomLeft1 && cursor->SubTile == 2) {
                 Set_Bridge_End_State(last, false, false);
                 zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 0));
                 break;
             }
-            if (tile == IsometricTileTypeClass_BridgeBottomLeft2 && cursor->unknown_11a == 2) {
+            if (tile == IsometricTileTypeClass_BridgeBottomLeft2 && cursor->SubTile == 2) {
                 Set_Bridge_End_State(last, false, false);
                 zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 0));
                 break;
             }
             if ((tile == IsometricTileTypeClass_BridgeMiddle2 || tile == IsometricTileTypeClass_BridgeMiddle2 + 3 ||
                  tile == IsometricTileTypeClass_BridgeMiddle2 + 4 || tile == IsometricTileTypeClass_BridgeMiddle2 + 2 ||
-                 tile == IsometricTileTypeClass_BridgeMiddle2 + 1) && cursor->unknown_11a == 2) {
+                 tile == IsometricTileTypeClass_BridgeMiddle2 + 1) && cursor->SubTile == 2) {
                 Set_Bridge_Middle_State(last, IsometricTileTypeClass_BridgeSet - 1 + IsometricTileTypeClass_BridgeMiddle2, -1, -1, false);
                 zones_changed |= Register_Subzone_Connections(last);
                 if (tile == IsometricTileTypeClass_BridgeMiddle2 + 4) {
-                    Map[last].unknown_11b += 4;
-                    Map[Adjacent_Cell(last, 2)].unknown_11b += 4;
-                    Map[Adjacent_Cell(last, 6)].unknown_11b += 4;
+                    Map[last].Height += 4;
+                    Map[Adjacent_Cell(last, 2)].Height += 4;
+                    Map[Adjacent_Cell(last, 6)].Height += 4;
                     for (int y = 0; y < 2; ++y) {
                         for (int x = -2; x < 3; ++x) {
                             changed.Add(Cell(last + Cell(x, y)));
@@ -1528,7 +1528,7 @@ void MapClass::Repair_High_Bridge_Span_0054b560(CellClass *start, FacingType dir
     if (length == 30) return;
     cursor = &Map[start->Fetch_CellID()];
     if (dirty) {
-        CoordStruct coord(start->Fetch_CellID(), unknown_geometry_g * start->unknown_11b);
+        CoordStruct coord(start->Fetch_CellID(), unknown_geometry_g * start->Height);
         Point2D pixel;
         TacticalMap->Coord_To_Pixel(coord, pixel);
         dirty->X = pixel.X;
@@ -1538,8 +1538,8 @@ void MapClass::Repair_High_Bridge_Span_0054b560(CellClass *start, FacingType dir
         int remaining = length;
         do {
             int tile = cursor->IsoTileIndex - IsometricTileTypeClass_BridgeSet + 1;
-            if ((tile != IsometricTileTypeClass_BridgeMiddle1 || (cursor->unknown_11a & 1)) &&
-                (tile != IsometricTileTypeClass_BridgeMiddle2 || (unsigned char)cursor->unknown_11a >= 5)) {
+            if ((tile != IsometricTileTypeClass_BridgeMiddle1 || (cursor->SubTile & 1)) &&
+                (tile != IsometricTileTypeClass_BridgeMiddle2 || (unsigned char)cursor->SubTile >= 5)) {
                 if (direction == 2) new OverlayClass(OverlayTypes[24], cursor->Fetch_CellID(), -1);
                 else new OverlayClass(OverlayTypes[25], cursor->Fetch_CellID(), -1);
             }
@@ -1550,7 +1550,7 @@ void MapClass::Repair_High_Bridge_Span_0054b560(CellClass *start, FacingType dir
         } while (remaining);
     }
     if (dirty) {
-        CoordStruct coord(last, unknown_geometry_g * Map[last].unknown_11b);
+        CoordStruct coord(last, unknown_geometry_g * Map[last].Height);
         Point2D pixel;
         TacticalMap->Coord_To_Pixel(coord, pixel);
         int original_x = dirty->X;
@@ -1591,25 +1591,25 @@ void MapClass::Repair_Train_Bridge_Span_0054be80(CellClass *start, FacingType di
         cursor = &Map[next];
         int tile = cursor->IsoTileIndex - IsometricTileTypeClass_TrainBridgeSet + 1;
         if (direction == 2) {
-            if (tile == IsometricTileTypeClass_BridgeBottomRight1 && cursor->unknown_11a == 4) {
+            if (tile == IsometricTileTypeClass_BridgeBottomRight1 && cursor->SubTile == 4) {
                 Set_Bridge_End_State(last, false, false);
                 zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 6));
                 break;
             }
-            if (tile == IsometricTileTypeClass_BridgeBottomRight2 && cursor->unknown_11a == 4) {
+            if (tile == IsometricTileTypeClass_BridgeBottomRight2 && cursor->SubTile == 4) {
                 Set_Bridge_End_State(last, false, false);
                 zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 6));
                 break;
             }
             if ((tile == IsometricTileTypeClass_BridgeMiddle1 || tile == IsometricTileTypeClass_BridgeMiddle1 + 3 ||
                  tile == IsometricTileTypeClass_BridgeMiddle1 + 4 || tile == IsometricTileTypeClass_BridgeMiddle1 + 1 ||
-                 tile == IsometricTileTypeClass_BridgeMiddle1 + 2) && cursor->unknown_11a == 4) {
+                 tile == IsometricTileTypeClass_BridgeMiddle1 + 2) && cursor->SubTile == 4) {
                 Set_Bridge_Middle_State(last, IsometricTileTypeClass_BridgeMiddle1 - 1 + IsometricTileTypeClass_TrainBridgeSet, -1, -1, false);
                 zones_changed |= Register_Subzone_Connections(last);
                 if (tile == IsometricTileTypeClass_BridgeMiddle1 + 4) {
-                    Map[last].unknown_11b += 4;
-                    Map[Adjacent_Cell(last, 0)].unknown_11b += 4;
-                    Map[Adjacent_Cell(last, 4)].unknown_11b += 4;
+                    Map[last].Height += 4;
+                    Map[Adjacent_Cell(last, 0)].Height += 4;
+                    Map[Adjacent_Cell(last, 4)].Height += 4;
                     for (int x = 0; x < 2; ++x) {
                         for (int y = -2; y < 3; ++y) {
                             changed.Add(Cell(last + Cell(x, y)));
@@ -1618,25 +1618,25 @@ void MapClass::Repair_Train_Bridge_Span_0054be80(CellClass *start, FacingType di
                 }
             }
         } else if (direction == 4) {
-            if (tile == IsometricTileTypeClass_BridgeBottomLeft1 && cursor->unknown_11a == 2) {
+            if (tile == IsometricTileTypeClass_BridgeBottomLeft1 && cursor->SubTile == 2) {
                 Set_Bridge_End_State(last, false, false);
                 zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 0));
                 break;
             }
-            if (tile == IsometricTileTypeClass_BridgeBottomLeft2 && cursor->unknown_11a == 2) {
+            if (tile == IsometricTileTypeClass_BridgeBottomLeft2 && cursor->SubTile == 2) {
                 Set_Bridge_End_State(last, false, false);
                 zones_changed |= Register_Subzone_Connections(Adjacent_Cell(last, 0));
                 break;
             }
             if ((tile == IsometricTileTypeClass_BridgeMiddle2 || tile == IsometricTileTypeClass_BridgeMiddle2 + 3 ||
                  tile == IsometricTileTypeClass_BridgeMiddle2 + 4 || tile == IsometricTileTypeClass_BridgeMiddle2 + 2 ||
-                 tile == IsometricTileTypeClass_BridgeMiddle2 + 1) && cursor->unknown_11a == 2) {
+                 tile == IsometricTileTypeClass_BridgeMiddle2 + 1) && cursor->SubTile == 2) {
                 Set_Bridge_Middle_State(last, IsometricTileTypeClass_TrainBridgeSet - 1 + IsometricTileTypeClass_BridgeMiddle2, -1, -1, false);
                 zones_changed |= Register_Subzone_Connections(last);
                 if (tile == IsometricTileTypeClass_BridgeMiddle2 + 4) {
-                    Map[last].unknown_11b += 4;
-                    Map[Adjacent_Cell(last, 2)].unknown_11b += 4;
-                    Map[Adjacent_Cell(last, 6)].unknown_11b += 4;
+                    Map[last].Height += 4;
+                    Map[Adjacent_Cell(last, 2)].Height += 4;
+                    Map[Adjacent_Cell(last, 6)].Height += 4;
                     for (int y = 0; y < 2; ++y) {
                         for (int x = -2; x < 3; ++x) {
                             changed.Add(Cell(last + Cell(x, y)));
@@ -1650,7 +1650,7 @@ void MapClass::Repair_Train_Bridge_Span_0054be80(CellClass *start, FacingType di
     if (length == 30) return;
     cursor = &Map[start->Fetch_CellID()];
     if (dirty) {
-        CoordStruct coord(start->Fetch_CellID(), unknown_geometry_g * start->unknown_11b);
+        CoordStruct coord(start->Fetch_CellID(), unknown_geometry_g * start->Height);
         Point2D pixel;
         TacticalMap->Coord_To_Pixel(coord, pixel);
         dirty->X = pixel.X;
@@ -1660,8 +1660,8 @@ void MapClass::Repair_Train_Bridge_Span_0054be80(CellClass *start, FacingType di
         int remaining = length;
         do {
             int tile = cursor->IsoTileIndex - IsometricTileTypeClass_TrainBridgeSet + 1;
-            if ((tile != IsometricTileTypeClass_BridgeMiddle1 || (cursor->unknown_11a & 1)) &&
-                (tile != IsometricTileTypeClass_BridgeMiddle2 || (unsigned char)cursor->unknown_11a >= 5)) {
+            if ((tile != IsometricTileTypeClass_BridgeMiddle1 || (cursor->SubTile & 1)) &&
+                (tile != IsometricTileTypeClass_BridgeMiddle2 || (unsigned char)cursor->SubTile >= 5)) {
                 if (direction == 2) new OverlayClass(OverlayTypes[237], cursor->Fetch_CellID(), -1);
                 else new OverlayClass(OverlayTypes[238], cursor->Fetch_CellID(), -1);
             }
@@ -1672,7 +1672,7 @@ void MapClass::Repair_Train_Bridge_Span_0054be80(CellClass *start, FacingType di
         } while (remaining);
     }
     if (dirty) {
-        CoordStruct coord(last, unknown_geometry_g * Map[last].unknown_11b);
+        CoordStruct coord(last, unknown_geometry_g * Map[last].Height);
         Point2D pixel;
         TacticalMap->Coord_To_Pixel(coord, pixel);
         int original_x = dirty->X;
@@ -1703,33 +1703,33 @@ void MapClass::Repair_All_High_Bridges_0054c7a0()
             if (!Has_Cell(cell)) continue;
             CellClass *piece = &Map[cell];
             int tile = piece->IsoTileIndex - IsometricTileTypeClass_BridgeSet + 1;
-            if ((tile == IsometricTileTypeClass_BridgeTopLeft1 || tile == IsometricTileTypeClass_BridgeTopLeft2) && piece->unknown_11a == 8) {
+            if ((tile == IsometricTileTypeClass_BridgeTopLeft1 || tile == IsometricTileTypeClass_BridgeTopLeft2) && piece->SubTile == 8) {
                 Repair_High_Bridge_Span_0054b560(piece, FACING_E, 0);
             }
             if ((tile == IsometricTileTypeClass_BridgeMiddle1 || tile == IsometricTileTypeClass_BridgeMiddle1 + 3 ||
                  tile == IsometricTileTypeClass_BridgeMiddle1 + 4 || tile == IsometricTileTypeClass_BridgeMiddle1 + 1 ||
-                 tile == IsometricTileTypeClass_BridgeMiddle1 + 2) && piece->unknown_11a == 5) {
+                 tile == IsometricTileTypeClass_BridgeMiddle1 + 2) && piece->SubTile == 5) {
                 if (tile == IsometricTileTypeClass_BridgeMiddle1 + 4) {
                     Set_Bridge_Middle_State(cell, IsometricTileTypeClass_BridgeMiddle1 - 1 + IsometricTileTypeClass_BridgeSet, -1, -1, false);
                     Cell const &base = Adjacent_Cell(cell, FACING_W);
-                    Map[base].unknown_11b += 4;
-                    Map[Adjacent_Cell(base, FACING_N)].unknown_11b += 4;
-                    Map[Adjacent_Cell(base, FACING_S)].unknown_11b += 4;
+                    Map[base].Height += 4;
+                    Map[Adjacent_Cell(base, FACING_N)].Height += 4;
+                    Map[Adjacent_Cell(base, FACING_S)].Height += 4;
                 }
                 Repair_High_Bridge_Span_0054b560(piece, FACING_E, 0);
             }
-            if ((tile == IsometricTileTypeClass_BridgeTopRight1 || tile == IsometricTileTypeClass_BridgeTopRight2) && piece->unknown_11a == 12) {
+            if ((tile == IsometricTileTypeClass_BridgeTopRight1 || tile == IsometricTileTypeClass_BridgeTopRight2) && piece->SubTile == 12) {
                 Repair_High_Bridge_Span_0054b560(piece, FACING_S, 0);
             }
             if ((tile == IsometricTileTypeClass_BridgeMiddle2 || tile == IsometricTileTypeClass_BridgeMiddle2 + 3 ||
                  tile == IsometricTileTypeClass_BridgeMiddle2 + 4 || tile == IsometricTileTypeClass_BridgeMiddle2 + 2 ||
-                 tile == IsometricTileTypeClass_BridgeMiddle2 + 1) && piece->unknown_11a == 7) {
+                 tile == IsometricTileTypeClass_BridgeMiddle2 + 1) && piece->SubTile == 7) {
                 if (tile == IsometricTileTypeClass_BridgeMiddle2 + 4) {
                     Set_Bridge_Middle_State(cell, IsometricTileTypeClass_BridgeMiddle2 - 1 + IsometricTileTypeClass_BridgeSet, -1, -1, false);
                     Cell const &base = Adjacent_Cell(cell, FACING_N);
-                    Map[base].unknown_11b += 4;
-                    Map[Adjacent_Cell(base, FACING_E)].unknown_11b += 4;
-                    Map[Adjacent_Cell(base, FACING_W)].unknown_11b += 4;
+                    Map[base].Height += 4;
+                    Map[Adjacent_Cell(base, FACING_E)].Height += 4;
+                    Map[Adjacent_Cell(base, FACING_W)].Height += 4;
                 }
                 Repair_High_Bridge_Span_0054b560(piece, FACING_S, 0);
             }
@@ -1759,38 +1759,38 @@ void MapClass::Repair_High_Bridge_From_Cell_0054cbe0(Cell const &origin)
                 cell.Y < unknown_124 || cell.Y > unknown_124 + unknown_12c || !Has_Cell(cell)) continue;
                 CellClass *piece = &Map[cell];
                 int tile = piece->IsoTileIndex - IsometricTileTypeClass_BridgeSet + 1;
-                if ((tile == IsometricTileTypeClass_BridgeTopLeft1 || tile == IsometricTileTypeClass_BridgeTopLeft2) && piece->unknown_11a == 8) {
+                if ((tile == IsometricTileTypeClass_BridgeTopLeft1 || tile == IsometricTileTypeClass_BridgeTopLeft2) && piece->SubTile == 8) {
                     Set_Bridge_End_State(cell, false, false);
                     Repair_High_Bridge_Span_0054b560(piece, FACING_E, 0);
                     return;
                 }
                 if ((tile == IsometricTileTypeClass_BridgeMiddle1 || tile == IsometricTileTypeClass_BridgeMiddle1 + 3 ||
                 tile == IsometricTileTypeClass_BridgeMiddle1 + 4 || tile == IsometricTileTypeClass_BridgeMiddle1 + 1 ||
-                tile == IsometricTileTypeClass_BridgeMiddle1 + 2) && piece->unknown_11a == 5) {
+                tile == IsometricTileTypeClass_BridgeMiddle1 + 2) && piece->SubTile == 5) {
                     if (tile == IsometricTileTypeClass_BridgeMiddle1 + 4) {
                         Set_Bridge_Middle_State(cell, IsometricTileTypeClass_BridgeMiddle1 - 1 + IsometricTileTypeClass_BridgeSet, -1, -1, false);
                         Cell const &base = Adjacent_Cell(cell, FACING_W);
-                        Map[base].unknown_11b += 4;
-                        Map[Adjacent_Cell(base, FACING_N)].unknown_11b += 4;
-                        Map[Adjacent_Cell(base, FACING_S)].unknown_11b += 4;
+                        Map[base].Height += 4;
+                        Map[Adjacent_Cell(base, FACING_N)].Height += 4;
+                        Map[Adjacent_Cell(base, FACING_S)].Height += 4;
                     }
                     Repair_High_Bridge_Span_0054b560(piece, FACING_E, 0);
                     return;
                 }
-                if ((tile == IsometricTileTypeClass_BridgeTopRight1 || tile == IsometricTileTypeClass_BridgeTopRight2) && piece->unknown_11a == 12) {
+                if ((tile == IsometricTileTypeClass_BridgeTopRight1 || tile == IsometricTileTypeClass_BridgeTopRight2) && piece->SubTile == 12) {
                     Set_Bridge_End_State(cell, false, false);
                     Repair_High_Bridge_Span_0054b560(piece, FACING_S, 0);
                     return;
                 }
                 if ((tile == IsometricTileTypeClass_BridgeMiddle2 || tile == IsometricTileTypeClass_BridgeMiddle2 + 3 ||
                 tile == IsometricTileTypeClass_BridgeMiddle2 + 4 || tile == IsometricTileTypeClass_BridgeMiddle2 + 2 ||
-                tile == IsometricTileTypeClass_BridgeMiddle2 + 1) && piece->unknown_11a == 7) {
+                tile == IsometricTileTypeClass_BridgeMiddle2 + 1) && piece->SubTile == 7) {
                     if (tile == IsometricTileTypeClass_BridgeMiddle2 + 4) {
                         Set_Bridge_Middle_State(cell, IsometricTileTypeClass_BridgeMiddle2 - 1 + IsometricTileTypeClass_BridgeSet, -1, -1, false);
                         Cell const &base = Adjacent_Cell(cell, FACING_N);
-                        Map[base].unknown_11b += 4;
-                        Map[Adjacent_Cell(base, FACING_E)].unknown_11b += 4;
-                        Map[Adjacent_Cell(base, FACING_W)].unknown_11b += 4;
+                        Map[base].Height += 4;
+                        Map[Adjacent_Cell(base, FACING_E)].Height += 4;
+                        Map[Adjacent_Cell(base, FACING_W)].Height += 4;
                     }
                     Repair_High_Bridge_Span_0054b560(piece, FACING_S, 0);
                     return;
@@ -1823,38 +1823,38 @@ void MapClass::Repair_Train_Bridge_From_Cell_0054d0a0(Cell const &origin)
                 cell.Y < unknown_124 || cell.Y > unknown_124 + unknown_12c || !Has_Cell(cell)) continue;
                 CellClass *piece = &Map[cell];
                 int tile = piece->IsoTileIndex - IsometricTileTypeClass_TrainBridgeSet + 1;
-                if ((tile == IsometricTileTypeClass_BridgeTopLeft1 || tile == IsometricTileTypeClass_BridgeTopLeft2) && piece->unknown_11a == 8) {
+                if ((tile == IsometricTileTypeClass_BridgeTopLeft1 || tile == IsometricTileTypeClass_BridgeTopLeft2) && piece->SubTile == 8) {
                     Set_Bridge_End_State(cell, false, false);
                     Repair_Train_Bridge_Span_0054be80(piece, FACING_E, 0);
                     return;
                 }
                 if ((tile == IsometricTileTypeClass_BridgeMiddle1 || tile == IsometricTileTypeClass_BridgeMiddle1 + 3 ||
                 tile == IsometricTileTypeClass_BridgeMiddle1 + 4 || tile == IsometricTileTypeClass_BridgeMiddle1 + 1 ||
-                tile == IsometricTileTypeClass_BridgeMiddle1 + 2) && piece->unknown_11a == 5) {
+                tile == IsometricTileTypeClass_BridgeMiddle1 + 2) && piece->SubTile == 5) {
                     if (tile == IsometricTileTypeClass_BridgeMiddle1 + 4) {
                         Set_Bridge_Middle_State(cell, IsometricTileTypeClass_BridgeMiddle1 - 1 + IsometricTileTypeClass_TrainBridgeSet, -1, -1, false);
                         Cell const &base = Adjacent_Cell(cell, FACING_W);
-                        Map[base].unknown_11b += 4;
-                        Map[Adjacent_Cell(base, FACING_N)].unknown_11b += 4;
-                        Map[Adjacent_Cell(base, FACING_S)].unknown_11b += 4;
+                        Map[base].Height += 4;
+                        Map[Adjacent_Cell(base, FACING_N)].Height += 4;
+                        Map[Adjacent_Cell(base, FACING_S)].Height += 4;
                     }
                     Repair_Train_Bridge_Span_0054be80(piece, FACING_E, 0);
                     return;
                 }
-                if ((tile == IsometricTileTypeClass_BridgeTopRight1 || tile == IsometricTileTypeClass_BridgeTopRight2) && piece->unknown_11a == 12) {
+                if ((tile == IsometricTileTypeClass_BridgeTopRight1 || tile == IsometricTileTypeClass_BridgeTopRight2) && piece->SubTile == 12) {
                     Set_Bridge_End_State(cell, false, false);
                     Repair_Train_Bridge_Span_0054be80(piece, FACING_S, 0);
                     return;
                 }
                 if ((tile == IsometricTileTypeClass_BridgeMiddle2 || tile == IsometricTileTypeClass_BridgeMiddle2 + 3 ||
                 tile == IsometricTileTypeClass_BridgeMiddle2 + 4 || tile == IsometricTileTypeClass_BridgeMiddle2 + 2 ||
-                tile == IsometricTileTypeClass_BridgeMiddle2 + 1) && piece->unknown_11a == 7) {
+                tile == IsometricTileTypeClass_BridgeMiddle2 + 1) && piece->SubTile == 7) {
                     if (tile == IsometricTileTypeClass_BridgeMiddle2 + 4) {
                         Set_Bridge_Middle_State(cell, IsometricTileTypeClass_BridgeMiddle2 - 1 + IsometricTileTypeClass_TrainBridgeSet, -1, -1, false);
                         Cell const &base = Adjacent_Cell(cell, FACING_N);
-                        Map[base].unknown_11b += 4;
-                        Map[Adjacent_Cell(base, FACING_E)].unknown_11b += 4;
-                        Map[Adjacent_Cell(base, FACING_W)].unknown_11b += 4;
+                        Map[base].Height += 4;
+                        Map[Adjacent_Cell(base, FACING_E)].Height += 4;
+                        Map[Adjacent_Cell(base, FACING_W)].Height += 4;
                     }
                     Repair_Train_Bridge_Span_0054be80(piece, FACING_S, 0);
                     return;
@@ -1890,18 +1890,18 @@ int MapClass::Write_Binary_1(Pipe &pipe)
     for (int j = 0; j < Cells.Length(); j++) {
         CellClass *cellptr = Cells[j];
         if (cellptr) {
-            total += comp.Put(&cellptr->unknown_11a, 1);
+            total += comp.Put(&cellptr->SubTile, 1);
         } else {
-            total += comp.Put(&BlubCell.unknown_11a, 1);
+            total += comp.Put(&BlubCell.SubTile, 1);
         }
     }
 
     for (int k = 0; k < Cells.Length(); k++) {
         CellClass *cellptr = Cells[k];
         if (cellptr) {
-            total += comp.Put(&cellptr->unknown_11b, 1);
+            total += comp.Put(&cellptr->Height, 1);
         } else {
-            total += comp.Put(&BlubCell.unknown_11b, 1);
+            total += comp.Put(&BlubCell.Height, 1);
         }
     }
 
@@ -1927,12 +1927,12 @@ int MapClass::Write_Binary_2(Pipe &pipe)
         if (i != 0 && cellptr) {
             if (In_Radar(cellptr->Fetch_CellID())) {
                 if (cellptr->Fetch_CellID() != unknown_cell_a6f238 && cellptr != &BlubCell &&
-                    (cellptr->IsoTileIndex != 0xFFFF || cellptr->unknown_11b > 0)) {
+                    (cellptr->IsoTileIndex != 0xFFFF || cellptr->Height > 0)) {
                     Cell cell = cellptr->Fetch_CellID();
                     total += comp.Put(&cell, sizeof(cell));
                     total += comp.Put(&cellptr->IsoTileIndex, sizeof(cellptr->IsoTileIndex));
-                    total += comp.Put(&cellptr->unknown_11a, sizeof(cellptr->unknown_11a));
-                    total += comp.Put(&cellptr->unknown_11b, sizeof(cellptr->unknown_11b));
+                    total += comp.Put(&cellptr->SubTile, sizeof(cellptr->SubTile));
+                    total += comp.Put(&cellptr->Height, sizeof(cellptr->Height));
                 }
             }
         }
@@ -1962,12 +1962,12 @@ int MapClass::Write_Binary_3(Pipe &pipe)
         if (i != 0 && cellptr) {
             if (In_Radar(cellptr->Fetch_CellID())) {
                 if (cellptr->Fetch_CellID() != unknown_cell_a6f238 && cellptr != &BlubCell &&
-                    (cellptr->IsoTileIndex != 0xFFFF || cellptr->unknown_11b > 0)) {
+                    (cellptr->IsoTileIndex != 0xFFFF || cellptr->Height > 0)) {
                     Cell cell = cellptr->Fetch_CellID();
                     total += pipe.Put(&cell, sizeof(cell));
                     total += pipe.Put(&cellptr->IsoTileIndex, sizeof(cellptr->IsoTileIndex));
-                    total += pipe.Put(&cellptr->unknown_11a, sizeof(cellptr->unknown_11a));
-                    total += pipe.Put(&cellptr->unknown_11b, sizeof(cellptr->unknown_11b));
+                    total += pipe.Put(&cellptr->SubTile, sizeof(cellptr->SubTile));
+                    total += pipe.Put(&cellptr->Height, sizeof(cellptr->Height));
                 }
             }
         }
@@ -1994,12 +1994,12 @@ int MapClass::Write_Binary_4(Pipe &pipe)
         if (i != 0 && cellptr) {
             if (In_Radar(cellptr->Fetch_CellID())) {
                 if (cellptr->Fetch_CellID() != unknown_cell_a6f238 && cellptr != &BlubCell &&
-                    (cellptr->IsoTileIndex != 0xFFFF || cellptr->unknown_11b > 0)) {
+                    (cellptr->IsoTileIndex != 0xFFFF || cellptr->Height > 0)) {
                     Cell cell = cellptr->Fetch_CellID();
                     total += comp.Put(&cell, sizeof(cell));
                     total += comp.Put(&cellptr->IsoTileIndex, sizeof(cellptr->IsoTileIndex));
-                    total += comp.Put(&cellptr->unknown_11a, sizeof(cellptr->unknown_11a));
-                    total += comp.Put(&cellptr->unknown_11b, sizeof(cellptr->unknown_11b));
+                    total += comp.Put(&cellptr->SubTile, sizeof(cellptr->SubTile));
+                    total += comp.Put(&cellptr->Height, sizeof(cellptr->Height));
                 }
             }
         }
@@ -2027,12 +2027,12 @@ int MapClass::Write_Binary_5(Pipe &pipe)
         if (i != 0 && cellptr) {
             if (In_Radar(cellptr->Fetch_CellID())) {
                 if (cellptr->Fetch_CellID() != unknown_cell_a6f238 && cellptr != &BlubCell &&
-                    (cellptr->IsoTileIndex != 0xFFFF || cellptr->unknown_11b > 0)) {
+                    (cellptr->IsoTileIndex != 0xFFFF || cellptr->Height > 0)) {
                     Cell cell = cellptr->Fetch_CellID();
                     total += comp.Put(&cell, sizeof(cell));
                     total += comp.Put(&cellptr->IsoTileIndex, sizeof(cellptr->IsoTileIndex));
-                    total += comp.Put(&cellptr->unknown_11a, sizeof(cellptr->unknown_11a));
-                    total += comp.Put(&cellptr->unknown_11b, sizeof(cellptr->unknown_11b));
+                    total += comp.Put(&cellptr->SubTile, sizeof(cellptr->SubTile));
+                    total += comp.Put(&cellptr->Height, sizeof(cellptr->Height));
                     total += comp.Put(&cellptr->unknown_119, sizeof(cellptr->unknown_119));
                 }
             }
@@ -2074,18 +2074,18 @@ bool MapClass::Read_Binary_1(Straw &straw)
     for (i = 0; i < 0x40000 / 16; i++) {
         CellClass *cellptr = &(*this)[Cell(i % 128, i / 128)];
         if (cellptr != 0) {
-            decomp.Get(&cellptr->unknown_11a, sizeof(cellptr->unknown_11a));
+            decomp.Get(&cellptr->SubTile, sizeof(cellptr->SubTile));
         } else {
-            decomp.Get(&BlubCell.unknown_11a, sizeof(BlubCell.unknown_11a));
+            decomp.Get(&BlubCell.SubTile, sizeof(BlubCell.SubTile));
         }
     }
 
     for (i = 0; i < 0x40000 / 16; i++) {
         CellClass *cellptr = &(*this)[Cell(i % 128, i / 128)];
         if (cellptr != 0) {
-            decomp.Get(&cellptr->unknown_11b, sizeof(cellptr->unknown_11b));
+            decomp.Get(&cellptr->Height, sizeof(cellptr->Height));
         } else {
-            decomp.Get(&BlubCell.unknown_11b, sizeof(BlubCell.unknown_11b));
+            decomp.Get(&BlubCell.Height, sizeof(BlubCell.Height));
         }
     }
 
@@ -2111,10 +2111,10 @@ bool MapClass::Unknown_0054DEA0(Straw &straw)
             cellptr->IsoTileIndex = 0xFFFF;
             decomp.Get(&cellptr->IsoTileIndex, sizeof(cellptr->IsoTileIndex));
             cellptr->IsoTileIndex = IsometricTileTypeClass::Unknown_00529550(cellptr->IsoTileIndex);
-            decomp.Get(&cellptr->unknown_11a, sizeof(cellptr->unknown_11a));
-            decomp.Get(&cellptr->unknown_11b, sizeof(cellptr->unknown_11b));
+            decomp.Get(&cellptr->SubTile, sizeof(cellptr->SubTile));
+            decomp.Get(&cellptr->Height, sizeof(cellptr->Height));
         } else {
-            char tmp[sizeof(cellptr->IsoTileIndex) + sizeof(cellptr->unknown_11a) + sizeof(cellptr->unknown_11b)];
+            char tmp[sizeof(cellptr->IsoTileIndex) + sizeof(cellptr->SubTile) + sizeof(cellptr->Height)];
             decomp.Get(&tmp, sizeof(tmp));
         }
         cell = unknown_cell_a6f238;
@@ -2142,10 +2142,10 @@ bool MapClass::Read_Binary_3(Straw &straw)
             cellptr->IsoTileIndex = 0xFFFF;
             straw.Get(&cellptr->IsoTileIndex, sizeof(cellptr->IsoTileIndex));
             cellptr->IsoTileIndex = IsometricTileTypeClass::Unknown_00529550(cellptr->IsoTileIndex);
-            straw.Get(&cellptr->unknown_11a, sizeof(cellptr->unknown_11a));
-            straw.Get(&cellptr->unknown_11b, sizeof(cellptr->unknown_11b));
+            straw.Get(&cellptr->SubTile, sizeof(cellptr->SubTile));
+            straw.Get(&cellptr->Height, sizeof(cellptr->Height));
         } else {
-            char tmp[sizeof(cellptr->IsoTileIndex) + sizeof(cellptr->unknown_11a) + sizeof(cellptr->unknown_11b)];
+            char tmp[sizeof(cellptr->IsoTileIndex) + sizeof(cellptr->SubTile) + sizeof(cellptr->Height)];
             straw.Get(&tmp, sizeof(tmp));
         }
         cell = unknown_cell_a6f238;
@@ -2173,10 +2173,10 @@ bool MapClass::Unknown_0054E0C0(Straw &straw)
             cellptr->IsoTileIndex = 0xFFFF;
             decomp.Get(&cellptr->IsoTileIndex, sizeof(cellptr->IsoTileIndex));
             cellptr->IsoTileIndex = IsometricTileTypeClass::Unknown_00529550(cellptr->IsoTileIndex);
-            decomp.Get(&cellptr->unknown_11a, sizeof(cellptr->unknown_11a));
-            decomp.Get(&cellptr->unknown_11b, sizeof(cellptr->unknown_11b));
+            decomp.Get(&cellptr->SubTile, sizeof(cellptr->SubTile));
+            decomp.Get(&cellptr->Height, sizeof(cellptr->Height));
         } else {
-            char tmp[sizeof(cellptr->IsoTileIndex) + sizeof(cellptr->unknown_11a) + sizeof(cellptr->unknown_11b)];
+            char tmp[sizeof(cellptr->IsoTileIndex) + sizeof(cellptr->SubTile) + sizeof(cellptr->Height)];
             decomp.Get(&tmp, sizeof(tmp));
         }
         cell = unknown_cell_a6f238;
@@ -2204,11 +2204,11 @@ bool MapClass::Read_Binary_5(Straw &straw)
             cellptr->IsoTileIndex = 0xFFFF;
             decomp.Get(&cellptr->IsoTileIndex, sizeof(cellptr->IsoTileIndex));
             cellptr->IsoTileIndex = IsometricTileTypeClass::Unknown_00529550(cellptr->IsoTileIndex);
-            decomp.Get(&cellptr->unknown_11a, sizeof(cellptr->unknown_11a));
-            decomp.Get(&cellptr->unknown_11b, sizeof(cellptr->unknown_11b));
+            decomp.Get(&cellptr->SubTile, sizeof(cellptr->SubTile));
+            decomp.Get(&cellptr->Height, sizeof(cellptr->Height));
             decomp.Get(&cellptr->unknown_119, sizeof(cellptr->unknown_119));
         } else {
-            char tmp[sizeof(cellptr->IsoTileIndex) + sizeof(cellptr->unknown_11a) + sizeof(cellptr->unknown_11b) + sizeof(cellptr->unknown_119)];
+            char tmp[sizeof(cellptr->IsoTileIndex) + sizeof(cellptr->SubTile) + sizeof(cellptr->Height) + sizeof(cellptr->unknown_119)];
             decomp.Get(&tmp, sizeof(tmp));
         }
         cell = unknown_cell_a6f238;
@@ -3052,7 +3052,7 @@ void MapClass::Compute_Zone_Connections()
                 faceindex = cptr->IsoTileIndex - IsometricTileTypeClass_TrainBridgeSet;
             }
 
-            if (_bridge_subtiles1[faceindex] == (unsigned char)cptr->unknown_11a) {
+            if (_bridge_subtiles1[faceindex] == (unsigned char)cptr->SubTile) {
 
                 bool crossed = false;
                 bool passable = true;
@@ -3074,7 +3074,7 @@ void MapClass::Compute_Zone_Connections()
                                 }
                                 continue;
                             }
-                            if (index != -1 && _bridge_subtiles2[index] == (unsigned char)bptr->unknown_11a) {
+                            if (index != -1 && _bridge_subtiles2[index] == (unsigned char)bptr->SubTile) {
                                 crossed = true;
                             }
                             continue;
@@ -3211,7 +3211,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
     int yy = cell.Y;
     bool found = false;
     if (zone == 0xffff) zone = -1;
-    int height = Map[cell].unknown_11b;
+    int height = Map[cell].Height;
     if (checkbridge) {
         if (Map[cell].IsUnderBridge) height += 4;
     }
@@ -3226,7 +3226,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
                 newcell = Cell(x + xx, yy - radius);
                 cellptr = &Map[newcell];
                 if (Unknown_0055A740(cellptr, true) && Unknown_00550CF0(newcell, dimensions.X, dimensions.Y, speed, zone, check, -1, checkbridge, checkoverlay)) {
-                    if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->unknown_11b) < 2) {
+                    if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->Height) < 2) {
                         if ((!checkburrow || cellptr->Can_Burrow_Here()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
                             candidates[count++] = newcell;
                             if (checkbridge || newcell == TacticalMap->Coord_To_Cell(CoordStruct(newcell, 0))) {
@@ -3242,7 +3242,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
                 newcell = Cell(x + xx, bottom_y);
                 cellptr = &Map[newcell];
                 if (Unknown_0055A740(cellptr, true) && Unknown_00550CF0(newcell, dimensions.X, dimensions.Y, speed, zone, check, -1, checkbridge, checkoverlay)) {
-                    if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->unknown_11b) < 2) {
+                    if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->Height) < 2) {
                         if ((!checkburrow || cellptr->Can_Burrow_Here()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
                             candidates[count++] = newcell;
                             if (checkbridge || newcell == TacticalMap->Coord_To_Cell(CoordStruct(newcell, 0))) {
@@ -3262,7 +3262,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
                 newcell = Cell(xx - radius, yy + y);
                 cellptr = &Map[newcell];
                 if (Unknown_0055A740(cellptr, true) && Unknown_00550CF0(newcell, dimensions.X, dimensions.Y, speed, zone, check, -1, checkbridge, checkoverlay)) {
-                    if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->unknown_11b) < 2) {
+                    if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->Height) < 2) {
                         if ((!checkburrow || cellptr->Can_Burrow_Here()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
                             candidates[count++] = newcell;
                             if (checkbridge || newcell == TacticalMap->Coord_To_Cell(CoordStruct(newcell, 0))) {
@@ -3276,7 +3276,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
             newcell = Cell(xx + radius, yy + y);
             cellptr = &Map[newcell];
             if (Unknown_0055A740(cellptr, true) && Unknown_00550CF0(newcell, dimensions.X, dimensions.Y, speed, zone, check, -1, checkbridge, checkoverlay)) {
-                if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->unknown_11b) < 2) {
+                if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->Height) < 2) {
                     if ((!checkburrow || cellptr->Can_Burrow_Here()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
                         candidates[count++] = newcell;
                         if (checkbridge || newcell == TacticalMap->Coord_To_Cell(CoordStruct(newcell, 0))) {
@@ -3389,7 +3389,7 @@ void MapClass::Set_Bridge_End_State(Cell const &cell, bool damaged, bool recursi
             return;
         }
         IsometricTileTypeClass *isotype = IsoTileTypes[cellptr->IsoTileIndex];
-        if (!isotype->unknown_func_52b730((unsigned char)cellptr->unknown_11a)) {
+        if (!isotype->unknown_func_52b730((unsigned char)cellptr->SubTile)) {
             return;
         }
         Point2D point;
@@ -3398,7 +3398,7 @@ void MapClass::Set_Bridge_End_State(Cell const &cell, bool damaged, bool recursi
         coord.Y = cell.Y * 256 + 128;
         coord.Z = 0;
         TacticalMap->Coord_To_Pixel(coord, point);
-        point.Y -= 15 * cellptr->unknown_11b;
+        point.Y -= 15 * cellptr->Height;
         TacticalMap->Register_Dirty_Area(Rect(point.X - 128, point.Y - 128, 256, 256), 0);
     }
 
@@ -3437,7 +3437,7 @@ void MapClass::Set_Bridge_Middle_State(Cell const &cell, int new_tile, int match
         coord.Y = cell.Y * 256 + 128;
         coord.Z = 0;
         TacticalMap->Coord_To_Pixel(coord, point);
-        point.Y -= 15 * cellptr->unknown_11b;
+        point.Y -= 15 * cellptr->Height;
         TacticalMap->Register_Dirty_Area(Rect(point.X - 128, point.Y - 128, 256, 256), 0);
         old_tile = cellptr->IsoTileIndex;
         if (new_tile == old_tile) {
@@ -3558,16 +3558,16 @@ void MapClass::Internal_Destroy_Train_Bridge_EW_BottomRight(Cell const &cell, in
             Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 2, -1, -1, false);
         } else if (ittype == IsometricTileTypeClass_BridgeMiddle1 + 3) {
             Internal_Destroy_Train_Bridge_EW_BottomRight(adjacent, dir);
-            if ((adjacentptr->unknown_11a & 1) != 0) {
+            if ((adjacentptr->SubTile & 1) != 0) {
                 Map[adjacent + Cell(-1, 0)].unknown_473000();
                 Map[adjacent + Cell(-1, -1)].unknown_473000();
                 Map[adjacent + Cell(-1, 1)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent + Cell(-1, 0)].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent + Cell(-1, 0)].Height - 4, false);
             } else {
                 Map[adjacent + Cell(0, 0)].unknown_473000();
                 Map[adjacent + Cell(0, -1)].unknown_473000();
                 Map[adjacent + Cell(0, 1)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent].Height - 4, false);
             }
         }
     } else {
@@ -3610,16 +3610,16 @@ void MapClass::Internal_Destroy_Train_Bridge_EW_TopLeft(Cell const &cell, int di
             Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 2, -1, -1, false);
         } else if (ittype == IsometricTileTypeClass_BridgeMiddle1 + 3) {
             Internal_Destroy_Train_Bridge_EW_TopLeft(adjacent, dir);
-            if ((adjacentptr->unknown_11a & 1) != 0) {
+            if ((adjacentptr->SubTile & 1) != 0) {
                 Map[adjacent + Cell(-1, 0)].unknown_473000();
                 Map[adjacent + Cell(-1, -1)].unknown_473000();
                 Map[adjacent + Cell(-1, 1)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent + Cell(-1, 0)].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent + Cell(-1, 0)].Height - 4, false);
             } else {
                 Map[adjacent + Cell(0, 0)].unknown_473000();
                 Map[adjacent + Cell(0, -1)].unknown_473000();
                 Map[adjacent + Cell(0, 1)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent].Height - 4, false);
             }
         }
     } else {
@@ -3728,16 +3728,16 @@ void MapClass::Internal_Destroy_Train_Bridge_NS_BottomLeft(Cell const &cell, int
             Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 2, -1, -1, false);
         } else if (ittype == IsometricTileTypeClass_BridgeMiddle2 + 3) {
             Internal_Destroy_Train_Bridge_NS_BottomLeft(adjacent, dir);
-            if ((unsigned char)adjacentptr->unknown_11a > 4) {
+            if ((unsigned char)adjacentptr->SubTile > 4) {
                 Map[adjacent + Cell(-1, -1)].unknown_473000();
                 Map[adjacent + Cell(0, -1)].unknown_473000();
                 Map[adjacent + Cell(1, -1)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent + Cell(0, -1)].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent + Cell(0, -1)].Height - 4, false);
             } else {
                 Map[adjacent + Cell(-1, 0)].unknown_473000();
                 Map[adjacent + Cell(0, 0)].unknown_473000();
                 Map[adjacent + Cell(1, 0)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent].Height - 4, false);
             }
         }
     } else {
@@ -3782,16 +3782,16 @@ void MapClass::Internal_Destroy_Train_Bridge_NS_TopRight(Cell const &cell, int d
             Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 2, -1, -1, false);
         } else if (ittype == IsometricTileTypeClass_BridgeMiddle2 + 3) {
             Internal_Destroy_Train_Bridge_NS_TopRight(adjacent, dir);
-            if ((unsigned char)adjacentptr->unknown_11a > 4) {
+            if ((unsigned char)adjacentptr->SubTile > 4) {
                 Map[adjacent + Cell(-1, -1)].unknown_473000();
                 Map[adjacent + Cell(0, -1)].unknown_473000();
                 Map[adjacent + Cell(1, -1)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent + Cell(0, -1)].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent + Cell(0, -1)].Height - 4, false);
             } else {
                 Map[adjacent + Cell(-1, 0)].unknown_473000();
                 Map[adjacent + Cell(0, 0)].unknown_473000();
                 Map[adjacent + Cell(1, 0)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent].Height - 4, false);
             }
         }
     } else {
@@ -3889,7 +3889,7 @@ void MapClass::Unknown_00552570(Cell const &cell)
         if (Cells[spancell.X + spancell.Y * 512] != 0) {
             CellClass *spanptr = &Map[spancell];
             ittype = spanptr->IsoTileIndex - IsometricTileTypeClass_TrainBridgeSet + 1;
-            if ((ittype == IsometricTileTypeClass_BridgeTopLeft1 || ittype == IsometricTileTypeClass_BridgeTopLeft2) && spanptr->unknown_11a == 8) {
+            if ((ittype == IsometricTileTypeClass_BridgeTopLeft1 || ittype == IsometricTileTypeClass_BridgeTopLeft2) && spanptr->SubTile == 8) {
                 Set_Bridge_End_State(spancell, false, false);
                 Repair_Train_Bridge_Span_0054be80(&Map[spancell], FACING_E, &dirty);
                 TacticalMap->Register_Dirty_Area(dirty, false);
@@ -3897,13 +3897,13 @@ void MapClass::Unknown_00552570(Cell const &cell)
             }
             if ((ittype == IsometricTileTypeClass_BridgeMiddle1 || ittype == IsometricTileTypeClass_BridgeMiddle1 + 3 ||
                  ittype == IsometricTileTypeClass_BridgeMiddle1 + 4 || ittype == IsometricTileTypeClass_BridgeMiddle1 + 1 ||
-                 ittype == IsometricTileTypeClass_BridgeMiddle1 + 2) && spanptr->unknown_11a == 5) {
+                 ittype == IsometricTileTypeClass_BridgeMiddle1 + 2) && spanptr->SubTile == 5) {
                 if (ittype == IsometricTileTypeClass_BridgeMiddle1 + 4) {
                     Set_Bridge_Middle_State(spancell, IsometricTileTypeClass_BridgeMiddle1 + IsometricTileTypeClass_TrainBridgeSet - 1, -1, -1, false);
                     Cell middle = Adjacent_Cell(spancell, FACING_W);
-                    Map[middle].unknown_11b += 4;
-                    Map[Adjacent_Cell(middle, FACING_N)].unknown_11b += 4;
-                    Map[Adjacent_Cell(middle, FACING_S)].unknown_11b += 4;
+                    Map[middle].Height += 4;
+                    Map[Adjacent_Cell(middle, FACING_N)].Height += 4;
+                    Map[Adjacent_Cell(middle, FACING_S)].Height += 4;
                     zonechanged = Register_Subzone_Connections(middle);
                     for (int dx = 0; dx < 2; dx++) {
                         for (int dy = -2; dy < 3; dy++) {
@@ -3916,7 +3916,7 @@ void MapClass::Unknown_00552570(Cell const &cell)
                 TacticalMap->Register_Dirty_Area(dirty, false);
                 break;
             }
-            if ((ittype == IsometricTileTypeClass_BridgeTopRight1 || ittype == IsometricTileTypeClass_BridgeTopRight2) && spanptr->unknown_11a == 12) {
+            if ((ittype == IsometricTileTypeClass_BridgeTopRight1 || ittype == IsometricTileTypeClass_BridgeTopRight2) && spanptr->SubTile == 12) {
                 Set_Bridge_End_State(spancell, false, false);
                 Repair_Train_Bridge_Span_0054be80(&Map[spancell], FACING_S, &dirty);
                 TacticalMap->Register_Dirty_Area(dirty, false);
@@ -3924,13 +3924,13 @@ void MapClass::Unknown_00552570(Cell const &cell)
             }
             if ((ittype == IsometricTileTypeClass_BridgeMiddle2 || ittype == IsometricTileTypeClass_BridgeMiddle2 + 3 ||
                  ittype == IsometricTileTypeClass_BridgeMiddle2 + 4 || ittype == IsometricTileTypeClass_BridgeMiddle2 + 1 ||
-                 ittype == IsometricTileTypeClass_BridgeMiddle2 + 2) && spanptr->unknown_11a == 7) {
+                 ittype == IsometricTileTypeClass_BridgeMiddle2 + 2) && spanptr->SubTile == 7) {
                 if (ittype == IsometricTileTypeClass_BridgeMiddle2 + 4) {
                     Set_Bridge_Middle_State(spancell, IsometricTileTypeClass_BridgeMiddle2 + IsometricTileTypeClass_TrainBridgeSet - 1, -1, -1, false);
                     Cell middle = Adjacent_Cell(spancell, FACING_N);
-                    Map[middle].unknown_11b += 4;
-                    Map[Adjacent_Cell(middle, FACING_E)].unknown_11b += 4;
-                    Map[Adjacent_Cell(middle, FACING_W)].unknown_11b += 4;
+                    Map[middle].Height += 4;
+                    Map[Adjacent_Cell(middle, FACING_E)].Height += 4;
+                    Map[Adjacent_Cell(middle, FACING_W)].Height += 4;
                     zonechanged = Register_Subzone_Connections(middle);
                     for (int dy = 0; dy < 2; dy++) {
                         for (int dx = -2; dx < 3; dx++) {
@@ -4001,24 +4001,24 @@ bool MapClass::Destroy_Train_Bridge_Span_00553000(Cell const & cell, FacingType 
 
 		if (dir == FACING_E) {
 
-			if (ittype == IsometricTileTypeClass_BridgeBottomRight1 && cellptr->unknown_11a == 4
-				|| ittype == IsometricTileTypeClass_BridgeBottomRight2 && cellptr->unknown_11a == 4
+			if (ittype == IsometricTileTypeClass_BridgeBottomRight1 && cellptr->SubTile == 4
+				|| ittype == IsometricTileTypeClass_BridgeBottomRight2 && cellptr->SubTile == 4
 				|| (ittype == IsometricTileTypeClass_BridgeMiddle1
 					|| ittype == IsometricTileTypeClass_BridgeMiddle1 + 3
 					|| ittype == IsometricTileTypeClass_BridgeMiddle1 + 1
 					|| ittype == IsometricTileTypeClass_BridgeMiddle1 + 2)
-					&& cellptr->unknown_11a == 4) {
+					&& cellptr->SubTile == 4) {
 				break;
 			}
 
 		} else if (dir == FACING_S
-			&& (ittype == IsometricTileTypeClass_BridgeBottomLeft1 && cellptr->unknown_11a == 2
-				|| ittype == IsometricTileTypeClass_BridgeBottomLeft2 && cellptr->unknown_11a == 2
+			&& (ittype == IsometricTileTypeClass_BridgeBottomLeft1 && cellptr->SubTile == 2
+				|| ittype == IsometricTileTypeClass_BridgeBottomLeft2 && cellptr->SubTile == 2
 				|| (ittype == IsometricTileTypeClass_BridgeMiddle2
 					|| ittype == IsometricTileTypeClass_BridgeMiddle2 + 3
 					|| ittype == IsometricTileTypeClass_BridgeMiddle2 + 1
 					|| ittype == IsometricTileTypeClass_BridgeMiddle2 + 2)
-					&& cellptr->unknown_11a == 2)) {
+					&& cellptr->SubTile == 2)) {
 			break;
 		}
 
@@ -4047,13 +4047,13 @@ bool MapClass::Destroy_Train_Bridge_Span_00553000(Cell const & cell, FacingType 
 			CoordStruct coord;
 			coord.X = cell.X * 256 + 128;
             coord.Y = cell.Y * 256 + 128;
-            coord.Z = unknown_geometry_g * startptr->unknown_11b;
+            coord.Z = unknown_geometry_g * startptr->Height;
 			TacticalMap->Coord_To_Pixel(coord, startpix);
 
 			Point2D endpix;
 			coord.X = lastcell.X * 256 + 128;
             coord.Y = lastcell.Y * 256 + 128;
-            coord.Z = unknown_geometry_g * startptr->unknown_11b;
+            coord.Z = unknown_geometry_g * startptr->Height;
 			TacticalMap->Coord_To_Pixel(coord, endpix);
 
             Rect bounds;
@@ -4189,7 +4189,7 @@ void MapClass::Destroy_Train_Bridge_Connections_00553570(Cell const &cell)
             CellClass *spanptr = &Map[current];
             int ittype = spanptr->IsoTileIndex - IsometricTileTypeClass_TrainBridgeSet + 1;
 
-            if ((ittype == IsometricTileTypeClass_BridgeTopLeft1 || ittype == IsometricTileTypeClass_BridgeTopLeft2) && spanptr->unknown_11a == 8) {
+            if ((ittype == IsometricTileTypeClass_BridgeTopLeft1 || ittype == IsometricTileTypeClass_BridgeTopLeft2) && spanptr->SubTile == 8) {
                 if (Destroy_Train_Bridge_Span_00553000(current, FACING_E, &dirty)) {
                     if (dirty != unknown_empty_rect) {
                         TacticalMap->Register_Dirty_Area(dirty, false);
@@ -4200,7 +4200,7 @@ void MapClass::Destroy_Train_Bridge_Connections_00553570(Cell const &cell)
 
             if ((ittype == IsometricTileTypeClass_BridgeMiddle1 || ittype == IsometricTileTypeClass_BridgeMiddle1 + 3 ||
                  ittype == IsometricTileTypeClass_BridgeMiddle1 + 1 || ittype == IsometricTileTypeClass_BridgeMiddle1 + 2) &&
-                spanptr->unknown_11a == 5) {
+                spanptr->SubTile == 5) {
                 if (Destroy_Train_Bridge_Span_00553000(current, FACING_E, &dirty)) {
                     if (dirty != unknown_empty_rect) {
                         TacticalMap->Register_Dirty_Area(dirty, false);
@@ -4209,7 +4209,7 @@ void MapClass::Destroy_Train_Bridge_Connections_00553570(Cell const &cell)
                 return;
             }
 
-            if ((ittype == IsometricTileTypeClass_BridgeTopRight1 || ittype == IsometricTileTypeClass_BridgeTopRight2) && spanptr->unknown_11a == 12) {
+            if ((ittype == IsometricTileTypeClass_BridgeTopRight1 || ittype == IsometricTileTypeClass_BridgeTopRight2) && spanptr->SubTile == 12) {
                 if (Destroy_Train_Bridge_Span_00553000(current, FACING_S, &dirty)) {
                     if (dirty != unknown_empty_rect) {
                         TacticalMap->Register_Dirty_Area(dirty, false);
@@ -4220,7 +4220,7 @@ void MapClass::Destroy_Train_Bridge_Connections_00553570(Cell const &cell)
 
             if ((ittype == IsometricTileTypeClass_BridgeMiddle2 || ittype == IsometricTileTypeClass_BridgeMiddle2 + 3 ||
                  ittype == IsometricTileTypeClass_BridgeMiddle2 + 2 || ittype == IsometricTileTypeClass_BridgeMiddle2 + 1) &&
-                spanptr->unknown_11a == 7) {
+                spanptr->SubTile == 7) {
                 if (Destroy_Train_Bridge_Span_00553000(current, FACING_S, &dirty)) {
                     if (dirty != unknown_empty_rect) {
                         TacticalMap->Register_Dirty_Area(dirty, false);
@@ -4265,7 +4265,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 
 	if (!bridge_deck_cell->IsUnderBridge) {
 
-		int subtile = (unsigned char)bridge_deck_cell->unknown_11a;
+		int subtile = (unsigned char)bridge_deck_cell->SubTile;
 		CellClass * middle_cellptr;
 		if (ittype == IsometricTileTypeClass_BridgeMiddle1 ||
 				ittype == IsometricTileTypeClass_BridgeMiddle1 + 3 ||
@@ -4283,7 +4283,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 			} else {
 				middle_cell = Adjacent_Cell(middle_cell, FACING_N);
 			}
-			subtile = (unsigned char)Map[middle_cell].unknown_11a;
+			subtile = (unsigned char)Map[middle_cell].SubTile;
 		}
 
 		middle_cellptr = &Map[middle_cell];
@@ -4291,7 +4291,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 		if (ittype == IsometricTileTypeClass_BridgeMiddle1 + 3) {
 			Cell zone_cell = middle_cellptr->MapCoords;
 
-			if ((middle_cellptr->unknown_11a & 1) != 0) {
+			if ((middle_cellptr->SubTile & 1) != 0) {
 				zone_cell += Cell(-1, 0);
 				Map[middle_cell + Cell(-1, -1)].unknown_473000();
 				Map[middle_cell + Cell(-1, 0)].unknown_473000();
@@ -4301,7 +4301,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 					middle_cellptr->Fetch_CellID(),
 					int(IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3),
 					-1,
-					Map[cellid + Cell(-1, 0)].unknown_11b - 4,
+					Map[cellid + Cell(-1, 0)].Height - 4,
 					false
 				);
 			} else {
@@ -4312,7 +4312,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 					middle_cellptr->Fetch_CellID(),
 					int(IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3),
 					-1,
-					middle_cellptr->unknown_11b - 4,
+					middle_cellptr->Height - 4,
 					false
 				);
 			}
@@ -4366,7 +4366,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 				} else {
 					middle_cell = Adjacent_Cell(middle_cell, FACING_W);
 				}
-				subtile = (unsigned char)Map[middle_cell].unknown_11a;
+				subtile = (unsigned char)Map[middle_cell].SubTile;
 			}
 
 			middle_cellptr = &Map[middle_cell];
@@ -4374,7 +4374,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 			if (ittype == IsometricTileTypeClass_BridgeMiddle2 + 3) {
 				Cell zone_cell = middle_cellptr->MapCoords;
 
-				if ((unsigned char)middle_cellptr->unknown_11a > 4) {
+				if ((unsigned char)middle_cellptr->SubTile > 4) {
 					zone_cell += Cell(0, -1);
 					Map[middle_cell + Cell(-1, -1)].unknown_473000();
 					Map[middle_cell + Cell(0, -1)].unknown_473000();
@@ -4384,7 +4384,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 						middle_cellptr->Fetch_CellID(),
 						int(IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3),
 						-1,
-						Map[cellid + Cell(0, -1)].unknown_11b - 4,
+						Map[cellid + Cell(0, -1)].Height - 4,
 						false
 					);
 				} else {
@@ -4395,7 +4395,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 						middle_cellptr->Fetch_CellID(),
 						int(IsometricTileTypeClass_TrainBridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3),
 						-1,
-						middle_cellptr->unknown_11b - 4,
+						middle_cellptr->Height - 4,
 						false
 					);
 				}
@@ -4439,7 +4439,7 @@ bool MapClass::Unknown_005539B0(Cell const & cell)
 		}
 	} else {
 		if (!bridge_deck_cell->IsBridgeDeck) {
-			bridge_deck_cell = bridge_deck_cell->unknown_2c;
+			bridge_deck_cell = bridge_deck_cell->BridgeDeckCell;
 		}
 
 		int overlay_data = bridge_deck_cell->OverlayData;
@@ -4639,16 +4639,16 @@ void MapClass::Internal_Destroy_High_Bridge_EW_BottomRight(Cell const &cell, int
             Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 2, -1, -1, false);
         } else if (ittype == IsometricTileTypeClass_BridgeMiddle1 + 3) {
             Internal_Destroy_High_Bridge_EW_BottomRight(adjacent, dir);
-            if ((adjacentptr->unknown_11a & 1) != 0) {
+            if ((adjacentptr->SubTile & 1) != 0) {
                 Map[adjacent + Cell(-1, 0)].unknown_473000();
                 Map[adjacent + Cell(-1, -1)].unknown_473000();
                 Map[adjacent + Cell(-1, 1)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent + Cell(-1, 0)].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent + Cell(-1, 0)].Height - 4, false);
             } else {
                 Map[adjacent + Cell(0, 0)].unknown_473000();
                 Map[adjacent + Cell(0, -1)].unknown_473000();
                 Map[adjacent + Cell(0, 1)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent].Height - 4, false);
             }
         }
     } else {
@@ -4691,16 +4691,16 @@ void MapClass::Internal_Destroy_High_Bridge_EW_TopLeft(Cell const &cell, int dir
             Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 2, -1, -1, false);
         } else if (ittype == IsometricTileTypeClass_BridgeMiddle1 + 3) {
             Internal_Destroy_High_Bridge_EW_TopLeft(adjacent, dir);
-            if ((adjacentptr->unknown_11a & 1) != 0) {
+            if ((adjacentptr->SubTile & 1) != 0) {
                 Map[adjacent + Cell(-1, 0)].unknown_473000();
                 Map[adjacent + Cell(-1, -1)].unknown_473000();
                 Map[adjacent + Cell(-1, 1)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent + Cell(-1, 0)].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent + Cell(-1, 0)].Height - 4, false);
             } else {
                 Map[adjacent + Cell(0, 0)].unknown_473000();
                 Map[adjacent + Cell(0, -1)].unknown_473000();
                 Map[adjacent + Cell(0, 1)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3, -1, Map[adjacent].Height - 4, false);
             }
         }
     } else {
@@ -4809,16 +4809,16 @@ void MapClass::Internal_Destroy_High_Bridge_NS_BottomLeft(Cell const &cell, int 
             Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 2, -1, -1, false);
         } else if (ittype == IsometricTileTypeClass_BridgeMiddle2 + 3) {
             Internal_Destroy_High_Bridge_NS_BottomLeft(adjacent, dir);
-            if ((unsigned char)adjacentptr->unknown_11a > 4) {
+            if ((unsigned char)adjacentptr->SubTile > 4) {
                 Map[adjacent + Cell(-1, -1)].unknown_473000();
                 Map[adjacent + Cell(0, -1)].unknown_473000();
                 Map[adjacent + Cell(1, -1)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent + Cell(0, -1)].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent + Cell(0, -1)].Height - 4, false);
             } else {
                 Map[adjacent + Cell(-1, 0)].unknown_473000();
                 Map[adjacent + Cell(0, 0)].unknown_473000();
                 Map[adjacent + Cell(1, 0)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent].Height - 4, false);
             }
         }
     } else {
@@ -4863,16 +4863,16 @@ void MapClass::Internal_Destroy_High_Bridge_NS_TopRight(Cell const &cell, int di
             Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 2, -1, -1, false);
         } else if (ittype == IsometricTileTypeClass_BridgeMiddle2 + 3) {
             Internal_Destroy_High_Bridge_NS_TopRight(adjacent, dir);
-            if ((unsigned char)adjacentptr->unknown_11a > 4) {
+            if ((unsigned char)adjacentptr->SubTile > 4) {
                 Map[adjacent + Cell(-1, -1)].unknown_473000();
                 Map[adjacent + Cell(0, -1)].unknown_473000();
                 Map[adjacent + Cell(1, -1)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent + Cell(0, -1)].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent + Cell(0, -1)].Height - 4, false);
             } else {
                 Map[adjacent + Cell(-1, 0)].unknown_473000();
                 Map[adjacent + Cell(0, 0)].unknown_473000();
                 Map[adjacent + Cell(1, 0)].unknown_473000();
-                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent].unknown_11b - 4, false);
+                Set_Bridge_Middle_State(adjacent, IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3, -1, Map[adjacent].Height - 4, false);
             }
         }
     } else {
@@ -4982,7 +4982,7 @@ void MapClass::Unknown_00555A60(Cell const &cell)
             CellClass *spanptr = &Map[spancell];
             Cell middle;
             ittype = spanptr->IsoTileIndex - IsometricTileTypeClass_BridgeSet + 1;
-            if ((ittype == IsometricTileTypeClass_BridgeTopLeft1 || ittype == IsometricTileTypeClass_BridgeTopLeft2) && spanptr->unknown_11a == 8) {
+            if ((ittype == IsometricTileTypeClass_BridgeTopLeft1 || ittype == IsometricTileTypeClass_BridgeTopLeft2) && spanptr->SubTile == 8) {
                 Set_Bridge_End_State(spancell, false, false);
                 Repair_High_Bridge_Span_0054b560(&Map[spancell], FACING_E, &dirty);
                 TacticalMap->Register_Dirty_Area(dirty, false);
@@ -4990,13 +4990,13 @@ void MapClass::Unknown_00555A60(Cell const &cell)
             }
             if ((ittype == IsometricTileTypeClass_BridgeMiddle1 || ittype == IsometricTileTypeClass_BridgeMiddle1 + 3 ||
                  ittype == IsometricTileTypeClass_BridgeMiddle1 + 4 || ittype == IsometricTileTypeClass_BridgeMiddle1 + 1 ||
-                 ittype == IsometricTileTypeClass_BridgeMiddle1 + 2) && spanptr->unknown_11a == 5) {
+                 ittype == IsometricTileTypeClass_BridgeMiddle1 + 2) && spanptr->SubTile == 5) {
                 if (ittype == IsometricTileTypeClass_BridgeMiddle1 + 4) {
                     Set_Bridge_Middle_State(spancell, IsometricTileTypeClass_BridgeMiddle1 + IsometricTileTypeClass_BridgeSet - 1, -1, -1, false);
                     middle = Adjacent_Cell(spancell, FACING_W);
-                    Map[middle].unknown_11b += 4;
-                    Map[Adjacent_Cell(middle, FACING_N)].unknown_11b += 4;
-                    Map[Adjacent_Cell(middle, FACING_S)].unknown_11b += 4;
+                    Map[middle].Height += 4;
+                    Map[Adjacent_Cell(middle, FACING_N)].Height += 4;
+                    Map[Adjacent_Cell(middle, FACING_S)].Height += 4;
                     zonechanged = Register_Subzone_Connections(middle);
                     for (int dx = 0; dx < 2; dx++) {
                         for (int dy = -2; dy < 3; dy++) {
@@ -5009,7 +5009,7 @@ void MapClass::Unknown_00555A60(Cell const &cell)
                 TacticalMap->Register_Dirty_Area(dirty, false);
                 break;
             }
-            if ((ittype == IsometricTileTypeClass_BridgeTopRight1 || ittype == IsometricTileTypeClass_BridgeTopRight2) && spanptr->unknown_11a == 12) {
+            if ((ittype == IsometricTileTypeClass_BridgeTopRight1 || ittype == IsometricTileTypeClass_BridgeTopRight2) && spanptr->SubTile == 12) {
                 Set_Bridge_End_State(spancell, false, false);
                 Repair_High_Bridge_Span_0054b560(&Map[spancell], FACING_S, &dirty);
                 TacticalMap->Register_Dirty_Area(dirty, false);
@@ -5017,13 +5017,13 @@ void MapClass::Unknown_00555A60(Cell const &cell)
             }
             if ((ittype == IsometricTileTypeClass_BridgeMiddle2 || ittype == IsometricTileTypeClass_BridgeMiddle2 + 3 ||
                  ittype == IsometricTileTypeClass_BridgeMiddle2 + 4 || ittype == IsometricTileTypeClass_BridgeMiddle2 + 1 ||
-                 ittype == IsometricTileTypeClass_BridgeMiddle2 + 2) && spanptr->unknown_11a == 7) {
+                 ittype == IsometricTileTypeClass_BridgeMiddle2 + 2) && spanptr->SubTile == 7) {
                 if (ittype == IsometricTileTypeClass_BridgeMiddle2 + 4) {
                     Set_Bridge_Middle_State(spancell, IsometricTileTypeClass_BridgeMiddle2 + IsometricTileTypeClass_BridgeSet - 1, -1, -1, false);
                     middle = Adjacent_Cell(spancell, FACING_N);
-                    Map[middle].unknown_11b += 4;
-                    Map[Adjacent_Cell(middle, FACING_E)].unknown_11b += 4;
-                    Map[Adjacent_Cell(middle, FACING_W)].unknown_11b += 4;
+                    Map[middle].Height += 4;
+                    Map[Adjacent_Cell(middle, FACING_E)].Height += 4;
+                    Map[Adjacent_Cell(middle, FACING_W)].Height += 4;
                     zonechanged = Register_Subzone_Connections(middle);
                     for (int dy = 0; dy < 2; dy++) {
                         for (int dx = -2; dx < 3; dx++) {
@@ -5083,7 +5083,7 @@ void MapClass::Unknown_00556520(Cell const &cell)
     Cell origin;
     if (cellptr->IsUnderBridge) {
         if (cellptr->IsBridgeDeck) origin = cellptr->MapCoords;
-        else origin = cellptr->unknown_2c->MapCoords;
+        else origin = cellptr->BridgeDeckCell->MapCoords;
     } else {
         Cell walk = cellptr->Fetch_CellID();
         int count = 0;
@@ -5116,8 +5116,8 @@ void MapClass::Unknown_00556520(Cell const &cell)
             if (Cells[spancell.X + spancell.Y * 512] != 0) {
                 spanptr = &Map[spancell];
                 tile = spanptr->IsoTileIndex - IsometricTileTypeClass_BridgeSet + 1;
-                if (((tile == IsometricTileTypeClass_BridgeTopLeft1 || tile == IsometricTileTypeClass_BridgeTopLeft2) && spanptr->unknown_11a == 8) ||
-                    ((tile == IsometricTileTypeClass_BridgeTopRight1 || tile == IsometricTileTypeClass_BridgeTopRight2) && spanptr->unknown_11a == 12)) {
+                if (((tile == IsometricTileTypeClass_BridgeTopLeft1 || tile == IsometricTileTypeClass_BridgeTopLeft2) && spanptr->SubTile == 8) ||
+                    ((tile == IsometricTileTypeClass_BridgeTopRight1 || tile == IsometricTileTypeClass_BridgeTopRight2) && spanptr->SubTile == 12)) {
                     goto destroy_span;
                 }
             }
@@ -5167,27 +5167,27 @@ finished:
 bool __fastcall Is_Bridge_Span_End(int tile, int kind, CellClass const *cell)
 {
     if (kind == 2) {
-        if (tile == IsometricTileTypeClass_BridgeBottomRight1 && cell->unknown_11a == 4) {
+        if (tile == IsometricTileTypeClass_BridgeBottomRight1 && cell->SubTile == 4) {
             return true;
         }
-        if (tile == IsometricTileTypeClass_BridgeBottomRight2 && cell->unknown_11a == 4) {
+        if (tile == IsometricTileTypeClass_BridgeBottomRight2 && cell->SubTile == 4) {
             return true;
         }
         if ((tile == IsometricTileTypeClass_BridgeMiddle1 || tile == IsometricTileTypeClass_BridgeMiddle1 + 3
                 || tile == IsometricTileTypeClass_BridgeMiddle1 + 1 || tile == IsometricTileTypeClass_BridgeMiddle1 + 2)
-                && cell->unknown_11a == 4) {
+                && cell->SubTile == 4) {
             return true;
         }
     } else if (kind == 4) {
-        if (tile == IsometricTileTypeClass_BridgeBottomLeft1 && cell->unknown_11a == 2) {
+        if (tile == IsometricTileTypeClass_BridgeBottomLeft1 && cell->SubTile == 2) {
             return true;
         }
-        if (tile == IsometricTileTypeClass_BridgeBottomLeft2 && cell->unknown_11a == 2) {
+        if (tile == IsometricTileTypeClass_BridgeBottomLeft2 && cell->SubTile == 2) {
             return true;
         }
         if ((tile == IsometricTileTypeClass_BridgeMiddle2 || tile == IsometricTileTypeClass_BridgeMiddle2 + 3
                 || tile == IsometricTileTypeClass_BridgeMiddle2 + 1 || tile == IsometricTileTypeClass_BridgeMiddle2 + 2)
-                && cell->unknown_11a == 2) {
+                && cell->SubTile == 2) {
             return true;
         }
     }
@@ -5300,7 +5300,7 @@ void MapClass::Unknown_00557090(Cell const &cell)
     Cell origin;
     if (cellptr->IsUnderBridge) {
         if (cellptr->IsBridgeDeck) origin = cellptr->MapCoords;
-        else origin = cellptr->unknown_2c->MapCoords;
+        else origin = cellptr->BridgeDeckCell->MapCoords;
     } else {
         Cell walk = cellptr->Fetch_CellID();
         int count = 0;
@@ -5333,8 +5333,8 @@ void MapClass::Unknown_00557090(Cell const &cell)
             if (Cells[spancell.X + spancell.Y * 512] != 0) {
                 spanptr = &Map[spancell];
                 tile = spanptr->IsoTileIndex - IsometricTileTypeClass_TrainBridgeSet + 1;
-                if (((tile == IsometricTileTypeClass_BridgeTopLeft1 || tile == IsometricTileTypeClass_BridgeTopLeft2) && spanptr->unknown_11a == 8) ||
-                    ((tile == IsometricTileTypeClass_BridgeTopRight1 || tile == IsometricTileTypeClass_BridgeTopRight2) && spanptr->unknown_11a == 12)) {
+                if (((tile == IsometricTileTypeClass_BridgeTopLeft1 || tile == IsometricTileTypeClass_BridgeTopLeft2) && spanptr->SubTile == 8) ||
+                    ((tile == IsometricTileTypeClass_BridgeTopRight1 || tile == IsometricTileTypeClass_BridgeTopRight2) && spanptr->SubTile == 12)) {
                     goto destroy_span;
                 }
             }
@@ -5428,7 +5428,7 @@ void MapClass::Destroy_Low_Bridge_EW(Cell const &cell)
                 coord.X = id.X * 256 + 128;
                 coord.Y = id.Y * 256 + 128;
                 coord.Z = 0;
-                coord.Z = cellptr->unknown_11b * unknown_geometry_g;
+                coord.Z = cellptr->Height * unknown_geometry_g;
                 coord.X += (Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10 - 0.5) * 50.0;
                 coord.Y += (Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10 - 0.5) * 50.0;
                 new AnimClass(Rules->BridgeExplosions[Random_Pick(0, Rules->BridgeExplosions.Count() - 1)], coord, Random_Pick(1, 5), 1, 0x600, 0);
@@ -5498,7 +5498,7 @@ void MapClass::Destroy_Low_Bridge_NS(Cell const &cell)
                 coord.X = id.X * 256 + 128;
                 coord.Y = id.Y * 256 + 128;
                 coord.Z = 0;
-                coord.Z = cellptr->unknown_11b * unknown_geometry_g;
+                coord.Z = cellptr->Height * unknown_geometry_g;
                 coord.X += (Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10 - 0.5) * 50.0;
                 coord.Y += (Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10 - 0.5) * 50.0;
                 new AnimClass(Rules->BridgeExplosions[Random_Pick(0, Rules->BridgeExplosions.Count() - 1)], coord, Random_Pick(1, 5), 1, 0x600, 0);
@@ -5568,7 +5568,7 @@ void MapClass::Destroy_Low_Bridge2_EW(Cell const &cell)
                 coord.X = id.X * 256 + 128;
                 coord.Y = id.Y * 256 + 128;
                 coord.Z = 0;
-                coord.Z = cellptr->unknown_11b * unknown_geometry_g;
+                coord.Z = cellptr->Height * unknown_geometry_g;
                 coord.X += (Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10 - 0.5) * 50.0;
                 coord.Y += (Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10 - 0.5) * 50.0;
                 new AnimClass(Rules->BridgeExplosions[Random_Pick(0, Rules->BridgeExplosions.Count() - 1)], coord, Random_Pick(1, 5), 1, 0x600, 0);
@@ -5638,7 +5638,7 @@ void MapClass::Destroy_Low_Bridge2_NS(Cell const &cell)
                 coord.X = id.X * 256 + 128;
                 coord.Y = id.Y * 256 + 128;
                 coord.Z = 0;
-                coord.Z = cellptr->unknown_11b * unknown_geometry_g;
+                coord.Z = cellptr->Height * unknown_geometry_g;
                 coord.X += (Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10 - 0.5) * 50.0;
                 coord.Y += (Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10 - 0.5) * 50.0;
                 new AnimClass(Rules->BridgeExplosions[Random_Pick(0, Rules->BridgeExplosions.Count() - 1)], coord, Random_Pick(1, 5), 1, 0x600, 0);
@@ -5776,24 +5776,24 @@ bool MapClass::Destroy_High_Bridge_Span_00558660(Cell const & cell, FacingType d
 
 		if (dir == FACING_E) {
 
-			if (ittype == IsometricTileTypeClass_BridgeBottomRight1 && cellptr->unknown_11a == 4
-				|| ittype == IsometricTileTypeClass_BridgeBottomRight2 && cellptr->unknown_11a == 4
+			if (ittype == IsometricTileTypeClass_BridgeBottomRight1 && cellptr->SubTile == 4
+				|| ittype == IsometricTileTypeClass_BridgeBottomRight2 && cellptr->SubTile == 4
 				|| (ittype == IsometricTileTypeClass_BridgeMiddle1
 					|| ittype == IsometricTileTypeClass_BridgeMiddle1 + 3
 					|| ittype == IsometricTileTypeClass_BridgeMiddle1 + 1
 					|| ittype == IsometricTileTypeClass_BridgeMiddle1 + 2)
-					&& cellptr->unknown_11a == 4) {
+					&& cellptr->SubTile == 4) {
 				break;
 			}
 
 		} else if (dir == FACING_S
-			&& (ittype == IsometricTileTypeClass_BridgeBottomLeft1 && cellptr->unknown_11a == 2
-				|| ittype == IsometricTileTypeClass_BridgeBottomLeft2 && cellptr->unknown_11a == 2
+			&& (ittype == IsometricTileTypeClass_BridgeBottomLeft1 && cellptr->SubTile == 2
+				|| ittype == IsometricTileTypeClass_BridgeBottomLeft2 && cellptr->SubTile == 2
 				|| (ittype == IsometricTileTypeClass_BridgeMiddle2
 					|| ittype == IsometricTileTypeClass_BridgeMiddle2 + 3
 					|| ittype == IsometricTileTypeClass_BridgeMiddle2 + 1
 					|| ittype == IsometricTileTypeClass_BridgeMiddle2 + 2)
-					&& cellptr->unknown_11a == 2)) {
+					&& cellptr->SubTile == 2)) {
 			break;
 		}
 
@@ -5822,13 +5822,13 @@ bool MapClass::Destroy_High_Bridge_Span_00558660(Cell const & cell, FacingType d
 			CoordStruct coord;
 			coord.X = cell.X * 256 + 128;
             coord.Y = cell.Y * 256 + 128;
-            coord.Z = unknown_geometry_g * startptr->unknown_11b;
+            coord.Z = unknown_geometry_g * startptr->Height;
 			TacticalMap->Coord_To_Pixel(coord, startpix);
 
 			Point2D endpix;
 			coord.X = lastcell.X * 256 + 128;
             coord.Y = lastcell.Y * 256 + 128;
-            coord.Z = unknown_geometry_g * startptr->unknown_11b;
+            coord.Z = unknown_geometry_g * startptr->Height;
 			TacticalMap->Coord_To_Pixel(coord, endpix);
 
             Rect bounds;
@@ -5962,7 +5962,7 @@ void MapClass::Destroy_High_Bridge_Connections_00558BD0(Cell const &cell)
             CellClass *spanptr = &Map[current];
             int ittype = spanptr->IsoTileIndex - IsometricTileTypeClass_BridgeSet + 1;
 
-            if ((ittype == IsometricTileTypeClass_BridgeTopLeft1 || ittype == IsometricTileTypeClass_BridgeTopLeft2) && spanptr->unknown_11a == 8) {
+            if ((ittype == IsometricTileTypeClass_BridgeTopLeft1 || ittype == IsometricTileTypeClass_BridgeTopLeft2) && spanptr->SubTile == 8) {
                 if (Destroy_High_Bridge_Span_00558660(current, FACING_E, &dirty)) {
                     if (dirty != unknown_empty_rect) {
                         TacticalMap->Register_Dirty_Area(dirty, false);
@@ -5973,7 +5973,7 @@ void MapClass::Destroy_High_Bridge_Connections_00558BD0(Cell const &cell)
 
             if ((ittype == IsometricTileTypeClass_BridgeMiddle1 || ittype == IsometricTileTypeClass_BridgeMiddle1 + 3 ||
                  ittype == IsometricTileTypeClass_BridgeMiddle1 + 1 || ittype == IsometricTileTypeClass_BridgeMiddle1 + 2) &&
-                spanptr->unknown_11a == 5) {
+                spanptr->SubTile == 5) {
                 if (Destroy_High_Bridge_Span_00558660(current, FACING_E, &dirty)) {
                     if (dirty != unknown_empty_rect) {
                         TacticalMap->Register_Dirty_Area(dirty, false);
@@ -5982,7 +5982,7 @@ void MapClass::Destroy_High_Bridge_Connections_00558BD0(Cell const &cell)
                 return;
             }
 
-            if ((ittype == IsometricTileTypeClass_BridgeTopRight1 || ittype == IsometricTileTypeClass_BridgeTopRight2) && spanptr->unknown_11a == 12) {
+            if ((ittype == IsometricTileTypeClass_BridgeTopRight1 || ittype == IsometricTileTypeClass_BridgeTopRight2) && spanptr->SubTile == 12) {
                 if (Destroy_High_Bridge_Span_00558660(current, FACING_S, &dirty)) {
                     if (dirty != unknown_empty_rect) {
                         TacticalMap->Register_Dirty_Area(dirty, false);
@@ -5993,7 +5993,7 @@ void MapClass::Destroy_High_Bridge_Connections_00558BD0(Cell const &cell)
 
             if ((ittype == IsometricTileTypeClass_BridgeMiddle2 || ittype == IsometricTileTypeClass_BridgeMiddle2 + 3 ||
                  ittype == IsometricTileTypeClass_BridgeMiddle2 + 2 || ittype == IsometricTileTypeClass_BridgeMiddle2 + 1) &&
-                spanptr->unknown_11a == 7) {
+                spanptr->SubTile == 7) {
                 if (Destroy_High_Bridge_Span_00558660(current, FACING_S, &dirty)) {
                     if (dirty != unknown_empty_rect) {
                         TacticalMap->Register_Dirty_Area(dirty, false);
@@ -6038,7 +6038,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 
 	if (!bridge_deck_cell->IsUnderBridge) {
 
-		int subtile = (unsigned char)bridge_deck_cell->unknown_11a;
+		int subtile = (unsigned char)bridge_deck_cell->SubTile;
 		CellClass * middle_cellptr;
 		if (ittype == IsometricTileTypeClass_BridgeMiddle1 ||
 				ittype == IsometricTileTypeClass_BridgeMiddle1 + 3 ||
@@ -6056,7 +6056,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 			} else {
 				middle_cell = Adjacent_Cell(middle_cell, FACING_N);
 			}
-			subtile = (unsigned char)Map[middle_cell].unknown_11a;
+			subtile = (unsigned char)Map[middle_cell].SubTile;
 		}
 
 		middle_cellptr = &Map[middle_cell];
@@ -6064,7 +6064,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 		if (ittype == IsometricTileTypeClass_BridgeMiddle1 + 3) {
 			Cell zone_cell = middle_cellptr->MapCoords;
 
-			if ((middle_cellptr->unknown_11a & 1) != 0) {
+			if ((middle_cellptr->SubTile & 1) != 0) {
 				zone_cell += Cell(-1, 0);
 				Map[middle_cell + Cell(-1, -1)].unknown_473000();
 				Map[middle_cell + Cell(-1, 0)].unknown_473000();
@@ -6074,7 +6074,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 					middle_cellptr->Fetch_CellID(),
 					int(IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3),
 					-1,
-					Map[cellid + Cell(-1, 0)].unknown_11b - 4,
+					Map[cellid + Cell(-1, 0)].Height - 4,
 					false
 				);
 			} else {
@@ -6085,7 +6085,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 					middle_cellptr->Fetch_CellID(),
 					int(IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle1 + 3),
 					-1,
-					middle_cellptr->unknown_11b - 4,
+					middle_cellptr->Height - 4,
 					false
 				);
 			}
@@ -6140,7 +6140,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				} else {
 					middle_cell = Adjacent_Cell(middle_cell, FACING_W);
 				}
-				subtile = (unsigned char)Map[middle_cell].unknown_11a;
+				subtile = (unsigned char)Map[middle_cell].SubTile;
 			}
 
 			middle_cellptr = &Map[middle_cell];
@@ -6148,7 +6148,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 			if (ittype == IsometricTileTypeClass_BridgeMiddle2 + 3) {
 				Cell zone_cell = middle_cellptr->MapCoords;
 
-				if ((unsigned char)middle_cellptr->unknown_11a > 4) {
+				if ((unsigned char)middle_cellptr->SubTile > 4) {
 					zone_cell += Cell(0, -1);
 					Map[middle_cell + Cell(-1, -1)].unknown_473000();
 					Map[middle_cell + Cell(0, -1)].unknown_473000();
@@ -6158,7 +6158,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 						middle_cellptr->Fetch_CellID(),
 						int(IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3),
 						-1,
-						Map[cellid + Cell(0, -1)].unknown_11b - 4,
+						Map[cellid + Cell(0, -1)].Height - 4,
 						false
 					);
 				} else {
@@ -6169,7 +6169,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 						middle_cellptr->Fetch_CellID(),
 						int(IsometricTileTypeClass_BridgeSet + IsometricTileTypeClass_BridgeMiddle2 + 3),
 						-1,
-						middle_cellptr->unknown_11b - 4,
+						middle_cellptr->Height - 4,
 						false
 					);
 				}
@@ -6214,7 +6214,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 		}
 	} else {
 		if (!bridge_deck_cell->IsBridgeDeck) {
-			bridge_deck_cell = bridge_deck_cell->unknown_2c;
+			bridge_deck_cell = bridge_deck_cell->BridgeDeckCell;
 		}
 
 		int overlay_data = bridge_deck_cell->OverlayData;
@@ -6594,8 +6594,8 @@ bool MapClass::Unknown_0055A660(Cell const &cell, bool flag)
     int y = cell.Y;
     if (flag) {
         CellClass &object = Map[cell];
-        height = object.unknown_11b;
-        if (object.unknown_11c && x + y < MapSize.Width + MapLocalSize.Y * 2 + 4 + height) {
+        height = object.Height;
+        if (object.Ramp && x + y < MapSize.Width + MapLocalSize.Y * 2 + 4 + height) {
             height++;
         }
     }
@@ -6619,8 +6619,8 @@ bool MapClass::Unknown_0055A740(CellClass *cell, bool flag)
     int x = cell->MapCoords.X;
     int y = cell->MapCoords.Y;
     if (flag) {
-        height = cell->unknown_11b;
-        if (cell->unknown_11c && x + y < MapSize.Width + MapLocalSize.Y * 2 + 4 + height) {
+        height = cell->Height;
+        if (cell->Ramp && x + y < MapSize.Width + MapLocalSize.Y * 2 + 4 + height) {
             height++;
         }
     }
@@ -6656,8 +6656,8 @@ bool MapClass::In_Area_Radar(Rect const &rect, Cell const &cell, bool flag)
     int y = cell.Y;
     if (flag) {
         CellClass &object = Map[cell];
-        height = object.unknown_11b;
-        if (object.unknown_11c && x + y < MapSize.Width + rect.Y * 2 + 4 + height) {
+        height = object.Height;
+        if (object.Ramp && x + y < MapSize.Width + rect.Y * 2 + 4 + height) {
             height++;
         }
     }
@@ -6935,7 +6935,7 @@ bool MapClass::Build_All_Cliffs(int unused, int region_id)
     Map.Reset_Iterator();
     cellptr = Map.Iterate();
     while (cellptr != 0 && expanded) {
-        if (cellptr->unknown_11c == 0 && cellptr->Is_Tile_Clear()) {
+        if (cellptr->Ramp == 0 && cellptr->Is_Tile_Clear()) {
             expanded = Place_Cliff(cellptr, region_id);
         }
         cellptr = Map.Iterate();
@@ -7025,7 +7025,7 @@ bool MapClass::Expand_High_Ground(CellClass *cellptr, int region_id)
         if (cell_region_id > 0 && cell_region_id != region_id && region_id != -1) {
             return false;
         }
-        cellptr->unknown_11b += 4;
+        cellptr->Height += 4;
         RandomMapGen.Set_Cell_Data_Region(cellptr->Fetch_CellID(), region_id);
         for (int dir = 0; dir < 8; dir++) {
             Expand_High_Ground(&cellptr->Adjacent_Cell(dir), region_id);
@@ -7151,7 +7151,7 @@ bool MapClass::Place_Cliff(CellClass *cellptr, int region_id)
         Map.Set_Cursor_Pos(XY_Cell(varcell.X + cell.X, varcell.Y + cell.Y));
 
         bool result = true;
-        if (!Pick_Random_Tile_Variant(0, 0, cellptr->unknown_11b, region_id, result, false) && !result) {
+        if (!Pick_Random_Tile_Variant(0, 0, cellptr->Height, region_id, result, false) && !result) {
             return false;
         }
     }
@@ -7171,7 +7171,7 @@ UnknownMapGenerationCell &__fastcall Get_Cell_Data_0056dba0(Cell const &cell);
 unsigned int MapClass::Get_High_Ground_Mask(CellClass *cellptr)
 {
     int mask = 0;
-    int height = cellptr->unknown_11b;
+    int height = cellptr->Height;
     Cell origin = cellptr->Fetch_CellID();
 
     if (!Map.In_Radar(origin) || !Get_Cell_Data_0056dba0(origin).unknown_45[5]) {
@@ -7187,28 +7187,28 @@ unsigned int MapClass::Get_High_Ground_Mask(CellClass *cellptr)
     CellClass *cptr_nw = &Map[(Cell)(origin + Cell(-1, -1))];
     CellClass *cptr_n = &Map[(Cell)(origin + Cell(0, -1))];
 
-    if (Map.In_Radar(origin + Cell(-1, -1)) && cptr_nw->unknown_11b == height + 4 && !cptr_nw->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(-1, -1)) && cptr_nw->Height == height + 4 && !cptr_nw->unknown_47b5e0()) {
         mask |= 0x40;
     }
-    if (Map.In_Radar(origin + Cell(0, -1)) && cptr_n->unknown_11b == height + 4 && !cptr_n->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(0, -1)) && cptr_n->Height == height + 4 && !cptr_n->unknown_47b5e0()) {
         mask |= 0x80;
     }
-    if (Map.In_Radar(origin + Cell(1, -1)) && cptr_ne->unknown_11b == height + 4 && !cptr_ne->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(1, -1)) && cptr_ne->Height == height + 4 && !cptr_ne->unknown_47b5e0()) {
         mask |= 0x01;
     }
-    if (Map.In_Radar(origin + Cell(-1, 0)) && cptr_w->unknown_11b == height + 4 && !cptr_w->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(-1, 0)) && cptr_w->Height == height + 4 && !cptr_w->unknown_47b5e0()) {
         mask |= 0x20;
     }
-    if (Map.In_Radar(origin + Cell(1, 0)) && cptr_e->unknown_11b == height + 4 && !cptr_e->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(1, 0)) && cptr_e->Height == height + 4 && !cptr_e->unknown_47b5e0()) {
         mask |= 0x02;
     }
-    if (Map.In_Radar(origin + Cell(-1, 1)) && cptr_sw->unknown_11b == height + 4 && !cptr_sw->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(-1, 1)) && cptr_sw->Height == height + 4 && !cptr_sw->unknown_47b5e0()) {
         mask |= 0x10;
     }
-    if (Map.In_Radar(origin + Cell(0, 1)) && cptr_s->unknown_11b == height + 4 && !cptr_s->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(0, 1)) && cptr_s->Height == height + 4 && !cptr_s->unknown_47b5e0()) {
         mask |= 0x08;
     }
-    if (Map.In_Radar(origin + Cell(1, 1)) && cptr_se->unknown_11b == height + 4 && !cptr_se->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(1, 1)) && cptr_se->Height == height + 4 && !cptr_se->unknown_47b5e0()) {
         mask |= 0x04;
     }
     return mask;
@@ -7312,7 +7312,7 @@ void MapClass::Unknown_0055C520(CellClass *cellptr, int region_id, bool set_regi
         if (mask == 0xC7 || mask == 0x7C || mask == 0xF1 || mask == 0x1F ||
             mask == 0xC6 || mask == 0x6C || mask == 0xB1 || mask == 0x1B) {
             cellptr->IsoTileIndex = 0xFFFF;
-            cellptr->unknown_11a = 0;
+            cellptr->SubTile = 0;
             if (set_region) {
                 Get_Cell_Data_0056dba0(cellptr->MapCoords).RegionIndex = region_id;
             }
@@ -7413,7 +7413,7 @@ bool MapClass::Expand_Water(CellClass *cellptr, int region_id, bool set_region)
                 return false;
             }
             cellptr->IsoTileIndex = IsometricTileTypeClass_WaterSet;
-            cellptr->unknown_11a = 0;
+            cellptr->SubTile = 0;
             if (set_region) {
                 RandomMapGen.Set_Cell_Data_Region(cellptr->Fetch_CellID(), 0);
             } else {
@@ -7602,10 +7602,10 @@ bool MapClass::Place_Shore(CellClass *cellptr, int pass, int region_id, bool set
         Cell cellid = cellptr->Fetch_CellID();
         Cell cursor = Map.Set_Cursor_Pos(cellid + unknown_shore_offsets_a6f91c[index]);
         bool result = true;
-        if (pass == 1) Pick_Random_Tile_Variant(0, 0, cellptr->unknown_11b, region_id, result, set_region);
+        if (pass == 1) Pick_Random_Tile_Variant(0, 0, cellptr->Height, region_id, result, set_region);
         else {
             if (pass != 2) return true;
-            Pick_Random_Tile_Variant(IsometricTileTypeClass_ShorePieces, IsometricTileTypeClass_ShorePieces + 41, cellptr->unknown_11b, region_id, result, set_region);
+            Pick_Random_Tile_Variant(IsometricTileTypeClass_ShorePieces, IsometricTileTypeClass_ShorePieces + 41, cellptr->Height, region_id, result, set_region);
         }
         if (!result) return false;
     }
@@ -7762,8 +7762,8 @@ bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int reg
                     if (place) {
                         if (cellptr->Is_Tile_Clear() || (cellptr->IsoTileIndex >= first && cellptr->IsoTileIndex <= last)) {
                             cellptr->IsoTileIndex = type->ArrayIndex;
-                            cellptr->unknown_11a = subtile;
-                            cellptr->unknown_11b = height + record->Height;
+                            cellptr->SubTile = subtile;
+                            cellptr->Height = height + record->Height;
                         } else {
                             if ((cellptr->Is_Tile_Shore() && MapClass_Is_Tile_Cliff(type->ArrayIndex, subtile)) ||
                                 (type->ArrayIndex >= IsometricTileTypeClass_ShorePieces && type->ArrayIndex < IsometricTileTypeClass_ShorePieces + 42 &&
@@ -9130,12 +9130,12 @@ void MapClass::Unknown_00562EA0()
 void MapClass::Unknown_00562F50(CellClass *cell)
 {
     if (cell->IsoTileIndex == IsometricTileTypeClass_DestroyableCliffs) {
-        Cell origin = cell->MapCoords + Cell(-((unsigned char)cell->unknown_11a % 6), -((unsigned char)cell->unknown_11a / 6));
+        Cell origin = cell->MapCoords + Cell(-((unsigned char)cell->SubTile % 6), -((unsigned char)cell->SubTile / 6));
 
         ObjectClass *object = IsoTileTypes[IsometricTileTypeClass_DestroyableCliffs]->Create_One_Of(0);
         object->Set_Coord(origin);
-        object->unknown_76 = false;
-        object->unknown_74 = true;
+        object->IsInLimbo = false;
+        object->IsDown = true;
         object->Mark(0);
         delete object;
 
@@ -9181,8 +9181,8 @@ void MapClass::Unknown_00562F50(CellClass *cell)
 
         Point2D start;
         Point2D end;
-        TacticalMap->Coord_To_Pixel(CoordStruct(origin, Map[origin].unknown_11b * unknown_geometry_g), start);
-        TacticalMap->Coord_To_Pixel(CoordStruct(origin + Cell(5, 3), Map[origin + Cell(5, 3)].unknown_11b * unknown_geometry_g), end);
+        TacticalMap->Coord_To_Pixel(CoordStruct(origin, Map[origin].Height * unknown_geometry_g), start);
+        TacticalMap->Coord_To_Pixel(CoordStruct(origin + Cell(5, 3), Map[origin + Cell(5, 3)].Height * unknown_geometry_g), end);
         TacticalMap->Register_Dirty_Area(Rect(start.X - 120, start.Y - 60, end.X - start.X + 240, end.Y - start.Y + 120), false);
 
         AnimTypeClass *med1 = AnimTypes[AnimTypeClass::From_Name("XGRYMED1")];
@@ -9205,17 +9205,17 @@ void MapClass::Unknown_00562F50(CellClass *cell)
                         type = sml1;
                         break;
                     }
-                    AnimClass *anim = new AnimClass(type, CoordStruct(piece, Map[piece].unknown_11b * unknown_geometry_g) + CoordStruct(unknown_id_source_a3d290->RandomNumber(-12, 12), unknown_id_source_a3d290->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, 0x600, 0);
+                    AnimClass *anim = new AnimClass(type, CoordStruct(piece, Map[piece].Height * unknown_geometry_g) + CoordStruct(unknown_id_source_a3d290->RandomNumber(-12, 12), unknown_id_source_a3d290->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, 0x600, 0);
                 }
             }
         }
     } else if (cell->IsoTileIndex == IsometricTileTypeClass_DestroyableCliffs + 1) {
-        Cell origin = cell->MapCoords + Cell(-((unsigned char)cell->unknown_11a % 4), -((unsigned char)cell->unknown_11a / 4));
+        Cell origin = cell->MapCoords + Cell(-((unsigned char)cell->SubTile % 4), -((unsigned char)cell->SubTile / 4));
 
         ObjectClass *object = IsoTileTypes[IsometricTileTypeClass_DestroyableCliffs + 1]->Create_One_Of(0);
         object->Set_Coord(origin);
-        object->unknown_76 = false;
-        object->unknown_74 = true;
+        object->IsInLimbo = false;
+        object->IsDown = true;
         object->Mark(0);
         delete object;
 
@@ -9266,8 +9266,8 @@ void MapClass::Unknown_00562F50(CellClass *cell)
 
         Point2D start;
         Point2D end;
-        TacticalMap->Coord_To_Pixel(CoordStruct(origin, Map[origin].unknown_11b * unknown_geometry_g), start);
-        TacticalMap->Coord_To_Pixel(CoordStruct(origin + Cell(3, 5), Map[origin + Cell(3, 5)].unknown_11b * unknown_geometry_g), end);
+        TacticalMap->Coord_To_Pixel(CoordStruct(origin, Map[origin].Height * unknown_geometry_g), start);
+        TacticalMap->Coord_To_Pixel(CoordStruct(origin + Cell(3, 5), Map[origin + Cell(3, 5)].Height * unknown_geometry_g), end);
         TacticalMap->Register_Dirty_Area(Rect(end.X - 120, start.Y - 60, start.X - end.X + 240, end.Y - start.Y + 120), false);
 
         AnimTypeClass *med1 = AnimTypes[AnimTypeClass::From_Name("XGRYMED1")];
@@ -9290,7 +9290,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
                         type = sml1;
                         break;
                     }
-                    AnimClass *anim = new AnimClass(type, CoordStruct(piece, Map[piece].unknown_11b * unknown_geometry_g) + CoordStruct(unknown_id_source_a3d290->RandomNumber(-12, 12), unknown_id_source_a3d290->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, 0x600, 0);
+                    AnimClass *anim = new AnimClass(type, CoordStruct(piece, Map[piece].Height * unknown_geometry_g) + CoordStruct(unknown_id_source_a3d290->RandomNumber(-12, 12), unknown_id_source_a3d290->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, 0x600, 0);
                 }
             }
         }
@@ -10127,7 +10127,7 @@ bool MapClass::Build_Reachable_Subzones(CellClass *cptr, int layer, DynamicVecto
             int ay = (dim - 1) & adj->MapCoords.Y;
             unsigned short adj_subzone = Cell_Subzone(this, adj->MapCoords, layer);
 
-            if (foot->Can_Enter_Cell(adj, facing, adj->unknown_11b, 0, true) == 0 || mzone_table[adj->unknown_4c] != 1) {
+            if (foot->Can_Enter_Cell(adj, facing, adj->Height, 0, true) == 0 || mzone_table[adj->unknown_4c] != 1) {
 
                 if (adj_subzone == start_subzone) {
 
@@ -10610,7 +10610,7 @@ void MapClass::Mark_Fill_Area(Cell const &origin, bool on_water)
         Get_Cell_Data_0056dba0(origin).unknown_45[4] = 1;
     }
 
-    int height = Map[origin].unknown_11b;
+    int height = Map[origin].Height;
 
     while (frontier_cells.Count()) {
         Cell cell = frontier_cells[frontier_cells.Count() - 1];
@@ -10622,7 +10622,7 @@ void MapClass::Mark_Fill_Area(Cell const &origin, bool on_water)
                 UnknownMapGenerationCell &data = Get_Cell_Data_0056dba0(adjacent);
                 CellClass *adjptr = &Map[adjacent];
                 if (!data.unknown_45[4]) {
-                    if (on_water && adjptr->Is_Tile_With_Water() || !on_water && adjptr->unknown_11b == height && adjptr->Is_Tile_Clear()) {
+                    if (on_water && adjptr->Is_Tile_With_Water() || !on_water && adjptr->Height == height && adjptr->Is_Tile_Clear()) {
                         frontier_cells.Add(adjacent);
                         bool legal = In_Radar(adjacent);
                         bool legal2 = In_Radar(cell);
@@ -10686,7 +10686,7 @@ bool MapClass::Rebuild_Cliffs_At(Cell const &cell)
     Map.Reset_Iterator();
     cellptr = Map.Iterate();
     while (cellptr != 0 && expanded) {
-        if (cellptr->unknown_11c == 0 && cellptr->Is_Tile_Clear()) {
+        if (cellptr->Ramp == 0 && cellptr->Is_Tile_Clear()) {
             expanded = Place_Cliff(cellptr, 0);
         }
         cellptr = Map.Iterate();
@@ -10928,7 +10928,7 @@ void MapClass::Reveal_Nearby_Technos(CellClass *cell, HouseClass *house, bool ar
     Cell where = cell->MapCoords;
     for (int level = 1; level < 15; level += 2) {
         CellClass *cellptr = &Map[where];
-        int height = cellptr->unknown_11b;
+        int height = cellptr->Height;
         if (height >= level - 2 && height <= level) {
             if (arg3) {
                 Map.Radar_Cell(cellptr->MapCoords);
@@ -10984,7 +10984,7 @@ bool MapClass::Unknown_005686B0(Rect const &rect, int house)
             if (cell.Cell_Terrain() != 0) {
                 return false;
             }
-            if (bit & cell.unknown_dc) {
+            if (bit & cell.OccupiedBy) {
                 return false;
             }
             if (cell.OverlayIndex != -1) {
@@ -10993,7 +10993,7 @@ bool MapClass::Unknown_005686B0(Rect const &rect, int house)
             if (cell.unknown_4c != 0) {
                 return false;
             }
-            if (cell.unknown_11c) {
+            if (cell.Ramp) {
                 return false;
             }
             if (cell.Cell_Building() != 0) {
@@ -11152,8 +11152,8 @@ Cell MapClass::Clip_To_Map(Cell const &cell)
     }
 
     CellClass *cellptr = &Map[Cell(x, y)];
-    int height = cellptr->unknown_11b;
-    int slope = cellptr->unknown_11c;
+    int height = cellptr->Height;
+    int slope = cellptr->Ramp;
     if (slope != 0) {
         if (x + y < height + MapSize.Width + 2 * MapLocalSize.Y + 4) {
             height++;
@@ -11196,7 +11196,7 @@ Cell MapClass::Unknown_00568ED0(Cell const &cell, Cell const &from)
 
     int w = iptr->unknown_2b4;
     int h = iptr->unknown_2b8;
-    int s = (unsigned char)cptr->unknown_11a;
+    int s = (unsigned char)cptr->SubTile;
 
     Cell d = cell - Cell(s % w, s / w);
 
@@ -11242,7 +11242,7 @@ bool MapClass::Damage_Bridge(Cell *cell)
             if (cptr->IsBridgeDeck) {
                 bcptr = &Map[cptr->Fetch_CellID()];
             } else {
-                bcptr = &Map[cptr->unknown_2c->Fetch_CellID()];
+                bcptr = &Map[cptr->BridgeDeckCell->Fetch_CellID()];
             }
         }
 
@@ -11392,7 +11392,7 @@ bool MapClass::Unknown_00569320(Cell const &cell)
         break;
     default:
         IsometricTileTypeClass *type = IsoTileTypes[cellptr->IsoTileIndex];
-        int subtile = (unsigned char)cellptr->unknown_11a;
+        int subtile = (unsigned char)cellptr->SubTile;
         Cell topleft = cellptr->MapCoords - Cell(subtile % type->unknown_2b4, subtile / type->unknown_2b4);
         Cell search = topleft + Cell(unknown_bridge_entry_x_7e0514[offset], unknown_bridge_entry_y_7e0534[offset]);
         int dir = unknown_bridge_facings_7e0554[offset];
@@ -11458,8 +11458,8 @@ bool MapClass::Check_Map()
                     from_ground = MZonePassability[mzone][from->unknown_4c] == 1;
 
                     from_bridge = from->IsUnderBridge
-                        && ((from->IsBridgeEastWest && ((bcptr = from->unknown_2c) == 0 || bcptr->MapCoords.Y - from->MapCoords.Y != 2))
-                            || (!from->IsBridgeEastWest && ((bcptr = from->unknown_2c) == 0 || bcptr->MapCoords.X - from->MapCoords.X != 2)));
+                        && ((from->IsBridgeEastWest && ((bcptr = from->BridgeDeckCell) == 0 || bcptr->MapCoords.Y - from->MapCoords.Y != 2))
+                            || (!from->IsBridgeEastWest && ((bcptr = from->BridgeDeckCell) == 0 || bcptr->MapCoords.X - from->MapCoords.X != 2)));
 
                     if (from_ground || from_bridge) {
                         unknown_118 = MapLocalSize.X + 1 + MapLocalSize.Y;
@@ -11470,8 +11470,8 @@ bool MapClass::Check_Map()
                             if ((to->MapCoords.X + to->MapCoords.Y > from->MapCoords.X + from->MapCoords.Y) || (to->MapCoords.X + to->MapCoords.Y == from->MapCoords.X + from->MapCoords.Y && to->MapCoords.X - to->MapCoords.Y > from->MapCoords.X - from->MapCoords.Y)) {
                                 to_ground = MZonePassability[mzone][to->unknown_4c] == 1;
                                 to_bridge = to->IsUnderBridge
-                                    && ((to->IsBridgeEastWest && ((bcptr = to->unknown_2c) == 0 || bcptr->MapCoords.Y - to->MapCoords.Y != 2))
-                                        || (!to->IsBridgeEastWest && ((bcptr = to->unknown_2c) == 0 || bcptr->MapCoords.X - to->MapCoords.X != 2)));
+                                    && ((to->IsBridgeEastWest && ((bcptr = to->BridgeDeckCell) == 0 || bcptr->MapCoords.Y - to->MapCoords.Y != 2))
+                                        || (!to->IsBridgeEastWest && ((bcptr = to->BridgeDeckCell) == 0 || bcptr->MapCoords.X - to->MapCoords.X != 2)));
 
                                 if (to_ground
                                     && from_ground
@@ -11703,7 +11703,7 @@ int MapClass::Get_Max_Level()
         for (int index = 0; index < count; index++) {
             CellClass *cell = Cells[index];
             if (cell != 0) {
-                Lower_Max_Level(cell->unknown_11b);
+                Lower_Max_Level(cell->Height);
             }
         }
     }

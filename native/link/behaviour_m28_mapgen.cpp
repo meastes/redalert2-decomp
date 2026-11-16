@@ -162,7 +162,7 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
     for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
         if (cell->IsoTileIndex >= IsometricTileTypeClass_ShorePieces && cell->IsoTileIndex < IsometricTileTypeClass_ShorePieces + 42) {
             cell->IsoTileIndex = 0;
-            cell->unknown_11a = 0;
+            cell->SubTile = 0;
         }
     }
     if (shores) {
@@ -177,8 +177,8 @@ int MapGeneratorClass::unknown_0057d3a0(int count, Rect const &area, Point2D con
             data.RegionIndex = 0;
             data.unknown_4b = 0;
             cell->IsoTileIndex = IsometricTileTypeClass_WaterSet;
-            cell->unknown_11a = 0;
-            cell->unknown_11b = (char)CellHeight;
+            cell->SubTile = 0;
+            cell->Height = (char)CellHeight;
         }
     }
     return 0;

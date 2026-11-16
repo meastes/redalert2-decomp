@@ -120,7 +120,7 @@ bool MapClass::Unknown_00569320(Cell const &cell)
         break;
     default:
         IsometricTileTypeClass *type = IsoTileTypes[cellptr->IsoTileIndex];
-        int subtile = (unsigned char)cellptr->unknown_11a;
+        int subtile = (unsigned char)cellptr->SubTile;
         Cell topleft = cellptr->MapCoords - Cell(subtile % type->unknown_2b4, subtile / type->unknown_2b4);
         Cell search = topleft + Cell(unknown_bridge_entry_x_7e0514[offset], unknown_bridge_entry_y_7e0534[offset]);
         int dir = unknown_bridge_facings_7e0554[offset];

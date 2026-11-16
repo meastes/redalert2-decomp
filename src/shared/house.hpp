@@ -452,7 +452,7 @@ public:
     int unknown_124;                                      // +0x00124
     int unknown_128;                                      // +0x00128
     int unknown_12c;                                      // +0x0012C
-    int unknown_130;                                      // +0x00130 (TechnoClass constructor)
+    int ActLike;                                      // +0x00130 (TechnoClass constructor)
     bool unknown_134;                                     // +0x00134
     bool unknown_135;                                     // +0x00135
     bool unknown_136;                                     // +0x00136
@@ -461,7 +461,7 @@ public:
     bool unknown_139;                                     // +0x00139
     bool unknown_13a;                                     // +0x0013A
     bool unknown_13b;                                     // +0x0013B
-    bool unknown_13c;                                     // +0x0013C
+    bool IsDiscovered;                                     // +0x0013C
     bool unknown_13d;                                     // +0x0013D
     bool unknown_13e;                                     // +0x0013E
     bool unknown_13f;                                     // +0x0013F
@@ -469,7 +469,7 @@ public:
     bool unknown_141;                                     // +0x00141
     bool unknown_142;                                     // +0x00142
     bool unknown_143;                                     // +0x00143
-    bool unknown_144;                                     // +0x00144 (true)
+    bool IsRecalcNeeded;                                     // +0x00144 (true)
     int unknown_148;                                      // +0x00148
     int unknown_14c;                                      // +0x0014C
     bool unknown_150;                                     // +0x00150

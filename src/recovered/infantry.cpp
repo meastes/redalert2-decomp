@@ -172,13 +172,13 @@ void InfantryClass::Init()
             TypeList<InfantryTypeClass *> &types = House->Type->VeteranInfantry;
             for (int index = 0; index < types.Count(); index++) {
                 if (types[index] == Type) {
-                    unknown_118.Set_Veteran(true);
+                    Veterancy.Set_Veteran(true);
                     break;
                 }
             }
         }
         if (House != 0 && House->unknown_206 && Type->Trainable) {
-            unknown_118.Set_Veteran(true);
+            Veterancy.Set_Veteran(true);
         }
         Strength = Type->MaxStrength;
         unknown_70 = Type->MaxStrength;
@@ -202,7 +202,7 @@ InfantryClass::~InfantryClass()
 {
     if (GameActive && Type != 0) {
         if (House->Can_Build(Type, 0, 0) == -1) {
-            House->unknown_144 = true;
+            House->IsRecalcNeeded = true;
         }
         if (Team != 0) {
             Team->Remove(this, -1, 0);
@@ -408,9 +408,9 @@ void InfantryClass::Draw_It(Point2D const &input, Rect const &window)
             if (unknown_79 || ((Map[Position_Coord_004f3f40()].unknown_140&0x10000) &&
                 Position_Coord_004f3f40().Z>Map.Get_Height_GL(Position_Coord_004f3f40())+unknown_geometry_j/2)) {
                 int light=level_light*(Get_Height_AGL()/(unknown_geometry_g*2));
-                brightness=Map[target_cell].unknown_10a+light;
+                brightness=Map[target_cell].Brightness+light;
             } else {
-                brightness=Map[target_cell].unknown_10a+((Map[Position_Coord_004f3f40()].unknown_140&0x10000)?-500:0);
+                brightness=Map[target_cell].Brightness+((Map[Position_Coord_004f3f40()].unknown_140&0x10000)?-500:0);
             }
             brightness+=Rules->ExtraInfantryLight;
             int height=Get_Height_AGL();
@@ -929,9 +929,9 @@ TubeClass *__fastcall Cell_Tube_0047a130(CellClass const *cell);
 struct CellOccupancyFlags_00503190 { unsigned int unknown_0:5; unsigned int vehicle:1; unsigned int unknown_6:26; };
 int InfantryClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass *adjacent,bool unused)
 {
-    bool bridge=(cell->unknown_140&0x100) && (height==-1 || abs(height-cell->unknown_11b)>1);
+    bool bridge=(cell->unknown_140&0x100) && (height==-1 || abs(height-cell->Height)>1);
     unsigned char flags=cell->unknown_124;
-    int infantry_owner=cell->unknown_54;
+    int infantry_owner=cell->InfType;
     bool vehicle=reinterpret_cast<CellOccupancyFlags_00503190 const &>(cell->unknown_124).vehicle!=0;
     TubeClass *tube=Cell_Tube_0047a130(cell);
     if (direction==8) {
@@ -948,9 +948,9 @@ int InfantryClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellC
         int angle=abs(opposite-other_tube->Facing);
         if (angle>2 && angle<6 && direction!=-1) return 7;
     }
-    if (height-cell->unknown_11b>4) return 0;
+    if (height-cell->Height>4) return 0;
     if (unknown_slot102(reinterpret_cast<UnknownCellClass*>(cell),direction,&height,&bridge,reinterpret_cast<UnknownCellClass*>(adjacent))==7) return 7;
-    if (height!=-1 && (cell->unknown_140&0x100) && height==cell->unknown_11b+4) {
+    if (height!=-1 && (cell->unknown_140&0x100) && height==cell->Height+4) {
         flags=cell->unknown_128;
         infantry_owner=cell->BridgeInfType;
         vehicle=reinterpret_cast<CellOccupancyFlags_00503190 const &>(cell->unknown_128).vehicle!=0;
@@ -1213,7 +1213,7 @@ int InfantryClass::unknown_slot218(AbstractClass *target, int weapon, bool check
     }
     int result = TechnoClass::unknown_slot218(target, weapon, check_range);
     if (result == 0) {
-        if (unknown_468 > 0.1
+        if (Speed > 0.1
             || (unknown_494 != 0 && Sequence != -1 && !unknown_do_controls_7a3474[Sequence].Interrupt)) {
             return 7;
         }
@@ -1434,7 +1434,7 @@ void InfantryClass::Scatter(CoordStruct const &threat, bool forced, bool nokiddi
         Cell best(0,0);
         Cell origin=Cell(unknown_slot19(0));
         CellClass *origin_cell=&Map[origin];
-        int height=origin_cell->unknown_11b+Is_Moving_Onto_Bridge(0) ? 4 : 0;
+        int height=origin_cell->Height+Is_Moving_Onto_Bridge(0) ? 4 : 0;
         CoordStruct destination=unknown_slot19(0);
         destination.Z=height*unknown_geometry_g;
         for (int index=0;index<8;++index) {
@@ -1469,7 +1469,7 @@ bool InfantryClass::unknown_slot311(int sequence, bool force, bool random_start)
     if (sequence == -1 || Type->DoControls[sequence].Count == 0) {
         return false;
     }
-    if (Sequence == 33 && unknown_7a) {
+    if (Sequence == 33 && IsFalling) {
         return false;
     }
     if (Type->MovementZone == 3) {
@@ -1640,7 +1640,7 @@ BulletClass *InfantryClass::Fire_At(AbstractClass *target, int arg2)
 {
     unknown_57d = false;
     BulletClass *result = TechnoClass::Fire_At(target, arg2);
-    if (result != 0 && !unknown_76 && Type->Fraidycat && unknown_254 == 0) {
+    if (result != 0 && !IsInLimbo && Type->Fraidycat && unknown_254 == 0) {
         unknown_5bc = 300;
         if (Get_Mission() == 1 || Get_Mission() == 15) {
             QueueMission(5, false);
@@ -1846,7 +1846,7 @@ return_capture_action:
             } else action = 0x1f;
         }
         if (object->Kind_Of() == 6 && House->Is_Ally(target) && House->Is_Player_Control() && building->Type->Armory) {
-            if (!unknown_118.Is_Elite()) {
+            if (!Veterancy.Is_Elite()) {
                 if (!Type->Deployer || (Sequence != 27 && Sequence != 28 && Sequence != 29 && Sequence != 30)) {
                     switch (unknown_slot150(15,target)) {
                     case 1: action = 3; break;
@@ -2326,7 +2326,7 @@ void __fastcall InfantryClass::Read_INI(CCINIClass &ini)
                     }
                     token = strtok(0, ",");
                     if (token != 0) {
-                        infantry->unknown_118.From_Integer(atoi(token));
+                        infantry->Veterancy.From_Integer(atoi(token));
                     }
                     token = strtok(0, ",");
                     if (token != 0) {
@@ -2385,7 +2385,7 @@ void __fastcall InfantryClass::Write_INI(CCINIClass &ini)
     ini.Clear(unknown_infantry_section_7a33f0, 0);
     for (int index = 0; index < Infantry.Count(); index++) {
         InfantryClass *infantry = Infantry[index];
-        if (!infantry->unknown_76) {
+        if (!infantry->IsInLimbo) {
             char id[12];
             sprintf(id, "%d", index);
             char const *tag;
@@ -2405,7 +2405,7 @@ void __fastcall InfantryClass::Write_INI(CCINIClass &ini)
                     infantry->unknown_slot104().X, infantry->unknown_slot104().Y,
                     Unknown_004763D0(coord),
                     MissionClass::Name_From_Mission(mission), direction, tag,
-                    infantry->unknown_118.To_Integer(), infantry->unknown_1ac,
+                    infantry->Veterancy.To_Integer(), infantry->unknown_1ac,
                     infantry->unknown_79, infantry->unknown_379, infantry->unknown_37a);
             ini.Put_String(unknown_infantry_section_7a33f0, id, line);
         }
@@ -2438,7 +2438,7 @@ void InfantryClass::unknown_506f30()
             }
         }
     }
-    if (Type->Fraidycat && unknown_5bc > 50 && !Is_Deploying() && !unknown_7a) {
+    if (Type->Fraidycat && unknown_5bc > 50 && !Is_Deploying() && !IsFalling) {
         if (!Locomotor.Checked()->Is_Moving() && unknown_494 == 0) {
             Scatter(unknown_geometry_l, true, false);
         }
@@ -2629,7 +2629,7 @@ void InfantryClass::Advance_Animation_005078b0()
                     PrimaryFacing.Set(direction);
                 }
             }
-            if (Locomotor.Checked()->Is_Moving() && unknown_468 > 0.1) {
+            if (Locomotor.Checked()->Is_Moving() && Speed > 0.1) {
                 if (unknown_5c3) {
                     unknown_slot311(6, true, false);
                 } else {
@@ -2669,7 +2669,7 @@ void InfantryClass::Advance_Animation_005078b0()
             break;
         }
     }
-    if (Sequence == 33 && !unknown_7a) {
+    if (Sequence == 33 && !IsFalling) {
         unknown_slot311(0, true, false);
     }
 }
@@ -2705,7 +2705,7 @@ select_sequence:
     if (Locomotor.Checked()->Is_Really_Moving_Now()) {
         if (Is_JumpJet()) {
             if (unknown_57d) return;
-            if (unknown_468 > 0.8) {
+            if (Speed > 0.8) {
                 unknown_slot311(24, false, false);
             } else {
                 unknown_slot311(23, false, false);
@@ -2957,7 +2957,7 @@ void InfantryClass::unknown_slot308()
 
 bool InfantryClass::Ready_To_Commence()
 {
-    if (Mission == 6 || Mission == 21 || unknown_57d || unknown_7a) {
+    if (Mission == 6 || Mission == 21 || unknown_57d || IsFalling) {
         return false;
     }
     if (!Locomotor.Checked()->Is_Moving_Now() || Get_Mission() == 5 || Get_Mission() == 15
@@ -3319,7 +3319,7 @@ ObjectTypeClass *InfantryClass::GetDisguise(bool arg1)
     if (unknown_40c != 0) {
         return unknown_40c;
     }
-    if (PlayerPtr != 0 && PlayerPtr->unknown_130 == 0) {
+    if (PlayerPtr != 0 && PlayerPtr->ActLike == 0) {
         return Rules->AlliedDisguise;
     }
     return Rules->SovietDisguise;
@@ -3368,7 +3368,7 @@ void InfantryClass::ClearDisguise()
     if (Type->PermaDisguise) {
         unknown_170 = true;
         unknown_410 = House;
-        if (House->unknown_130 == 0) {
+        if (House->ActLike == 0) {
             unknown_40c = Rules->AlliedDisguise;
         } else {
             unknown_40c = Rules->SovietDisguise;

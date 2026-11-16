@@ -2206,7 +2206,7 @@ void __fastcall Create_Units_00660320(bool official)
                 cost += type->Raw_Cost();
                 objects.Add(techno);
                 if (unknown_id_source_a3d290->Special().InitialVeteran) {
-                    techno->unknown_118.Set_Elite(true);
+                    techno->Veterancy.Set_Elite(true);
                 }
                 if (!house->Is_Human_Player()) {
                     techno->Set_Mission(11);

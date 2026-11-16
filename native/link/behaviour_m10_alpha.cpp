@@ -27,7 +27,7 @@ void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &pixel, Rect const &
     if (buffer == 0) return;
     for (int index = 0; index < AlphaShapes.Count(); index++) {
         AlphaShapeClass *alpha = AlphaShapes[index];
-        if (alpha->unknown_3c) continue;
+        if (alpha->IsToDelete) continue;
         int x1 = alpha->Bounds.X - TacticalMap->TacPixelX + TacticalRect.X;
         int y1 = alpha->Bounds.Y - TacticalMap->TacPixelY + TacticalRect.Y;
         Rect r1(x1, y1, alpha->Bounds.Width, alpha->Bounds.Height);

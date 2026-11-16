@@ -68,7 +68,7 @@ int TechnoClass::unknown_slot176()
             }
         }
     }
-    if (here->unknown_11c != 0) {
+    if (here->Ramp != 0) {
         CellClass *south = &Map[Adjacent(cell, 4)];
         CellClass *east = &Map[Adjacent(cell, 2)];
         CellClass *south_east = &Map[Adjacent(cell, 3)];
@@ -93,16 +93,16 @@ int TechnoClass::unknown_slot176()
     if (ahead_right == 0 || ahead_left == 0 || ahead == 0) {
         return zadjust - 1;
     }
-    if (ahead_right->unknown_11c != 0 || ahead_left->unknown_11c != 0 || ahead->unknown_11c != 0) {
+    if (ahead_right->Ramp != 0 || ahead_left->Ramp != 0 || ahead->Ramp != 0) {
         return zadjust + ramp2;
     }
     if (behind == 0 || behind_right == 0 || behind_left == 0) {
         return zadjust - 1;
     }
-    if (behind->unknown_11c != 0 || behind_right->unknown_11c != 0 || behind_left->unknown_11c != 0) {
+    if (behind->Ramp != 0 || behind_right->Ramp != 0 || behind_left->Ramp != 0) {
         return zadjust + ramp2;
     }
-    if (here->unknown_11c != 0) {
+    if (here->Ramp != 0) {
         return zadjust + ramp1;
     }
     CellClass *cells[3];
@@ -131,7 +131,7 @@ int TechnoClass::unknown_slot176()
                 tile = IsoTileTypes[IsometricTileTypeClass_ClearTile];   // the clear tile set (0x006D04B0; C16 audit)
             } else {
                 tile = IsoTileTypes[type];
-                subtile = (unsigned char)cells[i]->unknown_11a;
+                subtile = (unsigned char)cells[i]->SubTile;
             }
             int width = 0;
             int height = 0;

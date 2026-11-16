@@ -104,7 +104,7 @@ void BulletClass::AI()
 
     bool collided = false;
     bool forced = false;
-    if (Type->Dropping && !unknown_7a) {
+    if (Type->Dropping && !IsFalling) {
         forced = true;
     }
     if (Type->AnimLow || Type->AnimHigh) {

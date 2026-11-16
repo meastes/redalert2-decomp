@@ -359,13 +359,13 @@ public:
     bool unknown_68;                        // +0x68
     int Strength;                           // +0x6C health (0xFF when constructed; hypothesis)
     int unknown_70;                         // +0x70
-    bool unknown_74;                        // +0x74
-    bool unknown_75;                        // +0x75
-    bool unknown_76;                        // +0x76
+    bool IsDown;                        // +0x74
+    bool IsToDisplay;                        // +0x75
+    bool IsInLimbo;                        // +0x76
     bool unknown_77;                        // +0x77
     bool IsAnimAttached;                        // +0x78
     bool unknown_79;                        // +0x79
-    bool unknown_7a;                        // +0x7A
+    bool IsFalling;                        // +0x7A
     bool unknown_7b;                        // +0x7B
     bool unknown_7c;                        // +0x7C
     bool IsActive;                        // +0x7D

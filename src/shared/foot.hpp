@@ -288,7 +288,7 @@ public:
     Cell unknown_454;                     // +0x454
     Cell unknown_458;                     // +0x458
     CoordStruct unknown_45c;                    // +0x45C (Compute_CRC hashes its length)
-    double unknown_468;                         // +0x468
+    double Speed;                         // +0x468
     double unknown_470;                         // +0x470
     DynamicVectorClass<AbstractClass *> unknown_478;    // +0x478
     AbstractClass *unknown_490;                 // +0x490 (slot 259 sets it; slot 241 takes its coordinate; not saved)

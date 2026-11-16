@@ -333,15 +333,15 @@ FootClass * __fastcall _Create_Group(TeamTypeClass *teamtype)
 
                 switch (teamtype->VeteranLevel) {
                     case 0:
-                        temp->unknown_118.Set_Dumbass(true);
+                        temp->Veterancy.Set_Dumbass(true);
                         break;
                     case 1:
                         break;
                     case 2:
-                        temp->unknown_118.Set_Veteran(true);
+                        temp->Veterancy.Set_Veteran(true);
                         break;
                     case 3:
-                        temp->unknown_118.Set_Elite(true);
+                        temp->Veterancy.Set_Elite(true);
                         break;
                 }
 

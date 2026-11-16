@@ -348,7 +348,7 @@ void __fastcall Send_Statistics_Packet(bool arg)
         stats.Add_Field(field_player_clan, (unsigned int)temp);
 
         field_player_team[3] = digit;
-        stats.Add_Field(field_player_team, (unsigned int)player->unknown_130);
+        stats.Add_Field(field_player_team, (unsigned int)player->ActLike);
 
         field_player_t_team[3] = digit;
         temp = i;

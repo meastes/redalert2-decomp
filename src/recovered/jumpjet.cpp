@@ -331,7 +331,7 @@ int __stdcall JumpjetLocomotionClass::Layer()
 {
     int height = LinkedTo->Get_Height_AGL();
     if (!LinkedTo->unknown_79) {
-        if ((Loco_Cell(Object_Coord(LinkedTo))->Flags & 0x100) && height >= unknown_geometry_j && !LinkedTo->unknown_7a) {
+        if ((Loco_Cell(Object_Coord(LinkedTo))->Flags & 0x100) && height >= unknown_geometry_j && !LinkedTo->IsFalling) {
             height -= unknown_geometry_j;
         }
     }
@@ -502,10 +502,10 @@ void JumpjetLocomotionClass::unknown_530180()
         unknown_70 = 0;
         position.X = unknown_3c.X;
         position.Y = unknown_3c.Y;
-        bool down = LinkedTo->unknown_74;
-        LinkedTo->unknown_74 = false;
+        bool down = LinkedTo->IsDown;
+        LinkedTo->IsDown = false;
         LinkedTo->Set_Coord(position);
-        LinkedTo->unknown_74 = down;
+        LinkedTo->IsDown = down;
         if (LinkedTo->unknown_228 == 0 && !balloon) {
             unknown_78 = 0;
             unknown_4c = 4;
@@ -612,7 +612,7 @@ void JumpjetLocomotionClass::unknown_530550()
         unknown_48 = false;
         LinkedTo->unknown_slot93(2);
         LinkedTo->Assign_Destination(0, true);
-        if (LinkedTo->IsActive && !LinkedTo->unknown_76 && !LinkedTo->unknown_7a) {
+        if (LinkedTo->IsActive && !LinkedTo->IsInLimbo && !LinkedTo->IsFalling) {
             LinkedTo->unknown_slot263(0, 0, 0, 0);
             if (LinkedTo->IsActive) {
                 LinkedTo->unknown_slot262(0, 0, 0, 0);
@@ -701,9 +701,9 @@ inline CoordStruct Jumpjet_Move_Coord_00530b00(CoordStruct const &start, Unknown
 void JumpjetLocomotionClass::unknown_530b00()
 {
     bool need_mark=unknown_4c!=2 && unknown_4c!=3;
-    bool was_down=LinkedTo->unknown_74;
+    bool was_down=LinkedTo->IsDown;
     if (need_mark) LinkedTo->Mark(0);
-    else LinkedTo->unknown_74=false;
+    else LinkedTo->IsDown=false;
     if (unknown_70>unknown_68) {
         unknown_68+=Accel;
         unknown_68=unknown_68<Speed?unknown_68:Speed;
@@ -764,7 +764,7 @@ void JumpjetLocomotionClass::unknown_530b00()
         building->Crossing_Firestorm(LinkedTo,true);
     LinkedTo->PrimaryFacing.Set(unknown_50.Current());
     if (need_mark) LinkedTo->Mark(1);
-    else LinkedTo->unknown_74=was_down;
+    else LinkedTo->IsDown=was_down;
 }
 
 

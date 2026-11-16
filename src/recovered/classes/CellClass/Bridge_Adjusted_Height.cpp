@@ -2,5 +2,5 @@
 #include "shared/cell_class.hpp"
 int CellClass::Bridge_Adjusted_Height_0047CF10() const
 {
-    return (int)(signed char)unknown_11b + ((unknown_140 >> 7) & 1) * 4;
+    return (int)(signed char)Height + ((unknown_140 >> 7) & 1) * 4;
 }

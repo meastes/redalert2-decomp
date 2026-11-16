@@ -438,7 +438,7 @@ void ParticleClass::Smoke_Behavior_AI()
 }
 
 
-static inline ObjectClass *Fire_Content_At_Height(CellClass &cell, CoordStruct coord) { if (coord.Z >= (cell.unknown_11b + 4) * unknown_geometry_g) return cell.AltOccupierPtr; return cell.OccupierPtr; }
+static inline ObjectClass *Fire_Content_At_Height(CellClass &cell, CoordStruct coord) { if (coord.Z >= (cell.Height + 4) * unknown_geometry_g) return cell.AltOccupierPtr; return cell.OccupierPtr; }
 static inline int Particle_Distance(CoordStruct const &delta) { return (int)unknown_sqrt_4ba410((double)delta.Y * delta.Y + (double)delta.Z * delta.Z + (double)delta.X * delta.X); }
 void ParticleClass::Fire_Behavior_AI()
 {

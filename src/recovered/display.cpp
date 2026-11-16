@@ -1378,7 +1378,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
                 }
             }
             if (action == 0x3d) {
-                CoordStruct point = cell.As_Coord(Map[cell].unknown_11b * unknown_height_step_852948);
+                CoordStruct point = cell.As_Coord(Map[cell].Height * unknown_height_step_852948);
                 BeaconManager.Unknown_0042E740(point);
             } else if (action != 0 && action != 7) {
                 bool allowed = true;
@@ -1400,7 +1400,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
                         }
                     } else if (action == 0x3c) {
                         if (MuteSWLaunches == 0) {
-                            CoordStruct point = cell.As_Coord(Map[cell].unknown_11b * unknown_height_step_852948);
+                            CoordStruct point = cell.As_Coord(Map[cell].Height * unknown_height_step_852948);
                             BeaconManager.Unknown_0042E370(PlayerPtr->ArrayIndex, point, -1);
                         }
                         Map.Unknown_0049CAC0(0);
@@ -1761,7 +1761,7 @@ void __fastcall Unknown_0049C3F0(ObjectClass *object)
                 }
             }
         }
-        if (!object->unknown_76 && object->unknown_slot80()) {
+        if (!object->IsInLimbo && object->unknown_slot80()) {
             AllowVoice = false;
         }
     }
@@ -1835,7 +1835,7 @@ void DisplayClass::Compute_Start_Pos()
     int count=0;
     for (int i=0;i<Technos.Count();i++) {
         TechnoClass *tech=Technos[i];
-        if (!tech->unknown_76 && tech->unknown_372) {
+        if (!tech->IsInLimbo && tech->unknown_372) {
             center += Object_Coord(tech);
             count++;
         }
@@ -2076,7 +2076,7 @@ CoordStruct DisplayClass::Unknown_0049CB70(CoordStruct const &coord, bool any)
 {
     CellClass &cell = Map[coord];
     return cell.Closest_Free_Spot(coord, any,
-                                  (cell.unknown_140 & 0x100) && coord.Z >= (cell.unknown_11b + 4) * unknown_geometry_g ? 1 : 0);
+                                  (cell.unknown_140 & 0x100) && coord.Z >= (cell.Height + 4) * unknown_geometry_g ? 1 : 0);
 }
 
 
@@ -2259,8 +2259,8 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     CellClass *cptr = Iterate();
     while (cptr != 0) {
         cptr->IsoTileIndex = ittype;
-        cptr->unknown_11a = 0;
-        cptr->unknown_11b += cell_height;
+        cptr->SubTile = 0;
+        cptr->Height += cell_height;
         cptr = Iterate();
     }
 
@@ -2492,11 +2492,11 @@ int DisplayClass::Unknown_0049DB60(void *buffer, int arg2)
         out += 4;
         *(int *)out = cell->IsoTileIndex;
         out += 4;
-        *out = cell->unknown_11a;
+        *out = cell->SubTile;
         out += 1;
-        *out = cell->unknown_11b;
+        *out = cell->Height;
         out += 1;
-        *out = cell->unknown_11c;
+        *out = cell->Ramp;
         out += 1;
         *(int *)out = cell->OverlayIndex;
         out += 4;
@@ -2549,11 +2549,11 @@ void DisplayClass::Unknown_0049DCD0(void *buffer)
         in += 4;
         cell->IsoTileIndex = *(int *)in;
         in += 4;
-        cell->unknown_11a = *in;
+        cell->SubTile = *in;
         in += 1;
-        cell->unknown_11b = *in;
+        cell->Height = *in;
         in += 1;
-        cell->unknown_11c = *in;
+        cell->Ramp = *in;
         in += 1;
         cell->OverlayIndex = *(int *)in;
         in += 4;
@@ -2580,7 +2580,7 @@ void DisplayClass::Reveal_Technos(bool skip_buildings, bool arg2)
     int count = Technos.Count();
     for (int index = 0; index < count; index++) {
         TechnoClass *techno = Technos[index];
-        if (techno == 0 || techno->unknown_76) {
+        if (techno == 0 || techno->IsInLimbo) {
             continue;
         }
         if (techno->Kind_Of() == 6 && skip_buildings) {
@@ -2621,7 +2621,7 @@ void DisplayClass::Update_Technos_Visibility(bool skip_buildings, bool arg2)
     int count = Technos.Count();
     for (int index = 0; index < count; index++) {
         TechnoClass *techno = Technos[index];
-        if (techno == 0 || techno->unknown_76) {
+        if (techno == 0 || techno->IsInLimbo) {
             continue;
         }
         if (techno->Kind_Of() == 6 && skip_buildings) {

@@ -480,7 +480,7 @@ void __stdcall IonStormClass_Lightning_Bolt(Cell cell)
     int half = ((ShapeFileStruct *)Rules->WeatherConBolts[0]->Get_Image_Data())->Height / 2;
     int height = Tactical_Pixel_To_Z_Lepton(half);
     CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128,
-        cellptr.unknown_11b * unknown_geometry_g + height + ((cellptr.unknown_140 & 0x100) ? unknown_geometry_j : 0));
+        cellptr.Height * unknown_geometry_g + height + ((cellptr.unknown_140 & 0x100) ? unknown_geometry_j : 0));
     if (coord == unknown_geometry_l) {
         return;
     }
@@ -509,7 +509,7 @@ void __fastcall Storm_Strike_0051FE50(CoordStruct coord)
     IonStormClass::BoltsPresent.Add(bolt);
 
     Cell cell = cellptr.MapCoords;
-    int level = cellptr.unknown_11b;
+    int level = cellptr.Height;
     CoordStruct where(cell.X * 256 + 128, cell.Y * 256 + 128,
         ((cellptr.unknown_140 & 0x100) ? unknown_geometry_j : 0) + level * unknown_geometry_g);
     if (where == unknown_geometry_l) {
@@ -541,7 +541,7 @@ void __fastcall Storm_Strike_0051FE50(CoordStruct coord)
     Combat_Lighting(where, damage, Rules->LightningWarhead, 0, 0);
     Explosion_Damage(where, damage, 0, Rules->LightningWarhead, 1);
     if (building != cellptr.Cell_Building() || object != cellptr.Cell_Techno(Point2D(0, 0), false, 0)
-        || cellptr.unknown_11b != level) {
+        || cellptr.Height != level) {
         changed = true;
     }
     if (!sheltered && changed) {

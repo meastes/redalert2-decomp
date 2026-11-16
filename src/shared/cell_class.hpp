@@ -433,16 +433,16 @@ public:
         if (IsBridgeDeck) {
             return Fetch_CellID();
         } else {
-            return unknown_2c->Fetch_CellID();
+            return BridgeDeckCell->Fetch_CellID();
         }
     }
 #endif
 
     Cell MapCoords;                       // +0x024
     DynamicVectorClass<FoggedObjectClass *> *FoggedObjects;   // +0x028
-    CellClass *unknown_2c;                      // +0x02C
+    CellClass *BridgeDeckCell;                      // +0x02C
     void *unknown_30;                           // +0x030
-    LightConvertClass *unknown_34;              // +0x034 the tile drawer (Westwood's Drawer)
+    LightConvertClass *Drawer;              // +0x034 the tile drawer (Westwood's Drawer)
     int IsoTileIndex;                           // +0x038
     TagClass *unknown_3c;                       // +0x03C
     void *unknown_40;                           // +0x040
@@ -450,7 +450,7 @@ public:
     int SmudgeIndex;                            // +0x048
     int unknown_4c;                             // +0x04C
     int unknown_50;                             // +0x050
-    int unknown_54;                             // +0x054
+    int InfType;                             // +0x054
     int BridgeInfType;                             // +0x058
     int unknown_5c;                             // +0x05C
     int unknown_60;                             // +0x060
@@ -463,7 +463,7 @@ public:
 #else
     int unknown_ac[12];                         // +0x0AC
 #endif
-    int unknown_dc;                             // +0x0DC
+    int OccupiedBy;                             // +0x0DC
     void *unknown_e0;                           // +0x0E0
     ObjectClass *OccupierPtr;                   // +0x0E4
     ObjectClass *AltOccupierPtr;                // +0x0E8
@@ -479,24 +479,24 @@ public:
     int unknown_100;                            // +0x100
     int unknown_104;                            // +0x104
     short unknown_108;                          // +0x108
-    short unknown_10a;                          // +0x10A
-    short unknown_10c;                          // +0x10C
+    short Brightness;                          // +0x10A
+    short TileBrightness;                          // +0x10C
     short unknown_10e;                          // +0x10E
     short unknown_110;                          // +0x110
     short unknown_112;                          // +0x112
     short unknown_114;                          // +0x114
-    short unknown_116;                          // +0x116
+    short Tube;                          // +0x116
     unsigned char unknown_118;                  // +0x118
     char unknown_119;                           // +0x119
-    char unknown_11a;                           // +0x11A
-    char unknown_11b;                           // +0x11B
-    unsigned char unknown_11c;                  // +0x11C
+    char SubTile;                           // +0x11A
+    char Height;                           // +0x11B
+    unsigned char Ramp;                  // +0x11C
     char unknown_11d;                           // +0x11D
     unsigned char OverlayData;                  // +0x11E
     unsigned char SmudgeData;                   // +0x11F
     char unknown_120;                           // +0x120
     char unknown_121;                           // +0x121
-    char unknown_122;                           // +0x122
+    char AdjacentObjectCount;                           // +0x122
 #ifndef RA2_CELL_FULL_ASSIGN
     char unknown_123;
 #endif

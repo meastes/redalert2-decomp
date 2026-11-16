@@ -254,7 +254,7 @@ void __fastcall Play_Ingame_Movie(char const *name, bool loop)
         if (movie != 0) {
             movie->Set_Position(SidebarMovieX - 3, SidebarMovieY - 1);
             movie->InitSubtitles((int)Ingame_Movie_Subtitle);
-            movie->unknown_04 = loop;
+            movie->State = loop;
             IngameVQ.Add(movie);
         }
     }

@@ -3989,7 +3989,7 @@ void __fastcall Planning_Draw_Techno(TechnoClass *techno)
         bool secondary = techno->unknown_slot271();
         CoordStruct coord = techno->unknown_slot241();
         Point2D end = Planning_Coord_Pixel(coord);
-        if (techno->unknown_76) {
+        if (techno->IsInLimbo) {
             Planning_Draw_Dot(end, color);
             return;
         }
@@ -4107,7 +4107,7 @@ void __fastcall Planning_Draw_Techno_618c00(TechnoClass *techno)
         bool secondary = techno->unknown_slot271();
         CoordStruct coord = techno->unknown_slot241();
         Point2D end = Planning_Coord_Pixel(coord);
-        if (techno->unknown_76) {
+        if (techno->IsInLimbo) {
             Planning_Fill_Dot(end, dim);
             return;
         }

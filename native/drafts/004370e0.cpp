@@ -130,8 +130,8 @@ BounceResultType BounceClass::AI()
         {
             UnknownVector3 impact_coord((int)unknown_00.Position.X, (int)unknown_00.Position.Y, (int)unknown_00.Position.Z);
             UnknownVector3 previous_impact_coord((int)old_position.X, (int)old_position.Y, (int)old_position.Z);
-            int previous_cell_height = Map[(CoordStruct const &)previous_impact_coord].unknown_11b;
-            if (Map[(CoordStruct const &)impact_coord].unknown_11b - previous_cell_height >= 2) {
+            int previous_cell_height = Map[(CoordStruct const &)previous_impact_coord].Height;
+            if (Map[(CoordStruct const &)impact_coord].Height - previous_cell_height >= 2) {
                 if (old_velocity.Z < -0.0002 && unknown_00.Position.Z > old_position.Z
                     || old_velocity.Z >= -0.0003 && (old_velocity.Z + old_position.Z + 1.0f < unknown_00.Position.Z)) {
 

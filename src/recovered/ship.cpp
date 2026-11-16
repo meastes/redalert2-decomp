@@ -501,7 +501,7 @@ Matrix3D * __stdcall ShipLocomotionClass::Shadow_Matrix(Matrix3D *matrix, int *k
 
 void __stdcall ShipLocomotionClass::Unlimbo()
 {
-    Force_New_Slope(((CellClass *)LinkedTo->Get_Cell_Ptr())->unknown_11c);
+    Force_New_Slope(((CellClass *)LinkedTo->Get_Cell_Ptr())->Ramp);
 }
 
 
@@ -509,7 +509,7 @@ void __stdcall ShipLocomotionClass::Unlimbo()
 
 bool __stdcall ShipLocomotionClass::Process()
 {
-    Set_Slope(static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->unknown_11c);
+    Set_Slope(static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->Ramp);
     if (unknown_58 != -1 && unknown_63) {
         if (While_Moving(false) || !LinkedTo->IsActive) {
             return false;
@@ -544,7 +544,7 @@ bool __stdcall ShipLocomotionClass::Process()
             if (unknown_62) {
                 unknown_62 = false;
                 LinkedTo->unknown_slot93(0);
-                if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) {
+                if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) {
                     return false;
                 }
             }
@@ -582,7 +582,7 @@ bool __stdcall ShipLocomotionClass::Process()
         && static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->Land_Type() == 2 && Rules->unknown_09c != 0) {
         new AnimClass(Rules->unknown_09c, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
     }
-    if (unknown_34 == unknown_geometry_l && unknown_40 == unknown_geometry_l && LinkedTo->unknown_4d0 == -1 && LinkedTo->unknown_468 > 0.0) {
+    if (unknown_34 == unknown_geometry_l && unknown_40 == unknown_geometry_l && LinkedTo->unknown_4d0 == -1 && LinkedTo->Speed > 0.0) {
         LinkedTo->unknown_slot306(0.0);
     }
     return Is_Moving();
@@ -671,7 +671,7 @@ bool ShipLocomotionClass::Start_Driver(CoordStruct const &headto)
     if (headto != unknown_geometry_l) {
         unknown_40 = headto;
         unknown_63 = true;
-        if (Map[headto].Goodie_Check(LinkedTo) && !LinkedTo->unknown_76) {
+        if (Map[headto].Goodie_Check(LinkedTo) && !LinkedTo->IsInLimbo) {
             unknown_676b20(headto, 1);
             return true;
         }
@@ -750,7 +750,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
             int distance = (Object_Coord(LinkedTo) - CoordStruct(dest_coord)).Length();
 
             bool forced_speed = false;
-            double speed = LinkedTo->unknown_468;
+            double speed = LinkedTo->Speed;
 
             TechnoTypeClass const *tclass = LinkedTo->Techno_Type_Class();
 
@@ -767,10 +767,10 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 LinkedTo->unknown_slot306(unknown_50);
             } else if (forced_speed) {
                 LinkedTo->unknown_slot306(speed);
-            } else if (LinkedTo->unknown_468 < unknown_50) {
-                LinkedTo->unknown_slot306(MIN(unknown_50, LinkedTo->unknown_468 + tclass->AccelerationFactor));
-            } else if (LinkedTo->unknown_468 > unknown_50) {
-                LinkedTo->unknown_slot306(MAX(unknown_50, LinkedTo->unknown_468 - tclass->Speed * tclass->DeaccelerationFactor));
+            } else if (LinkedTo->Speed < unknown_50) {
+                LinkedTo->unknown_slot306(MIN(unknown_50, LinkedTo->Speed + tclass->AccelerationFactor));
+            } else if (LinkedTo->Speed > unknown_50) {
+                LinkedTo->unknown_slot306(MAX(unknown_50, LinkedTo->Speed - tclass->Speed * tclass->DeaccelerationFactor));
             }
 
             if (LinkedTo->Kind_Of() == 1) {
@@ -778,7 +778,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 UnitClass *following = (UnitClass *)unit->unknown_5b0;
                 if (following != 0) {
                     do {
-                        following->unknown_slot306(LinkedTo->unknown_468);
+                        following->unknown_slot306(LinkedTo->Speed);
                         following = (UnitClass *)following->unknown_5b0;
                     } while (following && following != following->unknown_5b0);
                 }
@@ -801,7 +801,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
         Stop_Driver();
 
         CellClass *cell = (CellClass *)LinkedTo->Get_Cell_Ptr();
-        int tubenum = cell->unknown_116;
+        int tubenum = cell->Tube;
         if (tubenum >= 0 && tubenum < Tubes.Count()) {
             TubeClass *tube = Tubes[tubenum];
             Cell c = tube->ExitCell;
@@ -885,7 +885,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                     LinkedTo->Set_Coord(newcoord);
                     CellClass *oldcellptr = &Map[oldcell];
                     CellClass *newcellptr = &Map[newcell];
-                    if (newcellptr->unknown_11b == oldcellptr->unknown_11b - 4 && newcellptr->IsUnderBridge) {
+                    if (newcellptr->Height == oldcellptr->Height - 4 && newcellptr->IsUnderBridge) {
                         LinkedTo->unknown_79 = true;
                     }
                     if (!newcellptr->IsUnderBridge && oldcellptr->IsUnderBridge) {
@@ -922,20 +922,20 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                         }
                     }
                 } else {
-                    bool down = LinkedTo->unknown_74;
-                    LinkedTo->unknown_74 = false;
+                    bool down = LinkedTo->IsDown;
+                    LinkedTo->IsDown = false;
                     LinkedTo->Set_Coord(newcoord);
-                    LinkedTo->unknown_74 = down;
+                    LinkedTo->IsDown = down;
                 }
 
                 if (!LinkedTo->IsActive) {
                     return false;
                 }
 
-                bool down = LinkedTo->unknown_74;
-                LinkedTo->unknown_74 = false;
+                bool down = LinkedTo->IsDown;
+                LinkedTo->IsDown = false;
                 LinkedTo->Set_Height_AGL(0);
-                LinkedTo->unknown_74 = down;
+                LinkedTo->IsDown = down;
 
                 LinkedTo->PrimaryFacing.Set(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
 
@@ -950,7 +950,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                     tnum = Dir_To_8(UnknownFacingDir((unsigned short)((unsigned char)track->Facing << 8))) * 8 + nextface;
                     newtrack = &ShipTrackControl[tnum];
                     if (newtrack->Track && ShipRawTracks[newtrack->Track - 1].Entry) {
-                        double oldspeed = LinkedTo->unknown_468;
+                        double oldspeed = LinkedTo->Speed;
 
                         CoordStruct c = Adjacent_Coord(unknown_40, nextface);
 
@@ -971,7 +971,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                                 unknown_63 = true;
                                 LinkedTo->unknown_slot93(2);
                                 unknown_63 = false;
-                                if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return false;
+                                if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return false;
                                 if (Start_Driver(c)) {
                                     LinkedTo->unknown_slot306(oldspeed);
                                     memcpy((char *)&LinkedTo->Path, (char *)&LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
@@ -992,7 +992,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
 
                             case 6: {
                                     bool bridge;
-                                    if (!Map[c].IsUnderBridge || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - Map[c].unknown_11b) <= 2) {
+                                    if (!Map[c].IsUnderBridge || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - Map[c].Height) <= 2) {
                                         bridge = false;
                                     } else {
                                         bridge = true;
@@ -1019,11 +1019,11 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                     LinkedTo->Set_Height_AGL(0);
                     LinkedTo->Mark(1);
                 } else {
-                    bool down = LinkedTo->unknown_74;
-                    LinkedTo->unknown_74 = false;
+                    bool down = LinkedTo->IsDown;
+                    LinkedTo->IsDown = false;
                     LinkedTo->Set_Coord(unknown_40);
                     LinkedTo->Set_Height_AGL(0);
-                    LinkedTo->unknown_74 = down;
+                    LinkedTo->IsDown = down;
                 }
 
                 Stop_Driver();
@@ -1042,7 +1042,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 }
 
                 LinkedTo->unknown_slot93(2);
-                if (!LinkedTo->IsActive || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return true;
+                if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return true;
 
                 if (arrived) {
                     LinkedTo->Abort_Motion();
@@ -1111,7 +1111,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
             if (coord.As_Cell() != Object_Coord(LinkedTo).As_Cell()) {
                 LinkedTo->Mark(0);
                 LinkedTo->Set_Coord(coord);
-                if (newcellptr->unknown_11b == oldcellptr->unknown_11b - 4 && newcellptr->IsUnderBridge) {
+                if (newcellptr->Height == oldcellptr->Height - 4 && newcellptr->IsUnderBridge) {
                     LinkedTo->unknown_79 = true;
                 }
                 if (!newcellptr->IsUnderBridge && oldcellptr->IsUnderBridge) {
@@ -1119,10 +1119,10 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 }
                 LinkedTo->Mark(1);
             } else {
-                bool down = LinkedTo->unknown_74;
-                LinkedTo->unknown_74 = false;
+                bool down = LinkedTo->IsDown;
+                LinkedTo->IsDown = false;
                 LinkedTo->Set_Coord(coord);
-                LinkedTo->unknown_74 = down;
+                LinkedTo->IsDown = down;
             }
         }
     }
@@ -1226,7 +1226,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                                     }
                                 }
                                 bool is_bridge;
-                                if (!(cellptr->unknown_140 & 0x100) || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - cellptr->unknown_11b) <= 2) {
+                                if (!(cellptr->unknown_140 & 0x100) || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - cellptr->Height) <= 2) {
                                     is_bridge = false;
                                 } else {
                                     is_bridge = true;
@@ -1286,7 +1286,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                         }
                     }
                     bool is_bridge;
-                    if (!(cellptr->unknown_140 & 0x100) || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - cellptr->unknown_11b) <= 2) {
+                    if (!(cellptr->unknown_140 & 0x100) || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - cellptr->Height) <= 2) {
                         is_bridge = false;
                     } else {
                         is_bridge = true;
@@ -1307,7 +1307,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
     CoordStruct dest = Adjacent_Coord_SOM(Object_Coord(LinkedTo), facing);
 
     CellClass const &here = Map[Object_Coord(LinkedTo)];
-    int cell_height = here.unknown_11b + (LinkedTo->unknown_79 ? 4 : 0);
+    int cell_height = here.Height + (LinkedTo->unknown_79 ? 4 : 0);
 
     CellClass const &next = Map[Adjacent_Coord_SOM(Object_Coord(LinkedTo), facing)];
     if (LinkedTo->unknown_79 ^ next.IsUnderBridge) {
@@ -1358,7 +1358,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                         || abs(unknown_34.Z - Object_Coord(LinkedTo).Z) >= 2 * unknown_geometry_g
                         || Map[Object_Coord(LinkedTo)].Land_Type() == 10) {
                         bool is_bridge;
-                        if (!(Map[destcell].unknown_140 & 0x100) || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - Map[destcell].unknown_11b) <= 2) {
+                        if (!(Map[destcell].unknown_140 & 0x100) || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - Map[destcell].Height) <= 2) {
                             is_bridge = false;
                         } else {
                             is_bridge = true;
@@ -1438,8 +1438,8 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
 
         int height;
         int ground;
-        if (abs(cell_height - Map[destcell].unknown_11b) < 2) {
-            height = Map[destcell].unknown_11b;
+        if (abs(cell_height - Map[destcell].Height) < 2) {
+            height = Map[destcell].Height;
             ground = Map[destcell].Land_Type();
         } else {
             height = cell_height;
@@ -1473,7 +1473,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
         if (unknown_58 < 0x40) {
             unknown_50 = speed;
         } else {
-            if (speed != LinkedTo->unknown_468) {
+            if (speed != LinkedTo->Speed) {
                 LinkedTo->unknown_slot306(speed);
             }
         }
@@ -1520,7 +1520,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
 
         if (ShipTrackControl[unknown_58].Flag & 8) {
             int nextcando;
-            if (!Map[destcell].Goodie_Check(LinkedTo) && !LinkedTo->unknown_76) {
+            if (!Map[destcell].Goodie_Check(LinkedTo) && !LinkedTo->IsInLimbo) {
                 nextcando = 7;
                 if (!LinkedTo->IsActive) return false;
             } else {
@@ -1553,7 +1553,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                             || Map[Object_Coord(LinkedTo)].Land_Type() == 10) {
                             CellClass *cellptr = &Map[destcell];
                             bool is_bridge;
-                            if (!(cellptr->unknown_140 & 0x100) || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - cellptr->unknown_11b) <= 2) {
+                            if (!(cellptr->unknown_140 & 0x100) || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - cellptr->Height) <= 2) {
                                 is_bridge = false;
                             } else {
                                 is_bridge = true;

@@ -100,7 +100,7 @@ FootClass::FootClass(HouseClass *house) :
     unknown_454(0, 0),
     unknown_458(0, 0),
     unknown_45c(0, 0, 0),
-    unknown_468(0.0),
+    Speed(0.0),
     unknown_470(1.0),
     unknown_478(0, 0),
     unknown_490(0),
@@ -205,7 +205,7 @@ inline T Unknown_Clamp(T const &value, T const &low, T const &high)
 
 void FootClass::unknown_slot306(double value)
 {
-    unknown_468 = Unknown_Clamp(value, 0.0, 1.0);
+    Speed = Unknown_Clamp(value, 0.0, 1.0);
 }
 
 
@@ -2327,7 +2327,7 @@ bool FootClass::Is_Recruitable(HouseClass *house)
     if (house != 0 && house != House) {
         return false;
     }
-    if (unknown_76) {
+    if (IsInLimbo) {
         return false;
     }
     if (Team != 0) {
@@ -2509,7 +2509,7 @@ void FootClass::AI()
     }
 
     int frame = unknown_430;
-    if (Locomotor != 0 && !unknown_325 && !unknown_7a) {
+    if (Locomotor != 0 && !unknown_325 && !IsFalling) {
         Locomotor.Checked()->Process();
         if (!IsActive) {
             return;
@@ -2522,7 +2522,7 @@ void FootClass::AI()
             unknown_430++;
         }
     }
-    if ((frame != unknown_430 || Locomotor.Checked()->Is_Moving_Now()) && !unknown_7a && !unknown_37d) {
+    if ((frame != unknown_430 || Locomotor.Checked()->Is_Moving_Now()) && !IsFalling && !unknown_37d) {
         if (!unknown_434 && Techno_Type_Class()->MoveSound.Count() > 0) {
             unknown_43c.Unknown_00405D50();
             Voc_Play_At(Random_Sound(Techno_Type_Class()->MoveSound), CoordStruct(Coord), &unknown_43c);
@@ -2530,7 +2530,7 @@ void FootClass::AI()
         }
         unknown_438 = 3;
     } else if (unknown_434) {
-        if (unknown_438 != 0 && !unknown_7a && !unknown_37d) {
+        if (unknown_438 != 0 && !IsFalling && !unknown_37d) {
             unknown_438--;
         } else {
             unknown_43c.Unknown_00406070();
@@ -2539,11 +2539,11 @@ void FootClass::AI()
         }
     }
 
-    if (unknown_7a != unknown_7b) {
-        if (unknown_7a && Techno_Type_Class()->VoiceFalling != -1 && unknown_7c) {
+    if (IsFalling != unknown_7b) {
+        if (IsFalling && Techno_Type_Class()->VoiceFalling != -1 && unknown_7c) {
             Voc_Play_At(Techno_Type_Class()->VoiceFalling, CoordStruct(Coord), 0);
         }
-        unknown_7b = unknown_7a;
+        unknown_7b = IsFalling;
     }
     if (unknown_325 != unknown_326) {
         if (unknown_325) {
@@ -2691,7 +2691,7 @@ int FootClass::Current_Speed()
     if (Has_Ability(0)) {
         speed = (int)(speed * Rules->unknown_598);
     }
-    int result = (int)(speed * unknown_468);
+    int result = (int)(speed * Speed);
     if (Kind_Of() == 1 && ((UnitClass *)this)->unknown_5b4 != -1) {
         result /= 2;
     }
@@ -2712,7 +2712,7 @@ void Leaf_4c9bc0::get(unsigned int unused_argument_1, unsigned int unused_argume
 
 bool FootClass::Limbo()
 {
-    if (!unknown_76 && Techno_Type_Class() != 0) {
+    if (!IsInLimbo && Techno_Type_Class() != 0) {
         Cell cell = unknown_454;
         for (int facing = 0; facing < 8; facing++) {
             UnknownCellClass *next = (UnknownCellClass *)&Map[Adjacent_Cell(cell, facing)];
@@ -2864,7 +2864,7 @@ int FootClass::In_Which_Layer() const
 
 void FootClass::Set_Coord(CoordStruct const &coord)
 {
-    if (unknown_74) {
+    if (IsDown) {
         Mark(0);
         ObjectClass::Set_Coord(coord);
         Mark(1);
@@ -2948,7 +2948,7 @@ void FootClass::Compute_CRC(WWCRCEngine &crc) const
     crc(unknown_428);
     crc((short)Short_Length(unknown_450.X, unknown_450.Y));
     crc((long)Coord_Length(unknown_45c));
-    crc(unknown_468);
+    crc(Speed);
     crc(unknown_470);
     if (unknown_494 != 0) {
         crc(unknown_494->Fetch_ID());
@@ -3695,7 +3695,7 @@ bool FootClass::unknown_slot309(AbstractClass *target)
         }
         for (int index = 0; index < Aircraft.Count(); index++) {
             AircraftClass *aircraft = Aircraft[index];
-            if (aircraft->IsActive && !aircraft->unknown_76 && aircraft->unknown_494 == target && aircraft != this) {
+            if (aircraft->IsActive && !aircraft->IsInLimbo && aircraft->unknown_494 == target && aircraft != this) {
                 return false;
             }
         }
@@ -4001,7 +4001,7 @@ void FootClass::unknown_slot285(Cell cell)
                 }
                 BuildingClass *building = object->Unknown_004717B0();
                 if (building != 0 && building->House != PlayerPtr && building->unknown_slot25(false, 0)) {
-                    building->unknown_75 = true;
+                    building->IsToDisplay = true;
                 }
             }
         }
@@ -4038,7 +4038,7 @@ void FootClass::unknown_slot286(Cell cell)
                     }
                     BuildingClass *building = object->Unknown_004717B0();
                     if (building != 0 && building->House != PlayerPtr && building->unknown_slot25(false, 0)) {
-                        building->unknown_75 = true;
+                        building->IsToDisplay = true;
                     }
                 }
             }
@@ -4164,7 +4164,7 @@ TechnoClass *FootClass::unknown_slot300(TechnoTypeClass *type, int arg2, int arg
         int count = House->Buildings.Count();
         for (int index = 0; index < count; index++) {
             BuildingClass *building = House->Buildings[index];
-            if (building != 0 && !building->unknown_76 && building->Type == type
+            if (building != 0 && !building->IsInLimbo && building->Type == type
                 && (arg3 == 1 || building->Unknown_00636ED0(this))) {
                 if (Kind_Of() != 2) {
                     Cell there = Coord_Cell(building->Center_Coord());
